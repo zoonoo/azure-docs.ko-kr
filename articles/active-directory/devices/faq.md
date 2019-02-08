@@ -7,20 +7,20 @@ author: MarkusVi
 manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2010
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 916de2de6cdc19bfa1e3967661d40693d4be1e99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852391"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296177"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -128,6 +128,12 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 ---
 
+**Q: Azure AD 조인 디바이스에서 UPN을 변경한 사용자에게 문제가 발생하는 이유는 무엇인가요?**
+
+**A:** 현재 Azure AD 조인 디바이스에서는 UPN이 완전히 지원되지 않습니다. 그러므로 이러한 디바이스에서 UPN을 변경하고 나면 Azure AD 인증이 실패합니다. 그러면 사용자의 디바이스에서 SSO 및 조건부 액세스 문제가 발생합니다. 이 경우 문제를 해결하려면 사용자가 새 UPN을 사용하여 "다른 사용자" 타일을 통해 Windows에 로그인해야 합니다. 현재 이 문제를 해결하기 위한 작업이 진행되고 있습니다. 하지만 비즈니스용 Windows Hello를 통해 로그인하는 사용자에게는 이 문제가 발생하지 않습니다. 
+
+---
+
 **Q: 사용자가 Azure AD 조인 디바이스에서 프린터를 검색할 수 없습니다. 이러한 디바이스에서 인쇄를 사용하려면 어떻게 해야 하나요?**
 
 **A:** Azure AD 조인 디바이스용 프린터를 배포하려면 [사전 인증을 사용하여 Windows Server 하이브리드 클라우드 인쇄 배포](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy)를 참조하세요. 하이브리드 클라우드 인쇄를 배포하려면 온-프레미스 Windows Server가 필요합니다. 현재는 클라우드 기반 인쇄 서비스를 사용할 수 없습니다. 
@@ -170,7 +176,7 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 **Q: PC를 Azure AD에 조인하려고 할 때 *오류가 발생했습니다* 대화 상자가 표시되는 이유는 무엇인가요?**
 
-**A:** 이 오류는 Intune을 사용하여 Azure Active Directory 등록을 설정한 경우에 발생합니다. Azure AD 조인을 시도한 사용자에게 올바른 Intune 라이선스가 할당되어야 합니다. 자세한 내용은 [Windows 디바이스에 대한 등록 설정](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment)을 참조하세요.  
+**A:** 이 오류는 Intune을 사용하여 Azure Active Directory 등록을 설정한 경우에 발생합니다. Azure AD 조인을 시도한 사용자에게 올바른 Intune 라이선스가 할당되어야 합니다. 자세한 내용은 [Windows 디바이스에 대한 등록 설정](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment)을 참조하세요.  
 
 ---
 
@@ -179,6 +185,19 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 **A:** 한 가지 가능한 원인은 사용자가 기본 제공 로컬 관리자 계정을 사용하여 디바이스에 로그인했기 때문입니다. Azure Active Directory 조인을 사용하여 설치를 완료하기 전에 다른 로컬 계정을 만드세요. 
 
 ---
+
+**Q: Windows 10 디바이스에 있는 MS-Organization-P2P-Access 인증서는 무엇인가요?**
+
+**A:** MS-Organization-P2P-Access 인증서는 Azure AD를 통해 Azure AD 조인 디바이스와 하이브리드 Azure AD 조인 디바이스에 모두 발급됩니다. 이러한 인증서는 원격 데스크톱 시나리오에 대한 동일한 테넌트에 있는 디바이스 간 트러스트를 설정하는 데 사용됩니다. 한 인증서는 디바이스에 발급되고 다른 인증서는 사용자에게 발급됩니다. 디바이스 인증서는 `Local Computer\Personal\Certificates`에 있으며 하루 동안 유효합니다. 디바이스가 Azure AD에서도 활성 상태이면 (새 인증서를 발급하여) 이 인증서가 갱신됩니다. 사용자 인증서는 `Current User\Personal\Certificates`에 있으며 마찬가지로 하루 동안 유효하지만, 사용자가 다른 Azure AD 조인 디바이스에 대한 원격 데스크톱 세션을 시도할 때 주문형으로 발급됩니다. 만료 시 갱신되지 않습니다. 두 인증서는 `Local Computer\AAD Token Issuer\Certificates`에 있는 MS-Organization-P2P-Access 인증서를 사용하여 발급됩니다. 이 인증서는 디바이스를 등록할 때 Azure AD에서 발급합니다. 
+
+---
+
+**Q: MS-Organization-P2P-Access를 통해 발급되어 기간이 만료된 여러 인증서가 Windows 10 디바이스에 표시되는 이유는 무엇인가요? 어떻게 삭제할 수 있나요?**
+
+**A:** Windows 10 1709 이하 버전에서 암호화 문제로 인해 만료된 MS-Organization-P2P-Access 인증서가 컴퓨터 저장소에 계속 남아 있는 문제가 확인되었습니다. 만료된 인증서를 대규모로 처리할 수 없는 VPN 클라이언트(예: Cisco AnyConnect)를 사용하는 경우 고객이 네트워크 연결 문제를 겪을 수 있습니다. 이 문제는 만료된 MS-Organization-P2P-Access 인증서를 자동으로 삭제하는 방법을 사용하여 Windows 10 1803 릴리스에서 해결되었습니다. 디바이스를 Windows 10 1803으로 업데이트하여 이 문제를 해결할 수 있습니다. 업데이트할 수 없는 경우 악영향 없이 이러한 인증서를 삭제할 수 있습니다.  
+
+---
+
 
 ## <a name="hybrid-azure-ad-join-faq"></a>하이브리드 Azure AD 조인 FAQ
 
@@ -196,7 +215,15 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 하이브리드 Azure AD 조인이 Azure AD 등록 상태보다 우선합니다. 따라서 모든 인증 및 조건부 액세스 평가에서 디바이스가 하이브리드 Azure AD 조인 상태로 간주됩니다. Azure AD 포털에서 Azure AD 등록 디바이스 레코드를 삭제해도 무방합니다. [Windows 10 머신에서 이 이중 상태를 피하는 방법 또는 정리하는 방법](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know)을 알아보세요. 
 
+
 ---
+
+**Q: Windows 10 하이브리드 Azure AD 조인 디바이스에서 UPN을 변경한 사용자에게 문제가 발생하는 이유는 무엇인가요?**
+
+**A:** 현재 하이브리드 Azure AD 조인 디바이스에서는 UPN이 완전히 지원되지 않습니다. 사용자는 디바이스에 로그인하여 온-프레미스 애플리케이션에 액세스할 수는 있지만 UPN을 변경하고 나면 Azure AD 인증이 실패합니다. 그러면 사용자의 디바이스에서 SSO 및 조건부 액세스 문제가 발생합니다. 이 경우 문제를 해결하려면 Azure AD에서 디바이스 조인을 취소한 다음(상승된 권한으로 "dsregcmd /leave" 실행) 다시 조인해야 합니다(자동으로 진행됨). 현재 이 문제를 해결하기 위한 작업이 진행되고 있습니다. 하지만 비즈니스용 Windows Hello를 통해 로그인하는 사용자에게는 이 문제가 발생하지 않습니다. 
+
+---
+
 
 ## <a name="azure-ad-register-faq"></a>Azure AD 등록 FAQ
 
@@ -217,15 +244,3 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 - 첫 번째 액세스를 시도하는 동안 사용자에게는 회사 포털을 사용하여 디바이스를 등록하라는 메시지가 표시됩니다.
 
----
-
-
-**Q: Windows 10 디바이스에 있는 MS-Organization-P2P-Access 인증서는 무엇인가요?**
-
-**A:** MS-Organization-P2P-Access 인증서는 Azure AD를 통해 Azure AD 조인 디바이스와 하이브리드 Azure AD 조인 디바이스에 모두 발급됩니다. 이러한 인증서는 원격 데스크톱 시나리오에 대한 동일한 테넌트에 있는 디바이스 간 트러스트를 설정하는 데 사용됩니다. 한 인증서는 디바이스에 발급되고 다른 인증서는 사용자에게 발급됩니다. 디바이스 인증서는 `Local Computer\Personal\Certificates`에 있으며 하루 동안 유효합니다. 디바이스가 Azure AD에서도 활성 상태이면 (새 인증서를 발급하여) 이 인증서가 갱신됩니다. 사용자 인증서는 `Current User\Personal\Certificates`에 있으며 마찬가지로 하루 동안 유효하지만, 사용자가 다른 Azure AD 조인 디바이스에 대한 원격 데스크톱 세션을 시도할 때 주문형으로 발급됩니다. 만료 시 갱신되지 않습니다. 두 인증서는 `Local Computer\AAD Token Issuer\Certificates`에 있는 MS-Organization-P2P-Access 인증서를 사용하여 발급됩니다. 이 인증서는 디바이스를 등록할 때 Azure AD에서 발급합니다. 
-
----
-
-**Q: MS-Organization-P2P-Access를 통해 발급되어 기간이 만료된 여러 인증서가 Windows 10 디바이스에 표시되는 이유는 무엇인가요? 어떻게 삭제할 수 있나요?**
-
-**A:** Windows 10 1709 이하 버전에서 암호화 문제로 인해 만료된 MS-Organization-P2P-Access 인증서가 컴퓨터 저장소에 계속 남아 있는 문제가 확인되었습니다. 만료된 인증서를 대규모로 처리할 수 없는 VPN 클라이언트(예: Cisco AnyConnect)를 사용하는 경우 고객이 네트워크 연결 문제를 겪을 수 있습니다. 이 문제는 만료된 MS-Organization-P2P-Access 인증서를 자동으로 삭제하는 방법을 사용하여 Windows 10 1803 릴리스에서 해결되었습니다. 디바이스를 Windows 10 1803으로 업데이트하여 이 문제를 해결할 수 있습니다. 업데이트할 수 없는 경우 악영향 없이 이러한 인증서를 삭제할 수 있습니다.  

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: c89374919087dc3bca435b8ce4af2dedd26ccb23
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: b6c5722d5e096300f76f60dfaf8bab1e07d0c61c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041325"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455679"
 ---
-# <a name="optimize-the-cost-required-to-read-and-write-data-from-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터를 읽고 쓰는 데 필요한 비용 최적화
+# <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 읽기 및 쓰기 비용 최적화
 
 이 문서에서는 Azure Cosmos DB에서 데이터를 읽고 쓰는 데 필요한 비용이 계산되는 방식을 설명합니다. 읽기 작업에는 항목에 대한 가져오기 작업이 포함되고, 쓰기 작업에는 항목의 삽입, 바꾸기, 삭제 및 업데이트/삽입이 포함됩니다.  
 

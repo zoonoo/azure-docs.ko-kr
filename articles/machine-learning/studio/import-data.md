@@ -1,6 +1,6 @@
 ---
-제목: Machine Learning Studio로 데이터 가져오기 titleSuffix: Azure Machine Learning Studio 설명: 다양한 데이터 원본에서 Azure Machine Learning Studio로 데이터를 가져오는 방법. 지원되는 데이터 형식에 대해 알아봅니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Machine Learning Studio로 데이터 가져오기 titleSuffix: Azure Machine Learning Studio 설명: 다양한 데이터 원본에서 Azure Machine Learning Studio로 데이터를 가져오는 방법. 지원되는 데이터 형식에 대해 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---
@@ -57,8 +57,8 @@ Machine Learning Studio에서 인식하는 **데이터 유형**은 다음과 같
 * 정수 
 * double
 * BOOLEAN
-* Datetime
-* timespan
+* DateTime
+* TimeSpan
 
 Machine Learning 스튜디오에서는 ***데이터 테이블***이라는 내부 데이터 형식을 사용하여 모듈 간에 데이터를 전달합니다. [데이터 세트로 변환][convert-to-dataset] 모듈을 사용하여 명시적으로 데이터를 데이터 테이블 형식으로 변환할 수 있습니다.
 

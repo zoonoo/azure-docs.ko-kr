@@ -1,6 +1,6 @@
 ---
-제목: Azure AI Gallery titleSuffix: Azure Machine Learning Studio 설명: Azure AI 갤러리의 분석 리소스 등을 공유 및 검색합니다. 다른 사용자로부터 배우고 커뮤니티에 직접 제공합니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Azure AI Gallery titleSuffix: Azure Machine Learning Studio 설명: Azure AI 갤러리의 분석 리소스 등을 공유 및 검색합니다. 다른 사용자로부터 배우고 커뮤니티에 직접 제공합니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/11/2019
 ---

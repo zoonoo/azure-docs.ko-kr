@@ -1,6 +1,6 @@
 ---
-제목: ‘3단계: 새 Azure Machine Learning Studio 실험 만들기’ titleSuffix: Azure Machine Learning Studio 설명: ‘예측 솔루션 개발 연습의 3단계: Azure Machine Learning Studio에서 새 학습 실험 만들기’
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: ‘3단계: 새 Azure Machine Learning Studio 실험 만들기’ titleSuffix: Azure Machine Learning Studio 설명: ‘예측 솔루션 개발 연습의 3단계: Azure Machine Learning Studio에서 새 학습 실험 만들기’
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/23/2017
 ---

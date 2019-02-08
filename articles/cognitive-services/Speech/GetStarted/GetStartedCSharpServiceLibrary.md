@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343694"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226046"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>빠른 시작: .NET Windows용 C&#35;에서 Bing Speech 인식 서비스 라이브러리 사용
 
@@ -65,9 +65,9 @@ Ctrl+Shift+B를 누르거나 리본 메뉴에서 **빌드**를 선택합니다. 
 3. 다음 인수를 사용하여 `SpeechClientSample.exe`를 실행합니다.
 
    * Arg[0]: 입력 오디오 WAV 파일을 지정합니다.
-   * Arg [1]: 오디오 로캘을 지정합니다.
-   * Arg[2]: 인식 모드를 지정합니다(`ShortPhrase` 모드의 경우 *Short*, `LongDictation` 모드의 경우 *Long*).
-   * Arg [3]: 음성 인식 서비스에 액세스하기 위한 구독 키를 지정합니다.
+   * Arg[1]: 오디오 로캘을 지정합니다.
+   * Arg[2]: 인식 모드를 지정합니다. `ShortPhrase` 모드의 경우 *Short*이고 `LongDictation` 모드의 경우 *Long*입니다.
+   * Arg[3]: 음성 인식 서비스 액세스용 구독 키를 지정합니다.
 
 ## <a name="samples-explained"></a>샘플 설명
 
@@ -88,7 +88,7 @@ Speech API에서 오디오/WAV를 지원하기 위해 사용하는 코덱은 다
 
 SpeechClient를 만들려면 먼저 Preferences 개체를 만들어야 합니다. Preferences 개체는 음성 서비스의 동작을 구성하는 매개 변수의 집합입니다. 구성되는 필드는 다음과 같습니다.
 
-* `SpeechLanguage`: 음성 서비스로 보내는 오디오의 로캘입니다.
+* `SpeechLanguage`: 음성 서비스로 전송되는 오디오의 로캘입니다.
 * `ServiceUri`: 음성 서비스를 호출하는 데 사용되는 엔드포인트입니다.
 * `AuthorizationProvider`: 음성 서비스에 액세스하기 위해 토큰을 가져오는 데 사용되는 IAuthorizationProvider 구현입니다. 샘플에서는 Cognitive Services 권한 부여 공급자를 제공하지만, 토큰 캐싱을 처리할 수 있는 사용자 고유의 구현을 만드는 것이 좋습니다.
 * `EnableAudioBuffering`: 고급 옵션입니다. [연결 관리](#connection-management)를 참조하세요.
@@ -97,11 +97,11 @@ SpeechClient를 만들려면 먼저 Preferences 개체를 만들어야 합니다
 
 SpeechInput 개체는 다음 두 개의 필드로 구성됩니다.
 
-* **Audio**: SDK에서 오디오를 끌어오는 스트림 구현입니다. 읽기를 지원하는 [스트림](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) 중 하나일 수 있습니다.
+* **오디오**: 선택한 스트림 구현입니다. SDK는 이 구현에서 오디오를 끌어옵니다. 읽기를 지원하는 [스트림](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) 중 하나일 수 있습니다.
    > [!NOTE]
    > 스트림의 읽기에서 **0**을 반환할 때 SDK에서 스트림의 끝을 감지합니다.
 
-* **RequestMetadata**: 음성 요청에 대한 메타데이터입니다. 자세한 내용은 [참조](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html)를 참조하세요.
+* **RequestMetadata**: 음성 요청 관련 메타데이터입니다. 자세한 내용은 [참조](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html)를 참조하세요.
 
 ### <a name="speech-request"></a>음성 요청
 

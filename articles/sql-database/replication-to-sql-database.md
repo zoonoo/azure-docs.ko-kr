@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 11/09/2018
-ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/25/2019
+ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330163"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467699"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL Database 단일 및 풀링된 데이터베이스에 복제
 
-SQL Server 복제는 Azure SQL Database에서 [논리 서버](sql-database-logical-servers.md)의 단일 및 풀링된 데이터베이스에 구성될 수 있습니다.  
+Azure SQL Database에서 [SQL Database 서버](sql-database-servers.md)의 단일 및 풀링된 데이터베이스에 대해 SQL Server 복제를 구성할 수 있습니다.  
 
 ## <a name="supported-configurations"></a>**지원되는 구성:**
   
@@ -65,7 +65,7 @@ SQL Server 복제는 Azure SQL Database에서 [논리 서버](sql-database-logic
 
 1. 온-프레미스 SQL Server 데이터베이스에서 트랜잭션 복제 게시를 만듭니다.  
 2. 온-프레미스 SQL Server에서 **새 구독 마법사** 또는 Transact-SQL 명령문을 사용하여 Azure SQL Database에 대한 구독 밀어넣기를 생성합니다.  
-3. Azure SQL Database에서 풀링된 단일 데이터베이스와 함께 초기 데이터 세트는 스냅숏 에이전트에 의해 생성되고 배포 에이전트에 의해 배포 및 적용된 스냅숏입니다. Azure SQL Database Managed Instance와 함께 데이터베이스 백업을 사용하여 구독자 데이터베이스를 시드할 수도 있습니다.
+3. Azure SQL Database에서 풀링된 단일 데이터베이스와 함께 초기 데이터 세트는 스냅숏 에이전트에 의해 생성되고 배포 에이전트에 의해 배포 및 적용된 스냅숏입니다. Managed Instance 데이터베이스와 함께 데이터베이스 백업을 사용하여 구독자 데이터베이스를 시드할 수도 있습니다.
 
 ### <a name="data-migration-scenario"></a>데이터 마이그레이션 시나리오  
 
@@ -107,7 +107,7 @@ SQL Server 복제는 Azure SQL Database에서 [논리 서버](sql-database-logic
 게시 및 밀어넣기 구독을 만듭니다. 자세한 내용은 다음을 참조하세요.
   
 - [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- 구독자로 Azure SQL 데이터베이스 논리 서버 이름(예: **N'azuresqldbdns.database.windows.net'**) 및 대상 데이터베이스로 Azure SQL 데이터베이스 이름(예: **AdventureWorks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/).  
+- 구독자로는 Azure SQL Database 서버 이름(예: **N'azuresqldbdns.database.windows.net'**)을, 대상 데이터베이스로는 Azure SQL Database 이름(예: **AdventureWorks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/).  
 
 ## <a name="see-also"></a>참고 항목  
 

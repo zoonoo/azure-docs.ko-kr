@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0bcb6262201b3399ca4d759bb306a570bea33b00
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578772"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237934"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Conversation Learner 봇을 배포하는 방법
 
@@ -90,7 +90,7 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
 
 2. 이제 봇과 대화하고 있습니다.
 
-## <a name="option-2-deploy-to-azure"></a>옵션 2: Azure에 배포
+## <a name="option-2-deploy-to-azure"></a>옵션 2: Deploy to Azure
 
 다른 봇을 게시하는 것과 동일한 방식으로 Conversation Learner 봇을 게시합니다. 상위 수준에서 코드를 호스트된 웹 사이트에 업로드하고, 적절한 구성 값을 설정한 다음, 다양한 채널에 봇을 등록합니다. 이 비디오에는 Azure Bot Service를 사용하여 봇을 게시하는 방법을 보여 주는 자세한 지침이 있습니다.
 
@@ -116,8 +116,9 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
         환경 변수 | 값
         --- | --- 
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_MODEL_ID      | Conversation Learner UI에서 모델 “설정” 아래에 있는 응용 프로그램 ID GUID
+        CONVERSATION_LEARNER_MODEL_ID      | Conversation Learner UI에서 모델 “설정” 아래에 있는 애플리케이션 ID GUID
         LUIS_AUTHORING_KEY               | 이 모델에 대한 LUIS 작성 키
+        LUIS_SUBSCRIPTION_KEY            | 필수 변수는 아니지만 작성 할당량이 소진되지 않도록 하려면 게시된 봇에 사용하는 것이 좋습니다.
     
     4. 페이지 맨 위에서 “저장”을 클릭합니다.
     5. 왼쪽에서 “빌드” 탐색 항목을 엽니다.

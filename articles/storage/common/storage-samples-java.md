@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 83080d1e73ddb06de9b454f106517ef230c4b25a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.subservice: common
+ms.openlocfilehash: 7cc051697f3928e360ec0b3c6647a3a718315c18
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984267"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477268"
 ---
 # <a name="azure-storage-samples-using-java"></a>Java를 사용한 Azure Storage 샘플
 
@@ -211,4 +211,4 @@ Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방�
 다른 언어용 샘플에 대한 정보:
 
 * .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
-* 다른 모든 언어: [Azure Storage 샘플](storage-samples.md)
+* 모든 기타 언어: [Azure Storage 샘플](storage-samples.md)

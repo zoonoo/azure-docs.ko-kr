@@ -1,5 +1,5 @@
 ---
-제목: Machine Learning Studio 작업 영역 관리 titleSuffix: Azure Machine Learning Studio 설명: Azure Resource Manager 작업 영역에 대한 액세스 관리 및 ML API 웹 서비스 배포 및 관리 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Machine Learning Studio 작업 영역 관리 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning 작업 영역 액세스 관리 및 LM API 웹 서비스 배포/관리 services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 02/27/2017
 ---

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/11/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 513d9a3a044daacd84b810e4795522c2bd6763f8
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4207031652db7ec4b2ae5468dc159320f6efdbc2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616574"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228817"
 ---
 ## <a name="create-a-media-services-account"></a>Media Services 계정 만들기
 
-먼저 Media Services 계정을 만들어야 합니다. 이 섹션에서는 Azure CLI를 사용하여 계정 생성에 필요한 기능을 보여줍니다.
+먼저 Media Services 계정을 만들어야 합니다. 이 섹션에서는 Azure CLI를 사용하여 계정을 생성할 때 수행해야 하는 작업을 설명합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

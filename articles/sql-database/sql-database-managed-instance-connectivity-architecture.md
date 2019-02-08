@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b709bbacce23a89b8c60b77a524018b50ca1ca5e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536052"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245670"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance 연결 아키텍처
 
@@ -68,7 +68,7 @@ Managed Instance 연결 아키텍처에 대해 좀 더 자세히 살펴보겠습
 
 ![연결 아키텍처 다이어그램 가상 클러스터](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-클라이언트는 `<mi_name>.<dns_zone>.database.windows.net` 형식을 갖는 호스트 이름을 사용하여 Managed Instance에 연결합니다. 이 호스트 이름은 공용 DNS 영역에 등록되고 공개적으로 확인 가능하더라도 개인 IP 주소로 확인됩니다. `zone-id`는 클러스터를 만들 때 자동으로 생성됩니다. 새로 만든 클러스터가 보조 관리형 인스턴스를 호스트하는 경우 해당 영역 ID를 기본 클러스터와 공유합니다. 자세한 내용은 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)을 참조하세요.
+클라이언트는 `<mi_name>.<dns_zone>.database.windows.net` 형식을 갖는 호스트 이름을 사용하여 Managed Instance에 연결합니다. 이 호스트 이름은 공용 DNS 영역에 등록되고 공개적으로 확인 가능하더라도 개인 IP 주소로 확인됩니다. `zone-id`는 클러스터를 만들 때 자동으로 생성됩니다. 새로 만든 클러스터는 보조 Managed Instance를 호스트하는 경우 영역 ID를 주 클러스터와 공유합니다. 자세한 내용은 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)을 참조하세요.
 
 이 개인 IP 주소는 트래픽을 Managed Instance GW(게이트웨이)로 전송하는 Managed Instance ILB(내부 Load Balancer)에 속합니다. 여러 Managed Instance가 동일한 클러스터 내에서 실행될 수 있으므로 GW는 Managed Instance 호스트 이름을 사용하여 트래픽을 올바른 SQL 엔진 서비스로 리디렉션합니다.
 
@@ -78,7 +78,7 @@ Managed Instance 연결 아키텍처에 대해 좀 더 자세히 살펴보겠습
 
 Azure SQL Database Managed Instance 가상 클러스터에는 Microsoft에서 Managed Instance를 관리하는 데 사용하는 관리 엔드포인트가 포함됩니다. 관리 엔드포인트는 네트워크 수준의 기본 제공 방화벽과 애플리케이션 수준의 상호 인증서 확인으로 보호됩니다. [관리 엔드포인트 IP 주소를 찾을](sql-database-managed-instance-find-management-endpoint-ip-address.md) 수 있습니다.
 
-연결이 Managed Instance(백업, 감사 로그) 내부에서 시작되면 트래픽이 관리 엔드포인트 공용 IP 주소에서 시작되는 것처럼 보입니다. Managed Instance IP 주소만 허용하도록 방화벽 규칙을 설정하여 Managed Instance에서 공용 서비스에 대한 액세스를 제한할 수 있습니다. [Managed Instance 기본 제공 방화벽을 확인](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)할 수 있는 메서드에 대한 추가 정보를 찾으세요.
+연결이 Managed Instance(백업, 감사 로그) 내부에서 시작되면 트래픽이 관리 엔드포인트 공용 IP 주소에서 시작되는 것처럼 보입니다. Managed Instance IP 주소만 허용하도록 방화벽 규칙을 설정하여 Managed Instance에서 공용 서비스에 대한 액세스를 제한할 수 있습니다. [Managed Instance 기본 제공 방화벽을 확인](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)할 수 있는 방법에 대한 추가 정보를 확인해 보세요.
 
 > [!NOTE]
 > Azure 플랫폼에는 동시에 배치되는 서비스 간에 이동하는 트래픽에 대한 최적화가 있으므로 Managed Instance와 동일한 지역에 있는 Azure 서비스에 대한 방화벽 규칙 설정에는 이 내용이 적용되지 않습니다.
@@ -98,7 +98,7 @@ Azure SQL Database Managed Instance 가상 클러스터에는 Microsoft에서 Ma
 
 ### <a name="mandatory-inbound-security-rules"></a>필수 인바운드 보안 규칙 
 
-| 이름       |포트                        |프로토콜|원본           |대상|조치|
+| Name       |포트                        |프로토콜|원본           |대상|조치|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |관리  |9000, 9003, 1438, 1440, 1452|TCP     |모두              |모두        |허용 |
 |mi_subnet   |모두                         |모두     |MI SUBNET        |모두        |허용 |
@@ -106,11 +106,14 @@ Azure SQL Database Managed Instance 가상 클러스터에는 Microsoft에서 Ma
 
 ### <a name="mandatory-outbound-security-rules"></a>필수 아웃바운드 보안 규칙 
 
-| 이름       |포트          |프로토콜|원본           |대상|조치|
+| Name       |포트          |프로토콜|원본           |대상|조치|
 |------------|--------------|--------|-----------------|-----------|------|
-|관리  |80, 443, 12000|TCP     |모두              |모두        |허용 |
+|관리  |80, 443, 12000|TCP     |모두              |인터넷   |허용 |
 |mi_subnet   |모두           |모두     |모두              |MI SUBNET  |허용 |
 
+  > [!Note]
+  > MI SUBNET은 10.x.x.x/y 형식의 서브넷용 IP 주소 범위를 지칭합니다. Azure Portal에서 서브넷 속성을 통해 이 정보를 확인할 수 있습니다.
+  
   > [!Note]
   > 필수 인바운드 보안 규칙은 포트 9000, 9003, 1438, 1440, 1452의 ‘모든’ 원본의 트래픽을 허용하지만 이러한 포트는 기본 제공 방화벽으로 보호됩니다. 이 [문서](sql-database-managed-instance-find-management-endpoint-ip-address.md)에서는 관리 엔드포인트 IP 주소를 검색하고 방화벽 규칙을 확인하는 방법을 보여 줍니다. 
   

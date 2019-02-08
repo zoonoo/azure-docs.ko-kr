@@ -6,17 +6,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239305"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208638"
 ---
 # <a name="analyze-method"></a>분석 메서드
 
@@ -38,11 +38,11 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>요청 매개 변수
 
-이름 | type | 필수 | 설명
+Name | Type | 필수 | 설명
 -----|-------|----------|------------
-**language**    | string | yes | 분석에 사용되는 두 자로 된 ISO 언어 코드입니다. 예를 들어, 영어는 “en”입니다.
-**analyzerIds** | 문자열 목록 | yes | 적용할 분석기의 GUID 목록입니다. 자세한 내용은 분석기 설명서를 참조하세요.
-**text**        | string | yes | 분석할 원시 입력입니다. 이는 단어나 구처럼 짧은 문장, 전체 문장 또는 전체 단락이나 담론일 수 있습니다.
+**language**    | string | 예 | 분석에 사용되는 두 자로 된 ISO 언어 코드입니다. 예를 들어, 영어는 “en”입니다.
+**analyzerIds** | 문자열 목록 | 예 | 적용할 분석기의 GUID 목록입니다. 자세한 내용은 분석기 설명서를 참조하세요.
+**text**        | string | 예 | 분석할 원시 입력입니다. 이는 단어나 구처럼 짧은 문장, 전체 문장 또는 전체 단락이나 담론일 수 있습니다.
 
 ## <a name="response-json"></a>응답(JSON)
 
@@ -50,7 +50,7 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 결과는 다음과 같이 표시됩니다.
 
-이름 | type | 설명
+Name | Type | 설명
 -----|------|--------------
 analyzerId | string | 지정된 분석기의 GUID
 result | object | 분석기 결과
@@ -59,7 +59,7 @@ result | object | 분석기 결과
 
 ### <a name="tokens-response-json"></a>토큰 응답(JSON)
 
-이름 | type | 설명
+Name | Type | 설명
 -----|------|-------------
 result | 문장 개체의 목록 | 텍스트 내에서 식별된 문장 경계 |
 result[x].Offset | int | 각 문장의 시작 문자 오프셋 |

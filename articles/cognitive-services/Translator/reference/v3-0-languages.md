@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 7489c4298abe91755a2bf9edd8335061ed42d6d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129644"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470929"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: 언어
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
 
 현재 Translator Text API의 다른 작업에서 지원되는 언어 집합을 가져옵니다. 
 
@@ -97,11 +97,11 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `translation` 속성의 값은 키 값 쌍의 사전입니다. 각 키는 BCP 47 언어 태그입니다. 키는 텍스트를 번역할 수 있는 대상 또는 원본 언어를 식별합니다. 키와 연결된 값은 언어를 설명하는 속성이 있는 JSON 개체입니다.
 
-  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘에서 언어 이름을 표시합니다.
+  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘의 언어 표시 이름입니다.
 
-  * `nativeName`: 이 언어에 기본인 로캘에서 언어 이름을 표시합니다.
+  * `nativeName`: 이 언어에 대한 기본 로캘의 언어 표시 이름입니다.
 
-  * `dir`: 오른쪽에서 왼쪽 언어의 경우 `rtl` 또는 왼쪽에서 오른쪽 언어의 경우 `ltr`인 사전입니다.
+  * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
 
   예제는 다음과 같습니다.
           
@@ -123,21 +123,21 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `transliteration` 속성의 값은 키 값 쌍의 사전입니다. 각 키는 BCP 47 언어 태그입니다. 키는 하나의 스크립트에서 다른 스크립트로 텍스트를 변환할 수 있는 언어를 식별합니다. 키와 연결된 값은 언어 및 지원되는 해당 언어를 설명하는 속성이 있는 JSON 개체입니다.
 
-  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘에서 언어 이름을 표시합니다.
+  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘의 언어 표시 이름입니다.
 
-  * `nativeName`: 이 언어에 기본인 로캘에서 언어 이름을 표시합니다.
+  * `nativeName`: 이 언어에 대한 기본 로캘의 언어 표시 이름입니다.
 
-  * `scripts`: 변환할 스크립트의 목록입니다. `scripts` 목록의 각 요소에는 다음 속성이 있습니다.
+  * `scripts`: 변환 원본 스크립트의 목록입니다. `scripts` 목록의 각 요소에는 다음 속성이 있습니다.
 
     * `code`: 스크립트를 식별하는 코드입니다.
 
-    * `name`: `Accept-Language` 헤더를 통해 요청된 로캘에서 스크립트 이름을 표시합니다.
+    * `name`: `Accept-Language` 헤더를 통해 요청된 로캘의 스크립트 표시 이름입니다.
 
-    * `nativeName`: 언어에 기본인 로캘에서 언어 이름을 표시합니다.
+    * `nativeName`: 언어에 대한 기본 로캘의 언어 표시 이름입니다.
 
-    * `dir`: 오른쪽에서 왼쪽 언어의 경우 `rtl` 또는 왼쪽에서 오른쪽 언어의 경우 `ltr`인 사전입니다.
+    * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
 
-    * `toScripts`: 텍스트를 변환하는 데 사용할 수 있는 스크립트 목록입니다. `toScripts` 목록의 각 요소에는 앞에서 설명한 대로 `code`, `name`, `nativeName` 및 `dir` 속성이 있습니다.
+    * `toScripts`: 텍스트 변환이 가능한 대상 스크립트 목록입니다. `toScripts` 목록의 각 요소에는 앞에서 설명한 대로 `code`, `name`, `nativeName` 및 `dir` 속성이 있습니다.
 
   예제는 다음과 같습니다.
 
@@ -188,19 +188,19 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `dictionary` 속성의 값은 키 값 쌍의 사전입니다. 각 키는 BCP 47 언어 태그입니다. 키는 대체 번역 및 백 번역을 사용할 수 있는 언어를 식별합니다. 값은 사용할 수 있는 번역을 포함하는 소스 언어 및 대상 언어를 설명하는 JSON 개체입니다.
 
-  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘에서 소스 언어 이름을 표시합니다.
+  * `name`: `Accept-Language` 헤더를 통해 요청된 로캘의 소스 언어 표시 이름입니다.
 
-  * `nativeName`: 이 언어에 기본인 로캘에서 언어 이름을 표시합니다.
+  * `nativeName`: 이 언어에 대한 기본 로캘의 언어 표시 이름입니다.
 
-  * `dir`: 오른쪽에서 왼쪽 언어의 경우 `rtl` 또는 왼쪽에서 오른쪽 언어의 경우 `ltr`인 사전입니다.
+  * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
 
-  * `translations`: 소스 언어로 표현된 쿼리에 대한 대체 번역 및 예제를 포함한 언어 목록입니다. `translations` 목록의 각 요소에는 다음 속성이 있습니다.
+  * `translations`: 소스 언어로 표현된 쿼리의 대체 번역 및 예제가 포함된 언어 목록입니다. `translations` 목록의 각 요소에는 다음 속성이 있습니다.
 
-    * `name`: `Accept-Language` 헤더를 통해 요청된 로캘에서 대상 언어 이름을 표시합니다.
+    * `name`: `Accept-Language` 헤더를 통해 요청된 로캘의 대상 언어 표시 이름입니다.
 
-    * `nativeName`: 대상 언어에 기본인 로캘에서 대상 언어 이름을 표시합니다.
+    * `nativeName`: 대상 언어에 대한 기본 로캘의 대상 언어 표시 이름입니다.
 
-    * `dir`: 오른쪽에서 왼쪽 언어의 경우 `rtl` 또는 왼쪽에서 오른쪽 언어의 경우 `ltr`인 사전입니다.
+    * `dir`: 언어의 방향입니다. 오른쪽에서 왼쪽 언어의 경우 `rtl`이고 왼쪽에서 오른쪽 언어의 경우 `ltr`입니다.
     
     * `code`: 대상 언어를 식별하는 언어 코드입니다.
 

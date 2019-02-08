@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7c5a5cddca2aa8e459bde711465425bdd32c669e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 06e3139ffa958637721aae7e912b34070d307757
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964019"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207397"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Hyper-V와 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 정보
 
@@ -20,7 +20,7 @@ ms.locfileid: "52964019"
 
 Site Recovery를 사용하여 Hyper-V VM(가상 머신) 보호를 시작하기 전에, 원하는 RPO(복구 지점 목표)를 충족하도록 일일 데이터 변경률을 기반으로 충분한 대역폭을 할당하고, 온-프레미스 Hyper-V 저장소의 각 볼륨에 사용 가능한 저장소 공간을 충분히 할당합니다.
 
-또한 올바른 유형 및 수의 Azure Storage 계정을 만들어야 합니다. 시간이 지남에 따라 사용량이 증가하므로 원본 프로덕션 서버상의 증가를 고려하여 표준 또는 프리미엄 저장소 계정을 만듭니다. 워크로드 특성(예: 읽기/쓰기 IOPS(초당 I/O 작업 수) 또는 데이터 변동) 및 Azure Site Recovery 제한을 기반으로 VM별 저장소 유형을 선택합니다. 
+또한 올바른 유형 및 수의 Azure Storage 계정을 만들어야 합니다. 시간이 지남에 따라 사용량이 증가하므로 원본 프로덕션 서버상의 증가를 고려하여 표준 또는 Premium Storage 계정을 만듭니다. 워크로드 특성(예: 읽기/쓰기 IOPS(초당 I/O 작업 수) 또는 데이터 변동) 및 Azure Site Recovery 제한을 기반으로 VM별 저장소 유형을 선택합니다. 
 
 Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에서 Azure로의 재해 복구 시나리오 모두에 대한 명령줄 도구입니다. 이 도구를 사용하여 여러 Hyper-V 호스트에 있는 Hyper-V VM을 원격으로 프로파일링하여(프로덕션에 전혀 영향을 미치지 않음) 성공적인 복제 및 테스트 장애 조치(failover)/장애 조치(failover)를 위한 Azure 저장소 요구 사항 및 대역폭을 파악할 수 있습니다. Azure Site Recovery 구성 요소를 온-프레미스에 설치하지 않고도 도구를 실행할 수 있습니다. 단, 달성된 처리량 결과를 정확히 얻으려면 하드웨어 구성이 Azure로 재해 복구 보호에 사용할 Hyper-V 서버 중 하나와 동일한 Windows Server에서 Planner를 실행하는 것이 좋습니다. 
 
@@ -40,8 +40,8 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
     
 **Azure 인프라 요구 사항**
 
-* 각 VM에 대한 저장소 유형(표준 또는 프리미엄 저장소 계정) 요구 사항
-* 복제를 위해 설정해야 할 표준 및 프리미엄 저장소 계정의 총 수
+* 각 VM에 대한 스토리지 유형(표준 또는 Premium Storage 계정) 요구 사항
+* 복제를 위해 설정해야 할 표준 및 Premium Storage 계정의 총 수
 * Azure Storage 지침에 따른 스토리지 계정 명명 제안
 * 모든 VM에 대한 저장소 계정 위치
 * 테스트 장애 조치 또는 구독에 대한 장애 조치 이전에 설정해야 할 Azure 코어의 수
@@ -72,7 +72,7 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 
 | | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
-지원되는 시나리오 |yes|yes|아니요|예*|아니요
+지원되는 시나리오 |예|예|아니요|예*|아니요
 지원되는 버전 | vCenter 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
 지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|해당 없음|Hyper-V 클러스터, Hyper-V 호스트|해당 없음|
 Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| 해당 없음 |여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| 해당 없음
@@ -84,7 +84,7 @@ Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할
 
 | 서버 요구 사항 | 설명 |
 |---|---|
-|VM 목록 가져오기, 프로파일링 및 처리량 측정 |<ul><li>운영 체제: Microsoft Windows Server 2016 또는 Microsoft Windows Server 2012 R2 </li><li>머신 구성: 8개 vCPU, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>Azure Site Recovery Deployment Planner 도구를 실행 중인 곳의 VM이 모든 Hyper-V 서버의 TrustedHosts 목록에 반드시 추가되어야 합니다.</li><li>프로파일링할 모든 Hyper-V 서버의 VM이 도구가 실행되는 클라이언트 VM의 TrustedHosts 목록에 추가되어야 합니다. [서버를 TrustedHosts 목록에 추가하는 내용을 자세히 알아봅니다](#steps-to-add-servers-into-trustedhosts-list). </li><li> 도구는 PowerShell의 관리자 권한 또는 클라이언트의 명령줄 콘솔에서 실행되어야 합니다.</ul></ul>|
+|VM 목록 가져오기, 프로파일링 및 처리량 측정 |<ul><li>운영 체제: Microsoft Windows Server 2016 또는 Microsoft Windows Server 2012 R2 </li><li>머신 구성: 8개 vCPU, 16GB RAM, 300GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual Studio 2012용 Microsoft Visual C++ 재배포 가능 패키지](https://aka.ms/vcplusplus-redistributable)</li><li>이 서버에서 Azure에 대한 인터넷 액세스</li><li>Azure Storage 계정</li><li>서버에 대한 관리자 액세스</li><li>최소 100GB의 사용 가능한 디스크 공간(각각 디스크 3개의 평균을 포함한 VM 1000개를 가정, 30일 동안 프로파일링)</li><li>Azure Site Recovery Deployment Planner 도구를 실행 중인 곳의 VM이 모든 Hyper-V 서버의 TrustedHosts 목록에 반드시 추가되어야 합니다.</li><li>도구를 실행 중인 클라이언트 VM의 TrustedHosts 목록에 프로파일링할 모든 Hyper-V 서버를 추가해야 합니다. [서버를 TrustedHosts 목록에 추가하는 내용을 자세히 알아봅니다](#steps-to-add-servers-into-trustedhosts-list). </li><li> 도구는 PowerShell의 관리자 권한 또는 클라이언트의 명령줄 콘솔에서 실행되어야 합니다.</ul></ul>|
 | 보고서 생성 | Microsoft Excel 2013 이상을 포함한 모든 Windows PC 또는 Windows Server |
 | 사용자 권한 | VM 목록 가져오기 및 프로파일링 작업을 수행하는 동안 Hyper-V 클러스터/Hyper-V 호스트에 액세스하기 위한 관리자 계정입니다.<br>프로파일링해야 하는 모든 호스트에는 자격 증명(예: 사용자 이름 및 암호)이 동일한 도메인 관리자 계정이 있어야 합니다.
  |

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f623411c3e8b13aeacc08a6c47053931742a2e82
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f1be314db7bfc4cbdfcc809eb3b1d985583739a4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034185"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470147"
 ---
-# <a name="azure-cosmos-db-compliance"></a>Azure Cosmos DB 규정 준수
+# <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB의 규정 준수 
 
 Azure Cosmos DB는 모든 새 Azure 하위 지역에 제공됩니다. Azure Cosmos DB는 고객이 사용할 수 있는 다음 5개의 고유한 Azure 클라우드 환경에서 사용할 수 있습니다.
 

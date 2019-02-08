@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 215b780bc403ab2df40567c3eb5a7ae86c9fe130
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 17167271df81914c76882fc4d06717043e1befc1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127366"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214299"
 ---
 # <a name="glossary"></a>용어
 
@@ -48,7 +48,7 @@ Candidate는 기본적으로 [식별](#Identification) 결과(예: 감지에서 
 
 Confidence는 [얼굴](#Face) 또는 [Person](#Person)(사람) 사이의 유사성을 숫자 값으로 나타내는 측정값입니다. 이는 검색, 식별 및 확인된 결과의 유사성을 나타내기 위해 [식별](#Identification) 및 [확인](#Verification)에 사용됩니다.
 
-자세한 내용은 [얼굴 - 유사 얼굴 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [얼굴 - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [얼굴 - 확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [Face - 유사 얼굴 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Face - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - 확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)
 
 ## <a name="d"></a>D
 
@@ -72,7 +72,7 @@ Confidence는 [얼굴](#Face) 또는 [Person](#Person)(사람) 사이의 유사�
 
 Face API는 얼굴 감지 및 인식에 대한 고급 알고리즘을 제공하는 클라우드 기반 API입니다. Face API의 주요 기능은 얼굴 [감지](#Detection-Face-Detection)([특성](#Face-Attributes-Facial-Attributes) 포함)와 얼굴 [인식](#Recognition)의 두 가지 범주로 나눌 수 있습니다.
 
-자세한 내용은 [Face API 개요](./Overview.md), [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [얼굴 - 유사 얼굴 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [얼굴 - 그룹](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [얼굴 - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [얼굴 - 확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [Face API 개요](./Overview.md), [Face - 검색](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Face - 유사 얼굴 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Face - 그룹](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Face - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - 확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)
 
 #### <a name="face-attributesfacial-attributes"></a>Face Attributes/Facial Attributes(얼굴 특성)
 
@@ -108,19 +108,19 @@ Face API는 얼굴 감지 및 인식에 대한 고급 알고리즘을 제공하�
 
 FaceList는 [PersistedFace](#PersistedFace)의 컬렉션이며 [유사 얼굴 찾기](#Find-Similar)의 단위입니다. FaceList에는 [FaceList ID](#FaceList-ID)뿐만 아니라 [name](#Name) 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
 
-자세한 내용은 [FaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [FaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c)
 
 #### <a name="facelist-id"></a>FaceList ID
 
 FaceList ID는 [FaceList](#FaceList)의 식별자로 사용되는 사용자 제공 문자열입니다. FaceList ID는 구독 내에서 고유해야 합니다.
 
-자세한 내용은 [FaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [FaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c)
 
 #### <a name="find-similar"></a>Find Similar(유사 얼굴 찾기)
 
 이 API는 얼굴 컬렉션을 기반으로 하여 유사 얼굴을 검색/쿼리하는 데 사용됩니다. 쿼리 얼굴과 얼굴 컬렉션은 요청에서 [얼굴 ID](#Face-ID) 또는 [FceList ID](#FaceList-ID)/[LargeFaceList ID](#LargeFaceList-ID)로 표시됩니다. 반환된 결과는 검색된 유사 얼굴이며, [얼굴 ID](#Face-ID) 또는 [PersistedFace ID](#PersistedFace-ID)로 표시됩니다.
 
-자세한 내용은 [Face - 유사 얼굴 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [FaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [Face - 유사 얼굴 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [FaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)
 
 ## <a name="g"></a>G
 
@@ -166,7 +166,7 @@ Face 및 LargePersonGroup/PersonGroup은 요청에서 각각 [얼굴 ID](#Face-I
 > 식별하기 전에 먼저 LargePersonGroup/PersonGroup이 성공적으로 학습되어야 합니다. LargePersonGroup/PersonGroup이 학습되지 않았거나 학습 [상태](#Status-Train)가 'succeeded'(즉 'running', 'failed' 또는 'timeout')로 표시되지 않는 경우 요청 응답은 400입니다.
 > 
 
-자세한 내용은 [얼굴 - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [LargePersonGroup 사람 - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup 사람 - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [Face - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [LargePersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)
 
 #### <a name="isidentical"></a>IsIdentical
 
@@ -188,25 +188,25 @@ IsIdentical은 두 얼굴이 같은 사람에 속하는지 여부를 나타내�
 
 LargeFaceList는 [PersistedFace](#PersistedFace)의 컬렉션이며 [유사 얼굴 찾기](#Find-Similar)의 단위입니다. LargeFaceList에는 [LargeFaceList ID](#LargeFaceList-ID)뿐만 아니라 [name](#Name) 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
 
-자세한 내용은 [LargeFaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce), [LargeFaceList - 얼굴 나열](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargeFaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce), [LargeFaceList - 얼굴 나열](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6)
 
 #### <a name="largefacelist-id"></a>LargeFaceList ID
 
 LargeFaceList ID는 [LargeFaceList](#LargeFaceList)의 식별자로 사용되는 사용자 제공 문자열입니다. LargeFaceList ID는 구독 내에서 고유해야 합니다.
 
-자세한 내용은 [LargeFaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargeFaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce)
 
 #### <a name="largepersongroup"></a>LargePersonGroup
 
 LargePersonGroup은 [Person](#Person)의 컬렉션이며, [식별](#Identification)의 단위입니다. LargePersonGroup에는 [LargePersonGroup ID](#LargePersonGroup-ID)뿐만 아니라 [name](#Name) 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
 
-자세한 내용은 [LargePersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [LargePersonGroup 사람- 나열](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargePersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [LargePersonGroup Person- 나열](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1)
 
 #### <a name="largepersongroup-id"></a>LargePersonGroup ID
 
 LargePersonGroup ID는 [LargePersonGroup](#LargePersonGroup)의 식별자로 사용되는 사용자 제공 문자열입니다. LargePersonGroup ID는 구독 내에서 고유해야 합니다.
 
-자세한 내용은 [LargePersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargePersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e)
 
 ## <a name="m"></a>M
 
@@ -222,13 +222,13 @@ LargePersonGroup ID는 [LargePersonGroup](#LargePersonGroup)의 식별자로 사
 
 name은 [Person](#Person)에 대한 사용자에게 친숙한 설명 문자열입니다. 사람의 이름은 [사람 ID](#Person-ID)와 달리 그룹 내에서 중복될 수 있습니다.
 
-자세한 내용은 [LargePersonGroup 사람 - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup 사람 - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup 사람 - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup 사람 - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargePersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup Person - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f)
 
 #### <a name="name-largepersongrouppersongroup"></a>Name(이름) (LargePersonGroup/PersonGroup)
 
 name은 [LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup)에 대한 사용자에게 친숙한 설명 문자열입니다. LargePersonGroups/PersonGroups의 이름은 [LargePersonGroup ID](#LargePersonGroup-ID)/[PersonGroup ID](#PersonGroup-ID)와 달리 구독 내에서 중복될 수 있습니다.
 
-자세한 내용은 [LargePersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [PersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargePersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [PersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246)
 
 ## <a name="o"></a>O
 
@@ -238,37 +238,37 @@ name은 [LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup)에 대
 
 PersistedFace는 Face API의 데이터 구조입니다. PersistedFace는 [PersistedFace ID](#PersistedFace-ID)뿐만 아니라 [name](#Name) 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
 
-자세한 내용은 [LargeFaceList - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup 사람 - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup 사람 - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargeFaceList - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup Person - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)
 
 #### <a name="person-id"></a>Person ID
 
 [PersistedFace](#PersistedFace)가 성공적으로 만들어지면 사람 ID가 생성됩니다. [Face API](#Face-API)에서 이 Face를 나타내는 문자열이 만들어집니다.
 
-자세한 내용은 [LargeFaceList - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup 사람 - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup 사람 - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargeFaceList - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup Person - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)
 
 #### <a name="person"></a>사람
 
 Person은 Face API에서 관리되는 데이터 구조입니다. Person에는 [사람 ID](#Person-ID)뿐만 아니라 [name](#Name), [PersistedFace](#PersistedFace)의 컬렉션 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
 
-자세한 내용은 [LargePersonGroup 사람 - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup 사람 - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup 사람 - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup 사람 - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargePersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup Person - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f)
 
 #### <a name="person-id"></a>Person ID
 
 [Person](#Person)이 성공적으로 만들어지면 사람 ID가 생성됩니다. [Face API](#Face-API)에서 이 사람을 나타내는 문자열이 만들어집니다.
 
-자세한 내용은 [LargePersonGroup 사람 - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup 사람 - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup 사람 - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup 사람 - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargePersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup Person - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f)
 
 #### <a name="persongroup"></a>PersonGroup
 
 PersonGroup은 [Person](#Person)의 컬렉션이며, [식별](#Identification)의 단위입니다. PersonGroup에는 [PersonGroup ID](#PersonGroup-ID)뿐만 아니라 [name](#Name) 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
 
-자세한 내용은 [PersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246), [PersonGroup 사람 - 나열](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [PersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246), [PersonGroup Person - 나열](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241)
 
 #### <a name="persongroup-id"></a>PersonGroup ID
 
 PersonGroup ID는 [PersonGroup](#PersonGroup)의 ID로 사용되는 사용자 제공 문자열입니다. 그룹 ID는 구독 내에서 고유해야 합니다.
 
-자세한 내용은 [PersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [PersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246)
 
 #### <a name="pose-attribute"></a>Pose(자세)(특성)
 
@@ -282,7 +282,7 @@ PersonGroup ID는 [PersonGroup](#PersonGroup)의 ID로 사용되는 사용자 �
 
 인식은 [유사 얼굴 찾기](#Find-Similar), [그룹화](#Grouping), [식별](#Identification), [두 얼굴이 같은지 여부 확인](#Verification)과 같이 얼굴 기술에서 인기 있는 애플리케이션 분야입니다.
 
-자세한 내용은 [얼굴 - 유사 얼굴 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [얼굴 - 그룹](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [얼굴 - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [얼굴 - 확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [Face - 유사 얼굴 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Face - 그룹](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Face - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - 확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)
 
 #### <a name="rectangle-face"></a>사각형(얼굴)
 
@@ -316,7 +316,7 @@ status는 'notstarted', 'running', 'succeeded', 'failed'를 포함하여 [LargeF
 
 이 API는 [유사 얼굴 찾기](#Find-Similar)/[식별](#Identification) 성능을 보장하기 위해 [LargeFaceList](#LargeFaceList)/[LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup)을 미리 처리하는 데 사용됩니다. 학습이 작동되지 않거나 [학습 상태](#Status-Train)가 succeeded(성공)로 표시되지 않으면 이 PersonGroup에 대한 식별이 실패하게 됩니다.
 
-자세한 내용은 [LargeFaceList - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249), [얼굴 - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargeFaceList - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249), [얼굴 - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
 
 ## <a name="u"></a>U
 
@@ -324,7 +324,7 @@ status는 'notstarted', 'running', 'succeeded', 'failed'를 포함하여 [LargeF
 
 사용자 데이터는 [Person](#Person) 및 [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup)과 관련된 추가 정보입니다. 사용자는 데이터를 더 쉽게 사용하고, 파악하고, 기억할 수 있도록 사용자 데이터를 설정합니다.
 
-자세한 내용은 [LargePersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - 업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f), [LargePersonGroup 사람 - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup 사람 - 업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41), [PersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - 업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a), [PersonGroup 사람 - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup 사람 - 업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242) 가이드를 참조하세요.
+자세한 내용은 다음 가이드를 참조하세요. [LargePersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - 업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acfc83a7b9412a4d53f3f), [LargePersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person - 업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ade043a7b9412a4d53f41), [PersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - 업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524a), [PersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup Person - 업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395242)
 
 ## <a name="v"></a>V
 

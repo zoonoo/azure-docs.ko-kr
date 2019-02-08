@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma,carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: d8ff07d43d1efbadf1ddd397b6690c93c54c4f27
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 5100ef307bc125b21e1c42c87856492a4a496065
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603551"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455640"
 ---
 # <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>Azure Recovery Services 자격 증명 모음을 사용하여 장기 백업 보존 구성
 
@@ -71,7 +71,7 @@ Azure Recovery Services 자격 증명 모음을 구성하여 Azure SQL Database 
    ![자격 증명 모음 만들기](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
    > [!IMPORTANT]
-   > 자격 증명 모음은 Azure SQL 논리 서버와 동일한 지역에 있어야 하고 논리 서버와 동일한 리소스 그룹을 사용해야 합니다.
+   > 자격 증명 모음은 SQL Database 서버와 동일한 지역에 있어야 하고 SQL Database 서버와 동일한 리소스 그룹을 사용해야 합니다.
 
 10. 새 자격 증명 모음을 만든 후 필요한 단계를 실행하여 **Recovery Services 자격 증명 모음** 페이지로 돌아갑니다.
 
@@ -154,7 +154,7 @@ Azure Recovery Services 자격 증명 모음의 백업에서 새 데이터베이
 [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)를 사용하여 복구 서비스 자격 증명 모음을 만듭니다.
 
 > [!IMPORTANT]
-> 자격 증명 모음은 Azure SQL 논리 서버와 동일한 지역에 있어야 하고 논리 서버와 동일한 리소스 그룹을 사용해야 합니다.
+> 자격 증명 모음은 SQL Database 서버와 동일한 지역에 있어야 하고 SQL Database 서버와 동일한 리소스 그룹을 사용해야 합니다.
 
 ```PowerShell
 # Create a recovery services vault

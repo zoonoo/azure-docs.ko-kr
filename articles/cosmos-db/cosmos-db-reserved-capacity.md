@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b4f36abb2136223be8d4eec67935317041a41b93
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: b37aa2eb24fe79d322839b4fb5c3c3a8b1296033
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044283"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454101"
 ---
-# <a name="optimize-cost-of-azure-cosmos-db-resources-with-reserved-capacity"></a>예약 용량을 통해 Azure Cosmos DB 리소스 비용 최적화
+# <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB에서 예약된 용량을 활용해 비용 최적화
 
 Azure Cosmos DB 예약 용량을 통해 1년 또는 3년 동안 Azure Cosmos DB 리소스 비용을 선불로 지불하면 경비를 절약할 수 있습니다. Azure Cosmos DB 예약 용량을 사용하여 Cosmos DB 리소스에 대 해 프로비전된 처리량에 할인을 받을 수 있습니다. 리소스의 예로 데이터베이스 및 컨테이너(테이블, 컬렉션 및 그래프)를 들 수 있습니다.
 
@@ -52,7 +52,7 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
    |필드  |설명  |
    |---------|---------|
-   |이름   |    예약의 이름입니다. 이 필드는 자동으로 `CosmosDB_Reservation_<timeStamp>`로 채워집니다. 예약을 만드는 동안 다른 이름을 제공할 수 있습니다. 또는 예약이 만들어진 후 이름을 바꿀 수 있습니다.      |
+   |Name   |    예약의 이름입니다. 이 필드는 자동으로 `CosmosDB_Reservation_<timeStamp>`로 채워집니다. 예약을 만드는 동안 다른 이름을 제공할 수 있습니다. 또는 예약이 만들어진 후 이름을 바꿀 수 있습니다.      |
    |구독  |   Azure Cosmos DB 예약 용량에 대한 요금을 지불하는 데 사용되는 구독입니다. 선택한 구독에 대한 지불 방법은 선불 비용을 청구하는 데 사용됩니다. 구독 유형은 다음 항목 중 하나여야 합니다. <br/><br/>  [기업계약](https://azure.microsoft.com/pricing/enterprise-agreement/)(제품 번호: MS-AZR-0017P): Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과분에 대한 요금으로 청구됩니다. <br/><br/> [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)(제품 번호: MS-AZR-0003P): 종량제 구독에 대한 요금은 구독 시 선택한 신용 카드 또는 청구서 지불 방법으로 청구됩니다.    |
    |범위   |   얼마나 많은 구독이 예약과 연결된 청구 혜택을 사용할 수 있는지 제어하는 옵션입니다. 또한 예약이 특정 구독에 적용되는 방식을 제어합니다.   <br/><br/>  **단일 구독**을 선택하면 예약 할인이 선택한 구독의 Azure Cosmos DB 인스턴스에 적용됩니다. <br/><br/>  **공유**를 선택하면 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행되는 Azure Cosmos DB 인스턴스에 적용됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독(개발/테스트 구독 제외)을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.  <br/><br/> 예약 용량을 구입한 후 예약 범위를 변경할 수 있습니다.  |
    |예약 용량 유형   |  요청 단위로 프로비전된 처리량입니다.|

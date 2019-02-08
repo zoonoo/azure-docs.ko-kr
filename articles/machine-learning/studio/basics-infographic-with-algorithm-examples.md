@@ -1,8 +1,21 @@
 ---
-제목: 알고리즘 예제 titleSuffix: Azure Machine Learning Studio 설명: 기계 학습 기본 사항의 이해하기 쉬운 개요에는 알고리즘 예제가 포함됩니다. 다운로드 가능한 인포그래픽은 대부분의 기계 학습 관련 질문을 다룹니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodc18 ms.date: 12/18/2017
+title: 알고리즘 예제
+titleSuffix: Azure Machine Learning Studio
+description: 기계 학습 기본 사항의 이해하기 쉬운 개요에는 알고리즘 예제가 포함됩니다. 다운로드 가능한 인포그래픽은 대부분의 기계 학습 관련 질문을 다룹니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodc18
+ms.date: 12/18/2017
+ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295579"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 기계 학습 기본 사항
 기계 학습 기본 사항에 대한 이해하기 쉬운 인포그래픽 개요를 다운로드하여 일반적인 기계 학습 질문에 답변하는 데 널리 사용되는 알고리즘을 알아봅니다. 알고리즘 예제를 통해 기계 학습 초보자는 사용할 알고리즘과 용도를 이해할 수 있습니다.

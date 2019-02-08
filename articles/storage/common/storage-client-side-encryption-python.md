@@ -8,19 +8,19 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: 6a6508393fe935b456cde815d35f2fd4447cd2d4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528125"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453402"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure Storage용 Python을 이용한 클라이언트쪽 암호화
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>개요
-[Python용 Azure 저장소 클라이언트 라이브러리](https://pypi.python.org/pypi/azure-storage) 는 Azure Storage에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다.
+[Python용 Azure 스토리지 클라이언트 라이브러리](https://pypi.python.org/pypi/azure-storage) 는 Azure Storage에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다.
 
 > [!NOTE]
 > Azure Storage Python 라이브러리는 미리 보기 상태입니다.
@@ -127,10 +127,10 @@ KEK는 데이터를 성공적으로 암호화하기 위해 다음 메서드를 �
 
 * wrap_key(cek): 사용자가 선택한 알고리즘을 사용하여 지정된 CEK(바이트)를 래핑합니다. 래핑된 키를 반환합니다.
 * get_key_wrap_algorithm(): 키를 래핑하는 데 사용되는 알고리즘을 반환합니다.
-* get_kid(): 이 KEK에 대한 문자열 키 ID를 반환합니다.
+* get_kid(): 이 KEK의 문자열 키 ID를 반환합니다.
   KEK는 데이터를 성공적으로 암호 해독하기 위해 다음 메서드를 구현해야 합니다.
 * unwrap_key(cek, algorithm): 문자열 지정 알고리즘을 사용하여 지정된 CEK의 래핑 해제된 형식을 반환합니다.
-* get_kid(): 이 KEK에 대한 문자열 키 ID를 반환합니다.
+* get_kid(): 이 KEK의 문자열 키 ID를 반환합니다.
 
 키 확인자는 적어도 지정된 키 ID에 대해 위의 인터페이스를 구현하는 해당 KEK를 반환하는 메서드를 구현해야 합니다. 이 메서드만 서비스 개체의 key_resolver_function 속성에 할당되어야 합니다.
 

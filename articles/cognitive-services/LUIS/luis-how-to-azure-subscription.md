@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7662d58c1686dfa4e545246eb897af134a67144c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 26954c8f839ff0bfb2da484e4fb535f33d4e07ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473387"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239182"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>LUIS 앱에서 구독 키 사용
 
@@ -32,7 +32,7 @@ HTTP 403 및 429 형식의 _할당량 초과_ 오류가 발생하면 키를 만�
 
 이 절차에서는 **Language Understanding** 리소스를 만듭니다. Cognitive Services에서 사용할 수 있는 리소스를 원할 경우 Language Understanding 리소스 대신, 일체형 키 **[Cognitive Service](../cognitive-services-apis-create-account.md)** 를 만듭니다. 
 
-이 키는 엔드포인트 예측 쿼리에만 사용해야 합니다. 모델 또는 앱을 변경할 때는 이 키를 사용하지 않도록 합니다. 
+이 키는 엔드포인트 예측 쿼리에만 사용해야 합니다. 모델 또는 앱을 변경할 때는 이 키를 사용하지 마세요. 
 
 1. **[Azure Portal](https://ms.portal.azure.com/)** 에 로그인합니다. 
 1. 왼쪽 위 패널에서 녹색 **+** 기호를 선택하고, 마켓플레이스에서 `Language Understanding`을 검색한 다음, **Language Understanding**을 선택하고, **환경 만들기**를 수행하여 LUIS 구독 계정을 만듭니다. 
@@ -43,7 +43,7 @@ HTTP 403 및 429 형식의 _할당량 초과_ 오류가 발생하면 키를 만�
 
     ![Azure API 선택](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. Language Understanding 리소스를 만든 후 **리소스 관리 -> 키**에서 생성된 액세스 키를 볼 수 있습니다. 키를 사용하지는 마세요. 다음 섹션에서는 LUIS 포털에서 LUIS 앱에 이 새 리소스를 연결하는 방법을 보여 줍니다. 3단계의 LUIS 리소스 이름이 필요합니다.
+1. Language Understanding 리소스를 만든 후 **리소스 관리 -> 키**에서 생성된 액세스 키를 볼 수 있습니다. 다음 섹션에서는 LUIS 포털에서 LUIS 앱에 이 새 리소스를 연결하는 방법을 보여 줍니다. 3단계의 LUIS 리소스 이름이 필요합니다.
 
     ![Azure 키](./media/luis-azure-subscription/azure-keys.png)
 
@@ -71,7 +71,7 @@ HTTP 403 및 429 형식의 _할당량 초과_ 오류가 발생하면 키를 만�
 
     ![앱에 리소스 할당](./media/luis-manage-keys/assign-key.png)
 
-1. LUIS 웹 사이트에 로그인한 이메일 주소와 연결된 대화 상자에서 테넌트를 선택합니다.  
+1. LUIS 웹 사이트에 로그인하는 데 사용한 이메일 주소와 연결된 대화 상자에서 테넌트를 선택합니다.  
 
 1. 추가할 Azure 리소스와 연결된 **구독 이름**을 선택합니다.
 
@@ -122,7 +122,7 @@ HTTP 403 및 429 형식의 _할당량 초과_ 오류가 발생하면 키를 만�
 ### <a name="enable-bing-spell-checker"></a>Bing spell checker 사용 
 **엔드포인트 URL 설정**에서 **Bing Spell Checker** 토글을 통해 LUIS에서 예측 전에 철자가 잘못된 단어를 수정할 수 있습니다. **[Bing Spell Check 키](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)** 를 만듭니다. 
 
-**spellCheck=true** 쿼리 문자열 매개 변수 및 **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}** 를 추가합니다. `{YOUR_BING_KEY_HERE}`를 Bing Spell Checker 키로 바꿉니다.
+**spellCheck=true** querystring 매개 변수 및 **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}** 를 추가합니다. `{YOUR_BING_KEY_HERE}`를 Bing Spell Checker 키로 바꿉니다.
 
 ```JSON
 {
@@ -142,7 +142,7 @@ HTTP 403 및 429 형식의 _할당량 초과_ 오류가 발생하면 키를 만�
 
 ## <a name="assign-resource-without-luis-portal"></a>LUIS 포털 없이 리소스 할당
 
-CI/CD 파이프라인과 같은 자동화 용도로 LUIS 리소스의 LUIS 앱 할당을 자동화하려고 할 수 있습니다. 이를 위해 다음 단계를 수행해야 합니다.
+CI/CD 파이프라인과 같은 자동화 용도로 LUIS 리소스의 LUIS 앱 할당을 자동화하려고 할 수 있습니다. 이렇게 하려면 다음 단계를 수행해야 합니다.
 
 1. 이 [웹 사이트](https://resources.azure.com/api/token?plaintext=true)에서 Azure Resource Manager 토큰을 가져옵니다. 이 토큰은 만료되므로 즉시 사용합니다. 요청은 Azure Resource Manager 토큰을 반환합니다.
 
@@ -163,7 +163,7 @@ CI/CD 파이프라인과 같은 자동화 용도로 LUIS 리소스의 LUIS 앱 �
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |type|설정|값|
+    |Type|설정|값|
     |--|--|--|
     |헤더|`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|[작성 키](luis-how-to-account-settings.md)|

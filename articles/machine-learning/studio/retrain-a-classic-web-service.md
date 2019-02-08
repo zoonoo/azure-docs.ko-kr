@@ -1,8 +1,21 @@
 ---
-제목: 기존 웹 서비스 재학습 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 04/19/2017
+title: 기존 웹 서비스 재학습
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 04/19/2017
+ms.openlocfilehash: 04dac55feaa6826e1b8b591df61e8ad413f24dad
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509408"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>클래식 Azure Machine Learning Studio 웹 서비스 다시 학습
 배포한 예측 웹 서비스는 기본 점수 매기기 엔드포인트입니다. 기본 엔드포인트는 원래 학습 및 점수 매기기 실험과 동기화 상태를 유지하므로 기본 엔드포인트에 대한 학습된 모델을 바꿀 수 없습니다. 웹 서비스를 다시 학습하려면 웹 서비스에 새 엔드포인트를 추가해야 합니다.

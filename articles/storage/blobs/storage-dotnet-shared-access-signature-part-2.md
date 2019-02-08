@@ -8,17 +8,17 @@ ms.topic: article
 ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 6e33f700e9f453f419bf431d772d3db27e806ac0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: blobs
+ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240701"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244915"
 ---
-# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>공유 액세스 서명, 2부: Blob 저장소를 사용하여 SAS 만들기 및 사용
+# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>공유 액세스 서명 2부: Blob Storage에서 SAS 만들기 및 사용
 
-[1부](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 에서는 SAS(공유 액세스 서명)에 대해 설명하고 SAS 사용을 위한 모범 사례를 살펴보았습니다. 2부에서는 Blob 저장소를 사용하여 공유 액세스 서명을 생성한 다음 사용하는 방법에 대해 살펴봅니다. 예제는 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 이 자습서의 예제:
+[1부](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 에서는 SAS(공유 액세스 서명)에 대해 설명하고 SAS 사용을 위한 모범 사례를 살펴보았습니다. 2부에서는 Blob Storage를 사용하여 공유 액세스 서명을 생성한 다음 사용하는 방법에 대해 살펴봅니다. 예제는 C#으로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다. 이 자습서의 예제:
 
 * 컨테이너에서 공유 액세스 서명 생성
 * Blob에서 공유 액세스 서명 생성
@@ -28,9 +28,9 @@ ms.locfileid: "51240701"
 ## <a name="about-this-tutorial"></a>이 자습서 정보
 이 자습서에서는 두 개의 콘솔 애플리케이션을 만들어 컨테이너 및 Blob에 대한 공유 액세스 서명을 만들고 사용하는 방법을 설명합니다.
 
-**응용 프로그램 1**: 관리 응용 프로그램입니다. 컨테이너 및 Blob에 대한 공유 액세스 서명을 생성합니다. 소스 코드에 있는 저장소 계정 액세스 키를 포함합니다.
+**애플리케이션 1**: 관리 애플리케이션입니다. 컨테이너 및 Blob에 대한 공유 액세스 서명을 생성합니다. 소스 코드에 있는 저장소 계정 액세스 키를 포함합니다.
 
-**응용 프로그램 2**: 클라이언트 응용 프로그램입니다. 첫 번째 애플리케이션에서 만든 공유 액세스 서명을 사용하여 컨테이너 및 Blob 리소스에 액세스합니다. 공유 액세스 서명을 사용하여 컨테이너 및 Blob 리소스에 액세스합니다. 저장소 계정 액세스 키를 포함하지 *않습니다*.
+**애플리케이션 2**: 클라이언트 애플리케이션입니다. 첫 번째 애플리케이션에서 만든 공유 액세스 서명을 사용하여 컨테이너 및 Blob 리소스에 액세스합니다. 공유 액세스 서명을 사용하여 컨테이너 및 Blob 리소스에 액세스합니다. 저장소 계정 액세스 키를 포함하지 *않습니다*.
 
 ## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>1부: 공유 액세스 서명을 생성하는 콘솔 애플리케이션 만들기
 먼저 Azure Storage Client Library for .NET을 설치했는지 확인합니다. 클라이언트 라이브러리에 대한 최신 어셈블리가 포함된 [NuGet 패키지](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 패키지")를 설치할 수 있습니다. 최신 수정 사항이 있는지를 확인하는 권장되는 방법입니다. 클라이언트 라이브러리를 최신 버전 [.NET용 Azure SDK](https://azure.microsoft.com/downloads/)의 일부로 다운로드할 수도 있습니다.
@@ -589,7 +589,7 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 ## <a name="next-steps"></a>다음 단계
 
-* [공유 액세서 서명, 1부: SAS 모델 이해하기](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [공유 액세스 서명, 1부: SAS 모델 이해](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)
 * [공유 액세스 서명을 사용하여 액세스 위임(REST API)](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [테이블 및 큐 SAS 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

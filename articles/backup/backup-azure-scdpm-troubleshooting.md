@@ -2,18 +2,18 @@
 title: Azure Backup에서 System Center Data Protection Manager 문제 해결
 description: System Center Data Protection Manager 문제 해결
 services: backup
-author: adigan
-manager: shreeshd
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/24/2017
-ms.author: adigan
-ms.openlocfilehash: d3776df8184523999433059e95bc72e1d3abb1c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 4108616e3ae41e2c88b74bb08d5f846c0035101f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606446"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55293998"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>System Center Data Protection Manager 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "34606446"
 System Center Data Protection Manager의 최신 릴리스 정보는 [System Center 설명서](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016)를 참조하세요. Data Protection Manager 지원에 대한 내용은 [이 지원표](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016)에서 확인할 수 있습니다.
 
 
-## <a name="error-replica-is-inconsistent"></a>오류: 복제본이 일치하지 않습니다.
+## <a name="error-replica-is-inconsistent"></a>오류: 복제본이 불일치
 
 다음과 같은 이유로 복제본이 일치하지 않을 수 있습니다.
 - 복제본 만들기 작업이 실패합니다.
@@ -42,7 +42,7 @@ System Center Data Protection Manager의 최신 릴리스 정보는 [System Cent
 - 디스크가 정상이고 복제본을 저장하기에 충분한 공간이 있는지 확인합니다.
 - 중복된 백업 작업이 동시에 실행되고 있지는 않은지 확인합니다.
 
-## <a name="error-online-recovery-point-creation-failed"></a>오류: 온라인 복구 지점을 만들지 못했습니다.
+## <a name="error-online-recovery-point-creation-failed"></a>오류: 온라인 복구 지점 생성 실패
 
 이 문제를 해결하려면 다음 작업을 수행합니다.
 - 최신 버전의 Azure Backup 에이전트를 사용 중인지 확인합니다.
@@ -53,7 +53,7 @@ System Center Data Protection Manager의 최신 릴리스 정보는 [System Cent
 - 복제본이 있고, 누락되지 않았는지 확인합니다.
 - 복제본에 USN(업데이트 시퀀스 번호) 저널을 만들 공간이 충분한지 확인합니다.
 
-## <a name="error-unable-to-configure-protection"></a>오류: 보호를 구성할 수 없습니다.
+## <a name="error-unable-to-configure-protection"></a>오류: 보호를 구성할 수 없음
 
 이 오류는 Data Protection Manager 서버가 보호되는 서버에 연결할 수 없는 경우에 발생합니다. 
 

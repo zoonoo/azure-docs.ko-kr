@@ -1,6 +1,6 @@
 ---
-제목: 웹 서비스용 Excel 추가 기능 titleSuffix: Azure Machine Learning Studio 설명: 코드를 작성하지 않고 Excel에서 직접 Azure Machine Learning 웹 서비스를 사용하는 방법입니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 웹 서비스용 Excel 추가 기능 titleSuffix: Azure Machine Learning Studio 설명: 코드를 작성하지 않고 Excel에서 직접 Azure Machine Learning 웹 서비스를 사용하는 방법입니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2018/02/01
 ---

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 4a4a4c6a37e3c52054d7bc773ef04bf057709fdd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e63db9dd5dcd48e19c75608c39c4c0b62db24527
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025099"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221201"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -157,7 +157,7 @@ Azure 제공 이름 확인을 사용하는 경우 Azure DHCP(Dynamic Host Config
 
 필요한 경우 PowerShell 또는 API를 사용하여 내부 DNS 접미사를 확인할 수 있습니다.
 
-* Azure Resource Manager 배포 모델에 포함된 가상 네트워크의 경우, [네트워크 인터페이스 REST API](/rest/api/virtualnetwork/networkinterfaces/get), [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell cmdlet 및 [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI 명령을 통해 접미사를 사용할 수 있습니다.
+* Azure Resource Manager 배포 모델에 포함된 가상 네트워크의 경우, [네트워크 인터페이스 REST API](/rest/api/virtualnetwork/networkinterfaces), [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell cmdlet 및 [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI 명령을 통해 접미사를 사용할 수 있습니다.
 * 클래식 배포 모델에서 접미사는 [배포 API 가져오기](https://msdn.microsoft.com/library/azure/ee460804.aspx) 호출 또는 [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm) cmdlet을 통해 사용할 수 있습니다.
 
 Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 자체 DNS 솔루션을 제공해야 합니다. DNS 솔루션은 다음을 수행해야 합니다:
@@ -195,6 +195,11 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 > 
 
 Azure Resource Manager 배포 모델을 사용하는 경우 가상 네트워크 및 가상 인터페이스에 대해 DNS 서버를 지정할 수 있습니다. 자세한 내용은 [가상 네트워크 관리](manage-virtual-network.md) 및 [네트워크 인터페이스 관리](virtual-network-network-interface.md)를 참조합니다.
+
+> [!NOTE]
+> 가상 네트워크에 사용자 지정 DNS 서버를 포함하려는 경우에는 DNS 서버 IP 주소를 하나 이상 지정해야 합니다. 이렇게 하지 않으면 가상 네트워크에서 구성을 무시하고 Azure에서 제공하는 DNS를 대신 사용합니다.
+> 
+> 
 
 클래식 배포 모델을 사용할 때 Azure Portal 또는 [네트워크 구성 파일](https://msdn.microsoft.com/library/azure/jj157100)에서 가상 네트워크에 대한 DNS 서버를 지정할 수 있습니다. 클라우드 서비스의 경우 DNS 서버는 [서비스 구성 파일](https://msdn.microsoft.com/library/azure/ee758710)을 통해 또는 [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm)을 사용하여 지정할 수 있습니다.
 

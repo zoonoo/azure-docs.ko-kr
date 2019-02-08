@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230559"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220394"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Text Analytics(미리 보기)에서 명명된 엔터티 인식을 사용하는 방법
 
@@ -41,7 +41,7 @@ Text Analytics [버전 2.1 미리 보기](https://westus.dev.cognitive.microsoft
 
 ## <a name="supported-types-for-named-entity-recognition"></a>명명된 엔터티 인식의 지원되는 형식
 
-| type  | 하위 유형 | 예 |
+| Type  | 하위 유형 | 예 |
 |:-----------   |:------------- |:---------|
 | 사람        | 해당 없음\*         | "Jeff", "Bill Gates"     |
 | 위치      | 해당 없음\*         | "Redmond, Washington", "Paris"  |
@@ -54,14 +54,14 @@ Text Analytics [버전 2.1 미리 보기](https://westus.dev.cognitive.microsoft
 | 수량      | 통화      | "$10.99"     | 
 | 수량      | 차원     | "10 miles", "40 cm"     | 
 | 수량      | 온도   | "32 degrees"    |
-| Datetime      | 해당 없음\*         | "6:30PM February 4, 2012"      | 
-| Datetime      | Date          | "May 2nd, 2017", "05/02/2017"   | 
+| DateTime      | 해당 없음\*         | "6:30PM February 4, 2012"      | 
+| DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   | 
 | Date Time     | Time          | "8am", "8:00"  | 
-| Datetime      | DateRange     | "May 2nd to May 5th"    | 
-| Datetime      | TimeRange     | "6pm to 7pm"     | 
-| Datetime      | 기간      | "1 minute and 45 seconds"   | 
-| Datetime      | 설정           | "every Tuesday"     | 
-| Datetime      | TimeZone      |    | 
+| DateTime      | DateRange     | "May 2nd to May 5th"    | 
+| DateTime      | TimeRange     | "6pm to 7pm"     | 
+| DateTime      | 기간      | "1 minute and 45 seconds"   | 
+| DateTime      | 설정           | "every Tuesday"     | 
+| DateTime      | TimeZone      |    | 
 | URL           | 해당 없음\*         | "http://www.bing.com"    |
 | Email         | 해당 없음\*         | "support@contoso.com" |
 \* 입력 및 추출된 엔터티에 따라, 특정 엔터티에 `SubType`이 없을 수 있습니다.
@@ -93,7 +93,7 @@ id, text, language 형식의 JSON 문서가 있어야 합니다.
 
 요청 정의에 대한 자세한 내용은 [텍스트 분석 API를 호출하는 방법](text-analytics-how-to-call-api.md)에서 찾을 수 있습니다. 편의상 다음 사항을 다시 설명합니다.
 
-+ **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [엔터티 링크 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)를 검토합니다.
++ **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [엔터티 연결 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
 + 엔터티 추출에 대한 HTTP 엔드포인트를 설정합니다. `/entities` 리소스를 포함해야 합니다(예: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`).
 

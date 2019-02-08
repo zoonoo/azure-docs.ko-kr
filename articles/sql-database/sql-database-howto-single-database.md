@@ -1,9 +1,9 @@
 ---
-title: Azure SQL Database 구성 방법 - 싱글톤 | Microsoft Docs
-description: Azure SQL Database - 단일 데이터베이스를 구성 및 관리하는 방법을 알아봅니다.
+title: Azure SQL Database 구성 방법 - 독립 실행형 | Microsoft Docs
+description: Azure SQL Database - 독립 실행형 데이터베이스를 구성 및 관리하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: howto
@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: d34853220e423e73c6ca8cf7c76ba616b815b8bd
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: 613b4b700be580c2a0847881e64eedbeedee0c65
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439750"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510541"
 ---
-# <a name="how-to-use-single-database"></a>단일 데이터베이스를 사용하는 방법
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스를 사용하는 방법
 
-이 섹션에서는 Azure SQL Database - 단일 데이터베이스를 관리 및 구성하는 데 도움이 될 수 있는 다양한 지침, 스크립트 및 설명을 찾을 수 있습니다.
+이 섹션에서는 Azure SQL Database에서 단일 데이터베이스를 관리 및 구성하는 데 도움이 될 수 있는 다양한 지침, 스크립트 및 설명을 확인할 수 있습니다.
 
 ## <a name="migrate"></a>마이그레이션
 
@@ -74,4 +74,4 @@ ms.locfileid: "53439750"
 - [Dapper 프레임워크를 사용하여](sql-database-elastic-scale-working-with-dapper.md) 분할된 데이터를 쿼리합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Managed Instance의 방법 가이드](sql-database-howto-managed-instance.md)에 대해 자세히 알아보기
+- [Managed Instance용 방법 가이드](sql-database-howto-managed-instance.md)에 대해 자세히 알아봅니다.

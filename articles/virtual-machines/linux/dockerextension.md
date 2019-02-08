@@ -3,7 +3,7 @@ title: Azure Docker VM 확장 사용 | Microsoft Docs
 description: Docker VM 확장을 사용하여 Azure에서 Resource Manager 템플릿 및 Azure CLI를 사용하여 Docker 환경을 빠르고 안전하게 배포하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
-ms.author: zarhoads
-ms.openlocfilehash: 75959225d6fcc5487466ed26a21ba2d26c55cde9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: f30305374b1fcaabfb36533195a098073d33b6c3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465936"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197605"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Docker VM 확장을 사용하여 Azure에서 Docker 환경 만들기
 
@@ -39,7 +39,7 @@ Docker Machine 및 Azure Container Service 사용을 비롯한 다른 배포 방
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Azure Docker VM 확장을 사용하여 템플릿 배포
-기존의 빠른 시작 템플릿을 사용하여 Docker 호스트를 설치 및 구성하기 위해 Azure Docker VM 확장을 사용하는 Ubuntu VM을 만들겠습니다. 템플릿은 [Docker를 사용한 간단한 Ubuntu VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)에서 볼 수 있습니다. 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인해야 합니다.
+기존의 빠른 시작 템플릿을 사용하여 Docker 호스트를 설치 및 구성하기 위해 Azure Docker VM 확장을 사용하는 Ubuntu VM을 만들겠습니다. 템플릿은 [Docker를 사용한 간단한 Ubuntu VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)에서 확인할 수 있습니다. 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index#az_login)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 먼저 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -58,7 +58,7 @@ az group deployment create --resource-group myResourceGroup \
 
 
 ## <a name="deploy-your-first-nginx-container"></a>첫 번째 NGINX 컨테이너 배포
-DNS 이름을 비롯한 VM의 세부 정보를 보려면 [az vm show](/cli/azure/vm#az_vm_show)를 사용합니다.
+DNS 이름을 비롯한 VM의 세부 정보를 보려면 [az vm show](/cli/azure/vm)를 사용합니다.
 
 ```azurecli
 az vm show \
@@ -143,6 +143,6 @@ Resource Manager 템플릿 사용에 대한 자세한 연습은 [Azure Resource 
 Azure의 추가적인 Docker 배포 옵션에 대한 자세한 내용을 읽어보세요.
 
 * [Azure 드라이버로 Docker Machine 사용](docker-machine.md)  
-* [Azure 가상 머신에서 다중 컨테이너 응용 프로그램 정의 및 실행을 위해 Docker 및 Compose 시작](docker-compose-quickstart.md)
+* [Azure 가상 머신에서 다중 컨테이너 애플리케이션 정의 및 실행을 위해 Docker 및 Compose 시작](docker-compose-quickstart.md)
 * [Azure 컨테이너 서비스 클러스터 배포](../../container-service/dcos-swarm/container-service-deployment.md)
 

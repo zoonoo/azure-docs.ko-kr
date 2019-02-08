@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6089f053472faaa7fa8c957904f73c7061cb2d3f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344928"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219773"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -54,11 +54,11 @@ ms.locfileid: "49344928"
 
 ### <a name="turns"></a>턴
 
-말은 정보의 이동 수단입니다. 말하는 경우 해당 정보를 듣고 있는 누군가에게 소유하고 있는 정보를 전달하려고 합니다. 정보를 전달할 때는 일반적으로 말하기와 듣기가 교대로 수행됩니다. 마찬가지로, 음성 사용 애플리케이션은 일반적으로 수신과 응답을 교대로 수행하면서 사용자와 상호 작용하지만 대개 애플리케이션이 대부분의 듣기를 수행합니다. 사용자의 음성 입력 및 이 입력에 대한 서비스 응답을 *턴*이라고 합니다. *턴*은 사용자가 말하면 시작되고, 응용 프로그램에서 음성 서비스 응답 처리를 완료하면 종료됩니다.
+말은 정보의 이동 수단입니다. 말하는 경우 해당 정보를 듣고 있는 누군가에게 소유하고 있는 정보를 전달하려고 합니다. 정보를 전달할 때는 일반적으로 말하기와 듣기가 교대로 수행됩니다. 마찬가지로, 음성 사용 애플리케이션은 일반적으로 수신과 응답을 교대로 수행하면서 사용자와 상호 작용하지만 대개 애플리케이션이 대부분의 듣기를 수행합니다. 사용자의 음성 입력 및 이 입력에 대한 서비스 응답을 *턴*이라고 합니다. *턴*은 사용자가 말하면 시작되고, 애플리케이션에서 음성 서비스 응답 처리를 완료하면 종료됩니다.
 
 ### <a name="telemetry"></a>원격 분석
 
-숙련된 개발자인 경우에도 음성 사용 디바이스 또는 애플리케이션을 만드는 것은 어려울 수 있습니다. 스트림 기반 프로토콜은 얼핏 보기에는 어려운 것처럼 보이지만 묵음 감지와 같은 중요한 세부 정보는 전혀 새로운 것일 수 있습니다. 단일 요청/응답 쌍을 완료하기 위해 많은 메시지를 성공적으로 보내고 받아야 하기 때문에 메시지에 대한 완전하고 정확한 데이터를 수집하는 것이 *매우* 중요합니다. Microsoft Speech Service 프로토콜은 이러한 데이터의 수집을 제공합니다. 가능한 한 정확하게 필요한 데이터를 제공하기 위해 모든 노력을 기울여야 합니다. 완전하고 정확한 데이터를 제공함으로써 자신에게 도움이 됩니다. 클라이언트 구현 문제를 해결하는 데 Microsoft Speech Service 팀의 도움이 필요하면 수집한 원격 분석 데이터의 품질이 문제 분석에 매우 중요합니다.
+숙련된 개발자인 경우에도 음성 사용 장치 또는 애플리케이션을 만드는 것은 어려울 수 있습니다. 스트림 기반 프로토콜은 얼핏 보기에는 어려운 것처럼 보이지만 묵음 감지와 같은 중요한 세부 정보는 전혀 새로운 것일 수 있습니다. 단일 요청/응답 쌍을 완료하기 위해 많은 메시지를 성공적으로 보내고 받아야 하기 때문에 메시지에 대한 완전하고 정확한 데이터를 수집하는 것이 *매우* 중요합니다. Microsoft Speech Service 프로토콜은 이러한 데이터의 수집을 제공합니다. 가능한 한 정확하게 필요한 데이터를 제공하기 위해 모든 노력을 기울여야 합니다. 완전하고 정확한 데이터를 제공함으로써 자신에게 도움이 됩니다. 클라이언트 구현 문제를 해결하는 데 Microsoft Speech Service 팀의 도움이 필요하면 수집한 원격 분석 데이터의 품질이 문제 분석에 매우 중요합니다.
 
 > [!NOTE]
 > 음성 인식 REST API를 사용하는 경우 이 기능은 지원되지 않습니다.
@@ -75,15 +75,15 @@ Microsoft Speech Service는 일부 상태에 참여하므로 서비스 프로토
 
 개발자가 앱에 Speech를 추가할 수 있도록 Microsoft 음성 인식 서비스에서 제공하는 두 가지 방법은 다음과 같습니다.
 
-- [REST API](GetStarted/GetStartedREST.md): 개발자가 음성 인식을 위해 앱에서 서비스로의 HTTP 호출을 사용할 수 있습니다.
-- [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md): 고급 기능의 경우 개발자가 Microsoft Speech 클라이언트 라이브러리를 다운로드하고 앱에 연결할 수 있습니다.  클라이언트 라이브러리는 다양한 언어(C#, Java, JavaScript, ObjectiveC)를 사용하여 다양한 플랫폼(Windows, Android, iOS)에서 사용할 수 있습니다.
+- [REST API](GetStarted/GetStartedREST.md): 개발자는 음성 인식을 위해 앱에서 서비스로의 HTTP 호출을 사용할 수 있습니다.
+- [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md): 개발자는 고급 기능용으로 Microsoft Speech 클라이언트 라이브러리를 다운로드한 다음 앱에 연결할 수 있습니다.  클라이언트 라이브러리는 다양한 언어(C#, Java, JavaScript, ObjectiveC)를 사용하여 다양한 플랫폼(Windows, Android, iOS)에서 사용할 수 있습니다.
 
 | 사용 사례 | [REST API](GetStarted/GetStartedREST.md) | [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | yes | yes |
-| 긴 오디오(15초 초과) 변환 | 아니요 | yes |
-| 중간 결과가 필요한 오디오 스트림 | 아니요 | yes |
-| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니요 | yes |
+| 중간 결과가 없는 짧은 음성 오디오(예: 오디오 길이가 15초 미만인 명령) 변환 | 예 | 예 |
+| 긴 오디오(15초 초과) 변환 | 아니요 | 예 |
+| 중간 결과가 필요한 오디오 스트림 | 아니요 | 예 |
+| LUIS를 사용하여 오디오에서 변환된 텍스트 인식 | 아니요 | 예 |
 
  언어 또는 플랫폼에 아직 SDK가 없는 경우 [프로토콜 설명서](API-Reference-REST/websocketprotocol.md)에 따라 사용자 고유의 구현을 만들 수 있습니다.
 
@@ -100,7 +100,7 @@ Microsoft Speech Service는 모든 인식 모드에 대해 하나의 인식 구 
 
 ### <a name="interactive-mode"></a>대화형 모드
 
-`interactive` 모드에서는 사용자가 짧은 요청을 하고 응용 프로그램에서 응답으로 작업을 수행해야 합니다.
+`interactive` 모드에서는 사용자가 짧은 요청을 하고 애플리케이션에서 응답으로 작업을 수행해야 합니다.
 
 대화형 모드 애플리케이션의 일반적인 특징은 다음과 같습니다.
 
@@ -121,7 +121,7 @@ Microsoft Speech Service는 모든 인식 모드에 대해 하나의 인식 구 
 
 ### <a name="dictation-mode"></a>받아쓰기 모드
 
-`dictation` 모드에서는 사용자가 추가 처리를 위해 더 긴 발화를 응용 프로그램에 말합니다.
+`dictation` 모드에서는 사용자가 추가 처리를 위해 더 긴 발화를 애플리케이션에 말합니다.
 
 받아쓰기 모드 애플리케이션의 일반적인 특징은 다음과 같습니다.
 
@@ -135,7 +135,7 @@ Microsoft Speech Service는 모든 인식 모드에 대해 하나의 인식 구 
 
 ## <a name="recognition-languages"></a>인식 언어
 
-*인식 언어*는 응용 프로그램 사용자가 말하는 언어를 지정합니다. 연결에서 *language* URL 쿼리 매개 변수를 사용하여 *인식 언어*를 지정합니다. *language* 쿼리 매개 변수의 값은 [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) IETF 언어 태그를 사용하고, 음성 인식 API에서 지원되는 언어 중 **하나**여야 합니다. Speech Service에서 지원되는 언어의 전체 목록은 [지원되는 언어](API-Reference-REST/supportedlanguages.md) 페이지에서 찾을 수 있습니다.
+*인식 언어*는 애플리케이션 사용자가 말하는 언어를 지정합니다. 연결에서 *language* URL 쿼리 매개 변수를 사용하여 *인식 언어*를 지정합니다. *language* 쿼리 매개 변수의 값은 [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) IETF 언어 태그를 사용하고, 음성 인식 API에서 지원되는 언어 중 **하나**여야 합니다. Speech Service에서 지원되는 언어의 전체 목록은 [지원되는 언어](API-Reference-REST/supportedlanguages.md) 페이지에서 찾을 수 있습니다.
 
 Microsoft Speech Service는 `HTTP 400 Bad Request` 응답을 표시하여 잘못된 연결 요청을 거부합니다. 잘못된 요청은 다음 중 하나입니다.
 

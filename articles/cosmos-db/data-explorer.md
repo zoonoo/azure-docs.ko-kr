@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: df0b031e432c91897ff61e2cd9fcadc86bb54ee2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d50bf7d865cb286f2a1421156b477dc92dc978d1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036871"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453606"
 ---
-# <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Azure Cosmos DB 탐색기를 사용하여 데이터 관리 
+# <a name="work-with-data-using-azure-cosmos-explorer"></a>Azure Cosmos 탐색기를 사용하여 데이터 작업 
 
 Azure Cosmos DB 탐색기는 Azure Cosmos DB에 저장된 데이터를 보고 관리할 수 있는 독립 실행형 웹 기반 인터페이스입니다. Azure Cosmos DB 탐색기는 Azure Cosmos DB 계정을 만들 때 Azure Portal에서 사용할 수 있는 기존 **데이터 탐색기** 탭과 동일합니다. 기존 데이터 탐색기에 비해 Azure Cosmos DB 탐색기의 주요 이점은 다음과 같습니다.
 

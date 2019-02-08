@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844994"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228205"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -85,7 +85,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 ## <a name="app-consistent-snapshot-issues"></a>앱 일치 스냅숏 문제
 
-앱 일치 스냅숏은 VM 내 응용 프로그램 데이터의 지정 시간 스냅숏입니다. VSS(볼륨 섀도 복사본 서비스)는 스냅숏을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.  이 섹션에서는 발생할 수 있는 몇 가지 일반적인 문제에 대해 자세히 설명합니다.
+앱 일치 스냅숏은 VM 내 애플리케이션 데이터의 지정 시간 스냅숏입니다. VSS(볼륨 섀도 복사본 서비스)는 스냅숏을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.  이 섹션에서는 발생할 수 있는 몇 가지 일반적인 문제에 대해 자세히 설명합니다.
 
 ### <a name="vss-failing-inside-the-vm"></a>VM 내부의 VSS 실패
 
@@ -96,7 +96,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
         - **Vssadmin list shadows**
         - **Vssadmin list providers**
     - 출력을 확인합니다. 기록기가 실패 상태인 경우 다음을 수행합니다.
-        - VM의 응용 프로그램 이벤트 로그에서 VSS 작업 오류를 확인합니다.
+        - VM의 애플리케이션 이벤트 로그에서 VSS 작업 오류를 확인합니다.
     - 실패한 기록기와 관련된 다음 서비스를 다시 시작합니다.
         - 볼륨 섀도 복사본
          - Azure Site Recovery VSS 공급자
@@ -110,7 +110,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 5. Backup 서비스가 사용되도록 설정되어 있는지 확인합니다. **Hyper-V 설정** > **Integration Services**에서 사용하도록 설정되어 있는지 확인합니다.
 6. VSS 스냅숏을 만드는 앱과 충돌하지 않는지 확인합니다. 여러 앱이 VSS 스냅숏을 동시에 만들려고 하면 충돌이 발생할 수 있습니다. 예를 들어, 복제 정책에 따라 Site Recovery가 스냅숏을 만들도록 예약되어 있을 때 Backup 앱이 VSS 스냅숏을 만드는 경우가 여기에 해당합니다.   
 7. VM에서 높은 변동률이 발생하는지 확인합니다.
-    - Hyper-V 호스트에서 성능 카운터를 사용하여 게스트 VM에 대한 일일 데이터 변경률을 측정할 수 있습니다. 데이터 변경률을 측정하려면 다음 카운터를 사용하도록 설정합니다. 5-15분 동안 VM 디스크에서 이 값의 샘플을 집계하여 VM 변동을 얻습니다.
+    - Hyper-V 호스트에서 성능 카운터를 사용하여 게스트 VM에 대한 일일 데이터 변경률을 측정할 수 있습니다. 데이터 변경률을 측정하려면 다음 카운터를 사용하도록 설정합니다. 5-15분 동안 전체 VM 디스크에서 이 값의 샘플을 집계하여 VM 변동 정보를 파악합니다.
         - 범주: “Hyper-V 가상 스토리지 디바이스”
         - 카운터: “쓰기 바이트/초”</br>
         - 이 데이터 변동률은 VM 및 해당 앱의 작업량에 따라 증가하거나 높은 수준을 유지합니다.
@@ -159,9 +159,9 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 **이벤트 로그** | **세부 정보** |
 --- | ---
 **Applications and Service Logs/Microsoft/VirtualMachineManager/Server/Admin**(VMM 서버) | VMM 관련 문제를 해결하기 위한 로그입니다.
-**응용 프로그램 및 서비스 로그/MicrosoftAzureRecoveryServices/Replication**(Hyper-V 호스트) | Microsoft Azure Recovery Services 에이전트 관련 문제를 해결하기 위한 로그입니다. 
-**응용 프로그램 및 서비스 로그/Microsoft/Azure Site Recovery/Provider/Operational**(Hyper-V 호스트)| Microsoft Azure Site Recovery Services 관련 문제를 해결하기 위한 로그입니다.
-**응용 프로그램 및 서비스 로그/Microsoft/Windows/Hyper-V-VMMS/Admin**(Hyper-V 호스트) | Hyper-V VM 관리 문제를 해결하기 위한 로그입니다.
+**애플리케이션 및 서비스 로그/MicrosoftAzureRecoveryServices/Replication**(Hyper-V 호스트) | Microsoft Azure Recovery Services 에이전트 관련 문제를 해결하기 위한 로그입니다. 
+**애플리케이션 및 서비스 로그/Microsoft/Azure Site Recovery/Provider/Operational**(Hyper-V 호스트)| Microsoft Azure Site Recovery Services 관련 문제를 해결하기 위한 로그입니다.
+**애플리케이션 및 서비스 로그/Microsoft/Windows/Hyper-V-VMMS/Admin**(Hyper-V 호스트) | Hyper-V VM 관리 문제를 해결하기 위한 로그입니다.
 
 ### <a name="log-collection-for-advanced-troubleshooting"></a>고급 문제 해결을 위해 로그 수집
 

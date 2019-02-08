@@ -6,16 +6,16 @@ services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: be3e408b3f5f6393786a35108202d51ae871ea3b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6c5bfb052fc887bb189edb06247642419b14ecf7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679735"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296973"
 ---
 # <a name="api-reference"></a>API 참조
 
@@ -28,5 +28,6 @@ Azure Face API는 얼굴 감지 및 인식에 대한 알고리즘을 제공하�
 - [LargeFaceList Management API](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist): [Find Similar](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar)에 대한 LargeFaceList를 관리하는 데 사용됩니다.
 - [PersonGroup Person Management API](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson): [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify)에 대한 PersonGroup Person Faces를 관리하는 데 사용됩니다.
 - [PersonGroup Management API](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup): [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify)에 대한 PersonGroup 데이터 세트를 관리하는 데 사용됩니다.
+- [스냅숏 관리 API](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot): 여러 구독 간 데이터 마이그레이션용 스냅숏을 관리하는 데 사용됩니다.
 
 <!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fa53a7e598b42e93e86eb059c36ff89f38bb7093
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424526"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300594"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>PowerShell을 사용하여 가상 머신 백업 및 복원
 
@@ -355,11 +355,17 @@ $restorejob
 #### <a name="restore-managed-disks"></a>Managed Disks 복원
 
 > [!NOTE]
-> 백업된 VM에 있는 관리 디스크를 관리 디스크로 복원할 수 있도록 Azure PowerShell v 6.7.0부터 해당 기능을 도입했습니다.
+> 백업된 VM에 있는 관리 디스크를 관리 디스크로 복원할 수 있도록 Azure PowerShell RM 모듈 v 6.7.0부터 복원 기능이 도입되었습니다. 해당 기능을 도입했습니다.
 >
 >
 
-추가 매개 변수를 **TargetResourceGroupName**을 제공하여 Managed Disks를 복원할 RG를 지정합니다.
+추가 매개 변수를 **TargetResourceGroupName**을 제공하여 Managed Disks를 복원할 RG를 지정합니다. 
+
+> [!NOTE]
+> 관리 디스크를 복원할 때는 **TargetResourceGroupName** 매개 변수를 사용하는 것이 좋습니다. 그러면 성능이 크게 개선되기 때문입니다. 또한 Azure PowerShell Az 모듈 1.0부터는 관리 디스크를 복원하는 경우 이 매개 변수를 반드시 사용해야 합니다.
+>
+>
+
 
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f31fccd2bf6d0daae03b025b53a41a0fad4ce2ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957694"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210134"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure에서 Azure 복제로 Mobility Service 자동 업데이트
 
@@ -53,7 +53,7 @@ Site Recovery에서 업데이트를 관리하도록 허용하면 자격 증명 �
 1. 자격 증명 모음 내에서 **관리**-> **Site Recovery 인프라**로 이동
 2. **Azure 가상 머신**-> **확장 업데이트 설정** 아래에서 토글을 클릭하여 *ASR에서 업데이트를 관리하도록 허용*하거나 *수동으로 관리* 중에 선택합니다. **저장**을 클릭합니다.
 
-![자격 증명 모음 자동 업데이트 전환](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![자격 증명 모음 설정/해제-자동 업데이트](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
 > *ASR에서 업데이트를 관리하도록 허용*을 선택하면 해당 자격 증명 모음에 있는 모든 가상 머신에 설정이 적용됩니다.
@@ -94,6 +94,6 @@ Site Recovery에서 업데이트를 관리하도록 허용하면 자격 증명 �
 
     **권장 작업**: 실행 계정을 삭제한 다음, [다시 만들거나](https://docs.microsoft.com/azure/automation/automation-create-runas-account) Automation 실행 계정의 Azure Active Directory 애플리케이션이 복구 서비스 리소스에 액세스할 수 있는지 확인합니다.
 
-- **오류**: 실행 계정을 찾을 수 없습니다. Azure Active Directory 응용 프로그램, 서비스 사용자, 역할, Automation 인증서 자산, Automation 연결 자산 중 하나가 삭제되었거나 생성되지 않았습니다. 또는 인증서와 연결 사이에서 지문이 일치하지 않습니다. 
+- **오류**: 실행 계정을 찾을 수 없습니다. Azure Active Directory 애플리케이션, 서비스 사용자, 역할, Automation 인증서 자산, Automation 연결 자산 중 하나가 삭제되었거나 생성되지 않았습니다. 또는 인증서와 연결 사이에서 지문이 일치하지 않습니다. 
 
     **권장 작업**: 실행 계정을 삭제한 다음, [다시 만듭니다](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

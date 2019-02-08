@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/25/2019
+ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251596"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455595"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
 Azure SQL Database 데이터베이스 도구(예: [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md))를 사용하여 기존의 확장된 분할된 데이터베이스를 쉽게 관리합니다. 기존의 데이터베이스 집합을 먼저 변환하여 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)를 사용합니다. 
@@ -69,11 +69,11 @@ ShardMapManager에 대한 자세한 내용은 [분할된 데이터베이스 맵 
 
 ![목록 매핑][1]
 
-다중 테넌트 모델은 단일 데이터베이스에 여러 테넌트를 할당합니다(또한 테넌트 그룹을 여러 데이터베이스에 배포할 수 있음). 각 테넌트에 데이터 요구가 적다고 예상되는 경우 이 모델을 사용합니다. 이 모델에서 **범위 매핑**을 사용하여 데이터베이스에 테넌트의 범위를 할당합니다. 
+다중 테넌트 모델은 개별 데이터베이스에 여러 테넌트를 할당합니다. 여러 데이터베이스에 테넌트 그룹을 분산시킬 수도 있습니다. 각 테넌트에 데이터 요구가 적다고 예상되는 경우 이 모델을 사용합니다. 이 모델에서 **범위 매핑**을 사용하여 데이터베이스에 테넌트의 범위를 할당합니다. 
 
 ![범위 매핑][2]
 
-또는 다중 테넌트를 단일 데이터베이스에 할당하는 *목록 매핑*을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다. 
+여러 테넌트를 개별 데이터베이스에 할당하는 *목록 매핑*을 사용하여 다중 테넌트 데이터베이스 모델을 구현할 수도 있습니다. 예를 들어 DB1은 테넌트 ID 1과 5에 대한 정보를 저장하는 데 사용하고 DB2는 테넌트 7과 테넌트 10의 데이터를 저장합니다. 
 
 ![단일 DB의 다중 테넌트][3] 
 
@@ -98,7 +98,7 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>옵션 3: 단일 데이터베이스의 목록 매핑
+### <a name="option-3-list-mappings-on-an-individual-database"></a>옵션 3: 개별 데이터베이스의 매핑 나열
 2단계 옵션 1과 같이 이 패턴을 설정할 때도 목록 맵을 만들어야 합니다.
 
 ## <a name="step-3-prepare-individual-shards"></a>3단계: 개별 분할된 데이터베이스 준비
@@ -138,7 +138,7 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>4단계 옵션 3: 단일 데이터베이스에서 다중 테넌트에 대한 데이터 매핑
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>4단계 옵션 3: 개별 데이터베이스의 여러 테넌트에 대한 데이터 매핑
 각 테넌트에 대해 ListMapping 추가를 실행합니다(옵션 1). 
 
 ## <a name="checking-the-mappings"></a>매핑 확인
@@ -154,7 +154,7 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 ## <a name="next-steps"></a>다음 단계
 [Azure SQL DB-Elastic Database 도구 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에서 PowerShell 스크립트를 가져옵니다.
 
-도구는 GitHub( [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools))에도 있습니다.
+GitHub에서도 해당 도구가 제공됩니다. [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools)
 
 분할/병합 도구를 사용하여 데이터를 다중 테넌트 모델에서 단일 테넌트 모델로 또는 반대로 이동합니다. [분할 병합 도구](sql-database-elastic-scale-get-started.md)를 참조하세요.
 

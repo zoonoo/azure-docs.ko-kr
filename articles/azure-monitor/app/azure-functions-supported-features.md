@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 9ad0579ff9c25753b1e4816b80948b4d8d1232f7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082340"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185817"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
 
@@ -40,6 +40,7 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 | | | | 
 | **지원되는 기능**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | 예             | 예               | 
+| &nbsp;&nbsp;&nbsp;&mdash; 컨트롤 채널 보호|                 | 예               | 
 | &bull; 샘플링                     | 예             | 예               | 
 | &bull; 하트비트                   |                 | 예               | 
 | | | | 
@@ -50,6 +51,10 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 | **구성 가능 여부**                      |                   |                   |           
 | &bull;완전히 구성 가능합니다.<br/>지침을 보려면 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852)를 참조하세요.<br/>모든 옵션에 대해서는 [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration)를 참조하세요.               |                   | 예                   | 
 
+
+## <a name="live-metrics--secure-control-channel"></a>라이브 메트릭 및 컨트롤 채널 보호
+
+지정한 사용자 지정 필터 조건이 Application Insights SDK의 라이브 메트릭 구성 요소에 다시 전송됩니다. 필터는 customerid와 같은 잠재적으로 중요한 정보를 포함할 수 있습니다. 비밀 API 키를 사용해 채널 보안을 유지할 수 있습니다. 해당 지침은 [컨트롤 채널 보호](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel)를 참조하세요.
 
 ## <a name="sampling"></a>샘플링
 

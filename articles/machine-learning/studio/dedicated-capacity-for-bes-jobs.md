@@ -1,6 +1,6 @@
 ---
-제목: Machine Learning Studio 작업에 대한 Azure Batch 서비스 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning 작업에 대한 Azure Batch 서비스 개요입니다. Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Machine Learning Studio 작업에 대한 Azure Batch 서비스 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning 작업에 대한 Azure Batch 서비스 개요입니다. Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='일괄 처리 실행 서비스 작업용 전용 용량 - Azure Machine Learning Studio | Microsoft Docs' ms.date: 2017/04/19
 ---

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 01/29/2019
 ms.author: ryanwi
-ms.openlocfilehash: f2a181fbae8ab1e08669021c42c5b4be08f66172
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4760995d6bcc75bcfb974e4be6d202581828a7e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364814"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694119"
 ---
 # <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 
@@ -33,7 +33,13 @@ ms.locfileid: "34364814"
 
 `sfctl cluster select` 명령을 사용하여 클러스터에 연결할 수 있습니다.
 
-클라이언트 인증서는 인증서 및 키 쌍 또는 단일 pem 파일이라는 두 가지 형태로 지정할 수 있습니다. 암호로 보호되는 `pem` 파일의 경우 암호를 입력하라는 메시지가 자동으로 표시됩니다.
+클라이언트 인증서는 인증서 및 키 쌍 또는 단일 pem 파일의 두 가지 형태로 지정할 수 있습니다. 암호로 보호되는 PEM 파일의 경우 암호를 입력하라는 메시지가 자동으로 표시됩니다. 클라이언트 인증서를 PFX 파일로 받은 경우 먼저 다음 명령을 사용하여 PFX 파일을 PEM 파일로 변환합니다. 
+
+```bash
+openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
+```
+
+.pfx 파일이 암호로 보호되어 있지 않으면 마지막 매개 변수에 -passin pass:를 사용합니다.
 
 클라이언트 인증서를 pem 파일로 지정하려면 `--pem` 인수에 파일 경로를 지정합니다. 예: 
 
@@ -73,7 +79,7 @@ PowerShell을 통해 클러스터에서 작업을 수행하기 전에 먼저 클
 
 ### <a name="connect-to-an-unsecure-cluster"></a>비보안 클러스터에 연결
 
-비보안 클러스터에 연결하려면 **Connect-ServiceFabricCluster** 명령에 클러스터 끝점 주소를 제공합니다.
+비보안 클러스터에 연결하려면 **Connect-ServiceFabricCluster** 명령에 클러스터 엔드포인트 주소를 제공합니다.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 
@@ -168,7 +174,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>클라이언트 인증서를 사용하여 보안 클러스터에 연결
 
-클러스터의 노드에는 해당 일반 이름 또는 SAN의 DNS 이름이 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient)에 설정된 [RemoteCommonNames 속성](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames)에 표시되는 유효한 인증서가 있어야 합니다. 이 과정에 따라 클라이언트와 클러스터 노드 간 상호 인증이 가능해집니다.
+클러스터의 노드에는 해당 일반 이름 또는 SAN의 DNS 이름이 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient)에 설정된 [RemoteCommonNames 속성](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials)에 표시되는 유효한 인증서가 있어야 합니다. 이 과정에 따라 클라이언트와 클러스터 노드 간 상호 인증이 가능해집니다.
 
 ```csharp
 using System.Fabric;
@@ -341,7 +347,7 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 
 전체 URL은 Azure 포털의 클러스터 필수 창에서도 사용 가능합니다.
 
-브라우저를 사용하여 Windows 또는 OS X의 보안 클러스터에 연결하기 위해 클라이언트 인증서를 가져올 수 있으며, 그러면 브라우저에서 클러스터에 연결하는 데 사용할 인증서에 대한 메시지를 표시합니다.  Linux 컴퓨터에서는 고급 브라우저 설정을 사용하여 인증서를 가져오고(각 브라우저에 서로 다른 메커니즘이 있는 경우) 디스크상의 인증서 위치로 지정해야 합니다.
+브라우저를 사용하여 Windows 또는 OS X의 보안 클러스터에 연결하기 위해 클라이언트 인증서를 가져올 수 있으며, 그러면 브라우저에서 클러스터에 연결하는 데 사용할 인증서에 대한 메시지를 표시합니다.  Linux 컴퓨터에서는 고급 브라우저 설정을 사용하여 인증서를 가져오고(각 브라우저에 서로 다른 메커니즘이 있는 경우) 디스크상의 인증서 위치로 지정해야 합니다. 자세한 내용은 [클라이언트 인증서 설정](#connectsecureclustersetupclientcert)을 참조하세요.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Azure Active Directory를 사용하여 보안 클러스터에 연결
 
@@ -360,29 +366,33 @@ AAD에 로그인하라는 메시지가 자동으로 표시됩니다.
 클라이언트 인증서를 선택하라는 메시지가 자동으로 표시됩니다.
 
 <a id="connectsecureclustersetupclientcert"></a>
+
 ## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>원격 컴퓨터에서 클라이언트 인증서 설정
+
 클러스터를 보호하려면 적어도 두 개의 인증서(클러스터와 서버 인증서용 한 개 및 클라이언트 액세스용 또 한 개)를 사용해야 합니다.  추가 보조 인증서와 클라이언트 액세스 인증서도 사용하는 것이 좋습니다.  인증서 보안을 사용하여 클라이언트와 클러스터 노드 간 통신을 보호하려면 먼저 클라이언트 인증서를 획득하고 설치해야 합니다. 인증서는 로컬 컴퓨터의 개인(내) 저장소 또는 현재 사용자의 개인 저장소에 설치할 수 있습니다.  클라이언트가 클러스터를 인증할 수 있도록 하려면 서버 인증서의 지문도 필요합니다.
 
-다음 PowerShell cmdlet을 실행하여 클러스터에 액세스하는 데 사용하는 컴퓨터에서 클라이언트 인증서를 설정합니다.
+* Windows에서: PFX 파일을 두 번 클릭하고 프롬프트에 따라 개인 저장소 `Certificates - Current User\Personal\Certificates`에 인증서를 설치합니다. PowerShell 명령을 사용할 수도 있습니다.
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-        -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+            -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+            -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
 
-자체 서명된 인증서는 사용 중인 컴퓨터의 "신뢰할 수 있는 사용자" 저장소로 가져와야 보안 클러스터에 연결하는 데 사용할 수 있습니다.
+    자체 서명된 인증서는 사용 중인 컴퓨터의 "신뢰할 수 있는 사용자" 저장소로 가져와야 보안 클러스터에 연결하는 데 사용할 수 있습니다.
 
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
--FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
--Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
+    ```powershell
+    Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
+    -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+    -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+    ```
+
+* Mac에서: PFX 파일을 두 번 클릭하고 프롬프트에 따라 키 집합에 인증서를 설치합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [서비스 패브릭 클러스터 업그레이드 프로세스 및 사용자 기대 수준](service-fabric-cluster-upgrade.md)
-* [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
+* [Visual Studio에서 Service Fabric 애플리케이션 관리](service-fabric-manage-application-in-visual-studio.md)
 * [서비스 패브릭 상태 모델 소개](service-fabric-health-introduction.md)
-* [응용 프로그램 보안 및 RunAs](service-fabric-application-runas-security.md)
+* [애플리케이션 보안 및 RunAs](service-fabric-application-runas-security.md)
 * [Service Fabric CLI 시작](service-fabric-cli.md)

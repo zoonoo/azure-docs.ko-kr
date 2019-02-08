@@ -1,14 +1,27 @@
 ---
-제목: 웹앱 템플릿에서 Studio 웹 서비스 사용 titleSuffix: Azure Machine Learning Studio 설명: Azure Marketplace에서 웹 앱을 사용하여 Azure Machine Learning의 예측 웹 서비스를 사용합니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/03/20
+title: 웹앱 템플릿에서 Studio 웹 서비스 사용
+titleSuffix: Azure Machine Learning Studio
+description: Azure Marketplace에서 웹 앱을 사용하여 Azure Machine Learning의 예측 웹 서비스를 사용합니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: 164aae7c6a4df18b8a28e1ff152e9c61c60f06b9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299064"
 ---
 # <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>웹앱 템플릿을 사용한 Azure Machine Learning Studio 웹 서비스 사용
 
 다음을 사용하여 예측 모델을 개발하고 Azure 웹 서비스로 배포할 수 있습니다.
 - Azure Machine Learning Studio
-- Python 또는 R 등의 도구 
+- Python 또는 R 등의 도구
 
 그런 후 REST API를 사용하여 조작 가능한 모델에 액세스할 수 있습니다.
 
@@ -23,10 +36,10 @@ Azure Marketplace에서 사용할 수 있는 웹 앱 템플릿은 웹 서비스�
 
 두 가지 템플릿을 사용할 수 있습니다.
 
-* [Azure ML 요청-응답 서비스 웹 앱 템플릿](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
-* [Azure ML 일괄 처리 실행 서비스 웹 앱 템플릿](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
+* [Azure Machine Learning Studio 요청-응답 서비스 웹앱 템플릿](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
+* [Azure Machine Learning Studio 일괄 처리 실행 서비스 웹앱 템플릿](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
-각 템플릿은 웹 서비스용 API URI 및 키를 사용하여 샘플 ASP.NET 애플리케이션을 만듭니다. 그런 후 애플리케이션을 Azure에 웹 사이트로 배포합니다. 
+각 템플릿은 웹 서비스용 API URI 및 키를 사용하여 샘플 ASP.NET 애플리케이션을 만듭니다. 그런 후 애플리케이션을 Azure에 웹 사이트로 배포합니다.
 
 RRS(요청-응답 서비스) 템플릿은 단일 결과를 가져오기 위해 데이터의 단일 행을 웹 서비스에 보낼 수 있도록 웹앱을 만듭니다. BES(일괄 처리 실행 서비스) 템플릿은 여러 결과를 가져오기 위해 많은 데이터의 행을 보낼 수 있도록 웹앱을 만듭니다.
 
@@ -51,33 +64,33 @@ RRS(요청-응답 서비스) 템플릿은 단일 결과를 가져오기 위해 �
 <!--    ![API Key][image3] -->
 
 <!-- This value will look like this:
-   
+
         https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
-   
+
     ![Request URI][image4] -->
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **새로 만들기**를 선택하고 **Azure ML 요청-응답 서비스 웹앱**을 선택한 후 **만들기**를 선택합니다. 
+2. **새로 만들기**를 선택하고 **Azure ML 요청-응답 서비스 웹앱**을 선택한 후 **만들기**를 선택합니다.
 3. **만들기** 창에서 다음을 수행합니다.
-   
+
    * 웹 앱에 고유한 이름을 지정합니다. 웹앱의 URL은 이 이름과 **.azurewebsites.net**으로 구성됩니다. 예는 **http://carprediction.azurewebsites.net**입니다.
    * Azure 구독과 웹 서비스가 실행되는 서비스를 선택합니다.
    * **만들기**를 선택합니다.
-     
+
    ![웹앱 만들기][image5]
 
 4. Azure가 웹앱 배포를 완료하면 Azure의 웹앱 설정 페이지의 **URL**을 선택하거나 웹 브라우저에 URL을 입력합니다. 예를 들어 **http://carprediction.azurewebsites.net**을 입력합니다.
 5. 웹앱을 처음 실행할 때 **API 게시 URL** 및 **API 키**를 요청합니다. 이전에 저장한 값을 입력합니다(요청 URI 및 API 키 각각). **제출**을 선택합니다.
-     
+
    ![Post URI 및 API 키 입력][image6]
 
 6. 웹앱은 현재 웹 서비스 설정과 함께 **웹앱 구성** 페이지를 표시합니다. 여기서 웹앱에서 사용되는 설정을 변경할 수 있습니다.
-   
+
    > [!NOTE]
    > 여기서 설정을 변경하면 이 웹 앱에 대한 설정만 변경됩니다. 웹 서비스의 기본 설정을 변경되지 않습니다. 예를 들어, 여기에서 **설명**의 텍스트를 변경하면 Machine Learning Studio의 웹 서비스 대시보드에 표시되는 설명은 변경되지 않습니다.
-   > 
-   > 
-   
+   >
+   >
+
     완료되면 **변경 내용 저장**을 선택한 후 **홈페이지로 이동**을 선택합니다.
 
 7. 홈페이지에서 웹 서비스에 전송하는 값을 입력할 수 있습니다. 완료되면 **전송**을 선택하고 결과가 반환됩니다.
@@ -93,11 +106,11 @@ RR 템플릿과 동일한 방식으로 BES 웹앱 템플릿을 사용할 수 있
 
 ![BES 웹 템플릿을 사용하는 프로세스][image2]
 
-1. RRS 템플릿의 경우와 동일한 절차를 따라 BES 웹앱을 만듭니다. 그렇지만 이 경우에는 [Azure ML 일괄 처리 실행 서비스 웹앱 템플릿](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)으로 이동하여 Azure Marketplace의 BES 템플릿을 엽니다. **웹앱 만들기**를 선택합니다.
+1. RRS 템플릿의 경우와 동일한 절차를 따라 BES 웹앱을 만듭니다. 단, 이번에는 [Azure Machine Learning Studio 일괄 처리 실행 서비스 웹앱 템플릿](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)으로 이동하여 Azure Marketplace의 BES 템플릿을 엽니다. **웹앱 만들기**를 선택합니다.
 
 2. 결과를 저장하려는 위치를 지정하려면 웹앱 홈페이지에 대상 컨테이너 정보를 입력합니다. 또한 웹앱이 로컬 파일 또는 Azure Storage 컨테이너에 있는 입력 값을 가져올 수 있는 위치를 지정합니다.
    **제출**을 선택합니다.
-   
+
    ![저장소 정보][image7]
 
 웹앱은 작업 상태가 포함된 페이지를 표시합니다. 작업이 완료되면 Azure Blob Storage에서 결과의 위치를 알게 됩니다. 또한 결과를 로컬 파일에 다운로드할 옵션이 있습니다.

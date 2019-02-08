@@ -4,16 +4,16 @@ description: Anomaly Finder의 고급 알고리즘을 사용하여 Microsoft Cog
 services: cognitive-services
 author: tonyxing
 ms.service: cognitive-services
-ms.component: anomaly-detection
+ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
-ms.openlocfilehash: c0c15f077a0a7dd302a377aa6f82ba2f8533d862
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: ad0af6137e2a127e2f9981c2707906514bf8c591
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456255"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215200"
 ---
 # <a name="what-is-anomaly-finder"></a>Anomaly Finder란?
 
@@ -38,7 +38,7 @@ Anomaly Finder API를 사용해 보고 데이터에 대해 자세히 알아봅�
 
 ## <a name="requirements"></a>요구 사항
 
-- 입력 시계열의 최소 데이터: 명확한 주기가 없는 시계열의 경우 데이터 요소 최소 13개, 알려진 주기가 있는 시계열의 경우 데이터 요소 주기 최소 4개입니다. 
+- 입력 시계열용 최소 데이터: 명확한 주기가 없는 시계열의 경우 데이터 요소 최소 13개, 알려진 주기가 있는 시계열의 경우 데이터 요소 주기 최소 4개가 필요합니다. 
 - 데이터 무결성: 시계열 데이터 요소가 동일한 간격으로 구분되어 있고 누락된 요소가 없습니다. 
 
 ## <a name="identify-anomalies"></a>변칙 식별

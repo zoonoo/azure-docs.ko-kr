@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: 18e8b7699a388dabbf0e4f5cff7d4fb927e549c2
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853819"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697452"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 마이그레이션: Azure로의 마이그레이션을 위한 온-프레미스 워크로드 평가
 
@@ -121,11 +121,11 @@ Contoso 및 다른 사용자는 평가를 위해 다음 필수 조건을 충족�
 - 6.5, 6.0 또는 5.5 버전을 실행하는 온-프레미스 vCenter Server
 - vCenter Server의 읽기 전용 계정 또는 이러한 계정을 만들 수 있는 권한
 - .ova 템플릿을 사용하여 vCenter Server 인스턴스에 VM을 만들 수 있는 권한
-- 5.0 버전 이상을 실행하는 하나 이상의 ESXi 호스트
+- 5.5 이상 버전을 실행하는 하나 이상의 ESXi 호스트
 - 온-프레미스 VMware VM 두 대 이상(그 중 하나는 SQL Server 데이터베이스 실행).
 - 각 VM에 Azure Migrate 에이전트를 설치할 권한.
 - VM이 인터넷에 직접 연결되어야 합니다.  
-    - 인터넷 액세스는 [필수 URL](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites)로 제한할 수 있습니다.  
+    - 인터넷 액세스는 [필수 URL](https://docs.microsoft.com/azure/migrate/concepts-collector)로 제한할 수 있습니다.  
     - VM에 인터넷 연결이 없는 경우 Azure [Log Analytics Gateway](../azure-monitor/platform/gateway.md)를 설치하고, 이를 통해 에이전트 트래픽을 전달해야 합니다.
 - SQL Server 인스턴스를 실행하는 VM의 FQDN(데이터베이스 평가용).
 - SQL Server VM에서 실행되는 Windows 방화벽은 1433 TCP 포트(기본값)에서 외부 연결을 허용해야 합니다. 이 설정을 통해 Data Migration Assistant를 연결할 수 있습니다.
@@ -287,13 +287,7 @@ VM을 배포하기 전에 Contoso는 OVA 파일이 안전한지 확인합니다.
     **예제**
 
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 생성된 해시는 다음 설정과 일치해야 합니다(버전 1.0.9.15).
-
-    **알고리즘** | **해시 값**
-    --- | ---
-    MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
-    SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
-    SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+3. 생성된 해시는 [여기](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#continuous-discovery)에 나와 있는 해시 값과 일치해야 합니다.
 
 ### <a name="create-the-collector-appliance"></a>수집기 어플라이언스 만들기
 

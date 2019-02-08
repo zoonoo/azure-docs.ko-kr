@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014134"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296548"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -155,7 +155,10 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
 
 ![작업 실행 모니터링](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-**동작** 아래의 "**세부 정보**" 링크를 클릭하여 복사 작업의 실행 세부 정보 및 성능 특성을 볼 수 있습니다. 원본에서 복사된 데이터 볼륨/행/파일부터, 싱크, 처리량 및 거쳐 지나가는 단계를 포함하는 정보와 복사 시나리오의 해당 기간 및 사용된 구성이 표시됩니다.
+**동작** 아래의 "**세부 정보**" 링크를 클릭하여 복사 작업의 실행 세부 정보 및 성능 특성을 볼 수 있습니다. 원본에서 복사된 데이터 볼륨/행/파일부터, 싱크, 처리량 및 거쳐 지나가는 단계를 포함하는 정보와 복사 시나리오의 해당 기간 및 사용된 구성이 표시됩니다. 
+
+>[!TIP]
+>복사 모니터링 페이지 맨 위에 "**성능 튜닝 팁**"이 표시되는 시나리오도 있습니다. 이 팁은 식별된 병목 상태를 알려 주는 동시에 복사 처리량을 높이기 위해 변경해야 하는 항목도 안내합니다. 예제와 자세한 설명은 [여기](#performance-and-tuning)서 확인할 수 있습니다.
 
 **예: Amazon S3에서 Azure Data Lake Store로 복사**
 ![작업 실행 세부 정보 모니터링](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -232,6 +235,14 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 
 Azure Data Factory의 데이터 이동(복사 활동) 성능에 영향을 주는 주요 요인에 대해 설명하는 [복사 작업 성능 및 튜닝 가이드](copy-activity-performance.md)를 참조하세요. 이 문서에서는 내부 테스트 중에 관찰되는 성능 관련 정보도 제공하며, 복사 활동의 성능을 최적화하는 여러 가지 방법에 대해서도 설명합니다.
+
+ADF에서 복사 작업을 실행하면 다음 예제에 나와 있는 것처럼 [복사 작업 모니터링 페이지](#monitor-visually) 맨 위에 "**성능 튜닝 팁**"이 직접 표시되는 경우가 있습니다. 이 메시지는 지정된 복사 실행과 관련하여 식별된 병목 상태를 알려 주는 동시에 복사 처리량을 높이기 위해 변경해야 하는 항목도 안내합니다. 현재 성능 튜닝 팁에서는 Azure SQL Data Warehouse로 데이터를 복사할 때 PolyBase를 사용하거나, 데이터 저장소 쪽의 리소스가 병목 상태일 때 Azure Cosmos DB RU 또는 Azure SQL DB DTU를 늘리거나, 불필요한 스테이징된 복사본을 제거하는 등의 제안이 제공됩니다. 성능 튜닝 규칙도 점진적으로 보강됩니다.
+
+**예제: 성능 튜닝 팁을 참조하여 Azure SQL DB로 복사**
+
+이 샘플에서는 복사 실행 중에 싱크 Azure SQL DB의 DTU 사용률이 높아져 쓰기 작업의 속도가 느려짐을 ADF가 확인하여 Azure SQL DB 계층의 DTU를 늘리라는 제안을 제공합니다. 
+
+![성능 튜닝 팁을 사용한 복사 모니터링](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>증분 복사 
 Data Factory에서는 원본 데이터 저장소에서 대상 데이터 저장소로 델타 데이터를 증분 방식으로 복사하기 위한 시나리오를 지원합니다. [자습서: 증분 방식으로 데이터 복사](tutorial-incremental-copy-overview.md)를 참조하세요. 

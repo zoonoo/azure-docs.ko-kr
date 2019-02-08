@@ -2,19 +2,19 @@
 title: Azure Container Registry로 인증
 description: Azure 컨테이너 레지스트리에 대한 인증 옵션(Azure Active Directory ID로 로그인, 서비스 주체 사용 및 선택적 관리자 자격 사용 등)입니다.
 services: container-registry
-author: stevelas
+author: dlepow
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/21/2018
-ms.author: stevelas
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 66f9c41e2551dffc32932f1cfa53fa444251b303
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851728"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301053"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>개인 Docker 컨테이너 레지스트리로 인증
 
@@ -32,9 +32,11 @@ Azure Container Registry는 인증되지 않은 Docker 작업 또는 익명 액�
 az acr login --name <acrName>
 ```
 
-`az acr login`을 사용하여 로그인하는 경우 CLI는 [az login](/cli/azure/reference-index#az-login)을 실행할 때 만든 토큰을 사용하여 원활하게 레지스트리로 세션을 인증합니다. 이러한 방식으로 로그인하고 나면 자격 증명이 캐시되고 후속 `docker` 명령에 사용자 이름 또는 암호가 필요하지 않습니다. 토큰이 만료될 경우 다시 `az acr login` 명령을 사용하여 토큰을 새로 고친 후 다시 인증합니다. Azure ID와 함께 `az acr login`을 사용하면 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 제공합니다.
+`az acr login`을 사용하여 로그인하는 경우 CLI는 [az login](/cli/azure/reference-index#az-login)을 실행할 때 만든 토큰을 사용하여 원활하게 레지스트리로 세션을 인증합니다. 이러한 방식으로 로그인하고 나면 자격 증명이 캐시되고 세션의 후속 `docker` 명령에 사용자 이름 또는 암호가 필요하지 않습니다. 
 
-Azure AD에서 개인 ID로 레지스트리에 로그인하려는 시나리오가 있을 수 있습니다. 교차 서비스 시나리오 또는 개별 액세스를 관리하지 않으려는 작업 그룹의 요구 사항을 처리해야 하는 시나리오에서는 [Azure 리소스에 대한 관리 ID](container-registry-authentication-managed-identity.md)로 로그인할 수도 있습니다.
+레지스트리 액세스의 경우 `az acr login`에 사용되는 토큰은 1시간 동안 유효하므로 항상 `docker` 명령을 실행하기 전에 레지스트리에 로그인하는 것이 좋습니다. 토큰이 만료될 경우 다시 `az acr login` 명령을 사용하여 토큰을 새로 고친 후 다시 인증합니다. 
+
+Azure ID와 함께 `az acr login`을 사용하면 [역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 제공합니다. Azure AD에서 개인 ID로 레지스트리에 로그인하려는 시나리오가 있을 수 있습니다. 교차 서비스 시나리오 또는 개별 액세스를 관리하지 않으려는 작업 그룹의 요구 사항을 처리해야 하는 시나리오에서는 [Azure 리소스에 대한 관리 ID](container-registry-authentication-managed-identity.md)로 로그인할 수도 있습니다.
 
 ## <a name="service-principal"></a>서비스 주체
 
@@ -58,15 +60,13 @@ Azure 컨테이너 레지스트리를 사용하여 인증하거나 기존 서비
 
   * *푸시*: 컨테이너 이미지를 빌드하고 Azure Pipelines 또는 Jenkins와 같은 지속적인 통합 및 배포 솔루션을 사용하여 레스트리에 푸시합니다.
 
-또한 서비스 주체로 직접 로그인할 수도 있습니다. 다음과 같이 서비스 주체의 앱 ID와 암호를 `docker login` 명령에 제공합니다.
+또한 서비스 주체로 직접 로그인할 수도 있습니다. 다음 명령을 실행할 때 메시지가 표시되면 서비스 주체 appID(사용자 이름) 및 암호를 대화식으로 입력하세요. 로그인 자격 증명 관리 모범 사례는 [docker 로그인](https://docs.docker.com/engine/reference/commandline/login/) 명령 참조를 참조하세요.
 
-```
-docker login myregistry.azurecr.io -u <SP_APP_ID> -p <SP_PASSWD>
+```Docker
+docker login myregistry.azurecr.io
 ```
 
 로그인하면 Docker에서 자격 증명을 캐시하므로 앱 ID를 기억할 필요가 없습니다.
-
-설치한 Docker 버전에 따라 `--password-stdin` 매개 변수 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 문서의 범위 외부에서 사용하는 경우 이 모범 사례를 따르는 것이 좋습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령 참조를 참조하세요.
 
 > [!TIP]
 > [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) 명령을 실행하여 서비스 주체의 암호를 다시 생성할 수 있습니다.
@@ -74,19 +74,18 @@ docker login myregistry.azurecr.io -u <SP_APP_ID> -p <SP_PASSWD>
 
 ## <a name="admin-account"></a>관리자 계정
 
-각 컨테이너 레지스트리에는 관리 사용자 계정이 포함되어 있으며 기본적으로 사용하지 않도록 설정되어 있습니다. 관리 사용자를 사용하도록 설정하고 [Azure Portal](container-registry-get-started-portal.md#create-a-container-registry)에서 또는 Azure CLI를 사용하거나 기타 Azure 도구를 사용하여 해당 자격 증명을 관리할 수 있습니다.
+각 컨테이너 레지스트리에는 관리 사용자 계정이 포함되어 있으며 기본적으로 사용하지 않도록 설정되어 있습니다. 관리 사용자를 사용하도록 설정하고 Azure Portal에서 또는 Azure CLI나 기타 Azure 도구를 사용하여 해당 자격 증명을 관리할 수 있습니다.
 
 > [!IMPORTANT]
 > 관리자 계정은 주로 테스트 용도로 단일 사용자가 레지스트리에 액세스하도록 설계되었습니다. 관리자 계정 자격 증명을 여러 사용자와 공유하지 않는 것이 좋습니다. 관리자 계정으로 인증하는 모든 사용자는 레지스트리에 대한 푸시 및 풀 액세스 권한이 있는 단일 사용자로 나타납니다. 이 계정을 변경하거나 사용하지 않도록 설정하면 해당 자격 증명을 사용하는 모든 사용자의 레지스트리 액세스는 허용되지 않습니다. 헤드리스 시나리오의 경우 사용자 및 서비스 주체는 개별 ID를 사용하는 것이 좋습니다.
 >
 
-관리자 계정은 두 개의 암호가 제공되며, 둘 다 다시 생성할 수 있습니다. 두 개의 암호를 사용하면 다른 암호를 다시 생성하는 동안에 하나의 암호를 사용하여 레지스트리에 대한 연결을 유지할 수 있습니다. 관리자 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증을 위해 사용자 이름과 둘 중 한 가지 암호를 `docker login` 명령에 전달할 수 있습니다. 예: 
+관리자 계정은 두 개의 암호가 제공되며, 둘 다 다시 생성할 수 있습니다. 두 개의 암호를 사용하면 다른 암호를 다시 생성하는 동안에 하나의 암호를 사용하여 레지스트리에 대한 연결을 유지할 수 있습니다. 관리자 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증 메시지가 표시될 때 사용자 이름과 둘 중 한 가지 암호를 `docker login` 명령에 전달할 수 있습니다. 예: 
 
-```
-docker login myregistry.azurecr.io -u myAdminName -p myPassword1
+```Docker
+docker login myregistry.azurecr.io 
 ```
 
-향상된 보안을 위해 명령줄에 암호를 제공하는 대신 `--password-stdin` 매개 변수를 사용하는 것이 좋습니다. `-p` 없이 사용자 이름만 지정하고 메시지가 표시되면 암호를 입력할 수 있습니다.
 
 기존 레지스트리에 대한 관리 사용자를 사용하도록 설정하려면 Azure CLI에서 [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) 명령의 `--admin-enabled` 매개 변수를 사용하면 됩니다.
 

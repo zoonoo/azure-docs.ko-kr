@@ -3,7 +3,7 @@ title: Linux VM용 Windows를 통한 SSH 키 사용 | Microsoft Docs
 description: Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure에서 Linux 가상 머신에 연결하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: danlep
-ms.openlocfilehash: abb0ba6eace2e837ea2f74a0d919097f8801101e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407419"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298656"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -72,7 +72,7 @@ PuTTYgen을 사용하여 SSH RSA 키 쌍을 만들려면:
 
 4. 빈 영역으로 마우스를 이동하여 키에 대한 임의성을 제공합니다.
 
-5. 공개 키를 생성한 후 필요에 따라 전달 구를 입력하고 확인합니다. 개인 SSH 키를 사용하여 VM을 인증할 경우 전달 구를 입력하라는 메시지가 표시됩니다. 전달 구를 사용하지 않을 때 개인 키를 가져오면 해당 키를 사용하는 모든 VM 또는 서비스에 로그인 할 수 있습니다. 따라서 전달 구를 만드는 것이 좋습니다. 하지만 전달 구를 잊어버린 경우에는 복구할 수 있는 방법이 없으므로 주의해야 합니다.
+5. 공개 키를 생성한 후 필요에 따라 전달 구를 입력하고 확인합니다. 개인 SSH 키를 사용하여 VM을 인증할 경우 전달 구를 입력하라는 메시지가 표시됩니다. 암호를 사용하지 않으면 개인 키를 입수하는 사용자가 해당 키를 사용하는 모든 VM 또는 서비스에 로그인할 수 있게 됩니다. 따라서 전달 구를 만드는 것이 좋습니다. 하지만 전달 구를 잊어버린 경우에는 복구할 수 있는 방법이 없으므로 주의해야 합니다.
 
 6. 공개 키는 창의 맨 위에 표시됩니다. Linux VM을 만들 때 이 전체 공개 키를 복사한 다음, Azure Portal 또는 Azure Resource Manager 템플릿에 붙여넣습니다. **공개 키 저장**을 선택하여 컴퓨터에 복사본을 저장할 수도 있습니다.
 
@@ -105,6 +105,8 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
 키 쌍을 만들 때 암호를 구성한 경우 로그인 프로세스 중에 메시지가 표시되면 암호를 입력합니다.
+
+VM이 Just-In-Time 액세스 정책을 사용하는 경우에는 액세스 권한을 요청해야 VM에 연결할 수 있습니다. Just-In-Time 정책과 관련된 자세한 내용은 [Just-In-Time 정책을 사용하여 가상 머신 액세스 관리](../../security-center/security-center-just-in-time.md)를 참조하세요.
 
 ### <a name="connect-with-putty"></a>PuTTY로 연결
 

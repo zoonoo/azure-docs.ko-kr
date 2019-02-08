@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 688194c8d5ec0c2594d8c7178d8cae3925b8e482
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: bc85de9d2d94cd325095f5f6555105a724865005
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413377"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213325"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Speech Service API에 대한 언어 및 지역 지원
 
@@ -79,6 +79,10 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
 |--------|----------|---------|--------------------|
 | en-US | 영어(미국) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
 | en-US | 영어(미국) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+| zh-CN | 중국어 | Female | "Microsoft Server Speech Text to Speech Voice(zh-CN, XiaoxiaoNeural)" |
+
+> [!IMPORTANT]
+> Microsoft Server Speech Text to Speech Voice(zh-CN, XiaoxiaoNeural)은 동남 아시아 엔드포인트(https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1)를 통해서만 제공됩니다.
 
 ### <a name="standard-voices"></a>표준 음성
 

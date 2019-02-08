@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 236809336975eec94d7decd9822fc9143ae19bfb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 692f6b1f02c6c1e86170971886e83722d0160838
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981028"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203592"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 컴퓨터에 Oracle ASM 설정  
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>VM 만들기
 
-Oracle Database 이미지에 따라 가상 머신을 만들고 Oracle ASM을 사용하도록 구성하려면 [az vm create](/cli/azure/vm#az_vm_create) 명령을 사용합니다. 
+Oracle Database 이미지에 따라 가상 머신을 만들고 Oracle ASM을 사용하도록 구성하려면 [az vm create](/cli/azure/vm) 명령을 사용합니다. 
 
 다음 예에서는 각 50GB인 네 개의 연결된 데이터 디스크를 포함한 Standard_DS2_v2 크기의 myVM이라는 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다.  특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  
 
@@ -513,7 +513,7 @@ Oracle ASM 설치를 설정하려면 다음 단계를 완료합니다.
 
    Oracle ASM 구성 도우미가 열립니다.
 
-2. **ASM 구성: 디스크 그룹** 대화 상자에서 `Create` 단추를 클릭한 다음 `Show Advanced Options`을 클릭합니다.
+2. **ASM 구성: 디스크 그룹** 대화 상자에서 `Create` 단추를 클릭한 다음 `Show Advanced Options`를 클릭합니다.
 
 3. **디스크 그룹 만들기** 대화 상자에서 다음을 수행합니다.
 
@@ -525,7 +525,7 @@ Oracle ASM 설치를 설정하려면 다음 단계를 완료합니다.
 
    ![디스크 그룹 만들기 대화 상자의 스크린샷](./media/oracle-asm/asm02.png)
 
-4. **ASM 구성: 디스크 그룹** 대화 상자에서 `Create` 단추를 클릭한 다음 `Show Advanced Options`을 클릭합니다.
+4. **ASM 구성: 디스크 그룹** 대화 상자에서 `Create` 단추를 클릭한 다음 `Show Advanced Options`를 클릭합니다.
 
 5. **디스크 그룹 만들기** 대화 상자에서 다음을 수행합니다.
 

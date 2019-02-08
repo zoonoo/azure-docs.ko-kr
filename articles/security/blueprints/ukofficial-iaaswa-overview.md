@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413399"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239922"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
 
@@ -204,7 +204,7 @@ Storage
 
 **문제의 분리** 이 참조 아키텍처는 관리 작업 및 비즈니스 운영에 대한 VNet을 분리합니다. 별도 VNet 및 서브넷은 [Microsoft 클라우드 서비스 및 네트워크 보안](https://docs.microsoft.com/azure/best-practices-network-security) 모범 사례를 따르는 네트워크 세그먼트 간에 NSG를 사용하여 트래픽 수신 및 송신 제한을 비롯한 트래픽 관리를 허용합니다.
 
-**리소스 관리**: VM, VNet 및 부하 분산 장치와 같은 Azure 리소스는 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource)으로 함께 그룹화하여 관리됩니다. 리소스 기반 액세스 제어 역할을 각 리소스 그룹에 할당하여 권한 있는 사용자에 대한 액세스만을 제한할 수 있습니다.
+**리소스 관리**: VM, VNet 및 부하 분산 장치와 같은 Azure 리소스는 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)으로 함께 그룹화하여 관리됩니다. 리소스 기반 액세스 제어 역할을 각 리소스 그룹에 할당하여 권한 있는 사용자에 대한 액세스만을 제한할 수 있습니다.
 
 **액세스 제어 제한**: RBAC([역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal))를 사용하여 [사용자 정의 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 사용하는 애플리케이션의 리소스를 관리합니다. RBAC를 사용하여 DevOps가 각 계층에서 수행할 수 있는 작업을 제한할 수 있습니다. 사용 권한을 부여할 때 [최소 권한의 원칙](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)을 사용합니다. 모든 관리 작업을 기록하고 정기 감사를 수행하여 구성 변경을 계획했는지 확인합니다.
 

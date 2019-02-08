@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463034"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251982"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -57,6 +57,7 @@ ms.locfileid: "54463034"
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure Data Explorer
+* Azure Database for MariaDB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps - 타사 확장을 구매한 Azure DevOps 조직은 [구매를 취소](https://go.microsoft.com/fwlink/?linkid=871160)해야 구독 간에 계정을 이동할 수 있습니다.
@@ -99,7 +100,7 @@ ms.locfileid: "54463034"
 * 포털 대시보드
 * Power BI - Power BI Embedded 및 Power BI Workspace Collection 모두
 * 공용 IP - 기본 SKU 공용 IP는 이동할 수 있습니다. 표준 SKU 공용 IP는 이동할 수 없습니다.
-* Recovery Services 자격 증명 모음 - [제한된 공개 미리 보기](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault)에 구독을 등록합니다.
+* Recovery Services 자격 증명 모음 - [비공개 미리 보기](#recovery-services-limitations)에 등록합니다.
 * Azure Cache for Redis - 가상 네트워크를 사용하여 Azure Cache for Redis 인스턴스를 구성하는 경우 다른 구독으로 인스턴스를 이동할 수 없습니다. [가상 네트워크 제한 사항](#virtual-networks-limitations)을 참조하십시오.
 * Scheduler
 * Search - 서로 다른 지역의 여러 Search 리소스를 하나의 작업으로 모두 이동할 수는 없습니다. 대신 별도 작업으로 이동합니다.
@@ -176,7 +177,7 @@ Azure Backup으로 구성한 가상 머신을 이동하려면 다음 해결 방�
 * 가상 머신의 위치를 찾습니다.
 * 명명 패턴이 `AzureBackupRG_<location of your VM>_1`인 리소스 그룹을 찾습니다(예: AzureBackupRG_westus2_1).
 * Azure Portal에서 작업하는 경우 “숨겨진 형식 표시”를 선택합니다.
-* PowerShell에서 작업하는 경우에는 `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet을 사용합니다.
+* PowerShell에서 작업하는 경우에는 `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet을 사용합니다.
 * CLI에서 작업하는 경우에는 `az resource list -g AzureBackupRG_<location of your VM>_1`을 사용합니다.
 * 종류가 `Microsoft.Compute/restorePointCollections`이고 명명 패턴이 `AzureBackup_<name of your VM that you're trying to move>_###########`인 리소스를 찾습니다.
 * 이 리소스를 삭제합니다. 이 작업은 자격 증명 모음의 백업된 데이터가 아니라 인스턴트 복구 지점만 삭제합니다.
@@ -307,7 +308,7 @@ App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 �
 
 ### <a name="recovery-services-limitations"></a>Recovery Services 제한 사항
 
- Recovery Services 자격 증명 모음을 이동하려면 [제한된 공개 미리 보기](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault)에 구독을 등록합니다.
+ Recovery Services 자격 증명 모음을 이동하려면 비공개 미리 보기에 등록해야 합니다. 체험해 보려면 AskAzureBackupTeam@microsoft.com에 메일을 보내세요.
 
 현재 지역별로 한 번에 하나의 Recovery Services 자격 증명 모음을 이동할 수 있습니다. Azure Files, Azure 파일 동기화 또는 IaaS 가상 머신의 SQL을 백업하는 자격 증명 모음은 이동할 수 없습니다.
 
@@ -336,13 +337,15 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 
 리소스를 이동하기 전에 몇 가지 중요한 단계가 있습니다. 이러한 조건을 확인하면 오류를 방지할 수 있습니다.
 
+1. 원본 및 대상 구독이 활성 상태여야 합니다. 사용하지 않도록 설정된 계정을 사용하도록 설정하는 과정에서 문제가 발생하면 [Azure 지원 요청을 작성](../azure-supportability/how-to-create-azure-support-request.md)하세요. 문제 유형으로 **구독 관리**를 선택합니다.
+
 1. 원본 및 대상 구독은 동일한 [Azure Active Directory 테넌트](../active-directory/develop/quickstart-create-new-tenant.md) 내에 있어야 합니다. 두 구독이 모두 동일한 테넌트 ID를 갖는지 확인하려면 Azure PowerShell 또는 Azure CLI를 사용합니다.
 
   Azure PowerShell의 경우 다음을 사용합니다.
 
   ```azurepowershell-interactive
-  (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
 
   Azure CLI의 경우 
@@ -362,14 +365,14 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
   PowerShell의 경우 다음 명령을 사용하여 등록 상태를 가져옵니다.
 
   ```azurepowershell-interactive
-  Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
-  Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+  Set-AzContext -Subscription <destination-subscription-name-or-id>
+  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   리소스 공급자를 등록하려면 다음을 사용합니다.
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
   Azure CLI의 경우 다음 명령을 사용하여 등록 상태를 가져옵니다.
@@ -473,12 +476,12 @@ Authorization: Bearer <access-token>
 
 ### <a name="by-using-azure-powershell"></a>Azure PowerShell 사용
 
-다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) 명령을 사용합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다.
+다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 [Move-AzResource](/powershell/module/az.resources/move-azresource) 명령을 사용합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다.
 
 ```azurepowershell-interactive
-$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
 새 구독으로 이동하려면 `DestinationSubscriptionId` 매개 변수 값을 포함합니다.

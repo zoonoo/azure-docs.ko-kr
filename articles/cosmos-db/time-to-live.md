@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fbbaefc62adedc2374c47fd0736368d3dec3e6a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043433"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461171"
 ---
-# <a name="time-to-live-for-azure-cosmos-db-data"></a>Azure Cosmos DB 데이터에 대한 TTL(Time to Live)
+# <a name="time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB의 TTL(Time to Live) 
 
 Azure Cosmos DB는 “Time to Live” 또는 TTL을 통해 일정 기간이 지난 후 컨테이너에서 항목을 자동으로 삭제하는 기능을 제공합니다. 기본적으로 컨테이너 수준에서 TTL(Time to Live)을 설정하거나 항목별 기준으로 값을 재정의할 수 있습니다. 컨테이너 또는 항목 수준에서 TTL을 설정하면 Azure Cosmos DB는 마지막으로 수정한 시간으로부터 해당 시간이 지나면 이러한 항목이 자동으로 제거합니다. TTL(Time to Live) 값은 초 단위로 구성됩니다. TTL을 구성하면 시스템에서는 클라이언트 애플리케이션에서 명시적으로 발급된 삭제 작업과 달리 TTL 값을 기준으로 만료된 항목을 자동으로 삭제합니다.
 

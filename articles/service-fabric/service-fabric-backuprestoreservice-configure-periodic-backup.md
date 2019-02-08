@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 14d7ae7cc347b771dfdb1209bc8d55c484d00db0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322098"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193734"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service Fabric의 정기 백업 구성 이해
 
@@ -219,7 +219,7 @@ Service Fabric에서 애플리케이션, 서비스 및 파티션 간의 관계�
 * 일시 중단이 파티션에서 적용된 경우에는 [Resume Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup)(파티션 백업 다시 시작) API를 사용하여 다시 시작해야 합니다.
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>일시 중단 및 백업 사용 안 함 간의 차이
-백업 사용 안 함은 백업이 특정 애플리케이션, 서비스 또는 파티션에 더이상 필요하지 않는 경우 사용되어야 합니다. 실제로 기존 백업도 모두 삭제된다는 것을 의미하는 클린 백업 매개 변수와 함께 백업 사용 안 함 요청을 호출할 수 있습니다. 단, 로컬 디스크가 가득 차거나 알려진 네트워크 문제 등으로 인해 백업 업로드가 실패하는 경우와 같이 일시적으로 백업을 끄려는 시나리오에서는 일시 중단이 사용됩니다. 
+백업 사용 안 함은 백업이 특정 애플리케이션, 서비스 또는 파티션에 더이상 필요하지 않는 경우 사용되어야 합니다. clean backups 매개 변수를 true로 설정하여 백업 사용 안 함 요청을 호출할 수 있습니다. 그러면 모든 기존 백업도 삭제됩니다. 단, 로컬 디스크가 가득 차거나 알려진 네트워크 문제 등으로 인해 백업 업로드가 실패하는 경우와 같이 일시적으로 백업을 끄려는 시나리오에서는 일시 중단이 사용됩니다. 
 
 사용 안 함은 명시적으로 이전에 백업에 대해 사용하도록 설정되었던 수준에서만 호출할 수 있는 반면, 일시 중단은 직접 또는 상속/계층 구조를 통해 현재 백업에 대해 사용하도록 설정된 모든 수준에서 적용될 수 있습니다. 예를 들어, 애플리케이션 수준에서 백업이 사용하도록 설정된 경우 사용 안 함은 애플리케이션 수준에서만 호출될 수 있지만, 일시 중단은 해당 애플리케이션 아래의 서비스 또는 파티션에서 호출될 수 있습니다. 
 

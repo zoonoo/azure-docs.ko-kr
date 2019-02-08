@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600865"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455068"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
@@ -50,7 +50,7 @@ Intelligent Insights는 쿼리 실행 대기 시간, 오류 또는 시간 제한
 | [가격 책정 계층 다운그레이드](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | 가격 책정 계층 다운그레이드 작업으로 사용 가능한 리소스가 감소되었습니다. 이는 SQL Database 성능에 영향을 줍니다. | 가격 책정 계층 다운그레이드 작업으로 사용 가능한 리소스가 감소되었습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
 
 > [!TIP]
-> SQL Database에 대해 연속적으로 성능을 최적화하려면 [Azure SQL Database 자동 튜닝](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning)을 활성화하세요. SQL Database에 기본 제공되는 이 인텔리전스 기능은 SQL 데이터베이스를 지속적으로 모니터링하고 인덱스를 자동으로 조정하며 쿼리 실행 계획의 수정 사항을 적용합니다.
+> SQL Database에 대해 연속적으로 성능을 최적화하려면 [Azure SQL Database 자동 튜닝](sql-database-automatic-tuning.md)을 활성화하세요. SQL Database에 기본 제공되는 이 인텔리전스 기능은 SQL 데이터베이스를 지속적으로 모니터링하고 인덱스를 자동으로 조정하며 쿼리 실행 계획의 수정 사항을 적용합니다.
 >
 
 다음 섹션에서는 검색 가능한 성능 패턴에 대해 자세히 설명합니다.
@@ -61,7 +61,7 @@ Intelligent Insights는 쿼리 실행 대기 시간, 오류 또는 시간 제한
 
 이 검색 가능한 성능 패턴은 사용 가능한 리소스 제한, 작업자 제한, 세션 제한 도달과 관련된 성능 문제를 결합합니다. 이 성능 문제가 감지되면 진단 로그의 설명 필드에 성능 문제가 리소스, 작업자 또는 세션 제한 중 어디에 관련되어 있는지가 표시됩니다.
 
-SQL Database의 리소스는 일반적으로 [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) 또는 [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) 리소스라고 합니다. 리소스 제한 도달 패턴은 측정된 리소스 제한 중 하나에 도달하여 쿼리 성능 저하가 발견될 때 인식됩니다.
+SQL Database의 리소스는 일반적으로 [DTU](sql-database-what-is-a-dtu.md) 또는 [vCore](sql-database-service-tiers-vcore.md) 리소스라고 합니다. 리소스 제한 도달 패턴은 측정된 리소스 제한 중 하나에 도달하여 쿼리 성능 저하가 발견될 때 인식됩니다.
 
 이러한 세션 한도는 SQL 데이터베이스에 대해 사용 가능한 동시 로그인 수를 지정합니다. 이 성능 패턴은 SQL 데이터베이스에 연결하는 애플리케이션이 데이터베이스에 사용 가능한 동시 로그인 수에 도달하는 경우에 인식됩니다. 애플리케이션이 데이터베이스에서 사용할 수 있는 것보다 많은 세션을 사용하려고 하면 쿼리 성능에 영향을 줍니다.
 
@@ -73,7 +73,7 @@ SQL Database의 리소스는 일반적으로 [DTU](https://docs.microsoft.com/az
 
 사용 가능한 세션 제한에 도달한 경우 데이터베이스에 대한 로그인 수를 줄여 애플리케이션을 최적화할 수 있습니다. 애플리케이션에서 데이터베이스에 접속하는 로그인 수를 줄일 수 없는 경우 데이터베이스의 가격 계층을 높이는 것이 좋습니다. 또는 데이터베이스를 여러 데이터베이스로 나누고 이동해 워크로드를 더욱 균형 있게 배분할 수 있습니다.
 
-세션 제한 해결에 대한 자세한 제안 사항은 [SQL Database 최대 로그인 수 제한을 처리하는 방법(영문)](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)을 참조하세요. 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버의 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
+세션 제한 해결에 대한 자세한 제안 사항은 [SQL Database 최대 로그인 수 제한을 처리하는 방법(영문)](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)을 참조하세요. 서버 및 구독 수준의 한도에 관한 정보는 [SQL Database 서버의 리소스 한도 개요](sql-database-resource-limits-database-server.md)를 참조하세요.
 
 ## <a name="workload-increase"></a>워크로드 증가
 

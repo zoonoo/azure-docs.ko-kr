@@ -1,6 +1,6 @@
 ---
-제목: 여러 지역에 Studio 웹 서비스 배포 titleSuffix: Azure Machine Learning Studio 설명: 새 웹 서비스를 다른 영역을 배포(복사)하는 단계입니다. 여러 구독 또는 작업 영역 없이 여러 지역에 웹 서비스를 쉽게 배포합니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 여러 지역에 Studio 웹 서비스 배포 titleSuffix: Azure Machine Learning Studio 설명: 새 웹 서비스를 다른 영역을 배포(복사)하는 단계입니다. 여러 구독 또는 작업 영역 없이 여러 지역에 웹 서비스를 쉽게 배포합니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/04/19
 ---

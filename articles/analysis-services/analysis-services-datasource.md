@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e1a001a60151136be6bde9de38f971807cf0c288
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188405"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299047"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -23,17 +23,20 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 
 |데이터 원본  |메모리 내  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database     |   예      |    예      |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예      |    예      |
 |Azure SQL Data Warehouse     |   예      |   예       |
-|Azure Blob Storage*     |   예       |    아니요      |
-|Azure Table Storage*    |   예       |    아니요      |
-|Azure Cosmos DB*     |  예        |  아니요        |
-|Azure Data Lake Store*     |   예       |    아니요      |
-|Azure HDInsight HDFS*     |     예     |   아니요       |
-|Azure HDInsight Spark*     |   예       |   아니요       |
+|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예       |    아니요      |
+|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예       |    아니요      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아니요        |
+|Azure Data Lake Store<sup>[1](#tab1400a)</sup>     |   예       |    아니요      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     예     |   아니요       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예       |   아니요       |
 ||||
 
-\* 테이블 형식 1400 모델에만 해당합니다.
+<a name="tab1400a">1</a> 테이블 형식 1400 이상 모델에만 해당됩니다.   
+<a name="azsqlmanaged">2</a> Azure SQL Database Managed Instance가 지원도비니다. Managed Instance는 Azure VNet 내에서 개인 IP 주소를 사용하여 실행되므로 온-프레미스 데이터 게이트웨이가 필요합니다.   
+<a name="databricks">3</a> Spark 커넥터를 사용하는 Azure Databricks는 현재 지원되지 않습니다.
+
 
 **공급자**   
 Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델은 .NET Framework Data Provider for SQL Server를 사용합니다.
@@ -57,31 +60,31 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 |데이터 원본  |  
 |---------|---------|
 |Access 데이터베이스     |  
-|Active Directory*     |  
+|Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |분석 플랫폼 시스템     |  
-|Dynamics CRM*     |  
+|Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Excel 통합 문서     |  
-|Exchange*     |  
-|폴더*     |
-|IBM Informix*(베타) |
-|JSON 문서*     |  
-|이진의 줄*     | 
+|Exchange<sup>[1](#tab1400b)</sup>     |  
+|Folder<sup>[1](#tab1400b)</sup>     |
+|IBM Informix<sup>[1](#tab1400b)</sup>(베타) |
+|JSON 문서<sup>[1](#tab1400b)</sup>     |  
+|이진의 줄<sup>[1](#tab1400b)</sup>     | 
 |MySQL 데이터베이스     | 
-|OData 피드*     |  
+|OData 피드<sup>[1](#tab1400b)</sup>     |  
 |ODBC 쿼리     | 
 |OLE DB     |   
-|Postgre SQL Database*    | 
-|Salesforce 개체* |  
-|Salesforce 보고서* |
-|SAP HANA*    |  
-|SAP Business Warehouse*    |  
-|SharePoint*     |   
+|Postgre SQL Database<sup>[1](#tab1400b)</sup>    | 
+|Salesforce 개체<sup>[1](#tab1400b)</sup> |  
+|Salesforce 보고서<sup>[1](#tab1400b)</sup> |
+|SAP HANA<sup>[1](#tab1400b)</sup>    |  
+|SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
+|SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase 데이터베이스     |  
-|XML 테이블*    |  
+|XML 테이블<sup>[1](#tab1400b)</sup>    |  
 |||
  
-\* 테이블 형식 1400 모델에만 해당합니다.
+<a name="tab1400b">1</a> 테이블 형식 1400 이상 모델에만 해당됩니다.
 
 ## <a name="specifying-a-different-provider"></a>다른 공급자 지정
 

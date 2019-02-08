@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3b3f1268866c936ae4674188f8e3297702167415
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599436"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473428"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 
@@ -46,7 +46,7 @@ SQL Database는 이러한 시나리오를 완화할 수 있는 자동화된 백�
 
 - [temporal 테이블](sql-database-temporal-tables.md)을 사용하면 특정 시점의 행 버전을 복원할 수 있습니다.
 - [기본 제공 자동화된 백업](sql-database-automated-backups.md) 및 [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 사용하면 전체 데이터베이스를 지난 35일 이내의 특정 시점으로 복원할 수 있습니다.
-- **논리 서버가 삭제되지 않은 경우** [삭제된 데이터베이스를 삭제된 시점으로 복원](sql-database-recovery-using-backups.md#deleted-database-restore)할 수 있습니다.
+- **SQL Database 서버가 삭제되지 않은 경우** [삭제된 데이터베이스를 삭제된 시점으로 복원](sql-database-recovery-using-backups.md#deleted-database-restore)할 수 있습니다.
 - [장기 백업 보존](sql-database-long-term-retention.md)을 사용하면 백업을 최대 10년 동안 유지할 수 있습니다.
 - [활성 지역 복제](sql-database-active-geo-replication.md)를 사용하면 데이터 센터 중단 또는 애플리케이션 업그레이드 시 읽기 쉬운 복제본을 만들고 복제본에 수동으로 장애 조치(failover)할 수 있습니다.
 - [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities)을 사용하면 데이터 센터 중단 시 애플리케이션에서 빠른 재해 복구를 수행할 수 있습니다.
@@ -63,7 +63,7 @@ SQL Database는 이러한 시나리오를 완화할 수 있는 자동화된 백�
 
 ## <a name="recover-a-database-to-the-existing-server"></a>기존 서버에 데이터베이스 복구
 
-SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 매주 전체 데이터베이스 백업, 일반적으로 12시간 간격의 차등 데이터베이스 백업 및 5-10분 간격의 트랜잭션 로그 백업을 조합하여 자동으로 수행합니다. 백업은 7일 동안 백업이 저장되는 기본 DTU 서비스 계층을 제외한 모든 서비스 계층에 대해 35일 동안 RA-GRS 저장소에 저장됩니다. 자세한 내용은 [자동 데이터베이스 백업](sql-database-automated-backups.md)을 참조하세요. Azure Portal, PowerShell 또는 REST API를 사용하여 자동화된 백업에서 이전의 특정 시점으로 기존 데이터베이스를 동일한 논리 서버의 새 데이터베이스로 복원할 수 있습니다. 자세한 내용은 [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 참조하세요.
+SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 매주 전체 데이터베이스 백업, 일반적으로 12시간 간격의 차등 데이터베이스 백업 및 5-10분 간격의 트랜잭션 로그 백업을 조합하여 자동으로 수행합니다. 백업은 7일 동안 백업이 저장되는 기본 DTU 서비스 계층을 제외한 모든 서비스 계층에 대해 35일 동안 RA-GRS 저장소에 저장됩니다. 자세한 내용은 [자동 데이터베이스 백업](sql-database-automated-backups.md)을 참조하세요. Azure Portal, PowerShell 또는 REST API를 사용하여 자동화된 백업의 기존 데이터베이스를 특정 이전 시점의 상태로 동일한 SQL Database 서버에 새 데이터베이스로 복원할 수 있습니다. 자세한 내용은 [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 참조하세요.
 
 지원되는 최대 PITR(Point-in-Time 복원) 보존 기간이 애플리케이션에 대해 충분하지 않을 경우에 데이터베이스에 대한 LTR(장기 보존) 정책을 구성하여 확장할 수 있습니다. 자세한 내용은 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
 

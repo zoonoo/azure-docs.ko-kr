@@ -7,16 +7,16 @@ ms.author: nilesha
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 310963d5593dde0540c95920214a14a4195c346a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823439"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242334"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>자동화된 Machine Learning 실험 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "54823439"
 * 모델 등록 및 배포
 
 ## <a name="select-your-experiment-type"></a>실험 유형 선택
-실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화된 Machine Learning은 작업 유형으로 분류, 회귀 및 예측을 지원합니다. 
+실험을 시작하기 전에 해결하려는 기계 학습 문제의 종류를 결정해야 합니다. 자동화된 Machine Learning은 작업 유형으로 분류, 회귀 및 예측을 지원합니다.
 
 자동화된 Machine Learning 기능은 일반 공급되지만 **예측 기능은 아직 공용 미리 보기로 제공됩니다.**
 
@@ -59,7 +59,7 @@ ms.locfileid: "54823439"
 ## <a name="data-source-and-format"></a>데이터 원본 및 형식
 자동화된 Machine Learning은 로컬 데스크톱 또는 Azure Blob Storage와 같은 클라우드의 데이터를 지원합니다. 데이터는 scikit-learn 지원 데이터 형식으로 읽을 수 있습니다. 데이터를
 * Numpy 배열 X(기능) 및 y(대상 변수 또는 레이블이라고도 함)로 읽을 수 있습니다.
-* pandas 데이터 프레임 
+* pandas 데이터 프레임
 
 예제:
 
@@ -67,7 +67,7 @@ ms.locfileid: "54823439"
 
     ```python
     digits = datasets.load_digits()
-    X_digits = digits.data 
+    X_digits = digits.data
     y_digits = digits.target
     ```
 
@@ -75,9 +75,9 @@ ms.locfileid: "54823439"
 
     ```python
     import pandas as pd
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
-    # get integer labels 
-    df = df.drop(["Label"], axis=1) 
+    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
+    # get integer labels
+    df = df.drop(["Label"], axis=1)
     df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     ```
 
@@ -88,18 +88,18 @@ ms.locfileid: "54823439"
 `get_data`의 예제는 다음과 같습니다.
 
 ```python
-%%writefile $project_folder/get_data.py 
-import pandas as pd 
-from sklearn.model_selection import train_test_split 
-from sklearn.preprocessing import LabelEncoder 
-def get_data(): # Burning man 2016 data 
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
-    # get integer labels 
-    le = LabelEncoder() 
-    le.fit(df["Label"].values) 
-    y = le.transform(df["Label"].values) 
-    df = df.drop(["Label"], axis=1) 
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42) 
+%%writefile $project_folder/get_data.py
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+def get_data(): # Burning man 2016 data
+    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
+    # get integer labels
+    le = LabelEncoder()
+    le.fit(df["Label"].values)
+    y = le.transform(df["Label"].values)
+    df = df.drop(["Label"], axis=1)
+    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     return { "X" : df, "y" : y }
 ```
 
@@ -111,13 +111,13 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 `get_data` 스크립트는 다음을 반환할 수 있습니다.
 
-키 | type |    상호 배타적 관계 | 설명
+키 | Type |    상호 배타적 관계 | 설명
 ---|---|---|---
 X | pandas 데이터 프레임 또는 numpy 배열 | data_train, label, columns |  학습할 모든 기능입니다.
 y | pandas 데이터 프레임 또는 numpy 배열 |   label   | 학습할 데이터에 레이블을 지정합니다. 분류의 경우 정수 배열이어야 합니다.
 X_valid | pandas 데이터 프레임 또는 numpy 배열   | data_train, label | _선택 사항_ 유효성을 검사할 모든 기능입니다. 지정하지 않으면 X가 학습과 유효성 검사 간에 분할됩니다.
 y_valid |   pandas 데이터 프레임 또는 numpy 배열 | data_train, label | _선택 사항_ 유효성을 검사할 레이블 데이터입니다. 지정하지 않으면 y가 학습과 유효성 검사 간에 분할됩니다.
-sample_weight | pandas 데이터 프레임 또는 numpy 배열 |   data_train, label, columns| _선택 사항_ 각 샘플에 대한 가중치입니다. 데이터 요소에 대해 서로 다른 가중치를 할당하려는 경우에 사용합니다. 
+sample_weight | pandas 데이터 프레임 또는 numpy 배열 |   data_train, label, columns| _선택 사항_ 각 샘플에 대한 가중치입니다. 데이터 요소에 대해 서로 다른 가중치를 할당하려는 경우에 사용합니다.
 sample_weight_valid | pandas 데이터 프레임 또는 numpy 배열 | data_train, label, columns |    _선택 사항_ 각 유효성 검사 샘플에 대한 가중치입니다. 지정하지 않으면 sample_weight가 학습과 유효성 검사 간에 분할됩니다.
 data_train |    pandas 데이터 프레임 |  X, y, X_valid, y_valid |    학습할 모든 데이터(기능 + 레이블)입니다.
 label | string  | X, y, X_valid, y_valid |  레이블을 나타내는 data_train의 열입니다.
@@ -136,7 +136,8 @@ cv_splits_indices   | 정수 배열 ||  _선택 사항_ 교차 유효성 검사�
 >* 필터링
 >* 사용자 지정 Python 변환
 
-data prep sdk에 대해 알아보려면 [모델링을 위한 데이터 준비 방법 문서](how-to-load-data.md)를 참조하세요. 다음은 data prep sdk를 사용하여 데이터를 로드하는 예제입니다. 
+data prep sdk에 대해 알아보려면 [모델링을 위한 데이터 준비 방법 문서](how-to-load-data.md)를 참조하세요.
+다음은 data prep sdk를 사용하여 데이터를 로드하는 예제입니다.
 ```python
 # The data referenced here was pulled from `sklearn.datasets.load_digits()`.
 simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
@@ -189,22 +190,22 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
         primary_metric='AUC_weighted',
         max_time_sec=12000,
         iterations=50,
-        X=X, 
+        X=X,
         y=y,
         n_cross_validations=2)
     ```
 2.  다음은 회귀 실험이 100회 반복된 후 종료되도록 설정한 예제이며, 각 반복이 5회 교차 유효성 검사 접기를 통해 최대 600초까지 지속됩니다.
 
-    ````python
+    ```python
     automl_regressor = AutoMLConfig(
         task='regression',
         max_time_sec=600,
         iterations=100,
         primary_metric='r2_score',
-        X=X, 
+        X=X,
         y=y,
         n_cross_validations=5)
-    ````
+    ```
 
 다음 표에는 실험에 사용할 수 있는 매개 변수 설정 및 해당 기본값이 나와 있습니다.
 
@@ -223,7 +224,7 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
 `enable_cache`  | True/False <br/>True로 설정하면 전처리를 한 번 수행한 후 전처리된 동일한 데이터를 모든 반복에 다시 사용할 수 있습니다. | True |
 `blacklist_models`  | 자동화된 Machine Learning 실험에는 사용해 볼 수 있는 다양한 알고리즘이 있습니다. 실험에서 특정 알고리즘을 제외하도록 구성합니다. 데이터 세트에서 제대로 작동하지 않는 알고리즘을 알고 있으면 유용합니다. 알고리즘을 제외하면 계산 리소스와 학습 시간을 절약할 수 있습니다.<br/>분류에 허용되는 값은 다음과 같습니다.<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>회귀에 허용되는 값은 다음과 같습니다.<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>예측에 허용되는 값<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   없음
 `whitelist_models`  | 자동화된 Machine Learning 실험에는 사용해 볼 수 있는 다양한 알고리즘이 있습니다. 실험에 특정 알고리즘을 포함하도록 구성합니다. 데이터 세트에서 잘 작동하는 알고리즘을 알고 있으면 유용합니다. <br/>분류에 허용되는 값은 다음과 같습니다.<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>회귀에 허용되는 값은 다음과 같습니다.<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>예측에 허용되는 값<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  없음
-`verbosity` |가장 자세한 정보의 경우 INFO, 가장 적은 정보의 경우 CRITICAL인 로깅 수준을 제어합니다. 세부 정보 표시 수준은 Python 로깅 패키지에 정의된 것과 동일한 값을 사용합니다. 허용되는 값은 다음과 같습니다.<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
+`verbosity` |가장 자세한 정보의 경우 INFO, 가장 적은 정보의 경우 CRITICAL인 로깅 수준을 제어합니다. 세부 정보 표시 수준은 Python 로깅 패키지에 정의된 것과 동일한 값을 사용합니다. 허용되는 값은 다음과 같습니다.<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li>
 `X` | 학습할 모든 기능입니다. |  없음
 `y` |   학습할 데이터에 레이블을 지정합니다. 분류의 경우 정수 배열이어야 합니다.|  없음
 `X_valid`|_선택 사항_ 유효성을 검사할 모든 기능입니다. 지정하지 않으면 X가 학습과 유효성 검사 간에 분할됩니다. |   없음
@@ -233,7 +234,7 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
 `run_configuration` |   RunConfiguration 개체입니다.  원격 실행에 사용합니다. |없음
 `data_script`  |    get_data 메서드를 포함한 파일의 경로입니다.  원격 실행에 필요합니다.   |없음
 `model_explainability` | _선택적_ True/False <br/>  True를 지정하면 실험에서 모든 반복에 대해 기능 중요도를 수행할 수 있습니다. 특정 반복에서 explain_model() 메서드를 사용하여 실험이 완료된 후 요청이 있을 때 해당 반복에 대해 기능 중요도를 사용하도록 설정할 수도 있습니다. | False
-`enable_ensembling`|다른 모든 반복이 완료된 후 앙상블 반복을 설정하도록 플래그를 지정합니다.| True 
+`enable_ensembling`|다른 모든 반복이 완료된 후 앙상블 반복을 설정하도록 플래그를 지정합니다.| True
 `ensemble_iterations`|조정된 파이프라인이 최종 앙상블의 일부가 되도록 선택하는 반복 횟수입니다.| 15
 `experiment_timeout_minutes`| 전체 실험 실행에 소요될 수 있는 시간(분)을 제한합니다. | 없음
 
@@ -324,20 +325,20 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
-    
+
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
         explain_model(fitted_model, X_train, X_test)
-    
+
     #Overall feature importance
     print(overall_imp)
-    print(overall_summary) 
-    
+    print(overall_summary)
+
     #Class-level feature importance
     print(per_class_imp)
-    print(per_class_summary) 
+    print(per_class_summary)
     ```
 
-*   모든 반복의 기능 중요도를 보려면 AutoMLConfig에서 `model_explainability` 플래그를 `True`로 설정하세요.  
+*   모든 반복의 기능 중요도를 보려면 AutoMLConfig에서 `model_explainability` 플래그를 `True`로 설정하세요.
 
     ```python
     automl_config = AutoMLConfig(task = 'classification',
@@ -346,7 +347,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
                                  max_time_sec = 12000,
                                  iterations = 10,
                                  verbosity = logging.INFO,
-                                 X = X_train, 
+                                 X = X_train,
                                  y = y_train,
                                  X_valid = X_test,
                                  y_valid = y_test,
@@ -358,20 +359,20 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
-    
+
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
         retrieve_model_explanation(best_run)
-    
+
     #Overall feature importance
     print(overall_imp)
-    print(overall_summary) 
-    
+    print(overall_summary)
+
     #Class-level feature importance
     print(per_class_imp)
-    print(per_class_summary) 
+    print(per_class_summary)
     ```
 
-Azure Portal의 작업 영역에서 기능 중요도 차트를 시각화할 수 있습니다. 이 차트는 노트에서 Jupyter 위젯을 사용할 때도 표시됩니다. 차트에 대한 자세한 내용은 [샘플 Azure ML 노트 문서](samples-notebooks.md)를 참조하세요.
+Azure Portal의 작업 영역에서 기능 중요도 차트를 시각화할 수 있습니다. 이 차트는 노트에서 Jupyter 위젯을 사용할 때도 표시됩니다. 차트에 대한 자세한 내용은 [샘플 Azure Machine Learning Service Notebook 문서](samples-notebooks.md)를 참조하세요.
 
 ```python
 from azureml.widgets import RunDetails
@@ -383,4 +384,4 @@ RunDetails(local_run).show()
 
 [모델 배포 방법 및 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다.
 
-[자동화된 Machine Learning을 사용하여 분류 모델을 학습하는 방법](tutorial-auto-train-models.md) 또는 [원격 리소스에서 자동화된 Machine Learning을 사용하여 학습하는 방법](how-to-auto-train-remote.md)에 대해 자세히 알아봅니다. 
+[자동화된 Machine Learning을 사용하여 분류 모델을 학습하는 방법](tutorial-auto-train-models.md) 또는 [원격 리소스에서 자동화된 Machine Learning을 사용하여 학습하는 방법](how-to-auto-train-remote.md)에 대해 자세히 알아봅니다.

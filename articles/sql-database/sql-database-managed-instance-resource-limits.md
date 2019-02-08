@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 01/22/2019
-ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6bb90480667a899d9d7bc7a5d8269b0cdf1da223
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450884"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219722"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database Managed Instance 리소스 제한 사항에 대한 개요
 
@@ -39,6 +39,7 @@ Azure SQL Database Managed Instance는 두 가지 하드웨어 세대(Gen4 및 G
 | 하드웨어 | Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어) | Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서, 고속 eNVM SSD, vCore = 1LP(하이퍼스레드) |
 | 컴퓨팅 | 8, 16, 24개 vCore | 8, 16, 24, 32, 40, 64, 80개 vCore |
 | 메모리 | vCore당 7GB | vCore당 5.1GB |
+| 메모리 내 OLTP 메모리 | vCore당 3GB | vCore당 2.6GB |
 | 최대 스토리지 크기(범용) |  8 TB | 1TB |
 | 최대 저장소 크기(중요 비즈니스용) | 8 TB | 코어 수에 따라 1TB, 2TB 또는 4TB |
 

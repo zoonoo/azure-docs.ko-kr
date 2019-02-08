@@ -1,5 +1,5 @@
 ---
-title: ZRS(영역 중복 저장소)에서 고가용성 Azure Storage 애플리케이션 빌드 | Microsoft Docs
+title: ZRS(영역 중복 스토리지)에서 고가용성 Azure Storage 응용 프로그램 빌드 | Microsoft Docs
 description: ZRS(영역 중복 저장소)는 고가용성 애플리케이션을 빌드하는 간단한 방법을 제공합니다. ZRS는 데이터센터의 하드웨어 오류뿐 아니라 일부 지역적인 재해로부터 보호합니다.
 services: storage
 author: tolandmike
@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 1b39de45d5046ce5a59dcaf0648b87aca2a5c6f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.subservice: common
+ms.openlocfilehash: 62c6e24776c1d9a4e6a82eea557244bb390ebd00
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868347"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471490"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -25,19 +25,20 @@ ZRS는 블록 Blob, 디스크가 아닌 페이지 Blob, 파일, 테이블 및 �
 
 ZRS를 일반적으로 사용할 수 있는 지역은 다음과 같습니다.
 
+- 동남아시아
+- 서유럽
+- 북유럽
+- 프랑스 중부
+- 일본 동부
 - 미국 동부
 - 미국 동부 2
 - 미국 서부 2
 - 미국 중부
-- 북유럽
-- 서유럽
-- 프랑스 중부
-- 동남아시아
 
 Microsoft는 추가 Azure 지역에서 ZRS를 사용할 수 있도록 계속 지원하고 있습니다. 새 지역에 대한 정보는 [Azure 서비스 업데이트](https://azure.microsoft.com/updates/) 페이지에서 정기적으로 확인하세요.
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>영역을 사용할 수 없게 되면 어떻게 되나요?
-영역을 사용할 수 없게 되는 경우에도 데이터에 계속 액세스할 수 있습니다. 일시적인 오류 처리에 대한 지침을 계속 따르는 것이 좋습니다. 이러한 방식에는 지수적 백오프를 사용하여 재시도 정책을 구현하는 것이 포함됩니다.
+영역을 사용할 수 없게 되는 경우에도 읽기 및 쓰기 작업에는 계속 액세스할 수 있습니다. 일시적인 오류 처리에 대한 지침을 계속 따르는 것이 좋습니다. 이러한 방식에는 지수적 백오프를 사용하여 재시도 정책을 구현하는 것이 포함됩니다.
 
 영역을 사용할 수 없는 경우 Azure에서 DNS 재지정과 같은 네트워킹 업데이트를 수행합니다. 업데이트가 완료되기 전에 데이터에 액세스하는 경우 이러한 업데이트는 애플리케이션에 영향을 줄 수 있습니다.
 

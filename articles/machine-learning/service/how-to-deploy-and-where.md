@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: 다음을 포함하는 Azure Machine Learning 서비스 모델을 배포하는 방법 및 위치를 알아봅니다. Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge 및 Field-Programmable Gate Array
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4d62885743a4e50ece1c032c7b3405d8766d95cd
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: e8b318626947c1d1147e43ca6c183ae724080a59
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850589"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251608"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -380,7 +380,7 @@ sudo chmod +x installIoTEdge
 sudo ./installIoTEdge
 ```
 
-IoT Edge 노드는 IoT Hub에 대한 연결 문자열을 수신할 준비가 되었습니다. ```device_connection_string:``` 줄을 찾고 위의 연결 문자열을 붙여넣은 후 큰따옴표로 묶습니다.
+IoT Edge 노드가 IoT Hub의 연결 문자열을 수신할 준비가 되었습니다. ```device_connection_string:``` 줄을 찾고 위의 연결 문자열을 붙여넣은 후 큰따옴표로 묶습니다.
 
 [빠른 시작: Linux x64 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md) 문서에 따라 디바이스를 등록하고 IoT 런타임을 단계별로 설치하는 방법을 알아볼 수 있습니다.
 

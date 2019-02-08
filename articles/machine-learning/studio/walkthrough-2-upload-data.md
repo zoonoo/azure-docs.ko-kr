@@ -1,6 +1,6 @@
 ---
-제목: '2단계: Machine Learning Studio 실험에 데이터 업로드' titleSuffix: Azure Machine Learning Studio 설명: '예측 솔루션 개발 연습의 2단계: Azure Machine Learning Studio에 저장된 공용 데이터 업로드'
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: '2단계: Machine Learning Studio 실험에 데이터 업로드' titleSuffix: Azure Machine Learning Studio 설명: '예측 솔루션 개발 연습의 2단계: Azure Machine Learning Studio에 저장된 공용 데이터 업로드'
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 2017/03/23
 ---

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5af305a2e0d4754cf4fad8557db9d367c828ecc5
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 044fe3de265d298ecd366a50b9db77eeea32bbb7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389095"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457941"
 ---
-# <a name="database-transactions-and-optimistic-concurrency-control"></a>데이터베이스 트랜잭션 및 낙관적 동시성 제어
+# <a name="transactions-and-optimistic-concurrency-control"></a>트랜잭션 및 낙관적 동시성 제어
 
 데이터베이스 트랜잭션은 데이터에 대한 동시 변경을 처리하기 위한 안전하고 예측 가능한 프로그래밍 모델을 제공합니다. SQL Server와 같은 기존 관계형 데이터베이스를 통해 저장 프로시저 및/또는 트리거를 사용하여 비즈니스 논리를 작성하고 데이터베이스 엔진 내에서 직접 실행하도록 서버에 보낼 수 있습니다. 기존의 관계형 데이터베이스를 사용하면 두 개의 서로 다른 프로그래밍 언어(JavaScript, Python, C#, Java 등과 같은 (비트랜잭션) 애플리케이션 프로그래밍 언어 및 데이터베이스에서 고유하게 실행되는 T-SQL(트랜잭션 프로그래밍 언어))를 처리해야 합니다.
 

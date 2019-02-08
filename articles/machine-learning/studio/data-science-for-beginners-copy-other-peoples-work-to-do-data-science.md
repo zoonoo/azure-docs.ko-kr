@@ -1,6 +1,6 @@
 ---
-제목: 다른 사용자의 데이터 과학 예제 복사 titleSuffix: Azure Machine Learning Studio 설명: '데이터 과학의 영업 비밀: 작업을 수행하기 위해 다른 것을 가져옵니다. Azure AI 갤러리에서 Machine Learning 예제를 가져옵니다.'
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 다른 사용자의 데이터 과학 예제 복사 titleSuffix: Azure Machine Learning Studio 설명: '데이터 과학의 영업 비밀: 작업을 수행하기 위해 다른 것을 가져옵니다. Azure AI 갤러리에서 Machine Learning 예제를 가져옵니다.'
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 2018/01/05
 ---

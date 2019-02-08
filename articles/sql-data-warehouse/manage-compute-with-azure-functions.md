@@ -1,21 +1,21 @@
 ---
-title: '자습서: Azure SQL Data Warehouse에서 Azure Functions로 계산 관리 | Microsoft Docs'
+title: '자습서: Azure SQL Data Warehouse에서 Azure Functions로 컴퓨팅 관리 | Microsoft Docs'
 description: Azure Functions를 사용하여 데이터 웨어하우스의 계산을 관리하는 방법에 대해 설명합니다.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f366718a11f715b0c91a556eb3b0f216424b82c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287904"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470198"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Azure Functions를 사용하여 Azure SQL Data Warehouse에서 계산 리소스 관리
 
@@ -144,7 +144,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 매일 오전 8시에 DW600으로 강화하고 오후 8시에 DW200으로 규모 축소합니다.
 
-| 함수  | 일정     | 작업                                |
+| 함수  | 일정     | 작업(Operation)                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
@@ -153,7 +153,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 매일 오전 8시에 DW1000으로 강화하고, 오후 4시에 규모를 DW600으로 한 번 축소하고, 오후 10시에 DW200으로 축소합니다.
 
-| 함수  | 일정     | 작업                                |
+| 함수  | 일정     | 작업(Operation)                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -163,7 +163,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 평일 오전 8시에 DW1000으로 강화하고, 오후 4시에 DW600으로 규모 축소합니다. 금요일 오후 11시에 일시 중지하고 월요일 오전 7시에 다시 시작합니다.
 
-| 함수  | 일정       | 작업                                |
+| 함수  | 일정       | 작업(Operation)                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |

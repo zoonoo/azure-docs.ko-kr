@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2018
+ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351649"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300611"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -40,6 +40,12 @@ ms.locfileid: "54351649"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
+
+### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
+* 관찰자 예외 처리가 향상되었습니다.
+* 관찰자 오류에 대해 더욱 자세한 정보가 제공됩니다.
+ * 이제는 관찰자 ProcessChangesAsync에서 throw된 예외로 인해 관찰자가 닫힐 때 ChangeFeedObserverCloseReason.ObserverError에 대한 이유 매개 변수 세트가 수신됩니다.
+ * 관찰자의 사용자 코드 내에서 오류를 확인할 수 있도록 추적 기능이 추가되었습니다.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * 공유 데이터베이스 처리량을 사용하는 컬렉션으로 분할 처리에 대한 지원이 추가되었습니다.
@@ -157,6 +163,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.2.6](#2.2.6) |2019년 1월 29일 |--- |
 | [2.2.5](#2.2.5) |2018년 12월 13일 |--- |
 | [2.2.4](#2.2.4) |2018년 11월 29일 |--- |
 | [2.2.3](#2.2.3) |2018년 11월 19일 |--- |

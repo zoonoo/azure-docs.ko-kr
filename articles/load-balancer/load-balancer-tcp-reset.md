@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257301"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296922"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>유휴 시 TCP 재설정이 포함된 Load Balancer(공개 미리 보기)
 
-[표준 Load Balancer](load-balancer-standard-overview.md)를 사용하면 구성 가능한 각 유휴 시간 초과에 대한 양방향 TCP 재설정(TCP RST 패킷)을 포함하여 시나리오의 응용 프로그램 동작을 보다 예측 가능하게 만들 수 있습니다.  Load Balancer의 기본 동작은 흐름의 유휴 시간이 초과되면 흐름을 자동으로 끊는 것입니다.
+[표준 Load Balancer](load-balancer-standard-overview.md)를 지정된 규칙에 대해 TCP Reset on Idle을 사용하도록 설정하여 시나리오용으로 예측 가능성이 더 높은 애플리케이션 동작을 만들 수 있습니다. Load Balancer의 기본 동작은 흐름의 유휴 시간이 초과되면 흐름을 자동으로 끊는 것입니다.  이 기능을 사용하도록 설정하면 Load Balancer가 유휴 시간 초과 시 양방향 TCP Reset(TCP RST 패킷)을 전송합니다.  이 패킷은 연결 시간이 초과되어 더 이상 연결을 사용할 수 없음을 애플리케이션 엔드포인트에 알립니다.  엔드포인트는 필요한 경우 새 연결을 즉시 설정할 수 있습니다.
 
 ![Load Balancer TCP 재설정](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
@@ -69,31 +69,10 @@ API 버전 2018-07-01을 사용하면 개별 규칙을 기반으로 유휴 시�
 
 ## <a name="regions"></a> 지역 가용성
 
-이 매개 변수는 현재 다음 지역에서 적용됩니다.  여기에 나열되지 않은 지역에서는 매개 변수가 적용되지 않습니다.
-
-| 지역 |
-|---|
-| 동남아시아 |
-| 브라질 남부 |
-| 캐나다 중부 |
-| 서유럽 |
-| 인도 중부 |
-| 인도 서부 |
-| 일본 서부 |
-| 한국 중부 |
-| 한국 남부 |
-| 영국 북부 |
-| 영국 남부 2 |
-| 미국 동부 |
-| 미국 동부 2 |
-| 영국 북부 |
-| 미국 서부 |
-
-미리 보기가 다른 지역으로 확장되면 이 테이블도 업데이트됩니다.  
+모든 지역에서 사용 가능합니다.
 
 ## <a name="limitations"></a>제한 사항
 
-- [지역 가용성](#regions)이 제한되어 있습니다.
 - 포털은 TCP 재설정을 구성하거나 보는 데 사용할 수 없습니다.  대신 템플릿, REST API, Az CLI 2.0 또는 PowerShell을 사용하세요.
 
 ## <a name="next-steps"></a>다음 단계

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d17b6271468a9259314876e18ff7ead288c990bc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140968"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221014"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS 앱에 대한 미리 작성된 도메인 참조
 이 참조는 LUIS에서 제공하는 의도 및 엔터티의 미리 작성된 컬렉션에 해당하는 [미리 작성된 도메인](luis-how-to-use-prebuilt-domains.md)에 대한 정보를 제공합니다.
@@ -29,7 +29,7 @@ LUIS는 20가지의 미리 작성된 도메인을 제공합니다.
 | 미리 빌드된 도메인 | 설명 | 지원되는 언어 |
 | ---------------- |-----------------------|:------:|
 | Calendar | Calendar 도메인은 약속을 추가, 삭제 또는 편집하고, 참가자 가용성을 확인하고, 일정 이벤트에 대한 정보를 찾기 위한 의도 및 엔터티를 제공합니다.| en-US<br/> zh-CN |
-| Camera | Camera 도메인은 사진을 촬영하고, 비디오를 녹화하고, 비디오를 응용 프로그램으로 브로드캐스트하기 위한 의도 및 엔터티를 제공합니다.| en-US |
+| Camera | Camera 도메인은 사진을 촬영하고, 비디오를 녹화하고, 비디오를 애플리케이션으로 브로드캐스트하기 위한 의도 및 엔터티를 제공합니다.| en-US |
 | 통신 | 메시지 전송 및 전화 통화| en-US <br/> zh-CN |
 | Entertainment  | 음악, 동영상, TV 관련 쿼리 처리| en-US |
 | 이벤트 | 콘서트, 축제, 스포츠 게임 및 코미디 쇼 티켓 예약| en-US |
@@ -44,7 +44,7 @@ LUIS는 20가지의 미리 작성된 도메인을 제공합니다.
 | 미리 알림 | 미리 알림 생성, 편집 및 찾기와 관련된 요청 처리| en-US<br/> zh-CN |
 | RestaurantReservation | 식당 예약에 대한 관리 요청 처리| en-US<br/> zh-CN |
 | Taxi | 택시 예약 처리| en-US<br/> zh-CN |
-| 번역 | 텍스트를 대상 언어로 번역| en-US<br/> zh-CN |
+| Translate | 텍스트를 대상 언어로 번역| en-US<br/> zh-CN |
 | TV | TV 제어| en-US |
 | 공공 시설  | "도움말", "반복”, “다시 시작”과 같이 많은 도메인에서 공통되는 요청 처리| en-US |
 | Weather | 날씨 보고서 및 예측 가져오기| en-US<br/> zh-CN |
@@ -72,7 +72,7 @@ Calendar 도메인은 일정 항목과 관련된 의도 및 엔터티를 제공�
 | 제목 | 모임 또는 약속의 제목입니다.| 치과 약속 <br/><br/>Julia와의 점심 식사<br/><br/>의사 약속|
 
 ## <a name="camera"></a>Camera 
-Camera 도메인은 카메라 사용과 관련된 의도 및 엔터티를 제공합니다. 의도에는 사진, 셀피, 스크린샷 또는 비디오 캡처, 응용 프로그램으로 비디오 브로드캐스트가 포함됩니다.
+Camera 도메인은 카메라 사용과 관련된 의도 및 엔터티를 제공합니다. 의도에는 사진, 셀피, 스크린샷 또는 비디오 캡처, 애플리케이션으로 비디오 브로드캐스트가 포함됩니다.
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
@@ -88,7 +88,7 @@ Camera 도메인은 카메라 사용과 관련된 의도 및 엔터티를 제공
 ### <a name="entities"></a>엔터티
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| AppName | 비디오를 브로드캐스트할 응용 프로그램의 이름입니다.| OneNote<br/><br/>Facebook<br/><br/>Skype|
+| AppName | 비디오를 브로드캐스트할 애플리케이션의 이름입니다.| OneNote<br/><br/>Facebook<br/><br/>Skype|
 
 
 ## <a name="communication"></a>통신 
@@ -103,7 +103,7 @@ Communication 도메인은 전자 메일, 메시지 및 전화 통화와 관련�
 | AssignContactNickname| 연락처에 애칭을 할당합니다.|Isaac을 아빠로 변경 <br/>Jim의 애칭 편집<br/>Patti Owens에 애칭 추가|
 | CallVoiceMail| 사용자의 음성 메일에 연결합니다.|내 음성 사서함 상자에 연결 <br/>음성 사서함<br/>음성 사서함 연결|
 | CheckIMStatus| Skype에서 연락처의 상태를 확인합니다.|Jim의 온라인 상태가 자리 비움으로 설정되어 있나요? <br/>Carol과 채팅할 수 있나요?|
-| Confirm| 작업을 확인합니다.|yes<br/>확인<br/>좋습니다.<br/>이 전자 메일을 보내려고 합니다.<br/>|
+| Confirm| 작업을 확인합니다.|예<br/>확인<br/>좋습니다.<br/>이 전자 메일을 보내려고 합니다.<br/>|
 | Dial| 전화 통화를 합니다.|Jim에게 전화하기<br/>311 번호를 누르세요.<br/>|
 | FindContact| 연락처 정보를 이름으로 찾습니다.|Carol의 번호 찾기<br/>Carol의 번호 표시<br/>|
 | FindSpeedDial| 전화 번호를 설정할 단축번호와 단축번호를 설정할 전화 번호를 찾습니다.|내 다이얼 번호 5는 무엇인가요?<br/>설정된 단축번호가 있나요?<br/>941-5555-333의 다이얼 번호는 무엇인가요?|
@@ -163,7 +163,7 @@ Entertainment 도메인은 영화, 음악, 게임 및 TV 쇼 검색과 관련된
 | 사람| 영화, 앱, 게임 또는 TV 쇼와 관련된 배우, 감독, 프로듀서, 음악가 또는 예술가입니다.|Madonna<br/>Stanley Kubrick|
 | 역할| 미디어 제작에서 사람이 맡은 역할입니다.|노래<br/>감독<br/>기준|
 | 제목| 영화, 앱, 게임, TV 쇼 또는 노래의 이름입니다.|Friends<br/>Minecraft|
-| type| 영화, 앱, 게임, TV 쇼 또는 노래의 종류 또는 미디어 형식입니다.|Music<br/>MovieTV <br/>쇼|
+| Type| 영화, 앱, 게임, TV 쇼 또는 노래의 종류 또는 미디어 형식입니다.|Music<br/>MovieTV <br/>쇼|
 | UserRating| 사용자 별 또는 엄지척 등급입니다.|별 5개<br/>별 3개<br/>별 4개|
 
 ## <a name="events"></a>이벤트 
@@ -179,10 +179,10 @@ Events 도메인은 콘서트, 축제, 스포츠 게임 및 코미디 쇼와 같
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
 | 주소 | 이벤트 위치 또는 주소입니다. |Palo Alto<br/>300 112th Ave SE <br/> 시애틀 |
-| 이름 | 이벤트의 이름입니다.|Shakespeare in the Park|
+| Name | 이벤트의 이름입니다.|Shakespeare in the Park|
 | PlaceName| 이벤트 위치 이름입니다.|루브르<br/>오페라 하우스<br/>브로드웨이|
 | PlaceType | 이벤트가 열릴 위치의 유형입니다.|카페<br/>극장<br/>라이브러리|
-| type | 이벤트의 유형입니다.|콘서트<br/>스포츠 게임|
+| Type | 이벤트의 유형입니다.|콘서트<br/>스포츠 게임|
 
 ## <a name="fitness"></a>Fitness 
 Fitness 도메인은 피트니스 활동 추적과 관련된 의도 및 엔터티를 제공합니다. 의도에는 메모 저장, 남은 시간이나 거리, 활동 결과 저장이 포함됩니다.
@@ -323,7 +323,7 @@ Note 도메인은 메모 생성, 편집 및 찾기와 관련된 의도 및 엔�
 ### <a name="entities"></a>엔터티
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| AppName | 메모 기록 응용 프로그램 이름입니다.|Wunderlist<br/>OneNote|
+| AppName | 메모 기록 애플리케이션 이름입니다.|Wunderlist<br/>OneNote|
 | ContactName | 메모에 있는 연락처의 이름입니다.|Carol<br/>Jim<br/>Chris|
 | DataSource | 메모의 위치입니다.|OneDrive<br/>Google 문서<br/>내 컴퓨터|
 | DataType | 일반적으로 특정 소프트웨어 프로그램과 관련된 파일 또는 문서의 형식입니다.|슬라이드<br/>스프레드시트<br/>워크시트|
@@ -346,7 +346,7 @@ OnDevice 도메인은 디바이스 제어와 관련된 의도 및 엔터티를 �
 | 의도 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
 | AreYouListening | 디바이스가 수신 대기 중인지 문의합니다.|켜져 있나요?<br/>수신 증인가요?|
-|CloseApplication|디바이스 응용 프로그램을 닫습니다.|비디오 플레이어 닫기|
+|CloseApplication|장치 애플리케이션을 닫습니다.|비디오 플레이어 닫기|
 |FileBug|디바이스의 버그를 정리합니다.|버그를 정리하세요.<br/>버그를 정리해줄 수 있나요?<br/>이 버그를 보고하겠습니다.|
 |GoBack|한 단계 뒤로 돌아가거나 이전 단계로 돌아가도록 요청합니다.|돌아가세요.<br/>이전 화면으로 이동<br/>돌아가서 수신 중지|
 |도움말| 도움을 요청합니다.|도와주세요.<br/>안녕하세요.<br/>어떻게 해야 합니까?<br/>도움이 필요합니다.| 
@@ -354,7 +354,7 @@ OnDevice 도메인은 디바이스 제어와 관련된 의도 및 엔터티를 �
 |LogIn|디바이스를 사용하여 서비스에 로그인합니다.|로그인하세요.<br/>Facebook 로그인<br/>LinkedIn에 로그인|
 |LogOut|디바이스를 사용하여 서비스에서 로그아웃합니다.|내 휴대폰에서 로그오프<br/>Twitter에 로그온<br/>로그아웃|
 |MainMenu|디바이스의 주 메뉴를 표시합니다.|보기 메뉴|
-|OpenApplication|디바이스에서 응용 프로그램을 엽니다.|경보를 여세요.<br/>카메라 켜기<br/>일정 시작|
+|OpenApplication|장치에서 애플리케이션을 엽니다.|경보를 여세요.<br/>카메라 켜기<br/>일정 시작|
 |OpenSetting|디바이스에서 설정을 엽니다.|네트워크 설정을 엽니다.|
 |PairDevice|디바이스와 쌍으로 연결합니다.|Bluetooth 신호를 휴대폰에 연결하는 데 도움을 줄 수 있나요?<br/>Bluetooth를 켜고 랩톱에 연결<br/>Bluetooth 신호를 랩톱에 연결|
 |PowerOff | 디바이스를 끕니다.|내 컴퓨터를 종료할 수 있나요?<br/>Shutdown<br/>내 휴대폰 끄기|
@@ -364,10 +364,10 @@ OnDevice 도메인은 디바이스 제어와 관련된 의도 및 엔터티를 �
 |RingDevice| 디바이스를 분실한 경우 찾기 위해 벨소리를 내도록 요청합니다.|휴대폰이 울리도록 합니다.| 
 |SetBrightness|디바이스 밝기를 설정합니다.|밝기를 중간으로 설정<br/>밝기를 높음으로 설정<br/>밝기를 낮음으로 설정|
 |SetupDevice|디바이스 설치를 시작합니다.|OS 설치 프로그램을 설치합니다.<br/>설치하세요.<br/>자동으로 설치|
-|ShowAppBar|앱 바를 표시합니다.|응용 프로그램 표시줄 표시<br/>응용 프로그램 표시줄<br/>응용 프로그램 표시줄을 표시하겠습니다.|
+|ShowAppBar|앱 바를 표시합니다.|애플리케이션 표시줄 표시<br/>애플리케이션 표시줄<br/>애플리케이션 표시줄을 표시하겠습니다.|
 |ShowContextMenu|상황에 맞는 메뉴를 표시합니다.|상황에 맞는 메뉴를 표시하겠습니다.<br/>상황에 맞는 메뉴<br/>상황에 맞는 메뉴는 표시할 수 있나요?|
 |절전|디바이스를 절전 모드로 전환합니다.|절전 모드로 전환<br/>절전<br/>내 컴퓨터 절전 모드|
-|SwitchApplication|디바이스에서 사용하도록 응용 프로그램을 전환합니다.|내 미디어 플레이어로 전환합니다.|
+|SwitchApplication|장치에서 사용하도록 애플리케이션을 전환합니다.|내 미디어 플레이어로 전환합니다.|
 |TurnDownBrightness|디바이스 밝기를 줄입니다.|화면을 흐리게 표시합니다.|
 |TurnOffSetting|디바이스 설정을 해제합니다.|Bluetooth 비활성화<br/>데이터 사용 안 함<br/>Bluetooth 연결 끊기|
 |TurnOnSetting|디바이스 설정을 켭니다.|다른 <br/> 꺼짐|
@@ -376,7 +376,7 @@ OnDevice 도메인은 디바이스 제어와 관련된 의도 및 엔터티를 �
 ### <a name="entities"></a>엔터티
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| AppName | 디바이스의 응용 프로그램 이름입니다.|SoundCloud<br/>YouTube|
+| AppName | 장치의 애플리케이션 이름입니다.|SoundCloud<br/>YouTube|
 | BrightnessLevel | 디바이스의 밝기 수준을 설정합니다.|100%<br/>50<br/>40%|
 | ContactName | 디바이스에 있는 연락처의 이름입니다.|Paul<br/>Marlen Max|
 | DeviceType | 디바이스의 유형입니다. |Phone<br/>Kindle<br/>랩톱|
@@ -402,7 +402,7 @@ Places 도메인은 회사, 기관, 식당, 공용 공간 및 주소와 같은 �
 |CheckAccident|지정된 도로에 사고가 있었는지를 문의합니다.|880 도로에 사고가 있었나요?<br/>사고 정보 표시|
 |CheckAreaTraffic|지정된 경로가 아닌 일반 영역 또는 고속도로에 대한 교통량을 확인합니다.|시애틀의 교통량<br/>시애틀의 교통량은 어떤가요?|
 |CheckIntoPlace|소셜 미디어를 사용하여 장소에 체크 인합니다.|Foursquare에 체크인<br/>여기에 체크 인|
-|CheckRouteTraffic| 사용자가 지정한 특정 경로의 교통량을 확인합니다.|마시코 교통량은 어떤가요?<br/>커클랜드 교통량 표시<br/>시애틀 교통량은 어떤가요?| 
+|CheckRouteTraffic| 사용자가 지정한 특정 경로의 교통량을 확인합니다.|마시코 교통량은 어떤가요?<br/>Kirkland 방향의 교통량 표시<br/>시애틀 교통량은 어떤가요?| 
 |Confirm|장소와 관련된 작업을 확인합니다.|내 식당 예약을 확인합니다.|
 |끝내기|장소와 관련된 작업을 종료하는 동작입니다.|종료하세요.<br/>지침 제시 중단|
 |FindPlace|장소(회사, 기관, 식당, 공용 공간, 주소)를 검색합니다.|가장 가까운 도서관은 어디에 있나요?<br/>산 경치가 보이는 이탈리안 식당 찾기|
@@ -500,7 +500,7 @@ RestaurantReservation 도메인은 식당 예약 관리와 관련된 의도 및 
 | ---------------- |-----------------------|----|
 | 주소| 예약의 이벤트 위치 또는 주소입니다.|Palo Alto<br/>300 112th Ave SE<br/>시애틀|
 | Amenities | 장소의 부대 시설을 설명하는 특성입니다.|바다 전망<br/>금연|
-| AppName | 예약하기 위한 응용 프로그램의 이름입니다.|OpenTable<br/>Yelp<br/>TripAdvisor|
+| AppName | 예약하기 위한 애플리케이션의 이름입니다.|OpenTable<br/>Yelp<br/>TripAdvisor|
 | Atmosphere | 식당 또는 다른 장소의 분위기에 대한 설명입니다.|로맨틱<br/>일반<br/>그룹에 적합|
 | Cuisine | 음식의 유형, 요리 방식 또는 어느 나라 요리인지를 나타냅니다. |중국어<br/>이탈리아어<br/>멕시칸|
 | MealType | 예약과 연결된 식사 유형입니다.|아침<br/>저녁<br/>점심<br/>간단한 저녁|
@@ -539,7 +539,7 @@ Taxi 도메인은 택시 예약을 만들고 관리하기 위한 의도 및 엔�
 | TransportationCompany | 전송 공급업체의 이름입니다.|Amtrak<br/>Acela<br/>Greyhound|
 | TransportationType | 교통 유형입니다.|버스<br/>학습<br/>Driving|
 
-## <a name="translate"></a>번역 
+## <a name="translate"></a>Translate 
 Translate 도메인은 텍스트를 대상 언어로 번역하는 것과 관련된 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
@@ -554,7 +554,7 @@ Translate 도메인은 텍스트를 대상 언어로 번역하는 것과 관련�
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| 번역| 텍스트를 다른 언어로 번역합니다.|프랑스어로 번역<br/>Hello를 독일어로 번역|
+| Translate| 텍스트를 다른 언어로 번역합니다.|프랑스어로 번역<br/>Hello를 독일어로 번역|
 
 
 ### <a name="entities"></a>엔터티

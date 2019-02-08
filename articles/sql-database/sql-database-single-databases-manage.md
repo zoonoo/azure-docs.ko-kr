@@ -1,9 +1,9 @@
 ---
-title: Azure SQL Server 및 단일 데이터베이스 만들기 및 관리 | Microsoft Docs
-description: 논리 서버 및 단일 데이터베이스를 만들고 관리하는 방법에 대해 알아봅니다.
+title: Azure SQL Database 서버 및 단일 데이터베이스 만들기/관리 | Microsoft Docs
+description: SQL Database 서버 및 단일 데이터베이스를 만들고 관리하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,29 +11,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: f43c2cd5a3c155258cd698f6b55854bc0df9f861
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 32b532cab7e970d01c3963729658c32ac4a020b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388602"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465047"
 ---
-# <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 논리 서버 및 단일 데이터베이스 만들기 및 관리
+# <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 SQL Database 서버 및 단일 데이터베이스 만들기 및 관리
 
-Azure Portal, PowerShell, Azure CLI, REST API 및 Transact-SQL을 사용하여 Azure SQL Database 논리 서버 및 단일 데이터베이스를 만들고 관리할 수 있습니다.
+Azure Portal, PowerShell, Azure CLI, REST API 및 Transact-SQL을 사용하여 SQL Database 서버 및 단일 데이터베이스를 만들고 관리할 수 있습니다.
 
-## <a name="azure-portal-manage-logical-servers-and-databases"></a>Azure Portal: 논리 서버 및 데이터베이스 관리
+## <a name="azure-portal-manage-sql-database-servers-and-single-databases"></a>Azure Portal: SQL Database 서버 및 단일 데이터베이스 관리
 
 Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 만드는 동안 만들 수 있습니다. 새 SQL Server를 만들거나 새 데이터베이스 만들기의 일부분으로 새 SQL Server 양식을 가져오는 여러 방법이 있습니다.
 
-### <a name="create-a-blank-sql-server-logical-server"></a>비어 있는 SQL Server(논리 서버) 만들기
+### <a name="create-a-blank-sql-database-server"></a>빈 SQL Database 서버 만들기
 
-[Azure Portal](https://portal.azure.com)을 사용하여 (데이터베이스 없이) Azure SQL Database 서버를 만들려면 비어 있는 SQL Server(논리 서버) 양식으로 이동합니다.  
+[Azure Portal](https://portal.azure.com)을 사용하여 SQL Database 서버를 만들려면 빈 SQL 서버(논리 서버) 양식으로 이동합니다.  
 
-### <a name="create-a-blank-or-sample-sql-database"></a>비어 있거나 샘플인 SQL Database 만들기
+### <a name="create-a-blank-or-sample-sql-single-database"></a>빈/샘플 SQL 단일 데이터베이스 만들기
 
-[Azure Portal](https://portal.azure.com)을 사용하여 Azure SQL Database를 만들려면 비어 있는 SQL Database 양식으로 이동하고 요청된 정보를 제공합니다. Azure SQL Database의 리소스 그룹 및 논리 서버를 미리 만들거나 데이터베이스 자체를 만드는 동안 만들 수 있습니다. 비어 있는 데이터베이스를 만들거나 Adventure Works LT에 따라 샘플 데이터베이스를 만들 수 있습니다.
+[Azure Portal](https://portal.azure.com)을 사용하여 Azure SQL 단일 데이터베이스를 만들려면 빈 SQL Database 양식으로 이동하여 요청된 정보를 입력합니다. Azure SQL Database의 리소스 그룹 및 SQL Database 서버는 미리 만들거나 단일 데이터베이스 자체를 만드는 동안 만들 수 있습니다. 비어 있는 데이터베이스를 만들거나 Adventure Works LT에 따라 샘플 데이터베이스를 만들 수 있습니다.
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -42,9 +42,9 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 
 Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
 
-## <a name="manage-an-existing-sql-server"></a>기존 SQL Server 관리
+## <a name="manage-an-existing-sql-database-server"></a>기존 SQL Database 서버 관리
 
-기존 서버를 관리하려면 특정 SQL Database 페이지, **SQL server** 페이지 또는 **모든 리소스** 페이지와 같은 다양한 방법을 사용하여 서버로 이동합니다.
+기존 SQL Database 서버를 관리하려면 특정 SQL Database 페이지, **SQL 서버** 페이지 또는 **모든 리소스** 페이지와 같은 다양한 방법을 사용하여 서버로 이동합니다.
 
 기존 데이터베이스를 관리하려면 **SQL Database** 페이지로 이동하고 관리하려는 데이터베이스를 클릭합니다. 다음 스크린샷에서는 데이터베이스의 **개요** 페이지에서 데이터베이스의 서버 수준 방화벽을 설정하기 시작하는 방법을 보여줍니다.
 
@@ -55,12 +55,12 @@ Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-manag
 > [!TIP]
 > Azure Portal 빠른 시작은 [Azure Portal에서 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
 
-## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell: 논리 서버 및 데이터베이스 관리
+## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: SQL Database 서버 및 단일 데이터베이스 관리
 
-Azure PowerShell을 사용하여 Azure SQL 논리 서버, 단일 및 풀링된 데이터베이스, 논리 서버 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
+Azure PowerShell을 사용하여 Azure SQL Database 서버, 독립 실행형/풀링된 데이터베이스, SQL Database 서버 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 > [!TIP]
-> PowerShell 예제 스크립트에 대해서는 [PowerShell을 사용하여 단일 Azure SQL Database 만들기 및 논리 서버 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md) 및 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.
+> PowerShell 예제 스크립트는 [PowerShell을 사용하여 Azure SQL 단일 데이터베이스 만들기 및 SQL Database 서버 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md) 및 [PowerShell을 사용하여 SQL 단일 데이터베이스 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.
 
 | Cmdlet | 설명 |
 | --- | --- |
@@ -79,12 +79,12 @@ Azure PowerShell을 사용하여 Azure SQL 논리 서버, 단일 및 풀링된 �
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|서버에서 방화벽 규칙 삭제|
 | New-AzureRmSqlServerVirtualNetworkRule | Virtual Network 서비스 엔드포인트인 서브넷을 기반으로 [*가상 네트워크 규칙*](sql-database-vnet-service-endpoint-rule-overview.md)을 만듭니다. |
 
-## <a name="azure-cli-manage-logical-servers-and-databases"></a>Azure CLI: 논리 서버 및 데이터베이스 관리
+## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>Azure CLI: SQL Database 서버 및 단일 데이터베이스 관리
 
 [Azure CLI](/cli/azure)를 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
 > [!TIP]
-> Azure CLI 빠른 시작은 [Azure CLI를 사용하여 단일 Azure SQL Database 만들기](sql-database-cli-samples.md)를 참조하세요. Azure CLI 예제 스크립트에 대해서는 [CLI를 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md) 및 [CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
+> Azure CLI 빠른 시작은 [Azure CLI를 사용하여 Azure SQL 단일 데이터베이스 만들기](sql-database-cli-samples.md)를 참조하세요. Azure CLI 예제 스크립트는 [CLI를 사용하여 Azure SQL 단일 데이터베이스 만들기 및 SQL Database 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-cli.md) 및 [CLI를 사용하여 Azure SQL 단일 데이터베이스 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-cli.md)을 참조하세요.
 >
 
 | Cmdlet | 설명 |
@@ -109,7 +109,7 @@ Azure PowerShell을 사용하여 Azure SQL 논리 서버, 단일 및 풀링된 �
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|방화벽 규칙 업데이트|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|방화벽 규칙 삭제|
 
-## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: 논리 서버 및 데이터베이스 관리
+## <a name="transact-sql-manage-sql-database-servers-and-single-databases"></a>Transact-SQL: SQL Database 서버 및 단일 데이터베이스 관리
 
 Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 T-SQL cmdlet을 사용합니다. Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) 또는 Azure SQL Database 서버에 연결하여 Transact-SQL 명령을 전달할 수 있는 다른 프로그램을 사용하여 이러한 명령을 실행할 수 있습니다 . 탄력적 풀 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
@@ -135,7 +135,7 @@ Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽�
 |[sys.database_firewall_rules(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Microsoft Azure SQL Database와 연결된 데이터베이스 수준 방화벽 설정에 대한 정보를 반환합니다. |
 |[sp_delete_database_firewall_rule(Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Azure SQL Database 또는 SQL Data Warehouse에서 데이터베이스 수준 방화벽 설정을 제거합니다. |
 
-## <a name="rest-api-manage-logical-servers-and-databases"></a>REST API: 논리 서버 및 데이터베이스 관리
+## <a name="rest-api-manage-sql-database-servers-and-single-databases"></a>REST API: SQL Database 서버 및 단일 데이터베이스 관리
 
 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 REST API 요청을 사용하세요.
 

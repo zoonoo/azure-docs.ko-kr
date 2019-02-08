@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ac0513e2298877c63bb25c26de32834c07a55474
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514964"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294151"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>애플리케이션을 Azure SQL Database Managed Instance에 연결
 
@@ -92,7 +92,7 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 
 연결 문제를 해결하려면 다음을 검토합니다.
 - VNet은 동일하지만 서브넷이 다른 Azure 가상 머신에서 Managed Instance에 연결할 수 없는 경우 액세스를 차단할 수도 있는 NSG(네트워크 보안 그룹)를 VM 서브넷으로 설정했는지 확인합니다. 또한 11000-12000 범위의 포트와 마찬가지로 SQL 포트 1433에서 아웃바운드 연결을 개방해야 합니다. Azure 경계 내 리디렉션을 통한 연결에 필요하기 때문입니다. 
-- VNet과 연결된 라우트 테이블에 대해 BGP 전파가 **사용**으로 설정해야 합니다.
+- VNet과 연결된 라우트 테이블에 대해 BGP 전파를 **사용**으로 설정해야 합니다.
 - P2S VPN을 사용할 경우 Azure Portal에서 구성을 확인하여 **수신/송신** 숫자가 보이는지 확인합니다. 0이 아닌 숫자는 Azure가 온-프레미스에서 트래픽을 라우팅하는 것을 나타냅니다.
 
    ![수신/송신 숫자](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)

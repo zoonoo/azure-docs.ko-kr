@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/09/2019
-ms.openlocfilehash: 818dbf84f7b706d6f4a89354291775f091bb1afc
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 02/01/2019
+ms.openlocfilehash: cb4d3c4d15dded3c7f90a1e3cf118ca10371dcb1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215476"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700998"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>탄력적 풀에 대한 Azure SQL Database vCore 기반 구매 모델 제한
 
@@ -198,7 +198,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|
 |vCore 수|2|4|6|8|10|12|14|
-|메모리(GB)|11|22|33|44|55|66|77|
+|메모리(GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Columnstore 지원 여부|예|예|예|예|예|예|예|
 |메모리 내 OLTP 저장소(GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |최대 데이터 크기(GB)|1024|1024|1024|1536|1536|1536|1536|
@@ -260,5 +260,5 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 ## <a name="next-steps"></a>다음 단계
 
 - 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
-- 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버의 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
+- 서버 및 구독 수준의 한도에 관한 정보는 [SQL Database 서버의 리소스 한도 개요](sql-database-resource-limits-database-server.md)를 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.

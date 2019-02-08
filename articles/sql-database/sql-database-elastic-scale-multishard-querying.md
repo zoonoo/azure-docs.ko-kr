@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: ed7e8346cba2a2243ef71cb9782219fb26481dc7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 01/25/2019
+ms.openlocfilehash: 35759f03d7cf09a4114ca6dca74bd3ee92fdcbfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190076"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462174"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Elastic Database 도구를 사용하여 쿼리 다중 분할
 
@@ -59,7 +59,7 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 }
 ```
 
-주요 차이점은 다중 분할된 데이터베이스 연결을 생성한다는 것입니다. 여기서 **SqlConnection**은 단일 데이터베이스에서 작동하고, **MultiShardConnection**은 ***분할된 데이터베이스 컬렉션***을 입력으로 사용합니다. 분할된 데이터베이스 맵에서 분할된 데이터베이스의 컬렉션을 채웁니다. 그런 다음 쿼리는 **UNION ALL** 의미 체계를 사용하여 분할된 데이터베이스 컬렉션에서 실행되어 전반적인 단일 결과를 조합합니다. 필요에 따라 행이 속한 분할된 데이터베이스의 이름을 명령에서 **ExecutionOptions** 속성을 사용하여 출력에 추가할 수 있습니다.
+주요 차이점은 다중 분할된 데이터베이스 연결을 생성한다는 것입니다. 여기서 **SqlConnection**은 개별 데이터베이스에서 작동하고 **MultiShardConnection**은 ***분할된 데이터베이스 컬렉션***을 입력으로 사용합니다. 분할된 데이터베이스 맵에서 분할된 데이터베이스의 컬렉션을 채웁니다. 그런 다음 쿼리는 **UNION ALL** 의미 체계를 사용하여 분할된 데이터베이스 컬렉션에서 실행되어 전반적인 단일 결과를 조합합니다. 필요에 따라 행이 속한 분할된 데이터베이스의 이름을 명령에서 **ExecutionOptions** 속성을 사용하여 출력에 추가할 수 있습니다.
 
 **myShardMap.GetShards()** 호출을 살펴보세요. 이 메서드는 분할된 데이터베이스 맵에서 모든 분할된 데이터베이스를 검색하고 모든 관련된 데이터베이스간에 쿼리를 실행하는 간편한 방법을 제공합니다. 다중 분할된 데이터베이스 쿼리에 대한 분할된 데이터베이스의 컬렉션은 **myShardMap.GetShards()** 호출에서 반환된 컬렉션에 대해 LINQ 쿼리를 수행하여 구체화할 수 있습니다. 부분 결과 정책과 함께, 다중 분할된 데이터베이스 쿼리의 현재 기능은 수십에서 수백 개의 분할된 데이터베이스에 대해 원활하게 작동하도록 설계되었습니다.
 

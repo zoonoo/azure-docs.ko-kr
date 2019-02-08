@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 1fff32896ef794a26f223cae4ae491a2995d9acf
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 101b5382eaa01ed87f05d83c82002fa1b93144b7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191142"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463942"
 ---
-# <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>Azure Cosmos DB에서 JavaScript LINQ(Language-Integrated Query) API 사용
+# <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 JavaScript 쿼리 API
 
 Azure Cosmos DB의 SQL API를 사용하여 쿼리를 발급하는 방식과 더불어 [Cosmos DB 서버 쪽 SDK](https://azure.github.io/azure-cosmosdb-js-server/)를 사용하면 JavaScript 인터페이스를 통해 최적화된 쿼리를 수행할 수 있습니다. 이 JavaScript 인터페이스를 사용하기 위해 SQL 언어를 알 필요는 없습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 Lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 함수 호출 시퀀스에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 JavaScript 런타임으로 구문 분석되고 Azure Cosmos DB 인덱스를 사용하여 효율적으로 실행됩니다.
 

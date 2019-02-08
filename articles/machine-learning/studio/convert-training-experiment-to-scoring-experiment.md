@@ -1,6 +1,6 @@
 ---
-제목: 배포 모델 준비 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning Studio 학습 실험을 예측 실험으로 변환하여 학습된 모델을 웹 서비스로 배포하기 위해 준비하는 방법
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 배포 모델 준비 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning Studio 학습 실험을 예측 실험으로 변환하여 학습된 모델을 웹 서비스로 배포하기 위해 준비하는 방법
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.date: 03/28/2017
 ---

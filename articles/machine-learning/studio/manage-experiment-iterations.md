@@ -1,6 +1,6 @@
 ---
-제목: Machine Learning 스튜디오에서 반복 실험 관리 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio에서 반복 실험을 관리하는 방법 이전 가정에 도전하고 다시 수행하여 궁극적으로 이전 가정을 확인하거나 세분화하기 위해 언제든 이전에 실행된 실험을 검토할 수 있습니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Machine Learning 스튜디오에서 반복 실험 관리 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio에서 반복 실험을 관리하는 방법 이전 가정에 도전하고 다시 수행하여 궁극적으로 이전 가정을 확인하거나 세분화하기 위해 언제든 이전에 실행된 실험을 검토할 수 있습니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/03/20
 ---

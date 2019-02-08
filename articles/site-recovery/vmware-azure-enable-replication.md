@@ -1,17 +1,17 @@
 ---
 title: Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구를 위해 VMware VM 복제를 사용하도록 설정 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure에 대한 재해 복구를 위해 VMware VM 복제를 사용하도록 설정하는 방법을 설명합니다.
-author: asgang
+author: mayurigupta13
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: mayg
+ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424157"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226336"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
@@ -86,18 +86,20 @@ VMware 가상 머신을 복제하는 경우:
 
 1. **설정** > **복제된 항목**을 클릭하고 컴퓨터를 선택합니다. **Essentials** 페이지는 컴퓨터 설정 및 상태에 대한 정보를 표시합니다.
 2. **속성**에서 해당 VM에 대한 복제 및 장애 조치(failover) 정보를 볼 수 있습니다.
-3. **Compute 및 네트워크** > **Compute 속성**에서 Azure VM 이름 및 대상 크기를 지정할 수 있습니다. 필요한 경우 Azure 요구 사항을 준수하도록 이름을 수정합니다.
+3. **컴퓨팅 및 네트워크** > **컴퓨팅 속성**에서 여러 VM 속성을 변경할 수 있습니다.
+* Azure VM 이름 - 필요한 경우 Azure 요구 사항을 준수하도록 이름을 수정합니다.
+* 대상 VM 크기 또는 유형 - 원본 VM 크기를 기준으로 기본 VM 크기가 선택됩니다. 장애 조치(failover) 전에 언제든지 필요에 따라 다른 VM 크기를 선택할 수 있습니다. 원본 디스크도 VM 디스크 크기의 기준이 됩니다. VM 디스크 크기는 장애 조치(failover) 후에만 변경할 수 있습니다. [Standard](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) 및 [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) 디스크 크기와 IOPS에 대해 자세히 알아보세요.
 
     ![계산 및 네트워크 속성](./media/vmware-azure-enable-replication/vmproperties.png)
 
-4.  컴퓨터가 사후 장애 조치(Failover)의 일부인 [리소스 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)을 선택할 수 있습니다. 장애 조치(Failover) 전에 언제든지 이 설정을 변경할 수 있습니다. 사후 장애 조치(Failover) 시 컴퓨터를 다른 리소스 그룹으로 마이그레이션하는 경우 해당 컴퓨터의 보호 설정이 중단됩니다.
-5. 컴퓨터가 사후 장애 조치(Failover)의 일부여야 하는 경우 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)을 선택할 수 있습니다. 가용성 집합을 선택할 때는 다음에 유의하세요.
+*  리소스 그룹 - 사후 장애 조치(failover)에 포함되는 컴퓨터가 속한 [리소스 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)을 선택할 수 있습니다. 장애 조치(Failover) 전에 언제든지 이 설정을 변경할 수 있습니다. 사후 장애 조치(Failover) 시 컴퓨터를 다른 리소스 그룹으로 마이그레이션하는 경우 해당 컴퓨터의 보호 설정이 중단됩니다.
+* 가용성 세트 - 컴퓨터가 사후 장애 조치(failover)에 포함되어야 하는 경우 [가용성 세트](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)를 선택할 수 있습니다. 가용성 집합을 선택할 때는 다음에 유의하세요.
 
     * 지정된 리소스 그룹에 속하는 가용성 집합만 나열됩니다.  
     * 다른 가상 네트워크를 사용하는 컴퓨터는 동일한 가용성 집합에 속할 수 없습니다.
     * 동일한 크기의 가상 머신만 가용성 집합의 일부가 될 수 있습니다.
-5. 또한 대상 네트워크, 서브넷 및 Azure VM에 할당된 IP 주소에 대한 정보를 보고 추가할 수 있습니다.
-6. **디스크**에서 복제될 VM의 운영 체제 및 데이터 디스크를 볼 수 있습니다.
+4. 또한 대상 네트워크, 서브넷 및 Azure VM에 할당된 IP 주소에 대한 정보를 보고 추가할 수 있습니다.
+5. **디스크**에서 복제될 VM의 운영 체제 및 데이터 디스크를 볼 수 있습니다.
 
 ### <a name="configure-networks-and-ip-addresses"></a>네트워크 및 IP 주소 구성
 
@@ -120,7 +122,7 @@ Microsoft Software Assurance 고객은 Azure 하이브리드 혜택을 사용하
 
 ## <a name="common-issues"></a>일반적인 문제
 
-* 각 디스크의 크기는 1TB 미만이어야 합니다.
+* 각 디스크의 크기는 4TB 미만이어야 합니다.
 * OS 디스크는 동적 디스크가 아닌 기본 디스크여야 함
 * 2세대/UEFI 지원 가상 머신의 경우 운영 체제 제품군이 Windows이고 부팅 디스크는 300GB 미만이어야 합니다.
 
@@ -128,4 +130,5 @@ Microsoft Software Assurance 고객은 Azure 하이브리드 혜택을 사용하
 
 보호가 완료되고 컴퓨터가 보호된 상태에 도달한 후에 [장애 조치(Failover)](site-recovery-failover.md)를 시도하여 애플리케이션이 Azure에서 온 것인지 여부를 확인할 수 있습니다.
 
-보호를 사용하지 않도록 설정하려는 경우 [등록 및 보호 설정을 정리](site-recovery-manage-registration-and-protection.md)하는 방법을 알아봅니다.
+* 복제를 사용하지 않도록 설정하려는 경우 [등록 및 보호 설정을 정리](site-recovery-manage-registration-and-protection.md)하는 방법을 알아봅니다.
+* [PowerShell을 사용하여 가상 머신의 재해 복구를 자동화](vmware-azure-disaster-recovery-powershell.md)하는 방법을 알아봅니다.

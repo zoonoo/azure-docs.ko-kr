@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811862"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217988"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -130,7 +130,7 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 
     ![소프트웨어 선택](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. GRUB 부팅 로더를 설치하기 위한 선택 영역에서 **예**를 선택하고 **Enter** 키를 선택합니다.
+1. GRUB 부팅 로더를 설치하기 위한 선택 영역에서 **Yes**를 선택하고 **Enter** 키를 누릅니다.
      
     ![GRUB 부팅 설치 관리자](./media/vmware-azure-install-linux-master-target/image20.png)
 

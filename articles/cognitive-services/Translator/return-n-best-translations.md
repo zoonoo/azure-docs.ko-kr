@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a0f4e4dd5cea9c3ea7b682e6372d2ffa8726e6ef
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ea409a4295cb07800e3f48ab408135071d0faea6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646476"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464825"
 ---
 # <a name="how-to-return-n-best-translations"></a>N-Best 번역 반환 방법
 
@@ -44,13 +44,13 @@ Microsoft Translator API의 GetTranslations() 및 GetTranslationsArray() 메서�
 | maxTranslations | **필수** 반환할 번역의 최대 수를 나타내는 int입니다. |
 | options | **선택 사항** 아래에 나열된 값을 포함하는 TranslateOptions 개체입니다. 모두 선택 사항이며 가장 일반적인 설정이 기본값이 됩니다.
 
-* 범주: 유일하게 지원되는 기본 옵션은 "general"입니다.
-* ContentType: 유일하게 지원되는 기본 옵션은 "text/plain"입니다.
-* 상태: 요청 및 응답을 상호 연결하게 하는 사용자 상태입니다. 응답에서 동일한 내용이 반환됩니다.
+* 범주: 지원되는 옵션은 기본값인 "general"뿐입니다.
+* ContentType: 지원되는 옵션은 기본값인 "text/plain"뿐입니다.
+* 상태: 요청과 응답의 상관 관계를 지정하는 데 사용할 수 있는 사용자 상태입니다. 응답에서 동일한 내용이 반환됩니다.
 * IncludeMultipleMTAlternatives: MT 엔진에서 하나를 초과하는 대안을 반환할 것인지 여부를 결정하는 플래그입니다. 기본값이 False이고 1개의 대안만 포함합니다.
 
 ## <a name="ratings"></a>등급
-등급은 다음과 같이 적용됩니다. 즉, 최고의 자동 번역 등급은 5입니다.
+등급은 다음과 같이 적용됩니다. 최고 품질의 자동 번역은 5등급입니다.
 자동으로 생성된(N-Best) 번역 대안의 등급은 0이며, 일치 정도는 100입니다.
 
 ## <a name="number-of-alternatives"></a>대안 수

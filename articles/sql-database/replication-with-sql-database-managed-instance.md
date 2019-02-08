@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/16/2019
-ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/25/2019
+ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467666"
 ---
 # <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에서 복제 구성
 
-트랜잭션 복제를 사용하여 SQL Server 또는 Azure SQL Database Managed Instance 데이터베이스에서 Managed Instance로 데이터를 복제하거나 Managed Instance의 데이터베이스에서 변경한 내용을 다른 SQL Server, Azure Single Database 또는 다른 Managed Instance로 밀어넣을 수 있습니다. 복제는 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)에서 공개 미리 보기로 제공됩니다. Managed Instance는 게시자, 배포자 및 구독자 데이터베이스를 호스트할 수 있습니다. 사용 가능한 구성에 대해서는 [트랜잭션 복제 구성](sql-database-managed-instance-transactional-replication.md#common-configurations)을 참조하세요.
+트랜잭션 복제를 사용하여 SQL Server 또는 Azure SQL Database Managed Instance 데이터베이스에서 Managed Instance로 데이터를 복제하거나 Managed Instance의 데이터베이스에서 변경한 내용을 다른 SQL Server, SQL Database 단일 데이터베이스 또는 탄력적 풀이나 다른 Managed Instance로 밀어넣을 수 있습니다. 복제는 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)에서 공개 미리 보기로 제공됩니다. Managed Instance는 게시자, 배포자 및 구독자 데이터베이스를 호스트할 수 있습니다. 사용 가능한 구성에 대해서는 [트랜잭션 복제 구성](sql-database-managed-instance-transactional-replication.md#common-configurations)을 참조하세요.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -46,7 +46,7 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 
 - 온-프레미스 및 Azure SQL Database Managed Instance 인스턴스의 트랜잭션 및 스냅숏 복제 조합
 
-- 구독자는 온-프레미스, Azure SQL Database에서 단일 데이터베이스 또는 Azure SQL Database 탄력적 풀에서 풀링된 데이터베이스일 수 있습니다.
+- 구독자는 온-프레미스, Azure SQL Database의 단일 데이터베이스 또는 Azure SQL Database 탄력적 풀의 풀링된 데이터베이스일 수 있습니다.
 
 - 단방향 또는 양방향 복제.
 
@@ -71,7 +71,7 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 
    아래 예제 스크립트에서 이 SQL Server 계정 데이터베이스 사용자 및 암호로 `<SQL_USER>` 및 `<PASSWORD>`를 사용합니다.
 
-5. [SQL Database Managed Instance에 연결합니다](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [SQL Database Managed Instance에 연결합니다](sql-database-connect-query-ssms.md).
 
 6. 다음 쿼리를 실행하여 배포자 및 배포 데이터베이스를 추가합니다.
 
@@ -172,4 +172,4 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 ## <a name="see-also"></a>참고 항목
 
 - [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
-- [Managed Instance란?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Managed Instance란?](sql-database-managed-instance.md)

@@ -5,19 +5,19 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 38cccf17980f5a6a2cf162cdecdc6aad40d4f38e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5717074d53e267018b7697aeed21ea00d246592e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432560"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252220"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
-작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다.
+작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
 
 작업이 메일 또는 SMS로 개인에게 알리도록 구성된 경우 개인은 작업 그룹에 추가되었음을 나타내는 확인을 수신합니다.
 
@@ -88,15 +88,18 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 **음성** - 하나의 작업 그룹에 최대 10개의 음성 작업이 포함될 수 있습니다.</dd>
 [속도 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조하세요.</dd>
 
-**웹후크** - 하나의 작업 그룹에 최대 10개의 웹후크 작업이 포함될 수 있습니다. 다시 시도 논리 - 응답에 대한 제한 시간은 10초입니다. 웹후크 호출은 HTTP 상태 코드 408, 429, 503, 504가 반환되거나 HTTP 엔드포인트가 응답하지 않으면 최대 2번 다시 시도됩니다. 10초 후에 첫 번째 다시 시도가 발생합니다. 100초 후에 두 번째 및 마지막 다시 시도가 발생합니다.
+**웹후크** - 하나의 작업 그룹에 최대 10개의 웹후크 작업이 포함될 수 있습니다.
+다시 시도 논리 - 응답에 대한 제한 시간은 10초입니다. 웹후크 호출은 HTTP 상태 코드 408, 429, 503, 504가 반환되거나 HTTP 엔드포인트가 응답하지 않으면 최대 2번 다시 시도됩니다. 10초 후에 첫 번째 다시 시도가 발생합니다. 두 번째 다시 시도는 100초 후에 진행됩니다. 두 시도가 모두 실패하면 어떤 작업 그룹에서도 해당 엔드포인트를 30분 동안 호출하지 않습니다.
 
 원본 IP 주소 범위
+    - 13.72.19.232
     - 13.106.57.181
     - 13.106.54.3
     - 13.106.54.19
     - 13.106.38.142
     - 13.106.38.148
     - 13.106.57.196
+    - 52.244.68.117
 
 이러한 IP 주소에 대한 변경 내용에 대한 업데이트를 받으려면 작업 그룹 서비스에 대한 정보 알림을 모니터링하는 [서비스 상태 경고](./../../azure-monitor/platform/service-notifications.md)를 구성하는 것이 좋습니다.
 

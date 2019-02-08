@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1a7ea00e8bdf4fa1a22dd765e5108dce72e2d380
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c11cdd6d1cc24d639d837993e94f3b304228634a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307465"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299557"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 테이블에서 통계 만들기 및 업데이트
 Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 업데이트에 대한 예제와 권장 사항입니다.
@@ -38,7 +38,7 @@ FROM sys.databases
 ALTER DATABASE <yourdatawarehousename> 
 SET AUTO_CREATE_STATISTICS ON
 ```
-조인을 포함하거나 조건자의 존재가 검색될 때 다음 명령문은 SELECT, INSERT-SELECT, CTAS, UPDATE, DELETE 및 EXPLAIN과 같은 통계 자동 생성을 트리거합니다. 
+SELECT, INSERT-SELECT, CTAS, UPDATE, DELETE 및 EXPLAIN 문은 조인을 포함하거나 조건자가 검색되면 자동 통계 작성을 트리거합니다. 
 
 > [!NOTE]
 > 통계 자동 생성은 임시 또는 외부 테이블에 만들어집니다.
@@ -50,7 +50,7 @@ SET AUTO_CREATE_STATISTICS ON
 > 통계 생성은 다른 사용자 컨텍스트에서 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016)에도 기록됩니다.
 > 
 
-자동 통계를 만들 때 _WA_Sys_<16진수의 8자리 열 ID>_<16진수의 8자리 테이블 ID> 양식을 사용합니다. [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) 명령을 실행하면 이미 생성된 통계를 볼 수 있습니다.
+생성되는 자동 통계의 형식은 _WA_Sys_<16진수 8자리 열 ID>_<16진수 8자리 테이블 ID>입니다. [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) 명령을 실행하면 이미 생성된 통계를 볼 수 있습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
@@ -125,7 +125,7 @@ WHERE
 
 자세한 내용은 [카디널리티 예측](/sql/relational-databases/performance/cardinality-estimation-sql-server)을 참조합니다.
 
-## <a name="examples-create-statistics"></a>예제: 통계 작성
+## <a name="examples-create-statistics"></a>예제: 통계 만들기
 이 예제는 통계를 만들기 위한 다양한 옵션을 사용하는 방법을 보여줍니다. 각 열에 대해 사용하는 옵션은 데이터의 특징 및 열이 쿼리에서 사용되는 방법에 따라 다릅니다.
 
 ### <a name="create-single-column-statistics-with-default-options"></a>기본 옵션으로 단일 열 통계 만들기
@@ -416,7 +416,7 @@ SELECT
         sm.[name]                           AS [schema_name]
 ,       tb.[name]                           AS [table_name]
 ,       st.[name]                           AS [stats_name]
-,       st.[filter_definition]              AS [stats_filter_defiinition]
+,       st.[filter_definition]              AS [stats_filter_definition]
 ,       st.[has_filter]                     AS [stats_is_filtered]
 ,       STATS_DATE(st.[object_id],st.[stats_id])
                                             AS [stats_last_updated_date]

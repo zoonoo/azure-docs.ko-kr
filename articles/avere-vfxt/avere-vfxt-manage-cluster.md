@@ -4,20 +4,20 @@ description: Avere 클러스터를 관리하는 방법 - 노드 추가 또는 �
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0eb5941bfecc023429556434a45460c8727056ec
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189612"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300187"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 관리
 
 클러스터가 만들어지면 클러스터 노드를 추가하거나 클러스터를 중지 또는 다시 부팅해야 합니다. 그리고 프로젝트가 완료되면 클러스터를 영구적으로 중지 및 제거하는 방법을 알아야 합니다. 
 
-클러스터 관리 작업에 따라 Avere 제어판, vfxt.py 클러스터 만들기 스크립트 또는 Azure Portal을 사용해야 할 수도 있습니다. 
+클러스터 관리 작업에 따라 Avere 제어판, vfxt.py 명령줄 클러스터 만들기 스크립트 또는 Azure Portal을 사용해야 할 수도 있습니다. 
 
 다음 표에는 각 작업에 사용할 수 있는 도구에 대한 개요가 나와 있습니다. 
 
@@ -71,7 +71,11 @@ Avere 제어판은 데이터 무결성의 우선 순위를 지정하므로 가�
 
 클러스터가 종료되면 처음에는 상태 메시지를 **대시보드** 탭에 게시합니다. 잠시 후에 Avere 제어판 세션에서 응답을 중지합니다. 이는 클러스터가 종료되었음을 의미합니다.
 
-## <a name="manage-the-cluster-with-vfxtpy"></a>vfxt.py를 사용하여 클러스터 관리 
+## <a name="manage-the-cluster-with-vfxtpy"></a>vfxt.py를 사용하여 클러스터 관리
+
+vfxt.py는 클러스터 만들기 및 관리용 명령줄 도구입니다. 
+
+vfxt.py는 클러스터 컨트롤러 VM에 사전 설치됩니다. 다른 시스템에 vfxt.py를 설치하려면 <https://github.com/Azure/AvereSDK>에서 설명서를 참조하세요.
 
 vfxt.py 스크립트를 사용할 수 있는 클러스터 관리 작업은 다음과 같습니다.
 
@@ -80,8 +84,6 @@ vfxt.py 스크립트를 사용할 수 있는 클러스터 관리 작업은 다�
 * 클러스터 삭제
 
 Avere 제어판과 마찬가지로, vfxt.py 작업은 클러스터 또는 노드를 종료하거나 삭제하기 전에 변경된 데이터가 백 엔드 저장소에 영구적으로 저장되도록 합니다. 이는 Avere 포털보다 안전한 옵션입니다.
-
-vfxt.py는 클러스터 컨트롤러 VM에 사전 설치됩니다. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 전체 vfxt.py 사용 가이드는 GitHub: [vfxt.py를 사용한 클라우드 클러스터 관리](https://github.com/azure/averesdk/blob/master/docs/README.md)에서 사용할 수 있습니다.
 

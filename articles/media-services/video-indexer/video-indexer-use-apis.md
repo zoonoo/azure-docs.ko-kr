@@ -1,5 +1,5 @@
 ---
-title: Video Indexer API 사용
+title: Video Indexer API 사용 - Azure
 titlesuffix: Azure Media Services
 description: 이 문서에서는 Video Indexer API를 사용하는 방법을 설명합니다.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: d7af0d8961d5fa4d3f76b76a48ec613d954298ad
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: fcde97c76e11c6ecbdb22befcb1a8d1ce0437942
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292051"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299031"
 ---
-# <a name="use-the-video-indexer-api"></a>Video Indexer API 사용
+# <a name="tutorial-use-the-video-indexer-api"></a>자습서: Video Indexer API 사용
 
 > [!Note]
 > Video Indexer V1 API는 2018년 8월 1일부터 더 이상 사용되지 않습니다. 이제는 Video Indexer v2 API를 사용해야 합니다. <br/>Video Indexer v2 API를 사용하여 개발하려면 [여기](https://api-portal.videoindexer.ai/)의 지침을 참조하세요. 
@@ -82,7 +82,7 @@ Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 �
 
 |**Name**|**매개 변수 값**|**설명**|
 |---|---|---|
-|평가판|체험|평가판 계정에 사용됩니다.|
+|평가판|trail|평가판 계정에 사용됩니다.|
 |미국 서부|westus2|Azure 미국 서부 2 지역에 사용됩니다.|
 |북유럽 |northeurope|Azure 북유럽 지역에 사용됩니다.|
 |동아시아|eastasia|Azure 동아시아 지역에 사용됩니다.|

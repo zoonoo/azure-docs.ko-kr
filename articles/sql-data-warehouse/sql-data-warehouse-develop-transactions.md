@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 121fa87cb295799fdcd3de5e627fb894efc24c49
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2f463620f43ae95535a55005ebe9732495b89dc9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301268"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456666"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>SQL Data Warehouse의 트랜잭션 사용
 솔루션 개발을 위한 Azure SQL Data Warehouse의 트랜잭션 구현을 위한 팁
@@ -107,7 +107,7 @@ SELECT @xact_state AS TransactionState;
 
 위의 코드는 다음과 같은 오류 메시지를 제공합니다.
 
-Msg 111233, Level 16, State 1, Line 1 111233; 현재 트랜잭션이 중단되었으며 보류 중인 변경 내용은 롤백되었습니다. 원인: 롤백 전용 상태의 트랜잭션은 DDL, DML 또는 SELECT 문 이전에 명시적으로 롤백되지 않았습니다.
+Msg 111233, Level 16, State 1, Line 1 111233; 현재 트랜잭션이 중단되었으며 보류 중인 변경 내용은 롤백되었습니다. 원인: 롤백 전용 상태의 트랜잭션이 DDL, DML 또는 SELECT 문 앞에서 명시적으로 롤백되지 않았습니다.
 
 또한 ERROR_* 함수의 출력도 제공되지 않습니다.
 

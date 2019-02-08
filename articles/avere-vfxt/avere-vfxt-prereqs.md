@@ -4,14 +4,14 @@ description: Avere vFXT for Azure에 대한 필수 조건입니다.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: d32c664049b7e7c1231e78c552e7c61d016fbe84
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286761"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299209"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -33,22 +33,20 @@ Azure Portal에 새 Azure 구독을 만들려면 다음을 수행합니다.
 구독에 대한 소유자 권한이 있는 사용자는 vFXT 클러스터를 만들어야 합니다. 특히 다음과 같은 작업에는 구독 소유자 권한이 필요합니다.
 
 * Avere vFXT 소프트웨어 사용 약관에 동의
-* 클러스터 노드 액세스 역할 만들기
-* 클러스터 컨트롤러 노드에서 리소스 그룹과 가상 네트워크를 관리할 수 있도록 허용 
-* 클러스터 컨트롤러에서 클러스터 노드를 만들고 수정할 수 있도록 허용 
+* 클러스터 노드 액세스 역할 만들기 
 
 vFXT를 만드는 사용자에게 소유자 액세스 권한을 부여하지 않으려면 다음 두 가지 해결 방법이 있습니다.
 
 * 다음 조건이 충족되는 경우 리소스 그룹 소유자가 클러스터를 만들 수 있습니다.
 
-  * 구독 소유자는 [Avere vFXT 소프트웨어 사용 약관에 동의](#accept-software-terms-in-advance)하고 [클러스터 노드 액세스 역할을 만들어야](avere-vfxt-deploy.md#create-the-cluster-node-access-role) 합니다.
+  * 구독 소유자는 [Avere vFXT 소프트웨어 사용 약관에 동의](#accept-software-terms)하고 [클러스터 노드 액세스 역할을 만들어야](#create-the-cluster-node-access-role) 합니다. 
   * 다음을 포함한 모든 Avere vFXT 리소스는 리소스 그룹 내에 배포해야 합니다.
     * 클러스터 컨트롤러
     * 클러스터 노드
-    * Blob 저장소
+    * Blob Storage
     * 네트워크 요소
  
-* 추가 액세스 역할이 만들어지고 사용자에게 미리 할당된 경우 소유자 권한이 없는 사용자가 vFXT 클러스터를 만들 수 있습니다. 그러나 이 역할은 이러한 사용자에게 중요한 권한을 부여합니다. 소유자 권한이 없는 사용자에게 클러스터를 만들 수 있는 권한을 부여하는 방법은 [이 문서](avere-vfxt-non-owner.md)에서 설명하고 있습니다.
+* RBAC(역할 기반 액세스 제어)를 미리 사용하여 사용자에게 권한을 할당하면 소유자 권한이 없는 사용자가 vFXT 클러스터를 만들 수 있습니다. 이 방법을 사용하는 경우 해당 사용자에게 매우 많은 권한이 제공됩니다. 액세스 역할을 만들어 소유자가 아닌 사용자에게 클러스터 만들기 권한을 부여하는 방법에 대한 설명은 [이 문서](avere-vfxt-non-owner.md)에 나와 있습니다.
 
 ## <a name="quota-for-the-vfxt-cluster"></a>vFXT 클러스터에 대한 할당량
 
@@ -64,12 +62,12 @@ vFXT를 만드는 사용자에게 소유자 액세스 권한을 부여하지 않
 |저장소 계정(선택 사항) |v2|
 |데이터 백 엔드 저장소(선택 사항) |새 LRS Blob 컨테이너 1개 |
 
-## <a name="accept-software-terms-in-advance"></a>소프트웨어 사용 약관에 미리 동의
+## <a name="accept-software-terms"></a>소프트웨어 약관 동의
 
 > [!NOTE] 
 > 구독 소유자가 Avere vFXT 클러스터를 만드는 경우에는 이 단계가 필요하지 않습니다.
 
-클러스터를 만들기 전에 먼저 Avere vFXT 소프트웨어의 서비스 약관에 동의해야 합니다. 구독 소유자가 아닌 경우, 구독 소유자가 사용 약관에 미리 동의하도록 합니다. 이 단계는 구독당 한 번만 수행하면 됩니다.
+클러스터를 만들 때 Avere vFXT 소프트웨어의 서비스 약관에 동의해야 합니다. 구독 소유자가 아닌 경우, 구독 소유자가 사용 약관에 미리 동의하도록 합니다. 이 단계는 구독당 한 번만 수행하면 됩니다.
 
 소프트웨어 사용 약관에 미리 동의하려면 다음을 수행합니다. 
 
@@ -85,6 +83,74 @@ vFXT를 만드는 사용자에게 소유자 액세스 권한을 부여하지 않
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
+
+## <a name="create-access-roles"></a>액세스 역할 만들기 
+
+[RBAC(역할 기반 액세스 제어)](../role-based-access-control/index.yml)는 필요한 작업을 수행할 수 있는 권한을 vFXT 클러스터 컨트롤러 및 클러스터 노드에 부여합니다.
+
+* 클러스터를 만들려면 클러스터 컨트롤러에 VM을 만들고 수정하는 권한이 필요합니다. 
+
+* 개별 vFXT 노드는 일반적인 클러스터 작업의 일환으로 Azure 리소스 속성 읽기, 스토리지 관리, 다른 노드의 네트워크 인터페이스 설정 제어 등의 작업을 수행해야 합니다.
+
+Avere vFXT 클러스터를 만들려면 먼저 클러스터 노드에 사용할 사용자 지정 역할을 정의해야 합니다. 
+
+클러스터 컨트롤러의 경우 템플릿에서 기본 역할을 수락할 수 있습니다. 기본 역할은 클러스터 컨트롤러에 리소스 그룹 소유자 권한을 제공합니다. 컨트롤러용으로 사용자 지정 역할을 만들려는 경우 [사용자 지정된 컨트롤러 액세스 역할](avere-vfxt-controller-role.md)을 참조하세요.
+
+> [!NOTE] 
+> 구독 소유자 또는 소유자/사용자 액세스 관리자 역할의 사용자만 역할을 만들 수 있습니다. 이러한 역할은 미리 만들 수 있습니다.  
+
+### <a name="create-the-cluster-node-access-role"></a>클러스터 노드 액세스 역할 만들기
+
+<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
+
+클러스터 노드 역할을 만들어야 용 Avere vFXT for Azure 클러스터를 만들 수 있습니다.
+
+> [!TIP] 
+> Microsoft 내부 사용자는 새로 만들려고 시도하는 대신 “Avere 클러스터 런타임 운영자”라는 기존 역할을 사용해야 합니다. 
+
+1. 이 파일을 복사합니다. AssignableScopes 줄에 구독 ID를 추가합니다.
+
+   이 파일의 최신 버전은 github.com/Azure/Avere 리포지토리에 [AvereOperator.txt](https://github.com/Azure/Avere/blob/master/src/vfxt/src/roles/AvereOperator.txt)로 저장되어 있습니다.  
+
+   ```json
+   {
+      "AssignableScopes": [
+          "/subscriptions/PUT_YOUR_SUBSCRIPTION_ID_HERE"
+      ],
+      "Name": "Avere Operator",
+      "IsCustom": "true",
+      "Description": "Used by the Avere vFXT cluster to manage the cluster",
+      "NotActions": [],
+      "Actions": [
+          "Microsoft.Compute/virtualMachines/read",
+          "Microsoft.Network/networkInterfaces/read",
+          "Microsoft.Network/networkInterfaces/write",
+          "Microsoft.Network/virtualNetworks/subnets/read",
+          "Microsoft.Network/virtualNetworks/subnets/join/action",
+          "Microsoft.Network/networkSecurityGroups/join/action",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+      ],
+      "DataActions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
+      ]
+   }
+   ```
+
+1. 파일을 ``avere-operator.json`` 또는 쉽게 기억할 수 있는 비슷한 파일 이름으로 저장합니다. 
+
+
+1. Azure Cloud Shell을 열고 [이 문서 앞부분에서 설명](#accept-software-terms)한 구독 ID로 로그인합니다. 다음 명령을 사용하여 역할을 만듭니다.
+
+   ```bash
+   az role definition create --role-definition /avere-operator.json
+   ```
+
+역할 이름은 클러스터를 만들 때 사용됩니다. 이 예제에서 이름은 ``avere-operator``입니다.
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>다음 단계: vFXT 클러스터 만들기
 

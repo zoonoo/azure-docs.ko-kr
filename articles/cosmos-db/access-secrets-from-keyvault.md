@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
 ms.reviewer: sngun
-ms.openlocfilehash: c80f555a3789a12420cef0dc91ef7accc6a4388d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8a3863ff67549c77692f8629c2e7315aec94faf8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036191"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463313"
 ---
-# <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Key Vault를 사용하여 Azure Cosmos DB 키 저장 및 액세스
+# <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 키 보호 
 
 애플리케이션에 Azure Cosmos DB를 사용하는 경우, 앱의 구성 파일 내에서 엔드포인트 URI와 키를 사용하여 데이터베이스, 컬렉션, 문서에 액세스할 수 있습니다.  그러나 모든 사용자가 일반 텍스트 형식으로 사용할 수 있으므로 애플리케이션 코드에 키와 URL을 직접 입력하는 것은 안전하지 않습니다. URI와 키를 사용할 수 있지만 안전한 메커니즘을 통해 사용할 수 있는지 확인하려고 합니다. 이 경우 Azure Key Vault가 애플리케이션 비밀을 안전하게 저장하고 관리하는 데 도움을 줄 수 있습니다.
 

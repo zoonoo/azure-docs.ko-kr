@@ -7,21 +7,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.openlocfilehash: 9d229dfa11a317c1f3b3121cdc7c1cdfa7df9c5e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 3d2c15d3658ed93348c5ec23198d2cc97a94e0aa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321639"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297874"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>라이선스에 대한 제품 이름 및 서비스 계획 식별자
 
@@ -29,13 +27,13 @@ ms.locfileid: "54321639"
 
 - **제품 이름**: 관리 포털에서 사용됩니다.
 - **문자열 ID**: 라이선스에 대한 작업을 수행할 때 PowerShell v1.0 cmdlet에서 사용됩니다.
-- **Guid ID**: Azure AD Graph 및 Microsoft Graph에서 사용되는 GUID입니다.
-- **포함된 서비스 계획**: 문자열 ID 및 GUID에 해당하는 제품의 서비스 계획 목록입니다.
+- **GUID**: Azure AD Graph 및 Microsoft Graph에서 사용되는 GUID입니다.
+- **포함된 서비스 플랜**: 문자열 ID 및 GUID에 해당하는 제품의 서비스 플랜 목록입니다.
 
 >[!NOTE]
 >이 정보는 2018년 8월 17일 기준입니다.
 
-| 제품 이름 | 문자열 ID | GUID | 서비스 계획 포함 |
+| 제품 이름 | 문자열 ID | GUID | 포함된 서비스 플랜 |
 | --- | --- | --- |--- |
 | AUDIO CONFERENCING | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 |MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
 | AZURE ACTIVE DIRECTORY BASIC  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) |

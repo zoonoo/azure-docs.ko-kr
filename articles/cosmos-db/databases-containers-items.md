@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107738"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468141"
 ---
-# <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Azure Cosmos 데이터베이스, 컨테이너 및 항목 작업
+# <a name="work-with-databases-containers-and-items"></a>데이터베이스, 컨테이너 및 항목 작업
 
 Azure 구독 아래에 [Azure Cosmos DB 계정](account-overview.md)을 생성한 후 데이터베이스, 컨테이너 및 항목을 만들어 계정의 데이터를 관리할 수 있습니다. 이 문서에서는 데이터베이스, 컨테이너 및 항목의 각 엔터티에 대해 설명합니다. 다음 이미지는 Azure Cosmos 계정에서 다른 엔터티의 계층 구조를 보여줍니다.
 

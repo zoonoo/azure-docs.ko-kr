@@ -1,6 +1,6 @@
 ---
-제목: R을 사용하여 실험 확장 titleSuffix: Azure Machine Learning Studio 설명: R 스크립트 실행 모듈을 사용하여 R 언어를 통해 Azure Machine Learning Studio의 기능을 확장하는 방법.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: R을 사용하여 실험 확장 titleSuffix: Azure Machine Learning Studio 설명: R 스크립트 실행 모듈을 사용하여 R 언어를 통해 Azure Machine Learning Studio의 기능을 확장하는 방법.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---

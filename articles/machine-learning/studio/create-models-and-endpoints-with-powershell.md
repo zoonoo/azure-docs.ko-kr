@@ -1,6 +1,6 @@
 ---
-제목: Studio 실험 하나에서 여러 모델 만들기 titleSuffix: Azure Machine Learning Studio 설명: PowerShell을 사용하여 알고리즘은 동일하지만 다른 학습 데이터 세트로 여러 Machine Learning 모델 및 웹 서비스 엔드포인트를 만듭니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Studio 실험 하나에서 여러 모델 만들기 titleSuffix: Azure Machine Learning Studio 설명: PowerShell을 사용하여 알고리즘은 동일하지만 다른 학습 데이터 세트로 여러 Machine Learning 모델 및 웹 서비스 엔드포인트를 만듭니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/04/04
 ---

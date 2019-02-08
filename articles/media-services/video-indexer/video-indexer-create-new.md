@@ -1,5 +1,5 @@
 ---
-title: 기존 비디오에서 비디오 정보 만들기
+title: 기존 비디오에서 비디오 인사이트 만들기 - Azure
 titlesuffix: Azure Media Services
 description: 이 항목에서는 기존 비디오 파일에 기반하여 비디오 인사이트를 만들고 게시하는 방법을 설명합니다.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 7ba3fab514729b7b5645254fa9d34dd42b6718d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2f6ceeebd18a91472ee12f04c0ac8e602b05f269
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292006"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197554"
 ---
-# <a name="tutorial-create-highlights-from-existing-videos"></a>자습서: 기존 비디오에서 강조 부분 만들기
+# <a name="create-highlights-from-existing-videos"></a>기존 비디오에서 강조 부분 만들기
 
 이 항목에서는 다른 몇 가지 비디오에 기반하여 비디오 인사이트를 만들고 게시하는 방법에 대해 설명합니다.
 

@@ -1,27 +1,25 @@
 ---
-title: 제품 라이선스 간에 사용자를 마이그레이션하는 방법 - Azure Active Directory | Microsoft Docs
-description: 그룹 기반 라이선스를 사용하여 서로 다른 제품 라이선스(Office 365 Enterprise E1 및 E3) 간에 사용자를 마이그레이션하는 데 권장되는 프로세스에 대해 설명합니다.
+title: 그룹을 사용해 제품 라이선스로 사용자를 마이그레이션하는 방법 - Azure Active Directory | Microsoft Docs
+description: 그룹 기반 라이선스를 사용하여 다른 제품 라이선스(Office 365 Enterprise E1 및 E3)로 그룹 내의 사용자를 마이그레이션하는 데 권장되는 프로세스에 대해 설명합니다.
 services: active-directory
 keywords: Azure AD 라이선스
 documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.openlocfilehash: f675ff0dfaf183c2efd177c7888549e6976fbe6d
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: ea6159f487b35192e0e2137662a664a2796843c0
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389471"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294576"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 안전하게 마이그레이션하는 방법
 

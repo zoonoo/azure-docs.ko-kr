@@ -8,21 +8,21 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 01/29/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 12c8b80b76c721962ca6180e531578b037997553
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854918"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294168"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름 관리
 
-대다수 디렉터리 리소스 식별자에서 중요한 부분인 도메인 이름은 사용자의 경우 사용자 이름 또는 전자 메일 주소 부분이고 그룹의 경우 주소 부분이며, 애플리케이션의 경우 경우에 따라 앱 ID URI 부분입니다. Azure AD(Azure Active Directory)의 리소스는 리소스를 포함하는 디렉터리가 소유하는 도메인 이름을 포함할 수 있습니다. 전역 관리자만 Azure AD에서 도메인을 관리할 수 있습니다.
+대다수 디렉터리 리소스 식별자에서 중요한 부분인 도메인 이름은 사용자의 경우 사용자 이름 또는 전자 메일 주소 부분이고 그룹의 경우 주소 부분이며, 응용 프로그램의 경우 경우에 따라 앱 ID URI 부분입니다. Azure AD(Azure Active Directory)의 리소스는 리소스를 포함하는 디렉터리가 소유하는 도메인 이름을 포함할 수 있습니다. 전역 관리자만 Azure AD에서 도메인을 관리할 수 있습니다.
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Azure AD 디렉터리에 대한 주 도메인 이름 설정
 
@@ -82,18 +82,18 @@ Azure Portal에서 **ForceDelete**를 호출하려면 도메인 이름에 대한
 다음과 같은 경우에는 오류가 반환됩니다.
 
 * 이름을 바꿀 개체 수가 1,000개보다 많은 경우
-* 이름을 바꿀 애플리케이션 중 하나가 다중 테넌트 앱인 경우
+* 이름을 바꿀 응용 프로그램 중 하나가 다중 테넌트 앱인 경우
 
 ### <a name="frequently-asked-questions"></a>질문과 대답
 
-**질문: 도메인 삭제가 실패하고 이 도메인 이름에 Exchange Mastered 그룹이 있다는 오류가 표시되는 이유는 무엇인가요?** <br>
-**대답:** 현재 메일 사용이 가능한 보안 그룹 및 배포 목록과 같은 특정 그룹은 Exchange에서 프로비전되므로 [EAC(Exchange 관리 센터)](https://outlook.office365.com/ecp/)에서 수동으로 정리해야 합니다. 사용자 지정 도메인 이름을 사용하는 느린 ProxyAddresses가 있을 수도 있으며, 이러한 항목은 다른 도메인 이름으로 수동 업데이트해야 합니다. 
+**Q: 도메인 삭제가 실패하고 이 도메인 이름에 Exchange Mastered 그룹이 있다는 오류가 표시되는 이유는 무엇인가요?** <br>
+**A:** 현재 메일 사용이 가능한 보안 그룹 및 배포 목록과 같은 특정 그룹은 Exchange에서 프로비전되므로 [EAC(Exchange 관리 센터)](https://outlook.office365.com/ecp/)에서 수동으로 정리해야 합니다. 사용자 지정 도메인 이름을 사용하는 느린 ProxyAddresses가 있을 수도 있으며, 이러한 항목은 다른 도메인 이름으로 수동 업데이트해야 합니다. 
 
-**질문: admin@contoso.com으로 로그인했는데 “contoso.com” 도메인 이름을 삭제할 수 없습니다.**<br>
-**대답:** 사용자 계정 이름에서 삭제하려는 사용자 지정 도메인 이름을 참조할 수는 없습니다. 전역 관리자 계정이 admin@contoso.onmicrosoft.com과 같이 초기 기본 도메인 이름(.onmicrosoft.com)을 사용하는지 확인하세요. admin@contoso.onmicrosoft.com 등의 다른 전역 관리자 계정이나 “fabrikam.com” 등의 다른 사용자 지정 도메인 이름(계정: admin@fabrikam.com)으로 로그인해야 합니다.
+**Q: admin@contoso.com으로 로그인했는데 "contoso.com" 도메인 이름을 삭제할 수 없습니다.**<br>
+**A:** 사용자 계정 이름에서 삭제하려는 사용자 지정 도메인 이름을 참조할 수는 없습니다. 전역 관리자 계정이 admin@contoso.onmicrosoft.com과 같이 초기 기본 도메인 이름(.onmicrosoft.com)을 사용하는지 확인하세요. admin@contoso.onmicrosoft.com 등의 다른 전역 관리자 계정이나 “fabrikam.com” 등의 다른 사용자 지정 도메인 이름(계정: admin@fabrikam.com)으로 로그인해야 합니다.
 
-**질문: 도메인 삭제 단추를 클릭했는데 삭제 작업의 상태가 `In Progress`로 표시됩니다. 소요 시간 작업이 실패하는 경우에는 어떻게 되나요?**<br>
-**대답:** 도메인 삭제 작업은 도메인 이름에 대한 모든 참조의 이름이 바뀌는 비동기 백그라운드 작업이며 1~2분 이내에 완료됩니다. 도메인 삭제가 실패하면 다음 중 하나에 해당하지 않는지 확인하세요.
+**Q: 도메인 삭제 단추를 클릭했는데 삭제 작업의 상태가 `In Progress`로 표시됩니다. 소요 시간 작업이 실패하는 경우에는 어떻게 되나요?**<br>
+**A:** 도메인 삭제 작업은 도메인 이름에 대한 모든 참조의 이름이 바뀌는 비동기 백그라운드 작업이며 1~2분 이내에 완료됩니다. 도메인 삭제가 실패하면 다음 중 하나에 해당하지 않는지 확인하세요.
 
 * 앱이 appIdentifierURI를 사용하여 도메인 이름에 구성되어 있음
 * 메일 사용이 가능한 그룹이 사용자 지정 도메인 이름을 참조함
@@ -112,5 +112,4 @@ Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업�
 
 * [사용자 지정 도메인 이름 추가](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Azure AD의 사용자 지정 도메인 이름에 대해 Exchange 관리 센터에서 Exchange 메일 사용이 가능한 보안 그룹 제거](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [Azure AD에서 응용 프로그램 참조를 다른 도메인으로 업데이트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad#updating-an-application)
 * [Microsoft Graph API를 통해 사용자 지정 도메인 이름 ForceDelete](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)

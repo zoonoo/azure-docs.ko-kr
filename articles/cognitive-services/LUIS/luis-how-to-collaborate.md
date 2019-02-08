@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d1db8974ce134b50340db500c9ea1b00126fe10a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bf714e5bd47e244a410d1062488af623253bbee6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086422"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217784"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>작성자 및 협력자를 관리하는 방법 
 
@@ -40,7 +40,7 @@ ms.locfileid: "53086422"
 
 ## <a name="transfer-of-ownership"></a>소유권 이전
 
-LUIS는 현재 소유권 이전을 지원하지 않지만, 앱을 내보내고 다른 LUIS 사용자가 앱을 가져올 수 있습니다. 두 응용 프로그램의 LUIS 점수가 약간 다를 수도 있습니다. 
+LUIS는 현재 소유권 이전을 지원하지 않지만, 앱을 내보내고 다른 LUIS 사용자가 앱을 가져올 수 있습니다. 두 애플리케이션의 LUIS 점수가 약간 다를 수도 있습니다. 
 
 ## <a name="azure-active-directory-resources"></a>Azure Active Directory 리소스
 
@@ -67,7 +67,12 @@ LUIS는 표준 Azure AD(Azure Active Directory)에서 동의 흐름을 사용합
 
 ![앱 웹 사이트별 Azure Active Directory 권한](./media/luis-how-to-collaborate/tenant-permissions.png)
 
-테넌트 관리자가 특정 사용자만 LUIS를 사용하도록 지정하려고 할 경우 [ID 블로그](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/)를 참조하세요.
+테넌트 관리자는 특정 사용자만 LUIS를 사용하도록 지정하려는 경우 다음과 같은 몇 가지 방법을 사용할 수 있습니다.
+* "관리자 동의"(Azure AD의 모든 사용자에 대한 동의)를 제공한 다음 엔터프라이즈 애플리케이션 속성 아래의 "사용자 할당 필요"를 "예"로 설정하고, 마지막으로 원하는 사용자만 애플리케이션에 할당/추가합니다. 이 방법을 사용하는 경우에도 관리자는 앱에 "관리자 동의"를 제공하지만, 앱에 액세스할 수 있는 사용자를 제어할 수 있습니다.
+* 두 번째 방법은 [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview)를 사용해 각각의 특정 사용자에게 동의를 제공하는 것입니다. 
+
+Azure Active Directory 사용자 및 동의에 대해 자세히 알아보세요. 
+* 특정 사용자 세트만 사용 가능하도록 [앱 제한](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)
 
 ### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>공동 작업자를 위한 여러 전자 메일에 있는 사용자 계정
 

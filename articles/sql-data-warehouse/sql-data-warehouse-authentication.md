@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse에 대한 인증 | Microsoft Docs
 description: AAD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure SQL Data Warehouse에서 인증을 받는 방법을 알아봅니다.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/12/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d082ba8bd2819450609a8a6e4ab41b4320158d4b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f26ded5fae1bde5b2e6485ae2a2f99eebb17563
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310971"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463331"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 인증
 AAD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure SQL Data Warehouse에서 인증을 받는 방법을 알아봅니다.
@@ -67,7 +67,7 @@ Azure Active Directory의 이점은 다음과 같습니다.
 다음 단계에 따라 Azure Active Directory 인증을 구성합니다.
 
 1. Azure Active Directory 만들기 및 채우기
-2. 옵션: 현재 Azure 구독과 연결된 Active Directory를 연결하거나 변경합니다.
+2. 선택 사항: 현재 Azure 구독과 연결된 Active Directory 연결 또는 변경
 3. Azure SQL Data Warehouse에 대한 Azure Active Directory 관리자 만들기
 4. 클라이언트 컴퓨터 구성
 5. Azure AD ID에 매핑된 데이터베이스에서 포함된 데이터베이스 사용자 만들기

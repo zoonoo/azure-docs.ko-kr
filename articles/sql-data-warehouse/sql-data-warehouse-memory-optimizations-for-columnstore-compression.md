@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: e30320631a7fd9b4ee27096556af01f2ad77a746
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d956322233cb6b4f8502775dcf2f89d96fd5cafe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306835"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463364"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
 
@@ -88,7 +88,7 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 
 긴 문자열은 텍스트 압축용으로 고안된 압축 방법으로 압축됩니다. 이 압축 방법은 *사전*을 사용하여 텍스트 패턴을 저장합니다. 사전의 최대 크기는 16MB입니다. 행 그룹에는 긴 문자열 각각에 대해 사전이 한 개만 있습니다.
 
-columnstore 메모리 요구 사항에 대한 자세한 내용은 [Azure SQL Data Warehouse 확장: 구성 및 지침](https://myignite.microsoft.com/videos/14822) 비디오를 참조하세요.
+columnstore 메모리 요구 사항에 대한 자세한 내용은 [Azure SQL Data Warehouse 확장: 구성 및 지침](https://channel9.msdn.com/Events/Ignite/2016/BRK3291) 비디오를 참조하세요.
 
 ## <a name="ways-to-reduce-memory-requirements"></a>메모리 요구 사항을 줄이는 방법
 
@@ -124,10 +124,10 @@ Columnstore 인덱스는 파티션당 행 그룹을 하나 이상 만듭니다. 
 
 메모리 부족을 줄이기 위해 MAXDOP 쿼리 힌트를 사용하여 로드 작업이 각 배포 내에서 직렬 모드로 강제로 실행되도록 할 수 있습니다.
 
-```
+```sql
 CREATE TABLE MyFactSalesQuota
 WITH (DISTRIBUTION = ROUND_ROBIN)
-AS SELECT * FROM FactSalesQUota
+AS SELECT * FROM FactSalesQuota
 OPTION (MAXDOP 1);
 ```
 

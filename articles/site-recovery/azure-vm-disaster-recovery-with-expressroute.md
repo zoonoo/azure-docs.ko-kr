@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875402"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228290"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합
 
@@ -205,7 +205,7 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
     - 다른 대상 IP 주소에서 UDR은 적절하게 수정해야 합니다.
 
 
-위의 단계는 [복구 계획](site-recovery-create-recovery-plans.md)의 일환으로 스크립팅될 수 있습니다. 응용 프로그램 연결 및 복구 시간 요구 사항에 따라 위의 단계는 장애 조치를 시작하기 전에 완료될 수도 있습니다.
+위의 단계는 [복구 계획](site-recovery-create-recovery-plans.md)의 일환으로 스크립팅될 수 있습니다. 애플리케이션 연결 및 복구 시간 요구 사항에 따라 위의 단계는 장애 조치를 시작하기 전에 완료될 수도 있습니다.
 
 #### <a name="after-recovery"></a>복구 후
 

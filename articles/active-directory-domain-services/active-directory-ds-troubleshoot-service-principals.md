@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035038"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191332"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 서비스 주체 구성 문제 해결
 
@@ -30,14 +30,14 @@ ms.locfileid: "51035038"
 
 **경고 메시지:** *Azure AD Domain Services가 제대로 작동하는 데 필요한 서비스 주체가 Azure AD 디렉터리에서 삭제되었습니다. 이 구성은 관리되는 도메인을 모니터링, 관리, 패치, 동기화하는 Microsoft의 기능에 영향을 줍니다.*
 
-[서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)는 Microsoft에서 관리되는 도메인을 관리, 업데이트 및 유지 관리하는 데 사용하는 응용 프로그램입니다. 이러한 서비스 주체가 삭제되면 Microsoft에서 도메인을 서비스하지 못하게 됩니다.
+[서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)는 Microsoft에서 관리되는 도메인을 관리, 업데이트 및 유지 관리하는 데 사용하는 애플리케이션입니다. 이러한 서비스 주체가 삭제되면 Microsoft에서 도메인을 서비스하지 못하게 됩니다.
 
 
 ## <a name="check-for-missing-service-principals"></a>누락된 서비스 주체에 대한 확인
 다음 단계에 따라 다시 만들어야 하는 서비스 주체를 확인합니다.
 
 1. Azure Portal에서 [엔터프라이즈 애플리케이션 - 모든 애플리케이션](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) 페이지로 이동합니다.
-2. **표시** 드롭다운에서 **모든 응용 프로그램**을 선택하고 **적용**을 클릭합니다.
+2. **표시** 드롭다운에서 **모든 애플리케이션**을 선택하고 **적용**을 클릭합니다.
 3. 다음 표를 사용하여 검색 상자에 ID를 붙여 넣어 Enter 키를 눌러 각 애플리케이션 ID를 검색합니다. 검색 결과가 비어 있으면 "해결 방법" 열에 나와 있는 단계를 수행하여 서비스 주체를 다시 만들어야 합니다.
 
 | 애플리케이션 UI | 해결 방법 |
@@ -50,7 +50,7 @@ ms.locfileid: "51035038"
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>PowerShell 사용하여 누락된 서비스 주체 다시 만들기
 ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36```가 있는 서비스 주체가 Azure AD 디렉터리에서 누락된 경우 다음 단계를 수행합니다.
 
-**해결:** 이 단계를 완료하려면 Azure AD PowerShell이 있어야 합니다. Azure AD PowerShell을 설치하는 방법에 대한 내용은 [이 문서](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)를 참조하세요.
+**해결 방법:** 이 단계를 완료하려면 Azure AD PowerShell이 있어야 합니다. Azure AD PowerShell을 설치하는 방법에 대한 내용은 [이 문서](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)를 참조하세요.
 
 이 문제를 해결하려면 PowerShell 창에서 다음 명령을 입력합니다.
 1. Azure AD PowerShell 모듈을 설치하고 가져옵니다.
@@ -78,7 +78,7 @@ ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36```가 있는 서비스 주체가 Azur
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Azure Portal을 사용하여 Microsoft AAD 네임스페이스에 다시 등록
 ID ```443155a6-77f3-45e3-882b-22b3a8d431fb```, ```abba844e-bc0e-44b0-947a-dc74e5d09022``` 또는 ```d87dcbc6-a371-462e-88e3-28ad15ec4e64```가 있는 서비스 주체가 Azure AD 디렉터리에서 누락된 경우 이러한 단계를 따릅니다.
 
-**해결:** 다음 단계를 사용하여 디렉터리에서 Domain Services를 복원합니다.
+**해결 방법:** 다음 단계를 사용하여 디렉터리에서 Domain Services를 복원합니다.
 
 1. Azure Portal의 [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 페이지로 이동합니다.
 2. 관리되는 도메인에 연결된 구독을 테이블에서 선택합니다.
@@ -89,10 +89,10 @@ ID ```443155a6-77f3-45e3-882b-22b3a8d431fb```, ```abba844e-bc0e-44b0-947a-dc74e5
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>경고 AADDS105: 암호 동기화 애플리케이션이 만료됨
 
-**경고 메시지:** 응용 프로그램 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체가 삭제된 다음, 다시 생성됩니다. 다시 만들기를 수행할 경우 관리되는 도메인을 서비스하는 데 필요한 Azure AD Domain Services 리소스에 일치하지 않는 권한이 남게 됩니다. 관리되는 도메인에서 암호 동기화에 영향이 있을 수 있습니다.
+**경고 메시지:** 애플리케이션 ID가 "d87dcbc6-a371-462e-88e3-28ad15ec4e64"인 서비스 주체가 삭제된 후에 다시 생성되었습니다. 다시 만들기를 수행할 경우 관리되는 도메인을 서비스하는 데 필요한 Azure AD Domain Services 리소스에 일치하지 않는 권한이 남게 됩니다. 관리되는 도메인에서 암호 동기화에 영향이 있을 수 있습니다.
 
 
-**해결:** 이 단계를 완료하려면 Azure AD PowerShell이 있어야 합니다. Azure AD PowerShell을 설치하는 방법에 대한 내용은 [이 문서](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)를 참조하세요.
+**해결 방법:** 이 단계를 완료하려면 Azure AD PowerShell이 있어야 합니다. Azure AD PowerShell을 설치하는 방법에 대한 내용은 [이 문서](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.)를 참조하세요.
 
 이 문제를 해결하려면 PowerShell 창에서 다음 명령을 입력합니다.
 1. Azure AD PowerShell 모듈을 설치하고 가져옵니다.

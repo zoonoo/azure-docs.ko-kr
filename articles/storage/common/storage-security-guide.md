@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243797"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454490"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -23,7 +23,7 @@ Azure Storage는 여러 개발자가 보안 애플리케이션을 빌드하도�
 - Azure AD(Azure Active Directory) 및 RBAC(역할 기반 액세스 제어)는 다음과 같이 리소스 관리 작업 및 데이터 작업 모두에 대한 Azure Storage에 지원됩니다.   
     - 저장소 계정으로 범위가 지정된 RBAC 역할을 보안 주체에 할당하고 Azure AD를 사용하여 키 관리와 같은 리소스 관리 작업의 권한을 부여할 수 있습니다.
     - Azure AD 통합은 Blob 및 큐 서비스의 데이터 작업에 대해 미리 보기로 지원됩니다. 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너 또는 큐로 범위가 지정된 RBAC 역할을 보안 주체 또는 Azure 리소스의 관리 ID에 할당할 수 있습니다. 자세한 내용은 [Azure Active Directory(미리 보기)를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.   
-- [클라이언트 쪽 암호화](../storage-client-side-encryption.md), HTTP 또는 SMB 3.0을 사용하여 응용 프로그램과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다.  
+- [클라이언트 쪽 암호화](../storage-client-side-encryption.md), HTTP 또는 SMB 3.0을 사용하여 애플리케이션과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다.  
 - 가상 머신에서 사용되는 OS 및 데이터 디스크는 [Azure Disk Encryption](../../security/azure-security-disk-encryption.md)을 사용하여 암호화될 수 있습니다. 
 - [공유 액세스 서명](../storage-dotnet-shared-access-signature-part-1.md)을 사용하여 Azure Storage의 데이터 개체에 대한 위임된 액세스 권한을 부여할 수 있습니다.
 
@@ -43,7 +43,7 @@ Azure Storage는 여러 개발자가 보안 애플리케이션을 빌드하도�
 * [휴지 상태의 암호화](#encryption-at-rest)
 
   이제 신규 및 기존 스토리지 계정에 대해 자동으로 사용되도록 설정되는 SSE(Storage 서비스 암호화)에 대해 설명합니다. Azure 디스크 암호화를 사용하는 방법을 살펴보고, 디스크 암호화, SSE 및 클라이언트 쪽 암호화의 사례와 기본적인 차이점을 알아봅니다. 미국 정부 컴퓨터의 FIPS 준수에 대해서도 간단히 살펴봅니다.
-* [저장소 분석](#storage-analytics) 을 사용하여 Azure Storage에 대한 액세스 감사
+* [스토리지 분석](#storage-analytics) 을 사용하여 Azure Storage에 대한 액세스 감사
 
   이 섹션에서는 저장소 분석 로그에서 요청에 대한 정보를 찾는 방법을 설명합니다. 실제 스토리지 분석 로그 데이터에 대해 살펴보고, 성공 여부에 관계없이 Storage 계정 키 사용, 공유 액세스 서명 사용 또는 익명 방식 중 어떤 방식으로 요청이 수행되는지를 확인하는 방법을 알아봅니다.
 * [CORS를 사용하여 브라우저 기반 클라이언트를 사용하도록 설정](#Cross-Origin-Resource-Sharing-CORS)
@@ -117,7 +117,7 @@ Storage 계정 키는 Azure에서 생성되는 512비트 문자열로, Storage �
 
 * 보안상의 이유로 정기적으로 다시 생성할 수 있습니다.
 * 누군가가 애플리케이션에 간신히 해킹하여 구성 파일에 하드 코딩되었거나 저장된 키를 검색함으로써 사용자의 스토리지 계정에 대한 모든 권한을 얻게 되면 스토리지 계정 키를 다시 생성해야 합니다.
-* 키를 다시 생성하는 또 다른 경우는 팀이 Storage 계정 키를 유지하는 스토리지 탐색기 애플리케이션을 사용하고 있는데 팀 구성원 중 하나가 팀을 탈퇴하는 경우입니다. 애플리케이션은 계속 작동되고 해당 구성원이 나간 후에도 스토리지 계정에 대한 액세스 권한을 부여합니다. 실제로 이것이 액세스 수준 공유 액세스 서명을 만드는 주요 이유입니다. 이러한 문제를 방지하기 위해 구성 파일에 액세스 키를 저장하는 대신 계정 수준 SAS를 사용할 수 있습니다.
+* 키를 다시 생성하는 또 다른 경우는 팀이 Storage 계정 키를 유지하는 스토리지 탐색기 응용 프로그램을 사용하고 있는데 팀 구성원 중 하나가 팀을 탈퇴하는 경우입니다. 애플리케이션은 계속 작동되고 해당 구성원이 나간 후에도 스토리지 계정에 대한 액세스 권한을 부여합니다. 실제로 이것이 액세스 수준 공유 액세스 서명을 만드는 주요 이유입니다. 이러한 문제를 방지하기 위해 구성 파일에 액세스 키를 저장하는 대신 계정 수준 SAS를 사용할 수 있습니다.
 
 #### <a name="key-regeneration-plan"></a>키 다시 생성 계획
 사용 중인 키를 계획 없이 그냥 다시 생성하고 싶지는 않을 것입니다. 이렇게 하면 해당 저장소 계정에 대한 모든 액세스가 차단되어 심각한 업무 중단이 발생할 수 있습니다. 이 때문에 두 개의 키를 준비하는 것입니다. 한 번에 하나의 키를 다시 생성해야 합니다.
@@ -136,7 +136,7 @@ Azure 포털에서 키를 다시 생성할 수 있습니다. 키가 다시 생�
 
 며칠에 걸쳐 마이그레이션을 수행하여 각 애플리케이션이 새 키를 사용하도록 변경한 후 게시할 수 있습니다. 이러한 작업이 모두 완료되면 돌아가서 더 이상 작동하지 않도록 이전 키를 다시 생성해야 합니다.
 
-다른 옵션은 스토리지 계정 키를 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 암호로 추가하고 애플리케이션이 해당 위치에서 키를 검색하도록 하는 것입니다. 그런 다음, 키를 다시 생성하고 Azure Key Vault를 업데이트하면 애플리케이션이 Azure Key Vault에서 자동으로 새 키를 선택하게 되므로 애플리케이션을 다시 배포하지 않아도 됩니다. 필요할 때마다 애플리케이션에서 키를 읽도록 하거나, 메모리에 캐시한 후 사용에 실패할 경우 Azure Key Vault에서 키를 다시 검색할 수 있습니다.
+다른 옵션은 저장소 계정 키를 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 암호로 추가하고 애플리케이션이 해당 위치에서 키를 검색하도록 하는 것입니다. 그런 다음, 키를 다시 생성하고 Azure Key Vault를 업데이트하면 애플리케이션이 Azure Key Vault에서 자동으로 새 키를 선택하게 되므로 애플리케이션을 다시 배포하지 않아도 됩니다. 필요할 때마다 애플리케이션에서 키를 읽도록 하거나, 메모리에 캐시한 후 사용에 실패할 경우 Azure Key Vault에서 키를 다시 검색할 수 있습니다.
 
 또한 Azure Key Vault를 사용하면 저장소 키에 대한 보안이 한 층 더 강화됩니다. 이 방법을 사용하는 경우 저장소 키가 구성 파일에 하드 코딩되지 않게 되며, 누군가가 특정 권한 없이도 키에 액세스할 수 있는 공간이 없어지는 셈이 됩니다.
 
@@ -240,7 +240,7 @@ SAS가 손상되었거나, 회사 보안 또는 규정 준수 요구 때문에 �
 * .NET 클라이언트 라이브러리를 사용하여 공유 액세스 서명 및 저장된 액세스 정책을 만드는 방법에 대한 자습서입니다.
 
   * [SAS(공유 액세스 서명) 사용](../storage-dotnet-shared-access-signature-part-1.md)
-  * [공유 액세스 서명, 2부: Blob 서비스를 사용하여 SAS 만들기 및 사용](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+  * [공유 액세스 서명 2부: Blob Service를 사용하여 SAS 만들기 및 사용](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     이 문서에서는 SAS 모델에 대한 설명, 공유 액세스 서명의 예, SAS에 대한 권장 모범 사용 사례를 제공합니다. 부여된 사용 권한을 해지하는 방법도 설명합니다.
 
@@ -307,7 +307,7 @@ Azure Disk Encryption을 새로운 기능입니다. 이 기능을 사용하면 I
 이 솔루션은 Microsoft Azure에서 사용되도록 설정될 경우 IaaS VM에 대해 다음 시나리오를 지원합니다.
 
 * Azure Key Vault와 통합
-* 표준 계층 VM: [A, D, DS, G, GS 등 시리즈 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* 표준 계층 VM: [A, D, DS, G, GS 및 기타 시리즈 IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * Windows 및 Linux IaaS VM에서 암호화 사용
 * Windows IaaS VM에 대한 OS 및 데이터 드라이브에서 암호화 사용 안 함
 * Linux IaaS VM에 대한 데이터 드라이브에서 암호화 사용 안 함
@@ -328,7 +328,7 @@ Azure Disk Encryption을 새로운 기능입니다. 이 기능을 사용하면 I
 
 
 > [!NOTE]
-> Linux OS 디스크 암호화는 현재 RHEL 7.2, CentOS 7.2n, Ubuntu 16.04의 Linux 배포판에서 지원됩니다.
+> Linux OS 디스크 암호화는 현재 Linux 배포 버전 RHEL 7.2, CentOS 7.2n, Ubuntu 16.04에서 지원됩니다.
 >
 >
 
@@ -479,7 +479,7 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
 * [MSDN의 Azure Storage 서비스에 대한 CORS(크로스-원본 자원 공유) 지원(영문)](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Azure Storage 서비스의 CORS 지원에 대한 참조 설명서입니다. 여기에는 각 저장소 서비스에 적용되는 문서에 대한 링크와 예제가 포함되어 있고 CORS 파일의 각 요소에 대한 설명도 수록되어 있습니다.
-* [Microsoft Azure Storage: CORS 소개(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure Storage: CORS 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   CORS를 소개하고 사용 방법을 보여 주는 초기 블로그 문서로 연결되는 링크입니다.
 
@@ -504,6 +504,6 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
 * [FIPS 140 유효성 검사(영문)](https://technet.microsoft.com/library/cc750357.aspx)
 
   이 문서에서는 Microsoft 제품 및 암호화 모듈이 미국 연방 정부의 FIPS 표준을 준수하는 방법에 대한 정보를 제공합니다.
-* [Windows XP 이상 버전의 Windows에서 “시스템 암호화: 암호화, 해시, 서명에 FIPS 준수 알고리즘 사용” 보안 설정 효과](https://support.microsoft.com/kb/811833)
+* [Windows XP 이상 버전의 Windows에서 "시스템 암호화: 암호화, 해시 및 서명에 FIPS 호환 알고리즘 사용" 보안 설정의 영향](https://support.microsoft.com/kb/811833)
 
   이 문서에서는 이전 Windows 컴퓨터에서 FIPS 모드를 사용하는 경우에 대해 설명합니다.

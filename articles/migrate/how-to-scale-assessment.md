@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 2bc6f14eeb974ded462b8dcaf65d5401cc35291d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6b74c81f44ee747cdd80a1106b669d89c8c7fbc3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262220"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297143"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
@@ -19,7 +19,7 @@ Azure Migrate에는 프로젝트당 1500개의 컴퓨터 제한이 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **VMware**: 마이그레이션하려는 VM은 vCenter Server 버전 5.5, 6.0, 6.5 또는 6.7에서 관리되어야 합니다. 또한 수집기 VM을 배포하려면 5.0 이상을 실행하는 ESXi 호스트가 하나 필요합니다.
+- **VMware**: 마이그레이션하려는 VM은 vCenter Server 버전 5.5, 6.0, 6.5 또는 6.7에서 관리되어야 합니다. 또한 수집기 VM을 배포하려면 버전 5.5 이상을 실행하는 ESXi 호스트가 하나 필요합니다.
 - **vCenter 계정**: vCenter Server에 액세스하려면 읽기 전용 계정이 필요합니다. Azure Migrate는 이 계정을 사용하여 온-프레미스 VM을 검색합니다.
 - **사용 권한**: vCenter Server에서는 파일을 OVA 형식으로 가져와서 VM을 만들 수 있는 권한이 필요합니다.
 - **통계 설정**: 이 요구 사항은 [일회성 검색 모델](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods)에만 적용되며, 이 모델은 이제 사용되지 않습니다. 일회성 검색 모델의 경우 vCenter Server에 대한 통계 설정은 배포를 시작하기 전에 수준 3으로 설정되어야 합니다. 통계 수준은 각 일, 주, 월 수집 간격에 대해 3으로 설정해야 합니다. 세 수집 간격 중 하나라도 수준이 3보다 낮으면 평가가 작동하기는 하지만 저장소 및 네트워크에 대한 성능 데이터는 수집되지 않습니다. 이 경우 권장 크기는 CPU 및 메모리의 성능 데이터와 디스크 및 네트워크 어댑터의 구성 데이터를 기반으로 합니다.

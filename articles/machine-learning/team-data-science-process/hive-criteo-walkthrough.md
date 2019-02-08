@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135817"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477219"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용
 
@@ -33,14 +33,14 @@ Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레�
 * 다음 13개의 열은 숫자입니다.
 * 마지막 26개는 범주 열입니다.
 
-열은 익명 처리되며 “Col1”(레이블 열)~“Col40”(마지막 범주 열) 같은 일련의 열거형 이름을 사용합니다.            
+열은 익명 처리되며 “Col1”(레이블 열)~“Col40”(마지막 범주 열) 같은 일련의 열거형 이름을 사용합니다.
 
 다음은 이 데이터 세트에서 발췌한 두 관찰(행)의 처음 20개 열입니다.
 
     Col1    Col2    Col3    Col4    Col5    Col6    Col7    Col8    Col9    Col10    Col11    Col12    Col13    Col14    Col15            Col16            Col17            Col18            Col19        Col20
 
-    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
-    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
+    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb
+    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb
 
 이 데이터 세트의 숫자 열과 범주 열 모두에 누락된 값이 있습니다. 누락된 값을 처리하는 간단한 방법을 설명합니다. 데이터에 대한 추가 정보는 Hive 테이블에 저장할 때 살펴봅니다.
 
@@ -50,7 +50,7 @@ Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레�
 이 연습에서는 두 가지 샘플 예측 문제를 처리합니다.
 
 1. **이진 분류**: 사용자가 광고를 클릭했는지 여부를 예측합니다.
-   
+
    * 클래스 0: 클릭 없음
    * 클래스 1: 그런 다음
 2. **회귀**: 사용자 기능에서 광고 클릭 확률을 예측합니다.
@@ -62,10 +62,10 @@ Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레�
 
 1. [스토리지 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 이 스토리지 계정은 Azure Blob Storage에 데이터를 저장하는 데 사용됩니다. HDInsight 클러스터에 사용되는 데이터는 여기에 저장됩니다.
 2. [데이터 과학에 대한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md): 이 단계에서는 모든 노드에 64비트 Anaconda Python 2.7이 설치된 Azure HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터를 사용자 지정할 때 두 가지 중요한 단계(이 항목에 설명)를 완료해야 합니다.
-   
+
    * 1단계에서 만든 저장소 계정을 HDInsight 클러스터와 연결해야 합니다. 이 저장소 계정은 클러스터 내에서 처리할 수 있는 데이터에 액세스하는 데 사용됩니다.
    * 클러스터의 헤드 노드에 대한 원격 액세스를 활성화해야 합니다. 여기에서 지정한 원격 액세스 자격 증명(클러스터에 대해 지정한 자격 증명과 다름)을 기억해야 합니다. 다음 절차를 완료하는 데 필요합니다.
-3. [Azure ML 작업 영역 만들기](../studio/create-workspace.md): 이 Azure Machine Learning 작업 영역은 초기 데이터를 살펴보고 HDInsight 클러스터에 샘플링을 다운로드한 후 기계 학습 모델을 빌드하는 데 사용됩니다.
+3. [Azure Machine Learning Studio 작업 영역 만들기](../studio/create-workspace.md): 이 Azure Machine Learning 작업 영역은 초기 데이터를 살펴보고 HDInsight 클러스터에 샘플링을 다운로드한 후 기계 학습 모델을 빌드하는 데 사용됩니다.
 
 ## <a name="getdata"></a>공용 원본에서 데이터 가져오기 및 사용
 링크를 클릭하고 사용 약관에 동의한 후 이름을 제공하여 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 세트에 액세스할 수 있습니다. 다음과 같은 스냅숏이 나타납니다.
@@ -74,10 +74,10 @@ Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레�
 
 **다운로드 계속하기** 를 클릭하여 데이터 세트 및 사용성을 읽어봅니다.
 
-데이터는 공용 [Azure Blob 저장소](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) 위치인 wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/에 있습니다. "wasb"는 Azure Blob Storage 위치를 나타냅니다. 
+데이터는 공용 [Azure Blob Storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) 위치인 wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/에 있습니다. "wasb"는 Azure Blob Storage 위치를 나타냅니다.
 
 1. 이 공용 Blob Storage의 데이터는 압축 해제된 데이터의 하위 폴더 3개로 구성됩니다.
-   
+
    1. 하위 폴더 *raw/count/* 는 처음 21일간의 데이터(day\_00~day\_20)를 포함합니다.
    2. 하위 폴더 *raw/train/* 은 단일 날짜의 데이터(day\_21)를 포함합니다.
    3. 하위 폴더 *raw/test/* 는 2일간의 데이터(day\_22 및 day\_23)를 포함합니다.
@@ -103,11 +103,11 @@ Criteo 데이터 세트에 대한 Hive 테이블을 만들려면 헤드 노드�
 
 > [!NOTE]
 > 이 연습의 모든 Hive 명령은 Hive bin/ 디렉터리 프롬프트에서 실행합니다. 경로 문제가 자동으로 해결됩니다. "Hive 디렉터리 프롬프트", "Hive bin/ 디렉터리 프롬프트" 및 "Hadoop 명령줄"이라는 용어는 같은 의미로 사용할 수 있습니다.
-> 
+>
 > [!NOTE]
 > Hive 쿼리를 실행하기 위해 항상 다음 명령을 사용할 수 있습니다.
-> 
-> 
+>
+>
 
         cd %hive_home%\bin
         hive
@@ -158,13 +158,13 @@ Criteo 데이터 세트에 대한 Hive 테이블을 만들려면 헤드 노드�
 **모든 Hive 쿼리를 실행할 수 있는 두 가지 방법이 있습니다.**
 
 1. **Hive REPL 명령줄 사용**: 첫 번째는 “hive” 명령을 실행하고 Hive REPL 명령줄에 쿼리를 복사하여 붙여넣는 것입니다. 이렇게 하려면 다음을 수행합니다.
-   
+
         cd %hive_home%\bin
         hive
-   
+
      이제 REPL 명령줄에서 쿼리를 잘라내고 붙여넣어 실행합니다.
 2. **쿼리를 파일로 저장하고 명령 실행**: 두 번째는 쿼리를 .hql 파일([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql))로 저장하고 다음 명령을 실행하여 쿼리를 실행하는 것입니다.
-   
+
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
 ### <a name="confirm-database-and-table-creation"></a>데이터베이스 및 테이블 만들기 확인
@@ -294,7 +294,7 @@ Hive의 LATERAL VIEW - explode 조합은 일반 목록 대신 SQL과 유사한 �
         1.0     2.1418600917169246      2.1418600917169246    6.21887086390288 27.53454893115633       65535.0
         Time taken: 564.953 seconds, Fetched: 1 row(s)
 
-일반적으로 백분위수 분포는 숫자 변수의 히스토그램 분포와 밀접한 관련이 있습니다.         
+일반적으로 백분위수 분포는 숫자 변수의 히스토그램 분포와 밀접한 관련이 있습니다.
 
 ### <a name="find-number-of-unique-values-for-some-categorical-columns-in-the-train-dataset"></a>학습 데이터 세트의 일부 범주 열에 대한 고유 값 수 확인
 데이터 탐색을 계속하면서 일부 범주 열에서 고유한 값의 수를 확인합니다. 여기에 사용되는 [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql)의 내용은 다음과 같습니다.
@@ -349,7 +349,8 @@ Col20을 제외하고 다른 모든 열에도 많은 고유 값이 있습니다.
 ## <a name="downsample"></a> Azure 기계 학습에 대한 데이터 세트 다운 샘플링
 데이터 세트를 탐색하고 모든 변수(조합 포함)에 대해 이 형식의 탐색을 수행하는 방법을 살펴보았으므로 이제 Azure Machine Learning에서 모델을 빌드할 수 있도록 데이터 세트를 다운 샘플링합니다. 문제의 중점은 지정된 예제 특성 집합(Col2~Col40의 기능 값)에 대해 Col1이 0(클릭 안 함)인지 1(클릭)인지 예측하는 것입니다.
 
-학습 및 테스트 데이터 세트를 원래 크기의 1%로 다운 샘플링하려면 Hive의 네이티브 RAND() 함수를 사용합니다. [sample&amp;#95;hive&amp;#95;criteo&amp;#95;downsample&amp;#95;train&amp;#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) 스크립트는 학습 데이터 세트에 대해 이 작업을 수행합니다.
+학습 및 테스트 데이터 세트를 원래 크기의 1%로 다운 샘플링하려면 Hive의 네이티브 RAND() 함수를 사용합니다. 
+  [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) 스크립트는 학습 데이터 세트에 대해 이 작업을 수행합니다.
 
         CREATE TABLE criteo.criteo_train_downsample_1perc (
         col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
@@ -455,11 +456,11 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Import Data** 모양�
 
 > [!NOTE]
 > 학습 및 테스트 데이터 세트 모두에 대해 이를 수행합니다. 또한 데이터베이스 이름 및 이 목적으로 지정한 테이블 이름을 사용해야 합니다. 그림에서 사용한 값은 오직 예제용입니다.\*\*
-> 
-> 
+>
+>
 
 ### <a name="step2"></a> 2단계: Azure Machine Learning에서 클릭/클릭 안 함을 예측하기 위한 간단한 실험 만들기
-Azure ML 실험은 다음과 같이 표시됩니다.
+Azure Machine Learning Studio 실험은 다음과 같습니다.
 
 ![기계 학습 실험](./media/hive-criteo-walkthrough/xRpVfrY.png)
 
@@ -481,9 +482,9 @@ Azure ML 실험은 다음과 같이 표시됩니다.
 ![개수 변환 모듈 속성 빌드](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![개수 변환 모듈 빌드](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > **통계 열** 상자에서 통계를 수행하려는 해당 열을 입력합니다. 이미 설명한 대로 이러한 열은 일반적으로 고차원 범주의 열입니다. Criteo 데이터 세트에 Col15에서 Col40까지 26개의 범주 열이 있습니다. 여기서 이 모든 범주 열의 개수를 세고 인덱스를 지정합니다(아래 나온 것 같이 15부터 40까지 쉼표로 구분).
-> 
+>
 
 MapReduce 모드에서 모듈을 사용하려면(큰 데이터 세트에 적합) HDInsight Hadoop 클러스터 액세스 권한(기능 탐색에 사용했던 액세스 권한도 이 용도에 재사용 가능) 및 해당 자격 증명이 필요합니다. 이전 그림은 값을 입력했을 때 보이는 모양을 나타냅니다. 이 그림의 표시된 값은 필요한 값으로 바꾸세요.
 
@@ -588,8 +589,8 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 세트에 적합)
 
 > [!NOTE]
 > 입력 데이터 서식에 대해 **통계 Featurizer** 모듈의 출력을 사용합니다. 이 실험의 실행이 완료되면 **Count Featurizer** 모듈의 출력을 Dataset으로 저장합니다. 이 Dataset은 웹 서비스의 입력 데이터로 사용됩니다.
-> 
-> 
+>
+>
 
 #### <a name="scoring-experiment-for-publishing-webservice"></a>웹 서비스 게시를 위한 실험 점수 매기기
 먼저 모양을 표시합니다. 기본 구조는 **점수 매기기 모델** 모듈로, 이 모듈은 학습된 모델 개체 및 이전 단계에서 **통계 Featurizer** 모듈을 사용하여 생성한 몇 줄의 입력 데이터를 허용합니다. "데이터 세트의 열 선택"을 사용하여 점수가 매겨진 레이블 및 점수 매기기 확률을 표시합니다.

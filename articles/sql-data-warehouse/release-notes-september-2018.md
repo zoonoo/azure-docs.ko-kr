@@ -6,22 +6,22 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: f8073fd746bc02c23efab914c45c61830942a677
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577985"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460729"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 9월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 9월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>SQL Data Warehouse Gen2의 더욱 저렴해진 새 진입점
-2018년 4월, [Microsoft](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/)는 5배의 성능, 5배의 계산 규모, 4배의 동시성 및 무제한 저장소를 제공하는 Azure SQL Data Warehouse Gen2를 발표했습니다. Gigaom의 [Data Warehouse in the cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)에 언급된 것처럼, SQL Data Warehouse Gen2는 **Amazon Redshift보다 42% 더 강력한 성능을 제공합니다**.
+[Microsoft](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/)는 2018년 4월에 성능/컴퓨팅 기능은 기존 세대의 5배이고 동시 처리 가능 작업 수는 4배이며 스토리지도 무제한으로 사용 가능한 Azure SQL Data Warehouse Gen2를 발표했습니다. Gigaom의 [Data Warehouse in the cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)에 언급된 것처럼, SQL Data Warehouse Gen2는 **Amazon Redshift보다 42% 더 강력한 성능을 제공합니다**.
 
 이제 Gen2는 작은 데이터 웨어하우스 또는 개발/테스트 환경을 실행할 수 있고 개선된 모든 최신 서비스를 이용할 수 있는 저렴한 진입점으로써 DWU500c를 제공합니다. 이 새로운 진입점은 [적응형 캐싱](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [초고속 데이터 셔플링](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), [실시간 데이터 웨어하우스](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/) 지원을 포함하여 Gen2의 모든 기능을 그대로 유지합니다.
 

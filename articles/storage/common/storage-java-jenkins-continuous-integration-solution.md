@@ -7,22 +7,22 @@ author: tarcher
 services: devops
 custom: jenkins
 ms.date: 07/31/2018
-ms.component: common
-ms.openlocfilehash: 040f7ef8d9b50998ac2b84ed9d4e3712f4ed5835
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 22db4690ccbd05b25f907e2d2134fa7ce5233d60
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246874"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476896"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins 연속 통합 솔루션과 함께 Azure Storage 사용
 
-이 문서에서는 Blob 저장소를 Jenkins CI(지속적인 통합) 솔루션에서 만든 빌드 아티팩트의 리포지토리로 사용하거나 빌드 프로세스에 사용할 다운로드 가능 파일의 원본으로 사용하는 방법을 보여 줍니다. 이 솔루션은 민첩한 개발 환경에서 코딩하고(Java 또는 다른 언어 사용) 빌드가 연속 통합을 기반으로 실행 중이며, 다른 조직 구성원이나 고객과 빌드 아티팩트를 공유하거나 보관 파일을 유지 관리할 수 있도록 빌드 아티팩트의 리포지토리가 필요한 경우와 같은 시나리오에서 유용합니다. 다른 시나리오는 빌드 작업 자체에 종속성 등의 다른 파일이 빌드 입력의 다운로드로 필요한 경우입니다.
+이 문서에서는 Blob Storage를 Jenkins CI(지속적인 통합) 솔루션에서 만든 빌드 아티팩트의 리포지토리로 사용하거나 빌드 프로세스에 사용할 다운로드 가능 파일의 원본으로 사용하는 방법을 보여 줍니다. 이 솔루션은 민첩한 개발 환경에서 코딩하고(Java 또는 다른 언어 사용) 빌드가 연속 통합을 기반으로 실행 중이며, 다른 조직 구성원이나 고객과 빌드 아티팩트를 공유하거나 보관 파일을 유지 관리할 수 있도록 빌드 아티팩트의 리포지토리가 필요한 경우와 같은 시나리오에서 유용합니다. 다른 시나리오는 빌드 작업 자체에 종속성 등의 다른 파일이 빌드 입력의 다운로드로 필요한 경우입니다.
 
 이 자습서에서는 Microsoft가 제공하는 Jenkins CI용 Azure Storage 플러그 인을 사용하게 됩니다.
 
 ## <a name="jenkins-overview"></a>Jenkins 개요
-Jenkins는 개발자가 손쉽게 코드 변경 사항을 통합하고 빌드를 자동으로 자주 생성할 수 있게 하여 소프트웨어 프로젝트의 연속 통합을 가능케 함으로써 개발자의 생산성을 높여 줍니다. 빌드에는 버전이 지정되고 빌드 아티팩트는 다양한 리포지토리에 업로드될 수 있습니다. 이 문서에서는 Azure Blob 저장소를 빌드 아티팩트의 리포지토리로 사용하는 방법을 보여 줍니다. Azure Blob 저장소에서 종속성을 다운로드하는 방법도 보여 줍니다.
+Jenkins는 개발자가 손쉽게 코드 변경 사항을 통합하고 빌드를 자동으로 자주 생성할 수 있게 하여 소프트웨어 프로젝트의 연속 통합을 가능케 함으로써 개발자의 생산성을 높여 줍니다. 빌드에는 버전이 지정되고 빌드 아티팩트는 다양한 리포지토리에 업로드될 수 있습니다. 이 문서에서는 Azure Blob Storage를 빌드 아티팩트의 리포지토리로 사용하는 방법을 보여 줍니다. Azure Blob Storage에서 종속성을 다운로드하는 방법도 보여 줍니다.
 
 Jenkins에 대한 자세한 내용은 [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)에서 찾을 수 있습니다.
 
@@ -90,7 +90,7 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
     ```
 
 5. 작업 구성의 **Post-build Actions**(빌드 후 작업) 섹션에서 **Add post-build action**(빌드 후 작업 추가)을 선택하고 **Upload artifacts to Azure Blob storage**(Azure Blob 스토리지로 아티팩트 업로드)를 선택합니다.
-6. **Storage account name**에서는 사용할 저장소 계정을 선택합니다.
+6. **Storage account name**에서는 사용할 스토리지 계정을 선택합니다.
 7. **Container name**에서 컨테이너 이름을 지정합니다. (컨테이너는 빌드 아티팩트가 업로드될 때 없으면 만들어집니다.) 환경 변수를 사용할 수 있으며, 이 예제에서는 컨테이너 이름으로 `${JOB_NAME}`을 입력합니다.
    
     **팁**
@@ -109,28 +109,28 @@ Blob service를 Jenkins와 함께 사용하려면 Azure Storage 플러그인을 
     4. **컨테이너**를 선택합니다.
     5. **myjob**이라는 이름의 컨테이너를 선택합니다. 이 이름은 Jenkins 작업을 만들 때 할당한 작업 이름의 소문자 버전입니다. 컨테이너 이름 및 Blob 이름은 Azure 저장소에서 소문자(및 대/소문자 구분)입니다. **myjob**라는 컨테이너의 Blob 목록 내에서 **hello.txt** 및 **date.txt**가 표시됩니다. 이 항목 중 하나의 URL을 복사하여 브라우저에서 엽니다. 빌드 아티팩트로 업로드된 텍스트 파일이 표시됩니다.
 
-아티팩트를 Azure Blob 저장소에 업로드하는 빌드 후 작업은 작업당 하나만 만들 수 있습니다. 아티팩트를 Azure Blob 저장소로 업로드하는 단일 빌드 후 작업에서는 세미콜론을 구분 기호로 사용하여 **업로드할 아티팩트 목록**에서 다른 파일(와일드카드 포함) 및 파일 경로를 지정할 수 있습니다. 예를 들어 Jenkins 빌드에서 작업 영역의 **build** 폴더에 JAR 파일과 TXT 파일을 생성한 상태에서 두 개를 모두 Azure Blob Storage에 업로드하려면 **업로드할 아티팩트 목록** 값에 `build/\*.jar;build/\*.txt`를 사용합니다. 이중 콜론 구문을 사용하여 Blob 이름 내에 사용할 경로를 지정할 수도 있습니다. 예를 들어 Blob 경로에 **이진 파일**을 사용하여 JAR을 업로드하고 Blob 경로에 **통지**를 사용하여 TXT 파일을 업로드하려면 **업로드할 아티팩트 목록** 값에 `build/\*.jar::binaries;build/\*.txt::notices`를 사용합니다.
+아티팩트를 Azure Blob Storage에 업로드하는 빌드 후 작업은 작업당 하나만 만들 수 있습니다. 아티팩트를 Azure Blob Storage로 업로드하는 단일 빌드 후 작업에서는 세미콜론을 구분 기호로 사용하여 **업로드할 아티팩트 목록**에서 다른 파일(와일드카드 포함) 및 파일 경로를 지정할 수 있습니다. 예를 들어 Jenkins 빌드에서 작업 영역의 **build** 폴더에 JAR 파일과 TXT 파일을 생성한 상태에서 두 개를 모두 Azure Blob Storage에 업로드하려면 **업로드할 아티팩트 목록** 값에 `build/\*.jar;build/\*.txt`를 사용합니다. 이중 콜론 구문을 사용하여 Blob 이름 내에 사용할 경로를 지정할 수도 있습니다. 예를 들어 Blob 경로에 **이진 파일**을 사용하여 JAR을 업로드하고 Blob 경로에 **통지**를 사용하여 TXT 파일을 업로드하려면 **업로드할 아티팩트 목록** 값에 `build/\*.jar::binaries;build/\*.txt::notices`를 사용합니다.
 
-## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>Azure Blob 저장소에서 다운로드하는 빌드 단계를 만드는 방법
-다음 단계에서는 Azure Blob 저장소에서 항목을 다운로드하는 빌드 단계를 구성하는 방법을 보여 줍니다. 이 작업은 빌드에 항목을 포함하려는 경우에 유용합니다. 이 패턴을 사용하는 예제는 Azure Blob 저장소에 유지할 수 있는 JAR입니다.
+## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>Azure Blob Storage에서 다운로드하는 빌드 단계를 만드는 방법
+다음 단계에서는 Azure Blob Storage에서 항목을 다운로드하는 빌드 단계를 구성하는 방법을 보여 줍니다. 이 작업은 빌드에 항목을 포함하려는 경우에 유용합니다. 이 패턴을 사용하는 예제는 Azure Blob Storage에 유지할 수 있는 JAR입니다.
 
-1. 작업 구성의 **빌드** 섹션에서 **빌드 단계 추가**를 선택한 후 **Azure Blob 저장소에서 다운로드**를 선택합니다.
-2. **Storage account name**에서는 사용할 저장소 계정을 선택합니다.
+1. 작업 구성의 **빌드** 섹션에서 **빌드 단계 추가**를 선택한 후 **Azure Blob Storage에서 다운로드**를 선택합니다.
+2. **Storage account name**에서는 사용할 스토리지 계정을 선택합니다.
 3. **Container name**에서 다운로드할 Blob이 있는 컨테이너의 이름을 지정합니다. 환경 변수를 사용할 수 있습니다.
 4. **Blob name**에서 Blob 이름을 지정합니다. 환경 변수를 사용할 수 있습니다. Blob 이름의 첫 부분 글자를 지정한 후에 와일드카드로 별표를 사용할 수도 있습니다. 예를 들어 **project\*** 는 이름이 **project** 로 시작하는 모든 Blob을 지정합니다.
-5. [옵션] **Download path**에서 Azure Blob 저장소로부터 파일을 다운로드할 Jenkins 컴퓨터의 경로를 지정합니다. 환경 변수도 사용할 수 있습니다. ( **Download path**에 값을 제공하지 않으면 Azure Blob 저장소의 파일이 작업에 해당하는 작업 영역으로 다운로드됩니다.)
+5. [옵션] **Download path**에서 Azure Blob Storage로부터 파일을 다운로드할 Jenkins 컴퓨터의 경로를 지정합니다. 환경 변수도 사용할 수 있습니다. ( **Download path**에 값을 제공하지 않으면 Azure Blob Storage의 파일이 작업에 해당하는 작업 영역으로 다운로드됩니다.)
 
-Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 추가 빌드 단계를 만들 수 있습니다.
+Azure Blob Storage에서 다운로드할 추가 항목이 있는 경우에는 추가 빌드 단계를 만들 수 있습니다.
 
 빌드를 실행하고 나면 빌드 기록 콘솔 출력을 보거나 다운로드 위치를 보고 원하는 Blob이 다운로드되었는지 확인할 수 있습니다.  
 
 ## <a name="components-used-by-the-blob-service"></a>Blob service에서 사용하는 구성 요소
 이 섹션에서는 Blob Service 구성 요소의 개요를 제공합니다.
 
-* **Storage 계정**: Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 저장소 계정은 Blob 액세스를 위한 가장 높은 수준의 네임스페이스입니다. 전체 크기가 100TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수는 제한이 없습니다.
-* **컨테이너**: 컨테이너는 Blob 집합 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
-* **Blob**: 모든 형식과 크기의 파일입니다. Azure Blob Storage 서비스에 저장할 수 있는 Blob 유형에는 블록과 페이지 Blob 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
-* **URL 형식**: Blob에 다음 URL 형식을 사용하여 주소를 지정할 수 있습니다.
+* **스토리지 계정**: Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 저장소 계정은 Blob 액세스를 위한 가장 높은 수준의 네임스페이스입니다. 전체 크기가 100TB를 초과하지 않을 경우 한 계정에 포함될 수 있는 컨테이너 수는 제한이 없습니다.
+* **컨테이너**: 컨테이너는 Blob 집합의 그룹화를 제공합니다. 모든 Blob은 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에는 제한이 없습니다. 한 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
+* **Blob**: 임의 형식 및 크기의 파일입니다. Azure Blob Storage 서비스에 저장할 수 있는 Blob 유형에는 블록과 페이지 Blob 두 가지가 있습니다. 대부분의 파일은 블록 Blob입니다. 단일 블록 Blob의 크기는 최대 200GB일 수 있습니다. 이 자습서에서는 블록 Blob을 사용합니다. 다른 Blob 유형인 페이지 Blob의 크기는 최대 1TB일 수 있으며, 파일의 바이트 범위가 자주 수정되는 경우 더 효율적입니다. Blob에 대한 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
+* **URL 형식**: 다음 URL 형식을 사용하여 Blob에 주소를 지정할 수 있습니다.
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   

@@ -2,18 +2,18 @@
 title: DPM을 사용한 SQL Server 워크로드에 대한 Azure Backup
 description: Azure Backup 서비스를 사용하여 SQL Server 데이터베이스를 백업하는 방법 소개
 services: backup
-author: adigan
-manager: Nkolli
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: 232885398c996d0c744ac55b6c6967fd398eec0b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945657"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300696"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>SQL Server를 DPM 작업으로 Azure에 백업
 이 문서는 Azure Backup을 사용한 SQL Server 데이터베이스 백업의 구성 단계를 안내합니다.
@@ -68,7 +68,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![초기 복제 방법](./media/backup-azure-backup-sql/pg-manual.png)
 
-    초기 백업 복사본은 프로덕션 서버(SQL Server 컴퓨터)에서 DPM 서버로 전체 데이터 원본(SQL Server 데이터베이스)을 전송해야 합니다. 이 데이터는 규모가 클 수 있으며 네트워크를 통한 데이터 전송이 대역폭을 초과할 수 있습니다. 이 때문에 관리자는 최초 백업을 **수동**(이동식 미디어 사용)으로 전송하여 대역폭 혼잡을 방지하거나, **네트워크를 통해 자동으로 전송**(지정된 시간에)하도록 선택할 수 있습니다.
+    초기 백업 복사본은 프로덕션 서버(SQL Server 컴퓨터)에서 DPM 서버로 전체 데이터 원본(SQL Server 데이터베이스)을 전송해야 합니다. 이 데이터는 규모가 클 수 있으며 네트워크를 통한 데이터 전송이 대역폭을 초과할 수 있습니다. 이러한 이유로 관리자는 초기 백업을 대역폭 정체 방지를 위해 이동식 미디어를 사용하여 **수동**으로 전송할 수도 있고, 지정된 시간에 **네트워크를 통해 자동**으로 전송할 수도 있습니다.
 
     초기 백업을 완료하면 백업의 나머지 부분은 초기 백업 복사본의 증분 백업입니다. 증분 백업은 크기가 작으며 네트워크를 통해 간편하게 전송될 수 있습니다.
 10. 일관성 확인을 실행하려는 경우 선택하고 **다음**을 클릭합니다.

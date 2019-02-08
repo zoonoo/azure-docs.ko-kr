@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 70305468ca20c48bdc26e7e000a0e5edb63508cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261573"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198217"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>서비스 패브릭 Reliable Services 분할
 이 문서에서는 Azure 서비스 패브릭 Reliable Services 분할의 기본 개념에 대한 소개를 제공합니다. 문서에 사용되는 소스 코드는 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)에서도 확인할 수 있습니다.
@@ -129,11 +129,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
 1. **Visual Studio** > **파일** > **새로 만들기** > **프로젝트**를 엽니다.
 2. **새 프로젝트** 대화 상자에서 Service Fabric 애플리케이션을 선택합니다.
 3. "AlphabetPartitions" 프로젝트를 호출합니다.
-4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 아래 이미지에 표시된 것처럼 "Alphabet.Processing"으로 지정합니다.
-       ![Visual Studio의 새 서비스 대화 상자][1]
-
-  <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
-
+4. **서비스 만들기** 대화 상자에서 **상태 저장** 서비스를 선택하고 이름을 "Alphabet.Processing"으로 지정합니다.
 5. 파티션 수를 설정합니다. AlphabetPartitions 프로젝트에서 ApplicationPackageRoot 폴더에 있는 ApplicationManifest.xml 파일을 열고 아래와 같이 매개 변수 Processing_PartitionCount를 26으로 업데이트합니다.
    
     ```xml
@@ -167,7 +163,7 @@ Service Fabric은 세 가지 파티션 체계를 제공합니다.
    
     이 서비스의 여러 복제본은 동일한 컴퓨터에서 호스팅될 수 있으므로 이 주소가 복제본에 고유해야 합니다. 이 때문에 URL에 파티션 ID와 복제본 ID가 있습니다. HttpListener는 URL 접두사가 고유하기만 하면 동일한 포트에서 여러 주소를 수신할 수 있습니다.
    
-    추가 GUID는 보조 복제본이 읽기 전용 요청을 수신하는 고급 사례에 대해 사용되고 있습니다. 이 경우 클라이언트가 주소를 다시 확인하도록 기본에서 보조로 전환하는 경우 고유한 새 주소가 사용되도록 확인하려고 합니다. '+'는 사용 가능한 모든 호스트(IP, FQDM, localhost, 등)에서 복제본이 수신 대기할 수 있도록 주소로 사용됩니다. 아래 코드는 예제를 보여 줍니다.
+    추가 GUID는 보조 복제본이 읽기 전용 요청을 수신하는 고급 사례에 대해 사용되고 있습니다. 이 경우 클라이언트가 주소를 다시 확인하도록 기본에서 보조로 전환하는 경우 고유한 새 주소가 사용되도록 확인하려고 합니다. 여기서 '+'는 IP, FQDN, localhost 등의 사용 가능한 모든 호스트에서 복제본이 수신 대기할 수 있도록 주소로 사용됩니다. 아래 코드는 예제를 보여 줍니다.
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()

@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f658afa1a08a6b8779c2f1e18944eec40abdc465
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586260"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299999"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>테스트 및 프로토타입 생성을 위한 공용 데이터 집합
 
@@ -44,10 +44,10 @@ ms.locfileid: "47586260"
 | [Microsoft Research 데이터 집합 - "연구를 위한 데이터 과학"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | 인간-컴퓨터 간 상호 작용, 오디오/비디오, 데이터 마이닝/정보 검색, 지리 공간/위치, 자연어 처리 및 로봇 공학/컴퓨터 비전을 아우르는 여러 데이터 집합이 제공됩니다. | 데이터 집합은 다운로드할 수 있게 다양한 형식으로 압축되어 있습니다. |
 | [공용 게놈 데이터](http://www.completegenomics.com/public-data/) | "일반 사용자가 전체 인간 게놈을 포함하는 다양한 데이터 집합을 무료로 사용하여 게놈 연구에 활용할 수 있습니다." 공급업체 Complete Genomics는 영리를 추구하는 개인 기업입니다. | 압축을 푼 데이터 집합은 UNIX 텍스트 형식입니다. 분석 도구를 사용할 수도 있습니다. |
 | [개방형 과학 데이터 클라우드 데이터](https://www.opensciencedatacloud.org/) | "개방형 과학 데이터 클라우드는 테라바이트 및 페타바이트 크기의 과학 데이터 세트를 저장, 공유 및 분석하기 위한 리소스를 포함하는 과학 커뮤니티를 제공합니다."| 데이터 집합은 다양한 형식으로 제공됩니다. |
-| [글로벌 기후 데이터 - WorldcLIM](http://worldclim.org/) | "WorldClim은 약 1km2의 공간 해상도를 갖는 글로벌 기후 계층(표 형식의 날씨 데이터) 집합입니다. 이러한 데이터는 매핑 및 공간 모델링에 사용할 수 있습니다." | 이러한 파일에는 지리 공간 데이터가 포함됩니다. 자세한 내용은 [데이터 형식](http://worldclim.org/formats1)을 참조하세요. |
+| [전 세계 기후 데이터 - WorldClim](http://worldclim.org/) | "WorldClim은 약 1km2의 공간 해상도를 갖는 글로벌 기후 계층(표 형식의 날씨 데이터) 집합입니다. 이러한 데이터는 매핑 및 공간 모델링에 사용할 수 있습니다." | 이러한 파일에는 지리 공간 데이터가 포함됩니다. 자세한 내용은 [데이터 형식](http://worldclim.org/formats1)을 참조하세요. |
 | [인간 사회 관련 데이터 - GDELT 프로젝트](http://www.gdeltproject.org/data.html) | "GDELT 프로젝트는 현존하는 가장 크고 가장 포괄적이고 해상도가 가장 높은 개방형 인간 사회 데이터베이스입니다." | 원시 데이터 파일은 CSV 형식입니다. |
 | [Criteo의 Machine Learning을 위한 광고 클릭 예측 데이터](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "공개적으로 출시된 가장 큰 ML 데이터 세트입니다." 자세한 내용은 [Criteo의 1TB 클릭 예측 데이터 세트](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/)를 참조하세요. | |
-| [Lemur 프로젝트이 ClueWeb09 텍스트 마이닝 데이터 집합](http://www.lemurproject.org/clueweb09.php/) | "ClueWeb09 데이터 세트는 정보 검색 및 관련된 인간 언어 기술에 대한 연구를 지원하기 위해 만들어졌습니다. 이 데이터 집합은 2009년 1월과 2월에 수집된 10억 개의 웹 페이지를 10개 언어로 제공합니다." | [데이터 집합 정보](http://www.lemurproject.org/clueweb09/datasetInformation.php)를 참조하세요.|
+| [Lemur 프로젝트이 ClueWeb09 텍스트 마이닝 데이터 집합](http://www.lemurproject.org/clueweb09.php/) | "ClueWeb09 데이터 세트는 정보 검색 및 관련된 인간 언어 기술에 대한 연구를 지원하기 위해 만들어졌습니다. 이 데이터 집합은 2009년 1월과 2월에 수집된 10억 개의 웹 페이지를 10개 언어로 제공합니다." | [데이터 세트 정보](http://www.lemurproject.org/clueweb09/datasetInformation.php)를 참조하세요.|
 
 ## <a name="online-service-data"></a>온라인 서비스 데이터
 

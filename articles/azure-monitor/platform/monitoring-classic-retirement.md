@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: a910b0537234d1653be93eb406fe3b2261305ee5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3c1896dc756675b838b97d978cec40b4650760fe
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461980"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298971"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
@@ -36,9 +36,9 @@ Application Insights에 대한 새로운 통합 모니터링 및 경고에 포�
 - **Application Insights 사용자 지정 메트릭** – 모니터링 및 경고에 대한 자체의 메트릭을 정의하고 내보낼 수 있습니다. 자세한 내용은 [새 Azure Monitor에서 Application Insights에 대한 사용자 지정 메트릭 사용](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) 문서를 참조하세요.
 - **Application Insights 오류 이상(스마트 검색의 일부)** – 웹 애플리케이션이 실패한 HTTP 요청 또는 종속성 호출의 속도가 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 알려줍니다. Application Insights 오류 이상(스마트 검색의 일부)은 새 Azure Monitor의 일부로 곧 사용할 수 있으며, 앞으로 몇 개월 이내에 롤아웃될 때 이 문서를 다음 반복에 대한 링크로 업데이트할 예정입니다.
 
-## <a name="unified-metrics--alerts-for-other-azure-resources"></a>다른 Azure 리소스에 대한 통합 메트릭 및 경고
+## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>다른 Azure 리소스에 대한 통합 메트릭 및 경고
 
-2018년 3월 이후 Azure 리소스에 대한 차세대 경고 및 다차원 모니터링이 출시되었습니다. 이제 새 메트릭 플랫폼 및 경고는 거의 실시간에 가까운 기능을 통해 더욱 빨라졌습니다. 무엇보다도 최신 플랫폼에 특정 값 조합, 조건 또는 작업을 조각화 및 필터링할 수 있는 차원 옵션이 포함되어 있어 최신 메트릭 플랫폼 경고에서 더 자세한 세분성을 제공합니다. 새 Azure Monitor의 모든 경고와 마찬가지로, ActionGroups를 사용함으로써 최신 메트릭 경고가 확장되어 이메일 또는 웹후크를 넘어 SMS, 음성, Azure Function, Automation Runbook 등으로 알림을 확장할 수 있습니다.
+2018년 3월 이후 Azure 리소스에 대한 차세대 경고 및 다차원 모니터링이 출시되었습니다. 이제 새 메트릭 플랫폼 및 경고는 거의 실시간에 가까운 기능을 통해 더욱 빨라졌습니다. 무엇보다도 최신 플랫폼에 특정 값 조합, 조건 또는 작업을 조각화 및 필터링할 수 있는 차원 옵션이 포함되어 있어 최신 메트릭 플랫폼 경고에서 더 자세한 세분성을 제공합니다. 새 Azure Monitor의 모든 경고와 마찬가지로, ActionGroups를 사용함으로써 최신 메트릭 경고가 확장되어 이메일 또는 웹후크를 넘어 SMS, 음성, Azure Function, Automation Runbook 등으로 알림을 확장할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-metric.md)를 참조하세요.
 Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같습니다.
 
 - **Azure Monitor 표준 플랫폼 메트릭** – 다양한 Azure 서비스와 제품에서 인기 있는 미리 채워진 메트릭을 제공합니다. 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported) 및 [Azure Monitor에서 메트릭 경고 지원](../../azure-monitor/platform/alerts-metric-overview.md#supported-resource-types-for-metric-alerts) 문서를 참조하세요.
@@ -60,6 +60,10 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 - 클래식 모니터링 및 경고 서비스는 사용이 중지되며 새 경고 규칙을 만들 때 더 이상 사용할 수 없습니다.
 - 2019년 6월 이후에도 경고(클래식)에 계속 남아 있는 모든 경고 규칙은 계속 실행되고 알림을 발생하지만 수정할 수 없습니다.
 - 2019년 7월부터 클래식 모니터링 및 경고의 모든 경고 규칙은 Microsoft에서 새 Azure Monitor 플랫폼의 해당 경고로 자동으로 마이그레이션합니다. 이 프로세스는 가동 중지 시간 없이 원활하게 진행되며 고객이 모니터링 범위를 손실하지 않도록 보장합니다.
+- 새 경고 플랫폼으로 마이그레이션된 경고 규칙은 이전처럼 모니터링 범위를 제공하지만 새 페이로드를 사용하여 알림을 생성합니다. 클래식 경고 규칙과 연결된 모든 이메일 주소, 웹후크 엔드포인트 또는 논리 앱 링크는 마이그레이션 시에 이월되지만, 새 플랫폼에서는 경고 페이로드가 달라지므로 올바르게 동작하지 않을 수도 있습니다.
+
+> [!IMPORTANT]
+> Microsoft Azure 모니터에서는 클래식 경고 규칙을 새 플랫폼으로 자동 마이그레이션하는 도구가 고객에게 곧 제공될 예정입니다. 그리고 2019년 7월부터는 계속 사용 중인 모든 클래식 경고 규칙에 대해 이 도구를 반드시 실행해야 합니다. 고객은 클래식 경고 규칙이 마이그레이션된 후에 [Application Insights의 통합 메트릭 및 경고](#unified-metrics-and-alerts-in-application-insights) 또는 [기타 Azure 리소스용 통합 메트릭 및 경고](#unified-metrics-and-alerts-for-other-azure-resources)에서 클래식 경고 규칙 페이로드를 사용하는 자동화 기능이 새 페이로드를 처리할 수 있도록 조정되었는지를 확인해야 합니다. 
 
 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)에서 경고를 새 Azure 경고로 자발적으로 마이그레이션할 수 있는 도구가 곧 제공될 것입니다. 새 Azure Monitor로 마이그레이션되는 경고(클래식)에 구성된 모든 규칙은 추가 비용 없이 유지되며 요금이 청구되지 않습니다. 또한 마이그레이션된 기본 경고 규칙에서 이메일, 웹후크 또는 LogicApp을 통해 알림을 푸시하는 경우에도 요금을 부담하지 않습니다. 그러나 최신 알림 또는 작업 유형(예: SMS 또는 음성 통화, ITSM 통합 등)을 사용하는 경우 마이그레이션된 경고 또는 새 경고에 추가되었는지 여부에 관계없이 비용이 청구될 수 있습니다. 자세한 내용은 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요.
 
@@ -70,7 +74,7 @@ Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-c
 - Application Insights에서 실행된 모든 다중 테스트 웹 테스트
 - Azure Monitor에 포함된 체험 단위를 초과하여 저장된 모든 사용자 지정 메트릭
 
-이 문서에 나오는 새 Azure 모니터링 및 경고 기능에 대한 링크 및 세부 정보와 새 Azure Monitor 플랫폼을 채택할 때 사용자를 지원하는 도구의 가용성은 지속적으로 업데이트됩니다.
+이 문서의 내용은 신규 Azure 모니터링 및 경고 기능 관련 링크/세부 정보와, 새 Azure Monitor 플랫폼 채택 과정에서 사용자를 지원하는 도구의 사용 가능 여부 정보가 추가되는 방식으로 계속 업데이트될 예정입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

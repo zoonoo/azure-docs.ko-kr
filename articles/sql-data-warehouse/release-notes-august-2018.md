@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 11125fb1c78852a048787e99d78bf4cb941184fa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 492bdd30a656a37196cf4d27a2510dbc3a79807d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320364"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463568"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 8월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 8월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.
@@ -32,7 +32,7 @@ Azure Advisor 포털에서 권장 사항을 확인할 수 있습니다. ![Azure 
 
 | 제목 | 설명 |
 |:---|:---|
-| **분할 개수가 최대 제한을 초과하는 경우 잠재적인 쿼리 오류** |백만 개의 상한 파일 분할 제한을 초과하는 경우 처리되지 않은 예외로 인해 SQL 엔진이 덤프되고 모든 쿼리가 실패합니다. 수정 프로그램은 예외를 올바르게 처리하고, 오류를 반환할 때 쿼리가 실패하지 않도록 하여 이러한 문제를 해결합니다. |
+| **분할 개수가 최대 제한을 초과하는 경우 잠재적인 쿼리 오류** |백만 개의 상한 파일 분할 제한을 초과하는 경우 처리되지 않은 예외로 인해 SQL 엔진이 덤프되고 모든 쿼리가 실패합니다. 이 수정 프로그램은 예외를 올바르게 처리하고 오류를 반환할 때 쿼리가 실패하지 않도록 하여 이러한 문제를 해결합니다. |
 | **ExternalMoveReadersPerNode 기본값을 늘려 부하 성능 개선** |이 문제는 ExternalMoveReadersPerNode 속성 설정이 Service Fabric 설정과 동기화되지 않기 때문에 발생합니다. 이 회귀는 Gen2 부하 성능 저하를 발생합니다. 수정 프로그램은 최적화된 디자인 매개 변수 내에서 Gen2 부하 성능을 다시 회복합니다.|
 
 

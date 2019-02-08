@@ -2,18 +2,18 @@
 title: Azure Stack VM에서 파일 백업
 description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 애플리케이션을 백업하고 복구합니다.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 67d79f2aa41bab8a14d693098538d22ffeb05a4e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579206"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301478"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Azure Stack에서 파일 백업
 Azure Backup을 사용하여 Azure Stack의 파일 및 애플리케이션을 보호(또는 백업)합니다. 파일 및 애플리케이션을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 저장소를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
@@ -55,7 +55,7 @@ Azure Stack 가상 머신에서 파일을 보호하도록 Azure Backup Server를
 
     ![새 보호 그룹 마법사가 열립니다.](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    **온라인 보호를 사용하려고 합니다**를 선택하려면 먼저 **다음 방법을 사용하여 단기 보호:** 디스크를 선택해야 합니다. Azure Backup Server가 테이프를 보호하지 못하므로 단기 보호에 선택할 수 있는 방법은 디스크밖에 없습니다.
+    **온라인 보호 사용**을 선택하려면 먼저 **다음을 사용한 단기 보호 사용:** 디스크를 선택해야 합니다. Azure Backup Server가 테이프를 보호하지 못하므로 단기 보호에 선택할 수 있는 방법은 디스크밖에 없습니다.
 
 5. **단기 목표 지정** 화면에서, 디스크에 저장된 복구 지점을 얼마나 오래 유지할 것인지, 언제 증분 백업을 저장할 것인지 지정합니다. **다음**을 클릭합니다.
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 335bcc025d2f3e972a02234da89e35c90c91afeb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129170"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222699"
 ---
 # <a name="structured-query-expression"></a>구조화된 쿼리 식
 
@@ -29,14 +29,14 @@ ms.locfileid: "46129170"
 
 특성 쿼리 식은 특정 특성에 대해 일치하는 개체 집합을 식별합니다.  [schema](SchemaFormat.md)에 지정된 인덱스 작업 및 특성 유형에 따라 다양한 일치 작업이 지원됩니다.
 
-| type | 작업(Operation) | 예 |
+| Type | 작업(Operation) | 예 |
 |------|-------------|------------|
 | 문자열 | equals | Title='latent semantic analysis'  (canonical + synonyms) |
 | 문자열 | equals | Author.Name=='susan t dumais'  (canonical only)|
 | 문자열 | starts_with | Title='latent s'... |
 | Int32/Int64/Double | equals | Year=2000 |
 | Int32/Int64/Double | starts_with | Year='20'... (“20”으로 시작하는 10진수 값) |
-| Int32/Int64/Double | is_between | Year&lt;2000 <br/> Year&lt;=2000 <br/> Year&gt;2000 <br/> Year&gt;=2000 <br/> Year=[2010,2012) *(왼쪽 경계 값만 포함: 2010, 2011)* <br/> Year=[2000,2012] *(두 경계 값 포함: 2010, 2011, 2012)* |
+| Int32/Int64/Double | is_between | Year&lt;2000 <br/> Year&lt;=2000 <br/> Year&gt;2000 <br/> Year&gt;=2000 <br/> Year=[2010,2012) *(왼쪽 경계 값만 포함: 2010, 2011)* <br/> Year=[2000,2012] *(두 경계 값 모두 포함: 2010, 2011, 2012)* |
 | Date | equals | BirthDate='1984-05-14' |
 | Date | is_between | BirthDate&lt;='2008/03/14' <br/> PublishDate=['2000-01-01','2009-12-31'] |
 | Guid | equals | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |

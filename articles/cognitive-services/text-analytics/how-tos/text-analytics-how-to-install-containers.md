@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: e3b1655207f3baba6ea6e3cf2f00e3540a3602ad
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 07fbf51f584d691b08d94f68fefa8c3f9348227f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969372"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294831"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
@@ -40,12 +40,7 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 
 ### <a name="the-host-computer"></a>호스트 컴퓨터
 
-**호스트**는 Docker 컨테이너를 실행하는 컴퓨터입니다. 다음을 포함하여 Azure에서 컴퓨터 온-프레미스 또Docker 호스팅 서비스일 수 있습니다.
-
-* [Azure Kubernetes Service](../../../aks/index.yml)
-* [Azure Container Instances](../../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) 클러스터는 [Azure Stack](../../../azure-stack/index.yml)에 배포됩니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](../../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)를 참조하세요.
-
+[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
@@ -77,6 +72,8 @@ Text Analytics 컨테이너에 사용할 수 있는 태그에 대한 전체 설�
 * [언어 감지](https://go.microsoft.com/fwlink/?linkid=2018759)
 * [감정 분석](https://go.microsoft.com/fwlink/?linkid=2018654)
 
+[`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 컨테이너 이미지를 다운로드합니다.
+
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>핵심 구 추출 컨테이너에 대한 docker pull
 
@@ -96,13 +93,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
-### <a name="listing-the-containers"></a>컨테이너 나열
-
-[docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용하여 다운로드한 컨테이너 이미지를 나열할 수 있습니다. 예를 들어 다음 명령은 다운로드한 각 컨테이너 이미지의 ID, 리포지토리 및 태그를 테이블 형식으로 나열합니다.
-
-```Docker
-docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-```
+[!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
 ## <a name="how-to-use-the-container"></a>컨테이너사용 방법
@@ -159,14 +150,7 @@ ApiKey={BILLING_KEY}
 
 ## <a name="containers-api-documentation"></a>컨테이너의 API 설명서
 
-컨테이너는 `Try it now` 기능뿐만 아니라 엔드포인트에 대한 모든 설명서를 제공합니다. 이 기능을 사용하면 웹 기반 HTML 형식으로 설정을 입력할 수 있고 코드 작성 없이 쿼리를 만들 수 있습니다. 쿼리가 반환되면 예로 CURL 명령은 필요한 HTTP 헤더 및 본문 포맷을 데모하는 데 제공됩니다. 
-
-> [!TIP]
-> `/swagger` 상대 URI에서 컨테이너의 API 작업 지원을 설명하는 [OpenAPI 사양](https://swagger.io/docs/specification/about/)을 읽으세요. 예: 
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>결제
 

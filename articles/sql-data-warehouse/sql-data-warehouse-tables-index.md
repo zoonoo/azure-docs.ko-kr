@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d709acfe378583a21b72971f465e4b5d73818bcd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307731"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244695"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 인덱싱
 Azure SQL Data Warehouse의 테이블 인덱싱을 사용하기 위한 권장 사항 및 예제입니다.
@@ -196,7 +196,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 ### <a name="small-or-trickle-load-operations"></a>작거나 지속적인 로드 작업
 SQL Data Warehouse로 유입되는 작은 부하는 지속적인 부하라고도 합니다. 이들은 일반적으로 시스템에 의해 수집되는 거의 일정한 데이터 스트림을 나타냅니다. 그러나 이 스트림은 거의 지속적이므로 행의 볼륨은 특별히 크지 않습니다. 종종 데이터가 columnstore 형식으로 직접 로드하는 데 필요한 임계값보다 훨씬 큽니다.
 
-이러한 상황에서는 데이터를 로드하기 전에 Azure Blob 저장소에 먼저 데이터를 배치하고 누적되도록 합니다. 이 기술을 *마이크로 일괄 처리*라고 합니다.
+이러한 상황에서는 데이터를 로드하기 전에 Azure Blob Storage에 먼저 데이터를 배치하고 누적되도록 합니다. 이 기술을 *마이크로 일괄 처리*라고 합니다.
 
 ### <a name="too-many-partitions"></a>너무 많은 파티션
 클러스터형 columnstore 테이블에 분할이 미치는 영향도 고려해야 합니다.  분할 전에 미리 SQL Data Warehouse는 데이터를 60개의 데이터베이스로 나눕니다.  분할을 수행하면 데이터가 좀 더 세분화됩니다.  데이터를 분할하는 경우 클러스터형 columnstore 인덱스의 이점을 얻기 위해 **각** 파티션에는 1백만 개 이상의 행을 포함하는 것이 좋습니다.  테이블에 파티션 수가 100개라면 클러스터형 columnstore 인덱스에서 이점을 얻으려면 테이블에 60억 개 이상의 행을 포함해야 합니다(60개 배포 * 100개 파티션 * 1백만 개 행). 100개 파티션 테이블에 60억 개의 행이 없으면 파티션 수를 줄이거나 대신 힙 테이블을 사용하는 것이 좋습니다.
@@ -213,7 +213,7 @@ SQL Data Warehouse로 유입되는 작은 부하는 지속적인 부하라고도
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2단계: 더 높은 리소스 클래스 사용자를 사용하여 클러스터형 columnstore 인덱스 다시 작성
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2단계: 상위 리소스 클래스 사용자를 사용하여 클러스터형 columnstore 인덱스 다시 작성
 이제 더 높은 리소스 클래스를 사용 중인 1단계의 사용자(예: LoadUser)로 로그인하고 ALTER INDEX 문을 실행합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
 
 또는 인덱스를 다시 빌드하는 대신 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다. CTAS로 인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 아래의 **CTAS 및 파티션 전환을 사용하여 인덱스 다시 빌드** 을 참조하세요.

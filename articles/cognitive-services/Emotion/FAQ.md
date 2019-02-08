@@ -6,17 +6,17 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c1c4b8e5c2701f3c419a58bc3fdc33f7e629bbd
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: ded91c6de498b130cc26109a70e89955dd70d862
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238542"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208995"
 ---
 # <a name="emotion-api-frequently-asked-questions"></a>Emotion API 질문과 대답
 
@@ -27,15 +27,15 @@ ms.locfileid: "48238542"
 
 -----
 
-**질문**: *Emotion API에서 최상의 결과를 얻는 이미지 유형은 무엇입니까?*
+**질문**: *Emotion API에서 가장 좋은 결과를 얻을 수 있는 이미지 유형은 무엇인가요?*
 
 **대답**: 장애물에 가리지 않고 얼굴 정면이 완전히 보이는 이미지를 사용하면 최상의 결과를 얻을 수 있습니다. 부분 정면 얼굴을 사용하면 신뢰성이 떨어지며 Emotion API는 얼굴이 45도 이상 회전된 이미지의 감정을 인식하지 못할 수 있습니다.
 
 -----
 
-**질문**: *Emotion API가 식별할 수 있는 감정은 몇 개입니까?*
+**질문**: *Emotion API가 식별할 수 있는 감정은 몇 개인가요?*
 
-**대답**: Emotion API는 일반적으로 수용되는 8가지 감정을 인식합니다.
+**대답**: Emotion API는 보편적으로 인정되는 다음의 8가지 감정을 인식합니다.
 * 행복
 * 슬픔
 * 놀람
@@ -49,13 +49,13 @@ ms.locfileid: "48238542"
 
 **질문**: *API에 라이브 비디오 스트림을 전달하는 동시에 결과를 가져올 수 있는 방법이 있나요?*
 
-**대답**: 이미지 기반 Emotion API를 사용하여 각 프레임에서 호출할 수도 있고 성능 향상을 위해 프레임을 건너뛸 수도 있습니다.  비디오 프레임 단위 분석 샘플이 제공됩니다.
+**대답**: 이미지 기반 Emotion API를 각 프레임에서 호출하거나, 성능 향상을 위해 프레임을 건너뛸 수 있습니다.  비디오 프레임 단위 분석 샘플이 제공됩니다.
 
 -----
 
 **질문**: *이진 이미지 데이터를 전달하는 중에 "잘못된 얼굴 이미지"라는 오류가 발생합니다.**
 
-**대답**: 이 메시지는 알고리즘에 이미지 구문 분석과 관련된 문제가 있다는 의미입니다.  
+**대답**: 이 메시지는 알고리즘에 이미지 구문 분석과 관련된 문제가 있음을 나타냅니다.  
 * 지원되는 입력 이미지 형식에 JPEG, PNG, GIF(첫 번째 프레임), BMP가 포함됩니다.
 * 이미지 파일 크기는 4MB를 넘지 않아야 합니다.
 * 감지 가능한 얼굴 크기 범위는 36 x 36 픽셀 ~ 4096x4096 픽셀입니다. 이 범위를 벗어난 얼굴은 감지되지 않습니다.

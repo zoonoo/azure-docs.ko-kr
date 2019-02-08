@@ -6,17 +6,17 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 765d93780ad45eaaca61d4deb5f6607ef70ee432
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413688"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247445"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API
 
@@ -439,6 +439,9 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 * 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요.
 * 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#text-to-speech)을 참조하세요.
+
+> [!IMPORTANT]
+> 비용은 표준, 사용자 지정 및 인공신경망 음성별로 다릅니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조하세요.
 
 ### <a name="request-headers"></a>헤더 요청
 

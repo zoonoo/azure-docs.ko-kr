@@ -4,29 +4,23 @@ description: Avere vFXT for Azure에 백 엔드 저장소 시스템을 추가하
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: procedural
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 13084ac21315d725df3f0913583fff3e64ee5c4a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190854"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813231"
 ---
 # <a name="configure-storage"></a>저장소 구성
 
-이 단계에서는 vFXT 클러스터용 백 엔드 저장소 시스템을 설정합니다.
+이 단계에서는 vFXT 클러스터용 백 엔드 스토리지 시스템을 설정합니다.
 
 > [!TIP]
-> `create-cloudbacked-cluster` 프로토타입 스크립트를 사용하여 Avere vFXT 클러스터와 함께 새 Blob 컨테이너를 만든 경우, 해당 컨테이너는 이미 사용하도록 설정되어 있으므로 저장소를 추가할 필요가 없습니다.
->
-> 그러나 새 Blob 컨테이너가 기본 암호화 키로 암호화된 경우 클러스터에서 키 복구 파일을 다운로드하거나 데이터를 저장하기 전에 새 키로 기본 키를 바꿔야 합니다. 기본 키는 클러스터에만 저장되며, 클러스터가 손실되거나 사용할 수 없게 되는 경우 기본 키를 검색할 수 없습니다.
->
-> Avere 제어판에 연결한 후 **설정** 탭을 클릭한 다음, **코어 필터** > **클라우드 암호화 설정**을 선택합니다. **로컬 키 저장소** 섹션에서 이러한 옵션 중 하나를 선택합니다. 
-> * **복구 파일 다시 다운로드** 단추를 사용하여 기존 키의 복구 파일을 가져옵니다. 복구 파일은 클러스터 관리자 암호로 암호화됩니다. 신뢰할 수 있는 위치에 파일을 저장해야 합니다. 
-> * 제어 하는 새 암호화 키를 만들려면 해당 페이지의 **새 마스터 키 생성** 섹션의 지침을 따릅니다. 이 옵션을 사용하면 고유한 암호를 지정할 수 있으며, 암호-파일 쌍의 유효성을 검사하려면 복구 파일을 업로드 및 다시 다운로드해야 합니다.
+> Avere vFXT 클러스터와 함께 새 Blob 컨테이너를 만든 경우 해당 컨테이너는 이미 사용하도록 설정되어 있으므로 스토리지를 추가할 필요가 없습니다.
 
-클러스터에 대해 `create-minimal-cluster` 프로토타입 스크립트를 사용했거나 하드웨어 또는 클라우드 기반 저장소 시스템을 추가하려는 경우 다음 지침을 따릅니다.
+클러스터와 함께 새 Blob 컨테이너를 만들지 않았거나 추가 하드웨어 또는 클라우드 기반 스토리지 시스템을 추가하려는 경우 다음 지침을 따릅니다.
 
 다음 두 가지 주요 작업이 있습니다.
 
@@ -43,12 +37,11 @@ ms.locfileid: "54190854"
 코어 파일러를 추가하려면 다음 두 가지 주요 유형 중 하나의 코어 파일러를 선택합니다.
 
   * [NAS 코어 파일러](#nas-core-filer) - NAS 코어 파일러를 추가하는 방법을 설명합니다 
-  * [Azure Storage 계정 클라우드 코어 파일러](#azure-storage-account-cloud-core-filer) - Azure Storage 계정을 클라우드 코어 파일러로 추가하는 방법을 설명합니다
+  * [Azure Storage 클라우드 코어 파일러](#azure-storage-cloud-core-filer) - Azure Storage 계정을 클라우드 코어 파일러로 추가하는 방법을 설명합니다.
 
 ### <a name="nas-core-filer"></a>NAS 코어 파일러
 
-NAS 코어 파일러는 온-프레미스 NetApp 또는 Isilon이거나 클라우드의 NAS 엔드포인트일 수 있습니다.  
-저장소 시스템은 Avere vFXT 클러스터(예: 1GBps ExpressRoute 연결(VPN 아님))에 대한 안정적인 고속 연결이 있어야 하며, 사용되는 NAS 내보내기에 대한 클러스터 루트 액세스 권한을 제공해야 합니다.
+NAS 코어 파일러는 온-프레미스 NetApp 또는 Isilon이거나 클라우드의 NAS 엔드포인트일 수 있습니다. 저장소 시스템은 Avere vFXT 클러스터(예: 1GBps ExpressRoute 연결(VPN 아님))에 대한 안정적인 고속 연결이 있어야 하며, 사용되는 NAS 내보내기에 대한 클러스터 루트 액세스 권한을 제공해야 합니다.
 
 NAS 코어 파일러를 추가하는 단계는 다음과 같습니다.
 
@@ -76,12 +69,12 @@ NAS 코어 파일러를 추가하는 단계는 다음과 같습니다.
 
 ### <a name="azure-storage-cloud-core-filer"></a>Azure Storage 클라우드 코어 파일러
 
-Azure Blob 저장소를 vFXT 클러스터의 백 엔드 저장소로 사용하려면 코어 파일러로 추가할 빈 컨테이너가 필요합니다.
+Azure Blob Storage를 vFXT 클러스터의 백 엔드 스토리지로 사용하려면 코어 파일러로 추가할 빈 컨테이너가 필요합니다.
 
 > [!TIP] 
-> ``create-cloudbacked-cluster`` 샘플 스크립트는 저장소 컨테이너를 만들고, 이를 코어 파일러로 정의하고, vFXT 클러스터 만들기의 일환으로 네임스페이스 접합을 만듭니다. ``create-minimal-cluster`` 샘플 스크립트는 Azure 저장소 컨테이너를 만들지 않습니다. 클러스터를 만든 후에 Azure Storage 코어 파일러를 만들고 구성할 필요가 없도록 하려면 ``create-cloudbacked-cluster`` 스크립트를 사용하여 vFXT 클러스터를 배포합니다.
+> Avere vFXT 클러스터를 만드는 동시에 Blob 컨테이너를 만들도록 선택하면 배포 템플릿 또는 스크립트가 스토리지 컨테이너를 만들어 코어 파일러로 정의한 다음 vFXT 클러스터 만들기의 일환으로 네임스페이스 접합을 만듭니다. 
 
-Blob 저장소를 클러스터에 추가하려면 다음 작업이 필요합니다.
+Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다.
 
 * 저장소 계정 만들기(아래 1단계)
 * 빈 Blob 컨테이너 만들기(2-3단계)
@@ -89,14 +82,14 @@ Blob 저장소를 클러스터에 추가하려면 다음 작업이 필요합니�
 * Blob 컨테이너를 vFXT 클러스터용 코어 파일러로 추가(7-9단계)
 * 클라이언트에서 코어 파일러를 탑재하는 데 사용하는 네임스페이스 접합 만들기([접합 만들기](#create-a-junction), 하드웨어 및 클라우드 저장소 모두에 대해 동일함)
 
-클러스터를 만든 후에 Blob 저장소를 추가하려면 다음 단계를 수행합니다. 
+클러스터를 만든 후에 Blob Storage를 추가하려면 다음 단계를 수행합니다. 
 
 1. 다음 설정을 사용하여 범용 V2 저장소 계정을 만듭니다.
 
    * **구독** - vFXT 클러스터와 동일
    * **리소스 그룹** - vFXT 클러스터 그룹과 동일(선택 사항)
    * **위치** - vFXT 클러스터와 동일
-   * **성능** - 표준(프리미엄 저장소는 지원되지 않음)
+   * **성능** - 표준(Premium Storage는 지원되지 않음)
    * **계정 종류** - 범용 V2(StorageV2)
    * **복제** - LRS(로컬 중복 저장소)
    * **액세스 계층** - 핫

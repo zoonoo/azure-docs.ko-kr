@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214745"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301257"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -49,9 +49,9 @@ A: 사용자 지정 필드 추출은 현재 클래식 로그 환경에서 지원
 
 A: 새 로그에서는 목록 보기를 사용할 수 없습니다. 결과 테이블의 각 레코드 왼쪽에 화살표가 있습니다. 특정 레코드에 대한 세부 정보를 열려면 이 화살표를 클릭합니다. 
 
-### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>Q. 쿼리를 실행하면 추천 필터 목록이 표시되지만 모든 필터가 포함되지는 않습니다. 나머지는 어떻게 볼 수 있나요? 
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>Q. 쿼리를 실행하면 추천 필터 목록이 제공됩니다. 필터를 확인하려면 어떻게 해야 하나요? 
 
-A: 현재 보이는 내용은 새 필터 구현의 미리 보기입니다. 이 기능은 현재 UI의 레코드 한도가 10,000개로 제한되는 대신 전체 결과 집합을 기반으로 합니다. 현재 가장 많이 사용되는 필터 목록과 각 필터의 가장 일반적인 10가지 값입니다. 
+A: 왼쪽 창에서 '필터'를 클릭하면 새 필터 구현의 미리 보기가 표시됩니다. 이 기능은 현재 UI의 레코드 한도가 10,000개로 제한되는 대신 전체 결과 집합을 기반으로 합니다. 현재 가장 많이 사용되는 필터 목록과 각 필터의 가장 일반적인 10가지 값입니다. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. VM에서 드릴다운한 후 로그에  "이 구독에 대한 리소스 공급자 'Microsoft.Insights'를 등록하여 이 쿼리를 사용하도록 설정" 오류가 표시된 이유는 무엇입니까? 
 

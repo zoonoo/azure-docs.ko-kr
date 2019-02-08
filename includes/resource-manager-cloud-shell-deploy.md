@@ -2,18 +2,18 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: a2ee8705be3f34b6df113c68d88e375411f84bf2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440302"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302345"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell에서 템플릿 배포
 
-[Cloud Shell](../articles/cloud-shell/overview.md)을 사용하여 템플릿을 배포할 수 있습니다. 그러나 먼저 Cloud Shell용 저장소 계정에 템플릿을 로드해야 합니다. Cloud Shell을 사용해 본 적이 없다면 [Azure Cloud Shell 개요](../articles/cloud-shell/overview.md)에서 Cloud Shell 설정 방법을 참조하세요.
+[Cloud Shell](../articles/cloud-shell/overview.md)을 사용하여 템플릿을 배포할 수 있습니다. 외부 템플릿을 배포하려면 모든 외부 배포에서와 정확히 동일한 형식으로 템플릿의 URI를 입력합니다. 로컬 템플릿을 배포하려면 먼저 Cloud Shell용 스토리지 계정에 템플릿을 로드해야 합니다. 이 섹션에서는 Cloud Shell 계정에 템플릿을 로드한 다음 로컬 파일로 배포하는 방법을 설명합니다. Cloud Shell을 사용해 본 적이 없다면 [Azure Cloud Shell 개요](../articles/cloud-shell/overview.md)에서 Cloud Shell 설정 방법을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 

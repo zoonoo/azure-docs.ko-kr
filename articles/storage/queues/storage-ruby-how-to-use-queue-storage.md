@@ -9,15 +9,15 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 67a5dc0eddb6deb51ec69c68c48d5edf308cf43e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: queues
+ms.openlocfilehash: 7ebb4326a8ec8a3382a5488ce3b966526bef446a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231569"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456275"
 ---
-# <a name="how-to-use-queue-storage-from-ruby"></a>Ruby에서 큐 저장소를 사용하는 방법
+# <a name="how-to-use-queue-storage-from-ruby"></a>Ruby에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
@@ -63,7 +63,7 @@ Azure 포털의 클래식 또는 Resource Manager 저장소 계정에서 이러�
 4. 나타나는 액세스 키 블레이드에 액세스 키 1 및 액세스 키 2가 표시되어 있습니다. 이 둘 중 하나를 사용할 수 있습니다. 
 5. 복사 아이콘을 클릭하여 키를 클립보드에 복사합니다. 
 
-## <a name="how-to-create-a-queue"></a>큐를 만드는 방법
+## <a name="how-to-create-a-queue"></a>방법: 큐 만들기
 다음 코드는 **Azure::QueueService** 개체를 만들어 큐 작업을 수행할 수 있게 해 줍니다.
 
 ```ruby
@@ -80,14 +80,14 @@ rescue
 end
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>큐에 메시지를 삽입하는 방법
+## <a name="how-to-insert-a-message-into-a-queue"></a>방법: 큐에 메시지 삽입
 큐에 메시지를 삽입하려면 **create_message()** 메서드를 사용하여 새 메시지를 만들고 이 메시지를 큐에 추가합니다.
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>다음 메시지를 보는 방법
+## <a name="how-to-peek-at-the-next-message"></a>방법: 다음 메시지 피킹
 큐에서 메시지를 제거하지 않고도 **peek\_messages()** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다. 기본적으로 **peek\_messages()** 는 단일 메시지를 읽습니다. 보려는 메시지의 수를 지정할 수도 있습니다.
 
 ```ruby
@@ -95,7 +95,7 @@ result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>큐에서 다음 메시지를 제거하는 방법
+## <a name="how-to-dequeue-the-next-message"></a>방법: 큐에서 다음 메시지 제거
 2단계를 거쳐 큐에서 메시지를 제거할 수 있습니다.
 
 1. **list\_messages()** 를 호출하면 기본적으로 큐에서 다음 메시지를 가져옵니다. 가져오려는 메시지의 수를 지정할 수도 있습니다. **list\_messages()** 에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 표시 제한 시간(초 단위)을 매개 변수로 전달합니다.
@@ -109,7 +109,7 @@ azure_queue_service.delete_message("test-queue",
   messages[0].id, messages[0].pop_receipt)
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>대기 중인 메시지의 콘텐츠 변경 방법
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>방법: 큐 대기 메시지의 콘텐츠 변경
 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 아래 코드는 **update_message()** 메서드를 사용하여 메시지를 업데이트합니다. 이 메서드는 큐 메시지의 pop 확인 및 메시지가 큐에 표시되는 시간을 나타내는 UTC 날짜 시간 값이 포함된 튜플을 반환합니다.
 
 ```ruby
@@ -119,7 +119,7 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
   30)
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>dequeuing 메시지의 추가옵션을 설정하는 방법
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>방법: 큐에서 메시지를 제거하는 추가 옵션
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다.
 
 1. 메시지의 배치를 가져올 수 있습니다.
@@ -151,7 +151,7 @@ azure_queue_service.delete_queue("test-queue")
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
+이제 Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 스토리지 작업에 대해 알아보세요.
 
 * [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage/)
 * GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) (영문) 리포지토리를 방문하세요.

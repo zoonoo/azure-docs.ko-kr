@@ -10,23 +10,20 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 04/06/2018
+ms.date: 01/25/2019
 manager: craigg
-ms.openlocfilehash: 0b8b83651fb5466f5d9a2f703667d7645b498e89
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a05c6b4fac031482d77827a817ef56920a0c314
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958820"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464554"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>ActiveDirectoryInteractive 모드를 사용하여 Azure SQL Database에 연결
 
 이 문서에서는 Microsoft Azure SQL Database에 연결하는 실행 가능한 C# 코드 예제를 제공합니다. C# 프로그램은 Azure AD MFA(Multi-Factor Authentication)를 지원하는 대화형 인증 모드를 사용합니다. 예를 들어 연결 시도에 사용자의 휴대폰으로 전송될 확인 코드를 포함할 수 있습니다.
 
 SQL 도구의 MFA 지원에 대한 자세한 내용은 [SSDT(SQL Server Data Tools)의 Azure Active Directory 지원](https://docs.microsoft.com/sql/ssdt/azure-active-directory)을 참조하세요.
-
-
-
 
 ## <a name="sqlauthenticationmethod-activedirectoryinteractive-enum-value"></a>SqlAuthenticationMethod .ActiveDirectoryInteractive 열거형 값
 
@@ -54,21 +51,19 @@ MFA를 사용하도록 Azure AD를 구성하는 방법은 [클라우드에서 Az
 >
 > [https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)
 
-
 ## <a name="preparations-for-c-by-using-the-azure-portal"></a>Azure Portal을 사용하여 C# 준비
 
 이미 [Azure SQL Database 서버를 만들었고](sql-database-get-started-portal.md) 사용할 수 있다고 가정합니다.
 
-
 ### <a name="a-create-an-app-registration"></a>a. 앱 등록 만들기
 
-Azure AD 인증을 사용하려면 프로그램에서 연결을 시도할 때 C# 클라이언트 프로그램이 *clientId*로 GUID를 제공해야 합니다. 앱 등록을 완료하면 GUID가 생성되고 **응용 프로그램 ID**라는 레이블이 붙어서 Azure Portal에 표시됩니다. 탐색 단계는 다음과 같습니다.
+Azure AD 인증을 사용하려면 프로그램에서 연결을 시도할 때 C# 클라이언트 프로그램이 *clientId*로 GUID를 제공해야 합니다. 앱 등록을 완료하면 GUID가 생성되고 **애플리케이션 ID**라는 레이블이 붙어서 Azure Portal에 표시됩니다. 탐색 단계는 다음과 같습니다.
 
 1. Azure Portal &gt; **Azure Active Directory** &gt; **앱 등록**
 
     ![앱 등록](media/active-directory-interactive-connect-azure-sql-db/sshot-create-app-registration-b20.png)
 
-2. **응용 프로그램 ID** 값이 생성 및 표시됩니다.
+2. **애플리케이션 ID** 값이 생성 및 표시됩니다.
 
     ![표시된 앱 ID](media/active-directory-interactive-connect-azure-sql-db/sshot-application-id-app-regis-mk49.png)
 
@@ -87,7 +82,7 @@ Azure AD 인증을 사용하려면 프로그램에서 연결을 시도할 때 C#
 
 ### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. SQL 데이터베이스 서버에서 Azure AD 관리자 설정
 
-각 Azure SQL Database 서버에는 Azure AD의 자체 SQL 논리 서버가 있습니다. 우리가 보고 있는 C# 시나리오에서는 Azure SQL 서버에 대한 Azure AD 관리자를 설정해야 합니다.
+각 Azure SQL 단일 데이터베이스 및 탄력적 풀에는 Azure AD의 자체 SQL Database 서버가 있습니다. 우리가 보고 있는 C# 시나리오에서는 Azure SQL 서버에 대한 Azure AD 관리자를 설정해야 합니다.
 
 1. **SQL Server** &gt; **Active Directory 관리자** &gt; **관리자 설정**
 
@@ -145,7 +140,7 @@ C# 프로그램을 성공적으로 실행하려면 다음 정적 필드에 적�
 | Az_SQLDB_svrName | "my-favorite-sqldb-svr.database.windows.net" | **SQL 서버** &gt; **이름으로 필터링** |
 | AzureAD_UserID | "user9@abc.onmicrosoft.com" | **Azure Active Directory** &gt; **사용자** &gt; **새 게스트 사용자** |
 | Initial_DatabaseName | "master" | **SQL 서버** &gt; **SQL 데이터베이스** |
-| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** &gt; **앱 등록**<br /> &nbsp; &nbsp; &gt; **이름으로 검색** &gt; **응용 프로그램 ID** |
+| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** &gt; **앱 등록**<br /> &nbsp;&nbsp;&gt;**이름으로 검색**&gt;**애플리케이션 ID** |
 | RedirectUri | 새 Uri( "https://bing.com/") | **Azure Active Directory** &gt; **앱 등록**<br /> &nbsp; &nbsp; &gt; **이름으로 검색** &gt; *[Your-App-regis]* &gt;<br /> &nbsp; &nbsp; **설정** &gt; **RedirectURIs**<br /><br />이 문서에서는 어떤 값이라도 유효하기만 하다면 RedirectUri에 사용할 수 있습니다. 이 값은 실제로 사용되지 않습니다. |
 | &nbsp; | &nbsp; | &nbsp; |
 

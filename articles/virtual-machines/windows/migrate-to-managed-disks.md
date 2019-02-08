@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.component: disks
-ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 4aefc8c033383125a803eb0c8a38e2f3de119540
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474220"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467920"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure VM을 Azure의 Managed Disks로 마이그레이션
 
@@ -37,7 +37,7 @@ Azure Managed Disks는 저장소 계정을 별도로 관리하지 않아도 되�
 | 마이그레이션...                                            | 문서 링크                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 가용성 집합의 VM 및 독립 실행형 VM을 관리 디스크로 변환   | [관리 디스크를 사용하도록 VM 변환](convert-unmanaged-to-managed-disks.md) |
-| Managed Disks의 클래식에서 Resource Manager로의 단일 VM     | [단일 VM 마이그레이션](migrate-single-classic-to-resource-manager.md)  | 
+| Managed Disks의 클래식에서 Resource Manager로의 단일 VM     | [클래식 VHD에서 VM 만들기](create-vm-specialized-portal.md)  | 
 | Managed Disks의 클래식에서 Resource Manager로의 VNet에 있는 모든 VM     | [클래식에서 Resource Manager로 IaaS 리소스를 마이그레이션](migration-classic-resource-manager-ps.md)한 다음 [관리되지 않는 디스크에서 Managed Disks로 VM 변환](convert-unmanaged-to-managed-disks.md) | 
 
 

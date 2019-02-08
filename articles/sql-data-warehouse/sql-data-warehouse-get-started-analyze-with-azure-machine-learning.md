@@ -2,20 +2,20 @@
 title: Azure Machine Learning을 사용한 데이터 분석 | Microsoft Docs
 description: Azure Machine Learning을 사용하여 Azure SQL Data Warehouse에 저장된 데이터를 기반으로 예측 기계 학습 모델을 구축합니다.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4324b1ac343a0e2b77c21d7834beffae08403953
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247529"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477661"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 데이터 분석
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ ms.locfileid: "43247529"
 
 1. [Azure Machine Learning 스튜디오][Azure Machine Learning studio]에 로그인하고 내 실험을 클릭합니다.
 2. **+새로 만들기**를 클릭하고 **빈 실험**을 선택합니다.
-3. 실험: 대상 마케팅에 대한 이름을 입력합니다.
+3. 실험의 이름을 Targeted Marketing으로 입력합니다.
 4. 모듈 창에서 **판독기** 모듈을 캔버스로 끌어서 놓습니다.
 5. 속성 창에서 SQL Data Warehouse 데이터베이스에 대한 세부 정보를 지정합니다.
 6. 관련 데이터를 읽을 데이터베이스 **쿼리** 를 지정합니다.
@@ -80,19 +80,19 @@ FROM [dbo].[vTargetMail]
 1. **프로젝트 열** 모듈을 캔버스로 끌어서 놓습니다.
 2. 속성 창에서 **열 선택기 시작** 을 클릭하여 삭제하려는 열을 지정합니다.
    ![프로젝트 열][4]
-3. 다음 두 열을 제외합니다.
+3. 열 2개(CustomerAlternateKey 및 GeographyKey)를 제외합니다.
    ![불필요한 열 제거][5]
 
 ## <a name="3-build-the-model"></a>3. 모델 작성
-데이터를 80-20으로 분할합니다. 80%는 기계 학습 모델을 학습하고 20%는 모델을 테스트합니다. 이진 분류 문제에 대해 "2클래스" 알고리즘을 활용합니다.
+여기서는 데이터를 80:20 비율로 분할합니다. 80%는 기계 학습 모델을 학습시키는 데 사용되며, 20%는 모델을 테스트하는 데 사용됩니다. 이진 분류 문제에 대해 "2클래스" 알고리즘을 활용합니다.
 
 1. **분할** 모듈을 캔버스로 끌어서 놓습니다.
 2. 속성 창에서 첫 번째 출력 데이터 세트의 행 분수에 대해 0.8을 입력합니다.
    ![훈련 및 테스트 집합으로 데이터 분할][6]
 3. **2클래스 향상된 의사 결정 트리** 모듈을 캔버스로 끌어서 놓습니다.
 4. **모델 학습** 모듈을 캔버스로 끌어서 놓고 입력을 지정합니다. 그런 다음 속성 창에서 **열 선택기 시작** 을 클릭합니다.
-   * 첫 번째 입력: ML 알고리즘입니다.
-   * 두 번째 입력: 알고리즘을 학습할 데이터입니다.
+   * 먼저 ML 알고리즘을 입력합니다.
+   * 그런 다음 알고리즘을 학습시키는 데 사용할 데이터를 입력합니다.
      ![모델 학습 모듈 연결][7]
 5. **BikeBuyer** 열을 예측할 열로 선택합니다.
    ![예측할 열 선택][8]
@@ -101,7 +101,7 @@ FROM [dbo].[vTargetMail]
 이제 모델이 테스트 데이터를 수행하는 방법을 테스트합니다. 더 잘 수행하는 알고리즘을 확인하도록 다른 알고리즘을 선택하여 비교합니다.
 
 1. **모델 점수 매기기** 모듈을 캔버스로 끌어서 놓습니다.
-    첫 번째 입력: 학습된 모델 두 번째 입력: 테스트 데이터 ![모델 점수 매기기][9]
+    먼저 학습된 모델을 입력한 다음 테스트 데이터를 입력합니다. ![모델 점수 매기기][9]
 2. **2클래스 Bayes 지점 컴퓨터** 를 실험 캔버스로 끌어서 놓습니다. 2클래스 향상된 의사 결정 트리와 비교하여 이 알고리즘이 수행하는 방법을 비교합니다.
 3. 캔버스에서 모델 학습 및 모델 점수 매기기 모듈을 복사하고 붙여 넣습니다.
 4. **모델 평가** 모듈을 캔버스로 끌어서 놓아 두 알고리즘을 비교합니다.

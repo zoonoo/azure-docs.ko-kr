@@ -8,28 +8,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231366"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454946"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 설계
 
-Azure Storage와 같은 클라우드 기반 인프라의 일반적인 기능은 애플리케이션 호스팅을 위해 항상 사용할 수 있는 플랫폼을 제공하는 것입니다. 클라우드 기반 애플리케이션 개발자는 사용자에게 항상 사용 가능한 애플리케이션을 제공하기 위해 이러한 플랫폼을 활용할 방법을 신중하게 고려해야 합니다. 이 문서는 개발자가 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하여 해당 Azure Storage 애플리케이션의 고가용성을 보장하는 방법에 중점을 둡니다.
+Azure Storage와 같은 클라우드 기반 인프라의 일반적인 기능은 애플리케이션 호스팅을 위해 항상 사용할 수 있는 플랫폼을 제공하는 것입니다. 클라우드 기반 애플리케이션 개발자는 사용자에게 항상 사용 가능한 애플리케이션을 제공하기 위해 이러한 플랫폼을 활용할 방법을 신중하게 고려해야 합니다. 이 문서는 개발자가 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하여 해당 Azure Storage 응용 프로그램의 고가용성을 보장하는 방법에 중점을 둡니다.
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 이 문서에서는 GRS 및 RA-GRS에 초점을 맞춥니다. GRS를 사용하면 세 개의 데이터 복사본이 저장소 계정을 설정할 때 선택된 주 지역에 유지됩니다. 세 개의 추가 복사본은 Azure에서 지정된 보조 지역에 비동기적으로 유지됩니다. RA-GRS는 보조 복사본에 대한 읽기 권한을 사용하여 지역 중복 저장소를 제공합니다.
 
-보조 지역과 쌍을 이루는 주 지역에 대한 정보는 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조합니다.
+보조 지역과 쌍을 이루는 주 지역에 대한 정보는 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요.
 
 이 문서에는 코드 조각이 포함되어 있고 끝 부분에는 다운로드하여 실행할 수 있는 전체 샘플에 대한 링크가 있습니다.
 
 > [!NOTE]
-> Azure Storage는 이제 고가용성 애플리케이션을 빌드하기 위한 ZRS(영역 중복 스토리지)를 지원합니다. ZRS는 많은 애플리케이션의 중복성 요구 사항에 대한 간단한 솔루션을 제공합니다. ZRS는 하드웨어 오류 또는 단일 데이터 센터에 영향을 주는 심각한 재해 방지를 제공합니다. 자세한 내용은 [ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션](storage-redundancy-zrs.md)을 참조하세요.
+> Azure Storage는 이제 고가용성 응용 프로그램을 빌드하기 위한 ZRS(영역 중복 스토리지)를 지원합니다. ZRS는 많은 애플리케이션의 중복성 요구 사항에 대한 간단한 솔루션을 제공합니다. ZRS는 하드웨어 오류 또는 단일 데이터 센터에 영향을 주는 심각한 재해 방지를 제공합니다. 자세한 내용은 [ZRS(영역 중복 저장소): 고가용성 Azure Storage 애플리케이션](storage-redundancy-zrs.md)을 참조하세요.
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS의 주요 기능
 
@@ -103,7 +103,7 @@ RA-GRS 저장소를 사용하려면 실패한 읽기 요청 및 실패한 업데
 
 ### <a name="read-requests"></a>읽기 요청
 
-읽기 요청은 기본 저장소에 문제가 있으면 보조 저장소로 리디렉션될 수 있습니다. [결과적으로 일치하는 데이터 사용](#using-eventually-consistent-data)에 언급된 바와 같이 응용 프로그램에서 잠재적으로 부실 데이터를 읽는 것이 허용됩니다. 저장소 클라이언트 라이브러리를 사용하여 RA-GRS 데이터에 액세스하는 경우 **LocationMode** 속성에 대한 값을 다음 중 하나로 설정하여 읽기 요청의 다시 시도 동작을 지정할 수 있습니다.
+읽기 요청은 기본 저장소에 문제가 있으면 보조 저장소로 리디렉션될 수 있습니다. [결과적으로 일치하는 데이터 사용](#using-eventually-consistent-data)에 언급된 바와 같이 애플리케이션에서 잠재적으로 부실 데이터를 읽는 것이 허용됩니다. 저장소 클라이언트 라이브러리를 사용하여 RA-GRS 데이터에 액세스하는 경우 **LocationMode** 속성에 대한 값을 다음 중 하나로 설정하여 읽기 요청의 다시 시도 동작을 지정할 수 있습니다.
 
 *   **PrimaryOnly**(기본값)
 

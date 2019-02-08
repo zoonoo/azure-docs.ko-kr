@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339521"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296124"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure에 SQL Server 백업 문제 해결
 
@@ -37,6 +37,15 @@ ms.locfileid: "53339521"
 ## <a name="troubleshooting-errors"></a>오류 문제 해결
 
 SQL Server를 Azure로 보호하는 동안 발생한 문제와 오류를 해결하려면 다음 표의 정보를 사용하십시오.
+
+## <a name="alerts"></a>경고
+
+### <a name="backup-type-unsupported"></a>백업 유형이 지원되지 않습니다
+
+| 심각도 | 설명 | 가능한 원인 | 권장 작업 |
+|---|---|---|---|
+| Warning | 이 데이터베이스의 현재 설정이 연결된 정책에 있는 특정 종류의 백업 유형을 지원하지 않습니다. | <li>**master DB**: master 데이터베이스에서는 전체 백업 작업만 수행할 수 있으며 **차등** 백업이나 트랜잭션 **로그** 백업은 수행할 수 없습니다. </li> <li>**단순 복구 모델**의 모든 데이터베이스에서는 트랜잭션 **로그** 백업을 수행할 수 없습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원되는 백업 유형만 포함하도록 현재 정책을 변경합니다. 이렇게 하지 않으면 예약된 백업 중에 지원되지 않는 백업 유형을 건너뛰거나, 임시 백업의 경우에는 백업 작업이 실패합니다.
+
 
 ## <a name="backup-failures"></a>백업 실패
 

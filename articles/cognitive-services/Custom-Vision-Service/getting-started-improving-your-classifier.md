@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 2bee7f0af98bf03a13e376dea9dbf083b3f61815
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 72ba363201b27a8ca31c73af1d0cceb436de468d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340293"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209403"
 ---
 # <a name="how-to-improve-your-classifier"></a>분류자 개선 방법
 
@@ -41,15 +41,15 @@ Custom Vision Service 분류자의 품질을 개선하는 방법을 알아봅니
 
 일반적인 사용 중에 분류자에 제출될 항목을 대표하는 이미지를 제공합니다. 예를 들어, "apple" 분류자를 학습하는 경우, 접시에 놓여 있는 사과 사진만 학습하고 사과 나무에 달린 사과 사진으로 예측을 할 경우 분류자가 별로 정확하지 않을 수 있습니다. 다양한 이미지를 포함하면 분류자가 편향되지 않고 잘 일반화될 수 있습니다. 학습 집합을 좀 더 다양하게 만들 수 있는 몇 가지 방법은 다음과 같습니다.
 
-__배경:__ 다양한 배경을 사용하여 물체 이미지를 제공합니다(즉, 접시 위의 과일 및 시장 바구니 앞의 과일). 문맥별 사진은 분류자에게 더 많은 정보를 제공하므로 중립 배경을 사용한 사진보다 더 효과적입니다.
+__백그라운드:__ 접시 위의 과일, 시장 바구니 안의 과일 등 다양한 배경을 사용하여 물체 이미지를 제공합니다. 문맥별 사진은 분류자에게 더 많은 정보를 제공하므로 중립 배경을 사용한 사진보다 더 효과적입니다.
 
 ![배경 샘플 이미지](./media/getting-started-improving-your-classifier/background.png)
 
-__조명:__ 예측에 사용되는 이미지의 조명이 다양한 경우에 특히, 다양한 조명을 사용하여 이미지를 제공합니다(즉, 플래시를 켜거나 높은 노출 등으로 촬영). 또한 다양한 채도, 색상 및 밝기를 적용한 이미지를 포함하는 것이 유용합니다.
+__조명:__ 플래시를 터뜨려 촬영한 이미지, 노출 정도를 높여서 촬영한 이미지 등 다양한 조명이 적용된 이미지를 제공합니다. 특히 예측에 사용되는 이미지의 조명이 서로 다른 경우 이러한 이미지가 제공됩니다. 또한 다양한 채도, 색상 및 밝기를 적용한 이미지를 포함하는 것이 유용합니다.
 
 ![조명 샘플 이미지](./media/getting-started-improving-your-classifier/lighting.png)
 
-__물체 크기:__ 물체의 다양한 부분을 다양한 크기로 캡처한 이미지를 제공합니다. 예를 들어, 바나나 다발 사진과 바나나 1개를 클로즈업한 사진을 사용할 수 있습니다. 크기가 다르면 분류자가 일반화를 더 잘 수행할 수 있습니다.
+__개체 크기:__ 물체의 다양한 부분을 다양한 크기로 캡처한 이미지를 제공합니다. 예를 들어, 바나나 다발 사진과 바나나 1개를 클로즈업한 사진을 사용할 수 있습니다. 크기가 다르면 분류자가 일반화를 더 잘 수행할 수 있습니다.
 
 ![크기 샘플 이미지](./media/getting-started-improving-your-classifier/size.png)
 
@@ -57,7 +57,7 @@ __카메라 각도:__ 여러 카메라 각도로 촬영한 이미지를 제공�
 
 ![각도 샘플 이미지](./media/getting-started-improving-your-classifier/angle.png)
 
-__스타일:__ 같은 과일 클래스에 속하지만 다른 스타일을 갖는 이미지를 제공합니다(즉, 다양한 종류의 감귤류). 그러나 물체 이미지가 완전히 다른 스타일을 갖는 경우(즉, 미키마우스와 실제 시궁창 쥐) 별도 클래스로 레이블을 지정하여 고유한 대상을 대표하도록 하는 것이 더 좋습니다.
+__스타일:__ 다양한 감귤류와 같이 클래스는 동일하지만 스타일이 각기 다른 이미지를 제공합니다. 그러나 물체 이미지가 완전히 다른 스타일을 갖는 경우(즉, 미키마우스와 실제 시궁창 쥐) 별도 클래스로 레이블을 지정하여 고유한 대상을 대표하도록 하는 것이 더 좋습니다.
 
 ![스타일 샘플 이미지](./media/getting-started-improving-your-classifier/style.png)
 

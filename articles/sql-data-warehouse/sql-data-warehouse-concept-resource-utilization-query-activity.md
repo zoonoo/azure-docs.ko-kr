@@ -6,19 +6,19 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b53a3f99f601f540723a9a383e3bf7bd2908de23
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4613a16ee27168dd5c00435ee04fa5a7f95f4d97
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499561"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460423"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 리소스 사용률 및 쿼리 작업 모니터링
-Azure SQL Data Warehouse는 Azure Portal 내에 다양한 모니터링 환경을 제공하여 데이터 웨어하우스 워크로드에 대한 인사이트를 제공합니다. Azure Portal은 구성 가능한 보존 기간, 경고, 권장 사항, 메트릭과 로그에 대한 사용자 지정 가능한 차트 및 대시보드를 제공하므로 데이터 웨어하우스를 모니터링할 때 권장되는 도구입니다. 또한 이 포털을 통해 OMS(Operations Management Suite)/Log Analytics 및 Azure Monitor와 같은 다른 Azure 모니터링 서비스와 통합하여 데이터 웨어하우스뿐만 아니라 Azure 분석 플랫폼 전체에 대한 전체적인 모니터링 환경을 제공함으로써 통합된 모니터링 환경을 구현할 수 있습니다. 이 문서에서는 SQL Data Warehouse를 사용하여 분석 플랫폼을 최적화하고 관리하는 데 사용할 수 있는 모니터링 기능에 대해 설명합니다. 
+Azure SQL Data Warehouse는 Azure Portal 내에 다양한 모니터링 환경을 제공하여 데이터 웨어하우스 워크로드에 대한 인사이트를 제공합니다. 데이터 웨어하우스를 모니터링할 때는 구성 가능한 보존 기간, 경고, 권장 사항, 메트릭과 로그용 사용자 지정 가능한 차트 및 대시보드를 제공하는 도구인 Azure Portal을 사용하는 것이 좋습니다. 또한 이 포털을 통해 OMS(Operations Management Suite)/Log Analytics 및 Azure Monitor와 같은 다른 Azure 모니터링 서비스와 통합하여 데이터 웨어하우스뿐만 아니라 Azure 분석 플랫폼 전체에 대한 전체적인 모니터링 환경을 제공함으로써 통합된 모니터링 환경을 구현할 수 있습니다. 이 문서에서는 SQL Data Warehouse를 사용하여 분석 플랫폼을 최적화하고 관리하는 데 사용할 수 있는 모니터링 기능에 대해 설명합니다. 
 
 ## <a name="resource-utilization"></a>리소스 사용률 
 SQL Data Warehouse용 Azure Portal에서 다음 메트릭을 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)를 통해 나타납니다.

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463289"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296905"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -40,11 +40,7 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 
 ### <a name="the-host-computer"></a>호스트 컴퓨터
 
-**호스트**는 Docker 컨테이너를 실행하는 컴퓨터입니다. 다음을 포함하여 Azure에서 컴퓨터 온-프레미스 또Docker 호스팅 서비스일 수 있습니다.
-
-* [Azure Kubernetes Service](../../aks/index.yml)
-* [Azure Container Instances](../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) 클러스터는 [Azure Stack](../../azure-stack/index.yml)에 배포됩니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)를 참조하세요.
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>컨테이너 요구 사항 및 추천
 
@@ -52,9 +48,11 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 
 |설정| 최소 | 권장 |
 |-----------|---------|-------------|
-|코어 수<BR>`--cpus`|1 코어<BR>최소 2.6GHz 또는 이상|1 코어|
+|코어 수<BR>`--cpus`|1 코어|1 코어|
 |메모리<BR>`--memory`|2GB|4GB|
 |초당 트랜잭션 수<BR>(TPS)|20 TPS|40 TPS|
+
+각 코어는 속도가 2.6GHz 이상이어야 합니다.
 
 `--cpus` 및 `--memory` 설정은 `docker run` 명령의 일부로 사용됩니다.
 
@@ -66,17 +64,12 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
+[`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 컨테이너 이미지를 다운로드합니다.
+
 사용 가능한 태그에 대한 전체 설명은 이전 명령에서 사용되는 `latest`처럼 Docker 허브에서 [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204)를 참조하세요.
 
-> [!TIP]
-> [docker images](https://docs.docker.com/engine/reference/commandline/images/) 명령을 사용하여 다운로드한 컨테이너 이미지를 나열할 수 있습니다. 예를 들어 다음 명령은 다운로드한 각 컨테이너 이미지의 ID, 리포지토리 및 태그를 테이블 형식으로 나열합니다.
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->
->  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        mcr.microsoft.com/azure-cognitive-services/luis                           latest
->  ``` 
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
 
 ## <a name="how-to-use-the-container"></a>컨테이너사용 방법
 
@@ -268,7 +261,7 @@ ApiKey={ENDPOINT_KEY}
 
 쿼리 매개 변수는 쿼리 응답에 반환되는 방법 및 내용을 구성합니다.
 
-|쿼리 매개 변수|type|목적|
+|쿼리 매개 변수|Type|목적|
 |--|--|--|
 |`q`|string|사용자의 발화입니다.|
 |`timezoneOffset`|number|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
@@ -325,14 +318,7 @@ LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기
 
 ## <a name="containers-api-documentation"></a>컨테이너의 API 설명서
 
-컨테이너는 `Try it now` 기능뿐만 아니라 엔드포인트에 대한 모든 설명서를 제공합니다. 이 기능을 사용하면 웹 기반 HTML 형식으로 설정을 입력할 수 있고 코드 작성 없이 쿼리를 만들 수 있습니다. 쿼리가 반환되면 예로 CURL 명령은 필요한 HTTP 헤더 및 본문 포맷을 데모하는 데 제공됩니다. 
-
-> [!TIP]
-> `/swagger` 상대 URI에서 컨테이너의 API 작업 지원을 설명하는 [OpenAPI 사양](https://swagger.io/docs/specification/about/)을 읽으세요. 예: 
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>결제
 
@@ -371,7 +357,7 @@ Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은
 
 이 문서에서는 LUIS(Language Understanding) 컨테이너를 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
 
-* LUIS(language Understanding)는 발화의 엔드포인트 쿼리 예측을 하는 Docker에 대한 Linux 컨테이너를 제공합니다.
+* LUIS(language Understanding)는 발화의 엔드포인트 쿼리를 예측하는 Docker용 Linux 컨테이너 하나를 제공합니다.
 * 컨테이너 이미지는 Microsoft 컨테이너 레지스트리(MCR)에서 다운로드됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
 * 컨테이너의 호스트 URI를 지정함으로써 REST API를 사용하여 컨테이너 엔드포인트를 쿼리할 수 있습니다.

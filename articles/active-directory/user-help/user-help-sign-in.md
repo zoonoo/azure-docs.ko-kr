@@ -7,48 +7,48 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4bd1ceb03ddce572e0571afb87ec2f0c36a49443
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 983bf77a157de539264a6437ffbebb291d310840
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810417"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181421"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>2단계 인증 또는 보안 정보를 사용하여 로그인
 
-2단계 인증 또는 보안 정보를 설정한 후에 지정된 인증 방법을 사용하여 회사 또는 학교 계정에 로그인할 수 있습니다.
+2단계 인증 또는 보안 정보를 설정한 후에 지정된 인증 방법을 사용하여 계정에 로그인할 수 있습니다.
 
 >[!Note]
 >2단계 인증 방법을 계속 사용하는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서의 지침에 따라 인증 방법을 설정해야 합니다. 관리자가 보안 정보 환경을 켠 경우 이러한 단계별 가이드를 사용하여 인증 방법을 설정해야 합니다.<ul><li>[인증 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md)</li><li>[문자 메시지를 사용하도록 보안 정보 설정](security-info-setup-text-msg.md)</li><li>[전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>모바일 디바이스에서 인증자 앱 알림을 사용하여 로그인
 
-1. 사용자 이름 및 암호를 사용하여 회사 또는 학교 계정에 로그인합니다.
+1. 사용자 이름 및 암호를 사용하여 계정에 로그인합니다.
 
 2. 모바일 디바이스로 보낸 승인 알림에서 **승인**을 선택합니다.
 
 
 ## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>모바일 디바이스에서 인증자 앱 코드를 사용하여 로그인
 
-1. 사용자 이름 및 암호를 사용하여 회사 또는 학교 계정에 로그인합니다.
+1. 사용자 이름 및 암호를 사용하여 계정에 로그인합니다.
 
 2. 인증자 앱을 열고 계정에 대해 임의로 생성된 코드를 **코드 입력** 상자에 입력합니다.
 
 
 ## <a name="sign-in-using-your-phone-number"></a>전화 번호를 사용하여 로그인
 
-1. 사용자 이름 및 암호를 사용하여 회사 또는 학교 계정에 로그인합니다.
+1. 사용자 이름 및 암호를 사용하여 계정에 로그인합니다.
 
 2. 전화를 받고 지침을 따릅니다.
 
 
 ## <a name="sign-in-using-a-text-message"></a>문자 메시지를 사용하여 로그인
 
-1. 사용자 이름 및 암호를 사용하여 회사 또는 학교 계정에 로그인합니다.
+1. 사용자 이름 및 암호를 사용하여 계정에 로그인합니다.
 
 2. 문자 메시지를 열고 문자 메시지의 코드를 **코드 입력** 상자에 입력합니다.
 

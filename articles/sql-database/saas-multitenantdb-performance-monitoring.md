@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 01/25/2019
+ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830008"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458128"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
 
@@ -161,7 +161,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 
 이 스크립트는 테넌트를 별도의 데이터베이스에서 프로비전하고, 데이터베이스와 테넌트를 카탈로그와 함께 등록하고, 브라우저에서 테넌트의 이벤트 페이지를 엽니다. 이벤트 허브 페이지를 새로 고치면 “Salix Salsa” 행사장이 추가된 것을 볼 수 있습니다.
 
-## <a name="manage-performance-of-a-single-database"></a>단일 데이터베이스의 성능 관리
+## <a name="manage-performance-of-an-individual-database"></a>개별 데이터베이스의 성능 관리
 
 다중 테넌트 데이터베이스의 단일 테넌트에 지속적으로 높은 부하가 발생하면 데이터베이스 리소스를 잠식하여 동일한 데이터베이스에 속한 다른 테넌트에 영향을 줄 수 있습니다. 이 활동이 일정 기간 동안 지속될 경우 테넌트를 데이터베이스에서 제거하여 자체 단일 테넌트 데이터베이스로 이동할 수 있습니다. 이렇게 하면 해당 테넌트에 필요한 추가적인 리소스를 제공할 수 있고, 동시에 다른 테넌트로부터 완전히 격리할 수 있습니다.
 

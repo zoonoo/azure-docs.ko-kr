@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841437"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302362"
 ---
 실행하는 애플리케이션에 대해 VM을 안전하게 유지하는 것은 중요합니다. VM 보안은 VM에 대한 보안 액세스 및 데이터의 보안 저장소를 포함하는 하나 이상의 Azure 서비스 및 기능을 포함할 수 있습니다. 이 문서에서는 VM 및 애플리케이션을 안전하게 유지할 수 있도록 하는 정보를 제공합니다.
 
@@ -20,6 +20,8 @@ ms.locfileid: "54841437"
 ## <a name="azure-security-center"></a>Azure Security Center
 
 [Azure Security Center](../articles/security-center/security-center-intro.md)를 통해 VM에 대한 위협을 예방하고 감지하며 대응할 수 있습니다. Security Center는 Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다.
+
+Security Center의 Just-In-Time 액세스를 VM 배포에 적용하면 Azure VM으로의 인바운드 트래픽을 잠글 수 있으므로 공격에 대한 노출은 줄이면서 필요할 때는 VM 연결을 위한 손쉬운 액세스 기능을 제공할 수 있습니다. Just-In-Time을 사용하도록 설정한 상태에서 사용자가 VM 액세스를 요청하면 Security Center에서는 VM에 대한 사용자 권한을 확인합니다. 사용자에게 올바른 권한이 있으면 요청이 승인되며, Security Center는 제한된 시간 동안 선택한 포트로의 인바운드 트래픽을 허용하도록 NSG(네트워크 보안 그룹)를 자동으로 구성합니다. 시간이 만료되면 Security Center에서 NSG를 이전 상태로 복원합니다. 
 
 ## <a name="encryption"></a>암호화
 
@@ -33,7 +35,7 @@ Azure에서 가상 디스크 암호화는 무료입니다. 암호화 키는 소�
 
 키 자격 증명 모음 액세스 정책은 키, 비밀 및 인증서에 대한 권한을 별도로 부여합니다. 예를 들어 사용자에게 키에 대한 액세스 권한만 부여하고 암호에 대해서는 권한을 부여하지 않을 수 있습니다. 그러나 키, 암호 또는 인증서에 대한 액세스 권한은 자격 증명 모음 수준에 있습니다. 즉 [키 자격 증명 모음 액세스 정책](../articles/key-vault/key-vault-secure-your-key-vault.md)에서는 개체 수준 권한을 지원하지 않습니다.
 
-VM에 연결할 때 public-key cryptography를 사용하면 더욱 안전한 방법으로 VM에 로그인할 수 있습니다. 이 프로세스는 사용자를 인증하는 데 있어 사용자 이름과 암호가 아니라 SSH(보안 셸) 명령을 사용하는 공용 및 개인 키의 교환과 관계됩니다. 암호는 무차별 암호 대입 공격, 특히 웹 서버와 같은 인터넷 연결 VM에 대한 공격에 취약합니다. SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 SSH 키를 사용하는 [Linux VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md)을 만들 수 있으며 로그인하기 위해 암호가 필요하지 않게 됩니다. SSH 키를 사용하여 [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md)에서 Linux VM에 연결할 수도 있습니다.
+VM에 연결할 때 public-key cryptography를 사용하면 더욱 안전한 방법으로 VM에 로그인할 수 있습니다. 이 프로세스는 사용자를 인증하는 데 있어 사용자 이름과 암호가 아니라 SSH(보안 셸) 명령을 사용하는 공용 및 개인 키의 교환과 관계됩니다. 암호는 무차별 암호 대입 공격, 특히 웹 서버와 같은 인터넷 연결 VM에 대한 공격에 취약합니다. SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 SSH 키를 사용하는 [Linux VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md)을 만들 수 있으므로 로그인할 때 암호를 사용할 필요가 없습니다. SSH 키를 사용하여 [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md)에서 Linux VM에 연결할 수도 있습니다.
 
 ## <a name="managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID
 

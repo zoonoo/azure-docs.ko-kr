@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 9d7131c6ed1808725f59e53488bedb5ef81a77c3
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: cf32f3998e254e8f4a9c347980718dbc8d0b13c4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389408"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461647"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>읽기 전용 복제본을 사용하여 읽기 전용 쿼리 작업의 부하 분산(미리 보기)
 
@@ -76,7 +76,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="enable-and-disable-read-scale-out"></a>읽기 확장 사용 및 사용 안 함
 
-읽기 스케일 아웃은 [Managed Instance](sql-database-managed-instance.md) 중요 비즈니스용 계층에 기본적으로 사용됩니다. 프리미엄 및 중요 비즈니스용 계층의 [논리적 서버에 배치된 데이터베이스](sql-database-logical-servers.md)에 명시적으로 사용하도록 설정됩니다. 읽기 확장을 사용 및 사용하지 않도록 설정하는 방법은 여기에 설명되어 있습니다.
+읽기 스케일 아웃은 [Managed Instance](sql-database-managed-instance.md) 중요 비즈니스용 계층에 기본적으로 사용됩니다. [SQL Database 서버](sql-database-servers.md) Premium 및 Business Critical 계층에 배치된 데이터베이스에서는 읽기 확장을 명시적으로 사용하도록 설정해야 합니다. 읽기 확장을 사용 및 사용하지 않도록 설정하는 방법은 여기에 설명되어 있습니다.
 
 ### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: 읽기 확장 사용 및 사용 안 함
 

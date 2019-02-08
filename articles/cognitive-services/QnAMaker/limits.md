@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 772153040ac76f4b7bbee55c48527a841fc69037
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 443ecdeab057c863763501e5da7d36e9fb6a4eea
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084791"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223139"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 QnA Maker에 대한 포괄적인 제한 목록입니다.
@@ -27,7 +27,9 @@ QnA Maker에 대한 포괄적인 제한 목록입니다.
 
 |**Azure Search 계층** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|허용된 최대 게시 기술 자료 수(최대 인덱스 - 1(테스트용으로 예약됨))|2|14|49|199|199|2,999|
+|게시할 수 있는 기술 자료의 최대 수|2|14|49|199|199|2,999|
+
+ 예를 들어 계층에 허용되는 인덱스가 15개 있으면 기술 자료 14개를 게시할 수 있습니다(게시되는 기술 자료당 인덱스 1개). 15번째 인덱스(`testkb`)는 모든 기술 자료에서 작성 및 테스트용으로 사용됩니다. 
 
 ## <a name="extraction-limits"></a>추출 제한
 * 추출할 수 있는 최대 파일 수 및 최대 파일 크기: [QnAMaker 가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/) 참조
@@ -64,3 +66,11 @@ QnA Maker에 대한 포괄적인 제한 목록입니다.
 * 추가 또는 삭제된 최대 대체 질문 수: 100
 * 추가 또는 삭제된 최대 메타데이터 필드 수: 10
 * 새로 고칠 수 있는 최대 URL 수: 5
+
+## <a name="next-steps"></a>다음 단계
+
+서비스 계층을 변경해야 하는 시기와 변경 방법을 알아봅니다.
+
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): 기술 자료에 포함해야 하는 질문과 대답의 수가 현재 계층에서 허용되는 수보다 많으면 QnA Maker 서비스 가격 책정 계층을 업그레이드합니다.
+* [검색](how-to/upgrade-qnamaker-service.md#upgrade-app-service) - 기술 자료가 클라이언트 앱의 요청을 더 많이 처리해야 하는 경우 앱 서비스 가격 책정 계층을 업그레이드합니다.
+* [앱 서비스](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): 기술 자료를 많이 포함하려는 경우 Azure Search 서비스 가격 책정 계층을 업그레이드합니다.

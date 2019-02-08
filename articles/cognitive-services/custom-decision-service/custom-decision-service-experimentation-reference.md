@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 90a99d4910b0afb885b415760f6a7ef1ca2aec33
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366559"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219824"
 ---
 # <a name="experimentation"></a>실험
 
@@ -35,8 +35,8 @@ Custom Decision Service는 컨텍스트에서 작업에 매핑할 때 정책을 
 * 정책 평가 `--cb_type`(역 성향 점수 `ips`) 또는 이중 로버스트(`dr`)를 테스트합니다. 자세한 내용은 [컨텍스트별 산적 예제](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example)를 참조하세요.
 * 한계를 테스트합니다.
 * 2차 상호 작용 기능을 테스트합니다.
-   * **무차별 대입 단계**: `--q_bruteforce_terms` 쌍 이하를 사용해서 모든 조합을 테스트합니다.
-   * **그리디 단계**: `--q_greedy_stop` 반올림 처리에 따른 개선점이 없어질 때까지 최상의 쌍을 추가합니다.
+   * **무차별 대입 단계**: `--q_bruteforce_terms`개 이하의 쌍을 사용하여 모든 조합을 테스트합니다.
+   * **최대 추가 단계**: `--q_greedy_stop`회 동안 정책이 더 이상 개선되지 않을 때까지 최적의 쌍을 추가합니다.
 * 하이퍼 매개 변수(`learning rate`, `L1 regularization` 및 `power_t`)에 대해 두 번째 스윕을 수행합니다.
 
 다음 단계를 제어하는 매개 변수에는 일부 Vowpal Wabbit 인수가 포함됩니다.
@@ -53,13 +53,13 @@ Custom Decision Service는 컨텍스트에서 작업에 매핑할 때 정책을 
 위 인수에 대한 자세한 설명은 [Vowpal Wabbit 명령줄 인수](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-- Vowpal Wabbit: 설치되어 사용자 경로에 있습니다.
-  - Windows: [`.msi` installer](https://github.com/eisber/vowpal_wabbit/releases)를 사용합니다.
-  - 기타 플랫폼: [소스 코드를 확보](https://github.com/JohnLangford/vowpal_wabbit/releases)합니다.
-- Python 3: 설치되어 사용자 경로에 있습니다.
-- NumPy: 사용자가 선택한 패키지 관리자를 사용합니다.
-- *Microsoft/mwt-ds* 리포지토리: [리포지토리를 복제](https://github.com/Microsoft/mwt-ds)합니다.
-- 의사 결정 서비스 JSON 로그 파일: 기본적으로 기본 명령에는 입력 데이터 파일의 의사 결정 서비스 JSON 구문 분석을 가능하게 하는 `--dsjson`이 포함되어 있습니다. [이 형식의 예제를 가져옵니다](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
+- Vowpal Wabbit: 경로 내에 설치되어 있어야 합니다.
+  - Windows: [`.msi` 설치 관리자를 사용](https://github.com/eisber/vowpal_wabbit/releases)합니다.
+  - 기타 플랫폼: [소스 코드를 다운로드](https://github.com/JohnLangford/vowpal_wabbit/releases)합니다.
+- Python 3: 경로 내에 설치되어 있어야 합니다.
+- NumPy: 선택한 패키지 관리자를 사용합니다.
+- *Microsoft/mwt-ds* 리포지토리: [리포지토리를 복제합니다](https://github.com/Microsoft/mwt-ds).
+- Decision Service JSON 로그 파일: 기본 명령에는 입력 데이터 파일의 Decision Service JSON 구문 분석을 수행할 수 있도록 하는 `--dsjson`이 기본적으로 포함됩니다. [이 형식의 예제를 가져옵니다](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
 ## <a name="usage"></a>사용 현황
 `mwt-ds/DataScience`로 이동한 후 다음 코드에 설명된 것처럼 관련 인수를 사용해서 `Experimentation.py`를 실행합니다.

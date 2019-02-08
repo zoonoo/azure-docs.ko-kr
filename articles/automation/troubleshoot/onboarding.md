@@ -4,22 +4,40 @@ description: 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879644"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228783"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>솔루션을 온보딩할 때 발생하는 오류 문제 해결
 
 업데이트 관리나 변경 내용 추적 및 인벤토리와 같은 솔루션을 온보딩할 때 오류가 발생할 수 있습니다. 이 문서에서는 발생할 수 있는 다양한 오류와 이것을 해결하는 방법을 설명합니다.
 
 ## <a name="general-errors"></a>일반 오류
+
+### <a name="missing-write-permissions"></a>시나리오: 온보딩이 실패하고 솔루션을 사용할 수 없다는 메시지가 표시됨
+
+#### <a name="issue"></a>문제
+
+가상 머신을 솔루션에 온보딩하려고 하면 다음 메시지가 표시됩니다.
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### <a name="cause"></a>원인
+
+가상 머신 또는 사용자의 권한이 잘못되었거나 누락된 경우 이 오류가 발생합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+가상 머신 온보딩을 위한 권한이 올바른지 확인합니다. [가상 머신을 온보딩하는 데 필요한 권한](../automation-role-based-access-control.md#onboarding)을 검토한 후에 솔루션을 다시 온보딩해 보세요.
 
 ### <a name="computer-group-query-format-error"></a>시나리오: ComputerGroupQueryFormatError
 

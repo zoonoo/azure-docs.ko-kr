@@ -2,18 +2,18 @@
 title: Azure Batch 풀에서 노드 엔드포인트 구성 | Microsoft Docs
 description: Azure Batch 풀의 계산 노드에서 SSH 또는 RDP 포트에 대한 액세스를 구성하거나 비활성화하는 방법입니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: danlep
-ms.openlocfilehash: 5898206761e5029f94b6d1f1b48223481ae2ca13
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: lahugh
+ms.openlocfilehash: a6c2c343b13b77048c772cb1e5c2ba06cf8add50
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358730"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457618"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대한 원격 액세스 구성 또는 비활성화
 
@@ -31,7 +31,7 @@ ms.locfileid: "34358730"
 * NAT 풀을 구성할 경우 여러 NSG 규칙을 구성할 수 있습니다. 규칙은 우선 순위에 따라 검사됩니다. 규칙이 적용되면 일치하는 규칙은 더 이상 테스트되지 않습니다.
 
 
-## <a name="example-deny-all-rdp-traffic"></a>예: 모든 RDP 트래픽 거부
+## <a name="example-deny-all-rdp-traffic"></a>예제: 모든 RDP 트래픽 거부
 
 다음 C# 코드 조각에서는 모든 네트워크 트래픽을 거부하도록 Windows 풀의 계산 노드에 있는 RDP 엔드포인트를 구성하는 방법을 보여줍니다. 이 엔드포인트는 *60000 - 60099* 범위의 프런트 엔드 포트 풀을 사용합니다. 
 
@@ -48,7 +48,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>예: 인터넷에서 오는 모든 SSH 트래픽 거부
+## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>예제: 인터넷에서 오는 모든 SSH 트래픽 거부
 
 다음 Python 코드 조각에서는 모든 인터넷 트래픽을 거부하도록 Linux 풀의 계산 노드에 있는 SSH 엔드포인트를 구성하는 방법을 보여줍니다. 이 엔드포인트는 *4000 - 4100* 범위의 프런트 엔드 포트 풀을 사용합니다. 
 
@@ -74,7 +74,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 )
 ```
 
-## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>예: 특정 IP 주소에서 RDP 트래픽 허용
+## <a name="example-allow-rdp-traffic-from-a-specific-ip-address"></a>예제: 특정 IP 주소의 RDP 트래픽 허용
 
 다음 C# 코드 조각에서는 *198.51.100.7*이라는 IP 주소에서 오는 RDP 액세스만 허용하도록 Windows 풀의 계산 노드에 있는 RDP 엔드포인트를 구성하는 방법을 보여줍니다. 두 번째 NSG 규칙은 IP 주소와 일치하지 않는 트래픽을 거부합니다.
 
@@ -92,7 +92,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>예: 특정 서브넷에서 SSH 트래픽 허용
+## <a name="example-allow-ssh-traffic-from-a-specific-subnet"></a>예제: 특정 서브넷의 SSH 트래픽 허용
 
 다음 Python 코드 조각에서는 *192.168.1.0/24*라는 서브넷에서 오는 액세스만 허용하도록 Linux 풀의 계산 노드에 있는 SSH 엔드포인트를 구성하는 방법을 보여줍니다. 두 번째 NSG 규칙은 서브넷과 일치하지 않는 트래픽을 거부합니다.
 

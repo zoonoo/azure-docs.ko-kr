@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 02f6c3f81cbaa26eed8de8b7785b519ecbc3bf26
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 889eabf38f25923d9bd84ea6ceaa5567c74216df
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344254"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223819"
 ---
 # <a name="glossary"></a>용어
 
@@ -70,7 +70,7 @@ ms.locfileid: "49344254"
 
 ### <a name="normalization"></a>정규화
 
-정규화(텍스트): 결과 텍스트(예: 전사)를 시스템에서 읽을 수 있는 모호하지 않은 표준 형식으로 변환하는 것을 말합니다.
+정규화(텍스트): 전사 등의 결과 텍스트를 시스템에서 읽을 수 있는 모호하지 않은 표준 형식으로 변환하는 과정입니다.
 
 ## <a name="o"></a>O
 
@@ -84,7 +84,7 @@ ms.locfileid: "49344254"
 
 ### <a name="search-and-dictate-model"></a>검색 및 받아쓰기 모델
 
-명령 처리에 적합한 음향 모델. Microsoft 검색 및 받아쓰기 AM은 명령처럼 애플리케이션 또는 디바이스에서 지시하는 음성에 적합합니다.
+명령 처리에 적합한 음향 모델. Microsoft 검색 및 받아쓰기 AM은 명령처럼 애플리케이션 또는 장치에서 지시하는 음성에 적합합니다.
 
 ### <a name="subscription-key"></a>구독 키
 
@@ -94,7 +94,7 @@ ms.locfileid: "49344254"
 
 ### <a name="transcription"></a>전사
 
-전사: 오디오 .wav 파일 프로세스의 결과로 생성되는 텍스트
+전사: 오디오 .wav 파일을 처리하면 생성되는 텍스트입니다.
 
 ## <a name="u"></a>U
 

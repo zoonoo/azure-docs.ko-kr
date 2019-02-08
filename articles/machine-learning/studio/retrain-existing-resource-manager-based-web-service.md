@@ -1,6 +1,6 @@
 ---
-제목: 기존 예측 Studio 웹 서비스 재학습 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio에서 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 기존 예측 Studio 웹 서비스 재학습 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio에서 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 2017/11/07
 ---

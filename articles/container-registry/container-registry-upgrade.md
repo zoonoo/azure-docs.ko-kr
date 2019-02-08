@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: danlep
-ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969110"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228358"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Classic 컨테이너 레지스트리 업그레이드
 
@@ -52,7 +52,7 @@ Classic 레지스트리를 관리되는 레지스트리로 변경할 경우 Azur
 
 변환 프로세스 동안 Classic 레지스트리를 지원하는 저장소 계정의 콘텐츠는 삭제하거나 수정하지 마세요. 이렇게 하면 컨테이너 이미지가 손상될 수 있습니다.
 
-마이그레이션이 완료되면 원래 Classic 레지스트리를 지원하던 구독의 저장소 계정이 ACR에서 더 이상 사용되지 않습니다. 마이그레이션에 성공했는지 확인한 후에는 비용을 최소화하기 위해 저장소 계정을 삭제하는 것이 좋습니다.
+마이그레이션이 완료되면 원래 Classic 레지스트리를 지원하던 구독의 스토리지 계정이 ACR에서 더 이상 사용되지 않습니다. 마이그레이션에 성공했는지 확인한 후에는 비용을 최소화하기 위해 저장소 계정을 삭제하는 것이 좋습니다.
 
 >[!IMPORTANT]
 > Classic에서 관리되는 SKU 중 하나로 업그레이드하는 과정은 **단방향 프로세스**입니다. 일단 Classic 레지스트리를 Basic, Standard 또는 Premium으로 변환하면 Classic으로 되돌릴 수 없습니다. 그러나 레지스트리에 대해 충분한 용량이 있는 관리되는 SKU 간에는 자유롭게 이동할 수 있습니다.

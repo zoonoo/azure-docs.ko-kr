@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e2cb1a76bfde5bea7707cf3cc6658e3fc82163c5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043093"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457669"
 ---
-# <a name="optimize-the-cost-required-to-run-queries-in-azure-cosmos-db"></a>Azure Cosmos DB의 쿼리를 실행하는 데 필요한 비용 최적화
+# <a name="optimize-query-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 쿼리 비용 최적화
 
 Azure Cosmos DB는 컨테이너 내의 항목에 작동하는 관계형 쿼리 및 계층형 쿼리를 비롯한 다양한 데이터베이스 작업 세트를 제공합니다. 이러한 작업 각각과 관련된 비용은 작업을 완료하는 데 필요한 CPU, IO 및 메모리에 따라 달라집니다. 하드웨어 리소스를 고려하고 관리하는 대신, 요청을 처리하기 위한 다양한 데이터베이스 작업을 수행하는 데 필요한 리소스의 단일 측정값으로 RU(요청 단위)를 고려할 수 있습니다. 이 문서에서는 쿼리에 대한 요청 단위 요금을 평가하고 성능 및 비용 측면에서 쿼리를 최적화하는 방법을 설명합니다. 
 

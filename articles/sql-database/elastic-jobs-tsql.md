@@ -11,13 +11,13 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449404"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458094"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
 
@@ -75,9 +75,9 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ```
 
 
-## <a name="exclude-a-single-database"></a>단일 데이터베이스 제외
+## <a name="exclude-an-individual-database"></a>개별 데이터베이스 제외
 
-다음 예제에서는 *MappingDB*라는 데이터베이스를 제외한 서버의 모든 데이터베이스에 대해 작업을 실행하는 방법을 보여 줍니다.  
+다음 예제에서는 *MappingDB* 데이터베이스를 제외한 SQL Database 서버의 모든 데이터베이스에 대해 작업을 실행하는 방법을 보여 줍니다.  
 [*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
 ```sql
@@ -103,7 +103,7 @@ EXEC [jobs].sp_add_target_group_member
 @server_name='server2.database.windows.net'
 GO
 
---Excude a database target member from the server target group
+--Exclude a database target member from the server target group
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @membership_type = N'Exclude',
@@ -1032,10 +1032,10 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스, 분할된 맵의 모든 데이터베이스 또는 개별 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. target_type은 nvarchar(128) 형식이며, 기본값은 없습니다. target_type에 대해 유효한 값은 'SqlServer', 'SqlElasticPool', 'SqlDatabase' 또는 'SqlShardMap'입니다. 
 
 [ **@refresh_credential_name =** ] 'refresh_credential_name'  
-논리 서버의 이름입니다. refresh_credential_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
+SQL Database 서버의 이름입니다. refresh_credential_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ **@server_name =** ] 'server_name'  
-지정된 대상 그룹에 추가해야 하는 논리 서버의 이름입니다. target_type이 'SqlServer'이면 server_name을 지정해야 합니다. server_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
+지정된 대상 그룹에 추가해야 하는 SQL Database 서버의 이름입니다. target_type이 'SqlServer'이면 server_name을 지정해야 합니다. server_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ **@database_name =** ] 'database_name'  
 지정된 대상 그룹에 추가해야 하는 데이터베이스의 이름입니다. target_type이 'SqlDatabase'이면 database_name을 지정해야 합니다. database_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
@@ -1051,7 +1051,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 반환 코드 값 0(성공) 또는 1(실패)
 
 #### <a name="remarks"></a>설명
-논리 서버 또는 탄력적 풀이 대상 그룹에 포함되는 경우 작업은 실행 시 서버 또는 탄력적 풀 내의 모든 데이터베이스에서 실행됩니다.
+SQL Database 서버 또는 탄력적 풀이 대상 그룹에 포함되는 경우 작업은 실행 시 SQL Database 서버 또는 탄력적 풀 내의 모든 단일 데이터베이스에서 실행됩니다.
 
 #### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
@@ -1229,7 +1229,7 @@ GO
 |**target_type**|   nvarchar(128)   |서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스 또는 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. target_type에 대해 유효한 값은 'SqlServer', 'SqlElasticPool' 또는 'SqlDatabase'입니다. NULL은 부모 작업 실행임을 나타냅니다.
 |**target_id**  |uniqueidentifier|  대상 그룹 멤버의 고유 ID입니다.  NULL은 부모 작업 실행임을 나타냅니다.
 |**target_group_name**  |nvarchar(128)  |대상 그룹의 이름입니다. NULL은 부모 작업 실행임을 나타냅니다.
-|**target_server_name**|    nvarchar(256)|  대상 그룹에 포함된 논리 서버의 이름입니다. target_type이 'SqlServer'인 경우에만 지정됩니다. NULL은 부모 작업 실행임을 나타냅니다.
+|**target_server_name**|    nvarchar(256)|  대상 그룹에 포함된 SQL Database 서버의 이름입니다. target_type이 'SqlServer'인 경우에만 지정됩니다. NULL은 부모 작업 실행임을 나타냅니다.
 |**target_database_name**   |nvarchar(128)| 대상 그룹에 포함된 데이터베이스의 이름입니다. target_type이 'SqlDatabase'인 경우에만 지정됩니다. NULL은 부모 작업 실행임을 나타냅니다.
 
 
@@ -1253,7 +1253,7 @@ GO
 
 ### <a name="jobversions-view"></a>job_versions 보기
 
-[jobs].[job_verions]
+[jobs].[job_versions]
 
 모든 작업 버전을 표시합니다.
 
@@ -1332,7 +1332,7 @@ GO
 |**refresh_credential_name**    |nvarchar(128)  |대상 그룹 멤버에 연결하는 데 사용되는 데이터베이스 범위 자격 증명의 이름입니다.|
 |**subscription_id**    |uniqueidentifier|  구독의 고유 ID입니다.|
 |**resource_group_name**    |nvarchar(128)| 대상 그룹 멤버가 있는 리소스 그룹의 이름입니다.|
-|**server_name**    |nvarchar(128)  |대상 그룹에 포함된 논리 서버의 이름입니다. target_type이 'SqlServer'인 경우에만 지정됩니다. |
+|**server_name**    |nvarchar(128)  |대상 그룹에 포함된 SQL Database 서버의 이름입니다. target_type이 'SqlServer'인 경우에만 지정됩니다. |
 |**database_name**  |nvarchar(128)  |대상 그룹에 포함된 데이터베이스의 이름입니다. target_type이 'SqlDatabase'인 경우에만 지정됩니다.|
 |**elastic_pool_name**  |nvarchar(128)| 대상 그룹에 포함된 탄력적 풀의 이름입니다. target_type이 'SqlElasticPool'인 경우에만 지정됩니다.|
 |**shard_map_name** |nvarchar(128)| 대상 그룹에 포함된 분할된 맵의 이름입니다. target_type이 'SqlShardMap'인 경우에만 지정됩니다.|

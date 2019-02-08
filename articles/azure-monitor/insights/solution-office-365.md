@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 3eb1228ed9d15fb976f94df114f8725a8c41599d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230461"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216615"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -29,7 +29,7 @@ Office 365 관리 솔루션을 사용하면 Log Analytics에서 Office 365 환�
 - 관리자 활동을 모니터링하면 구성 변경 내용이나 높은 권한이 필요한 작업을 추적할 수 있습니다.
 - 조직 요구 사항에 따라 사용자 지정할 수 있는 부적절한 사용자 행동을 검색하고 조사할 수 있습니다.
 - 감사 및 규정 준수 방식을 제시할 수 있습니다. 예를 들어 기밀 파일에 대한 파일 액세스 작업을 모니터링하여 감사 및 규정 준수 프로세스를 보다 원활하게 진행할 수 있습니다.
-- 조직의 Office 365 활동 데이터를 토대로 [log searches](../../azure-monitor/log-query/log-query-overview.md) 기능을 사용해 운영상의 문제를 해결할 수 있습니다.
+- 조직의 Office 365 활동 데이터를 토대로 [log searches](../log-query/log-query-overview.md) 기능을 사용해 운영상의 문제를 해결할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 솔루션을 설치하고 구성하려면 다음 항목이 필요합니다.
@@ -40,7 +40,7 @@ Office 365 관리 솔루션을 사용하면 Log Analytics에서 Office 365 환�
  
 
 ## <a name="management-packs"></a>관리 팩
-이 솔루션은 [연결된 관리 그룹](../../azure-monitor/platform/om-agents.md)에 관리 팩을 설치하지 않습니다.
+이 솔루션은 [연결된 관리 그룹](../platform/om-agents.md)에 관리 팩을 설치하지 않습니다.
   
 ## <a name="install-and-configure"></a>설치 및 구성
 먼저 [구독에 Office 365 솔루션](solutions.md#install-a-management-solution)을 추가합니다. 추가된 후에는 이 섹션의 구성 단계를 수행하여 Office 365 구독에 대한 액세스 권한을 부여해야 합니다.
@@ -158,7 +158,7 @@ Office 365 구독에서 수집할 정보:
     AdminConsent -ErrorAction Stop
     ```
 
-2. 다음 명령을 사용하여 스크립트를 실행합니다.
+2. 다음 명령을 사용하여 스크립트를 실행합니다. 자격 증명을 묻는 메시지가 두 번 표시됩니다. 먼저 Log Analytics 작업 영역용 자격 증명을 입력한 다음 Office 365 테넌트의 전역 관리자 자격 증명을 입력합니다.
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
@@ -351,7 +351,7 @@ Office 365 구독에서 수집할 정보:
 
 ### <a name="troubleshooting"></a>문제 해결
 
-구독이 이미 있는 상태에서 구독을 만들려고 시도하면 다음 오류가 발생할 수 있습니다.
+애플리케이션이 해당 작업 영역에 이미 가입되고 있거나 이 테넌트가 다른 작업 영역에 가입되어 있으면 이 오류가 표시될 수 있습니다.
 
 ```
 Invoke-WebRequest : {"Message":"An error has occurred."}
@@ -394,7 +394,7 @@ At line:12 char:18
     $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
@@ -476,7 +476,7 @@ At line:12 char:18
 
 ## <a name="data-collection"></a>데이터 수집
 ### <a name="supported-agents"></a>지원되는 에이전트
-Office 365 솔루션은 [Log Analytics 에이전트](../../azure-monitor/platform/agent-data-sources.md)에서 데이터를 검색하지 않습니다.  즉, Office 365에서 직접 데이터를 검색합니다.
+Office 365 솔루션은 [Log Analytics 에이전트](../platform/agent-data-sources.md)에서 데이터를 검색하지 않습니다.  즉, Office 365에서 직접 데이터를 검색합니다.
 
 ### <a name="collection-frequency"></a>수집 빈도
 데이터가 처음으로 수집될 때까지 몇 시간이 걸릴 수 있습니다. 데이터 수집이 시작되면 Office 365는 레코드가 생성될 때마다 상세 데이터가 포함된 [웹후크 알림](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications)을 Log Analytics로 보냅니다. 이 레코드는 수신된 후 몇 분 안에 Log Analytics에서 사용할 수 있습니다.
@@ -510,7 +510,7 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 
 | 자산 | 설명 |
 |:--- |:--- |
-| type | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | ClientIP | 활동이 기록될 때 사용된 디바이스의 IP 주소입니다. IP 주소는 IPv4 또는 IPv6 주소 형식으로 표시됩니다. |
 | OfficeWorkload | 레코드가 참조하는 office 365 서비스입니다.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | 작업(Operation) | 사용자 또는 관리자 활동의 이름입니다.  |
@@ -708,6 +708,6 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)의 로그 검색을 사용하여 자세한 업데이트 데이터 보기
-* [고유한 대시보드 만들기](../../azure-monitor/platform/dashboards.md)를 수행하여 자주 사용하는 Office 365 검색 쿼리를 표시합니다.
-* 중요한 Office 365 활동에 대해 미리 알림을 받을 수 있도록 [경고 만들기](../../azure-monitor/platform/alerts-overview.md)를 수행합니다.  
+* [Log Analytics](../log-query/log-query-overview.md)의 로그 검색을 사용하여 자세한 업데이트 데이터 보기
+* [고유한 대시보드 만들기](../learn/tutorial-logs-dashboards.md)를 수행하여 자주 사용하는 Office 365 검색 쿼리를 표시합니다.
+* 중요한 Office 365 활동에 대해 미리 알림을 받을 수 있도록 [경고 만들기](../platform/alerts-overview.md)를 수행합니다.  

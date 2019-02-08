@@ -6,20 +6,20 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 57803d6b83b71e65064c4ec701ed5b7e7607321f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286936"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454337"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 데이터 로드
 
-이 자습서에서는 PolyBase를 사용하여 WideWorldImportersDW 데이터 웨어하우스를 Azure Blob 저장소에서 Azure SQL Data Warehouse로 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다. 
+이 자습서에서는 PolyBase를 사용하여 WideWorldImportersDW 데이터 웨어하우스를 Azure Blob Storage에서 Azure SQL Data Warehouse로 로드합니다. 이 자습서에서는 [Azure Portal](https://portal.azure.com) 및 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용합니다. 
 
 > [!div class="checklist"]
 > * Azure Portal에서 데이터 웨어하우스 만들기
@@ -216,7 +216,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 ## <a name="create-external-tables-and-objects"></a>외부 테이블 및 개체 만들기
 
-새 데이터 웨어하우스로 데이터를 로드하는 프로세스를 시작할 준비가 되었습니다. 나중에 참조하기 위해 데이터를 Azure Blob 저장소로 가져오거나 원본에서 SQL Data Warehouse로 직접 로드하는 방법을 알아보려면 [로드 개요](sql-data-warehouse-overview-load.md)를 참조하세요.
+새 데이터 웨어하우스로 데이터를 로드하는 프로세스를 시작할 준비가 되었습니다. 나중에 참조하기 위해 데이터를 Azure Blob Storage로 가져오거나 원본에서 SQL Data Warehouse로 직접 로드하는 방법을 알아보려면 [로드 개요](sql-data-warehouse-overview-load.md)를 참조하세요.
 
 다음 SQL 스크립트를 실행하여 로드하려는 데이터에 대한 정보를 지정합니다. 이 정보에는 데이터가 있는 위치, 데이터 콘텐츠 형식 및 데이터에 대한 테이블 정의가 포함됩니다. 데이터는 공용 Azure Blob에 있습니다.
 

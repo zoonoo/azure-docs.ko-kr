@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: d26ae755b658ce39df04788b7edeee6da7e20a47
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 0ffb9b9105ee455d35d080bb45063c158cadce1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288095"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463398"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 5월 
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 5월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다. 
@@ -26,7 +26,7 @@ Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. �
 Azure Data의 부사장인 Rohan Kumar의 [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/)(Azure SQL Data Warehouse를 사용하여 Turbocharge 클라우드 분석) 블로그 발표를 참조하세요.
 
 ## <a name="auto-statistics"></a>자동 통계
-통계는 SQL Data Warehouse의 엔진과 같이 알맞은 비용 기반 최적화 프로그램에서 쿼리 계획 생성을 최적화하는 데 중요합니다. 모든 쿼리가 미리 알려지면 생성해야 하는 통계 개체를 결정할 수 있습니다. 그러나 시스템이 데이터 웨어하우징 워크로드에 일반적으로 발생하는 임시 및 임의 쿼리를 처리하는 경우 시스템 관리자는 생성해야 하는 통계를 예측하지 못하여 쿼리 실행 계획이 최적화되지 못하고 쿼리 응답 시간이 길어질 수 있습니다. 이 문제를 완화하는 한 가지 방법은 모든 테이블 열에서 통계 개체를 미리 만드는 것입니다. 그러나 이 프로세스는 테이블 로드 프로세스 중 통계 개체를 계속 유지해야 하므로 로드 시간이 길어지는 단점이 있습니다.
+SQL Data Warehouse의 엔진과 같은 최신 비용 기반 최적화 프로그램에서 쿼리 계획 생성을 최적화하려면 통계가 반드시 필요합니다. 모든 쿼리가 미리 알려지면 생성해야 하는 통계 개체를 결정할 수 있습니다. 그러나 시스템이 데이터 웨어하우징 워크로드에 일반적으로 발생하는 임시 및 임의 쿼리를 처리하는 경우 시스템 관리자는 생성해야 하는 통계를 예측하지 못하여 쿼리 실행 계획이 최적화되지 못하고 쿼리 응답 시간이 길어질 수 있습니다. 이 문제를 완화하는 한 가지 방법은 모든 테이블 열에서 통계 개체를 미리 만드는 것입니다. 그러나 이 프로세스는 테이블 로드 프로세스 중 통계 개체를 계속 유지해야 하므로 로드 시간이 길어지는 단점이 있습니다.
 
 이제 SQL Data Warehouse는 시스템 관리자 및 개발자의 유연성, 생산성 및 사용 편의성을 향상시키면서 시스템이 양질의 실행 계획 및 최상의 응답 시간을 지속적으로 제공할 수 있도록 통계 개체의 자동 만들기를 지원합니다.
 

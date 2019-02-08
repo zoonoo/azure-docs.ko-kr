@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 61d2c82f875c4f40e370515fd249e23601e91678
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7ab8b66d516368bf866aa9d2a202ccd261394b93
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232059"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243150"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -51,12 +51,12 @@ RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세
 
 1. 비 EUS 리포지토리를 비활성화합니다.
     ```bash
-    sudo yum --disablerepo=* remove rhui-azure-rhel7
+    sudo yum --disablerepo='*' remove 'rhui-azure-rhel7'
     ```
 
 1. EUS 리포지토리를 추가 합니다.
     ```bash
-    yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
+    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
 1. releasever 변수를 잠급니다.
@@ -103,15 +103,10 @@ RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>VM에서 만료된 RHUI 클라이언트 인증서 업데이트
 
-기존 RHEL VM 이미지, 예를 들어 RHEL 7.4(이미지 URN: `RedHat:RHEL:7.4:7.4.2018010506`)를 사용하는 경우 2018년 11월 21일에 만료된 SSL 클라이언트 인증서로 인해 RHUI에 연결 문제가 발생합니다. 이 문제를 해결하려면 다음 명령을 사용하여 VM에서 RHUI 클라이언트 패키지를 업데이트합니다.
+RHEL 7.4(이미지 URN: `RedHat:RHEL:7.4:7.4.2018010506`)와 같은 이전 RHEL VM 이미지를 사용하는 경우 현재는 만료된 SSL 클라이언트 인증서로 인해 RHUI에 연결 문제가 발생합니다. 이 경우 _"인증서가 만료되어 SSL 피어에서 거부되었습니다."_ 와 같은 오류가 표시됩니다. 이 문제를 해결하려면 다음 명령을 사용하여 VM에서 RHUI 클라이언트 패키지를 업데이트합니다.
 
 ```bash
-sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
-```
-
-RHEL VM이 미국 정부 클라우드인 경우 다음 명령을 사용합니다.
-```bash
-sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-usgov-rhel7
+sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
 ```
 
 또는 `sudo yum update`를 실행하면 다른 리포지토리를 참조하는 "만료된 SSL 인증서" 오류에 관계 없이 클라이언트 인증서 패키지를 업데이트할 수도 있습니다. 업데이트를 따라 다른 RHUI 리포지토리에 대한 일반 연결을 복원해야 합니다. 그러면 `sudo yum update`를 성공적으로 실행할 수 있습니다.

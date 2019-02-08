@@ -1,6 +1,6 @@
 ---
-제목: API Management를 사용하여 Machine Learning Studio 웹 서비스 관리 titleSuffix: Azure Machine Learning Studio 설명: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다. 사용자 액세스, 사용량 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리합니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: API Management를 사용하여 Machine Learning Studio 웹 서비스 관리 titleSuffix: Azure Machine Learning Studio 설명: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다. 사용자 액세스, 사용량 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리합니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/11/03
 ---

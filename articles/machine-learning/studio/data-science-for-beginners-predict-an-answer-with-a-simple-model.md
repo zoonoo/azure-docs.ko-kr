@@ -1,6 +1,6 @@
 ---
-제목: 회귀 모델을 사용하여 대답 예측 titleSuffix: Azure Machine Learning Studio 설명: 초급자를 위한 데이터 과학 비디오 4에는 가격을 예측하는 단순 회귀 모델을 만드는 방법이 나옵니다. 대상 데이터와 함께 선형 회귀가 포함됩니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 회귀 모델을 사용하여 대답 예측 titleSuffix: Azure Machine Learning Studio 설명: 초급자를 위한 데이터 과학 비디오 4에는 가격을 예측하는 단순 회귀 모델을 만드는 방법이 나옵니다. 대상 데이터와 함께 선형 회귀가 포함됩니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 2018/01/03
 ---

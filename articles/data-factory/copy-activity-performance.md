@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020891"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301274"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ Azure Data Factory 복사 작업은 최고 수준의 보안, 안정성 및 고�
 Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스 솔루션 세트를 제공하고 복사 작업은 쉽게 구성 및 설정할 수 있는 고도로 최적화된 데이터 로드 환경을 제공합니다. 단일 복사 작업 만을 사용하여 다음을 수행할 수 있습니다.
 
 * **1.2Gbps** 속도로 **Azure SQL Data Warehouse**에 데이터 로드 -
-* **1.0 Gbps** 속도로 **Azure Blob 저장소**에 데이터 로드
+* **1.0 Gbps** 속도로 **Azure Blob Storage**에 데이터 로드
 * **1.0 Gbps** 속도로 **Azure Data Lake Store**에 데이터 로드
 
 이 문서에서는 다음을 설명합니다.
@@ -168,7 +168,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 ## <a name="staged-copy"></a>준비된 복사
 
-원본 데이터 저장소에서 싱크 데이터 저장소에 데이터를 복사할 경우 중간 준비 저장소로 Blob 저장소를 사용하도록 선택할 수 있습니다. 준비는 다음과 같은 경우에 특히 유용합니다.
+원본 데이터 스토리지에서 싱크 데이터 스토리지에 데이터를 복사할 경우 중간 준비 스토리지로 Blob Storage를 사용하도록 선택할 수 있습니다. 준비는 다음과 같은 경우에 특히 유용합니다.
 
 - **PolyBase를 통해 다양한 데이터 저장소에서 SQL Data Warehouse에 데이터를 수집하고자 합니다.** SQL Data Warehouse는 많은 양의 데이터를 SQL Data Warehouse에 로드하는 처리량이 높은 메커니즘인 PolyBase를 사용합니다. 단, 원본 데이터가 Blob Storage 또는 Azure Data Lake Store에 있어야 하고 추가 조건을 충족해야 합니다. Blob Storage 또는 Azure Data Lake Store가 아닌 데이터 저장소에서 데이터를 로드하는 경우 중간 준비 Blob Storage를 통해 데이터 복사를 활성화할 수 있습니다. 이 경우 Data Factory는 PolyBase의 요구 사항을 충족하는지 확인하기 위해 필요한 데이터 변환을 수행합니다. 그런 다음 PolyBase를 사용하여 데이터를 SQL Data Warehouse에 효과적으로 로드합니다. 자세한 내용은 [PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 참조하세요.
 - **때로는 느린 네트워크 연결을 통해 하이브리드 데이터 이동(즉, 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 복사하려면)을 수행하는 데 오랜 시간이 걸립니다.** 성능 향상을 위해 준비된 복사를 사용하여 데이터를 온-프레미스에서 압축하여 데이터를 클라우드의 준비 데이터 저장소로 이동한 다음 대상 데이터 저장소에 로드하기 전에 준비 저장소에 데이터를 압축 해제하는 것이 시간을 줄일 수 있습니다.
@@ -186,13 +186,13 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 ### <a name="configuration"></a>구성
 
-복사 작업에 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 저장소에 로드하기 전에 Blob 저장소에서 준비할지 여부를 지정합니다. **enableStaging**을 `TRUE`로 설정한 경우 다음 표에 나열된 추가 속성을 지정해야 합니다. Azure Storage 또는 준비를 위한 Storage 공유 액세스 서명 연결된 서비스가 아직 없는 경우 만들어야 합니다.
+복사 작업에 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 스토리지에 로드하기 전에 Blob Storage에서 준비할지 여부를 지정합니다. **enableStaging**을 `TRUE`로 설정한 경우 다음 표에 나열된 추가 속성을 지정해야 합니다. Azure Storage 또는 준비를 위한 Storage 공유 액세스 서명 연결된 서비스가 아직 없는 경우 만들어야 합니다.
 
 | 속성 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | **enableStaging** |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |아니요 |
 | **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 연결 서비스로 지정합니다. <br/><br/> PolyBase를 통해 SQL Data Warehouse로 데이터를 로드하는 데 공유 액세스 서명을 포함한 저장소를 사용할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
-| **path** |준비 데이터를 포함할 Blob 저장소 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 저장소를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니요 |
+| **path** |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 저장소를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니요 |
 | **enableCompression** |대상에 복사하기 전에 데이터를 압축할지 여부를 지정합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |아니요 |
 
 >[!NOTE]
@@ -241,7 +241,17 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 1. **기초 설정**. 개발 단계 중 대표적인 샘플 데이터에 대한 복사 작업을 사용하여 파이프라인을 테스트합니다. [복사 작업 모니터링](copy-activity-overview.md#monitoring)에서 실행 정보 및 성능 특성을 파악합니다.
 
-2. **성능 진단 및 최적화**. 확인되는 성능이 기대에 미치지 못하는 경우 성능 병목 상태를 식별해야 합니다. 그런 다음 성능을 최적화하여 병목 현상의 효과를 제거하거나 줄입니다. 성능 진단에 대한 자세한 내용은 이 문서의 범위를 벗어나지만 다음과 같이 몇 가지 일반적인 고려 사항이 있습니다.
+2. **성능 진단 및 최적화**. 확인되는 성능이 기대에 미치지 못하는 경우 성능 병목 상태를 식별해야 합니다. 그런 다음 성능을 최적화하여 병목 현상의 효과를 제거하거나 줄입니다. 
+
+    ADF에서 복사 작업을 실행하면 다음 예제에 나와 있는 것처럼 [복사 작업 모니터링 페이지](copy-activity-overview.md#monitor-visually) 맨 위에 "**성능 튜닝 팁**"이 직접 표시되는 경우가 있습니다. 이 메시지는 지정된 복사 실행과 관련하여 식별된 병목 상태를 알려 주는 동시에 복사 처리량을 높이기 위해 변경해야 하는 항목도 안내합니다. 현재 성능 튜닝 팁에서는 Azure SQL Data Warehouse로 데이터를 복사할 때 PolyBase를 사용하거나, 데이터 저장소 쪽의 리소스가 병목 상태일 때 Azure Cosmos DB RU 또는 Azure SQL DB DTU를 늘리거나, 불필요한 스테이징된 복사본을 제거하는 등의 제안이 제공됩니다. 성능 튜닝 규칙도 점진적으로 보강됩니다.
+
+    **예제: 성능 튜닝 팁을 참조하여 Azure SQL DB로 복사**
+
+    이 샘플에서는 복사 실행 중에 싱크 Azure SQL DB의 DTU 사용률이 높아져 쓰기 작업의 속도가 느려짐을 ADF가 확인하여 Azure SQL DB 계층의 DTU를 늘리라는 제안을 제공합니다. 
+
+    ![성능 튜닝 팁을 사용한 복사 모니터링](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    성능 튜닝과 함께 일반적으로 고려해야 하는 사항은 다음과 같습니다. 이 문서에서는 성능 진단에 대해 자세히 설명하지는 않습니다.
 
    * 성능 기능:
      * [병렬 복사](#parallel-copy)
@@ -317,7 +327,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 
 ### <a name="nosql-stores"></a>NoSQL 저장소
 
-* **테이블 저장소**:
+* **Table Storage**:
   * **파티션**: 인터리브 파티션에 데이터를 작성하면 성능이 크게 저하됩니다. 파티션 키로 원본 데이터를 정렬할 수 있으므로 데이터는 파티션에 차례로 효율적으로 삽입되거나 논리를 조정하여 단일 파티션에 데이터를 기록할 수 있습니다.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>직렬화 및 역직렬화에 대한 고려 사항
@@ -348,7 +358,7 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 
 복사 작업에서 **columnMappings** 속성을 설정하여 입력 열의 전체 또는 하위 집합을 출력 열에 매핑할 수 있습니다. 데이터 이동 서비스는 원본에서 데이터를 읽은 후에 데이터를 싱크에 쓰기 전에 데이터에 열 매핑을 수행해야 합니다. 이 추가 처리는 복사 처리량을 감소시킵니다.
 
-원본 데이터 저장소를 쿼리할 수 있는 경우 예를 들어 SQL Database 또는 SQL Server와 같은 관계형 저장소이거나 테이블 저장소 또는 Azure Cosmos DB와 같은 NoSQL 저장소인 경우 열 매핑을 사용하는 대신, 열 필터링 및 재정렬 논리를 **query** 속성에 푸시하는 것이 좋습니다. 이러한 방식으로 데이터 이동 서비스가 원본 데이터 저장소에서 데이터를 읽는 동안 프로젝션이 발생하며 이는 훨씬 효율적입니다.
+원본 데이터 스토리지를 쿼리할 수 있는 경우 예를 들어 SQL Database 또는 SQL Server와 같은 관계형 스토리지이거나 Table Storage 또는 Azure Cosmos DB와 같은 NoSQL 스토리지인 경우 열 매핑을 사용하는 대신, 열 필터링 및 재정렬 논리를 **query** 속성에 푸시하는 것이 좋습니다. 이러한 방식으로 데이터 이동 서비스가 원본 데이터 저장소에서 데이터를 읽는 동안 프로젝션이 발생하며 이는 훨씬 효율적입니다.
 
 자세한 정보는 [복사 작업 스키마 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 

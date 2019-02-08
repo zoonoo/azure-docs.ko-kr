@@ -1,6 +1,6 @@
 ---
-제목: 간단한 실험 titleSuffix: Azure Machine Learning Studio 설명: 이 기계 학습 자습서에서는 쉬운 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: tutorial
+제목: 간단한 실험 titleSuffix: Azure Machine Learning Studio 설명: 이 기계 학습 자습서에서는 쉬운 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: tutorial
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/20/2017
 ---

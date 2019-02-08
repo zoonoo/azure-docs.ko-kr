@@ -2,19 +2,18 @@
 title: Azure에 워크로드를 백업하도록 DPM 서버 준비
 description: Azure Recovery Services 자격 증명 모음에 DPM 데이터를 백업하는 내용을 소개합니다.
 services: backup
-author: adigan
-manager: nkolli
-keywords: System Center Data Protection Manager, 데이터 보호 관리자, dpm 백업
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024480"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301070"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 
@@ -39,7 +38,7 @@ ms.locfileid: "50024480"
 DPM 서버를 Azure에 백업하는 경우 업무상 이점은 다음과 같습니다.
 
 * 온-프레미스 DPM의 경우, 테이프로 장기 배포하는 대신 Azure Backup을 사용할 수 있습니다.
-* Azure VM에서 실행되는 DPM의 경우 Azure Backup를 사용하면 Azure 디스크에서 저장소를 오프로드할 수 있습니다. 오래된 데이터를 백업 자격 증명 모음에 저장하면 새로운 데이터를 디스크에 저장하여 비즈니스를 강화할 수 있습니다.
+* Azure VM에서 실행되는 DPM의 경우 Azure Backup를 사용하면 Azure 디스크에서 스토리지를 오프로드할 수 있습니다. 오래된 데이터를 백업 자격 증명 모음에 저장하면 새로운 데이터를 디스크에 저장하여 비즈니스를 강화할 수 있습니다.
 
 ## <a name="prerequisites-and-limitations"></a>필수 구성 요소 및 제한 사항
 
@@ -51,10 +50,10 @@ Hyper-V VM의 DPM | System Center 2012 SP1 이상, System Center 2012 R2
 VMware VM의 DPM | System Center 2012 R2 업데이트 롤업 5 이상
 구성 요소 | DPM 서버는 Windows PowerShell 및 .Net Framework 4.5가 설치되어 있어야 합니다.
 지원되는 앱 | DPM으로 백업할 수 대상을 [알아봅니다](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix).
-지원되는 파일 형식 | Azure Backup으로 암호화(전체 백업만), 압축(증분 백업 지원), 스파스(증분 백업 지원), 압축 및 스파스(스파스로 처리됨) 파일 형식을 백업할 수 있습니다.
+지원되는 파일 형식 | Azure Backup으로 백업할 수 있는 파일 형식은 암호화(전체 백업만), 압축(증분 백업 지원), 스파스(증분 백업 지원), 압축 및 스파스(스파스로 처리됨)입니다.
 지원되지 않는 파일 형식 | 대/소문자를 구분하는 파일 시스템의 서버, 하드 링크(건너뜀), 재분석 지점(건너뜀), 암호화 및 압축(건너뜀), 암호화 및 스파스(건너뜀), 압축 스트림, 분석 스트림
-로컬 저장소 | 백업하려는 각 컴퓨터에는 백업 중인 데이터 크기의 5% 이상에 해당하는 사용 가능한 로컬 저장소가 있어야 합니다.  예를 들어 100GB 데이터를 백업하는 경우 스크래치 위치에 최소 5GB의 여유 공간이 필요합니다.
-자격 증명 모음 저장소 | Azure Backup 자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없지만 데이터 원본(예를 들면 가상 머신 또는 데이터베이스)의 크기는 54,400GB를 초과해서는 안 됩니다.
+로컬 저장소 | 백업하려는 각 컴퓨터에는 백업 중인 데이터 크기의 5% 이상에 해당하는 사용 가능한 로컬 스토리지가 있어야 합니다.  예를 들어 100GB 데이터를 백업하는 경우 스크래치 위치에 최소 5GB의 여유 공간이 필요합니다.
+자격 증명 모음 스토리지 | Azure Backup 자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없지만 데이터 원본(예를 들면 가상 머신 또는 데이터베이스)의 크기는 54,400GB를 초과해서는 안 됩니다.
 Azure Backup 에이전트 | DPM이 System Center 2012 SP1에서 실행 중인 경우 DPM SP1에 대한 롤업 2 이상을 설치합니다. 이 롤업은 에이전트 설치를 위해 반드시 필요합니다.<br/><br/> 이 문서에서는 MARS(icrosoft Azure Recovery Service) 에이전트라고도 하는 최신 버전의 Azure Backup 에이전트를 배포하는 방법을 설명합니다. 이전 버전을 배포한 경우 최신 버전으로 업데이트하여 백업이 예상대로 작동하도록 합니다. 
 
 
@@ -64,14 +63,14 @@ Azure Backup 에이전트 | DPM이 System Center 2012 SP1에서 실행 중인 �
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
 
-## <a name="modify-storage-settings"></a>저장소 설정 수정
+## <a name="modify-storage-settings"></a>스토리지 설정 수정
 
-지역 중복 저장소와 로컬 중복 저장소 중에서 선택할 수 있습니다.
+지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다.
 
 - 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다.
 - 자격 증명 모음이 기본 백업인 경우 지역 중복 저장소 옵션이 설정된 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 다음 절차에 따라 로컬 중복 저장소를 구성합니다.
-- [Azure Storage](../storage/common/storage-redundancy.md)와 [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 저장소 옵션에 대해 알아봅니다.
-- 초기 백업 전에 저장소 설정을 수정합니다. 항목을 이미 백업한 경우 저장소 설정을 수정하기 전에 자격 증명 모음에 백업하는 작업을 중지합니다.
+- [Azure Storage](../storage/common/storage-redundancy.md)와 [지역 중복](../storage/common/storage-redundancy-grs.md) 및 [로컬 중복](../storage/common/storage-redundancy-lrs.md) 스토리지 옵션에 대해 알아봅니다.
+- 초기 백업 전에 스토리지 설정을 수정합니다. 항목을 이미 백업한 경우 스토리지 설정을 수정하기 전에 자격 증명 모음에 백업하는 작업을 중지합니다.
 
 저장소 복제 설정을 편집하려면
 
@@ -79,7 +78,7 @@ Azure Backup 에이전트 | DPM이 System Center 2012 SP1에서 실행 중인 �
 
 2. **관리**에서 **백업 인프라**를 클릭합니다.
 
-3. **백업 구성** 메뉴에서 자격 증명 모음에 대한 저장소 옵션을 선택합니다.
+3. **백업 구성** 메뉴에서 자격 증명 모음에 대한 스토리지 옵션을 선택합니다.
 
     ![백업 자격 증명 모음 목록](./media/backup-azure-dpm-introduction/choose-storage-configuration-rs-vault.png)
 
@@ -189,7 +188,7 @@ Azure Backup으로 백업되는 모든 컴퓨터에는 MARS(Microsoft Azure Reco
 
 ### <a name="access-error"></a>액세스 오류
 
-설치 애플리케이션에서 액세스할 수 있는 위치에 있는 자격 증명 모음 자격 증명 파일인지 확인합니다. 액세스 관련 오류가 발생할 경우 이 컴퓨터의 임시 위치에 자격 증명 모음 자격 증명 파일을 복사하고 작업을 다시 시도합니다.
+설치 응용 프로그램에서 액세스할 수 있는 위치에 있는 자격 증명 모음 자격 증명 파일인지 확인합니다. 액세스 관련 오류가 발생할 경우 이 컴퓨터의 임시 위치에 자격 증명 모음 자격 증명 파일을 복사하고 작업을 다시 시도합니다.
 
 ### <a name="invalid-credentials-error"></a>잘못된 자격 증명 오류
 

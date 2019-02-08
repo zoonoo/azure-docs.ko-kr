@@ -1,8 +1,21 @@
 ---
-제목: ‘1단계: 작업 영역 만들기' titleSuffix: Azure Machine Learning Studio 설명: ‘예측 솔루션 개발 연습의 1단계: 새 Azure Machine Learning Studio 작업 영역을 설정하는 방법 알아보기’
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/23/2017
+title: '1단계: 작업 영역 만들기'
+titleSuffix: Azure Machine Learning Studio
+description: '예측 솔루션 연습 개발 1단계: 새 Azure Machine Learning Studio 작업 영역을 설정하는 방법을 알아봅니다.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 03/23/2017
+ms.openlocfilehash: c018988eb36e395372b3d927732a1acbcb5c2fa9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509513"
 ---
 # <a name="walkthrough-step-1-create-an-azure-machine-learning-studio-workspace"></a>연습 1단계: Azure Machine Learning Studio 작업 영역 만들기
 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)연습의 첫 번째 단계입니다.

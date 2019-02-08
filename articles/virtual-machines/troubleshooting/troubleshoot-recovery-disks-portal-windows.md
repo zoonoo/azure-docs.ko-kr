@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2c5fac377dfab4b4c85991dcb8f4e15f4e3cb61a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809100"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225940"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure Portal을 사용하는 방법을 자세히 설명합니다.
@@ -37,12 +37,11 @@ Azure에서 Windows VM(가상 머신)에 부팅 또는 디스크 오류가 발�
 ## <a name="determine-boot-issues"></a>부팅 문제 확인
 VM이 올바르게 부팅할 수 없는 원인을 확인하려면 부팅 진단 VM 스크린샷을 검사합니다. 일반적인 예로는 애플리케이션 업데이트가 실패하거나 기본 가상 하드 디스크를 삭제 또는 이동하는 것입니다.
 
-포털에서 VM을 선택하고 **지원+문제 해결** 섹션까지 아래로 스크롤합니다. 스크린샷을 보려면 **부팅 진단**을 클릭합니다. VM에서 문제가 발생하는 이유를 확인하는 데 도움이 되는 특정 오류 메시지 또는 오류 코드를 기록해 둡니다. 다음 예는 VM이 서비스가 중지되기를 기다리는 상태를 보여 줍니다.
+포털에서 VM을 선택하고 **지원+문제 해결** 섹션까지 아래로 스크롤합니다. 스크린샷을 보려면 **부팅 진단**을 클릭합니다. VM에서 문제가 발생하는 이유를 확인하는 데 도움이 되는 특정 오류 메시지 또는 오류 코드를 기록해 둡니다. 
 
 ![VM 부팅 진단 콘솔 로그 보기](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
-**스크린샷**을 클릭하여 VM 스크린샷 캡처를 다운로드할 수도 있습니다.
-
+**스크린샷 다운로드**를 클릭하여 VM 스크린샷 캡처를 다운로드할 수도 있습니다.
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>기존 가상 하드 디스크 세부 정보 보기
 가상 하드 디스크를 다른 VM에 연결하기 전에 가상 하드 디스크(VHD)의 이름을 식별해야 합니다. 

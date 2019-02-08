@@ -5,16 +5,16 @@ description: Custom Translator에서 설정을 관리하고, 작업 영역을 �
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 7b6dd0ec271d335d1055381a8cb7256600be283f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627952"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227083"
 ---
 # <a name="how-to-manage-settings"></a>설정을 관리하는 방법
 
@@ -85,11 +85,11 @@ Custom Translator에서는 작업의 다른 부분을 다른 사람들과 공유
 
 ## <a name="sharing-permissions"></a>공유 권한
 
-1.  **읽기 권한자:** 작업 영역의 읽기 권한자는 작업 영역에서 모든 정보를 볼 수 있게 됩니다. 
+1.  **읽기 권한자:** 작업 영역의 읽기 권한자는 작업 영역에서 모든 정보를 볼 수 있습니다. 
 
-2.  **편집자:** 작업 영역의 편집자는 문서를 추가하고, 모델을 학습하고, 문서 및 프로젝트를 삭제할 수 있습니다. 구독 키를 추가할 수는 있지만 작업 영역을 공유하는 사람을 수정하거나 작업 영역을 삭제하거나 작업 영역 이름을 변경할 수는 없습니다.
+2.  **편집자:** 작업 영역의 편집자는 문서를 추가하고, 모델을 학습시키고, 문서 및 프로젝트를 삭제할 수 있습니다. 구독 키를 추가할 수는 있지만 작업 영역을 공유하는 사람을 수정하거나 작업 영역을 삭제하거나 작업 영역 이름을 변경할 수는 없습니다.
 
-3.  **소유자:** 소유자는 작업 영역에 대한 모든 권한을 갖습니다.
+3.  **소유자:** 소유자에게는 작업 영역에 대한 모든 권한이 있습니다.
 
 ## <a name="change-sharing-permission"></a>공유 권한 변경
 
@@ -103,4 +103,4 @@ Custom Translator에서는 작업의 다른 부분을 다른 사람들과 공유
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Microsoft Translator Hub](https://hub.microsofttranslator.com)에서 [작업 영역 및 프로젝트를 마이그레이션하는 방법](how-to-migrate.md)을 알아보세요.
+- [Microsoft Translator Hub](https://hub.microsofttranslator.com)에서 [작업 영역과 프로젝트를 마이그레이션하는 방법](how-to-migrate.md)을 알아봅니다.

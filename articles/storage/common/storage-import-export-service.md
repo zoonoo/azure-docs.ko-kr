@@ -7,17 +7,17 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528559"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453385"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure Import/Export 서비스란?
 
-Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소 및 Azure Files로 가져올 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 하나 이상의 디스크 드라이브에 있는 데이터를 Azure Blob Storage 또는 Azure Files로 가져올 수 있습니다. 
+Azure Import/Export 서비스를 사용하면 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob Storage 및 Azure Files로 가져올 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob Storage에서 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 하나 이상의 디스크 드라이브에 있는 데이터를 Azure Blob Storage 또는 Azure Files로 가져올 수 있습니다. 
 
 자신의 디스크 드라이브를 제공하고 Azure Import/Export 서비스로 데이터를 전송합니다. Microsoft에서 제공하는 디스크 드라이브를 사용할 수도 있습니다. 
 
@@ -27,28 +27,28 @@ Microsoft에서 제공하는 디스크 드라이브를 사용하여 데이터를
 
 네트워크를 통한 데이터 업로드 또는 다운로드가 너무 느리거나 추가 네트워크 대역폭 비용이 너무 비싼 경우 Azure Import/Export 서비스 사용을 고려할 수 있습니다. 다음 시나리오에서 이 서비스를 사용하세요.
 
-* **클라우드로의 데이터 마이그레이션**: 많은 양의 데이터를 Azure로 신속하고 비용 효과적으로 이동합니다.
-* **콘텐츠 배포**: 고객 사이트로 데이터를 신속하게 전송합니다.
-* **Backup**: 온-프레미스 데이터의 백업을 가져와 Azure Storage에 저장합니다.
-* **데이터 복구**: 저장소에 저장된 많은 양의 데이터를 복구하여 온-프레미스 위치에 배달합니다.
+* **클라우드로의 데이터 마이그레이션**: 빠르고 경제적인 방식을 통해 많은 양의 데이터를 Azure로 이동합니다.
+* **콘텐츠 배포**: 고객 사이트로 데이터를 빠르게 전송합니다.
+* **백업**: 온-프레미스 데이터의 백업을 가져와 Azure Storage에 저장합니다.
+* **데이터 복구**: 스토리지에 저장된 많은 양의 데이터를 복구하여 온-프레미스 위치에 전달합니다.
 
 ## <a name="importexport-components"></a>Import/Export 구성 요소
 
 Import/Export 서비스는 다음 구성 요소를 사용합니다.
 
-- **Import/Export 서비스**: Azure Portal에서 사용할 수 있는 이 서비스는 데이터 가져오기(업로드) 및 내보내기(다운로드) 작업을 만들고 추적하는 데 도움이 됩니다.  
+- **가져오기/내보내기 서비스**: Azure Portal에서 제공되는 이 서비스를 사용하면 데이터 가져오기(업로드) 및 내보내기(다운로드) 작업을 만들고 추적할 수 있습니다.  
 
-- **WAImportExport 도구**: 이 도구는 다음 작업을 수행하는 명령줄 도구입니다. 
+- **WAImportExport 도구**: 다음 작업을 수행하는 명령줄 도구입니다. 
     - 가져오기용으로 발송할 디스크 드라이브를 준비합니다.
     - 드라이브에 데이터를 편리하게 복사할 수 있도록 합니다.
-    - Bitlocker를 사용하여 드라이브의 데이터를 암호화합니다.
+    - BitLocker를 사용하여 드라이브의 데이터를 암호화합니다.
     - 가져오기 생성 동안 사용되는 드라이브 저널 파일을 생성합니다.
     - 내보내기 작업에 필요한 드라이브 수를 식별하는 데 도움이 됩니다.
     
 > [!NOTE]
-> WAImportExport 도구는 버전 1 및 버전 2의 두 버전으로 사용할 수 있습니다. 다음이 권장됩니다.
-> - Azure Blob 저장소로 가져오기/내보내기를 수행하는 경우 버전 1 
-> - Azure 파일로 데이터를 가져오는 경우 버전 2
+> WAImportExport 도구는 버전 1 및 버전 2의 두 버전으로 사용할 수 있습니다. 다음과 같이 사용하길 권장합니다.
+> - Azure Blob Storage로 가져오기/내보내기를 수행하는 경우 버전 1을 사용합니다. 
+> - Azure 파일로 데이터를 가져오는 경우 버전 2를 사용합니다.
 >
 > WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 특정 운영 체제 버전을 확인하려면 [Azure Import/Export 요구 사항](storage-import-export-requirements.md#supported-operating-systems)을 참조하세요.
 
@@ -93,7 +93,7 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 
 내보내기 작업은 개략적으로 다음 단계를 포함합니다.
 
-1. Blob 저장소의 데이터에 대해 내보낼 데이터, 필요한 드라이브 수, 원본 Blob 또는 컨테이너 경로를 결정합니다.
+1. Blob Storage의 데이터에 대해 내보낼 데이터, 필요한 드라이브 수, 원본 Blob 또는 컨테이너 경로를 결정합니다.
 3. Azure Portal에서 원본 저장소 계정에 내보내기 작업을 만듭니다.
 4. 내보낼 데이터에 대해 원본 Blob 또는 컨테이너 경로를 지정합니다.
 5. 드라이브를 다시 발송하기 위한 반송 주소 및 운송업체 계정 번호를 제공합니다.
@@ -121,7 +121,7 @@ Azure Import/Export 서비스는 모든 Azure 저장소 계정으로의 데이�
 
 |국가  |국가  |국가  |국가  |
 |---------|---------|---------|---------|
-|미국 동부    | 북유럽        | 인도 중부        |미국 아이오와 주 정부         |
+|미국 동부    | 북유럽        | 인도 중부        |미국 정부 아이오와         |
 |미국 서부     |서유럽         | 인도 남부        | 미국 국방부 동부        |
 |미국 동부 2    | 동아시아        |  인도 서부        | 미국 국방부 중부        |
 |미국 서부 2     | 동남아시아        | 캐나다 중부        | 중국 동부         |
@@ -160,7 +160,7 @@ Azure에 드라이브를 발송하는 경우 운송업체에 발송 비용을 �
 
 **트랜잭션 비용**
 
-데이터를 Azure Storage로 가져올 때 표준 스토리지 트랜잭션 비용 이외에 필요한 트랜잭션 비용은 없습니다. Blob 저장소에서 데이터를 내보낼 때는 표준 송신 요금이 적용됩니다. 트랜잭션 비용에 대한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.
+데이터를 Azure Storage로 가져올 때 표준 스토리지 트랜잭션 비용 이외에 필요한 트랜잭션 비용은 없습니다. Blob Storage에서 데이터를 내보낼 때는 표준 송신 요금이 적용됩니다. 트랜잭션 비용에 대한 자세한 내용은 [데이터 전송 가격 책정](https://azure.microsoft.com/pricing/details/data-transfers/)을 참조하세요.
 
 
 

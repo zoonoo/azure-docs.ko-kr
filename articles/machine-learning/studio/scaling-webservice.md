@@ -1,6 +1,6 @@
 ---
-제목: Machine Learning Studio 웹 서비스 크기 조정 titleSuffix: Azure Machine Learning Studio 설명: 엔드포인트를 추가하여 Azure Machine Learning Studio 웹 서비스의 동시성을 향상하는 방법을 알아봅니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Machine Learning Studio 웹 서비스 크기 조정 titleSuffix: Azure Machine Learning Studio 설명: 엔드포인트를 추가하여 Azure Machine Learning Studio 웹 서비스의 동시성을 향상하는 방법을 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 2017/01/23
 ---

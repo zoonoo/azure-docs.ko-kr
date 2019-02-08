@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 2bb3665f0d0ab15f212741a6ce032fcd7ac2620d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7cc8e46c841b6e385d1a3b442fdb63d465486af8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358116"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477729"
 ---
-# <a name="ip-firewall-for-azure-cosmos-accounts"></a>Azure Cosmos 계정에 대한 IP 방화벽
+# <a name="ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB의 IP 방화벽
 
 계정에 저장된 데이터를 보호하기 위해 Azure Cosmos DB는 강력한 HMAC(해시 기반 메시지 인증 코드)를 활용하는 비밀 기반 권한 부여 모델을 지원합니다. 또한 Azure Cosmos DB는 인바운드 방화벽 지원을 위해 IP 기반 액세스 제어를 지원합니다. 이 모델은 기존 데이터베이스 시스템의 방화벽 규칙과 유사하며 사용자 계정에 추가 보안 수준을 제공합니다. 방화벽에서는 승인된 머신 및/또는 클라우드 서비스에서만 액세스할 수 있도록 Azure Cosmos 계정을 구성할 수 있습니다. 이러한 승인된 머신 및 서비스에서 Azure Cosmos 데이터베이스에 저장된 데이터에 액세스하려면 여전히 호출자가 유효한 권한 부여 토큰을 제공해야 합니다.
 

@@ -10,16 +10,16 @@ editor: piotrci
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b2e52b1e9aad05af173bf86e769e0c6ff7d28d9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215415"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195163"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
 
@@ -69,7 +69,7 @@ ms.locfileid: "50215415"
 
 사용자는 라이선스를 가진 여러 그룹의 구성원이 될 수 있습니다. 고려할 사항은 다음과 같습니다.
 
-- 동일한 제품에 대한 라이선스가 여러 개 있으면 겹칠 수 있어 사용 가능한 모든 서비스가 사용자에게 적용됩니다. 다음 예에서는 두 개의 라이선스 그룹을 보여 줍니다. *E3 기본 서비스*에는 모든 사용자에게 처음 배포할 기본 서비스가 포함되어 있으며, *E3 확장 서비스*에는 일부 사용자에게만 배포할 수 있는 추가 서비스(Sway 및 Planner)가 포함되어 있습니다. 이 예제에서 사용자는 두 그룹 모두에 추가되었습니다.
+- 동일한 제품에 대한 라이선스가 여러 개 있으면 겹칠 수 있어 사용 가능한 모든 서비스가 사용자에게 적용됩니다. 다음 예제에는 두 개의 라이선싱 그룹이 나와 있습니다. *E3 기본 서비스*에는 모든 사용자에게 처음 배포할 기본 서비스가 포함되어 있으며, *E3 확장 서비스*에는 일부 사용자에게만 배포할 수 있는 추가 서비스(Sway 및 Planner)가 포함되어 있습니다. 이 예제에서 사용자는 두 그룹 모두에 추가되었습니다.
 
   ![사용하도록 설정된 서비스의 스크린샷](./media/licensing-group-advanced/view-enabled-services.png)
 
@@ -187,7 +187,7 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 > ```
 
 3. 모든 사용자의 변경 내용을 포함하여 그룹 처리 방법의 전체 로그를 확인하려면 다음 필터를 설정합니다.
-  - **(작업자)에 의해 시작**: "Microsoft Azure AD 그룹 기반 라이선스"
+  - **초기자(작업자)**: "Microsoft Azure AD 그룹 기반 라이선스"
   - **날짜 범위**(선택 사항): 특정 그룹이 처리를 시작 및 완료하는 시점을 알고 있는 경우에 범위를 사용자 지정합니다.
 
 이 샘플 출력은 처리 시작, 모든 사용자 변경 내용 결과 및 처리 완료를 표시합니다.
