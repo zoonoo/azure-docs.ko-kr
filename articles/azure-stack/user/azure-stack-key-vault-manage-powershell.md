@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: ddf08c69b5ef06d6243230230bcfdb56965aef4d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4ec662cd60e2ca8e5db76a3fda4c68df6f3164e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239947"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893685"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>PowerShell을 사용 하 여 Azure Stack에서 Key Vault 관리
 
@@ -65,7 +65,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 등록에 성공한 경우에 다음과 같은 출력이 반환 됩니다.
 
-![등록](media/azure-stack-key-vault-manage-powershell/image2.png) key vault 명령을 호출 하면 "구독 'Microsoft.KeyVault' 네임 스페이스를 사용 하는 등록 되지 않았습니다."와 같은 오류가 발생할 수 있습니다 오류가 발생 했는지 확인 [Key Vault 리소스 공급자를 사용 하도록 설정](#enable-your-tenant-subscription-for-vault-operations) 이전에 설명한 지침에 따라 합니다.
+![등록](media/azure-stack-key-vault-manage-powershell/image2.png) key vault 명령을 호출 하면 "구독 'Microsoft.KeyVault' 네임 스페이스를 사용 하는 등록 되지 않았습니다."와 같은 오류가 발생할 수 있습니다 오류가 발생 하는 경우 이전에 설명한 지침에 따라 주요 자격 증명 모음 리소스 공급자를 설정 했는지 확인 합니다.
 
 ## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
 

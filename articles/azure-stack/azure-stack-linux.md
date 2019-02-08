@@ -15,12 +15,12 @@ ms.date: 11/16/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: be537d9598eeda902254e56a9202415f4f498d93
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bee143f7e814884eda3c5dc9017895a8431e76aa
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245136"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890555"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Azure Stack에 Linux 이미지를 추가 합니다.
 
@@ -38,7 +38,7 @@ Azure Marketplace에서 Linux 이미지를 다운로드 하려면의 절차를 �
 
 가능 하면 준비 되었으며 Azure Stack에 대 한 테스트는 Marketplace 관리를 통해 사용 가능한 이미지를 다운로드 합니다. 
  
-Azure Linux 에이전트 (일반적으로 호출 `WALinuxAgent` 또는 `walinuxagent`) 필요한 경우 일부 버전의 에이전트는 Azure Stack에서 작동 하 고 합니다. 버전 2.2.18 또는 이상을 사용 해야 사용자 고유의 이미지를 만듭니다. 사실은 [에서 cloud-init](https://cloud-init.io/) 이 이번에 Azure Stack에서 지원 되지 않습니다.
+Azure Linux 에이전트 (일반적으로 호출 `WALinuxAgent` 또는 `walinuxagent`) 필요한 경우 일부 버전의 에이전트는 Azure Stack에서 작동 하 고 합니다. 버전 2.2.20 또는 이상을 사용 해야 사용자 고유의 이미지를 만듭니다. 사실은 [에서 cloud-init](https://cloud-init.io/) 이 이번에 Azure Stack에서 지원 되지 않습니다.
 
 다음 지침을 사용 하 여 고유한 Linux 이미지를 준비할 수 있습니다.
 

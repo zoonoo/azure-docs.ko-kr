@@ -3,7 +3,7 @@ title: Azure SQL Database 서버 리소스 한도 | Microsoft Docs
 description: 이 문서에서는 단일 데이터베이스 및 탄력적 풀에 대한 Azure SQL Database 서버 리소스 한도를 간략하게 설명합니다. 또한 이러한 리소스 한도에 도달하거나 초과할 때 발생하는 사항에 대한 정보도 제공합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
 ms.date: 11/13/2018
-ms.openlocfilehash: 57ff6025cd60d786931177f8bc0cc22e9baa60e7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f2e71736d25003e6b4e9640a5f82dd1d92b0d95
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479155"
+ms.locfileid: "55508303"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 서버의 SQL Database 리소스 한도
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 443bf5694515720b1b865c310e70ca9c45add262
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465591"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733136"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 
@@ -79,7 +79,7 @@ HTTP Status 429,
 
 둘 이상의 클라이언트가 요청 속도 이상으로 누적해서 계속 작동할 경우 현재 9로 설정된 기본 재시도 횟수가 충분하지 않을 수 있습니다. 이러한 경우 클라이언트는 상태 코드 429의 `DocumentClientException`을 애플리케이션에 throw합니다. 기본 재시도 횟수는 ConnectionPolicy 인스턴스에서 `RetryOptions`를 설정하여 변경할 수 있습니다. 기본적으로, 요청이 계속 요청 속도 이상으로 작동하는 경우 상태 코드가 429인 DocumentClientException은 누적 대기 시간 30초 후에 반환됩니다. 현재 재시도 횟수가 최대 재시도 횟수보다 작은 경우에도 이러한 현상이 발생하기 때문에 기본값인 9 또는 사용자 정의 값으로 두세요. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryAtte) 는 3으로 설정됩니다. 이 경우 요청 작업이 컬렉션에 대해 예약된 처리량을 초과하여 속도가 제한되면 요청 작업은 애플리케이션에 예외를 throw하기 전에 3번 다시 시도합니다.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 는 60으로 설정됩니다. 이 경우 첫 번째 요청 이후의 누적 재시도 시간 대기 시간(초)이 60초를 초과하면 예외가 throw됩니다.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) 는 3으로 설정됩니다. 이 경우 요청 작업이 컬렉션에 대해 예약된 처리량을 초과하여 속도가 제한되면 요청 작업은 애플리케이션에 예외를 throw하기 전에 3번 다시 시도합니다.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) 는 60으로 설정됩니다. 이 경우 첫 번째 요청 이후의 누적 재시도 시간 대기 시간(초)이 60초를 초과하면 예외가 throw됩니다.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
