@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 32b532cab7e970d01c3963729658c32ac4a020b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7d1f11abbe88bff5a7e16984aacd4953ad4f9e12
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465047"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751194"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 SQL Database 서버 및 단일 데이터베이스 만들기 및 관리
 
@@ -53,7 +53,7 @@ Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-manag
 > [!IMPORTANT]
 > 데이터베이스의 성능 속성을 구성하려면 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
 > [!TIP]
-> Azure Portal 빠른 시작은 [Azure Portal에서 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
+> Azure Portal 빠른 시작은 [Azure Portal에서 Azure SQL Database 만들기](sql-database-single-database-get-started.md)를 참조하세요.
 
 ## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: SQL Database 서버 및 단일 데이터베이스 관리
 

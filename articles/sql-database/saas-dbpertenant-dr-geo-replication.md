@@ -11,20 +11,20 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/09/2018
-ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056338"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471150"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>데이터베이스 지역에서 복제를 사용하여 다중 테넌트 SaaS 애플리케이션 재해 복구
 
-이 자습서에서는 테넌트별 데이터베이스 모델을 사용하여 구현된 다중 테넌트 SaaS 애플리케이션에 대한 전체 재해 복구 시나리오를 살펴봅니다. 작동 중단으로부터 앱을 보호하려면 [_지역에서 복제_](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)를 사용하여 대체 복구 지역에서 카탈로그 및 테넌트 데이터베이스에 대한 복제본을 만듭니다. 작동 중단이 발생할 경우 이러한 복제본으로 신속하게 장애 조치(Failover)하여 정상적인 비즈니스 작업을 재개합니다. 장애 조치(Failover) 시 원래 지역의 데이터베이스는 복구 지역에 있는 데이터베이스의 보조 복제본이 됩니다. 이러한 복제본은 다시 온라인 상태가 되면 복구 지역에 있는 데이터베이스의 상태를 자동으로 따라잡습니다. 작동 중단이 해결되면 원래 프로덕션 지역의 데이터베이스로 장애 복구(Failback)합니다.
+이 자습서에서는 테넌트별 데이터베이스 모델을 사용하여 구현된 다중 테넌트 SaaS 애플리케이션에 대한 전체 재해 복구 시나리오를 살펴봅니다. 작동 중단으로부터 앱을 보호하려면 [_지역에서 복제_](sql-database-geo-replication-overview.md)를 사용하여 대체 복구 지역에서 카탈로그 및 테넌트 데이터베이스에 대한 복제본을 만듭니다. 작동 중단이 발생할 경우 이러한 복제본으로 신속하게 장애 조치(Failover)하여 정상적인 비즈니스 작업을 재개합니다. 장애 조치(Failover) 시 원래 지역의 데이터베이스는 복구 지역에 있는 데이터베이스의 보조 복제본이 됩니다. 이러한 복제본은 다시 온라인 상태가 되면 복구 지역에 있는 데이터베이스의 상태를 자동으로 따라잡습니다. 작동 중단이 해결되면 원래 프로덕션 지역의 데이터베이스로 장애 복구(Failback)합니다.
 
 이 자습서에서는 장애 조치(Failover) 및 장애 복구(Failback) 워크플로에 대해 알아봅니다. 이 문서에서 배울 내용은 다음과 같습니다.
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그 동기화
 >* 애플리케이션, 서버 및 풀로 구성된 대체 지역에서 복구 환경 설정
@@ -53,9 +53,9 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 모든 부분을 신중히 고려해야 하며 대규모로 운영하는 경우에는 특히 신중해야 합니다. 전반적으로 이 계획은 다음과 같은 몇 가지 목표를 달성해야 합니다.
 
 * 설정
-    * 복구 지역에서 미러 이미지 환경을 설정하고 유지 관리합니다. 이 복구 환경에서 탄력적 풀을 만들고 단일 데이터베이스를 복제하면 복구 지역의 용량이 보존됩니다. 이러한 환경의 유지 관리에는 새 테넌트 데이터베이스가 프로비전될 때 복제하는 작업도 포함됩니다.  
+    * 복구 지역에서 미러 이미지 환경을 설정하고 유지 관리합니다. 이 복구 환경에서 탄력적 풀을 만들고 데이터베이스를 복제하면 복구 지역의 용량이 절약됩니다. 이러한 환경의 유지 관리에는 새 테넌트 데이터베이스가 프로비전될 때 복제하는 작업도 포함됩니다.  
 * 복구
-    * 일일 비용을 최소화하기 위해 규모가 축소된 복구 환경을 사용하는 경우 풀 및 단일 데이터베이스를 확장하여 복구 지역의 전체 운영 용량을 획득해야 합니다.
+    * 일일 비용을 최소화하기 위해 규모가 축소된 복구 환경을 사용하는 경우 풀 및 데이터베이스를 강화하여 복구 지역의 전체 운영 용량을 확보해야 합니다.
     * 가능한 한 빠르게 복구 지역에서 새 테넌트 프로비전을 사용하도록 설정합니다.  
     * 우선 순위에 따라 테넌트를 복원할 수 있도록 최적화합니다.
     * 실제로 어디서든 단계를 가능한 한 빨리 병렬로 수행하여 테넌트가 최대한 빨리 온라인 상태가 되도록 최적화합니다.
@@ -67,10 +67,10 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 이 자습서에서는 Azure SQL Database 및 Azure 플랫폼의 기능을 사용하여 다음 과제를 해결합니다.
 
 * [Azure Resource Manager 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) - 필요한 모든 용량을 최대한 빨리 예약합니다. Azure Resource Manager 템플릿은 복구 지역에 프로덕션 서버와 탄력적 풀의 미러 이미지를 프로비전하는 데 사용됩니다.
-* [지역에서 복제](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) - 모든 데이터베이스에 대해 비동기적으로 복제된 읽기 전용 보조 데이터베이스를 만듭니다. 작동 중단이 발생하는 동안 복구 지역의 복제본으로 장애 조치(Failover)합니다.  작동 중단이 해결되면 데이터 손실 없이 원래 지역의 데이터베이스로 장애 복구(Failback)합니다.
+* [지역에서 복제](sql-database-geo-replication-overview.md) - 모든 데이터베이스에 대해 비동기적으로 복제된 읽기 전용 보조 데이터베이스를 만듭니다. 작동 중단이 발생하는 동안 복구 지역의 복제본으로 장애 조치(Failover)합니다.  작동 중단이 해결되면 데이터 손실 없이 원래 지역의 데이터베이스로 장애 복구(Failback)합니다.
 * [비동기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) - 많은 수의 데이터베이스에 대한 장애 조치(Failover) 시간을 최소화하기 위해 테넌트 우선 순위에 따라 장애 조치(Failover) 작업이 전송됩니다.
-* [분할된 관리 복구 기능](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) - 복구 및 송환하는 동안 카탈로그의 데이터베이스 항목을 변경합니다. 이러한 기능을 사용하면 앱을 다시 구성하지 않고도 위치에 관계없이 테넌트 데이터베이스에 연결할 수 있습니다.
-* [SQL Server DNS 별칭](https://docs.microsoft.com/azure/sql-database/dns-alias-overview) - 앱이 작동되는 지역에 관계없이 새 테넌트를 원활하게 프로비전할 수 있도록 합니다. 카탈로그 동기화 프로세스에서 해당 위치에 관계없이 활성 카탈로그에 연결할 수 있도록 하기 위해 DNS 별칭도 사용됩니다.
+* [분할된 관리 복구 기능](sql-database-elastic-database-recovery-manager.md) - 복구 및 송환하는 동안 카탈로그의 데이터베이스 항목을 변경합니다. 이러한 기능을 사용하면 앱을 다시 구성하지 않고도 위치에 관계없이 테넌트 데이터베이스에 연결할 수 있습니다.
+* [SQL Server DNS 별칭](dns-alias-overview.md) - 앱이 작동되는 지역에 관계없이 새 테넌트를 원활하게 프로비전할 수 있도록 합니다. 카탈로그 동기화 프로세스에서 해당 위치에 관계없이 활성 카탈로그에 연결할 수 있도록 하기 위해 DNS 별칭도 사용됩니다.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>재해 복구 스크립트 가져오기 
 
@@ -92,7 +92,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 복구 프로세스를 시작하기 전에 애플리케이션의 정상 상태를 검토합니다.
 1. 웹 브라우저에서 Wingtip Tickets 이벤트 허브(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net - &lt;user&gt;를 사용자 배포의 사용자 값으로 바꿈)를 엽니다.
     * 페이지 아래쪽으로 스크롤하여 바닥글에서 카탈로그 서버 이름과 위치를 확인합니다. 위치는 앱을 배포한 지역입니다.
-    *팁: 위치 위를 마우스로 가리키면 디스플레이가 확대됩니다.*
+    *팁: 위치 위를 마우스로 가리키면 해당 위치가 크게 표시됩니다.*
     ![원래 지역의 이벤트 허브 정상 상태](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Contoso Concert Hall 테넌트를 클릭하고 해당 이벤트 페이지를 엽니다.
@@ -126,7 +126,7 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 이 작업에서는 중복된 앱 인스턴스를 배포하고, 카탈로그 및 모든 테넌트 데이터베이스를 복구 지역에 복제하는 프로세스를 시작합니다.
 
 > [!Note]
-> 이 자습서는 지역에서 복제 보호 기능을 Wingtip Tickets 샘플 애플리케이션에 추가합니다. 지역에서 복제를 사용하는 애플리케이션에 대한 프로덕션 시나리오에서 각 테넌트는 처음부터 지역에서 복제된 데이터베이스로 프로비전됩니다. [Azure SQL Database를 사용하여 항상 사용 가능한 서비스 디자인](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)을 참조하세요.
+> 이 자습서는 지역에서 복제 보호 기능을 Wingtip Tickets 샘플 애플리케이션에 추가합니다. 지역에서 복제를 사용하는 애플리케이션에 대한 프로덕션 시나리오에서 각 테넌트는 처음부터 지역에서 복제된 데이터베이스로 프로비전됩니다. [Azure SQL Database를 사용하여 항상 사용 가능한 서비스 디자인](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)을 참조하세요.
 
 1. *PowerShell ISE*에서 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트를 열고 다음 값을 설정합니다.
     * **$DemoScenario = 2**, 미러 이미지 복구 환경을 만들고 카탈로그 및 테넌트 데이터베이스를 복제합니다.
@@ -135,12 +135,14 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 ![동기화 프로세스](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>일반 애플리케이션 상태 검토
+
 현재, 애플리케이션은 원래 지역에서 정상적으로 실행되고 있으며 지역에서 복제 기능으로 보호됩니다.  읽기 전용 보조 복제본이 모든 데이터베이스에 대한 복구 지역에 존재합니다. 
+
 1. Azure Portal에서 리소스 그룹을 보고, 리소스 그룹이 복구 지역에서 -recovery 접미사를 사용하여 만들어졌음을 확인합니다. 
 
-1. 복구 리소스 그룹에서 리소스를 탐색합니다.  
+2. 복구 리소스 그룹에서 리소스를 탐색합니다.  
 
-1. _tenants1-dpt-&lt;user&gt;-recovery_ 서버에서 Contoso Concert Hall 데이터베이스를 클릭합니다.  왼쪽의 지역에서 복제를 클릭합니다. 
+3. _tenants1-dpt-&lt;user&gt;-recovery_ 서버에서 Contoso Concert Hall 데이터베이스를 클릭합니다.  왼쪽의 지역에서 복제를 클릭합니다. 
 
     ![Contoso Concert 지역에서 복제 링크](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -193,6 +195,7 @@ Azure 지역 맵에서 원래 지역의 주 복제본과 복구 지역의 보조
 > 복구 작업 코드를 살펴보려면 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\RecoveryJobs 폴더에서 PowerShell 스크립트를 검토합니다.
 
 ### <a name="review-the-application-state-during-recovery"></a>복구하는 동안 애플리케이션 상태 검토
+
 Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도록 설정되면 해당 애플리케이션을 사용할 수 없습니다. 카탈로그가 복구 지역으로 장애 조치(Failover)되고 모든 테넌트가 오프라인으로 표시되면 애플리케이션은 다시 온라인 상태가 됩니다. 애플리케이션을 사용할 수 있지만 해당 데이터베이스가 장애 조치(Failover)될 때까지 이벤트 허브의 각 테넌트는 오프라인으로 표시됩니다. 애플리케이션은 오프라인 테넌트 데이터베이스를 처리하도록 설계해야 합니다.
 
 1. 카탈로그 데이터베이스가 복구되는 즉시, 웹 브라우저에서 Wingtip Tickets 이벤트 허브를 새로 고칩니다.
@@ -301,7 +304,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그 동기화
 >* 애플리케이션, 서버 및 풀로 구성된 대체 지역에서 복구 환경 설정
@@ -313,4 +316,4 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Wingtip SaaS 응용 프로그램을 빌드하는 또 다른 자습서](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials).
+* [Wingtip SaaS 애플리케이션을 빌드하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

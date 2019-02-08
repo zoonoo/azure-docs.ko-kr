@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.subservice: files
+ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157635"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471405"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -804,24 +804,19 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 다음 섹션에서는 클라우드 계층화 문제를 해결하고 클라우드 저장소 문제 또는 서버 문제인지 여부를 확인하는 방법에 대해 설명합니다.
 
 <a id="monitor-tiering-activity"></a>**서버의 계층화 작업을 모니터링하는 방법**  
-서버의 계층화 작업을 모니터링하려면 이벤트 ID 9002, 9003, 9016 및 9029를 원격 분석 이벤트 로그에 사용합니다(이벤트 뷰어의 Applications and Services\Microsoft\FileSync\Agent에 있음).
-
-- 이벤트 ID 9002는 서버 엔드포인트에 대한 고스팅 통계를 제공합니다. TotalGhostedFileCount, SpaceReclaimedMB 등을 예로 들 수 있습니다.
+서버의 계층화 작업을 모니터링하려면 이벤트 뷰어의 Applications and Services\Microsoft\FileSync\Agent에 있는 원격 분석 이벤트 로그에서 이벤트 ID 9003, 9016 및 9029를 사용합니다.
 
 - 이벤트 ID 9003은 서버 엔드포인트에 대한 오류 분포를 제공합니다. 총 오류 수, ErrorCode 등을 예로 들 수 있습니다. 한 이벤트는 오류 코드별로 기록됩니다.
-
 - 이벤트 ID 9016은 볼륨에 대한 고스팅 결과를 제공합니다. 사용 가능한 공간 비율, 세션에서 고스팅된 파일 수, 고스팅에 실패한 파일 수 등을 예로 들 수 있습니다.
-
-- 이벤트 ID 9029는 고스팅 세션 정보를 제공합니다. 세션에서 시도된 파일 수, 세션에서 계층화된 파일 수, 이미 계층화된 파일 수 등을 예로 들 수 있습니다.
+- 이벤트 ID 9029는 서버 엔드포인트의 고스팅 세션 정보를 제공합니다. 세션에서 시도된 파일 수, 세션에서 계층화된 파일 수, 이미 계층화된 파일 수 등을 예로 들 수 있습니다.
 
 <a id="monitor-recall-activity"></a>**서버의 회수 작업을 모니터링하는 방법**  
-서버의 회수 작업을 모니터링하려면 이벤트 ID 9005, 9006, 9007을 원격 분석 이벤트 로그에 사용합니다(이벤트 뷰어의 Applications and Services\Microsoft\FileSync\Agent에 있음). 이러한 이벤트는 매시간 기록됩니다.
+서버의 회수 작업을 모니터링하려면 이벤트 뷰어의 Applications and Services\Microsoft\FileSync\Agent에 있는 원격 분석 이벤트 로그에서 이벤트 ID 9005, 9006,9009 및 9059를 사용합니다.
 
 - 9005 이벤트 ID는 서버 엔드포인트에 대한 회수 안정성을 제공합니다. 액세스된 고유한 파일 수, 액세스에 실패한 고유한 파일 수 등을 예로 들 수 있습니다.
-
 - 이벤트 ID 9006은 서버 엔드포인트에 대한 회수 오류 분포를 제공합니다. 실패한 요청 수, ErrorCode 등을 예로 들 수 있습니다. 한 이벤트는 오류 코드별로 기록됩니다.
-
-- 9007 이벤트 ID는 서버 엔드포인트에 대한 회수 성능을 제공합니다. TotalRecallIOSize, TotalRecallTimeTaken 등을 예로 들 수 있습니다.
+- 이벤트 ID 9009는 서버 엔드포인트의 회수 세션 정보를 제공합니다. DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed 등을 예로 들 수 있습니다.
+- 이벤트 ID 9059는 서버 엔드포인트의 애플리케이션 회수 분포를 제공합니다. ShareId, Application Name, TotalEgressNetworkBytes 등을 예로 들 수 있습니다.
 
 <a id="files-fail-tiering"></a>**계층화에 실패한 파일의 문제 해결**  
 파일이 Azure Files로 계층화되지 못한 경우:
@@ -858,6 +853,9 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 
 파일 탐색기에서 파일을 탐색할 경우 등의 기타 시나리오에서도 의도치 않은 회수가 발생할 수 있습니다. 서버의 파일 탐색기에서 클라우드 계층화 파일이 있는 폴더를 열면 의도치 않은 회수가 발생할 수 있습니다. 서버에서 바이러스 백신 솔루션이 사용 가능하게 설정된 경우에 이러한 회수가 발생하기 더 쉽습니다.
 
+> [!NOTE]
+>애플리케이션으로 인해 회수가 발생하는지를 확인하려면 원격 분석 이벤트 로그에서 이벤트 ID 9059를 사용합니다. 서버 엔드포인트의 애플리케이션 회수 분포를 제공하는 이 이벤트는 1시간마다 기록됩니다.
+
 ## <a name="general-troubleshooting"></a>일반적인 문제 해결
 서버에서 Azure 파일 동기화에 문제가 발생하는 경우 먼저 다음 단계를 완료합니다.
 1. 이벤트 뷰어에서 원격 분석, 운영 및 진단 이벤트 로그를 검토합니다.
@@ -884,6 +882,7 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 6. 로그 및 추적 파일을 포함하는 .zip 파일은 사용자가 지정한 출력 디렉터리에 저장됩니다.
 
 ## <a name="see-also"></a>참고 항목
+- [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)
 - [Azure Files 질문과 대답](storage-files-faq.md)
 - [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)
 - [Linux에서 Azure Files 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)

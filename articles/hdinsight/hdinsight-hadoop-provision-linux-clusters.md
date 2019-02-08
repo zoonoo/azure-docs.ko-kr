@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: 0878fc4b069f7c1ca34f8954320af6e69ceea717
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 33a882e8543f1a57afe9207f7a7263ec39530a0c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299879"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817932"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
 
@@ -50,7 +50,7 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 
 * [리소스 그룹 이름](#resource-group-name)
 * [클러스터 유형 및 구성](#cluster-types) 
-* [클러스터 로그인 및 SSH 사용자 이름](#cluster-login-and-ssh-username)
+* 클러스터 로그인 및 SSH 사용자 이름
 * [위치](#location):
 
 > [!IMPORTANT]  

@@ -3,7 +3,7 @@ title: Azure SQL Database 기능 비교 | Microsoft Docs
 description: 이 문서에서는 다양한 Azure SQL Database 버전에서 제공하는 SQL Server 기능을 비교합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 8cda0b5a06eb4299c439b58ecf721971288fa5fb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7445496154d9fc2ca59e19059a87a794a1361b14
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455085"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747410"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server
 
@@ -52,7 +52,7 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [변경 데이터 캡처](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 아니요 | 예 |
 | [변경 내용 추적](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | 예 |예 |
 | [데이터 정렬 - 데이터베이스](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | 예 | 예 |
-| [데이터 정렬 - 서버/인스턴스](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | 아니요 | [예(미리 보기)](/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
+| [데이터 정렬 - 서버/인스턴스](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | 아니요 | [예(미리 보기)](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
 | [Columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | 예 - [프리미엄 계층, 표준 계층 - S3 이상, 범용 계층 및 중요 비즈니스 계층](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |예 |
 | [CLR(공용 언어 런타임)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | 아니요 | 예 - [CLR 차이점](sql-database-managed-instance-transact-sql-information.md#clr) 참조 |
 | [포함된 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | 예 | 예 |

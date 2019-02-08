@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: c99b22a5dad1e64525b2b2ebcd214c3dc5bfb28f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8700d0988927b221ace82a492e9902f1f36a562b
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473598"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731373"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Azure Storage 탐색기를 사용하여 데이터 작업
 
@@ -59,7 +59,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
     ![연결 문자열을 사용하여 Cosmos DB에 연결](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. 현재 SQL 및 테이블 API만 지원합니다. API를 선택하고, **연결 문자열**을 붙여넣고, **계정 레이블**을 입력하고, **다음**을 클릭하여 요약을 확인한 다음, **연결**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 연결 문자열 검색에 대한 자세한 내용은 [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string)(연결 문자열 가져오기)을 참조하세요.
+2. 현재 SQL 및 테이블 API만 지원합니다. API를 선택하고, **연결 문자열**을 붙여넣고, **계정 레이블**을 입력하고, **다음**을 클릭하여 요약을 확인한 다음, **연결**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 연결 문자열 검색에 대한 자세한 내용은 [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account)(연결 문자열 가져오기)을 참조하세요.
 
     ![연결 문자열](./media/storage-explorer/connection-string.png)
 
@@ -73,7 +73,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
     ![에뮬레이터로 Cosmos DB에 연결](./media/storage-explorer/emulator-entry.png)
 
-3. 현재 SQL API만 지원합니다. **연결 문자열**을 붙여넣고, **계정 레이블**을 입력하고, **다음**을 클릭하여 요약을 확인한 다음, **연결**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 연결 문자열 검색에 대한 자세한 내용은 [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string)(연결 문자열 가져오기)을 참조하세요.
+3. 현재 SQL API만 지원합니다. **연결 문자열**을 붙여넣고, **계정 레이블**을 입력하고, **다음**을 클릭하여 요약을 확인한 다음, **연결**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 연결 문자열 검색에 대한 자세한 내용은 [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account)(연결 문자열 가져오기)을 참조하세요.
 
     ![에뮬레이터로 Cosmos DB에 연결 대화 상자](./media/storage-explorer/emulator-dialog.png)
 

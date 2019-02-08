@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 2252dc9d1cb4a8b5666e3f8078528206ac0fddf7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9b8340221c61bedbe010b9ef280ada62cfee7a21
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228256"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754876"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Text to Speech에 대한 FAQ(질문과 대답)
 
@@ -29,7 +29,7 @@ ms.locfileid: "55228256"
 
 **Q: 표준 음성 모델 사용을 시작하려면 어떻게 해야 하나요?**
 
-**A**: HTTP 요청을 통해 45개 이상의 언어로 된 80개 이상의 표준 음성 모델을 사용할 수 있습니다. 먼저 [구독 키](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started)를 가져옵니다. 미리 배포된 음성 모델을 REST를 통해 호출하려면 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech)를 참조하세요.
+**A**: HTTP 요청을 통해 45개 이상의 언어로 된 80개 이상의 표준 음성 모델을 사용할 수 있습니다. 먼저 [구독 키](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started)를 가져옵니다. 미리 배포된 음성 모델을 REST를 통해 호출하려면 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)를 참조하세요.
 
 **Q: 사용자 지정 음성 모델을 사용하려는 경우 API는 표준 음성에 사용되는 API와 동일한가요?**
 

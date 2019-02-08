@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239922"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699145"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
 
@@ -186,7 +186,7 @@ Storage
 
 [Azure Virtual Machines에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
-**Active Directory 통합**: 고객은 전용 AD DS 아키텍처 대신 [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) 통합 또는 [온-프레미스 포리스트에 가입된 Azure의 Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest)를 사용하는 것이 좋습니다.
+**Active Directory 통합**: 고객은 전용 AD DS 아키텍처 대신 [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) 통합 또는 [온-프레미스 포리스트에 가입된 Azure의 Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity)를 사용하는 것이 좋습니다.
 
 ### <a name="security"></a>보안
 

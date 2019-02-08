@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 82f7d69120cf3d6f44c981f985ae29f467ee0655
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7afa64ebedb38b4514bbd155bf8f29268d420d18
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198911"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745761"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Azure Virtual Machine 이미지의 유효성을 사전 검사하는 자체 테스트 클라이언트 만들기
 
@@ -54,7 +54,7 @@ ms.locfileid: "55198911"
 자체 테스트 API에는 POST 메서드만 지원하는 단일 엔드포인트가 포함됩니다.  API의 구조는 다음과 같습니다.
 
 ```
-Uri:             https://isvapp.azurewebsites.net/selftest
+Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -215,7 +215,7 @@ cURL을 사용하여 API를 호출하려면 다음 단계를 수행합니다.
 ```
 CURL POST -H "Content-Type:application/json" 
 -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-https://isvapp.azurewebsites.net/selftest 
+https://isvapp.azurewebsites.net/selftest-vm 
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 
 ```
@@ -260,7 +260,7 @@ https://isvapp.azurewebsites.net/selftest
 
    - **이름** - 앱에 대한 이름을 입력합니다. 예를 들어 "SelfTestClient"가 있습니다.
    - **애플리케이션 유형** – **웹앱/API**를 선택합니다.
-   - **로그온 URL** – "https://isvapp.azurewebsites.net/selftest"를 입력합니다.
+   - **로그온 URL** – "https://isvapp.azurewebsites.net/selftest-vm"를 입력합니다.
 
 4. **만들기**를 선택합니다.
 5. **앱 등록** 또는 **등록된 앱** 아래에서 **애플리케이션 ID**를 복사합니다.
@@ -410,7 +410,7 @@ $token.AccessToken
 인증 헤더에 다음 코드를 사용하여 토큰을 자체 테스트 API에 전달합니다.
 
 ```
-$redirectUri = ‘https://isvapp.azurewebsites.net/selftest’
+$redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
 $accesstoken = ‘place your token here’
 
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"

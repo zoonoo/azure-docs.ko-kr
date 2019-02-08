@@ -1,6 +1,6 @@
 ---
-제목: R 언어의 빠른 시작 자습서 titleSuffix: Azure Machine Learning Studio 설명: 이 R 프로그래밍 자습서를 사용하여 신속하게 Azure Machine Learning Studio에서 R 언어를 사용하여 예측 솔루션을 만듭니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: R 언어의 빠른 시작 자습서 titleSuffix: Azure Machine Learning Studio 설명: 이 R 프로그래밍 자습서를 사용하여 신속하게 Azure Machine Learning Studio에서 R 언어를 사용하여 예측 솔루션을 만듭니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/06/2017
 ---

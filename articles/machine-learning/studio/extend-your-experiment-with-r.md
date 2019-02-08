@@ -1,8 +1,21 @@
 ---
-제목: R을 사용하여 실험 확장 titleSuffix: Azure Machine Learning Studio 설명: R 스크립트 실행 모듈을 사용하여 R 언어를 통해 Azure Machine Learning Studio의 기능을 확장하는 방법.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
+title: R을 사용하여 실험 확장
+titleSuffix: Azure Machine Learning Studio
+description: R 스크립트 실행 모듈을 사용하여 R 언어를 통해 Azure Machine Learning Studio의 기능을 확장하는 방법.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/20/2017
+ms.openlocfilehash: 98f5922cc329aedc8deeffbcb042bddf90405883
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497161"
 ---
 # <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio: R을 사용하여 실험 확장 
 [R 스크립트 실행][execute-r-script] 모듈을 사용하여 R 언어를 통해 Azure Machine Learning Studio의 기능을 확장할 수 있습니다.

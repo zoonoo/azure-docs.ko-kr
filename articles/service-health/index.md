@@ -1,23 +1,18 @@
 ---
 title: Azure Service Health | Microsoft Docs
 description: Azure Service Health는 Azure 서비스의 문제가 사용자에게 영향을 주는 경우 개인 설정 지침 및 지원을 제공하는 도구 모음 환경입니다.
-services: Azure Service Health
-author: czeumault
-manager: carolz
+author: stephbaron
 layout: LandingPage
-ms.assetid: ''
 ms.service: service-health
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/27/2018
-ms.author: carolz
-ms.openlocfilehash: ab00f53b6fa6338e999590ccfc6e6bfff84c2276
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: stbaron
+ms.openlocfilehash: d8d922dd16cb00b5e3a682dc491af6b59f8476f2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949454"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881930"
 ---
 # <a name="azure-service-health-documentation"></a>Azure Service Health 설명서
 

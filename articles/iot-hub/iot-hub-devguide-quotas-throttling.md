@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d75a2cef96eaafb606c66d469b0e27fed8bb3573
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827383"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466815"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -85,7 +85,7 @@ IoT Hub에는 다른 작업 제한도 적용됩니다.
 <sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요.
 
 > [!NOTE]
-> 현재 단일 IoT hub에 연결할 수는 디바이스의 최대 수는 500,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
+> 현재 단일 IoT Hub에 연결할 수 있는 디바이스의 최대 수는 1,000,000개입니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 ## <a name="latency"></a>대기 시간
 IoT Hub는 모든 작업에 낮은 대기 시간을 제공하기 위해 노력합니다. 그러나 네트워크 상태 및 예측할 수 없는 기타 요인으로 인해 최대 대기 시간을 보장할 수 없습니다. 솔루션을 설계할 때 다음을 수행해야 합니다.

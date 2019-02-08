@@ -3,7 +3,7 @@ title: Azure SQL Database 서비스 - vCore | Microsoft Docs
 description: vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 0d55b5d4c8d42a89a51fa5342d1ed747659a441b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 240715fe6d3e8344c15cddf80a23829ec84e81a2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465098"
+ms.locfileid: "55511992"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 서비스 계층, Azure 하이브리드 혜택 및 마이그레이션
 

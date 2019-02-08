@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 85d69db2f94e4bddf1258233c34c64dcf78a3eeb
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.subservice: common
+ms.openlocfilehash: 8ffd3c34628f96888145a3639ddfe4a190dffc7f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219225"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467070"
 ---
-# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GRS(지역 중복 스토리지): Azure Storage에 대한 지역 간 복제
+# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GRS(영역 중복 스토리지): Azure Storage의 지역 간 복제
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
 
 ## <a name="read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소
@@ -34,9 +34,9 @@ RA-GRS를 사용할 때 유의해야 할 몇 가지 고려 사항:
 * RA-GRS를 사용하여 고가용성을 설계하는 방법에 대한 제안 사항은 [RA-GRS 저장소를 사용하여 고가용성 애플리케이션 설계](storage-designing-ha-apps-with-ragrs.md)를 참조하세요.
 
 ## <a name="what-is-the-rpo-and-rto-with-grs"></a>GRS에서 RPO 및 RTO란?
-**RPO(복구 지점 목표):** GRS 및 RA-GRS에서 저장소 서비스는 주 위치에서 보조 위치로 데이터를 비동기적으로 지역에서 복제합니다. 주 지역에서 심각한 지역 재해가 발생하는 경우 Microsoft는 보조 영역으로 장애 조치(failover)를 수행합니다. 장애 조치(failover)가 발생하면 아직 지역 복제되지 않은 최근 변경 사항이 손실될 수 있습니다. 손실될 가능성이 있는 데이터의 시간(분)은 RPO라고 합니다. RPO는 데이터를 복구할 수 있는 시점을 나타냅니다. Azure Storage의 RPO는 일반적으로 15분 미만이지만 현재 지역 복제의 소요 시간에 대한 SLA는 없습니다.
+**RPO(복구 지점 목표):** GRS 및 RA-GRS에서는 스토리지 서비스가 기본 위치에서 보조 위치로 데이터를 비동기식으로 지역에서 복제합니다. 주 지역에서 심각한 지역 재해가 발생하는 경우 Microsoft는 보조 영역으로 장애 조치(failover)를 수행합니다. 장애 조치(failover)가 발생하면 아직 지역 복제되지 않은 최근 변경 사항이 손실될 수 있습니다. 손실될 가능성이 있는 데이터의 시간(분)은 RPO라고 합니다. RPO는 데이터를 복구할 수 있는 시점을 나타냅니다. Azure Storage의 RPO는 일반적으로 15분 미만이지만 현재 지역 복제의 소요 시간에 대한 SLA는 없습니다.
 
-**RTO(복구 시간 목표):** RTO는 장애 조치(failover)를 수행하고 저장소 계정을 다시 온라인 상태로 만드는 데 걸리는 시간에 대한 측정값입니다. 장애 조치(failover)를 수행하는 시간에는 다음 작업이 포함됩니다.
+**RTO(복구 시간 목표):** RTO는 장애 조치(failover)를 수행하고 스토리 계정을 다시 온라인 상태로 만드는 데 걸리는 시간을 측정한 값입니다. 장애 조치(failover)를 수행하는 시간에는 다음 작업이 포함됩니다.
 
    * Microsoft가 기본 위치에서 데이터를 복구할 수 있는지 또는 장애 조치(failover)가 필요한지 여부를 확인하는 데 필요한 시간
    * 보조 위치를 가리키도록 기본 DNS 항목을 변경하여 스토리지 계정의 장애 조치(failover)를 수행할 수 있는 시간
@@ -48,5 +48,5 @@ Microsoft는 데이터를 유지할 책임을 진지하게 수행하고 있습�
 
 ## <a name="see-also"></a>참고 항목
 - [Azure Storage 복제](storage-redundancy.md)
-- [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](storage-redundancy-lrs.md)
-- [ZRS(영역 중복 저장소): 고가용성 Azure Storage 응용 프로그램](storage-redundancy-zrs.md)
+- [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복성](storage-redundancy-lrs.md)
+- [ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션](storage-redundancy-zrs.md)

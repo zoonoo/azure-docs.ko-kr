@@ -9,20 +9,18 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66f9c41e2551dffc32932f1cfa53fa444251b303
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a6ae388107e527b399dc758abccbefcec955a60d
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301053"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55661635"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>개인 Docker 컨테이너 레지스트리로 인증
 
 Azure Container Registry로 인증하는 방법은 여러 가지가 있으며 각 방법을 하나 이상의 레지스트리 사용 시나리오에 적용할 수 있습니다.
 
 [개별 로그인](#individual-login-with-azure-ad)을 통해 레지스트리에 직접 로그인하거나 애플리케이션 및 컨테이너 오케스트레이터는 Azure AD(Azure Active Directory) [서비스 주체](#service-principal)를 사용하여 무인 또는 "헤드리스" 인증을 수행할 수 있습니다.
-
-Azure Container Registry는 인증되지 않은 Docker 작업 또는 익명 액세스를 지원하지 않습니다. 공용 이미지에는 [Docker 허브](https://docs.docker.com/docker-hub/)를 사용할 수 있습니다.
 
 ## <a name="individual-login-with-azure-ad"></a>Azure AD로 개별 로그인
 
@@ -69,7 +67,7 @@ docker login myregistry.azurecr.io
 로그인하면 Docker에서 자격 증명을 캐시하므로 앱 ID를 기억할 필요가 없습니다.
 
 > [!TIP]
-> [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) 명령을 실행하여 서비스 주체의 암호를 다시 생성할 수 있습니다.
+> [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest) 명령을 실행하여 서비스 주체의 암호를 다시 생성할 수 있습니다.
 >
 
 ## <a name="admin-account"></a>관리자 계정

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228205"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756668"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -115,7 +115,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
         - 카운터: “쓰기 바이트/초”</br>
         - 이 데이터 변동률은 VM 및 해당 앱의 작업량에 따라 증가하거나 높은 수준을 유지합니다.
         - 평균 원본 디스크 데이터 변동은 Site Recovery용 표준 저장소에 대해 2MB/s입니다. [자세히 알아보기](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - 또한 [저장소 확장성 목표를 확인](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account)할 수 있습니다.
+    - 또한 [저장소 확장성 목표를 확인](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)할 수 있습니다.
 8. [Deployment Planner](hyper-v-deployment-planner-run.md)를 실행합니다.
 9. [네트워크](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [저장소](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)에 대한 권장 사항을 검토합니다.
 

@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: fc7bf4eaeb073b0337be68632e5057bfce96e06a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: a09037f2e33d87446696dd11477c4e8b45af4187
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310618"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474176"
 ---
 # <a name="migrate-your-data"></a>데이터 마이그레이션
 다양한 도구를 사용하여 다양한 원본의 데이터를 SQL Data Warehouse로 이동할 수 있습니다.  이 작업을 위해 ADF Copy, SSIS 및 bcp를 모두 사용할 수 있습니다. 그러나 데이터 크기가 증가하면 단계별로 데이터 마이그레이션 프로세스 세분화를 고려해야 합니다. 부드러운 데이터 마이그레이션이 되도록 성능 및 복원 모두를 위한 각 단계를 최적화하는 기회를 제공합니다.
@@ -23,7 +23,7 @@ ms.locfileid: "43310618"
 이 문서에서는 먼저 ADF Copy, SSIS 및 bcp의 간단한 마이그레이션 시나리오를 설명합니다. 그런 다음 마이그레이션이 최적화되는 방법을 좀 더 깊게 살펴봅니다.
 
 ## <a name="azure-data-factory-adf-copy"></a>Azure 데이터 팩터리(ADF) 복사본
-[ADF 복사본][ADF Copy]은 [Azure Data Factory][Azure Data Factory]의 일부입니다. SQL Data Warehouse로 직접 또는 Azure blob 저장소에 있는 원격 플랫 파일, 로컬 저장소에 상주하는 플랫 파일로 데이터를 내보내는 데 ADF 복사본을 사용할 수 있습니다.
+[ADF 복사본][ADF Copy]은 [Azure Data Factory][Azure Data Factory]의 일부입니다. SQL Data Warehouse로 직접 또는 Azure Blob Storage에 있는 원격 플랫 파일, 로컬 스토리지에 상주하는 플랫 파일로 데이터를 내보내는 데 ADF 복사본을 사용할 수 있습니다.
 
 데이터가 플랫 파일에서 생성되는 경우 SQL Data Warehouse로 데이터 로드를 시작하기 전에 먼저 Azure Storage Blob에 데이터를 전송해야 합니다. 데이터가 Azure Blob Storage로 전송되면 [ADF 복사본][ADF Copy]을 다시 사용하도록 선택하여 SQL Data Warehouse로 데이터를 푸시합니다.
 
@@ -105,7 +105,7 @@ PolyBase에서 외부 테이블의 일부로 파일에서 모든 열을 정의�
 지원되는 데이터 형식에 대한 세부 정보는 [스키마 마이그레이션] 문서를 다시 참조하세요.
 
 ### <a name="location-of-data-files"></a>데이터 파일의 위치
-SQL Data Warehouse는 PolyBase를 사용하여 Azure Blob Storage에 데이터를 독점적으로 로드합니다. 따라서 데이터가 먼저 blob 저장소로 전송되어야 합니다.
+SQL Data Warehouse는 PolyBase를 사용하여 Azure Blob Storage에 데이터를 독점적으로 로드합니다. 따라서 데이터가 먼저 Blob Storage로 전송되어야 합니다.
 
 ## <a name="optimizing-data-transfer"></a>데이터 전송 최적화
 데이터 마이그레이션의 느린 부분 중 하나는 Azure에 데이터를 전송하는 것입니다. 네트워크 대역폭 문제가 발생할 수 뿐만 아니라 네트워크 안정성 진행률 심각하게 방해가 될 수도 있습니다. 기본적으로 데이터를 Azure로 마이그레이션하는 전송 오류 발생 가능성 합리적으로 가능성이 있으므로 인터넷을 통해 됩니다. 그러나 이러한 오류는 데이터를 전부 또는 일부를 다시 보내어야 할 수 있습니다.
@@ -157,7 +157,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
 3. Azure Blob Storage 컨테이너의 데이터 AZCopy
 4. PolyBase를 사용하여 SQL Data Warehouse로 데이터 로드
 
-사용 가능한 전체 설명서는 [AZCopy][AZCopy]입니다.
+전체 설명서는 [AZCopy][AZCopy]에서 제공됩니다.
 
 ## <a name="optimizing-data-export"></a>데이터 내보내기 최적화
 내보내기가 PolyBase에서 설계한 배치 요구 사항에 맞는지 확인하는 것 외에도 데이터 내보내기를 최적화하여 프로세스가 더 향상되도록 시도할 수도 있습니다.
@@ -168,7 +168,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/myconta
 PolyBase는 gzip 압축된 데이터를 읽을 수 있습니다. gzip 파일로 데이터를 압축할 수 있는 경우 네트워크를 통해 푸시되는 데이터의 양을 최소화합니다.
 
 ### <a name="multiple-files"></a>여러 파일
-대형 테이블을 여러 파일로 분할하면 내보내기 속도를 향상시킬 수 뿐만 아니라 전송을 다시 시작 및 Azure blob 저장소에서의 전반적인 데이터 관리 효율성에도 도움이 됩니다. PolyBase의 여러 유용한 기능 중 하나는 폴더 내 모든 파일을 읽고 하나의 테이블로 처리된다는 점입니다. 따라서 각 테이블의 파일을 자체 폴더로 격리하는 것이 좋습니다.
+대형 테이블을 여러 파일로 분할하면 내보내기 속도를 향상시킬 수 뿐만 아니라 전송을 다시 시작 및 Azure Blob Storage에서의 전반적인 데이터 관리 효율성에도 도움이 됩니다. PolyBase의 여러 유용한 기능 중 하나는 폴더 내 모든 파일을 읽고 하나의 테이블로 처리된다는 점입니다. 따라서 각 테이블의 파일을 자체 폴더로 격리하는 것이 좋습니다.
 
 또한 PolyBase는 "재귀적 폴더 이동"이라는 기능을 지원합니다. 내보낸 데이터의 조직의 데이터 관리를 개선하도록 이 기능을 사용할 수 있습니다.
 

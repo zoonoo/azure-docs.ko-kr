@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0edb3441083a6eb6f95b3ca3ade2bf0b1582858d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301257"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564955"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -55,7 +55,7 @@ A: 왼쪽 창에서 '필터'를 클릭하면 새 필터 구현의 미리 보기�
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. VM에서 드릴다운한 후 로그에  "이 구독에 대한 리소스 공급자 'Microsoft.Insights'를 등록하여 이 쿼리를 사용하도록 설정" 오류가 표시된 이유는 무엇입니까? 
 
-A: 기본적으로 대부분 리소스 공급자는 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 합니다. 이렇게 하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 자세한 내용은 [리소스 공급자 및 형식](../../azure-resource-manager/resource-manager-supported-services.md#portal)을 참조하세요.
+A: 기본적으로 대부분 리소스 공급자는 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 합니다. 이렇게 하면 구독이 리소스 공급자에서 작동하도록 구성됩니다. 등록 범위는 항상 해당 구독입니다. 자세한 내용은 [리소스 공급자 및 형식](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal)을 참조하세요.
 
 ### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>Q. VM 페이지에서 로그에 액세스할 때 액세스 오류 메시지가 표시되지 않는 이유는 무엇인가요? 
 
