@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be257b49e5ad5acc47a6daeec203e8513995e52e
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390933"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477860"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드
 
@@ -25,12 +25,12 @@ ms.locfileid: "54390933"
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
-* Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조하세요.
-* 사용자 지정된 Hadoop 클러스터에 HDInsight 서비스를 프로비전했습니다.  지침이 필요한 경우 [고급 분석을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](customize-hadoop-cluster.md)을 참조하세요.
-* 클러스터에 대한 원격 액세스를 설정하고, 로그인하고, Hadoop 명령줄 콘솔을 열었습니다. 지침이 필요한 경우 [Hadoop 클러스터의 헤드 노드에 액세스](customize-hadoop-cluster.md)를 참조하세요.
+* Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 정보](../../storage/common/storage-introduction.md)를 참조하세요.
+* 사용자 지정된 Hadoop 클러스터에 HDInsight 서비스를 프로비전했습니다.  지침이 필요한 경우 [HDInsight에서 클러스터 설정](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
+* 클러스터에 대한 원격 액세스를 설정하고, 로그인하고, Hadoop 명령줄 콘솔을 열었습니다. 지침이 필요한 경우 [Apache Hadoop 클러스터 관리](../../hdinsight/hdinsight-administer-use-portal-linux.md)를 참조하세요.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure File Storage는 Windows 및 기타 운영 체제에 대해 표준 SMB 2.1 프로토콜을 사용하므로, 응용 프로그램은 파일 공유 열기, 액세스 및 관리에 대해 익숙한 FileSystem API를 계속 사용할 수 있습니다. 
-[고급 분석을 위한 Azure 가상 컴퓨터 설정](../data-science-virtual-machine/setup-virtual-machine.md)의 지침에 따라 Azure 가상 컴퓨터를 만드는 경우 이 스크립트 파일을 가상 컴퓨터의 *C:\\Users\\\<사용자 이름\>\\Documents\\Data Science Scripts* 디렉터리에 다운로드해야 합니다. 이러한 Hive 쿼리는 제출이 가능하도록 적절한 필드에서 사용자 데이터 스키마 및 Azure Blob Storage 구성을 연결하기만 하면 됩니다.
+[고급 분석을 위한 Azure 가상 컴퓨터 설정](../../machine-learning/data-science-virtual-machine/overview.md)의 지침에 따라 Azure 가상 컴퓨터를 만드는 경우 이 스크립트 파일을 가상 컴퓨터의 *C:\\Users\\\<사용자 이름\>\\Documents\\Data Science Scripts* 디렉터리에 다운로드해야 합니다. 이러한 Hive 쿼리는 제출이 가능하도록 적절한 필드에서 사용자 데이터 스키마 및 Azure Blob Storage 구성을 연결하기만 하면 됩니다.
 
 Hive 테이블의 데이터가 **압축되지 않은** 테이블 형식이고 Hadoop 클러스터에서 사용하는 저장소 계정의 기본 또는 추가 컨테이너에 데이터가 업로드된 것으로 가정합니다.
 
@@ -38,7 +38,7 @@ Hive 테이블의 데이터가 **압축되지 않은** 테이블 형식이고 Ha
 
 * **NYC Taxi Trip Data** 파일(12개의 Trip 파일과 12개의 Fare 파일)을 [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips) 합니다.
 * **압축을 풉니다** .
-* **고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정** 항목에 설명된 절차에 따라 생성된 기본(또는 해당 컨테이너) 위치로 [업로드](customize-hadoop-cluster.md) 합니다. 저장소 계정의 기본 컨테이너에 .csv 파일을 업로드하는 프로세스는 이 [페이지](hive-walkthrough.md#upload)에 나와 있습니다.
+* Azure Storage 계정의 기본값(또는 해당 컨테이너)에 **업로드**합니다. 해당 계정에 대한 옵션은 [Azure HDInsight 클러스터에서 Azure Storage 사용](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) 항목을 참조하세요. 저장소 계정의 기본 컨테이너에 .csv 파일을 업로드하는 프로세스는 이 [페이지](hive-walkthrough.md#upload)에 나와 있습니다.
 
 ## <a name="submit"></a>Hive 쿼리를 제출하는 방법
 다음을 사용하여 Hive 쿼리를 제출할 수 있습니다.

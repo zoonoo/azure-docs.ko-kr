@@ -75,10 +75,10 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 | ConnectionIsMarkedDisconnected | 연결이 “연결 끊김”으로 표시되었습니다. |아니요|
 | ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | 예 |
 | ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| 예|
-| 인증 | 미리 공유한 키가 일치하지 않습니다. | 예|
+| Authentication | 미리 공유한 키가 일치하지 않습니다. | 예|
 | PeerReachability | 피어 게이트웨이에 연결할 수 없습니다. | 예|
 | IkePolicyMismatch | 피어 게이트웨이에 Azure에서 지원되지 않는 IKE 정책이 있습니다. | 예|
-| WfpParse 오류 | WFP 로그를 구문 분석하는 동안 오류가 발생했습니다. |예|
+| WfpParse Error | WFP 로그를 구문 분석하는 동안 오류가 발생했습니다. |예|
 
 ## <a name="supported-gateway-types"></a>지원되는 게이트웨이 유형
 

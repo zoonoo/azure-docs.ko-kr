@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 58ba44488e8ef211e7c318fc9ba6497a5b1b69bb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 9a4e47143515c7f9c21d701809c35d61853d91ec
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523277"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471915"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Azure Import/Export 도구 문제 해결
 Microsoft Azure Import/Export 도구는 문제가 발생하는 경우 오류 메시지를 반환합니다. 이 항목에는 사용자가 실행할 수 있는 몇 가지 일반적인 문제가 나와 있습니다.  
@@ -24,7 +24,7 @@ Microsoft Azure Import/Export 도구는 문제가 발생하는 경우 오류 메
  네트워크 공유가 잠시 오프라인 상태였다가 다시 온라인 상태가 된 경우와 같이 오류를 다시 시도할 수 있는 경우 복사 세션을 다시 시작할 수 있습니다. 명령줄 매개 변수에서 잘못된 원본 파일 디렉터리를 지정한 경우와 같이 오류를 다시 시도할 수 없는 경우 복사 세션을 중단해야 합니다. 복사 세션을 다시 시작하고 중단하는 방법에 대한 자세한 내용은 [가져오기 작업을 위한 하드 드라이브 준비](../storage-import-export-tool-preparing-hard-drives-import-v1.md)를 참조하세요.  
   
 ## <a name="i-cant-resume-or-abort-a-copy-session"></a>복사 세션을 중단하거나 다시 시작할 수 없습니다.  
- 복사 세션이 드라이브에 대한 첫 번째 복사 세션인 경우 "첫 번째 복사 세션은 다시 시작하거나 중단할 수 없습니다."라는 오류 메시지가 표시됩니다. 이 경우 이전 저널 파일을 삭제하고 명령을 다시 실행하면 됩니다.  
+ 복사 세션이 드라이브에 대한 첫 번째 복사 세션인 경우 “첫 번째 복사 세션은 다시 시작하거나 중단할 수 없습니다.”라는 오류 메시지가 표시됩니다. 이 경우 이전 저널 파일을 삭제하고 명령을 다시 실행하면 됩니다.  
   
  복사 세션이 드라이브에 대한 첫 번째 세션이 아닌 경우 언제든지 다시 시작하거나 중단될 수 있습니다.  
   

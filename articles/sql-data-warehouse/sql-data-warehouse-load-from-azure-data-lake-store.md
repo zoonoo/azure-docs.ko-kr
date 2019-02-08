@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c3902061264b75ba177ba150176d784ad5384a9f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 32ac5b0841365acfc0a52e343eafc4f3760dffaa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297199"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472233"
 ---
 # <a name="load-data-from-azure-data-lake-storage-gen1-to-sql-data-warehouse"></a>Azure Data Lake Storage Gen1에서 SQL Data Warehouse로 데이터 로드
 PolyBase 외부 테이블을 사용하여 Azure Data Lake Storage Gen1에서 Azure SQL Data Warehouse로 데이터를 로드합니다. Data Lake Storage Gen1에 저장된 데이터에서 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 SQL Data Warehouse로 데이터를 가져오는 것이 좋습니다.
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * 서비스 간 인증에 사용할 Azure Active Directory 애플리케이션. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
 
 >[!NOTE] 
-> SQL Data Warehouse에서 Data Lake Storage Gen1 계정에 연결하려면 클라이언트 ID, 키 및 Active Directory 애플리케이션의 OAuth2.0 토큰 엔드포인트 값이 필요합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '애플리케이션 ID'를 클라이언트 ID로 사용합니다.
+> SQL Data Warehouse에서 Data Lake Storage Gen1 계정에 연결하려면 클라이언트 ID, 키 및 Active Directory 응용 프로그램의 OAuth2.0 토큰 엔드포인트 값이 필요합니다. 이러한 값을 가져오는 방법에 대한 세부 정보는 위의 링크에 있습니다. Azure Active Directory 앱 등록의 경우 '애플리케이션 ID'를 클라이언트 ID로 사용합니다.
 > 
 
 * Azure SQL Data Warehouse입니다. [Azure SQL Data Warehouse 쿼리 및 만들기](create-data-warehouse-portal.md)를 참조합니다.
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ##  <a name="create-a-credential"></a>자격 증명 만들기
 Data Lake Storage Gen1 계정에 액세스하려면 다음 단계에서 사용되는 자격 증명 비밀을 암호화하는 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음, AAD에 서비스 주체 자격 증명 설정을 저장하는 데이터베이스 범위 자격 증명을 만듭니다. Miscrosoft Azure Storage Blob에 연결하는 데 PolyBase를 사용한 사용자의 경우 자격 증명 구문은 다릅니다.
 
-Data Lake Storage Gen1에 연결하려면 **먼저** Azure Active Directory 애플리케이션을 만들고, 액세스 키를 만들고, Data Lake Storage Gen1 리소스에 대한 액세스 권한을 애플리케이션에 부여해야 합니다. 지침은 [Active Directory를 사용하여 Azure Data Lake Storage Gen1 인증하기](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)를 참조하세요.
+Data Lake Storage Gen1에 연결하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Data Lake Storage Gen1 리소스에 대한 액세스 권한을 응용 프로그램에 부여해야 합니다. 지침은 [Active Directory를 사용하여 Azure Data Lake Storage Gen1 인증하기](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)를 참조하세요.
 
 ```sql
 -- A: Create a Database Master Key.
@@ -171,7 +171,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Columnstore 압축을 최적화합니다.
-기본적으로 SQL Data Warehouse는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
+기본적으로 SQL Data Warehouse는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
 
 로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다.
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: a296576d3d7983b710727923043091f5660b693d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.subservice: files
+ms.openlocfilehash: cec6da78ae47b509e2bb5f8ba0007208545062e7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002555"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478069"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure 파일 동기화에 등록된 서버 관리
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -187,9 +187,10 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 ```
 
 ### <a name="use-windows-server-storage-qos"></a>Windows Server 저장소 QoS 사용 
-Azure 파일 동기화가 Windows Server 가상화 호스트에서 실행되는 가상 머신에 호스팅되는 경우 저장소 QoS(저장소 서비스 품질)를 사용하여 저장소 IO 사용을 제어할 수 있습니다. 저장소 QoS 정책은 최대(또는 위에서 StorageSyncNetwork 제한이 적용되는 방식과 같은 제한) 또는 최소(또는 예약) 중 하나로 설정할 수 있습니다. 최대 대신 최소를 설정하면 다른 워크로드에서 사용하지 않는 경우 Azure 파일 동기화에서 사용 가능한 저장소 대역폭을 사용하도록 버스트할 수 있습니다. 자세한 내용은 [저장소 서비스 품질](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview)을 참조하세요.
+Azure 파일 동기화가 Windows Server 가상화 호스트에서 실행되는 가상 머신에 호스팅되는 경우 저장소 QoS(저장소 서비스 품질)를 사용하여 저장소 IO 사용을 제어할 수 있습니다. 스토리지 QoS 정책은 최대(또는 위에서 StorageSyncNetwork 제한이 적용되는 방식과 같은 제한) 또는 최소(또는 예약) 중 하나로 설정할 수 있습니다. 최대 대신 최소를 설정하면 다른 워크로드에서 사용하지 않는 경우 Azure 파일 동기화에서 사용 가능한 저장소 대역폭을 사용하도록 버스트할 수 있습니다. 자세한 내용은 [저장소 서비스 품질](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 - [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
-- [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md) 
+- [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)
+- [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)
 - [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

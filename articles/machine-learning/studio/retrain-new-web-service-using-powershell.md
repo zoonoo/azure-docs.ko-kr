@@ -1,6 +1,6 @@
 ---
-제목: PowerShell을 사용하여 새 Machine Learning Studio 웹 서비스 다시 학습 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning Management PowerShell cmdlet를 사용하여 Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: PowerShell을 사용하여 새 Machine Learning Studio 웹 서비스 다시 학습 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning Management PowerShell cmdlet를 사용하여 Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/28/2017
 ---

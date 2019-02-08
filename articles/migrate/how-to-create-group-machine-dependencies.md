@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 8756809de4ec1a8150610027a8197f1bcae213f0
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252531"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456020"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>컴퓨터 종속성 매핑을 사용하여 컴퓨터 그룹화
 
@@ -32,7 +32,7 @@ Azure Migrate는 Log Analytics의 서비스 맵 솔루션을 활용하여 컴퓨
 
 - 작업 영역을 연결하는 동안 새 작업 영역을 만들거나 기존 작업 영역을 연결하는 옵션이 제공됩니다.
   - 새 작업 영역을 만들 때는 작업 영역의 이름을 지정해야 합니다. 그러면 마이그레이션 프로젝트와 같은 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에 해당하는 지역에서 작업 영역이 작성됩니다.
-  - 기존 작업 영역을 연결하는 경우에는 마이그레이션 프로젝트와 동일한 구독에서 사용 가능한 모든 작업 영역을 선택할 수 있습니다. [서비스 맵이 지원](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions)되는 지역에서 만든 작업 영역만 나열됩니다. 작업 영역을 연결하려면 작업 영역에 대한 ‘읽기 권한자’ 액세스 권한이 있어야 합니다.
+  - 기존 작업 영역을 연결하는 경우에는 마이그레이션 프로젝트와 동일한 구독에서 사용 가능한 모든 작업 영역을 선택할 수 있습니다. [서비스 맵이 지원](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions)되는 지역에서 만든 작업 영역만 나열됩니다. 작업 영역을 연결하려면 작업 영역에 대한 '읽기 권한자' 액세스 권한이 있어야 합니다.
 
 > [!NOTE]
 > 마이그레이션 프로젝트에 연결된 작업 영역은 변경할 수 없습니다.
@@ -50,6 +50,8 @@ Azure Migrate는 Log Analytics의 서비스 맵 솔루션을 활용하여 컴퓨
 
 ### <a name="install-the-mma"></a>MMA 설치
 
+#### <a name="install-the-agent-on-a-windows-machine"></a>Windows 머신에 에이전트 설치
+
 Windows 컴퓨터에 에이전트를 설치하려면
 
 1. 다운로드한 에이전트를 두 번 클릭합니다.
@@ -58,7 +60,9 @@ Windows 컴퓨터에 에이전트를 설치하려면
 4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.
 
-MMA에서 지원하는 Windows 운영 체제 목록을 [자세히 확인](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)해 보세요.
+Azure Automation DSC, System Center Configuration Manager 또는 Azure Resource Manager 템플릿(데이터 센터에 Microsoft Azure Stack을 배포한 경우)과 같은 자동화된 방법을 사용하거나 명령줄에서 에이전트를 설치할 수 있습니다. 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent).
+
+#### <a name="install-the-agent-on-a-linux-machine"></a>Linux 머신에 에이전트 설치
 
 Linux 컴퓨터에 에이전트를 설치하려면
 
@@ -69,6 +73,11 @@ Linux 컴퓨터에 에이전트를 설치하려면
 
 MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems)해 보세요.
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-scom"></a>SCOM에서 모니터링하는 머신에 에이전트 설치
+
+System Center Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵에 SCOM MMA를 이용하여 필요한 종속성 데이터를 수집하는 SCOM과 통합 기능이 있습니다. [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites)에서 지침에 따라 통합을 사용하도록 설정할 수 있습니다. 그러나 종속성 에이전트는 해당 머신에 설치해야 합니다.
+
+
 ### <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
 1. Windows 컴퓨터에 종속성 에이전트를 설치하려면 설치 파일을 두 x 누르고 마법사를 따릅니다.
 2. Linux 컴퓨터에 종속성 에이전트를 설치하려면 다음 명령을 사용하여 루트로 설치합니다.
@@ -78,6 +87,7 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://
 [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) 및 [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) 운영 체제에 대한 종속성 에이전트 지원에 대해 자세히 알아보세요.
 
 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples).
+
 
 ## <a name="create-a-group"></a>그룹 만들기
 
@@ -94,6 +104,10 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://
       ![컴퓨터 종속성 보기](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. 시간 범위 레이블의 시간 범위를 클릭하여 여러 시간 범위의 종속성을 살펴볼 수 있습니다. 범위는 기본적으로 1시간입니다. 시간 범위를 수정하거나 시작 및 종료 날짜와 기간을 지정할 수 있습니다.
+
+    > [!NOTE]
+      현재 종속성 시각화 UI에서는 1시간보다 긴 시간 범위를 선택할 수 없습니다. 더 긴 기간의 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics)하려면 Log Analytics를 사용합니다.
+
 5. 그룹화하려는 종속 컴퓨터를 식별한 후 Ctrl 키를 누른 상태로 맵에서 여러 컴퓨터를 클릭하여 선택하고 **컴퓨터 그룹화**를 클릭합니다.
 6. 그룹 이름을 지정합니다. Azure Migrate에서 종속 컴퓨터가 검색되는지 확인합니다.
 
@@ -104,6 +118,20 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://
 8. **확인**을 클릭하여 그룹을 저장합니다.
 
 그룹이 만들어지면 해당 그룹의 모든 컴퓨터에 에이전트를 설치하고 전체 그룹의 종속성을 시각화하여 그룹을 구체화하는 것이 좋습니다.
+
+## <a name="query-dependency-data-from-log-analytics"></a>Log Analytics에서 종속성 데이터 쿼리
+
+서비스 맵에서 캡처한 종속성 데이터는 Azure Migrate 프로젝트와 연결된 Log Analytics 작업 영역에서 쿼리하는 데 사용할 수 있습니다. Log Analytics에서 쿼리할 서비스 맵 데이터 테이블에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). 
+
+Log Analytics 쿼리를 실행하려면:
+
+1. 에이전트를 설치한 후 포털로 이동하고 **개요**를 클릭합니다.
+2. **개요**에서 프로젝트의 **필수** 섹션으로 이동하고 **OMS 작업 영역** 옆에 제공된 작업 영역 이름을 클릭합니다.
+3. Log Analytics 작업 영역 페이지에서 **일반** > **로그**를 클릭합니다.
+4. Log Analytics를 사용하여 종속성 데이터를 수집하는 쿼리를 작성합니다. 종속성 데이터를 수집하는 샘플 쿼리는 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)에서 사용할 수 있습니다.
+5. [실행]을 클릭하여 쿼리를 실행합니다. 
+
+Log Analytics 쿼리를 작성하는 방법을 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). 
 
 ## <a name="next-steps"></a>다음 단계
 

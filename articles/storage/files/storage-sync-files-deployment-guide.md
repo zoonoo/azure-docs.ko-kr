@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 1b3e33c47d4188ba273fb232e2e166a2c33cb1b1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: files
+ms.openlocfilehash: 23f1f4e8b6a3b71c3792a08645122779e4e629b2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463833"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465829"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -37,7 +37,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     > [!Note]  
     > Azure 파일 동기화는 Windows Server 2012 R2 또는 Windows Server 2016에서 PowerShell 6+를 아직 지원하지 않습니다.
 * Az 및 AzureRM PowerShell 모듈이 있어야 합니다.
-    - Az 모듈은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)의 지침에 따라 설치할 수 있습니다. 
+    - Az 모듈은 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-Az-ps)합니다. 
     - AzureRM PowerShell 모듈은 다음 PowerShell cmdlet을 실행하여 설치할 수 있습니다.
     
         ```PowerShell
@@ -417,3 +417,4 @@ DFS-R 배포를 Azure 파일 동기화로 마이그레이션하려면
 ## <a name="next-steps"></a>다음 단계
 - [Azure 파일 동기화 서버 엔드포인트 추가 또는 제거](storage-sync-files-server-endpoint.md)
 - [Azure 파일 동기화로 서버 등록 또는 등록 취소](storage-sync-files-server-registration.md)
+- [Azure 파일 동기화 모니터링](storage-sync-files-monitoring.md)

@@ -1,6 +1,6 @@
 ---
-제목: ‘문제 해결: Machine Learning Studio 작업 영역 만들기 및 연결' titleSuffix: Azure Machine Learning Studio 설명: 이 가이드에서는 Azure Machine Learning Studio 작업 영역을 설정할 때 자주 발생하는 몇 가지 문제에 대한 해결 방법을 제공합니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: ‘문제 해결: Machine Learning Studio 작업 영역 만들기 및 연결' titleSuffix: Azure Machine Learning Studio 설명: 이 가이드에서는 Azure Machine Learning Studio 작업 영역을 설정할 때 자주 발생하는 몇 가지 문제에 대한 해결 방법을 제공합니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---

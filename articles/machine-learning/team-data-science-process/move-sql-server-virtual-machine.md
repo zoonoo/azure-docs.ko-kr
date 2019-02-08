@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fbc23d53687b908245ffe25bdd418cbe64af080b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7c87a0f478b6efbe7ae9ff07def8b4d0d730b111
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136191"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478494"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Azure 가상 머신에서 SQL Server로 데이터 이동
 
@@ -64,20 +64,23 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
 
 1. 대상 SQL Server 데이터베이스에 데이터베이스 및 테이블이 생성되었는지 확인합니다. 다음은 `Create Database` 및 `Create Table` 명령을 사용하여 이 작업을 수행하는 예제입니다.
 
-        CREATE DATABASE <database_name>
+```sql
+CREATE DATABASE <database_name>
 
-        CREATE TABLE <tablename>
-        (
-            <columnname1> <datatype> <constraint>,
-            <columnname2> <datatype> <constraint>,
-            <columnname3> <datatype> <constraint>
-        )
+CREATE TABLE <tablename>
+(
+    <columnname1> <datatype> <constraint>,
+    <columnname2> <datatype> <constraint>,
+    <columnname3> <datatype> <constraint>
+)
+```
+
 2. bcp가 설치된 컴퓨터의 명령줄에서 다음 명령을 실행하여 테이블의 스키마를 설명하는 서식 파일을 생성합니다.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 3. 다음과 같이 bcp 명령을 사용하여 데이터베이스에 데이터를 삽입합니다. SQL Server가 같은 컴퓨터에 설치되었다면 이 명령이 명령줄에서 작동할 것입니다.
 
-    `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
+    `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
 > **BCP 삽입 최적화 삽입** 작업을 최적화하는 방법은 ['대량 가져오기를 최적화하기 위한 지침'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) 문서를 참조하세요.
 >
@@ -91,42 +94,43 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
 >
 >
 
-아래는 bcp를 사용한 병렬 삽입을 보여 주는 샘플 PowerShell 스크립트입니다.
+다음 샘플 PowerShell 스크립트는 bcp를 사용한 병렬 삽입을 보여 줍니다.
 
-    $NO_OF_PARALLEL_JOBS=2
+```powershell
+$NO_OF_PARALLEL_JOBS=2
 
-     Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
-     # Define what each job does
-       $ScriptBlock = {
-           param($partitionnumber)
+Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
+# Define what each job does
+$ScriptBlock = {
+    param($partitionnumber)
 
-           #Explictly using SQL username password
-           bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
+    #Explicitly using SQL username password
+    bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
 
-            #Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
-            #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
-      }
-
-
-    # Background processing of all partitions
-    for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
-    {
-      Write-Debug "Submit loading partition # $i"
-      Start-Job $ScriptBlock -Arg $i      
-    }
+    #Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
+    #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
+}
 
 
-    # Wait for it all to complete
-    While (Get-Job -State "Running")
-    {
-      Start-Sleep 10
-      Get-Job
-    }
+# Background processing of all partitions
+for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
+{
+    Write-Debug "Submit loading partition # $i"
+    Start-Job $ScriptBlock -Arg $i      
+}
 
-    # Getting the information back from the jobs
-    Get-Job | Receive-Job
-    Set-ExecutionPolicy Restricted #reset the execution policy
 
+# Wait for it all to complete
+While (Get-Job -State "Running")
+{
+    Start-Sleep 10
+    Get-Job
+}
+
+# Getting the information back from the jobs
+Get-Job | Receive-Job
+Set-ExecutionPolicy Restricted #reset the execution policy
+```
 
 ### <a name="insert-tables-bulkquery"></a>대량 삽입 SQL 쿼리
 [대량 삽입 SQL 쿼리](https://msdn.microsoft.com/library/ms188365)는 데이터를 행/열 기반 파일에서 데이터베이스로 가져오는 데 사용할 수 있습니다(지원되는 형식은 [대량 내보내기 또는 가져오기를 위한 데이터 준비(SQL Server)](https://msdn.microsoft.com/library/ms188609) 항목에서 설명).
@@ -135,18 +139,22 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
 
 1. SQL Server 데이터베이스에서 날짜 같은 특수 필드의 형식이 동일하도록 데이터를 분석하고 사용자 지정 옵션을 설정한 후 데이터를 가져옵니다. 다음은 날짜 형식을 년-월-일로 설정하는 방법의 예입니다(데이터에 년-월-일 형식의 날짜가 포함된 경우).
 
-        SET DATEFORMAT ymd;    
+```sql
+SET DATEFORMAT ymd;
+```
 2. bulk import 문을 사용하여 데이터 가져오기
 
-        BULK INSERT <tablename>
-        FROM    
-        '<datafilename>'
-        WITH
-        (
-        FirstRow=2,
-        FIELDTERMINATOR =',', --this should be column separator in your data
-        ROWTERMINATOR ='\n'   --this should be the row separator in your data
-        )
+```sql
+BULK INSERT <tablename>
+FROM
+'<datafilename>'
+WITH
+(
+    FirstRow = 2,
+    FIELDTERMINATOR = ',', --this should be column separator in your data
+    ROWTERMINATOR = '\n'   --this should be the row separator in your data
+)
+```
 
 ### <a name="sql-builtin-utilities"></a>SQL Server의 기본 제공 그래픽 유틸리티
 SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이터를 Azure 기반의 SQL Server VM으로 가져올 수 있습니다.
@@ -194,7 +202,7 @@ SSIS는 두 가지 스튜디오 환경에서 사용할 수 있습니다. 자세�
 ### <a name="sql-backup"></a>데이터베이스 백업 및 복원
 SQL Server는 다음을 지원합니다.
 
-1. [데이터베이스 백업 및 복원 기능](https://msdn.microsoft.com/library/ms187048.aspx)(로컬 파일 백업 또는 blob로 bacpac 내보내기 모두 지원) 및 [데이터 계층 응용 프로그램](https://msdn.microsoft.com/library/ee210546.aspx)(bacpac 사용).
+1. [데이터베이스 백업 및 복원 기능](https://msdn.microsoft.com/library/ms187048.aspx)(로컬 파일 백업 또는 blob로 bacpac 내보내기 모두 지원) 및 [데이터 계층 애플리케이션](https://msdn.microsoft.com/library/ee210546.aspx)(bacpac 사용).
 2. 복사된 데이터베이스를 사용하여 또는 기존 SQL Azure 데이터베이스에 복사하여 Azure에서 직접 SQL Server VM을 만드는 기능. 자세한 내용은 [데이터베이스 복사 마법사 사용](https://msdn.microsoft.com/library/ms188664.aspx)을 참조하세요.
 
 아래는 SQL Server Management Studio의 데이터베이스 백업/복원 옵션 스크린샷입니다.

@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/08/2018
-ms.openlocfilehash: eb788c07ed9424ae6d5beed5be11c71a11c62265
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 01/14/2019
+ms.openlocfilehash: 04bb32abf7100975d72e5782b79b44006f1ac965
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304281"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567930"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 SQL 데이터 동기화 설정
 
@@ -71,17 +71,17 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
 ### <a name="to-add-an-azure-sql-database"></a>Azure SQL Database를 추가하려면
 
-**구성원 데이터베이스** 섹션에서 필요에 따라 **Azure 데이터베이스 추가**를 선택하여 Azure SQL Database를 동기화 그룹에 추가합니다. **Azure Database 구성** 페이지가 열립니다.
+**구성원 데이터베이스** 섹션에서 필요에 따라 **Azure SQL Database 추가**를 선택하여 Azure SQL Database를 동기화 그룹에 추가합니다. **Azure SQL Database 구성** 페이지가 열립니다.
 
   ![2단계 - 데이터베이스 구성](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  **Azure Database 구성** 페이지에서 다음 설정을 변경합니다.
+  **Azure SQL Database 구성** 페이지에서 다음 설정을 변경합니다.
 
   | 설정                       | 설명 |
   | ----------------------------- | ------------------------------------------------- |
   | **동기화 구성원 이름** | 새 동기화 구성원의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과는 달라야 합니다. |
   | **구독** | 대금 청구용으로 연결된 Azure 구독을 선택합니다. |
-  | **Azure SQL 서버** | 기존 SQL 데이터베이스 서버를 선택합니다. |
+  | **Azure SQL 서버** | 기존 SQL Database 서버를 선택합니다. |
   | **Azure SQL Database** | 기존 SQL 데이터베이스를 선택합니다. |
   | **동기화 방향** | **양방향 동기화**, **허브 수신** 또는 **허브 발신**을 선택합니다. |
   | **사용자 이름** 및 **암호** | 구성원 데이터베이스가 있는 SQL Database 서버용 기존 자격 증명을 입력합니다. 이 섹션에서 *새* 자격 증명을 입력하지 않습니다. |

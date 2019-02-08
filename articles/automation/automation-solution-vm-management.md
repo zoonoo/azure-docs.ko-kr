@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/04/2018
+ms.date: 1/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5cacd2d0e4308e15b562169f72efb0f98ce45289
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846186"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476399"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -34,7 +34,7 @@ ms.locfileid: "54846186"
 > [!NOTE]
 > 클래식 VM용 솔루션을 사용하는 경우 모든 VM이 클라우드 서비스마다 순차적으로 처리됩니다. 가상 머신은 다른 클라우드 서비스에서 여전히 병렬로 처리됩니다.
 >
-> Azure CSP(Cloud Solution Provider) 구독은 Azure Resource Manager 모델만 지원하므로 Azure Resource Manager 이외의 서비스는 프로그램에서 사용할 수 없습니다. 시작/중지 솔루션을 실행하면 클래식 리소스를 관리하기 위한 cmdlet에 발생하는 오류가 발생할 수 있습니다. CSP에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)를 참조하세요.
+> Azure CSP(Cloud Solution Provider) 구독은 Azure Resource Manager 모델만 지원하므로 Azure Resource Manager 이외의 서비스는 프로그램에서 사용할 수 없습니다. 시작/중지 솔루션을 실행하면 클래식 리소스를 관리하기 위한 cmdlet에 발생하는 오류가 발생할 수 있습니다. CSP에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)를 참조하세요. CSP 구독을 사용하는 경우 배포 후에 [**External_EnableClassicVMs**](#variables) 변수를 **False**로 수정해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -62,7 +62,7 @@ ms.locfileid: "54846186"
    - 새 **Log Analytics 작업 영역**의 이름(예: “ContosoLAWorkspace”)을 지정합니다.
    - 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
    - **리소스 그룹**의 경우, 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택할 수 있습니다.
-   - **위치**를 선택합니다. 현재 사용할 수 있는 지역은 **오스트레일리아 남동부**, **캐나다 중부**, **인도 중부**, **미국 동부**, **일본 동부**, **동남 아시아**, **영국 남부** 및 **유럽 서부**입니다.
+   - **위치**를 선택합니다. 현재 사용할 수 있는 지역은 **오스트레일리아 남동부**, **캐나다 중부**, **인도 중부**, **미국 동부**, **일본 동부**, **동남 아시아**, **영국 남부**, **유럽 서부** 및 **미국 서부 2**입니다.
    - **가격 책정 계층**을 선택합니다. **GB당(독립 실행형)** 옵션을 선택합니다. Log Analytics에서 [가격 책정](https://azure.microsoft.com/pricing/details/log-analytics/)이 업데이트되어 GB당 계층이 유일한 옵션입니다.
 
 5. **Log Analytics 작업 영역** 페이지에서 필수 정보를 입력한 후 **만들기**를 클릭합니다. 메뉴의 **알림**에서 진행률을 추적할 수 있습니다. 완료한 후에는 **솔루션 추가** 페이지로 돌아갑니다.
@@ -90,6 +90,9 @@ ms.locfileid: "54846186"
 
 8. 솔루션에 필요한 초기 설정을 구성한 후에 **확인**을 클릭하여 **매개 변수** 페이지를 닫고 **만들기**를 선택합니다. 모든 설정이 확인되면 솔루션이 구독에 배포됩니다. 이 프로세스는 완료하는 데 수 초가 소요되며 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다.
 
+> [!NOTE]
+> Azure CSP(Azure 클라우드 솔루션 공급자) 구독이 있는 경우 배포가 완료된 후에 Automation 계정에서 **공유 리소스** 아래 **변수**로 이동하여 [**External_EnableClassicVMs**](#variables) 변수를 **False**로 설정합니다. 이렇게 하면 솔루션이 클래식 VM 리소스를 검색하지 않습니다.
+
 ## <a name="scenarios"></a>시나리오
 
 솔루션에는 세 가지 고유한 시나리오가 포함되어 있습니다. 이러한 시나리오는 다음과 같습니다.
@@ -108,8 +111,8 @@ ms.locfileid: "54846186"
 #### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>구독 및 리소스 그룹에 대한 시작 및 중지 작업의 대상 지정
 
 1. 대상 VM을 지정하도록 **External_Stop_ResourceGroupNames** 및 **External_ExcludeVMNames** 변수를 구성합니다.
-1. **Scheduled-StartVM** 및 **Scheduled-StopVM** 일정을 설정하고 업데이트합니다.
-1. ACTION 매개 변수를 **start**로 설정하고 WHATIF 매개 변수를 **True**로 설정하여 **ScheduledStartStop_Parent** Runbook을 실행하면 변경 내용을 미리 볼 수 있습니다.
+2. **Scheduled-StartVM** 및 **Scheduled-StopVM** 일정을 설정하고 업데이트합니다.
+3. ACTION 매개 변수를 **start**로 설정하고 WHATIF 매개 변수를 **True**로 설정하여 **ScheduledStartStop_Parent** Runbook을 실행하면 변경 내용을 미리 볼 수 있습니다.
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
@@ -205,6 +208,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 |External_AutoStop_Threshold | _External_AutoStop_MetricName_ 변수에 지정된 Azure 경고 규칙에 대한 임계값입니다. 백분율 값의 범위는 1에서 100까지입니다.|
 |External_AutoStop_TimeAggregationOperator | 조건을 평가하기 위해 선택한 기간 크기에 적용되는 시간 집계 연산자입니다. 사용 가능한 값은 **Average**, **Minimum**, **Maximum**, **Total** 및 **Last**입니다.|
 |External_AutoStop_TimeWindow | Azure에서 경고를 트리거하기 위해 선택된 메트릭을 분석하는 기간입니다. 이 매개 변수는 시간 간격 형식의 입력을 허용합니다. 가능한 값은 5분에서 6시간 사이입니다.|
+|External_EnableClassicVMs| 솔루션이 클래식 VM을 대상으로 하는지 여부를 지정합니다. 기본값은 True입니다. CSP 구독의 경우 False로 설정해야 합니다.|
 |External_ExcludeVMNames | 공백 없이 쉼표로 이름을 구분하여 제외할 VM 이름을 입력합니다.|
 |External_Start_ResourceGroupNames | 시작 작업의 대상이 될 하나 이상의 리소스 그룹을 쉼표로 구분해서 지정합니다.|
 |External_Stop_ResourceGroupNames | 중지 작업의 대상이 될 하나 이상의 리소스 그룹을 쉼표로 구분해서 지정합니다.|

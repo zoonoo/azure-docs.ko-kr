@@ -3,7 +3,7 @@ title: Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 
 description: Azure PowerShell을 사용하여 Azure 관리 디스크를 표준에서 프리미엄으로, 또 그 반대로 변환하는 방법
 services: virtual-machines-windows
 documentationcenter: ''
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
-ms.component: disks
-ms.openlocfilehash: 4f9e3468cc8ec94eeb3ba936b828e9adfd9a3e6d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: 4c13708ad785a2291da3db61d739f604a2c3bb88
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478521"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475893"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>관리 디스크의 저장소 형식 업데이트
 

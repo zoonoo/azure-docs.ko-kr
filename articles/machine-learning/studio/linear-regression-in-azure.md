@@ -1,5 +1,5 @@
 ---
-제목: Excel에서 Azure Machine Learning Studio로 분석 마이그레이션 titleSuffix: Azure Machine Learning Studio 설명: Excel 및 Azure Machine Learning Studio에서 선형 회귀 모델 비교 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Excel에서 Azure Machine Learning Studio로 분석 마이그레이션 titleSuffix: Azure Machine Learning Studio 설명: Excel 및 Azure Machine Learning Studio에서 선형 회귀 모델 비교 services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---

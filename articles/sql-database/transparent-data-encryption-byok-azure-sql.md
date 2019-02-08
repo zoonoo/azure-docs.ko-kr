@@ -11,17 +11,17 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 60c7483e698a07fcf86438798f6bb5013a7417ce
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 474e8d708a335b27899e818dcdba1fb469ad94a6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391150"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469246"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL 투명한 데이터 암호화: Bring Your Own Key 지원
 
-[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)에 대한 BYOK(Bring Your Own Key) 지원을 사용하면 TDE 보호기라는 비대칭 키를 사용하여 DEK(데이터베이스 암호화 키)를 암호화할 수 있습니다.  TDE 보호기는 사용자의 제어 하에 Azure의 클라우드 기반 외부 키 관리 시스템인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)에 저장됩니다. Azure Key Vault는 TDE에서 BYOK 지원을 통합한 최초의 키 관리 서비스입니다. 데이터베이스의 부팅 페이지에 저장된 TDE DEK는 TDE 보호기에서 암호화되고 해독됩니다. TDE 보호기는 Azure Key Vault에 저장되며 키 자격 증명 모음을 벗어나지 않습니다. 서버의 키 자격 증명 모음에 대한 액세스가 철회되면 데이터베이스를 해독하여 메모리로 읽을 수 없습니다. Azure SQL Database의 경우 TDE 보호기는 논리 서버 수준에서 설정되며 해당 서버와 연결된 모든 데이터베이스에서 상속됩니다. Azure SQL Managed Instance의 경우, TDE 보호기는 인스턴스 수준에서 설정되며 해당 인스턴스의 모든 *암호화된* 데이터베이스에 의해 상속됩니다. *서버*라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
+[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)에 대한 BYOK(Bring Your Own Key) 지원을 사용하면 TDE 보호기라는 비대칭 키를 사용하여 DEK(데이터베이스 암호화 키)를 암호화할 수 있습니다.  TDE 보호기는 사용자의 제어 하에 Azure의 클라우드 기반 외부 키 관리 시스템인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)에 저장됩니다. Azure Key Vault는 TDE에서 BYOK 지원을 통합한 최초의 키 관리 서비스입니다. 데이터베이스의 부팅 페이지에 저장된 TDE DEK는 TDE 보호기에서 암호화되고 해독됩니다. TDE 보호기는 Azure Key Vault에 저장되며 키 자격 증명 모음을 벗어나지 않습니다. 서버의 키 자격 증명 모음에 대한 액세스가 철회되면 데이터베이스를 해독하여 메모리로 읽을 수 없습니다. Azure SQL Database의 경우 TDE 보호기는 SQL Database 서버 수준에서 설정되며 해당 서버와 연결된 모든 데이터베이스에서 상속됩니다. Azure SQL Managed Instance의 경우, TDE 보호기는 인스턴스 수준에서 설정되며 해당 인스턴스의 모든 *암호화된* 데이터베이스에 의해 상속됩니다. *서버*라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
 
 BYOK 지원을 사용하면 사용자는 키 회전, 키 자격 증명 모음 권한, 키 삭제를 포함한 키 관리 작업을 제어하고, Azure Key Vault 기능을 사용하여 모든 TDE 보호기에 대한 감사/보고를 사용하도록 설정할 수 있습니다. Key Vault는 중앙 집중식 키 관리를 제공하고 긴밀하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하며, 키와 데이터 관리 간의 역할 분리를 촉진하여 규정을 준수할 수 있도록 합니다.  
 
@@ -51,7 +51,7 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
 
 - Azure Key Vault와 Azure SQL Database/Managed Instance는 동일한 테넌트에 있어야 합니다.  테넌트 간 키 자격 증명 모음 및 서버 상호 작용은 **지원되지 않습니다**.
 - 필요한 리소스에 사용할 구독을 결정합니다. 나중에 구독 간에 서버를 이동하려면 BYOK 기반 TDE를 새로 설정해야 합니다. [리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)에 대해 자세히 알아보세요.
-- BYOK 기반 TDE를 구성하는 경우 반복되는 래핑/래핑 해제 작업을 통해 자격 증명 모음에 배치되는 로드를 고려해야 합니다. 예를 들어 논리 서버와 연결된 모든 데이터베이스에서 동일한 TDE 보호기를 사용하므로 해당 서버의 장애 조치는 서버에 있는 데이터베이스만큼 자격 증명 모음에 대한 많은 키 작업을 트리거합니다. 경험과 문서화된 [키 자격 증명 모음 서비스 제한](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)을 기반으로 하여 단일 구독에서 최대 500개의 표준/범용 또는 200개의 프리미엄/중요 비즈니스용 데이터베이스를 하나의 Azure Key Vault에 연결하여 자격 증명 모음의 TDE 보호기에 액세스할 때 고가용성을 일관되게 보장하는 것이 좋습니다.
+- BYOK 기반 TDE를 구성하는 경우 반복되는 래핑/래핑 해제 작업을 통해 자격 증명 모음에 배치되는 로드를 고려해야 합니다. 예를 들어 SQL Database 서버와 연결된 모든 데이터베이스에서 동일한 TDE 보호기를 사용하므로 해당 서버의 장애 조치(failover)는 서버에 있는 데이터베이스만큼 자격 증명 모음에 대한 키 작업을 트리거합니다. 경험과 문서화된 [키 자격 증명 모음 서비스 제한](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)을 기반으로 하여 단일 구독에서 최대 500개의 표준/범용 또는 200개의 프리미엄/중요 비즈니스용 데이터베이스를 하나의 Azure Key Vault에 연결하여 자격 증명 모음의 TDE 보호기에 액세스할 때 고가용성을 일관되게 보장하는 것이 좋습니다.
 - 권장: 온-프레미스에 TDE 보호기 복사본을 유지합니다.  이렇게 하려면 HSM 디바이스에서 TDE 보호기를 로컬로 만들고, 키 에스크로 시스템에서 TDE 보호기의 로컬 복사본을 저장해야 합니다.  [로컬 HSM에서 Azure Key Vault로 키를 전송하는 방법](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)을 알아봅니다.
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Azure Key Vault 구성 지침
@@ -61,7 +61,7 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
   - **복구** 및 **제거** 작업은 Key Vault 액세스 정책에 연결된 자체 권한이 있습니다.
 - 이 중요한 리소스를 삭제할 수 있는 사용자를 제어하고 실수 또는 무단으로 삭제하지 못하도록 방지하기 위해 키 자격 증명 모음에 리소스 잠금을 설정합니다.  [리소스 잠금에 대한 자세한 정보](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
 
-- Azure AD(Azure Active Directory) ID를 사용하여 키 자격 증명 모음에 대한 액세스 권한을 논리 서버에 부여합니다.  포털 UI를 사용하면 Azure AD ID가 자동으로 만들어지고 키 자격 증명 모음 액세스 권한이 서버에 부여됩니다.  PowerShell을 사용하여 BYOK 기반 TDE를 구성하면 Azure AD ID가 만들어져야 하고 완료가 확인되어야 합니다. PowerShell을 사용하는 경우 자세한 단계별 지침은 [BYOK 기반 TDE 구성](transparent-data-encryption-byok-azure-sql-configure.md) 및 [Managed Instance에 대해 BYOK 기반 TDE 구성](http://aka.ms/sqlmibyoktdepowershell)을 참조하세요.
+- Azure AD(Azure Active Directory) ID를 사용하여 키 자격 증명 모음에 대한 액세스 권한을 SQL Database 서버에 부여합니다.  포털 UI를 사용하면 Azure AD ID가 자동으로 만들어지고 키 자격 증명 모음 액세스 권한이 서버에 부여됩니다.  PowerShell을 사용하여 BYOK 기반 TDE를 구성하면 Azure AD ID가 만들어져야 하고 완료가 확인되어야 합니다. PowerShell을 사용하는 경우 자세한 단계별 지침은 [BYOK 기반 TDE 구성](transparent-data-encryption-byok-azure-sql-configure.md) 및 [Managed Instance에 대해 BYOK 기반 TDE 구성](http://aka.ms/sqlmibyoktdepowershell)을 참조하세요.
 
   > [!NOTE]
   > Azure AD Identity가 **실수로 삭제되거나 키 자격 증명 모음의 액세스 정책을 사용하여 서버의 권한이 철회**되는 경우, 서버의 키 자격 증명 모음에 대한 액세스 권한이 손실되고 TDE로 암호화된 데이터베이스가 24시간 내에 삭제됩니다.
@@ -72,7 +72,7 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
  > TDE 암호화된 SQL 데이터베이스가 방화벽을 바이패스하지 못하기 때문에 Key Vault에 액세스하지 못할 경우 데이터베이스는 24시간 내에 삭제됩니다.
 
 - 모든 암호화 키에 대한 감사 및 보고 사용: Key Vault는 다른 SIEM(보안 정보 및 이벤트 관리) 도구에 쉽게 삽입되는 로그를 제공합니다. OMS(Operations Management Suite) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)는 이미 통합된 서비스의 한 예입니다.
-- 암호화된 데이터베이스의 고가용성을 보장하려면 서로 다른 지역에 있는 두 개의 Azure Key Vault로 각 논리 서버를 구성합니다.
+- 암호화된 데이터베이스의 고가용성을 보장하려면 서로 다른 지역에 있는 두 개의 Azure Key Vault로 각 SQL Database 서버를 구성합니다.
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>TDE 보호기(비대칭 키) 구성을 위한 지침
 
@@ -96,9 +96,9 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
 
 ### <a name="high-availability-and-disaster-recovery"></a>고가용성 및 재해 복구
 
-Azure Key Vault를 사용하여 고가용성을 구성하는 방법은 데이터베이스와 논리 서버의 구성에 따라 다르며, 다음 두 가지 경우에 권장되는 구성입니다.  첫 번째 경우는 지리적 중복이 구성되지 않은 독립 실행형 데이터베이스 또는 논리 서버입니다.  두 번째 경우는 장애 조치 그룹 또는 지리적 중복으로 구성된 데이터베이스 또는 논리 서버이며, 각 지리적 중복 복사본에는 지역 장애 조치 작업을 보장하기 위해 장애 조치 그룹 내에 로컬 Azure Key Vault가 있어야 합니다.
+Azure Key Vault를 사용하여 고가용성을 구성하는 방법은 데이터베이스와 SQL Database 서버의 구성에 따라 다르며, 다음 두 가지 경우에 권장되는 구성입니다.  첫 번째 경우는 지리적 중복이 구성되지 않은 독립 실행형 데이터베이스 또는 SQL Database 서버입니다.  두 번째 경우는 장애 조치(failover) 그룹 또는 지리적 중복으로 구성된 데이터베이스 또는 SQL Database 서버이며, 각 지리적 중복 복사본에는 지역 장애 조치(failover) 작업을 보장하기 위해 장애 조치(failover) 그룹 내에 로컬 Azure Key Vault가 있어야 합니다.
 
-첫 번째 경우에서 지리적 중복이 구성되지 않은 데이터베이스와 논리 서버의 고가용성이 필요한 경우 동일한 키 자료를 사용하여 서로 두 지역에서 서로 다른 두 개의 키 자격 증명 모음을 사용하도록 서버를 구성하는 것이 좋습니다. 이 작업은 논리 서버와 동일한 지역에 공동 배치된 기본 Key Vault를 통해 TDE 보호기를 만들고 다른 Azure 지역의 키 자격 증명 모음에 키를 복제하여, 데이터베이스가 가동되어 실행되는 동안 기본 키 자격 증명 모음이 중단되면 서버에서 두 번째 키 자격 증명 모음에 액세스할 수 있도록 함으로써 수행할 수 있습니다. Backup-AzureKeyVaultKey cmdlet을 사용하여 기본 키 자격 증명 모음에서 암호화된 형식의 키를 검색한 다음, Restore-AzureKeyVaultKey cmdlet을 사용하여 두 번째 지역의 키 자격 증명 모음을 지정합니다.
+첫 번째 경우에서 지리적 중복이 구성되지 않은 데이터베이스와 SQL Database 서버의 고가용성이 필요한 경우 동일한 키 자료를 사용하여 서로 두 지역에서 서로 다른 두 개의 키 자격 증명 모음을 사용하도록 서버를 구성하는 것이 좋습니다. 이 작업은 SQL Database 서버와 동일한 지역에 공동 배치된 기본 Key Vault를 통해 TDE 보호기를 만들고 다른 Azure 지역의 키 자격 증명 모음에 키를 복제하여, 데이터베이스가 가동되어 실행되는 동안 기본 키 자격 증명 모음이 중단되면 서버에서 두 번째 키 자격 증명 모음에 액세스할 수 있도록 함으로써 수행할 수 있습니다. Backup-AzureKeyVaultKey cmdlet을 사용하여 기본 키 자격 증명 모음에서 암호화된 형식의 키를 검색한 다음, Restore-AzureKeyVaultKey cmdlet을 사용하여 두 번째 지역의 키 자격 증명 모음을 지정합니다.
 
 ![단일 서버 HA 및 Geo-DR 없음](./media/transparent-data-encryption-byok-azure-sql/SingleServer_HA_Config.PNG)
 
@@ -131,13 +131,13 @@ Azure Key Vault를 사용하여 고가용성을 구성하는 방법은 데이터
 
 **새 배포 단계**:
 
-- 이전에 만든 키 자격 증명 모음과 동일한 두 지역에 두 개의 논리 SQL 서버를 만듭니다.
-- 논리 서버 TDE 창을 선택하고, 각 논리 SQL 서버에 대해 다음을 수행합니다.  
+- 이전에 만든 키 자격 증명 모음과 동일한 두 지역에 두 개의 SQL Database 서버를 만듭니다.
+- SQL Database 서버 TDE 창을 선택하고, 각 SQL Database 서버에 대해 다음을 수행합니다.  
   - 동일한 지역에서 AKV를 선택합니다
   - TDE 보호기로 사용할 키를 선택합니다. 각 서버는 TDE 보호기의 로컬 복사본을 사용합니다.
-  - 포털에서 이 작업을 수행하면 논리 SQL 서버에 대한 [AppID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)가 만들어집니다. 이 ID는 키 자격 증명 모음에 액세스할 수 있는 논리 SQL Server 권한을 할당하는 데 사용되므로 삭제하지 마세요. 액세스 권한은 논리 SQL 서버 대신 Azure Key Vault에서 제거하여 철회할 수 있습니다. 이 권한은 키 자격 증명 모음에 액세스할 수 있는 논리 SQL Server 권한을 할당하는 데 사용됩니다.
+  - 포털에서 이 작업을 수행하면 SQL Database 서버에 대한 [AppID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)가 만들어집니다. 이 ID는 키 자격 증명 모음에 액세스할 수 있는 SQL Database 서버 권한을 할당하는 데 사용되므로 삭제하지 마세요. 액세스 권한은 SQL Database 서버 대신 Azure Key Vault에서 제거하여 철회할 수 있습니다. 이 권한은 키 자격 증명 모음에 액세스할 수 있는 SQL Database 서버 권한을 할당하는 데 사용됩니다.
 - 주 데이터베이스를 만듭니다.
-- [활성 지역 복제 지침](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)에 따라 시나리오를 완료합니다. 이 단계에서는 보조 데이터베이스가 만들어집니다.
+- [활성 지역 복제 지침](sql-database-geo-replication-overview.md)에 따라 시나리오를 완료합니다. 이 단계에서는 보조 데이터베이스가 만들어집니다.
 
 ![장애 조치 그룹 및 Geo-DR](./media/transparent-data-encryption-byok-azure-sql/Geo_DR_Config.PNG)
 
@@ -146,12 +146,12 @@ Azure Key Vault를 사용하여 고가용성을 구성하는 방법은 데이터
 
 **Geo-DR 배포가 있는 기존 SQL DB에 대한 단계**:
 
-논리 SQL 서버가 이미 있고 주 및 보조 데이터베이스가 이미 할당되어 있으므로 Azure Key Vault를 구성하는 단계는 다음 순서로 수행해야 합니다.
+SQL Database 서버가 이미 있고 주 및 보조 데이터베이스가 이미 할당되어 있으므로 Azure Key Vault를 구성하는 단계는 다음 순서로 수행해야 합니다.
 
-- 보조 데이터베이스를 호스팅하는 논리 SQL Server에서 시작합니다.
+- 보조 데이터베이스를 호스트하는 SQL Database 서버에서 시작합니다.
   - 동일한 지역에 있는 키 자격 증명 모음 할당
   - TDE 보호기 할당
-- 이제 주 데이터베이스를 호스팅하는 논리 SQL Server로 이동합니다.
+- 이제 주 데이터베이스를 호스트하는 SQL Database 서버로 이동합니다.
   - 보조 DB에 사용된 것과 동일한 TDE 보호기를 선택합니다.
 
 ![장애 조치 그룹 및 Geo-DR](./media/transparent-data-encryption-byok-azure-sql/geo_DR_ex_config.PNG)
@@ -161,7 +161,7 @@ Azure Key Vault를 사용하여 고가용성을 구성하는 방법은 데이터
 
 Azure Key Vault에서 SQL Database Geo-DR 시나리오를 위해 고객 관리 키를 사용하여 TDE를 활성화하기 전에 SQL Database 지역 복제에 사용될 동일한 지역에 동일한 콘텐츠가 있는 두 개의 Azure Key Vault를 만들고 유지 관리해야 합니다.  "동일한 콘텐츠"는 특히 두 서버가 모든 데이터베이스에서 사용하는 TDE 보호기에 액세스할 수 있도록 두 개의 키 자격 증명 모음에 동일한 TDE 보호기 복사본이 있어야 한다는 것을 의미합니다.  더 나아가서, 두 개의 키 자격 증명 모음을 동기화 상태로 유지해야 합니다. 즉 키 회전 후 TDE 보호기의 동일한 복사본을 포함하고, 로그 파일 또는 백업에 사용된 이전 버전의 키를 유지해야 합니다. TDE 보호기는 동일한 키 속성을 유지해야 하며, 키 자격 증명 모음은 SQL에 대해 동일한 액세스 권한을 유지해야 합니다.  
 
-[활성 지역 복제 개요](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)의 단계에 따라 장애 조치를 테스트하고 트리거합니다. 이 작업은 정기적으로 수행되어 두 개의 키 자격 증명 모음 모두에 대한 SQL 액세스 권한을 유지하고 있는지 확인해야 합니다.
+[활성 지역 복제 개요](sql-database-geo-replication-overview.md)의 단계에 따라 장애 조치를 테스트하고 트리거합니다. 이 작업은 정기적으로 수행되어 두 개의 키 자격 증명 모음 모두에 대한 SQL 액세스 권한을 유지하고 있는지 확인해야 합니다.
 
 ### <a name="backup-and-restore"></a>Backup 및 복원
 
@@ -179,6 +179,6 @@ Get-AzureRmSqlServerKeyVaultKey `
   -ResourceGroup <SQLDatabaseResourceGroupName>
 ```
 
-SQL Database 백업 복구에 대한 자세한 내용은 [Azure SQL Database 복구](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups)를 참조하세요. SQL Data Warehouse 백업 복구에 대한 자세한 내용은 [Azure SQL Data Warehouse 복구](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-overview)를 참조하세요.
+SQL Database 백업 복구에 대한 자세한 내용은 [Azure SQL Database 복구](sql-database-recovery-using-backups.md)를 참조하세요. SQL Data Warehouse 백업 복구에 대한 자세한 내용은 [Azure SQL Data Warehouse 복구](../sql-data-warehouse/backup-and-restore.md)를 참조하세요.
 
 백업된 로그 파일에 대한 추가 고려 사항: TDE 보호기가 회전되었고 데이터베이스에서 현재 새 TDE 보호기를 사용하고 있는 경우에도 백업된 로그 파일은 원래 TDE 암호기로 암호화된 상태로 유지됩니다.  복원할 때 데이터베이스를 복원하려면 두 키가 모두 필요합니다.  로그 파일에서 이 Azure Key Vault에 저장된 TDE 보호기를 사용하는 동안 데이터베이스에서 서비스 관리 TDE를 사용하도록 변경한 경우에도 복원할 때 이 키가 필요합니다.

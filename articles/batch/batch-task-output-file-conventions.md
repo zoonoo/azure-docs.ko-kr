@@ -3,7 +3,7 @@ title: .NET용 파일 규칙 라이브러리를 사용하여 Azure Storage에 �
 description: .NET용 Azure Batch 파일 규칙 라이브러리를 사용하여 Batch 태스크 및 작업 출력을 Azure Storage에 유지하는 방법을 알아보고 Azure Portal에서 유지된 출력을 확인합니다.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706605"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472986"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지
 
@@ -115,7 +115,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 이러한 출력 형식을 사용하면 나중에 지정된 태스크의 보관된 출력에 대해 Batch를 쿼리할 때 나열한 출력 형식을 지정할 수 있습니다. 즉, 태스크에 대한 출력을 나열할 때 출력 형식 중 하나로 목록을 필터링할 수 있습니다. 예를 들어 "Give me the *preview* output for task *109*"와 같이 지정할 수 있습니다. 출력 나열 및 검색에 대한 보다 자세한 내용은 이 문서의 뒷부분에 있는 [출력 검색](#retrieve-output) 에서 확인할 수 있습니다.
 
 > [!TIP]
-> 출력 종류는 Azure Portal에서 특정 파일이 표시되는 위치도 결정합니다. 즉, *TaskOutput* 범주의 파일은 **태스크 출력 파일** 아래에 표시되고, *TaskLog* 파일은 **태스크 로그** 아래에 표시됩니다.
+> 출력 종류는 Azure Portal에서 특정 파일이 표시되는 위치도 결정합니다. 즉, *TaskOutput* 범주의 파일은 **작업 출력 파일** 아래에 표시되고, *TaskLog* 파일은 **작업 로그** 아래에 표시됩니다.
 
 ### <a name="store-job-outputs"></a>작업 출력 저장
 
@@ -211,7 +211,7 @@ Azure Portal에서 태스크 출력 파일과 로그를 보려면 관심 있는 
 1. **Visual Studio 2017**에서 프로젝트를 엽니다.
 2. Microsoft.Azure.Batch.Samples.Common 프로젝트에서 Batch 및 Storage **계정 자격 증명**을 **AccountSettings.settings**에 추가합니다.
 3. **빌드** 합니다(하지만 실행하지 않음). 메시지가 표시되면 모든 NuGet 패키지를 복원합니다.
-4. Azure Portal을 사용하여 [PersistOutputsTask](batch-application-packages.md) 에 대한 **애플리케이션 패키지**를 업로드합니다. `PersistOutputsTask.exe` 및 종속 어셈블리를 .zip 패키지에 포함하고, 응용 프로그램 ID를 "PersistOutputsTask"로, 응용 프로그램 패키지 버전을 "1.0"으로 설정합니다.
+4. Azure 포털을 사용하여 [PersistOutputsTask](batch-application-packages.md) 에 대한 **애플리케이션 패키지**를 업로드합니다. `PersistOutputsTask.exe` 및 종속 어셈블리를 .zip 패키지에 포함하고, 애플리케이션 ID를 "PersistOutputsTask"로, 애플리케이션 패키지 버전을 "1.0"으로 설정합니다.
 5. **PersistOutputs** 프로젝트를 **시작**(실행)합니다.
 6. 샘플을 실행하는 데 사용할 지속성 기술을 선택하라는 메시지가 표시될 때 파일 규칙 라이브러리를 통해 샘플을 실행하여 태스크 출력을 유지하려면 **1**을 입력합니다. 
 

@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: a0b7d3f059001aec28dd52c9666ea7b5af3c6f95
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b13becf8530f478a5e58b46a1b422593051c95cf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603797"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478171"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database에서 자동 조정
 
@@ -65,6 +65,7 @@ Azure SQL Database 자동 조정은 핵심 논리를 SQL Server 자동 조정 �
 ## <a name="automatic-tuning-options"></a>자동 조정 옵션
 
 Azure SQL Database에서 사용 가능한 자동 조정 옵션은 다음과 같습니다.
+
  1. **CREATE INDEX** - 워크로드의 성능을 향상시킬 수 있는 인덱스를 식별하고, 인덱스를 만들며, 쿼리의 성능이 향상되었는지 자동으로 확인합니다.
  2. **DROP INDEX** - 고유 인덱스를 제외한 중복 및 복제 인덱스를 매일 파악하고 장기간(90일 이상) 사용되지 않은 인덱스를 파악합니다. 현재 이 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다.
  3. **FORCE LAST GOOD PLAN** - 이전의 적절한 계획보다 느린 실행 계획을 사용하는 SQL 쿼리 및 회귀된 계획 대신 마지막으로 알려진 적절한 계획을 사용하는 쿼리를 식별합니다.
@@ -73,7 +74,7 @@ Azure SQL Database에서 사용 가능한 자동 조정 옵션은 다음과 같�
 
 포털을 사용하여 조정 권장 사항을 수동으로 적용하거나 자동 조정을 통해 조정 권장 사항이 자율적으로 적용되도록 할 수 있습니다. 시스템에서 조정 권장 사항이 자율적으로 적용되도록 하는 경우 좋은 점은 워크로드 성능에 긍정적인 이득이 있는지 자동으로 확인하고, 뛰어난 성능 향상이 감지되지 않는 경우에는 조정 권장 사항을 자동으로 되돌립니다. 자주 실행되지 않는 조정 권장 사항의 영향을 받는 쿼리에 대한 유효성 검사 단계는 최대 72시간이 소요될 수 있습니다. 조정 권장 사항을 수동으로 적용하는 경우에는 자동 성능 검증 및 반전 메커니즘을 사용할 수 없습니다.
 
-자동 조정 옵션은 데이터베이스 별로 별도로 설정 또는 해제하거나 논리 서버에서 구성하고 서버에서 설정을 상속하는 모든 데이터베이스에서 적용할 수 있습니다. 논리 서버는 자동 조정 설정에 대한 Azure 기본값을 상속할 수 있습니다. 현재 Azure에서는 기본적으로 FORCE_LAST_GOOD_PLAN 및 CREATE_INDEX는 사용하고 DROP_INDEX는 사용하지 않도록 설정됩니다.
+자동 조정 옵션은 데이터베이스당 별도로 설정 또는 해제하거나 SQL Database 서버에서 구성하고 서버에서 설정을 상속하는 모든 데이터베이스에서 적용할 수 있습니다. SQL Database 서버는 자동 조정 설정에 대한 Azure 기본값을 상속할 수 있습니다. 현재 Azure에서는 기본적으로 FORCE_LAST_GOOD_PLAN 및 CREATE_INDEX는 사용하고 DROP_INDEX는 사용하지 않도록 설정됩니다.
 
 서버에서 자동 조정 옵션을 구성하고 부모 서버에 속한 데이터베이스에서 설정을 상속하면 많은 수의 데이터베이스에서 자동 조정 옵션의 관리를 단순화할 수 있으므로 자동 조정 구성에 권장되는 방법입니다.
 

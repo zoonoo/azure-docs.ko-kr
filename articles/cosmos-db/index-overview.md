@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: adddbc03b5ec61944e95a2e0fff8767c41d96b0e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9e1ae9faecea67e1abb2a1b08d5641bc25c9f38a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033760"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469093"
 ---
-# <a name="indexing-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱
+# <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 인덱싱 - 개요
 
 Azure Cosmos DB는 스키마에 구애받지 않는 데이터베이스이며 스키마나 인덱스 관리를 처리할 필요 없이 애플리케이션을 빠르게 반복할 수 있습니다. 기본적으로 Azure Cosmos DB는 개발자에게 스키마 또는 보조 인덱스를 요청하지 않고 컨테이너의 모든 항목을 자동으로 인덱싱합니다.
 

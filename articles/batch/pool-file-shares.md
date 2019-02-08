@@ -3,7 +3,7 @@ title: Azure Batch 풀에 대한 Azure 파일 공유 | Microsoft Docs
 description: Azure Batch의 Linux 또는 Windows 풀에서 계산 노드의 Azure Files 공유를 탑재하는 방법입니다.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 88d7c0d033d7b517a396df27468de8be7ae20be9
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34811791"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469569"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>배치 풀에서 Azure 파일 공유 사용
 
@@ -143,7 +143,7 @@ Linux 풀에서는 이러한 모든 단계를 단일 시작 작업으로 결합�
 
 ### <a name="python-example"></a>Python 예제
 
-다음 Python 예제는 시작 작업에서 공유를 탑재하도록 Ubuntu 풀을 구성하는 방법을 보여 줍니다. 탑재 지점, 파일 공유 끝점 및 저장소 자격 증명은 정의된 상수로 전달됩니다. 시작 작업은 풀 범위가 있는 관리자 자동 사용자 계정으로 실행됩니다.
+다음 Python 예제는 시작 작업에서 공유를 탑재하도록 Ubuntu 풀을 구성하는 방법을 보여 줍니다. 탑재 지점, 파일 공유 엔드포인트 및 저장소 자격 증명은 정의된 상수로 전달됩니다. 시작 작업은 풀 범위가 있는 관리자 자동 사용자 계정으로 실행됩니다.
 
 ```python
 pool = batch.models.PoolAddParameter(

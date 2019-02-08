@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/08/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103168"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468396"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
@@ -33,7 +33,23 @@ Linux OS(운영 체제) 디스크 암호화에서는 전체 디스크 암호화 
 - 데이터 드라이브가 /mnt/ 디렉터리 또는 다른 디렉터리(예: /mnt/data1, /mnt/data2, /data3 + /data3/data4) 아래에 재귀적으로 탑재되었습니다.
 - Linux에 대한 다른 Azure Disk Encryption [필수 구성 요소](azure-security-disk-encryption-prerequisites.md)가 충족되지 않습니다.
 
-## <a name="unable-to-encrypt"></a>암호화할 수 없음
+## <a name="bkmk_Ubuntu14"></a> Ubuntu 14.04 LTS의 기본 커널 업데이트
+
+Ubuntu 14.04 LTS 이미지는 기본 커널 버전 4.4와 함께 제공됩니다. 이 커널 버전에는 OS 암호화 프로세스 중에 메모리 부족 중단 프로그램이 dd 명령을 부적절하게 종료하는 알려진 문제가 있습니다. 이 버그는 최근 Azure 튜닝 Linux 커널에서 수정되었습니다. 이 오류를 방지하려면 이미지에서 암호화를 사용하도록 설정하기 전에 다음 명령을 사용하여 [Azure 튜닝 커널 4.15](https://packages.ubuntu.com/trusty/linux-azure) 이상으로 업데이트합니다.
+
+```
+sudo apt-get update
+sudo apt-get install linux-azure
+sudo reboot
+```
+
+VM이 새 커널로 다시 시작된 후 다음을 사용하여 새 커널 버전을 확인할 수 있습니다.
+
+```
+uname -a
+```
+
+## <a name="unable-to-encrypt-linux-disks"></a>Linux 디스크를 암호화할 수 없음
 
 경우에 따라 Linux 디스크 암호화가 "OS 디스크 암호화 시작됨" 상태에서 중단된 것으로 나타나고, SSH가 비활성화됩니다. 암호화 프로세스를 재고 갤러리 이미지에 대해 완료하는 데 3-16시간이 걸릴 수 있습니다. 다중 테라바이트 크기 데이터 디스크가 추가될 경우 이 프로세스는 며칠이 걸릴 수도 있습니다.
 
@@ -71,7 +87,7 @@ VM을 다시 부팅하라는 메시지가 표시된 후, VM이 다시 시작된 
 적용되는 모든 네트워크 보안 그룹 설정은 엔드포인트에서도 디스크 암호화에 대해 문서화된 네트워크 구성 [필수 조건](azure-security-disk-encryption-prerequisites.md#bkmk_GPO)을 충족해야 합니다.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault
-VM에서 키 자격 증명 모음에 액세스할 수 있어야 합니다. [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) 팀이 유지 관리하는 방화벽 뒤에서 키 자격 증명 모음에 액세스하는 방법에 대한 지침을 참조하세요. 
+[Azure AD 자격 증명](azure-security-disk-encryption-prerequisites-aad.md)을 사용하여 암호화를 사용하도록 설정하는 경우 Key Vault 엔드포인트뿐만 아니라 Azure AD 인증 엔드포인트에 대한 액세스 권한이 대상 VM에 부여되어야 합니다.  이 프로세스에 대한 자세한 내용은 [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) 팀이 유지 관리하는 방화벽 뒤에서 키 자격 증명 모음에 액세스하는 방법에 대한 지침을 참조하세요. 
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 VM은 VM 내에서만 액세스할 수 있는 잘 알려진 라우팅이 불가능한 IP 주소(`169.254.169.254`)를 사용하는 [Azure Instance Metadata 서비스](../virtual-machines/windows/instance-metadata-service.md) 엔드포인트에 액세스할 수 있어야 합니다.

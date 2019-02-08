@@ -94,27 +94,13 @@ items:
       href: storage-samples-blobs-cli.md
   - name: 개념
     items:
-    - name: 스토리지 계정 관리
+    - name: Storage 계정
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      items:
-      - name: 저장소 계정 관리
-        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: 저장소 계정 업그레이드
-        href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 권한 부여
       href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
       - name: Azure AD를 사용하여 인증
         href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        items:
-        - name: RBAC를 사용하여 액세스 권한 관리
-          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 응용 프로그램에서 인증
-          href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 관리되는 ID를 사용하여 인증
-          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: CLI 또는 PowerShell과 함께 Azure AD ID 사용
-          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 공유 키로 권한 부여
         href: /rest/api/storageservices/authorize-with-shared-key
       - name: SAS로 권한 부여
@@ -150,8 +136,6 @@ items:
         href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 고객 키로 미사용 데이터 암호화
         href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: 보안 전송 필요
-        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure CDN을 사용하여 HTTPs를 통한 사용자 지정 도메인으로 Blob 액세스
         href: storage-https-custom-domain-cdn.md
       - name: 변경이 불가능한 Blob
@@ -159,7 +143,9 @@ items:
       - name: Advanced Threat Protection(미리 보기)
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Storage 클라이언트에 대한 보안 TLS 사용
-        href: ../common/storage-security-tls.md
+        href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: 보안 전송 필요
+        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 성능 및 크기 조정
       items:
       - name: 확장성 및 성능 대상
@@ -171,109 +157,109 @@ items:
     - name: 데이터 마이그레이션
       items:
       - name: 데이터 전송 솔루션 비교
-        href: ../common/storage-choose-data-transfer-solution.md
+        href: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
         - name: 대형 데이터 세트, 낮은 네트워크 대역폭
-          href: ../common/storage-solution-large-dataset-low-network.md
+          href: ../common/storage-solution-large-dataset-low-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 대형 데이터 세트, 보통 및 높은 네트워크 대역폭
-          href: ../common/storage-solution-large-dataset-moderate-high-network.md
+          href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 소형 데이터 세트, 보통 및 낮은 네트워크 대역폭
-          href: ../common/storage-solution-small-dataset-low-moderate-network.md
+          href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 정기적 데이터 전송
-          href: ../common/storage-solution-periodic-data-transfer.md
+          href: ../common/storage-solution-periodic-data-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 데이터 Import/Export
-        href: ../common/storage-import-export-service.md
+        href: ../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
         - name: 요구 사항 검토
-          href: ../common/storage-import-export-requirements.md
+          href: ../common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Blob으로 데이터 가져오기
-          href: ../common/storage-import-export-data-to-blobs.md
+          href: ../common/storage-import-export-data-to-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 파일로 데이터 가져오기
-          href: ../common/storage-import-export-data-to-files.md
+          href: ../common/storage-import-export-data-to-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Blob에서 데이터 내보내기
-          href: ../common/storage-import-export-data-from-blobs.md
+          href: ../common/storage-import-export-data-from-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 방법
           items:
           - name: 드라이브 상태 보기
-            href: ../common/storage-import-export-view-drive-status.md
+            href: ../common/storage-import-export-view-drive-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 작업 상태 검토
-            href: ../common/storage-import-export-tool-reviewing-job-status-v1.md
+            href: ../common/storage-import-export-tool-reviewing-job-status-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 가져오기 작업 복구
-            href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md
+            href: ../common/storage-import-export-tool-repairing-an-import-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 내보내기 작업 복구
-            href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md
+            href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: FAQ
-          href: ../common/storage-import-export-service-faq.md
+          href: ../common/storage-import-export-service-faq.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: REST API
           href: https://docs.microsoft.com/rest/api/storageimportexport/jobs
         - name: 지원에 문의
-          href: ../common/storage-import-export-contact-microsoft-support.md
+          href: ../common/storage-import-export-contact-microsoft-support.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 보관
           items:
           - name: 가져오기를 위한 드라이브 준비(v1)
-            href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md
+            href: ../common/storage-import-export-tool-preparing-hard-drives-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             items:
             - name: 속성 및 메타데이터 설정
-              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 샘플 - 가져오기를 위한 드라이브 준비
-              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 가져오기를 위한 빠른 명령 참조
-              href: ../common/storage-import-export-tool-quick-reference-v1.md
+              href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 가져오기를 위한 드라이브 준비(v2)
-            href: ../common/storage-import-export-tool-preparing-hard-drives-import.md
+            href: ../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             items:
             - name: 속성 및 메타데이터 설정
-              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md
+              href: ../common/storage-import-export-tool-setting-properties-metadata-import-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 샘플 - 가져오기를 위한 드라이브 준비
-              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md
+              href: ../common/storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 가져오기를 위한 빠른 명령 참조
-              href: ../common/storage-import-export-tool-quick-reference-v1.md
+              href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 가져오기 작업 만들기
-            href: ../common/storage-import-export-creating-an-import-job.md
+            href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 내보내기 작업 만들기
-            href: ../common/storage-import-export-creating-an-import-job.md
+            href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 작업 상태 가져오기
-            href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
+            href: ../common/storage-import-export-retrieving-state-info-for-a-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 내보내기 작업 만들기
-            href: ../common/storage-import-export-creating-an-import-job.md
+            href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 작업 열거
-            href: ../common/storage-import-export-enumerating-jobs.md
+            href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 작업 취소 및 삭제
-            href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
+            href: ../common/storage-import-export-cancelling-and-deleting-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 드라이브 매니페스트 백업
-            href: ../common/storage-import-export-backing-up-drive-manifests.md
+            href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 작업 열거
-            href: ../common/storage-import-export-enumerating-jobs.md
+            href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 진단 및 오류 복구
-            href: ../common/storage-import-export-diagnostics-and-error-recovery.md
+            href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: 가져오기 작업에 대한 명령
-            href: ../common/storage-import-export-tool-quick-reference-v1.md
+            href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 가져오기 작업 만들기
-          href: ../common/storage-import-export-creating-an-import-job.md
+          href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 내보내기 작업 만들기
-          href: ../common/storage-import-export-creating-an-import-job.md
+          href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 작업 상태 가져오기
-          href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
+          href: ../common/storage-import-export-retrieving-state-info-for-a-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 내보내기 작업 만들기
-          href: ../common/storage-import-export-creating-an-import-job.md
+          href: ../common/storage-import-export-creating-an-import-job.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 작업 열거
-          href: ../common/storage-import-export-enumerating-jobs.md
+          href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 작업 취소 및 삭제
-          href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
+          href: ../common/storage-import-export-cancelling-and-deleting-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 드라이브 매니페스트 백업
-          href: ../common/storage-import-export-backing-up-drive-manifests.md
+          href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 작업 열거
-          href: ../common/storage-import-export-enumerating-jobs.md
+          href: ../common/storage-import-export-enumerating-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 진단 및 오류 복구
-          href: ../common/storage-import-export-diagnostics-and-error-recovery.md
+          href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 가져오기 작업에 대한 명령
-          href: ../common/storage-import-export-tool-quick-reference-v1.md
+          href: ../common/storage-import-export-tool-quick-reference-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 서비스 매니페스트 파일
-          href: ../common/storage-import-export-file-format-manifest.md
+          href: ../common/storage-import-export-file-format-manifest.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 서비스 메타데이터 및 속성 파일
-          href: ../common/storage-import-export-file-format-metadata-and-properties.md
+          href: ../common/storage-import-export-file-format-metadata-and-properties.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 서비스 로그 파일
-          href: ../common/storage-import-export-file-format-log.md
+          href: ../common/storage-import-export-file-format-log.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 모니터링 및 문제 해결
       items:
       - name: 문제 해결 자습서
@@ -296,6 +282,12 @@ items:
       href: storage-blob-pageblob-overview.md
   - name: 방법
     items:
+    - name: Storage 계정
+      items:
+      - name: 저장소 계정 관리
+        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: 저장소 계정 업그레이드
+        href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 스토리지에 대한 요청 승인
       items:
       - name: Azure AD를 사용하여 인증
@@ -308,60 +300,46 @@ items:
           href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: CLI 또는 PowerShell과 함께 Azure AD ID 사용
           href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Blob으로 개발
-      items:
-      - name: REST (영문)
-        href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: C++
-        href: storage-c-plus-plus-how-to-use-blobs.md
-      - name: iOS
-        href: storage-ios-how-to-use-blob-storage.md
-      - name: 자바
+      - name: 공유 키로 권한 부여
         items:
-        - name: Spring Boot Starter 사용
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
-      - name: Xamarin
-        href: storage-xamarin-blob-storage.md
-      - name: 레거시 SDK
+        - name: 연결 문자열 구성
+          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Azure Storage REST API 사용
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: 보안
+      items:
+      - name: 방화벽 및 가상 네트워크 구성
+        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Azure Storage 클라이언트에 대한 보안 TLS 사용
+        href: ../common/storage-security-tls.md
+      - name: 클라이언트 쪽 암호화
         items:
-        - name: Java(Storage SDK V7)
-          href: storage-quickstart-blobs-java.md
-        - name: Node.js(Storage SDK v2)
-          href: storage-quickstart-blobs-nodejs.md
-    - name: 관리
+        - name: .NET
+          href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 자바
+          href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Python
+          href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: 보안 전송 필요
+        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Azure Key Vault를 사용하여 Blob 암호화 및 암호 해독
+        href: storage-encrypt-decrypt-blobs-key-vault.md
+    - name: 재해 복구
       items:
-      - name: PowerShell
-        href: /powershell/module/azure.storage
-      - name: Azure CLI
-        href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Azure 클래식 CLI
-        href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 클라이언트 쪽 암호화
-      items:
-      - name: .NET
-        href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: 자바
-        href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Python
-        href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 연결 문자열 구성
-      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure Key Vault를 사용하여 Blob 암호화 및 암호 해독
-      href: storage-encrypt-decrypt-blobs-key-vault.md
-    - name: 속성 및 메타데이터 설정 및 검색
-      href: storage-properties-metadata.md
+      - name: 계정 장애 조치(failover) 시작
+        href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: 삭제된 Blob 복구
+        href: storage-blob-soft-delete.md
     - name: 저장소 에뮬레이터 사용
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 이벤트를 사용자 지정 엔드포인트에 라우팅
-      href: storage-blob-event-quickstart.md
-    - name: 계정 장애 조치(failover) 시작
-      href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 삭제된 Blob 복구
-      href: storage-blob-soft-delete.md
+    - name: 속성 및 메타데이터 설정 및 검색
+      href: storage-properties-metadata.md
     - name: 정적 웹 사이트 호스트
       href: storage-blob-static-website.md
     - name: 사용자 지정 도메인 구성
       href: storage-custom-domain-name.md
+    - name: 이벤트를 사용자 지정 엔드포인트에 라우팅
+      href: storage-blob-event-quickstart.md
     - name: Azure Search로 Blob Storage 검색
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 데이터 전송
@@ -378,6 +356,32 @@ items:
         href: storage-how-to-mount-container-linux.md
       - name: 저장소 마이그레이션 FAQ
         href: ../common/storage-migration-faq.md
+    - name: Blob으로 개발
+      items:
+      - name: C++
+        href: storage-c-plus-plus-how-to-use-blobs.md
+      - name: iOS
+        href: storage-ios-how-to-use-blob-storage.md
+      - name: 자바
+        items:
+        - name: Spring Boot Starter 사용
+          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
+      - name: Xamarin
+        href: storage-xamarin-blob-storage.md
+      - name: 레거시 SDK
+        items:
+        - name: Java(Storage SDK V7)
+          href: storage-quickstart-blobs-java.md
+        - name: Node.js(Storage SDK v2)
+          href: storage-quickstart-blobs-nodejs.md
+    - name: Blob 관리
+      items:
+      - name: PowerShell
+        href: /powershell/module/azure.storage
+      - name: Azure CLI
+        href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Azure 클래식 CLI
+        href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: 참고 자료
     items:
     - name: PowerShell
@@ -606,9 +610,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: 동영상
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: b6e90dc71e0bb5f81aeaf690217115e39531db93
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: dec146846ac3bf889ac0d694fc769c899ab1d12e
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753191"
+ms.locfileid: "55767669"

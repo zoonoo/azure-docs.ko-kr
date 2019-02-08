@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 8d2d8d0595099081498202a3103caa10df8cf67d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b7214230d55831fa33d547ecf9e65051aa5bb4d9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657844"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891456"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Azure Stack에 Kubernetes 배포
 
@@ -37,7 +37,7 @@ ms.locfileid: "55657844"
 
 1. Azure Active Directory (Azure AD) 테 넌 트에서 응용 프로그램을 만들 수 있는지 확인 합니다. Kubernetes 배포에 대 한 이러한 권한이 필요 합니다.
 
-    에 대 한 지침은 권한을 확인 하십시오 [Azure Active Directory 확인 권한을](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#check-azure-active-directory-permissions)합니다.
+    에 대 한 지침은 권한을 확인 하십시오 [Azure Active Directory 확인 권한을](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)합니다.
 
 1. SSH 공용 및 개인 키 쌍을 Azure Stack에서 Linux VM에 로그인을 생성 합니다. 클러스터를 만들 때 공개 키를 해야 합니다.
 

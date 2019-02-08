@@ -1,6 +1,6 @@
 ---
 title: 가속 데이터베이스 복구 - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database는 신속하고 일관적인 데이터베이스 복구, 즉각적인 트랜잭션 롤백, 단일 데이터베이스/탄력적 풀/Azure SQL Data Warehouse에 대한 적극적인 로그 잘림을 제공하는 새 기능을 포함하고 있습니다.
+description: Azure SQL Database에 새로운 기능이 도입되어, Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스와 Azure SQL Data Warehouse의 데이터베이스를 대상으로 신속하고 일관되게 데이터베이스를 복구하고, 즉시 트랜잭션을 롤백하고, 적극적으로 로그를 잘라낼 수 있습니다.
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: ''
@@ -10,17 +10,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: deaf5c9180841f8c5b2d21a820f2ab2362dc2453
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600723"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475451"
 ---
 # <a name="accelerated-database-recovery-preview"></a>가속 데이터베이스 복구(미리 보기)
 
-**ADR(가속 데이터베이스 복구)** 은 SQL 데이터베이스 엔진 복구 프로세스를 다시 설계하여 특히 장기 실행 트랜잭션이 있는 경우 데이터베이스 가용성을 크게 향상하는 새로운 SQL 데이터베이스 엔진 기능입니다. ADR은 현재 단일 데이터베이스, 탄력적 풀, Azure SQL Data Warehouse에 사용할 수 있습니다. ADR의 주요 이점은 다음과 같습니다.
+**ADR(가속 데이터베이스 복구)** 은 SQL 데이터베이스 엔진 복구 프로세스를 다시 설계하여 특히 장기 실행 트랜잭션이 있는 경우 데이터베이스 가용성을 크게 향상하는 새로운 SQL 데이터베이스 엔진 기능입니다. 현재 Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스와 Azure SQL Data Warehouse의 데이터베이스에 ADR을 사용할 수 있습니다. ADR의 주요 이점은 다음과 같습니다.
 
 - **빠르고 일관적인 데이터베이스 복구**
 
@@ -127,4 +127,4 @@ ADR의 네 가지 주요 구성 요소는 다음과 같습니다.
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>이 미리 보기 기간에 ADR을 사용하려면
 
-이 기능의 미리 보기 기간에 [adr@microsoft.com](mailto:adr@microsoft.com)으로 이메일을 보내 ADR(가속 데이터베이스 복구)에 대해 자세히 알아보고 사용해 보세요. 이메일에 논리 서버의 이름을 포함해 주세요(단일 데이터베이스인 경우 탄력적 풀 및 Azure Data Warehouse). 이 기능은 미리 보기이므로 테스트 서버가 비-프로덕션 서버여야 합니다.
+이 기능의 미리 보기 기간에 [adr@microsoft.com](mailto:adr@microsoft.com)으로 이메일을 보내 ADR(가속 데이터베이스 복구)에 대해 자세히 알아보고 사용해 보세요. SQL Database의 단일 데이터베이스와 풀링된 데이터베이스 및 Azure Data Warehouse의 데이터베이스의 경우 메일에 SQL Database 서버의 이름을 포함합니다. 이 기능은 미리 보기이므로 테스트 서버가 비-프로덕션 서버여야 합니다.

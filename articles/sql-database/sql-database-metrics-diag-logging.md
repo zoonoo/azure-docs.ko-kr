@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 40dd963a4aad7ffdd092d6835e8444cf0789e129
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044572"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462803"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
 Azure SQL Database, 탄력적 풀, Managed Instance 및 Managed Instance의 데이터베이스는 성능을 더 쉽게 모니터링할 수 있도록 메트릭 및 진단 로그를 스트림할 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 다음 Azure 리소스 중 하나로 전송하도록 데이터베이스를 구성할 수 있습니다.
 
-- **Azure SQL 분석**: 성능 보고서, 경고 및 완화 권장 사항을 포함하는 Azure 데이터베이스의 인텔리전트 모니터링을 가져옵니다.
+- **Azure SQL 분석**: 성능 보고서, 경고 및 완화 권장 사항을 포함하는 Azure SQL Database의 인텔리전트 모니터링을 가져옵니다.
 - **Azure Event Hubs**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
 - **Azure Storage**: 적은 비용으로 방대한 양의 원격 분석 데이터를 보관합니다.
 
@@ -68,7 +68,7 @@ SQL Database 및 Managed Instance의 데이터베이스에 대한 메트릭과 �
 | [모든 메트릭](sql-database-metrics-diag-logging.md#all-metrics): DTU/CPU 백분율, DTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 방화벽에서 성공/실패/차단된 연결, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율을 포함합니다. | 예 | 아니요 |
 | [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대한 정보를 포함합니다. | 예 | 예 |
 | [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): CPU, LOG, LOCKING 등 쿼리 대기 통계(쿼리가 대기한 항목)에 대한 정보를 포함합니다. | 예 | 예 |
-| [Errors](sql-database-metrics-diag-logging.md#errors-dataset): 데이터베이스의 SQL 오류에 대한 정보를 포함합니다. | 예 | 아니요 |
+| [Errors](sql-database-metrics-diag-logging.md#errors-dataset): 데이터베이스의 SQL 오류에 대한 정보를 포함합니다. | 예 | 예 |
 | [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | 예 | 아니요 |
 | [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset): 데이터베이스에서 발생한 시간 제한에 대한 정보를 포함합니다. | 예 | 아니요 |
 | [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset): 데이터베이스의 차단 이벤트에 대한 정보를 포함합니다. | 예 | 아니요 |
@@ -414,7 +414,7 @@ Managed Instance의 로그에 대한 자세한 내용은 다음 표를 참조하
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure|
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|type|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: ResourceUsageStats |
 |리소스|리소스 이름 |
@@ -443,7 +443,7 @@ Azure SQL Database 및 Managed Instance 데이터베이스 로그에 대한 자�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|type|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: QueryStoreRuntimeStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreRuntimeStatisticsEvent |
@@ -494,7 +494,7 @@ Azure SQL Database 및 Managed Instance 데이터베이스 로그에 대한 자�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|type|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: QueryStoreWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: QueryStoreWaitStatisticsEvent |
@@ -532,7 +532,7 @@ Azure SQL Database 및 Managed Instance 데이터베이스 로그에 대한 자�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|type|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQ |
 |Category|범주 이름. 항상: 오류 |
 |OperationName|작업의 이름입니다. 항상: ErrorEvent |
@@ -561,7 +561,7 @@ Azure SQL Database 및 Managed Instance 데이터베이스 로그에 대한 자�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|type|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: DatabaseWaitStatistics |
 |OperationName|작업의 이름입니다. 항상: DatabaseWaitStatisticsEvent |
@@ -590,7 +590,7 @@ Azure SQL Database 및 Managed Instance 데이터베이스 로그에 대한 자�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|type|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: 시간 제한 |
 |OperationName|작업의 이름입니다. 항상: TimeoutEvent |
@@ -613,7 +613,7 @@ Azure SQL Database 및 Managed Instance 데이터베이스 로그에 대한 자�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|type|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: 블록 |
 |OperationName|작업의 이름입니다. 항상: BlockEvent |
@@ -637,7 +637,7 @@ Azure SQL Database 및 Managed Instance 데이터베이스 로그에 대한 자�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC] |로그가 기록된 때의 타임스탬프 |
-|type|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: 교착 상태 |
 |OperationName|작업의 이름입니다. 항상: DeadlockEvent |
@@ -658,7 +658,7 @@ Azure SQL Database 및 Managed Instance 데이터베이스 로그에 대한 자�
 |TenantId|테넌트 ID |
 |SourceSystem|항상: Azure |
 |TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프 |
-|type|항상: AzureDiagnostics |
+|Type|항상: AzureDiagnostics |
 |ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL |
 |Category|범주 이름. 항상: AutomaticTuning |
 |리소스|리소스 이름 |

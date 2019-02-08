@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388345"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469120"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -34,7 +34,7 @@ ms.locfileid: "54388345"
 >
 > 서비스 엔드포인트 사용자는 다음과 같은 시나리오에서 계속 영향을 받을 수 있습니다.
 > - 애플리케이션이 기존 서버에 자주 연결하지 않아 원격 분석을 통해 해당 애플리케이션에 대한 정보를 캡처하지 못했습니다.
-> - 자동화된 배포 논리가 서비스 엔드포인트 연결에 대한 기본 동작을 `Proxy`로 가정하고 논리 서버를 만듭니다.
+> - 자동화된 배포 논리가 서비스 엔드포인트 연결에 대한 기본 동작을 `Proxy`로 가정하고 SQL Database 서버를 만듭니다.
 >
 > Azure SQL Server로의 서비스 엔드포인트 연결을 설정할 수 없습니다. 이 변경의 영향을 받을 것으로 의심될 경우 해당 연결 유형이 명시적으로 `Redirect`로 설정되어 있는지 확인하세요. 이 경우 포트 11000 ~ 12000의 SQL [서비스 태그](../virtual-network/security-overview.md#service-tags)에 속하는 모든 Azure IP 주소에 대해 VM 방화벽 규칙 및 NSG(네트워크 보안 그룹)를 열어야 합니다. 이 방법을 사용할 수 없는 경우 서버를 명시적으로 `Proxy`로 전환합니다.
 > [!NOTE]

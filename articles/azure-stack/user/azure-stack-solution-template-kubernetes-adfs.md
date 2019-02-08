@@ -15,12 +15,12 @@ ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: df84562c3ff95ac6fef65ea7c9911d5e12e558ef
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: a197a366d70958859eed47a9d66606adf80344e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744966"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891275"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Active Directory Federated Services를 사용 하 여 Azure Stack에 Kubernetes 배포
 
@@ -60,7 +60,7 @@ Id 솔루션으로 AD FS를 사용 하는 경우 서비스 주체를 설정 하 
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
-2. 구독에 새 서비스 주체에 참가자 역할을 할당 합니다. 자세한 내용은 [역할 할당](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal)합니다.
+2. 구독에 새 서비스 주체에 참가자 역할을 할당 합니다. 자세한 내용은 [역할 할당](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals)합니다.
 
 3. 배포에 대 한 인증서를 저장할 key vault를 만듭니다.
 

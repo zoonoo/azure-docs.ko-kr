@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: c25dd911b5648cdf4b64053ef26a7b70c9156074
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599759"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468906"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure Portal에서 Azure SQL Database에 대한 활성 지역 복제 구성 및 장애 조치(Failover) 시작
 
-이 문서에서는 [Azure Portal](http://portal.azure.com)을 사용하여 SQL Database의 논리 서버(sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)에 [단일 및 풀링된 데이터베이스에 대한 활성 지역 복제]를 구성하고 장애 조치(failover)를 시작하는 방법을 보여 줍니다.
+이 문서에서는 [Azure Portal](http://portal.azure.com)을 사용하여 Azure SQL Database에서 [단일 및 풀링된 데이터베이스의 활성 지역 복제](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)를 구성하고 장애 조치(failover)를 시작하는 방법을 보여 줍니다.
 
 단일 및 풀링된 데이터베이스를 사용하는 자동 장애 조치(failover) 그룹에 대한 자세한 내용은 [단일 및 풀링된 데이터베이스로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)를 참조하세요. Managed Instance를 사용하는 자동 장애 조치(failover) 그룹(미리 보기)에 대한 자세한 내용은 [단일 및 풀링된 데이터베이스로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)를 참조하세요.
 
@@ -40,7 +40,7 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
 
 보조 데이터베이스를 추가하려면 구독 소유자 또는 공동 소유자여야 합니다.
 
-보조 데이터베이스는 주 데이터베이스와 이름이 같고, 기본적으로 서비스 계층과 계산 크기가 동일합니다. 보조 데이터베이스는 단일 데이터베이스 또는 탄력적 풀에 있는 데이터베이스일 수 있습니다. 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
+보조 데이터베이스는 주 데이터베이스와 이름이 같고, 기본적으로 서비스 계층과 계산 크기가 동일합니다. 보조 데이터베이스는 단일 데이터베이스 또는 풀링된 데이터베이스가 될 수 있습니다. 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
 보조가 만들어지고 시드된 후 데이터는 주 데이터베이스에서 새로운 보조 데이터베이스로 복제되기 시작합니다.
 
 > [!NOTE]

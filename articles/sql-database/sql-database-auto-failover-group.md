@@ -1,6 +1,6 @@
 ---
 title: 장애 조치(failover) 그룹 - Azure SQL Database | Microsoft Docs
-description: 자동 장애 조치(failover) 그룹은 관리되는 인스턴스의 모든 데이터베이스 또는 논리 서버에서 데이터베이스 그룹의 복제 및 자동/조정된 를 관리할 수 있도록 하는 SQL Database 기능입니다.
+description: 자동 장애 조치(failover) 그룹은 관리되는 인스턴스의 모든 데이터베이스 또는 SQL Database 서버에서 데이터베이스 그룹의 복제 및 자동/조정된 를 관리할 수 있도록 하는 SQL Database 기능입니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,24 +11,24 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: d24f7ce20a9dfb8ede184e8f013c2d988a8a96c2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033811"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468702"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
-자동 장애 조치(failover) 그룹은 Managed Instance의 모든 데이터베이스 또는 논리 서버에 있는 데이터베이스 그룹을 다른 Azure 지역으로 복제 및 장애 조치(failover)하는 작업을 관리할 수 있도록 하는 SQL Database 기능입니다(현재 Managed Instance에 대해 공개 미리 보기로 제공되고 있음). [활성 지역 복제](sql-database-active-geo-replication.md)와 동일한 기본 기술을 사용합니다. 수동으로 장애 조치(failover)를 시작하거나, 사용자 정의 정책에 따라 SQL Database 서비스에 위임할 수 있습니다. 사용자 정의 정책 옵션을 사용하면 치명적인 오류 또는 계획되지 않은 다른 이벤트가 발생하여 주 지역에서 SQL Database 서비스의 가용성이 완전히 또는 부분적으로 상실될 경우 보조 지역에서 여러 관련 데이터베이스를 자동으로 복구할 수 있습니다. 또한 읽을 수 있는 보조 데이터베이스를 사용하여 읽기 전용 쿼리 워크로드를 오프로드할 수 있습니다. 자동 장애 조치 그룹에 여러 데이터베이스가 포함되기 때문에 주 서버에서 이러한 데이터베이스를 구성해야 합니다. 장애 조치 그룹에서 데이터베이스에 대한 기본 및 보조 서버는 모두 동일한 구독에 위치해야 합니다. 자동 장애 조치 그룹은 그룹의 모든 데이터베이스를 다른 지역에 있는 하나의 보조 서버로만 복제할 수 있도록 지원합니다.
+자동 장애 조치(failover) 그룹은 Managed Instance의 모든 데이터베이스 또는 SQL Database 서버에 있는 데이터베이스 그룹을 다른 Azure 지역으로 복제 및 장애 조치(failover)하는 작업을 관리할 수 있도록 하는 SQL Database 기능입니다(현재 Managed Instance에 대해 공개 미리 보기로 제공되고 있음). [활성 지역 복제](sql-database-active-geo-replication.md)와 동일한 기본 기술을 사용합니다. 수동으로 장애 조치(failover)를 시작하거나, 사용자 정의 정책에 따라 SQL Database 서비스에 위임할 수 있습니다. 사용자 정의 정책 옵션을 사용하면 치명적인 오류 또는 계획되지 않은 다른 이벤트가 발생하여 주 지역에서 SQL Database 서비스의 가용성이 완전히 또는 부분적으로 상실될 경우 보조 지역에서 여러 관련 데이터베이스를 자동으로 복구할 수 있습니다. 또한 읽을 수 있는 보조 데이터베이스를 사용하여 읽기 전용 쿼리 워크로드를 오프로드할 수 있습니다. 자동 장애 조치 그룹에 여러 데이터베이스가 포함되기 때문에 주 서버에서 이러한 데이터베이스를 구성해야 합니다. 장애 조치 그룹에서 데이터베이스에 대한 기본 및 보조 서버는 모두 동일한 구독에 위치해야 합니다. 자동 장애 조치 그룹은 그룹의 모든 데이터베이스를 다른 지역에 있는 하나의 보조 서버로만 복제할 수 있도록 지원합니다.
 
 > [!NOTE]
-> 논리 서버에서 단일 또는 풀링된 데이터베이스를 사용 중이며 동일하거나 다른 지역에 여러 개의 보조 데이터베이스를 만들려는 경우 [활성 지역 복제](sql-database-active-geo-replication.md)를 사용합니다.
+> SQL Database 서버에서 독립 실행형 또는 풀링된 데이터베이스를 사용 중이며 동일하거나 다른 지역에 여러 개의 보조 데이터베이스를 만들려는 경우 [활성 지역 복제](sql-database-active-geo-replication.md)를 사용합니다.
 
 자동 장애 조치(failover) 정책과 함께 자동 장애 조치(failover) 그룹을 사용하는 경우 그룹 내 데이터베이스 중 하나 이상에 영향을 미치는 중단이 발생하면 자동 장애 조치(failover)가 수행됩니다. 또한 자동 장애 조치 그룹은 장애 조치하는 동안 변경되지 않는 읽기-쓰기 및 읽기 전용 수신기 끝점을 제공합니다. 수동 또는 자동 장애 조치 활성화를 사용하는지 여부에 관계 없이 장애 조치는 그룹의 모든 보조 데이터베이스를 주 데이터베이스로 전환합니다. 데이터베이스 장애 조치(failover)가 완료되면 엔드포인트를 새 지역으로 리디렉션하도록 DNS 레코드가 자동으로 업데이트됩니다. 특정 RPO 및 RTO 데이터에 대해서는 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 
-자동 장애 조치(failover) 정책과 함께 자동 장애 조치(failover) 그룹을 사용하는 경우 논리 서버 또는 관리되는 인스턴스의 데이터베이스에 영향을 미치는 중단이 발생하면 자동 장애 조치(failover)가 수행됩니다. 다음을 사용하여 자동 장애 조치(failover) 그룹을 관리할 수 있습니다.
+자동 장애 조치(failover) 정책과 함께 자동 장애 조치(failover) 그룹을 사용하는 경우 SQL Database 서버 또는 관리되는 인스턴스의 데이터베이스에 영향을 미치는 중단이 발생하면 자동 장애 조치(failover)가 수행됩니다. 다음을 사용하여 자동 장애 조치(failover) 그룹을 관리할 수 있습니다.
 
 - [Azure Portal](sql-database-implement-geo-distributed-database.md)
 - [PowerShell: 장애 조치(failover) 그룹](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
@@ -42,11 +42,11 @@ ms.locfileid: "54033811"
 
 - **장애 조치 그룹**
 
-  장애 조치(failover) 그룹은 주 지역의 중단으로 인해 주 데이터베이스를 모두 또는 일부 사용할 수 없게 될 경우 한 단위로 다른 지역에 장애 조치(failover)될 수 있는, 관리되는 단일 인스턴스 내에 있거나 단일 논리 서버에 의해 관리되는 데이터베이스 그룹입니다.
+  장애 조치(failover) 그룹은 주 지역의 중단으로 인해 주 데이터베이스를 모두 또는 일부 사용할 수 없게 될 경우 한 단위로 다른 지역에 장애 조치(failover)될 수 있는, 관리되는 단일 인스턴스 내에 있거나 단일 SQL Database 서버에 의해 관리되는 데이터베이스 그룹입니다.
 
-  - **논리 서버**
+  - **SQL Database 서버**
 
-     논리 서버를 사용하면 단일 서버의 사용자 데이터베이스를 일부 또는 모두 장애 조치(failover) 그룹에 배치할 수 있습니다. 또한 논리 서버는 단일 서버에서 여러 개의 장애 조치(failover) 그룹을 지원합니다.
+     SQL Database 서버를 사용하면 단일 SQL Database 서버의 사용자 데이터베이스를 일부 또는 모두 장애 조치(failover) 그룹에 배치할 수 있습니다. 또한 SQL Database 서버는 단일 SQL Database 서버에서 여러 개의 장애 조치(failover) 그룹을 지원합니다.
 
   - **관리되는 인스턴스**
   
@@ -54,15 +54,15 @@ ms.locfileid: "54033811"
 
 - **주**
 
-  장애 조치(failover) 그룹의 주 데이터베이스를 호스트하는 논리 서버 또는 Managed Instance입니다.
+  장애 조치(failover) 그룹의 주 데이터베이스를 호스트하는 SQL Database 서버 또는 Managed Instance입니다.
 
 - **보조**
 
-  장애 조치(failover) 그룹의 보조 데이터베이스를 호스트하는 논리 서버 또는 Managed Instance입니다. 보조 서버는 주 서버와 동일한 지역에 있을 수 없습니다.
+  장애 조치(failover) 그룹의 보조 데이터베이스를 호스트하는 SQL Database 서버 또는 Managed Instance입니다. 보조 서버는 주 서버와 동일한 지역에 있을 수 없습니다.
 
-- **논리 서버의 장애 조치(failover) 그룹에 데이터베이스 추가**
+- **SQL Database 서버의 장애 조치(failover) 그룹에 데이터베이스 추가**
 
-  동일한 논리 서버의 탄력적 풀 내에 있는 단일 데이터베이스 또는 여러 개의 데이터베이스를 동일한 장애 조치(failover) 그룹에 포함할 수 있습니다. 장애 조치(failover) 그룹에 단일 데이터베이스를 추가하면 동일한 버전과 계산 크기를 사용하는 보조 데이터베이스가 자동으로 만들어집니다. 탄력적 풀에 주 데이터베이스가 있으면 보조 서버가 동일한 이름을 가진 탄력적 풀에 자동으로 만들어집니다. 보조 서버에 보조 데이터베이스가 이미 있는 데이터베이스를 추가하면 해당 지역 복제가 그룹에 상속됩니다. 장애 조치(failover) 그룹에 속하지 않는 서버에 보조 데이터베이스가 이미 있는 데이터베이스를 추가하면 새 보조 데이터베이스가 보조 서버에 만들어집니다.
+  동일한 SQL Database 서버의 탄력적 풀 내에 있는 단일 데이터베이스 또는 여러 개의 데이터베이스를 동일한 장애 조치(failover) 그룹에 포함할 수 있습니다. 장애 조치(failover) 그룹에 단일 데이터베이스를 추가하면 동일한 버전과 계산 크기를 사용하는 보조 데이터베이스가 자동으로 만들어집니다. 탄력적 풀에 주 데이터베이스가 있으면 보조 서버가 동일한 이름을 가진 탄력적 풀에 자동으로 만들어집니다. 보조 서버에 보조 데이터베이스가 이미 있는 데이터베이스를 추가하면 해당 지역 복제가 그룹에 상속됩니다. 장애 조치(failover) 그룹에 속하지 않는 서버에 보조 데이터베이스가 이미 있는 데이터베이스를 추가하면 새 보조 데이터베이스가 보조 서버에 만들어집니다.
   
 > [!IMPORTANT]
   > Managed Instance에서 모든 사용자 데이터베이스가 복제됩니다. 장애 조치(failover) 그룹에서 복제를 위해 사용자 데이터베이스 하위 집합을 선택할 수 없습니다.
@@ -71,9 +71,9 @@ ms.locfileid: "54033811"
 
   현재 주 데이터베이스의 URL을 가리키는 DNS CNAME 레코드가 생성됩니다. 장애 조치 후 주 데이터베이스가 변경되면 읽기-쓰기 SQL 애플리케이션이 해당 주 데이터베이스에 투명하게 다시 연결할 수 있습니다.
 
-  - **읽기/쓰기 수신기에 대한 논리 서버 DNS CNAME 레코드**
+  - **읽기/쓰기 수신기에 대한 SQL Database 서버 DNS CNAME 레코드**
 
-     논리 서버에서 현재 주 데이터베이스의 URL을 가리키는 장애 조치(failover) 그룹에 대한 DNS CNAME 레코드가 `failover-group-name.database.windows.net`으로 생성됩니다.
+     SQL Database 서버에서 현재 주 데이터베이스의 URL을 가리키는 장애 조치(failover) 그룹에 대한 DNS CNAME 레코드가 `failover-group-name.database.windows.net`으로 생성됩니다.
 
   - **읽기/쓰기 수신기에 대한 Managed Instance DNS CNAME 레코드**
 
@@ -83,9 +83,9 @@ ms.locfileid: "54033811"
 
   보조 데이터베이스의 URL을 가리키는 읽기 전용 수신기를 가리키는 DNS CNAME 레코드가 생성됩니다. 읽기 전용 SQL 애플리케이션이 지정된 부하 분산 규칙을 사용하여 보조 데이터베이스에 투명하게 연결할 수 있도록 합니다.
 
-  - **읽기 전용 수신기에 대한 논리 서버 DNS CNAME 레코드**
+  - **읽기 전용 수신기에 대한 SQL Database 서버 DNS CNAME 레코드**
 
-     논리 서버에서 보조 데이터베이스의 URL을 가리키는 읽기 전용 수신기에 대한 DNS CNAME 레코드가 `failover-group-name.secondary.database.windows.net`으로 생성됩니다.
+     SQL Database 서버에서 보조 데이터베이스의 URL을 가리키는 읽기 전용 수신기에 대한 DNS CNAME 레코드가 `failover-group-name.secondary.database.windows.net`으로 생성됩니다.
 
   - **읽기 전용 수신기에 대한 Managed Instance DNS CNAME 레코드**
 
@@ -128,7 +128,7 @@ ms.locfileid: "54033811"
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>단일 데이터베이스 및 탄력적 풀로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례
 
-자동 장애 조치(failover) 그룹은 주 논리 서버에서 구성되어야 하며 다른 Azure 지역의 보조 논리 서버에 연결됩니다.  그룹에는 이러한 서버에 있는 데이터베이스가 모두 또는 일부 포함될 수 있습니다. 다음 다이어그램은 여러 데이터베이스와 자동 장애 조치(failover) 그룹을 사용하는 지역 중복 클라우드 애플리케이션의 일반적인 구성을 보여 줍니다.
+자동 장애 조치(failover) 그룹은 주 SQL Database 서버에서 구성되어야 하며 다른 Azure 지역의 보조 SQL Database 서버에 연결됩니다.  그룹에는 이러한 서버에 있는 데이터베이스가 모두 또는 일부 포함될 수 있습니다. 다음 다이어그램은 여러 데이터베이스와 자동 장애 조치(failover) 그룹을 사용하는 지역 중복 클라우드 애플리케이션의 일반적인 구성을 보여 줍니다.
 
 ![자동 장애 조치(failover)](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
@@ -331,7 +331,7 @@ ms.locfileid: "54033811"
 | Switch-AzureRmSqlDatabaseInstanceFailoverGroup |장애 조치 그룹의 장애 조치를 보조 서버로 트리거합니다.|
 | Remove-AzureRmSqlDatabaseInstanceFailoverGroup | 장애 조치(failover) 그룹을 제거합니다.|
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: 단일 및 풀링된 데이터베이스를 사용하여 SQL Database 장애 조치(failover) 그룹 관리
+### <a name="rest-api-manage-sql-database-failover-groups-with-standalone-and-pooled-databases"></a>REST API: 독립 실행형 및 풀링된 데이터베이스를 사용하여 SQL Database 장애 조치(failover) 그룹 관리
 
 | API | 설명 |
 | --- | --- |

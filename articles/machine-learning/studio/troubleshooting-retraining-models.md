@@ -1,6 +1,6 @@
 ---
-제목: Machine Learning Studio 클래식 웹 서비스의 재학습 문제 해결 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio 웹 서비스에 대한 모델을 재학습하는 경우에 발생하는 일반적인 문제를 파악하고 수정합니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Machine Learning Studio 클래식 웹 서비스의 재학습 문제 해결 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio 웹 서비스에 대한 모델을 재학습하는 경우에 발생하는 일반적인 문제를 파악하고 수정합니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 11/01/2017
 ---

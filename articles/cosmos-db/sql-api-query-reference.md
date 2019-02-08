@@ -8,14 +8,14 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 9ec8ecf7b875b32d0ea5715e407b444fa1b25c50
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354470"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475196"
 ---
-# <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL 언어 참조 
+# <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB의 SQL 언어 참조 
 
 Azure Cosmos DB는 명시적 스키마를 요구하거나 보조 인덱스를 만들지 않고 계층적 JSON 문서에 대한 문법과 같은 익숙한 SQL(구조적 쿼리 언어)을 사용하여 문서를 쿼리하는 기능을 지원합니다. 이 문서에서는 SQL API 계정과 호환되는 SQL 쿼리 언어 구문에 대한 설명서를 제공합니다. 예제 SQL 쿼리의 연습은 [Cosmos DB에서 SQL 쿼리](how-to-sql-query.md)를 참조하세요.  
   
@@ -2169,7 +2169,10 @@ REPLICATE(<str_expr>, <num_expr>)
   
 -   `num_expr`  
   
-     유효한 숫자 식입니다.  
+     유효한 숫자 식입니다. num_expr이 음수이거나 무한 값이면 결과가 정의되지 않습니다.
+
+  > [!NOTE]
+  > 결과의 최대 길이는 10,000자입니다((length(str_expr) * num_expr) <= 10,000).
   
  **반환 형식**  
   

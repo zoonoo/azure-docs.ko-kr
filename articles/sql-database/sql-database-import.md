@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: 9e79aa2315118bcd9ce4328e74d51d7a22ea6247
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/25/2019
+ms.openlocfilehash: c1b6c55475c1600c89c1ac1cae9dee0068b92070
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744567"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478222"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>빠른 시작: 새 Azure SQL Database로 BACPAC 파일 가져오기
 
@@ -33,7 +33,7 @@ ms.locfileid: "53744567"
 > [!NOTE]
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md)는 이 문서의 다른 방법을 사용하여 BACPAC 파일에서 가져오기를 지원하지만, 현재는 Azure Portal에서 마이그레이션을 지원하지 않습니다.
 
-Azure Portal에서 데이터베이스를 가져오려면 가져오기를 호스트할 논리 서버의 페이지를 열고 도구 모음에서 **데이터베이스 가져오기**를 선택합니다.  
+Azure Portal에서 데이터베이스를 가져오려면 가져오기를 호스트할 SQL Database 서버의 페이지를 열고 도구 모음에서 **데이터베이스 가져오기**를 선택합니다.  
 
    ![데이터베이스 가져오기](./media/sql-database-import/import.png)
 
@@ -41,7 +41,7 @@ Azure Portal에서 데이터베이스를 가져오려면 가져오기를 호스�
 
 ### <a name="monitor-imports-progress"></a>가져오기의 진행률 모니터링
 
-가져오기 진행률을 모니터링하려면 가져온 데이터베이스의 논리 서버 페이지를 열고, **설정** 아래에서 **가져오기/내보내기 기록**을 선택합니다. 성공하면 가져오기가 **완료됨** 상태가 됩니다.
+가져오기 진행률을 모니터링하려면 가져온 데이터베이스의 서버 페이지를 열고, **설정** 아래에서 **가져오기/내보내기 기록**을 선택합니다. 성공하면 가져오기가 **완료됨** 상태가 됩니다.
 
 데이터베이스가 서버에서 라이브 상태인지 확인하려면 **SQL 데이터베이스**를 선택하고 새 데이터베이스가 **온라인** 상태인지 확인합니다.
 
@@ -51,14 +51,14 @@ Azure Portal에서 데이터베이스를 가져오려면 가져오기를 호스�
 
 규모와 성능을 위해 대부분의 프로덕션 환경에서 SqlPackage를 사용하는 것이 좋습니다. BACPAC 파일을 사용하는 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)을 참조하세요.
 
-다음 SqlPackage 명령은 로컬 스토리지의 **AdventureWorks2008R2** 데이터베이스를 **mynewserver20170403**이라는 Azure SQL Database 논리 서버로 가져옵니다. **프리미엄** 서비스 계층과 **P6** 서비스 목표로 **myMigratedDatabase**라는 새 데이터베이스를 만듭니다. 이러한 값을 사용자 환경에 적절하게 변경합니다.
+다음 SqlPackage 명령은 로컬 스토리지의 **AdventureWorks2008R2** 데이터베이스를 **mynewserver20170403**이라는 Azure SQL Database 서버로 가져옵니다. **프리미엄** 서비스 계층과 **P6** 서비스 목표로 **myMigratedDatabase**라는 새 데이터베이스를 만듭니다. 이러한 값을 사용자 환경에 적절하게 변경합니다.
 
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=<your_server_admin_account_user_id>;Password=<your_server_admin_account_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
-> Azure SQL Database 논리 서버는 포트 1433에서 수신 대기합니다. 회사 방화벽 뒤에서 논리 서버에 연결하려면 방화벽에서 이 포트가 열려 있어야 합니다.
+> SQL Database 서버는 포트 1433에서 수신 대기합니다. 회사 방화벽 뒤에서 SQL Database 서버에 연결하려면 방화벽에서 이 포트가 열려 있어야 합니다.
 >
 
 이 예제는 Active Directory 유니버설 인증으로 SqlPackage를 사용하여 데이터베이스를 가져오는 방법을 보여줍니다.
@@ -107,7 +107,7 @@ $importStatus
 
 ## <a name="limitations"></a>제한 사항
 
-탄력적 풀의 데이터베이스로 가져오기는 지원되지 않습니다. 단일 데이터베이스로 데이터를 가져온 다음, 해당 데이터베이스를 풀로 이동할 수 있습니다.
+탄력적 풀의 데이터베이스로 가져오기는 지원되지 않습니다. 단일 데이터베이스로 데이터를 가져온 다음, 해당 데이터베이스를 탄력적 풀로 이동할 수 있습니다.
 
 ## <a name="import-using-wizards"></a>마법사를 사용하여 가져오기
 
@@ -121,4 +121,4 @@ $importStatus
 - 가져온 SQL Database에 연결하고 쿼리하는 방법을 알아보려면 [빠른 시작: Azure SQL Database: SQL Server Management Studio를 사용하여 데이터에 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요.
 - BACPAC 파일을 사용하는 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)을 참조하세요.
 - 성능 권장 사항을 비롯한 전체 SQL Server 데이터베이스 마이그레이션 프로세스에 대한 설명은 [Azure SQL Database로 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
-- 저장소 키 및 공유 액세스 서명을 안전하게 관리하고 공유하는 방법을 알아보려면 [Azure Storage 보안 가이드](https://docs.microsoft.com/azure/storage/common/storage-security-guide)를 참조하세요.
+- 스토리지 키 및 공유 액세스 서명을 안전하게 관리하고 공유하는 방법을 알아보려면 [Azure Storage 보안 가이드](https://docs.microsoft.com/azure/storage/common/storage-security-guide)를 참조하세요.

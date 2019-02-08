@@ -1,6 +1,6 @@
 ---
-제목: Machine Learning Studio에서 모델 결과 해석 titleSuffix: Azure Machine Learning Studio 설명: 모델 점수 매기기 출력을 사용하고 시각화하여 알고리즘에 설정된 최적의 매개 변수를 선택하는 방법
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Machine Learning Studio에서 모델 결과 해석 titleSuffix: Azure Machine Learning Studio 설명: 모델 점수 매기기 출력을 사용하고 시각화하여 알고리즘에 설정된 최적의 매개 변수를 선택하는 방법
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 2017/11/29
 ---

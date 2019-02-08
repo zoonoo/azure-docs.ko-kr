@@ -1,8 +1,21 @@
 ---
-제목: 예제로 Machine Learning Studio 실험 만들기 titleSuffix: Azure Machine Learning Studio 설명: 기계 학습 실험 예제를 사용하여 Azure AI Gallery 및 Microsoft Azure Machine Learning Studio를 통해 새 실험을 만드는 방법에 대해 알아봅니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: conceptual
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 2018/01/05
+title: 예제로 Machine Learning Studio 실험 만들기
+titleSuffix: Azure Machine Learning Studio
+description: 기계 학습 실험 예제를 사용하여 Azure AI Gallery 및 Microsoft Azure Machine Learning Studio를 통해 새 실험을 만드는 방법에 대해 알아봅니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: conceptual
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/05/2018
+ms.openlocfilehash: 653b9aa0d6083436a394cf886f8c7d8d1ed2e2ab
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465523"
 ---
 # <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure AI Gallery의 작업 예제에서 Azure Machine Learning Studio 실험 만들기
 

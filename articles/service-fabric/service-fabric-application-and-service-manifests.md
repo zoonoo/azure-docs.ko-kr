@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653552"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465626"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric 애플리케이션 및 서비스 매니페스트
 이 문서에서는 Service Fabric 애플리케이션 및 서비스가 ApplicationManifest.xml 및 ServiceManifest.xml 파일을 사용하여 정의되고 버전화되는 방법에 대해 설명합니다.  자세한 예제는 [응용 프로그램 및 서비스 매니페스트 예제](service-fabric-manifest-examples.md)를 참조하세요.  이러한 매니페스트 파일의 XML 스키마는 [ServiceFabricServiceModel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명되어 있습니다.
@@ -53,7 +53,7 @@ ms.locfileid: "53653552"
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -96,7 +96,7 @@ SetupEntryPoint를 구성하는 방법에 대한 자세한 내용은 [서비스 
 </Settings>
 ```
 
-서비스에서 컴파일된 코드를 변경하지 않고도 선언/변경하는 데 사용하는 엔드포인트와 같은 **리소스**입니다.  서비스 매니페스트에 지정된 리소스에 대한 액세스는 애플리케이션 매니페스트의 **SecurityGroup**을 통해 제어할 수 있습니다.  서비스 매니페스트에 **엔드포인트** 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다.  [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
+Service Fabric 서비스 **엔드포인트**는 Service Fabric 리소스의 예입니다. 컴파일된 코드를 변경하지 않고 Service Fabric 리소스를 선언/변경할 수 있습니다. 서비스 매니페스트에 지정된 Service Fabric 리소스에 대한 액세스는 애플리케이션 매니페스트의 **SecurityGroup**을 통해 제어할 수 있습니다. 서비스 매니페스트에 엔드포인트 리소스가 정의되면 Service Fabric에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. [엔드포인트 리소스 지정 또는 재정의](service-fabric-service-manifest-resources.md)에 대해 자세히 알아보세요.
 
 
 <!--

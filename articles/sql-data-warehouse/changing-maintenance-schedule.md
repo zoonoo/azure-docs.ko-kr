@@ -6,16 +6,16 @@ author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: c1029d5efe0c8e87cd9bc84887826ddf837d32c5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713268"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456258"
 ---
 # <a name="change-a-maintenance-schedule"></a>유지 관리 일정 변경 
 
@@ -40,7 +40,7 @@ ms.locfileid: "51713268"
    ![유지 관리 설정 블레이드](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
 5. 드롭다운 목록 상자를 사용하여 기본 설정된 기본 및 보조 유지 관리 기간을 선택합니다.
-   - **요일**: 선택한 기간 중에 유지 관리를 수행할 기본 설정 요일입니다.
+   - **요일**: 선택한 기간에 유지 관리를 수행할 기본 설정 요일입니다.
    - **시작 시간**: 유지 관리 기간에 대한 기본 설정 시작 시간입니다.
    - **시간 범위**: 시간 범위의 기본 설정 지속 시간입니다.
 

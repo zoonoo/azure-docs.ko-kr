@@ -6,14 +6,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 20e869d30f9e7b8102b723870f0102e041e064d7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d9bd1bec6d1df6fab634c5d929cb778abbd3d13d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042277"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478409"
 ---
-# <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할
+# <a name="partitioning-in-azure-cosmos-db---overview"></a>Azure Cosmos DB에서 분할 - 개요
 
 분할은 애플리케이션의 성능 요구 사항을 충족하기 위해 Cosmos DB에서 데이터베이스의 개별 컨테이너 크기를 조정하는 기술입니다. 분할을 사용하면 컨테이너의 항목이 고유한 하위 집합으로 분할되며, 이를 논리 파티션이라고 합니다. 논리 파티션은 각 항목과 연결된 파티션 키 속성 값을 기반으로 생성됩니다.
 

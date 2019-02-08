@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/25/2019
+ms.openlocfilehash: 5b3a77a28945b597fe4fdd57aadfc3e05196a353
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382778"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478256"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>자동 조정을 사용하여 쿼리 모니터링 및 워크로드 성능 향상
 
@@ -26,9 +26,11 @@ Azure SQL Database는 지속적으로 쿼리를 모니터링하고 워크로드�
 자동 조정은 [Azure Portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) 호출 및 [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) 명령을 통해 서버 또는 데이터베이스 수준에서 사용하도록 설정할 수 있습니다.
 
 ## <a name="enable-automatic-tuning-on-server"></a>서버에서 자동 조정 사용
+
 서버 수준에서 "Azure 기본값"에서 자동 조정 구성을 상속하거나 구성을 상속하지 않도록 선택할 수 있습니다. Azure에서는 기본적으로 FORCE_LAST_GOOD_PLAN 및 CREATE_INDEX는 사용하고 DROP_INDEX는 사용하지 않도록 설정됩니다.
 
 ### <a name="azure-portal"></a>Azure portal
+
 Azure SQL Database 논리 **서버**에서 자동 조정을 사용하려면 Azure Portal에서 서버로 이동한 다음 메뉴에서 **자동 조정**을 선택합니다.
 
 ![서버](./media/sql-database-automatic-tuning-enable/server.png)
@@ -44,7 +46,6 @@ Azure SQL Database 논리 **서버**에서 자동 조정을 사용하려면 Azur
 ### <a name="rest-api"></a>REST API
 
 서버에서 자동 조정을 활성화하기 위한 REST API 사용에 대해 자세히 알아보고, [SQL Server 자동 조정 업데이트 및 HTTP 메서드 가져오기](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)를 참조하세요.
-
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>개별 데이터베이스에서 자동 조정 활성화
 
@@ -74,27 +75,28 @@ Azure SQL Database를 통해 각 데이터베이스에서 자동 조정 구성�
 
 T-SQL을 통해 단일 데이터베이스에서 자동 조정을 활성화하려면 데이터베이스에 연결하고 다음 쿼리를 실행합니다.
 
-   ```T-SQL
-   ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM
-   ```
-   
+```SQL
+ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM
+```
+
 자동 조정을 자동으로 설정하면 Azure 기본값을 적용합니다. 상속으로 설정하면 자동 조정 구성은 부모 서버에서 상속됩니다. 사용자 정의를 선택하면 자동 조정을 수동으로 구성해야 합니다.
 
 T-SQL을 통해 개별 자동 조정 옵션을 구성하려면 데이터베이스에 연결하고 다음과 같은 쿼리를 실행합니다.
 
-   ```T-SQL
-   ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
-   ```
-   
+```SQL
+ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
+```
+
 개별 조정 옵션을 ON으로 설정하면 데이터베이스가 상속한 설정을 무시하고 조정 옵션을 활성화합니다. OFF로 설정하면 마찬가지로 데이터베이스가 상속한 설정을 무시하고 조정 옵션을 비활성화합니다. 기본값이 지정된 자동 조정 옵션은 데이터베이스 수준 자동 조정 설정에서 구성을 상속합니다.  
 
 > [!IMPORTANT]
 > [활성 지역 복제](sql-database-auto-failover-group.md)의 경우 주 데이터베이스에서만 자동 튜닝을 구성하면 됩니다. 인덱스 만들기 또는 삭제와 같은 자동으로 적용되는 튜닝 작업은 읽기 전용 보조 데이터베이스에 자동으로 복제됩니다. 읽기 전용 보조 데이터베이스에 다른 튜닝 구성을 적용하는 것은 지원되지 않으므로, 읽기 전용 보조 데이터베이스에서 T-SQL을 통한 자동 튜닝을 사용하도록 설정하려고 하면 실패합니다.
 >
 
-자동 조정을 구성하기 위한 T-SQL 옵션에 대해 자세히 알아보고, [SQL Database 논리 서버에 대한 ALTER DATABASE SET 옵션(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)을 참조하세요.
+자동 조정을 구성하기 위한 T-SQL 옵션에 대해 자세히 알아보고, [SQL Database 서버에 대한 ALTER DATABASE SET 옵션(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)을 참조하세요.
 
 ## <a name="disabled-by-the-system"></a>시스템에서 비활성화됨
+
 자동 조정은 데이터베이스에서 수행하는 모든 작업을 모니터링하고 일부 경우에서 자동 조정이 데이터베이스에서 제대로 작동할 수 없는지 결정할 수 있습니다. 이 상황에서 조정 옵션은 시스템에서 비활성화됩니다. 쿼리 저장소는 활성화되지 않았거나 특정 데이터베이스에서 읽기 전용 상태에 있기 때문에 대부분의 경우에서 발생합니다.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>이메일 알림 자동 조정 구성
@@ -102,6 +104,7 @@ T-SQL을 통해 개별 자동 조정 옵션을 구성하려면 데이터베이�
 [이메일 알림 자동 조정](sql-database-automatic-tuning-email-notifications.md) 가이드를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 * 자동 조정 및 성능을 개선할 수 있는 방법에 대한 자세한 내용은 [자동 조정 문서](sql-database-automatic-tuning.md)를 참조하세요.
 * Azure SQL Database 성능 권장 사항에 대한 개요는 [성능 권장 사항](sql-database-advisor.md)을 참조하세요.
 * 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insights](sql-database-query-performance.md)를 참조하세요.

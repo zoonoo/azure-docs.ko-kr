@@ -1,5 +1,5 @@
 ---
-제목: Azure Resource Manager를 사용하여 Studio 작업 영역 배포 titleSuffix: Azure Machine Learning Studio 설명: Azure Resource Manager 템플릿 서비스를 사용하여 Azure Machine learning 작업 영역을 배포하는 방법: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: Azure Resource Manager를 사용하여 Studio 작업 영역 배포 titleSuffix: Azure Machine Learning Studio 설명: Azure Resource Manager 템플릿을 사용하여 Azure Machine learning 작업 영역을 배포하는 방법 services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---
@@ -64,7 +64,7 @@ c:\temp\ 아래에 mlworkspace.json 파일로 이 템플릿을 저장합니다.
 
 ### <a name="deploy-the-resource-group-based-on-the-template"></a>템플릿을 기반으로 리소스 그룹 배포
 * PowerShell 열기
-* Azure Resource Manager 및 Azure 서비스 관리에 대한 모듈 설치  
+* Azure Resource Manager 및 Azure 서비스 관리에 대한 모듈 설치
 
 ```
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
@@ -74,9 +74,9 @@ Install-Module AzureRM -Scope CurrentUser
 Install-Module Azure -Scope CurrentUser
 ```
 
-   이러한 단계는 나머지 단계를 완료하는 데 필요한 모듈을 다운로드 및 설치합니다. PowerShell 명령을 실행하는 환경에서 한 번만 수행하면 됩니다.   
+   이러한 단계는 나머지 단계를 완료하는 데 필요한 모듈을 다운로드 및 설치합니다. PowerShell 명령을 실행하는 환경에서 한 번만 수행하면 됩니다.
 
-* Azure에 대한 인증  
+* Azure에 대한 인증
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
@@ -110,22 +110,22 @@ $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\ml
 배포가 완료되면 배포한 작업 영역의 속성에 액세스하는 것은 간단합니다. 예를 들어 기본 키 토큰에 액세스할 수 있습니다.
 
 ```
-# Access Azure ML Workspace Token after its deployment.
+# Access Azure Machine Learning studio Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
 기존 작업 영역의 토큰을 검색하는 또 다른 방법은 Invoke-AzureRmResourceAction 명령을 사용하는 것입니다. 예를 들어 모든 작업 영역의 기본 및 보조 토큰을 나열할 수 있습니다.
 
-```  
+```
 # List the primary and secondary tokens of all workspaces
-Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
 작업 영역이 프로비전되면 [Azure Machine Learning에 대한 PowerShell 모듈](https://aka.ms/amlps)을 사용하여 많은 Azure Machine Learning Studio 작업을 자동화할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다. 
-* [Azure 빠른 시작 템플릿 리포지토리](https://github.com/Azure/azure-quickstart-templates)를 살펴봅니다. 
-* [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39)에 대한 이 동영상을 시청합니다. 
+* [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
+* [Azure 빠른 시작 템플릿 리포지토리](https://github.com/Azure/azure-quickstart-templates)를 살펴봅니다.
+* [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39)에 대한 이 동영상을 시청합니다.
 * [Resource Manager 템플릿 참조 도움말](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
 <!--Image references--> [1]: ./media/deploy-with-resource-manager-template/azuresubscription.png [2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png을 참조합니다.
 

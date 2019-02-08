@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 20e5c96110f07d8eaec218ed167c87a48fd65782
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 73d4ba0c82f26a6249528f2dbef1fd30f99ccedb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037381"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475876"
 ---
-# <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키
+# <a name="unique-key-constraints-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키 제약 조건
 
 고유 키는 Cosmos 데이터베이스에 데이터 무결성 레이어를 추가할 수 있는 기능을 제공합니다. 고유 키 정책은 Cosmos 컨테이너를 만들 때 만듭니다. 고유 키를 사용하면 논리 파티션에 있는 하나 또는 여러 값의 고유성이 보장됩니다([파티션 키](partition-data.md)마다 고유성을 보장할 수 있음). 고유 키 정책을 사용하여 컨테이너를 만들면 해당 정책은 고유 키 제약 조건에 지정된 대로 새로운(또는 업데이트된) 중복 항목을 논리 파티션 내에 만들 수 없도록 차단합니다. 파티션 키를 고유 키와 결합하면 컨테이너 범위 내에서 항목의 고유성이 보장됩니다.
 

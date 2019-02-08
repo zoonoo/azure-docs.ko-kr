@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 58a354950e303eda8158ca072870bfecbf33a89f
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.date: 01/25/2019
+ms.openlocfilehash: 7a5245a9c97748e7b46132eaaa91f6bbc8311266
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890214"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475145"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>다중 테넌트 SQL Database SaaS 앱을 사용하여 Log Analytics 설정 및 사용
 
@@ -59,7 +59,7 @@ OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다. Log 
 
     b. 스크립트를 실행하려면 F5 키를 누릅니다.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database-per-Tenant 애플리케이션 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 스크립트 가져오기
 
 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 사용할 수 있습니다. Wingtip Tickets PowerShell 스크립트를 다운로드하고 차단을 해제하는 방법은 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 참조하세요.
 
@@ -104,7 +104,7 @@ Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics
 
     ![시간 필터](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. 데이터베이스를 하나 선택하여 해당 데이터베이스의 쿼리 사용률과 메트릭을 살펴봅니다.
+1. 개별 데이터베이스를 선택하여 해당 데이터베이스의 쿼리 사용 및 메트릭을 살펴봅니다.
 
     ![데이터베이스 분석](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
@@ -150,5 +150,5 @@ SQL Database용 Log Analytics는 작업 영역의 데이터 크기에 따라 과
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [초기 Wingtip Tickets SaaS 테넌트별 데이터베이스 응용 프로그램 배포를 기반으로 하는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [초기 Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 배포를 기반으로 하는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../azure-monitor/insights/azure-sql.md)

@@ -1,6 +1,6 @@
 ---
-제목: 샘플 데이터 세트 사용 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning Studio에 포함된 샘플 모델에서 사용되는 데이터 세트를 설명합니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 샘플 데이터 세트 사용 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning Studio에 포함된 샘플 모델에서 사용되는 데이터 세트를 설명합니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 2018/01/19
 ---

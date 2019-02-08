@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 476e39d0ced465d75e44098b9508472b87b0e7b8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 443bf5694515720b1b865c310e70ca9c45add262
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230172"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465591"
 ---
-# <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 처리량 비용 최적화
+# <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 
 Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 관계없이 예측 가능한 성능을 제공합니다. 사전에 처리량을 예약하거나 프로비전하면 성능에 미치는 "노이즈 주변 효과"가 해소됩니다. 필요한 처리량의 정확한 크기를 지정하면 Azure Cosmos DB가 SLA에서 지원하는 구성된 처리량을 보장합니다.
 

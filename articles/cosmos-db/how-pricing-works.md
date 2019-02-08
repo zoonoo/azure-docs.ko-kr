@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: rimman
-ms.openlocfilehash: 81c54d0540aa5af279a5a6d570784454026ff229
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 997a80ed1a8089c5255292f23bc5dacf8a6cb0e7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042010"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452629"
 ---
-# <a name="pricing-model-of-azure-cosmos-db"></a>Azure Cosmos DB의 가격 책정 모델 
+# <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 가격 책정 모델 
 
 Azure Cosmos DB의 가격 책정 모델은 비용 관리 및 계획을 간소화합니다. Azure Cosmos DB를 사용하면 프로비전된 처리량 및 사용하는 스토리지의 요금을 해야 합니다.
 

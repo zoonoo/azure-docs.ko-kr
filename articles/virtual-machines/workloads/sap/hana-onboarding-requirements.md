@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d287f79f4161c509f96b679d4b794c2906f2e020
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9a445e5a7d230195472c2202d3f40458a23883e9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030658"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477858"
 ---
 # <a name="onboarding-requirements"></a>온보딩 요구 사항
 
@@ -33,7 +33,7 @@ ms.locfileid: "44030658"
 
 **네트워크 연결**
 
-- 온-프레미스와 Azure 간의 ExpressRoute: 온-프레미스 데이터 센터를 Azure에 연결하려면 ISP에서 1Gbps 이상의 연결을 요청해야 합니다. 
+- Azure에 대한 온-프레미스 간 ExpressRoute: 온-프레미스 데이터 센터를 Azure에 연결하려면 ISP에서 최소한 1Gbps 연결을 주문해야 합니다. HANA 대규모 인스턴스 단위와 Azure 간 연결에도 ExpressRoute 기술을 사용합니다. HANA 대규모 인스턴스 단위와 Azure 간 ExpressRoute 연결은 HANA 대규모 인스턴스 단위의 가격에 포함됩니다. 따라서 고객에게 온-프레미스와 Azure 간 ExpressRoute 링크 이외의 추가 비용은 발생하지 않습니다.
 
 **운영 체제**
 
@@ -66,10 +66,10 @@ Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [
 
 - SAP HANA에 대한 라이선스 및 소프트웨어 설치 구성 요소(플랫폼 및 Enterprise 버전).
 
-**응용 프로그램**
+**애플리케이션**
 
 - SAP HANA에 연결되는 모든 SAP 애플리케이션 및 관련 SAP 지원 계약에 대한 라이선스 및 소프트웨어 설치 구성 요소
-- SAP HANA on Azure(대규모 인스턴스) 환경 및 관련 지원 계약과 관련하여 사용되는 모든 비SAP 애플리케이션에 대한 라이선스 및 소프트웨어 설치 구성 요소
+- Azure의 SAP HANA(대규모 인스턴스) 환경 및 관련 지원 계약과 함께 사용되는 모든 비 SAP 애플리케이션에 대한 라이선스 및 소프트웨어 설치 구성 요소
 
 **기술**
 

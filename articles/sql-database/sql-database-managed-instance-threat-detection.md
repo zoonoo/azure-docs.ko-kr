@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: f87b7093a732639db8a53ebec68fcae8f29735f3
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.date: 01/25/2019
+ms.openlocfilehash: 59a3b4a4e1b08a9a9985836a9f9be44d1eff9c71
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158672"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472068"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에서 위협 탐지(미리 보기) 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "54158672"
 
 [이메일 알림](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) 또는 [Azure Portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)을 통해 탐지된 위협에 대한 알림을 받을 수 있습니다.
 
-[위협 탐지](sql-database-threat-detection-overview.md)는 고급 SQL 보안 기능용 통합 패키지인 [SQL ATP(Advanced Threat Protection)](sql-advanced-threat-protection.md) 제품의 일부입니다. Threat Detection은 중앙 SQL ATP 포털을 통해 액세스하고 관리할 수 있습니다. 위협 탐지 서비스는 처음 30일간 무료이며 Managed Instance당 매월 15달러가 부과됩니다.
+[위협 탐지](sql-database-threat-detection-overview.md)는 고급 SQL 보안 기능용 통합 패키지인 [SQL ADS](sql-advanced-threat-protection.md)(Advanced Data Security) 제품에 포함되어 있습니다. 중앙 SQL ADS 포털을 통해 위협 탐지에 액세스하고 위협 탐지를 관리할 수 있습니다. 위협 탐지 서비스는 처음 30일간 무료이며 Managed Instance당 매월 15달러가 부과됩니다.
 
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Azure Portal에서 Managed Instance에 대한 위협 검색 설정
 
@@ -43,6 +43,6 @@ ms.locfileid: "54158672"
 
 - [위협 탐지](sql-database-threat-detection-overview.md)에 대해 자세히 알아봅니다.
 - [Managed Instance란?](sql-database-managed-instance.md)에서 Managed Instance에 대해 자세히 알아봅니다.
-- [Single Database를 위한 위협 탐지](sql-database-threat-detection.md)에 대해 자세히 알아봅니다.
+- [단일 데이터베이스 위협 탐지](sql-database-threat-detection.md)에 대해 자세히 알아봅니다.
 - [Managed Instance 감사](https://go.microsoft.com/fwlink/?linkid=869430)에 대해 자세히 알아봅니다.
 - [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대해 자세히 알아봅니다.

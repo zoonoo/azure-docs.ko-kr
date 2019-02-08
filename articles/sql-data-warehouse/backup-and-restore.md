@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465176"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462344"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 백업 및 복원
 Azure SQL Data Warehouse에서 백업 및 복원이 어떻게 작동하는지 알아봅니다. 데이터 웨어하우스 스냅숏을 사용하여 데이터 웨어하우스를 주 지역의 이전 복원 지점으로 복구하거나 복사합니다. 데이터 웨어하우스 지역 중복 백업을 사용하여 다른 지역에 복원합니다. 
@@ -73,7 +73,7 @@ SQL Data Warehouse는 하루에 한 번 [쌍으로 연결된 데이터 센터](.
 
 
 ## <a name="backup-and-restore-costs"></a>백업 및 복원 비용
-Azure 청구서에는 Storage 및 재해 복구 스토리지에 대한 항목이 있습니다. Storage 요금은 스냅숏에서 캡처된 증분 변경과 함께 주 지역에 데이터를 저장하는 데 드는 총 비용입니다. 현재 스냅숏을 수행하는 방법에 대한 자세한 내용은 이 [설명서](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios)를 참조하세요. 지역 중복 요금은 지역 백업을 저장하는 데 드는 비용을 포함합니다.  
+Azure 청구서에는 Storage 및 재해 복구 스토리지에 대한 항목이 있습니다. Storage 요금은 스냅숏에서 캡처된 증분 변경과 함께 주 지역에 데이터를 저장하는 데 드는 총 비용입니다. 스냅숏 요금 청구 방법에 대한 자세한 내용은 [스냅숏 요금 청구 방법 이해](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios)를 참조하세요. 지역 중복 요금은 지역 백업을 저장하는 데 드는 비용을 포함합니다.  
 
 주 데이터 웨어하우스 및 7일 간의 스냅숏 변경에 대한 총 비용은 가장 가까운 TB로 반올림하여 계산됩니다. 예를 들어 데이터 웨어하우스가 1.5TB이고 스냅숏에서 100GB를 캡처하면 2TB 데이터에 대한 비용이 Azure Premium Storage 요율로 청구됩니다. 
 

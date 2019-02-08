@@ -9,18 +9,18 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50c5838f576b6fd6775373f2dbe3c46d751545c1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3e58c22048c9b71b00cffb0657fc924277304662
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437591"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462435"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight에서 Enterprise Security Package 사용
 
-표준 Azure HDInsight 클러스터는 단일 사용자 클러스터입니다. 대량 데이터 워크로드를 구축하는 작은 응용 프로그램 팀이 있는 대부분의 회사에 적합합니다. 각 사용자는 요청 시 전용 클러스터를 만들고 더 이상 필요하지 않은 경우, 삭제할 수 있습니다. 
+표준 Azure HDInsight 클러스터는 단일 사용자 클러스터입니다. 대량 데이터 워크로드를 구축하는 작은 애플리케이션 팀이 있는 대부분의 회사에 적합합니다. 각 사용자는 요청 시 전용 클러스터를 만들고 더 이상 필요하지 않은 경우, 삭제할 수 있습니다. 
 
-대부분의 기업이 클러스터를 IT 팀에서 관리하고 여러 응용 프로그램 팀이 클러스터를 공유하는 모델로 이동했습니다. 이러한 대기업은 Azure HDInsight의 각 클러스터에 대한 다중 사용자 액세스 권한이 필요합니다.
+대부분의 기업이 클러스터를 IT 팀에서 관리하고 여러 애플리케이션 팀이 클러스터를 공유하는 모델로 이동했습니다. 이러한 대기업은 Azure HDInsight의 각 클러스터에 대한 다중 사용자 액세스 권한이 필요합니다.
 
 HDInsight는 널리 사용되는 ID 공급자인 Active Directory를 관리되는 방식으로 사용합니다. [Azure AD DS(Azure Active Directory Domain Services)](../../active-directory-domain-services/active-directory-ds-overview.md)와 HDInsight를 통합하고 도메인 자격 증명을 사용하여 클러스터에 액세스할 수 있습니다. 
 
@@ -55,9 +55,41 @@ HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메�
 
 도메인에 대한 온-프레미스 Active Directory 인스턴스 또는 더 복잡한 Active Directory 설정이 있는 경우, Azure AD Connect를 사용하여 해당 ID를 Azure AD에 동기화할 수 있습니다. 그런 다음, 해당 Active Directory 테넌트에서 Azure AD DS를 사용하도록 설정할 수 있습니다. 
 
-Kerberos가 암호 해시를 사용하므로 [Azure AD DS에서 암호 해시 동기화를 사용하도록 설정](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)해야 합니다. AD FS(Active Directory Federation Services)와 페더레이션을 사용하는 경우, 필요에 따라 AD FS 인프라에 장애가 발생할 경우 백업으로 암호 해시 동기화를 설정할 수 있습니다. 자세한 내용은 [Azure AD Connect에서 암호 해시 동기화 사용](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요. 
+Kerberos가 암호 해시를 사용하므로 [Azure AD DS에서 암호 해시 동기화를 사용하도록 설정](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)해야 합니다. 
+
+ADFS(Active Directory Federation Services)와 페더레이션을 함께 사용하고 있으면, ADFS 인프라에 장애가 발생하고 자격 증명 보호가 손상된 경우 재해 복구에도 도움이 되는 암호 해시 동기화를 사용하도록 설정해야 합니다(권장 설정은 [여기](https://youtu.be/qQruArbu2Ew) 참조). 자세한 내용은 [Azure AD Connect에서 암호 해시 동기화 사용](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요. 
 
 Azure AD 및 Azure AD DS 없이 온-프레미스 Active Directory 또는 IaaS VM의 Active Directory만 사용하는 방식은 ESP가 포함된 HDInsight 클러스터에 대해 지원되는 구성이 아닙니다.
+
+페더레이션이 사용되고 있고 암호 해시가 제대로 동기화되지만 인증 오류가 발생하고 있다면, PowerShell 서비스 주체 클라우드 암호 인증이 사용하도록 설정되었는지 확인하세요. 사용하도록 설정되지 않은 경우에는 AAD 테넌트에 대한 [HRD(홈 영역 검색) 정책](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)을 설정해야 합니다. HRD 정책을 확인하고 설정하려면:
+
+ 1. AzureAD PowerShell 모듈 설치
+
+ ```
+  Install-Module AzureAD
+ ```
+
+ 2. 전역 관리자(테넌트 관리자) 자격 증명을 사용하는 ```Connect-AzureAD```
+
+ 3. “Microsoft Azure PowerShell” 서비스 주체가 이미 만들어졌는지 확인
+
+```
+ $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+```
+
+ 4. 존재하지 않는 경우($powershellSPN -q$null) 서비스 주체 만들기
+
+```
+ $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+```
+
+ 5. 정책을 만들고 이 서비스 주체에 연결: 
+
+```
+ $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+ Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+```
 
 ## <a name="next-steps"></a>다음 단계
 

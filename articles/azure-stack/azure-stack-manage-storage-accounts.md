@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a8134e2350b650f7dfe0b3a1d58d107e42493223
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766506"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895068"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure Stack의 storage 계정 관리
 
@@ -67,7 +67,7 @@ ms.locfileid: "55766506"
 
 Azure Stack에서 작업을 수행 하는 간단한 방법이 있습니다.
 
-1. 저장소 계정 목록으로 이동 합니다. 참조 [저장소 계정의 찾을](#find) 자세한 내용은이 문서의.
+1. 저장소 계정 목록으로 이동 합니다. 자세한 내용은이 문서의 저장소 계정 찾기를 참조 하세요.
 2. 목록에서 해당 특정 계정을 찾습니다. 필터링 할 수 있습니다.
 3. 확인 합니다 *상태* 계정. 표시 됩니다 **Deleted**합니다.
 4. 계정 세부 정보 창에 열리는 계정을 선택 합니다.
@@ -113,7 +113,7 @@ Azure Stack에서 작업을 수행 하는 간단한 방법이 있습니다.
 포털 또는 PowerShell을 사용 하 여 용량을 회수할 수 있습니다.
 
 **포털을 사용 하 여 용량을 합니다.**
-1. 저장소 계정 창으로 이동 합니다. 참조 [저장소 계정의 찾을](#find)합니다.
+1. 저장소 계정 창으로 이동 합니다. 저장소 계정 찾기를 참조 하세요.
 2. 선택 **공간을 회수** 창의 맨 위에 있는 합니다.
 3. 메시지를 읽고 선택한 **확인**합니다.
 

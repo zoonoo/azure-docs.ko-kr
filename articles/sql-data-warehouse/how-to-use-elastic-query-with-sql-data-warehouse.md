@@ -6,16 +6,16 @@ author: hirokib
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4a45d00559a84c178ab760acf8616f97ce7bb57c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718301"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466288"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Azure SQL Database에서 탄력적 쿼리를 사용하여 Azure SQL Data Warehouse의 데이터에 액세스하기 위한 모범 사례
 탄력적 쿼리를 사용하여 Azure SQL Database에서 Azure SQL Data Warehouse의 데이터에 액세스하기 위한 모범 사례에 대해 알아봅니다. 
@@ -141,13 +141,13 @@ Q: 탄력적 쿼리와 함께 행 수준 보안/동적 데이터 마스킹을 �
 
 A: SQL Database에 더 고급 보안 기능을 사용하려는 고객은 먼저 SQL Database에 데이터를 이동 및 저장하여 그렇게 할 수 있습니다. 현재는 외부 테이블을 통해 쿼리된 데이터에 행 수준 보안 또는 DDM을 적용할 수 없습니다. 
 
-Q: SQL Database 인스턴스로부터 데이터 웨어하우스 인스턴스에 쓸 수 있나요? 
+Q: SQL Database 인스턴스로부터 데이터 웨어하우스 인스턴스에 쓸 수 있나요?
 
 A: 이 기능은 현재 지원되지 않습니다. 향후 이 기능을 만나고 싶다면 [피드백 페이지][Feedback page]를 방문하여 이 기능을 만들거나 투표해 주세요. 
 
 Q: 기하/지리 등의 공간 형식을 사용할 수 있나요?
 
-A: SQL 데이터 웨어하우스에 공간 형식을 varbinary(max) 값으로 저장할 수 있습니다.  탄력적 쿼리를 사용하여 이 열을 쿼리할 때는 런타임에서 이 열을 적합한 형식으로 변환할 수 있습니다.
+A: SQL Data Warehouse에 공간 형식을 varbinary(max) 값으로 저장할 수 있습니다. 탄력적 쿼리를 사용하여 이 열을 쿼리할 때는 런타임에서 이 열을 적합한 형식으로 변환할 수 있습니다.
 
 ![공간 형식](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 

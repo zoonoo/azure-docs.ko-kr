@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 57058e9a86a338738315a08f218978e20fae95e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9491550aae8f88621d947572741f492adcf9cdd0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127859"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463228"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -84,7 +84,7 @@ string
 |to|(empty) |필수 사항입니다. 텍스트를 번역할 언어 코드를 나타내는 문자열입니다.|쿼리|string|
 |contentType|(empty)    |선택 사항입니다. 변환되는 텍스트의 형식입니다. 지원되는 형식은 text/plain(기본값) 및 text/html입니다. 모든 HTML은 올바른 형식이 완전한 요소여야 합니다.|쿼리|string|
 |카테고리|(empty)   |선택 사항입니다. 번역의 범주(도메인)를 포함하는 문자열입니다. 기본값은 "general"입니다.|쿼리|string|
-|권한 부여|(empty)  |appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 인증 토큰:  "Bearer" + " " + "access_token".|머리글|string|
+|권한 부여|(empty)  |appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.|머리글|string|
 |Ocp-Apim-Subscription-Key|(empty)  |appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
 
 
@@ -183,7 +183,7 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|권한 부여|(empty)) |appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 인증 토큰:  "Bearer" + " " + "access_token".|머리글|string|
+|권한 부여|(empty)) |appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.|머리글|string|
 |Ocp-Apim-Subscription-Key|(empty)|appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
 
 ### <a name="response-messages"></a>응답 메시지
@@ -311,7 +311,7 @@ string
 
 요청 URI는 `https://api.microsofttranslator.com/V2/Http.svc/Speak`입니다.
 
-**반환 값:** 원하는 언어로 말하는 전달된 텍스트의 wave 또는 mp3 스트림을 반환합니다.
+**반환 값:** 원하는 언어로 말하는 전달된 텍스트의 wave 또는 mp3 스트림입니다.
 
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
 
@@ -525,7 +525,7 @@ string
 
 |매개 변수|값|설명|매개 변수 형식|데이터 형식|
 |:--|:--|:--|:--|:--|
-|권한 부여|(empty)|appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 인증 토큰:  "Bearer" + " " + "access_token".|머리글|string|
+|권한 부여|(empty)|appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.|머리글|string|
 |Ocp-Apim-Subscription-Key|(empty)|appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
 
 ### <a name="response-messages"></a>응답 메시지
@@ -561,7 +561,7 @@ string
 |appId|(empty)  |필수 사항입니다. Authorization 또는 Ocp-Apim-Subscription-Key 헤더를 사용하는 경우 appid 필드를 비워 두고, 사용하지 않는 경우 "Bearer" + " " + "access_token"을 포함하는 문자열을 지정합니다.|쿼리| string|
 |text|(empty)   |필수 사항입니다. 문장으로 분할할 텍스트를 나타내는 문자열입니다. 텍스트 크기는 10000자를 초과하지 않아야 합니다.|쿼리|string|
 |언어   |(empty)    |필수 사항입니다. 입력 텍스트의 언어 코드를 나타내는 문자열입니다.|쿼리|string|
-|권한 부여|(empty)|appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 인증 토큰:  "Bearer" + " " + "access_token".    |머리글|string|
+|권한 부여|(empty)|appid 필드 또는 Ocp-Apim-Subscription-Key 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  “Bearer” + “ ” + “access_token”.    |머리글|string|
 |Ocp-Apim-Subscription-Key|(empty)|appid 필드 또는 Authorization 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
 
 ### <a name="response-messages"></a>응답 메시지
@@ -596,7 +596,7 @@ string
 `TranslateOptions` 개체는 아래에 나열된 값을 포함합니다. 모두 선택 사항이며 가장 일반적인 설정이 기본값이 됩니다. 지정된 요소는 사전순으로 나열되어야 합니다.
 
 * `Category`: 번역의 범주(도메인)를 포함하는 문자열입니다. 기본값은 "general"입니다.
-* `ContentType`: 유일하게 지원되는 기본 옵션은 "text/plain"입니다.
+* `ContentType`: 유일하게 지원되는 기본 옵션은 “text/plain”입니다.
 * `IncludeMultipleMTAlternatives`: 둘 이상의 대안이 MT 엔진에서 반환되어야 할지 여부를 결정하는 부울 플래그입니다. 유효한 값은 true 및 false(대/소문자 구분)입니다. 기본값이 False이고 1개의 대안만 포함합니다. 이 플래그를 true로 설정하면 CTF(공동 작업 번역 프레임워크)와 완벽하게 통합되는 인위적인 번역 대안을 생성할 수 있습니다. 이 기능을 사용하면 디코더의 n-best 목록에 있는 인위적인 대안을 추가하여 CTF에 대안이 없는 문장의 대안을 반환할 수 있습니다.
     - 등급: 등급은 다음과 같이 적용됩니다. 1) 최고의 자동 번역 등급은 5입니다. 2) CTF의 대안은 검토자의 권한인 -10 ~ +10을 반영합니다. 3) 자동으로 생성된(n-best) 번역 대안의 등급은 0이며, 일치 정도는 100입니다.
     - 대안 수: 반환된 대안 수는 최대 maxTranslations이지만 더 작을 수도 있습니다.
@@ -629,7 +629,7 @@ string
 여기에는 다음 값을 포함하는 `GetTranslationsResponse` 요소가 포함되어 있습니다.
 
 * `Translations`: 발견된 일치 항목의 배열로, TranslationMatch(아래 참조) 개체에 저장됩니다. 번역에는 원본 텍스트가 약간 변형된 형태(유사 일치)가 포함될 수 있습니다. 번역은 100% 일치부터 유사 일치 순으로 정렬됩니다.
-* `From`: 메서드가 From 언어를 지정하지 않을 경우 자동 언어 검색의 결과가 됩니다. 그렇지 않은 경우 지정된 From 언어입니다.
+* `From`: 메서드가 From 언어를 지정하지 않을 경우 자동 언어 감지의 결과가 됩니다. 그렇지 않은 경우 지정된 From 언어입니다.
 * `State`: 요청 및 응답을 상호 연결하게 하는 사용자 상태입니다. TranslateOptions 매개 변수에 지정된 것과 동일한 값을 포함합니다.
 
 TranslationMatch 개체는 다음으로 구성됩니다.
@@ -637,8 +637,8 @@ TranslationMatch 개체는 다음으로 구성됩니다.
 * `Error`: 특정 입력 문자열에서 오류가 발생하는 경우 오류 코드에 저장됩니다. 그렇지 않으면 이 필드가 비어 있습니다.
 * `MatchDegree`: 시스템은 입력 문장과 일치하는 문장을 저장소에서 찾습니다. 정확하지 않은 일치도 검색됩니다.  MatchDegree는 입력 텍스트가 저장소의 원본 텍스트와 얼마나 일치하는지를 나타냅니다. 반환되는 값은 0부터 100까지로, 0은 유사성이 없는 것이고 100은 대/소문자까지 정확하게 일치하는 것입니다.
 MatchedOriginalText: 이 결과에서 일치된 원본 텍스트입니다. 일치된 원본 텍스트가 입력 텍스트와 다른 경우에만 반환됩니다. 유사 일치의 원본 텍스트를 반환하는 데 사용됩니다. Microsoft Translator 결과에 대해서는 반환되지 않습니다.
-* `Rating`: 품질을 결정하는 사용자의 권한을 나타냅니다. Machine Translation 결과의 등급은 5입니다. 익명으로 제공되는 번역은 등급이 1~4이지만, 정식으로 제공된 번역은 등급이 6~10입니다.
-* `Count`: 이 등급을 값는 이 번역이 선택된 횟수입니다. 자동으로 번역된 응답의 경우 이 값이 0입니다.
+* `Rating`: 품질 결정 담당자의 권한을 나타냅니다. Machine Translation 결과의 등급은 5입니다. 익명으로 제공되는 번역은 등급이 1~4이지만, 정식으로 제공된 번역은 등급이 6~10입니다.
+* `Count`: 이 등급의 현재 번역이 선택된 횟수입니다. 자동으로 번역된 응답의 경우 이 값이 0입니다.
 * `TranslatedText`: 번역된 텍스트입니다.
 
 ### <a name="response-class-status-200"></a>응답 클래스(상태: 200)
@@ -704,7 +704,7 @@ string
 * `From`: 필수 사항입니다. 번역 텍스트의 언어 코드를 나타내는 문자열입니다.
 * `MaxTranslations`: 필수 사항입니다. 반환할 번역의 최대 수를 나타내는 정수입니다.
 * `Options`: 선택 사항입니다. 아래에 나열된 값을 포함하는 Options 개체입니다. 모두 선택 사항이며 가장 일반적인 설정이 기본값이 됩니다. 지정된 요소는 사전순으로 나열되어야 합니다.
-    - Category`: 번역의 범주(도메인)를 포함하는 문자열입니다. 기본값은 general입니다.
+    - Category: 번역의 범주(도메인)를 포함하는 문자열입니다. 기본값은 general입니다.
     - `ContentType`: 유일하게 지원되는 기본 옵션은 text/plain입니다.
     - `IncludeMultipleMTAlternatives`: 둘 이상의 대안이 MT 엔진에서 반환되어야 할지 여부를 결정하는 부울 플래그입니다. 유효한 값은 true 및 false(대/소문자 구분)입니다. 기본값이 False이고 1개의 대안만 포함합니다. 이 플래그를 true로 설정하면 CTF(공동 작업 번역 프레임워크)와 완벽하게 통합되는 인위적인 번역 대안을 생성할 수 있습니다. 이 기능을 사용하면 디코더의 n-best 목록에 있는 인위적인 대안을 추가하여 CTF에 대안이 없는 문장의 대안을 반환할 수 있습니다.
         - 등급: 등급은 다음과 같이 적용됩니다. 1) 최고의 자동 번역 등급은 5입니다. 2) CTF의 대안은 검토자의 권한인 -10 ~ +10을 반영합니다. 3) 자동으로 생성된(n-best) 번역 대안의 등급은 0이며, 일치 정도는 100입니다.
@@ -750,15 +750,15 @@ string
 각 `GetTranslationsResponse` 요소는 다음 값을 갖습니다.
 
 * `Translations`: 발견된 일치 항목의 배열로, `TranslationMatch`(아래 참조) 개체에 저장됩니다. 번역에는 원본 텍스트가 약간 변형된 형태(유사 일치)가 포함될 수 있습니다. 번역은 100% 일치부터 유사 일치 순으로 정렬됩니다.
-* `From`: 메서드가 `From` 언어를 지정하지 않을 경우 자동 언어 검색의 결과가 됩니다. 그렇지 않은 경우 지정된 From 언어입니다.
+* `From`: 메서드가 `From` 언어를 지정하지 않을 경우 자동 언어 감지의 결과가 됩니다. 그렇지 않은 경우 지정된 From 언어입니다.
 * `State`: 요청 및 응답을 상호 연결하게 하는 사용자 상태입니다. `TranslateOptions` 매개 변수에 지정된 것과 동일한 값을 포함합니다.
 
 `TranslationMatch` 개체는 다음으로 구성됩니다.
 * `Error`: 특정 입력 문자열에서 오류가 발생하는 경우 오류 코드에 저장됩니다. 그렇지 않으면 이 필드가 비어 있습니다.
 * `MatchDegree`: 시스템은 입력 문장과 일치하는 문장을 저장소에서 찾습니다. 정확하지 않은 일치도 검색됩니다.  `MatchDegree`는 입력 텍스트가 저장소의 원본 텍스트와 얼마나 일치하는지를 나타냅니다. 반환되는 값은 0부터 100까지로, 0은 유사성이 없는 것이고 100은 대/소문자까지 정확하게 일치하는 것입니다.
 * `MatchedOriginalText`: 이 결과에서 일치된 원본 텍스트입니다. 일치된 원본 텍스트가 입력 텍스트와 다른 경우에만 반환됩니다. 유사 일치의 원본 텍스트를 반환하는 데 사용됩니다. Microsoft Translator 결과에 대해서는 반환되지 않습니다.
-* `Rating`: 품질을 결정하는 사용자의 권한을 나타냅니다. Machine Translation 결과의 등급은 5입니다. 익명으로 제공되는 번역은 등급이 1~4이지만, 정식으로 제공된 번역은 등급이 6~10입니다.
-* `Count`: 이 등급을 값는 이 번역이 선택된 횟수입니다. 자동으로 번역된 응답의 경우 이 값이 0입니다.
+* `Rating`: 품질 결정 담당자의 권한을 나타냅니다. Machine Translation 결과의 등급은 5입니다. 익명으로 제공되는 번역은 등급이 1~4이지만, 정식으로 제공된 번역은 등급이 6~10입니다.
+* `Count`: 이 등급의 현재 번역이 선택된 횟수입니다. 자동으로 번역된 응답의 경우 이 값이 0입니다.
 * `TranslatedText`: 번역된 텍스트입니다.
 
 

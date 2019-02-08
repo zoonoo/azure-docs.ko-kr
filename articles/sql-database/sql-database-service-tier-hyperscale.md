@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 25936fa1156dea4beff6e593646d0468a4687f36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872894"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476182"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>최대 100TB의 하이퍼스케일 서비스 계층(미리 보기)
 
 Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 보장하기 위해 클라우드 환경에 대해 조정되는 SQL Server 데이터베이스 엔진 아키텍처를 기반으로 합니다. Azure SQL Database에 사용되는 세 가지 아키텍처 모델이 있습니다.
+
 - 범용/표준 
 - 중요 비즈니스용/프리미엄
 - 하이퍼스케일
@@ -40,7 +41,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 vCore 기반 구매
 Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 추가 기능을 제공합니다.
 
 - 최대 100TB의 데이터베이스 크기 지원
-- 계산 IO에 영향을 주지 않으면서 크기에 관계없이 거의 즉각적인 데이터베이스 백업(Azure Blob 저장소에 저장된 파일 스냅숏 기반)
+- 계산 IO에 영향을 주지 않으면서 크기에 관계없이 거의 즉각적인 데이터베이스 백업(Azure Blob Storage에 저장된 파일 스냅숏 기반)   
 - 몇 시간 또는 며칠이 아닌 몇 분 내에(데이터베이스 작업의 규모가 아닌) 빠른 데이터베이스 복원(파일 스냅숏 기반)
 - 데이터 볼륨에 관계없이 더 높은 로그 처리량 및 더 빠른 트랜잭션 커밋 시간이 보장되므로 전반적인 성능 개선
 - 빠른 스케일 아웃 - 읽기 워크로드를 오프로드하고 핫 대기로 사용하기 위해 하나 이상의 읽기 전용 노드를 프로비전할 수 있습니다.
@@ -133,9 +134,6 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-> [!IMPORTANT]
-> 하이퍼스케일이 아닌 데이터베이스를 하이퍼스케일로 변경하기 전에 [TDE(투명한 데이터 암호화)](transparent-data-encryption-azure-sql.md)를 꺼야 합니다.
-
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>하이퍼스케일 데이터베이스의 읽기 확장 복제본에 연결
 
 하이퍼스케일 데이터베이스에서 클라이언트가 제공한 연결 문자열의 `ApplicationIntent` 인수는 연결이 쓰기 복제본으로 라우팅되는지 또는 읽기 전용 보조 복제본으로 라우팅되는지를 나타냅니다. `ApplicationIntent`가 `READONLY`로 설정되고 데이터베이스에 보조 복제본이 없는 경우에는 연결이 주 복제본으로 라우팅되고 기본값은 `ReadWrite` 동작으로 설정됩니다.
@@ -153,17 +151,18 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 | 문제 | 설명 |
 | :---- | :--------- |
-| 논리 서버의 백업 관리 창에 SQL 서버에서 필터링된 하이퍼스케일 데이터베이스가 표시되지 않음  | 하이퍼스케일에는 백업을 관리하는 별도의 방법이 있기 때문에 장기 보존 및 특정 시점 백업 보존 설정이 적용되지 않고 무효화됩니다. 따라서 하이퍼스케일 데이터베이스가 백업 관리 창에 나타나지 않습니다. |
+| SQL Database 서버의 [백업 관리] 창에 SQL Server에서 필터링된 하이퍼스케일 데이터베이스가 표시되지 않음  | 하이퍼스케일에는 백업을 관리하는 별도의 방법이 있기 때문에 장기 보존 및 특정 시점 백업 보존 설정이 적용되지 않고 무효화됩니다. 따라서 하이퍼스케일 데이터베이스가 백업 관리 창에 나타나지 않습니다. |
 | 지정 시간 복원 | 데이터베이스가 하이퍼스케일 서비스 계층에 마이그레이션되고 나면 마이그레이션 이전에 지정 시간으로 복원이 지원되지 않습니다.|
 | 활성 워크로드로 인해 마이그레이션 중에 데이터베이스 파일이 커져서 파일 경계당 1TB를 넘으면 마이그레이션이 실패합니다. | 해결 방법: <br> - 가능하면 실행 중인 업데이트 워크로드가 없을 때 데이터베이스를 마이그레이션합니다.<br> - 마이그레이션을 다시 시도합니다. 마이그레이션 중에 1TB 경계를 초과하지만 않으면 성공합니다.|
 | Managed Instance는 현재 지원되지 않습니다. | 현재 지원되지 않음 |
 | 하이퍼스케일로 마이그레이션은 현재 단방향 작업입니다. | 데이터베이스가 하이퍼스케일로 마이그레이션되고 나면 하이퍼스케일이 아닌 서비스 계층에 직접 마이그레이션할 수 없습니다. 현재 하이퍼스케일에서 하이퍼스케일이 아닌 곳으로 데이터베이스를 마이그레이션하는 유일한 방법은 BACPAC 파일을 사용하여 내보내기/가져오기를 수행하는 것 입니다.|
-| 메모리 내 개체를 사용하는 데이터베이스 마이그레이션은 현재 지원되지 않습니다. | 데이터베이스를 하이퍼스케일 서비스 계층으로 마이그레이션하기 전에 메모리 내 개체를 삭제하고 메모리 내 개체가 아닌 개체로 다시 만들어야 합니다.
+| 메모리 내 개체를 사용하는 데이터베이스 마이그레이션은 현재 지원되지 않습니다. | 데이터베이스를 하이퍼스케일 서비스 계층으로 마이그레이션하기 전에 메모리 내 개체를 삭제하고 메모리 내 개체가 아닌 개체로 다시 만들어야 합니다.|
+| 데이터 변경 내용 추적은 현재 지원되지 않습니다. | 하이퍼스케일 데이터베이스에서 데이터 변경 내용 추적을 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - 하이퍼스케일에 대한 FAQ는 [하이퍼스케일에 대한 질문과 대답](sql-database-service-tier-hyperscale-faq.md)을 참조하세요.
 - 서비스 계층에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
-- 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버의 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
+- 서버 및 구독 수준의 한도에 관한 정보는 [SQL Database 서버의 리소스 한도 개요](sql-database-resource-limits-database-server.md)를 참조하세요.
 - 단일 데이터베이스에 대한 구매 모델 제한은 [단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
 - 기능 및 비교 목록은 [SQL 일반 기능](sql-database-features.md)을 참조하세요.

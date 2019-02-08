@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e21a3ae23ca6a856c9524e52e80f33362f53cae1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040849"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455935"
 ---
-# <a name="how-to-restore-azure-cosmos-db-data-from-a-backup"></a>백업에서 Azure Cosmos DB 데이터를 복원하는 방법
+# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Azure Cosmos DB의 백업에서 데이터 복원 
 
 데이터베이스 또는 컨테이너를 실수로 삭제한 경우, [지원 티켓을 제출]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하거나 [Azure 지원에 문의]( https://azure.microsoft.com/support/options/)하여 자동 온라인 백업에서 데이터를 복원할 수 있습니다. Azure 지원은 **Standard**, **Developer 및 상위 플랜같은 지정된 플랜에만 사용할 수 있습니다. Azure 지원은 **Basic** 플랜에는 사용할 수 없습니다. 여러 지원 플랜에 대해 자세히 알아보려면 [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 페이지를 참조하세요. 
 

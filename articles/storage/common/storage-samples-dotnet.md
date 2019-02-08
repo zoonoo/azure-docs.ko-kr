@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 663df77a7fb574f05cfaa9378dff53ca5db21c49
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c4dcb3f42d97624e66258228ce27e130a05cac70
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526112"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456139"
 ---
 # <a name="azure-storage-samples-using-net"></a>.NET을 사용한 Azure Storage 샘플
 
@@ -22,7 +22,7 @@ ms.locfileid: "39526112"
 
 다음 테이블에서는 샘플 리포지토리 및 각 샘플에서 다루는 시나리오에 대한 개요를 제공합니다. GitHub에서 해당 샘플 코드를 보려면 링크를 클릭합니다.
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">끝점</th><th style="font-size:110%">시나리오</th><th style="font-size:110%">샘플 코드</th></tr></thead><tbody> 
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">엔드포인트</th><th style="font-size:110%">시나리오</th><th style="font-size:110%">샘플 코드</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>Blob 추가</td> 
@@ -30,7 +30,7 @@ ms.locfileid: "39526112"
 </tr> 
 <tr> 
 <td>블록 Blob</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 응용 프로그램</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 애플리케이션</a></td>
 </tr> 
 <tr> 
 <td>클라이언트 쪽 암호화</td>
@@ -42,11 +42,11 @@ ms.locfileid: "39526112"
 </tr> 
 <tr> 
 <td>컨테이너 만들기</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 응용 프로그램</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 애플리케이션</a></td>
 </tr> 
 <tr> 
 <td>Blob 삭제</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 응용 프로그램</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 애플리케이션</a></td>
 </tr> 
 <tr> 
 <td>컨테이너 삭제</td>
@@ -58,7 +58,7 @@ ms.locfileid: "39526112"
 </tr> 
 <tr> 
 <td>컨테이너 ACL/메타데이터/속성</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 응용 프로그램</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage 사진 갤러리 웹 애플리케이션</a></td>
 </tr> 
 <tr> 
 <td>페이지 범위 가져오기</td>
@@ -161,7 +161,7 @@ ms.locfileid: "39526112"
 <tr> 
 <td rowspan="7"><b>테이블</b></td>
 <td>테이블 만들기</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure Storage를 사용하여 동시성 관리 - 샘플 응용 프로그램</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure Storage를 사용하여 동시성 관리 - 샘플 애플리케이션</a></td> 
 </tr> 
 <tr> 
 <td>엔터티/테이블 삭제</td> 
@@ -169,7 +169,7 @@ ms.locfileid: "39526112"
 </tr> 
 <tr> 
 <td>엔터티 삽입/병합/바꾸기</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure Storage를 사용하여 동시성 관리 - 샘플 응용 프로그램</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure Storage를 사용하여 동시성 관리 - 샘플 애플리케이션</a></td> 
 </tr> 
 <tr> 
 <td>엔터티 쿼리</td> 
@@ -185,7 +185,7 @@ ms.locfileid: "39526112"
 </tr> 
 <tr> 
 <td>엔터티 업데이트</td> 
-<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure Storage를 사용하여 동시성 관리 - 샘플 응용 프로그램</a></td> 
+<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Azure Storage를 사용하여 동시성 관리 - 샘플 애플리케이션</a></td> 
 </tr> 
 </tbody> 
 </table>
@@ -211,4 +211,4 @@ Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방�
 다른 언어용 샘플에 대한 정보:
 
 * Java: [Java를 사용한 Azure Storage 샘플](storage-samples-java.md)
-* 다른 모든 언어: [Azure Storage 샘플](../storage-samples.md)
+* 모든 기타 언어: [Azure Storage 샘플](../storage-samples.md)

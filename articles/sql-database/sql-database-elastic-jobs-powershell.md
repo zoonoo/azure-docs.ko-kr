@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278460"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472655"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell을 사용하여 SQL Database 탄력적 작업 만들기 및 관리(미리 보기)
 
@@ -70,7 +70,7 @@ ms.locfileid: "53278460"
 
   <tr>
     <td>DACPAC</td>
-    <td>데이터베이스에서 적용할 <a href="https://msdn.microsoft.com/library/ee210546.aspx">데이터 계층 응용 프로그램</a> 패키지입니다.
+    <td>데이터베이스에서 적용할 <a href="https://msdn.microsoft.com/library/ee210546.aspx">데이터 계층 애플리케이션</a> 패키지입니다.
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
@@ -189,7 +189,7 @@ ms.locfileid: "53278460"
 </table>
 
 ## <a name="supported-elastic-database-jobs-group-types"></a>지원되는 Elastic Database 작업 그룹 유형
-이 작업은 데이터베이스 그룹에 대해 DACPAC 애플리케이션 또는 Transact-SQL(T-SQL) 스크립트를 실행합니다. 데이터베이스 그룹에 대해 실행할 작업이 제출되면 작업은 자식 작업으로 "확장"되며 여기에서 각 자식 작업은 그룹의 단일 데이터베이스에 대해 요청된 실행을 수행합니다. 
+이 작업은 데이터베이스 그룹에 대해 DACPAC 애플리케이션 또는 Transact-SQL(T-SQL) 스크립트를 실행합니다. 데이터베이스 그룹에 대해 실행할 작업이 제출되면 작업은 자식 작업으로 “확장”되며 여기에서 각 자식 작업은 그룹의 개별 데이터베이스에 대해 요청된 실행을 수행합니다. 
 
 두 가지 형식의 그룹을 만들 수 있습니다. 
 
@@ -624,7 +624,7 @@ Elastic Database 작업 내에 등록된 기존 DACPAC를 새 URI를 가리키�
     $updatedDacpac = Set-AzureSqlJobDacpacDefinition -ContentName $dacpacName -DacpacUri $newDacpacUri
     Write-Output $updatedDacpac
 
-## <a name="to-create-a-job-to-apply-a-data-tier-application-dacpac-across-databases"></a>데이터베이스에 DACPAC(데이터 계층 응용 프로그램)를 적용하는 작업을 만들려면
+## <a name="to-create-a-job-to-apply-a-data-tier-application-dacpac-across-databases"></a>데이터베이스에 DACPAC(데이터 계층 애플리케이션)를 적용하는 작업을 만들려면
 Elastic Database 작업 내에서 DACPAC를 만든 후 데이터베이스 그룹에 DACPAC를 적용하는 작업을 만들 수 있습니다. 다음 PowerShell 스크립트를 사용하여 사용자 지정 데이터베이스 컬렉션에 대한 DACPAC 작업을 만들 수 있습니다.
 
     $jobName = "{Job Name}"

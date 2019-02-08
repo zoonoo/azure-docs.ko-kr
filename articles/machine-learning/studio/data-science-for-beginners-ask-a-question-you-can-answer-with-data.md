@@ -1,6 +1,6 @@
 ---
-제목: 데이터가 대답할 수 있는 질문하기 titleSuffix: Azure Machine Learning Studio 설명: 초급자를 위한 데이터 과학 비디오 3에서 정확한 데이터 과학 질문을 작성하는 방법을 알아봅니다. 분류 및 회귀 질문에 대한 비교가 포함되어 있습니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 데이터가 대답할 수 있는 질문하기 titleSuffix: Azure Machine Learning Studio 설명: 초급자를 위한 데이터 과학 비디오 3에서 정확한 데이터 과학 질문을 작성하는 방법을 알아봅니다. 분류 및 회귀 질문에 대한 비교가 포함되어 있습니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/03/2018
 ---

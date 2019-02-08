@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: a05a8ad495e33734a531405902ce34e3591bfe15
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b27877e25dd3bdd4711d1c036e2f203e1b8c0e7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056321"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462143"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 애플리케이션
 
@@ -46,7 +46,7 @@ GitHub[.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>분할된 다중 테넌트 데이터베이스 패턴
 
-다중 테넌트 데이터베이스는 테넌트당 낮은 비용을 원하며 테넌트 격리를 줄여도 되는 서비스 공급자에게 효과적입니다. 이 패턴을 사용하면 많은 테넌트를 단일 데이터베이스로 압축할 수 있으며 테넌트당 비용을 낮춥니다. 테넌트를 여러 데이터베이스로 분할하여 무제한에 가깝게 확장할 수 있습니다. 카탈로그 데이터베이스가 테넌트를 데이터베이스로 매핑합니다.  
+다중 테넌트 데이터베이스는 테넌트당 낮은 비용을 원하며 테넌트 격리를 줄여도 되는 서비스 공급자에게 효과적입니다. 이 패턴을 사용하면 많은 테넌트를 개별 데이터베이스로 압축할 수 있으며 테넌트당 비용을 낮춥니다. 테넌트를 여러 데이터베이스로 분할하여 무제한에 가깝게 확장할 수 있습니다. 카탈로그 데이터베이스가 테넌트를 데이터베이스로 매핑합니다.  
 
 이 패턴을 사용하면 여러 개의 테넌트가 하나의 데이터베이스를 사용하도록 하여 비용을 최적화하거나 테넌트마다 자체 데이터베이스를 갖도록 하여 격리를 최적화하는 *하이브리드* 모델을 구현할 수 있습니다. 테넌트가 프로비전될 때 또는 그 후에 테넌트별로 애플리케이션에 영향을 미치지 않고 적용할 수 있습니다.  이 모델은 서로 다른 테넌트 그룹을 각각 다르게 취급해야 하는 경우 효과적입니다. 예를 들어, 요금이 낮은 테넌트는 공유 데이터베이스에 할당하고, 프리미엄 테넌트는 자체 데이터베이스에 할당할 수 있습니다. 
 
@@ -56,7 +56,7 @@ GitHub[.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-m
 
 #### <a name="conceptual-descriptions"></a>개념적 설명
 
-- [다중 테넌트 SaaS 데이터베이스 테넌트 패턴][saas-tenancy-app-design-patterns-md]에 응용 프로그램 테넌트 패턴에 대해 자세히 설명되어 있습니다.
+- [다중 테넌트 SaaS 데이터베이스 테넌트 패턴][saas-tenancy-app-design-patterns-md]에 애플리케이션 테넌트 패턴에 대해 자세히 설명되어 있습니다.
 
 #### <a name="tutorials-and-code"></a>자습서 및 코드
 

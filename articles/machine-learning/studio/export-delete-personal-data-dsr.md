@@ -1,10 +1,22 @@
 ---
-제목: Machine Learning Studio에서 데이터 내보내기 및 삭제 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio에서 저장하는 제품 내 데이터는 Azure Portal 및 인증된 REST API를 통해 내보내고 삭제할 수 있습니다. 원격 분석 데이터는 Azure 개인 정보 보호 포털을 통해 액세스할 수 있습니다. 이 문서는 방법을 안내합니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: conceptual
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 2018/05/25
+title: Machine Learning Studio에서 데이터 내보내기 및 삭제
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio에서 저장하는 제품 내 데이터는 Azure Portal 및 인증된 REST API를 통해 내보내고 삭제할 수 있습니다. 원격 분석 데이터는 Azure 개인 정보 보호 포털을 통해 액세스할 수 있습니다. 이 문서는 방법을 안내합니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: conceptual
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 05/25/2018
+ms.openlocfilehash: d2276eb11ce904b485440a6ce91981846a980dbc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462191"
 ---
-
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 제품 내 사용자 데이터 내보내기 및 삭제
 
 Azure Portal, Studio 인터페이스, PowerShell 및 인증된 REST API를 사용하여 Azure Machine Learning Studio에서 저장한 제품 내 데이터를 삭제하거나 내보낼 수 있습니다. 이 문서에서는 이러한 작업을 수행하는 방법에 대해 설명합니다. 

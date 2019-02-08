@@ -1,6 +1,6 @@
 ---
-제목: 모델 디버그 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio에서 모델 학습 및 모델 점수 매기기 모듈에 의해 생성된 오류를 디버그하는 방법을 설명합니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 모델 디버그 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio에서 모델 학습 및 모델 점수 매기기 모듈에 의해 생성된 오류를 디버그하는 방법을 설명합니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2017
 ---

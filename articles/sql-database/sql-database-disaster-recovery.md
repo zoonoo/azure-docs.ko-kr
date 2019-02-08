@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 889f8f597b0b744ea5fe6ef2f5c82f2d09629607
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 61957b89bd5ec9a42d6fd03c7009187d71e448f4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605214"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474788"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대한 장애 조치
 
@@ -37,7 +37,7 @@ Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공�
 
 장애 조치(Failover) 그룹 또는 지역 중복 백업을 사용하여 다른 데이터 영역으로 성공적으로 복구하려면 이러한 요구가 발생하고 원활한 복구를 보장하기 위해 잘 정의된 단계가 문서화되고 테스트된 경우 다른 데이터 센터 가동 중단에 대비해서 서버를 새로운 주 서버로 준비해야 합니다. 이러한 준비 단계는 다음과 같습니다.
 
-- 새로운 주 서버가 될 수 있는 다른 지역의 논리 서버를 식별합니다. 지역 복원의 경우 일반적으로 데이터베이스가 있는 지역과 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md)에 있는 서버입니다. 이렇게 하면 지역 복원 작업 중에 추가 트래픽 비용이 제거됩니다.
+- 새로운 주 서버가 될 수 있는 다른 지역의 SQL Database 서버를 식별합니다. 지역 복원의 경우 일반적으로 데이터베이스가 있는 지역과 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md)에 있는 서버입니다. 이렇게 하면 지역 복원 작업 중에 추가 트래픽 비용이 제거됩니다.
 - 사용자가 새로운 주 데이터베이스에 액세스하는 데 필요한 서버 수준 방화벽 규칙을 식별하고 경우에 따라 정의합니다.
 - 연결 문자열을 변경하거나 DNS 항목을 변경하는 것과 같이 사용자를 새로운 주 서버로 리디렉션하는 방법을 결정합니다.
 - 새로운 주 서버의 master 데이터베이스에 있어야 하는 로그인을 식별하고 필요에 따라 만든 후, 이러한 로그인(있는 경우)이 master 데이터베이스에서 적절한 권한이 있는지 확인합니다. 자세한 내용은 [재해 복구 후 Azure SQL Database 보안](sql-database-geo-replication-security-config.md)

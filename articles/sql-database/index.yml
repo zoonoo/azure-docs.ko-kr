@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7a6372f90cde75cb3314a049de41a4826510bd3f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 437ab5fe8eec2a7c097805f3328df4dd9a2398c6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752248"
+ms.locfileid: "55769955"
 documentType: LandingData
 title: Azure SQL Database 설명서
 metadata:
@@ -68,7 +68,7 @@ sections:
       html: <p>Managed Instance를 사용하여 데이터베이스 코드 변경 없이 또는 최소한으로 완전히 관리되는 Azure PaaS 데이터베이스 서비스에 온-프레미스 데이터베이스를 쉽게 마이그레이션합니다.</p>
       image:
         src: media/index/i_mi.svg
-      title: 관리되는 인스턴스
+      title: Managed Instance
     - href: /azure/sql-database/sql-database-paas
       html: <p>기본 제공 고가용성, 자동화된 백업 및 지역 복제는 유지 관리 작업, 인프라 또는 하드웨어 오류가 비즈니스를 중단하지 않도록 방지합니다.</p>
       image:
@@ -110,18 +110,18 @@ sections:
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
       - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
-    - title: 관리되는 인스턴스 만들기
-      values:
-      - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
-      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: 탄력적 풀 만들기
       values:
       - href: /azure/sql-database/sql-database-elastic-pool-manage
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
       - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
+    - title: 관리되는 인스턴스 만들기
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-get-started
+      - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
 - title: 단계별 자습서
   items:
   - type: paragraph
@@ -129,11 +129,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: 이 빠른 시작 가이드를 사용하여 <a href="/azure/sql-database/sql-database-quickstart-guide">싱글톤 데이터베이스</a> 및 <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">Managed Instance</a>를 시작합니다.
+    - html: 빠른 시작 가이드를 사용하여 <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">단일 데이터베이스</a> 및 <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">관리되는 인스턴스</a>를 시작합니다.
     - html: <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> 또는 <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>을 사용하여 새 단일 데이터베이스에 대한 스키마 만들기 및 설계
-    - html: <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">데이터베이스 복원</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> 또는 <a href="/azure/sql-database/sql-database-import">BACPAC 가져오기</a>를 사용하여 Azure에 기존 데이터베이스 마이그레이션
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">네이티브 SQL Server 백업 파일</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a>를 사용하거나 <a href="/azure/sql-database/sql-database-import">BACPAC 파일을 가져와</a> 기존 데이터베이스를 Azure로 마이그레이션
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">SQL Database 보안 설정</a>
-    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">지역 복제 데이터베이스</a>를 전세계에 사용하여 데이터 배포
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">지역 복제 데이터베이스</a>를 사용하여 전역적으로 데이터 배포
 - title: Microsoft Learn을 통해 기술 쌓기
   items:
   - type: list

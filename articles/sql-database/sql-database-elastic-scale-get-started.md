@@ -11,24 +11,28 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
-ms.date: 08/27/2018
-ms.openlocfilehash: b3bdcc81776067f279c1f95458a0a79a8824f51c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: dbc3b7e2e013dc53a1e2524c44bd2229a6a1b18d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603052"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462973"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Elastic Database 도구 시작하기
+
 이 문서는 샘플 앱을 실행하도록 도와서 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)에 대한 개발자 환경을 소개합니다. 샘플 앱은 간단한 분할 애플리케이션을 만들고 Azure SQL Database의 Elastic Database 도구의 핵심 기능을 살펴봅니다. [분할 맵 관리](sql-database-elastic-scale-shard-map-management.md), [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 및 [다중 분할 쿼리](sql-database-elastic-scale-multishard-querying.md)에 대한 사용 사례에 중점을 둡니다. 클라이언트 라이브러리는 .Net은 물론 Java에서도 사용할 수 있습니다. 
 
 ## <a name="elastic-database-tools-for-java"></a>Java용 Elastic Database 도구
+
 ### <a name="prerequisites"></a>필수 조건
+
 * JDK(Java Developer Kit) 버전 1.8 이상
 * [Maven](http://maven.apache.org/download.cgi)
-* Azure 또는 로컬 SQL Server 인스턴스의 논리 서버
+* Azure 또는 로컬 SQL Server 인스턴스의 SQL Database 서버
 
 ### <a name="download-and-run-the-sample-app"></a>샘플 앱 다운로드 및 실행
+
 JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수행합니다. 
 1. 샘플 앱과 함께 클라이언트 라이브러리가 포함된 [GitHub 리포지토리](https://github.com/Microsoft/elastic-db-tools-for-java)를 복제합니다. 
 
@@ -65,12 +69,15 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 </dependency> 
 ```
 
-## <a name="elastic-database-tools-for-net"></a>.Net용 Elastic Database 도구 
+## <a name="elastic-database-tools-for-net"></a>.Net용 Elastic Database 도구
+
 ### <a name="prerequisites"></a>필수 조건
+
 * C#이 있는 Visual Studio 2012 이상. [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)에서 무료 버전을 다운로드하세요.
 * NuGet 2.7 이상. 최신 버전을 설치하려면 [NuGet 설치](http://docs.nuget.org/docs/start-here/installing-nuget)를 참조하세요.
 
 ### <a name="download-and-run-the-sample-app"></a>샘플 앱 다운로드 및 실행
+
 라이브러리를 설치하려면 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)로 이동합니다. 라이브러리는 다음 섹션에 설명된 샘플 앱과 함께 설치됩니다.
 
 샘플을 다운로드하고 실행하려면 다음 단계를 수행합니다. 
@@ -91,10 +98,9 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
 > [!IMPORTANT]
 > Azure 및 SQL Database에 대한 업데이트와 동기화된 상태를 유지하도록 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
 
 ## <a name="key-pieces-of-the-code-sample"></a>코드 샘플의 주요 부분
+
 * **분할된 데이터베이스 및 분할된 데이터베이스 맵 관리**: 코드는 *ShardManagementUtils.cs* 파일에서 분할된 데이터베이스, 범위 및 매핑으로 작업하는 방법을 보여줍니다. 자세한 내용은 [분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장](https://go.microsoft.com/?linkid=9862595)을 참조하세요.  
 
 * **데이터 종속 라우팅**: 적절한 분할된 데이터베이스로의 트랜잭션 라우팅은 *DataDependentRoutingSample.cs* 파일에 나와 있습니다. 자세한 내용은 [데이터 종속 라우팅](https://go.microsoft.com/?linkid=9862596)을 참조하세요. 
@@ -104,11 +110,13 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 * **비어 있는 분할 추가**: *CreateShardSample.cs* 파일의 코드를 사용하여 비어 있는 새 분할을 반복적으로 추가할 수 있습니다. 자세한 내용은 [분할된 데이터베이스 맵 관리자를 사용하여 데이터베이스 확장](https://go.microsoft.com/?linkid=9862595)을 참조하세요.
 
 ## <a name="other-elastic-scale-operations"></a>기타 탄력적인 확장 작업
+
 * **기존의 분할된 데이터베이스 분할**: 분할/병합 도구를 통해 분할된 데이터베이스를 분할하는 기능이 제공됩니다. 자세한 내용은 [확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)을 참조하세요.
 
 * **기존의 분할된 데이터베이스 병합**: 분할된 데이터베이스도 분할/병합 도구를 사용하여 수행할 수 있습니다. 자세한 내용은 [확장된 클라우드 데이터베이스 간 데이터 이동](sql-database-elastic-scale-overview-split-and-merge.md)을 참조하세요.   
 
 ## <a name="cost"></a>비용
+
 Elastic Database 도구 라이브러리는 무료로 제공됩니다. Elastic Database 도구를 사용하면 Azure 사용량 비용 이외의 요금이 추가되지 않습니다. 
 
 예를 들어 샘플 애플리케이션이 새 데이터베이스를 만드는 경우 이 기능의 비용은 선택한 SQL Database 버전과 애플리케이션의 Azure 사용량에 따라 부과됩니다.
@@ -116,6 +124,7 @@ Elastic Database 도구 라이브러리는 무료로 제공됩니다. Elastic Da
 가격 책정 정보는 [SQL Database 가격 책정 정보](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 Elastic Database 도구에 대한 자세한 내용은 다음 페이지를 참조하세요.
 
 * 코드 샘플: 

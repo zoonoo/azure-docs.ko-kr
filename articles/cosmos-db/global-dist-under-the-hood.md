@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB 글로벌 배포 - 내부 살펴보기
+title: Azure Cosmos DB를 사용한 전역 배포 - 기본적인 이해
 description: 이 문서에서는 Azure Cosmos DB의 글로벌 배포와 관련된 기술 세부 정보를 제공합니다.
 author: dharmas-cosmos
 ms.service: cosmos-db
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e1c84bb28747cf1799b39c70b6df3dc0cb9f8d78
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 86e4441174fa89fc688fa4e411ead0a7b3ebc8ee
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038945"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475383"
 ---
-# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure Cosmos DB 글로벌 배포 - 내부 살펴보기
+# <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Azure Cosmos DB를 사용한 전역 데이터 배포 - 기본적인 이해
 
 Azure Cosmos DB는 Azure의 기본 서비스이므로 공용, 소버린, DoD(국방부) 및 정부 클라우드를 포함한 전 세계 모든 Azure 지역에서 배포됩니다. 데이터 센터 내에서 Azure Cosmos DB를 각각 전용 로컬 스토리지가 있는 대규모 스탬프의 머신에 배포 및 관리합니다. 데이터 센터 내에서 Azure Cosmos DB는 여러 클러스터로 배포되며 각각은 여러 세대의 하드웨어를 잠재적으로 실행할 수 있습니다. 클러스터 내 머신은 일반적으로 10-20개 장애 도메인에 분산되어 있습니다. 다음 이미지에서는 Cosmos DB 글로벌 배포 시스템 토폴로지를 보여 줍니다.
 

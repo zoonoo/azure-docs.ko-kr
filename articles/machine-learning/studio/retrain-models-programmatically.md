@@ -1,6 +1,6 @@
 ---
-제목: 프로그래밍 방식으로 Machine Learning Studio 모델 다시 학습 titleSuffix: Azure Machine Learning Studio 설명: C# 및 Machine Learning Batch Execution 서비스를 사용하여 모델을 프로그래밍 방식으로 다시 학습하는 방법을 알아봅니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 프로그래밍 방식으로 Machine Learning Studio 모델 다시 학습 titleSuffix: Azure Machine Learning Studio 설명: C# 및 Machine Learning Batch Execution 서비스를 사용하여 모델을 프로그래밍 방식으로 다시 학습하는 방법을 알아봅니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2017/04/19
 ---

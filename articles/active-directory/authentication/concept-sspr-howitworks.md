@@ -3,19 +3,19 @@ title: Azure Active Directory SSPR(셀프 서비스 암호 재설정) 심층 분
 description: SSPR(셀프 서비스 암호 재설정)은 어떻게 작동하나요?
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 41bdc2497ff19f0033a5253814771072b47eef62
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435722"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475188"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방법: Azure AD 셀프 서비스 암호 재설정
 
@@ -50,7 +50,7 @@ SSPR(셀프 서비스 암호 재설정)은 어떻게 작동하나요? 인터페�
        * 인증 방법이 구성되어 있지 않으면 관리자에게 문의하여 암호를 다시 설정하도록 사용자에게 요구합니다.
      * 정책에 두 방법만 필요한 경우 관리자 정책에서 사용하도록 설정된 두 인증 방법에 대해 정의된 적절한 데이터가 사용자에게 있는지 확인합니다.
        * 인증 방법이 구성되어 있지 않으면 관리자에게 문의하여 암호를 다시 설정하도록 사용자에게 요구합니다.
-     * Azure 관리자 역할이 사용자에게 할당된 경우에는 강력한 두 게이트 암호 정책이 적용됩니다. 이 정책에 대한 자세한 내용은 [관리자 재설정 정책의 차이점](concept-sspr-policy.md#administrator-reset-policy-differences) 섹션에서 찾을 수 있습니다.
+     * Azure 관리자 역할이 사용자에게 할당된 경우에는 강력한 2-게이트 암호 정책이 적용됩니다. 이 정책에 대한 자세한 내용은 [관리자 재설정 정책의 차이점](concept-sspr-policy.md#administrator-reset-policy-differences) 섹션에서 찾을 수 있습니다.
    * 사용자의 암호가 온-프레미스에서 관리되는지(페더레이션, 통과 인증 또는 암호 해시 동기화) 여부를 확인합니다.
      * 쓰기 저장이 배포되어 있고 사용자의 암호가 온-프레미스에서 관리되는 경우 사용자가 인증을 진행하고 암호를 다시 설정할 수 있습니다.
      * 쓰기 저장이 배포되어 있지 않고 사용자의 암호가 온-프레미스에서 관리되는 경우 관리자에게 문의하여 암호를 다시 설정하도록 사용자에게 요구합니다.
@@ -84,7 +84,7 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 
 #### <a name="mobile-app-and-sspr-preview"></a>모바일 앱 및 SSPR(미리 보기)
 
-Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법으로 사용할 경우 다음 사항에 유의해야 합니다.
+Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법으로 사용할 경우 다음 주의 사항에 유의해야 합니다.
 
 * 관리자가 하나의 방법으로 암호를 재설정하도록 요구하는 경우 사용 가능한 유일한 옵션은 인증 코드입니다.
 * 관리자가 두 가지 방법으로 암호를 재설정하도록 요구하는 경우, 사용자는 다른 활성화된 방법과 함께 **알림** 또는 **확인 코드**를 사용하여 재설정할 수 있습니다.
@@ -119,7 +119,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>사용자가 로그인 시 등록하도록 요구하시겠습니까?
 
-이 옵션을 사용하려면 사용자가 Azure AD를 사용하는 애플리케이션에 로그인한 경우 암호 재설정 등록을 완료해야 합니다. 여기에는 다음 애플리케이션이 포함됩니다.
+이 옵션을 사용하려면 사용자가 Azure AD를 사용하는 애플리케이션에 로그인한 경우 암호 재설정 등록을 완료해야 합니다. 이 워크플로에는 다음 애플리케이션이 포함됩니다.
 
 * Office 365
 * Azure portal
@@ -132,7 +132,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 > [!NOTE]
 > 사용자가 **취소**를 선택하거나 창을 닫으면 암호 재설정 등록 포털을 해제할 수 있습니다. 그러나 이 경우에는 등록을 완료할 때까지 로그인할 때마다 등록하도록 요구하는 메시지가 표시됩니다.
 >
-> 이미 로그인되어 있으면 사용자의 연결이 중단되지 않습니다.
+> 이미 로그인되어 있으면 이 중단으로 인해 사용자의 연결이 끊어지지 않습니다.
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>사용자가 인증 정보를 다시 확인하도록 요청받을 때까지의 기간(일) 설정
 
@@ -169,7 +169,7 @@ Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미�
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>온-프레미스 디렉터리에 대한 비밀번호 쓰기 저장
 
-이 컨트롤은 이 디렉터리에 대해 비밀번호 쓰기 저장이 사용되는지 여부를 결정합니다. 쓰기 저장이 설정되면 온-프레미스 쓰기 저장 서비스의 상태를 나타냅니다. 이는 Azure AD Connect를 다시 구성하지 않고 비밀번호 쓰기 저장을 일시적으로 사용하지 않도록 설정하려는 경우에 유용합니다.
+이 컨트롤은 이 디렉터리에 대해 비밀번호 쓰기 저장이 사용되는지 여부를 결정합니다. 쓰기 저장이 설정되면 온-프레미스 쓰기 저장 서비스의 상태를 나타냅니다. 이 컨트롤은 Azure AD Connect를 다시 구성하지 않고 비밀번호 쓰기 저장을 일시적으로 사용하지 않도록 설정하려는 경우에 유용합니다.
 
 * 스위치를 **예**로 설정하면 쓰기 저장이 사용하도록 설정되며, 페더레이션되고, 통과 인증 또는 암호 해시 동기화된 사용자는 암호를 다시 설정할 수 있습니다.
 * 스위치를 **아니요**로 설정하면 쓰기 저장을 사용하지 않도록 설정되며, 페더레이션되고, 통과 인증 또는 암호 해시 동기화된 사용자는 암호를 다시 설정할 수 없습니다.
@@ -180,6 +180,10 @@ Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미�
 
 * **예**로 설정하면 암호를 다시 설정하고 계정의 잠금을 해제하거나, 암호를 다시 설정하지 않고 계정의 잠금을 해제할 수 있는 옵션이 사용자에게 제공됩니다.
 * **아니요**로 설정하면 사용자는 결합된 암호 재설정 및 계정 잠금 해제 작업만 수행할 수 있습니다.
+
+### <a name="on-premises-active-directory-password-filters"></a>온-프레미스 Active Directory 암호 필터
+
+Azure AD 셀프 서비스 암호 재설정은 Active Directory에서 관리자가 시작하는 암호 재설정과 동일한 작업을 수행합니다. 타사 암호 필터를 사용하여 사용자 지정 암호 규칙을 적용하고 Azure AD 셀프 서비스 암호 재설정 중에 이 암호 필터를 확인하도록 하는 경우에는 관리자 암호 재설정 시나리오에서 타사 암호 필터 솔루션을 적용하도록 구성해야 합니다. [Windows Server Active Directory에 대한 Azure AD 암호 보호](concept-password-ban-bad-on-premises.md)는 기본적으로 지원됩니다.
 
 ## <a name="password-reset-for-b2b-users"></a>B2B 사용자에 대한 암호 재설정
 

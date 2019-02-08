@@ -1,6 +1,6 @@
 ---
-제목: 데이터 평가 titleSuffix: Azure Machine Learning Studio 설명: 데이터 과학에 사용할 수 있는 데이터가 충족해야 하는 4가지 기준입니다. 이 비디오에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 데이터 평가 titleSuffix: Azure Machine Learning Studio 설명: 데이터 과학에 사용할 수 있는 데이터가 충족해야 하는 4가지 기준입니다. 이 비디오에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다.
+services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---

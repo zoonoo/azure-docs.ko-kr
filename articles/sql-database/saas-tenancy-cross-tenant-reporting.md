@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e23b679d6c81d1a4103f010a9d13c35e80d4d2af
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.date: 01/25/2019
+ms.openlocfilehash: ccf6ff75cb041c7d9998f67d579d1b392f83cee9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240991"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476250"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>분산 쿼리를 사용한 교차 테넌트 보고
 
@@ -128,7 +128,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
     ![외부 데이터 원본 만들기](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   이전 섹션에서 설명한 전역 뷰를 참조하고 **DISTRIBUTION = SHARDED(VenueId)** 로 정의되는 외부 테이블입니다. 각 *VenueId*가 단일 데이터베이스에 매핑되기 때문에 다음 섹션에 표시된 대로 다양한 시나리오의 성능이 향상됩니다.
+   이전 섹션에서 설명한 전역 뷰를 참조하고 **DISTRIBUTION = SHARDED(VenueId)** 로 정의되는 외부 테이블입니다. 각 *VenueId*가 개별 데이터베이스에 매핑되기 때문에 다음 섹션에 표시된 대로 다양한 시나리오의 성능이 향상됩니다.
 
     ![외부 테이블 만들기](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -148,7 +148,7 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
 실행 계획을 검사할 때 자세한 내용을 보려면 계획 아이콘 위로 마우스를 가져갑니다. 
 
-기억할 점으로, 외부 데이터 원본이 정의되었을 때 **DISTRIBUTION = SHARDED(VenueId)** 를 설정하면 여러 시나리오의 성능이 향상됩니다. 각 *VenueId*가 단일 데이터베이스에 매핑하기 때문에 쉽게 원격으로 필터링할 수 있으며 필요한 데이터만 반환합니다.
+기억할 점으로, 외부 데이터 원본이 정의되었을 때 **DISTRIBUTION = SHARDED(VenueId)** 를 설정하면 여러 시나리오의 성능이 향상됩니다. 각 *VenueId*가 개별 데이터베이스에 매핑하기 때문에 쉽게 원격으로 필터링할 수 있으며 필요한 데이터만 반환합니다.
 
 1. SSMS에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReportingQueries.sql*을 엽니다.
 2. **adhocreporting** 데이터베이스에 연결되었는지 확인합니다.
@@ -190,5 +190,5 @@ Wingtip Tickets SaaS Database Per Tenant 애플리케이션에서는 각각의 �
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [Tickets SaaS Database Per Tenant 응용 프로그램을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* [Tickets SaaS Database Per Tenant 애플리케이션을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [탄력적 쿼리](sql-database-elastic-query-overview.md)

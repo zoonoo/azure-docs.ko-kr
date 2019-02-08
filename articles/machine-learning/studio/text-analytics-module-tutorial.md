@@ -1,5 +1,5 @@
 ---
-제목: 감정 분석 모델 만들기 titleSuffix: Azure Machine Learning Studio 설명: 텍스트 전처리, N-Gram 또는 특성 해시를 위한 모듈을 사용하여 Azure Machine Learning Studio에서 텍스트 분석 모델을 만드는 방법 services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
+제목: 감정 분석 모델 만들기 titleSuffix: Azure Machine Learning Studio 설명: 텍스트 전처리, N-Gram 또는 특성 해시를 위한 모듈을 사용하여 Azure Machine Learning Studio에서 텍스트 분석 모델을 만드는 방법 services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2018
 ---

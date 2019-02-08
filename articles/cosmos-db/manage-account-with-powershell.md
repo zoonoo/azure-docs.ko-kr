@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7f58e851ab7783e43cd6235b2169847cbf0ac5a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 80ed88bbc901d2cbcd6bc8104e55de73549744f8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036633"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477831"
 ---
-# <a name="create-and-manage-azure-cosmos-db-resources-by-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB 리소스 만들기 및 관리
+# <a name="manage-azure-cosmos-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos 리소스 관리
 
 이 문서에서는 Azure Powershell을 사용하여 Azure Cosmos DB 데이터베이스 계정 관리를 자동화하는 명령에 대해 설명합니다. [다중 하위 지역 데이터베이스 계정][distribute-data-globally]에서 계정 키 및 장애 조치 우선 순위를 관리하는 명령도 포함되어 있습니다. 데이터베이스 계정을 업데이트하면 일관성 정책을 수정하고 하위 지역을 추가/제거할 수 있습니다. Azure Cosmos DB 계정의 플랫폼 간 관리를 위해 [Azure CLI](cli-samples.md), [리소스 공급자 REST API][rp-rest-api] 또는 [Azure Portal](create-sql-api-dotnet.md#create-account)을 사용할 수 있습니다.
 

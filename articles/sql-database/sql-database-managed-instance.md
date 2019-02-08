@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database Managed Instance 개요 | Microsoft Azure
-description: 이 항목에서는 Azure SQL Database Managed Instance에 대해 설명하고 작동 원리 및 Azure SQL Database의 단일 데이터베이스와 다른 점을 설명합니다.
+description: 이 항목에서는 Azure SQL Database Managed Instance에 대해 설명하고 작동 원리 및 Azure SQL Database의 단일 또는 풀링된 데이터베이스와 다른 점을 설명합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/25/2019
+ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994762"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465710"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>가상 네트워크 및 거의 100%의 호환성으로 SQL Database Managed Instance 사용
 
@@ -34,7 +34,7 @@ Azure SQL Database Managed Instance는 가능한 한 적은 마이그레이션 �
 
 Managed Instance의 목표는 일반 공급이 시작될 때까지 단계별 릴리스 계획을 통해 최신 온-프레미스 SQL Server 버전과 거의 100% 호환되는 노출 영역 호환성을 제공하는 것입니다.
 
-Azure SQL Database Single Database, Azure SQL Database Managed Instance 및 Virtual Machine에서 호스팅되는 SQL Server IaaS 중에서 결정하려면 [Azure 클라우드에서 올바른 SQL Server 버전을 선택하는 방법](sql-database-paas-vs-sql-server-iaas.md)을 참조하세요.
+Azure SQL Database 단일 데이터베이스, 풀링된 데이터베이스, 관리되는 인스턴스 및 Virtual Machine에서 호스트되는 SQL Server 중에서 결정하려면 [Azure 클라우드에서 올바른 SQL Server 버전을 선택하는 방법](sql-database-paas-vs-sql-server-iaas.md)을 참조하세요.
 
 ## <a name="key-features-and-capabilities"></a>주요 특징 및 기능
 
@@ -93,7 +93,7 @@ Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다
 다음 목록에서는 범용 서비스 계층의 주요 특징을 설명합니다.
 
 - 일반적인 성능 요구 사항이 있는 대부분의 비즈니스 애플리케이션에 적합한 디자인
-- 고성능 Azure Premium 저장소(8TB)
+- 고성능 Azure Premium 스토리지(8TB)
 - 신뢰할 수 있는 Azure Premium Storage 및 [Azure Service Fabric](../service-fabric/service-fabric-overview.md)에 기반한 [고가용성](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) 기본 제공
 
 자세한 내용은 [범용 계층의 저장소 레이어](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) 및 [Azure SQL DB Managed Instance(범용)에 대한 저장소 성능 모범 사례 및 고려 사항](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/)을 참조하세요.
@@ -179,13 +179,13 @@ Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서
 
 ### <a name="back-up-and-restore"></a>백업 및 복원  
 
-마이그레이션 방식에서는 Azure blob 저장소에 SQL을 백업합니다. Azure 저장소 Blob에 저장된 백업은 [T-SQL RESTORE 명령](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current)을 사용하여 Managed Instance에 직접 복원할 수 있습니다.
+마이그레이션 방식에서는 Azure Blob Storage에 SQL을 백업합니다. Azure 저장소 Blob에 저장된 백업은 [T-SQL RESTORE 명령](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current)을 사용하여 Managed Instance에 직접 복원할 수 있습니다.
 
 - Wide World Importers 표준 데이터베이스 백업 파일을 복원하는 방법을 보여주는 빠른 시작은 [Managed Instance에 백업 파일 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요. 이 빠른 시작에서는 백업 파일을 Azure Blob 저장소에 업로드하고 SAS(보안 공유 액세스 서명) 키를 사용하여 보호해야 한다는 것을 보여줍니다.
 - URL에서 복원하는 방법에 대한 자세한 내용은 [URL에서 네이티브 복원](sql-database-managed-instance-migrate.md#native-restore-from-url)을 참조하세요.
 
 > [!IMPORTANT]
-> Managed Instance에서 백업은 다른 Managed Instance로 복원될 수만 있습니다. 온-프레미스 SQL Server 또는 Azure SQL Database 논리 서버 단일 또는 풀링된 데이터베이스에 복원할 수 없습니다.
+> Managed Instance에서 백업은 다른 Managed Instance로 복원될 수만 있습니다. 온-프레미스 SQL Server 또는 단일 데이터베이스/탄력적 풀로 복원할 수 없습니다.
 
 ### <a name="data-migration-service"></a>데이터 마이그레이션 서비스
 
@@ -210,7 +210,7 @@ Managed Instance는 클라우드에서 항상 최신 상태로 유지되는 이�
 - Managed Instance는 전체 실제 경로 지정을 허용하지 않으므로 해당하는 모든 시나리오를 약간씩 다르게 지원해야 합니다. RESTORE DB는 WITH MOVE를 지원하지 않고, CREATE DB는 실제 경로를 허용하지 않고, BULK INSERT는 Azure Blob에서만 작동합니다.
 - Managed Instance는 Windows 인증의 클라우드 대안으로 [Azure AD 인증](sql-database-aad-authentication.md)을 지원합니다.
 - Managed Instance는 메모리 내 OLTP 개체가 포함된 데이터베이스의 XTP 파일 그룹 및 파일을 자동으로 관리합니다.
-- Managed Instance는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, ADF(Azure Data Factory)의 관리되는 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. SQL Database 및 Managed Instance의 SSIS 기능을 비교하려면 [SQL Database 논리 서버 및 Managed Instance 비교](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance)를 참조하세요.
+- Managed Instance는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, ADF(Azure Data Factory)의 관리되는 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. SQL Database 및 Managed Instance의 SSIS 기능을 비교하려면 [Azure SQL Database 단일 데이터베이스/탄력적 풀 및 Managed Instance 비교](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)를 참조하세요.
 
 ### <a name="managed-instance-administration-features"></a>Managed Instance 관리 기능
 

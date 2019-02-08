@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 41cbb657a4fc83b498c5cc9a6a16397a619aa075
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034049"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469484"
 ---
-# <a name="how-to-use-azure-cosmos-db-change-feed-with-azure-functions"></a>Azure Functions에서 Azure Cosmos DB 변경 피드를 사용하는 방법
+# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>Azure Cosmos DB에서 Azure Functions 트리거
 
 Azure Functions를 사용하는 경우 변경 피드에 연결하는 가장 간단한 방법은 Azure Functions 앱에 [Azure Cosmos DB 트리거](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger)를 추가하는 것입니다. Azure Functions 앱에서 Cosmos DB 트리거를 만들 때 연결할 Cosmos 컨테이너를 선택하면 컨테이너의 항목이 변경될 때마다 함수가 트리거됩니다.
 

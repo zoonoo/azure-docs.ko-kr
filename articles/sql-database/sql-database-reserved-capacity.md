@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 01/25/2019
+ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584165"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455759"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제
 
@@ -34,9 +34,9 @@ ms.locfileid: "52584165"
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>구매 전 적절한 SQL 크기 결정
 
-예약의 크기는 특정 지역 내에서 기존 또는 곧 배포될 SQL 단일 데이터베이스 및/또는 탄력적 풀에서 사용되는 계산의 총 양을 기반으로 해야 하며, 동일한 성능 계층 및 하드웨어 세대를 사용해야 합니다. 
+예약의 크기는 특정 지역 내에서 기존 또는 곧 배포될 단일 데이터베이스 및/또는 탄력적 풀에서 사용되는 컴퓨팅의 총 양을 기반으로 해야 하며, 동일한 성능 계층 및 하드웨어 세대를 사용해야 합니다. 
 
-예를 들어 하나의 범용 Gen5 - 16개 vCore 탄력적 풀 및 두 개의 중요 비즈니스용 Gen5 - 4개 vCore 단일 데이터베이스를 실행 중이라고 가정해 보겠습니다. 또한 범용 Gen5 – 16개 vCore 탄력적 풀 및 하나의 중요 비즈니스용 Gen5 – 32개 vCore 탄력적 풀을 추가로 다음 달 안에 배포하려고 가정합니다. 또한 최소 1년 동안 이러한 리소스가 필요할 것으로 가정해 보겠습니다. 이 경우 SQL Database 단일/탄력적 풀 범용 - Compute Gen5에 대해 32개(2x16) vCore 1년 예약 및 SQL Database 단일/탄력적 풀 중요 비즈니스용 - Compute Gen5에 대해 40개(2x4 + 32) vCore 1년 예약을 구매해야 합니다.
+예를 들어 하나의 범용 Gen5 - 16개 vCore 탄력적 풀 및 두 개의 중요 비즈니스용 Gen5 - 4개 vCore 단일 데이터베이스를 실행 중이라고 가정해 보겠습니다. 또한 범용 Gen5 – 16개 vCore 탄력적 풀 및 하나의 중요 비즈니스용 Gen5 – 32개 vCore 탄력적 풀을 추가로 다음 달 안에 배포하려고 가정합니다. 또한 최소 1년 동안 이러한 리소스가 필요할 것으로 가정해 보겠습니다. 이 경우 SQL Database 독립 실행형/탄력적 풀 범용 - Compute Gen5에 대해 32개(2x16) vCore 1년 예약 및 SQL Database 독립 실행형/탄력적 풀 중요 비즈니스용 - Compute Gen5에 대해 40개(2x4 + 32) vCore 1년 예약을 구매해야 합니다.
 
 ## <a name="buy-sql-database-reserved-capacity"></a>SQL Database 예약된 용량 구입
 
@@ -49,8 +49,8 @@ ms.locfileid: "52584165"
 
     | 필드      | 설명|
     |:------------|:--------------|
-    |이름        |이 예약의 이름입니다.| 
-    |구독|SQL Database 예약된 용량 예약에 대한 요금을 지불하는 데 사용되는 구독입니다. 구독 시 지불 방법은 SQL Database 예약된 용량 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업 계약(제안 번호: MS-AZR-0017P) 또는 종량제(제안 번호: MS-AZR-0003P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.|    
+    |Name        |이 예약의 이름입니다.| 
+    |구독|SQL Database 예약된 용량 예약에 대한 요금을 지불하는 데 사용되는 구독입니다. 구독 시 지불 방법은 SQL Database 예약된 용량 예약에 대해 선불로 비용이 청구됩니다. 가입 유형은 기업계약(제안 번호: MS-AZR-0017P) 또는 종량제(제안 번호: MS-AZR-0003P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.|    
     |범위       |vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: <ul><li>단일 구독 - vCore 예약 할인이 이 구독의 SQL Database 인스턴스에 적용됩니다. </li><li>공유 - vCore 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행 중인 SQL Database 인스턴스에 적용됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독(개발/테스트 구독 제외)을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</li></ul>|
     |지역      |SQL Database 예약된 용량 예약에 포함되는 Azure 지역입니다.|    
     |배포 유형|예약을 구매할 SQL 리소스 종류입니다.|

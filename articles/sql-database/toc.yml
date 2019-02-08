@@ -191,6 +191,8 @@ items:
       href: sql-database-automated-backups.md
     - name: 장기 백업 보존
       href: sql-database-long-term-retention.md
+    - name: 계획된 유지 관리 이벤트
+      href: sql-database-planned-maintenance.md
     - name: 장애 조치(failover) 그룹 및 지역에서 복제
       items:
       - name: 활성 지역 복제
@@ -295,8 +297,6 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: 탄력적 트랜잭션
       href: sql-database-elastic-transactions-overview.md
-  - name: SQL 기능 비교
-    href: sql-database-features.md
   - name: 모니터링 및 튜닝
     items:
     - name: 모니터링 및 튜닝 개요
@@ -321,24 +321,28 @@ items:
         href: sql-database-performance.md
       - name: 데이터베이스 관리자 성능 권장 사항
         href: sql-database-advisor.md
-  - name: 데이터 로드 및 이동
-    items:
-    - name: SQL 데이터 동기화
-      href: sql-database-sync-data.md
-    - name: 트랜잭션 복제
-      href: sql-database-managed-instance-transactional-replication.md
   - name: 데이터베이스 기능
     items:
-    - name: 데이터베이스 기능
-      href: sql-database-develop-overview.md
+    - name: SQL 기능 비교
+      href: sql-database-features.md
     - name: 다중 모델 기능
       href: sql-database-multi-model-features.md
     - name: 메모리 내
       href: sql-database-in-memory.md
+    - name: 트랜잭션 복제
+      href: sql-database-managed-instance-transactional-replication.md
+    - name: SQL 데이터 동기화
+      href: sql-database-sync-data.md
     - name: 임시 테이블
       href: sql-database-temporal-tables.md
     - name: 작업 자동화
       href: sql-database-job-automation-overview.md
+    - name: Machine Learning
+      items:
+      - name: Machine Learning 개요
+        href: sql-database-machine-learning-services-overview.md
+      - name: 주요 차이점
+        href: sql-database-machine-learning-services-differences.md
 - name: 방법 가이드
   items:
   - name: 개요
@@ -523,8 +527,8 @@ items:
       href: sql-database-manage-automation.md
   - name: 앱 개발
     items:
-    - name: 연결
-      href: sql-database-libraries.md
+    - name: 개요
+      href: sql-database-develop-overview.md
     - name: JSON 데이터 작업
       href: sql-database-json-features.md
     - name: Spark 커넥터 사용
@@ -712,9 +716,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 탄력적 작업 제거(사용되지 않음)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9a04e463a7324b1021594a8fbefc5988ad8471f2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1b32688e6e9ed6b826dd9191c8d58e85b1b2b128
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756736"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813683"

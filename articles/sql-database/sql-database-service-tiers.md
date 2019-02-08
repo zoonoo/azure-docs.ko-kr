@@ -11,22 +11,24 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 9d566c0f95325635c5ce5030f4d3b22dba7ceb08
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/25/2019
+ms.openlocfilehash: 719e8c605dfc91b1d9c358158aa3dca248173f90
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726034"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472017"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 구매 모델
 
 Azure SQL Database를 사용하면 성능 및 비용 요구에 적합한 완벽히 관리되는 PaaS 데이터베이스 엔진을 손쉽게 구매할 수 있습니다. Azure SQL Database의 배포 모델에 따라 필요에 맞는 구매 모델을 선택할 수 있습니다.
+
 - [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)(권장)을 사용하면 워크로드에 필요한 스토리지 용량 및 컴퓨팅의 정확한 양을 선택할 수 있습니다.
 - [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하면 일반적인 워크로드에 맞게 부하가 분산되어 번들로 제공되는 컴퓨팅 및 스토리지 패키지를 선택할 수 있습니다.
 
 Azure SQL Database 배포 모델에서 다양한 구매 모델을 사용할 수 있습니다.
-- [Azure SQL Database](sql-database-technical-overview.md)의 [논리 서버](sql-database-logical-servers.md)에는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)과 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)이 모두 제공됩니다. 이 구매 모델에서는 [단일 데이터베이스](sql-database-single-databases-manage.md) 또는 [탄력적 풀](sql-database-elastic-pool.md)을 선택할 수 있습니다.
+
+- [Azure SQL Database](sql-database-technical-overview.md)의 [단일 데이터베이스](sql-database-single-databases-manage.md) 및 [탄력적 풀](sql-database-elastic-pool.md)은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 모두 제공합니다. 
 - Azure SQL Database의 [Managed Instance](sql-database-managed-instance.md)는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)만 제공합니다.
 
 > [!IMPORTANT]
@@ -64,7 +66,7 @@ DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기
 
 ### <a name="database-transaction-units-dtus"></a>DTU(데이터베이스 트랜잭션 단위)
 
-[서비스 계층](sql-database-single-database-scale.md) 내 특정 계산 크기의 단일 Azure SQL Database에 대해 Microsoft는 해당 데이터베이스(Azure 클라우드의 다른 데이터베이스와는 무관)에 대해 특정 수준의 리소스를 보장하며 예측 가능한 성능 수준을 제공합니다. 리소스 양은 DTU(데이터베이스 트랜잭션 단위) 수로 계산되며 계산, 저장소 및 IO 리소스를 번들로 묶은 측정값입니다. 원래 이러한 리소스 간의 비율은 일반적인 실제 OLTP 워크로드에 맞게 디자인된 [OLTP 벤치마크 워크로드](sql-database-benchmark-overview.md)에 따라 결정되었습니다. 워크로드가 이러한 리소스의 양을 초과하면 처리량이 제한되어 성능이 느려지고 시간이 초과됩니다. 워크로드에서 사용되는 리소스는 Azure 클라우드의 다른 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않고, 다른 워크로드에서 사용되는 리소스는 사용자의 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않습니다.
+[서비스 계층](sql-database-single-database-scale.md) 내 특정 컴퓨팅 크기의 단일 데이터베이스에 대해 Microsoft는 해당 데이터베이스(Azure 클라우드의 다른 데이터베이스와는 무관)에 대해 특정 수준의 리소스를 보장하며 예측 가능한 성능 수준을 제공합니다. 리소스 양은 DTU(데이터베이스 트랜잭션 단위) 수로 계산되며 계산, 저장소 및 IO 리소스를 번들로 묶은 측정값입니다. 원래 이러한 리소스 간의 비율은 일반적인 실제 OLTP 워크로드에 맞게 디자인된 [OLTP 벤치마크 워크로드](sql-database-benchmark-overview.md)에 따라 결정되었습니다. 워크로드가 이러한 리소스의 양을 초과하면 처리량이 제한되어 성능이 느려지고 시간이 초과됩니다. 워크로드에서 사용되는 리소스는 Azure 클라우드의 다른 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않고, 다른 워크로드에서 사용되는 리소스는 사용자의 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않습니다.
 
 ![경계 상자](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
