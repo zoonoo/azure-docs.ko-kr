@@ -7,17 +7,17 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 79aa9cd3e634238702419d01650c7ef29c4dbb95
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 1059dec80dcca80380b58aa8057162679496adc6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242028"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467376"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
 
-AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob 및 파일 저장소에 복사하거나 이들 저장소에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
+AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob 및 File Storage에 복사하거나 이들 스토리지에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
 
 두 가지 버전의 AzCopy를 다운로드할 수 있습니다. Linux의 AzCopy는 Linux 플랫폼을 대상으로 POSIX 스타일 명령줄 옵션을 제공합니다. [Windows의 AzCopy](../storage-use-azcopy.md)는 Windows 스타일 명령줄 옵션을 제공합니다. 이 문서에서는 Linux에서 AzCopy를 설명합니다. 
 
@@ -406,7 +406,7 @@ abc (2014-02-21 150331).txt
 ### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Storage 계정 간 Blob 비동기 복사
 기본적으로 AzCopy는 두 저장소 엔드포인트 간에 데이터를 비동기적으로 복사합니다. 따라서 복사 작업은 Blob이 복사되는 속도와 관련하여 SLA가 없는 여분의 대역폭 용량을 사용하여 백그라운드로 실행됩니다. 
 
-`--sync-copy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. AzCopy는 지정된 소스에서 로컬 메모리로 복사할 Blob을 다운로드한 후 대상 Blob 저장소에 업로드하여 동기 복사를 수행합니다.
+`--sync-copy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. File Storage 공유를 동시에 탑재하고 액세스할 수 있는 응용 프로그램 구성 요소 수에는 제한이 없습니다.
 
 ```azcopy
 azcopy \
@@ -707,10 +707,10 @@ Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참�
 * [저장소 계정을 만드는](../storage-create-storage-account.md)
 * [저장소 탐색기를 사용하여 Blob 관리](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Azure Storage에서 Azure CLI 사용](../storage-azure-cli.md)
-* [C++에서 Blob 저장소를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Java에서 Blob 저장소를 사용하는 방법](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Node.js에서 Blob 저장소를 사용하는 방법](../blobs/storage-nodejs-how-to-use-blob-storage.md)
-* [Python에서 Blob 저장소를 사용하는 방법](../blobs/storage-python-how-to-use-blob-storage.md)
+* Azure Blob, 큐, 테이블 또는 File Storage를 사용하는 Windows 스토어 앱을 만드는 방법을 알아봅니다.
+* [Java에서 Blob Storage를 사용하는 방법](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Node.js에서 Blob Storage를 사용하는 방법](../blobs/storage-nodejs-how-to-use-blob-storage.md)
+* [Python에서 File Storage를 사용하는 방법](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure Storage 블로그 게시물:
 * [Linux 미리 보기에서 AzCopy 발표](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
@@ -718,7 +718,7 @@ Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참�
 * [AzCopy: 동기 복사본 및 사용자 지정 콘텐츠 형식 소개(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: AzCopy 3.0의 일반 공급 및 테이블 및 파일을 지원하는 AzCopy 4.0의 미리 보기 릴리스 발표(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
 * [AzCopy: 대량 복사 시나리오에 맞게 최적화(영문)](https://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: 읽기 액세스 지역 중복 저장소 지원(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: 읽기 액세스 지역 중복 저장소 지원](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 * [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: 크로스 계정 Blob 복사 사용(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

@@ -10,19 +10,19 @@ editor: cgronlun
 ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157176"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245836"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
@@ -180,10 +180,10 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-ml"></a>Azure ML에 모델 배포
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML)는 예측 분석 모델을 쉽게 빌드하고 배포할 수 있는 클라우드 서비스입니다. AzureML의 뛰어난 기능 중 하나는 R 함수를 웹 서비스로 게시하는 기능입니다. AzureML R 패키지를 사용하면 DSVM의 R 세션에서 쉽게 배포할 수 있습니다.
+## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Azure Machine Learning Studio에 모델 배포
+[Azure Machine Learning Studio](https://studio.azureml.net/)는 예측 분석 모델을 쉽게 빌드하고 배포할 수 있는 클라우드 서비스입니다. Azure Machine Learning Studio의 뛰어난 기능 중 하나는 R 함수를 웹 서비스로 게시하는 기능입니다. Azure Machine Learning Studio R 패키지를 사용하면 DSVM의 R 세션에서 배포를 쉽게 수행할 수 있습니다.
 
-이전 섹션의 의사 결정 트리 코드를 배포하려면 Azure Machine Learning Studio에 로그인해야 합니다. 로그인할 작업 영역 ID와 권한 부여 토큰이 필요합니다. 이러한 값을 찾아 AzureML 변수를 초기화하려면 다음을 수행합니다.
+이전 섹션의 의사 결정 트리 코드를 배포하려면 Azure Machine Learning Studio에 로그인해야 합니다. 로그인할 작업 영역 ID와 권한 부여 토큰이 필요합니다. 이러한 값을 찾은 다음 Azure Machine Learning 변수를 초기화하는 데 사용하려면 다음을 수행합니다.
 
 왼쪽 메뉴에서 **설정** 을 선택합니다. **작업 영역 ID**를 적어둡니다. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -270,7 +270,7 @@ Python을 사용하여 개발하는 경우를 위해 Anaconda Python 배포 2.7 
 spambase 데이터 세트의 일부를 읽고 scikit-learn에서 벡터 컴퓨터를 지원하는 메일을 분류해 보겠습니다.
 
     import pandas
-    from sklearn import svm    
+    from sklearn import svm
     data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
     X = data.ix[:, 0:57]
     y = data.ix[:, 57]

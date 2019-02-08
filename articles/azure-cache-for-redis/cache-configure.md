@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 8a78823a208a5310e62714de7b1a3cd2e35eaa8f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 67cc7d0dc162f2b36e38f1068f46079f46120f1c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104678"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819844"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -57,7 +57,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
     * [속성](#properties)
     * [잠금](#locks)
     * [Automation 스크립트](#automation-script)
-* [관리](#administration)
+* 관리
     * [데이터 가져오기](#importexport)
     * [데이터 내보내기](#importexport)
     * [Reboot](#reboot)
@@ -65,7 +65,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
     * [Redis 메트릭](#redis-metrics)
     * [경고 규칙](#alert-rules)
     * [진단](#diagnostics)
-* [설정 지원 및 문제 해결](#support-amp-troubleshooting-settings)
+* 설정 지원 및 문제 해결
     * [리소스 상태](#resource-health)
     * [새 지원 요청](#new-support-request)
 

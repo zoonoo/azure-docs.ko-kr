@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 14f373b5459aaa7a9e51ba284f6a30094c4e7617
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 48f1789d4909a1c3af9e9ca01d0b9d0a8e6e09f8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194184"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299643"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure의 관리 솔루션에 대한 데이터 수집 상세 정보
 이 문서에는 Microsoft에서 제공하는 [관리 솔루션](solutions.md) 목록과 자세한 설명서 링크가 포함되어 있습니다.  메서드 및 Log Analytics로 데이터를 수집하는 빈도에 대한 정보도 제공합니다.  이 문서의 정보를 사용하여 제공되는 여러 솔루션을 식별하고 여러 관리 솔루션의 데이터 흐름 및 연결 요구 사항을 이해할 수 있습니다. 
@@ -31,7 +31,7 @@ ms.locfileid: "53194184"
 
 - **Microsoft 모니터링 에이전트** - Windows 및 Linux에서 SCOM의 관리 팩과 Azure의 관리 솔루션을 실행하기 위해 사용되는 에이전트입니다. 이 구성에서 에이전트는 Operations Manager 관리 그룹에 연결되지 않고 Log Analytics에 직접 연결됩니다. 
 - **Operations Manager** - Microsoft 모니터링 에이전트와 동일한 에이전트입니다. 이 구성에서는 Log Analytics에 연결된 [Operations Manager 관리 그룹에 연결](../../azure-monitor/platform/om-agents.md)됩니다. 
--  **Azure Storage** -솔루션이 Azure 저장소 계정에서 데이터를 수집합니다. 
+-  **Azure Storage** -솔루션이 Azure 스토리지 계정에서 데이터를 수집합니다. 
 - **Operations Manager 필요 여부** - 연결된 Operations Manager 관리 그룹은 관리 솔루션에서 데이터를 수집하는 데 필요합니다. 
 - **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** - 에이전트가 [SCOM 관리 그룹에 연결된 경우](../../azure-monitor/platform/om-agents.md) 데이터가 관리 서버에서 Log Analytics로 전송됩니다. 이 경우 에이전트가 Log Analytics에 직접 연결할 필요가 없습니다. 이 상자를 선택하지 않으면 에이전트가 SCOM 관리 그룹에 연결되어 있어도 데이터가 에이전트에서 Log Analytics로 직접 전송됩니다. 에이전트가 [Log Analytics 게이트웨이](../../azure-monitor/platform/gateway.md)를 통해 Log Analytics와 통신할 수 있어야 합니다.
 - **수집 빈도** - 관리 솔루션에서 데이터를 수집하는 빈도를 지정합니다. 
@@ -48,7 +48,7 @@ ms.locfileid: "53194184"
 | [경고 관리](../../azure-monitor/platform/alert-management-solution.md)(Zabbix) |Linux |&#8226; | | | | |1분 |
 | [경고 관리](../../azure-monitor/platform/alert-management-solution.md)(Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3분 |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | 해당 없음 |
-| [Application Insights 커넥터(미리 보기)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | 알림 시 |
+| [Application Insights 커넥터(사용되지 않음)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | 알림 시 |
 | [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | 해당 없음 |
 | [Azure Application Gateway 분석](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | 알림 시 |
 | **관리 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure 저장소** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |

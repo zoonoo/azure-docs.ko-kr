@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6220bdaa40dc2c70bcb330681180a1d082d0132a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e52d5f3b30490227541e99e067c096a7df6dd911
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454544"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566193"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export 서비스: 질문과 대답 
 Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전송할 때 발생할 수 있는 질문 및 답변은 다음과 같습니다. 질문과 대답은 다음과 같은 범주로 정렬됩니다.
@@ -138,7 +138,7 @@ Azure Import/Export 서비스는 기본적으로 AES-128 bitlocker 암호화를 
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```
-- [WAImportExport V2](https://www.microsoft.com/en-us/download/details.aspx?id=55280)를 사용하는 경우 "AlreadyEncrypted"를 지정하고 드라이브 집합 CSV에 키를 제공합니다.
+- [WAImportExport V2](https://www.microsoft.com/download/details.aspx?id=55280)를 사용하는 경우 "AlreadyEncrypted"를 지정하고 드라이브 집합 CSV에 키를 제공합니다.
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
     G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |

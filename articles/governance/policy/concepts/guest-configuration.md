@@ -4,17 +4,17 @@ description: Azure Policy가 게스트 구성을 사용하여 Azure 가상 머�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0a571084819c5dfed3f8d6891b59032ef2eecdd6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 77d99c90e65647a1f4a4efb07ff5520596fa54cf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856403"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295171"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -63,11 +63,21 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 | Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| 게스트 구성 확장을 통해 Ruby 및 Python이 설치됩니다. |
 
+### <a name="validation-frequency"></a>유효성 검사 빈도
+
+게스트 구성 클라이언트는 5분마다 새 콘텐츠를 확인합니다.
+게스트 할당이 수신되면 15분 간격으로 설정을 확인합니다.
+감사가 완료되는 즉시 게스트 구성 리소스 공급자로 결과가 전송됩니다.
+정책 [평가 트리거](../how-to/get-compliance-data.md#evaluation-triggers)가 발생하면 컴퓨터 상태가 게스트 구성 리소스 공급자에 기록됩니다.
+그러면 Azure Policy에서 Azure Resource Manager 속성을 평가합니다.
+요청 시 정책 평가에서는 게스트 구성 리소스 공급자에서 최신 값을 검색합니다.
+그러나 해당 가상 머신 내 구성의 새 감사는 트리거되지 않습니다.
+
 ### <a name="supported-client-types"></a>지원되는 클라이언트 유형
 
 다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
 
-|게시자|이름|버전|
+|게시자|Name|버전|
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
@@ -90,7 +100,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 ## <a name="guest-configuration-definition-requirements"></a>게스트 구성 정의 요구 사항
 
-게스트 구성에서 실행하는 각 감사에는 두 가지 정책 정의(**DeployIfNotExists** 및 **AuditIfNotExists**)가 필요합니다. **DeployIfNotExists**는 게스트 구성 에이전트 및 [유효성 검사 도구](#validation-tools) 지원을 위한 기타 구성 요소가 포함된 가상 머신을 준비하는 데 사용됩니다.
+게스트 구성에서 실행하는 각 감사에는 두 가지 정책 정의(**DeployIfNotExists** 및 **Audit**)가 필요합니다. **DeployIfNotExists**는 게스트 구성 에이전트 및 [유효성 검사 도구](#validation-tools) 지원을 위한 기타 구성 요소가 포함된 가상 머신을 준비하는 데 사용됩니다.
 
 **DeployIfNotExists** 정책 정의는 다음 항목의 유효성을 검사하고 수정합니다.
 
@@ -99,14 +109,14 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
   - **Microsoft.GuestConfiguration** 확장의 최신 버전 설치
   - [유효성 검사 도구](#validation-tools) 및 종속성(필요한 경우) 설치
 
-**DeployIfNotExists**가 규정을 준수하는 것으로 확인되면 **AuditIfNotExists** 정책 정의는 로컬 유효성 검사 도구를 사용하여 할당된 구성의 규정 준수 여부를 확인합니다. 유효성 검사 도구는 게스트 구성 클라이언트에 결과를 제공합니다. 클라이언트는 게스트 확장에 결과를 전달하므로 게스트 구성 리소스 공급자를 통해 사용할 수 있습니다.
+**DeployIfNotExists**가 규정을 준수하는 것으로 확인되면 **Audit** 정책 정의는 로컬 유효성 검사 도구를 사용하여 할당된 구성의 규정 준수 여부를 확인합니다. 유효성 검사 도구는 게스트 구성 클라이언트에 결과를 제공합니다. 클라이언트는 게스트 확장에 결과를 전달하므로 게스트 구성 리소스 공급자를 통해 사용할 수 있습니다.
 
 Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성을 사용하여 **규정 준수** 노드에서 규정 준수를 보고합니다. 자세한 내용은 [규정 준수 데이터 가져오기](../how-to/getting-compliance-data.md)를 참조하세요.
 
 > [!NOTE]
-> 각 게스트 구성 정의에는 **DeployIfNotExists** 및 **AuditIfNotExists** 정책 정의가 모두 포함되어 있어야 합니다.
+> 각 게스트 구성 정의에는 **DeployIfNotExists** 및 **Audit** 정책 정의가 모두 포함되어 있어야 합니다.
 
-할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[미리 보기]: Linux 및 Windows 가상 머신 내부의 암호 보안 설정 감사*라는 기본 제공 이니셔티브에는 정책 18개가 포함되어 있습니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. 각 경우에서 정의 내의 논리는 [정책 규칙](definition-structure.md#policy-rule) 정의를 기준으로 하여 대상 운영 체제만 평가되는지 확인합니다.
+할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[미리 보기]: Linux 및 Windows 가상 머신 내부의 암호 보안 설정 감사*라는 기본 제공 이니셔티브에는 정책 18개가 포함되어 있습니다. 그리고 Window용 **DeployIfNotExists** 및 **Audit** 쌍 6개와 Linux용 쌍 3개가 있습니다. 각 경우에서 정의 내의 논리는 [정책 규칙](definition-structure.md#policy-rule) 정의를 기준으로 하여 대상 운영 체제만 평가되는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

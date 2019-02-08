@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e8a849fdc6674a0c6ab801bd8f26a01f89fb8857
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969586"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458060"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>분할-병합 서비스를 배포하여 분할된 데이터베이스 간에 데이터 이동
 
@@ -55,7 +55,7 @@ ms.locfileid: "52969586"
       ```
 
 4. ElasticScaleMetadata 설정의 **SplitMergeWeb** 및 **SplitMergeWorker** 역할 섹션에서 cscfg 파일에 이 연결 문자열을 입력합니다.
-5. **SplitMergeWorker** 역할의 경우, **WorkerRoleSynchronizationStorageAccountConnectionString** 설정에 대해 Azure 저장소에 유효한 연결 문자열을 입력합니다.
+5. **SplitMergeWorker** 역할의 경우, **WorkerRoleSynchronizationStorageAccountConnectionString** 설정에 대해 Azure 스토리지에 유효한 연결 문자열을 입력합니다.
 
 ### <a name="configure-security"></a>보안 구성
 서비스의 보안을 구성하는 자세한 지침은 [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)을 참조하세요.
@@ -204,7 +204,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
    
 ## <a name="use-powershell-to-verify-your-deployment"></a>PowerShell을 사용하여 배포 확인
 1. 새 PowerShell 창을 열고 분할/병합 패키지를 다운로드한 디렉터리로 이동한 다음 "powershell" 디렉터리로 이동합니다.
-2. Azure SQL 데이터베이스 서버를 만들거나 기존 서버를 선택합니다. 이 서버에 분할된 데이터베이스 맵 관리자 및 분할된 데이터베이스가 생성됩니다.
+2. Azure SQL Database 서버를 만들거나 기존 서버를 선택합니다. 이 서버에 분할된 데이터베이스 맵 관리자 및 분할된 데이터베이스가 생성됩니다.
    
    > [!NOTE]
    > SetupSampleSplitMergeEnvironment.ps1 스크립트가 기본적으로 동일한 서버에 이러한 모든 데이터베이스를 만들어 스크립트를 단순하게 유지합니다. 이 제한은 분할/병합 서비스 자체의 제한은 아닙니다.

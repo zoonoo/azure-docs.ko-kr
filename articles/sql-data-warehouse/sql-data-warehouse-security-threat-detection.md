@@ -2,20 +2,20 @@
 title: 위협 감지 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse에서 위협 탐지를 구성하고 의심스러운 이벤트 탐색합니다.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ff23235e9681301984e13e346b23f277662bb5c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2f07699b49b7791894d1f183b0686161375ea17a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300937"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295420"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 위협 탐지
 Azure SQL Data Warehouse에서 위협 탐지를 구성하고 의심스러운 이벤트 탐색합니다.
@@ -63,7 +63,7 @@ Azure SQL Data Warehouse에서 위협 탐지를 구성하고 의심스러운 이
 6. SQL 감사 로그를 로드하려면, 설정 탭의 매개 변수가 바르게 설정되었는지 확인한 후 '데이터' 리본을 선택하고 '모두 새로 고침' 단추를 클릭합니다.
    
     ![탐색 창](media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png)
-7. **SQL 감사 로그** 시트에 결과가 표시되며 사용자는 이를 통해 감지된 비정상적인 활동을 심층적으로 분석하고 응용 프로그램의 보안 이벤트에 대한 영향을 완화시킬 수 있습니다.
+7. **SQL 감사 로그** 시트에 결과가 표시되며 사용자는 이를 통해 감지된 비정상적인 활동을 심층적으로 분석하고 애플리케이션의 보안 이벤트에 대한 영향을 완화시킬 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 보안 정보를 더 보려면 [데이터베이스 보호](sql-data-warehouse-overview-manage-security.md)를 참조하세요.

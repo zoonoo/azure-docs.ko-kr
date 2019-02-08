@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a313acecf0660e527508f28e1ea86485996cc4f9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387857"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>자습서: Dome9 Arc와 Azure Active Directory 통합
 
@@ -67,7 +67,7 @@ Azure AD에 Dome9 Arc를 통합하도록 구성하려면 갤러리의 Dome9 Arc�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -107,7 +107,7 @@ Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
     ![Single Sign-On 대화 상자](./media/dome9arc-tutorial/tutorial_dome9arc_samlbase.png)
 
-3. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **Dome9 Arc 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+3. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **Dome9 Arc 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Dome9 Arc 도메인 및 URL Single Sign-On 정보](./media/dome9arc-tutorial/tutorial_dome9arc_url.png)
 
@@ -118,7 +118,7 @@ Dome9 Arc에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     > [!NOTE]
     > 이 자습서의 뒷부분에서 설명하는 dome9 관리 포털에서 회사 이름 값을 선택합니다.
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+4. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Dome9 Arc 도메인 및 URL Single Sign-On 정보](./media/dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
@@ -293,7 +293,7 @@ Azure AD 사용자가 Dome9 Arc에 로그인할 수 있게 하려면 해당 사�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

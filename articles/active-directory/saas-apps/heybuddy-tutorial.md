@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d51b5af6-018e-4678-9a3f-b70438394f67
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ef345d866de16b856d3c8b56fa086b83b74ae0f
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 123b74298ebb01e8ebcfd70d023b4e71a879e7f9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289550"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>자습서: HeyBuddy와 Azure Active Directory 통합
 
@@ -66,7 +66,7 @@ HeyBuddy의 Azure AD 통합을 구성하려면 갤러리의 HeyBuddy를 관리�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -130,7 +130,7 @@ HeyBuddy에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 6. **사용자 특성 및 클레임** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
     
-    | 이름  | 원본 특성  |
+    | Name  | 원본 특성  |
     | --------------- | --------------- |
     | 역할               | user.assignedroles |
 
@@ -221,7 +221,7 @@ HeyBuddy에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

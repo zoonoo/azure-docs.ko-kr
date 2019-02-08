@@ -3,7 +3,7 @@ title: Azure Batch 풀에서 자동으로 계산 노드 크기 조정 | Microsof
 description: 클라우드 풀에서 자동 크기 조정을 사용하면 풀의 계산 노드 수를 동적으로 조정합니다.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab41211fb0b0b6360bdbc255e367d0492c2438ed
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330678"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730014"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정하는 자동 크기 조정 수식 만들기
 
@@ -152,7 +152,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 ## <a name="operations"></a>작업
 이전 섹션에서 나열된 형식에서 허용되는 연산은 다음과 같습니다.
 
-| 작업 | 지원되는 연산자 | 결과 형식 |
+| 작업(Operation) | 지원되는 연산자 | 결과 형식 |
 | --- | --- | --- |
 | double *operator* double |+, -, *, / |double |
 | double *operator* timeinterval |* |timeinterval |
@@ -160,8 +160,8 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 | doubleVec *operator* doubleVec |+, -, *, / |doubleVec |
 | timeinterval *operator* double |*, / |timeinterval |
 | timeinterval *operator* timeinterval |+, - |timeinterval |
-| timeinterval *operator* timestamp |+ | timestamp |
-| timestamp *operator* timeinterval |+ | timestamp |
+| timeinterval *operator* timestamp |+ |timestamp |
+| timestamp *operator* timeinterval |+ |timestamp |
 | timestamp *operator* timestamp |- |timeinterval |
 | *operator*double |-, ! |double |
 | *operator*timeinterval |- |timeinterval |
@@ -551,7 +551,7 @@ Batch .NET에서 [CloudPool.AutoScaleRun](https://docs.microsoft.com/dotnet/api/
 * [AutoScaleRun.Results](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.results)
 * [AutoScaleRun.Error](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
-REST API에서 [풀에 대한 정보 가져오기](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) 요청은 [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool#bk_autrun) 속성에 마지막 자동 크기 조정 실행 정보가 포함된 풀 관련 정보를 반환합니다.
+REST API에서 [풀에 대한 정보 가져오기](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) 요청은 [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-pool) 속성에 마지막 자동 크기 조정 실행 정보가 포함된 풀 관련 정보를 반환합니다.
 
 다음 C# 코드 조각에서는 Batch .NET 라이브러리를 사용하여 _myPool_ 풀에서 마지막으로 실행된 자동 크기 조정에 대한 정보를 출력합니다.
 
@@ -579,7 +579,7 @@ Error:
 ## <a name="example-autoscale-formulas"></a>자동 크기 조정 수식 예제
 풀의 계산 리소스 양을 조정하는 여러 가지 방법을 보여 주는 몇 가지 수식을 살펴보겠습니다.
 
-### <a name="example-1-time-based-adjustment"></a>예제1: 시간 기반 조정
+### <a name="example-1-time-based-adjustment"></a>예제 1: 시간 기반 조정
 요일과 시간에 따라 풀 크기를 조정한다고 가정합니다. 이 예제에서는 풀의 노드 수를 적절히 늘리거나 줄이는 방법을 보여 줍니다.
 
 먼저 수식에서 현재 시간을 가져옵니다. 평일(1-5)에 근무 시간(오전 8시-오후 6시)인 경우, 대상 풀 크기는 20개의 노드로 설정됩니다. 그렇지 않으면 10개 노드로 설정됩니다.
@@ -592,7 +592,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 ```
 
-### <a name="example-2-task-based-adjustment"></a>예제2: 작업 기반 조정
+### <a name="example-2-task-based-adjustment"></a>예 2: 작업 기반 조정
 이 예에서는 풀 크기는 큐에 있는 작업의 수에 따라 조정 됩니다. 주석과 줄 바꿈은 모두 수식 문자열에 허용됩니다.
 
 ```csharp
@@ -611,7 +611,7 @@ $TargetDedicatedNodes = max(0, min($targetVMs, 20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>예제3: 병렬 작업에 대한 회계
+### <a name="example-3-accounting-for-parallel-tasks"></a>예 3: 병렬 작업용 계정
 이 예제에서는 작업의 수에 따라 풀 크기를 조정합니다. 이 수식은 또한 풀에 대해 설정된 [MaxTasksPerComputeNode][net_maxtasks] 값을 고려합니다. 이 방법은 [병렬 작업 실행](batch-parallel-node-tasks.md)이 풀에서 사용된 경우에 특히 유용합니다.
 
 ```csharp
@@ -632,7 +632,7 @@ $TargetDedicatedNodes = max(0,min($targetVMs,3));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-4-setting-an-initial-pool-size"></a>예제4: 초기 풀 크기 설정
+### <a name="example-4-setting-an-initial-pool-size"></a>예제 4: 초기 풀 크기 설정
 이 예제에서는 초기 기간 동안 풀 크기를 지정된 노드 수로 설정하는 자동 크기 조정 수식이 있는 C# 코드 조각을 보여 줍니다. 그런 다음 초기 기간이 경과한 후 실행 중이고 활성화된 작업 수를 기반으로 풀 크기를 조정합니다.
 
 다음 코드 조각의 수식은 다음과 같습니다.

@@ -118,7 +118,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 ![Portal.azure.com에서 앱의 리소스 열고 설정, 브라우저를 클릭합니다.](./media/javascript/03.png)
 
-아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](../../azure-monitor/app/troubleshoot-faq.md)을 참조하세요.
+아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](../../azure-monitor/app/troubleshoot-faq.md)을 참조하세요.
 
 브라우저 블레이드는 미리 설정된 필터와 차트를 선택할 수 있는 [메트릭 탐색기 블레이드](../../azure-monitor/app/metrics-explorer.md)입니다. 원하는 경우 시간 범위, 필터 및 차트 구성을 편집하고 즐겨찾기로 결과를 저장할 수 있습니다. **기본값 복원**을 클릭하여 원래 블레이드 구성으로 돌아갑니다.
 

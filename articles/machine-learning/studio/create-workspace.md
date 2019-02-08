@@ -1,10 +1,22 @@
 ---
-제목: 작업 영역 만들기 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
-services: machine-learning ms.service: machine-learning ms.component: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 12/07/2017
+title: 작업 영역 만들기
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 12/07/2017
+ms.openlocfilehash: 16c67c217c8ef33a360fd479a45317d6c42af494
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486320"
 ---
-
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Azure Machine Learning Studio 작업 영역 만들기 및 공유
 
 Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.

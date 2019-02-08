@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: f3192aafb6f19695bc99310dd980382510bc633b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 01/25/2019
+ms.openlocfilehash: b5ba5fadd229fa7119f9af791f7eaedbc984c92a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188117"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457193"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Elastic Database 도구 관련 FAQ(질문과 대답)
 
@@ -43,13 +43,13 @@ ms.locfileid: "54188117"
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>탄력적 데이터베이스 도구 사용과 관련된 질문이 있는 경우 답변을 받으려면 어떻게 해야 하나요?
 
-[Azure SQL Database 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에서 문의하세요.
+[SQL Database 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에서 문의하세요.
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>분할 키를 사용하여 데이터베이스에 연결하는 경우 동일한 분할의 다른 분할 키에 대한 데이터도 쿼리할 수 있습니다.  의도한 동작인가요?
 
 탄력적인 확장 API는 분할 키에 맞는 데이터베이스 연결을 제공하지만 분할 키 필터링 기능을 제공하지 않습니다.  필요한 경우 쿼리에 **WHERE** 절을 추가하여 범위를 제공된 분할 키로 제한하세요.
 
-## <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>내 분할 세트의 각 분할에 대해 다른 Azure 데이터베이스 버전을 사용할 수 있나요?
+## <a name="can-i-use-a-different-sql-database-edition-for-each-shard-in-my-shard-set"></a>분할 세트의 각 분할된 데이터베이스에 서로 다른 SQL Database 버전을 사용할 수 있나요?
 
 예, 분할은 개별 데이터베이스이므로 한 분할은 Premium Edition이고 다른 버전은 Standard Edition일 수 있습니다. 또한 분할 수명 동안 여러 번 분할 버전의 규모가 확장되거나 축소될 수 있습니다.
 

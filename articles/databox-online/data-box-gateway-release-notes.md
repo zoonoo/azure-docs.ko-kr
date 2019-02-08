@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 738cc5b4e90d9572b65f122076973e2d9f1b264f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450493"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302124"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Azure Data Box Gateway 미리 보기 릴리스 정보
 
@@ -50,7 +50,9 @@ ms.locfileid: "54450493"
 | **5.** |파일 형식 | 다음 Linux 파일 형식(문자 파일, 블록 파일, 소켓, 파이프, 바로 가기 링크)은 지원되지 않습니다.  |이 파일을 복사하면 길이가 0인 파일이 NFS 공유에 만들어집니다. 이들 파일은 오류 상태로 남아 있으며 또한 *error.xml*에 보고됩니다. |
 | **6.** |삭제 | 이 릴리스의 버그로 인해 NFS 공유를 삭제하는 경우 공유가 삭제되지 않을 수 있습니다. 공유 상태가 *삭제 중*으로 표시됩니다.  |이 오류는 공유에서 지원되지 않는 파일 이름을 사용하는 경우에 발생합니다. |
 | **7.** |새로 고침 | 사용 권한 및 ACL(액세스 제어 목록)은 새로 고침 작업에서 유지되지 않습니다.  | |
-| **8.** |온라인 도움말 |Azure Portal의 도움말 링크가 설명서에 연결되지 않을 수 있습니다.|도움말 링크는 일반 공급 릴리스에서 작동합니다. |
+| **8.** |복사 | 데이터 복사가 실패하고  "파일 시스템 제한으로 인해 요청한 작업을 완료할 수 없습니다." 오류가 표시됩니다.  |파일과 연결된 ADS(대체 데이터 스트림)가 ReFS의 최대 한도인 128KB를 초과하면 이 오류가 발생합니다.  |
+| **9.** |바로 가기 링크 |기호 링크는 지원되지 않습니다.  |디렉터리로 이동하는 바로 가기 링크로 인해 디렉터리가 오프라인으로 표시되지 않습니다. 따라서 디렉터리가 오프라인이며 모든 관련 콘텐츠가 Azure에 완전히 업로드되었음을 나타내는 회색 십자 표시가 디렉터리에 표시되지 않을 수 있습니다. |
+| **10.** |온라인 도움말 |Azure Portal의 도움말 링크가 설명서에 연결되지 않을 수 있습니다.|도움말 링크는 일반 공급 릴리스에서 작동합니다. |
 
 
 

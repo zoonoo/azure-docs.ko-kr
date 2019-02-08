@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230236"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295361"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle 데이터베이스 커넥터 시작
 
@@ -99,9 +99,9 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 **원인**: 온-프레미스 데이터 게이트웨이가 클라우드에 연결할 수 없습니다. 
 
-**완화**: 게이트웨이가 설치되어 있는 온-프레미스 컴퓨터에서 실행 중이며 인터넷에 연결할 수 있는지 확인합니다.  꺼져 있거나 절전 모드 상태일 수 있는 컴퓨터에는 게이트웨이를 설치하지 않는 것이 좋습니다. 온-프레미스 데이터 게이트웨이 서비스(PBIEgwService)를 다시 시작할 수도 있습니다.
+**해결 방법**: 게이트웨이가 설치되어 있는 온-프레미스 컴퓨터에서 실행 중이며 인터넷에 연결할 수 있는지 확인합니다.  꺼져 있거나 절전 모드 상태일 수 있는 컴퓨터에는 게이트웨이를 설치하지 않는 것이 좋습니다. 온-프레미스 데이터 게이트웨이 서비스(PBIEgwService)를 다시 시작할 수도 있습니다.
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**오류**: 사용 중인 공급자가 사용 중단됨: 'System.Data.OracleClient에 Oracle 클라이언트 소프트웨어 버전 8.1.7 이상이 필요합니다.' [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376)을 참조하여 공식 공급자를 설치합니다.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**오류**: 사용 중인 공급자는 더 이상 사용되지 않습니다. 'System.Data.OracleClient에는 Oracle 클라이언트 소프트웨어 버전 8.1.7 이상이 필요합니다.'. [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376)을 참조하여 공식 공급자를 설치합니다.
 
 **원인**: 온-프레미스 데이터 게이트웨이가 실행 중인 컴퓨터에 Oracle 클라이언트 SDK가 설치되지 않았습니다.  
 
@@ -111,11 +111,11 @@ Oracle 데이터베이스 커넥터를 사용하여 기존 데이터베이스의
 
 **원인**: 테이블에 기본 키가 없습니다.  
 
-**해결 방법**: Oracle 데이터베이스 커넥터에는 기본 키 열이 있는 테이블을 사용해야 합니다.
+**해결 방법**: Oracle Database 커넥터에는 기본 키 열이 있는 테이블을 사용해야 합니다.
 
 #### <a name="currently-not-supported"></a>현재 지원되지 않음
 
-* 뷰 및 저장 프로시저 
+* 뷰 
 * 복합 키가 있는 모든 테이블
 * 테이블의 중첩된 개체 유형
  

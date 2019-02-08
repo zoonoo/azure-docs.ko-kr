@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ed3731db88d7f829634a03c55e5ec033c03e4b0f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 21eec258b14bb0524170c9307d06fee7b7abc644
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139133"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466645"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용
 이 자습서에서는 공개적으로 사용 가능한 데이터 세트인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 세트에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
@@ -27,7 +27,7 @@ ms.locfileid: "53139133"
 NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 기록된 약 20GB의 압축된 CSV 파일(압축되지 않은 경우 약 48GB)로 구성됩니다. 각 여정 레코드는 승차 및 하차 위치, 익명 처리된 hack(기사) 면허증 번호 및 medallion(택시의 고유 ID) 번호를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 세트로 제공됩니다.
 
 1. **trip_data.csv** 파일에는 승객 수, 승차 및 하차 지점, 여정 기간, 여정 거리 등 여정 세부 정보가 포함됩니다. 다음은 몇 가지 샘플 레코드입니다.
-   
+
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
@@ -35,7 +35,7 @@ NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 2. **trip_fare.csv** 파일에는 지불 유형, 금액, 추가 요금 및 세금, 팁 및 통행료, 총 지불 금액 등 각 여정의 요금에 대한 세부 정보가 포함됩니다. 다음은 몇 가지 샘플 레코드입니다.
-   
+
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7
@@ -54,25 +54,25 @@ trip\_data 및 trip\_fare를 조인하는 데 사용된 **고유 키**는 다음
 
 1. **이진 분류**: 운행 등에 대해 팁이 지불되었는지 여부를 예측하려는 경우, *tip\_amount*가 $0보다 크면 지불된 것이고 *tip\_amount*가 $0이면 지불되지 않은 것입니다.
 2. **다중 클래스 분류**: 운행에 대해 지불된 팁의 범위를 예측합니다. *tip\_amount*를 5개의 bin 또는 클래스로 나눕니다.
-   
+
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. **회귀 작업**: 운행에 대해 지불된 팁의 액수를 예측합니다.  
+3. **회귀 작업**: 운행에 대해 지불된 팁의 액수를 예측합니다.
 
 ## <a name="setup"></a>고급 분석을 위한 Azure 데이터 과학 환경 설정
 Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니다.
 
-**고유한 Azure Blob 저장소 계정 만들기**
+A: 모든 지역에서 Blob 및 File Storage에 고객 관리 키 및 SSE를 사용할 수 있습니다.
 
-* 고유한 Azure Blob 저장소를 프로비전할 때 Azure Blob 저장소에 대한 지역 위치를 NYC 택시 데이터가 저장된 **미국 중남부**에 가능한 한 가깝게 선택합니다. 데이터는 공용 Blob 저장소 컨테이너에서 AzCopy를 사용하여 자체 저장소 계정의 컨테이너로 복사됩니다. Azure Blob 저장소가 미국 중남부에 가까울수록 이 작업(4단계)이 완료가 더 빨라집니다.
+* 이 문서에서는 Azure CLI에서 SMB 탑재를 사용하여 Linux VM에서 Azure File 스토리지 서비스를 사용하는 방법을 보여 줍니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다.
 * 고유의 Azure 저장소 계정을 만들려면 [Azure 저장소 계정 정보](../../storage/common/storage-create-storage-account.md)에 요약된 단계를 수행합니다. 이 연습의 뒷부분에서 필요하므로 다음 저장소 계정 자격 증명에 대한 값을 적어두어야 합니다.
-  
+
   * **Storage 계정 이름**
   * **Storage 계정 키**
-  * **컨테이너 이름** (데이터를 저장하려는 Azure Blob 저장소)
+  * 2단계: Blob 및 File Storage에 SSE 사용
 
 **Azure SQL DW 인스턴스를 프로비전합니다.**
 [SQL Data Warehouse 만들기](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) 의 설명서에 따라 SQL Data Warehouse 인스턴스를 프로비전합니다. 이후 단계에서 사용되는 다음 SQL Data Warehouse 자격 증명에 표기하도록 합니다.
@@ -88,8 +88,8 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 
 > [!NOTE]
 > SQL Data Warehouse에 만든 데이터베이스에 다음 SQL 쿼리(연결 토픽의 3단계에서 제공된 쿼리 대신)를 실행하여 **마스터 키를 만듭니다**.
-> 
-> 
+>
+>
 
     BEGIN TRY
            --Try to create the master key
@@ -106,8 +106,8 @@ Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실�
 
 > [!NOTE]
 > 다음 PowerShell 스크립트를 실행할 때 **DestDir** 디렉터리에 만들거나 작성하는 데 관리자 권한이 필요한 경우 *관리자 권한으로 실행* 해야 할 수 있습니다.
-> 
-> 
+>
+>
 
     $source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
     $ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
@@ -123,17 +123,17 @@ Windows PowerShell 명령 콘솔을 엽니다. 다음 PowerShell 명령을 실�
 
     ./SQLDW_Data_Import.ps1
 
-PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob 저장소 계정에서 정보를 입력하라고 요청합니다. 이 PowerShell 스크립트가 처음 실행을 완료하는 경우 입력한 자격 증명은 현재 작업 디렉터리의 SQLDW.conf 구성 파일에 작성됩니다. 이 PowerShell 스크립트 파일을 나중에 실행하는 경우 이 구성 파일에서 필요한 매개 변수를 모두 읽는 옵션이 있습니다. 일부 매개 변수를 변경해야 할 경우 표시되는 메시지에 따라 이 구성 파일을 삭제하고 매개 변수 값을 입력하여 화면에 매개 변수를 입력하거나 *-DestDir* 디렉터리의 SQLDW.conf 파일을 편집하여 매개 변수 값을 변경하도록 선택할 수 있습니다.
+Blob 및 파일 저장을 위한 SSE는 Azure Key Vault와 통합되므로 Key Vault를 사용하여 암호화 키를 관리할 수 있습니다. 이 PowerShell 스크립트가 처음 실행을 완료하는 경우 입력한 자격 증명은 현재 작업 디렉터리의 SQLDW.conf 구성 파일에 작성됩니다. 이 PowerShell 스크립트 파일을 나중에 실행하는 경우 이 구성 파일에서 필요한 매개 변수를 모두 읽는 옵션이 있습니다. 일부 매개 변수를 변경해야 할 경우 표시되는 메시지에 따라 이 구성 파일을 삭제하고 매개 변수 값을 입력하여 화면에 매개 변수를 입력하거나 *-DestDir* 디렉터리의 SQLDW.conf 파일을 편집하여 매개 변수 값을 변경하도록 선택할 수 있습니다.
 
 > [!NOTE]
 > Azure SQL DW에 이미 있는 이름과 스키마 이름 충돌을 방지하기 위해 SQLDW.conf 파일에서 직접 매개 변수를 읽을 때 SQLDW.conf 파일의 스키마 이름에 각 실행에 대한 기본 스키마 이름으로 임의의 3자리 수가 추가됩니다. PowerShell 스크립트에서 스키마 이름을 지정하라는 메시지가 표시될 수 있습니다. 이 이름은 사용자가 임의로 지정할 수 있습니다.
-> 
-> 
+>
+>
 
 이 **PowerShell 스크립트** 파일은 다음 작업을 완료합니다.
 
 * AzCopy가 설치되지 않은 경우 **AzCopy 다운로드 및 설치**
-  
+
         $AzCopy_path = SearchAzCopy
         if ($AzCopy_path -eq $null){
                Write-Host "AzCopy.exe is not found in C:\Program Files*. Now, start installing AzCopy..." -ForegroundColor "Yellow"
@@ -153,8 +153,8 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
                     $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
                     $env_path = $env:Path
                 }
-* **개인 Blob 저장소 계정에 데이터 복사** 
-  
+* Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다.
+
         Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"
         $start_time = Get-Date
         AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
@@ -164,17 +164,17 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
         Write-Host "AzCopy finished copying data. Please check your storage account to verify." -ForegroundColor "Yellow"
         Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
 * **Azure SQL DW에 Polybase를 사용(LoadDataToSQLDW.sql 실행)하여 데이터를 로드** 합니다.
-  
+
   * 스키마 만들기
-    
+
           EXEC (''CREATE SCHEMA {schemaname};'');
   * 데이터베이스 범위 자격 증명 만들기
-    
+
           CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
           WITH IDENTITY = ''asbkey'' ,
           Secret = ''{StorageAccountKey}''
   * Azure 저장소 Blob에 대한 외부 데이터 원본 만들기
-    
+
           CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
           WITH
           (
@@ -183,7 +183,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
               CREDENTIAL = {KeyAlias}
           )
           ;
-    
+
           CREATE EXTERNAL DATA SOURCE {nyctaxi_fare_storage}
           WITH
           (
@@ -193,20 +193,20 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
           )
           ;
   * csv 파일에 대한 외부 파일 형식을 만듭니다. 데이터가 압축되지 않으며 필드는 파이프 문자로 분리됩니다.
-    
+
           CREATE EXTERNAL FILE FORMAT {csv_file_format}
           WITH
-          (   
+          (
               FORMAT_TYPE = DELIMITEDTEXT,
-              FORMAT_OPTIONS  
+              FORMAT_OPTIONS
               (
                   FIELD_TERMINATOR ='','',
                   USE_TYPE_DEFAULT = TRUE
               )
           )
           ;
-  * Azure Blob 저장소에 NYC Taxi 데이터 세트에 대한 외부 요금 및 여정 테이블을 만듭니다.
-    
+  * AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob 및 File Storage에 복사하거나 이들 스토리지에서 복사하기 위한 명령줄 유틸리티입니다.
+
           CREATE EXTERNAL TABLE {external_nyctaxi_fare}
           (
               medallion varchar(50) not null,
@@ -226,8 +226,8 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
               DATA_SOURCE = {nyctaxi_fare_storage},
               FILE_FORMAT = {csv_file_format},
               REJECT_TYPE = VALUE,
-              REJECT_VALUE = 12     
-          )  
+              REJECT_VALUE = 12
+          )
 
             CREATE EXTERNAL TABLE {external_nyctaxi_trip}
             (
@@ -251,14 +251,14 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
                 DATA_SOURCE = {nyctaxi_trip_storage},
                 FILE_FORMAT = {csv_file_format},
                 REJECT_TYPE = VALUE,
-                REJECT_VALUE = 12         
+                REJECT_VALUE = 12
             )
 
-    - Azure Blob 저장소의 외부 테이블에서 SQL Data Warehouse에 데이터 로드
+    - Azure Blob Storage의 외부 테이블에서 SQL Data Warehouse에 데이터 로드
 
             CREATE TABLE {schemaname}.{nyctaxi_fare}
             WITH
-            (   
+            (
                 CLUSTERED COLUMNSTORE INDEX,
                 DISTRIBUTION = HASH(medallion)
             )
@@ -269,7 +269,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 
             CREATE TABLE {schemaname}.{nyctaxi_trip}
             WITH
-            (   
+            (
                 CLUSTERED COLUMNSTORE INDEX,
                 DISTRIBUTION = HASH(medallion)
             )
@@ -282,7 +282,7 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 
             CREATE TABLE {schemaname}.{nyctaxi_sample}
             WITH
-            (   
+            (
                 CLUSTERED COLUMNSTORE INDEX,
                 DISTRIBUTION = HASH(medallion)
             )
@@ -310,25 +310,25 @@ PowerShell 스크립트가 처음으로 실행되면 Azure SQL DW 및 Azure Blob
 저장소 계정의 지리적 위치는 로드 시간을 영향을 줍니다.
 
 > [!NOTE]
-> 개인 Blob 저장소 계정의 지리적 위치에 따라 공용 Blob에서 개인 저장소 계정에 데이터를 복사하는 프로세스는 15분 이상이 걸릴 수 있습니다. 저장소 계정에서 Azure SQL DW로 데이터를 로드하는 프로세스는 20분 이상이 걸릴 수 있습니다.  
-> 
-> 
+> Azure CLI에서 SMB를 사용하여 Linux VM에 Azure File 스토리지를 탑재하는 방법
+>
+>
 
 중복된 원본 및 대상 파일이 있는 경우 수행할 작업을 결정해야 합니다.
 
 > [!NOTE]
-> 공용 Blob 저장소에서 개인 Blob 저장소 계정으로 복사할 .csv 파일이 개인 Blob 저장소 계정에 이미 있으면 AzCopy는 덮어쓸 것인지를 묻습니다. 덮어쓰지 않으려는 경우 메시지가 표시되면 **n** 을 입력합니다. **모두** 덮어쓰려는 경우 메시지가 표시되면 **a**를 입력합니다. 또한 **y** 를 입력하여 개별적으로 .csv 파일을 덮어쓸 수 있습니다.
-> 
-> 
+> 공용 Blob Storage에서 개인 Blob Storage 계정으로 복사할 .csv 파일이 개인 Blob Storage 계정에 이미 있으면 AzCopy는 덮어쓸 것인지를 묻습니다. 덮어쓰지 않으려는 경우 메시지가 표시되면 **n** 을 입력합니다. **모두** 덮어쓰려는 경우 메시지가 표시되면 **a**를 입력합니다. 또한 **y** 를 입력하여 개별적으로 .csv 파일을 덮어쓸 수 있습니다.
+>
+>
 
 ![AzCopy의 출력][21]
 
-사용자 고유의 데이터를 사용할 수 있습니다. 데이터가 실제 애플리케이션의 온-프레미스 컴퓨터에 있으면 AzCopy을 사용하여 개인 Azure Blob 저장소에 온-프레미스 데이터를 업로드할 수 있습니다. PowerShell 스크립트 파일의 AzCopy 명령에서 **원본** 위치인 `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`를 데이터가 있는 로컬 디렉터리로 변경해야만 합니다.
+사용자 고유의 데이터를 사용할 수 있습니다. Azure File 스토리지 리소스 관리 PowerShell 스크립트 파일의 AzCopy 명령에서 **원본** 위치인 `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`를 데이터가 있는 로컬 디렉터리로 변경해야만 합니다.
 
 > [!TIP]
-> 데이터가 실제 애플리케이션의 개인 Azure Blob 저장소에 이미 있으면 PowerShell 스크립트에서 AzCopy 단계를 건너뛰고 직접 Azure SQL DW에 데이터를 업로드할 수 있습니다. 데이터 형식에 맞추려면 스크립트를 추가로 편집해야 합니다.
-> 
-> 
+> Azure File Storage를 백업하려면 어떻게 할까요? 데이터 형식에 맞추려면 스크립트를 추가로 편집해야 합니다.
+>
+>
 
 또한 이 Powershell 스크립트는 Azure SQL DW 정보에서 데이터 탐색 예제 파일 SQLDW_Explorations.sql, SQLDW_Explorations.ipynb 및 SQLDW_Explorations_Scripts.py에 플러그 인하므로 이러한 세 가지 파일은 PowerShell 스크립트가 완료된 후에 즉시 시도될 준비가 됩니다.
 
@@ -343,8 +343,8 @@ Visual Studio에서 SQL DW 로그인 이름 및 암호를 사용하여 Azure SQL
 
 > [!NOTE]
 > PDW(병렬 데이터 웨어하우스) 쿼리 편집기를 열려면 **SQL 개체 탐색기**에서 PDW를 선택하여 **새 쿼리** 명령을 사용합니다. 표준 SQL 쿼리 편집기는 PDW에서 지원되지 않습니다.
-> 
-> 
+>
+>
 
 다음은 이 섹션에서 수행된 데이터의 탐색 및 기능 생성 작업의 형식입니다.
 
@@ -557,7 +557,7 @@ SQL 쿼리에서 기능을 생성하는 이 함수를 호출하는 예는 다음
     AND   t.pickup_datetime = f.pickup_datetime
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
-Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 수 있습니다.  
+Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 수 있습니다.
 
 1. 데이터를 추출 및 샘플링할 최종 SQL 쿼리를 저장하고 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에 쿼리를 직접 복사하여 붙여 넣습니다. 또는
 2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링된 데이터를 새 SQL DW 테이블에 유지하고 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에서 새 테이블을 사용합니다. 이전 단계에서 PowerShell 스크립트가 이를 수행했습니다. 데이터 가져오기 모듈의 이 테이블에서 직접 읽을 수 있습니다.
@@ -570,16 +570,16 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 AzureML IPython Notebook 서비스에 직접 업로드하고 실행을 시작할 수 있습니다. AzureML IPython Notebook 서비스에 업로드하는 단계는 다음과 같습니다.
 
 1. AzureML 작업 영역에 로그인하고 맨 위에 있는 "Studio"를 클릭한 다음 웹 페이지의 왼쪽에서 "NOTEBOOKS"를 클릭합니다.
-   
+
     ![Studio를 클릭한 다음, NOTEBOOKS 클릭][22]
 2. 웹 페이지의 왼쪽 아래 모서리에서 "새로 만들기"를 클릭하고 "Python 2"를 선택합니다. 그런 다음 노트북에 이름을 제공하고 확인 표시를 클릭하여 새 비어 있는 IPython Notebook을 만듭니다.
-   
+
     ![NEW를 클릭한 다음, Python 2 클릭][23]
 3. 새 IPython Notebook의 왼쪽 위 모서리에서 "Jupyter" 기호를 클릭합니다.
-   
+
     ![Jupyter 기호 클릭][24]
 4. 샘플 IPython Notebook을 AzureML IPython Notebook 서비스의 **트리** 페이지로 끌어서 놓고 **업로드**를 클릭합니다. 그런 다음 샘플 IPython Notebook은 AzureML IPython Notebook 서비스에 업로드됩니다.
-   
+
     ![[업로드] 클릭][25]
 
 이 샘플 IPython Notebook 또는 Python 스크립트 파일을 실행하기 위해 다음 Python 패키지가 필요합니다. AzureML IPython Notebook 서비스를 사용하는 경우 이러한 패키지는 미리 설치되었습니다.
@@ -630,7 +630,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 
     print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-* 총 행 수 = 173179759  
+* 총 행 수 = 173179759
 * 총 열 수 = 14
 
 ### <a name="report-number-of-rows-and-columns-in-table-nyctaxifare"></a><nyctaxi_fare> 테이블의 행 및 열 수 보고
@@ -648,7 +648,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 
     print 'Total number of columns = %d' % ncols.iloc[0,0]
 
-* 총 행 수 = 173179759  
+* 총 행 수 = 173179759
 * 총 열 수 = 11
 
 ### <a name="read-in-a-small-data-sample-from-the-sql-data-warehouse-database"></a>SQL Data Warehouse에서 소량의 데이터 샘플 읽기
@@ -671,7 +671,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
-샘플 테이블을 읽은 시간 = 14.096495초  
+샘플 테이블을 읽은 시간 = 14.096495초
 검색된 행 및 열 수 = (1000, 21)
 
 ### <a name="descriptive-statistics"></a>기술 통계
@@ -763,7 +763,7 @@ and
 
 ![그림 #26][26]
 
-#### <a name="exploration-daily-distribution-of-trips"></a>탐색: 일일 운행 분포
+#### <a name="exploration-daily-distribution-of-trips"></a>탐색: 일일 여정 분포
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM <schemaname>.<nyctaxi_sample>
@@ -807,9 +807,9 @@ and
 
 1. **이진 분류**: 운행에 대해 팁이 지불되었는지 여부를 예측합니다.
 2. **다중 클래스 분류**: 이전에 정의한 클래스에 따라 지불된 팁의 범위를 예측합니다.
-3. **회귀 작업**: 운행에 대해 지불된 팁의 액수를 예측합니다.  
+3. **회귀 작업**: 운행에 대해 지불된 팁의 액수를 예측합니다.
 
-모델링 연습을 시작하려면 **Azure Machine Learning** 작업 영역에 로그인합니다. 기계 학습 작업 영역을 아직 만들지 않은 경우 [Azure ML 작업 영역 만들기](../studio/create-workspace.md)를 참조하세요.
+모델링 연습을 시작하려면 **Azure Machine Learning** 작업 영역에 로그인합니다. 기계 학습 작업 영역을 아직 만들지 않은 경우 [Azure Machine Learning Studio 작업 영역 만들기](../studio/create-workspace.md)를 참조하세요.
 
 1. Azure Machine Learning을 시작하려면 [Azure Machine Learning Studio란?](../studio/what-is-ml-studio.md)
 2. [Azure Machine Learning Studio](https://studio.azureml.net)에 로그인합니다.
@@ -818,7 +818,7 @@ and
 일반적인 학습 실험은 다음 단계로 구성됩니다.
 
 1. **+새** 실험 만들기
-2. Azure ML로 데이터를 가져옵니다.
+2. Azure Machine Learning Studio로 데이터 가져오기
 3. 필요에 따라 데이터를 전처리, 변환 및 조작합니다.
 4. 필요에 따라 기능을 생성합니다.
 5. 데이터를 학습/유효성 검사/테스트 데이터 세트로 분할하거나, 각각에 대한 별도의 데이터 세트를 만듭니다.
@@ -828,10 +828,10 @@ and
 9. 모델을 평가하여 학습 문제에 대한 관련 메트릭을 계산합니다.
 10. 모델을 미세 조정하고 배포할 가장 적합한 모델을 선택합니다.
 
-이 연습에서는 이미 SQL Data Warehouse에서 데이터를 탐색 및 엔지니어링하고 Azure ML에서 수집할 샘플 크기를 결정했습니다. 예측 모델 중 하나 이상을 빌드하는 절차는 다음과 같습니다.
+이 연습에서는 이미 SQL Data Warehouse에서 데이터를 탐색 및 엔지니어링하고 Azure Machine Learning Studio에서 수집할 샘플 크기를 결정했습니다. 예측 모델 중 하나 이상을 빌드하는 절차는 다음과 같습니다.
 
-1. **데이터 입력 및 출력** 섹션에서 제공되는 [데이터 가져오기][import-data] 모듈을 사용하여 Azure ML로 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기][import-data] 참조 페이지를 참조하세요.
-   
+1. **데이터 입력 및 출력** 섹션에서 제공되는 [데이터 가져오기][import-data] 모듈을 사용하여 Azure Machine Learning Studio로 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기][import-data] 참조 페이지를 참조하세요.
+
     ![Azure ML 데이터 가져오기][17]
 2. **속성** 패널에서 **Azure SQL Database**를 **데이터 원본**으로 선택합니다.
 3. **데이터베이스 서버 이름** 필드에 데이터베이스 DNS 이름을 입력합니다. 형식: `tcp:<your_virtual_machine_DNS_name>,1433`
@@ -845,10 +845,10 @@ SQL Data Warehouse 데이터베이스에서 직접 데이터를 읽는 이진 �
 
 > [!IMPORTANT]
 > 이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설**을 **제외**하는 것입니다. 예를 들어 이진 분류를 사용할 때는 레이블 **tipped**를 사용하고, **tip\_class**, **tip\_amount** 및 **total\_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
-> 
+>
 > 필요 없는 열 또는 목표 누설을 제외하려면 [데이터 세트의 열 선택][select-columns] 모듈 또는 [메타데이터 편집][edit-metadata]을 사용하면 됩니다. 자세한 내용은 [데이터 세트의 열 선택][select-columns] 및 [메타데이터 편집][edit-metadata] 참조 페이지를 참조하세요.
-> 
-> 
+>
+>
 
 ## <a name="mldeploy"></a>Azure 기계 학습에서 모델 배포
 모델이 준비된 경우 실험에서 직접 웹 서비스로 쉽게 배포할 수 있습니다. Azure ML 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](../studio/publish-a-machine-learning-web-service.md)를 참조하세요.
@@ -881,9 +881,7 @@ Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 �
 이 샘플 연습 및 이와 함께 제공되는 스크립트와 IPython Notebook은 MIT 라이선스에 따라 Microsoft에서 공유한 것입니다. 자세한 내용은 GitHub의 샘플 코드 디렉터리에 있는 LICENSE.txt 파일을 참조하세요.
 
 ## <a name="references"></a>참조
-• [Andrés Monroy NYC Taxi Trips 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
-• [Chris Whong의 FOILing NYC Taxi Trip 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC Taxi 및 Limousine 수수료 연구 및 통계](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
+•    [Andrés Monroy NYC Taxi Trips 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/) •    [Chris Whong의 FOILing NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) •    [NYC 택시 및 리무진 수수료 연구 및 통계](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

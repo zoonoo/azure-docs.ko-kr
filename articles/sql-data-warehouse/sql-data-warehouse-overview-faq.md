@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306743"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462548"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse에 대한 질문과 대답
 
@@ -92,7 +92,7 @@ A: [Azure Data Lake Storage] 및 [Azure Storage Blobs]
 
 Q: Azure Storage Blob 또는 ADLS에 연결할 때 계산 푸시다운이 가능한가요? 
 
-A: 아니요. SQL DW PolyBase는 저장소 구성 요소와만 상호 작용합니다. 
+A: 아니요. SQL DW PolyBase는 스토리지 구성 요소와만 상호 작용합니다. 
 
 Q: HDI에 연결할 수 있나요?
 

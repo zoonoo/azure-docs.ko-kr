@@ -3,7 +3,7 @@ title: Azure SQL Database FAQ | Microsoft Docs
 description: 클라우드 데이터베이스 및 Azure SQL Database, Microsoft 관계형 데이터베이스 관리 시스템(RDBMS) 및 클라우드에서 서비스로 데이터베이스에 대해 고객이 궁금해하는 일반적인 질문에 대한 답변입니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/25/2019
+ms.openlocfilehash: 3ede7bdf0837c88340f13a0f921ca1752a3d3c6b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541622"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511652"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL Database FAQ(질문과 대답)
 
@@ -35,7 +35,7 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL Database에 대한 새 vCore 기반 구매 모델이란?
 
-새 구매 모델이 기존 DTU 기반 모델에 추가되었습니다. vCore 기반 모델은 고객에게 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 변환하는 간단한 방법을 제공하도록 설계되었습니다. 또한 고객이 워크로드 요구 사항에 따라 해당 계산 및 저장소 리소스의 크기를 조정할 수 있습니다. vCore 모델을 사용하는 단일 데이터베이스 및 탄력적 풀 옵션도 [SQL Server에 대한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/#services)을 통해 비용을 최대 30%까지 절약할 수 있습니다. 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
+새 구매 모델이 기존 DTU 기반 모델에 추가되었습니다. vCore 기반 모델은 고객에게 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 변환하는 간단한 방법을 제공하도록 설계되었습니다. 또한 고객이 워크로드 요구 사항에 따라 해당 컴퓨팅 및 스토리지 리소스의 크기를 조정할 수 있습니다. vCore 모델을 사용하는 단일 데이터베이스 및 탄력적 풀 옵션도 [SQL Server에 대한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/#services)을 통해 비용을 최대 30%까지 절약할 수 있습니다. 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
 
 ## <a name="what-is-a-vcore"></a>vCore란?
 
@@ -43,7 +43,7 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 
 ## <a name="is-moving-to-the-vcore-based-model-required"></a>vCore 기반 모델로 전환해야 하나요?
 
-아니요, 탄력적 풀 및 단일 데이터베이스 배포 옵션에 vCore 기반 모델을 도입한 것은 고객의 선택과 유연성에 대한 약속을 반영합니다. 고객이 DTU 기반 모델을 계속 사용하려면 이 알림과 관련하여 어떤 조치도 취할 필요가 없으며, 해당 환경과 요금 청구는 변경되지 않은 채 유지됩니다.
+아니요, 탄력적 풀 및 단일 데이터베이스 배포 옵션에 도입된 vCore 기반 모델은 고객에게 유연한 선택권을 제공하고자 하는 Microsoft의 노력을 반영한 것입니다. 고객이 DTU 기반 모델을 계속 사용하려면 이 알림과 관련하여 어떤 조치도 취할 필요가 없으며, 해당 환경과 요금 청구는 변경되지 않은 채 유지됩니다.
 
 대부분의 경우 애플리케이션은 미리 구성된 리소스 번들을 간단하게 활용할 수 있습니다. 따라서 고객에게 이러한 DTU 기반 선택을 지속적으로 제공하고 지원합니다. 이러한 모델을 사용하고 있고 비즈니스 요구 사항이 충족되는 경우 계속 사용해야 합니다.
 
@@ -141,9 +141,9 @@ vCore 모델은 프로비전된 계산 및 저장소의 용량을 독립적으�
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>단일 데이터베이스의 서비스 계층 또는 계산 크기를 변경하거나 탄력적 풀 내부 및 외부로 데이터베이스를 이동하는 데 걸리는 시간은 어떻게 되나요?
 
-데이터베이스의 서비스 계층을 변경하고 풀 내부 및 외부로 이동하려면 플랫폼에서 백그라운드 작업으로 데이터베이스를 복사해야 합니다. 서비스 계층을 변경하는 데는 데이터베이스 크기에 따라 몇 분에서 몇 시간까지 소요될 수 있습니다. 두 경우 모두 데이터베이스는 온라인 상태이고 이동 중에도 사용할 수 있습니다. 단일 데이터베이스 변경에 대한 자세한 내용은 [데이터베이스의 서비스 계층 변경](sql-database-service-tiers-dtu.md)을 참조하세요.
+데이터베이스의 서비스 계층을 변경하고 풀 내부 및 외부로 이동하려면 플랫폼에서 백그라운드 작업으로 데이터베이스를 복사해야 합니다. 서비스 계층을 변경하는 데는 데이터베이스 크기에 따라 몇 분에서 몇 시간까지 소요될 수 있습니다. 두 경우 모두 데이터베이스는 온라인 상태이고 이동 중에도 사용할 수 있습니다. 단일 데이터베이스 변경에 대한 자세한 내용은 [데이터베이스의 서비스 계층 변경](sql-database-single-database-scale.md)을 참조하세요.
 
-## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>탄력적 데이터베이스와 단일 데이터베이스는 언제 사용해야 합니까?
+## <a name="when-should-i-use-a-single-database-vs-elastic-pools"></a>단일 데이터베이스와 탄력적 풀을 각각 사용해야 하는 경우
 
 일반적으로 탄력적 풀은 고객 또는 테넌트당 하나의 데이터베이스가 있는 전형적인 [SaaS(Software-as-a-Service) 애플리케이션 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 위해 설계되었습니다. 개별 데이터베이스를 구매하고 각 데이터베이스의 가변적인 최대 수요를 충족하기 위해 과도하게 프로비전하는 것은 대체로 비용 효율적이지 않습니다. 풀을 사용하여 사용자는 풀의 집단 성능을 관리하고 데이터베이스는 자동으로 확장 및 축소됩니다. Azure의 지능형 엔진이 사용 패턴이 타당하다고 판단되는 경우 데이터베이스에 대한 풀을 추천합니다. 자세한 내용은 [탄력적 풀 지침](sql-database-elastic-pool.md)을 참조하세요.
 

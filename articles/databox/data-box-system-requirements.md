@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794008"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206750"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box 시스템 요구 사항
 
@@ -48,13 +48,18 @@ Data Box 디바이스에 연결된 클라이언트를 통해 데이터 복사 �
 
 ### <a name="supported-storage-accounts"></a>지원되는 저장소 계정
 
-Data Box 디바이스에 대해 지원되는 저장소 형식의 목록은 다음과 같습니다.
+아래에는 Data Box 디바이스용으로 지원되는 스토리지 계정 및 스토리지 유형의 목록이 나와 있습니다. 모든 유형의 스토리지 계정과 해당 계정의 모든 기능이 포함된 전체 목록은 [스토리지 계정의 유형](/azure/storage/common/storage-account-overview#types-of-storage-accounts)을 참조하세요.
 
-| **Storage 계정** | **참고 사항** |
-| --- | --- |
-| 클래식 | Standard |
-| 범용 가상 컴퓨터  |표준; V1 및 V2 모두 지원됩니다. |
-| Blob |핫 및 쿨이 모두 지원됩니다. |
+| **스토리지 계정/지원되는 스토리지 유형** | **블록 Blob** |**페이지 Blob*** |**Azure 파일** |**참고 사항**|
+| --- | --- | -- | -- | -- |
+| Classic Standard | Y | Y | Y |
+| 범용 v1 Standard  | Y | Y | Y | 핫 및 쿨이 모두 지원됩니다.|
+| 범용 v1 Premium  |  | Y| | |
+| 범용 v2 Standard  | Y | Y | Y | 핫 및 쿨이 모두 지원됩니다.|
+| 범용 v2 Premium  |  |Y | | |
+| Blob Storage Standard |Y | | |핫 및 쿨이 모두 지원됩니다. |
+
+\*  *- 페이지 Blob에 업로드하는 데이터는 vhd와 같이 512바이트로 정렬된 데이터여야 합니다.*
 
 >[!NOTE]
 > Azure Data Lake Storage Gen 2 계정은 지원되지 않습니다.
@@ -85,7 +90,7 @@ Data Box 디바이스에 대해 지원되는 저장소 형식의 목록은 다�
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 
-데이터 센터에는 고속 네트워크가 있어야 합니다. 10GbE 연결이 하나 이상 있으면 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용하여 데이터를 복사할 수 있지만 복사 속도에 영향을 미칩니다.
+데이터 센터에는 고속 네트워크가 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없으면 1GbE 데이터 링크를 사용하여 데이터를 복사할 수 있지만 복사 속도는 느려집니다.
 
 ## <a name="next-step"></a>다음 단계
 

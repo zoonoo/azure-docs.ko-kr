@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: fae344b3-5bd9-40e2-9a1d-448dcd58155f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: dfa90474632b2cf18055e0ba95994f120cb293ef
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ac88d3accad8aa9ec523ecce5eb11b6c10eb913c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447787"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>자습서: Elium과 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Elium과 Azure AD의 통합을 구성하려면 갤러리의 Elium을 관리되�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -104,15 +104,15 @@ Elium에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
  
     ![Single Sign-On 대화 상자](./media/elium-tutorial/tutorial_elium_samlbase.png)
 
-1. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **Elium 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **Elium 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Elium 도메인 및 URL Single Sign-On 정보](./media/elium-tutorial/tutorial_elium_url.png)
 
     a. **식별자** 텍스트 상자에서 `https://<platform-domain>.elium.com/login/saml2/metadata` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<platform-domain>.elium.com/login/saml2/acs`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<platform-domain>.elium.com/login/saml2/acs`
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Elium 도메인 및 URL Single Sign-On 정보](./media/elium-tutorial/tutorial_elium_url1.png)
 
@@ -129,7 +129,7 @@ Elium에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
            
     | 특성 이름 | 특성 값 |   
     | ---------------| ----------------|
-    | email   |user.mail |
+    | 이메일   |user.mail |
     | first_name| user.givenname |
     | last_name| user.surname|
     | job_title| user.jobtitle|
@@ -142,7 +142,7 @@ Elium에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     ![Configure Single Sign-On](./media/elium-tutorial/tutorial_attribute_04.png)
 
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
     ![Configure Single Sign-On](./media/elium-tutorial/tutorial_attribute_05.png)
 
@@ -179,7 +179,7 @@ Elium에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     > [!NOTE]
     > SSO가 구성되면 언제든지 `https://<platform_domain>/login/regular/login` URL에서 기본 원격 로그인 페이지에 액세스할 수 있습니다. 
 
-    나. **SAML2 페더레이션 사용** 확인란을 선택합니다.
+    b. **SAML2 페더레이션 사용** 확인란을 선택합니다.
 
     다. **JIT 프로비전** 확인란을 선택합니다.
 
@@ -233,7 +233,7 @@ Elium에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
 이 섹션은 Elium에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Elium은 JIT(Just-In-Time) 프로비전을 지원하며, 기본적으로 사용하도록 설정됩니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 없는 경우 Elium에 액세스하려는 중에 만들어집니다.
 >[!Note]
->사용자를 수동으로 만들어야 하는 경우 [Elium 지원 팀](mailto:support@elium.com)에 문의하세요.
+>사용자를 수동으로 만들어야 하는 경우  [Elium 지원 팀](mailto:support@elium.com)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -275,7 +275,7 @@ Elium에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

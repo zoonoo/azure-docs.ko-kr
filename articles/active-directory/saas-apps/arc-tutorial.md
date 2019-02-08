@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: ae609583-f875-4cb8-b68e-1b0b7938e9a7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: eafd7998e5bc21a539b6709794fe3cd70d9e3179
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8c4922c817d9667b1a25846df53f9366e2018342
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054321"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>자습서: Arc Publishing - SSO와 Azure Active Directory 통합
 
@@ -64,7 +64,7 @@ Arc Publishing - SSO가 Azure AD로 통합되도록 구성하려면 Arc Publishi
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -104,7 +104,7 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하고 테스트하�
  
     ![Single Sign-On 대화 상자](./media/arc-tutorial/tutorial_arc_samlbase.png)
 
-1. **Arc Publishing - SSO 도메인 및 URL** 섹션에서 응용 프로그램을 **IDP** 시작 모드로 구성하려는 경우 다음 단계를 수행합니다.
+1. **Arc Publishing - SSO 도메인 및 URL** 섹션에서 애플리케이션을 **IDP** 시작 모드로 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Arc Publishing - SSO 도메인 및 URL Single Sign-On 정보](./media/arc-tutorial/tutorial_arc_url.png)
 
@@ -112,7 +112,7 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     1. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Arc Publishing - SSO 도메인 및 URL Single Sign-On 정보](./media/arc-tutorial/tutorial_arc_url1.png)
 
@@ -131,7 +131,7 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하고 테스트하�
     | ---------------| --------------- |    
     | firstname | user.givenname |
     | Lastname | user.surname |
-    | email | user.mail |
+    | 이메일 | user.mail |
     | groups | user.assignedroles |
 
     1. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
@@ -202,7 +202,7 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하고 테스트하�
 이 섹션은 Arc Publishing - SSO에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Arc Publishing - SSO는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정됩니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Arc Publishing - SSO에 액세스하는 동안 만들어집니다.
 
 >[!Note]
->사용자를 수동으로 만들어야 하는 경우 [Arc Publishing - SSO 지원 팀](mailto:inf@washpost.com)에 문의하세요.
+>사용자를 수동으로 만들어야 하는 경우  [Arc Publishing - SSO 지원 팀](mailto:inf@washpost.com)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -244,7 +244,7 @@ Arc Publishing - SSO에서 Azure AD Single Sign-On을 구성하고 테스트하�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: c87392a7-e7fe-4cdc-a8e6-afe1ed975172
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 61b469ba5f64a52b87843432dfe60fe1d83ffec2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6eca534f933742e4797ca164637e7d536d194ba3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428386"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>자습서: Azure Active Directory와 Zscaler Private Access Administrator 통합
 
@@ -64,7 +64,7 @@ Zscaler Private Access Administrator의 Azure AD 통합을 구성하려면 갤�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -104,19 +104,19 @@ Zscaler Private Access Administrator에서 Azure AD Single Sign-On을 구성하�
  
     ![Single Sign-On 대화 상자](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_samlbase.png)
 
-1. **Zscaler Private Access Administrator 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **Zscaler Private Access Administrator 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Zscaler Private Access Administrator 도메인 및 URL Single Sign-On 정보](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_url.png)
 
     a. **식별자** 텍스트 상자에서 `https://<subdomain>.private.zscaler.com/auth/metadata` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.private.zscaler.com/auth/sso`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.private.zscaler.com/auth/sso`
 
     다. **고급 URL 설정 표시**를 선택합니다.
 
     d. **RelayState** 텍스트 상자에 값 `idpadminsso`를 입력합니다.
 
-1.  **SP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1.  **SP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.private.zscaler.com/auth/sso`
 
@@ -147,7 +147,7 @@ Zscaler Private Access Administrator에서 Azure AD Single Sign-On을 구성하�
 
     a. **Select File**(파일 선택)을 클릭하여 **IdP Metadata File Upload**(IdP 메타데이터 파일 업로드) 필드의 Azure AD에서 다운로드된 메타데이터 파일을 업로드합니다.
 
-    나. 그러면 Azure AD에서 **IdP 메타데이터**를 읽어와서 아래와 같이 모든 필드 정보가 채워집니다.
+    b. 그러면 Azure AD에서 **IdP 메타데이터**를 읽어와서 아래와 같이 모든 필드 정보가 채워집니다.
 
     ![Zscaler Private Access Administrator idpconfig](./media/zscalerprivateaccessadministrator-tutorial/idpconfig.png)
 
@@ -158,7 +158,7 @@ Zscaler Private Access Administrator에서 Azure AD Single Sign-On을 구성하�
     e. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -218,7 +218,7 @@ Azure AD 사용자가 Zscaler Private Access Administrator에 로그인할 수 �
 
     a. **사용자 이름** 텍스트 상자에 사용자의 메일(예: **BrittaSimon@contoso.com**)을 입력합니다.
 
-    나. **암호** 텍스트 상자에서 암호를 입력합니다.
+    b. **암호** 텍스트 상자에서 암호를 입력합니다.
 
     다. **암호 확인** 텍스트 상자에 암호를 다시 입력합니다.
 
@@ -272,7 +272,7 @@ Azure AD 사용자가 Zscaler Private Access Administrator에 로그인할 수 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 
