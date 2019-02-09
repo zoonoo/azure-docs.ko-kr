@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7536913817e10fbc2b46eadd1cebdfb98079c759
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 97cdae49b4676500e29ac25b12712c94e575e5f8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819521"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960568"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack에 대 한 저장소 용량 관리 
 
@@ -91,7 +91,7 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 1. 에 로그인 합니다 [관리자 포털](https://adminportal.local.azurestack.external)합니다.
 2. 선택 **모든 서비스** > **저장소** 사용량 정보를 볼 수 있는 파일 공유 목록을 엽니다. 
 
-  ![예제: 저장소 파일 공유](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![예제: 저장소 파일 공유](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **총** 공유에 사용할 수 있는 바이트의 총 공간입니다. 이 공간 데이터 및 저장소 서비스에서 유지 되는 메타 데이터에 사용 됩니다.
   - **사용 되는** 테 넌 트 데이터와 연결 된 메타 데이터를 저장 하는 파일의 모든 범위에서 사용 되는 바이트의 데이터 양입니다.

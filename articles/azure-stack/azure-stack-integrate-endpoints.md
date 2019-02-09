@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 0bb2f3ffb4b615451abc41d0d8945b4b3efdde53
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816359"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977750"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -38,11 +38,11 @@ Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니�
 |끝점 (VIP)|DNS 호스트 A 레코드|프로토콜|포트|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|포털 (관리자)|Adminportal 합니다.  *&lt;지역 >.&lt; fqdn >*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015|
+|포털 (관리자)|Adminportal 합니다.  *&lt;지역 >.&lt; fqdn >*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure 리소스 관리자 (관리자)|Adminmanagement 합니다.  *&lt;지역 >.&lt; fqdn >*|HTTPS|443<br>30024|
-|포털 (사용자)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
-|Azure Resource Manager (사용자)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Azure 리소스 관리자 (관리자)|Adminmanagement 합니다.  *&lt;지역 >.&lt; fqdn >*|HTTPS|443|
+|포털 (사용자)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (사용자)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |그래프|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |인증서 해지 목록|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP & UDP|53|
@@ -79,7 +79,6 @@ Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기
 |NTP|(IP의 NTP 서버 배포에 대 한 제공)|UDP|123|공용 VIP-/ 27|
 |DNS|(배포에 대해 제공 된 IP의 DNS 서버)|TCP<br>UDP|53|공용 VIP-/ 27|
 |CRL|(인증서에 CRL 배포 지점 URL)|HTTP|80|공용 VIP-/ 27|
-|인프라 백업|(IP 또는 FQDN 외부 대상 파일 서버)|SMB|445|공용 인프라 네트워크|
 |LDAP|Graph 통합에 대해 제공 된 active Directory 포리스트|TCP<br>UDP|389|공용 VIP-/ 27|
 |LDAP SSL|Graph 통합에 대해 제공 된 active Directory 포리스트|TCP|636|공용 VIP-/ 27|
 |LDAP GC|Graph 통합에 대해 제공 된 active Directory 포리스트|TCP|3268|공용 VIP-/ 27|
@@ -89,9 +88,6 @@ Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기
 
 > [!Note]  
 > 아웃 바운드 Url은 부하가 분산 된 Azure traffic manager를 사용 하 여 지리적 위치에 따라 가능한 최적의 연결을 제공 합니다. 부하 분산된 Url을 Microsoft에서 업데이트 하 고 고객에 게 영향을 주지 않고 백 엔드 끝점을 변경할 수 있습니다. Microsoft는 부하 분산 Url에 대 한 IP 주소 목록을 공유 하지 않습니다. IP 대신 하 여 URL 필터링을 지 원하는 장치를 사용 해야 합니다.
-
-> [!Note]  
-> 1809, 인프라 백업 서비스는 외부 파일 서버에 공용 VIP 네트워크에서 통신합니다. 1809를 하기 전에 서비스는 공용 인프라 네트워크를 통해 통신 합니다. 환경 액세스 인프라 리소스에 공용 VIP 네트워크에서 허용 하지 않으면 적용 최신 [1809 핫픽스](azure-stack-update-1809.md#post-update-steps) Azure Stack에 대 한 합니다. 이 핫픽스 공용 인프라 네트워크에 인프라 백업 서비스를 다시 이동 됩니다. 1811에서 1809 핫픽스를 적용 하는 경우 인프라 백업 서비스는 공용 인프라 네트워크에 남아 있습니다. 핫픽스를 적용 하지 않는 경우 업데이트를 다시 이동 공용 인프라 네트워크에 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

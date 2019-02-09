@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9cfa06dfd0b38aa288502afbee30fb48ee7dd4e1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 489ef2c472cb9622e83a04428ec9c5958e5a5003
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247666"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983375"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Azure Stack 개발 키트 란?
 [Microsoft Azure Stack 통합 시스템](../azure-stack-poc.md) 4-16 노드에서 크기 및 하드웨어 파트너와 Microsoft에서 지원 됩니다. Azure Stack 통합 시스템을 사용 하 여 프로덕션 워크 로드에 대 한 새로운 시나리오를 사용 하도록 설정 합니다. 통합된 시스템 인프라를 관리 하 고 서비스를 제공 하는 Azure Stack 운영자 인 경우 참조 우리의 [연산자 설명서](https://docs.microsoft.com/azure/azure-stack)합니다.
@@ -50,7 +50,7 @@ ASDK에 자세히 알아보려면이 짧은 비디오를 시청 하세요.
 |-----|-----|-----|
 |**규모**|모든 구성 요소는 단일 노드 서버 컴퓨터에 설치 됩니다.|4-16 노드의 크기에 이르기까지 다양 합니다.|
 |**복원력**|단일 노드 구성은 고가용성을 제공 하지 않습니다.|[고가용성](../azure-stack-key-features.md#high-availability-for-azure-stack) 기능을 지원 합니다.|
-|**네트워킹**|ASDK 이라는 AzS-BGPNAT01 VM를 사용 하 여 모든 ASDK 네트워크 트래픽을 라우팅합니다. 요구 사항은 없습니다 스위치를 추가 합니다.|AzS-BGPNAT01 VM 다중 노드 배포에 존재 하지 않습니다. 복잡 [라우팅 인프라 네트워크](../azure-stack-network.md#network-infrastructure) -Top-of-rack TOR (), 베이스 보드 관리 컨트롤러 (BMC) 및 테두리 (데이터 센터 네트워크) 스위치를 포함 해야 합니다.|
+|**네트워킹**|ASDK 호스트에는 모든 ASDK 네트워크 트래픽을 라우팅합니다. 요구 사항은 없습니다 스위치를 추가 합니다.|복잡 [라우팅 인프라 네트워크](../azure-stack-network.md#network-infrastructure) 다중 노드 배포에 반드시-Top-of-rack TOR (), 베이스 보드 관리 컨트롤러 (BMC) 및 테두리 (데이터 센터 네트워크) 스위치를 포함 합니다.|
 |**패치 및 업데이트 프로세스**|ASDK의 새 버전으로 이동 하려면 개발 키트 호스트 컴퓨터에서 ASDK 다시 배포 해야 합니다.|[패치 및 업데이트](../azure-stack-updates.md) 설치 된 Azure Stack 버전을 업데이트 하는 데 사용 하는 프로세스입니다.|
 |**지원**|MSDN Azure Stack 포럼입니다. Microsoft 고객 서비스 및 지원 (CSS) 지원은 *되지* 비-프로덕션 환경에 사용할 수 있습니다.|[MSDN Azure Stack 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) 전체 CSS 지원 합니다.|
 | | |

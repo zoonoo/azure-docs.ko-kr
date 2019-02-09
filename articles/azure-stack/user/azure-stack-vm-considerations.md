@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112e9aa023fb29bd960b61139861db4007c61b4d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245976"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962250"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack에서 virtual machines 사용 시 고려 사항
 
@@ -41,8 +41,9 @@ Azure Stack virtual machines는 주문형으로 확장 가능한 컴퓨팅 리�
 | 가상 머신 디스크 성능 | 디스크 유형 및 크기에 따라 달라 집니다. | 디스크가 연결 된 VM의 VM 크기에 따라 달라 집니다를 참조 하는 [Azure Stack에서 지원 되는 가상 머신 크기](azure-stack-vm-sizes.md) 문서.
 | API 버전 | Azure는 항상 모든 가상 머신 기능에 대 한 최신 API 버전을 가집니다. | Azure Stack 이러한 서비스에 대 한 특정 Azure 서비스 및 특정 API 버전을 지원합니다. 지원 되는 API 버전의 목록을 보려면를 참조 합니다 [API 버전](#api-versions) 이 문서의 섹션입니다. |
 | Azure Instance Metadata Service | Azure Instance Metadata Service는 가상 머신을 관리 및 구성하는 데 사용할 수 있는 가상 머신 인스턴스를 실행하는 방법에 대한 정보를 제공합니다.  | Instance metadata service는 Azure Stack에서 지원 되지 않습니다. |
-|가상 컴퓨터 가용성 집합|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인<br>관리 되는 디스크 지원|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인 (최대 20)<br>관리 디스크 지원 되지 않습니다|
-|가상 머신 크기 집합|자동 크기 조정 지원|지원 되지 않습니다 자동 크기 조정 합니다.<br>확장 집합 포털, Resource Manager 템플릿 또는 PowerShell을 사용 하 여에 더 많은 인스턴스를 추가 합니다.
+| 가상 컴퓨터 가용성 집합|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인 (최대 20)|
+| 가상 머신 크기 집합|자동 크기 조정 지원|지원 되지 않습니다 자동 크기 조정 합니다.<br>확장 집합 포털, Resource Manager 템플릿 또는 PowerShell을 사용 하 여에 더 많은 인스턴스를 추가 합니다. |
+| 가상 머신 진단 | Linux VM 진단 | Azure Stack의 Linux VM에 대 한 진단 유틸리티를 사용 하는 것이 없습니다. 를 사용 하도록 설정 하는 VM 진단을 사용 하 여 Linux VM을 배포 하는 경우 배포가 실패 합니다. 진단 설정을 통해 Linux VM 기본 메트릭을 사용 하도록 설정한 경우에 배포가 실패 합니다.
 
 ## <a name="virtual-machine-sizes"></a>가상 머신 크기
 
@@ -71,7 +72,7 @@ Azure Stack에서 리소스 제한을 (server 로컬 및 서비스 수준입니�
 
 ## <a name="virtual-machine-extensions"></a>가상 머신 확장
 
- Azure Stack에는 작은 확장 집합이 포함 되어 있습니다. 업데이트 및 추가 확장 Marketplace 배포를 통해 사용할 수 있습니다.
+Azure Stack에는 작은 확장 집합이 포함 되어 있습니다. 업데이트 및 추가 확장 Marketplace 배포를 통해 사용할 수 있습니다.
 
 다음 PowerShell 스크립트를 사용 하 여 Azure Stack 환경에서 사용할 수 있는 가상 머신 확장의 목록을 가져옵니다.
 
@@ -82,6 +83,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+VM 배포에 확장을 프로 비전 너무 오래 걸리는 경우에 할당 취소 하거나 VM을 삭제 하는 프로세스를 중지 하는 대신 프로 비전 시간 제한 수 있습니다.
 
 ## <a name="api-versions"></a>API 버전
 

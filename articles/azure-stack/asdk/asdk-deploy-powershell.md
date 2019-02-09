@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 09/10/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.lastreviewed: 09/10/2018
-ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: 0fb3e9cd193e570a965d6bbd3e16c86dc39de350
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247734"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984276"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>명령줄에서 ASDK 배포
 ASDK는를 평가 하 여 Azure Stack 기능 및 서비스를 보여 줍니다. 배포할 수 있는 테스트 및 개발 환경. 하 고 실행 해야 환경의 하드웨어를 준비 하 고 (몇 시간 정도 걸릴 됩니다) 일부 스크립트를 실행 합니다. 그 후 서명할 수 있습니다 관리자 및 사용자 포털에 Azure Stack을 사용 하려면.
@@ -134,7 +134,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 사용자 환경에 DHCP 사용이 없는 경우 (예제 사용량 제공) 위의 옵션 중 하나에 다음과 같은 추가 매개 변수를 포함 해야 합니다. 
 
 ```powershell
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1 -TimeServer 10.222.112.26
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 10.222.112.26
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 선택적 매개 변수
@@ -146,9 +146,6 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 |InfraAzureDirectoryTenantAdminCredential|옵션|Azure Active Directory 사용자 이름 및 암호를 설정합니다. 이러한 Azure 자격 증명에는 조직 ID를 사용 해야 합니다.|
 |InfraAzureEnvironment|옵션|이 Azure Stack 배포를 등록 하려는 Azure 환경을 선택 합니다. 옵션에는 공용 Azure, Azure 중국, Azure US Government 포함 됩니다.|
 |DNSForwarder|옵션|DNS 서버는 Azure Stack 배포의 일부로 생성 됩니다. 스탬프 외부 이름을 확인 하기 위해 솔루션 내에서 컴퓨터를 허용 하려면 기존 인프라 DNS 서버를 제공 합니다. 타임 스탬프에서 DNS 서버는이 서버에 알 수 없는 이름 확인 요청을 전달합니다.|
-|NatIPv4Address|DHCP NAT 지원에 필요한|MAS-BGPNAT01에 대 한 고정 IP 주소를 설정합니다. 인터넷에 액세스하기 위해 DHCP가 유효한 IP 주소를 할당할 수 없는 경우 이 매개 변수만 사용합니다.|
-|NatIPv4Subnet|DHCP NAT 지원에 필요한|NAT 지원을 통한 DHCP에 사용 되는 IP 서브넷 접두사입니다. 인터넷에 액세스하기 위해 DHCP가 유효한 IP 주소를 할당할 수 없는 경우 이 매개 변수만 사용합니다.|
-|PublicVlanId|옵션|VLAN ID를 설정합니다. 호스트와 MAS-BGPNAT01 실제 네트워크 (및 인터넷)에 액세스 하는 VLAN ID를 구성 해야 하는 경우에이 매개 변수를 사용 합니다. 예를 들어.\InstallAzureStackPOC.ps1-Verbose PublicVLan 305|
 |다시 실행|옵션|이 플래그를 사용 하 여 배포를 다시 실행 합니다. 모든 이전 입력이 됩니다. 이전에 제공 된 데이터를 다시 입력에 몇 가지 고유한 값 생성 및 배포에 대 한 사용 하기 때문에 지원 되지 않습니다.|
 
 

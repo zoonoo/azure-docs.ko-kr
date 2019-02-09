@@ -3,7 +3,7 @@ title: Azure Stack 용 PowerShell 설치 | Microsoft Docs
 description: Azure Stack 용 PowerShell을 설치 하는 방법에 알아봅니다.
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 01/17/2018
-ms.author: sethm
+ms.date: 02/08/2019
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 01/17/2018
-ms.openlocfilehash: 7909fd3c7eba4ada9dc74e2eada019327d054fee
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: f249f5e975ce046a3e19da93534d99ff675b8391
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240509"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961485"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack 용 PowerShell 설치
 
@@ -28,7 +28,7 @@ ms.locfileid: "55240509"
 
 클라우드를 사용 하려면 Azure Stack 호환 PowerShell 모듈을 설치 해야 합니다. 호환성 라는 기능을 통해 사용 가능 *API 프로필*합니다.
 
-API 프로필에는 Azure 및 Azure Stack의 버전 차이 관리 하는 방법을 제공 합니다. API 버전 프로필을는 특정 API 버전을 사용 하 여 Azure Resource Manager PowerShell 모듈의 집합입니다. 각 클라우드 플랫폼에 지원 되는 API 버전 프로필 집합이 있습니다. 예를 들어 Azure 스택에서 특정 날짜가 지정 된 프로필 버전을 같은 **2018-03-01-하이브리드**합니다. 프로필을 설치할 때 지정된 된 프로필에 해당 하는 Azure Resource Manager PowerShell 모듈 설치 됩니다.
+API 프로필에는 Azure 및 Azure Stack의 버전 차이 관리 하는 방법을 제공 합니다. API 버전 프로필을는 특정 API 버전을 사용 하 여 Azure Resource Manager PowerShell 모듈의 집합입니다. 각 클라우드 플랫폼에 지원 되는 API 버전 프로필 집합이 있습니다. 예를 들어, Azure Stack 지 원하는 특정 프로필 버전을 같은 **2.4.0**합니다. 프로필을 설치할 때 지정된 된 프로필에 해당 하는 Azure Resource Manager PowerShell 모듈 설치 됩니다.
 
 Azure Stack 호환 PowerShell 모듈 인터넷에 연결 된, 부분적으로 연결 됨 또는 연결이 끊긴 시나리오를 설치할 수 있습니다. 이 문서에서는 이러한 시나리오에 대 한 Azure Stack 용 PowerShell을 설치 하는 자세한 지침을 안내 합니다.
 
@@ -51,7 +51,7 @@ Azure Stack 및 PowerShell을 사용 하 여 시작 하기 전에 다음 필수 
 
 PSGallery 리포지토리로 등록 된 경우의 유효성을 검사 합니다.
 
-> [!Note]
+> [!Note]  
 > 이 단계는 인터넷 액세스가 필요 합니다.
 
 관리자 권한 PowerShell 프롬프트를 열고 다음 cmdlet을 실행 합니다.
@@ -87,41 +87,28 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 이후 버전에 대 한 API 버전 프로필입니다. 설치 하 여 프로필을 사용할 수는 **AzureRM.Bootstrapper** 모듈입니다. 또한 AzureRM 모듈에도 설치 해야 Azure Stack 관련 PowerShell 모듈. API 버전 프로필 및 필요한 Azure Stack PowerShell 모듈에 따라 달라 집니다 Azure Stack의 버전에는 실행 합니다.
 
+설치에는 세 가지 단계가 있습니다.
+
+1. Azure Stack의 버전에 따라 Azure Stack PowerShell 설치
+2. 추가 저장소 기능을 사용 하도록 설정
+3. PowerShell의 설치를 확인 합니다.
+
+### <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell 설치
+
 개발용 워크스테이션에서 이러한 모듈을 설치 하려면 다음 PowerShell 스크립트를 실행 합니다.
 
-- Azure Stack 1811 이상입니다.
+- Azure Stack 1901 이상입니다.
 
     ```PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRm.BootStrapper
-
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-
-    Install-Module -Name AzureStack -RequiredVersion 1.6.0
+    Install-Module AzureRM -RequiredVersion 2.4.0
+    Install-Module -Name AzureStack -RequiredVersion 1.7.0
     ```
 
-    사용 하 여 추가 저장소 기능 (연결 된 섹션에서 설명)을 다운로드 하 고 다음 패키지도 설치를 확인 합니다.
+    > [!Note]  
+    > Azure Stack 모듈 버전 1.7.0는 주요 변경 내용입니다. Azure Stack에서 마이그레이션하도록 1.6.0 하세요 합니다 [마이그레이션 가이드](https://aka.ms/azspshmigration170)합니다.
 
-    ```PowerShell
-    # Install the Azure.Storage module version 4.5.0
-    Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
-
-    # Install the AzureRm.Storage module version 5.0.4
-    Install-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 -Force -AllowClobber
-
-    # Remove incompatible storage module installed by AzureRM.Storage
-    Uninstall-Module Azure.Storage -RequiredVersion 4.6.1 -Force
-
-    # Load the modules explicitly specifying the versions
-    Import-Module -Name Azure.Storage -RequiredVersion 4.5.0
-    Import-Module -Name AzureRM.Storage -RequiredVersion 5.0.4
-    ```
-
-> [!Note]
-> Azure PowerShell에서 업그레이드 하는 **2017-03-09-프로필** 를 **2018-03-01-하이브리드**를 참조 하세요 합니다 [마이그레이션 가이드](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md)합니다.
-
-- Azure Stack 1811 이상입니다.
+- Azure Stack 1811 또는 이전 버전입니다.
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
@@ -145,6 +132,30 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
 
+> [!Note]  
+> Azure PowerShell에서 업그레이드 하는 **2.3.0** (으로 표시 되는 **2017-03-09-프로필**)를 **2.4.0**를 참조 하세요는 [마이그레이션 가이드](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
+
+### <a name="enable-additional-storage-features"></a>추가 저장소 기능을 사용 하도록 설정
+
+사용 하 여 추가 저장소 기능 (연결 된 섹션에서 설명)을 다운로드 하 고 다음 패키지도 설치를 확인 합니다.
+
+```PowerShell
+# Install the Azure.Storage module version 4.5.0
+Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
+
+# Install the AzureRm.Storage module version 5.0.4
+Install-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 -Force -AllowClobber
+
+# Remove incompatible storage module installed by AzureRM.Storage
+Uninstall-Module Azure.Storage -RequiredVersion 4.6.1 -Force
+
+# Load the modules explicitly specifying the versions
+Import-Module -Name Azure.Storage -RequiredVersion 4.5.0
+Import-Module -Name AzureRM.Storage -RequiredVersion 5.0.4
+```
+
+### <a name="confirm-the-installation-of-powershell"></a>PowerShell의 설치를 확인 합니다.
+
 다음 명령을 실행 하 여 설치를 확인 합니다.
 
 ```PowerShell
@@ -158,28 +169,34 @@ Get-Module -Name "Azs*" -ListAvailable
 
 연결이 끊긴된 시나리오에서 먼저 인터넷에 연결 된 컴퓨터에 PowerShell 모듈을 다운로드 하 고 설치를 위한 Azure Stack 개발 키트를 전송 합니다.
 
-인터넷에 연결 된 컴퓨터에 로그인 하 고 다음 스크립트를 사용 하 여 Azure Stack의 버전에 따라 Azure Resource Manager 및 azurestack의 경우 패키지를 다운로드 합니다.
+인터넷에 연결 된 컴퓨터에 로그인 한 다음 스크립트를 사용 하 여 Azure Stack의 버전에 따라 Azure Resource Manager 및 azurestack의 경우 패키지를 다운로드 합니다.
 
-  - Azure Stack 1811 이상입니다.
+설치에는 네 가지 단계가 있습니다.
+
+1. 연결 된 컴퓨터에 Azure Stack PowerShell 설치
+2. 추가 저장소 기능을 사용 하도록 설정
+3. 연결이 끊어진된 워크스테이션에 PowerShell 패키지를 전송 합니다.
+4. PowerShell의 설치를 확인 합니다.
+
+
+### <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell 설치
+
+- Azure Stack 1901 이상입니다.
 
     ```PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
     $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.4.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.0
     ```
 
-    사용 하 여 추가 저장소 기능 (연결 된 섹션에서 설명)을 다운로드 하 고 다음 패키지도 설치를 확인 합니다.
+    > [!Note]  
+    > Azure Stack 모듈 버전 1.7.0는 주요 변경 내용입니다. AzureStack 마이그레이션할 1.6.0 하세요 합니다 [마이그레이션 가이드](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)합니다.
 
-    ```PowerShell
-    $Path = "<Path that is used to save the packages>"
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
-    ```
 
-  - Azure Stack 1811 이상입니다.
+  - Azure Stack 1811 또는 이전 버전입니다.
 
     ```PowerShell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -201,11 +218,23 @@ Get-Module -Name "Azs*" -ListAvailable
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ```
 
-2. USB 장치에 다운로드 한 패키지를 복사 합니다.
+### <a name="enable-additional-storage-features"></a>추가 저장소 기능을 사용 하도록 설정
 
-3. 워크스테이션에 로그인 하 고 워크스테이션에서 위치로 USB 장치에서 패키지를 복사 합니다.
+사용 하 여 추가 저장소 기능 (연결 된 섹션에서 설명)을 다운로드 하 고 다음 패키지도 설치를 확인 합니다.
 
-4. 이제이 위치를 기본 저장소로 등록 하 고이 리포지토리에서 AzureRM 및 azurestack의 경우 모듈을 설치 합니다.
+```PowerShell
+$Path = "<Path that is used to save the packages>"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
+```
+
+### <a name="add-your-packages-to-your-workstation"></a>사용자의 워크스테이션에 패키지 추가
+
+1. USB 장치에 다운로드 한 패키지를 복사 합니다.
+
+2. 연결이 끊어진된 워크스테이션에 로그인 하 고 워크스테이션에서 위치로 USB 장치에서 패키지를 복사 합니다.
+
+3. 이제이 위치를 기본 저장소로 등록 하 고이 리포지토리에서 AzureRM 및 azurestack의 경우 모듈을 설치 합니다.
 
    ```PowerShell
    #requires -Version 5
@@ -222,6 +251,15 @@ Get-Module -Name "Azs*" -ListAvailable
 
    Install-Module -Name AzureStack -Repository $RepoName
    ```
+
+### <a name="confirm-the-installation-of-powershell"></a>PowerShell의 설치를 확인 합니다.
+
+다음 명령을 실행 하 여 설치를 확인 합니다.
+
+```PowerShell
+Get-Module -Name "Azure*" -ListAvailable
+Get-Module -Name "Azs*" -ListAvailable
+```
 
 ## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6. 프록시 서버를 사용 하도록 PowerShell 구성
 
