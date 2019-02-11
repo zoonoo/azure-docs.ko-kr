@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 4e2fcdac282d0cca9fe993efdaf787e43c2b6e9d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68e4a7bd73b7fdd4b21140c912422b062f51c775
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433819"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869197"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Azure Data Lake Storage Gen1 설명서
 
-모든 크기, 유형 및 수집 속도의 데이터를 분석하기 위해 Azure Data Lake Storage Gen1(이전의 Azure Data Lake Store)을 사용하여 대규모의 Hadoop 호환 리포지토리를 만드는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 운영 및 예비 분석을 위해 Data Lake 리포지토리를 설정하고 관리하며 액세스하는 방법을 보여 줍니다.
+이제 Azure Data Lake Storage Gen2가 일반 공급됩니다. 오늘부터 사용을 시작하는 것이 좋습니다. 자세한 내용은 [제품 페이지](https://aka.ms/adlsgen2-product)를 참조하세요.
 
-Data Lake Storage Gen2 미리 보기에 대해 자세히 알아보려면 [제품 페이지](https://aka.ms/adlsgen2-product)를 참조하세요.
+모든 크기, 유형 및 수집 속도의 데이터를 분석하기 위해 Azure Data Lake Storage Gen1(이전의 Azure Data Lake Store)을 사용하여 대규모의 Hadoop 호환 리포지토리를 만드는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 운영 및 예비 분석을 위해 Data Lake 리포지토리를 설정하고 관리하며 액세스하는 방법을 보여 줍니다.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -193,7 +193,7 @@ Data Lake Storage Gen2 미리 보기에 대해 자세히 알아보려면 [제품
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>언어</h3>
+                        <h3>Languages</h3>
                         <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
                         <p><a href="/java/api/overview/azure/datalake">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.JS</a></p>

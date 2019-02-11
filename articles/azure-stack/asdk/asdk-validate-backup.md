@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 027d4a9f93032bfdd0f4cda96df74c92b5679540
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251574"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965327"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Azure Stack 백업 유효성을 검사 하 여 ASDK 사용
 Azure Stack을 배포 하 고 제품, 계획, 할당량 및 구독 같은 사용자 리소스를 프로 비전을 수행 해야 [Azure Stack 인프라 백업 사용](../azure-stack-backup-enable-backup-console.md)합니다. 예약 및 일반 인프라 백업을 실행 하는 인프라 관리 데이터가 손실 되지 치명적인 하드웨어 또는 서비스 오류 이면 해야 합니다.
@@ -47,7 +47,7 @@ ASDK의 클라우드 복구 배포를 수행 하 여 통합된 시스템 배포�
 
 
 
-### <a name="cloud-recovery-prerequisites"></a>클라우드 복구 필수 구성 요소
+### <a name="prereqs"></a>클라우드 복구 필수 구성 요소
 ASDK 클라우드 복구 배포를 시작 하기 전에 다음 정보가 있는지 확인 합니다.
 
 |필수 요소|설명|
@@ -80,6 +80,43 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 > [!IMPORTANT]
 > ASDK 설치 네트워킹에 대 한 하나의 네트워크 인터페이스 카드 (NIC)를 지원합니다. 여러 Nic를 만든 경우는 하나만 사용 하도록 설정 (및 다른 모든 사용 하지 않는) 배포 스크립트를 실행 하기 전에 있는지 확인 합니다.
 
+### <a name="use-the-installer-to-deploy-the-asdk-in-recovery-mode"></a>복구 모드에서 ASDK를 배포 하려면 설치 관리자를 사용 합니다.
+이 섹션의 단계에서는 다운로드 및 실행 하 여 제공 하는 그래픽 사용자 인터페이스 (GUI)를 사용 하 여 ASDK를 배포 하는 방법을 보여 줍니다.는 **asdk installer.ps1** PowerShell 스크립트입니다.
+
+> [!NOTE]
+> Azure Stack 개발 키트에 대 한 설치 관리자 사용자 인터페이스는 WCF 및 PowerShell 기반 오픈 소스 스크립트.
+
+1. 관리자 자격 증명을 사용 하 여 로그인 때 지정 된 호스트 컴퓨터를 성공적으로 CloudBuilder.vhdx 이미지로 부팅 한 후 있습니다 [개발 키트 호스트 컴퓨터를 준비](asdk-prepare-host.md) ASDK 설치 합니다. 이 개발 키트 호스트의 로컬 관리자 자격 증명과 동일 해야 합니다.
+2. 승격된 된 PowerShell 콘솔을 열고 실행 합니다  **&lt;드라이브 문자 > \AzureStack_Installer\asdk-installer.ps1** PowerShell 스크립트입니다. 스크립트를 다른 CloudBuilder.vhdx 이미지에는 C:\ 드라이브에 될 수 있습니다. **복구**를 클릭합니다.
+
+    ![ASDK 설치 관리자 스크립트](media/asdk-validate-backup/1.PNG) 
+
+3. Id 공급자 및 자격 증명 페이지 ASDK 호스트 컴퓨터에 대 한 Azure AD 디렉터리 정보 (선택 사항) 및 로컬 관리자 암호를 입력 합니다. **다음**을 클릭합니다.
+
+    ![Id 및 자격 증명 페이지](media/asdk-validate-backup/2.PNG) 
+
+4. 고 ASDK 호스트 컴퓨터에서 사용할 네트워크 어댑터를 선택 **다음**합니다. ASDK 설치 하는 동안 다른 모든 네트워크 인터페이스를 사용 하지 않도록 설정 됩니다. 
+
+    ![네트워크 어댑터 인터페이스](media/asdk-validate-backup/3.PNG) 
+
+5. 네트워크 구성 페이지의 유효한 시간 서버와 DNS 전달자의 IP 주소를 제공 합니다. **다음**을 클릭합니다.
+
+    ![네트워크 구성 페이지](media/asdk-validate-backup/4.PNG) 
+
+6. 네트워크 인터페이스 카드 속성 확인 되 면 **다음**합니다. 
+
+    ![네트워크 카드 설정 확인](media/asdk-validate-backup/5.PNG) 
+
+7. 이전에 설명 된 필수 정보를 제공 [전제 조건 섹션](#prereqs) 백업 설정 페이지의 사용자 이름 및 공유에 액세스 하는 데 사용할 암호입니다. 클릭 **다음**: 
+
+   ![백업 설정 페이지](media/asdk-validate-backup/6.PNG) 
+
+8. 요약 페이지에서 ASDK 배포에 사용 되는 배포 스크립트를 검토 합니다. 클릭 **배포** 배포를 시작 합니다. 
+
+    ![요약 페이지](media/asdk-validate-backup/7.PNG) 
+
+
+### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>PowerShell을 사용 하 여 복구 모드에서 ASDK를 배포 하려면
 사용자 환경에 대 한 다음 PowerShell 명령을 수정 하 고 클라우드 복구 모드에서 ASDK 배포 하도록를 실행 합니다.
 
 ```powershell

@@ -1,5 +1,5 @@
 # [Data Lake Storage Gen1 설명서](index.md)
-# [Data Lake Storage Gen2(미리 보기)로 전환 설명서](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+# [Data Lake Storage Gen2로 전환 설명서](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # 개요
 ## [Data Lake Storage Gen1 개요](data-lake-store-overview.md)
@@ -28,7 +28,7 @@
 ### [액세스 제어](data-lake-store-access-control.md)
 ### [저장된 데이터 보호](data-lake-store-secure-data.md)
 ### [암호화](data-lake-store-encryption.md)
-### [가상 네트워크 통합(미리 보기)](data-lake-store-network-security.md)
+### [가상 네트워크 통합](data-lake-store-network-security.md)
 
 ## Data Lake Storage Gen1을 사용하여 인증
 ### [인증 옵션](data-lakes-store-authentication-using-azure-active-directory.md)
