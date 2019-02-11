@@ -19,6 +19,8 @@ items:
   items:
   - name: Video Indexer와 Media Services 사전 설정 비교
     href: compare-video-indexer-with-media-services-presets.md
+  - name: 여러 테넌트 관리
+    href: manage-multiple-tenants.md
   - name: 콘텐츠 모델 사용자 지정
     items:
     - name: 브랜드
@@ -79,9 +81,11 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 영역
     href: regions.md
-ms.openlocfilehash: 9b87d0495951823808cf64b125af35759b5881c6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+  - name: FAQ
+    href: faq.md
+ms.openlocfilehash: c805ae4149bab0d5ce72a1fd0d63cc74fbe4272d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015987"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984473"

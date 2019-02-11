@@ -304,6 +304,8 @@ items:
     items:
     - name: 복사 작업을 사용하여 데이터 복사
       href: copy-activity-overview.md
+    - name: 삭제 작업을 사용하여 파일 삭제
+      href: delete-activity.md
     - name: 데이터 복사 도구
       href: copy-data-tool.md
     - name: Data Lake Storage Gen2 로드
@@ -458,8 +460,22 @@ items:
       href: how-to-create-schedule-trigger.md
     - name: 연속 창 트리거 만들기
       href: how-to-create-tumbling-window-trigger.md
+    - name: 연속 창 트리거 종속성 만들기
+      href: tumbling-window-trigger-dependency.md
     - name: 이벤트 기반 트리거 만들기
       href: how-to-create-event-trigger.md
+  - name: 템플릿
+    items:
+    - name: 템플릿 개요
+      href: solution-templates-introduction.md
+    - name: 여러 컨테이너의 파일 복사
+      href: solution-template-copy-files-multiple-containers.md
+    - name: 컨트롤 테이블을 사용하여 대량 복사
+      href: solution-template-bulk-copy-with-control-table.md
+    - name: 컨트롤 테이블을 사용하여 델타 복사
+      href: solution-template-delta-copy-with-control-table.md
+    - name: Databricks를 사용하여 데이터 변환
+      href: solution-template-databricks-notebook.md
 - name: 참고 자료
   items:
   - name: .NET
@@ -490,9 +506,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: 지원 옵션
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: fd664db6e5f4bfbf0a86d9984559a1e5eabf262d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c73a736dadee91f344da32fb5569d5809a382f1b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567250"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960244"

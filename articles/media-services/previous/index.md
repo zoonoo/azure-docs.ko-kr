@@ -10,16 +10,16 @@ ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 02/08/2018
 ms.author: carolz
-ms.openlocfilehash: a38158467664eb12b388ad6bdc4bb5d783aa8762
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 742e6a556045874d57c810373f2297582ca8140e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283601"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979670"
 ---
-# <a name="media-services-documentation"></a>Media Services 설명서
+# <a name="media-services-documentation-legacy"></a>Media Services 설명서(레거시)
 
 확장 가능한 클라우드 플랫폼인 Media Services를 사용하여 브로드캐스트 품질 비디오를 스트리밍하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다.
 
@@ -191,7 +191,7 @@ ms.locfileid: "43283601"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>언어</h3>
+                        <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.windowsazure.mediaservices.client">.NET</a></p>
                    </div>
                 </div>
