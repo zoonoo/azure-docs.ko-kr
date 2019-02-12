@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 02/08/2018
 ms.author: carolz
-ms.openlocfilehash: 742e6a556045874d57c810373f2297582ca8140e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: dce69041176840765817d561f61a0d5f3d2b9a66
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979670"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998030"
 ---
-# <a name="media-services-documentation-legacy"></a>Media Services 설명서(레거시)
+# <a name="media-services-documentation"></a>Media Services 설명서  
 
 확장 가능한 클라우드 플랫폼인 Media Services를 사용하여 브로드캐스트 품질 비디오를 스트리밍하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 수백만 명의 사용자로 확장되는 주문형 및 라이브 비디오나 오디오를 안전하게 스트리밍하는 방법을 보여 줍니다.
 
