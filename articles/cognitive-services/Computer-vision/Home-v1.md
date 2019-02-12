@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 57388b4e2f74a1e9e8d9c322020077dfd67e89c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198149"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816546"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Computer Vision API 버전 1.0이란?
 
@@ -26,17 +26,17 @@ ms.locfileid: "55198149"
 >- [Computer Vision API 버전 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 클라우드 기반 Computer Vision API를 사용하면 개발자가 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 액세스할 수 있습니다. 이미지를 업로드하거나 이미지 URL을 지정하면 Microsoft Computer Vision 알고리즘이 입력 및 사용자 선택에 따라 다양한 방식으로 시각적 콘텐츠를 분석할 수 있습니다. Computer Vision API를 통해 사용자는 이미지를 분석하여 다음을 수행할 수 있습니다.
-* [콘텐츠를 기준으로 이미지에 태그 지정](#Tagging)
-* [이미지 분류](#Categorizing)
-* [이미지의 형식 및 품질 식별](#Identifying)
+* 콘텐츠를 기준으로 이미지에 태그 지정
+* 이미지 분류
+* 이미지의 형식 및 품질 식별
 * [사람 얼굴 감지 및 좌표 반환](#Faces)
-* [도메인 특정 콘텐츠 인식](#Domain-Specific)
-* [콘텐츠에 대한 설명 생성](#Descriptions)
-* [광학 문자 인식을 사용하여 이미지에서 찾은 인쇄된 텍스트 식별](#OCR)
-* [필기한 텍스트 인식](#RecognizeText)
-* [색 구성표 구분](#Color)
-* [성인 콘텐츠에 플래그 지정](#Adult)
-* [썸네일로 사용할 사진 자르기](#Thumbnails)
+* 도메인 특정 콘텐츠 인식
+* 콘텐츠에 대한 설명 생성
+* 광학 문자 인식을 사용하여 이미지에서 찾은 인쇄된 텍스트 식별
+* 필기한 텍스트 인식
+* 색 구성표 구분
+* 성인 콘텐츠에 플래그 지정
+* 썸네일로 사용할 사진 자르기
 
 ## <a name="requirements"></a>요구 사항
 * 지원되는 입력 방법: application/octet stream 또는 이미지 URL 형식의 원시 이미지 이진.

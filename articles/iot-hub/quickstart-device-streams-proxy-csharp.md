@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: e7cb8b2d699418b4d70d60f19a3a60ce0c7b8d38
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 566523b1ca461d6a8a0ffaf8830481e5dc3ce26f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888671"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770370"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>빠른 시작: C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통한 SSH/RDP(미리 보기)
 
@@ -36,9 +36,9 @@ ms.locfileid: "54888671"
 
 2. 디바이스-로컬 프록시는 스트림 시작 핸드셰이크를 완료하고 IoT Hub의 스트리밍 엔드포인트를 통해 서비스 측에 엔드투엔드 스트리밍 터널을 설정합니다.
 
-3. 디바이스-로컬 프록시는 디바이스의 포트 22에서 수신하는 SSHD(SSH 디먼)에 연결합니다(이 포트는 [아래](#run-the-device-side-application)에 설명된 대로 구성 가능).
+3. 디바이스-로컬 프록시는 디바이스의 포트 22에서 수신하는 SSHD(SSH 디먼)에 연결합니다(이 포트는 [아래](#run-the-device-local-proxy)에 설명된 대로 구성 가능).
 
-4. 서비스-로컬 프록시는 이 경우 포트 2222인 지정된 포트에서 수신 대기하여 사용자로부터 새 SSH 연결에 대해 대기합니다([아래](#run-the-service-side-application)에 설명된 대로 역시 구성 가능함). 사용자가 SSH 클라이언트를 통해 연결하면 터널은 SSH 클라이언트와 서버 프로그램 간에 애플리케이션 트래픽이 교환되도록 활성화합니다.
+4. 서비스-로컬 프록시는 이 경우 포트 2222인 지정된 포트에서 수신 대기하여 사용자로부터 새 SSH 연결에 대해 대기합니다([아래](#run-the-service-local-proxy)에 설명된 대로 역시 구성 가능함). 사용자가 SSH 클라이언트를 통해 연결하면 터널은 SSH 클라이언트와 서버 프로그램 간에 애플리케이션 트래픽이 교환되도록 활성화합니다.
 
 > [!NOTE]
 > 스트림을 통해 전송되는 SSH 트래픽은 서비스와 디바이스 간에 직접 전송되는 것이 아니라 IoT Hub의 스트리밍 엔드포인트를 통해 터널링됩니다. [이러한 혜택](./iot-hub-device-streams-overview.md#benefits)을 제공합니다.
@@ -110,32 +110,6 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>디바이스 스트림을 통해 디바이스에 대한 SSH
 
-### <a name="run-the-service-side-proxy"></a>서비스 쪽 프록시 실행
-
-압축을 푼 프로젝트 폴더에서 `device-streams-proxy/service`로 이동합니다. 다음 정보가 필요합니다.
-
-| 매개 변수 이름 | 매개 변수 값 |
-|----------------|-----------------|
-| `iotHubConnectionString` | IoT Hub의 서비스 연결 문자열입니다. |
-| `deviceId` | 이전에 만든 디바이스의 식별자입니다. |
-| `localPortNumber` | SSH 클라이언트에서 연결하는 로컬 포트입니다. 이 샘플에서는 2222 포트를 사용하지만 다른 임의의 숫자로 수정할 수 있습니다. |
-
-다음과 같이 코드를 컴파일하고 실행합니다.
-
-```
-cd ./iot-hub/Quickstarts/device-streams-proxy/service/
-
-# Build the application
-dotnet build
-
-# Run the application
-# In Linux/MacOS
-dotnet run $serviceConnectionString MyDevice 2222
-
-# In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
-```
-
 ### <a name="run-the-device-local-proxy"></a>디바이스-로컬 프록시 실행
 
 압축을 푼 프로젝트 폴더에서 `device-streams-proxy/device`로 이동합니다. 다음 정보가 필요합니다.
@@ -162,31 +136,7 @@ dotnet run $deviceConnectionString localhost 22
 dotnet run %deviceConnectionString% localhost 22
 ```
 
-이제 SSH 클라이언트 프로그램을 사용하고 포트 2222에서 서비스-로컬 프록시에 연결합니다(SSH 디먼에서 직접 하는 대신). 
-
-```
-ssh <username>@localhost -p 2222
-```
-
-이 시점에서 자격 증명을 입력하라는 SSH 로그인 프롬프트가 표시됩니다.
-
-서비스 쪽의 콘솔 출력(서비스-로컬 프록시는 포트 2222에서 수신 대기함):
-
-![대체 텍스트](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "서비스-로컬 프록시 출력")
-
-`IP_address:22`에서 SSH 디먼에 연결하는 디바이스-로컬 프록시의 콘솔 출력:
-
-]대체 텍스트(./media/quickstart-device-streams-proxy-csharp/device-console-output.png "")디바이스-로컬 프록시 출력")
-
-SSH 클라이언트 프로그램의 콘솔 출력(SSH 클라이언트는 서비스-로컬 프록시가 수신 대기하는 포트 22에 연결하여 SSH 디먼에 통신함):
-
-![대체 텍스트](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH 클라이언트 프로그램 출력")
-
-## <a name="rdp-to-a-device-via-device-streams"></a>디바이스 스트림을 통해 디바이스에 대한 RDP
-
-RDP에 대한 설정은 SSH와 매우 유사합니다(위에 설명됨). 기본적으로 RDP 대상 IP 및 포트 3389를 대신 사용하고 RDP 클라이언트를 사용해야 합니다(SSH 클라이언트 대신).
-
-### <a name="run-the-service-side-application"></a>서비스 쪽 애플리케이션 실행
+### <a name="run-the-service-local-proxy"></a>서비스-로컬 프록시 실행
 
 압축을 푼 프로젝트 폴더에서 `device-streams-proxy/service`로 이동합니다. 다음 정보가 필요합니다.
 
@@ -212,7 +162,34 @@ dotnet run $serviceConnectionString MyDevice 2222
 dotnet run %serviceConnectionString% MyDevice 2222
 ```
 
-### <a name="run-the-device-side-application"></a>디바이스 쪽 애플리케이션 실행
+### <a name="run-ssh-client"></a>SSH 클라이언트 실행
+
+이제 SSH 클라이언트 프로그램을 사용하고 포트 2222에서 서비스-로컬 프록시에 연결합니다(SSH 디먼에서 직접 하는 대신). 
+
+```
+ssh <username>@localhost -p 2222
+```
+
+이 시점에서 자격 증명을 입력하라는 SSH 로그인 프롬프트가 표시됩니다.
+
+서비스 쪽의 콘솔 출력(서비스-로컬 프록시는 포트 2222에서 수신 대기함):
+
+![대체 텍스트](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "서비스-로컬 프록시 출력")
+
+`IP_address:22`에서 SSH 디먼에 연결하는 디바이스-로컬 프록시의 콘솔 출력:
+
+]대체 텍스트(./media/quickstart-device-streams-proxy-csharp/device-console-output.png "")디바이스-로컬 프록시 출력")
+
+SSH 클라이언트 프로그램의 콘솔 출력(SSH 클라이언트는 서비스-로컬 프록시가 수신 대기하는 포트 22에 연결하여 SSH 디먼에 통신함):
+
+![대체 텍스트](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH 클라이언트 프로그램 출력")
+
+
+## <a name="rdp-to-a-device-via-device-streams"></a>디바이스 스트림을 통해 디바이스에 대한 RDP
+
+RDP에 대한 설정은 SSH와 매우 유사합니다(위에 설명됨). 기본적으로 RDP 대상 IP 및 포트 3389를 대신 사용하고 RDP 클라이언트를 사용해야 합니다(SSH 클라이언트 대신).
+
+### <a name="run-the-device-local-proxy-rdp"></a>디바이스-로컬 프록시 실행(RDP)
 
 압축을 푼 프로젝트 폴더에서 `device-streams-proxy/device`로 이동합니다. 다음 정보가 필요합니다.
 
@@ -234,6 +211,34 @@ dotnet run $DeviceConnectionString localhost 3389
 # In Windows
 dotnet run %DeviceConnectionString% localhost 3389
 ```
+
+### <a name="run-the-service-local-proxy-rdp"></a>서비스-로컬 프록시 실행(RDP)
+
+압축을 푼 프로젝트 폴더에서 `device-streams-proxy/service`로 이동합니다. 다음 정보가 필요합니다.
+
+| 매개 변수 이름 | 매개 변수 값 |
+|----------------|-----------------|
+| `iotHubConnectionString` | IoT Hub의 서비스 연결 문자열입니다. |
+| `deviceId` | 이전에 만든 디바이스의 식별자입니다. |
+| `localPortNumber` | SSH 클라이언트에서 연결하는 로컬 포트입니다. 이 샘플에서는 2222 포트를 사용하지만 다른 임의의 숫자로 수정할 수 있습니다. |
+
+다음과 같이 코드를 컴파일하고 실행합니다.
+
+```
+cd ./iot-hub/Quickstarts/device-streams-proxy/service/
+
+# Build the application
+dotnet build
+
+# Run the application
+# In Linux/MacOS
+dotnet run $serviceConnectionString MyDevice 2222
+
+# In Windows
+dotnet run %serviceConnectionString% MyDevice 2222
+```
+
+### <a name="run-rdp-client"></a>RDP 클라이언트 실행
 
 이제 RDP 클라이언트 프로그램을 사용하고 포트 2222(이전에 선택한 사용 가능한 임의의 포트)에서 서비스-로컬 프록시에 연결합니다.
 

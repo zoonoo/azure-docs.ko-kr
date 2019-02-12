@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure에서 애플리케이션 데이터의 고가용성 지원 | Microsoft Docs'
+title: '자습서: Blob Storage에서 고가용성 애플리케이션 빌드 - Azure Storage'
 description: 읽기 액세스 지역 중복 저장소를 사용하여 애플리케이션 데이터의 고가용성을 지원하세요.
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 81cd6b073fb46b01b3b98543d8f92e2ef7b1ec1b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d2fef3a47cbcb4cfd8bce8978003eca1044d7de3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245390"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510636"
 ---
-# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>자습서: Azure Storage를 통해 애플리케이션 데이터의 고가용성 지원
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>자습서: Blob Storage에서 고가용성 애플리케이션 빌드
 
 이 자습서는 시리즈의 1부입니다. 여기서는 Azure에서 애플리케이션 데이터의 고가용성을 지원하는 방법을 알아봅니다.
 

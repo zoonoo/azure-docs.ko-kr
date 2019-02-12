@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: raynew
-ms.openlocfilehash: 334a476fee6e995c33a290d34df2f111baae34c3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fa154b79625fffb8174c510156b3a67df8bff785
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224244"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770438"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Azure에 SQL Server 데이터베이스 백업
 
@@ -202,6 +202,7 @@ IaaS VM에서 SQL Server에 대해 Azure Backup을 사용하여 원활한 백업
 
   * 선행/후행 공백
   * 후행 ‘!’
+  * 닫는 대괄호 ‘]’
 
 Azure 테이블 지원되지 않는 문자에 대해 앨리어싱을 수행하지만 이러한 문자는 사용하지 않는 것이 좋습니다. 자세한 내용은 이 [문서](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)를 참조하세요.
 
@@ -721,6 +722,8 @@ SQL Server 데이터베이스에 대한 보호를 중지하면 Azure Backup에 �
 * 미래의 모든 백업 작업을 중지하지만 복구 지점은 유지
 
 데이터 보존 옵션을 사용하여 백업 중지를 선택하면 백업 정책에 따라 복구 지점이 정리됩니다. SQL 보호된 인스턴스 가격 책정 요금 및 모든 복구 지점이 정리되기까지 소비된 저장소 요금이 발생합니다. SQL의 Azure Backup 가격 책정에 대한 자세한 내용은 [Azure Backup 가격 책정 페이지](https://azure.microsoft.com/pricing/details/backup/)를 참조하세요.
+
+데이터가 보존되는 백업을 중지할 때마다 보존 정책에 따라 복구 지점이 만료되지만, 사용자가 명시적으로 백업 데이터를 삭제할 때까지 Azure Backup은 항상 마지막 복구 지점을 유지합니다. 마찬가지로 백업 중지를 수행하지 않고 데이터 원본을 삭제하면 새 백업이 실패하기 시작하고 보존 정책에 따라 이전 복구 지점이 만료되지만, 사용자가 데이터가 보존되는 백업을 중지할 때까지 항상 마지막 복구 지점이 유지됩니다.
 
 데이터베이스에 대한 보호를 중지하려면:
 
