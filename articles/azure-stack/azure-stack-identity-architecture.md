@@ -12,19 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/07/2018
+ms.date: 02/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: b739db654a182433bbe1f47528d1ab99f1b10c08
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: e0f6e3068a26eef3b6cca79cffbb98614eb44a34
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242164"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100162"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack에 대 한 id 아키텍처
-Azure Stack을 사용 하는 id 공급자를 선택 하기 전에 Azure Active Directory (Azure AD)의 옵션 및 Active Directory Federation Services (AD FS)의 중요 한 차이점을 이해 합니다. 
+
+Azure Stack을 사용 하는 id 공급자를 선택할 때 Azure Active Directory (Azure AD)의 옵션 및 Active Directory Federation Services (AD FS)의 중요 한 차이점을 이해 해야 합니다.
 
 ## <a name="capabilities-and-limitations"></a>기능 및 제한 사항 
 선택한 id 공급자에는 다중 테 넌 트에 대 한 지원을 비롯 하 여 옵션을 제한할 수 있습니다. 

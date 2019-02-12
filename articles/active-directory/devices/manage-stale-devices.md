@@ -1,6 +1,6 @@
 ---
-title: Azure AD에서 디바이스 수명 주기를 관리하는 방법 | Microsoft Docs
-description: 사용자 환경의 리소스에 액세스하는 디바이스를 제어하는 데 디바이스 관리가 어떻게 도움이 되는지에 대해 알아봅니다.
+title: Azure AD에서 부실 디바이스를 관리하는 방법 | Microsoft Docs
+description: 분실, 도난, 손상된 디바이스 또는 OS 재설치로 인해 일반적으로 환경에는 부실 디바이스가 있습니다. Azure AD(Azure Active Directory)에 등록된 디바이스의 데이터베이스에서 부실 디바이스를 제거하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 20bfa4cf02c86922836a70f8885f910814eafb22
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d6d0ee1c9a77006df2239f4e0e0457c0c0aa2c28
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092182"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493320"
 ---
-# <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>방법: Azure AD에서 부실 디바이스 관리
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 부실 디바이스 관리
 
 이상적으로 수명 주기를 완료하려면 등록된 디바이스가 더 이상 필요하지 않은 경우 해당 디바이스를 등록 취소해야 합니다. 그러나 분실, 도난, 손상된 디바이스 또는 OS 재설치로 인해 일반적으로 환경에는 부실 디바이스가 있습니다. 아마도 IT 관리자는 부실 디바이스를 제거하여 실제로 관리가 필요한 디바이스를 관리하는 데 리소스를 집중할 수 있기를 원할 것입니다.
 

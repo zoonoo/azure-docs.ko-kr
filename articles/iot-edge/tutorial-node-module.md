@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 62ea3e3ee13ee52462e1c93ac34e98ae179d251c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: f5cf14ae1dcbbb00d723a86213c2707ad91794b7
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053928"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564921"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>자습서: Node.js IoT Edge 모듈 개발 및 시뮬레이션된 디바이스에 배포
 
@@ -103,7 +103,7 @@ Azure IoT Edge 장치:
    | 솔루션 이름 제공 | 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값 **EdgeSolution**을 적용합니다. |
    | 모듈 템플릿 선택 | **Node.js 모듈**을 선택합니다. |
    | 모듈 이름 제공 | 모듈 이름을 **NodeModule**로 지정합니다. |
-   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. 마지막 문자열은 \<레지스트리 이름\>.azurecr.io/nodemodule과 같습니다. |
+   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에 제공한 이름으로 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br>마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/nodemodule과 같습니다. |
  
    ![Docker 이미지 리포지토리 제공](./media/tutorial-node-module/repository.png)
 
@@ -225,6 +225,12 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 솔루션을 빌드하도록 Visual Studio Code에 지시하면 먼저 배포 템플릿의 정보를 가져와서 새 **config** 폴더에 `deployment.json` 파일을 생성합니다. 그런 다음, 통합 터미널에서 두 개의 명령, 즉 `docker build`과 `docker push`를 실행합니다. 이 두 명령은 코드를 빌드하고, Node.js 코드를 컨테이너화한 다음, 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 푸시합니다. 
 
 VS Code 통합 터미널에서 실행되는 `docker build` 명령에서 태그가 포함된 전체 컨테이너 이미지 주소를 확인할 수 있습니다. 이미지 주소는 `module.json` 파일의 정보에서 **\<리포지토리\>:\<버전\>-\<플랫폼\>**  형식으로 작성됩니다. 이 자습서에서 이 주소는 **registryname.azurecr.io/nodemodule:0.0.1-amd64**와 같습니다.
+
+>[!TIP]
+>모듈을 빌드하고 푸시하는 동안 오류가 발생하는 경우 다음 사항을 확인하세요.
+>* Visual Studio Code에서 컨테이너 레지스트리의 자격 증명을 사용하여 Docker에 로그인했나요? 이러한 자격 증명은 Azure Portal에 로그인하는 데 사용하는 자격 증명과 다릅니다.
+>* 컨테이너 리포지토리가 올바른가요? **modules** > **cmodule** > **module.json**을 열고 **리포지토리** 필드를 찾습니다. 이미지 리포지토리는 **\<registryname\>.azurecr.io/nodemodule**과 같습니다. 
+>* 개발 머신이 실행 중인 컨테이너와 동일한 유형의 컨테이너를 빌드하고 있나요? Visual Studio Code의 기본값은 Linux amd64 컨테이너입니다. 개발 머신에서 Windows 컨테이너 또는 Linux arm32v7 컨테이너를 실행중인 경우 VS Code 창의 하단에 있는 파란색 상태 표시줄에서 컨테이너 플랫폼과 일치하도록 플랫폼을 업데이트합니다.
 
 ## <a name="deploy-and-run-the-solution"></a>솔루션 배포 및 실행
 

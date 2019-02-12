@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 01/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 887be89060a6d02eea74cd127cfbc93e48c0b3ff
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0f596f40cdea095ea152785e656c44eaa062e28c
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240865"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564037"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>자습서: Azure Container Instance에서 이미지 분류 모델 배포
 
@@ -33,23 +33,18 @@ ms.locfileid: "55240865"
 > * Container Instances에 모델 배포
 > * 배포된 모델 테스트
 
-Container Instances는 프로덕션 배포에는 적합하지 않지만, 워크플로를 테스트하고 이해하는 데는 매우 적합합니다. 확장성 있는 프로덕션 배포에는 Azure Kubernetes Service를 사용하는 것이 좋습니다. 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조하세요.
-
-## <a name="get-the-notebook"></a>Notebook 가져오기
-
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb)으로 제공됩니다. [Azure Notebooks](https://notebooks.azure.com/) 또는 사용자 고유의 Jupyter Notebook 서버에서 *tutorials/img-classification-part2-deploy.ipynb* Notebook을 실행합니다.
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+Container Instances는 워크플로를 테스트 및 이해하기 위한 훌륭한 솔루션입니다. 확장성 있는 프로덕션 배포에는 Azure Kubernetes Service를 사용하는 것이 좋습니다. 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조하세요.
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.2에서 테스트되었습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.8에서 테스트되었습니다.
 
 ## <a name="prerequisites"></a>필수 조건
+[개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어봅니다.  
 
-다음 노트북에서 모델 학습을 수행합니다. [자습서(1부): Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.  
+Notebook을 실행하려면 먼저 [자습서(1부): Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 노트북에서 모델 학습을 수행합니다.   그런 다음, 동일한 Notebook 서버를 사용하여 **tutorials/img-classification-part2-deploy.ipynb** Notebook을 실행합니다.
 
 
-## <a name="set-up-the-environment"></a>환경 설정
+## <a name="start"></a>환경 설정
 
 테스트 환경 설정부터 시작합니다.
 
@@ -78,13 +73,16 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```python
 from azureml.core import Workspace
 from azureml.core.model import Model
-
+import os 
 ws = Workspace.from_config()
 model=Model(ws, 'sklearn_mnist')
-model.download(target_dir = '.')
-import os 
+
+model.download(target_dir=os.getcwd(), exist_ok=True)
+
 # verify the downloaded model file
-os.stat('./sklearn_mnist_model.pkl')
+file_path = os.path.join(os.getcwd(), "sklearn_mnist_model.pkl")
+
+os.stat(file_path)
 ```
 
 ## <a name="test-the-model-locally"></a>로컬에서 모델 테스트
@@ -100,12 +98,12 @@ os.stat('./sklearn_mnist_model.pkl')
 
 ```python
 from utils import load_data
+import os
 
+data_folder = os.path.join(os.getcwd(), 'data')
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the neural network converge faster
-
-X_test = load_data('./data/test-images.gz', False) / 255.0
-y_test = load_data('./data/test-labels.gz', True).reshape(-1)
-
+X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
+y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
 ```
 
 ### <a name="predict-test-data"></a>테스트 데이터 예측
@@ -116,7 +114,7 @@ y_test = load_data('./data/test-labels.gz', True).reshape(-1)
 import pickle
 from sklearn.externals import joblib
 
-clf = joblib.load('./sklearn_mnist_model.pkl')
+clf = joblib.load( os.path.join(os.getcwd(), 'sklearn_mnist_model.pkl'))
 y_hat = clf.predict(X_test)
 ```
 
@@ -214,7 +212,8 @@ def run(raw_data):
     data = np.array(json.loads(raw_data)['data'])
     # make prediction
     y_hat = model.predict(data)
-    return json.dumps(y_hat.tolist())
+    # you can return any data type as long as it is JSON-serializable
+    return y_hat.tolist()
 ```
 
 <a name="make-myenv"></a>
@@ -314,10 +313,10 @@ n = 30
 sample_indices = np.random.permutation(X_test.shape[0])[0:n]
 
 test_samples = json.dumps({"data": X_test[sample_indices].tolist()})
-test_samples = bytes(test_samples, encoding = 'utf8')
+test_samples = bytes(test_samples, encoding='utf8')
 
 # predict using the deployed model
-result = json.loads(service.run(input_data=test_samples))
+result = service.run(input_data=test_samples)
 
 # compare actual value vs. the predicted values:
 i = 0
@@ -347,7 +346,6 @@ plt.show()
 
 ```python
 import requests
-import json
 
 # send a random row from the test set to score
 random_index = np.random.randint(0, len(X_test)-1)
@@ -380,6 +378,8 @@ service.delete()
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [Azure Machine Learning Service에 대한 배포 옵션](how-to-deploy-and-where.md)을 모두 알아봅니다. 옵션에는 Azure Container Instances, Azure Kubernetes Service, FPGA 및 Azure IoT Edge가 포함됩니다.
-
-+ Azure Machine Learning Service에서 모델에 가장 적합한 알고리즘을 자동으로 선택하고, 조정하는 방법을 확인합니다. 또한 가장 적합한 모델을 빌드합니다. [자동 알고리즘 선택](tutorial-auto-train-models.md) 자습서를 사용해보세요. 
++ [Azure Machine Learning Service에 대한 배포 옵션](how-to-deploy-and-where.md)을 모두 알아봅니다.
++ [웹 서비스에 대한 클라이언트를 만드는 방법](how-to-consume-web-service.md)에 대해 알아봅니다.
++  [많은 양의 데이터에 대해 비동기적으로 예측](how-to-run-batch-predictions.md)합니다.
++ [Application Insights](how-to-enable-app-insights.md)를 사용하여 Azure Machine Learning 모델을 모니터링합니다.
++ [자동 알고리즘 선택](tutorial-auto-train-models.md) 자습서를 사용해보세요. 

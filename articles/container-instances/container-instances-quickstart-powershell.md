@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 87cf0f09cbeeee90492e070b25b713546c6631e5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e8efcbe080cc33cb6153d97d4435bcb477587980
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438867"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565856"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Container Instances에서 컨테이너 애플리케이션 실행
 
@@ -39,7 +39,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-이제 리소스 그룹이 있으므로 Azure에서 컨테이너를 실행할 수 있습니다. Azure PowerShell을 사용하여 컨테이너 인스턴스를 만들려면 [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet에 리소스 그룹 이름, 컨테이너 인스턴스 이름 및 Docker 컨테이너 이미지를 제공합니다. 열려는 하나 이상의 포트, DNS 이름 레이블 또는 둘 다를 지정하여 컨테이너를 인터넷에 공개할 수 있습니다. 이 빠른 시작에서는 Nano 서버에서 실행되는 IIS(인터넷 정보 서비스)를 호스팅하는 DNS 이름 레이블이 있는 컨테이너를 배포합니다.
+이제 리소스 그룹이 있으므로 Azure에서 컨테이너를 실행할 수 있습니다. Azure PowerShell을 사용하여 컨테이너 인스턴스를 만들려면 [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet에 리소스 그룹 이름, 컨테이너 인스턴스 이름 및 Docker 컨테이너 이미지를 제공합니다. 이 빠른 시작에서는 공용 Docker Hub 레지스트리의 `microsoft/iis:nanoserver` Windows 이미지를 사용합니다. 이 이미지는 Nano Server에서 실행하도록 IIS(인터넷 정보 서비스)를 패키지합니다.
+
+열려는 하나 이상의 포트, DNS 이름 레이블 또는 둘 다를 지정하여 컨테이너를 인터넷에 공개할 수 있습니다. 이 빠른 시작에서는 DNS 이름 레이블이 있는 컨테이너를 배포하여 IIS를 공개적으로 연결할 수 있도록 합니다.
 
 컨테이너 인스턴스를 시작하려면 다음 명령을 실행합니다. `-DnsNameLabel` 값은 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
 

@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 3554151490215f128efc6725b7aaa0628d503366
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260131"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821306"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 연속 통합 및 배포를 사용하여 GitHub에서 Azure App Service로 배포
 
@@ -45,7 +45,7 @@ ms.locfileid: "54260131"
 
   Jenkins 서버가 없는 경우 Azure Portal에서 다음 단계를 완료합니다. [Azure Linux VM에 Jenkins 서버 만들기](/azure/jenkins/install-jenkins-solution-template)
 
-* 샘플 Java 웹앱에 대해 작업 복사본을 얻기 위한([포크](#fork)) [GitHub](https://github.com) 계정 
+* 샘플 Java 웹앱에 대해 작업 복사본을 얻기 위한(포크) [GitHub](https://github.com) 계정 
 
 * 로컬 명령줄 또는 [Azure Cloud Shell](/azure/cloud-shell/overview)에서 실행할 수 있는 [Azure CLI](/cli/azure/install-azure-cli)
 

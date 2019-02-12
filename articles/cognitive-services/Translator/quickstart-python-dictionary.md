@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/21/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 8dcde1231d5e2d73b868411cb22b8420843197be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4ca07416c615984b4eb6c7799ff17d9fbe43fa3b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458274"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691473"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>빠른 시작: Python을 사용하여 이중 언어 사전이 있는 단어 조회
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-현재 Translator Text에는 하나의 엔드포인트가 사용 가능하고 `base_url`로 설정됩니다. `path`는 `dictionary/lookup` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
+Translator Text 글로벌 엔드포인트가 `base_url`로 설정되어 있습니다. `path`는 `dictionary/lookup` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
 
 `params`는 원본 및 출력 언어를 설정하는 데 사용됩니다. 이 샘플에서는 영어와 스페인어 `en` 및 `es`를 사용합니다.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5884295e93a14d74a125c27ea597f2311478042a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459029"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822411"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리 예제
 
@@ -1365,29 +1365,29 @@ Cosmos DB는 일반적인 작업을 위해 많은 기본 제공 함수도 지원
 
 | 사용 현황 | 설명 |
 |----------|--------|
-| [[ABS(num_expr)](#bk_abs) | 지정한 숫자 식의 절대(양수) 값을 반환합니다. |
-| [CEILING(num_expr)](#bk_ceiling) | 지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다. |
-| [FLOOR(num_expr)](#bk_floor) | 지정한 숫자 식보다 작거나 같은 가장 큰 정수 값을 반환합니다. |
-| [EXP(num_expr)](#bk_exp) | 지정한 숫자 식의 지수를 반환합니다. |
+| [ABS (num_expr) | 지정한 숫자 식의 절대(양수) 값을 반환합니다. |
+| CEILING (num_expr) | 지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다. |
+| FLOOR (num_expr) | 지정한 숫자 식보다 작거나 같은 가장 큰 정수 값을 반환합니다. |
+| EXP (num_expr) | 지정한 숫자 식의 지수를 반환합니다. |
 | [LOG(num_expr [,base])](#bk_log) | 지정한 숫자 식의 자연 로그 또는 지정한 밑을 사용하는 로그를 반환합니다. |
-| [LOG10(num_expr)](#bk_log10) | 지정한 숫자 식의 상용 로그를 반환합니다. |
-| [ROUND(num_expr)](#bk_round) | 가장 가까운 정수 값으로 반올림한 숫자 값을 반환합니다. |
-| [TRUNC(num_expr)](#bk_trunc) | 가장 가까운 정수 값으로 버린 숫자 값을 반환합니다. |
-| [SQRT(num_expr)](#bk_sqrt) | 지정한 숫자 식의 제곱근을 반환합니다. |
-| [SQUARE(num_expr)](#bk_square) | 지정한 숫자 식의 거듭제곱을 반환합니다. |
+| LOG10 (num_expr) | 지정한 숫자 식의 상용 로그를 반환합니다. |
+| ROUND (num_expr) | 가장 가까운 정수 값으로 반올림한 숫자 값을 반환합니다. |
+| TRUNC (num_expr) | 가장 가까운 정수 값으로 버린 숫자 값을 반환합니다. |
+| SQRT (num_expr) | 지정한 숫자 식의 제곱근을 반환합니다. |
+| SQUARE (num_expr) | 지정한 숫자 식의 거듭제곱을 반환합니다. |
 | [POWER(num_expr, num_expr)](#bk_power) | 지정한 값까지 지정한 숫자 식의 거듭제곱을 반환합니다. |
-| [SIGN(num_expr)](#bk_sign) | 지정한 숫자 식의 부호 값(-1, 0, 1)을 반환합니다. |
-| [ACOS(num_expr)](#bk_acos) | 코사인 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 아크코사인이라고도 합니다. |
-| [ASIN(num_expr)](#bk_asin) | 사인 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 이 함수를 아크사인이라고도 합니다. |
-| [ATAN(num_expr)](#bk_atan) | 탄젠트 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 아크탄젠트라고도 합니다. |
-| [ATN2(num_expr)](#bk_atn2) | x와 y가 두 지정된 float 식의 값인 양의 x축과 원점부터 (y, x) 지점의 선 사이의 라디안에서 각도를 반환합니다. |
-| [COS(num_expr)](#bk_cos) | 지정된 식의 라디안에서 지정된 각도의 삼각 코사인을 반환합니다. |
-| [COT(num_expr)](#bk_cot) | 지정된 숫자 식의 라디안에서 지정된 각도의 삼각 코탄젠트를 반환합니다. |
-| [DEGREES(num_expr)](#bk_degrees) | 라디안에서 지정된 각도로 해당하는 각도를 반환합니다. |
-| [PI()](#bk_pi) | PI의 상수 값을 반환합니다. |
-| [RADIANS(num_expr)](#bk_radians) | 숫자 식을 단위로 입력하면 라디안을 반환합니다. |
-| [SIN(num_expr)](#bk_sin) | 지정된 식의 라디안에서 지정된 각도의 삼각 사인을 반환합니다. |
-| [TAN(num_expr)](#bk_tan) | 지정된 식에서 입력 식의 탄젠트를 반환합니다. |
+| SIGN (num_expr) | 지정한 숫자 식의 부호 값(-1, 0, 1)을 반환합니다. |
+| ACOS (num_expr) | 코사인 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 아크코사인이라고도 합니다. |
+| ASIN (num_expr) | 사인 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 이 함수를 아크사인이라고도 합니다. |
+| ATAN (num_expr) | 탄젠트 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 아크탄젠트라고도 합니다. |
+| ATN2 (num_expr) | x와 y가 두 지정된 float 식의 값인 양의 x축과 원점부터 (y, x) 지점의 선 사이의 라디안에서 각도를 반환합니다. |
+| COS (num_expr) | 지정된 식의 라디안에서 지정된 각도의 삼각 코사인을 반환합니다. |
+| COT (num_expr) | 지정된 숫자 식의 라디안에서 지정된 각도의 삼각 코탄젠트를 반환합니다. |
+| DEGREES (num_expr) | 라디안에서 지정된 각도로 해당하는 각도를 반환합니다. |
+| PI () | PI의 상수 값을 반환합니다. |
+| RADIANS (num_expr) | 숫자 식을 단위로 입력하면 라디안을 반환합니다. |
+| SIN (num_expr) | 지정된 식의 라디안에서 지정된 각도의 삼각 사인을 반환합니다. |
+| TAN (num_expr) | 지정된 식에서 입력 식의 탄젠트를 반환합니다. |
 
 예를 들어 이제 다음 예제에 표시된 것과 같은 쿼리를 실행할 수 있습니다.
 

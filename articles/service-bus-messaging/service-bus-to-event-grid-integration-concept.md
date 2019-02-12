@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 41514ca5911544da8608e0c7ebad18b33c33b494
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 640c01b2c73509ac897218fdea3841d016767a49
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856913"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818264"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus-Event Grid 통합 개요
 
@@ -43,7 +43,7 @@ Service Bus 네임스페이스로 이동한 다음, **액세스 제어(IAM)**, *
 현재 Service Bus는 두 가지 시나리오에 대한 이벤트를 보냅니다.
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
-* [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
+* DeadletterMessagesAvailable
 
 또한 Service Bus는 표준 Event Grid 보안 및 [인증 메커니즘](https://docs.microsoft.com/azure/event-grid/security-authentication)을 사용합니다.
 
@@ -115,7 +115,7 @@ Service Bus 네임스페이스로 이동한 다음, **액세스 제어(IAM)**, *
 
 세 가지 방법으로 Service Bus 네임스페이스에 대한 Event Grid 구독을 만들 수 있습니다.
 
-* [Azure Portal](#portal-instructions)에서
+* Azure 포털에서 다음을 수행합니다.
 * [Azure CLI](#azure-cli-instructions)에서
 * [PowerShell](#powershell-instructions)에서
 
@@ -168,7 +168,7 @@ mespaceName "<YOUR NAMESPACE NAME>").Id
 New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
-여기서 다른 설치 옵션을 탐색할 수도 있고 [해당 이벤트가 흐르고 있는지 테스트](#test-that-events-are-flowing)할 수도 있습니다.
+여기서 다른 설치 옵션을 살펴볼 수도 있고 해당 이벤트가 흐르고 있는지 테스트할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

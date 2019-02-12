@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: priyamo
-ms.openlocfilehash: 7cd599ff75827ca8b0c6f7683cae01210a8fc8ab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 34f6a03fc091fb4d86739af9d56993943ce44956
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183410"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55662111"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID란?
 
@@ -102,6 +102,9 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID를 사용하는 방법
 
 관리 ID를 사용하여 Azure 리소스에 액세스하는 방법을 알아보려면 다음 자습서를 진행하세요.
+
+> [!NOTE]
+> 몇 가지 지원되는 시나리오의 자세한 비디오 연습을 비롯한 관리 ID에 대한 자세한 내용은 [Microsoft Azure 리소스에 대한 관리 ID 구현](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing) 과정을 확인하세요.
 
 Windows VM에서 관리 ID를 사용하는 방법:
 

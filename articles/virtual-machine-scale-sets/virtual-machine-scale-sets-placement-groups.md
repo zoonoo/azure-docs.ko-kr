@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: 5280936cdec25f7b5fc4b77c989b31c7a01f7bd6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2a1c78a4cec595b672604c90e103ae3b9e40273f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958638"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693686"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>대규모 가상 머신 확장 집합과 작동
 이제 최대 1,000대 VM의 용량을 갖춘 Azure [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/)을 만들 수 있습니다. 이 문서에서는 _대규모 가상 머신 확장 집합_이 100대 이상의 VM까지 확장할 수 있는 확장 집합으로 정의됩니다. 이 기능은 확장 집합 속성에 의해 설정됩니다(_singlePlacementGroup=False_). 
@@ -61,7 +61,7 @@ az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
 az vmss create --help
 ```
 
-Azure Resource Manager 템플릿을 작성하여 대규모 확장 집합을 만드는 경우 템플릿이 Azure Managed Disks에 기반하여 확장 집합을 만드는지 확인합니다. _Microsoft.Compute/virtualMAchineScaleSets_ 리소스의 _속성_ 섹션에서 _singlePlacementGroup_ 속성을 _false_에 설정할 수 있습니다. 다음 JSON 조각은 1,000대의 VM 용량과 _"singlePlacementGroup": false_를 포함하여 확장 집합 템플릿의 시작 부분을 보여줍니다.
+Azure Resource Manager 템플릿을 작성하여 대규모 확장 집합을 만드는 경우 템플릿이 Azure Managed Disks에 기반하여 확장 집합을 만드는지 확인합니다. _Microsoft.Compute/virtualMachineScaleSets_ 리소스의 _속성_ 섹션에서 _singlePlacementGroup_ 속성을 _false_에 설정할 수 있습니다. 다음 JSON 조각은 1,000대의 VM 용량과 _"singlePlacementGroup": false_를 포함하여 확장 집합 템플릿의 시작 부분을 보여줍니다.
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",

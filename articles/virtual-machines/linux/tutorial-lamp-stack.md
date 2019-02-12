@@ -3,7 +3,7 @@ title: 자습서 - Azure에서 Linux 가상 머신에 LAMP 배포 | Microsoft Do
 description: 이 자습서에서는 Azure에서 Linux 가상 머신에 LAMP 스택을 설치하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
-ms.openlocfilehash: 5caed6fba607cb93a6168bded7531bc8bf63b9da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 01/30/2019
+ms.author: cynthn
+ms.openlocfilehash: c69c7055e420ffa64e547f5c3fe53d997cf90168
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970688"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753710"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신에 LAMP 웹 서버 설치
 
@@ -50,15 +50,12 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 sudo apt update && sudo apt install lamp-server^
 ```
 
-
-패키지 및 기타 종속성을 설치하라는 메시지가 표시됩니다. 메시지가 표시되면 MySQL에 대한 루트 암호를 설정한 다음 [Enter] 키를 눌러 계속합니다. 나머지 지시를 따릅니다. 이 프로세스에서는 PHP와 MySQL을 함께 사용하는 데 필요한 최소한의 PHP 확장을 설치합니다. 
-
-![MySQL 루트 암호 페이지][1]
+패키지 및 기타 종속성을 설치하라는 메시지가 표시됩니다. 이 프로세스에서는 PHP와 MySQL을 함께 사용하는 데 필요한 최소한의 PHP 확장을 설치합니다.  
 
 ## <a name="verify-installation-and-configuration"></a>설치 및 구성 확인
 
 
-### <a name="apache"></a>Apache
+### <a name="verify-apache"></a>Apache 확인
 
 다음 명령으로 Apache의 버전을 확인합니다.
 ```bash
@@ -70,7 +67,7 @@ Apache를 설치하고 VM에 포트 80을 열어서 인터넷에서 웹 서버�
 ![Apache 기본 페이지][3]
 
 
-### <a name="mysql"></a>MySQL
+### <a name="verify-and-secure-mysql"></a>MySQL 확인 및 보호
 
 다음 명령을 사용하여 MySQL의 버전을 확인합니다(대문자 `V` 매개 변수 주의).
 
@@ -78,23 +75,23 @@ Apache를 설치하고 VM에 포트 80을 열어서 인터넷에서 웹 서버�
 mysql -V
 ```
 
-MySQL 설치를 보호하려면 `mysql_secure_installation` 스크립트를 실행합니다. 임시 서버를 설정만 하려면 이 단계를 건너뛸 수 있습니다.
+루트 암호 설정을 포함하여 MySQL 설치를 보호하려면 `mysql_secure_installation` 스크립트를 실행합니다. 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-MySQL에 대한 루트 암호를 입력하고 사용자 환경에 대한 보안 설정을 구성합니다.
+필요에 따라 암호 유효성 검사 플러그인을 설치할 수 있습니다(권장). 그런 다음, MySQL 루트 사용자의 암호를 설정하고 사용자 환경에 대한 나머지 보안 설정을 구성합니다. 모든 질문에 "Y"(예)라고 대답하는 것이 좋습니다.
 
 MySQL 기능(MySQL 데이터베이스를 만들거나, 사용자를 추가하거나 구성 설정을 변경함)을 시도해 보려면 MySQL에 로그인합니다. 이 단계는 이 자습서를 완료하는 데 필수는 아닙니다.
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 완료한 후 `\q`를 입력하여 mysql 프롬프트를 종료합니다.
 
-### <a name="php"></a>PHP
+### <a name="verify-php"></a>PHP 확인
 
 다음 명령으로 PHP의 버전을 확인합니다.
 
@@ -114,7 +111,6 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 [!INCLUDE [virtual-machines-linux-tutorial-wordpress.md](../../../includes/virtual-machines-linux-tutorial-wordpress.md)]
 
-
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 Azure에서 램프 서버를 배포했습니다. 다음 방법에 대해 알아보았습니다.
@@ -131,6 +127,5 @@ SSL 인증서로 웹 서버를 보호하는 방법에 대해 알아보려면 다
 > [!div class="nextstepaction"]
 > [SSL로 웹 서버 보안](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lamp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lamp-stack/apachesuccesspage.png

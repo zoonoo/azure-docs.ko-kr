@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 44533ea4430bb7cd3bc7e0b6451892cc68bacc19
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 251161fbb5213c765463835e4537f1b443699670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450220"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491742"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란? 
 Azure AD(Azure Active Directory)는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스입니다. Azure AD를 사용하면 직원들이 다음 항목에서 로그인하여 리소스에 액세스할 수 있습니다.
@@ -72,7 +72,7 @@ Azure AD 및 설명서를 보다 정확하게 이해하려면 다음 용어를 �
 |Azure AD 전역 관리자|이 관리자 역할은 Azure AD 테넌트를 만든 모든 사람에게 자동으로 할당됩니다. 글로벌 관리자는 Exchange Online, SharePoint Online, 비즈니스용 Skype Online 등의 서비스에 페더레이션되는 서비스 및 Azure AD에 대한 모든 관리 기능을 수행할 수 있습니다. 글로벌 관리자를 여러 명 둘 수 있지만, 글로벌 관리자만이 사용자에게 관리자 역할을 할당(다른 글로벌 관리자 할당 포함)할 수 있습니다.<br><br>**참고**<br>이 관리자 역할을 Azure Portal에서는 글로벌 관리자라고 하지만 Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서는 **회사 관리자**라고 합니다.<br><br>다양한 관리자 역할에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.|
 |Microsoft 계정(MSA라고도 함)|Outlook, OneDrive, Xbox LIVE 또는 Office 365 같은 소비자 지향 Microsoft 제품 및 클라우드 서비스에 대한 액세스 권한을 제공하는 개인 계정입니다. Microsoft 계정은 Microsoft에서 실행하는 Microsoft 소비자 ID 계정 시스템에 생성되고 저장됩니다.|
 
-## <a name="what-features-work-in-azure-ad"></a>Azure AD에서 작동하는 기능
+## <a name="which-features-work-in-azure-ad"></a>Azure AD에서 작동하는 기능
 Azure AD 라이선스를 선택하면 조직에서 사용 가능한 다음 기능 중 일부 또는 전부에 대한 액세스 권한을 얻게 됩니다.
 
 |Category|설명|

@@ -7,16 +7,16 @@ author: billmath
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/30/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7e7c9ca30659fd1e99989bb77406b653a8ed9e7f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 5219241de9b18008032a3eb78c6aab25a2713370
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302977"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660411"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>자습서:  Azure AD Connect에서 AD FS용 백업으로 PHS 설정
 
@@ -43,7 +43,7 @@ ms.locfileid: "55302977"
 10. 이것으로 끝입니다.  이제 구성을 완료했으므로  암호 해시 동기화가 진행되며, AD FS를 사용할 수 없게 되면 암호 해시 동기화를 백업으로 사용할 수 있습니다.
 
 ## <a name="switch-to-password-hash-synchronization"></a>암호 해시 동기화로 전환
-이번에는 필요한 경우 암호 해시 동기화로 전환하는 방법을 살펴보겠습니다.  다음을 수행합니다.
+이제 암호 해시 동기화로 전환하는 방법을 살펴보겠습니다. 시작에 앞서 어떤 조건에서 전환해야 할지 고려합니다. 네트워크 중단, 사소한 AD FS 문제 또는 사용자 하위 집합에 영향을 미치는 문제와 같은 일시적인 이유로는 전환하지 마십시오. 문제를 해결하는 데 시간이 너무 오래 걸려서 전환하기로 결정한 경우, 다음을 수행합니다.
 
 1. 바탕 화면에 생성된 Azure AD Connect 아이콘을 두 번 클릭합니다.
 2.  **Configure**를 클릭합니다.

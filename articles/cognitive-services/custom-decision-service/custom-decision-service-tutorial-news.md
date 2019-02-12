@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: 1589ef94946a6396ee51b8fecfe2ed3e80db08e5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fce90c05fb2e79be23cfd7a58875f8cb6b3ddbf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212234"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819776"
 ---
 # <a name="tutorial-article-personalization-for-contextual-decision-making"></a>자습서: 상황에 맞는 의사 결정을 위한 문서 개인 설정
 
@@ -44,7 +44,7 @@ Custom Decision Service는 고객이 제공한 RSS 또는 Atom 피드를 통해 
 </channel></rss>
 ```
 
-아티클 순서가 중요합니다. 아티클을 정렬해야 하는 방법에 대한 추측으로 기본 순위를 지정합니다. 기본 순위는 [대시보드](#performance-dashboard)에서 성능 비교에 사용됩니다.
+아티클 순서가 중요합니다. 아티클을 정렬해야 하는 방법에 대한 추측으로 기본 순위를 지정합니다. 기본 순위는 대시보드에서 성능 비교에 사용됩니다.
 
 피드 형식에 대한 자세한 내용은 [API 참조](custom-decision-service-api-reference.md#action-set-api-customer-provided)를 참조하세요.
 

@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/12/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7ea9ce47b82dd4ad31caf935fd10e04daa07faba
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427290"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700007"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 사용자 지정 역할 만들기
 
@@ -34,12 +34,14 @@ ms.locfileid: "54427290"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - 사용자 지정 역할을 만들 수 있는 권한(예: [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator))
-- 로컬에 설치된 [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
+- 로컬에 설치된 [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>Azure PowerShell에 로그인
 
@@ -49,10 +51,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 사용자 지정 역할을 만드는 가장 쉬운 방법은 기본 제공 역할로 시작하여 편집한 다음, 새 역할을 만드는 것입니다.
 
-1. PowerShell에서 [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) 명령을 사용하여 Microsoft.Support 리소스 공급자의 작업 목록을 가져옵니다. 권한을 만드는 데 사용할 수 있는 작업을 파악하는 데 도움이 됩니다. 모든 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md#microsoftsupport)에서 확인할 수 있습니다.
+1. PowerShell에서 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 명령을 사용하여 Microsoft.Support 리소스 공급자의 작업 목록을 가져옵니다. 권한을 만드는 데 사용할 수 있는 작업을 파악하는 데 도움이 됩니다. 모든 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md#microsoftsupport)에서 확인할 수 있습니다.
 
     ```azurepowershell
-    Get-AzureRMProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
+    Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
     ```
     
     ```Output
@@ -63,10 +65,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     Microsoft.Support/supportTickets/write Creates or Updates a Support Ticket. You can create a Support Tic...
     ```
 
-1. [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 명령을 사용하여 [Reader](built-in-roles.md#reader) 역할을 JSON 형식으로 내보냅니다.
+1. [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 명령을 사용하여 [Reader](built-in-roles.md#reader) 역할을 JSON 형식으로 내보냅니다.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json
     ```
 
 1. 편집기에서 **ReaderSupportRole.json** 파일을 엽니다.
@@ -75,34 +77,28 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ```json
     {
-        "Name":  "Reader",
-        "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-        "IsCustom":  false,
-        "Description":  "Lets you view everything, but not make any changes.",
-        "Actions":  [
-                        "*/read"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/"
-                             ]
+      "Name": "Reader",
+      "Id": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+      "IsCustom": false,
+      "Description": "Lets you view everything, but not make any changes.",
+      "Actions": [
+        "*/read"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/"
+      ]
     }
     ```
     
 1. JSON 파일을 편집하여 `"Microsoft.Support/*"` 작업을 `Actions` 속성에 추가합니다. 읽기 작업 뒤에 꼭 쉼표를 추가해야 합니다. 이 작업을 통해 사용자가 지원 티켓을 만들 수 있게 됩니다.
 
-1. [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) 명령을 사용하여 구독 ID를 가져옵니다.
+1. [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) 명령을 사용하여 구독 ID를 가져옵니다.
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 1. `AssignableScopes`에서 구독 ID를 `"/subscriptions/00000000-0000-0000-0000-000000000000"` 형식으로 추가합니다.
@@ -117,32 +113,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
     
-1. 새로운 사용자 지정 역할을 만들려면 [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) 명령을 사용하여 JSON 역할 정의 파일을 지정합니다.
+1. 새로운 사용자 지정 역할을 만들려면 [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) 명령을 사용하여 JSON 역할 정의 파일을 지정합니다.
 
     ```azurepowershell
-    New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
+    New-AzRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole.json"
     ```
 
     ```Output
@@ -161,10 +151,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="list-custom-roles"></a>사용자 지정 역할 나열
 
-- 모든 사용자 지정 역할을 나열하려면 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 명령을 사용합니다.
+- 모든 사용자 지정 역할을 나열하려면 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 명령을 사용합니다.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+    Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
     ```
 
     ```Output
@@ -181,10 +171,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 사용자 지정 역할을 업데이트하려면 JSON 파일을 업데이트하거나 `PSRoleDefinition` 개체를 사용하면 됩니다.
 
-1. JSON 파일을 업데이트하려면 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 명령을 사용하여 사용자 지정 역할을 JSON 형식으로 내보냅니다.
+1. JSON 파일을 업데이트하려면 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 명령을 사용하여 사용자 지정 역할을 JSON 형식으로 내보냅니다.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
+    Get-AzRoleDefinition -Name "Reader Support Tickets" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole2.json
     ```
 
 1. 편집기에서 파일을 엽니다.
@@ -195,34 +185,28 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ```json
     {
-        "Name":  "Reader Support Tickets",
-        "Id":  "22222222-2222-2222-2222-222222222222",
-        "IsCustom":  true,
-        "Description":  "View everything in the subscription and also open support tickets.",
-        "Actions":  [
-                        "*/read",
-                        "Microsoft.Support/*",
-                        "Microsoft.Resources/deployments/*"
-                    ],
-        "NotActions":  [
-    
-                       ],
-        "DataActions":  [
-    
-                        ],
-        "NotDataActions":  [
-    
-                           ],
-        "AssignableScopes":  [
-                                 "/subscriptions/00000000-0000-0000-0000-000000000000"
-                             ]
+      "Name": "Reader Support Tickets",
+      "Id": "22222222-2222-2222-2222-222222222222",
+      "IsCustom": true,
+      "Description": "View everything in the subscription and also open support tickets.",
+      "Actions": [
+        "*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
     }
     ```
         
-1. 사용자 지정 역할을 업데이트하려면 [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) 명령을 사용하여 업데이트된 JSON 파일을 지정합니다.
+1. 사용자 지정 역할을 업데이트하려면 [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) 명령을 사용하여 업데이트된 JSON 파일을 지정합니다.
 
     ```azurepowershell
-    Set-AzureRmRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole2.json"
+    Set-AzRoleDefinition -InputFile "C:\CustomRoles\ReaderSupportRole2.json"
     ```
 
     ```Output
@@ -237,10 +221,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
 
-1. `PSRoleDefintion` 개체를 사용하여 사용자 지정 역할을 업데이트하려면 먼저 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 명령을 사용하여 역할을 가져옵니다.
+1. `PSRoleDefintion` 개체를 사용하여 사용자 지정 역할을 업데이트하려면 먼저 [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 명령을 사용하여 역할을 가져옵니다.
 
     ```azurepowershell
-    $role = Get-AzureRmRoleDefinition "Reader Support Tickets"
+    $role = Get-AzRoleDefinition "Reader Support Tickets"
     ```
     
 1. `Add` 메서드를 호출하여 읽기 진단 설정에 작업을 추가합니다.
@@ -249,10 +233,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*/read")
     ```
 
-1. [Set-AzureRmRoleDefinition](/powershell/module/azurerm.resources/set-azurermroledefinition) 명령을 사용하여 역할을 업데이트합니다.
+1. [Set-AzRoleDefinition](/powershell/module/az.resources/set-azroledefinition) 명령을 사용하여 역할을 업데이트합니다.
 
     ```azurepowershell
-    Set-AzureRmRoleDefinition -Role $role
+    Set-AzRoleDefinition -Role $role
     ```
     
     ```Output
@@ -270,16 +254,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
 ## <a name="delete-a-custom-role"></a>사용자 지정 역할 삭제
 
-1. [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 명령을 사용하여 사용자 지정 역할 ID를 가져옵니다.
+1. [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 명령을 사용하여 사용자 지정 역할 ID를 가져옵니다.
 
     ```azurepowershell
-    Get-AzureRmRoleDefinition "Reader Support Tickets"
+    Get-AzRoleDefinition "Reader Support Tickets"
     ```
 
-1. [Remove-AzureRmRoleDefinition](/powershell/module/azurerm.resources/remove-azurermroledefinition) 명령을 사용하여 사용자 지정 역할을 삭제할 역할 ID를 지정합니다.
+1. [Remove-AzRoleDefinition](/powershell/module/az.resources/remove-azroledefinition) 명령을 사용하여 사용자 지정 역할을 삭제할 역할 ID를 지정합니다.
 
     ```azurepowershell
-    Remove-AzureRmRoleDefinition -Id "22222222-2222-2222-2222-222222222222"
+    Remove-AzRoleDefinition -Id "22222222-2222-2222-2222-222222222222"
     ```
 
     ```Output

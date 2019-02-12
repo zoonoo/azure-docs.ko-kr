@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189611"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562065"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Container Instances에서 컨테이너 애플리케이션 실행
 
@@ -39,7 +39,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
-이제 리소스 그룹이 있으므로 Azure에서 컨테이너를 실행할 수 있습니다. Azure CLI를 사용하여 컨테이너 인스턴스를 만들려면 [az container create][az-container-create] 명령에 리소스 그룹 이름, 컨테이너 인스턴스 이름 및 Docker 컨테이너 이미지를 제공합니다. 열려는 하나 이상의 포트, DNS 이름 레이블 또는 둘 다를 지정하여 컨테이너를 인터넷에 공개할 수 있습니다. 이 빠른 시작에서는 Node.js로 작성된 작은 웹앱을 호스팅하는 DNS 이름 레이블이 있는 컨테이너를 배포합니다.
+이제 리소스 그룹이 있으므로 Azure에서 컨테이너를 실행할 수 있습니다. Azure CLI를 사용하여 컨테이너 인스턴스를 만들려면 [az container create][az-container-create] 명령에 리소스 그룹 이름, 컨테이너 인스턴스 이름 및 Docker 컨테이너 이미지를 제공합니다. 이 빠른 시작에서는 공용 Docker Hub 레지스트리의 `microsoft/aci-helloworld` 이미지를 사용합니다. 이 이미지는 고정 HTML 페이지를 제공하는 Node.js로 작성된 작은 웹앱을 패키징합니다.
+
+열려는 하나 이상의 포트, DNS 이름 레이블 또는 둘 다를 지정하여 컨테이너를 인터넷에 공개할 수 있습니다. 이 빠른 시작에서는 DNS 이름 레이블이 있는 컨테이너를 배포하여 웹앱을 공개적으로 연결할 수 있도록 합니다.
 
 컨테이너 인스턴스를 시작하려면 다음 명령을 실행합니다. `--dns-name-label` 값은 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. "DNS 이름 레이블을 사용할 수 없습니다"라는 오류 메시지가 표시되면 다른 DNS 이름 레이블을 사용해 보세요.
 
@@ -145,7 +147,7 @@ az group delete --name myResourceGroup
 > [!div class="nextstepaction"]
 > [Azure Container Instances 자습서](./container-instances-tutorial-prepare-app.md)
 
-Azure에서 오케스트레이션 시스템의 컨테이너 실행 옵션을 사용하려면 [Service Fabric][service-fabric] 또는 [AKS(Azure Kubernetes Service)][container-service] 빠른 시작을 참조하세요.
+Azure에서 오케스트레이션 시스템의 컨테이너 실행 옵션을 사용하려면 [AKS(Azure Kubernetes Service)][container-service] 빠른 시작을 참조하세요.
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
@@ -166,4 +168,3 @@ Azure에서 오케스트레이션 시스템의 컨테이너 실행 옵션을 사
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
-[service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

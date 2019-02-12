@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: cforbe
 ms.author: cforbe
 ms.reviewer: trbye
-ms.date: 12/04/2018
+ms.date: 02/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c199a403e65bd084428fd45e8dc67cca214f5f9f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7be1bf8c003315fc4dbed449283f7c92850edced
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251285"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752044"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
@@ -33,34 +33,71 @@ ms.locfileid: "55251285"
 > * 새 기능을 만드는 인텔리전트 변환을 사용하여 데이터를 변환합니다.
 > * 회귀 모델에서 사용할 데이터 흐름 개체를 저장합니다.
 
-[Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)를 사용하여 Python에서 데이터를 준비할 수 있습니다.
+## <a name="prerequisites"></a>필수 조건
 
-## <a name="get-the-notebook"></a>Notebook 가져오기
+[개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어보거나, 아래 지침에 따라 Notebook을 가져와서 Azure Notebooks 또는 사용자 고유의 Notebook 서버에서 실행합니다. Notebook을 실행하려면 다음 항목이 필요합니다.
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb)으로 제공됩니다. [Azure Notebooks](https://notebooks.azure.com/) 또는 사용자 고유의 Jupyter Notebook 서버에서 **regression-part1-data-prep.ipynb** Notebook을 실행합니다.
+* 다음 요소가 설치된 Python 3.6 Notebook 서버:
+    * Python용 Azure Machine Learning Data Prep SDK
+* 자습서 Notebook
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+아래 섹션 중 하나에서 이러한 필수 구성 요소를 모두 가져옵니다.
 
-## <a name="import-packages"></a>패키지 가져오기
+* [Azure Notebooks](#azure) 사용
+* [사용자 고유의 Notebook 서버](#server) 사용
 
-SDK를 가져오는 것부터 시작합니다.
+### <a name="azure"></a>Azure Notebooks 사용: 클라우드의 무료 Jupyter Notebook
 
-```python
-import azureml.dataprep as dprep
-```
+Azure Notebooks로 시작하는 것이 쉽습니다! [Python용 Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)는 [Azure Notebooks](https://notebooks.azure.com/)에 이미 설치 및 구성되어 있습니다. 설치 및 향후 업데이트를 Azure 서비스를 통해 자동으로 관리합니다.
 
-사용자 고유의 Python 환경에서 자습서를 수행하는 경우 필요한 패키지를 설치하려면 다음을 사용합니다.
+아래 단계를 완료한 후에는 **시작** 프로젝트의 **tutorials/regression-part1-data-prep.ipynb** Notebook을 실행합니다.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+### <a name="server"></a>사용자 고유의 Jupyter Notebook 서버 사용
+
+사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  이러한 단계를 완료한 후에는 **tutorials/regression-part1-data-prep.ipynb** Notebook을 실행합니다.
+
+1. [Azure Machine Learning Python 빠른 시작](quickstart-create-workspace-with-python.md)을 완료하여 Miniconda 환경을 만듭니다.  원하는 경우 **작업 영역 만들기** 섹션을 건너뛰어도 되지만 작업 영역은 이 자습서 시리즈의 [2부](tutorial-auto-train-models.md)에서 필요합니다.
+1. `pip install azureml-dataprep`를 사용하여 사용 환경에 Data Prep SDK를 설치합니다.
+1. [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 복제합니다.
+
+    ```
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+
+1. 복제된 디렉터리에서 노트북 서버를 시작합니다.
+
+    ```shell
+    jupyter notebook
+
+## <a name="start"></a>Set up your development environment
+
+All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+* Install the SDK
+* Import Python packages
+
+### Install and import packages
+
+Use the following to install necessary packages if you don't already have them.
 
 ```shell
 pip install azureml-dataprep
+```
+
+SDK를 가져옵니다.
+
+```python
+import azureml.dataprep as dprep
 ```
 
 ## <a name="load-data"></a>데이터 로드
 
 두 개의 서로 다른 NYC 택시 데이터 세트를 데이터 흐름 개체에 다운로드합니다. 두 데이터 세트의 필드는 서로 조금씩 다릅니다. `auto_read_file()` 메서드는 입력 파일 형식을 자동으로 인식합니다.
 
-
 ```python
+from IPython.display import display
 dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 
 green_path = "/".join([dataset_root, "green-small/*"])

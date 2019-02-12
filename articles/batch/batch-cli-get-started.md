@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d51052f4e04a1497ccf2e91427e3465bdc5bf2f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5117d426ac9595dfe25828013c1bd8c7fa81f92c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476828"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812364"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
@@ -63,7 +63,7 @@ Batch와 함께 Azure CLI를 사용하려면 로그인하고 인증해야 합니
 Azure에 로그인할 수 있는 몇 가지 방법이 있으며, [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)에서 자세히 설명하고 있습니다.
 
 1. [대화형으로 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
-2. [서비스 주체를 사용하여 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). 스크립트 또는 애플리케이션에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
+2. [서비스 주체를 사용하여 로그인합니다](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). 스크립트 또는 애플리케이션에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
 
 이 문서에서는 Azure에 대화형으로 로그인하는 방법을 보여 줍니다. 명령줄에서 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login)을 입력합니다.
 
@@ -76,7 +76,7 @@ az login
 
 ![Azure에 로그인](./media/batch-cli-get-started/az-login.png)
 
-[샘플 셸 스크립트](#sample-shell-scripts) 섹션에서 나열하는 예제는 Azure에 대화형으로 로그인하여 Azure CLI 세션을 시작하는 방법을 보여 줍니다. 로그인하면 배치 계정, 키, 애플리케이션 패키지 및 할당량을 포함한 Batch Management 리소스를 사용하는 명령을 호출할 수 있습니다.  
+샘플 셸 스크립트 섹션에서 나열하는 예제는 Azure에 대화형으로 로그인하여 Azure CLI 세션을 시작하는 방법을 보여줍니다. 로그인하면 배치 계정, 키, 애플리케이션 패키지 및 할당량을 포함한 Batch Management 리소스를 사용하는 명령을 호출할 수 있습니다.  
 
 ### <a name="log-in-to-your-batch-account"></a>Batch 계정에 로그인
 
@@ -110,7 +110,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-[샘플 셸 스크립트](#sample-shell-scripts) 섹션에서 나열하는 예제에서는 Azure AD와 공유 키를 모두 사용하는 Azure CLI로 Batch 계정에 로그인하는 방법을 보여 줍니다.
+샘플 셸 스크립트 섹션에서 나열하는 예제는 Azure AD와 공유 키를 모두 사용하는 Azure CLI로 Batch 계정에 로그인하는 방법을 보여줍니다.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Azure Batch CLI 확장 명령 사용
 
@@ -168,7 +168,7 @@ Azure CLI 문제를 해결할 때 도움이 될 수 있는 팁은 다음과 같�
 
 * `-h` 을 사용하여 모든 CLI 명령의 **도움말 텍스트** 를 봅니다.
 * `-v` 및 `-vv`를 사용하여 **자세한 정보 표시** 명령 출력을 표시합니다. `-vv` 플래그가 포함되면 Azure CLI에서 실제 REST 요청과 응답을 표시합니다. 이러한 스위치는 전체 오류 출력을 표시하는 데 유용합니다.
-* `--json` 옵션을 사용하여 **명령 출력을 JSON으로** 볼 수 있습니다. 예를 들어 `az batch pool show pool001 --json` 은 JSON 형식으로 pool001의 속성을 표시합니다. 그런 다음 이 출력을 복사하고 수정하여 `--json-file` 에서 사용할 수 있습니다(이 문서의 앞부분에서 [JSON 파일](#json-files) 참조).
+* `--json` 옵션을 사용하여 **명령 출력을 JSON으로** 볼 수 있습니다. 예를 들어 `az batch pool show pool001 --json` 은 JSON 형식으로 pool001의 속성을 표시합니다. 그런 다음, 이 출력을 복사하고 수정하여 `--json-file`에서 사용할 수 있습니다(이 문서 앞부분의 JSON 파일 참조).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>다음 단계

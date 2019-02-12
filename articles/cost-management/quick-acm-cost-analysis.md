@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/07/2019
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077660"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769854"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -32,7 +32,9 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-비용 분석은 모든 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객이 사용할 수 있습니다. 비용 데이터를 보려면 다음 범위 중 하나 이상에 대해 최소한 읽기 권한이 있어야 합니다. Cost Management 데이터에 액세스하는 방법에 대한 자세한 내용은 [데이터에 대한 액세스 할당](assign-access-acm-data.md)을 참조하세요.
+다양한 유형의 Azure 계정에서 비용 분석이 지원됩니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다.
+
+[EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객은 비용 데이터를 보려면 적어도 다음 범위 중 하나 이상에 대한 읽기 권한이 필요합니다.
 
 - 청구 계정
 - department
@@ -41,13 +43,15 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 - 구독
 - 리소스 그룹
 
+Cost Management 데이터에 액세스하는 방법에 대한 자세한 내용은 [데이터에 대한 액세스 할당](assign-access-acm-data.md)을 참조하세요.
+
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 - https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="review-costs-in-cost-analysis"></a>비용 분석에서 비용 검토
 
-비용 분석으로 비용을 검토하려면 Azure Portal에서 **비용 관리 + 청구** &gt; **비용 관리** &gt; **범위 변경**으로 이동하고 범위를 선택한 후 **선택**을 클릭합니다.
+비용 분석을 사용하여 비용을 검토하려면 Azure Portal에서 **Cost Management + 청구** &gt; **비용 분석**으로 이동합니다. **범위: _ScopeName_** 을 선택하고 범위를 선택한 다음, **선택**을 클릭합니다.
 
 선택한 범위는 비용 관리 전체에서 데이터 통합을 제공하고 비용 정보에 대한 액세스를 제어하는 데 사용됩니다. 범위를 사용할 때는 다중 범위가 선택되지 않습니다. 대신 다른 사람이 속하는 대규모 범위를 선택한 다음, 원하는 범위로 필터링합니다. 자식 범위가 속하는 부모 범위에 대한 액세스를 제한해야 하는 사람도 있으므로 이는 중요한 사항입니다.
 
@@ -94,7 +98,8 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 
 ![지난달의 Azure 서비스 비용 예제를 보여 주는 그룹화된 일별 누적 보기](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-기본 차트 아래의 피벗 차트는 선택된 기간 및 필터의 전체 비용에 대한 더 큰 그림을 보여주는 여러 그룹화를 표시합니다.s. 특정 속성이나 태그를 선택하여 차원별로 집계된 비용을 볼 수 있습니다. **데이터** 드로어를 확장하거나 화면 상단에서 **내보내기 > CSV 다운로드**를 선택하면 화면 하단에서 합계 보기의 전체 데이터 세트를 볼 수 있습니다. 리소스 그룹의 데이터 드로어에 대한 예는 다음과 같습니다.
+기본 차트 아래의 피벗 차트는 선택된 기간 및 필터의 전체 비용에 대한 더 큰 그림을 보여주는 여러 그룹화를 표시합니다.s. 특정 속성이나 태그를 선택하여 차원별로 집계된 비용을 볼 수 있습니다.
+
 
 ![리소스 그룹 이름을 보여 주는 현재 보기의 전체 데이터](./media/quick-acm-cost-analysis/full-data-set.png)
 
@@ -103,6 +108,10 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 특정 특성별로 비용을 그룹화하는 경우 상위 10개 비용 기여자가 높은 점수에서 낮은 점수순으로 표시됩니다. 그룹이 10개를 초과하는 경우 상위 비용 기여자 9개만 표시됩니다. 나머지 그룹을 함께 다루는 **기타** 그룹도 표시됩니다. 태그로 그룹화할 경우 태그 키가 적용되지 않은 비용에 **태그 없음** 그룹이 표시될 수 있습니다. 태그가 지정된 비용보다 태그가 지정되지 않은 비용이 더 많아도**태그 없음**은 항상 마지막에 있습니다. 태그 값이 10개 이상 있는 경우 태그가 지정되지 않은 비용이 **기타**에 포함됩니다.
 
 *클래식*(Azure Service Management 또는 ASM) 가상 머신, 네트워킹 및 스토리지 리소스는 자세한 청구 데이터를 공유하지 않습니다. 이러한 리소스는 비용을 그룹화할 때 **클래식 서비스**로 병합됩니다.
+
+모든 보기의 전체 데이터 세트를 볼 수 있습니다. 고객이 적용하는 선택 사항이나 필터에 따라 표시되는 데이터가 달라집니다. 전체 데이터 세트를 보려면 **차트 종류** 목록을 클릭한 다음, **테이블** 보기를 클릭합니다.
+
+![테이블 보기의 현재 보기에 대한 데이터](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
 
 ## <a name="download-cost-analysis-data"></a>비용 분석 데이터 다운로드

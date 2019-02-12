@@ -1,6 +1,6 @@
 ---
-title: Azure AD 로그인을 사용하는 Azure SQL Database Managed Instance 보안 | Microsoft Docs
-description: Azure SQL Database에서 Managed Instance를 보호하고 Azure AD 로그인을 사용하는 기술 및 기능에 대해 알아봅니다.
+title: Azure AD 로그인을 사용하는 Azure SQL Database 관리되는 인스턴스 보안 | Microsoft Docs
+description: Azure SQL Database에서 관리되는 인스턴스를 보호하고 Azure AD 로그인을 사용하는 기술 및 기능에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: f96b2853b887836a94091dcba0ceaf6f8dd43d12
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/04/2019
+ms.openlocfilehash: 32d1be97405624fe929a9e9e1ff486f6a31200aa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229137"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732773"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>자습서: Azure AD 로그인을 사용하는 Azure SQL Database Managed Instance 보안
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>자습서: Azure AD 로그인을 사용하는 Azure SQL Database 관리되는 인스턴스 보안
 
-Azure SQL Database Managed Instance는 최신 SQL Server 온-프레미스(Enterprise Edition) 데이터베이스 엔진의 보안 기능을 거의 대부분 제공합니다.
+관리되는 인스턴스는 최신 SQL Server 온-프레미스(Enterprise Edition) 데이터베이스 엔진의 보안 기능을 거의 대부분 제공합니다.
 
 - 격리된 환경에서 액세스 제한
 - ID를 요구하는 인증 메커니즘 사용(Azure AD, SQL 인증)
@@ -29,8 +29,8 @@ Azure SQL Database Managed Instance는 최신 SQL Server 온-프레미스(Enterp
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> - Managed Instance에 대한 Azure AD(Active Directory) 로그인 만들기
-> - Managed Instance의 Azure AD 로그인에 대한 권한 부여
+> - 관리되는 인스턴스에 대한 Azure AD(Active Directory) 로그인 만들기
+> - 관리되는 인스턴스의 Azure AD 로그인에 대한 권한 부여
 > - Azure AD 로그인에서 Azure AD 사용자 만들기
 > - Azure AD 사용자 및 관리형 데이터베이스 보안에 대한 권한 할당
 > - Azure AD 사용자에 가장 사용
@@ -38,40 +38,40 @@ Azure SQL Database Managed Instance는 최신 SQL Server 온-프레미스(Enterp
 > - 위협 방지, 감사, 데이터 마스킹, 암호화 등의 보안 기능에 대해 알아보기
 
 > [!NOTE]
-> SQL Database Managed Instance에 대한 Azure AD 로그인은 **공개 미리 보기**입니다.
+> 관리되는 인스턴스에 대한 Azure AD 로그인은 **공개 미리 보기**입니다.
 
-자세한 내용은 [Azure SQL Database Managed Instance 개요](sql-database-managed-instance-index.yml) 및 [기능](sql-database-managed-instance.md) 문서를 참조하세요.
+자세한 내용은 [Azure SQL Database 관리되는 인스턴스 개요](sql-database-managed-instance-index.yml) 및 [기능](sql-database-managed-instance.md) 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음 필수 조건이 충족되어야 합니다.
 
 - [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)
-- Azure SQL Database Managed Instance
-    - 다음 문서를 수행합니다. [빠른 시작: Azure SQL Database Managed Instance 만들기](sql-database-managed-instance-get-started.md)
-- Azure SQL Database Managed Instance에 액세스하여 [Managed Instance에 대한 Azure AD 관리자를 프로비전](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)할 수 있습니다. 자세한 내용은 다음을 참조하세요.
-    - [애플리케이션을 Azure SQL Database Managed Instance에 연결](sql-database-managed-instance-connect-app.md) 
-    - [Azure SQL Database Managed Instance 연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)
+- Azure SQL Database 관리되는 인스턴스
+  - 다음 문서를 수행합니다. [빠른 시작: Azure SQL Database 관리되는 인스턴스 만들기](sql-database-managed-instance-get-started.md)
+- 관리되는 인스턴스에 액세스하여 [관리되는 인스턴스에 대한 Azure AD 관리자를 프로비저닝](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+    - [애플리케이션을 관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md) 
+    - [관리되는 인스턴스 연결 아키텍처](sql-database-managed-instance-connectivity-architecture.md)
     - [SQL을 사용하여 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)
 
-## <a name="limiting-access-to-your-managed-instance"></a>Managed Instance에 대한 액세스 제한
+## <a name="limiting-access-to-your-managed-instance"></a>관리되는 인스턴스에 대한 액세스 제한
 
-Managed Instance는 사설 IP 주소를 통해서만 액세스할 수 있습니다. Managed Instance 네트워크 외부에서 Managed Instance에 연결하는 데 사용할 수 있는 서비스 엔드포인트는 없습니다. 격리된 SQL Server 온-프레미스 환경과 비슷하게, 연결을 설정하려면 애플리케이션 또는 사용자가 Managed Instance 네트워크(VNet)에 액세스할 수 있어야 합니다. 자세한 내용은 [애플리케이션을 Azure SQL Database Managed Instance에 연결](sql-database-managed-instance-connect-app.md) 문서를 참조하세요.
+관리되는 인스턴스는 사설 IP 주소를 통해서만 액세스할 수 있습니다. 관리되는 인스턴스 네트워크 외부에서 관리되는 인스턴스에 연결하는 데 사용할 수 있는 서비스 엔드포인트는 없습니다. 격리된 SQL Server 온-프레미스 환경과 비슷하게, 연결을 설정하려면 애플리케이션 또는 사용자가 관리되는 인스턴스 네트워크(VNet)에 액세스할 수 있어야 합니다. 자세한 내용은 [애플리케이션을 관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md) 문서를 참조하세요.
 
 > [!NOTE] 
-> Managed Instance는 내부 VNET에만 액세스할 수 있으므로 [SQL Database 방화벽 규칙](sql-database-firewall-configure.md)이 적용되지 않습니다. Managed Instance는 자체적인 [기본 방화벽](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)을 갖추고 있습니다.
+> 관리되는 인스턴스는 내부 VNET에만 액세스할 수 있으므로 [SQL Database 방화벽 규칙](sql-database-firewall-configure.md)이 적용되지 않습니다. 관리되는 인스턴스는 자체적인 [기본 방화벽](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)을 갖추고 있습니다.
 
-## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>SSMS를 사용하여 Managed Instance에 대한 Azure AD 로그인 만들기
+## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>SSMS를 사용하여 관리되는 인스턴스에 대한 Azure AD 로그인 만들기
 
-첫 번째 Azure AD 로그인은 표준 SQL Server 계정(비 azure AD)인 `sysadmin`으로 만들어야 합니다. Managed Instance에 연결하는 예제는 다음 문서를 참조하세요.
+첫 번째 Azure AD 로그인은 표준 SQL Server 계정(비 azure AD)인 `sysadmin`으로 만들어야 합니다. 관리되는 인스턴스에 연결하는 예제는 다음 문서를 참조하세요.
 
-- [빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성](sql-database-managed-instance-configure-vm.md)
-- [빠른 시작: 온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)
+- [빠른 시작: 관리되는 인스턴스에 연결하도록 Azure VM 구성](sql-database-managed-instance-configure-vm.md)
+- [빠른 시작: 온-프레미스에서 관리되는 인스턴스로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> Managed Instance를 설정하는 데 사용된 Azure AD 관리자는 Managed Instance 내에 Azure AD 로그인을 만드는 데 사용할 수 없습니다. SQL Server 계정 `sysadmin`을 사용하여 첫 번째 Azure AD 로그인을 만들어야 합니다. 이는 임시 제한이며 Azure AD 로그인이 일반 공급되면 사라질 예정입니다. Azure AD 관리자 계정을 사용하여 로그인을 만들려고 시도하면 `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.` 오류가 발생합니다.
+> 관리되는 인스턴스를 설정하는 데 사용된 Azure AD 관리자는 관리되는 인스턴스 내에 Azure AD 로그인을 만드는 데 사용할 수 없습니다. SQL Server 계정 `sysadmin`을 사용하여 첫 번째 Azure AD 로그인을 만들어야 합니다. 이는 임시 제한이며 Azure AD 로그인이 일반 공급되면 사라질 예정입니다. Azure AD 관리자 계정을 사용하여 로그인을 만들려고 시도하면 `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.` 오류가 발생합니다.
 
-1. 표준 SQL Server 계정(비 azure AD)인 `sysadmin`을 사용하여 [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance)를 통해 Managed Instance에 로그인합니다.
+1. 표준 SQL Server 계정(비 azure AD)인 `sysadmin`을 사용하여 [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance)를 통해 관리되는 인스턴스에 로그인합니다.
 
 2. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
@@ -107,7 +107,7 @@ Managed Instance는 사설 IP 주소를 통해서만 액세스할 수 있습니�
 
 자세한 내용은 [로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)를 참조하세요.
 
-## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>Managed Instance 로그인을 만들 수 있도록 권한 부여
+## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>관리되는 인스턴스 로그인을 만들 수 있도록 권한 부여
 
 다른 Azure AD 로그인을 만들려면 보안 주체(SQL 또는 Azure AD)에 SQL Server 역할 또는 권한이 부여되어야 합니다.
 
@@ -120,11 +120,11 @@ Managed Instance는 사설 IP 주소를 통해서만 액세스할 수 있습니�
 - 새로 만든 Azure AD 로그인에 다른 Azure AD 사용자, 그룹 또는 애플리케이션에 대한 다른 로그인을 만드는 기능을 허용하려면 로그인에 `sysadmin` 또는 `securityadmin` 서버 역할을 부여해야 합니다. 
 - 적어도 다른 Azure AD 로그인을 만들 수 있도록 **ALTER ANY LOGIN** 권한을 Azure AD 로그인에 부여해야 합니다. 
 - 마스터에 새로 만들어진 Azure AD 로그인에는 기본적으로 표준 권한 **CONNECT SQL** 및 **VIEW ANY DATABASE**가 부여됩니다.
-- `sysadmin` 서버 역할은 Managed Instance 내의 여러 Azure AD 로그인에 부여할 수 있습니다.
+- `sysadmin` 서버 역할은 관리되는 인스턴스 내의 여러 Azure AD 로그인에 부여할 수 있습니다.
 
 `sysadmin` 서버 역할에 로그인을 추가하려면:
 
-1. Managed Instance에 다시 로그인하거나 `sysadmin`인 SQL 보안 주체와의 기존 연결을 사용합니다.
+1. 관리되는 인스턴스에 다시 로그인하거나 `sysadmin`인 SQL 보안 주체와의 기존 연결을 사용합니다.
 
 1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
@@ -146,7 +146,7 @@ Managed Instance는 사설 IP 주소를 통해서만 액세스할 수 있습니�
 
 Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그인에서 **FROM EXTERNAL PROVIDER** 절과 **CREATE LOGIN**을 사용하여 추가 로그인을 만들 수 있습니다.
 
-1. SQL Server Management Studio를 사용하여 Azure AD 로그인으로 Managed Instance에 연결합니다. Managed Instance 서버 이름을 입력합니다. SSMS 인증의 경우 Azure AD 계정으로 로그인할 때 다음 세 가지 옵션 중에서 선택할 수 있습니다.
+1. SQL Server Management Studio를 사용하여 Azure AD 로그인으로 관리되는 인스턴스에 연결합니다. 관리되는 인스턴스 호스트 이름을 입력합니다. SSMS 인증의 경우 Azure AD 계정으로 로그인할 때 다음 세 가지 옵션 중에서 선택할 수 있습니다.
 
     - Active Directory - MFA 지원을 통한 유니버설 인증
     - Active Directory - 암호
@@ -172,7 +172,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
 
     이 예제에서는 Azure AD 사용자 bob@aadsqlmi.net에 대한 로그인을 만들며, 이 사용자의 도메인 aadsqlmi.net은 Azure AD aadsqlmi.onmicrosoft.com과 페더레이션됩니다.
 
-    다음 T-SQL 명령을 실행합니다. 페더레이션된 Azure AD 계정은 온-프레미스 Windows 로그인 및 사용자의 Managed Instance를 대체합니다.
+    다음 T-SQL 명령을 실행합니다. 페더레이션된 Azure AD 계정은 온-프레미스 Windows 로그인 및 사용자의 관리되는 인스턴스를 대체합니다.
 
     ```sql
     USE master
@@ -181,7 +181,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
     GO
     ```
 
-1. [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) 구문을 사용하여 Managed Instance에 데이터베이스를 만듭니다. 이 데이터베이스는 다음 섹션에서 사용자 로그인을 테스트하는 데 사용됩니다.
+1. [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current) 구문을 사용하여 관리되는 인스턴스에 데이터베이스를 만듭니다. 이 데이터베이스는 다음 섹션에서 사용자 로그인을 테스트하는 데 사용됩니다.
     1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
     1. 쿼리 창에서 다음 구문을 사용하여 **MyMITestDB**라는 데이터베이스를 만듭니다.
 
@@ -190,7 +190,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
         GO
         ```
 
-1. Azure AD의 그룹에 대한 Managed Instance 로그인을 만듭니다. 그룹이 Azure AD에 있어야만 Managed Instance에 로그인을 추가할 수 있습니다. [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. _mygroup_이라는 그룹을 만들고 이 그룹에 멤버를 추가합니다.
+1. Azure AD의 그룹에 대한 관리되는 인스턴스 로그인을 만듭니다. 그룹이 Azure AD에 있어야만 관리되는 인스턴스에 로그인을 추가할 수 있습니다. [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. _mygroup_이라는 그룹을 만들고 이 그룹에 멤버를 추가합니다.
 
 1. SQL Server Management Studio에서 새 쿼리 창을 엽니다.
 
@@ -203,7 +203,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
     GO
     ```
 
-1. 테스트 삼아 새로 만든 로그인 또는 그룹을 사용하여 Managed Instance에 로그인합니다. Managed Instance에 대한 새 연결을 열고, 인증할 때 새 로그인을 사용합니다.
+1. 테스트 삼아 새로 만든 로그인 또는 그룹을 사용하여 관리되는 인스턴스에 로그인합니다. 관리되는 인스턴스에 대한 새 연결을 열고, 인증할 때 새 로그인을 사용합니다.
 1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 새 연결을 위한 **새 쿼리**를 선택합니다.
 1. 다음 명령을 실행하여 새로 만든 Azure AD 로그인에 대한 서버 권한을 확인합니다.
 
@@ -213,13 +213,13 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
     ```
 
 > [!NOTE]
-> Azure AD 게스트 사용자는 Azure AD 그룹의 일부로 추가되는 경우에만 Managed Instance 로그인에 지원됩니다. Azure AD 게스트 사용자는 다른 Azure AD에서 Managed Instance가 속한 Azure AD로 초대되는 계정입니다. 예를 들어 joe@contoso.com(Azure AD 계정) 또는 steve@outlook.com(MSA 계정)을 Azure AD aadsqlmi의 그룹에 추가할 수 있습니다. 사용자가 그룹에 추가되면 **CREATE LOGIN** 구문을 사용하여 그룹의 Managed Instance **마스터** 데이터베이스에 로그인을 만들 수 있습니다. 이 그룹의 구성원인 게스트 사용자는 현재 로그인(joe@contoso.com 또는 steve@outlook.com)을 사용하여 Managed Instance에 연결할 수 있습니다.
+> Azure AD 게스트 사용자는 Azure AD 그룹의 일부로 추가되는 경우에만 관리되는 인스턴스 로그인에 지원됩니다. Azure AD 게스트 사용자는 다른 Azure AD에서 관리되는 인스턴스가 속한 Azure AD로 초대되는 계정입니다. 예를 들어 joe@contoso.com(Azure AD 계정) 또는 steve@outlook.com(MSA 계정)을 Azure AD aadsqlmi의 그룹에 추가할 수 있습니다. 사용자가 그룹에 추가되면 **CREATE LOGIN** 구문을 사용하여 그룹의 관리되는 인스턴스 **마스터** 데이터베이스에 로그인을 만들 수 있습니다. 이 그룹의 구성원인 게스트 사용자는 현재 로그인(joe@contoso.com 또는 steve@outlook.com)을 사용하여 관리되는 인스턴스에 연결할 수 있습니다.
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-login-and-give-permissions"></a>Azure AD 로그인에서 Azure AD 사용자를 만들고 권한 부여
 
-개별 데이터베이스에 권한 부여는 Managed Instance가 SQL Server 온-프레미스에서 작동하는 방식과 매우 비슷한 방식으로 작동합니다. 데이터베이스의 기존 로그인에서 사용자를 만들고 해당 데이터베이스에 대한 권한을 부여하거나 데이터베이스 역할에 추가할 수 있습니다.
+개별 데이터베이스에 권한 부여는 관리되는 인스턴스가 SQL Server 온-프레미스에서 작동하는 방식과 매우 비슷한 방식으로 작동합니다. 데이터베이스의 기존 로그인에서 사용자를 만들고 해당 데이터베이스에 대한 권한을 부여하거나 데이터베이스 역할에 추가할 수 있습니다.
 
-**MyMITestDB**라는 데이터베이스와 기본 권한만 있는 로그인을 만들었으므로 다음 단계는 해당 로그인에서 사용자를 만드는 것입니다. 지금은 로그인에서 Managed Instance에 연결하고 모든 데이터베이스를 볼 수 있지만, 데이터베이스와 상호 작용할 수는 없습니다. 기본 권한만 있는 Azure AD 계정으로 로그인하여 새로 만든 데이터베이스를 확장하려고 시도하면 다음 오류가 표시됩니다.
+**MyMITestDB**라는 데이터베이스와 기본 권한만 있는 로그인을 만들었으므로 다음 단계는 해당 로그인에서 사용자를 만드는 것입니다. 지금은 로그인에서 관리되는 인스턴스에 연결하고 모든 데이터베이스를 볼 수 있지만, 데이터베이스와 상호 작용할 수는 없습니다. 기본 권한만 있는 Azure AD 계정으로 로그인하여 새로 만든 데이터베이스를 확장하려고 시도하면 다음 오류가 표시됩니다.
 
 ![ssms-db-not-accessible.png](media/sql-database-managed-instance-security-tutorial/ssms-db-not-accessible.png)
 
@@ -227,7 +227,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
 
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Azure AD 사용자를 만들고 샘플 테이블 만들기
 
-1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 Managed Instance에 로그인합니다.
+1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 관리되는 인스턴스에 로그인합니다.
 1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 1. 쿼리 창에서 다음 구문을 사용하여 Azure AD 로그인에서 Azure AD 사용자를 만듭니다.
 
@@ -292,7 +292,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
 
 사용자가 데이터베이스의 데이터를 볼 수 있도록 사용자에게 [데이터베이스 수준 역할](/sql/relational-databases/security/authentication-access/database-level-roles)을 제공할 수 있습니다.
 
-1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 Managed Instance에 로그인합니다.
+1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 관리되는 인스턴스에 로그인합니다.
 
 1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
@@ -322,7 +322,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
     GO
     ```
 
-1. `db_datareader` 역할에 추가된 사용자로 Managed Instance에 대한 새 연결을 만듭니다.
+1. `db_datareader` 역할에 추가된 사용자로 관리되는 인스턴스에 대한 새 연결을 만듭니다.
 1. **개체 탐색기**에서 데이터베이스를 확장하여 테이블을 봅니다.
 
     ![ssms-test-table.png](media/sql-database-managed-instance-security-tutorial/ssms-test-table.png)
@@ -340,11 +340,11 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
 
 ## <a name="impersonating-azure-ad-server-level-principals-logins"></a>Azure AD 서버 수준 보안 주체(로그인) 가장
 
-Managed Instance는 Azure AD 서버 수준 보안 주체(로그인)의 가장을 지원합니다.
+관리되는 인스턴스는 Azure AD 서버 수준 보안 주체(로그인)의 가장을 지원합니다.
 
 ### <a name="test-impersonation"></a>가장 테스트
 
-1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 Managed Instance에 로그인합니다.
+1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 관리되는 인스턴스에 로그인합니다.
 
 1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
@@ -381,11 +381,11 @@ Managed Instance는 Azure AD 서버 수준 보안 주체(로그인)의 가장을
 > - EXECUTE AS USER
 > - EXECUTE AS LOGIN
 
-## <a name="using-cross-database-queries-in-managed-instances"></a>Managed Instance에서 데이터베이스 간 쿼리 사용
+## <a name="using-cross-database-queries-in-managed-instances"></a>관리되는 인스턴스에서 데이터베이스 간 쿼리 사용
 
 Azure AD 로그인을 사용하는 Azure AD 계정에는 데이터베이스 간 쿼리가 지원됩니다. Azure AD 그룹을 사용하여 데이터베이스 간 쿼리를 테스트하려면 다른 데이터베이스 및 테이블을 만들어야 합니다. 다른 데이터베이스 및 테이블이 있으면 만들기를 건너뛰어도 됩니다.
 
-1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 Managed Instance에 로그인합니다.
+1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 관리되는 인스턴스에 로그인합니다.
 1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 1. 쿼리 창에서 다음 명령을 사용하여 **MyMITestDB2**라는 데이터베이스와 **TestTable2**라는 테이블을 만듭니다.
 
@@ -414,7 +414,7 @@ Azure AD 로그인을 사용하는 Azure AD 계정에는 데이터베이스 간 
     GO
     ```
 
-1. SQL Server Management Studio를 사용하여 Azure AD 그룹 _mygroup_의 구성원으로 Managed Instance에 로그인합니다. 새 쿼리 창을 열고 다음 데이터베이스 간 SELECT 문을 실행합니다.
+1. SQL Server Management Studio를 사용하여 Azure AD 그룹 _mygroup_의 구성원으로 관리되는 인스턴스에 로그인합니다. 새 쿼리 창을 열고 다음 데이터베이스 간 SELECT 문을 실행합니다.
 
     ```sql
     USE MyMITestDB
@@ -439,18 +439,18 @@ Azure AD 로그인을 사용하는 Azure AD 계정에는 데이터베이스 간 
 
 ### <a name="enable-security-features"></a>보안 기능 사용
 
-다음 [Managed Instance 기능 보안 기능](sql-database-managed-instance.md#azure-sql-database-security-features) 문서에서 데이터베이스를 보호하는 전체 목록을 확인하세요. 다음과 같은 보안 기능을 설명합니다.
+다음 [관리되는 인스턴스 기능 보안 기능](sql-database-managed-instance.md#azure-sql-database-security-features) 문서에서 데이터베이스를 보호하는 방법에 대한 전체 목록을 확인하세요. 다음과 같은 보안 기능을 설명합니다.
 
-- [Managed Instance 감사](sql-database-managed-instance-auditing.md) 
+- [관리되는 인스턴스 감사](sql-database-managed-instance-auditing.md) 
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
-- [위협 탐지](sql-database-managed-instance-threat-detection.md) 
+- [위협 감지](sql-database-managed-instance-threat-detection.md) 
 - [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)
 - [행 수준 보안](/sql/relational-databases/security/row-level-security) 
 - [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
-### <a name="managed-instance-capabilities"></a>Managed Instance 기능
+### <a name="managed-instance-capabilities"></a>관리되는 인스턴스 기능
 
-Azure SQL Database Managed Instance 기능의 전체 개요는
+관리되는 인스턴스 기능의 전체 개요는
 
 > [!div class="nextstepaction"]
 > [관리되는 인스턴스 기능](sql-database-managed-instance.md)을 참조하세요.

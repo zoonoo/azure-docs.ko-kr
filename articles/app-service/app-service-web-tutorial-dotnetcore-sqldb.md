@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0b4549323b64b0f6210a228ea6cb5ca301839ec8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d62e74c5d81cdf3331bde349a9ec5dfe3071e7f8
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721855"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510700"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 .NET Core 및 SQL Database 앱 빌드
 
@@ -366,6 +366,37 @@ git push azure master
 ![Code First 마이그레이션 후 Azure 앱](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
 기존의 모든 할 일 항목이 계속 표시됩니다. .NET Core 앱을 다시 게시해도 SQL Database의 기존 데이터가 손실되지 않습니다. 또한 Entity Framework Core 마이그레이션은 데이터 스키마만 변경하고 기존 데이터는 그대로 유지합니다.
+
+## <a name="stream-diagnostic-logs"></a>진단 로그 스트림
+
+ASP.NET Core 앱이 Azure App Service에서 실행되는 동안 콘솔 로그를 Cloud Shell에 파이프할 수 있습니다. 이 방법으로 애플리케이션 오류를 디버깅하는 데 도움이 되는 진단 메시지를 동일하게 받을 수 있습니다.
+
+샘플 프로젝트는 다음 두 가지 변경 사항과 함께 [Azure에서 ASP.NET Core 로깅](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure)의 지침을 따릅니다.
+
+- *DotNetCoreSqlDb.csproj*에서 `Microsoft.Extensions.Logging.AzureAppServices`에 대한 참조를 포함합니다.
+- *Startup.cs*에서 `loggerFactory.AddAzureWebAppDiagnostics()`를 호출합니다.
+
+App Service에서 ASP.NET Core [로그 수준](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level)을 기본 수준 `Warning`에서 `Information`으로 설정하려면, Cloud Shell에서 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 명령을 사용합니다.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
+```
+
+> [!NOTE]
+> 프로젝트의 로그 수준은 *appsettings.json*에서 `Information`으로 설정됩니다.
+> 
+
+로그 스트리밍을 시작하려면 Cloud Shell에서 [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) 명령을 사용합니다.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+로그 스트리밍이 시작되면 브라우저에서 Azure 앱을 새로 고쳐 일부 웹 트래픽을 가져옵니다. 이제 터미널에 파이프된 콘솔 로그가 표시될 수 있습니다. 콘솔 로그가 즉시 표시되지 않으면 30초 후에 다시 확인합니다.
+
+언제든지 로그 스트리밍을 중지하려면 `Ctrl`+`C`를 입력합니다.
+
+ASP.NET Core 로그를 사용자 지정하는 방법은 [ASP.NET Core에서 로깅](https://docs.microsoft.com/aspnet/core/fundamentals/logging)을 참조하세요.
 
 ## <a name="manage-your-azure-app"></a>Azure 앱 관리
 

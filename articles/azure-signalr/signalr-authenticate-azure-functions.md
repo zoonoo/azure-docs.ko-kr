@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 0cd0dcaf200b1248204efc2d2c0011a94d3c41d3
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b66d4c9fb3bce03248f5696d5a7b2b7b62b7ffd3
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720971"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746380"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure SignalR Service 인증
 
@@ -54,7 +54,7 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
 
 1. 다음 정보를 입력합니다.
 
-    | 이름 | 값 |
+    | Name | 값 |
     |---|---|
     | 리소스 이름 | SignalR Service 인스턴스에 대한 고유한 이름입니다. |
     | 리소스 그룹 | 새 리소스 그룹 만들기 |
@@ -134,11 +134,11 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | 이름 | 값 |
+    | Name | 값 |
     |---|---|
     | 함수 앱 폴더 | 주 프로젝트 폴더를 선택합니다. |
     | Template | HTTP 트리거 |
-    | 이름 | SignalRInfo |
+    | Name | SignalRInfo |
     | 권한 부여 수준 | 익명 |
 
     새 함수가 포함된 **SignalRInfo**라는 폴더가 만들어집니다.
@@ -194,11 +194,11 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | 이름 | 값 |
+    | Name | 값 |
     |---|---|
     | 함수 앱 폴더 | 주 프로젝트 폴더를 선택합니다. |
     | Template | HTTP 트리거 |
-    | 이름 | SendMessage |
+    | Name | SendMessage |
     | 권한 부여 수준 | 익명 |
 
     새 함수가 포함된 **SendMessage**라는 폴더가 만들어집니다.
@@ -302,7 +302,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 메시지를 보내는 경우 연결된 모든 클라이언트에 보낼지, 아니면 지정한 사용자에게 인증된 클라이언트에만 보낼지 여부를 결정할 수 있습니다.
 
-1. VS Code에서 **SendMessage/function.json**을 엽니다.
+1. VS Code에서 **SignalRInfo/function.json**을 엽니다.
 
 1. *SignalRConnectionInfo* 바인딩의 *userId* 속성에 [바인딩 식](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns)(`{headers.x-ms-client-principal-name}`)을 삽입합니다. 이렇게 하면 값이 인증된 사용자의 사용자 이름으로 설정됩니다. 특성은 이제 다음과 같습니다.
 
@@ -324,7 +324,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | 이름 | 값 |
+    | Name | 값 |
     |---|---|
     | 배포할 폴더 | 주 프로젝트 폴더를 선택합니다. |
     | 구독 | 구독 선택 |
@@ -345,7 +345,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 
-    | 이름 | 값 |
+    | Name | 값 |
     |---|---|
     | 로컬 설정 파일 | local.settings.json |
     | 구독 | 구독 선택 |
@@ -393,7 +393,7 @@ CORS 설정은 **local.settings.json**에 있지만 Azure의 함수 앱에 전�
 
 1. 파일을 저장합니다.
 
-### <a name="deploy-the-web-application-to-blob-storage"></a>Blob 저장소에 웹 애플리케이션 배포
+### <a name="deploy-the-web-application-to-blob-storage"></a>Blob Storage에 웹 응용 프로그램 배포
 
 웹 애플리케이션은 Azure Blob Storage의 정적 웹 사이트 기능을 사용하여 호스팅됩니다.
 
@@ -403,9 +403,9 @@ CORS 설정은 **local.settings.json**에 있지만 Azure의 함수 앱에 전�
 
 1. 다음 정보를 입력합니다.
 
-    | 이름 | 값 |
+    | Name | 값 |
     |---|---|
-    | 이름 | Blob 저장소 계정에 대한 고유한 이름입니다. |
+    | Name | Blob Storage 계정에 대한 고유한 이름입니다. |
     | 계정 종류 | StorageV2(범용 V2) |
     | 위치 | 다른 리소스와 동일한 지역을 선택합니다. |
     | 복제 | LRS(로컬 중복 저장소) |

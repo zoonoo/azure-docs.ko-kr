@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190291"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566122"
 ---
 # <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>빠른 시작: Azure Portal을 통해 Azure Container Instances에서 컨테이너 애플리케이션 실행
 
@@ -41,7 +41,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정][azure-free-acc
 
 ![Azure Portal에서 새 컨테이너 인스턴스의 기본 설정 구성][aci-portal-03]
 
-Azure Container Instances에서는 Windows 및 Linux 컨테이너를 모두 만들 수 있습니다. 이 빠른 시작에서는 **Linux**의 기본 설정을 사용하여 Linux 기반 `microsoft/aci-helloworld` 이미지를 배포하겠습니다.
+이 빠른 시작의 경우 **공용**의 기본 설정을 그대로 유지하여 공개 Docker Hub 레지스트리의 `microsoft/aci-helloworld` 이미지를 배포합니다. 이 이미지는 고정 HTML 페이지를 제공하는 Node.js로 작성된 작은 웹앱을 패키징합니다.
 
 **구성** 아래에서 컨테이너의 **DNS 이름 레이블**을 지정합니다. 이름은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. 컨테이너는 `<dns-name-label>.<region>.azurecontainer.io`에서 공개적으로 연결할 수 있습니다.
 

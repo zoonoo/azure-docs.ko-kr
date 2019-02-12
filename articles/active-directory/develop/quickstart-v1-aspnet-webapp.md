@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: aeb9f1ba460a009daacf3090c75573dd5d69b813
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095858"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816274"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -64,7 +64,7 @@ ms.locfileid: "55095858"
 
 대신 이 샘플의 Visual Studio 프로젝트를 다운로드하려면 다음 단계를 수행합니다.
 1. [GitHub에서 프로젝트를 다운로드합니다.](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip)
-1. [구성 단계](#configure-your-webconfig-and-register-an-application)로 건너뛰어 실행 전에 코드 샘플을 구성합니다.
+1. 구성 단계로 건너뛰어 실행 전에 코드 샘플을 구성합니다.
 
 ## <a name="step-2-create-your-aspnet-project"></a>2단계: ASP.NET 프로젝트 만들기
 

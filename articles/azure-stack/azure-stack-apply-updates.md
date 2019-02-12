@@ -11,22 +11,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 02/11/2019
 ms.author: mabrigg
-ms.reviewer: wfayed
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 585fc4f1bbddb08d881414b581120b7bc14232ab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.reviewer: justini
+ms.lastreviewed: 02/11/2019
+ms.openlocfilehash: 0c3f52c78bbfd3094324b74f3b66610fcebfa2f4
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729951"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099295"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure Stack의 업데이트 적용
 
 *적용 대상: Azure Stack 통합 시스템*
 
-사용할 수는 **업데이트** Azure Stack에 대 한 Microsoft 또는 OEM 업데이트 패키지를 적용 하려면 관리 포털에서 타일입니다. 업데이트 패키지를 다운로드 하 고, Azure Stack에 패키지 파일을 가져올 하 고, 다음 업데이트 패키지를 설치 해야 합니다.
+사용할 수는 **업데이트** Azure Stack에 대 한 Microsoft 또는 OEM 업데이트 패키지를 적용 하려면 관리 포털에서 타일입니다.
+
+통합된 시스템 버전 1807을 사용 하는 경우 업데이트 패키지를 다운로드 해야 하는 이전에 Azure Stack에 패키지 파일을 가져올 하 고 업데이트 패키지를 설치 합니다. 자세한 내용은 [패키지를 다운로드 하 여 Azure Stack 업데이트](#update-azure-stack-by-downloading-the-package)
+
+이러한 지침은 작업 Azure Stack 통합 시스템을 업그레이드합니다. Azure Stack 개발 시스템을 사용 하는 경우 최신 버전은 설치 패키지를 다운로드 해야 합니다. 자세한 내용은 [Azure Stack 개발 키트를 설치 합니다.](.\asdk\asdk-install.md)
+
+## <a name="update-azure-stack"></a>Azure Stack을 업데이트 합니다.
+
+### <a name="select-and-apply-an-update-package"></a>선택한 업데이트 패키지를 적용 합니다.
+
+1. 관리 포털을 엽니다.
+
+2. 선택 **대시보드**합니다. 선택 된 **업데이트** 바둑판식으로 배열 합니다.
+
+    ![Azure Stack 업데이트 사용 가능](media/azure-stack-apply-updates/azure-stack-updates-1901-dashboard.png)
+
+3. 현재 버전의 Azure Stack에 기록해 둡니다. 다음 정식 버전으로 업데이트할 수 있습니다. 예를 들어 다음 실행 하는 경우 Azure Stack 1811, 버전 출시 하는 경우 1901 합니다.
+
+    ![Azure Stack 업데이트 적용](media/azure-stack-apply-updates/azure-stack-updates-1901-updateavailable.png)
+
+4. 업데이트 목록에서 다음 사용 가능한 버전을 선택 합니다. 선택할 수 있습니다 **보기** 릴리스에서 경우 버전에 대 한 릴리스 정보 항목을 열려면 메모 열 버전 변경 내용을 검토 하 려 합니다.
+
+5. 이제 업데이트를 선택 합니다. 업데이트가 시작됩니다.
+
+### <a name="review-update-history"></a>업데이트 기록 검토
+
+1. 관리 포털을 엽니다.
+
+2. 선택 **대시보드**합니다. 선택 된 **업데이트** 바둑판식으로 배열 합니다.
+
+3. 선택 **업데이트 기록**합니다.
+
+![Azure Stack 업데이트 기록](media/azure-stack-apply-updates/azure-stack-update-history.PNG)
+
+## <a name="update-azure-stack-by-downloading-the-package"></a>패키지를 다운로드 하 여 Azure Stack을 업데이트 합니다.
+
+통합된 시스템 버전 1807을 사용 하는 경우 업데이트 패키지를 다운로드 해야 하는 이전에 Azure Stack에 패키지 파일을 가져올 하 고 업데이트 패키지를 설치 합니다.
 
 ## <a name="download-the-update-package"></a>업데이트 패키지 다운로드
 

@@ -4,18 +4,18 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8de46fee4f93fffa669dc96ec5bb84e36842a055
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ac708eb2ac79a74b8f4e09a7306a42665b3aca94
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165915"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736246"
 ---
 #### <a name="to-delete-a-cloud-appliance"></a>클라우드 어플라이언스를 삭제하려면
 
 1. Azure 포털에 로그인합니다.
 2. 데이터가 없는 비활성화된 디바이스만 삭제할 수 있습니다. 디바이스에서 데이터를 먼저 삭제하거나 [볼륨 컨테이너의 데이터를 다른 디바이스로 장애 조치할 수 있습니다](../articles/storsimple/storsimple-8000-device-failover-cloud-appliance.md). 데이터가 삭제되면 디바이스를 비활성화할 준비가 되었습니다.
-3. StorSimple 디바이스 관리자 서비스 페이지에서 **디바이스**를 클릭한 다음 해당 디바이스를 선택합니다. 마우스 오른쪽 단추로 클릭하고 **비활성화**를 선택합니다.
+3. StorSimple 디바이스 관리자 서비스 페이지에서 **디바이스**를 클릭한 다음, 해당 디바이스를 선택합니다. 마우스 오른쪽 단추로 클릭하고 **비활성화**를 선택합니다.
 4. 디바이스가 비활성화되면 디바이스를 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다.
 
     ![비활성화된 디바이스를 선택하고 삭제를 클릭합니다.](./media/storsimple-8000-delete-cloud-appliance/delete-cloud-appliance1.png)

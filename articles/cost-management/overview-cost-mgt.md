@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 02/05/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: a90ef531cedb5e4c32a8f0af8b6cca86a93fb39a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997115"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768660"
 ---
 # <a name="what-is-azure-cost-management"></a>Azure Cost Management란?
 
-비용 관리는 비즈니스 관련 비용을 효율적으로 계획하고 관리하는 프로세스입니다. 비용 관리 태스크는 일반적으로 재무, 관리 및 앱 팀에서 수행합니다. Azure Cost Management는 Microsoft EA(기업계약)가 있는 조직이 비용을 고려해서 계획을 세우는 데 도움을 줍니다. 또한 비용을 효율적으로 분석하고 클라우드 지출을 최적화하기 위한 작업을 수행하는 데도 도움이 됩니다. 조직 차원에서 비용 관리에 접근하는 방법에 대한 자세한 내용은 [Azure Cost Management 모범 사례](cost-mgt-best-practices.md) 문서를 참조하세요.
+비용 관리는 비즈니스 관련 비용을 효율적으로 계획하고 관리하는 프로세스입니다. 비용 관리 태스크는 일반적으로 재무, 관리 및 앱 팀에서 수행합니다. Azure Cost Management는 조직에서 비용을 염두에 두고 계획을 세울 수 있도록 도와줍니다. 또한 비용을 효율적으로 분석하고 클라우드 지출을 최적화하기 위한 작업을 수행하는 데도 도움이 됩니다. 조직 차원에서 비용 관리에 접근하는 방법에 대한 자세한 내용은 [Azure Cost Management 모범 사례](cost-mgt-best-practices.md) 문서를 참조하세요.
 
 관련은 있지만 청구와 비용 관리는 다릅니다. 청구는 상품이나 서비스에 대한 비용을 고객에게 청구하고 상업적 관계를 관리하는 프로세스입니다.  일반적으로 조달 및 재무 팀이 청구 작업을 수행합니다.
 

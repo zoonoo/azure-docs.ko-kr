@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 659d960881f143655e98c6f1d38696f44def3ae8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 798cf405c222a443dbbd3a316d20c482daf4429f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055101"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563255"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: C IoT Edge 모듈 개발 및 시뮬레이션된 디바이스에 배포
 
@@ -36,8 +36,8 @@ ms.locfileid: "54055101"
 
 Azure IoT Edge 장치:
 
-* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
-* Azure IoT Edge용 C 모듈은 Windows 컨테이너를 지원하지 않습니다. IoT Edge 디바이스가 Windows 머신인 경우 [Linux 컨테이너를 사용](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)하도록 구성하세요.
+* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다. 
+* Azure IoT Edge용 C 모듈은 Windows 컨테이너를 지원하지 않습니다. IoT Edge 디바이스가 Windows 머신인 경우 Linux 컨테이너를 사용하도록 구성해야 합니다. Windows 및 Linux 컨테이너 간의 설치 차이점은 [Windows에 IoT Edge 런타임 설치](how-to-install-iot-edge-windows.md)를 참조하세요.
 
 클라우드 리소스:
 
@@ -49,9 +49,6 @@ Azure IoT Edge 장치:
 * Visual Studio Code용 [C/C++ 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 * Visual Studio Code용 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 * [Docker CE](https://docs.docker.com/install/).
-
->[!Note]
->Azure IoT Edge용 C 모듈은 Windows 컨테이너를 지원하지 않습니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
@@ -99,7 +96,7 @@ Azure IoT Edge 장치:
    | 솔루션 이름 제공 | 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값 **EdgeSolution**을 적용합니다. |
    | 모듈 템플릿 선택 | **C 모듈**을 선택합니다. |
    | 모듈 이름 제공 | 모듈 이름을 **CModule**로 지정합니다. |
-   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. 마지막 문자열은 \<\>registry name.azurecr.io/cmodule 형식입니다. |
+   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에 제공한 이름으로 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/cmodule과 같습니다. |
  
    ![Docker 이미지 리포지토리 제공](./media/tutorial-c-module/repository.png)
 
@@ -296,7 +293,7 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 
 12. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 **deployment.template.json** 파일을 엽니다. 이 파일은 배포할 모듈(이 경우 **tempSensor** 및 **CModule**)을 IoT Edge 에이전트에 알려주고, 메시지를 라우팅하는 방법을 IoT Edge 허브에 알려줍니다. Visual Studio Code 확장은 배포 템플릿에 필요한 대부분의 정보를 자동으로 채우지만 솔루션에 대한 모든 정보가 정확한지 확인합니다. 
 
-   1. VS Code 상태 표시줄에서 IoT Edge의 기본 플랫폼은 **amd64**로 설정되어 있습니다. 이는 **CModule**이 Linux amd64 버전의 이미지로 설정되었음을 나타냅니다. IoT Edge 디바이스의 아키텍처가 이와 다를 경우 상태 표시줄의 기본 플랫폼을 **amd64**에서 **arm32v7** 또는 **windows-amd64**로 변경하세요. 
+   1. VS Code 상태 표시줄에서 IoT Edge의 기본 플랫폼은 **amd64**로 설정되어 있습니다. 이는 **CModule**이 Linux amd64 버전의 이미지로 설정되었음을 나타냅니다. IoT Edge 디바이스의 아키텍처가 이와 다를 경우 상태 표시줄의 기본 플랫폼을 **amd64**에서 **arm32v7**로 변경하세요. 
 
       ![모듈 이미지 플랫폼 업데이트](./media/tutorial-c-module/image-platform.png)
 
@@ -340,6 +337,12 @@ Visual Studio Code에 솔루션을 빌드하라고 지시하면 Visual Studio Co
 다음으로, Visual Studio Code는 통합 터미널에서 `docker build` 및 `docker push` 명령을 실행합니다. 이 두 명령은 코드를 빌드하고, `CModule.dll`을 컨테이너화하고, 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 푸시합니다.
 
 VS Code 통합 터미널에 태그와 함께 전체 컨테이너 이미지 주소를 볼 수 있습니다. 이미지 주소는 `module.json` 파일의 정보에서 **\<리포지토리\>:\<버전\>-\<플랫폼\>**  형식으로 작성됩니다. 이 자습서에서 이 주소는 **myregistry.azurecr.io/cmodule:0.0.1-amd64** 형식입니다.
+
+>[!TIP]
+>모듈을 빌드하고 푸시하는 동안 오류가 발생하는 경우 다음 사항을 확인하세요.
+>* Visual Studio Code에서 컨테이너 레지스트리의 자격 증명을 사용하여 Docker에 로그인했나요? 이러한 자격 증명은 Azure Portal에 로그인하는 데 사용하는 자격 증명과 다릅니다.
+>* 컨테이너 리포지토리가 올바른가요? **modules** > **cmodule** > **module.json**을 열고 **리포지토리** 필드를 찾습니다. 이미지 리포지토리는 **\<registryname\>.azurecr.io/cmodule**과 같습니다. 
+>* 개발 머신이 실행 중인 컨테이너와 동일한 유형의 컨테이너를 빌드하고 있나요? Visual Studio Code의 기본값은 Linux amd64 컨테이너입니다. 개발 머신에서 Linux arm32v7 컨테이너를 실행중인 경우 VS Code 창의 하단에 있는 파란색 상태 표시줄에서 컨테이너 플랫폼과 일치하도록 플랫폼을 업데이트합니다. C 모듈은 Windows 컨테이너로 빌드할 수 없습니다. 
 
 ## <a name="deploy-and-run-the-solution"></a>솔루션 배포 및 실행
 

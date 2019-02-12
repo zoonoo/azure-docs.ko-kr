@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 54872a1c5a40cdb3f51c17362daed93c3892001e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720665"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754560"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -67,10 +67,10 @@ ACR에 저장된 이미지에 액세스하려면 AKS 서비스 사용자에게 A
 az acr show --resource-group myResourceGroup --name <acrName> --query "id" --output tsv
 ```
 
-ACR에 저장된 이미지를 사용하도록 AKS 클러스터에 대한 올바른 액세스 권한을 부여하려면 [az role assignment create][] 명령을 사용하여 역할 할당을 만듭니다. `<appId`> 및 `<acrId>`를 이전 두 단계에서 수집한 값으로 바꿉니다.
+ACR에 저장된 이미지를 가져오도록 AKS 클러스터에 대한 올바른 액세스 권한을 부여하려면 [az role assignment create][] 명령을 사용하여 `AcrPull` 역할을 할당합니다. `<appId`> 및 `<acrId>`를 이전 두 단계에서 수집한 값으로 바꿉니다.
 
 ```azurecli
-az role assignment create --assignee <appId> --scope <acrId> --role Reader
+az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 ```
 
 ## <a name="create-a-kubernetes-cluster"></a>Kubernetes 클러스터 만들기

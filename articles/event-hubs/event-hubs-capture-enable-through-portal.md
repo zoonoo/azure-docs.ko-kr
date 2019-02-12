@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2018
+ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 19b485add894dbe99a524d16f891d001991c1ec7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 2cfd984129097b598c08e53b3698dc32ed616cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558382"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810669"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정
 
@@ -32,11 +32,14 @@ Azure [Event Hubs 캡처][capture-overview]를 사용하면 Event Hubs의 스트
 
 ## <a name="capture-data-to-an-azure-storage-account"></a>Azure Storage 계정에 데이터 캡처  
 
-이벤트 허브를 만드는 경우 **Event Hub 만들기** 포털 화면에서 **켜기** 단추를 클릭하여 캡처를 사용하도록 설정합니다. 그런 다음 **캡처 공급자** 상자에서 **Azure Storage**를 클릭하여 저장소 계정 및 컨테이너를 지정합니다. Event Hubs 캡처는 저장소에서 서비스 간 인증을 사용하므로 저장소 연결 문자열을 지정할 필요가 없습니다. 리소스 선택기가 저장소 계정에 대한 리소스 URI를 자동으로 선택합니다. Azure Resource Manager를 사용하는 경우 이 URI를 문자열로 명백히 제공해야 합니다.
+이벤트 허브를 만드는 경우 **Event Hub 만들기** 포털 화면에서 **켜기** 단추를 클릭하여 캡처를 사용하도록 설정합니다. 그런 다음 **캡처 공급자** 상자에서 **Azure Storage**를 클릭하여 스토리지 계정 및 컨테이너를 지정합니다. Event Hubs 캡처는 저장소에서 서비스 간 인증을 사용하므로 저장소 연결 문자열을 지정할 필요가 없습니다. 리소스 선택기가 저장소 계정에 대한 리소스 URI를 자동으로 선택합니다. Azure Resource Manager를 사용하는 경우 이 URI를 문자열로 명백히 제공해야 합니다.
 
 기본 시간은 5분입니다. 최소값은 1, 최대값은 15입니다. **크기**의 범위는 10-500MB입니다.
 
 ![캡처 시간 범위][1]
+
+> [!NOTE]
+> 캡처 기간 동안 이벤트가 하나도 발생하지 않으면 빈 파일 내보내기를 사용 또는 사용하지 않도록 설정할 수 있습니다. 
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Azure Data Lake Store 계정에 데이터를 캡처합니다.
 

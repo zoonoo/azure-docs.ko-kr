@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051314"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812347"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Virtual Network 서비스 엔드포인트 정책(미리 보기)
 
@@ -154,7 +154,7 @@ Virtual Network 서비스 엔드포인트 정책은 다음과 같은 이점을 �
 ### <a name="troubleshooting-scenarios"></a>문제 해결 시나리오
 - 엔드포인트 정책에 나열되지 않은 저장소 정책에 대한 액세스 허용
   - 네트워크 보안 그룹이 다른 지역의 Azure Storage 계정이나 인터넷에 대한 액세스를 허용할 수 있습니다.
-  - 네트워크 보안 그룹은 모든 아웃바운드 인터넷 트래픽을 거부하고 특정 Azure Storage 지역에 대한 트래픽만 허용하도록 구성되어야 합니다. 자세한 내용은 [네트워크 보안 그룹](#network-security-groups)을 참조하세요.
+  - 네트워크 보안 그룹은 모든 아웃바운드 인터넷 트래픽을 거부하고 특정 Azure Storage 지역에 대한 트래픽만 허용하도록 구성되어야 합니다. 자세한 내용은 네트워크 보안 그룹을 참조하세요.
 - 엔드포인트 정책에 나열된 계정에 대한 액세스 거부 
   - 네트워크 보안 그룹 또는 방화벽 필터링이 액세스를 차단할 수 있음
   - 정책 제거/다시 적용 후 연결이 끊어짐

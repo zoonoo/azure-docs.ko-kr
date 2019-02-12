@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a82ea1e7f584cd9cab794d147c3f19f04e23732b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 953615a9c6b716db1db0c7bfb993f3d47aefd7a9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474805"
+ms.locfileid: "55507776"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -130,13 +130,13 @@ SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure
 
 클라이언트 쪽 암호화에 대한 자세한 내용은 [Microsoft Azure Storage용 .NET을 사용하는 클라이언트 쪽 암호화](storage-client-side-encryption.md)를 참조하세요.
 
-## <a name="replication"></a>복제
+## <a name="redundancy"></a>중복
 
-데이터가 지속되는지 확인하기 위해 Azure Storage는 여러 데이터 복사본을 복제합니다. 저장소 계정을 설정할 때 복제 형식을 선택합니다. 대부분의 경우 저장소 계정을 만든 후 이 설정을 수정할 수 있습니다. 
+데이터가 지속되는지 확인하기 위해 Azure Storage는 여러 데이터 복사본을 복제합니다. 스토리지 계정을 설정할 때 중복 옵션을 선택합니다. 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-재해 복구 정보는 [Azure Storage 중단이 발생할 경우 수행할 작업](storage-disaster-recovery-guidance.md)을 참조하세요.
+재해 복구에 대한 자세한 내용은 [Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(failover)(미리 보기)](storage-disaster-recovery-guidance.md)를 참조하세요.
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Azure Storage 간에 데이터 전송
 

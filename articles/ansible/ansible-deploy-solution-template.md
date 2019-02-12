@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.openlocfilehash: 705d23a93b25c513d413f2115c47d52ff6ef2bac
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9fa711c86e3ef7f05e87504905ec642808d8f601
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229215"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770285"
 ---
 # <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>CentOS에 Azure용 Ansible 솔루션 템플릿 배포
 Azure용 Ansible 솔루션 템플릿은 Azure와 함께 작동하도록 구성된 Ansible 및 도구 모음과 함께 CentOS 가상 머신에 Ansible 인스턴스를 구성하도록 설계되었습니다. 도구로는 다음이 있습니다.
@@ -53,7 +53,7 @@ Azure용 Ansible 솔루션 템플릿은 Azure와 함께 작동하도록 구성�
 1. **추가 설정** 탭에서 필요한 정보를 입력합니다.
 
     - **크기** - Azure Portal은 기본적으로 표준 크기로 설정됩니다. 특정 시나리오에 적합한 크기를 지정하려면 화살표를 선택하여 다양한 크기 목록을 표시합니다.
-    - **VM 디스크 크기** - **SSD**(프리미엄 반도체 드라이브) 또는 **HDD**(하드 디스크 드라이브)를 선택합니다. 이 데모에서는 고성능 **SSD**를 선택합니다. 각 디스크 스토리지 유형에 대한 자세한 내용은 다음 문서를 참조하세요.
+    - **VM 디스크 유형** - **SSD**(프리미엄 반도체 드라이브) 또는 **HDD**(하드 디스크 드라이브)를 선택합니다. 이 데모에서는 고성능 **SSD**를 선택합니다. 각 디스크 스토리지 유형에 대한 자세한 내용은 다음 문서를 참조하세요.
         - [VM용 고성능 Premium Storage 및 관리 디스크](/azure/virtual-machines/windows/premium-storage)
         - [Azure 가상 머신 워크로드용 표준 SSD Managed Disks](/azure/virtual-machines/windows/disks-standard-ssd)
     - **공용 IP 주소** - 가상 머신 외부에서 가상 머신과 통신하려면 이 설정을 지정합니다. 기본값은 이름이 `ansible-pip`인 새 공용 IP 주소입니다. 다른 IP 주소를 지정하려면 화살표를 선택하여 이름, SKU, 할당 등 해당 IP 주소의 특성을 지정합니다. 

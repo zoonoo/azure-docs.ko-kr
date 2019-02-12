@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0118c17045b86c88d8d92048787a20bd7d309c0b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0ffad78afd6acdfbcea8df970358c639706f14b8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298350"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814251"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 개인 Docker 컨테이너 레지스트리 소개
 
@@ -32,7 +32,7 @@ Azure Container Registry에서 다양한 배포 대상으로 이미지 끌어오
 
 개발자는 컨테이너 개발 워크플로의 일환으로 컨테이너 레지스트리에 밀어넣을 수도 있습니다. 예를 들어 [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) 또는 [Jenkins](https://jenkins.io/)와 같은 배포 도구 및 지속적인 통합의 컨테이너 레지스트리를 대상으로 합니다.
 
-기본 이미지가 업데이트되면 자동으로 애플리케이션 이미지를 다시 빌드하도록 [ACR 작업](#azure-container-registry-build)을 구성합니다. 팀에서 Git 리포지토리에 코드를 커밋할 때 ACR 작업을 사용하여 이미지를 자동으로 빌드합니다.
+기본 이미지가 업데이트되면 자동으로 애플리케이션 이미지를 다시 빌드하도록 ACR 작업을 구성합니다. 팀에서 Git 리포지토리에 코드를 커밋할 때 ACR 작업을 사용하여 이미지를 자동으로 빌드합니다.
 
 ## <a name="key-concepts"></a>주요 개념
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: f231fa7624a2babea2a3d91076ad0348b3c9e976
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8ed3213a40370b1ab2beb15a989a22017b058d65
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540383"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812075"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>자습서: Azure Time Series Insights JavaScript 클라이언트 라이브러리
 
@@ -147,7 +147,7 @@ TSI 클라이언트 라이브러리 API는 집계 식을 많이 사용합니다.
    | `splitByObject`   | 분할하려는 문자열 속성(선택 사항 - null일 수 있음)입니다. | `{property: 'Station', type: 'String'}` |
    | `color`         | 렌더링하려는 개체의 색입니다. | `'pink'` |
    | `alias`           | 집계 식의 식별 이름입니다. | `'Factory3Temperature'` |
-   | `contextMenuActions` | 시각화에서 시간 시리즈 개체에 바인딩할 작업의 배열입니다(선택 사항). | 자세한 내용은 [고급 기능 섹션의 팝업 바로 가기 메뉴](#popup-context-menus)를 참조하세요. |
+   | `contextMenuActions` | 시각화에서 시간 시리즈 개체에 바인딩할 작업의 배열입니다(선택 사항). | 자세한 내용은 고급 기능 섹션의 팝업 바로 가기 메뉴를 참조하세요. |
 
 3. `TsiClient.Server` API를 사용하여 집계 데이터를 요청하는 TSI 쿼리를 호출합니다.
 
@@ -260,7 +260,7 @@ TSI 클라이언트 라이브러리는 현재 꺾은선형 차트, 원형 차트
 
 브러시를 사용하여 확대/축소 및 탐색 같은 작업을 정의하는 시간 범위를 설정할 수 있습니다.
 
-브러시를 보여 주기 위해 사용하는 코드는 [팝업 바로 가기 메뉴](#popup-context-menus-section)를 다루는 이전의 "원형/가로 막대형 차트를 만드는 바로 가기 메뉴를 설명하는 꺾은선형 차트"에 표시됩니다.
+브러시를 보여 주기 위해 사용하는 코드는 팝업 바로 가기 메뉴를 다루는 이전의 "원형/가로 막대형 차트를 만드는 바로 가기 메뉴를 설명하는 꺾은선형 차트"에 표시됩니다.
 
 1. 브러시 작업은 바로 가기 메뉴와 유사하게 브러시에 대한 일련의 사용자 지정 작업을 정의합니다. 하나 이상의 요소가 있는 배열을 포함하는 각 작업. 각 요소는 단일 바로 가기 메뉴 항목을 정의합니다.
    - `name`: 메뉴 항목에 사용되는 텍스트, 즉 "콘솔에 매개 변수 출력"입니다.

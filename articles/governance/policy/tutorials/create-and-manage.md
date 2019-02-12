@@ -4,17 +4,17 @@ description: Azure Policy를 사용하여 표준을 적용하고, 규정 준수 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ecebeef509f1f23e34ade6a79b8ffe39d4cbb0a5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cb6f033c784832efab23c747057b1c0ef1b317fa
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845625"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730274"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -322,7 +322,7 @@ az policy definition list
 
 ## <a name="create-and-assign-an-initiative-definition"></a>이니셔티브 정의 만들기 및 할당
 
-이니셔티브 정의를 사용하면 여러 정책 정의를 그룹화하여 매우 중요한 하나의 목표를 달성할 수 있습니다. 정의 범위 내의 리소스가 이니셔티브 정의를 구성하는 정책 정의를 지속적으로 준수하는지 확인하는 이니셔티브 정의를 만듭니다. 이니셔티브 정의에 대한 자세한 내용은 [Azure Policy 개요](../overview.md)를 참조하세요.
+이니셔티브 정의를 사용하면 여러 정책 정의를 그룹화하여 매우 중요한 하나의 목표를 달성할 수 있습니다. 이니셔티브는 할당 범위 내 리소스가 포함된 정책을 준수하는지 평가합니다. 이니셔티브 정의에 대한 자세한 내용은 [Azure Policy 개요](../overview.md)를 참조하세요.
 
 ### <a name="create-an-initiative-definition"></a>이니셔티브 정의 만들기
 

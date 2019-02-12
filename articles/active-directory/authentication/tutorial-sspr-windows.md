@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a36f9bf3ade623a6b623116c504c2b6a04fcdf2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c84d876828ac96bfb44b84e99b13489d51ae3370
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474873"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694026"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -33,6 +33,7 @@ ms.locfileid: "55474873"
    * [하이브리드 Azure AD 조인](../device-management-hybrid-azuread-joined-devices-setup.md)(도메인 컨트롤러에 네트워크가 연결됨)
 * Azure AD 셀프 서비스 암호 재설정을 사용하도록 설정해야 합니다.
 * Windows 10 디바이스가 프록시 서버나 방화벽 뒤에 있는 경우에는 HTTPS 트래픽(포트 443) 허용 URL 목록에 `passwordreset.microsoftonline.com` 및 `ajax.aspnetcdn.com` URL을 추가해야 합니다.
+* 사용자 환경에서 이 기능을 시도하기 전에 아래 제한 사항을 검토하세요.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune을 사용하여 암호 재설정 링크 구성
 
@@ -98,13 +99,15 @@ Intune을 사용하여 로그인 화면에 암호 재설정 링크를 사용하�
 
 ![로그인 화면][LoginScreen]
 
-이제 사용자가 로그인을 시도하면 셀프 서비스 암호 재설정 환경을 제공하는 암호 재설정 링크가 로그인 화면에 표시됩니다. 사용자는 이 기능을 사용하면 다른 장치를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
+이제 사용자가 로그인을 시도하면 셀프 서비스 암호 재설정 환경을 제공하는 암호 재설정 링크가 로그인 화면에 표시됩니다. 사용자는 이 기능을 사용하면 다른 디바이스를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
 
 이 기능을 사용하는 방법에 대한 지침은 [회사 또는 학교 암호 재설정](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)에서 찾을 수 있습니다.
 
 Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 ClientType에 대한 정보가 포함됩니다.
 
 ![예제 로그온 화면 Azure AD 감사 로그의 암호 재설정](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+사용자가 Windows 10 디바이스 로그인 화면에서 암호를 재설정하면 “defaultuser1”이라는 낮은 권한의 임시 계정이 생성됩니다. 이 계정은 암호 재설정 프로세스를 안전하게 유지하는 데 사용됩니다. 계정 자체는 무작위로 생성된 암호를 가지고 있으며, 디바이스 로그인 시 표시되지 않으며, 사용자가 암호를 설정하면 자동으로 제거됩니다. 여러 개의 “defaultuser” 프로필이 있을 수 있지만 무시해도 무방합니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -116,7 +119,9 @@ Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 
 
 * 현재 원격 데스크톱에서는 암호 재설정이 지원되지 않습니다.
 
-정책에서 Ctrl+Alt+Del을 요구하거나 잠금 화면 알림이 꺼진 경우 **암호 재설정**이 작동하지 않습니다.
+Windows 10 1809 이전 버전에서 정책이 Ctrl+Alt+Del을 요구하는 경우 **암호 재설정**이 작동하지 않습니다.
+
+잠금 화면 알림이 꺼진 경우 **암호 재설정**이 작동하지 않습니다.
 
 다음 정책 설정은 암호를 재설정하는 기능을 방해하는 것으로 알려져 있습니다.
 
@@ -128,7 +133,7 @@ Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 
 
 이 기능은 802.1x 네트워크 인증이 배포된 네트워크에 및 “사용자가 로그온하기 직전에 수행” 옵션에는 작동하지 않습니다. 802.1x 네트워크 인증이 배포된 네트워크의 경우 머신 인증을 사용하여 이 기능을 사용하는 것이 좋습니다.
 
-하이브리드 도메인 조인 시나리오의 경우, Active Directory 도메인 컨트롤러 없이도 SSPR 워크플로가 완료되는 시나리오가 있습니다. 새 암호를 처음 사용하려면 도메인 컨트롤러와 연결해야 합니다.
+하이브리드 도메인 조인 시나리오의 경우, Active Directory 도메인 컨트롤러 없이도 SSPR 워크플로가 성공적으로 완료되는 시나리오가 있습니다. Active Directory 도메인 컨트롤러와 통신할 수 없을 때(예: 원격으로 작업할 때) 사용자가 암호 재설정 프로세스를 완료할 경우에는 디바이스가 도메인 컨트롤러와 통신하고 캐시된 자격 증명을 업데이트할 수 있을 때까지 사용자가 디바이스에 로그인할 수 없습니다. **새 암호를 처음 사용하려면 도메인 컨트롤러와 연결해야 합니다**.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

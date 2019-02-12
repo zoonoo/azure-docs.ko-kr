@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 93894f9c45ac8b2cfcec23cf6a9ccd4d8e6f6824
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7efa2f19aedfbd00ccced8b755d3b02847b31444
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121727"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508609"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 이메일 및 첨부 파일 처리 자동화
 
@@ -64,7 +64,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | **배포 모델** | 리소스 관리자 | 리소스 배포를 관리하기 위한 [배포 모델](../azure-resource-manager/resource-manager-deployment-model.md) | 
    | **계정 종류** | 범용 가상 컴퓨터 | [저장소 계정 유형](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
    | **위치**: | 미국 서부 | 저장소 계정에 대한 정보를 저장할 지역 | 
-   | **복제** | LRS(로컬 중복 저장소) | 이 설정은 데이터가 복사, 저장, 관리 및 동기화되는 방식을 지정합니다. [복제](../storage/common/storage-introduction.md#replication)를 참조하세요. | 
+   | **복제** | LRS(로컬 중복 저장소) | 이 설정은 데이터가 복사, 저장, 관리 및 동기화되는 방식을 지정합니다. [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복성](../storage/common/storage-redundancy-lrs.md)을 참조하세요. | 
    | **성능** | Standard | 이 설정은 지원되는 데이터 형식 및 데이터를 저장하기 위한 미디어를 지정합니다. [저장소 계정 유형](../storage/common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. | 
    | **보안 전송 필요** | 사용 안 함 | 이 설정은 연결의 요청에 필요한 보안을 지정합니다. [보안 전송 필요](../storage/common/storage-require-secure-transfer.md)를 참조하세요. | 
    | **구독** | <*your-Azure-subscription-name*> | Azure 구독의 이름 | 
@@ -84,12 +84,12 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    저장소 계정의 액세스 키를 가져오려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list)를 사용할 수도 있습니다. 
 
-3. 이메일 첨부 파일에 대한 Blob 저장소 컨테이너를 만듭니다.
+3. 이메일 첨부 파일에 대한 Blob Storage 컨테이너를 만듭니다.
    
    1. 저장소 계정 메뉴에서 **개요**를 선택합니다. 
    **서비스** 아래에서 **Blob**을 선택합니다.
 
-      ![Blob 저장소 컨테이너 추가](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
+      ![Blob Storage 컨테이너 추가](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
    2. **컨테이너** 페이지가 열리면 도구 모음에서 **컨테이너**를 선택합니다. 
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 6c498f51bffeadce7a7c0dba8491942f1d4d0248
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766098"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099142"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 업데이트
 
@@ -118,6 +118,18 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 - 이제 managed Disks는 Azure Stack 포털을 사용 하 여 가상 컴퓨터를 만들 때 기본적으로 활성화 됩니다. 참조 된 [알려진 문제](#known-issues-post-installation) VM 생성 오류를 방지 하려면 Managed Disks에 필요한 추가 단계에 대 한 섹션입니다.
 
 - 이 릴리스에서 경고를 소개 **복구** Azure Stack 운영자에 대 한 작업입니다. 일부 경고 1811에서 제공을 **복구** 문제를 해결 하려면 선택할 수 있는 경고의 단추입니다. 자세한 내용은 [Azure Stack의 상태 및 경고 모니터링](azure-stack-monitor-health.md)합니다.
+
+- Azure Stack의 업데이트 환경에 업데이트 합니다. 업데이트 개선 사항은 다음과 같습니다. 
+    - 업데이트 기록 중에서 더 나은 추적 업데이트에서 업데이트를 분할 하 고 업데이트를 완료 하는 탭을 선택 합니다.
+    - 새 아이콘 및 레이아웃 마지막 뿐만 아니라 현재 및 OEM 버전에 대 한 essentials 섹션에서 향상 된 상태 시각화는 날짜를 업데이트 합니다.
+    - **보기** 릴리스 참고 열은 사용자 설명서를 직접 특정 제네릭 업데이트 페이지 보다는 해당 업데이트에 대 한 링크입니다.
+    - **업데이트 기록** 탭 각 업데이트에 대 한 실행된 시간을 결정 하는 데 뿐만 아니라 필터링 기능을 향상 합니다.  
+    - 연결 된 azure Stack 배율 단위는 자동으로 계속 수신 **사용할 수 있는 업데이트** 사용 가능 해지면 합니다.
+    - 연결 되지 않은 azure Stack 배율 단위 전에 마찬가지로 업데이트를 가져올 수 있습니다. 
+    - 포털에서 JSON 로그를 다운로드 하는 프로세스에 변경 하지 않고 있습니다. Azure Stack 운영자는 진행률을 표현 하는 단계를 확장 하면 표시 됩니다.
+
+    자세한 내용은 [Azure Stack의 업데이트 적용](azure-stack-apply-updates.md)합니다.
+
 
 ## <a name="fixed-issues"></a>해결된 문제
 

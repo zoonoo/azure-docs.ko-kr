@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f0e8bf922f142b795dd1a2ded4b3ec265c43481a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: bd9cb76557c65832de5d249cdccdc36101edf646
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39250057"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821289"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>자습서: IoT Hub에 대해 수동 장애 조치 수행(공개 미리 보기)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행(공개 미리 보기)
 
 수동 장애 조치는 고객이 해당 허브의 작업을 주 지역에서 해당 Azure 지역 쌍을 이루는 지역으로 [장애 조치](https://en.wikipedia.org/wiki/Failover)할 수 있는 IoT Hub 서비스의 기능입니다. 수동 장애 조치는 지역 재해 또는 확장된 서비스 중단 발생 시 수행될 수 있습니다. 프로덕션에서 실행 중인 기능보다 테스트 IoT Hub를 사용하는 것이 좋지만 재해 복구 기능을 테스트하기 위해 계획된 장애 조치를 수행할 수도 있습니다. 수동 장애 조치 기능은 추가 비용 없이 고객에게 제공됩니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "39250057"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -50,7 +50,7 @@ ms.locfileid: "39250057"
     **지역**: 미리 보기의 일부인 가까운 지역을 선택합니다. 이 자습서에서는 `westus2`를 사용합니다. Azure 지역 쌍을 이루는 지역 간에서만 장애 조치를 수행할 수 있습니다. westus2를 사용하는 지역 쌍을 이루는 지역은 WestCentralUS입니다.
     
    > [!NOTE]
-   > 수동 장애 조치는 현재 공개 미리 보기 상태로 제공되며, 미국 동부, 미국 서부, 유럽 북부, 유럽 서부, 브라질 남부 및 미국 중남부와 같은 Azure 지역에서 사용할 수 *없습니다*.
+   > 수동 장애 조치(failover)는 현재 공개 미리 보기 상태이며 다음 Auzre 지역에서는 제공되지 *않습니다*. 미국 동부, 미국 서부, 북유럽, 유럽 서부, 브라질 남부, 미국 중남부.
 
    **IoT Hub이름**: IoT Hub의 이름을 지정합니다. 허브 이름은 전역적으로 고유해야 합니다. 
 
@@ -112,7 +112,7 @@ IoT Hub에 대해 하루 최대 두 번의 장애 조치 및 두 번의 장애 �
 
    ![수동 장애 복구 요청 스크린샷](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
 
-   배너는 [장애 조치 수행](#perform-a-failover) 섹션에 설명된 대로 표시됩니다. 장애 복구를 완료한 후에 원래 설정된 대로 `westus2`를 기본 위치로 표시하고 `WestCentralUS`를 보조 위치로 표시합니다.
+   배너는 장애 조치 수행 섹션에 설명된 대로 표시됩니다. 장애 복구를 완료한 후에 원래 설정된 대로 `westus2`를 기본 위치로 표시하고 `WestCentralUS`를 보조 위치로 표시합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 

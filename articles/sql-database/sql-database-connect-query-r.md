@@ -11,58 +11,42 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 11/30/2018
-ms.openlocfilehash: fc5398b4ffb0b9310b6ab13561830d8d3db7a611
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/31/2019
+ms.openlocfilehash: 84017e95d41f8934de248065a2b66792628b41d2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725746"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815545"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>빠른 시작: Azure SQL Database(미리 보기)에서 Machine Learning Services(R 포함) 사용
 
-이 문서에서는 Azure SQL Database에서 Machine Learning Services(R 포함) 공개 미리 보기를 사용하는 방법을 설명합니다. SQL 데이터베이스와 R 간에 데이터를 이동하는 기본 사항을 안내합니다. 잘 구성된(Well-Formed) R 코드를 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 저장 프로시저에 래핑하여 SQL 데이터베이스에서 기계 학습 모델을 빌드, 교육 및 사용하는 방법도 설명합니다.
+이 문서에서는 [Azure SQL Database에서 Machine Learning Services(R 포함)](sql-database-machine-learning-services-overview.md) 공개 미리 보기를 사용하는 방법을 설명합니다. SQL 데이터베이스와 R 간에 데이터를 이동하는 기본 사항을 안내합니다. 잘 구성된(Well-Formed) R 코드를 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 저장 프로시저에 래핑하여 SQL 데이터베이스에서 기계 학습 모델을 빌드, 교육 및 사용하는 방법도 설명합니다.
 
-SQL Database의 머신 러닝은 함수 및 R 코드를 실행하는 데 사용되며, 코드는 관계형 데이터에 저장 프로시저로, R 문을 포함하는 T-SQL 스크립트로 또는 T-SQL을 포함하는 R 코드로 완전히 사용할 수 있습니다. 엔터프라이즈 R 패키지의 강력한 성능을 사용하여 시스템 규모에 관계 없이 고급 분석을 제공하고, 네트워크를 통해 데이터를 끌어올 필요가 없도록 데이터가 상주하는 위치에 계산 및 처리를 제공합니다.
+강력한 R 언어를 사용하여 데이터베이스에 대한 고급 분석 및 기계 학습을 제공합니다. 이 기능은 데이터가 상주하는 위치에서 계산 및 처리를 수행하므로 네트워크를 통해 데이터를 끌어올 필요가 없습니다. 또한 강력한 엔터프라이즈 R 패키지를 활용하여 고급 분석을 대규모로 제공합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Machine Learning Services는 Microsoft의 엔터프라이즈 R 패키지가 오버레이된 기본 R 배포판을 포함하고 있습니다. Microsoft의 R 함수 및 알고리즘은 규모 및 유용성을 중심으로 엔지니어링되었으며 예측 분석, 통계 모델링, 데이터 시각화 및 첨단 기계 학습 알고리즘을 제공합니다.
 
-## <a name="sign-up-for-the-preview"></a>미리 보기 등록
+Azure 구독이 없는 경우 시작하기 전에 [계정을 만듭니다](https://azure.microsoft.com/free/).
 
-SQL Database의 Machine Learning Services(R 포함) 공개 미리 보기는 기본적으로 사용되지 않습니다. [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com)에서 Microsoft에 이메일을 보내서 공개 미리 보기에 등록할 수 있습니다.
-
-프로그램에 등록되면 Microsoft에서 사용자를 공개 미리 보기에 온보딩하고, 기존 데이터베이스를 마이그레이션하거나 새 데이터베이스를 R 사용 서비스에 만듭니다.
-
-SQL Database의 Machine Learning Services(R 포함)는 현재 단일 및 풀링된 데이터베이스를 위한 **범용** 및 **중요 비즈니스용** 서비스의 vCore 기반 구매 모델에서만 사용할 수 있습니다. 이 초기 공개 미리 보기에서는 **하이퍼스케일** 서비스 계층과 **Managed Instance**가 지원되지 않습니다. 공개 미리 보기 기간에는 Machine Learning Services(R 포함)를 프로덕션 워크로드에 사용하면 안 됩니다.
-
-SQL 데이터베이스에 Machine Learning Services(R 포함)를 사용하도록 설정한 경우 이 페이지로 돌아와서 저장 프로시저의 컨텍스트에서 R 스크립트를 실행하는 방법을 알아보세요.
-
-현재 지원되는 언어는 R뿐입니다. 현재 Python에 대한 다른 지원은 제공되지 않습니다.
+> [!NOTE]
+> Azure SQL Database의 Machine Learning Services(R 포함)는 현재 공개 미리 보기로 제공됩니다. [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup)하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 연습의 예제 코드를 실행하려면 Machine Learning Services(R 포함)가 사용되는 SQL 데이터베이스가 있어야 합니다. Microsoft는 위에서 설명한 것처럼 공개 미리 보기 기간에는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 머신 러닝을 사용하도록 설정합니다.
+이 연습의 예제 코드를 실행하려면 Machine Learning Services(R 포함)가 사용되는 SQL 데이터베이스가 있어야 합니다. Microsoft는 공개 미리 보기 기간에는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 기계 학습을 사용하도록 설정합니다. [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup) 단계를 수행하세요.
 
 SQL Database에 연결하고 T-SQL 쿼리 또는 저장 프로시저를 실행할 수 있는 한, 사용자는 SQL Database에 연결하고 R 스크립트 데이터베이스 관리 또는 쿼리 도구를 실행할 수 있습니다. 이 빠른 시작에서는 [SQL Server Management Studio](sql-database-connect-query-ssms.md)를 사용합니다.
 
 [패키지 추가](#add-package) 연습에서는 로컬 컴퓨터에 [R](https://www.r-project.org/) 및 [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/)을 설치해야 합니다.
 
-이 빠른 시작에서는 서버 수준 방화벽 규칙도 구성해야 합니다. 이 작업 방법을 보여주는 빠른 시작은 [서버 수준 방화벽 규칙 만들기](sql-database-get-started-portal-firewall.md)를 참조하세요.
-
-## <a name="different-from-sql-server"></a>SQL Server와 다른 점
-
-Azure SQL Database의 Machine Learning Services(R 포함) 기능은 [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)와 비슷합니다. 하지만 약간의 차이점이 있습니다.
-
-- R만 지원합니다. 현재는 Python을 지원하지 않습니다.
-- `sp_configure`를 통해 `external scripts enabled`를 구성할 필요가 없습니다.
-- **sqlmlutils**를 통해 패키지를 설치해야 합니다.
-- 별도의 외부 리소스 거버넌스가 없습니다. R 리소스는 계층에 따라 SQL 리소스의 특정 비율입니다.
+이 빠른 시작에서는 서버 수준 방화벽 규칙도 구성해야 합니다. 이 작업 방법을 보여주는 빠른 시작은 [서버 수준 방화벽 규칙 만들기](sql-database-server-level-firewall-rule.md)를 참조하세요.
 
 ## <a name="verify-r-exists"></a>R이 있는지 확인
 
 SQL 데이터베이스에 Machine Learning Services(R 포함)를 사용하도록 설정되었는지 확인할 수 있습니다. 아래 단계를 따르세요.
 
-1. SQL Server Management Studio를 열고 SQL 데이터베이스에 연결합니다.
+1. SQL Server Management Studio를 열고 SQL 데이터베이스에 연결합니다. 연결 방법에 대한 자세한 내용은 [빠른 시작: SQL Server Management Studio를 사용하여 Azure SQL 데이터베이스 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요.
 
 1. 아래 코드를 실행합니다. 
 
@@ -122,13 +106,13 @@ GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
     0.5 2
     ```
 
-    코드를 테스트할 때 **stdout** 메시지를 가져오면 도움이 되지만, 애플리케이션에서 사용할 수 있도록 또는 테이블에 쓸 수 있도록 결과를 테이블 형식으로 반환해야 하는 경우가 자주 있습니다. 자세한 내용은 아래의 입력 및 출력 섹션을 참조하세요.
+    코드를 테스트할 때 **stdout** 메시지를 가져오면 도움이 되지만, 응용 프로그램에서 사용할 수 있도록 또는 테이블에 쓸 수 있도록 결과를 테이블 형식으로 반환해야 하는 경우가 자주 있습니다. 자세한 내용은 아래의 입력 및 출력 섹션을 참조하세요.
 
 `@script` 인수 내부의 모든 항목이 유효한 R 코드여야 합니다.
 
 ## <a name="inputs-and-outputs"></a>입력 및 출력
 
-기본적으로 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)는 단일 입력 데이터 집합을 수락하며, 이 데이터 집합은 일반적으로 유효한 SQL 쿼리 형식으로 입력합니다. 다른 유형의 입력은 SQL 변수로 전달할 수 있습니다.
+기본적으로 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)는 단일 입력 데이터 세트를 수락하며, 이 데이터 세트는 일반적으로 유효한 SQL 쿼리 형식으로 입력합니다. 다른 유형의 입력은 SQL 변수로 전달할 수 있습니다.
 
 저장 프로시저는 단일 R 데이터 프레임을 출력으로 반환하지만, 스칼라 및 모델을 변수로 출력할 수도 있습니다. 예를 들어 학습된 모델을 이진 변수로 출력하여 T-SQL INSERT 문에 전달하고, 해당 모델을 테이블에 쓸 수 있습니다. 플롯(이진 형식) 또는 스칼라(날짜 및 시간, 모델을 교육하는 데 걸린 시간 등의 개별 값)를 생성할 수도 있습니다.
 
@@ -188,7 +172,7 @@ GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
 
     매개 변수 순서도 중요합니다. 선택적 매개 변수 *@input_data_1_name* 및 *@output_data_1_name*을 사용하려면 먼저 필수 매개 변수 *@input_data_1* 및 *@output_data_1*을 지정해야 합니다.
 
-    한 데이터 집합만 매개 변수로 전달할 수 있으며, 한 데이터 집합만 반환할 수 있습니다. 그러나 R 코드 내에서 다른 데이터 집합을 호출할 수 있으며 데이터 집합 외에도 다른 유형의 출력을 반환할 수 있습니다. 또한 모든 매개 변수에 OUTPUT 키워드를 추가하여 결과와 함께 반환되게 만들 수 있습니다. 
+    한 데이터 세트만 매개 변수로 전달할 수 있으며, 한 데이터 세트만 반환할 수 있습니다. 그러나 R 코드 내에서 다른 데이터 세트를 호출할 수 있으며 데이터 세트 외에도 다른 유형의 출력을 반환할 수 있습니다. 또한 모든 매개 변수에 OUTPUT 키워드를 추가하여 결과와 함께 반환되게 만들 수 있습니다. 
 
     `WITH RESULT SETS` 문은 SQL Database에 사용되는 데이터의 스키마를 정의합니다. R에서 반환하는 각 열에 대한 SQL 호환 데이터 형식을 제공해야 합니다. 스키마 정의를 사용하여 새 열 이름을 제공할 수 있습니다. 반드시 R 데이터 프레임의 열 이름을 사용할 필요는 없습니다.
 
@@ -263,10 +247,9 @@ Microsoft는 SQL 데이터베이스에 Machine Learning Services가 미리 설�
 
     ![R에 설치된 패키지](./media/sql-database-connect-query-r/r-installed-packages.png)
 
-
 ## <a name="create-a-predictive-model"></a>예측 모델 만들기
 
-R을 사용하여 모델을 교육하고 SQL 데이터베이스의 테이블에 모델을 저장할 수 있습니다. 이 연습에서는 속도를 기반으로 자동차의 정지 거리를 예측하는 단순 회귀 모델을 교육합니다. R에 포함된 작고 이해하기 쉬운 `cars` 데이터 집합을 사용하겠습니다.
+R을 사용하여 모델을 교육하고 SQL 데이터베이스의 테이블에 모델을 저장할 수 있습니다. 이 연습에서는 속도를 기반으로 자동차의 정지 거리를 예측하는 단순 회귀 모델을 교육합니다. R에 포함된 작고 이해하기 쉬운 `cars` 데이터 세트를 사용하겠습니다.
 
 1. 먼저 교육 데이터를 저장할 테이블을 만듭니다.
 
@@ -282,7 +265,7 @@ R을 사용하여 모델을 교육하고 SQL 데이터베이스의 테이블에 
     GO
     ```
 
-    R 런타임에는 크고 작은 여러 데이터 집합이 포함되어 있습니다. R을 사용하여 설치된 데이터 집합 목록을 가져오려면 R 명령 프롬프트에서 `library(help="datasets")` 명령을 입력합니다.
+    R 런타임에는 크고 작은 여러 데이터 세트가 포함되어 있습니다. R을 사용하여 설치된 데이터 세트 목록을 가져오려면 R 명령 프롬프트에서 `library(help="datasets")` 명령을 입력합니다.
 
 2. 회귀 모델 만들기 자동차 속도 데이터에는 `dist` 및 `speed` 열이 포함되며, 두 열 모두 숫자입니다. 일부 속도는 여러 차례 관찰됩니다. 이 데이터를 사용하여 자동차의 속도와 자동차를 멈추는 데 필요한 거기 간의 관계를 설명하는 선형 회귀 모델을 만들 것입니다.
 
@@ -530,8 +513,9 @@ SQL 데이터베이스에 설치되지 않은 패키지를 사용해야 하는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Machine Learning Services에 대한 자세한 내용은 SQL Server Machine Learning Services에 대한 아래 문서를 참조하세요. 이러한 문서는 SQL Server와 관련되어 있지만, 대부분의 정보가 Azure SQL Database의 Machine Learning Services(R 포함)에도 적용됩니다.
+Machine Learning Services에 대한 자세한 내용은 아래 문서를 참조하세요. 이러한 문서 중 일부는 SQL Server와 관련되어 있지만, 대부분의 정보가 Azure SQL Database의 Machine Learning Services(R 포함)에도 적용됩니다.
 
+- [Azure SQL Database Machine Learning Services(R 포함)](sql-database-machine-learning-services-overview.md)
 - [SQL Server Machine Learning 서비스](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
 - [자습서: SQL Server에서 R을 사용하여 데이터베이스 내 분석 알아보기](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
 - [R 및 SQL Server에 대한 종합적인 데이터 과학 연습](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)

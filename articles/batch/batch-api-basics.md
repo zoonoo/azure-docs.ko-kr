@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b4d0ee26cb9f7283cac871c70737cd701fb74c91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754070"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818586"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -62,7 +62,7 @@ Azure Batch 서비스의 핵심 구성 요소 개요에서는 Batch 개발자가
   * [시작 태스크](#start-task)
   * [작업 관리자 태스크](#job-manager-task)
   * [작업 준비 및 해제 태스크](#job-preparation-and-release-tasks)
-  * [MPI(다중 인스턴스 태스크)](#multi-instance-tasks)
+  * MPI(다중 인스턴스 태스크)
   * [작업 종속성](#task-dependencies)
 * [애플리케이션 패키지](#application-packages)
 
@@ -83,11 +83,11 @@ Batch는 다음 유형의 Azure Storage 계정을 지원합니다.
 
 * 범용 v2(GPv2) 계정 
 * 범용 v1(GPv1) 계정
-* Blob 저장소 계정(현재 가상 머신 구성에서 풀에 대해 지원됨)
+* Blob Storage 계정(현재 가상 머신 구성에서 풀에 대해 지원됨)
 
 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
 
-Batch 계정을 만들 때 또는 나중에 저장소 계정을 Batch 계정에 연결할 수 있습니다. 저장소 계정을 선택할 때 비용 및 성능 요구 사항을 고려해야 합니다. 예를 들어 GPv2 및 BLOB 저장소 계정 옵션은 GPv1보다 큰 [용량 및 확장성 제한](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)을 지원합니다. (저장소 제한을 늘리려면 Azure 고객 지원팀에 문의하세요.) 이러한 계정 옵션은 저장소 계정에서 데이터를 읽어 오거나 저장소 계정에 데이터를 쓰는 다수의 병렬 태스크를 포함하고 있는 Batch 솔루션의 성능을 향상할 수 있습니다.
+Batch 계정을 만들 때 또는 나중에 저장소 계정을 Batch 계정에 연결할 수 있습니다. 저장소 계정을 선택할 때 비용 및 성능 요구 사항을 고려해야 합니다. 예를 들어 GPv2 및 Blob Storage 계정 옵션은 GPv1보다 큰 [용량 및 확장성 제한](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)을 지원합니다. (저장소 제한을 늘리려면 Azure 고객 지원팀에 문의하세요.) 이러한 계정 옵션은 저장소 계정에서 데이터를 읽어 오거나 저장소 계정에 데이터를 쓰는 다수의 병렬 태스크를 포함하고 있는 Batch 솔루션의 성능을 향상할 수 있습니다.
 
 ## <a name="compute-node"></a>Compute 노드
 계산 노드는 애플리케이션의 워크로드 중 일부를 처리하도록 전담하는 Azure VM(가상 머신) 또는 클라우드 서비스 VM입니다. 노드의 크기에 따라 노드에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. Azure Cloud Services, [Azure Virtual Machines Marketplace][vm_marketplace] 이미지 또는 사용자가 준비한 사용자 지정 이미지를 사용하여 Windows 또는 Linux 노드의 풀을 만들 수 있습니다. 이러한 옵션에 대한 자세한 내용은 다음 [풀](#pool)을 참조하세요.
@@ -153,7 +153,7 @@ Batch 풀을 만들 때 Azure 가상 머신 구성과 풀의 각 계산 노드�
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Virtual Machine 풀에서 컨테이너 지원
 
-Batch API를 사용하여 Virtual Machine 구성 풀을 만들 때 Docker 컨테이너에서 작업을 실행하도록 풀을 설정할 수 있습니다. 현재 Docker 컨테이너를 지원하는 이미지를 사용하여 풀을 만들어야 합니다. Microsoft Azure Marketplace의 컨테이너 이미지로 Windows Server 2016 Datacenter를 사용하거나 Docker Community Edition이나 Enterprise Edition 및 모든 필수 드라이버를 포함하는 사용자 지정 VM 이미지를 제공합니다. 풀 설정은 풀이 만들어질 때 VM에 컨테이너 이미지를 복사하는 [컨테이너 구성](/rest/api/batchservice/pool/add#definitions_containerconfiguration)을 포함해야 합니다. 그러면 풀에서 실행되는 작업은 컨테이너 이미지와 컨테이너 실행 옵션을 참조할 수 있습니다.
+Batch API를 사용하여 Virtual Machine 구성 풀을 만들 때 Docker 컨테이너에서 작업을 실행하도록 풀을 설정할 수 있습니다. 현재 Docker 컨테이너를 지원하는 이미지를 사용하여 풀을 만들어야 합니다. Microsoft Azure Marketplace의 컨테이너 이미지로 Windows Server 2016 Datacenter를 사용하거나 Docker Community Edition이나 Enterprise Edition 및 모든 필수 드라이버를 포함하는 사용자 지정 VM 이미지를 제공합니다. 풀 설정은 풀이 만들어질 때 VM에 컨테이너 이미지를 복사하는 [컨테이너 구성](/rest/api/batchservice/pool/add)을 포함해야 합니다. 그러면 풀에서 실행되는 작업은 컨테이너 이미지와 컨테이너 실행 옵션을 참조할 수 있습니다.
 
 자세한 내용은 [Azure Batch에서 Docker 컨테이너 애플리케이션 실행](batch-docker-container-workloads.md)을 참조하세요.
 
@@ -215,7 +215,7 @@ Azure Batch 풀을 만들 때 Azure에서 사용할 수 있는 거의 모든 VM 
 
 ### <a name="network-configuration"></a>네트워크 구성
 
-풀의 계산 노드를 만들어야 하는 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 서브넷을 지정할 수 있습니다. 자세한 내용은 [풀 네트워크 구성](#pool-network-configuration) 섹션을 참조하세요.
+풀의 계산 노드를 만들어야 하는 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md)의 서브넷을 지정할 수 있습니다. 자세한 내용은 풀 네트워크 구성 섹션을 참조하세요.
 
 
 ## <a name="job"></a>작업
@@ -271,7 +271,7 @@ Batch에서 만드는 작업에 우선 순위를 할당할 수 있습니다. Bat
 * [시작 태스크](#start-task)
 * [작업 관리자 태스크](#job-manager-task)
 * [작업 준비 및 해제 태스크](#job-preparation-and-release-tasks)
-* [MPI(다중 인스턴스 태스크)](#multi-instance-tasks)
+* MPI(다중 인스턴스 태스크)
 * [작업 종속성](#task-dependencies)
 
 ### <a name="start-task"></a>시작 태스크
@@ -445,7 +445,7 @@ Batch 솔루션 내에서 태스크 오류와 애플리케이션 오류를 모�
 
     태스크에 대해 지정된 파일 업로드가 어떤 이유로든 실패한 경우 해당 태스크에 대해 파일 업로드 오류가 설정됩니다.
 
-    Azure Storage 액세스를 위해 제공된 SAS가 유효하지 않거나 쓰기 권한이 제공되지 않는 경우, 저장소 계정을 더 이상 사용할 수 없거나, 노드에서 파일의 복사를 방지하여 다른 문제가 발생한 경우 파일 업로드 오류가 발생할 수 있습니다.    
+    Azure Storage 액세스를 위해 제공된 SAS가 유효하지 않거나 쓰기 권한이 제공되지 않는 경우, 스토리지 계정을 더 이상 사용할 수 없거나, 노드에서 파일의 복사를 방지하여 다른 문제가 발생한 경우 파일 업로드 오류가 발생할 수 있습니다.    
 
 * **애플리케이션 오류**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 81bc37a4bbd63beda122d7254409e2b16f0e3cb1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2075f8f83392c9ddd1761a96958fcb6cb12dc013
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852166"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816427"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
 
@@ -45,13 +45,13 @@ ms.locfileid: "54852166"
 > [!NOTE] 
 > [PowerShell](/powershell/azure/get-started-azureps)을 사용하여 Service Bus 네임스페이스 및 메시징 엔터티를 만들 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Service Bus 리소스 관리](service-bus-manage-with-ps.md)를 참조하세요.
 
-Service Bus 메시징 네임스페이스를 이미 만든 경우 [Azure Portal을 사용하여 큐 만들기](#2-create-a-queue-using-the-azure-portal) 섹션으로 이동합니다.
+Service Bus 메시지 네임스페이스를 이미 만든 경우 Azure Portal을 사용하여 큐 만들기 섹션으로 이동합니다.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-queue-using-the-azure-portal"></a>Azure Portal을 사용하여 큐 만들기
 
-Service Bus 큐를 이미 만든 경우 [큐에 메시지 보내기](#3-send-messages-to-the-queue) 섹션으로 이동합니다.
+Service Bus 큐를 이미 만든 경우 큐에 메시지 보내기 섹션으로 이동합니다.
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959540"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297670"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Syslog의 Service Fabric Linux 클러스터 이벤트
 
@@ -35,7 +35,7 @@ Service Fabric은 사용자에게 클러스터의 중요한 작업에 대해 알
 * Message
 * 심각도
 
-SyslogConsumer는 Facility `Local0`를 사용하여 모든 플랫폼 이벤트를 씁니다. 구성을 변경하여 유효한 시설을 업데이트할 수 있습니다. 사용되는 Identity는 `ServicFabric`입니다. 메시지 필드에는 다양한 도구에서 쿼리하고 사용할 수 있도록 JSON으로 직렬화된 전체 이벤트가 포함됩니다. 
+SyslogConsumer는 Facility `Local0`를 사용하여 모든 플랫폼 이벤트를 씁니다. 구성을 변경하여 유효한 시설을 업데이트할 수 있습니다. 사용되는 Identity는 `ServiceFabric`입니다. 메시지 필드에는 다양한 도구에서 쿼리하고 사용할 수 있도록 JSON으로 직렬화된 전체 이벤트가 포함됩니다. 
 
 ## <a name="enable-syslogconsumer"></a>SyslogConsumer 사용
 
@@ -84,7 +84,7 @@ SyslogConsumer를 사용하려면 클러스터를 업그레이드해야 합니�
 실행할 변경 작업은 다음과 같습니다.
 1. [일반] 섹션에는 `LinuxStructuredTracesEnabled`라는 새로운 매개 변수가 있습니다. **Syslog로 전송되는 Linux 이벤트를 정형화 및 직렬화하는 데 필요합니다.**
 2. [진단] 섹션에는 새 ConsumerInstance인 SyslogConsumer가 추가되었습니다. 플랫폼에 또 다른 이벤트 소비자가 생긴 것입니다. 
-3. 새로운 SyslogConsumer 섹션은 `IsEnabled`를 `true`로 설정해야 합니다. 자동으로 Local0 시설을 사용하도록 구성되어 있습니다. 또 다른 매개 변수를 추가하여 이 설정을 재정의할 수 있습니다.
+3. 새로운 SyslogConsumer 섹션은 `IsEnabled`를 `true`로 설정해야 합니다. 이 항목은 Local0 시설을 사용하도록 자동으로 구성됩니다. 또 다른 매개 변수를 추가하여 이 설정을 재정의할 수 있습니다.
 
 ```json
     {

@@ -1,20 +1,20 @@
 ---
 title: Azure Search 서비스란? - Azure Search 서비스
-description: Azure Search는 완벽하게 관리되는 호스트된 클라우드 Search 서비스입니다. 기능 설명, 개발 워크플로, Azure Search 및 다른 검색 제품 비교, 시작하는 방법을 검토합니다.
+description: Azure Search는 완벽하게 관리되는 Microsoft의 호스트된 클라우드 Search 서비스입니다. 기능 설명, 개발 워크플로, Azure Search 및 다른 Microsoft 검색 제품 비교, 시작하는 방법을 검토합니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/09/2018
+ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 884a726dbc7d7f2812f4de2228ca5adaf9b223ea
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 36d65e1ffab79c8f0866d60f4a133798d25e9dea
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630404"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562796"
 ---
 # <a name="what-is-azure-search"></a>Azure Search란?
 Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 애플리케이션의 비공개, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다. 쿼리 실행은 사용자 정의 인덱스를 통합니다.

@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 607356bb59550626c9fe5f71d4609b9c3e2b2fe0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 77493782802eeb29313b57d11442535f1734c12e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251302"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097388"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>인프라 백업 서비스를 사용 하 여 Azure Stack에 대 한 백업 및 데이터 복구
 
@@ -52,12 +52,16 @@ ms.locfileid: "55251302"
   필요한 파일 공유 7 백업을 포함할 수 있는 Azure Stack에서 액세스할 수 있습니다. 각 백업은 약 10GB입니다. 공유에 백업 140 GB를 저장할 수 있어야 합니다. Azure Stack 인프라 백업 서비스에 대 한 저장소 위치를 선택 하는 방법에 대 한 자세한 내용은 참조 하십시오 [백업 컨트롤러 요구 사항](azure-stack-backup-reference.md#backup-controller-requirements)합니다.
 - **자격 증명**  
   도메인 사용자 계정 및 자격 증명 필요, 예를 들어, Azure Stack 관리자 자격 증명을 사용할 수 있습니다.
-- **암호화 키**  
-  백업 파일이이 키를 사용 하 여 암호화 됩니다. 이 키는 안전한 위치에 저장 해야 합니다. 을 처음으로이 키를 설정 하거나 나중에 키를 회전 되 면이 키는이 인터페이스에서 확인할 수 없습니다. 미리 공유한 키를 생성 하는 자세한 지침은, 스크립트의 따릅니다 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](azure-stack-backup-enable-backup-powershell.md)합니다.
+- **암호화 인증서**  
+  백업 파일은 인증서의 공개 키를 사용 하 여 암호화 됩니다. 이 인증서를 안전한 위치에에서 저장 해야 합니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 
-- 설명 하는 방법 [관리 포털에서 Azure Stack에 대 한 백업을 사용 하도록 설정](azure-stack-backup-enable-backup-console.md)합니다.
-- 설명 하는 방법 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](azure-stack-backup-enable-backup-powershell.md)합니다.
-- 자세한 방법 [Azure Stack 백업](azure-stack-backup-back-up-azure-stack.md )
-- 자세한 방법 [치명적인 데이터 손실 로부터 복구](azure-stack-backup-recover-data.md)
+설명 하는 방법 [관리 포털에서 Azure Stack에 대 한 백업을 사용 하도록 설정](azure-stack-backup-enable-backup-console.md)합니다.
+
+설명 하는 방법 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](azure-stack-backup-enable-backup-powershell.md)합니다.
+
+자세한 방법 [Azure Stack 백업](azure-stack-backup-back-up-azure-stack.md )
+
+자세한 방법 [치명적인 데이터 손실 로부터 복구](azure-stack-backup-recover-data.md)

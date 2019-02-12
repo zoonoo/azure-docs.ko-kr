@@ -4,17 +4,17 @@ description: Azure Blueprints는 Azure 환경에서 아티팩트를 만들고 �
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/05/2018
+ms.date: 02/01/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bea01e8f017622f1407bbac993e50112140cc472
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246248"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563374"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
@@ -56,17 +56,14 @@ Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습
 
 |리소스  | 계층 구조 옵션| 설명  |
 |---------|---------|---------|
-|리소스 그룹     | 구독 | 청사진 내의 다른 아티팩트에 사용할 새 리소스 그룹을 만듭니다.  이러한 자리 표시자 리소스 그룹을 사용하면 정확히 원하는 구조로 리소스를 구성할 수 있으며, 포함된 정책 및 역할 할당 아티팩트와 Azure Resource Manager 템플릿의 범위도 제한할 수 있습니다.         |
-|Azure Resource Manager 템플릿      | 구독, 리소스 그룹 | 템플릿은 복잡한 환경을 작성하는 데 사용됩니다. SharePoint 팜, Azure Automation State Configuration 또는 Log Analytics 작업 영역과 같은 환경을 예로 들 수 있습니다. |
-|정책 할당     | 구독, 리소스 그룹 | 청사진이 할당된 구독에 정책 또는 이니셔티브를 할당할 수 있습니다. 정책이나 이니셔티브는 청사진의 범위 내(청사진 관리 그룹 이하 수준)에 있어야 합니다. 정책 또는 이니셔티브에 매개 변수가 있는 경우 청사진 생성 시나 할당 중에 이러한 매개 변수를 할당할 수 있습니다.       |
-|역할 할당   | 구독, 리소스 그룹 | 적절한 사용자가 리소스에 대한 적절한 액세스 권한을 항상 소유하도록 기존 사용자나 그룹을 기본 제공 역할에 추가합니다. 역할 할당은 전체 구독에 대해 정의할 수도 있고 청사진에 포함된 특정 리소스 그룹에 중첩할 수도 있습니다. |
+|리소스 그룹 | 구독 | 청사진 내의 다른 아티팩트에 사용할 새 리소스 그룹을 만듭니다.  이러한 자리 표시자 리소스 그룹을 사용하면 정확히 원하는 구조로 리소스를 구성할 수 있으며, 포함된 정책 및 역할 할당 아티팩트와 Azure Resource Manager 템플릿의 범위도 제한할 수 있습니다. |
+|Azure Resource Manager 템플릿 | 구독, 리소스 그룹 | 템플릿은 복잡한 환경을 작성하는 데 사용됩니다. SharePoint 팜, Azure Automation State Configuration 또는 Log Analytics 작업 영역과 같은 환경을 예로 들 수 있습니다. |
+|정책 할당 | 구독, 리소스 그룹 | 청사진이 할당된 구독에 정책 또는 이니셔티브를 할당할 수 있습니다. 정책이나 이니셔티브는 청사진 정의 위치 범위 내에 있어야 합니다. 정책 또는 이니셔티브에 매개 변수가 있는 경우 청사진 생성 시나 할당 중에 이러한 매개 변수를 할당할 수 있습니다. |
+|역할 할당 | 구독, 리소스 그룹 | 적절한 사용자가 리소스에 대한 적절한 액세스 권한을 항상 소유하도록 기존 사용자나 그룹을 기본 제공 역할에 추가합니다. 역할 할당은 전체 구독에 대해 정의할 수도 있고 청사진에 포함된 특정 리소스 그룹에 중첩할 수도 있습니다. |
 
-### <a name="blueprints-and-management-groups"></a>Blueprints 및 관리 그룹
+### <a name="blueprint-definition-locations"></a>청사진 정의 위치
 
-청사진 정의를 만들 때는 청사진을 저장할 위치를 정의합니다. 현재는 **참가자** 권한이 있는 [관리 그룹](../management-groups/overview.md)에만 청사진을 저장할 수 있습니다. 이렇게 저장한 청사진은 해당 관리 그룹의 모든 하위 구독에 할당할 수 있습니다.
-
-> [!IMPORTANT]
-> 관리 그룹 액세스 권한이 없거나 구성된 관리 그룹이 없는 경우 청사진 정의 목록을 로드하면 사용 가능한 청사진이 없다는 메시지가 표시되고, **범위**를 클릭하면 관리 그룹을 가져오라는 경고가 포함된 창이 열립니다. 이러한 현상을 해결하려면 적절한 액세스 권한을 소유한 구독이 [관리 그룹](../management-groups/overview.md)의 일부분인지 확인하세요.
+청사진 정의를 만들 때는 청사진을 저장할 위치를 정의합니다. 청사진은 **기여자** 권한이 있는 [관리 그룹](../management-groups/overview.md) 또는 구독에 저장할 수 있습니다. 위치가 관리 그룹인 경우 청사진은 해당 관리 그룹의 모든 하위 구독에 할당할 수 있습니다.
 
 ### <a name="blueprint-parameters"></a>청사진 매개 변수
 
@@ -101,7 +98,7 @@ Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플�
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> 청사진 정의는 관리 그룹에서 생성되므로 청사진 정의 권한은 관리 그룹 범위에서 부여되거나 관리 그룹 범위에 상속되어야 합니다.
+> 청사진 정의 권한은 청사진이 저장된 관리 그룹 또는 구독 범위에 부여되거나 상속되어야 합니다.
 
 청사진을 할당하거나 할당을 해제하려면 계정에 다음과 같은 권한이 필요합니다.
 

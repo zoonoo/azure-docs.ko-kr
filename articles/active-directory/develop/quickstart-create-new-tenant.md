@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 02/05/2019
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 3e4cd8859f376fa4fbb9069b145d893483c3fc14
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 0ffde84a39ef2955f14af66a05195e35109d41bb
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101263"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692140"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>빠른 시작: 개발 환경 설정
 
@@ -64,8 +64,11 @@ Microsoft ID 플랫폼을 통해 개발자는 다양한 사용자 지정 Microso
 Azure AD 테넌트가 없거나 개발을 위한 새 테넌트를 만들려는 경우 [디렉터리 만들기 환경](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)을 따릅니다. 새 테넌트를 만들려면 다음 정보를 제공해야 합니다.
 
 - **조직 이름**
-- **초기 도메인** - *.onmicrosoft.com의 일부가 됩니다. 나중에 더 도메인을 사용자 지정할 수 있습니다. 
+- **초기 도메인** - *.onmicrosoft.com의 일부가 됩니다. 나중에 더 도메인을 사용자 지정할 수 있습니다.
 - **국가 또는 지역**
+
+> [!NOTE]
+> 테넌트의 이름을 지정할 때는 영숫자를 사용하세요. 특수 문자는 허용되지 않습니다. 이름은 256자를 초과하면 안 됩니다.
 
 ## <a name="social-and-local-accounts"></a>소셜 및 로컬 계정
 

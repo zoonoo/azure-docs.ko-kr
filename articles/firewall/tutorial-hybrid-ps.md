@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 29af70988cf77b9fad47e5c2478e5c86529fe9cf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458236"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815747"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -54,7 +54,7 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 - Azure Firewall 서브넷에서는 BGP로부터 경로를 학습하므로 UDR이 필요하지 않습니다.
 - VNet-Hub와 VNet-Spoke를 피어링할 때는 **AllowGatewayTransit**, VNet-Spoke와 VNet-Hub를 피어링할 때는 **UseRemoteGateways**를 설정합니다.
 
-이 경로를 만드는 방법은 이 자습서의 [경로 만들기](#create-routes) 섹션을 참조하세요.
+이 경로를 만드는 방법은 이 자습서의 경로 만들기 섹션을 참조하세요.
 
 >[!NOTE]
 >Azure Firewall에 직접 인터넷 연결이 있어야 합니다. ExpressRoute 또는 Application Gateway를 통해 온-프레미스로 강제 터널링을 설정한 경우에는 **NextHopType** 값을 **인터넷**으로 설정해 UDR 0.0.0.0/0을 구성한 후 **AzureFirewallSubnet**에 할당해야 합니다.

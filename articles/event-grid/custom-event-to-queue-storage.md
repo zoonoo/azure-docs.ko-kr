@@ -9,12 +9,12 @@ ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: ba48473b0370c2ee0acbb7b03834eb36922db556
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474985"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728049"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue 저장소로 사용자 지정 이벤트 라우팅
 
@@ -24,9 +24,12 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure Q
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="install-preview-feature"></a>미리 보기 기능 설치
+Azure Portal에서 Cloud Shell을 사용하지 않고 in the 로컬 머신에서 Azure CLI 또는 Azure PowerShell을 사용 중인 경우 다음 버전의 Azure CLI 및 Azure PowerShell이 있는지 확인하세요. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+- Azure CLI 버전 2.0.56 이상. Azure CLI의 최신 버전을 설치하는 방법에 대한 지침은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+- Azure PowerShell 버전 1.1.0 이상. [Azure 다운로드 - 명령줄 도구](https://azure.microsoft.com/downloads/)에서 최신 버전의 Azure PowerShell을 Windows에 다운로드하세요. 
+
+이 문서에서는 Azure CLI 사용을 위한 명령을 제공합니다. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -47,10 +50,6 @@ az group create --name gridResourceGroup --location westus2
 Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트를 제공합니다. 다음 예제에서는 리소스 그룹에 사용자 지정 토픽을 만듭니다. `<topic_name>`을 사용자 지정 항목의 고유한 이름으로 바꿉니다. Event Grid 항목 이름은 DNS 항목으로 표시되기 때문에 고유해야 합니다.
 
 ```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 ```
 

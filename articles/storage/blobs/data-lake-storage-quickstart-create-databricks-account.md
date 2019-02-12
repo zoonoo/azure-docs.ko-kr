@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
-ms.openlocfilehash: cbd17ef81f5bcdf1c5c2f14f11388fd4f23e5da6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e5a1a17e60d73a041bf7850875287c753aeda16f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239926"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694170"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>빠른 시작: Azure Databricks를 사용하여 Azure Data Lake Storage Gen2의 데이터 분석
 
@@ -29,15 +29,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 <a id="config"/>
 
-## <a name="set-aside-storage-account-configuration"></a>저장소 계정 구성을 보관합니다.
-
-스토리지 계정의 이름과 파일 시스템 엔드포인트 URI가 필요합니다.
+## <a name="get-the-name-of-your-storage-account"></a>스토리지 계정의 이름 가져오기
 
 Azure Portal에서 스토리지 계정의 이름을 가져오려면 **모든 서비스**를 선택하고 *스토리지* 용어를 기준으로 필터링합니다. 그런 다음, **스토리지 계정**을 선택하고 스토리지 계정을 찾습니다.
 
-파일 시스템 엔드포인트 URI를 가져오려면 **속성**을 선택하고 속성 창에서 **기본 ADLS 파일 시스템 엔드포인트** 필드의 값을 찾습니다.
-
-이 두 값을 모두 텍스트 파일에 붙여넣습니다. 곧 이 두 값이 필요합니다.
+해당 이름을 텍스트 파일에 붙여넣습니다. 곧 필요하게 될 것입니다.
 
 <a id="service-principal"/>
 
@@ -45,9 +41,7 @@ Azure Portal에서 스토리지 계정의 이름을 가져오려면 **모든 서
 
 이 토픽의 지침에 따라 서비스 주체를 만듭니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
 
-해당 문서의 단계를 수행할 때 해야 하는 몇 가지 항목이 있습니다.
-
-:heavy_check_mark: 문서의 [Azure Active Directory 애플리케이션 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) 섹션에서 단계를 수행하는 경우 **만들기** 대화 상자의 **로그온 URL** 필드를 방금 수집한 엔드포인트 URI로 설정해야 합니다.
+해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
 
 :heavy_check_mark: 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에서 단계를 수행하는 경우 해당 애플리케이션을 **Blob Storage 기여자 역할**에 할당해야 합니다.
 
@@ -136,7 +130,7 @@ Azure Portal에서 스토리지 계정의 이름을 가져오려면 **모든 서
     > [!NOTE]
     > 이 코드 블록은 OAuth를 사용하여 Data Lake Gen2 엔드포인트에 직접 액세스하지만 Data Lake Storage Gen2 계정에 Databricks 작업 영역을 연결하는 다른 방법이 있습니다. 예를 들어 OAuth를 사용하여 파일 시스템을 탑재하거나 공유 키로 직접 액세스를 사용할 수 있습니다. <br>이러한 방법의 예제를 보려면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서를 참조하세요.
 
-5. 이 코드 블록에서 이 코드 블록의 `storage-account-name`, `application-id`, `authentication-id` 및 `tenant-id` 자리 표시자 값을 이 문서의 [스토리지 계정 구성을 보관하기](#config) 및 [서비스 주체 만들기](#service-principal) 섹션에서 단계를 완료했을 때 수집한 값으로 바꿉니다.  `file-system-name` 자리 표시자 값을 파일 시스템에 제공하려는 이름으로 설정합니다.
+5. 이 코드 블록에서 이 코드 블록의 `storage-account-name`, `application-id`, `authentication-id` 및 `tenant-id` 자리 표시자 값을 이 문서의 [스토리지 계정의 이름 가져오기](#config) 및 [서비스 주체 만들기](#service-principal) 섹션에서 단계를 완료했을 때 수집한 값으로 바꿉니다.  `file-system-name` 자리 표시자 값을 파일 시스템에 제공하려는 이름으로 설정합니다.
 
 6. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cb888367e3204d6750c533eb8952c80947f90c11
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382807"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486812"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
 
@@ -30,6 +30,8 @@ ms.locfileid: "54382807"
 리소스의 배포와 관리를 단순화하기 위해 새 리소스 모두에 대해 Resource Manager를 사용하는 것이 좋습니다. 가능하면 기존 리소스도 Resource Manager를 통해 다시 배포하는 것이 좋습니다.
 
 Resource Manager를 새로이 경험하는 경우 먼저 [Azure Resource Manager 개요](resource-group-overview.md)에 정의된 용어를 검토할 수도 있습니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="history-of-the-deployment-models"></a>배포 모델 내역
 Azure에서는 원래 클래식 배포 모델만 제공했습니다. 이 모델에서는 각 리소스가 독립적으로 존재하며 관련 리소스를 함께 그룹화할 방법이 없습니다. 대신, 어떤 리소스로 솔루션 또는 애플리케이션이 구성되었는지를 수동으로 추적하고 통합된 방식으로 이를 관리해야 했습니다. 솔루션을 배포하기 위해 포털을 통해 각 리소스를 개별적으로 만들거나 모든 리소스를 정확한 순서로 배포하는 스크립트를 만들어야 했습니다. 솔루션을 삭제하려면 각 리소스를 개별적으로 삭제해야 했습니다. 관련 리소스에 대한 액세스 제어 정책을 쉽게 적용 및 업데이트할 수 없었습니다. 마지막으로 리소스를 모니터링하고 청구를 관리하는 데 도움이 되는 조건으로 레이블을 지정하기 위한 태그를 리소스에 적용할 수 없었습니다.
@@ -57,7 +59,7 @@ Azure에서는 원래 클래식 배포 모델만 제공했습니다. 이 모델�
 어떤 경우에는 Resource Manager 명령으로 클래식 배포를 통해 만들어지는 리소스에 대한 정보를 검색하거나, 클래식 리소스를 다른 리소스 그룹으로 이동하는 것과 같은 관리 작업을 수행할 수 있습니다. 하지만 이 경우 해당 형식이 Resource Manager 작업을 지원한다는 느낌을 주어서는 안됩니다. 예를 들어 클래식 배포로 만든 가상 컴퓨터가 포함된 리소스 그룹이 있다고 가정합니다. 다음 Resource Manager PowerShell 명령을 실행하는 경우
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+Get-AzResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 ```
 
 다음 예제에서는 가상 컴퓨터를 반환합니다.
@@ -72,10 +74,10 @@ Location          : westus
 SubscriptionId    : {guid}
 ```
 
-그러나 Resource Manager cmdlet **Get-AzureRmVM** 만 Resource Manager를 통해 배포된 가상 머신을 반환합니다. 다음 명령은 클래식 배포를 통해 만든 가상 컴퓨터를 반환하지 않습니다.
+그러나 Resource Manager cmdlet **Get-AzVM**만 Resource Manager를 통해 배포된 가상 머신을 반환합니다. 다음 명령은 클래식 배포를 통해 만든 가상 컴퓨터를 반환하지 않습니다.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName ExampleGroup
+Get-AzVM -ResourceGroupName ExampleGroup
 ```
 
 리소스 관리자를 통해 만든 리소스만이 태그를 지원합니다. 클래식 리소스에 태그를 적용할 수 없습니다.

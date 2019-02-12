@@ -1,31 +1,33 @@
 ---
-title: '빠른 시작: Bing Entity Search API, PHP'
+title: '빠른 시작: PHP를 사용하여 Bing Entity Search REST API에 검색 요청 보내기'
 titlesuffix: Azure Cognitive Services
-description: Bing Entity Search API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+description: 이 빠른 시작을 사용하여 PHP를 통해 Bing Entity Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 5915346deeea76da8b37ddfbb618fed8392fe725
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8d963c0de272b29ab592536802ad23387a9b8dad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195497"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753438"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-php"></a>빠른 시작: PHP를 통해 Bing Entity Search API 사용
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>빠른 시작: PHP를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
-이 문서에서는 PHP와 함께 [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web)  API를 사용하는 방법을 보여줍니다.
+이 빠른 시작을 사용하여 Bing Entity Search API를 처음 호출하고 JSON 응답을 봅니다. 이 간단한 PHP 애플리케이션은 뉴스 검색 쿼리를 API에 보내고, 응답을 표시합니다. 
+
+이 애플리케이션은 PHP로 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 실행하려면 [PHP 5.6.x](http://php.net/downloads.php)가 필요합니다.
+* [PHP 5.6.x](http://php.net/downloads.php) 이상
 
-**Bing Entity Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.   [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="search-entities"></a>엔터티 검색
 
@@ -145,11 +147,10 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 }
 ```
 
-[맨 위로 이동](#HOLTop)
-
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search 자습서](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing Entity Search 개요](../search-the-web.md )
-> [API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [단일 페이지 웹앱 빌드](../tutorial-bing-entities-search-single-page-app.md)
+
+* [Bing Entity Search API란?](../overview.md )
+* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

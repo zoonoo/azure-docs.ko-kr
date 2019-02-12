@@ -4,17 +4,17 @@ description: Azure Blueprint를 사용하여 아티팩트를 만들고 정의하
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0eebf1a2d1c173e2e37d24ff083e5d7ae011a900
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c6c498920d407dbbac2449d1da0d76237db0c63d
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315301"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566315"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>포털에서 Azure Blueprint 정의 및 할당
 
@@ -42,10 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![청사진 만들기](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. 'MyBlueprint'와 같이 **청사진 이름**을 입력합니다. 청사진 이름은 숫자와 문자로 48자까지 입력할 수 있으며 공백이나 특수 문자는 포함할 수 없습니다. **청사진 설명**은 일단 비워 둡니다.  **정의 위치** 상자에서 오른쪽의 줄임표를 클릭하고 청사진을 저장할 [관리 그룹](../management-groups/overview.md)을 선택한 후에 **선택**을 클릭합니다.
-
-   > [!NOTE]
-   > 청사진 정의는 관리 그룹에만 저장할 수 있습니다. 첫 번째 관리 그룹을 만들려면 [여기의 단계](../management-groups/create.md)를 수행하세요.
+1. 'MyBlueprint'와 같이 **청사진 이름**을 입력합니다. 청사진 이름은 숫자와 문자로 48자까지 입력할 수 있으며 공백이나 특수 문자는 포함할 수 없습니다. **청사진 설명**은 일단 비워 둡니다.  **정의 위치** 상자에서 오른쪽의 줄임표를 클릭하고 청사진을 저장할 [관리 그룹](../management-groups/overview.md) 또는 구독을 선택한 후에 **선택**을 클릭합니다.
 
 1. **청사진 이름** 및 **정의 위치** 필드의 내용은 나중에 변경할 수 없으므로 정보가 올바른지 확인한 이후에 페이지 맨 아래의 **다음: 아티팩트** 또는 페이지 맨 위의 **아티팩트** 탭을 클릭합니다.
 
@@ -154,9 +151,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="assign-a-blueprint"></a>청사진 할당
 
-게시한 청사진은 구독에 할당할 수 있습니다. 작성한 청사진을 관리 그룹 계층 구조의 구독 중 하나에 할당합니다.
+게시한 청사진은 구독에 할당할 수 있습니다. 작성한 청사진을 관리 그룹 계층 구조에 속하는 구독 중 하나에 할당합니다. 구독에 청사진이 저장되면 해당 구독에만 할당될 수 있습니다.
 
-1. 왼쪽 페이지에서 **Blueprint 정의**를 선택합니다.
+1. 왼쪽 페이지에서 **청사진 정의**를 선택합니다.
 
 1. 청사진 목록에서 이전에 만든 청사진을 마우스 오른쪽 단추로 클릭하거나 줄임표를 마우스 왼쪽 단추로 클릭하고 **청사진 할당**을 선택합니다.
 

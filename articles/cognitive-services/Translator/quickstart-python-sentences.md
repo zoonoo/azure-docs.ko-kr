@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: 22b12349ac93f0c9dd595e01ecb4661e019c346b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ad5af3e43e1419246d1692c5028cb2453b04516c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458239"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696145"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 문장 길이 확인
 
@@ -64,7 +64,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-현재 Translator Text에는 하나의 엔드포인트가 사용 가능하고 `base_url`로 설정됩니다. `path`는 `breaksentence` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
+Translator Text 글로벌 엔드포인트가 `base_url`로 설정되어 있습니다. `path`는 `breaksentence` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
 
 이 샘플의 `params`는 제공된 텍스트의 언어를 설정하는 데 사용됩니다. `breaksentence` 경로에는 `params`가 필요하지 않습니다. API는 요청에서 제외될 경우 제공된 텍스트의 언어를 감지하려고 하고, 응답에 신뢰도 점수와 이 정보를 제공합니다.
 

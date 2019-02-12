@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 55798af8d8e2b50614a3eee51b330c5b4fa0f918
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a1c0078cf2359de7fa018af749c61880caa8fcdd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409579"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821823"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure Service Bus-Azure Event Grid 통합 예제
 
 이 아티클에서는 Azure Event Grid의 이벤트를 기반으로 메시지를 수신하는 Azure 함수 및 논리 앱을 설정하는 방법을 배웁니다. 다음을 수행합니다.
  
-* Event Grid의 이벤트 초기 흐름을 디버깅하고 살펴볼 간단한 [테스트 Azure 함수](#test-function-setup)를 만듭니다. 다른 단계 수행 여부에 관계 없이 이 단계를 수행 합니다.
-* Event Grid 이벤트를 기반으로 [Azure Service Bus 메시지를 받아서 처리하는 Azure 함수](#receive-messages-using-azure-function)를 만듭니다.
-* [Azure App Service의 Logic Apps 기능](#receive-messages-using-azure-logic-app)을 활용합니다.
+* Event Grid의 이벤트 초기 흐름을 디버깅하고 살펴볼 간단한 테스트 Azure 함수를 만듭니다. 다른 단계 수행 여부에 관계 없이 이 단계를 수행 합니다.
+* Event Grid 이벤트를 기반으로 Azure Service Bus 메시지를 받아서 처리하는 Azure 함수를 만듭니다.
+* Azure App Service의 Logic Apps 기능을 활용합니다.
 
 만든 예제에서는 Service Bus 항목에 두 개의 구독이 있다고 가정합니다. 또한 이 예제에서는 Event Grid 구독이 하나의 Service Bus 구독에 대해서만 이벤트를 보내도록 만들어졌다고 가정합니다. 
 

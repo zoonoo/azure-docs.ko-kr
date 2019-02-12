@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 05f6b32fad4f0a449f0d801c1c7cc6a28be6f940
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685360"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745812"
 ---
-# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 디바이스를 사용하여 IoT 허브와의 연결 테스트
+# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트
 
 이 자습서에서는 Azure IoT Hub 포털 도구와 Azure CLI 명령을 사용하여 디바이스 연결을 테스트합니다. 또한 데스크톱 컴퓨터에서 실행되는 간단한 디바이스 시뮬레이터도 사용합니다.
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 az extension add --name azure-cli-iot-ext
 ```
 
-이 자습서에서 실행하는 디바이스 시뮬레이터 응용 프로그램은 Node.js를 사용하여 작성해야 합니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
+이 자습서에서 실행하는 장치 시뮬레이터 애플리케이션은 Node.js를 사용하여 작성해야 합니다. 개발 컴퓨터에 Node.js v4.x.x 이상이 필요합니다.
 
 [nodejs.org](https://nodejs.org)에서 여러 플랫폼에 대한 Node.js를 다운로드할 수 있습니다.
 
@@ -49,7 +49,7 @@ az extension add --name azure-cli-iot-ext
 node --version
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서 샘플 장치 시뮬레이터 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
+https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서 샘플 디바이스 시뮬레이터 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -69,15 +69,15 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
 ![새 디바이스 추가](media/tutorial-connectivity/add-device.png)
 
-**MyTestDevice**에 대한 연결 문자열을 검색하려면 장치 목록에서 해당 문자열을 클릭한 다음, **연결 문자열 - 기본 키** 값을 복사합니다. 연결 문자열에는 디바이스에 대한 *공유 액세스 키*가 포함되어 있습니다.
+**MyTestDevice**에 대한 연결 문자열을 검색하려면 디바이스 목록에서 해당 문자열을 클릭한 다음, **연결 문자열 - 기본 키** 값을 복사합니다. 연결 문자열에는 디바이스에 대한 *공유 액세스 키*가 포함되어 있습니다.
 
 ![디바이스 연결 문자열 검색](media/tutorial-connectivity/copy-connection-string.png)
 
-원격 분석을 IoT 허브로 보내는 **MyTestDevice**를 시뮬레이션하려면, 앞에서 다운로드한 Node.js 시뮬레이션된 디바이스 응용 프로그램을 실행합니다.
+원격 분석을 IoT 허브로 보내는 **MyTestDevice**를 시뮬레이션하려면, 앞에서 다운로드한 Node.js 시뮬레이션된 장치 애플리케이션을 실행합니다.
 
-개발 컴퓨터의 터미널 창에서 다운로드한 Node.js 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Tutorials\ConnectivityTests\simulated-device** 폴더로 이동합니다.
+개발 컴퓨터의 터미널 창에서 다운로드한 Node.js 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Tutorials\ConnectivityTests** 폴더로 이동합니다.
 
-터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 응용 프로그램을 실행합니다. 포털에서 디바이스를 추가할 때 적어 둔 디바이스 연결 문자열을 사용합니다.
+터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 애플리케이션을 실행합니다. 포털에서 디바이스를 추가할 때 적어 둔 디바이스 연결 문자열을 사용합니다.
 
 ```cmd/sh
 npm install
@@ -94,7 +94,7 @@ node SimulatedDevice-1.js "{your device connection string}"
 
 이 섹션에서는 디바이스 키를 다시 설정하고, 시뮬레이션된 디바이스에서 연결하려고 할 때 발생하는 오류를 관찰합니다.
 
-**MyTestDevice**에 대한 기본 장치 키를 다시 설정하려면 다음 명령을 실행합니다.
+**MyTestDevice**에 대한 기본 디바이스 키를 다시 설정하려면 다음 명령을 실행합니다.
 
 ```azurecli-interactive
 # Generate a new Base64 encoded key using the current date
@@ -107,7 +107,7 @@ read key < <(date +%s | sha256sum | base64 | head -c 32)
 az iot hub device-identity update --device-id MyTestDevice --set authentication.symmetricKey.primaryKey=$key --hub-name {YourIoTHubName}
 ```
 
-개발 컴퓨터의 터미널 창에서 시뮬레이션된 디바이스 응용 프로그램을 다시 실행합니다.
+개발 컴퓨터의 터미널 창에서 시뮬레이션된 장치 애플리케이션을 다시 실행합니다.
 
 ```cmd/sh
 npm install
@@ -137,7 +137,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 개발 컴퓨터의 터미널 창에서 다운로드한 Node.js 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Tutorials\ConnectivityTests\simulated-device** 폴더로 이동합니다.
 
-터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 실행합니다.
+터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 애플리케이션을 실행합니다.
 
 ```cmd/sh
 npm install
@@ -178,7 +178,7 @@ az iot hub device-identity show-connection-string --device-id MyTestDevice --out
 
 메시지를 보내는 시뮬레이션된 디바이스를 실행하려면 다운로드한 코드의 **iot-hub\Tutorials\ConnectivityTests\simulated-device** 폴더로 이동합니다.
 
-터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 실행합니다.
+터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 애플리케이션을 실행합니다.
 
 ```cmd/sh
 npm install
@@ -203,7 +203,7 @@ node SimulatedDevice-3.js "{your device connection string}"
 
 이 섹션에서는 디바이스에 대한 테스트 직접 메서드를 호출하여 클라우드-디바이스 연결을 확인하는 방법을 보여줍니다. 개발 컴퓨터에서 시뮬레이션된 디바이스를 실행하여 허브로부터의 직접 메서드 호출을 수신 대기합니다.
 
-터미널 창에서 다음 명령을 사용하여 시뮬레이션된 디바이스 응용 프로그램을 실행합니다.
+터미널 창에서 다음 명령을 사용하여 시뮬레이션된 장치 애플리케이션을 실행합니다.
 
 ```cmd/sh
 node SimulatedDevice-3.js "{your device connection string}"
@@ -229,7 +229,7 @@ az iot hub invoke-device-method --device-id MyTestDevice --method-name TestMetho
 
 이 섹션에서 사용하는 시뮬레이션된 디바이스에서는 시작할 때마다 reported 속성을 허브로 보내고, desired 속성을 받을 때마다 이 속성을 콘솔에 출력합니다.
 
-터미널 창에서 다음 명령을 사용하여 시뮬레이션된 디바이스 응용 프로그램을 실행합니다.
+터미널 창에서 다음 명령을 사용하여 시뮬레이션된 장치 애플리케이션을 실행합니다.
 
 ```cmd/sh
 node SimulatedDevice-3.js "{your device connection string}"

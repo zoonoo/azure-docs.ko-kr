@@ -1,74 +1,79 @@
 ---
-title: '빠른 시작: Bing Entity Search API, Python'
+title: '빠른 시작: Python을 사용하여 Bing Entity Search REST API에 검색 요청 보내기'
 titlesuffix: Azure Cognitive Services
-description: Bing Entity Search API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
+description: 이 빠른 시작을 사용하여 Python을 통해 Bing Entity Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: fb0ed14a2369034b3185875f7e94e4576277b4fb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: df78c6930552865db9fb25df8e412e8644c8f265
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186283"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754713"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-python"></a>빠른 시작: Python을 통해 Bing Video Search API 사용
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>빠른 시작: Python을 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
-이 문서에서는 Python와 함께 [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API를 사용하는 방법을 보여줍니다.
+이 빠른 시작을 사용하여 Bing Entity Search API를 처음 호출하고 JSON 응답을 봅니다. 이 간단한 Python 애플리케이션은 뉴스 검색 쿼리를 API에 보내고, 응답을 표시합니다. 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)에 제공됩니다.
+
+이 애플리케이션은 Python에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 실행하려면 [Python 3.x](https://www.python.org/downloads/)가 필요합니다.
+* [Python](https://www.python.org/downloads/) 2.x 또는 3.x
 
-**Bing Entity Search API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.   [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-## <a name="search-entities"></a>엔터티 검색
+## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
-이 애플리케이션을 실행하려면 다음 단계를 따릅니다.
+1. 선호하는 IDE 또는 편집기에서 새 Python 파일을 만들고, 다음 가져오기를 추가합니다. 구독 키, 엔드포인트, 시장 및 검색 쿼리에 대한 변수를 만듭니다. Azure 대시보드에서 엔드포인트를 찾을 수 있습니다.
 
-1. 좋아하는 IDE에 새 Python 프로젝트를 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
-4. 프로그램을 실행합니다.
+    ```python
+    import http.client, urllib.parse
+    import json
+    
+    subscriptionKey = 'ENTER YOUR KEY HERE'
+    host = 'api.cognitive.microsoft.com'
+    path = '/bing/v7.0/entities'
+    mkt = 'en-US'
+    query = 'italian restaurants near me'
+    ```
 
-```python
-# -*- coding: utf-8 -*-
+2. `?mkt=` 매개 변수에 시장 변수를 추가하여 요청 url을 만듭니다. 쿼리를 Url로 인코딩하고 `&q=` 매개 변수에 추가합니다. 
+    
+    ```python
+    params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
+    ```
 
-import http.client, urllib.parse
-import json
+## <a name="send-a-request-and-get-a-response"></a>요청 보내기 및 응답 받기
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+1. `get_suggestions()`라는 함수를 만듭니다. 그런 후에 다음 단계를 수행합니다.
+    1. `Ocp-Apim-Subscription-Key`를 키로 사용하여 구독 키를 사전에 추가합니다.
+    2. `http.client.HTTPSConnection()`을 사용하여 HTTPS 클라이언트 개체를 만듭니다. 경로 및 매개 변수와 헤더 정보가 포함된 `request()`를 사용하여 `GET` 요청을 보냅니다.
+    3. `getresponse()`를 사용하여 응답을 저장하고 `response.read()`를 반환합니다.
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
+    ```python
+    def get_suggestions ():
+        headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+        conn = http.client.HTTPSConnection (host)
+        conn.request ("GET", path + params, None, headers)
+        response = conn.getresponse ()
+        return response.read()
+    ```
 
-host = 'api.cognitive.microsoft.com'
-path = '/bing/v7.0/entities'
+2. `get_suggestions()`를 호출하고 json 응답을 출력합니다.
 
-mkt = 'en-US'
-query = 'italian restaurants near me'
+    ```python
+    result = get_suggestions ()
+    print (json.dumps(json.loads(result), indent=4))
+    ```
 
-params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
-
-def get_suggestions ():
-    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-    conn = http.client.HTTPSConnection (host)
-    conn.request ("GET", path + params, None, headers)
-    response = conn.getresponse ()
-    return response.read ()
-
-result = get_suggestions ()
-print (json.dumps(json.loads(result), indent=4))
-```
-
-**응답**
+## <a name="example-json-response"></a>예제 JSON 응답
 
 성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
@@ -133,11 +138,10 @@ print (json.dumps(json.loads(result), indent=4))
 }
 ```
 
-[맨 위로 이동](#HOLTop)
-
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search 자습서](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing Entity Search 개요](../search-the-web.md )
-> [API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [단일 페이지 웹앱 빌드](../tutorial-bing-entities-search-single-page-app.md)
+
+* [Bing Entity Search API란?](../search-the-web.md)
+* [Bing Entity Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

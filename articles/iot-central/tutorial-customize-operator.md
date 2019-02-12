@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 070a6ee4bc712b2dbec598cdb9be5c324895c033
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f65463b534988e0a721a1a5f816183f8dd8ebcaf
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154984"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657657"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>자습서: Azure IoT Central 연산자의 뷰 사용자 지정
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>자습서: Azure IoT Central 연산자의 보기 사용자 지정
 
 이 자습서에서는 작성기로서 애플리케이션의 연산자의 뷰를 사용자 지정하는 방법을 설명합니다. 작성기로서 애플리케이션을 변경하는 경우 Microsoft Azure IoT Central 애플리케이션에서 연산자의 뷰를 미리 볼 수 있습니다.
 
-이 자습서에서는 연결된 공조 디바이스에 대한 관련 정보를 연산자에 표시하려면 응용 프로그램을 사용자 지정합니다. 사용자 지정을 사용하면 연산자가 응용 프로그램에 연결된 공조 디바이스를 관리하게 할 수 있습니다.
+이 자습서에서는 연결된 공조 장치에 대한 관련 정보를 연산자에 표시하려면 애플리케이션을 사용자 지정합니다. 사용자 지정을 사용하면 연산자가 애플리케이션에 연결된 공조 장치를 관리하게 할 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -31,26 +31,28 @@ ms.locfileid: "50154984"
 > * 기본 홈 페이지 구성
 > * 연산자로서 기본 홈 페이지 미리 보기
 
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 이전의 두 자습서를 완료해야 합니다.
 
-* [Azure IoT Central 응용 프로그램에서 새 장치 유형을 정의합니다](tutorial-define-device-type.md).
-* [장치에 대한 규칙 및 작업을 구성합니다](tutorial-configure-rules.md).
+* [Azure IoT Central 애플리케이션에서 새 장치 유형을 정의합니다](tutorial-define-device-type.md).
+* [디바이스에 대한 규칙 및 작업을 구성합니다](tutorial-configure-rules.md).
 
 ## <a name="configure-your-device-dashboard"></a>디바이스 대시보드 구성
 
-작성기로서 디바이스 대시보드에 표시되는 정보를 정의할 수 있습니다. [응용 프로그램에서 새 장치 유형 정의](tutorial-define-device-type.md) 자습서에서 꺾은선형 차트 및 기타 정보를 **연결된 공조 장치-1** 대시보드에 추가했습니다.
+작성기로서 디바이스 대시보드에 표시되는 정보를 정의할 수 있습니다. [애플리케이션에서 새 장치 유형 정의](tutorial-define-device-type.md) 자습서에서 꺾은선형 차트 및 기타 정보를 **연결된 공조 장치-1** 대시보드에 추가했습니다.
 
-1. **연결된 공조 장치** 템플릿을 편집하려면 왼쪽 탐색 메뉴에서 **탐색기**를 선택합니다.
+1. **연결된 공조 디바이스** 템플릿을 편집하려면 왼쪽 탐색 메뉴에서 **탐색기**를 선택합니다.
 
     ![탐색기 페이지](media/tutorial-customize-operator/explorer.png)
 
-2. 연결된 공조 디바이스 대시보드의 사용자 지정을 시작하려면 **연결된 공조 디바이스(1.0.0)** 템플릿을 선택합니다. [응용 프로그램에서 새 장치 유형 정의](tutorial-define-device-type.md) 자습서에서 만든 **연결된 공조 장치-1**을 선택합니다.
+2. 연결된 공조 디바이스 대시보드의 사용자 지정을 시작하려면 **연결된 공조 디바이스(1.0.0)** 템플릿을 선택합니다. [애플리케이션에서 새 장치 유형 정의](tutorial-define-device-type.md) 자습서에서 만든 **연결된 공조 장치-1**을 선택합니다.
 
     ![연결된 공조 디바이스 선택](media/tutorial-customize-operator/selectdevice.png)
 
-    **연결된 공조 장치-1**과 같은 장치 내에서 **템플릿 편집**을 선택하여 기본 템플릿을 변경할 수 있습니다. 자세한 내용은 [새 디바이스 템플릿 버전 만들기](howto-version-devicetemplate.md)를 참조하세요.
+    **연결된 공조 디바이스-1**과 같은 디바이스 내에서 **템플릿 편집**을 선택하여 기본 템플릿을 변경할 수 있습니다. 자세한 내용은 [새 디바이스 템플릿 버전 만들기](howto-version-devicetemplate.md)를 참조하세요.
 
 3. 대시보드를 편집하려면 **대시보드**를 선택하고, **템플릿 편집**을 선택합니다.
 
@@ -64,7 +66,7 @@ ms.locfileid: "50154984"
 
     | 설정     | 값 |
     | ----------- | ----- |
-    | 이름        | 최대 온도 |
+    | Name        | 최대 온도 |
     | 측정 | 온도 |
     | 집계 | 최대 |
     | 시간 범위  | 지난 1주 |
@@ -115,7 +117,7 @@ ms.locfileid: "50154984"
 
 ## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>연산자로서 연결된 공조 디바이스 미리 보기
 
-**템플릿 편집** 모드에서 연산자에 대한 대시보드, 설정 및 속성 페이지를 사용자 지정할 수 있습니다. **템플릿 편집** 모드에 있지 않은 경우 운영자 권한으로 응용 프로그램을 볼 수 있습니다.
+**템플릿 편집** 모드에서 연산자에 대한 대시보드, 설정 및 속성 페이지를 사용자 지정할 수 있습니다. **템플릿 편집** 모드에 있지 않은 경우 운영자 권한으로 애플리케이션을 볼 수 있습니다.
 
 1. 운영자로서 연결된 공조 디바이스를 보려면 **완료**를 클릭하여 템플릿 편집을 중지하고 운영자의 디바이스 보기로 돌아갑니다.
 
@@ -177,5 +179,5 @@ ms.locfileid: "50154984"
 
 애플리케이션의 연산자의 뷰를 사용자 지정하는 방법을 알아보았으므로 제안된 다음 단계는 다음과 같습니다.
 
-* [장치 모니터링(연산자로서)](tutorial-monitor-devices.md)
-* [응용 프로그램에 새 장치 추가(연산자 및 장치 개발자로서)](tutorial-add-device.md)
+* [디바이스 모니터링(연산자로서)](tutorial-monitor-devices.md)
+* [애플리케이션에 새 장치 추가(연산자 및 장치 개발자로서)](tutorial-add-device.md)

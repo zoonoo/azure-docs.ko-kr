@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
-ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.reviewer: trbye
+ms.date: 02/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1e2746ef55f5c50ce9452b7a9d1ab060c69830db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a293389b8175406d9036cd95c14748e5a626fb91
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244278"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752537"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>자습서: 자동화된 기계 학습을 사용하여 모델 빌드
 
@@ -34,7 +34,6 @@ ms.locfileid: "55244278"
 > * 회귀 모델 자동 학습
 > * 사용자 지정 매개 변수를 사용하여 로컬로 모델 실행
 > * 결과 탐색
-> * 최적 모델 등록
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
 
@@ -43,36 +42,74 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-> * [데이터 준비 자습서를 실행합니다](tutorial-data-prep.md).
-> * 자동화된 Machine Learning이 구성된 환경. [Azure Notebooks](https://notebooks.azure.com/), 로컬 Python 환경 또는 Data Science Virtual Machine을 예로 들 수 있습니다. [자동화된 Machine Learning을 설정합니다](samples-notebooks.md).
+[개발 환경 설정](#start)으로 건너뛰어 Notebook 단계를 읽어보거나, 아래 지침에 따라 Notebook을 가져와서 Azure Notebooks 또는 사용자 고유의 Notebook 서버에서 실행합니다. Notebook을 실행하려면 다음 항목이 필요합니다.
 
-## <a name="get-the-notebook"></a>Notebook 가져오기
+* [데이터 준비 자습서를 실행합니다](tutorial-data-prep.md).
+* 다음 요소가 설치된 Python 3.6 Notebook 서버:
+    * `automl` 및 `notebooks`라는 추가 요소를 지원하는 Python용 Azure Machine Learning SDK
+    * `matplotlib`
+* 자습서 Notebook
+* 기계 학습 작업 영역
+* Notebook과 동일한 디렉터리에 있는 작업 영역에 대한 구성 파일
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb)으로 제공됩니다. [Azure Notebooks](https://notebooks.azure.com/) 또는 사용자 고유의 Jupyter Notebook 서버에서 `regression-part2-automated-ml.ipynb` Notebook을 실행합니다.
+아래 섹션 중 하나에서 이러한 필수 구성 요소를 모두 가져옵니다.
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* [Azure Notebooks](#azure) 사용
+* [사용자 고유의 Notebook 서버](#server) 사용
 
-## <a name="import-packages"></a>패키지 가져오기
+### <a name="azure"></a>Azure Notebooks 사용: 클라우드의 무료 Jupyter Notebook
+
+Azure Notebooks로 시작하는 것이 쉽습니다! [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)는 [Azure Notebooks](https://notebooks.azure.com/)에 이미 설치 및 구성되어 있습니다. 설치 및 향후 업데이트를 Azure 서비스를 통해 자동으로 관리합니다.
+
+아래 단계를 완료한 후에는 **시작** 프로젝트의 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 실행합니다.
+
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+### <a name="server"></a>사용자 고유의 Jupyter Notebook 서버 사용
+
+사용자 컴퓨터에 로컬 Jupyter Notebook 서버를 만들려면 이러한 단계를 사용합니다.  이러한 단계를 완료한 후에는 **tutorials/regression-part2-automated-ml.ipynb** Notebook을 실행합니다.
+
+1. [Azure Machine Learning Python 빠른 시작](quickstart-create-workspace-with-python.md)을 완료하여 Miniconda 환경을 만들고 작업 영역을 만듭니다.
+1. `pip install azureml-sdk[automl,notebooks]`를 사용하여 사용 환경에 `automl` 및 `notebooks`라는 추가 요소를 설치합니다.
+1. `pip install maplotlib`를 사용하여 `maplotlib`를 설치합니다.
+1. [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 복제합니다.
+
+    ```
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+
+1. 복제된 디렉터리에서 노트북 서버를 시작합니다.
+
+    ```shell
+    jupyter notebook
+
+## <a name="start"></a>Set up your development environment
+
+All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+
+* Install the SDK
+* Import Python packages
+* Configure your workspace
+
+### Install and import packages
+
+If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+
+```shell
+pip install azureml-sdk[automl,notebooks] matplotlib
+```
+
 이 자습서에 필요한 Python 패키지를 가져옵니다.
-
 
 ```python
 import azureml.core
 import pandas as pd
 from azureml.core.workspace import Workspace
-from azureml.train.automl.run import AutoMLRun
-import time
 import logging
 import os
 ```
 
-사용자 고유의 Python 환경에서 자습서를 수행하는 경우 필요한 패키지를 설치하려면 다음을 사용합니다.
-
-```shell
-pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
-```
-
-## <a name="configure-workspace"></a>작업 영역 구성
+### <a name="configure-workspace"></a>작업 영역 구성
 
 기존 작업 영역에서 작업 영역 개체를 만듭니다. `Workspace`는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다.
 
@@ -743,7 +780,6 @@ for run in children:
     metrics = {k: v for k, v in run.get_metrics().items() if isinstance(v, float)}
     metricslist[int(properties['iteration'])] = metrics
 
-import pandas as pd
 rundata = pd.DataFrame(metricslist).sort_index(1)
 rundata
 ```
@@ -1177,6 +1213,5 @@ print(1 - mean_abs_percent_error)
 > * 작업 영역을 구성하고 실험을 위해 데이터를 준비했습니다.
 > * 사용자 지정 매개 변수를 통해 로컬로 자동화된 회귀 모델 사용을 학습했습니다.
 > * 학습 결과를 탐색하고 검토했습니다.
-> * 최적 모델을 등록했습니다.
 
 Azure Machine Learning을 사용하여 [모델을 배포합니다](tutorial-deploy-models-with-aml.md).

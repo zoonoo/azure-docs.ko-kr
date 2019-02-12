@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015275"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564564"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>빠른 시작: 기술 및 샘플 데이터를 사용하여 Cognitive Search 파이프라인 만들기
 
@@ -94,7 +94,7 @@ Azure 서비스는 이 시나리오에 단독으로 사용됩니다. 준비 과�
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service를 설정하고 샘플 데이터 로드
 
-보강 파이프라인은 [Azure Search 인덱서](search-indexer-overview.md)가 지원하는 Azure 데이터 소스에서 데이터를 가져옵니다. Azure Table Storage에서는 Cognitive Search가 지원되지 않습니다. 이 연습에서는 BLOB 저장소를 사용하여 여러 가지 콘텐츠 형식을 보여줍니다.
+보강 파이프라인은 [Azure Search 인덱서](search-indexer-overview.md)가 지원하는 Azure 데이터 소스에서 데이터를 가져옵니다. Azure Table Storage에서는 Cognitive Search가 지원되지 않습니다. 이 연습에서는 Blob Storage를 사용하여 여러 가지 콘텐츠 형식을 보여줍니다.
 
 1. 여러 종류의 작은 파일 집합으로 구성된 [샘플 데이터를 다운로드](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)하세요. 
 
@@ -102,7 +102,7 @@ Azure 서비스는 이 시나리오에 단독으로 사용됩니다. 준비 과�
 
 1. 만든 컨테이너에서 **업로드**를 클릭하여 이전 단계에서 다운로드한 샘플 파일을 업로드합니다.
 
-  ![Azure Blob 저장소의 원본 파일](./media/cognitive-search-quickstart-blob/sample-data.png)
+  ![Azure Blob Storage의 원본 파일](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 ## <a name="create-the-enrichment-pipeline"></a>보강 파이프라인 만들기
 
@@ -147,15 +147,19 @@ Azure Search 서비스 대시보드 페이지로 돌아가서 명령 모음에�
 
 이 빠른 시작에서 마법사는 기본값을 적절하게 설정합니다. 
 
-+ 기본 이름은 *azureblob-index*입니다.
++ 기본 이름은 데이터 원본 유형을 기반으로 하는 *azureblob-index*입니다. 
+
++ 기본 필드는 원본 소스 데이터 필드(`content`) 및 인식 파이프라인에 의해 생성된 출력 필드(`people`, `organizations` 및 `locations`)를 기반으로 합니다. 기본 데이터 형식은 메타데이터 및 데이터 샘플링에서 유추됩니다.
+
 + 기본 키는 *metadata_storage_path*(이 필드는 고유 값 포함)입니다.
-+ 기본 데이터 형식 및 특성이 전체 텍스트 검색 시나리오에 적합합니다.
 
-`content` 필드에서 **조회 가능**을 제거하는 것이 좋습니다. Blob에서 이 필드는 수천 줄에서 실행될 수 있습니다. 검색 결과 목록에서 Word 문서 또는 PowerPoint 데크와 같은 콘텐츠 사용량이 많은 파일을 JSON으로 확인하는 것이 얼마나 어려운지 짐작할 수 있습니다. 
-
-기술 세트를 정의했으므로 마법사는 사용자가 인식 파이프라인을 통해 원본 데이터 필드와 출력 필드를 만들려 한다고 간주합니다. 이러한 이유로 포털에서는 `content`, `people`, `organizations` 및 `locations`에 대한 인덱스 필드를 추가합니다. 마법사는 자동으로 이러한 필드에 **조회 가능** 및 **검색 가능**을 사용합니다. **검색 가능**은 필드를 검색할 수 있다는 뜻입니다. **조회 가능**은 결과에 반환될 수 있다는 뜻입니다. 
++ 기본 특성은 이러한 필드에 대해 **조회 가능**하고 **검색 가능**합니다. **검색 가능**은 필드를 검색할 수 있다는 뜻입니다. **조회 가능**은 결과에 반환될 수 있다는 뜻입니다. 마법사는 사용자가 기술 세트를 통해 필드를 생성했기 때문에 이 필드를 조회 및 검색 가능하도록 하려고 한다고 가정합니다.
 
   ![인덱스 필드](media/cognitive-search-quickstart-blob/index-fields.png)
+
+`content` 필드의 **조회 가능** 특성에서 취소선과 물음표를 확인합니다. 텍스트가 많은 Blob 문서의 경우, `content` 필드에는 대량의 파일이 포함되어 있으며, 수천 줄이 포함될 수 있습니다. 파일 내용을 클라이언트 코드에 전달해야 하는 경우 **조회 가능**이 선택되어 있는지 확인합니다. 그렇지 않은 경우 추출된 요소(`people`, `organizations` 및 `locations`)가 사용자 목적에 충분하면 `content`에서 이 특성을 선택 취소하는 것이 좋습니다.
+
+필드를 **조회 가능**으로 표시한다고 해서 필드가 검색 결과에 *나타나야* 하는 것은 아닙니다. **$select** 쿼리 매개 변수로 포함할 필드를 지정하여 검색 결과의 구성을 정확하게 제어할 수 있습니다. `content`와 같이 텍스트가 많은 필드의 경우 **$select** 매개 변수는 애플리케이션의 사용자에게 관리 가능한 검색 결과를 제공하는 솔루션으로, 클라이언트 코드에서 **조회 가능** 특성을 통해 필요한 모든 정보에 액세스할 수 있도록 해줍니다.
   
 다음 페이지를 계속합니다.
 
@@ -201,7 +205,7 @@ CTRL + F 키는 특정 결과 집합에 문서가 몇 개나 있는지 확인하
 
 이제 첫 번째 인식 보강 인덱싱 연습을 완료했습니다. 이 빠른 시작의 목적은 사용자가 고유의 데이터를 사용하여 인식 검색 솔루션의 프로토타입을 신속하게 만들 수 있도록 중요한 개념을 소개하고 마법사를 연습하는 것이었습니다.
 
-여러분이 꼭 기억했으면 하는 주요 개념 중 하나는 Azure 데이터 원본에 대한 종속성입니다. 인식 검색 보강은 인덱서에 바인딩되고, 인덱서는 Azure와 소스로 한정됩니다. 이 빠른 시작에서는 Azure Blob 저장소를 사용하지만 다른 Azure 데이터 원본도 가능합니다. 자세한 내용은 [Azure Search의 인덱서](search-indexer-overview.md)를 참조하세요.
+여러분이 꼭 기억했으면 하는 주요 개념 중 하나는 Azure 데이터 원본에 대한 종속성입니다. 인식 검색 보강은 인덱서에 바인딩되고, 인덱서는 Azure와 소스로 한정됩니다. 이 빠른 시작에서는 Azure Blob Storage를 사용하지만 다른 Azure 데이터 원본도 가능합니다. 자세한 내용은 [Azure Search의 인덱서](search-indexer-overview.md)를 참조하세요.
 
 또 다른 중요한 개념으로, 기술은 입력 필드에 대해 작동합니다. 포털에서 모든 기술에 대한 단일 원본 필드를 선택해야 합니다. 코드에서 입력은 다른 필드이거나 업스트림 기술의 출력일 수 있습니다.
 

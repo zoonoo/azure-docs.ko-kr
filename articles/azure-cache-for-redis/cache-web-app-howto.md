@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: fd5a995bf03d530ccbcf9b839ccc840d202b47d6
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: d80a10bea58fdcd5b20e24f9f8ba633f2714d55c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556190"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822581"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱 만들기 
 
@@ -98,9 +98,9 @@ ms.locfileid: "53556190"
 이 섹션에서는 Azure Cache for Redis에 대해 간단한 테스트를 표시하는 새 보기를 지원하도록 애플리케이션을 업데이트합니다.
 
 * [캐시에 대한 앱 설정이 포함된 web.config 파일 업데이트](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
-* [StackExchange.Redis 클라이언트를 사용하도록 애플리케이션 구성](#configure-the-application-to-use-stackexchangeredis)
-* [HomeController 및 레이아웃 업데이트](#update-the-homecontroller-and-layout)
-* [새 RedisCache 뷰 추가](#add-a-new-rediscache-view)
+* StackExchange.Redis 클라이언트를 사용하도록 애플리케이션 구성
+* HomeController 및 레이아웃 업데이트
+* 새 RedisCache 뷰 추가
 
 ### <a name="update-the-webconfig-file-with-an-app-setting-for-the-cache"></a>캐시에 대한 앱 설정이 포함된 web.config 파일 업데이트
 

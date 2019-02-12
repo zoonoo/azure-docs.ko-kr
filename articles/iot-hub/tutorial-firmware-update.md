@@ -12,18 +12,18 @@ ms.workload: na
 ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: bc1887ef3cdbc56732317aea15be7a618c35847e
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 20891b0d73783c9b68a42ecfed130e377b6f8eab
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003579"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729815"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>자습서: 디바이스 펌웨어 업데이트 프로세스 구현
 
 IoT Hub에 연결된 디바이스에서 펌웨어를 업데이트해야 합니다. 예를 들어 펌웨어에 새로운 기능을 추가하거나 보안 패치를 적용하려고 합니다. 여러 IoT 시나리오에서는 물리적으로 방문한 다음, 디바이스에 펌웨어 업데이트를 수동으로 적용하는 것은 실용적이지 않습니다. 이 자습서에서는 허브에 연결된 백 엔드 애플리케이션을 통해 원격으로 펌웨어 업데이트 프로세스를 시작하고 모니터링할 수 있는 방법을 보여줍니다.
 
-펌웨어 업데이트 프로세스를 만들고 모니터링하기 위해 이 자습서의 백 엔드 애플리케이션은 IoT Hub에서 _구성_을 만듭니다. IoT Hub [자동 디바이스 관리](iot-hub-auto-device-config.md)는 이 구성을 사용하여 모든 냉각기 디바이스에 대한 일련의 _디바이스 쌍 desired 속성_을 업데이트합니다. desired 속성은 필요한 펌웨어 업데이트의 세부 정보를 지정합니다. 냉각기 디바이스가 펌웨어 업데이트 프로세스를 실행하는 동안 _디바이스 쌍 reported 속성_을 사용하여 백 엔드 응용 프로그램에 해당 상태를 보고합니다. 백 엔드 응용 프로그램은 구성을 사용하여 디바이스에서 전송된 reported 속성을 모니터링하고 완료될 때까지 펌웨어 업데이트 프로세스를 추적할 수 있습니다.
+펌웨어 업데이트 프로세스를 만들고 모니터링하기 위해 이 자습서의 백 엔드 애플리케이션은 IoT Hub에서 _구성_을 만듭니다. IoT Hub [자동 디바이스 관리](iot-hub-auto-device-config.md)는 이 구성을 사용하여 모든 냉각기 디바이스에 대한 일련의 _디바이스 쌍 desired 속성_을 업데이트합니다. desired 속성은 필요한 펌웨어 업데이트의 세부 정보를 지정합니다. 냉각기 장치가 펌웨어 업데이트 프로세스를 실행하는 동안 _장치 쌍 reported 속성_을 사용하여 백 엔드 애플리케이션에 해당 상태를 보고합니다. 백 엔드 애플리케이션은 구성을 사용하여 장치에서 전송된 reported 속성을 모니터링하고 완료될 때까지 펌웨어 업데이트 프로세스를 추적할 수 있습니다.
 
 ![펌웨어 업데이트 프로세스](media/tutorial-firmware-update/Process.png)
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 
@@ -99,7 +99,7 @@ Windows 명령 프롬프트 또는 Powershell 프롬프트에서 이러한 명�
 
 ## <a name="start-the-firmware-update"></a>펌웨어 업데이트 시작
 
-백 엔드 응용 프로그램에서 [자동 디바이스 관리 구성](iot-hub-auto-device-config.md#create-a-configuration)을 만들어서 냉각기의 **devicetype**으로 태그로 지정된 모든 디바이스에서 펌웨어 업데이트 프로세스를 시작합니다. 이 섹션에서 수행하는 방법은 다음과 같습니다.
+백 엔드 애플리케이션에서 [자동 장치 관리 구성](iot-hub-auto-device-config.md#create-a-configuration)을 만들어서 냉각기의 **devicetype**으로 태그로 지정된 모든 장치에서 펌웨어 업데이트 프로세스를 시작합니다. 이 섹션에서 수행하는 방법은 다음과 같습니다.
 
 * 백 엔드 애플리케이션의 구성을 만듭니다.
 * 완료할 작업을 모니터링합니다.
@@ -114,9 +114,9 @@ Windows 명령 프롬프트 또는 Powershell 프롬프트에서 이러한 명�
 
 다음 구성 파일에는 다음 섹션이 포함됩니다.
 
-* `content`는 선택된 장치에 전송된 펌웨어 desired 속성을 지정합니다.
+* `content`는 선택된 디바이스에 전송된 펌웨어 desired 속성을 지정합니다.
 * `metrics`는 펌웨어 업데이트의 상태를 보고하는 실행할 쿼리를 지정합니다.
-* `targetCondition`은 펌웨어 업데이트를 받을 장치를 선택합니다.
+* `targetCondition`은 펌웨어 업데이트를 받을 디바이스를 선택합니다.
 * `priorty`는 다른 구성에 대한 이 구성의 상대적 우선 순위를 설정합니다.
 
 백 엔드 애플리케이션은 다음 코드를 사용하여 desired 속성을 설정하는 구성을 만듭니다.
@@ -134,9 +134,9 @@ Windows 명령 프롬프트 또는 Powershell 프롬프트에서 이러한 명�
 
 ### <a name="respond-to-the-firmware-upgrade-request-on-the-device"></a>디바이스에 대한 펌웨어 업그레이드 요청에 응답
 
-백 엔드 응용 프로그램에서 전송된 펌웨어 desired 속성을 처리하는 시뮬레이션된 디바이스 코드를 보려면 다운로드한 샘플 Node.js 프로젝트의 **iot-hub/Tutorials/FirmwareUpdate** 폴더로 이동합니다. 그런 다음, 텍스트 편집기에서 SimulatedDevice.js 파일을 엽니다.
+백 엔드 애플리케이션에서 전송된 펌웨어 desired 속성을 처리하는 시뮬레이션된 장치 코드를 보려면 다운로드한 샘플 Node.js 프로젝트의 **iot-hub/Tutorials/FirmwareUpdate** 폴더로 이동합니다. 그런 다음, 텍스트 편집기에서 SimulatedDevice.js 파일을 엽니다.
 
-시뮬레이션된 디바이스 응용 프로그램은 디바이스 쌍에서 **properties.desired.firmware** desired 속성에 대한 업데이트의 처리기를 만듭니다. 처리기에서 업데이트 프로세스를 시작하기 전에 desired 속성에 대해 몇 가지 기본 검사를 수행합니다.
+시뮬레이션된 장치 애플리케이션은 장치 쌍에서 **properties.desired.firmware** desired 속성에 대한 업데이트의 처리기를 만듭니다. 처리기에서 업데이트 프로세스를 시작하기 전에 desired 속성에 대해 몇 가지 기본 검사를 수행합니다.
 
 [!code-javascript[Handle desired property update](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=initiateUpdate "Handle desired property update")]
 
@@ -150,17 +150,17 @@ Windows 명령 프롬프트 또는 Powershell 프롬프트에서 이러한 명�
 
 [!code-javascript[Reported properties](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=reportedProperties "Reported properties")]
 
-다음 코드 조각에서는 다운로드 단계의 구현을 보여줍니다. 시뮬레이션된 디바이스는 다운로드 단계 중에 reported 속성을 사용하여 백 엔드 응용 프로그램에 상태 정보를 전송합니다.
+다음 코드 조각에서는 다운로드 단계의 구현을 보여줍니다. 시뮬레이션된 장치는 다운로드 단계 중에 reported 속성을 사용하여 백 엔드 애플리케이션에 상태 정보를 전송합니다.
 
 [!code-javascript[Download image phase](~/iot-samples-node/iot-hub/Tutorials/FirmwareUpdate/SimulatedDevice.js?name=downloadimagephase "Download image phase")]
 
 ## <a name="run-the-sample"></a>샘플 실행
 
-이 섹션에서는 두 개의 응용 프로그램 예제를 실행하여 백 엔드 응용 프로그램이 시뮬레이션된 디바이스에서 펌웨어 업데이트 프로세스를 관리하도록 구성을 만드는 과정을 관찰합니다.
+이 섹션에서는 두 개의 애플리케이션 예제를 실행하여 백 엔드 애플리케이션이 시뮬레이션된 장치에서 펌웨어 업데이트 프로세스를 관리하도록 구성을 만드는 과정을 관찰합니다.
 
-시뮬레이션된 디바이스 및 백 엔드 응용 프로그램을 실행하려면 디바이스 및 서비스 연결 문자열이 필요합니다. 이 자습서의 시작에서 리소스를 만들 때 연결 문자열을 적어두었습니다.
+시뮬레이션된 장치 및 백 엔드 애플리케이션을 실행하려면 장치 및 서비스 연결 문자열이 필요합니다. 이 자습서의 시작에서 리소스를 만들 때 연결 문자열을 적어두었습니다.
 
-시뮬레이션된 디바이스 응용 프로그램을 실행하려면 셸 또는 명령 프롬프트 창을 열고 다운로드한 Node.js 프로젝트의 **iot-hub/Tutorials/FirmwareUpdate** 폴더로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
+시뮬레이션된 장치 애플리케이션을 실행하려면 셸 또는 명령 프롬프트 창을 열고 다운로드한 Node.js 프로젝트의 **iot-hub/Tutorials/FirmwareUpdate** 폴더로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
 
 ```cmd/sh
 npm install
@@ -174,7 +174,7 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
-다음 스크린샷에서는 시뮬레이션된 디바이스 응용 프로그램의 출력을 보여주고, 백 엔드 응용 프로그램의 펌웨어 desired 속성 업데이트에 응답하는 방법을 보여줍니다.
+다음 스크린샷에서는 시뮬레이션된 장치 애플리케이션의 출력을 보여주고, 백 엔드 애플리케이션의 펌웨어 desired 속성 업데이트에 응답하는 방법을 보여줍니다.
 
 ![시뮬레이션된 디바이스](./media/tutorial-firmware-update/SimulatedDevice.png)
 
@@ -182,11 +182,11 @@ node ServiceClient.js "{your service connection string}"
 
 ![백 엔드 애플리케이션](./media/tutorial-firmware-update/BackEnd1.png)
 
-다음 스크린샷에서는 백 엔드 응용 프로그램의 출력을 보여주고, 시뮬레이션된 디바이스의 펌웨어 업데이트 메트릭을 모니터링하는 방법을 강조 표시합니다.
+다음 스크린샷에서는 백 엔드 애플리케이션의 출력을 보여주고, 시뮬레이션된 장치의 펌웨어 업데이트 메트릭을 모니터링하는 방법을 강조 표시합니다.
 
 ![백 엔드 애플리케이션](./media/tutorial-firmware-update/BackEnd2.png)
 
-IoT Hub 디바이스 ID 레지스트리의 대기 시간 때문에 백 엔드 응용 프로그램에 전송된 일부 상태 업데이트가 표시되지 않을 수 있습니다. IoT Hub의 **자동 장치 관리 -> IoT 장치 구성** 섹션에 있는 포털에서 메트릭이 표시되지 않을 수도 있습니다.
+IoT Hub 장치 ID 레지스트리의 대기 시간 때문에 백 엔드 애플리케이션에 전송된 일부 상태 업데이트가 표시되지 않을 수 있습니다. IoT Hub의 **자동 디바이스 관리 -&gt; IoT 디바이스 구성** 섹션에 있는 포털에서 메트릭이 표시되지 않을 수도 있습니다.
 
 ![포털에서 구성 보기](./media/tutorial-firmware-update/portalview.png)
 
@@ -208,4 +208,4 @@ az group delete --name tutorial-iot-hub-rg
 이 자습서에서는 연결된 디바이스에서 펌웨어 업데이트 프로세스를 구현하는 방법을 알아보았습니다. 다음 자습서를 진행하여 Azure IoT Hub 포털 도구와 Azure CLI 명령을 사용하여 디바이스 연결을 테스트하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-[시뮬레이션된 장치를 사용하여 IoT Hub와 연결 테스트](tutorial-connectivity.md)
+[시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트](tutorial-connectivity.md)

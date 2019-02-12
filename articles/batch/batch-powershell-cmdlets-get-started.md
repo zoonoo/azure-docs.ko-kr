@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3ceb7585a26290985cd5a2c523ad8094b1d1a40a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5f0358bf58e61632fdeef8363d24b39c2cf2ebf0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194239"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811429"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>PowerShell cmdlet을 사용한 Batch 리소스 관리
 
@@ -267,7 +267,7 @@ New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServi
 [Batch 애플리케이션 패키지를 사용하여 계산 노드에 애플리케이션 배포](batch-application-packages.md)에서 애플리케이션 패키지에 대한 자세한 정보를 찾을 수 있습니다.
 
 > [!IMPORTANT]
-> 애플리케이션 패키지를 사용하려면 [Azure Storage 계정](#linked-storage-account-autostorage)을 Batch 계정에 연결해야 합니다.
+> 애플리케이션 패키지를 사용하려면 Azure Storage 계정을 Batch 계정에 연결해야 합니다.
 
 ### <a name="update-a-pools-application-packages"></a>풀의 애플리케이션 패키지 업데이트
 

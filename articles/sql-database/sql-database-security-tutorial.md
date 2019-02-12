@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 1fe92f5632544f21506bd19a52a59ed75cabe3b3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461205"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752520"
 ---
 # <a name="tutorial-secure-a-standalone-or-pooled-database"></a>자습서: 독립 실행형 데이터베이스 또는 풀링된 데이터베이스 보호
 
@@ -45,7 +45,7 @@ Azure SQL Database는 다음과 같은 방법으로 독립 실행형 데이터�
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - Azure SQL 서버 및 데이터베이스
-  - [Azure Portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md) 또는 [PowerShell](sql-database-powershell-samples.md)을 사용하여 만들기
+  - [Azure Portal](sql-database-single-database-get-started.md), [CLI](sql-database-cli-samples.md) 또는 [PowerShell](sql-database-powershell-samples.md)을 사용하여 만들기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -64,7 +64,7 @@ SQL 데이터베이스는 Azure에서 방화벽으로 보호됩니다. 기본적
 
 ### <a name="set-up-sql-database-server-firewall-rules"></a>SQL Database 서버 방화벽 규칙 설정
 
-서버 수준 방화벽 규칙은 동일한 SQL Database 서버 내의 모든 데이터베이스에 적용됩니다.
+서버 수준 IP 방화벽 규칙은 동일한 SQL Database 서버 내의 모든 데이터베이스에 적용됩니다.
 
 서버 수준 방화벽 규칙을 설정하려면,
 
@@ -231,7 +231,7 @@ Azure AD 인증을 사용하여 사용자를 추가하려면,
 
 ## <a name="enable-security-features"></a>보안 기능 사용
 
-Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능을 제공합니다. 이러한 기능은 데이터베이스에서만 사용할 수 있는 데이터 마스킹을 제외하고는 데이터베이스와 서버 모두에서 사용할 수 있습니다. 자세한 내용은 [고급 데이터 보안](sql-advanced-threat-protection.md), [감사](sql-database-auditing.md), [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md) 및 [투명 데이터 암호화](transparent-data-encryption-azure-sql.md)를 참조하세요.
+Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능을 제공합니다. 이러한 기능은 데이터베이스에서만 사용할 수 있는 데이터 마스킹을 제외하고는 데이터베이스와 서버 모두에서 사용할 수 있습니다. 자세한 내용은 [고급 데이터 보안](sql-database-advanced-data-security.md), [감사](sql-database-auditing.md), [동적 데이터 마스킹](sql-database-dynamic-data-masking-get-started.md) 및 [투명 데이터 암호화](transparent-data-encryption-azure-sql.md)를 참조하세요.
 
 ### <a name="advanced-data-security"></a>고급 데이터 보안
 

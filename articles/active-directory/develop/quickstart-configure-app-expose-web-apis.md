@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 3f38162fd4d95127ddf7797638bc9af21e6aaf20
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5b72bd45299f636a208ab39be5b7eaade2730183
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095705"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814023"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성(미리 보기)
 
@@ -116,7 +116,7 @@ UI를 통해 새 범위를 공개하려면
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>웹 API가 다른 애플리케이션에 공개되는지 확인합니다.
 
 1. Azure AD 테넌트로 돌아가서 **앱 등록**을 다시 선택한 다음, 구성하려는 클라이언트 애플리케이션을 찾아 선택합니다.
-1. [웹 API에 액세스하는 클라이언트 애플리케이션 구성](#configure-a-client-application-to-access-web-apis)에서 개요로 설명한 단계를 반복합니다.
+1. 웹 API에 액세스하는 클라이언트 애플리케이션 구성에서 개요로 설명한 단계를 반복합니다.
 1. **API 선택** 단계가 되면 리소스를 선택합니다. 클라이언트 권한 요청에 사용할 수 있는 새 범위가 표시되어야 합니다.
 
 ## <a name="more-on-the-application-manifest"></a>애플리케이션 매니페스트에 대한 추가 정보

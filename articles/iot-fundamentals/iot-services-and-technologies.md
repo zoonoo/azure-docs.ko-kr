@@ -7,14 +7,14 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: ba4f5fcb08d671937c677d8a14c27aaec16bcb1b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e7ffd8f6f4f3aee376a09071fad0f1a36c23f1c4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288716"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694009"
 ---
-# <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT(사물 인터넷) 기술 및 솔루션: PaaS 및 SaaS
+# <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>IoT(사물 인터넷) 기술 및 솔루션: PaaS 및 SaaS
 
 Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록 모든 고객의 요구 사항을 지원하는 포트폴리오를 만들었습니다. Azure IoT 제품 포트폴리오는 사용 가능한 PaaS/SaaS 기술 및 솔루션의 개요를 보여줍니다. 고객이 고유의 솔루션을 구축하는 데 사용할 수 있는 두 가지 경로를 제공합니다.
 
@@ -58,7 +58,7 @@ Azure IoT Central은 최소의 IoT 경험만 있으면 빠르게 시작할 수 �
 
 ### <a name="compare-azure-iot-solution-accelerators-and-azure-iot-central"></a>Azure IoT 솔루션 가속기와 Azure IoT Central 비교
 
-일반적인 [IoT 솔루션 아키텍처](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture)를 구현하기 위해 Azure IoT는 [Azure IoT 솔루션 가속기](/azure/iot-suite) 및 [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)을 제공하며, 각각은 서로 다른 고객 요구 사항 집합에 적합합니다.
+일반적인 [IoT 솔루션 아키텍처](/azure/iot-fundamentals/iot-introduction)를 구현하기 위해 Azure IoT는 [Azure IoT 솔루션 가속기](/azure/iot-suite) 및 [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)을 제공하며, 각각은 서로 다른 고객 요구 사항 집합에 적합합니다.
 
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)는 Azure IoT Central 및 Azure IoT 솔루션 가속기 모두에서 사용하는 Azure PaaS의 핵심입니다. IoT Hub를 사용하면 수백만 개의 IoT 디바이스와 클라우드 솔루션 간의 안정적이고 안전한 양방향 통신을 지원할 수 있습니다. IoT Hub는 다음과 같은 IoT 구현 과제를 충족하는 데 도움을 줍니다.
 
@@ -75,7 +75,7 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 | 기본 PaaS 서비스에 대한 액세스          | 기본 Azure 서비스에 액세스하여 이를 관리하거나 필요에 따라 바꿀 수 있습니다. | SaaS - 완벽하게 관리되는 솔루션이며, 기본 서비스가 노출되지 않습니다. |
 | 유연성            | 높음. 마이크로 서비스에 대한 코드는 오픈 소스이며, 원하는 대로 적절히 수정할 수 있습니다. 또한 배포 인프라를 사용자 지정할 수 있습니다.| 중간. 기본 제공 브라우저 기반 사용자 환경을 사용하여 솔루션 모델 및 UI 측면을 사용자 지정할 수 있습니다. 다른 구성 요소가 노출되지 않기 때문에 인프라는 사용자 지정할 수 없습니다.|
 | 기술 수준                 | 약간 높음 - 솔루션 백 엔드를 사용자 지정하려면 Java 또는 .NET 기술이 필요합니다. 시각화를 사용자 지정하려면 JavaScript 기술이 필요합니다. | 낮음. 솔루션을 사용자 지정하려면 모델링 기술이 필요합니다. 코딩 기술은 필요하지 않습니다. |
-| 시작 환경 | 솔루션 가속기에서 일반적인 IoT 시나리오를 구현합니다. 몇 분 안에 배포할 수 있습니다. | 응용 프로그램 템플릿 및 디바이스 템플릿은 미리 빌드된 모델을 제공합니다. 몇 분 안에 배포할 수 있습니다. |
+| 시작 환경 | 솔루션 가속기에서 일반적인 IoT 시나리오를 구현합니다. 몇 분 안에 배포할 수 있습니다. | 애플리케이션 템플릿 및 장치 템플릿은 미리 빌드된 모델을 제공합니다. 몇 분 안에 배포할 수 있습니다. |
 | 가격                | 비용을 제어하기 위해 서비스를 자세히 튜닝할 수 있습니다. | 간단하고 예측 가능한 가격 책정 구조입니다. |
 
 궁극적으로 IoT 솔루션을 빌드하는 데 사용할 제품은 다음 조건에 따라 결정할 수 있습니다.
@@ -90,13 +90,13 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 
 ### <a name="device-support"></a>디바이스 지원
 
-[Azure IoT 시작 키트](https://catalog.azureiotsuite.com/kits)를 활용하거나 [장치 카탈로그](http://catalog.azureiotsuite.com/)에 있는 수백 대의 IoT용 Certified 장치 중에서 선택하여 자신 있게 IoT 프로젝트를 시작하세요. 모든 디바이스는 플랫폼의 제약을 받지 않으며 IoT Hub에 원활하게 연결되도록 테스트를 마쳤습니다.
+[Azure IoT 시작 키트](https://catalog.azureiotsuite.com/kits)를 활용하거나 [디바이스 카탈로그](http://catalog.azureiotsuite.com/)에 있는 수백 대의 IoT용 Certified 디바이스 중에서 선택하여 자신 있게 IoT 프로젝트를 시작하세요. 모든 디바이스는 플랫폼의 제약을 받지 않으며 IoT Hub에 원활하게 연결되도록 테스트를 마쳤습니다.
 오픈 소스 [디바이스 SDK](/azure/iot-hub/iot-hub-devguide-sdks)를 사용하여 모든 디바이스를 Azure IoT에 연결하세요. SDK는 [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) 및 [Python](https://github.com/Azure/azure-iot-sdk-python) 같은 여러 프로그래밍 언어뿐 아니라 Linux, Windows 및 실시간 운영 체제 같은 여러 운영 체제도 지원합니다.
 
 ### <a name="iot"></a>IoT 
-[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)는 수백만 대의 IoT 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스입니다. Azure IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적시에 올바른 IoT Hub에 무인 프로비전이 가능하므로 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 디바이스를 프로비전할 수 있습니다.
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)는 수백만 대의 IoT 디바이스와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스입니다. Azure IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적시에 올바른 IoT Hub에 무인 프로비전이 가능하므로 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 디바이스를 프로비전할 수 있습니다.
 
-### <a name="edge"></a>Edge
+### <a name="edge"></a>Microsoft Edge
 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)는 IoT 서비스입니다. 이 서비스는 클라우드가 아닌 디바이스에서 즉, "에지"의 데이터를 관리하려는 고객을 대상으로 합니다. 워크로드의 일부를 에지로 이동하면 대기 시간이 단축되고 오프라인 시나리오에 대한 옵션이 제공됩니다.
 
 ### <a name="spatial-intelligence"></a>공간 인텔리전스

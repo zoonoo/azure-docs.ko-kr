@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 14dc1ca90ecd342330425db840776fa67caa80b0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2bb5550cfe07064d595151305955d87f9c61050
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208145"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819538"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Knowledge Exploration Service 시작
 
@@ -100,7 +100,7 @@ ms.locfileid: "55208145"
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-Azure 외부에서 프로토타입을 신속하게 생성하기 위해 [`kes.exe build_index`](CommandLine.md#build_index-command)는 최대 10,000개의 개체가 포함된 데이터 파일에서 작은 인덱스를 로컬로 작성할 수 있습니다. 큰 데이터 파일의 경우 [Azure의 Windows VM](../../../articles/virtual-machines/windows/quick-create-portal.md) 내에서 명령을 실행하거나 Azure에서 원격 빌드를 수행할 수 있습니다. 자세한 내용은 [확장](#scaling-up)을 참조하세요.
+Azure 외부에서 프로토타입을 신속하게 생성하기 위해 [`kes.exe build_index`](CommandLine.md#build_index-command)는 최대 10,000개의 개체가 포함된 데이터 파일에서 작은 인덱스를 로컬로 작성할 수 있습니다. 큰 데이터 파일의 경우 [Azure의 Windows VM](../../../articles/virtual-machines/windows/quick-create-portal.md) 내에서 명령을 실행하거나 Azure에서 원격 빌드를 수행할 수 있습니다. 자세한 내용은 확장을 참조하세요.
 
 ## <a name="use-an-xml-grammar-specification"></a>XML 문법 사양 사용
 
@@ -211,7 +211,7 @@ XML 문법 사양이 준비되면 [`kes.exe build_grammar`](CommandLine.md#build
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-그러면 웹 서비스의 로컬 인스턴스가 시작됩니다. 브라우저에서 `http::localhost:<port>`를 방문하여 서비스를 대화형으로 테스트할 수 있습니다. 자세한 내용은 [서비스 테스트](#testing-service)를 참조하세요.
+그러면 웹 서비스의 로컬 인스턴스가 시작됩니다. 브라우저에서 `http::localhost:<port>`를 방문하여 서비스를 대화형으로 테스트할 수 있습니다. 자세한 내용은 서비스 테스트를 참조하세요.
 
 다양한 [Web API](WebAPI.md)를 직접 호출하여 자연어 해석, 쿼리 완성, 구조화된 쿼리 평가 및 히스토그램 계산을 테스트할 수도 있습니다. 서비스를 중지하려면 `kes.exe host_service` 명령 프롬프트에 “quit”를 입력하거나 Ctrl+C를 누릅니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
@@ -220,7 +220,7 @@ XML 문법 사양이 준비되면 [`kes.exe build_grammar`](CommandLine.md#build
 * [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
 * [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-Azure 외부에서는 [`kes.exe host_service`](CommandLine.md#host_service-command)가 최대 10,000개의 개체 인덱스로 제한됩니다. 기타 한도에는 초당 10개 요청의 API 속도, 프로세스가 자동으로 종료되기까지 총 1000개의 요청 등이 있습니다. 이러한 제한을 무시하려면 [Azure의 Windows VM](../../../articles/virtual-machines/windows/quick-create-portal.md) 내에서 명령을 실행하거나, [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) 명령을 사용하여 Azure 클라우드 서비스에 배포합니다. 자세한 내용은 [서비스 배포](#deploying-service)를 참조하세요.
+Azure 외부에서는 [`kes.exe host_service`](CommandLine.md#host_service-command)가 최대 10,000개의 개체 인덱스로 제한됩니다. 기타 한도에는 초당 10개 요청의 API 속도, 프로세스가 자동으로 종료되기까지 총 1000개의 요청 등이 있습니다. 이러한 제한을 무시하려면 [Azure의 Windows VM](../../../articles/virtual-machines/windows/quick-create-portal.md) 내에서 명령을 실행하거나, [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) 명령을 사용하여 Azure 클라우드 서비스에 배포합니다. 자세한 내용은 서비스 배포를 참조하세요.
 
 ## <a name="scale-up-to-host-larger-indices"></a>더 큰 인덱스 호스트를 위해 확장
 
@@ -262,7 +262,7 @@ Azure 외부에서 `kes.exe`를 실행하는 경우 인덱스가 10,000개의 �
 
 ## <a name="test-the-service"></a>서비스 테스트
 
-라이브 서비스를 디버그하려면 웹 브라우저에서 호스트 컴퓨터를 찾습니다. [host_service](#hosting-service)를 통해 배포된 로컬 서비스의 경우 `http://localhost:<port>/`를 방문하세요.  [deploy_service](#deploying-service)를 통해 배포된 Azure 클라우드 서비스의 경우 `http://<serviceName>.cloudapp.net/`을 방문하세요.
+라이브 서비스를 디버그하려면 웹 브라우저에서 호스트 컴퓨터를 찾습니다. host_service를 통해 배포된 로컬 서비스의 경우 `http://localhost:<port>/`를 방문하세요.  deploy_service를 통해 배포된 Azure 클라우드 서비스의 경우 `http://<serviceName>.cloudapp.net/`을 방문하세요.
 
 이 페이지에는 이 서비스에 호스트된 문법 및 인덱스뿐 아니라 기본 API 호출 통계에 대한 정보 링크가 포함되어 있습니다. Web API 사용을 보여 주는 대화형 검색 인터페이스도 있습니다. 검색 상자에 쿼리를 입력하여 [interpret](interpretMethod.md), [evaluate](evaluateMethod.md) 및 [calchistogram](calchistogramMethod.md) API 호출의 결과를 확인합니다. 이 페이지의 기본 HTML 소스는 Web API를 앱에 통합하여 풍부한 대화형 검색 환경을 만드는 방법의 예로 사용할 수도 있습니다.
 

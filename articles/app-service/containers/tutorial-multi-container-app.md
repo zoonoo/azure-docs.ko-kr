@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c9759b8900f0579ccd56d001d50d65aedce2b445
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1480032b7ff018081d9dc25038bf336740810079
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716041"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657580"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -37,6 +37,11 @@ ms.locfileid: "53716041"
 > * 오류 문제 해결
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="preview-feature-limitations"></a>미리 보기 기능 제한 사항
+다중 컨테이너는 현재 미리 보기로 제공되며, 다음 App Service 플랫폼 기능은 지원되지 않습니다. GA(일반 공급) 전에 다중 컨테이너 웹앱을 위해 이러한 기능을 활성화할 예정입니다.
+* 인증/권한 부여
+* 관리 ID
 
 ## <a name="prerequisites"></a>필수 조건
 

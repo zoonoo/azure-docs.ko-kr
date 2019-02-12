@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a6e6dfb70182d8b4924a184dcebd1d06695911a5
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539725"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747018"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>자습서: Azure에서 Java EE 및 Postgres 웹앱 빌드
 
-이 자습서에서는 Azure App Service에서 Java EE(Enterprise Edition) 웹앱을 만들어서 Postgres 데이터베이스에 연결하는 방법을 보여줍니다. 자습서를 마치면 [Linux용 App Service](app-service-linux-intro.md)에서 실행되는 [Postgres용 Azure 데이터베이스](https://azure.microsoft.com/services/postgresql/)에 데이터를 저장하는 [WildFly](https://www.wildfly.org/about/) 애플리케이션이 생깁니다.
+이 자습서에서는 Azure App Service에서 Java EE(Enterprise Edition) 웹앱을 만들어서 Postgres 데이터베이스에 연결하는 방법을 보여줍니다. 자습서를 마치면 [Linux의 App Service](app-service-linux-intro.md)에서 실행되는 [Postgres용 Azure 데이터베이스](https://azure.microsoft.com/services/postgresql/)에 데이터를 저장하는 [WildFly](https://www.wildfly.org/about/) 애플리케이션이 생깁니다.
 
 이 자습서에서는 다음 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -50,40 +50,24 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### <a name="update-the-maven-pom"></a>Maven POM 업데이트
 
-Maven POM을 원하는 App Service 이름 및 리소스 그룹으로 업데이트합니다. 이러한 값은 _pom.xml_ 파일의 더 깊은 곳에 있는 Azure 플러그 인에 삽입됩니다. App Service 계획 또는 인스턴스를 미리 만들 필요가 없습니다. Maven 플러그 인이 리소스 그룹 및 App Service를 새로 만듭니다(아직 없는 경우).
+Maven Azure 플러그인을 원하는 App Service 이름 및 리소스 그룹으로 업데이트합니다. App Service 계획 또는 인스턴스를 미리 만들 필요가 없습니다. Maven 플러그 인이 리소스 그룹 및 App Service를 새로 만듭니다(아직 없는 경우). 
 
-_pom.xml_의 `<plugins>` 섹션으로 스크롤하여 Azure 플러그 인을 검사할 수 있습니다. azure-webapp-maven-plugin의 _pom.xml_에 대한 `<plugin>` 구성 섹션에는 다음 구성이 있어야 합니다.
+_pom.xml_의 `<plugins>` 섹션(줄 200)으로 스크롤하여 변경 작업을 수행할 수 있습니다. 
 
 ```xml
-      <!--*************************************************-->
-      <!-- Deploy to WildFly in App Service Linux           -->
-      <!--*************************************************-->
- 
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.0</version>
-        <configuration>
- 
-          <!-- Web App information -->
-          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
-          <appName>${WEBAPP_NAME}</appName>
-          <region>${REGION}</region>
- 
-          <!-- Java Runtime Stack for Web App on Linux-->
-          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
- 
-        </configuration>
-      </plugin>
+<!-- Azure App Service Maven plugin for deployment -->
+<plugin>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-webapp-maven-plugin</artifactId>
+  <version>${version.maven.azure.plugin}</version>
+  <configuration>
+    <appName>YOUR_APP_NAME</appName>
+    <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup>
+    <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+  ...
+</plugin>  
 ```
-
-자리 표시자를 원하는 리소스 이름으로 바꿉니다.
-```xml
-<azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
-<azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
-```
-
+`YOUR_APP_NAME` 및 `YOUR_RESOURCE_GROUP`을 App Service 및 리소스 그룹 이름으로 바꾸세요.
 
 ## <a name="build-and-deploy-the-application"></a>애플리케이션 빌드 및 배포
 
@@ -139,12 +123,27 @@ Azure 데이터베이스 블레이드의 **연결 보안** 패널에서 "Azure �
 
 ### <a name="add-postgres-credentials-to-the-pom"></a>POM에 Postgres 자격 증명 추가
 
-_pom.xml_에서 자리 표시자 값을 Postgres 서버 이름, 관리자 로그인 이름 및 암호로 바꿉니다. 이러한 값은 애플리케이션을 다시 배포할 때 App Service 인스턴스의 환경 변수로 삽입됩니다.
+_pom.xml_에서 대문자로 시작하는 자리 표시자 값을 Postgres 서버 이름, 관리자 로그인 이름 및 암호로 바꿉니다. 이러한 필드는 Azure Maven 플러그인 내에 있습니다. (`<name>` 태그가 아니라 `<value>` 태그 내에 있는 `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME` 및 `YOUR_PG_PASSWORD`를 바꾸세요.)
 
 ```xml
-<azure.plugin.postgres-server-name>SERVER_NAME</azure.plugin.postgres-server-name>
-<azure.plugin.postgres-username>USERNAME@FIRST_PART_OF_SERVER_NAME</azure.plugin.postgres-username>
-<azure.plugin.postgres-password>PASSWORD</azure.plugin.postgres-password>
+<plugin>
+      ...
+      <appSettings>
+      <property>
+        <name>POSTGRES_CONNECTIONURL</name>
+        <value>jdbc:postgresql://YOUR_SERVER_NAME:5432/postgres?ssl=true</value>
+      </property>
+      <property>
+        <name>POSTGRES_USERNAME</name>
+        <value>YOUR_PG_USERNAME</value>
+      </property>
+      <property>
+        <name>POSTGRES_PASSWORD</name>
+        <value>YOUR_PG_PASSWORD</value>
+      </property>
+    </appSettings>
+  </configuration>
+</plugin>
 ```
 
 ### <a name="update-the-java-transaction-api"></a>Java Transaction API 업데이트

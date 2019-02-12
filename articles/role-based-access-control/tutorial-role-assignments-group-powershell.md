@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 8bb06493683dabb92dfe75f371f96db14a7951b3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ba37be1f0d7224b7e607955ab350e756b6fec350
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301006"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697554"
 ---
 # <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>자습서: RBAC 및 Azure PowerShell을 사용하여 그룹에 액세스 권한 부여
 
@@ -32,6 +32,8 @@ ms.locfileid: "43301006"
 > * 액세스 권한 제거
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -68,16 +70,16 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-그룹을 만들 권한이 없는 경우 [자습서: RBAC 및 Azure PowerShell을 사용하여 사용자에게 액세스 권한 부여](tutorial-role-assignments-user-powershell.md)를 시도해 보세요.
+그룹을 만들 수 있는 권한이 없으면 [자습서: RBAC 및 Azure PowerShell을 사용하여 사용자에게 액세스 권한 부여](tutorial-role-assignments-user-powershell.md)를 대신 시도해 볼 수 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 리소스 그룹을 사용하여 리소스 그룹 범위에서 역할을 할당하는 방법을 보여줍니다.
 
-1. [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) 명령을 사용하여 영역 위치 목록을 가져옵니다.
+1. [Get-AzLocation](/powershell/module/az.resources/get-azlocation) 명령을 사용하여 영역 위치 목록을 가져옵니다.
 
    ```azurepowershell
-   Get-AzureRmLocation | select Location
+   Get-AzLocation | select Location
    ```
 
 1. 가까운 위치를 선택하고 변수에 할당합니다.
@@ -86,10 +88,10 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
    $location = "westus"
    ```
 
-1. [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령을 사용하여 새 리소스 그룹을 만듭니다.
+1. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 새 리소스 그룹을 만듭니다.
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
+   New-AzResourceGroup -Name "rbac-tutorial-resource-group" -Location $location
    ```
 
    ```Example
@@ -102,7 +104,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 ## <a name="grant-access"></a>액세스 권한 부여
 
-그룹에 액세스 권한을 부여하려면 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) 명령을 사용하여 역할을 할당합니다. 보안 주체, 역할 정의 및 범위를 지정해야 합니다.
+그룹에 액세스 권한을 부여하려면 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 명령을 사용하여 역할을 할당합니다. 보안 주체, 역할 정의 및 범위를 지정해야 합니다.
 
 1. [Get-AzureADGroup](/powershell/module/azuread/new-azureadgroup) 명령을 사용하여 그룹의 개체 ID를 가져옵니다.
 
@@ -122,10 +124,10 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription) 명령을 사용하여 구독 ID를 가져옵니다.
+1. [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) 명령을 사용하여 구독 ID를 가져옵니다.
 
     ```azurepowershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     ```Example
@@ -144,7 +146,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 1. 구독 범위에서 그룹에 [읽기 권한자](built-in-roles.md#reader) 역할을 할당합니다.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId `
+    New-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -164,7 +166,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 1. 리소스 그룹 범위에서 그룹에 [기여자](built-in-roles.md#contributor) 역할을 할당합니다.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId `
+    New-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -183,10 +185,10 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 ## <a name="list-access"></a>액세스 권한 나열
 
-1. 구독에 대한 액세스 권한을 확인하려면 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) 명령을 사용하여 역할 할당을 나열합니다.
+1. 구독에 대한 액세스 권한을 확인하려면 [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 명령을 사용하여 역할 할당을 나열합니다.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId -Scope $subScope
+    Get-AzRoleAssignment -ObjectId $groupId -Scope $subScope
     ```
 
     ```Example
@@ -203,10 +205,10 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
     출력을 보면 구독 범위에서 읽기 권한자 역할이 RBAC 자습서 그룹에 할당된 것을 볼 수 있습니다.
 
-1. 리소스 그룹에 대한 액세스 권한을 확인하려면 [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) 명령을 사용하여 역할 할당을 나열합니다.
+1. 리소스 그룹에 대한 액세스 권한을 확인하려면 [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 명령을 사용하여 역할 할당을 나열합니다.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group"
+    Get-AzRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -245,12 +247,12 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 ## <a name="remove-access"></a>액세스 권한 제거
 
-사용자, 그룹 및 애플리케이션의 액세스 권한을 제거하려면 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 명령을 사용하여 역할 할당을 제거합니다.
+사용자, 그룹 및 애플리케이션의 액세스 권한을 제거하려면 [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) 명령을 사용하여 역할 할당을 제거합니다.
 
 1. 다음 명령을 사용하여 리소스 그룹 범위에서 그룹의 기여자 역할 할당을 제거합니다.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+    Remove-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Contributor" `
       -ResourceGroupName "rbac-tutorial-resource-group"
     ```
@@ -258,7 +260,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 1. 다음 명령을 사용하여 구독 범위에서 그룹의 읽기 권한자 역할 할당을 제거합니다.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+    Remove-AzRoleAssignment -ObjectId $groupId `
       -RoleDefinitionName "Reader" `
       -Scope $subScope
     ```
@@ -267,10 +269,10 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 이 자습서에서 만든 리소스를 정리하려면 리소스 그룹 및 그룹을 삭제합니다.
 
-1. [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹을 제거합니다.
+1. [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹을 제거합니다.
 
     ```azurepowershell
-    Remove-AzureRmResourceGroup -Name "rbac-tutorial-resource-group"
+    Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"
     ```
 
     ```Example

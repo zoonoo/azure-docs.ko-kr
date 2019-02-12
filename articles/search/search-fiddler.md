@@ -1,5 +1,5 @@
 ---
-title: Fiddler 또는 Postman 웹 HTTP 테스트 도구에서 REST API 탐색 - Azure Search
+title: Postman 또는 Fiddler 웹 HTTP 테스트 도구에서 REST API 탐색 - Azure Search
 description: Fiddler 또는 Postman을 사용하여 Azure Search에 HTTP 요청 및 REST API 호출을 발행하는 방법.
 author: HeidiSteen
 manager: cgronlun
@@ -10,16 +10,16 @@ ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5946ff5e75e7c3fedf42c23200f61e821c0d9d61
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 06e2667b59b27039ad3c62379f654dd693999f99
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631399"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756078"
 ---
-# <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Fiddler 또는 Postman을 사용하여 Azure Search REST API 탐
+# <a name="explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Postman 또는 Fiddler를 사용하여 Azure Search REST API 탐색
 
-[Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice)를 탐색하는 가장 쉬운 방법 중 하나는 Fiddler 또는 Postman을 사용하여 HTTP 요청을 공식으로 만들고 응답을 검사하는 것입니다. 적절한 도구와 이러한 지침을 사용하면 코드를 작성하기 전에 요청을 전송하고 응답을 볼 수 있습니다.
+[Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice)를 탐색하는 가장 쉬운 방법 중 하나는 Postman 또는 Fiddler를 사용하여 HTTP 요청을 공식으로 만들고 응답을 검사하는 것입니다. 적절한 도구와 이러한 지침을 사용하면 코드를 작성하기 전에 요청을 전송하고 응답을 볼 수 있습니다.
 
 > [!div class="checklist"]
 > * 웹 API 테스트 도구 다운로드

@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 39261f18c4335f0f27b68a2df2246ec4180d11e7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0900f5e2cab24004c4e2a358a98cd750f0968b50
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193707"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752981"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>하이브리드 환경에서 Windows 컴퓨터용 Log Analytics 에이전트 구성
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md)는 상세한 분석 및 상관 관계 파악을 위해 데이터 센터나 다른 클라우드 환경의 물리적 또는 가상 Windows 컴퓨터를 단일 리포지토리로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Windows 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Windows VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](../../azure-monitor/learn/quick-collect-azurevm.md)을 참조하세요.  
@@ -83,7 +83,7 @@ Log Analytics는 Windows 이벤트 로그에서 이벤트를 수집하고, 좀 �
 4. 로그 이름을 입력하여 이벤트 로그를 추가합니다.  **System**을 입력하고 더하기 기호 **+** 를 클릭합니다.  
 5. 표에서 심각도 **오류** 및 **경고**를 선택합니다.   
 6. 페이지 맨 위에서 **저장**을 클릭하여 구성을 저장합니다.
-7. **Windows 성능 데이터**를 선택하여 Linux 컴퓨터의 성능 카운터 수집을 사용하도록 설정합니다.  
+7. **Windows 성능 카운터**를 선택하여 Linux 컴퓨터의 성능 카운터 수집을 사용하도록 설정합니다. 
 8. 새 Log Analytics 작업 영역에 대한 Windows 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다. 각 항목은 옆에 확인란과 함께 나열됩니다.<br> ![기본 Windows 성능 카운터가 선택됨](media/quick-collect-windows-computer/windows-perfcounters-default.png).<br> **선택한 성능 카운터 추가**를 클릭합니다.  해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.  
 9. 페이지 맨 위에서 **저장**을 클릭하여 구성을 저장합니다.
 

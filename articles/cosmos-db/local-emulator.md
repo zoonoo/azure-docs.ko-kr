@@ -6,29 +6,16 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 559bdd479d02a8744f9b113c43c2c860d8218401
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbdc57489eb7ebd50e3ce7e2b4e0e4081aef8e27
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038197"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770387"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용
 
-<table>
-<tr>
-  <td><strong>이진 파일</strong></td>
-  <td>[MSI 다운로드](https://aka.ms/cosmosdb-emulator)</td>
-</tr>
-<tr>
-  <td><strong>Docker</strong></td>
-  <td>[Docker 허브](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
-</tr>
-<tr>
-  <td><strong>Docker 원본</strong></td>
-  <td>[GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
-</tr>
-</table>
+|**바이너리**|[MSI 다운로드](https://aka.ms/cosmosdb-emulator)| |**Docker**|[Docker 허브](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)| |**Docker 원본** | [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)|
 
 Azure Cosmos DB 에뮬레이터는 개발 목적으로 Azure Cosmos DB 서비스를 에뮬레이트하는 로컬 환경을 제공합니다. Azure Cosmos DB 에뮬레이터를 사용하면 Azure 구독을 구입하거나 비용을 발생시키지 않고도 로컬에서 애플리케이션을 테스트할 수 있습니다. Azure Cosmos DB 에뮬레이터에서 애플리케이션이 작동하는 방식에 만족하는 경우 Azure Cosmos DB 계정을 클라우드에서 사용하도록 전환할 수 있습니다.
 
@@ -162,133 +149,28 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
 
 옵션 목록을 보려면 명령 프롬프트에 `CosmosDB.Emulator.exe /?` 을(를) 입력합니다.
 
-<table>
-<tr>
-  <td><strong>옵션</strong></td>
-  <td><strong>설명</strong></td>
-  <td><strong>명령</strong></td>
-  <td><strong>인수</strong></td>
-</tr>
-<tr>
-  <td>[인수 없음]</td>
-  <td>기본 설정으로 Azure Cosmos DB 에뮬레이터를 시작합니다.</td>
-  <td>CosmosDB.Emulator.exe</td>
-  <td></td>
-</tr>
-<tr>
-  <td>[도움말]</td>
-  <td>지원되는 명령줄 인수 목록을 표시합니다.</td>
-  <td>CosmosDB.Emulator.exe /?</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GetStatus</td>
-  <td>Azure Cosmos DB Emulator의 상태를 가져 옵니다. 상태는 종료 코드에 의해 표시됩니다. 1 = 시작, 2 = 실행, 3 = 정지. 부정적인 종료 코드는 오류가 발생 했음을 나타냅니다. 어떤 출력도 생성되지 않습니다.</td>
-  <td>CosmosDB.Emulator.exe /GetStatus</td>
-  <td></td>
-<tr>
-  <td>Shutdown</td>
-  <td>Azure Cosmos DB 에뮬레이터를 종료합니다.</td>
-  <td>CosmosDB.Emulator.exe /Shutdown</td>
-  <td></td>
-</tr>
-<tr>
-  <td>DataPath</td>
-  <td>데이터 파일을 저장할 경로를 지정합니다. 기본값은 %LocalAppdata%\CosmosDBEmulator입니다.</td>
-  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
-  <td>&lt;datapath&gt;: 액세스할 수 있는 경로</td>
-</tr>
-<tr>
-  <td>포트</td>
-  <td>에뮬레이터에 사용할 포트 번호를 지정합니다. 기본값은 8081입니다.</td>
-  <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
-  <td>&lt;포트&gt;: 단일 포트 번호</td>
-</tr>
-<tr>
-  <td>MongoPort</td>
-  <td>MongoDB 호환성 API에 사용할 포트 번호를 지정합니다. 기본값은 10255입니다.</td>
-  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
-  <td>&lt;mongoport&gt;: 단일 포트 번호</td>
-</tr>
-<tr>
-  <td>DirectPorts</td>
-  <td>직접 연결에 사용할 포트를 지정합니다. 기본값은 10251,10252,10253,10254입니다.</td>
-  <td>CosmosDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
-  <td>&lt;directports&gt;: 쉼표로 구분된 4개 포트 목록</td>
-</tr>
-<tr>
-  <td>키</td>
-  <td>에뮬레이터에 대한 권한 부여 키입니다. 키는 64바이트 벡터의 base 64 인코딩이어야 합니다.</td>
-  <td>CosmosDB.Emulator.exe /Key:&lt;key&gt;</td>
-  <td>&lt;키&gt;: 키는 64바이트 벡터의 base 64 인코딩이어야 합니다.</td>
-</tr>
-<tr>
-  <td>EnableRateLimiting</td>
-  <td>요청 속도 제한 동작을 사용하도록 지정합니다.</td>
-  <td>CosmosDB.Emulator.exe /EnableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>DisableRateLimiting</td>
-  <td>요청 속도 제한 동작을 사용하지 않도록 지정합니다.</td>
-  <td>CosmosDB.Emulator.exe /DisableRateLimiting</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoUI</td>
-  <td>에뮬레이터 사용자 인터페이스를 표시하지 않습니다.</td>
-  <td>CosmosDB.Emulator.exe /NoUI</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoExplorer</td>
-  <td>시작 시 데이터 탐색기를 표시하지 않습니다.</td>
-  <td>CosmosDB.Emulator.exe /NoExplorer</td>
-  <td></td>
-</tr>
-<tr>
-  <td>PartitionCount</td>
-  <td>분할된 컬렉션의 최대 수를 지정합니다. 자세한 내용은 [컬렉션 수 변경](#set-partitioncount)을 참조하세요.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
-  <td>&lt;partitioncount&gt;: 허용되는 단일 파티션 컬렉션의 최대 수입니다. 기본값은 25입니다. 허용되는 최대값은 250입니다.</td>
-</tr>
-<tr>
-  <td>DefaultPartitionCount</td>
-  <td>분할된 컬렉션에 대한 기본 파티션 수를 지정합니다.</td>
-  <td>CosmosDB.Emulator.exe /DefaultPartitionCount=&lt;defaultpartitioncount&gt;</td>
-  <td>&lt;defaultpartitioncount&gt; 기본값은 25입니다.</td>
-</tr>
-<tr>
-  <td>AllowNetworkAccess</td>
-  <td>네트워크를 통해 에뮬레이터에 액세스할 수 있도록 합니다. /Key=&lt;key_string&gt; 또는 /KeyFile=&lt;file_name&gt;을 전달하여 네트워크 액세스를 활성화해야 합니다.</td>
-  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>또는<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>NoFirewall</td>
-  <td>/AllowNetworkAccess가 사용되는 경우 방화벽 규칙을 조정하지 마십시오.</td>
-  <td>CosmosDB.Emulator.exe /NoFirewall</td>
-  <td></td>
-</tr>
-<tr>
-  <td>GenKeyFile</td>
-  <td>새 인증 키를 생성하고 지정된 파일에 저장합니다. 생성된 키를 /Key 또는 /KeyFile 옵션과 함께 사용할 수 있습니다.</td>
-  <td>CosmosDB.Emulator.exe /GenKeyFile=&lt;path to key file&gt;</td>
-  <td></td>
-</tr>
-<tr>
-  <td>일관성</td>
-  <td>계정의 기본 일관성 수준을 설정합니다.</td>
-  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
-  <td>&lt;일관성&gt;: 값은 [일관성 수준](consistency-levels.md) Session, Strong, Eventual 또는 BoundedStaleness 중 하나여야 합니다. 기본값은 Session입니다.</td>
-</tr>
-<tr>
-  <td>?</td>
-  <td>도움말 메시지를 표시합니다.</td>
-  <td></td>
-  <td></td>
-</tr>
-</table>
+|**옵션** | **설명** | **명령**| **인수**|
+|---|---|---|---|
+|[인수 없음] | 기본 설정으로 Azure Cosmos DB 에뮬레이터를 시작합니다. |CosmosDB.Emulator.exe| |
+|[도움말] |지원되는 명령줄 인수 목록을 표시합니다.|CosmosDB.Emulator.exe /? | |
+| GetStatus |Azure Cosmos DB Emulator의 상태를 가져 옵니다. 상태는 종료 코드에 의해 표시됩니다. 1 = 시작, 2 = 실행, 3 = 정지. 부정적인 종료 코드는 오류가 발생 했음을 나타냅니다. 어떤 출력도 생성되지 않습니다. | CosmosDB.Emulator.exe /GetStatus| |
+| Shutdown| Azure Cosmos DB 에뮬레이터를 종료합니다.| CosmosDB.Emulator.exe /Shutdown | |
+|DataPath | 데이터 파일을 저장할 경로를 지정합니다. 기본값은 %LocalAppdata%\CosmosDBEmulator입니다. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: 액세스할 수 있는 경로 |
+|포트 | 에뮬레이터에 사용할 포트 번호를 지정합니다. 기본값은 8081입니다. |CosmosDB.Emulator.exe /Port=\<port\> | \<포트\>: 단일 포트 번호 |
+| MongoPort | MongoDB 호환성 API에 사용할 포트 번호를 지정합니다. 기본값은 10255입니다. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: 단일 포트 번호|
+| DirectPorts |직접 연결에 사용할 포트를 지정합니다. 기본값은 10251,10252,10253,10254입니다. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: 쉼표로 구분된 4개 포트 목록 |
+| 키 |에뮬레이터에 대한 권한 부여 키입니다. 키는 64바이트 벡터의 base 64 인코딩이어야 합니다. | CosmosDB.Emulator.exe /Key:\<key\> | \<키\>: 키는 64바이트 벡터의 base 64 인코딩이어야 합니다.|
+| EnableRateLimiting | 요청 속도 제한 동작을 사용하도록 지정합니다. |CosmosDB.Emulator.exe /EnableRateLimiting | |
+| DisableRateLimiting |요청 속도 제한 동작을 사용하지 않도록 지정합니다. |CosmosDB.Emulator.exe /DisableRateLimiting | |
+| NoUI | 에뮬레이터 사용자 인터페이스를 표시하지 않습니다. | CosmosDB.Emulator.exe /NoUI | |
+| NoExplorer | 시작 시 데이터 탐색기를 표시하지 않습니다. |CosmosDB.Emulator.exe /NoExplorer | | 
+| PartitionCount | 분할된 컬렉션의 최대 수를 지정합니다. 자세한 내용은 [컬렉션 수 변경](#set-partitioncount)을 참조하세요. | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: 허용되는 단일 파티션 컬렉션의 최대 수입니다. 기본값은 25입니다. 허용되는 최대값은 250입니다.|
+| DefaultPartitionCount| 분할된 컬렉션에 대한 기본 파티션 수를 지정합니다. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> 기본값은 25입니다.|
+| AllowNetworkAccess | 네트워크를 통해 에뮬레이터에 액세스할 수 있도록 합니다. /Key=\<key_string\> 또는 /KeyFile=\<file_name\>을 전달하여 네트워크 액세스를 활성화해야 합니다. | CosmosDB.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> 또는 CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
+| NoFirewall | /AllowNetworkAccess가 사용되는 경우 방화벽 규칙을 조정하지 마십시오. |CosmosDB.Emulator.exe /NoFirewall | |
+| GenKeyFile | 새 인증 키를 생성하고 지정된 파일에 저장합니다. 생성된 키를 /Key 또는 /KeyFile 옵션과 함께 사용할 수 있습니다. | CosmosDB.Emulator.exe /GenKeyFile=\<path to key file\> | |
+| 일관성 | 계정의 기본 일관성 수준을 설정합니다. | CosmosDB.Emulator.exe /Consistency=\<consistency\> | \<일관성\>: 값은 [일관성 수준](consistency-levels.md) Session, Strong, Eventual 또는 BoundedStaleness 중 하나여야 합니다. 기본값은 Session입니다. |
+| ? | 도움말 메시지를 표시합니다.| | |
 
 ## <a id="set-partitioncount"></a>컬렉션 수 변경
 

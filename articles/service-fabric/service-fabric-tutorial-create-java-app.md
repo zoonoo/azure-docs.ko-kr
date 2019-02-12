@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e4552157cab846356c57a135d4e273f5a545bce9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 619f77b6b50a005b4b5cc688bdbf32d1ce3dce26
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667220"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810817"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>자습서: Service Fabric에서 Java 웹 API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기
 
@@ -39,9 +39,9 @@ ms.locfileid: "43667220"
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > * Java Service Fabric Reliable Services 애플리케이션 빌드
-> * [로컬 클러스터에서 응용 프로그램 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
-> * [Azure 클러스터에 응용 프로그램 배포](service-fabric-tutorial-java-deploy-azure.md)
-> * [응용 프로그램에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
+> * [로컬 클러스터에서 애플리케이션 배포 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [Azure 클러스터에 애플리케이션 배포](service-fabric-tutorial-java-deploy-azure.md)
+> * [애플리케이션에 대한 모니터링 및 진단 설정](service-fabric-tutorial-java-elk.md)
 > * [CI/CD를 설정합니다](service-fabric-tutorial-java-jenkins.md).
 
 ## <a name="prerequisites"></a>필수 조건
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 HTTP 통신 수신기는 HTTP 서버를 설정하고 컨트롤러로서 투표 작업을 정의하는 API를 공개하는 역할을 합니다. *VotingWeb/src/statelessservice* 폴더에서 *statelessservice* 패키지를 마우스 오른쪽 단추로 클릭한 다음, **새로 만들기->파일**을 선택합니다.  *HttpCommunicationListener.java* 파일 이름을 지정하고 **마침**을 클릭합니다.
 
-파일 내용을 다음으로 바꾸고 변경 내용을 저장합니다.  나중에 이 파일은 [HttpCommunicationListener.java 파일 업데이트](#updatelistener_anchor)에서 백 엔드 서비스의 투표 데이터를 렌더링하고 읽고 쓰도록 수정됩니다.  지금은 수신기가 Voting 앱에 대한 고정적인 HTML을 반환합니다.
+파일 내용을 다음으로 바꾸고 변경 내용을 저장합니다.  나중에 이 파일은 HttpCommunicationListener.java 파일 업데이트에서 백 엔드 서비스의 투표 데이터를 렌더링하고 읽고 쓰도록 수정됩니다.  지금은 수신기가 Voting 앱에 대한 고정적인 HTML을 반환합니다.
 
 ```java
 // ------------------------------------------------------------
@@ -406,7 +406,7 @@ VotingWeb 서비스 프런트 엔드 서비스를 만들면 Service Fabric에서
 
 Service Fabric을 통해 신뢰할 수 있는 컬렉션을 사용하여 일관되고 안정적으로 서비스 내에 데이터를 바로 저장할 수 있습니다. 신뢰할 수 있는 컬렉션은 고가용성의 신뢰할 수 있는 컬렉션 클래스의 집합입니다. Java 컬렉션을 사용하는 사람에게는 이러한 클래스의 사용이 친숙합니다.
 
-1. 패키지 탐색기에서 응용 프로그램 프로젝트 내의 **Voting**을 마우스 오른쪽 단추로 클릭하고 **Service Fabric > Service Fabric 서비스 추가**를 선택합니다.
+1. 패키지 탐색기에서 애플리케이션 프로젝트 내의 **Voting**을 마우스 오른쪽 단추로 클릭하고 **Service Fabric &gt; Service Fabric 서비스 추가**를 선택합니다.
 
 2. **서비스 추가** 대화 상자에서 **상태 저장 서비스**를 선택하고 서비스 이름을 **VotingDataService**로 지정하고 **서비스 추가**를 클릭합니다.
 
@@ -887,11 +887,11 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 이 지점에서 애플리케이션은 로컬 Service Fabric 클러스터에 배포될 준비가 됐습니다.
 
-1. 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric -> 응용 프로그램 빌드**를 클릭해 응용 프로그램을 빌드합니다.
+1. 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric -&gt; 애플리케이션 빌드**를 클릭해 애플리케이션을 빌드합니다.
 
 2. 로컬 Service Fabric 클러스터를 실행합니다. 이 단계는 개발 환경(Mac 또는 Linux)에 따라 달라집니다.
 
-    Mac을 사용 하는 경우 다음 명령을 사용하여 로컬 클러스터를 실행합니다. **-v** 매개 변수에 전달된 명령을 사용자의 작업 영역에 대한 경로로 바꿉니다.
+    Mac을 사용하는 경우 다음 명령을 사용하여 로컬 클러스터를 실행합니다. **-v** 매개 변수로 전달된 명령을 사용자의 작업 영역 경로로 바꿉니다.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
@@ -903,8 +903,8 @@ class VotingDataService extends StatefulService implements VotingRPC {
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-4. Eclipse용 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric -> 응용 프로그램 게시...** 를 클릭 
-5. **응용 프로그램 게시** 창의 드롭다운 메뉴에서 **Local.json**을 선택하고 **게시**를 클릭합니다.
+4. Eclipse용 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric -&gt; 애플리케이션 게시...** 를 클릭 
+5. **애플리케이션 게시** 창의 드롭다운 메뉴에서 **Local.json**을 선택하고 **게시**를 클릭합니다.
 6. 웹 브라우저로 이동하고 **http://localhost:8080**에 액세스하여 로컬 Service Fabric 클러스터에서 실행 중인 애플리케이션을 봅니다. 
 
 ## <a name="next-steps"></a>다음 단계
@@ -920,4 +920,4 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]
-> [로컬 클러스터에서 응용 프로그램 로그 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)
+> [로컬 클러스터에서 애플리케이션 로그 및 디버그](service-fabric-tutorial-debug-log-local-cluster.md)

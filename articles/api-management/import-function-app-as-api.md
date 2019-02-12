@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e86bd797774448d8e4821ff02d358d420a099442
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129763"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810782"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure API Management에서 Azure 함수 앱을 API로 가져오기
 
@@ -160,7 +160,7 @@ Azure Portal에서 작업을 직접 호출할 수 있습니다. Azure Portal을 
 
 개발자 포털에서 작업을 호출하여 API를 테스트할 수도 있습니다. 
 
-1. [백 엔드 API 가져오기 및 게시](#create-api)에서 만든 API를 선택합니다.
+1. [백 엔드 API 가져오기 및 게시]에서 만든 API를 선택합니다.
 
 2. **개발자 포털**을 선택합니다.
 

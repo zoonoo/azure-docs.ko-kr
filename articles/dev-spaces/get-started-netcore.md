@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: b51bf83d2e44239ebd6bc17e25efaa2fe94250f3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5cecb11494926444249c8061f1ec93622e4d6c78
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467138"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700704"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Azure Dev Spaces에서 .NET Core를 사용하여 시작
 
@@ -99,13 +99,7 @@ Kubernetes 디버깅과 같은 다양한 기능은 VS Code를 사용하는 .NET 
 이 섹션에서는 ASP.NET Core 웹앱을 만들어 Kubernetes의 컨테이너에서 실행합니다.
 
 ### <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱 만들기
-[.NET Core](https://www.microsoft.com/net)가 설치되어 있는 경우 `webfrontend` 폴더에 ASP.NET Core 웹앱을 신속하게 만들 수 있습니다.
-    
-```cmd
-dotnet new mvc --name webfrontend
-```
-
-또는 https://github.com/Azure/dev-spaces로 이동하여 **GitHub에서 샘플 코드를 다운로드**하고 **복제 또는 다운로드**를 선택하여 GitHub 리포지토리를 로컬 환경으로 다운로드합니다. 이 가이드의 코드는 `samples/dotnetcore/getting-started/webfrontend`에 있습니다.
+[Azure Dev Spaces 샘플 애플리케이션](https://github.com/Azure/dev-spaces)을 복제하거나 다운로드합니다. 이 문서에서는 *samples/dotnetcore/getting-started/webfrontend* 디렉터리의 코드를 사용합니다.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Docker 및 Kubernetes 개발을 위한 코드 준비
 지금까지 로컬로 실행할 수 있는 기본 웹앱이 있었습니다. 이제 앱의 컨테이너 및 Kubernetes에 배포되는 방법을 정의하는 자산을 만들어 컨테이너화합니다. 이 작업은 Azure Dev Spaces를 사용하여 쉽게 할 수 있습니다. 
@@ -245,4 +239,4 @@ public IActionResult About()
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [팀 개발 알아보기](team-development-netcore.md)
+> [다중 서비스 개발에 대해 알아보기](multi-service-netcore.md)
