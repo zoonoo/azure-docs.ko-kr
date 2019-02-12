@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: f249f5e975ce046a3e19da93534d99ff675b8391
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 72c4bfc4151e8120f8641c743c0da3896bd71fe1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961485"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995033"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack 용 PowerShell 설치
 
@@ -28,7 +28,7 @@ ms.locfileid: "55961485"
 
 클라우드를 사용 하려면 Azure Stack 호환 PowerShell 모듈을 설치 해야 합니다. 호환성 라는 기능을 통해 사용 가능 *API 프로필*합니다.
 
-API 프로필에는 Azure 및 Azure Stack의 버전 차이 관리 하는 방법을 제공 합니다. API 버전 프로필을는 특정 API 버전을 사용 하 여 Azure Resource Manager PowerShell 모듈의 집합입니다. 각 클라우드 플랫폼에 지원 되는 API 버전 프로필 집합이 있습니다. 예를 들어, Azure Stack 지 원하는 특정 프로필 버전을 같은 **2.4.0**합니다. 프로필을 설치할 때 지정된 된 프로필에 해당 하는 Azure Resource Manager PowerShell 모듈 설치 됩니다.
+API 프로필에는 Azure 및 Azure Stack의 버전 차이 관리 하는 방법을 제공 합니다. API 버전 프로필을는 특정 API 버전을 사용 하 여 Azure Resource Manager PowerShell 모듈의 집합입니다. 각 클라우드 플랫폼에 지원 되는 API 버전 프로필 집합이 있습니다. 예를 들어, Azure Stack 지 원하는 특정 프로필 버전을 같은 **2018-03-01-하이브리드**합니다. 프로필을 설치할 때 지정된 된 프로필에 해당 하는 Azure Resource Manager PowerShell 모듈 설치 됩니다.
 
 Azure Stack 호환 PowerShell 모듈 인터넷에 연결 된, 부분적으로 연결 됨 또는 연결이 끊긴 시나리오를 설치할 수 있습니다. 이 문서에서는 이러한 시나리오에 대 한 Azure Stack 용 PowerShell을 설치 하는 자세한 지침을 안내 합니다.
 
@@ -133,7 +133,7 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 
     ```
 
 > [!Note]  
-> Azure PowerShell에서 업그레이드 하는 **2.3.0** (으로 표시 되는 **2017-03-09-프로필**)를 **2.4.0**를 참조 하세요는 [마이그레이션 가이드](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
+> Azure PowerShell에서 업그레이드 하는 **2017-03-09-프로필** 를 **2018-03-01-하이브리드**를 참조 하세요 합니다 [마이그레이션 가이드](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md)합니다.
 
 ### <a name="enable-additional-storage-features"></a>추가 저장소 기능을 사용 하도록 설정
 

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 01/23/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 5ae8297f8e189fbe9374cec826bf5e566e5403da
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aca051dd20ceaeb608baa144a81e0584043a1c52
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241953"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002057"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack에서 테 넌 트 등록 관리
 
@@ -60,7 +60,7 @@ Azure Stack 및 API 프로필에 대 한 자세한 내용은 참조 하세요. [
 
 ### <a name="powershell"></a>PowerShell
 
-New-azurermresource cmdlet을 사용 하 여 등록 리소스를 업데이트 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
+테 넌 트에 추가할 새 AzureRmResource cmdlet을 사용 합니다. [Azure Stack에 연결](/azure-stack-powershell-configure-admin.md), 다음 프롬프트에서 다음 cmdlet을 사용 하 여:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -91,7 +91,7 @@ New-azurermresource cmdlet을 사용 하 여 등록 리소스를 업데이트 �
 
 ### <a name="powershell"></a>PowerShell
 
-등록 된 모든 테 넌 트를 나열 하려면 Get AzureRmResource cmdlet을 사용 합니다. Azure에 로그인 (`Add-AzureRmAccount`) 초기 등록에 사용한 계정을 사용 합니다. 테 넌 트를 추가 하는 방법의 예는 다음과 같습니다.
+등록 된 모든 테 넌 트를 나열 하려면 Get AzureRmResource cmdlet을 사용 합니다. [Azure Stack에 연결](/azure-stack-powershell-configure-admin.md), 다음 프롬프트에서 다음 cmdlet을 사용 하 여:
 
 ```powershell
   Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -111,15 +111,15 @@ api-version=2017-06-01 HTTP/1.1`
 ```JSON  
 {
     "value": [{
-            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 1}”,
+            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 1}",
             "name": " cspSubscriptionId 1",
-            "type": “Microsoft.AzureStack\customerSubscriptions”,
+            "type": "Microsoft.AzureStack\customerSubscriptions",
             "properties": { "tenantId": "tId1" }
         },
         {
-            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 2}”,
+            "id": " subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{ cspSubscriptionId 2}",
             "name": " cspSubscriptionId2 ",
-            "type": “Microsoft.AzureStack\customerSubscriptions”,
+            "type": "Microsoft.AzureStack\customerSubscriptions",
             "properties": { "tenantId": "tId2" }
         }
     ],
@@ -141,6 +141,8 @@ api-version=2017-06-01 HTTP/1.1`
 | customerSubscriptionId     | 고객 구독 id입니다.  |
 
 ### <a name="powershell"></a>PowerShell
+
+테 넌 트를 제거 하려면 제거 AzureRmResource cmdlet을 사용 합니다. [Azure Stack에 연결](/azure-stack-powershell-configure-admin.md), 다음 프롬프트에서 다음 cmdlet을 사용 하 여:
 
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

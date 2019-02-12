@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: cf86fafc1fcb0ffd6513abc9d02da16d1f00f22b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: MT
+ms.openlocfilehash: 45905b5180ac248394e52b1d03a034acc47e8dbc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978956"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993597"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 업데이트
 
@@ -68,6 +68,35 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 이 업데이트는 다음과 같은 새로운 기능 및 Azure Stack에 대 한 향상 된 기능을 포함합니다.
 
 - Azure Stack 사용의 관리 되는 이미지 앞으로 Vm 디스크만 만들 수 있습니다 관리 되는 일반화 된 VM (둘 다 비관리 및 관리)에 관리 되는 이미지를 만들 수 있습니다. 자세한 내용은 [Azure Stack의 Managed Disks](user/azure-stack-managed-disk-considerations.md#managed-images)합니다.
+
+- **AzureRm 2.4.0**
+   * **AzureRm.Profile**  
+         버그 수정- `Import-AzureRmContext` 저장된 된 토큰을 올바르게 역직렬화 합니다.  
+   * **AzureRm.Resources**  
+         버그 수정- `Get-AzureRmResource` 쿼리 사례 리소스 종류별로 소문자를 구분 합니다.  
+   * **Azure.Storage**  
+         AzureRm의 롤업 모듈 이제 이미 게시 된 버전 4.5.0 지원 합니다 **api 버전 2017-07-29**합니다.  
+   * **AzureRm.Storage**  
+         AzureRm의 롤업 모듈 이제 지원 5.0.4 이미 게시 된 버전을 포함 합니다 **api 버전 2017-10-01**합니다.  
+   * **AzureRm.Compute**  
+         추가 간단한 매개 변수 집합에 `New-AzureRMVM` 하 고 `NewAzureRMVMSS`, `-ImageName` 매개 변수 지정 사용자 이미지를 지원 합니다.  
+   * **AzureRm.Insights**  
+         AzureRm의 롤업 모듈 이제 이미 게시 된 버전이 5.1.5 지원 합니다 **api-version 2018-01-01** 메트릭을 메트릭 정의 리소스 종류에 대 한 합니다.
+
+- **AzureStack 1.7.0** 이 주요 변경 내용 릴리스 합니다. 주요 변경 내용에 대 한 내용은 참조 https://aka.ms/azspshmigration170
+   * **Azs.Backup.Admin 모듈**  
+         호환성이 손상되는 변경 내용: 백업은 인증서 기반 암호화 모드를 변경합니다. 대칭 키에 대 한 지원이 사용 되지 않습니다.  
+   * **Azs.Fabric.Admin 모듈**  
+         `Get-AzsInfrastructureVolume` 사용 되지 않습니다. 새 cmdlet을 사용 하 여 `Get-AzsVolume`입니다.  
+         `Get-AzsStorageSystem` 사용 되지 않습니다.  새 cmdlet을 사용 하 여 `Get-AzsStorageSubSystem`입니다.  
+         `Get-AzsStoragePool` 사용 되지 않습니다. `StorageSubSystem` 용량 속성을 포함 하는 개체입니다.  
+   * **Azs.Compute.Admin 모듈**  
+         버그 수정- `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: 호출 `ConvertTo-PlatformImageObject` 성공 경로에 합니다.  
+         BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: 성공 경로 에서만 ConvertTo VmExtensionObject를 호출 합니다.  
+   * **Azs.Storage.Admin 모듈**  
+         버그 수정-새 저장소 할당량 제공 없는 경우 기본값을 사용 합니다.
+
+업데이트 된 모듈에 대 한 참조를 참조 하세요 [Azure Stack 모듈 참조](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0)합니다.
 
 ## <a name="fixed-issues"></a>해결된 문제
 

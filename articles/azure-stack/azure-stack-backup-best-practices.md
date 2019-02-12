@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 11829256451990401b6de4bcf62f2b0b51010832
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/08/2019
+ms.openlocfilehash: d2568a4dfc4fefe9628fc63dcc0526b0876fde00
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241155"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993880"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>인프라 Backup 서비스에 대 한 유용한 정보
 
@@ -43,9 +43,18 @@ ms.locfileid: "55241155"
 
 ### <a name="encryption"></a>암호화
 
+#### <a name="version-1901-and-newer"></a>1901 이상 버전
+
+암호화 인증서는 외부 저장소에 내보내지는 백업 데이터를 암호화에 사용 됩니다. 인증서 키를 전송 하는 인증서만 사용 되므로 자체 서명 된 인증서를 수 있습니다. 인증서를 만드는 방법에 대 한 자세한 내용은 New-selfsignedcertificate를 가리킵니다.  
+키를 안전한 위치 (예: 전역 Azure Key Vault 인증서)에 저장 되어야 합니다. 데이터를 암호화 하는 인증서의 CER 형식으로 사용 됩니다. 백업 데이터를 해독 하는 PFX 형식으로 Azure Stack 클라우드 복구 배포 중 사용 되어야 합니다.
+
+![안전한 위치에 인증서를 저장 합니다.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
+
+#### <a name="1811-and-older"></a>1811 및 이전
+
 암호화 키를 외부 저장소에 내보내지는 백업 데이터를 암호화에 사용 됩니다. 키의 일부로 생성 됩니다 [PowerShell 사용 하 여 Azure Stack에 백업을 사용 하도록](azure-stack-backup-enable-backup-powershell.md)합니다.
 
-키를 안전한 위치 (예를 들어 공용 Azure Key Vault 비밀)에 저장 되어야 합니다. Azure Stack 다시 배포 하는 동안이 키를 사용 해야 합니다. 
+키를 안전한 위치 (예: 전역 Azure Key Vault 비밀)에 저장 되어야 합니다. Azure Stack 다시 배포 하는 동안이 키를 사용 해야 합니다. 
 
 ![키를 안전한 위치를 저장 합니다.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
@@ -95,6 +104,6 @@ Oem 지역 폴더 아래에 있는 해당 구성 요소에 대 한 백업 데이
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대 한 참조 자료를 검토 합니다 [인프라 Backup 서비스](azure-stack-backup-reference.md)합니다.
+에 대 한 참조 자료를 검토 합니다 [인프라 Backup 서비스](azure-stack-backup-reference.md)
 
-사용 하도록 설정 합니다 [인프라 백업 서비스](azure-stack-backup-enable-backup-console.md)합니다.
+사용 하도록 설정 된 [인프라 백업 서비스](azure-stack-backup-enable-backup-console.md)

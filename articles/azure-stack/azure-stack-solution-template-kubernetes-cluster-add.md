@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 707cd7e72245ce47289c0a744d7103c713acecb9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765486"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997101"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
@@ -65,15 +65,15 @@ ms.locfileid: "55765486"
 
 사용자 id 관리 서비스에 대 한 Active Directory Federated Services (AD FS)를 사용 하는 경우 서비스는 Kubernetes 클러스터를 배포 하는 사용자에 대 한 주체를 만들 해야 합니다.
 
-1. 만들고 서비스 주체 만들기에 사용할 인증서를 내보냅니다. 아래 다음 코드 조각에는 자체 서명 된 인증서를 만드는 방법을 보여 줍니다. 
+1. 페이지를 만들고 서비스 주체 만들기를 사용 하는 자체 서명 된 인증서를 내보냅니다. 
 
     - 다음 가지 정보가 필요합니다.
 
        | 값 | 설명 |
        | ---   | ---         |
-       | 암호 | 인증서 암호입니다. |
-       | 로컬 인증서 경로 | 인증서의 경로 및 파일 이름입니다. 예: `path\certfilename.pfx` |
-       | 인증서 이름 | 인증서의 이름입니다. |
+       | 암호 | 인증서에 대 한 새 암호를 입력 합니다. |
+       | 로컬 인증서 경로 | 인증서의 경로 및 파일 이름을 입력 합니다. 예: `c:\certfilename.pfx` |
+       | 인증서 이름 | 인증서의 이름을 입력 합니다. |
        | 인증서 저장 위치 |  예를 들어 `Cert:\LocalMachine\My` |
 
     - PowerShell을 관리자 권한 프롬프트를 엽니다. 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
@@ -82,8 +82,7 @@ ms.locfileid: "55765486"
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
-        $certificateName = "<certificate name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
+        $certificateName = "CN=<certificate name>"
         $certStoreLocation="<certificate store location>"
         
         $params = @{
@@ -105,24 +104,33 @@ ms.locfileid: "55765486"
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. 서비스 인증서를 사용 하 여 보안 주체를 만듭니다.
+2.  PowerShell 세션에서 표시 되는 새 인증서 ID를 기록해 `1C2ED76081405F14747DC3B5F76BB1D83227D824`합니다. ID는 서비스 주체를 만들 때 사용 됩니다.
+
+    ```PowerShell  
+    VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
+    ```
+
+3. 서비스 인증서를 사용 하 여 보안 주체를 만듭니다.
 
     - 다음 가지 정보가 필요합니다.
 
        | 값 | 설명                     |
        | ---   | ---                             |
        | ERCS IP | ASDK에서 권한 있는 끝점은 일반적으로 `AzS-ERCS01`입니다. |
-       | 애플리케이션 이름 | 응용 프로그램 서비스 주체에 대 한 단순한 이름입니다. |
-       | 인증서 저장 위치 | 인증서 저장 되어 있는 컴퓨터에 대 한 경로입니다. 예: `Cert:\LocalMachine\My\<someuid>` |
+       | 애플리케이션 이름 | 응용 프로그램 서비스 주체에 대 한 간단한 이름을 입력 합니다. |
+       | 인증서 저장 위치 | 인증서 저장 되어 있는 컴퓨터에 대 한 경로입니다. 저장소 위치에 따라 사실은이 및 첫 번째 단계에서 인증서 ID를 생성 합니다. 예: `Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
 
-    - PowerShell을 관리자 권한 프롬프트를 엽니다. 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
+       메시지가 표시 되 면 다음 자격 증명을 사용 하 여 권한 끝점에 연결 합니다. 
+        - 사용자 이름: CloudAdmin 계정 형식으로 지정 <Azure Stack domain>\cloudadmin 합니다. (ASDK, 사용자 이름은 azurestack\cloudadmin입니다.)
+        - 암호: AzureStackAdmin 도메인 관리자 계정에 설치 하는 동안 제공한 동일한 암호를 입력 합니다.
+
+    - 값으로 업데이트 하는 매개 변수를 사용 하 여 다음 스크립트를 실행 합니다.
 
         ```PowerShell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
-        #certificate store location. Eg. Cert:\LocalMachine\My
-        $certStoreLocation="<certificate store location>"
+        $certStoreLocation="<certificate location>"
         
         # Get certificate information
         $cert = Get-Item $certStoreLocation
@@ -189,7 +197,7 @@ Marketplace에는 다음 Ubuntu Server 이미지를 추가 합니다.
 
 1. 선택 **+ Azure에서 추가**합니다.
 
-1. [https://slack.botframework.com](`UbuntuServer`) 을 입력합니다.
+1. [https://slack.botframework.com](`Ubuntu Server`) 을 입력합니다.
 
 1. 최신 버전의 서버를 선택 합니다. 정식 버전을 확인 하 고 최신 버전이 있는지 확인 합니다.
     - **게시자**: Canonical
