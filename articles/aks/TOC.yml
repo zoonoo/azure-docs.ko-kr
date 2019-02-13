@@ -168,6 +168,8 @@ items:
       href: kubernetes-service-principal.md
     - name: 클러스터 구성 파일에 대한 액세스 제한
       href: control-kubeconfig-access.md
+    - name: 네트워크 정책을 사용하여 Pod 트래픽 보안(미리보기)
+      href: use-network-policies.md
     - name: 클러스터 서비스 주체 자격 증명 업데이트
       href: update-credentials.md
     - name: ACR로 인증
@@ -316,9 +318,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: FAQ
     href: faq.md
-ms.openlocfilehash: c657d805188d5c5760e65290437414ab98f83a05
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6f5b944ba1ce02d05478fa97b0376c0f42fa98e2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768752"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206534"
