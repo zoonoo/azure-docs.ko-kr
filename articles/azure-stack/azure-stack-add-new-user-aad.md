@@ -3,7 +3,7 @@ title: Azure Active Directory에서 새 Azure Stack 테 넌 트 계정 추가 | 
 description: Microsoft Azure Stack 개발 키트를 배포한 후 테 넌 트 포털을 탐색할 수 있도록 하나 이상의 테 넌 트 사용자 계정을 만들려면 해야 합니다.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: patricka
 manager: femila
 editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
-ms.author: jeffgilb
+ms.date: 02/12/2019
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: c0f457955bd8df7fe07e2a96469fde0a751417bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240322"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163226"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Azure Active Directory에서 새 Azure Stack 테넌트 계정 추가
 
@@ -56,14 +56,12 @@ Azure 포털을 사용하려면 Azure 구독이 있어야 합니다.
 7. 새 계정으로 Microsoft Azure 포털에 로그인 합니다. 메시지가 표시되면 암호를 변경합니다.
 8. 에 로그인 `https://portal.local.azurestack.external` 테 넌 트 포털이 새 계정으로 합니다.
 
-## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>PowerShell을 사용하여 Azure Stack 테넌트 계정 만들기
+## <a name="create-an-azure-stack-user-account-using-powershell"></a>PowerShell을 사용 하 여 Azure Stack 사용자 계정 만들기
 
 Azure 구독이 없으면 테 넌 트 사용자 계정을 추가 하려면 Azure portal을 사용할 수 없습니다. 이 경우에 Azure Active Directory 모듈에 대 한 Windows PowerShell을 대신 사용할 수 있습니다.
 
 > [!NOTE]
 > Microsoft 계정 (Live ID)를 Azure Stack 개발 키트 배포를 사용 하는 경우에 테 넌 트 계정을 만들려면 AAD PowerShell을 사용할 수 없습니다. 
-> 
-> 
 
 1. [IT 전문가를 위한 Microsoft Online Services 로그인 도우미 RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950)를 설치합니다
 2. 설치 합니다 [Azure Active Directory에 대 한 Windows PowerShell 모듈 (64 비트 버전)](https://go.microsoft.com/fwlink/p/?linkid=236297) 엽니다.
@@ -85,3 +83,6 @@ Azure 구독이 없으면 테 넌 트 사용자 계정을 추가 하려면 Azure
 1. 새 계정으로 Microsoft Azure에 로그인 합니다. 메시지가 표시되면 암호를 변경합니다.
 2. 에 로그인 `https://portal.local.azurestack.external` 테 넌 트 포털이 새 계정으로 합니다.
 
+## <a name="next-steps"></a>다음 단계
+
+[AD FS에서 Azure Stack 사용자를 추가 합니다.](azure-stack-add-users-adfs.md)

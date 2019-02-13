@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 3e53d79682772be7eacb649148ceeaec7d9f2865
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5f4f76f87718ddcc81f8fae8b043b73a4dbd6b0a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247581"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189279"
 ---
 # <a name="about-deployment-network-traffic"></a>배포 네트워크 트래픽에 대 한
 Azure Stack 하는 동안 네트워크 트래픽이 흐르는 방식을 이해 배포는 성공적인 배포를 위한 중요 합니다. 이 문서에서는 예상 되는 상황을 이해 하도록 배포 프로세스 중 네트워크 트래픽이 예상된을 통해 설명 합니다.

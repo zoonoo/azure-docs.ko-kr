@@ -16,12 +16,12 @@ ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0865227a05d5cb25a44114fc053f61b8f70ffb94
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100094"
+ms.locfileid: "56115711"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 업데이트
 
@@ -134,7 +134,7 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 - Managed Disks 할당량 값을 설정할 때 문제를 해결 했습니다 [계산 할당량 형식](azure-stack-quota-types.md#compute-quota-types) 0으로 2048 GiB의 기본 값에 해당 됩니다. 할당량 값 0에 이제 다음이 적용 됩니다.
 
 <!-- 2724873 - IS --> 
-- PowerShell cmdlet을 사용 하 여 문제를 해결 **시작 AzsScaleUnitNode** 또는 **중지 AzsScaleunitNode** 시작 또는 중지 확장 단위를 첫 번째 시도가 실패할 배율 단위를 관리할 수 있습니다.
+- PowerShell cmdlet을 사용 하 여 문제를 해결 **시작 AzsScaleUnitNode** 또는 **중지 AzsScaleUnitNode** 시작 또는 중지 확장 단위를 첫 번째 시도가 실패할 배율 단위를 관리할 수 있습니다.
 
 <!-- 2724961- IS ASDK --> 
 - 등록 하는 문제를 해결 합니다 **Microsoft.Insight** 구독 설정에서 리소스 공급자 및 게스트 OS 진단 활성화를 사용 하 여 Windows VM을 만든 하지만 VM 개요 페이지에서 CPU 백분율 차트는 표시 되지 않았습니다 메트릭 데이터입니다. 데이터를 잘못 표시 됩니다.

@@ -6,17 +6,17 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 13525fffb7e6720fe81759876ffd0fe71559279c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252322"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182853"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 데이터 센터 통합-DNS
 Azure Stack 끝점에 액세스할 수 있으려면 (**포털**, **adminportal**를 **management**, **adminmanagement**등.)  외부 Azure Stack에서 Azure Stack에서 사용 하려는 DNS 영역을 호스트 하는 DNS 서버를 사용 하 여 Azure Stack DNS 서비스를 통합 해야 합니다.
@@ -114,9 +114,9 @@ Azure Stack의 DNS 서버에 대 한 Fqdn의 형식이:
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-이 정보 라는 파일에 모든 Azure Stack 배포의 끝에 만들어져서 `AzureStackStampDeploymentInfo.json`합니다. 이 파일에는 `C:\CloudDeployment\logs` 배포 가상 컴퓨터의 폴더입니다. Azure Stack 배포에 사용 된 어떤 값 확실 하지 않은 경우 여기에서 값을 가져올 수 있습니다.
+이 정보 라는 파일에 모든 Azure Stack 배포의 끝에 만들어져서 `AzureStackStampInformation.json`합니다. 이 파일에는 `C:\CloudDeployment\logs` 배포 가상 컴퓨터의 폴더입니다. Azure Stack 배포에 사용 된 어떤 값 확실 하지 않은 경우 여기에서 값을 가져올 수 있습니다.
 
-배포 가상 머신을 더 이상 사용할 수 없거나 액세스할 수, 하는 경우 권한 있는 끝점에 연결 하 고 실행 하 여 값을 얻을 수 없습니다는 `Get-AzureStackInfo` PowerShell cmdlet. 자세한 내용은 [privileged 끝점](azure-stack-privileged-endpoint.md)합니다.
+배포 가상 머신을 더 이상 사용할 수 없거나 액세스할 수, 하는 경우 권한 있는 끝점에 연결 하 고 실행 하 여 값을 얻을 수 없습니다는 `Get-AzureStackStampInformation` PowerShell cmdlet. 자세한 내용은 [privileged 끝점](azure-stack-privileged-endpoint.md)합니다.
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Azure Stack에 조건부 전달 설정
 

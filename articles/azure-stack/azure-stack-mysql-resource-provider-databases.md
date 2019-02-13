@@ -11,22 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 3063a3f3f199a591fa94c3a665ea9ecc5457e502
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6eaba728b794c0102ec4e28791b218efa28b51b5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247598"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56160767"
 ---
 # <a name="create-mysql-databases"></a>MySQL 데이터베이스 만들기
+MySQL 데이터베이스 서비스를 포함 하는 제품을 구독할 Azure Stack 사용자를 만들고 사용자 포털에서 MySQL 데이터베이스를 셀프 서비스를 관리할 수 있습니다.
 
-만들 하 고 사용자 포털에서 셀프 서비스 데이터베이스를 관리할 수 있습니다. Azure Stack 사용자는 MySQL 데이터베이스 서비스를 포함 하는 제품을 사용 하 여 구독을 해야 합니다.
-
-## <a name="test-your-deployment-by-creating-a-mysql-database"></a>MySQL 데이터베이스를 만들고 배포를 테스트 합니다.
+## <a name="create-a-mysql-database"></a>MySQL 데이터베이스 만들기
 
 1. Azure Stack 사용자 포털에 로그인 합니다.
 2. 선택 **+ 리소스 만들기** > **데이터 + 저장소** > **MySQL Database** > **추가**합니다.
