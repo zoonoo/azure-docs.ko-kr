@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2111fe6a70f45559faeb3e0f8096548dcc7b48bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 40394409dfafa3ad6b3d6685f5c944fc78df813f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238944"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172219"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Microsoft Azure Stack 개발 키트 (ASDK) 문제 해결
 이 문서는 ASDK에 대 한 일반적인 문제 해결 정보를 제공합니다. 문서화 되지 않은 문제가 발생 하는 경우을 선택 했는지 확인 합니다 [Azure Stack MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) 정보와 추가 지원을 요청 합니다.  

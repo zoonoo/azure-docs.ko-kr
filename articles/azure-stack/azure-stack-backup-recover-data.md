@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 9dc023eedf0ddca4e760d9d066b019b75597fb69
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3fd91ef17415e2c6ebb735fdedb098f8aa319d8c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246486"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207418"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>치명적인 데이터 손실 로부터 복구
 
 *적용 대상: Azure Stack 통합 시스템입니다.*
 
-Azure Stack 데이터 센터에서 Azure 서비스를 실행합니다. Azure Stack으로 단일 랙에 설치 하는 4 개의 노드 환경에서 실행할 수 있습니다. 반면, Azure는 여러 데이터 센터 및 각 지역의 여러 영역에 40 개 이상의 지역에서 실행 됩니다. 사용자 리소스는 여러 서버, 랙, 데이터 센터 및 지역에 확장할 수 있습니다. Azure Stack을 사용 하 여 현재만 선택할을 수 있습니다 단일 랙에 전체 클라우드를 배포 합니다. 이 클라우드 데이터 센터 또는 오류 주요 제품 버그 때문에 심각한 위험에 노출합니다. 재해가 발생 하면 Azure Stack 인스턴스가 오프 라인 상태가 됩니다. 모든 데이터를 잠재적으로 복구할 수 없는 합니다.
+Azure Stack 데이터 센터에서 Azure 서비스를 실행 하 고 단일 랙에 설치 하는 4 개의 노드가 작게 환경에서 실행할 수 있습니다. 반면, Azure는 여러 데이터 센터 및 각 지역의 여러 영역에 40 개 이상의 지역에서 실행 됩니다. 사용자 리소스는 여러 서버, 랙, 데이터 센터 및 지역에 확장할 수 있습니다. Azure Stack을 사용 하 여 현재만 선택할을 수 있습니다 단일 랙에 전체 클라우드를 배포 합니다. 이 클라우드 데이터 센터 또는 오류 주요 제품 버그 때문에 심각한 위험에 노출합니다. 재해가 발생 하면 Azure Stack 인스턴스가 오프 라인 상태가 됩니다. 모든 데이터를 잠재적으로 복구할 수 없는 합니다.
 
 데이터 손실의 근본 원인에 따라 단일 인프라 서비스를 복구 하거나 전체 Azure Stack 인스턴스를 복원 해야 합니다. 동일한 위치 또는 다른 위치에서 다른 하드웨어로 복원도 해야 합니다.
 

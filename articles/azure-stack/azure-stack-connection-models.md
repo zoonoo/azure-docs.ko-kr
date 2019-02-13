@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: d55cebf380c4ca5183e8ff15fd193e254b66c30b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9760e6b9cdcd6f03f4377277f3426189b1fe0a61
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246588"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182020"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack 통합 시스템 연결 모델
-이해 해야 하는 Azure Stack 통합 시스템에 관심이 [여러 데이터 센터 통합 고려 사항](azure-stack-datacenter-integration.md) 시스템 데이터 센터에 들어가는지는 방법을 확인 하려면 Azure Stack 배포에 대 한 합니다. 또한 정확 하 게 하는 방법을 하는 Azure Stack 통합 하이브리드 클라우드 환경에 결정 해야 합니다. 이 문서에서는 이러한 주요 의사 결정 및 Azure 연결을 id 저장소를 포함 하 여 청구 모델 의사 결정의 개요를 제공 합니다.
+이해 해야 하는 Azure Stack 통합 시스템 구매에 관심이 있다면 [여러 데이터 센터 통합 고려 사항](azure-stack-datacenter-integration.md) 시스템 데이터 센터에 들어가는지는 방법을 확인 하려면 Azure Stack 배포에 대 한 합니다. 또한 하이브리드 클라우드 환경에 Azure Stack에서는 통합 하는 방법을 결정 해야 합니다. 이 문서에서는 이러한 주요 의사 결정 및 Azure 연결을 id 저장소를 포함 하 여 청구 모델 의사 결정의 개요를 제공 합니다.
 
 통합된 시스템 구매 하려는 경우 원래 장비 제조업체 (OEM) 하드웨어 공급 업체는 데 도움이 됩니다 계획 프로세스를 자세히 많은 과정을 안내 합니다. 실제 배포도 수행 합니다.
 

@@ -10,22 +10,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 82a691c0e0b6280a168605d56ee628d81f10823f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: eca66bc2e737b0f9a9954cad21a446e82d753f84
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245653"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203814"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack 시스템 상태 유효성 검사
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure Stack 운영자, 시스템 주문형의 상태를 파악 하는 능력은 필요 합니다. Azure Stack 유효성 검사 도구 (**테스트 AzureStack**) 수 있는 PowerShell cmdlet을 실행 되는 일련의 테스트 있으면 오류를 식별할 수 있도록 시스템에서. 일반적으로이 도구를 실행 하 라는 메시지가 나타납니다 합니다 [privileged 끝점 (PEP)](azure-stack-privileged-endpoint.md) 문제에 대해 Microsoft 고객 서비스 지원 (CSS)에 문의 하는 경우. 시스템 상태와 상태 정보를 언제 든 CSS 수집 및 자세한 로그 분석을 영역 오류가 발생 하 고 문제를 해결 하를 사용 하는 위치에 집중 합니다.
+Azure Stack 운영자, 시스템 주문형의 상태를 확인할 수 있게이 중요 합니다. Azure Stack 유효성 검사 도구 (**테스트 AzureStack**) 수 있는 PowerShell cmdlet을 실행 되는 일련의 테스트 있으면 오류를 식별할 수 있도록 시스템에서. 일반적으로이 도구를 실행 하 라는 메시지가 나타납니다 합니다 [privileged 끝점 (PEP)](azure-stack-privileged-endpoint.md) 문제에 대해 Microsoft 고객 서비스 지원 (CSS)에 문의 하는 경우. 시스템 상태와 상태 정보를 언제 든 CSS 수집 및 자세한 로그 분석을 영역 오류가 발생 하 고 문제를 해결 하를 사용 하는 위치에 집중 합니다.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>유효성 검사 도구를 실행 하 고 결과 액세스
 
@@ -93,7 +93,6 @@ Azure Stack 운영자, 시스템 주문형의 상태를 파악 하는 능력은 
 
 위의 인프라 테스트 외에 인프라 구성 요소에서 기능을 확인 하려면 클라우드 시나리오 테스트를 실행할 수가 있습니다. 클라우드 관리자 자격 증명 리소스 배포를 포함 하는 경우에 따라 이러한 테스트 실행 해야 합니다. 
     > [!NOTE]
-    >
     > Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
 
 다음 클라우드 시나리오 유효성 검사 도구에서 테스트 됩니다.

@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a39ab2eb6d08f478ed68aed2bc753e5225185fe3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243184"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175390"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure 연결 된 배포 계획 결정 for Azure Stack 통합 시스템
-결정 한 다음 [하이브리드 클라우드 환경에 Azure Stack에서는 통합 하는 방법을](azure-stack-connection-models.md), Azure Stack 배포 관련 결정 사항을 완료 후 수 있습니다.
+결정 한 다음 [하이브리드 클라우드 환경에 Azure Stack에서는 통합 하는 방법을](azure-stack-connection-models.md), Azure Stack 배포 관련 결정 사항을 마무리할 수 있습니다.
 
 Azure에 연결 된 Azure Stack를 배포 하는 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)에 id 저장소에 대 한 것을 의미 합니다. 청구 모델 중 하나를 선택할 수도 있습니다.-수-종 또는 용량 기반 합니다. 연결 된 배포 되므로 기본 옵션을 고객 가치를 극대화 Azure Stack에서 Azure 및 Azure Stack 모두 포함 하는 하이브리드 클라우드 시나리오에 대 한 특히 수 있습니다. 
 

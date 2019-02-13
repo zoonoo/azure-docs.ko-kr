@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 44f12c72716e98e2f28796359467685e0af579dd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 42b67ae9b715670f1a0c6e0fed004487a52817d3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238250"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206475"
 ---
 # <a name="connect-to-the-asdk"></a>ASDK에 연결
 
 리소스를 관리 하려면 먼저 Azure Stack 개발 키트 (ASDK)에 연결 해야 합니다. 이 문서에서는 ASDK 다음과 같은 연결 옵션을 사용 하 여 연결을 수행 하는 단계에 설명 합니다.
 
 * [원격 데스크톱 연결 (RDP)](#connect-with-rdp)합니다. 원격 데스크톱 연결을 사용 하 여 연결 하면 단일 사용자 개발 키트를 빠르게 연결할 수 있습니다.
-* [가상 사설망 (VPN)](#connect-with-vpn)합니다. VPN을 사용 하 여 연결 하면 여러 사용자가 Azure Stack 인프라 외부 클라이언트에서 동시에 연결할 수 있습니다. VPN 연결에는 몇 가지 설정이 필요합니다.
+* [가상 사설망 (VPN)](#connect-with-vpn)합니다. VPN을 사용 하 여 연결 하면 여러 사용자가 연결할 수 있습니다 동시에 Azure Stack 포털에서 Azure Stack 인프라 외부에 있는 클라이언트가. VPN 연결에는 몇 가지 설정이 필요합니다.
 
 <a name="connect-with-rdp"></a>
 ## <a name="connect-to-azure-stack-using-rdp"></a>RDP를 사용 하 여 Azure Stack에 연결

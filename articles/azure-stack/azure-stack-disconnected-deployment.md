@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 05bf01e2b7c380f7bb79230885e247bd8c834d14
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4481bcf7a794423f98f45e4a21a139dbe4c32b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691170"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210784"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack에 대 한 결정을 계획 하는 azure 연결이 끊긴된 배포 통합 시스템
-결정 한 다음 [하이브리드 클라우드 환경에 Azure Stack에서는 통합 하는 방법을](azure-stack-connection-models.md), Azure Stack 배포 관련 결정 사항을 완료 후 수 있습니다.
+결정 한 다음 [하이브리드 클라우드 환경에 Azure Stack에서는 통합 하는 방법을](azure-stack-connection-models.md), Azure Stack 배포 관련 결정 사항을 마무리할 수 있습니다.
 
-배포 하 고 인터넷에 연결 하지 않고 Azure Stack를 사용할 수 있습니다. 그러나 연결이 끊긴된 배포는 AD FS id 저장소 및 용량 기반 청구 모델에 제한 됩니다. Azure AD 사용 해야 하는 다중 테 넌 트, 때문에 연결이 끊어진된 배포에 대 한 다중 테 넌 트 지원 되지 않습니다. 
+배포 하 고 인터넷에 연결 하지 않고 Azure Stack를 사용할 수 있습니다. 그러나 연결이 끊긴된 배포는 AD FS id 저장소 및 용량 기반 청구 모델에 제한 됩니다. Azure Active Directory (Azure AD)를 사용 해야 하는 다중 테 넌 트, 때문에 연결이 끊어진된 배포에 대 한 다중 테 넌 트 지원 되지 않습니다. 
 
 이 옵션을 선택 하면:
 - 보안 또는 인터넷에 연결 되지 않은 환경에서 Azure Stack을 배포 해야 할 다른 제한이 있어야 합니다.
@@ -34,9 +34,9 @@ ms.locfileid: "55691170"
 - 회사 인트라넷에 배포 되 고 하이브리드 시나리오에 관심이 있는 사설 클라우드 솔루션을 전적으로 Azure Stack을 사용 하려고 합니다.
 
 > [!TIP]
-> 경우에 따라 이러한 유형의 환경도 라고 "해저 시나리오"입니다.
+> 경우에 따라 이러한 유형의 환경도 라고 한 *해저 시나리오*합니다.
 
-연결이 끊긴된 배포를 엄격 하 게 아닙니다는 연결할 수 없습니다 나중에 Azure Stack 인스턴스 Azure 하이브리드 테 넌 트 VM 시나리오에 대 한 합니다. 배포 하는 동안 Azure에 연결할 필요가 있고 프로그램 id 저장소로 Azure Active Directory를 사용 하지 않으려는 있음을 의미 합니다.
+연결이 끊긴된 배포에서 나중에 하이브리드 테 넌 트 VM 시나리오에 대 한 Azure에 Azure Stack 인스턴스를 연결 하면을 제한 하지 않습니다. 배포 하는 동안 Azure에 연결할 필요가 있고 Azure AD 사용자 id 저장소를 사용 하지 않으려는 있음을 의미 합니다.
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>장애가 있는 사용자 또는에서 사용할 수 없는 연결 되지 않은 배포를 수 있는 기능 
 Azure Stack 기능 중 일부를 손상 또는 연결이 끊어진된 모드에서 완전히 사용할 수 있는지 확인 해야 하므로 Azure에 연결 하는 경우 가장 잘 작동 하도록 설계 되었습니다. 

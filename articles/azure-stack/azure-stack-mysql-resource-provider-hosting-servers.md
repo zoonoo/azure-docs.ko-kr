@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 3a80e3a95252b60dd39ad4ce20878922aeee5730
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246885"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165028"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
-가상 컴퓨터 (VM)에서 MySQL 인스턴스를 호스트할 수 있습니다 [Azure Stack](azure-stack-poc.md), 또는 MySQL 리소스 공급자 인스턴스에 연결할 수 있는 만큼 Azure Stack 환경 외부 VM.
+가상 컴퓨터 (VM)에서 서버 인스턴스를 호스팅하는 MySQL에서 호스트할 수 있습니다 [Azure Stack](azure-stack-poc.md), 또는 MySQL 리소스 공급자 인스턴스에 연결할 수 있는 만큼 Azure Stack 환경 외부 VM.
 
 > [!NOTE]
-> MySQL 리소스 공급자 서버의 MySQL 데이터베이스를 만들어야 합니다. 청구 되는 사용자 구독에 MySQL 호스팅 서버를 만들어야 하는 동안 기본 공급자 구독에 MySQL 리소스 공급자를 만들어야 합니다. 리소스 공급자 서버는 사용자 데이터베이스를 호스트에 사용할 수 없습니다.
+> 사용자 구독 청구에 MySQL 호스팅 서버를 만들어야 하는 동안 기본 공급자 구독에 MySQL 리소스 공급자를 만들어야 합니다. 리소스 공급자 서버는 사용자 데이터베이스를 호스트에 사용할 수 없습니다.
 
 MySQL 버전 5.6, 5.7 및 8.0 호스팅 서버에 대해 사용할 수 있습니다. MySQL RP caching_sha2_password 인증을 지원 하지 않습니다. 다음 릴리스에서 추가 됩니다. MySQL 8.0 서버 mysql_native_password를 사용 하도록 구성 되어야 합니다. MariaDB도 지원 됩니다.
 

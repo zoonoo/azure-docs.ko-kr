@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 983e8b279261d3ff8e5d24c8e3a6f61c5a787e5b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aba9014e74b8ba0cd1b528cf570d3651950c6d5f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240814"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207061"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>자습서: SQL database에 사용할 Azure Stack 사용자
 
@@ -35,7 +35,7 @@ Azure Stack 클라우드 관리자에 사용자는 제품을 만들 수 있습�
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>SQL Server 리소스 공급자 배포
 
-배포 프로세스에서 자세히 설명 되어는 [Azure Stack 문서에서 사용 하 여 SQL database](azure-stack-sql-resource-provider-deploy.md), 다음과 같은 기본 단계로 구성 됩니다.
+배포 프로세스에서 자세히 설명 되어는 [SQL database를 사용 하 여 Azure Stack 문서에서](azure-stack-sql-resource-provider-deploy.md), 다음과 같은 기본 단계로 구성 됩니다.
 
 1. [SQL 리소스 공급자 배포](azure-stack-sql-resource-provider-deploy.md)합니다.
 2. [배포 확인](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal)합니다.

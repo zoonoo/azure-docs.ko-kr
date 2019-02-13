@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2018
-ms.openlocfilehash: 195f865a6977eaf78b09c611b7cd9e5119b2f62a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 830a7ef1f25ea52959baf992274b5f7711b646b2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241256"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165412"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>다운로드 하 고 Azure Stack 개발 키트 (ASDK)를 추출 합니다.
 개발 키트 호스트 컴퓨터를 ASDK를 설치 하기 위한 기본 요구를 충족 하는지 확인에 한 후 다음 단계 다운로드는 Cloudbuilder.vhdx 가져오려는 ASDK 배포 패키지를 추출 하는 것입니다.

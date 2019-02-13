@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239675"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164025"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 관리 기본 사항
-Azure Stack 관리 접하는 경우 알아야 할 몇 가지 있습니다. 이 지침은 Azure Stack 운영자 역할의 개요 및 생산성을 높이려는 신속 하 게 사용자에 게 필요한를 제공 합니다.
+Azure Stack 관리 접하는 경우 알아야 할 몇 가지 있습니다. 이 문서에서는 Azure Stack 운영자 역할의 개요 및 생산성을 높이려는 신속 하 게 사용자에 게 필요한를 제공 합니다.
 
 ## <a name="understand-the-builds"></a>빌드를 이해 합니다.
 
 ### <a name="integrated-systems"></a>통합 시스템
 
-Azure Stack 통합 시스템을 사용 하는 경우 Azure Stack의 업데이트 된 버전은 업데이트 패키지를 통해 배포 됩니다. 이러한 패키지를 가져올 수 있으며 관리자 포털에서 업데이트 타일을 사용 하 여 적용할 수 있습니다.
+Azure Stack 통합 시스템을 사용 하는 경우 Azure Stack의 업데이트 된 버전은 업데이트 패키지를 통해 배포 됩니다. 이러한 패키지를 가져올 수 있으며 관리자 포털에서 업데이트 타일을 사용 하 여 적용할 수 있습니다. ASDK 설치를 업데이트 하는 지원 되지 않습니다. 
  
 ### <a name="development-kit"></a>개발 키트
 

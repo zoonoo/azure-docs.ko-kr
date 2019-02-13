@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 0fed6751d326c5da4431e953f7ded9c12688871f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c42490b7d46df77bffd13fdda02884704fb13b67
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250047"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210308"
 ---
 # <a name="back-up-azure-stack"></a>Azure Stack 백업
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-백업을 준비를 사용 하 여 Azure Stack에는 주문형 백업을 수행 합니다. PowerShell 환경 구성에 대 한 지침을 참조 하세요 [Azure Stack 용 PowerShell 설치 ](azure-stack-powershell-install.md)합니다. Azure Stack에 로그인 하려면 참조 [관리자 포털을 사용 하 여 Azure Stack에서](azure-stack-manage-portals.md)합니다.
+Azure Stack에서 주문형 백업을 수행 합니다. PowerShell 환경 구성에 대 한 지침을 참조 하세요 [Azure Stack 용 PowerShell 설치 ](azure-stack-powershell-install.md)합니다. Azure Stack에 로그인 하려면 참조 [관리자 포털을 사용 하 여 Azure Stack에서](azure-stack-manage-portals.md)합니다.
 
 ## <a name="start-azure-stack-backup"></a>Azure Stack 백업 시작
 
@@ -121,4 +121,4 @@ Azure Stack 관리 포털을 사용 하 여 이러한 단계를 수행 하 여 �
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터 손실 이벤트에서 복구에 대 한 워크플로에 대 한 자세한 정보에 대해 알아봅니다. 참조 [치명적인 데이터 손실 로부터 복구](azure-stack-backup-recover-data.md)합니다.
+워크플로를 자세히 알아봅니다 [데이터 손실 이벤트에서 복구](azure-stack-backup-recover-data.md)합니다.

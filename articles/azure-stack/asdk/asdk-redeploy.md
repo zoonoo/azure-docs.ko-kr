@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 2139b4c9a26aba829a0bfbe5cb5a56f2a8918aa7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b52ac4ae2a02208e61aafebe883d33ed27309134
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239862"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194345"
 ---
 # <a name="redeploy-the-asdk"></a>ASDK를 다시 배포
 이 문서는 Azure Stack 개발 키트 ASDK () 비-프로덕션 환경에서 다시 배포 하는 방법을 알아봅니다. 에서는 지원 되지 않습니다는 ASDK 업그레이드 때문에 완전히 최신 버전으로 이동 하 고 다시 배포 해야 합니다. 또한는 ASDK 처음부터 다시 시작 하려는 언제 든 다시 배포할 수 있습니다.

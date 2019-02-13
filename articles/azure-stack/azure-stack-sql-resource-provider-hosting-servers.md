@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239471"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210529"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
-가상 컴퓨터 (VM)에서 SQL 인스턴스를 호스트할 수 있습니다 [Azure Stack](azure-stack-poc.md), 또는 SQL 리소스 공급자 인스턴스에 연결할 수 있는 만큼 Azure Stack 환경 외부 VM.
+가상 컴퓨터 (VM)에서 서버를 호스팅하는 SQL Server 데이터베이스를 만들 수 있습니다 [Azure Stack](azure-stack-poc.md), 또는 SQL 리소스 공급자 인스턴스에 연결할 수 있는 만큼 Azure Stack 환경 외부 VM.
 
 > [!NOTE]
-> SQL 리소스 공급자 서버에 SQL 데이터베이스를 만들어야 합니다. 청구 되는 사용자 구독에 SQL 호스팅 서버를 만들어야 하는 동안 기본 공급자 구독에 SQL 리소스 공급자를 만들어야 합니다. 리소스 공급자 서버는 사용자 데이터베이스를 호스트에 사용할 수 없습니다.
+> 청구 되는 사용자 구독에 SQL 호스팅 서버를 만들어야 하는 동안 기본 공급자 구독에 SQL 리소스 공급자를 만들어야 합니다. 리소스 공급자 서버는 사용자 데이터베이스를 호스트에 사용할 수 없습니다.
 
 ## <a name="overview"></a>개요
 

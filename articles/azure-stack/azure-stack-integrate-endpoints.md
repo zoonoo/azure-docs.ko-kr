@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 9a209aaf730b356c8c102eab7a8832ce670204cc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977750"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117277"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -66,7 +66,7 @@ Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니�
 Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기존 프록시 서버에 투명 프록시 업링크를 허용 해야 합니다 다음 포트 및 Url 아웃 바운드 통신에:
 
 > [!Note]  
-> Azure Stack 다음 표에 나열 된 Azure 서비스에 연결할 Expressroute를 사용 하는 것을 지원 하지 않습니다.
+> Azure Stack 다음 표에 나열 된 Azure 서비스에 연결할 ExpressRoute를 사용 하는 것을 지원 하지 않습니다.
 
 |목적|대상 URL|프로토콜|포트|원본 네트워크|
 |---------|---------|---------|---------|---------|
@@ -75,7 +75,7 @@ Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기
 |패치 및 업데이트|https://&#42;.azureedge.net|HTTPS|443|공용 VIP-/ 27|
 |등록|https://management.azure.com|HTTPS|443|공용 VIP-/ 27|
 |사용 현황|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net |HTTPS|443|공용 VIP-/ 27|
-|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>https://www.microsoft.com/pkiops/crl<br>https://www.microsoft.com/pkiops/certs<br>https://crl.microsoft.com/pki/crl/products<br>https://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|공용 VIP-/ 27<br>공용 인프라 네트워크|
+|Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>`https://www.microsoft.com/pkiops/crl`<br>`https://www.microsoft.com/pkiops/certs`<br>`https://crl.microsoft.com/pki/crl/products`<br>`https://www.microsoft.com/pki/certs`<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|공용 VIP-/ 27<br>공용 인프라 네트워크|
 |NTP|(IP의 NTP 서버 배포에 대 한 제공)|UDP|123|공용 VIP-/ 27|
 |DNS|(배포에 대해 제공 된 IP의 DNS 서버)|TCP<br>UDP|53|공용 VIP-/ 27|
 |CRL|(인증서에 CRL 배포 지점 URL)|HTTP|80|공용 VIP-/ 27|

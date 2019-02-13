@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 7e052c8d1674cc95a376de5ba6e20ca63b4dd72c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 45eadf5e049d56c8f558596eb197eb010b1fbb14
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245527"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56196997"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 설치 후 구성 작업
 
-후 [설치 된 Azure Stack 개발 키트 ASDK ()](asdk-install.md), 몇 가지 권장 되는 설치 후 구성 ASDK 호스트 컴퓨터의 AzureStack\AzureStackAdmin로 로그인 하는 동안 변경할 수 있도록 해야 합니다. 
+한 후 [는 Azure Stack 개발 키트 ASDK ()를 설치](asdk-install.md), ASDK 호스트 컴퓨터의 AzureStack\AzureStackAdmin로 로그인 하는 동안 몇 가지 권장 되는 설치 후 구성 변경 해야 합니다. 
 
 ## <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell 설치
 
@@ -72,32 +72,6 @@ ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure Stack PowerShel
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
 
-  - Azure Stack 1807 또는 이전 버전:
-
-    ``` PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
-    Install-Module -Name AzureRm.BootStrapper
-
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    
-    # Install Azure Stack Module Version 1.4.0.
-    Install-Module -Name AzureStack -RequiredVersion 1.4.0
-    ```
-
-  - Azure Stack 1803 또는 이전 버전:
-
-    ``` PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
-      Install-Module -Name AzureRm.BootStrapper
-
-      # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-      Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-
-      # Install Azure Stack Module Version 1.2.11
-      Install-Module -Name AzureStack -RequiredVersion 1.2.11 
-    ```
-
   성공적으로 설치 하는 경우에 AzureRM 및 azurestack의 경우 모듈을 출력에 표시 됩니다.
 
 - **인터넷 연결 없이** ASDK 호스트 컴퓨터에서. 연결이 끊긴 시나리오에서는 먼저 다음 PowerShell 명령을 사용 하 여 인터넷 연결 되어 있는 컴퓨터에 PowerShell 모듈을 다운로드 해야 합니다.
@@ -105,11 +79,9 @@ ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure Stack PowerShel
   ```PowerShell
   $Path = "<Path that is used to save the packages>"
 
-  # AzureRM for 1808 requires 2.3.0, for prior versions use 1.2.11
   Save-Package `
     -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
   
-  # AzureStack requires 1.5.0 for version 1808, 1.4.0 for versions after 1803, and 1.2.11 for versions before 1803
   Save-Package `
     -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
   ```

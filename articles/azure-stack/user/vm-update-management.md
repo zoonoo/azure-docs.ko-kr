@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 69a0bde58a365ff124bc41b6039c606cb38f71fe
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 28f8300b83f55f4b083aa1e740dcbf1db0f1dc31
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768548"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168146"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack VM 업데이트 및 관리
 Windows 및 Azure Stack을 사용 하 여 배포 된 Linux Vm을 관리 하려면 다음 Azure Automation 솔루션 기능을 사용할 수 있습니다.
@@ -100,4 +100,4 @@ Vm 검색 되는 업데이트 관리 솔루션에서 Azure Automation 계정에 
 Azure Stack Vm 수가 많은 경우 하는 경우 사용할 수 있습니다 [이 Azure Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) 쉽게 Vm에서 솔루션을 배포 하려면. 기존 Azure Stack VM에 Microsoft Monitoring Agent 확장을 배포 하 고 기존 Azure LogAnalytics 작업 영역에 추가 하는 템플릿입니다.
  
 ## <a name="next-steps"></a>다음 단계
-[SQL Server 성능 최적화](azure-stack-sql-server-vm-considerations.md)
+[SQL Server VM 성능 최적화](azure-stack-sql-server-vm-considerations.md)
