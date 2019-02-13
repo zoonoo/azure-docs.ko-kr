@@ -90,8 +90,6 @@ items:
         href: apache-hadoop-use-mapreduce-curl.md
       - name: Azure PowerShell 사용
         href: apache-hadoop-use-mapreduce-powershell.md
-      - name: 원격 데스크톱 사용
-        href: apache-hadoop-use-mapreduce-remote-desktop.md
       - name: .NET SDK 사용
         href: apache-hadoop-use-mapreduce-dotnet-sdk.md
       - name: MapReduce 샘플 실행
@@ -107,8 +105,6 @@ items:
         href: apache-hadoop-use-pig-dotnet-sdk.md
       - name: cURL 사용
         href: apache-hadoop-use-pig-curl.md
-      - name: 원격 데스크톱 사용
-        href: apache-hadoop-use-pig-remote-desktop.md
     - name: Apache Pig와 함께 Apache DataFu 사용
       href: apache-hadoop-use-pig-datafu-udf.md
     - name: Apache Hadoop 작업 제출
@@ -518,9 +514,6 @@ items:
     - name: Apache Maven을 사용하여 Java 애플리케이션 빌드
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Apache Tez UI를 사용하여 Tez 작업 디버그
-      href: ../hdinsight-debug-tez-ui.md
-      maintainContext: true
     - name: 스크립트 작업을 사용하여 사용자 지정
       href: ../hdinsight-hadoop-customize-cluster.md
       maintainContext: true
@@ -567,9 +560,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 4a28b9cbac923bdd718521e26545cad5a5a185a1
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 2646a89812733f114f21e616f09e913adf1ae6e3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893938"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178076"

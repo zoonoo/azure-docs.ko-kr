@@ -12,23 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d35d3bb32f9afabb0e2b02f0d93fc60e0121e9ce
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247649"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172402"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack에서 확장할 단위 노드를 추가 합니다.
 
-Azure Stack 운영자를 추가 하는 물리적 컴퓨터를 추가 하 여 기존 확장 단위의 전체 용량을 늘릴 수 있습니다. 물리적 컴퓨터는 배율 단위 노드 라고도 합니다. 추가한 새 확장 단위 노드에 각 CPU 종류, 메모리 및 디스크 번호 및 배율 단위에 이미 있는 노드에 대 한 크기의 형식이 있어야 합니다.
-
-> [!NOTE]  
-Azure Stack 1807 이상을 추가 하려면 추가 확장 단위 노드에서 실행 해야 합니다.
+Azure Stack 운영자를 추가 하는 물리적 컴퓨터를 추가 하 여 기존 확장 단위의 전체 용량을 늘릴 수 있습니다. 물리적 컴퓨터는 배율 단위 노드 라고도 합니다. 추가한 새 확장 단위 노드에 각 CPU 종류, 메모리 및 디스크 번호 및 배율 단위에 이미 있는 노드에 대 한 크기의 유형이 같아야 합니다.
 
 배율 단위 노드를 추가 하려면 Azure Stack에서 작동 하 고 하드웨어 장비 제조업체 (OEM)에서 도구를 실행 합니다. 새 물리적 컴퓨터에 기존 노드와 동일한 펌웨어 수준과 일치 하는지 확인 하려면 하드웨어 수명 주기 호스트 (HLH)에서 OEM 도구를 실행 합니다.
 
@@ -122,7 +119,7 @@ Azure Stack 1807 이상을 추가 하려면 추가 확장 단위 노드에서 �
 |----------------------|---------|
 |실행 중               |노드 배율 단위에 적극적으로 참여 합니다.|
 |중지됨               |노드를 사용할 수 없는 경우|
-|추가                |노드는 배율 단위에 추가 되 고 적극적으로 됩니다.|
+|추가하는 중                |노드는 배율 단위에 추가 되 고 적극적으로 됩니다.|
 |복구 중             |노드는 적극적으로 복구 하는 중입니다.|
 |유지 관리           |노드 일시 중지 되 고 활성 사용자 워크 로드가 없습니다 실행입니다. |
 |업데이트 관리 필요  |노드를 복구 해야 하는 오류가 감지 되었습니다.|
