@@ -55,22 +55,55 @@
 ### [감사 기록 페이지](./cloud-partner-portal/portal-tour/cpp-history-page.md)
 ### [인사이트 페이지](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
+
 ## 포털 관리
 ### [개발자 센터 계정 등록](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [개인 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [SEO 지침](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [게시자 프로필 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
 ### [사용자 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+
+
+## 비즈니스 관리
+### [SEO 지침](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
 ### [GDPR 규정 준수](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+### [개인 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+<!--  Under development: 
+### Pricing considerations
+#### Simplified currency pricing
+#### Information on taxes and price
+#### Export-import pricing
+-->
+
+### 잠재 고객 관리
+#### [잠재 고객 가져오기](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
+#### [Azure 테이블](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
+#### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
+#### [HTTPS 엔드포인트](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
+#### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
+#### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
+
+### Seller Insights
+#### [시작](./cloud-partner-portal-orig/si-getting-started.md)
+#### [새로운 기능](./cloud-partner-portal-orig/si-changes.md)
+#### [웹 분석](./cloud-partner-portal-orig/web-analytics.md)
+#### [정의](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
+#### [Insights FAQ](./cloud-partner-portal-orig/si-faqs.md)
+
 
 ## [Marketplace 제품](./cloud-partner-portal/cpp-marketplace-offers.md)
-
 ### [제품 관리](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [제품 만들기](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
 #### [제품 게시](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [제품 상태 보기](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [제품 업데이트](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [제품 삭제](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
+
+### 시험 사용
+#### [시험 사용이란?](./cloud-partner-portal-orig/what-is-test-drive.md)
+#### [Azure Resource Manager 시험 사용](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
+#### [호스팅된 시험 사용](./cloud-partner-portal-orig/hosted-test-drive.md)
+#### [논리 앱 시험 사용](./cloud-partner-portal-orig/logic-app-test-drive.md)
+#### [시험 사용에 대한 변환 예제](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
+#### [마케팅 및 모범 사례](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
 ### [Azure 애플리케이션 제품](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [필수 구성 요소](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
@@ -82,6 +115,7 @@
 ##### [지원 탭](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
 #### [기술 자산 만들기](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 #### [Azure 애플리케이션 제품 게시](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+#### [검토 피드백 처리](./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md)
 #### [기존 제품 업데이트](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
 ### [컨설팅 서비스](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
@@ -195,29 +229,6 @@
 #### [VM 제품 게시](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 #### [기존 제품 업데이트](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-
-## 시험 사용
-### [시험 사용이란?](./cloud-partner-portal-orig/what-is-test-drive.md)
-### [Azure Resource Manager 시험 사용](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-### [호스팅된 시험 사용](./cloud-partner-portal-orig/hosted-test-drive.md)
-### [논리 앱 시험 사용](./cloud-partner-portal-orig/logic-app-test-drive.md)
-### [시험 사용에 대한 변환 예제](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-### [마케팅 및 모범 사례](./cloud-partner-portal-orig/marketing-and-best-practices.md)
-
-## 잠재 고객 관리
-### [잠재 고객 가져오기](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
-### [Azure 테이블](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
-### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
-### [HTTPS 엔드포인트](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
-### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
-### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
-
-## Seller Insights
-### [시작](./cloud-partner-portal-orig/si-getting-started.md)
-### [새로운 기능](./cloud-partner-portal-orig/si-changes.md)
-### [웹 분석](./cloud-partner-portal-orig/web-analytics.md)
-### [정의](./cloud-partner-portal-orig/si-insights-definitions-v4.md)
-### [Insights FAQ](./cloud-partner-portal-orig/si-faqs.md)
 
 ## API 참조
 ### [개요](./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md)

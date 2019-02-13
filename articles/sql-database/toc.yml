@@ -1,5 +1,5 @@
 items:
-- name: SQL DB 설명서
+- name: SQL Database 설명서
   href: index.yml
 - name: SQL Database 서비스
   items:
@@ -67,23 +67,23 @@ items:
   expanded: true
 - name: 자습서
   items:
-  - name: Azure SQL Database 디자인
+  - name: SQL Database에서 데이터베이스 디자인
     items:
     - name: SSMS를 사용하여 데이터베이스 디자인
       href: sql-database-design-first-database.md
     - name: .NET을 사용하여 데이터베이스 디자인
       href: sql-database-design-first-database-csharp.md
-  - name: Azure SQL Database로 마이그레이션
+  - name: SQL Database로 마이그레이션
     items:
     - name: DMS를 사용하여 단일/풀링된 데이터베이스로 마이그레이션
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: DMS를 사용하여 관리되는 인스턴스로 마이그레이션
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Azure SQL Database의 보안
+  - name: SQL Database의 보안
     items:
-    - name: 단일 데이터베이스 보안
+    - name: 단일 및 풀링된 데이터베이스 보안
       href: sql-database-security-tutorial.md
-    - name: Azure AD 로그인으로 관리되는 인스턴스 보안
+    - name: Managed Instance 보안
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: 지리적으로 분산된 데이터베이스 구현
     href: sql-database-implement-geo-distributed-database.md
@@ -104,10 +104,10 @@ items:
   - name: 구매 모델
     items:
     - name: 개요
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: vCore 기반 모델
       href: sql-database-service-tiers-vcore.md
-    - name: DTU 모델
+    - name: DTU 서비스 계층
       href: sql-database-service-tiers-dtu.md
     - name: 예약된 용량 선불
       href: sql-database-reserved-capacity.md
@@ -351,8 +351,8 @@ items:
     items:
     - name: 개요
       href: sql-database-howto-single-database.md
-    - name: SQL Database로 마이그레이션
-      href: sql-database-cloud-migrate.md
+    - name: 단일/풀링된 데이터베이스로 마이그레이션
+      href: sql-database-single-database-migrate.md
     - name: 마이그레이션 후 SQL Database 관리
       href: sql-database-manage-after-migration.md
     - name: 복제 구성
@@ -405,7 +405,7 @@ items:
         href: sql-database-elastic-scale-add-a-shard.md
       - name: 분할된 맵 문제 해결
         href: sql-database-elastic-database-recovery-manager.md
-      - name: 분할된 DB 마이그레이션
+      - name: 분할된 데이터베이스 마이그레이션
         href: sql-database-elastic-convert-to-use-elastic-tools.md
       - name: 카운터 만들기
         href: sql-database-elastic-database-perf-counters.md
@@ -421,7 +421,7 @@ items:
         href: sql-database-elastic-query-horizontal-partitioning.md
       - name: 여러 스키마를 사용하여 테이블에서 쿼리
         href: sql-database-elastic-query-vertical-partitioning.md
-    - name: Elastic Database 작업
+    - name: 탄력적 작업
       items:
       - name: 만들기 및 관리(PowerShell)
         href: elastic-jobs-powershell.md
@@ -459,11 +459,11 @@ items:
       href: sql-database-managed-instance-connect-app.md
   - name: 데이터 로드 및 이동
     items:
-    - name: Azure 내에서 DB 복사
+    - name: Azure 내에서 데이터베이스 복사
       href: sql-database-copy.md
-    - name: BACPAC에서 DB 가져오기
+    - name: BACPAC 파일에서 데이터베이스 가져오기
       href: sql-database-import.md
-    - name: BACPAC로 DB 내보내기
+    - name: BACPAC 파일로 데이터베이스 내보내기
       href: sql-database-export.md
     - name: 데이터 동기화
       items:
@@ -605,9 +605,9 @@ items:
             href: saas-tenancy-cross-tenant-reporting.md
           - name: 테넌트 분석
             items:
-            - name: SQL DB 사용
+            - name: SQL Database 사용
               href: saas-tenancy-tenant-analytics.md
-            - name: SQL DW 사용
+            - name: SQL Data Warehouse 사용
               href: saas-tenancy-tenant-analytics-adf.md
         - name: 지역 복원을 사용하여 재해 복구
           href: saas-dbpertenant-dr-geo-restore.md
@@ -714,9 +714,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 탄력적 작업 제거(사용되지 않음)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 9b11a1bd8cc68aabc8881636d5fcdfe5cbaec034
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: bf8a32ede6ce782bc0ff5ac58cd12ba70283289e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960550"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100043"

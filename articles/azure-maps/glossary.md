@@ -8,12 +8,12 @@ ms.topic: resource
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: d220fea64f860ebe5b660f7ebe5ad7db7aec4534
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 3b8af6f3f91c54c78cc3b277068272c27055e4aa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46370057"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816886"
 ---
 # <a name="glossary"></a>용어
 
@@ -37,7 +37,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="antimeridian"></a> **반대자오선**: 180<sup>번째</sup> 자오선이라고 알려진 180도와 경도 180도가 만나는 지점입니다. 지구의 본초자오선과 반대입니다.
 
-<a name="application-programming-interface-api"></a> **API(응용 프로그램 프로그래밍 인터페이스)**: 개발자가 응용 프로그램을 만들 수 있는 사양입니다.
+<a name="application-programming-interface-api"></a> **API(애플리케이션 프로그래밍 인터페이스)**: 개발자가 애플리케이션을 만들 수 있는 사양입니다.
 
 <a name="api-key"></a> **API 키**: Azure Maps 키를 참조하세요.
 
@@ -47,25 +47,25 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="asynchronous-request"></a> **비동기 요청**: 비동기 요청에 대한 식별자를 반환하는 서버에 연결을 열고 요청한 다음, 연결을 닫는 HTTP 요청입니다. 서버는 요청을 계속 처리하고 사용자는 식별자를 사용하여 상태를 확인할 수 있습니다. 요청 처리가 완료되면 사용자가 응답을 다운로드할 수 있습니다. 이 형식의 요청은 일반적으로 장기 실행 프로세스에 사용됩니다.
 
-<a name="autocomplete"></a> **자동 완성**: 사용자가 입력하는 단어의 나머지 부분을 예측하는 응용 프로그램의 기능입니다. 
+<a name="autocomplete"></a> **자동 완성**: 사용자가 입력하는 단어의 나머지 부분을 예측하는 애플리케이션의 기능입니다. 
 
-<a name="autosuggest"></a> **자동 제안**: 사용자가 입력할 내용의 논리적 가능성을 예측하는 응용 프로그램의 기능입니다.
+<a name="autosuggest"></a> **자동 제안**: 사용자가 입력할 내용의 논리적 가능성을 예측하는 애플리케이션의 기능입니다.
 
 <a name="azure-location-based-services-lbs"></a> **Azure LBS(Location Based Services)**: 미리 보기 상태로 제공되었을 때 Azure Maps의 이전 이름입니다.
 
-<a name="azure-maps-key"></a> **Azure Maps 키**: Azure Maps 키는 사용자의 Azure Maps 응용 프로그램 또는 서비스 요청을 인증하는 데 사용되는 고유 문자열입니다. 
+<a name="azure-maps-key"></a> **Azure Maps 키**: Azure Maps 키는 사용자의 Azure Maps 애플리케이션 또는 서비스 요청을 인증하는 데 사용되는 고유 문자열입니다. 
 
 ## <a name="b"></a>b
 
-<a name="base-map"></a> **기본 지도**: 도로, 랜드마크 및 정치적 경계 등 배경 참조 정보를 표시하는 지도 응용 프로그램의 일부입니다.
+<a name="base-map"></a> **기본 지도**: 도로, 랜드마크 및 정치적 경계 등 배경 참조 정보를 표시하는 지도 애플리케이션의 일부입니다.
 
 <a name="batch-request"></a> **일괄 처리 요청**: 여러 요청을 단일 요청으로 결합하는 프로세스입니다.
 
-<a name="bearing"></a> **방위**: 다른 포인트를 기준으로 하는 요소의 가로 방향입니다. 시계 방향의 0도-360도 사이에서 북쪽을 기준으로 하는 각도로 표현됩니다. 
+<a name="bearing"></a> ****: 다른 포인트를 기준으로 하는 요소의 가로 방향입니다. 시계 방향의 0도-360도 사이에서 북쪽을 기준으로 하는 각도로 표현됩니다. 
 
 <a name="boundary"></a> **경계**: 국가, 구역 및 속성 등 인접한 정치적 엔터티를 분리하는 선 또는 다각형입니다. 경계는 강, 산 또는 벽 등 물리적 물체를 따르거나 따르지 않는 선입니다.
 
-<a name="bounds"></a> **경계**: [경계 상자](#bounding-box)를 참조하세요.
+<a name="bounds"></a> **범위**: [경계 상자](#bounding-box)를 참조하세요.
 
 <a name="bounding-box"></a> **경계 상자**: 지도에 사각형 영역을 나타내는 데 사용되는 좌표 집합입니다. 
 
@@ -111,13 +111,13 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="degree-minutes-seconds-dms"></a> **DMS(도 분 초)**: 위도 및 경도를 설명하는 측정 단위입니다. 도는 원의 1/360<sup>번째</sup>입니다. 도는 60분으로 나눠지고, 분은 60초로 나눠집니다.
 
-<a name="delaunay-triangulation"></a> **드로네 삼각기법**: 요소의 데이터 집합에서 겹치지 않는 연속 삼각형의 메시를 만드는 기술입니다. 각 삼각형의 외접구에는 내부에 있는 데이터 세트의 지점이 없습니다.
+<a name="delaunay-triangulation"></a> **드로네 삼각기법**: 요소의 데이터 세트에서 겹치지 않는 연속 삼각형의 메시를 만드는 기술입니다. 각 삼각형의 외접구에는 내부에 있는 데이터 세트의 지점이 없습니다.
 
 <a name="demographics"></a> **인구 통계**: 인구의 통계 특성(예: 나이, 출생 속도 및 수입)입니다.
 
-<a name="destination"></a> **대상** 사용자가 여행하는 엔드포인트 또는 위치입니다.
+<a name="destination"></a> **대상**: 사용자가 여행하는 엔드포인트 또는 위치입니다.
 
-<a name="digital-elevation-model-dem"></a> **DEM(디지털 권한 상승 모델)**: 지표에 관련된 상승 값 데이터 집합으로 일반 데이터를 사용하여 정기적으로 영역을 통해 캡처됩니다. DEM은 일반적으로 지형을 나타내는 데 사용됩니다.
+<a name="digital-elevation-model-dem"></a> **DEM(디지털 권한 상승 모델)**: 지표에 관련된 상승 값 데이터 세트로 일반 데이터를 사용하여 정기적으로 영역을 통해 캡처됩니다. DEM은 일반적으로 지형을 나타내는 데 사용됩니다.
 
 <a name="dijkstra's-algorithm"></a> **다익스트라의 알고리즘**: 두 지점 간에 최단 경로 찾기 위해 네트워크의 연결을 검사하는 알고리즘입니다.
 
@@ -127,7 +127,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="elevation"></a> **상승**: 참조 지표 또는 자료(일반적으로 평균 해면) 위아래에 있는 지점 또는 개체의 세로 거리입니다. 일반적으로 상승은 토지의 세로 높이를 가리킵니다.
 
-<a name="envelope"></a> **봉투**: [경계 상자](#bounding-box)를 참조하세요.
+<a name="envelope"></a> **봉투(Envelope)**: [경계 상자](#bounding-box)를 참조하세요.
 
 <a name="extended-postal-code"></a> **확장된 우편 번호**: 추가 정보를 포함할 수 있는 우편 번호입니다. 예를 들어 미국에서 우편 번호는 5자리 숫자이지만, 확장된 우편 번호(zip+4라고도 함)는 네 자리 숫자를 추가로 포함합니다. 이러한 추가 자릿수는 도시 블록, 아파트의 그룹 또는 사서함 등 5자리 숫자 배달 영역 내에서 지리적 세그먼트를 식별하는 데 사용됩니다. 그러면 메일을 효율적으로 분류하고 배달하는 데 도움이 됩니다.
 
@@ -187,7 +187,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="greenwich-mean-time-gmt"></a> **GMT(그리니치 표준시)**: 영국 그리니치에서에서 왕립 관측소를 통해 실행하는 본초 자오선의 시간입니다.
 
-<a name="guid"></a> **GUID**: 전 세계에 고유한 식별자입니다. 인터페이스, 클래스, 형식 라이브러리, 구성 요소 범주 또는 레코드를 고유하게 식별하는 데 사용되는 문자열입니다.
+<a name="guid"></a> **GUID**: 전역적으로 고유한 식별자입니다. 인터페이스, 클래스, 형식 라이브러리, 구성 요소 범주 또는 레코드를 고유하게 식별하는 데 사용되는 문자열입니다.
 
 ## <a name="h"></a>H
 
@@ -197,7 +197,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="heading"></a> **제목**: 무언가 가리키거나 마주하는 방향입니다. [방위](#heading)를 참조하세요.
 
-<a name="heatmap"></a> **열 지도**: 색 범위가 특정 영역에 있는 지점의 밀도를 나타내는 데이터 시각화입니다. [주제도](#thermatic-map)를 참조하세요.
+<a name="heatmap"></a> **열 지도**: 색 범위가 특정 영역에 있는 지점의 밀도를 나타내는 데이터 시각화입니다. 주제도를 참조하세요.
 
 <a name="hybrid-imagery"></a> **하이브리드 이미지**: 도로 데이터가 포함되고 그 위에 레이블이 오버레이된 위성 또는 항공 이미지입니다.
 
@@ -219,7 +219,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="latitude"></a> **위도**: 북쪽 또는 남쪽 방향에서 적도로부터 단위로 측정된 각거리입니다.
 
-<a name="level-of-detail"></a> **세부 정보 수준**: [확대/축소 수준](#zoom-level)을 참조하세요.
+<a name="level-of-detail"></a> **세부 정보 수준**: 확대/축소 수준을 참조하세요.
 
 <a name="lidar"></a> **Lidar**: 광원 검색 및 범위의 약어입니다. 반사 화면에 대한 거리를 측정하기 위해 레이저를 사용하는 원격 감지 기술입니다.
 
@@ -247,13 +247,13 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="multipolygon"></a> **MultiPolygon**: Polygon 개체의 컬렉션을 나타내는 기하 도형입니다. 예를 들어 하와이의 경계를 표시하려면 각 섬은 다각형을 사용하여 테두리를 그리므로 하와이의 경계는 MultiPolygon입니다.
 
-<a name="municipality"></a> **지방 자치체**: 도시 또는 마을입니다. 
+<a name="municipality"></a> **Municipality**: 도시 또는 마을입니다. 
 
 <a name="municipality-subdivision"></a> **지방 자치체 구획**: 이웃 또는 "시내"와 같은 지역 이름과 같은 지방 자치체의 구획입니다.
 
 ## <a name="n"></a>N
 
-<a name="navigation-bar"></a> **탐색 모음**:, 확대/축소 수준, 피치, 회전을 조정하고 기본 지도 계층을 전환하는 데 사용되는 지도의 컨트롤 집합입니다.
+<a name="navigation-bar"></a> **탐색 모음**: 확대/축소 수준, 피치, 회전을 조정하고 기본 지도 계층을 전환하는 데 사용되는 지도의 컨트롤 집합입니다.
 
 <a name="nearby-search"></a> **주변 검색**: 지점에서 고정된 직선 거리(crow 파일)를 검색하는 공간 쿼리입니다.
 
@@ -261,7 +261,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 ## <a name="o"></a>O
 
-<a name="origin"></a> **Origin**: 사용자의 시작점 또는 위치입니다.
+<a name="origin"></a> **원점**: 시작점 또는 사용자가 있는 위치입니다.
 
 ## <a name="p"></a>P
 
@@ -277,11 +277,11 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="polygon"></a> **다각형**: 지도에서 영역을 나타내는 입체 기하 도형입니다. 
 
-<a name="polyline"></a> **Polyline**: 선을 나타내는 데 사용되는 기하 도형입니다. LineString이라고도 합니다. 
+<a name="polyline"></a> **다중선**: 선을 나타내는 데 사용되는 기하 도형입니다. LineString이라고도 합니다. 
 
 <a name="position"></a> **위치**: 지점의 경도, 위도 및 고도(x, y, z 좌표)입니다.
 
-<a name="post-code"></a> **코드 게시**: [우편 번호](#postal-code)를 참조하세요.
+<a name="post-code"></a> **우편 번호**: [우편 번호](#postal-code)를 참조하세요.
 
 <a name="postal-code"></a> **우편 번호**: 우편 배달을 간소화하기 위해 지리적 지역을 영역으로 나누는 국가의 우편 서비스에서 사용되는 특정 서식으로 된 일련의 문자 또는 숫자입니다.
 
@@ -321,7 +321,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="route"></a> **경로**: 둘 이상의 위치 간에 경로이며, 경로에 따른 중간 지점에 대한 지침과 같은 추가 정보가 포함될 수도 있습니다.
 
-<a name="requests-per-second-rps"></a> **RPS(초당 요청)**: [QPS(초당 쿼리)](#queries-per-second-qps)를 참조하세요. 
+<a name="requests-per-second-rps"></a> **RPS(초당 요청 수)**: [QPS(초당 쿼리 수)](#queries-per-second-qps)를 참조하세요. 
 
 <a name="rss"></a> **RSS**: 원본에 따라 Really Simple Syndication, RDF(Really Simple Syndication) Site Summary 또는 Rich Site Summary의 약어입니다. 여러 웹 사이트에서 콘텐츠를 공유하는 간단하고 구조화된 XML 서식입니다. RSS 문서에는 작성자, 날짜, 제목, 간략한 설명 및 하이퍼텍스트 링크 등 키 메타데이터 요소가 포함됩니다. 이 정보는 사용자(또는 RSS 게시자 서비스)가 추가 정보가 필요한 자료를 결정하는 데 도움이 됩니다.
 
@@ -364,11 +364,11 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 <a name="transformation"></a> **변환**: 다른 지리적 좌표계 간에 데이터를 변환하는 프로세스입니다. 예를 들어 영국에서 캡처되고 OSGB 1936 지리 좌표계에 기반한 일부 데이터가 있을 수 있습니다. Azure Maps는 WGS84라는 [EPSG:3857](https://epsg.io/3857) 참조 좌표계 변수를 사용합니다. 따라서 데이터를 올바르게 표시하려면 여러 시스템 간에 좌표를 변환해야 합니다.
 
-<a name="traveling-salesmen-problem-tsp"></a> **TSP(세일즈 외판원 문제)**: 외판원이 일련의 목적지를 방문한 다음, 시작 지점으로 돌아오는 가장 효율적인 방법을 찾아야 하는 Hamiltonian 회로 문제입니다.  
+<a name="traveling-salesmen-problem-tsp"></a> **TSP(세일즈 외판원 문제)**:  외판원이 일련의 목적지를 방문한 다음, 시작 지점으로 돌아오는 가장 효율적인 방법을 찾아야 하는 Hamiltonian 회로 문제입니다.  
 
 <a name="trilateration"></a> **삼변 측량**: 세 점 사이의 거리를 측정하여 다른 두 지점을 기준으로 지표면에 있는 지점의 위치를 결정하는 프로세스입니다.
 
-<a name="turn-by-turn-navigation"></a> **턴바이턴 내비게이션**: 사용자가 다음 조작에 도달하면 경로의 각 단계에 대한 경로 지침을 제공하는 응용 프로그램입니다.
+<a name="turn-by-turn-navigation"></a> **턴바이턴 내비게이션**: 사용자가 다음 조작에 도달하면 경로의 각 단계에 대한 경로 지침을 제공하는 애플리케이션입니다.
 
 ## <a name="v"></a>V
 
@@ -394,7 +394,7 @@ Azure Maps에서 사용되는 일반적인 단어 목록은 다음과 같습니�
 
 ## <a name="z"></a>Z
 
-<a name="z-coordinate"></a> **Z-좌표**: [고도](#altitude)를 참조하세요. 
+<a name="z-coordinate"></a> **Z 좌표**: [고도](#altitude)를 참조하세요. 
 
 <a name="zip-code"></a> **우편 번호**: [우편 번호](#postal-code)를 참조하세요.
 
