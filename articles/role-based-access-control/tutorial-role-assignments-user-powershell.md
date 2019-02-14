@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 27b48e1d6aabf9cde7152bfb0dbf3e58bc619107
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 7f5e67edd2a5300ae1898e2620ee8ace80ac6d92
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696781"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109030"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>자습서: RBAC 및 Azure PowerShell을 사용하여 사용자에게 액세스 권한 부여
 
@@ -111,7 +111,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 사용자에게 액세스 권한을 부여하려면 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 명령을 사용하여 역할을 할당합니다. 보안 주체, 역할 정의 및 범위를 지정해야 합니다.
 
-1. [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) 명령을 사용하여 구독 ID를 가져옵니다.
+1. [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) 명령을 사용하여 구독 ID를 가져옵니다.
 
     ```azurepowershell
     Get-AzSubscription

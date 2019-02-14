@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: 4b4fa05164db402122efc745302dffe8c130b97b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2d1f5cc4883ce17da76eea815b42833b84031549
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048071"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56231827"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -22,6 +22,8 @@ ms.locfileid: "43048071"
 Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정을 만든 다음 U-SQL 작업을 제출하고 실행하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 이 자습서를 시작하기 전에 다음 정보가 있어야 합니다.
 
@@ -35,13 +37,13 @@ Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정을 만든 다�
 구독 이름을 사용하여 로그인하려면
 
 ```
-Connect-AzureRmAccount -SubscriptionName "ContosoSubscription"
+Connect-AzAccount -SubscriptionName "ContosoSubscription"
 ```
 
 구독 이름 대신 구독 ID를 사용하여 로그인할 수도 있습니다.
 
 ```
-Connect-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 성공하면 이 명령의 출력은 다음 텍스트와 유사합니다.

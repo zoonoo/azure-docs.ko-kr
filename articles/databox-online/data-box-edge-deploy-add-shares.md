@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6c6553ace250aa9cbc06dfdfea77fc5e1637cd41
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6810818e48329d883961c840fa83857d84b98fd4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384822"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112872"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge-preview"></a>자습서: Azure Data Box Edge를 사용하여 데이터 전송(미리 보기)
 
@@ -135,14 +135,14 @@ Data Box Edge 디바이스에 연결된 Linux 클라이언트에서 다음 절�
 
 1. NFS 클라이언트가 설치되면 다음 명령을 사용하여 Data Box Edge 디바이스에 만든 NFS 공유를 탑재합니다.
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
     > 공유를 탑재하기 전에 로컬 컴퓨터에서 탑재 지점으로 작동할 디렉터리가 이미 만들어져 있는지 확인합니다. 이러한 디렉터리에는 파일 또는 하위 폴더가 없어야 합니다.
 
     다음 예제에서는 NFS를 통해 Data Box Edge 디바이스의 공유에 연결하는 방법을 보여 줍니다. 디바이스 IP는 `10.10.10.60`입니다. `mylinuxshare2` 공유는 ubuntuVM에 탑재됩니다. 공유 탑재 지점은 `/home/databoxubuntuhost/edge`입니다.
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
 > [!NOTE] 
 > 미리 보기 릴리스에 적용되는 주의 사항은 다음과 같습니다.

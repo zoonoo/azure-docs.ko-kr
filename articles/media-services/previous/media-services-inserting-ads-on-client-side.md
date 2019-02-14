@@ -4,7 +4,7 @@ description: 이 토픽에서는 클라이언트 쪽에 광고를 삽입하는 �
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 65c9c747-128e-497e-afe0-3f92d2bf7972
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: de084b2139bcc3ddef09b4438f8774df177b6f3c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cc5f3f729acca1f7aa23a7714300c1b581c6f7f8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315941"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993897"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
 이 문서에서는 클라이언트 측에서 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
@@ -40,7 +40,7 @@ Azure Media Services는 Windows 미디어 플랫폼: 플레이어 프레임워�
 
 광고는 기본 비디오 타임 라인에 언제든지 배치할 수 있습니다. 플레이어에 광고를 재생하는 시기 및 재생하는 광고를 알려야 합니다. 이 작업은 표준 XML 기반 파일 집합을 사용하여 수행됩니다. VAST(Video Ad Service Template), VMAP(Digital Video Multiple Ad Playlist), MAST(Media Abstract Sequencing Template) 및 VPAID(Digital Video Player Ad Interface Definition). VAST 파일은 표시할 광고를 지정합니다. VMAP 파일은 다양한 광고를 언제 재생할지를 지정합니다(이 파일에 VAST XML이 포함됨). MAST 파일을 사용하여 광고의 순서를 지정할 수도 있습니다(이 파일에도 VAST XML이 포함됨). VPAID 파일은 비디오 플레이어와 광고 또는 광고 서버 간의 인터페이스를 정의합니다.
 
-각 플레이어 프레임워크는 서로 다르게 작동하고 각각 별도의 문서에서 설명합니다. 이 문서에서는 광고 삽입에 사용되는 기본 메커니즘을 설명합니다. 비디오 플레이어 응용 프로그램은 광고 서버에서 광고를 요청합니다. 광고 서버는 다양한 방법으로 응답할 수 있습니다.
+각 플레이어 프레임워크는 서로 다르게 작동하고 각각 별도의 문서에서 설명합니다. 이 문서에서는 광고 삽입에 사용되는 기본 메커니즘을 설명합니다. 비디오 플레이어 애플리케이션은 광고 서버에서 광고를 요청합니다. 광고 서버는 다양한 방법으로 응답할 수 있습니다.
 
 * VAST 파일 반환
 * VMAP 파일 반환(포함된 VAST와 함께)
@@ -170,7 +170,7 @@ Application/x-shockwave-flash – 리소스가 Flash Player에 표시됩니다.
 
 **IFrameResource**는 IFrame에 표시할 수 있는 HTML 리소스를 설명합니다. **HTMLResource**는 웹 페이지에 삽입할 수 있는 HTML 코드 조각을 설명합니다. **TrackingEvents**는 추적 이벤트와 이벤트가 발생할 때 요청할 URI를 지정합니다. 이 샘플에서는 acceptInvitation 및 collapse 이벤트가 추적됩니다. **NonLinearAds** 요소 및 해당 자식에 대한 자세한 내용은 IAB.NET/VAST를 참조하세요. **TrackingEvents** 요소는 **NonLinear** 요소가 아닌 **NonLinearAds** 요소 내에 있습니다.
 
-캠페인(Companion) 광고는 <CompanionAds> 요소 내에서 정의됩니다. <CompanionAds> 요소에는 하나 이상의 <Companion> 요소가 포함될 수 있습니다. 각 <Companion> 요소는 동반을 설명하며, 비선형 광고에서와 같은 방법으로 지정되는 <StaticResource>, <IFrameResource> 또는 <HTMLResource>를 포함할 수 있습니다. VAST 파일은 여러 캠페인 광고를 포함할 수 있고 플레이어 응용 프로그램은 표시할 가장 적합한 광고를 선택할 수 있습니다. VAST에 대한 자세한 내용은 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요.
+캠페인(Companion) 광고는 <CompanionAds> 요소 내에서 정의됩니다. <CompanionAds> 요소에는 하나 이상의 <Companion> 요소가 포함될 수 있습니다. 각 <Companion> 요소는 동반을 설명하며, 비선형 광고에서와 같은 방법으로 지정되는 <StaticResource>, <IFrameResource> 또는 <HTMLResource>를 포함할 수 있습니다. VAST 파일은 여러 캠페인 광고를 포함할 수 있고 플레이어 애플리케이션은 표시할 가장 적합한 광고를 선택할 수 있습니다. VAST에 대한 자세한 내용은 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요.
 
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>디지털 VMAP(Video Multiple Ad Playlist) 파일 사용
 VMAP 파일을 사용하여 광고가 발생하는 시기, 각 광고가 지속되는 기간, 광고 시간 내에 표시될 수 있는 광고 수, 광고 시간 중에 표시될 수 있는 광고 유형을 지정할 수 있습니다. 단일 광고를 정의하는 예제 VMAP 파일은 다음과 같습니다.
@@ -850,5 +850,5 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>참고 항목
-[비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
+[비디오 플레이어 애플리케이션 개발](media-services-develop-video-players.md)
 

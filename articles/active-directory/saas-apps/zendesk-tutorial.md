@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2018
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f58bb8a1a3a0f0593513570355b8d3ba46816b9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 66a40597178a8267febfd6ad18277d6b865c084d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825836"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180167"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>자습서: Zendesk와 Azure Active Directory 통합
 
@@ -108,7 +109,12 @@ Zendesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **로그온 URL** 텍스트 상자에서 `https://<subdomain>.zendesk.com` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `<subdomain>.zendesk.com` 패턴을 사용하는 URL을 입력합니다.
+    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
+    | |
+    |-|-|
+    | `<subdomain>.zendesk.com` |
+    | `https://<subdomain>.zendesk.com` |
+    | |
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Zendesk 클라이언트 지원 팀](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -162,7 +168,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 11. 브라우저에 확장을 추가한 후 **Zendesk 설정**을 클릭하면 Zendesk 응용 프로그램으로 이동됩니다. 응용 프로그램에서 관리자 자격 증명을 입력하여 Zendesk에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 **Zendesk Online Single Sign-On 구성** 섹션을 자동화합니다.
 
-     ![이미지](./media/zendesk-tutorial/d2_saml.png)
+    ![이미지](./media/zendesk-tutorial/d2_saml.png)
 
 ### <a name="configure-zendesk-single-sign-on"></a>Zendesk Single Sign-On 구성
 
@@ -190,7 +196,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     f. **저장**을 클릭합니다.
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
@@ -278,5 +284,4 @@ Zendesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [사용자 프로비저닝 구성](zendesk-provisioning-tutorial.md) 
-
+- [사용자 프로비저닝 구성](zendesk-provisioning-tutorial.md)

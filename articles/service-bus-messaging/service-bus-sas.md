@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846339"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895859"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -96,7 +96,7 @@ SAS 토큰은 `signature-string`에서 사용된 `<resourceURI>`를 접두사로
 
 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 개체에서 정기적으로 사용되는 키를 다시 생성하는 것이 좋습니다. 기본 및 보조 키 슬롯은 키를 점진적으로 회전할 수 있도록 존재합니다. 애플리케이션에서 일반적으로 기본 키를 사용하는 경우 기본 키를 보조 키 슬롯에 복사한 다음, 기본 키를 다시 생성할 수 있습니다. 그런 다음, 보조 슬롯의 이전 기본 키를 사용하여 계속해서 액세스하는 클라이언트 애플리케이션으로 새 기본 키 값을 구성할 수 있습니다. 모든 클라이언트를 업데이트한 후에 보조 키를 다시 생성하여 마지막으로 이전 기본 키를 사용 중지할 수 있습니다.
 
-키가 손상되었고 키를 해제해야 한다는 것을 알거나 의심이 가는 경우 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)의 [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) 및 [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 모두를 새 키로 바꿔 다시 생성할 수 있습니다. 이 절차는 이전 키로 서명된 모든 토큰을 무효화합니다.
+키가 손상되었고 키를 해제해야 한다는 것을 알거나 의심이 가는 경우 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)의 [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 및 [SecondaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 모두를 새 키로 바꿔 다시 생성할 수 있습니다. 이 절차는 이전 키로 서명된 모든 토큰을 무효화합니다.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Service Bus를 사용한 공유 액세스 서명 인증
 

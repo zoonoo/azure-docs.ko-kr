@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2f6ceeebd18a91472ee12f04c0ac8e602b05f269
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4a65e88e3f94f64a56bde882b535030968ae354d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197554"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991279"
 ---
 # <a name="create-highlights-from-existing-videos"></a>기존 비디오에서 강조 부분 만들기
 
@@ -27,17 +27,14 @@ ms.locfileid: "55197554"
     페이지에는 비디오의 요약된 인사이트가 표시됩니다. 
 
     ![자세한 정보](./media/video-indexer-create-new/video-indexer-summarized-insights.png)
-
 3. **편집** 단추를 누릅니다.
 
     이 페이지에는 비디오에 대한 전체 분석이 표시됩니다. 분석은 블록으로 구분됩니다. 블록을 사용하면 데이터를 더 쉽게 살펴볼 수 있습니다. 예를 들어 블록은 화자가 변경되거나 오랫동안 일시 중지되는 경우를 기준으로 나눌 수 있습니다. 원하는 줄만 포함된 고유한 재생 목록을 만들 수 있습니다. 원본 비디오의 특정 부분만 표시하려면 주제/키워드, 감정, 사람, 화자를 기준으로 필터링할 수 있습니다. 비디오의 전사 또는 OCR만 표시하도록 선택할 수 있습니다.    
 
     ![자세한 정보](./media/video-indexer-create-new/video-indexer-create-new-playlist.png)
-
 4. 재생 목록을 만듭니다.
 
     재생 목록에서 줄을 추가하거나 제거하려면 **+**/**-** 를 누릅니다.
-
 5. 재생 목록을 미리 봅니다.
 
     재생 목록이 만들어지면 **미리 보기**를 누릅니다.

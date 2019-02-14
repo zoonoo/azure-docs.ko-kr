@@ -5,18 +5,18 @@ description: LUIS에는 날짜, 시간, 숫자, 측정값 및 통화 등, 일반
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 160721560b6cf311f146cd0f48ae719d95b30a0f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ade09c7527e62112ac7225df21e25d4139d99e58
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206292"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879000"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>일반 데이터 형식을 인식하는 미리 빌드된 엔터티
 

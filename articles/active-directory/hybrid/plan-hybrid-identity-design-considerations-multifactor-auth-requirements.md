@@ -16,12 +16,13 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 90df9926ca15666b94a72a7ff9f6f306f1193e14
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3dabb381c16aa107e41c1d556e61e020b8c6a6c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492694"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170233"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 다단계 인증 요구 사항 확인
 모바일 시대에서는 사용자가 모든 디바이스에서 클라우드에 있는 데이터 및 애플리케이션에 액세스하므로 정보 보호가 가장 중요한 일이 되었습니다.  보안 위반에 관한 뉴스 헤드라인이 매일 바뀌고 있습니다.  보안 위반을 완벽하게 방지하는 대책은 없지만, 다단계 인증을 통해 보안 위반을 방지하는 보안을 강화할 수 있습니다.

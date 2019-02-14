@@ -4,25 +4,25 @@ description: Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 �
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: ae06f397fd0ed3f1a1b5ebbdc418abc02789fe91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785682"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000918"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure Media Indexer 2 미리 보기를 사용하여 미디어 파일 인덱싱
 ## <a name="overview"></a>개요
-**Azure Media Indexer 2 미리 보기** MP(미디어 프로세서)를 사용하여 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙을 생성할 수 있습니다. [Azure Media Indexer 2 미리 보기](media-services-index-content.md)는 이전 버전의 **Azure Media Indexer** 에 비해 보다 빠른 인덱싱을 수행하고 더 광범위한 언어 지원을 제공합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(북경어, 간체), 포르투갈어, 아랍어, 러시아어, 일본어 등입니다.
+**Azure Media Indexer 2 미리 보기** MP(미디어 프로세서)를 사용하여 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙을 생성할 수 있습니다. [Azure Media Indexer 2 미리 보기](media-services-index-content.md)는 이전 버전의 **Azure Media Indexer**에 비해 보다 빠른 인덱싱을 수행하고 더 광범위한 언어 지원을 제공합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(북경어, 간체), 포르투갈어, 아랍어, 러시아어, 일본어 등입니다.
 
 **Azure Media Indexer 2 미리 보기** MP는 현재 미리 보기 상태입니다.
 
@@ -87,7 +87,7 @@ Azure Media Indexer 2 미리 보기는 다음 언어에 대한 음성-텍스트�
 * 일본어 [JaJp]
 * 러시아어[RuRu]
 * 영국 영어[EnGb]
-* 스페인어(멕시코)[EsMx] 
+* 스페인어(멕시코)[EsMx] 
 
 ## <a name="supported-file-types"></a>지원되는 파일 형식
 

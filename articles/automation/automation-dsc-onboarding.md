@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f9a1076ddfb840ba845718c5ca0deea8c5788e7d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096707"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100332"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -24,7 +24,8 @@ ms.locfileid: "55096707"
 
 Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 있습니다.
 
-- Azure 가상 머신(클래식 및 Azure Resource Manager 배포 모델 모두에서 배포됨)
+- Azure 가상 머신
+- Azure 가상 머신(기본)
 - Amazon Web Services(AWS) EC2 인스턴스
 - 온-프레미스나 Azure/AWS 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
 - 온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
@@ -35,6 +36,31 @@ Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 �
 > 상태 구성을 사용한 Azure VM 관리는 설치된 가상 머신 DSC 확장이 2.70보다 큰 경우 추가 비용 없이 포함됩니다. 자세한 내용은 [**Automation 가격 페이지**](https://azure.microsoft.com/pricing/details/automation/)를 참조하세요.
 
 다음 섹션에서는 Azure Automation 상태 구성에 대해 각 머신 형식을 온보드하는 방법을 간략히 설명합니다.
+
+## <a name="azure-virtual-machines"></a>Azure 가상 머신
+
+Azure Automation 상태 구성을 사용하면 Azure Portal, Azure Resource Manager 템플릿 또는 PowerShell을 사용하는 구성 관리를 위해 Azure 가상 머신을 간편하게 온보드할 수 있습니다. 내부적으로, VM에 대해 관리자가 원격으로 작업할 필요 없이 Azure VM 필요 상태 구성 확장은 VM을 Azure Automation 상태 구성에 등록합니다.
+Azure VM DSC(Desired State Configuration) 확장은 비동기적으로 실행되므로 진행 상황을 추적하거나 문제를 해결하는 단계는 뒤에 나오는 [**Azure 가상 머신 온보드 문제 해결**](#troubleshooting-azure-virtual-machine-onboarding) 섹션에서 제공됩니다.
+
+### <a name="azure-portal"></a>Azure portal
+
+[Azure Portal](https://portal.azure.com/)에서 가상 머신을 온보드할 Azure Automation 계정으로 이동합니다. 상태 구성 페이지 및 **노드** 탭에서 **+ 추가**를 클릭합니다.
+
+등록하려면 Azure 가상 머신을 선택합니다.
+
+컴퓨터에 필요한 상태 확장이 설치된 PowerShell이 없고 전원 상태가 실행 중인 경우 **연결**을 클릭합니다.
+
+**등록**에서 사용 사례에 필요한 [PowerShell DSC 로컬 Configuration Manager 값](/powershell/dsc/metaconfig4)과 선택적으로 VM에 할당할 노드 구성을 입력합니다.
+
+![온보딩](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+
+### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+
+Azure 가상 머신은 Azure Resource Manager 템플릿을 통해 Azure Automation 상태 구성에 배포 및 온보드할 수 있습니다. 기존 VM을 Azure Automation 상태 구성에 온보드하는 템플릿 예는 [DSC 확장 및 Azure Automation DSC를 통한 VM 구성](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/)을 참조하세요. 이 템플릿에서 입력으로 가져온 등록 키와 등록 URL을 찾으려면 뒤에 나오는 [**등록 보호**](#secure-registration) 섹션을 참조하세요.
+
+### <a name="powershell"></a>PowerShell
+
+PowerShell을 통해 Azure 포털의 가상 머신을 온보드하는 데 [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet을 사용할 수 있습니다.
 
 ## <a name="azure-virtual-machines-classic"></a>Azure 가상 머신(기본)
 
@@ -116,31 +142,6 @@ $VM | Update-AzureVM
 
 > [!NOTE]
 > 상태 구성 노드 구성 이름은 포털에서 대/소문자를 구분합니다. 대/소문자가 일치하지 않는 경우 노드는 **노드** 탭에 표시되지 않습니다.
-
-## <a name="azure-virtual-machines"></a>Azure 가상 머신
-
-Azure Automation 상태 구성을 사용하면 Azure Portal, Azure Resource Manager 템플릿 또는 PowerShell을 사용하는 구성 관리를 위해 Azure 가상 머신을 간편하게 온보드할 수 있습니다. 내부적으로, VM에 대해 관리자가 원격으로 작업할 필요 없이 Azure VM 필요 상태 구성 확장은 VM을 Azure Automation 상태 구성에 등록합니다.
-Azure VM DSC(Desired State Configuration) 확장은 비동기적으로 실행되므로 진행 상황을 추적하거나 문제를 해결하는 단계는 뒤에 나오는 [**Azure 가상 머신 온보드 문제 해결**](#troubleshooting-azure-virtual-machine-onboarding) 섹션에서 제공됩니다.
-
-### <a name="azure-portal"></a>Azure portal
-
-[Azure Portal](https://portal.azure.com/)에서 가상 머신을 온보드할 Azure Automation 계정으로 이동합니다. 상태 구성 페이지 및 **노드** 탭에서 **+ 추가**를 클릭합니다.
-
-등록하려면 Azure 가상 머신을 선택합니다.
-
-컴퓨터에 필요한 상태 확장이 설치된 PowerShell이 없고 전원 상태가 실행 중인 경우 **연결**을 클릭합니다.
-
-**등록**에서 사용 사례에 필요한 [PowerShell DSC 로컬 Configuration Manager 값](/powershell/dsc/metaconfig4)과 선택적으로 VM에 할당할 노드 구성을 입력합니다.
-
-![온보딩](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
-
-### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
-
-Azure 가상 머신은 Azure Resource Manager 템플릿을 통해 Azure Automation 상태 구성에 배포 및 온보드할 수 있습니다. 기존 VM을 Azure Automation 상태 구성에 온보드하는 템플릿 예는 [DSC 확장 및 Azure Automation DSC를 통한 VM 구성](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/)을 참조하세요. 이 템플릿에서 입력으로 가져온 등록 키와 등록 URL을 찾으려면 뒤에 나오는 [**등록 보호**](#secure-registration) 섹션을 참조하세요.
-
-### <a name="powershell"></a>PowerShell
-
-PowerShell을 통해 Azure 포털의 가상 머신을 온보드하는 데 [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode) cmdlet을 사용할 수 있습니다.
 
 ## <a name="amazon-web-services-aws-virtual-machines"></a>AWS(Amazon Web Services) 가상 머신
 

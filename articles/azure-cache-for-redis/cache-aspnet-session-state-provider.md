@@ -1,25 +1,25 @@
 ---
 title: 캐시 ASP.NET 세션 상태 제공자 | Microsoft Docs
 description: Azure Cache for Redis를 사용하여 ASP.NET 세션 상태를 저장하는 방법을 알아봅니다.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 192f384c-836a-479a-bb65-8c3e6d6522bb
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/01/2017
-ms.author: wesmc
-ms.openlocfilehash: a7f3e23cd74baa2e1fdef178be8c5b213a3905ef
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 3b10a471aafc4799fde8cb2e42b7c21c8d1eb9c4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105290"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232069"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 세션 상태 제공자
 Azure Cache for Redis는 메모리 내 또는 SQL Server 데이터베이스가 아니라 Azure Cache for Redis를 통해 세션 상태를 저장하는 데 사용할 수 있는 세션 상태 제공자를 제공합니다. 캐싱 세션 상태 제공자를 사용하려면 먼저 캐시를 구성하고 Azure Cache for Redis 세션 상태 NuGet 패키지를 사용하여 캐시용 ASP.NET 애플리케이션을 구성합니다.

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 웹의 사용자 지정 보기 검색 방법을 설명합니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: c2fb387026f077ac2b111f2d482cc6c5226642aa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e0c1ec55a7f21ad223629d6d478cbd97c7974abb
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198183"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237980"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>포털에서 Bing Custom Search 인스턴스 호출
 

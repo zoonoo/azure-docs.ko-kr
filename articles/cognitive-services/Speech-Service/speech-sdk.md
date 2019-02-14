@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Speech Service SDK(소프트웨어 개발 키트)를 사용하면 애플리케이션 네이티브에서 Speech 서비스의 기능에 액세스할 수 있으므로 소프트웨어를 더 쉽게 개발할 수 있습니다. 이 문서에서는 Windows, Linux 및 Android용 SDK에 대한 추가 세부 정보를 제공합니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1b58ef5f8254ef81eceefa277e5f146531fa2947
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5d98ae7fe4062ce88ee2a3df5f9bb4d992d4023c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221796"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984684"
 ---
 # <a name="about-the-speech-service-sdk"></a>Speech Service SDK 정보
 
@@ -76,13 +76,13 @@ Android Studio 프로젝트의 패키지를 사용하는 경우 다음과 같이
 
 * 프로젝트 수준의 build.gradle 파일에서 `repository` 섹션에 다음을 추가합니다.
 
-  ```text
+  ```gradle
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```
 
 * 모듈 수준의 build.gradle 파일에서 `dependencies` 섹션에 다음을 추가합니다.
 
-  ```text
+  ```gradle
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.2.0'
   ```
 

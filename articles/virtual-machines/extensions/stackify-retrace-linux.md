@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: b286ebc2e50166e8491b45346a81b161227f8d21
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415966"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979720"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux 에이전트 확장
 
@@ -147,7 +147,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 
-`Set-AzureRmVMExtension` 명령을 사용하여 Stackify Retrace Linux 에이전트 가상 머신 확장을 기존 가상 머신에 배포할 수 있습니다. 명령을 실행하기 전에 공용 및 개인 구성을 PowerShell 해시 테이블에 저장해야 합니다.
+`Set-AzVMExtension` 명령을 사용하여 Stackify Retrace Linux 에이전트 가상 머신 확장을 기존 가상 머신에 배포할 수 있습니다. 명령을 실행하기 전에 공용 및 개인 구성을 PowerShell 해시 테이블에 저장해야 합니다.
 
 확장에는 `environment` 및 `activationKey`가 필요합니다.
 
@@ -155,7 +155,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 
-Set-AzureRmVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
+Set-AzVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Stackify.LinuxAgent.Extension" `

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 47b9d25f8db2241bb578528780e28f43d56371e5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413186"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963083"
 ---
 # <a name="create-a-netapp-account"></a>NetApp 계정 만들기
 NetApp 계정 만들기를 사용하면 용량 풀을 설정하고 이후에 볼륨을 만들 수 있습니다. Azure NetApp Files 블레이드를 사용하여 새 NetApp 계정을 만듭니다.
@@ -31,8 +31,8 @@ NetApp 리소스 공급자 및 공개 미리 보기 기능을 사용하려면 �
 
 ## <a name="steps"></a>단계 
 
-1. 미리 보기 초대에서 미리 보기 Azure Portal URL을 찾아서 포털에 로그인합니다. 
-2.  다음 방법 중 하나를 사용하여 Azure NetApp Files 블레이드에 액세스합니다.  
+1. Azure 포털에 로그인합니다. 
+2. 다음 방법 중 하나를 사용하여 Azure NetApp Files 블레이드에 액세스합니다.  
   * Azure Portal 검색 상자에서 **Azure NetApp Files**를 검색합니다.  
   * 탐색에서 **모든 서비스**를 클릭한 다음, Azure NetApp Files로 필터링합니다.  
 
@@ -50,7 +50,6 @@ NetApp 리소스 공급자 및 공개 미리 보기 기능을 사용하려면 �
     기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다.
   * **위치**:  
     계정 및 해당 자식 리소스를 배치하려는 지역을 선택합니다.  
-    현재 Azure NetApp Files 서비스는 미국 동부 지역에서만 지원됩니다.  
 
     ![새 NetApp 계정](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 

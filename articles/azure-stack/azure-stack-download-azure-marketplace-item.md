@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2019
+ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 8c699f8b3241694f36b73ae75b25754e551c91f6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f80f0870400fa7fb46b7787c6c257255a780cf3b
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470708"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244116"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
@@ -166,7 +166,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
    ```PowerShell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
-   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
 
    합니다 `-origin` 매개 변수 다운로드 한 제품; 모두 포함 하는 최상위 수준 폴더를 지정 합니다. 예를 들어 `"D:\downloadfolder"`합니다.
@@ -223,7 +223,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
    **확장에 대 한:** 가상 머신 이미지 확장을 사용 하 여 작업할 때 다음 매개 변수를 사용 합니다.
    - *게시자*
    - *형식*
-   - *버전*  
+   - *버전(Version)*  
 
    사용 하지 않는 *제공* 확장에 대 한 합니다.   
 

@@ -3,8 +3,8 @@ title: 비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-
 description: Azure AD와 통합할 사용자 지정 비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
-ms.openlocfilehash: d79076a0669f725c3f1864a979812ede1020cd75
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f99fa8cbc211469185f2503718c84bc1b12db44c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812126"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178223"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 

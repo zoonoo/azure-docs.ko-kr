@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 95bec451c556ff9f3c5bcccee68f900543639733
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631904"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978088"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>마이크로 서비스 사용자 지정 및 다시 배포
 
@@ -123,13 +123,13 @@ ms.locfileid: "53631904"
 2. 원하는 텍스트 편집기나 IDE에서 docker-compose.yml을 엽니다.
 3. 다음 코드를 찾습니다.
 
-    ```docker
+    ```yml
     image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     아래의 이미지처럼 보이도록 변경하여 저장합니다.
 
-    ```cmd/sh
+    ```yml
     image: [docker ID]/iothub-manager-dotnet:testing
     ```
 

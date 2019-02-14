@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 734e337ba8dff996e9b9cecd7602115bf97b4810
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c3fc8ae7eac8d54e332d43925ede6ad690ae1dde
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55772897"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56167833"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구
 
@@ -83,7 +84,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
     ![QR 코드를 검사할 수 있는 Microsoft Authenticator 앱](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >QR 코드를 가져오는 방법에 대한 자세한 내용은 관리자가 보안 정보를 켰는지 여부에 따라 [Microsoft Authenticator 앱 시작](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install#add-accounts-to-the-app) 또는 [Authenticator 앱을 사용하도록 보안 정보 설정](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app)을 참조하세요.
+    >QR 코드를 가져오는 방법에 대한 자세한 내용은 관리자가 보안 정보를 켰는지 여부에 따라 [Microsoft Authenticator 앱 시작](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) 또는 [Authenticator 앱을 사용하도록 보안 정보 설정](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app)을 참조하세요.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>백업 및 복구 문제 해결
 백업을 사용할 수 없는 몇 가지 이유가 있습니다.

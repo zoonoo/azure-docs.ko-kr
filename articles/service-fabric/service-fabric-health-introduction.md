@@ -14,21 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 87081398e844f1e2b085a7e12c2b7aafce330ec9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194290"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193767"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
 다양하고 유연하며 확장 가능한 상태 평가 및 보고 기능을 제공하는 상태 모델이 Azure 서비스 패브릭에 도입되었습니다. 이 모델에서는 클러스터의 상태와 클러스터에서 실행되는 서비스의 상태를 거의 실시간으로 모니터링할 수 있습니다. 간편하게 상태 정보를 얻을 수 있고 잠재적인 문제로 인한 대규모 중단 사태가 발생하기 전에 해당 문제를 해결할 수 있습니다. 일반적인 모델에서는 서비스가 로컬 보기를 기반으로 한 보고서를 보내고 정보는 전체 클러스터 수준 보기를 제공하도록 집계됩니다.
 
 Service Fabric 구성 요소는 이 풍부한 상태 모델을 사용하여 현재 상태를 보고합니다. 동일한 메커니즘을 사용하여 애플리케이션의 상태를 보고할 수도 있습니다. 사용자 지정 조건을 캡처하는 고품질의 상태 보고에 투자하면 실행 중인 애플리케이션에 대한 문제를 훨씬 더 쉽게 감지하고 수정할 수 있습니다.
-
-다음 Microsoft Virtual Academy 비디오에는 Service Fabric 상태 모델 및 사용 방법도 설명합니다. <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
-<img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 > [!NOTE]
 > 이전에는 모니터링되는 업그레이드에 대한 요구를 해결하기 위해 상태 하위 시스템을 시작했습니다. Service Fabric은 모니터링되는 애플리케이션 및 클러스터 업그레이드를 제공하여 가동 중지 시간 없는 최대 가용성을 보장하고 사용자 개입을 최소화하거나 필요 없도록 합니다. 이 목표를 달성하기 위해 업그레이드에서는 구성된 업그레이드 정책을 기초로 상태를 확인합니다. 상태가 바람직한 임계값에 부합하는 경우에만 업그레이드를 진행할 수 있습니다. 그렇지 않으면 관리자가 문제를 해결할 수 있도록 업그레이드가 자동으로 롤백되거나 일시 중지됩니다. 애플리케이션 업그레이드에 대한 자세한 내용은 [이 문서](service-fabric-application-upgrade.md)를 참조하세요.

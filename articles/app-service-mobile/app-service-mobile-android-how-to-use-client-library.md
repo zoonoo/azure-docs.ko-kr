@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: c0e6aa34b80389689e49ac6ad3566a3a109a96e1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 803c9af7b6c40f7deee2b81fb7ff0ae82ef6778a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158165"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965157"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
 
@@ -55,7 +55,7 @@ Android용 Azure Mobile Apps SDK는 휴대폰 및 태블릿 폼 팩터용 API �
 
 1. *buildscript* 태그 내의 *프로젝트* 수준 **build.gradle** 파일에 이 코드를 추가합니다.
 
-    ```text
+    ```gradle
     buildscript {
         repositories {
             jcenter()
@@ -65,7 +65,7 @@ Android용 Azure Mobile Apps SDK는 휴대폰 및 태블릿 폼 팩터용 API �
 
 2. *dependencies* 태그 내의 *모듈 앱* 수준 **build.gradle** 파일에 이 코드를 추가합니다.
 
-    ```text
+    ```gradle
     compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
@@ -496,7 +496,7 @@ List<ToDoItem> results = mToDoTable
 
 위의 코드에서 *listitem* 특성은 목록의 개별 행에 대한 레이아웃의 ID를 지정합니다. 이 코드는 확인란 및 관련된 텍스트를 지정하고 목록의 각 항목에 대해 한 번씩 인스턴스화됩니다. 이 레이아웃은 **ID** 필드를 표시하지 않고 더 복잡한 레이아웃은 디스플레이에서 추가 필드를 지정합니다. 이 코드는 **row_list_to_do.xml** 파일에 있습니다.
 
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -520,7 +520,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 어댑터의 **getView** 메서드를 다시 정의합니다. 예: 
 
-```
+```java
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -959,7 +959,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 **redirectUriScheme**을 애플리케이션의 `build.gradle` 파일에 추가합니다.
 
-```text
+```gradle
 android {
     buildTypes {
         release {
@@ -976,7 +976,7 @@ android {
 
 마지막으로 `com.android.support:customtabs:23.0.1`을 `build.gradle` 파일의 종속성 목록에 추가합니다.
 
-```text
+```gradle
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.google.code.gson:gson:2.3'
@@ -1076,7 +1076,7 @@ Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그
 1. [Active Directory 로그인에 App Service를 구성하는 방법][22] 자습서를 수행하여 AAD 로그인에 모바일 앱 백 엔드를 구성합니다. 네이티브 클라이언트 애플리케이션을 등록하는 선택적 단계를 완료해야 합니다.
 2. 다음 정의를 포함하도록 build.gradle 파일을 수정하여 ADAL을 설치합니다.
 
-    ```
+    ```gradle
     repositories {
         mavenCentral()
         flatDir {

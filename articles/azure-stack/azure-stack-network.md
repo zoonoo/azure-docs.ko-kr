@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 56884f2299df35c1565804a92fc404b6ed9e2f9a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97fcfa20e474edb8108474ef02c6542688d627ff
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185012"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243489"
 ---
 # <a name="network-connectivity"></a>네트워크 연결
 이 문서에서는 Azure Stack 기존 네트워킹 환경에 통합 하는 방법을 결정 하는 데 Azure Stack 네트워크 인프라 정보를 제공 합니다. 
@@ -45,7 +45,7 @@ Azure Stack 솔루션에는 운영 및 서비스를 지원하기 위해 복원�
 | 공용 VIP | Azure Stack이이 네트워크에서 31 주소의 합계를 사용합니다. 소수의 Azure Stack 서비스에 대 한 8 공용 IP 주소는 사용 하 고 나머지 테 넌 트 가상 컴퓨터에서 사용 됩니다. App Service 및 SQL 리소스 공급자를 사용 하려는 경우에 7 더 많은 주소가 사용 됩니다. 나머지 15 Ip는 향후 Azure 서비스에 대 한 예약 되어 있습니다. | / 26 (62 호스트)-롤아웃의 경우/22 (1022 호스트)<br><br>권장 되 는/24 (254 명의 호스트) = | 
 | 스위치 인프라 | 지점 간 라우팅 목적으로 전용된 IP 주소 관리 인터페이스 및 스위치에 할당 된 루프백 주소를 전환 합니다. | /26 | 
 | 인프라 | Azure Stack 내부 구성 요소에 대 한 통신 하는 데 사용 합니다. | /24 |
-| 개인 | 저장소 네트워크 및 개인 Vip에 사용 합니다. | /24 | 
+| Private | 저장소 네트워크 및 개인 Vip에 사용 합니다. | /24 | 
 | BMC | 실제 호스트의 Bmc와 통신 하는 데 사용 합니다. | /26 | 
 | | | |
 
@@ -67,9 +67,6 @@ Azure Stack에 대 한 네트워크 인프라 스위치에 구성 된 여러 논
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack 인프라 네트워크
 이/24 네트워크 전용인 내부 Azure Stack 구성 요소 통신 하 고 데이터를 서로 교환할 수 있도록 합니다. 이 서브넷에 라우팅 가능 IP 주소를 하는데 비밀로 유지 되며 솔루션에 대 한 액세스 제어 목록 (Acl)를 사용 하 여입니다. / 27 같음 크기가 작은 범위를 제외 하 고 테두리 스위치 초과 라우팅할 것으로 예상 되지 네트워크 외부 리소스 및/또는 인터넷에 액세스 해야 하는 경우 이러한 서비스 중 일부에서 사용 합니다. 
-
-### <a name="public-infrastructure-network"></a>공용 인프라 네트워크
-이/27 네트워크는 앞에서 언급 한 Azure Stack 인프라 서브넷에서 작은 범위, 공용 IP 주소를 필요로 하지는 않지만 NAT 또는 투명 프록시를 통해 인터넷에 액세스할 필요가 있습니다. 이 네트워크는 응급 복구 콘솔 시스템 (ERCS)에 대 한 할당, ERCS VM 인프라 백업 및 Azure에 등록 하는 동안 인터넷 액세스가 필요 합니다. ERCS VM 문제 해결을 위해 관리 네트워크에 라우팅할 수 있어야 합니다.
 
 ### <a name="public-vip-network"></a>공용 VIP 네트워크
 공용 VIP 네트워크는 Azure Stack에서 네트워크 컨트롤러에 할당 됩니다. 스위치에서 논리 네트워크는 없습니다. SLB 주소 풀을 사용 하 고 할당/32 테 넌 트 워크 로드에 대 한 네트워크입니다. 스위치 라우팅 테이블에 이러한 32 Ip로 BGP 통해 사용할 수 있는 경로 보급 됩니다. 이 네트워크 외부에서 액세스할 수 있는 또는 공용 IP 주소를 포함합니다. Azure Stack 인프라의 나머지 테 넌 트 Vm에서 사용 되는 동안이 공용 VIP 네트워크에서 처음 31 주소를 예약 합니다. 이 서브넷에 네트워크 크기/26 (64 호스트)의 최소 롤아웃의 경우/22 (1022 호스트)의 최대 범위, / 24에 대 한 계획 하는 것이 좋습니다 네트워크입니다.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 72efe156920bb78631ea71a0f47f7f5fe19c7e23
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 639bc4ff9c69bca3d5f8bca6967bfc3e8e6a13d4
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133658"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100553"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Event Hubs 캡처 연습: Python
 
@@ -43,7 +43,7 @@ ms.locfileid: "53133658"
 - 활성 [Event Hubs 네임스페이스 및 이벤트 허브](event-hubs-create.md) 
 - 다음의 지침을 따라 이벤트 허브에 대해 **캡처** 기능을 활성화합니다. [Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정](event-hubs-capture-enable-through-portal.md)
 
-## <a name="create-an-azure-blob-storage-account"></a>Azure Blob 저장소 계정 만들기
+## <a name="create-an-azure-blob-storage-account"></a>Azure Blob Storage 계정 만들기
 1. [Azure Portal][Azure portal]에 로그인합니다.
 2. Azure Portal에서 **새로 만들기** > **저장소** > **저장소 계정**을 선택합니다.
 3. **저장소 계정 만들기** 창에서 선택 항목을 완료한 다음, **만들기**를 선택합니다.
@@ -62,7 +62,7 @@ ms.locfileid: "53133658"
    import datetime
    import random
    import json
-   from azure.servicebus import ServiceBusService
+   from azure.servicebus.control_client import ServiceBusService
    
    sbs = ServiceBusService(service_namespace='INSERT YOUR NAMESPACE NAME', shared_access_key_name='RootManageSharedAccessKey', shared_access_key_value='INSERT YOUR KEY')
    devices = []
@@ -165,7 +165,7 @@ ms.locfileid: "53133658"
 다음 링크를 사용하여 Event Hubs에 대해 자세히 알아볼 수 있습니다.
 
 * [Event Hubs 캡처 개요][Overview of Event Hubs Capture]
-* [Event Hubs를 사용하는 샘플 응용 프로그램](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+* [Event Hubs를 사용하는 샘플 애플리케이션](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 * [Event Hubs 개요][Event Hubs overview]
 
 [Azure portal]: https://portal.azure.com/

@@ -2,21 +2,22 @@
 title: 기존 온-프레미스 프록시 서버 및 Azure AD 작업 | Microsoft Docs
 description: 기존 온-프레미스 프록시 서버로 작업하는 방법을 다룹니다.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: aa13d7ccbadde5f8b813c0265df31014b773df7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0b4cb1f6cc3da5230f510f57a56c7297341f82f3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164421"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175577"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 

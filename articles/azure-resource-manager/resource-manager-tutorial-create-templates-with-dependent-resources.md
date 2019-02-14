@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5cfda4ddbf51f51d76b4ede2e44f768bd3261780
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2dc9d72afd14547a091acf64cea2c8f0bad75914
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491759"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234410"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기
 
@@ -114,6 +114,8 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 자습서에서는 Azure Portal에서 Cloud Shell을 사용합니다.
 
 1. [Cloud Shell](https://shell.azure.com)에 로그인합니다. 
@@ -140,7 +142,6 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 7. Cloud shell에서 다음 PowerShell 명령을 실행합니다. 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. [필수 조건](#prerequisites)을 참조하세요.
 
     ```azurepowershell
-    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
@@ -148,13 +149,14 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile azuredeploy.json
     ```
+
 8. 다음 PowerShell 명령을 실행하여 새로 만든 가상 머신을 나열합니다.
 
     ```azurepowershell

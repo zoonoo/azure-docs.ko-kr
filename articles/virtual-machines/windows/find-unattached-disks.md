@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: cc8813b0ac90ded1c777f9b1200f4e26737168b9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 15b82455813c75ca14903f019a17828156638569
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459701"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983562"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>연결되지 않은 Azure 관리/비관리 디스크 찾기 및 삭제
 Azure에서 VM(가상 머신)을 삭제할 때 기본적으로 VM에 연결된 디스크는 삭제되지 않습니다. 이 기능은 의도하지 않은 VM 삭제로 인한 데이터 손실을 방지하는 데 도움이 됩니다. VM을 삭제한 후에도 연결되지 않은 디스크에 대한 요금을 계속 지불합니다. 이 문서에서는 연결되지 않은 디스크를 찾아서 삭제하여 불필요한 비용을 줄이는 방법을 보여줍니다. 
@@ -43,7 +43,7 @@ Azure에서 VM(가상 머신)을 삭제할 때 기본적으로 VM에 연결된 �
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
 $deleteUnattachedDisks=0
 
-$managedDisks = Get-AzureRmDisk
+$managedDisks = Get-AzDisk
 
 foreach ($md in $managedDisks) {
     
@@ -55,7 +55,7 @@ foreach ($md in $managedDisks) {
             
             Write-Host "Deleting unattached Managed Disk with Id: $($md.Id)"
 
-            $md | Remove-AzureRmDisk -Force
+            $md | Remove-AzDisk -Force
 
             Write-Host "Deleted unattached Managed Disk with Id: $($md.Id) "
 
@@ -86,11 +86,11 @@ foreach ($md in $managedDisks) {
 # Set deleteUnattachedVHDs=0 if you want to see the Uri of the unattached VHDs
 $deleteUnattachedVHDs=0
 
-$storageAccounts = Get-AzureRmStorageAccount
+$storageAccounts = Get-AzStorageAccount
 
 foreach($storageAccount in $storageAccounts){
 
-    $storageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
+    $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
 
     $context = New-AzureStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
 

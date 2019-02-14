@@ -16,12 +16,13 @@ ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e786a2af8f86b69116b612c266dd40bbe7580e30
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: be5220c5f28505bd83110705e08a6b1c7fb12529
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161854"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210699"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Azure Active Directory 활동 로그 콘텐츠 팩 오류 문제 해결 
 
@@ -34,7 +35,7 @@ Azure Active Directory(Azure AD)용 Power BI 콘텐츠 팩으로 작업할 때 �
 
 - [새로 고침 실패](troubleshoot-content-pack.md#refresh-failed) 
 - [데이터 원본 자격 증명을 업데이트하지 못했습니다.](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [데이터를 가져오는 데 너무 오래 걸립니다.](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+- [데이터를 가져오는 데 너무 오래 걸립니다.](#data-import-is-too-slow) 
 
 이 문서에서는 가능한 원인 및 이러한 오류를 해결하는 방법에 대한 정보를 제공합니다.
  

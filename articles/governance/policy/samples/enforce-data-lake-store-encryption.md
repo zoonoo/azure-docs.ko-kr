@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: ab93cc1d31b2107afc8f9a2188b3f7ef0999e091
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 557198fcdc2c191986cedf4b384e0bf117dfa86d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848821"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56241685"
 ---
 # <a name="require-data-lake-store-encryption"></a>Data Lake Store 암호화 필요
 
@@ -51,7 +51,7 @@ ms.locfileid: "54848821"
 
 ## <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포 
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a7ff3161-0087-490a-9ad9-ad6217f4f43a

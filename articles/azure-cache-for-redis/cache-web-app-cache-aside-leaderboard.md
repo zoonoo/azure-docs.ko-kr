@@ -1,26 +1,26 @@
 ---
 title: 캐시 배제 패턴을 사용하는 Azure Cache for Redis로 웹앱을 만들기 위한 자습서 | Microsoft Docs
 description: 캐시 배제 패턴을 사용하는 Azure Cache for Redis로 웹앱을 만드는 방법에 대해 알아봅니다.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: ''
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: wesmc
-ms.openlocfilehash: da99d446da1451c2b05f6ecab8ba19eaa1e2bfa3
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 138bc0350e4eecac4639125dc3ae508ddbbd7d72
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104950"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234869"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>자습서: ASP.NET에서 캐시 배제 순위표 만들기
 

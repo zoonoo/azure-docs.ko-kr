@@ -4,7 +4,7 @@ description: 이 문서는 Azure 로그 통합에 대한 질문에 답변합니�
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TerryLanfear
 ms.assetid: d06d1ac5-5c3b-49de-800e-4d54b3064c64
 ms.service: security
@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 928c7921ce184f5f17916c3b9e182ce3754b0115
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f1b809e52cc532d13be85776f73aba4465fa2140
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306270"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114929"
 ---
 # <a name="azure-log-integration-faq"></a>Azure 로그 통합 FAQ
 
@@ -97,7 +97,7 @@ Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 �
 
 오류:
 
-  ‘역할 할당 만들기 경고 - AuthorizationFailed: 개체 ID가 ‘fe9e03e4-4dad-4328-910f-fd24a9660bd2’인 janedo@microsoft.com 클라이언트에는 ‘/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000’ 범위에 대해 ‘Microsoft.Authorization/roleAssignments/write’ 작업을 수행할 권한이 없습니다.’
+  ‘역할 할당 만들기 경고 - AuthorizationFailed: 개체 ID가 ‘fe9e03e4-4dad-4328-910f-fd24a9660bd2’인 janedo@microsoft.com 클라이언트에는 ‘/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000’ 범위에 대해 ‘Microsoft.Authorization/roleAssignments/write’ 작업을 수행할 권한이 없습니다.’*
 
 **azlog authorize** 명령을 사용하면 제공되는 구독에 **azlog createazureid** 명령으로 만들어진 Azure AD 서비스 주체의 읽기 권한자 역할을 할당합니다. Azure 로그인이 구독의 공동 관리자 또는 소유자가 아닌 경우 “권한 부여 실패” 오류 메시지와 오류가 발생합니다. 이 작업을 완료하려면 공동 관리자 또는 소유자의 Azure RBAC(역할 기반 Access Control)가 필요합니다.
 

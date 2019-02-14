@@ -14,21 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: cb44311ecdf6a2c9284b14884184863237422f96
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1e714faa04717ac8e6687db3c074b8a77d649fb2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754543"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217210"
 ---
 # <a name="service-fabric-application-lifecycle"></a>서비스 패브릭 애플리케이션 수명 주기
 다른 플랫폼과 마찬가지로, Azure 서비스 패브릭 기반의 애플리케이션은 일반적으로 디자인, 개발, 테스트, 배포, 업그레이드, 유지 관리 및 제거 단계를 거칩니다. 서비스 패브릭은 개발부터 배포, 일상적인 관리, 유지 관리 및 최종적인 서비스 해제에 이르기까지 클라우드 애플리케이션의 전체 애플리케이션 수명 주기 관리에 대해 최고 수준의 지원을 제공합니다. 여러 역할이 애플리케이션 수명 주기에 독립적으로 참가할 수 있는 서비스 모델이 제공됩니다. 이 문서에서는 서비스 패브릭 애플리케이션 수명 주기의 모든 단계에서 여러 역할이 사용하는 방법 및 API에 대한 개요를 제공합니다.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
-
-다음 Microsoft Virtual Academy 비디오에서는 애플리케이션 수명 주기를 관리하는 방법을 설명합니다. <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
-<img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ## <a name="service-model-roles"></a>서비스 모델 역할
 서비스 모델은 다음과 같습니다.
@@ -58,7 +54,7 @@ ms.locfileid: "55754543"
 
 ## <a name="test"></a>테스트
 1. 로컬 개발 클러스터 또는 클러스터에 배포한 후 *서비스 개발자*가 [**FailoverTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) 및 [**FailoverTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) 클래스 또는 [**Invoke-ServiceFabricFailoverTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps)를 사용하여 기본 제공 장애 조치(failover) 테스트 시나리오를 실행합니다. 장애 조치(failover) 테스트 시나리오는 중요한 전환 및 장애 조치(failover)를 통해 지정된 서비스를 실행하여 서비스가 중단 없이 작동되도록 보장합니다.
-2. 그런 다음 *서비스 개발자*가 [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) 및 [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario#System_Fabric_Testability_Scenario_ChaosTestScenario) 클래스 또는 [**Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps)를 사용하여 기본 제공 비정상 상황 테스트 시나리오를 실행합니다. 비정상 상황 테스트 시나리오는 임의로 여러 노드, 코드 패키지 및 복제 오류를 클러스터로 유도합니다.
+2. 그런 다음 *서비스 개발자*가 [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) 및 [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) 클래스 또는 [**Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps)를 사용하여 기본 제공 비정상 상황 테스트 시나리오를 실행합니다. 비정상 상황 테스트 시나리오는 임의로 여러 노드, 코드 패키지 및 복제 오류를 클러스터로 유도합니다.
 3. 그런 다음 *service developer* [서비스 간 통신을 테스트](service-fabric-testability-scenarios-service-communication.md) 합니다.
 
 자세한 내용은 [오류 분석 서비스 소개](service-fabric-testability-overview.md) 를 참조하세요.

@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: 87ad05ebb8cce57c0bfa1036a5006408cab28a7a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8fd9ba2e6e5eae43476102c8928c67d6015ec2eb
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656416"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245663"
 ---
 # <a name="enforce-tag-and-its-value-on-resource-groups"></a>리소스 그룹에 태그 및 해당 값 강제 적용
 
@@ -79,7 +79,7 @@ PowerShell은 cmdlet에 이름/값 해시 테이블을 전달해야 하는 `-Pol
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### <a name="deploy-with-azure-powershell"></a>Azure PowerShell을 사용하여 배포
 

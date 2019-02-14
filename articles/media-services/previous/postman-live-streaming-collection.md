@@ -4,23 +4,23 @@ description: 이 문서에서는 Azure Media Services REST 호출에 대한 Post
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ea88d6a85fb0b22d12c9d30baf23c33074666568
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 98c687b620aea484a4ced1385d7a2301db55ce79
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786382"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998453"
 ---
-# <a name="import-a-postman-collection-with-live-streaming-operations"></a>라이브 스트리밍 작업으로 Postman 컬렉션 가져오기
+# <a name="import-a-postman-collection-with-live-streaming-operations"></a>라이브 스트리밍 작업으로 Postman 컬렉션 가져오기 
 
 이 문서에는 **라이브 스트리밍** Azure Media Services REST API를 호출하는 그룹화된 HTTP 요청이 포함된 **Postman** 컬렉션 정의가 포함되어 있습니다. Media Services REST API를 호출하는 데 사용할 수 있도록 **Postman**을 구성하는 방법에 대해 자세히 알아보려면 [Media Services REST API 호출에 대해 Postman 구성](media-rest-apis-with-postman.md) 자습서를 참조하세요.
 

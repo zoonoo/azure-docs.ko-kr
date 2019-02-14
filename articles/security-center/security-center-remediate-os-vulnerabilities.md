@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Security Center 권장 사항 "보안 구
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a951e60b417167f2e1566efb689ea0f2d4e65374
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344145"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111427"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Security Center에서 보안 구성 수정
 Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 체제)를 매일 분석하여 이러한 VM과 컴퓨터를 공격에 보다 취약하게 만들 수 있는 구성을 확인합니다. Security Center에서는 OS 구성이 권장 보안 구성 규칙과 일치하지 않을 경우 취약성을 해결하도록 권장하며, 이러한 취약성 해결을 위해 구성을 변경하는 것이 좋습니다.

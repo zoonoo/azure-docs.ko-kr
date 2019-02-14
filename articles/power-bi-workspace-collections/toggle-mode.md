@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 9a12940f08a11b66a0d09937d5ab8fab7304734f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 892ea129a57e77c59f37b305b96b42aa85dba32b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754339"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232710"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션에서 보고서의 보기 및 편집 모드 간 전환
 
@@ -30,7 +30,7 @@ Power BI 작업 영역 컬렉션 내에서 보고서의 보기 및 편집 모드
 > [!NOTE]
 > 이러한 조건이 충족될 경우 기존 보고서를 편집하고 변경 내용을 저장할 수 있습니다. **다른 이름으로 저장**을 지원하는 기능을 원할 경우 추가 권한을 제공해야 합니다. 자세한 내용은 [범위](app-token-flow.md#scopes)를 참조하세요.
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -46,9 +46,10 @@ var token = embedToken.Generate("{access key}");
 
 예를 들어 JavaScript에서 다음을 수행합니다.
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -74,6 +75,7 @@ var token = embedToken.Generate("{access key}");
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 여기서는 **models.ViewMode.View**로 설정된 **viewMode**를 기준으로 보기 모드에서 보고서를 포함합니다.
@@ -82,7 +84,7 @@ var token = embedToken.Generate("{access key}");
 
 편집 모드인 경우 다음 JavaScript를 사용하여 보기 모드로 전환할 수 있습니다.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 
@@ -98,7 +100,7 @@ report.switchMode("view");
 
 보기 모드인 경우 다음 JavaScript를 사용하여 편집 모드로 전환할 수 있습니다.
 
-```
+```javascript
 // Get a reference to the embedded report HTML element
 var reportContainer = $('#reportContainer')[0];
 

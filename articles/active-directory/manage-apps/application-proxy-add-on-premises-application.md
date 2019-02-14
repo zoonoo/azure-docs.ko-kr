@@ -2,21 +2,22 @@
 title: 온-프레미스 앱 추가 - Azure Active Directory의 애플리케이션 프록시 | Microsoft Docs
 description: Azure AD(Azure Active Directory)에는 사용자가 해당 Azure AD 계정으로 로그인하여 온-프레미스 애플리케이션에 액세스할 수 있는 애플리케이션 프록시 서비스가 포함됩니다. 이 자습서에서는 애플리케이션 프록시를 사용할 환경을 준비한 다음, Azure Portal을 사용하여 Azure AD 테넌트에 온-프레미스 애플리케이션을 추가하는 방법을 보여줍니다.
 services: active-directory
-author: barbkess
+author: CelesteDG
 manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 1f6962f0313b6b0ca187512185c990606789da6e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f29b55b03d28728ad038f0071a7ba8a75a7acd2c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661958"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199445"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 

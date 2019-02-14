@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-ms.openlocfilehash: f4c7efdb0a43c352450056a9f6f79e3e189c820c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 581f0883757444a29a1d941305d055204167701a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458315"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56208421"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>자습서: Clarizen과 Azure Active Directory 통합
 
@@ -133,7 +134,7 @@ Clarizen에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![사용자 이름 아래에서 "설정" 클릭](./media/clarizen-tutorial/tutorial_clarizen_001.png "설정")
 
-1. **전역 설정** 탭을 클릭합니다. 그런 다음 **페더레이션 인증** 옆에 있는 **편집**을 클릭합니다.
+1. **전역 설정** 탭을 클릭합니다. 그런 다음 페더레이션 인증 옆에 있는 **편집**을 클릭합니다.
 
     ![“전역 설정” 탭](./media/clarizen-tutorial/tutorial_clarizen_002.png "전역 설정")
 

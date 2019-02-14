@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 21837265a963829539f12cf7911191a61be43fbc
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876539"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243048"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>Azure DevTest Labs 사용 시작
 DevTest Labs 탐색을 시작할 때는 대개 개념 증명과 크기가 조정된 배포의 두 가지 일반 경로 중 하나를 선택합니다. 

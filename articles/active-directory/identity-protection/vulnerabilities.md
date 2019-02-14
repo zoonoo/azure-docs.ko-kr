@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b5d10ad47649591b602b17354b9315dc514d3365
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b5968731981e9ba602a27b6b66a53e7b67e8fa7f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766285"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187324"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호에서 검색하는 취약성
 취약점은 공격자에 의해 악용될 수 있는 환경의 단점입니다. 이러한 취약성을 해결하여 조직에서 보안 상태를 개선하고 공격자가 이러한 취약성을 악용하지 않도록 방지하는 것이 좋습니다.

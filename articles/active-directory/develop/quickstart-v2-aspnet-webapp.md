@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 11/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: d86727e0a3c681a05b2a1f6ff62bdab83394fa56
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bdc5200156533abf940ce8fc7ff2186ba3a961bd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959821"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200482"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -38,7 +39,7 @@ ms.locfileid: "52959821"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. [Azure Portal - 응용 프로그램 등록(미리 보기)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)으로 이동합니다.
+> 1. [Azure Portal - 애플리케이션 등록(미리 보기)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)으로 이동합니다.
 > 1. 애플리케이션 이름을 입력하고 **등록**을 클릭합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
 >
@@ -50,8 +51,8 @@ ms.locfileid: "52959821"
 > 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 > 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 > 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기)** > **새 등록**을 차례로 선택합니다.
-> 1. **응용 프로그램 등록** 페이지가 표시되면 응용 프로그램의 등록 정보를 입력합니다.
->      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 응용 프로그램 이름(예: `ASPNET-Quickstart`)을 입력합니다.
+> 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
+>      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `ASPNET-Quickstart`)을 입력합니다.
 >      - **회신 URL**에 `https://localhost:44368/`을 추가하고 **등록**을 클릭합니다.
 **인증** 메뉴를 선택하고 **암시적 허용** 아래에서 **ID 토큰**을 설정한 후 **저장을 선택합니다**.
 
@@ -62,7 +63,7 @@ ms.locfileid: "52959821"
 > > [자동 변경]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이 특성을 사용하여 응용 프로그램을 구성합니다.
+> > ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이 특성을 사용하여 애플리케이션을 구성합니다.
 
 #### <a name="step-2-download-your-project"></a>2단계: 프로젝트 다운로드
 
@@ -81,14 +82,14 @@ ms.locfileid: "52959821"
 
 > [!div renderon="docs"]
 > 위치:
-> - `Enter_the_Application_Id_here` - 등록한 응용 프로그램의 응용 프로그램 ID입니다.
+> - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
 > - `Enter_the_Tenant_Info_Here` - 아래 옵션 중 하나입니다.
 >   - 애플리케이션이 **내 조직만** 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
 >   - 애플리케이션이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
 >   - 애플리케이션이 **모든 Microsoft 계정 사용자**를 지원하는 경우 이 값을 `common`으로 바꾸세요.
 >
 > > [!TIP]
-> > *응용 프로그램 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.
+> > *애플리케이션 ID*, *디렉터리(테넌트) ID* 및 *지원되는 계정 유형*의 값을 찾아보려면 **개요** 페이지로 이동합니다.
 
 ## <a name="more-information"></a>자세한 정보
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6e45dfbea9545c72d80a17e8ae144f4dacc70a63
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 000f8de4d40fda39f183b0824bea6a09605e6e9d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995017"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977612"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>HDInsight에서 Apache Hadoop과 함께 시간 기준 Apache Oozie 코디네이터를 사용하여 워크플로 정의 및 작업 조정
 이 문서에서는 워크플로 및 코디네이터를 정의하는 방법, 시간을 기준으로 코디네이터 작업을 트리거하는 방법을 알아봅니다. 이 문서를 시작하기 전에 [HDInsight에서 Apache Oozie 사용][hdinsight-use-oozie]을 확인하는 것이 도움이 됩니다. Oozie 외에도 Azure 데이터 팩터리를 사용하여 작업을 예약할 수도 있습니다. Azure Data Factory에 대해 알아보려면 [Data Factory에서 Apache Pig 및 Apache Hive 사용](../data-factory/transform-data.md)을 참조하세요.
@@ -68,24 +68,23 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 * **HDInsight 클러스터**. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight 클러스터 만들기][hdinsight-provision] 또는 [HDInsight 시작][hdinsight-get-started]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
-    <table border = "1">
-    <tr><th>클러스터 속성</th><th>Windows PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
-    <tr><td>HDInsight 클러스터 이름</td><td>$clusterName</td><td></td><td>이 자습서를 실행할 HDInsight 클러스터입니다.</td></tr>
-    <tr><td>HDInsight 클러스터 사용자 이름</td><td>$clusterUsername</td><td></td><td>HDInsight 클러스터 사용자 이름. </td></tr>
-    <tr><td>HDInsight 클러스터 사용자 암호 </td><td>$clusterPassword</td><td></td><td>HDInsight 클러스터 사용자의 암호입니다.</td></tr>
-    <tr><td>Azure 저장소 계정 이름</td><td>$storageAccountName</td><td></td><td>Azure Storage 계정은 HDInsight 클러스터에서 사용할 수 있습니다. 이 자습서의 경우 클러스터 프로비전 프로세스 도중에 지정된 기본 저장소 계정을 사용합니다.</td></tr>
-    <tr><td>Azure Blob 컨테이너 이름</td><td>$containerName</td><td></td><td>이 예에서는 기본 HDInsight 클러스터 파일 시스템에 사용되는 Azure Blob 저장소 컨테이너를 사용합니다. 기본적으로 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.</td></tr>
-    </table>
+    |클러스터 속성|Windows PowerShell 변수 이름|값|설명|
+    |---|---|---|---|
+    |HDInsight 클러스터 이름|$clusterName||이 자습서를 실행할 HDInsight 클러스터입니다.|
+    |HDInsight 클러스터 사용자 이름|$clusterUsername||HDInsight 클러스터 사용자 이름. |
+    |HDInsight 클러스터 사용자 암호 |$clusterPassword||HDInsight 클러스터 사용자의 암호입니다.|
+    |Azure 저장소 계정 이름|$storageAccountName||Azure Storage 계정은 HDInsight 클러스터에서 사용할 수 있습니다. 이 자습서의 경우 클러스터 프로비전 프로세스 도중에 지정된 기본 저장소 계정을 사용합니다.|
+    |Azure Blob 컨테이너 이름|$containerName||File Storage에서 Active Directory 기반 인증을 지원합니까? 기본적으로 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.|
+
 
 * **Azure SQL 데이터베이스**입니다. 워크스테이션에서 액세스할 수 있도록 SQL Database 서버의 방화벽 규칙을 구성해야 합니다. Azure SQL Database 만들기 및 방화벽 구성에 대한 자세한 내용은 [Azure SQL Database 사용 시작][sqldatabase-get-started]을 참조하세요. 이 문서에는 이 자습서에 필요한 Azure SQL 데이터베이스 테이블을 만들기 위한 Windows PowerShell 스크립트가 있습니다.
 
-    <table border = "1">
-    <tr><th>SQL 데이터베이스 속성</th><th>Windows PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
-    <tr><td>SQL 데이터베이스 서버 이름</td><td>$sqlDatabaseServer</td><td></td><td>Sqoop에서 데이터를 내보낼 SQL 데이터베이스 서버입니다. </td></tr>
-    <tr><td>SQL 데이터베이스 로그인 이름</td><td>$sqlDatabaseLogin</td><td></td><td>SQL Database 로그인 이름입니다.</td></tr>
-    <tr><td>SQL 데이터베이스 로그인 암호</td><td>$sqlDatabaseLoginPassword</td><td></td><td>SQL Database 로그인 암호입니다.</td></tr>
-    <tr><td>SQL 데이터베이스 이름</td><td>$sqlDatabaseName</td><td></td><td>Sqoop에서 데이터를 내보낼 Azure SQL 데이터베이스입니다. </td></tr>
-    </table>
+    |SQL 데이터베이스 속성|Windows PowerShell 변수 이름|값|설명|
+    |---|---|---|---|
+    |SQL 데이터베이스 서버 이름|$sqlDatabaseServer||Sqoop에서 데이터를 내보낼 SQL 데이터베이스 서버입니다. |
+    |SQL 데이터베이스 로그인 이름|$sqlDatabaseLogin||SQL Database 로그인 이름입니다.|
+    |SQL 데이터베이스 로그인 암호|$sqlDatabaseLoginPassword||SQL Database 로그인 암호입니다.|
+    |SQL 데이터베이스 이름|$sqlDatabaseName||Sqoop에서 데이터를 내보낼 Azure SQL 데이터베이스입니다. |
 
   > [!NOTE]   
   > 기본적으로 Azure SQL 데이터베이스는 Azure HDInsight 같은 Azure 서비스로부터의 연결을 허용합니다. 이 방화벽 설정을 사용하지 않도록 설정한 경우 Azure Portal에서 사용하도록 설정해야 합니다. SQL Database 만들기 및 방화벽 규칙 구성에 대한 지침은 [SQL Database 만들기 및 구성][sqldatabase-get-started]을 참조하세요.
@@ -101,7 +100,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 1. **DROP TABLE 문** 은 log4j Hive 테이블이 있는 경우 이 테이블을 삭제합니다.
 2. **CREATE TABLE 문** 은 log4j 로그 파일 위치를 가리키는 log4j Hive 외부 테이블을 만듭니다;
 3. **log4j Hive 외부 테이블의 위치**입니다. 필드 구분 기호는 ","입니다. 기본 줄 구분 기호는 "\n"입니다. Hive 외부 테이블은 Oozie 워크플로를 여러 번 실행하려는 경우 데이터 파일이 원래 위치에서 제거되지 않도록 하기 위해서 사용됩니다.
-4. **INSERT OVERWRITE 문** 은 log4j Hive 테이블에서 각 로그 수준 유형의 수를 계산하고 그 출력 결과를 Azure Blob 저장소 위치에 저장합니다.
+4. 그러나 원하는 경우 ExpressRoute를 File Storage와 함께 사용할 수 있습니다.
 
 > [!NOTE]  
 > 알려진 Hive 경로 문제가 있습니다. Oozie 작업을 제출할 때 이 문제가 발생합니다. TechNet Wiki에서 문제 해결을 위한 지침을 찾을 수 있습니다. [HDInsight 하이브 오류: 이름을 바꿀 수 없습니다][technetwiki-hive-error].
@@ -190,30 +189,27 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
     워크플로 변수
 
-    <table border = "1">
-    <tr><th>워크플로 변수</th><th>설명</th></tr>
-    <tr><td>${jobTracker}</td><td>Hadoop 작업 추적기의 URL을 지정합니다. HDInsight 클러스터 버전 3.0 및 2.0에는 <strong>jobtrackerhost:9010</strong>을 사용합니다.</td></tr>
-    <tr><td>${nameNode}</td><td>Hadoop 이름 노드의 URL을 지정합니다. <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>과 같은 기본 파일 시스템 wasb:// 주소를 사용합니다.</td></tr>
-    <tr><td>${queueName}</td><td>작업을 제출할 큐 이름을 지정합니다. <strong>기본값</strong>을 사용합니다.</td></tr>
-    </table>
+    |워크플로 변수|설명|
+    |---|---|
+    |${jobTracker}|Hadoop 작업 추적기의 URL을 지정합니다. HDInsight 클러스터 버전 3.0 및 2.0에는 **jobtrackerhost:9010**을 사용합니다.|
+    |${nameNode}|Hadoop 이름 노드의 URL을 지정합니다. *wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net*과 같은 기본 파일 시스템 wasb:// 주소를 사용합니다.|
+    |${queueName}|작업을 제출할 큐 이름을 지정합니다. **기본값**을 사용합니다.|
 
     Hive 작업 변수
 
-    <table border = "1">
-    <tr><th>Hive 작업 변수</th><th>설명</th></tr>
-    <tr><td>${hiveDataFolder}</td><td>Hive Create Table 명령의 소스 디렉터리입니다.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>INSERT OVERWRITE 문의 출력 폴더입니다.</td></tr>
-    <tr><td>${hiveTableName}</td><td>log4j 데이터 파일을 참조하는 Hive 테이블의 이름입니다.</td></tr>
-    </table>
+    |Hive 작업 변수|설명|
+    |----|----|
+    |${hiveDataFolder}|Hive Create Table 명령의 소스 디렉터리입니다.|
+    |${hiveOutputFolder}|INSERT OVERWRITE 문의 출력 폴더입니다.|
+    |${hiveTableName}|log4j 데이터 파일을 참조하는 Hive 테이블의 이름입니다.|
 
     Sqoop 작업 변수
 
-    <table border = "1">
-    <tr><th>Sqoop 작업 변수</th><th>설명</th></tr>
-    <tr><td>${sqlDatabaseConnectionString}</td><td>SQL Database 연결 문자열입니다.</td></tr>
-    <tr><td>${sqlDatabaseTableName}</td><td>데이터를 내보낼 Azure SQL 데이터베이스 테이블입니다.</td></tr>
-    <tr><td>${hiveOutputFolder}</td><td>Hive INSERT OVERWRITE 문의 출력 폴더입니다. 이 폴더는 Sqoop 내보내기(내보내기 디렉터리)와 동일한 폴더입니다.</td></tr>
-    </table>
+    |Sqoop 작업 변수|설명|
+    |---|---|
+    |${sqlDatabaseConnectionString}|SQL Database 연결 문자열입니다.|
+    |${sqlDatabaseTableName}|데이터를 내보낼 Azure SQL 데이터베이스 테이블입니다.|
+    |${hiveOutputFolder}|Hive INSERT OVERWRITE 문의 출력 폴더입니다. 이 폴더는 Sqoop 내보내기(내보내기 디렉터리)와 동일한 폴더입니다.|
 
     Oozie 워크플로 및 워크플로 작업 사용에 대한 자세한 내용은 [Apache Oozie 4.0 설명서][apache-oozie-400](HDInsight 클러스터 버전 3.0의 경우) 또는 [Apache Oozie 3.3.2 설명서][apache-oozie-332](HDInsight 클러스터 버전 2.1의 경우)를 참조하세요.
 
@@ -255,9 +251,9 @@ Azure PowerShell 스크립트를 실행하여 다음을 수행합니다.
 
 **HDInsight 저장소 이해**
 
-HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. wasb://는 Azure Blob Storage에서 Microsoft의 HDFS(Hadoop 분산 파일 시스템)를 구현합니다. 자세한 내용은 [HDInsight와 함께 Azure Blob Storage 사용][hdinsight-storage]을 참조하십시오.
+이 자습서에서 File Storage 사용에 대한 기본 사항을 알아보세요. wasb://는 Azure Blob Storage에서 Microsoft의 HDFS(Hadoop 분산 파일 시스템)를 구현합니다. 자세한 내용은 [HDInsight와 함께 Azure Blob Storage 사용][hdinsight-storage]을 참조하십시오.
 
-HDInsight 클러스터를 프로비전할 때 Azure Blob 저장소 계정 및 이 계정에서 오는 특정 컨테이너가 HDFS의 경우와 같이 기본 파일 시스템으로 지정됩니다. 프로비전 프로세스에서는 이 저장소 계정 외에도 동일하거나 다른 Azure 구독의 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 이 자습서에 사용된 Azure PowerShell 스크립트를 간소화하려면 모든 파일이 */tutorials/useoozie*에 있는 기본 파일 시스템 컨테이너에 저장되어야 합니다. 기본적으로 이 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.
+HDInsight 클러스터를 프로비전할 때 Azure Blob Storage 계정 및 이 계정에서 오는 특정 컨테이너가 HDFS의 경우와 같이 기본 파일 시스템으로 지정됩니다. 프로비전 프로세스에서는 이 저장소 계정 외에도 동일하거나 다른 Azure 구독의 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 이 자습서에 사용된 Azure PowerShell 스크립트를 간소화하려면 모든 파일이 */tutorials/useoozie*에 있는 기본 파일 시스템 컨테이너에 저장되어야 합니다. 기본적으로 이 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.
 구문은 다음과 같습니다.
 
     wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>

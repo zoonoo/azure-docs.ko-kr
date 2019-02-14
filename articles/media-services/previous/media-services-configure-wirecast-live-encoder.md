@@ -4,7 +4,7 @@ description: '이 항목에서는 Wirecast 라이브 인코더를 구성하여 �
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/09/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c734c8033947c4f4d5636bc8d82d38a3d871bdbd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138959"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998572"
 ---
-# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용
+# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>단일 비트 전송률 라이브 스트림을 보낼 Wirecast 인코더 사용 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -87,7 +87,7 @@ ms.locfileid: "53138959"
 * 샘플링 속도: 44.1kHz
 
 ### <a name="configuration-steps"></a>구성 단계
-1. 사용 중인 컴퓨터에서 Telestream Wirecast 응용 프로그램을 열고 RTMP 스트리밍을 사용하도록 설정합니다.
+1. 사용 중인 컴퓨터에서 Telestream Wirecast 애플리케이션을 열고 RTMP 스트리밍을 사용하도록 설정합니다.
 2. **출력** 탭으로 이동하고 **출력 설정...** 을 선택하여 출력을 구성합니다.
 
     **출력 대상**을 **RTMP 서버**로 설정해야 합니다.

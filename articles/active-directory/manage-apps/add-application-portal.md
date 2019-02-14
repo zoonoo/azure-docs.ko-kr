@@ -2,20 +2,21 @@
 title: Azure Active Directory 테넌트에 앱 추가 | Microsoft Docs
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트에 갤러리 애플리케이션을 추가합니다.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/24/2018
-ms.author: barbkess
-ms.openlocfilehash: c38af719e48165853899f7918ee1f9f1c1e1ddc6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 27456f672e2fa67928b43e80bef384a14e9c1d62
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182101"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166966"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>빠른 시작: 애플리케이션을 Azure Active Directory 테넌트에 추가합니다.
 

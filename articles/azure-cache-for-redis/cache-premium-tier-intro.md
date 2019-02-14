@@ -1,25 +1,25 @@
 ---
 title: Azure Cache for Redis 프리미엄 계층 소개 | Microsoft Docs
 description: 프리미엄 계층 Azure Cache for Redis 인스턴스에 대한 Redis 지속성, Redis 클러스터링 및 VNET 지원을 만들고 관리하는 방법을 알아봅니다.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: wesmc
-ms.openlocfilehash: 906ab6c433df7cf452d1f5ab4660abce8d4674fc
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107517"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237743"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure Cache for Redis 프리미엄 계층 소개
 Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시는 데이터에 매우 빠르게 액세스하여 확장성과 응답성이 뛰어난 애플리케이션을 빌드하는 데 도움을 줍니다. 

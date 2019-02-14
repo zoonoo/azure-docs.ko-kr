@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 8473b2e202dd408cce6658f3ca349d884a28dc3a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 6bcf096bd51990cf280784deceac19eea05d32b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160476"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977131"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 
 2. 새 디렉터리에서 Service Fabric 이미지를 빌드할 `Dockerfile` 파일을 만듭니다.
 
-    ```dockerfile
+    ```Dockerfile
     FROM microsoft/service-fabric-onebox
     WORKDIR /home/ClusterDeployer
     RUN ./setup.sh
@@ -193,11 +193,11 @@ Service Fabric 애플리케이션을 만들고 빌드한 후 [Service Fabric CLI
 
 ## <a name="set-up-net-core-20-development"></a>.NET Core 2.0 개발 설정
 
-[Mac용 .NET Core 2.0 SDK](https://www.microsoft.com/net/core#macos)를 설치하여 [C# Service Fabric 응용 프로그램을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md) 시작합니다. .NET Core 2.0 Service Fabric 애플리케이션용 패키지는 현재 미리 보기 상태인 NuGet.org에서 호스트됩니다.
+[Mac용 .NET Core 2.0 SDK](https://www.microsoft.com/net/core#macos)를 설치하여 [C# Service Fabric 애플리케이션을 만들기](service-fabric-create-your-first-linux-application-with-csharp.md) 시작합니다. .NET Core 2.0 Service Fabric 애플리케이션용 패키지는 현재 미리 보기 상태인 NuGet.org에서 호스트됩니다.
 
 ## <a name="install-the-service-fabric-plug-in-for-eclipse-on-your-mac"></a>Mac에 Eclipse용 Service Fabric 플러그 인 설치
 
-Azure Service Fabric은 Java IDE용 Eclipse Neon(이상)의 플러그 인을 제공합니다. 플러그 인은 Java 서비스를 만들고 빌드하고 배포하는 프로세스를 간소화합니다. Eclipse용 Service Fabric 플러그 인을 설치하거나 최신 버전으로 업데이트하려면 [다음 단계](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse)를 수행합니다. [Eclipse용 Service Fabric 설명서](service-fabric-get-started-eclipse.md)의 다른 단계도 적용할 수 있습니다. 응용 프로그램 빌드, 응용 프로그램에 서비스 추가, 응용 프로그램 제거 등을 수행할 수 있습니다.
+Azure Service Fabric은 Java IDE용 Eclipse Neon(이상)의 플러그 인을 제공합니다. 플러그 인은 Java 서비스를 만들고 빌드하고 배포하는 프로세스를 간소화합니다. Eclipse용 Service Fabric 플러그 인을 설치하거나 최신 버전으로 업데이트하려면 [다음 단계](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse)를 수행합니다. [Eclipse용 Service Fabric 설명서](service-fabric-get-started-eclipse.md)의 다른 단계도 적용할 수 있습니다. 애플리케이션 빌드, 애플리케이션에 서비스 추가, 애플리케이션 제거 등을 수행할 수 있습니다.
 
 마지막 단계는 호스트와 공유되는 경로로 컨테이너를 인스턴스화하는 것입니다. Mac의 Docker 컨테이너로 작업하려면 플러그인에 이러한 유형의 인스턴스화가 필요합니다. 예: 
 
@@ -213,17 +213,17 @@ docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:
 > 
 >작업 영역의 이름/경로가 다른 경우 `docker run` 명령에서 이 값을 업데이트합니다.
 > 
->`sfonebox`가 아닌 이름으로 컨테이너를 시작하는 경우 Service Fabric 작업자 Java 응용 프로그램의 testclient.sh 파일에서 이름 값을 업데이트합니다.
+>`sfonebox`가 아닌 이름으로 컨테이너를 시작하는 경우 Service Fabric 작업자 Java 애플리케이션의 testclient.sh 파일에서 이름 값을 업데이트합니다.
 >
 
 ## <a name="next-steps"></a>다음 단계
 <!-- Links -->
-* [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
-* [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)
+* [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
+* [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-get-started-eclipse.md)
 * [Azure Portal에서 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)
 * [Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)
-* [Service Fabric 응용 프로그램 모델 이해](service-fabric-application-model.md)
-* [Service Fabric CLI를 사용하여 응용 프로그램 관리](service-fabric-application-lifecycle-sfctl.md)
+* [Service Fabric 애플리케이션 모델 이해](service-fabric-application-model.md)
+* [Service Fabric CLI를 사용하여 애플리케이션 관리](service-fabric-application-lifecycle-sfctl.md)
 * [Windows에서 Linux 개발 환경 준비](service-fabric-local-linux-cluster-windows.md)
 
 <!-- Images -->

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Content Moderator의 머신 지원 이미지 조정 및 인간 참여형 검토 도구를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1141e5c5f55b0b0bb012e1ce66ad824f02758825
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1dba848be0c24ef26dcefd23d4fc3f7201420449
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220156"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873515"
 ---
 # <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
 

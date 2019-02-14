@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 55cbca97d369bea80ea9caece14754e81b5738a1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fee172eccd79fd28e281b2beece9702630ac39b5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661516"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001190"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
-웹 페이지 또는 앱의 성능 및 사용 현황에 대해 알아봅니다. 페이지 스크립트에 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 추가하면 페이지 로드 및 AJAX 호출의 타이밍, 브라우저 예외 및 AJAX 실패의 개수 및 세부 정보뿐만 아니라 사용자 및 세션 개수를 얻을 수 있습니다. 이러한 모든 요소를 페이지, 클라이언트 OS 및 브라우저 버전, 지리적 위치 및 기타 차원으로 분할할 수 있습니다. 실패 횟수 또는 느린 페이지 로딩에 대한 경고를 설정할 수도 있습니다. 또한 JavaScript 코드에 추적 호출을 삽입하여 웹 페이지 애플리케이션의 다양한 기능 사용 방법을 추적할 수 있습니다.
+웹 페이지 또는 앱의 성능 및 사용 현황에 대해 알아봅니다. 페이지 스크립트에 [Application Insights](app-insights-overview.md)를 추가하면 페이지 로드 및 AJAX 호출의 타이밍, 브라우저 예외 및 AJAX 실패의 개수 및 세부 정보뿐만 아니라 사용자 및 세션 개수를 얻을 수 있습니다. 이러한 모든 요소를 페이지, 클라이언트 OS 및 브라우저 버전, 지리적 위치 및 기타 차원으로 분할할 수 있습니다. 실패 횟수 또는 느린 페이지 로딩에 대한 경고를 설정할 수도 있습니다. 또한 JavaScript 코드에 추적 호출을 삽입하여 웹 페이지 애플리케이션의 다양한 기능 사용 방법을 추적할 수 있습니다.
 
-Application Insights는 다른 웹 페이지와 함께 사용할 수 있습니다. 간단한 JavaScript만 추가하면 됩니다. 웹 서비스가 [Java](java-get-started.md) 또한 [ASP.NET](../../azure-monitor/app/asp-net.md)인 경우, 서버 및 클라이언트의 원격 분석을 통합할 수 있습니다.
+Application Insights는 다른 웹 페이지와 함께 사용할 수 있습니다. 간단한 JavaScript만 추가하면 됩니다. 웹 서비스가 [Java](java-get-started.md) 또한 [ASP.NET](asp-net.md)인 경우, 서버 및 클라이언트의 원격 분석을 통합할 수 있습니다.
 
-![portal.azure.com에서 앱의 리소스 열고 브라우저를 클릭합니다.](./media/javascript/03.png)
+![portal.azure.com에서 앱의 리소스 열고 브라우저를 클릭합니다.](media/javascript/03.png)
 
 [Microsoft Azure](https://azure.com)를 구독해야 합니다. 팀에 조직 구독이 있는 경우 자신의 Microsoft 계정을 여기에 추가해도 되는지 소유자에게 문의합니다.
 
@@ -38,13 +38,13 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 응용 프로그램의 서버측에 대한 모니터링을 이미 설정한 경우 리소스가 있습니다.
 
-![찾아보기, 개발자 서비스, Application Insights를 선택합니다.](./media/javascript/01-find.png)
+![찾아보기, 개발자 서비스, Application Insights를 선택합니다.](media/javascript/01-find.png)
 
 계정이 없는 경우 계정을 만듭니다.
 
-![새로 만들기, 개발자 서비스, Application Insights를 선택합니다.](./media/javascript/01-create.png)
+![새로 만들기, 개발자 서비스, Application Insights를 선택합니다.](media/javascript/01-create.png)
 
-*벌써 질문이 있나요?* [리소스 만들기에 대해 자세히 알아보세요](../../azure-monitor/app/create-new-resource.md )를 구독해야 합니다.
+*벌써 질문이 있나요?* [리소스 만들기에 대해 자세히 알아보세요](create-new-resource.md )를 구독해야 합니다.
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>앱 또는 웹 페이지에 SDK 스크립트를 추가합니다.
 
@@ -70,7 +70,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 추적하려는 모든 페이지의 `</head>` 태그 바로 앞의 이 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예: 
 
 * ASP.NET MVC 프로젝트에서는 `View\Shared\_Layout.cshtml`
-* SharePoint 사이트의 경우 제어판에서 [사이트 설정/마스터 페이지](../../azure-monitor/app/sharepoint.md)를 엽니다.
+* SharePoint 사이트의 경우 제어판에서 [사이트 설정/마스터 페이지](sharepoint.md)를 엽니다.
 
 스크립트에는 Application Insights 리소스에 데이터를 전달하는 계측 키가 포함됩니다. 
 
@@ -118,9 +118,9 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 ![Portal.azure.com에서 앱의 리소스 열고 설정, 브라우저를 클릭합니다.](./media/javascript/03.png)
 
-아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](../../azure-monitor/app/troubleshoot-faq.md)을 참조하세요.
+아직 아무 데이터도 없나요? 페이지 위쪽에서 **새로 고침**을 클릭합니다. 여전히 아무 데이터도 없나요? [문제 해결](troubleshoot-faq.md)을 참조하세요.
 
-브라우저 블레이드는 미리 설정된 필터와 차트를 선택할 수 있는 [메트릭 탐색기 블레이드](../../azure-monitor/app/metrics-explorer.md)입니다. 원하는 경우 시간 범위, 필터 및 차트 구성을 편집하고 즐겨찾기로 결과를 저장할 수 있습니다. **기본값 복원**을 클릭하여 원래 블레이드 구성으로 돌아갑니다.
+브라우저 블레이드는 미리 설정된 필터와 차트를 선택할 수 있는 [메트릭 탐색기 블레이드](metrics-explorer.md)입니다. 원하는 경우 시간 범위, 필터 및 차트 구성을 편집하고 즐겨찾기로 결과를 저장할 수 있습니다. **기본값 복원**을 클릭하여 원래 블레이드 구성으로 돌아갑니다.
 
 ## <a name="page-load-performance"></a>페이지 로드 성능
 맨 위에 있는 것이 페이지 로드 시간의 분할된 차트입니다. 차트의 전체 높이는 사용자의 브라우저의 앱에서 페이지를 로드하고 페이지를 표시하는 평균 시간을 나타냅니다. 레이아웃 및 실행 스크립트를 포함하여 모든 동기 로드 이벤트가 처리될 때까지 브라우저가 초기 HTTP 요청을 보낼 때부터 시간이 측정됩니다. AJAX 호출로부터 웹 파트를 로드하는 등의 비동기 작업은 포함되지 않습니다.
@@ -178,7 +178,6 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 
 ![](./media/javascript/37.png)
 
-
 Ajax 호출에 대한 전체 원격 분석을 하려면 `...`을(를) 클릭합니다.
 
 ### <a name="no-ajax-calls-reported"></a>Ajax 호출이 보고되지 않았습니까?
@@ -202,7 +201,7 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호�
 보다 자세한 정보를 확인하려면 원하는 이벤트를 선택합니다. 세부 정보 페이지에서 더 자세한 정보를 보려면 "..."를 클릭합니다.
 
 > [!NOTE]
-> [Search](../../azure-monitor/app/diagnostic-search.md)를 사용하는 경우 전체 단어가 일치해야 합니다. "Abou"와 "bout"은 "About"과 일치하지 않습니다.
+> [Search](diagnostic-search.md)를 사용하는 경우 전체 단어가 일치해야 합니다. "Abou"와 "bout"은 "About"과 일치하지 않습니다.
 > 
 > 
 
@@ -227,8 +226,8 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호�
 ## <a name="usage-tracking"></a>사용 추적
 사용자가 앱으로 어떤 작업을 수행하려고 하는지 확인하고 싶나요?
 
-* [사용자 동작 분석 도구에 대해 알아보기](../../azure-monitor/app/usage-overview.md)
-* [사용자 지정 이벤트 및 메트릭 API에 대해 자세히 알아보세요](../../azure-monitor/app/api-custom-events-metrics.md).
+* [사용자 동작 분석 도구에 대해 알아보기](usage-overview.md)
+* [사용자 지정 이벤트 및 메트릭 API에 대해 자세히 알아보세요](api-custom-events-metrics.md).
 
 ## <a name="video"></a>동영상
 
@@ -238,7 +237,7 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호�
 
 
 ## <a name="next"></a> 다음 단계
-* [사용 현황 추적](../../azure-monitor/app/usage-overview.md)
-* [사용자 지정 이벤트 및 메트릭](../../azure-monitor/app/api-custom-events-metrics.md)
-* [빌드 - 측정 - 학습](../../azure-monitor/app/usage-overview.md)
+* [사용 현황 추적](usage-overview.md)
+* [사용자 지정 이벤트 및 메트릭](api-custom-events-metrics.md)
+* [빌드 - 측정 - 학습](usage-overview.md)
 

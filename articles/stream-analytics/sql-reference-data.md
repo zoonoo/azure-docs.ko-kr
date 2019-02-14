@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d79e423dd617a498aee09cff6b774bbe90eeaa83
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701646"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118023"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용(미리 보기)
 
@@ -154,7 +154,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 **Azure Stream Analytics에서 SQL 참조 데이터 입력을 사용하면 추가 비용이 부과되나요?**
 
-Stream Analytics 작업에 [스트리밍 단위당 비용](https://azure.microsoft.com/pricing/details/stream-analytics/)이 추가로 부과되지 않습니다. 그러나 Stream Analytics 작업이 연결된 Azure Storage 계정이 있어야 합니다. Stream Analytics 작업은 SQL DB를 쿼리하여(작업 시작 및 새로 고침 간격 동안) 참조 데이터 세트를 검색하고, 해당 스냅숏을 스토리지 계정에 저장합니다. 이러한 스냅숏을 저장하면 Azure Storage 계정의 [가격 책정 페이지](https://azure.microsoft.compricing/details/storage/)에서 자세히 설명하는 추가 요금이 발생합니다.
+Stream Analytics 작업에 [스트리밍 단위당 비용](https://azure.microsoft.com/pricing/details/stream-analytics/)이 추가로 부과되지 않습니다. 그러나 Stream Analytics 작업이 연결된 Azure Storage 계정이 있어야 합니다. Stream Analytics 작업은 SQL DB를 쿼리하여(작업 시작 및 새로 고침 간격 동안) 참조 데이터 세트를 검색하고, 해당 스냅숏을 스토리지 계정에 저장합니다. 이러한 스냅숏을 저장하면 Azure Storage 계정의 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/)에서 자세히 설명하는 추가 요금이 발생합니다.
 
 **참조 데이터 스냅숏이 SQL DB에서 쿼리되고 Azure Stream Analytics 작업에 사용되는지를 어떻게 알 수 있나요?**
 

@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: f77310ebf10812c1bf15a2555520f46c10c8c182
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 87e6c096c0ff0e58e8acebc13a62e44ea7d65c61
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166232"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888682"
 ---
-<!--alkohli 02/21/2017 cloud appliance security-->
-
 StorSimple Cloud Appliance를 사용하는 경우 다음 보안 고려 사항을 염두에 두세요.
 
 * 클라우드 어플라이언스는 Microsoft Azure 구독을 통해 보안이 설정됩니다. 따라서 클라우드 어플라이언스를 사용하고 Azure 구독이 손상되는 경우, 클라우드 어플라이언스에 저장된 데이터도 노출되기 쉽습니다.

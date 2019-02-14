@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 89d5c9c4e553ac82b604c1d3a20eb67b4055e6c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 38ad75d22d21a141d48e9664ae580dfb5577a389
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492898"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184927"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치
 최신 Azure AD Connect 빌드에 앞서 SQL을 필요로 하는 구성을 배포할 때 관리 위임은 지원되지 않습니다.  Azure AD Connect를 설치하려는 사용자는 SQL server에서 SA(서버 관리자) 권한이 있어야 합니다.
@@ -54,10 +55,7 @@ Azure AD Connect 관리자|Azure AD Connect를 설치하고 사용자 정의 설
 ## <a name="additional-information"></a>추가 정보
 데이터베이스가 프로비전되면 Azure AD Connect 관리자는 편한 때에 온-프레미스 동기화를 설치 및 구성할 수 있습니다.  
 
-**/UseExistingDatabase** 플래그는 미리 만든 데이터베이스를 사용할 때 필요합니다.  복구 상황에서만 사용되는 것은 아닙니다.
-
-Azure AD Connect의 새로운 설치를 지원할 뿐 아니라 이 기능은 **/UseExistingDatabase** 플래그와 관련된 모든 시나리오에 대한 위임을 가능하게 합니다.  기존 데이터베이스와 함께 Azure AD Connect를 설치하는 방법에 대한 자세한 내용은 [기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치](how-to-connect-install-existing-database.md)를 참조하세요.
-
+기존 데이터베이스와 함께 Azure AD Connect를 설치하는 방법에 대한 자세한 내용은 [기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치](how-to-connect-install-existing-database.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [기본 설정을 사용하여 Azure AD Connect 시작](how-to-connect-install-express.md)

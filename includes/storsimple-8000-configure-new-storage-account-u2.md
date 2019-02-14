@@ -4,16 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 2f847cfe4e0097cdb6f70e8831e15e602b5e9ac6
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d6bad1ec584b28fee77bc654eba8a2d0c7b5df30
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166338"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888969"
 ---
-<!--author=alkohli last changed: 01/20/17-->
-
-
 #### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>StorSimple Device Manager 서비스와 동일한 Azure 구독에 있는 스토리지 계정 자격 증명을 추가하려면
 
 1. StorSimple 디바이스 관리자 서비스로 이동합니다. **구성** 섹션에서 **Storage 계정 자격 증명**을 클릭합니다.
@@ -32,7 +29,7 @@ ms.locfileid: "50166338"
 
     3. 선택한 저장소 계정에 따라 **위치**가 표시됩니다(회색으로 표시되며 여기서 변경할 수 없음).
 
-    4. **SSL 모드 사용** 을 선택하여 장치와 클라우드 간의 네트워크 통신을 위한 안전한 채널을 만듭니다. 사설 클라우드 내에서 작동하는 경우에만 **SSL 사용**을 비활성화합니다.
+    4. **SSL 모드 사용**을 선택하여 디바이스와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 사설 클라우드 내에서 작동하는 경우에만 **SSL 사용**을 비활성화합니다.
 
         ![저장소 계정 자격 증명 추가 블레이드](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct3.png)
 

@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 11/08/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: d85794b2007a822f96779493aa1c276de058d64e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e3b87f40d75d4045155e7dd953dc76ffd9de2b34
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492201"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182343"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect 동기화: 동기화의 이해 및 사용자 지정
 Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)는 Azure AD Connect의 주요 구성 요소입니다. 온-프레미스 환경과 Azure AD 간의 ID 데이터를 동기화하는 데 관련된 모든 작업을 담당합니다. Azure AD Connect 동기화는 DirSync, Azure AD Sync 및 Azure Active Directory Connector가 구성된 Forefront Identity Manager의 후속 제품입니다.

@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 7efa2f19aedfbd00ccced8b755d3b02847b31444
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f0d368097c72efccf5dc15fe15ec0b7d920279e5
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508609"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245885"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 이메일 및 첨부 파일 처리 자동화
 
@@ -82,7 +82,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
       ![저장소 계정 이름과 키를 복사 및 저장](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   저장소 계정의 액세스 키를 가져오려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list)를 사용할 수도 있습니다. 
+   저장소 계정의 액세스 키를 가져오려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list)를 사용할 수도 있습니다. 
 
 3. 이메일 첨부 파일에 대한 Blob Storage 컨테이너를 만듭니다.
    
@@ -100,7 +100,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
       ![완료된 저장소 컨테이너](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   저장소 컨테이너를 만들려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)를 사용할 수도 있습니다. 
+   저장소 컨테이너를 만들려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontainer) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)를 사용할 수도 있습니다. 
 
 다음으로, Storage 탐색기를 스토리지 계정에 연결합니다.
 

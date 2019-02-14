@@ -3,8 +3,8 @@ title: 딥 링크를 사용하여 애플리케이션에 로그인하는 문제 |
 description: Azure AD를 사용하여 딥 링크 URL에서 애플리케이션에 액세스하는 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 98887429e28267a4b26d97e9c192a4d11a897c23
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5b9cf271f694c0ea5da8996baac2261684e66d83
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170694"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217890"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>딥 링크를 사용하여 애플리케이션에 로그인하는 문제
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 451ccff9747988ee019f2be9e0cccec12c9c1ef9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118237"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891082"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 
@@ -64,7 +64,7 @@ HDInsight는 PaaS 솔루션으로, 뛰어난 플랫폼 기능을 제공하므로
 
 두 번째 단계는 런타임 중에 Caffe용 protobuf 2.5.0을 다운로드, 컴파일 및 설치하는 것입니다. Protobuf 2.5.0이 [필요](https://github.com/yahoo/CaffeOnSpark/issues/87)하지만 이 버전은 Ubuntu 16에서 패키지로 제공되지 않으므로 소스 코드에서 컴파일해야 합니다. 컴파일하는 방법에 대한 몇 가지 리소스가 인터넷에 제공됩니다. 자세한 내용은 [여기](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html)를 참조하세요.
 
-시작하기 위해 모든 작업자 노드 및 헤드 노드 (HDInsight 3.5용)에 대한 클러스터에 대해 이 스크립트 동작을 실행할 수 있습니다. 기존 클러스터에 대해 스크립트 동작을 실행하거나 클러스터 생성 동안 스크립트 동작을 사용할 수 있습니다. 스크립트 동작에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions) 설명서를 참조하세요.
+시작하기 위해 모든 작업자 노드 및 헤드 노드 (HDInsight 3.5용)에 대한 클러스터에 대해 이 스크립트 동작을 실행할 수 있습니다. 기존 클러스터에 대해 스크립트 동작을 실행하거나 클러스터 생성 동안 스크립트 동작을 사용할 수 있습니다. 스크립트 동작에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux) 설명서를 참조하세요.
 
 ![종속성 설치를 위한 스크립트 동작](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 

@@ -4,7 +4,7 @@ description: SCIM 2.0을 지원하는 비갤러리 애플리케이션을 Azure A
 services: active-directory
 documentationcenter: ''
 author: asmalser
-manager: daveba
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
-ms.openlocfilehash: 48328a3ee379fc76fa6e70ea082395b37751d235
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181115"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190520"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -59,7 +60,7 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-sin
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션** 섹션에서 기존의 SCIM 애플리케이션을 찾아 선택합니다.
 3.  기존의 SCIM 앱의 **속성** 섹션에서 **개체 ID**를 복사합니다.
-4.  새 웹 브라우저 창에서 https://developer.microsoft.com/en-us/graph/graph-explorer로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
+4.  새 웹 브라우저 창에서 https://developer.microsoft.com/graph/graph-explorer로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
 5. Graph 탐색기에서 아래 명령을 실행하여 프로비저닝 작업의 ID를 찾습니다. “[object-id]”를 세 번째 단계에서 복사한 서비스 주체 ID(개체 ID)로 바꿉니다.
  
  `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
@@ -99,7 +100,7 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-sin
 1.  https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션 > 애플리케이션 만들기** 섹션에서 새 **비갤러리** 애플리케이션을 만듭니다.
 3.  새 사용자 지정 앱의 **속성** 섹션에서 **개체 ID**를 복사합니다.
-4.  새 웹 브라우저 창에서 https://developer.microsoft.com/en-us/graph/graph-explorer로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
+4.  새 웹 브라우저 창에서 https://developer.microsoft.com/graph/graph-explorer로 이동하여 앱이 추가된 Azure AD 테넌트의 관리자로 로그인합니다.
 5. Graph 탐색기에서 아래 명령을 실행하여 앱의 프로비저닝 구성을 초기화합니다.
 “[object-id]”를 세 번째 단계에서 복사한 서비스 주체 ID(개체 ID)로 바꿉니다.
 

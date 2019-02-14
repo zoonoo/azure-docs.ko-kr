@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 786d6fe04ced719217f57a2d603dff810b7a4c20
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f16dde524e20863f5fe20d98f5c62f18e835f8c5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430758"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234122"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 이벤트 허브 만들기
 
@@ -26,6 +26,8 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 
 ## <a name="prerequisites"></a>필수 조건
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
 - 동작합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요][].
@@ -34,7 +36,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-PowerShell을 로컬로 사용 중인 경우이 빠른 시작을 완료하려면 PowerShell의 최신 버전을 실행해야 합니다. 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0)을 참조하세요.
+PowerShell을 로컬로 사용 중인 경우이 빠른 시작을 완료하려면 PowerShell의 최신 버전을 실행해야 합니다. 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-az-ps)을 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -43,7 +45,7 @@ PowerShell을 로컬로 사용 중인 경우이 빠른 시작을 완료하려면
 다음 예제에서는 미국 동부 지역의 리소스 그룹을 만듭니다. 사용할 리소스 그룹의 이름과 위치로 `myResourceGroup`을 바꿉니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
+New-AzResourceGroup –Name myResourceGroup –Location eastus
 ```
 
 ## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
@@ -51,7 +53,7 @@ New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
 리소스 그룹을 만든 후에는 해당 리소스 그룹 안에 Event Hubs 네임스페이스를 만듭니다. Event Hubs 네임스페이스는 이벤트 허브를 만들 수 있는 정규화된 고유의 도메인 이름을 제공합니다. `namespace_name`을 네임스페이스의 고유한 이름으로 바꿉니다.
 
 ```azurepowershell-interactive
-New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
+New-AzEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
 ```
 
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
@@ -60,7 +62,7 @@ Event Hubs 네임스페이스가 있으므로 이제 해당 네임스페이스 �
 `MessageRetentionInDays`에 대해 허용된 기간은 1에서 7일 사이입니다.
 
 ```azurepowershell-interactive
-New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
+New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
 ```
 
 축하합니다! Azure PowerShell을 사용하여 Event Hubs 네임스페이스와, 그 네임스페이스 안에 이벤트 허브를 만들었습니다. 
@@ -73,8 +75,8 @@ New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_
 - **이벤트 허브에서 이벤트 수신**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 [계정을 만드세요]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
-[New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
+[Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-az-ps
+[New-AzResourceGroup]: https://docs.microsoft.com/powershell/module/az.resources/new-Azresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png

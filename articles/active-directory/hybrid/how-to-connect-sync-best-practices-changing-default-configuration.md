@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1cebd5d049475a5962a87abede449bd6d53f3ee2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 940a35d89996b1eb9600fe4214863d2b5304750e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492456"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168649"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경에 대한 모범 사례
 이 항목에서는 Azure AD Connect 동기화에 지원되거나 지원되지 않는 변경사항을 설명합니다.

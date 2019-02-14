@@ -16,18 +16,19 @@ ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: aa6579719588889ae23f664391d893b04e103804
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 84b786a1701892823554a83fa2015ac88d6eff4d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492966"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197388"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 액세스 제어 요구 사항 확인
 또한 조직이 해당 하이브리드 ID 솔루션을 설계하는 경우 사용자는 이 기회를 사용하여 사용자가 사용할 수 있게 하려는 리소스에 대한 액세스 요구 사항을 검토할 수 있습니다. ID의 네 가지 기본 요소에 대한 데이터 액세스는 다음과 같습니다.
 
 * 관리
-* 인증
+* Authentication
 * 권한 부여
 * 감사
 

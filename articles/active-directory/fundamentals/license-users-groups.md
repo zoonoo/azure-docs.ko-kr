@@ -13,12 +13,13 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 78aef5d6627636ed0a28d81d902246fa318197a8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 10346ea0aa292be33f820bd4e92434e2c58a89ab
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099286"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194311"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거
 많은 Azure AD(Azure Active Directory) 서비스를 사용하려면 Azure AD 제품을 활성화하고 해당 제품에 대한 각 사용자 또는 그룹(및 관련 멤버)에 라이선스를 부여해야 합니다. 활성 라이선스가 있는 사용자만 사용이 허가된 Azure AD 서비스에 액세스하여 사용할 수 있습니다.

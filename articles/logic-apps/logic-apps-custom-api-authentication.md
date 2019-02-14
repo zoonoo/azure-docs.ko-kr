@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: d83a27d87ffadd15a27196a11ae3f69d84232efa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719602"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245952"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure Logic Apps에서 사용자 지정 API에 대한 호출 보호
 
@@ -94,13 +94,15 @@ API에 대한 호출을 보호하려면 코드를 업데이트할 필요가 없�
 
 **PowerShell에서 논리 앱의 애플리케이션 ID 만들기**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 PowerShell과 함께 Azure Resource Manager를 통해 이 작업을 수행할 수 있습니다. PowerShell에서 다음 명령을 실행합니다.
 
-1. `Add-AzureRmAccount`
+1. `Add-AzAccount`
 
 2. `$SecurePassword = Read-Host -AsSecureString`(암호를 입력하고 Enter 키를 누릅니다.)
 
-3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. 사용한 **테넌트 ID**(Azure AD 테넌트의 GUID), **애플리케이션 ID** 및 암호를 복사합니다.
 

@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Security Center 권장 사항 **투명한
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: e4be8a0e-2118-4ee9-a266-69e52d9f7f8e
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: dbe1b3e3515f05f9addb8d2ac9333407ea2c0984
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d5ddec40a1b20e377ec18ce871018f674557e7b4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336648"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111767"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Azure Security Center에서 투명한 데이터 암호화 사용
 Azure Security Center가 아직 TDE(투명한 데이터 암호화)를 사용하도록 설정하지 않은 경우 SQL 데이터베이스에서 TDE를 사용하도록 설정하는 것이 좋습니다. TDE는 데이터를 보호하며, 애플리케이션을 변경할 필요 없이 휴지 상태의 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일을 암호화하여 준수 요구를 충족하도록 도와줍니다. 자세한 내용은 [Azure SQL Database를 사용한 투명한 데이터 암호화](https://msdn.microsoft.com/library/dn948096)를 참조하세요.

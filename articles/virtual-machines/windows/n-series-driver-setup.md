@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 551d9da51abaeddfd22c72748a552ba0ae155de6
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: f86e2a5ac65274ecdb806c1cd894c89f1ca2efae
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707014"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982185"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치 
 
@@ -46,7 +46,7 @@ VM에서는 GRID 드라이버 설치 후 다시 시작해야 합니다. CUDA 드
 
 ![GPU 드라이버 속성](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-GPU 디바이스 상태를 쿼리하려면 드라이버와 설치된 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 명령줄 유틸리티를 실행합니다.
+GPU 디바이스 상태를 쿼리하려면 드라이버와 함께 설치된 명령줄 유틸리티인 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface)를 실행합니다.
 
 1. 명령 프롬프트를 열고 **C:\Program Files\NVIDIA Corporation\NVSMI** 디렉터리로 변경합니다.
 
@@ -60,7 +60,7 @@ GPU 디바이스 상태를 쿼리하려면 드라이버와 설치된 [nvidia-smi
 
 미국 서부 하위 지역에서 이름이 myVM인 기존 RDMA 지원 VM에 최신 버전 1.1 HpcVMDrivers 확장을 설치하려면
   ```PowerShell
-  Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
+  Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
   자세한 내용은 [Windows용 가상 머신 확장 및 기능](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 

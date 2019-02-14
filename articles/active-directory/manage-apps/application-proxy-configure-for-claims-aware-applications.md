@@ -3,8 +3,8 @@ title: 클레임 인식 앱 - Azure AD 앱 프록시 | Microsoft Docs
 description: 사용자의 안전한 원격 액세스를 위해 ADFS 클레임을 허용하는 온-프레미스 ASP.NET 애플리케이션을 게시하는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: efab95e926e72397f15a5b6a79e63833e19f0676
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dc5be2f5bbeb901888edc1e69953fdeb8de566c0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153473"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187137"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>애플리케이션 프록시에서 클레임 인식 앱으로 작업
 [클레임 인식 앱](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx)은 STS(보안 토큰 서비스)에 대한 리디렉션을 수행합니다. STS는 토큰의 교환으로 사용자의 자격 증명을 요청한 다음 애플리케이션에 사용자를 리디렉션합니다. 애플리케이션 프록시를 이러한 리디렉션과 함께 작동하도록 하는 몇 가지 방법이 있습니다. 이 문서를 사용하여 클레임 인식 앱에 대한 배포를 구성합니다. 

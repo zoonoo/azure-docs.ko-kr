@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9b7199f337f32d785093d3102ef081fd161b2e58
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 00cde6f9d17eb44fefae10d8694a89abf51540a5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494598"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182064"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
 다음 설명서에서는 Office 365 또는 Azure AD 도메인으로 페더레이션하는 경우 여러 최상위 도메인 및 하위 도메인을 사용하는 방법에 대한 지침을 제공합니다.

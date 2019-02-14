@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: JavaScript로 Emotion API를 빠르게 사용하는 데 도움이 되는 정보 및 코드 샘플을 구합니다.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3c6e5b0d759aeb8aa0b06e359f1f48eaf6c44520
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 96388bb3cf2b73000fe871bc9e08720038c5c5a3
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208955"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234699"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>빠른 시작: 이미지에서 얼굴의 감정을 인식하는 앱을 빌드합니다.
 

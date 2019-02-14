@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: ba5e3fae04c47420d90aa1bc800a3dbd0e5ba984
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: ff198bc5e921f1c78e2d7cb7c80bfe0615fc91bc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364434"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003264"
 ---
-# <a name="encrypting-your-content-with-storage-encryption"></a>저장소 암호화로 콘텐츠 암호화
+# <a name="encrypting-your-content-with-storage-encryption"></a>저장소 암호화로 콘텐츠 암호화 
 
 AES-256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로컬에서 암호화한 다음 암호화된 상태로 저장할 Azure Storage에 이를 업로드하는 것이 좋습니다.
 

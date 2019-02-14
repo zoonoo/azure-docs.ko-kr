@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/30/2018
+ms.date: 02/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 75ed9a3c2a9f2c5418af5d024cfcf979e3552035
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9f5ccccaffbd11b482ed04875563fc33fb054d03
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812049"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995156"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>Windows 10에서 PlayReady 오프라인 스트리밍
+# <a name="offline-playready-streaming-for-windows-10"></a>Windows 10에서 PlayReady 오프라인 스트리밍  
 
 Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로드/재생을 지원합니다. 이 문서에서는 Windows 10/PlayReady 클라이언트에 대한 Azure Media Services의 오프라인 지원을 설명합니다. 다음 문서에서는 iOS/FairPlay 및 Android/Widevine 디바이스에 대한 오프라인 모드 지원에 대해 알아볼 수 있습니다.
 

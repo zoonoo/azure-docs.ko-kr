@@ -3,8 +3,8 @@ title: 홈 영역 검색 정책을 사용한 애플리케이션에 대한 로그
 description: Azure AD 테넌트가 무엇이며, Azure Active Directory를 통해 Azure를 관리하는 방법이 무엇인지에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: barbkess
-ms.openlocfilehash: eaadd24789baf9da49397a65f9cd1a18b40ff918
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 333258ef9696e6dbe4aab5b10e815bb84428d425
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168719"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190265"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 

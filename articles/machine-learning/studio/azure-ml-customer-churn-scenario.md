@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 47d267a2c4c122d8acbb2d3bf40e6858b4d6b77c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244184"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243540"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 사용하여 고객 이탈 분석
 ## <a name="overview"></a>개요
@@ -25,7 +25,7 @@ ms.locfileid: "55244184"
 이 실험은 Microsoft의 수석 데이터 과학자인 Serge Berger와 이전 Microsoft Azure Machine Learning 제품 관리자인 Roger Barga가 개발하고 테스트했습니다. Azure 설명서 팀은 담당자들의 전문 지식을 인정하고 이 백서를 공유한 것에 대해 감사해하고 있습니다.
 
 > [!NOTE]
-> 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 Machine Learning 모델을 작성하는 방법의 예제를 보려면 [Azure AI 갤러리](http://gallery.cortanaintelligence.com/)의 [소매 변동 모델 템플릿](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1)을 참조하세요.
+> 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 Machine Learning 모델을 작성하는 방법의 예제를 보려면 [Azure AI 갤러리](http://gallery.azure.ai/)의 [소매 변동 모델 템플릿](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)을 참조하세요.
 > 
 > 
 
@@ -106,7 +106,7 @@ ms.locfileid: "55244184"
  
 
 > 이 데이터는 비공개 데이터이므로 모델 및 데이터를 공유할 수 없습니다.
-> 그러나 공개적으로 사용할 수 있는 데이터를 사용하는 유사한 모델의 경우 [Azure AI 갤러리](http://gallery.cortanaintelligence.com/): [Telco 고객 변동](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383)에서 이 샘플 실험을 참조하세요.
+> 그러나 공개적으로 사용할 수 있는 데이터를 사용하는 유사한 모델의 경우 [Azure AI 갤러리](http://gallery.azure.ai/): [Telco 고객 변동](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383)에서 이 샘플 실험을 참조하세요.
 > 
 > Cortana Intelligence 제품군을 사용하여 변동 분석을 구현하는 방법에 대한 자세한 내용을 알아보려면 선임 프로그램 관리자인 Wee Hyong Tok의 [이 비디오](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) 를 시청하는 것이 좋습니다. 
 > 
@@ -219,7 +219,7 @@ Azure Machine Learning에서 제공되는 또 다른 흥미로운 기능은 이�
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Azure AI 갤러리](http://gallery.cortanaintelligence.com/)의 [Telco 변동 모델 템플릿](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) 
+[5] [Azure AI 갤러리](http://gallery.azure.ai/)의 [Telco 변동 모델 템플릿](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) 
  
 
 ## <a name="appendix"></a>부록

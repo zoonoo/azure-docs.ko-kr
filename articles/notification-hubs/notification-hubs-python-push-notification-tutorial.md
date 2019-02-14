@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/04/2019
-ms.openlocfilehash: 73c7acb563f0f6236ff49274bb1880692a3742e6
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 10bc12879ea30f75ee5af3bd9226ff1626b72ae3
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563130"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962743"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python에서 Notification Hubs를 사용하는 방법
 
@@ -369,11 +369,11 @@ NotificationHub를 초기화하는 동안 디버그 플래그를 사용하도록
 예를 들어 메시지가 푸시 알림 서비스로 전송되면
 
 - 자세한 알림 허브 결과가 표시됩니다.
-    ```text
+    ```xml
     <Outcome>The Notification was successfully sent to the Push Notification System</Outcome>
     ```
 - 푸시 알림의 대상을 찾을 수 없는 경우 등록에 불일치 태그가 있어서 알림을 전달할 등록을 찾을 수 없음을 나타내는 다음 출력이 응답으로 표시되기를 원할 것입니다.
-    ```text
+    ```xml
     '<NotificationOutcome xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Success>0</Success><Failure>0</Failure><Results i:nil="true"/></NotificationOutcome>'
     ```
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8d99a52b500377e02af339588fe7155e26cf588c
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548598"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233390"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions에 대한 연속 배포
 Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수 앱을 쉽게 배포할 수 있습니다. Functions는 BitBucket, Dropbox, GitHub 및 Azure DevOps와 통합됩니다. 따라서 Azure에사 이러한 통합된 서비스 트리거 배포 중 하나를 사용하여 함수 코드가 업데이트된 워크플로를 구현할 수 있습니다. Azure Functions를 처음 접하는 경우 [Azure 함수 개요](functions-overview.md)로 시작합니다.
@@ -29,7 +29,7 @@ Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수
 * [Git 로컬 리포지토리](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Azure DevOps Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops/)
 
 배포는 함수 앱별로 구성됩니다. 연속 배포가 활성화된 후 포털에서 함수 코드에 대한 액세스는 *읽기 전용*으로 설정됩니다.
 

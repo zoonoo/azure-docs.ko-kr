@@ -4,22 +4,20 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d3a810523807a46ca3f410c7cb5e11884f2b06b7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 68c04ef893e5e0826f03bffa93fb7c79b4959fdc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165392"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888968"
 ---
-<!--author=alkohli last changed: 08/04/17-->
-
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Azure 포털에서 업데이트를 설치하려면
 
 1. StorSimple 서비스 페이지에서 디바이스를 선택합니다.
 
     ![디바이스 선택](./media/storsimple-8000-install-update5-via-portal/update1.png)
 
-2. **장치 설정** > **장치 업데이트**로 이동합니다.
+2. **디바이스 설정** > **디바이스 업데이트**로 이동합니다.
 
     ![디바이스 업데이트 클릭](./media/storsimple-8000-install-update5-via-portal/update2.png)
 
@@ -33,9 +31,9 @@ ms.locfileid: "50165392"
 
 6. 일련의 필수 조건 검사가 시작됩니다. 이들 검사는 다음과 같습니다.
    
-   * **컨트롤러 상태 검사** 장치 컨트롤러가 정상이고 온라인에 있는지 모두 확인합니다.
-   * **하드웨어 구성 요소 상태 검사** StorSimple 장치에서 모든 하드웨어 구성 요소가 정상인지 확인합니다.
-   * **데이터 0 검사** 데이터 0이 장치에서 사용할 수 있는지 확인합니다. 이 인터페이스를 사용하지 않는 경우 다음을 사용하도록 설정하고 다시 시도해야 합니다.
+   * **컨트롤러 상태 검사** 디바이스 컨트롤러가 정상이고 온라인에 있는지 모두 확인합니다.
+   * **하드웨어 구성 요소 상태 검사** StorSimple 디바이스에서 모든 하드웨어 구성 요소가 정상인지 확인합니다.
+   * **데이터 0 검사** 데이터 0이 디바이스에서 사용할 수 있는지 확인합니다. 이 인터페이스를 사용하지 않는 경우 다음을 사용하도록 설정하고 다시 시도해야 합니다.
 
     모든 검사가 성공적으로 완료된 경우에만 업데이트가 다운로드되어 설치됩니다. 검사가 진행 중인 경우 알림이 표시됩니다. 사전 검사가 실패하면 실패한 이유가 표시됩니다. 이러한 문제를 해결한 다음 작업을 다시 시도합니다. 혼자서 이러한 문제를 해결할 수 없는 경우 Microsoft 지원에 문의해야 할 수 있습니다.
 
@@ -49,9 +47,9 @@ ms.locfileid: "50165392"
 
     ![업데이트 작업 만들기](./media/storsimple-8000-install-update5-via-portal/update8.png)
 
-     **장치 설정 > 작업**에서 업데이트 작업의 진행률을 모니터링할 수도 있습니다. **작업** 블레이드에서 업데이트 진행률을 볼 수 있습니다.
+     **디바이스 설정 &gt; 작업**에서 업데이트 작업의 진행률을 모니터링할 수도 있습니다. **작업** 블레이드에서 업데이트 진행률을 볼 수 있습니다.
 
      ![업데이트 작업 만들기](./media/storsimple-8000-install-update5-via-portal/update7.png)
 
-10. 작업이 완료되면 **장치 설정 > 장치 업데이트**로 이동합니다. 이제 소프트웨어 버전이 업데이트됩니다.
+10. 작업이 완료되면 **디바이스 설정 &gt; 디바이스 업데이트**로 이동합니다. 이제 소프트웨어 버전이 업데이트됩니다.
 

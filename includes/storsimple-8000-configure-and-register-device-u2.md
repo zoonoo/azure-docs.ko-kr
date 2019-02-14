@@ -4,26 +4,23 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: afb702a883606557c3ceaaaf2c2bd27073bab835
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 56514f5dcf4bfe205ef46ee64dcf4dcf638d4f62
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165749"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889444"
 ---
-<!--author=alkohli last changed: 01/18/2017-->
-
-
 #### <a name="to-configure-and-register-the-device"></a>디바이스를 구성 및 등록하려면
 
-1. StorSimple 디바이스 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. 지침은 [디바이스 직렬 콘솔 연결에 PuTTY 사용](#use-putty-to-connect-to-the-device-serial-console)을 참조하세요. **과정을 정확하게 따르지 않으면 콘솔에 액세스할 수 없습니다.**
+1. StorSimple 디바이스 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. 지침은 [디바이스 직렬 콘솔 연결에 PuTTY 사용](#use-putty-to-connect-to-the-device-serial-console) 을 참조하세요. **과정을 정확하게 따르지 않으면 콘솔에 액세스할 수 없습니다.**
 
 2. 열린 세션에서 **Enter**를 한 번 눌러 명령 프롬프트를 엽니다.
 
 3. 디바이스에 설정하려는 언어를 선택하라는 메시지가 표시됩니다. 언어를 지정하고 **Enter**를 누릅니다.
 
 4. 표시되는 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
-     5~12단계를 완료하여 디바이스에 필요한 최소 네트워크 설정을 구성합니다. **이러한 구성 단계는 장치의 활성 컨트롤러에서 수행해야 합니다.**  직렬 콘솔 메뉴는 배너 메시지에 컨트롤러 상태를 나타냅니다. 활성 컨트롤러에 연결되지 않은 경우 연결을 끊고 활성 컨트롤러에 연결합니다.
+     5~12단계를 완료하여 디바이스에 필요한 최소 네트워크 설정을 구성합니다. **이러한 구성 단계는 디바이스의 활성 컨트롤러에서 수행해야 합니다.**  직렬 콘솔 메뉴는 배너 메시지에 컨트롤러 상태를 나타냅니다. 활성 컨트롤러에 연결되지 않은 경우 연결을 끊고 활성 컨트롤러에 연결합니다.
 
 5. 명령 프롬프트에 암호를 입력합니다. 기본 디바이스 암호는 **Password1**입니다.
 
@@ -101,7 +98,7 @@ ms.locfileid: "50165749"
 
     ```
 
-12. 디바이스를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. **이 키는 StorSimple 장치 관리자 서비스로 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다.** 이 키에 대한 자세한 내용은 [StorSimple 보안](../articles/storsimple/storsimple-security.md) 을 참조하세요.
+12. 디바이스를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. **이 키는 StorSimple 디바이스 관리자 서비스로 추가 디바이스를 등록하기 위한 서비스 등록 키에 필요합니다.** 이 키에 대한 자세한 내용은 [StorSimple 보안](../articles/storsimple/storsimple-security.md) 을 참조하세요.
     
     ![StorSimple 등록 디바이스 7](./media/storsimple-8000-configure-and-register-device-u2/step3pssetup1.png)
     
@@ -112,12 +109,12 @@ ms.locfileid: "50165749"
 14. Azure Portal로 돌아가 다음 단계를 완료합니다.
     
     1. StorSimple 디바이스 관리자 서비스로 이동합니다.
-    2. **장치**를 클릭합니다.
+    2. **디바이스**를 클릭합니다.
     3. 테이블 형식 디바이스 목록에서 상태를 조회하여 디바이스가 서비스에 성공적으로 연결되었는지 확인합니다. 디바이스 상태는 **설정할 준비 완료**여야 합니다.
        
         ![StorSimple 디바이스 페이지](./media/storsimple-8000-configure-and-register-device-u2/step3pssetup2.png)
        
         디바이스 상태가 **설정 준비 완료**로 변경되기까지 몇 분 동안 기다려야 할 수 있습니다.
        
-        장치가 이 목록에 표시되지 않으면, [StorSimple 장치에 대한 네트워킹 요구 사항](../articles/storsimple/storsimple-8000-system-requirements.md)에 설명된 대로 방화벽 네트워크가 구성되었는지 확인해야 합니다. 9354 포트가 StorSimple 디바이스 관리자 서비스와 디바이스 간 통신을 위해 서비스 버스에서 사용되므로 아웃바운드 통신을 위해 이 포트가 열려 있는지 확인합니다.
+        디바이스가 이 목록에 표시되지 않으면, [StorSimple 디바이스에 대한 네트워킹 요구 사항](../articles/storsimple/storsimple-8000-system-requirements.md)에 설명된 대로 방화벽 네트워크가 구성되었는지 확인해야 합니다. 9354 포트가 StorSimple 디바이스 관리자 서비스와 디바이스 간 통신을 위해 서비스 버스에서 사용되므로 아웃바운드 통신을 위해 이 포트가 열려 있는지 확인합니다.
 
