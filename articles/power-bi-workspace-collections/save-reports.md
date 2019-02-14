@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 277667bb3b4e39acbb935285e984660a3b44993d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a66584aa1cd3f335111774ef1df37cddc630f69d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047959"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233373"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션에서 보고서 저장
 
@@ -47,9 +47,10 @@ Power BI 작업 영역 컬렉션 내에서 기존 보고서를 편집하고 저�
 
 예를 들어 JavaScript에서 다음을 수행합니다.
 
-```
+```html
    <div id="reportContainer"></div>
 
+    <script>
     // Get models. Models, it contains enums that can be used.
     var models = window['powerbi-client'].models;
 
@@ -75,6 +76,7 @@ Power BI 작업 영역 컬렉션 내에서 기존 보고서를 편집하고 저�
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
+    </script>
 ```
 
 이제 보고서가 편집 모드에서 앱에 포함됩니다.
@@ -83,7 +85,7 @@ Power BI 작업 영역 컬렉션 내에서 기존 보고서를 편집하고 저�
 
 적절한 토큰 및 사용 권한을 사용하여 편집 모드에서 보고서를 포함한 후에는 파일 메뉴 또는 javascript에서 보고서를 저장할 수 있습니다.
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
 
@@ -93,7 +95,7 @@ Power BI 작업 영역 컬렉션 내에서 기존 보고서를 편집하고 저�
 
 ## <a name="save-as"></a>다른 이름으로 저장
 
-```
+```javascript
 // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -110,9 +112,9 @@ Power BI 작업 영역 컬렉션 내에서 기존 보고서를 편집하고 저�
 
 그런 다음 *다른 이름으로 저장* 후에 새 보고서를 로드해야 합니다. 새 보고서를 로드하는 것은 보고서를 포함하는 것과 비슷합니다.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -124,13 +126,14 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="see-also"></a>참고 항목
 
 [샘플 시작](get-started-sample.md)  
 [보고서 포함](embed-report.md)  
-[데이터 집합에서 새 보고서 만들기](create-report-from-dataset.md)  
+[데이터 세트에서 새 보고서 만들기](create-report-from-dataset.md)  
 [Power BI 작업 영역 컬렉션에서 인증 및 권한 부여](app-token-flow.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed 샘플](https://microsoft.github.io/PowerBI-JavaScript/demo/)  

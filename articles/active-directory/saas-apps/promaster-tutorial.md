@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 218f0c8a49d99c611219a43cc4b51214e4087012
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017657"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205242"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>자습서: ProMaster(Inlogik 개발)와 Azure Active Directory 통합
 
@@ -31,7 +32,7 @@ ProMaster(Inlogik 개발)와 Azure AD를 통합하면 다음과 같은 이점이
 - 사용자가 해당 Azure AD 계정으로 ProMaster(Inlogik 개발)에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -66,15 +67,15 @@ Azure AD에 ProMaster(Inlogik 개발)를 통합하도록 구성하려면 갤러�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
 3. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
-4. 검색 상자에서 **ProMaster(Inlogik 개발)** 를 입력하고, 결과 패널에서 **ProMaster(Inlogik 개발)** 를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+4. 검색 상자에서 **ProMaster(Inlogik 개발)** 를 입력하고, 결과 패널에서 **ProMaster(Inlogik 개발)** 를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![결과 목록의 ProMaster(Inlogik 개발)](./media/promaster-tutorial/tutorial_promaster_addfromgallery.png)
 
@@ -94,11 +95,11 @@ ProMaster(Inlogik 개발)에서 Azure AD Single Sign-On을 구성하고 테스�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고, ProMaster(Inlogik 개발) 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고, ProMaster(Inlogik 개발) 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **ProMaster(Inlogik 개발)에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **ProMaster(Inlogik 개발)** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **ProMaster(Inlogik 개발)** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -106,7 +107,7 @@ ProMaster(Inlogik 개발)에서 Azure AD Single Sign-On을 구성하고 테스�
 
     ![Single Sign-On 대화 상자](./media/promaster-tutorial/tutorial_promaster_samlbase.png)
 
-3. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **ProMaster(Inlogik 개발) 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+3. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **ProMaster(Inlogik 개발) 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![ProMaster(Inlogik 개발) 도메인 및 URL Single Sign-On 정보](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
@@ -126,7 +127,7 @@ ProMaster(Inlogik 개발)에서 Azure AD Single Sign-On을 구성하고 테스�
     | `https://<CUSTOMDOMAIN>/SAMLBASE/saml/acs`|
     | |
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+4. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![ProMaster(Inlogik 개발) 도메인 및 URL Single Sign-On 정보](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
@@ -199,9 +200,9 @@ ProMaster(Inlogik 개발)에서 Azure AD Single Sign-On을 구성하고 테스�
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **ProMaster(Inlogik 개발)** 를 선택합니다.
+2. 애플리케이션 목록에서 **ProMaster(Inlogik 개발)** 를 선택합니다.
 
-    ![응용 프로그램 목록의 ProMaster(Inlogik 개발) 링크](./media/promaster-tutorial/tutorial_promaster_app.png)  
+    ![애플리케이션 목록의 ProMaster(Inlogik 개발) 링크](./media/promaster-tutorial/tutorial_promaster_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -221,13 +222,13 @@ ProMaster(Inlogik 개발)에서 Azure AD Single Sign-On을 구성하고 테스�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 ProMaster(Inlogik 개발) 타일을 클릭하면 ProMaster(Inlogik 개발) 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 ProMaster(Inlogik 개발) 타일을 클릭하면 ProMaster(Inlogik 개발) 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

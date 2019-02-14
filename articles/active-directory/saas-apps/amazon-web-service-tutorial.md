@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
-ms.openlocfilehash: def9d44c31ed50a859bf42aa148fb7e6a36764fd
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e377cf749119c23d37bb4db8ab78abb1ce8c82ae
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751092"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory 통합
 
@@ -447,7 +448,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하려면 다음
 
  * **프로비전** 섹션에서 **매핑** 하위 섹션에 "로드 중..." 메시지가 표시되고 특성 매핑이 표시되지 않습니다. 현재 지원되는 유일한 프로비전 워크플로는 사용자/그룹 할당 중에 선택을 위해 AWS에서 Azure AD로 역할을 가져오는 것입니다. 이와 관련된 특성 매핑은 사전 지정되어 있으며 구성할 수 없습니다.
  
- * **프로비전** 섹션에서는 한 번에 하나의 AWS 테넌트에 대한 하나의 자격 증명 집합만 입력할 수 있습니다. 가져온 모든 역할은 AWS 테넌트에 대한 Azure AD [servicePrincipal 개체](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal)의 appRoles 속성에 기록됩니다. 갤러리에서 Azure AD로 프로비전에 사용할 여러 AWS 테넌트(servicePrincipals로 표현됨)를 추가할 수 있지만 프로비전에 사용되는 여러 AWS servicePrincipal에서 가져온 모든 역할을 Single Sign-On에 사용되는 단일 servicePrincipal에 자동으로 기록할 수 없다는 알려진 문제가 있습니다. 이 문제를 해결하기 위해 [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/serviceprincipal)를 사용하여 가져온 모든 appRoles를 프로비전이 구성된 각 AWS servicePrincipal에 추출할 수 있습니다. 나중에 Single Sign-On이 구성된 AWS servicePrincipal에 이러한 역할 문자열을 추가할 수 있습니다.
+ * **프로비전** 섹션에서는 한 번에 하나의 AWS 테넌트에 대한 하나의 자격 증명 집합만 입력할 수 있습니다. 가져온 모든 역할은 AWS 테넌트에 대한 Azure AD [servicePrincipal 개체](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)의 appRoles 속성에 기록됩니다. 갤러리에서 Azure AD로 프로비전에 사용할 여러 AWS 테넌트(servicePrincipals로 표현됨)를 추가할 수 있지만 프로비전에 사용되는 여러 AWS servicePrincipal에서 가져온 모든 역할을 Single Sign-On에 사용되는 단일 servicePrincipal에 자동으로 기록할 수 없다는 알려진 문제가 있습니다. 이 문제를 해결하기 위해 [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 사용하여 가져온 모든 appRoles를 프로비전이 구성된 각 AWS servicePrincipal에 추출할 수 있습니다. 나중에 Single Sign-On이 구성된 AWS servicePrincipal에 이러한 역할 문자열을 추가할 수 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

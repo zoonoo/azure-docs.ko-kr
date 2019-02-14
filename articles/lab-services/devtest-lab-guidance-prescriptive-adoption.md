@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 5b4a52327227ecd650ee38d60f6bdfcc6bf20056
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: f16bdb8b89c2ce72c2a31a320d2dedbc4df09c81
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250858"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242790"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>기업에서 Azure DevTest Labs 인프라 설정
 빠른 속도, 뛰어난 유연성 및 비용 측면의 이점으로 인해 클라우드를 도입하는 기업이 급격히 증가하고 있습니다. 일반적으로 클라우드를 도입할 때는 먼저 개발 및 테스트 워크로드를 마이그레이션합니다. 이러한 워크로드를 마이그레이션할 때는 일반적으로 다음과 같은 문제를 해결해야 합니다. 

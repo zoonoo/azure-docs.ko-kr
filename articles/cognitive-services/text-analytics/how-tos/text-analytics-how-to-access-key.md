@@ -3,19 +3,19 @@ title: Text Analytics API에 대한 액세스 키 가져오기
 titleSuffix: Azure Cognitive Services
 description: Text Analytics 작업에 대한 액세스 키를 가져와서 Cognitive Services에서 처리할 원시 텍스트를 제출합니다.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: d52d241131e3222a10648289183ee656f119641d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: fc594a660efe1bf90daeffa79826057a8e66c60c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226454"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245170"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Services에 사용할 엔드포인트 및 액세스 키를 찾는 방법
 

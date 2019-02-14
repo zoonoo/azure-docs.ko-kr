@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 8165efaa10eb31410f00dfa9bfffb2c02d7396ae
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: e02400ef940efdf42370fbdc1da75bdc7062a8ef
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872335"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243708"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Azure DevTest Labs 인프라의 거버넌스 - 회사 정책 및 규정 준수
 이 문서에서는 Azure DevTest Labs 인프라의 회사 정책 및 규정 준수를 제어하기 위한 지침을 제공합니다. 
@@ -76,4 +77,4 @@ ms.locfileid: "52872335"
 
 
 ## <a name="next-steps"></a>다음 단계
-[응용 프로그램 마이그레이션 및 통합](devtest-lab-guidance-governance-application-migration-integration.md)을 참조하세요.
+[애플리케이션 마이그레이션 및 통합](devtest-lab-guidance-governance-application-migration-integration.md)을 참조하세요.

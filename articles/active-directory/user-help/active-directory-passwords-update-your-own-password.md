@@ -13,12 +13,13 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.custom: end-user
-ms.openlocfilehash: ccafd3c93130b137573a1b143d182c4861693577
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d16b54df5b8392a294036978e0b917ecdb3ce1ca
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168909"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184247"
 ---
 # <a name="reset-your-work-or-school-password"></a>회사 또는 학교 암호 재설정
 
@@ -102,7 +103,7 @@ ms.locfileid: "55168909"
 **암호 재설정** 링크를 선택하면 로그인 화면에서 SSPR 환경이 열리며, 여기서 일반 웹 기반 환경에 액세스하기 위해 로그인할 필요 없이 암호를 다시 설정할 수 있습니다.
 
 1. 사용자 ID를 확인하고 **다음**을 선택합니다.
-2. 확인을 위해 연락 방법을 선택하고 확인합니다. IT 직원이 추가적인 확인을 필요로 하는 경우, 사용자가 다른 옵션을 선택하여 이 단계를 반복해야 할 수도 있습니다.
+2. 확인을 위해 연락 방법을 선택하고 확인합니다. IT 직원이 추가적인 확인을 필요로 하는 경우, 사용자가  다른 옵션을 선택하여 이 단계를 반복해야 할 수도 있습니다.
 
    ![연락 방법][ContactMethod]
 

@@ -1,25 +1,25 @@
 ---
 title: Azure Cache for Redis에 대한 지역 복제를 구성하는 방법 | Microsoft Docs
 description: 지리적 지역 간에 Azure Cache for Redis 인스턴스를 복제하는 방법을 알아봅니다.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.author: wesmc
-ms.openlocfilehash: 51a367c4809452d9b42222b263883b6adc18b4a4
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.author: yegu
+ms.openlocfilehash: e5e60e3370cc813685403cc979e6ef8dc043b7ac
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53022082"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233271"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 지역 복제를 구성하는 방법
 
@@ -48,7 +48,7 @@ ms.locfileid: "53022082"
 - [내보내기](cache-how-to-import-export-data.md#export)는 두 캐시에서 사용할 수 있지만 [가져오기](cache-how-to-import-export-data.md#import)는 기본 연결된 캐시에서만 사용할 수 있습니다.
 - 지역에서 복제 링크를 제거할 때까지 연결된 캐시 또는 캐시가 포함된 리소스 그룹을 삭제할 수 없습니다. 자세한 내용은 [연결된 캐시를 삭제하려고 할 때 작업이 실패한 이유는 무엇인가요?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)를 참조하세요.
 - 두 캐시가 다른 지역에 있는 경우 네트워크 송신 비용이 지역 간에 보조 연결된 캐시로 복제된 데이터에 적용됩니다. 자세한 내용은 [Azure 지역 간에 데이터를 복제하는 비용은 어느 정도인가요?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)를 참조하세요.
-- 주 캐시 및 해당 복제본이 중단되는 경우 보조 연결된 캐시로 자동 장애 조치(failover)되지 않습니다. 클라이언트 응용 프로그램을 장애 조치(failover)하려면 지역에서 복제 링크를 수동으로 제거하고 클라이언트 응용 프로그램이 이전의 보조 연결된 캐시였던 캐시를 가리키도록 해야 합니다. 자세한 내용은 [보조 연결된 캐시로 장애 조치(failover)는 어떻게 작동하나요?](#how-does-failing-over-to-the-secondary-linked-cache-work)를 참조하세요.
+- 주 캐시 및 해당 복제본이 중단되는 경우 보조 연결된 캐시로 자동 장애 조치(failover)되지 않습니다. 클라이언트 애플리케이션을 장애 조치(failover)하려면 지역에서 복제 링크를 수동으로 제거하고 클라이언트 애플리케이션이 이전의 보조 연결된 캐시였던 캐시를 가리키도록 해야 합니다. 자세한 내용은 [보조 연결된 캐시로 장애 조치(failover)는 어떻게 작동하나요?](#how-does-failing-over-to-the-secondary-linked-cache-work)를 참조하세요.
 
 ## <a name="add-a-geo-replication-link"></a>지역에서 복제 링크 추가
 
@@ -171,11 +171,11 @@ ms.locfileid: "53022082"
 
 ### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>보조 연결된 캐시에는 어떤 지역을 사용해야 하나요?
 
-일반적으로 캐시는 해당 캐시에 액세스하는 응용 프로그램과 동일한 Azure 지역에 있는 것이 좋습니다. 응용 프로그램에 주 지역과 대체 지역이 있는 경우 주 캐시와 보조 캐시가 동일한 지역에 있어야 합니다. 쌍을 이루는 지역에 대한 자세한 내용은 [모범 사례 - Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
+일반적으로 캐시는 해당 캐시에 액세스하는 애플리케이션과 동일한 Azure 지역에 있는 것이 좋습니다. 애플리케이션에 주 지역과 대체 지역이 있는 경우 주 캐시와 보조 캐시가 동일한 지역에 있어야 합니다. 쌍을 이루는 지역에 대한 자세한 내용은 [모범 사례 - Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
 
 ### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>보조 연결된 캐시로 장애 조치(failover)는 어떻게 작동하나요?
 
-지역 복제의 초기 릴리스에서는 Azure Cache for Redis에서 Azure 지역 간의 자동 장애 조치를 지원하지 않습니다. 지역에서 복제는 주로 재해 복구 시나리오에서 사용됩니다. 재해 복구 시나리오에서 고객은 개별 응용 프로그램 구성 요소가 백업을 자체적으로 전환할 시기를 결정할 수 있도록 하는 것이 아니라 조정된 방식으로 전체 응용 프로그램 스택을 백업 지역에 표시해야 합니다. 특히 Redis와 관련이 있습니다. Redis의 주요 이점 중 하나는 대기 시간이 매우 짧은 저장소라는 점입니다. 응용 프로그램에서 사용하는 Redis는 다른 Azure 지역으로 장애 조치(failover)되지만 계산 계층은 그렇지 않을 경우 왕복 시간이 추가되어 성능에 크게 영향을 미칠 수 있습니다. 따라서 일시적인 가용성 문제로 인해 Redis에서 자동으로 장애 조치(failover)하는 것을 방지하려고 합니다.
+지역 복제의 초기 릴리스에서는 Azure Cache for Redis에서 Azure 지역 간의 자동 장애 조치를 지원하지 않습니다. 지역에서 복제는 주로 재해 복구 시나리오에서 사용됩니다. 재해 복구 시나리오에서 고객은 개별 애플리케이션 구성 요소가 백업을 자체적으로 전환할 시기를 결정할 수 있도록 하는 것이 아니라 조정된 방식으로 전체 애플리케이션 스택을 백업 지역에 표시해야 합니다. 특히 Redis와 관련이 있습니다. Redis의 주요 이점 중 하나는 대기 시간이 매우 짧은 저장소라는 점입니다. 애플리케이션에서 사용하는 Redis는 다른 Azure 지역으로 장애 조치(failover)되지만 계산 계층은 그렇지 않을 경우 왕복 시간이 추가되어 성능에 크게 영향을 미칠 수 있습니다. 따라서 일시적인 가용성 문제로 인해 Redis에서 자동으로 장애 조치(failover)하는 것을 방지하려고 합니다.
 
 현재 장애 조치(failover)를 시작하려면 Azure Portal에서 지역에서 복제 링크를 제거하고 Redis 클라이언트에서 연결 끝점을 주 연결된 캐시에서 (이전의 연결된) 보조 캐시로 변경해야 합니다. 두 캐시의 연결이 해제되면 복제본은 다시 일반적인 읽기/쓰기 캐시가 되고 Redis 클라이언트에서 직접 요청을 수락합니다.
 

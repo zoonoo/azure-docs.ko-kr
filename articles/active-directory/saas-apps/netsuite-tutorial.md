@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: f93f6d01019b38fc157732ee221a5f73a156e809
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 58767438e7a1faf7e1e783fc95a33a35ece3774a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810400"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202624"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>자습서: NetSuite와 Azure Active Directory 통합
 
@@ -129,7 +130,7 @@ NetSuite에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
     
-    | 이름 | 원본 특성 | 
+    | Name | 원본 특성 | 
     | ---------------| --------------- |
     | 계정  | `account id` |
 

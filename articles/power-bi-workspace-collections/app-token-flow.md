@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 125c3a925bf6eff04035bb755a07f19367d1abd2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 1dd6be61aab91bb15cc42939689e3c7399bee3db
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661091"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236535"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 인증 및 권한 부여
 
@@ -106,7 +106,7 @@ Power BI 작업 영역 컬렉션에 사용 가능한 범위는 다음과 같습�
 
 다음과 같은 범위 간의 공백을 사용하여 여러 범위를 제공할 수 있습니다.
 
-```
+```csharp
 string scopes = "Dataset.Read Workspace.Report.Create";
 ```
 

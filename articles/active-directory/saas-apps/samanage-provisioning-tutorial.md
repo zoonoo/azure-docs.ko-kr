@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d620701bc8590bee746be35f69b0da890c359601
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322433"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205361"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Samanage 구성
 
 이 자습서에서는 사용자 및/또는 그룹을 Samanage로 자동으로 프로비전 및 프로비전 해제하도록 Azure AD(Azure Active Directory)를 구성하기 위해 Samanage 및 Azure AD에서 수행하는 단계를 보여 줍니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -40,27 +41,27 @@ ms.locfileid: "53322433"
 > Azure AD 프로비전 통합에서는 [Samanage REST API](https://www.samanage.com/api/)를 사용하며, Professional 패키지가 포함된 계정의 Samanage 개발자에게 제공됩니다. 
 
 ## <a name="adding-samanage-from-the-gallery"></a>갤러리에서 Samanage 추가
-Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Samanage를 구성하기 전에, Samanage를 Azure AD 응용 프로그램 갤러리에서 관리되는 SaaS 응용 프로그램 목록으로 추가해야 합니다.
+Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Samanage를 구성하기 전에, Samanage를 Azure AD 애플리케이션 갤러리에서 관리되는 SaaS 애플리케이션 목록으로 추가해야 합니다.
 
-**Azure AD 응용 프로그램 갤러리에서 Samanage를 추가하려면 다음 단계를 수행합니다.**
+**Azure AD 애플리케이션 갤러리에서 Samanage를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 섹션][2]
+    ![엔터프라이즈 애플리케이션 섹션][2]
 
-3. Samanage를 추가하려면 대화 상자의 위쪽에서 **새 응용 프로그램** 단추를 클릭합니다.
+3. Samanage를 추가하려면 대화 상자의 위쪽에서 **새 애플리케이션** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![새 애플리케이션 단추][3]
 
 4. 검색 상자에 **Samanage**를 입력합니다.
 
     ![Samanage 프로비전](./media/samanage-provisioning-tutorial/AppSearch.png)
 
-5. 결과 패널에서 **Samanage**를 선택한 다음, **추가** 단추를 클릭하여 SaaS 응용 프로그램의 목록에 Samanage를 추가합니다.
+5. 결과 패널에서 **Samanage**를 선택한 다음, **추가** 단추를 클릭하여 SaaS 애플리케이션의 목록에 Samanage를 추가합니다.
 
     ![Samanage 프로비전](./media/samanage-provisioning-tutorial/AppSearchResults.png)
 
@@ -68,7 +69,7 @@ Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Samanag
 
 ## <a name="assigning-users-to-samanage"></a>Samanage에 사용자 할당
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서 Azure AD의 응용 프로그램에 "할당된" 사용자 및/또는 그룹만 동기화됩니다.
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 프로비저닝의 컨텍스트에서 Azure AD의 애플리케이션에 "할당된" 사용자 및/또는 그룹만 동기화됩니다.
 
 자동 사용자 프로비전을 구성하고 사용하도록 설정하기 전에 Samanage에 액세스해야 하는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 일단 결정되면 다음 지침에 따라 이러한 사용자 및/또는 그룹을 Samanage에 할당할 수 있습니다.
 
@@ -80,7 +81,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 *    단일 Azure AD 사용자를 Samanage에 할당하여 초기 자동 사용자 프로비전 구성을 테스트하는 것이 좋습니다. 테스트가 성공적으로 완료되면 추가 사용자 및/또는 그룹이 나중에 할당될 수 있습니다.
 
-*   사용자를 Samanage에 할당할 때 할당 대화 상자에서 유효한 응용 프로그램별 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
+*   사용자를 Samanage에 할당할 때 할당 대화 상자에서 유효한 애플리케이션별 역할(사용 가능한 경우)을 선택해야 합니다. **기본 액세스** 역할이 있는 사용자는 프로비전에서 제외됩니다.
 
 ## <a name="configuring-automatic-user-provisioning-to-samanage"></a>Samanage에 자동 사용자 프로비전 구성
 
@@ -91,9 +92,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Azure AD에서 Samanage에 대한 자동 사용자 프로비전을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory > 엔터프라이즈 응용 프로그램 > 모든 응용 프로그램**으로 차례로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션**으로 차례로 이동합니다.
 
-2. SaaS 응용 프로그램 목록에서 Samanage를 선택합니다.
+2. SaaS 애플리케이션 목록에서 Samanage를 선택합니다.
 
     ![Samanage 프로비전](./media/samanage-provisioning-tutorial/AppInstanceSearch.png)
 
@@ -163,7 +164,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 ## <a name="next-steps"></a>다음 단계

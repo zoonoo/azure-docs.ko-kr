@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 88cb9f18002f15ea926fe5ded3a5ac9af7a99cbe
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 80bf9247bbb07fa61b7153e321b1991b82a9d616
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716236"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247021"
 ---
 <!-- N.B. no header, language-agnostic -->
 
@@ -28,4 +28,4 @@ Microsoft Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-s
 Speech SDK를 사용하는 의도 인식 시나리오는 다음 코드 조각을 참조하십시오. 샘플의 값을 자체 LUIS 구독 키(엔드포인트 키), [사용자의 구독 지역](~/articles/cognitive-services/speech-service/regions.md#intent-recognition) 및 의도 모델의 **AppId**와 바꿉니다.
 
 > [!NOTE]
-> Speech SDK에서 지원하는 기타 서비스와 달리, 의도 인식에는 특정한 구독 키(LUIS 엔드포인트 키)가 필요합니다. 의도 인식 기술에 대한 자세한 내용은 [LUIS 웹 사이트](https://www.luis.ai)를 참조하세요. **엔드포인트 키**를 구하는 방법에 대한 정보는 [LUIS 엔드포인트 키 만들기](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key)를 참조하세요.
+> Speech SDK에서 지원하는 기타 서비스와 달리, 의도 인식에는 특정한 구독 키(LUIS 엔드포인트 키)가 필요합니다. 의도 인식 기술에 대한 자세한 내용은 [LUIS 웹 사이트](https://www.luis.ai)를 참조하세요. **엔드포인트 키**를 구하는 방법에 대한 정보는 [LUIS 엔드포인트 키 만들기](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription)를 참조하세요.

@@ -1,25 +1,25 @@
 ---
 title: Azure Cache for Redis에서 데이터 가져오기 및 내보내기 | Microsoft Docs
 description: 프리미엄 Azure Cache for Redis 인스턴스를 사용하여 Blob 스토리지에서 데이터를 가져오고 내보내는 방법을 알아봅니다.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
-ms.author: wesmc
-ms.openlocfilehash: 64452f291c712a7934d5617ba54405fff2d86529
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.author: yegu
+ms.openlocfilehash: dfa8b47ced70386efa1daa44af318f1da55f49e1
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53022130"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235736"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
 가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다. 
@@ -40,7 +40,7 @@ ms.locfileid: "53022130"
 가져오기는 Linux, Windows 또는 Amazon Web Services 및 기타 클라우드 공급자에서 실행되는 Redis를 비롯한 환경이나 클라우드에서 실행되는 Redis 서버로부터 Redis 호환 RDB 파일을 가져오는 데 사용됩니다. 데이터 가져오기는 미리 채워진 데이터로 캐시를 만드는 손쉬운 방법입니다. 가져오기 프로세스 중에는 Azure Cache for Redis에서 RDB 파일을 Azure Storage에서 메모리로 로드한 다음, 키를 캐시에 삽입합니다.
 
 > [!NOTE]
-> 가져오기 작업을 시작하기 전에 RDB(Redis 데이터베이스) 파일이 Azure Cache for Redis 인스턴스와 동일한 지역 및 구독에 있는 Azure 스토리지의 페이지 Blob 또는 블록 Blob에 업로드되었는지 확인합니다. 자세한 내용은 [Azure Blob 저장소 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. [Azure Cache for Redis 내보내기](#export) 기능을 사용하여 RDB 파일을 내보낸 경우 RDB 파일이 이미 페이지 Blob에 저장되어 있고 이를 가져올 준비가 됩니다.
+> 가져오기 작업을 시작하기 전에 RDB(Redis 데이터베이스) 파일이 Azure Cache for Redis 인스턴스와 동일한 지역 및 구독에 있는 Azure 스토리지의 페이지 Blob 또는 블록 Blob에 업로드되었는지 확인합니다. 자세한 내용은 [Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. [Azure Cache for Redis 내보내기](#export) 기능을 사용하여 RDB 파일을 내보낸 경우 RDB 파일이 이미 페이지 Blob에 저장되어 있고 이를 가져올 준비가 됩니다.
 >
 >
 
@@ -75,7 +75,7 @@ ms.locfileid: "53022130"
 1. 캐시의 현재 콘텐츠를 저장소로 내보내려면 Azure Portal에서 [캐시로 이동](cache-configure.md#configure-azure-cache-for-redis-settings)하여 **리소스 메뉴**에서 **데이터 내보내기**를 클릭합니다.
 
     ![저장소 컨테이너 선택][cache-export-data-choose-storage-container]
-2. **저장소 컨테이너 선택** 을 클릭하고 원하는 Storage 계정을 선택합니다. 저장소 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
+2. **스토리지 컨테이너 선택**을 클릭하고 원하는 스토리지 계정을 선택합니다. 저장소 계정은 캐시와 동일한 구독 및 지역 내에 있어야 합니다.
 
    > [!IMPORTANT]
    > 내보내기는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 스토리지 계정 양쪽 모두에서 지원되지만, Blob Storage 계정에서는 현재 지원되지 않습니다. 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.

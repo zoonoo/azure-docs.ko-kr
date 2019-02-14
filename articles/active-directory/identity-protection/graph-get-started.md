@@ -17,20 +17,21 @@ ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 4ee2f0387ee3c56dda7cd1a89f5c808f55699856
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 36a2fc9d1ab364d44bd5dd6e7930e5d8ae3fb78d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658626"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204749"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
 
 Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) API의 시작점입니다. 위험한 사용자 및 로그인에 대한 정보를 노출하는 세 가지 API가 있습니다. 첫 번째 API인 **identityRiskEvents**를 사용하면 [위험 이벤트](../reports-monitoring/concept-risk-events.md) 및 관련 정보의 목록에 대한 Microsoft Graph를 쿼리할 수 있습니다. 두 번째 API인 **riskyUsers**를 사용하면 위험으로 검색된 사용자 ID 보호에 대한 정보에 관하여 Microsoft Graph를 쿼리할 수 있습니다. 세 번째 API인 **signIn**을 사용하면 위험 상태, 세부 정보 및 수준과 관련된 특정 속성을 사용하여 Azure AD 로그인의 정보에 대한 Microsoft Graph를 쿼리할 수 있습니다. 이 문서에서는 [Microsoft Graph에 연결](#Connect-to-Microsoft-Graph) 및 [이러한 API 쿼리](#Query-the-APIs)를 사용하여 시작합니다. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://graph.microsoft.io/) 또는 이러한 API에 대한 특정 참조 설명서를 참조하세요.
 
-* [identityRiskEvents API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/identityriskevent)
-* [riskyUsers API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/riskyuser)
-* [signIn API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin)
+* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
+* [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
+* [signIn API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
 
 
 ## <a name="connect-to-microsoft-graph"></a>Microsoft Graph에 연결
@@ -217,7 +218,7 @@ API를 호출하려면 다음 매개 변수를 사용하여 헤더를 만듭니�
 
 ## <a name="query-the-apis"></a>API 쿼리
 
-이러한 세 가지 API는 조직의 위험한 사용자 및 로그인에 대한 정보를 가져오는 다양한 기회를 제공합니다. 다음은 이러한 API 및 관련된 샘플 요청에 대한 몇 가지 일반적인 사용 사례입니다. 위의 샘플 코드 또는 [Graph 탐색기](https://developer.microsoft.com/en-us/graph/graph-explorer)를 사용하여 이러한 쿼리를 실행할 수 있습니다.
+이러한 세 가지 API는 조직의 위험한 사용자 및 로그인에 대한 정보를 가져오는 다양한 기회를 제공합니다. 다음은 이러한 API 및 관련된 샘플 요청에 대한 몇 가지 일반적인 사용 사례입니다. 위의 샘플 코드 또는 [Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)를 사용하여 이러한 쿼리를 실행할 수 있습니다.
 
 ### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>높은 위험 및 보통 위험 이벤트 가져오기(identityRiskEvents API)
 
@@ -251,7 +252,7 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 이제 ID 위험 이벤트를 쿼리하고 적절하게 데이터를 사용할 수 있습니다.
 
 
-Microsoft Graph 및 Graph API를 사용하여 애플리케이션을 구축하는 방법에 대한 자세한 내용은 [설명서](https://docs.microsoft.com/graph/overview) 및 [Microsoft Graph 사이트](https://developer.microsoft.com/en-us/graph)에서 확인합니다. 
+Microsoft Graph 및 Graph API를 사용하여 애플리케이션을 구축하는 방법에 대한 자세한 내용은 [설명서](https://docs.microsoft.com/graph/overview) 및 [Microsoft Graph 사이트](https://developer.microsoft.com/graph)에서 확인합니다. 
 
 
 관련 정보는 다음을 참조하세요.

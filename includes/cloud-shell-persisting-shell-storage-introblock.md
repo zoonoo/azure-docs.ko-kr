@@ -4,15 +4,15 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52886378"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247014"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
-Cloud Shell은 Azure File 저장소를 활용하여 세션 간에 파일을 유지합니다. 처음 시작 시 Cloud Shell은 세션 간에 파일을 유지하기 위해 새 또는 기존 파일 공유를 연결하도록 요구합니다.
+Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다. 처음 시작 시 Cloud Shell은 세션 간에 파일을 유지하기 위해 새 또는 기존 파일 공유를 연결하도록 요구합니다.
 
 > [!NOTE]
 > Bash 및 PowerShell은 동일한 파일 공유를 공유합니다. 하나의 파일 공유는 Cloud Shell에서 자동 탑재와 연결될 수 있습니다.
@@ -40,7 +40,7 @@ Cloud Shell은 Azure File 저장소를 활용하여 세션 간에 파일을 유�
 저장소 설정 프롬프트가 나타나면 **고급 옵션 표시**를 선택하여 추가 옵션을 봅니다.  채워진 저장소 옵션은 LRS(로컬 중복 저장소), GRS(지역 중복 저장소) 및 ZRS(영역 중복 저장소) 계정을 필터링합니다. 
 
 > [!NOTE]
-> 지원 파일 공유의 복원력을 높이려면 GRS 또는 ZRS 스토리지 계정을 사용하는 것이 좋습니다. 목표 및 가격 기본 설정에 따라 중복성 유형이 달라집니다. [Azure Storage 계정의 복제 옵션에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option).
+> 지원 파일 공유의 복원력을 높이려면 GRS 또는 ZRS 스토리지 계정을 사용하는 것이 좋습니다. 목표 및 가격 기본 설정에 따라 중복성 유형이 달라집니다. [Azure Storage 계정의 복제 옵션에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
 ![리소스 그룹 설정](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 

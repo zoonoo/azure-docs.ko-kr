@@ -3,8 +3,8 @@ title: Teams에서 Azure AD 앱 프록시 앱 액세스 | Microsoft Docs
 description: Azure AD 애플리케이션 프록시를 사용하여 Microsoft Teams를 통해 온-프레미스 애플리케이션에 액세스합니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 3f515861b7b54651665c378305070b4a8261ca70
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 660d05146e82ab85136cac715b56cb1ee89b002f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163027"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210954"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Microsoft Teams를 통해 온-프레미스 애플리케이션에 액세스
 

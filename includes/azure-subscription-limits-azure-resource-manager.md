@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 4cc115d068736f61f9edb4ec609ac592607e7fa0
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458872"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247024"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
-| [구독](../articles/billing-buy-sign-up-azure-subscription.md) |지역당 10,000 <sup>1</sup> |지역당 10,000 |
+|  [구독](../articles/billing-buy-sign-up-azure-subscription.md) |지역당 10,000 <sup>1</sup> |지역당 10,000 |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 VM 총 코어 수 |지역당 20<sup>1</sup> | 지원에 문의 |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 시리즈(Dv2, F 등) 코어당 VM |지역당 20<sup>1</sup> | 지원에 문의 |
 | [공동 관리자](../articles/billing-add-change-azure-subscription-administrator.md)  |Unlimited |Unlimited |
@@ -33,9 +33,9 @@ ms.locfileid: "49458872"
 
 <sup>1</sup>기본 제한은 평가판, 종량제 및 Dv2, F, G 등의 시리즈와 같은 제품 범주 유형에 따라 다릅니다.
 
-<sup>2</sup>표준 및 프리미엄 저장소 계정이 모두 포함됩니다. 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 Storage 계정을 250개까지 승인할 수 있습니다.
+<sup>2</sup>표준 및 Premium Storage 계정이 모두 포함됩니다. 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 스토리지 계정을 250개까지 승인할 수 있습니다.
 
-<sup>3</sup>구독당 무제한의 태그를 적용할 수 있습니다. 리소스당 또는 리소스 그룹당 태그 수는 15개로 제한됩니다. 리소스 관리자는 태그 수가 10,000개 이하일 경우에만 구독에 [고유한 태그 이름 및 값의 목록](/rest/api/resources/tags#Tags_List)을 반환합니다. 하지만 이 숫자가 10,000을 초과하는 경우 여전히 태그로 리소스를 찾을 수 있습니다.  
+<sup>3</sup>구독당 무제한의 태그를 적용할 수 있습니다. 리소스당 또는 리소스 그룹당 태그 수는 15개로 제한됩니다. 리소스 관리자는 태그 수가 10,000개 이하일 경우에만 구독에 [고유한 태그 이름 및 값의 목록](/rest/api/resources/tags)을 반환합니다. 하지만 이 숫자가 10,000을 초과하는 경우 여전히 태그로 리소스를 찾을 수 있습니다.  
 
 <sup>4</sup>Azure 리소스 그룹 및 Azure Resource Manager를 사용하면 이러한 기능이 더 이상 필요하지 않습니다.
 

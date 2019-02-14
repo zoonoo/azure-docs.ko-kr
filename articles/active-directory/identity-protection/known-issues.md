@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 912326bb1e5420fd4c9051f5a71aa98e6cff80e5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: cd894b214366302af4651b5944e250086be14beb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470385"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56183839"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Azure Active Directory의 갱신된 ID 보호 기능 관련 FAQ 및 알려진 문제에 대해 설명합니다.
 

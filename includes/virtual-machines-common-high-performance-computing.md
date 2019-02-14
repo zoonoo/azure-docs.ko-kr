@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 7a136f34a7dd9fada23a4225b60223220c92c665
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a1a6b31c1500c51dbbc32683d9e0e911b60dcae4
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440430"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247016"
 ---
 조직에는 대규모 컴퓨팅 요구 사항이 있습니다. 이러한 큰 계산 작업에는 엔지니어링 설계 및 분석, 재무 위험 계산, 이미지 렌더링, 복잡한 모델링, 몬테카를로 시뮬레이션 등이 포함됩니다. 
 
@@ -25,12 +25,12 @@ Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 H
     * Azure 가상 머신 또는 [가상 머신 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)에서 고유한 클러스터 환경을 설정합니다. 
     * 추가 용량을 위해 온-프레미스 클러스터를 전환하거나 Azure에서 새 클러스터를 배포합니다. 
     * Azure Resource Manager 템플릿을 사용하여 선행 [워크로드 관리자](#workload-managers), 인프라 및 [애플리케이션](#hpc-applications)을 배포합니다. 
-    * MPI 또는 GPU 워크로드에 대한 특수한 하드웨어 및 네트워크 연결을 포함하는 [HPC 및 GPU VM 크기](#hpc-and-gpu-sizes)를 선택합니다. 
+    * MPI 또는 GPU 워크로드에 대한 특수한 하드웨어 및 네트워크 연결을 포함하는 [HPC 및 GPU VM 크기](#hpc-and-gpu-vm-sizes)를 선택합니다. 
     * I/O 사용량이 많은 워크로드에 [고성능 저장소](#hpc-storage)를 추가합니다.
 * **하이브리드 솔루션**
     * 오프로드("버스트") 최대 워크로드에 대한 온-프레미스 솔루션을 Azure 인프라로 확장합니다.
-    * 기존 [워크로드 관리자](#workload-manager)에서 주문형 클라우드 계산을 사용합니다.
-    * MPI 또는 GPU 워크로드에 [HPC 및 GPU VM 크기](#hpc-and-gpu-sizes)를 활용합니다.
+    * 기존 [워크로드 관리자](#workload-managers)에서 주문형 클라우드 계산을 사용합니다.
+    * MPI 또는 GPU 워크로드에 [HPC 및 GPU VM 크기](#hpc-and-gpu-vm-sizes)를 활용합니다.
 * **빅 컴퓨팅 솔루션을 서비스로 제공**
     * [Azure CycleCloud](#azure-cyclecloud), [Azure Batch](#azure-batch) 및 관련 [Azure 서비스](#related-azure-services)를 사용하여 사용자 지정 빅 컴퓨팅 솔루션 및 워크플로를 개발합니다.
     * [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/) 및 [Cycle Computing](https://cyclecomputing.com/)(이제 [Microsoft와 조인됨](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/))을 포함하여 공급 업체에서 Azure를 사용할 수 있는 엔지니어링 및 시뮬레이션 솔루션을 실행합니다.

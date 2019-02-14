@@ -1,25 +1,25 @@
 ---
 title: Redis로 Managed Cache Service 애플리케이션 마이그레이션 - Azure | Microsoft Docs
 description: Managed Cache Service 및 In-Role Cache 애플리케이션을 Azure Cache for Redis로 마이그레이션하는 방법을 알아봅니다.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/30/2017
-ms.author: wesmc
-ms.openlocfilehash: 27c8fce8c8eac936708dbac72ca60a1c0af286ea
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.author: yegu
+ms.openlocfilehash: 116e54fd39af801cf8941a974da2b72c483097dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106140"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237024"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Managed Cache Service에서 Azure Cache for Redis로 마이그레이션
 Azure Managed Cache Service를 사용하는 애플리케이션을 Azure Cache for Redis로 마이그레이션하는 작업은 캐싱 애플리케이션에서 사용하는 Managed Cache Service 기능에 따라 애플리케이션을 최소한으로 변경하면서 수행할 수 있습니다. API가 정확히 동일하지 않고 유사하며 캐시에 액세스하는 데 Managed Cache Service를 사용하는 기존 코드의 대부분은 변경을 최소화하면서 다시 사용할 수 있습니다. 이 문서에서는 Azure Cache for Redis를 사용하도록 Managed Cache Service 애플리케이션을 마이그레이션하는 데 필요한 구성과 애플리케이션을 변경하는 방법 및 Azure Cache for Redis의 일부 기능을 Managed Cache Service 캐시의 기능을 구현하는 데 사용할 수 있는 방법을 보여 줍니다.

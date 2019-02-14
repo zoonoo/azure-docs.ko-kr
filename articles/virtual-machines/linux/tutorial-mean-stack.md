@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 84860b5098e141bdfbd924d86836bc7b48b0ce8f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754220"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237863"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure의 Linux 가상 머신에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 
@@ -134,7 +134,7 @@ sudo apt-get install -y nodejs
 
 6. *books*라는 폴더를 만들고 웹 서버에 대한 구성을 포함하는 *server.js*라는 파일을 이 폴더에 추가합니다.
 
-    ```node.js
+    ```javascript
     var express = require('express');
     var bodyParser = require('body-parser');
     var app = express();
@@ -159,7 +159,7 @@ sudo apt-get install -y nodejs
 
 2. *Books* 폴더에서 *apps*라는 폴더를 만들고 Express 경로가 정의된 *routes.js*라는 파일을 추가합니다.
 
-    ```node.js
+    ```javascript
     var Book = require('./models/book');
     module.exports = function(app) {
       app.get('/book', function(req, res) {
@@ -201,7 +201,7 @@ sudo apt-get install -y nodejs
 
 3. *apps* 폴더에서 *models*라는 폴더를 만들고 책 모델 구성이 정의된 *book.js*라는 파일을 추가합니다.  
 
-    ```node.js
+    ```javascript
     var mongoose = require('mongoose');
     var dbHost = 'mongodb://localhost:27017/test';
     mongoose.connect(dbHost);
@@ -223,7 +223,7 @@ sudo apt-get install -y nodejs
 
 1. 디렉터리를 *Books*로 다시 변경하고(`cd ../..`) *public*이라는 폴더를 만들고 컨트롤러 구성이 정의된 *script.js*라는 파일을 추가합니다.
 
-    ```node.js
+    ```javascript
     var app = angular.module('myApp', []);
     app.controller('myCtrl', function($scope, $http) {
       $http( {

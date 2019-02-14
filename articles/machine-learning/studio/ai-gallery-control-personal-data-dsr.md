@@ -11,12 +11,12 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 85d7286c1fd075da7034a2a43d46a158550d2fe9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: efdadd29c6fba4ed0a0f7f7df8d7956713d113ec
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247717"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245476"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Azure AI Gallery에서 제품 내 사용자 데이터 보기 및 삭제
 
@@ -45,7 +45,7 @@ https://catalog.cortanaanalytics.com/entities에서 액세스할 수 있는 AI G
 
 1.  [Azure AI Gallery](https://gallery.azure.ai/)에 로그인합니다.
 2.  오른쪽 위 모서리에서 프로필 사진을 클릭한 다음, 계정 이름을 클릭하여 프로필 페이지를 로드합니다.
-3.  주소 표시줄의 URL은 `authorId=` 뒤에 나오는 영숫자 ID를 표시합니다. 예를 들어 다음과 같습니다. URL: `https://gallery.cortanaintelligence.com/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+3.  주소 표시줄의 URL은 `authorId=` 뒤에 나오는 영숫자 ID를 표시합니다. 예를 들어 다음과 같습니다. URL: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
     작성자 ID: `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 

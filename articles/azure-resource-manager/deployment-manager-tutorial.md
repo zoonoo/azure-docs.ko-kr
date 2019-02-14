@@ -13,14 +13,16 @@ ms.devlang: na
 ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 66e913f6d461d2671bd217745a9d128e24c1a60c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5c88bf00ed1f68e4ddab6175e86a46560c802744
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820932"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238218"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(비공개 미리 보기)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [Azure Deployment Manager](./deployment-manager-overview.md)를 사용하여 여러 지역에 애플리케이션을 배포하는 방법에 대해 알아봅니다. Deployment Manager를 사용하려면 두 개의 템플릿을 만들어야 합니다.
 
@@ -274,7 +276,7 @@ duration(기간)은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Dur
 2. 매개 변수 값을 다음과 같이 채웁니다.
 
     - **namePrefix**: 4-5자의 문자열을 입력합니다. 이 접두사는 고유한 Azure 리소스 이름을 만드는 데 사용됩니다.
-    - **azureResourceLocation**: 현재 Azure Deployment Manager 리소스는 **미국 중부** 또는 **미국 동부 2**에서만 만들 수 있습니다.
+    - **azureResourceLocation**: 현재 Azure Deployment Manager 리소스는 미국 중부 또는 **미국 동부 2**에서만 만들 수 있습니다.
     - **artifactSourceSASLocation**: 서비스 단위 템플릿 및 매개 변수 파일이 배포를 위해 저장되는 루트 디렉터리(Blob 컨테이너)의 SAS URI를 입력합니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
     - **binaryArtifactRoot**: 아티팩트의 폴더 구조를 변경하지 않는 한 이 자습서에서는 **binaries/1.0.0.0**을 사용합니다.
     - **managedIdentityID**: 사용자 할당 관리 ID를 입력합니다. [사용자가 할당한 관리 ID 만들기](#create-the-user-assigned-managed-identity)를 참조하세요. 구문은 다음과 같습니다.
@@ -293,17 +295,15 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 1. 스크립트를 실행하여 서비스 토폴로지를 배포합니다.
 
     ```azurepowershell-interactive
-    $deploymentName = "<Enter a Deployment Name>"
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
     
     # Create the service topology
-    New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
@@ -319,8 +319,7 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
     ```azurepowershell-interactive
     # Create the rollout
-    New-AzureRmResourceGroupDeployment `
-        -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
         -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"

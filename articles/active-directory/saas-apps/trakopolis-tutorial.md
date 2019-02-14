@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: d14c5eeec741dce90820aea1d772065c78fab948
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d1cd7bf90483bca2b2e6eb6185b48e02a1cf65bc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190465"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakopolis"></a>자습서: Trakopolis와 Azure Active Directory 통합
 

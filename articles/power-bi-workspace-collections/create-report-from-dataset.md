@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 38be6d0212f4676add76abacf9f18f0a73eb44be
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 78834f1f12d2c748cb885e437496f2acf11b69ee
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170422"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232771"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 데이터 세트에서 새 보고서 만들기
 
@@ -40,13 +40,13 @@ Power BI 작업 영역 컬렉션은 HMAC 서명 JSON Web Token에 해당하는 E
 
 **NuGet 패키지 설치**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **C# 코드**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -65,15 +65,16 @@ var token = embedToken.Generate("{access key}");
 
 **NuGet 패키지 설치**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **JavaScript 코드**
 
-```
+```html
 <div id="reportContainer"></div>
-  
+
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -85,6 +86,7 @@ var embedCreateConfiguration = {
 
     // Create report
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
+</script>
 ```
 
 *powerbi.createReport()* 를 호출하면 편집 모드의 빈 캔버스가 *div* 요소 내에 표시됩니다.
@@ -95,7 +97,7 @@ var embedCreateConfiguration = {
 
 **다른 이름으로 저장** 작업을 호출할 때까지 보고서는 생성되지 않습니다. 파일 메뉴에서 또는 JavaScript에서 이 작업을 수행할 수 있습니다.
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -116,9 +118,9 @@ var embedCreateConfiguration = {
 
 애플리케이션이 일반 보고서를 포함하는 것과 같은 방식으로 포함하려는 새 보고서와 상호 작용하기 위해서는 새 보고서용으로 특수하게 새 토큰을 발급한 다음 embed 메서드를 호출해야 합니다.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -130,13 +132,14 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>"saved" 이벤트를 사용하여 새 보고서의 저장 및 로드 자동화
 
 "다른 이름으로 저장" 프로세스를 자동화한 다음 새 보고서를 로드하기 위해 "saved" 이벤트를 사용할 수 있습니다. 이 이벤트는 save 작업이 완료되고 새 보고서 ID, 보고서 이름, 이전 보고서 ID(있는 경우)를 포함하는 Json 개체를 반환할 때 및 작업이 saveAs 또는 save일 때 발생합니다.
 
-```
+```json
 {
   "reportObjectId": "5dac7a4a-4452-46b3-99f6-a25915e0fe54",
   "reportName": "newReport",
@@ -147,9 +150,9 @@ var embedConfiguration = {
 
 "saved" 이벤트를 수신할 수 있는 프로세스를 자동화하려면 새 보고서 ID를 가져오고 새 토큰을 만든 다음 새 보고서를 포함합니다.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -192,6 +195,7 @@ var embedCreateConfiguration = {
    // report.off removes a given event handler if it exists.
    report.off("saved");
     });
+</script>
 ```
 
 ## <a name="see-also"></a>참고 항목

@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: d3d279b8bd3bfaf26e5e173f71e202bbfb89834d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 72b47943b14b30400075ca0a018ba5367257f15f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767565"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177325"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Azure AD ID 보호를 사용하는 로그인 환경
 Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습니다.
