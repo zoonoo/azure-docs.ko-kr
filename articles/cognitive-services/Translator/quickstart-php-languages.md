@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 PHP와 함께 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
+ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 8bb3860f1ed81799640d81414f8e00b35585e168
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1b91c5801a64581098250468c2cd1df448a7a7b1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206836"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976592"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>빠른 시작: Translator Text REST API(PHP)로 지원되는 언어 가져오기
 
@@ -25,40 +25,23 @@ ms.locfileid: "55206836"
 
 이 코드를 실행하려면 [PHP 5.6.x](http://php.net/downloads.php)가 필요합니다.
 
-Translator Text API를 사용하려면 구독 키도 필요합니다. [Translator Text API에 등록하는 방법](translator-text-how-to-signup.md)을 참조하세요.
-
 ## <a name="languages-request"></a>언어 요청
 
 다음 코드는 [Languages](./reference/v3-0-languages.md) 메서드를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
 
 1. 원하는 코드 편집기에서 PHP 프로젝트를 새로 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
-4. 프로그램을 실행합니다.
+3. 프로그램을 실행합니다.
 
 ```php
 <?php
-
 // NOTE: Be sure to uncomment the following line in your php.ini file.
 // ;extension=php_openssl.dll
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-$key = 'ENTER KEY HERE';
-
 $host = "https://api.cognitive.microsofttranslator.com";
 $path = "/languages?api-version=3.0";
-
 $output_path = "output.txt";
-
-function GetLanguages ($host, $path, $key) {
-
-    $headers = "Content-type: text/xml\r\n" .
-        "Ocp-Apim-Subscription-Key: $key\r\n";
-
+function GetLanguages ($host, $path) {
+    $headers = "Content-type: text/xml\r\n";
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
     // http://php.net/manual/en/function.stream-context-create.php
     $options = array (
@@ -71,13 +54,12 @@ function GetLanguages ($host, $path, $key) {
     $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
-
-$result = GetLanguages ($host, $path, $key);
-
+$result = GetLanguages ($host, $path);
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
 // http://php.net/manual/en/function.json-encode.php
 $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+// Write the output to file.
 $out = fopen($output_path, 'w');
 fwrite($out, $json);
 fclose($out);

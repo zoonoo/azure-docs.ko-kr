@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 이미지의 얼굴에 의해 표현된 감정을 인식하려면 기본 Windows 앱을 탐색합니다.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: tutorial
 ms.date: 01/23/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1609b210d47c30d3934b6e61dc9ec0bd7257f8db
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 953111a65aecc05ce03bd58212494e1f251e5f16
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208224"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234036"
 ---
 # <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>자습서: 이미지에 있는 얼굴에서 감정을 인식합니다.
 

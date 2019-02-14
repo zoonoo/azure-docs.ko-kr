@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS는 모델 변경, 발화 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3959aa89f006d413d31f6172ad23d7eae6d9ee22
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6f8ec10222ae58af9e39d2d88f13f355f9c9baa6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221099"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861139"
 ---
 # <a name="authoring-cycle-for-your-luis-app"></a>LUIS 앱에 대한 주기 작성
 LUIS는 모델 변경, 발화 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다. 

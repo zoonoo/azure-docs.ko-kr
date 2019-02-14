@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Security Center에서 Just-In-Time VM 액
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5c42c0d5597e1e14bbb7814ad635abcd086db804
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 94364a54a5a0994cc3de3a2fe014b556d438b2c2
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339045"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114912"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time을 사용하여 가상 머신 액세스 관리
 

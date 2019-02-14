@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: priyamo
-ms.openlocfilehash: cfa9a2ab2ec5d5a666bd431a430c7d1bdce6c8d8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 948873c38d7e681015efd87061b23d689c64f569
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150451"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209401"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>REST API 호출을 사용하여 사용자 할당 관리 ID 만들기, 나열 또는 삭제
 

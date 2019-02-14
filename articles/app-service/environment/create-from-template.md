@@ -14,16 +14,19 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9056abdd57640026d04779a3c5c3a201095ea045
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bdf722ffa7a7c499ff256392886e0f229f27c7a5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277474"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109897"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 ASE 만들기
 
 ## <a name="overview"></a>개요
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure ASE(App Service Environment)는 인터넷에 액세스할 수 있는 엔드포인트 또는 Azure VNet(Virtual Network)의 내부 주소에 있는 엔드포인트를 사용하여 만들 수 있습니다. 엔드포인트가 내부 엔드포인트를 사용하여 만들어진 경우 ILB(내부 부하 분산 장치)를 호출하는 Azure구성 요소에서 해당 엔드포인트를 제공합니다. 내부 IP 주소의 ASE를 ILB ASE라고 합니다. 공용 엔드포인트가 있는 ASE를 외부 ASE라고 합니다. 
 
 Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 ASE를 만들 수 있습니다. 이 문서에서는 Resource Manager 템플릿으로 외부 ASE 또는 ILB ASE를 만드는 데 필요한 단계와 구문을 안내합니다. Azure Portal에서 ASE를 만드는 방법에 대해 알아보려면 [외부 ASE 만들기][MakeExternalASE] 또는 [ILB ASE 만들기][MakeILBASE]를 참조하세요.
@@ -60,7 +63,7 @@ ILB ASE를 만들려는 경우에는 이 Resource Manager 템플릿 [예제][qui
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 ASE가 작성되려면 1시간 정도 걸립니다. 이 시간이 지나면 ASE가 Portal에서 배포를 트리거한 구독의 ASE 목록에 표시됩니다.
@@ -105,7 +108,7 @@ SSL 인증서가 생성되고 Base64 인코딩 문자열로 변환되면 GitHub�
 *azuredeploy.parameters.json* 파일의 매개 변수는 다음과 같습니다.
 
 * *appServiceEnvironmentName*: 구성하는 ILB ASE의 이름입니다.
-* *existingAseLocation*: ILB ASE가 배포된 Azure 지역을 포함하는 텍스트 문자열입니다.  예:  "미국 중남부".
+* *existingAseLocation*: ILB ASE가 배포된 Azure 지역을 포함하는 텍스트 문자열입니다.  예:  "미국 중남부"
 * *pfxBlobString*: .pfx 파일의 Base64 인코딩 문자열 표현입니다. 위에 나와 있는 코드 조각을 사용하여 "exportedcert.pfx.b64"에 포함된 문자열을 복사합니다. 이 문자열을 *pfxBlobString* 특성의 값으로 붙여넣습니다.
 * *password*: .pfx 파일을 보호하는 데 사용되는 암호입니다.
 * *certificateThumbprint*: 인증서의 지문입니다. PowerShell에서 이 값을 검색하는 경우(예: 이전 코드 조각의 *$certificate.Thumbprint*) 값을 있는 그대로 사용할 수 있습니다. Windows 인증서 대화 상자의 값을 복사하는 경우 불필요한 공백을 제거해야 합니다. *certificateThumbprint* 는 AF3143EB61D43F6727842115BB7F17BBCECAECAE와 같이 나타납니다.
@@ -146,7 +149,7 @@ SSL 인증서가 생성되고 Base64 인코딩 문자열로 변환되면 GitHub�
 $templatePath="PATH\azuredeploy.json"
 $parameterPath="PATH\azuredeploy.parameters.json"
 
-New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 ```
 
 변경 내용이 적용되려면 ASE 프런트 엔드당 약 40분이 걸립니다. 예를 들어 두 개의 프런트 엔드를 사용하는 기본 크기 ASE의 경우 템플릿을 완료하는 데 약 1시간 20분이 소요됩니다. 템플릿이 실행되는 동안에는 ASE 크기를 조정할 수 없습니다.  

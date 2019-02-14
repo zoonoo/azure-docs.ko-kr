@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 컴퓨터의 마이크에서 사용자 음성을 캡처하고 전사하는 간단한 Java 애플리케이션을 만듭니다.
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: fmegen
-ms.openlocfilehash: 9185d8d236b2a3283cf5a542002adadd0ac74686
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 87360d49892698458a021287d88240d98ba2ee19
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820541"
+ms.locfileid: "55881510"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>빠른 시작: Java용 Speech SDK를 사용하여 음성 인식
 

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/08/2019
 ms.author: sajagtap
-ms.openlocfilehash: e44308f38a138c0e186e41fc8310f8b480cd4e09
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aba7d2ff73fc1fdca6f57742582b38662177012d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783432"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995121"
 ---
-# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure Media Content Moderator를 사용하여 가능한 성인/외설 콘텐츠 검색
+# <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure Media Content Moderator를 사용하여 가능한 성인/외설 콘텐츠 검색 
 
 ## <a name="overview"></a>개요
 **Azure Media Content Moderator** MP(미디어 프로세서)를 통해 비디오에 컴퓨터 지원 조정을 사용할 수 있습니다. 예를 들어 휴먼 조정 팀이 비디오에서 혹시라도 있을 수 있는 성인/외설 콘텐츠를 검색하고 플래그가 지정된 콘텐츠를 검토하게 하는 것이 좋습니다.
@@ -31,7 +31,7 @@ ms.locfileid: "33783432"
 이 문서에서는 **Azure Media Content Moderator**에 대한 세부 정보를 제공하고 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다.
 
 ## <a name="content-moderator-input-files"></a>Content Moderator 입력 파일
-동영상 파일입니다. 현재 MP4, MOV 및 WMV 형식이 지원됩니다.
+동영상 파일입니다. 현재 다음 형식이 지원됩니다. MP4, MOV 및 WMV.
 
 ## <a name="content-moderator-output-files"></a>Content Moderator 출력 파일
 JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프레임이 포함됩니다. 가능한 성인/외설 콘텐츠에 대한 신뢰도 점수와 함께 키 프레임이 반환됩니다. 또한 검토가 권장되는지 여부를 나타내는 부울 플래그가 포함됩니다. 검토 권장 플래그에는 성인/외설 점수의 내부 임계값을 기준으로 값이 할당됩니다.

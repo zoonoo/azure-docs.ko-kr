@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS 컨테이너는 학습 또는 게시된 앱을 Docker 컨테이너로 로드하고 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a8251881b114d7b102481476d3e77923b34d34c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296905"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982389"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -60,7 +60,7 @@ LUIS 컨테이너를 실행하려면 다음이 필요 합니다.
 
 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 `mcr.microsoft.com/azure-cognitive-services/luis`리포지토리에서 컨테이너 이미지를 다운로드합니다.
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
@@ -252,7 +252,7 @@ ApiKey={ENDPOINT_KEY}
 
 컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 게시된(스테이징 또는 프로덕션) 앱에 대한 엔드포인트는 학습된 앱에 대한 엔드포인트와 경로가 _다릅니다_. 
 
-컨테이너 API에 대한 호스트, https://localhost:5000을 사용합니다. 
+컨테이너 API에 대한 호스트, `https://localhost:5000`을 사용합니다. 
 
 |패키지 유형|방법|라우팅|쿼리 매개 변수|
 |--|--|--|--|
@@ -324,18 +324,7 @@ LUIS 포털에서 앱을 선택한 다음, **엔드포인트 로그 가져오기
 
 LUIS 컨테이너는 Asure 계정에서 _Language Understanding_을 사용하여 청구 정보를 Azure로 보냅니다. 
 
-Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터(발화)를 Microsoft로 보내지 않습니다. 
-
-`docker run`는 청구 목적으로 다음 인수를 사용합니다.
-
-| 옵션 | 설명 |
-|--------|-------------|
-| `ApiKey` | _Language Understanding_ 리소스의 API 키는 청구 정보를 추적하는 데 사용됩니다.<br/>이 옵션의 값은 `Billing`에 지정된 프로비전된 LUIS Azure 리소스에 대한 API 키로 설정해야 합니다. |
-| `Billing` | _Language Understanding_ 리소스의 엔드포인트는 청구 정보를 추적하는 데 사용됩니다.<br/>이 옵션의 값은 프로비전된 LUIS Azure 리소스의 엔드포인트 URI로 설정해야 합니다.|
-| `Eula` | 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.<br/>이 옵션의 값은 `accept`로 설정해야 합니다. |
-
-> [!IMPORTANT]
-> 세 가지 옵션을 모두 유효한 값으로 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 이러한 옵션에 대한 자세한 내용은 [컨테이너 구성](luis-container-configuration.md)을 참조하세요.
 

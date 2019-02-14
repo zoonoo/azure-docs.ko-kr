@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: QnA Maker를 사용하면 여러 사용자가 기술 자료를 공동으로 작업할 수 있습니다. 이 기능은 Azure 역할 기반 액세스 제어를 통해 제공됩니다.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
-ms.openlocfilehash: c7b970d9d906e9a703e396d6c9358d7dde733250
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ca754f197a46fc41b6f1b432611a2177ec0afafa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220062"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857042"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>기술 자료에 대한 공동 작업
 

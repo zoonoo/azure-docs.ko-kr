@@ -4,7 +4,7 @@ description: 이 문서는 Azure Security Center 기능을 사용하여 보안 �
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 782e655edcb7cbac1965131bce4431dc5599328e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340631"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112923"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
 이 문서는 Azure Security Center를 사용하여 보안 경고를 관리하고 대응하는 데 도움이 됩니다.

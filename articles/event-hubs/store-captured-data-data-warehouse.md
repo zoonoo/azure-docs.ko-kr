@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 03ebdabf60882a73eb15cbd36481068591bbd3bc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 234febe92727e5a47d4cfc5b836cd5593e99b5b5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086286"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238371"
 ---
 # <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 SQL Data Warehouse로 마이그레이션
 
-Event Hubs [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)는 Event Hubs에 스트림된 데이터를 Azure Blob 저장소 또는 Azure Data Lake 저장소에 자동으로 전달하는 가장 쉬운 방법입니다. 이후에 데이터를 SQL Data Warehouse 또는 Cosmos DB와 같이 원하는 다른 저장소 대상으로 처리하고 전달할 수 있습니다. 이 자습서에서는 [이벤트 그리드](https://docs.microsoft.com/azure/event-grid/overview)에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 알아봅니다.
+Event Hubs [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)는 Event Hubs에 스트림된 데이터를 Azure Blob Storage 또는 Azure Data Lake 스토리지에 자동으로 전달하는 가장 쉬운 방법입니다. 이후에 데이터를 SQL Data Warehouse 또는 Cosmos DB와 같이 원하는 다른 저장소 대상으로 처리하고 전달할 수 있습니다. 이 자습서에서는 [이벤트 그리드](https://docs.microsoft.com/azure/event-grid/overview)에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 알아봅니다.
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
-*   먼저, **캡처** 기능이 사용하도록 설정된 이벤트 허브를 만들고 Azure Blob 저장소를 대상으로 설정합니다. WindTurbineGenerator에서 생성된 데이터는 이벤트 허브로 스트림되며 Azure Storage에 Avro 파일로 자동으로 캡처됩니다. 
+*   먼저, **캡처** 기능이 사용하도록 설정된 이벤트 허브를 만들고 Azure Blob Storage를 대상으로 설정합니다. WindTurbineGenerator에서 생성된 데이터는 이벤트 허브로 스트림되며 Azure Storage에 Avro 파일로 자동으로 캡처됩니다. 
 *   다음으로, Event Hubs 네임스페이스를 원본으로, Azure Function 엔드포인트를 대상으로 사용하여 Azure Event Grid 구독을 만듭니다.
 *   Event Hubs 캡처 기능을 통해 새 Avro 파일이 Azure Storage Blob에 전달될 때마다 Event Grid에서 Blob URI를 사용하여 Azure Function에 알립니다. 그런 다음, Function은 Blob의 데이터를 SQL 데이터 웨어하우스로 마이그레이션합니다.
 
@@ -36,6 +36,8 @@ Event Hubs [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-captu
 > * SQL Data Warehouse에서 캡처된 데이터 확인
 
 ## <a name="prerequisites"></a>필수 조건
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - [Visual studio 2017 버전 15.3.2 이상](https://www.visualstudio.com/vs/). 설치하는 동안 .NET 데스크톱 개발, Azure 개발, ASP.NET 및 웹 개발, Node.js 개발, Python 개발 워크로드를 설치해야 합니다.
 - [Git 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) 다운로드. 샘플 솔루션에 포함된 구성 요소는 다음과 같습니다.
@@ -82,9 +84,9 @@ az group deployment create \
 PowerShell을 사용하여 템플릿을 배포하려면 다음 명령을 사용합니다.
 
 ```powershell
-New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
+New-AzResourceGroup -Name rgDataMigration -Location westcentralus
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
+New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
 

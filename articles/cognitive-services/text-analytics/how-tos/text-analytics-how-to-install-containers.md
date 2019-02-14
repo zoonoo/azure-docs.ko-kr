@@ -4,19 +4,19 @@ titleSuffix: Text Analytics -  Azure Cognitive Services
 description: 이 단계별 자습서에서 Text Analytics용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 07fbf51f584d691b08d94f68fefa8c3f9348227f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f2b8b97878fc0970c8cfc95e5bd4420306e34cc0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294831"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977103"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
@@ -77,19 +77,19 @@ Text Analytics 컨테이너에 사용할 수 있는 태그에 대한 전체 설�
 
 ### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>핵심 구 추출 컨테이너에 대한 docker pull
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
 ### <a name="docker-pull-for-the-language-detection-container"></a>언어 감지 컨테이너에 대한 docker pull
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
 ### <a name="docker-pull-for-the-sentiment-container"></a>감정 컨테이너에 대한 docker pull
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
@@ -156,18 +156,7 @@ ApiKey={BILLING_KEY}
 
 Text Analytics 컨테이너는 Azure 계정의 _Text Analytics_ 리소스를 사용하여 청구 정보를 Azure로 보냅니다. 
 
-Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터를 Microsoft로 보내지 않습니다. 
-
-`docker run` 명령은 청구 목적으로 다음 인수를 사용합니다.
-
-| 옵션 | 설명 |
-|--------|-------------|
-| `ApiKey` | 청구 정보를 추적하는 데 사용되는 _Text Analytics_ 리소스의 API 키입니다. |
-| `Billing` | 청구 정보를 추적하는 데 사용되는 _Text Analytics_ 리소스의 엔드포인트입니다.|
-| `Eula` | 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.<br/>이 옵션의 값은 `accept`로 설정해야 합니다. |
-
-> [!IMPORTANT]
-> 세 가지 옵션을 모두 유효한 값으로 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.
+[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 이러한 옵션에 대한 자세한 내용은 [컨테이너 구성](../text-analytics-resource-container-config.md)을 참조하세요.
 

@@ -3,22 +3,23 @@ title: Azure AD 앱 프록시 및 Qlik Sense | Microsoft Docs
 description: Azure Portal에서 애플리케이션 프록시를 설정하고 역방향 프록시에 커넥터를 설치합니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: abd57a7cefdb41ede914aaaa14967157e1596b9e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 855cf81dbf24b0662048f69061ca85b72ff5f670
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159950"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171250"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>애플리케이션 프록시 및 Qlik Sense 
 Azure Active Directory 애플리케이션 프록시 및 Qlik Sense를 함께 사용하여 Qlik Sense 배포에 대한 원격 액세스를 제공하기 위해 애플리케이션 프록시를 쉽게 사용할 수 있도록 합니다.  

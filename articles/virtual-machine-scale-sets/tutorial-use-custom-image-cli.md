@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7e2e092af0fc0340a0db7b958b02d3d16942ca77
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: aafec48f86ee032b112e9bb1100f82fbb3b363ed
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755206"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118397"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용
 확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 애플리케이션 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 애플리케이션 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -88,6 +88,7 @@ exit
 이제 원본 VM이 Nginx 웹 서버가 설치된 상태로 사용자 지정됩니다. 확장 집합에 사용할 사용자 지정 VM 이미지를 만들어 보겠습니다.
 
 이미지를 만들려면 VM을 할당 취소해야 합니다. [az vm deallocate](/cli//azure/vm)로 VM의 할당을 취소합니다. 그런 다음, Azure 플랫폼에서 VM이 사용자 지정 이미지를 사용할 준비가 되었음을 인식할 수 있도록 [az vm generalize](/cli//azure/vm)를 사용하여 VM을 일반화됨 상태로 설정합니다. 일반화된 VM에서만 이미지를 만들 수 있습니다.
+
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM

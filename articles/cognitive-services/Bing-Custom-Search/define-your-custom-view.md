@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 사이트 및 세로 검색 서비스를 만드는 방법을 설명합니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 58830e3391cb6f794cfd8911e97b0c6dbb3cd2c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193644"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234818"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Bing Custom Search 환경 구성
 

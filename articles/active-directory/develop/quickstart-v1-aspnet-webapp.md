@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: d23110f341cdc76306c5cc4c78ab5d6afb5dd2b3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816274"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185319"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft에 로그인 추가
 
@@ -229,7 +230,7 @@ Azure AD와 통합된 어떠한 회사 또는 조직에서 회사 및 학교 계
 애플리케이션에서 특정 Azure AD 인스턴스에 속한 계정의 로그인만 수락하도록 하려면(해당 인스턴스의 *게스트 계정* 포함) 다음 단계를 수행합니다.
 
 1. `Common`에서 *web.config*의 `Tenant` 매개 변수를 조직의 테넌트 이름으로 바꿉니다(예: *contoso.onmicrosoft.com*).
-1. [*OWIN 시작 클래스*](#configure-the-authentication-pipeline)의 `ValidateIssuer` 인수를 `true`로 변경합니다.
+1. [*OWIN 시작 클래스*](#step-4-configure-the-authentication-pipeline)의 `ValidateIssuer` 인수를 `true`로 변경합니다.
 
 특정 조직의 목록에 있는 사용자만 허용하려면 다음 단계를 수행합니다.
 

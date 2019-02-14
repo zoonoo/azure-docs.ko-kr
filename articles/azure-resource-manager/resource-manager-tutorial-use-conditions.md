@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0695a705d436430edda0c6bf88e18b0a4b36ee4f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 04b3ebac6406f4a6e5ec07f1806b48e3b2062470
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496774"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235430"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿에서 조건 사용
 
@@ -129,12 +129,13 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [템플릿 배포](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)의 지침에 따라 템플릿을 배포합니다.
 
 Azure PowerShell을 사용하여 템플릿을 배포할 때 추가 매개 변수를 하나 지정해야 합니다. 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. [필수 조건](#prerequisites)을 참조하세요.
 
 ```azurepowershell
-$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
@@ -144,7 +145,7 @@ $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUsername $vmAdmin `
     -adminPassword $vmPassword `

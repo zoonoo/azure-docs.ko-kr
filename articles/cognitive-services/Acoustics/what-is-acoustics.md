@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 프로젝트 Acoustics Unity 플러그인은 VR 및 기존 화면을 대상으로 하는 프로젝트를 위한 폐색, 반향 및 공간화를 제공합니다.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 175203269f524f5c680345602e6382f5c26f1bd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8305eca478854eeff29268a86e4e49b697261ca2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178905"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868262"
 ---
 # <a name="what-is-project-acoustics"></a>프로젝트 Acoustics란?
 프로젝트 Acoustics Unity 플러그인은 VR 및 기존 화면을 대상으로 하는 프로젝트를 위한 폐색, 반향 및 공간화를 제공합니다. 물리학 기반 시뮬레이션 위에 디자이너의 의도를 입히는 게임 음향을 디자인하는 방법을 제공합니다.

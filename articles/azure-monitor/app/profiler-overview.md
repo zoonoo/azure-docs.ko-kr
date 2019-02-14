@@ -3,21 +3,21 @@ title: Application Insights Profiler를 사용하여 Azure에서 프로덕션 �
 description: 적은 공간의 프로파일러를 사용하여 웹 서버 코드에서 실행 부하 과다 경로를 식별합니다.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
-ms.openlocfilehash: 7f212d7dafb4aaf88fc226f702b068a3711f81b6
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.author: cweining
+ms.openlocfilehash: 2a2c2667ae3180fd4f7b114ce6cef05ac7a1080c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359513"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859728"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링
 ## <a name="enable-application-insights-profiler-for-your-application"></a>애플리케이션에 대해 Application Insights Profiler 사용

@@ -16,19 +16,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: ce1940d0b83e0713ce41d84e8d4bfeff6cb75954
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1b26c8a0d040ab91c53e04593280885ef7fd13eb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075859"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173762"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
 > [!IMPORTANT]
 > Azure Active Directory 리소스에 액세스하려면 Azure AD Graph API 대신 [Microsoft Graph](https://developer.microsoft.com/graph/)를 사용하는 것이 좋습니다. 이제 Microsoft는 Azure AD Graph API를 더 이상 개선하지 않을 것이며 Microsoft Graph에 주력하고 있습니다. Azure AD Graph API가 적절할 수 있는 시나리오는 매우 제한적입니다. 자세한 내용은 Office 개발자 센터에서 [Microsoft Graph 또는 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 블로그 게시물을 참조하세요.
 
-이 문서는 Azure AD Graph API에 적용됩니다. Microsoft Graph API와 관련된 유사한 정보는 [Microsoft Graph API 사용](https://developer.microsoft.com/en-us/graph/docs/concepts/use_the_api)을 참조하세요. 
+이 문서는 Azure AD Graph API에 적용됩니다. Microsoft Graph API와 관련된 유사한 정보는 [Microsoft Graph API 사용](https://docs.microsoft.com/graph/use-the-api)을 참조하세요. 
 
 Azure Active Directory Graph API는 REST API 엔드포인트를 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 애플리케이션은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어, Azure AD Graph API는 사용자 개체에 대한 다음과 같은 일반적인 작업을 지원합니다.
 

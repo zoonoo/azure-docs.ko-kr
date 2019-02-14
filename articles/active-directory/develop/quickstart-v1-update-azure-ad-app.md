@@ -16,12 +16,13 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 34d0c4054273babcc56516d290857c4ddb554bf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819096"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191733"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 애플리케이션 업데이트
 
@@ -144,7 +145,7 @@ Azure AD(Azure Active Directory)를 통해 애플리케이션을 등록한 엔�
 
 앞서 설명한 대로 고유한 애플리케이션의 API를 노출/액세스하는 것 외에도 클라이언트 애플리케이션을 등록하여 Microsoft 리소스에 의해 노출된 API에 액세스할 수 있습니다. 포털의 리소스/API 목록에서 "Microsoft Graph"라고도 하는 Microsoft Graph API는 Azure AD에 등록된 모든 애플리케이션에 사용할 수 있습니다. Office 365 구독에 등록된 계정을 포함하는 테넌트에서 클라이언트 애플리케이션을 등록하는 경우 다양한 Office 365 리소스에 의해 노출되는 범위에 액세스할 수도 있습니다.
 
-Microsoft Graph API에서 노출되는 범위에 대한 자세한 내용은 [Microsoft Graph 권한 참조](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) 문서를 참조하세요.
+Microsoft Graph API에서 노출되는 범위에 대한 자세한 내용은 [Microsoft Graph 권한 참조](https://docs.microsoft.com/graph/permissions-reference) 문서를 참조하세요.
 
 > [!NOTE]
 > 현재 제한으로 인해 네이티브 클라이언트 애플리케이션이 “조직의 디렉터리 액세스” 권한을 사용하는 경우 Azure AD 그래프 API만 호출할 수 있습니다. 이 제한은 웹 애플리케이션에는 적용되지 않습니다.

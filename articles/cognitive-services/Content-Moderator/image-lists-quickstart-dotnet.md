@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: C#용 Content Moderator SDK를 사용하여 사용자 지정 이미지 목록으로 이미지를 조정하는 방법입니다.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: f7894fa54b634df450d3f7eb90d594cf0315970c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ded5b097e7c8feab56e2d82cb44f92e3127519e2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228188"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881794"
 ---
 # <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>빠른 시작: C#에서 사용자 지정 이미지 목록을 사용하여 조정
 

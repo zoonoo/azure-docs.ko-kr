@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e15113e1af92dd6f8c5962a7223fa4f928e3b5a2
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 303177cdbc0f9727e5b440b06816a47f88c63dfd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037716"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000867"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Azure 포털을 통해 인코딩 작업 진행 상태 모니터링
 > [!div class="op_single_selector"]

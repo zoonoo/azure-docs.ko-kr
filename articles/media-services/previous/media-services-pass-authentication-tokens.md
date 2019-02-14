@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/10/2019
 ms.author: dwgeo
-ms.openlocfilehash: 204a2122f38306f2c883436fb13397b45fd91980
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b4bcc1bbed732e09f4c4d915342a422ce6c36901
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254624"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002077"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>클라이언트가 Azure Media Services 키 배달 서비스로 토큰을 전달하는 방법 알아보기
 고객은 플레이어가 키를 얻을 수 있도록 인증을 위해 Azure Media Services 키 배달 서비스로 토큰을 전달하는 방법에 대해 자주 질문합니다. Media Services는 SWT(단순 웹 토큰) 및 JWT(JSON Web Token) 형식을 지원합니다. 토큰 인증은 시스템에서 일반적인 암호화 또는 AES(Advanced Encryption Standard) 봉투 암호화의 수행 여부와 상관없이 모든 키 형식에 적용할 수 있습니다.

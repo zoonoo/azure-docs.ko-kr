@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Autosuggest API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 4fc2fc93adbd4620a05c4d248ada45ded278021b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 09ad56d2ccee28519c1926eedf6716a7110dc977
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196585"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867871"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-nodejs"></a>Bing Autosuggest API 및 Node.js에 대한 빠른 시작
 

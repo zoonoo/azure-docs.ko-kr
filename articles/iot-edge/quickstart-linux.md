@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: ccaf87828036721c7416e3a85b23053043cc24ed
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 65780252fe19ff1af3c37d25c7a65c2071961fb9
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913234"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994873"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>빠른 시작: Linux x64 디바이스에 첫 번째 IoT Edge 모듈 배포
 
@@ -55,15 +55,19 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
 
 IoT Edge 장치:
 
-* IoT Edge 디바이스 역할을 하는 Linux 디바이스 또는 가상 머신입니다. Azure에서 가상 머신을 만들려는 경우 다음 명령을 사용하여 빠르게 시작합니다.
+* IoT Edge 디바이스 역할을 하는 Linux 디바이스 또는 가상 머신입니다. Microsoft에서 제공하는 [Ubuntu의 Azure IoT Edge](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) 가상 머신을 사용하는 것이 좋습니다. 여기에는 디바이스에서 IoT Edge를 실행하는 데 필요한 모든 것이 미리 설치되어 있습니다. 다음 명령을 사용하여 이 가상 머신을 만듭니다.
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
    새 가상 머신을 만들고 시작하는 데 몇 분 정도 걸릴 수 있습니다. 
 
-   새 가상 머신을 만들 때 create 명령 출력의 일부로 제공되는 **publicIpAddress**를 기록해 둡니다. 빠른 시작의 뒷부분에서 이 공용 IP 주소를 사용하여 가상 머신에 연결합니다.
+   새 가상 머신을 만들 때 create 명령 출력의 일부로 제공되는 **publicIpAddress**를 기록해 둡니다. 빠른 시작의 뒷부분에서 이 공용 IP 주소를 사용하여 가상 머신에 연결할 것입니다.
+
+* 로컬 시스템에서 Azure IoT Edge 런타임을 실행하려면 [Linux(x64)에서 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)의 지침을 따르세요.
+
+* Raspberry Pi와 같은 ARM32 기반 디바이스를 사용하려면 [Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux-arm.md)의 지침을 따르세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -84,9 +88,10 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 빠른 시작을 시작합니�
 ## <a name="register-an-iot-edge-device"></a>IoT Edge 장치 등록
 
 새로 만든 IoT Hub에 IoT Edge 디바이스를 등록합니다.
+
 ![다이어그램 - IoT Hub ID로 디바이스 등록](./media/quickstart-linux/register-device.png)
 
-IoT Hub와 통신할 수 있도록, 시뮬레이션된 디바이스의 디바이스 ID를 만듭니다. 장치 ID는 클라우드에 있으며, 사용자는 고유한 장치 연결 문자열을 사용하여 물리적 장치를 장치 ID에 연결합니다. 
+IoT 허브와 통신할 수 있도록 IoT Edge 디바이스에 대한 디바이스 ID를 만듭니다. 디바이스 ID는 클라우드에 있으며, 사용자는 고유한 디바이스 연결 문자열을 사용하여 물리적 디바이스를 디바이스 ID에 연결합니다. 
 
 IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, `--edge-enabled` 플래그를 사용하여 이 ID를 IoT Edge 디바이스로 선언합니다. 
 
@@ -108,99 +113,35 @@ IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며
 
    ![CLI 출력에서 연결 문자열 검색](./media/quickstart/retrieve-connection-string.png)
 
-## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge 런타임 설치 및 시작
+## <a name="configure-your-iot-edge-device"></a>IoT Edge 디바이스 구성
 
-IoT Edge 디바이스에 Azure IoT Edge 런타임을 설치하고 시작합니다. 
+IoT Edge 디바이스에서 Azure IoT Edge 런타임을 시작합니다. 
+
 ![다이어그램 - 디바이스에서 런타임 시작](./media/quickstart-linux/start-runtime.png)
 
 IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 Edge 장치가 부팅되고 IoT Edge 에이전트를 시작하여 장치를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 장치에서 모듈을 쉽게 배포하고 모니터링할 수 있습니다. **IoT Edge 허브**는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다. 
 
-런타임을 구성하는 동안 장치 연결 문자열을 입력합니다. Azure CLI에서 검색한 문자열을 사용합니다. 이 문자열은 물리적 디바이스를 Azure의 IoT Edge 디바이스 ID에 연결합니다. 
+런타임을 구성하는 동안 장치 연결 문자열을 입력합니다. Azure CLI에서 검색한 문자열을 사용합니다. 이 문자열은 물리적 장치를 Azure의 IoT Edge 장치 ID에 연결합니다. 
 
-### <a name="connect-to-your-iot-edge-device"></a>IoT Edge 디바이스에 연결
+### <a name="set-the-connection-string-on-the-iot-edge-device"></a>IoT Edge 디바이스에서 연결 문자열 설정
 
-이 섹션의 단계는 모두 IoT Edge 디바이스에서 수행됩니다. 자체 머신을 IoT Edge 디바이스로 사용하는 경우에는 다음 섹션을 진행하면 됩니다. 가상 머신 또는 보조 하드웨어를 사용하는 경우 이제 해당 머신에 연결할 수 있습니다. 
+필수 구성 요소에서 권장된 Ubuntu 가상 머신에서 Azure IoT Edge를 사용하는 경우에는 디바이스에 IoT Edge 런타임이 이미 설치되어 있습니다. 이전 섹션에서 검색한 디바이스 연결 문자열로 디바이스를 구성하기만 하면 됩니다. 이 작업은 가상 머신에 연결하지 않고 원격으로 수행할 수 있습니다. 다음 명령에서 **{device_connection_string}** 을 자체 문자열로 바꿔서 실행합니다. 
 
-이 빠른 시작에 대한 Azure Virtual Machine을 만든 경우 만들기 명령에 의해 출력된 공용 IP 주소를 검색합니다. Azure Portal의 가상 머신 개요 페이지에서 공용 IP 주소를 찾을 수 있습니다. 다음 명령을 사용하여 가상 머신에 연결합니다. **{publicIpAddress}** 를 컴퓨터의 주소로 바꿉니다. 
-
-```azurecli-interactive
-ssh azureuser@{publicIpAddress}
-```
-
-### <a name="register-your-device-to-use-the-software-repository"></a>소프트웨어 리포지토리를 사용하도록 디바이스 등록
-
-IoT Edge 런타임을 실행하는 데 필요한 패키지는 소프트웨어 리포지토리에서 관리됩니다. 이 리포지토리에 액세스할 수 있도록 IoT Edge 디바이스를 구성합니다. 
-
-이 섹션의 단계는 **Ubuntu 16.04**를 실행하는 x64 디바이스를 대상으로 합니다. 다른 Linux 버전 또는 디바이스 아키텍처의 소프트웨어 리포지토리에 액세스하려면 [Linux(x64)에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md) 또는 [Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux-arm.md)를 참조하세요.
-
-1. IoT Edge 디바이스로 사용되는 컴퓨터에서 리포지토리 구성을 설치합니다.
-
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```azurecli-interactive
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
    ```
 
-2. 리포지토리에 액세스하려면 공개 키를 설치합니다.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
-
-### <a name="install-a-container-runtime"></a>컨테이너 런타임 설치
-
-IoT Edge 런타임은 일단의 컨테이너이며, IoT Edge 디바이스에 배포하는 논리는 컨테이너로 패키지됩니다. 컨테이너 런타임을 설치하여 이러한 구성 요소에 맞게 디바이스를 준비합니다.
-
-1. **apt-get**을 업데이트합니다.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-2. 컨테이너 런타임인 **Moby**를 설치합니다.
-
-   ```bash
-   sudo apt-get install moby-engine
-   ```
-
-3. Moby용 CLI 명령을 설치합니다. 
-
-   ```bash
-   sudo apt-get install moby-cli
-   ```
-
-### <a name="install-and-configure-the-iot-edge-security-daemon"></a>IoT Edge 보안 디먼 설치 및 구성
-
-보안 디먼은 시스템 서비스로 설치되므로 디바이스를 부팅할 때마다 IoT Edge 런타임이 시작됩니다. 또한 설치에는 **hsmlib** 버전이 포함되어 있어 보안 디먼에서 디바이스의 하드웨어 보안과 상호 작용할 수 있습니다. 
-
-1. IoT Edge 보안 디먼을 다운로드 및 설치합니다. 
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install iotedge
-   ```
-
-2. IoT Edge 구성 파일을 엽니다. 이 파일은 보호된 파일이므로 승격된 권한을 사용하여 액세스해야 할 수 있습니다.
-   
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-3. IoT Edge 디바이스 연결 문자열을 추가합니다. 변수 **device_connection_string**을 찾고, 디바이스를 등록한 후 복사한 문자열을 사용하여 해당 값을 업데이트합니다. 이 연결 문자열은 물리적 디바이스를 Azure에서 만든 디바이스 ID에 연결합니다.
-
-4. 파일을 저장하고 닫습니다. 
-
-   `CTRL + X`, `Y`, `Enter`
-
-5. IoT Edge 보안 디먼을 다시 시작하여 변경 내용을 적용합니다.
-
-   ```bash
-   sudo systemctl restart iotedge
-   ```
+로컬 머신이나 ARM32 디바이스에서 IoT Edge를 실행하는 경우에는 디바이스에 IoT Edge 런타임과 필수 구성 요소를 설치해야 합니다. [Linux(x64)에서 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)나 [Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux-arm.md)의 지침을 수행한 후에 이 빠른 시작으로 돌아오십시오. 
 
 ### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge 런타임 상태 보기
 
-런타임이 성공적으로 설치 및 구성되었는지 확인합니다.
+이 빠른 시작의 나머지 명령은 IoT Edge 디바이스 자체에서 발생하기 때문에 디바이스에서 발생하는 상황을 볼 수 있습니다. 가상 머신을 사용하는 경우에는 만들기 명령에 의해 출력된 공용 IP 주소를 사용하여 해당 머신에 연결하십시오. Azure Portal의 가상 머신 개요 페이지에서 공용 IP 주소를 찾을 수 있습니다. 다음 명령을 사용하여 가상 머신에 연결합니다. 필수 구성 요소에 제안된 이름과 다른 이름을 사용하는 경우에는 **{azureuser}** 를 바꿉니다. **{publicIpAddress}** 를 컴퓨터의 주소로 바꿉니다. 
+
+   ```azurecli-interactive
+   ssh azureuser@{publicIpAddress}
+   ```
+
+IoT Edge 디바이스에서 런타임이 성공적으로 설치 및 구성되었는지 확인합니다. 
 
 >[!TIP]
 >`iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. IoT Edge 런타임을 설치한 후 처음으로 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 명령 앞에 **sudo**를 사용합니다. 
@@ -242,7 +183,7 @@ IoT Edge 장치가 구성되었습니다. 클라우드 배포 모듈을 실행�
 
 이 예에서 푸시한 모듈은 테스트에 사용할 수 있는 샘플 데이터를 만듭니다. 시뮬레이션된 온도 센서 모듈은 나중에 테스트에 사용할 수 있는 환경 데이터를 생성합니다. 시뮬레이션된 센서는 머신과 머신 주변의 환경을 모니터링합니다. 예를 들어 이 센서가 서버실, 공장 또는 풍력 터빈에 장착될 수 있습니다. 메시지에는 주변 온도 및 습도, 머신 온도 및 압력, 타임스탬프가 포함됩니다. IoT Edge 자습서는 이 모듈에서 만든 데이터를 분석용 테스트 데이터로 사용합니다.
 
-다시 IoT Edge 디바이스에서 명령 프롬프트를 엽니다. 클라우드에서 배포된 모듈이 IoT Edge 디바이스에서 실행 중인지 확인합니다.
+IoT Edge 디바이스에서 명령 프롬프트를 다시 열거나 Azure CLI에서 SSH 연결을 사용합니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다.
 
    ```bash
    sudo iotedge list

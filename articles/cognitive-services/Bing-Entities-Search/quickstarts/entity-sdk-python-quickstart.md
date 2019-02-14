@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Entity Search SDK 콘솔 애플리케이션을 설정합니다.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 50620eba35be136e38d5b1f8c3083f9ddf189d9e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a2d901c1cec4556e4061c21548d7a695c06e8cf8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757904"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861768"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>빠른 시작: Python을 사용하는 Bing Entity Search SDK
 

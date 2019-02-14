@@ -4,7 +4,7 @@ description: 이 문서를 통해 Azure Security Center에서 보안 플레이�
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c0001f12dd71436bacb1735828ad56b628e02360
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619914"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116748"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure Security Center의 보안 플레이북(미리 보기)
 이 문서를 통해 Azure Security Center에서 보안 플레이북을 사용하여 보안 관련 문제에 응답할 수 있습니다.
@@ -93,7 +93,7 @@ ms.locfileid: "52619914"
 Security Center에서 기존 플레이북을 변경하여 작업이나 조건을 추가할 수 있습니다. 그렇게 하려면 변경하려는 플레이북의 이름을 클릭하고 플레이북 탭에서 논리 앱 디자이너를 열기만 하면 됩니다.
 
 > [!NOTE]
-> Azure Logic App을 사용하여 고유한 플레이북을 만드는 방법에 대한 자세한 내용은 [클라우드 앱과 클라우드 서비스 간에 프로세스를 자동화하는 첫 번째 논리 앱 워크플로 만들기](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app#add-an-action-that-responds-to-your-trigger)를 참고하세요.
+> Azure Logic App을 사용하여 고유한 플레이북을 만드는 방법에 대한 자세한 내용은 [클라우드 앱과 클라우드 서비스 간에 프로세스를 자동화하는 첫 번째 논리 앱 워크플로 만들기](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app)를 참고하세요.
 
 
 ## <a name="see-also"></a>참고 항목

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 2235c281b5b25390838a8f201481cfbdc9e5c223
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478977"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891984"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service 및 Terraform을 사용하여 Application Gateway 수신 컨트롤러로 Kubernetes 클러스터 만들기
 [AKS(Azure Kubernetes Service)](/azure/aks/)는 호스트된 Kubernetes 환경을 관리합니다. AKS를 사용하면 컨테이너 오케스트레이션 전문 지식 없이도 컨테이너화된 애플리케이션을 쉽고 빠르게 배포 및 관리할 수 있습니다. 또한 애플리케이션을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "55478977"
 
 - **Terraform 구성**: [Terraform 및 Azure에 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure) 문서의 지침을 따릅니다.
 
-- **Azure 서비스 주체**: [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) 문서의 **서비스 주체 만들기** 섹션에 나온 지침을 따릅니다. appId, displayName 값 및 암호를 기록해 둡니다.
+- **Azure 서비스 주체**: [Azure CLI를 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) 문서의 **서비스 주체 만들기** 섹션에 나온 지침을 따릅니다. appId, displayName 값 및 암호를 기록해 둡니다.
     - 다음 명령을 실행하여 서비스 사용자의 개체 ID를 기록해 둡니다.
 
     ```bash
@@ -617,7 +617,7 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
 
     ![“terraform plan” 결과의 예](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-plan-complete.png)
 
-1. `terraform apply` 명령을 실행하여 Kubernetes 클러스터를 만들 계획에 적용합니다. Kubernetes 클러스터를 만드는 프로세스는 몇 분 정도 소요될 수도 있으며 이 경우 Cloud Shell 세션 시간이 초과됩니다. Cloud Shell 세션의 시간이 초과되면 [“Cloud Shell 시간 초과에서 복구”](#recover-from-a-dloud-shell-timeout) 섹션에 나온 단계에 따라 자습서를 완료할 수 있습니다.
+1. `terraform apply` 명령을 실행하여 Kubernetes 클러스터를 만들 계획에 적용합니다. Kubernetes 클러스터를 만드는 프로세스는 몇 분 정도 소요될 수도 있으며 이 경우 Cloud Shell 세션 시간이 초과됩니다. Cloud Shell 세션의 시간이 초과되면 "Cloud Shell 시간 초과에서 복구" 섹션에 나온 단계에 따라 자습서를 완료할 수 있습니다.
 
     ```bash
     terraform apply out.plan

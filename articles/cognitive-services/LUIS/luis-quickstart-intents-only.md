@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 사용자의 의도를 예측하는 사용자 지정 앱을 만듭니다. 이 앱은 이메일 주소 또는 날짜 등의 발화 텍스트에서 다양한 데이터 요소를 추출하지 않으므로 가장 간단한 형식의 LUIS 앱입니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 6d663dfe90bb8178b2c66b21a58d59618bac30a4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b4ac0ccb249bac7149014861056c10f9093d6759
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223955"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878166"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>자습서: 사용자 의도를 확인하는 LUIS 앱 빌드
 

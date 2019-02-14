@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: b0bb45233aa34dce6794638e5d49fc2b47bef71d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53615204"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213117"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(사용되지 않음) Container Service 질문과 대답
 
@@ -85,7 +85,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 ### <a name="how-do-i-upgrade-the-orchestrator-after-deployment"></a>배포 후 오케스트레이터를 업그레이드하려면 어떻게 하나요?
 
-현재 Azure Container Service는 클러스터에 배포한 오케스트레이터 버전을 업그레이드하는 도구를 제공하지 않습니다. Container Service에서 새로운 버전을 지원하는 경우 새 클러스터를 배포할 수 있습니다. 또 다른 옵션은 클러스터를 바로 업그레이드할 수 있는 경우 오케스트레이터별 도구를 사용하는 것입니다. 예를 들어 [DC/OS 업그레이드](https://dcos.io/docs/1.8/administration/upgrading/)를 참조하세요.
+현재 Azure Container Service는 클러스터에 배포한 오케스트레이터 버전을 업그레이드하는 도구를 제공하지 않습니다. Container Service에서 새로운 버전을 지원하는 경우 새 클러스터를 배포할 수 있습니다. 또 다른 옵션은 클러스터를 바로 업그레이드할 수 있는 경우 오케스트레이터별 도구를 사용하는 것입니다. 예를 들어 [DC/OS 업그레이드](http://docs.mesosphere.com/1.12/installing/production/upgrading)를 참조하세요.
  
 ### <a name="where-do-i-find-the-ssh-connection-string-to-my-cluster"></a>클러스터에 대한 SSH 연결 문자열은 어디에서 찾을 수 있나요?
 

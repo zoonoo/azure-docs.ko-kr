@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Translator Text API를 사용하여 하나의 스크립트에서 한 언어의 텍스트를 다른 언어로 변환합니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 976ca2623667abc4e49ceb91ec97706723bc32c2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 56f85a19b33223140d87833f8237fc728402d2f9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211749"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876235"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>빠른 시작: Translator Text API를 사용하여 Go를 통해 텍스트 음역
 

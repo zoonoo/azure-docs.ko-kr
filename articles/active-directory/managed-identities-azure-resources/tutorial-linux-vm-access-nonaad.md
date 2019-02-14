@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
-ms.openlocfilehash: a65e1adc4c843bb362ace4fe0778b4cbd18b4b4c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c23b25ababe93ecdb5d28227ed4aecb0cfb7cdaf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150209"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194889"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Key Vault에 액세스 
 

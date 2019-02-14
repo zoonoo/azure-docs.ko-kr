@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: a7ebceff18016a5aa527a032a644d2723aceee7a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 46abd71d4621bad7ee47f6579b1675b75819b16d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558569"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979924"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>빠른 시작: Azure Data Explorer Node 라이브러리를 사용하여 데이터 수집
 
@@ -56,10 +56,12 @@ const { BlobDescriptor } = require("azure-kusto-ingest").IngestionDescriptors;
 이 코드를 실행하기 전에 `authorityId`, `kustoUri`, `kustoIngestUri` 및 `kustoDatabase`의 값을 설정합니다.
 
 ```javascript
-const authorityId = "<TenantId>";
-const kustoUri = "https://<ClusterName>.<Region>.kusto.windows.net:443";
-const kustoIngestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443";
-const kustoDatabase  = "<DatabaseName>";
+const cluster = "MyCluster";
+const region = "westus";
+const authorityId = "microsoft.com";
+const kustoUri = `https://${cluster}.${region}.kusto.windows.net:443`;
+const kustoIngestUri = `https://ingest-${cluster}.${region}.kusto.windows.net:443`;
+const kustoDatabase  = "Weather";
 ```
 
 이제 연결 문자열을 구성합니다. 이 예제에서는 디바이스 인증을 사용하여 클러스터에 액세스합니다. 또한 Azure Active Directory 애플리케이션 인증서, 애플리케이션 키, 사용자와 암호를 사용할 수 있습니다.
@@ -94,7 +96,7 @@ const kustoClient = new KustoClient(kcsbData);
 const createTableCommand = `.create table ${destTable} (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)`;
 
 kustoClient.executeMgmt(kustoDatabase, createTableCommand, (err, results) => {
-    console.log(result.primaryResults[0]);
+    console.log(results.primaryResults[0][0].toString());
 });
 ```
 
@@ -106,13 +108,13 @@ kustoClient.executeMgmt(kustoDatabase, createTableCommand, (err, results) => {
 const createMappingCommand = `.create table ${destTable} ingestion csv mapping '${destTableMapping}' '[{"Name":"StartTime","datatype":"datetime","Ordinal":0}, {"Name":"EndTime","datatype":"datetime","Ordinal":1},{"Name":"EpisodeId","datatype":"int","Ordinal":2},{"Name":"EventId","datatype":"int","Ordinal":3},{"Name":"State","datatype":"string","Ordinal":4},{"Name":"EventType","datatype":"string","Ordinal":5},{"Name":"InjuriesDirect","datatype":"int","Ordinal":6},{"Name":"InjuriesIndirect","datatype":"int","Ordinal":7},{"Name":"DeathsDirect","datatype":"int","Ordinal":8},{"Name":"DeathsIndirect","datatype":"int","Ordinal":9},{"Name":"DamageProperty","datatype":"int","Ordinal":10},{"Name":"DamageCrops","datatype":"int","Ordinal":11},{"Name":"Source","datatype":"string","Ordinal":12},{"Name":"BeginLocation","datatype":"string","Ordinal":13},{"Name":"EndLocation","datatype":"string","Ordinal":14},{"Name":"BeginLat","datatype":"real","Ordinal":16},{"Name":"BeginLon","datatype":"real","Ordinal":17},{"Name":"EndLat","datatype":"real","Ordinal":18},{"Name":"EndLon","datatype":"real","Ordinal":19},{"Name":"EpisodeNarrative","datatype":"string","Ordinal":20},{"Name":"EventNarrative","datatype":"string","Ordinal":21},{"Name":"StormSummary","datatype":"dynamic","Ordinal":22}]'`;
 
 kustoClient.executeMgmt(kustoDatabase, createMappingCommand, (err, results) => {
-    console.log(result.primaryResults[0]);
+    console.log(results.primaryResults[0][0].toString());
 });
 ```
 
 ## <a name="queue-a-message-for-ingestion"></a>수집을 위해 메시지를 큐에 넣음
 
-BLOB 저장소에서 데이터를 끌어온 후 Azure 데이터 탐색기에 수집하기 위해 메시지를 큐에 넣습니다.
+Blob Storage에서 데이터를 끌어온 후 Azure 데이터 탐색기에 수집하기 위해 메시지를 큐에 넣습니다.
 
 ```javascript
 const defaultProps  = new IngestionProperties(kustoDatabase, destTable, DataFormat.csv, null,destTableMapping, {'ignoreFirstRecord': 'true'});
@@ -134,7 +136,7 @@ const query = `${destTable} | count`;
 
 kustoClient.execute(kustoDatabase, query, (err, results) => {
     if (err) throw new Error(err);  
-    console.log(results.primaryResults[0].toString());
+    console.log(results.primaryResults[0][0].toString());
 });
 ```
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kaanan
-ms.openlocfilehash: 0662b66d44533a888d491810ba45efac9a397aa1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 48ccbedd6e3a7da0ec487f27709a47f9364f7da3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700845"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100060"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 TAP 작업
 
@@ -110,7 +110,7 @@ Azure Virtual Network TAP(터미널 액세스 지점)를 사용하면 네트워�
 1. 기존 가상 네트워크 TAP 리소스의 ID를 가져옵니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 가상 네트워크 TAP *myTap*을 가져옵니다.
 
    ```azurecli-interactive
-   tapId=$(az network tap show show \
+   tapId=$(az network vnet tap show \
    --name myTap \
    --resource-group myResourceGroup \
    --query id \
@@ -144,7 +144,7 @@ Azure Virtual Network TAP(터미널 액세스 지점)를 사용하면 네트워�
    az network nic vtap-config delete \
    --resource-group myResourceGroup \
    --nic myNetworkInterface \
-   --tap-configuration-name myTapConfig \
+   --name myTapConfig \
    --subscription subscriptionId
    ```
 

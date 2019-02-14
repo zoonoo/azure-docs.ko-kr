@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Azure의 Microsoft Cognitive Services에서 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: fe8fac4e9f5b0badfc7db2f29423facadae8ef22
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d9b15b89e67156ab442fa15544a661da5c0d6598
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228766"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883851"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Node.js를 사용하여 텍스트 분석 Cognitive Service 호출  
 <a name="HOLTop"></a>

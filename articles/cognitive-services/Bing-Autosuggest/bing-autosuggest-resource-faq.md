@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Autosuggest API에 대한 일반적인 질문과 대답을 확인합니다.
 services: cognitive-services
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: b0ec10bbf03e8a8d005eece4b6496b74b2943233
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cc14ceafaf0d9dd913cdef3864b0391f05d721e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173261"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882253"
 ---
 # <a name="frequently-asked-questions-faq-about-bing-autosuggest-api"></a>Bing Autosuggest API에 대한 FAQ(질문과 대답)
  

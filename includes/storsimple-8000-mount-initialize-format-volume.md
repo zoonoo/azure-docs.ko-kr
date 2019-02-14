@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 71b031469d8d1292358132df129c11b4297ec0ee
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: ba2985b8b6c92e299e8ab378263c9b4c062561d5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166136"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888935"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
 #### <a name="to-mount-initialize-and-format-a-volume"></a>볼륨을 탑재, 초기화 및 포맷하려면
 1. Microsoft iSCSI 초기자를 시작합니다.
 2. **iSCSI 초기자 속성** 창의 **검색** 탭에서 **포털 검색**을 클릭합니다.

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: C#용 Bing Entity Search SDK를 사용하여 엔터티를 검색하려면 이 빠른 시작을 사용하세요.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: bcb5f77503566b06ee8e3346ec81dfabecbe50a5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6a365ef5421de3ceb31c5cc78a424f786f174ab3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757901"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861921"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>C#용 Bing Entity Search SDK를 사용하여 검색 요청 보내기
 

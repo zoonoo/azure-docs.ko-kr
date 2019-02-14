@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 62cdc50b40fb1273fdc2eece050869fc2284cf6c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632979"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984820"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Web App for Containers에 사용자 지정 Docker 이미지 사용
 
@@ -59,7 +59,7 @@ cd docker-django-webapp-linux
 
 Git 리포지토리에서 _Dockerfile_을 살펴봅니다. 이 Docker 파일은 애플리케이션을 실행하는 데 필요한 Python 환경을 설명합니다. 또한 이미지는 컨테이너와 호스트 간에 보안 통신을 위해 [SSH](https://www.ssh.com/ssh/protocol/) 서버를 설정합니다.
 
-```docker
+```Dockerfile
 FROM python:3.4
 
 RUN mkdir /code
@@ -254,7 +254,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### <a name="test-the-web-app"></a>웹앱 테스트
 
-웹앱(`http://<app_name>azurewebsites.net`)을 찾아서 작동하는지 확인합니다. 
+웹앱(`http://<app_name>.azurewebsites.net`)을 찾아서 작동하는지 확인합니다. 
 
 ![웹앱 포트 구성 테스트](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
@@ -280,7 +280,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
 
 * `apt-get`을 호출하고 루트 계정의 암호를 `"Docker!"`로 설정하는 [RUN](https://docs.docker.com/engine/reference/builder/#run) 지침입니다.
 
-    ```docker
+    ```Dockerfile
     ENV SSH_PASSWD "root:Docker!"
     RUN apt-get update \
             && apt-get install -y --no-install-recommends dialog \
@@ -294,7 +294,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
 
 * [sshd_config](https://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사하도록 Docker 엔진에 지시하는 [COPY](https://docs.docker.com/engine/reference/builder/#copy) 지침입니다. 구성 파일은 [이 sshd_config 파일](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config)을 기반으로 해야 합니다.
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
@@ -305,7 +305,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
 
 * 컨테이너에서 2222 포트를 노출하는 [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) 지침입니다. 루트 암호를 알고 있더라도 인터넷에서 포트 2222에 액세스할 수 없습니다. 개인 가상 네트워크의 브리지 네트워크 내에 있는 컨테이너에서 액세스할 수 있는 내부 전용 포트입니다. 그런 후에 명령은 SSH 구성 세부 정보를 복사하고 `ssh` 서비스를 시작합니다.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 8000 2222
     ```
 

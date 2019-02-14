@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Computer Vision API의 이미지 범주화 기능과 관련된 개념에 대해 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f182110d150583ee1c241c23a2e1924d9f3e3bd4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1967ba60088cae2b946cfcfe1467c2de5aebccdf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158046"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879954"
 ---
 # <a name="image-categorization-with-computer-vision"></a>Computer Vision을 사용하여 이미지 범주화
 

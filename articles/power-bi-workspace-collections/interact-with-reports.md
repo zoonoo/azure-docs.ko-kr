@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 32b72444c620b542262db322c5af94e69c49521e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bfc80318eb43992e292159a0cd99a9b2f4a3c041
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048676"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233105"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>JavaScript API를 사용하여 Power BI 보고서와 상호 작용
 
@@ -53,17 +53,17 @@ Javascript API를 통해 보고서 및 페이지 수준에서 동작을 관리�
 [포함 보고서에 대해 자세히 알아보기](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
 ### <a name="navigate-to-pages-in-a-report"></a>보고서의 페이지로 이동
-JavaScript API를 통해 보고서의 모든 페이지를 검색하고 현재 페이지를 설정할 수 있습니다. [탐색 데모 응용 프로그램](http://azure-samples.github.io/powerbi-angular-client/#/scenario3)을 사용해 보세요.
+JavaScript API를 통해 보고서의 모든 페이지를 검색하고 현재 페이지를 설정할 수 있습니다. [탐색 데모 애플리케이션](http://azure-samples.github.io/powerbi-angular-client/#/scenario3)을 사용해 보세요.
 
 [페이지 탐색에 대해 자세히 알아보기](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
 ### <a name="filter-a-report"></a>보고서 필터링
-JavaScript API는 포함된 보고서 및 보고서 페이지에 대한 기본 및 고급 필터링 기능을 제공합니다. [데모 응용 프로그램 필터링](http://azure-samples.github.io/powerbi-angular-client/#/scenario4)을 사용해 보고 여기에서 소개 코드를 검토합니다.
+JavaScript API는 포함된 보고서 및 보고서 페이지에 대한 기본 및 고급 필터링 기능을 제공합니다. [데모 애플리케이션 필터링](http://azure-samples.github.io/powerbi-angular-client/#/scenario4)을 사용해 보고 여기에서 소개 코드를 검토합니다.
 
 #### <a name="basic-filters"></a>기본 필터
 기본 필터는 열 또는 계층 수준에 배치되어 포함하거나 제외할 값의 목록을 포함합니다.
 
-```
+```typescript
 const basicFilter: pbi.models.IBasicFilter = {
   $schema: "http://powerbi.com/product/schema#basic",
   target: {
@@ -92,7 +92,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 * IsBlank
 * IsNotBlank
 
-```
+```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
   $schema: "http://powerbi.com/product/schema#advanced",
   target: {

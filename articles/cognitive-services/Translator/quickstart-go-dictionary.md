@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: ff4fdc94b77a09898efea3c74bef6091b2ebaac8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d923dee2c1bad70183d2c0fadbc1beebe7ef3cbe
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209251"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872427"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>빠른 시작: Go를 사용하여 이중 언어 사전이 있는 단어 조회
 

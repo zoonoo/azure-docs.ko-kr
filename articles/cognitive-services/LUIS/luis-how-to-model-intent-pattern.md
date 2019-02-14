@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS(Language Understanding) 애플리케이션에서 패턴 템플릿을 추가하여 예측 정확도를 향상시키는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 46b7e7757c2bf1b01bebeff059f0028b9e9d189c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9d3352017723f5beac318d461a537820b6593bef
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220759"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881675"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>패턴을 추가하여 예측 정확도를 개선하는 방법
 LUIS 앱이 엔드포인트 발화를 수신한 후 패턴의 [개념](luis-concept-patterns.md)을 사용하여 단어 순서 및 단어 선택에 패턴을 노출하는 발화에 대한 예측 정확도를 개선합니다. 패턴은 [엔터티](luis-concept-entity-types.md) 및 해당 역할을 사용하여 특정 패턴 구문을 통해 데이터를 추출합니다. 

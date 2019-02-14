@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 버전 1 엔드포인트 및 작성 API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 엔드포인트 및 작성 API로 마이그레이션하는 방법을 이해합니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8b2057c6649f0dcec5f5c9b2d5923be2446f4d6b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dfd30ce148002e32986c58aff607e182033e02b3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208621"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859884"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 앱에 대한 API v1에서 v2로 마이그레이션 가이드
 버전 1 [엔드포인트](https://aka.ms/v1-endpoint-api-docs) 및 [작성](https://aka.ms/v1-authoring-api-docs) API는 더 이상 사용되지 않습니다. 이 가이드를 사용하여 버전 2 [엔드포인트](https://aka.ms/luis-endpoint-apis) 및 [작성](https://aka.ms/luis-authoring-apis) API로 마이그레이션하는 방법을 이해합니다. 

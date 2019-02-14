@@ -14,12 +14,13 @@ ms.subservice: compliance
 ms.date: 11/15/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 1c71333a49643647bae3730e4f14f26939388c4f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 1616230e3cad765246bcf03d59fb517c99d9b044
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153746"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176920"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD에서 그룹 구성원 또는 애플리케이션 액세스에 대한 액세스 검토 만들기
 
@@ -115,7 +116,7 @@ ms.locfileid: "55153746"
 
 ## <a name="create-reviews-via-apis"></a>API를 통해 검토 만들기
 
-API를 사용하여 액세스 검토를 만들 수도 있습니다. Azure Portal에서 그룹 및 애플리케이션 사용자의 액세스 검토를 관리하기 위해 하는 일은 Microsoft Graph API를 사용하여 할 수도 있습니다. 자세한 내용은 [Azure AD 액세스 검토 API 참조](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/accessreviews_root)에서 확인할 수 있습니다. 코드 샘플은 [Microsoft Graph를 통해 Azure AD 액세스를 검토하는 예제](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096)를 참조하세요.
+API를 사용하여 액세스 검토를 만들 수도 있습니다. Azure Portal에서 그룹 및 애플리케이션 사용자의 액세스 검토를 관리하기 위해 하는 일은 Microsoft Graph API를 사용하여 할 수도 있습니다. 자세한 내용은 [Azure AD 액세스 검토 API 참조](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta)에서 확인할 수 있습니다. 코드 샘플은 [Microsoft Graph를 통해 Azure AD 액세스를 검토하는 예제](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

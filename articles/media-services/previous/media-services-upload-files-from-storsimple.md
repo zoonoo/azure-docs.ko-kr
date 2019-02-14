@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure StorSimple 데이터 관리자를 간략�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 1dd09328-262b-43ef-8099-73241b49a925
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 2992be9aa289f4f5fda63b9b59d3e80e234dd434
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22cf9b66ecf7bbbe8ef226635e84f0aaf9d26b17
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780571"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993931"
 ---
-# <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple의 Azure Media Services 계정에 파일 업로드
+# <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple의 Azure Media Services 계정에 파일 업로드  
 
 이 문서에서는 Azure StorSimple 데이터 관리자를 간략하게 설명합니다. 또한 이 문서는 StorSimple에서 데이터를 추출하고 이 데이터를 AMS(Azure Media Services) 계정에 자산으로 업로드하는 방법을 보여 주는 자습서로 연결됩니다.
 

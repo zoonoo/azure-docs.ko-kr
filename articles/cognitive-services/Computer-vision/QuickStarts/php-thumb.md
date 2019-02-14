@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 PHP와 함께 Computer Vision API를 사용하여 이미지에서 썸네일을 생성합니다.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a9a3e2cb1dec8d47c468313f057e3845ea81900c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0a38372035554c294184c4f7a708ca0650684c7e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222374"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869469"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 PHP를 사용하여 썸네일 생성
 

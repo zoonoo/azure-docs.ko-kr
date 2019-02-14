@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 문장 길이(문자 수)를 확인하는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: erhopf
-ms.openlocfilehash: ad5af3e43e1419246d1692c5028cb2453b04516c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1fdee0d8c73c4cdd60bbe4a3520583588bfc385b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696145"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861105"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 문장 길이 확인
 

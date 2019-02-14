@@ -6,17 +6,18 @@ keywords: 클립, 하위 클립, 인코딩, 미디어
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 415f58d9c6880bc7ef9ba6b6ba3f575fae382f04
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 016238305e12435b740da45da4ad600152cf04ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54806894"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003842"
 ---
-# <a name="loading-assets-into-azure-media-clipper"></a>Azure Media Clipper에 자산 로드
+# <a name="loading-assets-into-azure-media-clipper"></a>Azure Media Clipper에 자산 로드  
+
 다음 두 가지 방법으로 Azure Media Clipper에 자산을 로드할 수 있습니다.
 1. 고정적으로 자산 라이브러리 제공
 2. API를 통해 동적으로 자산 목록 생성

@@ -15,12 +15,13 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: d4e1b78a302919df60b9a4b134314024a110a178
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 41741249e9b1a142d75392025236a4d333b67666
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494853"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201485"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 다음 단계
 요구 사항을 정의하고 모바일 디바이스 관리 솔루션에 대한 모든 옵션을 검토했으므로 사용자와 조직에 적합한 지원 인프라 배포에 대한 다음 단계를 수행할 준비가 되었습니다.

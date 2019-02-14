@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Translator Speech API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3cecb09488c40ee23ea34c75e666788a4ec47fdb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 34d397412a6d461325465ccc5dd41a62d91c6fc5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459284"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872053"
 ---
 # <a name="quickstart-translator-speech-api-with-python"></a>빠른 시작: Python을 사용한 Translator Speech API
 <a name="HOLTop"></a>

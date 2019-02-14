@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: cf8c6f07eb38487dd29624b15be3637536be92fc
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 889b9c0cf944085f5f42ece892d5cac747a27240
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134015"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247011"
 ---
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-함수는 Azure Storage의 범용 계정을 사용하여 함수에 대한 상태 및 기타 정보를 유지 관리합니다. [az storage account create](/cli/azure/storage/account#create) 명령을 사용하여 만든 리소스 그룹에 범용 저장소 계정을 만듭니다.
+함수는 Azure Storage의 범용 계정을 사용하여 함수에 대한 상태 및 기타 정보를 유지 관리합니다. [az storage account create](/cli/azure/storage/account) 명령을 사용하여 만든 리소스 그룹에 범용 스토리지 계정을 만듭니다.
 
 다음 명령에서 `<storage_name>` 자리 표시자를 전역적으로 고유한 저장소 계정 이름으로 바꿉니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
 

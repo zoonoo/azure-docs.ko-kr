@@ -4,7 +4,7 @@ description: 'PaaS 웹 및 모바일 애플리케이션 보안을 위한 Azure S
 services: security
 documentationcenter: na
 author: techlake
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 72d5ec09becc1f1d9e23e284e18bcc037ccb3072
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452482"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109371"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Azure에서 PaaS 데이터베이스 보안을 유지하기 위한 모범 사례
 
-이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 애플리케이션 보안을 위한 [Azure SQL Database](../sql-database/sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
+이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 응용 프로그램 보안을 위한 [Azure SQL Database](../sql-database/sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
 
-Azure SQL Database 및 SQL Data Warehouse는 인터넷 기반 애플리케이션용 관계형 데이터베이스 서비스를 제공합니다. PaaS 배포에서 Azure SQL Database 및 SQL Data Warehouse를 사용할 때 애플리케이션과 데이터를 보호하는 데 도움이 되는 서비스를 살펴보겠습니다.
+Azure SQL Database 및 SQL Data Warehouse는 인터넷 기반 응용 프로그램용 관계형 데이터베이스 서비스를 제공합니다. PaaS 배포에서 Azure SQL Database 및 SQL Data Warehouse를 사용할 때 애플리케이션과 데이터를 보호하는 데 도움이 되는 서비스를 살펴보겠습니다.
 
 - Azure Active Directory 인증(SQL Server 인증 대신)
 - Azure SQL 방화벽
@@ -86,4 +86,4 @@ Azure SQL은 [Always Encrypted](/sql/relational-databases/security/encryption/al
 이 문서에서는 PaaS 웹 및 모바일 애플리케이션 보안을 위한 Azure SQL Database 및 SQL Data Warehouse 보안 모범 사례 모음을 소개했습니다. PaaS 배포 보안 유지에 대한 자세한 내용은 다음을 참조하세요.
 
 - [PaaS 배포 보안](security-paas-deployments.md)
-- [Azure App Services를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-app-services.md)
+- [Azure App Services를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안](security-paas-applications-using-app-services.md)

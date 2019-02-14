@@ -16,12 +16,13 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6f69031ad2e681cd49a610ef81505ae3c1f21559
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e07fc6c4ce7477cd6f1c64d5de1574ae7c4cecff
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490648"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168955"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 동기화: 두 번째로 설치 마법사 실행
 처음으로 Azure AD Connect 설치 마법사를 실행하는 경우 설치를 구성하는 방법을 안내합니다. 설치 마법사를 다시 실행하는 경우 유지 관리에 대한 옵션을 제공합니다.

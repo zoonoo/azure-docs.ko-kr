@@ -3,8 +3,8 @@ title: 애플리케이션 액세스 패널 브라우저 확장 설치 - Azure | 
 description: 액세스 패널 브라우저 확장을 설치할 때 발생하는 일반적인 오류를 해결합니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/4/18
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 69a05b8fad222baa5ab367215751857e0d0385fb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 42b9668a68ed57273c6198dc2ecd34b9001811d3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153219"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209305"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장 설치
 

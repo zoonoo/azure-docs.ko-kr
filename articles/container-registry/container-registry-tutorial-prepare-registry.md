@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 07e328c022e8e81782902445fd8fc6e320625a51
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261316"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978951"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry 준비
 
@@ -118,7 +118,7 @@ cd acr-helloworld
 
 [Dockerfile][dockerfile]은 복제된 원본의 `./AcrHelloworld/Dockerfile`에 있습니다.
 
-```dockerfile
+```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
 # Update <acrName> with the name of your registry
 # Example: uniqueregistryname.azurecr.io
@@ -144,7 +144,7 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 ```
 
-*acr-helloworld* 이미지의 응용 프로그램은 레지스트리의 로그인 서버에 대한 정보를 DNS에 쿼리하여 컨테이너가 배포된 영역을 확인하려고 합니다. Dockerfile의 `DOCKER_REGISTRY` 환경 변수에 레지스트리 로그인 서버의 FQDN(정규화된 도메인 이름)을 지정해야 합니다.
+*acr-helloworld* 이미지의 애플리케이션은 레지스트리의 로그인 서버에 대한 정보를 DNS에 쿼리하여 컨테이너가 배포된 영역을 확인하려고 합니다. Dockerfile의 `DOCKER_REGISTRY` 환경 변수에 레지스트리 로그인 서버의 FQDN(정규화된 도메인 이름)을 지정해야 합니다.
 
 먼저 `az acr show` 명령으로 레지스트리의 로그인 서버를 가져옵니다. `<acrName>`을 이전 단계에서 만든 레지스트리 이름으로 바꿉니다.
 
@@ -162,7 +162,7 @@ uniqueregistryname.azurecr.io
 
 다음으로, 레지스트리의 로그인 서버의 FQDN으로 `ENV DOCKER_REGISTRY` 줄을 업데이트합니다. 이 예제에서는 예제 레지스트리 이름, *uniqueregistryname*을 반영합니다.
 
-```dockerfile
+```Dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 ```
 

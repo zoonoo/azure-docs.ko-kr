@@ -1,6 +1,6 @@
 ---
 title: Azure 데이터 복사 도구를 사용하여 데이터 복사 | Microsoft Docs
-description: Azure 데이터 팩터리를 만든 다음, 데이터 복사 도구를 사용하여 Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사합니다.
+description: Azure 데이터 팩터리를 만든 다음, 데이터 복사 도구를 사용하여 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,19 +11,20 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 6ff264c079ef5ee18258c3cd136cf441dc33e299
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017810"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992758"
 ---
-# <a name="use-the-copy-data-tool-to-copy-data"></a>데이터 복사 도구를 사용하여 데이터 복사 
+# <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>빠른 시작: 데이터 복사 도구를 사용하여 데이터 복사
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](quickstart-create-data-factory-copy-data-tool.md)
 
-이 빠른 시작에서는 Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 그런 다음 데이터 복사 도구를 사용하여 Azure Blob 저장소의 한 폴더에서 다른 폴더로 데이터를 복사하는 파이프라인을 만듭니다. 
+이 빠른 시작에서는 Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 그런 다음 데이터 복사 도구를 사용하여 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 복사하는 파이프라인을 만듭니다. 
 
 > [!NOTE]
 > Azure Data Factory를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요. 
@@ -55,7 +56,7 @@ ms.locfileid: "48017810"
    이 목록은 데이터 팩터리가 지원하는 위치 및 Azure Data Factory 메타데이터가 저장될 위치만 표시합니다. 데이터 팩터리에서 사용하는 연결된 데이터 저장소(Azure Storage 및 Azure SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 하위 지역에서 실행할 수 있습니다.
 
 1. **만들기**를 선택합니다.
-1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스) 응용 프로그램을 시작합니다.
+1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스) 애플리케이션을 시작합니다.
    
    !["작성 및 모니터링" 타일이 있는 데이터 팩터리에 대한 홈페이지](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)
 
@@ -76,11 +77,11 @@ ms.locfileid: "48017810"
 
     b. 갤러리에서 **Azure Blob Storage**를 선택한 후 **다음**을 선택합니다.
 
-    ![갤러리에서 blob 저장소 선택](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
+    ![갤러리에서 Blob Storage 선택](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    다. **Azure Blob Storage 계정 지정** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택한 다음, **마침**을 선택합니다. 
+    다. **Azure Blob Storage 계정 지정** 페이지의 **스토리지 계정 이름** 목록에서 스토리지 계정을 선택한 다음, **마침**을 선택합니다. 
 
-   ![Azure Blob 저장소 계정 구성](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
+   ![Azure Blob Storage 계정 구성](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
    d. 새로 만든 연결된 서비스를 원본으로 선택하고 **다음**을 클릭합니다.
 
@@ -133,4 +134,4 @@ ms.locfileid: "48017810"
 1. 연결된 서비스, 데이터 세트 및 파이프라인을 편집할 수 있도록 왼쪽 창의 **모니터** 탭 위에서 **작성자** 탭으로 전환합니다. 데이터 팩터리 UI에서 이러한 항목을 편집하는 방법을 알아보려면 [Azure Portal을 사용하여 데이터 팩터리 만들기](quickstart-create-data-factory-portal.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인은 Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사합니다. 더 많은 시나리오에서의 데이터 팩터리 사용에 대해 알아보려면 [자습서](tutorial-copy-data-portal.md)를 따릅니다. 
+이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. 더 많은 시나리오에서의 데이터 팩터리 사용에 대해 알아보려면 [자습서](tutorial-copy-data-portal.md)를 따릅니다. 

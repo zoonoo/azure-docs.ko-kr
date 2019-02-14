@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python과 함께 Computer Vision API를 사용하여 이미지에서 썸네일을 생성합니다.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c15049ef4dd45a4d9dd4f4b61618860c82ae3f93
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 85a8bcaeecc998a2020a657e6944a18c82a0159e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209029"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860170"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 사용하여 썸네일 생성
 

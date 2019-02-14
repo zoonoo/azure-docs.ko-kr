@@ -12,12 +12,13 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 683627efe6946ec68e40f84b7bd7b3d3c8f30985
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4185f4ad83d083ab1a15208361ee7b44e118c68e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094209"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168309"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory 아키텍처란?
 Azure AD(Azure Active Directory)를 사용하면 사용자를 위한 Azure 서비스 및 리소스에 대한 액세스를 안전하게 관리할 수 있습니다. Azure AD에는 전체 ID 관리 기능이 포함됩니다. Azure AD 기능에 대한 정보는 [Azure Active Directory란?](active-directory-whatis.md)을 참조하세요.

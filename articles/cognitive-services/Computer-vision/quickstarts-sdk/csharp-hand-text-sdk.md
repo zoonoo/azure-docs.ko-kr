@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Computer Vision Windows C# 클라이언트 라이브러리를 사용하여 이미지에서 텍스트를 추출합니다.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 41f0b1237ad88ad730893d2f219109f724626a4b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ca11c25f5e2dc793bc3c8a4ee10b4a89139ce1f3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214068"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879227"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>빠른 시작: Computer Vision SDK 및 C#을 사용하여 텍스트를 추출
 

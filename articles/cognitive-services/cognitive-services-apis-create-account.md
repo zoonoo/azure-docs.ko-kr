@@ -4,17 +4,17 @@ titlesuffix: Azure Cognitive Services
 description: Azure Portal에서 Microsoft Cognitive Services API를 만드는 방법입니다.
 services: cognitive-services
 author: garyericson
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: f4c6375dcdefe62fbfb224f766f642953acf1623
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: c69e8b7360774971316b5a060aff9e7057d3e9aa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435976"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873975"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Cognitive Services 계정 만들기
 
@@ -88,7 +88,7 @@ ms.locfileid: "53435976"
 
 리소스를 만든 후 고정하면 Azure 대시보드에서 액세스할 수 있습니다. 그렇지 않으면 **리소스 그룹**에서 찾을 수 있습니다.
 
-Cognitive Services 리소스 내에서 **개요** 섹션의 엔드포인트 URL 및 키를 사용하여 응용 프로그램에서 API 호출을 시작할 수 있습니다.
+Cognitive Services 리소스 내에서 **개요** 섹션의 엔드포인트 URL 및 키를 사용하여 애플리케이션에서 API 호출을 시작할 수 있습니다.
 
 ![리소스 화면](media/cognitive-services-apis-create-account/resourceScreen.png)
 

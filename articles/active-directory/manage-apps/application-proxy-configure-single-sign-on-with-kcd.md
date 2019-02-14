@@ -3,8 +3,8 @@ title: 애플리케이션 프록시를 사용하는 Single Sign-On | Microsoft D
 description: Azure AD 애플리케이션 프록시를 사용하여 Single Sign-On을 제공하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 5a19b5778a0504eff2e90683b79e7e83e352b33c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 19ea76f28995dfa7f7dd5a6f280f8319f5b4ca26
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158964"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56180764"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
 

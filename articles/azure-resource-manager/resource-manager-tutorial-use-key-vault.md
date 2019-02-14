@@ -14,14 +14,16 @@ ms.date: 01/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 0e73177ca49a9a100b45712833b1310d54852680
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 979867e7630c21b0bd724967dbc79c5f8155ca5e
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498015"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237181"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Azure Key Vault에서 비밀을 검색하여 Resource Manager 배포 중에 비밀을 매개 변수로 전달하는 방법을 알아봅니다. 해당 Key Vault ID만 참조하므로 이 값은 절대 노출되지 않습니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./resource-manager-keyvault-parameter.md)을 참조하세요.
 
@@ -166,6 +168,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
         }
     },
     ```
+
     **id**를 마지막 절차에서 만든 키 자격 증명 모음의 리소스 ID로 바꿉니다.  
 
     ![키 자격 증명 모음과 Resource Manager 템플릿 가상 머신 배포 매개 변수 파일 통합](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
@@ -180,12 +183,11 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 [템플릿 배포](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)의 지침에 따라 템플릿을 배포합니다. **azuredeploy.json**과 **azuredeploy.parameters.json**을 둘 다 Cloud Shell에 업로드한 후, 다음 PowerShell 스크립트를 사용하여 템플릿을 배포합니다.
 
 ```azurepowershell
-$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile azuredeploy.json `
     -TemplateParameterFile azuredeploy.parameters.json

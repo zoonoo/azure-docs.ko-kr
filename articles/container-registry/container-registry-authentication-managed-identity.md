@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: 46965842831673d25d636e0cfbfa3d0097b82f99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fdba8969ad326565834625fe1ca7ece5e089a904
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857366"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984208"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
 
@@ -178,7 +178,7 @@ az acr login --name myContainerRegistry
 
 `Login succeeded` 메시지가 표시되어야 합니다. 그런 다음, 자격 증명을 제공하지 않고 `docker` 명령을 실행할 수 있습니다. 예를 들어 [docker pull][docker-pull]을 실행하여 `aci-helloworld:v1` 이미지를 가져와서 레지스트리의 로인 서버 이름을 지정합니다. 로그인 서버 이름은 컨테이너 레지스트리 이름(모두 소문자)과 뒤에 나오는 `.azurecr.io`(예: `mycontainerregistry.azurecr.io`)로 구성됩니다.
 
-```docker
+```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
@@ -230,7 +230,7 @@ az acr login --name myContainerRegistry
 
 `Login succeeded` 메시지가 표시되어야 합니다. 그런 다음, 자격 증명을 제공하지 않고 `docker` 명령을 실행할 수 있습니다. 예를 들어 [docker pull][docker-pull]을 실행하여 `aci-helloworld:v1` 이미지를 가져와서 레지스트리의 로인 서버 이름을 지정합니다. 로그인 서버 이름은 컨테이너 레지스트리 이름(모두 소문자)과 뒤에 나오는 `.azurecr.io`(예: `mycontainerregistry.azurecr.io`)로 구성됩니다.
 
-```docker
+```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 

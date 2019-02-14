@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 0f36439cba4a946fb05466f2d961e537196f0095
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 60296400c40a1e79758dc53d60d2f1c61d79fd88
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818603"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108197"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -34,7 +34,7 @@ VNet(Virtual Network) 서비스 엔드포인트는 직접 연결을 통해 가�
 - **[Azure Database for PostgreSQL 서버](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 일반적으로 데이터베이스 서비스를 사용할 수 있는 Azure 지역에 제공됩니다.
 - **[Azure Database for MySQL 서버](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 일반적으로 데이터베이스 서비스를 사용할 수 있는 Azure 지역에 제공됩니다.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
-- **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
+- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: ADLS Gen1을 사용할 수 있는 모든 Azure 지역에서 일반 공급됩니다.

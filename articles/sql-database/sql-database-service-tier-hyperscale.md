@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 524e10b93905372377fe388a38c5dc55fdcee877
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509991"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991229"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>최대 100TB의 하이퍼스케일 서비스 계층(미리 보기)
 
@@ -32,7 +32,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 vCore 기반 구매
 > [!IMPORTANT]
 > 하이퍼스케일 서비스 계층은 현재 미리 보기 상태이며 제한된 Azure 지역에 제공됩니다. 전체 지역 목록은 [하이퍼스케일 서비스 계층 사용 가능 지역](#available-regions)을 참조하세요. 하이퍼스케일 데이터베이스에서는 프로덕션 워크로드를 아직 실행하지 않는 것이 좋습니다. 하이퍼스케일 데이터베이스는 다른 서비스 계층으로 업데이트할 수 없습니다. 테스트 목적으로 현재 데이터베이스의 복사본을 만들고 하이퍼스케일 서비스 계층에 복사본을 업데이트하는 것이 좋습니다.
 > [!NOTE]
-> vCore 기반 구매 모델의 범용 및 중요 비즈니스용 서비스 계층에 대한 자세한 내용은 [범용](sql-database-service-tier-general-purpose.md) 및 [중요 비즈니스용](sql-database-service-tier-business-critical.md) 서비스 계층을 참조하세요. vCore 기반 구매 모델과 DTU 기반 구매 모델의 비교는 [Azure SQL Database 구매 모델 및 리소스](sql-database-service-tiers.md)를 참조하세요.
+> vCore 기반 구매 모델의 범용 및 중요 비즈니스용 서비스 계층에 대한 자세한 내용은 [범용](sql-database-service-tier-general-purpose.md) 및 [중요 비즈니스용](sql-database-service-tier-business-critical.md) 서비스 계층을 참조하세요. vCore 기반 구매 모델과 DTU 기반 구매 모델의 비교는 [Azure SQL Database 구매 모델 및 리소스](sql-database-purchase-models.md)를 참조하세요.
 > [!IMPORTANT]
 > 하이퍼스케일 서비스 계층은 현재 공개 미리 보기로 제공됩니다. 하이퍼스케일 데이터베이스에서는 프로덕션 워크로드를 아직 실행하지 않는 것이 좋습니다. 하이퍼스케일 데이터베이스는 다른 서비스 계층으로 업데이트할 수 없습니다. 테스트 목적으로 현재 데이터베이스의 복사본을 만들고 하이퍼스케일 서비스 계층에 복사본을 업데이트하는 것이 좋습니다.
 
@@ -162,7 +162,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 ## <a name="next-steps"></a>다음 단계
 
 - 하이퍼스케일에 대한 FAQ는 [하이퍼스케일에 대한 질문과 대답](sql-database-service-tier-hyperscale-faq.md)을 참조하세요.
-- 서비스 계층에 대한 자세한 내용은 [서비스 계층](sql-database-service-tiers.md)을 참조하세요.
+- 서비스 계층에 대한 자세한 내용은 [서비스 계층](sql-database-purchase-models.md)을 참조하세요.
 - 서버 및 구독 수준의 한도에 관한 정보는 [SQL Database 서버의 리소스 한도 개요](sql-database-resource-limits-database-server.md)를 참조하세요.
 - 단일 데이터베이스에 대한 구매 모델 제한은 [단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
 - 기능 및 비교 목록은 [SQL 일반 기능](sql-database-features.md)을 참조하세요.

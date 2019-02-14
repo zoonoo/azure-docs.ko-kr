@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Spell Check SDK 콘솔 애플리케이션 설치
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: ee46ad5b48bc84c24dc67afd6992ad7a01214b5e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9e7b2bfd25279420272132ef54e4c970333e49c0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193525"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882049"
 ---
 # <a name="quickstart-bing-spell-check-sdk-with-c"></a>빠른 시작: C#을 사용한 Bing Spell Check SDK
 

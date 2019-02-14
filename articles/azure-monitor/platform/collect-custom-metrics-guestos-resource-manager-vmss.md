@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 465fe66eadddbdd0cb428dc868d70a1ed8f5e47f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 2b032405a2fb3b8b608228d8a739bf91dcf439ef
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476957"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895944"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -25,7 +25,7 @@ Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal)에 등록되어야 합니다. 
+- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다. 
 
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)이 설치되어 있어야 하거나, [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용할 수 있습니다. 
 

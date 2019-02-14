@@ -13,14 +13,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 49a2e16d198130d1c72d36377be1d914cbe3351b
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: fcef143f48bc9e7864fe69900e3c9002fd597fb5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745251"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001871"
 ---
-# <a name="create-a-data-factory-and-pipeline-using-python"></a>Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](quickstart-create-data-factory-python.md)
@@ -47,6 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 2.  [Azure Storage 탐색기](http://storageexplorer.com/)와 같은 도구를 사용하여 **adfv2tutorial** 컨테이너와 컨테이너에 **input** 폴더를 만듭니다. 그런 다음 **input.txt** 파일을 **input** 폴더에 업로드합니다.
 
 ## <a name="install-the-python-package"></a>Python 패키지 설치
+
 1. 관리자 권한으로 터미널 또는 명령 프롬프트를 엽니다. 
 2. 먼저, Azure 관리 리소스에 대한 Python 패키지를 설치합니다.
 
@@ -104,7 +106,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
             print("\tCopy duration: {}".format(activity_run.output['copyDuration']))
         else:
             print("\tErrors: {}".format(activity_run.error['message']))
-
     ```
 3. DataFactoryManagementClient 클래스의 인스턴스를 만드는 **Main** 메서드에 다음 코드를 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 데이터 세트 및 파이프라인을 만듭니다. 또한 이 개체를 사용하여 파이프라인 실행 세부 정보를 모니터링합니다. **subscription_id** 변수를 Azure 구독의 ID로 설정합니다. 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
@@ -165,9 +166,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     print_item(ls)
 ```
 ## <a name="create-datasets"></a>데이터 세트 만들기
+
 이 섹션에서는 원본과 싱크 각각에 대해 하나씩, 두 개의 데이터 세트를 만듭니다.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>원본 Azure Blob에 대한 데이터 세트 만들기
+
 Azure Blob 데이터 세트를 만드는 Main 메서드에 다음 코드를 추가합니다. Azure Blob 데이터 세트의 속성에 대한 자세한 내용은 [Azure Blob 커넥터](connector-azure-blob-storage.md#dataset-properties) 문서를 참조하세요.
 
 Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니다. 이 Blob 데이터 세트는 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조합니다.
@@ -184,6 +187,7 @@ Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니�
 ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob"></a>싱크 Azure Blob에 대한 데이터 세트 만들기
+
 Azure Blob 데이터 세트를 만드는 Main 메서드에 다음 코드를 추가합니다. Azure Blob 데이터 세트의 속성에 대한 자세한 내용은 [Azure Blob 커넥터](connector-azure-blob-storage.md#dataset-properties) 문서를 참조하세요.
 
 Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니다. 이 Blob 데이터 세트는 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조합니다.
@@ -218,7 +222,6 @@ Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니�
     print_item(p)
 ```
 
-
 ## <a name="create-a-pipeline-run"></a>파이프라인 실행 만들기
 
 **Main** 메서드에 **파이프라인 실행**을 트리거하는 다음 코드를 추가합니다.
@@ -232,6 +235,7 @@ Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니�
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>파이프라인 실행 모니터링
+
 파이프라인 실행을 모니터링하려면 **Main** 메서드에 다음 코드를 추가합니다.
 
 ```python
@@ -251,6 +255,7 @@ main()
 ```
 
 ## <a name="full-script"></a>전체 스크립트
+
 전체 Python 코드는 다음과 같습니다.
 
 ```python
@@ -381,6 +386,7 @@ main()
 ```
 
 ## <a name="run-the-code"></a>코드 실행
+
 애플리케이션을 빌드하고 시작한 다음, 파이프라인 실행을 확인합니다.
 
 콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 데이터 읽기/쓰기 크기와 함께 복사 활동 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)와 같은 도구를 사용하여 Blob이 변수에 지정한 대로 “inputBlobPath”에서 “outputBlobPath”로 복사되었는지 검사합니다.
@@ -417,8 +423,8 @@ Number of bytes written: 18
 Copy duration: 4
 ```
 
-
 ## <a name="clean-up-resources"></a>리소스 정리
+
 데이터 팩터리를 삭제하려면 프로그램에 다음 코드를 추가합니다.
 
 ```python
@@ -426,4 +432,5 @@ adf_client.factories.delete(rg_name,df_name)
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. [자습서](tutorial-copy-data-dot-net.md)를 통해 더 많은 시나리오에서의 데이터 팩터리 사용에 관해 알아보세요.

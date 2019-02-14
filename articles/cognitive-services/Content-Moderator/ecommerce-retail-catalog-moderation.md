@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 지정된 레이블로 제품 이미지를 분석 및 분류(Azure Computer Vision 및 Custom Vision 사용)하고 불쾌한 이미지는 추가 검토하도록 태그를 지정(Azure Content Moderator 사용)할 애플리케이션을 설정합니다.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 833aa9caed3d1fd5d39a0c15e9fc03ad32091834
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 41437933f715af092dea563b0b1be4794c71925c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218906"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863162"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 

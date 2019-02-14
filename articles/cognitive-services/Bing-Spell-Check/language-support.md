@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bing Spell Check API에서 지원하는 자연 언어 목록입니다.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: nolachar
-ms.openlocfilehash: 8eccfda4481fea4c305aeb59282fb5d24b845f9e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 00636c991a3872c4a310d74a74a5ca8be9ec8964
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181404"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869214"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Bing Spell Check API에 대한 언어 및 지역 지원
 

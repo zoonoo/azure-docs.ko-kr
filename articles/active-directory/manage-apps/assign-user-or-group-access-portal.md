@@ -2,21 +2,22 @@
 title: Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당 | Microsoft Docs
 description: Azure Active Directory에서 사용자 또는 그룹을 할당할 엔터프라이즈 앱을 선택하는 방법
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: luleon
-ms.openlocfilehash: 6596a814841619d7b42599d381d79c98f672ec85
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0dd3bd1f3f9f175ba7bf841b1fce45bb7938c02b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196483"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209509"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당
 엔터프라이즈 앱에 사용자 또는 그룹을 할당하려면 엔터프라이즈 앱을 관리하기 위한 적절한 권한이 있어야 하고 해당 디렉터리에 대한 전역 관리자여야 합니다.

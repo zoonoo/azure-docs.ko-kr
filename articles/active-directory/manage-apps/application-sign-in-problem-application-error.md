@@ -3,8 +3,8 @@ title: 로그인한 후 애플리케이션 페이지의 오류 | Microsoft Docs
 description: 애플리케이션 자체에서 오류를 내보내는 경우 Azure AD 로그인에서 발생한 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 98824a823b3cc696fe45977424655ce47d76d9fe
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 78c9d31d9a9b5a878b0e0d5c61dc0fd79ee0c55e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177817"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206602"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>로그인한 후 애플리케이션 페이지의 오류
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 Azure Computer Vision 서비스를 웹앱에 통합하여 이미지에 대한 메타데이터를 생성하는 방법을 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 67fa7a012923ba100c8d118f7e002b20c187f661
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 650696d1eb3979447bffa7312e91b4fe1a57652c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224006"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865015"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>자습서: Computer Vision을 사용하여 Azure Storage에서 이미지 메타데이터 생성
 

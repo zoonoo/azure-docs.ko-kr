@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 이 자습서를 사용하여 검색 쿼리를 Bing News API에 보낼 수 있는 단일 페이지 웹 애플리케이션을 빌드하고 웹 페이지 내에 결과를 표시합니다.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: fc07c825c6de4f9cf0e331d80f7838edf4ff3792
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 29539ba39e724208093910f8fb6fa2d3bc309bda
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197758"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55885041"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>자습서: 단일 페이지 웹앱 만들기
 

@@ -3,7 +3,7 @@ title: 지원 가능성 - Azure Dedicated HSM | Microsoft Docs
 description: 다양한 시나리오에서 Azure Dedicated HSM의 지원 옵션 및 책임 영역
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 2ed6a79b8736a1d3b472e31ce643c0d1ee085bbb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 23c509f6f219b708fc259ee123d73948ebe50773
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085912"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114487"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure Dedicated HSM 지원 가능성
 

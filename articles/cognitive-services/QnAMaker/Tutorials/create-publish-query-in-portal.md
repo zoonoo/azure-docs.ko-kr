@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 이 포털 기반 자습서에서는 프로그래매틱 방식으로 기술 자료를 생성 및 게시한 후 기술 자료의 질문에 답변하는 방법을 안내합니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 581c47d84466f37d7c7c3ad3e98ae1749f8d9524
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b78c19d4fa6b2e5b69e5d7f46cea51d943b808fa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608650"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882151"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>자습서: 기술 자료를 만든 후 QnA Maker 포털을 통해 질문의 답변 만들기
 

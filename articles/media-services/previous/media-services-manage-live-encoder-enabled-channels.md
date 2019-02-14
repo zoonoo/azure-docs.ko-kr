@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682659"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003349"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
 
@@ -314,7 +314,7 @@ Live Encoding을 사용하도록 설정한 경우 이제 라이브 피드가 채
 | 채널 상태 | 포털 UI 표시기 | 청구 여부 |
 | --- | --- | --- |
 | 시작 중 |시작 중 |없음(일시적인 상태) |
-| 실행 중 |준비(실행 중인 프로그램이 없음)<br/>또는<br/>스트리밍(실행 중인 프로그램이 하나 이상임) |yes |
+| 실행 중 |준비(실행 중인 프로그램이 없음)<br/>또는<br/>스트리밍(실행 중인 프로그램이 하나 이상임) |예 |
 | 중지 중 |중지 중 |없음(일시적인 상태) |
 | 중지됨 |중지됨 |아니요 |
 

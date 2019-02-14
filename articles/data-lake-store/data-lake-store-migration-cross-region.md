@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: 0d27ae79ab2c14cc5fd5ca81b8b7f089e7fa294e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126227"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233051"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>지역 간 Azure Data Lake Storage Gen1 마이그레이션
 
@@ -32,7 +32,7 @@ Azure Data Lake Storage Gen1을 새 지역에서 사용할 수 있게 되므로 
 
 ## <a name="migration-considerations"></a>마이그레이션 고려 사항
 
-먼저 Data Lake Storage Gen1의 데이터를 쓰고, 읽고, 또는 처리하는 애플리케이션에 가장 적합한 마이그레이션 전략을 식별합니다. 전략을 선택할 때 애플리케이션의 가용성 요구 사항 및 마이그레이션 중에 발생하는 작동 중단 시간을 고려합니다. 예를 들어, "리프트 앤 시프트" 클라우드 마이그레이션 모델을 사용하는 방법이 가장 간단할 수 있습니다. 이 방법에서는 모든 데이터를 새 지역에 복사하는 동안 기존 지역에서 애플리케이션을 일시 정지합니다. 복사 프로세스가 완료되면 새 지역에서 애플리케이션을 다시 시작하고 이전 Data Lake Storage Gen1 계정을 삭제합니다. 마이그레이션하는 동안 가동 중지 시간이 필요합니다.
+먼저 Data Lake Storage Gen1의 데이터를 쓰고, 읽고, 또는 처리하는 응용 프로그램에 가장 적합한 마이그레이션 전략을 식별합니다. 전략을 선택할 때 애플리케이션의 가용성 요구 사항 및 마이그레이션 중에 발생하는 작동 중단 시간을 고려합니다. 예를 들어, "리프트 앤 시프트" 클라우드 마이그레이션 모델을 사용하는 방법이 가장 간단할 수 있습니다. 이 방법에서는 모든 데이터를 새 지역에 복사하는 동안 기존 지역에서 애플리케이션을 일시 정지합니다. 복사 프로세스가 완료되면 새 지역에서 응용 프로그램을 다시 시작하고 이전 Data Lake Storage Gen1 계정을 삭제합니다. 마이그레이션하는 동안 가동 중지 시간이 필요합니다.
 
 가동 중지 시간을 줄이려면 즉시 새 지역에서 새 데이터를 수집하기 시작할 수 있습니다. 필요한 최소한의 데이터가 있는 경우 새 지역에서 애플리케이션을 실행합니다. 백그라운드에서 기존 Data Lake Storage Gen1 계정의 오래된 데이터를 새 지역의 새 Azure Data Lake Storage Gen1 계정으로 계속 복사할 수 있습니다. 이 방법을 사용하여 가동 중지 시간이 없이 새 지역으로 전환합니다. 오래된 데이터를 모두 복사했다면 이전 Data Lake Storage Gen1 계정을 삭제합니다.
 
@@ -46,7 +46,7 @@ Azure Data Lake Storage Gen1을 새 지역에서 사용할 수 있게 되므로 
 
 * **대역폭 요금** Azure 지역 외부에서 데이터를 전송하기 때문에 [대역폭 요금](https://azure.microsoft.com/pricing/details/bandwidth/)이 적용됩니다.
 
-* **데이터에 대한 ACL** 파일 및 폴더에 ACL을 적용하여 새 지역에서 데이터를 보호합니다. 자세한 내용은 [Azure Data Lake Storage Gen1에 저장된 데이터 보안](data-lake-store-secure-data.md)을 참조하세요. 마이그레이션을 사용하여 ACL을 업데이트하고 조정하는 것이 좋습니다. 현재 설정과 유사한 설정을 사용할 수도 있습니다. Azure Portal, [PowerShell cmdlet](/powershell/module/azurerm.datalakestore/get-azurermdatalakestoreitempermission) 또는 SDK를 사용하여 모든 파일에 적용되는 ACL을 볼 수 있습니다.  
+* **데이터에 대한 ACL** 파일 및 폴더에 ACL을 적용하여 새 지역에서 데이터를 보호합니다. 자세한 내용은 [Azure Data Lake Storage Gen1에 저장된 데이터 보안](data-lake-store-secure-data.md)을 참조하세요. 마이그레이션을 사용하여 ACL을 업데이트하고 조정하는 것이 좋습니다. 현재 설정과 유사한 설정을 사용할 수도 있습니다. Azure Portal, [PowerShell cmdlet](/powershell/module/az.datalakestore/get-azdatalakestoreitempermission) 또는 SDK를 사용하여 모든 파일에 적용되는 ACL을 볼 수 있습니다.  
 
 * **분석 서비스의 위치** 최상의 성능을 위해 Azure Data Lake Analytics 또는 Azure HDInsight와 같은 분석 서비스가 데이터와 동일한 지역에 있어야 합니다.  
 

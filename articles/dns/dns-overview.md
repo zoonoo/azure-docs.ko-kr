@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 51869bcc2ee892bc150102595de09782eb01547c
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 07230b061f9b18e1efe6ce8c65abe0f7e7f73b34
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770523"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893497"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS란?
 
@@ -30,7 +30,7 @@ Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크�
 
  Azure DNS에서 Azure Resource Manager를 기반으로 하여 제공하는 기능은 다음과 같습니다.
 
-* [역할 기반 액세스 제어](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) - 조직에 대한 특정 작업에 액세스하는 사람을 제어할 수 있습니다.
+* [역할 기반 액세스 제어](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) - 조직에 대한 특정 작업에 액세스하는 사람을 제어할 수 있습니다.
 
 * [활동 로그](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) - 문제를 해결할 때 조직의 사용자가 리소스를 수정한 방법을 모니터링하거나 오류를 찾을 수 있습니다.
 

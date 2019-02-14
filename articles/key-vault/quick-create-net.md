@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 300ee1b01f346f7e1c118b76d64d0eda6e4d7934
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8127a7a10c117edaefc4a215366990d847a165ec
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565550"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238286"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 
@@ -176,7 +176,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 ## <a name="clean-up-resources"></a>리소스 정리
 더 이상 필요하지 않을 때 리소스 그룹, 가상 머신 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 VM에 대한 리소스 그룹을 선택하고 **삭제**를 선택합니다.
 
-[az keyvault delete](https://docs.microsoft.com/en-us/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) 명령을 사용하여 키 자격 증명 모음을 삭제합니다.
+[az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) 명령을 사용하여 키 자격 증명 모음을 삭제합니다.
 
 ```azurecli
 az keyvault delete --name

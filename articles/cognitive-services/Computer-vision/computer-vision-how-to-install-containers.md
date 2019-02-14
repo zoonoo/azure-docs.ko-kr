@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 이 단계별 자습서에서 Computer Vision용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1e7f62d35e9850202b7d55c3c3440ff88413931d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 58a22253efb6928c87937e4aba852dd93a3e4422
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473496"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978547"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>텍스트 인식 컨테이너 설치 및 구성
 
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="docker-pull-for-the-recognize-text-container"></a>텍스트 인식 컨테이너용 docker pull
 
-```Docker
+```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
 ```
 
@@ -146,18 +146,7 @@ Computer Vision 서비스에서 해당하는 REST 작업을 사용하는 방법�
 
 텍스트 인식 컨테이너는 Azure 계정의 _텍스트 인식_ 리소스를 사용하여 청구 정보를 Azure로 보냅니다. 
 
-Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터를 Microsoft로 보내지 않습니다. 
-
-`docker run` 명령은 청구 목적으로 다음 인수를 사용합니다.
-
-| 옵션 | 설명 |
-|--------|-------------|
-| `ApiKey` | 청구 정보를 추적하는 데 사용되는 _텍스트 인식_ 리소스의 API 키입니다. |
-| `Billing` | 청구 정보를 추적하는 데 사용되는 _텍스트 인식_ 리소스의 엔드포인트입니다.|
-| `Eula` | 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.<br/>이 옵션의 값은 `accept`로 설정해야 합니다. |
-
-> [!IMPORTANT]
-> 세 가지 옵션을 모두 유효한 값으로 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 이러한 옵션에 대한 자세한 내용은 [컨테이너 구성](./computer-vision-resource-container-config.md)을 참조하세요.
 

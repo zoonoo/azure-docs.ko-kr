@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6776eeb3cfdef98084c36a9441acafb8de1ab5b2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 243697c20f10a019a73326c3bd79e23fc3342640
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720325"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113603"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>자습서: Azure Data Box Edge 설치(미리 보기)
 
@@ -61,7 +61,7 @@ ms.locfileid: "53720325"
 
 시작하기 전에
 
-- Data Box Edge를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Data Box Edge 네트워킹 요구 사항](data-box-gateway-system-requirements.md#networking-requirements)을 참조하세요.
+- Data Box Edge를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Data Box Edge 네트워킹 요구 사항](data-box-edge-system-requirements.md#networking-port-requirements)을 참조하세요.
 
 - 디바이스가 최적으로 작동할 수 있도록 최소 인터넷 대역폭이 20Mbps인지 확인합니다.
 

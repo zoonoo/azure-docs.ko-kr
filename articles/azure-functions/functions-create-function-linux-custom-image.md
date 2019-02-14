@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 7b7a239d6c96d1d5b257828ebd49c25c5bafc827
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2c80f988583571f3394a29747a6f452951cea878
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700811"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978037"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기(미리 보기)
 
@@ -93,7 +93,7 @@ cd MyFunctionProj
 
 프로젝트 루트 폴더에서 _Dockerfile_을 확인합니다. 이 파일은 Linux에서 함수 앱을 실행하는 데 필요한 환경을 설명합니다. 다음 예제는 JavaScript(Node.js) 작업자 런타임에서 함수 앱을 실행하는 컨테이너를 만드는 Dockerfile입니다. 
 
-```docker
+```Dockerfile
 FROM mcr.microsoft.com/azure-functions/node:2.0
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot
@@ -232,7 +232,7 @@ _deployment-container-image-name_ 매개 변수는 Docker 허브에서 호스팅
 이 경우 `<storage_account>`는 만든 기본 저장소 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account) 명령으로 연결 문자열을 가져옵니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령으로 이 응용 프로그램 설정을 추가합니다.
 
 ```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \
+$storageConnectionString=$(az storage account show-connection-string \
 --resource-group myResourceGroup --name <storage_account> \
 --query connectionString --output tsv)
 

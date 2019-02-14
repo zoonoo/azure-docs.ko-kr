@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 Cognitive Services Speech SDK를 사용하여 C# UWP(유니버설 Windows 플랫폼) 애플리케이션을 만드는 방법을 설명합니다. 디바이스에서 마이크를 사용하여 실시간으로 음성을 텍스트로 기록합니다. 이 애플리케이션은 Speech SDK NuGet 패키지 및 Microsoft Visual Studio 2017로 빌드되었습니다.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: b6b7ec6e6601c37ce66147ba635693205f2a05b5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f29848098a99352e4e9e7a3caac4d074ebcb24b0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224363"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878513"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식
 

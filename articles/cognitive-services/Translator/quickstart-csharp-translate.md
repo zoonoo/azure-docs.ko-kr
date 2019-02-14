@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 C#과 함께 Translator Text API를 사용하여 텍스트를 한 언어에서 다른 언어로 번역합니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: erhopf
-ms.openlocfilehash: fbe89d938157cebd7fa605f07cee8b198de062d2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 81069fde39eb2650082051b5f8b55431d8b32916
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214520"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884718"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>빠른 시작: Translator Text API를 사용하여 C#을 통해 문자열 번역
 

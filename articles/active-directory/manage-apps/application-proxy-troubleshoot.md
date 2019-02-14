@@ -3,8 +3,8 @@ title: 애플리케이션 프록시 문제 해결 | Microsoft Docs
 description: Azure AD 애플리케이션 프록시에서 오류를 해결하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: e6560209d3dd4fe2185e0f5b16c29bf235223805
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ee78516cbed46174e98c483970a21d740eac6829
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167498"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209628"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>애플리케이션 프록시 문제 및 오류 메시지 문제 해결
 게시된 애플리케이션에 액세스할 때나 애플리케이션을 게시할 때 오류가 발생한다면 다음 옵션을 확인하여 Microsoft Azure AD 애플리케이션 프록시가 올바르게 작동하는지 확인합니다.

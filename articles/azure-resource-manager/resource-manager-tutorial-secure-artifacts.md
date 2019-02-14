@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c83865835dfff4013072757c8f40a8d8fc83deaa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8be7a3d862e7b496a4e3b3077e4c53018bf97bb8
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493248"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233322"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>자습서: Azure Resource Manager 템플릿 배포에서 아티팩트 보호
 
@@ -195,10 +195,11 @@ PowerShell 스크립트를 사용하여 이러한 단계를 자동화하려면 [
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 배포 절차는 [템플릿 배포](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) 섹션을 참조하세요. 다음 PowerShell 배포 스크립트를 대신 사용합니다.
 
 ```azurepowershell
-$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
@@ -208,7 +209,7 @@ $artifactsLocationSasToken = Read-Host -Prompt "Enter the artifacts location SAS
 $bacpacFileName = Read-Host -Prompt "Enter the BACPAC file name"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `

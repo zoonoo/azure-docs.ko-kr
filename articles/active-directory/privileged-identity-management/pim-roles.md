@@ -13,12 +13,13 @@ ms.subservice: pim
 ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 80fbad64cda9267e468f9385d48dd5d40468eaca
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 666b534c3ab07be2b1e2335015fc4723782a1249
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203422"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56181578"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>PIM에서 관리할 수 없는 역할
 
@@ -43,6 +44,5 @@ Exchange 관리자 및 SharePoint 관리자를 제외한 Exchange Online 또는 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM 사용 시작](pim-getting-started.md)
 - [PIM에서 Azure AD 디렉터리 역할 할당](pim-how-to-add-role-to-user.md)
 - [PIM에서 Azure 리소스 역할 할당](pim-resource-roles-assign-roles.md)

@@ -7,14 +7,14 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 2b035243e577adbbefa866acbae6243a9e7e9a31
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6fe4f391b5337929efc3f6190a925fd1e967cf1c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283309"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999354"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 개인 모델 사용자 지정
 
@@ -56,10 +56,10 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|yes|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|yes|계정의 GUID(Globally Unique Identifier)입니다.|
-|이름|string|yes|개인 모델의 이름입니다.|
-|accessToken|string|yes|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|이름|string|예|개인 모델의 이름입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -101,10 +101,10 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|yes|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|yes|계정의 GUID(Globally Unique Identifier)입니다.|
-|id|string|yes|개인 모델 ID(개인 모델을 만들 때 생성됨)입니다.|
-|accessToken|string|yes|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|id|string|예|개인 모델 ID(개인 모델을 만들 때 생성됨)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -138,9 +138,9 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|yes|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|yes|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|string|yes|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -193,12 +193,12 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|string|yes|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|string|yes|계정의 GUID(Globally Unique Identifier)입니다.|
-|videoId|string|yes|업데이트할 얼굴이 표시되는 비디오의 ID입니다. 비디오를 업로드하고 인덱싱할 때 생성됩니다.|
-|faceId|정수|yes|업데이트할 얼굴의 ID입니다. 비디오 인덱스에서 faceId를 가져올 수 있습니다.|
-|accessToken|string|yes|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
-|이름|string|yes|얼굴을 업데이트할 새 이름입니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|videoId|string|예|업데이트할 얼굴이 표시되는 비디오의 ID입니다. 비디오를 업로드하고 인덱싱할 때 생성됩니다.|
+|faceId|정수|예|업데이트할 얼굴의 ID입니다. 비디오 인덱스에서 faceId를 가져올 수 있습니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|이름|string|예|얼굴을 업데이트할 새 이름입니다.|
 
 이름은 개인 모델에서 고유하므로 동일한 개인 모델에 있는 두 개의 다른 얼굴에 동일한 **name** 매개 변수 값을 제공하는 경우 Video Indexer는 얼굴을 동일한 개인으로 보고, 비디오가 다시 인덱싱될 때 통합합니다. 
 

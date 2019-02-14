@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 .NET Core 및 Translator Text API를 사용하여 용어의 대체 번역과 대체 번역의 사용 예제를 가져오는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: a51485e383be4c7a492328064d0afcf92a385242
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7ab37122697170d62789ef5872a2815cd8c55bb0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218634"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884684"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>빠른 시작: C#을 사용하여 이중 언어 사전이 있는 단어 조회
 

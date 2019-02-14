@@ -1,26 +1,26 @@
 ---
 title: Azure Cache for Redis를 사용하는 Python 앱 만들기 빠른 시작 | Microsoft Docs
 description: 이 빠른 시작에서는 Azure Cache for Redis를 사용하는 Python 앱을 만드는 방법을 알아봅니다.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: v-lincan
 ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
 ms.topic: quickstart
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/11/2018
-ms.author: wesmc
+ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e9faf30d591cab513695ece1d68704e5bef4ce9c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f34021ee657626b3cf81e39ba01cafb3af5d1f50
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53018938"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237997"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>빠른 시작: Python에서 Azure Cache for Redis 사용
 
@@ -105,7 +105,7 @@ Python을 사용하여 스크립트를 실행합니다.
 
 다른 자습서를 계속 진행하려는 경우 이 빠른 시작에서 만든 리소스를 그대로 두었다가 다시 사용할 수 있습니다.
 
-또는, 빠른 시작 샘플 애플리케이션 사용을 마친 경우 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
+그렇지 않고, 빠른 시작 샘플 애플리케이션 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
 
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
@@ -119,7 +119,7 @@ Python을 사용하여 스크립트를 실행합니다.
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
 
-잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

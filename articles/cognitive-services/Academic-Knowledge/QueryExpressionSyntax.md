@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Academic Knowledge API에서 쿼리 식 구문을 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: c130c6cd5fcb5191195712f570db66408734200a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 95c2e9d3f54f967b3ebb434c742f69251b80573e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150876"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55872036"
 ---
 # <a name="query-expression-syntax"></a>쿼리 식 구문
 
