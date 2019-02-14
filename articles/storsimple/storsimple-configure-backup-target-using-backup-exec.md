@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 0f9f300f589a4818afb0c0de5ede94e5c4fab15e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248731"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747597"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>Backup Exec에서 백업 대상으로 StorSimple 구성
 
@@ -66,7 +66,7 @@ StorSimple은 잘 정의된 데이터(핫 데이터)의 작업 집합에서 작�
 
 StorSimple은 온-프레미스 및 클라우드 저장소에 대한 원활한 액세스를 활용하여 Microsoft Azure와 원활하게 통합된 온-프레미스 솔루션을 제공합니다.
 
-StorSimple은 SSD(Solid-State Device) 및 SAS(Serial-Attached SCSI) 저장소가 있는 온-프레미스 디바이스와 Azure Storage 간에 자동 계층화를 사용합니다. 자동 계층화는 자주 액세스하는 데이터를 SSD 및 SAS 계층에서 로컬로 유지하지만, 그렇지 않은 데이터는 Azure Storage로 이동합니다.
+StorSimple은 SSD(Solid-State Device) 및 SAS(Serial-Attached SCSI) 스토리지가 있는 온-프레미스 장치와 Azure Storage 간에 자동 계층화를 사용합니다. 자동 계층화는 자주 액세스하는 데이터를 SSD 및 SAS 계층에서 로컬로 유지하지만, 그렇지 않은 데이터는 Azure Storage로 이동합니다.
 
 StorSimple은 다음과 같은 이점을 제공합니다.
 
@@ -79,7 +79,7 @@ StorSimple은 다음과 같은 이점을 제공합니다.
 
 StorSimple은 기본 백업 대상과 보조 백업 대상이라는 두 가지 주요 배포 시나리오를 제공하지만 기본적으로는 일반 블록 저장소 디바이스입니다. StorSimple은 모든 압축 및 중복 제거를 수행합니다. 클라우드와 애플리케이션 및 파일 시스템 간에 데이터를 원활하게 전송하고 검색합니다.
 
-StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션](storsimple-overview.md)을 참조하세요. 또한 [StorSimple 8000 시리즈 기술 사양](storsimple-technical-specifications-and-compliance.md)도 검토할 수 있습니다.
+StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브리드 클라우드 스토리지 솔루션](storsimple-overview.md)을 참조하세요. 또한 [StorSimple 8000 시리즈 기술 사양](storsimple-technical-specifications-and-compliance.md)도 검토할 수 있습니다.
 
 > [!IMPORTANT]
 > StorSimple 디바이스를 백업 대상으로 사용하는 것은 StorSimple 8000 업데이트 3 이상 버전에서만 지원됩니다.
@@ -165,7 +165,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 솔루션을 최적으로 수행하려면 다음과 같은 네트워킹 모범 사례를 따르는 것이 좋습니다.
 
 -   StorSimple 계층화를 Azure에 연결하는 링크는 대역폭 요구 사항을 충족해야 합니다. 이렇게 하려면 RPO 및 RTO(복구 시간 목표) SLA와 일치하도록 인프라 스위치에 필요한 QoS(서비스 품질) 수준을 적용합니다.
--   최대 Azure Blob 저장소 액세스 대기 시간은 약 80ms여야 합니다.
+-   최대 Azure Blob Storage 액세스 대기 시간은 약 80ms여야 합니다.
 
 ### <a name="deploy-storsimple"></a>StorSimple 배포
 
@@ -183,7 +183,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 | StorSimple 배포 작업  | 추가 설명 |
 |---|---|
-| 온-프레미스 StorSimple 디바이스를 배포합니다. | 지원되는 버전: 업데이트 3 이상 버전 |
+| 온-프레미스 StorSimple 디바이스를 배포합니다. | 지원되는 버전: 업데이트 3 이상 버전. |
 | 백업 대상을 켭니다. | 다음 명령을 사용하여 백업 대상 모드를 설정하거나 해제하고 상태를 가져옵니다. 자세한 내용은 [StorSimple 디바이스에 원격으로 연결](storsimple-remote-connect.md)을 참조하세요.</br> 백업 모드 설정: `Set-HCSBackupApplianceMode -enable` </br> 백업 모드 해제: `Set-HCSBackupApplianceMode -disable` </br> 백업 모드 설정의 현재 상태 가져오기: `Get-HCSBackupApplianceMode` |
 | 백업 데이터를 저장하는 볼륨에 대한 일반적인 볼륨 컨테이너를 만듭니다. 볼륨 컨테이너에 있는 모든 데이터의 중복을 제거합니다. | StorSimple 볼륨 컨테이너는 중복 제거 도메인을 정의합니다.  |
 | StorSimple 볼륨을 만듭니다. | 볼륨 크기가 클라우드 스냅숏 기간에 영향을 주기 때문에 가능하면 예상되는 사용량에 가까운 크기로 볼륨을 만듭니다. 볼륨 크기를 조정하는 방법에 대한 내용은 [보존 정책](#retention-policies)을 참조하세요.</br> </br> 계층화된 StorSimple 볼륨을 사용하고 **자주 액세스하지 않는 보관 데이터에 이 볼륨 사용** 확인란을 선택합니다. </br> 로컬로 고정된 볼륨만 사용하는 것은 지원되지 않습니다. |
@@ -430,7 +430,7 @@ StorSimple 클라우드 스냅숏은 StorSimple 디바이스에 있는 데이터
 ### <a name="start-and-delete-cloud-snapshots-by-using-a-script"></a>스크립트를 사용하여 클라우드 스냅숏 시작 및 삭제
 
 > [!NOTE]
-> StorSimple 스냅숏을 삭제하기 전에 규정 준수 및 데이터 보존 영향을 신중하게 평가합니다. 사후 백업 스크립트를 실행하는 방법에 대한 자세한 내용은 [Backup Exec 설명서](https://www.veritas.com/support/en_US/15047.html)(영문)를 참조하세요.
+> StorSimple 스냅숏을 삭제하기 전에 규정 준수 및 데이터 보존 영향을 신중하게 평가합니다. 사후 백업 스크립트를 실행하는 방법에 대한 자세한 내용은 [Backup Exec 설명서](https://www.veritas.com/support/en_US/article.100032497.html)(영문)를 참조하세요.
 
 ### <a name="backup-lifecycle"></a>Backup 주기
 
@@ -480,11 +480,11 @@ StorSimple 디바이스에서 복원하면 모든 블록 저장소 디바이스�
 이 문서에서는 다음 문서를 참조했습니다.
 
 - [StorSimple 다중 경로 I/O 설정](storsimple-configure-mpio-windows-server.md)
-- [저장소 시나리오: 씬 프로비전](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Storage 시나리오: 씬 프로비저닝](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [GPT 드라이브 사용](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [공유 폴더의 섀도 복사본 설정](https://technet.microsoft.com/library/cc771893.aspx)
 
 ## <a name="next-steps"></a>다음 단계
 
 - [백업 세트에서 복원](storsimple-restore-from-backup-set-u2.md)하는 방법에 대해 자세히 알아보세요.
-- [장치 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행하는 방법에 대해 자세히 알아보세요.
+- [디바이스 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행하는 방법에 대해 자세히 알아보세요.

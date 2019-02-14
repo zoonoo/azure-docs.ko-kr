@@ -14,14 +14,14 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: victorh
-ms.openlocfilehash: c02e4edabdcb73bc14c64b42788cddc98d78498c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 95eb0ef48f3e0cb6e835dc0582cc652f06315d44
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964124"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992860"
 ---
-# <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Azure CLI를 통해 웹 애플리케이션 방화벽 규칙 사용자 지정
+# <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Azure CLI를 통해 웹 응용 프로그램 방화벽 규칙 사용자 지정
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-customize-waf-rules-portal.md)
@@ -44,7 +44,7 @@ az network application-gateway waf-config list-rule-sets --type OWASP
 
 다음 출력은 이전 예제에서 잘린 응답입니다.
 
-```
+```json
 [
   {
     "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",
@@ -97,7 +97,7 @@ az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP
 
 다음 출력은 이전 예제에서 잘린 응답입니다.
 
-```
+```json
 [
   {
     "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",

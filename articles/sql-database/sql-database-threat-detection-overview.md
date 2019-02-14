@@ -1,6 +1,6 @@
 ---
-title: 위협 감지 - Azure SQL Database | Microsoft Docs
-description: 위협 탐지는 Azure SQL 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 탐지합니다.
+title: 위협 탐지 - Azure SQL Database | Microsoft Docs
+description: 위협 탐지는 Azure SQL Database에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 감지합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,34 +11,34 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 4c9700344ca5b973b8dad9fd1505d15f58c06126
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451719"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729509"
 ---
-# <a name="azure-sql-database-threat-detection"></a>Azure SQL Database 위협 검색
+# <a name="azure-sql-database-threat-detection"></a>Azure SQL Database 위협 탐지
 
-[Azure SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 대한 Azure SQL 위협 탐지는 데이터베이스를 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 나타내는 비정상적인 활동을 탐지합니다.
+[Azure SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)용 위협 탐지는 데이터베이스를 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 나타내는 비정상적인 활동을 탐지합니다.
 
-위협 검색은 고급 SQL 보안 기능용 통합 패키지인 [SQL ADS(Advanced Data Security)](sql-advanced-threat-protection.md) 제품에 포함되어 있습니다. 중앙 SQL ADS 포털을 통해 위협 검색에 액세스하고 위협 검색을 관리할 수 있습니다.
+위협 탐지는 고급 SQL 보안 기능용 통합 패키지인 [ADS(Advanced Data Security)](sql-database-advanced-data-security.md) 제품에 포함되어 있습니다. 중앙 SQL ADS 포털을 통해 위협 탐지에 액세스하고 관리할 수 있습니다.
 
 > [!NOTE]
 > 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
 ## <a name="what-is-threat-detection"></a>위협 탐지란?
 
-SQL 위협 감지는 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 고객이 이를 감지하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다. 사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성 및 SQL 삽입 공격뿐만 아니라 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고도 받습니다. SQL Threat Detection은 의심스러운 활동에 대한 세부 정보와 위협을 조사하고 완화하는 방법에 대한 권장 작업을 포함한 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합합니다. SQL Threat Detection은 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터베이스에 대한 잠재적인 위협에 간단하게 대처할 수 있도록 합니다.
+위협 탐지는 비정상적인 활동에 대한 보안 경고를 제공하여 잠재적인 위협이 발생하면 고객이 이를 감지하고 대응할 수 있도록 하는 새로운 차원의 보안을 제공합니다. 사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성 및 SQL 삽입 공격뿐만 아니라 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고도 받습니다. 위협 탐지는 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합합니다. 여기에는 의심스러운 활동에 대한 세부 정보와 위협을 조사하고 완화하는 방법에 대한 권장 작업이 포함됩니다. 위협 감지는 보안 전문가가 되거나 고급 보안 모니터링 시스템을 관리할 필요 없이 데이터베이스에 대한 잠재적인 위협에 간단하게 대처할 수 있도록 합니다.
 
 완전한 조사 환경을 위해, Azure 저장소 계정의 감사 로그에 데이터베이스 이벤트를 쓰는 [SQL Database 감사](sql-database-auditing.md)를 사용하도록 설정하는 것이 좋습니다.  
 
-## <a name="azure-sql-database-threat-detection-alerts"></a>Azure SQL Database Threat Detection 경고
+## <a name="threat-detection-alerts"></a>위협 검색 경고
 
-Threat Detection for Azure SQL Database는 데이터베이스를 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 나타내는 비정상적인 활동을 감지하고 다음 경고를 트리거할 수 있습니다.
+Azure SQL Database를 위한 위협 탐지는 데이터베이스에 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 나타내는 비정상적인 활동을 감지하고 다음 경고를 트리거할 수 있습니다.
 
-- **SQL 삽입 취약성**: 애플리케이션에서 데이터베이스에 잘못된 SQL 문을 생성하면 이 경고가 트리거됩니다. 이 경고는 SQL 삽입 공격에 대한 가능한 취약점을 나타낼 수 있습니다. 잘못된 문 생성에 대한 두 가지 가능한 이유가 있습니다.
+- **SQL 삽입에 대한 취약성**: 애플리케이션에서 데이터베이스에 잘못된 SQL 문을 생성하면 이 경고가 트리거됩니다. 이 경고는 SQL 삽입 공격에 대한 가능한 취약점을 나타낼 수 있습니다. 잘못된 문 생성에 대한 두 가지 가능한 이유가 있습니다.
 
   - 잘못된 SQL문을 구성하는 애플리케이션 코드의 결함
   - 애플리케이션 코드 또는 저장 프로시저는 SQL 삽입에 악용될 수 있는 잘못된 SQL문을 생성할 때 사용자 입력을 삭제하지 않습니다.
@@ -67,7 +67,7 @@ Threat Detection for Azure SQL Database는 데이터베이스를 액세스하거
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Azure Portal에서 데이터베이스에 대한 위협 감지 경고 탐색
 
-SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합합니다. Azure Portal의 데이터베이스 및 SQL ATP 블레이드 내에 있는 라이브 SQL 위협 검색 타일에서는 활성 위협의 상태를 추적합니다.
+위협 탐지는 해당 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합합니다. Azure Portal의 데이터베이스 및 SQL ATP 블레이드 내에 있는 라이브 SQL 위협 검색 타일에서는 활성 위협의 상태를 추적합니다.
 
 **위협 탐지 경고**를 클릭하면 Azure Security Center 경고 페이지가 시작되고 데이터베이스 또는 데이터 웨어하우스에서 탐지된 활성 SQL 위협에 대한 개요가 제공됩니다.
 
@@ -77,9 +77,9 @@ SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.mi
 
 ## <a name="next-steps"></a>다음 단계
 
-- [독립 실행형 데이터베이스와 풀링된 데이터베이스에서 위협 검색](sql-database-threat-detection.md)에 대해 자세히 알아봅니다.
-- [Managed Instance 위협 탐지](sql-database-managed-instance-threat-detection.md)에 대한 자세한 정보
-- [SQL Advanced Data Security](sql-advanced-threat-protection.md)에 대해 자세히 알아봅니다.
-- [Azure SQL Database 감사](sql-database-auditing.md)에 대한 자세한 정보
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보
+- [독립 실행형 및 풀링된 데이터베이스의 위협 탐지](sql-database-threat-detection.md)에 대해 자세히 알아봅니다.
+- [관리되는 인스턴스의 위협 탐지](sql-database-managed-instance-threat-detection.md)에 대해 자세히 알아봅니다.
+- [고급 데이터 보안](sql-database-advanced-data-security.md)에 대해 자세히 알아봅니다.
+- [Azure SQL Database 감사](sql-database-auditing.md)에 대해 자세히 알아봅니다.
+- [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대해 자세히 알아봅니다.
 - 가격 책정에 대한 자세한 내용은 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.  

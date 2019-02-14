@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 52e1a7bf3e8f8770e4ba4f931c4d7427a7362f2f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2ed9d9fd020bb14db7e1d171a32c25239d7ee802
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227086"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736151"
 ---
 Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제가 발생할 때 가상 머신에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 보낼 수 있습니다.
 
@@ -31,8 +31,8 @@ Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제�
 
 두 컬렉션 모드에서 다음 구조의 컬렉션을 사용하여 추가 데이터 수집 폴더를 지정할 수 있습니다.
 
-* **이름**: 수집된 파일이 포함된 zip 파일 내의 하위 폴더의 이름으로 사용될 컬렉션의 이름입니다.
-* **위치**: 수집되는 파일이 배치될 가상 머신의 폴더 경로입니다.
+* **이름**: 수집된 파일이 포함된 Zip 파일 내의 하위 폴더의 이름으로 사용되는 컬렉션의 이름입니다.
+* **위치**: 수집될 파일이 배치될 가상 머신의 폴더 경로입니다.
 * **SearchPattern**: 수집할 파일의 이름 패턴입니다. 기본값은 “\*”입니다.
 * **재귀**: 수집되는 파일이 지정된 위치에 재귀적으로 배치됩니다.
 
@@ -178,10 +178,10 @@ param (
 * **역할**: "WebRole1" 또는 "WorkerRole1"과 같은 역할 목록입니다.
 * **인스턴스**: 쉼표로 구분된 역할 인스턴스의 이름 목록입니다. 모든 역할 인스턴스에 대해 와일드카드 문자열(“*”)을 사용합니다.
 * **슬롯**: 슬롯 이름입니다. “프로덕션” 또는 “스테이징”입니다.
-* **모드**: 컬렉션 모드입니다. "Full" 또는 "GA"입니다.
-* **StorageAccountName**: 수집된 데이터를 저장하기 위한 Azure 저장소 계정의 이름입니다.
-* **StorageAccountKey**: Azure 저장소 계정 키의 이름입니다.
-* **AdditionalDataLocationList**: 다음 구조의 목록입니다.
+* **모드**: 수집 모드입니다. "Full" 또는 "GA"입니다.
+* **StorageAccountName**: 수집된 데이터를 저장하기 위한 Azure 스토리지 계정의 이름입니다.
+* **StorageAccountKey**: Azure Storage 계정 키 이름입니다.
+* **AdditionalDataLocationList**: 다음 구조의 목록:
 
   ```powershell
   {
@@ -258,10 +258,10 @@ param (
 
 * **ServiceName**: 클라우드 서비스 이름입니다.
 * **VMName**: VM의 이름입니다.
-* **모드**: 컬렉션 모드입니다. "Full" 또는 "GA"입니다.
-* **StorageAccountName**: 수집된 데이터를 저장하기 위한 Azure 저장소 계정의 이름입니다.
-* **StorageAccountKey**: Azure 저장소 계정 키의 이름입니다.
-* **AdditionalDataLocationList**: 다음 구조의 목록입니다.
+* **모드**: 수집 모드입니다. "Full" 또는 "GA"입니다.
+* **StorageAccountName**: 수집된 데이터를 저장하기 위한 Azure 스토리지 계정의 이름입니다.
+* **StorageAccountKey**: Azure Storage 계정 키 이름입니다.
+* **AdditionalDataLocationList**: 다음 구조의 목록:
 
   ```
   {
@@ -374,7 +374,7 @@ else
 }
 
 #
-#This is an optional step: generate a sasUri to the container so it can be shared with other people if nened
+#This is an optional step: generate a sasUri to the container so it can be shared with other people if needed.
 #
 $SasExpireTime = [DateTime]::Now.AddMinutes(120).ToString("o")
 $SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rl -Context $context
@@ -449,7 +449,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
+Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

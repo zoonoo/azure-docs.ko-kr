@@ -8,25 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 402a4d59b57803b8a9c0094799ceee6a92df43f9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911356"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694621"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight의 OS 패치 
 
 > [!IMPORTANT]
-> Ubuntu 이미지는 게시된 날부터 3개월 이내에 새 HDInsight 클러스터를 만드는 데 사용할 수 있게 됩니다. 2019년 1월부터 실행 중인 클러스터는 자동 패치되지 **않습니다**. 고객이 스크립트 동작이나 기타 메커니즘을 사용하여 실행 중인 클러스터를 패치해야 합니다.
+> Ubuntu 이미지는 게시된 날부터 3개월 이내에 새 HDInsight 클러스터를 만드는 데 사용할 수 있게 됩니다. 2019년 1월부터 실행 중인 클러스터는 자동 패치되지 **않습니다**. 고객이 스크립트 동작이나 기타 메커니즘을 사용하여 실행 중인 클러스터를 패치해야 합니다. 항상 새로 만든 클러스터에는 최신 보안 패치를 포함한 사용 가능한 최신 업데이트가 있습니다.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Linux 기반 HDInsight 클러스터의 OS 패치 일정을 구성하는 방법
-중요한 보안 패치를 설치할 수 있도록 간혹 HDInsight 클러스터에서 가상 머신을 다시 부팅해야 합니다. 새 Linux 기반 HDInsight 클러스터(버전 3.4 이상)는 2016년 8월 1일을 기준으로 다음 일정을 사용하여 다시 부팅됩니다.
-
-1. 패치를 위해 30일 기간 내에서 최대 한 번 클러스터에 있는 가상 머신을 다시 부팅할 수 있습니다.
-2. 다시 부팅은 오전 12시(UTC)에 시작합니다.
-3. 다시 부팅 프로세스 중 클러스터를 계속 사용할 수 있도록 다시 부팅 프로세스는 가상 머신 클러스터에 걸쳐 지연됩니다.
-4. 새로 만든 클러스터의 첫 번째 다시 부팅은 클러스터 생성 날짜 이후 30일이 지나기 전에 일어나지 않습니다.
+중요한 보안 패치를 설치할 수 있도록 간혹 HDInsight 클러스터에서 가상 머신을 다시 부팅해야 합니다. 
 
 이 문서에서 설명한 스크립트 작업을 사용하여 다음과 같이 OS 패치 일정을 수정할 수 있습니다.
 1. 자동 다시 부팅 사용 또는 사용 안 함

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b2b5d62c54fbfdef8a5e448a089800eedcb66d07
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827502"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700080"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Azure로 마이그레이션된 워크로드 보안 유지 및 관리 모범 사례
 
@@ -400,8 +400,7 @@ Azure VM은 Azure Storage에 페이지 Blob으로 저장됩니다.
 - Blob 스냅숏을 만드는 방법을 [알아봅니다](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots).
 - Blob 스토리지 백업에 대한 [샘플 시나리오를 검토합니다](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup).
 - 일시 삭제에 대해 [읽어봅니다](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).
-- Azure Storage 중단이 발생할 경우 수행할 작업을 [검토합니다](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
+- [Azure Storage에서 재해 복구 및 강제 장애 조치(Failover) (미리 보기)](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 #### <a name="third-party-backup"></a>타사 백업
 
@@ -517,7 +516,7 @@ PaaS 워크로드 예제에 대해 재해 복구 옵션을 고려해 보세요.
 - 재해 복구를 위한 Azure SQL Database 101에 대해 [읽어봅니다](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/).
 - 활성 지역 복제 및 장애 조치(failover) 그룹의 [개요를 확인합니다](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
 - 재해 복구용 디자인에 대해 [알아봅니다](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery).
-- 장애 조치(failover) 그룹에 대한 [모범 사례를 확인합니다](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview#best-practices-of-using-failover-groups-for-business-continuity).
+- 장애 조치(failover) 그룹에 대한 [모범 사례를 확인합니다](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
 - 지역 복원 또는 장애 조치(failover) 이후의 보안에 대한 [모범 사례를 확인합니다](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config).
 - 영역 중복에 대해 [알아봅니다](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration).
 - SQL Database용 재해 복구 훈련을 수행하는 방법을 [알아봅니다](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills).

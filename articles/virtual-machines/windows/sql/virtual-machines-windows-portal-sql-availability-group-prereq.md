@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359836"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818025"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines에 Always On 가용성 그룹을 만들기 위한 필수 구성 요소 완료
 
@@ -413,7 +413,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 
 ### <a name="setServiceAccount"></a>SQL Server 서비스 계정 설정
 
-각 SQL Server VM에서 SQL Server 서비스 계정을 설정합니다. [도메인 계정을 구성](#DomainAccounts)할 때 만든 계정을 사용합니다.
+각 SQL Server VM에서 SQL Server 서비스 계정을 설정합니다. 도메인 계정을 구성할 때 만든 계정을 사용합니다.
 
 1. **SQL Server 구성 관리자**를 엽니다.
 2. SQL Server 서비스를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.

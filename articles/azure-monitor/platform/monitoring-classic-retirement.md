@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 3c1896dc756675b838b97d978cec40b4650760fe
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9164c335eb85676a419c1cb805b2217ea73c40fe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298971"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497828"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
@@ -63,7 +63,7 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 - 새 경고 플랫폼으로 마이그레이션된 경고 규칙은 이전처럼 모니터링 범위를 제공하지만 새 페이로드를 사용하여 알림을 생성합니다. 클래식 경고 규칙과 연결된 모든 이메일 주소, 웹후크 엔드포인트 또는 논리 앱 링크는 마이그레이션 시에 이월되지만, 새 플랫폼에서는 경고 페이로드가 달라지므로 올바르게 동작하지 않을 수도 있습니다.
 
 > [!IMPORTANT]
-> Microsoft Azure 모니터에서는 클래식 경고 규칙을 새 플랫폼으로 자동 마이그레이션하는 도구가 고객에게 곧 제공될 예정입니다. 그리고 2019년 7월부터는 계속 사용 중인 모든 클래식 경고 규칙에 대해 이 도구를 반드시 실행해야 합니다. 고객은 클래식 경고 규칙이 마이그레이션된 후에 [Application Insights의 통합 메트릭 및 경고](#unified-metrics-and-alerts-in-application-insights) 또는 [기타 Azure 리소스용 통합 메트릭 및 경고](#unified-metrics-and-alerts-for-other-azure-resources)에서 클래식 경고 규칙 페이로드를 사용하는 자동화 기능이 새 페이로드를 처리할 수 있도록 조정되었는지를 확인해야 합니다. 
+> Microsoft Azure Monitor에서는 클래식 경고 규칙을 새 플랫폼으로 자동 마이그레이션하는 도구가 고객에게 곧 제공될 예정입니다. 그리고 2019년 7월부터는 계속 사용 중인 모든 클래식 경고 규칙에 대해 이 도구를 반드시 실행해야 합니다. 고객은 클래식 경고 규칙이 마이그레이션된 후에 [Application Insights의 통합 메트릭 및 경고](#unified-metrics-and-alerts-in-application-insights) 또는 [기타 Azure 리소스용 통합 메트릭 및 경고](#unified-metrics-and-alerts-for-other-azure-resources)에서 클래식 경고 규칙 페이로드를 사용하는 자동화 기능이 새 페이로드를 처리할 수 있도록 조정되었는지를 확인해야 합니다. 
 
 Azure Portal의 [경고(클래식) 섹션](../../azure-monitor/platform/alerts-classic.overview.md)에서 경고를 새 Azure 경고로 자발적으로 마이그레이션할 수 있는 도구가 곧 제공될 것입니다. 새 Azure Monitor로 마이그레이션되는 경고(클래식)에 구성된 모든 규칙은 추가 비용 없이 유지되며 요금이 청구되지 않습니다. 또한 마이그레이션된 기본 경고 규칙에서 이메일, 웹후크 또는 LogicApp을 통해 알림을 푸시하는 경우에도 요금을 부담하지 않습니다. 그러나 최신 알림 또는 작업 유형(예: SMS 또는 음성 통화, ITSM 통합 등)을 사용하는 경우 마이그레이션된 경고 또는 새 경고에 추가되었는지 여부에 관계없이 비용이 청구될 수 있습니다. 자세한 내용은 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요.
 

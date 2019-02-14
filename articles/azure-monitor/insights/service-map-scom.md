@@ -13,19 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187214"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818756"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
-  > [!NOTE]
-  > 이 기능은 공개 미리 보기 상태입니다.
-  > 
-  
-서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식대로 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. 자세한 내용은 [서비스 맵 설명서]( service-map.md)를 참조하세요.
+
+서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식대로 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. 자세한 내용은 [서비스 맵 설명서]( service-map.md)를 참조하세요.
 
 서비스 맵과 System Center Operations Manager 간의 이러한 통합을 통해 서비스 맵의 동적 종속성 맵을 기준으로 하는 분산 애플리케이션 다이어그램을 Operations Manager에서 자동으로 만들 수 있습니다.
 
@@ -43,7 +40,7 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
 * Microsoft System Center Service Map
 
 ## <a name="configure-the-service-map-integration"></a>서비스 맵 통합 구성
-서비스 맵 관리 팩을 설치하면 **관리** 창의 **Operations Management Suite** 아래에 **Service Map**이라는 새 노드가 표시됩니다. 
+서비스 맵 관리 팩을 설치하면 **관리** 창의 **Operations Management Suite** 아래에 **Service Map**이라는 새 노드가 표시됩니다.
 
 >[!NOTE]
 >[Operations Management Suite은 서비스 컬렉션](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)로, Log Analytics를 포함했으며 현재는 [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md)의 일부입니다.
@@ -54,7 +51,7 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
 
     ![서비스 맵 개요 창](media/service-map-scom/scom-configuration.png)
 
-2. **연결 구성** 창에서 서비스 주체의 테넌트 이름 또는 ID, 응용 프로그램 ID(사용자 이름 또는 클라이언트 ID라고도 함) 및 암호를 입력하고 **다음**을 클릭합니다. 자세한 내용은 [서비스 주체 만들기](#creating-a-service-principal)로 이동합니다.
+2. **연결 구성** 창에서 서비스 주체의 테넌트 이름 또는 ID, 애플리케이션 ID(사용자 이름 또는 클라이언트 ID라고도 함) 및 암호를 입력한 후, **다음**을 클릭합니다. 자세한 내용은 서비스 주체 만들기를 참조하세요.
 
     ![연결 구성 창](media/service-map-scom/scom-config-spn.png)
 
@@ -63,11 +60,11 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
     ![Operations Manager 구성 작업 영역](media/service-map-scom/scom-config-workspace.png)
 
 4. **컴퓨터 그룹 선택** 창에서 Operations Manager에 동기화하려는 [서비스 맵 컴퓨터 그룹]을 선택합니다. **컴퓨터 그룹 추가/제거**를 클릭하고, **사용 가능한 컴퓨터 그룹** 목록에서 그룹을 선택하고, **추가**를 클릭합니다.  그룹 선택이 완료되면 **확인**을 클릭하여 완료합니다.
-    
+
     ![Operations Manager 구성 컴퓨터 그룹](media/service-map-scom/scom-config-machine-groups.png)
-    
+
 5. **서버 선택** 창에서 Operations Manager 및 서비스 맵 간에 동기화하려는 서버가 있는 서비스 맵 서버 그룹을 구성합니다. **서버 추가/제거**를 클릭합니다.   
-    
+
     통합 기능을 통해 서버에 대한 분산 애플리케이션 다이어그램을 만들려면 서버가 다음 조건을 충족해야 합니다.
 
     * Operations Manager에서 관리됨
@@ -91,7 +88,7 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 ![Operations Manager 모니터링 창](media/service-map-scom/scom-monitoring.png)
 
 서비스 맵 폴더에는 4개의 노드가 있습니다.
-* **활성 경고**: Operations Manager와 서비스 맵 간의 통신에 대한 모든 활성 경고를 나열합니다.  이러한 경고는 Operations Manager에 동기화되는 Log Analytics 경고가 아닙니다. 
+* **활성 경고**: Operations Manager와 서비스 맵 간의 통신에 대한 모든 활성 경고를 나열합니다.  이러한 경고는 Operations Manager에 동기화되는 Log Analytics 경고가 아닙니다.
 
 * **서버**: 서비스 맵에서 동기화하도록 구성된 모니터링 대상 서버를 나열합니다.
 
@@ -120,9 +117,9 @@ _Microsoft.SystemCenter.ServiceMapImport.Rule_ 규칙은 서비스 맵에서 주
 
 ![Operations Manager 재정의 속성 창](media/service-map-scom/scom-overrides.png)
 
-* **Enabled**: 자동 업데이트를 사용하거나 사용하지 않도록 설정합니다. 
+* **Enabled**: 자동 업데이트를 사용하거나 사용하지 않도록 설정합니다.
 * **IntervalMinutes**: 업데이트 간격을 다시 설정합니다. 기본 간격은 1시간입니다. 서버 맵을 더 자주 동기화하려면 값을 변경할 수 있습니다.
-* **TimeoutSeconds**: 요청 시간이 초과되기 전의 시간을 다시 설정합니다. 
+* **TimeoutSeconds**: 요청 시간이 초과되기 전의 시간을 다시 설정합니다.
 * **TimeWindowMinutes**: 데이터를 쿼리하기 위한 기간을 다시 설정합니다. 기본값은 60분입니다. 서비스 맵에서 허용되는 최대값은 60분입니다.
 
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항

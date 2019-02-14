@@ -47,11 +47,13 @@ items:
       href: avere-vfxt-controller-role.md
     - name: Avere 클러스터 DNS 구성
       href: avere-vfxt-configure-dns.md
-    - name: 소유자가 아닌 사용자에게 Avere vFXT 배포 권한 부여
+    - name: 소유자 권한이 없는 사용자에게 Avere vFXT 배포 권한 부여
       href: avere-vfxt-non-owner.md
-ms.openlocfilehash: ee0f2be03f44e1d458c118f5d5d963824922f99a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+  - name: 백서
+    href: avere-vfxt-whitepapers.md
+ms.openlocfilehash: add9b123138ee1242426c2ced94ed4fd2d9a742e
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300331"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246088"

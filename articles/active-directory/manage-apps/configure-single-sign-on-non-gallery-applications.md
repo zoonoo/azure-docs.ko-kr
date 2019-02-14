@@ -2,21 +2,22 @@
 title: Single Sign-On - 비 갤러리 애플리케이션 - Azure Active Directory | Microsoft Docs
 description: Azure AD(Azure Active Directory)에서 비 갤러리 애플리케이션에 대한 SSO(Single Sign-On 구성)
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
 ms.date: 01/08/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser,luleon
-ms.openlocfilehash: 1c364b3be0c2203c64e64df1bd0e4ab5ec2078a0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2804ebdbeb72bd35c7e63553184157066f9cfd32
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153882"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177304"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Azure Active Directory에서 비 갤러리 애플리케이션에 대한 Single Sign-On 구성
 

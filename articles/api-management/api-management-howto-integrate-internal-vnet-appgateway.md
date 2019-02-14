@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: da195f414da032b5274a9dc1a184b66094f245f2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444618"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493461"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
@@ -60,11 +60,11 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>API Management 및 Application Gateway 간에 통합을 만드는 데 무엇이 필요한가요?
 
 * **백 엔드 서버 풀:** API Management 서비스의 내부 가상 IP 주소입니다.
-* **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀 내의 모든 서버에 적용됩니다.
-* **프런트 엔드 포트:** Application Gateway에 열려 있는 공용 포트입니다. 이 포트에 도달한 트래픽은 백 엔드 서버 중의 하나로 리디렉션됩니다.
+* **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜, 쿠키 기반 선호도와 같은 설정이 있습니다. 이러한 설정은 풀 내의 모든 서버에 적용됩니다.
+* **프런트 엔드 포트:** 애플리케이션 게이트웨이에서 열려 있는 공용 포트입니다. 이 포트에 도달한 트래픽은 백 엔드 서버 중의 하나로 리디렉션됩니다.
 * **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 값은 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
 * **규칙:** 규칙은 수신기를 백 엔드 서버 풀에 바인딩합니다.
-* **사용자 정의 상태 프로브:** 기본적으로 Application Gateway는 IP 주소 기반 프로브를 사용하여 BackendAddressPool의 어떤 서버가 활성 상태인지 파악합니다. API Management 서비스는 올바른 호스트 헤더가 있는 요청에만 응답하므로 기본 프로브는 실패합니다. 서비스가 활성 상태이고 요청을 전달해야 한다는 것을 Application Gateway가 결정할 수 있도록 사용자 지정 상태 프로브를 정의해야 합니다.
+* **사용자 지정 상태 프로브:** 기본적으로 Application Gateway는 IP 주소 기반 프로브를 사용하여 BackendAddressPool의 어떤 서버가 활성 상태인지 파악합니다. API Management 서비스는 올바른 호스트 헤더가 있는 요청에만 응답하므로 기본 프로브는 실패합니다. 서비스가 활성 상태이고 요청을 전달해야 한다는 것을 Application Gateway가 결정할 수 있도록 사용자 지정 상태 프로브를 정의해야 합니다.
 * **사용자 지정 도메인 인증서:** 인터넷에서 API Management에 액세스하려면 Application Gateway 프런트 엔드 DNS 이름에 대한 해당 호스트 이름의 CNAME을 매핑해야 합니다. 이렇게 하면 API Management에 전달되는 Application Gateway에 전송되는 호스트 이름 헤더 및 인증서를 APIM에서 유효한 것으로 인식할 수 있습니다. 이 예제에서는 백 엔드 및 개발자 포털에 대해 두 개의 인증서를 사용합니다.  
 
 ## <a name="overview-steps"> </a> API Management 및 Application Gateway 통합에 필요한 단계
@@ -82,7 +82,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 이 가이드에서는 Application Gateway를 통해 외부 대상에게 **개발자 포털**도 노출합니다. 개발자 포털의 수신기, 프로브, 설정 및 규칙을 만드는 추가 단계가 필요합니다. 모든 세부 정보는 해당 단계에서 제공됩니다.
 
 > [!WARNING]
-> Application Gateway를 통해 액세스되는 개발자 포털의 설명된 설치에서 AAD 및 타사 인증과 관련된 문제가 발생할 수 있습니다.
+> Azure AD 또는 타사 인증을 사용하는 경우 Application Gateway에서 [쿠키 기반 세션 선호도](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) 기능을 사용하도록 설정하세요.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager에 대한 리소스 그룹 만들기
 
@@ -224,7 +224,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -name "p
 
 ### <a name="step-1"></a>1단계
 
-**gatewayIP01**이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. Application Gateway는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
+**gatewayIP01**이라는 애플리케이션 게이트웨이 IP 구성을 만듭니다. Application Gateway는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
 
 ```powershell
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
@@ -357,7 +357,7 @@ VNET에서 구성된 Azure API Management는 온-프레미스 또는 클라우�
 ##<a name="next-steps"> </a> 다음 단계
 * Azure Application Gateway에 대한 자세한 정보
   * [Application Gateway 개요](../application-gateway/application-gateway-introduction.md)
-  * [Application Gateway 웹 응용 프로그램 방화벽](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
+  * [Application Gateway 웹 애플리케이션 방화벽](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
   * [경로 기반 라우팅을 사용하는 Application Gateway](../application-gateway/application-gateway-create-url-route-arm-ps.md)
 * API Management 및 VNET에 대한 자세한 정보
   * [VNET 내에서만 사용할 수 있는 API Management 사용](api-management-using-with-internal-vnet.md)

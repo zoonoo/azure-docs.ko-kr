@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ec8fa6c06dff0091627a800c895d45fd3b0e778e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e55058d6b1f76b4afcb847b946df85d5ab69971b
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381584"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985462"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>Azure Ultra SSD를 사용하도록 설정
 
@@ -23,13 +23,13 @@ Azure Ultra SSD는Azure IaaS VM에 대한 높은 처리량, 높은 IOP 및 일�
 
 승인되면 다음 명령 중 하나를 실행하여 울트라 SSD를 배포할 미국 동부 2의 지역을 결정합니다.
 
-PowerShell: `Get-AzureRmComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
+PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
 CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS’]”`
 
 응답은 아래 형식과 유사합니다. 여기서 X는 미국 동부 2에서 배포하기 위해 사용하는 지역입니다. X는 1, 2 또는 3이 될 수 있습니다.
 
-|ResourceType  |이름  |위치  |영역  |제한  |기능  |값  |
+|ResourceType  |Name  |위치  |영역  |제한  |기능  |값  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 

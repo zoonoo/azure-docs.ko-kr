@@ -4,15 +4,15 @@ description: Azure Migrate의 Collector 어플라이언스에 대한 정보를 �
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262611"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813333"
 ---
 # <a name="about-the-collector-appliance"></a>Collector 어플라이언스 정보
 
@@ -32,7 +32,7 @@ Collector 어플라이언스는 Azure Migrate 프로젝트에 지속적으로 �
 - 이 모델은 성능 데이터를 수집할 때 vCenter Server 통계 설정을 사용하지 않습니다.
 - 언제든지 Collector에서 연속 프로파일링을 중지할 수 있습니다.
 
-**즉각적인 충족**: 지속적인 검색 어플라이언스를 사용하면 검색이 완료되고 난 후(VM의 수에 따라 몇 시간 소요) 즉시 평가를 만들 수 있습니다. 검색을 시작할 때 성능 데이터 수집이 시작되므로 즉각적인 충족을 원하는 경우 평가의 크기 조정 기준으로 *온-프레미스로*를 선택해야 합니다. 성능 기반 평가의 경우 신뢰할 수 있는 크기 권장 사항을 얻으려면 검색을 시작한 후 하루 이상 대기하는 것이 좋습니다.
+**빠른 평가:** 지속적인 검색 어플라이언스를 사용하면 검색이 완료되고 난 후(VM의 수에 따라 몇 시간 소요) 즉시 평가를 만들 수 있습니다. 검색을 시작할 때 성능 데이터 수집이 시작되므로 빠른 평가를 원하는 경우 평가의 크기 조정 기준으로 *온-프레미스로*를 선택해야 합니다. 성능 기반 평가의 경우 신뢰할 수 있는 크기 권장 사항을 얻으려면 검색을 시작한 후 하루 이상 대기하는 것이 좋습니다.
 
 애플리케이션은 성능 데이터를 연속적으로 수집할 뿐이며 온-프레미스 환경의 구성 변경(예: VM 추가, 삭제, 디스크 추가 등)은 탐지하지 않습니다. 온-프레미스 환경에서 구성 변경이 있으면 다음을 통해 포털에 변경 내용을 반영할 수 있습니다.
 
@@ -65,7 +65,7 @@ Collector는 몇 가지 필수 구성 요소 확인을 통과해야 인터넷을
 - **인터넷 연결 확인**: Collector는 인터넷에 직접 연결하거나 프록시를 통해 연결할 수 있습니다.
     - 필수 구성 요소 확인에서는 [필수 및 선택적 URL](#urls-for-connectivity)에 대한 연결을 확인합니다.
     - 인터넷에 직접 연결하는 경우에는 Collector가 필수 URL에 연결할 수 있는지를 확인하는 것 외에는 별도의 작업을 수행하지 않아도 됩니다.
-    - 프록시를 통해 연결하는 경우에는 [아래 요구 사항](#connect-via-a-proxy)을 참조하세요.
+    - 프록시를 통해 연결하는 경우에는 아래 요구 사항을 참조하세요.
 - **시간 동기화 확인**: 서비스에 대한 요청이 인증되었는지 확인하려면 Collector가 인터넷 시간 서버와 동기화 되어야 합니다.
     - 시간 유효성을 검사할 수 있도록 Collector에서 portal.azure.com URL에 연결할 수 있어야 합니다.
     - 컴퓨터가 동기화되지 않은 경우에는 Collector VM의 시계 시간을 현재 시간과 일치하도록 변경해야 합니다. 이렇게 하려면 VM에서 관리자 프롬프트를 열고 **w32tm /tz**를 실행하여 표준 시간대를 확인합니다. 그런 후에 **w32tm /resync**를 실행하여 시간을 동기화합니다.
@@ -75,7 +75,7 @@ Collector는 몇 가지 필수 구성 요소 확인을 통과해야 인터넷을
     - Collector 서비스가 vCenter Server에 연결하여 VM 메타데이터 및 성능 데이터를 수집한 다음 Azure Migrate 서비스로 전송합니다.
 - **VMware PowerCLI 6.5가 설치되어 있는지 확인**: Collector VM에 VMware PowerCLI 6.5 PowerShell 모듈이 설치되어 있어야 해당 VM이 vCenter Server와 통신할 수 있습니다.
     - Collector가 모듈을 설치하는 데 필요한 URL에 액세스할 수 있으면 Collector 배포 중에 모듈이 자동으로 설치됩니다.
-    - 배포 중에 Collector가 모듈을 설치할 수 없는 경우에는 [모듈을 수동 설치](#install-vwware-powercli-module-manually)해야 합니다.
+    - 배포 중에 Collector가 모듈을 설치할 수 없는 경우에는 모듈을 수동 설치해야 합니다.
 - **vCenter Server에 대한 연결 확인**: Collector는 vCenter Server에 연결하여 VM, 해당 메타데이터 및 성능 카운터를 쿼리할 수 있어야 합니다. 연결을 위한 [필수 구성 요소를 확인](#connect-to-vcenter-server)하세요.
 
 
@@ -101,8 +101,6 @@ Collector는 몇 가지 필수 구성 요소 확인을 통과해야 인터넷을
     ![인증서 저장소](./media/concepts-intercepting-proxy/certificate-store.png)
 
     7. 인증서를 제대로 가져왔는지, 그리고 인터넷 연결 필수 구성 요소 확인이 정상적으로 작동하는지 확인합니다.
-
-
 
 
 ### <a name="urls-for-connectivity"></a>연결에 대한 URL
@@ -150,6 +148,79 @@ Collector는 아래 다이어그램과 표에 요약되어 있는 방식으로 �
 Azure Migrate 서비스 | TCP 443 | Collector는 SSL 443을 통해 Azure Migrate 서비스와 통신합니다.
 vCenter Server | TCP 443 | Collector는 vCenter Server와 통신할 수 있어야 합니다.<br/><br/> 기본적으로는 443에서 vCenter에 연결합니다.<br/><br/> vCenter Server가 다른 포트에서 수신 대기하는 경우에는 해당 포트가 Collector에서 송신 포트로 제공되어야 합니다.
 RDP | TCP 3389 |
+
+## <a name="collected-metadata"></a>수집된 메타데이터
+
+Collector 어플라이언스는 각 VM에 대해 다음 구성 메타데이터를 검색합니다. VM의 구성 데이터는 검색을 시작하고 1시간 후에 사용 가능합니다.
+
+- vCenter Server의 VM 표시 이름
+- VM의 인벤토리 경로(vCenter Server의 호스트/폴더)
+- IP 주소
+- MAC 주소
+- 운영 체제
+- 코어, 디스크, NIC 수
+- 메모리 크기, 디스크 크기
+- VM, 디스크 및 네트워크의 성능 카운터
+
+### <a name="performance-counters"></a>성능 카운터
+
+ Collector 어플라이언스는 20초 간격으로 ESXi 호스트에서 각 VM에 대해 다음 성능 카운터를 수집합니다. 이러한 카운터는 vCenter 카운터로, 용어 자체는 평균을 의미하지만 20초 샘플은 실시간 카운터입니다. VM에 대한 성능 데이터는 검색을 실행하고 2시간 후에 포털에서 사용 가능해집니다. 정확한 크기 권장 사항을 얻을 수 있도록 성능 기반 평가를 만들기 전에 최소한 하루 이상을 기다리는 것이 좋습니다. 즉각적인 만족을 원할 경우 적절한 크기의 성능 데이터를 고려하지 않는 온-프레미스 방식의 크기 조정 기준으로 평가를 만들 수 있습니다.
+
+**카운터** |  **평가에 미치는 영향**
+--- | ---
+cpu.usage.average | 권장되는 VM 크기 및 비용  
+mem.usage.average | 권장되는 VM 크기 및 비용  
+virtualDisk.read.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
+virtualDisk.write.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
+virtualDisk.numberReadAveraged.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
+virtualDisk.numberWriteAveraged.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
+net.received.average | VM 크기 계산                          
+net.transmitted.average | VM 크기 계산     
+
+Azure Migrate에서 수집되는 VMware 카운터의 전체 목록은 아래와 같습니다.
+
+**범주** |  **Metadata** | **vCenter 데이터 요소**
+--- | --- | ---
+머신 세부 정보 | VM ID | vm.Config.InstanceUuid
+머신 세부 정보 | VM 이름 | vm.Config.Name
+머신 세부 정보 | vCenter Server ID | VMwareClient.InstanceUuid
+머신 세부 정보 |  VM 설명 |  vm.Summary.Config.Annotation
+머신 세부 정보 | 라이선스 제품 이름 | vm.Client.ServiceContent.About.LicenseProductName
+머신 세부 정보 | 운영 체제 유형 | vm.Summary.Config.GuestFullName
+머신 세부 정보 | 운영 체제 버전 | vm.Summary.Config.GuestFullName
+머신 세부 정보 | 부팅 유형 | vm.Config.Firmware
+머신 세부 정보 | 코어 수 | vm.Config.Hardware.NumCPU
+머신 세부 정보 | 메가바이트의 메모리 | vm.Config.Hardware.MemoryMB
+머신 세부 정보 | 디스크 수 | vm.Config.Hardware.Device.ToList().FindAll(x => x is VirtualDisk).count
+머신 세부 정보 | 디스크 크기 목록 | vm.Config.Hardware.Device.ToList().FindAll(x => x is VirtualDisk)
+머신 세부 정보 | 네트워크 어댑터 목록 | vm.Config.Hardware.Device.ToList().FindAll(x => x is VirtualEthernetCard)
+머신 세부 정보 | CPU 사용률 | cpu.usage.average
+머신 세부 정보 | 메모리 사용률 | mem.usage.average
+디스크 세부 정보(디스크당) | 디스크 키 값 | disk.Key
+디스크 세부 정보(디스크당) | 디스크 단위 수 | disk.UnitNumber
+디스크 세부 정보(디스크당) | 디스크 컨트롤러 키 값 | disk.ControllerKey.Value
+디스크 세부 정보(디스크당) | 프로비전된 기가바이트 | virtualDisk.DeviceInfo.Summary
+디스크 세부 정보(디스크당) | 디스크 이름 | 이 값은 disk.UnitNumber, disk.Key 및 disk.ControllerKey.Value를 사용하여 생성됨
+디스크 세부 정보(디스크당) | 초당 읽기 작업 수 | virtualDisk.numberReadAveraged.average
+디스크 세부 정보(디스크당) | 초당 쓰기 작업 수 | virtualDisk.numberWriteAveraged.average
+디스크 세부 정보(디스크당) | 초당 읽기 처리량(메가바이트) | virtualDisk.read.average
+디스크 세부 정보(디스크당) | 초당 쓰기 처리량(메가바이트) | virtualDisk.write.average
+네트워크 어댑터 세부 정보(NIC당) | 네트워크 어댑터 이름 | nic.Key
+네트워크 어댑터 세부 정보(NIC당) | MAC 주소 | ((VirtualEthernetCard)nic).MacAddress
+네트워크 어댑터 세부 정보(NIC당) | IPv4 주소 | vm.Guest.Net
+네트워크 어댑터 세부 정보(NIC당) | IPv6 주소 | vm.Guest.Net
+네트워크 어댑터 세부 정보(NIC당) | 초당 읽기 처리량(메가바이트) | net.received.average
+네트워크 어댑터 세부 정보(NIC당) | 초당 쓰기 처리량(메가바이트) | net.transmitted.average
+인벤토리 경로 세부 정보 | Name | container.GetType().Name
+인벤토리 경로 세부 정보 | 자식 개체 유형 | container.ChildType
+인벤토리 경로 세부 정보 | 참조 세부 정보 | container.MoRef
+인벤토리 경로 세부 정보 | 전체 인벤토리 경로 | 전체 경로가 포함된 container.Name
+인벤토리 경로 세부 정보 | 부모 세부 정보 | Container.Parent
+인벤토리 경로 세부 정보 | 각 VM에 대한 폴더 세부 정보 | ((Folder)container).ChildEntity.Type
+인벤토리 경로 세부 정보 | 각 VM 폴더에 대한 데이터 센터 세부 정보 | ((Datacenter)container).VmFolder
+인벤토리 경로 세부 정보 | 각 호스트 폴더에 대한 데이터 센터 세부 정보 | ((Datacenter)container).HostFolder
+인벤토리 경로 세부 정보 | 각 호스트에 대한 클러스터 세부 정보 | ((ClusterComputeResource)container).Host)
+인벤토리 경로 세부 정보 | 각 VM에 대한 호스트 세부 정보 | ((HostSystem)container).Vm
 
 
 ## <a name="securing-the-collector-appliance"></a>Collector 어플라이언스 보호
@@ -200,34 +271,6 @@ OVA를 다시 다운로드하지 않고도 Collector를 최신 버전으로 업�
 - VM이 검색되며 해당 메타데이터와 성능 데이터가 Azure로 전송됩니다. 이러한 작업은 수집 작업의 일부분입니다.
     - Collector 어플라이언스에는 모든 검색에서 특정 컴퓨터에 대해 동일하게 유지되는 특정 Collector ID가 지정됩니다.
     - 실행 중인 수집 작업에는 특정 세션 ID가 지정됩니다. ID는 각 수집 작업마다 변경되며 문제 해결 시에 사용할 수 있습니다.
-
-### <a name="collected-metadata"></a>수집된 메타데이터
-
-Collector 어플라이언스는 각 VM에 대해 다음 구성 메타데이터를 검색합니다. VM의 구성 데이터는 검색을 시작하고 1시간 후에 사용 가능합니다.
-
-- vCenter Server의 VM 표시 이름
-- VM의 인벤토리 경로(vCenter Server의 호스트/폴더)
-- IP 주소
-- MAC 주소
-- 운영 체제
-- 코어, 디스크, NIC 수
-- 메모리 크기, 디스크 크기
-- VM, 디스크 및 네트워크의 성능 카운터
-
-#### <a name="performance-counters"></a>성능 카운터
-
- Collector 어플라이언스는 20초 간격으로 ESXi 호스트에서 각 VM에 대해 다음 성능 카운터를 수집합니다. 이러한 카운터는 vCenter 카운터로, 용어 자체는 평균을 의미하지만 20초 샘플은 실시간 카운터입니다. VM에 대한 성능 데이터는 검색을 실행하고 2시간 후에 포털에서 사용 가능해집니다. 정확한 크기 권장 사항을 얻을 수 있도록 성능 기반 평가를 만들기 전에 최소한 하루 이상을 기다리는 것이 좋습니다. 즉각적인 만족을 원할 경우 적절한 크기의 성능 데이터를 고려하지 않는 온-프레미스 방식의 크기 조정 기준으로 평가를 만들 수 있습니다.
-
-**카운터** |  **평가에 미치는 영향**
---- | ---
-cpu.usage.average | 권장되는 VM 크기 및 비용  
-mem.usage.average | 권장되는 VM 크기 및 비용  
-virtualDisk.read.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
-virtualDisk.write.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
-virtualDisk.numberReadAveraged.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
-virtualDisk.numberWriteAveraged.average | 디스크 크기, 저장소 비용 및 VM 크기 계산
-net.received.average | VM 크기 계산                          
-net.transmitted.average | VM 크기 계산     
 
 ## <a name="next-steps"></a>다음 단계
 

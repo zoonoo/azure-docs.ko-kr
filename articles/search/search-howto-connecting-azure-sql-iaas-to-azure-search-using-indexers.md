@@ -6,28 +6,32 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 02/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 90e5a133bac519cbc5ab2d7b112d51a019e8f698
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312033"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751381"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure Search 인덱서로부터 SQL Server로의 연결 구성
 [인덱서를 사용하여 Azure Search에 Azure SQL Database 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)에 설명된 것처럼 Azure Search에서는 **Azure VM SQL Server**(줄여서 **SQL Azure VM**)에 대해 인덱서를 만드는 것을 지원하지만 먼저 몇 가지 보안 관련 필수 구성 요소에 유의해야 합니다. 
 
-**작업 기간:** 약 30분, VM에 인증서를 이미 설치했다고 가정합니다.
+Azure Search에서 VM의 SQL Server에 연결은 공용 인터넷 연결입니다. 이러한 연결에 대해 일반적으로 따를 수 있는 모든 보안 조치는 여기에도 적용됩니다.
+
++ Azure VM에 있는 SQL Server 인스턴스의 정규화된 도메인 이름에 대해 [인증 기관 공급자](https://en.wikipedia.org/wiki/Certificate_authority#Providers)에서 인증서를 가져옵니다.
++ VM에 인증서를 설치한 다음, 이 문서의 지침을 사용하여 암호화된 연결을 사용하도록 설정하고 구성합니다.
 
 ## <a name="enable-encrypted-connections"></a>암호화 연결 사용
 Azure Search에는 공용 인터넷 연결을 통한 모든 인덱서 요청에 대한 암호화된 채널이 필요합니다. 이 섹션에는 작동하도록 하는 단계가 나열되어 있습니다.
 
 1. 인증서의 속성을 확인하여 주체 이름이 Azure VM의 정규화된 도메인 이름(FQDN)인지 확인합니다. 속성을 보기 위해 CertUtils 또는 인증서 스냅인과 같은 도구를 사용할 수 있습니다. VM 서비스 블레이드의 필수 패키지 섹션, **공용 IP 주소/DNS 이름 레이블** 필드, [Azure 포털](https://portal.azure.com/)에서 FQDN을 가져올 수 있습니다.
    
-   * 최신 **Resource Manager** 템플릿을 사용하여 만든 VM의 경우 FQDN 형식은 `<your-VM-name>.<region>.cloudapp.azure.com`과 같습니다. 
-   * **클래식** VM으로 만든 이전 VM의 경우 FQDN 형식은 `<your-cloud-service-name.cloudapp.net>`과 같습니다. 
+   * 최신 **Resource Manager** 템플릿을 사용하여 만든 VM의 경우 FQDN 형식은 `<your-VM-name>.<region>.cloudapp.azure.com`과 같습니다.
+   * **클래식** VM으로 만든 이전 VM의 경우 FQDN 형식은 `<your-cloud-service-name.cloudapp.net>`과 같습니다.
+
 2. 레지스트리 편집기(regedit)를 사용하여 인증서를 사용하도록 SQL Server를 구성합니다. 
    
     이 작업에는 보통 SQL Server 구성 관리자가 사용되지만 이 시나리오에 대해서는 사용할 수 없습니다. Azure에서 VM의 FQDN이 VM에서 결정한 것과 일치하지 않으므로 가져온 인증서를 찾지 못합니다(로컬 컴퓨터 또는 가입된 네트워크 도메인으로 도메인 식별). 이름이 일치하지 않는 경우 regedit를 사용하여 인증서를 지정합니다.
@@ -38,9 +42,11 @@ Azure Search에는 공용 인터넷 연결을 통한 모든 인덱서 요청에 
    * **인증서** 키의 값을 VM으로 가져온 SSL 인증서의 **지문**으로 설정합니다.
      
      지문을 가져오는 방법에는 여러 가지가 있으며 여기에는 보다 나은 방법이 있습니다. MMC의 **인증서** 스냅인에서 복사하는 경우 [이 지원 문서에 설명된 대로](https://support.microsoft.com/kb/2023869/)보이지 않는 선행 문자를 선택할 가능성이 있으며 이로 인해 연결을 시도할 때 오류가 발생합니다. 이 문제를 해결하기 위한 여러 가지 해결 방법이 존재합니다. 가장 쉬운 방법은 백스페이스 키로 덮은 후 지문의 첫 문자를 다시 입력하여 regedit의 키 값 필드에서 선행 문자를 제거하는 것입니다. 또는 다른 도구를 사용하여 지문을 복사할 수 있습니다.
+
 3. 서비스 계정에 권한을 부여합니다. 
    
     SQL Server 서비스 계정에 SSL 인증서의 개인 키에 대한 적절한 권한이 부여되었는지 확인합니다. 이 단계를 무시하면 SQL Server가 시작되지 않습니다. 이 작업에 대해 **인증서** 스냅인 또는 **CertUtils**를 사용할 수 있습니다.
+    
 4. SQL Server 서비스를 다시 시작합니다.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>VM에서 SQL Server 연결을 구성합니다.

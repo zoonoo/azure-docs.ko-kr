@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 199ea6855e661ef39104fdeb54941ccfd9f36933
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728485"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488410"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -109,7 +109,7 @@ Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl)�
 
 아래 표에는 STRIDE 위협 및 Azure 기능을 사용하는 몇 가지 완화 방식의 예가 나와 있습니다. 이러한 완화 방식을 모든 상황에서 사용할 수 있는 것은 아닙니다.
 
-| 위협 | 보안 속성 | Azure 플랫폼 마이그레이션 가능성 |
+| 위협 | 보안 속성 | Azure 플랫폼 완화 가능성 |
 | --- | --- | --- |
 | 스푸핑 | 인증 | HTTPS 연결을 사용해야 하도록 지정합니다. |
 | 변조 | 무결성 | SSL 인증서 유효성을 검사합니다. |

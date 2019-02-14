@@ -1,14 +1,30 @@
 ---
-제목: Machine Learning Studio 작업에 대한 Azure Batch 서비스 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning 작업에 대한 Azure Batch 서비스 개요입니다. Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-title='일괄 처리 실행 서비스 작업용 전용 용량 - Azure Machine Learning Studio | Microsoft Docs' ms.date: 2017/04/19
+title: Machine Learning Studio 작업에 대한 Azure Batch 서비스
+titleSuffix: Azure Machine Learning Studio
+description: Machine Learning 작업에 대한 Azure Batch 서비스 개요입니다. Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.date: 04/19/2017
+ms.openlocfilehash: 55961895dde7cb2770f2180911a78f1e31c741e3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697503"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Machine Learning Studio 작업에 대한 Azure Batch 서비스
 
 Machine Learning Batch 풀 처리는 Azure Machine Learning Batch 실행 서비스의 고객 관리 규모를 제공합니다. Machine Learning에 대한 클래식 Batch 처리는 제출할 수 있는 동시 작업 수를 제한하는 다중 테넌트 환경에서 수행되며, 작업은 선입 선출 기준으로 큐에 보관됩니다. 이 불확실성은 작업이 실행되는 시기를 예측할 수 없다는 것입니다.
 
 Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다. 풀의 크기와 작업이 제출되는 풀을 제어합니다. BES 작업은 예측 가능한 처리 성능과 제출한 처리 부하에 해당하는 리소스 풀을 만드는 기능을 제공하는 자체 처리 공간에서 실행됩니다.
+
+> [!NOTE]
+> 풀을 만들려면 새 Resource Manager 기반 Machine Learning 웹 서비스가 있어야 합니다. 생성되면 풀에서 BES 웹 서비스(새 Resource Manager 기반 및 클래식 모두)를 실행할 수 있습니다.
 
 ## <a name="how-to-use-batch-pool-processing"></a>Batch 풀 처리를 사용하는 방법
 
@@ -23,7 +39,7 @@ Batch 풀 처리의 구성은 현재 Azure Portal을 통해 사용할 수 없습
 
 ![Batch 풀 서비스 아키텍처](./media/dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-CSS에서 제공한 풀 서비스 URL에서 풀 만들기 작업을 호출하여 풀을 만듭니다. 풀을 만들 때 새 Resource Manager 기반의 Machine Learning 웹 서비스의 swagger.json에 VM 수와 URL을 지정합니다. 이 웹 서비스는 청구 연결을 설정하는 데 제공됩니다. Batch 풀 서비스는 swagger.json을 사용하여 풀과 청구 계획을 연결합니다. 풀에서 선택한 BES 웹 서비스(새 Resource Manager 기반 서비스 및 클래식 서비스)는 모두 실행할 수 있습니다.
+CSS에서 제공한 풀 서비스 URL에서 풀 만들기 작업을 호출하여 풀을 만듭니다. 풀을 만들 때 새 Resource Manager 기반의 Machine Learning 웹 서비스의 swagger.json에 VM 수와 URL을 지정합니다. 이 웹 서비스는 청구 연결을 설정하는 데 제공됩니다. Batch 풀 서비스는 swagger.json을 사용하여 풀과 청구 계획을 연결합니다. 풀에서 BES 웹 서비스(새 Resource Manager 기반 및 클래식 모두)를 실행할 수 있습니다.
 
 새 Resource Manager 기반 웹 서비스를 사용할 수 있지만, 작업에 대한 요금 청구가 해당 서비스와 연결된 청구 계획과 대조하여 부과된다는 점에 유의하세요. 특히 Batch 풀 작업을 실행하기 위한 웹 서비스와 새로운 청구 계획을 만들 수 있습니다.
 

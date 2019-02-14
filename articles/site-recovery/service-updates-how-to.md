@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/8/2019
+ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 3e5f84a6f05e451b1eafa98c373f9d838421016e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a497784a665c62d23a017b71acf709120e34c369
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55229299"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746968"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery의 서비스 업데이트
 조직으로서 계획되거나 계획되지 않은 정전이 발생한 경우 데이터 그리고 실행 중인 앱/워크로드를 안전하게 유지하는 방법을 알아야 합니다. Azure Site Recovery는 사이트의 작동이 중단된 경우에도 VM 및 물리적 서버에서 실행 중인 앱을 계속 사용할 수 있도록 하여 BCDR 전략에 기여합니다. Site Recovery는 VM 및 물리적 서버에서 실행 중인 워크로드를 복제하여 기본 사이트를 사용할 수 없게 된 경우 보조 위치에서 계속 사용할 수 있도록 합니다. 사이트가 복구되어 다시 실행되면 워크로드를 기본 사이트로 복구합니다.
@@ -97,10 +97,13 @@ Azure Site Recovery는 새 기능 추가, 지원 매트릭스 개선 및 버그 
 
 ## <a name="between-an-on-premises-vmware-or-physical-site-to-azure"></a>온-프레미스 VMware 또는 실제 Azure 사이트 간
 
-1. 먼저 온-프레미스 관리 서버에 업데이트를 설치합니다. 이 서버는 구성 서버 및 프로세스 서버 역할이 있는 서버입니다. 
-2. 스케일 아웃 프로세스 서버가 있으면 이 서버를 다음으로 업데이트합니다.
-3. Azure Portal로 이동한 후 **보호된 항목** > **복제된 항목** 페이지로 이동합니다.
-이 페이지에서 VM을 선택합니다. 각 VM의 페이지 하단에 나타나는 **업데이트 에이전트** 단추를 선택합니다. 그러면 보호된 모든 VM에서 모바일 서비스 에이전트가 업데이트됩니다.
+업데이트를 진행하기 전에 [Site Recovery 지원 명세서](#support-statement-for-azure-site-recovery)를 참조하여 업그레이드 경로를 알아 두세요.
+
+1. 현재 버전 및 위에 제공한 지원 명세서를 기반으로 [여기](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server)에 나오는 지침에 따라 온-프레미스 관리 서버에서 먼저 업데이트를 설치합니다. 이 서버는 구성 서버 및 프로세스 서버 역할이 있는 서버입니다.
+2. 스케일 아웃 프로세스 서버가 있는 경우 [여기](vmware-azure-manage-process-server.md#upgrade-a-process-server)에 나오는 지침에 따라 해당 서버를 다음으로 업데이트합니다.
+3. 그런 다음, 각 보호된 항목에서 모바일 에이전트를 업데이트하려면 Azure Portal로 이동한 후 **보호된 항목** > **복제된 항목** 페이지로 이동합니다. 이 페이지에서 VM을 선택합니다. 각 VM의 페이지 하단에 나타나는 **업데이트 에이전트** 단추를 선택합니다. 그러면 보호된 모든 VM에서 모바일 서비스 에이전트가 업데이트됩니다.
+
+### <a name="reboot-of-source-machine-after-mobility-agent-upgrade"></a>모바일 에이전트를 업그레이드한 후 원본 머신 다시 부팅
 
 모든 최신 변경 내용이 원본 컴퓨터에 로드되도록 모바일 에이전트를 업그레이드할 때마다 다시 부팅하는 것이 좋습니다. 그러나 이 작업은 **필수는 아닙니다**. 마지막 다시 부팅 동안의 에이전트 버전과 현재 버전 간의 차이가 4보다 큰 경우 반드시 다시 부팅해야 합니다. 자세한 설명을 보려면 다음 표를 참조하세요.
 
@@ -111,14 +114,12 @@ Azure Site Recovery는 새 기능 추가, 지원 매트릭스 개선 및 버그 
 | 9.16 | 9.20 | 필수 아님
  | 9.16 | 9.21 | 예. 버전 차이(마지막 다시 부팅이 수행된 버전은 9.16이고 대상 버전은 9.21임)가 4보다 크므로 먼저 9.20으로 업그레이드하고, 다시 부팅한 후 9.21로 업그레이드합니다.
 
-
-
 ## <a name="links-to-currently-supported-update-rollups"></a>현재 지원되는 업데이트 롤업에 대한 링크
-
 
 |업데이트 롤업  |공급자  |통합 설치| OVF  |MARS|
 |---------|---------|---------|---------|--------|
-|[업데이트 롤업 32](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
+|[업데이트 롤업 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
+|[업데이트 롤업 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[업데이트 롤업 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[업데이트 롤업 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
 |[업데이트 롤업 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0

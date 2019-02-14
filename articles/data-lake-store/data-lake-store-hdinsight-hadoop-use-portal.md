@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: b81916de0940aa56eda97df94527fa6adc208285
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 23a1b2853423dd9f2a62c32792e27e3174495aff
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955833"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817039"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1로 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -47,18 +47,18 @@ Azure Portal을 사용해 기본 스토리지나 추가 스토리지로 Azure Da
 
 ### <a name="create-a-cluster-with-data-lake-storage-gen1-as-default-storage"></a>Data Lake Storage Gen1을 기본 스토리지로 사용하는 클러스터 만들기
 
-**Data Lake Storage Gen1 계정을 기본 저장소 계정으로 사용하는 HDInsight 클러스터를 만들려면**
+**Data Lake Storage Gen1 계정을 기본 스토리지 계정으로 사용하는 HDInsight 클러스터를 만들려면**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. HDInsight 클러스터를 만드는 방법에 대한 일반 정보는 [클러스터 만들기](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)를 따릅니다.
-3. **저장소** 블레이드의 **기본 저장소 유형** 아래에서 **Azure Data Lake Storage Gen1**을 선택한 후 다음 정보를 입력합니다.
+3. **스토리지** 블레이드의 **기본 스토리지 유형** 아래에서 **Azure Data Lake Storage Gen1**을 선택한 후 다음 정보를 입력합니다.
 
     ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "HDInsight 클러스터에 서비스 주체 추가")
 
     - **Data Lake Store 계정 선택**: 기존 Data Lake Storage Gen1 계정을 선택합니다. 기존 Data Lake Storage Gen1 계정은 필수 항목입니다.  [필수 조건](#prerequisites)을 참조하세요.
     - **루트 경로**: 클러스터 관련 파일이 저장되는 경로를 입력합니다. 스크린샷에서 __/clusters__ 폴더가 존재해야 하는 __/clusters/myhdiadlcluster/__ 이며 포털은 *myhdicluster* 폴더를 만듭니다.  *myhdicluster*는 클러스터 이름입니다.
-    - **Data Lake Store 액세스**: Data Lake Storage Gen1 계정과 HDInsight 클러스터 간의 액세스를 구성합니다. 지침은 [Data Lake Storage Gen1 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
-    - **추가 저장소 계정**: 클러스터용 추가 저장소 계정으로 Azure 저장소 계정을 추가합니다. Data Lake Storage Gen1 계정을 기본 스토리지 유형으로 구성하고 다른 Data Lake Storage Gen1 계정에 대해 클러스터 권한을 제공하는 방식으로 Data Lake Storage Gen1 계정을 더 추가합니다. [Data Lake Storage Gen1 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
+    - **Data Lake Store 액세스**: Data Lake Storage Gen1 계정과 HDInsight 클러스터 간의 액세스를 구성합니다. 지침은 Data Lake Storage Gen1 액세스 구성을 참조하세요.
+    - **추가 Storage 계정**: 클러스터에 대한 추가 스토리지 계정으로 Azure Storage 계정을 추가합니다. Data Lake Storage Gen1 계정을 기본 스토리지 유형으로 구성하고 다른 Data Lake Storage Gen1 계정에 대해 클러스터 권한을 제공하는 방식으로 Data Lake Storage Gen1 계정을 더 추가합니다. Data Lake Storage Gen1 액세스 구성을 참조하세요.
 
 4. **Data Lake Store 액세스**에서 **선택**을 클릭한 다음 [HDInsight에서 Hadoop 클러스터 만들기](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md)에서 설명한 대로 클러스터 만들기를 계속 진행합니다.
 
@@ -67,11 +67,11 @@ Azure Portal을 사용해 기본 스토리지나 추가 스토리지로 Azure Da
 
 다음 지침에 따라 Azure 스토리지 계정을 기본 스토리지로, Data Lake Storage Gen1 계정을 추가 스토리지로 사용하는 HDInsight 클러스터를 만듭니다.
 
-**Data Lake Storage Gen1 계정을 추가 저장소 계정으로 사용하는 HDInsight 클러스터를 만들려면**
+**Data Lake Storage Gen1 계정을 추가 스토리지 계정으로 사용하는 HDInsight 클러스터를 만들려면**
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. HDInsight 클러스터를 만드는 방법에 대한 일반 정보는 [클러스터 만들기](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters)를 따릅니다.
-3. **저장소** 블레이드의 **기본 저장소 형식** 아래에서 **Azure Storage**를 선택한 후 다음 정보를 입력합니다.
+3. **스토리지** 블레이드의 **기본 스토리지 형식** 아래에서 **Azure Storage**를 선택한 후 다음 정보를 입력합니다.
 
     ![HDInsight 클러스터에 서비스 주체 추가](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "HDInsight 클러스터에 서비스 주체 추가")
 
@@ -180,7 +180,7 @@ Hive 쿼리를 실행하려면 Ambari 포털에서 [Hive 보기] 인터페이스
 
 Data Lake Storage Gen1 계정에서 데이터를 사용하는 경우 다음과 같은 몇 가지 문자열을 변경합니다.
 
-예를 들어 Data Lake Storage Gen1을 기본 저장소로 사용하여 만든 클러스터에서 데이터 경로는 *adl://<data_lake_storage_gen1_account_name>/azuredatalakestore.net/path/to/file*입니다. Data Lake Storage Gen1 계정에 저장된 샘플 데이터에서 테이블을 만드는 Hive 쿼리는 다음 문과 같습니다.
+예를 들어 Data Lake Storage Gen1을 기본 스토리지로 사용하여 만든 클러스터에서 데이터 경로는 *adl://&lt;data_lake_storage_gen1_account_name&gt;/azuredatalakestore.net/path/to/file*입니다. Data Lake Storage Gen1 계정에 저장된 샘플 데이터에서 테이블을 만드는 Hive 쿼리는 다음 문과 같습니다.
 
     CREATE EXTERNAL TABLE websitelog (str string) LOCATION 'adl://hdiadlsg1storage.azuredatalakestore.net/clusters/myhdiadlcluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/'
 

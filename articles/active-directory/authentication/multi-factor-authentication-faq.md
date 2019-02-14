@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: b6123407c8a9157aaf1d43b8fbdb84ef0c5b5f4d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: f004d67a84cb95316007f54521cdf63f9a82c06c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076148"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696823"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -118,7 +118,7 @@ MFA 공급자가 생성되면 Azure Active Directory(즉, “Azure AD 테넌트�
 
 **Q: 전화로 응답이 수신되지 않는 사용자에게는 어떻게 안내해야 하나요?**
 
-5분 동안 5회까지 인증용 SMS 수신이나 전화 통화를 시도해 볼 것을 안내합니다. Microsoft는 여러 공급자를 통해 전화를 걸고 SMS 메시지를 전송합니다. 이렇게 해도 응답이 수신되지 않으면 추가 문제 해결을 위해 Microsoft에 지원 사례를 개설합니다.
+5분 동안 5회까지 인증용 SMS 수신이나 전화 통화를 시도해 볼 것을 안내합니다. Microsoft는 여러 공급자를 통해 전화를 걸고 SMS 메시지를 전송합니다. 이렇게 해도 응답이 수신되지 않으면 추가 문제 해결을 위해 Microsoft에 지원 사례를 알려주세요.
 
 위의 단계를 수행해도 문제가 해결되지 않는다면 사용자가 여러 확인 방법을 구성했기를 기대하는 수밖에 없습니다. 다시 로그인을 시도하도록 지시하지만 로그인 페이지에서 다른 인증 방법을 선택하도록 알려 줍니다.
 

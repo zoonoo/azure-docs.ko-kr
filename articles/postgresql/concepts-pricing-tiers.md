@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.openlocfilehash: 49c9d908970425165fcdd76171c20ab65454f42a
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.date: 02/01/2019
+ms.openlocfilehash: 8cc7d7d93f483289ab7faa3f5a7193fc218b57bc
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318581"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695030"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -129,5 +129,5 @@ vCore 수, 하드웨어 생성 또는 가격 책정 계층을 변경하면 새 �
 ## <a name="next-steps"></a>다음 단계
 
 - [포털에서 PostgreSQL 서버를 만드는](tutorial-design-database-using-azure-portal.md) 방법을 알아봅니다.
-- [Azure CLI를 사용하여 Azure Database for PostgreSQL 서버를 모니터링 및 크기 조정하는](scripts/sample-scale-server-up-or-down.md) 방법을 알아봅니다.
-- [서비스 제한 사항](concepts-limits.md)에 대해 알아봅니다. 
+- [서비스 제한](concepts-limits.md)에 대해 알아봅니다. 
+- [읽기 복제본으로 스케일 아웃](howto-read-replicas-portal.md)하는 방법을 알아봅니다.

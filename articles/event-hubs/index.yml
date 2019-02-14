@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 84bac57a763bf7089ac7e6af22247bc981eb7e43
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f44dc587c2fb092986d8422fe06739192100b8e9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53161205"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56231622"
 documentType: LandingData
 title: Azure Event Hubs 설명서
 metadata:
@@ -19,7 +19,7 @@ metadata:
   ms.date: 10/15/2018
   ms.author: spelluru
 abstract:
-  description: 'Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Apache Kafka용 Event Hubs를 사용하면 기본 Kafka 클라이언트, 도구 및 애플리케이션(예: Mirror Maker, Apache Flink 및 Akka Streams)에서 구성만 변경하여 Event Hubs와 원활하게 작동할 수 있습니다.'
+  description: 'Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Apache Kafka용 Event Hubs를 사용하면 기본 Kafka 클라이언트, 도구 및 애플리케이션(예: Mirror Maker, Apache Flink 및 Akka Streams)에서 구성만 변경하여 Event Hubs와 원활하게 작동할 수 있습니다.'
   aside:
     image:
       alt: 
@@ -188,8 +188,8 @@ sections:
     className: cardsD
     items:
     - title: 명령줄
-      html: <p><a href="/powershell/module/azurerm.eventhub/">Azure PowerShell</a></p><p><a href="/cli/azure/eventhubs">Azure CLI</a></p>
-    - title: 언어
+      html: <p><a href="/powershell/module/az.eventhub/">Azure PowerShell</a></p><p><a href="/cli/azure/eventhubs">Azure CLI</a></p>
+    - title: Languages
       html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET Standard</a></p><p><a href="/java/api/overview/azure/eventhub">Java</a></p>
     - title: REST (영문)
       html: <p><a href="/rest/api/eventhub/">REST API 참조</a></p>

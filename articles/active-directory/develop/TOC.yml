@@ -81,7 +81,7 @@ items:
         href: native-app.md
       - name: 디먼 또는 서버 애플리케이션
         href: service-to-service.md
-    - name: 인증
+    - name: Authentication
       items:
       - name: 인증 기본 사항
         href: authentication-scenarios.md
@@ -142,7 +142,7 @@ items:
       href: authentication-national-cloud.md
   - name: 방법 가이드
     items:
-    - name: 인증
+    - name: Authentication
       items:
       - name: Single Sign-On 구성
         displayName: SSO
@@ -320,7 +320,7 @@ items:
       href: azure-ad-endpoint-comparison.md
     - name: 애플리케이션 형식
       href: v2-app-types.md
-    - name: 인증
+    - name: Authentication
       items:
       - name: 인증 기본 사항
         href: authentication-scenarios.md
@@ -366,7 +366,7 @@ items:
       href: authentication-national-cloud.md
   - name: 방법 가이드
     items:
-    - name: 인증
+    - name: Authentication
       items:
       - name: 역할 클레임 구성
         href: active-directory-enterprise-app-role-management.md
@@ -439,12 +439,13 @@ items:
   - name: Microsoft에 로그인 시도
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: 도움말 보기
+    displayName: support, help options
     href: developer-support-help-options.md
   - name: Azure 리소스에 대한 관리 ID
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 667076d5bafc1b7cc3577a49446af58aee806b87
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9b02dc22bbe27b02d608130eac72a00c7d1471c3
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251710"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238456"

@@ -5,13 +5,13 @@ author: jasonwhowell
 ms.author: jasonh
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 70577f32debc526aaccbd79b62dd35e82119e3f9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 02/01/2019
+ms.openlocfilehash: 3f541357d3d45ada694a821b3a3b1474185b6b00
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548395"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691357"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Azure Database for MySQL의 고가용성 개념
 Azure Database for MySQL 서비스는 높은 수준의 가용성을 보장합니다. 재정적으로 지원되는 SLA(서비스 수준 계약)는 일반 공급 시 99.99%입니다. 이 서비스를 사용할 때는 애플리케이션 작동 중단 시간이 거의 없습니다.
@@ -32,5 +32,5 @@ HA 모델과 마찬가지로 Azure Database for MySQL의 크기를 늘리거나 
 크기 조정 작업 중 데이터베이스 연결에 대한 중단이 발생합니다. 클라이언트 애플리케이션의 연결이 끊어지고, 열려 있고 커밋되지 않은 트랜잭션은 취소됩니다. 클라이언트 애플리케이션이 연결을 다시 시도하거나 새 연결을 만들면 게이트웨이는 새로 크기가 지정된 인스턴스로 연결을 지정합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- 서비스 개요를 보려면  [MySQL용 Azure 데이터베이스 개요](overview.md)를 참조하세요.
-- 재시도 논리에 대한 개요는 [Azure Database for MySQL에 대한 일시적 연결 오류 처리](concepts-connectivity.md)를 참조하세요.
+- [일시적인 연결 오류 처리](concepts-connectivity.md)에 대해 알아보기
+- [읽기 복제본을 사용하여 데이터를 복제하는](howto-read-replicas-portal.md) 방법에 대해 알아보기

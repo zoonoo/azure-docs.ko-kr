@@ -10,12 +10,12 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301444"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487237"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -111,7 +111,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 재귀를 사용하면 와일드 카드를 지정하여 디렉터리 추적을 간소화할 수 있고, 환경 변수를 사용하면 여러 또는 동적 드라이브 이름이 있는 환경에서 파일을 추적할 수 있습니다. 다음 목록에는 재귀를 구성할 때 알고 있어야 하는 일반적인 정보가 나와 있습니다.
 
 * 와일드 카드는 여러 파일을 추적하는 데 필요
-* 와일드 카드를 사용하는 경우 경로의 마지막 세그먼트에만 사용할 수 있습니다. (예: C:\folder\\**file** 또는 /etc/*.conf)
+* 와일드 카드를 사용하는 경우 경로의 마지막 세그먼트에만 사용할 수 있습니다. (예: `c:\folder\*file*` 또는 `/etc/*.conf`)
 * 환경 변수의 경로가 잘못된 경우 유효성 검사는 성공하지만 인벤토리를 실행하면 해당 경로가 실패합니다.
 * 경로를 설정할 때 `c:\*.*` 같은 일반 경로를 사용하면 너무 많은 폴더가 트래버스되므로 사용하면 안 됩니다.
 
@@ -132,9 +132,9 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |자산  |설명  |
 |---------|---------|
 |사용     | 설정이 적용되는지 여부를 결정합니다.        |
-|Item Name     | 추적할 파일의 이름입니다.        |
-|그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
-|Windows 레지스트리 키   | 파일을 확인할 경로입니다. 예:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Item Name     | 추적할 레지스트리 키의 식별 이름입니다.        |
+|그룹     | 논리적으로 레지스트리 키를 그룹화하는 그룹 이름입니다.        |
+|Windows 레지스트리 키   | 레지스트리 키를 확인할 경로입니다. 예:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>제한 사항
 
@@ -278,13 +278,13 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 
 ![호스트 파일 변경 내용을 보여 주는 차트](./media/automation-change-tracking/changes.png)
 
-이 변경 내용을 자세히 분석하려면 **Log Analytics**를 클릭하여 로그 검색으로 이동합니다. 로그 검색이 표시되면 `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` 쿼리를 사용하여 호스트 파일의 콘텐츠 변경 내용을 검색합니다. 이 쿼리는 정규화된 경로에 "hosts"라는 단어가 포함된 파일의 파일 콘텐츠 변경 내용을 포함하는 변경 내용을 찾습니다. 경로 부분을 정규화된 형식(예: `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`)으로 변경하여 특정 파일을 요청할 수도 있습니다.
+이 변경 내용을 자세히 분석하려면 **Log Analytics**를 클릭하여 로그 검색으로 이동합니다. 로그 검색이 표시되면 `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` 쿼리를 사용하여 호스트 파일의 콘텐츠 변경 내용을 검색합니다. 이 쿼리는 정규화된 경로에 "hosts"라는 단어가 포함된 파일의 파일 콘텐츠 변경 내용을 포함하는 변경 내용을 찾습니다. 경로 부분을 정규화된 형식(예: `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`)으로 변경하여 특정 파일을 요청할 수도 있습니다.
 
 쿼리에서 원하는 결과가 반환되면 로그 검색 환경에서 **새 경고 규칙** 단추를 클릭하여 경고 만들기 페이지를 엽니다. Azure Portal에서 **Azure Monitor**를 통해 이 환경으로 이동할 수도 있습니다. 경고 만들기 환경에서 쿼리를 다시 확인하고 경고 논리를 수정합니다. 여기서는 환경의 모든 컴퓨터에서 변경 내용이 여러 개 검색되면 경고를 트리거할 수 있습니다.
 
 ![호스트 파일의 변경 내용 추적을 위한 변경 쿼리를 보여 주는 이미지](./media/automation-change-tracking/change-query.png)
 
-조건 논리를 설정한 후에는 트리거되는 경고에 대응하여 작업을 수행할 작업 그룹을 할당합니다. 여기서는 전송할 이메일과 생성할 ITSM 티켓을 설정했습니다.  Azure Function, Automation Runbook, 웹후크, 논리 앱 등을 트리거하는 것처럼 기타 여러 유용한 작업을 수행할 수도 있습니다.
+조건 논리를 설정한 후에는 트리거되는 경고에 대응하여 작업을 수행할 작업 그룹을 할당합니다. 여기서는 전송할 이메일과 생성할 ITSM 티켓을 설정했습니다.  Azure Function, Automation Runbook, webhook, Logic App 등을 트리거하는 것처럼 기타 여러 유용한 작업을 수행할 수도 있습니다.
 
 ![변경 시 경고를 생성하도록 작업 그룹을 구성하는 방법을 보여 주는 이미지](./media/automation-change-tracking/action-groups.png)
 

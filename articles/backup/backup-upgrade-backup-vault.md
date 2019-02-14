@@ -2,18 +2,18 @@
 title: Azure Backup의 Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드
 description: Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하여 리소스 관리자 VM 백업, 보안 향상, VMware VM 백업, Windows Server 시스템 상태 백업 등의 새로운 기능 얻기
 services: backup
-author: trinadhk
-manager: vijayts
+author: raynew
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/10/2017
-ms.author: trinadhk
-ms.openlocfilehash: 01aacaecba8c5a4adf1dab5483a2f921df9314c0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/31/2019
+ms.author: raynew
+ms.openlocfilehash: b7671271e569802311884861265a7825404c9c75
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252533"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490348"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 업그레이드된 Backup 자격 증명 모음 
 이 문서에서는 Recovery Services 자격 증명 모음이 제공하는 것, 기존 Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 업그레이드하는 것과 관련한 질문과 대답, 업그레이드 후 단계에 대한 개요를 제공합니다. Recovery Services 자격 증명 모음은 백업 데이터를 보관하는 Backup 자격 증명 모음에 해당하는 Azure Resource Manager입니다. 일반적으로 데이터는 온-프레미스 또는 Azure에서 VM(가상 머신), 워크로드, 서버 또는 워크스테이션에 대한 구성 정보 또는 데이터의 사본입니다.
@@ -39,7 +39,7 @@ Recovery Services 자격 증명은 Azure의 Azure Resource Manager 모델에 기
 > 
 
 ## <a name="managing-your-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 관리
-다음 화면에서는 Azure Portal에서 Backup 자격 증명 모음에서 업그레이드된 새 Recovery Services 자격 증명 모음을 표시합니다. 업그레이드된 자격 증명 모음은 이름이 “Default-RecoveryServices-ResourceGroup-geo인 기본 리소스 그룹에 있습니다. 예: 백업 자격 증명 모음이 West US에 있는 경우 이름이 Default-RecoveryServices-ResourceGroup-westus인 기본 RG에 있습니다.
+다음 화면에서는 Azure Portal에서 Backup 자격 증명 모음에서 업그레이드된 새 Recovery Services 자격 증명 모음을 표시합니다. 업그레이드된 자격 증명 모음은 이름이 “Default-RecoveryServices-ResourceGroup-geo인 기본 리소스 그룹에 있습니다. 예제: 백업 자격 증명 모음이 미국 서부에 있는 경우 이름이 Default-RecoveryServices-ResourceGroup-westus인 기본 RG에 있습니다.
 > [!NOTE]
 > CPS 표준 고객의 경우 자격 증명 업그레이드 후에 리소스 그룹이 변경되지 않으며 업그레이드 전과 동일하게 유지됩니다.
 
@@ -62,16 +62,16 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 **업그레이드 계획이 진행 중인 백업에 영향을 주나요?**</br>
-아니요. 진행 중인 백업은 업그레이드 전후에도 중단되지 않고 계속됩니다.
+ 아니요. 진행 중인 백업은 업그레이드 전후에도 중단되지 않고 계속됩니다.
 
 **이 업그레이드로 기존 도구는 어떻게 되나요?**</br>
 기존 자동화 또는 도구를 리소스 관리자 배포 모델로 업데이트하여 업그레이드 후에도 계속 작동되도록 해야 합니다. [리소스 관리자 배포 모델](backup-client-automation.md)에 대한 PowerShell cmdlet 참조를 확인하세요.
 
 **업그레이드한 후에 롤백할 수 있나요?**</br>
-아니요. 리소스를 성공적으로 업그레이드한 후에는 롤백이 지원되지 않습니다.
+ 아니요. 리소스를 성공적으로 업그레이드한 후에는 롤백이 지원되지 않습니다.
 
 **클래식 자격 증명 모음을 업그레이드한 이후를 볼 수 있나요?**</br>
-아니요. 클래식 자격 증명을 업그레이드한 이후를 보거나 관리할 수 없습니다. 자격 증명 모음에 있는 모든 관리 작업에 새 Azure Portal을 사용할 수만 있습니다.
+ 아니요. 클래식 자격 증명을 업그레이드한 이후를 보거나 관리할 수 없습니다. 자격 증명 모음에 있는 모든 관리 작업에 새 Azure Portal을 사용할 수만 있습니다.
 
 **내 업그레이드된 자격 증명 모음에서 MARS 에이전트로 보호되는 서버가 표시되지 않는 이유**</br>
 자격 증명 모음에서 MARS 에이전트로 보호되는 모든 서버를 보려면 최신 MARS 에이전트를 설치해야 합니다. 최신 에이전트 버전은 [여기]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe)에서 다운로드할 수 있습니다.

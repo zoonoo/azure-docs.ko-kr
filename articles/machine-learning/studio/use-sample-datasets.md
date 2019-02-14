@@ -1,8 +1,21 @@
 ---
-제목: 샘플 데이터 세트 사용 titleSuffix: Azure Machine Learning Studio 설명: Machine Learning Studio에 포함된 샘플 모델에서 사용되는 데이터 세트를 설명합니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 2018/01/19
+title: 샘플 데이터 세트 사용
+titleSuffix: Azure Machine Learning Studio
+description: Machine Learning Studio에 포함된 샘플 모델에서 사용되는 데이터 세트를 설명합니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/19/2018
+ms.openlocfilehash: de809ef1455e4c8c4c2284c2139e962f1829770b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510173"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 세트 사용
 [top]: #machine-learning-sample-datasets

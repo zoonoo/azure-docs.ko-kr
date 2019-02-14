@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 01/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: a44e53d7a32ab151fa951d1bc89b741390a70dfb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fae92f8e09cc2ad6b63cb15599e0b1ab72588ed8
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464792"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728846"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -40,7 +40,7 @@ Azure Data Lake Storage Gen2는 거의 모든 Azure HDInsight 클러스터 형�
 
     ![Azure Portal에서 스토리지 계정을 만드는 과정을 보여 주는 스크린샷](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. 스토리지 계정의 **Storage Blob 데이터 기여자(미리 보기)** 역할에 관리 ID를 할당합니다. [RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)를 참조하세요.
+1. 스토리지 계정의 **Storage Blob 데이터 소유자(미리 보기)** 역할에 관리 ID를 할당합니다. [RBAC를 사용하여 Azure Blob 및 큐 데이터에 대한 액세스 권한 관리(미리 보기)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)를 참조하세요.
 
     1. [Azure Portal](https://portal.azure.com)에서 저장소 계정으로 이동합니다.
     1. 스토리지 계정을 선택한 다음, **액세스 제어(IAM)** 를 선택하여 계정에 대한 액세스 제어 설정을 표시합니다. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다.
@@ -48,9 +48,9 @@ Azure Data Lake Storage Gen2는 거의 모든 Azure HDInsight 클러스터 형�
         ![스토리지 액세스 제어 설정을 보여 주는 스크린샷](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
     1. **역할 할당 추가** 단추를 클릭하여 새 역할을 추가합니다.
-    1. **역할 할당 추가** 창에서 **Storage Blob 데이터 기여자(미리 보기)** 역할을 선택합니다. 그런 다음, 관리 ID 및 스토리지 계정이 있는 구독을 선택합니다. 다음으로, 앞에서 만든 사용자 할당 관리 ID를 검색하여 찾습니다. 마지막으로, 관리 ID를 선택하면 **선택한 멤버** 아래에 나열될 것입니다.
+    1. **역할 할당 추가** 창에서 **Storage Blob 데이터 소유자(미리 보기)** 역할을 선택합니다. 그런 다음, 관리 ID 및 스토리지 계정이 있는 구독을 선택합니다. 다음으로, 앞에서 만든 사용자 할당 관리 ID를 검색하여 찾습니다. 마지막으로, 관리 ID를 선택하면 **선택한 멤버** 아래에 나열될 것입니다.
     
-        ![RBAC 역할을 할당하는 방법을 보여주는 스크린샷](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role2.png)
+        ![RBAC 역할을 할당하는 방법을 보여주는 스크린샷](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
     1. **저장**을 클릭합니다. 선택한 사용자 할당 ID가 이제 **기여자** 역할 아래에 나열됩니다.
 

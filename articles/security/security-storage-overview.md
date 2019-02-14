@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8330b63f218108930c5eb66eaa6c8ff6dca67316
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973131"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694271"
 ---
 # <a name="azure-storage-security-overview"></a>Azure Storage 보안 개요
 
-Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 애플리케이션을 위한 클라우드 스토리지 솔루션입니다. Azure Storage는 포괄적인 보안 기능 집합을 제공합니다. 다음을 수행할 수 있습니다.
+Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요구 사항을 충족하는 최신 응용 프로그램을 위한 클라우드 스토리지 솔루션입니다. Azure Storage는 포괄적인 보안 기능 집합을 제공합니다. 다음을 수행할 수 있습니다.
 
 * RBAC(역할 기반 액세스 제어) 및 Azure Active Directory를 사용하여 저장소 계정의 보안을 유지할 수 있습니다.
 * 클라이언트 쪽 암호화, HTTP 또는 SMB 3.0을 사용하여 애플리케이션과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다.
@@ -47,7 +47,7 @@ RBAC(역할 기반 액세스 제어)를 사용하여 저장소 계정의 보안�
 
 ## <a name="delegated-access-to-storage-objects"></a>저장소 개체에 대한 위임된 액세스
 
-공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 저장소 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 제한된 권한을 부여할 수 있습니다. 
+공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. SAS는 지정된 권한 집합을 사용하여 지정된 기간 동안 저장소 계정의 개체로 제한된 권한을 클라이언트에 부여할 수 있다는 것입니다. 계정 선택키를 공유하지 않고도 제한된 권한을 부여할 수 있습니다.
 
 SAS는 저장소 리소스에 인증된 액세스를 수행하는 데 필요한 모든 정보가 쿼리 매개 변수에 있는 URI입니다. SAS를 사용하여 저장소 리소스에 액세스하려는 클라이언트는 SAS를 적절한 생성자 또는 메서드에 전달하면 됩니다.
 
@@ -73,13 +73,13 @@ SAS는 저장소 리소스에 인증된 액세스를 수행하는 데 필요한 
 
 여러 조직에서 [미사용 데이터 암호화](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/)는 데이터 프라이버시, 규정 준수 및 데이터 주권을 위한 필수 단계입니다. 휴지 상태의 데이터 암호화를 제공하는 세 가지 Azure 기능이 있습니다.
 
-* [저장소 서비스 암호화](../storage/common/storage-security-guide.md#encryption-at-rest)를 사용하면 저장소 서비스가 Azure Storage에 데이터를 쓸 때 데이터를 자동으로 암호화하도록 요청할 수 있습니다.
+* [스토리지 서비스 암호화](../storage/common/storage-security-guide.md#encryption-at-rest)는 항상 활성화되어 있으며 Azure Storage에 데이터를 쓸 때 스토리지 서비스 데이터를 자동으로 암호화합니다.
 * [클라이언트측 암호화](../storage/common/storage-security-guide.md#client-side-encryption)는 휴지 상태의 암호화 기능을 제공합니다.
 * [Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines)을 사용하면 IaaS 가상 머신에서 사용되는 OS 디스크 및 데이터 디스크를 암호화할 수 있습니다.
 
 Storage 서비스를 암호화에 대해 자세히 알아봅니다.
 
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)에 [Azure Storage 서비스 암호화](https://azure.microsoft.com/services/storage/)를 사용할 수 있습니다. 다른 Azure Storage 형식에 대한 자세한 내용은 [Azure 파일](https://azure.microsoft.com/services/storage/files/), [디스크(Premium Storage)](https://azure.microsoft.com/services/storage/premium-storage/), [테이블 저장소](https://azure.microsoft.com/services/storage/tables/) 및 [큐 저장소](https://azure.microsoft.com/services/storage/queues/)를 참조하세요.
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)에 [Azure Storage 서비스 암호화](https://azure.microsoft.com/services/storage/)를 사용할 수 있습니다. 다른 Azure Storage 형식에 대한 자세한 내용은 [Azure 파일](https://azure.microsoft.com/services/storage/files/), [디스크(Premium Storage)](https://azure.microsoft.com/services/storage/premium-storage/), [테이블 스토리지](https://azure.microsoft.com/services/storage/tables/) 및 [큐 스토리지](https://azure.microsoft.com/services/storage/queues/)를 참조하세요.
 * [휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure 디스크 암호화
@@ -98,7 +98,7 @@ Azure 저장소를 사용하면 저장소 계정에 대한 방화벽 규칙을 �
 
 이 기능을 사용하여 허용된 네트워크의 특정 집합으로 저장소 계정을 보호해야 합니다.
 
-Azure 저장소 방화벽 및 가상 네트워크에 대한 자세한 내용은 문서 [Azure Storage 방화벽 및 Virtual Network 구성](../storage/common/storage-network-security.md)을 검토하세요.
+Azure 스토리지 방화벽 및 가상 네트워크에 대한 자세한 내용은 문서 [Azure Storage 방화벽 및 Virtual Network 구성](../storage/common/storage-network-security.md)을 검토하세요.
 
 ## <a name="azure-data-box"></a>Azure Data Box
 
@@ -114,9 +114,9 @@ Data Box Edge 및 Data Box Gateway는 사이트와 Azure 간에 데이터를 관
 
 ## <a name="advanced-threat-protection"></a>고급 위협 보호
 
-Azure Storage는 저장소 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 탐지하는 추가 보안 인텔리전스 계층을 위해 Advanced Threat Protection을 제공합니다. Advanced Threat Protection은 Azure Storage 진단 로그에서 Blob Storage에 대한 의심스러운 읽기, 쓰기 또는 삭제 요청을 모니터링합니다. 
+Azure Storage는 스토리지 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 탐지하는 추가 보안 인텔리전스 계층을 위해 Advanced Threat Protection을 제공합니다. Advanced Threat Protection은 Azure Storage 진단 로그에서 Blob Storage에 대한 의심스러운 읽기, 쓰기 또는 삭제 요청을 모니터링합니다.
 
-Advanced Threat Protection 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 확인할 수 있습니다. Azure Security Center에서는 탐지된 의심스러운 활동에 대한 세부 정보를 제공하고 잠재적인 위협을 조사하고 수정하는 작업을 권장합니다. 
+Advanced Threat Protection 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 확인할 수 있습니다. Azure Security Center에서는 탐지된 의심스러운 활동에 대한 세부 정보를 제공하고 잠재적인 위협을 조사하고 수정하는 작업을 권장합니다.
 
 자세한 정보:
 

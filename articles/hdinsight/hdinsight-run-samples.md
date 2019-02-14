@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0a174c3de33b01f936eec599c1de68e2cebbf9c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745060"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820422"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 MapReduce 샘플 실행
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -54,7 +54,7 @@ Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍
 ## <a name="hdinsight-sample-wordcount"></a>단어 개수 - Java
 MapReduce 프로젝트를 제출하려면 먼저 MapReduce 작업 정의를 만듭니다. 작업 정의에서 MapReduce 프로그램 jar 파일 및 jar 파일이 있는 위치(**wasb:///example/jars/hadoop-mapreduce-examples.jar**), 클래스 이름 및 인수를 지정합니다.  단어 개수 MapReduce 프로그램은 두 인수로, 단어를 계산하는 데 사용할 소스 파일과 출력 위치를 사용합니다.
 
-[부록 A](#apendix-a---the-word-count-MapReduce-program-in-java)에서 소스 코드를 찾을 수 있습니다.
+소스 코드는 부록 A에서 찾을 수 있습니다.
 
 Java MapReduce 프로그램을 개발하는 절차는 [HDInsight의 Apache Hadoop용 Java MapReduce 프로그램 개발](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -135,7 +135,7 @@ Hadoop은 맵을 작성하고 Java가 아닌 다른 언어의 함수를 줄일 �
 
 **C# 스트리밍 단어 개수 작업을 제출하려면**
 
-* [단어 개수 - Java](#word-count-java)의 절차에 따라 작업 정의를 다음 줄로 바꿉니다.
+* 단어 개수 - Java의 절차에 따라 작업 정의를 다음 줄로 바꿉니다.
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -157,7 +157,7 @@ Pi 추정은 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 
 
 **Pi 추정 작업을 제출하려면**
 
-* [단어 개수 - Java](#word-count-java)의 절차에 따라 작업 정의를 다음 줄로 바꿉니다.
+* 단어 개수 - Java의 절차에 따라 작업 정의를 다음 줄로 바꿉니다.
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -185,7 +185,7 @@ Pi 추정은 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 
 
 **작업을 제출하려면**
 
-* [단어 개수 - Java](#word-count-java)의 절차에 따라 작업 정의를 사용합니다.
+* 단어 개수 - Java의 절차에 따라 다음 작업 정의를 사용합니다.
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c327d973170a4556471663c3bea9dcae9b5794fb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238614"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746493"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 알려진 문제 및 문제 해결
 
@@ -26,7 +26,8 @@ ms.locfileid: "55238614"
 
 **오류 메시지: ‘PyYAML’을 제거할 수 없습니다.**
 
-Python용 Azure Machine Learning SDK: PyYAML은 distutils 설치 프로젝트입니다. 따라서 부분 제거 시 속해 있는 파일을 정확히 확인할 수 없습니다. 이 오류를 무시하면서 SDK를 게속 설치하려면 다음을 사용합니다.
+Python용 Azure Machine Learning SDK: PyYAML은 distutils 설치 프로젝트입니다. 따라서 부분 제거가 있는 경우 속해 있는 파일을 정확히 확인할 수 없습니다. 이 오류를 무시하면서 SDK를 게속 설치하려면 다음을 사용합니다.
+
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
@@ -41,7 +42,7 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 
 ## <a name="deployment-failure"></a>배포 실패
 
-'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']'가 <Signals.SIGKILL: 9>를 나타내며 중단될 경우 배포에 사용되는 VM의 SKU를 더 높은 메모리를 포함하는 SKU로 변경하세요.
+`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`가 나타나면 배포에 사용한 VM의 SKU를 메모리가 더 많은 SKU로 변경하세요.
 
 ## <a name="fpgas"></a>FPGA
 요청을 하고 FPGA 할당량의 승인을 받을 때까지 FPGA에 모델을 배포할 수 없습니다. 액세스를 요청하려면 할당량 요청 양식 https://aka.ms/aml-real-time-ai를 작성합니다.
@@ -50,7 +51,7 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 
 Databricks 및 Azure Machine Learning 문제.
 
-1. Databricks에 다른 패키지가 설치되어 있는 경우 AML SDK를 설치하는 작업이 실패합니다.
+1. 더 많은 패키지가 설치된 Databricks에서 Azure Machine Learning SDK 설치 실패.
 
    `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 라이브러리 버전을 동결하여 패키지를 설치하면 설치 오류를 방지할 수 있습니다. 이 문제는 Databricks 관련 문제이며 Azure Machine Learning Service SDK와는 관련이 없습니다. 이 문제는 기타 라이브러리에서도 발생할 수 있습니다. 예제:
    ```python
@@ -60,7 +61,7 @@ Databricks 및 Azure Machine Learning 문제.
 
 2. Databricks에서 자동화된 Machine Learning을 사용할 때 실행을 취소하고 새 실험 실행을 시작하려는 경우에는 Azure Databricks 클러스터를 다시 시작하세요.
 
-3. 자동화된 ML 설정에서 반복이 10회보다 많으면 실행 제출 시 show_output을 False로 설정하세요.
+3. 자동화된 ml 설정에서 반복 횟수가 10회를 초과하는 경우 실행을 제출할 때 `show_output`을 `False`로 설정하세요.
 
 
 ## <a name="azure-portal"></a>Azure portal
@@ -73,6 +74,20 @@ SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인하려는
 ## <a name="resource-quotas"></a>리소스 할당량
 
 Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당량](how-to-manage-quotas.md)에 대해 알아보세요.
+
+## <a name="authentication-errors"></a>인증 오류
+
+원격 작업에서 컴퓨팅 대상에 대한 관리 작업을 수행하는 경우 다음 오류 중 하나가 나타납니다.
+
+```json
+{"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
+```
+
+```json
+{"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
+```
+
+예를 들어 원격 실행을 위해 제출된 ML 파이프라인에서 컴퓨팅 대상을 만들거나 연결하려고 시도하면 오류가 나타납니다.
 
 ## <a name="get-more-support"></a>더 많은 지원 받기
 

@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 78290f6d1b31788c3f2de99996739cc8e7b20419
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d865028a2ddc7315192030b704a77a332dab14aa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810937"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822711"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
 이 문서에서는 Azure Functions에서 [Event Grid](../event-grid/overview.md) 이벤트를 처리하는 방법을 설명합니다.
 
-Event Grid는 *게시자*에서 발생하는 이벤트를 알리기 위해 HTTP 요청을 전송하는 Azure 서비스입니다. 게시자는 이벤트를 시작하는 서비스 또는 리소스입니다. 예를 들어, Azure Blob 저장소 계정은 게시자이고 [Blob 업로드 또는 삭제는 이벤트](../storage/blobs/storage-blob-event-overview.md)입니다. 일부 [Azure 서비스에는 Event Grid에 이벤트를 게시하는 방식을 기본적으로 지원합니다](../event-grid/overview.md#event-sources).
+Event Grid는 *게시자*에서 발생하는 이벤트를 알리기 위해 HTTP 요청을 전송하는 Azure 서비스입니다. 게시자는 이벤트를 시작하는 서비스 또는 리소스입니다. 예를 들어, Azure Blob Storage 계정은 게시자이고 [Blob 업로드 또는 삭제는 이벤트](../storage/blobs/storage-blob-event-overview.md)입니다. 일부 [Azure 서비스에는 Event Grid에 이벤트를 게시하는 방식을 기본적으로 지원합니다](../event-grid/overview.md#event-sources).
 
 이벤트 *처리기*는 이벤트를 수신하고 처리합니다. Azure Functions는 [Event Grid 이벤트를 처리를 기본적으로 지원하는 Azure 서비스](../event-grid/overview.md#event-handlers) 중 하나입니다. 이 문서에서는 Event Grid에서 이벤트가 수신될 때 Event Grid 트리거를 사용하여 함수를 호출하는 방법을 알아봅니다.
 
@@ -103,7 +103,7 @@ namespace Company.Function
 }
 ```
 
-자세한 내용은 [패키지](#packages), [특성](#attributes), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
+자세한 내용은 패키지, [특성](#attributes), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
 
 ### <a name="c-script-example"></a>C# 스크립트 예제
 
@@ -155,7 +155,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-자세한 내용은 [패키지](#packages), [특성](#attributes), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
+자세한 내용은 패키지, [특성](#attributes), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
 
 ### <a name="javascript-example"></a>JavaScript 예제
 
@@ -374,7 +374,7 @@ Event Grid 이벤트의 데이터는 HTTP 요청 본문에 JSON 개체로 수신
 
 표시된 예제는 한 요소의 배열입니다. Event Grid는 항상 배열을 전송하며, 배열에서 둘 이상의 이벤트를 전송할 수 있습니다. 런타임은 각 배열 요소에 대해 한 번씩 함수를 호출합니다.
 
-이벤트 JSON 데이터의 최상위 속성은 모든 이벤트 유형에서 동일하지만, `data` 속성의 내용은 이벤트 유형마다 다릅니다. 표시된 예제는 blob 저장소 이벤트에 대한 것입니다.
+이벤트 JSON 데이터의 최상위 속성은 모든 이벤트 유형에서 동일하지만, `data` 속성의 내용은 이벤트 유형마다 다릅니다. 표시된 예제는 Blob Storage 이벤트에 대한 것입니다.
 
 공통 및 이벤트별 속성에 대한 설명을 보려면 Event Grid 설명서에서 [이벤트 속성](../event-grid/event-schema.md#event-properties)을 참조하세요.
 
@@ -412,7 +412,7 @@ Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내�
 
 시스템 키는 Event Grid 트리거에 대한 엔드포인트 URL에 포함되어야 하는 인증 키입니다. 다음 섹션에서는 시스템 키를 가져오는 방법을 설명합니다.
 
-다음은 Blob 저장소 계정을 구독하는 예제입니다(시스템 키에 대한 자리 표시자 포함).
+다음은 Blob Storage 계정을 구독하는 예제입니다(시스템 키에 대한 자리 표시자 포함).
 
 #### <a name="version-2x-runtime"></a>버전 2.x 런타임
 
@@ -436,7 +436,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
-구독을 만드는 방법에 대한 자세한 내용은 [Blob 저장소 빠른 시작](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) 또는 다른 Event Grid 빠른 시작을 참조하세요.
+구독을 만드는 방법에 대한 자세한 내용은 [Blob Storage 빠른 시작](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) 또는 다른 Event Grid 빠른 시작을 참조하세요.
 
 ### <a name="get-the-system-key"></a>시스템 키 가져오기
 
@@ -513,7 +513,7 @@ Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내�
 
 ### <a name="generate-a-request"></a>요청 생성
 
-웹앱 엔드포인트에 대한 HTTP 트래픽을 생성하는 이벤트를 트리거합니다.  예를 들어, Blob 저장소 구독을 만든 경우 Blob을 업로드하거나 삭제합니다. 웹앱에 요청이 표시되면 요청 본문을 복사합니다.
+웹앱 엔드포인트에 대한 HTTP 트래픽을 생성하는 이벤트를 트리거합니다.  예를 들어, Blob Storage 구독을 만든 경우 Blob을 업로드하거나 삭제합니다. 웹앱에 요청이 표시되면 요청 본문을 복사합니다.
 
 구독 유효성 검사 요청이 먼저 수신됩니다. 유효성 검사 요청은 모두 무시하고 이벤트 요청을 복사합니다.
 
@@ -615,7 +615,7 @@ az eventgrid event-subscription create --resource-id /subscriptions/aeb4b7cb-b7c
 
 ### <a name="trigger-an-event"></a>이벤트 트리거
 
-ngrok 엔드포인트로의 HTTP 트래픽을 생성하는 이벤트를 트리거합니다.  예를 들어, Blob 저장소 구독을 만든 경우 Blob을 업로드하거나 삭제합니다.
+ngrok 엔드포인트로의 HTTP 트래픽을 생성하는 이벤트를 트리거합니다.  예를 들어, Blob Storage 구독을 만든 경우 Blob을 업로드하거나 삭제합니다.
 
 Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과를 표시합니다.
 

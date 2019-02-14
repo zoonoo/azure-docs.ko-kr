@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f0b76e54da60396e01b5893b143bcee9048e2184
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165648"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750327"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -38,7 +38,7 @@ ms.locfileid: "52165648"
 
 ![ID 보안 점수](media/azure-ad/azure-ad-sec-steps0.png)
 
-## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>시작하기 전에: MFA를 통해 권한 있는 계정을 보호
+## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>시작하기 전에 MFA를 통해 권한 있는 계정 보호
 
 이 검사 목록을 시작하기 전에 이 검사 목록을 읽는 도중에 손상되지 않도록 해야 합니다. 먼저 권한 있는 계정을 보호해야 합니다.
 
@@ -87,7 +87,7 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 ### <a name="take-advantage-of-intrinsically-secure-easier-to-use-credentials"></a>본질적으로 안전하며 사용이 더 용이한 자격 증명의 이점 활용
 
-[Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)를 사용하면 PC 및 모바일 장치에서 강력한 2단계 인증으로 암호를 바꿀 수 있습니다. 이 인증은 디바이스에 안전하게 연결되는 사용자 자격 증명의 새로운 유형으로 구성되며 생체 인식 또는 PIN을 사용합니다.
+[Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)를 사용하면 PC 및 모바일 디바이스에서 강력한 2단계 인증으로 암호를 바꿀 수 있습니다. 이 인증은 디바이스에 안전하게 연결되는 사용자 자격 증명의 새로운 유형으로 구성되며 생체 인식 또는 PIN을 사용합니다.
 
 ## <a name="step-2---reduce-your-attack-surface"></a>2단계 - 공격 노출 영역 줄이기
 
@@ -99,7 +99,7 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 1. [AD FS를 사용하는 경우 레거시 인증](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)을 차단합니다.
 2. [최신 인증을 사용하도록 SharePoint Online 및 Exchange Online](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)을 설정합니다.
-3. [레거시 인증을 차단하는 조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)을 사용합니다.
+3. [레거시 인증을 차단하는 조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)을 사용합니다.
 
 ### <a name="block-invalid-authentication-entry-points"></a>잘못된 인증 진입점 차단
 
@@ -182,7 +182,7 @@ Azure AD는 보안 그룹 및 Office 365 그룹을 사용하여 리소스에 대
 
 ### <a name="implement-azure-ad-access-reviews"></a>Azure AD 액세스 검토 구현
 
-[Azure AD 액세스 검토](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview)를 사용하면 필요하지 않은 경우 연장된 기간 동안 사용자에게 액세스 권한을 부여하지 않는 보안 표준을 유지하도록 그룹 구성원, 엔터프라이즈 응용 프로그램에 대한 액세스 및 권한 있는 역할 할당을 관리할 수 있습니다.
+[Azure AD 액세스 검토](https://docs.microsoft.com/azure/active-directory/active-directory-azure-ad-controls-access-reviews-overview)를 사용하면 필요하지 않은 경우 연장된 기간 동안 사용자에게 액세스 권한을 부여하지 않는 보안 표준을 유지하도록 그룹 구성원, 엔터프라이즈 애플리케이션에 대한 액세스 및 권한 있는 역할 할당을 관리할 수 있습니다.
 
 ## <a name="summary"></a>요약
 

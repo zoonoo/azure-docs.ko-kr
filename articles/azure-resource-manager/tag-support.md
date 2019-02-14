@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884948"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509918"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다.
@@ -666,6 +666,7 @@ ms.locfileid: "54884948"
 | logDefinitions | 아니요 | 
 | logprofiles | 아니요 | 
 | 로그 | 아니요 | 
+| metricAlerts | 예 |
 | migrateToNewPricingModel | 아니요 | 
 | myWorkbooks | 아니요 | 
 | 쿼리 | 아니요 | 
@@ -1108,7 +1109,7 @@ ms.locfileid: "54884948"
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | managedInstances | 예 |
-| managedInstances/databases | 예 |
+| managedInstances/databases | 예(아래 참고를 참조) |
 | managedInstances/databases/backupShortTermRetentionPolicies | 아니요 |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | 아니요 |
 | managedInstances/databases/vulnerabilityAssessments | 아니요 |
@@ -1120,12 +1121,16 @@ ms.locfileid: "54884948"
 | servers | 예 | 
 | servers/administrators | 아니요 | 
 | servers/communicationLinks | 아니요 | 
-| servers/databases | 예 | 
+| servers/databases | 예(아래 참고를 참조) | 
 | servers/encryptionProtector | 아니요 | 
 | servers/keys | 아니요 | 
 | servers/restorableDroppedDatabases | 아니요 | 
 | servers/serviceobjectives | 아니요 | 
 | servers/tdeCertificates | 아니요 | 
+
+> [!NOTE]
+> Master 데이터베이스는 태그를 지원하지 않지만 다른 데이터베이스는 태그를 지원합니다.
+
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | 리소스 종류 | 태그 지원 |
@@ -1163,8 +1168,11 @@ ms.locfileid: "54884948"
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
-| streamingjobs | 예 | 
+| streamingjobs | 예(아래 참고를 참조) | 
 | streamingjobs/diagnosticSettings | 아니요 | 
+
+> [!NOTE]
+> streamingjobs를 실행 중일 때 태그를 추가할 수 없습니다. 태그를 추가하려면 리소스를 중지합니다.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 | 리소스 종류 | 태그 지원 |

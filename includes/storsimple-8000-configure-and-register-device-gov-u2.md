@@ -4,17 +4,17 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0e6d2ab5d3c9701a1fa589fd3a42d4491419b66f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166152"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55735971"
 ---
 <!--author=SharS last changed: 06/22/2016-->
 
 ### <a name="to-configure-and-register-the-device"></a>디바이스를 구성 및 등록하려면
-1. StorSimple 디바이스 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. 지침은 [디바이스 직렬 콘솔 연결에 PuTTY 사용](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console)을 참조하세요. **과정을 정확하게 따르지 않으면 콘솔에 액세스할 수 없습니다.**
+1. StorSimple 디바이스 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. 지침은 [디바이스 직렬 콘솔 연결에 PuTTY 사용](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) 을 참조하세요. **과정을 정확하게 따르지 않으면 콘솔에 액세스할 수 없습니다.**
 2. 열린 세션에서 **Enter**를 한 번 눌러 명령 프롬프트를 엽니다.
 3. 디바이스에 설정하려는 언어를 선택하라는 메시지가 표시됩니다. 언어를 지정하고 **Enter**를 누릅니다.
    
@@ -63,13 +63,13 @@ ms.locfileid: "50166152"
 11. 보안상의 이유로 첫 번째 세션이 끝난 후 디바이스 관리자 암호가 만료되고 지금 암호를 변경해야 합니다. 메시지가 표시되면 디바이스 관리자 암호를 제공합니다. 유효한 디바이스 관리자 암호는 8자에서 15자 사이여야 합니다. 암호는 소문자, 대문자, 숫자 및 특수 문자 중 세 유형을 포함해야 합니다.
     
     <br/>![StorSimple 등록 디바이스 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. 설치 마법사의 마지막 단계에서는 StorSimple 디바이스 관리자 서비스에 디바이스를 등록합니다. 이 경우 [2단계: 서비스 등록 키 가져오기](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key)에서 얻은 서비스 등록 키가 필요합니다. 등록 키를 입력한 후 디바이스가 등록되려면 2~3분 정도 기다려야 할 수 있습니다.
+12. 설치 마법사의 마지막 단계에서는 StorSimple 디바이스 관리자 서비스에 디바이스를 등록합니다. 이 경우 [2단계에서 가져온 서비스 등록 키가 필요합니다. 서비스 등록 키 가져오기](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key)로 이동합니다. 등록 키를 입력한 후 디바이스가 등록되려면 2~3분 정도 기다려야 할 수 있습니다.
     
     > [!NOTE]
     > Ctrl + C를 눌러 언제든지 설치 마법사를 종료할 수 있습니다. 모든 네트워크 설정(Data 0, 서브넷 마스크 및 게이트웨이 IP 주소)를 입력한 경우, 항목이 유지됩니다.
     
     ![StorSimple 등록 진행률](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
-13. 디바이스를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. **이 키는 서비스 등록 키와 함께 StorSimple 장치 관리자 서비스에 추가 장치를 등록하는 데 필요합니다.** 이 키에 대한 자세한 내용은 [StorSimple 보안](../articles/storsimple/storsimple-8000-security.md) 을 참조하세요.
+13. 디바이스를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. **이 키는 서비스 등록 키와 함께 StorSimple 디바이스 관리자 서비스에 추가 디바이스를 등록하는 데 필요합니다.** 이 키에 대한 자세한 내용은 [StorSimple 보안](../articles/storsimple/storsimple-8000-security.md) 을 참조하세요.
     
     ![StorSimple 등록 디바이스 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)
     > [!IMPORTANT]
@@ -81,11 +81,11 @@ ms.locfileid: "50166152"
 15. Azure Government 포털로 돌아가서 다음 단계를 완료합니다.
     
     1. StorSimple 디바이스 관리자 서비스로 이동합니다.
-    2. **장치**를 클릭합니다. 디바이스 목록에서 배포 중인 디바이스를 식별합니다. 상태를 조회하여 디바이스가 서비스에 성공적으로 연결되었는지 확인합니다. 디바이스 상태는 **온라인**이어야 합니다.
+    2. **디바이스**를 클릭합니다. 디바이스 목록에서 배포 중인 디바이스를 식별합니다. 상태를 조회하여 디바이스가 서비스에 성공적으로 연결되었는지 확인합니다. 디바이스 상태는 **온라인**이어야 합니다.
             
         디바이스 상태가 **오프라인**이면 디바이스가 온라인 상태가 될 때까지 몇 분 정도 기다립니다.
        
-        몇분 후 디바이스가 여전히 오프라인 상태인 경우, [StorSimple 디바이스에 대한 네트워킹 요구 사항](../articles/storsimple/storsimple-8000-system-requirements.md)에 설명된 대로 방화벽 네트워크가 구성되었는지 확인해야 합니다.
+        몇 분 후 디바이스가 여전히 오프라인 상태인 경우, [StorSimple 디바이스에 대한 네트워킹 요구 사항](../articles/storsimple/storsimple-8000-system-requirements.md)에 설명된 대로 방화벽 네트워크가 구성되었는지 확인해야 합니다.
        
         9354 포트가 StorSimple 디바이스 관리자 서비스와 디바이스 간 통신용 서비스 버스에 의해 사용될 때 아웃바운드 통신을 위해 열리는지 확인합니다.
 

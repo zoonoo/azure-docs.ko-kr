@@ -6,83 +6,57 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7473f89b711e804dbe96d299bc6f47adaceb6859
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: d9de6100e3bb7c3cc71a7a251d790df4907be5f2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465217"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820354"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 애플리케이션 개발 개요
 
-이 문서는 Azure SQL Database에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
+이 문서는 Azure SQL Database에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다. 이 문서는 Azure SQL Database(단일 데이터베이스, 탄력적 풀, 관리형 인스턴스)의 모든 배포 모델에 적용됩니다.
 
 > [!TIP]
-> 서버 만들기, 서버 기반 방화벽 만들기, 서버 속성 보기, SQL Server Management Studio로 연결, master 데이터베이스 쿼리, 샘플 데이터베이스 및 빈 데이터베이스 만들기, 데이터베이스 속성 쿼리, SQL Server Management Studio로 샘플 데이터베이스 연결 및 쿼리를 수행하는 방법을 보여 주는 자습서에 대해서는 [시작 자습서](sql-database-get-started-portal.md)를 참조하세요.
+> Azure SQL Database를 설정해야 하는 경우 [단일 데이터베이스](sql-database-single-database-quickstart-guide.md)와 [관리형 인스턴스](sql-database-managed-instance-quickstart-guide.md)에 대한 시작 가이드를 참조하세요.
 >
 
 ## <a name="language-and-platform"></a>언어 및 플랫폼
-다양한 프로그래밍 언어 및 플랫폼에 대한 코드 샘플을 사용할 수 있습니다. 다음에서 코드 샘플에 대한 링크를 찾을 수 있습니다.
 
-추가 정보: [SQL Database 및 SQL Server용 연결 라이브러리](sql-database-libraries.md).
+다양한 [프로그래밍 언어와 플랫폼](sql-database-connect-query.md)을 사용하여 Azure SQL Database에 연결하고 쿼리할 수 있습니다. Azure SQL Database에 연결하는 데 사용할 수 있는 [샘플 애플리케이션](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0)을 찾을 수 있습니다.
 
-## <a name="tools"></a>도구
+[cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/)와 같은 오픈 소스 도구를 활용할 수 있습니다. 또한 Azure SQL Database는 [Visual Studio](https://www.visualstudio.com/downloads/) 및 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)와 같은 Microsoft 도구로 작동합니다. Azure Portal, PowerShell 및 REST API를 사용하면 추가 생산성을 얻을 수도 있습니다.
 
-[cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/)와 같은 오픈 소스 도구를 활용할 수 있습니다. 또한 Azure SQL Database는 [Visual Studio](https://www.visualstudio.com/downloads/) 및 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)와 같은 Microsoft 도구로 작동합니다.  Azure 관리 포털, PowerShell 및 REST API를 사용하면 추가 생산성을 얻을 수도 있습니다.
+## <a name="authentication"></a>Authentication
 
-## <a name="resource-limitations"></a>리소스 제한
+Azure SQL Database에 대한 액세스는 로그인과 방화벽으로 보호됩니다. Azure SQL Database는 SQL Server 및 [AAD(Azure Active Directory) 인증](sql-database-aad-authentication.md) 사용자 및 로그인을 둘 다 지원합니다. AAD 로그인은 Managed Instance에서만 사용할 수 있습니다. 
 
-Azure SQL Database는 리소스 거버넌스와 제한 적용 등 두 가지 메커니즘을 사용하여 데이터베이스에서 사용할 수 있는 리소스를 관리합니다. 자세한 내용은 다음을 참조하세요.
+[데이터베이스 액세스 및 로그인 관리](sql-database-manage-logins.md)에 대해 알아보세요.
 
-- [DTU 기반 리소스 모델 제한 - Single Database](sql-database-dtu-resource-limits-single-databases.md)
-- [DTU 기반 리소스 모델 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md)
-- [vCore 기반 리소스 제한 - Single Database](sql-database-vcore-resource-limits-single-databases.md)
-- [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)
+## <a name="connections"></a>연결
 
-## <a name="security"></a>보안
+클라이언트 연결 논리에서 기본 시간 제한을 30초로 재정의합니다. 기본값 15초는 인터넷에 종속된 연결 시간으로 너무 짧습니다.
 
-Azure SQL Database는 액세스를 제한하고, 데이터를 보호하고, SQL Database의 활동을 모니터링하는 리소스를 제공합니다.
+[연결 풀](https://msdn.microsoft.com/library/8xx3tyca.aspx)을 사용하는 경우 프로그램에서 활발하게 사용하지 않고 다시 사용할 준비를 하지 않으면 연결을 즉시 닫아야 합니다.
 
-* 추가 정보: [SQL Database 보안 설정](sql-database-security-overview.md).
-
-## <a name="authentication"></a>인증
-
-- Azure SQL Database는 SQL Server 인증 사용자 및 로그인과 [Azure Active Directory 인증](sql-database-aad-authentication.md) 사용자 및 로그인을 둘 다 지원합니다.
-- *master* 데이터베이스를 기본 데이터베이스로 지정하지 말고 특정 데이터베이스를 지정해야 합니다.
-- SQL Database에서는 Transact-SQL **USE myDatabaseName;** 문장을 사용하여 다른 데이터베이스로 전환할 수 없습니다.
-- 추가 정보: [SQL Database 보안: 데이터베이스 액세스 및 로그인 보안 관리](sql-database-manage-logins.md)를 참조하세요.
+인프라 또는 연결 오류로 인해 트랜잭션이 롤백 될 수 있기 때문에 장기 실행 트랜잭션은 피합니다. 가능하면 여러 개의 작은 트랜잭션으로 트랜잭션을 분할하고 [일괄 처리를 사용하여 성능을 향상시킵니다](sql-database-use-batching-to-improve-performance.md).
 
 ## <a name="resiliency"></a>복원력
 
-SQL Database에 연결하는 동안 일시적인 오류가 발생하면, 코드는 호출을 다시 시도해야 합니다.  여러 클라이언트가 재시도를 동시에 수행하여 SQL Database가 채워지지 않도록 재시도 논리에 백오프 논리를 사용하는 것이 좋습니다.
-
-- 코드 샘플:  재시도 논리를 설명하는 코드 샘플을 보려면 다음에서 다양한 언어의 샘플을 참조하세요. [SQL Database 및 SQL Server용 연결 라이브러리](sql-database-libraries.md).
-- 추가 정보: [SQL Database 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md).
-
-## <a name="managing-connections"></a>연결 관리
-
-- 클라이언트 연결 논리에서 기본 시간 제한을 30초로 재정의합니다.  기본값 15초는 인터넷에 종속된 연결 시간으로 너무 짧습니다.
-- [연결 풀](https://msdn.microsoft.com/library/8xx3tyca.aspx)을 사용하는 경우 프로그램에서 활발하게 사용하지 않고 다시 사용할 준비를 하지 않으면 연결을 즉시 닫아야 합니다.
+Azure SQL Database는 기본 인프라 또는 클라우드 엔터티 간의 통신에서 발생하는 일시적인 오류를 예상할 수 있는 클라우드 서비스입니다.
+Azure SQL Database는 일시적인 인프라 오류에 대해 복원력이 있지만, 이러한 오류는 연결에 영향을 미칠 수 있습니다. SQL Database에 연결하는 동안 일시적인 오류가 발생하면, 코드는 [호출을 다시 시도](sql-database-connectivity-issues.md)해야 합니다. 여러 클라이언트가 재시도를 동시에 수행하여 SQL Database가 채워지지 않도록 재시도 논리에 백오프 논리를 사용하는 것이 좋습니다. 재시도 논리는 [SQL Database 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md)에 따라 달라집니다.
 
 ## <a name="network-considerations"></a>네트워크 고려 사항
 
 - 클라이언트 프로그램을 호스팅하는 컴퓨터에서 방화벽이 포트 1433에서 발신 TCP 통신을 허용하는지 확인합니다.  추가 정보: [Azure SQL Database 방화벽 구성](sql-database-configure-firewall-settings.md).
 - Azure VM(가상 머신)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL Database에 연결하는 경우에는, VM의 특정 포트 범위를 열어야 합니다. 추가 정보: [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)
 - Azure SQL Database에 대한 클라이언트 연결이 프록시를 바이패스하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. 자세한 내용은 [Azure SQL Database 연결 아키텍처](sql-database-connectivity-architecture.md) 및 [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
-
-## <a name="data-sharding-with-elastic-scale"></a>탄력적인 확장을 사용한 데이터 분할
-
-탄력적 확장은 확장(및 축소) 프로세스를 간소화합니다. 
-
-- [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md).
-- [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md).
-- [Azure SQL Database 탄력적인 확장 미리 보기 시작](sql-database-elastic-scale-get-started.md).
 
 ## <a name="next-steps"></a>다음 단계
 

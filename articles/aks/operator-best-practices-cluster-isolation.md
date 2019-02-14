@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3a4b62fb16745a3b226bda6c0574812278a34456
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430228"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495006"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 격리 모범 사례
 
@@ -43,6 +43,8 @@ Kubernetes는 동일한 클러스터에서 팀 및 워크로드를 논리적으�
 ![AKS에서 Kubernetes 클러스터의 논리적 격리](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
 클러스터의 논리적 분리는 일반적으로 클러스터를 물리적으로 분리하는 것보다 더 높은 Pod 밀도를 제공합니다. 클러스터에서 유휴 상태인 여유 컴퓨팅 용량이 부족합니다. Kubernetes 클러스터 자동 크기 조정기와 결합된 경우에는 요구에 맞게 노드 수를 강화 또는 규모 축소할 수 있습니다. 이 자동 크기 조정의 모범 사례 접근 방식을 사용하면 필요한 만큼만 노드를 실행하고 비용을 최소화할 수 있습니다.
+
+AKS 또는 다른 곳의 Kubernetes 환경은 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. *Pod 보안 정책*과 같은 추가 보안 기능과 노드에 대해 보다 세분화된 RBAC(역할 기반 액세스 제어)를 사용하면 악용이 더 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다.
 
 ## <a name="physically-isolate-clusters"></a>물리적으로 클러스터 격리
 

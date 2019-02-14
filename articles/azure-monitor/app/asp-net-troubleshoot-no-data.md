@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 690822848fa2c6524f98c9bbd32e6d2890e4a9c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e32d3fe30796015c8189eee819a0cc3dd4581e22
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118765"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700913"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
@@ -185,6 +185,52 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Azure Cloud Services에서 실행할 때의 "메서드를 찾을 수 없음" 예외
 .NET 4.6용으로 빌드하셨나요? 4.6은 Azure Cloud Services 역할에서 자동으로 지원되지 않습니다. [각 역할에 4.6을 설치](../../cloud-services/cloud-services-dotnet-install-dotnet.md) 합니다.
+
+## <a name="troubleshooting-logs"></a>문제 해결 로그
+
+프레임워크에 대한 문제 해결 로그를 캡처하려면 다음 지침을 따릅니다.
+
+### <a name="net-framework"></a>.Net Framework
+
+1. NuGet에서 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 패키지를 설치합니다. 설치한 버전이 현재 설치된 `Microsoft.ApplicationInsighs` 버전과 같아야 합니다.
+
+2. 다음을 포함하도록 applicationinsights.config 파일을 수정합니다.
+
+   ```xml
+   <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+        <Severity>Verbose</Severity>
+        <LogFileName>mylog.txt</LogFileName>
+        <LogFilePath>C:\\SDKLOGS</LogFilePath>
+      </Add>
+   </TelemetryModules>
+   ```
+   애플리케이션에는 구성된 위치에 대한 쓰기 권한이 있어야 합니다.
+ 
+ 3. SDK를 통해 이러한 새 설정이 선택되도록 프로세스를 다시 시작
+ 
+ 4. 완료되면 이러한 변경 내용을 되돌립니다.
+  
+### <a name="net-core"></a>.NET Core
+
+1. NuGet에서 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 패키지를 설치합니다. 설치한 버전이 현재 설치된 `Microsoft.ApplicationInsighs` 버전과 같아야 합니다.
+
+2. `Startup.cs` 클래스의 `ConfigureServices` 메서드를 수정합니다.
+
+    ```csharp
+    services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
+    services.ConfigureTelemetryModule<FileDiagnosticsTelemetryModule>( (module, options) => {
+        module.LogFilePath = "C:\\SDKLOGS";
+        module.LogFileName = "mylog.txt";
+        module.Severity = "Verbose";
+    } );
+    ```
+   애플리케이션에는 구성된 위치에 대한 쓰기 권한이 있어야 합니다.
+ 
+ 3. SDK를 통해 이러한 새 설정이 선택되도록 프로세스를 다시 시작
+ 
+ 4. 완료되면 이러한 변경 내용을 되돌립니다.
+  
 
 ## <a name="still-not-working"></a>여전히 작동하지 않습니다.
 * [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

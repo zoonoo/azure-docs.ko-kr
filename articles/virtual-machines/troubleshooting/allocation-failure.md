@@ -6,18 +6,18 @@ documentationcenter: ''
 author: JiangChen79
 manager: felixwu
 editor: ''
-tags: top-support-issue,azure-resourece-manager,azure-service-management
+tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: d8c0afa159bb8f932c42077868d5134e6486e8c3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 10c5dc5614731b247b917b68307f6a2d11663461
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412042"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510479"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
 
@@ -25,7 +25,7 @@ VM(가상 머신)을 만들거나 중지된(할당이 취소된) VM을 재시작
 
 **오류 코드**: AllocationFailed 또는 ZonalAllocationFailed
 
-**오류 메시지**: "할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. http://aka.ms/allocation-guidance에서 할당 성공 가능성을 높이는 방법을 참조하세요."
+**오류 메시지**: “할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. http://aka.ms/allocation-guidance에서 할당 성공 가능성을 높이는 방법을 참조하세요."
 
 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 해결 방법을 제안합니다.
 
@@ -47,7 +47,7 @@ VM 크기를 조정하거나 기존 가용성 집합에 VM을 추가하는 요�
 VM이 다른 가용성 집합에 속할 수 있는 경우에는 동일한 지역의 다른 가용성 집합에 VM을 만듭니다. 그런 다음 새 VM을 동일한 가상 네트워크에 추가할 수 있습니다.
 
 동일한 가용성 집합의 모든 VM을 중지(할당 취소)하고 각 VM을 재시작합니다.
-중지하려면 리소스 그룹 > [사용자의 리소스 그룹] > 리소스 > [사용자의 가용성 집합] > Virtual Machines > [사용자의 가상 머신] > 중지를 차례로 클릭합니다.
+중지하려면 [리소스 그룹] > [사용자의 리소스 그룹] > [리소스] > [사용자의 가용성 세트] > [Virtual Machines] > [사용자의 가상 머신] > [중지]를 클릭합니다.
 모든 VM이 중지된 후 첫 번째 VM을 선택한 다음, 시작을 클릭합니다.
 이 단계에서는 새 할당 시도가 실행되고 용량이 충분히 있는 새 클러스터를 선택할 수 있습니다.
 
@@ -60,7 +60,7 @@ VM이 다른 가용성 집합에 속할 수 있는 경우에는 동일한 지역
 ### <a name="workaround"></a>해결 방법
 
 동일한 가용성 집합의 모든 VM을 중지(할당 취소)하고 각 VM을 재시작합니다.
-중지하려면 리소스 그룹 > [사용자의 리소스 그룹] > 리소스 > [사용자의 가용성 집합] > Virtual Machines > [사용자의 가상 머신] > 중지를 차례로 클릭합니다.
+중지하려면 [리소스 그룹] > [사용자의 리소스 그룹] > [리소스] > [사용자의 가용성 세트] > [Virtual Machines] > [사용자의 가상 머신] > [중지]를 클릭합니다.
 모든 VM이 중지된 후 첫 번째 VM을 선택한 다음, 시작을 클릭합니다.
 그러면 새 할당 시도가 실행되고 용량이 충분히 있는 새 클러스터를 선택할 수 있습니다.
 
@@ -81,7 +81,7 @@ Dv1, DSv1, Av1, D15v2, DS15v2와 같은 이전 VM 시리즈 또는 크기를 사
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>이전 VM 크기의 할당 오류(Av1, Dv1, DSv1, D15v2, DS15v2 등)
 
-Azure 인프라가 확장되면서 최신 세대 가상 머신 유형을 지원하도록 설계된 차세대 하드웨어가 배포됩니다. 이전 시리즈 VM 중 일부는 최신 세대 인프라에서 실행되지 않습니다. 이러한 이유 때문에 레거시 SKU에 대해 때때로 할당 오류가 발생할 수 있습니다. 이 문제를 방지하려면 레거시 시리즈 가상 머신을 사용하는 경우 다음 권장 사항에 따라 신규 VM으로 이동을 고려하는 것이 좋습니다. 이러한 VM은 최신 하드웨어에 맞게 최적화되어 보다 나은 가격 및 성능의 이점을 활용할 수 있습니다. 
+Azure 인프라가 확장되면서 최신 세대 가상 머신 유형을 지원하도록 설계된 차세대 하드웨어가 배포됩니다. 이전 시리즈 VM 중 일부는 최신 세대 인프라에서 실행되지 않습니다. 이러한 이유 때문에 레거시 SKU에 대해 때때로 할당 오류가 발생할 수 있습니다. 이 문제를 방지하기 위해 레거시 시리즈 가상 머신을 사용 중인 고객은 다음 권장 사항에 따라 동일한 최신 VM으로 이동하는 것이 좋습니다. 이러한 VM은 최신 하드웨어에 대해 최적화되었으며 더 나은 가격 및 성능을 활용할 수 있도록 합니다. 
 
 |레거시 VM 시리즈/크기|권장되는 신규 VM 시리즈/크기|자세한 정보|
 |----------------------|----------------------------|--------------------|

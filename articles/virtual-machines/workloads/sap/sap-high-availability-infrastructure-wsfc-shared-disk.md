@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12decd07934b45c3f2e8b9b098af305303641176
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 86de7fd5dcd9885d68204c4ef335e1b61a26574e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634781"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747733"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS를 위한 SAP HA용 Azure 인프라 준비
 
@@ -59,7 +59,6 @@ ms.locfileid: "45634781"
 
 [planning-guide]:planning-guide.md
 [planning-guide-11]:planning-guide.md
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
 [planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
 
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd
@@ -170,7 +169,7 @@ ms.locfileid: "45634781"
 
 설치를 시작하기 전에 먼저 다음 문서를 검토하세요.
 
-* [아키텍처 가이드: Windows 장애 조치(Failover) 클러스터에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-shared-disk]
+* [아키텍처 가이드: 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링][sap-high-availability-guide-wsfc-shared-disk]
 
 ## <a name="prepare-the-infrastructure-for-architectural-template-1"></a>아키텍처 템플릿 1에 대한 인프라 준비
 SAP용 Azure Resource Manager 템플릿은 필요한 리소스의 배포를 간소화하도록 도와줍니다.
@@ -196,9 +195,9 @@ _**그림 1:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
   템플릿은 다음을 만듭니다.
 
   * **가상 머신**:
-    * SAP 애플리케이션 서버 가상 머신: \<SAPSystemSID\>-di-\<번호\>
-    * ASCS/SCS 클러스터 가상 머신: \<SAPSystemSID\>-ascs-\<번호\>
-    * DBMS 클러스터: \<SAPSystemSID\>-db-\<번호\>
+    * SAP 애플리케이션 서버 가상 머신: \<SAPSystemSID\>-di-\<Number\>
+    * ASCS/SCS 클러스터 가상 머신: \<SAPSystemSID\>-ascs-\<Number\>
+    * DBMS 클러스터: \<SAPSystemSID\>-db-\<Number\>
 
   * **연결된 IP 주소를 갖는 모든 가상 머신에 대한 네트워크 카드**:
     * \<SAPSystemSID\>-nic-di-\<번호\>
@@ -288,7 +287,7 @@ _**그림 1:** SAP 고가용성 Azure Resource Manager 매개 변수 설정_
 
 * [ASCS/SCS 템플릿](#ASCS-SCS-template)
 * [데이터베이스 템플릿](#database-template)
-* [응용 프로그램 서버 템플릿](#application-servers-template)
+* [애플리케이션 서버 템플릿](#application-servers-template)
 
 다음 섹션에는 템플릿에서 제공해야 하는 템플릿과 매개 변수에 대한 자세한 정보가 있습니다.
 
@@ -298,13 +297,13 @@ ASCS/SCS 템플릿은 여러 ASCS/SCS 인스턴스를 호스팅하는 Windows �
 
 ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿][sap-templates-3-tier-multisid-xscs-marketplace-image] 또는 [Managed Disks를 사용하는 ASCS/SCS 다중 SID 템플릿][sap-templates-3-tier-multisid-xscs-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
 
-  - **리소스 접두사**: 배포 중에 만들어진 모든 리소스 앞에 붙는 접두사로 사용되는 리소스 접두사를 설정합니다. 리소스는 하나의 SAP 시스템에만 속하지 않으므로 리소스의 접두사는 SAP 시스템 하나의 SID가 아닙니다.  접두사는 3~6자 사이여야 합니다.
-  - **스택 유형**: 스택의 스택 유형을 선택합니다. 스택 유형에 따라 Azure Load Balancer에는 SAP 시스템당 하나(ABAP 또는 Java 중 하나만) 또는 둘(ABAP 및 Java 각각 하나씩)의 개인 IP 주소가 있습니다.
-  -  **OS 종류**: 가상 머신의 운영 체제를 선택합니다.
-  -  **SAP 시스템의 수**: 이 클러스터에 설치하려는 SAP 시스템의 수를 선택합니다.
+  - **리소스 접두사**:  배포 중에 만들어진 모든 리소스 앞에 붙는 접두사로 사용되는 리소스 접두사를 설정합니다. 리소스는 하나의 SAP 시스템에만 속하지 않으므로 리소스의 접두사는 SAP 시스템 하나의 SID가 아닙니다.  접두사는 3~6자 사이여야 합니다.
+  - **스택 유형**: SAP 시스템의 스택 유형을 선택합니다. 스택 유형에 따라 Azure Load Balancer에는 SAP 시스템당 하나(ABAP 또는 Java 중 하나만) 또는 둘(ABAP 및 Java 각각 하나씩)의 개인 IP 주소가 있습니다.
+  -  **OS 유형**: 가상 머신의 운영 체제를 선택합니다.
+  -  **SAP 시스템 수**: 이 클러스터에 설치하려는 SAP 시스템 수를 선택합니다.
   -  **시스템 가용성**: **HA**를 선택합니다.
   -  **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인하는 데 사용할 수 있는 새 사용자를 만듭니다.
-  -  **신규 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들지 기존 서브넷을 사용할지 설정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존** 항목을 선택합니다.
+  -  **새 서브넷 또는 기존 서브넷**: 새 가상 네트워크 및 서브넷을 만들지 아니면 기존 서브넷을 사용할지 설정합니다. 온-프레미스 네트워크에 연결되어 있는 가상 네트워크가 이미 있는 경우 **기존** 항목을 선택합니다.
   -  **서브넷 ID**: 서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로 다음과 같이 나타납니다.
 
    /subscriptions/\<구독 ID\>/resourceGroups/\<리소스 그룹 이름\>/providers/Microsoft.Network/virtualNetworks/\<가상 네트워크 이름\>/subnets/\<서브넷 이름\>
@@ -337,7 +336,7 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 데이터베이스 다중 SID 템플릿을 설정하려면 [데이터베이스 다중 SID 템플릿][sap-templates-3-tier-multisid-db-marketplace-image] 또는 [Managed Disks를 사용하는 데이터베이스 다중 SID 템플릿][sap-templates-3-tier-multisid-db-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
 
   -  **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
-  -  **OS 종류**: 가상 머신의 운영 체제를 선택합니다.
+  -  **OS 유형**: 가상 머신의 운영 체제를 선택합니다.
   -  **Dbtype**: 클러스터에 설치하려는 데이터베이스의 유형을 선택합니다. Microsoft SQL Server를 설치하려는 경우 **SQL**을 선택합니다. 가상 머신에 SAP HANA를 설치하려는 경우 **HANA**를 선택합니다. 올바른 운영 체제 종류를 선택했는지 확인합니다. SQL에는 **Windows**를 선택하고 HANA에는 Linux 배포판을 선택합니다. 가상 머신에 연결되는 Azure Load Balancer는 선택한 다음 데이터베이스 형식을 지원하도록 구성됩니다.
     * **SQL**: 부하 분산 장치에서 1433 포트의 부하를 균형 조정합니다. SQL Server AlwaysOn 설정에 이 포트를 사용해야 합니다.
     * **HANA**: 부하 분산 장치에서 35015 및 35017 포트의 부하를 균형 조정합니다. **50** 인스턴스 번호의 SAP HANA를 설치합니다.
@@ -347,15 +346,15 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
   -  **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인하는 데 사용할 수 있는 새 사용자를 만듭니다.
   -  **서브넷 ID**: ASCS/SCS 템플릿 배포 중에 사용된 서브넷의 ID 또는 ASCS/SCS 템플릿 배포의 일부로 만든 서브넷의 ID를 입력합니다.
 
-### <a name="application-servers-template"></a> 응용 프로그램 서버 템플릿
+### <a name="application-servers-template"></a> 애플리케이션 서버 템플릿
 
 애플리케이션 서버 템플릿은 하나의 SAP 시스템을 위한 SAP 애플리케이션 서버 인스턴스로 사용할 수 있는 둘 이상의 가상 머신을 배포합니다. 예를 들어 5개 SAP 시스템에 대해 ASCS/SCS 템플릿을 배포하는 경우 이 템플릿을 5번 배포해야 합니다.
 
 애플리케이션 서버 다중 SID 템플릿을 설정하려면 [애플리케이션 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image] 또는 [Managed Disks를 사용하는 애플리케이션 서버 다중 SID 템플릿][sap-templates-3-tier-multisid-apps-marketplace-image-md]에서 다음 매개 변수 값을 입력합니다.
 
   -  **SAP 시스템 ID**: 설치하려는 SAP 시스템의 SAP 시스템 ID를 입력합니다. 이 ID는 배포되는 리소스의 접두사로 사용됩니다.
-  -  **OS 종류**: 가상 머신의 운영 체제를 선택합니다.
-  -  **SAP 시스템 크기**: 새 시스템에서 제공하는 SAP 수를 설정합니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
+  -  **OS 유형**: 가상 머신의 운영 체제를 선택합니다.
+  -  **SAP 시스템 크기**: 새 시스템에서 제공하는 SAP의 수입니다. 시스템에 필요한 SAP의 수를 모를 경우 SAP 기술 파트너 또는 시스템 통합자에 문의하세요.
   -  **시스템 가용성**: **HA**를 선택합니다.
   -  **관리자 사용자 이름 및 관리자 암호**: 컴퓨터에 로그인하는 데 사용할 수 있는 새 사용자를 만듭니다.
   -  **서브넷 ID**: ASCS/SCS 템플릿 배포 중에 사용된 서브넷의 ID 또는 ASCS/SCS 템플릿 배포의 일부로 만든 서브넷의 ID를 입력합니다.
@@ -375,9 +374,9 @@ ASCS/SCS 다중 SID 템플릿을 설정하려면 [ASCS/SCS 다중 SID 템플릿]
 
 1.  Azure Portal의 **DNS 서버** 패널에서 가상 네트워크 **DNS 서버** 옵션이 **사용자 지정 DNS**로 설정되어 있는지 확인합니다.
 2.  사용 중인 네트워크의 종류에 따라 설정을 선택합니다. 자세한 내용은 다음 리소스를 참조하세요.
-    * [회사 네트워크 연결(크로스-프레미스)][planning-guide-2.2]: 온-프레미스 DNS 서버의 IP 주소를 추가합니다.  
+    * [회사 네트워크 연결(프레미스 간)][planning-guide-2.2]: 온-프레미스 DNS 서버의 IP 주소를 추가합니다.  
     Azure에서 실행되는 가상 머신으로 온-프레미스 DNS 서버를 확장할 수 있습니다. 이 시나리오에서는 DNS 서비스를 실행하는 Azure Virtual Machines의 IP 주소를 추가할 수 있습니다.
-    * [클라우드 전용 배포][planning-guide-2.1]: DNS 서버 역할을 하는 동일한 Virtual Network 인스턴스에 추가 가상 컴퓨터를 배포합니다. DNS 서비스를 실행하도록 설정한 Azure Virtual Machines의 IP 주소를 추가합니다.
+    * Azure에서 격리된 VM 배포의 경우: DNS 서버 역할을 하는 동일한 Virtual Network 인스턴스에 추가 가상 머신을 배포합니다. DNS 서비스를 실행하도록 설정한 Azure Virtual Machines의 IP 주소를 추가합니다.
 
     ![그림 2: Azure Virtual Network에 대해 DNS 서버 구성][sap-ha-guide-figure-3001]
 
@@ -420,9 +419,9 @@ DNS 서버에서 다른 두 가상 호스트 이름 pr1-ascs-sap 및 pr1-dbms-sa
   >
   >
 
-  ![그림 3: 각 가상 머신의 네트워크 카드에 대한 고정 IP 주소 설정][sap-ha-guide-figure-3002]
+  ![그림 3: 각 가상 머신의 네트워크 카드에 대해 고정 IP 주소 설정][sap-ha-guide-figure-3002]
 
-  _**그림 3:** 각 가상 컴퓨터의 네트워크 카드에 대한 고정 IP 주소 설정_
+  _**그림 3:** 각 가상 머신의 네트워크 카드에 대해 고정 IP 주소 설정_
 
   모든 네트워크 인터페이스, 즉 Active Directory 또는 DNS 서비스에 사용하려는 가상 머신을 비롯한 모든 가상 머신에 대해 이 단계를 반복합니다.
 
@@ -513,9 +512,9 @@ SAP ASCS/SCS 인스턴스를 설치하면 ABAP ASCS 인스턴스에 대해 기�
 
 **표 2:** SAP NetWeaver Java SCS 인스턴스의 포트 번호
 
-![그림 5: Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙][sap-ha-guide-figure-3004]
+![그림 5: Azure 내부 부하 분산 장치에 대한 기본 ASCS/SCS 부하 분산 규칙][sap-ha-guide-figure-3004]
 
-_**그림 5:** Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙_
+_**그림 5:** Azure 내부 부하 분산 장치에 대한 기본 ASCS/SCS 부하 분산 규칙_
 
 부하 분산 장치 pr1-lb-dbms의 IP 주소를 DBMS 인스턴스의 가상 호스트 이름 IP 주소로 설정합니다.
 
@@ -526,7 +525,7 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 1.  Azure Portal에서 **\<SID\>-lb-ascs 부하 분산 장치** > **부하 부산 규칙**을 선택합니다.
 2.  SAP ASCS 또는 SCS 인스턴스에 속하는 모든 부하 분산 규칙에 대해 다음 값을 변경합니다.
 
-  * 이름
+  * Name
   * 포트
   * 백 엔드 포트
 
@@ -534,9 +533,9 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 
   다음은 포트 *lbrule3200*에 대한 업데이트 예제입니다.
 
-  ![그림 6: Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙 변경][sap-ha-guide-figure-3005]
+  ![그림 6: Azure 내부 부하 분산 장치에 대한 ASCS/SCS 기본 부하 분산 규칙 변경][sap-ha-guide-figure-3005]
 
-  _**그림 6:** Azure 내부 부하 분산 장치의 기본 ASCS/SCS 부하 분산 규칙 변경_
+  _**그림 6:** Azure 내부 부하 분산 장치에 대한 ASCS/SCS 기본 부하 분산 규칙 변경_
 
 ## <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> 도메인에 Windows 가상 컴퓨터 추가
 
@@ -544,7 +543,7 @@ SAP ASCS 또는 SCS 인스턴스에 대해 다른 번호를 사용하려는 경�
 
 ![그림 7: 도메인에 가상 머신 추가][sap-ha-guide-figure-3006]
 
-_**그림 7:** 도메인에 가상 컴퓨터 추가_
+_**그림 7:** 도메인에 가상 머신 추가_
 
 ## <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> SAP ASCS/SCS 인스턴스의 클러스터 노드 둘 다에 대한 레지스트리 항목 추가
 
@@ -588,7 +587,7 @@ SAP ASCS/SCS 인스턴스의 Windows Server 장애 조치(Failover) 클러스터
 
   ![그림 8: 첫 번째 클러스터 노드의 서버 또는 가상 머신 이름 추가][sap-ha-guide-figure-3007]
 
-  _**그림 8:** 첫 번째 클러스터 노드의 서버 또는 가상 컴퓨터 이름 추가_
+  _**그림 8:** 첫 번째 클러스터 노드의 서버 또는 가상 머신 이름 추가_
 
 3.  클러스터의 네트워크 이름(가상 호스트 이름)을 입력합니다.
 

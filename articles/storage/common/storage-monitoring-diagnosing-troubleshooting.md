@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474006"
+ms.locfileid: "55490266"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -637,7 +637,7 @@ client.SetServiceProperties(sp);
 삭제/다시 만들기 패턴이 공통적으로 사용되는 경우 클라이언트 애플리케이션은 새 컨테이너를 만들 때마다 고유한 컨테이너 이름을 사용해야 합니다.
 
 ### <a name="metrics-show-low-percent-success"></a>메트릭에 PercentSuccess가 낮게 표시되거나 분석 로그 항목에 트랜잭션 상태가 ClientOtherErrors 상태인 작업이 있음
-**PercentSuccess** 메트릭은 HTTP 상태 코드를 기준으로 성공한 작업 비율을 캡처합니다. 상태 코드가 2XX인 작업은 성공한 작업으로 계산되고 상태 코드가 3XX, 4XX, 5XX 범위에 속하는 작업은 실패한 작업으로 계산되며 낮은 **PercentSucess** 메트릭 값이 지정됩니다. 서버 쪽 저장소 로그 파일에서 이러한 작업은 트랜잭션 상태 **ClientOtherErrors**로 기록됩니다.
+**PercentSuccess** 메트릭은 HTTP 상태 코드를 기준으로 성공한 작업 비율을 캡처합니다. 상태 코드가 2XX인 작업은 성공한 작업으로 계산되고 상태 코드가 3XX, 4XX, 5XX 범위에 속하는 작업은 실패한 작업으로 계산되며 낮은 **PercentSuccess** 메트릭 값이 지정됩니다. 서버 쪽 저장소 로그 파일에서 이러한 작업은 트랜잭션 상태 **ClientOtherErrors**로 기록됩니다.
 
 이러한 작업은 정상적으로 완료되었으므로 가용성 등의 기타 메트릭에는 영향을 주지 않습니다. 정상적으로 실행되지만 작업 실패에 해당하는 HTTP 상태 코드를 표시하는 작업의 몇 가지 예는 다음과 같습니다.
 

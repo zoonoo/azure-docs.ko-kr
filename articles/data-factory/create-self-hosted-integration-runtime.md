@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331812"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493595"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [통합 런타임 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -141,6 +141,9 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 - SAN(주체 대체 이름) 인증서는 사용하지 않는 것이 좋습니다. 현재 적용되는 제한 때문에 마지막 SAN 항목만 사용되고 다른 항목은 무시되기 때문입니다. 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com**인 SAN 인증서는 FQDN이 **node2.domain.contoso.com**인 컴퓨터에서만 사용할 수 있습니다.
 - Windows Server 2012 R2에서 지원하는 SSL 인증서의 키 크기는 모두 지원됩니다.
 - CNG 키를 사용하는 인증서는 지원되지 않습니다.  
+
+> [!NOTE]
+> 이 인증서는 **노드 간 통신**(상태 동기화용)에 사용되고 로컬 네트워크 내에서 **연결된 서비스 자격 증명 설정을 위해 PowerShell cmdlet을 사용하는** 동안 자체 호스팅 IR 노드에서 포트를 암호화하는 데 사용됩니다. 개인 네트워크 환경이 안전하지 않거나 개인 네트워크 내의 노드 간 통신을 보호하려는 경우 이 인증서를 사용하는 것이 좋습니다. 자체 호스팅된 IR에서 다른 데이터 저장소로 전송되는 데이터 이동은이 인증서의 설정 여부와 관계 없이 항상 암호화된 채널을 사용하여 이루어집니다. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>여러 데이터 팩터리와 자체 호스팅 통합 런타임 공유
 

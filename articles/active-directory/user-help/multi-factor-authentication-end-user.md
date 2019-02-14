@@ -12,12 +12,13 @@ ms.topic: overview
 ms.date: 06/15/2017
 ms.author: lizross
 ms.reviewer: richagi
-ms.openlocfilehash: 853ca60ac10272062a1eb61c5f8763e4d9e120f7
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 77e3e07be7abaa6e91d8f3909f5271dfc263be17
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55748219"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162308"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure Multi-Factor Authentication은 무엇을 의미하나요?
 IT 부서의 누군가로부터 메일을 받았거나 상사가 사용자의 계정에 보안 확인을 좀 더 추가했다고 이야기했을 수 있습니다.  이것은 무엇을 의미할까요?

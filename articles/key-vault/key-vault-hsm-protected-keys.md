@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: a53e37cf2ac99dcd755f71e9a2a236f27832fbd7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079207"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693887"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure Key Vault에 대해 HSM 보호된 키를 생성하고 전송하는 방법
 
@@ -60,7 +60,7 @@ Azure Key Vault에 대해 BYOK(Bring Your Own Key)를 위한 필수 조건 목�
 | Azure 구독 |Azure Key Vault를 만들려면 Azure 구독이 필요합니다. [평가판에 가입](https://azure.microsoft.com/pricing/free-trial/) |
 | HSM 보호 키를 지원하는 Azure Key Vault 프리미엄 서비스 계층 |Azure Key Vault에 대한 서비스 계층 및 기능에 대한 자세한 내용은 [Azure Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/) 웹 사이트를 참조하세요. |
 | Thales HSM, 스마트 카드 및 지원 소프트웨어 |Thales 하드웨어 보안 모듈에 대한 액세스 권한 및 Thales HSM의 기본 작동 지식이 있어야 합니다. 호환되는 모델 목록을 보거나, HSM이 없는 경우 구매하려면 [Thales 하드웨어 보안 모듈](https://www.thales-esecurity.com/msrms/buy) 을 참조하세요. |
-| 다음 하드웨어 및 소프트웨어:<ol><li>Windows 운영 체제 Windows 7 이상 및 Thales nShield 소프트웨어 버전 11.50 이상이 설치된 오프라인 x64 워크스테이션.<br/><br/>이 워크스테이션에서 Windows 7을 실행하는 경우 [Microsoft.NET Framework 4.5를 설치](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)해야 합니다.</li><li>인터넷에 연결되어 있으며 Windows 7 이상의 Windows 운영 체제 및 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **최소 버전 1.1.0**이 설치된 워크스테이션</li><li>여유 공간이 16MB 이상인 USB 드라이브 또는 기타 휴대용 저장 디바이스 </li></ol> |보안상의 이유로 첫 번째 워크스테이션은 네트워크에 연결하지 않는 것이 좋습니다. 그러나 이 권고는 프로그램 방식으로 강제 적용되지는 않습니다.<br/><br/>이후의 지침에서는 이 워크스테이션을 분리된 워크스테이션이라고 합니다.</p></blockquote><br/>또한 테넌트 키가 프로덕션 네트워크용인 경우 별도의 두 번째 워크스테이션을 사용하여 도구 세트를 다운로드하고 테넌트 키를 업로드하는 것이 좋습니다. 그러나 테스트 목적인 경우에는 첫 번째와 동일한 워크스테이션을 사용할 수 있습니다.<br/><br/>이후의 지침에서는 이 두 번째 워크스테이션을 인터넷에 연결된 워크스테이션이라고 합니다.</p></blockquote><br/> |
+| 다음 하드웨어 및 소프트웨어:<ol><li>Windows 운영 체제 Windows 7 이상 및 Thales nShield 소프트웨어 버전 11.50 이상이 설치된 오프라인 x64 워크스테이션.<br/><br/>이 워크스테이션에서 Windows 7을 실행하는 경우 [Microsoft.NET Framework 4.5를 설치](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)해야 합니다.</li><li>인터넷에 연결되어 있으며 Windows 7 이상의 Windows 운영 체제 및 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **최소 버전 1.1.0**이 설치된 워크스테이션</li><li>여유 공간이 16MB 이상인 USB 드라이브 또는 기타 휴대용 저장 장치 </li></ol> |보안상의 이유로 첫 번째 워크스테이션은 네트워크에 연결하지 않는 것이 좋습니다. 그러나 이 권고는 프로그램 방식으로 강제 적용되지는 않습니다.<br/><br/>이후의 지침에서는 이 워크스테이션을 분리된 워크스테이션이라고 합니다.</p></blockquote><br/>또한 테넌트 키가 프로덕션 네트워크용인 경우 별도의 두 번째 워크스테이션을 사용하여 도구 세트를 다운로드하고 테넌트 키를 업로드하는 것이 좋습니다. 그러나 테스트 목적인 경우에는 첫 번째와 동일한 워크스테이션을 사용할 수 있습니다.<br/><br/>이후의 지침에서는 이 두 번째 워크스테이션을 인터넷에 연결된 워크스테이션이라고 합니다.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>키 생성 및 Azure Key Vault에 전송
 
@@ -216,7 +216,7 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 * 이름이 **KeyTransferRemote.exe** 인 명령줄 실행 파일 및 관련 DLL
 * 이름이 **vcredist_x64.exe**인 Visual C++ 재배포 가능 패키지
 
-USB 드라이브 또는 기타 휴대용 저장소에 패키지를 복사합니다.
+USB 드라이브 또는 기타 휴대용 스토리지에 패키지를 복사합니다.
 
 ## <a name="step-2-prepare-your-disconnected-workstation"></a>2단계: 연결이 끊어진 워크스테이션 준비
 
@@ -236,7 +236,7 @@ Thales 도구가 해당 경로(**%nfast_home%\bin**)에 있는지 확인합니�
 
 ### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>2.2단계: 연결이 끊어진 워크스테이션에 BYOK 도구 세트 설치
 
-USB 드라이브 또는 기타 휴대용 저장소에서 BYOK 도구 집합 패키지를 복사한 후 다음을 수행합니다.
+USB 드라이브 또는 기타 휴대용 스토리지에서 BYOK 도구 집합 패키지를 복사한 후 다음을 수행합니다.
 
 1. 다운로드한 패키지에서 임의 폴더로 파일을 추출합니다.
 2. 해당 폴더에서 vcredist_x64.exe를 실행합니다.
@@ -260,6 +260,9 @@ Thales nShield Edge를 사용하는 경우 모드를 다음으로 변경합니�
    ```
 
 이 프로그램은 C:\ProgramData\nCipher\Key Management Data\local 폴더에 해당하는 %NFAST_KMDATA%\local\world에 **Security World** 파일을 만듭니다. 쿼럼에 다른 값을 사용할 수 있지만, 이 예에서는 각각에 대해 3개의 빈 카드와 핀을 입력하라는 메시지가 표시됩니다. 그러면 임의의 두 카드에서 보안 영역에 대한 모든 권한을 제공합니다. 이러한 카드가 새 보안 영역에 대한 **관리자 카드 집합** 이 됩니다.
+
+> [!NOTE]
+> HSM이 최신 암호 제품군 DLf3072s256mRijndael을 지 원하는 경우 --cipher-suite=DLf1024s160mRijndael을 --cipher-suite=DLf3072s256mRijndael로 바꿀 수 있습니다.
 
 그런 다음 아래 작업을 수행합니다.
 
@@ -413,7 +416,7 @@ Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
 
-이 명령을 실행할 때 *contosokey*를 키 생성 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
+이 명령을 실행할 때 *contosokey*를 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
 
 보안 영역 관리자 카드를 플러그인하라는 메시지가 표시됩니다.
 
@@ -427,7 +430,7 @@ Thales 유틸리티에서 다음 명령을 사용하여 ACL을 검사할 수 있
 * kmfile-dump.exe:
 
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-  이 명령을 실행할 때 contosokey를 키 생성 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
+  이 명령을 실행할 때 contosokey를 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
 
 ### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4.2단계: Microsoft의 키 교환 키를 사용하여 키 암호화
 
@@ -478,15 +481,15 @@ Thales 유틸리티에서 다음 명령을 사용하여 ACL을 검사할 수 있
 
 이 명령을 실행할 때 다음 지침을 사용합니다.
 
-* *contosokey*를 키 생성 단계의 **3.5단계: 새 키 만들기**에서 키를 생성하는 데 사용한 식별자로 바꿉니다.
-* *SubscriptionID* 를 주요 자격 증명 모음이 포함된 Azure 구독 ID로 바꿉니다. 이전에 [인터넷에 연결된 워크스테이션 준비](#step-1-prepare-your-internet-connected-workstation) 단계의 1.2단계: Azure 구독 ID 가져오기**에서 이 값을 검색했습니다.
+* *contosokey*를 [키 생성](#step-3-generate-your-key) 단계의 **3.5단계: 새 키 만들기**에서 키를 생성하는 데 사용한 식별자로 바꿉니다.
+* *SubscriptionID* 를 주요 자격 증명 모음이 포함된 Azure 구독 ID로 바꿉니다. 이전에 [인터넷에 연결된 워크스테이션 준비](#step-1-prepare-your-internet-connected-workstation) 단계의 **1.2단계: Azure 구독 ID 가져오기**에서 이 값을 검색했습니다.
 * *ContosoFirstHSMKey*를 출력 파일 이름에 사용할 레이블로 바꿉니다.
 
 이 작업이 성공적으로 완료되면 **결과: 성공**을 표시하고, 다음과 같은 이름의 새 파일이 현재 폴더에 생성됩니다. KeyTransferPackage-*ContosoFirstHSMkey*.byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>4.3단계: 인터넷에 연결된 워크스테이션에 키 전송 패키지 복사
 
-USB 드라이브 또는 기타 휴대용 저장소를 사용하여 인터넷에 연결된 워크스테이션에 이전 단계의 출력 파일(KeyTransferPackage-ContosoFirstHSMkey.byok)을 복사합니다.
+USB 드라이브 또는 기타 휴대용 스토리지를 사용하여 인터넷에 연결된 워크스테이션에 이전 단계의 출력 파일(KeyTransferPackage-ContosoFirstHSMkey.byok)을 복사합니다.
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>5단계: Azure Key Vault에 키 전송
 

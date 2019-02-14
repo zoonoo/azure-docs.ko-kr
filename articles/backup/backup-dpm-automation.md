@@ -2,18 +2,18 @@
 title: Azure Backup - PowerShell을 사용하여 DPM 워크로드 백업
 description: PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure Backup을 배포 및 관리하는 방법을 알아봅니다.
 services: backup
-author: NKolli1
-manager: shreeshd
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: d8241385cde61647222f85c29f45bdaabd621610
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ef9d61e880d3252eae2d8ef924ff39a5d2f6acf
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242928"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497913"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
 이 문서에서는 PowerShell을 사용하여 DPM 서버에서 Azure Backup을 설정하고 백업과 복원을 관리하는 방법을 보여 줍니다.
@@ -39,7 +39,7 @@ Sample DPM scripts: Get-DPMSampleScript
 ## <a name="setup-and-registration"></a>설정 및 등록
 시작하려면
 
-1. [최신 PowerShell을 다운로드](https://github.com/Azure/azure-powershell/releases) 합니다(필요한 최소 버전: 1.0.0).
+1. [최신 PowerShell을 다운로드](https://github.com/Azure/azure-powershell/releases)합니다(필요한 최소 버전: 1.0.0)
 2. 다음과 같은 *Switch-azuremode* commandlet을 통해 **AzureResourceManager** 모드로 전환하여 Azure Backup commandlet을 사용하도록 설정합니다.
 
 ```
@@ -318,7 +318,7 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 ### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>DPM 복제본 및 복구 지점 볼륨 크기 변경
-또한 다음 예제와 같이 [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) cmdlet을 사용하여 DPM 복제본 볼륨 및 섀도 복사본 볼륨의 크기를 변경할 수 있습니다. Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
+다음 예제와 같이 [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) cmdlet을 사용하여 DPM 복제본 볼륨 및 섀도 복사본 볼륨의 크기를 변경할 수도 있습니다. Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>보호 그룹에 변경 내용 커밋
 마지막으로, 변경 내용을 DPM이 새로운 보호 그룹 구성에 따라 백업을 수행하기 전에 먼저 변경 내용을 커밋해야 합니다. 이 작업은 [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) cmdlet을 사용하여 수행할 수 있습니다.
@@ -330,7 +330,7 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) cmdlet을 사용하여 데이터 원본에 대한 모든 복구 지점 목록을 가져올 수 있습니다. 이 예제에서는 다음을 수행합니다.
 
 * DPM 서버의 모든 PG를 가져오고 ```$PG```
-* ```$PG[0]```
+*  ```$PG[0]```
 * 데이터 원본에 대한 모든 복구 지점을 가져옵니다.
 
 ```

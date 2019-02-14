@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405007"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508337"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -89,7 +89,7 @@ Location = East US <br>
 
 VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨이가 동적인지 확인합니다. 정적인 경우 [로컬 사이트를 구성](#local)하기 전에 먼저 VPN 게이트웨이를 삭제해야 합니다.
 
-1. [클래식 포털](https://ms.portal.azure.com)에서 Azure Portal에 로그인합니다.
+1. [Azure 포털](https://ms.portal.azure.com)에서 Azure 계정으로 로그인합니다.
 2. **+ 리소스 만들기**를 클릭하여 '새' 페이지를 엽니다.
 3. ‘Marketplace 검색’ 필드에 ‘Virtual Network’를 입력합니다. 대신, 네트워킹 -> Virtual Network를 선택한 경우 클래식 VNet을 만드는 옵션이 표시되지 않습니다.
 4. 반환된 목록에서 'Virtual Network'를 찾아서 클릭하여 Virtual Network 페이지를 엽니다. 
@@ -113,7 +113,7 @@ VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨�
 2. **선택적 게이트웨이 구성**을 클릭하여 **게이트웨이 구성** 페이지를 엽니다.
 
   ![게이트웨이 구성 페이지 열기](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "게이트웨이 구성 페이지 열기")
-3. **서브넷 - 필요한 설정 구성**을 클릭하여 **서브넷 추가** 페이지를 엽니다. **이름**이 필수 값인 **GatewaySubnet**으로 이미 구성되어 있습니다.
+3. **서브넷 - 필요한 설정 구성**을 클릭하여 **서브넷 추가** 페이지를 엽니다. **이름**이 다음 필수 값으로 이미 구성되어 있습니다. **GatewaySubnet**.
 4. **주소 범위**는 게이트웨이 서브넷에 대한 범위를 나타냅니다. 게이트웨이 서브넷을 /29 주소 범위(주소 3개)로 만들 수 있지만 더 많은 IP 주소를 포함하는 게이트웨이 서브넷을 만드는 것이 좋습니다. 그러면 사용 가능한 IP 주소가 필요할 수 있는 향후 구성을 수용하게 됩니다. 가능하면 /27 또는 /28을 사용합니다. 이 단계를 연습으로 사용하는 경우 다음 [예제 값](#values)을 참조할 수 있습니다. 이 예제에서는 '10.0.0.32/28'을 사용합니다. **확인**을 클릭하여 게이트웨이 서브넷을 만듭니다.
 5. **게이트웨이 구성** 페이지에서 **크기**는 게이트웨이 SKU를 나타냅니다. VPN 게이트웨이에 대한 게이트웨이 SKU를 선택합니다.
 6. **라우팅 유형**이 **동적**인지 확인하고 **확인**을 클릭하여 **새 VPN 연결** 페이지로 돌아갑니다.
@@ -171,7 +171,7 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 
 ### <a name="createlng"></a>4. 로컬 네트워크 게이트웨이 만들기
 
-**예제 값:** 로컬 네트워크 게이트웨이 = ClassicVNetLocal
+**예제 값:** Local network gateway = ClassicVNetLocal
 
 | Virtual Network | 주소 공간 | 지역 | 로컬 네트워크 사이트에 연결 |게이트웨이 공용 IP 주소|
 |:--- |:--- |:--- |:--- |:--- |
@@ -261,7 +261,7 @@ Select-AzureSubscription -SubscriptionName "Name of subscription"
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. 네트워크 구성 파일 값 확인
 
-Azure Portal에서 VNet을 만든 경우 Azure에서 사용되는 전체 이름은 Azure Portal에 표시되지 않습니다. 예를 들어 Azure Portal에서 'ClassicVNet'이라는 이름으로 표시되는 VNet은 네트워크 구성 파일에 훨씬 더 긴 이름이 있을 수 있습니다. 예를 들면 'Group ClassicRG ClassicVNet'과 같은 이름 일 수 있습니다. 이 단계에서는 네트워크 구성 파일을 다운로드하고 값을 살펴봅니다.
+Azure Portal에서 VNet을 만든 경우 Azure에서 사용되는 전체 이름은 Azure Portal에 표시되지 않습니다. 예를 들어 Azure Portal에서 'ClassicVNet'이라는 이름으로 표시되는 VNet은 네트워크 구성 파일에 훨씬 더 긴 이름이 있을 수 있습니다. 이름은 다음과 같이 표시될 수 있습니다. 'Group ClassicRG ClassicVNet'. 이 단계에서는 네트워크 구성 파일을 다운로드하고 값을 살펴봅니다.
 
 컴퓨터에 디렉터리를 만들고 디렉터리에 네트워크 구성 파일을 내보냅니다. 이 예제에서는 네트워크 구성 파일을 C:\AzureNet으로 내보냅니다.
 

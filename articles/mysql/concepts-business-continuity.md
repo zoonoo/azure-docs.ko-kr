@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: a09c1934ecb34518b191a8e730a72efecc85aa2f
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554540"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692929"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Azure Database for MySQL의 비즈니스 연속성 개요
 
@@ -50,6 +50,6 @@ Azure Database for MySQL에는 자동화된 백업 및 사용자가 지역 복�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자동화된 백업에 대해 자세히 알아보려면 [Azure Database for MySQL의 백업](concepts-backup.md)을 참조하세요.
-- Azure Portal을 사용하여 특정 시점으로 복원하려면  [Azure Portal을 사용하여 특정 시점으로 데이터베이스 복원](howto-restore-server-portal.md)을 참조하세요.
-- Azure CLI를 사용하여 특정 시점으로 복원하려면  [CLI를 사용하여 특정 시점으로 데이터베이스 복원](howto-restore-server-cli.md)을 참조하세요.
+- [Azure Database for MySQL의 자동화된 백업](concepts-backup.md)에 대해 자세히 알아봅니다.
+- [Azure Portal](howto-restore-server-portal.md) 또는 [Azure CLI](howto-restore-server-cli.md)를 사용하여 복원하는 방법을 알아봅니다.
+- [Azure Database for MySQL의 읽기 복제본](concepts-read-replicas.md)에 대해 알아봅니다.

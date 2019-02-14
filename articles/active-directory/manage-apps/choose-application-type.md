@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: e10784957365df62e64c306c97ea17fb6a5e7c49
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ef752d2f9d57ee8674d91fd14b56b804ccf50d22
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55202929"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814203"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션을 추가할 때 애플리케이션 유형 선택
 Azure AD(Azure Active Directory)에 추가할 수 있는 네 가지 유형의 애플리케이션에 대해 알아봅니다. Azure Active Directory에서 애플리케이션을 추가할 때 4개의 애플리케이션 유형 중 하나를 선택하라는 메시지가 표시됩니다. 
@@ -42,7 +42,7 @@ Azure AD는 **엔터프라이즈 애플리케이션** 아래에 있는 **추가*
 
 -   **빠른 시작** – [간단한 배포 단계](https://docs.microsoft.com/azure/active-directory/active-directory-integrating-applications-getting-started)를 수행하여 신속하게 애플리케이션 시작
 
--   **일반 속성 관리** – 애플리케이션에 [직접 딥 링크](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users) 가져오기, 애플리케이션의 [브랜딩 사용자 지정](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) 또는 모든 사용자에 대한 [애플리케이션을 사용하지 않도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
+-   **일반 속성 관리** – 애플리케이션에 [직접 딥 링크](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) 가져오기, 애플리케이션의 [브랜딩 사용자 지정](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal) 또는 모든 사용자에 대한 [애플리케이션을 사용하지 않도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
 
 -   **사용자 및 그룹 관리** – 사용자 및 그룹을 애플리케이션에 [할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) 또는 [제거](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) 및 경우에 따라 액세스를 가진 이러한 사용자 및 그룹에 특정 애플리케이션 역할 할당
 
@@ -95,7 +95,7 @@ Azure AD는 **엔터프라이즈 애플리케이션** 아래에 있는 **추가*
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>사용자 지정 개발된 애플리케이션에 대한 Single Sign-On 모드
 
-[사용자 지정 개발된 애플리케이션](#_Custom-Developed_Applications) 환경을 통해 사용자 지정 개발한 애플리케이션은 이전에 나열되지 않은 추가 Single Sign-On 모드도 지원하며, 다음을 포함합니다.
+사용자 지정 개발된 애플리케이션 환경을 통해 사용자 지정 개발한 애플리케이션은 이전에 나열되지 않은 추가 Single Sign-On 모드도 지원하며, 다음을 포함합니다.
 
 -   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) 기반 로그온
 
@@ -134,7 +134,7 @@ Azure AD는 **엔터프라이즈 애플리케이션** 아래에 있는 **추가*
 -   **자동 프로비전** - 자동 API 기반 프로비전 및/또는 이 애플리케이션에 사용자 계정의 프로비전 해제를 활성화하려면 [자동](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning)**프로비전 모드** 선택 
 
    >[!NOTE]
-   >이 옵션은 [Azure AD 애플리케이션 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal#the-new-and-improved-application-gallery)의 **주요** 범주 내의 애플리케이션에만 사용할 수 있습니다.
+   >이 옵션은 [Azure AD 애플리케이션 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal)의 **주요** 범주 내의 애플리케이션에만 사용할 수 있습니다.
    >
    >
 

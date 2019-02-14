@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7a3893c35031d05ea8aade0ad5d30b5a56176fd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015137"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816733"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 2. 복사 활동의 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 
 3. 입력과 출력으로 각각의 데이터 세트를 사용하는 복사 활동이 포함된 파이프라인을 만듭니다. 
 
-복사 마법사를 사용하는 경우 Data Factory 연결된 서비스, 데이터 세트 및 파이프라인 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. [JSON 예제: DB2에서 Azure Blob Storage로 데이터 복사](#json-example-copy-data-from-db2-to-azure-blob)에서는 온-프레미스 DB2 데이터 스토리지에서 데이터를 복사하는 데 사용되는 Data Factory 엔터티에 대한 JSON 정의를 보여 줍니다.
+복사 마법사를 사용하는 경우 Data Factory 연결된 서비스, 데이터 세트 및 파이프라인 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. JSON 예제: DB2에서 Azure Blob Storage로 데이터 복사에서는 온-프레미스 DB2 데이터 스토리지에서 데이터를 복사하는 데 사용되는 Data Factory 엔터티에 대한 JSON 정의를 보여줍니다.
 
 다음 섹션에서는 DB2 데이터 저장소와 관련된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -91,7 +91,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
-데이터 세트를 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. JSON 데이터 세트에 대한 **structure**, **availability** 및 **policy**과 같은 섹션은 모든 데이터 세트 유형(Azure SQL, Azure Blob 저장소, Azure Table 저장소 등)에서 비슷합니다.
+데이터 세트를 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. JSON 데이터 집합에 대한 **structure**, **availability** 및 **policy**과 같은 섹션은 모든 데이터 집합 유형(Azure SQL, Azure Blob Storage, Azure Table Storage 등)에서 비슷합니다.
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. DB2 데이터 세트를 포함하는 **RelationalTable** 형식의 데이터 세트에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
@@ -112,7 +112,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리 문에서 ""(큰 따옴표)를 사용하여 속성 이름을 묶습니다.
 
 ## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON 예제: DB2에서 Azure Blob Storage로 데이터 복사
-이 예제에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. DB2 데이터베이스에서 Blob 저장소로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory 복사 활동을 사용하여 [지원되는 데이터 저장소 싱크 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 데이터를 복사할 수 있습니다.
+이 예제에서는 [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. DB2 데이터베이스에서 Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory 복사 활동을 사용하여 [지원되는 데이터 저장소 싱크 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 데이터를 복사할 수 있습니다.
 
 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
 
@@ -146,7 +146,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 }
 ```
 
-**Azure Blob 저장소 연결된 서비스**
+비디오: Linux에서 Azure File Storage 사용
 
 ```json
 {
@@ -311,14 +311,14 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | SmallInt |Int16 |
 | 정수  |Int32 |
 | BigInt |Int64 |
-| Real |단일 |
+| Real |Single |
 | Double |Double |
 | Float |Double |
-| 10진수 |10진수 |
-| DecimalFloat |10진수 |
-| 숫자 |10진수 |
-| Date |Datetime |
-| Time |timespan |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| 숫자 |Decimal |
+| Date |DateTime |
+| Time |TimeSpan |
 | 타임 스탬프 |Datetime |
 | xml |Byte[] |
 | Char |문자열 |
@@ -337,14 +337,14 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | SmallInt |Int16 |
 | 정수  |Int32 |
 | BigInt |Int64 |
-| Real |단일 |
+| Real |Single |
 | Double |Double |
 | Float |Double |
-| 10진수 |10진수 |
-| DecimalFloat |10진수 |
-| 숫자 |10진수 |
-| Date |Datetime |
-| Time |timespan |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| 숫자 |Decimal |
+| Date |DateTime |
+| Time |TimeSpan |
 | 타임 스탬프 |Datetime |
 | xml |Byte[] |
 | Char |문자열 |

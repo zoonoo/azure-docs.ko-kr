@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 51e9d12d9f8801102997266cfd6699a367b11126
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8effa84c9d7adc14060fb00fae9915a04c1d04cc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435518"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821221"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Apache Hive 정책 구성
 Apache Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 경우 Excel 및 ODBC 드라이버를 사용하여 HDInsight의 Hive 테이블에 연결합니다.
@@ -45,7 +45,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 
 **Ranger 정책을 만들려면**
 
-1. Ranger 관리 UI를 엽니다. [Apache Ranger 관리 UI에 연결](#connect-to-apache-ranager-admin-ui)을 참조하세요.
+1. Ranger 관리 UI를 엽니다. Apache Ranger 관리 UI에 연결을 참조하세요.
 2. **Hive**에서 **&lt;ClusterName>_hive**를 클릭합니다. 두 개의 미리 구성 정책이 표시되어야 합니다.
 3. **새 정책 추가**를 클릭하고 다음 값을 입력합니다.
 

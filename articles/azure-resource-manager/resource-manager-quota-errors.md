@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2cf9f914aeaee25cda8fd426454cb39a1afa0b4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7938f2c47e4af8d8804191fbb9e55b379f9554ef
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260229"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488615"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>리소스 할당량 오류 해결
 
 이 문서에서는 리소스를 배포할 때 발생할 수 있는 할당량 오류에 대해 설명합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>증상
 
@@ -76,10 +78,10 @@ az vm list-usage --location "South Central US"
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell의 경우 **Get AzureRmVMUsage** 명령을 사용하여 가상 머신 할당량을 찾습니다.
+PowerShell의 경우 **Get-AzVMUsage** 명령을 사용하여 가상 머신 할당량을 찾습니다.
 
 ```powershell
-Get-AzureRmVMUsage -Location "South Central US"
+Get-AzVMUsage -Location "South Central US"
 ```
 
 반환하는 내용은 다음과 같습니다.

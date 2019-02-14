@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 서비스 제한 사항
+title: 서비스 한도 및 제한 사항 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 서비스의 사용 제약 및 기타 서비스 제한 사항
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 06/28/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
-ms.openlocfilehash: 4dd7f5044733f0eeb6bcf4cb59eb9785ae22d38f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6a984c641608d5fd84a2fc6a88e30fd7f457ce9c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172071"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506093"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Azure AD 서비스 제한 및 제한 사항
 이 문서에는 Azure AD(Azure Active Directory) 서비스에 대한 사용 제약 조건 및 기타 서비스 제한이 포함됩니다. Microsoft Azure 서비스 제한을 모두 보려면 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-subscription-service-limits.md)을 참조하세요.

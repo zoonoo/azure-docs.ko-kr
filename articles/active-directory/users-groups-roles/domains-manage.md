@@ -1,24 +1,24 @@
 ---
-title: Azure Active Directory에서 사용자 지정 도메인 이름 관리 | Microsoft Docs
+title: 사용자 지정 도메인 이름 추가 및 확인 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory에서 도메인 이름 관리에 대한 관리 개념 및 방법
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 12c8b80b76c721962ca6180e531578b037997553
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.custom: it-pro
+ms.openlocfilehash: 198fb3376d44123d39a0b3ca2fb1edbd070f1f09
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294168"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510989"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름 관리
 

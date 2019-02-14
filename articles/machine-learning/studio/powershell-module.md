@@ -1,7 +1,21 @@
 ---
-제목: Machine Learning Studio용 PowerShell 모듈 titleSuffix: Azure Machine Learning Studio 설명: PowerShell을 사용하여 Azure Machine Learning Studio 작업 영역, 실험, 웹 서비스 등을 만들고 관리하는 방법을 설명합니다. services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 2019/01/25
+title: Machine Learning Studio용 PowerShell 모듈
+titleSuffix: Azure Machine Learning Studio
+description: PowerShell을 사용하여 Azure Machine Learning Studio 작업 영역, 실험, 웹 서비스 등을 만들고 관리하는 방법을 설명합니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=haining, previous-author=hning86
+ms.date: 01/25/2019
+ms.openlocfilehash: b6080e6e81b6cedce4d08cf20e082c87e5cecade
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489821"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 PowerShell 모듈
 

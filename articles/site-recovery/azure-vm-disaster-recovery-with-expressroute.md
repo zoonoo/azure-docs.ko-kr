@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228290"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821952"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합
 
@@ -190,7 +190,7 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
 ### <a name="example-steps"></a>예제 단계
 이 예제에서 복구를 자동화하려면 다음을 수행해야 합니다.
 
-1. [복제를 설정](#azure-vm-replication-steps)하는 단계를 따르세요.
+1. 복제를 설정하는 단계를 따르세요.
 2. 장애 조치 중 또는 후에 이 추가 단계를 사용하여 [Azure VM을 장애 조치](azure-to-azure-tutorial-failover-failback.md)합니다.
 
     a. 대상 하위 지역 허브 VNet에 Azure ExpressRoute 게이트웨이를 만듭니다. ExpressRoute 회로에 대상 허브 vNet을 연결해야 합니다.

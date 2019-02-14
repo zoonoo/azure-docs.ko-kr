@@ -1,26 +1,21 @@
 ---
-title: Azure Advisor 성능 권장 사항 | Microsoft Docs
+title: Azure Advisor로 Azure 애플리케이션의 성능 향상 | Microsoft Docs
 description: Advisor를 사용하여 Azure 배포 성능을 최적화합니다.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 3caf838fec3a5c0ab847ded85b269df7a66859e0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f3c6e39203fb0d864ecf952e0468959d66931e1f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266748"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491589"
 ---
-# <a name="advisor-performance-recommendations"></a>Advisor 성능 권장 사항
+# <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Advisor로 Azure 애플리케이션의 성능 향상
 
 Azure Advisor 성능 권장 사항은 업무에 중요한 애플리케이션의 속도 및 응답성을 향상시키는 데 도움이 됩니다. Advisor 대시보드의 **성능** 탭에서 Advisor를 사용하여 성능 권장 사항을 볼 수 있습니다.
 
@@ -49,7 +44,7 @@ App Services 권장 사항에 대한 자세한 내용은 [Azure App Service에 �
 
 ## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Managed Disks를 사용하여 디스크 I/O 제한 방지
 
-Advisor는 해당 확장성 목표에 도달하는 스토리지 계정에 속한 가상 머신을 식별합니다. 이로 인해 I/O 제한에 취약합니다. Advisor는 이러한 가상 머신에서 성능 저하를 방지하기 위해 Managed Disks를 사용하도록 추천합니다.
+Advisor는 해당 확장성 목표에 도달하는 스토리지 계정에 속한 가상 머신을 식별합니다. 이 조건으로 해당 VM이 I/O 제한에 걸리기 쉽습니다. Advisor는 성능 저하를 방지하기 위해 Managed Disks를 사용하도록 추천합니다.
 
 ## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Premium Storage를 사용하여 가상 머신 디스크의 성능 및 안정성 향상
 
@@ -67,7 +62,7 @@ Advisor는 최신 [테이블 통계](https://docs.microsoft.com/azure/sql-data-w
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>SQL Data Warehouse 테이블에서 캐시 사용률을 최적화하도록 확장하여 쿼리 성능 향상
 
-Azure Advisor는 SQL Data Warehouse에서 캐시 사용률이 높고 적중 비율이 낮은지를 감지합니다. 이는 SQL Data Warehouse의 성능에 영향을 줄 수 있는 높은 캐시의 제거를 나타냅니다. 관리자는 SQL Data Warehouse를 확장하여 워크로드에 충분한 캐시 용량을 할당하도록 제안합니다.
+Azure Advisor는 SQL Data Warehouse에서 캐시 사용률이 높고 적중 비율이 낮은지를 감지합니다. 이 조건은 SQL Data Warehouse의 성능에 영향을 줄 수 있는 높은 캐시의 제거를 나타냅니다. 관리자는 SQL Data Warehouse를 확장하여 워크로드에 충분한 캐시 용량을 할당하도록 제안합니다.
 
 ## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>SQL Data Warehouse 테이블을 복제된 테이블로 변환하여 쿼리 성능 향상
 
@@ -75,10 +70,10 @@ Advisor는 복제된 테이블이 아니지만 변환을 통해 이득을 얻을
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>저장소 계정을 Azure Resource Manager로 마이그레이션하여 최신 Azure 기능 모두 이용하기
 
-스토리지 계정 배포 모델을 ARM(Azure Resource Manager)으로 마이그레이션하여 템플릿 배포, 추가 보안 옵션, Azure Storage의 최신 기능 활용을 위해 GPv2 계정으로 업그레이드하는 기능을 활용하세요. Advisor는 Classic 배포 모델을 사용 중인 독립형 저장소 계정을 식별하고 ARM 배포 모델로 마이그레이션할 것을 권장합니다.
+스토리지 계정 배포 모델을 Azure Resource Manager(Resource Manager)로 마이그레이션하여 템플릿 배포, 추가 보안 옵션, Azure Storage의 최신 기능 활용을 위해 GPv2 계정으로 업그레이드하는 기능을 활용하세요. Advisor는 Classic 배포 모델을 사용 중인 독립형 스토리지 계정을 식별하고 Resource Manager 배포 모델로 마이그레이션할 것을 권장합니다.
 
 > [!NOTE]
-> Azure Monitor의 클래식 경고는 2019년 6월에 사용이 중지될 예정이므로 새 플랫폼에서도 경고 기능을 계속 사용하려면 클래식 스토리지 계정을 ARM으로 업그레이드하는 것이 좋습니다. 자세한 내용은 [클래식 경고 사용 중지](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)를 참조하세요.
+> Azure Monitor의 클래식 경고가 2019년 6월에 사용 중지될 예정입니다. 새 플랫폼에서 경고 기능을 유지하려면 Resource Manager를 사용하도록 클래식 스토리지 계정을 업그레이드하는 것이 좋습니다. 자세한 내용은 [클래식 경고 사용 중지](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)를 참조하세요.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Advisor에서 성능 권장 사항에 액세스하는 방법
 

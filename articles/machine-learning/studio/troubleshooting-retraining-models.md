@@ -1,8 +1,21 @@
 ---
-제목: Machine Learning Studio 클래식 웹 서비스의 재학습 문제 해결 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning Studio 웹 서비스에 대한 모델을 재학습하는 경우에 발생하는 일반적인 문제를 파악하고 수정합니다.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 11/01/2017
+title: Machine Learning Studio 클래식 웹 서비스의 재학습 문제 해결
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio 웹 서비스에 대한 모델을 재학습하는 경우에 발생하는 일반적인 문제를 파악하고 수정합니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 11/01/2017
+ms.openlocfilehash: 6cde9d929c52984c95669554aa1153c2bdf21131
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512155"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio 클래식 웹 서비스의 재학습 문제 해결
 ## <a name="retraining-overview"></a>재학습 개요

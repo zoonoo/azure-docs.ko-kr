@@ -11,16 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 551e7c0ca3b4b5e0e94aca39e19d9a35d08e4e05
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e1c225eb77a76015520690916db0399487ffe9e7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353042"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822615"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결
+
+>[!NOTE]
+>Microsoft OMS(Operations Management Suite)에서 Azure Monitor로 전환하는 과정의 일부로 OMS 게이트웨이를 Log Analytics 게이트웨이라고 합니다. 
+>
+
 이 문서에서는 직접 연결되거나 Operations Manager 모니터링 컴퓨터가 인터넷에 액세스할 수 없는 경우, Log Analytics 게이트웨이를 사용하여 Azure Automation 및 Log Analytics와의 통신을 구성하는 방법을 설명합니다.  HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 Log Analytics 게이트웨이에서 데이터를 수집하고 대신하여 Azure Automation 및 Log Analytics로 보낼 수 있습니다.  
 
 Log Analytics 게이트웨이는 다음을 지원합니다.
@@ -29,7 +34,7 @@ Log Analytics 게이트웨이는 다음을 지원합니다.
 * Azure Automation Hybrid Runbook Worker  
 * Log Analytics 작업 영역에 직접 연결된 Microsoft Monitoring Agent가 있는 Windows 컴퓨터
 * Log Analytics 작업 영역에 직접 연결된 Linux용 Log Analytics 에이전트가 있는 Linux 컴퓨터  
-* Log Analytics와 통합된 System Center Operations Manager 2012 SP1(UR7 포함), Operations Manager 2012 R2(UR3 포함), Operations Manager 2016 및 Operations Manager 버전 1801 관리 그룹.  
+* Log Analytics와 통합되는 System Center Operations Manager 2012 SP1(UR7 포함), Operations Manager 2012 R2(UR3 포함), Operations Manager 2016 이상 관리 그룹  
 
 IT 보안 정책에 따라 네트워크상의 컴퓨터가 POS(Point of Sale) 디바이스 또는 IT 서비스를 지원하는 서버처럼 인터넷에 연결할 수 없지만 Azure Automation 또는 Log Analytics에 연결하여 관리하고 모니터링해야 하는 경우에는, Log Analytics 게이트웨이와 직접 통신하여 구성을 수신하고 대신 데이터를 전달하도록 구성할 수 있습니다.  이러한 컴퓨터가 Log Analytics 에이전트와 함께 구성되어 Log Analytics 작업 영역에 직접 연결하면 모든 컴퓨터에서 Log Analytics 게이트웨이와 대신 통신합니다.  게이트웨이는 데이터를 에이전트에서 서비스로 직접 전송하며, 전송되는 어떠한 데이터도 분석하지 않습니다.
 

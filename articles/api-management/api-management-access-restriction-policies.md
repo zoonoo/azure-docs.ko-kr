@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 59562d0571486a4bcbc96be4cb7dcddb4dfb0a44
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 39f23cd0b0b6081d8e54524a0eedc9cce1fd4571
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095722"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493457"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management 액세스 제한 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -512,7 +512,7 @@ ms.locfileid: "55095722"
 |header-name|토큰을 보유하는 HTTP 헤더의 이름입니다.|`header-name` 또는 `query-parameter-name`를 지정해야 하며 둘 다 함께 지정할 수 없습니다.|해당 없음|  
 |id|`key` 요소에 있는 `id` 특성을 통해 토큰(있는 경우)에 있는 `kid` 클레임과 일치시킬 문자열을 지정하여 서명 유효성 검사에 사용할 적절한 키를 확인할 수 있습니다.|아니요|해당 없음|  
 |match|`claim` 요소에 있는 `match` 특성에 따라 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 하는지가 지정됩니다. 가능한 값은 다음과 같습니다.<br /><br /> -                          `all` - 유효성 검사 성공을 위해 정책에 있는 모든 클레임 값이 토큰에 표시되어야 합니다.<br /><br /> -                          `any` - 유효성 검사 성공을 위해 하나 이상의 클레임 값이 토큰에 표시되어야 합니다.|아니요|모두|  
-|query-paremeter-name|토큰을 보유하는 쿼리 매개 변수의 이름입니다.|`header-name` 또는 `query-paremeter-name`를 지정해야 하며 둘 다 함께 지정할 수 없습니다.|해당 없음|  
+|query-parameter-name|토큰을 보유하는 쿼리 매개 변수의 이름입니다.|`header-name` 또는 `query-parameter-name`를 지정해야 하며 둘 다 함께 지정할 수 없습니다.|해당 없음|  
 |require-expiration-time|부울 값입니다. 토큰에 만료 클레임이 필요한지를 지정합니다.|아니요|true|
 |require-scheme|토큰 스키마의 이름입니다(예: "Bearer"). 이 특성이 설치되면 정책은 지정된 스키마가 권한 부여 헤더 값에 있는지를 확인합니다.|아니요|해당 없음|
 |require-signed-tokens|부울 값입니다. 토큰에 서명이 필요한지를 지정합니다.|아니요|true|  

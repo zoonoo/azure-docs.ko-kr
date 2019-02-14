@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: aa9eb0b624df29f6fb86402c06436ed7349fa662
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273870"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113699"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>App Service Environment로 지역 분산된 규모
 ## <a name="overview"></a>개요
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 대규모를 필요로 하는 애플리케이션 시나리오는 앱의 단일 배포에 사용할 수 있는 계산 리소스 용량을 초과할 수 있습니다.  투표 애플리케이션, 스포츠 이벤트 및 방송된 엔터테인먼트 이벤트는 대규모를 필요로 하는 시나리오를 모두 포함하는 예입니다. 대규모를 요구하면 수평으로 앱을 확장하여 단일 지역내에서 뿐만 아니라 지역에 걸쳐 수행되는 여러 앱 배포에 맞게 큰 부하 요구 사항을 처리합니다.
 
 App Service Environment는 수평적 규모 확장에 대한 이상적인 플랫폼입니다.  알려진된 요청 속도 지원할 수 있는 App Service Environment 구성을 선택하면 개발자는 "쿠키 커터" 방식으로 추가 App Service Environment를 배포하여 원하는 최대 부하 용량을 얻을 수 있습니다.
@@ -68,13 +71,13 @@ App Service Environment는 수평적 규모 확장에 대한 이상적인 플랫
 
 만든 프로필을 사용하여 각 앱 인스턴스를 프로필에 네이티브 Azure 엔드포인트로 추가합니다.  아래 코드는 각 프런트 엔드 웹앱에 대한 참조를 인출하고 *TargetResourceId* 매개 변수의 방법으로 각 앱을 Traffic Manager 엔드포인트로 추가합니다.
 
-    $webapp1 = Get-AzureRMWebApp -Name webfrontend1
+    $webapp1 = Get-AzWebApp -Name webfrontend1
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp2 = Get-AzureRMWebApp -Name webfrontend2
+    $webapp2 = Get-AzWebApp -Name webfrontend2
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
 
-    $webapp3 = Get-AzureRMWebApp -Name webfrontend3
+    $webapp3 = Get-AzWebApp -Name webfrontend3
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
 
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile

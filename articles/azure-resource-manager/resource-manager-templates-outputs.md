@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9a46d813f2e50831240303ba47380da39e2cb6af
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: aadc92c232d32d827644caa52b3c362d9c8d4c9b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725814"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691034"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 출력 섹션
+
 Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 들어, 배포된 리소스에 액세스하기 위한 URI를 반환할 수 있습니다.
 
 ## <a name="define-and-use-output-values"></a>출력 값 정의 및 사용
@@ -39,7 +40,7 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 배포 후에 스크립트를 사용하여 값을 검색할 수 있습니다. PowerShell의 경우 다음을 사용합니다.
 
 ```powershell
-(Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
 ```
 
 Azure CLI의 경우 
@@ -81,6 +82,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 | 형식 |예 |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. |
 | 값 |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. |
 
+주석을 추가하는 방법에 대한 내용은 [템플릿의 주석](resource-group-authoring-templates.md#comments)을 참조하세요.
 
 ## <a name="example-templates"></a>예제 템플릿
 

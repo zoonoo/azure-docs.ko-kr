@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 9290026c1becc1ae32682fa173aae57dd7c47565
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: eba77f79ad4625319a9b6e3eae46bf8470f43607
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55772922"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203780"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>개인 Microsoft 계정 추가
 표준 2단계 인증 프로세스 및 암호 없는 휴대폰 로그인 방법에 모두 사용하도록 Microsoft Authenticator 앱에 Outlook.com 또는 Xbox LIVE와 같은 개인 Microsoft 계정을 추가합니다.

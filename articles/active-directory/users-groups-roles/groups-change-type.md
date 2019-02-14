@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 정적 그룹 멤버 자격 유형을 동적으로 변경 | Microsoft Docs
+title: 정적 그룹 멤버 자격 유형을 동적으로 변경 - Azure Active Directory | Microsoft Docs
 description: 그룹을 자동으로 채우는 멤버 자격 규칙과 규칙 참조를 만드는 방법입니다.
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 11175a091ad610470632b52b46270ed27c76e452
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7f8c9298c1e74e87411386a1d8ae36a34d986065
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150634"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508490"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Azure Active Directory에서 정적 그룹 멤버 자격을 동적으로 변경
 

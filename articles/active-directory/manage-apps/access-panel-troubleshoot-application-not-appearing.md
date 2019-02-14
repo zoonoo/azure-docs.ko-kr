@@ -3,8 +3,8 @@ title: 할당한 애플리케이션이 액세스 패널에 표시되지 않음 |
 description: 애플리케이션이 액세스 패널에 표시되지 않는 문제 해결
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviwer: japere
-ms.openlocfilehash: 3a63f506b2b2072c385759044cd3a0c581a54185
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 21ed169003caded8ef80689ceec61f6d2fc4305c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177715"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178994"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>할당한 애플리케이션이 액세스 패널에 표시되지 않음
 
@@ -203,13 +204,13 @@ Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로�
 
 비갤러리 애플리케이션을 구성하려면 Azure AD 프리미엄이 있어야 하며 애플리케이션에서 SAML 2.0을 지원해야 합니다. Azure AD 버전에 대한 자세한 내용은 [Azure AD 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
 
--   [Azure AD에서 애플리케이션의 메타데이터 값 구성(로그온 URL, 식별자, 회신 URL)](#configuring-single-sign-on)
+-   [Azure AD에서 애플리케이션의 메타데이터 값 구성(로그온 URL, 식별자, 회신 URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
 -   [사용자 식별자를 선택하고 애플리케이션에 보낼 사용자 특성 추가](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Azure AD 메타데이터 및 인증서 검색](#download-the-azure-ad-metadata-or-certificate)
 
--   [애플리케이션에서 Azure AD 메타데이터 값 구성(로그온 URL, 발급자, 로그아웃 URL 및 인증서)](#configuring-single-sign-on)
+-   [애플리케이션에서 Azure AD 메타데이터 값 구성(로그온 URL, 발급자, 로그아웃 URL 및 인증서)](#configure-the-application-for-password-single-sign-on-1)
 
 #### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Azure AD에서 애플리케이션의 메타데이터 값 구성(로그온 URL, 식별자, 회신 URL)
 

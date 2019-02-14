@@ -1,22 +1,22 @@
 ---
-title: Azure RA-GRS(Read-Access Geo Redundant Storage)를 사용하여 항상 사용 가능한 애플리케이션 설계 | Microsoft Docs
+title: RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하여 고가용성 애플리케이션 설계 | Microsoft Docs
 description: Azure RA-GRS 저장소를 사용하여 가동 중단을 처리할 만큼 유연하면서 항상 사용 가능한 애플리케이션을 설계하는 방법입니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454946"
+ms.locfileid: "55512247"
 ---
-# <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 설계
+# <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 고가용성 애플리케이션 설계
 
 Azure Storage와 같은 클라우드 기반 인프라의 일반적인 기능은 애플리케이션 호스팅을 위해 항상 사용할 수 있는 플랫폼을 제공하는 것입니다. 클라우드 기반 애플리케이션 개발자는 사용자에게 항상 사용 가능한 애플리케이션을 제공하기 위해 이러한 플랫폼을 활용할 방법을 신중하게 고려해야 합니다. 이 문서는 개발자가 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하여 해당 Azure Storage 응용 프로그램의 고가용성을 보장하는 방법에 중점을 둡니다.
 
@@ -43,9 +43,7 @@ RA-GRS에 맞게 애플리케이션을 설계할 경우 다음과 같은 주요 
 
 * Storage 클라이언트 라이브러리를 사용하여 주 지역 또는 보조 지역의 데이터와 상호 작용할 수 있습니다. 주 지역에 대한 읽기 요청의 시간이 초과되면 읽기 요청을 보조 지역에 자동으로 리디렉션할 수도 있습니다.
 
-* 주 지역의 데이터에 대한 접근성에 영향을 미치는 주요한 문제가 있으면 Azure 팀에서 지역 장애 조치(failover)를 트리거할 수 있고, 그러면 주 지역을 가리키는 DNS 항목이 보조 지역을 가리키도록 변경됩니다.
-
-* 지역 장애 조치(failover)가 발생하면 Azure는 새로운 보조 지역을 선택하고 그 위치에 데이터를 복제한 다음 보조 DNS 항목으로 그 위치를 가리킵니다. 저장소 계정이 복제를 마칠 때까지 보조 엔드포인트를 사용할 수 없습니다. 자세한 내용은 [Azure Storage 중단이 발생할 경우 수행할 작업](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance)을 참조하세요.
+* 주 지역을 사용할 수 없게 되면 계정 장애 조치를 시작할 수 있습니다. 보조 지역으로 장애 조치를 수행하면 주 지역을 가리키는 DNS 항목이 보조 지역을 가리키도록 변경됩니다. 장애 조치가 완료되면 GRS 및 RA-GRS 계정에 대한 쓰기 권한이 복원됩니다. 자세한 내용은 [Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)](storage-disaster-recovery-guidance.md)를 참조하세요.
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>RA-GRS를 사용하는 경우 애플리케이션 설계 고려 사항
 

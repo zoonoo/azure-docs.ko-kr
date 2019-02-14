@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268277"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507538"
 ---
 # <a name="use-firewall-rules"></a>방화벽 규칙 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "53268277"
 
 ## <a name="when-to-use"></a>사용하는 경우
 
-지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 이외의 트래픽은 거부해야 하는 Event Hubs 네임스페이스를 설정하려는 경우 *방화벽 규칙*을 활용하여 다른 IP 주소의 Event Hub 엔드포인트를 차단할 수 있습니다. 예를 들어, [Azure Express Route][express-route]와 함께 Event Hubs를 사용하여 온-프레미스 인프라에 대한 비공개 연결을 생성합니다.
+지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 이외의 트래픽은 거부해야 하는 Event Hubs 네임스페이스를 설정하려는 경우 *방화벽 규칙*을 활용하여 다른 IP 주소의 Event Hub 엔드포인트를 차단할 수 있습니다. 예를 들어 [Azure Express Route][express-route]와 함께 Event Hubs를 사용하는 경우 온-프레미스 인프라 IP 주소에서 오는 트래픽을 제한하는 *방화벽 규칙*을 만들 수 있습니다.
 
 ## <a name="how-filter-rules-are-applied"></a>필터 규칙이 적용되는 방식
 

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185817"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510326"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
 
@@ -32,6 +32,7 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 | **자동 컬렉션**        |                 |                   |               
 | &bull; 요청                     | 예             | 예               | 
 | &bull; 예외                   | 예             | 예               | 
+| &bull; 성능 카운터         | 예             |                   |
 | &bull; 종속성                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | 예               | 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | 예               | 
@@ -50,6 +51,11 @@ Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Applic
 | | | | 
 | **구성 가능 여부**                      |                   |                   |           
 | &bull;완전히 구성 가능합니다.<br/>지침을 보려면 [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852)를 참조하세요.<br/>모든 옵션에 대해서는 [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration)를 참조하세요.               |                   | 예                   | 
+
+
+## <a name="performance-counters"></a>성능 카운터
+
+성능 카운터의 자동 수집은 Windows 머신에서만 작동합니다.
 
 
 ## <a name="live-metrics--secure-control-channel"></a>라이브 메트릭 및 컨트롤 채널 보호

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: f8826f0c0cb63068313a570b050531511126dbc9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: db2e2e80ecc98eba0f1bba18abad8b561b16036c
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422926"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745863"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
 
@@ -76,11 +76,14 @@ Azure를 구독하는 사용자는 주요 자격 증명 모음을 만들고 사�
 
 그런 다음 이 관리자는 개발자에게 URI를 제공하여 자신의 애플리케이션에서 호출 하고 보안 관리자에게 해당 키 사용 현황 로깅 정보를 제공합니다. 
 
-![Azure Key Vault의 작동 방식 개요][1]
+![Azure Key Vault 작동 원리 개요][1]
 
 개발자는 API를 사용하여 직접 키를 관리할 수도 있습니다. 자세한 내용은 [키 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-[자격 증명 모음을 보호하는 방법](key-vault-secure-your-key-vault.md)
-<!--Image references--> 알아보기 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png Azure Key Vault는 대부분의 Azure 지역에 제공됩니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
+[키 자격 증명 모음을 보호](key-vault-secure-your-key-vault.md)하는 방법 알아보기
+
+<!--Image references-->
+[1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
+Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.

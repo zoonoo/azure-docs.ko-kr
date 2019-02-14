@@ -4,7 +4,7 @@ description: 방화벽 뒤에 있는 애플리케이션에서 Azure Key Vault에
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: cd5ecf60c76ec3db0bc0d867a8a807016eeea863
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 36b431d07ad517d495316963fd6710dafab6c297
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073732"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108639"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault 액세스
 
@@ -36,7 +36,7 @@ ms.locfileid: "54073732"
 
 모든 3가지 함수(인증, 관리 및 데이터 평면 액세스)의 주요 자격 증명 모음에 대한 모든 트래픽은 HTTPS: 포트 443을 통해 이동합니다. 그러나 CRL의 경우 가끔 HTTP(포트 80) 트래픽이 있습니다. OCSP를 지원하는 클라이언트는 CRL에 도달하지 않아야 하지만 경우에 따라 [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl)에 도달할 수 있습니다.  
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 주요 자격 증명 모음 클라이언트 애플리케이션은 인증을 위해 Azure Active Directory 엔드포인트에 액세스해야 합니다. 사용되는 엔드포인트는 Azure AD 테넌트 구성 및 주체의 형식(사용자 계정, 서비스 주체) 및 계정의 형식, 즉, Microsoft 계정 또는 회사 또는 학교 계정에 따라 달라집니다.  
 

@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 513b1d7468700076ae4d3fd46284ef88d5f28c51
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c923023cec03e36b1795619bc9da09aee8def629
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296177"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700392"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
 **Q: 최근에 디바이스를 등록했습니다. Azure Portal에서 내 사용자 정보에 디바이스가 표시되지 않는 이유는 무엇인가요? 또는 하이브리드 Azure AD(Azure Active Directory) 조인 디바이스의 디바이스 소유자가 N/A로 표시되는 이유는 무엇인가요?**
 
 **A:** 하이브리드 Azure AD 조인 Windows 10 디바이스는 **사용자 디바이스** 아래에 표시되지 않습니다.
-Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell [Get-MsolDevice](https://docs.microsoft.com/en-us/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 사용할 수도 있습니다.
+Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 사용할 수도 있습니다.
 
 다음 디바이스만 **사용자 디바이스** 아래에 나열됩니다.
 
@@ -176,7 +176,7 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 **Q: PC를 Azure AD에 조인하려고 할 때 *오류가 발생했습니다* 대화 상자가 표시되는 이유는 무엇인가요?**
 
-**A:** 이 오류는 Intune을 사용하여 Azure Active Directory 등록을 설정한 경우에 발생합니다. Azure AD 조인을 시도한 사용자에게 올바른 Intune 라이선스가 할당되어야 합니다. 자세한 내용은 [Windows 디바이스에 대한 등록 설정](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment)을 참조하세요.  
+**A:** 이 오류는 Intune을 사용하여 Azure Active Directory 등록을 설정한 경우에 발생합니다. Azure AD 조인을 시도한 사용자에게 올바른 Intune 라이선스가 할당되어야 합니다. 자세한 내용은 [Windows 디바이스에 대한 등록 설정](https://docs.microsoft.com/intune/windows-enroll)을 참조하세요.  
 
 ---
 
@@ -221,6 +221,12 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 **Q: Windows 10 하이브리드 Azure AD 조인 디바이스에서 UPN을 변경한 사용자에게 문제가 발생하는 이유는 무엇인가요?**
 
 **A:** 현재 하이브리드 Azure AD 조인 디바이스에서는 UPN이 완전히 지원되지 않습니다. 사용자는 디바이스에 로그인하여 온-프레미스 애플리케이션에 액세스할 수는 있지만 UPN을 변경하고 나면 Azure AD 인증이 실패합니다. 그러면 사용자의 디바이스에서 SSO 및 조건부 액세스 문제가 발생합니다. 이 경우 문제를 해결하려면 Azure AD에서 디바이스 조인을 취소한 다음(상승된 권한으로 "dsregcmd /leave" 실행) 다시 조인해야 합니다(자동으로 진행됨). 현재 이 문제를 해결하기 위한 작업이 진행되고 있습니다. 하지만 비즈니스용 Windows Hello를 통해 로그인하는 사용자에게는 이 문제가 발생하지 않습니다. 
+
+---
+
+**Q: Windows 10 하이브리드 Azure AD 조인 디바이스는 클라우드 리소스에 액세스하기 위해 도메인 컨트롤러에 대한 가시선이 필요한가요?**
+
+**A:**  아니요. Windows 10 하이브리드 Azure AD 조인이 완료되고 사용자가 한 번 이상 로그인한 후, 디바이스는 클라우드 리소스에 액세스하기 위해 도메인 컨트롤러에 대한 가시선이 필요하지 않습니다. Windows 10은 암호가 변경된 경우 외에는 인터넷 연결이 가능한 곳이면 어디서든 Azure AD 애플리케이션에 단일 로그인을 사용할 수 있습니다. 암호가 회사 네트워크 외부에서 변경된 경우에는(예를 들어, Azure AD SSPR을 사용하여) 사용자에게 도메인 컨트롤러에 대한 가시선이 있어야 새 암호를 사용하여 디바이스에 로그인할 수 있습니다. 그렇지 않은 경우 Azure AD에 의해 무효화되고 단일 로그인을 방지하는 이전 암호를 사용해서만 로그인할 수 있습니다. 단, 이 문제는 비즈니스용 Windows Hello를 사용하는 경우 발생하지 않습니다. 비즈니스용 Windows Hello에 로그인하는 사용자는 암호가 변경된 후에 해당 도메인 컨트롤러에 대한 가시선이 없는 경우라도 계속해서 Azure AD 애플리케이션에 단일 로그인을 사용할 수 있습니다. 
 
 ---
 

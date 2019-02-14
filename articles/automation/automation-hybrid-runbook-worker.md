@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1671a068611d9f5842c2cb09f3b83b18dd483921
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820685"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512213"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화
 
@@ -51,13 +51,13 @@ Hybrid Runbook Worker 배포를 시작하기 전에 [네트워크 계획 정보]
 그룹에서 하나 이상의 Hybrid Runbook Worker를 제거하거나 요구 사항에 따라 그룹을 제거할 수 있습니다. 온-프레미스 컴퓨터에서 Hybrid Runbook Worker를 제거하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 Automation 계정으로 이동합니다.
-2. **설정**에서 **키**를 선택하고 **URL** 및 **기본 액세스 키**의 값을 확인합니다. 이 정보는 다음 단계에서 필요합니다.
+2. **계정 설정**에서 **키**를 선택하고 **URL** 및 **기본 액세스 키**의 값을 확인합니다. 이 정보는 다음 단계에서 필요합니다.
 
 ### <a name="windows"></a> Windows
 
 관리자 모드에서 PowerShell 세션을 열고 다음 명령을 실행합니다. 제거 과정에 대한 자세한 로그를 보려면 **-Verbose** 스위치를 사용합니다.
 
-```powershell
+```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 ```
 
@@ -68,6 +68,8 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 ```
 
 ### <a name="linux"></a>Linux
+
+Hybrid Runbook Worker에서 `ls /var/opt/microsoft/omsagent` 명령을 사용하여 workspaceid를 가져올 수 있습니다. 디렉터리에 폴더 이름이 작업 영역 ID인 폴더가 있습니다.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
@@ -81,11 +83,11 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 그룹을 제거하려면 먼저 앞서 보았던 절차를 사용하여 그룹의 구성원인 모든 컴퓨터에서 Hybrid Runbook Worker를 제거합니다. 이후 다음 단계를 사용하여 그룹을 제거합니다.
 
 1. Azure Portal에서 Automation 계정을 엽니다.
-1. **프로세스 자동화**에서 **Hybrid Worker 그룹**을 선택합니다. 삭제할 그룹을 선택합니다. 해당 그룹에 대한 속성 페이지가 표시됩니다.
+2. **프로세스 자동화**에서 **Hybrid Worker 그룹**을 선택합니다. 삭제할 그룹을 선택합니다. 해당 그룹에 대한 속성 페이지가 표시됩니다.
 
    ![속성 페이지](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. 선택한 그룹에 대한 속성 페이지에서 **삭제**를 선택합니다. 이 작업의 확인을 요청하는 메시지가 나타납니다. 계속하려면 **예**를 선택합니다.
+3. 선택한 그룹에 대한 속성 페이지에서 **삭제**를 선택합니다. 이 작업의 확인을 요청하는 메시지가 나타납니다. 계속하려면 **예**를 선택합니다.
 
    ![확인 메시지](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 

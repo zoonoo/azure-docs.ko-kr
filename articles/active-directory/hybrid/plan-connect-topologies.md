@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ffd10504d496d0a46b373451a0d0400fc16c2e8d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 988e72a20fdd80e41ce8fc1ef568d90d4283a848
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186207"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813503"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -63,7 +63,7 @@ ms.locfileid: "55186207"
 
 Azure AD Connect 설치 마법사는 여러 포리스트에 표시되는 사용자를 통합하는 몇 가지 옵션을 제공합니다. 이러한 옵션의 목표는 사용자를 Azure AD에서 한 번만 표시하는 것입니다. 설치 마법사에서 사용자 지정 설치 경로에 구성할 수 있는 몇 가지 일반적인 토폴로지가 있습니다. **사용자를 고유하게 식별** 페이지에서 해당 토폴로지를 나타내는 옵션을 선택합니다. 통합은 사용자에 대해서만 구성됩니다. 중복된 그룹은 기본 구성과 통합되지 않습니다.
 
-일반적인 토폴로지는 [별도의 토폴로지](#multiple-forests-separate-topologies), [전체 메시](#multiple-forests-full-mesh-with-optional-galsync) 및 [계정 리소스 토폴로지](#multiple-forests-account-resource-forest) 섹션에 설명되어 있습니다.
+일반적인 토폴로지는 별도의 토폴로지, [전체 메시](#multiple-forests-full-mesh-with-optional-galsync) 및 [계정 리소스 토폴로지](#multiple-forests-account-resource-forest) 섹션에 설명되어 있습니다.
 
 Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니다.
 

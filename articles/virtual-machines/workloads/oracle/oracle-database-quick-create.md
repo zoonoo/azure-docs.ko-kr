@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f6e5dab5059086efc1e00c78b85296ff2b7a48c
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 490ac613adac968cc323c2d8351b59aece181b68
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139154"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734388"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 
@@ -34,7 +34,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
-VM(가상 머신)을 만들려면 [az vm create](/cli/azure/vm#az_vm_create) 명령을 사용합니다. 
+VM(가상 머신)을 만들려면 [az vm create](/cli/azure/vm) 명령을 사용합니다. 
 
 다음 예제는 `myVM`라는 VM을 만듭니다. 또한 기본 키 위치에 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  
 
@@ -145,7 +145,7 @@ Oracle 소프트웨어는 이미 Marketplace 이미지에 설치되어 있습니
 
 3. Oracle 변수를 설정합니다.
 
-연결하기 전에 먼저 두 환경 변수, 즉 *ORACLE_HOME* 및 *ORACLE_SID*를 설정해야 합니다.
+연결하기 전에 두 환경 변수를 설정해야 합니다. *ORACLE_HOME* 및 *ORACLE_SID*.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -271,7 +271,7 @@ Oracle 데이터베이스는 기본적으로 VM을 다시 시작할 때 자동�
 
 마지막 작업은 일부 외부 엔드포인트를 구성하는 것입니다. VM을 보호하는 Azure 네트워크 보안 그룹을 설정하려면 먼저 VM에서 SSH 세션을 종료합니다(이전 단계에서 다시 부팅 할 때 SSH에서 제외되어 있어야 함). 
 
-1.  Oracle 데이터베이스에 원격으로 액세스하는 데 사용하는 엔드포인트를 열려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. 
+1.  Oracle 데이터베이스에 원격으로 액세스하는 데 사용하는 엔드포인트를 열려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다. 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -283,7 +283,7 @@ Oracle 데이터베이스는 기본적으로 VM을 다시 시작할 때 자동�
         --destination-port-range 1521
     ```
 
-2.  Oracle EM Express에 원격으로 액세스하는 데 사용하는 엔드포인트를 열려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
+2.  Oracle EM Express에 원격으로 액세스하는 데 사용하는 엔드포인트를 열려면 다음과 같이 [az network nsg rule create](/cli/azure/network/nsg/rule)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -295,7 +295,7 @@ Oracle 데이터베이스는 기본적으로 VM을 다시 시작할 때 자동�
         --destination-port-range 5502
     ```
 
-3. 필요한 경우 다음과 같이 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용하여 VM의 공용 IP 주소를 다시 가져옵니다.
+3. 필요한 경우 다음과 같이 [az network public-ip show](/cli/azure/network/public-ip)를 사용하여 VM의 공용 IP 주소를 다시 가져옵니다.
 
     ```azurecli-interactive
     az network public-ip show \
@@ -317,7 +317,7 @@ Oracle 데이터베이스는 기본적으로 VM을 다시 시작할 때 자동�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure에서 첫 번째 Oracle 데이터베이스 탐색이 끝나고 VM이 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, VM 및 모든 관련 리소스를 제거할 수 있습니다.
+Azure에서 첫 번째 Oracle 데이터베이스 탐색이 끝나고 VM이 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group) 명령을 사용하여 리소스 그룹, VM 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

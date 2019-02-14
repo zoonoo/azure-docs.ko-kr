@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053979"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814047"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -35,7 +35,9 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
 ## <a name="prerequisites"></a>필수 조건
 
-예산은 모든 Azure EA 고객에게 제공됩니다. Azure EA 구독 보기 예산에 대한 읽기 권한이 있어야 합니다. 예산을 만들고 관리하려면 기여자 사용 권한이 있어야 합니다. EA 구독 및 리소스 그룹에 대한 개별 예산을 만들 수 있습니다. 그러나 EA 청구 계정에 대한 예산을 만들 수 없습니다.
+예산은 다양한 유형의 Azure 계정에 대해 지원됩니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 예산을 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다.
+
+ Azure EA 구독의 경우 예산을 보는 읽기 권한이 있어야 합니다. 예산을 만들고 관리하려면 기여자 사용 권한이 있어야 합니다. EA 구독 및 리소스 그룹에 대한 개별 예산을 만들 수 있습니다. 그러나 EA 청구 계정에 대한 예산을 만들 수 없습니다.
 
 다음 Azure 사용 권한은 사용자 및 그룹별 예산에 대한 구독에 따라 지원됩니다.
 
@@ -59,7 +61,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ![Azure Portal에 표시된 비용 관리 예산](./media/tutorial-acm-create-budgets/budgets01.png)
 
-**예산 만들기** 창에서 예산 이름 및 예산 금액을 입력합니다. 그런 다음 월별, 분기별 또는 연간 기간 중에서 선택합니다. 다음으로, 종료 날짜를 선택합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다. 예산 임계값에 도달하면 메일 알림은 일반적으로 8시간 이내에 수신됩니다.
+**예산 만들기** 창에서 예산 이름 및 예산 금액을 입력합니다. 그런 다음 월별, 분기별 또는 연간 기간 중에서 선택합니다. 다음으로, 종료 날짜를 선택합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다. 예산 임계값에 도달하면 메일 알림은 일반적으로 8시간 이내에 수신됩니다. 알림에 대한 자세한 내용은 [비용 경고 사용](cost-mgt-alerts-monitor-usage-spending.md)을 참조하세요.
 
 예로, 월별 4,500달러의 예산을 만들어 보겠습니다. 예산의 90%에 도달하면 이메일 경고가 생성됩니다.
 

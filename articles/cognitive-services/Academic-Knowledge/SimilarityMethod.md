@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0e42d5e05268d4a572376f2bdf25d0ce6f8f4be7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183342"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490127"
 ---
 # <a name="similarity-method"></a>유사성 메서드
 
@@ -32,7 +32,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ----------|----------|----------|------------
 **s1**        |문자열   |예  |비교할 문자열*
 **s2**        |문자열   |예  |비교할 문자열*
-<sub> *비교할 문자열의 최대 길이는 1MB입니다.</sub>
+<sub> *비교할 문자열의 최대 길이는 1MB입니다. </sub>
 <br>
 ## <a name="response"></a>response
 Name | 설명

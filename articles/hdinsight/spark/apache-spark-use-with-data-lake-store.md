@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 29fef9177e40bd89dd0f179b028d2f044af8addb
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e33ec52a2546100a043a78f66c2232c3c1ad264e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913096"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821368"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Storage의 데이터 분석
 
@@ -30,7 +30,7 @@ ms.locfileid: "54913096"
 ## <a name="prepare-the-data"></a>데이터 준비
 
 > [!NOTE]  
-> 기본 스토리지로 Data Lake Storage를 사용하여 HDInsight 클러스터를 만든 경우 이 단계를 수행할 필요가 없습니다. 클러스터 만들기 프로세스는 클러스터를 만드는 동안 지정된 Data Lake Storage 계정에 몇 가지 샘플 데이터를 추가합니다. [Data Lake Storage에서 HDInsight Spark 클러스터 사용](#use-an-hdinsight-spark-cluster-with-data-lake-store) 섹션으로 건너뜁니다.
+> 기본 스토리지로 Data Lake Storage를 사용하여 HDInsight 클러스터를 만든 경우 이 단계를 수행할 필요가 없습니다. 클러스터 만들기 프로세스는 클러스터를 만드는 동안 지정된 Data Lake Storage 계정에 몇 가지 샘플 데이터를 추가합니다. Data Lake Storage에서 HDInsight Spark 클러스터 사용 섹션으로 건너뜁니다.
 
 Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토리지로 사용하여 HDInsight 클러스터를 만든 경우 먼저 몇 가지 샘플 데이터를 Data Lake Storage 계정에 복사해야 합니다. HDInsight 클러스터와 연결된 Azure Storage Blob의 샘플 데이터를 사용할 수 있습니다. 이 작업에는 [ADLCopy 도구](https://aka.ms/downloadadlcopy) 를 사용할 수 있습니다. 링크에서 도구를 다운로드하여 설치합니다.
 

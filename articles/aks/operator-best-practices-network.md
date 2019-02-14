@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 0ad6ab27a51cf082be71262b887a459f6c7cc906
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101975"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55699128"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
 
@@ -21,44 +21,44 @@ AKS(Azure Kubernetes Services)에서 클러스터를 만들고 관리할 때 노
 이 모범 사례 문서는 클러스터 운영자의 네트워크 연결 및 보안을 집중적으로 다룹니다. 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * AKS에서 기본 및 고급 네트워크 모드 비교
+> * AKS에서 Azure CNI 네트워크 모드와 Kubenet 비교
 > * 필수 IP 주소 및 연결 계획
 > * 부하 분산 장치, 수신 컨트롤러 또는 WAF(웹 애플리케이션 방화벽)를 사용하여 트래픽 분산
 > * 클러스터 노드에 안전하게 연결
 
 ## <a name="choose-the-appropriate-network-model"></a>적절한 네트워크 모델 선택
 
-**모범 사례 지침** - 기존 가상 네트워크 또는 온-프레미스 네트워크와의 통합을 위해서는 AKS의 고급 네트워킹을 사용합니다. 또한 이 네트워크 모델을 사용하면 엔터프라이즈 환경에서 리소스 관리와 제어를 보다 유용하게 구분할 수 있습니다.
+**모범 사례 지침** - 기존 가상 네트워크 또는 온-프레미스 네트워크와의 통합을 위해서는 AKS의 Azure CNI 네트워킹을 사용합니다. 또한 이 네트워크 모델을 사용하면 엔터프라이즈 환경에서 리소스 관리와 제어를 보다 유용하게 구분할 수 있습니다.
 
 가상 네트워크는 AKS 노드 및 고객이 애플리케이션에 액세스할 수 있도록 하기 위해 기본 연결을 제공합니다. AKS 클러스터를 가상 네트워크에 배포하는 방법에는 다음 두 가지가 있습니다.
 
-* **기본 네트워킹** - Azure는 클러스터가 배포될 때 가상 네트워크 리소스를 관리하고 [kubenet][kubenet] Kubernetes 플러그 인을 사용합니다.
-* **고급 네트워킹** - 기존 가상 네트워크에 배포하며 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인을 사용합니다. Pod는 다른 네트워크 서비스 또는 온-프레미스 리소스로 라우팅될 수 있는 개별 IP를 수신합니다.
+* **Kubenet 네트워킹** - Azure는 클러스터가 배포될 때 가상 네트워크 리소스를 관리하고 [kubenet][kubenet] Kubernetes 플러그 인을 사용합니다.
+* **Azure CNI 네트워킹** - 기존 가상 네트워크에 배포되며 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인을 사용합니다. Pod는 다른 네트워크 서비스 또는 온-프레미스 리소스로 라우팅될 수 있는 개별 IP를 수신합니다.
 
 CNI(컨테이너 네트워킹 인터페이스)는 컨테이너 런타임이 네트워크 공급자에게 요청할 수 있도록 하는 공급업체 중립 프로토콜입니다. 사용자가 기존 Azure Virtual Network에 연결할 때 Azure CNI는 pod 및 노드에 IP 주소를 할당하고, IPAM(IP 주소 관리) 기능을 제공합니다. 각 노드 및 pod 리소스는 Azure Virtual Network에서 IP 주소를 받으며, 다른 리소스 또는 서비스와 통신하기 위해 추가 라우팅이 필요하지 않습니다.
 
 ![각 노드를 단일 Azure VNet에 연결하는 브리지가 있는 두 노드를 보여주는 다이어그램](media/operator-best-practices-network/advanced-networking-diagram.png)
 
-대부분의 프로덕션 배포에서는 고급 네트워킹을 사용하는 것이 좋습니다. 이 네트워크 모델을 사용하면 리소스의 제어 및 관리를 분리할 수 있습니다. 보안 관점에서, 해당 리소스를 관리하는 팀과 보호하는 팀을 구분하려는 경우가 종종 있습니다. 고급 네트워킹을 사용하면 각 pod에 할당된 IP 주소를 통해 직접 기존 Azure 리소스, 온-프레미스 리소스 또는 기타 서비스에 연결할 수 있습니다.
+대부분의 프로덕션 배포에서는 Azure CNI 네트워킹을 사용해야 합니다. 이 네트워크 모델을 사용하면 리소스의 제어 및 관리를 분리할 수 있습니다. 보안 관점에서, 해당 리소스를 관리하는 팀과 보호하는 팀을 구분하려는 경우가 종종 있습니다. Azure CNI 네트워킹을 사용하면 각 pod에 할당된 IP 주소를 통해 직접 기존 Azure 리소스, 온-프레미스 리소스 또는 기타 서비스에 연결할 수 있습니다.
 
-고급 네트워킹을 사용하면 가상 네트워크 리소스가 AKS 클러스터와는 구분된 리소스 그룹에 있습니다. AKS 서비스 주체가 이러한 리소스를 액세스 및 관리할 수 있도록 권한을 위임합니다. AKS 클러스터에서 사용되는 서비스 주체에는 가상 네트워크 내의 서브넷에 대해 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 이상의 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
+Azure CNI 네트워킹을 사용하면 가상 네트워크 리소스가 AKS 클러스터와는 구분된 리소스 그룹에 있습니다. AKS 서비스 주체가 이러한 리소스를 액세스 및 관리할 수 있도록 권한을 위임합니다. AKS 클러스터에서 사용되는 서비스 주체에는 가상 네트워크 내의 서브넷에 대해 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 이상의 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 AKS 서비스 주체 위임에 대한 자세한 내용은 [다른 Azure 리소스에 대한 액세스 권한 위임][sp-delegation]을 참조하세요.
 
-각 노드 및 pod가 자체 IP 주소를 수신하는 경우 AKS 서브넷의 주소 범위를 계획하세요. 서브넷은 배포하는 모든 노드, pod 및 네트워크 리소스에 대해 IP 주소를 제공할 만큼 충분히 커야 합니다. 각 AKS 클러스터는 자체 서브넷에 배치해야 합니다. Azure에서 온-프레미스 또는 피어링된 네트워크에 대한 연결을 허용하려면 기존 네트워크 리소스와 겹치는 IP 주소 범위를 사용하지 마세요. 기본 및 고급 네트워킹을 사용하여 각 노드에서 실행되는 pod 수는 기본적으로 제한되어 있습니다. 이벤트 확장 또는 클러스터 업그레이드를 처리하려면 할당된 서브넷에서 사용할 수 있는 추가 IP 주소가 필요합니다.
+각 노드 및 pod가 자체 IP 주소를 수신하는 경우 AKS 서브넷의 주소 범위를 계획하세요. 서브넷은 배포하는 모든 노드, pod 및 네트워크 리소스에 대해 IP 주소를 제공할 만큼 충분히 커야 합니다. 각 AKS 클러스터는 자체 서브넷에 배치해야 합니다. Azure에서 온-프레미스 또는 피어링된 네트워크에 대한 연결을 허용하려면 기존 네트워크 리소스와 겹치는 IP 주소 범위를 사용하지 마세요. Kubenet 및 Azure CNI 네트워킹을 사용하여 각 노드에서 실행되는 pod 수는 기본적으로 제한되어 있습니다. 이벤트 확장 또는 클러스터 업그레이드를 처리하려면 할당된 서브넷에서 사용할 수 있는 추가 IP 주소가 필요합니다.
 
-필요한 IP 주소를 계산하려면 [AKS에서 네트워킹 고급 구성][advanced-networking]을 참조하세요.
+필요한 IP 주소를 계산하려면 [AKS에서 Azure CNI 네트워킹 구성][advanced-networking]을 참조하세요.
 
-### <a name="basic-networking-with-kubenet"></a>Kubenet을 사용하는 기본 네트워킹
+### <a name="kubenet-networking"></a>Kubenet 네트워킹
 
-기본 네트워킹을 사용할 경우 클러스터를 배포하기 전에 가상 네트워크를 설정할 필요가 없지만 다음과 같은 단점이 있습니다.
+Kubenet에서는 클러스터를 배포하기 전에 가상 네트워크를 설정할 필요가 없지만 다음과 같은 단점이 있습니다.
 
-* 노드 및 pod가 서로 다른 IP 서브넷에 배치됩니다. Pod와 노드 간에 트래픽을 라우팅하는 데 UDR(사용자 정의 라우팅) 및 IP 전달이 사용됩니다. 이러한 추가 라우팅으로 인해 네트워크 성능이 줄어듭니다.
-* 기존 온-프레미스 네트워크에 연결하거나 다른 Azure Virtual Network에 피어링하는 작업은 복잡합니다.
+* 노드 및 pod가 서로 다른 IP 서브넷에 배치됩니다. Pod와 노드 간에 트래픽을 라우팅하는 데 UDR(사용자 정의 라우팅) 및 IP 전달이 사용됩니다. 이 추가 라우팅으로 인해 네트워크 성능이 줄어듭니다.
+* 기존 온-프레미스 네트워크에 연결하거나 다른 Azure Virtual Network에 피어링하는 작업이 복잡할 수 있습니다.
 
-기본 네트워킹은 AKS 클러스터에서 가상 네트워크 및 서브넷을 별도로 만들 필요가 없으므로 소규모 개발 또는 테스트 워크로드에 적합합니다. 트래픽이 낮은 간단한 웹 사이트를 사용하거나, 워크로드를 컨테이너로 이동 전환(lift & shift)하려는 경우 기본 네트워킹을 사용하여 배포된 AKS 클러스터의 단순성을 활용할 수도 있습니다. 대부분의 프로덕션 배포에서는 고급 네트워킹을 계획하고 사용합니다.
+Kubenet은 AKS 클러스터에서 가상 네트워크 및 서브넷을 별도로 만들 필요가 없으므로 소규모 개발 또는 테스트 워크로드에 적합합니다. 트래픽이 낮은 간단한 웹 사이트를 사용하거나, 워크로드를 컨테이너로 이동 전환(lift & shift)하려는 경우 Kubenet 네트워킹을 사용하여 배포된 AKS 클러스터의 단순성을 활용할 수도 있습니다. 대부분의 프로덕션 배포에서는 Azure CNI 네트워킹을 계획하여 사용해야 합니다. 또한 [Kubenet을 사용하여 고유한 IP 주소 범위 및 가상 네트워크를 구성][aks-configure-kubenet-networking]할 수 있습니다.
 
 ## <a name="distribute-ingress-traffic"></a>수신 트래픽 분산
 
@@ -155,4 +155,5 @@ AKS의 작업 대부분은 Azure 관리 도구를 사용하거나 Kubernetes API
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
-[advanced-networking]: configure-advanced-networking.md
+[advanced-networking]: configure-azure-cni.md
+[aks-configure-kubenet-networking]: configure-kubenet.md

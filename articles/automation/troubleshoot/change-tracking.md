@@ -6,25 +6,25 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/24/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 63dc7148904089a31ff95764898a8dac72c37049
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2a6610b5cb3f01fc70b1737fc4492e09d9a7637b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421339"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507337"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 문제 해결
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>시나리오: 변경 내용 추적 레코드가 Azure Portal에 표시되지 않음
+### <a name="records-not-showing-windows"></a>시나리오: 변경 내용 추적 레코드가 Windows 머신에 표시되지 않음
 
 #### <a name="issue"></a>문제
 
-변경 내용 추적을 위해 등록된 머신에 대한 인벤토리 또는 변경 내용 추적 결과가 표시되지 않습니다.
+변경 내용 추적을 위해 등록된 Windows 머신에 대한 인벤토리 또는 변경 내용 추적 결과가 표시되지 않습니다.
 
 #### <a name="cause"></a>원인
 
@@ -38,12 +38,13 @@ ms.locfileid: "54421339"
 #### <a name="resolution"></a>해결 방법
 
 1. **Microsoft Monitoring Agent**(HealthService.exe)가 머신에서 실행되고 있는지 확인합니다.
-2. [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 방문하여 변경 내용 추적이 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아봅니다.
-3. 다음 변경 내용 추적 및 인벤토리 관리 팩이 로컬에 있는지 확인합니다.
+1. 머신에서 **이벤트 뷰어**를 확인하여 단어가 `changetracking`인 이벤트를 검색합니다.
+1. [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 방문하여 변경 내용 추적이 작동하려면 어떤 주소 및 포트를 허용해야 하는지 알아봅니다.
+1. 다음 변경 내용 추적 및 인벤토리 관리 팩이 로컬에 있는지 확인합니다.
     * Microsoft.IntelligencePacks.ChangeTrackingDirectAgent.*
     * Microsoft.IntelligencePacks.InventoryChangeTracking.*
     * Microsoft.IntelligencePacks.SingletonInventoryCollection.*
-4. 복제된 이미지를 사용하는 경우 이미지에 sysprep을 수행한 후에 Microsoft Monitoring Agent 에이전트를 설치합니다.
+1. 복제된 이미지를 사용하는 경우 이미지에 sysprep을 수행한 후에 Microsoft Monitoring Agent 에이전트를 설치합니다.
 
 이러한 해결 방법으로 문제가 해결되지 않았으며 고객 지원팀에 문의하는 경우 다음 명령을 실행하여 에이전트에 대한 진단을 수집할 수 있습니다.
 

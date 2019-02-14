@@ -1,25 +1,24 @@
 ---
-title: Azure Active Directory에서 동적 그룹 만들기 및 상태 확인 | Microsoft Docs
+title: 동적 그룹 만들기 및 상태 확인 - Azure Active Directory | Microsoft Docs
 description: Azure Portal에서 그룹 멤버 자격 규칙을 만들고 상태를 확인하는 방법입니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: dabee3f4eb6fb2bf4f58ff8654068e138858dbbd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7e283127fa9effe04f59f31c836f471020c9dacc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156924"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506945"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>동적 그룹 만들기 및 상태 확인
 

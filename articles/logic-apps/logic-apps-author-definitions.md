@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 1f2e136810194ad044255f9d129b5c03549221b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d50f56fe0f4428186d18195f798633baefd6d125
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128663"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55732926"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Azure Logic Apps에서 논리 앱 정의를 위한 JSON 만들기, 편집 또는 확장
 
@@ -24,7 +24,8 @@ ms.locfileid: "43128663"
 JSON에서 논리 앱 정의를 사용하려면 Azure Portal 또는 Visual Studio에서 작업하는 경우 코드 보기 편집기를 열거나 원하는 편집기에로 정의를 복사합니다. 논리 앱을 처음 사용하는 경우 [첫 번째 논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 검토하세요.
 
 > [!NOTE]
-> 논리 앱 정의에서 매개 변수 및 여러 트리거를 정의하는 것처럼 일부 Azure Logic Apps 기능은 Logic Apps 디자이너가 아닌 JSON에서만 사용할 수 있습니다. 따라서 이러한 작업의 경우 코드 보기 또는 다른 편집기에서 작업해야 합니다.
+> 논리 앱 정의에서 매개 변수 및 여러 트리거를 정의하는 것처럼 일부 Azure Logic Apps 기능은 Logic Apps 디자이너가 아닌 JSON에서만 사용할 수 있습니다.
+> 따라서 이러한 작업의 경우 코드 보기 또는 다른 편집기에서 작업해야 합니다.
 
 ## <a name="edit-json---azure-portal"></a>JSON 편집 - Azure Portal
 
@@ -38,7 +39,7 @@ JSON에서 논리 앱 정의를 사용하려면 Azure Portal 또는 Visual Studi
 
 ## <a name="edit-json---visual-studio"></a>JSON 편집 - Visual Studio
 
-Visual Studio에서 논리 앱 정의를 작업하려면 [필요한 도구가 설치되었는지](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) 확인해야 합니다. Visual Studio를 사용하여 논리 앱을 만들려면 [빠른 시작: Azure Logic Apps - Visual Studio를 사용하여 작업 및 프로세스 자동화](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)를 검토합니다.
+Visual Studio에서 논리 앱 정의를 작업하려면 [필요한 도구가 설치되었는지](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) 확인해야 합니다. Visual Studio를 사용하여 논리 앱을 만들려면 [빠른 시작을 검토하세요. Azure Logic Apps - Visual Studio를 사용하여 작업 및 프로세스를 자동화합니다](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio에서 Azure Resource Manager 프로젝트로 배포된 논리 앱을 열 수 있습니다.
 
@@ -58,7 +59,7 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
 
 ## <a name="parameters"></a>매개 변수
 
-매개 변수를 사용하면 논리 앱 전체에서 값을 다시 사용할 수 있어서 자주 변경되는 값을 대체할 때 유용합니다. 예를 들어 여러 위치에서 사용할 이메일 주소가 있는 경우 해당 이메일 주소를 매개 변수로 정의해야 합니다. 
+매개 변수를 사용하면 논리 앱 전체에서 값을 다시 사용할 수 있어서 자주 변경되는 값을 대체할 때 유용합니다. 예를 들어 여러 위치에서 사용할 이메일 주소가 있는 경우 해당 이메일 주소를 매개 변수로 정의해야 합니다.
 
 매개 변수는 다양한 환경에서 매개 변수를 재정의해야 하는 경우에도 유용합니다. [배포에 필요한 매개 변수](#deployment-parameters) 및 [Azure Logic Apps용 REST API 설명서](https://docs.microsoft.com/rest/api/logic)에 대해 자세히 알아보세요.
 
@@ -70,13 +71,13 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
 1. 코드 보기에서 `parameters : {}` 개체를 찾고 `currentFeedUrl` 개체를 추가합니다.
 
    ``` json
-     "currentFeedUrl" : {
+   "currentFeedUrl" : {
       "type" : "string",
-            "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
    }
    ```
 
-2. `When_a_feed-item_is_published` 동작에서 `queries` 섹션을 찾고 쿼리 값을 `"feedUrl": "#@{parameters('currentFeedUrl')}"`로 바꿉니다. 
+2. `When_a_feed-item_is_published` 동작에서 `queries` 섹션을 찾고 쿼리 값을 `"feedUrl": "#@{parameters('currentFeedUrl')}"`로 바꿉니다.
 
    **이전**
    ``` json
@@ -84,7 +85,7 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
       "queries": {
           "feedUrl": "https://s.ch9.ms/Feeds/RSS"
        }
-   },   
+   },
    ```
 
    **이후**
@@ -93,13 +94,13 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
       "queries": {
           "feedUrl": "#@{parameters('currentFeedUrl')}"
        }
-   },   
+   },
    ```
 
    두 개 이상의 문자열을 조인하기 위해 `concat` 함수를 사용할 수도 있습니다. 
    예를 들어 `"@concat('#',parameters('currentFeedUrl'))"`은 이전 예제와 동일하게 작동합니다.
 
-3.  완료하면 **저장**을 선택합니다. 
+3.  완료하면 **저장**을 선택합니다.
 
 이제 `currentFeedURL`개 개체를 통해 다른 URL을 전달하여 웹 사이트의 RSS 피드를 변경할 수 있습니다.
 
@@ -107,9 +108,9 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
 
 ## <a name="deployment-parameters-for-different-environments"></a>다른 환경에 대한 배포 매개 변수
 
-일반적으로 배포 수명 주기에는 개발, 스테이징 및 프로덕션이 포함됩니다. 예를 들어, 이러한 모든 환경에서 동일한 논리 앱 정의를 사용하지만 다른 데이터베이스를 사용할 수 있습니다. 마찬가지로 고가용성을 위해 여러 지역에서 동일한 정의를 사용하지만 각 논리 앱 인스턴스에는 해당 지역의 데이터베이스를 사용하는 것이 좋습니다. 
+일반적으로 배포 수명 주기에는 개발, 스테이징 및 프로덕션이 포함됩니다. 예를 들어, 이러한 모든 환경에서 동일한 논리 앱 정의를 사용하지만 다른 데이터베이스를 사용할 수 있습니다. 마찬가지로 고가용성을 위해 여러 지역에서 동일한 정의를 사용하지만 각 논리 앱 인스턴스에는 해당 지역의 데이터베이스를 사용하는 것이 좋습니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 이 시나리오는 *런타임*에 매개 변수를 사용하는 것과 다르며 대신 `trigger()` 함수를 사용해야 합니다.
 
 기본 정의는 다음과 같습니다.
@@ -157,13 +158,13 @@ Visual Studio에서 생성되어 직접 Azure Portal에서 또는 Visual Studio�
     },
     "location": "westus"
 }
-``` 
+```
 
 자세히 알아보려면 [Azure Logic Apps용 REST API 설명서](https://docs.microsoft.com/rest/api/logic/)를 참조하세요.
 
 ## <a name="process-strings-with-functions"></a>함수로 문자열 처리
 
-Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다. 예를 들어 주문에 포함된 회사 이름을 다른 시스템에 전달한다고 가정하겠습니다. 하지만 문자 인코딩의 적절한 처리에 대한 확신이 없습니다. 문자열에 base64 인코딩을 수행할 수 있지만, URL의 이스케이프를 방지하기 위해 여러 문자를 바꿀 수 있습니다. 또한 앞쪽의 5자는 사용하지 않기 때문에 회사 이름의 하위 문자열만 필요합니다. 
+Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다. 예를 들어 주문에 포함된 회사 이름을 다른 시스템에 전달한다고 가정하겠습니다. 하지만 문자 인코딩의 적절한 처리에 대한 확신이 없습니다. 문자열에 base64 인코딩을 수행할 수 있지만, URL의 이스케이프를 방지하기 위해 여러 문자를 바꿀 수 있습니다. 또한 앞쪽의 5자는 사용하지 않기 때문에 회사 이름의 하위 문자열만 필요합니다.
 
 ``` json
 {
@@ -200,7 +201,7 @@ Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다. �
 
 아래 단계에서는 이 예제가 내부에서 외부로 작업하면서 이 문자열을 처리하는 방법을 설명합니다.
 
-``` 
+```
 "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
@@ -218,7 +219,7 @@ Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다. �
 
 ## <a name="map-list-items-to-property-values-then-use-maps-as-parameters"></a>목록 항목을 속성 값에 매핑한 다음, 맵을 매개 변수로 사용
 
-속성 값을 기반으로 다른 결과를 얻으려면, 각 속성 값을 결과와 일치시키는 맵을 만든 다음, 이 맵을 매개 변수로 사용합니다. 
+속성 값을 기반으로 다른 결과를 얻으려면, 각 속성 값을 결과와 일치시키는 맵을 만든 다음, 이 맵을 매개 변수로 사용합니다.
 
 예를 들어,이 워크플로는 일부 범주를 매개 변수로 정의하고 이 범주를 특정 URL과 일치시키는 맵을 정의합니다. 우선, 워크플로에서 문서의 목록을 가져옵니다. 그런 다음, 워크플로에서 맵을 사용하여 각 문서의 범주와 일치하는 URL을 찾습니다.
 
@@ -302,13 +303,13 @@ Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다. �
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. `order` 작업에서 `startTime`을 추출합니다. 
+1. `order` 작업에서 `startTime`을 추출합니다.
 2. `utcNow()`로 현재 시간을 구합니다.
 3. 1초를 뺍니다.
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
 
-   `minutes` 또는 `hours`와 같은 다른 시간 단위를 사용할 수 있습니다. 
+   `minutes` 또는 `hours`와 같은 다른 시간 단위를 사용할 수 있습니다.
 
 3. 이제 두 값을 비교할 수 있습니다. 
 
@@ -365,7 +366,6 @@ Logic Apps에는 문자열 작업을 위한 다양한 함수가 있습니다. �
   "outputs": {}
 }
 ```
-
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 141caeb180fd0f5663c0fd51aadb0a397665c6d3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168620"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815407"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
 
-[Azure AD 애플리케이션 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery)에서 애플리케이션을 추가하는 경우 사용자가 해당 애플리케이션에 로그인할 때 사용할 수 있는 방법을 여러분이 선택할 수 있습니다. [Azure Portal](https://portal.azure.com/)에서 엔터프라이즈 애플리케이션에 대해 **Single Sign-On** 탐색 항목을 선택하여 언제든지 이 옵션을 구성할 수 있습니다.
+[Azure AD 애플리케이션 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)에서 애플리케이션을 추가하는 경우 사용자가 해당 애플리케이션에 로그인할 때 사용할 수 있는 방법을 여러분이 선택할 수 있습니다. [Azure Portal](https://portal.azure.com/)에서 엔터프라이즈 애플리케이션에 대해 **Single Sign-On** 탐색 항목을 선택하여 언제든지 이 옵션을 구성할 수 있습니다.
 
-사용할 수 있는 Single Sign-On 방법 중 하나는 [암호 기반 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) 옵션입니다. 애플리케이션을 Azure AD로 신속하게 통합하는 것은 좋은 방법이며 다음을 가능하게 합니다.
+사용할 수 있는 Single Sign-On 방법 중 하나는 [암호 기반 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) 옵션입니다. 애플리케이션을 Azure AD로 신속하게 통합하는 것은 좋은 방법이며 다음을 가능하게 합니다.
 
 -   Azure AD와 통합한 애플리케이션에 대한 사용자 이름 및 암호를 안전하게 저장 및 재생하여 **사용자에 대한 Single Sign-On** 활성화
 
@@ -41,7 +41,7 @@ ms.locfileid: "55168620"
 
 -   **관리자**가 [애플리케이션에 그룹을 할당](#assign-an-application-to-a-group-directly)할 때 자격 증명 업데이트 기능을 사용하여 사용자 그룹에서 사용하는 공유된 사용자 이름 및 암호를 지정하도록 허용
 
-다음 섹션에서는 [Azure AD 애플리케이션 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery)에 이미 있는 애플리케이션에 대해 [암호 기반 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work)을 사용하도록 설정하는 방법을 설명합니다.
+다음 섹션에서는 [Azure AD 애플리케이션 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)에 이미 있는 애플리케이션에 대해 [암호 기반 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 사용하도록 설정하는 방법을 설명합니다.
 
 ## <a name="overview-of-steps-required"></a>필요한 단계 개요
 Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
@@ -50,7 +50,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 -   [암호 Single Sign-On에 대한 애플리케이션 구성](#configure-the-application-for-password-single-sign-on)
 
--   [사용자 또는 그룹에 애플리케이션 할당](#assign-the-application-to-a-user-or-a-group)
+-   사용자 또는 그룹에 애플리케이션 할당
 
     -   [애플리케이션에 사용자를 직접 할당](#assign-a-user-to-an-application-directly)
 

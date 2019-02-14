@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
-ms.openlocfilehash: b77e814f9f339dff4539a04ab8b492e9777abe0d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 32ca3fc87c91deba26e63a5938536d488e7dc5a8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537650"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488748"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Azure Security Center 리소스 권장 사항 이해하기
 
@@ -43,7 +43,7 @@ ms.locfileid: "53537650"
 | [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md) |VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
 | [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 애플리케이션 취약점을 볼 수 있습니다. |
 
-### <a name="app-services"></a>App Services
+### App Services <a name="app-services"></a>
 | 권장 사항 | 설명 |
 | --- | --- |
 | App Service에 HTTPS를 통해서만 액세스 가능 | HTTPS만을 통해 App Service의 액세스를 제한하는 것이 좋습니다. |

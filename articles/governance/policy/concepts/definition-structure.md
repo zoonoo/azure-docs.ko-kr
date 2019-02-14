@@ -4,17 +4,17 @@ description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296667"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698295"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -46,7 +46,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "westus2"
             }
         },
         "displayName": "Allowed locations",
@@ -87,8 +88,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 매개 변수는 정책을 만들 때와 같은 방법으로 작동합니다. 정책 정의에 매개 변수를 포함함으로써 서로 다른 값을 사용하여 다양한 시나리오에 대해 해당 정책을 재사용할 수 있습니다.
 
 > [!NOTE]
-> 정책 또는 이니셔티브 정의에 대한 매개 변수 정의는 정책 또는 이니셔티브의 초기 작성 중에만 구성할 수 있습니다. 매개 변수 정의는 나중에 변경할 수 없습니다.
-> 이렇게 하면 정책 또는 이니셔티브의 기존 지정이 간접적으로 유효하지 않게 됩니다.
+> 매개 변수를 기존 및 할당된 정의에 추가할 수 있습니다. 새 매개 변수는 **defaultValue** 속성을 포함해야 합니다. 이렇게 하면 정책 또는 이니셔티브의 기존 지정이 간접적으로 유효하지 않게 됩니다.
 
 예를 들어 리소스를 배포할 수 있는 위치를 제한하는 정책을 정의할 수 있습니다.
 정책을 만들 때 다음 매개 변수를 선언합니다.
@@ -101,7 +101,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "westus2"
     }
 }
 ```

@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189636"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745021"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -199,7 +199,7 @@ ms.locfileid: "43189636"
 > ![ Windows][Logo_Windows]  Windows
 >
 
-2016년 9월 Microsoft는 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용하여 여러 가상 IP 주소를 관리할 수 있는 기능을 출시했습니다. 이 기능은 Azure 외부 부하 분산 장치에 이미 있습니다.
+[Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용하여 여러 가상 IP 주소를 관리할 수 있습니다. 
 
 SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 서비스(ASCS/SCS) 인스턴스에 대한 Windows 클러스터 구성을 만들 수 있습니다.
 
@@ -213,8 +213,10 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 >
 >하나의 WSFC 클러스터에서 SAP ASCS/SCS 인스턴스의 최대수는 각 Azure 내부 부하 분산 장치에 대한 개인 프런트 엔드 IP의 최대수와 같습니다.
 >
+> 이 설명서에 도입한 구성은 아직 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)에 사용하도록 지원되지 않습니다.
+> 
 
-부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 개인 프런트 엔드 IP" 섹션을 참조하세요.
+부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]의 "부하 분산 장치당 개인 프런트 엔드 IP"를 참조하세요. 또한 Azure 부하 분산 장치의 기본 SKU 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 사용도 고려하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -425,9 +427,9 @@ _**그림 10:** 모든 설정 사용 안 함_
 * **SAP_\<SID>_GlobalAdmin** 도메인 사용자 그룹
 * ASCS/SCS 클러스터 노드 **ascs-1$** 및 **ascs-2$** 의 컴퓨터 개체
 
-![그림 11: 사용자 그룹 및 컴퓨터 계정에 대한 모든 권한 할당][sap-ha-guide-figure-8022]
+![그림 11: 사용자 그룹 및 컴퓨터 계정에 모든 권한 할당][sap-ha-guide-figure-8022]
 
-_**그림 11:** 사용자 그룹 및 컴퓨터 계정에 대한 "모든 권한" 할당_
+_**그림 11:** 사용자 그룹 및 컴퓨터 계정에 "모든 권한" 할당_
 
 <br>
 ![그림 12: "만들기" 선택][sap-ha-guide-figure-8023]
@@ -455,6 +457,6 @@ _**그림 13:** 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Vol
 
 * [Windows Server 2016의 저장소 공간 다이렉트][s2d-in-win-2016]
 
-* [응용 프로그램 데이터에 대한 스케일 아웃 파일 서버 개요][sofs-overview]
+* [애플리케이션 데이터에 대한 스케일 아웃 파일 서버 개요][sofs-overview]
 
 * [Windows Server 2016 저장소의 새로운 기능][new-in-win-2016-storage]

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: af605f4ad7c4167936a07f2ae8ffd3d2850cda75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 643ef7f9960b2a91c88b4e13fe318748d175e036
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185218"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692736"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 원격 액세스 
 
@@ -28,7 +28,7 @@ Azure AD 애플리케이션 프록시는:
 
 - **보안**. 온-프레미스 애플리케이션은 Azure의 권한 부여 컨트롤 및 보안 분석을 사용할 수 있습니다. 예를 들어 온-프레미스 애플리케이션은 조건부 액세스 및 2단계 인증을 사용할 수 있습니다. 애플리케이션 프록시는 방화벽을 통해 인바운드 연결을 열 필요가 없습니다.
  
-- **비용 효율성**. 온-프레미스 솔루션을 사용하려면 일반적으로 DMV(demilitarized zone), 에지 서버 또는 기타 복잡한 인프라를 설정하고 유지 관리해야 합니다. 애플리케이션 프록시는 클라우드에서 실행되므로 쉽게 사용할 수 있습니다. 애플리케이션 프록시를 사용하기 위해 네트워크 인프라를 변경하거나 온-프레미스 환경에 추가 어플라이언스를 설치할 필요가 없습니다.
+- **비용 효율성**. 온-프레미스 솔루션을 사용하려면 일반적으로 DMZ(완충 영역), 에지 서버 또는 기타 복잡한 인프라를 설정하고 유지 관리해야 합니다. 애플리케이션 프록시는 클라우드에서 실행되므로 쉽게 사용할 수 있습니다. 애플리케이션 프록시를 사용하기 위해 네트워크 인프라를 변경하거나 온-프레미스 환경에 추가 어플라이언스를 설치할 필요가 없습니다.
 
 ## <a name="what-is-application-proxy"></a>애플리케이션 프록시란?
 애플리케이션 프록시는 사용자가 원격 클라이언트에서 온-프레미스 웹 애플리케이션에 액세스할 수 있게 해주는 Azure AD의 기능입니다. 애플리케이션 프록시는 클라우드에서 실행되는 애플리케이션 프록시 서비스와 온-프레미스 서버에서 실행되는 애플리케이션 프록시 커넥터를 모두 포함하고 있습니다. Azure AD, 애플리케이션 프록시 및 애플리케이션 프록시 커넥터가 함께 작동하여 Azure AD에서 웹 애플리케이션으로 사용자 로그온 토큰을 안전하게 전달합니다.

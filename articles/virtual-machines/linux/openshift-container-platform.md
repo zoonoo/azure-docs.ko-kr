@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 21eebb6c27a83b939f321d38026da7d4c39b7071
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 82dd448bb408e7c4bb3576feee17aef66ee6d01d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085889"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730716"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Azure에서 OpenShift Container Platform 배포
 
@@ -266,13 +266,13 @@ OpenShift Container Platform을 Azure에 배포하는 가장 간단한 방법은
 
 - **마스터 노드**: 구성 가능한 인스턴스 유형이 있는 3개의 마스터 노드입니다.
 - **인프라 노드**: 구성 가능한 인스턴스 유형이 있는 3개의 인프라 노드입니다.
-- **노드**: 인스턴스 유형뿐 아니라 노드 수도 구성 가능합니다(2개에서 9개 사이).
-- **디스크 유형**: 관리 디스크가 사용됩니다.
-- **네트워킹**: 사용자 지정 CIDR 범위와 새 네트워크 또는 기존 네트워크가 지원됩니다.
+- **노드**: 인스턴스 유형뿐 아니라 노드 수도 구성 가능합니다(2 ~ 9개 사이).
+- **디스크 유형**: Managed Disks가 사용됩니다.
+- **네트워킹**: 사용자 지정 CIDR 범위와 함께 새 네트워크 또는 기존 네트워크가 지원됩니다.
 - **CNS**: CNS를 사용하도록 설정할 수 있습니다.
 - **메트릭**: 메트릭을 사용하도록 설정할 수 있습니다.
 - **로깅**: 로깅을 사용하도록 설정할 수 있습니다.
-- **Azure 클라우드 공급자**: 사용하도록 설정할 수 있습니다.
+- **Azure 클라우드 공급 기업**: 사용하도록 설정할 수 있습니다.
 
 ## <a name="connect-to-the-openshift-cluster"></a>OpenShift 클러스터에 연결
 
@@ -284,7 +284,7 @@ $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-리소스 그룹, OpenShift 클러스터 및 모든 관련된 리소스가 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 제거합니다.
+리소스 그룹, OpenShift 클러스터 및 모든 관련된 리소스가 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group) 명령을 사용하여 제거합니다.
 
 ```azurecli 
 az group delete --name openshiftrg

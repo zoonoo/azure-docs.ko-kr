@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473207"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746314"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -98,10 +98,10 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 
 Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
-1. 다음과 같이 [Add-azureaccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
+1. 다음과 같이 [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
    
     ```powershell
-    Add-AzureAccount
+    Add-AzAccount
     ```
 
 2. **Microsoft Azure에 로그인** 창에서 계정과 연결된 메일 주소와 암호를 입력합니다. Azure가 자격 증명 정보를 인증 및 저장한 후 창을 닫습니다.
@@ -110,7 +110,7 @@ Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하
     ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount'
-    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
     ```
 
 4. 다음과 같이 Blob service에 대한 저장소 로깅을 사용하도록 설정합니다.

@@ -8,16 +8,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6e8142e391dd02e78be42e1f16ae2626b74c41c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498389"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734473"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
 
-함수 앱은 특정 Azure Functions 런타임 버전에서 실행됩니다. [1.x와 2.x](functions-versions.md)의 두 가지 주요 버전이 있습니다. 기본적으로 작성되는 함수 앱은 런타임의 버전 2.x입니다. 이 문서에는 선택한 버전에서 실행할 함수 앱을 Azure에서 구성하는 방법을 설명합니다. 특정 버전에 대한 로컬 개발 환경을 구성하는 방법에 대한 자세한 내용은 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md)를 참조하세요.
+함수 앱은 특정 Azure Functions 런타임 버전에서 실행됩니다. 두 가지 주 버전이 있습니다. [1.x 및 2.x](functions-versions.md). 기본적으로 작성되는 함수 앱은 런타임의 버전 2.x입니다. 이 문서에는 선택한 버전에서 실행할 함수 앱을 Azure에서 구성하는 방법을 설명합니다. 특정 버전에 대한 로컬 개발 환경을 구성하는 방법에 대한 자세한 내용은 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md)를 참조하세요.
 
 > [!NOTE]
 > 함수가 하나 이상 포함된 함수 앱의 런타임 버전은 변경할 수 없습니다. 런타임 버전을 변경하려면 Azure Portal을 사용해야 합니다.
@@ -49,7 +49,7 @@ Azure CLI에서 `FUNCTIONS_EXTENSION_VERSION`을 확인하고 설정할 수도 �
 >[!NOTE]
 >다른 설정이 런타임 버전의 영향을 받을 수 있으므로 포털에서 버전을 변경해야 합니다. 런타임 버전을 변경할 때 포털에서는 Node.js 버전과 런타임 스택 등의 기타 필요한 업데이트를 자동으로 수행합니다.  
 
-Azure CLI를 사용하여 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) 명령을 실행해 현재 런타임 버전을 확인합니다.
+Azure CLI를 사용하여 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 명령을 실행해 현재 런타임 버전을 확인합니다.
 
 ```azurecli-interactive
 az functionapp config appsettings list --name <function_app> \
@@ -83,7 +83,7 @@ az functionapp config appsettings list --name <function_app> \
 ]
 ```
 
-함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) 명령으로 함수 앱의 `FUNCTIONS_EXTENSION_VERSION` 설정을 업데이트할 수 있습니다.
+함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 명령으로 함수 앱의 `FUNCTIONS_EXTENSION_VERSION` 설정을 업데이트할 수 있습니다.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \

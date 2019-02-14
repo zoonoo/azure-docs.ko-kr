@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7951044f850d93659ca458d3bcc46376e7e6b34a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2720d239c31a0cbfab215c7e297627c9f0d8c781
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077364"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510241"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
@@ -171,6 +171,8 @@ CSV 파일로 올바르게 형식이 지정되면 관리자는 Azure Portal에 �
 CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 있습니다. 현재 상태를 가져오려면 **새로 고침** 단추를 클릭합니다. 파일에 오류가 있는 경우 오류가 나열된 CSV 파일을 다운로드하여 해결할 수 있습니다.
 
 오류가 모두 처리되면 관리자는 토큰이 활성화되도록 **활성화**를 클릭하고 토큰에 표시된 OTP를 입력하여 각 키를 활성화할 수 있습니다.
+
+사용자는 언제든지 사용할 수 있도록 구성된 Microsoft Authenticator 앱과 같은 인증자 애플리케이션 또는 최대 5개의 OATH 하드웨어 토큰 을 조합할 수 있습니다.
 
 ## <a name="mobile-phone"></a>휴대폰
 

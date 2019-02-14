@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/16/2019
 ms.author: victorh
-ms.openlocfilehash: 1d4182f491dae9597add4b688b89faa9dd291429
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a83ded660b56028ea311992ba6161e8a8e43f65d
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352928"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511975"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS FAQ
 
@@ -34,7 +34,7 @@ Azure DNS 요금 청구 모델은 Azure DNS에 호스트되는 DNS 영역의 수
 
 ### <a name="what-is-the-sla-for-azure-dns"></a>Azure DNS에 대한 SLA는 무엇인가요?
 
-Azure는 유효한 DNS 요청에 대해 99.99% 이상의 시간 동안 하나 이상의 Azure DNS 이름 서버에서 응답을 제공할 것을 보장합니다.
+Azure는 유효한 DNS 요청에 대해 100%의 시간 동안 하나 이상의 Azure DNS 이름 서버에서 응답을 제공할 것을 보장합니다.
 
 자세한 내용은 [Azure DNS SLA 페이지](https://azure.microsoft.com/support/legal/sla/dns)를 참조하세요.
 

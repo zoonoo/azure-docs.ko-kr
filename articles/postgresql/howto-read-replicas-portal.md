@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/01/2019
+ms.openlocfilehash: 37150f67e29dae0357c978cfaea9abeebeef428c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902664"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55691408"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>Azure Portal에서 읽기 복제본을 만들고 관리하는 방법
 
@@ -141,7 +141,7 @@ Azure Portal에서 마스터와 복제본 간의 복제를 중지하려면 다�
 
 ## <a name="monitor-a-replica"></a>복제본 모니터링
 ### <a name="max-lag-across-replicas"></a>복제본 간 최대 지연 시간
-**복제본 간 최대 지연 시간** 메트릭은 마스터와 가장 느리게 지연 복제본 간의 지연 시간을 보여 줍니다. 
+**복제본 간 최대 지연 시간** 메트릭은 마스터와 가장 오래 지연된 복제본 간의 지연 시간을 바이트로 보여줍니다. 
 
 1.  Azure Portal에서 **마스터** Azure Database for PostgreSQL 서버를 선택합니다.
 

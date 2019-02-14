@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9f83a0cf97acfd0bed990cc832ac08eb23c29ef1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0ec099e0f210fc267a0a34f76136a517e0ae6ccc
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434461"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744520"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
@@ -46,7 +46,7 @@ Runbook이 3회 실행 시도 직후 일시 중단됩니다. Runbook 완료를 �
 
 * 로컬 리소스를 사용하여 Runbook을 인증할 수 없습니다.
 
-* Hybrid Runbook Worker 기능을 실행하도록 구성된 컴퓨터가 최소 하드웨어 요구 사항을 충족합니다.
+* Hybrid Runbook Worker 기능을 실행하도록 구성된 컴퓨터가 최소 하드웨어 요구 사항을 충족하지 않습니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -87,8 +87,17 @@ Linux Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 �
 
 ### <a name="oms-agent-not-running"></a>시나리오: Linux용 OMS 에이전트가 실행되고 있지 않습니다.
 
+#### <a name="issue"></a>문제
 
-Linux용 OMS 에이전트가 실행되고 있지 않으면 Linux Hybrid Runbook Worker가 Azure Automation과 통신할 수 없습니다. `ps -ef | grep python` 명령을 입력하여 에이전트가 실행 중인지 확인하세요. 다음과 비슷한 출력, 즉 **nxautomation** 사용자 계정을 사용하는 python 프로세스가 표시됩니다. 업데이트 관리 또는 Azure Automation 솔루션을 사용하도록 설정하지 않은 경우 다음 프로세스 중 어떤 것도 실행되지 않습니다.
+Linux용 OMS 에이전트가 실행되고 있지 않습니다.
+
+#### <a name="cause"></a>원인
+
+Linux용 OMS 에이전트가 실행되고 있지 않으면 Linux Hybrid Runbook Worker가 Azure Automation과 통신할 수 없습니다. 다양한 이유로 에이전트를 실행하지 못할 수 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+ `ps -ef | grep python` 명령을 입력하여 에이전트가 실행 중인지 확인하세요. 다음과 비슷한 출력, 즉 **nxautomation** 사용자 계정을 사용하는 python 프로세스가 표시됩니다. 업데이트 관리 또는 Azure Automation 솔루션을 사용하도록 설정하지 않은 경우 다음 프로세스 중 어떤 것도 실행되지 않습니다.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>

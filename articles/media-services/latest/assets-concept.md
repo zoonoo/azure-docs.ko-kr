@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/01/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8507d51f0d4d49d89fc24b38ed73df7488261daa
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969578"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745999"
 ---
 # <a name="assets"></a>자산
 
@@ -27,25 +27,8 @@ Azure Media Services의 [자산](https://docs.microsoft.com/rest/api/media/asset
 
 **보관** 스토리지 계층은 이미 인코딩되었고 인코딩 작업 출력이 출력 Blob 컨테이너에 배치된 대용량 원본 파일에만 사용할 것을 권장합니다. 자산과 연결하여 콘텐츠를 스트리밍 또는 분석하는 데 사용하려는 출력 컨테이너의 Blob은 **핫** 또는 **쿨** 스토리지 계층에 있어야 합니다.
 
-## <a name="asset-definition"></a>자산 정의
-
-다음 표에서는 자산의 속성을 표시하고 해당 정의를 제공합니다.
-
-|이름|설명|
-|---|---|
-|id|리소스에 대한 정규화된 리소스 ID입니다.|
-|이름|리소스의 이름입니다.|
-|properties.alternateId |자산의 대체 ID입니다.|
-|properties.assetId |자산 ID입니다.|
-|properties.container |자산 Blob 컨테이너의 이름입니다.|
-|properties.created |자산의 생성 날짜입니다.<br/> Datetime은 항상 UTC 형식입니다.|
-|properties.description|자산 설명입니다.|
-|properties.lastModified |사잔을 마지막으로 수정한 날짜입니다. <br/> Datetime은 항상 UTC 형식입니다.|
-|properties.storageAccountName |저장소 계정 이름입니다.|
-|properties.storageEncryptionFormat |자산 암호화 형식입니다. 없음 또는 MediaStorageEncryption 중 하나입니다.|
-|형식|리소스 형식입니다.|
-
-전체 정의는 [자산](https://docs.microsoft.com/rest/api/media/assets)을 참조하세요.
+> [!NOTE]
+> 날짜/시간 형식의 자산 속성은 언제나 UTC 형식입니다.
 
 ## <a name="upload-digital-files-into-assets"></a>자산에 디지털 파일 업로드
 
@@ -104,113 +87,7 @@ curl -X PUT \
 
 ## <a name="filtering-ordering-paging"></a>필터링, 정렬, 페이징
 
-Media Services는 자산에 대한 다음 OData 쿼리 옵션을 지원합니다. 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-연산자 설명:
-
-* Eq = 같음
-* Ne = 같지 않음
-* Ge = 크거나 같음
-* Le = 작거나 같음
-* Gt = 보다 큼
-* Lt = 보다 작음
-
-### <a name="filteringordering"></a>필터링/순서
-
-다음 표에서는 자산 속성에 이러한 옵션을 적용하는 방법을 보여줍니다. 
-
-|이름|Filter|순서|
-|---|---|---|
-|id|||
-|이름|지원: Eq, Gt, Lt|지원: 오름차순 및 내림차순|
-|properties.alternateId |지원: Eq||
-|properties.assetId |지원: Eq||
-|properties.container |||
-|properties.created|지원: Eq, Gt, Lt| 지원: 오름차순 및 내림차순|
-|properties.description |||
-|properties.lastModified |||
-|properties.storageAccountName |||
-|properties.storageEncryptionFormat | ||
-|형식|||
-
-다음 C# 예제에서는 만든 날짜로 필터링합니다.
-
-```csharp
-var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```
-
-### <a name="pagination"></a>페이지 매김
-
-네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 1000입니다.
-
-> [!TIP]
-> 항상 다음 링크를 사용하여 컬렉션을 열거하고, 특정 페이지 크기에 따라 달라지지 않아야 합니다.
-
-쿼리 응답에 많은 항목이 포함된 경우 서비스에서 "\@odata.nextLink" 속성을 반환하여 결과의 다음 페이지를 가져옵니다. 전체 결과 집합을 통해 페이지에 사용할 수 있습니다. 페이지 크기는 구성할 수 없습니다. 
-
-(해당 변경 내용이 다운로드되지 않은 컬렉션의 일부인 경우)컬렉션을 통해 페이징하는 동안 자산이 생성되거나 삭제되면 변경 내용이 반환된 결과에 반영됩니다. 
-
-#### <a name="c-example"></a>C# 예제
-
-다음 C# 예제에서는 계정의 모든 자산을 통해 열거하는 방법을 보여줍니다.
-
-```csharp
-var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-#### <a name="rest-example"></a>REST 예제
-
-다음 예제에서 $skiptoken이 사용되는 위치를 잘 보세요. *amstestaccount*를 해당하는 계정 이름으로 바꾸고 *api-version* 값을 최신 버전으로 설정합니다.
-
-다음과 같은 자산 목록을 요청하면:
-
-```
-GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
-x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
-Content-Type: application/json; charset=utf-8
-```
-
-다음과 유사한 응답을 받게 됩니다.
-
-```
-HTTP/1.1 200 OK
- 
-{
-"value":[
-{
-"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-},
-// lots more assets
-{
-"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
-"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
-}
-}
-],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
-}
-```
-
-그 후 가져오기 요청을 보내서 다음 페이지를 요청합니다.
-
-```
-https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
-```
-
-더 많은 REST 예제는 [자산 - 목록](https://docs.microsoft.com/rest/api/media/assets/list)을 참조하세요.
+[Media Services 엔터티 필터링, 순서 지정, 페이징](entities-overview.md)을 참조하세요.
 
 ## <a name="storage-side-encryption"></a>저장소 쪽 암호화
 
@@ -228,6 +105,6 @@ https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/
 
 ## <a name="next-steps"></a>다음 단계
 
-[파일 스트리밍](stream-files-dotnet-quickstart.md)
-
-[Media Services v2와 v3의 차이점](migrate-from-v2-to-v3.md)
+* [파일 스트리밍](stream-files-dotnet-quickstart.md)
+* [클라우드 DVR 사용](live-event-cloud-dvr.md)
+* [Media Services v2와 v3의 차이점](migrate-from-v2-to-v3.md)

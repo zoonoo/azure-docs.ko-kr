@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ae57fc5366e1ed99febcd9a9d08e7f95f3bbf196
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247676"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487356"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central의 디바이스 연결 | Microsoft Docs
 
@@ -56,7 +56,7 @@ SAS를 사용하여 IoT Central에 단일 디바이스 연결하기는 간단하
 
     *   **C 언어:** C를 사용하는 경우 [이 C 샘플 디바이스 클라이언트](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)를 따라 샘플 디바이스를 연결합니다. 샘플에서 다음 설정을 사용합니다.   
 
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -118,7 +118,7 @@ CSV 파일에는 다음 열(및 헤더)가 있어야 합니다.
 다음은 사용하려는 다른 언어에 대한 참조입니다.
 
    *   **C 언어:** C를 사용하는 경우 [이 C 샘플 디바이스 클라이언트](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)를 따라 샘플 디바이스를 연결합니다. 샘플에서 다음 설정을 사용합니다.   
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -211,12 +211,12 @@ IoT Central이 사용하는 주요 시나리오 중 하나는 OEM이 디바이�
 
 1. **IoT Central에 디바이스 연결:** 디바이스가 켜지면 등록을 위해 DPS/IoT Central에 연결됩니다.
 
-1. **템플릿에 디바이스 연결:** 연결된 디바이스는 **Device Explorer**의 **연결되지 않은 디바이스** 아래에 표시됩니다. 디바이스의 프로비전 상태는 **등록**됩니다. 디바이스를 적절한 디바이스 템플릿에 **연결**하고 디바이스가 IoT Central 앱에 연결되도록 승인합니다. 그러면 디바이스는 IoT Central 앱에 대한 연결 세부 정보를 가져오고, 연결되고, 데이터를 보내기 시작합니다. 이제 디바이스 프로비전이 완료되었으므로 *프로비전 상태*가 **프로비전됨**으로 전환됩니다.
+1. **템플릿에 디바이스 연결:** 연결된 디바이스는 **Device Explorer**의 **연결되지 않은 디바이스** 아래에 표시됩니다. 디바이스의 프로비전 상태는 **등록**됩니다. 디바이스를 적절한 디바이스 템플릿에 **연결**하고 디바이스가 IoT Central 앱에 연결되도록 승인합니다. 그러면 디바이스는 IoT Central 앱에 대한 연결 세부 정보를 가져온 다음, 연결하여 데이터를 보내기 시작합니다. 이제 디바이스 프로비저닝이 완료되었으므로 *프로비전 상태*가 **프로비전됨**으로 전환됩니다.
 
 ## <a name="device-provisioning-status"></a>디바이스 프로비전 상태
 실제 디바이스를 Azure IoT Central에 연결한 경우 일련의 관련 단계가 있음 
 1. **등록됨**: 디바이스가 먼저 **등록되었다**는 의미는 디바이스가 IoT Central에서 만들어지고 디바이스에 대한 디바이스 ID를 보유한다는 것입니다.
-디바이스는 다음과 같은 경우에 등록됩니다.  
+다음과 같은 경우 디바이스가 등록됩니다.  
     *   새 실제 디바이스가 **Explorer**에 추가될 경우
     *   디바이스 집합이 **Explorer**에서 **가져오기**를 사용하여 추가될 경우
     *   등록되지 않았지만 유효한 자격 증명을 사용하여 연결되고 **연결되지 않은** 디바이스 아래에 표시되는 디바이스의 경우 
@@ -231,7 +231,7 @@ IoT Central이 사용하는 주요 시나리오 중 하나는 OEM이 디바이�
 다음 단계를 사용하여 IoT Hub 디바이스 연결 문자열을 Azure IoT Hub로 가져올 수 있음 
 1. 디바이스 페이지에서 **범위 ID, 디바이스 ID 및 디바이스 기본 키** 같은 연결 세부 정보를 가져옵니다(디바이스 페이지 &gt; 연결 클릭으로 이동). 
 
-    ![연결 세부 정보](media/concepts-connectivity/device-connect.PNG)
+    ![연결 정보](media/concepts-connectivity/device-connect.PNG)
 
 1. 아래 명령줄 도구를 사용하여 디바이스 연결 문자열을 가져옵니다.
     다음 지침을 사용하여 디바이스 연결 문자열을 가져옵니다.  

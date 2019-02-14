@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 59b190065c678ef61b3e0dec8df13db4215a8229
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156414"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486303"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -174,7 +174,7 @@ ms.locfileid: "55156414"
 
 2018년 6월 이전의 Azure Monitor 메트릭 및 활동 로그를 "경고(클래식)"라고 부릅니다. 
 
-자세한 내용은 [경고 클래식](./../../azure-monitor/platform/alerts-classic.overview.md)을 참조하세요.
+자세한 내용은 [클래식 경고](./../../azure-monitor/platform/alerts-classic.overview.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

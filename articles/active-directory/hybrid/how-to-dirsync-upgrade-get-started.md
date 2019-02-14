@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 12a11e444372ad7004e566851532a98be63af8e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 15d5b824525bc19d83abfbf2c08e068bd3837350
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195361"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821204"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync에서 업그레이드
 Azure AD Connect는 DirSync의 후속 도구입니다. 이 항목의 DirSync에서 업그레이드하는 방법을 찾습니다. 다음 단계는 Azure AD Connect의 다른 버전 또는 Azure AD Sync에서 업그레이드하는 경우에 작동하지 않습니다.
@@ -34,7 +34,7 @@ Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드
 > [!NOTE]
 > 새 Azure AD Connect 서버를 사용하여 변경 내용을 Azure AD에 동기화하기 시작하면 DirSync 또는 Azure AD Sync를 사용하도록 롤백하지 않아야 합니다. Azure AD Connect에서 DirSync 및 Azure AD Sync를 포함하여 레거시 클라이언트로 다운그레이드하는 기능은 지원되지 않으며 Azure AD에서 데이터 손실 등의 문제가 발생할 수 있습니다.
 
-DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 [관련 설명서](#related-documentation) 를 참조하세요.
+DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 관련 설명서를 참조하세요.
 
 ## <a name="upgrade-from-dirsync"></a>DirSync에서 업그레이드
 현재 DirSync 배포에 따라 업그레이드에 대한 여러 옵션이 있습니다. 예상되는 업그레이드 시간이 3시간 미만인 경우 전체 업그레이드를 수행하는 것이 좋습니다. 예상되는 업그레이드 시간이 3시간 이상인 경우 다른 서버에서 병렬 배포를 수행하는 것이 좋습니다. 50,000개 이상의 개체가 있는 경우 업그레이드를 수행하는 데 3시간 이상이 걸릴 수 있습니다.
@@ -127,7 +127,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 
 * **설정 내보내기** 단추를 클릭합니다. 별도 서버에 Azure AD Connect를 설치하면 이 설정을 현재 DirSync에서 새 Azure AD Connect 설치로 이미그레이션됩니다.
 
-설정을 성공적으로 내보내고 나면 DirSync 서버에서 Azure AD Connect 마법사를 종료할 수 있습니다. 다음 단계를 계속하여 [별도 서버에 Azure AD Connect를 설치](#installation-of-azure-ad-connect-on-separate-server)
+설정을 성공적으로 내보내고 나면 DirSync 서버에서 Azure AD Connect 마법사를 종료할 수 있습니다. 다음 단계를 계속하여 별도 서버에 Azure AD Connect를 설치합니다.
 
 **50,000개 미만의 개체를 가진 병렬 배포**
 
@@ -141,7 +141,7 @@ DirSync에서 업그레이드하지 않는 경우 다른 시나리오에 대한 
 
 ![분석 완료](./media/how-to-dirsync-upgrade-get-started/forceexport.png)
 
-설정을 성공적으로 내보내고 나면 DirSync 서버에서 Azure AD Connect 마법사를 종료할 수 있습니다. 다음 단계를 계속하여 [별도 서버에 Azure AD Connect를 설치](#installation-of-azure-ad-connect-on-separate-server)합니다.
+설정을 성공적으로 내보내고 나면 DirSync 서버에서 Azure AD Connect 마법사를 종료할 수 있습니다. 다음 단계를 계속하여 별도 서버에 Azure AD Connect를 설치합니다.
 
 ### <a name="install-azure-ad-connect-on-separate-server"></a>별도 서버에 Azure AD Connect 설치
 새 서버에 Azure AD Connect를 설치할 때 Azure AD Connect 새로 설치를 수행한다고 가정합니다. DirSync 구성을 사용하려면 수행해야 할 몇 가지 추가 단계가 있습니다.

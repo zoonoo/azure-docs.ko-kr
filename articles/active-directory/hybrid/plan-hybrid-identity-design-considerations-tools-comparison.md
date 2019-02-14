@@ -14,12 +14,13 @@ ms.topic: conceptual
 ms.date: 08/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4c26fe0e712e5b78a929ff886f5822f430feadcd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aed01ea11c1f53cb090d9c2e65ee23f521575649
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486132"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189119"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>하이브리드 ID 디렉터리 통합 도구 비교
 디렉터리 통합 도구는 수년에 걸쳐 성장하고 발전했습니다.  이 문서는 이러한 도구에 대한 통합 뷰와 각각에서 사용할 수 있는 기능에 대한 비교를 제공하는데 도움이 됩니다.

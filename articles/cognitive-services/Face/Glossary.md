@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 17167271df81914c76882fc4d06717043e1befc1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 06c385b1ca43277b59c337646c41cae360ce48a5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214299"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816563"
 ---
 # <a name="glossary"></a>용어
 
@@ -23,14 +23,14 @@ ms.locfileid: "55214299"
 
 #### <a name="attributes"></a>특성
 
-[age](#Age-Attribute), [gender](#Gender-Attribute), [머리 자세](#Head-Pose-Attribute), [수염](#Facial-Hair-Attribute), [웃는 얼굴](#Smile-Attribute)과 같은 Attributes는 [감지](#Detection-Face-Detection) 결과에서 선택 사항입니다.
-이는 returnFaceAttributes 쿼리 매개 변수를 지정하여 [감지](#Detection-Face-Detection) API에서 가져올 수 있습니다. 특성은 [얼굴 ID](#Face-ID) 및 [사각형](#Face-Rectangle) 외에도 선택한 [얼굴](#Face)에 대한 추가 정보를 제공합니다.
+[연령](#Age-Attribute), [성별](#Gender-Attribute), [머리 자세](#Head-Pose-Attribute), [수염](#Facial-Hair-Attribute), [웃는 얼굴](#Smile-Attribute)과 같은 특성은 감지 결과에서 선택 사항입니다.
+이는 returnFaceAttributes 쿼리 매개 변수를 지정하여 감지 API에서 가져올 수 있습니다. 특성은 [얼굴 ID](#Face-ID) 및 [사각형](#Face-Rectangle) 외에도 선택한 [얼굴](#Face)에 대한 추가 정보를 제공합니다.
 
 자세한 내용은 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 가이드를 참조하세요.
 
 #### <a name="age-attribute"></a>Age(연령) (특성)
 
-age는 특정 얼굴의 연령을 나타내는 [특성](#Attributes) 중 하나입니다. age 특성은 [감지](#Detection-Face-Detection) 결과에서 선택 사항이며, returnFaceAttributes 매개 변수를 지정하여 [감지](#Detection-Face-Detection) 요청으로 제어할 수 있습니다.
+age는 특정 얼굴의 연령을 나타내는 [특성](#Attributes) 중 하나입니다. 연령 특성은 감지 결과에서 선택 사항이며, returnFaceAttributes 매개 변수를 지정하여 감지 요청을 통해 제어할 수 있습니다.
 
 자세한 내용은 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 가이드를 참조하세요.
 
@@ -64,13 +64,13 @@ Confidence는 [얼굴](#Face) 또는 [Person](#Person)(사람) 사이의 유사�
 
 #### <a name="face"></a>Face
 
-얼굴은 감지된 얼굴과 관련된 Face API에서 파생된 결과에 대해 통합된 용어입니다. 궁극적으로 얼굴은 통합된 ID([얼굴 ID](#Face-ID)), 이미지에서 지정된 영역([얼굴 사각형](#Face-Rectangle)), 추가 얼굴 관련 [특성](#Face-Attributes-Facial-Attributes)(예: [연령](#Age-Attribute), [성별](#Gender-Attribute), [랜드마크](#Face-Landmarks-Facial-Landmarks) 및 [머리 자세](#Head-Pose-Attribute))으로 표시됩니다. 또한 얼굴은 [감지](#Detection-Face-Detection)에서 반환할 수 있습니다.
+얼굴은 감지된 얼굴과 관련된 Face API에서 파생된 결과에 대해 통합된 용어입니다. 궁극적으로 얼굴은 통합된 ID([얼굴 ID](#Face-ID)), 이미지에서 지정된 영역([얼굴 사각형](#Face-Rectangle)), 추가 얼굴 관련 특성(예: [연령](#Age-Attribute), [성별](#Gender-Attribute), 랜드마크 및 [머리 자세](#Head-Pose-Attribute))으로 표시됩니다. 또한 얼굴은 감지에서 반환할 수 있습니다.
 
 자세한 내용은 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 가이드를 참조하세요.
 
 #### <a name="face-api"></a>Face API
 
-Face API는 얼굴 감지 및 인식에 대한 고급 알고리즘을 제공하는 클라우드 기반 API입니다. Face API의 주요 기능은 얼굴 [감지](#Detection-Face-Detection)([특성](#Face-Attributes-Facial-Attributes) 포함)와 얼굴 [인식](#Recognition)의 두 가지 범주로 나눌 수 있습니다.
+Face API는 얼굴 감지 및 인식에 대한 고급 알고리즘을 제공하는 클라우드 기반 API입니다. Face API의 주요 기능은 얼굴 감지(특성 포함)와 얼굴 [인식](#Recognition)의 두 가지 범주로 나눌 수 있습니다.
 
 자세한 내용은 다음 가이드를 참조하세요. [Face API 개요](./Overview.md), [Face - 검색](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Face - 유사 얼굴 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Face - 그룹](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238), [Face - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - 확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)
 
@@ -80,13 +80,13 @@ Face API는 얼굴 감지 및 인식에 대한 고급 알고리즘을 제공하�
 
 #### <a name="face-id"></a>Face ID(얼굴 ID)
 
-얼굴 ID는 [감지](#Detection-Face-Detection) 결과에서 파생되며, [Face API](#Face-API)에서 [얼굴](#Face)을 나타내는 문자열입니다.
+Face ID는 감지 결과에서 파생되며, [Face API](#Face-API)에서 [얼굴](#Face)을 나타내는 문자열입니다.
 
 자세한 내용은 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 가이드를 참조하세요.
 
 #### <a name="face-landmarksfacial-landmarks"></a>Face Landmarks/Facial Landmarks(얼굴 랜드마크)
 
-랜드마크는 [감지](#Detection-Face-Detection) 결과에서 선택 사항이며, 눈, 코 및 입과 같이 의미 있는 얼굴 지점입니다(다음 그림 참조). 랜드마크는 returnFaceLandmarks 부울 숫자를 사용하여 [감지](#Detection-Face-Detection) 요청으로 제어할 수 있습니다. returnFaceLandmarks가 true로 설정되면 반환된 얼굴에 랜드마크 특성이 있습니다.
+랜드마크는 감지 결과에서 선택 사항이며, 눈, 코 및 입과 같이 의미 있는 얼굴 지점입니다(다음 그림 참조). 랜드마크는 returnFaceLandmarks 부울 숫자를 사용하여 감지 요청으로 제어할 수 있습니다. returnFaceLandmarks가 true로 설정되면 반환된 얼굴에 랜드마크 특성이 있습니다.
 
 자세한 내용은 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 가이드를 참조하세요.
 
@@ -94,19 +94,19 @@ Face API는 얼굴 감지 및 인식에 대한 고급 알고리즘을 제공하�
 
 #### <a name="face-rectangle"></a>Face Rectangle(얼굴 사각형)
 
-얼굴 사각형은 [감지](#Detection-Face-Detection) 결과에서 파생되며, 픽셀로 된 이미지의 직립 사각형(왼쪽, 위쪽, 너비, 높이)입니다. 너비와 높이 외에도 [얼굴](#Face)의 왼쪽 위 모서리(왼쪽, 위쪽)는 얼굴 크기를 각각 x 축과 y 축으로 나타냅니다.
+얼굴 사각형은 감지 결과에서 파생되며, 픽셀로 된 이미지의 직립 사각형(왼쪽, 위쪽, 너비, 높이)입니다. 너비와 높이 외에도 [얼굴](#Face)의 왼쪽 위 모서리(왼쪽, 위쪽)는 얼굴 크기를 각각 x 축과 y 축으로 나타냅니다.
 
 자세한 내용은 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 가이드를 참조하세요.
 
 #### <a name="facial-hair-attribute"></a>Facial Hair(수염) (특성)
 
-수염은 사용 가능한 얼굴의 수염 길이를 설명하는 데 사용되는 [특성](#Attributes) 중 하나입니다. 수염 특성은 [감지](#Detection-Face-Detection) 결과에서 선택 사항이며, returnFaceAttributes를 사용하여 [감지](#Detection-Face-Detection) 요청으로 제어할 수 있습니다. returnFaceAttributes에 'facialHair'가 포함되면 반환된 얼굴에 수염 특성이 있습니다.
+수염은 사용 가능한 얼굴의 수염 길이를 설명하는 데 사용되는 [특성](#Attributes) 중 하나입니다. 수염 특성은 감지 결과에서 선택 사항이며, returnFaceAttributes를 사용하여 감지 요청으로 제어할 수 있습니다. returnFaceAttributes에 'facialHair'가 포함되면 반환된 얼굴에 수염 특성이 있습니다.
 
 자세한 내용은 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 가이드를 참조하세요.
 
 #### <a name="facelist"></a>FaceList
 
-FaceList는 [PersistedFace](#PersistedFace)의 컬렉션이며 [유사 얼굴 찾기](#Find-Similar)의 단위입니다. FaceList에는 [FaceList ID](#FaceList-ID)뿐만 아니라 [name](#Name) 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
+FaceList는 [PersistedFace](#PersistedFace)의 컬렉션이며 [유사 얼굴 찾기](#Find-Similar)의 단위입니다. FaceList에는 [FaceList ID](#FaceList-ID)뿐만 아니라 이름 및 사용자 데이터와 같은 기타 특성도 함께 제공됩니다.
 
 자세한 내용은 다음 가이드를 참조하세요. [FaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [FaceList - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c)
 
@@ -118,7 +118,7 @@ FaceList ID는 [FaceList](#FaceList)의 식별자로 사용되는 사용자 제�
 
 #### <a name="find-similar"></a>Find Similar(유사 얼굴 찾기)
 
-이 API는 얼굴 컬렉션을 기반으로 하여 유사 얼굴을 검색/쿼리하는 데 사용됩니다. 쿼리 얼굴과 얼굴 컬렉션은 요청에서 [얼굴 ID](#Face-ID) 또는 [FceList ID](#FaceList-ID)/[LargeFaceList ID](#LargeFaceList-ID)로 표시됩니다. 반환된 결과는 검색된 유사 얼굴이며, [얼굴 ID](#Face-ID) 또는 [PersistedFace ID](#PersistedFace-ID)로 표시됩니다.
+이 API는 얼굴 컬렉션을 기반으로 하여 유사 얼굴을 검색/쿼리하는 데 사용됩니다. 쿼리 얼굴과 얼굴 컬렉션은 요청에서 [얼굴 ID](#Face-ID) 또는 [FceList ID](#FaceList-ID)/[LargeFaceList ID](#LargeFaceList-ID)로 표시됩니다. 반환된 결과는 검색된 유사 얼굴이며, [얼굴 ID](#Face-ID) 또는 PersistedFace ID로 표시됩니다.
 
 자세한 내용은 다음 가이드를 참조하세요. [Face - 유사 얼굴 찾기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [LargeFaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [FaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)
 
@@ -126,7 +126,7 @@ FaceList ID는 [FaceList](#FaceList)의 식별자로 사용되는 사용자 제�
 
 #### <a name="gender-attribute"></a>Gender(성별) (특성)
 
-gender는 사용 가능한 얼굴의 성별을 설명하는 데 사용되는 [특성](#Attributes) 중 하나입니다. gender 특성은 [감지](#Detection-Face-Detection) 결과에서 선택 사항이며, returnFaceAttributes를 사용하여 [감지](#Detection-Face-Detection) 요청으로 제어할 수 있습니다. returnfaceAttributes에 'gender'가 포함되면 반환된 얼굴에 성별 특성이 있습니다.
+gender는 사용 가능한 얼굴의 성별을 설명하는 데 사용되는 [특성](#Attributes) 중 하나입니다. 성별 특성은 감지 결과에서 선택 사항이며, returnFaceAttributes를 사용하여 감지 요청으로 제어할 수 있습니다. returnfaceAttributes에 'gender'가 포함되면 반환된 얼굴에 성별 특성이 있습니다.
 
 자세한 내용은 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 가이드를 참조하세요.
 
@@ -146,7 +146,7 @@ gender는 사용 가능한 얼굴의 성별을 설명하는 데 사용되는 [�
 
 #### <a name="head-pose-attribute"></a>Head Pose(머리 자세) (특성)
 
-머리 자세는 다음 그림과 같이 롤 각, 피치 각 및 요 각에 따라 3D 공간에서 얼굴 방향을 나타내는 [특성](#Attributes) 중 하나입니다. 롤 각 및 요 각의 값 범위는 각각 [-180, 180] 및 [-90, 90]\(도 단위)입니다. 현재 버전에서는 감지로부터 반환되는 피치 값이 항상 0입니다. 머리 자세 특성은 [감지](#Detection-Face-Detection) 결과에서 선택 사항이며, returnFaceAttributes 매개 변수를 사용하여 [감지](#Detection-Face-Detection) 요청으로 제어할 수 있습니다. returnFaceAttributes 매개 변수에 'headPose'가 포함되면 반환된 얼굴에 머리 자세 특성이 있습니다.
+머리 자세는 다음 그림과 같이 롤 각, 피치 각 및 요 각에 따라 3D 공간에서 얼굴 방향을 나타내는 [특성](#Attributes) 중 하나입니다. 롤 각 및 요 각의 값 범위는 각각 [-180, 180] 및 [-90, 90]\(도 단위)입니다. 현재 버전에서는 감지로부터 반환되는 피치 값이 항상 0입니다. 머리 자세 특성은 감지 결과에서 선택 사항이며, returnFaceAttributes 매개 변수를 사용하여 감지 요청으로 제어할 수 있습니다. returnFaceAttributes 매개 변수에 'headPose'가 포함되면 반환된 얼굴에 머리 자세 특성이 있습니다.
 
 자세한 내용은 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 가이드를 참조하세요.
 
@@ -182,11 +182,11 @@ IsIdentical은 두 얼굴이 같은 사람에 속하는지 여부를 나타내�
 
 #### <a name="landmarks"></a>랜드마크
 
-[얼굴 랜드마크](#Face-Landmarks-Facial-Landmarks)을 참조하세요.
+얼굴 랜드마크를 참조하세요.
 
 #### <a name="largefacelist"></a>LargeFaceList
 
-LargeFaceList는 [PersistedFace](#PersistedFace)의 컬렉션이며 [유사 얼굴 찾기](#Find-Similar)의 단위입니다. LargeFaceList에는 [LargeFaceList ID](#LargeFaceList-ID)뿐만 아니라 [name](#Name) 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
+LargeFaceList는 [PersistedFace](#PersistedFace)의 컬렉션이며 [유사 얼굴 찾기](#Find-Similar)의 단위입니다. LargeFaceList에는 [LargeFaceList ID](#LargeFaceList-ID)뿐만 아니라 이름 및 사용자 데이터와 같은 기타 특성도 함께 제공됩니다.
 
 자세한 내용은 다음 가이드를 참조하세요. [LargeFaceList - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [LargeFaceList - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce), [LargeFaceList - 얼굴 나열](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6)
 
@@ -198,7 +198,7 @@ LargeFaceList ID는 [LargeFaceList](#LargeFaceList)의 식별자로 사용되는
 
 #### <a name="largepersongroup"></a>LargePersonGroup
 
-LargePersonGroup은 [Person](#Person)의 컬렉션이며, [식별](#Identification)의 단위입니다. LargePersonGroup에는 [LargePersonGroup ID](#LargePersonGroup-ID)뿐만 아니라 [name](#Name) 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
+LargePersonGroup은 [Person](#Person)의 컬렉션이며, [식별](#Identification)의 단위입니다. LargePersonGroup에는 [LargePersonGroup ID](#LargePersonGroup-ID)뿐만 아니라 이름 및 사용자 데이터와 같은 기타 특성도 함께 제공됩니다.
 
 자세한 내용은 다음 가이드를 참조하세요. [LargePersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d), [LargePersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e), [LargePersonGroup Person- 나열](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1)
 
@@ -236,7 +236,7 @@ name은 [LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup)에 대
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace는 Face API의 데이터 구조입니다. PersistedFace는 [PersistedFace ID](#PersistedFace-ID)뿐만 아니라 [name](#Name) 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
+PersistedFace는 Face API의 데이터 구조입니다. PersistedFace는 PersistedFace ID뿐만 아니라 이름 및 사용자 데이터와 같은 기타 특성도 함께 제공됩니다.
 
 자세한 내용은 다음 가이드를 참조하세요. [LargeFaceList - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [FaceList - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargePersonGroup Person - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42), [PersonGroup Person - 얼굴 추가](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)
 
@@ -248,7 +248,7 @@ PersistedFace는 Face API의 데이터 구조입니다. PersistedFace는 [Persis
 
 #### <a name="person"></a>사람
 
-Person은 Face API에서 관리되는 데이터 구조입니다. Person에는 [사람 ID](#Person-ID)뿐만 아니라 [name](#Name), [PersistedFace](#PersistedFace)의 컬렉션 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
+Person은 Face API에서 관리되는 데이터 구조입니다. Person에는 [사람 ID](#Person-ID)뿐만 아니라 이름, [PersistedFace](#PersistedFace)의 컬렉션 및 사용자 데이터와 같은 기타 특성도 함께 제공됩니다.
 
 자세한 내용은 다음 가이드를 참조하세요. [LargePersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40), [LargePersonGroup Person - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599add376ac60f11b48b5aa0), [PersonGroup Person - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c), [PersonGroup Person - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f)
 
@@ -260,7 +260,7 @@ Person은 Face API에서 관리되는 데이터 구조입니다. Person에는 [�
 
 #### <a name="persongroup"></a>PersonGroup
 
-PersonGroup은 [Person](#Person)의 컬렉션이며, [식별](#Identification)의 단위입니다. PersonGroup에는 [PersonGroup ID](#PersonGroup-ID)뿐만 아니라 [name](#Name) 및 [사용자 데이터](#UserData-User-Data)와 같은 다른 특성도 함께 제공됩니다.
+PersonGroup은 [Person](#Person)의 컬렉션이며, [식별](#Identification)의 단위입니다. PersonGroup에는 [PersonGroup ID](#PersonGroup-ID)뿐만 아니라 이름 및 사용자 데이터와 같은 기타 특성도 함께 제공됩니다.
 
 자세한 내용은 다음 가이드를 참조하세요. [PersonGroup - 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244), [PersonGroup - 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246), [PersonGroup Person - 나열](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241)
 
@@ -290,19 +290,25 @@ PersonGroup ID는 [PersonGroup](#PersonGroup)의 ID로 사용되는 사용자 �
 
 ## <a name="s"></a>S
 
-#### <a name="smile-attribute"></a>Smile(웃는 얼굴) (특성)
-
-smile은 사용 가능한 얼굴의 미소 표현을 설명하는 데 사용되는 [특성](#Attributes) 중 하나입니다. smile 특성은 [감지](#Detection-Face-Detection) 결과에서 선택 사항이며, returnFaceAttributes를 사용하여 [감지](#Detection-Face-Detection) 요청으로 제어할 수 있습니다. returnFaceAttributes에 'smile'이 포함되면 반환된 얼굴에 웃는 얼굴 특성이 있습니다.
-
-자세한 내용은 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 가이드를 참조하세요.
-
 #### <a name="similar-face-searching"></a>유사 얼굴 검색
 
 [유사 얼굴 찾기](#Find-Similar)를 참조하세요.
 
+#### <a name="smile-attribute"></a>Smile(웃는 얼굴) (특성)
+
+smile은 사용 가능한 얼굴의 미소 표현을 설명하는 데 사용되는 [특성](#Attributes) 중 하나입니다. smile 특성은 감지결과에서 선택 사항이며, returnFaceAttributes를 사용하여 감지 요청으로 제어할 수 있습니다. returnFaceAttributes에 'smile'이 포함되면 반환된 얼굴에 웃는 얼굴 특성이 있습니다.
+
+자세한 내용은 [얼굴 - 감지](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 가이드를 참조하세요.
+
+#### <a name="snapshot"></a>스냅숏
+
+스냅숏은 특정 얼굴 데이터 형식에 대한 임시 원격 스토리지입니다. 스냅숏은 다른 구독 간에 데이터를 복사하려면 클립보드의 일종으로 작동합니다. 먼저 사용자는 원본 구독에서 데이터의 스냅숏을 “촬영”한 다음, 대상 구독에서 새 데이터 개체에 “적용”합니다. 
+
+자세한 내용은 [얼굴 마이그레이션 지침](./face-api-how-to-topics/how-to-migrate-face-data.md)뿐만 아니라 [스냅숏 - 촬영](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/take) 및 [스냅숏 - 적용](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/apply) 참조 설명서(REST)를 참조하세요.
+
 #### <a name="status-train"></a>Status(상태) (학습)
 
-status는 'notstarted', 'running', 'succeeded', 'failed'를 포함하여 [LargeFaceList/LargePersonGroups/PersonGroups 학습](#Train) 절차를 설명하는 문자열입니다.
+상태는 'notstarted', 'running', 'succeeded', 'failed'를 포함하여 LargeFaceList/LargePersonGroups/PersonGroups 학습 절차를 설명하는 문자열입니다.
 
 자세한 내용은 [LargeFaceList - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158422d2de3616c086f2d1), [LargePersonGroup - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4), [PersonGroup - 학습](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) 가이드를 참조하세요.
 
@@ -330,7 +336,7 @@ status는 'notstarted', 'running', 'succeeded', 'failed'를 포함하여 [LargeF
 
 #### <a name="verification"></a>확인
 
-이 API는 두 얼굴이 같은지 여부를 확인하는 데 사용됩니다. 두 얼굴은 요청에서 얼굴 ID로 표시됩니다. 확인된 결과에는 true인 경우 동일한 것임을 나타내는 부울 필드([isIdentical](#Is-Identical))와 신뢰도 수준을 나타내는 숫자 필드([confidence](#Confidence))가 포함됩니다.
+이 API는 두 얼굴이 같은지 여부를 확인하는 데 사용됩니다. 두 얼굴은 요청에서 얼굴 ID로 표시됩니다. 확인된 결과에는 true인 경우 동일한 것임을 나타내는 부울 필드(isIdentical)와 신뢰도 수준을 나타내는 숫자 필드([confidence](#Confidence))가 포함됩니다.
 
 자세한 내용은 [얼굴 - 확인](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 가이드를 참조하세요.
 

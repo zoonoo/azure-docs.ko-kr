@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cbb15ff084c3639be801458d071f3966873c2509
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300271"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815662"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Virtual Machines의 SQL Server에서 Azure Premium Storage 사용
 ## <a name="overview"></a>개요
@@ -1191,7 +1191,7 @@ SQL Server가 두 개뿐이며 이러한 SQL Server를 새 클라우드 서비�
 
 마이그레이션한 보조 복제본을 작동시키고 새 클라우드 서비스의 새 IP 주소 리소스에 추가한 후에는 기존 주 복제본을 장애 조치(failover)하기 전에 클러스터 장애 조치(Failover) 관리자 내에서 다음 단계를 수행해야 합니다.
 
-IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)의 14단계를 참조하세요.
+IP 주소를 추가하려면 부록의 14단계를 참조하세요.
 
 1. 현재 IP 주소 리소스의 경우 가능한 소유자를 ‘기존 주 SQL Server’로 변경합니다(예제에서는 ‘dansqlams4’).
 

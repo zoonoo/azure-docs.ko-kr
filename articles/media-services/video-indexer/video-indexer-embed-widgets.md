@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: juliako
-ms.openlocfilehash: d5ec82decbb441c27fd0c5e8f1132caa126edbc1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 04acbb36b34a5e1eb0a0ead28cc7a1d40a50851c
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807748"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697637"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>애플리케이션에 Video Indexer 위젯 포함
 
@@ -23,7 +23,7 @@ ms.locfileid: "54807748"
 > [!NOTE]
 > 2018년 2월 1일부터 **인지적 인사이트** 위젯 버전 1은 더 이상 사용되지 않습니다. Embed URL 버전의 기본값은 `version=2`입니다.
 
-버전 2부터 위젯 기본 URL에 계정의 Azure 지역이 포함됩니다. 예를 들어 미국 서부 지역의 계정은 `https://wus2.videoindexer.ai/embed/insights/...`를 생성합니다.
+버전 2부터 위젯 기본 URL에 계정의 지역이 포함됩니다. 예를 들어 미국 서부 지역의 계정은 `https://wus2.videoindexer.ai/embed/insights/...`를 생성합니다.
 
 ## <a name="widget-types"></a>위젯 유형
 
@@ -31,7 +31,7 @@ ms.locfileid: "54807748"
 
 **인지 인사이트** 위젯에는 비디오 인덱싱 프로세스에서 추출한 모든 시각적 인사이트가 포함되어 있습니다. 인사이트 위젯에서 지원하는 선택적 URL 매개 변수는 다음과 같습니다.
 
-|이름|정의|설명|
+|Name|정의|설명|
 |---|---|---|
 |widgets|쉼표로 구분된 문자열|렌더링하려는 인사이트를 제어할 수 있습니다. <br/>예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사용자 및 브랜드 UI 인사이트만 제공합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>version=2에서 URL을 통해 지원되지 않습니다.<br/><br/>**참고:** **version=2**를 사용하는 경우 **widgets** URL 매개 변수가 지원되지 않습니다. |
 |버전|**인지 인사이트** 위젯의 버전|최신 인사이트 위젯 업데이트를 가져오려면 Embed URL에 `?version=2` 쿼리 매개 변수를 추가합니다. 예를 들어 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> 이전 버전을 가져오려면 URL에서 `version=2`만 제거하면 됩니다.
@@ -40,7 +40,7 @@ ms.locfileid: "54807748"
 
 **플레이어** 위젯을 사용하면 적응 비트 전송률을 사용하여 비디오를 스트림할 수 있습니다. 플레이어 위젯에서 지원하는 선택적 URL 매개 변수는 다음과 같습니다.
 
-|이름|정의|설명|
+|Name|정의|설명|
 |---|---|---|
 |t|시작 시간(초)|플레이어가 지정된 시점에서 재생을 시작하도록 합니다.<br/>예: t=60|
 |captions|언어 코드|자막 메뉴에서 사용할 수 있도록 위젯을 로드하는 동안 지정된 언어의 자막을 가져옵니다.<br/>예: captions=en-US|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 39c92c870991ce2398b27efd189f1219777afdd7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8664b431239f7b288deccedeadff0806ab600bcd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425325"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232516"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 이벤트 허브 만들기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -30,9 +30,12 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 > 전체 템플릿은 GitHub에서 [이벤트 허브 및 소비자 그룹 템플릿][Event Hub and consumer group template]을 참조하세요. 이 템플릿은 이벤트 허브 네임스페이스 및 이벤트 허브 외에 소비자 그룹을 만들었습니다. 최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리를 방문하여 Event Hubs를 검색하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 
-**Azure PowerShell**을 사용하여 Resource Manager 템플릿을 배포하려면 [Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0)합니다.
+**Azure PowerShell**을 사용하여 Resource Manager 템플릿을 배포하려면 [Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)합니다.
 
 **Azure CLI**를 사용하여 Resource Manager 템플릿을 배포하려면 [Azure CLI를 설치]( /cli/azure/install-azure-cli)합니다.
 
@@ -117,12 +120,12 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 MyEvent
 2. 다음 명령을 실행하여 Azure에 로그인합니다.
 
    ```azurepowershell
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 3. 로그인했으면 다음 명령을 실행하여 현재 구독 컨텍스트를 설정합니다.
 
    ```azurepowershell
-   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
+   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
    ```
 
 ### <a name="provision-resources"></a>리소스 프로비전
@@ -135,10 +138,10 @@ Azure PowerShell을 사용하여 리소스로 배포/프로비전하려면 C:\Ev
 $resourceGroupName = "<Specify a name for the Azure resource group>"
 
 # Create an Azure resource group
-New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+New-AzResourceGroup $resourceGroupName -location 'East US'
 
 # Deploy the Resource Manager template. Specify the names of deployment itself, resource group, JSON file for the template, JSON file for parameters
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
 ```
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Azure CLI를 사용하여 템플릿 배포

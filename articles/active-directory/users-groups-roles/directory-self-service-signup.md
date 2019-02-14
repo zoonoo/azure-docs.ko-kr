@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory의 셀프 서비스 또는 평가판 등록 | Microsoft Docs
+title: 셀프 서비스 또는 평가판 등록을 통한 사용자 추가 - Azure Active Directory | Microsoft Docs
 description: Azure AD(Azure Active Directory) 테넌트의 셀프 서비스 등록 사용
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,19 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f02a628a55969dfbb883f53f005733482499a42b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195820"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506773"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 등록이란?
+
 이 문서에서는 Azure AD(Azure Active Directory)의 셀프 서비스 등록 및 지원 방법을 설명합니다. 관리되지 않는 Azure AD 테넌트에서 도메인 이름을 가져오려면 [Take over an unmanaged directory as administrator](domains-admin-takeover.md)(관리되지 않는 디렉터리를 관리자로 가져오기)를 참조하세요.
 
 ## <a name="why-use-self-service-signup"></a>셀프 서비스 등록을 사용하는 이유

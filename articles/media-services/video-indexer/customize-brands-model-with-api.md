@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: anzaman
-ms.openlocfilehash: f970f535f83bc3b3c2a850ec126a7afff2af739f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6c6f2890cf9bd3c8cb412b3fa2f28d8ea3b6f72
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827587"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734320"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 브랜드 모델 사용자 지정
 
@@ -26,17 +26,17 @@ Video Indexer API를 사용하여 이 항목에 설명된 것처럼 비디오에
 
 ## <a name="create-a-brand"></a>브랜드 만들기
 
-새 사용자 지정 브랜드를 만들어 지정된 계정의 사용자 지정 브랜드 모델에 추가합니다. 
+새 사용자 지정 브랜드를 만들어 지정된 계정의 사용자 지정 브랜드 모델에 추가합니다.
 
 ### <a name="request-url"></a>요청 URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand)합니다.
 
-### <a name="request-parameters"></a>요청 매개 변수 
+### <a name="request-parameters"></a>요청 매개 변수
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
@@ -95,7 +95,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수
@@ -117,17 +117,17 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="get-a-specific-brand"></a>특정 브랜드 가져오기
 
-브랜드 ID를 사용하여 지정된 계정의 사용자 지정 브랜드 모델에서 브랜드 세부 정보를 검색할 수 있습니다. 
+브랜드 ID를 사용하여 지정된 계정의 사용자 지정 브랜드 모델에서 브랜드 세부 정보를 검색할 수 있습니다.
 
 ### <a name="request-url"></a>요청 URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?)합니다.
 
-### <a name="request-parameters"></a>요청 매개 변수 
+### <a name="request-parameters"></a>요청 매개 변수
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|
@@ -167,14 +167,14 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="update-a-specific-brand"></a>특정 브랜드 업데이트
 
-브랜드 ID를 사용하여 지정된 계정의 사용자 지정 브랜드 모델에서 브랜드 세부 정보를 검색할 수 있습니다. 
+브랜드 ID를 사용하여 지정된 계정의 사용자 지정 브랜드 모델에서 브랜드 세부 정보를 검색할 수 있습니다.
 
 ### <a name="request-url"></a>요청 URL
 
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands/{id}?accessToken={accessToken}
 ```
- 
+
 [필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수
@@ -237,7 +237,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수
@@ -270,7 +270,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
         "description": "This is an example",
         "tags": ["Tag1", "Tag2"]
     },
-        {
+    {
         "ReferenceUrl": null,
         "id": 97975,
         "name": "Example2",
@@ -297,7 +297,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands?accessToken={accessToken}
 ```
- 
+
 [필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands)합니다.
 
 ### <a name="request-parameters"></a>요청 매개 변수
@@ -330,14 +330,14 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 지정된 계정의 브랜드 모델 설정을 업데이트합니다. 브랜드 모델 설정은 Bing 브랜드 데이터베이스에서 검색을 사용할지 여부를 나타냅니다. Bing 브랜드가 사용되지 않는 경우, Video Indexer는 지정된 계정의 사용자 지정 브랜드 모델에서만 브랜드를 검색합니다.
 
-### <a name="request-url"></a>요청 URL: 
+### <a name="request-url"></a>요청 URL:
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/BrandsModelSettings?accessToken={accessToken}
 ```
- 
+
 [필수 매개 변수를 참조하고 Video Indexer 개발자 포털을 사용하여 테스트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?)합니다.
 
-### <a name="request-parameters"></a>요청 매개 변수 
+### <a name="request-parameters"></a>요청 매개 변수
 
 |**Name**|**형식**|**필수**|**설명**|
 |---|---|---|---|

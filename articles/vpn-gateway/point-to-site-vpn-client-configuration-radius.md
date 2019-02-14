@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 8fc2c487a374a34cd9a7642a45fd59c04061b398
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "51252011"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817821"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS 인증용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -98,10 +98,10 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 
 2. Mac에서 **mobileconfig** 파일을 찾습니다.
 
-   ![mobilconfig 파일의 위치](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
+   ![mobileconfig 파일의 위치](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. 선택적 단계 - 사용자 지정 DNS를 지정하려면 다음 줄을 **mobileconfig** 파일에 추가합니다.
-```
+```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -260,17 +260,17 @@ Azure 가상 네트워크에 연결하는 모든 Mac 디바이스에 별도의 �
 
 다른 인증 유형(예: OTP)를 사용하거나 다른 인증 프로토콜을 사용하려면(예: EAP-MSCHAPv2 대신 PEAP-MSCHAPv2) 자체 VPN 클라이언트 구성 프로필을 만들어야 합니다. 프로필을 만들려면 가상 네트워크 게이트웨이 IP 주소, 터널 유형 및 분할 터널 경로 등과 같은 정보가 필요합니다. 다음 단계를 사용하여 이 정보를 얻을 수 있습니다.
 
-1. `Get-AzureRmVpnClientConfiguration` cmdlet을 사용하여 EapMSChapv2에 대한 VPN 클라이언트 구성을 생성합니다. 지침은 문서의 [이 섹션](#ccradius)을 참조하세요.
+1. `Get-AzureRmVpnClientConfiguration` cmdlet을 사용하여 EapMSChapv2에 대한 VPN 클라이언트 구성을 생성합니다. 지침은 문서의 이 섹션을 참조하세요.
 
-2. VpnClientConfiguration.zip 파일의 압축을 풀고 **GenenericDevice** 폴더를 찾습니다. 64비트 및 32비트 아키텍처에 대한 Windows Installer를 포함하는 폴더를 무시합니다.
+2. VpnClientConfiguration.zip 파일의 압축을 풀고 **GenericDevice** 폴더를 찾습니다. 64비트 및 32비트 아키텍처에 대한 Windows Installer를 포함하는 폴더를 무시합니다.
  
-3. **GenenericDevice** 폴더는 **VpnSettings**라는 XML 파일을 포함합니다. 이 파일은 모든 필요한 정보를 포함합니다.
+3. **GenericDevice** 폴더는 **VpnSettings**라는 XML 파일을 포함합니다. 이 파일은 모든 필요한 정보를 포함합니다.
 
    * **VpnServer**: Azure VPN Gateway의 FQDN입니다. 이는 클라이언트가 연결하는 대상 주소입니다.
    * **VpnType**: 연결하는 데 사용하는 터널 유형입니다.
    * **Routes**: P2S 터널을 통해 Azure 가상 네트워크에 바인딩된 트래픽만 전송되도록 프로필에 구성해야 하는 경로입니다.
    
-   **GenenericDevice** 폴더에는 **VpnServerRoot**라는 .cer 파일도 있습니다. 이 파일은 P2S 연결 설정 중에 Azure VPN 게이트웨이 유효성을 검사하는 데 필요한 루트 인증서를 포함합니다. Azure 가상 네트워크에 연결하는 모든 디바이스에 인증서를 설치합니다.
+   **GenericDevice** 폴더에는 **VpnServerRoot**라는 .cer 파일도 있습니다. 이 파일은 P2S 연결 설정 중에 Azure VPN 게이트웨이 유효성을 검사하는 데 필요한 루트 인증서를 포함합니다. Azure 가상 네트워크에 연결하는 모든 디바이스에 인증서를 설치합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

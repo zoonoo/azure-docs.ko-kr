@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: aahi
-ms.openlocfilehash: c569c44d358049605aa8bbe1cbc96d0028f7aea1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 07f471debad87a2fa2f6583db624e9ee204d02bc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189692"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821170"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>검색 쿼리를 Bing Visual Search API로 보내기
 
@@ -112,7 +112,7 @@ Visual Search 엔드포인트는 https:\/\/api.cognitive.microsoft.com/bing/v7.0
 각 요청에는 Content-Type 헤더가 포함되어야 합니다. 헤더는 multipart/form-data; boundary=\<경계 문자열\>로 설정되어야 합니다. 여기서 \<경계 문자열\>은 양식 데이터의 경계를 식별하는 고유한 불투명 문자열입니다. 예를 들어 boundary=boundary_1234-abcd입니다.
 
 
-Visual Search에 이미지 토큰 또는 URL을 전송하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여 줍니다. 양식 데이터에는 Content-Disposition 헤더를 포함해야 하고, 해당 `name` 매개 변수는 "knowledgeRequest"로 설정해야 합니다. `imageInfo` 개체에 대한 자세한 내용은 [요청](#the-request)을 참조하세요.
+Visual Search에 이미지 토큰 또는 URL을 전송하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여 줍니다. 양식 데이터에는 Content-Disposition 헤더를 포함해야 하고, 해당 `name` 매개 변수는 "knowledgeRequest"로 설정해야 합니다. `imageInfo` 개체에 대한 자세한 내용은 요청을 참조하세요.
 
 
 ```
@@ -128,7 +128,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-로컬 이미지를 업로드하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여 줍니다. 양식 데이터에는 Content-Disposition 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "image"로 설정해야 하고, `filename` 매개 변수를 임의의 문자열 매개 변수로 설정할 수 있습니다. Content-Type 헤더는 일반적으로 사용되는 모든 이미지 MIME 형식으로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진입니다. 업로드할 수는 최대 이미지 크기는 1MB입니다. 가장 큰 너비 또는 높이는 1,500픽셀 미만이어야 합니다.
+로컬 이미지를 업로드하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여줍니다. 양식 데이터에는 Content-Disposition 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "image"로 설정해야 하고, `filename` 매개 변수를 임의의 문자열 매개 변수로 설정할 수 있습니다. Content-Type 헤더는 일반적으로 사용되는 모든 이미지 MIME 형식으로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진입니다. 업로드할 수는 최대 이미지 크기는 1MB입니다. 가장 큰 너비 또는 높이는 1,500픽셀 미만이어야 합니다.
 
 
 ```

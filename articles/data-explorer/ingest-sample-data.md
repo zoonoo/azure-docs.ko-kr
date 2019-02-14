@@ -8,19 +8,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ebe362b89eb6ffcde006ff824fbee40b1a9175d3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394581"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733402"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Azure 데이터 탐색기로 샘플 데이터 수집
 
 이 문서에서는 Azure 데이터 탐색기로 샘플 데이터를 수집(로드)하는 방법을 설명합니다. [데이터는 여러 가지 방식으로 수집할 수 있습니다](ingest-data-overview.md). 이 문서에서는 테스트용으로 적합한 기본적인 방식을 중점적으로 설명합니다.
 
 > [!NOTE]
-> [빠른 시작: Azure 데이터 탐색기 Python 라이브러리를 사용하여 데이터 수집](python-ingest-data.md)을 완료했다면 이 데이터가 이미 있을 것입니다.
+> [빠른 시작을 완료한 경우 이 데이터가 이미 있습니다. Azure Data Explorer Python 라이브러리를 사용하여 데이터를 수집합니다](python-ingest-data.md).
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -57,6 +57,11 @@ ms.locfileid: "49394581"
 
 ## <a name="next-steps"></a>다음 단계
 
-[쿼리 작성](write-queries.md)
+> [!div class="nextstepaction"]
+> [빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)
 
-[Azure 데이터 탐색기 데이터 수집](ingest-data-overview.md)
+> [!div class="nextstepaction"]
+> [쿼리 작성](write-queries.md)
+
+> [!div class="nextstepaction"]
+> [Azure 데이터 탐색기 데이터 수집](ingest-data-overview.md)

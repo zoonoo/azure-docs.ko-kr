@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 0c12136fb0c866ceebf83f6352a33b7e2791ad0f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d9ce2661fbdca0a28f917e27e27a3e3f954a9999
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717214"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488387"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 보안 및 업그레이드 모범 사례
 
@@ -51,6 +51,9 @@ Azure AD 통합 및 RBAC에 대한 자세한 내용은 [AKS의 인증 및 권한
 사용자 또는 그룹에 필요한 최소 개수의 권한을 부여하는 것과 같은 방식으로, 컨테이너도 필요한 작업 및 프로세스로 제한해야 합니다. 공격 위험을 최소화하기 위해서는 에스컬레이션된 권한 또는 루트 액세스를 요구하는 애플리케이션 및 컨테이너를 구성하지 마세요. 예를 들어 pod 매니페스트에서 `allowPrivilegeEscalation: false`를 설정합니다. 이러한 *pod 보안 컨텍스트*가 Kubernetes에 빌드되며, 추가 권한(예: 사용자 또는 그룹으로 실행)을 정의하거나 노출할 Linux 기능을 정의할 수 있습니다. 추가 모범 사례에 대해서는 [리소스에 대한 pod 액세스 보안 유지][pod-security-contexts]를 참조하세요.
 
 컨테이너 작업을 보다 미세하게 제어하기 위해 *AppArmor* 및 *seccomp*와 같은 기본 제공 Linux 보안 기능을 사용할 수도 있습니다. 이러한 기능은 노드 수준에서 정의되며 pod 매니페스트를 통해 구현됩니다.
+
+> [!NOTE]
+> AKS 또는 다른 곳의 Kubernetes 환경은 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. *AppArmor*, *seccomp*, *Pod 보안 정책*과 같은 추가 보안 기능 또는 노드에 대해 보다 세분화된 RBAC(역할 기반 액세스 제어)를 사용하면 악용이 더 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다.
 
 ### <a name="app-armor"></a>App Armor
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 작업별 최소 권한 역할 위임 | Microsoft Docs
+title: 관리자 작업별 최소 권한 역할 위임 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory에서 ID 작업을 위임하는 역할
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 3b6c5b08fa3f915c541837abe5f52c7ec3d9b87e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6307fe4875d9fd5f55db8078ab9440f989fb58f3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185216"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508218"
 ---
-# <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Azure Active Directory의 ID 작업별 관리자 역할
+# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
 이 문서에서는 Azure AD(Azure Active Directory)에서 최소 권한 역할을 할당하여 사용자의 관리자 권한을 제한하는 데 필요한 정보를 찾을 수 있습니다. 관리자 작업은 각 작업을 수행하는 데 필요한 기능 영역 및 최소 권한 역할, 그리고 작업을 수행할 수 있는 비 글로벌 관리자 역할에 따라 구성되는 것을 알 수 있습니다.
 

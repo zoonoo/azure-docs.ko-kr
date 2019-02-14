@@ -4,7 +4,7 @@ description: Azure Security Center의 ID 및 액세스 기능을 사용하여 �
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012074"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105555"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Azure Security Center에서 ID 및 액세스 모니터링(미리 보기)
 이 문서를 통해 Azure Security Center를 사용하여 사용자의 ID를 모니터링하고 작업에 액세스할 수 있습니다.
@@ -129,7 +129,7 @@ ID 및 액세스 권장 사항의 전체 목록은 [권장 사항](security-cent
 ## <a name="next-steps"></a>다음 단계
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.
 
-- [Azure Security Center에서 머신 및 응용 프로그램 보호](security-center-virtual-machine-recommendations.md)
+- [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-recommendations.md)
 - [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)
 - [Azure Security Center에서 Azure SQL 서비스 및 데이터 보호](security-center-sql-service-recommendations.md)
 

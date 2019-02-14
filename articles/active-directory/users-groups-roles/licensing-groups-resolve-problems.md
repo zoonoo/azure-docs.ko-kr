@@ -1,25 +1,25 @@
 ---
-title: Azure Active Directory에서 그룹에 대한 라이선스 문제 해결 | Microsoft Docs
+title: 그룹에 대한 라이선스 할당 문제 해결 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory 그룹 기반 라이선스를 사용할 때 라이선스 할당 문제를 식별하고 해결하는 방법
 services: active-directory
 keywords: Azure AD 라이선스
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/29/2018
+ms.date: 01/31/2019
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a238b6b8ad64dec443110d922e2684ebde507d7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: sumitp
+ms.custom: it-pro
+ms.openlocfilehash: 2d12f07f8c65d3559f88de2c38c418ce4cc54188
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198115"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510190"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 

@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497420"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>리소스 공급자 등록 오류 해결
 
 이 문서에서는 이전에 구독에 사용하지 않은 리소스 공급자를 사용할 때 발생할 수 있는 오류에 대해 설명합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>증상
 
@@ -53,28 +55,28 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 ## <a name="solution-1---powershell"></a>해결 방법 1 - PowerShell
 
-PowerShell의 경우 **Get-AzureRmResourceProvider**를 사용하여 등록 상태를 확인합니다.
+PowerShell의 경우 **Get-AzResourceProvider**를 사용하여 등록 상태를 확인합니다.
 
 ```powershell
-Get-AzureRmResourceProvider -ListAvailable
+Get-AzResourceProvider -ListAvailable
 ```
 
-공급자를 등록하려면 **Register-AzureRmResourceProvider** 를 사용하여 등록할 리소스 공급자의 이름을 제공합니다.
+공급자를 등록하려면 **Register-AzResourceProvider**를 사용하여 등록할 리소스 공급자의 이름을 제공합니다.
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
 ```
 
 특정 종류의 리소스에 대해 지원되는 위치를 확인하려면 다음을 사용합니다.
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
 특정 종류의 리소스에 대해 지원되는 API 버전을 확인하려면 다음을 사용합니다.
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 ## <a name="solution-2---azure-cli"></a>해결 방법 2 - Azure CLI

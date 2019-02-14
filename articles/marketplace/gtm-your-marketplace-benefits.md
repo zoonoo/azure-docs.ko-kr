@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: bf73c3226af5b2480d52d5010058f24d912bdab5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355315"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55747529"
 ---
 # <a name="your-marketplace-benefits"></a>마켓플레이스 혜택
 
@@ -61,7 +61,7 @@ GTM 지원에는 비즈니스 홍보를 위한 템플릿, 웹 콘텐츠, 교육 
 이러한 혜택에 액세스하려면 다음을 수행해야 합니다.
 
 1. Azure Marketplace 또는 AppSource에 제품을 게시합니다.
-2. 제품의 **연락처 정보** 부분에 마케팅 담당자를 입력했는지 확인합니다. 범용 별칭이 아닌 전용 마케팅 리소스여야 합니다. 즉, “support@”, “info@”, “marketing@” 등을 사용하지 마세요.
+2. 제품의 **연락처 정보** 부분에 마케팅 담당자를 입력했는지 확인합니다. 범용 별칭이 아닌 전용 마케팅 리소스여야 합니다. 즉, “support\@”, “info\@”, “marketing\@” 등을 사용하지 마세요.
 
 솔루션 상태에 따라 자가 진단 리소스가 포함된 메일이나 전용 Engagement Manager와의 상담 통화 초대를 받게 됩니다. 통화를 시작하기 위해 특별한 작업을 수행할 필요는 없습니다. Marketplace 온보딩 팀이 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 제공한 정보에 따라 연락을 드립니다.
 

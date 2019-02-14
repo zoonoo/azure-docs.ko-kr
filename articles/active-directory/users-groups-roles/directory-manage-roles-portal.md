@@ -1,25 +1,23 @@
 ---
-title: Azure Active Directory에서 관리자 역할 사용 권한 보기 및 할당 | Microsoft Docs
+title: 관리자 역할 사용 권한 보기 및 할당 - Azure Active Directory | Microsoft Docs
 description: 이제 포털에서 Azure AD 관리자 역할의 멤버를 보고 관리할 수 있습니다. 역할 할당을 자주 관리하는 사용자를 위한 것입니다.
 services: active-directory
-documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 267b9f7c6dcdc994345371a0884db3c1271f56bd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 296fd6edc7f8ca029ea78e86aa605166ba2f585d
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198166"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511074"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 보기 및 할당
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a72fade57b070ac2ac1aea28cbec92700c3797f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: e71e4ea56bfe467e03be59d6a855272baafc4235
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452550"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822734"
 ---
 # <a name="backup-and-restore"></a>Backup 및 복원
 
@@ -179,7 +179,7 @@ HANA 대규모 인스턴스 테넌트의 저장소 스냅숏 인터페이스에 
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>4단계: SAP HANA 사용자 계정 만들기
 
-SAP HANA 스냅숏 만들기를 시작하려면 저장소 스냅숏 스크립트에서 사용할 수 있는 SAP HANA에 사용자 계정을 만들어야 합니다. 이를 위해 SAP HANA Studio 내에 SAP HANA 사용자 계정을 만듭니다. 사용자는 MDC에 대한 SID 데이터베이스가 아니라 SYSTEMDB 아래에 만들어야 합니다. 단일 컨테이너 환경에서 사용자는 테넌트 데이터베이스 아래에 설정됩니다. 이 계정에는 **Backup 관리** 및 **카탈로그 읽기** 권한이 있어야 합니다. 이 예제에서 사용자 이름은 **SCADMIN**입니다. HANA Studio에서 만든 사용자 계정 이름은 대/소문자를 구분합니다. 사용자가 다음에 로그인할 때 암호를 변경하도록 요구하는 경우 **아니요**를 선택해야 합니다.
+SAP HANA 스냅숏 만들기를 시작하려면 저장소 스냅숏 스크립트에서 사용할 수 있는 SAP HANA에 사용자 계정을 만들어야 합니다. 이를 위해 SAP HANA Studio 내에 SAP HANA 사용자 계정을 만듭니다. 사용자는 MDC에 대한 SID 데이터베이스가 아니라 SYSTEMDB 아래에 만들어야 합니다. 단일 컨테이너 환경에서 사용자는 테넌트 데이터베이스 아래에 설정됩니다. 이 계정에는 다음 권한이 있어야 합니다. **Backup 관리** 및 **카탈로그 읽기**. 이 예제에서 사용자 이름은 **SCADMIN**입니다. HANA Studio에서 만든 사용자 계정 이름은 대/소문자를 구분합니다. 사용자가 다음에 로그인할 때 암호를 변경하도록 요구하는 경우 **아니요**를 선택해야 합니다.
 
 ![HANA Studio에서 사용자 만들기](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -246,7 +246,7 @@ Perl 스크립트를 처리하는 경우:
 
 각 스크립트 및 파일의 용도는 다음과 같습니다.
 
-- **azure\_hana\_backup.pl**: HANA 데이터와 공유 볼륨, /hana/logbackups 볼륨 또는 운영 체제에서 저장소 스냅숏을 실행하려면 Linux Cron 예약 유틸리티를 사용하여 이 스크립트를 예약합니다.
+- **azure\_hana\_backup.pl**: HANA 데이터와 공유 볼륨, /hana/logbackups 볼륨 또는 운영 체제에서 스토리지 스냅숏을 실행하려면 Linux Cron 예약 유틸리티를 사용하여 이 스크립트를 예약합니다.
 - **azure\_hana\_replication\_status.pl**: 이 스크립트는 프로덕션 사이트에서 재해 복구 사이트로의 복제 상태에 대한 기본 세부 정보를 제공합니다. 이 스크립트는 복제가 수행되고 있는지 확인하기 위해 모니터링하고 복제되는 항목의 크기를 표시합니다. 또한 복제 너무 오래 걸리거나 연결이 다운될 경우에 대한 지침을 제공합니다.
 - **azure\_hana\_snapshot\_details.pl**: 이 스크립트는 사용자 환경에 존재하는 볼륨별 모든 스냅숏에 대한 기본 세부 정보 목록을 제공합니다. 이 스크립트는 주 서버 또는 재해 복구 위치의 서버 단위에서 실행할 수 있습니다. 이 스크립트는 스냅숏이 포함된 각 볼륨별로 다음과 같이 세분화된 정보를 제공합니다.
    * 볼륨의 총 스냅숏 크기
@@ -256,8 +256,8 @@ Perl 스크립트를 처리하는 경우:
       - 스냅숏 크기
       - 스냅숏 빈도
       - 스냅숏과 연결된 HANA 백업 ID(해당되는 경우)
-- **azure\_hana\_snapshot\_delete.pl**: 이 스크립트는 저장소 스냅숏 또는 스냅숏 집합을 삭제합니다. HANA Studio에 있는 SAP HANA 백업 ID 또는 저장소 스냅숏 이름을 사용할 수 있습니다. 현재, 백업 ID는 HANA data/log/shared 볼륨에 대해 생성된 스냅숏에만 연결됩니다. 그렇지 않은 경우 스냅숏 ID를 입력하면 입력한 스냅숏 ID와 일치하는 모든 스냅숏을 찾습니다.  
-- **testHANAConnection.pl**: 이 스크립트는 SAP HANA 인스턴스에 대한 연결을 테스트하며, 저장소 스냅숏을 설정하는 데 필요합니다.
+- **azure\_hana\_snapshot\_delete.pl**: 이 스크립트는 스토리지 스냅숏 또는 스냅숏 세트를 삭제합니다. HANA Studio에 있는 SAP HANA 백업 ID 또는 저장소 스냅숏 이름을 사용할 수 있습니다. 현재, 백업 ID는 HANA data/log/shared 볼륨에 대해 생성된 스냅숏에만 연결됩니다. 그렇지 않은 경우 스냅숏 ID를 입력하면 입력한 스냅숏 ID와 일치하는 모든 스냅숏을 찾습니다.  
+- **testHANAConnection.pl**: 이 스크립트는 SAP HANA 인스턴스에 대한 연결을 테스트하며, 스토리지 스냅숏을 설정하는 데 필요합니다.
 - **testStorageSnapshotConnection.pl**: 이 스크립트는 두 가지 용도로 사용됩니다. 첫째, 스크립트를 실행하는 HANA 대규모 인스턴스 단위가 할당된 저장소 가상 머신 및 HANA 대규모 인스턴스의 저장소 스냅숏 인터페이스에 대해 액세스할 수 있도록 합니다. 두 번째 용도는 테스트 중인 HANA 인스턴스에 대한 임시 스냅숏을 만드는 것입니다. 이 스크립트는 백업 스크립트가 예상대로 작동되도록 하기 위해 서버의 모든 HANA 인스턴스에 대해 실행해야 합니다.
 - **removeTestStorageSnapshot.pl**: 이 스크립트는 **testStorageSnapshotConnection.pl** 스크립트로 만든 테스트 스냅숏을 삭제합니다.
 - **azure\_hana\_dr\_failover.pl**: 이 스크립트는 다른 지역으로 DR 장애 조치(failover)를 시작합니다. DR 지역의 HANA 대규모 인스턴스 단위 또는 장애 조치하려는 단위에서 스크립트를 실행해야 합니다. 이 스크립트는 기본 쪽에서 보조 쪽으로의 저장소 복제를 중지하고 DR 볼륨에서 최신 스냅숏을 복원하며 DR 볼륨에 대한 탑재 지점을 제공합니다.
@@ -387,8 +387,8 @@ Snapshot created successfully.
 
 세 가지 유형의 스냅숏 백업을 만들 수 있습니다.
 - **HANA**: hana/data 및 /hana/shared(/usr/sap도 포함)가 포함된 볼륨이 조합된 스냅숏으로 보호되는 결합된 스냅숏 백업입니다. 이 스냅숏에서 단일 파일을 복원할 수 있습니다.
-- **Logs**: /hana/logbackups 볼륨의 스냅숏 백업입니다. 이 저장소 스냅숏을 실행하기 위해 트리거되는 HANA 스냅숏은 없습니다. 이 저장소 볼륨은 SAP HANA 트랜잭션 로그 백업을 포함하기 위한 것입니다. 이러한 기능은 로그 증가를 제한하고 잠재적 인 데이터 손실을 방지하기 위해 더 자주 수행됩니다. 이 스냅숏에서 단일 파일을 복원할 수 있습니다. 빈도를 3분 미만으로 낮추지 마세요.
-- **Boot**: HANA 대규모 인스턴스의 부팅 LUN(논리 단위 번호)을 포함하는 볼륨의 스냅숏입니다. 이 스냅숏 백업은 HANA 큰 인스턴스의 유형 I SKU에서만 가능합니다. 부팅 LUN을 포함하는 볼륨의 스냅숏에서 단일 파일 복원을 수행할 수 없습니다.
+- **로그**: /hana/logbackups 볼륨의 스냅숏 백업입니다. 이 저장소 스냅숏을 실행하기 위해 트리거되는 HANA 스냅숏은 없습니다. 이 저장소 볼륨은 SAP HANA 트랜잭션 로그 백업을 포함하기 위한 것입니다. 이러한 기능은 로그 증가를 제한하고 잠재적 인 데이터 손실을 방지하기 위해 더 자주 수행됩니다. 이 스냅숏에서 단일 파일을 복원할 수 있습니다. 빈도를 3분 미만으로 낮추지 마세요.
+- **Boot**: HANA 큰 인스턴스의 부팅 LUN(논리 단위 번호)을 포함하는 볼륨의 스냅숏입니다. 이 스냅숏 백업은 HANA 큰 인스턴스의 유형 I SKU에서만 가능합니다. 부팅 LUN을 포함하는 볼륨의 스냅숏에서 단일 파일 복원을 수행할 수 없습니다.
 
 
 >[!NOTE]
@@ -648,9 +648,9 @@ HANA Backup ID:
 
 1. Azure 지원 요청을 열어서 특정 스냅숏의 복원에 대한 지침을 포함합니다.
 
- - 복원 중: Azure Service Management의 SAP HANA에서 전화 회의에 참여하여 올바른 저장소 스냅숏이 복원될 수 있도록 조정, 검증 및 확인을 수행할 것을 요청할 수 있습니다. 
+ - 복원 중: Azure Service Management의 SAP HANA에서 전화 회의에 참여하여 올바른 스토리지 스냅숏이 복원될 수 있도록 조정, 검증 및 확인을 수행할 것을 요청할 수 있습니다. 
 
- - 복원한 후에 Azure의 SAP HANA Service Management에서는 저장소 스냅숏이 복원된 시기를 알립니다.
+ - 복원한 후에: Azure Service Management의 SAP HANA에서는 스토리지 스냅숏이 복원된 시기를 알려줍니다.
 
 1. 복원 프로세스가 완료되면 모든 데이터 볼륨을 다시 탑재합니다.
 
@@ -687,7 +687,7 @@ HANA Backup ID:
 >[!IMPORTANT]
 >계속 진행하기 전에 트랜잭션 로그 백업의 완전한 연속 체인이 있는지 확인합니다. 이러한 백업 없이 데이터베이스의 현재 상태를 복원할 수 없습니다.
 
-1. [가장 최근 HANA 스냅숏으로 복구](#recovering-to-the-most-recent-hana-snapshot)에서 1-6단계를 완료합니다.
+1. 가장 최근 HANA 스냅숏으로 복구에서 1-6단계를 완료합니다.
 
 1. **가장 최근 상태로 데이터베이스 복구**를 선택합니다.
 
@@ -713,7 +713,7 @@ HANA Backup ID:
 저장소 스냅숏에 포함된 HANA 스냅숏과 HANA 스냅숏 지정 시점 복구보다 이후인 스냅숏 간의 지정 시점으로 복구하려면 다음 단계를 수행합니다.
 
 1. 복구하려는 시간에서 HANA 스냅숏의 모든 트랜잭션 로그 백업이 있는지 확인합니다.
-1. [가장 최근 상태로 복구](#recovering-to-the-most-recent-state)에서 프로시저를 시작합니다.
+1. 가장 최근 상태로 복구에서 프로시저를 시작합니다.
 1. 프로시저의 2단계에 있는 **복구 유형 지정** 창에서 **데이터베이스를 다음 지정 시점으로 복구**를 선택한 다음, 해당 시점을 지정합니다. 
 1. 3-6단계를 완료합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103312"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814474"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
 GRUB는 VM을 부팅할 때 가장 먼저 나타날 수 있는 GRand Unified Bootloader입니다. 운영 체제가 시작되기 전에 표시되므로 SSH를 통해 액세스할 수 없습니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.
@@ -44,7 +44,7 @@ GRUB에 액세스하려면 직렬 콘솔 블레이드를 열어 두고 VM을 다
 ![Linux 직렬 콘솔 다시 시작](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>일반 단일 사용자 모드 액세스
-암호 인증을 사용하는 계정을 구성하지 않은 상황에서는 단일 사용자 모드에 수동으로 액세스해야 할 수 있습니다. 이 경우 단일 사용자 모드에 수동으로 진입하도록 GRUB 구성을 수정해야 합니다. 구성을 수정한 후에 [단일 사용자 모드를 사용하여 암호 재설정 또는 추가](#-Use-Single-User-Mode-to-reset-or-add-a-password)에서 추가 지침을 참조하세요.
+암호 인증을 사용하는 계정을 구성하지 않은 상황에서는 단일 사용자 모드에 수동으로 액세스해야 할 수 있습니다. 이 경우 단일 사용자 모드에 수동으로 진입하도록 GRUB 구성을 수정해야 합니다. 이 구성 수정을 완료한 후 추가 지침은 단일 사용자 모드를 사용하여 암호 재설정 또는 추가를 참조하세요.
 
 대부분의 배포에서는 VM을 부팅할 수 없는 경우 단일 사용자 모드나 응급 모드가 자동 설정됩니다. 하지만 단일 사용자 모드나 응급 모드를 자동 설정하려면 루트 암호 설정 등의 추가 설정을 수행해야 하는 배포도 있습니다.
 

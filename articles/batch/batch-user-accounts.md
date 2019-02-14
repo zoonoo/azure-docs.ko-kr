@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542835"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813911"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Batch에서 사용자 계정으로 태스크 실행
 
@@ -66,7 +66,7 @@ Azure Batch에서는 태스크 실행을 위해 다음과 같은 두 가지 유�
 
 기본적으로 태스크는 자동 사용자 계정에서 Batch로, 관리자 액세스 권한이 없는 표준 사용자로, 태스크 범위를 사용해서 실행됩니다. 태스크 범위에 대해 자동 사용자 지정이 구성되면 Batch 서비스는 해당 태스크에 대해서만 자동 사용자 계정을 만듭니다.
 
-태스크 범위 대신 풀 범위를 지정할 수 있습니다. 태스크에 대한 자동 사용자 지정이 풀 범위에 대해 구성되면 태스크는 풀의 모든 태스크에서 사용할 수 있는 자동 사용자 계정으로 실행됩니다. 풀 범위에 대한 자세한 내용은 [풀 범위를 갖는 자동 사용자로 태스크 실행](#run-a-task-as-the-autouser-with-pool-scope) 섹션을 참조하세요.   
+태스크 범위 대신 풀 범위를 지정할 수 있습니다. 태스크에 대한 자동 사용자 지정이 풀 범위에 대해 구성되면 태스크는 풀의 모든 태스크에서 사용할 수 있는 자동 사용자 계정으로 실행됩니다. 풀 범위에 대한 자세한 내용은 풀 범위를 사용하는 자동 사용자로 태스크 실행 섹션을 참조하세요.   
 
 기본 범위는 Windows 및 Linux 노드에서 다릅니다.
 

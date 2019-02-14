@@ -3,7 +3,7 @@ title: 비용 절감을 위한 Azure SQL Database vCores 선불 | Microsoft Docs
 description: 계산 비용을 절약하기 위해 Azure SQL Database 예약된 용량을 구입하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8f8884f903108deae673d030f8fd2ee1d0d9f982
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455759"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745455"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제
 
@@ -26,9 +26,10 @@ ms.locfileid: "55455759"
 예약을 SQL Database 인스턴스에 할당할 필요는 없습니다. 이미 실행 중이거나 새로 배포되는 일치하는 SQL Database 인스턴스는 이러한 이점이 자동으로 제공됩니다. 예약을 구입하면 1년 또는 3년 동안의 SQL Database 인스턴스에 대한 계산 비용을 선결제하게 됩니다. 예약을 구입하는 즉시, 예약 특성과 일치하는 SQL Database 계산은 더이상 종량제 요금으로 부과되지 않습니다. 예약은 SQL Database 인스턴스와 연결된 소프트웨어, 네트워킹 또는 저장소 요금을 포함하지 않습니다. 예약 기간이 끝나면 청구 혜택이 만료되고 SQL Databases는 종량제 요금으로 청구됩니다. 예약은 자동 갱신되지 않습니다. 가격 책정 정보는 [SQL Database 예약된 용량 제품](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조하세요.
 
 [Azure Portal](https://portal.azure.com)에서 Azure SQL Database 예약된 용량을 구매할 수 있습니다. SQL Database 예약된 용량을 구입하려면 다음을 수행합니다.
+
 - 하나 이상의 Enterprise 또는 종량제 구독의 소유자 역할이어야 합니다.
-- Enterprise 구독의 경우 [EA 포털](https://ea.azure.com)에서 Azure Reservation 구매가 활성화되어야 합니다.
--  CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리자 에이전트 또는 판매 에이전트가 SQL Database 예약된 용량을 구매할 수 있습니다.
+- Enterprise 구독의 경우 [EA 포털](https://ea.azure.com)에서 **예약 인스턴스 추가**를 활성화해야 합니다. 또는 해당 설정을 사용하지 않도록 설정한 경우 사용자가 구독에 대한 EA 관리자여야 합니다.
+- CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리자 에이전트 또는 판매 에이전트가 SQL Database 예약된 용량을 구매할 수 있습니다.
 
 예약 구매에 대해 엔터프라이즈 고객 및 종량제 고객에게 요금이 청구되는 방법에 대한 자세한 내용은 [엔터프라이즈 등록에서 Azure 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md) 및 [종량제 구독의 Azure 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage.md)를 참조하세요.
 
@@ -50,8 +51,8 @@ ms.locfileid: "55455759"
     | 필드      | 설명|
     |:------------|:--------------|
     |Name        |이 예약의 이름입니다.| 
-    |구독|SQL Database 예약된 용량 예약에 대한 요금을 지불하는 데 사용되는 구독입니다. 구독 시 지불 방법은 SQL Database 예약된 용량 예약에 대해 선불로 비용이 청구됩니다. 가입 유형은 기업계약(제안 번호: MS-AZR-0017P) 또는 종량제(제안 번호: MS-AZR-0003P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.|    
-    |범위       |vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: <ul><li>단일 구독 - vCore 예약 할인이 이 구독의 SQL Database 인스턴스에 적용됩니다. </li><li>공유 - vCore 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행 중인 SQL Database 인스턴스에 적용됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독(개발/테스트 구독 제외)을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</li></ul>|
+    |구독|SQL Database 예약된 용량 예약에 대한 요금을 지불하는 데 사용되는 구독입니다. 구독 시 지불 방법은 SQL Database 예약된 용량 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.|    
+    |범위       |vCore 예약 범위는 하나 또는 여러 개의 구독(공유 범위)을 포함할 수 있습니다. 다음을 선택하는 경우: <ul><li>단일 구독 - vCore 예약 할인이 이 구독의 SQL Database 인스턴스에 적용됩니다. </li><li>공유 - vCore 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행 중인 SQL Database 인스턴스에 적용됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</li></ul>|
     |지역      |SQL Database 예약된 용량 예약에 포함되는 Azure 지역입니다.|    
     |배포 유형|예약을 구매할 SQL 리소스 종류입니다.|
     |성능 계층|SQL Database 인스턴스에 대한 서비스 계층입니다.

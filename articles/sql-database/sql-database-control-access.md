@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6153fbdb6e085d1c817fac5db5eddb5e2c6ae7fa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: 8cb044397cf439e97f3630b5c1c3f53fbf3f356d
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465444"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729937"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Azure SQL Database 및 SQL Data Warehouse 액세스 제어
 
@@ -34,7 +34,7 @@ Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 �
 
 연결 프로세스의 일부로 Azure 가상 머신에서 연결은 각 작업자 역할에 대한 고유한 다른 IP 주소 및 포트에 리디렉션됩니다. 포트 번호의 범위는 11000~11999입니다. TCP 포트에 대한 자세한 내용은 [ADO.NET 4.5 및 SQL Database2에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 SQL Database는 두 가지 인증 유형을 지원합니다.
 
@@ -69,5 +69,5 @@ SQL Database는 두 가지 인증 유형을 지원합니다.
 - SQL Database 보안 기능에 대한 개요는 [SQL 보안 개요](sql-database-security-overview.md)를 참조하세요.
 - 방화벽 규칙에 대해 자세히 알아보려면 [방화벽 규칙](sql-database-firewall-configure.md)을 참조하세요.
 - 사용자와 로그인에 대해 알아보려면 [로그인 관리](sql-database-manage-logins.md)를 참조하세요. 
-- 사전 모니터링에 대한 설명은 [데이터베이스 감사](sql-database-auditing.md) 및 [SQL Database 위협 검색](sql-database-threat-detection.md)을 참조하세요.
+- 사전 모니터링에 대한 설명은 [데이터베이스 감사](sql-database-auditing.md) 및 [SQL Database 위협 탐지](sql-database-threat-detection.md)를 참조하세요.
 - 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요.

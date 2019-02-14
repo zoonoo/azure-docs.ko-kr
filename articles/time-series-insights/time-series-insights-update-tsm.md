@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099903"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507827"
 ---
 # <a name="time-series-model"></a>시계열 모델
 
@@ -152,9 +152,11 @@ Time Series Insights 형식에는 변수가 있으며, 이러한 변수는 이�
 
 인스턴스는 시계열 자체입니다. 대부분의 경우 *deviceId* 또는 *assetId*는 환경 내 자산의 고유 식별자입니다. 각 인스턴스에는 자신에 대한 구체적인 정보가 연결되는데, 이를 인스턴스 속성이라 합니다. 인스턴스 속성에는 적어도 계층 구조 정보가 포함됩니다. 제조업체, 운영자, 마지막 서비스 날짜 같은 유용하고 구체적인 데이터도 포함될 수 있습니다.
 
-인스턴스는 *timeSeriesId*, *typeId*, *hierarchyId* 및 *instanceFields*를 통해 정의됩니다. 각 인스턴스는 한 가지 *형식*과 하나 이상의 계층 구조에 매핑됩니다. 인스턴스는 계층 구조의 모든 속성을 상속하며, *instanceFields*를 추가하여 인스턴스 속성을 더욱 구체적으로 정의할 수 있습니다.
+인스턴스는 *typeId*, *timeSeriesId*, *name*, *description*, *hierarchyIds* 및 *instanceFields*에 의해 정의됩니다. 각 인스턴스는 한 가지 *형식*과 하나 이상의 계층 구조에 매핑됩니다. 인스턴스는 계층 구조의 모든 속성을 상속하며, *instanceFields*를 추가하여 인스턴스 속성을 더욱 구체적으로 정의할 수 있습니다.
 
 *instanceFields*는 인스턴스 그리고 인스턴스를 정의하는 정적 데이터의 속성입니다. 계층 구조 또는 비 계층 구조의 값을 정의하는 한편 검색 작업을 수행하기 위한 인덱싱도 지원합니다.
+
+*name* 속성은 선택 사항이며 대/소문자를 구분합니다. *name*을 사용할 수 없는 경우 기본값은 시계열 ID입니다. *name*이 제공되는 경우 시계열 ID는 Well(탐색기의 차트 아래에 있는 그리드)에서 계속 사용할 수 있습니다. 
 
 ## <a name="time-series-model-instance-json-example"></a>시계열 모델 인스턴스 JSON 예제
 
@@ -164,6 +166,7 @@ Time Series Insights 형식에는 변수가 있으며, 이러한 변수는 이�
 {
     "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
     "timeSeriesId": ["sampleTimeSeriesId"],
+    "name": "sampleName",
     "description": "Sample Instance",
     "hierarchyIds": [
         "1643004c-0a84-48a5-80e5-7688c5ae9295"

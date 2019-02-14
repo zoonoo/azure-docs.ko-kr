@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 212506667a56befb4e3926dec7a9e3eb9772ebed
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285739"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55736191"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Azure Virtual Machine 워크로드용 Ultra SSD(미리 보기) Managed Disks
 
@@ -21,11 +21,11 @@ Azure Ultra SSD(미리 보기)는Azure IaaS VM에 대한 높은 처리량, 높�
 
 ## <a name="ultra-ssd-features"></a>Ultra SSD 기능
 
-**Managed Disks**: Ultra SSD는 Managed Disks로만 사용할 수 있습니다. Ultra SSD는 관리되지 않는 디스크 또는 페이지 Blob으로 배포될 수 없습니다. Managed Disks를 만들 때 디스크 sku 유형을 UltraSSD_LRS로 지정하고, 필요한 디스크 크기, IOPS 및 처리량을 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다.  
+**Managed Disks**: 울트라 SSD는 Managed Disks로만 사용할 수 있습니다. Ultra SSD는 관리되지 않는 디스크 또는 페이지 Blob으로 배포될 수 없습니다. Managed Disks를 만들 때 디스크 sku 유형을 UltraSSD_LRS로 지정하고, 필요한 디스크 크기, IOPS 및 처리량을 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다.  
 
-**Virtual Machines**: Ultra SSD는 Azure Virtual Machine SKU가 지원되는 모든 프리미엄 SSD와 함께 작동하도록 설계되었지만 현재 미리 보기로 제공되고 있으므로 VM 크기가 ES/DS v3로 지정됩니다.
+**Virtual Machines**: 울트라 SSD는 Azure Virtual Machine SKU가 지원되는 모든 프리미엄 SSD와 함께 작동하도록 설계되었지만 현재 미리 보기로 제공되고 있으므로 VM 크기가 ES/DS v3로 지정됩니다.
 
-**동적 성능 구성**: Ultra SSD를 통해 가상 머신을 다시 시작할 필요없이 워크로드 요구 사항과 함께 디스크의 성능(IOPS 및 처리량)을 동적으로 변경할 수 있습니다.
+**동적 성능 구성**: 울트라 SSD를 통해 가상 머신을 다시 시작할 필요 없이 워크로드 요구 사항과 함께 디스크의 성능(IOPS 및 처리량)을 동적으로 변경할 수 있습니다.
 
 ## <a name="scalability-and-performance-targets"></a>확장성 및 성능 대상
 
@@ -33,9 +33,9 @@ Ultra SSD를 프로비전하는 경우 디스크의 용량 및 성능을 독립�
 
 Ultra SSD의 일부 키 기능은 다음과 같습니다.
 
-- 디스크 용량: Ultra SSD는 4GiB에서 최대 64TiB의 다양한 디스크 크기를 제공합니다.
-- 디스크 IOPS: Ultra SSD는 디스크당 최대 160K IOPS의 300IOPS/GiB의 IOPS 제한을 지원합니다. 프로비전한 IOPS를 달성하려면 선택한 디스크 IOPS가 VM IOPS보다 작은지 확인합니다. 최소 디스크 IOPS는 100IOPS입니다.
-- 디스크 처리량: Ultra SSD를 사용하여 단일 디스크의 처리량 한도는 디스크당 최대 2000MBps로 각 프로비전된 IOPS에 대해 256KiB/s입니다(여기서 MBps = 초당 10^6바이트). 최소 디스크 처리량은 1MiB입니다.
+- 디스크 용량: 울트라 SSD는 4GiB에서 최대 64TiB의 다양한 디스크 크기를 제공합니다.
+- 디스크 IOPS: 울트라 SSD는 디스크당 최대 160K IOPS로 300IOPS/GiB의 IOPS 제한을 지원합니다. 프로비전한 IOPS를 달성하려면 선택한 디스크 IOPS가 VM IOPS보다 작은지 확인합니다. 최소 디스크 IOPS는 100IOPS입니다.
+- 디스크 처리량: 울트라 SSD를 사용하는 경우 단일 디스크의 처리량 한도는 디스크당 최대 2000MBps로 각 프로비전된 IOPS에 대해 256KiB/s입니다(여기서 MBps = 초당 10^6바이트). 최소 디스크 처리량은 1MiB입니다.
 
 다음 표에는 다양한 디스크 크기에 지원되는 다양한 구성이 개략적으로 나와 있습니다.  
 
@@ -74,7 +74,7 @@ IOPS는 애플리케이션이 1초 동안 디스크로 보내는 요청의 수�
 
 처리량은 애플리케이션이 바이트/초로 측정된 지정된 간격의 디스크에 보내는 데이터의 양입니다. 애플리케이션이 대규모 입력/출력 작업을 수행하는 경우 높은 처리량이 필요합니다.  
 
-다음 수식에 표시된 것처럼 처리량과 IOPS 간에 관계가 있습니다. IOPS x IO 크기 = 처리량
+처리량과 IOPS 간에는 다음 수식에 표시된 관계가 있습니다.  IOPS x IO 크기 = 처리량
 
 따라서 애플리케이션에 필요한 최적의 처리량 및 IOPS 값을 결정하는 것이 중요합니다. 하나를 최적화하려고 할 때 다른 하나도 영향을 받습니다. 16KiB IO 크기에 해당하는 처리량으로 시작하고, 처리량이 더 필요한 경우 조정하는 것이 좋습니다.
 

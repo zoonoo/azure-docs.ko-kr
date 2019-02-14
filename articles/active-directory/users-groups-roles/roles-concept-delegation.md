@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 관리자 역할 위임 | Microsoft Docs
+title: 관리 역할 위임 이해 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory의 위임 모델, 예제 및 역할 보안
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: cf26cd53340d00e057492b8625b1ff5d6dcde884
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4e904ee9b2ad96847b0ff22dd7350cc42c20db79
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195021"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507249"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Azure Active Directory의 관리 위임
 

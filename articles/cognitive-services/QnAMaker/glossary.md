@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: QnA Maker 서비스에는 서비스 관련 용어와 함께 Machine Learning의 많은 새로운 용어 및 자연어 처리 기능이 있습니다. 이 목록은 그러한 용어를 이해하는 데 도움이 됩니다.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: e86ea22208ccd08c0268fda0cc47d5127b4568a1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c280f6ef99678b77edcb251ead685be88265f825
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226471"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871016"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>QnA Maker 기술 자료 및 서비스에 대한 용어집
 

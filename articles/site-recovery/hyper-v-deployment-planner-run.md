@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b5f0a2a418c53a5049ebff9bba9188219a9aeb13
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321180"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815078"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
 
 다음 4가지 모드 중 원하는 모드에서 Site Recovery Deployment Planner 명령줄 도구(ASRDeploymentPlanner.exe)를 실행할 수 있습니다. 
--   [VM(가상 머신) 목록 가져오기](#get-vm-list-for-profiling-hyper-v-vms)
+-   VM(가상 머신) 목록 가져오기
 -   [프로필](#profile-hyper-v-vms)
--   [보고서 생성](#generate-report)
+-   보고서 생성
 -   [처리량 가져오기](#get-throughput)
 
 먼저 도구를 실행하여 한 개 또는 여러 개의 Hyper-V 호스트에서 VM 목록을 가져옵니다. 그런 다음 프로파일링 모드로 도구를 실행하여 VM 데이터 변동 및 IOPS를 수집합니다. 그런 다음 네트워크 대역폭 및 저장소 요구 사항을 확인하기 위해 도구를 실행하여 보고서를 생성합니다.
@@ -74,7 +74,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledDat
 이 도구는 클러스터의 한 노드에서 다른 노드로 VM 마이그레이션과 호스트 내의 저장소 마이그레이션을 원활하게 처리합니다.
 
 ### <a name="getting-the-vm-list-to-profile"></a>프로파일링할 VM 목록 가져오기
-프로파일링할 VM 목록을 만들려면 [GetVMList](#get-vm-list-for-profiling-hyper-v-vms) 작업을 참조하세요.
+프로파일링할 VM 목록을 만들려면 GetVMList 작업을 참조하세요.
 
 프로파일링할 VM 목록이 있으면 프로파일링 모드에서 도구를 실행할 수 있습니다. 
 

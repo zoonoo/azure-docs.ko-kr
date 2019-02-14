@@ -2,20 +2,20 @@
 title: Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버 백업
 description: Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버를 백업하는 방법을 알아봅니다.
 services: backup
-author: pvrk
-manager: shivamg
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: pullabhk
-ms.openlocfilehash: d64c273a189b1fe2337c4430b156874e0adf54b2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: kasinh
+ms.openlocfilehash: 40541596b4da9e0590d497785afd7d6d7f4cbcb4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605963"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495397"
 ---
-# <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버 백업
+# <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 Exchange 서버 백업
 이 문서에서는 Microsoft Azure Backup Server(MABS)를 구성하여 Azure에 Microsoft Exchange server를 백업하는 방법을 설명합니다.  
 
 ## <a name="prerequisites"></a>필수 조건
@@ -96,10 +96,10 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
 
 온라인 복구 지점의 경우 다섯 가지 형식의 복구가 있습니다.
 
-* **원래 Exchange Server 위치에 복구:** 원래 Exchange 서버에 데이터가 복구됩니다.
-* **Exchange 서버에서 다른 데이터베이스 복구:** 데이터는 다른 Exchange 서버에 있는 다른 데이터베이스에 복구됩니다.
-* **복구 데이터베이스에 복구:** 데이터는 Exchange 복구 데이터베이스(RDB)에 복구됩니다.
-* **네트워크 폴더에 복사:** 데이터는 네트워크 폴더에 복구됩니다.
+* **원본 Exchange 서버 위치에 복구:** 데이터가 원본 Exchange 서버에 복구됩니다.
+* **Exchange 서버의 다른 데이터베이스에 복구:** 데이터가 다른 Exchange 서버의 다른 데이터베이스에 복구됩니다.
+* **복구 데이터베이스에 복구:** 데이터가 Exchange RDB(Recovery Database)에 복구됩니다.
+* **네트워크 폴더에 복사:** 데이터가 네트워크 폴더에 복구됩니다.
 * **테이프에 복사:** MABS에 연결되고 구성된 테이프 라이브러리 또는 독립 실행형 테이프 드라이브가 있는 경우 복구 지점은 사용 가능한 테이프에 복사됩니다.
 
     ![온라인 복제 선택](./media/backup-azure-backup-exchange-server/choose-online-replication.png)

@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Virtual Machines에서 사용할 수 있�
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 5e024161b55db9662aa288a4d3ff6a7c2b7e6266
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 15ac70891f23d95709d1998bca1ce29ad735cb87
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969688"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109081"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
 
 Azure Virtual Machines를 사용하여 다양한 컴퓨팅 솔루션을 민첩하게 배포할 수 있습니다. 이 서비스는 Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP 및 Azure BizTalk Services를 지원합니다. 따라서 거의 모든 운영 체제에 모든 워크로드와 언어를 배포할 수 있습니다.
 
-Azure 가상 머신은 가상 머신을 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다. 보안이 강화된 데이터 센터에서 데이터가 안전하게 보호된다는 확인을 갖고 응용 프로그램을 빌드 및 배포할 수 있습니다.
+Azure 가상 머신은 가상 머신을 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다. 보안이 강화된 데이터 센터에서 데이터가 안전하게 보호된다는 확인을 갖고 애플리케이션을 빌드 및 배포할 수 있습니다.
 
 Azure를 사용하여 다음과 같은 보안이 강화된 규정 준수 솔루션을 빌드할 수 있습니다.
 
@@ -43,7 +43,7 @@ Azure를 통해 Microsoft, Symantec, Trend Micro, Kaspersky 등 주요 보안 �
 
 Azure Cloud Services 및 Virtual Machines를 위한 Microsoft 맬웨어 방지 프로그램은 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 및 제거하는 데 도움이 되는 실시간 보호 기능입니다.  Azure용 Microsoft 맬웨어 방지 프로그램은 알려진 악성 또는 원치 않는 소프트웨어가 Azure 시스템에서 스스로의 설치나 실행을 시도할 때 구성 가능한 경고를 제공합니다.
 
-Azure용 Microsoft 맬웨어 방지 프로그램은 응용 프로그램 및 테넌트 환경을 위한 단일 에이전트 솔루션으로, 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 애플리케이션 워크로드의 필요에 따라 보호를 배포할 수 있습니다.
+Azure용 Microsoft 맬웨어 방지 프로그램은 애플리케이션 및 테넌트 환경을 위한 단일 에이전트 솔루션으로, 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. 맬웨어 방지 프로그램 모니터링을 포함하여 기본 보안 또는 고급 사용자 지정 구성을 사용하여 애플리케이션 워크로드의 필요에 따라 보호를 배포할 수 있습니다.
 
 Azure용 Microsoft 맬웨어 방지 프로그램을 배포하고 사용할 때 다음과 같은 핵심 기능을 사용할 수 있습니다.
 
@@ -86,12 +86,11 @@ Azure용 Microsoft 맬웨어 방지 프로그램을 배포하고 사용할 때 �
 
 키 보안을 개선하여 암호화 및 인증 보호를 강화할 수 있습니다. 중요한 키와 암호 정보를 Azure Key Vault에 보관함으로써 관리와 보안을 단순화할 수 있습니다. 
 
-주요 자격 증명 모음은 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 보관할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)를 위한 SQL Server 암호화 키는 응용 프로그램의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
+주요 자격 증명 모음은 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 보관할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)를 위한 SQL Server 암호화 키는 애플리케이션의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
 
 자세한 정보:
 
-* [Azure Key Vault란?](../key-vault/key-vault-whatis.md)
-* [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)
+* [Azure Key Vault란?](../key-vault/key-vault-overview.md)
 * [Azure Key Vault 블로그](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>가상 머신 디스크 암호화
@@ -107,7 +106,7 @@ Azure Disk Encryption은 Windows 및 Linux 가상 머신 디스크를 암호화�
 
 ## <a name="virtual-machine-backup"></a>가상 머신 백업
 
-Azure Backup은 자본 투자 없이 최소의 비용으로 응용 프로그램 데이터를 보호하는 확장형 솔루션입니다. 애플리케이션 오류로 인해 데이터가 손상되고 사용자 오류로 인해 애플리케이션에 버그가 발생할 수 있습니다. Azure Backup은 Windows 및 Linux를 실행하는 가상 머신의 보호에 도움이 됩니다.
+Azure Backup은 자본 투자 없이 최소의 비용으로 애플리케이션 데이터를 보호하는 확장형 솔루션입니다. 애플리케이션 오류로 인해 데이터가 손상되고 사용자 오류로 인해 애플리케이션에 버그가 발생할 수 있습니다. Azure Backup은 Windows 및 Linux를 실행하는 가상 머신의 보호에 도움이 됩니다.
 
 자세한 정보:
 
@@ -120,9 +119,9 @@ Azure Backup은 자본 투자 없이 최소의 비용으로 응용 프로그램 
 
 Site Recovery:
 
-* **BCDR 전략 간소화**: Site Recovery를 사용하면 단일 위치에서 여러 비즈니스 워크로드 및 앱의 복제, 장애 조치 및 복구를 쉽게 처리할 수 있습니다. Site Recovery는 복제 및 장애 조치를 오케스트레이션하지만 응용 프로그램 데이터를 가로채거나 이에 대한 정보를 포함하지 않습니다.
+* **BCDR 전략 간소화**: Site Recovery를 사용하면 단일 위치에서 여러 비즈니스 워크로드 및 앱의 복제, 장애 조치 및 복구를 쉽게 처리할 수 있습니다. Site Recovery는 복제 및 장애 조치를 오케스트레이션하지만 애플리케이션 데이터를 가로채거나 이에 대한 정보를 포함하지 않습니다.
 * **유연한 복제 제공**: Site Recovery를 사용하여 Hyper-V 가상 머신, VMware 가상 머신 및 Windows/Linux 물리적 서버에서 실행 중인 워크로드를 복제할 수 있습니다.
-* **장애 조치(failover) 및 복구 지원**: Site Recovery는 프로덕션 환경에 영향을 주지 않고 재해 복구 훈련을 지원하는 테스트 장애 조치(failover)를 제공합니다. 또한 예상된 중단에 대한 데이터 손실을 제거하고 계획된 장애 조치를 실행하거나 예기치 않은 재해에 대한 데이터 손상(복제 빈도에 따라 다름)을 최소화하고 계획되지 않은 장애 조치를 실행할 수 있습니다. 장애 조치(failover) 후에 기본 사이트를 장애 복구할 수 있습니다. 사이트 복구는 다중 계층 응용 프로그램의 장애 조치 및 복구를 사용자 지정할 수 있도록 스크립트와 Azure 자동화 통합 문서를 포함할 수 있는 복구 계획을 제공합니다.
+* **장애 조치(failover) 및 복구 지원**: Site Recovery는 프로덕션 환경에 영향을 주지 않고 재해 복구 훈련을 지원하는 테스트 장애 조치(failover)를 제공합니다. 또한 예상된 중단에 대한 데이터 손실을 제거하고 계획된 장애 조치를 실행하거나 예기치 않은 재해에 대한 데이터 손상(복제 빈도에 따라 다름)을 최소화하고 계획되지 않은 장애 조치를 실행할 수 있습니다. 장애 조치(failover) 후에 기본 사이트를 장애 복구할 수 있습니다. 사이트 복구는 다중 계층 애플리케이션의 장애 조치 및 복구를 사용자 지정할 수 있도록 스크립트와 Azure 자동화 통합 문서를 포함할 수 있는 복구 계획을 제공합니다.
 * **보조 데이터 센터 제거**: 보조 온-프레미스 사이트 또는 Azure에 복제할 수 있습니다. 재해 복구에 대한 대상으로 Azure를 사용하면 보조 사이트를 유지 관리하는 비용 및 복잡성이 제거됩니다. 복제된 데이터는 Azure Storage에 저장됩니다.
 * **기존 BCDR 기술과 통합**: Site Recovery는 다른 애플리케이션의 BCDR 기능과 협력합니다. 예를 들어 Site Recovery를 사용하여 회사 워크로드의 SQL Server 백 엔드를 보호할 수 있습니다. 여기에는 가용성 그룹의 장애 조치를 관리하는 SQL Server Always On의 기본 지원이 포함됩니다.
 
@@ -161,7 +160,7 @@ Security Center는 다음과 같은 방법을 통해 가상 머신의 보안을 
 
 ## <a name="compliance"></a>규정 준수
 
-Azure Virtual Machines는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주요 규정 준수 프로그램 인증을 받았습니다. 이러한 인증을 통해 여러분이 직접 만드는 Azure 응용 프로그램도 규정 준수 요구 사항을 충족하기 쉽고 비즈니스가 다양한 국내 및 국제 규정 요구 사항을 충족하기도 쉽습니다.
+Azure Virtual Machines는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주요 규정 준수 프로그램 인증을 받았습니다. 이러한 인증을 통해 여러분이 직접 만드는 Azure 애플리케이션도 규정 준수 요구 사항을 충족하기 쉽고 비즈니스가 다양한 국내 및 국제 규정 요구 사항을 충족하기도 쉽습니다.
 
 자세한 정보:
 

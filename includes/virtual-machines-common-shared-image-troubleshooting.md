@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 2902fe53e7f3ffb86dc727ebcdc2200ba02ac203
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047219"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55736214"
 ---
 공유 이미지 갤러리, 이미지 정의 및 이미지 버전에 대한 작업을 수행하는 동안 문제가 발생하는 경우 실패한 명령을 디버그 모드에서 다시 실행합니다. CLI로 **-debug** 스위치를 전달하고 PowerShell로 **-Debug** 스위치를 전달하여 디버그 모드가 활성화됩니다. 오류를 찾은 후에는 이 문서의 지침에 따라 오류를 해결합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "47047219"
 아래 표를 사용하여 의도한 원본 지역이 지원되는지 확인하세요.
 <br>
 
-| 갤러리를 만들거나 "원본 지역"   | 지역을 복제하거나 "대상 지역" |
+| 갤러리를 만들거나 "원본 지역"   | 버전 또는 "대상 하위 지역" 복제 |
 |----------------------------------------|-------------------------------------------|
 | 미국 중서부                        | 모든 Azure 공용 클라우드 지역            |
 | 미국 중남부                       |                                           |

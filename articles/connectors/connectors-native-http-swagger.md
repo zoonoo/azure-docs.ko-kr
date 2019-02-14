@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123175"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817753"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP + Swagger 커넥터를 사용하여 REST 엔드포인트 호출
 
@@ -40,7 +40,7 @@ HTTP + Swagger 트리거 및 동작은 [HTTP 동작](connectors-native-http.md)�
 4. Swagger 문서에 대한 URL을 입력합니다.
    
    * 논리 앱 디자이너에서 작동하려면 URL이 HTTPS 엔드포인트여야 하고 CORS를 사용할 수 있어야 합니다.
-   * Swagger 문서가 이 요구 사항을 충족하지 않는 경우 [CORS가 설정된 Azure Storage를 사용](#hosting-swagger-from-storage) 하여 문서를 저장할 수 있습니다.
+   * Swagger 문서가 이 요구 사항을 충족하지 않는 경우 CORS가 설정된 Azure Storage를 사용하여 문서를 저장할 수 있습니다.
 5. **다음** 을 클릭하여 Swagger 문서를 읽고 렌더링합니다.
 6. HTTP 호출에 필요한 모든 매개 변수를 추가합니다.
    
@@ -52,7 +52,7 @@ HTTP + Swagger 트리거 및 동작은 [HTTP 동작](connectors-native-http.md)�
 
 Azure Storage에서 Swagger를 생성, 구성 및 저장하는 단계는 다음과 같습니다.
 
-1. [Azure Blob 저장소를 사용하여 Azure Storage 계정을 만듭니다](../storage/common/storage-create-storage-account.md). 이 단계를 수행하려면 **공용 액세스**에 대한 사용 권한을 설정합니다.
+1. [Azure Blob 스토리지를 사용하여 Azure Storage 계정을 만듭니다](../storage/common/storage-create-storage-account.md). 이 단계를 수행하려면 **공용 액세스**에 대한 사용 권한을 설정합니다.
 
 2. Blob에 대해 CORS를 사용하도록 설정합니다. 
 
@@ -62,7 +62,7 @@ Azure Storage에서 Swagger를 생성, 구성 및 저장하는 단계는 다음�
 
    [Azure Portal](https://portal.azure.com) 또는 [Azure Storage 탐색기](http://storageexplorer.com/)와 같은 도구에서 이 단계를 수행할 수 있습니다.
 
-4. Azure Blob 저장소의 문서에 대한 HTTPS 링크를 참조합니다. 
+4. Azure Blob Storage의 문서에 대한 HTTPS 링크를 참조합니다. 
 
    이 링크에서는 다음 형식을 사용합니다.
 
@@ -72,14 +72,14 @@ Azure Storage에서 Swagger를 생성, 구성 및 저장하는 단계는 다음�
 이 HTTP + Swagger 커넥터가 지원하는 트리거 및 동작에 대한 세부 정보는 다음과 같습니다.
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger 트리거
-트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](connectors-overview.md) HTTP + Swagger 커넥터에는 1개의 트리거가 있습니다.
+트리거는 논리 앱에서 정의된 워크플로를 시작하는 데 사용할 수 있는 이벤트입니다. [트리거에 대해 자세히 알아보세요.](connectors-overview.md)  HTTP + Swagger 커넥터에는 1개의 트리거가 있습니다.
 
 | 트리거 | 설명 |
 | --- | --- |
 | HTTP + Swagger |HTTP 호출을 수행하고 응답 콘텐츠를 반환합니다. |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger 동작
-동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](connectors-overview.md) HTTP + Swagger 커넥터에는 1개의 가능한 동작이 있습니다.
+동작은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. [작업에 대해 자세히 알아봅니다.](connectors-overview.md)  HTTP + Swagger 커넥터에는 1개의 가능한 동작이 있습니다.
 
 | 조치 | 설명 |
 | --- | --- |

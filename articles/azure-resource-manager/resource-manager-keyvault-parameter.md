@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6e9ad6f74970b6c72b96ae142f02bee6b07fb558
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cd45384bfd548cb73c10306dfee942cbcf7c8ca1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455476"
+ms.locfileid: "55491912"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
 
 매개 변수 파일에 암호 등의 보안 값을 직접 포함하는 대신 배포 중에 [Azure Key Vault](../key-vault/key-vault-whatis.md)에서 값을 검색할 수 있습니다. 매개 변수 파일에서 Key Vault 및 비밀을 참조하여 이 값을 검색합니다. 해당 Key Vault ID만 참조하므로 이 값은 절대 노출되지 않습니다. Key Vault는 배포하는 리소스 그룹과는 다른 구독에 있을 수 있습니다.
 
-자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합](./resource-manager-tutorial-use-key-vault.md#prepare-a-key-vault)을 참조하세요.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deploy-key-vaults-and-secrets"></a>Key Vault 및 비밀 배포
+## <a name="deploy-key-vaults-and-secrets"></a>키 자격 증명 모음 및 비밀 배포
 
 Key Vault를 만들고 비밀을 추가하려면 다음 항목을 참조하세요.
 

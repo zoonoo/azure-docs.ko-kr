@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e3cf87ca49ae39966cffbb768dc1c191991d4036
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f3f8cf88268498d20651eab40eb655313180cadc
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096911"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203202"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>서비스 패브릭 클러스터 리소스 관리자 소개
 이전에 IT 시스템 또는 온라인 서비스를 관리하는 작업은 특정 물리적 또는 가상 머신을 특정 서비스 또는 시스템에 전담하는 것을 의미했습니다. 서비스는 계층으로 설계되었습니다. “웹” 계층 및 “데이터” 또는 “저장소” 계층이 있었습니다. 애플리케이션에는 요청이 들어오고 나가는 메시지 계층과 캐싱에 전용으로 사용되는 머신 세트이 있었습니다. 워크로드의 각 계층 또는 형식에 특정 컴퓨터가 전용으로 지정되어 있었습니다. 데이터베이스에도 전용으로 사용하는 컴퓨터가 몇 대 있고 웹 서버에도 몇 대가 있었습니다. 특정 유형의 워크로드로 인해 컴퓨터가 너무 뜨거워지는 문제가 발생한 경우 해당 계층에 동일한 구성으로 더 많은 컴퓨터를 추가했습니다. 그러나 모든 워크로드를 쉽게 확장할 수 있는 것은 아니었습니다. 특히 데이터 계층을 사용할 때는 컴퓨터를 더 큰 컴퓨터로 바꾸었습니다. 간편성. 머신에 오류가 발생한 경우 머신을 복원할 수 있을 때까지 전체 애플리케이션 중 해당 부분은 낮은 최대 용량으로 실행합니다. (재미는 없더라도)아직 상당히 쉽습니다.
@@ -43,10 +43,6 @@ Cluster Resource Manager는 Service Fabric에서 오케스트레이션을 처리
 1. 규칙 적용
 2. 환경 최적화
 3. 다른 프로세스 지원
-
-Cluster Resource Manager가 작동하는 방법을 보려면 다음 Microsoft Virtual Academy 비디오를 보세요. <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
-<img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
 
 ### <a name="what-it-isnt"></a>잘못된 정의
 일반적인 N 계층 애플리케이션에는 항상 [Load Balancer](https://en.wikipedia.org/wiki/Load_balancing_(computing))가 있습니다. 일반적으로 네트워킹 스택이 배치된 위치에 따른 NLB(네트워크 부하 분산 장치) 또는 ALB(애플리케이션 부하 분산 장치)입니다. 일부 부하 분산 장치는 F5의 BigIP 제품과 같은 하드웨어 기반이며 나머지는 Microsoft의 NLB와 같은 소프트웨어 기반입니다. 다른 환경에서는 이 역할에서 HAProxy, nginx, Istio 또는 Envoy와 같은 항목을 확인할 수 있습니다. 이러한 아키텍처에서 부하 분산 작업은 상태 비저장 워크로드가 거의 동일한 양의 작업을 수신하도록 하는 것입니다. 부하를 분산하는 전략은 다양합니다. 일부 분산 장치는 여러 호출을 각각 다른 서버로 보냅니다. 다른 기능은 세션 고정/인력을 제공했습니다. 고급 분산 장치에서는 실제 부하 추정 또는 보고를 사용하여 예상된 비용 및 현재 컴퓨터 부하에 따라 호출을 라우팅합니다.

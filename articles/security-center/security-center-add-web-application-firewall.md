@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Security Center 권장 사항 **웹 애�
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5e6d7dffb831e4e6541b5ef91cfc4ae4bbe88167
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 63852ccab842f11f30bcbe695206fedf72931911
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343142"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105046"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure Security Center에서 웹 애플리케이션 방화벽 추가
 Azure Security Center에서는 웹 애플리케이션을 보호하기 위해 Microsoft 파트너의 WAF(웹 애플리케이션 방화벽)를 추가하도록 권장할 수 있습니다. 이 문서에서는 이 권장 사항을 적용하는 방법의 예를 보여 줍니다.
@@ -34,29 +34,29 @@ Security Center에서는 가상 머신과 [격리된](https://azure.microsoft.co
 >
 
 ## <a name="implement-the-recommendation"></a>권장 사항 구현
-1. **권장 사항**에서 **웹 응용 프로그램 방화벽을 사용하여 웹 응용 프로그램 보호**를 선택합니다.
-   ![웹 응용 프로그램 보안][1]
-2. **웹 응용 프로그램 방화벽을 사용하여 웹 응용 프로그램을 보호**에서 웹 응용 프로그램을 선택합니다. **웹 응용 프로그램 방화벽 추가**가 열립니다.
-   ![웹 응용 프로그램 방화벽 추가][2]
+1. **권장 사항**에서 **웹 애플리케이션 방화벽을 사용하여 웹 애플리케이션 보호**를 선택합니다.
+   ![웹 애플리케이션 보안][1]
+2. **웹 애플리케이션 방화벽을 사용하여 웹 애플리케이션을 보호**에서 웹 애플리케이션을 선택합니다. **웹 애플리케이션 방화벽 추가**가 열립니다.
+   ![웹 애플리케이션 방화벽 추가][2]
 3. 기존 웹 애플리케이션 방화벽(사용 가능한 경우)을 사용하도록 선택하거나, 새로 만들 수 있습니다. 이 예제에서는 기존 WAF가 없으므로 WAF를 만들어 보겠습니다.
 4. WAF를 만들려면 통합 파트너 목록에서 솔루션을 선택합니다. 이 예제에서는 **Barracuda Web Application Firewall**을 선택합니다.
 5. 파트너 솔루션에 대한 정보를 제공하는 **Barracuda Web Application Firewall**이 열립니다. **만들기**를 선택합니다.
 
    ![방화벽 정보 블레이드][3]
 
-6. **새 웹 응용 프로그램 방화벽**이 열립니다. 이 블레이드에서 **VM 구성** 단계를 수행하고 **WAF 정보**를 입력할 수 있습니다. **VM 구성**을 선택합니다.
+6. **새 웹 애플리케이션 방화벽**이 열립니다. 이 블레이드에서 **VM 구성** 단계를 수행하고 **WAF 정보**를 입력할 수 있습니다. **VM 구성**을 선택합니다.
 7. **VM 구성**에서 WAF를 실행할 가상 머신을 스핀업하는 데 필요한 정보를 입력합니다.
 
    ![VM 구성][4]
    
-8. **새 웹 응용 프로그램 방화벽**으로 돌아가서 **WAF 정보**를 선택합니다. **WAF 정보**에서 WAF 자체를 구성합니다. 7단계에서는 WAF가 실행되는 가상 머신을 구성하고 8단계에서는 WAF 자체를 프로비전할 수 있습니다.
+8. **새 웹 애플리케이션 방화벽**으로 돌아가서 **WAF 정보**를 선택합니다. **WAF 정보**에서 WAF 자체를 구성합니다. 7단계에서는 WAF가 실행되는 가상 머신을 구성하고 8단계에서는 WAF 자체를 프로비전할 수 있습니다.
 
 ## <a name="finalize-application-protection"></a>애플리케이션 보호 완료
 1. **권장 사항**으로 돌아갑니다. WAF를 만든 후에 **애플리케이션 보호 완료**라고 하는 새 항목이 생성되었습니다. 새 항목을 사용하면 Azure Virtual Network 내에서 WAF를 연결하는 프로세스를 완료하여 애플리케이션을 보호할 수 있다는 점을 알 수 있습니다.
 
    ![애플리케이션 보호 완료][5]
 
-2. **응용 프로그램 보호 완료**를 선택합니다. 새 블레이드가 열립니다. 해당 트래픽 경로를 전환해야 하는 웹 애플리케이션을 확인할 수 있습니다.
+2. **애플리케이션 보호 완료**를 선택합니다. 새 블레이드가 열립니다. 해당 트래픽 경로를 전환해야 하는 웹 애플리케이션을 확인할 수 있습니다.
 3. 웹 애플리케이션을 선택합니다. 웹 애플리케이션 방화벽 설정을 완료하는 단계를 알려주는 블레이드가 열립니다. 단계를 완료한 다음 **트래픽 제한**을 선택합니다. 그려면 Security Center가 연결을 수행합니다.
 
    ![트래픽 제한][6]
@@ -71,7 +71,7 @@ Security Center에서는 가상 머신과 [격리된](https://azure.microsoft.co
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 보안 센터 권장 사항 "웹 애플리케이션 추가"를 구현하는 방법을 보여 주었습니다. 웹 애플리케이션 방화벽 구성에 대한 자세한 내용은 다음을 참조하세요.
 
-* [App Service Environment에 대한 웹 응용 프로그램 방화벽(WAF) 구성](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)
+* [App Service Environment에 대한 웹 애플리케이션 방화벽(WAF) 구성](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 

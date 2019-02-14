@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5f6e0d2dece791ac4ece73acdf2e15e3c9be412f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477603"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812852"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -91,7 +91,7 @@ Azure AD에 애플리케이션을 등록하는 방법에 대한 자세한 내용
 
 통합 인증으로 인증하려면 Batch 서비스 API에 연결하기 위한 권한을 애플리케이션에 부여해야 합니다. 이 단계에서는 애플리케이션에서 Azure AD를 사용하여 Batch 서비스 API에 대한 호출을 인증할 수 있습니다.
 
-[애플리케이션을 등록](#register-your-application-with-an-azure-ad-tenant)했으면 Azure Portal에서 다음 단계에 따라 Batch 서비스에 대한 액세스 권한을 부여합니다.
+애플리케이션을 등록했으면 Azure Portal에서 다음 단계에 따라 Batch 서비스에 대한 액세스 권한을 부여합니다.
 
 1. Azure Portal의 왼쪽 탐색 창에서 **모든 서비스**를 선택합니다. **앱 등록**을 클릭합니다.
 2. 앱 등록의 목록에서 애플리케이션의 이름을 검색합니다.

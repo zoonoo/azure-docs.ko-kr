@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 6624c28d686a584017d703889e57ef1a7126b16d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686962"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695525"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell을 사용하여 VNet-VNet VPN Gateway 연결 구성
 
@@ -55,7 +55,7 @@ VNet-VNet 연결을 사용하여 가상 네트워크에 연결하면 좋은 이�
 
   * 인터넷 연결 엔드포인트로 이동하지 않고도 보안 연결을 통해 지역에서 복제 또는 동기화를 직접 설정할 수 있습니다.
   * Azure Traffic Manager 및 부하 분산 장치를 사용하여 여러 Azure 지역 간의 지리적 중복을 통해 워크로드의 가용성을 높게 설정할 수 있습니다. 이러한 작업의 한 가지 주요 예는 여러 Azure 지역에 분산된 가용성 그룹을 사용하여 SQL AlwaysOn을 설정하는 것입니다.
-* **분리 또는 관리 경계를 가진 지역별 다중 계층 응용 프로그램**
+* **분리 또는 관리 경계를 가진 지역별 다중 계층 애플리케이션**
 
   * 같은 지역 내에서 분리 또는 관리 요구 사항 때문에 여러 가상 네트워크가 함께 연결된 다중 계층 애플리케이션을 설정할 수 있습니다.
 
@@ -68,11 +68,11 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 이 연습에서는 구성을 결합해도 좋고, 사용할 구성만 선택해도 좋습니다. 모든 구성은 VNet-VNet 연결 형식을 사용합니다. 네트워크 트래픽은 서로 직접 연결된 VNet 사이를 흐릅니다. 이 연습에서는 TestVNet4의 트래픽이 TestVNet5로 라우팅되지 않습니다.
 
-* [동일한 구독에 상주하는 VNet](#samesub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet4를 사용합니다.
+* [동일한 구독에 있는 VNet](#samesub): 이 구성에 대한 단계는 TestVNet1 및 TestVNet4를 사용합니다.
 
   ![v2v 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [서로 다른 구독에 상주하는 VNet](#difsub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet5를 사용합니다.
+* [다른 구독에 있는 VNet](#difsub): 이 구성에 대한 단계는 TestVNet1 및 TestVNet5를 사용합니다.
 
   ![v2v 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -93,21 +93,21 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * VNet 이름: TestVNet1
 * 리소스 그룹: TestRG1
 * 위치: 미국 동부
-* TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
+* TestVNet1: 10.11.0.0/16 및 10.12.0.0/16
 * 프런트 엔드: 10.11.0.0/24
 * 백 엔드: 10.12.0.0/24
-* 게이트웨이 서브넷 = 10.12.255.0/27
+* 게이트웨이 서브넷: 10.12.255.0/27
 * 게이트웨이 이름: VNet1GW
 * 공용 IP: VNet1GWIP
-* VpnType: 경로 기반
+* VPNType: 경로 기반
 * 연결(1 대 4): VNet1 대 VNet4
 * 연결(1 대 5): VNet1 대 VNet5(예: 다른 구독의 VNet)
-* 연결 유형: VNet 간
+* ConnectionType: VNet2VNet
 
 **TestVNet4에 대한 값:**
 
 * VNet 이름: TestVNet4
-* TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
+* TestVNet2: 10.41.0.0/16 및 10.42.0.0/16
 * 프런트 엔드: 10.41.0.0/24
 * 백 엔드: 10.42.0.0/24
 * 게이트웨이 서브넷: 10.42.255.0/27
@@ -115,9 +115,9 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * 위치: 미국 서부
 * 게이트웨이 이름: VNet4GW
 * 공용 IP: VNet4GWIP
-* VpnType: 경로 기반
+* VPNType: 경로 기반
 * 연결: VNet4 대 VNet1
-* 연결 유형: VNet 간
+* ConnectionType: VNet2VNet
 
 
 ### <a name="Step2"></a>2단계 - TestVNet1 만들기 및 구성
@@ -306,15 +306,15 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
 * VNet 이름: TestVNet5
 * 리소스 그룹: TestRG5
 * 위치: 일본 동부
-* TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
+* TestVNet5: 10.51.0.0/16 및 10.52.0.0/16
 * 프런트 엔드: 10.51.0.0/24
 * 백 엔드: 10.52.0.0/24
 * 게이트웨이 서브넷: 10.52.255.0.0/27
 * 게이트웨이 이름: VNet5GW
 * 공용 IP: VNet5GWIP
-* VpnType: 경로 기반
+* VPNType: 경로 기반
 * 연결: VNet5 대 VNet1
-* 연결 유형: VNet 간
+* ConnectionType: VNet2VNet
 
 ### <a name="step-7---create-and-configure-testvnet5"></a>7단계 - TestVNet5 만들기 및 구성
 
@@ -476,5 +476,5 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) 설명서를 참조하세요.
+* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](https://docs.microsoft.com/azure/) 설명서를 참조하세요.
 * BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.

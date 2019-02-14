@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 9a96edbc70eeda8acee792a71d84b4a2c6c4fef8
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828182"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745387"
 ---
 # <a name="analyzing-video-and-audio-files"></a>비디오 및 오디오 파일 분석
 
@@ -33,7 +33,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 |**미리 설정 이름**|**시나리오**|**세부 정보**|
 |---|---|---|
-|**AudioAnalyzerPreset**|오디오 분석|미리 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 집합을 적용합니다. 현재 미리 설정은 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다. BCP-47 형식의 ‘language tag-region’을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원되는 언어는 영어('en-US' 및 'en-GB'), 스페인어('es-ES' 및 'es-MX'), 프랑스어('fr-FR'), 이탈리아어('it-IT'), 일본어('ja-JP'), 포르투갈어('pt-BR'), 중국어('zh-CN'), 독일어('de-DE'), 아라비아어('ar-EG'), 러시아어('ru-RU'), 힌디어('hi-IN') 및 한국어('ko-KR')입니다.<br/><br/> 언어가 지정되지 않거나 Null로 설정되지 않은 경우 자동 언어 감지가 사용됩니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다. 자동 언어 감지 기능은 분명히 구별할 수 있는 음성이 포함된 오디오 녹음에 가장 적합합니다. 자동 언어 감지가 언어를 찾지 못하면 전사가 영어로 폴백됩니다.|
+|**AudioAnalyzerPreset**|오디오 분석|사전 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 세트를 적용합니다. 현재 사전 설정은 단일 언어 음성을 포함하는 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다. BCP-47 형식의 ‘language tag-region’을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원되는 언어는 영어('en-US' 및 'en-GB'), 스페인어('es-ES' 및 'es-MX'), 프랑스어('fr-FR'), 이탈리아어('it-IT'), 일본어('ja-JP'), 포르투갈어('pt-BR'), 중국어('zh-CN'), 독일어('de-DE'), 아라비아어('ar-EG'), 러시아어('ru-RU'), 힌디어('hi-IN') 및 한국어('ko-KR')입니다.<br/><br/> 언어가 지정되지 않았거나 Null로 설정된 경우 자동 언어 검색이 첫 번째 검색된 언어를 선택하고 파일의 지속시간 동안 선택된 언어로 처리합니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다. 현재 첫 번째 언어가 검색된 후 언어 간에 동적으로 전환하는 기능은 지원되지 않습니다. 자동 언어 검색 기능은 분명히 구별할 수 있는 음성이 포함된 오디오 녹음에 가장 적합합니다. 자동 언어 감지가 언어를 찾지 못하면 전사가 영어로 폴백됩니다.|
 |**VideoAnalyzerPreset**|오디오 및 비디오 분석|오디오 및 비디오 모두에서 통찰력(풍부한 메타데이터)을 추출하고 JSON 형식 파일을 출력합니다. 비디오 파일을 처리할 때 오디오 통찰력만 추출할지 여부를 지정할 수 있습니다. 자세한 내용은 [비디오 분석](analyze-videos-tutorial-with-api.md)을 참조하세요.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
@@ -61,7 +61,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="transcript"></a>대본
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |id|줄 ID입니다.|
 |text|자체 대본입니다.|
@@ -99,7 +99,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="ocr"></a>ocr
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |id|OCR 줄 ID입니다.|
 |text|OCR 텍스트입니다.|
@@ -142,7 +142,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="faces"></a>얼굴
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |id|얼굴 ID입니다.|
 |이름|얼굴 이름입니다. ‘Unknown #0’, 확인된 유명인 또는 고객 교육을 받은 사람일 수 있습니다.|
@@ -187,7 +187,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="shots"></a>샷
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |id|샷 ID입니다.|
 |keyFrames|샷 내의 키 프레임 목록(각각 ID와 인스턴스 시간 범위 목록이 있음)입니다. 키 프레임 인스턴스에는 keyFrame의 썸네일 ID와 thumbnailId 필드가 있습니다.|
@@ -244,7 +244,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="statistics"></a>통계
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |WordCount|화자별 단어 수입니다.|
@@ -257,7 +257,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 감정은 sentimentType 필드(긍정적/중립/부정적)로 집계됩니다. 예: 0-0.1, 0.1-0.2.
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |id|감정 ID입니다.|
 |averageScore |해당 감정 유형의 모든 인스턴스의 모든 점수 평균 – 긍정적/중립/부정적|
@@ -292,7 +292,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="labels"></a>레이블
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |id|레이블 ID입니다.|
 |이름|레이블 이름(예: '컴퓨터', 'TV')입니다.|
@@ -351,7 +351,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="keywords"></a>키워드
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |id|키워드 ID입니다.|
 |text|키워드 텍스트입니다.|
@@ -402,7 +402,7 @@ visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐
 
 성인 또는 외설 콘텐츠가 포함된 것으로 확인된 비디오는 비공개 보기만 가능합니다. 콘텐츠를 사람이 검토하도록 요청을 제출할 수 있으며 이 경우 IsAdult 특성에 사람이 검토한 결과가 포함됩니다.
 
-|이름|설명|
+|Name|설명|
 |---|---|
 |id|시각 콘텐츠 조정 ID입니다.|
 |adultScore|성인 점수(Content Moderator 기반)입니다.|

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 469faeee4706c33b09f89bfbed1bb229a6aea20e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fee5a025b97343936a002156e4cb895c91e04405
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848379"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821340"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 테이블 .NET API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -81,7 +81,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 | [1.1.1](#1.1.1) |2018년 3월 26일|--- |
 | [1.1.0](#1.1.0) |2018년 2월 21일|--- |
 | [1.0.0](#1.0.0) |2017년 11월 15일|--- |
-| [0.9.0-preview](#0.9.0-preview) |2017년 11월 11일 |--- |
+| 0.9.0-preview |2017년 11월 11일 |--- |
 
 ## <a name="troubleshooting"></a>문제 해결
 

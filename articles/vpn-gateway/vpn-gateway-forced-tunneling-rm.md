@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
 ms.openlocfilehash: 21004c29f1baf0346cd83d8483ff1862a98fc845
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160493"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506467"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델을 사용하여 강제 터널링 구성
 
@@ -52,16 +52,16 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 * 각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
   
-  * **로컬 VNet 경로:** 동일한 가상 네트워크에서 대상 VM으로 직접
-  * **온-프레미스 경로:** Azure VPN Gateway로
-  * **기본 경로:** 인터넷으로 직접. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
+  * **로컬 VNet 경로**: 동일한 가상 네트워크의 대상 VM에 바로 연결됩니다.
+  * **온-프레미스 경로**: Azure VPN Gateway에 연결됩니다.
+  * **기본 경로**: 인터넷에 바로 연결됩니다. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
 * 이 절차는 UDR(사용자 정의 경로)을 사용하여 라우팅 테이블을 만들어 기본 경로에 추가한 다음 라우팅 테이블을 VNet 서브넷에 연결하여 해당 서브넷에 강제 터널링을 사용할 수 있습니다.
 * 강제 터널링은 경로 기반 VPN 게이트웨이가 있는 VNet에 연결되어야 합니다. 가상 네트워크에 연결된 크로스-프레미스 로컬 사이트 사이에서 "기본 사이트"를 설정해야 합니다. 또한 트래픽 선택기로 0.0.0.0/0을 사용하여 온-프레미스 VPN 디바이스를 구성해야 합니다. 
 * ExpressRoute 강제 터널링은 이 메커니즘을 통해 구성되지 않지만 대신 ExpressRoute BGP 피어링 세션을 통해 기본 경로를 보급하여 활성화됩니다. 자세한 내용은 [ExpressRoute 설명서](https://azure.microsoft.com/documentation/services/expressroute/)를 참조하세요.
 
 ## <a name="configuration-overview"></a>구성 개요
 
-다음 절차를 사용하면 리소스 그룹과 VNet을 만들 수 있습니다. 그런 다음 VPN Gateway를 만들고 강제 터널링을 구성합니다. 이 절차에서 가상 네트워크 'MultiTier-VNet'에는 3개의 서브넷( 'Frontend', 'Midtier' 및 'Backend' 서브넷)과 함께 4개의 크로스 프레미스 연결('DefaultSiteHQ' 및 3개의 분기)이 있습니다.
+다음 절차를 사용하면 리소스 그룹과 VNet을 만들 수 있습니다. 그런 다음 VPN Gateway를 만들고 강제 터널링을 구성합니다. 이 절차에서 가상 네트워크 'MultiTier-VNet'에는 세 개의 서브넷('Frontend', 'Midtier', 'Backend')과 네 개의 프레미스 간 연결(‘DefaultSiteHQ’ 및 분기 세 개)이 있습니다.
 
 절차 단계에서는 강제 터널링에 대한 기본 사이트 연결로 DefaultSiteHQ를 설정하고 강제 터널링을 사용하도록 'Midtier' 및 'Backend' 서브넷을 구성합니다.
 

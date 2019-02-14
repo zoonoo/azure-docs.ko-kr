@@ -1,29 +1,29 @@
 ---
-title: Azure Storage에서 데이터 복제 | Microsoft Docs
-description: Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다. 복제 옵션에는 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소), GRS(지역 중복 저장소) 및 RA-GRS(읽기 액세스 지역 중복 저장소)가 포함됩니다.
+title: Azure Storage에서 데이터 중복성 | Microsoft Docs
+description: Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다. 중복성 옵션에는 LRS(로컬 중복 스토리지), ZRS(영역 중복 스토리지), GRS(지역 중복 스토리지) 및 RA-GRS(읽기 액세스 지역 중복 스토리지)가 포함됩니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455510"
+ms.locfileid: "55506790"
 ---
-# <a name="azure-storage-replication"></a>Azure Storage 복제
+# <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
-Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. Azure Storage 복제는 계획된 이벤트 그리고 일시적인 하드웨어 오류, 네트워크 또는 정전, 대규모 자연 재해 등의 계획되지 않은 이벤트로부터 데이터를 보호하기 위해 데이터를 복사합니다. 동일한 데이터 센터, 동일한 지역 내의 영역 데이터 센터 또는 전체 지역에 데이터를 복제하도록 선택할 수 있습니다.
+Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. Azure Storage는 계획된 이벤트 그리고 일시적인 하드웨어 오류, 네트워크 또는 정전, 대규모 자연 재해 등의 계획되었거나 계획되지 않은 이벤트로부터 데이터를 보호하기 위해 데이터를 복사합니다. 동일한 데이터 센터, 동일한 지역 내의 영역 데이터 센터 또는 지리적으로 분리된 지역 간에 데이터를 복제하도록 선택할 수 있습니다.
 
 복제를 사용하면 스토리지 계정은 오류 상황에서도 [Storage용 SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/storage/)를 충족하게 됩니다. Azure Storage의 내구성 및 가용성 보장에 대한 정보는 SLA를 확인하세요.
 
-## <a name="choosing-a-replication-option"></a>복제 옵션 선택
+## <a name="choosing-a-redundancy-option"></a>중복 옵션 선택
 
-저장소 계정을 만들 때 다음 복제 옵션 중 하나를 선택할 수 있습니다.
+스토리지 계정을 만들 때 다음 중복성 옵션 중 하나를 선택할 수 있습니다.
 
 * [LRS(로컬 중복 저장소)](storage-redundancy-lrs.md)
 * [ZRS(영역 중복 저장소)](storage-redundancy-zrs.md)

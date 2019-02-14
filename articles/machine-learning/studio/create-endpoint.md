@@ -1,8 +1,21 @@
 ---
-제목: 웹 서비스 엔드포인트 만들기 titleSuffix: Azure Machine Learning Studio 설명: Azure Machine Learning에서 웹 서비스 엔드포인트 만들기 웹 서비스의 각 엔드포인트는 독립적으로 처리, 제한 및 관리됩니다.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 2016/10/04
+title: 웹 서비스 엔드포인트 만들기
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning에서 웹 서비스 엔드포인트 만들기 웹 서비스의 각 엔드포인트는 독립적으로 처리, 제한 및 관리됩니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 10/04/2016
+ms.openlocfilehash: fc3a92aaf13f13682cfc56333618436ffe3d65ef
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493374"
 ---
 # <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>배포된 Azure Machine Learning Studio 웹 서비스에 대한 엔드포인트 만들기
 > [!NOTE]

@@ -16,12 +16,12 @@ ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: b48977cb2d8aa56c48b276475ac5205456022d99
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 924befd2ec1949973123acc9b7c7d1b89e707e3e
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118533"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245629"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -89,7 +89,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![CoreOS에서 Linux 컨테이너](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS에서 Linux 컨테이너](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Linux 컨테이너는 컨테이너를 실행, 클러스터 관리 및 원활한 서버 업데이트 하는 쉬운 방법을 제공 현대적이 고 최소한의 Linux 배포판,-웨어하우스 규모를 사용 하도록 설정 하는 모든 구성 요소를 계산 합니다. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server는 클라우드 환경에 세계적으로 가장 많이 사용되는 Linux입니다. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux는 가장 많이 사용되는 Linux 배포 중 하나입니다. | credativ |
-| ![Centos 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 6.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased65) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic)  |
+| ![CentOS 기반 6.8](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 6.8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic)  |
 | ![CentOS 기반 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic)  |
 | ![CentOS 기반 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic) |
 | ![CentOS 기반 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic) |

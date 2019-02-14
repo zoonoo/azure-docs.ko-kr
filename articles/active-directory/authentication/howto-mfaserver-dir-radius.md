@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: c80b3bfb51785c3bc0b606d579a7367c6013b73e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b8ec902050469d3a8b6045ae950bcb7e89de1605
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078239"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507059"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버와 RADIUS 인증 통합
 
@@ -29,6 +29,7 @@ RADIUS는 인증 요청을 수락하고 이 요청을 처리하는 표준 프로
 ![RADIUS 인증](./media/howto-mfaserver-dir-radius/radius.png)
 
 ## <a name="add-a-radius-client"></a>RADIUS 클라이언트 추가
+
 RADIUS 인증을 구성하려면 Windows 서버에 Azure Multi-Factor Authentication 서버를 설치합니다. Active Directory 환경에 있으면 서버가 네트워크 내의 도메인에 가입되어 있어야 합니다. 다음 절차에 따라 Azure Multi-Factor Authentication 서버를 구성합니다.
 
 1. Azure Multi-Factor Authentication 서버에서 왼쪽 메뉴의 RADIUS 인증 아이콘을 클릭합니다.
@@ -50,19 +51,17 @@ RADIUS 인증을 구성하려면 Windows 서버에 Azure Multi-Factor Authentica
 ## <a name="configure-your-radius-client"></a>RADIUS 클라이언트 구성
 
 1. **대상** 탭을 클릭합니다.
-2. Azure MFA 서버가 Active Directory 환경의 도메인 연결된 서버에 설치된 경우 Windows 도메인을 선택합니다.
-3. LDAP 디렉터리에 대해 사용자를 인증해야 하는 경우 **LDAP 바인딩**을 선택합니다.
+   * Azure MFA 서버가 Active Directory 환경의 도메인 가입 서버에 설치된 경우 **Windows 도메인**을 선택합니다.
+   * LDAP 디렉터리에 대해 사용자를 인증해야 하는 경우 **LDAP 바인딩**을 선택합니다.
+      디렉터리 통합 아이콘을 선택하고 서버가 디렉터리에 바인딩할 수 있도록 설정 탭에서 LDAP 구성을 편집합니다. LDAP 구성을 위한 지침은 [LDAP 프록시 구성 가이드](howto-mfaserver-dir-ldap.md)에서 찾을 수 있습니다.
+   * 다른 RADIUS 서버에 대해 사용자를 인증해야 하는 경우 **RADIUS 서버**를 선택합니다.
+1. **추가**를 클릭하여 Azure MFA 서버가 RADIUS 요청을 프록시할 서버를 구성합니다.
+1. RADIUS 서버 추가 대화 상자에서 RADIUS 서버의 IP 주소와 공유 암호를 입력합니다.
 
-  디렉터리 통합 아이콘을 선택하고 서버가 디렉터리에 바인딩할 수 있도록 설정 탭에서 LDAP 구성을 편집합니다. LDAP 구성을 위한 지침은 [LDAP 프록시 구성 가이드](howto-mfaserver-dir-ldap.md)에서 찾을 수 있습니다.
+   공유 암호는 Azure Multi-Factor Authentication 서버 및 RADIUS 서버 모두에서 동일해야 합니다. RADIUS 서버에서 다른 포트를 사용하는 경우 인증 포트 및 계정 포트를 변경합니다.
 
-4. 다른 RADIUS 서버에 대해 사용자를 인증해야 하는 경우 RADIUS 서버를 선택합니다.
-5. **추가**를 클릭하여 Azure MFA 서버가 RADIUS 요청을 프록시할 서버를 구성합니다.
-6. RADIUS 서버 추가 대화 상자에서 RADIUS 서버의 IP 주소와 공유 암호를 입력합니다.
-
-  공유 암호는 Azure Multi-Factor Authentication 서버 및 RADIUS 서버 모두에서 동일해야 합니다. RADIUS 서버에서 다른 포트를 사용하는 경우 인증 포트 및 계정 포트를 변경합니다.
-
-7. **확인**을 클릭합니다.
-8. Azure MFA 서버에서 전송되는 액세스 요청을 처리할 수 있도록 다른 RADIUS 서버에서 RADIUS 클라이언트로 Azure MFA 서버를 추가합니다. Azure Multi-Factor Authentication 서버에 구성된 동일한 공유 암호를 사용합니다.
+1. **확인**을 클릭합니다.
+1. Azure MFA 서버에서 전송되는 액세스 요청을 처리할 수 있도록 다른 RADIUS 서버에서 RADIUS 클라이언트로 Azure MFA 서버를 추가합니다. Azure Multi-Factor Authentication 서버에 구성된 동일한 공유 암호를 사용합니다.
 
 RADIUS 서버를 더 추가하려면 다음 단계를 반복합니다. **위로 이동** 및 **아래로 이동** 단추를 사용하여 Azure MFA 서버에서 호출해야 하는 순서를 구성합니다.
 

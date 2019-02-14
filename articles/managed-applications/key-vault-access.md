@@ -3,23 +3,24 @@ title: Managed Applications를 통한 Azure Key Vault 사용 | Microsoft Docs
 description: Managed Applications를 배포하는 경우 Azure Key Vault에서 액세스 비밀 사용하는 방법 보여주기
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725015"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492679"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Azure Managed Applications를 배포할 때 Key Vault 비밀 액세스
 
-배포 중에 보안 값(예: 암호)을 매개 변수로 전달해야 할 경우 [Azure Key Vault](../key-vault/key-vault-whatis.md)에서 값을 검색할 수 있습니다. Managed Applications를 배포할 때 Key Vault에 액세스하려면 **어플라이언스 리소스 공급자** 서비스 주체에 액세스를 허용해야 합니다. 이 문서에서는 Managed Applications로 작업하려면 Key Vault를 구성하는 방법을 설명합니다.
+배포 중에 보안 값(예: 암호)을 매개 변수로 전달해야 할 경우 [Azure Key Vault](../key-vault/key-vault-whatis.md)에서 값을 검색할 수 있습니다. Managed Applications를 배포할 때 Key Vault에 액세스하려면 **어플라이언스 리소스 공급자** 서비스 주체에 액세스를 허용해야 합니다. Managed Applications 서비스는 이 ID를 사용하여 작업을 실행합니다. 배포하는 동안 Key Vault에서 값을 검색하려면 서비스 주체가 Key Vault에 액세스할 수 있어야 합니다.
+
+이 문서에서는 Managed Applications로 작업하려면 Key Vault를 구성하는 방법을 설명합니다.
 
 ## <a name="enable-template-deployment"></a>템플릿 배포 사용하도록 설정
 
@@ -89,5 +90,5 @@ ms.locfileid: "52725015"
 Managed Application을 배포하는 동안 액세스할 수 있도록 Key Vault를 구성했습니다.
 
 * Key Vault에서 값을 템플릿 매개 변수로 전달하는 방법에 대한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](../azure-resource-manager/resource-manager-keyvault-parameter.md)을 참조합니다.
-* 관리되는 응용 프로그램 예제는 [Azure 관리되는 응용 프로그램의 샘플 프로젝트](sample-projects.md)를 참조하세요.
-* 관리되는 응용 프로그램에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
+* 관리되는 애플리케이션 예제는 [Azure 관리되는 애플리케이션의 샘플 프로젝트](sample-projects.md)를 참조하세요.
+* 관리형 애플리케이션에 대한 UI 정의 파일을 만드는 방법은 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.

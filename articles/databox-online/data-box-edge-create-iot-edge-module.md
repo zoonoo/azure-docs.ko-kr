@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: 86eec87d0c466b9172834fa9dbe7dfcb3702ea55
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d0b171f05bb2243da83509348b099bebcb44ebc7
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094107"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508711"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>C# IoT Edg 모듈을 개발하여 Data Box Edge에서 파일 이동(미리 보기)
 
@@ -266,6 +266,13 @@ Azure Container Registry는 개인 Docker 컨테이너 이미지를 저장하고
     ![IoT Edge 솔루션 빌드 및 푸시](./media/data-box-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Visual Studio Code에 솔루션을 빌드하도록 지정하는 경우 통합 터미널에서 두 개의 명령을 실행합니다. docker 빌드 및 docker 푸시 이 두 명령은 코드를 빌드하고, CSharpModule.dll을 컨테이너화한 다음, 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 코드를 푸시합니다.
+
+    모듈 플랫폼을 선택하라는 메시지가 표시됩니다. Linux에 해당하는 *amd64*를 선택합니다.
+
+    ![플랫폼 선택](./media/data-box-edge-create-iot-edge-module/select-platform.png)
+
+    > [!IMPORTANT] 
+    > Linux 모듈만 지원됩니다.
 
     무시할 수 있는 다음과 같은 경고가 나타날 수 있습니다.
 
