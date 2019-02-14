@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Java용 Bing Entity Search SDK를 사용하여 엔터티를 검색하려면 이 빠른 시작을 사용하세요.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 5911719e0277d0ac842b285aebc03369aa82621f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1534b2a85067867800c147c86ee7d82374de8794
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757912"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866198"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>빠른 시작: Java용 Bing Entity Search SDK를 사용하여 검색 요청 보내기
 
@@ -106,7 +106,7 @@ Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Enti
         ///...
         ```
 
-    3. `intercept` 함수 내에서 요청에 대한 변수를 만듭니다. `Request.Builder()`를 사용하여 요청을 만듭니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가하고, 요청 개체에서 `chain.proceed()`를 반환합니다.
+    3. `intercept` 함수 내에서 요청에 대한 변수를 만듭니다. `Request.Builder()`를 사용하여 요청을 빌드합니다. `Ocp-Apim-Subscription-Key` 헤더에 구독 키를 추가하고, 요청 개체에서 `chain.proceed()`를 반환합니다.
             
         ```java
         //...
