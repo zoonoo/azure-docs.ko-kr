@@ -4,7 +4,7 @@ description: 비디오 요약을 사용하면 원본 비디오에서 흥미로�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: aba01314b26f11df41aef25215697389bc7f46b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786012"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004811"
 ---
-# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기
+# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기  
 ## <a name="overview"></a>개요
 **Azure 미디어 비디오 미리 보기** MP(미디어 프로세서)를 사용하여 긴 비디오의 요약만 미리 보려는 고객에게 유용한 비디오 요약을 만들 수 있습니다. 예를 들어 고객은 미리 보기를 가리키면 나타나는 짧은 "요약 비디오"를 원할 수 있습니다. 구성 기본 설정을 통해 **Azure 미디어 비디오 미리 보기** 의 매개 변수를 조정하면 MP의 강력한 장면 감지 및 연결 기술을 사용하여 알고리즘 방식으로 설명이 포함된 하위 클립을 생성할 수 있습니다.  
 
@@ -55,8 +55,8 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| outputAudio |결과 비디오에 오디오를 포함할지 여부를 지정합니다. <br/>허용되는 값은 True 또는 False입니다. 기본값은 True입니다. |
-| fadeInFadeOut |개별 동작 미리 보기 간에 페이드 전환이 사용되는지 여부를 지정합니다.  <br/>허용되는 값은 True 또는 False입니다.  기본값은 True입니다. |
+| outputAudio |결과 비디오에 오디오를 포함할지 여부를 지정합니다. <br/>허용되는 값은 다음과 같습니다. True 또는 False입니다. 기본값은 True입니다. |
+| fadeInFadeOut |개별 동작 미리 보기 간에 페이드 전환이 사용되는지 여부를 지정합니다.  <br/>허용되는 값은 다음과 같습니다. True 또는 False입니다.  기본값은 True입니다. |
 | maxMotionThumbnailDurationInSecs |전체 결과 비디오의 길이를 지정하는 정수입니다.  기본값은 원본 비디오의 지속 시간에 따라 다릅니다. |
 
 다음 표에서는 **maxMotionThumbnailInSecs** 가 사용되지 않은 경우의 기본 지속 시간을 설명합니다.

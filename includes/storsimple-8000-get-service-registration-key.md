@@ -4,18 +4,16 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 77157cdf245546816aee748f3d388bde620c4b5f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a76f61902c6affdab9f70526d2de40852747f34e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164772"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888520"
 ---
-<!--author=alkohli last changed: 06/22/17-->
-
 #### <a name="to-get-the-storsimple-service-registration-key"></a>StorSimple 서비스 등록 키를 가져오려면
 
-1. **StorSimple 장치 관리자** 블레이드에서 작성한 서비스를 클릭합니다. 오른쪽에 새 블레이드가 열립니다.
+1. **StorSimple Device Manager** 블레이드에서 작성한 서비스를 클릭합니다. 오른쪽에 새 블레이드가 열립니다.
    
      ![StorSimple Device Manager 블레이드](./media/storsimple-8000-get-service-registration-key/createssdevman5.png)
 

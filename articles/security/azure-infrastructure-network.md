@@ -4,7 +4,7 @@ description: 이 문서에서는 Microsoft Azure 인프라 네트워크에 대�
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 5a0f0594a9ccb27a0f76a679e454e9a3ffe19a43
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: af73225e08488d490e50456d235805af17ef0066
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505392"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112220"
 ---
 # <a name="azure-network-architecture"></a>Azure 네트워크 아키텍처
 Azure 네트워크 아키텍처는 별도의 하드웨어 계층을 사용하여 업계 표준 코어/배포/액세스 모델의 수정 버전을 따릅니다. 계층은 다음과 같습니다.

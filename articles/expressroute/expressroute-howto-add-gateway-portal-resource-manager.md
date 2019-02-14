@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 37fe2e2adb947e2e9ddc86a34baf6994b5771be6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a21c9682cfeaa7421d089bf75eb9d8b45e1d3d46
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091206"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982763"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -42,9 +42,8 @@ ms.locfileid: "53091206"
 * 게이트웨이 서브넷 이름: "GatewaySubnet" 게이트웨이 서브넷의 이름을 항상 *GatewaySubnet*으로 지정해야 합니다.
     * 게이트웨이 서브넷 주소 공간 = "192.168.200.0/26"
 * 게이트웨이 이름 = “ERGW”
-* 게이트웨이 IP 이름 = "MyERGWVIP"
-* 게이트웨이 유형 = “ExpressRoute” Express 경로 구성에 이 유형이 필요합니다.
 * 게이트웨이 공용 IP 이름 = “MyERGWVIP”
+* 게이트웨이 유형 = “ExpressRoute” Express 경로 구성에 이 유형이 필요합니다.
 
 구성을 시작하기 전에 이러한 단계의 [비디오](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)를 시청하십시오.
 

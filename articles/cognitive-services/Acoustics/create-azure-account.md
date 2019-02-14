@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 음향 효과를 사용하는 데 필요한 Azure Batch 및 Storage 계정을 설정하기 위한 이 가이드를 따릅니다.
 services: cognitive-services
 author: ashtat
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 638ea3e707352a95cb1fb407add365a83d11faa7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b8735c0c5d05f2ee4bd17dc41fc90d1f5aa5128a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55148645"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876694"
 ---
 # <a name="create-an-azure-batch-account"></a>Azure Batch 계정 만들기
 음향 효과를 사용하는 데 필요한 Azure Batch 및 Storage 계정을 설정하기 위한 이 가이드를 따릅니다. 프로젝트 Acoustics의 일환으로 개발된 Unity 플러그 인에 대한 내용은 [음향 효과란?](what-is-acoustics.md)을 참조하세요. Unity 프로젝트에 음향 효과를 통합하는 방법에 대한 내용은 [시작하기](getting-started.md)를 참조하세요.  

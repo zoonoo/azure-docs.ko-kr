@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3ec438132bc5e3dd035e199d0beca40dce9ff55f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 491140900dc74ade68109f3c9de586b0f3709b4f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453692"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>자습서: AppNeta Performance Monitor와 Azure Active Directory 통합
 

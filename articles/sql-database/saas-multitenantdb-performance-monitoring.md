@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458128"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002377"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
 
 이 자습서에서는 SaaS 애플리케이션에서 사용되는 몇 가지 주요 성능 관리 시나리오를 살펴봅니다. 부하 생성기를 사용하여 분할된 다중 테넌트 데이터베이스에서의 활동을 시뮬레이션하여 SQL Database의 기본 제공 모니터링 및 경고 기능을 보여줍니다.
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 의해 여러 데이터베이스에 걸쳐 행사장(테넌트) 데이터가 분산된 분할된 다중 테넌트 데이터 모델을 사용합니다. 많은 SaaS 애플리케이션과 마찬가지로 예상 테넌트 워크로드 패턴은 예측하기 어렵고 간헐적입니다. 예를 들어 티켓 판매는 아무 때나 발생할 수 있습니다. 이러한 일반적인 데이터베이스 사용 패턴을 이용하려면 솔루션의 비용을 최적화하기 위해 데이터베이스를 확장 또는 축소할 수 있어야 합니다. 이 유형의 패턴에서는 여러 데이터베이스에 걸쳐 부하가 합리적으로 균형을 유지하도록 데이터베이스 리소스 사용을 모니터링해야 합니다. 또한 개별 데이터베이스에 적합한 리소스가 있고 [DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) 한도에 도달하지 않도록 해야 합니다. 이 자습서에서는 데이터베이스를 모니터링하고 관리하는 방법과 워크로드 변화에 따라 정정 작업을 실행하는 방법을 알아봅니다.
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 의해 여러 데이터베이스에 걸쳐 행사장(테넌트) 데이터가 분산된 분할된 다중 테넌트 데이터 모델을 사용합니다. 많은 SaaS 애플리케이션과 마찬가지로 예상 테넌트 워크로드 패턴은 예측하기 어렵고 간헐적입니다. 예를 들어 티켓 판매는 아무 때나 발생할 수 있습니다. 이러한 일반적인 데이터베이스 사용 패턴을 이용하려면 솔루션의 비용을 최적화하기 위해 데이터베이스를 확장 또는 축소할 수 있어야 합니다. 이 유형의 패턴에서는 여러 데이터베이스에 걸쳐 부하가 합리적으로 균형을 유지하도록 데이터베이스 리소스 사용을 모니터링해야 합니다. 또한 개별 데이터베이스에 적합한 리소스가 있고 [DTU](sql-database-purchase-models.md#dtu-based-purchasing-model) 한도에 도달하지 않도록 해야 합니다. 이 자습서에서는 데이터베이스를 모니터링하고 관리하는 방법과 워크로드 변화에 따라 정정 작업을 실행하는 방법을 알아봅니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

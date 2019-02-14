@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 478b03c979f5f2b588d51306ffa7b3c84ef25887
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 4cac603b0d575a4cf70cf4c5df6924be19bdfa2e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902485"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100281"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용을 지불하기 위한 요청 제출
 
@@ -44,7 +44,7 @@ Azure 지원에 요청을 제출하여 Azure 구독에 대한 지불 방법을 �
 
     * 회사 이름
     * 청구 주소
-    * [계정 관리자의 전자 메일 주소](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
+    * [계정 관리자의 전자 메일 주소](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
 
 1. 연락처 정보와 기본 연락 방법을 확인한 다음 **만들기**를 클릭합니다.
 

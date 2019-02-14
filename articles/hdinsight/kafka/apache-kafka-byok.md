@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314374"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109492"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Azure HDInsight의 Apache Kafka에 대한 Bring Your Own Key(미리 보기)
 
@@ -39,7 +39,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
    HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 경우 Azure Key Vault로 키를 가져올 수 있습니다. 키에 대한 “일시 삭제” 및 “제거 안 함”이 사용하도록 설정되어야 합니다. “일시 삭제” 및 “제거 안 함” 기능은 REST, .NET/C#, PowerShell 및 Azure CLI 인터페이스를 통해 제공됩니다.
 
-   새 Key Vault를 만들려면 [Azure Key Vault](../../key-vault/key-vault-get-started.md) 빠른 시작을 수행합니다. 기존 키를 가져오는 방법에 대한 자세한 내용은 [키, 비밀 및 인증서 정보](../../key-vault/about-keys-secrets-and-certificates.md)를 참조하세요.
+   새 Key Vault를 만들려면 [Azure Key Vault](../../key-vault/key-vault-overview.md) 빠른 시작을 수행합니다. 기존 키를 가져오는 방법에 대한 자세한 내용은 [키, 비밀 및 인증서 정보](../../key-vault/about-keys-secrets-and-certificates.md)를 참조하세요.
 
    새 키를 만들려면 **설정** 아래 **키** 메뉴에서 **생성/가져오기**를 선택합니다.
 
@@ -101,7 +101,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
    “일시 삭제” 사용 키만 지원되므로, 키가 Key Vault에서 복원될 경우 클러스터는 키에 대한 액세스 권한을 다시 얻어야 합니다. Azure Key Vault 키를 복원하려면 [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)를 참조하세요.
 
-**생산자/소비자 응용 프로그램이 BYOK 클러스터 및 비 BYOK 클러스터에서 동시에 작동할 수 있나요?**
+**생산자/소비자 애플리케이션이 BYOK 클러스터 및 비 BYOK 클러스터에서 동시에 작동할 수 있나요?**
 
    예. BYOK 사용은 생산자/소비자 애플리케이션에 투명합니다. 암호화는 OS 레이어에서 수행됩니다. 기존 생산자/소비자 Kafka 애플리케이션을 변경할 필요가 없습니다.
 
@@ -120,4 +120,4 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](../../key-vault/key-vault-whatis.md)을 참조하세요.
-* Azure Key Vault를 시작하려면 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md)을 참조하세요.
+* Azure Key Vault를 시작하려면 [Azure Key Vault 시작](../../key-vault/key-vault-overview.md)을 참조하세요.

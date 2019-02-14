@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: API를 사용하여 Custom Vision Service 분류자를 통해 프로그래밍 방식으로 이미지를 테스트하는 방법을 알아봅니다.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: sample
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 4b65cb6bb8a9a8b7c5546c7859a4ce1544e8feff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0758670f4b20df7a3147dd7ecbc21b92209c148f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218566"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869656"
 ---
 # <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>예측 엔드포인트를 사용하여 Custom Vision Service 분류자를 통해 프로그래밍 방식으로 이미지를 테스트합니다.
 

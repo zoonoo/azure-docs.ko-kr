@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bae134d30bd175656e4da9121bca8dbfcfe7fcdd
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 49fd0aa3bdce606686e89454cd36fd536096f355
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229462"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004318"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure AD 인증 시작
 
@@ -76,7 +76,7 @@ Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 앞에서 
 
 ![서비스 주체로 연결 페이지](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started04.png)
 
-**서비스 주체** 블레이드가 열리면 다음 기준을 충족하는 첫 번째 Azure AD 응용 프로그램이 선택됩니다.
+**서비스 주체** 블레이드가 열리면 다음 기준을 충족하는 첫 번째 Azure AD 애플리케이션이 선택됩니다.
 
 - 등록된 Azure AD 애플리케이션입니다.
 - 계정에 대한 참가자 또는 소유자 역할 기반 Access Control 권한을 포함합니다.
@@ -95,7 +95,7 @@ Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 앞에서 
 
 ![[사용 권한 관리] 단추 및 [애플리케이션 관리] 단추](./media/media-services-portal-get-started-with-aad/media-services-portal-manage.png)
 
-Azure AD 애플리케이션 블레이드를 열려면 **애플리케이션 관리**를 클릭합니다. **응용 프로그램 관리** 블레이드에서 앱의 클라이언트 ID(응용 프로그램 ID)를 가져올 수 있습니다. 클라이언트 암호(키)를 생성하려면 **키**를 선택합니다.
+Azure AD 애플리케이션 블레이드를 열려면 **애플리케이션 관리**를 클릭합니다. **애플리케이션 관리** 블레이드에서 앱의 클라이언트 ID(애플리케이션 ID)를 가져올 수 있습니다. 클라이언트 암호(키)를 생성하려면 **키**를 선택합니다.
 
 ![애플리케이션 블레이드 키 관리 옵션](./media/media-services-portal-get-started-with-aad/media-services-portal-get-started06.png) 
 

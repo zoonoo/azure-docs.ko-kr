@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: eee58708d6aec717d0f79f5c79a0c879b52d56a5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9682611467311f06d60f6f393ebd7788f95f7f12
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176372"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177872"
 ---
 # <a name="what-is-the-myapps-portal"></a>MyApps 포털이란 무엇입니까?
 
@@ -49,7 +50,7 @@ MyApps 포털은 Azure Portal과 별개입니다. Azure 구독이 필요하지 �
 
 Azure AD와 통합된 애플리케이션에 로그인하는 모든 사용자에게 URL을 배포합니다.
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 MyApps 포털에 연결하려면 Azure AD에서 회사 또는 학교 계정을 통해 인증을 받아야 합니다. Azure AD에서 직접 인증을 받을 수 있습니다. 또는 조직에서 AD FS(Active Directory Federation Services) 또는 다른 기술을 사용하여 페더레이션을 구성한 경우 Windows Server Active Directory에서 인증을 받을 수도 있습니다.
 

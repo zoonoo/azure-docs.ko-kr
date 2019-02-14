@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: e5c035c4bcf449ecf20a9dfb072ce3ab480110a9
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 0f500ec776d90755d6738af80c34866105d354f5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364332"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999405"
 ---
-# <a name="managing-media-services-entities-with-rest"></a>REST를 사용하여 Media Services 엔터티 관리 
+# <a name="managing-media-services-entities-with-rest"></a>REST를 사용하여 Media Services 엔터티 관리  
+
 > [!div class="op_single_selector"]
 > * [REST (영문)](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
@@ -156,7 +157,7 @@ Media Services의 모든 엔터티는 POST HTTP 요청을 통해 Assets와 같�
 ## <a name="deleting-entities"></a>엔터티 삭제
 DELETE HTTP 요청을 사용하여 Media Services에서 엔터티를 삭제할 수 있습니다. 엔터티에 따라 엔터티 삭제 순서가 중요할 수 있습니다. 예를 들어 자산과 같은 엔터티는 자산을 삭제하기 전에 해당 특정 자산을 참조하는 모든 로케이터를 해지(또는 삭제)해야 합니다.
 
-다음 예제에서는 파일을 Blob 저장소로 업로드하는 데 사용된 로케이터를 삭제하는 방법을 보여 줍니다.
+File Storage에 대한 가용성 섹션을 확인하세요.
 
     DELETE https://media.windows.net/API/Locators('nb:lid:UUID:76dcc8e8-4230-463d-97b0-ce25c41b5c8d') HTTP/1.1
     Content-Type: application/json;odata=verbose

@@ -4,21 +4,21 @@ description: Azure 미디어 동작 탐지기 MP(미디어 프로세서)를 사�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 26090067923c468b7102ac5b7bb78b9d7b7960bb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820974"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995615"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure 미디어 검색으로 동작 검색
 ## <a name="overview"></a>개요
@@ -39,7 +39,7 @@ ms.locfileid: "54820974"
 ### <a name="parameters"></a>매개 변수
 다음 매개 변수를 사용할 수 있습니다.
 
-| 이름 | 옵션 | 설명 | 기본값 |
+| Name | 옵션 | 설명 | 기본값 |
 | --- | --- | --- | --- |
 | sensitivityLevel |문자열:'low', 'medium', 'high' |동작이 보고되는 민감도 수준을 설정합니다. 가양성 수를 조정하려면 이 값을 조정합니다. |'medium' |
 | frameSamplingValue |양의 정수 |알고리즘이 실행되는 빈도를 설정합니다. 1은 프레임마다, 2는 두 개의 프레임마다 등을 의미합니다. |1 |
@@ -103,7 +103,7 @@ ms.locfileid: "54820974"
 | 기간 |"틱" 단위의 이벤트 길이입니다. |
 | 간격 |"틱" 단위의 이벤트에 있는 각 항목의 간격입니다. |
 | 이벤트 |각 이벤트 조각에는 해당 기간 내에 검색된 동작이 포함됩니다. |
-| type |현재 버전에서 이 값은 일반 동작에 대해 항상 '2'입니다. 이 레이블은 향후 버전에서 동영상 API에 동작 분류에 대한 유연성을 제공합니다. |
+| Type |현재 버전에서 이 값은 일반 동작에 대해 항상 '2'입니다. 이 레이블은 향후 버전에서 동영상 API에 동작 분류에 대한 유연성을 제공합니다. |
 | RegionID |위에서 설명했듯이 이 버전에서 이 값은 항상 0입니다. 이 레이블은 향후 버전에서 동영상 API에 다양한 영역에서 동작을 찾는 유연성을 제공합니다. |
 | 영역 |동작에 관심이 있는 동영상 영역을 참조합니다. <br/><br/>-"id"는 지역 영역을 나타내는데, 이 버전에는 ID 0밖에 없습니다. <br/>-"type"은 동작에 대한 중요한 영역 모양을 나타냅니다. 현재 "rectangle" 및 "polygon"이 지원됩니다.<br/> "rectangle"이 지정된 경우 영역은 X, Y, 너비 및 높이 치수를 가집니다. X 및 Y 좌표는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 왼쪽 상단 XY 좌표를 나타냅니다. 너비와 높이는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 크기를 나타냅니다. 현재 버전에서, X, Y, 너비 및 높이는 0, 0 및 1, 1로 항상 고정됩니다. <br/>"polygon"이 지정된 경우 영역은 지점 단위의 치수를 가집니다. <br/> |
 | 조각 |메타데이터는 조각이라고 하는 다른 세그먼트로 청크 분할됩니다. 각 조각에는 시작, 기간, 간격 번호 및 이벤트가 포함됩니다. 이벤트가 없는 조각은 해당 시작 시간 및 기간 동안에 검색된 동작이 없음을 의미합니다. |

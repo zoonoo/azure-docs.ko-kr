@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7ea9ce47b82dd4ad31caf935fd10e04daa07faba
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9dddef43e1ac5f3bcedcc08b313eea300436ea61
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700007"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106430"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 사용자 지정 역할 만들기
 
@@ -95,7 +95,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
 1. JSON 파일을 편집하여 `"Microsoft.Support/*"` 작업을 `Actions` 속성에 추가합니다. 읽기 작업 뒤에 꼭 쉼표를 추가해야 합니다. 이 작업을 통해 사용자가 지원 티켓을 만들 수 있게 됩니다.
 
-1. [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) 명령을 사용하여 구독 ID를 가져옵니다.
+1. [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) 명령을 사용하여 구독 ID를 가져옵니다.
 
     ```azurepowershell
     Get-AzSubscription

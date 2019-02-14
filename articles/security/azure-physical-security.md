@@ -4,7 +4,7 @@ description: 이 문서에서는 물리적 인프라, 보안 및 규정 준수 �
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 69a54640ae3b4e71d7782712ad1764babab7104a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170680"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112047"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Azure 시설, 구역 및 물리적 보안
 Azure는 전 세계적으로 수천 개의 온라인 서비스를 지원하고 100개가 넘는 고도의 보안 시설에 걸쳐 있는 [글로벌로 분산된 데이터 센터 인프라](https://azure.microsoft.com/global-infrastructure/)로 구성되어 있습니다.
 
 이 인프라는 전 세계 사용자에게 애플리케이션을 더 가까이 제공하는 데 필요한 확장성을 제공하고, 데이터 상주를 유지하고, 고객에게 포괄적인 준수 및 복원력 옵션을 제공하도록 디자인되어 있습니다. Azure는 전 세계 52개 지역을 포함하며 140개 국가에서 사용할 수 있습니다.
 
-지역은 대규모의 복원력 있는 네트워크를 통해 상호 연결된 데이터 센터 집합입니다. 네트워크에는 기본적으로 콘텐츠 배포, 부하 분산, 중복성 및 암호화가 포함되어 있습니다. 다른 클라우드 공급자보다 많은 글로벌 지역을 제공하는 Azure는 필요한 곳에 애플리케이션을 유연하게 배포할 수 있습니다.
+지역은 대규모의 복원력 있는 네트워크를 통해 상호 연결된 데이터 센터 집합입니다. 네트워크에는 기본적으로 콘텐츠 배포, 부하 분산, 중복성 및 암호화가 포함되어 있습니다. 다른 클라우드 공급자보다 많은 글로벌 지역을 제공하는 Azure는 필요한 곳에 응용 프로그램을 유연하게 배포할 수 있습니다.
 
 Azure 지역은 지리적 위치로 구성됩니다. Azure 지리적 위치는 지리적 경계 내에서 데이터 상주, 주권, 준수 및 복원력 요구 사항이 적용되도록 합니다.
 

@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 792589f4aa2a80c05378224ffe4e4d1dad2f935c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166374"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889742"
 ---
-<!--author=alkohli last changed:02/22/16-->
-
 #### <a name="to-attach-the-sas-cables"></a>SAS 케이블을 연결하려면
 1. 기본 인클로저와 EBOD 인클로저를 찾아냅니다. 두 엔클로저는 해당 백플레인을 보고 식별할 수 있습니다. 지침은 다음 이미지를 참조하세요. 
    
