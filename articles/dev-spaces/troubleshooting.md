@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 37ee9fec8940231a01b0014b020ca3f0dffb53bf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5be6f99067f1209fcd131dfc33c46995b2a537f8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467104"
+ms.locfileid: "55498304"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -23,15 +23,15 @@ ms.locfileid: "55467104"
 
 ## <a name="enabling-detailed-logging"></a>자세한 로깅 사용
 
-문제를 더 효과적으로 해결하기 위해 검토에 대한 더 자세한 로그를 만드는 게 유용할 수 있습니다.
+자세한 검토 로그를 만들면 더 효과적으로 문제를 해결하는 데 도움이 될 수 있습니다.
 
-Visual Studio 확장의 경우 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 환경 변수를 1로 설정합니다. 환경 변수가 적용되도록 Visual Studio를 다시 시작해야 합니다. 사용하도록 설정하면 자세한 로그가 사용자 `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` 디렉터리에 작성됩니다.
+Visual Studio 확장의 경우 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 환경 변수를 1로 설정합니다. 환경 변수가 적용되도록 Visual Studio를 다시 시작해야 합니다. 이와 같이 환경 변수가 사용되면 자세한 로그가 사용자 `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` 디렉터리에 작성됩니다.
 
 CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다. `%TEMP%\Azure Dev Spaces`에서 자세한 로그를 찾아볼 수도 있습니다. Mac의 경우 터미널 창에서 `echo $TMPDIR`을 실행하면 TEMP 디렉터리를 찾을 수 있습니다. Linux 컴퓨터에서 TEMP 디렉터리는 일반적으로 `/tmp`입니다.
 
 ## <a name="debugging-services-with-multiple-instances"></a>여러 인스턴스를 사용하여 서비스 디버깅
 
-현재 Azure Dev Spaces는 단일 인스턴스(Pod) 디버깅 시에 가장 효율적으로 작동합니다. azds.yaml 파일에는 서비스용으로 실행될 Pod 수를 나타내는 설정인 replicaCount가 포함되어 있습니다. 앱이 지정된 서비스용으로 여러 Pod를 실행하도록 구성하기 위해 replicaCount를 변경하면 디버거는 첫 번째 Pod(사전순으로 나열된 경우)에 연결합니다. 해당 Pod가 재순환하는 경우 디버거는 다른 Pod에 연결하므로 예기치 않은 동작이 발생할 수 있습니다.
+현재 Azure Dev Spaces는 단일 인스턴스 또는 Pod를 디버그할 때 가장 원활하게 작동합니다. azds.yaml 파일에는 Kubernetes가 서비스용으로 실행하는 Pod 수를 나타내는 설정인 *replicaCount*가 포함되어 있습니다. 지정된 서비스용으로 여러 개의 Pod를 실행하도록 앱을 구성하기 위해 replicaCount를 변경하면 디버거는 첫 번째 Pod(사전순으로 나열된 경우)에 연결됩니다. 원래 Pod가 재순환될 때는 디버거가 다른 Pod에 연결되므로 예기치 않은 동작이 발생할 수 있습니다.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>'Azure Dev Spaces 컨트롤러를 만들지 못했음' 오류
 
@@ -76,10 +76,10 @@ Visual Studio에서
     ![도구 옵션 대화 상자 스크린샷](media/common/VerbositySetting.PNG)
     
 ### <a name="multi-stage-dockerfiles"></a>다단계 Dockerfile:
-다단계 Dockerfile을 사용하려고 할 때 이 오류가 표시될 수 있습니다. 자세한 출력은 다음과 같습니다.
+다단계 Dockerfile을 사용하는 경우 ‘서비스를 시작할 수 없습니다.’라는 오류가 표시됩니다. 이 경우 자세한 정보 출력에 다음 텍스트가 포함됩니다.
 
 ```cmd
-$ azds up
+$ azds up -v
 Using dev space 'default' with target 'AksClusterName'
 Synchronizing files...6s
 Installing Helm chart...2s
@@ -91,10 +91,10 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-이는 AKS 노드가 다단계 빌드를 지원하지 않는 이전 버전의 Docker를 실행하기 때문입니다. 다단계 빌드를 방지하려면 Dockerfile을 다시 작성해야 합니다.
+이 오류는 AKS 노드가 다단계 빌드를 지원하지 않는 이전 버전의 Docker를 실행하기 때문에 발생합니다. 다단계 빌드를 방지하려면 Dockerfile을 다시 작성합니다.
 
-### <a name="re-running-a-service-after-controller-re-creation"></a>컨트롤러를 다시 만든 후 서비스 다시 실행
-이 클러스터와 연결된 Azure Dev Spaces 컨트롤러를 제거했다가 다시 설치한 후 서비스를 다시 실행하려고 하면 이 오류가 표시될 수 있습니다. 자세한 출력은 다음과 같습니다.
+### <a name="rerunning-a-service-after-controller-re-creation"></a>컨트롤러를 다시 만든 후 서비스 다시 실행
+이 클러스터와 연결된 Azure Dev Spaces 컨트롤러를 제거했다가 다시 만든 후 서비스를 다시 실행하려고 하면 ‘서비스를 시작할 수 없습니다.’라는 오류가 표시됩니다. 이 경우 자세한 정보 출력에 다음 텍스트가 포함됩니다.
 
 ```cmd
 Installing Helm chart...
@@ -104,13 +104,13 @@ Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" do
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
 ```
 
-Dev Spaces 컨트롤러를 제거해도 해당 컨트롤러에서 이전에 설치한 서비스는 제거되지 않기 때문입니다. 이전 서비스가 그대로 있기 때문에 컨트롤러를 다시 만든 후, 새 컨트롤러를 사용해서 서비스를 실행하려고 하면 실패합니다.
+이 오류는 Dev Spaces 컨트롤러를 제거해도 해당 컨트롤러에서 이전에 설치한 서비스는 제거되지 않기 때문에 발생합니다. 이전 서비스가 그대로 있기 때문에 컨트롤러를 다시 만든 후, 새 컨트롤러를 사용해서 서비스를 실행하려고 하면 실패합니다.
 
 이 문제를 해결하려면 `kubectl delete` 명령을 사용하여 클러스터에서 이전 서비스를 수동으로 제거하고 Dev Spaces를 다시 실행하여 새 서비스를 설치합니다.
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Dev Spaces 서비스에 연결된 공용 URL에 대한 DNS 이름 확인 실패
 
-DNS 이름 확인이 실패하는 경우 Dev Spaces 서비스에 연결된 공용 URL에 연결을 시도하면 웹 브라우저에 "페이지를 표시할 수 없음" 또는 "이 사이트는 연결할 수 없음" 오류가 표시될 수 있습니다.
+`azds prep` 명령에 `--public` 스위치를 지정하거나 Visual Studio에서 `Publicly Accessible` 확인란을 선택하여 서비스에 대해 공용 URL 엔드포인트를 구성할 수 있습니다. Dev Spaces에서 서비스를 실행하면 공용 DNS 이름이 자동으로 등록됩니다. 이 DNS 이름이 등록되지 않은 경우 공용 URL에 연결할 때 웹 브라우저에 ‘페이지를 표시할 수 없습니다.’ 또는 ‘사이트에 연결할 수 없습니다.’라는 오류가 표시됩니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
 
@@ -122,7 +122,7 @@ azds list-uris
 
 URL이 *보류 중* 상태이면 Dev Spaces가 DNS 등록 완료를 대기 중임을 의미합니다. 경우에 따라 등록을 완료하려면 몇 분 정도 걸립니다. Dev Spaces는 각 서비스마다 localhost 터널도 엽니다. 이것을 DNS 등록을 대기하는 동안 사용할 수 있습니다.
 
-URL이 5분 넘게 *보류 중* 상태로 있으면 공용 엔드포인트를 만드는 외부 DNS Pod 및/또는 공용 엔드포인트를 획득하는 nginx 수신 컨트롤러에 문제가 있는 것일 수 있습니다. 다음 명령을 사용하여 이러한 Pod를 삭제할 수 있습니다. 삭제된 Pod는 자동으로 다시 만들어집니다.
+URL이 5분 넘게 ‘보류 중’ 상태로 있으면 공용 엔드포인트를 만드는 외부 DNS Pod 또는 공용 엔드포인트를 획득하는 nginx 수신 컨트롤러에 문제가 있는 것일 수 있습니다. 다음 명령을 사용하여 이러한 Pod를 삭제할 수 있습니다. AKS가 삭제된 포드를 자동으로 다시 만듭니다.
 
 ```cmd
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
@@ -140,7 +140,7 @@ PATH 환경 변수가 제대로 설정되어 있는 명령 프롬프트에서 VS
 
 ## <a name="error-required-tools-to-build-and-debug-projectname-are-out-of-date"></a>"'projectname' 빌드 및 디버그에 필요한 도구가 최신 상태가 아닙니다." 오류가 표시됩니다.
 
-새 버전의 Azure Dev Spaces용 VS Code 확장이 있지만 이전 버전의 Azure Dev Spaces CLI가 있는 경우 Visual Studio Code에서 이 오류가 나타납니다.
+Azure Dev Spaces용 VS Code 확장은 최신 버전이지만 Azure Dev Spaces CLI가 이전 버전인 경우 Visual Studio Code에 이 오류가 표시됩니다.
 
 ### <a name="try"></a>시도해 보기
 
@@ -166,10 +166,10 @@ azds.exe가 설치되지 않았거나 올바르게 구성되지 않은 경우 �
 ## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>경고 ‘지원되지 않는 언어로 인해 Dockerfile을 생성할 수 없습니다’
 Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니다. 이러한 언어 중 하나로 작성된 코드를 포함하는 디렉터리에서 *azds prep*를 실행할 때 Azure Dev Spaces는 자동으로 적절한 Dockerfile을 만듭니다.
 
-다른 언어로 작성된 코드를 사용하여 Azure Dev Spaces를 계속 사용할 수 있지만, 처음으로 *azds up*을 실행하기 전에는 Dockerfile을 직접 만들어야 합니다.
+다른 언어로 작성된 코드를 통해 Azure Dev Spaces를 사용할 수도 있지만, *azds up*을 처음 실행하기 전에 Dockerfile을 수동으로 만들어야 합니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
-애플리케이션이 Azure Dev Spaces가 고유하게 지원하지 않는 언어로 작성된 경우 코드를 실행하는 컨테이너 이미지를 빌드하기 위해 적절한 Dockerfile을 제공해야 합니다. Docker는 필요에 맞는 Dockerfile을 작성하는 데 활용할 수 있는 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/)와 함께 [Dockerfile 작성에 대한 모범 사례 목록](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)을 제공합니다.
+Azure Dev Spaces에서 기본적으로 지원하지 않는 언어로 애플리케이션이 작성된 경우 코드를 실행하는 컨테이너 이미지를 빌드하기 위해 적절한 Dockerfile을 제공해야 합니다. Docker는 요구에 맞는 Dockerfile을 작성하는 데 도움이 되는 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/) 및 [Dockerfile 작성 모범 사례 목록](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)을 제공합니다.
 
 적절한 Dockerfile을 만들고 나면 *azds up*을 계속 실행하여 Azure Dev Spaces에서 애플리케이션을 실행할 수 있습니다.
 
@@ -183,7 +183,7 @@ Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니
 
 ### <a name="try"></a>다음을 시도해 보세요.
 1. 컨테이너가 빌드/배포되는 중인 경우 2-3초 기다렸다가 서비스에 액세스를 다시 시도할 수 있습니다. 
-1. 포트 구성을 확인합니다. 지정된 포트 번호는 아래 모든 자산에서 **동일**해야 합니다.
+1. 포트 구성을 확인합니다. 지정된 포트 번호는 다음과 같은 모든 자산에서 **동일**해야 합니다.
     * **Dockerfile:** `EXPOSE` 명령으로 지정됩니다.
     * **[Helm 차트](https://docs.helm.sh):** 서비스에 대해 `externalPort` 및 `internalPort` 값으로 지정됩니다(종종 `values.yml` 파일에 위치함).
     * 애플리케이션 코드에서 열리는 모든 포트(예: Node.js에서 `var server = app.listen(80, function () {...}`)
@@ -236,7 +236,7 @@ VS Code 디버거를 실행하면 오류 `Invalid 'cwd' value '/src'. The system
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>형식 또는 네임스페이스 이름 'MyLibrary'를 찾을 수 없음
 
 ### <a name="reason"></a>이유 
-빌드 컨텍스트는 기본적으로 프로젝트/서비스 수준에 있으므로 사용하는 라이브러리 프로젝트를 찾을 수 없습니다.
+빌드 컨텍스트는 기본적으로 프로젝트/서비스 수준에 있으므로 사용 중인 라이브러리 프로젝트를 찾을 수 없습니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
 수행해야 하는 작업:
@@ -247,7 +247,7 @@ VS Code 디버거를 실행하면 오류 `Invalid 'cwd' value '/src'. The system
 https://github.com/sgreenmsft/buildcontextsample에서 예제를 찾을 수 있습니다.
 
 ## <a name="microsoftdevspacesregisteraction-authorization-error"></a>'Microsoft.DevSpaces/register/action' 권한 부여 오류
-Azure Dev Space를 관리하고 소유자 또는 기여자 액세스 권한이 없는 Azure 구독에서 작업하는 경우 다음과 같은 오류가 표시될 수 있습니다.
+Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev Spaces를 관리하려고 하는데 관련 Azure 구독에 대한 ‘owner’ 또는 ‘contributor’ 액세스 권한이 없는 경우 이 오류가 표시될 수 있습니다.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### <a name="reason"></a>이유
@@ -260,6 +260,28 @@ Azure 구독에 대한 소유자 또는 기여자 액세스 권한이 있는 사
 az provider register --namespace Microsoft.DevSpaces
 ```
 
+## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>AKS 가상 노드에 대한 ‘컨테이너 이미지 빌드 대기 중...’ 단계에서 Dev Spaces가 시간 초과됩니다.
+
+### <a name="reason"></a>이유
+이 오류는 Dev Spaces를 사용하여 [AKS 가상 노드](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)에서 실행되도록 구성된 서비스를 실행하려고 할 때 발생합니다. Dev Spaces는 현재 가상 노드에서 빌드 또는 디버깅 서비스를 지원하지 않습니다.
+
+`--verbose` 스위치를 사용하여 `azds up`을 실행하거나 Visual Studio에서 자세한 정보 로깅을 사용하도록 설정하면 추가 정보가 표시됩니다.
+
+```cmd
+Installed chart in 2s
+Waiting for container image build...
+pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
+Streaming build container logs for service 'mywebapi' failed with: Timed out after 601.3037572 seconds trying to start build logs streaming operation. 10m 1s
+Container image build failed
+```
+
+이는 가상 노드인 *virtual-node-aci-linux*에 서비스의 Pod가 할당되었음을 보여 줍니다.
+
+### <a name="try"></a>다음을 시도해 보세요.
+서비스에 대한 Helm 차트를 업데이트하여 가상 노드에서 서비스를 실행할 수 있도록 하는 *nodeSelector* 및/또는 *tolerations* 값을 제거합니다. 이러한 값은 일반적으로 차트의 `values.yaml` 파일에서 정의됩니다.
+
+Dev Spaces를 통해 빌드/디버그하려는 서비스가 VM 노드에서 실행되는 경우에는 가상 노드 기능이 사용되는 AKS 클러스터를 계속 사용할 수 있습니다. 이 값이 기본 구성입니다.
+
 ## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>Dev Spaces 시작 시 “오류: could not find a ready tiller pod(준비된 Tiller Pod를 찾을 수 없음)”
 
 ### <a name="reason"></a>이유
@@ -271,20 +293,18 @@ az provider register --namespace Microsoft.DevSpaces
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev Spaces 프록시는 개발 공간에서 실행되는 다른 Pod를 방해할 수 있습니다.
 
 ### <a name="reason"></a>이유
-AKS 클러스터의 네임스페이스에서 Dev Spaces를 활성화하면 _mindaro-proxy_라는 추가 컨테이너가 해당 네임스페이스 내에서 실행되는 각 Pod에 설치됩니다. 이 컨테이너는 Dev Spaces의 팀 개발 기능에 필수적인 Pod의 서비스에 대한 호출을 차단합니다.
-
-그러나 해당 Pod에서 실행되는 특정 서비스를 방해할 수 있습니다. 특히, 마스터/슬레이브 통신에서 연결 오류 및 실패를 일으키는 Azure Cache for Redis 실행 Pod를 방해합니다.
+AKS 클러스터의 네임스페이스에서 Dev Spaces를 활성화하면 _mindaro-proxy_라는 추가 컨테이너가 해당 네임스페이스 내에서 실행되는 각 Pod에 설치됩니다. 이 컨테이너는 Pod의 서비스에 대한 호출을 가로채며, Dev Spaces의 팀 개발 기능에 필수적입니다. 그러나 이러한 Pod에서 실행 중인 특정 서비스를 방해할 수 있습니다. Azure Cache for Redis 실행 Pod를 방해하여 연결 오류 및 마스터/슬레이브 통신 실패를 초래하는 것으로 알려져 있습니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
-Dev Spaces가 활성화된 네임스페이스 내에서 애플리케이션의 나머지 부분을 계속해서 실행하는 동안 영향을 받는 Pod를 활성화된 Dev Spaces가 _없는_ 클러스터 내의 네임스페이스로 이동할 수 있습니다. Dev Spaces는 비 Dev Spaces 사용 네임스페이스 내에 _mindaro-proxy_ 컨테이너를 설치하지 않습니다.
+영향을 받는 Pod를 Dev Spaces가 ‘사용되지 않는’ 클러스터 내의 네임스페이스로 이동할 수 있습니다. 애플리케이션의 나머지 부분은 Dev Spaces 사용 네임스페이스 내에서 계속 실행할 수 있습니다. Dev Spaces는 비 Dev Spaces 사용 네임스페이스 내에 _mindaro-proxy_ 컨테이너를 설치하지 않습니다.
 
-## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces에서 컨테이너를 빌드하는 데 내 기존 Dockerfile을 사용하지 않는 것처럼 보임 
+## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces에서 컨테이너를 빌드하는 데 내 기존 Dockerfile을 사용하지 않는 것처럼 보임
 
 ### <a name="reason"></a>이유
-프로젝트에서 특정 _Dockerfile_을 가리키도록 Azure Dev Spaces를 구성할 수 있습니다. Azure Dev Spaces에서 컨테이너를 빌드하는 데 예상하는 _Dockerfile_를 사용하지 않는 경우 Azure Dev Spaces에 명시적으로 위치를 알려야 할 수 있습니다. 
+프로젝트에서 특정 _Dockerfile_을 가리키도록 Azure Dev Spaces를 구성할 수 있습니다. Azure Dev Spaces가 컨테이너를 빌드하는 데 필요한 _Dockerfile_을 사용하지 않는 것 같으면 Azure Dev Spaces에서 사용할 Dockerfile을 명시적으로 지정해야 할 수 있습니다. 
 
 ### <a name="try"></a>다음을 시도해 보세요.
-프로젝트에서 Azure Dev Spaces가 생성한 _azds.yaml_ 파일을 엽니다. `configurations->develop->build->dockerfile` 지시문을 사용하여 사용하려는 Dockerfile을 가리킵니다.
+Azure Dev Spaces가 사용자 프로젝트에 생성한 _azds.yaml_ 파일을 엽니다. *configurations->develop->build->dockerfile* 지시문을 사용하여 사용할 Dockerfile을 가리킵니다.
 
 ```
 ...
