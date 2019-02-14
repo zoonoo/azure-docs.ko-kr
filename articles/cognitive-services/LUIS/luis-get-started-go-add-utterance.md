@@ -3,19 +3,19 @@ title: 변경, 학습 앱, Go
 description: Go 언어 빠른 시작에서는 Home Automation 앱에 예제 발언을 추가하여 앱을 학습시킵니다.
 titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: edbc7066beebe9b54446bee086578c0836d93a1d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4bc76f67b2d8908abe601aa1fcdfd1962678c548
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220181"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865654"
 ---
 # <a name="quickstart-change-model-using-go"></a>빠른 시작: Go를 사용하여 모델 변경
 
