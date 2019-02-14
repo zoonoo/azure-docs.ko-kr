@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: 한눈에 앱을 모니터링할 수 있는 시각화된 보고 도구인 애플리케이션 대시보드에 대해 알아봅니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 3f263e6e6b74c1d9392ec58f176962b0c37d70c5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209998"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869962"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>대시보드에서 모델 및 사용 현황 통계
 앱 대시보드를 사용하면 한눈에 앱을 모니터링할 수 있습니다. **내 앱** 페이지에서 애플리케이션 이름을 클릭하여 앱을 열고 맨 위 패널에서 **대시보드**를 선택하면 **대시보드**가 표시됩니다. 

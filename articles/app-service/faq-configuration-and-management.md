@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 14f74c26822ac1dc9e781ada82809bf3a4166f18
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190904"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118448"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -244,7 +244,7 @@ Cron 식을 사용하여 예약된 WebJob을 만들 수 있습니다.
 
 1. settings.job 파일을 만듭니다.
 2. 이 JSON 파일에서 Cron 식을 사용하여 일정 속성을 포함합니다. 
-    ```
+    ```json
     { "schedule": "{second}
     {minute} {hour} {day}
     {month} {day of the week}" }
@@ -262,6 +262,8 @@ Cron 식을 사용하여 예약된 WebJob을 만들 수 있습니다.
 
 ## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>내 App Service Certificate에 사기 플래그가 지정되었습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 App Service Certificate 구매의 도메인을 확인하는 동안 다음 메시지가 표시될 수 있습니다.
 
 “인증서가 사기성이 있을 수 있다고 플래그 지정되었습니다. 요청을 현재 검토하는 중입니다. 24시간 내에 인증서를 사용할 수 있게 되지 않으면 Azure 지원에 문의하세요.”
@@ -270,13 +272,13 @@ App Service Certificate 구매의 도메인을 확인하는 동안 다음 메시
 
 App Service Certificate가 24시간 후에도 이 메시지를 계속 표시하면 다음 PowerShell 스크립트를 실행하세요. 스크립트가 문제를 해결하기 위해 [인증서 공급자](https://www.godaddy.com/)에 직접 연결합니다.
 
-```
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <subId>
+```powershell
+Connect-AzAccount
+Set-AzContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"
     };
-Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
+Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
 ```
 
 ## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>App Service에서 인증 및 권한 부여가 어떻게 작동하나요?
@@ -312,10 +314,10 @@ Azure 자동 크기 조정이 웹앱 인스턴스의 크기를 예상대로 축�
 
 정적 및 동적 콘텐츠 형식에 대한 압축을 둘 다 켜려면 애플리케이션 수준 web.config 파일에 다음 코드를 추가합니다.
 
-```
+```xml
 <system.webServer>
-<urlCompression doStaticCompression="true" doDynamicCompression="true" />
-< /system.webServer>
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+</system.webServer>
 ```
 
 압축할 특정 동적 및 정적 MIME 형식을 지정할 수도 있습니다. 자세한 내용은 [단순 Azure 웹 사이트의 httpCompression 설정](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview)에서 포럼 질문에 대한 응답을 참조하세요.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e0ad6b212e328612d2934562e1292b5c36546478
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965108"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990273"
 ---
 # <a name="azure-management---monitoring"></a>Azure Government - 모니터링
 
@@ -47,18 +47,8 @@ Azure의 모니터링은 Azure 관리의 측면 중 하나입니다.  이 아티
 
 
 ## <a name="protect"></a>보호
-보호는 사용자의 제어를 벗어나 중단된 경우에도 애플리케이션 및 데이터를 항상 사용할 수 있도록 보장하는 것을 가리킵니다.  Azure의 보호는 두 가지 서비스에서 제공됩니다.  [Azure Backup](../backup/backup-introduction-to-azure-backup.md)은 클라우드 또는 온-프레미스에서 데이터의 백업 및 복구를 제공합니다.    [Azure Site Recovery](../site-recovery/site-recovery-overview.md)는 재해 시 즉각적인 복구와 사업의 연속성을 제공하여 응용 프로그램의 고가용성을 보장합니다.
+보호는 사용자의 제어를 벗어나 중단된 경우에도 애플리케이션 및 데이터를 항상 사용할 수 있도록 보장하는 것을 가리킵니다.  Azure의 보호는 두 가지 서비스에서 제공됩니다.  [Azure Backup](../backup/backup-introduction-to-azure-backup.md)은 클라우드 또는 온-프레미스에서 데이터의 백업 및 복구를 제공합니다.    [Azure Site Recovery](../site-recovery/site-recovery-overview.md)는 재해 시 즉각적인 복구와 사업의 연속성을 제공하여 애플리케이션의 고가용성을 보장합니다.
 
 ## <a name="migrate"></a>마이그레이션 
 마이그레이션이란 현재 온-프레미스에서 실행하는 워크로드를 Azure 클라우드로 전환하는 것을 가리킵니다.  [Azure 마이그레이션](../migrate/migrate-overview.md)은 온-프레미스 가상 머신의 성능 기반 크기 조정 및 비용 예측을 포함해 Azure에 대한 마이그레이션 적합성을 평가하는 데 도움이 되는 서비스입니다.  Azure Site Recovery를 통해 [온-프레미스에서](../site-recovery/migrate-tutorial-on-premises-azure.md) 또는 [Amazon Web Services에서](../site-recovery/migrate-tutorial-aws-azure.md) 가상 머신의 실제 마이그레이션을 수행할 수 있습니다.  [Azure 데이터베이스 마이그레이션](../dms/dms-overview.md)은 여러 데이터베이스 원본을 Azure 데이터 플랫폼으로 마이그레이션하는 데 도움이 됩니다.
 
-
-## <a name="operations-management-suite"></a>Operations Management Suite
-Azure 관리와 관련된 이전 기술 문서에는 다음 Azure 관리 서비스의 번들인 OMS(Operations Management Suite)가 포함되었습니다.
-
-- Azure Automation
-- Azure Backup
-- Log Analytics
-- Site Recovery
-
-Azure의 완전한 관리가 다른 서비스를 포함하도록 확장되었기 때문에 기술 문서에서 이 번들을 설명하는 것은 생략하겠습니다. OMS의 일부인 서비스가 변경되지 않았기 때문에 각각의 서비스는 여전히 Azure 애플리케이션과 리소스 관리에 중요한 역할을 합니다. 수행해야 하는 관리 작업과 각 작업에 대해 함께 작동하는 여러 Azure 서비스에 중점을 두어야 합니다.

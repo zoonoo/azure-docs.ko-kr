@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Custom Search API 엔드포인트에 대한 요약입니다.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: ed420676ddc4c83be93939874f2943126f9209e8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b997db319677f6904db7e2fdee4ef0c6bf76a180
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176627"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859371"
 ---
 # <a name="custom-search"></a>사용자 지정 검색
 Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검색 경험을 만들 수 있습니다. 사용자는 관련 없는 콘텐츠가 포함된 검색 결과를 페이징할 필요 없이 관심 있는 콘텐츠에 맞게 조정된 검색 결과를 보게 됩니다.

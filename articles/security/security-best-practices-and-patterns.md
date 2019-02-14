@@ -4,7 +4,7 @@ description: 이 문서에서는 다양한 Azure 리소스의의 Azure 보안 �
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 9/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 3cee4a9e7d32214610b5d5de21f6853148ed01c4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e607c1ce032972c62f4e70e9cb620e83e57a881b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345723"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115541"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 보안 모범 사례 및 패턴
 
@@ -39,8 +39,8 @@ ms.locfileid: "44345723"
 * [Azure에서 보안 하이브리드 네트워크 아키텍처 구현](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 * [사물 인터넷 보안 모범 사례](azure-security-iot-best-practices.md)
 * [Azure에서 PaaS 데이터베이스 보안 유지](security-paas-applications-using-sql.md)
-* [Azure App Service를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-app-services.md)
-* [Azure Storage를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-storage.md)
+* [Azure App Service를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안](security-paas-applications-using-app-services.md)
+* [Azure Storage를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안](security-paas-applications-using-storage.md)
 * [Azure의 IaaS 워크로드의 보안 모범 사례](azure-security-iaas.md)
 
 [Azure 솔루션에 대한 보안 모범 사례](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) 백서는 위에 나열된 문서에 있는 보안 모범 사례의 모음입니다.

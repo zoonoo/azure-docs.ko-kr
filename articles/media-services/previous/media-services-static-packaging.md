@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1ea4639d547616f2cfdf1d5e2b78c1388ef09dc4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 80c9f1c7e2bec3e3f3fa696134a23f0760598a29
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826125"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001139"
 ---
-# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Azure Media Packager를 사용하여 정적 패키징 작업 수행
+# <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Azure Media Packager를 사용하여 정적 패키징 작업 수행  
 > [!NOTE]
 > Microsoft Azure Media Packager 및 Microsoft Azure Media Encryptor의 만료 날짜가 2017년 3월 1일로 연장되었습니다. 이 날짜 전에 이러한 프로세서의 기능이 MES(미디어 인코더 표준)에 추가됩니다. 고객에게 워크플로를 마이그레이션하여 MES에 작업을 보내는 방법에 대한 지침이 제공됩니다. 형식 변환 및 암호화 기능은 동적 패키징 및 동적 암호화를 통해서도 사용할 수 있습니다.
 > 

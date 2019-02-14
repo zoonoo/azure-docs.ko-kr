@@ -10,20 +10,17 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b291c8e15b771163d7986f78695bc74ef3084162
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f21f835ea50563497b73fb6e4505f60411029406
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150804"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883001"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 애플리케이션으로 액세스 토큰의 사용자 지정 정책 통과
 
 > [!NOTE]
 > 이 기능은 현재 공개 미리 보기로 제공됩니다.
-
-> [!Important]
-> 이 공개 미리 보기 기능을 일시적으로 사용할 수 없습니다.
 
 Azure AD(Azure Active Directory) B2C의 [사용자 지정 정책](active-directory-b2c-get-started-custom.md)은 애플리케이션 사용자에게 ID 공급자를 등록하거나 로그인할 수 있는 기회를 제공합니다. 이 과정에서 Azure AD B2C는 ID 공급자로부터 [액세스 토큰](active-directory-b2c-reference-tokens.md)을 받습니다. Azure AD B2C는 이 토큰을 사용하여 해당 사용자에 대한 정보를 검색합니다. 사용자 지정 정책에 클레임 유형 및 출력 클레임을 추가하여 Azure AD B2C에서 등록한 애플리케이션에 토큰을 전달합니다. 
 

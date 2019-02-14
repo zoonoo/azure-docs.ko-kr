@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: afbd48b8793e8b16597efb1e3996058b7450e03e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497102"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173337"
 ---
 # <a name="more-details-about-features-in-preview"></a>미리 보기 기능에 대한 자세한 내용
 이 항목에서는 현재 미리 보기 상태인 기능을 사용하는 방법에 대해 설명합니다.

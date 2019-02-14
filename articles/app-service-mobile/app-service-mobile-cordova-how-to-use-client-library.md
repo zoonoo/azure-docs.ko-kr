@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 358e8cd92fe250741adbbb9208b5e149a5f60216
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959736"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962454"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 Apache Cordova 클라이언트 라이브러리를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -55,7 +55,7 @@ ionic plugin add cordova-plugin-ms-azure-mobile-apps
 
 `app.component.ts`에 다음 줄을 추가하여 클라이언트 개체를 만듭니다.
 
-```
+```typescript
 declare var WindowsAzure: any;
 var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
 ```
@@ -84,7 +84,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
 ### <a name="configure-external-redirect-urls"></a>방법: 외부 리디렉션 URL에 대해 모바일 App Service 구성
-여러 가지 유형의 Apache Cordova 응용 프로그램은 루프백 기능을 사용하여 OAuth UI 흐름을 처리합니다.  기본적으로 인증 서비스만 사용자 서비스의 활용 방법을 알기 때문에 localhost의 OAuth UI 흐름에 문제가 발생합니다.  다음은 문제가 있는 OAuth UI 흐름의 예입니다.
+여러 가지 유형의 Apache Cordova 애플리케이션은 루프백 기능을 사용하여 OAuth UI 흐름을 처리합니다.  기본적으로 인증 서비스만 사용자 서비스의 활용 방법을 알기 때문에 localhost의 OAuth UI 흐름에 문제가 발생합니다.  다음은 문제가 있는 OAuth UI 흐름의 예입니다.
 
 * Ripple 에뮬레이터.
 * Ionic을 사용하여 라이브 다시 로드.
@@ -126,7 +126,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
 ## <a name="register-for-push"></a>방법: 푸시 알림 등록
 푸시 알림을 처리하기 위해 [phonegap-plugin-push]를 설치합니다.  이 플러그인은 명령줄에서 `cordova plugin add` 명령을 사용하거나 Visual Studio 내에서 Git 플러그 인 설치 관리자를 통해 쉽게 추가할 수 있습니다.  Apache Cordova 앱에서 다음 코드는 푸시 알림을 위해 디바이스를 등록합니다.
 
-```
+```javascript
 var pushOptions = {
     android: {
         senderId: '<from-gcm-console>'

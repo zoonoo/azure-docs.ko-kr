@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: JavaScript를 통해 Bing Video Search REST API로 비디오 검색 요청을 보내려면 이 빠른 시작을 사용합니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: f593863b86bf5170c4d5c19cece622c1dcafc89c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6a5c2df6859a0020160ae0de9b6e498f63dc253b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568026"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871985"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>빠른 시작: Bing Video Search REST API 및 Node.js를 사용하여 비디오 검색
 

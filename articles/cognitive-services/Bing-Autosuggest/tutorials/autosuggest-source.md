@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 단일 페이지 웹 애플리케이션에서 Bing Autosuggest API를 사용하는 방법을 보여 주는 자습서의 소스 코드입니다.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 6fdb72b92a444b889ddfafd0ceecbb4fab6570c8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b1bd2d7065dea5efecddb82699a7dc474bac9b34
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171255"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881059"
 ---
 # <a name="tutorial-single-page-web-app"></a>자습서: 단일 페이지 웹앱
 

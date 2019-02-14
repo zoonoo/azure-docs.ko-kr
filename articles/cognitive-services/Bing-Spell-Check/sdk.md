@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 상황에 맞는 문법 및 맞춤법 검사를 수행하는 애플리케이션에 대한 Bing Spell Check SDK 샘플입니다.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: sample
 ms.date: 1/24/2018
 ms.author: v-gedod
-ms.openlocfilehash: c6afe8de6ef8c20527e4557fcd9458f0eb699b59
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a50dd9f0fce47c7633444a467710df0c60df8a5d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180061"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55863369"
 ---
 # <a name="bing-spell-check-sdk-samples"></a>Bing Spell Check SDK 샘플
 Bing Spell Check 샘플에는 다음과 같은 시나리오가 포함됩니다.

@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Entity Search API를 사용하여 검색 쿼리에서 엔터티 및 위치를 추출하고 검색합니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: b1d46d125d390f8612c5708e1964e0626acde343
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e78cc86a91e229b5d4d4aead5709da2f694ecac1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757902"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895366"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Bing Entity API를 사용하여 엔터티 검색
 
@@ -174,7 +174,7 @@ API 응답에는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitives
 
 ## <a name="find-places"></a>장소 찾기
 
-`places` 필드는 [Place](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) 개체 목록을 포함하는 [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer) 개체입니다(자세한 내용은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types) 참조). 목록에는 요청을 충족하는 로컬 엔터티가 하나 이상 포함됩니다.
+`places` 필드는 [Place](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) 개체 목록을 포함하는 [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) 개체입니다(자세한 내용은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types) 참조). 목록에는 요청을 충족하는 로컬 엔터티가 하나 이상 포함됩니다.
 
 장소에는 식당, 호텔 또는 현지 기업이 포함됩니다. [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) 필드에는 로컬 엔터티 형식을 식별하는 힌트가 포함됩니다. 목록에는 장소, LocalBusiness, 식당과 같은 힌트 목록이 포함됩니다. 배열의 각 연속 힌트는 엔터티 형식의 범위를 좁힙니다. 가능한 형식 목록은 [엔터티 형식](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)을 참조하세요.
 

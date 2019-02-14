@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Spell Check을 사용하는 방법을 보여 줍니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: 4bb558c05a2bade3a9e3dd01976d4cd9bf24cb98
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 086bcbe48fbace1a199e195e32fd1ad1bbd6ff46
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160766"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869894"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>자습서: 웹 페이지 Spell Check 클라이언트 빌드
 

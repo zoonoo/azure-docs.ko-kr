@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Security Center 권장 사항 **VM 에이
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 5b431c25-4241-45b7-9556-cf2a1956f3da
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: c4fff902614b3979fcc28833c5352afe2bdd84b0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 12934ad53050d16b89dd5b4175ca19a24d1ec4d9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341500"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118193"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Azure Security Center에서 VM 에이전트 사용
 [데이터 컬렉션을 사용하도록 설정](security-center-enable-data-collection.md)하려면 VM(가상 머신)에 VM 에이전트를 설치해야 합니다.  Azure Security Center에서 VM 에이전트가 필요한 VM을 확인하고 해당 VM에서 VM 에이전트를 사용하는 것이 좋습니다.

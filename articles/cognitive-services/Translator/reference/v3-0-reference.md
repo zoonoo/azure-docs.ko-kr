@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Translator Text API V3.0에 대한 참조 문서입니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4d1c33480e408f892517cde6d42e103b34218f26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 767021772fc86013cd8192216eb03840f1160807
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459091"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878700"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -49,7 +49,7 @@ Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 
 |Azure|아시아 태평양|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 Microsoft Cognitive Services의 Translator Text API 또는 [Cognitive Services All-In-One](https://azure.microsoft.com/pricing/details/cognitive-services/)을 구독하고 구독 키(Azure Portal에서 확인할 수 있음)를 사용하여 인증합니다. 
 

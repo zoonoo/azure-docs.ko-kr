@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Spell Check API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
-ms.openlocfilehash: 77ad43b63d5548cf57024bc0c2b707e51f1c8496
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8d97627d398e3e09fe4cf580fe42fdfec278ec7f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189819"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861216"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-c"></a>빠른 시작: C#을 통해 Bing Spell Check API 사용
 

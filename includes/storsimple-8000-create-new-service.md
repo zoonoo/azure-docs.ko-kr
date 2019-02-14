@@ -4,27 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 7139b8ef2bfc9262611e51ce620da6a4769494b4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 54a1bc9ce04cf10575b26cda7861c1dd458dc831
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165860"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889217"
 ---
-<!--author=alkohli last changed:02/10/2017-->
-
----
-title: 포함 파일
-description: 포함 파일
-services: storage
-author: alkohli
-ms.service: storage
-ms.topic: include
-ms.date: 08/20/2018
-ms.author: alkohli
-ms.custom: include file
----
-
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
 
 1. Microsoft 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -33,11 +19,11 @@ ms.custom: include file
 
     ![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    _StorSimple 실제_를 검색합니다. **StorSimple 실제 장치 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Azure Portal에서 **+** 를 클릭한 다음 **저장소** 아래에서 **StorSimple 실제 디바이스 시리즈**를 클릭합니다.
+    _StorSimple 실제_를 검색합니다. **StorSimple 실제 디바이스 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Azure Portal에서 **+** 를 클릭한 다음 **저장소** 아래에서 **StorSimple 실제 디바이스 시리즈**를 클릭합니다.
 
     ![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
-3. **StorSimple 장치 관리자** 블레이드에서 다음 단계를 수행합니다.
+3. **StorSimple 디바이스 관리자** 블레이드에서 다음 단계를 수행합니다.
    
    1. 서비스에 고유한 **리소스 이름**을 지정합니다. 이 이름은 서비스를 식별하는 데 사용할 수 있는 친숙한 이름입니다. 이름은 문자, 숫자 및 하이픈이 될 수 있는 2자에서 50자 사이여야 합니다. 이름은 문자 또는 숫자로 시작하고 끝나야 합니다.
 
@@ -54,7 +40,7 @@ ms.custom: include file
 
    6. 대시보드에서 이 서비스에 대한 빠른 링크가 필요한 경우 **대시보드에 고정**을 확인하세요.
       
-   7. **만들기**를 클릭하여 StorSimple 장치 관리자를 만듭니다.
+   7. **만들기**를 클릭하여 StorSimple 디바이스 관리자를 만듭니다.
 
        ![StorSimple 디바이스 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman2.png)
    

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 이 문서에는 C# 환경의 Speech SDK를 사용하여 음성을 번역하는 샘플 코드가 포함되어 있습니다.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 8d45b152885274b63aff660f29fb28e1539f5cb3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b4e3c2c678789e661b4d6e2d857da2a298ae68f6
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215930"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877187"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Cognitive Services C#용 Speech SDK로 음성 번역
 

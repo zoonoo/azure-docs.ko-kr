@@ -4,19 +4,19 @@ titleSuffix: QnA Maker - Azure Cognitive Services
 description: 기술 자료 게시는 기술 자료를 질문-답변 엔드포인트로 사용할 수 있도록 하는 최종 단계입니다. 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 2db8a87f28905ab03fb45d56943ae40d01908527
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 585e5f8f955a405b08bef42588ab5caff71c7bba
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225383"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55865916"
 ---
 # <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>QnA Maker 포털을 사용하여 기술 자료 게시
 

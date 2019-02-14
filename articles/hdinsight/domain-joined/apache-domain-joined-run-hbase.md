@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: d87248f778c6c39cc64b1cc4725cd61d029ce040
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e1a0dda4c13baf7fc2e5ba65d599db8c74591adb
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664744"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893241"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache HBase 정책 구성(미리 보기)
 
@@ -45,7 +45,7 @@ ESP(Enterprise Security Package) Apache HBase 클러스터용 Apache Ranger 정�
 
 ## <a name="create-domain-users"></a>도메인 사용자 만들기
 
-[Enterprise Security Package를 사용하여 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster)를 방문하여 **sales_user1** 및 **marketing_user1** 도메인 사용자를 만드는 방법을 확인합니다. 프로덕션 시나리오에서는 Active Directory 테 넌트에서 도메인 사용자가 제공됩니다.
+[Enterprise Security Package를 사용하여 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)를 방문하여 **sales_user1** 및 **marketing_user1** 도메인 사용자를 만드는 방법을 확인합니다. 프로덕션 시나리오에서는 Active Directory 테 넌트에서 도메인 사용자가 제공됩니다.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>HBase 테이블을 만들고 샘플 데이터 가져오기
 

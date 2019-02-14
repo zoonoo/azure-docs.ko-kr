@@ -3,7 +3,7 @@ title: 네트워킹 고려 사항 - Azure Dedicated HSM | Microsoft Docs
 description: Azure Dedicated HSM 배포에 적용되는 네트워킹 고려 사항의 개요
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 46a4cc5e48a9fe239a3c62bd72cf6a99e9bf76d8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d872c4eff3d55ddf5d98243055e831a7a223a8ef
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092889"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115456"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure Dedicated HSM 네트워킹
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 사용자 음성을 캡처하고, 다른 언어로 변환하고, 명령줄에 텍스트를 출력하는 간단한 UWP(유니버설 Windows 플랫폼) 애플리케이션을 만듭니다. 이 가이드는 Windows 사용자를 위해 설계되었습니다.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: fa65eabecba062a7b5d875483d821dfdfb2d64b3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: bb0296098d0717e95e9aa1d73229d59709d13766
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207737"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106089"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>빠른 시작: C#용 Speech SDK를 사용하여 음성 번역(UWP)
 
@@ -41,199 +41,11 @@ ms.locfileid: "55207737"
 
 1. 애플리케이션의 사용자 인터페이스는 XAML을 사용하여 정의됩니다. 솔루션 탐색기에서 `MainPage.xaml`을 엽니다. 디자이너의 XAML 보기에서 다음 XAML 코드 조각을 `<Grid>`와 `</Grid>` 사이에 삽입합니다.
 
-    ```xaml
-    <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
-        <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
-        <Button x:Name="SpeechRecognitionButton" Content="Translate speech from the microphone input" Margin="0,10,10,0" Click="SpeechTranslationFromMicrophone_ButtonClicked" Height="35"/>
-        <StackPanel x:Name="StatusPanel" Orientation="Vertical" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True">
-            <TextBlock x:Name="StatusLabel" Margin="0,10,10,0" TextWrapping="Wrap" Text="Status:" FontSize="20"/>
-            <Border x:Name="StatusBorder" Margin="0,0,0,0">
-                <ScrollViewer VerticalScrollMode="Auto"  VerticalScrollBarVisibility="Auto" MaxHeight="200">
-                    <!-- Use LiveSetting to enable screen readers to announce the status update. -->
-                    <TextBlock x:Name="StatusBlock" FontWeight="Bold" AutomationProperties.LiveSetting="Assertive"
-            MaxWidth="{Binding ElementName=Splitter, Path=ActualWidth}" Margin="10,10,10,20" TextWrapping="Wrap"  />
-                </ScrollViewer>
-            </Border>
-        </StackPanel>
-    </StackPanel>
-    ```
+    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
 1. 코드 숨김 소스 파일 `MainPage.xaml.cs`를 엽니다(`MainPage.xaml` 아래 그룹화되어 있음). 그 안의 모든 코드를 다음으로 바꿉니다.
 
-    ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using Windows.UI.Xaml;
-    using Windows.UI.Xaml.Controls;
-    using Windows.UI.Xaml.Media;
-    using Microsoft.CognitiveServices.Speech;
-    using Microsoft.CognitiveServices.Speech.Translation;
-
-    namespace helloworld
-    {
-        /// <summary>
-        /// An empty page that can be used on its own or navigated to within a Frame.
-        /// </summary>
-        public sealed partial class MainPage : Page
-        {
-            public MainPage()
-            {
-                this.InitializeComponent();
-            }
-
-            private async void EnableMicrophone_ButtonClicked(object sender, RoutedEventArgs e)
-            {
-                bool isMicAvailable = true;
-                try
-                {
-                    var mediaCapture = new Windows.Media.Capture.MediaCapture();
-                    var settings = new Windows.Media.Capture.MediaCaptureInitializationSettings();
-                    settings.StreamingCaptureMode = Windows.Media.Capture.StreamingCaptureMode.Audio;
-                    await mediaCapture.InitializeAsync(settings);
-                }
-                catch (Exception)
-                {
-                    isMicAvailable = false;
-                }
-                if (!isMicAvailable)
-                {
-                    await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-microphone"));
-                }
-                else
-                {
-                    NotifyUser("Microphone was enabled", NotifyType.StatusMessage);
-                }
-            }
-
-            private async void SpeechTranslationFromMicrophone_ButtonClicked(object sender, RoutedEventArgs e)
-            {
-                // Creates an instance of a speech config with specified subscription key and service region.
-                // Replace with your own subscription key and service region (e.g., "westus").
-                var config = SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-
-                // Sets source and target languages.
-                string fromLanguage = "en-US";
-                config.SpeechRecognitionLanguage = fromLanguage;
-                config.AddTargetLanguage("de");
-
-                try
-                {
-                    // Creates a speech recognizer using microphone as audio input.
-                    using (var recognizer = new TranslationRecognizer(config))
-                    {
-                        // The TaskCompletionSource to stop recognition.
-                        var stopRecognition = new TaskCompletionSource<int>();
-
-                        // Subscribes to events.
-                        recognizer.Recognizing += (s, ee) =>
-                        {
-                            NotifyUser($"RECOGNIZING in '{fromLanguage}': Text={ee.Result.Text}", NotifyType.StatusMessage);
-                            foreach (var element in ee.Result.Translations)
-                            {
-                                NotifyUser($"    TRANSLATING into '{element.Key}': {element.Value}", NotifyType.StatusMessage);
-                            }
-                        };
-
-                        recognizer.Recognized += (s, ee) =>
-                        {
-                            if (ee.Result.Reason == ResultReason.TranslatedSpeech)
-                            {
-                                NotifyUser($"\nFinal result: Reason: {ee.Result.Reason.ToString()}, recognized text in {fromLanguage}: {ee.Result.Text}.", NotifyType.StatusMessage);
-                                foreach (var element in ee.Result.Translations)
-                                {
-                                    NotifyUser($"    TRANSLATING into '{element.Key}': {element.Value}", NotifyType.StatusMessage);
-                                }
-                            }
-                        };
-
-                        recognizer.Canceled += (s, ee) =>
-                        {
-                            NotifyUser($"\nRecognition canceled. Reason: {ee.Reason}; ErrorDetails: {ee.ErrorDetails}", NotifyType.StatusMessage);
-                        };
-
-                        recognizer.SessionStarted += (s, ee) =>
-                        {
-                            NotifyUser("\nSession started event.", NotifyType.StatusMessage);
-                        };
-
-                        recognizer.SessionStopped += (s, ee) =>
-                        {
-                            NotifyUser("\nSession stopped event.", NotifyType.StatusMessage);
-                            stopRecognition.TrySetResult(0);
-                        };
-
-                        // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
-                        await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
-
-                        // Waits for completion.
-                        // Use Task.WaitAny to keep the task rooted.
-                        Task.WaitAny(new[] { stopRecognition.Task });
-
-                        // Stops continuous recognition.
-                        await recognizer.StopContinuousRecognitionAsync().ConfigureAwait(false);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    NotifyUser($"{ex.ToString()}", NotifyType.ErrorMessage);
-                }
-            }
-
-            private enum NotifyType
-            {
-                StatusMessage,
-                ErrorMessage
-            };
-
-            private void NotifyUser(string strMessage, NotifyType type)
-            {
-                // If called from the UI thread, then update immediately.
-                // Otherwise, schedule a task on the UI thread to perform the update.
-                if (Dispatcher.HasThreadAccess)
-                {
-                    UpdateStatus(strMessage, type);
-                }
-                else
-                {
-                    var task = Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => UpdateStatus(strMessage, type));
-                }
-            }
-
-            private void UpdateStatus(string strMessage, NotifyType type)
-            {
-                switch (type)
-                {
-                    case NotifyType.StatusMessage:
-                        StatusBorder.Background = new SolidColorBrush(Windows.UI.Colors.Green);
-                        break;
-                    case NotifyType.ErrorMessage:
-                        StatusBorder.Background = new SolidColorBrush(Windows.UI.Colors.Red);
-                        break;
-                }
-                StatusBlock.Text += string.IsNullOrEmpty(StatusBlock.Text) ? strMessage : "\n" + strMessage;
-
-                // Collapse the StatusBlock if it has no text to conserve real estate.
-                StatusBorder.Visibility = !string.IsNullOrEmpty(StatusBlock.Text) ? Visibility.Visible : Visibility.Collapsed;
-                if (!string.IsNullOrEmpty(StatusBlock.Text))
-                {
-                    StatusBorder.Visibility = Visibility.Visible;
-                    StatusPanel.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    StatusBorder.Visibility = Visibility.Collapsed;
-                    StatusPanel.Visibility = Visibility.Collapsed;
-                }
-                // Raise an event if necessary to enable a screen reader to announce the status update.
-                var peer = Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer.FromElement(StatusBlock);
-                if (peer != null)
-                {
-                    peer.RaiseAutomationEvent(Windows.UI.Xaml.Automation.Peers.AutomationEvents.LiveRegionChanged);
-                }
-            }
-        }
-    }
-    ```
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
 1. 이 파일의 `SpeechTranslationFromMicrophone_ButtonClicked` 처리기에서 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
 

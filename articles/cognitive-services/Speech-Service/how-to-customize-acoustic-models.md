@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Azure Cognitive Services에서 음성 서비스를 사용하여 어쿠스틱 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 8bee93c4bb932730000a06cc2bc3fe5a3e330a1f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b644d1d227b5dbd69af38cc32defffb8152b0cde
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217631"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878122"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>자습서: 사용자 지정 어쿠스틱 모델 만들기
 

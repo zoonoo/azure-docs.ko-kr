@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Azure Speech Services는 음성 번역과 함께 음성-텍스트 변환 및 텍스트-음성 변환을 위해 다양한 언어를 지원합니다. 이 문서에서는 서비스별 언어 지원에 대한 종합 목록을 제공합니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: bc85de9d2d94cd325095f5f6555105a724865005
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213325"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878037"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Speech Service API에 대한 언어 및 지역 지원
 

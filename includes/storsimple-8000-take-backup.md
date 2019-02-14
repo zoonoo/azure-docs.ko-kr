@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 5ec3bff505d2c887269b20c5fa4d0363a3040c1a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 48a3326dbe0e9eed4a5490e720248555586d189c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164260"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889572"
 ---
-<!--author=alkohli last changed: 01/12/17-->
-
 ### <a name="to-take-a-backup"></a>백업을 수행하려면
 
 1. StorSimple 디바이스 관리자 서비스로 이동합니다. 테이블 형식 디바이스 목록에서 디바이스를 선택하고 클릭한 후 **모든 설정**을 클릭합니다. **설정** 블레이드에서 **설정 > 관리 > Backup 정책**으로 이동합니다.

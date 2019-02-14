@@ -4,16 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8e6db54853efcba4d648c1d3bc793a9d1ce57441
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9b9922602218280d58331a755ed0dfed7df96f40
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164807"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888930"
 ---
-<!--author=alkohli last changed: 9/16/15-->
-
-
 #### <a name="to-cable-your-device-for-power"></a>디바이스에 전원 케이블을 연결하려면
 > [!NOTE]
 > StorSimple 디바이스의 두 엔클로저 모두가 중복 PCM을 포함합니다. 각 엔클로저에 대해 PCM을 설치하고 서로 다른 전원에 연결하여 높은 가용성을 보장해야 합니다.

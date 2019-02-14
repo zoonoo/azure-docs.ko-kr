@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정확도를 향상시키기 위한 반복 프로세스의 중요한 부분입니다. 또한 편집할 수도 있는 향상된 채팅 인터페이스를 통해 기술 자료를 테스트할 수 있습니다.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: dceeb17d8d56de37bc21790283ab73478b6d3076
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 20ebcb502e03f2d817fe18624d8c790e920c667f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218600"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861247"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>QnA Maker에서 대화형으로 기술 자료 테스트
 

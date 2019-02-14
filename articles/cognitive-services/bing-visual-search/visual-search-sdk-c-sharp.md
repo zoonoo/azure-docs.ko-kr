@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bing Visual Search SDK를 사용하여 이미지를 업로드하고 이미지에 대한 인사이트를 가져오는 방법을 알아봅니다.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: fe6ec751ed18af24e8a38d6993d8047b62eeed44
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 3c6a103d3d4c1890a58b833d29c88eb040ac9810
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769762"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860697"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>빠른 시작: Bing Visual Search SDK for C#을 사용하여 이미지 인사이트 가져오기
 

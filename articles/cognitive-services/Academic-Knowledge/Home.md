@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Academic Knowledge API를 사용하여 사용자 쿼리를 해석하고 Academic Graph에서 다양한 정보를 검색합니다.
 services: cognitive-services
 author: darrine
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: 8575b51bfc3f9013e984ac6c81352a7559439ff2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 975c36451f0f00ce374a0bbf0a6dd87ec39eb912
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154553"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871560"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge API
 

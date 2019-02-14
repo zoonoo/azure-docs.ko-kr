@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 엔터티 링크 작업에 Entity Linking Intelligence Service API를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: DavidLiCIG
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: entity-linking-intelligence
 ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: fa2e480cd2c46e6092f4b0421adca63542e54d1b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4faeccb30e936177dfa993e912f597c44f8fac60
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224635"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869775"
 ---
 # <a name="what-is-the-entity-linking-intelligence-service-api"></a>Entity Linking Intelligence Service API란?
 

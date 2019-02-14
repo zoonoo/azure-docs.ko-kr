@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: a44b348e0c41e96c575555f2b5c275e196284c5b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: df722f305d60eb0ab53964bfc4e3f48961036708
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074539"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984854"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -36,7 +36,7 @@ Azure Portal을 사용하여 함수를 개발하는 경우 트리거 및 바인�
 
 ## <a name="example-trigger-and-binding"></a>예제 트리거 및 바인딩
 
-Azure Queue 저장소에 새 메시지가 나타날 때마다 Azure Table 저장소에 새 행을 쓰려는 경우를 가정하겠습니다. 이 시나리오는 Azure Queue 저장소 트리거 및 Azure Table 저장소 출력 바인딩을 사용하여 구현할 수 있습니다. 
+Azure Queue 스토리지에 새 메시지가 나타날 때마다 Azure Table Storage에 새 행을 쓰려는 경우를 가정하겠습니다. 이 시나리오는 Azure Queue 스토리지 트리거 및 Azure Table Storage 출력 바인딩을 사용하여 구현할 수 있습니다. 
 
 다음은 이 시나리오에 대한 *function.json* 파일입니다. 
 
@@ -61,7 +61,7 @@ Azure Queue 저장소에 새 메시지가 나타날 때마다 Azure Table 저장
 }
 ```
 
-`bindings` 배열의 첫 번째 요소는 큐 저장소 트리거입니다. `type` 및 `direction` 속성은 트리거를 식별합니다. `name` 속성은 큐 메시지 콘텐츠를 받는 함수 매개 변수를 식별합니다. 모니터링하는 큐 이름은 `queueName`에 있으며 연결 문자열은 `connection`으로 식별되는 앱 설정에 있습니다.
+`bindings` 배열의 첫 번째 요소는 Queue Storage 트리거입니다. `type` 및 `direction` 속성은 트리거를 식별합니다. `name` 속성은 큐 메시지 콘텐츠를 받는 함수 매개 변수를 식별합니다. 모니터링하는 큐 이름은 `queueName`에 있으며 연결 문자열은 `connection`으로 식별되는 앱 설정에 있습니다.
 
 `bindings` 배열의 두 번째 요소는 Azure Table Storage 출력 바인딩입니다. `type` 및 `direction` 속성은 바인딩을 식별합니다. `name` 속성은 함수가 새 테이블 행을 제공하는 방법을 지정하며 이 경우 함수 반환 값을 사용합니다. 테이블의 이름은 `tableName`에 있으며 연결 문자열은 `connection`으로 식별되는 앱 설정에 있습니다.
 
@@ -691,8 +691,8 @@ C# 및 기타 .NET 언어에서는 *function.json* 및 특성의 바인딩과 �
 
 - [HTTP 및 webhook](functions-bindings-http-webhook.md)
 - [타이머](functions-bindings-timer.md)
-- [Queue storage](functions-bindings-storage-queue.md)
-- [Blob storage](functions-bindings-storage-blob.md)
+- [Queue Storage](functions-bindings-storage-queue.md)
+- [Blob Storage](functions-bindings-storage-blob.md)
 - [Table Storage](functions-bindings-storage-table.md)
 - [이벤트 허브](functions-bindings-event-hubs.md)
 - [Service Bus](functions-bindings-service-bus.md)
@@ -702,4 +702,3 @@ C# 및 기타 .NET 언어에서는 *function.json* 및 특성의 바인딩과 �
 - [Twilio](functions-bindings-twilio.md)
 - [Notification Hubs](functions-bindings-notification-hubs.md)
 - [Mobile Apps](functions-bindings-mobile-apps.md)
-- [외부 파일](functions-bindings-external-file.md)

@@ -1,20 +1,20 @@
 ---
-title: 인증
+title: Authentication
 titleSuffix: Cognitive Services - Azure
 description: Azure Cognitive Services 리소스에 대한 요청을 인증하는 세 가지 방법으로 구독 키, 전달자 토큰 또는 다중 서비스 구독이 있습니다. 이 문서에서는 각 방법과 요청을 수행하는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 81a902c6cf6b9b3491933e4bc14dc1e774185869
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: f724bba5acdda20d31d067b850634178a0650cf7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305454"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859748"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Cognitive Services에 대한 요청 인증
 

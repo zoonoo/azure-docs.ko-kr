@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 81cdde409841ad3f5952147a7d3ab2b1adbcbd59
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6a68deb2cb6de90c577f2d828e24a1747662c7e2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474193"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56162206"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>자습서: Aha!와 Azure Active Directory 통합
 
@@ -71,8 +72,8 @@ Azure AD에서 Aha!의 통합을 구성하려면 갤러리에서 Aha!를 관리�
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
-이 섹션에서는 **Britta Simon**이라는 테스트 사용자를 기반으로 Aha!에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
-Single Sign-On이 작동하려면 Azure AD 사용자와 Aha! 의 관련 사용자 간에 연결 관계를 설정해야 합니다.
+이 섹션에서는 Aha!를 사용하여 Azure AD Single Sign-On을 구성하고 테스트합니다. **Britta Simon**이라는 테스트 사용자를 기반으로 Aha!에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
+Single Sign-On이 작동하려면 Azure AD 사용자와 Aha! 의 관련 사용자 간에 연결이 형성되어야 합니다.
 
 Aha!에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 

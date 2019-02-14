@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 56a324aba3c5d8f550e5b51ff49b5ee0e74a3415
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658337"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894159"
 ---
 # <a name="marketplace-faqs"></a>Marketplace FAQ
 
@@ -350,7 +350,7 @@ Microsoft 계정이 없으면 contoso_marketplace@live.com과 같은 [계정을 
 
 **개발자 센터 계정이 필요한 이유는 무엇인가요?**
 
-개발자 센터 계정은 Microsoft에서 특정 거래 목록 유형에 대해 판매자 대신 고객에게 대금을 청구하는 데 필요합니다. 개발자 센터 계정을 등록하면 Microsoft가 법률, 세금 및 금융 정보의 유효성을 검사할 수 있습니다. 자세한 내용은 [개발자 센터 등록](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)을 참조하세요.
+개발자 센터 계정은 Microsoft에서 특정 거래 목록 유형에 대해 판매자 대신 고객에게 대금을 청구하는 데 필요합니다. 개발자 센터 계정을 등록하면 Microsoft가 법률, 세금 및 금융 정보의 유효성을 검사할 수 있습니다. 자세한 내용은 [개발자 센터 등록](https://docs.microsoft.com/azure/marketplace/become-publisher)을 참조하세요.
 
 **어떤 판매자가 개발자 센터 계정을 등록해야 하나요?**
 

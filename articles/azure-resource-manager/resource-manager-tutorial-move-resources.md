@@ -13,14 +13,16 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3aadeb92fccc2baa445bce73e3d3111168aeecf6
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490275"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107823"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>자습서: 다른 리소스 그룹 또는 구독에 Azure 리소스 이동
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 한 리소스 그룹에서 다른 리소스 그룹으로 Azure 리소스를 이동하는 방법을 알아봅니다. 한 Azure 구독에서 다른 Azure 구독으로 Azure 리소스를 이동할 수도 있습니다. 이 자습서에서는 리소스 관리자 템플릿을 사용하여 두 개의 리소스 그룹 및 하나의 스토리지 계정을 배포합니다. 그런 다음, 하나의 리소스 그룹에서 다른 리소스 그룹으로 스토리지 계정을 이동합니다.
 

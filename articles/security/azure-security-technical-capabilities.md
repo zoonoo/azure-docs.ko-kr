@@ -4,7 +4,7 @@ description: 애플리케이션 또는 엔터프라이즈의 요구 사항을 �
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: fea499ea275dc65de1232840c24b5d62e3e6182d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c94a078e77f1e3e5b70d2d95016b8417fe2172d5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698039"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118482"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 

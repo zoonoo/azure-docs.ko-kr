@@ -4,7 +4,7 @@ description: Microsoft 보안 센터는 사용자의 서비스를 실행하는 A
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 0b94f9a3-8648-4860-812c-be689b0b327b
 ms.service: security
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 183496dec7826843046af5f130f9c65f31253b0b
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 794c78e6e31c58563b68a58774db90af98a44d95
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25541573"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111036"
 ---
 # <a name="microsoft-trust-center"></a>Microsoft 보안 센터
 Azure.com의 Azure 보안 정보 사이트는 클라우드 솔루션을 안전하게 계획, 설계, 배포, 구성 및 관리하는 데 필요한 정보를 제공합니다. Microsoft 보안 센터를 통해 사용자의 서비스를 실행하는 Azure 플랫폼이 안전하다는 것을 확신하는 데 필요한 정보를 얻게 됩니다.
 
-Azure에 응용 프로그램 및 데이터를 위탁할 때 다음과 같은 의문 사항이 있다는 것을 압니다. 어디에 있나요? 액세스할 수 있는 사용자는 누구인가요? Microsoft는 보호하기 위해 무엇을 하고 있나요? Microsoft가 말하는 대로 하고 있는지 어떻게 확인할 수 있나요?
+Azure에 애플리케이션 및 데이터를 위탁할 때 다음과 같은 의문 사항이 있다는 것을 압니다. 어디에 있나요? 액세스할 수 있는 사용자는 누구인가요? Microsoft는 보호하기 위해 무엇을 하고 있나요? Microsoft가 말하는 대로 하고 있는지 어떻게 확인할 수 있나요?
 
 이러한 질문에 대한 답변은 다음고 같습니다. 데이터이기 때문에 액세스 권한이 있는 사용자를 결정하고 Microsoft과 협력하여 위치를 결정합니다. 데이터를 보호하기 위해 최신 보안 기술과 세계 최고의 암호화를 사용합니다. Microsoft의 규정 준수는 독립적으로 감사를 받고 있으며 고객 데이터에 대한 법적 요구를 처리하는 방법에서 코드 보안까지 많은 수준에서 투명합니다.
 

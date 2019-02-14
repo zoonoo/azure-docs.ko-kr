@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 243b19d19fbce11d77f60bc2eccc4d1c58c85b80
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817234"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892187"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso 마이그레이션: 온-프레미스 앱 아키텍처를 Azure 컨테이너 및 Azure SQL Database로 변경
 
@@ -317,7 +317,7 @@ Azure SQL Database에 연결하기 위해 Contoso 관리자는 액세스를 허�
 
 도움이 더 필요하세요?
 
-Azure SQL Database에 대한 방화벽 규칙을 만들고 관리하는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#creating-and-managing-firewall-rules).
+Azure SQL Database에 대한 방화벽 규칙을 만들고 관리하는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 
 ### <a name="migrate"></a>마이그레이션
 

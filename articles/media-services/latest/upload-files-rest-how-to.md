@@ -4,21 +4,21 @@ description: 자산을 만들고 업로드하여 Media Services에 미디어 콘
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: f7615911d39ea66cdcf5ed9913ac420f2d1c9de9
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53636144"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995393"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
 
@@ -57,7 +57,7 @@ Media Services에서 자산에 연결된 Blob 컨테이너에 디지털 파일�
 
 자산 URL에 대한 정보를 포함하는 **응답**이 표시됩니다. 첫 번째 URL을 복사한 후 파일을 업로드하는 데 사용합니다.
 
-## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>업로드 URL을 사용하여 Blob 저장소에 파일 업로드
+## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>업로드 URL을 사용하여 Blob Storage에 파일 업로드
 
 Azure Storage API 또는 SDK(예: [Storage REST API](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md) 또는 [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md))를 사용합니다.
 

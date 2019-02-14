@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Speech Service SDK를 사용하여 iOS의 Objective-C에서 음성을 인식하는 방법 알아보기
 services: cognitive-services
 author: chlandsi
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: chlandsi
-ms.openlocfilehash: 044d703af50a951e1c406014f3e00eb49c1632a2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f92a5c5ea064d91eae065c96e656416b21714e98
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209624"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878105"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>빠른 시작: Speech Service SDK를 사용하여 iOS의 Objective-C에서 음성 인식
 

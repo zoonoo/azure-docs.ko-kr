@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 0e8db8779958afe1fd3cf4bf12f2a6fd4a97c61c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164714"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888459"
 ---
-<!--author=alkohli last changed: 9/16/15-->
-
 #### <a name="to-cable-for-power"></a>전원을 케이블로 연결하려면
 1. 각 PCM(전원 및 냉각 모듈)의 전원 스위치가 OFF 위치에 있는지 확인합니다.
 2. 기본 엔클로저에서 각 PCM에 전원 코드를 연결합니다.
@@ -25,7 +23,7 @@ ms.locfileid: "50164714"
    
     ![전원에 2U 디바이스를 케이블로 연결](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
    
-    **8100 장치에서 전원 케이블 연결**
+    **8100 디바이스에서 전원 케이블 연결**
    
    | 레이블 | 설명 |
    |:--- |:--- |

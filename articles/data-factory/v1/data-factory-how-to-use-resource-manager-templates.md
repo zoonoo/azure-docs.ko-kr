@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e9a99fcbe161e0b6cdabf1363ab3121a77869df7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024861"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111325"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>템플릿을 사용하여 Azure Data Factory 엔터티 만들기
 > [!NOTE]
@@ -130,7 +130,7 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
     ...
 }
 ```
-배포할 특정 데이터 세트 형식의 JSON 속성에 관한 자세한 내용은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. "DependsOn" 매개 변수는 해당 데이터 팩터리와 저장소 연결 서비스의 이름을 지정합니다. Azure Blob 저장소의 데이터 세트 정의 예제는 다음 JSON 정의에 나와 있습니다.
+배포할 특정 데이터 세트 형식의 JSON 속성에 관한 자세한 내용은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. "DependsOn" 매개 변수는 해당 데이터 팩터리와 저장소 연결 서비스의 이름을 지정합니다. Azure 스토리지 서비스는 Blob Storage, Table Storage, Queue Storage 및 File Storage 등의 4가지 서비스를 제공합니다.
 
 ```JSON
 "type": "datasets",
@@ -236,7 +236,7 @@ dataFactoryName은 “variables”에 다음과 같이 정의됩니다.
 * 설정은 환경에 따라 달라집니다(예: 개발, 테스트, 프러덕션 환경).
 * 암호(Secret)(예: 암호(password))
 
-템플릿을 사용하여 Azure Data Factory 엔터티를 배포할 때 [Azure Key Vault](../../key-vault/key-vault-get-started.md)에서 암호를 가져와야 할 경우 다음 예제처럼 **키 자격 증명 모음**과 **암호 이름**을 표시합니다.
+템플릿을 사용하여 Azure Data Factory 엔터티를 배포할 때 [Azure Key Vault](../../key-vault/key-vault-overview.md)에서 암호를 가져와야 할 경우 다음 예제처럼 **키 자격 증명 모음**과 **암호 이름**을 표시합니다.
 
 ```JSON
 "parameters": {

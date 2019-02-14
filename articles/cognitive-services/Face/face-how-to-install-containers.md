@@ -4,19 +4,19 @@ titlesuffix: Face - Azure Cognitive Services
 description: 이 단계별 자습서에서 Face용 컨테이너를 다운로드, 설치 및 실행하는 방법입니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/11/2019
 ms.author: diberry
-ms.openlocfilehash: d738f089ff7af59c340a2ea9f67918c1298f9e47
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7a41bfaada64528e90f43064b34c394f9a9b8f8f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769796"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099091"
 ---
 # <a name="install-and-run-containers"></a>컨테이너 설치 및 실행
 
@@ -68,8 +68,8 @@ Face API용 컨테이너 이미지를 사용할 수 있습니다.
 
 ### <a name="docker-pull-for-the-face-container"></a>Face 컨테이너용 docker pull
 
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
 ## <a name="how-to-use-the-container"></a>컨테이너사용 방법
@@ -132,18 +132,7 @@ ApiKey={BILLING_KEY}
 
 Face API 컨테이너는 Azure 계정의 _Face API_ 리소스를 사용하여 청구 정보를 Azure로 보냅니다. 
 
-Cognitive Services 컨테이너는 측광을 위해 Azure에 연결되지 않은 상태에서 실행할 수 있는 권한이 없습니다. 고객은 컨테이너에서 항상 계량 서비스와 청구 정보를 통신할 수 있도록 설정해야 합니다. Cognitive Services 컨테이너는 고객 데이터를 Microsoft로 보내지 않습니다. 
-
-`docker run` 명령은 청구 목적으로 다음 인수를 사용합니다.
-
-| 옵션 | 설명 |
-|--------|-------------|
-| `ApiKey` | 청구 정보를 추적하는 데 사용되는 _Face API_ 리소스의 API 키입니다. |
-| `Billing` | 청구 정보를 추적하는 데 사용되는 _Face API_ 리소스의 엔드포인트입니다.|
-| `Eula` | 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.<br/>이 옵션의 값은 `accept`로 설정해야 합니다. |
-
-> [!IMPORTANT]
-> 세 가지 옵션을 모두 유효한 값으로 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 이러한 옵션에 대한 자세한 내용은 [컨테이너 구성](./face-resource-container-config.md)을 참조하세요.
 

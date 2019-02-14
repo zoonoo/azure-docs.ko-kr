@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: 3a6679f2cc599d2ec9aff5e31422be799140b7ff
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f5c395bd03fab2613a28aa35c9975ec71ffa34eb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032149"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55885143"
 ---
 > [!NOTE]
-> Azure Data Lake Store는 Azure Data Lake Storage Gen1로 이름이 변경되었습니다. Azure Data Lake Storage Gen2 미리 보기에 대해 자세히 알아보려면 [제품 페이지](https://aka.ms/adlsgen2-product)를 참조하세요.
+> 이제 Azure Data Lake Storage Gen2가 일반 공급됩니다. 오늘부터 사용을 시작하는 것이 좋습니다. 자세한 내용은 [제품 페이지](https://aka.ms/adlsgen2-product)를 참조하세요.
 > 
 
 

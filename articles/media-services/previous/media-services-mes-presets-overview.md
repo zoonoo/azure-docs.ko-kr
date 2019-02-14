@@ -2,7 +2,7 @@
 title: MES(Media Encoder Standard)에 대한 작업 미리 설정 | Microsoft Docs
 description: 이 항목에서는 MES(Media Encoder Standard)에 대한 서비스 정의 샘플 미리 설정에 대해 간단히 설명합니다.
 author: Juliako
-manager: cfow
+manager: femila
 editor: johndeu
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4c518771d95dcb571da294f8a752e7b5740ef19f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9d32397773a5ede4ddc2a27c367f2750078e28c6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783322"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998150"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>MES(Media Encoder Standard)에 대한 샘플 미리 설정
 

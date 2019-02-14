@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 93d7a6e884cf02fa41838d4a07644c122a43823b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: e2831191905da1b9e0ad55131be9eaa7aa13950e
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823830"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894363"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>자습서: Azure Lab Services에서 랩 사용량 추적
 이 자습서에서는 랩 작성자/소유자가 랩 사용량을 추적하는 방법을 보여줍니다.
@@ -55,6 +55,9 @@ ms.locfileid: "54823830"
 - VM 시작
 - VM 중지
 - VM 삭제
+
+
+![VM 컨트롤](../media/tutorial-track-usage/vm-controls.png)
 
 또한 도구 모음 단추를 사용하여 VM을 시작, 중지 또는 삭제할 수 있습니다. 
 

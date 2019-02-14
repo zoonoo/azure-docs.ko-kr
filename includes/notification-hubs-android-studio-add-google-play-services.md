@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bc920493b32d500602a5b683c098d23aff855150
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fb27386881e89cd9056d0efccb7d3c301867bd83
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823303"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965990"
 ---
 1. **Android Studio**의 메뉴에서 **도구**를 선택하고, **SDK Manager**를 선택합니다. 
 2. 프로젝트에서 사용되는 Android SDK의 대상 버전을 선택하고, **패키지 정보 표시**를 선택합니다. 
@@ -29,7 +29,7 @@ ms.locfileid: "55823303"
 4. **확인**을 선택하여 **새 프로젝트 설정** 대화 상자를 닫습니다.  
 5. **app** 디렉터리에서 `build.gradle` 파일을 열고, 이 줄을 `dependencies` 아래에 추가합니다. 
 
-    ```text
+    ```gradle
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     ```
 5. 도구 모음에서 **지금 동기화** 아이콘을 선택합니다.

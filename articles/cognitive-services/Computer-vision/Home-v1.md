@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Computer Vision API는 개발자에게 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 1ee28d04bfce00a6fe47d6914b75cfd7b18e634d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 35002ccfc294b59a13e6826b4ca75a1ab6c68b62
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816546"
+ms.locfileid: "55870302"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Computer Vision API 버전 1.0이란?
 

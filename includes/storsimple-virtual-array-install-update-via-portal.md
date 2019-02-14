@@ -4,22 +4,20 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: b9f5e5d0b774d3875999fa5337f41040c4217c8b
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 37d4c295fe8a89a8b32364f42e8fb4c5a4caf777
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164238"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889054"
 ---
-<!--author=alkohli last changed: 11/07/16 -->
-
 #### <a name="to-install-updates-via-the-azure-portal"></a>Azure Portal을 통해 업데이트를 설치하려면
 
-1. StorSimple 디바이스 관리자로 이동하고 **디바이스**를 선택합니다. 서비스에 연결된 디바이스 목록에서 업데이트하려는 디바이스를 선택하고 클릭합니다. 
+1. StorSimple 디바이스 관리자를 이동하고 **디바이스**를 선택합니다. 서비스에 연결된 디바이스 목록에서 업데이트하려는 디바이스를 선택하고 클릭합니다. 
 
     ![디바이스 업데이트](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate1m.png) 
 
-2. **설정** 블레이드에서 **장치 업데이트**를 클릭합니다. 
+2. **설정** 블레이드에서 **디바이스 업데이트**를 클릭합니다. 
 
     ![디바이스 업데이트](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate2m.png)  
 
@@ -43,7 +41,7 @@ ms.locfileid: "50164238"
 
      ![디바이스 업데이트](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate8m.png)
 
-5. **장치 업데이트** 블레이드에서 **설정**을 클릭합니다.
+5. **디바이스 업데이트** 블레이드에서 **설정**을 클릭합니다.
 
      ![디바이스 업데이트](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate11m.png)   
 

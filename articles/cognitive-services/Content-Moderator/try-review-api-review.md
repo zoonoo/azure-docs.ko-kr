@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Review API의 검토 작업을 사용하여 사용자 조정을 위한 이미지 또는 텍스트 검토를 만드는 방법을 설명합니다.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 7e4c750e7470c6a76e56bd67d6a134b1b61535eb
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d963cdd484727ac46aed1915643dd92462e2c643
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218393"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55857817"
 ---
 # <a name="create-reviews-from-the-api-console"></a>API 콘솔에서 검토 만들기
 

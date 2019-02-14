@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 3d1821ccc3f3bc16bffd8a19d3014b5ea4876768
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: afdb082ef7d33d12d80b8edb273bea2c4c5b74a2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715608"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882117"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service에 대한 모범 사례
 이 문서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)를 사용하는 모범 사례를 요약합니다. 
@@ -51,7 +51,7 @@ Node.js 및 다수의 발신 HTTP 요청을 수행하는 경우, HTTP - Keep-Ali
 
 예를 들어 `http` 또는 `https` 패키지를 사용하여 작업하는 경우:
 
-```
+```javascript
 var request = https.request(options, function(response) {
     response.on('data', function() { /* do nothing */ });
 });

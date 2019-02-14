@@ -4,7 +4,7 @@ description: 콘텐츠 키에 대한 인증 정책을 구성하는 방법에 대
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ee82a3fa-c34b-48f2-a108-8ba321f1691e
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: db0117b0b4ddee002fc69d71e78eca2b9008e4f6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7dd056042b841e54c18ee1a667c44cfa11d77a61
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941031"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164603"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>콘텐츠 키 인증 정책 구성
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -39,10 +39,10 @@ ms.locfileid: "33941031"
 * [Media Services REST API를 사용하여 콘텐츠 키 권한 부여 정책 구성](media-services-rest-configure-content-key-auth-policy.md)
 
 ### <a name="some-considerations-apply"></a>다음과 같은 몇 가지 고려 사항이 적용됩니다.
-* Azure Media Services 계정이 만들어지면, 기본 스트리밍 끝점이 "중지됨" 상태의 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 스트리밍 끝점이 “실행 중” 상태에 있어야 합니다. 
+* Azure Media Services 계정이 만들어지면 기본 스트리밍 엔드포인트가 “중지됨” 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 스트리밍 엔드포인트가 “실행 중” 상태에 있어야 합니다. 
 * 사용자의 자산은 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다. 자세한 내용은 [자산 인코딩](media-services-encode-asset.md)을 참조하세요.
 * 키 배달 서비스는 ContentKeyAuthorizationPolicy 및 관련 개체(정책 옵션 및 제한 사항)를 15분 동안 캐시합니다. ContentKeyAuthorizationPolicy를 만들고 토큰 제한을 사용하도록 지정하고, 테스트한 다음, 정책을 개방형 제한으로 업데이트할 수 있습니다. 이 프로세스를 수행할 경우 대략 15분 후에 정책이 개방형 버전으로 전환됩니다.
-* Media Services 스트리밍 끝점은 실행 전 응답에서 CORS 'Access-Control-Allow-Origin' 헤더 값을 “\*” 와일드카드로 설정합니다. 이 값은 Azure Media Player, Roku 및 JWPlayer 등을 망라한 대부분의 플레이어에서 작동합니다. 그러나 자격 증명 모드가 “include”로 설정된 상태에서 dash.js의 XMLHttpRequest가 “\*” 와일드카드를 Access-Control-Allow-Origin 값으로 허용하지 않으므로 dash.js를 사용하는 일부 플레이어에서는 작동하지 않습니다. 이러한 dashjs 제한을 해결하기 위해, 단일 도메인에서 클라이언트를 호스트하는 경우 Media Services가 실행 전 응답 헤더에서 해당 도메인을 지정할 수 있습니다. 도움이 필요한 경우 Azure Portal을 통해 지원 티켓을 엽니다.
+* Media Services 스트리밍 엔드포인트는 실행 전 응답에서 CORS 'Access-Control-Allow-Origin' 헤더 값을 “\*” 와일드카드로 설정합니다. 이 값은 Azure Media Player, Roku 및 JWPlayer 등을 망라한 대부분의 플레이어에서 작동합니다. 그러나 자격 증명 모드가 “include”로 설정된 상태에서 dash.js의 XMLHttpRequest가 “\*” 와일드카드를 Access-Control-Allow-Origin 값으로 허용하지 않으므로 dash.js를 사용하는 일부 플레이어에서는 작동하지 않습니다. 이러한 dashjs 제한을 해결하기 위해, 단일 도메인에서 클라이언트를 호스트하는 경우 Media Services가 실행 전 응답 헤더에서 해당 도메인을 지정할 수 있습니다. 도움이 필요한 경우 Azure Portal을 통해 지원 티켓을 엽니다.
 
 ## <a name="configure-the-key-authorization-policy"></a>키 인증 정책 구성
 키 인증 정책을 구성하려면 **콘텐츠 보호** 페이지를 선택하세요.

@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Text to Speech API는 45개를 초과하는 언어와 로캘로 된 75개를 초과하는 음성을 제공합니다. 표준 음성 글꼴을 사용하려면 Speech Service를 호출할 때 음성 이름을 몇 가지 다른 매개 변수로 지정하면 됩니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251557"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859337"
 ---
 # <a name="about-the-text-to-speech-api"></a>Text-to-Speech API 정보
 

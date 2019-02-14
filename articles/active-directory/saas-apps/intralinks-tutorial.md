@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: aaa3b7d0ac80fbe2bca937a2826c1c26e6718ea4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 41aac9c64922a3d551ae685bb5b642bf72dd52b2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168569"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>자습서: Intralinks와 Azure Active Directory 통합
 

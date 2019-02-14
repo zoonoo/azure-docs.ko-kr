@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 이 문서에서는 프로젝트 Acoustics 워크플로의 세 단계 각각에서 디자인 의도를 표현하는 방법을 설명합니다.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: cf38b2096e958a7484e5161277a608ec2cb88224
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb5f309a96feac2caea85fbe81b7216eecfc4b79
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470489"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873940"
 ---
 # <a name="design-process-overview"></a>디자인 프로세스 개요
 프로젝트 Acoustics 워크플로의 세 단계인 준비 전 장면 설정, 소리 원본 배치 및 준비 후 디자인에서 디자인 의도를 표현할 수 있습니다. 이 프로세스에서는 디자이너가 장면에서 소리가 발생하는 방식을 계속 제어하지만 반향 볼륨 배치와 관련된 태그는 덜 필요합니다.

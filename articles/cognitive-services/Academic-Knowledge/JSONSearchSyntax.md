@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Academic Knowledge API에서 사용할 수 있는 JSON 검색 구문에 대해 알아봅니다.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: b3f0c5c22775a6eb0ab7a34592d816ed174539c0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fddd2291fe7fbb46c57d31e9aebc7fc6244df971
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196568"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884803"
 ---
 # <a name="json-search-syntax"></a>JSON 검색 구문
 

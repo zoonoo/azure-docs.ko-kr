@@ -13,14 +13,16 @@ ms.devlang: na
 ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5c193ce7966cdc303004c4b75871877074bf4711
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c674c11f26d236e27852eb52bfc304aab12adcb5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494037"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112140"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>자습서: 연결된 Azure Resource Manager 템플릿 만들기
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 연결된 Azure Resource Manager 템플릿을 만드는 방법을 알아봅니다. 연결된 템플릿을 사용하여 하나의 템플릿이 다른 템플릿을 호출하도록 할 수 있습니다. 템플릿 모듈화에 적합합니다. 이 자습서에서는 가상 머신, 가상 네트워크 및 스토리지 계정을 포함한 다른 종속 리소스를 만드는 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)에서 사용하는 것과 동일한 템플릿을 사용합니다. 스토리지 계정 리소스 만들기를 연결된 템플릿으로 구분합니다.
 
@@ -192,17 +194,17 @@ $storageAccount = New-AzStorageAccount `
 $context = $storageAccount.Context
 
 # Create a container
-New-AzureStorageContainer -Name $containerName -Context $context
+New-AzStorageContainer -Name $containerName -Context $context
 
 # Upload the linked template
-Set-AzureStorageBlobContent `
+Set-AzStorageBlobContent `
     -Container $containerName `
     -File "$home/$fileName" `
     -Blob $fileName `
     -Context $context
 
 # Generate a SAS token
-$templateURI = New-AzureStorageBlobSASToken `
+$templateURI = New-AzStorageBlobSASToken `
     -Context $context `
     -Container $containerName `
     -Blob $fileName `

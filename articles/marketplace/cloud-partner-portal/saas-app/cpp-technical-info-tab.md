@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7a49e69b2e27a38b1a89fedbd6bbd70066b37dc2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f0f6bbf5f235d6ae3e86114e583d55c502296470
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451224"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895400"
 ---
 # <a name="saas-application-technical-info-tab"></a>SaaS 애플리케이션 기술 정보 탭
 
@@ -42,7 +42,7 @@ ms.locfileid: "54451224"
 이 환경을 빌드하려면 다음을 구성해야 합니다.
 
 - SaaS 서비스 웹 사이트를 Microsoft SaaS API에 연결합니다. [Azure를 통해 SaaS 판매 - API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) 문서에서 이 연결을 만드는 방법을 설명합니다.
-- Cloud 파트너 포털의 기술 구성 양식에서 Azure를 통해 판매를 사용하도록 설정하고 필요한 정보를 제공합니다. 이 청구 모델 및 구현 방식에 대한 자세한 내용은 [SaaS - Azure를 통해 판매](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions#overview)를 참조하세요.
+- Cloud 파트너 포털의 기술 구성 양식에서 Azure를 통해 판매를 사용하도록 설정하고 필요한 정보를 제공합니다. 이 청구 모델 및 구현 방식에 대한 자세한 내용은 [SaaS - Azure를 통해 판매](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions)를 참조하세요.
 
  ![Microsoft를 통해 판매 양식](./media/saas-techinfo-sellthrough-ms.png)
 

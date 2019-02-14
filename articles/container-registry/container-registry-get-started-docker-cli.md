@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: e4963ebae73bdd81246433fe43206139caa1661c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295783"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982848"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 개인 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
 
@@ -37,7 +37,7 @@ az acr login --name myregistry
 
 [docker login](https://docs.docker.com/engine/reference/commandline/login/)을 사용하여 로그인할 수도 있습니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 [서비스 주체를 할당](container-registry-authentication.md#service-principal)할 수 있습니다. 다음 명령을 실행할 때 메시지가 표시되면 서비스 주체 appID(사용자 이름) 및 암호를 대화식으로 입력하세요. 로그인 자격 증명 관리 모범 사례는 [docker 로그인](https://docs.docker.com/engine/reference/commandline/login/) 명령 참조를 참조하세요.
 
-```Docker
+```
 docker login myregistry.azurecr.io
 ```
 
@@ -50,7 +50,7 @@ docker login myregistry.azurecr.io
 
 먼저 공개 Nginx 이미지를 로컬 컴퓨터로 풀합니다.
 
-```Docker
+```
 docker pull nginx
 ```
 
@@ -58,7 +58,7 @@ docker pull nginx
 
 다음 [docker run](https://docs.docker.com/engine/reference/run/) 명령을 실행하여 포트 8080에서 Nginx 컨테이너의 로컬 인스턴스를 대화형으로 시작합니다(`-it`). `--rm` 인수는 사용자가 해당 컨테이너를 중지하면 제거되어야 함을 지정합니다.
 
-```Docker
+```
 docker run -it --rm -p 8080:80 nginx
 ```
 
@@ -74,7 +74,7 @@ docker run -it --rm -p 8080:80 nginx
 
 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/)를 사용하여 레지스트리에 대한 정규화된 경로를 통한 이미지의 별칭을 만듭니다. 이 예제는 레지스트리의 루트에서 혼잡을 방지하기 위해 `samples` 네임스페이스를 지정합니다.
 
-```Docker
+```
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
@@ -84,7 +84,7 @@ docker tag nginx myregistry.azurecr.io/samples/nginx
 
 이제 개인 레지스트리에 대한 정규화된 경로로 이미지에 태그를 지정했으므로 [docker push](https://docs.docker.com/engine/reference/commandline/push/)로 레지스트리에 푸시할 수 있습니다.
 
-```Docker
+```
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
@@ -92,7 +92,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) 명령을 사용하여 레지스트리에서 이미지를 풀합니다.
 
-```Docker
+```
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
@@ -100,7 +100,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 
 [docker run](https://docs.docker.com/engine/reference/run/) 명령을 사용하여 레지스트리에서 풀한 이미지를 실행합니다.
 
-```Docker
+```
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
@@ -112,7 +112,7 @@ docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 
 Nginx 이미지가 더 이상 필요하지 않으면 [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) 명령을 사용하여 로컬로 삭제할 수 있습니다.
 
-```Docker
+```
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 

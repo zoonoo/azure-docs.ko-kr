@@ -4,23 +4,21 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 360fd9247684fea483d744d9be77d095b667d66d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164251"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889380"
 ---
-<!--author=alkohli last changed: 07/05/2017-->
-
 > [!NOTE] 
 > 볼륨 컨테이너를 만든 후에는 볼륨 컨테이너와 연결된 암호화 설정과 저장소 계정 자격 증명을 수정할 수 없습니다.
 
 #### <a name="to-modify-a-volume-container"></a>볼륨 컨테이너를 수정하려면
 
-1. StorSimple 장치 관리자 서비스로 이동한 다음 **관리 > 볼륨 컨테이너**로 이동합니다.
+1. StorSimple 디바이스 관리자 서비스로 이동한 다음 **관리 &gt; 볼륨 컨테이너**로 이동합니다.
 
-2. 테이블 형식의 볼륨 컨테이너 목록에서 수정하려는 볼륨 컨테이너를 선택합니다. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
+2. 테이블 형식의 볼륨 컨테이너 목록에서 수정하려는 볼륨 컨테이너를 선택합니다. **디바이스** 페이지에서 디바이스를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
 
 2. 테이블 형식의 볼륨 컨테이너 목록에서 수정하려는 볼륨 컨테이너를 선택합니다. 열리는 블레이드의 명령 모음에서 **수정**을 클릭합니다.
 

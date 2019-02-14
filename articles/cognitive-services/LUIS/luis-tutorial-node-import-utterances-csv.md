@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: LUIS 작성 API를 사용하여 CSV 형식의 기존 데이터에서 프로그래밍 방식으로 LUIS 앱을 빌드하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: e4b1e9bcdedd802b1937aad25027a1ab8546f674
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 314d121e8964ba1cdbb457260826d85bf8505fbc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495499"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883256"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
 

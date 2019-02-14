@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c796ccf9466f83714b429f6551618529e5fef47c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 74a9764187b15bddf1dc48fa2b7988217d31abce
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164751"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889711"
 ---
-<!--author=alkohli last changed: 03/17/16-->
-
 ## <a name="troubleshooting-update-failures"></a>업데이트 오류 문제 해결
 **업그레이드 전 검사에 실패했다는 알림을 보는 경우 어떻게 되나요?**
 
@@ -32,7 +30,7 @@ ms.locfileid: "50164751"
 
 연결되었음을 확인했으나 계속 이 문제가 발생하는 경우, 다음 단계는 Microsoft 지원에 문의하세요.
 
-**장치를 업데이트 4로 업데이트하고 두 컨트롤러가 업데이트 4를 실행 중인 경우 업데이트에 실패하면 어떻게 되나요?**
+**디바이스를 업데이트 4로 업데이트하고 두 컨트롤러가 업데이트 4를 실행 중인 경우 업데이트에 실패하면 어떻게 되나요?**
 
 업데이트 4부터는 두 컨트롤러 모두 동일한 소프트웨어 버전을 실행하며 업데이트 실패가 있는 경우 컨트롤러는 복구 모드로 전환되지 않습니다. 이 상황은 디바이스 소프트웨어 핫픽스(첫 번째 업데이트 순서)가 두 컨트롤러에 성공적으로 적용되지만 다른 핫픽스(두 번째 순서 및 세 번째 순서)는 적용 예정인 경우에 발생할 수 있습니다. 업데이트 4부터는 두 컨트롤러가 다른 소프트웨어 버전을 실행하는 경우에만 컨트롤러가 복구 모드로 전환됩니다. 
 

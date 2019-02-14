@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6511eb7a4651f0b95b7821e1959ba7e4130c2d6e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105800"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999371"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure에서 관리 솔루션 파일 만들기(Preview)
 > [!NOTE]
@@ -53,7 +53,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 ## <a name="parameters"></a>매개 변수
 [매개 변수](../../azure-resource-manager/resource-group-authoring-templates.md#parameters)는 사용자가 관리 솔루션을 설치할 때 사용자에게 요구할 값입니다.  모든 솔루션에 포함될 표준 매개 변수가 있고, 특정 솔루션에 필요한 다른 매개 변수를 추가할 수 있습니다.  사용자가 솔루션을 설치할 때 매개 변수 값을 제공하는 방법은 솔루션 설치 방법과 특정 매개 변수에 따라 다릅니다.
 
-사용자가 Azure Marketplace 또는 Azure 빠른 시작 템플릿을 통해 [관리 솔루션을 설치](solutions.md#install-a-management-solution)하는 경우 [Log Analytics 작업 영역 및 Automation 계정](solutions.md#log-analytics-workspace-and-automation-account)을 선택하라는 메시지가 표시됩니다.  이러한 템플릿은 각 표준 매개 변수의 값을 채우는 데 사용됩니다.  사용자에게는 표준 매개 변수의 값을 직접 제공하라는 메시지가 표시되지 않고 추가 매개 변수의 값을 제공하라는 메시지가 표시됩니다.
+사용자가 Azure Marketplace 또는 Azure 빠른 시작 템플릿을 통해 [관리 솔루션을 설치](solutions.md#install-a-monitoring-solution)하는 경우 [Log Analytics 작업 영역 및 Automation 계정](solutions.md#log-analytics-workspace-and-automation-account)을 선택하라는 메시지가 표시됩니다.  이러한 템플릿은 각 표준 매개 변수의 값을 채우는 데 사용됩니다.  사용자에게는 표준 매개 변수의 값을 직접 제공하라는 메시지가 표시되지 않고 추가 매개 변수의 값을 제공하라는 메시지가 표시됩니다.
 
 
 샘플 매개 변수는 다음과 같습니다.  
@@ -83,7 +83,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 >
 >
 
-| 매개 변수 | type | 설명 |
+| 매개 변수 | Type | 설명 |
 |:--- |:--- |:--- |
 | accountName |string |Azure Automation 계정 이름입니다. |
 | pricingTier |string |Log Analytics 작업 영역 및 Azure Automation 계정의 가격 책정 계층입니다. |

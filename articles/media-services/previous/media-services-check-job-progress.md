@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 9f5632f6b4a99c4771f10a89165b452addee0f1c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3175bc2210bda47bb647cfc5341ea237b8253f6e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035767"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990192"
 ---
-# <a name="monitor-job-progress-using-net"></a>.NET을 사용하여 작업 진행 상태 모니터링
+# <a name="monitor-job-progress-using-net"></a>.NET을 사용하여 작업 진행 상태 모니터링 
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -29,7 +29,7 @@ ms.locfileid: "51035767"
 > 
 > 
 
-작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. StateChanged 이벤트 처리기를 정의하거나(이 항목에서 설명된 대로) Azure 큐 저장소를 사용해 Media Services 작업 알림을 모니터링하여( [이](media-services-dotnet-check-job-progress-with-queues.md) 항목에서 설명된 대로) 진행률을 확인할 수 있습니다.
+작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. StateChanged 이벤트 처리기를 정의하거나(이 항목에서 설명된 대로) Azure Queue Storage를 사용해 Media Services 작업 알림을 모니터링하여( [이](media-services-dotnet-check-job-progress-with-queues.md) 항목에서 설명된 대로) 진행률을 확인할 수 있습니다.
 
 ## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>작업 진행 상태를 모니터링 하는 StateChanged 이벤트 처리기를 정의합니다.
 다음 코드 예제는 StateChanged 이벤트 처리기를 정의합니다. 이 이벤트 처리기는 작업 진행 상태를 추적하고 상태에 따라 업데이트된 상태를 제공합니다. 또한 다음 코드는 LogJobStop 메서드를 정의합니다. 이 도우미 메서드는 오류 세부 정보를 기록합니다.

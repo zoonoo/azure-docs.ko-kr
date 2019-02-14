@@ -4,7 +4,7 @@ description: 엔터프라이즈 규모, 규정 준수, 보안 및 전 세계 범
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/08/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0ac8b9fad35267ceaec5b5acec4722b6005f68a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c60fd90adda4c362b15fe2e324aa55a581c9e59a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783592"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003775"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>Media Services 플랫폼에서 미디어 분석
+# <a name="media-analytics-on-the-media-services-platform"></a>Media Services 플랫폼에서 미디어 분석 
+
 ## <a name="overview"></a>개요
 직원을 교육하고, 고객을 참여시키고, 비즈니스 기능을 문서화하는 기본 미디어로 비디오를 사용하는 조직이 늘어나고 있습니다. 클라우드 컴퓨팅은 이러한 대용량 미디어 파일을 저장, 스트림, 액세스하는 방법을 제공합니다. 하지만 비디오 콘텐츠의 회사 라이브러리가 늘어남에 따라 콘텐츠에서 통찰력을 추출하는 효과적인 방법이 동일하게 필요합니다. 
 

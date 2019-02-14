@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: QnA Maker Service를 생성하는 동안 App Insights를 사용하도록 설정한 경우 QnA Maker는 모든 채팅 로그 및 기타 원격 분석을 저장합니다. App Insights에서 채팅 로그를 가져오려면 샘플 쿼리를 실행합니다.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/04/2019
 ms.author: tulasim88
-ms.openlocfilehash: 6665efed53c7864467d7a6a72d109841c3a02b53
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 288db572f6b50d370f1dab710d3b0e7ab5e50bd5
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747546"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878241"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>기술 자료에 대한 분석 가져오기
 

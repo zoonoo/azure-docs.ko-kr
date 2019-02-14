@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Web API 인터페이스를 사용하여 KES(Knowledge Exploration Service) API에서 풍부한 의미 체계 검색 환경을 만들 수 있습니다.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 131d8d58982b5430063aa3dc7b3d1982cd430148
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 970db5984eedebf98bbb087cfd0b4a35a21a0f54
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211307"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861190"
 ---
 # <a name="web-api-interface"></a>Web API 인터페이스
 

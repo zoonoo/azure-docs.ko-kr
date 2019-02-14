@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 46c00a4dbf6e72165477662dbc709211dad70737
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: d0d181afd9bb8f1d387ce8e33f50a78dae3a11ec
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452533"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961434"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>APNS에 대한 토큰 기반(HTTP/2) 인증
 
@@ -118,7 +118,7 @@ Apple 개발자 계정의 "키" 페이지에서 키 식별자를 가져올 수 �
 
 올바른 사용법을 보여 주는 코드 샘플은 다음과 같습니다.
 
-```text
+```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
 string token = "YOUR TOKEN HERE";
 string keyId = "YOUR KEY ID HERE";

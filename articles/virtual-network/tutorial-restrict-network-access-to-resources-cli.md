@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 31d583456f2ca0a2804c2215906965c2241af52d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e4f8b99cfeaa35644ed51fd8ad712fe4744c0226
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751500"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890946"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -72,7 +72,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-[az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 가상 네트워크에서 추가 서브넷을 만듭니다. 이 예제에서는 서브넷에 대해 *Microsoft.Storage*용 서비스 엔드포인트가 생성됩니다. 
+[az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 가상 네트워크에서 추가 서브넷을 만듭니다. 이 예제에서는 서브넷에 대해 *Microsoft.Storage*용 서비스 엔드포인트가 생성됩니다. 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -85,7 +85,7 @@ az network vnet subnet create \
 
 ## <a name="restrict-network-access-for-a-subnet"></a>서브넷에 대한 네트워크 액세스 제한
 
-[az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNsgPrivate*라는 네트워크 보안 그룹을 만듭니다.
+[az network nsg create](/cli/azure/network/nsg)를 사용하여 네트워크 보안 그룹을 만듭니다. 다음 예제에서는 *myNsgPrivate*라는 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli-interactive
 az network nsg create \
@@ -93,7 +93,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-[az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)를 사용하여 네트워크 보안 그룹을 *Private* 서브넷에 연결합니다. 다음 예제에서는 *myNsgPrivate* 네트워크 보안 그룹을 *Private* 서브넷에 연결합니다.
+[az network vnet subnet update](/cli/azure/network/vnet/subnet)를 사용하여 네트워크 보안 그룹을 *Private* 서브넷에 연결합니다. 다음 예제에서는 *myNsgPrivate* 네트워크 보안 그룹을 *Private* 서브넷에 연결합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -156,7 +156,7 @@ az network nsg rule create \
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-[az storage account create](/cli/azure/storage/account#az_storage_account_create)를 사용하여 Azure Storage 계정을 만듭니다. `<replace-with-your-unique-storage-account-name>`을 모든 Azure 위치에서 고유한 이름으로 바꿉니다. 이름은 3~24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다.
+[az storage account create](/cli/azure/storage/account)를 사용하여 Azure Storage 계정을 만듭니다. `<replace-with-your-unique-storage-account-name>`을 모든 Azure 위치에서 고유한 이름으로 바꿉니다. 이름은 3~24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다.
 
 ```azurecli-interactive
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -197,7 +197,7 @@ az storage share create \
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>저장소 계정에 대한 모든 네트워크 액세스 거부
 
-기본적으로 저장소 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 선택한 네트워크에 대한 액세스를 제한하려면 [az storage account update](/cli/azure/storage/account#az_storage_account_update)를 사용하여 기본 작업을 *거부*로 변경합니다. 네트워크 액세스가 거부되면 네트워크에서 저장소 계정에 액세스할 수 없습니다.
+기본적으로 저장소 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 선택한 네트워크에 대한 액세스를 제한하려면 [az storage account update](/cli/azure/storage/account)를 사용하여 기본 작업을 *거부*로 변경합니다. 네트워크 액세스가 거부되면 네트워크에서 저장소 계정에 액세스할 수 없습니다.
 
 ```azurecli-interactive
 az storage account update \
@@ -208,7 +208,7 @@ az storage account update \
 
 ### <a name="enable-network-access-from-a-subnet"></a>서브넷에서 네트워크 액세스 사용
 
-[az storage account network-rule add](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add)를 사용하여 *Private* 서브넷에서 스토리지 계정에 대한 네트워크 액세스를 허용합니다.
+[az storage account network-rule add](/cli/azure/storage/account/network-rule)를 사용하여 *Private* 서브넷에서 스토리지 계정에 대한 네트워크 액세스를 허용합니다.
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -334,7 +334,7 @@ az storage share list \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure#az_group_delete)를 사용하여 리소스 그룹 및 그룹에 포함된 모든 리소스를 제거합니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure)를 사용하여 리소스 그룹 및 그룹에 포함된 모든 리소스를 제거합니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

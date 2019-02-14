@@ -4,7 +4,7 @@ description: 이 문서에서는 클라우드 서비스, Virtual Machines 및 �
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: c2b7935cc110b2ad05f4af2773158c2e1b658d4d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2d6d1d121e41b0446e7f63b9aa530df89697ef67
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242010"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117926"
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
 Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 디바이스 등 여러 디바이스에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라, 관리 기능은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)과 같은 웹 기반 콘솔을 통해 수행됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 애플리케이션 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 엔드포인트는 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
@@ -49,7 +49,7 @@ Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 
 
 불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예제:
 
-* 디바이스의 주요 목적이 클라우드 서비스를 관리하는 것인 경우 모든 표준 관리, 지원 또는 개발 워크스테이션은 이메일 클라이언트 또는 기타 생산성 애플리케이션을 설치할 필요가 없습니다.
+* 장치의 주요 목적이 클라우드 서비스를 관리하는 것인 경우 모든 표준 관리, 지원 또는 개발 워크스테이션은 이메일 클라이언트 또는 기타 생산성 애플리케이션을 설치할 필요가 없습니다.
 
 인프라 구성 요소에 대한 관리자 권한이 있는 클라이언트 시스템은 보안 위험을 줄이기 위하여 가능한 한 가장 엄격한 정책을 적용해야 합니다. 예제:
 
@@ -117,7 +117,7 @@ Virtual Machine–배포 애플리케이션은 필요에 따라 MMC(Microsoft Ma
 ## <a name="security-guidelines"></a>보안 지침
 일반적으로 클라우드와 함께 사용하기 위해 관리자 워크스테이션의 보안을 강화하는 작업은 모든 워크스테이션 온-프레미스에 적용되는 작업(예: 최소화된 빌드 및 제한적인 권한)과 유사합니다. 클라우드 관리의 몇 가지 고유한 측면은 원격 또는 대역 외 엔터프라이즈 관리와 비슷합니다. 여기에는 자격 증명의 사용 및 감사, 보안 향상된 원격 액세스, 위협 요소 탐지 및 대응이 있습니다.
 
-### <a name="authentication"></a>인증
+### <a name="authentication"></a>Authentication
 Azure 로그온 제한을 사용하여 관리 도구에 액세스하기 위한 원본 IP 주소를 제한하고 액세스 요청을 감사할 수 있습니다. Azure가 관리 클라이언트(워크스테이션 및/또는 애플리케이션)를 식별하도록 하려면 SMAPI(Windows PowerShell cmdlet 등 고객 개발 도구를 통해)와 Azure Portal이 SSL 인증서 외에도 설치할 클라이언트 쪽 관리 인증서를 요구하도록 구성할 수 있습니다. 또한 관리자 액세스에 대해 다단계 인증을 요구하는 것이 좋습니다.
 
 Azure에 배포하는 일부 애플리케이션 또는 서비스는 최종 사용자와 관리자 액세스를 위한 자체 인증 메커니즘이 있을 수 있지만, 다른 것들은 Azure AD를 최대한 활용합니다. Active Directory Federation Services(AD FS)를 통해 자격 증명을 페더레이션할지, 디렉터리 동기화를 사용할지, 클라우드에서 사용자 계정만 관리할지에 따라 [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx)(Azure AD Premium의 일부)를 사용하면 리소스 간의 ID 수명 주기를 관리할 수 있습니다.
@@ -155,7 +155,7 @@ RD 게이트웨이를 통해 Azure에 연결되지 않은 독립 실행형 강�
 온-프레미스 인프라가 없는 IT 환경의 경우(예: 모든 서버가 클라우드에 있어서 GPO에 대한 로컬 AD DS 인스턴스에 액세스할 수 없는 경우), [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx)과 같은 서비스를 사용하면 워크스테이션 구성의 배포 및 관리를 간소화할 수 있습니다.
 
 ### <a name="stand-alone-hardened-workstation-for-management"></a>관리를 위한 독립 실행형 강화된 워크스테이션
-독립 실행형 강화된 워크스테이션에서 관리자는 관리 작업에 PC나 랩톱을 사용하고, 비 관리 작업에는 다른 별도의 PC 또는 랩톱을 사용합니다. Azure 서비스 관리 전용 워크스테이션에는 다른 애플리케이션을 설치할 필요가 없습니다. 또한 TPM([신뢰할 수 있는 플랫폼 모듈](https://technet.microsoft.com/library/cc766159)) 또는 유사한 하드웨어 수준 암호화 기술을 지원하는 워크스테이션을 사용하면 디바이스를 인증하고 특정 공격을 방지할 수 있습니다. TPM은 또한 [BitLocker 드라이브 암호화](https://technet.microsoft.com/library/cc732774.aspx)를 사용하여 시스템 드라이브의 전체 볼륨 보호를 지원할 수 있습니다.
+독립 실행형 강화된 워크스테이션에서 관리자는 관리 작업에 PC나 랩톱을 사용하고, 비 관리 작업에는 다른 별도의 PC 또는 랩톱을 사용합니다. Azure 서비스 관리 전용 워크스테이션에는 다른 애플리케이션을 설치할 필요가 없습니다. 또한 TPM([신뢰할 수 있는 플랫폼 모듈](https://technet.microsoft.com/library/cc766159)) 또는 비슷한 하드웨어 수준 암호화 기술을 지원하는 워크스테이션을 사용하면 디바이스를 인증하고 특정 공격을 방지할 수 있습니다. TPM은 또한 [BitLocker 드라이브 암호화](https://technet.microsoft.com/library/cc732774.aspx)를 사용하여 시스템 드라이브의 전체 볼륨 보호를 지원할 수 있습니다.
 
 독립 실행형 강화된 워크스테이션 시나리오에서(아래 참조) Windows 방화벽(또는 비 Microsoft 클라이언트 방화벽)의 로컬 인스턴스는 RDP와 같이 인바운드 연결을 차단하도록 구성됩니다. 관리자는 강화된 워크스테이션에 로그온하여 VPN을 Azure Virtual Network와 연결한 후 Azure에 연결하는 RDP 세션을 시작할 수 있지만, 회사 PC에 로그온할 수 없으며 RDP를 사용하여 강화된 워크스테이션에 연결할 수 있습니다.
 
@@ -198,7 +198,7 @@ Azure에서 애플리케이션 및 데이터를 관리하는 경우 다음의 �
 | - | 모든 관리 연결에 대한 방화벽, VPN 및 NAP를 사용합니다. |
 
 ## <a name="azure-operations"></a>Azure 작업
-Microsoft의 Azure 작업 내에서, Azure의 프로덕션 시스템에 액세스하는 작업 엔지니어 및 고객 지원 담당자는 회사 내부 네트워크 액세스 및 애플리케이션(예: 전자 메일, 인트라넷 등)을 위해 프로비전되고 [VM으로 강화된 워크스테이션 PC](#stand-alone-hardened-workstation-for-management)를 사용합니다. 모든 관리 워크스테이션 컴퓨터에는 TPM이 있고, 호스트 부트 드라이브는 BitLocker로 암호화되어 있으며, Microsoft의 기본 회사 도메인에 특별 조직 구성 단위(OU)에 가입되어 있습니다.
+Microsoft의 Azure 작업 내에서, Azure의 프로덕션 시스템에 액세스하는 작업 엔지니어 및 고객 지원 담당자는 회사 내부 네트워크 액세스 및 애플리케이션(예: 이메일, 인트라넷 등)을 위해 프로비전되고 [VM으로 강화된 워크스테이션 PC](#stand-alone-hardened-workstation-for-management)를 사용합니다. 모든 관리 워크스테이션 컴퓨터에는 TPM이 있고, 호스트 부트 드라이브는 BitLocker로 암호화되어 있으며, Microsoft의 기본 회사 도메인에 특별 조직 구성 단위(OU)에 가입되어 있습니다.
 
 중앙 집중화된 소프트웨어 업데이트와 함께 그룹 정책을 통해 시스템 강화가 적용됩니다. 감사 및 분석을 위해 이벤트 로그(예: 보안 및 AppLocker)는 관리 워크스테이션에서 수집되며 중앙 위치에 저장됩니다.
 

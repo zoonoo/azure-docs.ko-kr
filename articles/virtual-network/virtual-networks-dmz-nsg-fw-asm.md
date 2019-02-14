@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 19e9690905fd993d59b186d59cc257b6b57e78b2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 31d945f64cccd0c811d4dc45163583224102fb8a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449829"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965242"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>예 2 - 방화벽 및 NSG로 애플리케이션을 보호하는 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
@@ -245,6 +245,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 > 
 > 
 
+```powershell
     <# 
      .SYNOPSIS
       Example of DMZ and Network Security Groups in an isolated network (Azure only, no hybrid connections)
@@ -352,7 +353,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
           $SubnetName += $FESubnet
           $VMIP += "10.0.1.5"
 
-        # VM 2 - The First Appliaction Server
+        # VM 2 - The First Application Server
           $VMName += "AppVM01"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -361,7 +362,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
           $SubnetName += $BESubnet
           $VMIP += "10.0.2.5"
 
-        # VM 3 - The Second Appliaction Server
+        # VM 3 - The Second Application Server
           $VMName += "AppVM02"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -380,7 +381,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Varibles or   #
+    # No User Defined Variables or   #
     # Configuration past this point #
     # ----------------------------- #
 
@@ -532,11 +533,12 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
       Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
       Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
       Write-Host
-
+```
 
 #### <a name="network-config-file"></a>네트워크 구성 파일
 업데이트된 위치로 이 xml 파일을 저장하고 이 파일에 대한 링크를 위의 스크립트에 있는 $NetworkConfigFile 변수에 추가합니다.
 
+```xml
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
@@ -566,6 +568,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
         </VirtualNetworkSites>
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
+```
 
 #### <a name="sample-application-scripts"></a>샘플 애플리케이션 스크립트
 이에 대한 샘플 애플리케이션 및 기타 DMZ 예제를 설치하려는 경우 다음 링크를 통해 제공됩니다. [샘플 애플리케이션 스크립트][SampleApp]

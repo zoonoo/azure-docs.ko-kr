@@ -4,7 +4,7 @@ description: Azure Media Services를 사용하여 부드러운 스트림 콘텐�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 65625fcc12143a8ea53ff2ab7d1dfcb43a0def8d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828318"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992146"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 애플리케이션을 빌드하는 방법
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 애플리케이션을 빌드하는 방법  
 
 Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형 및 Live Smooth Streaming 콘텐츠를 재생할 수 있는 Windows 스토어 애플리케이션을 빌드할 수 있습니다. 부드러운 스트리밍 콘텐츠의 기본 재생뿐 아니라 SDK는 Microsoft PlayReady 보호, 품질 수준 제한, Live DVR, 오디오 스트림 전환, 상태 업데이트(예: 품질 수준 변경) 수신 대기, 오류 이벤트 등의 풍부한 기능도 제공합니다. 지원되는 기능에 대한 자세한 내용은 [릴리스 정보](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes)를 참조하십시오. 자세한 내용은 [Windows 8용 플레이어 프레임워크](http://playerframework.codeplex.com/)를 참조하세요. 
 
@@ -66,11 +66,11 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. [새 프로젝트] 대화 상자에서 다음 값을 입력하거나 선택합니다.
 
-| 이름 | 값 |
+| Name | 값 |
 | --- | --- |
 | 템플릿 그룹 |Installed/Templates/Visual C#/Windows Store |
 | Template |새 응용 프로그램(XAML) |
-| 이름 |SSPlayer |
+| Name |SSPlayer |
 | 위치 |C:\SSTutorials |
 | 솔루션 이름 |SSPlayer |
 | 솔루션에 대한 디렉터리 만들기 |(선택됨) |
@@ -82,7 +82,7 @@ Windows 스토어 애플리케이션 개발에 대한 자세한 내용은 [유�
 1. [솔루션 탐색기]에서 **SSPlayer**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다.
 2. 다음 값을 입력하거나 선택합니다.
 
-| 이름 | 값 |
+| Name | 값 |
 | --- | --- |
 | 참조 그룹 |Windows/Extensions |
 | 참고 자료 |Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택 |

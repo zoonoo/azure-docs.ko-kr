@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 9bd2ee708f7d27cff5d07ca7f86d925ca6d2741d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d35f0ef783a2c48f8211657bc8829635c19495aa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165469"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889694"
 ---
-<!--author=SharS last changed: 12/01/15-->
-
 #### <a name="to-enter-maintenance-mode"></a>유지 관리 모드를 설정하려면
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
 2. 암호를 입력합니다. 기본 암호는 **Password1**입니다.

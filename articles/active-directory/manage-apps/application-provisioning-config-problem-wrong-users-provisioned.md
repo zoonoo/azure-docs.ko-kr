@@ -3,8 +3,8 @@ title: Azure AD 갤러리 애플리케이션에 잘못된 사용자 집합이 �
 description: 예상한 것과 다른 사용자 집합이 애플리케이션에 프로비전되는 이유를 파악하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 18768b6023077cb48f6189ddcf3c9a7e80610ab7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b683abbba2013fef47f648c11a52d7767d7cdf08
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160372"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206330"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 잘못된 사용자 집합이 프로비전됨
 

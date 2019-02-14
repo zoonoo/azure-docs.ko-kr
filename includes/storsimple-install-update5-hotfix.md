@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 450f62cd3605656ff8907c0020775f634dba0b4a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 8abc6129e1179378ac90278fd2032737b2b828b2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55148011"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888806"
 ---
-<!--author=alkohli last changed: 08/21/17-->
-
 #### <a name="to-download-hotfixes"></a>핫픽스를 다운로드하려면
 
 Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운로드하려면 다음 단계를 수행합니다.

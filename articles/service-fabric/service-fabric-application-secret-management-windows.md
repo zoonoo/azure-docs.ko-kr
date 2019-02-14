@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: f7582f26eb65526ad392f2df29f5686e18262e40
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 6aba94aa083127c2300481dbc8e30c224a1813a3
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54068961"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109268"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Windows 클러스터에서 암호화 인증서 설정 및 비밀 암호화
 이 문서에서는 Windows 클러스터에서 암호화 인증서를 설정하고 이를 사용하여 비밀을 암호화하는 방법을 알아봅니다. Linux 클러스터의 경우 [Linux 클러스터에서 암호화 인증서 설정 및 비밀 암호화][secret-management-linux-specific-link]를 참조하세요.
@@ -55,7 +55,7 @@ Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text 
 [애플리케이션에서 암호화된 비밀을 지정하는][secret-management-specify-encrypted-secrets-link] 방법을 알아봅니다.
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-get-started.md
+[key-vault-get-started]:../key-vault/key-vault-overview.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
 [environment-variables-link]: service-fabric-how-to-specify-environment-variables.md

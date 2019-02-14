@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Academic Knowledge API에서 사용할 수 있는 람다 검색 구문에 대해 알아봅니다.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: a76be5203c7d62ba973993bf6338b7496e2fce80
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4d4c540e00794bfdf1df265457798cc13530c828
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203932"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873209"
 ---
 # <a name="lambda-search-syntax"></a>람다 검색 구문
 

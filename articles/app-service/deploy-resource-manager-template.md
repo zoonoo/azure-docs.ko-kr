@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 1431ba658a6eb898553804f0c81b3babb23f4fe2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 780d2134aa00f828a614af6938978e24df3534cd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015205"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105114"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
 
@@ -113,12 +113,14 @@ Resource Manager 템플릿에서 MSDeploy를 사용하는 경우 배포 오류 �
 
 ## <a name="deploy-web-app-certificate-from-key-vault"></a>Key Vault에서 웹앱 인증서 배포
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 템플릿에 SSL 바인딩에 대한 [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) 리소스가 포함되어 있고 인증서가 Key Vault에 저장되어 있는 경우, App Service ID가 인증서에 액세스할 수 있는지 확인해야 합니다.
 
 전역 Azure에서 App Service 서비스 주체의 ID는 **abfa0a7c-a6b6-4736-8310-5855508787cd**입니다. App Service 서비스 주체에 Key Vault에 대한 액세스를 허용하려면 다음을 사용합니다.
 
 ```azurepowershell-interactive
-Set-AzureRmKeyVaultAccessPolicy `
+Set-AzKeyVaultAccessPolicy `
   -VaultName KEY_VAULT_NAME `
   -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
   -PermissionsToSecrets get `

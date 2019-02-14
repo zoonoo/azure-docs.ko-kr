@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 이 빠른 시작 가이드는 Unity 프로젝트에서 플러그 인을 통합하고, 장면을 준비하고, 소리 원본에 음향 효과를 적용하는 방법을 보여 줍니다.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 0aad231b4a57c2d9927a553a43394681282b5494
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a9cc8c7b4cdcc05d38bc0d68561fc9d86305b0cb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155955"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55879917"
 ---
 # <a name="getting-started-with-project-acoustics"></a>프로젝트 Acoustics 시작
 이 빠른 시작 가이드는 Unity 프로젝트에서 플러그 인을 통합하고, 장면을 준비하고, 소리 원본에 음향 효과를 적용하는 방법을 보여 줍니다. 이 빠른 시작에서는 먼저 [Azure Batch 계정](create-azure-account.md)을 만들어야 합니다. 이 가이드에서는 Unity 사용 경험이 있다고 가정합니다.

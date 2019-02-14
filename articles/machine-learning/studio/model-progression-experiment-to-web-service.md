@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: a2e7c45615c1f9d07ef3392ee10579a1b5e3588f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 31005077c9c149f9aff055432d9577a63bac8e1c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477984"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992292"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>실험에서 조작 가능한 웹 서비스까지 Machine Learning Studio 모델 진행 과정
 Azure Machine Learning Studio는 예측 분석 모델을 대신하는 ***실험***을 개발, 실행, 테스트 및 반복할 수 있는 대화형 캔버스를 제공합니다. 다음 작업에 사용할 수 있는 모듈을 매우 다양하게 갖추고 있습니다.
@@ -46,7 +46,7 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 *그림 1 - 일반적인 예측 분석 모델의 단계*
 
 ### <a name="the-training-experiment"></a>학습 실험
-***학습 실험***은 Machine Learning Studio에서 웹 서비스를 개발하기 위한 초기 단계입니다. 학습 실험의 목적은 기계 학습 모델을 개발, 테스트, 반복하고 최종적으로 학습할 장소를 제공하는 것입니다. 최적의 솔루션을 찾으면서 여러 모델을 동시에 학습할 수도 있으나 실험을 완료한 후에는 하나의 학습 모델을 선택하고 나머지 모델은 실험에서 제거합니다. 예측 분석 실험 개발의 예를 보려면 [Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)을 참조하세요.
+***학습 실험***은 Machine Learning Studio에서 웹 서비스를 개발하기 위한 초기 단계입니다. 학습 실험의 목적은 기계 학습 모델을 개발, 테스트, 반복하고 최종적으로 학습할 장소를 제공하는 것입니다. 최적의 솔루션을 찾으면서 여러 모델을 동시에 학습할 수도 있으나 실험을 완료한 후에는 하나의 학습 모델을 선택하고 나머지 모델은 실험에서 제거합니다. 예측 분석 실험 개발의 예를 보려면 [Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발](tutorial-part1-credit-risk.md)을 참조하세요.
 
 ### <a name="the-predictive-experiment"></a>예측 실험
 학습 실험에서 모델을 학습한 후에 Machine Learning Studio에서 **웹 서비스 설정**을 클릭하여 **예측 웹 서비스**를 선택하면 학습 실험을 ***예측 실험***으로 변환하는 프로세스를 시작합니다. 예측 실험의 목적은 학습된 모델을 사용하여 새 데이터에 점수를 매기며, 최종적으로는 조작 가능한 Azure 웹 서비스가 되도록 하는 것입니다.
@@ -114,5 +114,5 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 전체 프로세스에 대한 예는 다음을 참조하세요.
 
 * [기계 학습 자습서: Azure Machine Learning Studio에서 첫 번째 실험 만들기](create-experiment.md)
-* [연습: Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
+* [연습: Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발](tutorial-part1-credit-risk.md)
 

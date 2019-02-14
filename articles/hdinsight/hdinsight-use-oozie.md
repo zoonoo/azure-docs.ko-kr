@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 983ea87a7387c4ce6bb0c1c67bf46d81c717e69a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993086"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984259"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -123,26 +123,23 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 RunHiveScript에는 몇 개의 변수가 있습니다. Azure PowerShell을 사용하여 워크스테이션에서 Oozie 작업을 제출할 때 이러한 값을 전달합니다.
 
-<table border = "1">
-<tr><th>워크플로 변수</th><th>설명</th></tr>
-<tr><td>${jobTracker}</td><td>Hadoop 작업 추적기의 URL을 지정합니다. HDInsight 버전 2.1 및 3.0에서 <strong>jobtrackerhost:9010</strong>를 사용하세요.</td></tr>
-<tr><td>${nameNode}</td><td>Hadoop 이름 노드의 URL을 지정합니다. <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>과 같은 기본 파일 시스템 주소를 사용합니다.</td></tr>
-<tr><td>${queueName}</td><td>작업을 제출할 큐 이름을 지정합니다. <strong>기본</strong>을 사용하세요.</td></tr>
-</table>
+|워크플로 변수|설명|
+|---|---|
+|${jobTracker}|Hadoop 작업 추적기의 URL을 지정합니다. HDInsight 버전 2.1 및 3.0에서 **jobtrackerhost:9010**를 사용하세요.|
+|${nameNode}|Hadoop 이름 노드의 URL을 지정합니다. *wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net*과 같은 기본 파일 시스템 주소를 사용합니다.|
+|${queueName}|작업을 제출할 큐 이름을 지정합니다. **기본**을 사용하세요.|
 
-<table border = "1">
-<tr><th>Hive 작업 변수</th><th>설명</th></tr>
-<tr><td>${hiveDataFolder}</td><td>Hive Create Table 명령의 소스 디렉터리를 지정합니다.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>INSERT OVERWRITE 문의 출력 폴더를 지정합니다.</td></tr>
-<tr><td>${hiveTableName}</td><td>log4j 데이터 파일을 참조하는 Hive 테이블의 이름을 지정합니다.</td></tr>
-</table>
+|Hive 작업 변수|설명|
+|---|---|
+|${hiveDataFolder}|Hive Create Table 명령의 소스 디렉터리를 지정합니다.|
+|${hiveOutputFolder}|INSERT OVERWRITE 문의 출력 폴더를 지정합니다.|
+|${hiveTableName}|log4j 데이터 파일을 참조하는 Hive 테이블의 이름을 지정합니다.|
 
-<table border = "1">
-<tr><th>Sqoop 작업 변수</th><th>설명</th></tr>
-<tr><td>${sqlDatabaseConnectionString}</td><td>SQL 데이터베이스 연결 문자열을 지정합니다.</td></tr>
-<tr><td>${sqlDatabaseTableName}</td><td>데이터를 내보낼 Azure SQL Database 테이블을 지정합니다.</td></tr>
-<tr><td>${hiveOutputFolder}</td><td>Hive INSERT OVERWRITE 문의 출력 폴더를 지정합니다. 이 폴더는 Sqoop 내보내기(내보내기 디렉터리)와 동일한 폴더입니다.</td></tr>
-</table>
+|Sqoop 작업 변수|설명|
+|---|---|
+|${sqlDatabaseConnectionString}|SQL 데이터베이스 연결 문자열을 지정합니다.|
+|${sqlDatabaseTableName}|데이터를 내보낼 Azure SQL Database 테이블을 지정합니다.|
+|${hiveOutputFolder}|Hive INSERT OVERWRITE 문의 출력 폴더를 지정합니다. 이 폴더는 Sqoop 내보내기(내보내기 디렉터리)와 동일한 폴더입니다.|
 
 Oozie 워크플로 및 워크플로 작업 사용에 대한 자세한 내용은 [Apache Oozie 4.0 설명서][apache-oozie-400](HDInsight 버전 3.0의 경우) 또는 [Apache Oozie 3.3.2 설명서][apache-oozie-332](HDInsight 버전 2.1의 경우)를 참조하세요.
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 08189522f4f73e996ed98f3996f87da8d93b5d2a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157468"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895638"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -44,7 +44,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 ## <a name="create-a-route-table"></a>경로 테이블 만들기
 
-이 문서에서 생성된 모든 리소스에 대해 [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만들어야 경로 테이블을 만들 수 있습니다. 
+이 문서에서 생성된 모든 리소스에 대해 [az group create](/cli/azure/group)를 사용하여 리소스 그룹을 만들어야 경로 테이블을 만들 수 있습니다. 
 
 ```azurecli-interactive
 # Create a resource group.
@@ -78,7 +78,7 @@ az network route-table route create \
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>서브넷에 경로 테이블 연결
 
-서브넷에 경로 테이블을 연결하려면 먼저 가상 네트워크 및 서브넷을 만들어야 합니다. [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 하나의 서브넷이 있는 가상 네트워크를 만듭니다.
+서브넷에 경로 테이블을 연결하려면 먼저 가상 네트워크 및 서브넷을 만들어야 합니다. [az network vnet create](/cli/azure/network/vnet)를 사용하여 하나의 서브넷이 있는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -107,7 +107,7 @@ az network vnet subnet create \
   --address-prefix 10.0.2.0/24
 ```
 
-[az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)를 사용하여 *myRouteTablePublic* 경로 테이블을 *공용* 서브넷에 연결합니다.
+[az network vnet subnet update](/cli/azure/network/vnet/subnet)를 사용하여 *myRouteTablePublic* 경로 테이블을 *공용* 서브넷에 연결합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -136,7 +136,7 @@ az vm create \
 
 VM을 만드는 데 몇 분이 걸립니다. Azure가 VM 만들기를 완료하고 VM에 대한 출력을 반환할 때까지 다음 단계로 이동하지 마십시오. 
 
-네트워크 인터페이스가 자체 IP 주소를 향하지 않고 수신된 네트워크 트래픽을 전달할 수 있으려면 네트워크 인터페이스에 대해 IP 전달을 사용 가능으로 설정해야 합니다. [az network nic update](/cli/azure/network/nic#az_network_nic_update)를 사용하여 네트워크 인터페이스에 대한 IP 전달을 사용하도록 설정합니다.
+네트워크 인터페이스가 자체 IP 주소를 향하지 않고 수신된 네트워크 트래픽을 전달할 수 있으려면 네트워크 인터페이스에 대해 IP 전달을 사용 가능으로 설정해야 합니다. [az network nic update](/cli/azure/network/nic)를 사용하여 네트워크 인터페이스에 대한 IP 전달을 사용하도록 설정합니다.
 
 ```azurecli-interactive
 az network nic update \
@@ -145,7 +145,7 @@ az network nic update \
   --ip-forwarding true
 ```
 
-VM 내 운영 체제 또는 VM 내에서 실행 중인 애플리케이션도 네트워크 트래픽을 전달할 수 있어야 합니다. [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set)를 사용하여 VM의 운영 체제 내에서 IP 전달을 활성화합니다.
+VM 내 운영 체제 또는 VM 내에서 실행 중인 애플리케이션도 네트워크 트래픽을 전달할 수 있어야 합니다. [az vm extension set](/cli/azure/vm/extension)를 사용하여 VM의 운영 체제 내에서 IP 전달을 활성화합니다.
 
 ```azurecli-interactive
 az vm extension set \
@@ -268,7 +268,7 @@ traceroute to myVmPrivate (10.0.1.4), 30 hops max, 60 byte packets
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete)를 사용하여 리소스 그룹 및 그룹에 포함된 모든 리소스를 제거합니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group)를 사용하여 리소스 그룹 및 그룹에 포함된 모든 리소스를 제거합니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

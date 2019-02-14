@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 8d6dcdd4de8fb56935d2f66bfff045b2115d4004
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063576"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979754"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh에 대한 일반적인 질문
 
@@ -101,7 +101,7 @@ Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경�
 - 서비스 이름만으로 작동하지 않는 경우 정규화된 이름인 ServiceName.ApplicationName을 사용합니다.
 - 서비스의 Docker 파일에 `EXPOSE <port>`를 추가합니다. 여기서 port는 서비스를 노출하는 포트입니다. 예: 
 
-```DockerFile
+```Dockerfile
 EXPOSE 80
 ```
 

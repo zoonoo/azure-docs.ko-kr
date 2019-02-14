@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: db1bdeed75264e32d5a96800096b6b433c62c44a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822632"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100801"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions에 대한 Microsoft Graph 바인딩
 
@@ -982,7 +982,7 @@ module.exports = function (context, req) {
 - 기존 구독을 나열하고 필요에 따라 새로 고칠 수 있는 [Microsoft Graph 웹후크 구독 입력 바인딩](#webhook-input).
 - 웹후크 구독을 만들거나 삭제할 수 있는 [Microsoft Graph 웹후크 구독 출력 바인딩](#webhook-output).
 
-바인딩 자체는 Azure AD 권한이 필요 없지만, 대응하려는 리소스 종류와 관련된 권한을 요청해야 합니다. 각 리소스 종류에 필요한 권한 목록은 [구독 권한](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions)을 참조하세요.
+바인딩 자체는 Azure AD 권한이 필요 없지만, 대응하려는 리소스 종류와 관련된 권한을 요청해야 합니다. 각 리소스 종류에 필요한 권한 목록은 [구독 권한](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0)을 참조하세요.
 
 웹후크에 대한 자세한 내용은 [Microsoft Graph에서 웹후크 작업]을 참조하세요.
 

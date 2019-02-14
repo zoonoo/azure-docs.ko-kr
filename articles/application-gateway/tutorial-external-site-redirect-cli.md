@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1a9cbb14bc6d6df25dbc627bba5a3e72db5350a6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bf3061509e08648aa63b843a4b1d7b8968f3e88e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727333"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114640"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 외부 리디렉션을 포함하는 애플리케이션 게이트웨이 만들기
 
@@ -93,7 +93,7 @@ az network application-gateway create \
 
 ### <a name="add-the-redirection-configuration"></a>리디렉션 구성 추가
 
-[az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-configwork_application_gateway_redirect_config_create)를 사용하여 애플리케이션 게이트웨이의 트래픽을 *bing.com*으로 전송하는 리디렉션 구성을 추가합니다.
+[az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create)를 사용하여 애플리케이션 게이트웨이의 트래픽을 *bing.com*으로 전송하는 리디렉션 구성을 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>수신기 및 라우팅 규칙 추가
 
-애플리케이션 게이트웨이에서 트래픽을 적절히 라우팅하려면 수신기가 필요합니다. [az network application-gateway frontend-port create](/cli/azure/network/application-gateway)를 사용하여 만든 프런트 엔드 포트와 함께 [az network application-gateway http-listener create](/cli/azure/network/application-gateway)를 사용하여 수신기를 만듭니다. 수신기가 들어오는 트래픽을 보낼 위치를 알려면 규칙이 필요합니다. 리디렉션 구성에 [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create)를 사용하여 *redirectRule*이라는 기본 규칙을 만듭니다.
+애플리케이션 게이트웨이에서 트래픽을 적절히 라우팅하려면 수신기가 필요합니다. [az network application-gateway frontend-port create](/cli/azure/network/application-gateway)를 사용하여 만든 프런트 엔드 포트와 함께 [az network application-gateway http-listener create](/cli/azure/network/application-gateway)를 사용하여 수신기를 만듭니다. 수신기가 들어오는 트래픽을 보낼 위치를 알려면 규칙이 필요합니다. 리디렉션 구성에 [az network application-gateway rule create](/cli/azure/network/application-gateway)를 사용하여 *redirectRule*이라는 기본 규칙을 만듭니다.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

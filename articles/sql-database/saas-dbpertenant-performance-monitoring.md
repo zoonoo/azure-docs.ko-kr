@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459488"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004647"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리
 
 이 자습서에서는 SaaS 애플리케이션에서 사용되는 몇 가지 주요 성능 관리 시나리오를 살펴봅니다. 부하 생성기를 사용하여 모든 테넌트 데이터베이스에서의 활동을 시뮬레이션하여 SQL Database 및 탄력적 풀의 기본 제공 모니터링 및 경고 기능을 보여 줍니다.
 
-Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데이터 모델을 사용하며, 각 장소(테넌트)에 자체 데이터베이스가 있습니다. 많은 SaaS 애플리케이션과 마찬가지로 예상 테넌트 워크로드 패턴은 예측하기 어렵고 간헐적입니다. 예를 들어 티켓 판매는 아무 때나 발생할 수 있습니다. 이러한 일반적인 데이터베이스 사용 패턴을 이용하기 위해 테넌트 데이터베이스가 탄력적 풀에 배포됩니다. 탄력적 풀은 많은 데이터베이스에 걸쳐 리소스를 공유하여 솔루션의 비용을 최적화합니다. 이 유형의 패턴에서는 풀 전체에 걸쳐 부하가 합리적으로 균형을 유지하도록 데이터베이스 및 풀 리소스 사용을 모니터링해야 합니다. 또한 개별 데이터베이스에 적합한 리소스가 있고 풀이 [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model) 한도에 도달하지 않도록 해야 합니다. 이 자습서에서는 데이터베이스와 풀을 모니터링하고 관리하는 방법과 워크로드 변화에 응답하여 정정 작업을 실행하는 방법을 탐색합니다.
+Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데이터 모델을 사용하며, 각 장소(테넌트)에 자체 데이터베이스가 있습니다. 많은 SaaS 애플리케이션과 마찬가지로 예상 테넌트 워크로드 패턴은 예측하기 어렵고 간헐적입니다. 예를 들어 티켓 판매는 아무 때나 발생할 수 있습니다. 이러한 일반적인 데이터베이스 사용 패턴을 이용하기 위해 테넌트 데이터베이스가 탄력적 풀에 배포됩니다. 탄력적 풀은 많은 데이터베이스에 걸쳐 리소스를 공유하여 솔루션의 비용을 최적화합니다. 이 유형의 패턴에서는 풀 전체에 걸쳐 부하가 합리적으로 균형을 유지하도록 데이터베이스 및 풀 리소스 사용을 모니터링해야 합니다. 또한 개별 데이터베이스에 적합한 리소스가 있고 풀이 [eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model) 한도에 도달하지 않도록 해야 합니다. 이 자습서에서는 데이터베이스와 풀을 모니터링하고 관리하는 방법과 워크로드 변화에 응답하여 정정 작업을 실행하는 방법을 탐색합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

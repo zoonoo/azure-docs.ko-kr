@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 698cae13b9e78de6318c28bde998e195540c513c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 87c55634b6502a8a0c00fe52c7740a60f3afd80d
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256802"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098285"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Azure Cloud Services 역할에 .NET 설치
 이 문서에서는 Azure 게스트 OS와 함께 제공되지 않는 .NET Framework 버전을 설치하는 방법을 설명합니다. 클라우드 서비스 웹 및 작업자 역할을 구성하기 위해 게스트 OS에 .NET을 사용할 수 있습니다.
@@ -183,10 +183,11 @@ ms.locfileid: "51256802"
        if %ERRORLEVEL%== 3010 goto restart
        if %ERRORLEVEL%== 1641 goto restart
        echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
-   
+       goto exit
+       
    :restart
    echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
-   EXIT /B %ERRORLEVEL%
+   shutdown.exe /r /t 5 /c "Installed .NET framework" /f /d p:2:4
    
    :installed
    echo .NET (%netfx%) is installed >> %startuptasklog%
@@ -204,8 +205,8 @@ ms.locfileid: "51256802"
 
    ![모든 파일이 포함된 역할 콘텐츠][2]
 
-## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>진단을 구성하여 Blob 저장소로 시작 작업 로그 전송
-설치 문제의 해결을 간소화하려면 시작 스크립트 또는 .NET 설치 관리자에 의해 생성된 모든 로그 파일을 Azure Blob Storage로 전송하도록 Azure 진단을 구성할 수 있습니다. 이 방법을 사용하면 원격 데스크톱을 통해 역할에 연결하는 대신 Blob 저장소에서 로그 파일을 다운로드하여 로그를 볼 수 있습니다.
+## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>진단을 구성하여 Blob Storage로 시작 작업 로그 전송
+설치 문제의 해결을 간소화하려면 시작 스크립트 또는 .NET 설치 관리자에 의해 생성된 모든 로그 파일을 Azure Blob Storage로 전송하도록 Azure 진단을 구성할 수 있습니다. 이 방법을 사용하면 원격 데스크톱을 통해 역할에 연결하는 대신 Blob Storage에서 로그 파일을 다운로드하여 로그를 볼 수 있습니다.
 
 
 진단을 구성하려면 diagnostics.wadcfgx 파일을 열고 **디렉터리** 노드 아래에 다음 콘텐츠를 추가합니다. 

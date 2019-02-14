@@ -4,33 +4,31 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 879241b56ddb3be76b1b54d7a3bb5429facf148a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c44effe0bde3c7e880e53706fcb59d91a8605e7b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165858"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889338"
 ---
-<!--author=alkohli last changed: 09/28/17-->
-
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>최소 StorSimple 디바이스 설치를 완료하려면
 
    > [!NOTE]
    > 최소 디바이스 설정이 완료되면 디바이스 이름을 변경할 수 없습니다.
    
-1. **장치** 블레이드의 테이블 형식 장치 목록에서 장치를 선택하고 클릭합니다. 디바이스가 **설정 준비 완료** 상태입니다. **장치 구성** 블레이드가 열립니다.
+1. **디바이스** 블레이드의 테이블 형식 디바이스 목록에서 디바이스를 선택하고 클릭합니다. 디바이스가 **설정 준비 완료** 상태입니다. **디바이스 구성** 블레이드가 열립니다.
 
      ![StorSimple 최소 디바이스 설치 네트워크 인터페이스](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
 
-2. **장치 구성** 블레이드에서:
+2. **디바이스 구성** 블레이드에서:
    
-   1. 디바이스의 **이름**을 제공합니다. 기본 디바이스 이름은 디바이스 모델 및 일련 번호와 같은 정보를 반영합니다. 최대 64자의 친숙한 이름을 할당하여 디바이스를 관리할 수 있습니다.
-   2. 디바이스가 배포되는 지리적 위치에 기반한 **표준 시간대**를 설정합니다. 디바이스는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
+   1. 디바이스의 **이름** 을 제공합니다. 기본 디바이스 이름은 디바이스 모델 및 일련 번호와 같은 정보를 반영합니다. 최대 64자의 친숙한 이름을 할당하여 디바이스를 관리할 수 있습니다.
+   2. 디바이스가 배포되는 지리적 위치에 기반한 **표준 시간대** 를 설정합니다. 디바이스는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
    3. **DATA 0 설정** 아래에서:
 
        1. 데이터 0 네트워크 인터페이스는 설치 마법사를 통해 구성된 네트워크 설정(IP, 서브넷, 게이트웨이)이 활성화된 대로 표시됩니다. 또한 데이터 0은 클라우드뿐만 아니라 iSCSI에 대해서도 자동으로 활성화됩니다.
 
-       2. 컨트롤러 0과 컨트롤러 1에 대한 고정 IP 주소를 입력합니다. **컨트롤러 고정 IP 주소는 장치 IP 주소를 통해 접근할 수 있는 서브넷 내의 사용 가능한 IP여야 합니다.** 데이터 0 인터페이스가 IPv4에 대해 구성된 경우 고정 IP 주소는 IPv4 형식으로 제공해야 합니다. IPv6 구성에 대한 접두사를 제공하는 경우 고정 IP 주소는 이러한 필드에 자동으로 채워집니다.
+       2. 컨트롤러 0과 컨트롤러 1에 대한 고정 IP 주소를 입력합니다. **컨트롤러 고정 IP 주소는 디바이스 IP 주소를 통해 접근할 수 있는 서브넷 내의 사용 가능한 IP여야 합니다.** 데이터 0 인터페이스가 IPv4에 대해 구성된 경우 고정 IP 주소는 IPv4 형식으로 제공해야 합니다. IPv6 구성에 대한 접두사를 제공하는 경우 고정 IP 주소는 이러한 필드에 자동으로 채워집니다.
 
             ![StorSimple 최소 디바이스 설치 네트워크 인터페이스](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 

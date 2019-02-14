@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 기술 자료에 대한 QnA Maker에서 지원되는 자연 언어인 문화권의 목록입니다. 동일한 기술 자료에서 언어를 혼합하지 마세요.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/04/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 5a4938ec37cf006e5cd6342687e2c50cadd5272e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 3bdc3a91e87f1bbd06ef0181d0042ee618f519c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731073"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861445"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>QnA Maker에 대한 언어 및 지역 지원
 

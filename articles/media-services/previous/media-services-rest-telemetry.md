@@ -4,7 +4,7 @@ description: 이 문서는 REST API를 사용하여 Azure Media Services 원격 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: ceb2eafdb3df0d24a98d0d3b4afc7d1d9424b4de
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4b2028b16c395b770e935fdba47dc0e965284fc2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785842"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993673"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>REST를 사용하여 Azure Media Services 원격 분석 구성
 
@@ -31,8 +31,8 @@ ms.locfileid: "33785842"
 이 항목에서 설명하는 단계는 다음과 같습니다.
 
 - 저장소 계정을 Media Services 계정에 연결
-- 알림 끝점 가져오기
-- 모니터링을 위한 알림 끝점 만들기 
+- 알림 엔드포인트 가져오기
+- 모니터링을 위한 알림 엔드포인트 만들기 
 
     알림 엔드포인트를 만들려면 EndPointType을 AzureTable(2)로 설정하고 endPontAddress를 저장소 테이블(예: https://telemetryvalidationstore.table.core.windows.net/))로 설정합니다.
   
@@ -72,7 +72,7 @@ ms.locfileid: "33785842"
     
     {"d":{"results":[{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.StorageAccount"},"Name":"telemetryvalidationstore","IsDefault":true,"BytesUsed":null}]}}
 
-## <a name="get-the-notification-endpoints"></a>알림 끝점 가져오기
+## <a name="get-the-notification-endpoints"></a>알림 엔드포인트 가져오기
 
 ### <a name="request"></a>요청
 
@@ -105,7 +105,7 @@ ms.locfileid: "33785842"
         }
     }
  
-## <a name="create-a-notification-endpoint-for-monitoring"></a>모니터링을 위한 알림 끝점 만들기
+## <a name="create-a-notification-endpoint-for-monitoring"></a>모니터링을 위한 알림 엔드포인트 만들기
 
 ### <a name="request"></a>요청
 

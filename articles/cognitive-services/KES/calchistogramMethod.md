@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: KES(Knowledge Exploration Service) API에서 CalcHistogram 메서드를 사용하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: f994a254e661cd245d2e953efd3bd595d50c6fc7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: aaa5b3a85c08f11d821557257de451b8ffc8a3fc
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214316"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860459"
 ---
 # <a name="calchistogram-method"></a>calchistogram 메서드
 *calchistogram* 메서드는 구조화된 쿼리 식과 일치하는 개체를 계산하고 해당 특성 값의 분포를 계산합니다.

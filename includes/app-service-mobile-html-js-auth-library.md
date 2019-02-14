@@ -4,12 +4,12 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 488fbb2acbf43ac092a7834fc25f433ef09d2b00
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5fe9fe8ced675f68161f0df9f2665b47f9d47ac5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52973241"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55905155"
 ---
 ### <a name="server-auth"></a>방법: 공급자를 사용하여 인증(서버 흐름)
 Mobile Apps가 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, Azure App Service에서 공급자로부터 제공된 애플리케이션 ID 및 암호를 구성해야 합니다.
@@ -17,7 +17,7 @@ Mobile Apps가 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID
 
 ID 공급자를 등록하고 나면 공급자의 이름을 사용하여 `.login()` 메서드를 호출합니다. 예를 들어, Facebook으로 로그인하려면 다음 코드를 사용합니다.
 
-```
+```javascript
 client.login("facebook").done(function (results) {
      alert("You are now signed in as: " + results.userId);
 }, function (err) {
@@ -40,7 +40,7 @@ client.login("facebook").done(function (results) {
 
 이 예제에서는 인증을 위해 Facebook 클라이언트 SDK를 사용합니다.
 
-```
+```javascript
 client.login(
      "facebook",
      {"access_token": token})
@@ -57,7 +57,7 @@ client.login(
 
 모든 AJAX 라이브러리와 함께 HTTP 호출 사용 시 인증 정보를 `/.auth/me` 엔드포인트에서 검색할 수 있습니다.  `X-ZUMO-AUTH` 헤더를 인증 토큰으로 설정했는지 확인합니다.  인증 토큰은 `client.currentUser.mobileServiceAuthenticationToken`에 저장되어 있습니다.  예를 들어, fetch API를 사용하려면 다음과 같이 합니다.
 
-```
+```javascript
 var url = client.applicationUrl + '/.auth/me';
 var headers = new Headers();
 headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);

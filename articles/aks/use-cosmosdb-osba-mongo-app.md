@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 04b513de1d47749bb87b7aaf79839389ab4d7290
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 3146d11f33809391d93305d63bad757ed281fb70
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082653"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977018"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>기존 MongoDB 애플리케이션을 MongoDB용 Azure Cosmos DB API 및 OSBA(Open Service Broker for Azure)와 통합
 
@@ -208,7 +208,7 @@ azds prep --public
 
 *Dockerfile*이라는 프로젝트의 루트에 다음 내용이 포함된 파일을 만듭니다.
 
-```dockerfile
+```Dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app
