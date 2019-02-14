@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Node.js와 함께 Computer Vision API를 사용하여 이미지에서 썸네일을 생성합니다.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 09915ebf9df11472c86151d14327cd48d45938d9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9b06b79616dc7f541201563ad50495e436d6499f
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222476"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856277"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-nodejs-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Node.js를 사용하여 썸네일 생성
 

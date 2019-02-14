@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 PHP를 통해 Bing Entity Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 8d963c0de272b29ab592536802ad23387a9b8dad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: d2ec75f233984cdce462ff7b05bbe97e62daeb65
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753438"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55866494"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>빠른 시작: PHP를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 

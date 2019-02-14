@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 이 문서는 봇의 대화형 기능을 향상시키기 위한 클라우드 기반 API인 Azure Project Personality Chat에 대한 개요입니다.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personality-chat
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 053d43d0f17df2008106bda38318615e60778935
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c7f7a8c65717acd5a19e92b7e0437dc4b8628909
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207516"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867089"
 ---
 # <a name="what-is-project-personality-chat"></a>프로젝트 개인 정보 채팅이란?
 

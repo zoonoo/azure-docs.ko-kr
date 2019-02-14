@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: C#용 Content Moderator SDK를 사용하여 사용자 지정 용어 목록으로 텍스트를 조정하는 방법
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: b3b2d7fe3268846546d1727b62018d9ef5b409ce
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: da8ad71ccf8b58ddf3ef7cc6a2f9e9c732913caa
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219297"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858402"
 ---
 # <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>빠른 시작: C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
 
