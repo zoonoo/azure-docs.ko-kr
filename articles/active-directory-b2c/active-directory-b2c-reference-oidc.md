@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 39a3164c27fa30250fe08e864db889eac844f646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c27be7da2aceea8581fd4a5baef96103faa0c1d4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173006"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107313"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: OpenID Connect를 사용하는 웹앱 로그인
 OpenID Connect는 웹 애플리케이션에 사용자를 안전하게 로그인하는 데 사용할 수 있도록 OAuth 2.0을 기반으로 하여 빌드된 인증 프로토콜입니다. OpenID Connect의 Azure AD B2C(Azure Active Directory B2C) 구현을 사용하여 웹 애플리케이션의 등록, 로그인 및 기타 ID 관리 환경을 Azure AD( Azure Active Directory)로 아웃소싱할 수 있습니다. 이 가이드에서는 언어에 관계 없이 이 작업을 수행하는 방법을 보여 줍니다. 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
@@ -27,7 +27,7 @@ OpenID Connect는 웹 애플리케이션에 사용자를 안전하게 로그인�
 Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OpenID Connect 프로토콜을 확장합니다. OpenID Connect를 사용하여 앱에 가입, 로그인 및 프로필 관리와 같은 사용자 환경을 추가할 수 있는 [사용자 흐름 매개 변수](active-directory-b2c-reference-policies.md)를 소개합니다. 여기서는 OpenID Connect 및 사용자 흐름을 사용하여 웹 애플리케이션에서 이러한 환경을 각각 구현하는 방법 및 웹 API에 액세스하기 위한 액세스 토큰을 얻는 방법도 보여 줍니다.
 
 다음 섹션의 예제 HTTP 요청은 샘플 B2C 디렉터리 fabrikamb2c.onmicrosoft.com뿐만 아니라 샘플 애플리케이션, https://aadb2cplayground.azurewebsites.net 및 사용자 흐름도 사용합니다. 이러한 값을 사용하여 직접 요청을 시도하거나 고유의 작업으로 바꿀 수 있습니다.
-[사용자 고유의 B2C 테넌트, 애플리케이션 및 사용자 흐름을 가져오는](#use-your-own-b2c-directory) 방법을 알아봅니다.
+[사용자 고유의 B2C 테넌트, 애플리케이션 및 사용자 흐름을 가져오는](#use-your-own-b2c-tenant) 방법을 알아봅니다.
 
 ## <a name="send-authentication-requests"></a>인증 요청 보내기
 웹앱이 사용자를 인증하고 사용자 흐름을 실행해야 하는 경우 사용자를 `/authorize` 엔드포인트로 보낼 수 있습니다. 이는 사용자 흐름에 따라 사용자가 실제로 작업을 수행하는 흐름의 대화형 부분입니다.

@@ -12,14 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: e45b3bde0d5077a5d18369236e81bcd467527940
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d576a0d51eb723efdd1652898c2c019ee7475a8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990147"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999218"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Azure DNS에서 역방향 DNS 조회 영역 호스트
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 이 문서에서는 Azure DNS에서 할당된 IP 범위에 대한 역방향 DNS 조회 영역을 호스트하는 방법을 설명합니다. 역방향 조회 영역으로 표시되는 IP 범위는 일반적으로 ISP에 의해 조직에 할당되어야 합니다.
 
@@ -60,7 +62,7 @@ IPv4 역방향 조회 영역의 이름은 나타내는 IP 범위를 기반으로
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmDnsZone -Name 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
 ```
 
 #### <a name="azure-classic-cli"></a>Azure 클래식 CLI
@@ -91,7 +93,7 @@ IPv6 역방향 조회 영역의 이름은 `<IPv6 network prefix in reverse order
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmDnsZone -Name 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
 ```
 
 #### <a name="azure-classic-cli"></a>Azure 클래식 CLI
@@ -136,7 +138,7 @@ DNS 역방향 조회 영역을 만들었으므로 해당 영역이 부모 영역
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc1.contoso.com")
+New-AzDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc1.contoso.com")
 ```
 #### <a name="azure-classic-cli"></a>Azure 클래식 CLI
 
@@ -172,7 +174,7 @@ azure network dns record-set add-record MyResourceGroup 2.0.192.in-addr.arpa 15 
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname "dc2.contoso.com")
+New-AzDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "dc2.contoso.com")
 ```
 
 #### <a name="azure-classic-cli"></a>Azure 클래식 CLI
@@ -202,7 +204,7 @@ azure network dns record-set add-record MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-Get-AzureRmDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
 ```
 
 #### <a name="azure-classic-cli"></a>Azure 클래식 CLI
@@ -228,7 +230,7 @@ Get-AzureRmDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyReso
 #### <a name="powershell"></a>PowerShell
 
 ```powershell
-Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName MyResourceGroup
 ```
 
 #### <a name="azure-classic-cli"></a>Azure 클래식 CLI

@@ -12,12 +12,13 @@ ms.service: active-directory
 ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
-ms.openlocfilehash: d578794a258faa9ad0222207f73e108e11f3281f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 65983a5c9273b0eb88dbb7f2e3a8779b326352b3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770455"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205395"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>사용자, 그룹, 라이선싱 및 대규모 조직에 대한 역할
 
@@ -58,7 +59,7 @@ Azure AD에서 사용자가 라이선스를 받은 그룹에 합류하면 해당
 
 ## <a name="assign-app-access"></a>앱 액세스 할당
 
-Azure AD를 사용하여 [Azure AD 테넌트에 배포된 엔터프라이즈 앱](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context)에 그룹 액세스를 할당할 수 있습니다. 동적 그룹을 앱에 대한 그룹 할당과 결합하면 조직이 성장함에 따라 사용자 앱 액세스 할당을 자동화할 수 있습니다. 엔터프라이즈 앱에 액세스를 할당하려면 Azure Active Directory Premium P1 또는 Premium P2 라이선스가 필요합니다.
+Azure AD를 사용하여 [Azure AD 테넌트에 배포된 엔터프라이즈 앱](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context)에 그룹 액세스를 할당할 수 있습니다. 동적 그룹을 앱에 대한 그룹 할당과 결합하면 조직이 성장함에 따라 사용자 앱 액세스 할당을 자동화할 수 있습니다. 엔터프라이즈 앱에 액세스를 할당하려면 Azure Active Directory Premium P1 또는 Premium P2 라이선스가 필요합니다.
 
 또한 Azure AD에서는 액세스를 할당하는 앱과 그룹 사이에 흐르는 데이터를 세밀하게 제어할 수 있습니다. [엔터프라이즈 애플리케이션](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)에서 앱을 열고 **프로비전**을 선택합니다.
 
@@ -72,4 +73,4 @@ Azure AD를 사용하여 [Azure AD 테넌트에 배포된 엔터프라이즈 앱
 
 시작하는 Azure AD 관리자인 경우 [Azure Active Directory 기본 사항](https://docs.microsoft.com/azure/active-directory/fundamentals/index)에서 기본 사항을 내립니다.
 
-또는 [그룹 만들기](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [라이선스 할당](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [앱 액세스 할당](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups#assign-group?context=azure/active-directory/users-groups-roles/context/ugr-context) 또는 [관리자 역할 할당](directory-assign-admin-roles.md)을 시작할 수 있습니다.
+또는 [그룹 만들기](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [라이선스 할당](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [앱 액세스 할당](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) 또는 [관리자 역할 할당](directory-assign-admin-roles.md)을 시작할 수 있습니다.

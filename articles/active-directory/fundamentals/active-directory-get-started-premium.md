@@ -12,12 +12,13 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: c230547621b853f62e630d3b01066b1870e12548
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 97c70c6187672c47a9f6dc09e1ccb8e6eadeff6a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093562"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187686"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition에 가입
 Azure AD(Azure Active Directory) Premium Edition을 구매하고 Azure 구독에 연결할 수 있습니다. 새로운 Azure 구독을 만들어야 하는 경우 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다.

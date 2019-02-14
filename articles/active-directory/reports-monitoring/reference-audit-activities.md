@@ -16,12 +16,13 @@ ms.subservice: report-monitor
 ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da800b80c89aa0b63a386341a9b010d67f22e85a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a60f95bc8a98ea15c174f48bc3c3e63eae534d1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186538"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164060"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 감사 활동 참조
 
@@ -134,11 +135,11 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |애플리케이션 관리|AdminPolicyDatas-SetResources|
 |애플리케이션 관리|AdminUserJourneys-GetResources|
 |애플리케이션 관리|AdminUserJourneys-RemoveResources|
-|인증|AdminUserJourneys-SetResources|
-|인증|IdentityProvider 만들기|
-|인증|V1 애플리케이션 만들기|
-|인증|V2 애플리케이션 만들기|
-|인증|테넌트에 사용자 지정 도메인 만들기|
+|Authentication|AdminUserJourneys-SetResources|
+|Authentication|IdentityProvider 만들기|
+|Authentication|V1 애플리케이션 만들기|
+|Authentication|V2 애플리케이션 만들기|
+|Authentication|테넌트에 사용자 지정 도메인 만들기|
 |권한 부여|새 AdminUserJourney 만들기|
 |권한 부여|지역화된 리소스 json 만들기|
 |권한 부여|새 사용자 지정 IDP 만들기|

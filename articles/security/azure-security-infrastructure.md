@@ -4,7 +4,7 @@ description: 이 문서에서는 Microsoft가 Azure 데이터 센터의 보안�
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 9385c6ea8d2a04e9a8595a22e6e2ff7638394b41
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: dc9b4db37e811d8bac6df2d532fd3629d98c9650
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172975"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56104772"
 ---
 # <a name="azure-infrastructure-security"></a>Azure 인프라 보안
 Microsoft Azure는 Microsoft에서 관리하고 운영하는 데이터 센터에서 실행됩니다. 지리적으로 분산된 데이터 센터는 보안 및 안정성을 위해 ISO/IEC 27001:2013 및 NIST SP 800-53과 같은 주요 산업 표준을 준수합니다. 데이터 센터는 Microsoft 운영 담당자에 의해 관리되고 모니터링됩니다. 운영 담당자는 연중 무휴로 사용하여 세계에서 가장 규모가 큰 온라인 서비스를 제공하는 환경을 경험했습니다.
@@ -45,7 +45,7 @@ Microsoft Azure는 Microsoft에서 관리하고 운영하는 데이터 센터에
 고객은 배포 유형에 관계없이 항상 다음에 대한 책임이 있습니다.
 
 - Data
-- Endpoints
+- 엔드포인트
 - 계좌
 - 액세스 관리
 

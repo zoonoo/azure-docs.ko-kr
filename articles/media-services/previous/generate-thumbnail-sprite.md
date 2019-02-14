@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 93222129b80592ef5b4e1ed2e1420d975fe9f108
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: b4d760d8520f43b223665f17c85d3932761ebe17
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190732"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003111"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>썸네일 스프라이트 생성 
+# <a name="generate-a-thumbnail-sprite"></a>썸네일 스프라이트 생성  
 
 Media Encoder Standard를 사용하여 VTT 파일과 함께 낮은 해상도의 썸네일이 여러 개 포함된 JPEG 파일인 썸네일 스프라이트를 생성할 수 있습니다. 이 VTT 파일은 큰 JPEG 파일 내의 썸네일 크기 및 좌표와 함께 각 썸네일이 나타내는 입력 비디오의 시간 범위를 지정합니다. 비디오 플레이어는 VTT 파일과 스프라이트 이미지를 사용하여 '시각적' 검색 바를 표시하여 비디오 타임라인을 따라 앞뒤로 움직이면 시청자에게 시각적 피드백을 제공합니다.
 

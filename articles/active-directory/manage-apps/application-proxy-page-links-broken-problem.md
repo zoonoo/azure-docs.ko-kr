@@ -3,8 +3,8 @@ title: 페이지의 링크가 애플리케이션 프록시 애플리케이션에
 description: Azure AD와 통합한 애플리케이션 프록시 애플리케이션에 대한 링크가 끊어지는 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
-ms.openlocfilehash: 585ffd966bc3ba985e2b5b93529cadba8ce65960
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d860ac77653a97855248c45e43d28ea4c694979e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151858"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170910"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>페이지의 링크가 애플리케이션 프록시 애플리케이션에서 작동하지 않습니다.
 

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455068"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993642"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
@@ -237,7 +237,7 @@ SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 
 
 검색 가능한 이 성능 패턴은 지난 7일간의 기준과 비교하여 현재 데이터베이스 워크로드의 성능이 저하되었음을 나타냅니다. 구독의 탄력적 풀에서 사용 가능한 DTU가 부족하기 때문입니다 
 
-SQL Database의 리소스는 일반적으로 CPU 및 IO(데이터 및 트랜잭션 로그 IO) 리소스가 복합된 측정값으로 구성되는 [DTU 리소스](sql-database-service-tiers.md#dtu-based-purchasing-model)라고 합니다. [Azure 탄력적 풀 리소스](sql-database-elastic-pool.md)은 크기 조정을 위해 여러 데이터베이스 간에 공유되는 사용 가능한 eDTU 리소스의 풀로 사용됩니다. 탄력적 풀에서 사용 가능한 eDTU 리소스가 충분하지 않아 풀의 모든 데이터베이스를 지원할 수 없는 경우 시스템에서 탄력적 풀 DTU 부족 성능 문제를 감지합니다.
+SQL Database의 리소스는 일반적으로 CPU 및 IO(데이터 및 트랜잭션 로그 IO) 리소스가 복합된 측정값으로 구성되는 [DTU 리소스](sql-database-purchase-models.md#dtu-based-purchasing-model)라고 합니다. [Azure 탄력적 풀 리소스](sql-database-elastic-pool.md)은 크기 조정을 위해 여러 데이터베이스 간에 공유되는 사용 가능한 eDTU 리소스의 풀로 사용됩니다. 탄력적 풀에서 사용 가능한 eDTU 리소스가 충분하지 않아 풀의 모든 데이터베이스를 지원할 수 없는 경우 시스템에서 탄력적 풀 DTU 부족 성능 문제를 감지합니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 

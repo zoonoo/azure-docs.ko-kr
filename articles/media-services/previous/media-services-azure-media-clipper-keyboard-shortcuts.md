@@ -6,17 +6,18 @@ keywords: 클립, 하위 클립, 인코딩, 미디어
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d6fa463f71c00787c994b41d84bb349dce676de5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6d50c99b64442bf009707b7619ec19f3d40e604e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782582"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992503"
 ---
-# <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Azure Media Clipper 바로 가기 키 구성
+# <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Azure Media Clipper 바로 가기 키 구성 
+
 Azure Media Clipper는 선택적인 `keymap` JSON 매개 변수를 제공하여 기본 바로 가기 키를 사용자 지정할 수 있도록 지원합니다.
 
 다음 JSON 샘플에서는 기본 바로 가기 키를 보여 줍니다. Clipper를 초기화할 때 키 필드를 변경하고 매개 변수를 전달하여 이러한 설정을 사용자 지정할 수 있습니다.

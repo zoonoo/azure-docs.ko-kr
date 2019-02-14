@@ -4,7 +4,7 @@ description: 이 항목에서는 콘텐츠를 재생하는 데 사용할 수 있
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 3fe82b98163182c73a144b72da371e8aa195e8cf
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: ae057feb70d9ddb2c2dae10bae20eca1b613f76f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435860"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996955"
 ---
 # <a name="playing-your-content-with-existing-players"></a>기존 플레이어를 사용하여 콘텐츠 재생
 Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 및 Mpeg-dash와 같은 여러 인기 있는 스트리밍 형식을 지원합니다. 이 항목에는 스트림을 테스트하는 데 사용할 수 있는 기존 플레이어가 나와 있습니다.
@@ -31,7 +31,7 @@ Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 �
 
 다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
-* **MEDIA SERVICES CONTENT PLAYER** 가 기본 스트리밍 끝점에서 재생됩니다. 기본이 아닌 스트리밍 끝점에서 재생하려면 다른 플레이어를 사용합니다. 예를 들어 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용합니다.
+* **MEDIA SERVICES CONTENT PLAYER** 가 기본 스트리밍 엔드포인트에서 재생됩니다. 기본이 아닌 스트리밍 엔드포인트에서 재생하려면 다른 플레이어를 사용합니다. 예를 들어 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용합니다.
 
 ![AMSPlayer][AMSPlayer]
 
@@ -60,7 +60,7 @@ Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 �
 ### <a name="other"></a>기타
 다음을 이용하여 HLS URL을 테스트할 수도 있습니다.
 
-* **Safari** 또는
+* iOS 디바이스에서 **Safari** 또는
 * **3ivx HLS 플레이어** 
 
 ## <a name="developing-video-players"></a>비디오 플레이어 개발
