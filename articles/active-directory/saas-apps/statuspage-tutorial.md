@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: c3532ff5422ae35aa6bb079fcedf3a2a90d45349
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e940d7593b6760a81a781fd72c0bb45347b00c2a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181574"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168150"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>자습서: StatusPage와 Azure Active Directory 통합
 
@@ -222,7 +223,7 @@ StatusPage는 적시에 프로비전을 지원합니다. 이미 [Azure AD Single
    
     ![Azure AD 테스트 사용자 만들기](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
-1. 관련된 텍스트 상자에 프로비전할 유효한 사용자의 **메일 주소**, **이름** 및 **성**을 입력합니다. 
+1. 관련된 텍스트 상자에 프로비저닝할 유효한 사용자의 **이메일 주소**, **이름** 및 **성**을 입력합니다. 
    
     ![Azure AD 테스트 사용자 만들기](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 

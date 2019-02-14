@@ -1,5 +1,5 @@
 ---
-title: '상시 암호화: Azure SQL Database - Windows 인증서 저장소 | Microsoft Docs'
+title: 'Always Encrypted: Azure SQL Database - Windows 인증서 저장소 | Microsoft Docs'
 description: 이 문서에서는 SSMS(SQL Server Management Studio)의 상시 암호화 마법사를 사용하여 데이터베이스 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다.
 keywords: 데이터 암호화, sql 암호화, 데이터베이스 암호화, 중요한 데이터 암호화, 상시 암호화
 services: sql-database
@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 13e87ef0150924380c18c66c0362974ef599d4bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: a54fa92e248cb75be315327f7389e62904c7c777
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231722"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754877"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
 
@@ -47,7 +47,7 @@ ms.locfileid: "51231722"
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **리소스 만들기** > **데이터 + 저장소** > **SQL Database**로 이동합니다.
-3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 자세한 지침은 [첫 Azure SQL Database](sql-database-get-started-portal.md)를 참조하세요.
+3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 자세한 지침은 [첫 Azure SQL Database](sql-database-single-database-get-started.md)를 참조하세요.
    
     ![빈 데이터베이스 만들기](./media/sql-database-always-encrypted/create-database.png)
 
@@ -98,7 +98,7 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
    
     ![열 암호화](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-상시 암호화 마법사에는 **열 선택**, **마스터 키 구성**(CMK), **유효성 검사** 및 **요약** 섹션이 포함됩니다.
+Always Encrypted 마법사에는 다음 섹션이 포함되어 있습니다. **열 선택**, **마스터 키 구성**(CMK), **유효성 검사** 및 **요약**.
 
 ### <a name="column-selection"></a>열 선택
 **소개** 페이지에서 **다음**을 클릭하여 **열 선택** 페이지를 엽니다. 이 페이지에서 암호화하려는 열, [암호화 형식 및 사용할 CEK(열 암호화 키)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) 를 선택합니다.
@@ -137,7 +137,7 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 상시 암호화가 설정되었으므로 암호화된 열에서 *삽입* 및 *선택*을 수행하는 애플리케이션을 빌드할 수 있습니다. 샘플 애플리케이션을 성공적으로 실행하려면 상시 암호화 마법사를 실행한 동일한 컴퓨터에서 실행해야 합니다. 다른 컴퓨터에서 이 애플리케이션을 실행하려면 클라이언트 앱을 실행하는 컴퓨터에 상시 암호화 인증서를 배포해야 합니다.  
 
 > [!IMPORTANT]
-> Always Encrypted 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 애플리케이션은 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
+> 상시 암호화 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 애플리케이션은 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
 > 
 > 
 
@@ -507,7 +507,7 @@ SSMS를 사용하여 일반 텍스트 데이터에 액세스하려면 **열 암�
 * 다른 컴퓨터에서 이 샘플을 실행합니다. 암호화 키에 대한 액세스 권한이 없으므로 일반 텍스트 데이터에 액세스할 수 없고 성공적으로 실행되지 않습니다.
 * [키 회전 및 정리](https://msdn.microsoft.com/library/mt607048.aspx).
 * [상시 암호화로 이미 암호화된 데이터 마이그레이션](https://msdn.microsoft.com/library/mt621539.aspx)
-* [다른 클라이언트 컴퓨터에 상시 암호화 인증서 배포](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) ("응용 프로그램 및 사용자가 인증서를 사용할 수 있도록 지정" 섹션 참조).
+* [다른 클라이언트 머신에 상시 암호화 인증서 배포](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) ("애플리케이션 및 사용자가 인증서를 사용할 수 있도록 지정" 섹션 참조).
 
 ## <a name="related-information"></a>관련 정보
 * [상시 암호화(클라이언트 개발)](https://msdn.microsoft.com/library/mt147923.aspx)

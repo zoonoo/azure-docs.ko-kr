@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: fc28ddd006e8a117dddd67a6d6668b9639dddec5
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765198"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982678"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics 사용자 지정 Blob 출력 분할
 
@@ -67,8 +67,6 @@ Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 �
 ## <a name="custom-datetime-path-patterns"></a>사용자 지정 날짜/시간 경로 패턴
 
 사용자 지정 날짜/시간 경로 패턴을 사용하면 Hive 스트리밍 규칙을 사용하여 정렬하는 출력 형식을 지정하여 Azure Stream Analytics에서 다운스트림 처리를 위해 Azure Databricks 및 Azure HDInsight에 데이터를 보낼 수 있는 기능을 부여할 수 있습니다. 사용자 지정 날짜/시간 경로 패턴은 서식 지정자와 함께 Blob 출력의 경로 접두사 필드에서 `datetime` 키워드를 사용하여 쉽게 구현됩니다. 예: `{datetime:yyyy}`
-
-[Azure Portal](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true)에 대한 이 링크를 사용하여 Blob Storage 출력 미리 보기에 대해 사용자 지정 날짜/시간 경로 패턴을 사용하도록 설정하는 기능 플래그를 설정/해제합니다. 이 기능은 곧 기본 포털에서 사용됩니다.
 
 ### <a name="supported-tokens"></a>지원되는 토큰
 

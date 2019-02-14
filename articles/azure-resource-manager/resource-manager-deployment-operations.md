@@ -13,14 +13,16 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fbf94d0430685ea5791aaaa83669a730986e665c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770217"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111308"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 배포 작업 보기
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 중에 오류가 발생했을 때 수행 중이던 작업을 확인하려는 경우가 가장 많을 것이므로, 이 문서에서는 실패한 작업을 확인하는 과정을 중점적으로 설명합니다. 포털은 쉽게 오류를 찾고 잠재적 해결 방법을 확인할 수 있는 인터페이스를 제공합니다.
 
@@ -68,13 +70,13 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
   Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-1. 상관 관계 ID를 가져오려면 다음 코드를 사용합니다.
+2. 상관 관계 ID를 가져오려면 다음 코드를 사용합니다.
 
   ```powershell
   (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. 각 배포에는 여러 작업이 포함되어 있습니다. 각 작업은 배포 프로세스의 단계를 나타냅니다. 배포에서 무엇이 잘못 되었는지 검색하려면 일반적으로 배포 작업에 대한 세부 정보를 확인해야 합니다. **Get-AzResourceGroupDeploymentOperation**을 사용하여 작업의 상태를 확인할 수 있습니다.
+3. 각 배포에는 여러 작업이 포함되어 있습니다. 각 작업은 배포 프로세스의 단계를 나타냅니다. 배포에서 무엇이 잘못 되었는지 검색하려면 일반적으로 배포 작업에 대한 세부 정보를 확인해야 합니다. **Get-AzResourceGroupDeploymentOperation**을 사용하여 작업의 상태를 확인할 수 있습니다.
 
   ```powershell 
   Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -92,7 +94,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-1. 실패한 작업에 대한 자세한 정보를 얻으려면 상태가 **Failed** 인 작업에 대한 속성을 검색합니다.
+4. 실패한 작업에 대한 자세한 정보를 얻으려면 상태가 **Failed** 인 작업에 대한 속성을 검색합니다.
 
   ```powershell
   (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -115,7 +117,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
   ```
 
     작업의 serviceRequestId 및 trackingId를 확인하세요. serviceRequestId는 기술 지원과 함께 배포 문제를 해결할 때 유용할 수 있습니다. 특정 작업에 집중하기 위해 trackingId는 다음 단계에서 사용할 예정입니다.
-1. 특정 실패한 작업에 대한 상태 메시지를 얻으려면 다음 명령을 사용합니다.
+5. 특정 실패한 작업에 대한 상태 메시지를 얻으려면 다음 명령을 사용합니다.
 
   ```powershell
   ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -128,7 +130,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-1. Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니다. 요청 콘텐츠는 배포하는 동안 Azure에 보낸 콘텐츠입니다(예: VM, OS 디스크 및 기타 리소스). 응답 콘텐츠는 Azure가 배포 요청에서 다시 보낸 콘텐츠입니다. 배포하는 동안 **DeploymentDebugLogLevel** 매개 변수를 사용하여 요청 및/또는 응답을 로그에 보존하도록 지정할 수 있습니다. 
+6. Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니다. 요청 콘텐츠는 배포하는 동안 Azure에 보낸 콘텐츠입니다(예: VM, OS 디스크 및 기타 리소스). 응답 콘텐츠는 Azure가 배포 요청에서 다시 보낸 콘텐츠입니다. 배포하는 동안 **DeploymentDebugLogLevel** 매개 변수를 사용하여 요청 및/또는 응답을 로그에 보존하도록 지정할 수 있습니다. 
 
   로그에서 해당 정보를 가져오고 다음 PowerShell 명령을 사용하여 로컬에 저장합니다.
 
@@ -146,13 +148,13 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
   az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-1. 반환되는 값 중 하나는 **correlationId**입니다. 이 값은 관련 이벤트를 추적하는 데 사용되며 기술 지원과 함께 배포 문제를 해결할 때 유용할 수 있습니다.
+2. 반환되는 값 중 하나는 **correlationId**입니다. 이 값은 관련 이벤트를 추적하는 데 사용되며 기술 지원과 함께 배포 문제를 해결할 때 유용할 수 있습니다.
 
   ```azurecli
   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-1. 배포의 작업을 보려면 다음을 사용합니다.
+3. 배포의 작업을 보려면 다음을 사용합니다.
 
   ```azurecli
   az group deployment operation list -g ExampleGroup -n ExampleDeployment

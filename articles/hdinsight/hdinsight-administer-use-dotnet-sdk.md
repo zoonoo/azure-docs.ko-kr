@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8d7b18dfd88a1a136e8b6e11f9f712e9212d6dd5
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7c07a1b19bd651eadf7c7b27d5216dd446cd7abb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788806"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810908"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -224,7 +224,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 이 작업은 포털을 통해서도 수행할 수 있습니다. [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
 
 ## <a name="update-http-user-credentials"></a>HTTP 사용자 자격 증명 업데이트
-[HTTP 액세스 부여/해지](#grant/revoke-access)와 같은 절차입니다.  클러스터에 HTTP 액세스 권한이 부여된 경우 먼저 해당 권한을 해지해야 합니다.  그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
+HTTP 액세스 권한 부여/해지와 같은 절차입니다.  클러스터에 HTTP 액세스 권한이 부여된 경우 먼저 해당 권한을 해지해야 합니다.  그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
 
 ## <a name="find-the-default-storage-account"></a>기본 저장소 계정 찾기
 다음 코드 조각에서는 클러스터에 대한 기본 저장소 계정 이름 및 기본 저장소 계정 키를 가져오는 방법을 보여 줍니다.
@@ -258,7 +258,7 @@ foreach (var key in results.Configuration.Keys)
 
 [Hadoop과 함께 Apache Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](hdinsight-use-oozie-linux-mac.md)을 참조하세요.
 
-## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob 저장소에 데이터 업로드
+## <a name="upload-data-to-azure-blob-storage"></a>개발자와 관리자는 응용 프로그램을 빌드하거나 관리하는 데 필요한 유틸리티를 모든 가상 머신이나 역할 인스턴스에 다 설치하지 않고, 모든 구성 요소에서 사용할 수 있는 File Storage 공유에 저장할 수 있습니다.
 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목

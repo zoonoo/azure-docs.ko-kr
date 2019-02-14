@@ -13,20 +13,20 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: db7d47005b2855ffe3e28c43086a2bfa6b22c8f3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659511"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894065"
 ---
 # <a name="live-events-and-live-outputs"></a>라이브 이벤트 및 라이브 출력
 
 Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라이브 이벤트를 전달할 수 있습니다. Media Services v3에서 라이브 스트리밍 이벤트를 구성하려면 이 문서에서 설명하는 개념을 이해해야 합니다.
 
 * [라이브 이벤트](#live-events)
-* [라이브 이벤트 유형](#live-vent-types)
-* [라이브 이벤트 유형 비교](#live-event-types-comparison)
+* 라이브 이벤트 유형
+* 라이브 이벤트 유형 비교
 * [라이브 이벤트 만들기 옵션](#live-event-creation-options)
 * [라이브 이벤트 수집 URL](#live-event-ingest-urls)
 * [라이브 이벤트 미리 보기 URL](#live-event-preview-url)

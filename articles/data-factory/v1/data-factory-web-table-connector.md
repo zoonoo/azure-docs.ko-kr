@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ba8db3ebe2caf4c37d147f744326b6e631cb556
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 81b7bf7c230c66087bf286ebd9369d992e93be90
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022056"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814353"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 웹 테이블 원본에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -236,7 +236,7 @@ ms.locfileid: "54022056"
 
 파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **WebSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다.
 
-WebSource에서 지원하는 속성 목록은 [WebSource 형식 속성](#copy-activity-type-properties)을 참조하세요.
+WebSource에서 지원되는 속성 목록은 WebSource 형식 속성을 참조하세요.
 
 ```json
 {  

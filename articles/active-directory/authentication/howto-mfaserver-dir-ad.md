@@ -1,21 +1,23 @@
 ---
-title: Multi-Factor Authentication 및 Active Directory 간의 디렉터리 통합
+title: Azure MFA 서버와 Active Directory 간의 통합
 description: 디렉터리를 동기화할 수 있도록 Active Directory와 Azure Multi-Factor Authentication 서버를 통합하는 방법을 설명합니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 27c9330e0e2f89cdb4bdc81cbd909126401f0441
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.custom: seo-update-azuread-jan
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c9910155b439b5ee6d0e5abd96d750943605098a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081010"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211600"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: b3329f591d8478499b8270eb8a211d311465b020
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2a3c26c6a815cf934724fba4e8e0f9637803a4ce
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457023"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562388"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -104,7 +104,7 @@ ms.locfileid: "55457023"
 
 * <a id="afs-storage-redundancy"></a>
 **지역 중복 저장소가 Azure 파일 동기화에서 지원되나요?**  
-    예, Azure Files는 LRS(로컬 중복 저장소) 및 GRS(지역 중복 저장소)를 모두 지원합니다. 페어링된 지역 간에 GRS 장애 조치(Failover)가 발생하는 경우 새 지역을 데이터 백업 용도로만 사용하는 것이 좋습니다. Azure 파일 동기화는 새 주 영역과의 동기화를 자동으로 시작하지 않습니다. 
+    예, Azure Files는 LRS(로컬 중복 저장소) 및 GRS(지역 중복 저장소)를 모두 지원합니다. GRS에 대해 구성된 계정에서 쌍으로 연결된 지역 간에 스토리지 계정 장애 조치를 시작하는 경우 새 지역을 데이터 백업으로만 처리하는 것이 좋습니다. Azure 파일 동기화는 새 주 영역과의 동기화를 자동으로 시작하지 않습니다. 
 
 * <a id="sizeondisk-versus-size"></a>
 **Azure 파일 동기화를 사용한 후에 Azure 파일에 대한 *디스크 크기* 속성이 *크기* 속성과 일치하지 않는 이유는 무엇인가요?**  
@@ -116,7 +116,6 @@ ms.locfileid: "55457023"
 
 * <a id="afs-recall-file"></a>**사용하려는 파일이 계층화되어 있습니다. 파일을 로컬에서 사용하기 위해 디스크로 회수할 수 있는 방법은 무엇인가요?**  
  [클라우드 계층화 이해](storage-sync-cloud-tiering.md#afs-recall-file) 참조
-
 
 * <a id="afs-force-tiering"></a>
 **파일 또는 디렉터리를 강제로 계층화하려면 어떻게 해야 하나요?**  
@@ -149,7 +148,7 @@ ms.locfileid: "55457023"
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **계층화된 파일이 서버 엔드포인트 네임스페이스 외부에 존재하는 이유는 무엇인가요?**  
-    Azure 파일 동기화 에이전트 버전 3 이전에 Azure 파일 동기화는 서버 엔드포인트인 동일한 볼륨이 아닌 서버 엔드포인트 외부에서 계층화된 파일의 이동을 차단합니다. 복사 작업, 계층화되지 않은 파일의 이동 및 다른 볼륨에 계층화된 파일의 이동은 영향을 받지 않았습니다. 이 동작은 동일한 볼륨에서 작업을 이동하는 파일 탐색기 및 기타 Windows API가 비슷한 순간적인 이름 바꾸기 작업이라고 암시적으로 가정합니다. 즉, 이동하면 Azure 파일 동기화가 클라우드의 데이터를 다시 호출하는 동안 파일 탐색기 또는 다른 이동 방법(예: 명령줄 또는 PowerShell)이 응답하지 않는다고 표시됩니다. [Azure 파일 동기화 에이전트 버전 3.0.12.0](storage-files-release-notes.md#supported-versions)부터 Azure 파일 동기화를 사용하면 외부 서버 엔드포인트에서 계층화된 파일을 이동할 수 있습니다. 계층화된 파일을 서버 엔드포인트 외부에서 계층화된 파일로 유지한 다음, 백그라운드에서 파일을 회수하여 앞에서 언급한 부정적인 영향을 방지합니다. 즉, 동일한 볼륨의 이동은 순간적이므로 이동을 완료한 후에 디스크로 파일을 회수하는 모든 작업을 수행합니다. 
+    Azure 파일 동기화 에이전트 버전 3 이전에 Azure 파일 동기화는 서버 엔드포인트인 동일한 볼륨이 아닌 서버 엔드포인트 외부에서 계층화된 파일의 이동을 차단합니다. 복사 작업, 계층화되지 않은 파일의 이동 및 다른 볼륨에 계층화된 파일의 이동은 영향을 받지 않았습니다. 이 동작의 이유는 파일 탐색기 및 다른 Windows API에서 동일한 볼륨에서의 이동 작업이 거의 순간적인 이름 바꾸기 작업이라는 암시적 가정 때문이었습니다. 즉, 이동하면 Azure 파일 동기화가 클라우드의 데이터를 다시 호출하는 동안 파일 탐색기 또는 다른 이동 방법(예: 명령줄 또는 PowerShell)이 응답하지 않는다고 표시됩니다. [Azure 파일 동기화 에이전트 버전 3.0.12.0](storage-files-release-notes.md#supported-versions)부터 Azure 파일 동기화를 사용하면 외부 서버 엔드포인트에서 계층화된 파일을 이동할 수 있습니다. 계층화된 파일을 서버 엔드포인트 외부에서 계층화된 파일로 유지한 다음, 백그라운드에서 파일을 회수하여 앞에서 언급한 부정적인 영향을 방지합니다. 즉, 동일한 볼륨에서의 이동은 즉각적이고, 이동이 완료되면 파일을 디스크로 회수하는 모든 작업을 수행합니다. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **서버의 Azure 파일 동기화에 문제가 발생했습니다(동기화, 클라우드 계층화 등). 서버 엔드포인트를 제거하고 다시 만들어야 하나요?**  
@@ -202,7 +201,7 @@ ms.locfileid: "55457023"
 * <a id="ad-vm-subscription"></a>
 **다른 구독으로 VM에서 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있나요?**
 
-    파일 공유 배포에 사용된 구독이 VM이 도메인에 가입된 Azure AD Domain Services 배포와 동일한 Azure AD 테넌트와 연결된 경우에는 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있습니다. 제한 사항은 연결된 Azure AD 테넌트가 아닌 구독에만 적용됩니다.    
+    파일 공유가 배포된 구독과 VM이 도메인에 조인된 Azure AD Domain Services 배포와 동일한 Azure AD 테넌트가 연결되어 있는 경우 동일한 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있습니다. 제한 사항은 연결된 Azure AD 테넌트가 아닌 구독에만 적용됩니다.    
     
 * <a id="ad-support-subscription"></a>
 **파일 공유가 연결된 기본 테넌트와는 다른 Azure AD 테넌트를 사용하여 Azure Files에 대한 SMB를 통한 Azure AD 인증을 사용하도록 설정할 수 있나요?**
@@ -242,7 +241,7 @@ ms.locfileid: "55457023"
 * <a id="data-compliance-policies"></a>
 **Azure Files는 어떤 데이터 규정 준수 정책을 지원하나요?**  
 
-   Azure Files는 Azure Storage의 다른 스토리지 서비스에서 사용되는 동일한 스토리지 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)을 참조하고, [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
+   Azure Files는 Azure Storage의 다른 스토리지 서비스에서 사용되는 동일한 스토리지 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Azure Storage 준수 제품](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)을 참조하고, [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx)로 이동하여 참조할 수 있습니다.
 
 ## <a name="on-premises-access"></a>온-프레미스 액세스
 * <a id="expressroute-not-required"></a>

@@ -11,16 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: a59a7610a067a292d9b5dd7bb1a611b4bade05e9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193814"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171828"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
 이 항목에서는 Azure AD Connect에서 구성 모델을 설명합니다. 이 모델은 선언적 프로비전이라고 하고 구성을 쉽게 변경할 수 있습니다. 이 항목에서 설명하는 여러 가지 항목은 고급이며 대부분의 고객 시나리오에 필요하지 않습니다.
@@ -37,7 +38,7 @@ ms.locfileid: "55193814"
 * 원본, 원본 개체
 * [범위](#scope), 범위에 있는 모든 동기화 규칙을 찾습니다.
 * [조인](#join), 커넥터 공간과 메타버스 간의 관계를 결정합니다.
-* [변환](#transform), 특성을 변환하는 방법 및 흐름을 계산합니다.
+* 변환, 특성을 변환하는 방법 및 흐름을 계산합니다.
 * [우선 순위](#precedence), 특성 기여의 충돌을 해결합니다.
 * 대상, 대상 개체
 

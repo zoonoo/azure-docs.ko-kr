@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 331a8d07004a8915d27b28ca0fba940b1aa3ab72
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b7b8b157b890bcdda8c06a0dd1b208a82f7f9058
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164812"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>자습서: Attendance Management Services와 Azure Active Directory 통합
 
@@ -86,7 +87,7 @@ Attendance Management Services에서 Azure AD Single Sign-On을 구성하고 테
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-1. **[Attendance Management Services 테스트 사용자 만들기](#create-an-attendance-management-service-test-user)** - Britta Simon의 Microsoft Azure Active Directory 표현과 연결된 해당 사용자를 Attendance Management Services에 만듭니다.
+1. **Attendance Management Services 테스트 사용자 만들기** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Attendance Management Services에 만듭니다.
 1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 

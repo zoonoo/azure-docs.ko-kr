@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/20/2017
 ms.author: danlep
-ms.openlocfilehash: 350ae16aa66276e7e64c5c35718dca74a70f499e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cbfbe5bf0df1b4f40752b5b233dff6416bcdd309
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854102"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770604"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 
@@ -27,7 +27,7 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 
 ## <a name="create-webhook-azure-portal"></a>웹후크 Azure Portal 만들기
 
-1. [Azure 포털](https://portal.azure.com)
+1.  [Azure 포털](https://portal.azure.com)
 1. 웹후크를 만들려는 컨테이너 레지스트리로 이동합니다.
 1. **서비스** 아래에서 **Webhook**를 선택합니다.
 1. 웹후크 도구 모음에서 **추가**를 선택합니다.
@@ -35,7 +35,7 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 
 | 값 | 설명 |
 |---|---|
-| 이름 | 웹후크에 지정하려는 이름입니다. 소문자와 숫자만 포함할 수 있으며 길이는 5-50자여야 합니다. |
+| Name | 웹후크에 지정하려는 이름입니다. 소문자와 숫자만 포함할 수 있으며 길이는 5-50자여야 합니다. |
 | 서비스 URI | 웹후크가 POST 알림을 보내야 하는 URI입니다. |
 | 사용자 지정 헤더 | POST 요청과 함께 전달하려는 헤더입니다. "키: 값" 형식이어야 합니다. |
 | 트리거 동작 | 웹후크를 트리거하는 동작입니다. 현재 웹후크는 이미지 밀어넣기 및/또는 삭제 동작에 의해 트리거될 수 있습니다. |
@@ -74,7 +74,7 @@ Azure CLI를 사용하여 ACR 웹후크를 테스트하려면 [az acr webhook pi
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-결과를 보려면 [az acr webhook list-events](/cli/azure/acr/webhook#list-events) 명령을 사용합니다.
+결과를 보려면 [az acr webhook list-events](/cli/azure/acr/webhook) 명령을 사용합니다.
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01

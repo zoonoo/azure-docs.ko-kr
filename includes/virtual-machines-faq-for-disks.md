@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2018
+ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841436"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648627"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -347,7 +347,7 @@ Azure Backup 및 Azure Site Recovery 서비스에서 지원하는 최대 디스�
 
 **4TiB보다 큰 관리 디스크 크기가 지원되는 지역은 어디인가요?**
 
-현재 해당 관리 디스크 크기는 미국 중서부에서만 미리 보기로 지원됩니다.
+현재 미리 보기에서 관리 디스크 크기는 미국 중서부, 유럽 북부, 유럽 서부, 미국 서부 2, 미국 동부 2, 미국 동부에서 지원됩니다.
 
 **새로운 디스크 크기에서 호스트 캐싱 사용 설정을 지원하나요?**
 

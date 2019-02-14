@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 순위를 사용하여 Bing Entity Search API가 반환하는 응답을 표시하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 56215bfa17343576b6bebec3a5dc5076ac56073c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9e2a4075436145a0cc185b7ab1b406fa8d27b8e3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754135"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867837"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>순위를 사용하여 엔터티 검색 결과 표시  
 

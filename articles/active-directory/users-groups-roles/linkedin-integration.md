@@ -12,12 +12,13 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 6b62fde7f9b01fbeb133c92b1306f70f56d71d7a
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d86b8dc271eead1196d946895ec7676935135cef
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509629"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202489"
 ---
 # <a name="linkedin-integration"></a>LinkedIn 통합
 
@@ -51,7 +52,7 @@ ms.locfileid: "55509629"
 1. [Office 2016 관리 템플릿 파일(ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030) 다운로드
 2. **ADMX** 파일을 추출하고 중앙 저장소에 복사합니다.
 3. 그룹 정책 관리를 엽니다.
-4. **사용자 구성** > **관리 템플릿** > **Microsoft Office 2016** > **기타** > **Office 애플리케이션에 LinkedIn 기능 표시** 설정을 사용하여 그룹 정책 개체를 만듭니다.
+4. 사용자 구성관리 템플릿Microsoft Office 2016기타Office 애플리케이션에 LinkedIn 기능 표시 설정을 사용하여 그룹 정책 개체를 만듭니다.
 5. **사용** 또는 **사용 안 함**을 선택합니다.
   
  시스템 상태 | 결과

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8b494e3f289d7b3a850a77f7f388cee542c088ed
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424645"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821867"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -175,13 +175,13 @@ az vm show \
 | 프로토콜                | TCP                                                                                |
 | 조치                  | 허용                                                                              |
 | 우선 순위                | 100                                                                                |
-| 이름                    | Allow-HTTP-All                                                                     |
+| Name                    | Allow-HTTP-All                                                                     |
 
 규칙을 만든 후 규칙의 우선 순위는 트래픽을 거부하는 *DenyAllInBound*라는 기본 보안 규칙보다 높기 때문에 포트 80은 인터넷에서 허용된 인바운드입니다. [보안 규칙을 만드는](manage-network-security-group.md#create-a-security-rule) 방법을 알아봅니다. 다른 NSG가 네트워크 인터페이스와 서브넷 모두에 연결되어 있는 경우 두 NSG에 동일한 규칙을 만들어야 합니다.
 
 Azure에서 인바운드 트래픽을 처리할 때 서브넷에 연결된 NSG의 규칙을 처리한 다음(연결된 NSG가 있는 경우), 네트워크 인터페이스에 연결된 NSG의 규칙을 처리합니다. 네트워크 인터페이스와 서브넷에 연결된 NSG가 있는 경우 포트는 VM에 도달하는 트래픽에 대해 두 NSG에서 열려야 합니다. 관리 및 통신 문제를 완화하려면 개별 네트워크 인터페이스가 아닌 서브넷에 NSG를 연결하는 것이 좋습니다. 서브넷 내의 VM에 다른 보안 규칙이 필요한 경우 ASG(애플리케이션 보안 그룹)의 네트워크 인터페이스 멤버를 만들고, ASG를 보안 규칙의 원본 및 대상으로 지정할 수 있습니다. [애플리케이션 보안 그룹](security-overview.md#application-security-groups)에 대해 자세히 알아봅니다.
 
-여전히 통신 문제가 있는 경우 [고려 사항](#considerations) 및 [추가 진단](#additional-dignosis)을 참조하세요.
+여전히 통신 문제가 있는 경우 [고려할 사항](#considerations) 및 추가 진단을 참조하세요.
 
 ## <a name="considerations"></a>고려 사항
 

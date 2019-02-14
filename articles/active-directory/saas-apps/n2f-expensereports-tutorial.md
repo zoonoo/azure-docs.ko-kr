@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 27fb299bc3bbbbf75bdf40ae02eac627763ce6d4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3166a4e19bc137d57b97dbb516e7037228e1c020
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007597"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56188820"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>자습서: N2F - Expense Reports와 Azure Active Directory 통합
 
@@ -65,7 +66,7 @@ N2F - Expense Reports를 Azure AD애 통합하도록 구성하려면 갤러리�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -73,7 +74,7 @@ N2F - Expense Reports를 Azure AD애 통합하도록 구성하려면 갤러리�
 
     ![새 애플리케이션 단추][3]
 
-4. 검색 상자에 **N2F - Expense Reports**를 입력하고 결과 패널에서 **N2F - Expense Reports**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **N2F - Expense Reports**를 입력하고 결과 패널에서 **N2F - Expense Reports**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 N2F - Expense Reports](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_addfromgallery.png)
 
@@ -87,17 +88,17 @@ N2F - Expense Reports에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[N2F - Expense Reports 테스트 사용자 만들기](#create-a-n2f---expense-reports-test-use)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 N2F - Expense Reports에 만듭니다.
+3. **N2F - Expense Reports 테스트 사용자 만들기** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 N2F - Expense Reports에 만듭니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 N2F - Expense Reports 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 N2F - Expense Reports 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **N2F - Expense Reports에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **N2F - Expense Reports** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **N2F - Expense Reports** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -109,7 +110,7 @@ N2F - Expense Reports에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     ![N2F - Expense Reports 도메인 및 URL Single Sign-On 정보](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_url1.png)
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+4. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![N2F - Expense Reports 도메인 및 URL Single Sign-On 정보](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_url2.png)
 
@@ -236,9 +237,9 @@ Azure AD 사용자가 N2F - Expense Reports에 로그인할 수 있도록 하려
 
     ![사용자 할당][201]
 
-2. 애플리케이션 목록에서 **N2F - Expense Reports**를 선택합니다.
+2. 응용 프로그램 목록에서 **N2F - Expense Reports**를 선택합니다.
 
-    ![애플리케이션 목록의 N2F - Expense Reports 링크](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_app.png)  
+    ![응용 프로그램 목록의 N2F - Expense Reports 링크](./media/n2f-expensereports-tutorial/tutorial_n2f-expensereports_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -264,7 +265,7 @@ Azure AD 사용자가 N2F - Expense Reports에 로그인할 수 있도록 하려
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

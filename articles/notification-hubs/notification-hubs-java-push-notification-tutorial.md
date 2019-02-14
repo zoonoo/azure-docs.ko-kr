@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 68c87b0fd892d5972e8c6b225c7c7bce3b3704db
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 45ff4ff79a443e49a7d01a41a249db9e4d0a070b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449965"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560807"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java에서 Notification Hubs를 사용하는 방법
 
@@ -39,7 +39,7 @@ ms.locfileid: "54449965"
 * 일반 보내기
 * 예약된 보내기
 * Java NIO를 통한 비동기 작업
-* 지원되는 플랫폼: APNS(iOS), GCM(Android), WNS(Windows 스토어 앱), MPNS(Windows Phone), ADM(Amazon Kindle Fire), Baidu(Google 서비스가 포함되지 않은 Android)
+* 지원되는 플랫폼: APNS(iOS), FCM(Android), WNS(Windows 스토어 앱), MPNS(Windows Phone), ADM(Amazon Kindle Fire), Baidu(Google 서비스가 없는 Android)
 
 ## <a name="sdk-usage"></a>SDK 사용
 
@@ -120,7 +120,7 @@ ms.locfileid: "54449965"
     hub.createRegistration(reg);
     ```
 
-마찬가지로 Android(GCM), Windows Phone(MPNS) 및 Kindle Fire(ADM)에 대한 등록도 만들 수 있습니다.
+마찬가지로 Android(FCM), Windows Phone(MPNS) 및 Kindle Fire(ADM)에 대한 등록도 만들 수 있습니다.
 
 **템플릿 등록 만들기:**
 
@@ -318,7 +318,7 @@ Amazon Kindle Fire의 경우 예제:
 
     ```java
     String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
-    Notification n = Notification.createGcmNotification(message);
+    Notification n = Notification.createFcmNotification(message);
     hub.sendNotification(n);
     ```
 

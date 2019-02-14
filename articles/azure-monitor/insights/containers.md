@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fd614a632945dbcc89c530df54b8416809029d1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7d538695fe7c920bbd22fcfb0e097220aa249f07
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194031"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811820"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
@@ -100,16 +100,16 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 2. Log Analytics 에이전트를 사용하여 Docker를 설치하고 사용합니다. 운영 체제 및 Docker 조정자에 따라 에이전트를 구성하는 데 다음 메서드를 사용할 수 있습니다.
   - 독립 실행형 호스트의 경우:
     - 지원되는 Linux 운영 체제에서 Docker를 설치 및 실행한 다음, [Linux용 Log Analytics 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md)를 설치하고 구성합니다.  
-    - CoreOS에서는 Linux용 Log Analytics 에이전트를 실행할 수 없습니다. 대신 Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 실행합니다. Azure Government 클라우드에서 컨테이너를 사용하는 경우 [CoreOS를 포함한 Linux 컨테이너 호스트](#for-all-linux-container-hosts-including-coreos) 또는 [CoreOS을 포함한 Azure Government Linux 컨테이너 호스트](#for-all-azure-government-linux-container-hosts-including-coreos)를 검토하세요.
+    - CoreOS에서는 Linux용 Log Analytics 에이전트를 실행할 수 없습니다. 대신 Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 실행합니다. Azure Government 클라우드에서 컨테이너를 사용하는 경우 CoreOS를 포함한 Linux 컨테이너 호스트 또는 CoreOS을 포함한 Azure Government Linux 컨테이너 호스트를 검토하세요.
     - Windows Server 2016 및 Windows 10에서 Docker 엔진 및 클라이언트를 설치한 후 에이전트를 연결하여 정보를 수집하고 Log Analytics에 보냅니다. Windows 환경을 사용하는 경우 [Windows 컨테이너 호스트 설치 및 구성](#install-and-configure-windows-container-hosts)을 검토하세요.
   - Docker 다중 호스트 오케스트레이션의 경우:
-    - Red Hat OpenShift 환경인 경우 [Red Hat OpenShift용 Log Analytics 에이전트 구성](#configure-an-oms-agent-for-red-hat-openshift)을 검토하세요.
+    - Red Hat OpenShift 환경인 경우 Red Hat OpenShift용 Log Analytics 에이전트 구성을 검토하세요.
     - Azure Container Service를 사용하는 Kubernetes 클러스터가 있는 경우:
-       - [Kubernetes용 Log Analytics Linux 에이전트 구성](#configure-an-oms-linux-agent-for-kubernetes)을 검토합니다.
-       - [Kubernetes용 Log Analytics Windows 에이전트 구성](#configure-an-oms-windows-agent-for-kubernetes)을 검토합니다.
-       - [Helm을 사용하여 Linux Kubernetes에 Log Analytics 에이전트 배포](#use-helm-to-deploy-oms-agent-on-linux-kubernetes)를 검토합니다.
+       - [Kubernetes용 Log Analytics Linux 에이전트 구성](#configure-a-log-analytics-linux-agent-for-kubernetes)을 검토합니다.
+       - [Kubernetes용 Log Analytics Windows 에이전트 구성](#configure-a-log-analytics-windows-agent-for-kubernetes)을 검토합니다.
+       - Helm을 사용하여 Linux Kubernetes에 Log Analytics 에이전트 배포를 검토합니다.
     - Azure Container Service DC/OS 클러스터가 있는 경우 [Log Analytics를 사용하여 Azure Container Service DC/OS 클러스터 모니터링](../../container-service/dcos-swarm/container-service-monitoring-oms.md)에서 자세한 내용을 알아보세요.
-    - Docker Swarm 모드 환경에 있는 경우 [Docker Swarm용 Log Analytics 에이전트 구성](#configure-an-oms-agent-for-docker-swarm)에서 자세히 알아보세요.
+    - Docker Swarm 모드 환경에 있는 경우 Docker Swarm용 Log Analytics 에이전트 구성에서 자세히 알아보세요.
     - Service Fabric 클러스터가 있는 경우 [Log Analytics Log Analytics를 사용한 컨테이너 모니터링](../../service-fabric/service-fabric-diagnostics-oms-containers.md)에서 자세히 알아보세요.
 
 [Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) 문서에서 Windows를 실행하는 컴퓨터에서 Docker 엔진을 설치하고 구성하는 방법에 대한 추가 정보를 확인합니다.

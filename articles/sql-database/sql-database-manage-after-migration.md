@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 419ee13f88e63af9bebb6dda2d96530c54baa0d0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751942"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099737"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 데이터베이스 관리
 
@@ -310,7 +310,7 @@ SQL Database는 특정 부류의 데이터 손상을 자동으로 데이터 손�
 이 목적을 달성하는 여러 가지 방법이 있습니다.
 
 - **[Data Sync](sql-database-sync-data.md)** – 이 기능은 여러 온-프레미스 SQL Server 데이터베이스와 SQL Database 사이에 양방향으로 데이터를 동기화하도록 도와 줍니다. 온-프레미스 SQL Server 데이터베이스와 동기화하려면 로컬 컴퓨터에 동기화 에이전트를 설치 및 구성하고 아웃바운드 TCP 포트 1433을 열어야 합니다.
-- **[트랜잭션 복제](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – 트랜잭션 복제를 사용하여 온-프레미스에서 Azure SQL DB까지의 데이터를 게시자인 온-프레미스 및 구독자인 Azure SQL DB와 동기화할 수 있습니다. 현재 이 설정만 지원됩니다. 가동 중지 시간을 최소화하면서 온-프레미스 데이터를 Azure SQL로 마이그레이션하는 방법은: [트랜잭션 복제 사용](sql-database-cloud-migrate.md#method-2-use-transactional-replication)을 참조하세요.
+- **[트랜잭션 복제](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – 트랜잭션 복제를 사용하여 온-프레미스에서 Azure SQL DB까지의 데이터를 게시자인 온-프레미스 및 구독자인 Azure SQL DB와 동기화할 수 있습니다. 현재 이 설정만 지원됩니다. 가동 중지 시간을 최소화하면서 온-프레미스 데이터를 Azure SQL로 마이그레이션하는 방법은: [트랜잭션 복제 사용](sql-database-single-database-migrate.md#method-2-use-transactional-replication)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

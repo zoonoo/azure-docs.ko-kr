@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: c911a53f16e07b67a1ec22a9e0592df06c192325
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 47977281a55f3a106facb5dc57a7d849f1e07ade
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188187"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56195365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>자습서: Lessonly.com과 Azure Active Directory 통합
 
@@ -90,7 +91,7 @@ Lessonly.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-1. **[Lessonly.com 테스트 사용자 만들기](#creating-a-lessonly-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Lessonly.com에 만듭니다.
+1. **Lessonly.com 테스트 사용자 만들기** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Lessonly.com에 만듭니다.
 1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 

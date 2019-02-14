@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 7515d1d88e3652ba609286b1805e58853763434d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: fb6fb443440ce9af26a3152f7dcc536c4e881cd9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183233"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56165437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>자습서: Cezanne HR Software와 Azure Active Directory 통합
 
@@ -88,7 +89,7 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-1. **[Cezanne HR Software 테스트 사용자 만들기](#create-a-cezannehrsoftware-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Cezanne HR Software에 만듭니다.
+1. **Cezanne HR Software 테스트 사용자 만들기** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Cezanne HR Software에 만듭니다.
 1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 

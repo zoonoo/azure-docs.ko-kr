@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5b64472c6388a642c817fb67c97e963ecfa14c2c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 55668b8ef8019e1ee808bc0cba9d98c0db53c584
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478657"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198743"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Azure AD와 동기화되지 않는 개체 문제 해결
 
@@ -28,6 +29,34 @@ ms.locfileid: "54478657"
 
 >[!IMPORTANT]
 >버전 1.1.749.0 이상인 AAD(Azure Active Directory) Connect 배포의 경우 마법사에서 [문제 해결 작업](tshoot-connect-objectsync.md)을 사용하여 개체 동기화 문제를 해결합니다. 
+
+## <a name="synchronization-process"></a>동기화 프로세스
+
+동기화 문제를 조사하기 전에 **Azure AD Connect** 동기화 프로세스에 대해 살펴보겠습니다.
+
+  ![Azure AD Connect 동기화 프로세스](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+
+### <a name="terminology"></a>**용어**
+
+* **CS:** 커넥터 공간(데이터베이스의 테이블)
+* **MV:** 메타버스(데이터베이스의 테이블)
+* **AD:** Active Directory
+* **AAD:** Azure Active Directory
+
+### <a name="synchronization-steps"></a>**동기화 단계**
+동기화 프로세스에서는 다음 단계가 수행됩니다.
+
+1. **AD에서 가져오기:**: **Active Directory** 개체를 **AD CS**로 가져옵니다.
+
+2. **AAD에서 가져오기:** **Azure Active Directory** 개체를 **AAD CS**로 가져옵니다.
+
+3. **동기화:** **인바운드 동기화 규칙** 및 **아웃바운드 동기화 규칙** 은 우선 순위 번호가 낮은 규칙부터 차례로 실행됩니다. 동기화 규칙을 확인하려는 경우 데스크톱 애플리케이션에서 **동기화 규칙 편집기**로 이동하면 됩니다. **인바운드 동기화 규칙**은 CS에서 MV로 데이터를 가져옵니다. **아웃바운드 동기화 규칙**은 MV에서 CS로 데이터를 가져옵니다.
+
+4. **AD로 내보내기:** 동기화를 실행하고 나면 AD CS에서 **Active Directory**로 개체가 내보내집니다.
+
+5. **AAD로 내보내기:** 동기화를 실행하고 나면 AAD CS에서 **Azure Active Directory**로 개체가 내보내집니다.
+
+## <a name="troubleshooting"></a>문제 해결
 
 오류를 찾기 위해 다음 순서대로 몇 가지 위치를 확인해보겠습니다.
 
@@ -115,7 +144,7 @@ cs 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 로그 페이지를 사용하여 암호 동기화 상태와 기록을 볼 수 있습니다. 자세한 내용은 [암호 해시 동기화 문제 해결](tshoot-connect-password-hash-synchronization.md)을 참조하세요.
 
 ## <a name="metaverse-object-properties"></a>메타버스 개체 속성
-일반적으로는 원본 Active Directory [커넥터 공간](#connector-space)에서 검색을 시작하는 것이 좋습니다. 하지만 메타버스에서 검색을 시작할 수도 있습니다.
+일반적으로는 원본 Active Directory 커넥터 공간에서 검색을 시작하는 것이 좋습니다. 하지만 메타버스에서 검색을 시작할 수도 있습니다.
 
 ### <a name="search-for-an-object-in-the-mv"></a>MV에서 개체 검색
 **Synchronization Service Manager**에서 **메타버스 검색**을 클릭합니다. 사용자를 찾는 쿼리를 만듭니다. accountName(sAMAccountName) 및 UserPrincipalName 등의 일반적인 특성을 검색할 수 있습니다. 자세한 내용은 [메타버스 검색](how-to-connect-sync-service-manager-ui-mvsearch.md)을 참조하세요.
@@ -123,7 +152,28 @@ cs 개체를 열면 위쪽에 여러 개의 탭이 표시됩니다. **가져오�
 
 **검색 결과** 창에서 개체를 클릭합니다.
 
-개체를 찾지 못한 경우 메타버스에 아직 도달하지 않은 것입니다. Active Directory [커넥터 공간](#connector-space-object-properties)에서 개체를 계속 검색합니다. 개체가 메타버스로 들어오지 못하게 하는 동기화 오류가 있거나 필터가 적용된 것일 수 있습니다.
+개체를 찾지 못한 경우 메타버스에 아직 도달하지 않은 것입니다. **Active Directory** [커넥터 공간](#connector-space-object-properties)에서 개체를 계속 검색합니다. **Active Directory** 커넥터 공간에 개체가 있는 경우 동기화에서 오류가 발생하여 개체를 메타버스로 가져올 수 없는 상태이거나, 동기화 규칙 범위 지정 필터가 적용되어 있는 것일 수 있습니다.
+
+### <a name="object-not-found-in-the-mv"></a>MV에 개체가 없음
+개체가 **Active Directory** CS에는 있는데 MV에는 없으면 범위 지정 필터가 적용되어 있는 것입니다. 
+
+* 범위 지정 필터를 확인하려면 데스크톱 애플리케이션 메뉴로 이동하여 **동기화 규칙 편집기**를 클릭합니다. 아래 필터를 조정하여 개체에 해당하는 규칙을 필터링합니다.
+
+  ![인바운드 동기화 규칙 검색](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
+
+* 위의 목록에서 각 규칙을 확인하고 **범위 지정 필터**를 선택합니다. 아래 범위 지정 필터에서 **isCriticalSystemObject** 값이 null 또는 FALSE이거나 비어 있으면 해당 값은 범위 내에 포함되는 것입니다.
+
+  ![인바운드 동기화 규칙 검색](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
+
+* [CS 가져오기](#cs-import) 특성 목록으로 이동하여 MV로 개체를 이동할 수 없도록 차단하는 필터를 선택합니다. 그러면 **커넥터 공간** 특성 목록에 null이 아니며 비어 있지 않은 특성만 표시됩니다. 예를 들어 **isCriticalSystemObject**가 목록에 표시되지 않으면 이 특성의 값이 null이거나 비어 있는 것입니다.
+
+### <a name="object-not-found-in-the-aad-cs"></a>AAD CS에 개체가 없음
+개체가 **Azure Active Directory**의 **커넥터 공간**에는 없는데 MV에는 있는 경우 해당 **커넥터 공간**의 **아웃 바운드** 규칙 범위 지정 필터를 확인하여 [MV 특성](#mv-attributes)이 조건을 충족하지 않아 개체가 필터링되었는지를 파악합니다.
+
+* 아웃바운드 범위 지정 필터를 확인하려면 아래의 필터를 조정하여 개체에 해당하는 규칙을 선택합니다. 각 규칙과 해당 [MV 특성](#mv-attributes) 값을 확인합니다.
+
+  ![아웃바운드 동기화 규칙 검색](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
+
 
 ### <a name="mv-attributes"></a>MV 특성
  특성 탭에서는 특성 값과 기여한 커넥터를 볼 수 있습니다.  
@@ -146,6 +196,5 @@ Azure AD에 대한 커넥터가 없으면 [MV 특성](#mv-attributes)을 읽어 
 이 탭을 사용하여 [커넥터 공간 개체](#connector-space-object-properties)로 이동할 수도 있습니다. 행을 선택하고 **속성**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD Connect 동기화](how-to-connect-sync-whatis.md) 구성에 대해 자세히 알아봅니다.
-
-[Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.
+- [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
+- [하이브리드 ID란?](whatis-hybrid-identity.md)

@@ -3,7 +3,7 @@ title: Azure SQL Database 하이퍼스케일 FAQ | Microsoft Docs
 description: 일반적으로 하이퍼스케일 데이터베이스라고 하는 하이퍼스케일 서비스 계층의 Azure SQL 데이터베이스에 대해 고객이 하는 일반적인 질문에 대한 답변입니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 02/06/2019
+ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242163"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099782"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -73,11 +73,11 @@ vCore 기반 서비스 계층은 주로 가용성, 저장소 형식 및 IOPs를 
 
 ### <a name="what-regions-currently-support-hyperscale"></a>현재 하이퍼스케일이 지원되는 지역
 
-하이퍼스케일은 현재 미국 서부 1, 미국 서부 2, 미국 동부 1, 미국 중부, 유럽 서부, 북유럽, 영국 서부, 동남아시아, 일본 동부, 한국 중부, 오스트레일리아 남동부 및 오스트레일리아 동부 지역의 단일 데이터베이스에 사용할 수 있습니다.
+현재 하이퍼스케일은 다음 지역의 단일 데이터베이스에 사용할 수 있습니다.  미국 서부 1, 미국 서부 2, 미국 동부 1, 미국 중부, 유럽 서부, 북유럽, 영국 서부, 동남 아시아, 일본 동부, 한국 중부, 오스트레일리아 남동부 및 오스트레일리아 동부.
 
-### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>논리 서버에 대해 여러 개의 하이퍼스케일 데이터베이스를 만들 수 있나요?
+### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>SQL Database 서버에 대해 여러 개의 하이퍼스케일 데이터베이스를 만들 수 있나요?
 
-예. 논리 서버별 하이퍼스케일 데이터베이스 수에 대한 제한과 자세한 내용은 [논리 서버의 단일 및 풀링된 데이터베이스에 대한 SQL Database 리소스 제한](sql-database-resource-limits-logical-server.md)을 참조하세요.
+예. SQL Database 서버별 하이퍼스케일 데이터베이스 수에 대한 제한과 자세한 내용은 [SQL Database 서버의 단일 및 풀링된 데이터베이스에 대한 SQL Database 리소스 제한](sql-database-resource-limits-database-server.md)을 참조하세요.
 
 ### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>하이퍼스케일 데이터베이스의 성능 특성은 무엇인가요?
 
@@ -98,7 +98,7 @@ SQL Database 하이퍼스케일은 워크로드 요구 사항에 따라 신속�
 
 ## <a name="deep-dive-questions"></a>심층적인 질문
 
-### <a name="can-i-mix-hyperscale-and-single-databases-a-my-logical-server"></a>논리 서버에 하이퍼스케일과 단일 데이터베이스를 혼합할 수 있나요?
+### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>SQL Database 서버에 하이퍼스케일과 단일 데이터베이스를 혼합할 수 있나요?
 
  예, 할 수 있습니다.
 
@@ -198,7 +198,7 @@ PDW(병렬 데이터 웨어하우스), Teradata 또는 기타 MPP(Massively Para
 
 ### <a name="is-database-compression-supported"></a>데이터베이스 압축이 지원되나요?
 
-yes
+예
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>거대한 테이블이 있는 경우 테이블 데이터가 여러 데이터 파일에 분산되나요?
 
@@ -222,7 +222,7 @@ yes
 
 예. 기존의 모든 마이그레이션 기술(예: BACPAC, 트랜잭션 복제, 논리 데이터 로딩)을 사용하여 하이퍼스케일로 마이그레이션할 수 있습니다. [Azure Database Migration Service](../dms/dms-overview.md)도 참조하세요.
 
-### <a name="what-is-my-downtown-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>온-프레미스 또는 가상 머신 환경에서 하이퍼스케일로 마이그레이션하는 동안 가동 중지 시간은 어떻게 되며 어떻게 최소화할 수 있나요?
+### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>온-프레미스 또는 가상 머신 환경에서 하이퍼스케일로 마이그레이션하는 동안 가동 중지 시간은 얼마나 되며 어떻게 최소화할 수 있나요?
 
 가동 중지 시간은 Azure SQL 데이터베이스에서 데이터베이스를 단일 데이터베이스로 마이그레이션하는 경우 가동 중지 시간과 같습니다. [트랜잭션 복제](replication-to-sql-database.md#data-migration-scenario
 )를 사용하면 크기가 최대 몇 TB에 이르는 데이터베이스의 마이그레이션 가동 중지 시간을 최소화할 수 있습니다. 초대형 데이터베이스(10TB 초과)의 경우 ADF, Spark 또는 기타 데이터 이동 기술을 사용하여 데이터를 마이그레이션하는 것이 좋습니다.
@@ -231,11 +231,11 @@ yes
 
 아직 알려지지 않음(아직 미리 보기 중임)
 
-### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-and-sql-data-warehouse"></a>Blob 저장소의 데이터를 읽을 수 있고 빠른 로딩(Polybase 및 SQL Data Warehouse와 같은)이 가능한가요?
+### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-and-sql-data-warehouse"></a>Blob Storage의 데이터를 읽을 수 있고 빠른 로딩(Polybase 및 SQL Data Warehouse와 같은)이 가능한가요?
 
 Azure Storage의 데이터를 읽을 수 있고 하이퍼스케일 데이터베이스에 데이터를 로드할 수 있습니다(일반 단일 데이터베이스를 사용하는 것처럼). Azure SQL Database에서는 현재 Polybase가 지원되지 않습니다. [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)를 사용하거나 [SQL용 Spark 커넥터](sql-database-spark-connector.md)를 사용하여 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/)에서 Spark 작업을 실행하여 Polybase를 수행할 수 있습니다. SQL에 대한 Spark 커넥터는 대량 삽입을 지원합니다.
 
-하이퍼스케일에서는 단순 복구 또는 대량 로깅 모델이 지원되지 않습니다. 고가용성을 제공하려면 전체 복구 모델이 필요합니다. 하지만 하이퍼스케일은 새로운 로그 아키텍처 때문에 단일 Azure SQL 데이터베이스에 비해 빠른 데이터 삽입 속도를 제공합니다.
+하이퍼스케일에서는 단순 복구 또는 대량 로깅 모델이 지원되지 않습니다. 고가용성을 제공하려면 전체 복구 모델이 필요합니다. 하지만 하이퍼스케일은 새로운 로그 아키텍처 때문에 단일 데이터베이스에 비해 빠른 데이터 수집 속도를 제공합니다.
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>SQL Database 하이퍼스케일로 대량의 데이터를 수집하기 위해 여러 노드를 프로비전할 수 있나요?
 
@@ -243,7 +243,7 @@ Azure Storage의 데이터를 읽을 수 있고 하이퍼스케일 데이터베�
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>SQL Database 하이퍼스케일에서 마이그레이션이 지원되는 가장 오래된 SQL Server 버전은 무엇인가요?
 
-SQL Server 2005입니다. 자세한 내용은 [단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database)을 참조하세요. 호환성 문제는 [데이터베이스 마이그레이션 호환성 문제 해결](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues)을 참조하세요.
+SQL Server 2005입니다. 자세한 내용은 [단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션](sql-database-single-database-migrate.md#migrate-to-a-single-database-or-a-pooled-database)을 참조하세요. 호환성 문제는 [데이터베이스 마이그레이션 호환성 문제 해결](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues)을 참조하세요.
 
 ### <a name="does-sql-database-hyperscale-support-migration-from-other-data-sources-such-as-aurora-mysql-oracle-db2-and-other-database-platforms"></a>Aurora, MySQL, Oracle, DB2 등의 다른 데이터 원본 및 기타 데이터베이스 플랫폼에서 마이그레이션을 SQL Database 하이퍼스케일에서 지원하나요?
 
@@ -257,7 +257,7 @@ SQL Server 2005입니다. 자세한 내용은 [단일 데이터베이스 또는 
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Azure SQL Database 서비스에서 데이터베이스 백업이 관리되나요?
 
-yes
+예
 
 ### <a name="how-often-are-the-database-backups-taken"></a>데이터베이스 백업이 얼마나 자주 수행되나요?
 
@@ -265,7 +265,7 @@ SQL Database 하이퍼스케일 데이터베이스에는 기존의 전체, 차�
 
 ### <a name="does-sql-database-hyperscale-support-point-in-time-restore"></a>SQL Database 하이퍼스케일에서 지정 시간 복원을 지원하나요?
 
-yes
+예
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>SQL Database 하이퍼스케일에서 백업/복원의 RPO(복구 지점 목표)/RTO(복구 시간 목표)는 무엇인가요?
 

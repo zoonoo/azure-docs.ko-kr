@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ad389cfaa92ad487fad8b7ecb6feac40324572f0
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568535"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100570"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -109,10 +109,6 @@ Cloud Shell은 다음과 같은 최신 버전 브라우저를 지원합니다.
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="for-a-given-user-only-one-shell-can-be-active"></a>지정된 사용자에 대해 셸이 하나만 활성화될 수 있습니다.
-
-사용자는 **Bash** 또는 **PowerShell**을 이용하여 한 번에 한 가지 유형의 셸만을 시작할 수 있습니다. 그러나 PowerShell 또는 Bash의 인스턴스는 동시에 여러 개 실행할 수 있습니다. PowerShell 또는 Bash 간에 교환이 일어나면 Azure Cloud Shell이 다시 시작되어 기존 세션이 종료됩니다.
-
 ### <a name="usage-limits"></a>사용 제한
 
 Cloud Shell은 대화형 사용 사례를 위한 것입니다. 따라서 비대화형 세션을 오래 실행하면 경고 없이 종료됩니다.
@@ -140,10 +136,6 @@ Cloud Shell에 포함된 `SqlServer` 모듈은 PowerShell Core에 대해 평가�
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Azure 드라이브에서 만들 때 기본 파일 위치
 
 PowerShell cmdlet을 사용하면 사용자가 Azure 드라이브에 파일을 만들 수 없습니다. 사용자가 vim 또는 nano 등의 다른 도구를 사용하여 새 파일을 만들 때 파일은 기본적으로 `$HOME` 폴더에 저장됩니다.
-
-### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>GUI 팝업을 만드는 명령은 지원되지 않습니다.
-
-사용자가 Windows 대화 상자(예: `Connect-AzureAD`, `Connect-AzureRmAccount` 또는 `Connect-AzAccount`)를 만드는 명령을 실행하는 경우 `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`와 같은 오류 메시지가 표시됩니다.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>탭 완성 기능은 PSReadline 예외를 throw할 수 있습니다.
 

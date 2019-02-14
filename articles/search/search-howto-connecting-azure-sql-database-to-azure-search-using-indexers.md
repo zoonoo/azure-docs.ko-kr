@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633030"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752895"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Azure Search 인덱서를 사용하여 Azure SQL Database 콘텐츠에 연결 및 인덱싱
 
@@ -209,6 +209,9 @@ SQL 데이터베이스에서 [변경 내용 추적](https://docs.microsoft.com/s
     }
 
 SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 삭제 검색 정책을 지정하지 마세요. 이 정책은 삭제된 행 식별을 기본적으로 지원합니다. 그러나 삭제가 "자동"으로 탐지되려면 검색 인덱스의 문서 키가 SQL 테이블의 기본 키와 동일해야 합니다. 
+
+> [!NOTE]  
+> SQL 테이블에서 많은 수의 행을 제거하기 위해 [TRUNCATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql)을 사용할 때 인덱서를 [다시 설정](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)하여 행 삭제를 선택하도록 변경 추적 상태를 다시 설정해야 합니다.
 
 <a name="HighWaterMarkPolicy"></a>
 

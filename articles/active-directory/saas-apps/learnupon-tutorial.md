@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: a548f11b1f423fb738108d9314f2fc887ef02c52
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 70d4e507087e645c9bfd41e7ef6b90098079ab1d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176848"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56202437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>자습서: LearnUpon과 Azure Active Directory 통합
 
@@ -208,7 +209,7 @@ LearnUpon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 이 섹션은 LearnUpon에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. LearnUpon은 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다.
 
-이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 LearnUpon에 액세스하는 동안 만들어질 수 있습니다. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)
+이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 LearnUpon에 액세스하는 동안 만들어질 수 있습니다. Azure AD Single Sign-On 구성
 
 >[!NOTE]
 >사용자를 수동으로 만들어야 하는 경우 [LearnUpon 지원 팀](https://www.learnupon.com/features/support/)에 문의해야 합니다. 

@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 587303e8be4155b1b01228ad4606829ad8921560
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6f91ccc93dcd2ac9b96379c4aa94d1f430faaf66
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436589"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118295"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -184,7 +184,6 @@ ms.locfileid: "54436589"
 [planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058
 [planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77
 [planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
 [planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
 [planning-guide-3.1]:planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a
 [planning-guide-3.2.1]:planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358
@@ -339,35 +338,31 @@ Microsoft Azure Virtual Machine 서비스와 함께 Microsoft는 포괄적인 Ia
 * IaaS: 서비스 제공 인프라(Infrastructure as a Service)
 * PaaS: 서비스로서의 플랫폼
 * SaaS: 서비스 제공 소프트웨어(Software as a Service)
-* SAP 구성 요소: ECC, BW, Solution Manager 또는 EP 등의 개별 SAP 애플리케이션.  SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 비NetWeaver 기반 애플리케이션을 기반으로 사용할 수 있습니다.
+* SAP 구성 요소: ECC, BW, 솔루션 관리자 또는 S/4HANA 등의 개별 SAP 애플리케이션.  SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 비NetWeaver 기반 애플리케이션을 기반으로 사용할 수 있습니다.
 * SAP 환경: 하나 이상의 SAP 구성 요소가 논리적으로 그룹화되어 개발, QAS, 교육, DR 또는 프로덕션과 같은 비즈니스 기능을 수행합니다.
 * SAP 자산: 고객의 IT 자산 중 SAP 자산 전체를 의미합니다. SAP 지형에는 모든 프로덕션 및 비프로덕션 환경이 포함됩니다.
 * SAP 시스템: SAP ERP 개발 시스템, SAP BW 테스트 시스템, SAP CRM 프로덕션 시스템 등의 애플리케이션 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 나눌 수 없습니다. 즉, SAP 시스템은 온-프레미스에 배포되거나 Azure에 배포됨을 의미합니다. 그러나 Azure 또는 온-프레미스에는 SAP 지형의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
-* 클라우드 전용 배포: Azure 구독이 사이트 간 연결 또는 ExpressRoute 연결을 통해 온-프레미스 네트워크 인프라에 연결되지 않는 배포입니다. 공통 Azure 설명서에서는 이러한 종류의 배포를 “클라우드 전용” 배포라고도 합니다. 이 방법으로 배포된 Virtual Machines는 인터넷과 공용 IP 주소 및/또는 Azure의 VM에 할당된 공용 DNS 이름을 통해 액세스됩니다. Microsoft Windows의 경우 이러한 유형의 배포에서 온-프레미스 AD(Active Directory) 및 DNS가 Azure로 확장되지 않습니다. 따라서 VM은 온-프레미스 Active Directory에 속하지 않습니다. 예를 들어 OpenLDAP와 Kerberos를 함께 사용하는 Linux 구현에서도 마찬가지입니다.
+* 크로스-프레미스 또는 하이브리드: VM이 온-프레미스 데이터 센터와 Azure 간에 사이트-사이트, 다중 사이트 또는 ExpressRoute 방식으로 연결되는 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 크로스-프레미스 또는 하이브리드 시나리오라고도 합니다. 연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory/OpenLDAP 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 구독의 Azure 자산으로 확장됩니다. 이렇게 확장된 VM은 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이는 SAP 자산을 Azure에 배포하는 가장 일반적이며 거의 독점적인 사례입니다. 자세한 내용은 [이 문서][vpn-gateway-cross-premises-options] 및 [이 문서][vpn-gateway-site-to-site-create]를 참조하세요.
 
 > [!NOTE]
-> 이 문서에서 클라우드 전용 배포는 온-프레미스에서 Active Directory/OpenLDAP 또는 이름 확인을 공용 클라우드로 확장하지 않고 Azure에서 단독으로 실행 중인 전체 SAP 지형으로 정의됩니다. Azure에서 호스트되는 SAP 시스템과 온-프레미스에 상주하는 리소스 간에 SAP STMS 또는 기타 온-프레미스 리소스를 사용해야 하는 프로덕션 SAP 시스템 또는 구성에 대해서는 클라우드 전용 구성이 지원되지 않습니다.
+> 프로덕션 SAP 시스템의 경우 SAP 시스템을 실행 중인 Azure Virtual Machines가 온-프레미스 도메인의 멤버인 SAP 시스템의 크로스-프레미스 또는 하이브리드 배포가 지원됩니다. 일부 또는 전체 SAP 환경을 Azure로 배포하는 데 크로스-프레미스 또는 하이브리드 구성이 지원됩니다. Azure에서 전체 SAP 지형을 실행하려고 해도 이러한 VM이 온-프레미스 도메인 및 ADS/OpenLDAP에 포함되어야 합니다. 
 >
 >
 
-* 프레미스 간: VM이 온-프레미스 데이터 센터와 Azure 간에 사이트-사이트, 다중 사이트 또는 ExpressRoute 방식으로 연결되는 Azure 구독에 배포되는 시나리오를 설명합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 크로스-프레미스 시나리오라고도 합니다. 연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory/OpenLDAP 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 구독의 Azure 자산으로 확장됩니다. 이렇게 확장된 VM은 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이는 SAP 자산을 Azure에 배포하는 가장 일반적이며 거의 독점적인 사례입니다. 자세한 내용은 [이 문서][vpn-gateway-cross-premises-options] 및 [이 문서][vpn-gateway-site-to-site-create]를 참조하세요.
 
-> [!NOTE]
-> 프로덕션 SAP 시스템의 경우 SAP 시스템을 실행 중인 Azure Virtual Machines가 온-프레미스 도메인의 멤버인 SAP 시스템의 프레미스 간 배포가 지원됩니다. 일부 또는 전체 SAP 지형을 Azure로 배포하기 위한 크로스-프레미스 구성이 지원됩니다. Azure에서 전체 SAP 지형을 실행하려고 해도 이러한 VM이 온-프레미스 도메인 및 ADS/OpenLDAP에 포함되어야 합니다. 이전 버전의 문서에서 하이브리드-IT 시나리오에 대해 설명했습니다. *하이브리드*란 온-프레미스와 Azure가 크로스-프레미스 연결을 사용한다는 사실을 기반으로 합니다. 또한 Azure의 VM이 온-프레미스 Active Directory/OpenLDAP의 일부이기도 합니다.
->
->
-
-일부 Microsoft 문서에서는 특히 DBMS HA 구성의 경우 크로스-프레미스 시나리오를 약간 다르게 설명합니다. SAP 관련 문서의 경우 크로스-프레미스 시나리오가 사이트 간 또는 개인(ExpressRoute) 방식으로 연결되고 SAP 지형이 온-프레미스와 Azure 간에 분산되는 것으로 된다고 요약되어 있습니다.  
 
 ### <a name="e55d1e22-c2c8-460b-9897-64622a34fdff"></a>리소스
-다음 추가 가이드는 Azure의 SAP 배포 항목에 대해 사용할 수 있습니다.
+Azure 설명서에서 SAP 워크로드에 대한 진입점은 [여기](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)에 나옵니다. 이 진입점으로 시작하면 다음 토픽을 다루는 문서가 많이 있습니다.
 
-* [SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현(이 문서)][planning-guide]
-* [SAP NetWeaver에 대한 Azure Virtual Machines 배포][deployment-guide]
-* [SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포][dbms-guide]
+- Azure의 SAP NetWeaver 및 Business One
+- Azure의 다양한 DBMS 시스템에 대한 SAP DBMS 가이드
+- Azure의 SAP 워크로드에 대한 고가용성 및 재해 복구
+- Azure에서 SAP HANA를 실행하기 위한 구체적 지침
+- Azure의 SAP HANA(대규모 인스턴스) 관련 지침 
+
 
 > [!IMPORTANT]
-> 가능한 경우 SAP 설치 가이드에 대한 링크가 사용됩니다(InstGuide-01, <http://service.sap.com/instguides> 참조). SAP NetWeaver 설치 가이드는 Microsoft Azure Virtual Machine에 설치된 SAP NetWeaver 시스템에 대한 특정 작업만 처리하므로 필수 구성 요소 및 설치 프로세스 부분을 신중하게 읽어야 합니다.
+> 가능한 경우 참조하는 SAP 설치 가이드 또는 다른 SAP 설명서에 연결하는 링크가 사용됩니다(참조 InstGuide-01, <http://service.sap.com/instguides> 참조). 특정 SAP 기능전제 조건, 설치 프로세스 또는 세부 정보의 경우 Microsoft는 Microsoft Azure Virtual Machine에 설치되어 운영되는 특정 작업만 다루므로, 언제나 SAP 설명서 및 가이드를 꼼꼼히 읽는 것이 좋습니다.
 >
 >
 
@@ -431,22 +426,7 @@ Azure IaaS 또는 일반적인 IaaS에 SAP 시스템을 성공적으로 배포�
 
 Azure에 SAP 시스템을 성공적으로 배포하려면 온-프레미스 SAP 시스템 운영 체제, 데이터베이스 및 SAP 애플리케이션이 SAP Azure 지원 매트릭스에 표시되고, Azure 인프라가 제공할 수 있고 가용성 SLA Microsoft Azure 제공 서비스에서 작동될 수 있는 리소스에 잘 맞아야 합니다. 이러한 시스템이 파악되면 다음과 같은 두 가지 배포 시나리오 중 하나를 결정해야 합니다.
 
-### <a name="1625df66-4cc6-4d60-9202-de8a0b77f803"></a>클라우드 전용 - 온-프레미스 고객 네트워크에 의존하지 않고 Azure에 가상 컴퓨터 배포
-![SAP 데모 또는 학습 시나리오가 Azure에 배포된 단일 VM][planning-guide-figure-100]
 
-이 시나리오는 단일 VM 내에 SAP 및 비 SAP 소프트웨어의 모든 구성 요소가 설치되는 학습 또는 데모 시스템에 일반적입니다. 프로덕션 SAP 시스템은 이 배포 시나리오에서 지원되지 않습니다. 일반적으로 이 시나리오는 다음 요구 사항을 충족합니다.
-
-* VM 자체는 공용 네트워크를 통해 액세스할 수 있습니다. VM 내에서 실행되는 애플리케이션을 데모 또는 학습 콘텐츠를 소유하는 회사나 고객의 온-프레미스 네트워크에 직접 연결할 필요는 없습니다.
-* 교육 또는 데모 시나리오를 나타내는 여러 VM의 경우 VM 간에 네트워크 통신 및 이름 확인이 작동해야 합니다. 하지만 여러 VM 집합을 간섭 없이 나란히 배포할 수 있도록 VM 집합 간의 통신을 격리해야 합니다.  
-* 최종 사용자가 Azure에서 호스트되는 VM에 원격으로 로그인하려면 인터넷에 연결되어야 합니다. 게스트 OS에 따라 터미널 서비스/RDS 또는 VNC/ssh를 통해 VM에 액세스한 후 학습 작업을 수행하거나 데모를 수행합니다. 3200, 3300 및 3600과 같은 SAP 포트도 노출될 수 있는 경우 인터넷에 연결된 모든 데스크톱에서 SAP 애플리케이션 인스턴스에 액세스할 수 있습니다.
-* SAP 시스템(및 VM)은 최종 사용자 액세스를 위한 공용 인터넷 연결만 필요하고 Azure의 다른 VM에는 연결하지 않아도 되는 Azure의 독립 실행형 시나리오를 나타냅니다.
-* SAPGUI 및 브라우저는 VM에서 직접 설치되고 실행됩니다.
-* VM을 원래 상태로 빠르게 다시 복원해야 하고 해당 원래 상태의 새 배포가 필요합니다.
-* 여러 VM에서 실현되는 데모 및 교육 시나리오의 경우 각 VM 집합에 Active Directory/OpenLDAP 및/또는 DNS 서비스가 필요합니다.
-
-![Azure 클라우드 서비스의 단일 데모 또는 학습 시나리오를 나타내는 VM 그룹][planning-guide-figure-200]
-
-각 집합의 VM은 동시에 배포해야 하며 각 집합의 VM 이름이 동일해야 합니다.
 
 ### <a name="f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10"></a>크로스 프레미스 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포
 ![사이트 간 연결이 있는 VPN(크로스 프레미스)][planning-guide-figure-300]
@@ -648,9 +628,9 @@ Microsoft Azure는 구현하려는 모든 시나리오의 SAP 소프트웨어 �
 
 자세한 내용은 <https://azure.microsoft.com/documentation/services/virtual-network/>를 참조하세요.
 
-Azure에서 다양한 방식으로 이름 및 IP 확인을 구성할 수 있습니다. 이 문서에서 클라우드 전용 시나리오는 Azure DNS를 사용하는 기본 방식에 의존합니다(자체 DNS 서비스를 정의하는 방식 아님). 사용자 고유의 DNS 서버를 설정하는 대신 사용할 수 있는 새 Azure DNS 서비스도 있습니다. 자세한 내용은 [이 문서][virtual-networks-manage-dns-in-vnet] 및 [이 페이지](https://azure.microsoft.com/services/dns/)에 있습니다.
+Azure에서 다양한 방식으로 이름 및 IP 확인을 구성할 수 있습니다. 사용자 고유의 DNS 서버를 설정하는 대신 사용할 수 있는 Azure DNS 서비스도 있습니다. 자세한 내용은 [이 문서][virtual-networks-manage-dns-in-vnet] 및 [이 페이지](https://azure.microsoft.com/services/dns/)에 있습니다.
 
-크로스-프레미스 시나리오의 경우 온-프레미스 AD/OpenLDAP/DNS를 VPN 또는 개인 연결을 통해 Azure로 확장했다는 사실에 의존합니다. 여기에 설명된 특정 시나리오에서는 Azure에 AD/OpenLDAP 복제본을 설치해야 할 수 있습니다.
+크로스-프레미스 또는 하이브리드 시나리오의 경우 온-프레미스 AD/OpenLDAP/DNS를 VPN 또는 개인 연결을 통해 Azure로 확장했다는 사실에 의존합니다. 여기에 설명된 특정 시나리오에서는 Azure에 AD/OpenLDAP 복제본을 설치해야 할 수 있습니다.
 
 네트워킹과 이름 확인은 SAP 시스템의 데이터베이스 배포에서 중요한 부분이므로 이 개념은 [DBMS 배포 가이드 ][dbms-guide]에서 더 자세히 설명합니다.
 
@@ -892,8 +872,6 @@ VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충�
 * 고정된 VHD 형식이어야 합니다. 동적 VHD 또는 VHDx 형식의 VHD는 Azure에서 아직 지원되지 않습니다. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
 * VM에 탑재되고 Azure에서 다시 VM으로 탑재되어야 하는 VHD도 고정 VHD 형식이어야 합니다. 데이터 디스크의 크기 제한에 대해 알아보려면 [이 문서(Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux)와 [이 문서(Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows)를 확인하세요. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
 * Microsoft 기술 지원 서비스에서 사용할 수 있거나 VM이 배포되고 적절한 추가 사용자가 사용할 수 있게 될 때까지 서비스 및 애플리케이션이 실행되기 위한 컨텍스트로 할당될 수 있는 관리자 권한의 다른 로컬 계정을 추가합니다.
-* 이 배포 방법과 함께 클라우드 전용 배포 시나리오(이 문서의 [클라우드 전용 - 온-프레미스 고객 네트워크에 의존하지 않고 Azure에 Virtual Machine 배포][planning-guide-2.1] 장 참조)를 사용하는 경우 Azure 디스크가 Azure에 배포되면 도메인 계정이 작동하지 않을 수 있습니다. DBMS 또는 SAP 애플리케이션과 같은 서비스를 실행하는 데 사용되는 계정의 경우가 특히 여기에 해당합니다. 따라서 이러한 도메인 계정을 VM 로컬 계정으로 바꾸고 VM에서 온-프레미스 도메인 계정을 삭제해야 합니다. [크로스 프레미스 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포][planning-guide-2.2] 장에서 설명한 대로 크로스 프레미스 시나리오에서 VM을 배포한 경우 온-프레미스 도메인 사용자를 VM 이미지에 유지하는 것은 문제가 되지 않습니다.
-* 시스템을 온-프레미스에서 실행할 때 도메인 계정을 DBMS 로그인 또는 사용자로 사용하고 해당 VM을 클라우드 전용 시나리오에서 배포해야 할 경우 도메인 사용자를 삭제해야 합니다. 로컬 관리자와 다른 VM 로컬 사용자가 관리자 권한이 있는 로그인/사용자로 DBMS에 추가되는지도 확인해야 합니다.
 * 특정 배포 시나리오에 필요할 수 있으므로 다른 로컬 계정을 추가합니다.
 
 - - -
@@ -920,9 +898,6 @@ VM을 Azure에 업로드하기 전에 VM 및 VHD가 특정 요구 사항을 충�
 * 원래 운영 체제가 포함된 VHD의 최대 크기는 127GB로 제한되어 있었습니다. 이 제한은 2015년 3월 말에 없어졌습니다. 이제 운영 체제를 포함하는 VHD도 다른 Azure Storage 호스트 VHD처럼 최대 크기가 1TB까지 가능합니다.
 * 고정된 VHD 형식이어야 합니다. 동적 VHD 또는 VHDx 형식의 VHD는 Azure에서 아직 지원되지 않습니다. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
 * VM에 탑재되고 Azure에서 다시 VM으로 탑재되어야 하는 VHD도 고정 VHD 형식이어야 합니다. 데이터 디스크의 크기 제한에 대해 알아보려면 [이 문서(Linux)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux)와 [이 문서(Windows)](https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-windows)를 확인하세요. 동적 VHD는 PowerShell commandlet 또는 CLI를 사용하여 업로드할 경우 고정 VHD로 변환됩니다.
-* VM에 사용자로 등록된 모든 도메인 사용자가 클라우드 전용 배포 시나리오(이 문서의 [클라우드 전용 - 온-프레미스 고객 네트워크에 의존하지 않고 Azure에 Virtual Machine 배포][planning-guide-2.1] 장 참조)에 존재하는 것은 아니므로 이미지가 Azure에 배포되면 이러한 도메인 계정을 사용하는 서비스가 작동하지 않을 수 있습니다. DBMS 또는 SAP 애플리케이션과 같은 서비스를 실행하는 데 사용되는 계정의 경우가 특히 여기에 해당합니다. 따라서 이러한 도메인 계정을 VM 로컬 계정으로 바꾸고 VM에서 온-프레미스 도메인 계정을 삭제해야 합니다. [크로스 프레미스 - 온-프레미스 네트워크에 완전히 통합될 필요가 있는 단일 또는 다중 SAP VM을 Azure에 배포][planning-guide-2.2] 장에서 설명한 대로 크로스 프레미스 시나리오에서 VM을 배포한 경우 온-프레미스 도메인 사용자를 VM 이미지에 유지하는 것은 문제가 되지 않습니다.
-* Microsoft 기술 지원 서비스에서 문제를 조사하는 데 사용할 수 있거나 VM이 배포되고 적절한 추가 사용자가 사용할 수 있게 될 때까지 서비스 및 애플리케이션이 실행되기 위한 컨텍스트로 할당될 수 있는 관리자 권한의 다른 로컬 계정을 추가합니다.
-* 클라우드 전용 배포이면서 시스템을 온-프레미스에서 실행할 때 도메인 계정을 DBMS 로그인 또는 사용자로 사용하는 경우 도메인 사용자를 삭제해야 합니다. 로컬 관리자와 다른 VM 로컬 사용자가 관리자 권한이 있는 로그인/사용자로 DBMS에 추가되는지도 확인해야 합니다.
 * 특정 배포 시나리오에 필요할 수 있으므로 다른 로컬 계정을 추가합니다.
 * 이미지에 SAP NetWeaver의 설치가 포함되어 있고 Azure 배포 시에 호스트 이름을 원래 이름에서 다르게 변경할 가능성이 있는 경우 SAP Software Provisioning Manager DVD의 최신 버전을 템플릿으로 복사하는 것이 좋습니다. 이렇게 하면 새 복사가 시작되는 즉시, SAP 제공 이름 바꾸기 기능을 사용하여 배포된 VM 이미지 내에서 변경된 호스트 이름을 손쉽게 조정하고 SAP 시스템의 SID를 변경할 수 있습니다.
 
@@ -986,7 +961,7 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 * *az login*을 사용하여 구독에 로그인
 * *az account set --subscription `<subscription name or id`>* 를 사용하여 구독 선택
 * *az storage blob upload*를 사용하여 VHD를 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
-* (선택 사항) *az disk create*를 사용하여 VHD에서 관리 디스크 만들기 - https://docs.microsoft.com/cli/azure/disk#az_disk_create 참조
+* (선택 사항) *az disk create*를 사용하여 VHD에서 관리 디스크 만들기 - https://docs.microsoft.com/cli/azure/disk 참조
 * *az vm create* 및 매개 변수 *--attach-os-disk*를 사용하여 업로드한 VHD 또는 관리 디스크를 OS 디스크로 지정해 새 VM 만들기
 * *az vm disk attach* 및 매개 변수 *--new*를 사용하여 새 VM에 데이터 디스크 추가
 
@@ -1015,7 +990,7 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 * *az login*을 사용하여 구독에 로그인
 * *az account set --subscription `<subscription name or id`>* 를 사용하여 구독 선택
 * *az storage blob upload*를 사용하여 VHD를 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
-* (선택 사항) *az image create*를 사용하여 VHD에서 관리 디스크 이미지 만들기 - https://docs.microsoft.com/cli/azure/image#az_image_create 참조
+* (선택 사항) *az image create*를 사용하여 VHD에서 관리 디스크 이미지 만들기 - https://docs.microsoft.com/cli/azure/image 참조
 * *az vm create* 및 매개 변수 *--image*를 사용하여 업로드한 VHD 또는 관리 디스크 이미지를 OS 디스크로 지정해 새 VM 만들기
 
 **템플릿**
@@ -1336,7 +1311,7 @@ Azure 지역에서 복제 기능은 VM의 각 VHD에서 로컬로 작동하며, 
 
 ## <a name="accessing-sap-systems-running-within-azure-vms"></a>Azure VM 내에서 실행되는 SAP 시스템에 액세스
 
-클라우드 전용 시나리오의 경우 SAP GUI를 사용하여 공용 인터넷을 통해 해당 SAP 시스템에 연결하려고 할 수 있습니다. 이러한 경우 다음 절차를 적용해야 합니다.
+SAP GUI를 사용하여 공용 인터넷을 통해 해당 시스템에 연결하려는 시나리오의 경우 다음 절차를 적용해야 합니다.
 
 이 문서 뒷부분에서는 사이트 간 연결(VPN 터널) 또는 온-프레미스 시스템과 Azure 시스템 간의 Azure ExpressRoute 연결이 있는 프레미스 간 배포에서 SAP 시스템에 연결하는 다른 주요 시나리오가 나와 있습니다.
 
@@ -1349,7 +1324,7 @@ Azure Resource Manager를 사용할 경우 더 이상 이전의 클래식 모델
 
 [이 문서][virtual-machines-azure-resource-manager-architecture]에서 설명하는 클래식 모델과 ARM의 아키텍처 차이를 참조하세요.
 
-#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-for-cloud-only-scenario"></a>클라우드 전용 시나리오에 대한 SAP 시스템 및 SAP GUI 연결 구성
+#### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>인터넷을 통해 SAP 시스템 및 SAP GUI 연결 구성
 
 이 항목에 대한 세부 정보를 설명하는 <http://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx> 문서를 참조하세요.
 
@@ -1392,13 +1367,12 @@ SAP GUI는 실행 중인 어떤 SAP 인스턴스(포트 32xx)에도 직접 연�
 
 해당 작업 방법은 [SAP 메시지 서버에 대한 보안 설정](https://help.sap.com/saphelp_nwpi71/helpdata/en/47/c56a6938fb2d65e10000000a42189c/content.htm)에 설명되어 있습니다.
 
-## <a name="96a77628-a05e-475d-9df3-fb82217e8f14"></a>SAP 인스턴스의 클라우드 전용 배포 개념
 
 ### <a name="3e9c3690-da67-421a-bc3f-12c520d99a30"></a>SAP NetWeaver 데모/학습 시나리오가 있는 단일 VM
 
 ![Azure Cloud Services에 격리된 같은 VM 이름의 단일 VM SAP 데모 시스템 실행][planning-guide-figure-1700]
 
-이 시나리오(이 문서의 [클라우드 전용][planning-guide-2.1] 장 참조)에서는 전체 학습/데모 시나리오가 단일 VM에 포함된 전형적인 학습/데모 시스템 시나리오를 구현하고 있습니다. VM 이미지 템플릿을 통해 배포했다고 가정합니다. 또한 이러한 여러 데모/학습 VM을 동일한 이름의 VM과 함께 배포해야 한다고 가정합니다.
+이 시나리오에서는 전체 학습/데모 시나리오가 단일 VM에 포함된 전형적인 학습/데모 시스템 시나리오를 구현하고 있습니다. VM 이미지 템플릿을 통해 배포했다고 가정합니다. 또한 이러한 여러 데모/학습 VM을 동일한 이름의 VM과 함께 배포해야 한다고 가정합니다. 전체 학습 시스템은 하이브리드 배포와 반대로 온-프레미스 자산에 연결되어 있지 않습니다.
 
 여기서는 이 문서의 [Azure용 SAP로 VM 준비][planning-guide-5.2] 장 중 일부 섹션에서 설명한 대로 VM 이미지를 만들었다고 가정합니다.
 
@@ -1445,7 +1419,7 @@ $pip = New-AzureRmPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName
 $nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
-* 가상 머신을 만듭니다. 클라우드 전용 시나리오의 경우 모든 VM이 동일한 이름을 갖습니다. 해당 VM에 있는 SAP NetWeaver 인스턴스의 SAP SID도 동일하게 유지됩니다. Azure 리소스 그룹 내에서 VM의 이름은 고유해야 하지만 서로 다른 Azure 리소스 그룹에서는 동일한 이름의 VM을 실행할 수 있습니다. Windows의 기본 '관리자' 계정 또는 Linux의 '루트'는 유효하지 않습니다. 따라서 새 관리자 사용자 이름을 암호와 함께 정의해야 합니다. 또한 VM의 크기를 정의해야 합니다.
+* 가상 머신을 만듭니다. 이 시나리오의 경우 모든 VM이 동일한 이름을 갖습니다. 해당 VM에 있는 SAP NetWeaver 인스턴스의 SAP SID도 동일하게 유지됩니다. Azure 리소스 그룹 내에서 VM의 이름은 고유해야 하지만 서로 다른 Azure 리소스 그룹에서는 동일한 이름의 VM을 실행할 수 있습니다. Windows의 기본 '관리자' 계정 또는 Linux의 '루트'는 유효하지 않습니다. 따라서 새 관리자 사용자 이름을 암호와 함께 정의해야 합니다. 또한 VM의 크기를 정의해야 합니다.
 
 ```powershell
 #####
@@ -1560,7 +1534,7 @@ az network public-ip create --resource-group $rgName --name SAPERPDemoPIP --loca
 az network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-address SAPERPDemoPIP --subnet Subnet1 --vnet-name SAPERPDemoVNet
 ```
 
-* 가상 머신을 만듭니다. 클라우드 전용 시나리오의 경우 모든 VM이 동일한 이름을 갖습니다. 해당 VM에 있는 SAP NetWeaver 인스턴스의 SAP SID도 동일하게 유지됩니다. Azure 리소스 그룹 내에서 VM의 이름은 고유해야 하지만 서로 다른 Azure 리소스 그룹에서는 동일한 이름의 VM을 실행할 수 있습니다. Windows의 기본 '관리자' 계정 또는 Linux의 '루트'는 유효하지 않습니다. 따라서 새 관리자 사용자 이름을 암호와 함께 정의해야 합니다. 또한 VM의 크기를 정의해야 합니다.
+* 가상 머신을 만듭니다. 이 시나리오의 경우 모든 VM이 동일한 이름을 갖습니다. 해당 VM에 있는 SAP NetWeaver 인스턴스의 SAP SID도 동일하게 유지됩니다. Azure 리소스 그룹 내에서 VM의 이름은 고유해야 하지만 서로 다른 Azure 리소스 그룹에서는 동일한 이름의 VM을 실행할 수 있습니다. Windows의 기본 '관리자' 계정 또는 Linux의 '루트'는 유효하지 않습니다. 따라서 새 관리자 사용자 이름을 암호와 함께 정의해야 합니다. 또한 VM의 크기를 정의해야 합니다.
 
 ```
 #####
@@ -1614,7 +1588,7 @@ github의 azure-quickstart-templates 저장소에 있는 샘플 템플릿을 사
 
 ### <a name="implement-a-set-of-vms-that-communicate-within-azure"></a>Azure 내에서 통신하는 VM 집합 구현
 
-이 클라우드 전용 시나리오는 데모 및 학습 시나리오를 나타내는 소프트웨어가 여러 VM에 걸쳐 분산되어 있는 학습 및 데모용 일반 시나리오입니다. 여러 VM에 설치된 다양한 구성 요소는 서로 통신해야 합니다. 또한 이 시나리오에서는 온-프레미스 네트워크 통신이나 크로스-프레미스 시나리오가 필요하지 않습니다.
+하이브리드가 아닌 이 시나리오는 데모/학습 시나리오를 나타내는 소프트웨어가 여러 VM에 걸쳐 분산되어 있는 학습 및 데모용 일반 시나리오입니다. 여러 VM에 설치된 다양한 구성 요소는 서로 통신해야 합니다. 또한 이 시나리오에서는 온-프레미스 네트워크 통신이나 크로스-프레미스 시나리오가 필요하지 않습니다.
 
 이 시나리오는 이 문서의 [SAP NetWeaver 데모/학습 시나리오가 있는 단일 VM][planning-guide-7.1] 장에서 설명한 설치의 확장입니다. 이 경우 더 많은 가상 머신이 기존 리소스 그룹에 추가됩니다. 다음 예제에서 교육 환경은 SAP ASCS/SCS VM, DBMS가 실행되는 VM 및 SAP 애플리케이션 서버 인스턴스 VM으로 구성됩니다.
 
@@ -1643,11 +1617,11 @@ Azure Virtual Networks 및 이러한 네트워크를 정의하는 방법에 대�
 
 SAP 지형을 실행하고 고급 DBMS 서버용 운영 체제 미설치 영역, 애플리케이션 계층 및 보다 작은 2계층으로 구성된 SAP 시스템과 Azure IaaS에 대한 온-프레미스 가상화 환경 간에 배포를 나눌 수 있습니다. 기본 가정은 단일 SAP 지형 내의 SAP 시스템은 배포 형식에 관계없이 서로 간에, 그리고 회사에 배포된 여러 다른 소프트웨어 구성 요소와 통신해야 한다는 것입니다. SAP GUI를 사용하여 연결하는 최종 사용자와 다른 인터페이스를 사용하여 연결하는 사용자는 배포 형식에 따른 차이를 느끼지 못해야 합니다. 이러한 조건은 온-프레미스 Active Directory/OpenLDAP 및 DNS 서비스를 사이트 간/다중 사이트 연결 또는 개인 연결(예: Azure ExpressRoute)을 통해 Azure 시스템으로 확장할 때만 충족될 수 있습니다.
 
-Azure의 SAP 구현 세부 사항에 대한 배경 지식을 얻으려면 이 문서의 [SAP 인스턴스의 클라우드 전용 배포 개념][planning-guide-7] 장을 읽어보세요. 여기서는 Azure 기본 구조의 일부와 Azure에서 SAP 애플리케이션을 통해 이러한 구조를 사용하는 방법을 설명합니다.
+
 
 ### <a name="scenario-of-an-sap-landscape"></a>SAP 지형 시나리오
 
-크로스-프레미스 시나리오는 아래 그래픽과 같이 대략적으로 나타낼 수 있습니다.
+크로스-프레미스 또는 하이브리드 시나리오는 아래 그래픽과 같이 대략적으로 나타낼 수 있습니다.
 
 ![온-프레미스와 Azure 자산 간의 사이트 간 연결][planning-guide-figure-2100]
 
@@ -1851,7 +1825,7 @@ SAProuter를 통해 SAP 인스턴스를 연결하려면 연결을 시도할 때 
 
 ![공개된 SAP 포털][planning-guide-figure-2700]
 
-가상 머신 호스트가 사이트 간 VPN 터널 또는 ExpressRoute 통해 회사 네트워크에 연결되어 있는 동안 일부 고객의 특별한 배포 시나리오에서 SAP Enterprise Portal이 인터넷에 직접 노출됩니다. 이러한 시나리오의 경우 특정 포트가 열려 있고 방화벽이나 네트워크 보안 그룹에 의해 차단되지 않았는지 확인해야 합니다. 클라우드 전용 시나리오에서 온-프레미스에서 SAP Java 인스턴스로 연결하려는 경우에도 동일한 방식이 적용되어야 합니다.
+가상 머신 호스트가 사이트 간 VPN 터널 또는 ExpressRoute 통해 회사 네트워크에 연결되어 있는 동안 일부 고객의 특별한 배포 시나리오에서 SAP Enterprise Portal이 인터넷에 직접 노출됩니다. 이러한 시나리오의 경우 특정 포트가 열려 있고 방화벽이나 네트워크 보안 그룹에 의해 차단되지 않았는지 확인해야 합니다. 
 
 초기 포털 URI는 http(s):`<Portalserver`>:5XX00/irj입니다. 여기서 포트는 50000 + (Systemnumber × 100)으로  구성됩니다. SAP 시스템 00의 기본 포털 URI는 `<dns name`>.`<azure region`>.Cloudapp.azure.com:PublicPort/irj입니다. 자세한 내용은 <http://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>을 참조하세요.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: e95440f72580b928cd41b6d03f30459cfb70a510
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632894"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965395"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>HDInsight의 Apache Hive를 사용하여 비행 지연 데이터 분석
 [Apache Hive](https://hive.apache.org/)는 대량의 데이터를 요약, 쿼리, 분석하는 데 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]* 을 통해 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 작업을 실행하는 수단을 제공합니다.
@@ -22,11 +22,11 @@ ms.locfileid: "53632894"
 > [!IMPORTANT]  
 > 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Apache Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
 
-Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기능을 분리할 수 있다는 것입니다. HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 일반적인 작업은 세 부분으로 구성되어 있습니다.
+Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기능을 분리할 수 있다는 것입니다. 이 자습서에서 File Storage 사용에 대한 기본 사항을 알아보세요. 일반적인 작업은 세 부분으로 구성되어 있습니다.
 
-1. **Azure Blob 저장소에 데이터 저장.**  예를 들어 날씨 데이터, 센서 데이터, 웹 로그 및 이 자습서의 경우 비행 지연 데이터를 Azure Blob 저장소에 저장할 수 있습니다.
-2. **작업 실행** 데이터를 처리해야 할 때는 Windows PowerShell 스크립트나 클라이언트 애플리케이션을 실행하여 HDInsight 클러스터를 만들고 작업을 실행한 다음 클러스터를 삭제합니다. 작업의 출력 데이터는 Azure Blob 저장소에 저장되며 클러스터가 삭제된 후에도 그대로 유지됩니다. 따라서 사용한 데이터에 대해서만 비용을 지불하면 됩니다.
-3. **Azure Blob 저장소에서 출력을 검색**하거나 이 자습서에 설명된 것처럼 데이터를 Azure SQL 데이터베이스로 내보냅니다.
+1. File Storage | Microsoft Azure  Azure File Storage는 응용 프로그램에 대해 온-프레미스 파일 공유처럼 보이므로 기존 코드가 그대로 작동되어야 합니다.
+2. **작업 실행** 데이터를 처리해야 할 때는 Windows PowerShell 스크립트나 클라이언트 애플리케이션을 실행하여 HDInsight 클러스터를 만들고 작업을 실행한 다음 클러스터를 삭제합니다. LRS File Storage의 가격은 다음부터 시작됩니다. 클러스터가 삭제된 후에도 그대로 유지됩니다. 따라서 사용한 데이터에 대해서만 비용을 지불하면 됩니다.
+3. File Storage 지원
 
 아래 다이어그램에는 이 자습서에서 설명하는 시나리오와 구조가 나와 있습니다.
 
@@ -37,7 +37,7 @@ Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기
 자습서에서는 주로 Windows PowerShell 스크립트를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
 * HDInsight 클러스터 만들기
-* 클러스터에서 Hive 작업을 실행하여 공항에서의 평균 지연 계산. 비행 지연 데이터는 Azure Blob 저장소 계정에 저장됩니다.
+* 클러스터에서 Hive 작업을 실행하여 공항에서의 평균 지연 계산. SMB 3.0 암호화를 사용하여 어디서나 Azure File Storage를 안전하게 마운트합니다.
 * Sqoop작업을 실행하여 Azure SQL 데이터베이스로 Hive 작업 출력 내보내기
 * HDInsight 클러스터 삭제
 
@@ -60,19 +60,19 @@ Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기
 **이 자습서에서 사용하는 파일**
 
 이 자습서에서는 [Research and Innovative Technology Administration, Bureau of Transportation Statistics or RITA][rita-website](영문)의 항공사 비행 데이터 운항정시성을 사용합니다.
-데이터의 복사본은 공용 Blob 액세스 권한을 사용하여 Azure Blob 저장소 컨테이너에 업로드되었습니다.
+최신 응용 프로그램을 File Storage에 통합
 PowerShell 스크립트의 일부는 데이터를 공용 blob 컨테이너에서 클러스터의 기본 blob 컨테이너로 복사합니다. HiveQL 스크립트도 같은 Blob 컨테이너에 복사합니다.
 자체 Storage 계정으로 데이터를 가져오고 업로드하는 방법과 HiveQL 스크립트 파일을 만들고 업로드하는 방법을 알아보려면 [부록 A](#appendix-a)와 [부록 B](#appendix-b)를 참조하세요.
 
 다음 표는 이 자습서에 사용된 파일을 보여 줍니다.
 
-<table border="1">
-<tr><th>파일</th><th>설명</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Hive 작업에 사용되는 HiveQL 스크립트 파일입니다. 이 스크립트는 공용 Blob 액세스 권한을 사용하여 Azure Blob 저장소 계정에 업로드되었습니다. <a href="#appendix-b">부록 B</a>에는 이 파일을 준비하고 고유한 Azure Blob 저장소 계정에 업로드하는 방법에 대한 지침이 있습니다.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>Hive 작업의 입력 데이터입니다. 이 데이터는 공용 액세스 권한을 사용하여 Azure Blob 저장소 계정에 업로드되었습니다. <a href="#appendix-a">부록 A</a>에는 데이터를 가져오기 고유한 Azure Blob 저장소 계정에 업로드하는 방법에 대한 지침이 있습니다.</td></tr>
-<tr><td>\tutorials\flightdelays\output</td><td>Hive 작업의 출력 경로입니다. 기본 컨테이너를 사용하여 출력 데이터를 저장합니다.</td></tr>
-<tr><td>\tutorials\flightdelays\jobstatus</td><td>기본 컨테이너의 Hive 작업 상태 폴더입니다.</td></tr>
-</table>
+|파일|설명|  
+|----|----|   
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql|Hive 작업에 사용되는 HiveQL 스크립트 파일입니다. 이 스크립트는 공용 Blob 액세스 권한을 사용하여 Azure Blob Storage 계정에 업로드되었습니다. File Storage를 사용하여 SMB 파일 공유 만들기|
+|wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data|Hive 작업의 입력 데이터입니다. Nasuni는 분산 조직에 파일 스토리지, 보호 및 액세스 기능을 제공하는 Azure 기반 엔터프라이즈 파일 서비스 솔루션으로 데이터 관리의 부담을 경감해 드립니다. File Storage는 지속적인 가용성을 제공하므로 HA(고가용성) 작업 데이터를 클라우드에 호스트하는 작업이 간소화됩니다.|
+|\tutorials\flightdelays\output|Hive 작업의 출력 경로입니다. 기본 컨테이너를 사용하여 출력 데이터를 저장합니다.|
+|\tutorials\flightdelays\jobstatus|기본 컨테이너의 Hive 작업 상태 폴더입니다.|
+
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>클러스터 만들기 및 Hive/Sqoop 작업 실행
 Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 가장 비용 효율적으로 Hive 작업을 실행하는 방법은 작업의 클러스터를 만들고 완료된 작업은 삭제하는 것입니다. 다음 스크립트에 전체 프로세스가 나와 있습니다.
@@ -236,41 +236,39 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
 
 - - -
 
-## <a id="appendix-a"></a>부록 A - Azure Blob 저장소에 비행 지연 데이터 업로드
+## File Storage 개념
 데이터 파일과 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 스크립트 파일을 업로드하려면([부록 B](#appendix-b) 참조) 계획이 필요합니다. 그 계획은 HDInsight 클러스터를 만들고 Hive 작업을 실행하기 전에 데이터 파일과 HiveQL 파일을 저장하는 것입니다. 다음 두 가지 옵션을 사용할 수 있습니다.
 
 * **HDInsight 클러스터에서 기본 파일 시스템으로 사용하는 것과 같은 Azure Storage 계정을 사용합니다.** HDInsight 클러스터에는 Storage 계정 액세스 키가 포함되므로 추가로 변경할 필요가 없습니다.
-* **HDInsight 클러스터 기본 파일 시스템과 다른 Azure Storage 계정을 사용합니다.** 이 경우 [HDInsight 클러스터 만들기 및 Apache Hive/Sqoop 작업 실행](#runjob) 에 있는 Windows PowerShell 스크립트의 생성 부분을 수정하여 추가 Storage 계정으로 Storage 계정을 연결해야 합니다. 지침은 [HDInsight에서 Apache Hadoop 클러스터 만들기][hdinsight-provision]를 참조하세요. 그러면 HDInsight 클러스터가 Storage 계정의 액세스 키를 인식합니다.
+* **HDInsight 클러스터 기본 파일 시스템과 다른 Azure Storage 계정을 사용합니다.** 이 경우 HDInsight 클러스터 만들기 및 Apache Hive/Sqoop 작업 실행에 있는 Windows PowerShell 스크립트의 생성 부분을 수정하여 추가 Storage 계정으로 Storage 계정을 연결해야 합니다. 지침은 [HDInsight에서 Apache Hadoop 클러스터 만들기][hdinsight-provision]를 참조하세요. 그러면 HDInsight 클러스터가 Storage 계정의 액세스 키를 인식합니다.
 
 > [!NOTE]  
-> 데이터 파일의 Blob 저장소 경로는 HiveQL 스크립트 파일에 하드 코드됩니다. 수정 내용에 따라 이를 업데이트해야 합니다.
+> 표준 SMB 3.0 프로토콜을 사용하는 관리되는 파일 공유에 Azure File Storage를 사용해 보세요. 수정 내용에 따라 이를 업데이트해야 합니다.
 
 **비행 데이터를 다운로드하려면**
 
 1. [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website](영문)로 이동합니다.
 2. 페이지에서 다음 값을 선택합니다.
 
-    <table border="1">
-    <tr><th>이름</th><th>값</th></tr>
-    <tr><td>Filter Year</td><td>2013 </td></tr>
-    <tr><td>Filter Period</td><td>January</td></tr>
-    <tr><td>필드</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay*(다른 모든 필드는 선택하지 않음)</td></tr>
-    </table>
+    |Name|값|
+    |---|---|
+    |Filter Year|2013|
+    |Filter Period|January|
+    |필드|*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay*(다른 모든 필드는 선택하지 않음)|
 
 3. **다운로드**를 클릭합니다.
 4. 압축 파일을 **C:\Tutorials\FlightDelays\2013Data** 폴더에 풉니다. 각 파일은 CSV 파일이며 크기가 60GB 정도입니다.
 5. 파일 이름을 데이터가 포함된 달로 변경합니다. 예를 들어 1월 데이터가 포함된 파일의 이름은 *January.csv*가 됩니다.
 6. 2단계와 5단계를 반복하여 2013년의 12개월에 해당하는 각 파일을 다운로드합니다. 자습서를 실행하려면 파일이 하나 이상 있어야 합니다.
 
-**Azure Blob 저장소에 비행 지연 데이터를 업로드하려면**
+**File Storage에서는 표준 SMB 2.1 프로토콜을 사용하여 응용 프로그램에 대한 공유 스토리지를 제공합니다.
 
 1. 매개 변수를 준비합니다.
 
-    <table border="1">
-    <tr><th>변수 이름</th><th>메모</th></tr>
-    <tr><td>$storageAccountName</td><td>데이터를 업로드할 Azure Storage 계정입니다.</td></tr>
-    <tr><td>$blobContainerName</td><td>데이터를 업로드할 Blob 컨테이너입니다.</td></tr>
-    </table>
+    |변수 이름|메모|
+    |---|---|
+    |$storageAccountName|데이터를 업로드할 Azure Storage 계정입니다.|
+    |$blobContainerName|데이터를 업로드할 Blob 컨테이너입니다.|
     
 2. Azure PowerShell ISE를 엽니다.
 3. 다음 스크립트를 스크립트 창에 붙여 넣습니다.
@@ -359,15 +357,15 @@ tutorials/flightdelay/data 경로는 파일을 업로드했을 때 만든 가상
 - - -
 
 ## <a id="appendix-b"></a>부록 B - HiveQL 스크립트 만들기 및 업로드
-Azure PowerShell을 사용하여 여러 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 문을 한 번에 하나씩 실행하거나 HiveQL 문을 스크립트 파일에 패키징할 수 있습니다. 이 섹션에서는 HiveQL 스크립트를 만든 다음 Azure PowerShell을 사용하여 Azure Blob 저장소에 업로드하는 방법을 보여 줍니다. Hive에서는 HiveQL 스크립트를 Azure Blob 저장소에 저장해야 합니다.
+Azure PowerShell을 사용하여 여러 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 문을 한 번에 하나씩 실행하거나 HiveQL 문을 스크립트 파일에 패키징할 수 있습니다. 추가 데이터 스토리지, 파일 스토리지 및 흐름 실행을 구입할 수 있습니다. AFS(Azure 파일 동기화) 서비스의 총 비용은 클라우드 끝점(Azure 파일 공유)에 연결되는 서버 수와 File Storage(스토리지 및 액세스 비용 포함) 및 아웃바운드 데이터 전송의 기본 비용에 따라 결정됩니다.
 
 HiveQL 스크립트는 다음을 수행합니다.
 
 1. **delays_raw 테이블을 삭제합니다**. 해당 테이블이 이미 있는 경우에 삭제합니다.
-2. **delays_raw 외부 Hive 테이블을 만듭니다**. 이 테이블은 비행 지연 파일이 있는 Blob 저장소 위치를 가리킵니다. 이 쿼리는 필드는 ","로 구분되고 줄은 "\n"로 끝나도록 지정합니다. Hive가 필드 구분 기호인 쉼표와 필드 값(ORIGIN\_CITY\_NAME 및 DEST\_CITY\_NAME에 대한 필드 값의 경우)의 일부인 쉼표를 구분할 수 없기 때문에 필드 값에 쉼표가 포함될 경우 문제가 발생합니다. 이 문제를 해결하기 위해 쿼리는 TEMP 열을 만들어 열에 잘못 분할된 데이터를 저장합니다.
+2. 자습서에 따라 BloB, 테이블, 큐 또는 파일 스토리지를 언제 사용하는지 알아보세요. 이 쿼리는 필드는 ","로 구분되고 줄은 "\n"로 끝나도록 지정합니다. Hive가 필드 구분 기호인 쉼표와 필드 값(ORIGIN\_CITY\_NAME 및 DEST\_CITY\_NAME에 대한 필드 값의 경우)의 일부인 쉼표를 구분할 수 없기 때문에 필드 값에 쉼표가 포함될 경우 문제가 발생합니다. 이 문제를 해결하기 위해 쿼리는 TEMP 열을 만들어 열에 잘못 분할된 데이터를 저장합니다.
 3. 해당 테이블이 이미 있는 경우 **delays 테이블을 삭제합니다.**
 4. **delays 테이블을 만듭니다**. 더 처리하기 전에 데이터를 정리하는 데 도움이 됩니다. 이 쿼리는 delays_raw 테이블에서 새 테이블인 *delays*를 만듭니다. TEMP 열(앞에서 언급함)은 복사되지 않으며, **substring** 함수는 해당 데이터에서 따옴표를 제거하는 데 사용됩니다.
-5. **평균 날씨 지연을 계산하고 그 결과를 도시 이름별로 그룹화합니다.**  또한 결과를 Blob 저장소에 출력합니다. 쿼리에서 데이터의 아포스트로피가 제거되고 **weather_delay**의 값이 null인 행은 제외됩니다. 이 작업은 이 자습서의 뒷부분에서 사용되는 Sqoop가 기본적으로 이러한 값을 정상적으로 처리하지 않기 때문에 필요합니다.
+5. **평균 날씨 지연을 계산하고 그 결과를 도시 이름별로 그룹화합니다.** File Storage를 사용하여 코드 변경 없이 온-프레미스 파일 기반 또는 파일 공유 기반 응용 프로그램을 Azure로 마이그레이션합니다. 쿼리에서 데이터의 아포스트로피가 제거되고 **weather_delay**의 값이 null인 행은 제외됩니다. 이 작업은 이 자습서의 뒷부분에서 사용되는 Sqoop가 기본적으로 이러한 값을 정상적으로 처리하지 않기 때문에 필요합니다.
 
 HiveQL 명령의 전체 목록을 보려면 [Apache Hive 데이터 정의 언어][hadoop-hiveql]를 참조하세요. 각 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 명령은 세미콜론으로 끝나야 합니다.
 
@@ -375,11 +373,10 @@ HiveQL 명령의 전체 목록을 보려면 [Apache Hive 데이터 정의 언어
 
 1. 매개 변수를 준비합니다.
 
-    <table border="1">
-    <tr><th>변수 이름</th><th>메모</th></tr>
-    <tr><td>$storageAccountName</td><td>HiveQL 스크립트를 업로드할 Azure Storage 계정입니다.</td></tr>
-    <tr><td>$blobContainerName</td><td>HiveQL 스크립트를 업로드할 Blob 컨테이너입니다.</td></tr>
-    </table>
+    |변수 이름|메모|
+    |---|---|
+    |$storageAccountName|HiveQL 스크립트를 업로드할 Azure Storage 계정입니다.|
+    |$blobContainerName|HiveQL 스크립트를 업로드할 Blob 컨테이너입니다.|
     
 2. Azure PowerShell ISE를 엽니다.  
 
@@ -554,8 +551,8 @@ HiveQL 명령의 전체 목록을 보려면 [Apache Hive 데이터 정의 언어
 
     스크립트에서 사용되는 변수는 다음과 같습니다.
 
-   * **$hqlLocalFileName** - 스크립트는 HiveQL 스크립트 파일을 Blob 저장소에 업로드하기 전에 로컬에 저장합니다. 이 상수가 해당 파일 이름입니다. 기본값은 <u>C:\tutorials\flightdelay\flightdelays.hql</u>입니다.
-   * **$hqlBlobName** - Azure Blob 저장소에서 사용되는 HiveQL 스크립트 파일 Blob 이름입니다. 기본값은 tutorials/flightdelay/flightdelays.hql입니다. 파일은 Azure Blob 저장소에 직접 기록되므로 Blob 이름 앞에는 "/"가 없습니다. Blob 저장소의 파일에 액세스하려면 파일 이름 앞에 "/"를 추가해야 합니다.
+   * File Storage에서는 표준 SMB 2.1 프로토콜을 사용하여 응용 프로그램에 대한 공유 스토리지를 제공합니다.  이 상수가 해당 파일 이름입니다. 기본값은 <u>C:\tutorials\flightdelay\flightdelays.hql</u>입니다.
+   * 범용 v2 및 범용 v1에 대한 File Storage 옵션을 살펴봅니다. 기본값은 tutorials/flightdelay/flightdelays.hql입니다. File Storage는 온-프레미스와 클라우드 시스템을 연결하고 레거시와 최신 응용 프로그램을 연결합니다. Blob Storage의 파일에 액세스하려면 파일 이름 앞에 &quot;/&quot;를 추가해야 합니다.
    * **$srcDataFolder** 및 **$dstDataFolder** - = "tutorials/flightdelay/data" = "tutorials/flightdelay/output"
 
 - - -
@@ -564,14 +561,14 @@ HiveQL 명령의 전체 목록을 보려면 [Apache Hive 데이터 정의 언어
 
 1. 매개 변수를 준비합니다.
 
-    <table border="1">
-    <tr><th>변수 이름</th><th>메모</th></tr>
-    <tr><td>$sqlDatabaseServerName</td><td>Azure SQL 데이터베이스 서버의 이름입니다. 새 서버를 만들려면 아무 내용도 입력하지 않습니다.</td></tr>
-    <tr><td>$sqlDatabaseUsername</td><td>Azure SQL 데이터베이스 서버의 로그인 이름입니다. $sqlDatabaseServerName이 기본 서버이면 로그인 및 로그인 암호가 서버에서 인증하는 데 사용됩니다. 새 서버를 만드는 데도 사용됩니다.</td></tr>
-    <tr><td>$sqlDatabasePassword</td><td>Azure SQL 데이터베이스 서버의 로그인 암호입니다.</td></tr>
-    <tr><td>$sqlDatabaseLocation</td><td>이 값은 새 Azure 데이터베이스 서버를 만드는 경우에만 사용됩니다.</td></tr>
-    <tr><td>$sqlDatabaseName</td><td>Sqoop 작업의 AvgDelays 테이블을 만드는 데 사용되는 SQL 데이터베이스입니다. 이 매개 변수를 비워 두면 HDISqoop라는 데이터베이스가 만들어집니다. Sqoop 작업 출력의 테이블 이름은 AvgDelays입니다. </td></tr>
-    </table>
+    |변수 이름|메모|
+    |---|---|
+    |$sqlDatabaseServerName|Azure SQL 데이터베이스 서버의 이름입니다. 새 서버를 만들려면 아무 내용도 입력하지 않습니다.|
+    |$sqlDatabaseUsername|Azure SQL 데이터베이스 서버의 로그인 이름입니다. $sqlDatabaseServerName이 기본 서버이면 로그인 및 로그인 암호가 서버에서 인증하는 데 사용됩니다. 새 서버를 만드는 데도 사용됩니다.|
+    |$sqlDatabasePassword|Azure SQL 데이터베이스 서버의 로그인 암호입니다.|
+    |$sqlDatabaseLocation|이 값은 새 Azure 데이터베이스 서버를 만드는 경우에만 사용됩니다.|
+    |$sqlDatabaseName|Sqoop 작업의 AvgDelays 테이블을 만드는 데 사용되는 SQL 데이터베이스입니다. 이 매개 변수를 비워 두면 HDISqoop라는 데이터베이스가 만들어집니다. Sqoop 작업 출력의 테이블 이름은 AvgDelays입니다.|
+
     
 2. Azure PowerShell ISE를 엽니다.
 

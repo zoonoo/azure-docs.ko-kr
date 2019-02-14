@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
-ms.openlocfilehash: a68ffb867a738e11c9895416bbdf2009b268c0c6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6f0a8f6ce325dd087aec5e055e09e20e7de62a40
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155814"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56204834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>자습서: Tableau Server와 Azure Active Directory 통합
 
@@ -215,7 +216,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
 이 섹션은 Tableau Server에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Tableau Server의 모든 사용자를 프로비전해야 합니다. 
 
-사용자의 사용자 이름은 Azure AD에서 구성한 사용자 지정 특성 **username**의 값과 일치해야 합니다. 올바른 매핑을 사용해야 통합 시 [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)이 작동합니다.
+사용자의 사용자 이름은 Azure AD에서 구성한 사용자 지정 특성 **username**의 값과 일치해야 합니다. 올바른 매핑을 사용해야 통합 시 Azure AD Single Sign-On 구성이 작동합니다.
 
 >[!NOTE]
 >사용자를 수동으로 만들어야 하는 경우 조직의 Tableau Server 관리자에게 문의해야 합니다.

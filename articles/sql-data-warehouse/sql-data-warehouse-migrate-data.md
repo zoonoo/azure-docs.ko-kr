@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 11d41f9839456020ab65f11661c21f1e679cd76f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 77e4500b20be844dfad31db284a9c77ad7ec6bb7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770655"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118125"
 ---
 # <a name="migrate-your-data"></a>데이터 마이그레이션
 다양한 도구를 사용하여 다양한 원본의 데이터를 SQL Data Warehouse로 이동할 수 있습니다.  이 작업을 위해 ADF Copy, SSIS 및 bcp를 모두 사용할 수 있습니다. 그러나 데이터 크기가 증가하면 단계별로 데이터 마이그레이션 프로세스 세분화를 고려해야 합니다. 부드러운 데이터 마이그레이션이 되도록 성능 및 복원 모두를 위한 각 단계를 최적화하는 기회를 제공합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "55770655"
 
 PolyBase는 데이터 로드를 위한 고성능 옵션도 제공합니다. 그러나 하나 대신 두 개의 도구를 사용하는 것을 의미합니다. 최상의 성능이 필요한 경우 PolyBase를 사용합니다. 단일 도구 환경을 원하는 경우(및 데이터가 크지 않음) ADF가 답입니다.
 
-[이 자습서]( /articles/data-factory/load-azure-sql-data-warehouse.md)를 통해 ADF를 사용하여 데이터 웨어하우스에 데이터를 로드하는 방법을 알아보세요.
+[이 자습서](../data-factory/load-azure-sql-data-warehouse.md)를 통해 ADF를 사용하여 데이터 웨어하우스에 데이터를 로드하는 방법을 알아보세요.
 
 ## <a name="integration-services"></a>Integration Services
 Integration Services(SSIS)는 강력하고 유연한 변환 및 로드(ETL) 도구로, 복잡한 워크플로, 데이터 변환 및 여러 데이터 로드 옵션을 지원합니다. SSIS를 사용하여 광범위한 마이그레이션의 일부로 또는 Azure로 데이터를 전송합니다.

@@ -1,8 +1,21 @@
 ---
-제목: R 언어의 빠른 시작 자습서 titleSuffix: Azure Machine Learning Studio 설명: 이 R 프로그래밍 자습서를 사용하여 신속하게 Azure Machine Learning Studio에서 R 언어를 사용하여 예측 솔루션을 만듭니다.
-services: machine-learning ms.service: machine-learning ms.subservice: studio ms.topic: article
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/06/2017
+title: R 언어에 대한 빠른 시작 자습서
+titleSuffix: Azure Machine Learning Studio
+description: 이 R 프로그래밍 자습서를 사용하여 신속하게 Azure Machine Learning Studio에서 R 언어를 사용하여 예측 솔루션을 만듭니다.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/06/2017
+ms.openlocfilehash: 9fcdcc5f4e3e7a6aadb3749459562eb575deca2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822377"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 R 프로그래밍 언어에 대한 빠른 시작 자습서
 
@@ -732,7 +745,7 @@ POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합�
 
 `ts.detrend()` 함수에서는 꽤 많은 일이 일어납니다. 이 코드의 대부분은 인수와 관련된 잠재적인 문제를 확인하거나 계산하는 동안 생길 수 있는 예외를 처리합니다. 이 코드의 몇 줄만이 실제로 계산을 수행합니다.
 
-방어적 프로그램의 예는 [값 변환](#valuetransformations)에서 이미 설명했습니다. 두 계산 블록이 모두 `tryCatch()`로 래핑됩니다. 일부 오류의 경우는 원래 입력 벡터를 반환하고 그 밖의 경우에는 0의 벡터를 반환합니다.  
+방어적 프로그램의 예는 값 변환에서 이미 설명했습니다. 두 계산 블록이 모두 `tryCatch()`로 래핑됩니다. 일부 오류의 경우는 원래 입력 벡터를 반환하고 그 밖의 경우에는 0의 벡터를 반환합니다.  
 
 비추세화에 사용된 선형 회귀는 시계열 회귀입니다. 예측 변수는 시계열 개체입니다.  
 

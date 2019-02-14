@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: 언어 모델에 기능을 추가하여 레이블을 지정하거나 분류하려는 입력을 인식하는 방법에 대한 힌트를 제공합니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: diberry
-ms.openlocfilehash: 89d18ebd2f52467a19a76940044fea3ae254970a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fa0a8c4baa9458a3784babe1e342d768748f8a4d
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770166"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55882457"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 앱의 구문 목록 기능
 

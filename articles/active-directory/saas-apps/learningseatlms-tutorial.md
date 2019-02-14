@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: b41f01254e081b6ac3a9b8265bd459cf00af1838
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d9237a2e4da682347245a3b74c916bbeea39166c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197996"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>자습서: Learning Seat LMS와 Azure Active Directory 통합
 
@@ -89,7 +90,7 @@ Learning Seat LMS에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-1. **[Learning Seat LMS 테스트 사용자 만들기](#creating-a-learnconnect-test-user)** - Britta Simon의 Azure AD 사용자 표현과 연결되는 대응 사용자를 Learning Seat LMS에 만듭니다.
+1. **Learning Seat LMS 테스트 사용자 만들기** - Britta Simon의 Azure AD 사용자 표현과 연결되는 해당 사용자를 Learning Seat LMS에 만듭니다.
 1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 

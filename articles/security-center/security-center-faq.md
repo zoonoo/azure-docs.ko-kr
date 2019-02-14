@@ -4,7 +4,7 @@ description: 이 FAQ는 Azure Security Center에 대한 질문에 답변합니�
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2be11f97882a7c6353b214886ce6c5a3a66add89
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 61dac6bea6878630c05339778c717f7818c1c662
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339113"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106650"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -73,7 +73,7 @@ Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데�
 - Microsoft Monitoring Agent 확장이 VM에 현재 설치되어 있지 않습니다.
 - VM이 실행 중인 상태입니다.
 - Windows 또는 Linux VM 에이전트가 설치되어 있습니다.
-- VM이 웹 응용 프로그램 방화벽이나 차세대 방화벽과 같은 어플라이언스로 사용되지 않습니다.
+- VM이 웹 애플리케이션 방화벽이나 차세대 방화벽과 같은 어플라이언스로 사용되지 않습니다.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Security Center에서 만든 기본 작업 영역을 삭제할 수 있나요?
 **기본 작업 영역을 삭제하지 않는 것이 좋습니다.** Security Center는 기본 작업 영역을 사용하여 VM의 보안 데이터를 저장합니다.  작업 영역을 삭제하는 경우 Security Center는 이 데이터 및 일부 보안 권장 사항을 수집할 수 없고 경고를 사용할 수 없습니다.
@@ -176,7 +176,7 @@ Security Center는 선택한 가격 책정 계층을 기반으로 작업 영역�
 Microsoft Monitoring Agent를 수동으로 제거할 수 있습니다. Security Center 권장 사항 및 경고를 제한하기 때문에 권장되지는 않습니다.
 
 > [!NOTE]
-> 데이터 수집을 사용하는 경우 Security Center는 에이전트를 제거한 후에 다시 설치합니다.  수동으로 에이전트를 제거하기 전에 데이터 수집을 사용하지 않도록 설정해야 합니다. 데이터 수집을 사용하지 않도록 설정하는 지침은 [자동 에이전트 설치 및 작업 영역 생성을 중지하려면 어떻게 할까요?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?)를 참조하세요.
+> 데이터 수집을 사용하는 경우 Security Center는 에이전트를 제거한 후에 다시 설치합니다.  수동으로 에이전트를 제거하기 전에 데이터 수집을 사용하지 않도록 설정해야 합니다. 데이터 수집을 사용하지 않도록 설정하는 지침은 자동 에이전트 설치 및 작업 영역 생성을 중지하려면 어떻게 할까요?를 참조하세요.
 >
 >
 
@@ -205,7 +205,7 @@ Microsoft Monitoring Agent를 수동으로 제거할 수 있습니다. Security 
 
 에이전트는 프로세스 생성 이벤트 4688 및 이벤트 4688 내의 *CommandLine* 필드를 활성화합니다. VM에서 생성된 새로운 프로세스는 이벤트 로그에서 기록되고 Security Center의 검색 서비스에 의해 모니터링됩니다. 각 새 프로세스에 대해 기록된 세부 정보에 대한 내용은 [4688의 설명 필드](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields)를 참조하세요. 또한 에이전트는 VM에서 생성되는 4688 이벤트를 수집하고 검색에 저장합니다.
 
-또한 에이전트는 [적응형 응용 프로그램 제어](security-center-adaptive-application.md)에 데이터 수집을 사용하도록 설정하고, Security Center는 모든 응용 프로그램을 허용하도록 감사 모드에서 로컬 AppLocker 정책을 구성합니다. 이렇게 하면 AppLocker가 이벤트를 생성하게 되고, 이 이벤트를 Security Center에서 수집하여 활용합니다. 이 정책은 이미 AppLocker 정책이 구성된 컴퓨터에서는 구성할 수 없습니다. 
+또한 에이전트는 [적응형 애플리케이션 제어](security-center-adaptive-application.md)에 데이터 수집을 사용하도록 설정하고, Security Center는 모든 애플리케이션을 허용하도록 감사 모드에서 로컬 AppLocker 정책을 구성합니다. 이렇게 하면 AppLocker가 이벤트를 생성하게 되고, 이 이벤트를 Security Center에서 수집하여 활용합니다. 이 정책은 이미 AppLocker 정책이 구성된 컴퓨터에서는 구성할 수 없습니다. 
 
 Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경우 [보안 연락처 정보](security-center-provide-security-contact-details.md)가 제공된 경우 전자 메일을 통해 알림을 받습니다. 경고는 또한 Security Center의 보안 경고 대시보드에 표시됩니다.
 
@@ -244,7 +244,7 @@ Security Center에서 VM에 Microsoft Monitoring Agent를 설치하면 Security 
 
 ## <a name="using-azure-security-center"></a>Azure Security Center 사용
 ### <a name="what-is-a-security-policy"></a>보안 정책이란?
-보안 정책은 지정된 구독 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다. Azure Security Center에서 회사의 보안 요구 사항 및 응용 프로그램 형식 또는 각 구독의 데이터 민감도에 따라 Azure 구독에 대한 정책을 정의합니다.
+보안 정책은 지정된 구독 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다. Azure Security Center에서 회사의 보안 요구 사항 및 애플리케이션 형식 또는 각 구독의 데이터 민감도에 따라 Azure 구독에 대한 정책을 정의합니다.
 
 Azure Security Center에서 사용하도록 설정한 보안 정책에 따라 보안 권장 사항과 모니터링이 결정됩니다. 보안 정책에 대해 자세히 알아보려면 [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)을 참조하세요.
 
@@ -258,14 +258,14 @@ Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니�
 
 * 악성 소프트웨어를 식별하여 제거하는 데 도움을 주는 맬웨어 방지 프로그램 프로비전
 * 가상 머신의 트래픽을 제어하는 [네트워크 보안 그룹](../virtual-network/security-overview.md) 및 규칙
-* 웹 응용 프로그램의 대상을 지정한 공격에 대해 방어하는 데 도움이 되는 웹 응용 프로그램 방화벽 프로비전
+* 웹 애플리케이션의 대상을 지정한 공격에 대해 방어하는 데 도움이 되는 웹 애플리케이션 방화벽 프로비전
 * 누락된 시스템 업데이트 배포
 * 권장 기준과 일치하지 않는 OS 구성 해결
 
 보안 정책에 사용하도록 설정된 권장 사항만 여기에 표시됩니다.
 
 ### <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>내 Azure 리소스의 현재 보안 상태를 확인하려면 어떻게 해야 하나요?
-**Security Center 개요** 블레이드는 Compute, Networking, Storage & 데이터 및 응용 프로그램별로 분류된 환경의 전반적인 보안 상태를 보여 줍니다. 각 리소스 종류에는 잠재적 보안 취약성이 식별되었는지 나타내는 표시기가 있습니다. 각 타일을 클릭하면 구독의 리소스 인벤토리와 함께 Security Center에서 식별하는 보안 문제 목록이 표시됩니다.
+**Security Center 개요** 블레이드는 Compute, Networking, Storage &amp; 데이터 및 애플리케이션별로 분류된 환경의 전반적인 보안 상태를 보여 줍니다. 각 리소스 종류에는 잠재적 보안 취약성이 식별되었는지 나타내는 표시기가 있습니다. 각 타일을 클릭하면 구독의 리소스 인벤토리와 함께 Security Center에서 식별하는 보안 문제 목록이 표시됩니다.
 
 ### <a name="what-triggers-a-security-alert"></a>보안 경고를 트리거하는 것은 무엇인가요?
 Azure Security Center는 리소스, 네트워크 및 맬웨어 방지 프로그램과 방화벽 같은 파트너 솔루션에서 자동으로 로그 데이터를 수집, 분석 및 결합합니다. 위협이 감지되었을 때 보안 경고가 생성됩니다. 감지되는 사항의 예:
@@ -273,7 +273,7 @@ Azure Security Center는 리소스, 네트워크 및 맬웨어 방지 프로그�
 * 알려진 악성 IP 주소와 통신하는 손상된 가상 머신
 * Windows 오류 보고를 사용 하여 감지된 고급 맬웨어
 * 가상 머신에 대한 무작위 공격
-* 맬웨어 방지 프로그램 또는 웹 응용 프로그램 방화벽 등과 같은 통합된 파트너 보안 솔루션에서의 보안 경고
+* 맬웨어 방지 프로그램 또는 웹 애플리케이션 방화벽 등과 같은 통합된 파트너 보안 솔루션에서의 보안 경고
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Microsoft 보안 응답 센터와 Azure Security Center에서 감지 및 경고된 위협 간의 차이점은 무엇입니까?
 Microsoft 보안 대응 센터(MSRC)는 Azure 네트워크 및 인프라의 선택 보안 모니터링을 수행하고 타사에서 위협 인텔리전스 및 남용 불만 사항을 받습니다. MSRC는 불법적인 또는 권한 없는 당사자가 고객 데이터에 액세스했거나 고객의 Azure 사용이 사용 제한에 대한 조건을 준수하지 않는 것을 인식하면 보안 사고 관리자는 고객에게 알립니다. 보안 연락처를 지정하지 않은 경우 대개 Azure Security Center에 지정된 보안 연락처 또는 Azure 구독 소유자에게 메일을 전송하는 방식으로 알림이 수행됩니다.
@@ -288,7 +288,7 @@ Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링�
 * Azure SQL 서비스
 * Azure Storage 계정
 * Azure Web Apps([App Service Environment](../app-service/environment/intro.md))
-* VM 및 App Service Environment에서 웹 응용 프로그램 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
+* VM 및 App Service Environment에서 웹 애플리케이션 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
 
 ## <a name="virtual-machines"></a>Virtual Machines
 ### <a name="what-types-of-virtual-machines-are-supported"></a>어떤 유형의 가상 머신이 지원되나요?

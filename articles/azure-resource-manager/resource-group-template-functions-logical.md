@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e796afbb31c006b37b9a86556714ab3544c2fb8a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164790"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107518"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 논리 함수
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함수를 제공합니다.
 
@@ -31,21 +33,24 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 * [not](#not)
 * [or](#or)
 
-## <a name="and"></a>and
-`and(arg1, arg2)`
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-두 매개 변수 값이 모두 true인지를 확인합니다.
+## <a name="and"></a>and
+`and(arg1, arg2, ...)`
+
+모든 매개 변수 값이 True인지 확인합니다.
 
 ### <a name="parameters"></a>매개 변수
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |부울 |true인지 확인할 첫 번째 값입니다. |
-| arg2 |yes |부울 |true인지 확인할 두 번째 값입니다. |
+| arg1 |예 |부울 |true인지 확인할 첫 번째 값입니다. |
+| arg2 |예 |부울 |true인지 확인할 두 번째 값입니다. |
+| 추가 인수 |아니요 |부울 |True인지 확인할 추가 인수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
-두 값이 모두 true이면 **True**를 반환하고 그렇지 않으면 **False**를 반환합니다.
+모든 값이 True이면 **True**를 반환하고 그렇지 않으면 **False**를 반환합니다.
 
 ### <a name="examples"></a>예
 
@@ -75,7 +80,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| Name | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -90,7 +95,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="bool"></a>bool
@@ -102,7 +107,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |문자열 또는 int |부울로 변환할 값입니다. |
+| arg1 |예 |문자열 또는 int |부울로 변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 변환된 값의 부울입니다.
@@ -155,7 +160,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
 ```
 
 ## <a name="if"></a>if
@@ -167,9 +172,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| condition |yes |부울 |true인지 확인할 값입니다. |
-| trueValue |yes | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
-| falseValue |yes | 문자열, 정수, 개체 또는 배열 |조건이 false이면 반환할 값입니다. |
+| condition |예 |부울 |true인지 확인할 값입니다. |
+| trueValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
+| falseValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 false이면 반환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -250,7 +255,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| Name | type | 값 |
 | ---- | ---- | ----- |
 | yesOutput | 문자열 | 예 |
 | noOutput | 문자열 | no |
@@ -265,7 +270,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
 ```
 
 ## <a name="not"></a>not
@@ -277,7 +282,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |부울 |변환할 값입니다. |
+| arg1 |예 |부울 |변환할 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -311,7 +316,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| Name | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -326,7 +331,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 [equals](resource-group-template-functions-comparison.md#equals)에 **not**을 사용합니다.
@@ -347,7 +352,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| Name | type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -360,24 +365,25 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
 ## <a name="or"></a>또는
-`or(arg1, arg2)`
+`or(arg1, arg2, ...)`
 
-매개 변수 값 중 하나가 true인지 여부를 확인합니다.
+매개 변수 값 중 하나가 True인지 확인합니다.
 
 ### <a name="parameters"></a>매개 변수
 
 |  매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |yes |부울 |true인지 확인할 첫 번째 값입니다. |
-| arg2 |yes |부울 |true인지 확인할 두 번째 값입니다. |
+| arg1 |예 |부울 |true인지 확인할 첫 번째 값입니다. |
+| arg2 |예 |부울 |true인지 확인할 두 번째 값입니다. |
+| 추가 인수 |아니요 |부울 |True인지 확인할 추가 인수입니다. |
 
 ### <a name="return-value"></a>반환 값
 
-두 값 중 하나가 true이면 **True**를 반환하고 그렇지 않으면 **False**를 반환합니다.
+True인 값이 하나라도 있으면 **True**를 반환하고 그렇지 않으면 **False**를 반환합니다.
 
 ### <a name="examples"></a>예
 
@@ -407,7 +413,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | type | 값 |
+| Name | type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -422,7 +428,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="next-steps"></a>다음 단계

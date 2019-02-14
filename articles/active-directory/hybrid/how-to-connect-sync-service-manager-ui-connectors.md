@@ -11,17 +11,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87b39c400d189c7be6ead9770fb833f7c5e3036b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3a0d42ff70bfaebf4d544fd81e6767592198ccef
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191254"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56205599"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Auzre AD Connect Sync Service Manager에서 커넥터 사용
 
@@ -42,7 +43,7 @@ ms.locfileid: "55191254"
 | 커넥터 가져오기 |사용 안 함. |
 | 커넥터 업데이트 |사용 안 함. |
 | 스키마 새로 고침 |캐시된 스키마를 새로 고칩니다. 동기화 규칙도 업데이트되므로 대신 설치 마법사를 사용하는 것이 좋습니다. |
-| [커넥터 공간 검색](#search-connector-space) |개체를 찾고 [시스템 전체에서 개체 및 해당 데이터의 흐름을 따르는](#follow-an-object-and-its-data-through-the-system)데 사용됩니다. |
+| [커넥터 공간 검색](#search-connector-space) |개체를 찾고 시스템 전체에서 개체 및 해당 데이터의 흐름을 따르는데 사용됩니다. |
 
 ### <a name="delete"></a>삭제
 삭제 작업은 두 가지 작업에 사용됩니다.  

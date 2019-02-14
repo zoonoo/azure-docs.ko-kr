@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9f8ffe71743f4832d8ce633f050206d21f411276
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: f65b9904b15815c997c1608940109ad296ee6007
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082200"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822870"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
 > [!NOTE]
@@ -247,7 +247,7 @@ typeProperties 섹션은 각 활동마다 다릅니다. 변환 활동에는 type
 | -------- | ----------- | -------- |
 | 이름 | 연결된 서비스의 이름입니다. | 예 |
 | properties - type | 연결된 서비스의 형식입니다. 예:  Azure Storage, Azure SQL Database. |
-| typeProperties | typeProperties 섹션에는 각 데이터 저장소 또는 계산 환경마다 다른 요소가 있습니다. 모든 데이터 저장소 연결된 서비스는 [데이터 저장소](#datastores) 섹션을, 모든 계산 연결된 서비스는 [계산 환경](#compute-environments)을 참조하세요. |
+| typeProperties | typeProperties 섹션에는 각 데이터 저장소 또는 계산 환경마다 다른 요소가 있습니다. 모든 데이터 저장소 연결 서비스는 데이터 저장소 섹션을, 모든 컴퓨팅 연결 서비스는 [컴퓨팅 환경](#compute-environments)을 참조하세요. |
 
 ## <a name="dataset"></a>데이터 세트
 Azure Data Factory의 데이터 세트는 다음과 같이 정의됩니다.
@@ -290,7 +290,7 @@ Azure Data Factory의 데이터 세트는 다음과 같이 정의됩니다.
 | typeProperties | 선택한 형식에 해당하는 속성입니다. 지원되는 형식 및 해당 속성은 [데이터 저장소](#data-stores) 섹션을 참조하세요. |예 |해당 없음 |
 | external | 데이터 세트가 데이터 팩터리 파이프라인에 의해 명시적으로 생성되는지를 지정하는 부울 플래그입니다. |아니요 |false |
 | availability | 데이터 세트 생성에 대한 처리 창 또는 조각화 모델을 정의합니다. 데이터 세트 조각화 모델에 대한 자세한 내용은 [예약 및 실행](data-factory-scheduling-and-execution.md) 문서를 참조하세요. |예 |해당 없음 |
-| policy |데이터 세트 조각이 충족해야 하는 기준 또는 조건을 정의합니다. <br/><br/>세부 정보는 [데이터 세트 정책](#Policy) 을 참조하세요. |아니요 |해당 없음 |
+| policy |데이터 세트 조각이 충족해야 하는 기준 또는 조건을 정의합니다. <br/><br/>세부 정보는 데이터 세트 정책을 참조하세요. |아니요 |해당 없음 |
 
 **structure** 섹션의 각 열에는 다음과 같은 속성이 포함됩니다.
 
@@ -374,7 +374,7 @@ structure:
 | Category | 데이터 저장소
 |:--- |:--- |
 | **Azure** |[Azure Blob Storage](#azure-blob-storage) |
-| &nbsp; |[Azure Data Lake Storage](#azure-datalake-store) |
+| &nbsp; |Azure Data Lake Store |
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
@@ -401,7 +401,7 @@ structure:
 | &nbsp; |[OData](#odata) |
 | &nbsp; |[ODBC](#odbc) |
 | &nbsp; |[Salesforce](#salesforce) |
-| &nbsp; |[웹 테이블](#web-table) |
+| &nbsp; |웹 테이블 |
 
 ## <a name="azure-blob-storage"></a>Azure Blob Storage
 
@@ -1616,7 +1616,7 @@ Amazon Redshift 연결된 서비스를 정의하려면 연결된 서비스의 **
 }
 ```
 
-자세한 내용은 [Amazon Redshift 커넥터](#data-factory-amazon-redshift-connector.md#linked-service-properties) 문서를 참조 하세요.
+자세한 내용은 Amazon Redshift 커넥터 문서를 참조하세요.
 
 ### <a name="dataset"></a>데이터 세트
 Amazon Redshift 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
@@ -1645,7 +1645,7 @@ Amazon Redshift 데이터 세트를 정의하려면 데이터 세트의 **type**
     }
 }
 ```
-자세한 내용은 [Amazon Redshift 커넥터](#data-factory-amazon-redshift-connector.md#dataset-properties) 문서를 참조 하세요.
+자세한 내용은 Amazon Redshift 커넥터 문서를 참조하세요.
 
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 Amazon Redshift에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
@@ -1695,7 +1695,7 @@ Amazon Redshift에서 데이터를 복사하는 경우 복사 활동의 **source
     }
 }
 ```
-자세한 내용은 [Amazon Redshift 커넥터](#data-factory-amazon-redshift-connector.md#copy-activity-properties) 문서를 참조 하세요.
+자세한 내용은 Amazon Redshift 커넥터 문서를 참조하세요.
 
 ## <a name="ibm-db2"></a>IBM DB2
 
@@ -1730,7 +1730,7 @@ IBM DB2 연결된 서비스를 정의하려면 연결된 서비스의 **type**�
     }
 }
 ```
-자세한 내용은 [IBM DB2 커넥터](#data-factory-onprem-db2-connector.md#linked-service-properties) 문서를 참조하세요.
+자세한 내용은 IBM DB2 커넥터 문서를 참조하세요.
 
 ### <a name="dataset"></a>데이터 세트
 DB2 데이터 세트를 정의하려면 데이터 세트의 **type**을 **RelationalTable**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
@@ -1763,7 +1763,7 @@ DB2 데이터 세트를 정의하려면 데이터 세트의 **type**을 **Relati
 }
 ```
 
-자세한 내용은 [IBM DB2 커넥터](#data-factory-onprem-db2-connector.md#dataset-properties) 문서를 참조하세요.
+자세한 내용은 IBM DB2 커넥터 문서를 참조하세요.
 
 ### <a name="relational-source-in-copy-activity"></a>복사 활동의 Relational 소스
 IBM DB2에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **RelationalSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
@@ -1811,7 +1811,7 @@ IBM DB2에서 데이터를 복사하는 경우 복사 활동의 **source type**�
     }
 }
 ```
-자세한 내용은 [IBM DB2 커넥터](#data-factory-onprem-db2-connector.md#copy-activity-properties) 문서를 참조하세요.
+자세한 내용은 IBM DB2 커넥터 문서를 참조하세요.
 
 ## <a name="mysql"></a>MySQL
 
@@ -1942,7 +1942,7 @@ Oracle 연결된 서비스를 정의하려면 연결된 서비스의 **type**을
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| driverType | Oracle Database로 데이터를 복사하거나 Oracle Database에서 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 또는 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 [지원되는 버전 및 설치](#supported-versions-and-installation) 섹션을 참조하세요. | 아니요 |
+| driverType | Oracle Database로 데이터를 복사하거나 Oracle Database에서 데이터를 복사하는 데 사용할 드라이버를 지정합니다. 허용되는 값은 **Microsoft** 또는 **ODP**(기본값)입니다. 드라이버 세부 정보에 대해서는 지원되는 버전 및 설치 섹션을 참조하세요. | 아니요 |
 | connectionString | connectionString 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예 |
 | gatewayName | 온-프레미스 Oracle 서버에 연결하는 데 사용되는 게이트웨이 이름입니다. |예 |
 
@@ -2610,8 +2610,8 @@ SQL Server 데이터베이스에 데이터를 복사하는 경우 복사 활동�
 | --- | --- | --- | --- |
 | writeBatchTimeout |시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. |timespan<br/><br/> 예제: “00:30:00”(30분) |아니요 |
 | writeBatchSize |버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 |정수(행 수) |아니요(기본값: 10000) |
-| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 [반복성](#repeatability-during-copy) 섹션을 참조하세요. |쿼리 문입니다. |아니요 |
-| sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. 자세한 내용은 [반복성](#repeatability-during-copy) 섹션을 참조하세요. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
+| sqlWriterCleanupScript |특정 조각의 데이터를 정리하기 위해 복사 활동에 대해 실행할 쿼리를 지정합니다. 자세한 내용은 반복성 섹션을 참조하세요. |쿼리 문입니다. |아니요 |
+| sliceIdentifierColumnName |자동 생성된 조각 식별자를 입력할 복사 활동의 열 이름을 지정합니다. 이 식별자는 복사 활동을 다시 실행할 때 특정 조각의 데이터를 정리하는 데 사용됩니다. 자세한 내용은 반복성 섹션을 참조하세요. |이진(32) 데이터 형식이 있는 열의 열 이름입니다. |아니요 |
 | sqlWriterStoredProcedureName |대상 테이블에 대한 데이터 Upsert(업데이트/삽입)를 수행하는 저장 프로시저의 이름입니다. |저장 프로시저의 이름입니다. |아니요 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다. |이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. |아니요 |
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름을 지정합니다. 복사 작업을 사용하면 이 테이블 형식으로 임시 테이블에서 사용할 수 있는 데이터를 이동시킵니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. |테이블 유형 이름 |아니요 |
@@ -3316,7 +3316,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | 형식 |type 속성은 **OnPremisesFileServer**로 설정되어야 합니다. |예 |
-| host |복사할 폴더의 루트 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 세트 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요. |예 |
+| host |복사할 폴더의 루트 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요. |예 |
 | userId |서버에 대한 액세스 권한이 있는 사용자의 ID를 지정합니다. |아니요(encryptedCredential을 선택하는 경우) |
 | 암호 |사용자(userid)의 암호를 지정합니다. |아니요(encryptedcredential을 선택하는 경우) |
 | encryptedCredential |New-AzureRmDataFactoryEncryptValue cmdlet을 실행하여 얻을 수 있는 암호화된 자격 증명을 지정합니다. |아니요(일반 텍스트에 userid 및 암호를 지정하는 경우) |
@@ -3369,7 +3369,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| folderPath |폴더의 하위 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 세트 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요.<br/><br/>이 속성을 **partitionBy** 와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
+| folderPath |폴더의 하위 경로를 지정하고 있습니다. 문자열에서 특수 문자로 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
 | fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
 | fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다. <br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: "fileFilter": "*.log"<br/>예 2: "fileFilter": 2016-1-?.txt"<br/><br/>fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. |아니요 |
 | partitionedBy |partitionedBy를 사용하면 시계열 데이터의 동적 folderPath/fileName을 지정할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수를 포함하는 folderPath가 있습니다. |아니요 |
@@ -3634,7 +3634,7 @@ FTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileSh
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| folderPath |폴더에 대한 하위 경로. 문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 세트 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요.<br/><br/>이 속성을 **partitionBy** 와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예
+| folderPath |폴더에 대한 하위 경로. 문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예
 | fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
 | fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다.<br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: `"fileFilter": "*.log"`<br/>예 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. 이 속성은 HDFS에는 지원되지 않습니다. |아니요 |
 | partitionedBy |동적 folderPath, 시계열 데이터에 대한 filename을 지정하는 데 partitionedBy를 사용할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수가 있는 folderPath입니다. |아니요 |
@@ -3728,7 +3728,7 @@ HDFS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 | --- | --- | --- |
 | 형식 |type 속성을 다음으로 설정해야 합니다. **HDFS** |예 |
 | Url |HDFS에 대한 URL |예 |
-| authenticationType |익명 또는 Windows입니다. <br><br> HDFS 커넥터에 **Kerberos 인증**을 사용하려면 [이 섹션](#use-kerberos-authentication-for-hdfs-connector)을 참조하여 온-프레미스 환경을 적절히 설정합니다. |예 |
+| authenticationType |익명 또는 Windows입니다. <br><br> HDFS 커넥터에 **Kerberos 인증**을 사용하려면 이 섹션을 참조하여 온-프레미스 환경을 적절히 설정하십시오. |예 |
 | userName |Windows 인증에 대한 사용자 이름. |예(Windows 인증에 대한) |
 | 암호 |Windows 인증에 대한 암호. |예(Windows 인증에 대한) |
 | gatewayName |데이터 팩터리 서비스가 HDFS에 연결하는 데 사용해야 하는 게이트웨이의 이름. |예 |
@@ -3769,7 +3769,7 @@ HDFS 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 }
 ```
 
-자세한 내용은 [HDFS 커넥터](#data-factory-hdfs-connector.md#linked-service-properties) 문서를 참조하세요.
+자세한 내용은 HDFS 커넥터 문서를 참조하세요.
 
 ### <a name="dataset"></a>데이터 세트
 HDFS 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileShare**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
@@ -3805,7 +3805,7 @@ HDFS 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileS
 }
 ```
 
-자세한 내용은 [HDFS 커넥터](#data-factory-hdfs-connector.md#dataset-properties) 문서를 참조하세요.
+자세한 내용은 HDFS 커넥터 문서를 참조하세요.
 
 ### <a name="file-system-source-in-copy-activity"></a>복사 활동의 파일 시스템 소스
 HDFS에서 데이터를 복사하는 경우 복사 활동의 **source type**을 **FileSystemSource**로 설정하고 **source** 섹션에서 다음 속성을 지정합니다.
@@ -3852,7 +3852,7 @@ HDFS에서 데이터를 복사하는 경우 복사 활동의 **source type**을 
 }
 ```
 
-자세한 내용은 [HDFS 커넥터](#data-factory-hdfs-connector.md#copy-activity-properties) 문서를 참조하세요.
+자세한 내용은 HDFS 커넥터 문서를 참조하세요.
 
 ## <a name="sftp"></a>SFTP
 
@@ -3864,7 +3864,7 @@ SFTP 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 *
 | --- | --- | --- | --- |
 | host | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
 | 포트 |SFTP 서버가 수신하는 포트입니다. 기본값은 다음과 같습니다. 21 |아니요 |
-| authenticationType |인증 유형을 지정합니다. 허용되는 값은 다음과 같습니다. **Basic**, **SshPublicKey**. <br><br> 더 많은 속성 및 각 속성의 JSON 샘플은 [기본 인증 사용](#using-basic-authentication) 및 [SSH 공개 키 인증 사용](#using-ssh-public-key-authentication) 섹션을 참조하세요. |예 |
+| authenticationType |인증 유형을 지정합니다. 허용되는 값은 다음과 같습니다. **Basic**, **SshPublicKey**. <br><br> 더 많은 속성 및 각 속성의 JSON 샘플은 기본 인증 사용 및 [SSH 공개 키 인증 사용](#using-ssh-public-key-authentication) 섹션을 참조하세요. |예 |
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다. |  아니요. 기본값: false |
 | hostKeyFingerprint | 호스트 키의 지문을 지정합니다. | `skipHostKeyValidation`이 false로 지정되면 필수입니다.  |
 | gatewayName |온-프레미스 SFTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에는 필수입니다. |
@@ -3976,7 +3976,7 @@ SFTP 데이터 세트를 정의하려면 데이터 세트의 **type**을 **FileS
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| folderPath |폴더에 대한 하위 경로. 문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 [연결된 서비스 및 데이터 세트 정의 샘플](#sample-linked-service-and-dataset-definitions) 을 참조하세요.<br/><br/>이 속성을 **partitionBy** 와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
+| folderPath |폴더에 대한 하위 경로. 문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
 | fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
 | fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다.<br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: `"fileFilter": "*.log"`<br/>예 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. 이 속성은 HDFS에는 지원되지 않습니다. |아니요 |
 | partitionedBy |동적 folderPath, 시계열 데이터에 대한 filename을 지정하는 데 partitionedBy를 사용할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수가 있는 folderPath입니다. |아니요 |
@@ -4743,7 +4743,7 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 |:--- |:--- |:--- |
 | 형식 |데이터 세트의 형식입니다. **데이터 집합** |예 |
 | 경로 |테이블을 포함하는 리소스에 대한 상대 URL입니다. | 아니요. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. |
-| index |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 [HTML 페이지에서 테이블의 인덱스 가져오기](#get-index-of-a-table-in-an-html-page) 섹션을 참조하세요. |예 |
+| index |리소스에 있는 테이블의 인덱스입니다. HTML 페이지에서 테이블의 인덱스를 가져오는 단계는 HTML 페이지에서 테이블의 인덱스 가져오기 섹션을 참조하세요. |예 |
 
 #### <a name="example"></a>예
 
@@ -4820,14 +4820,14 @@ Salesforce에서 데이터를 복사하는 경우 복사 활동의 **source type
 
 | Compute 환경 | 활동 |
 | --- | --- |
-| [주문형 HDInsight 클러스터](#on-demand-azure-hdinsight-cluster) 또는 [사용자 고유의 HDInsight 클러스터](#existing-azure-hdinsight-cluster) |[.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), [Hadoop 스트리밍 활동](#hdinsight-streaming-activityd), [Spark 활동](#hdinsight-spark-activity) |
+| [주문형 HDInsight 클러스터](#on-demand-azure-hdinsight-cluster) 또는 [사용자 고유의 HDInsight 클러스터](#existing-azure-hdinsight-cluster) |[.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), Hadoop 스트리밍 활동, [Spark 활동](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET 사용자 지정 작업](#net-custom-activity) |
 | [Azure Machine Learning](#azure-machine-learning) | [Machine Learning Batch 실행 활동](#machine-learning-batch-execution-activity), [Machine Learning 업데이트 리소스 활동](#machine-learning-update-resource-activity) |
 | [Azure 데이터 레이크 분석](#azure-data-lake-analytics) |[데이터 레이크 분석 U-SQL](#data-lake-analytics-u-sql-activity) |
 | [Azure SQL Database](#azure-sql-database-1), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[저장 프로시저](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>주문형 Azure HDInsight 클러스터
-Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux 기반 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 저장소 계정(JSON에서 linkedServiceName 속성)과 동일한 하위 지역에 만들어집니다. 이 연결된 서비스에서는 변환 활동, 즉 [.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), [Hadoop 스트리밍 활동](#hdinsight-streaming-activityd), [Spark 활동](#hdinsight-spark-activity)을 실행할 수 있습니다.
+Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux 기반 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 저장소 계정(JSON에서 linkedServiceName 속성)과 동일한 하위 지역에 만들어집니다. 이 연결된 서비스에서는 변환 활동, 즉 [.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), Hadoop 스트리밍 활동, [Spark 활동](#hdinsight-spark-activity)을 실행할 수 있습니다.
 
 ### <a name="linked-service"></a>연결된 서비스
 다음 표에서는 주문형 HDInsight 연결된 서비스의 Azure JSON 정의에 사용된 속성에 대해 설명합니다.
@@ -4865,7 +4865,7 @@ Azure 데이터 팩터리 서비스는 데이터를 처리하는 Windows/Linux �
 자세한 내용은 [Compute 연결된 서비스](data-factory-compute-linked-services.md)을 참조하세요.
 
 ## <a name="existing-azure-hdinsight-cluster"></a>기존 Azure HDInsight 클러스터
-Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사용하는 사용자 고유의 HDInsight 클러스터를 등록할 수 있습니다. 이 연결된 서비스에서는 데이터 변환 활동, 즉 [.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), [Hadoop 스트리밍 활동](#hdinsight-streaming-activityd), [Spark 활동](#hdinsight-spark-activity)을 실행할 수 있습니다.
+Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사용하는 사용자 고유의 HDInsight 클러스터를 등록할 수 있습니다. 이 연결된 서비스에서는 데이터 변환 활동, 즉 [.NET 사용자 지정 활동](#net-custom-activity), [Hive 활동](#hdinsight-hive-activity), [Pig 활동](#hdinsight-pig-activity), [MapReduce 활동](#hdinsight-mapreduce-activity), Hadoop 스트리밍 활동, [Spark 활동](#hdinsight-spark-activity)을 실행할 수 있습니다.
 
 ### <a name="linked-service"></a>연결된 서비스
 다음 표에서는 Azure HDInsight 연결된 서비스의 Azure JSON 정의에 사용된 속성에 대해 설명합니다.
@@ -5216,7 +5216,7 @@ Pig 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동
 }
 ```
 
-자세한 내용은 [Pig 활동](#data-factory-pig-activity.md)을 참조하세요.
+자세한 내용은 Pig 활동 문서를 참조하세요.
 
 ## <a name="hdinsight-mapreduce-activity"></a>HDInsight MapReduce 작업
 MapReduce 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활동의 type 속성은 다음과 같아야 합니다. **HDInsightMapReduce**. 먼저 HDInsight 연결된 서비스를 만들고 해당 이름을 **linkedServiceName** 속성의 값으로 지정해야 합니다. 활동의 type을 HDInsightMapReduce로 설정하는 경우 **typeProperties** 섹션에서 지원되는 속성은 다음과 같습니다.
@@ -5385,7 +5385,7 @@ Spark 활동 JSON 정의에서 다음 속성을 지정할 수 있습니다. 활�
 다음 사항에 유의하세요.
 
 - **type** 속성은 **HDInsightSpark**로 설정됩니다.
-- **rootPath**는 **adfspark\\pyFiles**로 설정되며, 여기서 adfspark는 Azure Blob 컨테이너이고, pyFiles는 해당 컨테이너의 파일 폴더입니다. 이 예에서 Azure Blob Storage는 Spark 클러스터와 연결되어 있습니다. 파일을 다른 Azure Storage에 업로드할 수 있습니다. 이렇게 하는 경우 해당 스토리지 계정을 데이터 팩터리에 연결하는 Azure Storage 연결된 서비스를 만들어야 합니다. 그런 다음 연결된 서비스의 이름을 **sparkJobLinkedService** 속성의 값으로 지정합니다. 이 속성과 Spark 작업에서 지원하는 기타 속성에 대한 자세한 내용은 [Spark 작업 속성](#spark-activity-properties)을 참조하세요.
+- **rootPath**는 **adfspark\\pyFiles**로 설정되며, 여기서 adfspark는 Azure Blob 컨테이너이고, pyFiles는 해당 컨테이너의 파일 폴더입니다. 이 예에서 Azure Blob Storage는 Spark 클러스터와 연결되어 있습니다. 파일을 다른 Azure Storage에 업로드할 수 있습니다. 이렇게 하는 경우 해당 스토리지 계정을 데이터 팩터리에 연결하는 Azure Storage 연결된 서비스를 만들어야 합니다. 그런 다음 연결된 서비스의 이름을 **sparkJobLinkedService** 속성의 값으로 지정합니다. 이 속성과 Spark 작업에서 지원하는 기타 속성에 대한 자세한 내용은 Spark 작업 속성을 참조하세요.
 - **entryFilePath**는 python 파일인 **test.py**로 설정됩니다.
 - **getDebugInfo** 속성은 **Always**로 설정되며, 이는 로그 파일이 항상 생성(성공 또는 실패)된다는 것을 의미합니다.
 

@@ -14,16 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 34b70b1a6a77a20a034a7822d9c4961c36cdd51c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 2e30f3bb40e23e5b0b1951759bdff3a9f02cc9d5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663964"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236066"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux용 DSC 확장(Microsoft.OSTCExtensions.DSCForLinux)
-
-## <a name="overview"></a>개요
 
 DSC(Desired State Configuration)는 구성을 코드로 사용하여 IT 및 개발 인프라를 관리할 수 있게 하는 관리 플랫폼입니다.
 
@@ -36,11 +34,13 @@ DSCForLinux 확장은 Microsoft에서 게시하고 지원합니다. 확장은 OM
 - Linux VM에 사용자 지정 DSC 모듈을 설치합니다(ExtensionAction 설치).
 - Linux VM에서 사용자 지정 DSC 모듈을 제거합니다(ExtensionAction 제거).
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 ### <a name="operating-system"></a>운영 체제
 
-DSC Linux 확장은 다음을 제외한 모든 [Azure 보증 Linux 배포판](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros)을 지원합니다.
+DSC Linux 확장은 다음을 제외한 모든 [Azure 보증 Linux 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)을 지원합니다.
 
 | 배포 | 버전 |
 |---|---|
@@ -366,7 +366,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 다음을 실행하여 Azure 계정(Azure Resource Manager 모드)에 로그인할 수 있습니다.
 
 ```powershell>
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 Azure Resource Manager에서 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [**여기**](../../azure-resource-manager/powershell-azure-resource-manager.md)를 클릭하세요.
@@ -398,7 +398,7 @@ $publicConfig = '{
 ```
 
 ```
-Set-AzureRmVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
+Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```

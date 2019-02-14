@@ -11,14 +11,14 @@ ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: bwren
-ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 60c43475fc044b0847e5d9bd495c0d53b562114e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381661"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822710"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure에서 서비스 맵 구성
 서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -72,6 +72,7 @@ ms.locfileid: "54381661"
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 ### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
@@ -87,6 +88,7 @@ ms.locfileid: "54381661"
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
@@ -132,8 +134,8 @@ ms.locfileid: "54381661"
 
 | 연결된 원본 | 지원됨 | 설명 |
 |:--|:--|:--|
-| Windows 에이전트 | 예 | 서비스 맵은 Windows 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[Windows용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
-| Linux 에이전트 | 예 | 서비스 맵은 Linux 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[Linux용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](#supported-operating-systems)를 참조하세요. |
+| Windows 에이전트 | 예 | 서비스 맵은 Windows 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[Windows용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 지원되는 운영 체제를 참조하세요. |
+| Linux 에이전트 | 예 | 서비스 맵은 Linux 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br>[Linux용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 지원되는 운영 체제를 참조하세요. |
 | System Center Operations Manager 관리 그룹 | 예 | 서비스 맵은 연결된 [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br>System Center Operations Manager 에이전트 컴퓨터에서 Log Analytics로의 직접 연결이 필요합니다. |
 | Azure Storage 계정 | 아니요 | 서비스 맵은 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
@@ -383,11 +385,11 @@ Microsoft Dependency Agent는 Microsoft Visual Studio 런타임 라이브러리�
 **Windows**: "Microsoft 종속성 에이전트"라는 서비스를 찾아봅니다.<br>
 **Linux**: "microsoft-dependency-agent" 실행 프로세스를 찾아봅니다.
 
-* [Operations Management Suite/Log Analytics의 무료 가격 책정 등급](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)에 있습니까? 무료 계획에서는 고유한 서비스 맵 서버를 5개까지 허용합니다. 따라서 이전의 5개 서비스 맵 서버에서 데이터를 더 이상 보내지 않더라도 이후의 모든 서버는 서비스 맵에 표시되지 않습니다.
+* [Operations Management Suite/Log Analytics의 무료 가격 책정 등급](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)에 있습니까? 무료 계획에서는 고유한 서비스 맵 서버를 5개까지 허용합니다. 따라서 이전의 5개 서비스 맵 서버에서 데이터를 더 이상 보내지 않더라도 이후의 모든 서버는 서비스 맵에 표시되지 않습니다.
 
 * 서버에서 Log Analytics로 로그 및 perf 데이터를 보내고 있나요? [로그 검색]으로 이동하여 컴퓨터에 대해 다음 쿼리를 실행합니다. 
 
-    Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
 결과에서 다양한 이벤트를 얻었나요? 최근 데이터인가요? 그렇다면 Log Analytics 에이전트가 올바르게 작동하고 Log Analytics와 통신하고 있습니다. 그렇지 않으면 [Windows용 Log Analytics 에이전트 문제 해결](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) 또는 [Linux용 Log Analytics 에이전트 문제 해결](../../azure-monitor/platform/agent-linux-troubleshoot.md)을 참조하여 서버의 에이전트를 확인합니다.
 

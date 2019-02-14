@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 8d150a91a00652d5af74253dfdf60eb728db97b5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2b6471b6bd634c7fe3053fc7748eb925c049c17c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192837"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179569"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>자습서: ZPA(Zscaler Private Access)와 Azure Active Directory 통합
 
@@ -95,7 +96,7 @@ ZPA(Zscaler Private Access)에서 Azure AD Single Sign-On을 구성하고 테스
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-1. **[ZPA(Zscaler Private Access) 테스트 사용자 만들기](#creating-a-zscaler-private-access-(zpa)-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 ZPA(Zscaler Private Access)에 만듭니다.
+1. **ZPA(Zscaler Private Access) 테스트 사용자 만들기** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 ZPA(Zscaler Private Access)에 만듭니다.
 1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 

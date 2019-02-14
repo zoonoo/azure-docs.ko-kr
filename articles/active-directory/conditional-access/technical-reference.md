@@ -7,20 +7,21 @@ author: MarkusVi
 manager: daveba
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0971b5abee872d9a7010f0ce931f09c47808eb80
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7687cb4eb6cacd604a05a820e04f71755e0b66b1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452142"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201417"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -53,6 +54,8 @@ Microsoft의 다음 클라우드 앱에 조건부 액세스 정책을 할당할 
 - Azure Information Protection - [자세한 정보](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
 - Azure RemoteApp
+
+- Azure SQL Database - [자세한 정보](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
 
 - Microsoft Dynamics 365
 
@@ -148,8 +151,8 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |    |    |
 |--- | ---|
 |path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-|이름 | 1 |
-|type | REG_SZ (String) |
+|Name | 1 |
+|Type | REG_SZ (String) |
 |Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 **Windows 8.1 및 7**에서 Chrome을 지원하려면 다음 레지스트리 키를 만듭니다.
@@ -157,8 +160,8 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |    |    |
 |--- | ---|
 |path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-|이름 | 1 |
-|type | REG_SZ (String) |
+|Name | 1 |
+|Type | REG_SZ (String) |
 |Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 이러한 브라우저는 디바이스 인증을 지원하므로 정책에 대해 디바이스 유효성을 검사하고 식별하는 것이 가능합니다. 브라우저가 개인 모드로 실행 중이면 디바이스 검사가 실패합니다. 
@@ -175,24 +178,27 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 이 설정은 다음 모바일 앱 및 데스크톱 클라이언트에서 수행하는 액세스 시도에 영향을 미칩니다. 
 
 
-|클라이언트 앱|대상 서비스|플랫폼|
-|---|---|---|
-|Azure 원격 앱|Azure 원격 앱 서비스|Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X|
-|Dynamics CRM 앱|Dynamics CRM|Windows 10, Windows 8.1, iOS 및 Android|
-|메일/일정/피플 앱, Outlook 2016, Outlook 2013 |Office 365 Exchange Online|윈도우 10|
-|앱에 대한 MFA 및 위치 정책입니다. 디바이스 기반 정책은 지원되지 않습니다. |모든 My Apps 앱 서비스|Android 및 iOS|
-|Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.|Microsoft 팀|Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
-|Office 2016 앱, Office 2013, OneDrive 동기화 클라이언트([참고](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Office 2016 앱, Universal Office 앱, Office 2013, OneDrive 동기화 클라이언트([참고](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.|Office 365 SharePoint Online|윈도우 10|
-|macOS용 Office 2016(Word, Excel, PowerPoint, OneNote만 해당) 향후 제공될 예정인 비즈니스용 OneDrive 지원|Office 365 SharePoint Online|Mac OS X|
-|Office 모바일 앱|Office 365 SharePoint Online|Android, iOS|
-|Office Yammer 앱|Office 365 Yammer|Windows 10, iOS, Android|
-|Outlook 2016(macOS용 Office)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013, 비즈니스용 Skype|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Outlook 모바일 앱|Office 365 Exchange Online|Android, iOS|
-|PowerBI 앱|PowerBI 서비스|Windows 10, Windows 8.1, Windows 7, Android 및 iOS|
-|비즈니스용 Skype|Office 365 Exchange Online|Android, iOS |
-|Azure DevOps 앱|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
+| 클라이언트 앱| 대상 서비스| 플랫폼 |
+| --- | --- | --- |
+| Azure 원격 앱| Azure 원격 앱 서비스| Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS|
+| Dynamics CRM 앱| Dynamics CRM| Windows 10, Windows 8.1, iOS 및 Android|
+| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online| 윈도우 10|
+| 앱에 대한 MFA 및 위치 정책입니다. 디바이스 기반 정책은 지원되지 않습니다.| 모든 My Apps 앱 서비스| Android 및 iOS|
+| Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.| Microsoft 팀| Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS|
+| Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)| Office 365 SharePoint Online| Windows 8.1, Windows 7|
+| Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.| Office 365 SharePoint Online| 윈도우 10|
+| Office 2016(Word, Excel, PowerPoint, OneNote만 해당) 향후 제공될 예정인 비즈니스용 OneDrive 지원| Office 365 SharePoint Online| macOS|
+| Office 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Office 모바일 앱| Office 365 SharePoint Online| Android, iOS|
+| Office Yammer 앱| Office 365 Yammer| Windows 10, iOS, Android|
+| Outlook 2019| Office 365 SharePoint Online| Windows 10, macOS|
+| Outlook 2016(macOS용 Office)| Office 365 Exchange Online| macOS|
+| Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용)| Office 365 Exchange Online| Windows 8.1, Windows 7|
+| Outlook 모바일 앱| Office 365 Exchange Online| Android, iOS|
+| PowerBI 앱| PowerBI 서비스| Windows 10, Windows 8.1, Windows 7, Android 및 iOS|
+| 비즈니스용 Skype| Office 365 Exchange Online| Android, iOS|
+| Visual Studio Team Services 앱| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS 및 Android|
+
 
 
 ## <a name="support-for-legacy-authentication"></a>레거시 인증 지원
@@ -212,27 +218,33 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 이 설정은 다음 클라이언트 앱에 적용됩니다.
 
 
-- Microsoft Intune Managed Browser
-- Microsoft PowerBI
-- Microsoft Invoicing
-- Microsoft Launcher
+
 - Microsoft Azure Information Protection
+- Microsoft Edge
 - Microsoft Excel
+- Microsoft Flow
+- Microsoft Intune Managed Browser
+- Microsoft Invoicing
 - Microsoft Kaizala 
+- Microsoft Launcher
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft PowerApps
+- Microsoft PowerBI
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - 비즈니스용 Microsoft Skype
 - Microsoft StaffHub
+- Microsoft Stream
 - Microsoft 팀
+- Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
-- Microsoft To-Do
-- Microsoft Stream
-- Microsoft Edge
+- Microsoft Yammer
+
+
 
 
 
@@ -242,7 +254,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 - **승인된 클라이언트 앱 필요** 요구 사항:
 
-    - [디바이스 플랫폼 조건](#device-platforms-condition)에서는 iOS 및 Android만 지원됩니다.
+    - [디바이스 플랫폼 조건](#device-platform-condition)에서는 iOS 및 Android만 지원됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

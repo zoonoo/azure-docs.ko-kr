@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 998d4f45a2d4956e0e230bcf00636a965c35dd97
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: bdb89a89713c093768de3e40eda2bcbb6a311b2b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755172"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960883"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 
@@ -101,6 +101,7 @@ SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 �
 
 작업을 수행하는 시기, 복구하는 데 걸리는 시간 및 발생하는 데이터 손실의 양은 애플리케이션에서 비즈니스 연속성 기능을 어떤 방법으로 사용할 것인지에 따라 달라집니다. 실제로 애플리케이션 요구 사항에 따라 데이터베이스 백업 및 활성 지역 복제를 함께 사용하도록 선택할 수 있습니다. 이러한 비즈니스 지속성 기능을 사용하는 독립 실행형 데이터베이스 및 탄력적 풀에 대한 애플리케이션 디자인 고려 사항에 대한 논의는 [클라우드 재해 복구를 위한 애플리케이션 디자인](sql-database-designing-cloud-solutions-for-disaster-recovery.md) 및 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
 
+
 다음 섹션에서는 데이터베이스 백업 또는 활성 지역 복제를 사용하는 복구 단계를 대략적으로 설명합니다. 계획 요구 사항, 복구 후 단계 및 가동 중단을 시뮬레이션하여 재해 복구 훈련을 수행하는 방법을 포함하는 자세한 단계는 [중단 상태에서 SQL Database 복구](sql-database-disaster-recovery.md)를 참조하세요.
 
 ### <a name="prepare-for-an-outage"></a>가동 중단에 대비
@@ -132,7 +133,7 @@ SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 �
 복구 메커니즘에서 복구한 후에는 사용자 및 애플리케이션이 다시 실행되기 전에 다음과 같은 추가 작업을 수행해야 합니다.
 
 - 클라이언트 및 클라이언트 애플리케이션을 새 서버 및 복원된 데이터베이스로 리디렉션
-- 사용자가 연결할 수 있는 또는 [데이터베이스 수준 방화벽](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal)을 사용하여 적절한 규칙을 설정할 수 있는 적절한 서버 수준 IP 방화벽 규칙이 적용되고 있는지 확인합니다.
+- 사용자가 연결할 수 있는 또는 [데이터베이스 수준 방화벽](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal)을 사용하여 적절한 규칙을 설정할 수 있는 적절한 서버 수준 IP 방화벽 규칙이 적용되고 있는지 확인합니다.
 - 적절한 로그인 및 master 데이터베이스 수준 사용 권한이 설정되었는지 확인합니다(또는 [포함된 사용자](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)사용).
 - 필요에 따라 감사를 구성합니다.
 - 필요에 따라 경고를 구성합니다.

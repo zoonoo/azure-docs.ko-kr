@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 62711ac094a10a9e4a0350319a316c5a293fd522
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 01294ec8aa65a8405bc99be215008dad66a73d8d
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157331"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960754"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -103,7 +103,7 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 * [ID로 레코드 조회](#lookingup)
 * [형식화되지 않은 쿼리 처리](#untypedqueries)
 * [데이터 삽입](#inserting)
-* [데이터 업데이트](#updating)
+* 데이터 업데이트
 * [데이터 삭제](#deleting)
 * [충돌 해결 및 낙관적 동시성](#optimisticconcurrency)
 * [Windows 사용자 인터페이스에 바인딩](#binding)
@@ -609,7 +609,7 @@ SDK는 레코드를 끌어오기 전에 암시적 `PushAsync()`을(를) 수행�
 
 클라이언트에서 [InvokeApiAsync] 메서드 중 하나를 호출하여 사용자 지정 API를 호출합니다. 예를 들어 다음 코드 줄은 백 엔드에서 **completeAll** API로 POST 요청을 보냅니다.
 
-```
+```javascript
 var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
 ```
 
@@ -902,7 +902,7 @@ private async void InitNotificationsAsync()
 WNS에 푸시하는 경우, [Microsoft Store 패키지 SID를 가져와야](#package-sid) 합니다.  템플릿 등록 방법을 비롯하여 Windows 앱에 대한 자세한 내용은 [앱에 푸시 알림 추가]를 참조하세요.
 
 클라이언트에서 태그 요청은 지원되지 않습니다.  태그 요청은 등록에서 자동으로 삭제됩니다.
-태그로 디바이스를 등록하려는 경우 사용자를 대신해 Notification Hubs API를 사용하여 등록을 수행하는 사용자 지정 API를 만듭니다.  `RegisterNativeAsync()` 메서드 대신에 [사용자 지정 API를 호출합니다.](#customapi)
+태그로 디바이스를 등록하려는 경우 사용자를 대신해 Notification Hubs API를 사용하여 등록을 수행하는 사용자 지정 API를 만듭니다.  `RegisterNativeAsync()` 메서드 대신에 사용자 지정 API를 호출합니다.
 
 ### <a name="package-sid"></a>방법: Microsoft Store 패키지 SID 가져오기
 Microsoft Store 앱에서 푸시 알림 사용에 패키지 SID가 필요합니다.  패키지 SID를 수신하려면 Microsoft Store에 애플리케이션을 등록합니다.

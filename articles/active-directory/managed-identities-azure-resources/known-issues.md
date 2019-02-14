@@ -15,12 +15,13 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
-ms.openlocfilehash: 45bf76696269e1224250b834b67acb2a68c10d7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: dbd8ff1e8574b9465d4acc366bf0b64bbfd11e20
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189462"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179725"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -154,8 +155,8 @@ DNS 조회 오류로 인해 VM 확장의 프로비저닝이 실패할 수 있습
 
 ## <a name="known-issues-with-user-assigned-managed-identities"></a>사용자가 할당한 관리 ID의 알려진 문제
 
-- 이름에 특수 문자(예: 밑줄)가 있는 사용자가 할당한 관리 ID를 만드는 기능은 지원되지 않습니다.
-- 사용자가 할당한 ID 이름은 24자로 제한됩니다. 이름이 24자보다 긴 경우 ID가 리소스(예: Virtual Machine)에 할당되지 않습니다.
+- 사용자가 할당한 ID 이름은 최소 3자, 최대 128자로 제한됩니다. 이름이 128자를 초과하면 ID가 리소스(예: Virtual Machine)에 할당되지 않습니다.
+- 사용자가 할당한 ID 이름은 a-z, A-Z, -, \_, 0-9 문자를 포함할 수 있습니다. 사용자가 할당한 관리 ID는 이름에 있는 이 문자 집합 이외의 문자(예: 별표)를 사용하여 만들 수 없습니다.
 - 관리 ID 가상 머신 확장(2019년 1월에 사용 중단 예정)을 사용하는 경우 사용자 할당 관리 ID는 32개까지 지원됩니다. 관리 ID 가상 머신 확장을 사용하지 않는 경우, 512개까지 지원됩니다.  
 - 사용자가 할당한 관리 ID를 다른 리소스 그룹으로 이동하면 ID가 손상됩니다. 결과적으로, 해당 ID에 대한 토큰을 요청할 수 없습니다. 
 - 다른 디렉터리로 구독을 전송하면 기존에 사용자가 할당한 관리 ID가 모두 손상됩니다. 

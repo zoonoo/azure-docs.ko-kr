@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332645"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822258"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 다른 곳에서 Oracle 온-프레미스로 또는 그 반대로 데이터 복사
 
@@ -92,7 +92,7 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 3. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다. 이전 단계의 예제에서 입력 데이터가 포함된 Oracle 데이터베이스의 테이블을 지정하는 데이터 세트를 만듭니다. Oracle 데이터베이스에서 복사된 데이터가 저장되는 폴더 및 Blob 컨테이너를 지정하는 또 다른 데이터 세트를 만듭니다. Oracle과 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties)을 참조하세요.
 4. 입력과 출력으로 각각의 데이터 세트를 사용하는 복사 작업이 포함된 **파이프라인**을 만듭니다. 이전 예제에서는 **OracleSource**를 원본으로, **BlobSink**를 복사 작업의 싱크로 사용합니다. 마찬가지로, Azure Blob Storage에서 Oracle 데이터베이스로 복사하는 경우 복사 작업에 **BlobSource** 및 **OracleSink**를 사용합니다. Oracle 데이터베이스와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties)을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대한 자세한 내용은 이전 섹션의 데이터 저장소에 대한 링크를 선택하세요.
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다. 다른 곳에서 온-프레미스 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 데 사용하는 Data Factory 엔터티에 대한 JSON 정의가 포함된 샘플은 [JSON 예제](#json-examples-for-copying-data-to-and-from-oracle-database)를 참조하세요.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다. 다른 곳에서 온-프레미스 Oracle 데이터베이스로 또는 그 반대로 데이터를 복사하는 데 사용하는 Data Factory 엔터티에 대한 JSON 정의가 포함된 샘플은 JSON 예제를 참조하세요.
 
 다음 섹션에서는 Data Factory 엔터티를 정의하는 데 사용하는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -601,7 +601,7 @@ Oracle에서 데이터를 이동할 때 Oracle 데이터 형식에서 .NET 형�
 | BLOB |Byte[]<br/>(Microsoft 드라이버를 사용하는 경우 Oracle 10g 이상 버전에서만 지원됩니다.) |
 | CHAR |문자열 |
 | CLOB |문자열 |
-| DATE |Datetime |
+| DATE |DateTime |
 | FLOAT |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | INTEGER |Decimal, 문자열(전체 자릿수의 경우 > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
@@ -614,9 +614,9 @@ Oracle에서 데이터를 이동할 때 Oracle 데이터 형식에서 .NET 형�
 | NVARCHAR2 |문자열 |
 | RAW |Byte[] |
 | ROWID |문자열 |
-| TIMESTAMP |Datetime |
-| TIMESTAMP WITH LOCAL TIME ZONE |Datetime |
-| TIMESTAMP WITH TIME ZONE |Datetime |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
+| TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |문자열 |
 | XML |문자열 |
