@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Autosuggest API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 463ad901edeec3790586f9494a7411b678c4ecf8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0093554c1d4b9b315dcf7b6171d5ed1ff5ab9057
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183614"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875572"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-ruby"></a>Bing Autosuggest API 및 Ruby에 대한 빠른 시작 
 

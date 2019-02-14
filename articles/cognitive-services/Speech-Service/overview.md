@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services의 일부인 Speech Service는 Bing Speech(음성 인식 및 텍스트 음성 변환으로 구성됨), Custom Speech, 음성 번역 등 이전에 별도로 사용할 수 있었던 여러 가지 음성 서비스를 통합합니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: beb1382d2e076052583dd5bbc546259c8aae2f96
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d60e5f881e44f397090a3ba5e467c08f20137d72
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217971"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858835"
 ---
 # <a name="what-is-speech-services"></a>Speech Service란?
 

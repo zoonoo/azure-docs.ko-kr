@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Face API를 사용하여 이미지에서 얼굴을 감지합니다.
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 8c89a43910a5e98286a82de8626870d3aec55b94
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 30d5294defe02ca6c8cfd588648429859bdf19ad
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214214"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55856397"
 ---
 # <a name="example-how-to-detect-faces-in-image"></a>예제: 이미지에서 얼굴을 감지하는 방법
 

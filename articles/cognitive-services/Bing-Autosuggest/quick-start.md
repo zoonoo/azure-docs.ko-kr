@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Bing Autosuggest API 사용을 시작하는 방법을 보여 줍니다.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: c748f58028d747b2d963d6ac28ea2661e41ec68c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a66fa4c016b28b4224c8346386e1229b27ceb4a7
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184515"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875692"
 ---
 # <a name="quickstart-making-your-first-autosuggest-query"></a>빠른 시작: 첫 번째 Autosuggest 쿼리 수행
 
