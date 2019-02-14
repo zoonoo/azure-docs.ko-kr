@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e45cf028740a05fa35bcf933f727053ab82bdcfa
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 04cac492fd044471a646444afc21bc70f92537d2
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195073"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55656854"
 ---
 # <a name="new-offer-menu"></a>새 제품 메뉴
 
@@ -34,6 +34,7 @@ ms.locfileid: "55195073"
 | ![Dynamics 365 for Customer Engagement 메뉴 항목](./media/new-offer-menu5.png) | [Dynamics 365 for Customer Engagement 제품](./../../cloud-partner-portal-orig/cpp-customer-engagement-offer.md) |
 | ![Dynamics 365 for Operations 메뉴 항목](./media/new-offer-menu6.png) | [Dynamics 365 for Operations 제품](./../../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) |
 | ![IoT Edge 모듈 메뉴 항목](./media/new-offer-menu7.png) | [IoT Edge 모듈 제품](./../iot-edge-module/cpp-offer-process-parts.md) |
+| ![Power BI 앱 메뉴 항목](./media/new-offer-pbi.png)   |  [Power BI 앱 제안](../power-bi/cpp-power-bi-offer.md)  |
 | ![ SasS 애플리케이션 메뉴 항목](./media/new-offer-menu8.png) | [SasS 애플리케이션 제품](../saas-app/cpp-saas-offer.md) |
 | ![ 가상 머신 메뉴 항목](./media/new-offer-menu9.png) | [가상 머신 제품](./../virtual-machine/cpp-virtual-machine-offer.md) |
 |  |  |

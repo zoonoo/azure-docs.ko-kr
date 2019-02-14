@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory의 Office 365 그룹 만료 | Microsoft Docs
+title: Office 365 그룹 만료 설정 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory에서 Office 365 그룹에 대한 만료를 설정하는 방법
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 070e86f2d5d37823f1596cf04735b199289f3d75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 12b23b8a062859da111a067b2655425a611b6c20
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166172"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658252"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
 
@@ -53,15 +53,16 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
   
   ![만료 블레이드](./media/groups-lifecycle/expiration-settings.png)
 
-4. **만료** 블레이드에서 다음을 수행할 수 있습니다.
+3. **만료** 블레이드에서 다음을 수행할 수 있습니다.
 
   * 일 단위로 그룹 수명을 설정합니다. 미리 설정된 값 중 하나 또는 사용자 지정 값을 선택할 수 있습니다(31일 이상이어야 함). 
   * 그룹에 소유자가 없는 경우 갱신 및 만료 알림이 전송되어야 하는 전자 메일 주소를 지정합니다. 
   * 만료되는 Office 365 그룹을 선택합니다.  **모든**  Office 365 그룹에 대한 만료를 설정하거나, **선택된** Office 365 그룹만 사용하도록 선택하거나  **없음** 을 선택하여 모든 그룹에 대해 만료를 비활성화하도록 선택할 수 있습니다.
   * 완료되면 **저장**을 선택하여 설정을 저장합니다.
 
+## <a name="email-notifications"></a>전자 메일 알림
 
-이와 같은 전자 메일 알림은 그룹의 만료 30일, 15일 및 1일 전에 Office 365 그룹 소유자에게 전송됩니다.
+이와 같은 전자 메일 알림은 그룹의 만료 30일, 15일 및 1일 전에 Office 365 그룹 소유자에게 전송됩니다. 이메일의 언어는 그룹 소유자의 기본 설정 언어 또는 테넌트 언어에 따라 결정됩니다. 그룹 소유자가 기본 설정 언어를 정의했거나 여러 소유자가 동일한 기본 설정 언어를 사용하는 경우 해당 언어가 사용됩니다. 다른 모든 경우에는 테넌트 언어가 사용됩니다.
 
 ![만료 전자 메일 알림](./media/groups-lifecycle/expiration-notification.png)
 

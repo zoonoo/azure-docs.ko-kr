@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2018
 ms.author: kumud
-ms.openlocfilehash: 7edd6acc090e4a41939811497a21886d91631fdf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229254"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567845"
 ---
 # <a name="how-traffic-manager-works"></a>Traffic Manager 작동 방식
 
@@ -47,7 +47,7 @@ Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL
 ![Traffic Manager DNS 구성][1]
 
 > [!NOTE]
-> Azure Traffic Manager에서 베니티 도메인을 사용할 때는 베니티 도메인 이름을 Traffic Manager 도메인 이름으로 가리키는 CNAME을 사용해야 합니다. DNS 표준은 도메인의 'apex'(또는 루트)에서 CNAME을 만들 수 없습니다. 따라서 'contoso.com'('naked' 도메인이라고도 함)에 대한 CNAME을 만들 수 없습니다. 'contoso.com'의 도메인(예: 'www.contoso.com')에 대해서만 CNAME을 만들 수 있습니다. 이 제한을 해결하려면 간단한 HTTP 리디렉션을 사용하여 대체 이름(예: 'www.contoso.com')으로 'contoso.com'에 대한 요청을 보내는 것이 좋습니다.
+> Azure Traffic Manager에서 베니티 도메인을 사용할 때는 베니티 도메인 이름을 Traffic Manager 도메인 이름으로 가리키는 CNAME을 사용해야 합니다. DNS 표준은 도메인의 'apex'(또는 루트)에서 CNAME을 만들 수 없습니다. 따라서 'contoso.com'('naked' 도메인이라고도 함)에 대한 CNAME을 만들 수 없습니다. 'contoso.com'의 도메인(예: 'www.contoso.com')에 대해서만 CNAME을 만들 수 있습니다. 이 제한을 해결하려면 [Azure DNS](../dns/dns-overview.md)에서 DNS 도메인을 호스팅하고 [별칭 레코드](../dns/tutorial-alias-tm.md)를 사용하여 트래픽 관리자 프로필을 가리키는 것이 좋습니다. 또는 간단한 HTTP 리디렉션을 사용하여 'contoso.com'에 대한 직접 요청을 'www.contoso.com'.과 같은 대체 이름으로 지정할 수 있습니다.
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Traffic Manager를 사용하여 클라이언트를 연결하는 방법
 

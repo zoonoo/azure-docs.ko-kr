@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265212"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766015"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>여러 Azure Monitor Application Insights 리소스 통합 
-이 문서에서는 모든 Application Insights 애플리케이션 로그 데이터가 각기 다른 Azure 구독에 있더라도 한 곳에서 쿼리하고 확인하는 방법을 설명합니다. 사용이 중단된 Application Insights 커넥터 대신 이 방법을 사용할 수 있습니다.  
+이 문서에서는 모든 Application Insights 애플리케이션 로그 데이터가 각기 다른 Azure 구독에 있더라도 한 곳에서 쿼리하고 확인하는 방법을 설명합니다. 사용이 중단된 Application Insights 커넥터 대신 이 방법을 사용할 수 있습니다. 단일 쿼리에 포함할 수 있는 Application Insights 리소스 수는 100개로 제한됩니다.  
 
 ## <a name="recommended-approach-to-query-multiple-application-insights-resources"></a>여러 Application Insights 리소스를 쿼리하는 권장 방식 
 여러 Application Insights 리소스의 목록을 쿼리에 표시하는 방식은 번거로우며 유지 관리하기가 어려울 수 있습니다. 이러한 방식 대신 함수를 사용해 애플리케이션 범위에서 쿼리 논리를 분리할 수 있습니다.  
@@ -51,7 +51,20 @@ app('Contoso-app5').requests
 >
 >이 예제의 선택적 연산자인 parse는 SourceApp 속성에서 애플리케이션 이름을 추출합니다. 
 
-이제 리소스 간 쿼리에서 applicationsScoping 함수를 사용할 준비가 되었습니다. 함수 별칭은 정의된 모든 애플리케이션에서 요청의 합집합을 반환합니다. 그런 다음, 쿼리는 실패한 요청에 대해 필터링하고 애플리케이션별로 추세를 시각화합니다. ![쿼리 간 결과 예제](media/unify-app-resource-data/app-insights-query-results.png)
+이제 리소스 간 쿼리에 applicationsScoping 함수를 사용할 수 있습니다.  
+
+```
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| render timechart
+```
+
+함수 별칭은 정의된 모든 애플리케이션에서 요청의 합집합을 반환합니다. 그런 다음, 쿼리는 실패한 요청에 대해 필터링하고 애플리케이션별로 추세를 시각화합니다.
+
+![쿼리 간 결과 예제](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>여러 Application Insights 리소스 및 작업 영역 데이터 쿼리 
 Connector를 중지하고 Application Insights 데이터 보존 기간(90일)에 따라 잘린 시간 범위에 대해 쿼리를 수행해야 하는 경우 작업 영역과 Application Insights 리소스에서 중간 기간에 대해 [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)를 수행해야 합니다. 위에서 설명한 새 Application Insights 데이터 보존 기간에 따라 애플리케이션 데이터가 누적될 때까지 이 쿼리를 수행합니다. Application Insights의 스키마와 작업 영역의 스키마는 서로 다르기 때문에 이 쿼리는 다소 조작해야 합니다. 스키마 차이점이 강조 표시되어 있는 이 섹션 뒷부분의 표를 참조하세요. 

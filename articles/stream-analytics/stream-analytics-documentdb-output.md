@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f142d7551859396b789ee0594880f077e4a7f9f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4be3de8de4332e8ffb0e88e612a3041829ccd606
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267133"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658575"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB에 Azure Stream Analytics 출력  
 비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 사용하기 위해 Stream Analytics에서 JSON 출력의 대상을 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)로 지정할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다.
@@ -29,7 +29,7 @@ Cosmos DB에 대해 잘 모를 경우 먼저 [Azure Cosmos DB의 학습 경로](
 Stream Analytics의 Azure Cosmos DB 출력을 사용하면 스트림 처리 결과를 Cosmos DB 컬렉션에 JSON 출력으로 쓸 수 있습니다. Stream Analytics에서는 데이터베이스에 컬렉션을 만들지 않습니다. 대신 사용자가 사전에 만들어야 합니다. 이는 사용자가 Cosmos DB 컬렉션에 대한 청구 비용을 사용자가 제어하고, [Cosmos DB API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 컬렉션의 성능, 일관성 및 용량을 직접 조정할 수 있도록 하기 위한 것입니다.
 
 > [!Note]
-> Azure Cosmos DB 방화벽의 허용되는 IP 목록에 0.0.0.0을 추가해야 합니다.
+> Azure Cosmos DB 방화벽에서 허용되는 IP 목록에 0.0.0.0을 추가해야 합니다.
 
 아래에서는 Cosmos DB 컬렉션 옵션 중 일부를 자세히 설명합니다.
 
@@ -49,7 +49,7 @@ Stream Analytics에서는 문서 ID 충돌로 인해 삽입에 실패한 경우�
 중복 ID가 있는 문서를 포함한 <i>모든</i> 문서를 저장하려는 경우 쿼리에서 ID 필드의 이름을 바꾸고(AS 키보드 사용) Cosmos DB에서 ID 필드를 만들거나 ID를 다른 열의 값으로 바꾸도록 합니다(AS 키보드 사용 또는 ‘문서 ID’ 설정 사용).
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Cosmos DB의 데이터 분할
-Azure Cosmos DB는 워크로드에 따라 파티션 크기를 자동으로 조정하므로 Azure Cosmos DB [무제한](../cosmos-db/partition-data.md)은 데이터 분할을 위해 권장되는 방법입니다. 무제한 컨테이너에 쓸 때 Stream Analytics는 이전 쿼리 단계 또는 입력 분할 구성표 수만큼의 병렬 기록기를 사용합니다.
+Azure Cosmos DB는 워크로드에 따라 파티션 크기를 자동으로 조정하므로 데이터 분할에 Azure Cosmos DB [무제한](../cosmos-db/partition-data.md) 컨테이너를 사용하는 것이 좋습니다. 무제한 컨테이너에 쓸 때 Stream Analytics는 이전 쿼리 단계 또는 입력 분할 구성표만큼 많은 병렬 기록기를 사용합니다.
 > [!Note]
 > 이때 Azure Stream Analytics는 최상위 수준에서 파티션 키를 사용하여 무제한 컬렉션만 지원합니다. 예를 들어 `/region`이 지원됩니다. 중첩된 파티션 키(예: `/region/name`)는 지원되지 않습니다. 
 

@@ -1,23 +1,26 @@
 ---
-title: Java Storage SDK v7을 사용하여 Azure Storage에 Blob을 만드는 방법 | Microsoft Docs
+title: Java v7용 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 만드는 방법 | Microsoft Docs
 description: 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Java v7용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 업로드하고, Blob을 다운로드하고, 컨테이너의 Blob을 나열합니다.
 services: storage
 author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: be994c9b3c9ee4f3c6ccd5c01e762c05f740be09
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469647"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753217"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-java-sdk-v7"></a>Java SDK v7을 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Java v7용 클라이언트 라이브러리를 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법
 
-이 방법 가이드에서 Java를 사용하여 Azure Blob 스토리지에서 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다.
+이 방법 가이드에서는 Java v7용 클라이언트 라이브러리를 사용하여 Azure Blob 스토리지의 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다.
+
+> [!TIP]
+> Java용 Azure Storage 클라이언트 라이브러리의 최신 버전은 v10입니다. 되도록이면 클라이언트 라이브러리의 최신 버전을 사용 하는 것이 좋습니다. v10을 사용하여 시작하려면 [빠른 시작: Java Storage SDK V10을 사용하여 Blob 업로드, 다운로드 및 나열](storage-quickstart-blobs-java-v10.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -130,7 +133,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>컨테이너에 Blob 업로드
 
-블록 Blob에 파일을 업로드하려면 대상 컨테이너에 Blob에 대한 참조를 가져옵니다. Blob 참조가 있으면 [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long)를 사용하여 데이터를 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 만들고, Blob이 이미 있는 경우 덮어씁니다.
+블록 Blob에 파일을 업로드하려면 대상 컨테이너에 Blob에 대한 참조를 가져옵니다. Blob 참조가 있으면 [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload)를 사용하여 데이터를 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 만들고, Blob이 이미 있는 경우 덮어씁니다.
 
 샘플 코드는 업로드 및 다운로드에 사용할 로컬 파일을 만들고 해당 파일이 **blob**에 **source** 및 blob의 이름으로 업로드될 수 있게 저장합니다. 다음 예제에서는 **quickstartcontainer**라는 컨테이너에 이 파일을 업로드합니다.
 
@@ -156,7 +159,7 @@ blob.uploadFromFile(sourceFile.getAbsolutePath());
 
 ### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-[CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs#com_microsoft_azure_storage_blob__cloud_blob_container_listBlobs)를 사용하여 컨테이너의 파일 목록을 가져올 수 있습니다. 다음 코드는 blob 목록을 검색하고, 이 과정을 반복하여 발견된 Blob의 URI를 표시합니다. 명령 창에서 URI를 복사한 후 브라우저에 붙여 넣어 파일을 봅니다.
+[CloudBlobContainer.ListBlobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs)를 사용하여 컨테이너의 파일 목록을 가져올 수 있습니다. 다음 코드는 blob 목록을 검색하고, 이 과정을 반복하여 발견된 Blob의 URI를 표시합니다. 명령 창에서 URI를 복사한 후 브라우저에 붙여 넣어 파일을 봅니다.
 
 ```java
 //Listing contents of container
@@ -182,7 +185,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>리소스 정리
 
-업로드한 Blob이 더 이상 필요하지 않은 경우 [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists)를 사용하여 전체 컨테이너를 삭제할 수 있습니다. 이 메서드는 컨테이너의 파일도 삭제합니다.
+업로드한 Blob이 더 이상 필요하지 않은 경우 [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists)를 사용하여 전체 컨테이너를 삭제할 수 있습니다. 이 메서드는 컨테이너의 파일도 삭제합니다.
 
 ```java
 try {
@@ -206,8 +209,6 @@ sourceFile.deleteOnExit();
 이 문서에서는 Java를 사용하여 로컬 디스크와 Azure Blob 스토리지 간에 파일을 전송하는 방법을 알아보았습니다. Java를 사용하는 방법에 대해 자세히 알려면 GitHub 소스 코드 리포지토리를 계속합니다.
 
 > [!div class="nextstepaction"]
-> [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java) 
-> [API 참조](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-> [Java용 샘플 코드](../common/storage-samples-java.md)
-
-* Storage 탐색기 및 Blob에 대한 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.
+> [Java용 Microsoft Azure Storage SDK v10](https://github.com/azure/azure-storage-java) 
+> [Java API 참조](https://docs.microsoft.com/java/azure/)
+> [Java용 코드 샘플](../common/storage-samples-java.md)

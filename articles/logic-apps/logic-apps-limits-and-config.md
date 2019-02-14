@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: d77cdd7781f3a371d6089573a16ba642fb1c774c
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912785"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769871"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -85,13 +85,13 @@ ms.locfileid: "54912785"
 
 | Name | 제한 | 메모 | 
 | ---- | ----- | ----- | 
-| 트리거 동시성 | 동시성을 제한하는 경우 50 | 트리거에 대한 동시성 제어를 설정하면 기본 제한은 25입니다. 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. | 
-| 최대 대기 중인 실행 | 동시성을 제한하는 경우 100 | 트리거에 대한 동시성 제어를 설정하면 기본 제한은 10입니다. 이 제한은 논리 앱에서 최대 동시 인스턴스를 이미 실행 중인 경우 실행되기 까지 기다릴 수 있는 논리 앱 인스턴스의 최대 수를 설명합니다. <p><p>기본 제한을 0에서 100 사이의 값으로 변경하려면 [대기 중인 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. | 
-| Foreach 배열 항목 | 100,000 | 이 제한은 "for each" 루프가 처리할 수 있는 배열 항목의 최대 수를 설명합니다. <p><p>더 큰 배열을 필터링하려면 [쿼리 작업](../connectors/connectors-native-query.md)을 사용하면 됩니다. | 
-| Foreach 동시성 | 동시성을 제한하는 경우 50 | 이 루프에 대한 동시성 제어를 설정하면 기본 제한은 20입니다. 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 "for each" 루프 반복 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 ["for each" 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)을 참조하세요. | 
-| SplitOn 항목 | 100,000 | | 
-| Until 반복 | 5,000 | | 
-|||| 
+| 트리거 동시성 | * 동시성 제어가 꺼지면 무제한 <p><p>* 동시성 제어가 켜지면 25가 기본 제한이며, 제어를 켠 후 실행 취소할 수 없습니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 [트리거 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) 또는 [순차적으로 인스턴스 트리거](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger)를 참조하세요. | 
+| 최대 대기 중인 실행 | 동시성 제어가 켜지면 대기 중인 실행의 최소 수는 10 + 동시 실행의 수입니다(동시성 트리거). 최대 수를 100까지 변경할 수 있습니다. | 이 제한은 논리 앱에서 이미 최대 동시 인스턴스를 실행 중인 경우 실행될 때까지 기다릴 수 있는 최대 논리 앱 인스턴스 수를 나타냅니다. <p><p>기본 제한을 변경하려면 [대기 실행 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)을 참조하세요. | 
+| Foreach 배열 항목 | 100,000 | 이 제한은 "for each" 루프가 처리할 수 있는 배열 항목의 최대 수를 나타냅니다. <p><p>더 큰 배열을 필터링하려면 [쿼리 작업](../connectors/connectors-native-query.md)을 사용하면 됩니다. | 
+| Foreach 동시성 | 동시성 제어가 꺼지면 20이 기본 제한입니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 "for each" 루프 반복 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 ["for each" 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)을 참조하세요. | 
+| SplitOn 항목 | 100,000 | 배열을 반환하는 트리거의 경우 "Foreach" 루프를 사용하는 대신 [배열 항목을 여러 워크플로 인스턴스로 분할 또는 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하여 처리하는 'SplitOn' 속성을 사용하는 식을 지정할 수 있습니다. 이 식은 각 배열 항목에 대한 워크플로 인스턴스를 만들고 실행하는 데 사용되는 배열을 참조합니다. |
+| Until 반복 | 5,000 | |
+||||
 
 <a name="throughput-limits"></a>
 
@@ -195,53 +195,58 @@ ms.locfileid: "54912785"
 
 | 아티팩트 | 제한 | 메모 | 
 |----------|-------|-------| 
-| EDI 거래 업체 | 25 | | 
-| EDI 거래 계약 | 10 | | 
-| 지도 | 25 | | 
-| 스키마 | 25 | 
 | 어셈블리 | 10 | | 
 | 일괄 처리 구성 | 5 | 
 | 인증서 | 25 | | 
+| EDI 거래 계약 | 10 | | 
+| EDI 거래 업체 | 25 | | 
+| 지도 | 25 | | 
+| 스키마 | 25 | 
 |||| 
 
 *기본 계층*
 
 | 아티팩트 | 제한 | 메모 | 
 |----------|-------|-------| 
-| EDI 거래 업체 | 2 | | 
-| EDI 거래 계약 | 1 | | 
-| 지도 | 500 | | 
-| 스키마 | 500 | 
 | 어셈블리 | 25 | | 
 | 일괄 처리 구성 | 1 | | 
 | 인증서 | 2 | | 
+| EDI 거래 계약 | 1 | | 
+| EDI 거래 업체 | 2 | | 
+| 지도 | 500 | | 
+| 스키마 | 500 | 
 |||| 
 
 *표준 계층*
 
 | 아티팩트 | 제한 | 메모 | 
 |----------|-------|-------| 
-| EDI 거래 업체 | 500 | | 
-| EDI 거래 계약 | 500 | | 
-| 지도 | 500 | | 
-| 스키마 | 500 | 
 | 어셈블리 | 50 | | 
 | 일괄 처리 구성 | 5 |  
 | 인증서 | 50 | | 
+| EDI 거래 계약 | 500 | | 
+| EDI 거래 업체 | 500 | | 
+| 지도 | 500 | | 
+| 스키마 | 500 | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
 
 ### <a name="artifact-capacity-limits"></a>아티팩트 용량 제한
 
-| Name | 제한 | 메모 | 
-| ---- | ----- | ----- | 
-| 스키마 | 8MB | 2MB보다 큰 파일을 업로드하려면 [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. | 
-| 맵(XSLT 파일) | 2MB | | 
-| 런타임 엔드포인트: 5분당 읽기 호출 | 60,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
-| 런타임 엔드포인트: 5분당 Invoke 호출 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
-| 런타임 엔드포인트: 5분당 추적 호출 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
-| 런타임 엔드포인트: 동시 차단 호출 | ~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. | 
+| 아티팩트 | 제한 | 메모 | 
+| -------- | ----- | ----- | 
+| 어셈블리 | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure 스토리지 계정 및 Blob 컨테이너](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. | 
+| 맵(XSLT 파일) | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate)를 사용합니다. | 
+| 스키마 | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure 스토리지 계정 및 Blob 컨테이너](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. | 
+||||
+
+| 런타임 엔드포인트 | 제한 | 메모 |
+|------------------|-------|-------|
+| 5분당 읽기 호출 | 60,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
+| 5분당 Invoke 호출 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
+| 5분당 추적 호출 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. | 
+| 동시 차단 호출 | ~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>

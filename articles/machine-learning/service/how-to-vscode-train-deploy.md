@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 409d1bb30dc956bb19e9a37212d93990d1401e7b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6d190e4c5d283b9f803cf7287445d7591b5465db
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240117"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753115"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Visual Studio Code를 사용하여 기계 학습 모델 학습 및 배포
 
@@ -108,9 +108,9 @@ VS Code용 Azure Machine Learning(미리 보기)을 사용하여 코드를 신�
 
 #### <a name="the-conda-dependencies-file"></a>Conda 종속성 파일
 
-기본적으로 새 conda 환경이 만들어지고, 설치 종속성이 관리됩니다. 그러나 `aml_config/conda_dependencies.yml` 파일에 종속성을 지정해야 합니다.
+기본적으로 새 conda 환경이 만들어지고, 설치 종속성이 관리됩니다. 그러나 `aml_config/conda_dependencies.yml` 파일에서 종속성 및 버전을 지정해야 합니다. 
 
-다음은 기본 ‘aml_config/conda_dependencies.yml’의 일부입니다.
+다음은 기본 ‘aml_config/conda_dependencies.yml’의 일부입니다. 예를 들어 아래와 같이 'tensorflow=1.12.0'을 지정할 수 있습니다. 종속성 버전을 지정하지 않으면 최신 버전이 사용됩니다.  
 구성 파일에서 추가 종속성을 추가할 수 있습니다.
 
 ```yaml
@@ -123,7 +123,7 @@ dependencies:
   # Currently Azure Machine Learning service only supports 3.5.2 and later.
 
 - python=3.6.2
-- tensorflow
+- tensorflow=1.12.0
 
 - pip:
     # Required packages for Azure Machine Learning service execution, history, and data preparation.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: c242d8dd64dc58b0c20b6fb15747f201f85cc482
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: f640ea2e8af8c8ae2bc8a6a1224adca17e897b81
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320940"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811327"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인(미리 보기)
 
@@ -105,7 +105,7 @@ Azure RBAC(역할 기반 액세스 제어) 정책은 VM에 로그인할 수 있�
 > [!NOTE]
 > 사용자가 SSH를 통해 VM에 로그인하려면 *가상 머신 관리자 로그인* 또는 *가상 머신 사용자 로그인* 역할 중 하나를 할당해야 합니다. VM에 대해 *소유자* 또는 *기여자* 역할이 할당된 Azure 사용자는 SSH를 통해 VM에 로그인하는 권한을 자동으로 갖지 않습니다.
 
-다음 예제에서는 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용하여 현재 Azure 사용자의 VM에 대한 *가상 머신 관리자 로그인* 역할을 할당합니다. 활성 Azure 계정의 사용자 이름은 [az account show](/cli/azure/account#az-account-show)를 사용하여 가져옵니다. 또한 *범위*는 [az vm show](/cli/azure/vm#az-vm-show)를 사용하여 이전 단계에서 만든 VM으로 설정됩니다. 또한 리소스 그룹이나 구독 수준에서 범위를 할당할 수 있고 정상 RBAC 상속 사용 권한이 적용됩니다. 자세한 내용은 [역할 기반 액세스 제어](../../azure-resource-manager/resource-group-overview.md#access-control)를 참조하세요.
+다음 예제에서는 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용하여 현재 Azure 사용자의 VM에 대한 *가상 머신 관리자 로그인* 역할을 할당합니다. 활성 Azure 계정의 사용자 이름은 [az account show](/cli/azure/account#az-account-show)를 사용하여 가져옵니다. 또한 *범위*는 [az vm show](/cli/azure/vm#az-vm-show)를 사용하여 이전 단계에서 만든 VM으로 설정됩니다. 또한 리소스 그룹이나 구독 수준에서 범위를 할당할 수 있고 정상 RBAC 상속 사용 권한이 적용됩니다. 자세한 내용은 [역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 참조하세요.
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -171,7 +171,7 @@ Azure AD 자격 증명을 사용하여 SSH하려고 할 때 발생하는 몇 가
 
 ### <a name="access-denied-rbac-role-not-assigned"></a>액세스 거부됨: RBAC 역할 할당되지 않음
 
-SSH 프롬프트에서 다음 오류를 표시하는 경우 사용자에게 *가상 머신 관리자 로그인* 또는 *가상 머신 사용자 로그인* 역할을 부여한 VM에서 [RBAC 정책을 구성](#configure-rbac-policy-for-the-virtual-machine)했는지 확인합니다.
+SSH 프롬프트에서 다음 오류를 표시하는 경우 사용자에게 *가상 머신 관리자 로그인* 또는 *가상 머신 사용자 로그인* 역할을 부여한 VM에 대한 RBAC 정책을 구성했는지 확인합니다.
 
 ```bash
 login as: azureuser@contoso.onmicrosoft.com

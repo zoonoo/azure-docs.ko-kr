@@ -4,16 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cbccab219e7b610c9ff51013a2d79764c2243e26
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6939553206fe223d8166368d2963f03b32d2629e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736042"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55889394"
 ---
-<!--author=SharS last changed: 9/17/15-->
-
-
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
 1. Microsoft 계정 자격 증명을 사용하여 [Microsoft Azure Government 포털](https://portal.azure.us/)에 로그인합니다.
 2. Government 포털에서 **+** 를 클릭한 다음 Marketplace에서 **모두 보기**를 클릭합니다. _StorSimple 실제_를 검색합니다. **StorSimple 실제 디바이스 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Government 포털에서 **+** 를 클릭한 다음 **저장소** 아래에서 **StorSimple 물리적 디바이스 시리즈**를 클릭합니다.

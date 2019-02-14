@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 41a5f2eab78d68bdb1f51b423955cfefa5a541b8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538597"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564207"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>덤프 및 복원을 사용하여 PostgreSQL 데이터베이스 마이그레이션
 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html)를 사용하여 PostgreSQL 데이터베이스를 덤프 파일로 추출하고 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html)를 사용하여 pg_dump에 의해 생성된 보관 파일에서 PostgreSQL 데이터베이스를 복원할 수 있습니다.
@@ -69,7 +69,9 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 
 ### <a name="for-the-restore"></a>복원
 - 네트워크 대기 시간을 줄이기 위해 마이그레이션 대상인 Azure Database for PostgreSQL 서버와 같은 지역의 Azure VM으로 백업 파일을 이동한 다음 해당 VM에서 pg_restore를 수행하는 것이 좋습니다. 또한 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-powershell.md)을 사용하도록 설정하여 VM을 만드는 것이 좋습니다.
+
 - create index 문이 이미 기본적으로 포함되어 있겠지만, 덤프 파일을 열어 create index 문이 데이터 삽입 부분 뒤에 있는지 확인합니다. 해당 위치에 문이 없으면 create index 문을 데이터 삽입 부분 뒤로 이동합니다.
+
 - -Fc 및 -j *#* 스위치를 사용하여 복원을 병렬로 수행합니다. *#* 는 대상 서버의 코어 수입니다. *#* 를 대상 서버 코어 수의 2배로 설정한 다음 복원을 수행하여 영향을 확인해 볼 수도 있습니다. 예: 
 
     ```
@@ -77,6 +79,13 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
     ```
 
 - *set synchronous_commit = off;* 명령을 시작 부분에, *set synchronous_commit = on;* 명령을 끝부분에 추가하여 덤프 파일을 편집할 수도 있습니다. 복원 종료 시 앱이 데이터를 변경하기 전에 동기화 커밋을 설정하지 않으면 이후 데이터가 손실될 수도 있습니다.
+
+- 복원하기 전에 대상 Azure Database for PostgreSQL 서버에서 다음을 수행하는 것이 좋습니다.
+    - 마이그레이션 동안에는 이러한 통계가 필요하지 않으므로 쿼리 성능 추적을 해제합니다. 이 작업은 setting pg_stat_statements.track, pg_qs.query_capture_mode 및 pgms_wait_sampling.query_capture_mode를 NONE으로 설정하여 수행할 수 있습니다.
+
+    - 마이그레이션 속도를 높이려면 32개의 메모리 최적화 vCore와 같이 높은 컴퓨팅 및 높은 메모리 SKU를 사용합니다. 복원이 완료되면 원하는 기본 설정 SKU로 쉽게 다시 축소할 수 있습니다. SKU가 높을수록 pg_restore 명령에서 해당 `-j` 매개 변수를 늘리면 더 많은 병렬 처리를 수행할 수 있습니다. 
+
+    - 대상 서버에서 IOPS를 높이면 복원 성능이 향상될 수 있습니다. 서버의 스토리지 크기를 늘려 더 많은 IOPS를 프로비저닝할 수 있습니다. 이 설정은 취소할 수 없지만 나중에 더 높은 IOPS가 실제 워크로드에 도움이 되는지 여부를 고려합니다.
 
 이러한 명령은 프로덕션 환경에서 사용하기 전에 테스트 환경에서 테스트하여 유효성을 검사해야 합니다.
 

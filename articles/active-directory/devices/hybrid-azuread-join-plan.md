@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: be66f24ec6532b93c4554568b0a58d467a09c600
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746424"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234105"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -145,7 +146,7 @@ Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 
 - [관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-managed-domains.md)
 
 
- 필요한 버전의 Azure AD Connect를 설치할 수 없는 경우 [디바이스 등록을 수동으로 구성하는 방법](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual)을 참조하세요. 
+ 필요한 버전의 Azure AD Connect를 설치할 수 없는 경우 [디바이스 등록을 수동으로 구성하는 방법](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual)을 참조하세요. 
 
 
 ## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인에서 온-프레미스 AD UPN 지원

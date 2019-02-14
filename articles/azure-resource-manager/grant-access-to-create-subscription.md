@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 3577edff19788ed9f0925876e3de737eb749b90e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7a2397328f715dbf63246e8d4aaa789b5986b3b4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490926"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112566"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Azure 엔터프라이즈 구독 만들기에 대한 액세스 권한 부여(미리 보기)
 
@@ -63,6 +63,8 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 ```
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md)를 사용하여 다른 사용자 소유자에게 등록 계정에 대한 액세스를 제공합니다.
 

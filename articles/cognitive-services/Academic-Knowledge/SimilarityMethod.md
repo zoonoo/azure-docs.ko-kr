@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Similarity 메서드를 사용하여 두 문자열의 교육적 유사성을 계산합니다.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 0e42d5e05268d4a572376f2bdf25d0ce6f8f4be7
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 44930ad0f941ea174d95658f220db7aa95012133
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490127"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868687"
 ---
 # <a name="similarity-method"></a>유사성 메서드
 

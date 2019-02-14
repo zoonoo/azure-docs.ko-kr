@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 01/30/2019
+ms.openlocfilehash: 18e786ba45e476df2ab223a47f1b77ef6b778d7f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468906"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657776"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure Portal에서 Azure SQL Database에 대한 활성 지역 복제 구성 및 장애 조치(Failover) 시작
 
@@ -32,7 +32,7 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
 * Azure SQL Database: 다른 지역으로 복제하려는 주 데이터베이스입니다.
 
 > [!Note]
-활성 지역 복제는 동일한 구독에 있는 데이터베이스 간에 수행되어야 합니다.
+Azure Portal을 사용하는 경우 기본 데이터베이스와 동일한 구독 내에서만 보조 데이터베이스를 만들 수 있습니다. 보조 데이터베이스가 다른 구독에 있어야 하는 경우 [데이터베이스 만들기 REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) 또는 [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)를 사용하세요.
 
 ## <a name="add-a-secondary-database"></a>보조 데이터베이스 추가
 

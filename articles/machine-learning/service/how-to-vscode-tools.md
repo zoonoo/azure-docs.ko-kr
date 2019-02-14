@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6f49eb0359db6184b5ecd146d7328a64611a9f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e6da35eeb98d4017baae6aa2c8e19fa3f9d5ac1b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245570"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752571"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code용 Azure Machine Learning 시작
 
@@ -23,7 +23,7 @@ ms.locfileid: "55245570"
 
 Visual Studio Code의 Azure Machine Learning 확장을 사용하면 Azure Machine Learning Service를 통해 데이터를 준비하고, 로컬 및 원격 계산 대상에서 기계 학습 모델의 학습과 테스트를 수행하고, 해당 모델을 배포하고, 사용자 지정 메트릭과 실험을 추적할 수 있습니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisites"></a>필수 조건
 
 
 + Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
@@ -60,19 +60,17 @@ Azure Machine Learning을 사용하려면 VS Code를 Python IDE로 전환해야 
 > [!Tip] 
 > [VS Code용 IntelliCode 확장(미리 보기)](https://go.microsoft.com/fwlink/?linkid=2006060)을 확인해 보세요. IntelliCode는 현재 코드 컨텍스트를 기준으로 하여 가장 관련성이 높은 자동 완성을 유추하는 기능과 같은 Python의 IntelliSense용 AI 지원 기능 집합을 제공합니다.
 
-## <a name="install-the-sdk"></a>SDK 설치
+## <a name="azure-ml-sdk-installation"></a>Azure ML SDK 설치
 
 1. Python 3.5 이상이 설치되어 있으며 VS Code에서 인식되는지 확인합니다. 지금 Python을 설치하는 경우 VS Code를 다시 시작한 후에 https://code.visualstudio.com/docs/python/python-tutorial의 지침에 따라 Python 인터프리터를 선택합니다.
-
-1. VS Code에서 **Ctrl+Shift+P**를 눌러 명령 팔레트를 엽니다.
-
-1. 'Azure ML SDK 설치'를 입력하여 SDK의 pip 설치 명령을 찾습니다. Azure Machine Learning 사용을 위한 Visual Studio Code 필수 구성 요소가 포함된 로컬 개인 Python 환경이 생성됩니다.
-
-   ![Python용 Azure Machine Learning SDK 설치](./media/vscode-tools-for-ai/install-sdk.png)
 
 1. 통합 터미널 창에서 사용할 Python 인터프리터를 지정합니다. **Enter** 키를 눌러 기본 Python 인터프리터를 사용할 수도 있습니다.
 
    ![인터프리터 선택](./media/vscode-tools-for-ai/python.png)
+
+1. 창의 오른쪽 아래 모서리에 Azure ML SDK가 자동으로 설치된다는 알림이 표시됩니다.    Azure Machine Learning 사용을 위한 Visual Studio Code 필수 구성 요소가 포함된 로컬 개인 Python 환경이 생성됩니다.
+
+   ![Python용 Azure Machine Learning SDK 설치](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Azure Machine Learning 시작
 

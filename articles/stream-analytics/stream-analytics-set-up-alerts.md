@@ -7,14 +7,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c0d32a201da5befbc8b68148f0b051e283ec289
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412394"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769497"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 대한 경고 설정
 
@@ -46,17 +46,17 @@ Azure Stream Analytics 작업을 모니터링하여 작업이 문제 없이 계�
 
    ![Azure Streaming Analytics 작업에 대한 경고 설정](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. **리소스**, **조건** 및 **작업 그룹**에 각 항목이 있어야 합니다.
+7. **리소스**, **조건** 및 **작업 그룹**에 각 항목이 있어야 합니다. 정의된 조건이 경고 발생 순서대로 충족되어야 합니다. 예를 들어 5분마다 지난 15분의 메트릭 평균 값을 측정할 수 있습니다.
 
    ![Stream Analytics 경고 규칙 만들기](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    **경고 규칙 이름**, **설명** 및 **리소스 그룹**을 **경고 세부 정보**에 추가하고 **경고 규칙 만들기**를 클릭하여 Stream Analytics 작업에 대한 규칙을 만듭니다.
 
    ![Stream Analytics 경고 규칙 만들기](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
-
+   
 ## <a name="scenarios-to-monitor"></a>모니터링할 시나리오
 
-Stream Analytics 작업의 성능 모니터링에 대해 다음 경고를 사용하는 것이 좋습니다. 이러한 메트릭은 마지막 5분 동안 1분마다 평가되어야 합니다. 작업에 성능 문제가 있는 경우 쿼리 병렬 처리를 사용하여 최적의 상태로 만들고 스트리밍 단위 수를 늘릴 수 있습니다.
+Stream Analytics 작업의 성능 모니터링에 대해 다음 경고를 사용하는 것이 좋습니다. 이러한 메트릭은 마지막 5분 동안 1분마다 평가되어야 합니다.
 
 |메트릭|조건|시간 집계|임계값|정정 작업|
 |-|-|-|-|-|

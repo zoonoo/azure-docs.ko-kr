@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: bd1e4da67ef3f2ffce94c62e1dbc151aa4680e54
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 36e765d439d616ec165a2b53d2044586e73cde76
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854572"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809217"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(사용되지 않음) Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 애플리케이션 빌드 및 Kubernetes에 배포
 
@@ -191,7 +191,7 @@ stable/traefik  1.3.0   A Traefik based Kubernetes ingress controller w...
 
 $ helm install stable/traefik --name ingress
 ```
-이제 `ingress` 컨트롤러에 대한 조사식을 설정하여 해당 컨트롤러를 배포할 때 외부 IP 값을 캡처합니다. 이 IP 주소는 다음 섹션에서 [배포 도메인에 매핑되는](#wire-up-deployment-domain) 것입니다.
+이제 `ingress` 컨트롤러에 대한 조사식을 설정하여 해당 컨트롤러를 배포할 때 외부 IP 값을 캡처합니다. 이 IP 주소는 다음 섹션에서 배포 도메인에 매핑됩니다.
 
 ```bash
 $ kubectl get svc -w

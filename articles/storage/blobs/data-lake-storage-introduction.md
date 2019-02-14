@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 미리 보기 소개
-description: Azure Data Lake Storage Gen2 미리 보기에 대한 개요 제공
+title: Azure Data Lake Storage Gen2 소개
+description: Azure Data Lake Storage Gen2에 대한 개요 제공
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 17b6d0ecf56ec07d3a46949b6ae3b63a6c4b94d7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 018171d4b2253c2cf7942f9f10424a9c695438b9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250115"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809439"
 ---
-# <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 미리 보기 소개
+# <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
-Azure Data Lake Storage Gen2 미리 보기는 [Azure Blob 스토리지](storage-blobs-introduction.md)를 기반으로 하는 빅 데이터 분석 전용의 기능 세트입니다. Data Lake Storage Gen2는 기존의 두 가지 스토리지 서비스인 Azure Blob 스토리지와 Azure Data Lake Storage Gen1의 기능을 통합한 결과입니다. 파일 시스템 의미 체계, 디렉터리 및 파일 수준 보안 및 크기 조정과 같은 [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index)의 기능이 [Azure Blob 스토리지](storage-blobs-introduction.md)의 낮은 비용, 계층화된 스토리지, 고가용성/재해 복구 기능과 결합됩니다.
+Azure Data Lake Storage Gen2는 [Azure Blob 스토리지](storage-blobs-introduction.md)를 기반으로 하는 빅 데이터 분석 전용의 기능 세트입니다. Data Lake Storage Gen2는 기존의 두 가지 스토리지 서비스인 Azure Blob 스토리지와 Azure Data Lake Storage Gen1의 기능을 통합한 결과입니다. 파일 시스템 의미 체계, 디렉터리 및 파일 수준 보안 및 크기 조정과 같은 [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index)의 기능이 [Azure Blob 스토리지](storage-blobs-introduction.md)의 낮은 비용, 계층화된 스토리지, 고가용성/재해 복구 기능과 결합됩니다.
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>엔터프라이즈 빅 데이터 분석에 맞게 설계됨
 

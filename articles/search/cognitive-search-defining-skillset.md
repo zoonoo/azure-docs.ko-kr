@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320798"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751976"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>보강 파이프라인에서 기술 집합을 만드는 방법
 
@@ -142,11 +142,11 @@ Content-Type: application/json
 
 ## <a name="add-predefined-skills"></a>미리 정의된 기술 추가
 
-미리 정의된 [명명된 엔터티 인식 기술](cognitive-search-skill-named-entity-recognition.md)인 첫 번째 기술을 살펴봅니다.
+첫 번째 기술인 미리 정의된 [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md)을 살펴보겠습니다.
 
 ```json
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -155,7 +155,8 @@ Content-Type: application/json
           "name": "text",
           "source": "/document/content"
         }
-      ],      "outputs": [
+      ],
+      "outputs": [
         {
           "name": "organizations",
           "targetName": "organizations"
@@ -228,7 +229,7 @@ Content-Type: application/json
     }
 ```
 
-이 정의는 웹 API를 보강 절차의 일부로서 호출하는 사용자 지정 기술입니다. 명명된 엔터티 인식에서 식별한 각 조직의 경우 이 기술은 웹 API가 해당 조직에 대한 설명을 찾도록 호출합니다. 웹 API를 호출할 때 및 받은 정보를 이동하는 방법의 오케스트레이션은 보강 엔진에서 내부적으로 처리합니다. 그러나 이 사용자 지정 API를 호출하는 데 필요한 초기화는 JSON(예: uri, httpHeaders 및 예상 입력)에서 제공되어야 합니다. 보강 파이프라인에 대한 사용자 지정 웹 API를 만드는 지침은 [사용자 지정 인터페이스를 정의하는 방법](cognitive-search-custom-skill-interface.md)을 참조합니다.
+이 정의는 보강 절차의 일부로 웹 API를 호출하는 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)입니다. 명명된 엔터티 인식에서 식별한 각 조직의 경우 이 기술은 웹 API가 해당 조직에 대한 설명을 찾도록 호출합니다. 웹 API를 호출할 때 및 받은 정보를 이동하는 방법의 오케스트레이션은 보강 엔진에서 내부적으로 처리합니다. 그러나 이 사용자 지정 API를 호출하는 데 필요한 초기화는 JSON(예: uri, httpHeaders 및 예상 입력)에서 제공되어야 합니다. 보강 파이프라인에 대한 사용자 지정 웹 API를 만드는 지침은 [사용자 지정 인터페이스를 정의하는 방법](cognitive-search-custom-skill-interface.md)을 참조합니다.
 
 별표를 사용하여 "컨텍스트" 필드가 ```"/document/organizations/*"```로 설정되는 것은 보강 단계가 ```"/document/organizations"```에서 *각 조직에 대해* 호출된다는 의미입니다. 
 

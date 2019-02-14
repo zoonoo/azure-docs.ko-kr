@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 5637d409233abc68983bd7cf1e55f406f15e3b59
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ff3492a0f523e32be8f6ffdabf9d15e4faa70cb4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432991"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812636"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>업데이트 관리에서 Windows 에이전트 확인 결과 이해
 
@@ -39,7 +39,7 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 ![업데이트 에이전트 문제 해결 페이지](../media/update-agent-issues/troubleshoot-page.png)
 
-준비가 되면 페이지에 결과가 표시됩니다. [검사 섹션](#prerequisiste-checks)에서는 각 검사에 포함된 항목을 보여 줍니다.
+준비가 되면 페이지에 결과가 표시됩니다. 검사 섹션에서는 각 검사에 포함된 항목을 보여줍니다.
 
 ![업데이트 에이전트 문제 해결 검사](../media/update-agent-issues/update-agent-checks.png)
 

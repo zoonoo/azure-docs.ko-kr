@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473812"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822139"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 진단 문제 해결
 이 문서에서는 Azure 진단 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure 진단 개요](diagnostics-extension-overview.md)를 참조하세요.
@@ -105,7 +105,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 해결 방법: 진단 구성을 수정하고 진단을 다시 설치합니다.
 
-저장소 계정이 올바르게 구성되었으면 컴퓨터에 원격 액세스하고 DiagnosticsPlugin.exe 및 MonAgentCore.exe가 실행되고 있는지 확인합니다. 이러한 프로세스가 실행되고 있지 않으면 [Azure 진단이 시작되지 않음](#azure-diagnostics-is-not-starting)의 단계 따릅니다.
+저장소 계정이 올바르게 구성되었으면 컴퓨터에 원격 액세스하고 DiagnosticsPlugin.exe 및 MonAgentCore.exe가 실행되고 있는지 확인합니다. 이러한 프로세스가 실행되고 있지 않으면 Azure 진단이 시작되지 않음의 단계 따릅니다.
 
 프로세스가 실행되고 있으면 [데이터가 로컬로 캡처되고 있습니까?](#is-data-getting-captured-locally)로 이동하고 여기서 지침을 따릅니다.
 
@@ -119,7 +119,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 - **성능 카운터**: perfmon을 열고 카운터를 확인합니다.
 
 - **추적 로그**:  VM에 원격 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  https://msdn.microsoft.com/library/sk36c28t.aspx 문서를 참조하여 텍스트 수신기를 설정합니다.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
-생성된 추적 로그가 표시되지 않으면 [누락된 추적 로그에 대한 자세한 정보](#more-about-trace-logs-missing)를 참조하세요.
+생성된 추적 로그가 표시되지 않으면 누락된 추적 로그에 대한 자세한 정보를 참조하세요.
 
 - **ETW 추적**: VM에 원격 액세스하고 PerfView를 설치합니다.  PerfView에서 **파일** > **사용자 명령** > **Listen etwprovder1** > **etwprovider2** 등을 차례로 실행합니다. **Listen** 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다. 명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 **로그** 단추를 선택하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 나타납니다. 몇 초 후 ETW 추적 보기를 시작합니다.
 
@@ -127,13 +127,13 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 #### <a name="is-data-getting-captured-locally"></a>데이터가 로컬로 캡처되고 있습니까?
 다음으로 데이터가 로컬에서 캡처되고 있는지 확인합니다.
-데이터는 [진단 데이터에 대한 로컬 저장소](#log-artifacts-path)의 `*.tsf` 파일에 로컬로 저장됩니다. 다른 종류의 로그는 서로 다른 `.tsf` 파일에 수집됩니다. 이름은 Azure Storage의 테이블 이름과 비슷합니다.
+데이터는 진단 데이터에 대한 로컬 저장소의 `*.tsf` 파일에 로컬로 저장됩니다. 다른 종류의 로그는 서로 다른 `.tsf` 파일에 수집됩니다. 이름은 Azure Storage의 테이블 이름과 비슷합니다.
 
 예를 들어 `Performance Counters`는 `PerformanceCountersTable.tsf`에 수집됩니다. 이벤트 로그가 `WindowsEventLogsTable.tsf`에 수집됩니다. [로컬 로그 추출](#local-log-extraction) 섹션의 지침을 사용하여 로컬 수집 파일을 열고 디스크에 수집되는지 확인합니다.
 
 로컬로 수집된 로그가 표시되지 않고 호스트에서 데이터를 생성하고 있음을 이미 확인한 경우 구성 문제가 있을 가능성이 높습니다. 구성 설정을 주의 깊게 검토합니다.
 
-또한 MonitoringAgent [MaConfig.xml](#log-artifacts-path)에 대해 생성된 구성을 검토합니다. 관련 로그 소스를 설명하는 섹션이 있는지 확인합니다. 그런 다음 진단 구성과 구성 모니터링 에이전트 간의 변환에서 손실이 없는지 확인합니다.
+또한 MonitoringAgent MaConfig.xml에 대해 생성된 구성을 검토합니다. 관련 로그 소스를 설명하는 섹션이 있는지 확인합니다. 그런 다음 진단 구성과 구성 모니터링 에이전트 간의 변환에서 손실이 없는지 확인합니다.
 
 #### <a name="is-data-getting-transferred"></a>데이터가 전송되고 있습니까?
 데이터가 로컬에서 캡처되고 있지만 여전히 저장소 계정에 표시되지 않음을 확인한 경우 다음 단계를 수행합니다.
@@ -142,10 +142,10 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 
 - 제공된 저장소 계정이 올바른지 확인합니다. 구성 요소가 공용 저장소 엔드포인트에 연결하지 못하게 하는 네트워크 제한 사항이 없는지 확인합니다. 이 작업을 수행하는 한 가지 방법은 컴퓨터에 원격 액세스한 다음 동일한 저장소 계정에 직접 작성하는 것입니다.
 
-- 마지막으로, 모니터링 에이전트에서 오류를 보고하고 있는지 확인할 수 있습니다. 모니터링 에이전트는 [진단 데이터에 대한 로컬 저장소](#log-artifacts-path)에 있는 `maeventtable.tsf`에 로그를 기록합니다. 이 파일을 열려면 [로컬 로그 추출](#local-log-extraction) 섹션의 지침을 따릅니다. 그런 다음 저장소에 기록하는 로컬 파일 읽기 실패를 나타내는 `errors`가 있는지 여부를 결정합니다.
+- 마지막으로, 모니터링 에이전트에서 오류를 보고하고 있는지 확인할 수 있습니다. 모니터링 에이전트는 진단 데이터의 로컬 저장소에 있는 `maeventtable.tsf`에 로그를 기록합니다. 이 파일을 열려면 [로컬 로그 추출](#local-log-extraction) 섹션의 지침을 따릅니다. 그런 다음 저장소에 기록하는 로컬 파일 읽기 실패를 나타내는 `errors`가 있는지 여부를 결정합니다.
 
 ### <a name="capturing-and-archiving-logs"></a>로그 캡처 및 보관
-지원 문의를 생각하고 있는 경우, 요청받을 수 있는 첫 번째 작업은 자신의 컴퓨터에서 로그를 수집하는 것입니다. 사용자가 직접 수행하면 시간을 절약할 수 있습니다. [로그 수집 유틸리티 경로](#log-artifacts-path)에서 `CollectGuestLogs.exe` 유틸리티를 실행합니다. 모든 관련 Azure 로그를 포함한 .zip 파일을 동일한 폴더에 생성합니다.
+지원 문의를 생각하고 있는 경우, 요청받을 수 있는 첫 번째 작업은 자신의 컴퓨터에서 로그를 수집하는 것입니다. 사용자가 직접 수행하면 시간을 절약할 수 있습니다. 로그 수집 유틸리티 경로에서 `CollectGuestLogs.exe` 유틸리티를 실행합니다. 모든 관련 Azure 로그를 포함한 .zip 파일을 동일한 폴더에 생성합니다.
 
 ## <a name="diagnostics-data-tables-not-found"></a>진단 데이터 테이블을 찾을 수 없음
 ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드를 사용하여 지정됩니다.
@@ -213,7 +213,7 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>진단 확장 구성을 확인하는 방법
 확장 구성을 확인하는 가장 쉬운 방법은 [Azure Resource Explorer](http://resources.azure.com)로 이동한 다음 Azure 진단 확장(IaaSDiagnostics / PaaDiagnostics)이 있는 가상 머신 또는 클라우드 서비스로 이동하는 것입니다.
 
-또는 원격 데스크톱을 컴퓨터에 연결하고 [로그 아티팩트 경로 섹션](#log-artifacts-path)에서 설명하는 Azure 진단 구성 파일을 살펴보는 것입니다.
+또는 원격 데스크톱을 머신에 연결하고 로그 아티팩트 경로 섹션에서 설명하는 Azure 진단 구성 파일을 살펴보는 것입니다.
 
 두 경우 모두 **Microsoft.Azure.Diagnostics**를 검색한 다음 **xmlCfg** 또는 **WadCfg** 필드를 검색합니다.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 248624cc31fab0138eb8a45b5479cc8d2da6ef53
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467648"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811771"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -39,7 +39,7 @@ Azure Portal에서 시간 경과에 따른 메트릭을 모니터링할 수 있�
 
 ### <a name="access-metrics-with-the-rest-api"></a>REST API를 사용하여 메트릭 액세스
 
-Azure Monitor는 메트릭 정의 및 값을 읽는 [REST API](/rest/api/monitor/)를 제공합니다. 이 섹션에서는 저장 메트릭을 읽는 방법을 보여 줍니다. 리소스 ID는 모든 REST APIS에 사용됩니다. 자세한 내용은 [Storage의 서비스에 대한 리소스 ID 이해](#understanding-resource-id-for-services-in-storage)를 참조하세요.
+Azure Monitor는 메트릭 정의 및 값을 읽는 [REST API](/rest/api/monitor/)를 제공합니다. 이 섹션에서는 저장 메트릭을 읽는 방법을 보여 줍니다. 리소스 ID는 모든 REST APIS에 사용됩니다. 자세한 내용은 Storage의 서비스에 대한 리소스 ID 이해를 참조하세요.
 
 다음 예제는 명령줄에서 [ArmClient](https://github.com/projectkudu/ARMClient)를 사용하여 REST API를 통한 테스트를 단순화하는 방법을 보여 줍니다.
 
@@ -136,7 +136,7 @@ Blob, 테이블, 파일 또는 큐에 대한 메트릭 정의를 나열하려면
 
 ### <a name="access-metrics-with-the-net-sdk"></a>.Net SDK를 사용하여 메트릭에 액세스
 
-Azure Monitor는 메트릭 정의 및 값을 읽는 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)를 제공합니다. [샘플 코드](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)는 다른 매개 변수로 SDK를 사용하는 방법을 보여줍니다. 저장소 메트릭을 사용하려면 `0.18.0-preview` 이상의 버전을 사용해야 합니다. 리소스 ID는 .Net SDK에 사용됩니다. 자세한 내용은 [Storage의 서비스에 대한 리소스 ID 이해](#understanding-resource-id-for-services-in-storage)를 참조하세요.
+Azure Monitor는 메트릭 정의 및 값을 읽는 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)를 제공합니다. [샘플 코드](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)는 다른 매개 변수로 SDK를 사용하는 방법을 보여줍니다. 저장소 메트릭을 사용하려면 `0.18.0-preview` 이상의 버전을 사용해야 합니다. 리소스 ID는 .Net SDK에 사용됩니다. 자세한 내용은 Storage의 서비스에 대한 리소스 ID 이해를 참조하세요.
 
 다음 예제는 Azure Monitor .Net SDK를 사용하여 저장소 메트릭을 읽는 방법을 보여줍니다.
 
@@ -391,7 +391,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 | BlobType | Blob 메트릭용 Blob 형식만. 지원 되는 값은 **BlockBlob** 및 **PageBlob**입니다. 추가 Blob는 BlockBlob에 포함됩니다. |
 | ResponseType | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>ServerOtherError: 설명한 것을 제외한 다른 모든 서버 쪽 오류입니다. </li> <li> ServerBusyError: HTTP 503 상태 코드를 반환한 인증된 요청입니다. </li> <li> ServerTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li> AuthorizationError: 무단 데이터 액세스 또는 인증 실패로 인해 실패한 인증된 요청입니다. </li> <li> NetworkError: 네트워크 오류로 인해 실패한 인증된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li> <li>    ClientThrottlingError: 클라이언트 쪽 제한 오류입니다. </li> <li> ClientTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 저장소 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상된 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다. </li> <li> ClientOtherError: 설명한 것을 제외한 다른 모든 클라이언트 쪽 오류입니다. </li> <li> Success: 성공한 요청입니다.|
 | GeoType | 기본 또는 보조 클러스터에서 전송되는 트랜잭션입니다. 사용 가능한 값은 기본 및 보조를 포함합니다. 이는 보조 테넌트에서 개체를 읽을 때 RA-GRS(Read Access Geo Redundant Storage)에 적용됩니다. |
-| ApiName | 작업 이름입니다. 예:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md)를 참조하세요. |
+| ApiName | 작업 이름입니다. 예:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조하세요. |
 | 인증 | 트랜잭션에 사용되는 인증 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/> <li>AccountKey: 트랜잭션이 스토리지 계정 키를 사용하여 인증됩니다.</li> <li>SAS: 트랜잭션이 공유 액세스 서명을 사용하여 인증됩니다.</li> <li>OAuth: 트랜잭션이 OAuth 액세스 토큰을 사용하여 인증됩니다.</li> <li>Anonymous: 트랜잭션이 익명으로 요청됩니다. 실행 전 요청은 포함되지 않습니다.</li> <li>AnonymousPreflight: 트랜잭션이 실행 전 요청입니다.</li> |
 
 메트릭 지원 차원의 경우 해당 메트릭 값을 보려면 차원 값을 지정해야 합니다. 예를 들어 성공적인 응답에 대한 **트랜잭션** 값을 조사하는 경우 **성공**을 포함한 **ResponseType** 차원을 필터링해야 합니다. 또는 블록 Blob에 대한 **BlobCount** 값을 조사하는 경우 **BlockBlob**을 포함한 **BlobType** 차원을 필터링해야 합니다.
@@ -401,6 +401,10 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 레거시 메트릭은 Azure Monitor 관리되는 메트릭과 동시에 사용할 수 있습니다. 이 지원은 Azure Storage가 레거시 메트릭에 대한 서비스를 종료할 때까지 동일하게 유지됩니다.
 
 ## <a name="faq"></a>FAQ
+
+**새 메트릭에서 클래식 스토리지 계정을 지원하나요?**
+
+아니요, Azure Monitor의 새 메트릭은 Azure Resource Manager 스토리지 계정만 지원합니다. 스토리지 계정에서 메트릭을 사용하려면 Azure Resource Manager 스토리지 계정으로 마이그레이션해야 합니다. [Azure Resource Manager로 마이그레이션](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview)을 참조하세요.
 
 **Azure Storage가 Managed Disks 또는 Unmanaged Disks에 대한 메트릭을 지원하나요?**
 

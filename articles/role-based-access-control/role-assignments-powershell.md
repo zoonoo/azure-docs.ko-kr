@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c9bdbcfe07eeee39733b39c074001f5caaa98ba
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700677"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106174"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>RBAC 및 Azure PowerShell을 사용하여 액세스 관리
 
@@ -221,7 +221,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 역할을 할당하려면 개체(사용자, 그룹 또는 애플리케이션)와 범위 둘 다를 식별해야 합니다.
 
-구독 ID를 모르는 경우 Azure Portal의 **구독** 블레이드에서 확인하거나 [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription)을 사용할 수 있습니다.
+구독 ID를 모르는 경우 Azure Portal의 **구독** 블레이드에서 확인하거나 [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription)을 사용할 수 있습니다.
 
 Azure AD 그룹에 대한 개체 ID를 가져오려면 [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup)을 사용합니다.
 

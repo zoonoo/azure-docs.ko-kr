@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e3e60a7ee435cb23bd6a7f78d409691c94d6c49e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153269"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562439"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 나이 제한 사용
 
@@ -103,7 +103,7 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 1. 나이 제한을 사용하도록 설정된 사용자 흐름을 만듭니다.
 2. 사용자 흐름이 만들어지면 메뉴에서 **속성**을 선택합니다.
 3. **나이 제한** 섹션에서 **사용**을 선택합니다.
-4. 그런 다음, 미성년자로 식별되는 사용자를 관리하려는 방법을 결정합니다. **가입 또는 로그인**에 대해 `Allow minors to access your application` 또는 `Block minors from accessing your application`을 선택합니다. 미성년자 차단을 선택하는 경우 `Send a JSON bcak to the application` 또는 `Show an error message`를 선택합니다. 
+4. 그런 다음, 미성년자로 식별되는 사용자를 관리하려는 방법을 결정합니다. **가입 또는 로그인**에 대해 `Allow minors to access your application` 또는 `Block minors from accessing your application`을 선택합니다. 미성년자 차단을 선택하는 경우 `Send a JSON back to the application` 또는 `Show an error message`를 선택합니다. 
 
 
 

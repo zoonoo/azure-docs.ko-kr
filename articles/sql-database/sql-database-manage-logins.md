@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7cb2e4214e868bdf9f585d6b0f4468a6c8375191
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 81ec99c5de94736d68392cc7cf0bc3e305e0ce7d
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459243"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754018"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 액세스 제어 및 권한 부여
 
@@ -49,13 +49,13 @@ Azure SQL 서버를 만들 때 **서버 관리자 로그인**을 지정해야 �
 - 이러한 계정은 `dbo` 사용자로 사용자 데이터베이스에 들어가고 사용자 데이터베이스에서 모든 권한을 갖습니다. (사용자 데이터베이스의 소유자는 또한 `dbo` 사용자로 데이터베이스에 들어갑니다.) 
 - `master` 데이터베이스에 `dbo` 사용자로 들어가지 마세요. 그리고 master에서는 제한된 사용 권한을 갖습니다. 
 - SQL 데이터베이스에서 사용할 수 없는 표준 SQL Server `sysadmin` 고정 서버 역할의 멤버가 **아닙니다**.  
-- 데이터베이스, 로그인, master의 사용자 및 서버 수준 방화벽 규칙을 만들고 변경하고 삭제할 수 있습니다.
+- 데이터베이스, 로그인, master의 사용자 및 서버 수준 IP 방화벽 규칙을 만들고 변경하고 삭제할 수 있습니다.
 - `dbmanager` 및 `loginmanager` 역할에 멤버를 추가하고 제거할 수 있습니다.
 - `sys.sql_logins` 시스템 테이블을 볼 수 있습니다.
 
 ### <a name="configuring-the-firewall"></a>방화벽 구성
 
-서버 수준 방화벽을 개별 IP 주소 또는 범위로 구성하면 **SQL 서버 관리자** 및 **Azure Active Directory 관리자**는 master 데이터베이스와 모든 사용자 데이터베이스에 연결할 수 있습니다. 초기 서버 수준 방화벽은 [Azure Portal](sql-database-get-started-portal.md)을 통하거나 [PowerShell](sql-database-powershell-samples.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx)를 사용하여 구성할 수 있습니다. 연결이 설정되면 [Transact-SQL](sql-database-configure-firewall-settings.md)을 사용하여 추가 서버 수준 방화벽 규칙도 구성할 수 있습니다.
+서버 수준 방화벽을 개별 IP 주소 또는 범위로 구성하면 **SQL 서버 관리자** 및 **Azure Active Directory 관리자**는 master 데이터베이스와 모든 사용자 데이터베이스에 연결할 수 있습니다. 초기 서버 수준 방화벽은 [Azure Portal](sql-database-single-database-get-started.md)을 통하거나 [PowerShell](sql-database-powershell-samples.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx)를 사용하여 구성할 수 있습니다. 연결이 설정되면 [Transact-SQL](sql-database-configure-firewall-settings.md)을 사용하여 추가적인 서버 수준 IP 방화벽 규칙도 구성할 수 있습니다.
 
 ### <a name="administrator-access-path"></a>관리자 액세스 경로
 
@@ -67,7 +67,7 @@ Azure SQL 서버를 만들 때 **서버 관리자 로그인**을 지정해야 �
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>SQL Server Management Studio를 사용하여 데이터베이스에 연결
 
-서버, 데이터베이스, 서버 수준 방화벽 규칙을 만들고 SQL Server Management Studio를 사용하여 데이터베이스를 쿼리하는 방법에 대한 연습은 [Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-get-started-portal.md)을 참조하세요.
+서버, 데이터베이스, 서버 수준 IP 방화벽 규칙을 만들고 SQL Server Management Studio를 사용하여 데이터베이스를 쿼리하는 방법에 대한 연습은 [Azure Portal 및 SQL Server Management Studio를 사용하여 Azure SQL Database 서버, 데이터베이스 및 방화벽 규칙 시작](sql-database-single-database-get-started.md)을 참조하세요.
 
 > [!IMPORTANT]
 > Microsoft Azure 및 SQL Database에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).

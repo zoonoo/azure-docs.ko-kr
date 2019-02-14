@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9c574d5e5cecaa4618bbd44fae8a2200930ab2e3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 09f0416e5a03527613e7c353961d81de39c4fe0e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019455"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566842"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HBase에서 데이터 복사 
 
@@ -42,7 +42,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | type 속성을 다음으로 설정해야 합니다. **HBase** | 예 |
-| host | HBase 서버의 IP 주소 또는 호스트 이름입니다. 즉, `[clustername].azurehdinsight.net`， `192.168.222.160입니다.  | 예 |
+| host | HBase 서버의 IP 주소 또는 호스트 이름입니다. (즉 `[clustername].azurehdinsight.net`, '192.168.222.160) | 예 |
 | 포트 | HBase 인스턴스가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 9090입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 아니요 |
 | httpPath | HDInsights 클러스터 사용 시 HBase 서버에 해당하는 부분 URL(예: `/hbaserest0`)입니다. | 아니요 |
 | authenticationType | HBase 서버에 연결하는 데 사용할 인증 메커니즘입니다. <br/>허용되는 값은 다음과 같습니다. **익명**, **기본** | 예 |
@@ -71,8 +71,8 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             },
             "enableSsl" : true
         },
@@ -98,8 +98,8 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {
-                 "type": "SecureString",
-                 "value": "<password>"
+                "type": "SecureString",
+                "value": "<password>"
             },
             "enableSsl" : true,
             "trustedCertPath" : "<trustedCertPath>",

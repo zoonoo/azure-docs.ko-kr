@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 34b70b1a6a77a20a034a7822d9c4961c36cdd51c
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888994"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663964"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux용 DSC 확장(Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -40,17 +40,12 @@ DSCForLinux 확장은 Microsoft에서 게시하고 지원합니다. 확장은 OM
 
 ### <a name="operating-system"></a>운영 체제
 
-DSC Linux 확장은 다음 OS를 제외한 모든 [확장 지원 OS](https://azurewiki.cloudapp.netVMAgentExtension/extensionSupportedOSs)를 지원합니다.
+DSC Linux 확장은 다음을 제외한 모든 [Azure 보증 Linux 배포판](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros)을 지원합니다.
 
 | 배포 | 버전 |
 |---|---|
-| CentOS Linux | 6.5 이상 |
-| Ubuntu| 12.04 LTS, 14.04 LTS, 16.04 LTS  |
-| RHEL| 6.5 이상  |
-| openSUSE| 13.1 이상  |
-| SUSE Linux Enterprise Server| 11 SP3 이상  |
-
-  
+| Debian | 모든 버전 |
+| Ubuntu| 18.04 |
  
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -68,7 +63,7 @@ DSCForLinux 확장을 사용하려면 대상 가상 머신이 인터넷에 연�
 * `NodeConfigurationName`: (선택 사항, 문자열) 적용할 노드 구성의 이름
 * `RefreshFrequencyMins`: (선택 사항, 정수) DSC가 끌어오기 서버에서 구성을 가져오려고 시도하는 빈도(분)를 지정합니다. 
        끌어오기 서버의 구성이 대상 노드의 현재 구성과 다르면 보류 중인 저장소에 복사되고 적용됩니다.
-* `ConfigurationMode`: (선택 사항, 문자열) DSC에서 구성을 적용해야 하는 방법을 지정합니다. 유효한 값은 ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect입니다.
+* `ConfigurationMode`: (선택 사항, 문자열) DSC에서 구성을 적용해야 하는 방법을 지정합니다. 유효한 값은 다음과 같습니다. ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect입니다.
 * `ConfigurationModeFrequencyMins`: (선택 사항, 정수) DSC에서 구성이 원하는 상태에 있는지 확인하는 빈도(분)를 지정합니다.
 
 > [!NOTE]

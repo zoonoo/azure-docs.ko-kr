@@ -1,43 +1,40 @@
 ---
-title: Bing Entity Search 엔드포인트
+title: Bing Entity Search API 엔드포인트
 titlesuffix: Azure Cognitive Services
-description: Entity Search API 엔드포인트에 대한 요약 정보입니다.
+description: Bing Entity Search API 엔드포인트에 대해 알아보고 요청을 보냅니다.
 services: cognitive-services
-author: aahill
-manager: cgronlun
+author: mikedodaro
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.author: aahi
-ms.openlocfilehash: 561c64db2b97ed8792acab6cc87de861ecc30fe9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/01/2019
+ms.author: v-gedod
+ms.openlocfilehash: 3c2aa4b22c8e679f73692978d9e1f8009f11a46b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183988"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875232"
 ---
-# <a name="entity-search-endpoints"></a>Entity Search 엔드포인트
-**Entity Search API**는 한 개의 엔드포인트를 포함합니다.
+# <a name="bing-entity-search-api-endpoint"></a>Bing Entity Search API 엔드포인트
 
-## <a name="endpoint"></a>엔드포인트
-엔터티 검색 결과를 요청하려면 다음 엔드포인트로 요청을 보냅니다. 헤더 및 URL 매개 변수를 사용하여 추가 사양을 정의합니다.
 
-엔드포인트 `GET`: 
-``` 
-https://api.cognitive.microsoft.com/bing/v7.0/entities
+Bing Entity Search API는 쿼리를 기반으로 웹의 엔터티를 반환하는 엔드포인트 하나를 포함하고 있습니다. 검색 결과는 JSON으로 반환됩니다.
+
+## <a name="get-entity-results-from-the-endpoint"></a>엔드포인트에서 엔터티 결과 가져오기
+
+**Bing API**를 사용하여 엔터티 결과를 가져오려면 `GET` 요청을 다음 엔드포인트로 전송합니다. [헤더](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers) 및 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters)를 사용하여 검색 요청을 사용자 지정할 수 있습니다. `?q=` 매개 변수를 사용하여 검색 요청을 보낼 수 있습니다.
+
+```cURL
+ GET https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
-
-다음 URL 매개 변수가 필요합니다.
-- mkt. 결과가 나오는 지역/국가입니다. 
-- q. 엔터티 검색 쿼리입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search 빠른 시작](quickstarts/csharp.md)
+> [Bing Entity Search API란?](overview.md)
 
 ## <a name="see-also"></a>참고 항목 
 
-[Bing Entity Search 개요](search-the-web.md )
-[API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+헤더, 매개 변수, 시장 코드, 응답 개체, 오류 등에 대한 자세한 내용은 [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) 참조 문서를 확인하세요.

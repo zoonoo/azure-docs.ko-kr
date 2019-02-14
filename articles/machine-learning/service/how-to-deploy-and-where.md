@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e8b318626947c1d1147e43ca6c183ae724080a59
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: caafd5ac43ca94f8b01298b4e18e48065b7001b9
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251608"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766625"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
@@ -149,7 +149,7 @@ def run(raw_data):
 
 #### <a name="working-with-binary-data"></a>이진 데이터 작업
 
-모델이 __이진 데이터__를 수락하는 경우 `AMLRequest`, `AMLResponse` 및 `rawhttp`를 사용합니다. 이진 데이터를 수락하고 POST 요청에 대해 반전된 바이트를 반환하는 스크립트 예제는 다음과 같습니다. GET 요청의 경우 응답 본문의 전체 URL을 반환합니다.
+모델이 __이진 데이터__를 수락하는 경우 `AMLRequest`, `AMLResponse` 및 `rawhttp`를 사용합니다. 다음은 이진 데이터를 허용하고 POST 요청에 대해 반전된 바이트를 반환하는 예제 스크립트입니다. GET 요청의 경우 응답 본문의 전체 URL을 반환합니다.
 
 ```python
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -244,9 +244,6 @@ Azure Container Instances에 배포하려면 다음 단계를 사용합니다.
 
     **예상 시간**: 약 3분입니다.
 
-    > [!TIP]
-    > 배포하는 동안 오류가 있으면 `service.get_logs()`를 사용하여 서비스 로그를 확인합니다. 로깅된 정보에 오류 원인이 나타날 수 있습니다.
-
 자세한 내용은 [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) 및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) 클래스에 대한 참조 설명서를 참조하세요.
 
 ### <a id="aks"></a> Azure Kubernetes Service에 배포
@@ -333,9 +330,6 @@ print(service.state)
 ```
 
 **예상 시간**: 약 3분입니다.
-
-> [!TIP]
-> 배포하는 동안 오류가 있으면 `service.get_logs()`를 사용하여 서비스 로그를 확인합니다. 로깅된 정보에 오류 원인이 나타날 수 있습니다.
 
 자세한 내용은 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) 클래스에 대한 참조 설명서를 참조하세요.
 
@@ -469,7 +463,7 @@ print(prediction)
 
 ## <a id="update"></a> 웹 서비스 업데이트
 
-웹 서비스를 업데이트하려면 `update` 메서드를 사용합니다. 다음 코드에서는 새 이미지를 사용하도록 웹 서비스를 업데이트하는 방법을 보여줍니다.
+새 이미지를 만들 때 새 이미지를 사용하게 하려는 각 서비스를 수동으로 업데이트해야 합니다. 웹 서비스를 업데이트하려면 `update` 메서드를 사용합니다. 다음 코드에서는 새 이미지를 사용하도록 웹 서비스를 업데이트하는 방법을 보여줍니다.
 
 ```python
 from azureml.core.webservice import Webservice
@@ -487,9 +481,6 @@ service.update(image = new_image)
 print(service.state)
 ```
 
-> [!NOTE]
-> 이미지를 업데이트할 때 웹 서비스를 자동으로 업데이트되지 않습니다. 새 이미지를 사용하려는 각 서비스를 수동으로 업데이트해야 합니다.
-
 자세한 내용은 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 클래스의 참조 설명서를 참조하세요.
 
 ## <a name="clean-up"></a>정리
@@ -502,6 +493,19 @@ print(service.state)
 
 자세한 내용은 [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--) 및 [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)의 참조 설명서를 참조하세요.
 
+## <a name="troubleshooting"></a>문제 해결
+
+* __배포하는 동안 오류가 발생하면__ `service.get_logs()`를 사용하여 서비스 로그를 확인합니다. 로깅된 정보에 오류 원인이 나타날 수 있습니다.
+
+* 로그에 __로깅 수준을 디버그로 설정__하라는 오류가 포함될 수 있습니다 로깅 수준을 설정하려면 채점 스크립트에 다음 줄을 추가하고, 이미지를 만들고, 다음 이미지를 사용하여 서비스를 만듭니다.
+
+    ```python
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    ```
+
+    이렇게 변경하면 추가 로깅이 가능하며, 오류 발생 원인에 대한 더 많은 정보가 반환될 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 * [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
@@ -511,3 +515,5 @@ print(service.state)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
 * [Azure Machine Learning Service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 * [Azure Virtual Networks에서 Azure Machine Learning Service 사용](how-to-enable-virtual-network.md)
+* [추천 시스템 빌드 모범 사례](https://github.com/Microsoft/Recommenders)
+* [Azure에서 실시간 추천 API 빌드](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

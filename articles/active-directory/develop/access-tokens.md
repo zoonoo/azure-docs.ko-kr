@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7dd2b60a985291311328407b07ef290e962f147b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 110397e8399d153356a574b00d34a4cb781ec1b5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080568"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811565"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 액세스 토큰
 
@@ -239,6 +239,8 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 > "비 암호 기반" 로그인은 사용자가 가져오도록 암호를 입력하지 않은 위치입니다. 예를 들어 Windows Hello 얼굴, FIDO 키 또는 PIN을 사용합니다. 
 >
 > Windows 기본 새로 고침 토큰으로 알려진 문제가 있습니다. PRT가 암호를 통해 획득된 다음, 사용자가 Hello를 통해 로그인하는 경우 PRT의 원본을 변경하지 않으며 사용자가 해당 암호를 변경하는 경우 해지됩니다.
+>
+> 새로 고침 토큰은 새 액세스 토큰과 새로 고침 토큰을 가져오는 데 사용하면 무효화되거나 취소되지 않습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

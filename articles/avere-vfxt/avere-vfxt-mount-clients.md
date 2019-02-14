@@ -6,19 +6,19 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 5d55879a5a8487636e2252abd359accf07e60ce6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669480"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809166"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 탑재  
 
 클라이언트 머신을 vFXT 클러스터에 연결하려면 다음 단계를 수행합니다.
 
 1. 클러스터 노드 간에 클라이언트 트래픽의 부하를 분산하는 방법을 결정합니다. 자세한 내용은 아래의 [클라이언트 부하 분산](#balance-client-load)을 참조하세요. 
-1. 탑재할 [IP 주소와 접합 경로](#identify-ip-addresses-and-paths-to-mount)를 식별합니다.
+1. 탑재할 IP 주소와 접합 경로를 식별합니다.
 1. 적절한 인수가 포함된 [mount 명령](#mount-command-arguments)을 실행합니다.
 
 ## <a name="balance-client-load"></a>클라이언트 부하 분산
@@ -28,7 +28,7 @@ ms.locfileid: "50669480"
 > [!TIP] 
 > 다른 부하 분산 방법은 크거나 복잡한 시스템에 적합할 수 있습니다. [지원 티켓을 열어](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) 도움을 받습니다.
 > 
-> 자동 서버 쪽 부하 분산에 DNS 서버를 사용하려면 Azure 내에서 사용자 고유의 DNS 서버를 설정하고 관리해야 합니다. 이 경우 [Avere 클러스터 DNS 구성](avere-vfxt-configure-dns.md) 문서에 따라 vFXT 클러스터에 대한 라운드 로빈 DNS를 구성할 수 있습니다.
+> 자동 서버 쪽 부하 분산에 DNS 서버를 사용하려면 Azure 내에서 사용자 고유의 DNS 서버를 설정하고 관리해야 합니다. 이 경우 이 문서에 따라 vFXT 클러스터에 대한 라운드 로빈 DNS를 구성할 수 있습니다. [Avere 클러스터 DNS 구성](avere-vfxt-configure-dns.md)
 
 ### <a name="sample-balanced-client-mounting-script"></a>부하 분산된 클라이언트 탑재 샘플 스크립트
 
@@ -68,7 +68,7 @@ function mount_round_robin() {
 
 mount 명령에는 다음 세 가지 요소가 있습니다. 
 
-* vFXT 경로 - ([아래](#junction-and-ip-address)에서 설명하는 IP 주소와 네임스페이스 접합 경로의 조합)
+* vFXT 경로 - (아래에서 설명하는 IP 주소와 네임스페이스 접합 경로의 조합)
 * 로컬 경로 - 클라이언트의 경로 
 * mount 명령 옵션 - ([mount 명령 인수](#mount-command-arguments)에 나열되어 있음)
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3468f9341e0a8406733877a05798e427dd454fff
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 93ce86a438fca47100a34da2524515b46bcad574
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167566"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567165"
 ---
 # <a name="object-detection"></a>개체 감지
 
@@ -87,6 +87,15 @@ Detect API는 개체를 기반으로 한 태그 또는 이미지에서 식별되
 }
 ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="limitations"></a>제한 사항
 
-[이미지 분류](concept-categorizing-images.md) 및 [이미지 설명](concept-describing-images.md)에 대한 개념을 알아봅니다.
+거짓 부정(누락된 개체) 및 제한된 세부 정보의 영향을 방지하거나 완화할 수 있도록 개체 검색 기능의 제한 사항에 유의해야 합니다.
+* 일반적으로 개체는 매우 작으면 검색되지 않습니다(이미지의 5% 미만).
+* 일반적으로 개체는 매우 긴밀하게 배열되어 있으면 검색되지 않습니다(예: 접시 더미).
+* 개체는 브랜드 또는 제품 이름으로 구분되지 않습니다(예: 상점 선반에 있는 다양한 유형의 탄산 음료). 그러나 [브랜드 검색](concept-brand-detection.md) 기능을 사용하여 이미지에서 브랜드 정보를 가져올 수 있습니다.
+
+## <a name="use-the-api"></a>API 사용
+개체 검색 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. 전체 JSON 응답을 받으면 `"objects"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
+
+* [빠른 시작: 이미지 분석(.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [빠른 시작: 이미지 분석(REST API)](./quickstarts/csharp-analyze.md)

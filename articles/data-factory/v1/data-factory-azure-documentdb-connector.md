@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: af528f210f4464c973d88fab7eeb1572effc87bc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 54e78496b98fffefd2932a2ce7625f8b325fb32a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330401"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812653"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB 간 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -301,11 +301,11 @@ SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as Mi
 ## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>예제: Azure Blob에서 Azure Cosmos DB로 데이터 복사
 아래 샘플은 다음을 보여줍니다.
 
-1. [DocumentDb](#azure-documentdb-linked-service-properties)형식의 연결된 서비스입니다.
+1. DocumentDb 형식의 연결된 서비스.
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 3. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)입니다.
-4. [DocumentDbCollection](#azure-documentdb-dataset-type-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)입니다.
-5. [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) 및 [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+4. DocumentDbCollection 형식의 출력 [데이터 세트](data-factory-create-datasets.md).
+5. [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) 및 DocumentDbCollectionSink를 사용하는 복사 작업이 있는 [파이프라인](data-factory-create-pipelines.md).
 
 이 샘플은 Azure Blob에서 Azure Cosmos DB로 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 

@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: a7d34b76eb6184e546c8217aa6b3723819be70be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 02/05/2019
+ms.openlocfilehash: c3057934d960efd0a846ef31c5fac5abd63a21f6
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189533"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768476"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 보호
 
@@ -120,7 +120,7 @@ Azure Portal에서 이 제한을 설정하려면 다음과 같이 논리 앱의 
 
 #### <a name="set-ip-ranges---logic-app-deployment-template"></a>IP 범위 설정 - 논리 앱 배포 템플릿
 
-[Azure Resource Manager 배포 템플릿](logic-apps-create-deploy-template.md)을 사용하여 논리 앱 배포를 자동화하는 경우 다음과 같이 해당 템플릿에서 IP 범위를 설정할 수 있습니다.
+[Azure Resource Manager 배포 템플릿](../logic-apps/logic-apps-create-deploy-template.md)을 사용하여 논리 앱 배포를 자동화하는 경우 다음과 같이 해당 템플릿에서 IP 범위를 설정할 수 있습니다.
 
 ``` json
 {
@@ -131,7 +131,7 @@ Azure Portal에서 이 제한을 설정하려면 다음과 같이 논리 앱의 
          "triggers": {
             "allowedCallerIpAddresses": [
                {
-               "addressRange": "192.168.12.0/23"
+                  "addressRange": "192.168.12.0/23"
                },
                {
                   "addressRange": "2001:0db8::/64"
@@ -175,14 +175,15 @@ Azure Portal에서 이 제한을 설정하려면 다음과 같이 논리 앱의 
 
 1. 논리 앱의 메뉴에 있는 **설정** 아래에서 **워크플로 설정**을 선택합니다.
 
-1. **액세서 제어 구성** > 
-**허용된 인바운드 IP 주소**에서 **특정 IP 범위**를 선택합니다.
+1. **액세스 제어 구성** > 
+   **허용된 인바운드 IP 주소**에서 **특정 IP 범위**를 선택합니다.
 
-1. **콘텐츠의 IP 범위**에서 입력 및 출력의 콘텐츠에 액세스할 수 있는 IP 주소 범위를 지정합니다. 올바른 IP 범위는 *x.x.x.x/x* 또는 *x.x.x.x-x.x.x.x* 형식을 사용합니다. 
+1. **콘텐츠의 IP 범위**에서 입력 및 출력의 콘텐츠에 액세스할 수 있는 IP 주소 범위를 지정합니다. 
+   올바른 IP 범위는 *x.x.x.x/x* 또는 *x.x.x.x-x.x.x.x* 형식을 사용합니다. 
 
 ### <a name="set-ip-ranges---logic-app-deployment-template"></a>IP 범위 설정 - 논리 앱 배포 템플릿
 
-[Azure Resource Manager 배포 템플릿](logic-apps-create-deploy-template.md)을 사용하여 논리 앱 배포를 자동화하는 경우 다음과 같이 해당 템플릿에서 IP 범위를 설정할 수 있습니다.
+[Azure Resource Manager 배포 템플릿](../logic-apps/logic-apps-create-deploy-template.md)을 사용하여 논리 앱 배포를 자동화하는 경우 다음과 같이 해당 템플릿에서 IP 범위를 설정할 수 있습니다.
 
 ``` json
 {
@@ -193,7 +194,7 @@ Azure Portal에서 이 제한을 설정하려면 다음과 같이 논리 앱의 
          "contents": {
             "allowedCallerIpAddresses": [
                {
-               "addressRange": "192.168.12.0/23"
+                  "addressRange": "192.168.12.0/23"
                },
                {
                   "addressRange": "2001:0db8::/64"
@@ -210,44 +211,99 @@ Azure Portal에서 이 제한을 설정하려면 다음과 같이 논리 앱의 
 
 ## <a name="secure-action-parameters-and-inputs"></a>작업 매개 변수 및 입력 보안 유지
 
-다양한 환경에서 배포를 수행하는 경우 논리 앱 워크플로 정의의 특정 측면을 매개 변수화할 수 있습니다. 예를 들어, [Azure Resource Manager 배포 템플릿](../azure-resource-manager/resource-group-authoring-templates.md#parameters)에서 매개 변수를 지정할 수 있습니다. 런타임 동안 리소스의 매개 변수 값에 액세스하려면 [워크플로 정의 언어](https://aka.ms/logicappsdocs)가 제공하는 `@parameters('parameterName')` 식을 사용할 수 있습니다. 
+다양한 환경에서 배포를 수행할 때 논리 앱 워크플로 정의의 특정 요소를 매개 변수화할 수 있습니다. 이러한 방식을 통해 사용하는 환경을 기반으로 입력을 제공하고 중요한 정보를 보호할 수 있습니다. 예를 들어 [Azure Active Directory](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)를 사용하여 HTTP 작업을 인증하는 경우 인증에 사용되는 클라이언트 ID 및 클라이언트 비밀을 허용하는 매개 변수를 정의하고 보호합니다. 이러한 매개 변수의 경우 논리 앱 정의에 고유의 `parameters` 섹션이 있습니다.
+런타임 동안 매개 변수 값에 액세스하려면 [워크플로 정의 언어](https://aka.ms/logicappsdocs)에 제공되는 `@parameters('parameterName')` 식을 사용하면 됩니다. 
 
-`securestring` 매개 변수 형식을 사용할 때 논리 앱 워크플로를 편집하는 동안 표시하지 않으려는 특정 매개 변수를 보호할 수도 있습니다. 예를 들어, [Azure Active Directory](../connectors/connectors-native-http.md#authentication)에서 HTTP 작업을 인증하는 데 사용하는 클라이언트 ID 및 클라이언트 비밀과 같은 매개 변수를 보호할 수 있습니다.
-매개 변수 형식을 `securestring`로 지정하면 해당 매개 변수는 리소스 정의와 함께 반환되지 않고, 배포 후에 리소스를 확인하여 액세스할 수 없게 됩니다. 
+논리 앱을 편집하거나 실행 기록을 볼 때 숨기고 싶은 매개 변수 및 값을 보호하려면 `securestring` 형식의 매개 변수를 정의하고 필요에 따라 인코딩을 사용하면 됩니다. 이 형식의 매개 변수는 리소스 정의와 함께 반환되지 않으며, 배포 후 리소스를 볼 때 액세스할 수 없습니다.
 
 > [!NOTE]
-> 요청의 헤더 또는 본문에서 매개 변수를 사용하면 논리 앱의 실행 기록과 나가는 HTTP 요청에 액세스하는 동안 해당 매개 변수를 볼 수 있습니다. 그에 따라 콘텐츠 액세스 정책을 설정해야 합니다.
-> 권한 부여 헤더는 입력 또는 출력을 통해 볼 수 없습니다. 따라서 비밀이 사용될 경우 비밀을 검색할 수 없습니다.
+> 요청의 헤더 또는 본문에서 매개 변수를 사용하면 논리 앱의 실행 기록과 나가는 HTTP 요청에 액세스하는 동안 해당 매개 변수를 볼 수 있습니다. 그에 따라 콘텐츠 액세스 정책도 설정해야 합니다.
+> 권한 부여 헤더는 입력 또는 출력을 통해 볼 수 없습니다. 따라서 권한 부여 헤더에 비밀이 사용되면 해당 비밀을 검색할 수 없습니다.
 
-이 예제에서는 `securestring` 형식을 갖는 둘 이상의 런타임 매개 변수를 사용하는 Azure Resource Manager 배포 템플릿을 보여 줍니다. 
+논리 앱 정의의 매개 변수를 보호하는 방법에 대한 자세한 내용은 이 페이지 뒷부분의 [논리 앱 정의의 매개 변수 보호](#secure-parameters-workflow)를 참조하세요.
+
+[Azure Resource Manager 배포 템플릿](../azure-resource-manager/resource-group-authoring-templates.md#parameters)을 사용하여 배포를 자동화하는 경우 보호되는 매개 변수를 템플릿에 사용할 수 있습니다. 예를 들어 논리 앱을 만들 때 매개 변수를 사용하여 KeyVault 비밀을 가져올 수 있습니다. 배포 템플릿 정의에는 논리 앱의 `parameters` 섹션과 별개인 고유의 `parameters` 섹션이 있습니다. 배포 템플릿의 매개 변수를 보호하는 방법에 대한 자세한 내용은 이 페이지 뒷부분의 [배포 템플릿의 매개 변수 보호](#secure-parameters-deployment-template)를 참조하세요.
+
+<a name="secure-parameters-workflow"></a>
+
+### <a name="secure-parameters-in-logic-app-definitions"></a>논리 앱 정의의 매개 변수 보호
+
+논리 앱 워크플로 정의의 중요한 정보를 보호하려면 논리 앱을 저장한 후 정보가 보이지 않도록 보호되는 매개 변수를 사용합니다. 예를 들어 HTTP 작업 정의에 `Basic` 인증을 사용한다고 가정해 봅니다. 이 예제에는 작업 정의에 대한 매개 변수를 정의하는 `parameters` 섹션과 `username` 및 `password` 매개 변수 값을 수락하는 `authentication` 섹션이 포함되어 있습니다. 이러한 매개 변수의 값을 제공하려면 다음과 같은 별도의 매개 변수 파일을 사용하면 됩니다.
+
+```json
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+         "type": "Http",
+         "inputs": {
+            "method": "GET",
+            "uri": "http://www.microsoft.com",
+            "authentication": {
+               "type": "Basic",
+               "username": "@parameters('usernameParam')",
+               "password": "@parameters('passwordParam')"
+            }
+         },
+         "runAfter": {}
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "manual": {
+         "type": "Request",
+         "kind": "Http",
+         "inputs": {
+            "schema": {}
+         }
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+}
+```
+
+비밀을 사용하는 경우 배포 시 [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md)를 사용하여 비밀을 가져올 수 있습니다.
+
+<a name="secure-parameters-deployment-template"></a>
+
+### <a name="secure-parameters-in-azure-resource-manager-deployment-templates"></a>Azure Resource Manager 배포 템플릿의 매개 변수 보호
+
+이 예제에서는 `securestring` 형식의 런타임 매개 변수를 여러 개 사용하는 Resource Manager 배포 템플릿을 보여줍니다.
 
 * `armTemplatePasswordParam`: 논리 앱 정의의 `logicAppWfParam` 매개 변수에 대한 입력
 
 * `logicAppWfParam`: 기본 인증을 사용하는 HTTP 작업에 대한 입력
 
-별도 매개 변수 파일에서 `armTemplatePasswordParam` 매개 변수의 환경 값을 지정하거나, [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md)를 사용하여 배포 타임에 비밀을 검색할 수 있습니다.
-내부 `parameters` 섹션은 논리 앱 워크플로 정의에 속하지만, 외부 `parameters` 섹션은 배포 템플릿에 속합니다.
+이 예제에는 논리 앱의 워크플로 정의에 속하는 내부 `parameters` 섹션과 배포 템플릿에 속하는 외부 `parameters` 섹션이 포함되어 있습니다. 이러한 매개 변수의 환경 변수를 지정하려면 별도의 매개 변수 파일을 사용하면 됩니다. 
 
 ```json
 {
    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
    "contentVersion": "1.0.0.0",
    "parameters": {
-      "logicAppName": {       
+      "logicAppName": {
          "type": "string",
          "minLength": 1,
          "maxLength": 80,
-         "metadata": {         
-            "description": "Name of the Logic App."       
-         }     
+         "metadata": {
+            "description": "Name of the Logic App."
+         }
       },
       "armTemplatePasswordParam": {
-         "type": "securestring"     
-      },     
-      "logicAppLocation": {       
+         "type": "securestring"
+      },
+      "logicAppLocation": {
          "type": "string",
          "defaultValue": "[resourceGroup().location]",
-         "allowedValues": [         
+         "allowedValues": [
             "[resourceGroup().location]",
             "eastasia",
             "southeastasia",
@@ -281,7 +337,7 @@ Azure Portal에서 이 제한을 설정하려면 다음과 같이 논리 앱의 
    },
    "variables": {},
    "resources": [
-      {       
+      {
          "name": "[parameters('logicAppName')]",
          "type": "Microsoft.Logic/workflows",
          "location": "[parameters('logicAppLocation')]",
@@ -300,15 +356,18 @@ Azure Portal에서 이 제한을 설정하려면 다음과 같이 논리 앱의 
                         "uri": "http://www.microsoft.com",
                         "authentication": {
                            "type": "Basic",
-                           "username": "username",
-                              "password": "@parameters('logicAppWfParam')"
+                           "username": "@parameters('usernameParam')",
+                           "password": "@parameters('logicAppWfParam')"
                         }
                      },
                   "runAfter": {}
                   }
                },
-               "parameters": { 
+               "parameters": {
                   "logicAppWfParam": {
+                     "type": "securestring"
+                  },
+                  "userNameParam": {
                      "type": "securestring"
                   }
                },
@@ -332,9 +391,11 @@ Azure Portal에서 이 제한을 설정하려면 다음과 같이 논리 앱의 
          }
       }
    ],
-   "outputs": {} 
-}   
+   "outputs": {}
+}
 ```
+
+비밀을 사용하는 경우 배포 시 [Azure Resource Manager KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md)를 사용하여 비밀을 가져올 수 있습니다.
 
 <a name="secure-requests"></a>
 
@@ -344,7 +405,7 @@ Azure Portal에서 이 제한을 설정하려면 다음과 같이 논리 앱의 
 
 ### <a name="add-authentication-on-outbound-requests"></a>아웃바운드 요청에 대한 인증 추가
 
-HTTP, HTTP + Swagger(개방형 API) 또는 웹후크 동작으로 작업할 경우 논리 앱이 보낸 요청에 인증을 추가할 수 있습니다. 예를 들어 기본 인증, 인증서 인증 또는 Azure Active Directory 인증을 사용할 수 있습니다. 자세한 내용은 [트리거 또는 작업 인증](logic-apps-workflow-actions-triggers.md#connector-authentication) 및 [HTTP 작업에 대한 인증](../connectors/connectors-native-http.md#authentication)을 참조하세요.
+HTTP, HTTP + Swagger(개방형 API) 또는 웹후크 동작으로 작업할 경우 논리 앱이 보낸 요청에 인증을 추가할 수 있습니다. 예를 들어 기본 인증, 인증서 인증 또는 Azure Active Directory 인증을 사용할 수 있습니다. 자세한 내용은 [트리거 또는 작업 인증](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)을 참조하세요.
 
 ### <a name="restrict-access-to-logic-app-ip-addresses"></a>논리 앱 IP 주소에 대한 액세스 제한
 

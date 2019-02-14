@@ -4,17 +4,17 @@ description: 청사진이 거치는 수명 주기 및 각 단계의 세부 정�
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309809"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563714"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Azure Blueprint의 수명 주기 이해
 
@@ -33,8 +33,7 @@ Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이�
 
 ## <a name="creating-and-editing-a-blueprint"></a>청사진 만들기 및 편집
 
-청사진을 만들 때 아티팩트를 추가하고, 관리 그룹에 저장하고, 고유 이름과 고유 버전을 제공합니다. 청사진은 이제 **초안** 모드에 있으며 아직 할당될 수 없습니다.
-**초안** 모드에 있는 동안 계속해서 업데이트 및 변경될 수 있습니다.
+청사진을 만들 때 아티팩트를 추가하고, 관리 그룹 또는 구독에 저장하고, 고유 이름과 고유 버전을 제공합니다. 청사진은 이제 **초안** 모드에 있으며 아직 할당될 수 없습니다. **초안** 모드에 있는 동안 계속해서 업데이트 및 변경될 수 있습니다.
 
 절대 게시되지 않는 **초안** 모드의 청사진은 **게시된** 것과 다른 아이콘을 **청사진 정의** 페이지에 표시합니다. **최신 버전**도 이러한 게시되지 않은 청사진에 대해 **초안**으로 표시됩니다.
 

@@ -1,7 +1,7 @@
 ---
-title: 학습을 위해 데이터 저장소의 데이터 액세스
+title: 학습을 위해 데이터 저장소/Blob의 데이터에 액세스
 titleSuffix: Azure Machine Learning service
-description: 데이터 저장소를 사용하여 Azure Machine Learning Service로 학습 중에 데이터 스토리지에 액세스하는 방법을 알아봅니다.
+description: 데이터 저장소를 사용하여 Azure Machine Learning Service로 학습 중에 Blob 데이터 스토리지에 액세스하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: a4960f3e29011948ec30fbc24222d8a6dccf6b8a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 759ae1c077a2c93ee4450843a796b84d95701a10
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252118"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769898"
 ---
 # <a name="access-data-during-training-from-your-datastores"></a>데이터 저장소에서 학습 중에 데이터 액세스
 데이터 저장소를 사용하여 Azure Machine Learning 워크플로의 데이터에 액세스하고 상호 작용합니다.
@@ -76,8 +76,8 @@ ds = Datastore.get(ws, datastore_name='your datastore name')
 
 작업 영역의 모든 데이터 저장소를 가져올 수도 있습니다.
 ```Python
-datastores = ws.datastores()
-for name, ds in datastores.items(),
+datastores = ws.datastores
+for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 

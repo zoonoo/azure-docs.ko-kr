@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 2fbc155afc3fd5280f2baf4eccabb895c158b89f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 534d1785336c68a771722f0f464eae278551ffc0
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913575"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55660241"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -60,17 +60,17 @@ MQTT 프로토콜을 지원하는 [디바이스 SDK][lnk-device-sdks]는 Java, N
 * AMQP는 많은 조건에 대한 오류를 반환하는 한편 MQTT는 연결을 종료합니다. 결과적으로 예외 처리 논리를 일부 변경해야 합니다.
 * MQTT는 [클라우드-장치 메시지][lnk-messaging]를 수신할 때 *reject* 작업을 지원하지 않습니다. 백 엔드 앱이 디바이스 앱에서 응답을 수신해야 할 경우 [직접 메서드][lnk-methods] 사용을 고려합니다.
 
-## <a name="using-the-mqtt-protocol-directly"></a>MQTT 프로토콜 직접 사용
+## <a name="using-the-mqtt-protocol-directly-as-a-device"></a>MQTT 프로토콜 직접 사용(디바이스로)
 
 디바이스가 디바이스 SDK를 사용할 수 없는 경우라도 포트 8883에서 MQTT 프로토콜을 사용하는 공용 디바이스 엔드포인트에 연결할 수 있습니다. **CONNECT** 패킷에서 디바이스는 다음 값을 사용해야 합니다.
 
 * **ClientId** 필드에 **deviceId**를 사용합니다.
 
-* **Username** 필드에 `{iothubhostname}/{device_id}/api-version=2018-06-30`를 사용합니다. 여기서 `{iothubhostname}`은 IoT Hub의 전체 CName입니다.
+* **Username** 필드에 `{iothubhostname}/{device_id}/?api-version=2018-06-30`를 사용합니다. 여기서 `{iothubhostname}`은 IoT Hub의 전체 CName입니다.
 
     예를 들어, IoT Hub의 이름이 **contoso.azure devices.net**이고 디바이스의 이름이 **MyDevice01**이면 전체 **Username** 필드에 다음이 포함되어야 합니다.
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
+    `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
 * **암호** 필드에는 SAS 토큰을 사용합니다. SAS 토큰의 형식은 HTTPS 및 AMQP 프로토콜에 대해 동일합니다.
 
@@ -108,6 +108,16 @@ Device Explorer의 경우
 MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채널의 이벤트를 발행합니다. 이 이벤트에에는 연결 문제 해결에 도움이 되는 추가 정보가 있습니다.
 
 디바이스 앱은 **CONNECT** 패킷에 **Will** 메시지를 지정할 수 있습니다. 디바이스 앱은 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **Will** 항목 이름으로 사용하여 원격 분석 메시지로서 전달할 **Will** 메시지를 정의할 수 있습니다. 이 경우 네트워크 연결이 닫혀 있지만 **DISCONNECT** 패킷이 이전에 디바이스에서 수신되지 않은 경우 IoT Hub는 **CONNECT** 패킷에 제공된 **Will** 메시지를 원격 분석 채널로 전송합니다. 원격 분석 채널은 기본 **이벤트** 엔드포인트 또는 IoT Hub 라우팅으로 정의되는 사용자 지정 엔드포인트일 수 있습니다. 메시지에는 **Will** 값이 할당된 **iothub MessageType** 속성이 지정됩니다.
+
+## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>MQTT 프로토콜 직접 사용(모듈로)
+
+모듈 ID를 사용하여 MQTT를 통해 IoT Hub에 연결하는 작업은 디바이스([위](#using-the-mqtt-protocol-directly-as-a-device)에서 설명됨)와 비슷하지만 다음을 사용해야 합니다.
+* 클라이언트 ID를 `{device_id}/{module_id}`로 설정합니다.
+* 사용자 이름 과 암호를 사용하여 인증하는 경우 사용자 이름을 `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30`으로 설정하고 모듈 ID와 연결된 SAS 토큰을 암호로 사용합니다.
+* 원격 분석 결과를 게시하려면 `devices/{device_id}/modules/{module_id}/messages/events/`를 토픽으로 사용합니다.
+* `devices/{device_id}/modules/{module_id}/messages/events/`를 Will 토픽으로 사용합니다.
+* GET 및 PATCH 쌍 토픽은 모듈과 디바이스에 대해 동일합니다.
+* 쌍 상태 토픽은 모듈과 디바이스에 대해 동일합니다.
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL 구성
 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 426c8995e5c3d98e42d0ad334b8ae52171556dce
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884965"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770791"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub 디바이스 스트림(미리 보기)
 
@@ -82,8 +82,22 @@ SDK를 사용하여 디바이스 스트림을 프로그래밍 방식으로 만�
 또는 허브 속성 섹션 아래의 Azure CLI(특히 `property.hostname` 및 `property.deviceStreams` 키)를 사용하여 엔드포인트 정보를 검색할 수 있습니다.
 
 ```azurecli-interactive
-az iot hub show --name <YourIoTHubName>
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+출력은 디바이스 스트림을 설정하기 위해 허브의 디바이스 및 서비스에서 연결해야 하는 모든 엔드포인트의 JSON 개체입니다.
+
+```json
+{
+  "streamingEndpoints": [
+    "https://<YourIoTHubName>.<region-stamp>.streams.azure-devices.net"
+  ]
+}
+```
+
+> [!NOTE]
+> Azure CLI 버전 2.0.57 이상이 설치되어 있는지 확인합니다. 최신 버전은 [여기](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에서 다운로드할 수 있습니다.
+> 
 
 ## <a name="whitelist-device-streaming-endpoints"></a>디바이스 스트리밍 엔드포인트를 허용 목록에 추가
 
@@ -92,9 +106,14 @@ az iot hub show --name <YourIoTHubName>
 디바이스 스트리밍 엔드포인트의 호스트 이름은 Azure IoT Hub 포털의 개요 탭에서 확인할 수 있습니다. ![대체 텍스트](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "디바이스 스트림 엔드포인트")
 
 또는 Azure CLI를 사용하여 이 정보를 확인할 수 있습니다.
-```cmd/sh
-az iot hub show --name <YourIoTHubName>
+
+```azurecli-interactive
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+> [!NOTE]
+> Azure CLI 버전 2.0.57 이상이 설치되어 있는지 확인합니다. 최신 버전은 [여기](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에서 다운로드할 수 있습니다.
+> 
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>디바이스 스트림 활동 로그를 통해 문제 해결
 

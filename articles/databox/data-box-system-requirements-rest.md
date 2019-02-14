@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c2cc0c0ffaae11bd7bf5113c942cdb98397201
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550927"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55752775"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure Data Box Blob Storage 요구 사항
 
@@ -26,11 +26,11 @@ Data Box Blob Storage에 연결하기 전에 정보를 주의 깊게 검토한 �
 
 |     기능                                             |     Azure Storage                                     |     Data Box Blob Storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Azure 파일 저장소                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원되지 않음      |
+|    Azure File Storage                                   |    클라우드 기반 SMB 파일 공유 지원됨              |    지원되지 않음      |
 |    미사용 데이터에 대한 서비스 암호화                  |    256비트 AES 암호화                             |    256비트 AES 암호화 |
 |    Storage 계정 유형                                 |    범용 및 Azure Blob Storage 계정    |    범용 v1만|
 |    Blob 이름                                            |    1,024자(2,048바이트)                     |    880자(1,760바이트)|
-|    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    Azure Data Box v 1.7 이상의 경우 4.75TB(100MB x 50,000개 블록)|
+|    블록 Blob 최대 크기                              |    4.75TB(100MB X 50,000개 블록)                   |    Azure Data Box v 1.8 이상의 경우 4.75TB(100MB x 50,000개 블록)|
 |    페이지 Blob 최대 크기                               |    8 TB                                               |    1TB                   |
 |    페이지 Blob 페이지 크기                                  |    512바이트                                          |    4KB                   |
 
@@ -38,8 +38,10 @@ Data Box Blob Storage에 연결하기 전에 정보를 주의 깊게 검토한 �
 
 Data Box Blob Storage에서 지원되는 Azure Storage 서비스 API 버전은 다음과 같습니다.
 
-공개 미리 보기 릴리스(Azure Data Box 1.7 이상)
+공개 미리 보기 릴리스(Azure Data Box 1.8 이상)
 
+- [2017-11-09](/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
@@ -60,11 +62,9 @@ Data Box Blob Storage에서 지원되는 Azure Storage 서비스 API 버전은 �
 
 ## <a name="supported-azure-client-libraries"></a>지원되는 Azure 클라이언트 라이브러리
 
-Data Box Blob Storage에는 특정 클라이언트 라이브러리 및 특정 엔드포인트 접미사 요구 사항이 있습니다.
+Data Box Blob Storage에는 특정 클라이언트 라이브러리 및 특정 엔드포인트 접미사 요구 사항이 있습니다. Data Box Blob 스토리지 엔드포인트는 최신 버전의 Azure Blob Storage REST API와 완전히 동일하지는 않습니다. [Azure Data Box 1.8 이상에 지원되는 버전](#supported-api-versions)을 참조하세요. 스토리지 클라이언트 라이브러리의 경우 REST API와 호환되는 버전을 알아야 합니다.
 
-Azure Data Box 버전 1.7부터 Data Box Blob Storage의 지원되는 REST API 버전은 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08 및 2015-04-05입니다. Data Box Blob Storage 엔드포인트는 최신 버전의 Azure Blob Storage REST API와 완전히 동일하지는 않습니다. 스토리지 클라이언트 라이브러리의 경우 REST API와 호환되는 버전을 알아야 합니다.
-
-### <a name="azure-data-box-17-onwards"></a>Azure Data Box 1.7 이상
+### <a name="azure-data-box-18-onwards"></a>Azure Data Box 1.8 이상
 
 | 클라이언트 라이브러리     |Data Box Blob Storage 지원되는 버전     | 링크   |     엔드포인트 사양      |
 |--------------------|--------------------------------------------|--------|---------------------------------|

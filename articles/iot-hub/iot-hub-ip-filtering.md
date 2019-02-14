@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: rezas
-ms.openlocfilehash: cd382c0daff79b487f4ecae01ad852f6e57f3a25
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d549127b5cbdb3a94e435e753592f3227cb95f3a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734252"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232217"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
 
@@ -72,7 +72,7 @@ IP 필터 규칙을 삭제하려면 그리드에서 규칙을 하나 이상 선�
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Azure CLI를 사용하여 IP 필터 검색 및 업데이트
 
-IoT Hub의 IP 필터는 [Azure  CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest)를 통해 검색 및 업데이트할 수 있습니다. 
+IoT Hub의 IP 필터는 [Azure  CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 통해 검색 및 업데이트할 수 있습니다. 
 
 IoT Hub의 현재 IP 필터를 검색하려면 다음을 실행합니다.
 
@@ -121,7 +121,7 @@ az resource update -n <iothubName> -g <resourceGroupName> --resource-type Micros
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-powershell"></a>Azure PowerShell을 사용하여 IP 필터 검색 및 업데이트
 
-IoT Hub의 IP 필터는 [Azure  PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.2.0)을 통해 검색 및 설정할 수 있습니다. 
+IoT Hub의 IP 필터는 [Azure  PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0)을 통해 검색 및 설정할 수 있습니다. 
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name
@@ -145,7 +145,7 @@ $iothubResource | Set-AzureRmResource -Force
 
 ## <a name="update-ip-filter-rules-using-rest"></a>REST를 사용하여 IP 필터 규칙 업데이트
 
-또한 Azure 리소스 공급자의 REST 엔드포인트를 사용하여 IoT 허브의 IP 필터를 검색 및 수정할 수도 있습니다. [createorupdate 메서드](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/createorupdate)의 `properties.ipFilterRules`를 참조하세요.
+또한 Azure 리소스 공급자의 REST 엔드포인트를 사용하여 IoT 허브의 IP 필터를 검색 및 수정할 수도 있습니다. [createorupdate 메서드](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate)의 `properties.ipFilterRules`를 참조하세요.
 
 
 ## <a name="ip-filter-rule-evaluation"></a>IP 필터 규칙 평가

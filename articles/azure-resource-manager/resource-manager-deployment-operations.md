@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8fee1e29ab3a267d77e4e43beb2c42587da5314d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 37f6ad26fd0ad4a1ac6c3fd6c6707b5b9aaef331
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103862"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55770217"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 배포 작업 보기
 
@@ -26,7 +26,10 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
 
 감사 로그 또는 배포 작업을 확인하여 배포 문제를 해결할 수 있습니다. 이 문서에서는 두 가지 방법을 모두 보여줍니다. 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="portal"></a>포털
+
 배포 작업을 확인하려면 다음 단계를 사용합니다.
 
 1. 배포에 관련된 리소스 그룹에 대해 마지막 배포의 상태를 확인합니다. 이 상태를 선택하여 자세한 내용을 확인할 수 있습니다.
@@ -53,28 +56,28 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
     ![이벤트 보기](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## <a name="powershell"></a>PowerShell
-1. 배포의 전반적인 상태를 가져오려면 **Get-AzureRmResourceGroupDeployment** 명령을 사용합니다. 
+1. 배포의 전반적인 상태를 가져오려면 **Get-AzResourceGroupDeployment** 명령을 사용합니다. 
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
   ```
 
    또는 실패한 배포에 대해서만 결과를 필터링할 수 있습니다.
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
 1. 상관 관계 ID를 가져오려면 다음 코드를 사용합니다.
 
   ```powershell
-  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. 각 배포에는 여러 작업이 포함되어 있습니다. 각 작업은 배포 프로세스의 단계를 나타냅니다. 배포에서 무엇이 잘못 되었는지 검색하려면 일반적으로 배포 작업에 대한 세부 정보를 확인해야 합니다. **Get-AzureRmResourceGroupDeploymentOperation**을 사용하여 작업의 상태를 확인할 수 있습니다.
+1. 각 배포에는 여러 작업이 포함되어 있습니다. 각 작업은 배포 프로세스의 단계를 나타냅니다. 배포에서 무엇이 잘못 되었는지 검색하려면 일반적으로 배포 작업에 대한 세부 정보를 확인해야 합니다. **Get-AzResourceGroupDeploymentOperation**을 사용하여 작업의 상태를 확인할 수 있습니다.
 
   ```powershell 
-  Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
     여러 작업이 각각 다음과 같은 형식으로 반환됩니다.
@@ -92,7 +95,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
 1. 실패한 작업에 대한 자세한 정보를 얻으려면 상태가 **Failed** 인 작업에 대한 속성을 검색합니다.
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
     모든 실패한 작업이 각각 다음과 같은 형식으로 반환됩니다.
@@ -115,7 +118,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
 1. 특정 실패한 작업에 대한 상태 메시지를 얻으려면 다음 명령을 사용합니다.
 
   ```powershell
-  ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
   ```
 
     반환하는 내용은 다음과 같습니다.
@@ -130,9 +133,9 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
   로그에서 해당 정보를 가져오고 다음 PowerShell 명령을 사용하여 로컬에 저장합니다.
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
   ```
 
 ## <a name="azure-cli"></a>Azure CLI
@@ -157,7 +160,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
 
 ## <a name="rest"></a>REST (영문)
 
-1. [템플릿 배포에 대한 정보 가져오기](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) 작업을 사용하여 배포에 대한 정보를 가져옵니다.
+1. [템플릿 배포에 대한 정보 가져오기](https://docs.microsoft.com/rest/api/resources/deployments) 작업을 사용하여 배포에 대한 정보를 가져옵니다.
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -180,7 +183,7 @@ Azure 포털을 통해 배포에 대한 작업을 볼 수 있습니다. 배포 �
   }
   ```
 
-2. [모든 템플릿 배포 작업 나열](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List)을 사용하여 배포 작업에 대한 정보를 가져오세요. 
+2. [모든 템플릿 배포 작업 나열](https://docs.microsoft.com/rest/api/resources/deployments)을 사용하여 배포 작업에 대한 정보를 가져오세요. 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

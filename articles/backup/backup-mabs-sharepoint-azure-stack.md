@@ -2,18 +2,18 @@
 title: Azure Stack에서 SharePoint 팜 백업
 description: Azure Backup Server를 사용하여 SharePoint 데이터를 Azure Stack에 백업 및 복원합니다. 이 문서에서는 원하는 데이터를 Azure에 저장할 수 있도록 SharePoint 팜을 구성하는 정보를 제공합니다. 디스크 또는 Azure에서 보호된 SharePoint 데이터를 복원할 수 있습니다.
 services: backup
-author: pvrk
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
-ms.openlocfilehash: acb675d750eb54bdbdde8873f6994255a07eb229
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.author: adigan
+ms.openlocfilehash: b617ccee1826dfcc05ca7131d1eb04fd98b6b627
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605915"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811157"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Azure Stack에서 SharePoint 팜 백업
 다른 데이터 원본을 백업하는 방법과 동일한 방법으로 MABS(Microsoft Azure Backup Server)를 사용하여 Azure Stack의 SharePoint 팜을 Microsoft Azure에 백업합니다. Azure Backup은 일간, 주간, 월간 혹은 연간 백업 지점을 생성하도록 백업 일정에 유연성을 제공하고 다양한 백업 지점에 관한 보존 정책 옵션을 제공합니다. 또한 빠른 복구 시간 목표(RTO)를 위해 로컬 디스크 복사본을 저장하는 기능과 경제적인 장기 보존을 위해 Azure에 사본을 복사하는 기능을 제공합니다.
@@ -23,7 +23,7 @@ MABS의 Azure Backup은 다음 시나리오들을 지원합니다.
 
 | 워크로드 | 버전 | SharePoint 배포 | 보호 및 복구 |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Azure Stack 가상 머신으로 배포된 SharePoint <br> -------------- <br>  SQL AlwaysOn | SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목   Azure 복구 지점에서 팜 및 데이터베이스 복구 |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Azure Stack 가상 머신으로 배포된 SharePoint <br> -------------- <br> SQL AlwaysOn | SharePoint 팜 보호 복구 옵션: 디스크 복구 지점에서 팜, 데이터베이스, 파일 또는 목록 항목을 복구합니다.  Azure 복구 지점에서 팜 및 데이터베이스 복구 |
 
 ## <a name="before-you-start"></a>시작하기 전에
 SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니다.
@@ -219,16 +219,16 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
 4. MABS **복구** 탭의 SharePoint 개체를 클릭하여 콘텐츠 데이터베이스 구조를 가져옵니다. 항목을 마우스 오른쪽 단추로 클릭한 다음 **복구**를 클릭합니다.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. 이 지점에서 [이 문서 앞쪽의 복구 단계](#restore-a-sharepoint-item-from-disk-using-dpm) 를 수행하여 디스크에서 SharePoint 콘텐츠 데이터베이스를 복구합니다.
+5. 이제 이 문서 앞부분의 복구 단계를 수행하여 디스크로 SharePoint 콘텐츠 데이터베이스를 복구합니다.
 
 ## <a name="faqs"></a>FAQ
-Q: SharePoint가 SQL AlwaysOn을 사용하여 구성된 경우(디스크 보호를 사용하여), SharePoint 항목을 원본 위치로 복구할 수 있나요?<br>
- A: 예, 항목을 원본 SharePoint 사이트로 복구할 수 있습니다.
+Q: 디스크 보호를 설정하여 SQL AlwaysOn을 사용해 SharePoint를 구성한 경우 SharePoint 항목을 원본 위치로 복구할 수 있나요?<br>
+A: 예, 항목을 원본 SharePoint 사이트로 복구할 수 있습니다.
 
-Q: SharePoint가 SQL AlwaysOn을 사용하여 구성된 경우 SharePoint 데이터베이스를 원본 위치로 복구할 수 있나요?<br>
- A: SharePoint 데이터베이스가 SQL AlwaysOn 에서 구성되었으므로, 가용성 그룹을 제거하지 않으면 수정할 수 없습니다. 따라서 MABS는 원래 위치로 데이터베이스를 복원할 수 없습니다. SQL Server 데이터베이스를 다른 SQL Server 인스턴스로 복구할 수 있습니다.
+Q: SQL AlwaysOn을 사용해 SharePoint를 구성한 경우 SharePoint 데이터베이스를 원본 위치로 복구할 수 있나요?<br>
+A: SharePoint 데이터베이스가 SQL AlwaysOn에서 구성되었으므로 가용성 그룹을 제거하기 전에는 수정할 수 없습니다. 따라서 MABS는 원래 위치로 데이터베이스를 복원할 수 없습니다. SQL Server 데이터베이스를 다른 SQL Server 인스턴스로 복구할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[파일 및 응용 프로그램 백업](backup-mabs-files-applications-azure-stack.md) 문서를 참조하세요.
+[파일 및 애플리케이션 백업](backup-mabs-files-applications-azure-stack.md) 문서를 참조하세요.
 [Azure Stack에 SQL Server 백업](backup-mabs-sql-azure-stack.md) 문서를 참조하세요.

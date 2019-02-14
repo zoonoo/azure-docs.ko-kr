@@ -4,7 +4,7 @@ description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플�
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: timlt
+manager: jpconnock
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 01/25/2019
 ms.author: twhitney
-ms.openlocfilehash: 38979d80e25e0430082b7819d506b653c35697e6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e1024fadf6a68307e42b57ee3c383977b7b4fb9b
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172956"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562523"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
+
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 애플리케이션을 포함하는 Docker 이미지를 만들어 Service Fabric 클러스터에 배포하는 과정을 안내합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
+Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 애플리케이션이 포함된 Docker 이미지를 만들고 로컬 머신에서 실행되는 Service Fabric 클러스터에 배포하는 과정을 안내합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
 
 > [!NOTE]
 > 이 문서는 Windows 개발 환경에 적용됩니다.  Service Fabric 클러스터 런타임 및 Docker 런타임이 동일한 OS에서 실행되어야 합니다.  Windows 컨테이너는 Linux 클러스터에서 실행할 수 없습니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
 * 다음을 실행하는 개발 컴퓨터
   * Visual Studio 2015 또는 Visual Studio 2017.
   * [Service Fabric SDK 및 도구](service-fabric-get-started.md)
@@ -41,10 +43,10 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 
   이 문서의 경우 클러스터 노드에서 실행되는 컨테이너가 포함된 Windows Server의 버전은 개발 컴퓨터와 일치해야 합니다. 이는 개발 컴퓨터에 docker 이미지를 작성하고 컨테이너 OS 버전과 해당 OS가 배포된 호스트 OS 버전 간의 호환성 제약 조건이 있기 때문입니다. 자세한 내용은 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 
   
-  클러스터에 필요한 컨테이너가 포함된 Windows Server의 버전을 확인하려면 개발 컴퓨터의 Windows 명령 프롬프트에서 `ver` 명령을 실행합니다.
+클러스터에 필요한 컨테이너가 포함된 Windows Server의 버전을 확인하려면 개발 컴퓨터의 Windows 명령 프롬프트에서 `ver` 명령을 실행합니다.
 
-  * 버전에 *x.x.14323.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServer 2016-Datacenter-with-Containers*를 선택합니다. 파티 클러스터를 [무료로 Service Fabric 평가판을 사용](https://aka.ms/tryservicefabric)해 볼 수도 있습니다.
-  * 버전에 *x.x.16299.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers*를 선택합니다. 단, 파티 클러스터는 사용할 수 없습니다.
+* 버전에 *x.x.14323.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServer 2016-Datacenter-with-Containers*를 선택합니다.
+  * 버전에 *x.x.16299.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers*를 선택합니다.
 
 * Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md).
 
@@ -57,6 +59,7 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 > 
 
 ## <a name="define-the-docker-container"></a>Docker 컨테이너 정의
+
 Docker 허브에 있는 [Python 이미지](https://hub.docker.com/_/python/)를 기반으로 하는 이미지를 빌드합니다.
 
 Dockerfile에서 Docker 컨테이너를 지정합니다. Dockerfile은 컨테이너 내부 환경 설정, 실행하려는 애플리케이션 로드, 포트 매핑에 대한 지침으로 구성됩니다. Dockerfile는 `docker build` 명령에 대한 입력이며 이미지를 만듭니다.
@@ -166,6 +169,7 @@ docker rm my-web-site
 
 <a id="Push-Containers"></a>
 ## <a name="push-the-image-to-the-container-registry"></a>컨테이너 레지스트리에 이미지를 푸시합니다.
+
 컨테이너가 개발 컴퓨터에서 실행되었는지 확인한 후에 Azure Container Registry에서 이미지를 레지스트리에 푸시합니다.
 
 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용하여 컨테이너 레지스트리에 로그인하려면 ``docker login``을 실행합니다.
@@ -257,6 +261,7 @@ Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이�
 > 적용 가능한 속성 값으로 PortBinding 요소를 추가로 선언하여 서비스에 대한 추가 PortBinding을 추가할 수 있습니다.
 
 ## <a name="configure-container-registry-authentication"></a>컨테이너 레지스트리 인증 구성
+
 ApplicationManifest.xml 파일의 `ContainerHostPolicies`에 `RepositoryCredentials`를 추가하여 컨테이너 레지스트리 인증을 구성합니다. 서비스에서 리포지토리의 컨테이너 이미지를 다운로드할 수 있게 하는 myregistry.azurecr.io 컨테이너 레지스트리에 대한 계정과 암호를 추가합니다.
 
 ```xml
@@ -448,7 +453,8 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com:8081 로 이동합니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ## <a name="clean-up"></a>정리
-클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-cluster-delete.md)하는 것이 좋습니다. [파티 클러스터](https://try.servicefabric.azure.com/)는 몇 시간 후 자동으로 삭제됩니다.
+
+클러스터가 실행되는 동안 요금이 계속 청구되므로 [클러스터를 삭제](service-fabric-cluster-delete.md)하는 것이 좋습니다.
 
 이미지를 컨테이너 레지스트리에 푸시한 후에 개발 컴퓨터에서 로컬 이미지를 삭제할 수 있습니다.
 

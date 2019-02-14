@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: a540e6c585210f7b1dc36a89eaae7a4b4bf8fc70
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422731"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756821"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage 탐색기 시작
 
@@ -84,11 +84,11 @@ Storage 탐색기는 Storage 계정에 연결하는 여러 방법을 제공합�
 
 또한 글로벌 및 국가별 Azure에서 저장소 계정으로 작업할 수 있습니다.
 
-* [Azure 구독에 연결](#connect-to-an-azure-subscription) - Azure 구독에 속한 저장소 리소스를 관리합니다.
-* [로컬 개발 저장소 작업](#work-with-local-development-storage) - Azure Storage 에뮬레이터를 사용하여 로컬 저장소를 관리합니다.
-* [외부 저장소에 연결](#attach-or-detach-an-external-storage-account) - 저장소 계정의 계정 이름, 키 및 엔드포인트를 사용하여 다른 Azure 구독에 속하거나 국가별 Azure 클라우드 아래에 있는 저장소 리소스를 관리합니다.
-* [SAS를 사용하여 저장소 계정 연결](#attach-storage-account-using-sas): SAS(공유 액세스 서명)를 사용하여 다른 Azure 구독에 속한 저장소 리소스를 관리합니다.
-* [SAS를 사용하여 서비스 연결](#attach-service-using-sas) - SAS를 사용하여 다른 Azure 구독에 속한 특정 저장소 서비스(Blob 컨테이너, 큐 또는 테이블)를 관리합니다.
+* [Azure 구독에 연결](#connect-to-an-azure-subscription): Azure 구독에 속한 스토리지 리소스를 관리합니다.
+* [로컬 개발 스토리지로 작업](#work-with-local-development-storage): Azure Storage 에뮬레이터를 사용하여 로컬 스토리지를 관리합니다.
+* [외부 스토리지에 연결](#attach-or-detach-an-external-storage-account): 스토리지 계정의 계정 이름, 키 및 엔드포인트를 사용하여 다른 Azure 구독에 속하거나 국가별 Azure 클라우드 아래에 있는 스토리지 리소스를 관리합니다.
+* [SAS를 사용하여 스토리지 계정 연결](#attach-a-storage-account-by-using-a-shared-access-signature-sas): SAS(공유 액세스 서명)를 사용하여 다른 Azure 구독에 속한 스토리지 리소스를 관리합니다.
+* [SAS를 사용하여 서비스 연결](#attach-a-service-by-using-a-shared-access-signature-sas): SAS를 사용하여 다른 Azure 구독에 속한 특정 스토리지 서비스(Blob 컨테이너, 큐 또는 테이블)를 관리합니다.
 * [연결 문자열을 사용하여 Azure Cosmos DB 계정에 연결](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): 연결 문자열을 사용하여 Cosmos DB 계정을 관리합니다.
 
 ## <a name="connect-to-an-azure-subscription"></a>Azure 구독에 연결
@@ -145,8 +145,8 @@ Storage 탐색기로 에뮬레이터를 사용하여 로컬 스토리지에서 �
 
    이 노드를 사용하여 로컬 Blob, 큐 및 테이블을 만들고 작업할 수 있습니다. 각 저장소 계정 유형을 작업하는 방법을 알아보려면 다음 가이드를 참조하세요.
 
-   * [Azure Blob 저장소 리소스 관리](vs-azure-tools-storage-explorer-blobs.md)
-   * [Azure File 저장소 리소스 관리](vs-azure-tools-storage-explorer-files.md)
+   * [Azure Blob Storage 리소스 관리](vs-azure-tools-storage-explorer-blobs.md)
+   * [Azure File 스토리지 리소스 관리](vs-azure-tools-storage-explorer-files.md)
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>외부 저장소 계정 연결 또는 분리
 
@@ -295,7 +295,7 @@ Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 것 외에, Azure 
 
     ![연결 문자열을 사용하여 Azure Cosmos DB에 연결][21]
 
-2. Azure Cosmos DB API를 선택하고 **연결 문자열**을 붙여 넣은 후 **확인**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 연결 문자열 검색에 대한 자세한 내용은 [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string)(연결 문자열 가져오기)을 참조하세요.
+2. Azure Cosmos DB API를 선택하고 **연결 문자열**을 붙여 넣은 후 **확인**을 클릭하여 Azure Cosmos DB 계정을 연결합니다. 연결 문자열 검색에 대한 자세한 내용은 [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account)(연결 문자열 가져오기)을 참조하세요.
 
     ![connection-string][22]
 

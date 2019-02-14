@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9002ab7396cd9beda767b4a9f81d9983ec74923d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e2aa52e8ad19274d45f648978e7b2f021139fe4a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163418"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812306"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 KMSI(로그인 유지) 사용
 
@@ -150,7 +150,7 @@ Azure AD(Azure Active Directory) B2C에서 웹 및 네이티브 애플리케이�
 2. 새 파일을 열고, **TrustFrameworkPolicy**의 **PolicyId** 특성을 고유 값으로 업데이트합니다. 이 특성은 정책의 이름입니다(예: 예: `SignUpOrSignInWithKmsi`
 3. 만든 새 사용자 경험의 식별자와 일치하도록 **DefaultUserJourney** 요소의 **ReferenceId** 특성을 변경합니다(예: 예: `SignUpOrSignInWithKmsi`
 
-    KMSI는 **UserJourneyBehaviors** 요소를 사용하여 구성됩니다. **KeepAliveInDays** 특성은 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 다음 예제에서 KMSI 세션은 사용자가 자동 인증을 수행하는 빈도에 관계없이 `7`일 후에 자동으로 만료됩니다. **KeepAliveInDays** 값을 `0`으로 설정하면 KMSI 기능이 해제됩니다. 이 값은 기본적으로 `0`입니다. **SessionExpiryType** 값이 `Rolling`이면 사용자가 자동 인증을 수행할 때마다 KMSI 세션이 `7`일 연장됩니다.  `Rolling`을 선택하면 일 수를 최소로 유지해야 합니다. 
+    KMSI는 첫 번째 자식 요소로 **SingleSignOn**, **SessionExpiryType** 및 **SessionExpiryInSeconds**를 사용하는 **UserJourneyBehaviors** 요소를 통해 구성됩니다. **KeepAliveInDays** 특성은 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 다음 예제에서 KMSI 세션은 사용자가 자동 인증을 수행하는 빈도에 관계없이 `7`일 후에 자동으로 만료됩니다. **KeepAliveInDays** 값을 `0`으로 설정하면 KMSI 기능이 해제됩니다. 이 값은 기본적으로 `0`입니다. **SessionExpiryType** 값이 `Rolling`이면 사용자가 자동 인증을 수행할 때마다 KMSI 세션이 `7`일 연장됩니다.  `Rolling`을 선택하면 일 수를 최소로 유지해야 합니다. 
 
     **SessionExpiryInSeconds** 값은 SSO 세션의 만료 시간을 나타냅니다. 이 값은 Azure AD B2C에서 KMSI 세션이 만료되었는지 여부를 확인하기 위해 내부적으로 사용됩니다. **KeepAliveInDays** 값은 웹 브라우저에서 SSO 쿠키의 만료/최대 기간 값을 결정합니다. **SessionExpiryInSeconds**와 달리 **KeepAliveInDays**는 브라우저가 닫힐 때 쿠키를 지우지 않도록 방지하는 데 사용됩니다. 사용자는 **KeepAliveInDays**로 제어되지만 **SessionExpiryInSeconds**로 만료되지 않도록 제어되는 SSO 세션 쿠키가 있는 경우에만 자동으로 로그인할 수 있습니다. 
     

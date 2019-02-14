@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185973"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55765684"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics 에이전트를 사용하여 로그 데이터 수집
 
-Azure Log Analytics(OMS) 에이전트(이전 명칭: Microsoft Monitoring Agent(MMA) 또는 OMS Linux 에이전트)는 온-프레미스 머신, [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)로 모니터링되는 컴퓨터, 여타 클라우드에 있는 가상 머신을 종합적으로 관리하기 위해 개발되었습니다. Windows 에이전트와 Linux 에이전트가 Log Analytics 작업 영역에 연결되어 다양한 소스에서 데이터 및 (모니터링 솔루션에 정의된) 고유 로그 또는 메트릭을 수집합니다. 
+Azure Log Analytics 에이전트(이전 명칭은 MMA(Microsoft Monitoring Agent) 또는 OMS Linux 에이전트)는 온-프레미스 머신, [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/)로 모니터링되는 컴퓨터, 클라우드에 있는 가상 머신을 종합적으로 관리하기 위해 개발되었습니다. Windows 에이전트와 Linux 에이전트가 Log Analytics 작업 영역에 연결되어 다양한 소스에서 데이터 및 (모니터링 솔루션에 정의된) 고유 로그 또는 메트릭을 수집합니다. 
 
 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항과 다양한 배포 모델을 상세히 살펴봅니다.   
 
@@ -41,7 +41,7 @@ Linux 및 Windows용 에이전트는 Log Analytics에 연결할 뿐만 아니라
 ## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
 Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.
 
-* Windows Server 2008 SP1(서비스 팩 1) 이상
+* Windows Server 2008 R2 이상
 * Windows 7 SP1 이상.
 
 ## <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
@@ -78,10 +78,10 @@ Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송
 
 |에이전트 리소스|포트 |방향 |HTTPS 검사 무시|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드|yes |  
-|*.oms.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드|yes |  
-|\*.blob.core.windows.net |포트 443 |인바운드 및 아웃바운드|yes |  
-|* .azure-automation.net |포트 443 |인바운드 및 아웃바운드|yes |  
+|*.ods.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드|예 |  
+|*.oms.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드|예 |  
+|\*.blob.core.windows.net |포트 443 |인바운드 및 아웃바운드|예 |  
+|* .azure-automation.net |포트 443 |인바운드 및 아웃바운드|예 |  
 
 
 Azure Automation Hybrid Runbook Worker를 사용하여 사용자 환경에서 Runbook을 사용하기 위해 Automation 서비스에 연결하고 등록하려면 [Hybrid Runbook Worker에 대한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명된 URL 및 포트 번호에 대한 액세스 권한이 있어야 합니다. 

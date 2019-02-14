@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 1/30/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5cacd2d0e4308e15b562169f72efb0f98ce45289
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476399"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658389"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -136,7 +136,7 @@ ms.locfileid: "55476399"
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
-1. 양의 정수 값이 포함된 **sequencestart** 및 **sequencestop** 태그를 **VMList** 변수에 추가하려는 VM에 추가합니다. 
+1. 양의 정수 값이 포함된 **sequencestart** 및 **sequencestop** 태그를 **VMList** 매개 변수에 추가하려는 VM에 추가합니다.
 1. ACTION 매개 변수를 **start**로 설정하고, *VMList* 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, WHATIF 매개 변수를 **True**로 설정하여 **SequencedStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
 1. 쉼표로 구분된 VM 목록(VM1, VM2, VM3)을 사용하여 **External_ExcludeVMNames** 매개 변수를 구성합니다.
 1. 이 시나리오는 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupnames** 변수를 고려하지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](../automation/automation-schedules.md)을 참조하세요.
@@ -319,13 +319,29 @@ Azure Portal에서 [모니터] -> [작업 그룹]으로 이동합니다. **Start
 
 ![Automation 업데이트 관리 솔루션 페이지](media/automation-solution-vm-management/email.png)
 
+## <a name="add-exclude-vms"></a>VM 추가/제외
+
+이 솔루션은 솔루션의 대상이 되는 VM을 추가하거나 특별히 솔루션에서 머신을 제외할 수 있는 기능을 제공합니다.
+
+### <a name="add-a-vm"></a>VM 추가
+
+VM이 실행될 때 시작/중지 솔루션에 포함되도록 하는 데 사용할 수 있는 몇 가지 옵션이 있습니다.
+
+* 솔루션의 각 부모 [Runbook](#runbooks)에는 **VMList** 매개 변수가 있습니다. 상황에 맞는 적절한 부모 Runbook을 예약할 때 쉼표로 구분된 VM 이름 목록을 이 매개 변수에 전달할 수 있으며, 솔루션이 실행될 때 이러한 VM이 포함됩니다.
+
+* 여러 VM을 선택하려면 시작하거나 중지하려는 VM이 포함된 리소스 그룹 이름을 사용하여 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupNames**를 설정합니다. 솔루션이 구독의 모든 리소스 그룹에 대해 실행되도록 하려면 이 값을 `*`로 설정할 수도 있습니다.
+
+### <a name="exclude-a-vm"></a>VM 제외
+
+솔루션에서 VM을 제외하려면 해당 VM을 **External_ExcludeVMNames** 변수에 추가할 수 있습니다. 이 변수는 시작/중지 솔루션에서 제외할 특정 VM의 쉼표로 구분된 목록입니다.
+
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>시작 및 종료 일정 수정
 
-이 솔루션에서 시작 및 종료 일정을 관리하는 작업은 [Azure Automation에서 runbook 예약](automation-schedules.md)에 설명된 대로 동일한 단계를 따릅니다.
+이 솔루션에서 시작 및 종료 일정을 관리하는 작업은 [Azure Automation에서 runbook 예약](automation-schedules.md)에 설명된 대로 동일한 단계를 따릅니다. VM을 시작하고 중지하려면 별도의 일정이 있어야 합니다.
 
-특정 시간에 VM을 중지하도록 솔루션을 구성하는 작업이 지원됩니다. 이렇게 하려면 다음을 수행해야 합니다.
+특정 시간에 VM을 중지하도록 솔루션을 구성하는 작업이 지원됩니다. 이 시나리오에서는 **중지** 일정만 만들고 해당하는 **시작** 일정은 만들지 않습니다. 이렇게 하려면 다음을 수행해야 합니다.
 
-1. VM에 대한 리소스 그룹을 추가하여 **External_Start_ResourceGroupNames** 변수를 종료했는지 확인합니다.
+1. **External_Stop_ResourceGroupNames** 변수에서 종료할 VM에 대한 리소스 그룹을 추가했는지 확인합니다.
 2. VM을 종료하려는 시간에 대한 고유한 일정을 만듭니다.
 3. **ScheduledStartStop_Parent** Runbook으로 이동하고 **일정**을 클릭합니다. 이 옵션을 사용하면 이전 단계에서 만든 일정을 선택할 수 있습니다.
 4. **매개 변수 및 실행 설정**을 선택하고 ACTION 매개 변수를 "중지"로 설정합니다.

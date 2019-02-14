@@ -3,8 +3,8 @@ title: Azure AD 갤러리 애플리케이션에 대해 암호 Single Sign-On을 
 description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션을 보안 암호 기반 Single Sign-On에 대해 구성하는 방법
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
-ms.openlocfilehash: 236ba7e2a76e95f3a78457fbdb0b49fd82e20b36
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bc06583b73bc9ec21aca6d8ff1a1fe191f59dadd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815407"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161968"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
 

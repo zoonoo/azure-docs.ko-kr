@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358986"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767341"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -86,7 +86,7 @@ ms.locfileid: "54358986"
 
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
-   예. 원래 배포된 이미지에 관계없이 두 라이선스 모델 간에 쉽게 이동할 수 있습니다. 자세한 내용은 [SQL VM의 라이선스 모델을 변경하는 방법](virtual-machines-windows-sql-ahb.md)을 참조하세요.
+   예. 처음에 종량제 갤러리 이미지로 시작한 경우 두 라이선스 모델 간에 쉽게 이동할 수 있습니다. 그러나 처음에 BYOL 이미지로 시작한 경우에는 라이선스를 종량제로 전환할 수 없습니다. 자세한 내용은 [SQL Server VM의 라이선스 모델을 변경하는 방법](virtual-machines-windows-sql-ahb.md)을 참조하세요.
 
 1. **새 SQL VM을 만들 때 BYOL 이미지와 SQL VM RP 중 무엇을 사용해야 하나요?**
 
@@ -94,11 +94,11 @@ ms.locfileid: "54358986"
 
 1. **라이선싱 모델을 전환할 때 SQL Server 가동 중지 시간이 필요한가요?**
 
-   아니요. [라이선싱 모델을 변경](virtual-machines-windows-sql-ahb.md)해도 SQL Server 가동 중지 시간이 필요하지 않습니다. 변경 내용이 즉시 적용되기 때문에 VM을 다시 시작하지 않아도 됩니다. 
+   아니요. [라이선싱 모델을 변경](virtual-machines-windows-sql-ahb.md)해도 SQL Server 가동 중지 시간이 필요하지 않습니다. 변경 내용이 즉시 적용되기 때문에 VM을 다시 시작하지 않아도 됩니다. 하지만 SQL Server VM을 SQL VM 리소스 공급자에 등록하려면 [SQL IaaS 확장](virtual-machines-windows-sql-server-agent-extension.md)이 필요하며, SQL IaaS 확장을 설치하면 SQL Server 서비스가 다시 시작됩니다. 따라서 SQL IaaS 확장을 설치해야 하는 경우 유지 관리 기간에 해야 합니다. 
 
 1. **CSP 구독으로 Azure 하이브리드 혜택을 활성화할 수 있나요?**
 
-   예. [라이선싱 모델 변경](virtual-machines-windows-sql-ahb.md)은 CSP 구독에서 가능합니다. 
+   예, Azure 하이브리드 혜택을 CSP 구독에 사용할 수 있습니다. CSP 고객은 먼저 종량제 이미지를 배포한 다음, [라이선스 모델을 사용자 라이선스 필요로 변경](virtual-machines-windows-sql-ahb.md)해야 합니다.  
 
 1. **내 VM을 새 SQL VM 리소스 공급자에 등록하면 추가 비용이 발생하나요?**
 

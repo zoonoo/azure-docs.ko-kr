@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 28f35fd1098e055b22dada703cd7e68de591eea7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6198d16b25330fb02cf5642addba0093ec437cab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192624"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811496"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화: 필터링 구성
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype 등의 Office 365 워크로드를 사용하면 완전한 전체 주소 목록이 도움이 되므로 모든 사람에게 메일을 보내거나 호출할 수 있습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
@@ -93,8 +93,8 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 
 도메인 기반 필터링 구성은 다음 단계로 구성됩니다.
 
-1. 동기화에 포함시키려는 [도메인을 선택](#select-domains-to-be-synchronized)합니다.
-2. 각각의 추가되고 제거된 도메인에 대해 [실행 프로필](#update-run-profiles)을 조정합니다.
+1. 동기화에 포함할 도메인을 선택합니다.
+2. 추가 및 제거된 각 도메인의 실행 프로필을 조정합니다.
 3. [변경 사항을 적용하고 확인합니다](#apply-and-verify-changes).
 
 ### <a name="select-the-domains-to-be-synchronized"></a>동기화할 도메인을 선택합니다.
@@ -110,7 +110,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
    온-프레미스 Active Directory 인프라를 변경하고 포리스트에서 도메인을 추가하거나 제거한 경우 **새로 고침** 단추를 클릭하여 업데이트된 목록을 가져옵니다. 새로 고칠 때 자격 증명 요청 메시지가 표시됩니다. Windows Server Active Directory에 대한 읽기 권한으로 모든 자격 증명을 제공합니다. 대화 상자에 미리 채워져 있는 사용자일 필요는 없습니다.  
    ![새로 고침 필요](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. 완료하면 **확인**을 클릭하여 **속성** 대화 상자를 닫습니다. 포리스트에서 도메인을 제거한 경우 도메인이 제거되었다는 메시지가 팝업되고 해당 구성은 정리됩니다.
-7. [실행 프로필](#update-run-profiles)을 계속 조정합니다.
+7. 실행 프로필을 계속 조정합니다.
 
 ### <a name="update-the-run-profiles"></a>실행 프로필 업데이트
 도메인 필터를 업데이트한 경우 실행 프로필도 업데이트해야 합니다.

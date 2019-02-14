@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: e1013047bb66581e7f9d26854f2cd91655c8bd93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857910"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810085"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
 GRUB는 GRand Unified Bootloader의 약어입니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.
@@ -39,7 +39,7 @@ GRUB에 액세스하려면 직렬 콘솔 블레이드를 열어 두고 VM을 다
 [SysRq](./serial-console-nmi-sysrq.md)가 사용하도록 설정되어 있으면 SysRq `'b'` 명령을 통해 직렬 콘솔 블레이드를 열어 두고 VM을 다시 부팅할 수 있습니다. 개요 블레이드에서 다시 시작 단추를 클릭해도 됩니다. 그러면 VM이 새 브라우저 탭에서 열리므로 직렬 콘솔 블레이드를 닫지 않고도 VM을 다시 부팅할 수 있습니다. 다시 부팅할 때의 GRUB 상태에 대해 알아보려면 아래의 배포별 지침을 따르세요.
 
 ## <a name="general-single-user-mode-access"></a>일반 단일 사용자 모드 액세스
-암호 인증을 사용하는 계정을 구성하지 않은 상황에서는 단일 사용자 모드에 수동으로 액세스해야 할 수 있습니다. 이 경우 단일 사용자 모드에 수동으로 진입하도록 GRUB 구성을 수정해야 합니다. 구성을 수정한 후에 [단일 사용자 모드를 사용하여 암호 재설정 또는 추가](#-Use-Single-User-Mode-to-reset-or-add-a-password)에서 추가 지침을 참조하세요.
+암호 인증을 사용하는 계정을 구성하지 않은 상황에서는 단일 사용자 모드에 수동으로 액세스해야 할 수 있습니다. 이 경우 단일 사용자 모드에 수동으로 진입하도록 GRUB 구성을 수정해야 합니다. 이 구성 수정을 완료한 후에는 [단일 사용자 모드를 사용하여 암호 재설정 또는 추가]에서 추가 지침을 참조하세요.
 
 대부분의 배포에서는 VM을 부팅할 수 없는 경우 단일 사용자 모드나 응급 모드가 자동 설정됩니다. 하지만 단일 사용자 모드나 응급 모드를 자동 설정하려면 루트 암호 설정 등의 추가 설정을 수행해야 하는 배포도 있습니다.
 
@@ -125,7 +125,7 @@ GRUB에 액세스하려면 VM이 부팅되는 동안 'Esc' 키를 길게 누릅�
 1. 원하는 텍스트 편집기에서 `/etc/default/grub.d/50-cloudimg-settings.cfg`를 엽니다.
 1. `GRUB_TIMEOUT` 값을 0이 아닌 값으로 변경합니다.
 1. 원하는 텍스트 편집기에서 `/etc/default/grub`를 엽니다.
-1. `GRUB_HIDDEN_TIMEOUT=1` 줄을 주석 처리합니다.
+1. `GRUB_HIDDEN_TIMEOUT=1` 줄을 주석으로 처리합니다.
 1. `sudo update-grub` 실행
 
 ### <a name="single-user-mode-in-ubuntu"></a>Ubuntu의 단일 사용자 모드

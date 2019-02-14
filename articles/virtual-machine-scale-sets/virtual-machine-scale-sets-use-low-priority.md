@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 85b974e954fd99f6f10426f1961ea9f4a5343c59
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953875"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811106"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>확장 집합에서 우선 순위가 낮은 VM(미리 보기)
 
@@ -43,13 +43,13 @@ ms.locfileid: "46953875"
 
 확장 집합에 우선 순위가 낮은 VM을 배포하려면 새 *Priority* 플래그를 *Low*로 설정할 수 있습니다. 확장 집합의 모든 VM은 낮은 우선 순위로 설정됩니다. 우선 순위가 낮은 VM이 포함된 확장 집합을 만들려면 다음 방법 중 하나를 사용합니다.
 - [Azure Portal](#use-the-azure-portal)
-- [Azure CLI](#use-the-azure-cli-20)
+- Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure 리소스 관리자 템플릿](#use-azure-resource-manager-templates)
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
-우선 순위가 낮은 VM을 사용하는 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-portal.md)에서 자세히 설명한 프로세스와 동일합니다. 확장 집합을 배포하는 경우 우선 순위가 낮은 플래그 및 제거 정책, ![우선 순위가 낮은 VM으로 확장 집합 만들기](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)를 설정하도록 선택할 수 있습니다.
+우선 순위가 낮은 VM을 사용하는 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-portal.md)에서 자세히 설명한 프로세스와 동일합니다. 확장 집합을 배포할 때 우선 순위가 낮은 플래그 및 제거 정책: ![우선 순위가 낮은 VM으로 확장 집합 만들기](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)를 설정하도록 선택할 수 있습니다.
 
 ## <a name="use-the-azure-cli"></a>Azure CLI 사용
 

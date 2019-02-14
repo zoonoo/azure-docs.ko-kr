@@ -1,27 +1,25 @@
 ---
-title: 동영상 인사이트 얻기 - Bing Video Search
+title: Bing Video Search API를 사용하여 비디오 인사이트 가져오기
 titlesuffix: Azure Cognitive Services
-description: Bing Video Search API를 사용하여 비디오에 대한 자세한 정보를 가져오는 방법을 보여 줍니다.
+description: Bing Video Search API를 사용하여 관련 비디오와 같은 비디오에 대한 자세한 정보를 가져오는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 9c36208a35d66fcd6df6ac2ccd4a28c55ed92937
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b024d61c3542293202f0b409b8b3e520a75168c0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170788"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55870727"
 ---
 # <a name="get-insights-about-a-video"></a>비디오에 대한 인사이트 가져오기
 
-각 비디오에는 관련 비디오 등 비디오에 대한 자세한 정보를 가져오는 데 사용할 수 있는 비디오 ID가 포함되어 있습니다.  
-  
-비디오에 대한 인사이트를 가져오려면 응답에서 해당 [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) 토큰을 캡처합니다. 
+Bing Video Search API에서 반환되는 각 비디오에는 관련 비디오와 같은 자세한 정보를 가져오는 데 사용할 수 있는 비디오 ID가 포함되어 있습니다. 비디오에 대한 인사이트를 가져오려면 API 응답에서 해당 [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) 토큰을 가져옵니다. 
 
 ```json
     "value" : [
@@ -36,9 +34,9 @@ ms.locfileid: "55170788"
     ],
 ```
 
-다음 GET 요청을 비디오 세부 정보 엔드포인트로 보냅니다. [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) 쿼리 매개 변수를 `videoId` 토큰으로 설정합니다. 가져올 인사이트를 지정하려면 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) 쿼리 매개 변수를 설정합니다. 모든 인사이트를 가져오려면 `modules`를 All로 설정합니다. 응답에는 사용 가능한 경우 요청한 모든 인사이트가 포함됩니다.
+그런 다음, ID를 사용하여 GET 요청을 비디오 세부 정보 엔드포인트로 보냅니다. [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) 쿼리 매개 변수를 `videoId` 토큰으로 설정합니다. 가져올 인사이트를 지정하려면 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) 쿼리 매개 변수를 설정합니다. 모든 인사이트를 가져오려면 `modules`를 All로 설정합니다. 응답에는 사용 가능한 경우 요청한 모든 인사이트가 포함됩니다.
 
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -50,9 +48,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="getting-related-videos-insights"></a>관련 비디오 인사이트 가져오기  
 
-지정한 비디오와 관련된 비디오를 가져오려면 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) 쿼리 매개 변수를 RelatedVideos로 설정합니다.
+지정한 비디오와 관련된 비디오를 가져오려면 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) 쿼리 매개 변수를 `RelatedVideos`로 설정합니다.
   
-```  
+```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -61,10 +59,10 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```  
+
+이 요청에 대한 응답에는 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) 개체 대신 최상위 수준의 [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) 개체가 있습니다.  
   
-다음은 이전 요청에 대한 응답입니다. 최상위 개체는 [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) 개체가 아니라 [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) 개체입니다.  
-  
-```  
+```json
 {
     "_type" : "Api.VideoDetails.VideoDetails",
     "relatedVideos" : {
@@ -95,3 +93,9 @@ Host: api.cognitive.microsoft.com
     }
 }
 ```
+
+## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [인기 비디오 검색](trending-videos.md)
+

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1491068248d20a917e28db5a75dee3d4b3753f5c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1c58574a96c07dcb4008682efdf96fba111d7b61
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730299"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810340"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
 [Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅숏으로 복원할 수 있습니다. 
@@ -52,7 +52,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 ## <a name="requirements-and-restrictions"></a>요구 사항 및 제한 사항
 * 백업 및 복원 기능을 사용하려면 App Service 계획이 **표준** 계층 또는 **프리미엄** 계층에 있어야 합니다. 더 높은 계층을 사용하도록 App Service 계획을 확장하는 방법에 대한 자세한 내용은 [Azure에서 앱 확장](web-sites-scale.md)을 참조하세요.  
   **프리미엄** 계층을 사용하면 **표준** 계층보다 더 많은 매일 백업을 수행할 수 있습니다.
-* 백업하려는 앱과 동일한 구독에 Azure 저장소 계정 및 컨테이너가 필요합니다. Azure 저장소 계정에 대한 자세한 내용은 이 문서의 끝에 있는 [링크](#moreaboutstorage) 를 참조하십시오.
+* 백업하려는 앱과 동일한 구독에 Azure 저장소 계정 및 컨테이너가 필요합니다. Azure 스토리지 계정에 대한 자세한 내용은 이 문서의 끝에 있는 링크를 참조하세요.
 * 최대 10GB의 앱 및 데이터베이스 콘텐츠를 백업할 수 있습니다. 백업 크기가 이 제한을 초과하면 오류가 발생합니다.
 * SSL 지원 Azure Database for MySQL의 백업은 지원되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.
 * SSL 지원 Azure Database for PostgreSQL의 백업은 지원되지 않습니다. 백업이 구성된 경우, 실패한 백업이 표시됩니다.

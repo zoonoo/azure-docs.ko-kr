@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/31/2019
 ms.author: juliako
-ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402050"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567284"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -102,6 +102,10 @@ Azure Media Service의 SLA가 Video Indexer에 적용되며, [SLA](https://azure
 
 [Azure OST](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)(온라인 서비스 사용 약관)에 따라, 사용자가 콘텐츠를 완전히 소유하며 Microsoft는 OST 및 Microsoft 개인정보처리방침에 의거해서만 사용자 콘텐츠와 Video Indexer가 콘텐츠에서 추출하는 메타데이터 및 인사이트에 액세스합니다.
 
+### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>내 Video Indexer 계정에 빌드한 사용자 지정 모델을 다른 계정에서 사용할 수 있나요?
+
+ 아니요, 계정에 만든 사용자 지정 모델은 다른 계정에서 사용할 수 없습니다. 현재 Video Indexer를 사용하면 사용자 지정 [브랜드](customize-brands-model-overview.md), [언어](customize-language-model-overview.md) 및 [개인](customize-person-model-overview.md) 모델을 계정에 빌드할 수 있습니다. 이러한 모델은 모델을 만든 계정에서만 사용할 수 있습니다.
+  
 ### <a name="is-the-content-indexed-by-video-indexer-kept-within-the-azure-region-where-i-am-using-video-indexer"></a>Video Indexer에서 인덱싱된 콘텐츠는 Video Indexer를 사용하고 있는 Azure 지역 내에 유지되나요?
 
 예, 콘텐츠 및 해당 인사이트는 여러 Azure 지역을 사용하는 수동 구성이 Azure 구독에 없는 한 Azure 지역 내에 유지됩니다. 

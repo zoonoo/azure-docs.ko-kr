@@ -4,17 +4,17 @@ description: Azure Policy 평가 및 효과는 준수를 결정합니다. 준수
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853632"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766421"
 ---
 # <a name="getting-compliance-data"></a>준수 데이터 가져오기
 
@@ -45,6 +45,8 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 - 리소스는 Resource Manager, REST, Azure CLI 또는 Azure PowerShell을 통해 할당된 범위에 배포됩니다. 이 시나리오에서 효과 이벤트(추가, 감사, 거부, 배포) 및 개별 리소스에 대한 호환 상태 정보는 약 15분 후에 포털 및 SDK에서 사용할 수 있습니다. 이 이벤트는 다른 리소스에 대한 평가로 이어지지 않습니다.
 
 - 표준 준수 평가 주기입니다. 24시간마다 한 번씩 할당은 자동으로 다시 계산됩니다. 많은 리소스에 대해 대규모 정책 또는 이니셔티브를 평가하는 데는 시간이 걸릴 수 있습니다. 따라서 평가 주기 완료 시점을 미리 예측할 수 없습니다. 작업이 완료되면 업데이트된 준수 결과는 포털 및 SDK에서 지원됩니다.
+
+- [게스트 구성](../concepts/guest-configuration.md) 리소스 공급자는 관리형 리소스를 통해 규정 준수 세부 정보로 업데이트됩니다.
 
 - 주문형 검사
 
@@ -139,6 +141,26 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 자세한 세부 정보를 수집하려는 이벤트의 행을 마우스 오른쪽 단추로 클릭하고 **활동 로그 표시**를 선택합니다. 활동 로그 페이지가 열리고 할당 및 이벤트에 대한 세부 정보를 보여주는 검색에 대해 미리 필터링됩니다. 활동 로그는 해당 이벤트에 대한 추가 컨텍스트 및 정보를 제공합니다.
 
 ![정책 준수 활동 로그](../media/getting-compliance-data/compliance-activitylog.png)
+
+### <a name="change-history-preview"></a>변경 기록(미리 보기)
+
+새 **공개 미리 보기**의 일부로, 지난 14일의 변경 기록을 비 규격 리소스에 사용할 수 있습니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 검색은 비 규격 리소스의 Resource Manager 속성이 추가, 제거 또는 변경될 때 트리거됩니다.
+
+1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
+
+1. **개요** 또는 **규정 준수** 페이지에서 _비 규격_ 정책을 선택합니다.
+
+1. **정책 준수** 페이지의 **리소스 준수** 탭에서 _비 규격_ 리소스를 선택합니다.
+
+1. **리소스 준수** 페이지에서 **변경 기록(미리 보기)** 탭을 선택합니다. 검색된 변경 목록이 표시됩니다(있는 경우).
+
+   ![정책 변경 기록 - 탭](../media/getting-compliance-data/change-history-tab.png)
+
+1. 검색된 변경 중 하나를 선택합니다. 비 규격 리소스의 _시각적 차이_는 **변경 기록** 페이지에 표시됩니다.
+
+   ![정책 변경 기록 - 시각적 차이](../media/getting-compliance-data/change-history-visual-diff.png)
+
+_시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩니다. 검색된 변경 내용과 리소스가 선택된 정책을 준수하지 않는 원인 사이에 아무 관련이 없을 수도 있습니다.
 
 ## <a name="command-line"></a>명령 줄
 

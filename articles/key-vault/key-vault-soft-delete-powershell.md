@@ -1,21 +1,18 @@
 ---
-ms.assetid: ''
 title: Azure Key Vault - PowerShell로 일시 삭제를 사용하는 방법
 description: PowerShell 코드 캡처를 통한 일시 삭제의 사용 사례 예제
-services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 02/01/2018
 ms.author: bryanla
-ms.openlocfilehash: 99f81e14ca631eccee154a5658bf717cbe07b3da
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: c979d6eccd5c185d89252302b40fdd674e3c5916
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364373"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657504"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>PowerShell로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -80,7 +77,7 @@ Key Vault에 일시 삭제가 사용할 수 있도록 설정되어 있는지 확
 Get-AzureRmKeyVault -VaultName "ContosoVault"
 ```
 
-## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>일시 삭제로 보호되는 Key Vault 삭제
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>일시 삭제 보호 키 자격 증명 모음 삭제
 
 키 자격 증명을 삭제하는 명령의 동작은 일시 삭제가 사용하도록 설정되었는지 여부에 따라 변합니다.
 
@@ -97,7 +94,7 @@ Remove-AzureRmKeyVault -VaultName 'ContosoVault'
 
 - 삭제된 키 자격 증명 모음은 해당 리소스 그룹에서 제거되고 원래 생성되었던 위치와 연결된 예약된 네임스페이스에 놓입니다. 
 - 키, 비밀 및 인증서와 같은 삭제된 개체는 해당 개체가 포함하고 있는 키 자격 증명 모음이 삭제된 상태에 있는 한 액세스할 수 없습니다. 
-- 삭제된 키 자격 증명 모음에 대한 DNS 이름은 동일한 이름의 새로운 키 자격 증명 모음이 만들어지지 않도록 예약됩니다.  
+- 삭제된 키 자격 증명 모음에 대한 DNS 이름은 동일한 이름의 새로운 키 자격 증명 모음이 만들어지지 않도록 예약됩니다.  
 
 다음 명령을 사용하여 사용자 구독에 연결된 삭제된 상태 Key Vault를 볼 수도 있습니다.
 
@@ -119,7 +116,7 @@ Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG
 
 키 자격 증명 모음이 복구될 때 해당 키 자격 증명 모음의 원래 리소스 ID를 가진 새로운 리소스가 생성됩니다. 원래 리소스 그룹이 제거된 경우 복구를 시도하기 전에 동일한 이름의 리소스 그룹을 만들어야 합니다.
 
-## <a name="key-vault-objects-and-soft-delete"></a>Key Vault 개체 및 일시 삭제
+## <a name="deleting-and-purging-key-vault-objects"></a>키 자격 증명 모음 개체 삭제 및 제거
 
 다음 명령은 일시 삭제를 사용하도록 설정한 ‘ContosoVault’ 키 자격 증명 모음에서 ‘ContosoFirstKey’ 키를 삭제합니다.
 
@@ -201,17 +198,22 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
-## <a name="purging-and-key-vaults"></a>제거 및 Key Vault
+## <a name="purging-a-soft-delete-protected-key-vault"></a>일시 삭제 보호 키 자격 증명 모음 제거
 
-### <a name="key-vault-objects"></a>Key Vault 개체
+> [!IMPORTANT]
+> 키 자격 증명 모음 또는 포함된 해당 개체 중 하나를 제거하면 영구적으로 삭제되며, 이는 복구할 수 없습니다!
 
-키, 비밀 또는 인증서를 제거하면 영구 삭제가 이루어지며 복구할 수 없습니다. 그러나 삭제된 개체가 포함된 Key Vault는 Key Vault의 다른 모든 개체처럼 그대로 유지됩니다. 
+제거 함수는 이전에 일시 삭제되었던 키 자격 증명 모음 개체 또는 전체 키 자격 증명 모음을 영구적으로 삭제하는 데 사용됩니다. 이전 섹션에서 설명한 대로 일시 삭제 기능을 사용하도록 설정된 키 자격 증명 모음에 저장된 개체는 다음과 같이 여러 가지 상태를 거칠 수 있습니다.
 
-### <a name="key-vaults-as-containers"></a>컨테이너로써의 Key Vault
-키 자격 증명 모음이 제거되면 키, 비밀 및 인증서를 포함하여 해당 전체 콘텐츠가 영구적으로 삭제됩니다. Key Vault를 제거하려면 `-InRemovedState` 옵션과 함께 `-Location location` 인수로 삭제된 Key Vault의 위치를 지정하여 `Remove-AzureRmKeyVault` 명령을 사용합니다. `Get-AzureRmKeyVault -InRemovedState` 명령을 사용하여 삭제된 자격 증명 모음의 위치를 찾을 수 있습니다.
+- **활성**: 삭제 전
+- **일시 삭제**: 삭제 후 목록에 나열되고 활성 상태로 다시 복구할 수 있습니다.
+- **영구 삭제**: 제거 후 복구할 수 없습니다.
 
->[!IMPORTANT]
->키 자격 증명 모음을 제거하면 영구적으로 삭제되며 복구할 수 없습니다!
+키 자격 증명 모음에 대해서도 마찬가지입니다. 일시 삭제 키 자격 증명 모음 및 해당 내용을 영구적으로 삭제하려면 키 자격 증명 모음 자체를 제거해야 합니다.
+
+### <a name="purging-a-key-vault"></a>키 자격 증명 모음 제거
+
+키 자격 증명 모음이 제거되면 키, 비밀 및 인증서를 포함하여 해당 전체 콘텐츠가 영구적으로 삭제됩니다. 일시 삭제된 키 자격 증명 모음을 제거하려면 `-InRemovedState` 옵션이 포함된 `Remove-AzureRmKeyVault` 명령을 사용하고, `-Location location` 인수를 사용하여 삭제된 키 자격 증명 모음의 위치를 지정합니다. `Get-AzureRmKeyVault -InRemovedState` 명령을 사용하여 삭제된 자격 증명 모음의 위치를 찾을 수 있습니다.
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus

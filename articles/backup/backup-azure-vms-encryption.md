@@ -2,19 +2,18 @@
 title: Azure Backup으로 암호화된 VM 백업 및 복원
 description: 이 문서에서는 Azure Disk Encryption을 사용하여 암호화된 VM의 백업 및 복원 환경에 대해 설명합니다.
 services: backup
-author: sogup
+author: geetha
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
-ms.author: sogup
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3a059e8edc286b2c1433c9b414dc275a433e2fd
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: geetha
+ms.openlocfilehash: 676c6a45f4a3930d350bbcbdcbb1a0fb47880407
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217682"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810000"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Azure Backup으로 암호화된 가상 머신을 백업 및 복원 
 이 문서에서는 Azure Backup을 사용하여 VM(가상 머신)을 백업하고 복원하는 단계에 대해 설명합니다. 또한 지원되는 시나리오, 필수 조건 및 오류 사례에 대한 문제 해결 조치에 대한 자세한 정보도 제공합니다.
@@ -37,7 +36,7 @@ ms.locfileid: "55217682"
 
 * [백업 환경 준비](backup-azure-arm-vms-prepare.md)의 단계를 따라 Recovery Services 자격 증명 모음이 만들어졌으며 저장소 복제가 설정되었습니다.
 
-* Backup에 암호화된 VM에 대한 키 및 비밀이 담긴 [키 자격 증명 모음 액세스 권한](#provide-permissions-to-backup)이 부여되었습니다.
+* Backup에 암호화된 VM에 대한 키 및 비밀이 담긴 키 자격 증명 모음 액세스 권한이 부여되었습니다.
 
 ## <a name="backup-encrypted-vm"></a>암호화된 VM 백업
 다음 단계를 사용하여 백업 목표를 설정하고, 정책을 정의하며, 항목을 구성하고, 백업을 트리거합니다.
@@ -77,7 +76,7 @@ ms.locfileid: "55217682"
 
    ![암호화된 VM 메시지](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   **게스트 사용자**인 경우 백업 서비스에 대한 권한이 있어야 백업을 수행하는 데 필요한 키 자격 증명 모음에 액세스할 수 있습니다. [다음 섹션에 설명된 단계](#provide-permissions-to-backup)를 수행하여 이러한 권한을 제공할 수 있습니다.
+   **게스트 사용자**인 경우 백업 서비스에 대한 권한이 있어야 백업을 수행하는 데 필요한 키 자격 증명 모음에 액세스할 수 있습니다. 다음 섹션에 설명된 단계를 수행하여 이러한 권한을 제공할 수 있습니다.
 
    ![암호화된 VM 메시지](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
 

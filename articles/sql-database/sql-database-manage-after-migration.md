@@ -3,7 +3,7 @@ title: 마이그레이션 후 관리 - Azure SQL Database | Microsoft Docs
 description: Azure SQL Database로 마이그레이션 후 데이터베이스를 관리하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 02/04/2019
+ms.openlocfilehash: 2c0d32c5e95504ac99c739af89795ac22a768c63
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052720"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55751942"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 데이터베이스 관리
 
@@ -83,7 +83,7 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 - [Azure Active Directory 인증](sql-database-aad-authentication.md)
 - SQL 인증
 
-기존 Windows 인증은 지원되지 않습니다. Azure Active Directory(AD)는 중앙 집중식 ID 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. AAD는 [MFA(Multi-Factor Authentication)](sql-database-ssms-mfa-authentication.md)을 지원하며 [클릭 몇 번](../active-directory/hybrid/how-to-connect-install-express.md)으로 AAD를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 즉, 사용자 이름/암호를 제공하고 사용자를 지정된 논리 서버의 임의 데이터베이스에 대해 인증할 수 있습니다. 또한 Microsoft Azure SQL Database 및 SQL Data Warehouse에서 Azure AD 도메인 내에서 다단계 인증 및 게스트 사용자 계정을 제공할 수 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
+기존 Windows 인증은 지원되지 않습니다. Azure Active Directory(AD)는 중앙 집중식 ID 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. AAD는 [MFA(Multi-Factor Authentication)](sql-database-ssms-mfa-authentication.md)을 지원하며 [클릭 몇 번](../active-directory/hybrid/how-to-connect-install-express.md)으로 AAD를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 즉, 사용자 이름/암호를 제공하고 사용자를 지정된 SQL Database 서버의 임의 데이터베이스에 대해 인증할 수 있습니다. 또한 Microsoft Azure SQL Database 및 SQL Data Warehouse에서 Azure AD 도메인 내에서 다단계 인증 및 게스트 사용자 계정을 제공할 수 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
 
 |**다음과 같은 경우...**|**SQL Database / SQL Data Warehouse**|
 |---|---|
@@ -106,9 +106,9 @@ SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-acc
 
 #### <a name="firewall"></a>방화벽
 
-방화벽은 특정 엔터티에 대해서만 논리 서버에 액세스를 허용하여 외부 엔터티에서의 서버 액세스를 방지합니다. 기본적으로 다른 Azure 서비스의 연결을 제외하고 논리 서버 내의 모든 연결 및 데이터베이스는 허용되지 않습니다. 방화벽 규칙을 사용하여 방화벽을 통해 개발자 컴퓨터의 IP 주소를 허용하면 직접 승인하는 엔터티(예: 개발자 머신)에 대해서만 서버 액세스를 개방할 수 있습니다. 또한 논리 서버에 대한 액세스를 허용할 IP 범위를 지정할 수도 있습니다. 예를 들어 방화벽 설정 페이지에서 범위를 지정하여 조직의 개발자 머신 IP 주소들을 동시에 추가할 수 있습니다.
+방화벽은 특정 엔터티에 대해서만 SQL Database 서버에 액세스를 허용하여 외부 엔터티에서의 서버 액세스를 방지합니다. 기본적으로 다른 Azure 서비스의 연결을 제외하고 SQL Database 서버 내의 모든 연결 및 데이터베이스는 허용되지 않습니다. 방화벽 규칙을 사용하여 방화벽을 통해 개발자 컴퓨터의 IP 주소를 허용하면 직접 승인하는 엔터티(예: 개발자 머신)에 대해서만 서버 액세스를 개방할 수 있습니다. 또한 SQL Database 서버에 대한 액세스를 허용할 IP 범위를 지정할 수도 있습니다. 예를 들어 방화벽 설정 페이지에서 범위를 지정하여 조직의 개발자 머신 IP 주소들을 동시에 추가할 수 있습니다.
 
-서버 및 데이터베이스 수준의 방화벽 규칙을 만들 수 있습니다. Azure Portal 또는 SSMS를 사용하여 서버 수준의 방화벽 규칙을 만들 수 있습니다. 서버 및 데이터베이스 수준 방화벽 규칙을 설정하는 방법에 대해 자세히 알아보려면: [SQL Database에서 방화벽 규칙 만들기](sql-database-security-tutorial.md#create-firewall-rules)를 참조하세요.
+서버 및 데이터베이스 수준의 방화벽 규칙을 만들 수 있습니다. Azure Portal 또는 SSMS를 사용하여 서버 수준 IP 방화벽 규칙을 만들 수 있습니다. 서버 수준 및 데이터베이스 수준 방화벽 규칙을 설정하는 방법에 대한 자세한 내용은 [SQL Database에서 IP 방화벽 규칙 만들기](sql-database-security-tutorial.md#create-firewall-rules)를 참조하세요.
 
 #### <a name="service-endpoints"></a>서비스 엔드포인트
 
@@ -134,7 +134,7 @@ SQL Database를 사용하면 감사를 켜서 데이터베이스 이벤트를 �
 
 #### <a name="threat-detection"></a>위협 감지
 
-[위협 감지](sql-database-threat-detection.md)를 사용하여 감사에 의해 감지된 보안 또는 정책 위반에 대해 매우 쉽게 행동하는 기능을 얻습니다. 시스템의 잠재적 위협 또는 위반을 해결하기 위해 보안 전문가가 될 필요가 없습니다. 위협 감지는 SQL 삽입 감지 같은 몇 가지 기본 제공 기능도 포함합니다. SQL 삽입은 데이터 변경 또는 훼손 시도이며 일반적으로 데이터베이스 애플리케이션을 공격할 때 아주 많이 사용되는 방법입니다. SQL Database 위협 요소 탐지는 잠재적인 취약점 및 SQL 삽입 공격뿐만 아니라 비정상 데이터베이스 액세스 패턴(예: 비정상적인 위치에서나 알 수 없는 보안 주체의 액세스)을 탐지하는 여러 알고리즘 집합을 실행합니다. 보안 책임자 또는 지정된 다른 관리자는 데이터베이스에서 위협이 감지되면 전자 메일 알림을 받게 됩니다. 각 알림에서는 의심스러운 활동에 대한 세부 정보와 해당 위협을 자세히 조사하고 완화하는 방법에 대한 권장 사항을 제공합니다. 위협 탐지를 켜는 방법에 대해 알아보려면: [SQL Database 위협 탐지 사용](sql-database-security-tutorial.md#enable-security-features)을 참조하세요.
+[위협 감지](sql-database-threat-detection.md)를 사용하여 감사에 의해 감지된 보안 또는 정책 위반에 대해 매우 쉽게 행동하는 기능을 얻습니다. 시스템의 잠재적 위협 또는 위반을 해결하기 위해 보안 전문가가 될 필요가 없습니다. 위협 감지는 SQL 삽입 감지 같은 몇 가지 기본 제공 기능도 포함합니다. SQL 삽입은 데이터 변경 또는 훼손 시도이며 일반적으로 데이터베이스 애플리케이션을 공격할 때 아주 많이 사용되는 방법입니다. 위협 탐지는 잠재적인 취약점 및 SQL 삽입 공격뿐만 아니라 비정상 데이터베이스 액세스 패턴(예: 비정상적인 위치에서나 알 수 없는 보안 주체의 액세스)을 탐지하는 여러 알고리즘 세트를 실행합니다. 보안 책임자 또는 지정된 다른 관리자는 데이터베이스에서 위협이 감지되면 전자 메일 알림을 받게 됩니다. 각 알림에서는 의심스러운 활동에 대한 세부 정보와 해당 위협을 자세히 조사하고 완화하는 방법에 대한 권장 사항을 제공합니다. 위협 탐지를 켜는 방법에 대해 알아보려면: [위협 탐지 사용](sql-database-security-tutorial.md#enable-security-features)을 참조하세요.
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>일반적으로 SQL Database에서 내 데이터를 보호하려면 어떻게 할까요?
 
@@ -220,7 +220,7 @@ Query Performance Insights를 사용하면 애플리케이션이 언제나 최�
 
 ### <a name="security-optimization"></a>보안 최적화
 
-SQL Database는 데이터를 보호하도록 도와주는 조치 가능 보안 권장 사항 및 데이터베이스에 잠재적 스레드를 노출할 수 있는 의심스러운 데이터베이스 활동을 식별 및 조사하기 위한 위협 탐지를 제공합니다. [SQL 취약성 평가](sql-vulnerability-assessment.md)는 데이터베이스의 보안 상태를 대규모로 모니터링하고 보안 위험을 파악하고 사용자가 정의한 보안 기준에서 드리프트할 수 있도록 하는 데이터베이스 검사 및 보고 서비스입니다. 모든 검사 후 실행 가능한 단계 및 재구성 스크립트의 사용자 지정 목록이 규정 준수 요구 사항을 충족하는 데 사용할 수 있는 평가 보고서와 함께 제공됩니다.
+SQL Database는 데이터를 보호하도록 도와주는 조치 가능 보안 권장 사항 및 데이터베이스에 잠재적 스레드를 노출할 수 있는 의심스러운 데이터베이스 활동을 식별 및 조사하기 위한 위협 탐지를 제공합니다. [취약성 평가](sql-vulnerability-assessment.md)는 데이터베이스의 보안 상태를 대규모로 모니터링하고, 보안 위험을 파악하고, 사용자가 정의한 보안 기준에서 드리프트할 수 있는 데이터베이스 검사 및 보고 서비스입니다. 모든 검사 후 실행 가능한 단계 및 재구성 스크립트의 사용자 지정 목록이 규정 준수 요구 사항을 충족하는 데 사용할 수 있는 평가 보고서와 함께 제공됩니다.
 
 Azure Security Center를 사용하여 한 번의 클릭으로 보드에서 보안 권장 사항을 식별하고 적용합니다.
 
@@ -240,7 +240,7 @@ SQL Database에서는 플랫폼의 지능적인 정보를 활용하여 성능을
 
 #### <a name="azure-portal"></a>Azure portal
 
-Azure Portal은 개요 창에서 데이터베이스를 선택하고 차트를 클릭하면 단일 데이터베이스의 사용률을 보여줍니다. CPU 비율, DTU 비율, 데이터 IO 비율, 세션 비율 및 데이터베이스 크기 비율을 포함하는, 여러 가지 메트릭을 표시하도록 차트를 수정할 수 있습니다.
+Azure Portal은 개요 창에서 데이터베이스를 선택하고 차트를 클릭하면 데이터베이스의 사용률을 보여 줍니다. CPU 비율, DTU 비율, 데이터 IO 비율, 세션 비율 및 데이터베이스 크기 비율을 포함하는, 여러 가지 메트릭을 표시하도록 차트를 수정할 수 있습니다.
 
 ![모니터링 차트](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
@@ -250,7 +250,7 @@ Azure Portal은 개요 창에서 데이터베이스를 선택하고 차트를 �
 
 #### <a name="dynamic-management-views"></a>동적 관리 뷰
 
-지난 1시간 동안의 리소스 소비 통계 기록을 반환하려면 [sys.dm_db_resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 동적 관리 뷰를, 지난 14일에 대한 기록을 반환하려면 sys.resource_stats 시스템 카탈로그 뷰를 쿼리하면 됩니다.
+지난 1시간 동안의 리소스 소비 통계 기록을 반환하려면 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 동적 관리 뷰를, 지난 14일에 대한 기록을 반환하려면 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 시스템 카탈로그 뷰를 쿼리하면 됩니다.
 
 #### <a name="query-performance-insight"></a>쿼리
 

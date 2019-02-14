@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 0e1a0919975253e24318bb8029249958cbc50d62
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473166"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811531"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure 진단 1.0 구성 스키마
 > [!NOTE]
@@ -101,7 +101,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:
 
-|특성  |type   |필수| 기본값 | 설명|  
+|특성  |Type   |필수| 기본값 | 설명|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|옵션 | PT1M| 진단 모니터가 진단 구성 변경을 폴링하는 간격을 지정합니다.|  
 |**overallQuotaInMB**|unsignedInt|옵션| 4000MB 값을 제공하는 경우 이 크기를 초과하지 않아야 합니다. |모든 로깅 버퍼에 할당된 파일 시스템 저장소의 총 크기입니다.|  
@@ -109,11 +109,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs 요소  
 기본 진단 인프라에서 생성하는 로그의 버퍼 구성을 정의합니다.
 
-부모 요소: [DiagnosticMonitorConfiguration 요소](#DiagnosticMonitorConfiguration).  
+부모 요소: DiagnosticMonitorConfiguration 요소.  
 
 특성:
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
@@ -122,11 +122,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="logs-element"></a>Logs 요소  
  기본 Azure 로그의 버퍼 구성을 정의합니다.
 
- 부모 요소: [DiagnosticMonitorConfiguration 요소](#DiagnosticMonitorConfiguration).  
+ 부모 요소: DiagnosticMonitorConfiguration 요소.  
 
 특성:  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
@@ -135,12 +135,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="directories-element"></a>Directories 요소  
 정의할 수 있는 파일 기반 로그의 버퍼 구성을 정의합니다.
 
-부모 요소: [DiagnosticMonitorConfiguration 요소](#DiagnosticMonitorConfiguration).  
+부모 요소: DiagnosticMonitorConfiguration 요소.  
 
 
 특성:  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
@@ -148,11 +148,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="crashdumps-element"></a>CrashDumps 요소  
  크래시 덤프 디렉터리를 정의합니다.
 
- 부모 요소: [Directories 요소](#Directories).  
+ 부모 요소: Directories 요소.  
 
 특성:  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
@@ -160,11 +160,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs 요소  
  실패한 요청 로그 디렉터리를 정의합니다.
 
- 부모 요소[Directories 요소](#Directories).  
+ 부모 요소 Directories 요소.  
 
 특성:  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
@@ -172,11 +172,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ##  <a name="iislogs-element"></a>IISLogs 요소  
  IIS 로그 디렉터리를 정의합니다.
 
- 부모 요소[Directories 요소](#Directories).  
+ 부모 요소 Directories 요소.  
 
 특성:  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
@@ -184,16 +184,16 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="datasources-element"></a>DataSources 요소  
  0개 이상의 추가 로그 디렉터리를 정의합니다.
 
- 부모 요소: [Directories 요소](#Directories).
+ 부모 요소: Directories 요소.
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration 요소  
  모니터링할 로그 파일의 디렉터리를 정의합니다.
 
- 부모 요소: [DataSources 요소](#DataSources).
+ 부모 요소: DataSources 요소.
 
 특성:
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
@@ -201,11 +201,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="absolute-element"></a>Absolute 요소  
  선택적 환경 확장을 사용하여 모니터링할 디렉터리의 절대 경로를 정의합니다.
 
- 부모 요소: [DirectoryConfiguration 요소](#DirectoryConfiguration).  
+ 부모 요소: DirectoryConfiguration 요소.  
 
 특성:  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**path**|string|필수 사항입니다. 모니터링할 디렉터리의 절대 경로입니다.|  
 |**expandEnvironment**|부울|필수 사항입니다. **true**로 설정하면 경로의 환경 변수가 확장됩니다.|  
@@ -213,11 +213,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="localresource-element"></a>LocalResource 요소  
  서비스 정의에 정의된 로컬 리소스의 상대 경로를 정의합니다.
 
- 부모 요소: [DirectoryConfiguration 요소](#DirectoryConfiguration).  
+ 부모 요소: DirectoryConfiguration 요소.  
 
 특성:  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**name**|string|필수 사항입니다. 모니터링할 디렉터리를 포함하는 로컬 리소스의 이름입니다.|  
 |**relativePath**|string|필수 사항입니다. 모니터링할 로컬 리소스의 상대 경로입니다.|  
@@ -225,12 +225,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="performancecounters-element"></a>PerformanceCounters 요소  
  수집할 성능 카운터의 경로를 정의합니다.
 
- 부모 요소: [DiagnosticMonitorConfiguration 요소](#DiagnosticMonitorConfiguration).
+ 부모 요소: DiagnosticMonitorConfiguration 요소.
 
 
  특성:  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
@@ -238,11 +238,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration 요소  
  수집할 성능 카운터를 정의합니다.
 
- 부모 요소: [PerformanceCounters 요소](#PerformanceCounters).  
+ 부모 요소: PerformanceCounters 요소.  
 
  특성:  
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**counterSpecifier**|string|필수 사항입니다. 수집할 성능 카운터의 경로입니다.|  
 |**sampleRate**|duration|필수 사항입니다. 성능 카운터를 수집할 속도입니다.|  
@@ -250,11 +250,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="windowseventlog-element"></a>WindowsEventLog 요소  
  모니터링할 이벤트 로그를 정의합니다.
 
- 부모 요소: [DiagnosticMonitorConfiguration 요소](#DiagnosticMonitorConfiguration).
+ 부모 요소: DiagnosticMonitorConfiguration 요소.
 
   특성:
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
@@ -263,11 +263,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="datasource-element"></a>DataSource 요소  
  모니터링할 이벤트 로그를 정의합니다.
 
- 부모 요소: [WindowsEventLog 요소](#windowsEventLog).  
+ 부모 요소: WindowsEventLog 요소.  
 
  특성:
 
-|특성|type|설명|  
+|특성|Type|설명|  
 |---------------|----------|-----------------|  
 |**name**|string|필수 사항입니다. 수집할 로그를 지정하는 XPath 식입니다.|  
 

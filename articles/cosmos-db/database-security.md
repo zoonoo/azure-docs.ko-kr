@@ -1,17 +1,17 @@
 ---
 title: 데이터베이스 보안 - Azure Cosmos DB
 description: Azure Cosmos DB에서 데이터에 대해 데이터베이스 보호 및 데이터 보안을 제공하는 방법을 알아봅니다.
-author: rafats
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: rafats
-ms.openlocfilehash: a4fadf64826dff43f044df00ff610f81c964b582
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: rimman
+ms.openlocfilehash: 3d05da5f62a076dc168bef029cd0babc3946ee6b
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822802"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243147"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 보안 - 개요
 

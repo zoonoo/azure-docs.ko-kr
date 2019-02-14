@@ -6,23 +6,23 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 531ba32125479528b1a847b32d711049e699dda0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5ad77b0c88c71860db939feecac5a1aecfc4ca40
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191664"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756287"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 
 PowerShell 모듈 [ADSyncConfig.psm1](reference-connect-adsyncconfig.md)은 2018년 8월에 릴리스된 빌드 1.1.880.0에서 도입되었습니다. 이 빌드에는 Azure AD Connect 배포의 올바른 Active Directory 권한을 구성하는 데 사용할 수 있는 cmdlet 컬렉션이 포함되어 있습니다. 
 
 ## <a name="overview"></a>개요 
-다음 PowerShell cmdlet을 사용하여 Azure AD Connect에서 사용하도록 설정한 것처럼 가장한 각 기능에 대해 AD DS 커넥터 계정의 Active Directory 권한을 설정할 수 있습니다. 문제를 방지하려면 사용자 지정 도메인 계정으로 Azure AD Connect를 설치하여 포리스트에 연결할 때마다 Active Directory 권한을 미리 준비해야 합니다. 이 ADSyncConfig 모듈은 Azure AD Connect가 배포된 후 권한을 구성하는 데도 사용할 수 있습니다.
+Azure AD Connect에서 사용하기 위해 선택하는 각 기능에 대해, 다음 PowerShell cmdlet을 사용하여 AD DS 커넥터 계정의 Active Directory 권한을 설정할 수 있습니다. 문제를 방지하려면 사용자 지정 도메인 계정으로 Azure AD Connect를 설치하여 포리스트에 연결할 때마다 Active Directory 권한을 미리 준비해야 합니다. 이 ADSyncConfig 모듈은 Azure AD Connect가 배포된 후 권한을 구성하는 데도 사용할 수 있습니다.
 
 ![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 

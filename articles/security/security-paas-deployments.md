@@ -4,7 +4,7 @@ description: " PaaS와 다른 클라우드 서비스 모델의 보안 이점을 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: techlake
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488410"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117802"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -111,7 +111,7 @@ Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl)�
 
 | 위협 | 보안 속성 | Azure 플랫폼 완화 가능성 |
 | --- | --- | --- |
-| 스푸핑 | 인증 | HTTPS 연결을 사용해야 하도록 지정합니다. |
+| 스푸핑 | Authentication | HTTPS 연결을 사용해야 하도록 지정합니다. |
 | 변조 | 무결성 | SSL 인증서 유효성을 검사합니다. |
 | 거부 | 거부 없음 | Azure [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다. |
 | 정보 공개 | 기밀성 | [서비스 인증서](https://docs.microsoft.com/rest/api/appservice/certificates)를 사용하여 미사용 상태의 중요한 데이터를 암호화합니다. |

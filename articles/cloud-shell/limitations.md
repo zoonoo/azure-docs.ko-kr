@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 135496e17ae884db580922aa31f6824b2e7fd934
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855987"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563884"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 제한 사항
 
@@ -77,7 +77,7 @@ PowerShell cmdlet을 사용하여 사용자가 Azure 드라이브 아래에 파�
 
 ### <a name="gui-applications-are-not-supported"></a>GUI 애플리케이션은 지원되지 않습니다.
 
-사용자가 Windows 대화 상자를 만드는 명령을 실행할 경우(예: `Connect-AzureAD` 또는 `Connect-AzureRmAccount`) `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` 같은 오류 메시지가 표시됩니다.
+사용자가 Windows 대화 상자(예: `Connect-AzureAD`, `Connect-AzureRmAccount` 또는 `Connect-AzAccount`)를 만드는 명령을 실행하는 경우 `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`와 같은 오류 메시지가 표시됩니다.
 
 ### <a name="tab-completion-crashes-psreadline"></a>탭 완성 기능이 PSReadline와 충돌합니다.
 

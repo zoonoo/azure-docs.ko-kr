@@ -3,8 +3,8 @@ title: 애플리케이션을 추가할 때 사용할 애플리케이션 형식�
 description: Azure AD와 통합할 수 있는 지원되는 애플리케이션의 형식 및 해당 관련 구성 옵션 이해
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: barbkess
-ms.openlocfilehash: ef752d2f9d57ee8674d91fd14b56b804ccf50d22
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8009f50643121f1def184485aa383fe3ce8033dd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814203"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56184944"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션을 추가할 때 애플리케이션 유형 선택
 Azure AD(Azure Active Directory)에 추가할 수 있는 네 가지 유형의 애플리케이션에 대해 알아봅니다. Azure Active Directory에서 애플리케이션을 추가할 때 4개의 애플리케이션 유형 중 하나를 선택하라는 메시지가 표시됩니다. 

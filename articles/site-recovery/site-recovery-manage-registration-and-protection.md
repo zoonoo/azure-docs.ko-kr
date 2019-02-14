@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 7a9c0ec081b676631f950270f9234284a102d7fa
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9aaa5dd2c636f9b5d92e949e1af71eda809cdac7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212191"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810323"
 ---
 # <a name="remove-servers-and-disable-protection"></a>서버 제거 및 보호 사용 안 함
 
@@ -154,7 +154,7 @@ VMM에 의해 관리되지 않는 Hyper-V 호스트가 Hyper-V 사이트로 수�
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Hyper-V 가상 머신에 대해 보호 사용 안 함(Hyper-V에서 Azure로)
 
 > [!NOTE]
-> VMM 서버 없이 Hyper-V VM을 Azure에 복제하는 경우 이 절차를 사용합니다. **System Center VMM에서 Azure로** 시나리오를 사용하여 가상 머신을 복제하는 경우 [System Center VMM에서 Azure로 시나리오를 사용하여 복제하는 Hyper-V 가상 머신에 보호 사용 안 함](#disable-protection-for-a-hyper-v-virtual-machine-replicating-using-the-system-centet-vmm-to-azure-scenario)의 지침을 따릅니다.
+> VMM 서버 없이 Hyper-V VM을 Azure에 복제하는 경우 이 절차를 사용합니다. **System Center VMM에서 Azure로** 시나리오를 사용하여 가상 머신을 복제하는 경우 System Center VMM에서 Azure로 시나리오를 사용하여 복제하는 Hyper-V 가상 머신에 보호 사용 안 함의 지침을 따릅니다.
 
 1. **보호된 항목** > **복제된 항목**에서 컴퓨터를 마우스 오른쪽 단추로 클릭한 후 **복제 사용 안 함**을 클릭합니다.
 2. **복제 사용 안 함**에서 다음 옵션을 선택할 수 있습니다.

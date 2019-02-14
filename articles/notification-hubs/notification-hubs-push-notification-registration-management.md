@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/23/2019
-ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d87cd174e3fca7ce2088ad270a74b08de4ac7cb5
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817836"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566163"
 ---
 # <a name="registration-management"></a>등록 관리
 
@@ -33,7 +33,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치**를 사�
 
 ### <a name="registrations"></a>등록
 
-등록은 태그 및 아마도 템플릿을 가진 디바이스에 대해 플랫폼 알림 서비스(PNS) 핸들을 연결합니다. PNS 핸들은 ChannelURI, 디바이스 토큰 또는 GCM 등록 ID일 수 있습니다. 태그는 디바이스 핸들의 정확한 집합에 알림을 올바른 디바이스 핸들 집합에 라우팅하기 위해 사용됩니다. 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요. 템플릿은 등록당 변환을 구현하는 데 사용됩니다. 자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하세요.
+등록은 태그 및 아마도 템플릿을 가진 디바이스에 대해 플랫폼 알림 서비스(PNS) 핸들을 연결합니다. PNS 핸들은 ChannelURI, 디바이스 토큰 또는 FCM 등록 ID일 수 있습니다. 태그는 디바이스 핸들의 정확한 집합에 알림을 올바른 디바이스 핸들 집합에 라우팅하기 위해 사용됩니다. 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요. 템플릿은 등록당 변환을 구현하는 데 사용됩니다. 자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하세요.
 
 > [!NOTE]
 > Azure Notification Hubs는 등록당 최대 60개 태그를 지원합니다.
@@ -295,8 +295,8 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
         case "apns":
             installation.Platform = NotificationPlatform.Apns;
             break;
-        case "gcm":
-            installation.Platform = NotificationPlatform.Gcm;
+        case "fcm":
+            installation.Platform = NotificationPlatform.Fcm;
             break;
         default:
             throw new HttpResponseException(HttpStatusCode.BadRequest);

@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888161"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563986"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs를 사용하는 푸시 알림: 질문과 대답
 
@@ -80,7 +80,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 ### <a name="which-client-platforms-do-you-support"></a>어떤 클라이언트 플랫폼이 지원되나요?
 
-푸시 알림은 [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows 유니버설](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China(Baidu 제공)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) 및 [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) 및 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)에 대해 지원됩니다. 자세한 내용을 보려면 [Notification Hubs 시작 자습서] 페이지로 이동하세요.
+푸시 알림은 [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows 유니버설](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China(Baidu 경유)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) 및 Android), [Chrome 앱](notification-hubs-chrome-push-notifications-get-started.md) 및 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)에서 지원됩니다. 자세한 내용을 보려면 [Notification Hubs 시작 자습서] 페이지로 이동하세요.
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>문자 메시지, 전자 메일, 웹 알림이 지원되나요?
 
@@ -144,7 +144,7 @@ Apple, Google 등의 플랫폼 개발자 포털에 모바일 앱을 등록하면
 
 #### <a name="geo-distribution"></a>지역 배포
 
-지역 배포가 푸시 알림 시나리오에서 반드시 중요한 것은 아닙니다. 디바이스에 푸시 알림을 배달하는 다양한 PNS(예: APNS 또는 GCM)가 고르게 분산되지 않습니다.
+지역 배포가 푸시 알림 시나리오에서 반드시 중요한 것은 아닙니다. 디바이스에 푸시 알림을 전송하는 다양한 PNS(예: APNS 또는 FCM)가 고르게 배포되지 않습니다.
 
 애플리케이션이 전역적으로 사용되는 경우에는 전 세계 여러 Azure 지역에서 Notification Hubs 서비스를 사용하여 다른 네임스페이스에 허브를 만들 수 있습니다.
 
@@ -207,7 +207,7 @@ Azure Notification Hubs에서는 문제 해결을 위한 여러 기능을 제공
 Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 확인할 수 있습니다. 사용 가능한 메트릭에 대한 자세한 내용은 [Notification Hubs 메트릭] 페이지에서 제공됩니다.
 
 > [!NOTE]
-> 정상적인 알림은 푸시 알림이 외부 PNS(예: Apple의 APNS, Google의 GCM 등)에 배달되었음을 의미합니다. 이것은 대상 디바이스에 알림을 배달하기 위해 PNS가 담당합니다. 일반적으로 PNS는 제 3자에게 배달 메트릭을 노출하지 않습니다.  
+> 성공적인 알림은 푸시 알림이 외부 PNS(예: Apple용 APNS, Google용 FCM)에 전송되었음을 의미합니다. 이것은 대상 디바이스에 알림을 배달하기 위해 PNS가 담당합니다. 일반적으로 PNS는 제 3자에게 배달 메트릭을 노출하지 않습니다.  
 
 표준 계층에서는 프로그래밍 방식으로 원격 분석 데이터를 내보내는 기능도 제공합니다. 자세한 내용은 [Notification Hubs 메트릭 샘플]을 참조하세요.
 

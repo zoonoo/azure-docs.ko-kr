@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728405"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235991"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -47,7 +47,7 @@ Azure SQL Database는 [Virtual Network 규칙](sql-database-vnet-service-endpoin
 > [!IMPORTANT]
 > Azure 내에서 데이터베이스와 데이터베이스 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 아티클에 대한 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
 
-### <a name="authentication"></a>인증
+### <a name="authentication"></a>Authentication
 
 인증은 사용자의 신원을 증명하는 과정입니다. Azure SQL Database는 두 가지 인증 유형을 지원합니다.
 
@@ -98,7 +98,7 @@ SQL Database 감사는 데이터베이스 활동을 추적하며 고객이 소�
 
 ### <a name="transport-layer-security-tls-encryption-in-transit"></a>TLS(전송 계층 보안)(전송 중 암호화)
 
-SQL Database는 [전송 계층 보안](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server)을 사용하여 이동 중인 데이터를 암호화해 고객 데이터를 보호합니다.
+SQL Database는 [전송 계층 보안](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)을 사용하여 이동 중인 데이터를 암호화해 고객 데이터를 보호합니다.
 
 > [!IMPORTANT]
 > Azure SQL Database는 항상 모든 연결에 암호화(SSL/TLS)를 적용하여 데이터베이스와 클라이언트 간에 “전송”되는 모든 데이터를 암호화합니다. 이 동작은 연결 문자열의 **암호화** 또는 **TrustServerCertificate** 설정에 관계없이 발생합니다.

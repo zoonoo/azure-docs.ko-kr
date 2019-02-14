@@ -11,15 +11,16 @@ author: jodebrui
 ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: fbe05186b317d3c24dca55197c2989155b5543bd
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228048"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565924"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>메모리 내 OLTP를 사용하여 SQL Database에서 애플리케이션의 성능 향상
+
 [메모리 내 OLTP](sql-database-in-memory.md)를 사용하면 가격대를 높이지 않고도 [프리미엄 및 중요 비즈니스용 계층](sql-database-service-tiers-vcore.md) 데이터베이스에서 트랜잭션 처리, 데이터 수집 및 일시적인 데이터 시나리오의 성능을 개선할 수 있습니다. 
 
 > [!NOTE] 
@@ -28,7 +29,8 @@ ms.locfileid: "51228048"
 
 기존 데이터베이스에서 메모리 내 OLTP를 채택하려면 다음 단계를 따르세요.
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>1단계: 프리미엄 및 중요 비즈니스용 계층 데이터베이스를 사용하고 있는지 확인합니다.
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>1단계: 프리미엄 및 중요 비즈니스용 계층 데이터베이스를 사용하고 있는지 확인
+
 메모리 내 OLTP는 프리미엄 및 중요 비즈니스용 계층 데이터베이스에서만 지원됩니다. 반환된 결과가 1인 경우(0이 아님) 메모리 내가 지원됩니다.
 
 ```
@@ -39,7 +41,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>2단계: 개체를 식별하여 메모리 내 OLTP로 마이그레이션
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>2단계: 메모리 내 OLTP로 마이그레이션할 개체 식별
 SSMS는 활성 워크로드를 사용하여 데이터베이스에 대해 실행할 수 있는 **트랜잭션 성능 분석 개요** 보고서를 포함합니다. 보고서는 메모리 내 OLTP로 마이그레이션하기 위한 후보인 테이블 및 저장된 프로시저를 식별합니다.
 
 SSMS에서 보고서를 생성합니다.
@@ -161,7 +163,7 @@ CREATE PROCEDURE schemaname.procedurename
 
 네트워크 대기 시간을 최소화하려면 데이터베이스가 있는 동일한 Azure 지리적 지역에 있는 테스트를 실행합니다.
 
-## <a name="step-7-post-implementation-monitoring"></a>7단계: 사후 실현 모니터링
+## <a name="step-7-post-implementation-monitoring"></a>7단계: 구현 후 모니터링
 프로덕션에서 메모리 내 구현의 성능 효과를 모니터링하는 것이 좋습니다.
 
 * [메모리 내 저장소 모니터링](sql-database-in-memory-oltp-monitoring.md).

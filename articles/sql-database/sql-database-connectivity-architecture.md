@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/06/2019
+ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469120"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809983"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -25,8 +25,7 @@ ms.locfileid: "55469120"
 
 > [!IMPORTANT]
 > **[예정된 변경 내용] Azure SQL 서버에 대한 서비스 엔드포인트 연결에서 `Default` 연결 동작이 `Redirect`로 변경됩니다.**
->
-> 변경 내용은 2019년 1월 2일까지 모든 지역에 적용됩니다.
+> 고객은 연결 아키텍처에 따라 새 서버를 만들고, 연결 유형이 명시적으로 설정된 기존 서버를 리디렉션(선호) 또는 프록시로 설정하는 것이 좋습니다.
 >
 > 기존 환경에서 연결 서비스 엔드포인트를 통한 연결이 이러한 변경으로 인해 중단되지 않도록 하기 위해 원격 분석을 통해 다음을 수행할 것입니다.
 > - 변경 이전에 서비스 엔드포인트를 통해 액세스한 것으로 확인된 서버의 경우, 연결 유형을 `Proxy`로 전환합니다.
@@ -38,7 +37,7 @@ ms.locfileid: "55469120"
 >
 > Azure SQL Server로의 서비스 엔드포인트 연결을 설정할 수 없습니다. 이 변경의 영향을 받을 것으로 의심될 경우 해당 연결 유형이 명시적으로 `Redirect`로 설정되어 있는지 확인하세요. 이 경우 포트 11000 ~ 12000의 SQL [서비스 태그](../virtual-network/security-overview.md#service-tags)에 속하는 모든 Azure IP 주소에 대해 VM 방화벽 규칙 및 NSG(네트워크 보안 그룹)를 열어야 합니다. 이 방법을 사용할 수 없는 경우 서버를 명시적으로 `Proxy`로 전환합니다.
 > [!NOTE]
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 토픽은 단일 데이터베이스 및 탄력적 풀을 호스팅하는 Azure SQL Database 서버와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 

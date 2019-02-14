@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 43d16c291391a3ffd94f404755e644dac0daf3a9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492830"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244301"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>PowerShell을 사용하여 한 실험에서 Studio 모델 및 웹 서비스 엔드포인트 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "55492830"
 > 
 
 ## <a name="set-up-the-training-experiment"></a>학습 실험 설정
-[Cortana Intelligence 갤러리](http://gallery.cortanaintelligence.com)에 있는 예제 [학습 실험](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1)을 사용합니다. [Azure Machine Learning Studio](https://studio.azureml.net) 작업 영역에서 이 실험을 엽니다.
+[Cortana Intelligence 갤러리](http://gallery.azure.ai)에 있는 예제 [학습 실험](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1)을 사용합니다. [Azure Machine Learning Studio](https://studio.azureml.net) 작업 영역에서 이 실험을 엽니다.
 
 > [!NOTE]
 > 이 예제를 함께 수행하려면 무료 작업 영역보다는 표준 작업 영역을 사용하는 것이 좋습니다. 고객당 엔드포인트 하나(총 10개 엔드포인트)를 만들고 체험 작업 영역은 3개 엔드포인트로 제한되므로 이 경우 표준 작업 영역이 필요합니다. 체험 작업 영역만 있는 경우 3개의 위치만 허용하도록 스크립트를 변경합니다.
@@ -63,7 +63,7 @@ ms.locfileid: "55492830"
 이 작업을 수행하려면 캔버스 아래에서 **웹 서비스 설정**을 클릭하고 **예측 웹 서비스**를 선택합니다. 점수 매기기 실험을 만듭니다.
 웹 서비스로 작동하려면 몇 가지 사소한 측면을 조정해야 합니다. 입력 데이터에서 레이블 열 “cnt”를 제거하고 출력을 인스턴스 ID 및 해당 예측 값으로만 제한합니다.
 
-해당 작업을 직접 저장하려면 미리 준비된 갤러리에서 [예측 실험](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1)을 열면 됩니다.
+해당 작업을 직접 저장하려면 미리 준비된 갤러리에서 [예측 실험](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1)을 열면 됩니다.
 
 웹 서비스를 배포하려면 예측 실험을 실행하고 캔버스 아래의 **웹 서비스 배포** 단추를 클릭합니다. 점수 매기기 웹 서비스 이름을 "Bike Rental Scoring"(자전거 대여 점수 매기기)으로 지정합니다.
 

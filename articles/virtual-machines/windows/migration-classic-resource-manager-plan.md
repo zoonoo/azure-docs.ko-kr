@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 6d84c83efa194543ed10aaed82362021b7053476
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1960cac28b74980d17f37b4e06e79604e156381e
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576207"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55566240"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다.
@@ -201,7 +201,7 @@ Azure Resource Manager에 있으므로 이제 플랫폼을 극대화합니다.  
 
 이제 Azure Resource Manager에서 사용하도록 설정하려는 서비스에 대해 분명한 목적이 있어야 합니다.  많은 고객들이 Azure 환경에서 다음과 같은 강력한 요소를 찾고 있습니다.
 
-- [역할 기반 Access Control](../../azure-resource-manager/resource-group-overview.md#access-control)
+- [역할 기반 Access Control](../../role-based-access-control/overview.md)
 - [쉽고 제어 가능한 배포를 위한 Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [태그](../../azure-resource-manager/resource-group-using-tags.md).
 - [활동 제어](../../azure-resource-manager/resource-group-audit.md)

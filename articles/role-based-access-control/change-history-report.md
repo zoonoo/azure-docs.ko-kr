@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e47bb293d53df658641a50a1399ead85667e3225
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692766"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117651"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>RBAC 변경 사항에 대한 활동 로그 보기
 
@@ -55,7 +55,7 @@ ms.locfileid: "55692766"
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-Azure PowerShell을 사용하여 활동 로그를 보려면 [Get-AzLog](/powershell/module/az.insights/get-azlog) 명령을 사용합니다.
+Azure PowerShell을 사용하여 활동 로그를 보려면 [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog) 명령을 사용합니다.
 
 이 명령은 지난 7일 동안 구독에서 발생한 모든 역할 할당 변경 내용을 나열합니다.
 

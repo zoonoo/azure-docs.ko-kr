@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: b008fe128aa760197c34d8c14c4d3b92cbed2bd2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b883dcf941683d6065c9b6ee5075d2a358f3452a
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103169"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55563510"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT 디바이스에서 데이터를 처리하도록 Azure Stream Analytics 시작
 이 자습서에서는 IoT(사물 인터넷) 디바이스에서 데이터를 수집하기 위한 스트림 처리 논리를 만드는 방법을 배웁니다. 실제, IoT(사물 인터넷) 사용 사례를 사용하여 솔루션을 신속하고 경제적으로 구축하는 방법을 보여 줍니다.
@@ -103,7 +103,7 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 이제 결과에서 245행 및 평균 온도가 100도를 넘는 센서의 이름을 표시해야 합니다. 이 쿼리는 이벤트의 스트림을 30초 동안의 **연속 창**에서 센서 이름인 **dspl**로 그룹화합니다. 임시 쿼리는 시간을 진행할 방법을 명시해야 합니다. **TIMESTAMP BY** 절을 사용하여 모든 임시 계산과 시간을 연결하는 **OUTPUTTIME** 열을 지정했습니다. 자세한 정보는 [시간 관리](https://msdn.microsoft.com/library/azure/mt582045.aspx) 및 [기간 이동 기능](https://msdn.microsoft.com/library/azure/dn835019.aspx)에 대한 MSDN 문서를 참조하세요.
 
 ### <a name="query-detect-absence-of-events"></a>쿼리: 이벤트의 부재 감지
-이벤트의 부족을 찾기 위해 어떻게 쿼리를 작성할 수 있나요? 센서에서 데이터를 보낸 이후 5초 동안 이벤트를 보내지 않은 마지막 시간을 알아보겠습니다. 쿼리는 AbsenseOfEvent.txt 파일에 있습니다.
+이벤트의 부족을 찾기 위해 어떻게 쿼리를 작성할 수 있나요? 센서에서 데이터를 보낸 이후 5초 동안 이벤트를 보내지 않은 마지막 시간을 알아보겠습니다. 쿼리는 AbsenceOfEvent.txt 파일에 있습니다.
 
 ![이벤트의 부재 감지](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 

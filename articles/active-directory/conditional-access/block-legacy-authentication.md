@@ -1,6 +1,6 @@
 ---
 title: 조건부 액세스를 사용하여 Azure AD(Active Directory)에 대한 레거시 인증을 차단하는 방법 | Microsoft Docs
-description: Azure AD(Azure Active Directory)에서 신뢰할 수 없는 네트워크의 액세스 시도에 대한 조건부 액세스 정책을 구성하는 방법을 알아봅니다.
+description: Azure AD 조건부 액세스를 통해 레거시 인증을 차단하여 보안 태세를 향상시키는 방법을 알아봅니다.
 services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
 documentationcenter: ''
@@ -14,19 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 164ff12eeec057855476d3808d3d1d44ef3179fe
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5ff4861c288b82d6ce90d85c38ef3f92eb299ea4
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076846"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562983"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
 사용자가 클라우드 앱에 쉽게 액세스할 수 있도록 Azure AD(Active Directory)에서 레거시 인증을 포함한 다양한 인증 프로토콜을 지원합니다. 그러나 레거시 프로토콜은 MFA(다단계 인증)를 지원하지 않습니다. MFA는 다양한 환경에서 ID 도용 문제를 해결하기 위한 일반적인 요구 사항입니다. 
+
 
 환경에서 레거시 인증을 차단하여 테넌트의 보호를 향상시킬 준비가 되면 조건부 액세스를 사용하여 이 목표를 달성할 수 있습니다. 이 문서에서는 테넌트에 대한 레거시 인증을 차단하는 조건부 액세스 정책을 구성하는 방법에 대해 설명합니다.
 
@@ -119,8 +120,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 다른 클라이언트 조건에 사용할 수 있는 모든 권한 부여 제어를 선택할 수 있지만, 최종 사용자 환경은 항상 동일합니다(액세스 차단).
 
-다른 클라이언트 조건 옆에 있는 다른 모든 조건을 구성할 수 있습니다.
-예를 들어 모바일 디바이스에 대한 레거시 인증만 차단하려면 다음을 선택하여 **디바이스 플랫폼** 조건을 설정합니다.
+다른 클라이언트 조건을 사용하여 레거시 인증을 차단하는 경우 디바이스 플랫폼 및 위치 조건을 설정할 수도 있습니다. 예를 들어 모바일 디바이스에 대한 레거시 인증만 차단하려면 다음을 선택하여 **디바이스 플랫폼** 조건을 설정합니다.
 
 - Android
 

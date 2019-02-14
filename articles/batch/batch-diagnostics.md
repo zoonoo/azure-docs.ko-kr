@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 02129fbddae2e3a82299eb3b03d6e73030b44c4d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6fb8166893f0dada019ca633933833d17b95fee9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477882"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811463"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
@@ -37,7 +37,7 @@ ms.locfileid: "55477882"
 
 * 추가 구성 없이 각 배치 계정에서 기본값으로 사용 가능
 * 1분마다 생성
-* 자동으로 유지되지 않으나 30일 롤링 기록이 있습니다. 활동 메트릭을 [진단 로깅](#work-with-diagnostic-logs)의 일환으로 유지할 수 있습니다.
+* 자동으로 유지되지 않으나 30일 롤링 기록이 있습니다. 활동 메트릭을 진단 로깅의 일환으로 유지할 수 있습니다.
 
 ### <a name="view-metrics"></a>메트릭 보기
 

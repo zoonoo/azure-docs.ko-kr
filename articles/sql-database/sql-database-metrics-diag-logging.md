@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 24feef28edac73f625de1c1b7dfd9a4aaf9883af
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: f6874b1d97c36d22e60606ad8c8a356baec53b85
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734626"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893599"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -65,14 +65,14 @@ SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합�
 
 | 데이터베이스에 대한 원격 분석 모니터링 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 관리되는 인스턴스 지원 |
 | :------------------- | ------------------- | ------------------- |
-| [모든 메트릭](sql-database-metrics-diag-logging.md#all-metrics): DTU/CPU 백분율, DTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 방화벽에서 성공/실패/차단된 연결, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율을 포함합니다. | 예 | 아니요 |
-| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대한 정보를 포함합니다. | 예 | 예 |
-| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): CPU, LOG, LOCKING 등 쿼리 대기 통계(쿼리가 대기한 항목)에 대한 정보를 포함합니다. | 예 | 예 |
-| [Errors](sql-database-metrics-diag-logging.md#errors-dataset): 데이터베이스의 SQL 오류에 대한 정보를 포함합니다. | 예 | 예 |
-| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | 예 | 아니요 |
-| [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset): 데이터베이스에서 발생한 시간 제한에 대한 정보를 포함합니다. | 예 | 아니요 |
-| [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset): 데이터베이스의 차단 이벤트에 대한 정보를 포함합니다. | 예 | 아니요 |
-| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): 성능에 대한 Intelligent Insights를 포함합니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | 예 | 예 |
+| [모든 메트릭](#all-metrics): DTU/CPU 백분율, DTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 방화벽에서 성공/실패/차단된 연결, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율을 포함합니다. | 예 | 아니요 |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대한 정보를 포함합니다. | 예 | 예 |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): CPU, LOG, LOCKING 등 쿼리 대기 통계(쿼리가 대기한 항목)에 대한 정보를 포함합니다. | 예 | 예 |
+| [Errors](#errors-dataset): 데이터베이스의 SQL 오류에 대한 정보를 포함합니다. | 예 | 예 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | 예 | 아니요 |
+| [Timeouts](#time-outs-dataset): 데이터베이스에서 발생한 시간 제한에 대한 정보를 포함합니다. | 예 | 아니요 |
+| [Blocks](#blockings-dataset): 데이터베이스의 차단 이벤트에 대한 정보를 포함합니다. | 예 | 아니요 |
+| [SQLInsights](#intelligent-insights-dataset): 성능에 대한 Intelligent Insights를 포함합니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | 예 | 예 |
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -169,7 +169,7 @@ Azure Portal의 각 단일, 풀링된 또는 인스턴스 데이터베이스에 
 
 | 리소스 | 모니터링 원격 분석 |
 | :------------------- | ------------------- |
-| **관리되는 인스턴스** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance)는 vCore 수, 평균 CPU 백분율, IO 요청 수, 읽은/쓴 바이트, 예약된 스토리지 공간 및 사용된 스토리지 공간을 포함합니다. |
+| **관리되는 인스턴스** | [ResourceUsageStats](#logs-for-managed-instances)는 vCore 수, 평균 CPU 백분율, IO 요청 수, 읽은/쓴 바이트, 예약된 스토리지 공간 및 사용된 스토리지 공간을 포함합니다. |
 
 관리되는 인스턴스 리소스에 대한 진단 원격 분석 스트리밍을 사용하도록 설정하려면 다음 단계를 따릅니다.
 

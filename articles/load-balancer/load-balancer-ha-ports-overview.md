@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 328471292ea6cbe07e96cc18af7f9c524407de3d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317205"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55809473"
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 
@@ -100,7 +100,7 @@ HA 포트가 있는 단일 내부 Standard Load Balancer 외에 백 엔드 리�
 
 - HA 포트 기능은 IPv6에서 사용할 수 없습니다.
 
-- 흐름 대칭(주로 NVA 시나리오에 사용)은 위의 [다이어그램](#diagram)과 같이 사용되고 HA 포트 부하 분산 규칙을 사용하는 경우에만 백 엔드 인스턴스 및 단일 NIC(및 단일 IP 구성)에서 지원됩니다. 다른 시나리오에서는 제공되지 않습니다. 즉, 둘 이상의 Load Balancer 리소스와 해당 규칙이 독립적인 의사 결정을 하며 조정되지 않음을 의미합니다. [네트워크 가상 어플라이언스](#nva)에 대한 설명과 다이어그램을 참조하세요. 다중 NIC를 사용하거나 공용 및 내부 Load Balancer 사이에 NVA를 사용하는 경우에는 흐름 대칭을 사용할 수 없습니다.  회신이 동일한 NVA에 도착할 수 있도록 수신 흐름을 어플라이언스의 IP로 소스 NAT 처리하여 이 문제를 해결할 수 있습니다.  그러나 위의 [다이어그램](#diagram)에 표시된 참조 아키텍처와 단일 NIC를 사용하는 것이 좋습니다.
+- 흐름 대칭(주로 NVA 시나리오에 사용)은 위의 다이어그램과 같이 사용되고 HA 포트 부하 분산 규칙을 사용하는 경우에만 백 엔드 인스턴스 및 단일 NIC(및 단일 IP 구성)에서 지원됩니다. 다른 시나리오에서는 제공되지 않습니다. 즉, 둘 이상의 Load Balancer 리소스와 해당 규칙이 독립적인 의사 결정을 하며 조정되지 않음을 의미합니다. [네트워크 가상 어플라이언스](#nva)에 대한 설명과 다이어그램을 참조하세요. 다중 NIC를 사용하거나 공용 및 내부 Load Balancer 사이에 NVA를 사용하는 경우에는 흐름 대칭을 사용할 수 없습니다.  회신이 동일한 NVA에 도착할 수 있도록 수신 흐름을 어플라이언스의 IP로 소스 NAT 처리하여 이 문제를 해결할 수 있습니다.  그러나 위의 다이어그램에 표시된 참조 아키텍처와 단일 NIC를 사용하는 것이 좋습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

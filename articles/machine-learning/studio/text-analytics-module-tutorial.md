@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 431aa2d379639b8daea2519ed643c9949102e117
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 79882fc895262f0fb607ec048e7912ae5f2efdd7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511363"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242671"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 감정 분석 모델 만들기
 
@@ -33,9 +33,9 @@ Azure Machine Learning을 사용하여 텍스트 분석 모델을 빌드하고 �
 
 Azure AI 갤러리에서 이 자습서에 나오는 실험을 찾을 수 있습니다.
 
-[도서 리뷰 예측](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[도서 리뷰 예측](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
 
-[도서 리뷰 예측 - 예측 실험](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+[도서 리뷰 예측 - 예측 실험](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## <a name="step-1-clean-and-preprocess-text-dataset"></a>1단계: 텍스트 데이터 세트 정리 및 전처리
 리뷰 점수를 범주별 하위 및 상위 버킷으로 나누어 문제를 2클래스 분류로 형식화함으로써 실험을 시작합니다. [메타데이터 편집](https://msdn.microsoft.com/library/azure/dn905986.aspx) 및 [범주 값 그룹화](https://msdn.microsoft.com/library/azure/dn906014.aspx) 모듈을 사용합니다.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 021876306c435d3d15996c69ab3613c1d82e6993
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f9ffbebee06ab7b9e010c7e6c84fee533611fb38
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468889"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55567658"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>방법: Azure Active Directory Identity Protection에서 위험 정책 구성(새로 고침)
 
@@ -129,7 +129,7 @@ Azure AD는 사용자의 각 로그인을 분석합니다. 분석 목표는 로�
 
 ## <a name="user-risk-policy-settings"></a>사용자 위험 정책 설정
 
-로그인 위험 정책을 구성할 때 다음을 설정해야 합니다.
+사용자 위험 정책을 구성하는 경우 다음을 설정해야 합니다.
 
 - 정책이 적용되는 사용자 및 그룹:
 

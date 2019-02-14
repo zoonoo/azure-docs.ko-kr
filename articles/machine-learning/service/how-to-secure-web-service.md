@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 10/02/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2c82c39de9b403e2e35f40c0290c8642c702790f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248064"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55769324"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL을 사용하여 Azure Machine Learning 서비스로 웹 서비스 보호
 
@@ -103,5 +103,6 @@ SSL를 사용하도록 설정하여 서비스를 배포하거나 다시 배포�
 현재는 FPGA에 배포된 서비스에 SSL을 사용할 수는 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-[웹 서비스로 배포된 ML 모델을 사용](how-to-consume-web-service.md)하는 방법에 대해 알아봅니다.
+방법 배우기:
++ [웹 서비스로 배포된 기계 학습 모델 사용](how-to-consume-web-service.md)
++ [Azure Virtual Network 내에서 안전하게 실험 및 추론 실행](how-to-enable-virtual-network.md)

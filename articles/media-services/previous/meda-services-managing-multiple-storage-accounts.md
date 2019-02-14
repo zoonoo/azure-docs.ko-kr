@@ -1,27 +1,28 @@
 ---
-title: 여러 Storage 계정에서 Media Services 자산 관리 | Microsoft 문서
-description: 이 문서에서는 여러 저장소 계정에서 미디어 서비스 자산을 관리하는 방법에 대한 지침을 제공합니다.
+title: 여러 스토리지 계정에서 Media Services 자산 관리 | Microsoft Docs
+description: 이 문서에서는 여러 스토리지 계정에서 Media Services 자산을 관리하는 방법에 대한 지침을 제공합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 01/31/2018
 ms.author: juliako
-ms.openlocfilehash: 8c67ce4fd9597c66e795269972d2048ddd5a60c1
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d43adf7009fcd668299f018b6308765bb115b237
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886342"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565907"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>여러 Storage 계정에서 Media Services 자산 관리
-Microsoft Azure Media Services 2.2부터는 여러 저장소 계정을 단일 Media Services 계정에 연결할 수 있습니다. 여러 저장소 계정을 Media Services 계정에 연결하는 기능은 다음과 같은 이점을 제공합니다.
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>여러 스토리지 계정에서 Media Services 자산 관리
+
+여러 스토리지 계정을 단일 Media Services 계정에 연결할 수 있습니다. 여러 저장소 계정을 Media Services 계정에 연결하는 기능은 다음과 같은 이점을 제공합니다.
 
 * 자산을 여러 저장소 계정에서 부하 분산합니다.
 * 대량의 콘텐츠 처리를 위한 Media Services 크기 조정(현재 단일 저장소 계정의 최대 제한은 500TB). 
@@ -29,12 +30,13 @@ Microsoft Azure Media Services 2.2부터는 여러 저장소 계정을 단일 Me
 이 문서에서는 [Azure Resource Manager API](/rest/api/media/operations/azure-media-services-rest-api-reference) 및 [Powershell](/powershell/module/azurerm.media)을 사용하여 여러 저장소 계정을 Media Services 계정에 연결하는 방법을 보여 줍니다. 또한 Media Services SDK를 사용하여 자산을 만들 때 다른 저장소 계정을 지정하는 방법을 보여줍니다. 
 
 ## <a name="considerations"></a>고려 사항
+
 여러 저장소 계정을 Media Services 계정에 연결할 때는 다음과 같은 고려 사항이 있습니다.
 
-* Media Services 계정에 연결된 모든 저장소 계정이 Media Services 계정과 동일한 데이터 센터에 있어야 합니다.
-* 현재는 저장소 계정이 지정된 Media Services 계정에 연결되고 나면 분리할 수 없습니다.
+* Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. Media Services 계정과 동일한 위치의 스토리지 계정을 사용하는 것이 좋습니다.
+* 스토리지 계정이 지정된 Media Services 계정에 연결되면 분리할 수 없습니다.
 * 기본 저장소 계정은 Media Services 계정을 만드는 중에 지정된 계정입니다. 현재는 기본 저장소 계정을 변경할 수 없습니다. 
-* 현재 쿨 Storage 계정을 AMS 계정에 추가하려면 Storage 계정이 Blob 유형이고 주가 아닌 상태로 설정되어야 합니다.
+* 쿨 스토리지 계정을 AMS 계정에 추가하려면 스토리지 계정이 Blob 유형이고 기본이 아닌 계정으로 설정되어야 합니다.
 
 기타 고려 사항:
 

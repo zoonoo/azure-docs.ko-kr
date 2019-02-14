@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7f519729f3ad94324b847ca6b15b254ea7c6abbb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 639b665926f54387dfdc6e837c15c8d6d28df925
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463738"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55755767"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>활성 학습을 사용하여 기술 자료 개선
 
@@ -58,7 +58,7 @@ QnA Maker는 암시적/명시적 피드백을 사용하여 새로운 질문 변�
 
 활성 학습은 기본적으로 해제되어 있습니다. 제안된 질문을 확인하려면 활성 학습을 설정합니다. 
 
-1. 활성 학습을 설정하려면 QnA Maker 포털에서 오른쪽 위의 **서비스 설정**으로 이동합니다.  
+1. 활성 학습을 설정하려면 자신의 **이름**을 클릭하고, QnA Maker 포털에서 오른쪽 위 모서리에 있는 [**서비스 설정**](https://www.qnamaker.ai/UserSettings)으로 이동합니다.  
 
     ![서비스 설정 페이지에서 활성 학습을 설정으로 전환](../media/improve-knowledge-base/Endpoint-Keys.png)
 

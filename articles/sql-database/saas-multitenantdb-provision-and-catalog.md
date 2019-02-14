@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e37bc5f46a1a56357e3dff9d1f67de7dcc2537b0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 09/24/2018
+ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055308"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55562898"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>분할 다중 테넌트 Azure SQL Database를 사용하여 SaaS 애플리케이션에 새 테넌트를 프로비전하고 카탈로그로 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "47055308"
 - [개념적 토론](#goto_2_conceptual)은 새 테넌트의 프로비전 및 카탈로그를 만듭니다.
 
 - [자습서](#goto_1_tutorial)는 프로비전 및 카탈로그 작업을 수행하는 PowerShell 스크립트 코드를 강조합니다.
-    - 자습서는 다중 테넌트 분할 데이터베이스 패턴에 맞게 Wingtip Tickets SaaS 애플리케이션을 사용합니다.
+  - 자습서는 다중 테넌트 분할 데이터베이스 패턴에 맞게 Wingtip Tickets SaaS 애플리케이션을 사용합니다.
 
 <a name="goto_2_conceptual"/>
 
@@ -144,11 +144,11 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 다음은 단계별로 실행하는 프로비전 워크플로의 주요 요소입니다.
 
 - **새 테넌트 키 계산**: 테넌트 이름에서 테넌트 키를 만드는 데에는 해시 함수가 사용됩니다.
-- **테넌트 키의 존재 여부 확인**:카탈로그를 확인하여 키가 아직 등록되지 않았는지 확인합니다.
+- **테넌트 키가 이미 있는지 확인**: 카탈로그를 확인하여 키가 아직 등록되지 않았는지 확인합니다.
 - **기본 테넌트 데이터베이스에서 테넌트 초기화**: 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.  
 - **카탈로그에 테넌트 등록**: 새 테넌트 키와 기존 tenants1 데이터베이스 간의 매핑이 카탈로그에 추가됩니다. 
-- **테넌트의 이름을 카탈로그 확장 테이블에 추가**: 카탈로그의 테넌트 테이블에 장소 이름이 추가됩니다.  이 추가는 추가적인 애플리케이션 관련 데이터를 지원하도록 카탈로그 데이터베이스를 확장하는 방법입니다.
-- **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에 *Bushwillow Blues* 이벤트 페이지가 열립니다.
+- **카탈로그 확장 테이블에 테넌트 이름 추가**: 장소 이름이 카탈로그의 테넌트 테이블에 추가됩니다.  이 추가는 추가적인 애플리케이션 관련 데이터를 지원하도록 카탈로그 데이터베이스를 확장하는 방법입니다.
+- **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에서 *Bushwillow Blues* 이벤트 페이지가 열립니다.
 
    ![events](media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
@@ -161,7 +161,7 @@ Wingtip 앱이 공유 데이터베이스에 새 테넌트를 프로비전하는 
    - **$VenueType** = **블루스**: 미리 정의된 장소 유형 중 하나: 블루스, 클래식 음악, 댄스, 재즈, 유도, 자동차 경주, 다목적, 오페라, 록 음악, 축구(공백 없이 소문자로).
    - **$DemoScenario** = **1**: 다른 테넌트와 공유하는 데이터베이스에 테넌트 프로비전.
 
-2. 커서를 38행(*New-Tenant `*)의 아무 위치에 두고 중단점을 추가한 다음 **F9** 키를 누릅니다.
+2. 커서를 38행(*New-Tenant `*)의 아무 위치에 놓고 중단점을 추가한 다음, **F9** 키를 누릅니다.
 
    ![중단점](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -182,13 +182,13 @@ PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 
 다음은 스크립트를 추적하는 동안 단계별로 실행하는 워크플로의 주요 요소입니다.
 
 - **새 테넌트 키 계산**: 테넌트 이름에서 테넌트 키를 만드는 데에는 해시 함수가 사용됩니다.
-- **테넌트 키의 존재 여부 확인**:카탈로그를 확인하여 키가 아직 등록되지 않았는지 확인합니다.
+- **테넌트 키가 이미 있는지 확인**: 카탈로그를 확인하여 키가 아직 등록되지 않았는지 확인합니다.
 - **새 테넌트 데이터베이스 만들기**: Resource Manager 템플릿을 사용해 *basetenantdb*를 복사하여 데이터베이스를 만듭니다.  새 데이터베이스 이름은 테넌트 이름을 기반으로 합니다.
-- **데이터베이스를 카탈로그에 추가**: 새 테넌트 데이터베이스가 카탈로그에 하나의 분할된 데이터베이스로 등록됩니다.
+- **카탈로그에 데이터베이스 추가**: 새 테넌트 데이터베이스가 카탈로그에 하나의 분할된 데이터베이스로 등록됩니다.
 - **기본 테넌트 데이터베이스에서 테넌트 초기화**: 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.  
 - **카탈로그에 테넌트 등록**: 새 테넌트 키와 *sequoiasoccer* 데이터베이스 간의 매핑이 카탈로그에 추가됩니다.
-- **테넌트 이름이 카탈로그에 추가됨**: 장소 이름이 카탈로그의 테넌트 확장 테이블에 추가됩니다.
-- **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에 *Sequoia Soccer* 이벤트 페이지가 열립니다.
+- **카탈로그에 테넌트 이름 추가**: 장소 이름이 카탈로그의 테넌트 확장 테이블에 추가됩니다.
+- **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에서 *Sequoia Soccer* 이벤트 페이지가 열립니다.
 
    ![events](media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 

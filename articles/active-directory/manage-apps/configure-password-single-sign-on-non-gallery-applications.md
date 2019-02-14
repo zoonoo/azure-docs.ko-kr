@@ -10,20 +10,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 9fc6bd6e7196d442f46e364a9d5816c5056f34f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 934996f1573520a6fba92ce09f8a14fc4795de6c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184379"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812484"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비-갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성하는 방법
 
-Azure AD 애플리케이션 갤러리 내에서 찾을 수 있는 선택 항목 외에도 원하는 애플리케이션이 나열되어 있지 않은 경우 **비 갤러리 애플리케이션**을 추가하는 옵션도 있습니다. 이 기능을 사용하여 조직에 이미 있는 애플리케이션 또는 [Azure AD 애플리케이션 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery)의 일부가 아닌 공급 업체에서 사용할 수 있는 타사 애플리케이션을 추가할 수 있습니다.
+Azure AD 애플리케이션 갤러리 내에서 찾을 수 있는 선택 항목 외에도 원하는 애플리케이션이 나열되어 있지 않은 경우 **비 갤러리 애플리케이션**을 추가하는 옵션도 있습니다. 이 기능을 사용하여 조직에 이미 있는 애플리케이션 또는 [Azure AD 애플리케이션 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)의 일부가 아닌 공급 업체에서 사용할 수 있는 타사 애플리케이션을 추가할 수 있습니다.
 
 비 갤러리 애플리케이션을 추가한 후 [Azure Portal](https://portal.azure.com/)의 엔터프라이즈 애플리케이션에서 **Single Sign-On** 탐색 항목을 선택하여 이 애플리케이션이 사용하는 Single Sign-On 메서드를 구성할 수 있습니다.
 
-사용할 수 있는 Single Sign-On 방법 중 하나는 [암호 기반 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) 옵션입니다. **비 갤러리 애플리케이션 추가** 환경으로 사전 통합된 애플리케이션의 세트에 없는 경우에도 HTML 기반 사용자 이름 및 암호 입력 필드를 렌더링하는 모든 애플리케이션을 통합할 수 있습니다.
+사용할 수 있는 Single Sign-On 방법 중 하나는 [암호 기반 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) 옵션입니다. **비 갤러리 애플리케이션 추가** 환경으로 사전 통합된 애플리케이션의 세트에 없는 경우에도 HTML 기반 사용자 이름 및 암호 입력 필드를 렌더링하는 모든 애플리케이션을 통합할 수 있습니다.
 
 이 기능이 작동하는 방법은 사용자 이름 및 암호 입력 필드를 자동으로 감지하고 특정 애플리케이션 인스턴스에 대해 안전하게 저장할 수 있도록 하는 액세스 패널 확장의 일부인 페이지 스크랩 기술입니다. 그런 다음, 사용자가 애플리케이션 액세스 패널에서 해당 애플리케이션으로 이동할 때 사용자 이름 및 암호를 해당 필드에 안전하게 재생합니다.
 
@@ -43,11 +43,11 @@ Azure AD 애플리케이션 갤러리 내에서 찾을 수 있는 선택 항목 
 
 -   **비즈니스 그룹의 멤버**가 [셀프 서비스 애플리케이션 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) 기능을 사용하여 사용자에게 할당된 사용자 이름 및 암호를 지정하도록 허용
 
--   **관리자**가 [애플리케이션에 사용자를 할당](#_How_to_configure_1)할 때 자격 증명 업데이트 기능을 사용하여 사용자에게 할당된 사용자 이름 및 암호를 지정하도록 허용
+-   **관리자**가 애플리케이션에 사용자를 할당할 때 자격 증명 업데이트 기능을 사용하여 사용자에게 할당된 사용자 이름 및 암호를 지정하도록 허용
 
 -   **관리자**가 [애플리케이션에 그룹을 할당](#assign-an-application-to-a-group-directly)할 때 자격 증명 업데이트 기능을 사용하여 사용자 그룹에서 사용하는 공유된 사용자 이름 및 암호를 지정하도록 허용
 
-다음 섹션에서는 **비 갤러리 애플리케이션 추가** 경험을 사용하여 추가하는 모든 애플리케이션에 [암호 기반 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work)을 활성화할 수 있는 방법을 설명합니다.
+다음 섹션에서는 **비 갤러리 애플리케이션 추가** 경험을 사용하여 추가하는 모든 애플리케이션에 [암호 기반 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 활성화할 수 있는 방법을 설명합니다.
 
 ## <a name="overview-of-steps-required"></a>필요한 단계 개요
 
@@ -57,7 +57,7 @@ Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행�
 
 -   [암호 Single Sign-On에 대한 애플리케이션 구성](#configure-the-application-for-password-single-sign-on)
 
--   [사용자 또는 그룹에 애플리케이션 할당](#assign-the-application-to-a-user-or-a-group)
+-   사용자 또는 그룹에 애플리케이션 할당
 
     -   [애플리케이션에 사용자를 직접 할당](#assign-a-user-to-an-application-directly)
 

@@ -10,18 +10,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336903"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55753473"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>지속성 함수의 작업 허브(Azure Functions)
 
 [지속형 함수](durable-functions-overview.md)의 *작업 허브*는 오케스트레이션에 사용되는 Azure Storage 리소스에 대한 논리적 컨테이너입니다. 오케스트레이터 및 작업 함수는 동일한 작업 허브에 속할 때만 상호 작용할 수 있습니다.
 
-각 함수 앱에는 별도의 작업 허브가 있습니다. 여러 함수 앱이 저장소 계정을 공유하는 경우 저장소 계정에 여러 작업 허브가 포함됩니다. 다음 다이어그램에서는 공유 및 전용 저장소 계정의 함수 앱당 단일 작업 허브를 보여 줍니다.
+여러 함수 앱이 한 스토리지 계정을 공유하는 경우 *반드시* 함수 앱마다 별도의 작업 허브 이름으로 구성해야 합니다. 한 스토리지 계정에 여러 작업 허브가 포함될 수 있습니다. 다음 다이어그램에서는 공유 및 전용 저장소 계정의 함수 앱당 단일 작업 허브를 보여 줍니다.
 
 ![공유 및 전용 저장소 계정을 표시하는 다이어그램](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
@@ -46,7 +46,7 @@ ms.locfileid: "53336903"
 ```json
 {
   "durableTask": {
-    "HubName": "MyTaskHub"
+    "hubName": "MyTaskHub"
   }
 }
 ```
@@ -58,7 +58,7 @@ ms.locfileid: "53336903"
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "MyTaskHub"
+      "hubName": "MyTaskHub"
     }
   }
 }
@@ -71,7 +71,7 @@ ms.locfileid: "53336903"
 ```json
 {
   "durableTask": {
-    "HubName": "%MyTaskHub%"
+    "hubName": "%MyTaskHub%"
   }
 }
 ```
@@ -83,7 +83,7 @@ ms.locfileid: "53336903"
   "version": "2.0",
   "extensions": {
     "durableTask": {
-      "HubName": "%MyTaskHub%"
+      "hubName": "%MyTaskHub%"
     }
   }
 }
@@ -134,7 +134,7 @@ public static async Task<HttpResponseMessage> Run(
 작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정하지 않으면 기본 이름은 **DurableFunctionsHub**입니다.
 
 > [!NOTE]
-> 이 이름은 공유 저장소 계정에 여러 작업 허브가 있을 때 작업 허브를 다른 작업 허브에서 구분해줍니다. 공유 저장소 계정을 공유하는 함수 앱이 여러 개 있는 경우 *host.json* 파일에서 각 작업 허브에 대해 다른 이름을 구성해야 합니다.
+> 이 이름은 공유 저장소 계정에 여러 작업 허브가 있을 때 작업 허브를 다른 작업 허브에서 구분해줍니다. 여러 함수 앱이 한 공유 스토리지 계정을 공유하는 경우 *host.json* 파일의 각 작업 허브에 서로 다른 이름을 명시적으로 구성해야 합니다. 그렇지 않으면 여러 함수 앱이 메시지를 두고 서로 경쟁하게 되며, 이로 인해 정의되지 않은 동작이 발생할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

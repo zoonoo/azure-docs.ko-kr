@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f7558876391d25d2f6f3dd1fede4cb0d13d72bf0
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509578"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236263"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Azure Machine Learning Studio 모델 보존
 Azure Machine Learning에서 기계 학습 모델 운영 프로세스의 일부로 모델은 학습 및 저장됩니다. 그런 다음, 이를 예측 웹 서비스를 만드는 데 사용합니다. 그러면 웹 사이트, 대시보드 및 모바일 앱에서 웹 서비스를 사용할 수 있습니다. 
@@ -53,8 +53,6 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 * 재학습 웹 서비스 배포
 * 학습 실험의 일괄 처리 실행 서비스 코드를 사용하여 모델 재학습
 
-이전 단계에 대한 연습은 [프로그래밍 방식으로 Machine Learning 모델 다시 학습](retrain-models-programmatically.md)을 참조하세요.
-
 > [!NOTE] 
 > 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 
 
@@ -63,8 +61,6 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 * 예측 웹 서비스에 새 엔드포인트 만들기
 * PATCH URL 및 코드 가져오기
 * PATCH URL을 사용하여 다시 학습된 모델의 새 엔드포인트를 가리킵니다. 
-
-이전 단계에 대한 연습은 [기존 웹 서비스 재학습](retrain-a-classic-web-service.md)을 참조하세요.
 
 기존 웹 서비스를 다시 학습하는 데 있어 난관에 봉착한 경우 [Azure Machine Learning Classic Web 서비스 재학습 문제 해결](troubleshooting-retraining-models.md)을 참조하세요.
 
@@ -76,8 +72,6 @@ Machine Learning을 사용하여 만드는 모델은 일반적으로 정적이�
 * JSON에서 `ilearner` blob에 대한 참조 업데이트
 * JSON을 웹 서비스 정의로 가져오기
 * 웹 서비스를 새 웹 서비스 정의로 업데이트합니다.
-
-이전 단계에 대한 연습은 [Machine Learning Management PowerShell cmdlets를 사용하여 새 웹 서비스 재학습](retrain-new-web-service-using-powershell.md)을 참조하세요.
 
 Classic Web 서비스에 대한 재학습을 설정하는 프로세스에는 다음 단계가 포함됩니다.
 

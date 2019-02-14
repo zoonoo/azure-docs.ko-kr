@@ -11,15 +11,16 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/07/2018
+ms.openlocfilehash: b6fbb71a827c90abd1fac58d7975ab2f7b2a5674
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260026"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55560892"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5에 대한 1433 이외 포트
+
 이 문서에서는 ADO.NET 4.5 이상 버전을 사용하는 클라이언트의 Azure SQL Database 연결 동작에 대해 설명합니다. 
 
 > [!IMPORTANT]
@@ -27,12 +28,15 @@ ms.locfileid: "51260026"
 >
 
 ## <a name="outside-vs-inside"></a>내부 및 외부
+
 Azure SQL Database에 연결하려면 먼저 Azure 클라우드 경계의 *외부* 또는*내부*에서 실행되는지 확인해야 합니다. 하위 섹션에서는 일반적으로 두 가지 시나리오를 설명합니다.
 
 #### <a name="outside-client-runs-on-your-desktop-computer"></a>*외부:* 클라이언트가 데스크톱 컴퓨터에서 실행됩니다.
+
 포트 1433은 SQL Database 클라이언트 애플리케이션을 호스팅하는 데스크톱 컴퓨터에서 열어야 하는 유일한 포트입니다.
 
 #### <a name="inside-client-runs-on-azure"></a>*내부:* 클라이언트가 Azure에서 실행됩니다.
+
 클라이언트가 Azure 클라우드 경계 내부에서 실행되는 경우 SQL Database 서버와 상호 작용하기 위해 *직접 경로* 라는 것을 사용합니다. 연결이 설정된 후 클라이언트와 데이터베이스 사이의 추가 상호 작용은 Azure SQL Database 게이트웨이를 관련시키지 않습니다.
 
 순서는 다음과 같습니다.

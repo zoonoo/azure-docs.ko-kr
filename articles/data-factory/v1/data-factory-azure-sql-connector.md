@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 13e00acaf287a9e153aaa8e5ce7d630f8d198f02
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a7789f9a3f3da46305a9d8cd7cda24019658f2ad
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330418"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811490"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -199,7 +199,7 @@ GO
   }
 }
 ```
-연결된 서비스에서 지원하는 속성의 목록은 [Azure SQL 연결된 서비스](#linked-service) 섹션을 참조하세요.
+연결된 서비스에서 지원하는 속성의 목록은 Azure SQL 연결된 서비스 섹션을 참조하세요.
 
 **Azure Blob Storage 연결된 서비스:**
 
@@ -248,7 +248,7 @@ GO
 }
 ```
 
-데이터 세트 형식에서 지원하는 속성의 목록은 [Azure SQL 데이터 세트 형식 속성](#dataset) 섹션을 참조하세요.
+데이터 세트 형식에서 지원하는 속성의 목록은 Azure SQL 데이터 세트 형식 속성 섹션을 참조하세요.
 
 **Azure Blob 출력 데이터 세트:**
 
@@ -391,7 +391,7 @@ SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsour
   }
 }
 ```
-연결된 서비스에서 지원하는 속성의 목록은 [Azure SQL 연결된 서비스](#linked-service) 섹션을 참조하세요.
+연결된 서비스에서 지원하는 속성의 목록은 Azure SQL 연결된 서비스 섹션을 참조하세요.
 
 **Azure Blob Storage 연결된 서비스:**
 
@@ -499,7 +499,7 @@ SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsour
   }
 }
 ```
-데이터 세트 형식에서 지원하는 속성의 목록은 [Azure SQL 데이터 세트 형식 속성](#dataset) 섹션을 참조하세요.
+데이터 세트 형식에서 지원하는 속성의 목록은 Azure SQL 데이터 세트 형식 속성 섹션을 참조하세요.
 
 **Blob 원본 및 SQL 싱크를 사용하는 파이프라인의 복사 작업:**
 

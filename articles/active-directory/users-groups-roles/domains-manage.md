@@ -13,12 +13,13 @@ ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 198fb3376d44123d39a0b3ca2fb1edbd070f1f09
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 797ac714d3205a271fe6590a3a320e1b9e2a073e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510989"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194736"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름 관리
 
@@ -66,7 +67,7 @@ DNS 등록 기관을 변경하는 경우 Azure AD에서 추가로 수행해야 �
 
 ### <a name="forcedelete-option"></a>ForceDelete 옵션
 
-[Azure AD 관리 센터](https://aad.portal.azure.com)에서, 또는 [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)를 사용하여 도메인 이름 **ForceDelete**를 수행할 수 있습니다. 이러한 옵션은 비동기 작업을 사용하여 모든 참조를 “user@contoso.com” 등의 사용자 지정 도메인 이름에서 “user@contoso.onmicrosoft.com” 등의 초기 기본 도메인 이름으로 업데이트합니다. 
+[Azure AD 관리 센터](https://aad.portal.azure.com)에서, 또는 [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)를 사용하여 도메인 이름 **ForceDelete**를 수행할 수 있습니다. 이러한 옵션은 비동기 작업을 사용하여 모든 참조를 “user@contoso.com” 등의 사용자 지정 도메인 이름에서 “user@contoso.onmicrosoft.com” 등의 초기 기본 도메인 이름으로 업데이트합니다. 
 
 Azure Portal에서 **ForceDelete**를 호출하려면 도메인 이름에 대한 참조가 1,000개 미만인지 확인해야 합니다. 또한 프로비저닝 서비스가 Exchange인 모든 참조는 [ Exchange 관리 센터](https://outlook.office365.com/ecp/)에서 업데이트하거나 제거해야 합니다. 여기에는 Exchange 메일 사용이 가능한 보안 그룹 및 배포 목록이 포함됩니다. 자세한 내용은 [메일 사용이 가능한 보안 그룹 제거](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)를 참조하세요. 또한 다음 중 하나에 해당하는 경우에는 **ForceDelete** 작업이 정상적으로 실행되지 않습니다.
 
@@ -112,4 +113,4 @@ Azure Active Directory의 도메인 이름에 대한 대부분의 관리 작업�
 
 * [사용자 지정 도메인 이름 추가](/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context)
 * [Azure AD의 사용자 지정 도메인 이름에 대해 Exchange 관리 센터에서 Exchange 메일 사용이 가능한 보안 그룹 제거](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups)
-* [Microsoft Graph API를 통해 사용자 지정 도메인 이름 ForceDelete](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/api/domain_forcedelete)
+* [Microsoft Graph API를 통해 사용자 지정 도메인 이름 ForceDelete](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta)

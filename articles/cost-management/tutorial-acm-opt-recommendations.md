@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2255f14d026d406dc41802c321d0a673ee2f2f23
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077081"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766863"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>자습서: 권장 사항에서 비용 최적화
 
@@ -29,7 +29,7 @@ Azure Cost Management는 Azure Advisor와 함께 실행되어 비용 최적화 �
 > * 가상 머신의 크기가 성공적으로 조정되었는지 확인하기 위해 작업 확인
 
 ## <a name="prerequisites"></a>필수 조건
-권장 사항은 모든 [EA(기업계약) 고객](https://azure.microsoft.com/pricing/enterprise-agreement/)이 사용할 수 있습니다. 비용 데이터를 보려면 다음 범위 중 하나 이상에 대해 최소한 읽기 권한이 있어야 합니다.
+추천은 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객을 포함하여 다양한 종류의 Azure 계정에 사용할 수 있습니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 비용 데이터를 보려면 다음 범위 중 하나 이상에 대해 최소한 읽기 권한이 있어야 합니다.
 
 - 구독
 - 리소스 그룹
@@ -53,7 +53,7 @@ Azure Portal의 서비스 목록에서 **Cost Management + 청구**를 클릭합
 
 Azure Advisor는 14일 동안 가상 머신 사용량을 모니터링한 다음, 사용률이 낮은 가상 머신을 식별합니다. 4일 이상 CPU 사용률이 5% 이하이고 네트워크 사용량이 7MB 이하인 가상 머신은 사용률이 낮은 가상 머신으로 간주됩니다.
 
-CPU 사용률 5% 이하 설정은 기본값이지만, 설정을 조정할 수 있습니다. 설정 조정 방법에 대한 자세한 내용은 [사용량이 낮은 가상 머신 권장 사항](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation)에 대한 [평균 CPU 사용률 규칙 구성](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation) 문서를 참조하세요.
+CPU 사용률 5% 이하 설정은 기본값이지만, 설정을 조정할 수 있습니다. 설정 조정 방법에 대한 자세한 내용은 [사용량이 낮은 가상 머신 권장 사항에 대한 평균 CPU 사용률 규칙 구성](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation)을 참조하세요.
 
 일부 시나리오에서는 기본적으로 사용률이 낮을 수 있으나 가상 머신의 크기를 덜 비싼 크기로 변경하여 비용을 절감할 수도 있습니다. 크기 조정 작업을 선택할 경우 실제 절감액이 달라질 수 있습니다. 가상 머신의 크기 조정 예를 살펴보겠습니다.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 9e4c717b3b205d6c8fdd309dada918eb6df35181
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244765"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811667"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 Windows에서 Azure File Storage 시작을 참조하세요.
 
@@ -162,7 +162,7 @@ Azure Storage의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예�
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>컨테이너에 Blob 업로드
-[Blob service 개념](#blob-service-concepts) 섹션에서 설명한 것처럼 Blob Storage는 블록 Blob, 추가 Blob, 페이지 Blob의 서로 다른 Blob 유형을 제공합니다. Azure Storage iOS 라이브러리는 세 가지 형식의 Blob을 모두 지원합니다. 대부분의 경우에는 블록 Blob을 사용하는 것이 좋습니다.
+Blob 서비스 개념 섹션에서 설명한 것처럼 Blob Storage는 블록 Blob, 추가 Blob, 페이지 Blob의 세 가지 Blob 유형을 제공합니다. Azure Storage iOS 라이브러리는 세 가지 형식의 Blob을 모두 지원합니다. 대부분의 경우에는 블록 Blob을 사용하는 것이 좋습니다.
 
 다음 예제에서는 NSString에서 블록 Blob를 업로드하는 방법을 보여줍니다. 같은 이름의 Blob가 이 컨테이너에 이미 있는 경우 이 Blob의 내용을 덮어씁니다.
 

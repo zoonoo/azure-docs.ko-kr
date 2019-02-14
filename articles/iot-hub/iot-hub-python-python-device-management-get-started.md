@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: kgremban
-ms.openlocfilehash: dbe2ba6ce4e001f6e49fbbee9189fa5b4d99ec33
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 36514fe321fa352c2526db5a18ac8618d7af713e
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514386"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55756770"
 ---
 # <a name="get-started-with-device-management-python"></a>디바이스 관리 시작(Python)
 
@@ -28,9 +28,9 @@ ms.locfileid: "51514386"
 
 이 자습서의 끝 부분에 다음의 두 Python 콘솔 앱이 설치됩니다.
 
-**dmpatterns_getstarted_device.py**, 이전에 만든 장치 ID로 IoT Hub에 연결하며 재부팅 직접 메서드를 수신하고 물리적 재부팅을 시뮬레이션하며 마지막 재부팅 시간을 보고합니다.
+**dmpatterns_getstarted_device.py** - 이전에 만든 디바이스 ID로 IoT Hub에 연결하며 재부팅 직접 메서드를 수신하고 물리적 재부팅을 시뮬레이션하며 마지막 재부팅 시간을 보고합니다.
 
-**dmpatterns_getstarted_service.py**, 시뮬레이션된 장치 앱에 직접 메서드를 호출하고 응답을 표시하고 업데이트된 reported 속성을 표시합니다.
+**dmpatterns_getstarted_service.py** - 시뮬레이션된 디바이스 앱에 직접 메서드를 호출하고 응답을 표시하고 업데이트된 reported 속성을 표시합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "51514386"
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-1. **CONNECTION_STRING** 변수 및 클라이언트 초기화를 포함하여 변수를 추가합니다.  연결 문자열을 디바이스 연결 문자열로 바꿉니다.  
+1. **CONNECTION_STRING** 변수 및 클라이언트 초기화를 포함한 변수를 추가합니다.  연결 문자열을 디바이스 연결 문자열로 바꿉니다.  
    
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"

@@ -4,7 +4,7 @@ description: 애플리케이션 상태 확장을 사용하여 가상 머신 확�
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: rajraj
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,21 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 404d983474d6d8705838d288aaa280478043be11
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745794"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55565975"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 애플리케이션 상태 확장 사용
 애플리케이션 상태 모니터링은 배포 관리 및 업그레이드에 대한 중요한 신호입니다. Azure 가상 머신 확장 집합은 배포를 업그레이드하기 위해 개별 인스턴스의 상태 모니터링을 사용하는 [자동 OS 이미지 업그레이드](virtual-machine-scale-sets-automatic-upgrade.md)를 포함한 [롤링 업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)를 지원합니다.
 
 이 문서에서는 애플리케이션 상태 확장을 사용하여 가상 머신 확장 집합에 배포된 애플리케이션의 상태를 모니터링하는 방법에 대해 설명합니다.
 
-## <a name="pre-requisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다.
 -   Azure 가상 머신 [확장](../virtual-machines/extensions/overview.md)
 -   가상 머신 확장 집합 [수정](virtual-machine-scale-sets-upgrade-scale-set.md)
@@ -35,7 +35,7 @@ ms.locfileid: "53745794"
 ## <a name="when-to-use-the-application-health-extension"></a>애플리케이션 상태 확장을 사용하는 경우
 애플리케이션 상태 확장은 가상 머신 확장 집합 인스턴스 내에 배포되고, 확장 집합 인스턴스 내부에서 VM 상태를 보고합니다. 애플리케이션 엔드포인트를 검색하고 해당 인스턴스의 애플리케이션 상태를 업데이트하도록 확장을 구성할 수 있습니다. Azure에서 이 인스턴스 상태를 확인하여 해당 인스턴스가 업그레이드 작업에 적합한지 여부를 결정합니다.
 
-확장은 VM 내에서 상태를 보고하므로 Application Health Probes(사용자 지정 Azure Load Balancer [프로브](../load-balancer/load-balancer-custom-probe-overview.md) 활용)와 같은 외부 프로브를 활용할 수 없는 경우에 확장을 사용할 수 있습니다.
+확장은 VM 내에서 상태를 보고하므로 Application Health Probes(사용자 지정 Azure Load Balancer [프로브](../load-balancer/load-balancer-custom-probe-overview.md) 활용)와 같은 외부 프로브를 사용할 수 없는 경우에 사용할 수 있습니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -63,7 +63,7 @@ ms.locfileid: "53745794"
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 | 데이터 형식
+| Name | 값/예제 | 데이터 형식
 | ---- | ---- | ---- | ----
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | string |
@@ -72,7 +72,7 @@ ms.locfileid: "53745794"
 
 ### <a name="settings"></a>설정
 
-| 이름 | 값/예제 | 데이터 형식
+| Name | 값/예제 | 데이터 형식
 | ---- | ---- | ----
 | protocol | `http` 또는 `tcp` | string |
 | 포트 | 프로토콜이 `http`인 경우 선택 항목이고, 프로토콜이 `tcp`인 경우 필수 항목입니다. | int |
@@ -83,7 +83,7 @@ ms.locfileid: "53745794"
 
 ### <a name="rest-api"></a>REST API
 
-다음 예제에서는 myHealthExtension이라는 애플리케이션 상태 확장을 Windows 기반 확장 집합의 확장 집합 모델에 있는 extensionProfile에 추가합니다.
+다음 예제에서는 Windows 기반 확장 집합의 확장 집합 모델에서 myHealthExtension이라는 애플리케이션 상태 확장을 extensionProfile에 추가합니다.
 
 ```
 PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/myHealthExtension?api-version=2018-10-01`
@@ -109,9 +109,9 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-[Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet을 사용하여 애플리케이션 상태 확장을 확장 집합 모델 정의에 추가합니다.
+[Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet을 사용하여 애플리케이션 상태 확장을 확장 집합 모델 정의에 추가합니다.
 
-다음 예제에서는 애플리케이션 상태 확장을 Windows 기반 확장 집합의 확장 집합 모델에 있는 `extensionProfile`에 추가합니다.
+다음 예제에서는 Windows 기반 확장 집합의 확장 집합 모델에서 애플리케이션 상태 확장을 `extensionProfile`에 추가합니다. 이 예제에서는 새 Az PowerShell 모듈을 사용합니다.
 
 ```azurepowershell-interactive
 # Define the scale set variables
@@ -125,12 +125,12 @@ $extensionType = "ApplicationHealthWindows"
 $publisher = "Microsoft.ManagedServices"
 
 # Get the scale set object
-$vmScaleSet = Get-AzureRmVmss `
+$vmScaleSet = Get-AzVmss `
   -ResourceGroupName $vmScaleSetResourceGroup `
   -VMScaleSetName $vmScaleSetName
 
 # Add the Application Health extension to the scale set model
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmScaleSet `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmScaleSet `
   -Name $extensionName `
   -Publisher $publisher `
   -Setting $publicConfig `
@@ -139,10 +139,12 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmScaleSet `
   -AutoUpgradeMinorVersion $True
 
 # Update the scale set
-Update-AzureRmVmss -ResourceGroupName $vmScaleSetResourceGroup `
+Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -Name $vmScaleSetName `
   -VirtualMachineScaleSet $vmScaleSet
 ```
+
+
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
 [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set)를 사용하여 애플리케이션 상태 확장을 확장 집합 모델 정의에 추가합니다.

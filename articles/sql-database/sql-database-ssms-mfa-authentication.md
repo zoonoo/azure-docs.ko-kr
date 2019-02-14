@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 9837316cab503e6ade623e91a41176e6f4bfc84a
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/08/2018
+ms.openlocfilehash: 1f26fb101c9940a51ffb4fb7e1b48a51b943599a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867672"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55663743"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)
 Azure SQL Database 및 Azure SQL Data Warehouse는 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL Server Management Studio)에서의 연결을 지원합니다. 
-**최신 SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS 버전을 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 다운로드합니다. 이 문서의 모든 기능에 대해 2017년 7월 버전 17.2 이상을 사용합니다.  가장 최근의 연결 대화 상자는 다음처럼 보일 것입니다. ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "사용자 이름 상자를 입력합니다.")  
+**최신 SSMS 다운로드** - 클라이언트 컴퓨터에서 최신 SSMS 버전을 [SSMS(SQL Server Management Studio) 다운로드](https://msdn.microsoft.com/library/mt238290.aspx)에서 다운로드합니다. 이 문서의 모든 기능에 대해 2017년 7월 버전 17.2 이상을 사용합니다.  가장 최근의 연결 대화 상자는 다음과 같습니다. ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "사용자 이름 상자 완료")  
 
 ## <a name="the-five-authentication-options"></a>5가지 인증 옵션   
 - Active Directory 유니버설 인증은 2가지 비대화형 인증 방법(`Active Directory - Password` 인증 및 `Active Directory - Integrated` 인증)을 지원합니다. 비대화형 `Active Directory - Password` 및 `Active Directory - Integrated` 인증 방법은 여러 다른 애플리케이션(ADO.NET, JDBC, ODBC 등)에서 사용할 수 있습니다. 이러한 두 가지 방법을 사용할 경우 팝업 대화 상자가 절대 표시되지 않습니다.
@@ -52,8 +52,8 @@ Azure AD B2B 시나리오에서 게스트 사용자로 지원되는 Azure AD 사
 ## <a name="next-steps"></a>다음 단계
 
 - [SQL Server Management Studio에 대한 Azure SQL Database multi-factor authentication 구성](sql-database-ssms-mfa-authentication-configure.md)을 참조하세요.
-- 데이터베이스에 대한 액세스를 부여합니다. [SQL Database 인증 및 권한 부여: 액세스 부여](sql-database-manage-logins.md)  
-- 방화벽을 통해 연결할 수 있는지 확인합니다. [Azure Portal을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)  
+- 다른 사용자에게 데이터베이스에 대한 액세스 권한을 부여합니다. [SQL Database 인증 및 권한 부여: 액세스 권한 부여](sql-database-manage-logins.md)  
+- 다른 사용자가 방화벽을 통해 연결할 수 있는지 확인합니다. [Azure Portal을 사용하여 Azure SQL Database 서버 수준 방화벽 규칙 구성](sql-database-configure-firewall-settings.md)  
 - [SQL Database 또는 SQL Data Warehouse에서의 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)  
 - [Microsoft SQL Server Data-Tier Application Framework(17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  

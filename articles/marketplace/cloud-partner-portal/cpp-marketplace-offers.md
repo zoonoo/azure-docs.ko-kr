@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 0d6879c6b9be06af4bb289761cc8f26b7e56d18e
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355340"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658711"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure 및 AppSource Marketplace 제품
 
@@ -47,6 +47,7 @@ ms.locfileid: "54355340"
 | [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | 해당 판매, 서비스, 프로젝트 서비스 및 필드 서비스 모듈을 통해 이 CRM(고객 리소스 관리) 시스템을 확장하는 패키지입니다.  |
 | [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | 고급 재무, 운영, 제조 및 공급망 관리를 지원하는 이 ERP(전사적 자원 관리) 서비스를 확장하는 패키지입니다. |
 | [IoT Edge 모듈](./iot-edge-module/cpp-offer-process-parts.md) | Azure | IoT Edge 디바이스에서 실행되는 Docker 호환 컨테이너입니다.  여기에는 사용자 지정 코드, 다른 Azure 서비스 및 타사 서비스의 조합을 사용하는 작은 계산 모듈이 포함되어 있습니다. |
+| [Power BI 앱](./power-bi/cpp-power-bi-offer.md) | AppSource | 데이터 흐름을 사용하여 보고서 및 대시보드를 공통 데이터 스토리지의 데이터에 연결하는 패키지입니다. |
 | [SaaS 앱](./saas-app/cpp-saas-offer.md) | Azure | 솔루션이 게시자가 관리하는 SaaS(Software as a Service) 구독이며, 사용자는 Azure Active Directory를 활용하는 사용자 지정 인터페이스를 통해 로그온합니다. |
 | [가상 머신](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | 솔루션이 고객의 구독에 배포된 단일 가상 머신 내에 포함됩니다.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |

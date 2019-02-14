@@ -1,6 +1,6 @@
 ---
-title: Data Factory를 사용하여 Azure Table 저장소 간 데이터 복사 | Microsoft Docs
-description: Data Factory를 사용하여 지원되는 원본 저장소에서 Azure Table 저장소로 데이터를 복사하거나, Table 저장소에서 지원되는 싱크 저장소로 데이터를 복사하는 방법을 알아봅니다.
+title: Data Factory를 사용하여 Azure Table Storage 간 데이터 복사 | Microsoft Docs
+description: Data Factory를 사용하여 지원되는 원본 스토리지에서 Azure Table Storage로 데이터를 복사하거나, Table Storage에서 지원되는 싱크 스토리지로 데이터를 복사하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,25 +10,25 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: b1f4ad523f84616391d4121dbf7eaabb2dfde060
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 32fc3f1c93261f6fb19c084f51dea4942310ac47
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018622"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664151"
 ---
-# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Table 저장소 간 데이터 복사
+# <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Table Storage 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1](v1/data-factory-azure-table-connector.md)
 > * [현재 버전](connector-azure-table-storage.md)
 
-이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Azure Table 저장소 간에 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Azure Table Storage 간에 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-지원되는 모든 원본 데이터 저장소의 데이터를 Table 저장소에 복사할 수 있습니다. 또한 Table 저장소의 데이터를 지원되는 모든 싱크 데이터 저장소에 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+지원되는 모든 원본 데이터 스토리지의 데이터를 Table Storage에 복사할 수 있습니다. 또한 Table Storage의 데이터를 지원되는 모든 싱크 데이터 스토리지에 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 특히 이 Azure Table 커넥터는 계정 키 및 서비스 공유 액세스 서명 인증을 모두 사용하여 데이터를 복사할 수 있습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "54018622"
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-다음 섹션에서는 Table 저장소에 특정한 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
+다음 섹션에서는 Table Storage에 특정한 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 
@@ -47,7 +47,7 @@ ms.locfileid: "54018622"
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 형식 속성은 **AzureTableStorage**로 설정되어야 합니다. |예 |
-| connectionString | connectionString 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| connectionString | connectionString 속성에 대한 Storage에 연결하는 데 필요한 정보를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 >[!NOTE]
@@ -57,13 +57,42 @@ ms.locfileid: "54018622"
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureTableStorageLinkedService",
     "properties": {
         "type": "AzureTableStorage",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
                 "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**예제: Azure Key Vault에 계정 키 저장**
+
+```json
+{
+    "name": "AzureTableStorageLinkedService",
+    "properties": {
+        "type": "AzureTableStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;"
+            },
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -93,7 +122,7 @@ ms.locfileid: "54018622"
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 형식 속성은 **AzureTableStorage**로 설정되어야 합니다. |예 |
-| sasUri | Blob, 컨테이너 또는 테이블과 같은 Storage 리소스에 대한 공유 액세스 서명 URI를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| sasUri | 테이블에 대한 공유 액세스 서명 URI의 SAS URI를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. SAS 토큰을 Azure Key Vault에 넣어 자동 회전을 활용하고 토큰 부분을 제거할 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime(데이터 저장소가 사설망에 있는 경우)을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 >[!NOTE]
@@ -103,13 +132,42 @@ ms.locfileid: "54018622"
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureTableStorageLinkedService",
     "properties": {
         "type": "AzureTableStorage",
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
-                "value": "<SAS URI of the Azure Storage resource>"
+                "value": "<SAS URI of the Azure Storage resource e.g. https://<account>.table.core.windows.net/<table>?sv=<storage version>&amp;st=<start time>&amp;se=<expire time>&amp;sr=<resource>&amp;sp=<permissions>&amp;sip=<ip range>&amp;spr=<protocol>&amp;sig=<signature>>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**예제: Azure Key Vault에 계정 키 저장**
+
+```json
+{
+    "name": "AzureTableStorageLinkedService",
+    "properties": {
+        "type": "AzureTableStorage",
+        "typeProperties": {
+            "sasUri": {
+                "type": "SecureString",
+                "value": "<SAS URI of the Azure Storage resource without token e.g. https://<account>.table.core.windows.net/<table>>"
+            },
+            "sasToken": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -135,7 +193,7 @@ Azure Table 간에 데이터를 복사하려면 데이터 세트의 type 속성�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 데이터 세트의 type 속성은 **AzureTable**로 설정해야 합니다. |예 |
-| tableName |연결된 서비스에서 참조하는 Table 저장소 데이터베이스 인스턴스의 테이블 이름입니다. |예 |
+| tableName |연결된 서비스에서 참조하는 Table Storage 데이터베이스 인스턴스의 테이블 이름입니다. |예 |
 
 **예제:**
 
@@ -176,7 +234,7 @@ Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 활동 source의 type 속성은 **AzureTableSource**로 설정해야 합니다. |예 |
-| AzureTableSourceQuery |사용자 지정 Table 저장소 쿼리를 사용하여 데이터를 읽습니다. 다음 섹션의 예제를 참조하세요. |아니요 |
+| AzureTableSourceQuery |사용자 지정 Table Storage 쿼리를 사용하여 데이터를 읽습니다. 다음 섹션의 예제를 참조하세요. |아니요 |
 | azureTableSourceIgnoreTableNotFound |테이블의 예외가 존재하지 않도록 허용할지 여부를 나타냅니다.<br/>허용되는 값은 **True** 및 **False**(기본값)입니다. |아니요 |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 예제
@@ -274,7 +332,7 @@ Azure Table에서 데이터를 이동하는 경우 Azure Table OData 형식에�
 |:--- |:--- |:--- |
 | Edm.Binary |byte[] |바이트 배열은 최대 64KB입니다. |
 | Edm.Boolean |bool |부울 값입니다. |
-| Edm.DateTime |Datetime |UTC(협정 세계시)로 표현되는 64비트 값입니다. 지원되는 DateTime 범위는 서기 1601년 1월 1일 자정에 시작합니다. (서기), UTC입니다. 범위는 9999년 12월 31일 끝납니다. |
+| Edm.DateTime |DateTime |UTC(협정 세계시)로 표현되는 64비트 값입니다. 지원되는 DateTime 범위는 서기 1601년 1월 1일 자정에 시작합니다. (서기), UTC입니다. 범위는 9999년 12월 31일 끝납니다. |
 | Edm.Double |double |64비트 부동 소수점 값입니다. |
 | Edm.Guid |Guid |전역적으로 고유한 128 비트 식별자입니다. |
 | Edm.Int32 |Int32 |32비트 정수입니다. |

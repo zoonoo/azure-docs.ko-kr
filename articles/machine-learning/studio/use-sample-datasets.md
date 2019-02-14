@@ -10,17 +10,17 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: de809ef1455e4c8c4c2284c2139e962f1829770b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 55cf124baf7614813620602212856cc586b721df
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510173"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244337"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 세트 사용
 [top]: #machine-learning-sample-datasets
 
-Azure Machine Learning에서 새 작업 영역을 만들 때 다양한 샘플 데이터 세트 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 세트 중 다수는 [Azure AI 갤러리](http://gallery.cortanaintelligence.com/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
+Azure Machine Learning에서 새 작업 영역을 만들 때 다양한 샘플 데이터 세트 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 세트 중 다수는 [Azure AI 갤러리](http://gallery.azure.ai/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
 
 일부 데이터 세트는 Azure Blob Storage에서 사용할 수 있습니다. 이러한 데이터 세트의 경우 다음 표에서 직접 링크가 제공됩니다. [데이터 가져오기][import-data] 모듈을 사용하여 이 데이터 세트를 실험에 사용할 수 있습니다.
 

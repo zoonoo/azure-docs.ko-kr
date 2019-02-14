@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: 5265b6f6ebf779c83792ab2569c1b613d11070da
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 149f37d0231ecc0547e8dc7937d22a9cc38b7df3
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051529"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810221"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible 모듈 및 버전 매트릭스
 
@@ -21,7 +21,7 @@ ms.locfileid: "54051529"
 Ansible은 원격 호스트에서 직접 또는 플레이북을 통해 실행할 수 있는 여러 모듈과 함께 제공됩니다.
 이 문서에서는 가상 머신, 네트워킹 및 컨테이너 서비스와 같은 Azure 클라우드 리소스를 프로비전할 수 있는 Azure용 Ansible 모듈을 나열합니다. Ansible의 공식 릴리스 또는 Microsoft에서 게시한 다음 플레이북에서 이러한 모듈을 가져올 수 있습니다.
 
-| Azure용 Ansible 모듈                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | [Ansible 역할](#introduction-to-azurepreviewmodule) | 
+| Azure용 Ansible 모듈                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 역할 | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|-------------------------------------| 
 | **Compute**                    |           |                          |                          |                            |                                | 
 | azure_rm_availabilityset                    | 예          | 예                         | 예          | 예          | 예                                 | 

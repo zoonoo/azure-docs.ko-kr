@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 6466dc1ec0dcaae6045fadfae7f3a552345be2e8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c0a86b76622862b477d539c25dd98c925f09192c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267295"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812041"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal을 통해 iSCSI 서버로 설정
 
@@ -44,7 +44,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 다음 단계별 지침을 사용하여 StorSimple 가상 배열을 설정 및 구성합니다.
 
 * [1단계: 로컬 웹 UI 설정을 완료하고 디바이스 등록](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
-* [2단계: 필요한 디바이스 설정 완료](#step-2-complete-the-required-device-setup)
+* 2단계: 필요한 디바이스 설정 완료
 * [3단계: 볼륨 추가](#step-3-add-a-volume)
 * [4단계: 볼륨 탑재, 초기화 및 포맷](#step-4-mount-initialize-and-format-a-volume)
 

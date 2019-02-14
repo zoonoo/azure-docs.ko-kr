@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 2/6/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: 43cceeb9b65bcee97855f96c781c5d157b32346a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 001eb1946ff0fdc073baaa6da76f4bfa63fc3652
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080926"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810630"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 공동 작업 사용자를 Azure Portal에 추가
 
@@ -45,7 +45,7 @@ B2B 공동 작업 사용자를 디렉터리에 추가하려면 다음 단계를 
    ![새 게스트 사용자의 UI 내 위치 표시](./media/add-users-administrator/InviteGuest.png) 
 
     > [!NOTE]
-    > 일부 이메일 공급자는 수신함 필터링 등을 돕기 위해 사용자에게 더하기 기호(+) 및 추가 텍스트를 해당 이메일 주소에 추가하도록 허용합니다. 그러나 Azure AD는 현재 이메일 주소에서 더하기 기호를 지원하지 않습니다. 배달 문제를 방지하려면 @ 기호 뒤에 오는 모든 문자 및 더하기 기호를 생략합니다.
+    > 그룹 이메일 주소는 지원되지 않습니다. 개인용 이메일 주소를 입력하세요. 또한 일부 이메일 공급 기업에서는 수신함 필터링 등을 지원하기 위해 사용자가 이메일 주소에 더하기 기호(+) 및 추가 텍스트를 추가하는 것을 허용합니다. 그러나 Azure AD는 현재 이메일 주소에서 더하기 기호를 지원하지 않습니다. 배달 문제를 방지하려면 @ 기호 뒤에 오는 모든 문자 및 더하기 기호를 생략합니다.
 
 6. **초대**를 선택하여 게스트 사용자에게 자동으로 초청을 발송합니다. 
  

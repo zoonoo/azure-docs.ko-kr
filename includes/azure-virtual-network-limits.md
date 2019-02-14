@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597631"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55513948"
 ---
 <a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 클래식 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -48,6 +48,7 @@ ms.locfileid: "51597631"
 | 가상 네트워크당 DNS 서버 |20 |
 | 가상 네트워크당 개인 IP 주소 |65536 |
 | 네트워크 인터페이스당 개인 IP 주소 |256 |
+| 가상 머신당 사설 IP 주소 |256 |
 | 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |500K |
 | 네트워크 인터페이스(NIC) |65536 |
 | 네트워크 보안 그룹(NSG) |5,000 |
@@ -69,6 +70,7 @@ ms.locfileid: "51597631"
 | 공용 IP 주소 - 동적 |(Basic) 1000 |지원에 문의 |
 | 공용 IP 주소 - 고정 |(기본)200 |지원에 문의 |
 | 공용 IP 주소 - 고정 |(표준)200 |지원에 문의 |
+| 공용 IP 접두사 크기(미리 보기) | /28 | /28 |
 
 #### <a name="load-balancer"></a>부하 분산 장치 제한
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 72f85761db08652f0dff7f36fbcb2ef90654e078
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 73f2e7a37e1e51bf215cbac782b454d909f275dc
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334400"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55568535"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -29,57 +29,57 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 ### <a name="early-timeouts-in-firefox"></a>FireFox의 조기 시간 초과
 
-- **세부 정보**: Cloud Shell은 개방형 WebSocket을 사용하여 브라우저에 입/출력을 전달합니다. FireFox에는 Cloud Shell에서 조기 시간 초과를 야기하는 WebSocket을 닫을 수 있는 미리 설정된 정책이 있습니다.
-- **해결 방법**: FireFox를 열고 URL 상자의 "about:config"로 이동합니다. "network.websocket.timeout.ping.request"를 검색하고 값을 0에서 10으로 변경합니다.
+- **세부 정보**: Cloud Shell은 개방형 websocket을 사용하여 브라우저에 입/출력을 전달합니다. FireFox에는 Cloud Shell에서 조기 시간 초과를 야기하는 WebSocket을 닫을 수 있는 미리 설정된 정책이 있습니다.
+- **해결 방법**: FireFox를 열고 URL 상자에서 "about:config"로 이동합니다. "network.websocket.timeout.ping.request"를 검색하고 값을 0에서 10으로 변경합니다.
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>잠긴 네트워크 환경에서 Cloud Shell을 사용하지 않도록 설정
 
-- **세부 정보**: 관리자가 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell은 거부될 수 있는 `ux.console.azure.com` 도메인에 대한 액세스를 활용하여 portal.azure.com, shell.azure.com, Visual Studio Code Azure 계정 확장 및 docs.microsoft.com을 포함한 Cloud Shell의 진입점에 대한 액세스를 중단합니다.
-- **해결 방법**: 사용자 환경에 대한 네트워크 설정을 통해 `ux.console.azure.com`에 대한 액세스를 제한합니다. Cloud Shell 아이콘은 portal.azure.com에 여전히 존재하지만 서비스에 성공적으로 연결되지 않습니다.
+- **세부 정보**: 관리자는 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell은 거부될 수 있는 `ux.console.azure.com` 도메인에 대한 액세스를 활용하여 portal.azure.com, shell.azure.com, Visual Studio Code Azure 계정 확장 및 docs.microsoft.com을 포함한 Cloud Shell의 진입점에 대한 액세스를 중단합니다.
+- **해결 방법**: 네트워크 설정을 통해 `ux.console.azure.com`에 대한 액세스를 사용자 환경으로 제한합니다. Cloud Shell 아이콘은 portal.azure.com에 여전히 존재하지만 서비스에 성공적으로 연결되지 않습니다.
 
-### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>저장소 대화 상자 - 오류: 403 RequestDisallowedByPolicy
+### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>스토리지 대화 상자 - 오류: 403 RequestDisallowedByPolicy
 
-- **세부 정보**: Cloud Shell에서 저장소 계정을 만들 경우 관리자가 배치한 Azure 정책 때문에 실패합니다. 오류 메시지에는 다음이 포함됩니다. `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **해결 방법**: Azure 관리자에게 문의하여 저장소 생성을 거부하는 Azure 정책을 제거하거나 업데이트하세요.
+- **세부 정보**: Cloud Shell을 통해 스토리지 계정을 만들 때 관리자가 배치한 Azure 정책으로 인해 실패합니다. 오류 메시지에는 다음이 포함됩니다. `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **해결 방법**: Azure 관리자에게 문의하여 스토리지 만들기를 거부하는 Azure 정책을 제거하거나 업데이트합니다.
 
-### <a name="storage-dialog---error-400-disallowedoperation"></a>저장소 대화 상자 - 오류: 400 DisallowedOperation
+### <a name="storage-dialog---error-400-disallowedoperation"></a>스토리지 대화 상자 - 오류: 400 DisallowedOperation
 
-- **세부 정보**: Azure Active Directory 구독을 사용할 때는 저장소를 만들 수 없습니다.
-- **해결 방법**: 저장소 리소스를 만들 수 있는 Azure 구독을 사용하세요. Azure AD 구독으로는 Azure 리소스를 만들 수 없습니다.
+- **세부 정보**: Azure Active Directory 구독을 사용할 때 스토리지를 만들 수 없습니다.
+- **해결 방법**: 스토리지 리소스를 만들 수 있는 Azure 구독을 사용합니다. Azure AD 구독으로는 Azure 리소스를 만들 수 없습니다.
 
 ### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>터미널 출력 - 오류: 터미널에 연결할 수 없습니다. websocket을 설정할 수 없습니다. `Enter` 키를 눌러 다시 연결하세요.
-- **세부 정보**: Cloud Shell에는 Cloud Shell 인프라에 대한 websocket 연결을 설정하기 위한 기능이 필요합니다.
-- **해결 방법**: *.console.azure.com의 도메인으로 https 요청 및 websocket 요청을 전송할 수 있게 네트워크 설정을 구성했는지 확인합니다.
+- **세부 정보**: Cloud Shell을 사용하려면 Cloud Shell 인프라에 websocket 연결을 설정해야 합니다.
+- **해결 방법**: https 요청 및 websocket 요청을 *.console.azure.com의 도메인에 보낼 수 있도록 네트워크 설정을 구성했는지 확인합니다.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>TLS 1.2를 사용하여 지원을 위한 Cloud Shell 연결 설정
- - **세부 정보**: Cloud Shell에 연결하기 위해 TLS 버전을 확인하려면 브라우저별 설정을 지정해야 합니다.
- - **해결 방법**: 브라우저의 보안 설정으로 이동하고 “TLS 1.2 사용” 옆에 있는 확인란을 선택합니다.
+ - **세부 정보**: Cloud Shell에 연결하는 데 사용할 TLS 버전을 정의하려면 브라우저 특정 설정을 지정해야 합니다.
+ - **해결 방법**: 브라우저의 보안 설정으로 이동하고 "TLS 1.2 사용" 옆의 확인란을 선택합니다.
 
 ## <a name="bash-troubleshooting"></a>Bash 문제 해결
 
 ### <a name="cannot-run-the-docker-daemon"></a>Docker 디먼을 실행할 수 없음
 
-- **세부 정보**: Cloud Shell은 컨테이너를 활용하여 셸 환경을 호스트하므로 결과적으로 디먼 실행이 허용되지 않습니다.
-- **해결 방법**: 기본적으로 설치된 [docker-machine](https://docs.docker.com/machine/overview/)을 활용하여 원격 Docker 호스트에서 docker 컨테이너를 관리합니다.
+- **세부 정보**: Cloud Shell은 컨테이너를 활용하여 셸 환경을 호스팅하므로 디먼 실행이 허용되지 않습니다.
+- **해결 방법**: 기본적으로 설치되는 [docker-machine](https://docs.docker.com/machine/overview/)을 활용하여 원격 Docker 호스트에서 Docker 컨테이너를 관리합니다.
 
 ## <a name="powershell-troubleshooting"></a>PowerShell 문제 해결
 
 ### <a name="gui-applications-are-not-supported"></a>GUI 애플리케이션은 지원되지 않습니다.
 
-- **세부 정보**: 사용자가 GUI 응용 프로그램을 시작하는 경우 프롬프트는 반환하지 않습니다. 예를 들어 사용자가 2단계 인증을 사용할 수 있는 개인 GitHub 리포지토리를 복제할 경우 2단계 인증을 완료하기 위한 대화 상자가 표시됩니다.
+- **세부 정보**: 사용자가 GUI 애플리케이션을 시작하면 프롬프트에서 반환하지 않습니다. 예를 들어 사용자가 2단계 인증을 사용할 수 있는 개인 GitHub 리포지토리를 복제할 경우 2단계 인증을 완료하기 위한 대화 상자가 표시됩니다.
 - **해결 방법**: 셸을 닫고 다시 엽니다.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Azure VM의 원격 관리 문제 해결
 > [!NOTE]
 > Azure VM에는 공용 연결 IP 주소가 있어야 합니다.
 
-- **세부 정보**: WinRM에 대한 기본 Windows 방화벽 설정으로 인해 사용자가 다음 오류를 보게 될 수도 있습니다.`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **해결 방법**: `Enable-AzureRmVMPSRemoting`을 실행하여 대상 컴퓨터에서 PowerShell 원격 기능의 모든 측면을 사용하도록 설정합니다.
+- **세부 정보**: WinRM에 대한 기본 Windows 방화벽 설정으로 인해 사용자에게 다음 오류가 나타날 수 있습니다. `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **해결 방법**:  `Enable-AzureRmVMPSRemoting`을 실행하여 대상 머신에서 PowerShell 원격의 모든 측면을 사용하도록 설정합니다.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir`은 결과를 Azure 드라이브에 업데이트합니다.
 
-- **세부 정보**: 기본적으로 사용자 환경을 최적화하기 위해 `dir`의 결과는 Azure 드라이브에 캐시됩니다.
-- **해결 방법**: Azure 리소스를 만들거나 업데이트하거나 제거한 후 `dir -force`를 실행하여 결과를 Azure 드라이브에 업데이트합니다.
+- **세부 정보**: 기본적으로 사용자 환경을 최적화하기 위해 `dir`의 결과가 Azure 드라이브에 캐시됩니다.
+- **해결 방법**: Azure 리소스를 만들거나 업데이트하거나 제거한 후에 `dir -force`를 실행하여 Azure 드라이브에서 결과를 업데이트합니다.
 
 ## <a name="general-limitations"></a>일반적인 제한 사항
 
@@ -143,7 +143,7 @@ PowerShell cmdlet을 사용하면 사용자가 Azure 드라이브에 파일을 �
 
 ### <a name="commands-that-create-gui-pop-ups-are-not-supported"></a>GUI 팝업을 만드는 명령은 지원되지 않습니다.
 
-사용자가 Windows 대화 상자를 만드는 명령을 실행할 경우(예: `Connect-AzureAD` 또는 `Connect-AzureRmAccount`) `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` 같은 오류 메시지가 표시됩니다.
+사용자가 Windows 대화 상자(예: `Connect-AzureAD`, `Connect-AzureRmAccount` 또는 `Connect-AzAccount`)를 만드는 명령을 실행하는 경우 `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`와 같은 오류 메시지가 표시됩니다.
 
 ### <a name="tab-completion-can-throw-psreadline-exception"></a>탭 완성 기능은 PSReadline 예외를 throw할 수 있습니다.
 

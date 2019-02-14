@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: c84b814ddc06c583fc2f07288c7aa5cd65cc70a0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.date: 02/05/2019
+ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232127"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55768565"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -23,13 +23,13 @@ ms.locfileid: "54232127"
 
 다음 기능은 공개 미리 보기에 있습니다. 현재 이러한 기능을 활용할 수 있지만 프로덕션 환경에서는 사용하지 마세요.
 
+### <a name="sql-database-reference-data"></a>SQL Database 참조 데이터
+
+Azure Stream Analytics는 참조 데이터 입력 원본으로 Azure SQL Database를 지원합니다. Azure Portal 및 Stream Analytics 도구가 있는 Visual Studio에서 Stream Analytics 작업에 대한 참조 데이터로 SQL Database를 사용할 수 있습니다. 자세한 내용은 [Azure Stream Analytics 작업에 SQL Database의 참조 데이터 사용](sql-reference-data.md)을 참조하세요.
+
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning과 통합
 
 ML(Machine Learning) 함수로 Stream Analytics 작업을 확장할 수 있습니다. Stream Analytics 작업에서 ML 함수를 사용하는 방법에 대한 자세한 내용은 [Azure Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기 조정](stream-analytics-scale-with-machine-learning-functions.md)을 참조하세요. [Azure Stream Analytics 및 Azure Machine Learning을 사용한 감정 분석 수행](stream-analytics-machine-learning-integration-tutorial.md)을 통해 실제 시나리오를 확인하세요.
-
-### <a name="blob-output-partitioning-by-custom-time"></a>사용자 지정 시간별 Blob 출력 분할
-
-Azure Stream Analytics는 사용자 지정 시간 특성을 기반으로 Blob Storage로 출력할 수 있습니다. 자세한 내용은 [Azure Stream Analytics Blob Storage 출력에 대한 사용자 지정 날짜/시간 경로 패턴](stream-analytics-custom-path-patterns-blob-storage-output.md)을 참조하세요.
 
 ### <a name="javascript-user-defined-aggregate"></a>JavaScript 사용자 정의 집계
 
@@ -45,7 +45,7 @@ Azure Stream Analytics용 Visual Studio 도구는 이벤트 허브 또는 IoT �
 
 ## <a name="private-previews"></a>비공개 미리 보기
 
-다음 기능은 비공개 미리 보기에 있습니다. 이 미리 보기에 액세스하려면 Azure Stream Analytics 비공개 미리 보기 [로그인](https://aka.ms/ASApreview1) 페이지를 방문하세요.
+다음 기능은 비공개 미리 보기에 있습니다.
 
 ### <a name="anomaly-detection"></a>이상 감지
 
@@ -55,16 +55,16 @@ Azure Stream Analytics에는 양방향, 느린 긍정 및 느린 부정 추세 �
 
 개발자는 이제 Azure Stream Analytics에서 수신한 이벤트를 역직렬화하기 위해 C#에서 사용자 지정 역직렬 변환기를 구현할 수 있습니다. 역직렬화할 수 있는 형식의 예로는 Parquet, Protobuf, XML 또는 임의의 이진 형식이 있습니다.
 
-### <a name="blob-output-partitioning-by-custom-attribute"></a>사용자 지정 특성으로 Blob 출력 분할
-
-이제 쿼리의 열을 기반으로 Azure Stream Analytics 출력을 Blob Storage로 분할할 수 있습니다.
-
-### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>Azure Data Lake Storage에 대한 Azure 리소스 인증을 위한 관리 ID
+### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Azure 리소스를 Azure Data Lake Storage에 인증하기 위한 관리형 ID
 
 Azure Data Lake Storage Gen1에 쓰는 동안 Azure 리소스 기반 인증을 위해 관리 ID와 함께 실시간 파이프라인을 작동할 수 있게 하므로 프로그래밍 방식으로 작업을 만들 수 있습니다. 자세한 내용은 [Use Managed identities for Azure resources to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output](stream-analytics-managed-identities-adls.md)(Azure 리소스의 관리 ID를 사용하여 Azure Data Lake Storage Gen1 출력에 대한 Azure Stream Analytics 작업 인증)을 참조하세요.
+
+### <a name="visual-studio-code-for-azure-stream-analytics"></a>Azure Stream Analytics용 Visual Studio Code
+
+Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/)(Azure Stream Analytics의 8가지 새 기능)
 
-* [4 new features now available in Azure Stream Analytics](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)(Azure Stream Analytics에서 이제 사용 가능한 4가지 새 기능)
+* [이제 Azure Stream Analytics에서 사용 가능한 네 가지 새 기능](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)

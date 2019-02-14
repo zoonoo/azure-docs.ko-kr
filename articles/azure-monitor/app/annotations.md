@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1ce937f5c9a378494e66867b6f919ee10eef2bf8
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 652591fc4539e6f19c0606c1502609a823327f2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259481"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55811021"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 
-[메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md) 차트의 주석은 새 빌드를 배포한 위치 또는 다른 중요한 이벤트를 표시합니다. 릴리스 주석으로 변경 내용이 애플리케이션의 성능에 영향을 주는지 여부를 쉽게 확인할 수 있습니다. 릴리스 주석은 [Azure DevOps Services 빌드 시스템](https://docs.microsoft.com/azure/devops/pipelines/tasks/)에서 자동으로 만들 수 있습니다. [PowerShell에서 만들어](#create-annotations-from-powershell) 원하는 이벤트에 대한 플래그를 지정하는 주석을 만들 수도 있습니다.
+[메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md) 차트의 주석은 새 빌드를 배포한 위치 또는 다른 중요한 이벤트를 표시합니다. 릴리스 주석으로 변경 내용이 애플리케이션의 성능에 영향을 주는지 여부를 쉽게 확인할 수 있습니다. 릴리스 주석은 [Azure DevOps Services 빌드 시스템](https://docs.microsoft.com/azure/devops/pipelines/tasks/)에서 자동으로 만들 수 있습니다. PowerShell에서 주석을 만들어 원하는 이벤트에 대한 플래그를 지정하는 주석을 만들 수도 있습니다.
 
 > [!NOTE]
 > 이 문서에서는 사용하지 않는 **클래식 메트릭 환경**을 반영합니다. 주석은 현재 클래식 환경 및 **[workbook](../../azure-monitor/app/usage-workbooks.md)** 에서만 사용할 수 있습니다. 현재 메트릭 환경에 대해 자세히 알아보려면 [이 문서](../../azure-monitor/platform/metrics-charts.md)를 참조하세요.

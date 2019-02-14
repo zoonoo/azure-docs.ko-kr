@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central 응용 프로그램에서 디바이스 관리 | Microsoft Docs
-description: 운영자로서 Azure IoT Central 응용 프로그램에서 디바이스를 관리하는 방법을 알아봅니다.
+title: Azure IoT Central 애플리케이션에서 장치 관리 | Microsoft Docs
+description: 운영자로서 Azure IoT Central 애플리케이션에서 장치를 관리하는 방법을 알아봅니다.
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 11/02/2018
@@ -8,21 +8,23 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004887"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55658117"
 ---
-# <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 디바이스 관리
+# <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 장치 관리
 
 이 문서에서는 운영자로서 Azure IoT Central 애플리케이션에서 디바이스를 관리하는 방법을 설명합니다. 운영자로서 다음과 같은 일을 할 수 있습니다.
 
 - **Device Explorer** 페이지를 사용하여 Azure IoT Central 애플리케이션에 연결될 디바이스를 보고, 추가하며 삭제할 수 있습니다.
 - 디바이스 인벤토리를 최신 상태로 유지합니다.
 - 디바이스 속성에 저장된 값을 변경하여 디바이스 메타데이터를 최신 상태로 유지합니다.
-- **설정** 페이지에서 특정 장치의 설정을 업데이트하여 장치 동작을 제어합니다.
+- **설정** 페이지에서 특정 디바이스의 설정을 업데이트하여 디바이스 동작을 제어합니다.
+
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="view-your-devices"></a>디바이스 보기
 
@@ -34,11 +36,11 @@ ms.locfileid: "51004887"
 
 1. Device Explorer 페이지의 오른쪽 창에 이 디바이스 템플릿으로 만든 디바이스 목록이 아래 그림과 같이 표시됩니다. 개별 디바이스를 선택하면 해당 디바이스의 디바이스 세부 정보 페이지를 볼 수 있습니다.
 
-    [![장치 세부 정보 페이지](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
+    [![디바이스 세부 정보 페이지](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
 
 ## <a name="add-a-device"></a>디바이스 추가
 
-Azure IoT Central 응용 프로그램에 디바이스를 추가하려면:
+Azure IoT Central 애플리케이션에 장치를 추가하려면:
 
 1. 왼쪽 탐색 메뉴에서 **Device Explorer**를 선택합니다.
 
@@ -46,17 +48,17 @@ Azure IoT Central 응용 프로그램에 디바이스를 추가하려면:
 
 1. + **새로 만들기**를 선택합니다.
 
-1. **실제 장치** 또는 **시뮬레이션된 장치**를 선택합니다. 실제 디바이스는 Azure IoT Central 응용 프로그램에 연결하는 물리적 디바이스입니다. 시뮬레이션된 디바이스에는 Azure IoT Central에서 생성한 샘플 데이터가 있습니다. 이 예제에서는 실제 디바이스를 사용합니다. **실제 장치**를 선택하여 새 장치의 **장치 세부 정보** 페이지로 이동합니다.
+1. **실제 장치** 또는 **시뮬레이션된 장치**를 선택합니다. 실제 장치는 Azure IoT Central 애플리케이션에 연결하는 물리적 장치입니다. 시뮬레이션된 디바이스에는 Azure IoT Central에서 생성한 샘플 데이터가 있습니다. 이 예제에서는 실제 디바이스를 사용합니다. **실제 디바이스**를 선택하여 새 디바이스의 **디바이스 세부 정보** 페이지로 이동합니다.
 
 
 ## <a name="import-devices"></a>디바이스 가져오기
 
-대량의 디바이스를 응용 프로그램에 연결할 수 있도록 Azure IoT Central은 CSV 파일을 통해 디바이스 대량 가져오기 기능을 제공합니다. CSV 파일에는 다음 열 및 헤더가 있어야 합니다.
+대량의 장치를 애플리케이션에 연결할 수 있도록 Azure IoT Central은 CSV 파일을 통해 장치 대량 가져오기 기능을 제공합니다. CSV 파일에는 다음 열 및 헤더가 있어야 합니다.
 1.  IOTC_DeviceID**<span style="color:Red">(소문자여야 함)</span>**
 1.  IOTC_DeviceName(선택 사항)
 
 
-디바이스를 응용 프로그램에 대량으로 등록하려면:
+장치를 애플리케이션에 대량으로 등록하려면:
 
 1. 왼쪽 탐색 메뉴에서 **Device Explorer**를 선택합니다.
 
@@ -80,15 +82,15 @@ Azure IoT Central 응용 프로그램에 디바이스를 추가하려면:
 디바이스 가져오기 작업이 실패하면 디바이스 그리드에 오류가 표시됩니다. 모든 오류를 캡처하는 로그 파일이 생성되며 오류 메시지를 클릭하여 다운로드할 수 있습니다.
 
 
-**템플릿과 장치 연결**
+**템플릿과 디바이스 연결**
 
-**연결되지 않은 장치** 아래에서 가져오기를 시작하여 장치를 등록하는 경우 해당 장치는 어떤 장치 템플릿 연결 없이도 생성됩니다. 데이터 및 디바이스에 대한 기타 세부 정보를 탐색하려면 디바이스는 템플릿과 연결되어 있어야 합니다. 템플릿과 디바이스를 연결하려면 이러한 단계를 수행합니다.
+**연결되지 않은 디바이스** 아래에서 가져오기를 시작하여 디바이스를 등록하는 경우 해당 디바이스는 어떤 디바이스 템플릿 연결 없이도 생성됩니다. 데이터 및 디바이스에 대한 기타 세부 정보를 탐색하려면 디바이스는 템플릿과 연결되어 있어야 합니다. 템플릿과 디바이스를 연결하려면 이러한 단계를 수행합니다.
 1. 왼쪽 탐색 메뉴에서 **Device Explorer**를 선택합니다.
 1. 왼쪽 패널에서 **연결되지 않은 디바이스**를 선택합니다.
-    [![연결되지 않은 장치](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
+    [![연결되지 않은 디바이스](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
 1. 템플릿과 연결하려는 디바이스를 선택합니다.
 1. **연결** 옵션을 클릭합니다.
-    [![장치 연결](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
+    [![디바이스 연결](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
 1. 사용 가능한 템플릿 목록에서 템플릿을 선택한 다음, **연결** 단추를 클릭합니다.
 1. 선택한 디바이스는 해당 디바이스 템플릿 아래로 이동합니다.
 
@@ -97,9 +99,9 @@ Azure IoT Central 응용 프로그램에 디바이스를 추가하려면:
 
 ## <a name="export-devices"></a>내보내기 디바이스
 
-디바이스를 프로비전하여 IoT Central에 연결하려면 IoT Central에서 생성되는 디바이스의 연결 문자열이 필요합니다. 내보내기 기능을 사용하여 응용 프로그램에서 대량으로 디바이스의 연결 문자열 및 다른 속성을 가져올 수 있습니다. 내보내기를 수행하면 선택한 모든 디바이스에 대한 디바이스 ID, 디바이스 이름 및 기본 연결 문자열이 포함된 CSV 파일이 생성됩니다.
+디바이스를 프로비전하여 IoT Central에 연결하려면 IoT Central에서 생성되는 디바이스의 연결 문자열이 필요합니다. 내보내기 기능을 사용하여 애플리케이션에서 대량으로 장치의 연결 문자열 및 다른 속성을 가져올 수 있습니다. 내보내기를 수행하면 선택한 모든 디바이스에 대한 디바이스 ID, 디바이스 이름 및 기본 연결 문자열이 포함된 CSV 파일이 생성됩니다.
 
-응용 프로그램에서 디바이스를 대량으로 내보내려면 다음을 수행합니다.
+애플리케이션에서 장치를 대량으로 내보내려면 다음을 수행합니다.
 1. 왼쪽 탐색 메뉴에서 **Device Explorer**를 선택합니다.
 
 1. 왼쪽 패널에서 디바이스를 내보낼 디바이스 템플릿을 선택합니다.
@@ -116,7 +118,7 @@ Azure IoT Central 응용 프로그램에 디바이스를 추가하려면:
 
     [![내보내기 성공](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. 내보낸 CSV 파일에는 다음의 열 정보(**디바이스 ID, 디바이스 이름, 디바이스 기본/보조 키, 및 기본/보조 인증서 지문**)가 있습니다.
+1. 내보낸 CSV 파일에는 **디바이스 ID, 디바이스 이름, 디바이스 기본/보조 키 및 기본/보조 인증서 지문**의 열 정보가 포함되어 있습니다.
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY
@@ -126,7 +128,7 @@ Azure IoT Central 응용 프로그램에 디바이스를 추가하려면:
 
 ## <a name="delete-a-device"></a>디바이스 삭제
 
-Azure IoT Central 응용 프로그램에서 실제 디바이스 또는 시뮬레이션된 디바이스를 삭제하려면:
+Azure IoT Central 애플리케이션에서 실제 장치 또는 시뮬레이션된 장치를 삭제하려면:
 
 1. 탐색 메뉴에서 **Device Explorer**를 선택합니다.
 
@@ -138,7 +140,7 @@ Azure IoT Central 응용 프로그램에서 실제 디바이스 또는 시뮬레
 
 ## <a name="change-a-device-setting"></a>디바이스 설정 변경
 
-설정은 디바이스의 동작을 제어합니다. 다시 말해서, 설정을 통해 디바이스에 입력을 제공할 수 있습니다. **장치 세부 정보** 페이지에서 장치 설정을 살펴보고 업데이트할 수 있습니다.
+설정은 디바이스의 동작을 제어합니다. 다시 말해서, 설정을 통해 디바이스에 입력을 제공할 수 있습니다. **디바이스 세부 정보** 페이지에서 디바이스 설정을 살펴보고 업데이트할 수 있습니다.
 
 1. 탐색 메뉴에서 **Device Explorer**를 선택합니다.
 
@@ -152,7 +154,7 @@ Azure IoT Central 응용 프로그램에서 실제 디바이스 또는 시뮬레
 
 ## <a name="change-a-property"></a>속성 변경
 
-속성은 도시나 일련 번호처럼 디바이스와 연결된 디바이스 메타데이터입니다. **장치 세부 정보** 페이지에서 속성을 살펴보고 업데이트할 수 있습니다.
+속성은 도시나 일련 번호처럼 디바이스와 연결된 디바이스 메타데이터입니다. **디바이스 세부 정보** 페이지에서 속성을 살펴보고 업데이트할 수 있습니다.
 
 1. 탐색 메뉴에서 **Device Explorer**를 선택합니다.
 
@@ -163,13 +165,13 @@ Azure IoT Central 응용 프로그램에서 실제 디바이스 또는 시뮬레
 1. 원하는 값으로 애플리케이션 속성을 수정합니다. 한 번에 여러 속성을 수정하고 동시에 업데이트할 수 있습니다. **업데이트**를 선택합니다.
 
 > [!NOTE]
-> _장치 속성_의 값은 변경할 수 없습니다 디바이스 속성은 디바이스에서 설정하며 Azure IoT Central 응용 프로그램 내에서 읽기 전용입니다.
+> _디바이스 속성_의 값은 변경할 수 없습니다 장치 속성은 장치에서 설정하며 Azure IoT Central 애플리케이션 내에서 읽기 전용입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 응용 프로그램에서 디바이스를 관리하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+Azure IoT Central 애플리케이션에서 장치를 관리하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
-> [장치 집합을 사용하는 방법](howto-use-device-sets.md)
+> [디바이스 집합을 사용하는 방법](howto-use-device-sets.md)
 
 <!-- Next how-tos in the sequence -->

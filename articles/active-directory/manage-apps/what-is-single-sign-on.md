@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 9e06e53f83dd05d53b76a2a07e465133f052dba8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157706"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55664032"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
 SSO(Single Sign-On)는 사용자가 Azure AD(Azure Active Directory)의 애플리케이션에 로그인할 때 보안 및 편리함을 제공합니다. 이 문서는 Single Sign-On 방법을 설명하고, 애플리케이션을 구성할 때 가장 적합한 SSO 방법을 선택하는 데 유용합니다.
@@ -49,9 +49,7 @@ Single Sign-On을 위해 애플리케이션을 구성하는 방법은 여러 가
 | [헤더 기반](#header-based-sso) | 온-프레미스만 | 애플리케이션이 인증에 헤더를 사용하는 경우 헤더 기반 Single Sign-On을 사용합니다. 헤더 기반 Single Sign-On에는 Azure AD용 PingAccess가 필요합니다. 애플리케이션 프록시는 Azure AD를 사용하여 사용자를 인증한 다음, 커넥터 서비스를 통해 트래픽을 전달합니다.  | 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect 및 OAuth
-OpenID Connect 및 OAuth를 사용하여 Azure AD에 엔터프라이즈 애플리케이션을 추가하는 프로세스를 간소화하는 Single Sign-On 환경을 사용하도록 설정합니다. 애플리케이션 관리자는 Single Sign-On을 구성할 필요가 없습니다. 대신 Azure AD는 관리자가 [사용자 동의를 부여](configure-user-consent.md)할 때 애플리케이션을 추가합니다. 
-
-OpenID Connect 및 OAuth에 대한 [SDK](../develop/reference-v2-libraries.md)는 채택하기 쉬우며, 애플리케이션은 MS Graph를 사용할 준비가 됩니다. 
+새 애플리케이션을 개발하는 경우 OpenID Connect 및 OAuth와 같은 최신 프로토콜을 사용하여 여러 디바이스 플랫폼에서 애플리케이션에 가장 적합한 Single Sign-On 환경을 달성할 수 있습니다. OAuth를 사용하면 사용자 또는 관리자가 [MS Graph](/graph/overview)와 같은 보호된 리소스에 대한 [동의](configure-user-consent.md)를 부여할 수 있습니다. 애플리케이션용 [SDK](../develop/reference-v2-libraries.md)를 쉽게 채택할 수 있습니다. 또한 앱에서 [MS Graph](/graph/overview)를 사용할 준비가 됩니다.
 
 자세한 내용은 다음을 참조하세요.
 

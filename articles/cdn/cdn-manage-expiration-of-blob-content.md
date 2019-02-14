@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 29e9bee5f7712252d95b9416ad5523b4dfdd4b94
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 39271bdda7adf7e8e65d3b5d5ea1844be1ecf233
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814319"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237946"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Azure CDN에서 Azure Blob Storage의 만료 관리
 > [!div class="op_single_selector"]
@@ -87,16 +87,19 @@ BLOB `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal
 
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 Cache-Control 헤더 설정
-[Azure PowerShell](/powershell/azure/overview)은 Azure 서비스를 관리하는 가장 강력하고 빠른 방법 중 하나입니다. `Get-AzureStorageBlob` cmdlet을 사용하여 Blob에 대한 참조를 가져온 다음 `.ICloudBlob.Properties.CacheControl` 속성을 설정합니다. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[Azure PowerShell](/powershell/azure/overview)은 Azure 서비스를 관리하는 가장 강력하고 빠른 방법 중 하나입니다. `Get-AzStorageBlob` cmdlet을 사용하여 Blob에 대한 참조를 가져온 다음 `.ICloudBlob.Properties.CacheControl` 속성을 설정합니다. 
 
 예: 
 
 ```powershell
 # Create a storage context
-$context = New-AzureStorageContext -StorageAccountName "<storage account name>" -StorageAccountKey "<storage account key>"
+$context = New-AzStorageContext -StorageAccountName "<storage account name>" -StorageAccountKey "<storage account key>"
 
 # Get a reference to the blob
-$blob = Get-AzureStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
+$blob = Get-AzStorageBlob -Context $context -Container "<container name>" -Blob "<blob name>"
 
 # Set the CacheControl property to expire in 1 hour (3600 seconds)
 $blob.ICloudBlob.Properties.CacheControl = "max-age=3600"

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: juliako
-ms.openlocfilehash: 8eb49010d89c3039f46e5c84cd305b7d0b5ca025
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306975"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55767455"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Azure Media Services v3가 있는 클라우드 및 지역
 
@@ -33,9 +33,16 @@ Azure Media Services v3는 전 세계 Azure, Azure Government, Azure Germany, Az
 | [LiveEvents](live-streaming-overview.md) | 사용 가능 | 사용 가능 | 사용 가능 | 사용 가능 |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | 사용 가능 | 사용 가능 | 사용 가능 | 사용 가능 |
 
-## <a name="regions"></a>영역 
+## <a name="regionsgeographieslocations"></a>Azure 지역/지리적 위치/위치
 
-**location** 매개 변수를 제공해야 하는 경우 지역 코드 이름을 **location** 값으로 제공해야 합니다. 계정이 있고 호출을 라우팅해야 하는 지역의 코드 이름을 가져오기 위해 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)에서 다음 줄을 실행할 수 있습니다.
+* [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Azure 지역 제품](https://azure.microsoft.com/global-infrastructure/services/)
+* [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)
+
+## <a name="region-code-name"></a>Azure 지역 코드 이름 
+
+**location** 매개 변수를 제공해야 하는 경우 지역 코드 이름을 **location** 값으로 제공해야 합니다. 계정이 속해 있고 호출을 라우팅해야 하는 Azure 지역의 코드 이름을 가져오려면 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)에서 다음 줄을 실행합니다.
 
 ```bash
 az account list-locations

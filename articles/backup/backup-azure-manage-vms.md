@@ -2,18 +2,18 @@
 title: Resource Manager로 배포된 가상 컴퓨터 백업 관리
 description: Resource Manager로 배포된 가상 머신 백업을 관리하고 모니터링하는 방법을 알아봅니다.
 services: backup
-author: trinadhk
-manager: shreeshd
+author: sogup
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk
-ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.author: sogup
+ms.openlocfilehash: 0ed7260f35c483d17eb97e625ef72c310a3fcfdb
+ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635768"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55564139"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Azure 가상 머신 백업 관리
 
@@ -137,10 +137,12 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 ## <a name="stop-protecting-virtual-machines"></a>가상 머신 보호 중지
 가상 머신에 대한 보호를 중지하려는 경우 복구 지점을 보존할지를 묻는 메시지가 표시됩니다. 두 가지 방법으로 가상 머신 보호를 정지할 수 있습니다.
 
-* 모든 미래의 백업 작업을 정지하고 모든 복구 지점을 삭제, 또는
-* 모든 미래의 백업 작업을 정지하고 복구 지점을 유지 
+* 미래의 모든 백업 작업을 중지하고 모든 복구 지점을 삭제 또는
+* 미래의 모든 백업 작업을 중지하고 복구 지점을 유지
 
 저장소에서 복구 지점을 유지하는 데 관련된 비용이 듭니다. 그러나 복구 지점을 유지하는 장점은 나중에 원하는 경우 가상 머신을 복원할 수 있다는 것입니다. 복구 지점을 유지하는 비용에 대한 자세한 내용은 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/backup/)를 참조하세요. 모든 복구 지점을 삭제하려는 경우 가상 머신을 복원할 수 없습니다.
+
+데이터 보관을 사용하여 백업을 중지할 때마다 복구 지점이 보존 정책에 따라 만료되지만, 백업 데이터를 명시적으로 삭제할 때까지 Azure Backup에서 항상 마지막 복구 지점을 유지합니다. 마찬가지로 백업 중지를 수행하지 않고 데이터 원본을 삭제하면 새 백업이 실패하고 이전 복구 지점이 보존 정책에 따라 만료되지만, 데이터 삭제를 사용하여 백업 중지를 수행할 때까지 마지막 복구 지점이 항상 유지됩니다.
 
 가상 머신에 대한 보호를 중지하려면:
 

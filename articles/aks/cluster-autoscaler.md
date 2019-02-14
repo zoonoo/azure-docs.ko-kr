@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 6b2302e69c9412170b55df4bfd8c1df5a9f75ef3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479167"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55754648"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -63,6 +63,9 @@ Horizontal Pod Autoscaler 및 클러스터 자동 크기 조정기가 둘 다 �
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>AKS 클러스터를 만들고 클러스터 자동 크기 조정기를 사용하도록 설정
 
 AKS 클러스터를 만들어야 하는 경우 [az aks create][az-aks-create] 명령을 사용합니다. 이전 [시작하기 전에](#before-you-begin) 섹션에 간략하게 설명된 대로 필요한 최소 버전 번호를 충족하거나 초과하는 *--kubernetes-version*을 지정합니다. 클러스터 자동 크기 조정기를 사용하도록 설정하고 구성하려면 *--enable-cluster-autoscaler* 매개 변수를 사용하고 *--min-count* 및 *--max-count* 노드를 지정합니다.
+
+> [!IMPORTANT]
+> 클러스터 자동 크기 조정기는 Kubernetes 구성 요소입니다. AKS 클러스터는 가상 머신 확장 집합을 노드에 사용하지만, Azure Portal에서 또는 Azure CLI를 사용하여 확장 집합 자동 크기 조정에 대한 설정을 직접 설정하거나 편집하지 마세요. Kubernetes 클러스터 자동 크기 조정기가 필수 크기 조정 설정을 자동으로 관리하게 두세요. 자세한 내용은 [MC_ 리소스 그룹의 AKS 리소스를 수정할 수 있나요?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group)를 참조하세요.
 
 다음 예제에서는 가상 머신 확장 집합 및 클러스터 자동 크기 조정기를 사용하도록 설정하여 AKS 클러스터를 만들고 최소 *1*개 및 최대 *3*개 노드를 사용합니다.
 

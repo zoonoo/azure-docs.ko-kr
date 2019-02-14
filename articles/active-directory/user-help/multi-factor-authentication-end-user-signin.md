@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: aafc960c0c26a94a8be672d0d72a46dfcb559013
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 13b82aa4f256bf0ec2d0805e85241d72e115d737
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157009"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55810204"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication의 로그인 환경
 > [!NOTE]
@@ -31,8 +31,8 @@ ms.locfileid: "55157009"
 | --- |
 | [내 휴대폰 또는 사무실 전화로 통화](#signing-in-with-a-phone-call) |
 | [내 휴대폰으로 문자 발송](#signing-in-with-a-text-message)
-| [ 앱의 알림 사용](#signing-in-with-the-microsoft-authenticator-app-using-notification) |
-| [Microsoft Authenticator 앱의 확인 코드 사용](#signing-in-with-the-microsoft-authenticator-app-using-verification-code) |
+| Microsoft Authenticator 앱의 알림 사용 |
+| Microsoft Authenticator 앱의 확인 코드 사용 |
 | [원하는 방법이 없으므로 다른 방법 사용](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>전화 통화를 사용하여 로그인
@@ -87,4 +87,4 @@ Microsoft Authenticator 앱을 사용하여 확인 코드를 가져오는 경우
 
 [2단계 확인 설정 관리](multi-factor-authentication-end-user-manage-settings.md) 방법 알아보기
 
-문자 메시지 및 전화 대신 알림을 사용하여 로그인할 수 있도록 [Microsoft Authenticator 앱 시작](microsoft-authenticator-app-how-to.md) 방법을 알아보세요.
+문자 메시지 및 전화 대신 알림을 사용하여 로그인할 수 있도록 [Microsoft Authenticator 앱 시작](user-help-auth-app-download-install.md) 방법을 알아보세요.

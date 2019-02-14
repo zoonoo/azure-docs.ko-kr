@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331648"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812092"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 
@@ -176,7 +176,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 >
 >
 
-이러한 2가지 속성을 개선하고 데이터 이동 처리량을 향상시키려면 [샘플 사용 사례](#case-study-use-parallel-copy)를 참조하세요. 기본 동작을 활용하기 위해 **parallelCopies** 를 구성할 필요가 없습니다. 구성을 수행하고 **parallelCopies**가 너무 작은 경우 여러 클라우드 DMU가 완전히 활용되지 않을 수 있습니다.
+이러한 두 가지 속성을 개선하고 데이터 이동 처리량을 향상하려면 샘플 사용 사례를 참조하세요. 기본 동작을 활용하기 위해 **parallelCopies** 를 구성할 필요가 없습니다. 구성을 수행하고 **parallelCopies**가 너무 작은 경우 여러 클라우드 DMU가 완전히 활용되지 않을 수 있습니다.
 
 ### <a name="billing-impact"></a>청구 영향
 복사 작업의 총 시간을 기준으로 요금이 청구된다는 점을 기억하는 것이 **중요**합니다. 클라우드 단위 1개로 1시간이 걸렸던 복사 작업이 이제 클라우드 단위 4개로 15분이 걸리는 경우 전체 청구 금액은 거의 동일한 상태로 유지됩니다. 예를 들어 4개의 클라우드 단위를 사용합니다. 첫 번째 클라우드 단위 10분, 두 번째 10분, 세 번째 5분, 네 번째 5분으로 모두 하나의 복사 작업 실행으로 수행됩니다. 총 복사(데이터 이동) 시간(10 + 10 + 5 + 5 = 30분)에 대한 요금이 청구됩니다. **parallelCopies**의 사용은 청구에 영향을 주지 않습니다.
@@ -297,7 +297,7 @@ Blob Storage에서 SQL Data Warehouse로 데이터를 복사하는 경우에는,
 
 * **데이터 패턴**: 테이블 스키마는 복사본 처리량에 영향을 줍니다. 행 크기가 크면 동일한 양의 데이터를 복사하는 데 작은 행 크기보다 더 나은 성능을 제공합니다. 원인은 데이터베이스가 적은 수의 행을 포함하는 더 적은 배치의 데이터보다 더욱 효율적으로 검색할 수 있기 때문입니다.
 * **쿼리 또는 저장 프로시저**: 데이터를 보다 효율적으로 가져오기 위해 복사 작업 원본에서 지정한 쿼리 또는 저장 프로시저의 논리를 최적화합니다.
-* **데이터 관리 게이트웨이**를 사용해야 하는 SQL Server 및 Oracle과 같은 **온-프레미스 관계형 데이터베이스**는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-on-data-management-gateway) 섹션을 참조하세요.
+* **데이터 관리 게이트웨이**를 사용해야 하는 SQL Server 및 Oracle 같은 **온-프레미스 관계형 데이터베이스**는 데이터 관리 게이트웨이에 대한 고려 사항 섹션을 참조하세요.
 
 ## <a name="considerations-for-the-sink"></a>싱크에 대한 고려 사항
 ### <a name="general"></a>일반

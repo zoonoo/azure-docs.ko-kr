@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: fb67821d883317901617bda101ae91a9a92018c2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2e7f6c066ea254fff90ba2f9ff1f559fdb680ddf
+ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246401"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55766693"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Azure Virtual Network 내에서 안전하게 실험 및 추론 실행
 
@@ -231,4 +231,5 @@ aks_target = ComputeTarget.create(workspace = ws,
 
 * [학습 환경 설정](how-to-set-up-training-targets.md)
 * [모델 배포 위치](how-to-deploy-and-where.md)
-* [SSL을 사용하여 배포된 모델 보호](how-to-secure-web-service.md)
+* [SSL을 사용하여 안전하게 모델 배포](how-to-secure-web-service.md)
+

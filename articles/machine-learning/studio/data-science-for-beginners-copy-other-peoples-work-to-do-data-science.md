@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493000"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56241447"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 ## <a name="video-5-data-science-for-beginners-series"></a>비디오 5: 초급자를 위한 데이터 과학 시리즈
@@ -52,7 +52,7 @@ ms.locfileid: "55493000"
 
 Microsoft에는 무료로 사용해 볼 수 있는 [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/)라는 클라우드 기반 서비스가 있습니다. 이 서비스는 여러 다른 기계 학습 알고리즘을 시험해 볼 수 있는 작업 영역을 제공하며, 솔루션을 계획할 때 웹 서비스로 실행될 수 있습니다.
 
-이 서비스의 일부를 **[Azure AI 갤러리](https://gallery.cortanaintelligence.com/)** 라고 합니다. 여기에는 사용자들이 작성한 후 다른 사용자를 위해 제공한 Azure Machine Learning 실험 또는 모델 컬렉션을 비롯한 리소스가 포함됩니다. 이러한 실험은 다른 사람이 생각한 내용과 힘들게 작업한 결과를 자신의 솔루션에 활용할 수 있는 좋은 방법입니다. 누구나 검색할 수 있습니다.
+이 서비스의 일부를 **[Azure AI 갤러리](https://gallery.azure.ai/)** 라고 합니다. 여기에는 사용자들이 작성한 후 다른 사용자를 위해 제공한 Azure Machine Learning 실험 또는 모델 컬렉션을 비롯한 리소스가 포함됩니다. 이러한 실험은 다른 사람이 생각한 내용과 힘들게 작업한 결과를 자신의 솔루션에 활용할 수 있는 좋은 방법입니다. 누구나 검색할 수 있습니다.
 
 ![Azure AI 갤러리](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -82,11 +82,11 @@ Microsoft에는 무료로 사용해 볼 수 있는 [Azure Machine Learning Studi
 이제 시작점을 얻게 되었습니다. 해당 데이터를 내 데이터를 교체하고 모델을 직접 조정합니다. 이렇게 하면 좀 더 유리한 고지에서 작업을 시작할 수 있으며 해당 작업을 잘 아는 다른 사람들의 작업을 토대로 구축할 수 있습니다.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>기계 학습 방법을 보여 주는 실험 찾기
-[Azure AI 갤러리](https://gallery.cortanaintelligence.com)에는 데이터 과학을 처음 사용하는 사람들에게 방법 예제를 알려주기 위해 특수하게 제공된 다른 실험도 있습니다. 예를 들어 이 갤러리에는 누락된 값을 처리하는 방법을 보여 주는 실험([누락된 값 처리 방법](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1))도 있습니다. 여기서는 비어 있는 값을 대체하는 15가지 방법을 안내하고 각 방법의 이점과 사용해야 하는 경우를 설명합니다.
+[Azure AI 갤러리](https://gallery.azure.ai)에는 데이터 과학을 처음 사용하는 사람들에게 방법 예제를 알려주기 위해 특수하게 제공된 다른 실험도 있습니다. 예를 들어 이 갤러리에는 누락된 값을 처리하는 방법을 보여 주는 실험([누락된 값 처리 방법](https://gallery.azure.ai/Experiment/Methods-for-handling-missing-values-1))도 있습니다. 여기서는 비어 있는 값을 대체하는 15가지 방법을 안내하고 각 방법의 이점과 사용해야 하는 경우를 설명합니다.
 
 ![Machine Learning Studio에서 갤러리 실험은 누락된 값에 대한 메서드를 엽니다.](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Azure AI 갤러리](https://gallery.cortanaintelligence.com)에서는 자체 솔루션에 대한 시작점으로 사용할 수 있는 작동 중인 실험을 찾을 수 있습니다.
+[Azure AI 갤러리](https://gallery.azure.ai)에서는 자체 솔루션에 대한 시작점으로 사용할 수 있는 작동 중인 실험을 찾을 수 있습니다.
 
 Microsoft Azure Machine Learning의 “초급자를 위한 데이터 과학”에 있는 다른 비디오도 확인해보세요.
 

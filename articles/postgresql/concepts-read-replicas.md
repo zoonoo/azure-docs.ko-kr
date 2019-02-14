@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 9270c3290bd7be0bbb79d30aff8becc04dcfc603
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/01/2019
+ms.openlocfilehash: 270231b2ad7d94789595cfa4e681cf6c2b0f0541
+ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904015"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55657878"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 읽기 복제본
 
@@ -21,6 +21,8 @@ ms.locfileid: "54904015"
 읽기 복제본 기능을 사용하면 동일한 Azure 지역 내에서 Azure Database for PostgreSQL 서버(마스터)의 데이터를 최대 5개의 읽기 전용 서버(읽기 복제본)로 복제할 수 있습니다. 읽기 복제본은 PostgreSQL 엔진의 기본 복제 기술을 사용하여 비동기적으로 업데이트됩니다.
 
 복제본은 일반적인 독립형 Azure Database for PostgreSQL 서버와 비슷한 방식으로 관리할 수 있는 새 서버입니다. 각 읽기 복제본의 경우 vCore에서 프로비전된 컴퓨팅 및 프로비전된 스토리지에 대한 요금이 GB/월 단위로 청구됩니다.
+
+복제본을 만들고 관리하는 방법을 알아보려면 [방법 페이지](howto-read-replicas-portal.md)를 참조하세요.
 
 ## <a name="when-to-use-read-replicas"></a>읽기 복제본을 사용하면 적절한 경우
 읽기 복제본 기능은 읽기 집약적 워크로드의 성능 및 규모를 향상시키는 데 도움을 주기 위한 것입니다. 예를 들어, 읽기 워크로드는 복제본으로 분리될 수 있으며 쓰기 워크로드를 마스터로 보내질 수 있습니다.
@@ -56,7 +58,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 메시지가 표시되면 사용자 계정의 암호를 입력합니다.
 
 ## <a name="monitoring-replication"></a>복제 모니터링
-Azure Monitor에서 사용할 수 있는 **복제본 간 최대 지연 시간** 메트릭이 있습니다. 이 메트릭은 마스터 서버에서만 사용할 수 있습니다. 이 메트릭은 마스터와 가장 느리게 지연 복제본 간의 지연 시간을 보여 줍니다.다. 
+Azure Monitor에서 사용할 수 있는 **복제본 간 최대 지연 시간** 메트릭이 있습니다. 이 메트릭은 마스터 서버에서만 사용할 수 있습니다. 이 메트릭은 마스터와 가장 오래 지연된 복제본 간의 지연 시간을 바이트 단위로 보여 줍니다. 
 
 Azure Monitor에서 **복제본 지연 시간** 메트릭도 제공합니다. 이 메트릭은 복제본에만 사용할 수 있습니다. 
 
@@ -101,7 +103,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 복제본을 만들려면 먼저 마스터 서버에서 **azure.replication_support**를 REPLICA로 설정해야 합니다. 이 매개 변수 변경 내용을 적용하려면 서버를 다시 시작해야 합니다. 이 매개 변수는 범용 및 메모리 최적화 계층에만 적용됩니다.
 
 ### <a name="stopped-replicas"></a>중지된 복제본
-마스터 및 복제본 간의 복제를 중지하도록 선택한 경우 이러한 변경 내용을 적용하기 위해 복제본이 다시 시작됩니다. 그 이후에는 다시 복제본으로 설정할 수 없습니다.
+마스터 및 복제본 간의 복제를 중지하도록 선택하면 이러한 변경 내용을 적용하기 위해 복제본이 다시 시작됩니다. 그러면 복제본이 읽기-쓰기 서버가 됩니다. 그 이후에는 다시 복제본으로 설정할 수 없습니다.
 
 ### <a name="replicas-are-new-servers"></a>복제본은 새로운 서버임
 복제본은 새로운 Azure Database for PostgreSQL 서버로 생성됩니다. 기존 서버는 복제본으로 만들 수 없습니다.
