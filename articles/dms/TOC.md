@@ -15,6 +15,7 @@
 ## [MySQL 온라인용 Azure DB로 MySQL 마이그레이션](tutorial-mysql-azure-mysql-online.md)
 ## [PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션](tutorial-postgresql-azure-postgresql-online.md)
 ## [Azure Cosmos DB Mongo API에 MongoDB를 오프라인으로 마이그레이션](tutorial-mongodb-cosmos-db.md)
+## [Azure Cosmos DB Mongo API에 MongoDB를 온라인으로 마이그레이션](tutorial-mongodb-cosmos-db-online.md)
 
 # 방법 가이드
 ## [PowerShell을 사용하여 SQL Server를 Azure SQL DB로 마이그레이션](howto-sql-server-to-azure-sql-powershell.md)
