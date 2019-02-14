@@ -10,14 +10,14 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 6dd7707c489bbbad7a97a0ec0a76e7c631bd1465
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: eca5e4cc96996c35e7c2181746cdb3de2e5a602c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359258"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820065"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB(SQL API) 간 데이터 복사
 
@@ -28,7 +28,7 @@ ms.locfileid: "54359258"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Cosmos DB(SQL API) 간 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
 
 >[!NOTE]
->이 커넥터는 Cosmos DB SQL API 간 데이터 복사만을 지원합니다. MongoDB의 경우 [Azure Cosmos DB의 MongoDB API용 커넥터](connector-azure-cosmos-db-mongodb-api.md)를 참조하세요. 다른 API 형식은 이제 지원되지 않습니다.
+>이 커넥터는 Cosmos DB SQL API 간 데이터 복사만을 지원합니다. MongoDB API의 경우 [Azure Cosmos DB의 API for MongoDB용 커넥터](connector-azure-cosmos-db-mongodb-api.md)를 참조하세요. 다른 API 형식은 이제 지원되지 않습니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -38,7 +38,7 @@ Azure Cosmos DB(SQL API) 커넥터를 사용하여 다음을 수행할 수 있�
 
 - Azure Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction) 간에 데이터를 복사합니다.
 - **insert** 또는 **upsert**로 Azure Cosmos DB에 씁니다.
-- JSON 문서를 있는 그대로 가져오고 내보내거나 데이터를 테이블 형식 데이터 세트 간에 복사합니다. 예로는 SQL 데이터베이스 및 CSV 파일이 있습니다. JSON 파일 간 또는 다른 Azure Cosmos DB 컬렉션 간에 문서를 있는 그대로 복사하려면 [JSON 문서 가져오기 또는 내보내기](#importexport-json-documents)를 참조하세요.
+- JSON 문서를 있는 그대로 가져오고 내보내거나 데이터를 테이블 형식 데이터 세트 간에 복사합니다. 예로는 SQL 데이터베이스 및 CSV 파일이 있습니다. JSON 파일 간 또는 다른 Azure Cosmos DB 컬렉션 간에 문서를 있는 그대로 복사하려면 JSON 문서 가져오기 또는 내보내기를 참조하세요.
 
 Data Factory는 Azure Cosmos DB에 쓸 때 최상의 성능을 제공하기 위해 [Azure Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)와 통합됩니다.
 
@@ -58,7 +58,7 @@ Azure Cosmos DB(SQL API) 연결된 서비스에 다음 속성이 지원됩니다
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | **type** 속성은 **CosmosDb**로 설정해야 합니다. | 예 |
-| connectionString |Azure Cosmos DB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다.<br /><br />**참고**: 다음 예제에 표시된 대로 연결 문자열에 데이터베이스 정보를 지정해야 합니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. |예 |
+| connectionString |Azure Cosmos DB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다.<br />**참고**: 다음 예제에 표시된 대로 연결 문자열에 데이터베이스 정보를 지정해야 합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 이 속성을 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아니요 |
 
 **예제**
@@ -72,6 +72,35 @@ Azure Cosmos DB(SQL API) 연결된 서비스에 다음 속성이 지원됩니다
             "connectionString": {
                 "type": "SecureString",
                 "value": "AccountEndpoint=<EndpointUrl>;AccountKey=<AccessKey>;Database=<Database>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**예제: Azure Key Vault에 계정 키 저장**
+
+```json
+{
+    "name": "CosmosDbSQLAPILinkedService",
+    "properties": {
+        "type": "CosmosDb",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "AccountEndpoint=<EndpointUrl>;Database=<Database>"
+            },
+            "accountKey": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {

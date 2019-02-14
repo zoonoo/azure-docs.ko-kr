@@ -1,18 +1,18 @@
 ---
 title: 개념 - AKS(Azure Kubernetes Service)의 네트워킹
-description: 기본 및 고급 네트워킹, 수신 컨트롤러, 부하 분산 장치 및 고정 IP 주소를 포함하여 AKS(Azure Kubernetes Service)의 네트워킹에 대해 알아봅니다.
+description: kubenet 및 Azure CNI 네트워킹, 수신 컨트롤러, 부하 분산 장치 및 고정 IP 주소를 포함하여 AKS(Azure Kubernetes Service)의 네트워킹에 대해 알아봅니다.
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 62ba98f221041d5bbf9bb095a02d052218eb0fd0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380888"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820133"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -23,7 +23,7 @@ ms.locfileid: "49380888"
 - [서비스](#services)
 - [Azure 가상 네트워크](#azure-virtual-networks)
 - [수신 컨트롤러](#ingress-controllers)
-- [네트워크 정책](#network-policies)
+- 네트워크 정책
 
 ## <a name="kubernetes-basics"></a>Kubernetes 기본 사항
 
@@ -41,7 +41,7 @@ Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포�
 
     ![AKS 클러스터의 클러스터 IP 트래픽 흐름을 보여 주는 다이어그램][aks-clusterip]
 
-- **NodePort** - 노드 IP 주소와 포트를 사용하여 응용 프로그램에 직접 액세스할 수 있도록 포트 매핑을 기본 노드에 만듭니다.
+- **NodePort** - 노드 IP 주소와 포트를 사용하여 애플리케이션에 직접 액세스할 수 있도록 포트 매핑을 기본 노드에 만듭니다.
 
     ![AKS 클러스터의 NodePort 트래픽 흐름을 보여 주는 다이어그램][aks-nodeport]
 
@@ -51,7 +51,7 @@ Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포�
 
     인바운드 트래픽을 추가로 제어하고 라우팅하려면 [수신 컨트롤러](#ingress-controllers)를 대신 사용할 수 있습니다.
 
-- **ExternalName** - 응용 프로그램에 쉽게 액세스하기 위한 특정 DNS 항목을 만듭니다.
+- **ExternalName** - 애플리케이션에 쉽게 액세스하기 위한 특정 DNS 항목을 만듭니다.
 
 부하 분산 장치 및 서비스에 대한 IP 주소는 동적으로 할당하거나 사용할 기존 고정 IP 주소를 지정할 수 있습니다. 내부 및 외부 고정 IP 주소를 모두 할당할 수 있습니다. 이 기존 고정 IP 주소는 종종 DNS 항목에 연결됩니다.
 
@@ -61,43 +61,38 @@ Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포�
 
 AKS에서는 다음 두 가지 네트워크 모델 중 하나를 사용하는 클러스터를 배포할 수 있습니다.
 
-- *기본* 네트워킹 - AKS 클러스터가 배포될 때 네트워크 리소스가 만들어지고 구성됩니다.
-- *고급* 네트워킹 - AKS 클러스터가 기존 가상 네트워크 리소스 및 구성에 연결됩니다.
+- *Kubenet* 네트워킹 - 네트워크 리소스는 일반적으로 AKS 클러스터가 배포될 때 만들어지고 구성됩니다.
+- *Azure CNI(컨테이너 네트워킹 인터페이스)* 네트워킹 - AKS 클러스터가 기존 가상 네트워크 리소스 및 구성에 연결됩니다.
 
-### <a name="basic-networking"></a>기본 네트워킹
+### <a name="kubenet-basic-networking"></a>Kubenet(기본) 네트워킹
 
-*기본* 네트워킹 옵션은 AKS 클러스터 만들기에 대한 기본 구성입니다. Azure 플랫폼은 클러스터와 Pod의 네트워크 구성을 관리합니다. 기본 네트워킹은 사용자 지정 가상 네트워크 구성이 필요하지 않은 배포에 적합합니다. 기본 네트워킹에서는 AKS 클러스터에 할당된 서브넷 이름 또는 IP 주소 범위와 같은 네트워크 구성을 정의할 수 없습니다.
+*kubenet* 네트워킹 옵션은 AKS 클러스터 만들기에 대한 기본 구성입니다. *kubenet*을 사용하면 노드는 Azure Virtual Network 서브넷의 IP 주소를 얻습니다. Pod는 논리적으로 다른 주소 공간에서 Azure Virtual Network 노드 서브넷에 대한 IP 주소를 받습니다. 그런 후에 NAT(Network Address Translation)는 Pod가 Azure Virtual Network의 리소스에 연결할 수 있도록 구성됩니다. 트래픽의 원본 IP 주소는 노드의 기본 IP 주소로 NAT됩니다.
 
-기본 네트워킹에 대해 구성된 AKS 클러스터의 노드에는 [kubenet][kubenet] Kubernetes 플러그 인이 사용됩니다.
+노드는 [kubenet][kubenet] Kubernetes 플러그인을 사용합니다. Azure 플랫폼에서 가상 네트워크를 만들고 구성하거나 기존 가상 네트워크 서브넷에 AKS 클러스터를 배포하도록 선택할 수 있습니다. 다시 말해, Pod 및 라우팅 가능한 IP 주소를 수신하는 노드만 NAT를 사용하여 AKS 클러스터 외부의 다른 리소스와 통신합니다. 이 방법을 사용하면 네트워크 공간에서 Pod가 사용하도록 예약해야 하는 IP 주소의 수가 크게 줄어듭니다.
 
-기본 네트워킹에서 제공하는 기능은 다음과 같습니다.
+자세한 내용은 [AKS 클러스터에 대한 kubenet 네트워킹 구성][aks-configure-kubenet-networking]을 참조하세요.
 
-- Azure Load Balancer를 통해 외부 또는 내부로 Kubernetes 서비스를 노출합니다.
-- Pod는 공용 인터넷의 리소스에 액세스할 수 있습니다.
+### <a name="azure-cni-advanced-networking"></a>Azure CNI(고급) 네트워킹
 
-### <a name="advanced-networking"></a>고급 네트워킹
+Azure CNI를 사용하면 모든 Pod가 서브넷에서 IP 주소를 가져오고 직접 액세스가 가능합니다. 이러한 IP 주소는 네트워크 공간에서 고유해야 하며 미리 계획되어야 합니다. 각 노드에는 지원하는 최대 Pod 수에 대한 구성 매개 변수가 있습니다. 그러면 노드당 동일한 IP 주소 수가 해당 노드에 대해 미리 예약됩니다. 이 방식을 사용할 경우 더 많은 계획이 필요하며, 애플리케이션 요구가 증가하면서 IP 주소가 고갈되거나 더 큰 서브넷에서 클러스터를 구축해야 할 수 있습니다.
 
-*고급* 네트워킹은 구성한 Azure 가상 네트워크에 Pod를 배치합니다. 이 가상 네트워크는 다른 Azure 리소스에 대한 자동 연결 및 다양한 기능 집합과의 통합을 제공합니다. 고급 네트워킹은 기존 서브넷 및 연결 사용과 같은 특정 가상 네트워크 구성이 필요한 배포에 적합합니다. 고급 네트워킹을 사용하면 이러한 서브넷 이름과 IP 주소 범위를 정의할 수 있습니다.
-
-고급 네트워킹에 대해 구성된 AKS 클러스터의 노드에는 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인이 사용됩니다.
+노드는 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그인을 사용합니다.
 
 ![각 노드를 단일 Azure VNet에 연결하는 브리지가 있는 두 노드를 보여주는 다이어그램][advanced-networking-diagram]
 
-고급 네트워킹에서 기본 네트워킹을 통해 제공하는 기능은 다음과 같습니다.
+Azure CNI는 kubenet 네트워킹에 다음과 같은 기능을 제공합니다.
 
-- AKS 클러스터를 기존 Azure 가상 네트워크에 배포하거나 클러스터에 대한 새 가상 네트워크와 서브넷을 만듭니다.
 - 클러스터의 모든 Pod에 가상 네트워크의 IP 주소가 할당됩니다. Pod에서 클러스터의 다른 Pod 및 가상 네트워크의 다른 노드와 직접 통신할 수 있습니다.
-- Pod는 ExpressRoute와 S2S(사이트 간) VPN 연결을 통한 온-프레미스 네트워크를 포함하여 피어링된 가상 네트워크의 다른 서비스에 연결할 수 있습니다. 또한 온-프레미스에서 Pod에 연결할 수도 있습니다.
 - 서비스 엔드포인트를 사용하도록 설정된 서브넷의 Pod는 Azure 서비스(예: Azure Storage 및 SQL DB)에 안전하게 연결될 수 있습니다.
 - UDR(사용자 정의 경로)을 만들어 트래픽을 Pod에서 네트워크 가상 어플라이언스로 라우팅할 수 있습니다.
 
-자세한 내용은 [AKS의 고급 네트워크 구성][aks-configure-advanced-networking]을 참조하세요.
+자세한 내용은 [AKS 클러스터에 대한 Azure CNI 구성][aks-configure-advanced-networking]을 참조하세요.
 
 ## <a name="ingress-controllers"></a>수신 컨트롤러
 
 LoadBalancer 유형 Service를 만들면 기본 Azure 부하 분산 장치 리소스가 만들어집니다. 부하 분산 장치는 지정된 포트의 Service에 있는 Pod에 트래픽을 분산하도록 구성됩니다. LoadBalancer는 계층 4에서만 작동합니다. 즉 Service에서 실제 애플리케이션을 인식하지 못하고, 라우팅 고려 사항을 추가로 만들 수 없습니다.
 
-*수신 컨트롤러*는 계층 7에서 작동하며, 더 지능적인 규칙을 사용하여 응용 프로그램 트래픽을 분산시킬 수 있습니다. 수신 컨트롤러의 일반적인 용도는 인바운드 URL에 따라 HTTP 트래픽을 다른 애플리케이션으로 라우팅하는 것입니다.
+*수신 컨트롤러*는 계층 7에서 작동하며, 더 지능적인 규칙을 사용하여 애플리케이션 트래픽을 분산시킬 수 있습니다. 수신 컨트롤러의 일반적인 용도는 인바운드 URL에 따라 HTTP 트래픽을 다른 애플리케이션으로 라우팅하는 것입니다.
 
 ![AKS 클러스터의 수신 트래픽 흐름을 보여 주는 다이어그램][aks-ingress]
 
@@ -113,7 +108,7 @@ SSH와 같은 트래픽에 대한 기본 네트워크 보안 그룹 규칙이 �
 
 ## <a name="next-steps"></a>다음 단계
 
-AKS 네트워킹을 시작하려면 [AKS 클러스터에 대한 고급 네트워킹 만들기 및 구성][aks-configure-advanced-networking]을 참조하세요.
+AKS 네트워킹을 시작하려면 [kubenet][aks-configure-kubenet-networking]이나 [Azure CNI][aks-configure-advanced-networking]를 사용하여 자체 IP 주소 범위로 AKS 클러스터를 만들고 구성합니다.
 
 Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -137,7 +132,8 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
 [aks-ingress-tls]: ingress.md
-[aks-configure-advanced-networking]: configure-advanced-networking.md
+[aks-configure-kubenet-networking]: configure-kubenet.md
+[aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

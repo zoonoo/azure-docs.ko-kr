@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: anzaman
-ms.openlocfilehash: 7df709adbd8e45712c112b52fc76920f8b67fe91
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 59a865cf6e822ecd1918d0c04b98f0edc0355223
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53282959"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815475"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Video Indexer에서 브랜드 모델 사용자 지정
 
@@ -30,7 +30,7 @@ Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱
 
 생성 컨텍스트에서 Windows에 대해 말할 경우 컨텍스트에서 구분하는 방법을 알고 있는 고급 Machine Learning 알고리즘에 따라 “Windows” 단어가 브랜드로 검색되지 않으며 Box, Apple, Fox 등의 경우도 마찬가지입니다. 브랜드 검색은 지원되는 모든 언어에서 작동합니다. [전체 Microsoft Build 2017 2일차 키노트 비디오 및 인덱스](http://www.videoindexer.ai/media/ed6ede78ad/)를 보려면 여기를 클릭하세요.
 
-사용자 고유의 브랜드를 가져오려면 [다음 단계](#next-stpes)를 확인합니다.
+사용자 고유의 브랜드를 가져오려면 다음 단계를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

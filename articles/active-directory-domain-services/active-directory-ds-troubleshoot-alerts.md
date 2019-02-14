@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 494acc55001bd3180d345801ef8d62800dd5e837
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 492b15bddad598d65c15c48f04d3148c41cd3c7e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174038"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817532"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 경고 문제 해결
 이 문서에서는 관리되는 도메인에서 발생할 수 있는 경고에 대한 문제 해결 가이드를 제공합니다.
@@ -42,7 +42,7 @@ ms.locfileid: "55174038"
 | AADDS108 |  *Azure AD Domain Services에서 사용 하는 구독을 다른 디렉터리로 이동했습니다. Azure AD Domain Services는 제대로 작동하려면 같은 디렉터리에 활성 구독을 포함해야 합니다.* | [구독 이동 디렉터리](#aadds108-subscription-moved-directories) |
 | AADDS109 | *관리되는 도메인에 사용되는 리소스가 삭제되었습니다. 이 리소스는 Azure AD Domain Services가 제대로 작동하기 위해 필요합니다.* | [리소스가 삭제됨](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
 | AADDS110 | *Azure AD Domain Services의 배포에 선택된 서브넷이 꽉 차서 만들어야 하는 추가 도메인 컨트롤러에 사용할 수 있는 공간이 없습니다.* | [서브넷이 꽉 참](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS111 | *Azure AD Domain Services가 도메인을 서비스하는 데 사용하는 서비스 주체는 Azure 구독에서 리소스를 관리할 권한이 없습니다. 서비스 주체는 관리되는 도메인을 서비스하기 위한 사용 권한을 획득해야 합니다. * | [권한 없는 서비스 주체](#aadds111-service-principal-unauthorized) |
+| AADDS111 | *Azure AD Domain Services가 도메인을 서비스하는 데 사용하는 서비스 주체는 Azure 구독에서 리소스를 관리할 권한이 없습니다. 서비스 주체는 관리되는 도메인을 서비스하기 위한 사용 권한을 획득해야 합니다. * | 권한 없는 서비스 주체 |
 | AADDS112 | *이 도메인에서 가상 네트워크의 서브넷에 충분한 IP 주소가 없을 수도 있음을 확인했습니다. Azure AD Domain Services에는 두 개의 이상의 사용 가능한 IP 주소가 활성화된 서브넷 내에 있어야 합니다. 최소 3-5개 예비 IP 주소가 서브넷 내에 있는 것이 좋습니다. 이는 다른 가상 머신이 서브넷 내에 배포되어 사용 가능한 IP 주소 수가 소진되거나 서브넷에서 사용 가능한 IP 주소 수가 제한되는 경우에 발생할 수 있습니다.* | [IP 주소가 부족함](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *Azure AD Domain Services에서 사용되는 리소스가 예기치 않은 상태로 발견되었으며 복구할 수 없습니다.* | [리소스를 복구할 수 없음](#aadds113-resources-are-unrecoverable) |
 | AADDS114 | *Azure AD Domain Services의 배포를 위해 선택한 서브넷이 유효하지 않아 사용할 수 없습니다. * | [잘못된 서브넷](#aadds114-subnet-invalid) |
@@ -201,7 +201,7 @@ Azure AD Domain Services는 제대로 작동하기 위해 배포하는 동안 �
 
 **해결 방법:**
 
-1. 테넌트에서 [관리되는 도메인을 삭제](#active-directory-ds-disable-aadds.md)합니다.
+1. 테넌트에서 관리되는 도메인을 삭제합니다.
 2. 서브넷에 대한 IP 주소 범위 수정
   1. [Azure Portal의 가상 네트워크 페이지](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks)로 이동합니다.
   2. Azure AD Domain Services에 사용하려는 가상 네트워크를 선택합니다.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1b145b1162dcba5653c962f0af1969c1aa017f57
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054642"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819810"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -38,11 +38,12 @@ Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 애플�
 
 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=hdinsight)에서 HDInsight 템플릿 샘플을 찾을 수 있습니다. [Resource Manager 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) 또는 텍스트 편집기에서 플랫폼 간 [Visual Studio Code](https://code.visualstudio.com/#alt-downloads)를 사용하여 템플릿을 워크스테이션의 파일에 저장합니다. 
 
-Resource Manager 템플릿에 대한 자세한 내용은 다음 문서를 참조하세요.
+Resource Manager 템플릿에 대한 자세한 내용은 다음 문서와 예제를 참조하세요.
 
 * [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager 템플릿으로 애플리케이션 배포](../azure-resource-manager/resource-group-template-deploy.md)
-* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters) 템플릿 참조
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) 템플릿 참조
+* [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## <a name="generate-templates"></a>템플릿 생성
 
@@ -51,7 +52,6 @@ Resource Manager를 사용하면 여러 다른 도구를 사용하여 구독의 
 - Azure Portal: [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](../azure-resource-manager/resource-manager-export-template.md)를 참조하세요.
 - Azure PowerShell: [PowerShell을 사용하여 Azure Resource Manager 템플릿 내보내기](../azure-resource-manager/resource-manager-export-template-powershell.md)를 참조하세요.
 - Azure 클래식 CLI [Azure 클래식 CLI를 사용하여 Azure Resource Manager 템플릿 내보내기](../azure-resource-manager/resource-manager-export-template-cli.md)를 참조하세요.
-
 
 ## <a name="deploy-using-the-portal"></a>Portal을 사용하여 배포
 

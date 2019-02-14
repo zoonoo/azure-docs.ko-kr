@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8c3c770cb7e30bda16b4857d5b337923d2417d2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e47bb293d53df658641a50a1399ead85667e3225
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541560"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55692766"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>RBAC 변경 사항에 대한 활동 로그 보기
 
@@ -53,24 +53,26 @@ ms.locfileid: "53541560"
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell을 사용하여 활동 로그를 보려면 [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog) 명령을 사용합니다.
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
+Azure PowerShell을 사용하여 활동 로그를 보려면 [Get-AzLog](/powershell/module/az.insights/get-azlog) 명령을 사용합니다.
 
 이 명령은 지난 7일 동안 구독에서 발생한 모든 역할 할당 변경 내용을 나열합니다.
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
 ```
 
 이 명령은 지난 7일 동안 리소스 그룹에서 발생한 모든 역할 정의 변경 내용을 나열합니다.
 
 ```azurepowershell
-Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+Get-AzLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
 이 명령은 지난 7일 동안 구독에서 발생한 모든 역할 할당 및 역할 정의 변경 내용을 나열하고 결과를 목록에 표시합니다.
 
 ```azurepowershell
-Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
+Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
 ```
 
 ```Example

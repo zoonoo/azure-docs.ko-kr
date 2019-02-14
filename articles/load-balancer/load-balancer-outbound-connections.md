@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: d8ca70efd3b1ba77b1b1bb0e11a9234e5fd440c4
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201383"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814829"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -34,17 +34,17 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 여러 개의 [아웃바운드 시나리오](#scenarios)가 있습니다. 필요에 따라 이러한 시나리오를 결합할 수 있습니다. 주의 깊게 살펴보고 배포 모델 및 애플리케이션 시나리오에 적용되는 기능, 제약 조건 및 패턴을 이해합니다. [시나리오 관리](#snatexhaust) 지침을 검토합니다.
 
 >[!IMPORTANT] 
->표준 Load Balancer는 아웃바웃드 연결에 대한 새로운 기능 및 서로 다른 동작을 설명합니다.   예를 들어 [시나리오 3](#defaultsnat)은 내부 표준 Load Balancer가 있으며 다른 단계를 수행해야 하는 경우에 존재하지 않습니다.   전반적인 개념 및 SKU 간의 차이점을 이해하려면 이 전체 문서를 주의 깊게 검토합니다.
+>표준 Load Balancer 및 표준 공용 IP는 아웃바웃드 연결에 새로운 기능 및 서로 다른 동작을 도입합니다.  이는 기본 SKU와 동일하지 않습니다.  표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다.  여기에는 내부 표준 Load Balancer를 사용할 경우 아웃바운드 연결 만들기가 포함됩니다.  표준 공용 Load Balancer에서 항상 아웃바운드 규칙을 사용하는 것이 좋습니다.  [시나리오 3](#defaultsnat)은 표준 SKU에서 사용할 수 없습니다.  즉, 내부 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 원하면 백 엔드 풀의 VM에 대한 아웃바운드 연결을 만드는 단계를 수행해야 합니다.  아웃바운드 연결, 단일 독립 실행형 VM, 가용성 세트의 모든 VM의 컨텍스트에서 VMSS의 모든 인스턴스는 그룹으로 작동합니다. 즉, 가용성 세트의 단일 VM을 표준 SKU와 연결하면 개별 인스턴스가 직접 표준 SKU와 연결되지 않더라도 해당 가용성 세트 내의 모든 VM 인스턴스는 이제 표준 SKU에 연결된 것처럼 동일한 규칙에 따라 작동합니다.  전반적인 개념을 이해하고 SKU 간 차이점에 대해 [표준 Load Balancer](load-balancer-standard-overview.md)를 검토하고 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 검토하려면 이 전체 문서를 검토합니다.  아웃바운드 규칙을 사용하면 아웃바운드 연결의 모든 측면에 대해 정밀하게 제어할 수 있습니다.
 
 ## <a name="scenarios"></a>시나리오 개요
 
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
 
-| 시나리오 | 방법 | IP 프로토콜 | 설명 |
-| --- | --- | --- | --- |
-| [1. 인스턴스 수준 공용 IP 주소를 가진 VM(Load Balancer 있음 또는 없음)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. |
-| [2. VM과 연결된 공용 Load Balancer(인스턴스에 인스턴스 수준 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. |
-| [3. 독립 실행형 VM(Load Balancer 없음, 인스턴스 수준 공용 IP 주소 없음)](#defaultsnat) | 포트를 가장하는(PAT) SNAT | TCP, UDP | Azure는 자동으로 SNAT에 대한 공용 IP 주소를 지정하고, 이 공용 IP 주소를 가용성 집합의 여러 개인 IP 주소와 공유하고, 이 공용 IP 주소의 삭제 포트를 사용합니다. 이 시나리오는 이전 시나리오의 대체 시나리오입니다. 가시성 및 제어 기능이 필요한 경우에는 권장되지 않습니다. |
+| SKU | 시나리오 | 방법 | IP 프로토콜 | 설명 |
+| --- | --- | --- | --- | --- |
+| 표준, 기본 | [1. 인스턴스 수준 공용 IP 주소를 가진 VM(Load Balancer 있음 또는 없음)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 명시적으로 정의하려면 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 사용해야 합니다. |
+| 표준, 기본 | [2. VM과 연결된 공용 Load Balancer(인스턴스에 인스턴스 수준 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. |
+| 없음 또는 기본 | [3. 독립 실행형 VM(Load Balancer 없음, 인스턴스 수준 공용 IP 주소 없음)](#defaultsnat) | 포트를 가장하는(PAT) SNAT | TCP, UDP | Azure는 자동으로 SNAT에 대한 공용 IP 주소를 지정하고, 이 공용 IP 주소를 가용성 집합의 여러 개인 IP 주소와 공유하고, 이 공용 IP 주소의 삭제 포트를 사용합니다. 이 시나리오는 이전 시나리오의 대체 시나리오입니다. 가시성 및 제어 기능이 필요한 경우에는 권장되지 않습니다. |
 
 VM이 공용 IP 주소 공간에 있는 Azure 외부에서 엔드포인트와 통신하지 않게 하려면 NSG(네트워크 보안 그룹)를 사용하여 필요에 따라 액세스를 차단할 수 있습니다. NSG 사용에 대한 자세한 내용은 [아웃바운드 연결 방지](#preventoutbound)에서 다룹니다. 아웃바운드 액세스 없이 가상 네트워크를 설계, 구현 및 관리하는 방법은 이 문서의 범위를 벗어납니다.
 
@@ -68,7 +68,7 @@ Load Balancer의 공용 IP 주소 프런트 엔드에 있는 삭제 포트는 VM
 
 SNAT 포트는 [SNAT 및 PAT 이해](#snat) 섹션에 설명된 대로 미리 할당되며 고갈될 수 있는 한정된 리소스입니다. 어떻게 [소비](#pat)되는지 이해하는 것이 중요합니다. 이 소비를 설계하고 필요에 따라 완화하는 방법을 알아보려면 [SNAT 고갈 관리](#snatexhaust)를 검토하세요.
 
-[여러 공용 IP 주소가 Load Balancer 기본에 연결](load-balancer-multivip-overview.md)된 경우 이러한 공용 IP 주소는 [아웃바운드 흐름의 후보](#multivipsnat)이며 그 중 하나가 임의로 선택됩니다.  
+[여러 공용 IP 주소가 Load Balancer 기본에 연결](load-balancer-multivip-overview.md)된 경우 이러한 공용 IP 주소가 아웃바운드 흐름의 후보가 되며 그 중 하나가 임의로 선택됩니다.  
 
 [Load Balancer에 대한 Log Analytics](load-balancer-monitor-log.md) 및 SNAT 포트 소모 메시지를 모니터링하기 위한 경고 [이벤트 로그](load-balancer-monitor-log.md#alert-event-log)를 사용하여 Load Balancer 기본을 통한 아웃바운드 연결의 상태를 모니터링할 수 있습니다.
 
@@ -164,7 +164,7 @@ Azure는 각 VM NIC의 IP 구성에 SNAT 포트를 미리 할당합니다. 풀�
 | 801-1,000 | 32 |
 
 >[!NOTE]
-> [여러 프런트 엔드](load-balancer-multivip-overview.md)로 표준 Load Balancer를 사용하는 경우 [각 프런트 엔드 IP 주소는 앞의 표에서 사용 가능한 SNAT 포트의 수를 곱합니다](#multivipsnat). 예를 들어 각각 별도의 프런트 엔드 IP 주소가 있는 2개의 부하 분산 규칙이 있는 50 VM의 백 엔드 풀은 IP 구성당 2048(2x1024) SNAT 포트를 사용합니다. [여러 프런트 엔드](#multife)에 대한 자세한 내용을 참조하세요.
+> [여러 프런트 엔드](load-balancer-multivip-overview.md)로 표준 Load Balancer를 사용하는 경우 각 프런트 엔드 IP 주소는 앞의 표에서 사용 가능한 SNAT 포트의 수를 곱합니다. 예를 들어 각각 별도의 프런트 엔드 IP 주소가 있는 2개의 부하 분산 규칙이 있는 50 VM의 백 엔드 풀은 IP 구성당 2048(2x1024) SNAT 포트를 사용합니다. [여러 프런트 엔드](#multife)에 대한 자세한 내용을 참조하세요.
 
 사용 가능한 SNAT 포트 수는 연결 수에 직접 반영되지 않습니다. 여러 고유한 대상에 단일 SNAT 포트를 재사용할 수 있습니다. 포트는 흐름을 고유하게 만드는 데 필요한 경우에만 사용됩니다. 디자인 및 완화 지침은 [고갈 가능한 리소스를 관리하는 방법](#snatexhaust)에 대한 섹션과 [PAT](#pat)에 대해 설명하는 섹션을 참조하세요.
 
@@ -257,7 +257,8 @@ NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단할 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Load Balancer](load-balancer-overview.md)에 대해 자세히 알아보세요.
 - [Standard Load Balancer](load-balancer-standard-overview.md)에 대해 자세히 알아보세요.
+- 표준 공용 Load Balancer에 대한 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 자세히 알아봅니다.
+- [Load Balancer](load-balancer-overview.md)에 대해 자세히 알아보세요.
 - [네트워크 보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보세요.
 - Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)에 대해 알아보세요.

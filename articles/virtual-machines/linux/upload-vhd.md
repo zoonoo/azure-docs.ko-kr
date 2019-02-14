@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: bbbcc1b3b505aae4bcc6869359ca27a8cd3fd1be
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: edebd2efda7d8217c9b554f2d1f54135203502cb
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638113"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821561"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 디스크에서 Linux VM 만들기
 
@@ -31,8 +31,8 @@ ms.locfileid: "49638113"
 사용자 지정 디스크에서 여러 VM을 만들려면 먼저 VM 또는 VHD에서 이미지를 만듭니다. 자세한 내용은 [CLI를 사용하여 Azure VM의 사용자 지정 이미지 만들기](tutorial-custom-images.md)를 참조하세요.
 
 사용자 지정 디스크를 만드는 두 가지 옵션이 있습니다.
-* [VHD 업로드](#option-1-upload-a-specialized-vhd)
-* [기존 Azure VM 복사](#option-2-copy-an-existing-azure-vm)
+* VHD 업로드
+* 기존 Azure VM 복사
 
 ## <a name="quick-commands"></a>빠른 명령
 
@@ -73,7 +73,7 @@ Azure에서는 다양한 Linux 배포를 지원합니다( [보증 배포판](end
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES 및 openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [기타: 비보증 배포](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [기타: 보증되지 않는 배포](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 또한 Azure용 Linux 이미지를 준비하는 방법에 대한 일반적인 추가 팁은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 
@@ -100,7 +100,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-[az storage account create](/cli/azure/storage/account#az-storageaccount-create)를 사용하여 사용자 지정 디스크 및 VM에 대한 저장소 계정을 만듭니다. 다음 예제에서는 이전에 만든 리소스 그룹에 *mystorageaccount*라는 스토리지 계정을 만듭니다.
+[az storage account create](/cli/azure/storage/account)를 사용하여 사용자 지정 디스크 및 VM에 대한 스토리지 계정을 만듭니다. 다음 예제에서는 이전에 만든 리소스 그룹에 *mystorageaccount*라는 스토리지 계정을 만듭니다.
 
 ```azurecli
 az storage account create \

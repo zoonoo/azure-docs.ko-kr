@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7e0064495cfb3d82c349a23d914195c5f211dc19
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 54d98c02ee9e5202c09e333843f8c16955f4e2d4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187082"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819250"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 
@@ -155,7 +155,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
     **App Service 만들기** 창이 열립니다. 여기에서 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
 
     > [!NOTE]
-    > 게시에 대한 자세한 내용은 [Azure에서 ASP.NET 웹앱 만들기](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure)를 참조하세요.
+    > 게시에 대한 자세한 내용은 [Azure에서 ASP.NET 웹앱 만들기](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet)를 참조하세요.
 
 3. **웹앱 이름** 상자에서 고유한 앱 이름을 입력합니다(유효한 문자: a-z, A-Z, 0-9 및 -(하이픈)). 웹앱의 URL은 `http://<app_name>.azurewebsites.NET`이며, 여기서 `<app_name>`은 웹앱 이름입니다. 자동으로 생성된 이름을 적용할 수 있습니다. 이 이름은 고유합니다.
 
@@ -247,16 +247,18 @@ _campaignId_라는 쿼리 문자열 매개 변수에 기반하여 백그라운�
 다음을 수행하여 `ContentDefinitionParameters` 요소를 추가합니다.
 1. 정책의 *SignUpOrSignin* 파일(예: *SignUpOrSignin.xml*)을 엽니다.
 
-2. `<DefaultUserJourney>` 노드를 검색합니다. 
-
-3. `<DefaultUserJourney>` 노드에서 다음 XML 코드 조각을 추가합니다.  
+2. `<DefaultUserJourney>` 노드에 `UserJourneyBehaviors` 노드를 추가합니다.  
 
     ```XML
-    <UserJourneyBehaviors>
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <UserJourneyBehaviors>
         <ContentDefinitionParameters>
-            <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
+          <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
         </ContentDefinitionParameters>
-    </UserJourneyBehaviors>
+      </UserJourneyBehaviors>
+      ...
+    </RelyingParty>
     ```
 
 ### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>8.2단계: 쿼리 문자열 매개 변수를 수락하고 배경 이미지를 대체하도록 코드 변경

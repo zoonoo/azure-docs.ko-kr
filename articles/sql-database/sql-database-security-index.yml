@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 904cd593022006bc16908664fb7d7d0e3f6f24b0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 708e5d2bdb3dd3ca259b6d7927b6ec24fc27dfea
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455221"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820711"
 documentType: LandingData
 title: Azure SQL Database - 고급 보안
 metadata:
@@ -14,6 +14,7 @@ metadata:
   services: sql-database
   author: jovanpop-msft
   manager: craigg
+  requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang: 
@@ -69,16 +70,16 @@ sections:
       - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-for-your-database-in-the-azure-portal
       - href: 
       - href: /azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell
-    - title: 관리되는 인스턴스에서 위협 탐지 설정
+    - title: 관리형 인스턴스에서 위협 탐지 설정
       values:
       - href: /azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal
       - href: 
       - href: 
     - title: 단일 데이터베이스에서 데이터베이스 서버 방화벽 규칙 설정
       values:
-      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-portal
-      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-cli
-      - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-powershell
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-the-azure-portal
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-azure-cli
+      - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-azure-powershell
     - title: 취약성 평가 규칙 관리
       values:
       - href: 
@@ -91,9 +92,9 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">관리되는 인스턴스</a> 및 <a href="/azure/sql-database/sql-database-threat-detection">데이터베이스</a>의 위협 보호는 비정상적이며 유해할 가능성이 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 검색합니다.
-    - html: <a href="/azure/sql-database/sql-database-managed-instance-auditing">관리되는 인스턴스</a> 및 <a href="/azure/sql-database/sql-database-auditing">데이터베이스</a> 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정, OMS 작업 영역 또는 Event Hubs의 감사 로그에 이벤트를 기록합니다.
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">관리형 인스턴스</a> 및 <a href="/azure/sql-database/sql-database-threat-detection">데이터베이스</a>의 위협 보호는 비정상적이며 유해할 가능성이 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 탐지합니다.
+    - html: <a href="/azure/sql-database/sql-database-managed-instance-auditing">관리형 인스턴스</a> 및 <a href="/azure/sql-database/sql-database-auditing">데이터베이스</a> 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정, OMS 작업 영역 또는 Event Hubs의 감사 로그에 이벤트를 기록합니다.
     - html: 단일 데이터베이스에서 <a href="/azure/sql-database/sql-database-firewall-configure">데이터베이스 서버 방화벽 규칙</a>을 사용하면 데이터베이스에 액세스할 수 있는 IP 주소를 제어할 수 있습니다.
-    - html: 관리되는 인스턴스의 <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet 통합</a>을 사용하여 데이터베이스를 고유한 개인 주소 공간에 넣을 수 있습니다.
+    - html: 관리형 인스턴스의 <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet 통합</a>을 사용하여 데이터베이스를 고유한 개인 주소 공간에 넣을 수 있습니다.
     - html: <a href="/azure/sql-database/sql-database-always-encrypted">상시 암호화</a>는 클라이언트와 서버 사이의 이동 중에, 그리고 데이터를 사용 중일 때 서버에서 중요한 미사용 데이터를 보호하며, 중요한 데이터가 데이터베이스 시스템에서 일반 텍스트로 나타나지 않도록 보장합니다.
     - html: <a href="/azure/sql-database/sql-database-dynamic-data-masking-get-started">동적 데이터 마스킹</a>을 수행하면 고객이 응용 프로그램 레이어에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다.

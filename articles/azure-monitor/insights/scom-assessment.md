@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186126"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819861"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -55,7 +55,7 @@ System Center Operations Manager Health Check 솔루션을 사용하여 일정�
 
  Operations Manager Operations 콘솔을 통해 평가를 구성하려면 아래 단계를 다음 순서대로 수행합니다.
 1. [System Center Operations Manager Health Check 평가를 위한 실행 계정 설정](#operations-manager-run-as-accounts-for-log-analytics)  
-2. [System Center Operations Manager Health Check 규칙 구성](#configure-the-assessment-rule)
+2. System Center Operations Manager 상태 검사 규칙 구성
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager 평가 데이터 수집 세부 정보
 

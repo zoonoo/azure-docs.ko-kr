@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Translator Text API를 사용하여 원본 텍스트의 언어를 식별합니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 31db299fba70775c85ac5b5ad1a641c2ebe2575b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ee67c4402515ffede1a665bc07bedbeba6a57598
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221133"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55880732"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>빠른 시작: Translator Text API를 사용하여 Go를 통해 텍스트 언어 검색
 

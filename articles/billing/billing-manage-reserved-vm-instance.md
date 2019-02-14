@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 257e9f72f21d523dfa2390814b786d1963dd671c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904007"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743636"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -36,11 +36,11 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 2. **모든 서비스** > **예약**을 선택합니다.
 3. 예약을 선택합니다.
 4. **설정** > **구성**을 선택합니다.
-5. 범위를 변경합니다. 
+5. 범위를 변경합니다.
 
 범위를 공유에서 단일 범위로 변경하는 경우 소유자인 구독만을 선택할 수 있습니다. 동일한 청구 컨텍스트 내에서 예약된 구독만을 선택할 수 있습니다.
 
-범위는 종량제 제안 MS-AZR-0003P, Enterprise 제안 MS-AZR-0017P 또는 CSP 구독 유형에만 적용됩니다. 기업 계약의 경우 개발/테스트 구독은 예약 할인에 해당하지 않습니다.
+범위는 종량제 제안 MS-AZR-0003P 또는 MS-AZR-0023P, Enterprise 제안 MS-AZR-0017P 또는 MS-AZR-0148P, 또는 CSP 구독 유형에만 적용됩니다.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>예약을 관리할 수 있는 사용자 추가 또는 변경
 

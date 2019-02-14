@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
-ms.openlocfilehash: b7ccdcf1cb1e75ab9a8113adc05b02196a0a2023
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: eebc19f5bd14e835b8174695b2d0d87fe8ddc4bc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166580"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822054"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하여 액세스 토큰을 획득하는 방법 
 
@@ -55,7 +55,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 | [Go를 사용하여 토큰 가져오기](#get-a-token-using-go) | Go 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
 | [Azure PowerShell을 사용하여 토큰 가져오기](#get-a-token-using-azure-powershell) | PowerShell 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
 | [CURL을 사용하여 토큰 가져오기](#get-a-token-using-curl) | Bash/CURL 클라이언트에서 Azure 리소스에 대한 관리 ID REST 엔드포인트를 사용하는 예제 |
-| [토큰 캐싱 처리](#handling-token-caching) | 만료된 액세스 토큰을 처리하는 지침 |
+| 토큰 캐싱 처리 | 만료된 액세스 토큰을 처리하는 지침 |
 | [오류 처리](#error-handling) | Azure 리소스에 대한 관리 ID 토큰 엔드포인트에서 반환된 HTTP 오류를 처리하기 위한 지침 |
 | [Azure 서비스의 리소스 ID](#resource-ids-for-azure-services) | 지원되는 Azure 서비스에 리소스 ID를 가져올 위치 |
 
@@ -373,14 +373,14 @@ Azure 리소스에 대한 관리 ID 엔드포인트는 HTTP 응답 메시지 헤
 | 상태 코드 | 오류 | 오류 설명 | 해결 방법 |
 | ----------- | ----- | ----------------- | -------- |
 | 400 잘못된 요청 | invalid_resource | AADSTS50001: *\<URI\>* 라는 애플리케이션을 *\<TENANT-ID\>* 라는 테넌트에서 찾을 수 없습니다. 이 오류는 테넌트의 관리자가 애플리케이션을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 잘못된 테넌트에 인증 요청을 보냈을 수도 있습니다. | (Linux만 해당) |
-| 400 잘못된 요청 | bad_request_102 | 필수 메타데이터 헤더가 지정되지 않았습니다. | `Metadata` 요청 헤더 필드가 요청에서 누락되거나 형식이 잘못되었습니다. 값은 모두 소문자이며 `true`으로 지정해야 합니다. 예제는 [이전 REST 섹션](#rest)에서 "샘플 요청"을 참조하세요.|
-| 401 권한 없음 | unknown_source | 알 수 없는 원본 *\<URI\>* | HTTP GET 요청 URI의 형식이 올바른지 확인합니다. `scheme:host/resource-path` 부분은 `http://localhost:50342/oauth2/token`으로 지정해야 합니다. 예제는 [이전 REST 섹션](#rest)에서 "샘플 요청"을 참조하세요.|
+| 400 잘못된 요청 | bad_request_102 | 필수 메타데이터 헤더가 지정되지 않았습니다. | `Metadata` 요청 헤더 필드가 요청에서 누락되거나 형식이 잘못되었습니다. 값은 모두 소문자이며 `true`으로 지정해야 합니다. 예제는 이전 REST 섹션에서 "샘플 요청"을 참조하세요.|
+| 401 권한 없음 | unknown_source | 알 수 없는 원본 *\<URI\>* | HTTP GET 요청 URI의 형식이 올바른지 확인합니다. `scheme:host/resource-path` 부분은 `http://localhost:50342/oauth2/token`으로 지정해야 합니다. 예제는 이전 REST 섹션에서 "샘플 요청"을 참조하세요.|
 |           | invalid_request | 요청이 필수 매개 변수를 누락하거나, 잘못된 매개 변수 값이 포함되거나, 매개 변수를 두 번 이상 포함되거나 형식이 잘못되었습니다. |  |
 |           | unauthorized_client | 클라이언트에는 이 메서드를 사용하여 액세스 토큰을 요청할 권한이 없습니다. | 로컬 루프백을 사용하여 확장을 호출하지 않은 요청에 의해 발생하거나 Azure 리소스에 대한 관리 ID를 올바르게 구성하지 않은 VM에서 발생합니다. VM을 구성하는 데 도움이 필요한 경우 [Azure Portal을 사용하여 VM에서 Azure 리소스에 대한 관리 ID 구성](qs-configure-portal-windows-vm.md)을 참조하세요. |
 |           | access_denied | 리소스 소유자 또는 권한 부여 서버에서 요청을 거부했습니다. |  |
 |           | unsupported_response_type | 권한 부여 서버는 이 메서드를 사용하여 액세스 토큰을 획득하도록 지원하지 않습니다. |  |
 |           | invalid_scope | 요청된 범위가 잘못되었거나, 알려지지 않거나, 형식이 잘못되었습니다. |  |
-| 500 내부 서버 오류 | 알 수 없음 | Active directory에서 토큰을 검색하지 못했습니다. 자세한 내용은 *\<파일 경로\>* 에서 로그를 참조하세요. | VM에서 Azure 리소스에 대한 관리ID가 사용되도록 설정되어 있는지 확인합니다. VM을 구성하는 데 도움이 필요한 경우 [Azure Portal을 사용하여 VM에서 Azure 리소스에 대한 관리 ID 구성](qs-configure-portal-windows-vm.md)을 참조하세요.<br><br>또한 HTTP GET 요청 URI의 형식, 특히 쿼리 문자열에서 지정된 리소스 URI가 올바르게 지정되었는지 확인합니다. 예제는 [이전 REST 섹션](#rest)에서 "샘플 요청"을 참조하세요. 또는 서비스 및 각 리소스 ID의 목록은 [Azure AD 인증을 지원하는 Azure 서비스](services-support-msi.md)를 참조하세요.
+| 500 내부 서버 오류 | 알 수 없음 | Active directory에서 토큰을 검색하지 못했습니다. 자세한 내용은 *\<파일 경로\>* 에서 로그를 참조하세요. | VM에서 Azure 리소스에 대한 관리ID가 사용되도록 설정되어 있는지 확인합니다. VM을 구성하는 데 도움이 필요한 경우 [Azure Portal을 사용하여 VM에서 Azure 리소스에 대한 관리 ID 구성](qs-configure-portal-windows-vm.md)을 참조하세요.<br><br>또한 HTTP GET 요청 URI의 형식, 특히 쿼리 문자열에서 지정된 리소스 URI가 올바르게 지정되었는지 확인합니다. 이전 REST 섹션의 "샘플 요청"에서 예제를 참조하거나 [Azure AD 인증을 지원하는 Azure 서비스](services-support-msi.md)에서 서비스 및 각 리소스 ID의 목록을 참조하세요.
 
 ## <a name="retry-guidance"></a>다시 시도 지침 
 

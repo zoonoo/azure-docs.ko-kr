@@ -14,23 +14,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: a0f89a272fa300f6acced2de02ba5465ab282079
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 29e9bee5f7712252d95b9416ad5523b4dfdd4b94
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765639"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814319"
 ---
-# <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Azure CDN에서 Azure Blob 저장소의 만료 관리
+# <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Azure CDN에서 Azure Blob Storage의 만료 관리
 > [!div class="op_single_selector"]
 > * [Azure 웹 콘텐츠](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure Blob 저장소](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
 Azure Storage에서 [Blob Storage 서비스](../storage/common/storage-introduction.md#blob-storage)는 Azure CDN(Content Delivery Network)과 통합된 여러 Azure 기반 원본 중 하나입니다. TTL(time-to-live)이 경과할 때까지 공개적으로 액세스 가능한 모든 Blob 콘텐츠는 Azure CDN에 캐시될 수 있습니다. TTL은 원본 서버의 HTTP 응답에 있는 `Cache-Control` 헤더를 기반으로 결정됩니다. 이 문서에서는 Azure Storage에서 Blob에 `Cache-Control` 헤더를 설정할 수 있는 여러 가지 방법을 보여 줍니다.
 
-[CDN 캐시 규칙](#setting-cache-control-headers-by-using-caching-rules)을 설정하여 Azure Portal에서 캐시 설정을 제어할 수도 있습니다. 캐싱 규칙을 만들고 캐싱 동작을 **재정의** 또는 **캐시 무시**로 설정하는 경우 이 문서에 설명된 원본 제공 캐싱 설정이 무시됩니다. 일반적인 캐싱 개념에 대한 자세한 내용은 [캐싱 동작 방식](cdn-how-caching-works.md)을 참조하세요.
+CDN 캐시 규칙을 설정하여 Azure Portal에서 캐시 설정을 제어할 수도 있습니다. 캐싱 규칙을 만들고 캐싱 동작을 **재정의** 또는 **캐시 무시**로 설정하는 경우 이 문서에 설명된 원본 제공 캐싱 설정이 무시됩니다. 일반적인 캐싱 개념에 대한 자세한 내용은 [캐싱 동작 방식](cdn-how-caching-works.md)을 참조하세요.
 
 > [!TIP]
 > BLOB에 TTL을 설정하지 않을 수도 있습니다. 이 경우 Azure CDN은 사용자가 Azure Portal에서 캐싱 규칙을 설정하지 않은 한, 7일의 기본 TTL을 자동으로 적용합니다. 이 기본 TTL은 일반 웹 배달 최적화에만 적용됩니다. 대용량 파일 최적화의 경우 기본 TTL은 1일이고 미디어 스트리밍 최적화의 경우 기본 TTL은 1년입니다.
@@ -48,7 +48,7 @@ BLOB `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal
 
 **CDN 캐싱 규칙 페이지로 이동하려면**:
 
-1. Azure Portal에서 CDN 프로필을 선택한 다음, Blob용 끝점을 선택합니다.
+1. Azure Portal에서 CDN 프로필을 선택한 다음, Blob용 엔드포인트를 선택합니다.
 
 2. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 선택합니다.
 
@@ -67,7 +67,7 @@ BLOB `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal
 
    ![CDN 전역 캐싱 규칙 예](./media/cdn-manage-expiration-of-blob-content/cdn-global-caching-rules-example.png)
 
-   해당 전역 캐싱 규칙은 1시간의 캐시 기간을 설정하고 끝점에 대한 모든 요청에 영향을 줍니다. 끝점에서 지정한 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.   
+   해당 전역 캐싱 규칙은 1시간의 캐시 기간을 설정하고 엔드포인트에 대한 모든 요청에 영향을 줍니다. 엔드포인트에서 지정한 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.   
 
 3. **저장**을 선택합니다.
  
@@ -81,7 +81,7 @@ BLOB `Cache-Control` 헤더를 설정하기 위한 기본 방법은 Azure Portal
 
     ![CDN 사용자 지정 캐싱 규칙 예](./media/cdn-manage-expiration-of-blob-content/cdn-custom-caching-rules-example.png)
 
-    첫 번째 사용자 지정 캐싱 규칙은 끝점에서 지정한 원본 서버의 `/blobcontainer1`폴더 내 모든 Blob 파일에 대해 4시간의 캐시 기간을 설정합니다. 두 번째 규칙은 `blob1.txt` Blob 파일을 위한 첫 번째 규칙을 재정의하고 이에 대해 2시간의 캐시 기간을 설정합니다.
+    첫 번째 사용자 지정 캐싱 규칙은 엔드포인트에서 지정한 원본 서버의 `/blobcontainer1`폴더 내 모든 Blob 파일에 대해 4시간의 캐시 기간을 설정합니다. 두 번째 규칙은 `blob1.txt` Blob 파일을 위한 첫 번째 규칙을 재정의하고 이에 대해 2시간의 캐시 기간을 설정합니다.
 
 2. **저장**을 선택합니다.
 
@@ -106,7 +106,7 @@ $blob.ICloudBlob.SetProperties()
 ```
 
 > [!TIP]
-> PowerShell을 사용하여 [CDN 프로필 및 끝점을 관리](cdn-manage-powershell.md)할 수도 있습니다.
+> PowerShell을 사용하여 [CDN 프로필 및 엔드포인트를 관리](cdn-manage-powershell.md)할 수도 있습니다.
 > 
 >
 

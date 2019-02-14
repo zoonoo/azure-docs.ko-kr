@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 44182d686548fa5b6363a87be0ce7851829e20ab
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30173324"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820559"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN 규칙 엔진 일치 조건 
 이 문서에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 대해 제공되는 일치 조건에 대해 자세히 설명합니다.
@@ -45,7 +45,7 @@ Name | 목적
 
 Name | 목적
 -----|--------
-[장치](#device) | 속성에 따라 모바일 디바이스에서 생성되는 요청을 식별합니다.
+[디바이스](#device) | 속성에 따라 모바일 디바이스에서 생성되는 요청을 식별합니다.
 
 ## <a name="location-match-conditions"></a>위치 일치 조건
 
@@ -107,7 +107,7 @@ Name | 목적
 
 항상 일치 조건은 모든 요청에 기본 기능 집합을 적용합니다.
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -130,7 +130,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
   - 원본 No-Cache 무시
   - 내부 Max-Stale
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -146,7 +146,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
  - 콘텐츠 액세스 포인트는 요청한 콘텐츠를 제공해야 하는 서비스를 식별합니다.
  - 특정 일치 조건을 결합하는 데 AND IF문을 사용하지 마십시오. 예를 들어 고객 원본 일치 조건과 CDN 원본 일치 조건을 결합하면 일치될 수 없는 일치 패턴을 만듭니다. 이러한 이유로 두 개의 CDN 원본 일치 조건은 AND IF문을 통해 결합될 수 없습니다.
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -171,7 +171,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
   - 원본 No-Cache 무시
   - 내부 Max-Stale
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -200,7 +200,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
   - 원본 No-Cache 무시
   - 내부 Max-Stale
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -229,7 +229,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
   - 원본 No-Cache 무시
   - 내부 Max-Stale
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -266,7 +266,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 - 액세스 거부(403) 기능: 국가 필터링 기능의 허용 또는 차단 부분을 복제하려면 [액세스 거부(403) 기능](cdn-rules-engine-reference-features.md#deny-access-403)을 사용하도록 설정합니다.
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -280,7 +280,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
   - 에지 CNAME 구성
 - 특정 일치 조건을 결합하는 데 AND IF문을 사용하지 마십시오. 예를 들어 CDN 원본 일치 조건과 고객 원본 일치 조건을 결합하면 일치될 수 없는 일치 패턴을 만듭니다. 이러한 이유로 두 개의 고객 원본 일치 조건은 AND IF문을 통해 결합될 수 없습니다.
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -289,9 +289,9 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 
 디바이스 일치 조건은 속성에 따라 모바일 디바이스에서 생성되는 요청을 식별합니다. 모바일 디바이스 검색은 [WURFL](http://wurfl.sourceforge.net/)을 통해 이루어집니다. 
 
-**일치**/**일치하지 않음** 옵션은 장치 일치 조건이 충족되는 조건을 결정합니다.
-- **일치**: 요청자의 장치가 지정된 값과 일치해야 합니다. 
-- **일치하지 않음**: 요청자의 장치가 지정된 값과 일치하지 않아야 합니다.
+**일치**/**일치하지 않음** 옵션은 디바이스 일치 조건이 충족되는 조건을 결정합니다.
+- **일치**: 요청자의 디바이스가 지정된 값과 일치해야 합니다. 
+- **일치하지 않음**: 요청자의 디바이스가 지정된 값과 일치하지 않아야 합니다.
 
 주요 정보:
 
@@ -306,7 +306,7 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 #### <a name="string-type"></a>문자열 형식
 WURFL 기능은 일반적으로 숫자, 문자 및 기호의 모든 조합을 허용합니다. 이 기능이 유연하기 때문에 이 일치 조건과 연결된 값이 해석되는 방식을 선택해야 합니다. 다음 테이블에는 사용 가능한 옵션 집합이 설명되어 있습니다.
 
-유형     | 설명
+Type     | 설명
 ---------|------------
 리터럴  | 대부분의 문자가 [리터럴 값](cdn-rules-engine-reference.md#literal-values)을 사용하여 특별한 의미를 갖지 못하게 하려면 이 옵션을 선택합니다.
 와일드카드 | 모든 [와일드카드 문자]([와일드카드 값](cdn-rules-engine-reference.md#wildcard-values))을 활용하려면 이 옵션을 선택합니다.
@@ -343,7 +343,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 해상도 높이 | %{wurfl_cap_resolution_height} | 디바이스의 높이(픽셀)를 나타내는 정수입니다. | 768
 해상도 너비 | %{wurfl_cap_resolution_width} | 디바이스의 너비(픽셀)를 나타내는 정수입니다. | 1024
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -360,7 +360,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
   - 원본 No-Cache 무시
   - 내부 Max-Stale
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -384,7 +384,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
   - 원본 No-Cache 무시
   - 내부 Max-Stale
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -405,7 +405,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
   - 원본 No-Cache 무시
   - 내부 Max-Stale
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -432,7 +432,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
   - 원본 No-Cache 무시
   - 내부 Max-Stale 
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -460,7 +460,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
   - 원본 No-Cache 무시
   - 내부 Max-Stale
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -485,7 +485,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
   - 원본 No-Cache 무시
   - 내부 Max-Stale
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -503,7 +503,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
   - 원본 No-Cache 무시
   - 내부 Max-Stale
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -557,7 +557,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 - **대/소문자 무시** 옵션을 사용하여 대/소문자를 구분하여 비교를 수행할지 여부를 제어합니다.
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -596,7 +596,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 - .php
 - .html
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -623,7 +623,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
     예를 들어 "presentation.ppt"를 지정하면 "presentation.ppt"라는 자산은 일치하지만 "presentation.pptx"라는 자산은 일치하지 않습니다.
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -667,7 +667,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 
 - 특정 디렉터리에 대한 모든 요청을 일치시키려면 [URL 경로 디렉터리](#url-path-directory) 또는 [URL 경로 와일드카드](#url-path-wildcard) 일치 조건을 사용합니다.
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -698,7 +698,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
     
 - URL 경로의 공백은 "%20"으로 대체되어야 합니다.
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -760,7 +760,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
 *.jpg *.gif *.png       | 루트 또는 원본 | 이 패턴은 .jpg, .gif 또는 .png로 끝나는 모든 CDN 또는 에지 CNAME URL과 일치합니다. 이 패턴을 지정하는 다른 방법은 [URL 경로 확장 일치 조건](#url-path-extension)을 사용하는 것입니다.
 /images/\* /media/\*      | 원본         | 이 패턴은 상대 경로가 "images" 또는 "media" 폴더로 시작하는 CDN 또는 에지 CNAME URL과 일치합니다. <br />- CDN URL: http:\//wpc.0001.&lt;domain&gt;/800001/myorigin/images/sales/event1.png<br />- 샘플 에지 CNAME URL: http:\//cdn.mydomain.com/images/sales/event1.png
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -794,7 +794,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 �
    - 원본 No-Cache 무시
    - 내부 Max-Stale
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -874,7 +874,7 @@ Name  | 값 |  결과
 사용자  | *     | 이 패턴은 요청된 URL의 쿼리 문자열에 User 매개 변수가 포함된 경우에 일치합니다.
 Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시작되는 Email 매개 변수가 포함된 경우에 일치합니다.
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -919,7 +919,7 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
    - 내부 Max-Stale
 
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 
@@ -944,7 +944,7 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
 
 - 각각을 하나의 공백으로 구분하여 여러 값을 지정합니다.
 
-   예: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   예:  *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - 지정된 쿼리 문자열 패턴 중 하나 이상과 정확히 일치해야만 일치 조건이 충족됩니다.
     
@@ -965,7 +965,7 @@ Email | Joe\* | 이 패턴은 요청된 URL의 쿼리 문자열에 "Joe"로 시�
 user=joe              | 이 패턴은 요청된 URL의 쿼리 문자열이 "?user=joe"인 경우에 일치합니다.
 \*user=\* \*optout=\* | 이 패턴은 CDN URL 쿼리에 user 또는 optout 매개 변수가 포함되는 경우에만 일치합니다.
 
-[맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
+[맨 위로 이동](#main)
 
 </br>
 

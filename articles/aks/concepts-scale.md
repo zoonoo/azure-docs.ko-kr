@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 3e460df8c4841a23c76ef8d7b254938ce46a2b45
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380693"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819113"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 크기 조정 옵션
 
@@ -23,7 +23,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 실행할 때 계산 �
 - [수동 크기 조정](#manually-scale-pods-or-nodes)
 - [HPA(Horizontal Pod Autoscaler)](#horizontal-pod-autoscaler)
 - [클러스터 자동 크기 조정기](#cluster-autoscaler)
-- [AKS와 ACI(Azure Container Instance) 통합](#burst-to-azure-container-instance)
+- AKS와 ACI(Azure Container Instance) 통합
 
 ## <a name="manually-scale-pods-or-nodes"></a>수동으로 Pod 또는 노드 크기 조정
 
@@ -65,7 +65,7 @@ AKS에서 클러스터 크기 조정기를 시작하려면 [AKS의 클러스터 
 
 클러스터 자동 크기 조정기가 노드 풀 리소스 제한으로 인해 예약할 수 없는 Pod를 확인하면 추가 계산 리소스를 제공하도록 노드 풀 내의 노드 수가 늘어납니다. 이러한 추가 노드가 성공적으로 배포되고 노드 풀 내에서 사용할 수 있게 되면 Pod가 해당 노드에서 실행되도록 예약됩니다.
 
-애플리케이션 크기를 빠르게 조정해야 하는 경우 클러스터 자동 크기 조정기를 통해 배포되는 추가 노드가 예약된 Pod를 수락할 수 있게 될 때까지 일부 Pod는 예약 대기 상태를 유지할 수 있습니다. 버스트 요구가 높은 애플리케이션의 경우 [가상 노드 및 Azure Container Instances를 사용하여 크기를 조정](#burst-to-azure-container-instance)할 수 있습니다.
+애플리케이션 크기를 빠르게 조정해야 하는 경우 클러스터 자동 크기 조정기를 통해 배포되는 추가 노드가 예약된 Pod를 수락할 수 있게 될 때까지 일부 Pod는 예약 대기 상태를 유지할 수 있습니다. 버스트 요구가 높은 애플리케이션의 경우 가상 노드 및 Azure Container Instances를 사용하여 크기를 조정할 수 있습니다.
 
 ### <a name="scale-down-events"></a>규모 축소 이벤트
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 9958f5f0f1435af231c1426a249c745f4a2352c5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382442"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816614"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
@@ -21,11 +21,11 @@ AKS(Azure Kubernetes Services)에서 클러스터를 관리할 때 애플리케�
 이 모범 사례 문서에서는 AKS에서 비즈니스 연속성 및 재해 복구를 계획하는 데 도움이 되는 고려 사항을 집중적으로 다룹니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-* [여러 Azure 지역의 AKS 클러스터 계획 작성](#region-planning)
-* [Azure Traffic Manager를 사용하여 여러 클러스터에 트래픽 라우팅](#ingress-traffic)
-* [컨테이너 이미지 레지스트리에 지역 복제 사용](#container-registry)
-* [여러 클러스터에서 애플리케이션 상태 계획 작성](#managing-application-state)
-* [여러 Azure 지역에 스토리지 복제](#storage)
+* 여러 Azure 지역에서 AKS 클러스터 계획 작성
+* Azure Traffic Manager를 사용하여 여러 클러스터에 트래픽 라우팅
+* 컨테이너 이미지 레지스트리에 지역 복제 사용
+* 여러 클러스터에서 애플리케이션 상태 계획 작성
+* 여러 Azure 지역의 스토리지 복제
 
 ## <a name="plan-for-multi-region-deployment"></a>다중 지역 배포 계획 작성
 

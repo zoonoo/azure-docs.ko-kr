@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: af57721c99fb5f5c855e037d145e4fa5d122b9f5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 2ab3b089ce65c9f27457fd1cfb360d6776ed6244
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164172"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888620"
 ---
-<!--author=alkohli last changed: 01/02/17-->
-
 #### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>StorSimple 백업 일정을 추가 또는 수정하려면
 
 1. StorSimple 디바이스로 이동하고 **백업 정책**을 클릭합니다.

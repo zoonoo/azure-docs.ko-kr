@@ -4,7 +4,7 @@ description: Microsoft® 부드러운 스트리밍 클라이언트 이식 키트
 services: media-services
 documentationcenter: ''
 author: xpouyat
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: xpouyat
-ms.openlocfilehash: 71cb4ff7c5948067dfb039caf69241cfa9e22408
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1954ccf07badbd4632c653bb1af4d6e96153e1fb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243899"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000083"
 ---
-# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스
+# <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스 
 ## <a name="overview"></a>개요
-Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSPK**)는 포함된 디바이스 제조업체, 케이블 및 모바일 운영자, 콘텐츠 서비스 공급자, 송수화기 제조업체, ISV(독립 소프트웨어 공급업체) 및 솔루션 공급자가 적응 콘텐츠를 부드러운 스트리밍 형식으로 스트리밍하는 제품 및 서비스를 만들 수 있도록 최적화된 부드러운 스트리밍 클라이언트 구현입니다. SSPK는 정식 사용자가 어떠한 디바이스 및 플랫폼에도 이식할 수 있는 부드러운 스트리밍 클라이언트의 디바이스 및 플랫폼 독립적인 구현입니다. 
+Microsoft 부드러운 스트리밍 클라이언트 이식 키트(줄여서**SSPK**)는 포함된 장치 제조업체, 케이블 및 모바일 운영자, 콘텐츠 서비스 공급자, 송수화기 제조업체, ISV(독립 소프트웨어 공급업체) 및 솔루션 공급자가 적응 콘텐츠를 부드러운 스트리밍 형식으로 스트리밍하는 제품 및 서비스를 만들 수 있도록 최적화된 부드러운 스트리밍 클라이언트 구현입니다. SSPK는 정식 사용자가 어떠한 디바이스 및 플랫폼에도 이식할 수 있는 부드러운 스트리밍 클라이언트의 디바이스 및 플랫폼 독립적인 구현입니다. 
 
 아래 내용은 상위 수준의 아키텍처로, IIS 부드러운 스트리밍 이식 키트 상자는 Microsoft에서 제공하는 부드러운 스트리밍 클라이언트 구현이며 부드러운 스트리밍 콘텐츠 재생을 위한 모든 핵심 논리를 포함합니다. 그런 다음 파트너가 적절한 인터페이스를 구현하여 특정 디바이스 또는 플랫폼에 맞게 이 콘텐츠를 이식합니다. 
 

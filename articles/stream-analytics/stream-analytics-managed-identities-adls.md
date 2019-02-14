@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 87c605feeab742ae589cf8d5d9a98c8e53ccf662
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 194f43a0005f17a22b3a60d6decd049444e56c20
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410458"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745779"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>관리 ID를 사용하여 Azure Data Lake Storage Gen1 출력(미리 보기)에 대해 Stream Analytics 인증
 
@@ -21,7 +21,7 @@ Azure Stream Analytics는 ADLS(Azure Data Lake Storage) Gen1 출력을 사용하
 
 이 미리 보기에 등록하고 새 기능에 대해 자세히 알려면 [Azure Stream Analytics의 8가지 새로운 기능](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) 블로그 게시물을 참조합니다.
 
-이 문서에서는 Azure Portal, Azure Resource Manager 템플릿 배포 및 Azure Stream Analytics Tools for Visual Studio를 통해 Azure Data Lake Storage Gen1로 출력되는 Azure Stream Analytics 작업에 대해 관리 ID를 사용하도록 설정하기 위한 두 가지 방법을 보여 줍니다.
+이 문서에서는 Azure Portal, Azure Resource Manager 템플릿 배포 및 Azure Stream Analytics Tools for Visual Studio를 통해 Azure Data Lake Storage Gen1로 출력되는 Azure Stream Analytics 작업에 대해 관리 ID를 사용하도록 설정하기 위한 세 가지 방법을 보여 줍니다.
 
 ## <a name="azure-portal"></a>Azure portal
 

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ef70b9e58a669695f3bdec7ad8ea4bab93e7e4b9
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 084784af256fdf31cf1661109c0535cb91ef1db5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082047"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817421"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여
 
@@ -43,7 +43,7 @@ B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용�
 
    B2B 사용자 시나리오의 경우 온-프레미스 디렉터리에서 권한 부여에 필요한 게스트 사용자 개체를 만드는 데 사용할 수 있는 두 가지 방법이 있습니다.
 
-   - MIM(Microsoft Identity Manager) 및 [Microsoft Graph용 MIM 관리 에이전트](#create-b2b-guest-user-objects-through-mim-preview). 
+   - MIM(Microsoft Identity Manager) 및 Microsoft Graph용 MIM 관리 에이전트. 
    - [PowerShell 스크립트](#create-b2b-guest-user-objects-through-a-script-preview). 스크립트 사용은 MIM이 필요하지 않는 더 간단한 솔루션입니다. 
 
 다음 다이어그램은 B2B 사용자에게 온-프레미스 IWA 및 KCD 앱에 대한 액세스 권한을 부여하기 위해 Azure AD 애플리케이션 프록시와 온-프레미스 디렉터리의 B2B 사용자 개체의 생성이 어떻게 함께 작동하는지에 대한 전체적인 개요를 제공합니다. 다이어그램 아래에 번호가 매겨진 단계가 자세히 설명되어 있습니다.

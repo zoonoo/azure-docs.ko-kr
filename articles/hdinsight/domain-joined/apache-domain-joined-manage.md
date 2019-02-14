@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 4df96d0c3d1ec9cb64f2394fb97d46178906d916
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b1fc52ac46a6cdb73b9210833e437765398781ef
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434820"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819130"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight 클러스터 관리
 HDInsight ESP(Enterprise Security Package)의 사용자 및 역할과 ESP 클러스터 관리 방법을 알아봅니다.
@@ -215,7 +215,7 @@ HDInsight Enterprise Security Package에는 다음과 같은 역할이 있습니
 6. **사용자 추가** 또는 **그룹 추가**를 클릭한 다음 Hive 뷰를 사용할 수 있는 사용자 또는 그룹을 지정합니다.
 
 ## <a name="configure-users-for-the-roles"></a>역할에 대해 사용자 구성
- 역할 및 해당 사용 권한의 목록을 보려면 [ESP가 포함된 HDInsight 클러스터의 역할](#roles-of-domain---joined-hdinsight-clusters)을 참조하세요.
+ 역할 및 해당 사용 권한의 목록을 보려면 ESP가 포함된 HDInsight 클러스터의 역할을 참조하세요.
 
 1. Ambari 관리 UI를 엽니다.  [Ambari 관리 UI 열기](#open-the-ambari-management-ui)를 참조하세요.
 2. 왼쪽 메뉴에서 **역할**을 클릭합니다.

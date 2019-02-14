@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: 4a8db246f02d68a7924b9a09a1b2fc1f5bcf2edc
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467228"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817243"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>샘플 구성: Cisco ASA 디바이스(IKEv2/BGP 아님)
 이 문서에서는 Azure VPN Gateway에 Cisco ASA(적응 보안 어플라이언스) 디바이스를 연결하는 샘플 구성을 제공합니다. 이 예제는 BGP(경계 게이트웨이 프로토콜) 없이 IKEv2를 실행하는 Cisco ASA 디바이스에 적용됩니다. 
@@ -44,7 +44,7 @@ Azure VPN Gateway는 표준 IPsec/IKE 프로토콜 도구 모음을 사용하여
 > [암호화 요구 사항 정보](vpn-gateway-about-compliance-crypto.md)에 설명된 대로 특정 연결에 대한 암호화 알고리즘 및 키 길이의 정확한 조합을 선택적으로 지정할 수 있습니다. 암호화 알고리즘 및 키 길이의 정확한 조합을 지정하는 경우 VPN 디바이스에서 해당 사양을 사용해야 합니다.
 
 ## <a name="single-vpn-tunnel"></a>단일 VPN 터널
-이 구성은 Azure VPN Gateway와 온-프레미스 VPN 디바이스 간에 단일 S2S VPN 터널로 구성됩니다. 필요에 따라 [VPN 터널에서 BGP](#bgp)를 구성할 수 있습니다.
+이 구성은 Azure VPN Gateway와 온-프레미스 VPN 디바이스 간에 단일 S2S VPN 터널로 구성됩니다. 필요에 따라 VPN 터널에서 BGP를 구성할 수 있습니다.
 
 ![단일 S2S VPN 터널](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 
@@ -83,7 +83,7 @@ Azure 구성을 빌드하는 단계별 지침은 [단일 VPN 터널 설정](vpn-
 | 미리 공유한 키   | PreSharedKey                         |
 |                  |                                      |
 
-\*IPsec 암호화 알고리즘이 AES GCM에서 사용될 경우 일부 장치에서 IPsec 무결성은 null 값이어야 합니다.
+\*IPsec 암호화 알고리즘이 AES GCM에서 사용될 경우 일부 디바이스에서 IPsec 무결성은 null 값이어야 합니다.
 
 ### <a name="asa-device-support"></a>ASA 디바이스 지원
 
@@ -248,7 +248,7 @@ crypto ipsec ikev2 ipsec-proposal AES-256
  protocol esp integrity  sha-1
 exit
 !
-!     > Set access list & traffic selectors, PFS, IPsec protposal, SA lifetime
+!     > Set access list & traffic selectors, PFS, IPsec proposal, SA lifetime
 !       - This sample uses "Azure-<VNetName>-map" as the crypto map name
 !       - ASA supports only one crypto map per interface, if you already have
 !         an existing crypto map assigned to your outside interface, you must use
@@ -293,7 +293,7 @@ sysopt connection tcpmss 1350
     ```
     show run
     ```
-    `show` 하위 명령을 사용하여 장치 구성의 특정 부분을 나열합니다. 예:
+    `show` 하위 명령을 사용하여 디바이스 구성의 특정 부분을 나열합니다. 예:
     ```
     show run crypto
     show run access-list

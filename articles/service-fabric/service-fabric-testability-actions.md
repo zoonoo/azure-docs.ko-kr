@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 70ed1561af6dc06b4d1db89e6449540dd76b67be
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757624"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815885"
 ---
 # <a name="testability-actions"></a>테스트 용이성 작업
 불안정한 인프라를 시뮬레이트할 수 있도록 Azure 서비스 패브릭에서는 개발자에게 다양한 실제 오류 및 상태 전환을 시뮬레이트할 수 있는 방법을 제공합니다. 이러한 작업을 테스트 용이성 작업이라고 합니다. 이러한 작업은 특정 오류 주입, 상태 전환 또는 유효성 검사를 발생시키는 저수준 API입니다. 이러한 작업을 결합하여 서비스에 대한 포괄적인 테스트 시나리오를 작성할 수 있습니다.
@@ -31,7 +31,7 @@ C#으로 구현한 작업은 System.Fabric.dll 어셈블리에 있습니다. 시
 ## <a name="graceful-vs-ungraceful-fault-actions"></a>정상적인 오류 작업과 비정상적인 오류 작업 비교
 테스트 용이성 작업은 두 주요 버킷으로 분류됩니다.
 
-* 비정상적 오류: 이러한 오류는 컴퓨터 재시작, 프로세스 충돌 같은 실패를 시뮬레이션합니다. 이러한 실패의 경우 프로세스의 실행 컨텍스트가 갑자기 중지합니다. 즉, 애플리케이션을 다시 시작하기 전에 상태 정리를 실행할 수 없습니다.
+* 비정상적 오류: 이러한 오류는 머신 재시작, 프로세스 충돌 같은 실패를 시뮬레이션합니다. 이러한 실패의 경우 프로세스의 실행 컨텍스트가 갑자기 중지합니다. 즉, 애플리케이션을 다시 시작하기 전에 상태 정리를 실행할 수 없습니다.
 * 정상적인 오류: 이러한 오류는 부하 분산에 의해 트리거되는 복제본 이동 또는 삭제 등의 정상적인 작업을 시뮬레이션합니다. 이러한 경우에는 서비스에서 종료에 대한 알림을 가져와서 상태 정리 후 종료할 수 있습니다.
 
 다양한 정상 및 비정상 오류를 유도하면서 서비스 및 비즈니스 작업을 실행하면 보다 완벽하게 품질을 확인할 수 있습니다. 비정상적 오류의 경우 워크플로 도중에 서비스 프로세스가 갑자기 종료되는 시나리오를 실행합니다. 이 시나리오는 Service Fabric에서 서비스 복제본을 복원할 때 복구 경로를 테스트합니다. 데이터 일관성을 테스트하고 실패 후 서비스 상태가 올바르게 유지되는지 테스트하는 데 도움이 됩니다. 다른 실패 집합(정상적인 실패)은 서비스 패브릭에 의해 이동되는 복제본에 대해 서비스가 올바르게 반응하는지를 테스트 합니다. 이 테스트는 RunAsync 메서드의 취소 처리를 테스트합니다. 서비스에서 설정되는 취소 토큰을 확인하고 상태를 올바르게 저장한 후 RunAsync 메서드를 종료해야 합니다.
@@ -90,7 +90,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-첫 번째 **Get-ServiceFabricNode** (서비스 패브릭 PowerShell 모듈의 cmdlet)의 출력은 로컬 클러스터에 다섯 개의 노드(Node.1~Node.5)가 있음을 보여 줍니다. Node.4 노드에서 테스트 용이성 작업(cmdlet) **Restart-ServiceFabricNode** 를 실행하면 노드의 가동 시간이 다시 설정된 것을 알 수 있습니다.
+첫 번째 **Get-ServiceFabricNode**(Service Fabric PowerShell 모듈의 cmdlet)의 출력은 로컬 클러스터에 다섯 개의 노드가 있음을 보여줍니다 (Node.1~Node.5). Node.4 노드에서 테스트 용이성 작업(cmdlet) **Restart-ServiceFabricNode** 를 실행하면 노드의 가동 시간이 다시 설정된 것을 알 수 있습니다.
 
 ### <a name="run-an-action-against-an-azure-cluster"></a>Azure 클러스터에 대해 작업 실행
 PowerShell을 사용하여 Azure 클러스터에 대해 테스트 용이성 작업을 실행하는 방법은 로컬 클러스터에 대해 작업을 실행하는 방법과 비슷합니다. 작업을 실행하려면 로컬 클러스터 대신 Azure 클러스터에 먼저 연결해야 한다는 점만 다릅니다.
@@ -111,7 +111,7 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 노드 이름을 사용하여 직접 지정하는 대신 파티션 키와 복제본의 종류를 통해 지정할 수 있습니다.
 
-자세한 내용은 [PartitionSelector 및 ReplicaSelector](#partition_replica_selector)를 참조하세요.
+자세한 내용은 PartitionSelector 및 ReplicaSelector를 참조하세요.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll

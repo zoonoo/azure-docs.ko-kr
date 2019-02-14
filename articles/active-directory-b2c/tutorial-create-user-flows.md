@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Active Directory B2C에서 사용자 흐름 만들기 | Microsoft Docs
+title: Tutorial - 사용자 흐름 만들기 - Azure Active Directory B2C | Microsoft Docs
 description: Azure Portal를 사용하여 Azure Active Directory B2C에서 애플리케이션의 사용자 흐름을 만드는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
@@ -7,14 +7,14 @@ manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 6e651d23e3b5cced78088d59979507eb09723165
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7f017583a6eeb61b11df86a908d573dba9bd5929
+ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845603"
+ms.lasthandoff: 02/06/2019
+ms.locfileid: "55750293"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 
@@ -39,29 +39,30 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 등록 및 로그인 사용자 흐름은 단일 구성으로 가입 및 로그인 환경을 둘 다 처리합니다. 애플리케이션 사용자는 컨텍스트에 따라 올바른 경로로 안내됩니다.
 
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
 
     ![구독 디렉터리로 전환](./media/tutorial-create-user-flows/switch-directories.png)
 
-2. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-3. 왼쪽 메뉴에서 **사용자 흐름**을 선택한 후 **새 사용자 흐름**을 선택합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+4. 왼쪽 메뉴에서 **사용자 흐름**을 선택한 후 **새 사용자 흐름**을 선택합니다.
 
     ![새 사용자 흐름 선택](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-4. 권장 탭에서 **등록 및 로그인** 사용자 흐름을 선택합니다.
+5. 권장 탭에서 **등록 및 로그인** 사용자 흐름을 선택합니다.
 
     ![등록 및 로그인 사용자 흐름 선택](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-5. 사용자 흐름에 대한 **이름**을 입력합니다. 예를 들어 *signupsignin1*과 같습니다.
-6. **ID 공급자**에서 **메일 등록**을 선택합니다.
+6. 사용자 흐름에 대한 **이름**을 입력합니다. 예를 들어 *signupsignin1*과 같습니다.
+7. **ID 공급자**에서 **메일 등록**을 선택합니다.
 
     ![흐름 속성 설정](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-7. **사용자 특성 및 클레임**에 대해 수집한 후 등록 동안 사용자로부터 전송하려는 클레임 및 특성을 선택합니다. 예를 들어 **자세히 보기**를 선택하고 **국가/지역**, **표시 이름** 및 **우편 번호**를 선택합니다. **확인**을 클릭합니다.
+8. **사용자 특성 및 클레임**에 대해 수집한 후 등록 동안 사용자로부터 전송하려는 클레임 및 특성을 선택합니다. 예를 들어 **자세히 보기**를 선택하고 **국가/지역**, **표시 이름** 및 **우편 번호**를 선택합니다. **확인**을 클릭합니다.
 
     ![특성 및 클레임 선택](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-8. **만들기**를 클릭하여 사용자 흐름을 추가합니다. 접두사 *B2C_1*이 이름을 자동으로 추가됩니다.
+9. **만들기**를 클릭하여 사용자 흐름을 추가합니다. 접두사 *B2C_1*이 이름을 자동으로 추가됩니다.
 
 ### <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
@@ -123,4 +124,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > * 암호 재설정 사용자 흐름 만들기
 
 > [!div class="nextstepaction"]
-> [Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정](tutorial-customize-ui.md)
+> [Azure Active Directory B2C의 애플리케이션에 ID 공급자 추가](tutorial-add-identity-providers.md)

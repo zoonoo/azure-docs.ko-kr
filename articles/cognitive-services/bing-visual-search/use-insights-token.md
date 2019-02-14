@@ -10,19 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6017fc957d511aa21f8e28cf011378e8012123cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b3e948c2eafb43f804b330287b114ef9307b0aac
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151722"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813367"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>인사이트 토큰을 사용하여 이미지에 대한 중요 정보 얻기
 
 Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보를 반환합니다. 이미지의 URL, 인사이트 토큰을 사용하거나 이미지를 업로드하여 이미지를 제공할 수 있습니다. 이러한 옵션에 대한 내용은 [Bing Visual Search API란?](overview.md)을 참조하세요. 이 문서에서는 인사이트 토큰 사용을 보여 줍니다. 이미지를 업로드하여 중요 정보를 얻는 방법을 보여 주는 예제에 대해서는 빠른 시작([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md))을 참조하세요.
 
 
-Visual Search에 이미지 토큰 또는 URL을 전송하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여 줍니다. 양식 데이터에는 Content-Disposition 헤더를 포함해야 하고, 해당 `name` 매개 변수는 "knowledgeRequest"로 설정해야 합니다. `imageInfo` 개체에 대한 자세한 내용은 [요청](#the-request)을 참조하세요.
+Visual Search에 이미지 토큰 또는 URL을 전송하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여 줍니다. 양식 데이터에는 Content-Disposition 헤더를 포함해야 하고, 해당 `name` 매개 변수는 "knowledgeRequest"로 설정해야 합니다. `imageInfo` 개체에 대한 자세한 내용은 요청을 참조하세요.
 
 ```json
 {

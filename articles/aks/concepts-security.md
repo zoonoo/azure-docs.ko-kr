@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e29b94f270b295725400103f288f3d3bd0c2a2eb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380698"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818994"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -24,11 +24,11 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 워크로드를 실행하
 - [노드 보안](#node-security)
 - [클러스터 업그레이드](#cluster-upgrades)
 - [네트워크 보안](#network-security)
-- [Kubernetes 비밀](#secrets)
+- Kubernetes 비밀
 
 ## <a name="master-security"></a>마스터 보안
 
-AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관리 서비스의 일부입니다. AKS 클러스터마다 API 서버, 스케줄러 등을 제공하는 자체적인 단일 테넌트, 전용 Kubernetes 마스터가 있습니다. 이 마스터는 Microsoft에서 관리 및 유지됩니다.
+AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관리 서비스에 속합니다. AKS 클러스터마다 API 서버, 스케줄러 등을 제공하는 자체적인 단일 테넌트, 전용 Kubernetes 마스터가 있습니다. 이 마스터는 Microsoft에서 관리 및 유지됩니다.
 
 기본적으로 Kubernetes API 서버는 공용 IP 주소와 FQDN(정규화된 도메인 이름)을 사용합니다. Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory를 사용하여 API 서버에 대한 액세스를 제어할 수 있습니다. 자세한 내용은 [AKS와 Azure AD 통합][aks-aad]을 참조하세요.
 
@@ -41,6 +41,8 @@ Azure 플랫폼은 야간에 OS 보안 패치를 노드에 자동으로 적용�
 노드는 공용 IP 주소가 할당되지 않은 상태에서 개인 가상 네트워크 서브넷에 배포됩니다. 문제 해결 및 관리를 목적으로 SSH는 기본적으로 사용하도록 설정됩니다. SSH 액세스는 내부 IP 주소를 사용하는 경우에만 가능합니다. Azure 네트워크 보안 그룹 규칙은 AKS 노드에 대한 IP 범위 액세스를 추가로 제한하는 데 사용할 수 있습니다. 기본 네트워크 보안 그룹 SSH 규칙을 삭제하고 노드에서 SSH 서비스를 사용하지 않도록 설정하면 Azure 플랫폼에서 유지 관리 작업을 수행할 수 없습니다.
 
 저장소를 제공하기 위해 노드는 Azure Managed Disks를 사용합니다. 대부분의 VM 노드 크기의 경우 해당되는 항목은 고성능 SSD로 지원되는 프리미엄 디스크입니다. 관리 디스크에 저장된 데이터는 미사용 시 Azure 플랫폼에서 자동으로 저장 데이터 암호화됩니다. 중복성을 높이기 위해 이러한 디스크는 Azure 데이터 센터 내에서 안전하게 복제됩니다.
+
+AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. *Pod 보안 정책*과 같은 추가 보안 기능 또는 노드에 대해 보다 세분화된 RBAC(역할 기반 액세스 제어)를 사용하면 악용이 더 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다. 워크로드를 격리하는 방법에 대한 자세한 내용은 [AKS의 클러스터 격리에 대한 모범 사례][cluster-isolation]를 참조하세요.
 
 ## <a name="cluster-upgrades"></a>클러스터 업그레이드
 
@@ -96,3 +98,4 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[cluster-isolation]: operator-best-practices-cluster-isolation.md

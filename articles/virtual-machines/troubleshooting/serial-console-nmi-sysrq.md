@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 9dcec525adf7676b23c6dec14dff07c6d419c085
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3a9d3364f9e55611c94797b71b058128ce7c6696
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884645"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697937"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>SysRq 및 NMI 호출에 대한 직렬 콘솔 사용
 
@@ -63,7 +63,7 @@ SysReq 구성을 영구적으로 유지하려면 다음을 수행하여 모든 S
 |``h``  |   도움말을 표시합니다(여기에 나열된 것 외에 다른 키도 도움말을 표시하지만 ``h``가 기억하기 쉬움 :-).
 |``i``  |    init를 제외한 모든 프로세스에 SIGKILL을 보냅니다.
 |``j``  |    FIFREEZE ioctl에 의해 중단된 파일시스템을 강제로 “재개합니다”.
-|``k``  |    SAK(보안 액세스 키)가 현재 가상 콘솔에 있는 모든 프로그램을 종료합니다. 참고: SAK 섹션에서 아래 중요한 설명을 참조하세요.
+|``k``  |    SAK(보안 액세스 키)가 현재 가상 콘솔에 있는 모든 프로그램을 종료합니다. 참고:  SAK 섹션에서 아래 중요한 설명을 참조하세요.
 |``l``  |    모든 활성 CPU에 대한 스택 backtrace를 표시합니다.
 |``m``  |    콘솔에 현재 메모리 정보를 덤프합니다.
 |``n``  |    RT 작업을 잘 수행할 수 있도록 하는 데 사용됩니다.
@@ -112,7 +112,7 @@ NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어
 1. 다음을 실행하여 다시 부팅하거나 sysctl 업데이트 <br>
     `sysctl -p`
 
-`unknown_nmi_panic`, `panic_on_io_nmi` 및 `panic_on_unrecovered_nmi`를 비롯한 Linux 커널 구성에 대한 자세한 내용은 [/proc/sys/kernel/에 대한 설명서*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt)를 참조하세요. NMI의 배포 관련 설명서 및 NMI를 수신하는 경우 크래시 덤프를 만들도록 Linux를 구성하는 단계는 아래 링크를 참조하세요.
+`unknown_nmi_panic`, `panic_on_io_nmi` 및 `panic_on_unrecovered_nmi`를 비롯한 Linux 커널 구성에 대한 자세한 내용은 [/proc/sys/kernel/*에 대한 설명서](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt)를 참조하세요. NMI의 배포 관련 설명서 및 NMI를 수신하는 경우 크래시 덤프를 만들도록 Linux를 구성하는 단계는 아래 링크를 참조하세요.
  
 ### <a name="ubuntu"></a>Ubuntu 
  - [커널 크래시 덤프](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 9c463740acf6ef464880a43e0e68de683b97f64f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912036"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813425"
 ---
 # <a name="filters-and-dynamic-manifests"></a>필터 및 동적 매니페스트
 
@@ -32,15 +32,15 @@ ms.locfileid: "54912036"
     - 비디오의 시작 부분을 자릅니다("비디오 트리밍").
 
 - 콘텐츠를 재생하는 데 사용되는 디바이스에서 지원하는 지정된 변환 및/또는 지정된 언어 트랙만 전달합니다(“변환 필터링”). 
-- 플레이어의 DVR 창 길이를 제한하기 위해 프레젠테이션 창(DVR)을 조정합니다(“프레젠테이션 창 조정”).
+- 플레이어의 DVR 창 길이를 제한하기 위해 프레젠테이션 창(DVR)을 조정합니다("프레젠테이션 창 조정").
 
-이 항목에서는 [개념](#concepts)을 설명하고 [필터 정의를 표시](#definitions)합니다. 그런 다음, [일반적인 시나리오](#common-scenarios)에 대한 자세한 내용을 제공합니다. 문서 끝부분에는 프로그래밍 방식으로 필터를 만드는 방법을 보여 주는 링크가 있습니다.  
+이 항목에서는 [개념](#concepts)을 설명하고 필터 정의를 보여줍니다. 그런 다음, 일반적인 시나리오에 대해 자세히 설명합니다. 문서 끝부분에는 프로그래밍 방식으로 필터를 만드는 방법을 보여 주는 링크가 있습니다.  
 
 ## <a name="concepts"></a>개념
 
 ### <a name="dynamic-manifests"></a>동적 매니페스트
 
-Media Services는 미리 정의된 [필터](#filters)를 기반으로 **동적 매니페스트**를 제공합니다. 필터를 정의하고 나면 클라이언트가 비디오의 특정 변환 또는 하위 클립을 스트리밍하는 데 해당 필터를 사용할 수 있습니다. 스트리밍 URL에서 필터를 지정할 수 있습니다. 적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. Apple HLS(HTTP 라이브 스트리밍), MPEG-DASH 및 부드러운 스트리밍 
+Media Services는 미리 정의된 필터에 따라 **동적 매니페스트**를 제공합니다. 필터를 정의하고 나면 클라이언트가 비디오의 특정 변환 또는 하위 클립을 스트리밍하는 데 해당 필터를 사용할 수 있습니다. 스트리밍 URL에서 필터를 지정할 수 있습니다. 적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. Apple HLS(HTTP 라이브 스트리밍), MPEG-DASH 및 부드러운 스트리밍 
 
 다음 표에서는 필터가 있는 URL의 몇 가지 예제를 보여 줍니다.
 

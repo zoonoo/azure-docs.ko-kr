@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c87b6791ea2d90ed302d796f17727a0338104beb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5339b0c77a69a915e58118888f8b82d095a43e38
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174996"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817790"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 문제 해결
 이 항목에서는 암호 해시 동기화 문제를 해결하는 방법에 대한 단계를 제공합니다. 암호가 예상대로 동기화되지 않으면 사용자의 하위 집합 또는 모든 사용자의 암호일 수 있습니다.
@@ -237,7 +237,7 @@ Azure AD Connect 서버가 준비 모드에 있으면 암호 해시 동기화가
 
 5. 하트비트가 표시되지 않거나 아무 작동도 진행되지 않으면 [모든 암호의 전체 동기화 트리거](#trigger-a-full-sync-of-all-passwords)를 실행합니다. 스크립트를 한 번만 실행합니다.
 
-6. [암호를 동기화하지 않는 한 개체의 문제 해결](#one-object-is-not-synchronizing-passwords) 섹션을 참조하세요.
+6. 암호를 동기화하지 않는 한 개체의 문제 해결 섹션을 참조하세요.
 
 ### <a name="connectivity-problems"></a>연결 문제
 
@@ -303,7 +303,7 @@ Azure AD와 연결되어 있나요?
 
     ![개체 로그 정보](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
-    개체 로그가 비어 있으면 Azure AD Connect가 Active Directory에서 암호 해시를 읽지 못한 것입니다. [연결 오류](#connectivity-errors) 문제를 계속 해결합니다. **success** 이외의 값이 표시되면 [암호 동기화 로그](#password-sync-log)의 테이블을 참조하세요.
+    개체 로그가 비어 있으면 Azure AD Connect가 Active Directory에서 암호 해시를 읽지 못한 것입니다. 연결 오류 문제를 계속 해결합니다. **success** 이외의 값이 표시되면 [암호 동기화 로그](#password-sync-log)의 테이블을 참조하세요.
 
     h. **계보** 탭을 선택한 다음 **PasswordSync** 열에서 하나 이상의 동기화 규칙이 **True**인지 확인합니다. 기본 구성에서 동기화 규칙의 이름은 **AD에서 들어오기 - User AccountEnabled**입니다.  
 

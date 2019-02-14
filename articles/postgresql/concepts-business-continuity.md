@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 02/01/2019
+ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559045"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55698252"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 비즈니스 연속성 개요
 
@@ -49,6 +49,6 @@ Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 
 > 지역 복원은 지역 중복 백업 저장소로 서버를 프로비전한 경우에만 가능합니다. 기존 서버에 대한 로컬 중복 백업을 지역 중복 백업으로 전환하려는 경우 pg_dump를 사용하여 기존 서버를 덤프한 후 지역 중복 백업으로 구성된 새로 만든 서버로 복원해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 자동화된 백업에 대해 자세히 알아보려면 [Azure Database for PostgreSQL의 백업](concepts-backup.md)을 참조하세요. 
-- Azure Portal을 사용하여 특정 시점으로 복원하려면  [Azure Portal을 사용하여 특정 시점으로 데이터베이스 복원](howto-restore-server-portal.md)을 참조하세요.
-- Azure CLI를 사용하여 특정 시점으로 복원하려면  [CLI를 사용하여 특정 시점으로 데이터베이스 복원](howto-restore-server-cli.md)을 참조하세요.
+- [Azure Database for PostgreSQL의 자동화된 백업](concepts-backup.md)에 대해 자세히 알아봅니다. 
+- [Azure Portal](howto-restore-server-portal.md) 또는 [Azure CLI](howto-restore-server-cli.md)를 사용하여 복원하는 방법을 알아봅니다.
+- [Azure Database for PostgreSQL의 읽기 복제본](concepts-read-replicas.md)에 대해 자세히 알아봅니다.

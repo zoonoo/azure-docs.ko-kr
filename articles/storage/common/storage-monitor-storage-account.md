@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d437c6e2327fc9771f9567a37bfbf8ad82713b2b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452646"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817278"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure 포털에서 저장소 계정 모니터링
 
@@ -46,7 +46,7 @@ ms.locfileid: "55452646"
 
 1. 모니터링 구성을 완료하면 **저장**을 선택합니다.
 
-기본 메트릭 집합은 개별 서비스 블레이드(Blob, 큐, 테이블 및 파일)뿐만 아니라 저장소 계정 블레이드의 차트에도 표시됩니다. 서비스에 대한 메트릭을 사용하도록 설정하면 차트에 데이터를 표시하는 데 최대 1시간이 걸릴 수 있습니다. 메트릭 차트에서 **편집**을 선택하여 차트에 표시되는 [메트릭을 구성](#how-to-customize-metrics-charts)할 수 있습니다.
+기본 메트릭 집합은 개별 서비스 블레이드(Blob, 큐, 테이블 및 파일)뿐만 아니라 저장소 계정 블레이드의 차트에도 표시됩니다. 서비스에 대한 메트릭을 사용하도록 설정하면 차트에 데이터를 표시하는 데 최대 1시간이 걸릴 수 있습니다. 메트릭 차트에서 **편집**을 선택하여 차트에 표시되는 메트릭을 구성할 수 있습니다.
 
 **상태**를 **해제**로 설정하여 메트릭 수집 및 로깅을 사용하지 않도록 설정할 수 있습니다.
 
@@ -116,7 +116,7 @@ ms.locfileid: "55452646"
    ![Azure Portal의 타일 갤러리](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
 1. 차트 추가를 완료했으면 대시보드 위쪽의 **사용자 지정 완료**를 선택합니다.
 
-대시보드에 차트를 추가하면 [메트릭 차트 사용자 지정](#how-to-customize-metrics-charts)에서 설명한 대로 차트를 추가로 사용자 지정할 수 있습니다.
+대시보드에 차트를 추가하면 메트릭 차트 사용자 지정에서 설명한 대로 차트를 추가로 사용자 지정할 수 있습니다.
 
 ## <a name="configure-logging"></a>로깅 구성
 

@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Translator Speech API에 대한 참조 문서입니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: e1796b2cb3efee6ff610f9dade7a10b2c2637bba
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466186"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55874739"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -30,7 +30,7 @@ Translator Speech API는 WebSocket 프로토콜을 활용하여 클라이언트 
 ## <a name="1-getting-started"></a>1. 시작
 Translator Text API에 액세스하려면 [Microsoft Azure에 등록](translator-speech-how-to-signup.md)해야 합니다.
 
-## <a name="2-authentication"></a>2. 인증
+## <a name="2-authentication"></a>2. Authentication
 
 등록 키를 사용하여 인증을 받습니다. Translator Speech API는 다음 두 가지 인증 모드를 지원합니다.
 

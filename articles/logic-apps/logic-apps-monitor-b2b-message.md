@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: d5425cf7c2ea39770bbc3e9368f34d57d7279842
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534879"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818297"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Azure Logic Apps의 Azure Log Analytics를 사용하여 B2B 메시지 모니터링
 
-통합 계정에서 거래 업체 간에 B2B 통신을 설정한 후 해당 업체는 서로 메시지를 교환할 수 있습니다. 이 통신이 예상대로 작동하는지 확인하려면 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 AS2, X12 및 EDIFACT 메시지를 모니터링하고 통합 계정에 대한 진단 로깅을 설정할 수 있습니다. 이 서비스는 클라우드 및 온-프레미스 환경을 모니터링하고 해당 가용성 및 성능을 유지할 수 있고 런타임 세부 정보 및 보다 다양한 디버깅에 대한 이벤트를 수집합니다. 또한 Azure Storage 및 Azure Event Hub와 같은 [다른 서비스를 통해 이 데이터를 사용](#extend-diagnostic-data)할 수도 있습니다.
+통합 계정에서 거래 업체 간에 B2B 통신을 설정한 후 해당 업체는 서로 메시지를 교환할 수 있습니다. 이 통신이 예상대로 작동하는지 확인하려면 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 AS2, X12 및 EDIFACT 메시지를 모니터링하고 통합 계정에 대한 진단 로깅을 설정할 수 있습니다. 이 서비스는 클라우드 및 온-프레미스 환경을 모니터링하고 해당 가용성 및 성능을 유지할 수 있고 런타임 세부 정보 및 보다 다양한 디버깅에 대한 이벤트를 수집합니다. 또한 Azure Storage 및 Azure Event Hub와 같은 기타 서비스를 통해 이 데이터를 사용할 수도 있습니다.
 
 > [!NOTE]
 > 이 페이지는 [2019년 1월에 사용 중지](../azure-monitor/platform/oms-portal-transition.md)되지만 가능한 경우 Azure Log Analytics로 이러한 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 아직 참조할 수 있습니다. 

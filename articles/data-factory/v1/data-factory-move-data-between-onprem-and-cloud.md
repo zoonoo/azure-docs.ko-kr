@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015834"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822428"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 > [!NOTE]
@@ -172,7 +172,7 @@ ms.locfileid: "54015834"
       4. **자격 증명 설정** 대화 상자에서 인증 유형, 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다. 연결이 성공하면 암호화된 자격 증명이 JSON에 저장되고 대화 상자가 닫힙니다.
       5. 대화 상자가 자동으로 닫히지 않고 Azure Portal을 사용하여 해당 탭으로 돌아간 경우 이 대화 상자를 시작한 빈 브라우저 탭을 닫습니다.
 
-         게이트웨이 컴퓨터에서 데이터 팩터리 서비스가 소유하는 인증서를 사용하여 이러한 자격 증명을 **암호화**합니다. 대신 데이터 관리 게이트웨이와 연결된 인증서를 사용하려는 경우 [안전하게 자격 증명 설정](#set-credentials-and-security)을 참조하세요.    
+         게이트웨이 컴퓨터에서 데이터 팩터리 서비스가 소유하는 인증서를 사용하여 이러한 자격 증명을 **암호화**합니다. 대신 데이터 관리 게이트웨이와 연결된 인증서를 사용하려는 경우 안전하게 자격 증명 설정을 참조하세요.    
    3. 명령 모음에서 **배포**를 클릭하여 SQL Server 연결 서비스를 배포합니다. 트리 보기에서 연결된 서비스가 표시됩니다.
 
       ![트리 보기에서 SQL Server에 연결된 서비스](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
@@ -187,7 +187,7 @@ ms.locfileid: "54015834"
 이 단계에서는 복사 작업(온-프레미스 SQL Server 데이터베이스 = &gt; Azure Blob 저장소)의 입력 및 출력 데이터를 나타내는 입력 및 출력 데이터 세트를 만듭니다. 데이터 세트를 만들기 전에 다음 단계를 수행합니다(목록 뒤에 자세한 단계가 나옴).
 
 * 데이터 팩터리에 연결된 서비스로 추가한 SQL Server 데이터베이스에서 **emp**라는 테이블을 만들고 테이블에 몇 가지 샘플 항목을 삽입합니다.
-* 데이터 팩터리에 연결된 서비스로 추가한 Azure BLOB 저장소 계정에서 **adftutorial**로 명명된 BLOB 컨테이너를 만듭니다.
+* 데이터 팩터리에 연결된 서비스로 추가한 Azure Blob Storage 계정에서 **adftutorial**로 명명된 BLOB 컨테이너를 만듭니다.
 
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>자습서에 필요한 온-프레미스 SQL Server 준비
 1. 온-프레미스 SQL Server 연결된 서비스(**SqlServerLinkedService**)에 대해 지정된 데이터베이스에서, 다음 SQL 스크립트를 사용하여 데이터베이스에 **emp** 테이블을 만듭니다.
@@ -250,7 +250,7 @@ ms.locfileid: "54015834"
 
 ### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
 
-1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 세트**를 클릭하고 **Azure Blob 저장소**를 클릭합니다.
+1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure Blob Storage**를 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
     ```JSON   

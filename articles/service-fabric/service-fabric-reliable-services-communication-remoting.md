@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: b8abf7a0dc85d20e9075b51b8d42a068cf56846f
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 4110b8f1b336a604c89180ac44ad470132765830
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620526"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820677"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Reliable Services로 C#에서 서비스 원격 호출
 
@@ -239,7 +239,7 @@ V1에서 V2로 업그레이드하려면 2단계 업그레이드가 필요합니�
 
 ## <a name="use-the-remoting-v2-interface-compatible-stack"></a>Remoting V2(인터페이스 호환 가능) 스택 사용
 
- Remoting V2(인터페이스 호환 가능, V2_1이라고 함) 스택에는 V2 Remoting 스택의 모든 기능이 포함되어 있습니다. 해당 인터페이스 스택은 Remoting V1 스택과 호환되지만 이전 버전의 V2 및 V1과는 호환되지 않습니다. 서비스 가용성에 영향을 주지 않고 V1에서 V2_1로 업그레이드하려면 [V1에서 V2(인터페이스 호환 가능)로 업그레이드](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible) 문서의 단계를 따르세요.
+ Remoting V2(인터페이스 호환 가능, V2_1이라고 함) 스택에는 V2 Remoting 스택의 모든 기능이 포함되어 있습니다. 해당 인터페이스 스택은 Remoting V1 스택과 호환되지만 이전 버전의 V2 및 V1과는 호환되지 않습니다. 서비스 가용성에 영향을 주지 않고 V1에서 V2_1로 업그레이드하려면 V1에서 V2(인터페이스 호환 가능)로 업그레이드 문서의 단계를 따르세요.
 
 
 ### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>어셈블리 특성을 사용하여 Remoting V2(인터페이스 호환 가능) 스택 사용

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 7af14143e8ce4924c17a41c6bb1ff33954f4b583
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c30e679b250c2d6c6b03a1fe5d70dbd06acf052
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568729"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818365"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Azure Network Watcher로 패킷 검사
 
@@ -61,7 +61,7 @@ TCP 세 방향 핸드셰이크에서 처음 두 패킷을 보다 쉽게 보려�
 
 WireShark에서 필터를 적용하려면 캡처에서 [SYN] 패킷의 "전송 제어 프로토콜" 세그먼트를 확장하고 TCP 헤더에 설정된 플래그를 검사합니다.
 
-모든 [SYN] 및 [SYN, ACK] 패킷에서 필터링을 확인 중이므로 플래그 아래에서 동기화 비트가 1로 설정되었는지 확인하고 동기화 비트를 마우스 오른쪽 단추로 클릭한 후 -> Apply as Filter(필터로 적용) -> Selected(선택됨)를 선택합니다.
+모든 [SYN] 및 [SYN, ACK] 패킷에서 필터링을 확인 중이므로 플래그 아래에서 동기화 비트가 1로 설정되었는지 확인하고, 동기화 비트를 마우스 오른쪽 단추로 클릭한 다음, -> Apply as Filter(필터로 적용) -> Selected(선택됨)를 선택합니다.
 
 ![그림 7][7]
 

@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 0392d84efa3a82a6323d6d09db792df7d6c42256
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210678"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814846"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 관리 스토리지 계정 - CLI
 
@@ -52,35 +52,48 @@ ms.locfileid: "55210678"
 1. 저장소 계정을 만든 후 다음 명령을 실행하여 관리하려는 저장소 계정의 리소스 ID를 가져옵니다.
 
     ```
-    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
+    az storage account show -n storageaccountname 
     ```
+    위의 명령의 결과에서 ID 필드 복사
     
-2. Azure Key Vault의 서비스 주체에 대한 애플리케이션 ID를 가져옵니다. 
+2. 아래 명령을 실행하여 Azure Key Vault 서비스 주체의 개체 ID 가져오기
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
+    이 명령이 완료되면 결과에서 개체 ID 찾기
+    ```console
+        {
+            ...
+            "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
+            ...
+        }
+    ```
+    
 3. Azure Key Vault ID에 저장소 키 운영자 역할 할당
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. Key Vault 관리 저장소 계정을 만듭니다.     <br /><br />
-   아래에서 다시 생성 기간을 90일로 설정합니다. 90일 후에 Key Vault는 ‘key1’을 다시 생성하고 활성 키를 ‘key1’에서 ‘key2’로 교체합니다.
+   아래에서 다시 생성 기간을 90일로 설정합니다. 90일 후에 Key Vault는 ‘key1’을 다시 생성하고 활성 키를 ‘key1’에서 ‘key2’로 교체합니다. Key Vault는 이제 Key1을 활성 키로 표시합니다. 
    
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
     사용자가 저장소 계정을 만들지 않고 저장소 계정에 대한 사용 권한이 없을 경우 아래 단계는 Key Vault에서 모든 저장소 사용 권한을 관리할 수 있는지 확인하기 위해 사용자 계정에 대한 사용 권한을 설정합니다.
+    
  > [!NOTE] 
-    사용자에게 저장소 계정에 대한 권한이 없는 경우 먼저 사용자의 개체 ID를 가져옵니다.
+ > 사용자에게 저장소 계정에 대한 권한이 없는 경우 먼저 사용자의 개체 ID를 가져옵니다.
+
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+    
     ```
     
 ## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>SAS 토큰을 사용하여 스토리지 계정에 액세스하는 방법
@@ -91,9 +104,9 @@ ms.locfileid: "55210678"
 
 > [!NOTE] 
   [기본 개념](key-vault-whatis.md#basic-concepts)에 설명된 것처럼 3가지 방법으로 Key Vault에 인증할 수 있습니다.
-- 관리 서비스 ID 사용(강력 권장)
-- 서비스 주체 및 인증서 사용 
-- 서비스 주체 및 암호 사용(권장하지 않음)
+> - 관리 서비스 ID 사용(강력 권장)
+> - 서비스 주체 및 인증서 사용 
+> - 서비스 주체 및 암호 사용(권장하지 않음)
 
 ```cs
 // Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials

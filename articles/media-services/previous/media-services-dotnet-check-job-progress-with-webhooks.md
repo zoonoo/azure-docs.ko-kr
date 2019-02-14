@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: b3ce3731f19565bfe950d03a2bbc980dda55a7f4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 386662a4e98b881228a82de3777632ed002bb5b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238661"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989160"
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Azure Webhooks를 사용하여 .NET으로 Media Services 작업 알림 모니터링
+# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Azure Webhooks를 사용하여 .NET으로 Media Services 작업 알림 모니터링 
+
 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. Azure Webhooks 또는 [Azure Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)를 사용하여 Media Services 작업 알림을 모니터링할 수 있습니다 이 문서에서는 웹후크를 사용하는 방법을 보여 줍니다.
 
 이 문서는 방법을 안내합니다.
@@ -55,12 +56,12 @@ ms.locfileid: "50238661"
 
 Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환경 변수를 쉽게 추가할 수 있습니다. 앱 설정을 구성하려면 앱 설정 구성 링크를 클릭합니다. 
 
-[응용 프로그램 설정](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) 섹션은 이 문서에 정의된 웹후크에서 사용되는 매개 변수를 정의합니다. 또한 다음 매개 변수를 앱 설정에 추가합니다. 
+[애플리케이션 설정](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) 섹션은 이 문서에 정의된 웹후크에서 사용되는 매개 변수를 정의합니다. 또한 다음 매개 변수를 앱 설정에 추가합니다. 
 
-|이름|정의|예| 
+|Name|정의|예| 
 |---|---|---|
 |SigningKey |서명 키입니다.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | 웹후크 엔드포인트 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==|
+|WebHookEndpoint | 웹후크 엔드포인트 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ## <a name="create-a-function"></a>함수 만들기
 

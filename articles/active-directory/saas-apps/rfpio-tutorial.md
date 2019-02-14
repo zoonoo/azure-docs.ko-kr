@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b216d8a8a2c6e1ab7c7b71eedfca9cbd6dbd5cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 23d745e084bf3439d8400b0cd6ac43bac75c7751
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197350"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815696"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>자습서: RFPIO와 Azure Active Directory 통합
 
@@ -88,11 +88,11 @@ RFPIO에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 할�
 
 RFPIO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트합니다.
-1. **[RFPIO 테스트 사용자 만들기](#creating-a-rfpio-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 RFPIO에 만듭니다.
-1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **Azure AD Single Sign-On 구성** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+1. **Azure AD 테스트 사용자 만들기** - Britta Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+1. **RFPIO 테스트 사용자 만들기** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 RFPIO에 만듭니다.
+1. **Azure AD 테스트 사용자 할당** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **Single Sign-On 테스트** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 

@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712061"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701015"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Azure Scheduler에서 고급 일정과 되풀이 작업 작성
 
@@ -53,9 +53,9 @@ ms.locfileid: "51712061"
 
 [Azure Scheduler REST API](/rest/api/scheduler)로 기본 일정을 만들려면 다음 단계를 수행합니다.
 
-1. [등록 작업 - Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register)를 사용하여 리소스 공급자에 Azure 구독을 등록합니다. Azure Scheduler 서비스의 공급자 이름은 **Microsoft.Scheduler**입니다. 
+1. [등록 작업 - Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers)를 사용하여 리소스 공급자에 Azure 구독을 등록합니다. Azure Scheduler 서비스의 공급자 이름은 **Microsoft.Scheduler**입니다. 
 
-1. Scheduler REST API의 [작업 컬렉션에 대한 만들기 또는 업데이트 작업](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate)을 사용하여 작업 컬렉션을 만듭니다. 
+1. Scheduler REST API의 [작업 컬렉션에 대한 만들기 또는 업데이트 작업](https://docs.microsoft.com/rest/api/scheduler/jobcollections)을 사용하여 작업 컬렉션을 만듭니다. 
 
 1. [작업에 대한 만들기 또는 업데이트 작업](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate)을 사용하여 작업을 만듭니다. 
 
@@ -67,7 +67,7 @@ ms.locfileid: "51712061"
 |---------|----------|-------------|
 | **startTime** | 아니요 | 기본 일정에서 작업이 처음 시작되는 시기를 지정하는 [ISO 8601 형식](http://en.wikipedia.org/wiki/ISO_8601)의 날짜/시간 문자열 값입니다. <p>복잡한 일정의 경우 작업은 **startTime** 이후에 시작됩니다. | 
 | **recurrence** | 아니요 | 작업이 실행되는 시기에 대한 되풀이 규칙입니다. **recurrence** 개체는 **frequency**, **interval**, **schedule**, **count** 및 **endTime** 요소를 지원합니다. <p>**recurrence** 요소를 사용하는 경우에는 **frequency** 요소도 사용해야 하며 다른 **recurrence** 요소는 선택 사항입니다. |
-| **frequency** | 예(**recurrence**를 사용하는 경우) | 발생 간격의 시간 단위이며 "분", "시간", "일", "주", "월" 및 "연도" 값을 지원합니다. | 
+| **frequency** | 예(**recurrence**를 사용하는 경우) | 발생 간격의 시간 단위이며 “분”, “시간”, “일”, “주”, “월” 및 “연도” 값을 지원합니다. | 
 | **interval** | 아니요 | **frequency**에 기반한 발생 간격의 시간 단위 수를 결정하는 양의 정수입니다. <p>예를 들어 **interval**이 10이고 **frequency**가 "week"인 경우 작업은 10주마다 되풀이 됩니다. <p>각 빈도의 간격에 대한 최대 수는 다음과 같습니다. <p>- 18개월 <br>- 78주 <br>- 548일 <br>- 시간과 분의 경우 범위는 1 <= <*interval*> <= 1000입니다. | 
 | **schedule** | 아니요 | 지정된 분 표시, 시간 표시, 요일 및 날짜를 기반으로 되풀이에 대한 변경을 정의합니다. | 
 | **count** | 아니요 | 작업이 완료되기 전에 실행되는 횟수를 지정하는 양의 정수입니다. <p>예를 들어 일일 작업의 **count**가 7로 설정되고 시작 날짜가 월요일이면 이 작업은 일요일에 실행을 마칩니다. 시작 날짜가 이미 지난 경우에는 만든 시간에서 첫 번째 실행이 계산됩니다. <p>**endTime**이나 **count**가 없으면 작업이 무한으로 실행됩니다. 같은 작업에 **count**와 **endTime**을 둘 다 사용할 수 없지만 먼저 끝나는 규칙이 적용됩니다. | 

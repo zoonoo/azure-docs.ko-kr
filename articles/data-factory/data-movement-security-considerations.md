@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 0113fc3112fa0fa911d6609684357d01cd9adf30
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d684ec56c7dfcc28d1057d0b20905db49bce9723
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015715"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498076"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+>
 > * [버전 1](v1/data-factory-data-movement-security-considerations.md)
 > * [현재 버전](data-movement-security-considerations.md)
 
@@ -32,13 +33,19 @@ Data Factory가 몇몇 지역에서만 지원되더라도 데이터 이동 서�
 
 Azure Data Factory는 인증서를 사용하여 암호화된 클라우드 데이터 저장소에 대한 링크된 서비스 자격 증명을 제외한 모든 데이터를 저장하지 않습니다. Data Factory를 사용하면 데이터 기반 워크플로를 만들어서 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 간의 데이터 이동을 조율하고 다른 지역 또는 온-프레미스 환경에서 [계산 서비스](compute-linked-services.md)를 사용하여 데이터의 처리를 조율할 수 있습니다. 또한 SDK 및 Azure Monitor를 사용하여 워크플로를 모니터링하고 관리할 수 있습니다.
 
-Data Factory를 사용한 데이터 이동은 다음에 대해 인증을 받았습니다.
--   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
--   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
--   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+Data Factory는 다음에 대해 인증을 받았습니다.
+| **[CSA STAR 인증](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
+| :----------------------------------------------------------- |
+| **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
+| **[ISO 22301:2012](https://www.microsoft.com/trustcenter/compliance/iso-22301)** |
+| **[ISO 27001:2013](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001)** |
+| **[ISO 27017:2015](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)** |
+| **[ISO 27018:2014](https://www.microsoft.com/trustcenter/compliance/iso-iec-27018)** |
+| **[ISO 9001:2015](https://www.microsoft.com/trustcenter/compliance/iso-9001)** |
+| **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
+| **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있다면 [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/default.aspx)를 방문해 보세요.
+Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있다면 [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/default.aspx)를 방문해 보세요. 모든 Azure 규정 준수 제품에 대한 최신 목록은 http://aka.ms/AzureCompliance를 확인하세요.
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 

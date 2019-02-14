@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 085f95e1df67a12afac5c327b4368efd275600b3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: be66f24ec6532b93c4554568b0a58d467a09c600
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100175"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55746424"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -111,7 +111,7 @@ DC(도메인 컨트롤러) 역할을 실행하는 Windows Server의 등록은 �
 
 하이브리드 Azure AD 조인은 Azure AD를 사용하여 온-프레미스 도메인 가입 디바이스를 자동으로 등록하는 프로세스입니다. 모든 디바이스가 자동으로 등록되지 않도록 하려는 경우가 있습니다. 이 경우 [디바이스의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)을 참조하세요.
 
-Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 등록](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices)한 경우 먼저 이 등록을 제거한 후에 하이브리드 Azure AD 조인을 사용하도록 설정하는 것이 좋습니다. 하이브리드 Azure AD 조인 및 Azure AD 등록됨 상태가 모두 적용된 디바이스의 이중 상태는 지원되지 않습니다. Windows 10 1809 릴리스에서 이 이중 상태를 방지하기 위해 다음과 같이 변경되었습니다. 
+Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 등록](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices)한 경우 먼저 해당 상태를 제거한 후에 하이브리드 Azure AD 조인을 사용하도록 설정할 것을 적극 권장합니다. Windows 10 1809 릴리스에서 이 이중 상태를 방지하기 위해 다음과 같이 변경되었습니다. 
  - 디바이스가 하이브리드 Azure AD에 조인되면 기존의 Azure AD 등록됨 상태가 자동으로 제거됩니다. 
  - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001 레지스트리 키를 추가하여 도메인 조인 디바이스가 Azure AD에 등록되지 않도록 방지할 수 있습니다.
 
@@ -145,20 +145,20 @@ Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 
 - [관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-managed-domains.md)
 
 
- 필요한 버전의 Azure AD Connect를 설치할 수 없는 경우 [디바이스 등록을 수동으로 구성하는 방법](../device-management-hybrid-azuread-joined-devices-setup.md)을 참조하세요. 
+ 필요한 버전의 Azure AD Connect를 설치할 수 없는 경우 [디바이스 등록을 수동으로 구성하는 방법](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual)을 참조하세요. 
 
 
-## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인에서 대체 로그인 ID 지원
+## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인에서 온-프레미스 AD UPN 지원
 
-Windows 10 하이브리드 Azure AD 조인은 대체 로그인 ID 유형, [인증 방법](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), 도메인 유형 및 Windows 10 버전에 따라 [대체 로그인 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)를 제한적으로 지원합니다. 사용자 환경에 있을 수 있는 대체 로그인 ID에는 두 가지 유형이 있습니다.
+경우에 따라 온-프레미스 AD UPN이 Azure AD UPN과 다를 수 있습니다. 그러한 경우 Windows 10 하이브리드 Azure AD 조인은 [인증 방법](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), 도메인 유형 및 Windows 10 버전을 기반으로 온-프레미스 AD UPN에 대한 제한된 지원을 제공합니다. 사용자 환경에 있을 수 있는 온-프레미스 AD UPN에는 두 가지 유형이 있습니다.
 
- - 라우팅 가능 대체 로그인 ID: 라우팅 가능 대체 로그인 ID에는 도메인 등록 기관에 등록되어 유효한 것으로 확인된 도메인이 있습니다. 예를 들어 contoso.com이 기본 도메인인 경우 contoso.org 및 contoso.co.uk는 Contoso에서 소유하고 [Azure AD에서 확인](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)된 유효한 도메인입니다.
+ - 라우팅 가능 UPN: 라우팅 가능 UPN에는 도메인 등록 기관에 등록되어 유효한 것으로 확인된 도메인이 있습니다. 예를 들어 contoso.com이 Azure AD의 기본 도메인인 경우 contoso.org는 Contoso에서 소유하고 [Azure AD에서 확인](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)된 기본 도메인입니다.
  
- - 라우팅 불가능 대체 로그인 ID: 라우팅 불가능 대체 로그인 ID에는 확인된 도메인이 없습니다. 조직의 사설망 내에서만 적용됩니다. 예를 들어 contoso.com이 기본 도메인인 경우 contoso.local은 인터넷에서 확인 가능한 도메인이 아니라 Contoso 네트워크 내에서 사용됩니다.
+ - 라우팅 불가능 UPN: 라우팅 불가능 UPN에는 확인된 도메인이 없습니다. 조직의 사설망 내에서만 적용됩니다. 예를 들어 contoso.com이 Azure AD의 기본 도메인인 경우 contoso.com은 온-프레미스 AD의 기본 도에미인이지만 인터넷에서 확인할 수 없는 도메인이며 Consoso의 네트워크 내에서만 사용됩니다.
  
-아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 대체 로그인 ID 중 하나에 대한 지원을 자세히 설명합니다.
+아래 표에서는 Windows 10 하이브리드 Azure AD 조인에서 이러한 온-프레미스 AD UPN에 대한 지원을 자세히 설명합니다.
 
-|대체 로그인 ID 유형|도메인 유형|Windows 10 버전|설명|
+|온-프레미스 AD UPN 유형|도메인 유형|Windows 10 버전|설명|
 |-----|-----|-----|-----|
 |라우팅 가능|페더레이션 |1703 릴리스|일반 공급|
 |라우팅 가능|관리|1709 릴리스|현재 비공개 미리 보기로 제공되고 있습니다. Azure AD SSPR이 지원되지 않음 |

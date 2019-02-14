@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0af7a7fd43bba46de6faa770bf3042fbf58a90f6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7f73e71677a700ba8047246addb2d27799c5a616
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195872"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890901"
 ---
 # <a name="azure-application-skus-tab"></a>Azure 애플리케이션 SKU 탭
 
@@ -90,7 +90,7 @@ SKU를 구성하는 단계는 관리되는 애플리케이션 제품과 솔루�
   >[!NOTE]
   >가격 책정 변경 내용을 저장하여 가격 책정 데이터를 내보내거나 가져올 수 있도록 합니다.
 
-- **간소화된 통화 가격 책정** – 월당 USD 단위로 SKU 가격을 입력합니다. 이전 가격 책정 설정과 동일해야 합니다. 자세한 내용은 [간소화된 통화 가격 책정](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer#simplified-currency-pricing)을 참조하세요.
+- **간소화된 통화 가격 책정** – 월당 USD 단위로 SKU 가격을 입력합니다. 이전 가격 책정 설정과 동일해야 합니다. 자세한 내용은 [간소화된 통화 가격 책정](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer)을 참조하세요.
 
 ### <a name="package-details-for-solution-template"></a>솔루션 템플릿에 대한 패키지 세부 정보
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c02bc75a978325f8cb0dc8733fb8d296e8710975
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8232a197b7916c069ef17393e44a4f9a512a7598
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264685"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818535"
 ---
 # <a name="requirements-by-listing-type"></a>등록 형식별 요구 사항  
 마케팅 및 기술 콘텐츠 요구 사항은 상점, 제품 유형 및 열거 유형에 따라 달라집니다. 준수 여부를 확인하기 위해 다음 사양을 검토합니다.  
@@ -64,10 +64,10 @@ ms.locfileid: "54264685"
 
 | 제품 유형 | 상점 | 세부 정보 |  
 |:---        |:---        |:---     |  
-| 컨설팅 서비스 | AppSource | [요구 사항: AppSource: 목록: 컨설팅 서비스](#requirements-appsource-list-consulting-services) |  
-| 컨설팅 서비스 | Azure Marketplace | [요구 사항: Azure Marketplace: 목록: 컨설팅 서비스](#requirements-azure-marketplace-list-consulting-services) |  
+| 컨설팅 서비스 | AppSource | Requirements: AppSource: 목록: 컨설팅 서비스 |  
+| 컨설팅 서비스 | Azure Marketplace | Requirements: Azure Marketplace: 목록: 컨설팅 서비스 |  
 | 연락처 | AppSource | [](#) |  
-| 연락처 | Azure Marketplace | [요구 사항: AppSource: 목록: 연락처](#requirements-azure-marketplace-list-contact-me) |  
+| 연락처 | Azure Marketplace | Requirements: AppSource: 목록: 연락처 |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Requirements: AppSource: 목록: 컨설팅 서비스  
 
@@ -91,11 +91,11 @@ ms.locfileid: "54264685"
 
 | 제품 유형 | 상점 | 세부 정보 |  
 |:---        |:---        |:---     |  
-| 무료/SaaS 평가판 | AppSource | [열거 유형 요구 사항: 평가판](#listing-type-requirements-trial) |  
-| 무료/SaaS 평가판 | Azure Marketplace | [요구 사항: Azure Marketplace: 평가판: 평가판/SaaS 평가판](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
-| 대화형 데모 | AppSource | [열거 유형 요구 사항: 평가판](#listing-type-requirements-trial) |  
+| 무료/SaaS 평가판 | AppSource | 열거 유형 요구 사항: 평가판 |  
+| 무료/SaaS 평가판 | Azure Marketplace | Requirements: Azure Marketplace: 평가판: 평가판/SaaS 평가판 |  
+| 대화형 데모 | AppSource | 열거 유형 요구 사항: 평가판 |  
 | 대화형 데모 | Azure Marketplace | [요구 사항: Azure Marketplace: 평가판: 대화형 데모](#requirements-azure-marketplace-trial-interactive-demo) |  
-| 시험 사용 | AppSource | [열거 유형 요구 사항: 평가판](#listing-type-requirements-trial) |  
+| 시험 사용 | AppSource | 열거 유형 요구 사항: 평가판 |  
 | 시험 사용 | Azure Marketplace | [요구 사항: Azure Marketplace: 평가판: 시험 사용](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Requirements: Azure Marketplace: 평가판  
@@ -133,8 +133,8 @@ ms.locfileid: "54264685"
 
 | 제품 유형 | 상점 | 세부 정보 |   
 |:---        |:---        | :--- |  
-| Azure 앱: 관리형 앱 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: Azure 앱: 관리형 앱](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
-| Azure 앱: 솔루션 템플릿 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: Azure 앱: 솔루션 템플릿](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Azure 앱: 관리형 앱 | Azure Marketplace | Requirements: Azure Marketplace: 거래: Azure 앱: 관리되는 앱 |  
+| Azure 앱: 솔루션 템플릿 | Azure Marketplace | Requirements: Azure Marketplace: 거래: Azure 앱: 솔루션 템플릿 |  
 | 컨테이너 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: 컨테이너](#requirements-azure-marketplace-transact-container) |  
 | SaaS 앱  | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: SaaS 앱](#requirements-azure-marketplace-transact-saas-app) |  
 | 가상 머신 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: 가상 머신](#requirements-azure-marketplace-transact-virtual-machine) |  

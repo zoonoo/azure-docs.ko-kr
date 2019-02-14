@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 5c0fbf396faa0e07ecca4ae16c775a39404c6fc9
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 1bada751ffac45b36faad6e978567233901adc7d
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376519"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55700318"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Azure Media Services v3의 할당량 및 제한 사항
 
@@ -33,14 +33,14 @@ ms.locfileid: "49376519"
 | Media Services 계정 작업당 작업 | 500,000<sup>(2)</sup>(고정)|
 | 변환 열거|응답 페이지 매기기, 페이지당 변환 1000건|
 | 작업 열거|응답 페이지 매기기, 페이지당 작업 500건|
-| Media Services 계정당 LiveEvents |5|
+| Media Services 계정당 Live Events |5|
 | 단일 구독의 Media Services 계정 | 25(고정) |
-| LiveEvent당 실행 중인 상태의 LiveOutputs |3|
+| LiveEvent당 실행 중인 상태의 라이브 출력 |3|
 | Storage 계정 | 100<sup>(4)</sup>(고정) |
 | Media Services 계정당 실행 상태인 스트리밍 엔드포인트|2|
-| StreamingPolicies | 100 <sup>(3)</sup> |
+| 스트리밍 정책 | 100 <sup>(3)</sup> |
 | Media Services 계정당 변환 | 100(고정)|
-| 한번에 자산과 연결된 고유 StreamingLocators | 100<sup>(5)</sup>(수정됨) |
+| 한번에 자산과 연결된 고유 스트리밍 로케이터 | 100<sup>(5)</sup>(수정됨) |
 
 <sup>1</sup> 현재 Azure Blob Storage에서 단일 blob에 대해 지원되는 최대 크기는 최대 5TB입니다. 그러나 서비스에서 사용되는 VM 크기에 따라 Azure Media Services에 추가 제한이 적용됩니다. 원본 파일이 260GB보다 크면 작업이 실패할 수 있습니다. 260GB 제한보다 큰 4K 콘텐츠가 있는 경우 시나리오 지원을 위해 amshelp@microsoft.com에 잠재적인 완화 방법을 문의하세요.
 
@@ -48,11 +48,11 @@ ms.locfileid: "49376519"
 
 레코드의 총 수가 최고 할당량 미만인 경우에도 사용자 계정에 있는 90일이 지난 작업 레코드는 자동으로 삭제됩니다. 
 
-<sup>3</sup> 사용자 지정 [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies)를 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 StreamingLocator에 다시 사용해야 합니다. 각 StreamingLocator에 대해 새 StreamingPolicy를 만들지 말아야 합니다.
+<sup>3</sup> 사용자 지정 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)을 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 스트리밍 로케이터에 다시 사용해야 합니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.
 
 <sup>4</sup> 저장소 계정은 동일한 Azure 구독에 속해 있어야 합니다.
 
-<sup>5</sup> StreamingLocators는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. 개별 사용자에게 서로 다른 액세스 권한을 부여하려면 DRM(Digital Rights Management)솔루션을 사용 합니다.
+<sup>5</sup> 스트리밍 로케이터는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. 개별 사용자에게 서로 다른 액세스 권한을 부여하려면 DRM(Digital Rights Management)솔루션을 사용 합니다.
 
 ## <a name="support-ticket"></a>지원 티켓
 

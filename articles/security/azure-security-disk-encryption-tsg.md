@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: faea1cc7c45393c10a240de2c92757ff8f2ac5c3
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468396"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694113"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk Encryption 문제 해결 가이드
 
@@ -87,7 +87,8 @@ VM을 다시 부팅하라는 메시지가 표시된 후, VM이 다시 시작된 
 적용되는 모든 네트워크 보안 그룹 설정은 엔드포인트에서도 디스크 암호화에 대해 문서화된 네트워크 구성 [필수 조건](azure-security-disk-encryption-prerequisites.md#bkmk_GPO)을 충족해야 합니다.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault
-[Azure AD 자격 증명](azure-security-disk-encryption-prerequisites-aad.md)을 사용하여 암호화를 사용하도록 설정하는 경우 Key Vault 엔드포인트뿐만 아니라 Azure AD 인증 엔드포인트에 대한 액세스 권한이 대상 VM에 부여되어야 합니다.  이 프로세스에 대한 자세한 내용은 [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) 팀이 유지 관리하는 방화벽 뒤에서 키 자격 증명 모음에 액세스하는 방법에 대한 지침을 참조하세요. 
+
+[Azure AD 자격 증명](azure-security-disk-encryption-prerequisites-aad.md)에 암호화가 사용하도록 설정된 경우 대상 VM은 Azure Active Directory 엔드포인트 및 Key Vault 엔드포인트 모두에 대한 연결을 허용해야 합니다. 현재 Azure Active Directory 인증 엔드포인트는 [Office 365 URL 및 IP 주소 범위](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) 설명서의 56 및 59 섹션에서 유지 관리됩니다. Key Vault 지침은 [방화벽 뒤에 있는 Azure Key Vault에 액세스](../key-vault/key-vault-access-behind-firewall.md)하는 방법에 관한 설명서에서 제공됩니다.
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 VM은 VM 내에서만 액세스할 수 있는 잘 알려진 라우팅이 불가능한 IP 주소(`169.254.169.254`)를 사용하는 [Azure Instance Metadata 서비스](../virtual-machines/windows/instance-metadata-service.md) 엔드포인트에 액세스할 수 있어야 합니다.

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/31/2019
+ms.date: 2/5/2019
 ms.author: victorh
-ms.openlocfilehash: 0c8a600342e0240d435999b1b5ddabc0234c142f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 880a6fc9d5636ff0ac67d24d0ef66c8f48ae22fb
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461443"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743653"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>자동 크기 조정 및 영역 중복 Application Gateway(공개 미리 보기)
 
@@ -34,7 +34,7 @@ Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 v2 SKU에�
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-자동 크기 조정 SKU를 사용할 수 있는 지역은 eastus2, westus2, westeurope, southeastasia, centralus, francecentral, eastus, japaneast, northeurope, southcentralus, ukwest, northcentralus, westus, eastus(BL), centralus(DM), japanwest(OS)입니다.
+자동 크기 조정 SKU는 다음 하위 지역에서 사용할 수 있습니다. 미국 중북부, 미국 중남부, 미국 서부, 미국 서부 2, 미국 동부, 미국 동부 2, 미국 중부, 북유럽, 서유럽, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서부
 
 ## <a name="pricing"></a>가격
 

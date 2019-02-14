@@ -9,102 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/03/2019
 ms.author: juliako
-ms.openlocfilehash: 658843fd5acbe0d4e29947e99c00edf4909fe9f4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742748"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55743483"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
 
-인코딩된 비디오 또는 오디오 파일을 재생하는 데 사용할 수 있는 URL을 클라이언트에 제공하려면 [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들고 스트리밍 URL을 작성해야 합니다. 자세한 내용은 [파일 스트리밍](stream-files-dotnet-quickstart.md)을 참조하세요.
+출력 자산의 비디오를 재생할 클라이언트에 사용할 수 있도록 하려면 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만든 다음, 스트리밍 URL을 빌드해야 합니다. .NET 샘플은 [스트리밍 로케이터 가져오기](stream-files-tutorial-with-api.md#get-a-streaming-locator)를 참조하세요.
 
-## <a name="streaminglocator-definition"></a>StreamingLocator 정의
+**스트리밍 로케이터**를 만드는 과정을 게시라고 합니다. 기본적으로 **스트리밍 로케이터**는 API 호출을 수행한 직후부터 유효하며, 선택적인 시작 및 종료 시간을 구성하지 않는 한 삭제될 때까지 지속됩니다. 
 
-다음 표에는 StreamingLocator의 속성 및 해당 정의가 나와 있습니다.
+**스트리밍 로케이터**를 만드는 경우 [자산](https://docs.microsoft.com/rest/api/media/assets) 이름 및 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies) 이름을 지정해야 합니다. 미리 정의된 스트리밍 정책 중 하나를 사용하거나 사용자 지정 정책을 만들 수 있습니다. 현재 사용 가능한 미리 정의된 스트리밍 정책은 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' 및 'Predefined_MultiDrmStreaming'입니다. 사용자 지정 스트리밍 정책을 사용하는 경우 Media Services 계정에 대해 이러한 정책의 제한된 세트를 설계하고 동일한 옵션 및 프로토콜이 필요할 때마다 스트리밍 로케이터에 해당 정책을 다시 사용하는 것이 좋습니다. 
 
-|이름|설명|
-|---|---|
-|id |리소스에 대한 정규화된 리소스 ID입니다.|
-|이름|리소스의 이름입니다.|
-|properties.alternativeMediaId|이 스트리밍 로케이터의 대체 미디어 ID입니다.|
-|properties.assetName|자산 이름입니다.|
-|properties.contentKeys|이 스트리밍 로케이터에서 사용하는 ContentKeys입니다.|
-|properties.created|스트리밍 로케이터를 만든 시간입니다.|
-|properties.defaultContentKeyPolicyName|이 스트리밍 로케이터에서 사용하는 ContentKeyPolicy의 기본 이름입니다.|
-|properties.endTime|스트리밍 로케이터의 종료 시간입니다.|
-|properties.startTime|스트리밍 로케이터의 시작 시간입니다.|
-|properties.streamingLocatorId|스트리밍 로케이터의 StreamingLocatorId입니다.|
-|properties.streamingPolicyName |이 스트리밍 로케이터에서 사용하는 스트리밍 정책의 이름입니다. 만든 스트리밍 정책의 이름을 지정하거나 미리 정의된 스트리밍 정책 중 하나를 사용합니다. 사용 가능한 미리 정의된 스트리밍 정책은 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' 및 'Predefined_MultiDrmStreaming'입니다.|
-|형식|리소스 형식입니다.|
+스트림에 대한 암호화 옵션을 지정하려는 경우 콘텐츠 키가 Media Services의 키 제공 구성 요소를 통해 최종 클라이언트에 제공되는 방법을 구성하는 [콘텐츠 키 정책](https://docs.microsoft.com/rest/api/media/contentkeypolicies)을 만듭니다. 스트리밍 로케이터를 **콘텐츠 키 정책** 및 콘텐츠 키와 연결합니다. Media Services에서 키를 자동 생성하게 할 수 있습니다. 다음.NET 예제는 Media Services v3의 토큰 제한으로 AES 암호화를 구성하는 방법을 보여 줍니다. [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted). **콘텐츠 키 정책**은 업데이트할 수 있으며, 키 순환을 수행해야 하는 경우 정책을 업데이트하는 것이 좋습니다. 키 배달 캐시를 업데이트하고 업데이트된 정책을 선택하는 데 최대 15분까지 걸릴 수 있습니다. 각 스트리밍 로케이터에 대해 새 콘텐츠 키 정책을 만드는 방법은 권장되지 않습니다. 동일한 옵션이 필요할 때마다 기존 정책의 다시 사용을 시도하는 것이 좋습니다.
 
-전체 정의는 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)를 참조하세요.
+> [!IMPORTANT]
+> * 날짜/시간 형식의 **스트리밍 로케이터** 속성은 언제나 UTC 형식입니다.
+> * Media Services 계정에 대한 제한된 정책 세트를 설계하고 동일한 옵션이 필요할 때마다 스트리밍 로케이터에 해당 세트를 다시 사용하는 것이 좋습니다. 
 
 ## <a name="filtering-ordering-paging"></a>필터링, 정렬, 페이징
 
-Media Services에서 지원하는 스트리밍 로케이터에 대한 OData 쿼리 옵션은 다음과 같습니다. 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-연산자 설명:
-
-* Eq = 같음
-* Ne = 같지 않음
-* Ge = 크거나 같음
-* Le = 작거나 같음
-* Gt = 보다 큼
-* Lt = 보다 작음
-
-### <a name="filteringordering"></a>필터링/순서
-
-다음 표에는 이러한 옵션을 StreamingLocator 속성에 적용하는 방법이 나와 있습니다. 
-
-|이름|Filter|순서|
-|---|---|---|
-|id |||
-|이름|Eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
-|properties.alternativeMediaId  |||
-|properties.assetName   |||
-|properties.contentKeys |||
-|properties.created |Eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
-|properties.defaultContentKeyPolicyName |||
-|properties.endTime |Eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
-|properties.startTime   |||
-|properties.streamingLocatorId  |||
-|properties.streamingPolicyName |||
-|형식   |||
-
-### <a name="pagination"></a>페이지 매김
-
-네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 10입니다.
-
-> [!TIP]
-> 항상 다음 링크를 사용하여 컬렉션을 열거하고, 특정 페이지 크기에 따라 달라지지 않아야 합니다.
-
-쿼리 응답에 많은 항목이 포함된 경우 서비스에서 "\@odata.nextLink" 속성을 반환하여 결과의 다음 페이지를 가져옵니다. 전체 결과 집합을 통해 페이지에 사용할 수 있습니다. 페이지 크기는 구성할 수 없습니다. 
-
-컬렉션을 페이징하는 동안 StreamingLocators가 만들어지거나 삭제되면 변경 내용이 반환되는 결과에 반영됩니다(이러한 변경 내용이 다운로드되지 않은 컬렉션의 일부인 경우). 
-
-다음 C# 예제에서는 계정의 모든 StreamingLocators를 열거하는 방법을 보여줍니다.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-REST 예제의 경우 [스트리밍 로케이터 - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list)를 참조하세요.
+[Media Services 엔터티 필터링, 순서 지정, 페이징](entities-overview.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-[파일 스트리밍](stream-files-dotnet-quickstart.md)
+* [자습서: .NET](stream-files-tutorial-with-api.md)를 사용하여 비디오 업로드, 인코딩 및 스트림
+* [DRM 동적 암호화 및 라이선스 배달 서비스 사용](protect-with-drm.md)

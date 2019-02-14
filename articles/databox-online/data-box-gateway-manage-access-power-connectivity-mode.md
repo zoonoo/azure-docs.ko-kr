@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 8f9172418f15b129a71242038efd4cdb7683bbf7
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516543"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55873022"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Azure Data Box Gateway(미리 보기)에 대한 액세스, 전원 및 연결 모드 관리
 
@@ -35,7 +35,7 @@ Data Box Gateway에 대한 액세스는 디바이스 관리자 암호를 사용�
 
 ### <a name="change-device-administrator-password"></a>디바이스 관리자 암호 변경
 
-암호를 잊은 경우 암호를 변경할 수 있습니다. 로컬 웹 UI에서 다음 단계에 따라 디바이스 관리자 암호를 변경합니다.
+로컬 웹 UI에서 다음 단계에 따라 디바이스 관리자 암호를 변경합니다.
 
 1. 로컬 웹 UI에서 **유지 관리 > 암호 변경**으로 이동합니다.
 2. 현재 암호를 입력한 다음, 새 암호를 입력합니다. 제공된 암호는 8 ~ 16자 사이여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다. 새 암호를 확인합니다.

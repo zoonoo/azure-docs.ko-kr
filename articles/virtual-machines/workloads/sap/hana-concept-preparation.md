@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff214460d919eff5c3c1a2e608958673867ddc55
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 73643cd6954932f933e200baad09e4301300aac2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492864"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822547"
 ---
 # <a name="disaster-recovery-principles"></a>재해 복구 원칙
 
@@ -48,7 +48,7 @@ HANA 대규모 인스턴스는 서로 다른 Azure 지역의 HANA 대규모 인�
 
 
 >[!NOTE]
->HANA 대규모 인스턴스 저장소 복제 기능은 저장소 스냅숏을 미러링하고 복제합니다. 이 아티클의 [백업 및 복구](#backup-and-restore) 섹션에서 소개한 대로 저장소 스냅숏을 수행하지 않는 경우 재해 복구 사이트로 복제할 수 없습니다. 재해 복구 사이트로 저장소를 복제하려면 저장소 스냅숏을 반드시 실행해야 합니다.
+>HANA 대규모 인스턴스 저장소 복제 기능은 저장소 스냅숏을 미러링하고 복제합니다. 이 문서의 백업 및 복구 섹션에 소개한 대로 스토리지 스냅숏을 수행하지 않는 경우 재해 복구 사이트로 복제할 수 없습니다. 재해 복구 사이트로 저장소를 복제하려면 저장소 스냅숏을 반드시 실행해야 합니다.
 
 
 
@@ -81,7 +81,7 @@ HANA 대규모 인스턴스는 서로 다른 Azure 지역의 HANA 대규모 인�
 - 트랜잭션 로그 백업 볼륨(스냅숏 형식 **logs**)의 경우 3분마다 재해 복구 사이트의 동일한 저장소 볼륨 대상에 복제되도록 설정합니다.
 
 복구 지점 목표를 최소화하려면 다음을 설정합니다.
-- **hana** 유형 저장소 스냅숏을 30분~1시간마다 수행합니다(7단계 - 스냅샷 수행 참조).
+- **hana** 형식 스토리지 스냅숏(“7단계: 스냅샷 수행 참조”)을 30분~1시간마다 수행합니다.
 - SAP HANA 트랜잭션 로그 백업을 5분마다 수행합니다.
 - **logs** 유형의 저장소 스냅숏은 5~15분마다 수행합니다. 이 간격 주기로 약 15-25분의 RPO를 설정합니다.
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 4bfe4f9f97587b6791e73c2f04055b2dcf5d0f0d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: da46d33e05a6f76687d3b8982855d477cbabfe86
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766217"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895621"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -94,7 +94,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ### <a name="use-appsettings"></a>애플리케이션 설정 참조
 
-설정 이름을 백분율 기호(%)로 묶어 [함수 앱에 대해 정의된 애플리케이션 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop)을 참조할 수도 있습니다.
+설정 이름을 백분율 기호(%)로 묶어 [함수 앱에 대해 정의된 애플리케이션 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings)을 참조할 수도 있습니다.
 
 예를 들어 *https://%ORDER_PROCESSING_HOST%/api/orders*의 백 엔드 URL에서 "%ORDER_PROCESSING_HOST%"는 ORDER_PROCESSING_HOS 설정 값으로 바뀝니다.
 

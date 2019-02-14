@@ -10,12 +10,12 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219773"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816216"
 ---
 # <a name="basic-concepts"></a>기본 개념
 
@@ -76,7 +76,7 @@ Microsoft Speech Service는 일부 상태에 참여하므로 서비스 프로토
 개발자가 앱에 Speech를 추가할 수 있도록 Microsoft 음성 인식 서비스에서 제공하는 두 가지 방법은 다음과 같습니다.
 
 - [REST API](GetStarted/GetStartedREST.md): 개발자는 음성 인식을 위해 앱에서 서비스로의 HTTP 호출을 사용할 수 있습니다.
-- [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md): 개발자는 고급 기능용으로 Microsoft Speech 클라이언트 라이브러리를 다운로드한 다음 앱에 연결할 수 있습니다.  클라이언트 라이브러리는 다양한 언어(C#, Java, JavaScript, ObjectiveC)를 사용하여 다양한 플랫폼(Windows, Android, iOS)에서 사용할 수 있습니다.
+- [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md): 개발자는 고급 기능용으로 Microsoft Speech 클라이언트 라이브러리를 다운로드하여 앱에 연결할 수 있습니다.  클라이언트 라이브러리는 다양한 언어(C#, Java, JavaScript, ObjectiveC)를 사용하여 다양한 플랫폼(Windows, Android, iOS)에서 사용할 수 있습니다.
 
 | 사용 사례 | [REST API](GetStarted/GetStartedREST.md) | [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
@@ -92,7 +92,7 @@ Microsoft Speech Service는 일부 상태에 참여하므로 서비스 프로토
 인식에는 `interactive`, `conversation` 및 `dictation`의 세 가지 인식 모드가 있습니다. 인식 모드는 사용자가 말하는 방법에 따라 음성 인식을 조정합니다. 애플리케이션에 적합한 인식 모드를 선택합니다.
 
 > [!NOTE]
-> [REST 프로토콜](#rest-speech-recognition-api)의 인식 모드는 [WebSocket 프로토콜](#webSocket-speech-recognition-api)의 인식 모드와 다른 동작을 수행할 수 있습니다. 예를 들어 REST API는 대화 또는 받아쓰기 모드에서도 연속 인식을 지원하지 않습니다.
+> REST 프로토콜의 인식 모드는 WebSocket 프로토콜의 인식 모드와 다른 동작을 수행할 수 있습니다. 예를 들어 REST API는 대화 또는 받아쓰기 모드에서도 연속 인식을 지원하지 않습니다.
 > [!NOTE]
 > 이러한 모드는 REST 또는 WebSocket 프로토콜을 직접 사용할 때 적용됩니다. [클라이언트 라이브러리](GetStarted/GetStartedClientLibraries.md)는 다른 매개 변수를 사용하여 인식 모드를 지정합니다. 자세한 내용은 선택한 클라이언트 라이브러리를 참조하세요.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: d105968d13960409a60e2fde9c811a042f444d8f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848632"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813685"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>복제된 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
@@ -36,7 +36,7 @@ Site Recovery를 사용하여 Azure로 복제된 물리적 서버는 VMware VM�
 1. **보호된 항목**에서 **복제된 항목**을 클릭하고 컴퓨터를 선택합니다.
 
 2. **복제된 항목** 창에 컴퓨터 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
-3. **계산 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 및 [관리되는 디스크 설정](#managed-disk-considerations)을 수정할 수 있습니다.
+3. **컴퓨팅 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, [가용성 세트](../virtual-machines/windows/tutorial-availability-sets.md) 및 관리 디스크 설정을 수정할 수 있습니다.
 4. 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보고 수정할 수 있습니다.
 5. **디스크**에서 컴퓨터 운영 체제 및 데이터 디스크에 대한 정보를 볼 수 있습니다.
 

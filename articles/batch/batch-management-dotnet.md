@@ -16,12 +16,12 @@ ms.workload: big-compute
 ms.date: 04/24/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: c65a71d9e64a1ea3f60abbe2e420652c12ba030e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 301a3f9a500c41cf13dfa071d3526d2128b5e131
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549554"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813622"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 Batch 계정 및 할당량 관리
 
@@ -64,7 +64,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 ```
 
 > [!NOTE]
-> 배치 관리 .NET 라이브러리 및 해당 BatchManagementClient 클래스를 사용하는 애플리케이션에는 관리할 배치 계정을 소유하고 있는 구독에 대한 **서비스 관리자** 또는 **공동 관리자** 액세스 권한이 필요합니다. 자세한 내용은 [Azure Active Directory](#azure-active-directory) 섹션과 [AccountManagement][acct_mgmt_sample] 코드 샘플을 참조하세요.
+> 배치 관리 .NET 라이브러리 및 해당 BatchManagementClient 클래스를 사용하는 애플리케이션에는 관리할 배치 계정을 소유하고 있는 구독에 대한 **서비스 관리자** 또는 **공동 관리자** 액세스 권한이 필요합니다. 자세한 내용은 Azure Active Directory 섹션과 [AccountManagement][acct_mgmt_sample] 코드 샘플을 참조하세요.
 > 
 > 
 

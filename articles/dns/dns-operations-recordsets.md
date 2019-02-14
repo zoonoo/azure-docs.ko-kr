@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: b89b7885989a5e93d3d292e5cdcff733fed657af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c60dded96df091b1a715fb7b972e9d7a23608d44
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990181"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818824"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
@@ -50,7 +50,7 @@ Azure DNS의 DNS 레코드에 대한 자세한 내용은 [DNS 영역 및 레코�
 
 `New-AzureRmDnsRecordSet` cmdlet을 사용하여 레코드 집합을 만듭니다. 레코드 집합을 만들 때, 레코드 집합 이름, 영역, TTL(Time-to-Live), 레코드 형식 및 만들 레코드를 지정해야 합니다.
 
-레코드 집합에 레코드를 추가하기 위한 매개 변수는 레코드 집합 형식에 따라 달라집니다. 예를 들어 'A' 형식의 레코드 집합을 사용하는 경우 `-IPv4Address` 매개 변수를 사용하여 IP 주소를 지정해야 합니다. 다른 레코드 형식에 다른 매개 변수를 사용합니다. 자세한 내용은 [추가 레코드 형식 예제](#additional-record-type-examples)를 참조하세요.
+레코드 집합에 레코드를 추가하기 위한 매개 변수는 레코드 집합 형식에 따라 달라집니다. 예를 들어 'A' 형식의 레코드 집합을 사용하는 경우 `-IPv4Address` 매개 변수를 사용하여 IP 주소를 지정해야 합니다. 다른 레코드 형식에 다른 매개 변수를 사용합니다. 자세한 내용은 추가 레코드 형식 예제를 참조하세요.
 
 다음 예제에서는 DNS 영역 'contoso.com'에 상대적 이름 'www'가 포함된 레코드 집합을 만듭니다. 레코드의 정규화된 이름은 'www.contoso.com'입니다. 레코드 형식은 'A'이고 TTL은 3600초입니다. 레코드 집합은 '1.2.3.4' IP 주소를 가진 단일 레코드를 포함합니다.
 
@@ -73,7 +73,7 @@ $aRecords += New-AzureRmDnsRecordConfig -IPv4Address "2.3.4.5"
 New-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName MyResourceGroup -Ttl 3600 -RecordType A -DnsRecords $aRecords
 ```
 
-[레코드 집합 메타데이터](dns-zones-records.md#tags-and-metadata)는 키-값 쌍의 형태로 각 레코드 집합과 응용 프로그램 특정 데이터를 연결하는 데 사용할 수 있습니다. 다음 예제에서는 "dept=finance" 및 "environment=production"라는 두 개의 메타데이터 항목을 가진 레코드 집합을 만드는 방법을 보여 줍니다.
+[레코드 집합 메타데이터](dns-zones-records.md#tags-and-metadata)는 키-값 쌍의 형태로 각 레코드 집합과 애플리케이션 특정 데이터를 연결하는 데 사용할 수 있습니다. 다음 예제에서는 "dept=finance" 및 "environment=production"라는 두 개의 메타데이터 항목을 가진 레코드 집합을 만드는 방법을 보여 줍니다.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") -Metadata @{ dept="finance"; environment="production" } 
@@ -236,7 +236,7 @@ $recordsets = Get-AzureRmDnsRecordSet -Zone $zone
 Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-위의 예제에서는 'A' 형식의 기존 레코드 집합에 'A' 레코드를 추가하는 방법을 보여 줍니다. 비슷한 작업 시퀀스를 사용하여 다른 형식의 레코드 집합에 레코드를 추가하면 `Add-AzureRmDnsRecordConfig`의 `-Ipv4Address` 매개 변수를 각 레코드 형식에 특정된 다른 매개 변수로 대체합니다. 각 레코드 형식의 매개 변수는 위의 [추가 레코드 형식 예제](#additional-record-type-examples)에 표시된 대로 `New-AzureRmDnsRecordConfig` cmdlet의 경우와 동일합니다.
+위의 예제에서는 'A' 형식의 기존 레코드 집합에 'A' 레코드를 추가하는 방법을 보여 줍니다. 비슷한 작업 시퀀스를 사용하여 다른 형식의 레코드 집합에 레코드를 추가하면 `Add-AzureRmDnsRecordConfig`의 `-Ipv4Address` 매개 변수를 각 레코드 형식에 특정된 다른 매개 변수로 대체합니다. 각 레코드 형식의 매개 변수는 위의 추가 레코드 형식 예제에 표시된 대로 `New-AzureRmDnsRecordConfig` cmdlet의 경우와 동일합니다.
 
 'CNAME' 또는 'SOA' 형식의 레코드 집합은 둘 이상의 레코드를 포함할 수 없습니다. 이 제약 조건은 DNS 표준에서 발생합니다. Azure DNS의 제한 사항이 아닙니다.
 
@@ -270,7 +270,7 @@ Get-AzureRmDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName
 Get-AzureRmDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzureRmDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzureRmDnsRecordSet
 ```
 
-적절한 형식 특정 매개 변수를 `Remove-AzureRmDnsRecordSet`에 전달하여 다른 레코드 형식을 지원합니다. 각 레코드 형식의 매개 변수는 위의 [추가 레코드 형식 예제](#additional-record-type-examples)에 표시된 대로 `New-AzureRmDnsRecordConfig` cmdlet의 경우와 동일합니다.
+적절한 형식 특정 매개 변수를 `Remove-AzureRmDnsRecordSet`에 전달하여 다른 레코드 형식을 지원합니다. 각 레코드 형식의 매개 변수는 위의 추가 레코드 형식 예제에 표시된 대로 `New-AzureRmDnsRecordConfig` cmdlet의 경우와 동일합니다.
 
 
 ## <a name="modify-an-existing-record-set"></a>기존 레코드 집합 수정
@@ -326,7 +326,7 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### <a name="to-modify-record-set-metadata"></a>레코드 집합 메타데이터를 수정하려면
 
-[레코드 집합 메타데이터](dns-zones-records.md#tags-and-metadata)는 키-값 쌍의 형태로 각 레코드 집합과 응용 프로그램 특정 데이터를 연결하는 데 사용할 수 있습니다.
+[레코드 집합 메타데이터](dns-zones-records.md#tags-and-metadata)는 키-값 쌍의 형태로 각 레코드 집합과 애플리케이션 특정 데이터를 연결하는 데 사용할 수 있습니다.
 
 다음 예제에서는 기존 레코드 집합의 메타데이터를 수정하는 방법을 보여 줍니다.
 

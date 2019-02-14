@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4bab3413b3e3cfcf1972b6cf721120d95851f7cd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978618"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498202"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs 인프라의 거버넌스 - 애플리케이션 마이그레이션 및 통합
 개발/테스트 랩 환경을 설정한 후에는 다음 사항을 고려해야 합니다.
@@ -58,14 +58,14 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 사용자 지정 조직 이미지를 DevTest Labs 환경으로 가져오기 위해 손쉽게 반복 가능한 프로세스를 설정하려면 어떻게 해야 하나요?
 
 ### <a name="answer"></a>응답
-[이 비디오에서 Immage Factory 패턴](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)을 확인해 보세요. 이 시나리오는 고급 방식이며 샘플 스크립트만 제공합니다. 스크립트를 변경해야 하는 경우 환경에서 사용되는 스크립트를 직접 유지하고 관리해야 합니다.
+[이 비디오에서 Image Factory 패턴](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)을 확인해 보세요. 이 시나리오는 고급 방식이며 샘플 스크립트만 제공합니다. 스크립트를 변경해야 하는 경우 환경에서 사용되는 스크립트를 직접 유지하고 관리해야 합니다.
 
 DevTest Labs를 사용하여 Azure Pipelines에서 사용자 지정 이미지 파이프라인 만들기:
 
 - [소개: Azure DevTest Labs에서 이미지 팩터리를 설정하여 몇 분 내에 VM 준비](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
 - [Image Factory – 2부: Azure Pipelines 및 Factory Lab을 설정하여 VM 만들기](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
 - [Image Factory – 3부: 사용자 지정 이미지 저장 및 여러 랩에 배포](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
-- [비디오: Azure DevTest Labs를 통해 사용자 지정 Image Factory 만들기](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
+- [비디오: Azure DevTest Labs에서 사용자 지정 Image Factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>네트워크 구성을 설정하는 패턴
 

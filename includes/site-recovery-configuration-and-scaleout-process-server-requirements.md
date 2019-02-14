@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: ade53ba29d165b3b33ef25dabda25c4e60022608
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4346b347994f49774584caf31a96ff2f81fdc0e1
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133477"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55701219"
 ---
 **구성/프로세스 서버 요구 사항**
 
@@ -36,13 +36,24 @@ IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대
 | 
 **네트워크 설정** | 
 IP 주소 유형 | 공용 
-인터넷 액세스 | 서버에서 이러한 URL에 액세스해야 합니다(직접 또는 프록시를 통해). <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https:\//management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF에는 다음 URL에 대한 액세스 권한도 필요합니다. <br> - https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 포트 | 443(컨트롤 채널 오케스트레이션)<br>9443(데이터 전송) 
 NIC 유형 | VMXNET3(구성 서버가 VMware VM인 경우)
- | 
+ |
+**인터넷 액세스**(서버에서 다음 URL에 액세스해야 합니다. - 직접 또는 프록시를 통해):|
+\*.backup.windowsazure.com | 복제된 데이터 전송 및 조정에 사용됩니다.
+\*.store.core.windows.net | 복제된 데이터 전송 및 조정에 사용됩니다.
+\*.blob.core.windows.net | 복제된 데이터를 저장하는 스토리지 계정에 액세스하는 데 사용됩니다.
+\*.hypervrecoverymanager.windowsazure.com | 복제 관리 작업 및 조정에 사용됩니다.
+https:\//management.azure.com | 복제 관리 작업 및 조정에 사용됩니다. 
+*.services.visualstudio.com | 원격 분석 용도로 사용(선택 사항)
+time.nist.gov | 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
+time.windows.com | 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
+- https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com | OVF 설정에서 이러한 URL에 액세스해야 합니다. Azure Active Directory에서 액세스 제어 및 ID 관리에 사용됩니다.
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL 다운로드를 완료하려면
+|
 **설치할 소프트웨어** | 
 VMware vSphere PowerCLI | 구성 서버가 VMware VM에서 실행되는 경우 [PowerCLI 버전 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1)을 설치해야 합니다.
-MYSQL | MySQL을 설치해야 합니다. 수동으로 설치할 수도 있고 Site Recovery를 통해 설치할 수도 있습니다.
+MYSQL | MySQL을 설치해야 합니다. 수동으로 설치할 수도 있고 Site Recovery를 통해 설치할 수도 있습니다. (자세한 내용은 [설정 구성](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings)을 참조하세요.)
 
 **구성/프로세스 서버 크기 요구 사항**
 

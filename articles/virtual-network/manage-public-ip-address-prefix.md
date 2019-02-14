@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f4da0f992914037f5c95050324af5762e90a2ca4
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015290"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696833"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기, 변경 또는 삭제
 
@@ -50,7 +50,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
    |---|---|---|
    |구독|예|공용 IP 주소를 연결하려는 리소스와 동일한 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)에 있어야 합니다.|
    |리소스 그룹|예|공용 IP 주소를 연결하려는 리소스와 동일하거나 다른 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)에 있을 수 있습니다.|
-   |이름|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
+   |Name|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
    |지역|예|범위에서 주소를 할당할 공용 IP 주소와 동일한 [지역](https://azure.microsoft.com/regions)에 있어야 합니다. 접두사는 현재 미국 중서부, 미국 서부, 미국 서부 2, 미국 중부, 북유럽, 유럽 서부 및 동남 아시아에서 미리 보기로 사용할 수 있습니다.|
    |접두사 크기|예| 필요한 접두사의 크기입니다. /28 또는 16개의 IP 주소가 기본값입니다. 
 
@@ -66,13 +66,13 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 접두사를 만들었으면 접두사로 고정 IP 주소를 만들어야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1. Azure Portal 위쪽의 *리소스 검색* 텍스트가 있는 상자에서 *공용 IP 주소 접두사*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소 접두사**를 선택합니다.
-2. 공용 IP를 만드는 데 사용할 접두사를 선택합니다.
+2. 공용 IP를 만들려는 접두사를 선택합니다.
 3. 해당 항목이 검색 결과에 표시되면 선택하고 개요 섹션에서 **+IP 주소 추가**를 클릭합니다. 이 항목이 보이지 않으면 미리 보기에 대한 올바른 링크(https://aka.ms/publicipprefixportal)를 사용 중인지 확인하세요.
 4. **공용 IP 주소 만들기** 아래에서 다음 설정의 값을 입력하거나 선택합니다. 접두사는 Standard SKU, IPv4 및 고정 주소용이므로 다음과 같은 정보만 제공해야 합니다.
 
    |설정|Required?|세부 정보|
     |---|---|---|
-    |이름|예|공용 IP 주소의 이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
+    |Name|예|공용 IP 주소의 이름은 선택한 리소스 그룹 내에서 고유해야 합니다.|
    |유휴 제한 시간(분)|아니요|연결 유지 메시지를 보내는 데 클라이언트를 사용하지 않고 TCP 또는 HTTP 연결을 유지하는 데 걸리는 시간(분)입니다. |
    |DNS 이름 레이블|아니요|이름을 만드는 Azure 지역 내에서(모든 구독 및 모든 고객에서) 고유해야 합니다. Azure는 해당 DNS에서 이름과 IP 주소를 자동으로 등록하므로 해당 이름을 사용하는 리소스에 연결할 수 있습니다. Azure에서는 정규화된 DNS 이름을 만드는 데 제공하는 이름에 *location.cloudapp.azure.com*(여기서 location은 선택한 위치임)과 같은 기본 서브넷을 추가합니다. 자세한 내용은 [Azure 공용 IP 주소와 Azure DNS 사용](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)을 참조하세요.|
 
@@ -95,7 +95,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 공용 IP 주소 접두사에 대한 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할 또는 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 계정이 할당되어야 합니다.
 
-| 조치                                                                   | 이름                                                           |
+| 조치                                                                   | Name                                                           |
 | ---------                                                                | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | 공용 IP 주소 접두사 읽기                                |
 | Microsoft.Network/publicIPPrefixes/write                          | 공용 IP 주소 접두사 만들기 또는 업데이트                    |

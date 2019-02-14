@@ -1,21 +1,22 @@
 ---
-title: Microsoft Authenticator 앱(공개 미리 보기)에서 암호 없이 Azure AD에 로그인
+title: Microsoft Authenticator 앱(미리 보기)에서 암호 없이 Azure AD에 로그인
 description: Microsoft Authenticator 앱으로 암호를 사용하지 않고 Azure AD에 로그인(공개 미리 보기)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: e237d736a939c3136faa4f6df74ed4e9db9665d3
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.custom: seo-update-azuread-jan
+ms.openlocfilehash: b0527d839ac5b80adbceef7682da9fb3ddd2fc2b
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077627"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694153"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Microsoft Authenticator 앱(공개 미리 보기)에서 암호 없이 휴대폰에 로그인
 

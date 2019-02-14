@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 515b21c6854620a6bd1af53af8b1778d70613622
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1dd1cf143d66fec2ab8c12ee28a61bb3b8a83ade
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203949"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821833"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -127,7 +127,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
     e. Google Apps에 추가하려는 모든 추가 도메인에 대해 앞의 단계를 반복합니다.
      
      > [!WARNING]
-     > G Suite 테넌트의 주 도메인을 변경하고 Azure AD로 Single Sign-On을 이미 구성한 경우 [2단계: Single Sign-On 사용](#step-two-enable-single-sign-on)의 3단계를 반복해야 합니다.
+     > G Suite 테넌트의 주 도메인을 변경하고 Azure AD로 Single Sign-On을 이미 구성한 경우 2단계: Single Sign-On 사용의 3번 항목을 반복해야 합니다.
        
 1. [Google Apps 관리 콘솔](https://admin.google.com/)에서 **관리자 역할**을 선택합니다.
    

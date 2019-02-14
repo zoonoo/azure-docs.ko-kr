@@ -12,16 +12,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7234c1a5f7914ad3ce0ff415b387bfee386198c1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: abfdf75c6460efe50dcc9959ffb297f77a72f8c4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169606"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813214"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -67,10 +67,10 @@ AD DS 엔터프라이즈 관리자 자격 증명은 온-프레미스 Active Dire
 DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증명은 DirSync에서 사용되는 계정의 암호를 다시 설정하는 데 사용됩니다. 또한 Azure AD 전역 관리자 자격 증명이 필요합니다.
 
 ### <a name="azure-ad-global-admin-credentials"></a>Azure AD 전역 관리자 자격 증명
-이러한 자격 증명은 설치 중에 사용되고 설치가 완료된 후에 사용되지 않습니다. Azure AD에 대한 변경 내용을 동기화하는 데 사용되는 [Azure AD Connect 계정](#azure-ad-service-account)을 만드는 데 사용됩니다. 또한 계정을 사용하면 Azure AD에서 기능으로 동기화할 수 있습니다.
+이러한 자격 증명은 설치 중에 사용되고 설치가 완료된 후에 사용되지 않습니다. Azure AD에 대한 변경 내용을 동기화하기 위해 사용된 Azure AD Connect 계정을 만드는 데 사용됩니다. 또한 계정을 사용하면 Azure AD에서 기능으로 동기화할 수 있습니다.
 
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>기본 설정에 대한 AD DS Connect 계정 필수 권한
-[AD DS Connector 계정](#active-directory-account)은 Windows Server AD에서 읽고 쓰기 위해 만들어지며, 기본 설정에 의해 생성될 경우 다음과 같은 사용 권한을 갖습니다.
+AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어지며, 기본 설정에 의해 생성될 경우 다음과 같은 사용 권한을 갖습니다.
 
 | 사용 권한 | 용도 |
 | --- | --- |
@@ -89,9 +89,9 @@ DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증
 
 | 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- | --- |
-| 해당 없음 |설치 마법사를 실행하는 사용자 |로컬 서버의 관리자 |<li>동기화 서비스 실행과 관련해서 사용되는 [ADSync 서비스 계정](#azure-ad-connect-sync-service-account)을 만듭니다. |
-| Azure에 연결 |Azure AD 디렉터리 자격 증명 |Azure AD에서 글로벌 관리자 역할 |<li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li>  <li>Azure AD에서 진행 중인 동기화 작업에 사용할 수 있는 [Azure AD Connect 계정](#azure-ad-service-account)을 만드는 데 사용됩니다.</li> |
-| AD DS에 연결 |온-프레미스 Active Directory 자격 증명 |Active Directory의 Enterprise Admins(EA) 그룹의 구성원 |<li>Active Directory에서 [AD DS Connector 계정](#active-directory-account)을 만들고 권한을 부여합니다. 만든 계정은 동기화 중에 디렉터리 정보를 읽고 쓰는 데 사용됩니다.</li> |
+| 해당 없음 |설치 마법사를 실행하는 사용자 |로컬 서버의 관리자 |<li>동기화 서비스 실행과 관련해서 사용되는 ADSync 서비스 계정을 만듭니다. |
+| Azure에 연결 |Azure AD 디렉터리 자격 증명 |Azure AD에서 글로벌 관리자 역할 |<li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li>  <li>Azure AD에서 진행 중인 동기화 작업에 사용되는 Azure AD Connect 계정을 만듭니다.</li> |
+| AD DS에 연결 |온-프레미스 Active Directory 자격 증명 |Active Directory의 Enterprise Admins(EA) 그룹의 구성원 |<li>Active Directory에서 AD DS Connector 계정을 만들고 사용 권한을 부여합니다. 만든 계정은 동기화 중에 디렉터리 정보를 읽고 쓰는 데 사용됩니다.</li> |
 
 
 ## <a name="custom-installation-settings"></a>사용자 지정 설치 설정
@@ -106,10 +106,10 @@ DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증
 
 | 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한 | 용도 |
 | --- | --- | --- | --- |
-| 해당 없음 |설치 마법사를 실행하는 사용자 |<li>로컬 서버의 관리자</li><li>전체 SQL Server를 사용하는 경우 사용자는 SQL의 시스템 관리자(SA)여야 합니다.</li> |기본적으로 [엔진 서비스 계정 동기화](#azure-ad-connect-sync-service-account)로 사용되는 로컬 계정을 만듭니다. 계정은 관리자가 특정 계정을 지정하지 않은 경우에 만들어집니다. |
+| 해당 없음 |설치 마법사를 실행하는 사용자 |<li>로컬 서버의 관리자</li><li>전체 SQL Server를 사용하는 경우 사용자는 SQL의 시스템 관리자(SA)여야 합니다.</li> |기본적으로 엔진 서비스 계정 동기화로 사용되는 로컬 계정을 만듭니다. 계정은 관리자가 특정 계정을 지정하지 않은 경우에 만들어집니다. |
 | 동기화 서비스, 서비스 계정 옵션을 설치합니다. |AD 또는 로컬 사용자 계정 자격 증명 |사용자, 권한은 설치 마법사에서 부여됩니다. |관리자가 계정을 지정하는 경우, 이 계정은 동기화 서비스에 대한 서비스 계정으로 사용됩니다. |
-| Azure에 연결 |Azure AD 디렉터리 자격 증명 |Azure AD에서 글로벌 관리자 역할 |<li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li>  <li>Azure AD에서 진행 중인 동기화 작업에 사용할 수 있는 [Azure AD Connect 계정](#azure-ad-service-account)을 만드는 데 사용됩니다.</li> |
-| 디렉터리에 연결 |Azure AD에 연결되는 각 포리스트의 온-프레미스 Active Directory 자격 증명 |사용 권한은 어떤 기능을 사용하는지에 따라 달라지며 [AD DS Connector 계정 만들기](#create-the-ad-dso-connector-account)에서 찾을 수 있습니다. |계정은 동기화 중에 디렉터리 정보를 읽고 쓰는 데 사용됩니다. |
+| Azure에 연결 |Azure AD 디렉터리 자격 증명 |Azure AD에서 글로벌 관리자 역할 |<li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li>  <li>Azure AD에서 진행 중인 동기화 작업에 사용되는 Azure AD Connect 계정을 만듭니다.</li> |
+| 디렉터리에 연결 |Azure AD에 연결되는 각 포리스트의 온-프레미스 Active Directory 자격 증명 |사용 권한은 어떤 기능을 사용하는지에 따라 달라지며 AD DS Connector 계정 만들기에서 찾을 수 있음 |계정은 동기화 중에 디렉터리 정보를 읽고 쓰는 데 사용됩니다. |
 | AD FS 서버 |목록의 각 서버에 대해, 마법사를 실행하는 사용자의 로그온 자격 증명이 연결하기에 충분하지 않으면 마법사는 자격 증명을 수집합니다. |도메인 관리자 |AD FS 서버 역할 설치 및 구성 |
 | 웹 애플리케이션 프록시 서버 |목록의 각 서버에 대해, 마법사를 실행하는 사용자의 로그온 자격 증명이 연결하기에 충분하지 않으면 마법사는 자격 증명을 수집합니다. |대상 컴퓨터의 로컬 관리자 |WAP 서버 역할 설치 및 구성 |
 | 프록시 트러스트 자격 증명 |페더레이션 서비스 자격 증명(FS에서 프록시가 신뢰 인증서를 등록하는 데 사용하는 자격 증명) |AD FS 서버의 로컬 관리자인 도메인 계정 |FS-WAP 신뢰 인증서의 초기 등록. |
@@ -157,7 +157,7 @@ Express 설정을 사용하는 경우 계정은 동기화에 사용되는 Active
 
 ![AD 계정](./media/reference-connect-accounts-permissions/adsyncserviceaccount.png)
 
-사용자 지정 설정을 사용하는 경우에는 설치를 시작하기 전에 계정을 만들 책임이 있습니다.  [AD DS Connect 계정 만들기](#create-the-ad-dso-connector-account)를 참조하세요.
+사용자 지정 설정을 사용하는 경우에는 설치를 시작하기 전에 계정을 만들 책임이 있습니다.  AD DS Connect 계정 만들기를 참조하세요.
 
 ### <a name="adsync-service-account"></a>ADSync 서비스 계정
 동기화 서비스는 다양한 계정으로 실행할 수 있습니다. **가상 서비스 계정**(VSA), **그룹 관리 서비스 계정**(gMSA/sMSA) 또는 일반 사용자 계정으로 실행할 수 있습니다. 지원되는 옵션은 새로 설치 시 Connect의 2017년 4월 릴리스에서 변경되었습니다. Azure AD Connect의 이전 버전을 업그레이드하는 경우 이러한 추가 옵션을 사용할 수 없습니다.
@@ -198,7 +198,7 @@ Connect의 2017년 3월 이전 빌드를 사용하는 경우에는 서비스 계
 
 ![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
-VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 사용됩니다. 원격 SQL을 사용하는 경우에는 [그룹 관리 서비스 계정](#managed-service-account)을 대신 사용하는 것이 좋습니다.
+VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 사용됩니다. 원격 SQL을 사용하는 경우 대신 그룹 관리 서비스 계정을 사용하는 것이 좋습니다.
 
 이 기능을 사용하려면 Windows Server 2008 R2 이상이 필요합니다. Windows Server 2008에 Azure AD Connect를 설치하는 경우에는 설치가 [사용자 계정](#user-account)을 대신 사용하도록 대체됩니다.
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 891ab7ce0218e3532b8e503bc9b06da04a13d2c4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d3d88c29025c1a7a40a6248d3be841a33d1b6761
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074550"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55694366"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -85,7 +85,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * [암호 재설정(관리자)](#activity-type-reset-password-by-admin): 관리자가 Azure Portal에서 사용자를 대신하여 암호를 재설정했음을 나타냅니다.
 * [암호 재설정(셀프 서비스)](#activity-type-reset-password-self-service): 사용자가 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 성공적으로 재설정했음을 나타냅니다.
 * [셀프 서비스 암호 재설정 흐름 작업 진행률](#activity-type-self-serve-password-reset-flow-activity-progress): 암호 다시 설정 프로세스의 일부로 사용자가 진행하는 각각의 특정 단계(예: 특정 암호 다시 설정 인증 게이트 전달)를 나타냅니다.
-* [사용자 계정 잠금 해제(셀프 서비스)](#activity-type-unlock-user-account-self-service): 사용자가 재설정 없이 Active Directory 계정 잠금 해제 기능을 사용하여 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 재설정하지 않고 Active Directory 계정을 성공적으로 잠금 해제했음을 나타냅니다.
+* [사용자 계정 잠금 해제(셀프 서비스)](#activity-type-unlock-a-user-account-self-service): 사용자가 재설정 없이 Active Directory 계정 잠금 해제 기능을 사용하여 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 재설정하지 않고 Active Directory 계정을 성공적으로 잠금 해제했음을 나타냅니다.
 * [사용자가 셀프 서비스 암호 재설정 등록](#activity-type-user-registered-for-self-service-password-reset): 사용자가 현재 지정된 테넌트 암호 재설정 정책에 따라 자신의 암호를 재설정하는 데 필요한 모든 정보를 등록했음을 나타냅니다.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>작업 유형: 셀프 서비스 암호 재설정에서 차단
@@ -109,7 +109,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 상태**:
   * _성공_: 사용자가 자신의 암호를 성공적으로 변경했음을 나타냅니다.
   * _실패_: 사용자가 자신의 암호를 변경하지 못했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다.
-* **활동 상태 실패 이유**: 
+* **활동 상태 실패 이유**:
   * _FuzzyPolicyViolationInvalidPassword_: 사용자가 Microsoft의 차단 암호 검색 기능으로 인해 너무 흔하거나 특히 약한 것으로 식별되어 자동으로 차단되는 암호를 선택했습니다.
 
 ### <a name="activity-type-reset-password-by-admin"></a>작업 유형: 암호 재설정(관리자)
@@ -133,7 +133,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 상태**:
   * _성공_: 사용자가 자신의 암호를 성공적으로 재설정했음을 나타냅니다.
   * _실패_: 사용자가 자신의 암호를 재설정하는 데 실패했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다.
-* **활동 상태 실패 이유**: 
+* **활동 상태 실패 이유**:
   * _FuzzyPolicyViolationInvalidPassword_: 관리자가 Microsoft의 차단 암호 검색 기능으로 인해 너무 흔하거나 특히 약한 것으로 식별되어 자동으로 차단되는 암호를 선택했습니다.
 
 ### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>작업 유형: 셀프 서비스 암호 재설정 흐름 작업 진행률
@@ -146,7 +146,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 상태**:
   * _성공_: 사용자가 암호 다시 설정 흐름의 특정 단계를 성공적으로 완료했음을 나타냅니다.
   * _실패_: 암호 다시 설정 흐름의 특정 단계가 실패했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다.
-* **활동 상태 이유**:   [모든 허용되는 다시 설정 활동 상태 이유](#allowed-values-for-details-column)에 대해서는 다음 표를 참조하세요.
+* **활동 상태 이유**:   [모든 허용되는 다시 설정 활동 상태 이유](#description-of-the-report-columns-in-the-azure-portal)에 대해서는 다음 표를 참조하세요.
 
 ### <a name="activity-type-unlock-a-user-account-self-service"></a>작업 유형: 사용자 계정 잠금 해제(셀프 서비스)
 
@@ -168,10 +168,10 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * **활동 대상**: 암호 다시 설정을 등록한 사용자입니다. 사용자는 최종 사용자 또는 관리자일 수 있습니다.
 * **허용되는 활동 상태**:
   * _성공_: 사용자가 현재 정책에 따라 암호 재설정에 성공적으로 등록했음을 나타냅니다. 
-  * _실패_: 사용자가 암호 다시 설정을 등록하지 못했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다. 
+  * _실패_: 사용자가 암호 다시 설정을 등록하지 못했음을 나타냅니다. 행을 선택하여 **활동 상태 이유** 범주에서 실패한 원인에 대해 자세히 알아볼 수 있습니다.
 
      >[!NOTE]
-     >실패라고 해서 사용자가 자신의 암호를 다시 설정할 수 없는 것은 아니며, 등록 프로세스를 완료하지 않은 것을 의미합니다. 올바른 계정에 확인되지 않은 데이터(예: 유효성이 검사되지 않은 전화 번호)가 있는 경우 이 전화 번호를 확인하지 않아도 해당 계정을 계속 사용하여 암호를 다시 설정할 수 있습니다. 자세한 내용은 [사용자가 등록하면 어떻게 되나요?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers)를 참조하세요.
+     >실패라고 해서 사용자가 자신의 암호를 다시 설정할 수 없는 것은 아니며, 등록 프로세스를 완료하지 않은 것을 의미합니다. 올바른 계정에 확인되지 않은 데이터(예: 유효성이 검사되지 않은 전화 번호)가 있는 경우 이 전화 번호를 확인하지 않아도 해당 계정을 계속 사용하여 암호를 다시 설정할 수 있습니다.
      >
 
 ## <a name="next-steps"></a>다음 단계

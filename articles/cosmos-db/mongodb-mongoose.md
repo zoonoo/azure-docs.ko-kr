@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 6cdfa7492a9916cc3e2300ad71e21acfb68e3d30
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352243"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822037"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 Node.js Mongoose 애플리케이션 연결
 
@@ -32,7 +32,7 @@ Cosmos DB는 전역적으로 배포된 Microsoft의 다중 모델 데이터베�
 
 ## <a name="create-a-cosmos-account"></a>Cosmos 계정 만들기
 
-Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경우 [Node.js 애플리케이션 설치](#SetupNode)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설정하고 [Node.js 애플리케이션 설정](#SetupNode)으로 건너뜁니다.
+Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경우 Node.js 애플리케이션 설치로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설정하고 Node.js 애플리케이션 설정으로 건너뜁니다.
 
 [!INCLUDE [cosmos-db-create-dbaccount-mongodb](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 

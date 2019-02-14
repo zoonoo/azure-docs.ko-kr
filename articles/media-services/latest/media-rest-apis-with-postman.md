@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604102"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813894"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API 호출에 대해 Postman 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "53604102"
 - [API에 액세스](access-api-cli-how-to.md)하는 데 필요한 정보 가져오기
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 일부 AMS REST 자습서에 표시되는 REST API를 실행합니다. 
 
-    지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. 또는 **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
+    지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. 다른 대안은 다음과 같습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
 
 ## <a name="download-postman-files"></a>Postman 파일 다운로드
 
@@ -57,7 +57,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
     > [!Note]
     > 액세스 변수를 위의 **Media Services API 액세스** 섹션에서 가져온 값으로 업데이트합니다.
 
-7. 선택한 파일을 두 번 클릭하고[API 액세스](#access-the-media-services-api) 단계를 수행하여 가져온 값을 입력합니다.
+7. 선택한 파일을 두 번 클릭하고 API 액세스 단계에 따라 가져온 값을 입력합니다.
 8. 대화 상자를 닫습니다.
 9. 드롭다운에서 **Azure Media Service v3 Environment** 환경을 선택합니다.
 

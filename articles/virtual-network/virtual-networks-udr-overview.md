@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: b2a262e6829aca75f03db41ff72ab0cc067c93be
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f5c8880535d5b4b89ec3f13caa20051ae1709925
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025796"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55812789"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -91,7 +91,7 @@ Azure에서 사용자 지정 경로 또는 사용자 정의 경로를 만들어 
 
     어플라이언스에서 트래픽을 검사하고 해당 트래픽을 전달하거나 삭제할지 여부를 결정할 수 있도록 0.0.0.0/0 주소 접두사 및 가상 어플라이언스의 다음 홉 유형이 포함된 경로를 정의합니다. 0.0.0.0/0 주소 접두사가 포함된 사용자 정의 경로를 만들려면 먼저 [0.0.0.0/0 주소 접두사](#default-route)를 참조하세요.
 
-- **가상 네트워크 게이트웨이**: 가상 네트워크 게이트웨이로 라우팅되는 특정 주소 접두사로 향하는 트래픽을 원하는 시점을 지정합니다. 가상 네트워크 게이트웨이는 **VPN** 유형으로 만들어야 합니다. ExpressRoute를 사용하면 사용자 지정 경로에 [BGP](#border-gateway-protocol-routes)를 사용해야 하므로, 사용자 정의 경로에서 **ExpressRoute** 유형으로 만든 가상 네트워크 게이트웨이는 지정할 수 없습니다. 0.0.0.0/0 주소 접두사로 향하는 트래픽을 [경로 기반](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) 가상 네트워크 게이트웨이로 보내는 경로를 정의할 수 있습니다. 온-프레미스에서 트래픽을 검사하고 트래픽을 전달하거나 삭제할지 여부를 결정하는 디바이스가 있을 수 있습니다. 0.0.0.0/0 주소 접두사에 대한 사용자 정의 경로를 만들려면 먼저 [0.0.0.0/0 주소 접두사](#default-route)를 참조하세요. [VPN 가상 네트워크 게이트웨이에 BGP를 사용하도록 설정](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)한 경우, 0.0.0.0/0 주소 접두사에 대한 사용자 정의 경로를 구성하는 대신 0.0.0.0/0 접두사가 포함된 경로를 BGP를 통해 보급할 수 있습니다.
+- **가상 네트워크 게이트웨이**: 가상 네트워크 게이트웨이로 라우팅되는 특정 주소 접두사로 향하는 트래픽을 원하는 시점을 지정합니다. 가상 네트워크 게이트웨이는 **VPN** 유형으로 만들어야 합니다. ExpressRoute를 통해 사용자 지정 경로에 BGP를 사용해야 하므로, 사용자 정의 경로에서 **ExpressRoute** 유형으로 만든 가상 네트워크 게이트웨이를 지정할 수 없습니다. 0.0.0.0/0 주소 접두사로 향하는 트래픽을 [경로 기반](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype) 가상 네트워크 게이트웨이로 보내는 경로를 정의할 수 있습니다. 온-프레미스에서 트래픽을 검사하고 트래픽을 전달하거나 삭제할지 여부를 결정하는 디바이스가 있을 수 있습니다. 0.0.0.0/0 주소 접두사에 대한 사용자 정의 경로를 만들려면 먼저 [0.0.0.0/0 주소 접두사](#default-route)를 참조하세요. [VPN 가상 네트워크 게이트웨이에 BGP를 사용하도록 설정](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)한 경우, 0.0.0.0/0 주소 접두사에 대한 사용자 정의 경로를 구성하는 대신 0.0.0.0/0 접두사가 포함된 경로를 BGP를 통해 보급할 수 있습니다.
 - **없음**: 대상에 트래픽을 전달하는 대신 주소 접두사로 트래픽을 삭제하려는 경우를 지정합니다. 기능을 완전히 구성하지 않은 경우 Azure는 일부 선택적 시스템 경로에 대해 *없음*을 나열할 수 있습니다. 예를 들어 *없음*이 *가상 네트워크 게이트웨이* 또는 *가상 어플라이언스*의 **다음 홉 유형**이 있는 **다음 홉 IP 주소**로 나열되면 디바이스가 실행되고 있지 않거나 완전히 구성되지 않았기 때문일 수 있습니다. Azure는 다음 홉 유형으로 **없음**이 있는 예약된 주소 접두사에 대한 시스템 [기본 경로](#default)를 만듭니다.
 - **가상 네트워크**: 가상 네트워크 내의 기본 라우팅을 재정의하려는 경우를 지정합니다. **가상 네트워크** 홉 유형이 포함된 경로를 만들 수 있는 이유에 대한 예는 [라우팅 예](#routing-example)를 참조하세요.
 - **인터넷**: 명시적으로 주소 접두사로 향하는 트래픽을 인터넷으로 라우팅하려는 경우 또는 Azure 백본 네트워크 내에서 유지하는 공용 IP 주소가 있는 Azure 서비스로 향하는 트래픽을 원하는 경우에 이를 지정합니다.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: f48283222f5c5d3b18d3dba17c2856801856fb94
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 49b5ef6b0dca32baaf05959cc29bb2a8024b6d04
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992125"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55693992"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure 간 복제의 네트워킹 정보
 
@@ -99,7 +99,8 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
    한국 남부 | 52.231.298.185 | 52.231.200.144
    프랑스 중부 | 52.143.138.106 | 52.143.136.55
    프랑스 남부 | 52.136.139.227 |52.136.136.62
-
+   오스트레일리아 중부| 20.36.34.70 | 20.36.46.142
+   오스트레일리아 중부 2| 20.36.69.62 | 20.36.74.130
 
 ## <a name="example-nsg-configuration"></a>NSG 구성 예제
 

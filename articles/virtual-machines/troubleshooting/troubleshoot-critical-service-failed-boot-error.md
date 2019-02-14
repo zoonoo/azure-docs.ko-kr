@@ -13,25 +13,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: d8140966f3ba8674938a4e21b0990371390d3516
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 8a711596140340b5e6e69d04959abfef36332869
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071033"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813793"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 블루 스크린에 "CRITICAL SERVICE FAILED"가 표시됨
 이 문서에서는 Microsoft Azure에서 Windows VM(가상 머신)을 부팅할 때 발생할 수 있는 "CRITICAL SERVICE FAILED" 오류에 대해 설명합니다. 그리고 해당 문제를 해결할 수 있는 문제 해결 단계를 제공합니다. 
 
 > [!NOTE] 
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용을 설명하고 있으며, 새로운 배포에 대해 클래식 배포 모델 대신 이 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용을 설명하고 있으며, 새로운 배포에 대해 클래식 배포 모델 대신 이 모델을 사용하는 것이 좋습니다.
 
 ## <a name="symptom"></a>증상 
 
 Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)에서 부트 스크린샷을 확인하면 블루 스크린에 다음 오류 메시지 중 하나가 표시됩니다.
 
-- "PC에 문제가 생겨 다시 시작해야 합니다. 다시 시작할 수 있습니다. 이 문제와 가능한 수정 사항에 대한 자세한 내용은 http://windows.com/stopcode를 참조하세요. 지원 담당자에게 연락하는 경우 다음 정보를 제공하세요. 중지 코드: CRITICAL SERVICE FAILED" 
-- "PC에 문제가 생겨 다시 시작해야 합니다. 일부 오류 정보를 수집하고 있습니다. 그런 다음 자동으로 다시 시작합니다. 자세한 내용을 보려면 나중에 온라인에서 이 오류를 검색할 수 있습니다. RITICAL_SERVICE_FAILED"
+- "PC에 문제가 생겨 다시 시작해야 합니다. 다시 시작할 수 있습니다. 이 문제와 가능한 수정 사항에 대한 자세한 내용은 http://windows.com/stopcode를 참조하세요. 지원 담당자를 호출하는 경우 이 정보를 제공합니다. 코드 중지: 중요 서비스 실패" 
+- "PC에 문제가 생겨 다시 시작해야 합니다. 일부 오류 정보를 수집하고 있습니다. 그런 다음 자동으로 다시 시작합니다. 자세한 내용을 보려면 나중에 온라인에서 다음 오류를 검색할 수 있습니다. CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>원인
 
@@ -93,7 +93,7 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [OS 디스크를 분리한 다음 해당 VM에 OS 디스크를 다시 연결합니다](troubleshoot-recovery-disks-portal-windows.md). VM이 안전 모드로 부팅됩니다. 오류가 계속 발생하면 [선택적 단계](#optional-analysis-the-dump-logs-in-boot-debug-mode)로 이동합니다.
+2. [OS 디스크를 분리한 다음 해당 VM에 OS 디스크를 다시 연결합니다](troubleshoot-recovery-disks-portal-windows.md). VM이 안전 모드로 부팅됩니다. 오류가 계속 발생하면 선택적 단계로 이동합니다.
 3. **실행** 상자를 열고 **검증 도구**를 실행하여 드라이버 검증 도구 관리자 도구를 시작합니다.
 4. **서명되지 않은 드라이버 자동으로 선택**을 선택하고 **다음**을 클릭합니다.
 5. 서명되지 않은 드라이버 파일 목록이 표시됩니다. 파일 이름을 기억해 둡니다.
@@ -104,7 +104,7 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  VM을 다시 시작합니다. 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>선택 사항: 덤프 크래시 모드에서 덤프 로그 분석
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>선택 사항: 덤프 크래시 모드로 덤프 로그 분석
 
 덤프 로그를 직접 분석하려면 다음 단계를 수행합니다.
 
@@ -138,7 +138,7 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 9. [OS 디스크를 분리한 다음 해당 VM에 OS 디스크를 다시 연결합니다](troubleshoot-recovery-disks-portal-windows.md).
 10. VM을 부팅하여 덤프 분석이 표시되는지 확인합니다. 로드할 수 없는 파일을 찾습니다. 이 파일을 작동하는 VM의 파일로 바꿔야 합니다. 
 
-    덤프 분석 샘플은 다음과 같습니다. "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys"를 통해 filecrypt.sys에서 **FAILURE**가 발생했음을 확인할 수 있습니다.
+    덤프 분석 샘플은 다음과 같습니다. filecrypt.sys에서 **오류**가 발행했는지 확인할 수 있습니다. "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
 
     ```
     kd> !analyze -v 

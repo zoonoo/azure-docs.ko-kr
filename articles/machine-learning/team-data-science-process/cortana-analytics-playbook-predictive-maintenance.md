@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 860d24bf9de02d1b2ca46f05f1e09843a826aaf9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466832"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816648"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 
@@ -325,7 +325,7 @@ PdM에 권장된 방법은 _시간 종속적_ 방식으로 예제를 교육, 유
 ### <a name="time-dependent-split"></a>시간 종속 분할
 이 섹션에서는 시간 종속 분할을 구현하는 모범 사례를 설명합니다. 학습 및 테스트 집합 간의 양방향 시간 종속 분할은 다음에서 설명합니다.
 
-다양한 센서에서 얻은 측정값과 같은 타임스탬프가 지정된 이벤트 스트림을 가정합니다. 여러 이벤트를 포함하는 시간 프레임에 걸쳐 학습 및 테스트 예제의 기능 및 레이블을 정의합니다. 예를 들어 이진 분류의 경우 과거 이벤트에 따라 기능을 만들고, 향후 "X" 시간 단위 이내의 미래 이벤트에 따라 레이블을 만듭니다([기능 엔지니어링](#Feature-engineering) 및 [모델링 기술](#Modeling-techniques-applied-to-PdM-use-cases) 참조). 따라서 예제의 레이블 지정 시간 프레임은 해당 기능의 시간 프레임보다 이후에 나타납니다.
+다양한 센서에서 얻은 측정값과 같은 타임스탬프가 지정된 이벤트 스트림을 가정합니다. 여러 이벤트를 포함하는 시간 프레임에 걸쳐 학습 및 테스트 예제의 기능 및 레이블을 정의합니다. 예를 들어 이진 분류의 경우 과거 이벤트에 따라 기능을 만들고, 향후 "X" 시간 단위 이내의 미래 이벤트에 따라 레이블을 만듭니다([기능 엔지니어링](#Feature-engineering) 및 모델링 기술 섹션 참조). 따라서 예제의 레이블 지정 시간 프레임은 해당 기능의 시간 프레임보다 이후에 나타납니다.
 
 시간 종속 분할의 경우 T<sub>c</sub>까지 기록 데이터를 사용하여 조정된 하이퍼 매개 변수로 모델을 학습할 _학습 구분 시간 T<sub>c</sub>_ 을 선택합니다. 학습 데이터에 대한 T<sub>c</sub> 이후 향후 레이블의 누출을 방지하기 위해 학습 예제의 레이블이 T<sub>c</sub> 이전의 X 단위가 되도록 최근 시간을 선택합니다. 그림 7에 표시된 예제에서 각 칸은 위에서 설명한 대로 기능 및 레이블이 계산되는 데이터 집합의 레코드를 나타냅니다. 그림은 X=2 및 W=3에 대한 학습 및 테스트 집합으로 이동해야 하는 레코드를 보여줍니다.
 

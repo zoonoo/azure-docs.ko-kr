@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412051"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55697135"
 ---
 # <a name="custom-roles-in-azure"></a>Azure의 사용자 지정 역할
 
@@ -32,36 +32,30 @@ ms.locfileid: "54412051"
 
 ```json
 {
-  "Name":  "Virtual Machine Operator",
-  "Id":  "88888888-8888-8888-8888-888888888888",
-  "IsCustom":  true,
-  "Description":  "Can monitor and restart virtual machines.",
-  "Actions":  [
-                  "Microsoft.Storage/*/read",
-                  "Microsoft.Network/*/read",
-                  "Microsoft.Compute/*/read",
-                  "Microsoft.Compute/virtualMachines/start/action",
-                  "Microsoft.Compute/virtualMachines/restart/action",
-                  "Microsoft.Authorization/*/read",
-                  "Microsoft.Resources/subscriptions/resourceGroups/read",
-                  "Microsoft.Insights/alertRules/*",
-                  "Microsoft.Insights/diagnosticSettings/*",
-                  "Microsoft.Support/*"
+  "Name": "Virtual Machine Operator",
+  "Id": "88888888-8888-8888-8888-888888888888",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
   ],
-  "NotActions":  [
-
-                 ],
-  "DataActions":  [
-
-                  ],
-  "NotDataActions":  [
-
-                     ],
-  "AssignableScopes":  [
-                           "/subscriptions/{subscriptionId1}",
-                           "/subscriptions/{subscriptionId2}",
-                           "/subscriptions/{subscriptionId3}"
-                       ]
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}",
+    "/subscriptions/{subscriptionId3}"
+  ]
 }
 ```
 
@@ -73,12 +67,12 @@ ms.locfileid: "54412051"
 
 1. 필요한 권한 결정
 
-    사용자 지정 역할을 만드는 경우 권한을 정의하는 데 사용할 수 있는 리소스 공급자 작업을 알고 있어야 합니다. 작업 목록을 보려면 [Get-AzureRMProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) 또는 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list) 명령을 사용할 수 있습니다.
+    사용자 지정 역할을 만드는 경우 권한을 정의하는 데 사용할 수 있는 리소스 공급자 작업을 알고 있어야 합니다. 작업 목록을 보려면 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 또는 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list) 명령을 사용할 수 있습니다.
     사용자 지정 역할에 대한 권한을 지정하려면 [역할 정의](role-definitions.md)의 `Actions` 또는 `NotActions` 속성에 해당 작업을 추가합니다. 데이터 작업이 있는 경우 이러한 작업은 `DataActions` 또는 `NotDataActions` 속성에 추가합니다.
 
 2. 사용자 지정 역할 만들기
 
-    Azure PowerShell 또는 Azure CLI를 사용하여 사용자 지정 역할을 만들 수 있습니다. 일반적으로 기존 기본 제공 역할로 시작한 다음, 필요에 따라 수정합니다. 그런 다음, [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) 또는 [az role definition create](/cli/azure/role/definition#az-role-definition-create) 명령을 사용하여 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 만들려면 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)와 같이 모든 `AssignableScopes`에 대한 `Microsoft.Authorization/roleDefinitions/write` 권한이 있어야 합니다.
+    Azure PowerShell 또는 Azure CLI를 사용하여 사용자 지정 역할을 만들 수 있습니다. 일반적으로 기존 기본 제공 역할로 시작한 다음, 필요에 따라 수정합니다. 그런 다음, [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) 또는 [az role definition create](/cli/azure/role/definition#az-role-definition-create) 명령을 사용하여 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 만들려면 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)와 같이 모든 `AssignableScopes`에 대한 `Microsoft.Authorization/roleDefinitions/write` 권한이 있어야 합니다.
 
 3. 사용자 지정 역할 테스트
 

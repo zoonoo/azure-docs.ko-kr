@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021580"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822751"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -26,7 +26,7 @@ ms.locfileid: "54021580"
 
 이 문서에서는 예약된 자동 방식으로 대규모 데이터 세트를 이동 및 처리하는 샘플 솔루션의 아키텍처에 대해 설명합니다. 또한 Data Factory 및 Azure Batch를 사용하여 솔루션을 구현하는 종합적인 연습 과정을 제공합니다.
 
-이 문서는 전체 샘플 솔루션의 연습을 포함하기 때문에 일반적인 문서보다 깁니다. Batch 및 Data Factory를 처음 사용하는 경우 이러한 서비스 및 작동 방식에 대해 알아볼 수 있습니다. 서비스에 대한 정보를 알고 있으며 솔루션을 디자인/구성하는 경우 문서의 [아키텍처 섹션](#architecture-of-sample-solution)에 집중할 수 있습니다. 프로토타입 또는 솔루션을 개발하는 경우 [연습](#implementation-of-sample-solution)에서 단계별 지침을 사용하려고 할 수 있습니다. 이 콘텐츠 및 사용 방법에 대한 사용자의 의견을 환영합니다.
+이 문서는 전체 샘플 솔루션의 연습을 포함하기 때문에 일반적인 문서보다 깁니다. Batch 및 Data Factory를 처음 사용하는 경우 이러한 서비스 및 작동 방식에 대해 알아볼 수 있습니다. 서비스에 대해 알고 있고 솔루션을 디자인/구성하는 경우 문서의 아키텍처 섹션에 집중하면 됩니다. 프로토타입 또는 솔루션을 개발하는 경우 연습에서 단계별 지침을 사용해 보는 것이 좋습니다. 이 콘텐츠 및 사용 방법에 대한 사용자의 의견을 환영합니다.
 
 첫째, Data Factory 및 Batch 서비스가 클라우드에서 대용량 데이터 세트를 처리할 수 있는 방법을 살펴보겠습니다.     
 
@@ -90,7 +90,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습니다. 자세한 내용은 [평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 #### <a name="azure-storage-account"></a>Azure Storage 계정
-저장소 계정을 사용하여 이 자습서에 있는 데이터를 저장합니다. 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 샘플 솔루션은 Blob 저장소를 사용합니다.
+저장소 계정을 사용하여 이 자습서에 있는 데이터를 저장합니다. 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 샘플 솔루션은 Blob Storage를 사용합니다.
 
 #### <a name="azure-batch-account"></a>Azure Batch 계정
 [Azure Portal](http://portal.azure.com/)을 사용하여 Batch 계정을 만듭니다. 자세한 내용은 [Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)를 참조하세요. Batch 계정 이름 및 계정 키를 적어둡니다. [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet을 사용하여 Batch 계정을 만들 수도 있습니다. 이 cmdlet 사용 방법에 대한 자세한 지침은 [Batch PowerShell cmdlet 시작](../../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
@@ -481,7 +481,7 @@ public IDictionary<string, string> Execute(
 ### <a name="create-the-data-factory"></a>데이터 팩터리 만들기
 [사용자 지정 작업 만들기](#create-the-custom-activity) 섹션에서 사용자 지정 작업을 만들고 이진 파일과 함께 zip 파일을 업로드하고 PDB 파일을 Blob 컨테이너에 업로드했습니다. 이 섹션에서는 사용자 지정 작업을 사용하는 파이프라인으로 Data Factory를 만듭니다.
 
-사용자 지정 작업에 대한 입력 데이터 세트는 Blob 저장소에서 입력 폴더(`mycontainer\\inputfolder`)의 Blob(파일)을 나타냅니다. 이 작업에 대한 출력 데이터 세트는 Blob 저장소에서 출력 폴더(`mycontainer\\outputfolder`)의 출력 Blob을 나타냅니다.
+사용자 지정 작업에 대한 입력 데이터 집합은 Blob Storage에서 입력 폴더(`mycontainer\\inputfolder`)의 Blob(파일)을 나타냅니다. 이 작업에 대한 출력 데이터 집합은 Blob Storage에서 출력 폴더(`mycontainer\\outputfolder`)의 출력 Blob을 나타냅니다.
 
 입력 폴더에 있는 하나 이상의 파일을 삭제합니다.
 

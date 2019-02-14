@@ -1,6 +1,6 @@
 ---
-title: Azure 예약 Windows 소프트웨어 비용 | Microsoft Docs
-description: Azure Reserve VM Instance 비용에 포함되지 않은 Windows 소프트웨어 미터에 대해 알아봅니다.
+title: Azure에 대한 예약 소프트웨어 비용 | Microsoft Docs
+description: Azure Reserve VM Instances 비용에 포함되지 않는 소프트웨어 미터에 대해 알아봅니다.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: de2aee36f20bd5142f398de7edb301e53ab42cae
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 63b1e850cbcea089a6a115f53ea1ef579a16886f
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902672"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55744983"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
+# <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
 
-예약 가상 머신 인스턴스에 Azure Hybrid Use Benefit이 없는 경우, 다음 섹션에 나열된 Windows 소프트웨어 요금제에 대한 요금이 청구됩니다.
+예약 가상 머신 인스턴스에 Azure Hybrid Use Benefit이 없는 경우, 다음 섹션에 나열된 소프트웨어 미터에 대한 요금이 청구됩니다.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows 소프트웨어 요금제는 예약 요금에 포함되지 않습니다.
 
@@ -50,6 +50,22 @@ ms.locfileid: "54902672"
 | 904c5c71-1eb7-43a6-961c-d305a9681624 | Reservation-Windows Svr(256 코어) | B 시리즈를 제외한 모두 |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Reservation-Windows Svr(96 코어) | B 시리즈를 제외한 모두 |
 
+## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>클라우드 서비스 소프트웨어 미터는 예약 비용에 포함되지 않음
+
+| MeterId | 사용량 파일의 MeterName |
+| ------- | ------------------------|
+|ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Cloud Services 1 vCPU 라이선스|
+|e0434559-19ee-4132-9c46-05ad4044f3f7|Cloud Services 2 vCPU 라이선스|
+|6ecc834e-39b3-48b3-8d10-cc5626bacb66|Cloud Services 4 vCPU 라이선스|
+|13103090-ca72-4825-ab12-7f16c4931d95|Cloud Services 8 vCPU 라이선스|
+|ecd2bb6e-45a5-49aa-a58b-3947ba21c364|Cloud Services 16 vCPU 라이선스|
+|de2c7f1d-06dc-4b16-bc8b-c2ec5f4c8aee|Cloud Services 20 vCPU 라이선스|
+|ca1af837-4b35-47f5-8d14-b1988149c4ca|Cloud Services 32 vCPU 라이선스|
+|dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|Cloud Services 64 vCPU 라이선스|
+|7a803026-244c-4659-834c-11e6b2d6b76f|Cloud Services 80 vCPU 라이선스|
+
+## <a name="rates-for-azure-meters"></a>Azure 미터에 대한 요금
+
 Azure RateCard API를 통해 이러한 미터 각각의 비용을 알아볼 수 있습니다. Azure 미터에 대한 요금을 알아보는 방법에 대한 정보는 [Azure 구독에서 사용되는 리소스에 대한 가격 및 메타데이터 정보 가져오기](https://msdn.microsoft.com/library/azure/mt219004)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
@@ -65,6 +81,3 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-
-

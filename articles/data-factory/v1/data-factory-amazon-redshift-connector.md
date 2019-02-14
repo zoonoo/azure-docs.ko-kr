@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1fde06f483821b0e9958c25bf5ce37aae4c8f61d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022022"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817345"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "54022022"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 Amazon Redshift 커넥터](../connector-amazon-redshift.md)를 참조하세요.
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Amazon Redshift에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다. 
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Amazon Redshift에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
 Data Factory는 현재 Amazon Redshift에서 [지원되는 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 데이터를 이동하는 작업만 지원합니다. 다른 데이터 저장소에서 Amazon Redshift로 데이터를 이동하는 작업은 지원되지 않습니다.
 
@@ -44,15 +44,15 @@ Data Factory는 현재 Amazon Redshift에서 [지원되는 싱크 데이터 저�
 
 파이프라인을 만드는 가장 쉬운 방법은 Azure Data Factory 복사 마법사를 사용하는 것입니다. 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하여 파이프라인을 만들 수도 있습니다. Azure Resource Manager 템플릿, .NET API 또는 REST API도 파이프라인을 만드는 데 사용할 수 있습니다. 복사 활동이 포함된 파이프라인을 만드는 단계별 지침은 [복사 활동 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. 
+Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하여 파이프라인을 만들 수도 있습니다. Azure Resource Manager 템플릿, .NET API 또는 REST API도 파이프라인을 만드는 데 사용할 수 있습니다. 복사 활동이 포함된 파이프라인을 만드는 단계별 지침은 [복사 활동 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
-도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다. 
+도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
 1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 연결된 서비스를 만듭니다.
-2. 복사 활동의 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 
-3. 입력과 출력으로 각각의 데이터 세트를 사용하는 복사 활동이 포함된 파이프라인을 만듭니다. 
+2. 복사 활동의 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다.
+3. 입력과 출력으로 각각의 데이터 세트를 사용하는 복사 활동이 포함된 파이프라인을 만듭니다.
 
-복사 마법사를 사용하는 경우 이러한 Data Factory 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. [JSON 예제: Amazon Redshift에서 Azure Blob 스토리지로 데이터 복사](#json-example-copy-data-from-amazon-redshift-to-azure-blob)에서는 Amazon Redshift 데이터 저장소에서 데이터를 복사하는 데 사용되는 Data Factory 엔터티에 대한 JSON 정의를 보여줍니다.
+복사 마법사를 사용하는 경우 이러한 Data Factory 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. JSON 예제: Amazon Redshift에서 Azure Blob 스토리지로 데이터 복사에서는 Amazon Redshift 데이터 저장소에서 데이터를 복사하는 데 사용되는 Data Factory 엔터티에 대한 JSON 정의를 보여줍니다.
 
 다음 섹션에서는 Amazon Redshift에 대한 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 설명합니다.
 
@@ -139,7 +139,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 ```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob-storage"></a>JSON 예제: Amazon Redshift에서 Azure Blob 스토리지로 데이터 복사
-이 샘플은 Amazon Redshift 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 복사 작업을 사용하여 모든 [지원되는 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 직접 데이터를 복사할 수 있습니다.  
+이 샘플은 Amazon Redshift 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 복사 작업을 사용하여 모든 [지원되는 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 직접 데이터를 복사할 수 있습니다.
 
 이 샘플에는 다음 데이터 팩터리 엔터티가 있습니다.
 
@@ -162,7 +162,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
         "typeProperties":
         {
             "server": "< The IP address or host name of the Amazon Redshift server >",
-            "port": <The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>,
+            "port": "<The number of the TCP port that the Amazon Redshift server uses to listen for client connections.>",
             "database": "<The database name of the Amazon Redshift database>",
             "username": "<username>",
             "password": "<password>"
@@ -171,7 +171,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 }
 ```
 
-**Azure Blob 저장소 연결된 서비스**
+비디오: Linux에서 Azure File Storage 사용
 
 ```json
 {
@@ -333,14 +333,14 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 | SmallInt |Int16 |
 | INTEGER |Int32 |
 | BIGINT |Int64 |
-| DECIMAL |10진수 |
+| DECIMAL |Decimal |
 | Real |단일 |
 | double precision |Double |
 | BOOLEAN |문자열 |
 | CHAR |문자열 |
 | VARCHAR |문자열 |
-| DATE |Datetime |
-| TIMESTAMP |Datetime |
+| DATE |DateTime |
+| TIMESTAMP |DateTime |
 | TEXT |문자열 |
 
 ## <a name="map-source-to-sink-columns"></a>원본을 싱크 열로 매핑
@@ -350,7 +350,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 관계형 데이터 저장소에서 데이터를 복사할 때 의도하지 않은 결과를 방지하기 위해 반복성을 명심해야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 세트에 대한 다시 시도 **policy** 속성을 구성할 수 있습니다. 조각의 재실행 횟수에 관계없이 동일한 데이터를 읽어야 합니다. 또한 조각을 다시 실행하는 방법에 관계 없이 동일한 데이터를 읽어야 합니다. 자세한 내용은 [관계형 원본에서 반복 가능한 읽기](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)를 참조하세요.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
-[복사 활동 성능 및 조정 가이드](data-factory-copy-activity-performance.md)에서 복사 활동의 성능에 영향을 주는 주요 요소와 성능을 최적화하는 방법에 대해 알아보세요. 
+[복사 활동 성능 및 조정 가이드](data-factory-copy-activity-performance.md)에서 복사 활동의 성능에 영향을 주는 주요 요소와 성능을 최적화하는 방법에 대해 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 복사 활동이 포함된 파이프라인을 만드는 단계별 지침은 [복사 활동 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.

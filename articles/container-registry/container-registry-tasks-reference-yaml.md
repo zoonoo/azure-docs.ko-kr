@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: e91b4e881c0f39304e3042d556f111db2089f7de
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c9b4a27ff1b5467eb752e8cfc09f697ca1a966ba
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334485"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820388"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 작업 참조: YAML
 
@@ -83,11 +83,11 @@ az configure --defaults acr=myregistry
 
 일반적으로 작업 속성은 `acr-task.yaml` 파일의 맨 위에 표시되며, 작업 실행 전체에 적용되는 전역 속성입니다. 이러한 전역 속성 중 일부는 개별 단계에서 재정의할 수 있습니다.
 
-| 자산 | type | 옵션 | 설명 | 재정의 지원 여부 | 기본값 |
+| 자산 | Type | 옵션 | 설명 | 재정의 지원 여부 | 기본값 |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | string | 아니요 | ACR 작업 서비스에서 구문 분석한 `acr-task.yaml` 파일의 버전입니다. ACR 작업은 이전 버전과의 호환성을 유지하려고 하지만, 이 값을 사용하면 ACR 작업이 정의된 버전 내에서 호환성을 유지할 수 있습니다. | 아니요 | 없음 |
-| `stepTimeout` | int(초) | yes | 단계를 실행할 수 있는 최대 시간(초)입니다. 이 속성은 단계의 [timeout](#timeout) 속성을 설정하여 단계에서 재정의할 수 있습니다. | yes | 600(10분) |
-| `totalTimeout` | int(초) | yes | 작업을 실행할 수 있는 최대 시간(초)입니다. “실행”에는 성공 여부에 관계없이 작업의 모든 단계 실행 및 완료가 포함됩니다. 또한 검색된 이미지 종속성 및 작업 실행 상태와 같은 작업 출력 인쇄도 포함됩니다. | 아니요 | 3600(1시간) |
+| `stepTimeout` | int(초) | 예 | 단계를 실행할 수 있는 최대 시간(초)입니다. 이 속성은 단계의 timeout 속성을 설정하여 단계에서 재정의할 수 있습니다. | 예 | 600(10분) |
+| `totalTimeout` | int(초) | 예 | 작업을 실행할 수 있는 최대 시간(초)입니다. “실행”에는 성공 여부에 관계없이 작업의 모든 단계 실행 및 완료가 포함됩니다. 또한 검색된 이미지 종속성 및 작업 실행 상태와 같은 작업 출력 인쇄도 포함됩니다. | 아니요 | 3600(1시간) |
 
 ## <a name="task-step-types"></a>작업 단계 유형
 
@@ -116,8 +116,8 @@ steps:
 
 | 매개 변수 | 설명 | 옵션 |
 | --------- | ----------- | :-------: |
-| `-t` &#124; `--image` | 빌드된 이미지의 정규화된 `image:tag`를 정의합니다.<br /><br />기능 테스트와 같은 내부 작업 유효성 검사에 이미지가 사용될 수도 있으므로 일부 이미지는 레지스트리로 `push`할 필요가 없습니다. 그러나 작업 실행 내에서 이미지를 인스턴스화하려면 이미지를 참조하기 위해 이름이 필요합니다.<br /><br />`az acr build`와 달리, ACR 작업을 실행할 때는 기본 푸시 동작이 제공되지 않습니다. ACR 작업을 사용한 기본 시나리오에서는 이미지를 빌드하고 유효성을 검사한 다음, 푸시하는 기능을 가정합니다. 빌드된 이미지를 선택적으로 푸시하는 방법은 [push](#push)를 참조하세요. | yes |
-| `-f` &#124; `--file` | `docker build`에 전달된 Dockerfile을 지정합니다. 지정하지 않으면 컨텍스트 루트의 기본 Dockerfile이 가정됩니다. 대체 Dockerfile을 지정하려면 컨텍스트 루트에 상대적인 파일 이름을 전달합니다. | yes |
+| `-t` &#124; `--image` | 빌드된 이미지의 정규화된 `image:tag`를 정의합니다.<br /><br />기능 테스트와 같은 내부 작업 유효성 검사에 이미지가 사용될 수도 있으므로 일부 이미지는 레지스트리로 `push`할 필요가 없습니다. 그러나 작업 실행 내에서 이미지를 인스턴스화하려면 이미지를 참조하기 위해 이름이 필요합니다.<br /><br />`az acr build`와 달리, ACR 작업을 실행할 때는 기본 푸시 동작이 제공되지 않습니다. ACR 작업을 사용한 기본 시나리오에서는 이미지를 빌드하고 유효성을 검사한 다음, 푸시하는 기능을 가정합니다. 빌드된 이미지를 선택적으로 푸시하는 방법은 [push](#push)를 참조하세요. | 예 |
+| `-f` &#124; `--file` | `docker build`에 전달된 Dockerfile을 지정합니다. 지정하지 않으면 컨텍스트 루트의 기본 Dockerfile이 가정됩니다. 대체 Dockerfile을 지정하려면 컨텍스트 루트에 상대적인 파일 이름을 전달합니다. | 예 |
 | `context` | `docker build`에 전달된 루트 디렉터리입니다. 각 작업의 루트 디렉터리는 공유 [workingDirectory](#task-step-properties)로 설정되며, Git clone된 관련 디렉터리의 루트를 포함합니다. | 아니요 |
 
 ### <a name="properties-build"></a>속성: build
@@ -315,20 +315,20 @@ steps:
 
 각 단계 유형은 해당 유형에 적합한 몇 가지 속성을 지원합니다. 다음 표에서는 사용 가능한 모든 단계 속성을 정의합니다. 모든 단계 유형이 모든 속성을 지원하는 것은 아닙니다. 각 단계 유형에 사용 가능한 속성을 보려면 [cmd](#cmd), [build](#build) 및 [push](#push) 단계 유형 참조 섹션을 참조하세요.
 
-| 자산 | type | 옵션 | 설명 |
+| 자산 | Type | 옵션 | 설명 |
 | -------- | ---- | -------- | ----------- |
-| `detach` | bool | yes | 실행할 때 컨테이너를 분리해야 하는지 여부입니다. |
-| `entryPoint` | string | yes | 단계 컨테이너의 `[ENTRYPOINT]`을 재정의합니다. |
-| `env` | [string, string, ...] | yes | 단계의 환경 변수를 정의하는 `key=value` 형식의 문자열 배열입니다. |
-| [`id`](#example-id) | string | yes | 작업 내의 단계를 고유하게 식별합니다. 작업의 다른 단계에서 `when`을 사용한 종속성 검사 등을 위해 단계 `id`를 참조할 수 있습니다.<br /><br />`id`는 실행 중인 컨테이너의 이름이기도 합니다. 작업의 다른 컨테이너에서 실행 중인 프로세스가 `id`를 해당 DNS 호스트 이름으로 참조하거나 docker 로그 [id] 등으로 액세스하기 위해 참조할 수 있습니다. |
-| `ignoreErrors` | bool | yes | `true`로 설정하면 실행 중 오류 발생 여부에 관계없이 단계가 완료로 표시됩니다. 기본값: `false`. |
-| `keep` | bool | yes | 실행 후 단계 컨테이너를 유지할지 여부입니다. |
-| `startDelay` | int(초) | yes | 단계 실행을 연기할 시간(초)입니다. |
-| `timeout` | int(초) | yes | 종료되기 전에 단계를 실행할 수 있는 최대 시간(초)입니다. |
-| [`when`](#example-when) | [string, string, ...] | yes | 작업 내의 다른 하나 이상 단계에 대한 단계의 종속성을 구성합니다. |
-| `workingDirectory` | string | yes | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. |
+| `detach` | bool | 예 | 실행할 때 컨테이너를 분리해야 하는지 여부입니다. |
+| `entryPoint` | string | 예 | 단계 컨테이너의 `[ENTRYPOINT]`을 재정의합니다. |
+| `env` | [string, string, ...] | 예 | 단계의 환경 변수를 정의하는 `key=value` 형식의 문자열 배열입니다. |
+| [`id`](#example-id) | string | 예 | 작업 내의 단계를 고유하게 식별합니다. 작업의 다른 단계에서 `when`을 사용한 종속성 검사 등을 위해 단계 `id`를 참조할 수 있습니다.<br /><br />`id`는 실행 중인 컨테이너의 이름이기도 합니다. 작업의 다른 컨테이너에서 실행 중인 프로세스가 `id`를 해당 DNS 호스트 이름으로 참조하거나 docker 로그 [id] 등으로 액세스하기 위해 참조할 수 있습니다. |
+| `ignoreErrors` | bool | 예 | `true`로 설정하면 실행 중 오류 발생 여부에 관계없이 단계가 완료로 표시됩니다. 기본값: `false`. |
+| `keep` | bool | 예 | 실행 후 단계 컨테이너를 유지할지 여부입니다. |
+| `startDelay` | int(초) | 예 | 단계 실행을 연기할 시간(초)입니다. |
+| `timeout` | int(초) | 예 | 종료되기 전에 단계를 실행할 수 있는 최대 시간(초)입니다. |
+| [`when`](#example-when) | [string, string, ...] | 예 | 작업 내의 다른 하나 이상 단계에 대한 단계의 종속성을 구성합니다. |
+| `workingDirectory` | string | 예 | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. |
 
-### <a name="examples-task-step-properties"></a>예: 작업 단계 속성
+### <a name="examples-task-step-properties"></a>예제: 작업 단계 속성
 
 #### <a name="example-id"></a>예: id
 

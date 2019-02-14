@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103958"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816495"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스에 원격으로 연결
 
@@ -46,7 +46,7 @@ HTTP 세션을 통해 StorSimple용 Windows PowerShell에 연결하는 경우 St
 
 Azure Portal 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
 
-* [Azure Portal을 사용하여 HTTP를 통한 원격 관리 사용](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
+* Azure Portal을 사용하여 HTTP를 통한 원격 관리 사용
 * [직렬 콘솔을 사용하여 HTTP를 통한 원격 관리 사용](#use-the-serial-console-to-enable-remote-management-over-http)
 
 원격 관리를 사용하도록 설정한 후 다음 절차에 따라 원격 연결을 위해 클라이언트를 준비합니다.
@@ -59,7 +59,7 @@ Azure Portal에서 다음 단계를 수행하여 HTTP를 통한 원격 관리를
 
 #### <a name="to-enable-remote-management-through-the-azure-portal"></a>Azure Portal을 통해 원격 관리를 사용하도록 설정하려면
 
-1. StorSimple 디바이스 관리자 서비스로 이동합니다. **장치**를 선택하고 원격 관리용으로 구성하려는 장치를 클릭하여 선택합니다. **장치 설정 > 보안**으로 이동합니다.
+1. StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스**를 선택하고 원격 관리용으로 구성하려는 디바이스를 클릭하여 선택합니다. **디바이스 설정 &gt; 보안**으로 이동합니다.
 2. **보안 설정** 블레이드에서 **원격 관리**를 클릭합니다.
 3. **원격 관리** 블레이드에서 **원격 관리 사용**을 **예**로 설정합니다.
 4. 이제 HTTP를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통한 연결입니다. HTTP가 선택되었는지 확인합니다.
@@ -93,7 +93,7 @@ Azure Portal에서 다음 단계를 수행하여 HTTP를 통한 원격 관리를
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
    
-     <*device_ip*>를 장치의 IP 주소로 대체합니다. 예를 들면 다음과 같습니다. 
+     &lt;*device_ip*&gt;를 디바이스의 IP 주소로 대체합니다. 예를 들면 다음과 같습니다. 
    
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
 3. 다음 명령을 입력하여 변수에 디바이스 자격 증명을 저장합니다. 
@@ -124,13 +124,13 @@ HTTPS 세션을 통해 StorSimple용 Windows PowerShell에 연결하는 것은 M
 
 Azure Portal 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
 
-* [Azure Portal을 사용하여 HTTPS를 통한 원격 관리 사용](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
+* Azure Portal을 사용하여 HTTPS를 통한 원격 관리 사용
 * [직렬 콘솔을 사용하여 HTTPS를 통한 원격 관리 사용](#use-the-serial-console-to-enable-remote-management-over-https)
 
 원격 관리를 사용하도록 설정한 후 다음 절차에 따라 원격 관리를 위해 호스트를 준비하고 원격 호스트에서 디바이스에 연결합니다.
 
 * [원격 관리를 위해 호스트 준비](#prepare-the-host-for-remote-management)
-* [원격 호스트에서 장치에 연결](#connect-to-the-device-from-the-remote-host)
+* [원격 호스트에서 디바이스에 연결](#connect-to-the-device-from-the-remote-host)
 
 ### <a name="use-the-azure-portal-to-enable-remote-management-over-https"></a>Azure Portal을 사용하여 HTTPS를 통한 원격 관리 사용
 
@@ -138,7 +138,7 @@ Azure Portal에서 다음 단계를 수행하여 HTTPS를 통한 원격 관리�
 
 #### <a name="to-enable-remote-management-over-https-from-the-azure-portal"></a>Azure Portal에서 HTTPS를 통한 원격 관리를 사용하도록 설정하려면
 
-1. StorSimple 디바이스 관리자 서비스로 이동합니다. **장치**를 선택하고 원격 관리용으로 구성하려는 장치를 클릭하여 선택합니다. **장치 설정 > 보안**으로 이동합니다.
+1. StorSimple 디바이스 관리자 서비스로 이동합니다. **디바이스**를 선택하고 원격 관리용으로 구성하려는 디바이스를 클릭하여 선택합니다. **디바이스 설정 &gt; 보안**으로 이동합니다.
 2. **보안 설정** 블레이드에서 **원격 관리**를 클릭합니다.
 3. **원격 관리 사용**을 **예**로 설정합니다.
 4. 이제 HTTPS를 사용하여 연결하도록 선택할 수 있습니다. 기본값은 HTTPS를 통한 연결입니다. HTTPS가 선택되었는지 확인합니다.
@@ -163,7 +163,7 @@ Azure Portal에서 다음 단계를 수행하여 HTTPS를 통한 원격 관리�
     **RemoteManagementMode** 필드에 **HttpsEnabled**가 표시되는지 확인합니다. 다음 그림은 PuTTY에서 이러한 설정을 보여 줍니다.
    
      ![직렬 HTTPS 사용](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
-4. `Get-HcsSystem`의 출력에서 장치의 일련 번호를 복사하고 나중에 사용하기 위해 저장합니다.
+4. `Get-HcsSystem`의 출력에서 디바이스의 일련 번호를 복사하고 나중에 사용하기 위해 저장합니다.
    
    > [!NOTE]
    > 일련 번호는 인증서의 CN 이름에 매핑됩니다.
@@ -185,7 +185,7 @@ Azure Portal에서 다음 단계를 수행하여 HTTPS를 통한 원격 관리�
 HTTPS 세션을 사용하는 원격 연결을 위해 호스트 컴퓨터를 준비하려면 다음 절차를 따르세요.
 
 * [클라이언트 또는 원격 호스트의 루트 저장소로 .cer 파일을 가져옵니다](#to-import-the-certificate-on-the-remote-host).
-* [원격 호스트의 호스트 파일에 장치 일련 번호를 추가합니다](#to-add-device-serial-numbers-to-the-remote-host).
+* [원격 호스트의 호스트 파일에 디바이스 일련 번호를 추가합니다](#to-add-device-serial-numbers-to-the-remote-host).
 
 아래에서는 앞서 나온 각 절차에 대해 설명합니다.
 
@@ -203,7 +203,7 @@ HTTPS 세션을 사용하는 원격 연결을 위해 호스트 컴퓨터를 준�
 
 #### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>원격 호스트에 디바이스 일련 번호를 추가하려면
 1. 관리자 권한으로 메모장을 시작하고 \Windows\System32\Drivers\etc에 있는 호스트 파일을 엽니다.
-2. 호스트 파일에 **DATA 0 IP 주소**, **컨트롤러 0 고정 IP 주소** 및 **컨트롤러 1 고정 IP 주소**의 3개 항목을 추가합니다.
+2. 다음 3개 항목을 호스트 파일에 추가합니다. 3개 항목은 **DATA 0 IP 주소**, **컨트롤러 0 고정 IP 주소** 및 **컨트롤러 1 고정 IP 주소**입니다.
 3. 이전에 저장한 디바이스 일련 번호를 입력합니다. 다음 그림과 같이 이 일련 번호를 IP 주소에 매핑합니다. 컨트롤러 0과 컨트롤러 1의 경우 일련 번호(CN 이름)의 끝에 **Controller0** 및 **Controller1**을 추가합니다.
    
     ![hosts 파일에 CN 이름 추가](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
@@ -224,19 +224,19 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
    
-    여기서 <*device_ip*>는 장치의 IP 주소입니다. 예를 들면 다음과 같습니다. 
+    여기서 &lt;*device_ip*&gt;는 디바이스의 IP 주소입니다. 예를 들면 다음과 같습니다. 
    
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
 3. 새 자격 증명을 만들려면 다음을 입력합니다.
    
      `$cred = New-Object pscredential @("<IP of target device>\SSAdmin", (ConvertTo-SecureString -Force -AsPlainText "<Device Administrator Password>"))`
    
-    여기서 <*대상 장치의 IP*>는 장치에 대한 DATA 0의 IP 주소(예: hosts 파일의 이전 그림에 표시된 **10.126.173.90**)입니다. 또한 디바이스에 대한 관리자 암호를 제공합니다.
+    여기서 &lt;*대상 디바이스의 IP*&gt;는 디바이스에 대한 DATA 0의 IP 주소(예: hosts 파일의 이전 그림에 표시된 **10.126.173.90**)입니다. 또한 디바이스에 대한 관리자 암호를 제공합니다.
 4. 다음을 입력하여 세션을 만듭니다.
    
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
-    cmdlet의 ComputerName 매개 변수의 경우 <*대상 장치의 일련 번호*>를 제공합니다. 이 일련 번호는 원격 호스트에서 hosts 파일에 있는 DATA 0의 IP 주소(예: 다음 그림에 표시된 **SHX0991003G44MT** )에 매핑되었습니다.
+    cmdlet의 ComputerName 매개 변수의 경우 &lt;*대상 디바이스의 일련 번호*&gt;를 제공합니다. 이 일련 번호는 원격 호스트에서 hosts 파일에 있는 DATA 0의 IP 주소(예: 다음 그림에 표시된 **SHX0991003G44MT** )에 매핑되었습니다.
 5. 형식:
    
      `Enter-PSSession $session`
@@ -246,6 +246,6 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법](storsimple-8000-windows-powershell-administration.md)을 자세히 알아봅니다.
-* [StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치를 관리하는 방법](storsimple-8000-manager-service-administration.md)에 대해 자세히 알아봅니다.
+* [Windows PowerShell을 사용하여 StorSimple 디바이스를 관리하는 방법](storsimple-8000-windows-powershell-administration.md)을 자세히 알아봅니다.
+* [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스를 관리하는 방법](storsimple-8000-manager-service-administration.md)에 대해 자세히 알아봅니다.
 

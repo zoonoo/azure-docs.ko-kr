@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469195"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821367"
 ---
 # <a name="table-design-patterns"></a>테이블 디자인 패턴
 이 아티클에서는 Table service 솔루션에서 사용하기에 적합한 몇 가지 패턴에 대해 알아봅니다. 또한 다른 Table Storage 디자인 아티클에서 설명한 문제 및 장단점 중 일부를 실용적으로 해결할 수 있는 방법도 확인합니다. 다음 다이어그램에는 서로 다른 패턴 간의 관계가 요약되어 있습니다.  
@@ -73,7 +73,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 * [파티션 내 보조 인덱스 패턴](#inter-partition-secondary-index-pattern)
 * [복합 키 패턴](#compound-key-pattern)
-* [엔터티 그룹 트랜잭션](#entity-group-transactions)
+* EGT(엔터티 그룹 트랜잭션)
 * [유형이 다른 엔터티 유형 작업](#working-with-heterogeneous-entity-types)
 
 ## <a name="inter-partition-secondary-index-pattern"></a>파티션 간 보조 인덱스 패턴
@@ -128,7 +128,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 * [결과적으로 일관성 있는 트랜잭션 패턴](#eventually-consistent-transactions-pattern)  
 * [파티션 간 보조 인덱스 패턴](#intra-partition-secondary-index-pattern)  
 * [복합 키 패턴](#compound-key-pattern)  
-* [엔터티 그룹 트랜잭션](#entity-group-transactions)  
+* EGT(엔터티 그룹 트랜잭션)  
 * [유형이 다른 엔터티 유형 작업](#working-with-heterogeneous-entity-types)  
 
 ## <a name="eventually-consistent-transactions-pattern"></a>결과적으로 일관성 있는 트랜잭션 패턴
@@ -172,7 +172,7 @@ Azure 큐를 사용하면 둘 이상의 파티션 또는 저장소 시스템 간
 ### <a name="related-patterns-and-guidance"></a>관련 패턴 및 지침
 이 패턴을 구현할 때 다음 패턴 및 지침도 관련이 있을 수 있습니다.  
 
-* [엔터티 그룹 트랜잭션](#entity-group-transactions)  
+* EGT(엔터티 그룹 트랜잭션)  
 * [병합 또는 바꾸기](#merge-or-replace)  
 
 > [!NOTE]
@@ -212,7 +212,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 다음 단계에서는 두 번째 옵션을 사용하는 경우 새 직원을 추가할 때 따라야 하는 프로세스를 간략하게 설명합니다. 이 예제에서는 ID가 000152이고 성이 Jones인 직원을 Sales 부서에 추가합니다.  
 
 1. **PartitionKey** 값 "Sales"와 **RowKey** 값 "Jones"를 사용하여 인덱스 엔터티를 검색합니다. 이 엔터티의 ETag를 2단계에서 사용하기 위해 저장합니다.  
-2. 새 직원 ID를 EmployeeIDs 필드의 목록에 추가하여 새 직원 엔터티(**PartitionKey** 값 "Sales" 및 **RowKey** 값 "000152")를 삽입하고 인덱스 엔터티(**PartitionKey** 값 "Sales" 및 **RowKey** 값 "Jones")를 업데이트하는 엔터티 그룹 트랜젝션(즉 배치 작업)을 만듭니다. 엔터티 그룹 트랜잭션에 대한 자세한 내용은 [엔터티 그룹 트랜잭션](#entity-group-transactions)을 참조하세요.  
+2. 새 직원 ID를 EmployeeIDs 필드의 목록에 추가하여 새 직원 엔터티(**PartitionKey** 값 "Sales" 및 **RowKey** 값 "000152")를 삽입하고 인덱스 엔터티(**PartitionKey** 값 "Sales" 및 **RowKey** 값 "Jones")를 업데이트하는 엔터티 그룹 트랜젝션(즉 배치 작업)을 만듭니다. 엔터티 그룹 트랜잭션에 대한 자세한 내용은 엔터티 그룹 트랜잭션을 참조하세요.  
 3. 낙관적 동시성 오류(다른 사람이 인덱스 엔터티를 방금 수정한 경우)로 인해 엔터티 그룹 트랜잭션에 실패한 경우 1단계부터 다시 시작해야 합니다.  
 
 두 번째 옵션을 사용하는 경우 이와 유사한 접근 방식을 사용하여 직원을 삭제할 수 있습니다. 직원의 성을 변경하는 것은 조금 더 복잡합니다. 세 엔터티, 즉 직원 엔터티, 이전 성의 인덱스 엔터티 및 새 성의 인덱스 엔터티를 업데이트하는 엔터티 그룹 트랜잭션를 실행해야 하기 때문입니다. 낙관적 동시성을 사용하여 업데이트를 수행하는 데 사용할 수 있는 ETag 값을 검색하려면 먼저 변경하기 전에 각 엔터티를 검색해야 합니다.  
@@ -251,7 +251,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 * [복합 키 패턴](#compound-key-pattern)  
 * [결과적으로 일관성 있는 트랜잭션 패턴](#eventually-consistent-transactions-pattern)  
-* [엔터티 그룹 트랜잭션](#entity-group-transactions)  
+* EGT(엔터티 그룹 트랜잭션)  
 * [유형이 다른 엔터티 유형 작업](#working-with-heterogeneous-entity-types)  
 
 ## <a name="denormalization-pattern"></a>비정규화 패턴
@@ -282,7 +282,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 이 패턴을 구현할 때 다음 패턴 및 지침도 관련이 있을 수 있습니다.  
 
 * [복합 키 패턴](#compound-key-pattern)  
-* [엔터티 그룹 트랜잭션](#entity-group-transactions)  
+* EGT(엔터티 그룹 트랜잭션)  
 * [유형이 다른 엔터티 유형 작업](#working-with-heterogeneous-entity-types)
 
 ## <a name="compound-key-pattern"></a>복합 키 패턴
@@ -325,7 +325,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 ### <a name="related-patterns-and-guidance"></a>관련 패턴 및 지침
 이 패턴을 구현할 때 다음 패턴 및 지침도 관련이 있을 수 있습니다.  
 
-* [엔터티 그룹 트랜잭션](#entity-group-transactions)  
+* EGT(엔터티 그룹 트랜잭션)  
 * [유형이 다른 엔터티 유형 작업](#working-with-heterogeneous-entity-types)  
 * [결과적으로 일관성 있는 트랜잭션 패턴](#eventually-consistent-transactions-pattern)  
 
@@ -394,7 +394,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 ### <a name="related-patterns-and-guidance"></a>관련 패턴 및 지침
 이 패턴을 구현할 때 다음 패턴 및 지침도 관련이 있을 수 있습니다.  
 
-* [엔터티 그룹 트랜잭션](#entity-group-transactions)
+* EGT(엔터티 그룹 트랜잭션)
 * [엔터티 수정](#modifying-entities)  
 
 ## <a name="data-series-pattern"></a>데이터 계열 패턴
@@ -454,7 +454,7 @@ Table service를 사용하면 여러 엔터티를 저장하여 252개가 넘는 
 ### <a name="related-patterns-and-guidance"></a>관련 패턴 및 지침
 이 패턴을 구현할 때 다음 패턴 및 지침도 관련이 있을 수 있습니다.  
 
-* [엔터티 그룹 트랜잭션](#entity-group-transactions)
+* EGT(엔터티 그룹 트랜잭션)
 * [병합 또는 바꾸기](#merge-or-replace)
 
 ## <a name="large-entities-pattern"></a>큰 엔터티 패턴
@@ -556,7 +556,7 @@ Storage Analytics는 로그 메시지를 내부적으로 버퍼한 다음 해당
 이 섹션에서는 이전 섹션에 설명된 패턴을 구현할 때 염두에 두어야 하는 몇 가지 고려 사항을 알아봅니다. 이 섹션에서는 대부분 Storage 클라이언트 라이브러리(이 문서 작성 당시 버전 4.3.0)를 사용하는 C#으로 작성된 예제를 사용합니다.  
 
 ## <a name="retrieving-entities"></a>엔터티 검색
-[쿼리를 위한 디자인](#design-for-querying)섹션에 설명된 대로 가장 효율적인 쿼리는 지점 쿼리입니다. 그러나 일부 시나리오에서는 여러 엔터티를 검색해야 할 수 있습니다. 이 섹션에서는 Storage 클라이언트 라이브러리를 사용하여 엔터티를 검색하는 몇 가지 일반적인 접근 방식을 설명합니다.  
+쿼리를 위한 디자인 섹션의 설명처럼 가장 효율적인 쿼리는 지점 쿼리입니다. 그러나 일부 시나리오에서는 여러 엔터티를 검색해야 할 수 있습니다. 이 섹션에서는 Storage 클라이언트 라이브러리를 사용하여 엔터티를 검색하는 몇 가지 일반적인 접근 방식을 설명합니다.  
 
 ### <a name="executing-a-point-query-using-the-storage-client-library"></a>Storage 클라이언트 라이브러리를 사용하여 지점 쿼리 실행
 지점 쿼리를 실행하는 가장 간편한 방법은 **PartitionKey** 값이 "Sales"이고 **RowKey** 값이 "212"인 엔터티를 검색하는 **Retrieve** 테이블 작업을 다음 C# 코드 조각에 표시된 대로 사용하는 것입니다.  

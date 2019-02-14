@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: f0f3396852720bbbb31e46f7a9913d9d1bdc4a6c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8798ecd15c673c26c5b1be0920887ff493cc6a85
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157247"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818688"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Bing Image Search API를 사용하여 이미지 정보 가져오기
 
@@ -221,7 +221,7 @@ Host: api.cognitive.microsoft.com
 -   오른쪽: 290 / 300 = 0.9667...  
 -   아래쪽: 150 / 200 = 0.75  
 
-Bing이 후속 인사이트 호출에서 반환하는 지역을 사용할 수 있습니다. 예를 들어 인식되는 엔터티의 이미지와 시각적 유사 항목을 가져옵니다. 자세한 내용은 [시각적 유사 항목 및 엔터티 인식 모듈을 사용하기 위해 이미지 자르기](#croppingimages)를 참조하세요. 다음은 이미지를 자르는 데 사용하려는 지역 필드 및 쿼리 매개 변수 간의 매핑을 보여줍니다.  
+Bing이 후속 인사이트 호출에서 반환하는 지역을 사용할 수 있습니다. 예를 들어 인식되는 엔터티의 이미지와 시각적 유사 항목을 가져옵니다. 자세한 내용은 시각적 유사 항목 및 엔터티 인식 모듈을 사용하기 위한 이미지 자르기를 참조하세요. 다음은 이미지를 자르는 데 사용하려는 지역 필드 및 쿼리 매개 변수 간의 매핑을 보여줍니다.  
 
 -   왼쪽은 [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)에 매핑됩니다.  
 -   위쪽은 [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)에 매핑됩니다.  

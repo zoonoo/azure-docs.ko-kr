@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579331"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816580"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -93,7 +93,7 @@ ms.locfileid: "53579331"
 
     활동 로그에 대한 새 경고 규칙이 생성되고 창의 오른쪽 위에 확인 메시지가 나타납니다.
 
-    규칙을 사용/사용하지 않도록 설정, 편집 또는 삭제할 수 있습니다. 활동 로그 규칙 관리에 대해 [자세히 알아보세요](#view-and-manage-activity-log-alert-rules-in-azure-portal).
+    규칙을 사용/사용하지 않도록 설정, 편집 또는 삭제할 수 있습니다. 활동 로그 규칙 관리에 대해 자세히 알아보세요.
 
 
 활동 로그에 경고 규칙을 만들 수 있는 조건을 이해하기 위한 간단한 비유는 [Azure Portal의 Activity Log](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal)를 통해 이벤트를 탐색하거나 필터링하는 것입니다. Azure Monitor-활동 로그에서 필요한 이벤트를 필터링하거나 찾고 **활동 로그 경고 추가** 단추를 사용하여 경고를 만들 수 있습니다. 그런 다음, 위의 자습서에 설명된 대로 4단계를 수행합니다.
@@ -203,14 +203,14 @@ ms.locfileid: "53579331"
 [Azure Monitor - 활동 로그 경고 API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts)는 REST API이며 Azure Resource Manager REST API와 완벽하게 호환됩니다. 따라서 Resource Manager cmdlet 뿐 아니라 Azure CLI를 사용하여 Powershell을 통해 사용할 수 있습니다.
 
 ## <a name="powershell"></a>PowerShell
-[리소스 템플릿 섹션](#manage-alert-rules-for-activity-log-using-azure-resource-template)에 이전에 표시된 샘플 리소스 템플릿(sampleActivityLogAlert.json)에 대한 Azure Resource Manager PowerShell cmdlet을 통한 사용량은 아래에 나와 있습니다.
+이전에 리소스 템플릿 섹션에 표시된 샘플 리소스 템플릿(sampleActivityLogAlert.json)에 대한 Azure Resource Manager PowerShell cmdlet을 통한 사용량은 아래에 나와 있습니다.
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 여기에서 sampleActivityLogAlert.parameters.json에는 경고 규칙 생성에 필요한 매개 변수에 대해 제공된 값이 있습니다.
 
 ## <a name="cli"></a>CLI
-[리소스 템플릿 섹션](#manage-alert-rules-for-activity-log-using-azure-resource-template)에 이전에 표시된 샘플 리소스 템플릿(sampleActivityLogAlert.json)에 대한 Azure CLI의 Azure Resource Manager 명령을 통한 사용량은 아래에 나와 있습니다.
+이전에 리소스 템플릿 섹션에 표시된 샘플 리소스 템플릿(sampleActivityLogAlert.json)에 대한 Azure CLI의 Azure Resource Manager 명령을 통한 사용량은 아래에 나와 있습니다.
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json

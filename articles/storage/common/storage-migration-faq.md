@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 095c592e53f44cb674994c440258bcca1bfa760c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77963377d322a1c70226ceb772273127bec380de
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467173"
+ms.locfileid: "55506808"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -272,7 +272,7 @@ Azure CLI를 사용할 수 있습니다.
 
 **복제된 저장소 계정(예: 영역 중복 저장소, 지역 중복 저장소 또는 읽기 권한 액세스 지역 중복 저장소)의 경우 보조 지역에 저장된 데이터에 액세스하려면 어떻게 할까요?**
 
--   영역 중복 저장소 또는 지역 중복 저장소를 사용하는 경우 장애 조치가 발생하지 않으면 보조 지역의 데이터에 액세스할 수 없습니다. 장애 조치 프로세스에 대한 자세한 내용은 [저장소 장애 조치(failover)가 발생할 경우 예상 결과](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs)를 참조하세요.
+-   영역 중복 스토리지 또는 지역 중복 스토리지를 사용하는 경우 해당 지역으로 장애 조치를 시작하지 않으면 보조 지역의 데이터에 액세스할 수 없습니다. 장애 조치에 대한 자세한 내용은 [Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(failover)(미리 보기)](storage-disaster-recovery-guidance.md)를 참조하세요.
 
 -   읽기 액세스 지역 중복 저장소를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
       

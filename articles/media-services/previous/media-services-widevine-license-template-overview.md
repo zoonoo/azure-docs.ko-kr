@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 065845bb2abd02f02fe2050780bc0613cbd2f12c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 4b5196a995576e5b00a988e14183eb720d5b2eae
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036005"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989871"
 ---
-# <a name="widevine-license-template-overview"></a>Widevine 라이선스 템플릿 개요
+# <a name="widevine-license-template-overview"></a>Widevine 라이선스 템플릿 개요 
 Azure Media Services를 사용하여 Google Widevine 라이선스를 구성하고 요청할 수 있습니다. 플레이어가 Widevine으로 보호된 콘텐츠를 재생하려고 하면 라이선스 배달 서비스로 요청이 전송되어 라이선스를 얻습니다. 라이선스 서비스가 요청을 승인하면 서비스에서 라이선스를 발급합니다. 클라이언트로 전송되며 지정된 콘텐츠를 암호 해독하고 재생하는 데 사용됩니다.
 
 Widevine 라이선스 요청 형식은 JSON 메시지입니다.  
@@ -59,7 +59,7 @@ Widevine 라이선스 요청 형식은 JSON 메시지입니다.
     }
 
 ## <a name="json-message"></a>JSON 메시지
-| 이름 | 값 | 설명 |
+| Name | 값 | 설명 |
 | --- | --- | --- |
 | payload |Base64로 인코드된 문자열 |클라이언트에서 보낸 라이선스 요청입니다. |
 | content_id |Base64로 인코드된 문자열 |각 content_key_specs.track_type의 키 ID와 콘텐츠 키를 파생하는 데 사용되는 식별자입니다. |
@@ -77,7 +77,7 @@ Widevine 라이선스 요청 형식은 JSON 메시지입니다.
 
 use_policy_overrides_exclusively 옵션에 관계없이 모든 트랙에 대해 각 content_key_specs 값을 지정해야 합니다. 
 
-| 이름 | 값 | 설명 |
+| Name | 값 | 설명 |
 | --- | --- | --- |
 | content_key_specs. track_type |string |트랙 유형 이름입니다. 라이선스 요청에 Content_key_specs를 지정한 경우 모든 트랙 유형을 명시적으로 지정해야 합니다. 이렇게 하지 않으면 이전 10초 재생에 실패합니다. |
 | content_key_specs  <br/> security_level |uint32 |재생에 대한 클라이언트 견고성 요구 사항을 정의합니다. <br/> - 소프트웨어 기반 화이트 박스 암호화가 필요합니다. <br/> - 소프트웨어 암호화 및 난독 처리된 디코더가 필요합니다. <br/> - 하드웨어 기반의 신뢰할 수 있는 실행 환경에서 키 자료 및 암호화 작업을 수행해야 합니다. <br/> - 하드웨어 기반의 신뢰할 수 있는 실행 환경에서 콘텐츠의 암호화 및 디코딩을 수행해야 합니다.  <br/> - 하드웨어 기반의 신뢰할 수 있는 실행 환경에서 미디어의 암호화, 디코딩 및 모든 처리(압축 및 압축 해제)를 수행해야 합니다. |
@@ -86,7 +86,7 @@ use_policy_overrides_exclusively 옵션에 관계없이 모든 트랙에 대해 
 | content_key_specs.key_id |Base64로 인코드된 문자열 이진, 16바이트 |키의 고유 식별자. |
 
 ## <a name="policy-overrides"></a>정책 재정의
-| 이름 | 값 | 설명 |
+| Name | 값 | 설명 |
 | --- | --- | --- |
 | policy_overrides. can_play |Boolean, true 또는 false |콘텐츠의 재생이 허용됨을 나타냅니다. 기본값은 false입니다. |
 | policy_overrides. can_persist |Boolean, true 또는 false |라이선스를 오프라인 용도로 비휘발성 저장소에 저장할 수 있음을 나타냅니다. 기본값은 false입니다. |
@@ -101,7 +101,7 @@ use_policy_overrides_exclusively 옵션에 관계없이 모든 트랙에 대해 
 | policy_overrides. renew_with_usage |Boolean, true 또는 false |사용이 시작될 때 갱신을 위해 라이선스가 전송됨을 나타냅니다. 이 필드는 can_renew가 true인 경우에만 사용됩니다. |
 
 ## <a name="session-initialization"></a>세션 초기화
-| 이름 | 값 | 설명 |
+| Name | 값 | 설명 |
 | --- | --- | --- |
 | provider_session_token |Base64로 인코드된 문자열 |이 세션 토큰은 라이선스에 다시 전달되고 후속 갱신에 존재합니다. 세션 토큰은 세션 후에 지속되지 않습니다. |
 | provider_client_token |Base64로 인코드된 문자열 |라이선스 응답으로 다시 보낼 클라이언트 토큰입니다. 클라이언트 요청에 클라이언트 토큰이 포함된 경우 이 값은 무시됩니다. 클라이언트 토큰은 라이선스 세션 후에도 지속됩니다. |

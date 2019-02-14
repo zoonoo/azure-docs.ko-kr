@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 3f01d5342fbeeb5cb5e19af63a0dd91128778859
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7358f259d4c38157a203369e9eadae28710f4290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823235"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993710"
 ---
-# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>워크플로 디자이너와 고급 Encoding 워크플로 만들기
+# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>워크플로 디자이너와 고급 Encoding 워크플로 만들기  
 ## <a name="overview"></a>개요
 **Workflow Designer**는 **미디어 인코더 Premium 워크플로**를 사용하여 인코딩할 워크플로를 설계하고 만드는 데 사용되는 Windows 데스크톱 도구입니다.
 워크플로 디자이너 도구의 강력한 기능을 사용하여 **미디어 인코더 프리미엄**에서 실행될 복잡한 워크플로를 설계하고 만들 수 있습니다.  

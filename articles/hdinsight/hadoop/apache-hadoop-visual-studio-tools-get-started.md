@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: dc93d0b44d6d99e8418d4333ca8698bc9ebf3a96
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a23a2f536f765c62919960f3c582d04543b1f49a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629682"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820831"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행
 
@@ -250,11 +250,11 @@ Tez 작업에 대한 Hive 작업 실행 보기를 사용하여 Hive 작업에 �
 ![Data Lake Visual Studio Tools - 작업 실행 보기 창의 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png "작업 실행 보기")
 
 ## <a name="run-hive-batch-jobs"></a>Hive 일괄 작업 실행
-HDInsight 클러스터(대화형 쿼리 클러스터 제외)에 대해 Hive 스크립트를 테스트하는 경우 시간이 많이 걸릴 수 있습니다. 이 프로세스는 몇 분 이상 걸릴 수 있습니다. Data Lake Tools for Visual Studio는 라이브 클러스터에 연결하지 않고도 Hive 스크립트의 유효성을 로컬로 검사할 수 있습니다. 대화형 쿼리 실행에 대한 자세한 내용은 [대화형 Hive 쿼리 실행](#run-interactive-hive-queries)을 참조하세요.
+HDInsight 클러스터(대화형 쿼리 클러스터 제외)에 대해 Hive 스크립트를 테스트하는 경우 시간이 많이 걸릴 수 있습니다. 이 프로세스는 몇 분 이상 걸릴 수 있습니다. Data Lake Tools for Visual Studio는 라이브 클러스터에 연결하지 않고도 Hive 스크립트의 유효성을 로컬로 검사할 수 있습니다. 대화형 쿼리 실행에 대한 자세한 내용은 대화형 Hive 쿼리 실행을 참조하세요.
 
 Data Lake Tools for Visual Studio를 사용하여 특정 Hive 작업의 Yarn 로그를 수집하고 표시하여 Hive 작업에 대한 자세한 정보를 볼 수 있습니다.
 
-Hive 일괄 처리 작업을 실행하는 방법에 대한 자세한 내용은 [대화형 Hive 쿼리 실행](#run-interactive-hive-queries)을 참조하세요. 이 섹션의 정보는 실행 시간이 더 긴 Hive 일괄 처리 작업 실행에 적용됩니다.
+Hive 일괄 처리 작업을 실행하는 방법에 대한 자세한 내용은 대화형 Hive 쿼리 실행을 참조하세요. 이 섹션의 정보는 실행 시간이 더 긴 Hive 일괄 처리 작업 실행에 적용됩니다.
 
 ## <a name="run-apache-pig-scripts"></a>Apache Pig 스크립트 실행
 Data Lake Tools for Visual Studio를 사용하여 Pig 스크립트를 만들고 HDInsight 클러스터에 제출할 수 있습니다. 먼저 템플릿에서 Pig 프로젝트를 만듭니다. 그런 다음, 해당 스크립트를 HDInsight 클러스터에 제출합니다.

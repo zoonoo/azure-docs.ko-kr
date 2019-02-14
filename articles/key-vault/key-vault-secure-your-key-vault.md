@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 9877698c8c6af68c5ffd88dab37150274ce87b37
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8a0300eeda49d85ffc08db8f285550e217613dcf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077337"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821619"
 ---
 # <a name="secure-your-key-vault"></a>키 자격 증명 모음 보안
 
@@ -34,7 +34,7 @@ Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 
 
 여기서 다루는 항목에 대한 간략한 개요는 다음과 같습니다.
 
-[Azure Active Directory를 통한 인증](#authentication-using-azure-active-directory) - 관리 평면과 데이터 평면을 통해 키 자격 증명 모음에 액세스하기 위해 호출자에서 Azure Active Directory를 통해 인증하는 방법을 설명합니다. 
+Azure Active Directory를 통한 인증 - 관리 평면과 데이터 평면을 통해 키 자격 증명 모음에 액세스하기 위해 호출자에서 Azure Active Directory를 통해 인증하는 방법을 설명합니다. 
 
 인증의 경우 두 평면은 Azure AD(Azure Active Directory)를 사용합니다. 권한 부여를 위해서는 관리 평면에서 RBAC(역할 기반 액세스 제어)를 사용하는 반면 데이터 평면에서는 Key Vault 액세스 정책을 사용합니다.
 

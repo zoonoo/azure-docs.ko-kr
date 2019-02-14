@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 38852e80948f9937ce2711ee3d29d6a37e1da5c3
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6e62e923b6e983dfff8eb72c9526708a3b360930
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428582"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494751"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Azure Automation을 사용하여 작업 트리거
 
@@ -106,7 +106,7 @@ ms.locfileid: "54428582"
 
     ![Runbook 추가 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. StorSimple 데이터 관리자 서비스의 이름, 연결된 리소스 그룹 및 작업 정의 이름 등의 매개 변수를 제공합니다. 테스트를 **시작**합니다. 실행이 완료되면 보고서가 생성됩니다. 자세한 내용은 [Runbook 테스트](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook) 방법을 참조하세요.
+6. StorSimple Data Manager 서비스의 이름, 연결된 리소스 그룹 및 작업 정의 이름 등의 매개 변수를 제공합니다. 테스트를 **시작**합니다. 실행이 완료되면 보고서가 생성됩니다. 자세한 내용은 [Runbook 테스트](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook) 방법을 참조하세요.
 
     ![Runbook 추가 5](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 

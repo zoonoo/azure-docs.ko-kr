@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: a3f47726b1776b260ff8cc5eac766c23053d4fd0
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462021"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728405"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -40,7 +40,7 @@ IP 방화벽 규칙은 각 요청이 시작된 IP 주소를 기준으로 하여 
 Azure SQL Database는 [Virtual Network 규칙](sql-database-vnet-service-endpoint-rule-overview.md)을 통해 Virtual Network 내의 선택한 서브넷에서 전송된 통신만 수락할 수 있습니다.
 
 > [!NOTE]
-> 방화벽 규칙을 사용한 액세스 제어는 **Azure SQL Database Managed Instance**에 적용되지 않습니다. 필요한 네트워킹 구성에 대한 자세한 내용은 [Managed Instance에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
+> 방화벽 규칙을 사용한 액세스 제어는 **관리되는 인스턴스**에 적용되지 *않습니다*. 필요한 네트워킹 구성에 대한 자세한 내용은 [관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
 
 ## <a name="access-management"></a>액세스 관리
 
@@ -64,7 +64,7 @@ Azure SQL Database는 [Virtual Network 규칙](sql-database-vnet-service-endpoin
     사용 가능한 추가 Azure AD 인증 옵션으로는 [다단계 인증](../active-directory/authentication/concept-mfa-howitworks.md) 및 [조건부 액세스](sql-database-conditional-access.md)를 비롯한 [SQL Server Management Studio용 Active Directory 유니버설 인증](sql-database-ssms-mfa-authentication.md) 연결이 있습니다.
 
 > [!IMPORTANT]
-> Azure 내에서 데이터베이스와 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 아티클에 대한 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요. 방화벽 규칙을 사용한 액세스 제어는 **Azure SQL Database Managed Instance**에 적용되지 않습니다. 필요한 네트워킹 구성에 대한 자세한 내용은 [Managed Instance에 연결](sql-database-managed-instance-connect-app.md)하는 방법에 대한 다음 문서를 참조하세요.
+> Azure 내에서 데이터베이스와 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 아티클에 대한 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요. 방화벽 규칙을 사용한 액세스 제어는 **관리되는 인스턴스**에 적용되지 *않습니다*. 필요한 네트워킹 구성에 대한 자세한 내용은 [관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md)에 관한 다음 문서를 참조하세요.
 
 Azure SQL Database 내에서 사용자에게 할당되는 권한을 지칭하는 권한 부여는 사용자가 수행할 수 있는 작업을 결정합니다. 데이터베이스 수준 권한을 정의하는 [데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles)에 사용자 계정을 추가하거나, 사용자에게 특정 [개체 수준 권한](/sql/relational-databases/security/permissions-database-engine)을 부여하는 방식으로 권한을 제어합니다. 자세한 내용은 [로그인 및 사용자](sql-database-manage-logins.md)를 참조하세요.
 
@@ -86,11 +86,11 @@ SQL Database는 감사 및 위협 검색 기능을 제공하여 고객 데이터
 
 ### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>Log Analytics 및 Event Hubs의 SQL 감사
 
-SQL Database 감사는 고객이 소유한 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 기록하여 보안 표준 준수 상태를 유지할 수 있도록 지원하며 데이터베이스 활동을 추적합니다. 사용자는 감사를 통해 진행 중인 데이터베이스 활동을 모니터링하고 이전 활동을 분석 및 조사하여 잠재적 위협이나 악용 의심 사례 및 보안 위반을 식별할 수 있습니다. 자세한 내용은 [SQL Database 감사 시작](sql-database-auditing.md)을 참조하세요.  
+SQL Database 감사는 데이터베이스 활동을 추적하며 고객이 소유한 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 기록하여 보안 표준 규정 준수 상태를 유지할 수 있도록 지원합니다. 사용자는 감사를 통해 진행 중인 데이터베이스 활동을 모니터링하고 이전 활동을 분석 및 조사하여 잠재적 위협이나 악용 의심 사례 및 보안 위반을 식별할 수 있습니다. 자세한 내용은 [SQL Database 감사 시작](sql-database-auditing.md)을 참조하세요.  
 
-### <a name="sql-threat-detection"></a>SQL 위협 검색
+### <a name="threat-detection"></a>위협 감지
 
-위협 검색을 수행하면 감사 로그를 분석해 유해한 데이터베이스 액세스/악용 시도와 비정상적인 동작을 파악함으로써 감사 효율성을 개선할 수 있습니다. SQL 삽입 공격, 데이터 침투 가능성, 무차별 암호 대입 공격(brute force attack) 등의 의심스러운 활동이나 비정상적인 액세스 패턴이 있으면 경고가 생성됩니다. [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 위협 검색 경고를 확인할 수 있습니다. 여기서는 의심스러운 활동의 세부 정보가 제공되며, 위협 완화를 위한 조치와 함께 추가 조사를 위한 권장 사항이 제공됩니다. 위협 감지 비용은 $15/서버/월입니다. 최초 60일 동안은 무료로 사용 가능합니다. 자세한 내용은 [SQL Database 위협 감지 시작](sql-database-threat-detection.md)을 참조하세요.
+위협 탐지를 수행하면 감사 로그를 분석해 유해한 데이터베이스 액세스 또는 악용 시도와 비정상적인 동작을 파악함으로써 감사 효율성을 개선할 수 있습니다. SQL 삽입 공격, 데이터 침투 가능성, 무차별 암호 대입 공격(brute force attack) 등의 의심스러운 활동이나 비정상적인 액세스 패턴이 있으면 경고가 생성됩니다. [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 위협 탐지 경고를 확인할 수 있습니다. 여기서는 의심스러운 활동의 세부 정보가 제공되며, 위협 완화를 위한 조치와 함께 추가 조사를 위한 권장 사항이 제공됩니다. 위협 탐지 비용은 $15/서버/월입니다. 최초 60일 동안은 무료로 사용 가능합니다. 자세한 내용은 [SQL Database 위협 탐지 시작](sql-database-threat-detection.md)을 참조하세요.
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -137,19 +137,19 @@ SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 �
 
 ## <a name="security-management"></a>보안 관리
 
-### <a name="sql-vulnerability-assessment"></a>SQL 취약성 평가
+### <a name="vulnerability-assessment"></a>취약점 평가
 
-[SQL 취약성 평가](sql-vulnerability-assessment.md)는 전반적인 데이터베이스 보안을 미리 개선하기 위해 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 손쉽게 구성 가능한 서비스입니다. VA(취약성 평가)는 고급 SQL 보안 기능용 통합 패키지인 SQL ADS(Advanced Data Security) 제품에 포함되어 있습니다. 중앙 SQL ADS 포털을 통해 취약성 평가에 액세스하고 취약성 평가 서비스를 관리할 수 있습니다.
+[취약성 평가](sql-vulnerability-assessment.md)는 전반적인 데이터베이스 보안을 사전에 개선하기 위해 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 손쉽게 구성 가능한 서비스입니다. VA(취약성 평가)는 고급 SQL 보안 기능용 통합 패키지인 ADS(Advanced Data Security) 제품에 포함되어 있습니다. 중앙 SQL ADS 포털을 통해 취약성 평가에 액세스하고 관리할 수 있습니다.
 
 ### <a name="data-discovery--classification"></a>데이터 검색 및 분류
 
-데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터를 검색, 분류, 레이블 지정 및 보호하기 위한 Azure SQL Database에 내장된 고급 기능을 제공합니다. 업무/금융, 의료, 개인 데이터 등의 매우 중요한 데이터를 검색하고 분류하는 작업은 조직 정보 보호 상태를 유지하는 데 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
+데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터를 검색, 분류, 레이블 지정 및 보호하기 위한 Azure SQL Database에 기본 제공된 고급 기능을 제공합니다. 업무/금융, 의료, 개인 데이터 등의 매우 중요한 데이터를 검색하고 분류하는 작업은 조직 정보 보호 상태를 유지하는 데 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
 
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 - 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 액세스 제어 및 보안 강화.
 - 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원.
 
-자세한 내용은 [SQL DB Data 검색 및 분류 시작](sql-database-data-discovery-and-classification.md)을 참조하세요.
+자세한 내용은 [데이터 검색 및 분류 시작](sql-database-data-discovery-and-classification.md)을 참조하세요.
 
 ### <a name="compliance"></a>규정 준수
 

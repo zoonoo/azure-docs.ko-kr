@@ -1,5 +1,5 @@
 ---
-title: '가상 네트워크 게이트웨이 삭제: Azure portal: Resource Manager | Microsoft Docs'
+title: '가상 네트워크 게이트웨이 삭제: Azure Portal: Resource Manager | Microsoft Docs'
 description: Resource Manager 배포 모델에서 Azure Portal을 사용하여 가상 네트워크 게이트웨이를 삭제합니다.
 services: vpn-gateway
 documentationcenter: na
@@ -7,12 +7,12 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 78af43510e5fc2bed38e109a546944d4a649241c
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d0c54a00afd723b68bedc0a305cfb0f16edf4ac9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984114"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816258"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>포털을 사용하여 가상 네트워크 게이트웨이 삭제
 
@@ -60,5 +60,5 @@ ms.locfileid: "49984114"
 리소스 그룹에 리소스를 유지하지 않고 새로 시작하려는 경우 전체 리소스 그룹을 삭제하면 됩니다. 모든 항목을 제거하는 빠른 방법입니다. 다음 단계는 Resource Manager 배포 모델에만 적용됩니다.
 
 1. **모든 리소스**에서 리소스 그룹을 찾고 클릭하여 블레이드를 엽니다.
-2. **삭제**를 클릭합니다. 삭제 블레이드에서 영향을 받는 리소스를 봅니다. 해당 리소스를 모두 삭제할 것인지 확인합니다. 그렇지 않은 경우 이 문서의 맨 위에 있는 [VPN Gateway 삭제](#deletegw) 단계를 사용합니다.
+2. **삭제**를 클릭합니다. 삭제 블레이드에서 영향을 받는 리소스를 봅니다. 해당 리소스를 모두 삭제할 것인지 확인합니다. 그렇지 않은 경우 이 문서의 맨 위에 있는 VPN Gateway 삭제 단계를 사용합니다.
 3. 계속하려면 삭제할 리소스 그룹의 이름을 입력한 다음 **삭제**를 클릭합니다.

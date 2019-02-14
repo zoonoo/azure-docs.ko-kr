@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 548bc9afb37f8c4a1c6c208a8741d1e3da0a784c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469399"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814115"
 ---
 # <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Azure SQL Database에서 독립 실행형 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스와 함께 트랜잭션 복제 사용
 
-트랜잭션 복제는 Azure SQL Database 또는 SQL Server의 테이블에서 원격 데이터베이스에 있는 테이블로 데이터를 복제할 수 있도록 하는 Azure SQL Database, Managed Instance 및 SQL Server의 기능입니다. 이 기능을 사용하면 서로 다른 데이터베이스의 여러 테이블을 동기화할 수 있습니다.
+트랜잭션 복제는 Azure SQL Database 또는 SQL Server의 테이블에서 원격 데이터베이스에 있는 테이블로 데이터를 복제할 수 있도록 하는 Azure SQL Database 및 SQL Server의 기능입니다. 이 기능을 사용하면 서로 다른 데이터베이스의 여러 테이블을 동기화할 수 있습니다.
 
 ## <a name="when-to-use-transactional-replication"></a>트랜잭션 복제를 사용하는 경우
 
@@ -38,15 +38,15 @@ ms.locfileid: "55469399"
 ![SQL Database를 사용한 복제](media/replication-to-sql-database/replication-to-sql-database.png)
 
 
-**게시자**는 배포자에게 업데이트를 전송하여 일부 테이블(문서)에 대해 변경된 내용을 게시하는 인스턴스 또는 서버입니다. 다음 버전의 SQL Server에서는 온-프레미스 SQL Server에서 Azure SQL Database로 게시할 수 있습니다.
+**게시자**는 배포자에게 업데이트를 전송하여 일부 테이블(문서)에 대해 변경된 내용을 게시하는 인스턴스 또는 서버입니다. 다음 버전의 SQL Server에서 지원되는 온-프레미스 SQL Server에서 모든 Azure SQL 데이터베이스로 게시할 수 있습니다.
 
-    - SQL Server 2019(미리 보기)
-    - SQL Server 2016 ~ SQL 2017
-    - SQL Server 2014 SP1 CU3 이상(12.00.4427)
-    - SQL Server 2014 RTM CU10(12.00.2556)
-    - SQL Server 2012 SP3 이상(11.0.6020)
-    - SQL Server 2012 SP2 CU8(11.0.5634.0)
-    - Azure에서 게시 개체를 지원하지 않는 다른 버전의 SQL Server에서는 [데이터 다시 게시](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) 방법을 사용하여 데이터를 최신 버전의 SQL Server로 이동할 수 있습니다. 
+   - SQL Server 2019(미리 보기)
+   - SQL Server 2016 ~ SQL 2017
+   - SQL Server 2014 SP1 CU3 이상(12.00.4427)
+   - SQL Server 2014 RTM CU10(12.00.2556)
+   - SQL Server 2012 SP3 이상(11.0.6020)
+   - SQL Server 2012 SP2 CU8(11.0.5634.0)
+   - Azure에서 게시 개체를 지원하지 않는 다른 버전의 SQL Server에서는 [데이터 다시 게시](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) 방법을 사용하여 데이터를 최신 버전의 SQL Server로 이동할 수 있습니다. 
 
 **배포자**는 게시자에서 문서의 변경 내용을 수집하고 구독자에게 배포하는 인스턴스 또는 서버입니다. 배포자는 Azure SQL Database Managed Instance 또는 SQL Server(게시자 버전보다 같거나 높은 모든 버전)일 수 있습니다. 
 

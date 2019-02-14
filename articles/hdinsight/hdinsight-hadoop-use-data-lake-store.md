@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a174ae5eb31620646167f36a6f3e13605db5eac6
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5ba12e48092c02f9628e15166c84e871310d7556
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052771"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816376"
 ---
 # <a name="use-data-lake-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Storage 사용
 
@@ -69,7 +69,7 @@ Data Lake Storage를 기본 스토리지로 사용할 수 있으려면 다음 �
 - 모든 클러스터 폴더에 대한 경로.  예: adl://mydatalakestore/clusters.
 - 클러스터에 대한 폴더.  예: adl://mydatalakestore/clusters/cluster1storage.
 
-서비스 주체 및 액세스 부여에 대한 자세한 내용은 [Data Lake Storage 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
+서비스 주체 및 액세스 부여 만들기에 대한 자세한 내용은 Data Lake Storage 액세스 구성을 참조하세요.
 
 ### <a name="extracting-a-certificate-from-azure-keyvault-for-use-in-cluster-creation"></a>클러스터 생성에 사용하기 위해 Azure KeyVault에서 인증서 추출
 
@@ -117,12 +117,12 @@ Data Lake Storage를 기본 스토리지로 사용할 수 있으려면 파일이
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-서비스 주체 및 액세스 부여에 대한 자세한 내용은 [Data Lake Storage 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
+서비스 주체 및 액세스 부여 만들기에 대한 자세한 내용은 Data Lake Storage 액세스 구성을 참조하세요.
 
 
 ## <a name="use-more-than-one-data-lake-storage-accounts"></a>둘 이상의 Data Lake Storage 계정 사용
 
-추가로 Data Lake Storage 계정을 추가하고 둘 이상의 Data Lake Storage 계정을 추가하는 것은 하나 이상의 Data Lake Storage 계정에 있는 데이터에 HDInsight 클러스터 권한을 부여하여 수행합니다. [Data Lake Storage 액세스 구성](#configure-data-lake-store-access)을 참조하세요.
+추가로 Data Lake Storage 계정을 추가하고 둘 이상의 Data Lake Storage 계정을 추가하는 것은 하나 이상의 Data Lake Storage 계정에 있는 데이터에 HDInsight 클러스터 권한을 부여하여 수행합니다. Data Lake Storage 액세스 구성을 참조하세요.
 
 ## <a name="configure-data-lake-storage-access"></a>Data Lake Storage 액세스 구성
 

@@ -1,23 +1,17 @@
 ---
 title: ServiceNow를 사용하여 Azure 서비스 상태 경고 구성 | Microsoft Docs
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 ServiceNow 인스턴스로 가져옵니다.
-author: shawntabrizi
-services: service-health
-documentationcenter: service-health
-ms.assetid: ''
-ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: stephbaron
+ms.author: stbaron
 ms.topic: article
+ms.service: service-health
 ms.date: 11/14/2017
-ms.author: shtabriz
-ms.openlocfilehash: c1de3a914e3505e46ab0a4eeae4f3b2c8fe84790
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f17215a5695128bf2ea507efa0c12fdbba9467d2
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158366"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858861"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>ServiceNow를 사용하여 서비스 상태 경고 구성
 

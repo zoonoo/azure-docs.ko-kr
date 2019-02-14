@@ -1,5 +1,5 @@
 ---
-title: Azure Advisor 보안 권장 사항 | Microsoft Docs
+title: Azure Advisor로 리소스를 보다 안전하게 만들기 | Microsoft Docs
 description: Azure Advisor를 사용하여 Azure 배포의 보안을 향상시킵니다.
 services: advisor
 documentationcenter: NA
@@ -10,16 +10,16 @@ ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: d366ee02e3a5ef3c6f983c9cea23943343ab4a51
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 290af605525d552e73c5f3a7a961593689326946
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849788"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494326"
 ---
-# <a name="advisor-security-recommendations"></a>Advisor 보안 권장 사항 관리
+# <a name="make-resources-more-secure-with-azure-advisor"></a>Azure Advisor로 리소스를 보다 안전하게 만들기
 
 Azure Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다. 보안 권장 사항을 제공하기 위해 Azure Security Center와 통합됩니다. Advisor 대시보드의 **보안** 탭에서 보안 관련 권장 지침을 얻을 수 있습니다.
 

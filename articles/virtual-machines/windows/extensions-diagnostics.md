@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: fe24307f7ed01c64217bcb1f9f7645a30bce7f44
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 772c0a4b6cf57aa428f722fb90a0673f9e703627
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322826"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982797"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Windows VM용 Azure 진단 확장
 
@@ -59,13 +59,17 @@ az vm extension set \
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 
-`Set-AzureRmVMDiagnosticsExtension` 명령을 사용하여 Azure 진단 확장을 기존 가상 머신에 추가할 수 있습니다. [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure 진단을 사용하도록 설정](ps-extensions-diagnostics.md)을 참조하세요.
+`Set-AzVMDiagnosticsExtension` 명령을 사용하여 Azure 진단 확장을 기존 가상 머신에 추가할 수 있습니다. [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure 진단을 사용하도록 설정](ps-extensions-diagnostics.md)을 참조하세요.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
+
 ```powershell
 $vm_resourcegroup = "myvmresourcegroup"
 $vm_name = "myvm"
 $diagnosticsconfig_path = "DiagnosticsPubConfig.xml"
 
-Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
+Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
   -VMName $vm_name `
   -DiagnosticsConfigurationPath $diagnosticsconfig_path
 ```

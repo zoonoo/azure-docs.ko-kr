@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7505715641462f4a07d999ea419632bd91e925fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 21a3efb67f837a05f3c070d0805aa033f86efbd5
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438918"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822445"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
 
@@ -66,7 +66,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 2. 목록에서 세부 정보를 볼 네트워크 보안 그룹을 선택합니다. **설정**에서 **인바운드 보안 규칙** 및 **아웃바운드 보안 규칙**, **네트워크 인터페이스** 및 네트워크 보안 그룹이 연결된 **서브넷**을 볼 수 있습니다. 또한 **진단 로그**를 사용하거나 사용하지 않도록 설정하고 **효과적인 보안 규칙**을 볼 수 있습니다. 자세한 정보는 [진단 로그](virtual-network-nsg-manage-log.md) 및 [효과적인 보안 규칙](diagnose-network-traffic-filter-problem.md)을 참조합니다.
 3. 나열된 일반적인 Azure 설정에 대한 자세한 내용은 다음 문서를 참조하세요.
     *   [활동 로그](../azure-monitor/platform/activity-logs-overview.md)
-    *   [액세스 제어(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+    *   [액세스 제어(IAM)](../role-based-access-control/overview.md)
     *   [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
@@ -92,7 +92,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 
 ### <a name="delete-a-network-security-group"></a>네트워크 보안 그룹 삭제
 
-서브넷 또는 네트워크 인터페이스에 네트워크 보안 그룹이 연결되어 있는 경우 삭제할 수 없습니다. 네트워크 보안 그룹을 삭제하기 전에 모든 서브넷 및 네트워크 인터페이스에서 [분리](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource)합니다.
+서브넷 또는 네트워크 인터페이스에 네트워크 보안 그룹이 연결되어 있는 경우 삭제할 수 없습니다. 네트워크 보안 그룹을 삭제하기 전에 모든 서브넷 및 네트워크 인터페이스에서 분리합니다.
 
 1. 포털 맨 위에 있는 검색 상자에 *네트워크 보안 그룹*를 입력합니다. 검색 결과에 표시된 **네트워크 보안 그룹**을 선택합니다.
 2. 목록에서 삭제하려는 네트워크 보안 그룹을 선택합니다.
@@ -125,7 +125,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
     |프로토콜     | **모든**, **TCP** 또는 **UDP**를 선택합니다.        |         |
     |조치     | **허용** 또는 **거부**를 선택합니다.        |         |
     |우선 순위     | 네트워크 보안 그룹 내의 모든 보안 규칙에 대해 100-4096 사이의 고유한 값을 입력합니다. |규칙은 우선 순위에 따라 처리됩니다. 번호가 낮을수록 우선 순위가 높습니다. 규칙을 만들 때 100, 200, 300 같이 우선 순위 번호 사이의 간격을 그대로 두는 것이 좋습니다. 간격을 그대로 두면 향후 기존 규칙보다 우선 순위가 더 높거나 더 낮게 만들 필요가 있는 규칙을 추가하기가 더 쉬워집니다.         |
-    |이름     | 네트워크 보안 그룹 내에서 규칙에 대한 고유한 이름입니다.        |  이름은 최대 80자까지 가능합니다. 이름은 영문, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. 단 영문 또는 숫자로 시작하고 영문, 숫자 또는 밑줄로 끝나야 합니다.       |
+    |Name     | 네트워크 보안 그룹 내에서 규칙에 대한 고유한 이름입니다.        |  이름은 최대 80자까지 가능합니다. 이름은 영문, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. 단 영문 또는 숫자로 시작하고 영문, 숫자 또는 밑줄로 끝나야 합니다.       |
     |설명     | 선택적 설명입니다.        |         |
 
 **명령**
@@ -192,7 +192,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
     | 설정        | 값                                                   |
     | ---            | ---                                                     |
-    | 이름           | 이름은 각 리소스 그룹 내에서 고유해야 합니다.        |
+    | Name           | 이름은 각 리소스 그룹 내에서 고유해야 합니다.        |
     | 구독   | 구독을 선택합니다.                               |
     | 리소스 그룹 | 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. |
     | 위치       | 위치 선택                                       |
@@ -252,7 +252,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ### <a name="network-security-group"></a>네트워크 보안 그룹
 
-| 조치                                                        |   이름                                                                |
+| 조치                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   네트워크 보안 그룹 가져오기                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   네트워크 보안 그룹 만들기 또는 업데이트                             |
@@ -262,7 +262,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ### <a name="network-security-group-rule"></a>네트워크 보안 그룹 규칙
 
-| 조치                                                        |   이름                                                                |
+| 조치                                                        |   Name                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/rules/read            |   규칙 가져오기                                                            |
 | Microsoft.Network/networkSecurityGroups/rules/write           |   규칙 만들기 또는 업데이트                                               |
@@ -270,7 +270,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ### <a name="application-security-group"></a>애플리케이션 보안 그룹
 
-| 조치                                                                     | 이름                                                     |
+| 조치                                                                     | Name                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | IP 구성을 애플리케이션 보안 그룹에 조인|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 보안 규칙을 애플리케이션 보안 그룹에 조인    |

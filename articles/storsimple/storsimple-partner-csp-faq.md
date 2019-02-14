@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259941"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814285"
 ---
-# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>클라우드 솔루션 공급자 프로그램용 StorSimple: 질문과 대답
+# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>클라우드 솔루션 공급 기업 프로그램용 StorSimple: 질문과 대답
 
 
 ## <a name="overview"></a>개요
@@ -31,7 +31,7 @@ ms.locfileid: "51259941"
 
  - [StorSimple 및 CSP(클라우드 솔루션 공급자) 프로그램 모델](#storsimple-and-csp-model)
  - [파트너로 가상 배열 배포 및 관리](#deploy-and-manage-storsimple-as-a-partner)
- - [CSP용 StorSimple 파트너에 대한 지원](#support-for-storsimple-partners)
+ - CSP용 StorSimple 파트너에 대한 지원
 
 ## <a name="storsimple-and-csp-model"></a>StorSimple 및 CSP 모델
 

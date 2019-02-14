@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 1f6be45e7f53aff7f9b8957ca88efe7605e4a984
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 37e2da00ecbecdddcc8757e64c57b03774092e14
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889045"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814992"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기) 배포
 이 문서에서는 VM용 Azure Monitor를 설치하는 방법을 설명합니다. 이 서비스는 Azure VM(Virtual Machine)의 운영 체제 상태와 가상 머신 확장 집합 및 작업 환경의 가상 머신을 모니터링합니다. 또한 호스트될 수 있는 애플리케이션 종속성의 검색 및 매핑도 모니터링합니다. 
@@ -62,7 +62,7 @@ Azure Portal에서 단일 Azure VM에 대한 모니터링을 사용하도록 설
 * ServiceMap 및 InfrastructureInsights 솔루션을 설치합니다. 이 문서에 제공되는 Azure Resource Manager 템플릿을 사용해야만 이 설치를 완료할 수 있습니다.
 * 성능 카운터를 수집하도록 Log Analytics 작업 영역을 구성합니다.
 
-대규모 시나리오에 대한 작업 영역을 구성하려면 [대규모 배포에 대한 Log Analytics 작업 영역 설정](#setup-log-analytics-workspace)을 참조하세요.
+대규모 시나리오에 대한 작업 영역을 구성하려면 대규모 배포에 대한 Log Analytics 작업 영역 설정을 참조하세요.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -70,6 +70,7 @@ Azure Portal에서 단일 Azure VM에 대한 모니터링을 사용하도록 설
 
 |OS 버전 |성능 |지도 |상태 |
 |-----------|------------|-----|-------|
+|Windows Server 2019 | X | X |  |
 |Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |
 |Windows Server 2012 R2 | X | X | |
@@ -102,6 +103,7 @@ Azure Portal에서 단일 Azure VM에 대한 모니터링을 사용하도록 설
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
@@ -117,6 +119,7 @@ Azure Portal에서 단일 Azure VM에 대한 모니터링을 사용하도록 설
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 

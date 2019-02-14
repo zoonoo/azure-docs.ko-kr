@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 91e6c2d400fa7add33a6c8e8856a3b9f8cfef4a3
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912836"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819164"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
 
@@ -45,7 +45,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 ## <a name="how-to-use-the-hdfsbolt-with-hdinsight"></a>HDInsight에서 HdfsBolt를 사용하는 방법
 
 > [!IMPORTANT]  
-> HDInsight의 Storm에서 HdfsBolt를 사용하려면 먼저 스크립트 동작을 사용하여 필요한 jar 파일에 Storm에 대한 `extpath`를 복사해야 합니다. 자세한 내용은 [클러스터 구성](#configure)을 참조하세요.
+> HDInsight의 Storm에서 HdfsBolt를 사용하려면 먼저 스크립트 동작을 사용하여 필요한 jar 파일에 Storm에 대한 `extpath`를 복사해야 합니다. 자세한 내용은 클러스터 구성 섹션을 참조하세요.
 
 HdfsBolt는 사용자가 제공하는 파일 구성표를 사용하여 HDFS에 쓰는 방법을 인식합니다. HDInsight를 사용하는 경우 다음 구성표 중 하나를 사용합니다.
 

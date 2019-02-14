@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f0290a5f04a396c1d66e2dd1873eb313dcb3f66d
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811974"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818399"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>고급 미디어 인코더 Premium 워크플로 자습서
 ## <a name="overview"></a>개요
@@ -44,12 +44,12 @@ ms.locfileid: "54811974"
   * [별도 오디오 트랙 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
   * ["ISM" SMIL 파일 추가](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [다중 비트 전송률 MP4로 MXF Encoding - 향상된 청사진](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
-  * [강화할 워크플로 개요](#workflow-overview-to-enhance)
+  * 강화할 워크플로 개요
   * [파일 명명 규칙](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
   * [워크플로 루트에 구성 요소 속성 게시](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [게시된 속성 값을 사용하는 출력 파일 이름 생성](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
 * [다중 비트 전송률 MP4 출력에 미리 보기 추가](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
-  * [미리 보기를 추가하는 워크플로 개요](#workflow-overview-to-add-thumbnails-to)
+  * 미리 보기를 추가하는 워크플로 개요
   * [JPG Encoding 추가](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [색 공간 변환 처리](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
   * [미리 보기 작성](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)

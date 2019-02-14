@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: twhitney
-ms.openlocfilehash: e91c6fcb7d1943136ab1c110dd81445ab43164a7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 8cd7b33cca46433ec5efbc3a436f56ddc869a567
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100839"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820031"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -264,7 +264,8 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-템플릿에 제공된 설치 스크립트를 사용하여 클러스터의 이미지 저장소에 애플리케이션 패키지를 복사하고 애플리케이션 유형을 등록하며 애플리케이션의 인스턴스를 만듭니다.
+https://github.com/Azure-Samples/service-fabric-containers/의 템플릿에 제공된 설치 스크립트를 사용하여 클러스터의 이미지 저장소에 애플리케이션 패키지를 복사하고 애플리케이션 유형을 등록하며 애플리케이션 인스턴스를 만듭니다.
+
 
 ```bash
 ./install.sh

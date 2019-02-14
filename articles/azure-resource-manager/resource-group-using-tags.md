@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: aa3cd0305c1ac2db269dcc46243ec3da1232e6f6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079531"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734439"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>태그를 사용하여 Azure 리소스 구성
 
@@ -29,9 +29,15 @@ ms.locfileid: "55079531"
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
+## <a name="policies"></a>정책
+
+[Azure Policy](../governance/policy/overview.md)를 사용하여 태그 지정 규칙을 적용할 수 있습니다. 정책을 만들어 조직에 대해 예상되는 태그를 준수하지 않는 리소스의 시나리오가 구독에 배포되지 않도록 합니다. 수동으로 태그를 적용하거나 준수하지 않는 리소스를 검색하는 대신 배포 중에 필요한 태그를 자동으로 적용하는 정책을 만들 수 있습니다. 다음 섹션에서 태그에 대한 예제 정책을 보여줍니다.
+
+[!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
+
 ## <a name="powershell"></a>PowerShell
 
-이 문서의 예제에는 Azure PowerShell 6.0 이상이 필요합니다. 버전 6.0 이상이 없는 경우 [버전을 업데이트](/powershell/azure/install-az-ps)합니다.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 *리소스 그룹*에 대한 기존 태그를 보려면 다음을 사용합니다.
 
@@ -273,5 +279,4 @@ REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](/rest/api/bil
 ## <a name="next-steps"></a>다음 단계
 
 * 일부 리소스 유형은 태그를 지원하지 않습니다. 리소스 유형에 태그를 적용할 수 있는지 확인하려면 [Azure 리소스에 대한 태그 지원](tag-support.md)을 참조하세요.
-* 사용자 지정된 정책을 사용하여 구독 전체에 제한 사항 및 규칙을 적용할 수 있습니다. 정의한 정책을 사용하려면 모든 리소스에 특정 태그 값이 있어야 할 수도 있습니다. 자세한 내용은 [Azure Policy란?](../azure-policy/azure-policy-introduction.md)을 참조하세요.
 * 포털 사용에 대한 소개는 [Azure Portal을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.  

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3d0a3014fa224d6b5c85142e492afb0679f9f0b1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c188c23f87715b6ba5b90f6015b59f2a347ec0cf
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014684"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821323"
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -129,7 +129,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 >
 
 ### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간 데이터 복사
-온-프레미스 또는 Azure Virtual Machines/IaaS와 클라우드 저장소 간에 데이터를 복사할 때 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 는 온-프레미스 컴퓨터 또는 Virtual Machines에서 데이터 이동을 수행합니다. [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 기능을 사용하는 경우가 아니면 이 데이터는 클라우드의 서비스를 통과하지 않습니다. 이 경우 데이터는 스테이징 Azure Blob 저장소를 통과한 후 싱크 데이터 저장소에 기록됩니다.
+온-프레미스 또는 Azure Virtual Machines/IaaS와 클라우드 저장소 간에 데이터를 복사할 때 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 는 온-프레미스 컴퓨터 또는 Virtual Machines에서 데이터 이동을 수행합니다. [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 기능을 사용하는 경우가 아니면 이 데이터는 클라우드의 서비스를 통과하지 않습니다. 암호화를 사용하는 동안 Blob 또는 File Storage에 기록된 내용이 암호화됩니다.
 
 ## <a name="create-a-pipeline-with-copy-activity"></a>복사 활동을 포함하는 파이프라인 만들기
 두 가지 방법을 통해 복사 활동을 포함하는 파이프라인을 만들 수 있습니다.
@@ -209,8 +209,8 @@ Data Factory에서 예약 및 실행이 작동하는 방식에 대한 자세한 
 1. 네이티브 소스 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
 
-네이티브 형식 시스템에서 데이터 저장소용 .NET 형식으로의 매핑은 각 데이터 저장소 문서에 있습니다. 이러한 매핑을 확인하려면 [지원되는 데이터 저장소](#supported-data-stores) 테이블에서 해당 링크를 클릭하세요. 복사 활동에서 적절한 변환을 수행하도록 이러한 매핑을 사용하여 테이블을 만드는 동안 적절한 형식을 결정할 수 있습니다.
+네이티브 형식 시스템에서 데이터 저장소용 .NET 형식으로의 매핑은 각 데이터 저장소 문서에 있습니다. (지원되는 데이터 저장소 테이블에서 해당 링크를 클릭하세요.) 복사 활동에서 적절한 변환을 수행하도록 이러한 매핑을 사용하여 테이블을 만드는 동안 적절한 형식을 결정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 복사 작업에 대해 자세히 알아보려면 [Azure Blob 저장소에서 Azure SQL Database로 데이터를 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+* 복사 작업에 대해 자세히 알아보려면 [Azure Blob Storage에서 Azure SQL Database로 데이터를 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 * 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 데이터를 이동하는 방법에 대해 알아보려면 [온-프레미스에서 클라우드 데이터 저장소로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.

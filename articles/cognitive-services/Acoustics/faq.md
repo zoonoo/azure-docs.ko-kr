@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: 이 페이지에서는 다운로드 지침 및 준비 프로세스를 포함하여 프로세스 Acoustics에 대한 질문과 대답을 제공합니다.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 07e65e6ff544d6372197010a2b9d7f3f647eeb0f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 12dda5d7af1236ec2d7eddbe025b8fdba47d7bca
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166563"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881077"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 

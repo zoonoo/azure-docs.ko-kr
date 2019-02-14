@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: bb03506bac22c8c82e856f403710a4908af6f9de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7d77d72264580e4cde83f6cbb9f83bf7030d941e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149258"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>자습서: HR2day by Merces와 Azure Active Directory 통합
 
@@ -88,11 +88,11 @@ HR2day by Merces에서 Azure AD의 **사용자 이름**을 **Username**으로 �
 
 HR2day by Merces에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. [Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on): 사용자가 이 기능을 사용하도록 설정합니다.
-1. [Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user): Britta Simon으로 Azure AD Single Sign-On을 테스트합니다.
-1. [HR2day by Merces 테스트 사용자 만들기](#creating-an-hr2day-by-merces-test-user): Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 HR2day by Merces에 만듭니다.
-1. [Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user): Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-1. [Single Sign-On 테스트](#testing-single-sign-on): 구성이 작동하는지 여부를 확인합니다.
+1. Azure AD Single Sign-On 구성: 사용자가 이 기능을 사용하도록 설정합니다.
+1. Azure AD 테스트 사용자 만들기: Britta Simon으로 Azure AD Single Sign-On을 테스트합니다.
+1. HR2day by Merces 테스트 사용자 만들기: Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 HR2day by Merces에 만듭니다.
+1. Azure AD 테스트 사용자 할당: Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. Single Sign-On 테스트: 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 7d1a4e6b1093344d1217e8577a56f34cd3c1f52c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4f18b10ee3f4148badc8e53a9660c9f5c998aef7
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289460"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734337"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 자격 증명 모음 만들기
 
@@ -29,7 +29,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="create-a-request"></a>요청 만들기
 
-*PUT* 요청을 만들려면 `{subscription-id}` 매개 변수는 필수입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)을 참조합니다. 리소스에 대해 `{resourceGroupName}` 및 `{vaultName}`과 함께 `api-version` 매개 변수를 정의합니다. 이 문서에서는 `api-version=2016-06-01`을 사용합니다.
+*PUT* 요청을 만들려면 `{subscription-id}` 매개 변수는 필수입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조합니다. 리소스에 대해 `{resourceGroupName}` 및 `{vaultName}`과 함께 `api-version` 매개 변수를 정의합니다. 이 문서에서는 `api-version=2016-06-01`을 사용합니다.
 
 다음과 같은 헤더가 필요합니다.
 
@@ -44,7 +44,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-|이름  |필수  |형식  |설명  |
+|Name  |필수  |형식  |설명  |
 |---------|---------|---------|---------|
 |eTag     |         |   문자열      |  선택적 eTag       |
 |location     |  true       |문자열         |   리소스 위치      |
@@ -72,7 +72,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Recovery Services 자격 증명 모음을 만들거나 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-|이름  |type  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |   [자격 증명 모음](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)      | 확인        |
 |201 생성됨     | [자격 증명 모음](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vault)        |   생성일      |

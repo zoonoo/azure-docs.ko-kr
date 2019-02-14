@@ -6,17 +6,18 @@ keywords: 클립, 하위 클립, 인코딩, 미디어
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0894c3677b87fe48c130d648253dadd0d43429f4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 585cb88ca853954b23369c8e097583e7e8656355
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821450"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002142"
 ---
-# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Azure Media Clipper에서 클리핑 작업 제출
+# <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Azure Media Clipper에서 클리핑 작업 제출 
+
 Azure Media Clipper에서 클리핑 작업 제출을 처리하려면 **submitSubclipCallback** 메서드가 구현되어야 합니다. 이 함수는 웹 서비스에 대한 Clipper 출력의 HTTP POST를 구현하는 데 사용됩니다. 이 웹 서비스에서 인코딩 작업을 제출할 수 있습니다. Clipper의 출력은 렌더링된 작업의 Media Encoder Standard 인코딩 사전 설정이거나 동적 매니페스트 필터 호출에 대한 REST API 페이로드입니다. 이 통과 모델은 미디어 서비스 계정 자격 증명이 클라이언트 브라우저에서 보호되지 않으므로 필요합니다.
 
 다음 시퀀스 다이어그램에서는 브라우저 클라이언트, 웹 서비스 및 Azure Media Services 간의 워크플로를 설명합니다. ![Azure Media Clipper 시퀀스 다이어그램](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)

@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services 엔터티 개요 - Azure | Microsoft Docs
-description: 이 문서에서는 Azure Media Services 엔터티에 대해 간략히 설명합니다.
+title: Azure Media Services 엔터티 필터링, 순서 지정, 페이징 - Azure | Microsoft Docs
+description: 이 문서에서는 Azure Media Services 엔터티의 필터링, 순서 지정, 페이징에 대해 설명합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,27 +12,301 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3f3322245983508e374d081e5d7905f67344ad7a
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 4c6e3281bd2b37b60c8d165c6c3152e970a5ce32
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912649"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745099"
 ---
-# <a name="azure-media-services-entities-overview"></a>Azure Media Services 엔터티 개요
+# <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services 엔터티 필터링, 순서 지정, 페이징
 
-이 문서에서는 Azure Media Services 엔터티에 대해 간략히 설명하고, 각 엔터티가 Media Services 워크플로에서 사용되는 방법에 대해 자세히 설명하는 문서를 가리킵니다. 
+## <a name="overview"></a>개요
 
-| 항목 | 설명 |
-|---|---|
-| [계정 필터 및 자산 필터](filters-dynamic-manifest-overview.md)|고객에게 콘텐츠를 전송하는 경우(라이브 이벤트 또는 주문형 비디오 스트리밍) 클라이언트에는 기본 자산의 매니페스트 파일에 설명된 것보다 더 많은 유연성이 필요할 수 있습니다. Azure Media Services를 사용하면 [계정 필터](https://docs.microsoft.com/rest/api/media/accountfilters) 및 [자산 필터](https://docs.microsoft.com/rest/api/media/assetfilters)를 정의할 수 있습니다. 그런 다음, 미리 정의된 필터 기반의 **동적 매니페스트**를 사용합니다. |
-| [Assets](assets-concept.md)|[자산](https://docs.microsoft.com/rest/api/media/assets) 엔터티에는 디지털 파일(비디오, 오디오, 이미지, 썸네일 컬렉션, 텍스트 트랙 및 선택 자막 파일 포함)과 이러한 파일에 대한 메타데이터가 포함되어 있습니다. 디지털 파일이 자산에 업로드되면 Media Services 콘텐츠 워크플로 인코딩, 스트리밍, 분석에 사용할 수 있습니다.|
-| [콘텐츠 키 정책](content-key-policy-concept.md)|Media Services를 사용하여 컴퓨터에서 떠날 때부터 저장, 처리 및 전송에 이르기까지 미디어를 보호할 수 있습니다. Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다.|
-| [라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)|Media Services를 사용하면 Azure 클라우드에서 고객에게 라이브 이벤트를 전송할 수 있습니다. Media Services v3에서 라이브 스트리밍 이벤트를 구성하려면 [라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents) 및 [라이브 출력](https://docs.microsoft.com/rest/api/media/liveoutputs)에 대해 알고 있어야 합니다.|
-| [스트리밍 엔드포인트](streaming-endpoint-concept.md)|[스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints) 엔터티는 추가 배포를 위해 CDN(Content Delivery Network) 또는 클라이언트 플레이어 애플리케이션에 콘텐츠를 직접 전송할 수 있는 스트리밍 서비스를 나타냅니다. 스트리밍 엔드포인트 서비스의 아웃 바운드 스트림은 라이브 스트림 또는 Media Services 계정에 주문형 비디오 자산이 될 수 있습니다. Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트가 중지됨 상태로 만들어집니다. **기본** 스트리밍 엔드포인트는 삭제할 수 없습니다. 계정에서 추가 스트리밍 엔드포인트를 만들 수 있습니다. 비디오 스트리밍을 시작하려면 비디오를 스트림하려는 스트리밍 엔드포인트를 시작해야 합니다. |
-| [스트리밍 로케이터](streaming-locators-concept.md)|인코딩된 비디오 또는 오디오 파일을 재생하는 데 사용할 수 있는 URL을 클라이언트에 제공하려면 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들고 스트리밍 URL을 작성해야 합니다.|
-| [스트리밍 정책](streaming-policy-concept.md)| [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)을 사용하면 StreamingLocators에 대한 스트리밍 프로토콜 및 암호화 옵션을 정의할 수 있습니다. 만든 사용자 지정 스트리밍 정책의 이름을 지정하거나 Media Services에서 제공하는 미리 정의된 스트리밍 정책 중 하나를 사용할 수 있습니다. <br/><br/>사용자 지정 스트리밍 정책을 사용하는 경우 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 Media Service 계정에 대해 이러한 정책의 제한된 세트를 설계하고 스트리밍 로케이터에 해당 정책을 다시 사용해야 합니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.|
-| [Transforms 및 Jobs](transforms-jobs-concept.md)|[Transforms](https://docs.microsoft.com/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다.<br/><br/>[작업](https://docs.microsoft.com/rest/api/media/jobs)은 **변환**을 특정 입력 비디오 또는 오디오 콘텐츠에 적용하기 위한 Azure Media Services에 대한 실제 요청입니다. **작업**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. 입력 비디오의 위치는 HTTPS URL, SAS URL 또는 자산을 사용하여 지정할 수 있습니다.|
+Media Services에서 지원하는 Media Services v3 엔터티에 대한 OData 쿼리 옵션은 다음과 같습니다. 
+
+* $filter 
+* $orderby 
+* $top 
+* $skiptoken 
+
+연산자 설명:
+
+* Eq = 같음
+* Ne = 같지 않음
+* Ge = 크거나 같음
+* Le = 작거나 같음
+* Gt = 보다 큼
+* Lt = 보다 작음
+
+날짜/시간 형식의 엔터티 속성은 언제나 UTC 형식입니다.
+
+## <a name="page-results"></a>페이지 결과
+
+쿼리 응답에 많은 항목이 포함된 경우 서비스에서 "\@odata.nextLink" 속성을 반환하여 결과의 다음 페이지를 가져옵니다. 전체 결과 집합을 통해 페이지에 사용할 수 있습니다. 페이지 크기는 구성할 수 없습니다. 페이지 크기는 엔터티 형식에 따라 달라집니다. 자세한 내용은 다음 개별 섹션을 읽으세요.
+
+(해당 변경 내용이 다운로드되지 않은 컬렉션의 일부인 경우)컬렉션을 통해 페이징하는 동안 엔터티가 생성되거나 삭제되면 변경 내용이 반환된 결과에 반영됩니다. 
+
+> [!TIP]
+> 항상 다음 링크를 사용하여 컬렉션을 열거하고, 특정 페이지 크기에 따라 달라지지 않아야 합니다.
+
+## <a name="assets"></a>자산
+
+### <a name="filteringordering"></a>필터링/순서
+
+다음 표에서는 [자산](https://docs.microsoft.com/rest/api/media/assets) 속성에 필터림 및 순서 지정 옵션을 적용하는 방법을 보여줍니다. 
+
+|Name|Filter|순서|
+|---|---|---|
+|id|||
+|이름|eq, gt, lt| 오름차순 및 내림차순|
+|properties.alternateId |eq||
+|properties.assetId |eq||
+|properties.container |||
+|properties.created| eq, gt, lt| 오름차순 및 내림차순|
+|properties.description |||
+|properties.lastModified |||
+|properties.storageAccountName |||
+|properties.storageEncryptionFormat | ||
+|형식|||
+
+다음 C# 예제에서는 만든 날짜로 필터링합니다.
+
+```csharp
+var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
+var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
+```
+
+### <a name="pagination"></a>페이지 매김 
+
+네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 1000입니다.
+
+#### <a name="c-example"></a>C# 예제
+
+다음 C# 예제에서는 계정의 모든 자산을 통해 열거하는 방법을 보여줍니다.
+
+```csharp
+var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.Assets.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+#### <a name="rest-example"></a>REST 예제
+
+다음 예제에서 $skiptoken이 사용되는 위치를 잘 보세요. *amstestaccount*를 해당하는 계정 이름으로 바꾸고 *api-version* 값을 최신 버전으로 설정합니다.
+
+다음과 같은 자산 목록을 요청하면:
+
+```
+GET  https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
+x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
+Content-Type: application/json; charset=utf-8
+```
+
+다음과 유사한 응답을 받게 됩니다.
+
+```
+HTTP/1.1 200 OK
+ 
+{
+"value":[
+{
+"name":"Asset 0","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 0","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-5a4f-470a-9d81-6037d7c23eff","created":"2018-12-11T22:12:44.98Z","lastModified":"2018-12-11T22:15:48.003Z","container":"asset-98d07299-5a4f-470a-9d81-6037d7c23eff","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+},
+// lots more assets
+{
+"name":"Asset 517","id":"/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/amstestaccount/assets/Asset 517","type":"Microsoft.Media/mediaservices/assets","properties":{
+"assetId":"00000000-912e-447b-a1ed-0f723913b20d","created":"2018-12-11T22:14:08.473Z","lastModified":"2018-12-11T22:19:29.657Z","container":"asset-fd05a503-912e-447b-a1ed-0f723913b20d","storageAccountName":"amsdevc1stoaccount11","storageEncryptionFormat":"None"
+}
+}
+],"@odata.nextLink":"https:// management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517"
+}
+```
+
+그 후 가져오기 요청을 보내서 다음 페이지를 요청합니다.
+
+```
+https://management.azure.com/subscriptions/00000000-3761-485c-81bb-c50b291ce214/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$skiptoken=Asset+517
+```
+
+더 많은 REST 예제는 [자산 - 목록](https://docs.microsoft.com/rest/api/media/assets/list)을 참조하세요.
+
+## <a name="content-key-policies"></a>콘텐츠 키 정책
+
+### <a name="filteringordering"></a>필터링/순서
+
+다음 표에는 이러한 옵션을 [콘텐츠 키 정책](https://docs.microsoft.com/rest/api/media/contentkeypolicies) 속성에 적용하는 방법이 나와 있습니다. 
+
+|Name|Filter|순서|
+|---|---|---|
+|id|||
+|이름|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
+|properties.created |eq, ne, ge, le,  gt, lt|오름차순 및 내림차순|
+|properties.description |eq, ne, ge, le, gt, lt||
+|properties.lastModified|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
+|properties.options |||
+|properties.policyId|eq, ne||
+|형식|||
+
+### <a name="pagination"></a>페이지 매김
+
+네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 10입니다.
+
+다음 C# 예제에서는 계정의 모든 **콘텐츠 키 정책**을 열거하는 방법을 보여 줍니다.
+
+```csharp
+var firstPage = await MediaServicesArmClient.ContentKeyPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.ContentKeyPolicies.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+REST 예제는 [콘텐츠 키 정책 - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)를 참조하세요.
+
+## <a name="jobs"></a>교육
+
+### <a name="filteringordering"></a>필터링/순서
+
+다음 표에는 [작업](https://docs.microsoft.com/rest/api/media/jobs) 속성에 이러한 옵션을 적용하는 방법이 나와 있습니다. 
+
+| Name    | Filter                        | 순서 |
+|---------|-------------------------------|-------|
+| 이름                    | eq            | 오름차순 및 내림차순|
+| properties.state        | eq, ne        |                         |
+| properties.created      | gt, ge, lt, le| 오름차순 및 내림차순|
+| properties.lastModified | gt, ge, lt, le | 오름차순 및 내림차순| 
+
+
+### <a name="pagination"></a>페이지 매김
+
+작업 페이지 매김은 Media Services v3에서 지원됩니다.
+
+다음 C# 예제에서는 계정의 모든 작업을 통해 열거하는 방법을 보여줍니다.
+
+```csharp            
+List<string> jobsToDelete = new List<string>();
+var pageOfJobs = client.Jobs.List(config.ResourceGroup, config.AccountName, "Encode");
+
+bool exit;
+do
+{
+    foreach (Job j in pageOfJobs)
+    {
+        jobsToDelete.Add(j.Name);
+    }
+
+    if (pageOfJobs.NextPageLink != null)
+    {
+        pageOfJobs = client.Jobs.ListNext(pageOfJobs.NextPageLink);
+        exit = false;
+    }
+    else
+    {
+        exit = true;
+    }
+}
+while (!exit);
+
+```
+
+REST 예제는 [작업 - 목록](https://docs.microsoft.com/rest/api/media/jobs/list)을 참조하세요.
+
+## <a name="streaming-locators"></a>스트리밍 로케이터
+
+### <a name="filteringordering"></a>필터링/순서
+
+다음 표에는 이러한 옵션을 StreamingLocator 속성에 적용하는 방법이 나와 있습니다. 
+
+|Name|Filter|순서|
+|---|---|---|
+|id |||
+|이름|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
+|properties.alternativeMediaId  |||
+|properties.assetName   |||
+|properties.contentKeys |||
+|properties.created |eq, ne, ge, le,  gt, lt|오름차순 및 내림차순|
+|properties.defaultContentKeyPolicyName |||
+|properties.endTime |eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
+|properties.startTime   |||
+|properties.streamingLocatorId  |||
+|properties.streamingPolicyName |||
+|형식   |||
+
+### <a name="pagination"></a>페이지 매김
+
+네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 10입니다.
+
+다음 C# 예제에서는 계정의 모든 StreamingLocators를 열거하는 방법을 보여줍니다.
+
+```csharp
+var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+REST 예제의 경우 [스트리밍 로케이터 - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list)를 참조하세요.
+
+## <a name="streaming-policies"></a>스트리밍 정책
+
+### <a name="filteringordering"></a>필터링/순서
+
+다음 표에는 이러한 옵션을 StreamingPolicy 속성에 적용하는 방법이 나와 있습니다. 
+
+|Name|Filter|순서|
+|---|---|---|
+|id|||
+|이름|eq, ne, ge, le, gt, lt|오름차순 및 내림차순|
+|properties.commonEncryptionCbcs|||
+|properties.commonEncryptionCenc|||
+|properties.created |eq, ne, ge, le,  gt, lt|오름차순 및 내림차순|
+|properties.defaultContentKeyPolicyName |||
+|properties.envelopeEncryption|||
+|properties.noEncryption|||
+|형식|||
+
+### <a name="pagination"></a>페이지 매김
+
+네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 현재 페이지 크기는 10입니다.
+
+다음 C# 예제에서는 계정의 모든 StreamingPolicies를 열거하는 방법을 보여줍니다.
+
+```csharp
+var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+REST 예제의 경우 [스트리밍 정책 - 목록](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)을 참조하세요.
+
+
+## <a name="transform"></a>변환
+
+### <a name="filteringordering"></a>필터링/순서
+
+다음 표에는 [변환](https://docs.microsoft.com/rest/api/media/transforms) 속성에 이러한 옵션을 적용하는 방법이 나와 있습니다. 
+
+| Name    | Filter                        | 순서 |
+|---------|-------------------------------|-------|
+| 이름                    | eq            | 오름차순 및 내림차순|
+| properties.created      | gt, ge, lt, le| 오름차순 및 내림차순|
+| properties.lastModified | gt, ge, lt, le | 오름차순 및 내림차순|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 310963d5593dde0540c95920214a14a4195c346a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6bd61923dafb605e09c6ca6ab86dcd85fe60b37c
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242334"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55734660"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>자동화된 Machine Learning 실험 구성
 
@@ -174,7 +174,7 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
 
 로컬 및 원격 컴퓨팅 대상이 있는 예제 노트에 대해서는 [GitHub 사이트](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl)를 참조하세요.
 
-<a name='configure-experiment'/>
+<a name='configure-experiment'></a>
 
 ## <a name="configure-your-experiment-settings"></a>실험 설정 구성
 
@@ -207,36 +207,48 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
         n_cross_validations=5)
     ```
 
-다음 표에는 실험에 사용할 수 있는 매개 변수 설정 및 해당 기본값이 나와 있습니다.
+적용할 알고리즘의 목록을 결정하는 세 가지 서로 다른 `task` 매개 변수 값이 있습니다.  `whitelist` 또는 `blacklist` 매개 변수를 사용하여 사용 가능한 알고리즘 반복을 포함 또는 제외하도록 추가로 수정합니다.
+* 분류
+    * LogisticRegression
+    * SGD
+    * MultinomialNaiveBayes
+    * BernoulliNaiveBayes
+    * SVM
+    * LinearSVM
+    * KNN
+    * DecisionTree
+    * RandomForest
+    * ExtremeRandomTrees
+    * LightGBM
+    * GradientBoosting
+    * TensorFlowDNN
+    * TensorFlowLinearClassifier
+* 회귀
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
+* 예측
+    * ElasticNet
+    * GradientBoosting
+    * DecisionTree
+    * KNN
+    * LassoLars
+    * SGD 
+    * RandomForest
+    * ExtremeRandomTree
+    * LightGBM
+    * TensorFlowLinearRegressor
+    * TensorFlowDNN
 
-자산 |  설명 | 기본값
---|--|--
-`task`  |기계 학습 문제의 유형을 지정합니다. 허용되는 값은 다음과 같습니다. <li>분류</li><li>회귀</li><li>예측</li>    | 없음 |
-`primary_metric` |모델 작성 시 최적화하려는 메트릭입니다. 예를 들어 accuracy(정확도)를 primary_metric으로 지정하면 자동화된 Machine Learning에서 최대 정확도의 모델을 찾습니다. 실험당 하나의 primary_metric만 지정할 수 있습니다. 허용되는 값은 다음과 같습니다. <br/>**분류**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**회귀**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score  </li> | 분류: accuracy <br/>회귀: spearman_correlation <br/> |
-`experiment_exit_score` |   primary_metric에 대한 대상 값을 설정할 수 있습니다. primary_metric 대상을 충족하는 모델이 있으면 자동화된 Machine Learning에서 반복을 중지하고 실험이 종료됩니다. 이 값을 설정하지 않으면(기본값) 자동화된 Machine Learning 실험에서 반복에 지정된 반복 횟수만큼 계속 실행합니다. double 값을 사용합니다. 대상이 도달하지 못하면 자동화된 Machine Learning이 반복에 지정된 반복 횟수에 도달할 때까지 계속됩니다.| 없음
-`iterations` |최대 반복 횟수입니다. 각 반복은 파이프라인에서 발생하는 학습 작업과 같습니다. 파이프라인은 데이터 전처리 및 모델입니다. 고품질 모델을 얻으려면 250개 이상을 사용합니다.    | 100
-`max_concurrent_iterations`|    병렬로 실행할 최대 반복 횟수입니다. 이 설정은 원격 계산에서만 작동합니다.|   1
-`max_cores_per_iteration`   | 단일 파이프라인을 학습하는 데 사용되는 계산 대상의 코어 수를 나타냅니다. 알고리즘에서 여러 개의 코어를 활용할 수 있으면 다중 코어 머신의 성능이 향상됩니다. -1로 설정하면 머신에서 사용 가능한 모든 코어를 사용할 수 있습니다.|  1
-`iteration_timeout_minutes` |   특정 반복에 걸리는 시간(분)을 제한합니다. 반복에서 지정된 시간을 초과하면 해당 반복이 취소됩니다. 설정되지 않으면 반복이 완료될 때까지 계속 실행됩니다. |   없음
-`n_cross_validations`   |교차 유효성 검사 분할의 수입니다.| 없음
-`validation_size`   |유효성 검사의 크기는 모든 학습 샘플에 대한 백분율로 설정됩니다.|  없음
-`preprocess` | True/False <br/>True를 사용하면 실험에서 입력에 대한 전처리를 수행할 수 있습니다. 전처리의 하위 집합은 다음과 같습니다.<li>누락된 데이터: 누락된 데이터 귀속 - 평균이 있는 숫자, 가장 많이 발생하는 텍스트 </li><li>범주별 값: 데이터 형식이 숫자이고 고유 값 수가 5% 미만인 경우 단일 핫 인코딩으로 변환합니다. </li><li>기타: 전체 목록은 [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 확인하세요.</li><br/>참고: 데이터가 매우 적으면 preprocess = true를 사용할 수 없습니다. |  False |
-`enable_cache`  | True/False <br/>True로 설정하면 전처리를 한 번 수행한 후 전처리된 동일한 데이터를 모든 반복에 다시 사용할 수 있습니다. | True |
-`blacklist_models`  | 자동화된 Machine Learning 실험에는 사용해 볼 수 있는 다양한 알고리즘이 있습니다. 실험에서 특정 알고리즘을 제외하도록 구성합니다. 데이터 세트에서 제대로 작동하지 않는 알고리즘을 알고 있으면 유용합니다. 알고리즘을 제외하면 계산 리소스와 학습 시간을 절약할 수 있습니다.<br/>분류에 허용되는 값은 다음과 같습니다.<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>회귀에 허용되는 값은 다음과 같습니다.<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>예측에 허용되는 값<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   없음
-`whitelist_models`  | 자동화된 Machine Learning 실험에는 사용해 볼 수 있는 다양한 알고리즘이 있습니다. 실험에 특정 알고리즘을 포함하도록 구성합니다. 데이터 세트에서 잘 작동하는 알고리즘을 알고 있으면 유용합니다. <br/>분류에 허용되는 값은 다음과 같습니다.<br/><li>LogisticRegression</li><li>SGD</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>회귀에 허용되는 값은 다음과 같습니다.<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>예측에 허용되는 값<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>SGD </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  없음
-`verbosity` |가장 자세한 정보의 경우 INFO, 가장 적은 정보의 경우 CRITICAL인 로깅 수준을 제어합니다. 세부 정보 표시 수준은 Python 로깅 패키지에 정의된 것과 동일한 값을 사용합니다. 허용되는 값은 다음과 같습니다.<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li>
-`X` | 학습할 모든 기능입니다. |  없음
-`y` |   학습할 데이터에 레이블을 지정합니다. 분류의 경우 정수 배열이어야 합니다.|  없음
-`X_valid`|_선택 사항_ 유효성을 검사할 모든 기능입니다. 지정하지 않으면 X가 학습과 유효성 검사 간에 분할됩니다. |   없음
-`y_valid`   |_선택 사항_ 유효성을 검사할 레이블 데이터입니다. 지정하지 않으면 y가 학습과 유효성 검사 간에 분할됩니다.    | 없음
-`sample_weight` |   _선택 사항_ 각 샘플에 대한 가중치입니다. 데이터 요소에 대해 서로 다른 가중치를 할당하려는 경우에 사용합니다. |   없음
-`sample_weight_valid`   |   _선택 사항_ 각 유효성 검사 샘플에 대한 가중치입니다. 지정하지 않으면 sample_weight가 학습과 유효성 검사 간에 분할됩니다.   | 없음
-`run_configuration` |   RunConfiguration 개체입니다.  원격 실행에 사용합니다. |없음
-`data_script`  |    get_data 메서드를 포함한 파일의 경로입니다.  원격 실행에 필요합니다.   |없음
-`model_explainability` | _선택적_ True/False <br/>  True를 지정하면 실험에서 모든 반복에 대해 기능 중요도를 수행할 수 있습니다. 특정 반복에서 explain_model() 메서드를 사용하여 실험이 완료된 후 요청이 있을 때 해당 반복에 대해 기능 중요도를 사용하도록 설정할 수도 있습니다. | False
-`enable_ensembling`|다른 모든 반복이 완료된 후 앙상블 반복을 설정하도록 플래그를 지정합니다.| True
-`ensemble_iterations`|조정된 파이프라인이 최종 앙상블의 일부가 되도록 선택하는 반복 횟수입니다.| 15
-`experiment_timeout_minutes`| 전체 실험 실행에 소요될 수 있는 시간(분)을 제한합니다. | 없음
+매개 변수의 전체 목록은 [AutoMLConfig 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)를 참조하세요.  
 
 ## <a name="data-pre-processing-and-featurization"></a>데이터 전처리 및 기능화
 

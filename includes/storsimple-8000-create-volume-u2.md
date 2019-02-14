@@ -4,23 +4,21 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: cce78fb6a5472a625e973bb8ca4afdfd6290a26c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164216"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888882"
 ---
-<!--author=alkohli last changed: 07/19/2017-->
-
 #### <a name="to-create-a-volume"></a>볼륨을 만들려면
-1. **장치** 블레이드의 테이블 형식 장치 목록에서 장치를 선택합니다. **+ 볼륨 추가**를 클릭합니다.
+1. **디바이스** 블레이드의 테이블 형식 디바이스 목록에서 디바이스를 선택합니다. **+ 볼륨 추가**를 클릭합니다.
 
     ![새 볼륨 추가](./media/storsimple-8000-create-volume-u2/step5createvol1.png)
 
 2. **볼륨 추가** 블레이드에서:
    
-   1. **장치 선택** 필드가 현재 장치로 자동으로 채워집니다.
+   1. **디바이스 선택** 필드가 현재 디바이스로 자동으로 채워집니다.
 
    2. 드롭다운 목록에서 볼륨을 추가해야 하는 볼륨 컨테이너를 선택합니다. 
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: da329b5c50fe7c39d9773743b40c2f990e298963
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296378"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745438"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
@@ -39,11 +39,11 @@ Blob 스토리지를 사용하는 경우 클러스터를 만든 후에 [스토�
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Avere vFXT for Azure 만들기
 
-Avere를 검색한 다음 "Avere vFXT for Azure 배포"를 선택하여 Azure Portal에서 만들기 템플릿에 액세스합니다. <!-- xxx update if that name changes xxx --> 
+Avere를 검색한 다음, "Avere vFXT ARM 배포"를 선택하여 Azure Portal에서 만들기 템플릿에 액세스합니다. 
 
-<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
+![브라우저 창에 이동 경로 "새로 만들기 > Marketplace > 모두"와 함께 Azure Portal이 표시됩니다. 모두 페이지의 검색 필드에 검색어 "avere"가 표시되고 두 번째 결과 "Avere vFXT ARM 배포"의 외곽선이 빨간색으로 강조 표시됩니다.](media/avere-vfxt-template-choose.png)
 
-**만들기**를 클릭하여 시작합니다. 
+Avere vFXT ARM 배포 페이지의 세부 정보를 읽은 후 **만들기**를 클릭하여 시작합니다. 
 
 ![배포 템플릿의 첫 페이지가 표시된 Azure Marketplace](media/avere-vfxt-deploy-first.png)
 
@@ -80,7 +80,7 @@ Avere를 검색한 다음 "Avere vFXT for Azure 배포"를 선택하여 Azure Po
 
 * **구독** - Avere vFXT의 구독을 선택합니다. 
 
-* **리소스 그룹** - Avere vFXT 클러스터용 리소스 그룹을 선택하거나 "새로 만들기"를 클릭하고 새 리소스 그룹 이름을 입력합니다. 
+* **리소스 그룹** - 기존의 빈 Avere vFXT 클러스터용 리소스 그룹을 선택하거나 "새로 만들기"를 클릭하고 새 리소스 그룹 이름을 입력합니다. 
 
 * **위치** - 클러스터와 리소스의 Azure 위치를 선택합니다.
 
@@ -123,9 +123,11 @@ Avere를 검색한 다음 "Avere vFXT for Azure 배포"를 선택하여 Azure Po
 
 * **서브넷** - 기존 가상 네트워크에서 서브넷을 선택하거나 새 서브넷을 만듭니다. 
 
-* **Blob 스토리지 사용** - 새 Azure Blob 컨테이너를 만들고 새 Avere vFXT 클러스터용 백 엔드 스토리지로 구성할지 여부를 선택합니다. 새 컨테이너를 만들도록 선택하는 경우에는 해당 컨테이너용 스토리지 계정을 제공해야 합니다. 새 Blob 컨테이너를 만들지 않으려는 경우에는 클러스터를 만든 후 스토리지를 연결해야 합니다. 해당 지침은 [스토리지 구성](avere-vfxt-add-storage.md)을 참조하세요. 새 컨테이너를 만들지 않으려면 이 필드를 **false**로 설정합니다.
+* **Blob 스토리지 사용** - **True**를 선택하여 새 Azure Blob 컨테이너를 만들고 새 Avere vFXT 클러스터용 백 엔드 스토리지로 구성합니다. 이 옵션은 클러스터와 같은 리소스 그룹 내에도 새 스토리지 계정을 만듭니다. 
 
-* **스토리지 계정** - 새 Azure Blob 컨테이너를 만드는 경우 스토리지 계정 이름을 입력합니다. 스토리지 계정은 로컬 중복 스토리지 및 핫 액세스 계층을 사용하여 구성된 표준 범용 V2 계정이어야 합니다. 스토리지 계정 요구 사항에 대한 세부 정보는 [스토리지 구성](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer) 문서에 나와 있습니다.
+  새 컨테이너를 만들지 않으려면 이 필드를 **false**로 설정합니다. 이 경우 클러스터를 만든 후 스토리지를 연결하고 구성해야 합니다. 지침은 [스토리지 구성](avere-vfxt-add-storage.md)을 읽으세요. 
+
+* **스토리지 계정** - 새 Azure Blob 컨테이너를 만드는 경우 새 스토리지 계정 이름을 입력합니다. 
 
 ## <a name="validation-and-purchase"></a>유효성 검사 및 구매
 
@@ -161,7 +163,7 @@ Avere vFXT 템플릿에서 클러스터 만들기가 완료되면 새 클러스�
 
 ## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>저장소 엔드포인트 만들기(Azure Blob을 사용하는 경우)
 
-Azure Blob Storage를 백 엔드 데이터 스토리지로 사용하는 경우 가상 네트워크에 스토리지 서비스 엔드포인트를 만들어야 합니다. 이 [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)는 Azure Blob 트래픽을 인터넷을 통해 라우팅하는 대신 로컬로 유지합니다.
+Azure Blob Storage를 백 엔드 데이터 스토리지로 사용하는 경우 가상 네트워크에 스토리지 서비스 엔드포인트를 만들어야 합니다. 이 [서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)는 Azure Blob 트래픽을 가상 네트워크 외부에서 라우팅하는 대신 로컬로 유지합니다.
 
 1. 포털의 왼쪽에서 **가상 네트워크**를 클릭합니다.
 1. 컨트롤러에 대한 vnet을 선택합니다. 

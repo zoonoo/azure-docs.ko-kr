@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: b13e92369168a43f529ed0b83c10bc65893da83d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 79539e05e1623b153a8fad817918cfb56a521db1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193317"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814166"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Log Analytics에 구성 관리자 연결
 System Center Configuration Manager 환경을 Azure Log Analytics에 연결하여 디바이스 수집 데이터를 동기화하고 Log Analytics 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
@@ -30,10 +30,10 @@ Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 
 ## <a name="configuration-overview"></a>구성 개요
 다음 단계는 Log Analytics와 Configuration Manager 통합을 구성하는 단계를 요약하여 보여 줍니다.  
 
-1. Azure Portal에서 Configuration Manager를 웹 응용 프로그램 및/또는 Web API 앱으로 등록하고 Azure Active Directory에서 등록할 때 사용한 클라이언트 ID와 클라이언트 암호 키가 있는지 확인합니다. 이 단계를 수행하는 방법에 대한 자세한 내용은 [포털 사용하여 리소스에 액세스할 수 있는 Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
+1. Azure Portal에서 Configuration Manager를 웹 애플리케이션 및/또는 Web API 앱으로 등록하고 Azure Active Directory에서 등록할 때 사용한 클라이언트 ID와 클라이언트 암호 키가 있는지 확인합니다. 이 단계를 수행하는 방법에 대한 자세한 내용은 [포털 사용하여 리소스에 액세스할 수 있는 Active Directory 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 2. Azure Portal에서 [Configuration Manager(등록된 웹앱)에 Log Analytics에 대한 액세스 권한을 제공](#grant-configuration-manager-with-permissions-to-log-analytics)합니다.
-3. 구성 관리자에서 [DMS 연결 추가 마법사를 사용하여 연결을 추가](#add-an-oms-connection-to-configuration-manager)합니다.
-4. 구성 관리자에서 암호 또는 클라이언트 비밀 키가 만료되거나 분실된 경우 [연결 속성을 업데이트](#update-oms-connection-properties)합니다.
+3. Configuration Manager에서 OMS 연결 추가 마법사를 사용하여 연결을 추가합니다.
+4. Configuration Manager에서 암호 또는 클라이언트 비밀 키가 만료되거나 분실된 경우 연결 속성을 업데이트합니다.
 5. Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 실행하는 컴퓨터에서 [Microsoft Monitoring Agent를 다운로드 및 설치](#download-and-install-the-agent)합니다. 에이전트가 Configuration Manager 데이터를 Log Analytics 작업 영역으로 전송합니다.
 6. Log Analytics에서 컴퓨터 그룹으로 [구성 관리자의 컬렉션을 가져옵니다](#import-collections).
 7. Log Analytics에서 [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md)으로 구성 관리자에서 데이터를 봅니다.
@@ -41,7 +41,7 @@ Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 
 [Microsoft Log Analytics에 구성 관리자의 데이터 동기화](https://technet.microsoft.com/library/mt757374.aspx)에서 Log Analytics에 구성 관리자 연결에 대해 자세히 읽을 수 있습니다.
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Configuration Manager에 Log Analytics에 대한 사용 권한 제공
-다음 절차에서는 Log Analytics 작업 영역의 *Contributor* 역할을 Configuration Manager에 대해 이전에 만든 AD 응용 프로그램 및 서비스 주체에 부여합니다.  작업 영역이 아직 없는 경우 진행하기 전에 [Azure Log Analytics에서 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요.  이를 통해 Configuration Manager는 Log Analytics 작업 영역을 인증하고 연결할 수 있습니다.  
+다음 절차에서는 Log Analytics 작업 영역의 *Contributor* 역할을 Configuration Manager에 대해 이전에 만든 AD 애플리케이션 및 서비스 주체에 부여합니다.  작업 영역이 아직 없는 경우 진행하기 전에 [Azure Log Analytics에서 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요.  이를 통해 Configuration Manager는 Log Analytics 작업 영역을 인증하고 연결할 수 있습니다.  
 
 > [!NOTE]
 > Configuration Manager의 Log Analytics에 사용 권한을 지정해야 합니다. 그렇지 않고 Configuration Manager에서 구성 마법사를 사용하면 오류 메시지가 표시됩니다.
@@ -52,7 +52,7 @@ Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 
 3. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
 4. [액세스 제어(IAM)] 페이지에서 **역할 할당 추가**를 클릭합니다. 그러면 **역할 할당 추가** 창이 나타납니다.
 5. **역할 할당 추가** 창의 **역할** 드롭다운 목록 아래에서 **기여자** 역할을 선택합니다.  
-6. **다음에 대한 액세스 할당** 드롭다운 목록 아래에서 이전에 AD에서 만든 Configuration Manager 응용 프로그램을 선택한 다음, **확인**을 클릭합니다.  
+6. **다음에 대한 액세스 할당** 드롭다운 목록 아래에서 이전에 AD에서 만든 Configuration Manager 애플리케이션을 선택한 다음, **확인**을 클릭합니다.  
 
 ## <a name="download-and-install-the-agent"></a>에이전트 다운로드 및 설치
 Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 호스팅하는 컴퓨터에 Microsoft Monitoring Agent를 설치하는 데 사용할 수 있는 방법을 이해하려면 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md) 문서를 검토하세요.  

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 381c9a2af0f1743509db4495603c0e26da5c1736
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: deca97b0749ceab9f2dfaf3c3940ac6b02b9c104
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474522"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822190"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>네트워크 인네트워크 인터페이스 만들기, 변경 또는 삭제
 
@@ -46,13 +46,13 @@ Azure Portal을 사용하여 가상 머신을 만들 때 Portal에서는 기본 
 
     |설정|Required?|세부 정보|
     |---|---|---|
-    |이름|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다. 시간이 지남에 따라 Azure 구독에는 여러 개의 네트워크 인터페이스가 추가될 가능성이 많습니다. 여러 네트워크 인터페이스를 더 쉽게 관리할 수 있도록 명명 규칙을 만들 때 적용 가능한 권장 사항은 [명명 규칙](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)을 참조하세요. 네트워크 인터페이스를 만든 후에는 이름을 변경할 수 없습니다.|
+    |Name|예|이름은 선택한 리소스 그룹 내에서 고유해야 합니다. 시간이 지남에 따라 Azure 구독에는 여러 개의 네트워크 인터페이스가 추가될 가능성이 많습니다. 여러 네트워크 인터페이스를 더 쉽게 관리할 수 있도록 명명 규칙을 만들 때 적용 가능한 권장 사항은 [명명 규칙](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)을 참조하세요. 네트워크 인터페이스를 만든 후에는 이름을 변경할 수 없습니다.|
     |가상 네트워크|예|네트워크 인터페이스용 가상 네트워크를 선택합니다. 네트워크 인터페이스와 같은 구독 및 위치에 있는 가상 네트워크에만 네트워크 인터페이스를 할당할 수 있습니다. 네트워크 인터페이스를 만든 후에는 해당 인터페이스가 할당된 가상 네트워크를 변경할 수 없습니다. 네트워크 인터페이스에 추가하는 가상 머신은 네트워크 인터페이스와 같은 위치 및 구독에도 있어야 합니다.|
     |서브넷|예|선택한 가상 네트워크 내의 서브넷을 선택합니다. 네트워크 인터페이스를 만든 후에 해당 인터페이스가 할당된 서브넷을 변경할 수 있습니다.|
     |개인 IP 주소 할당|예| 이 설정에서는 IPv4 주소의 할당 방법을 선택합니다. 다음 할당 방법 중에서 선택합니다. **동적:** 이 옵션을 선택하면 선택한 서브넷의 주소 공간에서 사용 가능한 다음 주소가 자동으로 할당됩니다. **고정:** 이 옵션을 선택하면 선택한 서브넷의 주소 공간에서 사용 가능한 IP 주소를 수동으로 할당해야 합니다. 고정 및 동적 주소는 변경하거나 네트워크 인터페이스를 삭제할 때까지 변경되지 않습니다. 네트워크 인터페이스를 만든 후에 할당 방법을 변경할 수 있습니다. Azure DHCP 서버는 이 주소를 가상 머신 운영 체제 내의 네트워크 인터페이스에 할당합니다.|
     |네트워크 보안 그룹|아니요| **없음**으로 설정된 상태로 두거나 기존 [네트워크 보안 그룹](security-overview.md)을 선택하거나 [네트워크 보안 그룹을 만듭니다](tutorial-filter-network-traffic.md). 네트워크 보안 그룹을 사용하면 네트워크 인터페이스 내/외부 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 인터페이스에 네트워크 보안 그룹을 적용하지 않거나 하나를 적용할 수 있습니다. 네트워크 인터페이스가 할당된 서브넷에도 네트워크 보안 그룹을 적용하지 않거나 하나를 적용할 수 있습니다. 네트워크 인터페이스와 네트워크 인터페이스가 할당된 서브넷에 네트워크 보안 그룹을 적용하면 예기치 않은 결과가 발생하는 경우도 있습니다. 네트워크 인터페이스 및 서브넷에 적용된 네트워크 보안 그룹의 문제를 해결하려면 [네트워크 보안 그룹 문제 해결](diagnose-network-traffic-filter-problem.md)을 참조하세요.|
     |구독|예|Azure [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 중 하나를 선택합니다. 네트워크 인터페이스를 연결하는 가상 머신과 네트워크 인터페이스에 연결되는 가상 네트워크가 같은 구독에 있어야 합니다.|
-    |개인 IP 주소(IPv6)|아니요| 이 확인란을 선택하면 네트워크 인터페이스에 할당된 IPv4 주소 외에 IPv6 주소가 네트워크 인터페이스에 할당됩니다. 네트워크 인터페이스에서 IPv6을 사용하는 경우와 관련된 중요한 정보는 이 문서의 [IPv6](#IPv6) 섹션을 참조하세요. IPv6 주소에 대해서는 할당 방법을 선택할 수 없습니다. IPv6 주소를 할당하도록 선택하면 주소는 동적 방법으로 할당됩니다.
+    |개인 IP 주소(IPv6)|아니요| 이 확인란을 선택하면 네트워크 인터페이스에 할당된 IPv4 주소 외에 IPv6 주소가 네트워크 인터페이스에 할당됩니다. 네트워크 인터페이스에서 IPv6을 사용하는 경우와 관련된 중요한 정보는 이 문서의 IPv6 섹션을 참조하세요. IPv6 주소에 대해서는 할당 방법을 선택할 수 없습니다. IPv6 주소를 할당하도록 선택하면 주소는 동적 방법으로 할당됩니다.
     |IPv6 이름(**개인 IP 주소(IPv6)** 확인란을 선택해야 표시됨) |예 - **개인 IP 주소(IPv6)** 확인란을 선택하는 경우| 이 이름은 네트워크 인터페이스의 보조 IP 구성에 할당됩니다. IP 구성에 대한 자세한 내용은 [네트워크 인터페이스 설정 보기](#view-network-interface-settings)를 참조하세요.|
     |리소스 그룹|예|기존 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)을 선택하거나 리소스 그룹을 만듭니다. 네트워크 인터페이스는 연결하는 가상 머신이나 연결된 가상 네트워크와 같은 리소스 그룹에 있을 수도 있고 다른 리소스 그룹에 있을 수도 있습니다.|
     |위치|예|네트워크 인터페이스를 연결하는 가상 컴퓨터와 네트워크 인터페이스에 연결되는 가상 네트워크가 같은 [위치](https://azure.microsoft.com/regions)(지역이라고도 함)에 있어야 합니다.|
@@ -68,7 +68,7 @@ Portal에서는 네트워크 인터페이스를 만들 때 공용 IP 주소를 �
 
 |도구|명령|
 |---|---|
-|CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
+|CLI|[az network nic create](/cli/azure/network/nic)|
 |PowerShell|[새-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>네트워크 인터페이스 설정 확인
@@ -85,7 +85,7 @@ Portal에서는 네트워크 인터페이스를 만들 때 공용 IP 주소를 �
     - **속성:** 네트워크 인터페이스의 MAC 주소(네트워크 인터페이스가 가상 머신에 연결되어 있지 않으면 비어 있음)와 해당 네트워크 인터페이스가 있는 구독을 비롯하여 네트워크 인터페이스에 대한 주요 설정이 표시됩니다.
     - **효과적인 보안 규칙:**  네트워크 인터페이스가 실행 중인 가상 머신에 연결되어 있고 네트워크 인터페이스, 네트워크 인터페이스가 할당된 서브넷 또는 둘 다에 NSG가 연결되어 있으면 보안 규칙이 나열됩니다. 표시되는 항목에 대한 자세한 내용은 [효과적인 보안 규칙 보기](#view-effective-security-rules)를 참조합니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](security-overview.md)을 참조하세요.
     - **유효 경로:** 네트워크 인터페이스가 실행 중인 가상 머신에 연결되어 있으면 경로가 나열됩니다. 경로는 Azure 기본 경로, 사용자 정의 경로 및 네트워크 인터페이스가 할당된 서브넷에 있을 수 있는 BGP 경로의 조합입니다. 표시되는 항목에 대한 자세한 내용은 [효과적인 경로 보기](#view-effective-routes)를 참조합니다. Azure 기본 경로 및 사용자 정의 경로에 대한 자세한 내용은 [라우팅 개요](virtual-networks-udr-overview.md)를 참조하세요.
-    - **일반적인 Azure Resource Manager 설정:**  일반적인 Azure Resource Manager 설정에 대한 자세한 내용은 [활동 로그](../azure-monitor/platform/activity-logs-overview.md), [액세스 제어(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)를 참조하세요.
+    - **일반적인 Azure Resource Manager 설정:**  일반적인 Azure Resource Manager 설정에 대한 자세한 내용은 [활동 로그](../azure-monitor/platform/activity-logs-overview.md), [액세스 제어(IAM)](../role-based-access-control/overview.md), [태그](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [잠금](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Automation 스크립트](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)를 참조하세요.
 
 <a name="view-settings-commands"></a>**명령**
 
@@ -93,7 +93,7 @@ IPv6 주소가 네트워크 인터페이스에 할당되어 있으면 PowerShell
 
 |도구|명령|
 |---|---|
-|CLI|구독의 네트워크 인터페이스를 확인하려면 [az network nic list](/cli/azure/network/nic#az_network_nic_list)를 실행하고, 네트워크 인터페이스의 설정을 확인하려면 [az network nic show](/cli/azure/network/nic#az_network_nic_show)를 실행합니다.|
+|CLI|구독의 네트워크 인터페이스를 확인하려면 [az network nic list](/cli/azure/network/nic)를 실행하고, 네트워크 인터페이스의 설정을 확인하려면 [az network nic show](/cli/azure/network/nic)를 실행합니다.|
 |PowerShell|구독의 네트워크 인터페이스를 확인하거나 네트워크 인터페이스의 설정을 확인하려면 [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface)를 실행합니다.|
 
 ## <a name="change-dns-servers"></a>DNS 서버 변경
@@ -153,7 +153,7 @@ IP 전달을 통해 네트워크 인터페이스가 연결된 가상 머신에�
 
 |도구|명령|
 |---|---|
-|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>애플리케이션 보안 그룹에 추가 또는 제거
@@ -244,7 +244,7 @@ Azure Network Watcher의 다음 홉 기능은 경로가 가상 머신과 엔드�
 
 네트워크 인터페이스에서 작업을 수행하려면 다음 표에 나열된 적절한 사용 권한이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정을 할당해야 합니다.
 
-| 조치                                                                     | 이름                                                      |
+| 조치                                                                     | Name                                                      |
 | ---------                                                                  | -------------                                             |
 | Microsoft.Network/networkInterfaces/read                                   | 네트워크 인터페이스 가져오기                                     |
 | Microsoft.Network/networkInterfaces/write                                  | 네트워크 인터페이스 만들기 또는 업데이트                        |

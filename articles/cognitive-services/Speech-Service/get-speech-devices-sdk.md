@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 875240b779f05c1b13f71bf2133b9abfaa209239
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f8861b581c0e02bb78d80817cb2242a38e8aac40
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223360"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55733470"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK 가져오기
 
@@ -46,7 +46,7 @@ Subject: You're invited to the Microsoft organization
 
 다음 단계를 수행하여 등록 시 제공한 이메일 주소를 Azure AD와 결합합니다. 이 프로세스는 Speech Devices SDK [다운로드 사이트](https://shares.datatransfer.microsoft.com/)에 대한 액세스 권한을 부여합니다.
 
-1. 받은 이메일 메시지에서 **시작**을 선택합니다. 조직이 이미 Office 365 고객이면 로그인하라는 메시지가 표시되며 8단계로 건너뛸 수 있습니다.
+1. 받은 이메일 메시지에서 **시작**을 선택합니다. 조직이 이미 Office 365 고객이면 로그인하라는 메시지가 표시되며 7단계로 건너뛸 수 있습니다.
 
 2. 브라우저 창이 열리면 **다음**을 선택합니다.
 

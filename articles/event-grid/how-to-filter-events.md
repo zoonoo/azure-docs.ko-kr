@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: fa7deb8a1ef536ef0c2b7fbb0a184a950821aebf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 95a0d1b8afba71f6c8226dfe1ad5268d9e6f24e1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477339"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816920"
 ---
 # <a name="filter-events-for-event-grid"></a>Event Grid에 대한 이벤트 필터링
 
@@ -20,7 +20,7 @@ ms.locfileid: "54477339"
 
 ## <a name="filter-by-event-type"></a>이벤트 유형별 필터링
 
-Event Grid 구독을 만들 때 엔드포인트에 보낼 [이벤트 유형](event-schema.md)을 지정할 수 있습니다. 이 섹션의 예제에서는 리소스 그룹에 대한 이벤트 구독을 만들지만 `Microsoft.Resources.ResourceWriteFailure` 및 `Microsoft.Resources.ResourceWriteSuccess`에 전송되는 이벤트를 제한합니다. 이벤트 유형별로 이벤트를 필터링할 때 더 많은 유연성이 필요한 경우 [고급 연산자 및 데이터 필드별 필터링](#filter-by-advanced-operators-and-data-fields)을 참조하세요.
+Event Grid 구독을 만들 때 엔드포인트에 보낼 [이벤트 유형](event-schema.md)을 지정할 수 있습니다. 이 섹션의 예제에서는 리소스 그룹에 대한 이벤트 구독을 만들지만 `Microsoft.Resources.ResourceWriteFailure` 및 `Microsoft.Resources.ResourceWriteSuccess`에 전송되는 이벤트를 제한합니다. 이벤트 유형별로 이벤트를 필터링할 때 더 많은 유연성이 필요한 경우 고급 연산자 및 데이터 필드별 필터링을 참조하세요.
 
 PowerShell의 경우 구독을 만들 때 `-IncludedEventType` 매개 변수를 사용합니다.
 
@@ -77,7 +77,7 @@ Resource Manager 템플릿의 경우 `includedEventTypes` 속성을 사용합니
 
 ## <a name="filter-by-subject"></a>제목별 필터링
 
-이벤트 데이터의 제목별로 이벤트를 필터링할 수 있습니다. 제목의 시작 또는 끝에 대해 일치하는 값을 지정할 수 있습니다. 제목별로 이벤트를 필터링할 때 더 많은 유연성이 필요한 경우 [고급 연산자 및 데이터 필드별 필터링](#filter-by-advanced-operators-and-data-fields)을 참조하세요.
+이벤트 데이터의 제목별로 이벤트를 필터링할 수 있습니다. 제목의 시작 또는 끝에 대해 일치하는 값을 지정할 수 있습니다. 제목별로 이벤트를 필터링할 때 더 많은 유연성이 필요한 경우 고급 연산자 및 데이터 필드별 필터링을 참조하세요.
 
 다음 PowerShell 예제에서는 제목의 시작별로 필터링하는 이벤트 구독을 만듭니다. `-SubjectBeginsWith` 매개 변수를 사용하여 특정 리소스에 대한 것으로 이벤트를 제한합니다. 네트워크 보안 그룹의 리소스 ID를 전달합니다.
 

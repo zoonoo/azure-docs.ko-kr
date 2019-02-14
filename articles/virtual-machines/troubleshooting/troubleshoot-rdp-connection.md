@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: b73cdc7e55a60fbefc294a54f70daa9b2a11ced1
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452459"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817338"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Azure 가상 머신에 대한 원격 데스크톱 연결 문제 해결
 Windows 기반 Azure VM(가상 머신)에 RDP(원격 데스크톱 프로토콜) 연결은 여러 이유로 실패하여 VM에 액세스하지 못할 수 있습니다. 이러한 문제는 VM의 원격 데스크톱 서비스, 네트워크 연결 또는 호스트 컴퓨터의 원격 데스크톱 클라이언트에서 발생할 수 있습니다. 이 문서는 RDP 연결 문제를 해결하기 위한 가장 일반적인 방법 중 일부를 안내합니다. 
@@ -50,8 +50,8 @@ Windows 기반 Azure VM(가상 머신)에 RDP(원격 데스크톱 프로토콜) 
 ## <a name="ways-to-troubleshoot-rdp-issues"></a>RDP 문제를 해결하는 방법
 Resource Manager 배포 모델을 사용하여 만든 VM 문제를 다음 방법 중 하나로 해결할 수 있습니다.
 
-* [Azure Portal](#using-the-azure-portal) - RDP 구성 또는 사용자 자격 증명을 신속하게 다시 설정해야 하는데 Azure 도구가 설치되지 않은 경우에 매우 유용합니다.
-* [Azure PowerShell](#using-azure-powershell) - PowerShell 프롬프트에 익숙한 경우 Azure PowerShell cmdlet을 사용하여 RDP 구성 또는 사용자 자격을 신속하게 다시 설정합니다.
+* Azure Portal - RDP 구성 또는 사용자 자격 증명을 신속하게 다시 설정해야 하는데 Azure 도구가 설치돼 있지 않은 경우 매우 유용합니다.
+* Azure PowerShell - PowerShell 프롬프트에 익숙한 경우 Azure PowerShell cmdlet을 사용하여 RDP 구성 또는 사용자 자격을 신속하게 다시 설정합니다.
 
 [클래식 배포 모델](#troubleshoot-vms-created-using-the-classic-deployment-model)을 사용하여 만든 VM 문제를 해결하는 단계도 찾을 수 있습니다.
 
@@ -236,7 +236,7 @@ RDP를 통해 VM에 연결하려고 할 때 특정 오류 메시지가 나타날
 * [라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다](troubleshoot-specific-rdp-errors.md#rdplicense).
 * [원격 데스크톱에서 컴퓨터 "이름"을 찾을 수 없습니다](troubleshoot-specific-rdp-errors.md#rdpname).
 * [인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.](troubleshoot-specific-rdp-errors.md#rdpauth)
-* [Windows 보안 오류: 자격 증명이 작동하지 않습니다](troubleshoot-specific-rdp-errors.md#wincred).
+* [Windows 보안 오류: 자격 증명이 작동하지 않았습니다](troubleshoot-specific-rdp-errors.md#wincred).
 * [이 컴퓨터에서 원격 컴퓨터에 연결할 수 없습니다](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>추가 리소스

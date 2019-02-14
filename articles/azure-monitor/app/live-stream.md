@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f369eb6241a8eb3d44a0a38e243c533da47103e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b741528b2770314be7e851f38817611d6908352b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104617"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814948"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -64,7 +64,7 @@ ms.locfileid: "55104617"
 |주문형|라이브 메트릭을 여는 동안 데이터가 스트리밍됨|SDK가 설치되고 사용될 때마다 데이터가 전송됨|
 |무료|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
 |샘플링|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 TelemetryProcessors가 적용되지 않음|이벤트가 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)될 수 있음|
-|컨트롤 채널|필터 제어 신호가 SDK로 전송되며 [이 채널을 보호](#secure-channel)하는 것이 좋음|포털로의 단방향 통신임|
+|컨트롤 채널|필터 제어 신호가 SDK로 전송되며 이 채널을 보호하는 것이 좋습니다.|포털로의 단방향 통신임|
 
 
 ## <a name="select-and-filter-your-metrics"></a>메트릭 선택 및 필터링

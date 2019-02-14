@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: cbd58c0873a4a46d175c6d7cbdf2d004da304c06
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5677649b8f002490900ec32bee954348b2f444e6
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247241"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731549"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -23,7 +23,7 @@ ms.locfileid: "55247241"
 
 Blob Storage API 및 Azure Data Lake Gen2 API는 서로 상호 운용되지 않습니다.
 
-동일한 도구를 사용하여 계정에 업로드한 모든 콘텐츠로 작업해야 하는 경우 이러한 API가 상호 운용될 때까지 Blob Storage 계정에서 계층 구조 네임스페이스를 사용하도록 설정하지 않습니다. 계층 구조 네임스페이스 없이 Storage 계정을 사용하면 디렉터리 및 파일 시스템 액세스 제어 목록과 같은 Data Lake Storage Gen2 특정 기능에 액세스할 수 없습니다.
+Blob API를 사용하는 사용자 지정 도구, 애플리케이션 또는 스크립트를 가지고 있고 이들을 사용하여 본인의 계정에 업로드하는 모든 콘텐츠로 작업하려는 경우 Blob API가 Azure Data Lake Gen2 API와 상호 운용할 수 있게 될 때까지 본인의 Blob 스토리지 계정에서 계층 구조 네임스페이스를 사용하도록 설정하지 마십시오. 계층 구조 네임스페이스 없이 Storage 계정을 사용하면 디렉터리 및 파일 시스템 액세스 제어 목록과 같은 Data Lake Storage Gen2 특정 기능에 액세스할 수 없습니다.
 
 ## <a name="blob-storage-apis"></a>Blob Storage API
 
@@ -79,16 +79,14 @@ Azure Data Lake Gen2 계정이 아직 이벤트를 생성하지 않았기 때문
 
 ## <a name="object-level-storage-tiers"></a>개체 수준 스토리지 계층
 
-개체 수준 스토리지 계층(핫, 콜드 및 보관)은 아직 Azure Data Lake Storage Gen2 계정에 지원되지 않지만 계층적 공백을 설정하지 않은 Storage 계정에 사용할 수 있습니다.
+개체 수준 스토리지 계층(핫, 콜드 및 보관)은 아직 Azure Data Lake Storage Gen 2 계정에 사용할 수 없지만 계층 구조 네임스페이스를 사용하도록 설정하지 않은 스토리지 계정에 사용할 수 있습니다.
 
 ## <a name="azure-blob-storage-lifecycle-management-preview-policies"></a>Azure Blob Storage 수명 주기 관리(미리 보기) 정책
 
 Azure Blob Storage 수명 주기 관리(미리 보기) 정책은 아직 Azure Data Lake Storage Gen2 계정에 지원되지 않습니다.
 
-이러한 정책은 계층적 공백을 설정하지 않은 Storage 계정에 지원되지 않습니다.
+이러한 정책은 계층 구조 네임스페이스를 사용하도록 설정하지 않은 스토리지 계정에 사용할 수 있습니다.
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
 진단 로그는 Azure Data Lake Storage Gen2 계정에 지원되지 않습니다.
-
-진단 로그를 요청하려면 Azure 지원팀에 문의하세요. 로그가 필요한 계정 이름 및 기간을 입력합니다.

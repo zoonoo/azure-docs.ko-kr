@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064647"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55727911"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
@@ -29,7 +29,7 @@ ms.locfileid: "54064647"
 
 프로덕션 시나리오에서 Azure Container Registry에 대한 액세스는 [서비스 주체](../container-registry/container-registry-auth-service-principal.md)를 사용하여 제공되어야 합니다. 서비스 주체를 통해 컨테이너 이미지에 대해 [역할 기반 액세스 제어](../container-registry/container-registry-roles.md)를 제공할 수 있습니다. 예를 들어, 레지스트리에 대해 끌어오기 전용 액세스 권한을 가지는 서비스 주체를 구성할 수 있습니다.
 
-이 섹션에서는 Azure Key Vault 및 서비스 주체를 만들고, 자격 증명 모음에 서비스 주체의 자격 증명을 저장합니다.
+다음 섹션에서는 Azure Key Vault 및 서비스 주체를 만들고, 자격 증명 모음에 서비스 주체의 자격 증명을 저장합니다. 
 
 ### <a name="create-key-vault"></a>주요 자격 증명 모음 만들기
 
@@ -134,9 +134,11 @@ Resource Manager 템플릿에서 Azure Key Vault 암호를 참조하는 방법�
 
 ## <a name="deploy-with-azure-portal"></a>Azure Portal을 사용하여 배포
 
-Azure Container Registry에서 컨테이너 이미지를 유지할 경우 Azure Portal을 사용하여 Azure Container Instances에 컨테이너를 쉽게 생성할 수 있습니다.
+Azure Container Registry에서 컨테이너 이미지를 유지할 경우 Azure Portal을 사용하여 Azure Container Instances에 컨테이너를 쉽게 생성할 수 있습니다. 포털을 사용하여 컨테이너 레지스트리에서 컨테이너 인스턴스를 배포하는 경우 레지스트리의 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)을 사용하도록 설정해야 합니다. 관리자 계정은 주로 테스트 용도로 단일 사용자가 레지스트리에 액세스하도록 설계되었습니다. 
 
 1. Azure Portal에서 컨테이너 레지스트리로 이동합니다.
+
+1. 관리자 계정이 활성화되어 있는지 확인하려면 **액세스 키**를 선택하고 **관리 사용자**에서 **사용**을 선택합니다.
 
 1. **리포지토리**를 선택하고, 배포할 리포지토리를 선택하고, 배포하려는 컨테이너 이미지의 태그를 마우스 오른쪽 단추로 클릭하고, **인스턴스 실행**을 선택합니다.
 

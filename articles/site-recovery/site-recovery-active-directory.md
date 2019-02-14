@@ -9,18 +9,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 84cc99bac9ae5fa1743ed151e5bf8c3043cf5869
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851022"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821391"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
 
-SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램이 올바르게 작동하려면 Active Directory 및 DNS 인프라가 필요합니다. 애플리케이션에 대한 재해 복구 솔루션을 설정할 때 애플리케이션이 제대로 작동하도록 하려면 다른 애플리케이션 구성 요소를 복구하기 전에 Active Directory 및 DNS를 복구해야 합니다.
+SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 애플리케이션이 올바르게 작동하려면 Active Directory 및 DNS 인프라가 필요합니다. 애플리케이션에 대한 재해 복구 솔루션을 설정할 때 애플리케이션이 제대로 작동하도록 하려면 다른 애플리케이션 구성 요소를 복구하기 전에 Active Directory 및 DNS를 복구해야 합니다.
 
-[Site Recovery](site-recovery-overview.md)를 사용하여 Active Directory에 대한 재해 복구 계획을 만들 수 있습니다. 중단되는 경우 장애 조치(failover)를 시작할 수 있습니다. 몇 분 안에 Active Directory를 가동 및 실행할 수 있습니다. 주 사이트에서 SharePoint 및 SAP와 같은 여러 애플리케이션에 Active Directory를 배포한 경우 전체 사이트를 장애 조치(failover)할 수 있습니다. 먼저 Site Recovery를 사용하여 Active Directory를 장애 조치(failover)합니다. 그런 다음, 응용 프로그램별 복구 계획을 사용하여 다른 응용 프로그램을 장애 조치(failover)합니다.
+[Site Recovery](site-recovery-overview.md)를 사용하여 Active Directory에 대한 재해 복구 계획을 만들 수 있습니다. 중단되는 경우 장애 조치(failover)를 시작할 수 있습니다. 몇 분 안에 Active Directory를 가동 및 실행할 수 있습니다. 주 사이트에서 SharePoint 및 SAP와 같은 여러 애플리케이션에 Active Directory를 배포한 경우 전체 사이트를 장애 조치(failover)할 수 있습니다. 먼저 Site Recovery를 사용하여 Active Directory를 장애 조치(failover)합니다. 그런 다음, 애플리케이션별 복구 계획을 사용하여 다른 애플리케이션을 장애 조치(failover)합니다.
 
 이 문서에서는 Active Directory에 대한 재해 복구 솔루션을 만드는 방법을 설명합니다. 필수 구성 요소 및 장애 조치(failover) 지침을 포함합니다. 시작하기 전에 Active Directory와 Site Recovery에 대해 잘 알고 있어야 합니다.
 
@@ -31,10 +31,10 @@ SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램
 
 ## <a name="replicate-the-domain-controller"></a>도메인 컨트롤러 복제
 
-- 도메인 컨트롤러 또는 DNS를 호스트하는 하나 이상의 VM에 [Site Recovery 복제](#enable-protection-using-site-recovery)를 설정해야 합니다.
-- 환경에 [여러 도메인 컨트롤러](#environment-with-multiple-domain-controllers)가 있는 경우 대상 사이트에도 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설치해야 합니다. 추가 도메인 컨트롤러는 Azure 또는 보조 온-프레미스 데이터 센터에 있을 수 있습니다.
+- 도메인 컨트롤러 또는 DNS를 호스트하는 하나 이상의 VM에 Site Recovery 복제를 설정해야 합니다.
+- 환경에 여러 도메인 컨트롤러가 있는 경우 대상 사이트에도 추가 도메인 컨트롤러를 설치해야 합니다. 추가 도메인 컨트롤러는 Azure 또는 보조 온-프레미스 데이터 센터에 있을 수 있습니다.
 - 약간의 애플리케이션과 단일 도메인 컨트롤러가 있는 경우 전체 사이트를 함께 장애 조치(failover)할 수 있습니다. 이 경우 Site Recovery를 사용하여 도메인 컨트롤러를 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 복제하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)에도 동일한 복제 도메인 컨트롤러 또는 DNS 가상 머신을 사용할 수 있습니다.
-- - 환경에 많은 애플리케이션과 둘 이상의 도메인 컨트롤러가 있거나 애플리케이션 몇 개를 동시에 장애 조치(failover)하려는 경우 Site Recovery로 도메인 컨트롤러 가상 머신을 복제하는 동시에 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 [추가 도메인 컨트롤러](#protect-active-directory-with-active-directory-replication)를 설정하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)의 경우 Site Recovery에서 복제한 도메인 컨트롤러를 사용할 수 있습니다. 장애 조치(failover)의 경우 대상 사이트의 추가 도메인 컨트롤러를 사용할 수 있습니다.
+- - 환경에 많은 애플리케이션과 둘 이상의 도메인 컨트롤러가 있거나 애플리케이션 몇 개를 동시에 장애 조치(failover)하려는 경우 Site Recovery로 도메인 컨트롤러 가상 머신을 복제하는 동시에 대상 사이트(Azure 또는 보조 온-프레미스 데이터 센터)에 추가 도메인 컨트롤러를 설정하는 것이 좋습니다. [테스트 장애 조치(failover)](#test-failover-considerations)의 경우 Site Recovery에서 복제한 도메인 컨트롤러를 사용할 수 있습니다. 장애 조치(failover)의 경우 대상 사이트의 추가 도메인 컨트롤러를 사용할 수 있습니다.
 
 ## <a name="enable-protection-with-site-recovery"></a>Site Recovery를 사용하여 보호 사용
 
@@ -69,7 +69,7 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 ## <a name="test-failover-considerations"></a>테스트 장애 조치 시 고려 사항
 프로덕션 워크로드에 영향을 미치지 않도록 방지하기 위해 테스트 장애 조치(failover)가 프로덕션 네트워크에서 격리된 네트워크에서 발생합니다.
 
-대부분의 응용 프로그램에는 도메인 컨트롤러 또는 DNS 서버가 필요합니다. 따라서 응용 프로그램을 장애 조치(failover)하기 전에 테스트 장애 조치(failover)에 사용할 격리된 네트워크에서 도메인 컨트롤러를 만들어야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 Site Recovery를 사용하여 도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신을 복제하는 것입니다. 그런 다음 도메인 컨트롤러 가상 머신의 테스트 장애 조치(failover)를 실행한 후 응용 프로그램에 대한 복구 계획의 테스트 장애 조치(failover)를 실행합니다. 그 방법은 다음과 같습니다.
+대부분의 애플리케이션에는 도메인 컨트롤러 또는 DNS 서버가 필요합니다. 따라서 애플리케이션을 장애 조치(failover)하기 전에 테스트 장애 조치(failover)에 사용할 격리된 네트워크에서 도메인 컨트롤러를 만들어야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 Site Recovery를 사용하여 도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신을 복제하는 것입니다. 그런 다음 도메인 컨트롤러 가상 머신의 테스트 장애 조치(failover)를 실행한 후 애플리케이션에 대한 복구 계획의 테스트 장애 조치(failover)를 실행합니다. 그 방법은 다음과 같습니다.
 
 1. Site Recovery를 사용하여 도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신을 [복제](vmware-azure-tutorial.md)합니다.
 2. 격리된 네트워크를 만듭니다. Azure에서 만드는 모든 가상 네트워크는 기본적으로 다른 네트워크에서 격리됩니다. 이 네트워크의 IP 주소 범위를 프로덕션 네트워크에서 사용하는 IP 주소 범위와 동일하게 사용하는 것이 좋습니다. 이 네트워크에서 사이트-사이트 연결을 사용하지 마십시오.
@@ -87,8 +87,8 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 ### <a name="test-failover-to-a-secondary-site"></a>보조 사이트에 테스트 장애 조치(failover)
 
 1. 다른 온-프레미스에 복제 중이고 DHCP를 사용하는 경우 [테스트 장애 조치(failover)의 DNS 및 DHCP를 설정](hyper-v-vmm-test-failover.md#prepare-dhcp)합니다.
-2. 격리된 네트워크에서 실행하는 도메인 컨트롤러 가상 머신의 테스트 장애 조치(failover)를 수행합니다. 테스트 장애 조치(failover)를 수행하려면 도메인 컨트롤러 가상 머신에서 사용 가능한 최신 *응용 프로그램 일치* 복구 지점을 사용합니다.
-3. 응용 프로그램이 실행되는 가상 머신을 포함하고 있는 복구 계획에 대한 테스트 장애 조치(failover)를 실행합니다.
+2. 격리된 네트워크에서 실행하는 도메인 컨트롤러 가상 머신의 테스트 장애 조치(failover)를 수행합니다. 테스트 장애 조치(failover)를 수행하려면 도메인 컨트롤러 가상 머신에서 사용 가능한 최신 *애플리케이션 일치* 복구 지점을 사용합니다.
+3. 애플리케이션이 실행되는 가상 머신을 포함하고 있는 복구 계획에 대한 테스트 장애 조치(failover)를 실행합니다.
 4. 테스트를 완료한 후 도메인 컨트롤러 가상 머신에서 *테스트 장애 조치(failover)를 정리*합니다. 이 단계는 테스트 장애 조치(failover)에 대해 생성된 도메인 컨트롤러를 삭제합니다.
 
 

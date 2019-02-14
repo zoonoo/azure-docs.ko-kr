@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826482"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816325"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>사설 도메인에 Azure DNS 사용
 
@@ -32,7 +32,7 @@ Azure DNS는 다음과 같은 이점을 제공합니다.
 
 * **사용자 지정 DNS 솔루션이 필요 없음**. 이전에는 많은 고객이 가상 네트워크에서 DNS 영역을 관리하기 위해 사용자 지정 DNS 솔루션을 만들었습니다. 이제 기본 Azure 인프라를 사용하여 DNS 영역 관리를 수행할 수 있으므로 사용자 지정 DNS 솔루션을 만들고 관리해야 하는 부담이 사라졌습니다.
 
-* **모든 공용 DNS 레코드 형식 사용**. Azure DNS는 A, AAAA, CNAME, MX, NS, PTR, SOA, SRV 및 TXT 레코드를 지원합니다.
+* **모든 공용 DNS 레코드 형식 사용**. Azure DNS는 A, AAAA, CNAME, MX, PTR, SOA, SRV 및 TXT 레코드를 지원합니다.
 
 * **자동 호스트 레코드 관리**. Azure는 사용자 지정 DNS 레코드를 호스팅할 뿐 아니라 VM의 호스트 이름 레코드를 지정된 가상 네트워크에 자동으로 보존합니다. 이 시나리오에서는 사용자 지정 DNS 솔루션을 만들거나 애플리케이션을 수정할 필요 없이 사용하는 도메인 이름을 최적화할 수 있습니다.
 

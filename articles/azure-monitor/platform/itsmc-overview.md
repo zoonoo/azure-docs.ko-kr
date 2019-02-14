@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: cd27a4d43333674ec1928fbd873e873afe84d26d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f0d3641800d8ec2f9fd403b006e81af04444c143
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262883"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813129"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -44,7 +44,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 다음 단계를 통해 ITSM 커넥터를 사용하여 시작하면 됩니다.
 
 1.  [ITSM 커넥터 솔루션 추가](#adding-the-it-service-management-connector-solution)
-2.  [ITSM 연결 만들기](#creating-an-itsm-connection)
+2.  ITSM 연결 만들기
 3.  [연결 사용](#using-the-solution)
 
 
@@ -214,7 +214,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 원본
 - 할당 대상
 - 제목
-- type
+- Type
 - Category
 - 시스템 상태
 - 에스컬레이션
@@ -266,7 +266,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | 종결한 사람 |
 | AssignedTo_s | 할당 대상  |
 | Title_s|  간단한 설명 |
-| Type_s|  type |
+| Type_s|  Type |
 | Category_s|  Category |
 | CRState_s|  시스템 상태|
 | Urgency_s|  긴급도 |

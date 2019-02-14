@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1290a990515cd68f46d137c276e8bb36834ff482
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: d1fb921f72af58eacde5f1ef35ee3aec80f767c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513268"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994681"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>스토리지 계정 장애 조치(failover)(미리 보기) 시작
 
@@ -82,7 +82,7 @@ PowerShell을 사용하여 계정 장애 조치(failover)를 시작하려면 먼
 1. Azure AD를 지원하는 Azure Storage 미리 보기 모듈을 설치합니다.
    
     ```powershell
-    Install-Module -Name AzureRM.Storage -AllowPrerelease
+    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
 1. PowerShell 창을 닫았다가 다시 엽니다.
  
@@ -90,7 +90,7 @@ PowerShell을 사용하여 계정 장애 조치(failover)를 시작하려면 먼
 PowerShell에서 계정 장애 조치(failover)를 시작하려면 다음 명령을 실행합니다.
 
 ```powershell
-Invoke-AzureRmStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
+Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
 ## <a name="azure-cli"></a>Azure CLI

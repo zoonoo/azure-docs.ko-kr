@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50210ebeed30bdb58698d0e878667b92dcc73609
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38bb0840269d4b7bacbb0101590b389c8542a9b1
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167090"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814234"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 설정 데이터 위치 구성
 이 항목의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. Office 365에서 다중 지역 기능을 사용하는 경우, 이 특성을 사용하여 사용자의 Office 365 데이터의 지리적 위치를 지정할 수 있습니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -238,7 +238,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 ## <a name="step-8-verify-the-result"></a>8단계: 결과 확인
 구성을 확인하고 사용자를 위해 적용해야 합니다.
 
-1. 사용자의 선택한 특성에 해당 지역을 추가합니다. 사용 가능한 지역 목록은 [이 표](#enable-synchronization-of-preferreddatalocation)에서 확인할 수 있습니다.  
+1. 사용자의 선택한 특성에 해당 지역을 추가합니다. 사용 가능한 지역 목록은 이 표에서 확인할 수 있습니다.  
 ![사용자에게 추가된 AD 특성 스크린샷](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. 특성을 Azure AD와 동기화될 때까지 기다립니다.
 3. Exchange Online PowerShell을 사용하여 사서함 지역이 올바르게 설정되어 있는지 확인합니다.  

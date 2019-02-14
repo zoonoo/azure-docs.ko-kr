@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 6cd926536242563d3114a30adce1568a1f7424e0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f67633ec62b28f54a97cccd0f27b43bdb626ee58
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171799"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55822768"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Microsoft 애플리케이션에 로그인하는 문제
 
@@ -34,11 +34,11 @@ ms.locfileid: "55171799"
 
 -   Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자도 **관리자 동의**를 통해 액세스 권한을 부여받을 수 있습니다. 즉, 관리자는 전역 관리자 계정 사용하여 애플리케이션에 로그인하고 조직의 모든 사용자에게 액세스 권한을 부여하도록 조직의 모든 사용자가 애플리케이션을 사용할 수 있게 결정했습니다.
 
-문제를 해결하려면 [고려할 애플리케이션 액세스의 일반적인 문제 영역](#general-problem-areas-with-application-access-to-consider)으로 시작한 다음, [연습: Microsoft 애플리케이션 액세스 문제를 해결하는 단계](#walkthrough-steps-to-troubleshoot-microsoft-application-access)를 참조하여 세부 정보를 확인합니다.
+문제를 해결하려면 [고려할 애플리케이션 액세스의 일반적인 문제 영역](#general-problem-areas-with-application-access-to-consider)으로 시작하고 연습: Microsoft 애플리케이션 액세스를 해결하는 단계를 읽고 세부 정보를 얻습니다.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>고려할 애플리케이션 액세스의 일반적인 문제 영역
 
-시작할 위치를 알고 있는 경우 자세히 연습할 수 있는 일반적인 문제 영역의 목록은 다음과 같습니다. 그러나 [연습: Microsoft 애플리케이션 액세스 문제를 해결하는 단계](#walkthrough-steps-to-troubleshoot-microsoft-application-access)를 참조하여 빠르게 진행하는 것이 좋습니다.
+시작할 위치를 알고 있는 경우 자세히 연습할 수 있는 일반적인 문제 영역의 목록은 다음과 같습니다. 그러나 연습: Microsoft 애플리케이션 액세스 문제를 해결하는 단계.
 
 -   [사용자의 계정과 관련된 문제](#problems-with-the-users-account)
 
@@ -180,7 +180,7 @@ ms.locfileid: "55171799"
 
 -   [사용자가 Azure Active Directory 암호를 재설정할 수 있도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
--   [사용자가 Active Directory 온-프레미스 암호를 재설정하거나 변경하도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
+-   [사용자가 Active Directory 온-프레미스 암호를 재설정하거나 변경하도록 설정](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 ### <a name="check-a-users-multi-factor-authentication-status"></a>사용자의 Multi-Factor Authentication 상태 확인
 
@@ -204,7 +204,7 @@ ms.locfileid: "55171799"
 
 9.  사용자 목록에서 사용자를 선택하고 원하는 대로 Multi-Factor Authentication을 **사용**, **사용 안 함** 또는 **적용**합니다.
 
-  * **참고**: 사용자가 강제된 상태인 경우 일시적으로 **사용 안 함**으로 설정하여 해당 계정으로 다시 돌아올 수 있도록 할 수 있습니다. 다시 돌아오면 해당 상태를 **사용**으로 변경하여 다음 번에 로그인하는 도중 해당 연락처 정보를 다시 등록할 수 있습니다. 또는 [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)에 있는 단계를 수행하여 이 데이터를 확인하거나 설정할 수 있습니다.
+  * **참고**: 사용자가 **강제된** 상태인 경우 일시적으로 **사용 안 함**으로 설정하여 해당 계정으로 다시 돌아올 수 있도록 할 수 있습니다. 다시 돌아오면 해당 상태를 **사용**으로 변경하여 다음 번에 로그인하는 도중 해당 연락처 정보를 다시 등록할 수 있습니다. 또는 [사용자의 인증 연락처 정보 확인](#check-a-users-authentication-contact-info)에 있는 단계를 수행하여 이 데이터를 확인하거나 설정할 수 있습니다.
 
 ### <a name="check-a-users-authentication-contact-info"></a>사용자의 인증 연락처 정보 확인
 

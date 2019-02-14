@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 48dfa3180f040af3e8298d418cf71c537477ba5a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3a868eb98121ff2e2a30657e301afba7b8618361
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956956"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55728480"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API Management, Event Hubs 및 Runscope를 사용하여 API 모니터링
 [API Management 서비스](api-management-key-concepts.md)는 HTTP API로 전송 된 HTTP 요청의 처리를 향상시키기 위해 다양한 기능을 제공합니다. 그러나 요청 및 응답의 존재는 일시적입니다. 요청이 생성되면 API Management 서비스를 통해 백 엔드 API로 전달됩니다. API는 요청을 처리하고 응답은 API 소비자를 통해 다시 전달합니다. API Management 서비스는 Azure Portal 대시보드에 표시하기 위해 API에 대한 중요한 통계를 일부 유지하지만 세부 정보는 사라집니다.
 
-API Management 서비스에서 log-to-eventhub 정책을 사용하여 요청 및 응답에서 [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)에 세부 정보를 보낼 수 있습니다. API로 전송되는 HTTP 메시지에서 이벤트를 생성하려는 다양한 이유가 있습니다. 예에는 업데이트의 감사 내역, 사용 분석, 예외 경고 및 타사 통합이 포함됩니다.   
+API Management 서비스에서 log-to-eventhub 정책을 사용하여 요청 및 응답에서 [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)에 세부 정보를 보낼 수 있습니다. API로 전송되는 HTTP 메시지에서 이벤트를 생성하려는 다양한 이유가 있습니다. 예에는 업데이트의 감사 내역, 사용 분석, 예외 경고 및 타사 통합이 포함됩니다.
 
 이 문서는 전체 HTTP 요청 및 응답 메시지를 캡처하고 이를 Event Hub에 보낸 다음 HTTP 로깅 및 모니터링 서비스를 제공하는 타사 서비스에 해당 메시지를 릴레이하는 방법을 보여줍니다.
 
@@ -36,14 +36,14 @@ Azure API Management 서비스를 사용하여 로깅 인프라와 통합하는 
 ## <a name="why-send-to-an-azure-event-hub"></a>Azure 이벤트 허브에 전송되는 이유는 무엇입니까?
 Azure Event Hubs에 지정된 정책을 만드는 이유를 묻는 것이 합리적입니다. 내 요청을 로그할 수 있는 여러 위치가 있습니다. 최종 대상에 직접 요청을 전송하는 이유는 무엇입니까?  이것은 옵션입니다. 그러나 API Management 서비스에서 로깅 요청을 생성할 때 로깅 메시지가 API의 성능에 미치는 영향을 고려해야 합니다. 로드의 점진적인 증가는 시스템 구성 요소에서 사용할 수 있는 인스턴스를 늘리거나 지역에서 복제를 활용하여 처리될 수 있습니다. 그러나 로깅 인프라에 대한 요청이 부하로 늦기 시작하는 경우 트래픽의 순간적인 급증은 요청을 지연시킬 수 있습니다.
 
-Azure Event Hubs는 대부분 API 프로세스를 요청하는 HTTP 수 보다 훨씬 많은 이벤트를 처리하는 용량을 보유하여 엄청난 양의 데이터를 수신하도록 설계됩니다. Event Hub는 메시지를 저장하고 처리하는 API Management 서비스와 인프라 간에 한 종류의 복잡한 버퍼 역할을 합니다. 이렇게 하면 API는 로깅 인프라로 인해 성능이 저하되지 않습니다.  
+Azure Event Hubs는 대부분 API 프로세스를 요청하는 HTTP 수 보다 훨씬 많은 이벤트를 처리하는 용량을 보유하여 엄청난 양의 데이터를 수신하도록 설계됩니다. Event Hub는 메시지를 저장하고 처리하는 API Management 서비스와 인프라 간에 한 종류의 복잡한 버퍼 역할을 합니다. 이렇게 하면 API는 로깅 인프라로 인해 성능이 저하되지 않습니다.
 
-데이터가 Event Hub에 전달되면 유지되고 Event Hub 소비자가 처리하기를 기다립니다. Event Hub는 처리 방법이 중요하지 않고 메시지가 성공적으로 전달될 수 있는 것이 중요합니다.     
+데이터가 Event Hub에 전달되면 유지되고 Event Hub 소비자가 처리하기를 기다립니다. Event Hub는 처리 방법이 중요하지 않고 메시지가 성공적으로 전달될 수 있는 것이 중요합니다.
 
 Event Hubs에는 여러 소비자 그룹에 이벤트를 스트림하는 기능이 있습니다. 이렇게 하면 이벤트를 다른 시스템에서 처리할 수 있습니다. 이렇게 하면 하나의 이벤트를 생성해야 하기 때문에 API Management 서비스 내에서 API 요청의 처리가 추가적으로 지연되지 않고 다양한 통합 시나리오를 지원합니다.
 
 ## <a name="a-policy-to-send-applicationhttp-messages"></a>애플리케이션/http 메시지를 보내는 정책
-이벤트 허브는 이벤트 데이터를 간단한 문자열로 수락합니다. 이 문자열의 내용은 사용자의 몫입니다. HTTP 요청을 패키지하고 Event Hubs에 보낼 수 있으려면 요청 또는 응답 정보를 사용하여 문자열 형식을 지정해야 합니다. 이런 경우에 다시 사용할 수 있는 기존 형식이 있는 경우 고유한 구문 분석 코드를 작성할 필요가 없을 수 있습니다. 처음 필자는 HTTP 요청 및 응답을 보내는 데 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 를 사용할 생각이었습니다. 그러나 이 형식은 JSON 기반 형식에 일련의 HTTP 요청을 저장하도록 최적화됩니다. 연결을 통해 HTTP 메시지를 전달하는 시나리오에 불필요 한 복잡성을 추가하는 여러 가지 필수 요소를 포함합니다.  
+이벤트 허브는 이벤트 데이터를 간단한 문자열로 수락합니다. 이 문자열의 내용은 사용자의 몫입니다. HTTP 요청을 패키지하고 Event Hubs에 보낼 수 있으려면 요청 또는 응답 정보를 사용하여 문자열 형식을 지정해야 합니다. 이런 경우에 다시 사용할 수 있는 기존 형식이 있는 경우 고유한 구문 분석 코드를 작성할 필요가 없을 수 있습니다. 처음 필자는 HTTP 요청 및 응답을 보내는 데 [HAR](http://www.softwareishard.com/blog/har-12-spec/) 를 사용할 생각이었습니다. 그러나 이 형식은 JSON 기반 형식에 일련의 HTTP 요청을 저장하도록 최적화됩니다. 연결을 통해 HTTP 메시지를 전달하는 시나리오에 불필요 한 복잡성을 추가하는 여러 가지 필수 요소를 포함합니다.
 
 대체 옵션은 HTTP 사양 [RFC 7230](https://tools.ietf.org/html/rfc7230)에 설명된 대로 `application/http` 미디어 형식을 사용하는 것입니다. 이 미디어 형식은 연결을 통해 실제로 HTTP 메시지를 보내는 데 사용되는 것과 동일한 형식을 사용하지만 전체 메시지는 다른 HTTP 요청의 본문에 삽입될 수 있습니다. 지금과 같은 경우에 본문을 메시지로 사용하여 Event Hubs에 보내려고 합니다. 이 형식을 구문 분석하고 네이티브 `HttpRequestMessage` 및 `HttpResponseMessage` 개체로 변환할 수 있는 [Microsoft ASP.NET Web API 2.2 클라이언트](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) 라이브러리에 존재하는 파서입니다.
 
@@ -76,16 +76,16 @@ Event Hubs에는 여러 소비자 그룹에 이벤트를 스트림하는 기능�
 ```
 
 ### <a name="policy-declaration"></a>정책 선언
-이 정책 식에 대한 몇 가지 특정 사항을 설명합니다. log-to-eventhub 정책에는 API Management 서비스 내에서 생성된 로거의 이름을 의미하는 logger-id라는 특성이 있습니다. API Management 서비스에서 이벤트 허브 로거를 설정하는 방법에 대한 세부 정보는 [Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법](api-management-howto-log-event-hubs.md)에서 찾을 수 있습니다. 두 번째 특성은 메시지를 저장하도록 분할하는 Event Hubs에 지시하는 선택적 매개 변수입니다. Event Hubs는 파티션을 사용하여 확장성을 사용하고 최소한 두 개가 필요합니다. 파티션 내에서 메시지의 순차적인 전달이 보장됩니다. Event Hub에 메시지를 저장할 파티션을 지정하지 않는 경우 라운드 로빈 알고리즘을 사용하여 로드를 분산합니다. 그러나 일부 메시지가 순서대로 처리되지 않는 경우가 발생할 수 있습니다.  
+이 정책 식에 대한 몇 가지 특정 사항을 설명합니다. log-to-eventhub 정책에는 API Management 서비스 내에서 생성된 로거의 이름을 의미하는 logger-id라는 특성이 있습니다. API Management 서비스에서 이벤트 허브 로거를 설정하는 방법에 대한 세부 정보는 [Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법](api-management-howto-log-event-hubs.md)에서 찾을 수 있습니다. 두 번째 특성은 메시지를 저장하도록 분할하는 Event Hubs에 지시하는 선택적 매개 변수입니다. Event Hubs는 파티션을 사용하여 확장성을 사용하고 최소한 두 개가 필요합니다. 파티션 내에서 메시지의 순차적인 전달이 보장됩니다. Event Hub에 메시지를 저장할 파티션을 지정하지 않는 경우 라운드 로빈 알고리즘을 사용하여 로드를 분산합니다. 그러나 일부 메시지가 순서대로 처리되지 않는 경우가 발생할 수 있습니다.
 
 ### <a name="partitions"></a>파티션
 메시지가 순서대로 소비자에게 전달되고 파티션의 부하 배포 기능을 활용하려면 하나의 파티션에 HTTP 요청 메시지를 보내고 다른 파티션에 HTTP 응답 메시지를 보내도록 선택합니다. 이렇게 하면 부하가 고르게 분산되고 모든 요청이 순서대로 사용되고 모든 응답도 순서대로 사용되도록 보장됩니다. 해당 요청 전에 응답이 사용될 수 있지만 응답에 대한 해당 요청이 다른 매커니즘을 가지고 해당 요청이 항상 응답 전에 온다면 문제가 발생합니다.
 
 ### <a name="http-payloads"></a>HTTP 페이로드
-`requestLine`을 빌드한 후에 요청 본문을 잘라냈는지 확인합니다. 요청 본문은 1024에만 잘립니다. 이는 증가할 수 있지만 개별 이벤트 허브 메시지는 256KB로 제한되므로 일부 HTTP 메시지 본문은 단일 메시지에 적합하지 않을 수 있습니다. 로깅 및 분석을 수행할 때 상당한 양의 정보는 HTTP 요청 라인 및 헤더에서 파생될 수 있습니다. 또한 많은 API 요청이 적은 본문을 반환하므로 큰 본문을 자르는 것으로 인한 정보 값의 손실은 모든 본문 내용을 유지하기 위해 전송, 처리 및 저장에 드는 비용 감소에 비교하여 상당히 미미합니다. 본문을 처리하는 방법에서 한 가지 유의할 점은 본문 내용을 읽지만 백 엔드 API가 본문을 읽을 수 있기를 바라기 때문에 `true`를 As<string>() 메서드에 전달해야 한다는 것입니다. 이 메서드에 true를 전달하여 본문을 버퍼링하게 되므로 두 번 읽을 수 있습니다. 큰 파일을 업로드하거나 긴 폴링을 사용하는 API가 있는 경우 주의해야 합니다. 이러한 경우에 본문을 읽는 작업을 피하는 것이 좋습니다.   
+`requestLine`을 빌드한 후에 요청 본문을 잘라냈는지 확인합니다. 요청 본문은 1024에만 잘립니다. 이는 증가할 수 있지만 개별 이벤트 허브 메시지는 256KB로 제한되므로 일부 HTTP 메시지 본문은 단일 메시지에 적합하지 않을 수 있습니다. 로깅 및 분석을 수행할 때 상당한 양의 정보는 HTTP 요청 라인 및 헤더에서 파생될 수 있습니다. 또한 많은 API 요청이 적은 본문을 반환하므로 큰 본문을 자르는 것으로 인한 정보 값의 손실은 모든 본문 내용을 유지하기 위해 전송, 처리 및 저장에 드는 비용 감소에 비교하여 상당히 미미합니다. 본문을 처리하는 방법에서 한 가지 유의할 점은 본문 내용을 읽지만 백 엔드 API가 본문을 읽을 수 있기를 바라기 때문에 `true`를 `As<string>()` 메서드에 전달해야 한다는 것입니다. 이 메서드에 true를 전달하여 본문을 버퍼링하게 되므로 두 번 읽을 수 있습니다. 큰 파일을 업로드하거나 긴 폴링을 사용하는 API가 있는 경우 주의해야 합니다. 이러한 경우에 본문을 읽는 작업을 피하는 것이 좋습니다.
 
 ### <a name="http-headers"></a>HTTP 헤더
-HTTP 헤더는 간단한 키/값 쌍 형식인 메시지 형식을 통해 전송할 수 있습니다. 중요한 특정 보안 필드를 제거하여 불필요하게 자격 증명 정보가 누수되는 것을 방지하려고 합니다. 분석을 위해 API 키 및 기타 자격 증명은 사용될 가능성이 적습니다. 사용자 및 사용자가 사용하는 특정 제품에 대한 분석을 수행하려면 `context` 개체에서 얻고 해당 사항을 메시지에 추가할 수 있습니다.     
+HTTP 헤더는 간단한 키/값 쌍 형식인 메시지 형식을 통해 전송할 수 있습니다. 중요한 특정 보안 필드를 제거하여 불필요하게 자격 증명 정보가 누수되는 것을 방지하려고 합니다. 분석을 위해 API 키 및 기타 자격 증명은 사용될 가능성이 적습니다. 사용자 및 사용자가 사용하는 특정 제품에 대한 분석을 수행하려면 `context` 개체에서 얻고 해당 사항을 메시지에 추가할 수 있습니다.
 
 ### <a name="message-metadata"></a>메시지 메타데이터
 이벤트 허브로 보낼 전체 메시지를 작성할 때 첫 번째 줄은 실제 `application/http` 메시지의 일부가 아닙니다. 첫 번째 줄은 메시지가 응답에 대한 요청을 상호 연결하는 데 사용된 요청 또는 응답 메시지 및 메시지 ID로 구성된 추가 메타데이터입니다. 메시지 ID는 다음과 같이 다른 정책을 사용하여 만들어집니다.
@@ -156,13 +156,13 @@ HTTP 응답 메시지를 보내는 정책은 요청과 유사하므로 완성된
 </policies>
 ```
 
-`set-variable` 정책은 `<inbound>` 섹션 및 `<outbound>` 섹션의 모든 `log-to-eventhub` 정책에서 액세스할 수 있는 값을 만듭니다.  
+`set-variable` 정책은 `<inbound>` 섹션 및 `<outbound>` 섹션의 모든 `log-to-eventhub` 정책에서 액세스할 수 있는 값을 만듭니다.
 
 ## <a name="receiving-events-from-event-hubs"></a>Event Hubs에서 이벤트 수신
-Azure 이벤트 허브의 이벤트는 [AMQP 프로토콜](https://www.amqp.org/)를 사용하여 수신됩니다. Microsoft Service Bus 팀 소비 이벤트를 쉽게 만드는 데 사용할 수 있는 클라이언트 라이브러리를 만들었습니다. 지원되는 두 가지 방법 중에 하나는 *직접 소비자*가 되는 것이고 다른 하나는 `EventProcessorHost` 클래스를 사용하는 것입니다. 이러한 두 방법의 예는 [Event Hubs 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)에서 찾을 수 있습니다. 차이점은 간략하게 `Direct Consumer`가 완벽한 제어를 제공하고 `EventProcessorHost`가 일부 배관 작업을 수행하지만 이러한 이벤트를 처리하는 방법에 대 해 특정한 가정을 한다는 점입니다.  
+Azure 이벤트 허브의 이벤트는 [AMQP 프로토콜](https://www.amqp.org/)를 사용하여 수신됩니다. Microsoft Service Bus 팀 소비 이벤트를 쉽게 만드는 데 사용할 수 있는 클라이언트 라이브러리를 만들었습니다. 지원되는 두 가지 방법 중에 하나는 *직접 소비자*가 되는 것이고 다른 하나는 `EventProcessorHost` 클래스를 사용하는 것입니다. 이러한 두 방법의 예는 [Event Hubs 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)에서 찾을 수 있습니다. 차이점은 간략하게 `Direct Consumer`가 완벽한 제어를 제공하고 `EventProcessorHost`가 일부 배관 작업을 수행하지만 이러한 이벤트를 처리하는 방법에 대 해 특정한 가정을 한다는 점입니다.
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-이 샘플에서는 간략한 설명을 위해 `EventProcessorHost`를 사용하지만 이는 이 특정 시나리오에 가장 적합한 선택 사항이 아닐 수 있습니다. `EventProcessorHost`는 특정 이벤트 프로세서 클래스 내에서 스레딩 문제를 걱정하지 않도록 하는 어려운 작업을 수행합니다. 그러나 시나리오에서는 단순히 메시지를 다른 형식으로 변환하며 비동기 메서드를 사용하여 다른 서비스에 전달합니다. 공유 상태를 업데이트할 필요가 없기 때문에 따라서 스레딩 문제의 위험도 없습니다  시나리오 중 대부분의 경우 `EventProcessorHost`은 아마도 최고의 선택이며 쉬운 옵션일 것입니다.     
+이 샘플에서는 간략한 설명을 위해 `EventProcessorHost`를 사용하지만 이는 이 특정 시나리오에 가장 적합한 선택 사항이 아닐 수 있습니다. `EventProcessorHost`는 특정 이벤트 프로세서 클래스 내에서 스레딩 문제를 걱정하지 않도록 하는 어려운 작업을 수행합니다. 그러나 시나리오에서는 단순히 메시지를 다른 형식으로 변환하며 비동기 메서드를 사용하여 다른 서비스에 전달합니다. 공유 상태를 업데이트할 필요가 없기 때문에 따라서 스레딩 문제의 위험도 없습니다  시나리오 중 대부분의 경우 `EventProcessorHost`은 아마도 최고의 선택이며 쉬운 옵션일 것입니다.
 
 ### <a name="ieventprocessor"></a>IEventProcessor
 `EventProcessorHost`를 사용할 때 중앙 개념은 `ProcessEventAsync` 메서드를 포함하는 `IEventProcessor` 인터페이스를 구현하도록 만드는 것입니다. 해당 메서드의 핵심은 다음과 같습니다.
@@ -171,20 +171,20 @@ Azure 이벤트 허브의 이벤트는 [AMQP 프로토콜](https://www.amqp.org/
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
-   foreach (EventData eventData in messages)
-   {
-       _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
+    foreach (EventData eventData in messages)
+    {
+        _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
 
-       try
-       {
-           var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
-           await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
-       }
-       catch (Exception ex)
-       {
-           _Logger.LogError(ex.Message);
-       }
-   }
+        try
+        {
+            var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
+            await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
+        }
+        catch (Exception ex)
+        {
+            _Logger.LogError(ex.Message);
+        }
+    }
     ... checkpointing code snipped ...
 }
 ```
@@ -197,10 +197,10 @@ EventData 개체의 목록이 메서드로 전달되고 해당 목록을 반복�
 ```csharp
 public class HttpMessage
 {
-   public Guid MessageId { get; set; }
-   public bool IsRequest { get; set; }
-   public HttpRequestMessage HttpRequestMessage { get; set; }
-   public HttpResponseMessage HttpResponseMessage { get; set; }
+    public Guid MessageId { get; set; }
+    public bool IsRequest { get; set; }
+    public HttpRequestMessage HttpRequestMessage { get; set; }
+    public HttpResponseMessage HttpResponseMessage { get; set; }
 
 ... parsing code snipped ...
 
@@ -220,43 +220,43 @@ public class HttpMessage
 ```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
-   private HttpClient _HttpClient;
-   private ILogger _Logger;
-   private string _BucketKey;
-   public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
-   {
-       _HttpClient = httpClient;
-       var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
-       _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
-       _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
-       _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
-       _Logger = logger;
-   }
+    private HttpClient _HttpClient;
+    private ILogger _Logger;
+    private string _BucketKey;
+    public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
+    {
+        _HttpClient = httpClient;
+        var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
+        _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
+        _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
+        _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
+        _Logger = logger;
+    }
 
-   public async Task ProcessHttpMessage(HttpMessage message)
-   {
-       var runscopeMessage = new RunscopeMessage()
-       {
-           UniqueIdentifier = message.MessageId
-       };
+    public async Task ProcessHttpMessage(HttpMessage message)
+    {
+        var runscopeMessage = new RunscopeMessage()
+        {
+            UniqueIdentifier = message.MessageId
+        };
 
-       if (message.IsRequest)
-       {
-           _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
-           runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
-       }
-       else
-       {
-           _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
-           runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
-       }
+        if (message.IsRequest)
+        {
+            _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
+            runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
+        }
+        else
+        {
+            _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
+            runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
+        }
 
-       var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
-       messagesLink.BucketKey = _BucketKey;
-       messagesLink.RunscopeMessage = runscopeMessage;
-       var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-       _Logger.LogDebug("Request sent to Runscope");
-   }
+        var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
+        messagesLink.BucketKey = _BucketKey;
+        messagesLink.RunscopeMessage = runscopeMessage;
+        var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
+        _Logger.LogDebug("Request sent to Runscope");
+    }
 }
 ```
 
@@ -265,7 +265,7 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 ## <a name="complete-sample"></a>전체 샘플
 샘플의 [원본 코드](https://github.com/darrelmiller/ApimEventProcessor) 및 테스트는 GitHub에 있습니다. 샘플을 직접 실행하려면 [API Management 서비스](get-started-create-service-instance.md), [연결된 Event Hub](api-management-howto-log-event-hubs.md) 및 [Storage 계정](../storage/common/storage-create-storage-account.md)이 있어야 합니다.   
 
-샘플은 이벤트 허브에서 들어오는 이벤트를 수신하는 간단한 콘솔 애플리케이션으로 해당 이벤트를 `HttpRequestMessage` 및 `HttpResponseMessage` 개체에 변환한 다음, Runscope API에 전달합니다.
+샘플은 이벤트 허브에서 들어오는 이벤트를 수신하는 간단한 콘솔 애플리케이션으로 해당 이벤트를 `HttpRequestMessage` 및 `HttpResponseMessage` 개체에 변환한 다음 Runscope API에 전달합니다.
 
 다음 애니메이션 이미지에서 개발자 포털에서 API에 생성된 요청과 수신, 처리 및 전달된 메시지를 보여주는 콘솔 애플리케이션 그리고 Runscope 트래픽 관리자에 표시되는 요청 및 응답을 확인할 수 있습니다.
 

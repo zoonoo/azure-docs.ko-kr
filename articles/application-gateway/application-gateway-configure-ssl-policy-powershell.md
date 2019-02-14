@@ -8,16 +8,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/3/2018
 ms.author: victorh
-ms.openlocfilehash: a93a3db3010fb9e9d2270414cadeae86b70bb8d0
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5f5b389c66821282668f0b4fce9e0b67af028e9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157465"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816954"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Application Gateway에서 SSL 정책 버전 및 암호 그룹 구성
 
-Application Gateway에서 SSL 정책 버전 및 암호 그룹을 구성하는 방법에 대해 알아봅니다. SSL 정책 버전의 다른 구성을 포함하고 암호 그룹을 사용하도록 설정하는 [미리 정의된 정책 목록](#predefined-ssl-policies)을 선택할 수 있습니다. 요구 사항을 기반으로 [사용자 지정 SSL 정책](#configure-a-custom-ssl-policy)을 정의할 수 있습니다.
+Application Gateway에서 SSL 정책 버전 및 암호 그룹을 구성하는 방법에 대해 알아봅니다. SSL 정책 버전의 다른 구성을 포함하고 암호 그룹을 사용하도록 설정하는 미리 정의된 정책 목록에서 선택할 수 있습니다. 요구 사항을 기반으로 [사용자 지정 SSL 정책](#configure-a-custom-ssl-policy)을 정의할 수 있습니다.
 
 ## <a name="get-available-ssl-options"></a>사용 가능한 SSL 옵션 가져오기
 

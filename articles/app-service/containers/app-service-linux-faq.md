@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: cdda4b0951edd0d1471113c48a4082dfa7407211
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719085"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55729322"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -77,7 +77,7 @@ Linux 웹앱에 대한 Git 배포가 실패하면 다음 옵션 중 하나를 �
 
 - 지속적인 업데이트(미리 보기) 기능 사용: Azure 지속적인 업데이트를 사용하도록 Azure DevOps Git 리포지토리 또는 GitHub 리포지토리에 앱의 소스 코드를 저장할 수 있습니다. 자세한 내용은 [Linux 웹앱에 지속적인 업데이트를 구성하는 방법](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)을 참조하세요.
 
-- [ZIP 배포 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) 사용: 이 API를 사용하려면 [웹앱에 SSH를 실행하고](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) 코드를 배포할 폴더로 이동합니다. 다음 코드를 실행합니다.
+- [ZIP 배포 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) 사용: 이 API를 사용하려면 [웹앱에 SSH를 실행하고](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) 코드를 배포할 폴더로 이동합니다. 다음 코드를 실행합니다.
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -132,7 +132,7 @@ var io = require('socket.io')(server,{
 
 **사용자 고유의 저장소를 가져올 수 있나요?**
 
-현재 자체 저장소 가져오기를 지원하지 않습니다.
+예, [사용자 고유의 스토리지 가져오기](https://docs.microsoft.com/azure/app-service/containers/how-to-serve-content-from-azure-storage)는 미리 보기로 제공됩니다.
 
 **내 사용자 지정 컨테이너의 파일 시스템 또는 실행 중인 프로세스를 SCM 사이트에서 찾을 수 없는 이유는 무엇인가요?**
 

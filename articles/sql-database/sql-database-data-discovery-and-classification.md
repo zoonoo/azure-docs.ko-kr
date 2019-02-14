@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/29/2019
-ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/04/2019
+ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466595"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55731855"
 ---
-# <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 데이터 검색 및 분류
+# <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database 데이터 검색 및 분류
 
 데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 **검색**, **분류**, **레이블 지정** & **보호**를 위해 Azure SQL Database에 내장된 고급 기능을 제공합니다.
 가장 중요한 데이터(비즈니스, 재무, 의료, PII(개인 식별 데이터) 등)를 검색하고 분류하는 기능은 조직 정보 보호 평판에 중추적인 역할을 할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
@@ -28,14 +28,14 @@ ms.locfileid: "55466595"
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 - 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 엑세스 제어 및 보안 강화.
 
-데이터 검색 및 분류는 고급 SQL 보안 기능용 통합 패키지인 [SQL ADS(Advanced Data Security)](sql-advanced-threat-protection.md) 제품에 포함되어 있습니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
+데이터 검색 및 분류는 고급 SQL 보안 기능용 통합 패키지인 [ADS](sql-database-advanced-data-security.md)(Advanced Data Security) 제품에 포함되어 있습니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
 
 > [!NOTE]
 > 이 문서는 Azure SQL Database에만 관련됩니다. SQL Server(온-프레미스)의 경우 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조하세요.
 
 ## <a id="subheading-1"></a>데이터 검색 및 분류란?
 
-데이터 검색 및 분류는 고급 서비스 및 새로운 SQL 기능 집합을 도입하여 데이터베이스 뿐 아니라 데이터를 보호 대상으로 하는 새로운 SQL Information Protection 패러다임을 형성합니다.
+데이터 검색 및 분류는 고급 서비스 및 새로운 SQL 기능 세트를 도입하여 데이터베이스뿐만 아니라 데이터 보호도 대상으로 하는 새로운 SQL Information Protection 패러다임을 형성합니다.
 
 - **검색 및 권장 사항**
 
@@ -64,7 +64,7 @@ ms.locfileid: "55466595"
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>분류 체계 정의 및 사용자 지정
 
-SQL Data Discovery & Classification은 민감도 레이블 집합과 정보 유형 및 검색 논리 집합을 기본적으로 제공합니다. 이제 환경에 맞게 이 분류 체계를 사용자 지정하고 분류 구조의 집합 및 순위 지정 방법을 정의해야 합니다.
+SQL 데이터 검색 및 분류는 민감도 레이블 세트 및 정보 유형과 검색 논리 세트를 기본적으로 제공합니다. 이제 환경에 맞게 이 분류 체계를 사용자 지정하고 분류 구조의 집합 및 순위 지정 방법을 정의해야 합니다.
 
 분류 체계를 정의하고 사용자 지정하는 작업은 전체 Azure 테넌트에 대한 중앙의 한 위치에서 수행됩니다. 이 위치는 보안 정책에 따라 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) 내에 있습니다. 테넌트 루트 관리 그룹에 대한 관리 권한이 있는 사람만이 이 작업을 수행할 수 있습니다.
 
@@ -77,7 +77,7 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
-2. Azure SQL Database 창의 보안 머리글 아래에 있는 **Advanced Data Security**로 이동합니다. Advanced Data Security를 클릭하여 사용하도록 설정한 다음 **데이터 검색 및 분류(미리 보기)** 카드를 클릭합니다.
+2. Azure SQL Database 창의 보안 머리글 아래에 있는 **Advanced Data Security**로 이동합니다. Advanced Data Security를 클릭하여 사용하도록 설정한 다음, **데이터 검색 및 분류(미리 보기)** 카드를 클릭합니다.
 
    ![데이터베이스 검색](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -147,11 +147,11 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 
 ## <a id="subheading-5"></a>다음 단계
 
-- [SQL Advanced Data Security](sql-advanced-threat-protection.md)에 대해 자세히 알아봅니다.
+- [고급 데이터 보안](sql-database-advanced-data-security.md)에 대해 자세히 알아봅니다.
 - 분류된 중요한 데이터에 대한 액세스를 모니터링 및 감사하기 위해 [Azure SQL Database 감사](sql-database-auditing.md)를 구성하는 것이 좋습니다.
 
 <!--Anchors-->
-[SQL Data Discovery & Classification overview]: #subheading-1
+[SQL data discovery & classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
 [Automated/Programmatic classification]: #subheading-4

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: 901de2ac3d80b3ee529d89a22afae7e823437b9b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685211"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506875"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>파트너 VPN 디바이스 구성의 개요
 이 문서에서는 Azure VPN Gateway에 연결하기 위한 온-프레미스 VPN 디바이스를 구성하는 개요를 제공합니다. 동일한 매개 변수를 사용하여 다양한 온-프레미스 VPN 디바이스 구성에 연결하는 방법을 보여주는 데 샘플 Azure Virtual Network 및 VPN Gateway 설정을 사용합니다.
@@ -126,7 +126,7 @@ VPN 디바이스에서 임의 트래픽 선택기(예: 경로 기반/VTI 기반 
 
 샘플 스크립트는 다음 알고리즘 및 매개 변수를 사용하여 IPsec/IKE 정책을 만듭니다.
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA1, PFS24, SA Lifetime 7,200초 및 20,480,000KB(20GB)
+* IPsec: AES256, SHA1, PFS24, SA 수명 7,200초 및 20,480,000KB(20GB)
 
 이 스크립트는 IPsec/IKE 정책을 적용하고 연결에서 **UsePolicyBasedTrafficSelectors** 옵션을 사용합니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 1c519c658db29152f7ecafa8ac244c922cf4cd9f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118995"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960743"
 ---
 # <a name="article-top"></a>기존 Azure Mobile Services를 Azure App Service로 마이그레이션
 [Azure App Service의 일반적인 가용성]을 사용하여 Azure Mobile Services 사이트를 쉽게 원래 위치로 마이그레이션하여 Azure App Service의 모든 기능을 활용할 수 있습니다.  이 문서에서는 Azure Mobile Services에서 Azure App Service에 사이트를 마이그레이션하는 경우의 결과를 설명합니다.
@@ -332,7 +332,7 @@ Azure PowerShell을 사용하여 마이그레이션된 모바일 서비스를 �
 ### <a name="changing-webconfig-does-not-work"></a>Web.config를 변경할 수 없습니다.
 ASP.NET 사이트가 있는 경우 `Web.config` 파일 변경 내용이 적용되지 않습니다.  Azure App Service는 시작하는 동안 적절한 `Web.config` 파일을 빌드하여 Mobile Services 런타임을 지원합니다.  XML 변환 파일을 사용하여 특정 설정(예: 사용자 지정 헤더)를 재정의할 수 있습니다.  호출된 `applicationHost.xdt`에 파일을 만듭니다. 이 파일은 Azure 서비스의 `D:\home\site` 디렉터리에서 종료되어야 합니다.  사용자 지정 배포 스크립트를 통하거나 Kudu를 사용하여 `applicationHost.xdt` 파일을 업로드합니다.  다음은 예제 문서입니다.
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>

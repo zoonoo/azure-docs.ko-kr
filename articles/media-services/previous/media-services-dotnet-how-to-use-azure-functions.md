@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 31a12d43ba71f1a0eacbb12887b047f2fafe3b53
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6079b68dc0f9a00ccb71683fc1d80cdbd8da6564
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784602"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55730819"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Media Services에서 Azure Functions 개발
 
@@ -38,7 +38,7 @@ Azure Media Services를 사용하는 기존 Azure Functions를 탐색하고 배�
 2. [여기](../../azure-functions/functions-create-function-app-portal.md)에 설명한 대로 함수 앱을 만듭니다.
 
 >[!NOTE]
-> **StorageConnection** 환경 변수에 지정(다음 단계 참조)한 저장소 계정은 앱과 동일한 지역에 있어야 합니다.
+> **StorageConnection** 환경 변수에 지정(다음 단계 참조)한 스토리지 계정은 앱과 동일한 지역에 있어야 합니다.
 
 ## <a name="configure-function-app-settings"></a>함수 앱 구성 설정
 
@@ -46,15 +46,15 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
 이 문서에 정의된 함수는 앱 설정에 다음 환경 변수가 있다고 가정합니다.
 
-**AMSAADTenantDomain**: Azure AD 테넌트 끝점입니다. AMS API 연결에 대한 자세한 내용은 [이](media-services-use-aad-auth-to-access-ams-api.md) 문서를 참조하세요.
+**AMSAADTenantDomain**: Azure AD 테넌트 엔드포인트. AMS API 연결에 대한 자세한 내용은 [이](media-services-use-aad-auth-to-access-ams-api.md) 문서를 참조하세요.
 
-**AMSRESTAPIEndpoint**: REST API 끝점을 나타내는 URI입니다. 
+**AMSRESTAPIEndpoint**:  REST API 엔드포인트를 나타내는 URI입니다. 
 
-**AMSClientId**: Azure AD 응용 프로그램 클라이언트 ID입니다.
+**AMSClientId**: Azure AD 애플리케이션 클라이언트 ID입니다.
 
-**AMSClientSecret**: Azure AD 응용 프로그램 클라이언트 암호입니다.
+**AMSClientSecret**: Azure AD 애플리케이션 클라이언트 비밀입니다.
 
-**StorageConnection**: Media Services 계정과 연결된 계정의 저장소 연결입니다. 이 값은 **function.json** 파일 및 **run.csx** 파일(아래 설명 참조)에서 사용됩니다.
+**StorageConnection**: Media Services 계정과 연결된 계정의 스토리지 연결입니다. 이 값은 **function.json** 파일 및 **run.csx** 파일(아래 설명 참조)에서 사용됩니다.
 
 ## <a name="create-a-function"></a>함수 만들기
 
@@ -135,7 +135,7 @@ project.json에 다음과 같은 정의를 추가합니다.
 
 실제 시나리오에서는 작업 진행률을 추적한 다음 인코딩된 자산을 게시할 가능성이 높습니다. 자세한 내용은 [Azure 웹후크를 사용하여 Media Services 작업 알림 모니터링](media-services-dotnet-check-job-progress-with-webhooks.md)을 참조하세요. 더 많은 예제는 [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)를 참조하세요.  
 
-기존 run.csx 파일의 콘텐츠를 다음 코드로 바꿉니다. 함수 정의를 완료하면 **저장 및 실행**을 클릭합니다.
+기존 run.csx 파일의 내용을 다음 코드로 바꿉니다. 함수를 정의했으면 **저장 및 실행**을 클릭합니다.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -332,13 +332,13 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 함수를 테스트하려면 연결 문자열에 지정한 저장소 계정의 **input** 컨테이너에 MP4 파일을 업로드해야 합니다.  
 
-1. **StorageConnection** 환경 변수에 지정된 저장소 계정을 선택합니다.
+1. **StorageConnection** 환경 변수에 지정된 스토리지 계정을 선택합니다.
 2. **Blob**을 클릭합니다.
 3. **+ 컨테이너**를 클릭합니다. 컨테이너 **입력**의 이름을 지정합니다.
 4. **업로드**를 눌러 업로드하려는 .mp4 파일을 찾습니다.
 
 >[!NOTE]
-> 소비 계획에서 Blob 트리거를 사용하는 경우 함수 앱이 유휴 상태가 된 후 새 Blob을 처리하는 데 최대 10분이 지연될 수 있습니다. 함수 앱이 실행된 후에는 Blob이 즉시 처리됩니다. 자세한 내용은 [Blob Storage 트리거 및 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings)을 참조하세요.
+> 소비 계획에서 Blob 트리거를 사용하는 경우 함수 앱이 유휴 상태가 된 후 새 Blob을 처리하는 데 최대 10분이 지연될 수 있습니다. 함수 앱이 실행된 후에는 Blob이 즉시 처리됩니다. 자세한 내용은 [Blob Storage 트리거 및 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

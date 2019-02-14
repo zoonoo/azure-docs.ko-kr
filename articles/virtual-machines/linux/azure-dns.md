@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: 93614d4889c9c884f25c5e05cd620e8303226323
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: ae8315b2a484cddc500b5c2dd02a019cb4f46d8e
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39357769"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819147"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션
 Azure는 단일 가상 네트워크 내에 포함된 모든 가상 머신에 대해 기본적으로 DNS 이름 확인을 제공합니다. Azure에서 호스트하는 가상 머신에서 자체 DNS 서비스를 구성하여 사용자 고유의 DNS 이름 확인 솔루션을 구현할 수 있습니다. 다음 시나리오는 특정 상황에 적합한 솔루션을 선택하는 데 도움이 됩니다.
@@ -33,7 +33,7 @@ Azure는 단일 가상 네트워크 내에 포함된 모든 가상 머신에 대
 
 | **시나리오** | **해결 방법** | **접미사** |
 | --- | --- | --- |
-| 동일한 가상 네트워크에 있는 역할 인스턴스 또는 가상 머신 간 이름 확인 |[Azure에서 제공하는 이름 확인](#azure-provided-name-resolution) |호스트 이름 또는 FQDN(정규화된 도메인 이름) |
+| 동일한 가상 네트워크에 있는 역할 인스턴스 또는 가상 머신 간 이름 확인 |Azure에서 제공하는 이름 확인 |호스트 이름 또는 FQDN(정규화된 도메인 이름) |
 | 서로 다른 네트워크에 있는 역할 인스턴스 또는 가상 머신 간 이름 확인 |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 컴퓨터 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server). |FQDN만 |
 | Azure의 역할 인스턴스 또는 가상 머신에서 온-프레미스 컴퓨터와 서비스 이름 확인 |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server). |FQDN만 |
 | 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인 |해당하는 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달합니다. 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-using-your-own-dns-server). |FQDN만 |
@@ -87,7 +87,7 @@ dnsmasq 같은 여러 가지 DNS 캐싱 패키지를 사용할 수 있습니다.
 5. 캐시를 로컬 DNS 확인자로 설정하기 위해 네트워크 서비스("service network restart")를 다시 시작합니다.
 
 > [!NOTE]
-> : 'dnsmasq' 패키지는 여러 DNS 캐시 중에 Linux에 사용할 수 있는 유일한 캐시입니다. 사용하기 전에 본인의 요구 사항에 적합한지 확인하고 다른 캐시가 설치되어 있지 않은지 확인합니다.
+> : 'dnsmasq' 패키지는 Linux에서 사용할 수 있는 많은 DNS 캐시 중 하나입니다. 사용하기 전에 본인의 요구 사항에 적합한지 확인하고 다른 캐시가 설치되어 있지 않은지 확인합니다.
 >
 >
 

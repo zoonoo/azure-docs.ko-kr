@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: dcbf011d6e5f035a1934b69f94cf95b2318491f0
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022541"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813843"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
 이 문서에서는 데이터 관리 게이트웨이 사용과 관련된 문제 해결에 대한 정보를 제공합니다.
@@ -25,7 +25,7 @@ ms.locfileid: "54022541"
 > [!NOTE]
 > 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
 
-게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 이동하는 연습은 [온-프레미스와 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
+게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 이동하는 연습은 [온-프레미스와 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 ## <a name="failed-to-install-or-register-gateway"></a>게이트웨이를 설치하거나 등록하지 못함
 ### <a name="1-problem"></a>1. 문제
@@ -138,7 +138,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 게이트웨이가 인터넷 리소스에 액세스하기 위해 HTTP 프록시가 필요한 환경에 있거나 프록시의 인증 암호가 변경되었지만 이에 따라 게이트웨이에서 해당 암호를 적절히 업데이트하지 않은 경우에 이 오류가 발생합니다.
 
 #### <a name="resolution"></a>해결 방법
-이 문서의 [프록시 서버 고려 사항](#proxy-server-considerations) 섹션에서 설명하는 지침에 따라 데이터 관리 게이트웨이 구성 관리자를 사용하여 프록시 설정을 구성합니다.
+이 문서의 프록시 서버 고려 사항 섹션의 지침에 따라 데이터 관리 게이트웨이 구성 관리자를 사용하여 프록시 설정을 구성합니다.
 
 ## <a name="gateway-is-online-with-limited-functionality"></a>게이트웨이는 기능이 제한된 온라인입니다.
 ### <a name="1-problem"></a>1. 문제
@@ -169,8 +169,8 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 게이트웨이를 다시 온라인으로 가져오려면 다음 단계를 따릅니다.
 
 1. 게이트웨이 컴퓨터와 회사 방화벽에서 IP 주소 아웃바운드 규칙을 허용합니다. 다음과 같은 Windows 이벤트 로그에서 IP 주소를 찾을 수 있습니다(ID == 401). 액세스 권한 XX.XX.XX.XX:9350에 의해 숨겨진 소켓에 액세스를 시도했습니다.
-* 게이트웨이에 프록시 설정 구성 자세한 내용은 [프록시 서버 고려 사항](#proxy-server-considerations) 섹션을 참조하세요.
-* 게이트웨이 컴퓨터의 Windows 방화벽 및 회사 방화벽 모두에서 5671 및 9350-9354 아웃바운드 포트를 사용하도록 설정합니다. 자세한 내용은 [포트 및 방화벽](#ports-and-firewall) 섹션을 참조하세요. 이 단계는 선택 사항이지만 성능을 고려하여 권장됩니다.
+* 게이트웨이에 프록시 설정 구성 자세한 내용은 프록시 서버 고려 사항 섹션을 참조하세요.
+* 게이트웨이 컴퓨터의 Windows 방화벽 및 회사 방화벽 모두에서 5671 및 9350-9354 아웃바운드 포트를 사용하도록 설정합니다. 자세한 내용은 포트 및 방화벽 섹션을 참조하세요. 이 단계는 선택 사항이지만 성능을 고려하여 권장됩니다.
 
 ### <a name="3-problem"></a>3. 문제
 다음 오류가 표시됩니다.

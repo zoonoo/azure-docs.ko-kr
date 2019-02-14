@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 86e457cf553c84386937c35bab1ab0fd20518bed
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 3577edff19788ed9f0925876e3de737eb749b90e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368511"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490926"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Azure 엔터프라이즈 구독 만들기에 대한 액세스 권한 부여(미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "39368511"
 
 다른 사용자 또는 서비스 사용자에게 특정 계정에 대한 구독을 만들 수 있는 기능을 부여하려면 [등록 계정의 범위에서 RBAC 소유자 역할을 제공합니다](../active-directory/role-based-access-control-manage-access-rest.md). 다음 예제에서는 테넌트의 사용자에게 `<userObjectId>`의 `principalId`로(SignUpEngineering@contoso.com에 대한) 등록 계정의 소유자 역할을 제공합니다. 등록 계정 ID 및 보안 주체 ID를 찾으려면 [프로그래밍 방식으로 Azure 엔터프라이즈 구독 만들기(미리 보기)](programmatically-create-subscription.md)를 참조하세요.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+# <a name="resttabrest"></a>[REST (영문)](#tab/rest)
 
 ```json
 PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
@@ -42,6 +42,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
+
 등록 계정 범위에서 소유자 역할을 성공적으로 할당하면 Azure는 역할 할당의 정보로 응답합니다.
 
 ```json
@@ -63,10 +64,10 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-[New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md)를 사용하여 다른 사용자 소유자에게 등록 계정에 대한 액세스를 제공합니다.
+[New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md)를 사용하여 다른 사용자 소유자에게 등록 계정에 대한 액세스를 제공합니다.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)

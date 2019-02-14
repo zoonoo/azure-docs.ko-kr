@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0937ad12ad74209e84ee1316a090af8a6469a044
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151620"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55813826"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -48,7 +48,7 @@ Azure AD 애플리케이션 프록시는 모든 인증에 Azure AD STS(보안 �
 
 [조건부 액세스](../conditional-access/overview.md)를 사용하면 백 엔드 애플리케이션에 액세스할 수 있는 트래픽에 대한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
 
-또한 조건부 액세스를 사용하여 Multi-Factor Authentication 정책을 구성하고 사용자 인증에 또 다른 보안 계층을 추가할 수 있습니다. 또한 [액세스](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) 및 [세션](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad) 정책을 사용하여 Azure AD 조건부 액세스를 통해 애플리케이션을 Microsoft Cloud App Security로 라우팅하면 실시간 모니터링 및 제어를 제공할 수 있습니다.
+또한 조건부 액세스를 사용하여 Multi-Factor Authentication 정책을 구성하고 사용자 인증에 또 다른 보안 계층을 추가할 수 있습니다. 또한 [액세스](https://docs.microsoft.com/cloud-app-security/access-policy-aad) 및 [세션](https://docs.microsoft.com/cloud-app-security/session-policy-aad) 정책을 사용하여 Azure AD 조건부 액세스를 통해 애플리케이션을 Microsoft Cloud App Security로 라우팅하면 실시간 모니터링 및 제어를 제공할 수 있습니다.
 
 ### <a name="traffic-termination"></a>트래픽 종료
 
@@ -128,11 +128,11 @@ Azure AD 애플리케이션 프록시는 두 부분으로 구성됩니다.
 
 사용자가 게시된 애플리케이션에 액세스하면 애플리케이션 프록시 서비스와 애플리케이션 프록시 커넥터 간에 다음과 같은 이벤트가 발생합니다.
 
-1. [서비스가 앱에 대해 사용자를 인증](#the-service-checks-the-configuration-settings-for-the-app)
-2. [서비스에서 커넥터 큐에 요청 배치](#The-service-places-a-request-in-the-connector-queue)
-3. [커넥터에서 큐의 요청 처리](#the-connector-receives-the-request-from-the-queue)
-4. [커넥터에서 응답 대기](#the-connector-waits-for-a-response)
-5. [서비스에서 사용자에게 데이터 스트리밍](#the-service-streams-data-to-the-user)
+1. 서비스가 앱에 대해 사용자를 인증
+2. 서비스에서 커넥터 큐에 요청 배치
+3. 커넥터에서 큐의 요청 처리
+4. 커넥터에서 응답 대기
+5. 서비스에서 사용자에게 데이터 스트리밍
 
 이러한 단계 각각에서 수행하는 작업에 대해 자세히 알아보려면 계속 읽어보세요.
 

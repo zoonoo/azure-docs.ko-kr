@@ -4,21 +4,19 @@ description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc817302ab39d12ccd1d1a20d4dd72f94352c796
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722145"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55695672"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 매개 변수 섹션
 템플릿의 매개 변수 섹션에서는 리소스를 배포할 때 입력할 수 있는 값을 지정합니다. 이러한 매개 변수 값을 사용하여 개발, 테스트 및 프로덕션 등의 특정 환경에 맞게 조정되는 값을 제공함으로써 배포를 사용자 지정할 수 있습니다. 템플릿에서 매개 변수를 제공할 필요는 없지만 매개 변수가 없으면 템플릿이 항상 이름, 위치 및 속성이 같은 동일한 리소스를 배포합니다.
@@ -93,7 +91,7 @@ ms.locfileid: "53722145"
 | maxValue |아니요 |Int 형식 매개 변수의 최대값이며, 이 값이 포함됩니다. |
 | minLength |아니요 |string, securestring 및 array 형식 매개 변수의 최소 길이이며, 이 값이 포함됩니다. |
 | maxLength |아니요 |string, securestring 및 array 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다. |
-| description |아니요 |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. |
+| description |아니요 |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. 자세한 내용은 [템플릿의 주석](resource-group-authoring-templates.md#comments)을 참조하세요. |
 
 ## <a name="template-functions-with-parameters"></a>매개 변수가 있는 템플릿 함수
 

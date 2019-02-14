@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 707ee508b0615ab873b60b45eb1d9f0294313367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464572"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816852"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Azure Storage에서 Azure CLI 사용
 
@@ -38,7 +38,7 @@ ms.locfileid: "55464572"
 [Azure CLI 설치](/cli/azure/install-az-cli2)에 설명된 지침에 따라 Azure CLI를 다운로드하여 설치합니다.
 
 > [!TIP]
-> 설치하는 데 문제가 있으면 관련 문서의 [설치 문제 해결](/cli/azure/install-az-cli2#installation-troubleshooting) 섹션 및 GitHub의 [설치 문제 해결](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) 가이드를 참조하세요.
+> 설치하는 데 문제가 있으면 관련 문서의 [설치 문제 해결](/cli/azure/install-az-cli2) 섹션 및 GitHub의 [설치 문제 해결](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) 가이드를 참조하세요.
 >
 
 ## <a name="working-with-the-cli"></a>CLI 사용
@@ -173,7 +173,7 @@ Done
 ## <a name="manage-storage-accounts"></a>저장소 계정 관리
 
 ### <a name="create-a-new-storage-account"></a>새 저장소 계정 만들기
-Azure Storage를 사용하려면 스토리지 계정이 필요합니다. [구독에 연결](#connect-to-your-azure-subscription)하도록 컴퓨터를 구성한 후 새 Azure Storage 계정을 만들 수 있습니다.
+Azure Storage를 사용하려면 스토리지 계정이 필요합니다. 구독에 연결하도록 컴퓨터를 구성한 후에 새 Azure Storage 계정을 만들 수 있습니다.
 
 ```azurecli
 az storage account create \
@@ -277,7 +277,7 @@ az storage blob download \
 
 ### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-[az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) 명령으로 컨테이너에 있는 Blob을 나열합니다.
+[az storage blob list](/cli/azure/storage/blob) 명령으로 컨테이너에 있는 Blob을 나열합니다.
 
 ```azurecli
 az storage blob list \

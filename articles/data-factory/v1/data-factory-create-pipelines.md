@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fb0448e5ad5bd91c63c2fcde9887ec23544bed3f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: f04903cc1ffd16edd951969c86659c8f1f33105f
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331353"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55814132"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure 데이터 팩터리의 파이프라인 및 활동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -150,10 +150,10 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 | 동시성 |정수  <br/><br/>최댓값: 10 |1 |작업의 동시 실행 수입니다.<br/><br/>다른 조각에 발생할 수 있는 병렬 작업 실행 횟수를 결정합니다. 예를 들어 활동이 사용 가능한 많은 데이터 집합을 거쳐야 하는 경우 동시성 값을 높이면 데이터 처리가 빨라집니다. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |처리 중인 데이터 조각의 순서를 결정합니다.<br/><br/>예를 들어 2개의 조각이 있으며(각각 오후 4시 및 오후 5시에 발생) 둘 다 실행 보류 상태입니다. executionPriorityOrder를 설정하여 NewestFirst가 되도록 하면 오후 5시에 조각이 먼저 처리됩니다. 마찬가지로 executionPriorityORder를 OldestFIrst로 설정하면 오후 4시의 조각이 처리됩니다. |
 | retry |정수 <br/><br/>최대값이 10이 될 수 있음 |0 |조각에 대한 데이터 처리 전에 다시 시도 횟수가 실패로 표시됩니다. 데이터 조각에 대한 활동 실행은 지정된 재시도 횟수까지 다시 시도됩니다. 재시도는 실패 후 가능한 한 빨리 수행합니다. |
-| 시간 제한 |timespan |00:00:00 |활동에 대한 시간 제한입니다. 예제: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
-| delay |timespan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예제: 00:10:00(10분 지연을 의미함) |
+| 시간 제한 |TimeSpan |00:00:00 |활동에 대한 시간 제한입니다. 예제: 00:10:00(시간 제한 10분을 의미함)<br/><br/>값이 지정되지 않거나 0인 경우 시간 제한은 무한입니다.<br/><br/>조각의 데이터 처리 시간이 시간 제한 값을 초과하면 취소되고 시스템이 처리를 다시 시도합니다. 다시 시도 횟수는 다시 시도 속성에 따라 달라집니다. 시간 제한이 발생할 때 상태는 TimedOut으로 설정됩니다. |
+| delay |TimeSpan |00:00:00 |조각의 데이터 처리 작업이 시작되기 전에 지연을 지정합니다.<br/><br/>데이터 조각에 대한 활동의 실행은 지연이 예상된 실행 시간을 지난 후에 시작됩니다.<br/><br/>예제: 00:10:00(10분 지연을 의미함) |
 | longRetry |정수 <br/><br/>최댓값: 10 |1 |조각 실행이 실패하기 전까지의 긴 재시도 횟수입니다.<br/><br/>longRetry 시도는 longRetryInterval에 따라 간격이 조정됩니다. 따라서 재시도 간의 시간을 지정해야 하는 경우 longRetry를 사용합니다. Retry 및 longRetry를 둘 다 지정하면 각 longRetry 시도에는 Retry 시도가 포함되고 최대 시도 횟수는 Retry * longRetry가 됩니다.<br/><br/>예를 들어 활동 정책에 다음 설정이 있는 경우:<br/>다시 시도: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>실행할 조각이 하나뿐이며(Waiting 상태) 작업 실행이 매번 실패한다고 가정합니다. 우선 3번 연속 실행 시도를 합니다. 시도한 후 각 조각 상태는 다시 시도입니다. 처음 3번 시도 후에 조각 상태는 LongRetry입니다.<br/><br/>한 시간(즉, longRetryInteval의 값) 후에 3번 연속 실행이 다시 시도됩니다. 그 후에 조각 상태가 실패이면 다시 시도는 더 이상 시도하지 않습니다. 즉, 전체적으로 6번의 시도가 일어납니다.<br/><br/>모든 실행에 성공하면 조각 상태는 준비 상태가 되며 더 이상 다시 시도하지 않습니다.<br/><br/>longRetry는 종속 데이터가 명확하지 않은 시간에 도착하거나 데이터 처리가 발생하는 전체적인 환경을 신뢰할 수 없는 상황에서 사용될 수 있습니다. 이러한 경우 하나씩 다시 시도를 수행해도 도움이 되지 않을 수 있으며 특정 시간 간격 후에 시도할 경우 출력이 나타납니다.<br/><br/>주의: longRetry 또는 longRetryInterval에 높은 값을 설정하지 마세요. 일반적으로 더 높은 값을 지정하면 다른 시스템 문제가 발생합니다. |
-| longRetryInterval |timespan |00:00:00 |긴 다시 시도 간의 지연 |
+| longRetryInterval |TimeSpan |00:00:00 |긴 다시 시도 간의 지연 |
 
 ## <a name="sample-copy-pipeline"></a>샘플 복사 파이프라인
 다음 샘플 파이프라인에는 **Copy** in the **활동** 유형의 하나의 활동이 있습니다. 샘플에서 [복사 활동](data-factory-data-movement-activities.md)은 Azure Blob Storage의 데이터를 Azure SQL Database에 복사합니다.
@@ -307,7 +307,7 @@ JSON 형식으로 파이프라인을 정의하는 방법에 대해 자세히 살
 - [모니터 및 관리 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)
 
 ## <a name="onetime-pipeline"></a>일회성 파이프라인
-파이프라인 정의 내에 지정한 시작 및 종료 시간 내에서 정기적(예: 매시간 또는 매일)으로 실행되도록 파이프라인을 만들고 일정을 예약할 수 있습니다. 자세한 내용은 [활동 예약](#scheduling-and-execution) 을 참고하세요. 한 번만 실행되는 파이프라인을 만들 수도 있습니다. 이렇게 하려면 다음 JSON 샘플에서 보여 주듯이 파이프라인 정의에서 **pipelineMode** 속성을 **onetime**으로 설정합니다. 이 속성의 기본값은 **scheduled**입니다.
+파이프라인 정의 내에 지정한 시작 및 종료 시간 내에서 정기적(예: 매시간 또는 매일)으로 실행되도록 파이프라인을 만들고 일정을 예약할 수 있습니다. 자세한 내용은 활동 예약을 참조하세요. 한 번만 실행되는 파이프라인을 만들 수도 있습니다. 이렇게 하려면 다음 JSON 샘플에서 보여 주듯이 파이프라인 정의에서 **pipelineMode** 속성을 **onetime**으로 설정합니다. 이 속성의 기본값은 **scheduled**입니다.
 
 ```json
 {

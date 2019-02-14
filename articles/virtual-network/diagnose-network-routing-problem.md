@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 56dd13f5c2c0db4af65d8bc5d4ee5c072a161964
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee807387b5fc7c8a9d42564cdb6cee7d59db2508
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429637"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819793"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>가상 머신 라우팅 문제 진단
 
@@ -116,7 +116,7 @@ az vm show \
 - 사용자 지정 경로를 포함하는 경로 테이블이 네트워크 인터페이스가 있는 서브넷에 연결되었는지 확인합니다. [서브넷에 경로 테이블을 연결하는](manage-route-table.md#associate-a-route-table-to-a-subnet) 방법을 알아봅니다.
 - 배포한 Azure VPN Gateway 또는 네트워크 가상 어플라이언스가 작동할 수 있는지 확인합니다. Network Watcher의 [VPN 진단](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 기능을 사용하여 Azure VPN Gateway에 발생한 문제를 확인합니다.
 
-여전히 통신 문제가 있는 경우 [고려 사항](#considerations) 및 [추가 진단](#additional-dignosis)을 참조하세요.
+여전히 통신 문제가 있는 경우 [고려할 사항](#considerations) 및 추가 진단을 참조하세요.
 
 ## <a name="considerations"></a>고려 사항
 

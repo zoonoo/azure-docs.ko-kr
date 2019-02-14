@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5e080614d4f0001a0bf1b44dd402f37db2463e03
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b8c6ac78447a4e4db79ed75100222eee8d528b58
+ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206696"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55696900"
 ---
 # <a name="manage-access-using-rbac-and-azure-resource-manager-templates"></a>RBAC 및 Azure Resource Manager 템플릿을 사용하여 액세스 관리
 
@@ -92,16 +92,18 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 
 ## <a name="deploy-template-using-azure-powershell"></a>Azure PowerShell을 사용하여 템플릿 배포
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 Azure PowerShell을 사용하여 이전 템플릿을 배포하려면 다음 단계를 수행합니다.
 
 1. rbac-rg.json이라는 새 파일을 만들고 이전 템플릿을 복사합니다.
 
 1. [Azure PowerShell](/powershell/azure/authenticate-azureps)에 로그인합니다.
 
-1. 사용자, 그룹 또는 애플리케이션의 고유 식별자를 가져옵니다. 예를 들어 [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) 명령을 사용하여 Azure AD 사용자를 나열할 수 있습니다.
+1. 사용자, 그룹 또는 애플리케이션의 고유 식별자를 가져옵니다. 예를 들어 [Get-AzADUser](/powershell/module/az.resources/get-azaduser) 명령을 사용하여 Azure AD 사용자를 나열할 수 있습니다.
 
     ```azurepowershell
-    Get-AzureRmADUser
+    Get-AzADUser
     ```
 
 1. GUID 도구를 사용하여 역할 할당에 사용할 고유 식별자를 생성합니다. 식별자의 형식은 `11111111-1111-1111-1111-111111111111`입니다.
@@ -109,21 +111,21 @@ Azure PowerShell을 사용하여 이전 템플릿을 배포하려면 다음 단�
 1. 예제 리소스 그룹 만듭니다.
 
     ```azurepowershell
-    New-AzureRmResourceGroup -Name ExampleGroup -Location "Central US"
+    New-AzResourceGroup -Name ExampleGroup -Location "Central US"
     ```
 
-1. [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) 명령을 사용하여 배포를 시작합니다.
+1. [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 명령을 사용하여 배포를 시작합니다.
 
     ```azurepowershell
-    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     ```
 
     필수 매개 변수를 지정하라는 메시지가 표시됩니다. 다음은 출력 예제입니다.
 
     ```Output
-    PS /home/user> New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    PS /home/user> New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     
-    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+    cmdlet New-AzResourceGroupDeployment at command pipeline position 1
     Supply values for the following parameters:
     (Type !? for Help.)
     principalId: 22222222-2222-2222-2222-222222222222

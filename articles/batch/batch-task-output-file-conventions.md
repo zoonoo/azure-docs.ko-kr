@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ede0b7cbeee9227a7023e5c0550a951897cc43e4
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472986"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55821187"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지
 
@@ -112,7 +112,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 [TaskOutputStorage](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.aspx).[SaveAsync](https://msdn.microsoft.com/library/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync.aspx) 메서드의 `kind` 매개 변수는 유지된 파일을 분류합니다. 미리 정의된 4개의 [TaskOutputKind][net_taskoutputkind] 형식, 즉 `TaskOutput`, `TaskPreview`, `TaskLog` 및 `TaskIntermediate.`가 있습니다. 사용자 정의 범주의 출력도 정의할 수 있습니다.
 
-이러한 출력 형식을 사용하면 나중에 지정된 태스크의 보관된 출력에 대해 Batch를 쿼리할 때 나열한 출력 형식을 지정할 수 있습니다. 즉, 태스크에 대한 출력을 나열할 때 출력 형식 중 하나로 목록을 필터링할 수 있습니다. 예를 들어 "Give me the *preview* output for task *109*"와 같이 지정할 수 있습니다. 출력 나열 및 검색에 대한 보다 자세한 내용은 이 문서의 뒷부분에 있는 [출력 검색](#retrieve-output) 에서 확인할 수 있습니다.
+이러한 출력 형식을 사용하면 나중에 지정된 태스크의 보관된 출력에 대해 Batch를 쿼리할 때 나열한 출력 형식을 지정할 수 있습니다. 즉, 태스크에 대한 출력을 나열할 때 출력 형식 중 하나로 목록을 필터링할 수 있습니다. 예를 들어 "Give me the *preview* output for task *109*"와 같이 지정할 수 있습니다. 출력 나열 및 검색에 대한 보다 자세한 내용은 이 문서의 뒷부분에 있는 출력 검색 에서 확인할 수 있습니다.
 
 > [!TIP]
 > 출력 종류는 Azure Portal에서 특정 파일이 표시되는 위치도 결정합니다. 즉, *TaskOutput* 범주의 파일은 **작업 출력 파일** 아래에 표시되고, *TaskLog* 파일은 **작업 로그** 아래에 표시됩니다.
@@ -197,7 +197,7 @@ Azure Portal에서는 [Batch 파일 규칙 표준](https://github.com/Azure/azur
 
 포털에서 출력 파일을 표시하려면 다음 요구 사항을 충족해야 합니다.
 
-1. Batch 계정에 [Azure Storage 계정을 연결합니다](#requirement-linked-storage-account).
+1. Batch 계정에 Azure Storage 계정을 연결합니다.
 1. 출력을 보관할 때 저장소 컨테이너 및 파일에 대한 미리 정의된 명명 규칙을 따릅니다. [추가 정보][github_file_conventions_readme](영문) 파일 규칙 라이브러리에서 이러한 규칙에 대한 정의를 찾을 수 있습니다. [Azure Batch 파일 규칙][nuget_package](영문) 라이브러리를 사용하여 출력을 유지하면 파일이 파일 규칙 표준에 따라 유지됩니다.
 
 Azure Portal에서 태스크 출력 파일과 로그를 보려면 관심 있는 출력의 태스크로 이동한 다음 **저장된 출력 파일** 또는 **저장된 로그**를 클릭합니다. 이 이미지는 ID가 "007"인 태스크에 대한 **저장된 출력 파일** 을 보여 줍니다.

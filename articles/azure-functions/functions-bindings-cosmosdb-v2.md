@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6748998e87de7f0d5ea41a10ba16600aa7b31505
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972042"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818127"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
@@ -57,7 +57,7 @@ Azure Cosmos DB 트리거는 [Azure Cosmos DB 변경 피드](../cosmos-db/change
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-[트리거 건너뛰기 예제](#trigger---attributes)
+트리거 건너뛰기 예제
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
@@ -93,7 +93,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[트리거 건너뛰기 예제](#trigger---attributes)
+트리거 건너뛰기 예제
 
 ### <a name="trigger---c-script-example"></a>트리거 - C# 스크립트 예제
 
@@ -131,7 +131,7 @@ C# 스크립트 코드는 다음과 같습니다.
     }
 ```
 
-[트리거 건너뛰기 예제](#trigger---attributes)
+트리거 건너뛰기 예제
 
 ### <a name="trigger---javascript-example"></a>트리거 - JavaScript 예제
 
@@ -199,7 +199,7 @@ Java 코드는 다음과 같습니다.
 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 매개 변수에 대한 `@CosmosDBTrigger` 주석을 사용합니다.  옵션 <T>를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
 
 
-[트리거 건너뛰기 예제](#trigger---attributes)
+트리거 건너뛰기 예제
 
 ### <a name="trigger---python-example"></a>트리거 - Python 예제
 
@@ -1727,7 +1727,7 @@ public class DocsFromRouteSqlQuery {
 
 C# 및 F# 함수에서 함수가 성공적으로 종료되면 명명된 입력 매개 변수를 통해 입력 문서에 변경한 내용이 자동으로 유지됩니다.
 
-JavaScript 함수에서는 함수 종료 시 자동으로 업데이트되지 않습니다. 대신 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 업데이트합니다. [JavaScript 예제](#input---javascript-example)를 참조하세요.
+JavaScript 함수에서는 함수 종료 시 자동으로 업데이트되지 않습니다. 대신 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 업데이트합니다. JavaScript 예제를 참조하세요.
 
 ## <a name="output"></a>출력
 
@@ -2121,7 +2121,7 @@ F# 코드는 다음과 같습니다.
 
 #### <a name="queue-trigger-save-message-to-database-via-return-value-java"></a>큐 트리거, 반환 값을 통해 데이터베이스에 메시지 저장(Java)
 
-다음 예제에서는 큐 저장소의 메시지에서 데이터를 사용하여 문서를 데이터베이스에 추가하는 Java 함수를 보여줍니다.
+다음 예제에서는 Queue Storage의 메시지에서 데이터를 사용하여 문서를 데이터베이스에 추가하는 Java 함수를 보여줍니다.
 
 ```java
 @FunctionName("getItem")

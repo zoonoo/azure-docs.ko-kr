@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2af3e75e3810284d9740a3d87d681d9ee31f14d3
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b399e18aa3cdd83d0c6907999f6446fd566259a1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052839"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998589"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -56,7 +56,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 인덱싱 상태 변경 
     - 속성    
     
-        |이름|설명|
+        |Name|설명|
         |---|---|
         |id|비디오 ID|
         |state|비디오 상태|  
@@ -64,7 +64,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 비디오에서 식별된 사용자
     - properties
     
-        |이름|설명|
+        |Name|설명|
         |---|---|
         |id| 비디오 ID|
         |faceId|비디오 인덱스에 표시되는 얼굴 ID|

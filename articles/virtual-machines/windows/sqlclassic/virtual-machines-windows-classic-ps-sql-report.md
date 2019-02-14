@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233085"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820116"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 이 항목에서는 Azure Virtual Machine에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다. 이 문서의 단계는 가상 머신 및 Windows PowerShell 스크립트를 만드는 수동 단계를 조합하여 VM에서 Reporting Services를 구성합니다. 구성 스크립트에는 HTTP 또는 HTTPS에 대해 방화벽 포트를 여는 작업이 포함되어 있습니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "51233085"
   
   * 구독의 코어 제한을 확인하려면, Azure Portal의 왼쪽 창에서 설정을 클릭하고 위쪽 메뉴에서 사용을 클릭합니다.
   * 코어 할당량을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 Virtual Machine 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
-* **Windows PowerShell 스크립팅**: 이 항목에서는 Windows PowerShell의 기본 작동 지식이 있다고 가정합니다. Windows PowerShell을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+* **Windows PowerShell 스크립팅**: 이 항목에서는 Windows PowerShell의 기본 실무 지식이 있다고 가정합니다. Windows PowerShell을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
   
   * [Windows Server에서 Windows PowerShell 시작](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell)
   * [Windows PowerShell 시작](https://technet.microsoft.com/library/hh857337.aspx)
@@ -62,8 +62,8 @@ ms.locfileid: "51233085"
 6. **가상 머신 구성** 페이지에서 다음 필드를 편집합니다.
    
    * **버전 릴리스 날짜**가 둘 이상 있는 경우 가장 최신 버전을 선택합니다.
-   * **Virtual Machine Name**: 머신 이름은 다음 구성 페이지에서 기본 클라우드 서비스 DNS 이름으로도 사용됩니다. Azure 서비스에서 DNS 이름은 고유해야 합니다. VM의 용도에 대해 설명하는 컴퓨터 이름을 사용하여 VM을 구성하는 것이 좋습니다. 예를 들어 ssrsnativecloud입니다.
-   * **계층**: 표준
+   * **가상 머신 이름**: 머신 이름은 다음 구성 페이지에서 기본 클라우드 서비스 DNS 이름으로도 사용됩니다. Azure 서비스에서 DNS 이름은 고유해야 합니다. VM의 용도에 대해 설명하는 컴퓨터 이름을 사용하여 VM을 구성하는 것이 좋습니다. 예를 들어 ssrsnativecloud입니다.
+   * **계층**: Standard
    * **크기: A3** 은 SQL Server 작업에 권장되는 VM 크기입니다. VM이 보고서 서버로만 사용되는 경우 보고서 서버의 작업이 크지 않는 한 VM 크기는 A2이면 충분합니다. VM 가격 책정 정보는 [Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)을 참조하세요.
    * **새 사용자 이름**: 제공하는 이름은 VM에서 관리자로 만들어집니다.
    * **새 암호** 및 **확인**. 이 암호는 새 관리자 계정에 대해 사용되므로 강력한 암호를 사용하는 것이 좋습니다.
@@ -73,12 +73,12 @@ ms.locfileid: "51233085"
    * **클라우드 서비스**: **새 클라우드 서비스 만들기**를 선택합니다.
    * **클라우드 서비스 DNS 이름**: VM과 연결된 클라우드 서비스의 공용 DNS 이름입니다. 기본 이름은 VM 이름에 입력한 이름입니다. 이 항목의 이후 단계에서 신뢰할 수 있는 SSL 인증서를 만들면 DNS 이름이 인증서의 “**발급 대상**” 값에 사용됩니다.
    * **지역/선호도 그룹/Virtual Network**: 최종 사용자에게 가장 가까운 지역을 선택합니다.
-   * **Storage 계정**: 자동으로 생성된 Storage 계정을 사용합니다.
-   * **가용성 집합**: 없습니다.
+   * **스토리지 계정**: 자동으로 생성된 스토리지 계정을 사용합니다.
+   * **가용성 집합**: 없음.
    * **엔드포인트** **원격 데스크톱** 및 **PowerShell** 엔드포인트를 그대로 유지한 다음 사용자 환경에 따라 HTTP 또는 HTTPS 엔드포인트를 추가합니다.
      
-     * **HTTP**: 기본 공용 포트 및 개인 포트가 **80**입니다. 80 이외의 개인 포트를 사용하는 경우 HTTP 스크립트에서 **$HTTPport = 80** 을 수정합니다.
-     * **HTTPS**: 기본 공용 포트 및 개인 포트가 **443**입니다. 보안 모범 사례는 개인 포트를 변경하고 개인 포트를 사용하도록 방화벽 및 보고서 서버를 구성하는 것입니다. 엔드포인트에 대한 자세한 내용은 [Virtual Machine으로 엔드포인트를 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 443 이외의 포트를 사용하는 경우 HTTPS 스크립트에서 매개 변수 **$HTTPsport = 443** 을 변경합니다.
+     * **HTTP**: 기본 공용 포트 및 개인 포트는 **80**입니다. 80 이외의 개인 포트를 사용하는 경우 HTTP 스크립트에서 **$HTTPport = 80** 을 수정합니다.
+     * **HTTPS**: 기본 공용 포트 및 개인 포트는 **443**입니다. 보안 모범 사례는 개인 포트를 변경하고 개인 포트를 사용하도록 방화벽 및 보고서 서버를 구성하는 것입니다. 엔드포인트에 대한 자세한 내용은 [Virtual Machine으로 엔드포인트를 설정하는 방법](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요. 443 이외의 포트를 사용하는 경우 HTTPS 스크립트에서 매개 변수 **$HTTPsport = 443** 을 변경합니다.
    * 다음을 클릭합니다. ![다음](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. 마법사의 마지막 페이지에서 기본 **VM 에이전트 설치** 를 선택한 상태로 유지합니다. 이 항목의 단계에서 VM 에이전트를 이용하지 않지만 이 VM을 유지하려는 경우 VM 에이전트 및 확장을 사용하면 CM이 향상됩니다.  VM 에이전트에 대한 자세한 내용은 [VM 에이전트 및 확장 – 1부](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/)를 참조하세요. AD 실행을 설치한 기본 확장 중 하나가 VM 데스크톱에서 내부 IP 및 여유 드라이브 공간 같은 시스템 정보를 표시하는 “BGINFO” 확장입니다.
 9. 완료를 클릭합니다. ![Ok](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
@@ -126,7 +126,7 @@ VM이 프로비전되었을 때 자체 서명된 인증서가 VM에 만들어졌
       
        ![로그인에 VM 이름 포함](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Mmc.exe를 실행합니다. 자세한 내용은 [방법: MMC 스냅인을 사용하여 인증서 보기](https://msdn.microsoft.com/library/ms788967.aspx)를 참조하세요.
-   3. 콘솔 애플리케이션 **파일** 메뉴에서 **인증서** 스냅인을 추가하고 메시지가 표시되면 **컴퓨터 계정**을 선택한 후, **다음**을 클릭합니다.
+   3. 콘솔 애플리케이션 **파일** 메뉴에서 **인증서** 스냅인을 추가하고 메시지가 표시되면 **컴퓨터 계정**을 선택한 후 **다음**을 클릭합니다.
    4. 관리할 **로컬 컴퓨터**를 선택한 후 **마침**을 클릭합니다.
    5. **확인**을 클릭한 다음 **인증서 - 개인** 노드를 확장한 다음 **인증서**를 클릭합니다. 인증서 이름은 VM의 DNS 이름을 따서 지정되고 **cloudapp.net**으로 끝납니다. 인증서 이름을 마우스 오른쪽 단추로 클릭하고 **복사**를 클릭합니다.
    6. **T신뢰할 수 있는 루트 인증 기관** 노드를 확장한 다음 **인증서**를 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 클릭합니다.
@@ -483,7 +483,7 @@ Windows PowerShell을 사용하여 보고서 서버를 구성하려면 다음 �
 9. 스크립트가 현재 Reporting Services에 대해 구성되어 있습니다. Reporting Services에 대한 스크립트를 실행하려는 경우 Get-WmiObject 문에서 네임스페이스 경로의 버전 부분을 "v11"로 수정합니다.
 10. 스크립트를 실행합니다.
 
-**유효성 검사**: 기본 보고서 서버 기능이 작동하는지 확인하려면 이 항목의 뒷부분에 나오는 [구성 확인](#verify-the-connection) 섹션을 참조하세요. 인증서 바인딩을 확인하려면 관리자 권한으로 명령 프롬프트를 연 후 다음 명령을 실행합니다.
+**유효성 검사**: 기본 보고서 서버 기능이 작동하는지 확인하려면 이 항목의 뒷부분에 나오는 구성 확인 섹션을 참조하세요. 인증서 바인딩을 확인하려면 관리자 권한으로 명령 프롬프트를 연 후 다음 명령을 실행합니다.
 
     netsh http show sslcert
 
@@ -505,7 +505,7 @@ PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으�
 5. 왼쪽 창에서 **웹 서비스 URL**을 클릭합니다.
 6. 기본적으로 RS는 IP가 “모두 할당됨"으로 HTTP 포트 80에 대해 구성됩니다. HTTPS를 추가하려면:
    
-   1. **SSL 인증서**에서: 사용하려는 인증서를 선택합니다. 예를 들어 [VM 이름].cloudapp.net입니다. 인증서가 나열되지 않은 경우 VM에서 인증서를 설치하고 신뢰하는 방법이 설명된 **2단계: 서버 인증서 만들기** 섹션을 참조하세요.
+   1. **SSL 인증서**에서: 사용하려는 인증서를 선택합니다. 예를 들어 [VM 이름].cloudapp.net입니다. 인증서가 나열되지 않은 경우 **2단계: 서버 인증서 만들기** 섹션에서 VM에 인증서를 설치하고 신뢰하는 방법을 참조하세요.
    2. **SSL 포트**에서: 443을 선택합니다. VM에 다른 개인 포트를 사용하여 HTTPS 개인 엔드포인트를 구성한 경우 해당 값을 여기에 사용합니다.
    3. **적용** 을 클릭하고 작업이 완료되기를 기다립니다.
 7. 왼쪽 창에서 **데이터베이스**를 클릭합니다.
@@ -573,21 +573,21 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 ## <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>보고서를 만들고 Azure Virtual Machine에 게시하려면
 다음 표에는 온-프레미스 컴퓨터의 기존 보고서를 Microsoft Azure Virtual Machine에 호스트된 보고서 서버에 게시하는 데 사용 가능한 일부 옵션이 요약되어 있습니다.
 
-* **RS.exe 스크립트**: RS.exe 스크립트를 사용하여 기존 보고서 서버의 보고서 항목을 Microsoft Azure Virtual Machine에 복사합니다. 자세한 내용은 [보고서 서버 간 콘텐츠 마이그레이션을 위한 예제 Reporting Services rs.exe 스크립트](https://msdn.microsoft.com/library/dn531017.aspx)의 "기본 모드에서 기본 모드로 – Microsoft Azure Virtual Machine" 섹션을 참조하세요.
+* **RS.exe script**: RS.exe 스크립트를 사용하여 기존 보고서 서버의 보고서 항목을 Microsoft Azure Virtual Machine에 복사합니다. 자세한 내용은 [보고서 서버 간 콘텐츠 마이그레이션을 위한 예제 Reporting Services rs.exe 스크립트](https://msdn.microsoft.com/library/dn531017.aspx)의 "기본 모드에서 기본 모드로 – Microsoft Azure Virtual Machine" 섹션을 참조하세요.
 * **보고서 작성기**: 가상 머신은 Microsoft SQL Server 보고서 작성기의 ClickOnce 버전을 포함합니다. 가상 머신에서 처음으로 보고서 작성기를 시작하려면:
   
   1. 관리자 권한으로 브라우저를 시작합니다.
   2. 가상 머신에서 보고서 관리자로 이동하고 리본에서 **보고서 작성기**를 클릭합니다.
      
      자세한 내용은 [보고서 작성기 설치, 제거 및 지원](https://technet.microsoft.com/library/dd207038.aspx)을 참조하세요.
-* **SQL Server Data Tools: VM**: SQL Server 2012를 사용하여 VM을 만든 경우 SQL Server Data Tools가 가상 머신에 설치되어 있으므로 가상 머신에서 **보고서 서버 프로젝트** 및 보고서를 만드는 데 사용할 수 있습니다. SQL Server Data Tools는 보고서를 가상 머신의 보고서 서버에 게시할 수 있습니다.
+* **SQL Server Data Tools: VM**:  SQL Server 2012를 사용하여 VM을 만든 경우 SQL Server Data Tools가 가상 머신에 설치되어 있으므로 가상 머신에서 **보고서 서버 프로젝트** 및 보고서를 만드는 데 사용할 수 있습니다. SQL Server Data Tools는 보고서를 가상 머신의 보고서 서버에 게시할 수 있습니다.
   
     SQL Server 2014에서 VM을 만든 경우 SQL Server Data Tools - Visual Studio용 BI를 설치할 수 있습니다. 자세한 내용은 
   
   * [Microsoft SQL Server Data Tools - Visual Studio 2013용 비즈니스 인텔리전스](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Visual Studio 2012용 비즈니스 인텔리전스](https://www.microsoft.com/download/details.aspx?id=36843)
   * [SSDT-BI(SQL Server Data Tools 및 SQL Server Business Intelligence)](https://docs.microsoft.com/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi)
-* **SQL Server Data Tools: 원격**: 로컬 컴퓨터에서 SQL Server Data Tools로 Reporting Services 보고서가 포함된 Reporting Services 프로젝트를 만듭니다. 웹 서비스 URL에 연결하도록 프로젝트를 구성합니다.
+* **SQL Server Data Tools: 원격**:  로컬 컴퓨터에서 SQL Server Data Tools로 Reporting Services 보고서가 포함된 Reporting Services 프로젝트를 만듭니다. 웹 서비스 URL에 연결하도록 프로젝트를 구성합니다.
   
     ![SSRS 프로젝트의 SSDT 프로젝트 속성](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
 * **스크립트 사용**: 스크립트를 사용하여 보고서 서버 콘텐츠를 복사합니다. 자세한 내용은 [보고서 서버 간 콘텐츠 마이그레이션을 위한 예제 Reporting Services rs.exe 스크립트](https://msdn.microsoft.com/library/dn531017.aspx)를 참조하세요.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: ce30b752ecf1d5413ae534fa03907cbf11b1c694
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a0da4339586982f5210834bcec5acfe463bc1a9a
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794484"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816444"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
@@ -124,7 +124,7 @@ ms.locfileid: "53794484"
 클러스터 크기 조정 기능을 사용하면 클러스터를 다시 만들지 않고 Azure HDInsight 클러스터에서 사용되는 작업자 노드 수를 변경할 수 있습니다.
 
 > [!NOTE]  
-> HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다.  [클러스터 나열 및 표시](#list-and-show-clusters)를 참조하세요.
+> HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다.  클러스터 나열 및 표시를 참조하세요.
 
 [클러스터 홈 페이지](#homePage)에서 다음을 수행합니다.
 
@@ -242,7 +242,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
     usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
     ```
 
-2. HTTP 또는 HTTPS 주소를 사용하여 HDInsight에서 액세스할 수 있는 저장소 위치에 파일을 업로드합니다. 예를 들어 OneDrive 또는 Azure Blob 저장소와 같은 공용 파일 저장소입니다. 다음 단계에서 이 URI가 필요하므로 URI(HTTP 또는 HTTPS 주소)를 파일에 저장합니다.
+2. HTTP 또는 HTTPS 주소를 사용하여 HDInsight에서 액세스할 수 있는 저장소 위치에 파일을 업로드합니다. 예를 들어 OneDrive 또는 Azure Blob Storage와 같은 공용 파일 스토리지입니다. 다음 단계에서 이 URI가 필요하므로 URI(HTTP 또는 HTTPS 주소)를 파일에 저장합니다.
 3. [클러스터 홈 페이지](#homePage)에 있는 **설정**에서 **스크립트 동작**을 선택합니다.
 4. **스크립트 동작** 블레이드에서 **새로운 항목 제출**을 선택합니다. 
 5. **스크립트 동작 제출** 블레이드에서 다음 정보를 입력합니다.
@@ -250,7 +250,7 @@ HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습
    | 필드 | 값 |
    | --- | --- |
    | 스크립트 유형 | 드롭다운 목록에서 **- 사용자 지정**을 선택합니다.|
-   | 이름 |“SSH 암호 변경” |
+   | Name |“SSH 암호 변경” |
    | Bash 스크립트 URI |Changepassword.sh 파일에 대한 URI |
    | 노드 유형: (헤드, 작업자, Nimbus, 감독자, Zookeeper 등) |나열된 모든 노드 형식에 대한 ✓ |
    | 매개 변수 |SSH 사용자 이름 및 새 암호를 입력합니다. 사용자 이름과 암호 사이에 공백이 하나 있어야 합니다. |
@@ -283,7 +283,7 @@ HDInsight 클러스터는 Azure Storage 계정 또는 Azure Data Lake Storage를
 
 
 ## <a name="monitor-cluster-usage"></a>클러스터 사용 현황 모니터링
-HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에서 사용하기 위해 구독에서 사용할 수 있는 코어 수뿐만 아니라 이 클러스터에 할당된 코어 수 및 이 클러스터 내에서 노드에 할당된 방법에 대한 정보도 표시됩니다. [클러스터 나열 및 표시](#list-and-show-clusters)를 참조하세요.
+HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에서 사용하기 위해 구독에서 사용할 수 있는 코어 수뿐만 아니라 이 클러스터에 할당된 코어 수 및 이 클러스터 내에서 노드에 할당된 방법에 대한 정보도 표시됩니다. 클러스터 나열 및 표시를 참조하세요.
 
 > [!IMPORTANT]  
 > HDInsight 클러스터에 의해 제공되는 서비스를 모니터링하려면 Ambari 웹 또는 Ambari REST API를 사용해야 합니다. Ambari 사용에 대한 자세한 내용은 [Apache Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.

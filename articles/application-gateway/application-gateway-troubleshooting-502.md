@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356038"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55819453"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
 
@@ -28,11 +28,11 @@ ms.locfileid: "34356038"
 
 ## <a name="overview"></a>개요
 
-애플리케이션 게이트웨이를 구성한 후에 발생할 수 있는 오류 중 하나는 "서버 오류: 502 - 웹 서버가 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못된 응답을 받았습니다"입니다. 이 오류는 다음과 같은 주요 이유로 인해 발생할 수 있습니다.
+애플리케이션 게이트웨이를 구성한 후, 발생할 수 있는 오류 중 하나는 다음과 같습니다. "서버 오류: 502 - 웹 서버에서 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못된 응답을 수신했습니다." 이 오류는 다음과 같은 주요 이유로 인해 발생할 수 있습니다.
 
 * NSG, UDR 또는 사용자 지정 DNS로 백 엔드 풀 멤버에 대한 액세스를 차단합니다.
-* 가상 머신 확장 집합의 백 엔드 VM 또는 인스턴스가 [기본 상태 프로브에 응답하지 않습니다](#problems-with-default-health-probe.md).
-* 사용자 지정 상태 프로브의 구성이 [잘못되었거나 부적절합니다](#problems-with-custom-health-probe.md).
+* 가상 머신 확장 집합의 인스턴스 또는 백 엔드 VM이 기본 상태 프로브에 응답하지 않습니다.
+* 사용자 지정 상태 프로브의 구성이 잘못되었거나 부적절합니다.
 * Azure Application Gateway의 [백 엔드 풀은 구성되어 있지 않거나 비어 있습니다](#empty-backendaddresspool).
 * 가상 머신 확장 집합의 VM 또는 인스턴스가 [모두 정상이 아닙니다](#unhealthy-instances-in-backendaddresspool).
 * 사용자 요청과 관련된 [요청 시간 초과 또는 연결 문제입니다](#request-time-out).
@@ -92,7 +92,7 @@ DhcpOptions            : {
 * BackendHttpSetting이 포트 80이 아닌 다른 포트를 지정하는 경우 기본 사이트는 해당 포트에서 수신하도록 구성되어야 합니다.
 * http://127.0.0.1:port 호출은 HTTP 결과 코드 200을 반환해야 합니다. 30초 제한 시간 내에 반환되어야 합니다.
 * 구성된 포트가 열려 있고 방화벽 규칙 또는 Azure 네트워크 보안 그룹이 없는지를 확인합니다. 여기서 구성된 포트에서 들어오거나 나가는 트래픽을 차단합니다.
-* Azure 클래식 VM 또는 클라우드 서비스를 FQDN 또는 공용 IP와 사용하는 경우 해당 [끝점](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) 이 열려 있는지 확인합니다.
+* Azure 클래식 VM 또는 클라우드 서비스를 FQDN 또는 공용 IP와 사용하는 경우 해당 [엔드포인트](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) 가 열려 있는지 확인합니다.
 * VM이 Azure Resource Manager를 통해 구성되고 Application Gateway가 배포된 VNet의 외부에 있는 경우 [네트워크 보안 그룹](../virtual-network/security-overview.md) 을 원하는 포트에 대한 액세스를 허용하도록 구성해야 합니다.
 
 ## <a name="problems-with-custom-health-probe"></a>사용자 지정 상태 검색의 문제

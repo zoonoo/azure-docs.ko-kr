@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 22d83eb617c544a374f1f6b502803d4ead214492
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a55a4e3f25bc5afef30e325ccdd38615ba7cc2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182237"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820745"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing Local Business Search API v7 참조
 
@@ -53,7 +53,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 |헤더|설명|  
 |------------|-----------------|  
 |수락|선택적 요청 헤더입니다.<br /><br /> 기본 미디어 형식은 application/json입니다. 응답이 [JSON-LD](http://json-ld.org/)를 사용하도록 지정하려면 Accept 헤더를 application/ld+json으로 설정합니다.|  
-|<a name="acceptlanguage" />Accept-Language|선택적 요청 헤더입니다.<br /><br /> 사용자 인터페이스 문자열에 사용할 언어의 쉼표로 구분된 목록입니다. 목록은 기본 설정의 내림차순으로 표시됩니다. 필요한 형식을 포함하여 자세한 내용은 [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)을 참조하세요.<br /><br /> 이 헤더와 [setLang](#setlang) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 이 헤더를 설정하는 경우, [cc](#cc) 쿼리 매개 변수도 지정해야 합니다. 결과를 반환할 지역/국가를 결정하기 위해 Bing은 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 이 언어를 `cc` 매개 변수 값과 결합합니다. 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾거나 집계 또는 기본 지역/국가를 결과에 사용합니다. Bing이 사용한 지역/국가를 확인하려면 BingAPIs-Market 헤더를 참조하세요.<br /><br /> 여러 언어를 지정하는 경우에만 이 헤더와 `cc` 쿼리 매개 변수를 사용합니다. 여러 언어를 지정하지 않는 경우 [mkt](#mkt) 및 [setLang](#setlang) 쿼리 매개 변수를 사용합니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.|  
+|<a name="acceptlanguage" />Accept-Language|선택적 요청 헤더입니다.<br /><br /> 사용자 인터페이스 문자열에 사용할 언어의 쉼표로 구분된 목록입니다. 목록은 기본 설정의 내림차순으로 표시됩니다. 필요한 형식을 포함하여 자세한 내용은 [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html)을 참조하세요.<br /><br /> 이 헤더와 [setLang](#setlang) 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다.<br /><br /> 이 헤더를 설정하는 경우 cc 쿼리 매개 변수도 지정해야 합니다. 결과를 반환할 지역/국가를 결정하기 위해 Bing은 목록에서 찾은 첫 번째 지원되는 언어를 사용하고, 이 언어를 `cc` 매개 변수 값과 결합합니다. 목록에 지원되는 언어가 없으면 Bing은 요청을 지원하는 가장 가까운 언어와 지역/국가를 찾거나 집계 또는 기본 지역/국가를 결과에 사용합니다. Bing이 사용한 지역/국가를 확인하려면 BingAPIs-Market 헤더를 참조하세요.<br /><br /> 여러 언어를 지정하는 경우에만 이 헤더와 `cc` 쿼리 매개 변수를 사용합니다. 여러 언어를 지정하지 않는 경우 [mkt](#mkt) 및 [setLang](#setlang) 쿼리 매개 변수를 사용합니다.<br /><br /> 사용자 인터페이스 문자열은 사용자 인터페이스에서 레이블로 사용되는 문자열입니다. JSON 응답 개체에는 몇 개의 사용자 인터페이스 문자열이 있습니다. 응답 개체에서 Bing.com 속성에 대한 링크는 지정된 언어를 적용합니다.|  
 |<a name="market" />BingAPIs-Market|응답 헤더입니다.<br /><br /> 요청에서 사용하는 지역/국가입니다. 형식은 \<languageCode\>-\<countryCode\>입니다. 예를 들어 en-US입니다.|  
 |<a name="traceid" />BingAPIs-TraceId|응답 헤더입니다.<br /><br /> 요청의 세부 정보를 포함하는 로그 항목의 ID입니다. 오류가 발생하면 이 ID를 캡처합니다. 문제를 확인하고 해결할 수 없는 경우 지원 팀에게 제공할 다른 정보와 함께 이 ID를 기재합니다.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|필수 요청 헤더입니다.<br /><br /> [Cognitive Services](https://www.microsoft.com/cognitive-services/)에서 이 서비스에 등록할 때 받은 구독 키입니다.|  
@@ -75,7 +75,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 |----------|-----------|----------|--------------|
 |<a name="count" />count|`offset` 매개 변수로 지정된 인덱스로 시작하는 반환되는 결과 수입니다.|문자열|아니요|   
 |<a name="localCategories" />localCategories|비즈니스 범주별로 검색을 정의하는 옵션 목록입니다.  [로컬 비즈니스 범주 검색](local-categories.md) 참조|문자열|아니요|  
-|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 [지역/국가 코드](#market-codes)를 참조하세요.<br /><br /> **참고:** Local Business Search API는 현재 en-us 지역/국가와 언어만 지원합니다.<br /><br />|문자열|예|
+|<a name="mkt" />mkt|결과가 나오는 지역/국가입니다. <br /><br />가능한 지역/국가 값 목록은 지역/국가 코드를 참조하세요.<br /><br /> **참고:** Local Business Search API는 현재 en-us 지역/국가와 언어만 지원합니다.<br /><br />|문자열|예|
 |<a name="offset"/>offset|`count` 매개 변수에서 지정된 결과를 시작하는 인덱스입니다.|정수 |아니요|  
 |<a name="query" />q|사용자의 검색 용어입니다.|문자열|아니요|  
 |<a name="responseformat" />responseFormat|응답에 사용할 미디어 형식입니다. 다음은 대/소문자를 구분하지 않는 가능한 값입니다.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> 기본값은 JSON입니다. 응답에 포함된 JSON 개체에 대한 자세한 내용은 [응답 개체](#response-objects)를 참조하세요.<br /><br />  JsonLd를 지정하는 경우 응답 본문에 검색 결과를 포함하는 JSON-LD 개체가 포함됩니다. JSON-LD에 대한 자세한 내용은 [JSON-LD](http://json-ld.org/)를 참조하세요.|문자열|아니요|  
@@ -154,8 +154,8 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 |Name|값|Type|  
 |----------|-----------|----------|  
 |_type|다음 중 하나로 설정할 수 있는 힌트를 입력합니다.<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>식당</ul><li>|문자열|  
-|address|엔터티가 위치한 우편 주소입니다.|[PostalAddress](#postaladdress)|  
-|entityPresentationInfo|엔터티의 형식을 확인하는 데 사용할 수 있는 힌트와 같은 엔터티에 대한 추가 정보입니다. 예를 들어 식당 또는 호텔인지 여부입니다. `entityScenario` 필드는 ListItem으로 설정됩니다.|[EntityPresentationInfo](#entitypresentationinfo)|  
+|address|엔터티가 위치한 우편 주소입니다.|PostalAddress|  
+|entityPresentationInfo|엔터티의 형식을 확인하는 데 사용할 수 있는 힌트와 같은 엔터티에 대한 추가 정보입니다. 예를 들어 식당 또는 호텔인지 여부입니다. `entityScenario` 필드는 ListItem으로 설정됩니다.|EntityPresentationInfo|  
 |이름|엔터티의 이름입니다.|문자열|  
 |telephone|엔터티의 전화 번호입니다.|문자열|  
 |URL|엔터티의 웹 사이트에 대한 URL입니다.<br /><br /> 엔터티의 이름과 함께 이 URL을 사용하여 클릭하면 사용자를 엔터티의 웹 사이트로 이동시키는 하이퍼링크를 만듭니다.|문자열|  

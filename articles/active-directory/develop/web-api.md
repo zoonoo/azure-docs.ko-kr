@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: b507e6630e5b0b0e73edad1815825e70ed90ec4d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 58cff9be154e693a378f55941e8662563c366b27
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097302"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55820218"
 ---
 # <a name="web-api"></a>Web API
 
@@ -47,7 +47,7 @@ Web API 앱은 웹 API에서 리소스를 가져와야 하는 웹 응용 프로�
 
 ### <a name="delegated-user-identity-with-openid-connect"></a>OpenID Connect를 사용하는 위임된 사용자 ID
 
-1. 사용자가 Azure AD를 사용하여 웹 애플리케이션에 로그인합니다(위의 [웹 브라우저-웹 애플리케이션](#web-browser-to-web-application) 섹션 참조). 웹 애플리케이션 사용자가 웹 애플리케이션이 사용자를 대신하여 웹 API를 호출할 수 있도록 동의하지 않은 경우 동의해야 합니다. 애플리케이션에 필요한 권한이 표시됩니다. 이 권한 중 하나라도 관리자 수준 권한인 경우 디렉터리의 일반 사용자는 동의할 수 없습니다. 이러한 동의 프로세스는 단일 테넌트 애플리케이션이 아니라 다중 테넌트 애플리케이션에만 적용됩니다(애플리케이션에 필수 권한이 이미 있으므로). 사용자가 로그인할 때 웹 애플리케이션은 사용자에 대한 정보가 포함된 ID 토큰과 인증 코드를 수신했습니다.
+1. 사용자가 Azure AD를 사용하여 웹 애플리케이션에 로그인합니다(위의 웹 브라우저-웹 애플리케이션 섹션 참조). 웹 애플리케이션 사용자가 웹 애플리케이션이 사용자를 대신하여 웹 API를 호출할 수 있도록 동의하지 않은 경우 동의해야 합니다. 애플리케이션에 필요한 권한이 표시됩니다. 이 권한 중 하나라도 관리자 수준 권한인 경우 디렉터리의 일반 사용자는 동의할 수 없습니다. 이러한 동의 프로세스는 단일 테넌트 애플리케이션이 아니라 다중 테넌트 애플리케이션에만 적용됩니다(애플리케이션에 필수 권한이 이미 있으므로). 사용자가 로그인할 때 웹 애플리케이션은 사용자에 대한 정보가 포함된 ID 토큰과 인증 코드를 수신했습니다.
 1. Azure AD에서 발급된 인증 코드를 사용하여 웹 애플리케이션은 인증 코드, 클라이언트 애플리케이션에 대한 정보(애플리케이션 ID 및 리디렉션 URI), 원하는 리소스(웹 API에 대한 애플리케이션 ID URI) 등이 포함된 요청을 Azure AD의 토큰 엔드포인트에 보냅니다.
 1. 웹 애플리케이션 및 웹 API에 대한 정보와 인증 코드는 Azure AD에서 유효성이 검사됩니다. 유효성 검사가 성공하면 Azure AD는 JWT 액세스 토큰과 JWT 새로 고침 토큰 등 두 가지 토큰을 반환합니다.
 1. HTTPS를 통해 웹 애플리케이션이 반환된 JWT 액세스 토큰을 사용해서 웹 API에 대한 요청의 권한 부여 헤더에 “전달자”를 지정한 JWT 문자열을 추가합니다. 그러면 웹 API에서 JWT 토큰의 유효성을 검사하여 유효성 검사가 성공하면 원하는 리소스를 반환합니다.

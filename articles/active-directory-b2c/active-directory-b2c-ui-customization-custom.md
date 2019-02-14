@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3c3b7d73de9a0e7e72351687af16b98b11f9581b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188494"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55818875"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
@@ -86,7 +86,7 @@ Blob Storage에 공용 컨테이너를 만들려면 다음을 수행합니다.
 5. **$root**를 클릭하여 새 컨테이너를 엽니다.
 6. **업로드**를 클릭합니다.
 7. **파일 선택** 옆에 있는 폴더 아이콘을 클릭합니다.
-8. 이전에 [페이지 UI 사용자 지정](#the-page-ui-customization-feature) 섹션에서 만든 **customize-ui.html**로 이동합니다.
+8. 이전에 페이지 UI 사용자 지정 섹션에서 만든 **customize-ui.html**로 이동합니다.
 9. **업로드**를 클릭합니다.
 10. 업로드한 customize-ui.html Blob을 선택합니다.
 11. **URL** 옆에 있는 **복사**를 클릭합니다.
@@ -175,7 +175,7 @@ sample_templates/wingtip 폴더에는 다음과 같은 HTML 파일이 있습니�
 | *unified.html* | 통합 등록 또는 로그인 페이지의 템플릿으로 사용합니다. |
 | *updateprofile.html* | 프로필 업데이트 페이지의 템플릿으로 사용합니다. |
 
-[등록 또는 로그인 사용자 지정 정책 수정](#modify-your-sign-up-or-sign-in-custom-policy) 섹션에서 `api.idpselections`에 대한 콘텐츠 정의를 구성했습니다. 다음 표에서는 Azure AD B2C ID 환경 프레임워크에서 인식되는 콘텐츠 정의 ID 및 해당 설명에 대한 전체 집합을 보여 줍니다.
+등록 또는 로그인 사용자 지정 정책 수정 섹션에서 `api.idpselections`에 대한 콘텐츠 정의를 구성했습니다. 다음 표에서는 Azure AD B2C ID 환경 프레임워크에서 인식되는 콘텐츠 정의 ID 및 해당 설명에 대한 전체 집합을 보여 줍니다.
 
 | 콘텐츠 정의 ID | 설명 | 
 |-----------------------|-------------|

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 038c6afe94ccfea707eea3b4032a2e45f69e5102
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187077"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745676"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)의 알려진 문제
 
@@ -27,6 +27,7 @@ ms.locfileid: "54187077"
 ## <a name="health"></a>상태 
 현재 상태 기능 릴리스의 알려진 문제는 다음과 같습니다.
 
+- VM 속성 패널에 Windows Server 2019 운용 체제가 Windows Server 2016으로 표시됩니다. 이 문제는 향후 릴리스에서 수정될 예정입니다.
 - 제거하거나 삭제한 Azure VM은 얼마 동안 VM 목록 보기에 표시됩니다. 또한 제거하거나 삭제한 VM의 상태를 클릭하면 **상태 진단** 보기가 열리고 로딩 루프가 시작됩니다. 삭제한 VM의 이름을 선택하면 VM이 삭제되었다는 내용의 메시지가 포함된 창이 열립니다.
 - 포털 또는 워크로드 모니터 API에서 즉시 업데이트할 수 있더라도 임계값 업데이트와 같은 구성 변경은 적용하는 데 최대 30분이 걸립니다. 
 - 상태 진단 환경은 다른 보기보다 빠르게 업데이트됩니다. 보기 간에 전환할 때 정보가 지연될 수 있습니다. 

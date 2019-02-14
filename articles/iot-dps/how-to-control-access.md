@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818513"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496972"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
 
@@ -57,11 +57,11 @@ SharedAccessSignature sr =
 ```
 
 > [!NOTE]
-> [Azure IoT Device Provisioning 서비스 SDK][lnk-sdks]는 서비스에 연결할 때 토큰을 자동으로 생성합니다.
+> [Azure IoT Device Provisioning Service SDK][lnk-sdks]는 서비스에 연결할 때 토큰을 자동으로 생성합니다.
 
 ## <a name="security-tokens"></a>보안 토큰
 
-Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피하기 위해 보안 토큰을 사용하여 서비스를 인증합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. [Azure IoT Device Provisioning 서비스 SDK][lnk-sdks]는 특별한 구성이 필요하지 않고 토큰을 자동으로 생성합니다. 일부 시나리오에서는 사용자가 보안 토큰을 직접 생성하고 사용해야 합니다. 이러한 시나리오에는 HTTP 화면의 직접 사용이 포함됩니다.
+Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피하기 위해 보안 토큰을 사용하여 서비스를 인증합니다. 또한 보안 토큰은 유효 기간 및 범위가 제한됩니다. [Azure IoT Device Provisioning Service SDK][lnk-sdks]는 특별한 구성이 필요하지 않고 토큰을 자동으로 생성합니다. 일부 시나리오에서는 사용자가 보안 토큰을 직접 생성하고 사용해야 합니다. 이러한 시나리오에는 HTTP 화면의 직접 사용이 포함됩니다.
 
 ### <a name="security-token-structure"></a>보안 토큰 구조
 
@@ -86,7 +86,7 @@ Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피
 
 다음 Node.js 코드 조각은 입력 `resourceUri, signingKey, policyName, expiresInMins`의 토큰을 계산하는 **generateSasToken**이라는 함수를 보여줍니다. 다음 섹션에서는 여러 토큰 사용 사례에 대해 서로 다른 입력을 초기화하는 방법을 자세히 설명합니다.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -157,7 +157,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
 ![포털에서 Device Provisioning 서비스 인스턴스에 대한 공유 액세스 정책 만들기][img-add-shared-access-policy]
 
-```nodejs
+```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
 var policyName = 'enrollmentread'; 
 var policyKey = '...';

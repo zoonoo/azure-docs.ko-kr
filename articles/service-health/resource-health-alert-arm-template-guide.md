@@ -1,25 +1,17 @@
 ---
 title: Resource Manager 템플릿을 사용하여 Azure 리소스 상태 경고 구성 | Microsoft Docs
 description: Azure 리소스를 사용할 수 없게 되면 알려주는 경고를 프로그래밍 방식으로 작성합니다.
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-ms.assetid: ''
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
 ms.date: 9/4/2018
-ms.author: shtabriz
-ms.openlocfilehash: ee5712915e552168c0268a44af60ea58e069fc11
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7bfd94cb4940c33cb72a39827f67d04a5540ccdb
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429528"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859694"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
 

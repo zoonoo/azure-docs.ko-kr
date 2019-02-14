@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0eb5941bfecc023429556434a45460c8727056ec
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
+ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300187"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "55745557"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 관리
 
@@ -202,7 +202,7 @@ vFXT 클러스터에 대해 특별히 추가 리소스를 만든 경우 클러�
 
 ### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>Azure Portal에서 클러스터의 리소스 그룹 삭제
 
-클러스터 전용 리소스 그룹을 만든 경우 리소스 그룹을 삭제하여 해당 클러스터와 관련된 모든 리소스를 삭제할 수 있습니다. 
+클러스터를 수용하는 전용 리소스 그룹을 만든 경우 리소스 그룹을 삭제하여 해당 클러스터와 관련된 모든 리소스를 삭제할 수 있습니다. 
 
 > [!Caution] 
 > 그룹에 값이 없는 것이 확실한 경우에만 리소스 그룹을 삭제합니다. 예를 들어 리소스 그룹 내의 모든 저장소 컨테이너에서 필요한 데이터를 모두 이동했는지 확인합니다.  

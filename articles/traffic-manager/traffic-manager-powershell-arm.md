@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: fe647f96d8b992d8d5c1682d588bbdbba0ddf43b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055135"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816223"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>PowerShell을 사용하여 Traffic Manager 관리
 
@@ -57,7 +57,7 @@ $profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName M
 
 | 매개 변수 | 설명 |
 | --- | --- |
-| 이름 |Traffic Manager 프로필 리소스의 ARM 리소스 이름입니다. 동일한 리소스 그룹의 프로필 이름은 고유해야 합니다. 이 이름은 DNS 쿼리에 사용되는 DNS 이름과 구분됩니다. |
+| Name |Traffic Manager 프로필 리소스의 ARM 리소스 이름입니다. 동일한 리소스 그룹의 프로필 이름은 고유해야 합니다. 이 이름은 DNS 쿼리에 사용되는 DNS 이름과 구분됩니다. |
 | ResourceGroupName |프로필 리소스가 포함된 리소스 그룹의 이름. |
 | TrafficRoutingMethod |DNS 쿼리에 대한 응답으로 반환되는 엔드포인트를 결정하는 데 사용되는 트래픽 라우팅 메서드를 지정합니다. 가능한 값은 '성능', '가중' 또는 '우선 순위'입니다. |
 | RelativeDnsName |이 Traffic Manager 프로필을 통해 제공되는 DNS 이름의 호스트 이름 부분을 지정합니다. 이 값은 프로필의 FQDN(정규화된 도메인 이름)을 형성하여 Azure Traffic Manager가 사용하는 DNS 도메인 이름과 결합됩니다. 예를 들어 'contoso'의 값이 'contoso.trafficmanager.net.'이 되도록 설정합니다. |
@@ -66,7 +66,7 @@ $profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName M
 | MonitorPort |엔드포인트 상태를 모니터링 하는 데 사용할 TCP 포트를 지정합니다. |
 | MonitorPath |엔드포인트 상태를 조사하는 데 사용되는 엔드포인트 도메인 이름에 대한 상대 경로를 지정합니다. |
 
-cmdlet는 Azure에서 Traffic Manager 프로필 만들고 해당 프로필 개체를 PowerShell에 반환합니다. 이 시점에 프로필에 엔드포인트가 없습니다. Traffic Manager 프로필에 엔드포인트를 추가하는 방법에 대한 자세한 내용은 [Traffic Manager 엔드포인트 추가](#adding-traffic-manager-endpoints)를 참조하세요.
+cmdlet는 Azure에서 Traffic Manager 프로필 만들고 해당 프로필 개체를 PowerShell에 반환합니다. 이 시점에 프로필에 엔드포인트가 없습니다. Traffic Manager 프로필에 엔드포인트를 추가하는 방법에 대한 자세한 내용은 Traffic Manager 엔드포인트 추가를 참조하세요.
 
 ## <a name="get-a-traffic-manager-profile"></a>Traffic Manager 프로필 가져오기
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d45e4cc8781f4c235c641c4c99f1720871d57fb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 82418c03039219adedf45828d769d278a14499ff
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359003"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55816172"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터 복사
 
@@ -34,7 +34,7 @@ MongoDB용 Azure Cosmos DB API 커넥터를 사용하여 다음을 수행할 수
 
 - [MongoDB용 Azure Cosmos DB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)에서/API로 데이터를 복사합니다.
 - **insert** 또는 **upsert**로 Azure Cosmos DB에 씁니다.
-- JSON 문서를 있는 그대로 가져오고 내보내거나 데이터를 테이블 형식 데이터 세트 간에 복사합니다. 예로는 SQL 데이터베이스 및 CSV 파일이 있습니다. JSON 파일 간 또는 다른 Azure Cosmos DB 컬렉션 간에 문서를 있는 그대로 복사하려면 [JSON 문서 가져오기 또는 내보내기](#importexport-json-documents)를 참조하세요.
+- JSON 문서를 있는 그대로 가져오고 내보내거나 데이터를 테이블 형식 데이터 세트 간에 복사합니다. 예로는 SQL 데이터베이스 및 CSV 파일이 있습니다. JSON 파일 간 또는 다른 Azure Cosmos DB 컬렉션 간에 문서를 있는 그대로 복사하려면 JSON 문서 가져오기 또는 내보내기를 참조하세요.
 
 ## <a name="get-started"></a>시작하기
 
