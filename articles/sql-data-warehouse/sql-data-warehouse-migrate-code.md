@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: f36ee3ce6a8d678cdd846474576fc049df0b4f88
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472306"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55815764"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>SQL Data Warehouse에 SQL 코드 마이그레이션
 이 문서는 다른 데이터베이스에서 SQL Data Warehouse로 코드를 마이그레이션하는 경우 수행해야 하는 코드 변경 사항을 설명합니다. 일부 SQL Data Warehouse 기능은 원래 분산 방식으로 작동하도록 디자인되었기 때문에 크게 성능을 향상시킬 수 있습니다. 그러나 성능 및 확장을 유지하려면 일부 기능은 사용할 수 없습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "55472306"
 * output 절
 * 인라인 사용자 정의 함수
 * 다중 문 함수
-* [공통 테이블 식](#Common-table-expressions)
+* 공통 테이블 식
 * [재귀 공통 테이블 식(CTE)](#Recursive-common-table-expressions-(CTE)
 * CLR 함수 및 프로시저
 * $partition 함수
