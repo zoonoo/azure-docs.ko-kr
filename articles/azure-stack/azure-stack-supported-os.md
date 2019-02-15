@@ -16,12 +16,12 @@ ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 67022b1d00c8982d7b6e6eff77ffb648bfc557ec
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247853"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301284"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack에서 지 원하는 게스트 운영 체제
 
@@ -53,7 +53,7 @@ Datacenter edition 다운로드;에 대 한 marketplace에서 사용할 수 있�
 Marketplace에서 사용할 수 있는 것으로 나열 하는 Linux 배포는 필요한 Windows Azure Linux 에이전트 (WALA)를 포함 합니다. Azure Stack에 사용자 고유의 이미지를 가져오는 경우의 지침을 따르세요 [Azure Stack에 추가 Linux 이미지](azure-stack-linux.md)합니다.
 
 > [!NOTE]
-> 최신 공개 WALA 버전을 사용 하 여 사용자 지정 이미지를 빌드해야 합니다. Azure Stack 2.2.18 보다 오래 된 버전 제대로 작동 하지 않을 수 있습니다.
+> 2.2.20 버전 또는 최신 공용 WALA 버전을 사용 하 여 사용자 지정 이미지를 빌드해야 합니다. Azure Stack 2.2.20 2.2.35 (제외) 사이 2.2.20 보다 오래 된 버전 제대로 작동 하지 않을 수 있습니다. 
 >
 > [에서 cloud-init](https://cloud-init.io/) 이 이번에 Azure Stack에서 지원 되지 않습니다.
 

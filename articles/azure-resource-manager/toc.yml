@@ -38,6 +38,8 @@ items:
     href: resource-manager-tutorial-secure-artifacts.md
   - name: 안전한 배포 사례 사용
     href: deployment-manager-tutorial.md
+  - name: 템플릿 배포 문제 해결
+    href: resource-manager-tutorial-troubleshoot.md
 - name: 샘플
   items:
   - name: 리소스 관리자 템플릿
@@ -140,9 +142,6 @@ items:
       href: cli-azure-resource-manager.md
     - name: 리소스 이동
       href: resource-group-move-resources.md
-      items:
-      - name: 리소스 유형별 지원 이동
-        href: move-support-resources.md
     - name: 태그를 사용하여 리소스 관리
       href: resource-group-using-tags.md
     - name: 리소스 잠금
@@ -216,8 +215,12 @@ items:
       href: resource-group-template-functions-resource.md
     - name: 문자열 함수
       href: resource-group-template-functions-string.md
-  - name: 태그 지원
-    href: tag-support.md
+  - name: 리소스 기능
+    items:
+    - name: 이동 지원
+      href: move-support-resources.md
+    - name: 태그 지원
+      href: tag-support.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - 배포 관리자
@@ -246,9 +249,9 @@ items:
     href: resource-manager-personal-data.md
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 9a33d74e88f169438bee554707bbfc8264faf256
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 3f42a8db14c953aa97f9cd7990ac7602d1d6b719
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106429"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235804"
