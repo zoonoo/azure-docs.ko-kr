@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f45fad91c94b35de512c0c995ef4e3a6311a25ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 684e6a798c690c65f70c2f6224ac8f11256ce6eb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767421"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270133"
 documentType: LandingData
 title: Azure Maps 설명서
 metadata:
@@ -16,7 +16,7 @@ metadata:
   ms.service: azure-maps
   services: azure-maps
   ms.topic: landing-page
-  ms.date: 02/04/2019
+  ms.date: 02/14/2019
   ms.author: philmea
 abstract:
   description: Azure Maps는 모든 산업의 개발자에게 지리적 컨텍스트를 웹 및 모바일 애플리케이션에 제공하는 데 사용할 수 있는 최신 지도 데이터가 포함된 강력한 지리 공간적 기능을 제공합니다. Azure Maps는 웹 및 Android SDK와 함께 맵, 검색, 라우팅, 트래픽, 표준 시간대, 지리적 위치, 지오펜싱, 맵 데이터 및 공간 작업을 위한 Azure One API 호환 REST API 세트로, 개발을 쉽고 유연하게 해주며, 여러 플랫폼 간에 이식 가능하도록 해줍니다.
@@ -35,13 +35,15 @@ sections:
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: Azure Maps를 사용하여 관심 지점 및 위치에 대한 경로를 검색하는 지리 공간적 웹 애플리케이션을 빌드합니다.
+    text: Azure Maps를 사용하여 지오펜스를 만들어, 관심 지점 및 위치에 대한 경로를 검색하고 디바이스를 추적하는 지리 공간적 웹 애플리케이션을 빌드합니다.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/azure-maps/tutorial-search-location">관심 지점 검색</a>
     - html: <a href="/azure/azure-maps/tutorial-route-location">관심 지점에 대한 경로</a>
     - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">여행 모드별 경로</a>
+    - html: <a href="/azure/azure-maps/tutorial-create-store-locator">저장소 로케이터 만들기</a>
+    - html: <a href="/azure/azure-maps/tutorial-geofence">지오펜스 설정</a>
 - title: 참고 자료
   items:
   - type: list
@@ -51,4 +53,4 @@ sections:
     - title: JavaScript
       html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">지도 컨트롤</a></p>
     - title: REST (영문)
-      html: <p><a href="https://docs.microsoft.com/rest/api/maps/render">Render Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Route Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Search Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Timezone Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Traffic Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Maps 계정 관리</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/maps/data">데이터 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">지리적 위치 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Render Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Route Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Search Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">공간 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Timezone Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Traffic Service</a></p>

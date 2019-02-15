@@ -25,6 +25,8 @@ items:
     href: quickstart-create-data-factory-rest-api.md
   - name: 데이터 팩터리 만들기 - Resource Manager 템플릿
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: 데이터 흐름 만들기
+    href: data-flow-create.md
   expanded: true
 - name: 자습서
   items:
@@ -408,6 +410,42 @@ items:
       href: control-flow-wait-activity.md
     - name: 웹 작업
       href: control-flow-web-activity.md
+  - name: 데이터 흐름 변환
+    items:
+    - name: 집계
+      href: data-flow-aggregate.md
+    - name: 조건부 분할
+      href: data-flow-conditional-split.md
+    - name: 파생 열
+      href: data-flow-derived-column.md
+    - name: exists
+      href: data-flow-exists.md
+    - name: Filter
+      href: data-flow-filter.md
+    - name: Join
+      href: data-flow-join.md
+    - name: 조회
+      href: data-flow-lookup.md
+    - name: 새 분기
+      href: data-flow-new-branch.md
+    - name: 피벗
+      href: data-flow-pivot.md
+    - name: 여기서
+      href: data-flow-select.md
+    - name: sink
+      href: data-flow-sink.md
+    - name: 정렬
+      href: data-flow-sort.md
+    - name: 원본
+      href: data-flow-source.md
+    - name: 서로게이트 키
+      href: data-flow-surrogate-key.md
+    - name: 통합
+      href: data-flow-union.md
+    - name: 피벗 해제
+      href: data-flow-unpivot.md
+    - name: 시간 범위
+      href: data-flow-window.md
   - name: 매개 변수화
     items:
     - name: 연결된 서비스 매개 변수화
@@ -528,9 +566,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: 지원 옵션
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 535abc50cd27693da90aaaddcfdf8950d6abc59d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ee5cd120a8f1ecb8a1f685c1fa2332a9d9c5dd1
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174421"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270422"
