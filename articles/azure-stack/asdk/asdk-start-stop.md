@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0073427028d20ab969b8d0135b1c831d7fdf8c73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b821c5cfa0dd9ea605d0d0a73e0b98a64a7502b7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191971"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268654"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>시작 및 중지 된 Azure Stack 개발 키트 ASDK)
 단순히 ASDK 호스트 컴퓨터를 다시 시작 하는 권장 되지 않습니다. 대신이 문서의 적절히 종료 하 고 ASDK 서비스를 다시 시작 절차 따라야 합니다. 
@@ -29,7 +29,7 @@ ms.locfileid: "56191971"
 ## <a name="stop-azure-stack"></a>Azure Stack 중지 
 제대로 Azure Stack 서비스 및 ASDK 호스트 컴퓨터를 종료 하려면 다음 PowerShell 명령을 사용 합니다.
 
-1. ASDK 호스트 컴퓨터의 AzureStack\CloudAdmin로 로그인 합니다.
+1. ASDK 호스트 컴퓨터의 AzureStack\AzureStackAdmin로 로그인 합니다.
 2. (PowerShell ISE 없습니다 ()를 관리자 권한으로 PowerShell을 엽니다.
 3. 권한 있는 끝점 (PEP) 세션을 설정 하려면 다음 명령을 실행 합니다. 
 
@@ -49,7 +49,7 @@ ASDK 서비스는 호스트 컴퓨터를 시작할 때 자동으로 시작 해�
 ASDK 종료 된 방법에 관계 없이 모든 Azure Stack 서비스가 시작 되 고 완벽 하 게 작동 호스트 컴퓨터의 전원이 후 확인 하려면 다음 단계를 사용 해야 합니다. 
 
 1. ASDK 호스트 컴퓨터의 전원을 켭니다. 
-2. ASDK 호스트 컴퓨터의 AzureStack\CloudAdmin로 로그인 합니다.
+2. ASDK 호스트 컴퓨터의 AzureStack\AzureStackAdmin로 로그인 합니다.
 3. (PowerShell ISE 없습니다 ()를 관리자 권한으로 PowerShell을 엽니다.
 4. 권한 있는 끝점 (PEP) 세션을 설정 하려면 다음 명령을 실행 합니다.
 
@@ -68,7 +68,7 @@ ASDK 종료 된 방법에 관계 없이 모든 Azure Stack 서비스가 시작 �
 ## <a name="troubleshoot-startup-and-shutdown"></a>시작 및 종료 문제 해결 
 Azure Stack 서비스 ASDK 호스트 컴퓨터의 전원 후 2 시간 내에서 성공적으로 시작 하지 않습니다 하는 경우 다음이 단계를 수행 합니다.
 
-1. ASDK 호스트 컴퓨터의 AzureStack\CloudAdmin로 로그인 합니다.
+1. ASDK 호스트 컴퓨터의 AzureStack\AzureStackAdmin로 로그인 합니다.
 2. (PowerShell ISE 없습니다 ()를 관리자 권한으로 PowerShell을 엽니다.
 3. 권한 있는 끝점 (PEP) 세션을 설정 하려면 다음 명령을 실행 합니다.
 

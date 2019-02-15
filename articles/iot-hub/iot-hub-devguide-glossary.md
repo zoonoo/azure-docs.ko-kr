@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
+ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320093"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55817389"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -82,7 +82,7 @@ IoT Hub에서 연결된 디바이스로 전송되는 메시지를 참조하세�
 IoT Hub에 사용자 지정 [엔드포인트](iot-hub-devguide-endpoints.md)를 만들어 [라우팅 규칙](#routing-rules)으로 발송된 메시지를 배달할 수 있습니다. 사용자 지정 엔드포인트는 Event Hub, Service Bus 큐 또는 Service Bus 토픽에 직접 연결됩니다.
 
 ## <a name="custom-gateway"></a>사용자 지정 게이트웨이
-게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 디바이스의 연결이 가능합니다. [Azure IoT Edge](#azure-iot-edge)를 사용하여 메시지, 사용자 지정 프로토콜 변환 및 에지의 다른 프로세스를 처리하도록 사용자 지정 논리를 구현하는 사용자 지정 게이트웨이를 빌드할 수 있습니다.
+게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 디바이스의 연결이 가능합니다. Azure IoT Edge를 사용하여 메시지, 사용자 지정 프로토콜 변환 및 에지의 기타 프로세스를 처리하도록 사용자 지정 논리를 구현하는 사용자 지정 게이트웨이를 빌드할 수 있습니다.
 
 ## <a name="data-point-message"></a>데이터 요소 메시지
 데이터 요소 메시지는 풍속 또는 온도와 같은 [원격 분석](#telemetry) 데이터를 포함하는 [클라우드-디바이스](#device-to-cloud) 메시지입니다.
@@ -224,7 +224,7 @@ IoT Hub에서 디바이스 지향 또는 서비스 지향 엔드포인트에 연
 IoT Hub에서 [기본 제공 엔드포인트](#built-in-endpoints) 또는 [사용자 지정 엔드포인트](#custom-endpoints)로 디바이스-클라우드 메시지를 라우팅하여 솔루션 백 엔드에서 처리하도록 [라우팅 규칙](iot-hub-devguide-messages-read-custom.md)을 구성합니다.
 
 ## <a name="sasl-plain"></a>SASL PLAIN
-SASL PLAIN은 [AMQP](#advanced-message-queue-protocol) 프로토콜에서 보안 토큰을 전송하는 데 사용하는 프로토콜입니다.
+SASL PLAIN은 AMQP 프로토콜에서 보안 토큰을 전송하는 데 사용하는 프로토콜입니다.
 
 ## <a name="service-rest-api"></a>서비스 REST API
 솔루션 백 엔드에서 [서비스 REST API](https://docs.microsoft.com/rest/api/iothub/service)를 사용하여 디바이스를 관리할 수 있습니다. API를 사용하면 [디바이스 쌍](#device-twin) 속성을 검색 및 업데이트하고 [직접 메서드](#direct-method)를 호출하고 [작업](#job)을 예약할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [서비스 SDK](#azure-iot-service-sdks)를 사용해야 합니다.
@@ -251,7 +251,7 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 태그는 JSON 문서 형식으로 솔루션 백 엔드에 의해 저장 및 검색되는 디바이스 메타데이터입니다. 태그는 디바이스 앱에 표시되지 않습니다.
 
 ## <a name="telemetry"></a>원격 분석
-디바이스는 풍속 또는 온도와 같은 원격 분석 데이터를 수집하고 [데이터 요소 메시지](#data-point-messages)를 사용하여 IoT Hub에 원격 분석을 보냅니다.
+디바이스는 풍속 또는 온도와 같은 원격 분석 데이터를 수집하고 데이터 요소 메시지를 사용하여 IoT Hub에 원격 분석을 보냅니다.
 
 ## <a name="token-service"></a>토큰 서비스
 토큰 서비스를 사용하여 디바이스에 대한 인증 메커니즘을 구현합니다. **DeviceConnect** 권한으로 IoT Hub [공유 액세스 정책](#shared-access-policy)을 사용하여 *device-scoped* 토큰을 만듭니다. 이러한 토큰은 디바이스에서 IoT Hub에 연결할 수 있게 해줍니다. 디바이스는 사용자 지정 인증 메커니즘을 사용하여 토큰 서비스를 인증합니다. 디바이스가 성공적으로 인증되면 토큰 서비스는 사용할 디바이스에 대한 SAS 토큰을 발행하여 IoT Hub에 액세스합니다.

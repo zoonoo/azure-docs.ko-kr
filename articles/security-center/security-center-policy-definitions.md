@@ -4,7 +4,7 @@ description: Azure Security Center에서 모니터링되는 Azure 정책 정의�
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 925bf325d128f1757d24d29013f4e27eb788d7e2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cbc9fa5586b848de79c52142f75b22b744fdae38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180673"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105953"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Azure Security Center에서 모니터링되는 Azure 보안 정책
 이 문서에서는 Security Center에서 모니터링할 수 있는 Azure Policy 정의 목록을 제공합니다. 보안 정책에 대한 자세한 내용은 [보안 정책 작업](tutorial-security-policy.md)을 참조하세요.

@@ -16,12 +16,12 @@ ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 616854e89a95eb83508e30099a663f0017e63784
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 94c7b5c81785c3d6fba31396f5812a1308817e33
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115711"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301114"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 업데이트
 
@@ -199,7 +199,9 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
            "autoUpgradeMinorVersion": "true"
    ```
 
-- 정확 하 게 Azure Stack 용량을 계획에 새 고려해 야가 있습니다. 내부 서비스의 모든 고객에 게 실행 하는 소수 자릿수를 충족 하도록 Azure Stack 내에 배포할 수 있는 Vm의 총 수에 제한을 설정 했습니다. 호스트당, 700 (호스트 제한 당 60에 도달할 때) 하는 경우 전체 스템 프에 대해 최대 60 Vm으로 제한이 됩니다. 자세한 내용은 참조는 [capacity planner의 새 릴리스](http://aka.ms/azstackcapacityplanner)합니다.
+- 정확 하 게 Azure Stack 용량을 계획에 새 고려해 야가 있습니다. 1901 업데이트를 사용 하 여 만들 수 있는 가상 머신의 총 수에 제한이 이제 됩니다.  이 제한은 솔루션 안정성 문제를 방지 하려면 일시적인 것입니다. 소스 Vm 수를 높게에서 안정성 문제를 해결 하는 하지만 수정에 대 한 일정 아직 확인 되지 않았습니다. 1901 업데이트에서는 이제 됩니다는 서버당 60 Vm의 총 솔루션 최대 700입니다.  예를 들어, 8 서버 Azure Stack VM 한도 480 (8 * 60) 것입니다.  12-16 서버의 Azure Stack 솔루션도 700 것입니다. 이 제한은 염두, 모든 계산 용량 고려 사항 복원 력 예약 및 CPU와 같은 가상 스탬프를 유지 하려는 운영자는 실제 비율을 만들었습니다. 자세한 내용은 capacity planner의 새 릴리스를 참조 하세요.  
+VM 규모 한도 도달 하는 경우에 다음 오류 코드 결과적으로 반환 됩니다. VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded. 
+ 
 
 - 계산 API 버전 2017-12-01로 증가 했습니다.
 

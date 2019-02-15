@@ -10,12 +10,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: fee5db2cde4e4056a8cb1fca80e09511d0ca0b53
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c3b27291fc413310393cd0270ec750de14a4985b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117277"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270065"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -34,6 +34,9 @@ Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니�
 
 > [!Note]  
 > 사용자 Vip는 Azure Stack 연산자가 없는 컨트롤을 사용 하 여 사용자가 정의 하는 동적입니다.
+
+> [!Note]
+> 1811 업데이트를 기준으로 포트가 12495 30015의 범위에 더 이상 필요 추가 인해 열려 있어야 합니다 [확장 호스트](azure-stack-extension-host-prepare.md)합니다.
 
 |끝점 (VIP)|DNS 호스트 A 레코드|프로토콜|포트|
 |---------|---------|---------|---------|

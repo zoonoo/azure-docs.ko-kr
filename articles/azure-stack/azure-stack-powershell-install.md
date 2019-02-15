@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 72c4bfc4151e8120f8641c743c0da3896bd71fe1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 89e75afd3b9001f7a0b8a027744ef71c8bb69690
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995033"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56299567"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack 용 PowerShell 설치
 
@@ -97,7 +97,7 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 
 
 개발용 워크스테이션에서 이러한 모듈을 설치 하려면 다음 PowerShell 스크립트를 실행 합니다.
 
-- Azure Stack 1901 이상입니다.
+- Azure Stack 1901 이상:
 
     ```PowerShell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -108,7 +108,7 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 
     > [!Note]  
     > Azure Stack 모듈 버전 1.7.0는 주요 변경 내용입니다. Azure Stack에서 마이그레이션하도록 1.6.0 하세요 합니다 [마이그레이션 가이드](https://aka.ms/azspshmigration170)합니다.
 
-- Azure Stack 1811 또는 이전 버전입니다.
+- Azure Stack 1811:
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
@@ -120,7 +120,7 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
 
-- Azure Stack 1809 또는 이전 버전입니다.
+- Azure Stack 1810 또는 이전 버전:
 
     ```PowerShell
     # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet

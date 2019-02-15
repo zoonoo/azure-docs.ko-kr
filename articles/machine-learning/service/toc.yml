@@ -36,6 +36,7 @@ items:
   - name: 회귀(NYC 택시 데이터)
     items:
     - name: 1. 모델링을 위한 데이터 준비
+      displayName: data prep
       href: tutorial-data-prep.md
     - name: 2. ML 모델 자동 학습
       displayName: automl, automated, auto ml,
@@ -182,9 +183,9 @@ items:
     href: support-for-aml-services.md
   - name: ML 제품 비교
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 1d26c23ee6f3e74fce03b59d70e24049d6a10ecc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: eb803b44bbe72b80f4414a4de66bce519591dea7
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107569"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268824"

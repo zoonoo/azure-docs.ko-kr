@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: bee143f7e814884eda3c5dc9017895a8431e76aa
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8e30edcc7a600088693de57264665f5ffff3842a
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890555"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300740"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Azure Stack에 Linux 이미지를 추가 합니다.
 
@@ -36,9 +36,9 @@ Azure Marketplace에서 Linux 이미지를 다운로드 하려면의 절차를 �
 
 ## <a name="prepare-your-own-image"></a>사용자 고유의 이미지를 준비 합니다.
 
-가능 하면 준비 되었으며 Azure Stack에 대 한 테스트는 Marketplace 관리를 통해 사용 가능한 이미지를 다운로드 합니다. 
- 
-Azure Linux 에이전트 (일반적으로 호출 `WALinuxAgent` 또는 `walinuxagent`) 필요한 경우 일부 버전의 에이전트는 Azure Stack에서 작동 하 고 합니다. 버전 2.2.20 또는 이상을 사용 해야 사용자 고유의 이미지를 만듭니다. 사실은 [에서 cloud-init](https://cloud-init.io/) 이 이번에 Azure Stack에서 지원 되지 않습니다.
+가능 하면 준비 되었으며 Azure Stack에 대 한 테스트는 Marketplace 관리를 통해 사용 가능한 이미지를 다운로드 합니다.
+
+Azure Linux 에이전트 (일반적으로 호출 `WALinuxAgent` 또는 `walinuxagent`)는 Azure Stack에 대 한 에이전트 작업의 필수 및 모든 버전. 버전 2.2.20 또는 이상을 사용 해야 사용자 고유의 이미지를 만듭니다. 사실은 [에서 cloud-init](https://cloud-init.io/) 이 이번에 Azure Stack에서 지원 되지 않습니다.
 
 다음 지침을 사용 하 여 고유한 Linux 이미지를 준비할 수 있습니다.
 
@@ -48,9 +48,8 @@ Azure Linux 에이전트 (일반적으로 호출 `WALinuxAgent` 또는 `walinuxa
 * [SLES 및 openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-    
 ## <a name="add-your-image-to-the-marketplace"></a>Marketplace에 이미지 추가
- 
+
 따릅니다 [Marketplace 이미지를 추가할](azure-stack-add-vm-image.md)합니다. 있는지 확인 합니다 `OSType` 매개 변수는 설정 `Linux`합니다.
 
 Marketplace 이미지를 추가한 후 마켓플레이스 항목을 생성 되 고 사용자는 Linux 가상 머신을 배포할 수 있습니다.
