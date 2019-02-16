@@ -21,14 +21,14 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2019
 ms.locfileid: "55692599"
 ---
-# <a name="azure-cdn-coverage-by-metro"></a>지하철별 Azure CDN 검사 
+# <a name="azure-cdn-coverage-by-metro"></a>지역별 Azure CDN 범위 
 > [!div class="op_single_selector"]
 > * [지역별 POP 위치](cdn-pop-locations.md)
 > * [약어별 POP 위치](cdn-pop-abbreviations.md)
 > 
 
 
-이 문서에는 Azure CDN(Content Delivery Network) 제품에 대해 지역별로 정렬된 POP(point-of-presence) 위치를 포함하는 현재 지하철이 나열되어 있습니다. 각 지하철은 둘 이상의 POP를 포함할 수 있습니다. 예를 들어, Microsoft의 Azure CDN에는 61개 지하철의 129개 POP가 있습니다. 
+이 문서에는 Azure CDN(Content Delivery Network) 제품에 대해 지역별로 정렬된 POP(point-of-presence) 위치를 포함하는 현재 도시가 나열되어 있습니다. 각 도시는 둘 이상의 POP를 포함할 수 있습니다. 예를 들어, Microsoft의 Azure CDN에는 61개 도시의 129개 POP가 있습니다. 
 
 > [!IMPORTANT]
 > **Akamai의 Azure CDN** POP 도시 위치는 개별적으로 공개되지 않습니다.  
