@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 5719d5c49d3061acd167f51f74aac109dc22ec49
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: e38612e0d4e0707525b313c79143018c74c4c77b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961404"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326513"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Azure Stack에서 virtual machine 디스크 저장소 만들기
 
@@ -32,9 +32,9 @@ ms.locfileid: "55961404"
 
 1808 버전 부터는 Azure Stack는 운영 체제 (OS) 및 데이터 디스크를 가상 머신에서 managed disks와 관리 되지 않는 디스크의 사용을 지원 합니다. 1808 버전인 하기 전에 관리 되지 않는 디스크 에서만 지원 됩니다. 
 
-**[관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)**  VM 디스크와 연결 된 저장소 계정을 관리 하 여 Azure IaaS Vm 용 디스크 관리를 간소화 합니다. 크기를 지정 하기만 하면 필요한 디스크의 및 Azure Stack을 만들고 디스크를 관리 합니다.
+**[관리 디스크](../../virtual-machines/windows/managed-disks-overview.md)**  VM 디스크와 연결 된 저장소 계정을 관리 하 여 Azure IaaS Vm 용 디스크 관리를 간소화 합니다. 크기를 지정 하기만 하면 필요한 디스크의 및 Azure Stack을 만들고 디스크를 관리 합니다.
 
-**[관리 되지 않는 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)** 를 만들도록 요구를 [저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) 디스크를 저장 합니다. 만든 디스크는 VM 디스크 라고도 하며 저장소 계정의 컨테이너에 저장 됩니다.
+Unmanaged disks에 디스크를 저장 하는 저장소 계정 만드는 필요 합니다. 만든 디스크는 VM 디스크 라고도 하며 저장소 계정의 컨테이너에 저장 됩니다.
 
 ### <a name="best-practice-guidelines"></a>모범 사례 지침
 
@@ -97,7 +97,7 @@ VM을 만든 후 포털을 사용할 수 있습니다.
 
     -  선택 된 **원본 유형**합니다.
 
-       Blob 저장소 계정에 다른 디스크의 스냅숏에서 디스크를 만들거나 빈 디스크를 만듭니다.
+       다른 디스크의 스냅숏에서 디스크를 만들거나 스토리지 계정의 Blob을 만들거나 빈 디스크를 만듭니다.
 
         **스냅숏**  
         사용 가능한 경우 스냅숏을 선택 합니다. 스냅숏을에 있어야 합니다. VM의 구독 및 위치에서 사용할 수 있습니다.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/04/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 62a0e763913ea1ca27edf88d7560c9400043bf27
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7bf7034d30a8aac187fb2eeae6569f2f495e4439
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251370"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327252"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure Stack에 대 한 VPN gateway 정보
 
@@ -74,7 +74,7 @@ VPN gateway 연결에 사용할 수 있는 다양 한 구성 됩니다. 사용�
 
 ### <a name="site-to-site"></a>사이트 간
 
-A *사이트 간* (S2S) VPN gateway 연결 IPsec/IKE (IKEv1 또는 IKEv2) VPN 터널을 통해 연결 됩니다. 이 연결 유형은 VPN 장치는 온-프레미스 및 공용 IP가 할당 되는 필요 합니다. 이 장치는 NAT 뒤에 배치할 수 없습니다. S2S 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
+A *사이트 간* (S2S) VPN gateway 연결 (IKEv2)에 대 한 IPsec/IKE VPN 터널을 통해 연결 됩니다. 이 연결 유형은 VPN 장치는 온-프레미스 및 공용 IP가 할당 되는 필요 합니다. 이 장치는 NAT 뒤에 배치할 수 없습니다. S2S 연결은 프레미스 간 및 하이브리드 구성에 사용될 수 있습니다.
 
 ![사이트 간 VPN 연결 구성 예제](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 

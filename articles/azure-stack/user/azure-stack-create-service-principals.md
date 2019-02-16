@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: da75d829ccb74f7be675501b601ad3e6375bfb70
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813163"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312857"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>응용 프로그램 리소스 액세스 권한을 부여 Azure Stack에서 서비스 주체 만들기
 
@@ -50,7 +50,7 @@ Azure Stack에 대 한 Active Directory를 구성 하는 방법은 서비스 주
 * 서비스에 대 한 주체를 만들 [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad)합니다.
 * 서비스에 대 한 주체를 만들 [Active Directory Federation Services (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)합니다.
 
-단계에 할당 하기 위한 서비스 사용자 역할을 동일한 azure AD 및 AD FS 합니다. 서비스 주체를 만들 수 있습니다 [권한을 위임할](azure-stack-create-service-principals.md#assign-role-to-service-principal) 역할에 할당 하 여 합니다.
+단계에 할당 하기 위한 서비스 사용자 역할을 동일한 azure AD 및 AD FS 합니다. 서비스 주체를 만들 수 있습니다 [권한을 위임할](azure-stack-create-service-principals.md) 역할에 할당 하 여 합니다.
 
 ## <a name="create-service-principal-for-azure-ad"></a>Azure AD에 대 한 서비스 주체 만들기
 
@@ -85,7 +85,7 @@ Azure Stack에 Azure AD를 사용 하 여 id 저장소로, 하는 경우 서비�
 
 ![저장 된 키에 대 한 경고를 키 값입니다.](./media/azure-stack-create-service-principal/image15.png)
 
-마지막 단계로 [응용 프로그램 역할 할당](azure-stack-create-service-principals.md#assign-role-to-service-principal)합니다.
+마지막 단계로 [응용 프로그램 역할 할당](azure-stack-create-service-principals.md)합니다.
 
 ## <a name="create-service-principal-for-ad-fs"></a>AD FS에 대 한 서비스 주체 만들기
 
