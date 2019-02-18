@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: b27dd1b9aec89f259649b313d3ba7f944ea647f1
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6d82410e07e725b13385f6ff2b57218c1146a80a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765724"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329294"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -114,7 +114,12 @@ CLI를 사용 하 여 가상 컴퓨터를 만들 수 있습니다, 전에 Azure 
 
 다음 단계를 사용 하 여 Azure Stack에 연결 합니다.
 
-1. Azure Stack 환경을 실행 하 여 등록 된 `az cloud register` 명령입니다.
+1. Azure Stack 환경을 실행 하 여 등록 된 `az cloud register` 명령입니다. 일부 시나리오에서는 직접 아웃 바운드 인터넷 연결은 SSL 가로채기를 적용 하는 방화벽 또는 프록시를 통해 라우팅됩니다. 이러한 경우에는 `az cloud register` 명령 "클라우드에서 끝점을 가져올 수 없습니다."와 같은 오류로 실패할 수 있습니다 이 오류를 해결 하려면 다음 환경 변수를 설정할 수 있습니다.
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    
     a. 등록 하는 *클라우드 관리* 환경에서 사용 하 여:
 

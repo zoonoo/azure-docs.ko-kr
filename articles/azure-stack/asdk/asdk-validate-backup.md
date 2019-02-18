@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 02ecb3cdec9ddb07bf48dfe77d1ed5fbf07975e0
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 02/15/2019
+ms.openlocfilehash: 6fdec992b19a5615a35955a46fd90102890cde16
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965327"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329356"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Azure Stack 백업 유효성을 검사 하 여 ASDK 사용
 Azure Stack을 배포 하 고 제품, 계획, 할당량 및 구독 같은 사용자 리소스를 프로 비전을 수행 해야 [Azure Stack 인프라 백업 사용](../azure-stack-backup-enable-backup-console.md)합니다. 예약 및 일반 인프라 백업을 실행 하는 인프라 관리 데이터가 손실 되지 치명적인 하드웨어 또는 서비스 오류 이면 해야 합니다.
@@ -52,11 +52,11 @@ ASDK 클라우드 복구 배포를 시작 하기 전에 다음 정보가 있는�
 
 |필수 요소|설명|
 |-----|-----|
-|백업 공유 경로입니다.|Azure Stack 인프라 정보를 복구 하는 데 사용할 수 있는 최신 Azure Stack 백업의 UNC 파일 공유 경로입니다. 클라우드 복구 배포 중이 로컬 공유 만들어질 수 있습니다.|
-|백업 암호화 키입니다.|Azure Stack 관리 포털을 사용 하 여 실행할 인프라 백업을 예약 하는 암호화 키입니다.|
-|복원할 백업 ID입니다.|클라우드 복구 하는 동안 복원할 백업을 식별 하는 영숫자 형식의 "xxxxxxxx xxxx-xxxx-자", 백업 ID를 합니다.|
-|시간 서버 IP입니다.|132.163.97.2와 같은 유효한 시간 서버 IP를 Azure Stack 배포에 필요 합니다.|
-|외부 인증서 암호입니다.|Azure Stack에서 사용 하는 외부 인증서에 대 한 암호입니다. CA 백업이이 암호를 사용 하 여 복원 해야 하는 외부 인증서를 포함 합니다.|
+|백업 공유 경로|Azure Stack 인프라 정보를 복구 하는 데 사용할 수 있는 최신 Azure Stack 백업의 UNC 파일 공유 경로입니다. 클라우드 복구 배포 중이 로컬 공유 만들어질 수 있습니다.|
+|암호화 키 백업|선택 사항입니다. 만 업그레이드 Azure Stack 버전 1901 이상에 Azure Stack의 이전 버전에서 백업이 활성화 된 필요 합니다.|
+|복원할 백업 ID|클라우드 복구 하는 동안 복원할 백업을 식별 하는 영숫자 형식의 "xxxxxxxx xxxx-xxxx-자", 백업 ID를 합니다.|
+|시간 서버 IP|132.163.97.2와 같은 유효한 시간 서버 IP를 Azure Stack 배포에 필요 합니다.|
+|외부 인증서 암호|백업을 보호 하는 자체 서명 된 인증서의 개인 키 (.pfx)에 대 한 암호입니다.|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>호스트 컴퓨터를 준비 합니다. 
@@ -133,11 +133,12 @@ $certPass = Read-Host -AsSecureString
 ## <a name="restore-infrastructure-data-from-backup"></a>인프라 데이터 백업에서 복원
 성공적인 클라우드 recovery 배포 하는 다음을 사용 하 여 복원 완료 해야 합니다 **복원을 AzureStack** cmdlet. 
 
-Azure Stack 운영자도 로그인 한 후 [Azure Stack PowerShell 설치](asdk-post-deploy.md#install-azure-stack-powershell) 그런 다음에 대 한 사용자의 백업 ID를 대체 하 고는 `Name` 매개 변수를 다음 명령을 실행 합니다.
+Azure Stack 운영자도 로그인 한 후 [Azure Stack PowerShell 설치](asdk-post-deploy.md#install-azure-stack-powershell) 인증서 및 백업에서 복원할 때 사용할 암호를 지정 하려면 다음 명령을 실행 합니다.
 
 ```powershell
 Restore-AzsBackup -Name "<BackupID>"
 ```
+
 ASDK 복구 클라우드에 백업 데이터의 확인을 시작 하려면이 cmdlet을 호출 후 60 분 동안 기다립니다.
 
 ## <a name="next-steps"></a>다음 단계
