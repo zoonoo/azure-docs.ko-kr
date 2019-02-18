@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55467070"
 ---
-# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GRS(지역 중복 저장소): Azure Storage의 지역 간 복제
+# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GRS(지역 중복 스토리지): Azure Storage의 지역 간 복제
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
 
 ## <a name="read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소
@@ -41,7 +41,7 @@ RA-GRS를 사용할 때 유의해야 할 몇 가지 고려 사항:
    * Microsoft가 기본 위치에서 데이터를 복구할 수 있는지 또는 장애 조치(failover)가 필요한지 여부를 확인하는 데 필요한 시간
    * 보조 위치를 가리키도록 기본 DNS 항목을 변경하여 스토리지 계정의 장애 조치(failover)를 수행할 수 있는 시간
 
-Microsoft는 데이터를 유지할 책임을 진지하게 수행하고 있습니다. 기본 지역의 데이터를 복구할 기회가 있으면 Microsoft는 장애 조치(failover)를 지연시키고 사용자의 데이터 복구에 집중합니다. 
+Microsoft는 데이터 유지에 대한 책임을 매우 중요하게 생각하며 이를 이행하고자 최선을 다합니다. 주 지역의 데이터를 복구할 기회가 있으면 Microsoft는 장애 조치(failover)를 지연시키고 사용자의 데이터 복구에 집중합니다. 
 
 ## <a name="paired-regions"></a>쌍을 이루는 지역 
 저장소 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 쌍을 이루는 보조 지역은 주 지역에 따라 결정되며 변경할 수 없습니다. Azure에서 지원하는 지역에 대한 최신 정보는 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요.
