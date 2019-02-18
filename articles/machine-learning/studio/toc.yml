@@ -109,7 +109,7 @@ items:
   - name: 모델 배포
     items:
     - name: 웹 서비스 배포
-      displayName: publish
+      displayName: publish, multiple regions
       href: publish-a-machine-learning-web-service.md
     - name: 작동 방법
       href: model-progression-experiment-to-web-service.md
@@ -118,9 +118,6 @@ items:
     - name: 외부 데이터 사용
       displayName: import, export
       href: web-services-that-use-import-export-modules.md
-    - name: 다중 지역 배포
-      displayName: multiple regions
-      href: how-to-deploy-to-multiple-regions.md
     - name: 웹 서비스 매개 변수 사용
       href: web-service-parameters.md
     - name: 로깅 사용
@@ -133,17 +130,14 @@ items:
       displayName: endpoint, endpoints
       href: manage-web-service-endpoints-using-api-management.md
     - name: 엔드포인트 만들기
+      displayName: scale, scaling
       href: create-endpoint.md
-    - name: 확장
-      href: scaling-webservice.md
   - name: 모델 다시 학습
     items:
-    - name: 개요
+    - name: 새 웹 서비스 학습 및 배포
       href: retrain-machine-learning-model.md
-    - name: 기존 웹 서비스 재학습
-      href: retrain-existing-resource-manager-based-web-service.md
-    - name: 문제 해결
-      href: troubleshooting-retraining-models.md
+    - name: 클래식 웹 서비스 학습 및 배포
+      href: retrain-classic-web-service.md
   - name: 모델 사용
     items:
     - name: 개요
@@ -194,9 +188,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: 신경망 사용자 지정(Net#)
     href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: c9bbcd35f74e113c33ef0a8b449d806734501324
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: c6d072a6e032fb4059b422d0778eb78b01d3706e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266870"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327683"

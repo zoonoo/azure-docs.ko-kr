@@ -98,12 +98,12 @@ items:
       href: quickstarts-sdk/csharp-thumb-sdk.md
     - name: 텍스트 추출
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+  - name: Python SDK 사용
+    href: quickstarts-sdk/python-sdk.md
 - name: 자습서
   items:
   - name: Azure 이미지에 대한 메타데이터 가져오기
     href: Tutorials/storage-lab-tutorial.md
-  - name: 이미지 처리 앱 빌드
-    href: Tutorials/CSharpTutorial.md
 - name: 개념
   items:
   - name: 이미지에 태그 지정
@@ -183,7 +183,11 @@ items:
 - name: 리소스
   items:
   - name: 샘플
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+    items:
+    - name: 이미지 처리 앱 검색
+      href: Tutorials/CSharpTutorial.md
+    - name: 기타 Computer Vision 예제
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: FAQ
     href: FAQ.md
   - name: 가격 책정 및 제한
@@ -198,9 +202,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: 국가별 가용성
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: 700b14c16f1016a403fdf15972cc52021135c64a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 30b8a6937bafc469c4135a899af56277b4f3a9eb
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562354"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310716"

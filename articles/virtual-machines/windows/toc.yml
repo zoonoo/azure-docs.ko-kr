@@ -97,20 +97,13 @@ items:
   - name: 유지 관리 및 업데이트
     href: maintenance-and-updates.md
   - name: 디스크 저장소
-    href: about-disks-and-vhds.md
     items:
-    - name: Managed Disks
+    - name: 관리 디스크 소개
       href: managed-disks-overview.md
-    - name: 프리미엄 SSD
-      href: premium-storage.md
-    - name: 표준 SSD
-      href: disks-standard-ssd.md
-    - name: Ultra SSD
-      href: disks-ultra-ssd.md
-    - name: Premium Storage 성능
+    - name: IaaS VM의 디스크 유형 선택
+      href: disks-types.md
+    - name: 고성능을 위한 디자인
       href: premium-storage-performance.md
-    - name: Standard Storage
-      href: standard-storage.md
     - name: 디스크에 대한 확장성 목표
       href: disk-scalability-targets.md
     - name: 디스크의 복구 및 재해 복구
@@ -334,6 +327,8 @@ items:
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
+    - name: 디스크 벤치마크
+      href: disks-benchmarks.md
     - name: 디스크 분리
       href: detach-disk.md
     - name: 디스크 크기 조정
@@ -354,7 +349,7 @@ items:
       href: using-managed-disks-template-deployments.md
     - name: Write Accelerator 사용
       href: how-to-enable-write-accelerator.md
-    - name: Ultra SSD 사용
+    - name: Ultra 디스크 사용
       href: disks-enable-ultra-ssd.md
     - name: Managed Disks로 마이그레이션
       href: migrate-to-managed-disks.md
@@ -466,9 +461,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ
     href: faq.md
-ms.openlocfilehash: 770b828330bc0ad10b0aa78277f0872368cf201c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: a94dc323129041ffaaadc65204fdc35327b88b33
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299889"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328829"

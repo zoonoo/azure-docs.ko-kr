@@ -5,6 +5,12 @@ items:
   items:
   - name: Notification Hubs 정보
     href: notification-hubs-push-notification-overview.md
+- name: 빠른 시작
+  items:
+  - name: 알림 허브 만들기 - Azure Portal
+    href: create-notification-hub-portal.md
+  - name: 알림 허브 구성 - Azure Portal
+    href: configure-notification-hub-portal-pns-settings.md
 - name: 자습서
   items:
   - name: 1 - 등록된 모든 디바이스에 알림 푸시
@@ -138,9 +144,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 지원 옵션
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 55dc84493eca49cce1abe9184daec2687d3e5d56
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 9035ed7f81639770b1c962e4cf254e18fd3b46bd
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301522"
+ms.locfileid: "56311003"
