@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 79e2d33d1452eda35141b6ae80b46ab4eecd0909
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: e7c58978c7d6542887854c5a1996b15252fdb025
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902166"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982406"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>자습서: Azure Data Box에 케이블 연결
 
@@ -40,7 +40,7 @@ ms.locfileid: "54902166"
     - 고속 네트워크에 연결되어 있어야 합니다. 10GbE 연결이 하나 이상 있는 것이 좋습니다. 10GbE 연결을 사용할 수 없는 경우 1GbE 데이터 링크를 사용할 수 있지만 복사 속도에 영향을 미칩니다. 
 6. Data Box를 놓을 평평한 표면이 있어야 합니다. 표준 랙 선반에 디바이스를 놓으려면 데이터 센터 랙에 7U 슬롯이 있어야 합니다. 디바이스는 랙에 평평하게 놓거나 똑바로 세울 수 있습니다.
 7. Data Box를 호스트 컴퓨터에 연결하기 위해 다음과 같은 케이블을 준비해 둔 상태여야 합니다.
-    - 10GbE SFP+ 2축 동 케이블 2개(DATA 1, DATA 2 네트워크 인터페이스에 사용) Data Box에는 PCI Express 3.0 네트워크 인터페이스가 있는 Mellanox ConnectX®-3 Pro EN 이중 포트 10GBASE-T 어댑터가 있으므로 이 인터페이스와 호환되는 케이블이 작동합니다. 예를 들어, CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 케이블을 내부 테스트에 사용했습니다.
+    - 하나 이상의 10GbE SFP+ 2축 동 또는 SFP+ 광섬유 케이블(DATA 1, DATA 2 네트워크 인터페이스에 사용). Data Box에는 PCI Express 3.0 네트워크 인터페이스가 있는 Mellanox ConnectX®-3 Pro EN 이중 포트 10GBASE-T 어댑터가 있으므로 이 인터페이스와 호환되는 케이블이 작동합니다. 예를 들어, CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 케이블을 내부 테스트에 사용했습니다.
     - RJ-45 CAT 6 네트워크 케이블 1개(MGMT 네트워크 인터페이스에 사용)
     - RJ-45 CAT 6A 하나 또는 RJ-45 CAT 6 네트워크 케이블 하나(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
 
@@ -57,7 +57,7 @@ ms.locfileid: "54902166"
     1. 레이블이 지정된 전원 입력 위치에 전원 케이블을 연결합니다. 전원 케이블의 다른 쪽 끝은 배전 장치에 연결해야 합니다.
     2. RJ-45 CAT 6 케이블의 한쪽 끝은 MGMT 포트에 연결하고 다른 쪽 끝은 랩톱에 연결합니다.            
     3. RJ-45 CAT 6A 케이블의 한쪽 끝을 DATA 3 포트에 연결합니다. DATA 3은 RJ-45 CAT 6A 케이블을 통해 연결하는 경우 10GbE로, RJ-45 CAT 6 케이블을 통해 연결하는 경우에는 1GbE로 구성됩니다.
-    4. 10 GbE SFP + 2축 동 케이블을 사용하여 DATA 1 및 DATA 2 포트 각각에 연결합니다. 
+    4. 데이터 전송을 위해 연결하려는 네트워크 인터페이스에 따라, 최대 2개의 10GbE SFP + 2축 동 또는 SFP + 광섬유 케이블을 사용하여 DATA 1 및 DATA 2 포트를 각각 연결합니다. 
     5. 데이터 포트에 연결된 케이블의 다른 쪽 끝은 10GbE 스위치를 통해 호스트 컴퓨터에 연결됩니다.
 
 4. 디바이스의 전면 조작 패널에서 전원 단추를 찾습니다. 디바이스를 켭니다.

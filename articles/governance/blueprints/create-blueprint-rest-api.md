@@ -4,17 +4,17 @@ description: Azure Blueprint를 사용하여 아티팩트를 만들고 정의하
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 78ce7c1063623e0c002bb6084d8c18139b3f889f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566975"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989969"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API로 Azure Blueprint 정의 및 할당
 
@@ -329,6 +329,12 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 수 있습니다. 작성한 청사진을 관리 그룹 계층 구조에 속하는 구독 중 하나에 할당합니다. 구독에 청사진이 저장되면 해당 구독에만 할당될 수 있습니다. **요청 본문**은 할당될 청사진을 지정하고, 청사진 정의에 포함된 모든 리소스 그룹에 이름과 위치를 제공하며 청사진에 정의되고 하나 이상의 연결된 아티팩트에 사용되는 모든 매개 변수를 제공합니다.
 
+각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
+
+- `{tenantId}` - 테넌트 ID로 대체
+- `{YourMG}` - 사용자의 관리 그룹 ID로 대체
+- `{subscriptionId}` - 사용자의 구독 ID로 대체
+
 1. Azure Blueprint 서비스 주체에게 대상 구독에서 **소유자** 역할을 제공합니다. AppId는 정적(`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`)이지만 서비스 주체 ID는 테넌트별로 다양합니다. 테넌트에 대한 세부 정보는 다음 REST API를 사용하여 요청할 수 있습니다. 여기에는 권한 부여가 다른 [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)가 사용됩니다.
 
    - REST API URI
@@ -387,6 +393,25 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
          "location": "westus"
      }
      ```
+
+   - 사용자 할당 관리 ID
+
+     청사진 할당은 [사용자가 할당한 관리형 ID](../../active-directory/managed-identities-azure-resources/overview.md)로 사용할 수 있습니다. 이런 경우, 요청 본문의 **ID** 부분이 다음과 같이 변경됩니다.  `{yourRG}`와 `{userIdentity}`를 각각 리소스 그룹 이름과 사용자가 할당한 관리형 ID의 이름으로 바꿉니다.
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     **사용자가 할당한 관리형 ID**는 청사진을 할당한 사용자에게 권한이 있는 구독 및 리소스 그룹일 수 있습니다.
+
+     > [!IMPORTANT]
+     > 청사진은 사용자가 할당한 관리형 ID를 관리하지 않습니다. 충분한 역할과 권한을 할당할 책임이 사용자에게 있으며, 그렇지 못하면 청사진 할당이 실패합니다.
 
 ## <a name="unassign-a-blueprint"></a>청사진 할당 취소
 

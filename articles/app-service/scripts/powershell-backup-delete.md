@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d8a3d8f890001138f0582a099021b4537227a337
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: dbe8417e8a26cb222fe52ac7c0284b3956ed65fb
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586410"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106939"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Azure PowerShell을 사용하여 웹에 대한 백업 삭제
 
@@ -30,6 +30,8 @@ ms.locfileid: "53586410"
 
 ## <a name="sample-script"></a>샘플 스크립트
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-delete/backup-delete.ps1?highlight=1-2,11 "Delete a backup for a web app")]
 
 ## <a name="clean-up-deployment"></a>배포 정리 
@@ -37,7 +39,7 @@ ms.locfileid: "53586410"
 스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, 웹앱 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -46,8 +48,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | 웹앱의 백업 목록을 가져옵니다. |
-| [Remove-AzureRmWebAppBackup](/powershell/module/azurerm.websites/remove-azurermwebappbackup) | 웹앱의 지정된 백업을 제거합니다. |
+| [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | 웹앱의 백업 목록을 가져옵니다. |
+| [Remove-AzWebAppBackup](/powershell/module/az.websites/remove-azwebappbackup) | 웹앱의 지정된 백업을 제거합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

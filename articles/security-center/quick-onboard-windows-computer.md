@@ -4,7 +4,7 @@ description: 이 빠른 시작은 Windows 컴퓨터에서 Microsoft Monitoring A
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/2/2018
+ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023003"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115864"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Windows 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Microsoft Monitoring Agent를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
@@ -30,7 +30,7 @@ Azure 구독을 온보딩한 후 Microsoft Monitoring Agent를 프로비전하�
 ## <a name="prerequisites"></a>필수 조건
 Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)으로 등록할 수 있습니다.
 
-이 빠른 시작을 수행하기 위해서는 Security Center의 가격 계층이 표준(Standard)이어야 합니다. 업그레이드 지침은 [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md)을 참조하세요. 처음 60일 동안 추가 비용 없이 Security Center 표준을 사용해 볼 수 있습니다.
+이 빠른 시작을 수행하기 위해서는 Security Center의 가격 계층이 표준(Standard)이어야 합니다. 업그레이드 지침은 [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md)을 참조하세요. 비용 없이 Security Center의 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 ## <a name="add-new-windows-computer"></a>새 Windows 컴퓨터 추가
 
@@ -75,7 +75,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
 완료되면 **제어판**에 **Microsoft Monitoring Agent**가 나타납니다. 구성을 검토하고 에이전트에 연결되었는지 확인할 수 있습니다.
 
-에이전트 설치 및 구성에 대한 자세한 내용은 [Windows 컴퓨터 연결](../log-analytics/log-analytics-agent-windows.md#install-the-agent-using-setup-wizard)을 참조하세요.
+에이전트 설치 및 구성에 대한 자세한 내용은 [Windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard)을 참조하세요.
 
 이제 Azure VM과 비 Azure 컴퓨터를 한곳에서 모니터링할 수 있습니다. **계산** 아래에는 모든 VM 및 컴퓨터의 개요가 권장 사항과 함께 나와 있습니다. 각 열에 하나의 권장 사항 집합이 표시됩니다. 색은 해당 권장 사항에 대한 VM 또는 컴퓨터의 현재 보안 상태를 나타냅니다. Security Center는 보안 경고를 통해서도 이러한 컴퓨터에서 검색된 내용을 표시합니다.
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: jdial
-ms.openlocfilehash: 5472878542078e2a2dbb900965b59844d6e3b4b3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e145642a12db941d52c55081032e247b6d65d38b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488097"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997332"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
@@ -71,7 +71,7 @@ SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주�
 표준 SKU 공용 IP 주소는 다음과 같습니다.
 
 - 항상 고정 할당 메서드를 사용합니다.
-- 조정 가능한 인바운드 발생 및 아웃바운드 발생 흐름 유휴 시간 제한은 4-66분(기본값은 4분)으로 정합니다.
+- 조정 가능한 인바운드 발생 및 아웃바운드 발생 흐름 유휴 시간 제한은 4-30분(기본값은 4분)으로 정합니다.
 - 기본적으로 보호되고 인바운드 트래픽에 닫혀 있습니다. [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 허용된 인바운드 트래픽을 명시적으로 허용해야 합니다.
 - 네트워크 인터페이스, 표준 공용 Load Balancer, Application Gateway 또는 VPN Gateway에 할당됩니다. 표준 Load Balancer에 대한 자세한 내용은 [Azure 표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 - 기본적으로 영역 중복되며 필요에 따라 영역별로 지정할 수 있습니다(영역별로 생성할 수 있으며 특정 가용성 영역에서 보장 가능). 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.

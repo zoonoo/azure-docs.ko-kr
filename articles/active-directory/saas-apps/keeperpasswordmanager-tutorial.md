@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 70dfc03c37b2e7a93218ff7e710dbd22f622d418
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4e55a50a1a4ae1db995a6054cf9dc13382236b8e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813307"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189483"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>자습서: Keeper Password Manager & Digital Vault와 Azure Active Directory 통합
 
@@ -78,7 +79,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 Keeper Password Manager 
 Keeper Password Manager & Digital Vault에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Keeper Password Manager & Digital Vault Single Sign-On 구성](#configure-keeper-password-manager-&-digital-vault-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+2. **Keeper Password Manager & Digital Vault Single Sign-On 구성** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Keeper Password Manager & Digital Vault 테스트 사용자 만들기](#create-keeper-password-manager--digital-vault-test-user)** - Azure AD 표현과 연결된 Britta Simon에 해당하는 Keeper Password Manager & Digital Vault에 만듭니다.

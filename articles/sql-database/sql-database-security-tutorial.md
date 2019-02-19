@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database에서 독립 실행형 데이터베이스 또는 풀링된 데이터베이스 보호 | Microsoft Docs
-description: Azure SQL Database에서 독립 실행형 데이터베이스 또는 풀링된 데이터베이스를 보호하는 기법 및 기능에 대해 자세히 알아봅니다.
+title: Azure SQL Database에서 단일 또는 풀링된 데이터베이스 보호 | Microsoft Docs
+description: Azure SQL Database에서 단일 또는 풀링된 데이터베이스를 보호하는 기법 및 기능에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,17 +9,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 2ea87b36d8b489abf59ac4550121369a2ddf540f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752520"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004600"
 ---
-# <a name="tutorial-secure-a-standalone-or-pooled-database"></a>자습서: 독립 실행형 데이터베이스 또는 풀링된 데이터베이스 보호
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>자습서: 단일 또는 풀링된 데이터베이스 보호
 
-Azure SQL Database는 다음과 같은 방법으로 독립 실행형 데이터베이스 또는 풀링된 데이터베이스의 데이터를 보호합니다.
+Azure SQL Database는 다음과 같은 방법으로 단일 또는 풀링된 데이터베이스의 데이터를 보호합니다.
 
 - 방화벽 규칙을 사용하여 액세스 제한
 - ID를 요구하는 인증 메커니즘 사용

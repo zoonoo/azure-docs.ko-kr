@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: dd99a6b49894b3489d1cc01f1fcbc56d29247b41
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756362"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55868568"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>자습서: 소스 코드를 커밋할 때 클라우드에서 컨테이너 이미지 빌드 자동화
 
@@ -51,6 +51,8 @@ ACR 작업에서 현재 지원하는 트리거는 다음과 같습니다.
 
 * Git 리포지토리에 커밋
 * 기본 이미지 업데이트
+
+이 자습서에서는 ACR 작업이 Dockerfile에 지정된 단일 컨테이너 이미지를 빌드하고 푸시합니다. ACR 작업은 YAML 파일을 사용하여 [여러 단계 작업](container-registry-tasks-multi-step.md)을 실행하여 빌드, 푸시 및 선택적으로 여러 컨테이너를 테스트하는 단계를 정의할 수 있습니다.
 
 ## <a name="create-a-build-task"></a>빌드 작업 만들기
 
@@ -99,7 +101,7 @@ az acr task create \
 > [!IMPORTANT]
 > 이전에 미리 보기 중에 `az acr build-task` 명령을 사용하여 작업을 만든 경우 [az acr task][az-acr-task] 명령을 사용하여 해당 작업을 다시 만들어야 합니다.
 
-이 작업은 `--context`에 지정된 리포지토리의 *마스터* 분기에 모든 시간 코드를 커밋하도록 지정하고, ACR 작업은 해당 분기의 코드에서 컨테이너 이미지를 빌드합니다. 저장소 루트의 `--file`에 지정된 Dockerfile이 사용됩니다. `--image` 인수는 이미지 태그의 버전 부분에 대해 `{{.Run.ID}}`의 매개 변수화된 값을 지정하여 빌드된 이미지가 특정 빌드와 상호 연결되고 태그가 고유하게 지정되도록 합니다.
+이 작업은 `--context`에 지정된 리포지토리의 *마스터* 분기에 모든 시간 코드를 커밋하도록 지정하고, ACR 작업은 해당 분기의 코드에서 컨테이너 이미지를 빌드합니다. 리포지토리 루트의 `--file`에 지정된 Dockerfile은 이미지를 빌드하는 데 사용됩니다. `--image` 인수는 이미지 태그의 버전 부분에 대해 `{{.Run.ID}}`의 매개 변수화된 값을 지정하여 빌드된 이미지가 특정 빌드와 상호 연결되고 태그가 고유하게 지정되도록 합니다.
 
 성공적인 [az acr task create][az-acr-task-create] 명령의 출력은 다음과 비슷합니다.
 

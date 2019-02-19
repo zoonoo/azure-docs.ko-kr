@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.openlocfilehash: 978ac07037e1b7e29d83cc3258df01c6f902cd36
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 1bb116f2a2153515f3b61c050f0c952523c13528
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045268"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976631"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>PowerShell을 사용하여 다른 지역의 저장소 계정으로 관리 디스크의 VHD 내보내기/복사
 
@@ -29,6 +29,8 @@ ms.locfileid: "48045268"
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -41,9 +43,9 @@ ms.locfileid: "48045268"
 
 | 명령 | 메모 |
 |---|---|
-| [Grant-AzureRmDiskAccess](/powershell/module/azurerm.compute/grant-azurermdiskaccess) | 저장소 계정에 기본 VHD를 복사하는 데 사용되는 관리 디스크에 대한 SAS URI를 생성합니다. |
-| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | 계정 이름과 키를 사용하여 저장소 계정 컨텍스트를 만듭니다. 이 컨텍스트는 저장소 계정에 대한 읽기/쓰기 작업을 수행하는 데 사용할 수 있습니다. |
-| [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | 스냅숏의 기본 VHD를 저장소 계정에 복사합니다. |
+| [Grant-AzDiskAccess](https://docs.microsoft.com/powershell/module/az.compute/grant-azdiskaccess) | 저장소 계정에 기본 VHD를 복사하는 데 사용되는 관리 디스크에 대한 SAS URI를 생성합니다. |
+| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | 계정 이름과 키를 사용하여 저장소 계정 컨텍스트를 만듭니다. 이 컨텍스트는 저장소 계정에 대한 읽기/쓰기 작업을 수행하는 데 사용할 수 있습니다. |
+| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | 스냅숏의 기본 VHD를 저장소 계정에 복사합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

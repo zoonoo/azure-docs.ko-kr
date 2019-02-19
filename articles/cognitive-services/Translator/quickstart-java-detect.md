@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java 및 Translator Text REST API를 사용하여 제공된 텍스트의 언어를 검색하는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 00ffb0eef5b7452894b27a00328dae4546d45c6f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c40736bf22f53723a69a649215cdbb79a703e515
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208440"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964103"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>빠른 시작: Translator Text API를 사용하여 Java를 통해 텍스트 언어 검색
 
@@ -171,6 +171,12 @@ public static void main(String[] args) {
 
 ```console
 gradle build
+```
+
+빌드가 완료되면 다음을 실행합니다.
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>샘플 응답

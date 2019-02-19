@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 40057f6d7ab792557f17c777276091e7c7c05c3c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 34a6676444c4723f64264e41cb0e3c4842486bf6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233619"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003094"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK를 사용한 주문형 콘텐츠 제공 시작
+# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK를 사용한 주문형 콘텐츠 제공 시작  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 이 자습서에서는 Azure Media Services .NET SDK를 사용하는 AMS(Azure Media Services) 애플리케이션으로 기본 VoD(주문형 비디오) 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
@@ -87,7 +88,7 @@ Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 �
 
 Media Services를 .NET과 함께 사용하는 경우 Media Services 계정에 연결하는 작업이나 자산, 자산 파일, 작업, 액세스 정책, 로케이터 등의 개체를 만들고 업데이트하고 액세스하고 삭제하는 작업을 포함한 대부분의 Media Services 프로그래밍 작업에 **CloudMediaContext** 클래스를 사용해야 합니다.
 
-기본 프로그램 클래스를 다음 코드로 덮어씁니다. 이 코드는 App.config 파일에서 연결 값을 읽는 방법 및 Media Services에 연결하기 위해 **CloudMediaContext** 개체를 만드는 방법을 보여줍니다. 자세한 내용은 [Media Services API에 연결](media-services-use-aad-auth-to-access-ams-api.md)을 참조하세요.
+기본 Program 클래스를 다음 코드로 덮어씁니다. 이 코드는 App.config 파일에서 연결 값을 읽는 방법 및 Media Services에 연결하기 위해 **CloudMediaContext** 개체를 만드는 방법을 보여 줍니다. 자세한 내용은 [Media Services API에 연결](media-services-use-aad-auth-to-access-ams-api.md)을 참조하세요.
 
 파일 이름과 경로를 미디어 파일이 있는 위치로 업데이트합니다.
 
@@ -189,7 +190,7 @@ Program 클래스에 다음 메서드를 추가합니다.
 ## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>원본 파일을 적응 비트 전송률 MP4 파일 집합으로 인코딩
 Media Services에 자산을 삽입하고 나면 미디어를 클라이언트에 배달하기 전에 인코딩, 트랜스먹싱, 워터마크 지정 등을 수행할 수 있습니다. 이러한 활동은 높은 성능과 가용성을 보장하기 위해 여러 백그라운드 역할 인스턴스에 대해 예약 및 실행합니다. 이러한 활동을 작업이라고 하며 각 작업은 자산 파일에서 실제 작업을 수행하는 원자성 작업으로 구성됩니다.
 
-앞에서 언급한 대로, Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 클라이언트에 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 파일을 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG DASH 형식 중 하나로 동적 패키징합니다.
+앞에서 언급한 대로, Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 클라이언트에 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 파일을 다음 형식 중 하나로 동적 패키징합니다. HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH
 
 동적 패키징을 활용하려면 mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩하거나 트랜스코딩해야 합니다.  
 
@@ -237,7 +238,7 @@ Program 클래스에 다음 메서드를 추가합니다.
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>자산 게시, 스트리밍 및 점진적 다운로드를 위한 URL 가져오기
 
-자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. Media Services는 두 가지 유형의 로케이터를 지원합니다.하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다.
+자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. Media Services는 두 가지 유형의 로케이터를 지원합니다. 하나는 OnDemandOrigin 로케이터로써 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로써 미디어 파일을 다운로드하는 데 사용됩니다.
 
 ### <a name="some-details-about-url-formats"></a>URL 형식에 대한 일부 세부 정보
 
@@ -377,8 +378,8 @@ MPEG DASH
 자세한 내용은 다음 항목을 참조하십시오.
 
 - [기존 플레이어를 사용하여 콘텐츠 재생](media-services-playback-content-with-existing-players.md)
-- [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
-- [DASH.js를 사용하여 HTML5 응용 프로그램에 MPEG-DASH 적응 스트리밍 비디오 포함](media-services-embed-mpeg-dash-in-html5.md)
+- [비디오 플레이어 애플리케이션 개발](media-services-develop-video-players.md)
+- [DASH.js를 사용하여 HTML5 애플리케이션에 MPEG-DASH 적응 스트리밍 비디오 포함](media-services-embed-mpeg-dash-in-html5.md)
 
 ## <a name="download-sample"></a>샘플 다운로드
 코드 샘플([샘플](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/))에는 이 자습서에서 만든 코드가 포함되어 있습니다.

@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록을 가져옵니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: e638375c9c8316c00ee8da000ca5223330072985
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ae7408ac635b2825ab17f40786c3fd60b76d78ac
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215574"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892459"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>빠른 시작: Translator Text API를 사용하여 C#을 통해 지원되는 언어 목록 가져오기
 
 이 빠른 시작에서는 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록을 가져옵니다.
-
-이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
 * [Json.NET NuGet 패키지](https://www.nuget.org/packages/Newtonsoft.Json/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
-* Translator Text에 대한 Azure 구독 키
 
 ## <a name="create-a-net-core-project"></a>.NET Core 프로젝트 만들기
 
@@ -72,14 +69,13 @@ static void GetLanguages()
 }
 ```
 
-## <a name="set-the-subscription-key-host-name-and-path"></a>구독 키, 호스트 이름 및 경로 설정
+## <a name="set-the-host-name-and-path"></a>호스트 이름 및 경로 설정
 
 `GetLanguages` 함수에 이러한 줄을 추가합니다.
 
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
 string route = "/languages?api-version=3.0";
-string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 ```
 
 ## <a name="instantiate-the-client-and-make-a-request"></a>클라이언트를 인스턴스화하고 요청 수행
@@ -109,17 +105,11 @@ using (var request = new HttpRequestMessage())
 ```csharp
 // Set the method to GET
 request.Method = HttpMethod.Get;
-
 // Construct the full URI
 request.RequestUri = new Uri(host + route);
-
-// Add the authorization header
-request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-
 // Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
-
 // Print the response
 Console.WriteLine(jsonResponse);
 Console.WriteLine("Press any key to continue.");

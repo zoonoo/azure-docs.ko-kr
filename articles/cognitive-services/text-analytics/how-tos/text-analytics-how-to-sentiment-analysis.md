@@ -1,22 +1,22 @@
 ---
-title: 텍스트 분석 REST API(Azure의 Microsoft Cognitive Services)에서 감정을 분석하는 방법 | Microsoft Docs
-description: 이 연습 자습서에서는 Azure의 Microsoft Cognitive Services에서 텍스트 분석 REST API를 사용하여 감정을 감지하는 방법을 알아봅니다.
+title: Azure Cognitive Services에서 Text Analytics를 사용하여 감정 분석 | Microsoft Docs
+description: Text Analytics REST API를 사용하여 감정을 감지하는 방법을 알아봅니다.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: e5ceb6208229baf3e07e4030992d5de85309789c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: add284a3a001d5bc2e756f9ad4a2a3b9550b212c
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212497"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242134"
 ---
-# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>예제: Text Analytics에서 감정을 감지하는 방법
+# <a name="example-how-to-detect-sentiment-with-text-analytics"></a>예제: Text Analytics를 사용하여 감정을 감지하는 방법
 
 [감정 분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)는 텍스트 입력을 평가하고 각 문서에 대한 감정 점수(0(부정) ~ 1(긍정))를 반환합니다.
 

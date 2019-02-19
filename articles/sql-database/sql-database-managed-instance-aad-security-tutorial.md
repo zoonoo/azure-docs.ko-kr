@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 32d1be97405624fe929a9e9e1ff486f6a31200aa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 402e10d9b99dbf0eeba8aac27071e4d78fdf0f01
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732773"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984514"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>자습서: Azure AD 로그인을 사용하는 Azure SQL Database 관리되는 인스턴스 보안
 
@@ -32,7 +32,7 @@ ms.locfileid: "55732773"
 > - 관리되는 인스턴스에 대한 Azure AD(Active Directory) 로그인 만들기
 > - 관리되는 인스턴스의 Azure AD 로그인에 대한 권한 부여
 > - Azure AD 로그인에서 Azure AD 사용자 만들기
-> - Azure AD 사용자 및 관리형 데이터베이스 보안에 대한 권한 할당
+> - Azure AD 사용자에게 권한 할당 및 데이터베이스 보안 관리
 > - Azure AD 사용자에 가장 사용
 > - Azure AD 사용자에 데이터베이스 간 쿼리 사용
 > - 위협 방지, 감사, 데이터 마스킹, 암호화 등의 보안 기능에 대해 알아보기

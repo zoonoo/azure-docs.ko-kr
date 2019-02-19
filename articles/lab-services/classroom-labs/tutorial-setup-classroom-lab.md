@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 3b425af972b0983db076ab103a33c57f7a127210
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095756"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998521"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -28,7 +28,7 @@ ms.locfileid: "55095756"
 
 > [!div class="checklist"]
 > * 클래스룸 랩 만들기
-> * 클래스룸 랩 구성
+> * 랩에 사용자 추가
 > * 학생에게 등록 링크 보내기
 
 ## <a name="prerequisites"></a>필수 조건
@@ -43,13 +43,12 @@ ms.locfileid: "55095756"
 2. **로그인**을 선택하고 자격 증명을 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다. 
 3. **새 랩** 창에서 다음 작업을 수행합니다. 
     1. 랩에 대한 **이름**을 지정합니다. 
-    2. 랩에 허용되는 최대 **사용자 수**를 지정합니다. 
+    2. 랩에서 **가상 머신의 최대 수**를 지정합니다. 랩을 만든 후 또는 기존 랩에서 VM 수를 늘리거나 줄일 수 있습니다. 자세한 내용은 [랩의 VM 수 업데이트](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)를 참조하세요.
     6. **저장**을 선택합니다.
 
         ![클래스룸 랩 만들기](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. **가상 머신 사양 선택** 페이지에서 다음 단계를 수행합니다.
     1. 랩에서 만드는 VM(가상 머신)의 **크기**를 선택합니다. 
-    2. VM을 만들려는 **지역**을 선택합니다. 
     3. 랩에서 VM을 만드는 데 사용할 **VM 이미지**를 선택합니다. 
     4. **다음**을 선택합니다.
 
@@ -69,17 +68,15 @@ ms.locfileid: "55095756"
 7. 템플릿 구성이 완료되면 다음 페이지가 표시됩니다. 
 
     ![완료된 템플릿 페이지 구성](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. 다음 단계는 이 자습서의 선택적 단계입니다. 
+8. **템플릿 구성** 페이지에서 다음 단계를 수행합니다. 이 자습서에서는 이러한 단계가 **선택 사항**입니다.
     1. **시작**을 선택하여 템플릿 VM을 시작합니다.
     2. **연결**을 선택하여 템플릿 VM에 연결합니다. 
     3. 템플릿 VM에 소프트웨어를 설치하고 구성합니다. 
     4. VM을 **중지**합니다.  
     5. 템플릿에 대한 **설명**을 입력합니다.
-
-        ![템플릿 구성 페이지의 다음 단추](../media/tutorial-setup-classroom-lab/configure-template-next.png)
 9. 템플릿 페이지에서 **다음**을 선택합니다. 
 10. **템플릿 게시** 페이지에서 다음 작업을 수행합니다. 
-    1. 템플릿을 즉시 게시하려면 *게시한 후에는 템플릿을 수정할 수 없습니다. 이 프로세스는 한 번만 수행할 수 있으며 최대 1시간이 걸릴 수 있습니다.* 확인란을 선택하고, **게시**를 선택합니다.  
+    1. 템플릿을 즉시 게시하려면 **게시**를 선택합니다.  
 
         > [!WARNING]
         > 게시한 후에는 게시를 취소할 수 없습니다. 
@@ -103,7 +100,9 @@ ms.locfileid: "55095756"
 
 1. 왼쪽 메뉴에서 **사용자**를 선택합니다. 기본적으로 **액세스 제한** 옵션이 사용되도록 설정됩니다. 이 설정이 켜져 있으면 사용자가 사용자 목록에 없으면 등록 링크가 있어도 랩에 등록할 수 없습니다. 목록의 사용자만 전송 받은 등록 링크를 사용하여 랩에 등록할 수 있습니다. 이 절차에서는 사용자를 목록에 추가합니다. **액세스 제한**을 끌 수도 있습니다. 이 경우 사용자는 등록 링크가 있기만 하면 랩에 등록할 수 있습니다. 
 2. 도구 모음에서 **사용자 추가**를 선택합니다. 
-3. **사용자 추가** 페이지에서 여러 줄에 걸쳐 또는 세미콜론으로 구분해서 단일 줄에 사용자의 이메일 주소를 입력합니다. 
+
+    ![사용자 추가 단추](../media/how-to-configure-student-usage/add-users-button.png)
+1. **사용자 추가** 페이지에서 여러 줄에 걸쳐 또는 세미콜론으로 구분해서 단일 줄에 사용자의 이메일 주소를 입력합니다. 
 
     ![사용자 이메일 주소 추가](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. **저장**을 선택합니다. 목록에서 사용자의 이메일 주소 및 해당 상태(등록됨 또는 등록 해제됨)를 확인합니다. 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: fdb481961680d5f84170a25c7a76bffa8423e0cc
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604340"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097170"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>빠른 시작: 연결된 디바이스에서 예측 유지 관리 분석을 실행하는 클라우드 기반 솔루션 사용해보기
 
@@ -42,7 +42,7 @@ Azure 구독에 솔루션 가속기를 배포할 때 일부 구성 옵션을 설
 
 솔루션 가속기를 배포하는 데 사용하려는 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 이 빠른 시작에서는 **Visual Studio Enterprise** 및 **미국 동부**를 사용합니다. 구독 내에서 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
 
-**솔루션 만들기**를 배포를 시작합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
+**만들기**를 클릭하여 배포를 시작합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
 
 ![예측 유지 관리 솔루션 세부 정보](./media/quickstart-predictive-maintenance-deploy/createform.png)
 
@@ -50,9 +50,13 @@ Azure 구독에 솔루션 가속기를 배포할 때 일부 구성 옵션을 설
 
 Azure 구독에 배포가 완료되면 솔루션 타일에 녹색 확인 표시 및 **준비**가 표시됩니다. 이제 예측 유지 관리 솔루션 가속기 대시보드에 로그인할 수 있습니다.
 
-**프로비전된 솔루션** 페이지에서 새 예측 유지 관리 솔루션 가속기를 선택합니다. 표시되는 패널에서 예측 유지 관리 솔루션 가속기에 대한 정보를 볼 수 있습니다. **솔루션 대시보드**를 선택하여 예측 유지 관리 솔루션 가속기를 봅니다.
+**프로비전된 솔루션** 페이지에서 새 예측 유지 관리 솔루션 가속기를 선택합니다.
 
-![솔루션 패널](./media/quickstart-predictive-maintenance-deploy/solutionpanel.png)
+![솔루션 패널](./media/quickstart-predictive-maintenance-deploy/solution.png)
+
+ 표시되는 페이지에서 예측 유지 관리 솔루션 가속기에 대한 정보를 볼 수 있습니다. **솔루션 가속기로 이동**을 선택하여 예측 유지 관리 솔루션 가속기를 봅니다.
+
+![솔루션 패널](./media/quickstart-predictive-maintenance-deploy/solutionpaneldetails.png)
 
 **수락**을 클릭하여 권한 요청을 수락하면 예측 유지 관리 솔루션 대시보드가 브라우저에 표시됩니다.
 

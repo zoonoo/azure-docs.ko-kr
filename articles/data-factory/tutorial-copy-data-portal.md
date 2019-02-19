@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 Data Factory 파이프라인 만들기 | Microsoft Docs
-description: 이 자습서에서는 Azure Portal을 사용하여 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대한 단계별 지침을 제공합니다. 파이프라인은 복사 활동을 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다.
+description: 이 자습서에서는 Azure Portal을 사용하여 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대한 단계별 지침을 제공합니다. 파이프라인은 복사 활동을 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터를 복사합니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 5c7e6a4da9880677fbc4aad76b820ba596058bb6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1aca53c876b6cc982c141d74cdf727f9c966adfe
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025252"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233866"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터 복사
-이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터 복사
+이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob Storage에서 SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 > [!NOTE]
 > - Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -36,13 +36,13 @@ ms.locfileid: "54025252"
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-* **Azure Storage 계정**. Blob 저장소를 *원본* 데이터 저장소로 사용합니다. 저장소 계정이 없는 경우 [Azure 저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
+* **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure Storage 계정**. Blob Storage를 *원본* 데이터 스토리지로 사용합니다. 저장소 계정이 없는 경우 [Azure 저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 * **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)를 참조하세요.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
 
-이제 다음 단계를 수행하여 자습서에서 사용할 Blob 저장소 및 SQL 데이터베이스를 준비합니다.
+이제 다음 단계를 수행하여 자습서에서 사용할 Blob Storage 및 SQL 데이터베이스를 준비합니다.
 
 #### <a name="create-a-source-blob"></a>원본 Blob 만들기
 
@@ -53,7 +53,7 @@ ms.locfileid: "54025252"
     Jane,Doe
     ```
 
-1. Blob 저장소에 **adftutorial**이라는 컨테이너를 만듭니다. 이 컨테이너에 **input**이라는 폴더를 만듭니다. 그런 다음 **emp.txt** 파일을 **input** 폴더에 업로드합니다. 이러한 작업을 수행하려면 Azure Portal 또는 [Azure Storage 탐색기](http://storageexplorer.com/)와 같은 도구를 사용합니다.
+1. Blob Storage에 **adftutorial**이라는 컨테이너를 만듭니다. 이 컨테이너에 **input**이라는 폴더를 만듭니다. 그런 다음 **emp.txt** 파일을 **input** 폴더에 업로드합니다. 이러한 작업을 수행하려면 Azure Portal 또는 [Azure Storage 탐색기](http://storageexplorer.com/)와 같은 도구를 사용합니다.
 
 #### <a name="create-a-sink-sql-table"></a>싱크 SQL 테이블 만들기
 
@@ -82,30 +82,30 @@ ms.locfileid: "54025252"
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 이 단계에서는 데이터 팩터리를 만들고, Data Factory UI를 시작하여 파이프라인을 데이터 팩터리에 만듭니다. 
 
-1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 엽니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
-1. 왼쪽 메뉴에서 **새로 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
+1. **Microsoft Edge** 또는 **Google Chrome**을 엽니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
+2. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 차례로 선택합니다. 
   
    ![새 데이터 팩터리 만들기](./media/tutorial-copy-data-portal/new-azure-data-factory-menu.png)
-1. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory**를 입력합니다. 
+3. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory**를 입력합니다. 
       
      ![새 data factory](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
    Azure Data Factory의 이름은 *전역적으로 고유*해야 합니다. 이름 필드에 대해 다음과 같은 오류 메시지가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
   
    ![오류 메시지](./media/tutorial-copy-data-portal/name-not-available-error.png)
-1. 데이터 팩터리를 만들 Azure **구독**을 선택합니다. 
-1. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
+4. 데이터 팩터리를 만들 Azure **구독**을 선택합니다. 
+5. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
      
     a. **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
 
     b. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
          
     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요. 
-1. **버전**에서 **V2**를 선택합니다.
-1. **위치**에서 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Azure Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 지역에 있을 수 있습니다.
-1. **대시보드에 고정**을 선택합니다. 
-1. **만들기**를 선택합니다. 
-1. 대시보드에서 **데이터 팩터리 배포 중** 상태의 다음과 같은 타일이 표시됩니다. 
+6. **버전**에서 **V2**를 선택합니다.
+7. **위치**에서 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Azure Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 지역에 있을 수 있습니다.
+8. **대시보드에 고정**을 선택합니다. 
+9. **만들기**를 선택합니다. 
+10. 대시보드에서 **데이터 팩터리 배포 중** 상태의 다음과 같은 타일이 표시됩니다. 
 
     ![Data Factory 배포 중 타일](media/tutorial-copy-data-portal/deploying-data-factory.png)
 1. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
@@ -114,7 +114,7 @@ ms.locfileid: "54025252"
 1. **작성 및 모니터링**을 선택하여 별도의 탭에서 Data Factory UI를 선택합니다.
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
-이 단계에서는 복사 활동이 있는 파이프라인을 데이터 팩터리에 만듭니다. 복사 활동은 Blob 저장소에서 SQL Database로 데이터를 복사합니다. [빠른 시작 자습서](quickstart-create-data-factory-portal.md)에서 다음 단계에 따라 파이프라인을 만들었습니다.
+이 단계에서는 복사 활동이 있는 파이프라인을 데이터 팩터리에 만듭니다. 복사 활동은 Blob Storage에서 SQL Database로 데이터를 복사합니다. [빠른 시작 자습서](quickstart-create-data-factory-portal.md)에서 다음 단계에 따라 파이프라인을 만들었습니다.
 
 1. 연결된 서비스를 만듭니다. 
 1. 입력 및 출력 데이터 세트를 만듭니다.
@@ -127,7 +127,7 @@ ms.locfileid: "54025252"
    ![파이프라인 만들기](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
 1. 파이프라인의 **일반** 탭에 있는 파이프라인의 **이름**에 대해 **CopyPipeline**을 입력합니다.
 
-1. **활동** 도구 상자에서 **데이터 흐름** 범주를 펼치고, **복사** 활동을 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **이름**에 대해 **CopyFromBlobToSql**을 지정합니다.
+1. **활동** 도구 상자에서 **이동 및 변환** 범주를 펼치고, **데이터 복사** 활동을 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **이름**에 대해 **CopyFromBlobToSql**을 지정합니다.
 
     ![복사 활동](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
@@ -303,7 +303,7 @@ ms.locfileid: "54025252"
 1. 지정된 종료 시간까지 각 파이프라인 실행에 대해 분당 두 행이 **emp** 테이블에 삽입되었는지 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인이 Blob 저장소의 위치 간에 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다. 
+이 샘플의 파이프라인이 Blob Storage의 위치 간에 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.

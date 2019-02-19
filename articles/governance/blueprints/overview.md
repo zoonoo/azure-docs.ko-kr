@@ -4,17 +4,17 @@ description: Azure Blueprints는 Azure 환경에서 아티팩트를 만들고 �
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7803ed99a61a9b4ad819da882daf38cbfd6fffe9
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 29670b94450e9f145a96b737ef96970db40aeed8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563374"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998555"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
@@ -112,6 +112,12 @@ Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플�
 
 > [!NOTE]
 > Azure Blueprints의 서비스 주체가 배포를 활성화하려면 할당된 구독에 대한 **소유자** 역할이 필요합니다. 포털을 사용하는 경우에는 이 역할이 배포에 대해 자동으로 부여 및 취소됩니다. REST API를 사용하는 경우에는 이 역할을 수동으로 부여해야 합니다. 하지만 배포가 완료되면 역할은 자동으로 취소됩니다.
+
+## <a name="video-overview"></a>비디오 개요
+
+Azure Blueprints에 대한 다음 개요는 Azure Friday에서 가져온 것입니다. 비디오를 다운로드하려면 Channel 9의 [Azure Fridays - Azure Blueprints 개요](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints)를 방문하세요.
+
+> [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
 ## <a name="next-steps"></a>다음 단계
 

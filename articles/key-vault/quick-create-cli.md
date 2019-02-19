@@ -3,7 +3,7 @@ title: Azure 빠른 시작 - Azure CLI를 사용하여 Key Vault에서 비밀을
 description: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색하는 방법을 보여주는 빠른 시작
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/08/2019
 ms.author: barclayn
-ms.openlocfilehash: a78cc79031a8dc9b0c98beddf759fbc8674c6dd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8065f670da6614db8c3524fd351a31ad095f8257
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168263"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113042"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -67,12 +67,12 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
 
-자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 암호는 애플리케이션에서 사용할 수 있습니다. 암호는 **ExamplePassword**라고 명명되며 **Pa$$w0rd** 값을 저장합니다.
+자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 암호는 애플리케이션에서 사용할 수 있습니다. 암호는 **ExamplePassword**로 지정되며 **hVFkk965BuUv** 값을 저장합니다.
 
-아래의 명령을 입력하여 Key Vault에 값 **Pa$$w0rd**를 저장하는 **ExamplePassword**라는 비밀을 만듭니다.
+아래 명령을 입력하여 Key Vault에 **hVFkk965BuUv** 값을 저장하는 **ExamplePassword**라는 비밀을 만듭니다.
 
 ```azurecli
-az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
 이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 암호를 참조할 수 있습니다. 현재 버전을 가져오려면 **https://ContosoVault.vault.azure.net/secrets/ExamplePassword**를 사용합니다. 

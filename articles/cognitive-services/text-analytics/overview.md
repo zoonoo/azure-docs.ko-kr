@@ -3,25 +3,25 @@ title: Text Analytics란?
 titleSuffix: Azure Cognitive Services
 description: 감성 분석, 핵심 구 추출, 언어 감지 및 엔터티 링크 설정에 대한 Azure Cognitive Services의 Text Analytics입니다.
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 73505064bf5cde4e97cd210698e21883cc9f5e38
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227882"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242932"
 ---
 # <a name="what-is-text-analytics"></a>Text Analytics란?
 
 텍스트 분석 API는 클라우드 기반 서비스로 원시 텍스트에 대한 고급 자연어 처리를 제공하며, 감성 분석, 핵심 구 추출, 언어 감지 및 엔터티 링크의 네 가지 주요 기능을 포함합니다.
 
-이 API는 사용자 개발 프로젝트에서 쉽게 사용할 수 있는 클라우드의 AI 알고리즘 및 기계 학습의 컬렉션으로, [Microsoft Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/) 리소스를 통해 지원됩니다.
+이 API는 개발 프로젝트를 위한 클라우드의 기계 학습 및 AI 알고리즘 모음인 [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)의 일부입니다.
 
 ## <a name="capabilities-in-text-analytics"></a>Text Analytics의 기능
 

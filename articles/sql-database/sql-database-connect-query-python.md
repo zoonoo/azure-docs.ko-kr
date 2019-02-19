@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/28/2019
-ms.openlocfilehash: b611eb02203c872e3497b5b7c12acddd9eab14c0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 02/12/2019
+ms.openlocfilehash: d0dcfa3d5e387b03fe76eff34e32860ae5b17e76
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188391"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235373"
 ---
 # <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>빠른 시작: Python을 사용하여 Azure SQL Database 쿼리
 
@@ -27,20 +27,40 @@ ms.locfileid: "55188391"
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+- Azure SQL 데이터베이스입니다. 다음 빠른 시작 중 하나를 사용하여 Azure SQL Database에서 데이터베이스를 만들고 구성할 수 있습니다.
+
+  || 단일 데이터베이스 | Managed Instance |
+  |:--- |:--- |:---|
+  | 생성| [포털](sql-database-single-database-get-started.md) | [포털](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  | 구성 | [서버 수준 IP 방화벽 규칙](sql-database-server-level-firewall-rule.md)| [VM에서 연결](sql-database-managed-instance-configure-vm.md)|
+  |||[사이트에서 연결](sql-database-managed-instance-configure-p2s.md)
+  |데이터 로드|Adventure Works(빠른 시작마다 로드됨)|[Wide World Importers 복원](sql-database-managed-instance-get-started-restore.md)
+  |||[github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)의 [BACPAC](sql-database-import.md) 파일에서 Adventure Works 복원 또는 가져오기|
+  |||
+
+  > [!IMPORTANT]
+  > 이 문서의 스크립트는 Adventure Works 데이터베이스를 사용하도록 작성되었습니다. 관리되는 인스턴스의 경우 Adventure Works 데이터베이스를 인스턴스 데이터베이스로 가져오거나 이 문서의 스크립트를 수정하여 Wide World Importors 데이터베이스를 사용해야 합니다.
   
 - 운영 체제용 Python 및 관련 소프트웨어:
   
   - **MacOS**: Homebrew와 Python을 설치하고, ODBC 드라이버와 SQLCMD를 설치한 다음, SQL Server용 Python 드라이버를 설치합니다. [macOS의 SQL Server를 사용하여 Python 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)에서 1.2, 1.3 및 2.1단계를 참조하세요. 자세한 내용은 [Linux 및 macOS에 Microsoft ODBC 드라이버 설치](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)를 참조하세요.
-    
+
   - **Ubuntu**: `sudo apt-get install python python-pip gcc g++ build-essential`을 사용하여 Python 및 기타 필수 패키지를 설치합니다. ODBC 드라이버, SQLCMD 및 SQL Server용 Python 드라이버를 다운로드하여 설치합니다. 지침은 [pyodbc Python 개발을 위한 개발 환경 구성](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux)을 참조하세요.
-    
+
   - **Windows**: Python, ODBC 드라이버 및 SQLCMD, SQL Server용 Python 드라이버를 설치합니다. 지침은 [pyodbc Python 개발을 위한 개발 환경 구성](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows)을 참조하세요.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server 연결 정보 가져오기
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
-    
+Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가져옵니다. 다음 절차를 수행하려면 정규화된 서버 이름이나 호스트 이름, 데이터베이스 이름 및 로그인 정보가 필요합니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
+2. **SQL 데이터베이스** 또는 **SQL 관리되는 인스턴스** 페이지로 이동합니다.
+
+3. **개요** 페이지에서 단일 데이터베이스에 대한 **서버 이름** 옆에 있는 정규화된 서버 이름 또는 관리되는 인스턴스에 대한 **호스트** 옆에 있는 정규화된 서버 이름을 검토합니다. 서버 이름이나 호스트 이름을 복사하려면 마우스로 해당 이름 위를 가리키고 **복사** 아이콘을 선택합니다.
+
 ## <a name="create-code-to-query-your-sql-database"></a>SQL 데이터베이스를 쿼리할 코드 만들기 
 
 1. 텍스트 편집기에서 *sqltest.py*라는 새 파일을 만듭니다.  

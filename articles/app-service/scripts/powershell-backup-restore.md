@@ -15,20 +15,22 @@ ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: caee00130efdea253ced16d090eafeee22c16ac3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aca7f700dc7004f682430d0794f8bc9b024f41b3
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586864"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113501"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Azure PowerShell을 사용하여 백업에서 웹앱 복원
 
 이 샘플 스크립트는 기존 웹앱에서 이전에 완료된 백업을 검색하고 해당 콘텐츠를 덮어쓰는 방법으로 복원합니다. 
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다. 
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다. 
 
 ## <a name="sample-script"></a>샘플 스크립트
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-restore/backup-restore.ps1?highlight=1-2 "Restore a web app from a backup")]
 
@@ -37,7 +39,7 @@ ms.locfileid: "53586864"
 더 이상 웹앱이 필요하지 않은 경우 다음 명령을 사용하여 리소스 그룹, 웹앱 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroupName -Force
+Remove-AzResourceGroup -Name $resourceGroupName -Force
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -46,8 +48,8 @@ Remove-AzureRmResourceGroup -Name $resourceGroupName -Force
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | 웹앱의 백업 목록을 가져옵니다. |
-| [Restore-AzureRmWebAppBackup](/powershell/module/azurerm.websites/restore-azurermwebappbackup) | 이전에 완료된 백업에서 웹앱을 복원합니다. |
+| [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | 웹앱의 백업 목록을 가져옵니다. |
+| [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | 이전에 완료된 백업에서 웹앱을 복원합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

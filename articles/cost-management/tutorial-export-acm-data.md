@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 5f979f562ee871e7ae5f48de5bc53405cb3d1116
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766417"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100709"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터 만들기 및 관리
 
@@ -71,7 +71,7 @@ Azure 저장소 계정에 대한 구독을 지정하고 저장소 계정을 선�
 
 **월간 누계 비용 매일 내보내기** – 초기 내보내기가 즉시 실행됩니다. 후속 내보내기는 다음 날의 초기 내보내기와 같은 시간에 실행됩니다. 최신 데이터는 이전의 매일 내보내기에서 집계됩니다.
 
-**지난 7일간 비용의 주간 내보내기** – 초기 내보내기가 즉시 실행됩니다. 후속 내보내기는 초기 내보내기와 같은 요일과 시간에 실행됩니다. 비용은 지난 7일간의 비용입니다.
+**지난 7일의 주간 비용 내보내기** – 초기 내보내기가 즉시 실행됩니다. 후속 내보내기는 초기 내보내기와 같은 요일과 시간에 실행됩니다. 비용은 지난 7일간의 비용입니다.
 
 **사용자 지정** – 주별 누계 및 월간 누계 옵션을 사용하여 주간 및 월간 내보내기를 예약할 수 있습니다. *초기 내보내기는 즉시 실행됩니다.*
 

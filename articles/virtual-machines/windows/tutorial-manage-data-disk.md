@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/05/2018
+ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 1db4dd2f1aa550ea4ccac55882f147c0585cdd0c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 50470edff81194b9c8885aa94d1eab1e6c18ad88
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466730"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984089"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>자습서- Azure PowerShell을 사용하여 Azure 디스크 관리
 
@@ -81,10 +81,10 @@ Azure는 두 가지 형식의 디스크를 제공합니다.
 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 가상 머신의 관리자 계정에 필요한 사용자 이름 및 암호를 설정합니다.
 
 
-[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 가상 머신을 만듭니다. VM에서 관리자 계정의 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다.
+[New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 가상 머신을 만듭니다. VM에서 관리자 계정의 사용자 이름과 암호를 입력하라는 메시지가 표시됩니다.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupDisk" `
     -Name "myVM" `
     -Location "East US" `
@@ -95,34 +95,34 @@ New-AzureRmVm `
 ```
 
 
-[New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig)를 사용하여 초기 구성을 만듭니다. 다음 예제에서는 크기가 128GB인 디스크를 구성합니다.
+[New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig)를 사용하여 초기 구성을 만듭니다. 다음 예제에서는 크기가 128GB인 디스크를 구성합니다.
 
 ```azurepowershell-interactive
-$diskConfig = New-AzureRmDiskConfig `
+$diskConfig = New-AzDiskConfig `
     -Location "EastUS" `
     -CreateOption Empty `
     -DiskSizeGB 128
 ```
 
-[New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk) 명령을 사용하여 데이터 디스크를 만듭니다.
+[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk) 명령을 사용하여 데이터 디스크를 만듭니다.
 
 ```azurepowershell-interactive
-$dataDisk = New-AzureRmDisk `
+$dataDisk = New-AzDisk `
     -ResourceGroupName "myResourceGroupDisk" `
     -DiskName "myDataDisk" `
     -Disk $diskConfig
 ```
 
-[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) 명령을 사용하여 데이터 디스크를 추가할 가상 컴퓨터를 가져옵니다.
+[Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 명령을 사용하여 데이터 디스크를 추가할 가상 머신을 가져옵니다.
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -Name "myVM"
+$vm = Get-AzVM -ResourceGroupName "myResourceGroupDisk" -Name "myVM"
 ```
 
-[Add-AzureRmVMDataDisk](/powershell/module/azurerm.compute/add-azurermvmdatadisk) 명령을 사용하여 데이터 디스크를 가상 컴퓨터 구성에 추가합니다.
+[Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk) 명령을 사용하여 데이터 디스크를 가상 머신 구성에 추가합니다.
 
 ```azurepowershell-interactive
-$vm = Add-AzureRmVMDataDisk `
+$vm = Add-AzVMDataDisk `
     -VM $vm `
     -Name "myDataDisk" `
     -CreateOption Attach `
@@ -130,10 +130,10 @@ $vm = Add-AzureRmVMDataDisk `
     -Lun 1
 ```
 
-[Update-AzureRmVM](/powershell/module/azurerm.compute/add-azurermvmdatadisk) 명령을 사용하여 가상 머신을 업데이트합니다.
+[Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/add-azvmdatadisk) 명령을 사용하여 가상 머신을 업데이트합니다.
 
 ```azurepowershell-interactive
-Update-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
+Update-AzVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
 ```
 
 ## <a name="prepare-data-disks"></a>데이터 디스크 준비

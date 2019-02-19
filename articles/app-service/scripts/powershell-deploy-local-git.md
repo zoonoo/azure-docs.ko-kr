@@ -15,20 +15,22 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: dcba93561f1f3488c8849ea419bd94765102f849
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8103777b85d8e11416811c694103c58755f1a23a
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586807"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114436"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>웹앱 만들기 및 로컬 Git 리포지토리의 코드 배포
 
 이 샘플 스크립트는 관련된 리소스를 사용하여 App Service에서 웹앱을 만든 다음 로컬 Git 리포지토리에서 웹앱 코드를 배포합니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 최신 Azure PowerShell을 업데이트한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다. 또한 애플리케이션 코드는 로컬 Git 리포지토리로 커밋될 수 있어야 합니다.
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 최신 Azure PowerShell을 업데이트한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다. 또한 애플리케이션 코드는 로컬 Git 리포지토리로 커밋될 수 있어야 합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/deploy-local-git/deploy-local-git.ps1?highlight=1 "Create a web app and deploy code from a local Git repository")]
 
@@ -37,7 +39,7 @@ ms.locfileid: "53586807"
 스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, 웹앱 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $webappname -Force
+Remove-AzResourceGroup -Name $webappname -Force
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -46,7 +48,7 @@ Remove-AzureRmResourceGroup -Name $webappname -Force
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | 필요한 리소스 그룹 및 App Service 그룹을 사용하여 웹앱을 만듭니다. 현재 디렉터리에 Git 리포지토리가 포함된 경우 `azure` 원격을 추가합니다. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 필요한 리소스 그룹 및 App Service 그룹을 사용하여 웹앱을 만듭니다. 현재 디렉터리에 Git 리포지토리가 포함된 경우 `azure` 원격을 추가합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

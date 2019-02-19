@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/02/2018
+ms.date: 11/28/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b725713777eb6ca25c829d327f91921b28cd4203
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a2e056baa2dd27ca0bf054d0dacf15d35e0ef384
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035971"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977928"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리
 
@@ -42,12 +42,12 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령으로 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다.
 
 Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 다음 예제에서는 *EastUS* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
    -ResourceGroupName "myResourceGroupVM" `
    -Location "EastUS"
 ```
@@ -64,10 +64,10 @@ VM을 만들 때 운영 체제 이미지, 네트워크 구성 및 관리 자격 
 $cred = Get-Credential
 ```
 
-[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 VM을 만듭니다.
+[New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)으로 VM을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
     -Location "EastUS" `
@@ -85,7 +85,7 @@ New-AzureRmVm `
 다음 명령을 실행하여 VM의 공용 IP 주소를 반환합니다. 다음 단계에서 웹 연결을 테스트하기 위해 브라우저와 연결할 수 있도록 이 IP 주소를 기록해 둡니다.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
    -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
@@ -101,16 +101,18 @@ mstsc /v:<publicIpAddress>
 
 Azure Marketplace에는 새 VM을 만드는 데 사용할 수 있는 여러 VM 이미지가 포함되어 있습니다. 이전 단계에서는 Windows Server 2016 Datacenter 이미지를 사용하여 VM을 만들었습니다. 이 단계에서는 PowerShell 모듈을 사용하여 Marketplace에서 새 VM의 기반이 될 수도 있는 다른 Windows 이미지를 검색합니다. 이 프로세스는 이미지를 [식별](cli-ps-findimage.md#terminology)하기 위한 게시자, 제품, SKU 및 버전 번호(선택 사항)로 구성되어 있습니다.
 
-[Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 명령을 사용하여 이미지 게시자 목록을 반환합니다.
+[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) 명령을 사용하여 이미지 게시자 목록을 반환합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVMImagePublisher -Location "EastUS"
+Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-이미지 제안 목록을 반환하려면 [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer)를 사용합니다. 이 명령을 사용하면 반환된 목록이 `MicrosoftWindowsServer`라는 지정된 게시자를 기준으로 필터링됩니다.
+이미지 제안 목록을 반환하려면 [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer)를 사용합니다. 이 명령을 사용하면 반환된 목록이 `MicrosoftWindowsServer`라는 지정된 게시자를 기준으로 필터링됩니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
+Get-AzVMImageOffer `
+   -Location "EastUS" `
+   -PublisherName "MicrosoftWindowsServer"
 ```
 
 결과가 다음 예제와 같이 표시됩니다. 
@@ -123,10 +125,13 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
-그런 다음 [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) 명령으로 게시자 및 제안 이름을 기준으로 필터링하여 이미지 이름 목록을 반환합니다.
+그런 다음, [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) 명령으로 게시자 및 제안 이름을 기준으로 필터링하여 이미지 이름 목록을 반환합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
+Get-AzVMImageSku `
+   -Location "EastUS" `
+   -PublisherName "MicrosoftWindowsServer" `
+   -Offer "WindowsServer"
 ```
 
 결과가 다음 예제와 같이 표시됩니다. 
@@ -153,7 +158,7 @@ Skus                                      Offer         PublisherName          L
 이 정보를 사용하여 특정 이미지가 있는 VM을 배포할 수 있습니다. 이 예제에서는 컨테이너 이미지가 있는 Windows Server 2016의 최신 버전을 사용하여 VM을 배포합니다.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM2" `
     -Location "EastUS" `
@@ -170,12 +175,12 @@ New-AzureRmVm `
 
 ## <a name="understand-vm-sizes"></a>VM 크기 이해
 
-VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 계산 리소스의 양이 결정됩니다. 가상 머신은 워크로드에 맞는 VM 크기로 만들어야 합니다. 워크로드가 증가할 경우 기존 가상 머신의 크기를 조정할 수도 있습니다.
+VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅 리소스의 양이 결정됩니다. 가상 머신은 워크로드에 맞는 VM 크기로 만들어야 합니다. 워크로드가 증가할 경우 기존 가상 머신의 크기를 조정할 수도 있습니다.
 
 ### <a name="vm-sizes"></a>VM 크기
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
-| type                     | 일반적인 크기           |    설명       |
+| Type                     | 일반적인 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
 | [Compute에 최적화](sizes-compute.md)   | Fsv2, Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
@@ -186,69 +191,71 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 계산 �
 
 ### <a name="find-available-vm-sizes"></a>사용 가능한 VM 크기 찾기
 
-특정 영역에서 사용할 수 있는 VM 크기의 목록을 보려면 [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) 명령을 사용합니다.
+특정 영역에서 사용할 수 있는 VM 크기의 목록을 보려면 [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) 명령을 사용합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location "EastUS"
+Get-AzVMSize -Location "EastUS"
 ```
 
 ## <a name="resize-a-vm"></a>VM 크기 조정
 
 VM을 배포한 후에 크기를 조정하여 리소스 할당을 늘리거나 줄일 수 있습니다.
 
-VM의 크기를 조정하기 전에 원하는 크기를 현재 VM 클러스터에서 사용할 수 있는지 확인합니다. [Get-AzureRmVMSize](/powershell/module/azurerm.compute/get-azurermvmsize) 명령은 크기 목록을 반환합니다.
+VM의 크기를 조정하기 원하는 크기를 현재 VM 클러스터에서 사용 가능한지 확인합니다. [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) 명령은 크기 목록을 반환합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
+Get-AzVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
 ```
 
-원하는 크기를 사용할 수 있는 경우 전원이 켜진 상태에서 VM 크기를 조정할 수 있지만 작업 중 다시 부팅됩니다.
+크기를 사용할 수 있는 경우 전원이 켜진 상태에서 VM 크기를 조정할 수 있지만 작업 중 다시 부팅됩니다.
 
 ```azurepowershell-interactive
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroupVM"  -VMName "myVM"
+$vm = Get-AzVM `
+   -ResourceGroupName "myResourceGroupVM"  `
+   -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_DS3_v2"
-Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
+Update-AzVM `
+   -VM $vm `
+   -ResourceGroupName "myResourceGroupVM"
 ```
 
-원하는 크기를 현재 클러스터에 사용할 수 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. VM 할당을 취소하면 임시 디스크의 모든 데이터가 제거되고 고정 IP 주소를 사용하지 않는 한 공용 IP 주소가 변경됩니다.
+원하는 크기를 현재 클러스터에 사용할 수 없는 경우 VM 할당을 취소해야 크기 조정 작업이 가능합니다. VM 할당을 취소하면 임시 디스크의 모든 데이터가 제거되고 고정 IP 주소를 사용하지 않는 한 공용 IP 주소가 변경됩니다.
 
 ```azurepowershell-interactive
-Stop-AzureRmVM `
+Stop-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM" -Force
-$vm = Get-AzureRmVM `
+$vm = Get-AzVM `
    -ResourceGroupName "myResourceGroupVM"  `
    -VMName "myVM"
 $vm.HardwareProfile.VmSize = "Standard_E2s_v3"
-Update-AzureRmVM -VM $vm `
+Update-AzVM -VM $vm `
    -ResourceGroupName "myResourceGroupVM"
-Start-AzureRmVM `
+Start-AzVM `
    -ResourceGroupName "myResourceGroupVM"  `
    -Name $vm.name
 ```
 
 ## <a name="vm-power-states"></a>VM 전원 상태
 
-Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 상태는 하이퍼바이저의 관점에서 VM의 현재 상태를 나타냅니다.
+Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 
 
-### <a name="power-states"></a>전원 상태
 
 | 전원 상태 | 설명
 |----|----|
-| 시작 중 | 가상 머신이 시작되고 있음을 나타냅니다. |
-| 실행 중 | 가상 머신이 실행되고 있음을 나타냅니다. |
-| 중지 중 | 가상 머신이 중지되고 있음을 나타냅니다. |
-| 중지됨 | VM이 중지되었음을 나타냅니다. 중지됨 상태의 가상 머신에도 여전히 계산 요금이 발생됩니다.  |
-| 할당 취소 중 | VM의 할당이 취소되고 있음을 나타냅니다. |
+| 시작 중 | 가상 머신이 시작되고 있습니다. |
+| 실행 중 | 가상 머신이 실행되고 있습니다. |
+| 중지 중 | 가상 머신이 중지되고 있습니다. |
+| 중지됨 | VM이 중지됩니다. 중지됨 상태의 가상 머신에도 여전히 계산 요금이 발생됩니다.  |
+| 할당 취소 중 | VM의 할당이 취소되고 있습니다. |
 | 할당 취소됨 | VM이 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. `Deallocated` 상태의 가상 머신에는 계산 요금이 발생하지 않습니다. |
-| - | VM의 전원 상태가 알 수 없음을 나타냅니다. |
+| - | VM의 전원 상태를 알 수 없습니다. |
 
-### <a name="find-power-state"></a>전원 상태 찾기
 
-특정 VM의 상태를 검색하려면 [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) 명령을 사용합니다. VM 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다.
+특정 VM의 상태를 검색하려면 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 명령을 사용합니다. VM 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVM `
+Get-AzVM `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM" `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
@@ -268,10 +275,10 @@ VM의 수명 주기 동안 VM 시작, 중지 또는 삭제 등의 관리 작업�
 
 ### <a name="stop-a-vm"></a>VM 중지
 
-[Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm)을 사용하여 VM을 중지하고 할당을 취소합니다.
+[Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm)을 사용하여 VM을 중지하고 할당을 취소합니다.
 
 ```azurepowershell-interactive
-Stop-AzureRmVM `
+Stop-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM" -Force
 ```
@@ -281,17 +288,17 @@ VM을 프로비전된 상태로 유지하려면 -StayProvisioned 매개 변수�
 ### <a name="start-a-vm"></a>VM 시작
 
 ```azurepowershell-interactive
-Start-AzureRmVM `
+Start-AzVM `
    -ResourceGroupName "myResourceGroupVM" `
    -Name "myVM"
 ```
 
 ### <a name="delete-resource-group"></a>리소스 그룹 삭제
 
-리소스 그룹을 삭제하면 그 안에 포함된 리소스도 모두 삭제됩니다.
+리소스 그룹을 삭제하면 리소스 그룹 내부의 모든 항목이 삭제됩니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup `
+Remove-AzResourceGroup `
    -Name "myResourceGroupVM" `
    -Force
 ```

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: 2abe6c11b2a6fe9a9146f5c5689597fe3e29fa82
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 638d6c5740f999af2f1dac7cbc51e0b6aeb38c0b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41918236"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996358"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>자습서: 사용자 지정 도메인에 웹앱에 대한 DNS 레코드 만들기 
 
@@ -45,7 +45,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [App Service 앱을 만들거나](../app-service/app-service-web-get-started-html.md) 다른 자습서를 위해 만든 앱을 사용합니다.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- [App Service 앱을 만들거나](../app-service/app-service-web-get-started-html.md) 다른 자습서에서 만든 앱을 사용합니다.
 
 - Azure DNS에서 DNS 영역을 만들고 등록 기관의 영역을 Azure DNS로 위임합니다.
 
@@ -71,9 +73,9 @@ Azure Portal의 App Services 페이지 왼쪽 탐색 영역에서 **사용자 �
 ### <a name="create-the-a-record"></a>A 레코드 만들기
 
 ```powershell
-New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
+New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
  -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
- -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "<your web app IP address>")
+ -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
 ```
 
 ### <a name="create-the-txt-record"></a>TXT 레코드 만들기
@@ -81,9 +83,9 @@ New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 App Services는 구성 시에만 이 레코드를 사용하여 사용자 지정 도메인을 소유하고 있는지 확인합니다. App Service에서 사용자 지정 도메인의 유효성을 검사하고 구성한 후 이 TXT 레코드를 삭제할 수 있습니다.
 
 ```powershell
-New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
+New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
  -Name `"@" -RecordType "txt" -Ttl 600 `
- -DnsRecords (New-AzureRmDnsRecordConfig -Value  "contoso.azurewebsites.net")
+ -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
 ```
 
 ## <a name="create-the-cname-record"></a>CNAME 레코드 만들기
@@ -95,9 +97,9 @@ Azure PowerShell을 열고 새 CNAME 레코드를 만듭니다. 이 예제에서
 ### <a name="create-the-record"></a>레코드 만들기
 
 ```powershell
-New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
+New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
  -Name "www" -RecordType "CNAME" -Ttl 600 `
- -DnsRecords (New-AzureRmDnsRecordConfig -cname "contoso.azurewebsites.net")
+ -DnsRecords (New-AzDnsRecordConfig -cname "contoso.azurewebsites.net")
 ```
 
 다음 예제는 응답입니다.
@@ -157,7 +159,7 @@ contoso.com text =
 이제 웹앱에 사용자 지정 호스트 이름을 추가할 수 있습니다.
 
 ```powershell
-set-AzureRmWebApp `
+set-AzWebApp `
  -Name contoso `
  -ResourceGroupName MyAzureResourceGroup `
  -HostNames @("contoso.com","www.contoso.com","contoso.azurewebsites.net")

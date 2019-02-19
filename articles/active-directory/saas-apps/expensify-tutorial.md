@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d86cbcf4f5c5029f215cd6c327e05fb93f7144
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b31d22990b79cb37ea5b3b89c699b9511f8d87cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453896"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>자습서: Expensify와 Azure Active Directory 통합
 
@@ -104,9 +105,12 @@ Expensify에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
     ![Expensify 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://www.expensify.com/authentication/saml/login`
+    a. **로그온 URL** 텍스트 상자에서 `https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]` 패턴을 사용하는 URL을 입력합니다.
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://www.expensify.com` URL을 입력합니다.
+
+    > [!NOTE]
+    > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Expensify 클라이언트 지원 팀](mailto:help@expensify.com)에 문의하세요.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML**을 다운로드하고 컴퓨터에 저장합니다.
 
@@ -125,18 +129,18 @@ Expensify에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 ### <a name="configure-expensify-single-sign-on"></a>Expensify Single Sign-On 구성
 
 Expensify에서 SSO를 사용하도록 설정하려면 먼저 애플리케이션에서 **도메인 컨트롤**을 사용하도록 설정해야 합니다. [여기에](https://help.expensify.com/domain-control) 나열된 단계를 수행하여 애플리케이션에서 도메인 컨트롤을 사용하도록 설정할 수 있습니다. 추가 지원은 [Expensify 클라이언트 지원 팀](mailto:help@expensify.com)에 문의하세요. 도메인 컨트롤을 사용하도록 설정한 후에는 다음 단계를 따릅니다.
-   
+
 ![Configure Single Sign-On](./media/expensify-tutorial/tutorial_expensify_51.png)
-    
+
 1. Expensify 애플리케이션에 로그인합니다.
-    
+
 2. 왼쪽 패널에서 **설정**을 클릭한 다음 **SAML**로 이동합니다.
-    
+
 3. **SAML 로그인** 옵션을 **사용**으로 전환합니다.
-    
+
 4. Azure AD에서 다운로드한 페더레이션 메타데이터를 메모장으로 열고 콘텐츠를 복사하여 **ID 공급자 메타데이터** 텍스트 상자에 붙여넣습니다.
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기 
+### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
@@ -191,7 +195,7 @@ Expensify에서 SSO를 사용하도록 설정하려면 먼저 애플리케이션
 
 이 섹션에서는 Expensify에서 Britta Simon이라는 사용자를 만듭니다. Expensify 플랫폼에서 사용자를 추가하려면 [Expensify 클라이언트 지원 팀](mailto:help@expensify.com)에 문의하세요.
 
-### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
+### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
@@ -204,4 +208,3 @@ Expensify에서 SSO를 사용하도록 설정하려면 먼저 애플리케이션
 - [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

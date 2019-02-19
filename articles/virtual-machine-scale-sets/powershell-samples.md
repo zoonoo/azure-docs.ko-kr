@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c907af8e91a7463c74e0bb14b0d8e0862c4e0fa3
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3727d2db375847c8df0a96d5721ea3135584eeec
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887260"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976251"
 ---
-# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대한 Azure PowerShell 샘플
+# <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대한 Azure PowerShell 샘플입니다.
 
 다음 테이블은 Azure PowerShell을 사용하여 빌드된 bash 스크립트에 대한 링크를 포함합니다.
 
@@ -41,3 +41,6 @@ ms.locfileid: "54887260"
 | [단일 영역 확장 집합 만들기](scripts/powershell-sample-single-availability-zone-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 단일 가용성 영역을 사용하는 가상 머신 확장 집합을 만듭니다. |
 | [영역 중복 확장 집합 만들기](scripts/powershell-sample-zone-redundant-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 여러 가용성 영역에 걸쳐 있는 가상 머신 확장 집합을 만듭니다. |
 | | |
+
+
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]    

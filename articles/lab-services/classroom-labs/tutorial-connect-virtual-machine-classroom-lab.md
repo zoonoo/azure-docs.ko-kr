@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 1328835714086dcec71b0e9dd4d1916794f557a6
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 2e34aef9a6f184c60fbb23023f798941a1fc11da
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390176"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894431"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>자습서: Azure Lab Services의 클래스룸 랩에 액세스
 이 자습서에서는 사용자가 학생이 되어 클래스룸 랩의 VM(가상 머신)에 연결합니다. 
@@ -32,10 +32,10 @@ ms.locfileid: "54390176"
 
 ## <a name="use-the-registration-link"></a>등록 링크 사용
 
-1. 교수/강사로부터 받은 **등록 URL**로 이동합니다. 
-2. 학교 계정을 사용하여 서비스에 로그인하여 등록을 완료합니다. 
-3. 등록 후에는 액세스할 수 있는 랩의 가상 머신이 보이는지 확인합니다. 
-2. 가상 머신이 준비될 때까지 기다렸다가 VM을 **시작**합니다. 이 프로세스는 다소 시간이 걸립니다.  
+1. 교수/강사로부터 받은 **등록 URL**로 이동합니다. 등록을 완료한 후에는 등록 URL을 사용할 필요가 없습니다. 대신 [https://labs.azure.com](https://labs.azure.com) URL을 사용합니다. 
+1. 학교 계정을 사용하여 서비스에 로그인하여 등록을 완료합니다. 
+2. 등록 후에는 액세스할 수 있는 랩의 가상 머신이 보이는지 확인합니다. 
+3. 가상 머신이 준비될 때까지 기다렸다가 VM을 **시작**합니다. 이 프로세스는 다소 시간이 걸립니다.  
 
     ![VM 시작](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
 

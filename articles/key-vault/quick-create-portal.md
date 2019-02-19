@@ -3,7 +3,7 @@ title: Azure 빠른 시작 - Azure Portal을 사용하여 Key Vault에서 비밀
 description: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색하는 방법을 보여주는 빠른 시작
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 98cf8387-34de-468e-ac8f-5c02c9e83e68
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: c3b605507c3878770db2c7dcb53a2ff9bb512b6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078391"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117105"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -58,14 +58,14 @@ http://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault에 비밀 추가
 
-자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 경우 응용 프로그램에서 사용할 수 있는 암호를 추가합니다. 암호를 **ExamplePassword**라고 명명하고 그 안에 **Pa$$w0rd** 값을 저장하겠습니다.
+자격 증명 모음에 비밀을 추가하려면 몇 가지 추가 단계만 수행하면 됩니다. 이 경우 애플리케이션에서 사용할 수 있는 암호를 추가합니다. 암호는 **ExamplePassword**로 지정되며 **hVFkk965BuUv** 값을 저장합니다.
 
 1. Key Vault 속성 페이지에서 **비밀**을 선택합니다.
 2. **생성/가져오기**를 클릭합니다.
 3. **비밀 만들기** 화면에서 다음 값을 선택합니다.
     - **업로드 옵션**: 수동.
     - **이름**: ExamplePassword.
-    - **값**: Pa$$w0rd.
+    - **값**: hVFkk965BuUv
     - 다른 값은 기본값으로 그대로 둡니다. **만들기**를 클릭합니다.
 
 비밀이 성공적으로 생성되었다는 메시지가 표시되면 목록에서 클릭할 수 있습니다. 그런 다음, 속성 중 일부를 볼 수 있습니다. 현재 버전을 클릭하면 이전 단계에서 지정한 값을 볼 수 있습니다.

@@ -11,13 +11,13 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 5bf7d8717fd6b10fab454c6f11d459c6a620b42c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 730d944edfc16e9ef399333540b14fcfced4ce44
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458740"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996392"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>PowerShell을 사용하여 백업에서 Azure SQL 단일 데이터베이스 복원
 
@@ -47,11 +47,11 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 | 명령 | 메모 |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 단일 데이터베이스 또는 탄력적 풀을 호스트하는 SQL Database 서버를 만듭니다. |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | SQL Database 서버의 데이터베이스를 독립 실행형 데이터베이스 또는 풀링된 데이터베이스로 만듭니다. |
-[Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | 독립 실행형 또는 풀링된 데이터베이스의 지역 중복 백업을 가져옵니다. |
-| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | SQL 독립 실행형 또는 풀링된 데이터베이스를 복원합니다. |
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase) | Azure SQL 독립 실행형 또는 풀링된 데이터베이스를 제거합니다. |
-| [Get AzureRmSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | 복원할 수 있는 삭제된 독립 실행형 또는 풀링된 데이터베이스를 가져옵니다. |
+| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | SQL Database 서버의 데이터베이스를 단일 또는 풀링된 데이터베이스로 만듭니다. |
+[Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | 단일 또는 풀링된 데이터베이스의 지역 중복 백업을 가져옵니다. |
+| [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | SQL 단일 또는 풀링된 데이터베이스를 복원합니다. |
+|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase) | Azure SQL 단일 또는 풀링된 데이터베이스를 제거합니다. |
+| [Get AzureRmSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | 복원할 수 있는 삭제된 단일 또는 풀링된 데이터베이스를 가져옵니다. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

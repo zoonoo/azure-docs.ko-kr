@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 70229a0b211acd08d285ad7a943f39285fad8012
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f6713326045ebd84f1cd484803fbc725ad798d7b
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810425"
+ms.locfileid: "55882270"
 ---
 # <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
 
@@ -31,7 +31,7 @@ ms.locfileid: "55810425"
 > * [원본 Azure 지역의 리소스 삭제](#discard-the-resource-in-the-source-region) 
 
 > [!IMPORTANT]
-> 이 문서에서는 Azure VM을 한 Azure 지역에서 다른 Azure 지역으로 이동하는 방법을 안내하며, 가용성 집합의 VM을 다른 Azure 지역의 영역 고정 VM으로 이동하여 가용성을 높여야 하는 요구 사항이 있는 경우 여기 자습서를 참조하세요.
+> 이 문서에서는 Azure VM을 한 Azure 지역에서 다른 Azure 지역으로 이동하는 방법을 안내하며, 가용성 집합의 VM을 다른 Azure 지역의 영역 고정 VM으로 이동하여 가용성을 높여야 하는 요구 사항이 있는 경우 [여기](move-azure-VMs-AVset-Azone.md) 자습서를 참조하세요.
 
 ## <a name="verify-prerequisites"></a>필수 조건 확인
 

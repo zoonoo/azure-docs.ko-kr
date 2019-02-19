@@ -1,6 +1,6 @@
 ---
 title: 서버 수준 방화벽 규칙 구성 - Azure SQL Database | Microsoft Docs
-description: 단일 데이터베이스 또는 풀링된 데이터베이스에 대한 SQL Database 서버 수준 방화벽 규칙 만들기
+description: 단일 데이터베이스 및 풀링된 데이터베이스에 대한 SQL Database 서버 수준 방화벽 규칙 만들기
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,17 +11,17 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 2374707d3fdf4d389a7c96c18767d3c52a9efb2f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/11/2019
+ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757231"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108962"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-in-azure-sql-database-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 서버 수준 방화벽 규칙 만들기
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 단일 데이터베이스 및 풀링된 데이터베이스에 대한 서버 수준 방화벽 규칙 만들기
 
-이 빠른 시작에서는 온-프레미스 리소스에서 데이터베이스에 연결할 수 있도록 Azure Portal을 사용하여 Azure SQL Database에서 서버 수준 방화벽 규칙을 만드는 방법을 안내합니다.
+이 빠른 시작에서는 데이터베이스 서버, 단일 데이터베이스, 탄력적 풀 및 해당 데이터베이스에 연결할 수 있도록 Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 및 풀링된 데이터베이스에 대한 [서버 수준 방화벽 규칙](sql-database-firewall-configure.md)을 만드는 방법을 설명합니다. 방화벽 규칙은 다른 Azure 리소스 및 온-프레미스 리소스에서 연결하는 데 필요합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

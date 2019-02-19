@@ -4,19 +4,19 @@ description: 이 빠른 시작을 통해 API에 대한 래퍼이며 동일한 �
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a7603895d623bba9d5023379643b5ea9752344a7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd2bf11781a6dd013f033fc535b068d449dd04d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195605"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238133"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-java"></a>빠른 시작: Java용 Bing Image Search SDK를 사용하여 이미지 검색
 
@@ -45,7 +45,7 @@ Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Imag
 
 ## <a name="create-and-initialize-the-application"></a>애플리케이션 만들기 및 초기화
 
-1. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 가져오기를 클래스 구현에 추가합니다.
+1. 즐겨찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 가져오기를 클래스 구현에 추가합니다.
 
     ```java
     import com.microsoft.azure.cognitiveservices.search.imagesearch.BingImageSearchAPI;
@@ -63,9 +63,10 @@ Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Imag
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## <a name="send-a-search-request-to-the-bing-image-search-api"></a>Bing Image Search API로 검색 요청 보내기
+## <a name="send-a-search-request-to-the-api"></a>API에 검색 요청 보내기
 
 1. `bingImages().search()`를 사용하여 검색 쿼리를 포함하는 HTTP 요청을 보냅니다. 응답을 `ImagesModel`로 저장합니다.
+
    ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
@@ -76,7 +77,7 @@ Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Imag
 ## <a name="parse-and-view-the-result"></a>결과 구문 분석 및 보기
 
 응답에서 반환된 이미지 결과를 구문 분석합니다.
-응답이 검색 결과를 포함하는 경우 첫 번째 결과를 저장하고 썸네일 URL, 원본 URL 및 반환된 총 이미지 수와 같은 세부 내용을 출력합니다.  
+응답에 검색 결과가 포함된 경우 첫 번째 결과를 저장하고 반환된 총 이미지 수와 함께 썸네일 URL, 원래 URL과 같은 세부 정보를 출력합니다.  
 
 ```java
 if (imageResults != null && imageResults.value().size() > 0) {

@@ -5,27 +5,25 @@ description: 이 빠른 시작을 사용하여 JavaScript를 통해 Bing Image S
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/20/2018
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 31a0d092340ed161b8d8c7e7e23740c1fbf9318b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e7ff8fc10e8f714acac2dd77f8d8628f3a3ebf9e
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155275"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238195"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-nodejs"></a>빠른 시작: Bing Image Search REST API 및 Node.js를 사용하여 이미지 검색
 
-이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 간단한 JavaScript 애플리케이션은 검색 쿼리를 API에 보내고 원시 결과를 표시합니다.
+이 빠른 시작을 사용하여 검색 요청을 Bing Image Search API로 보낼 수 있습니다. 이 JavaScript 애플리케이션에서는 검색 쿼리를 API로 보내고 결과에 첫 번째 이미지의 URL을 표시합니다. 이 애플리케이션은 Javascript로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-이 애플리케이션은 JavaScript에서 작성되고 Node.js에서 실행되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
-
-이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js)에서 사용할 수 있습니다.
+이 샘플에 대한 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,7 +53,7 @@ ms.locfileid: "55155275"
 
 ## <a name="construct-the-search-request-and-query"></a>검색 요청 및 쿼리를 생성합니다.
 
-1. 마지막 단계에서 변수를 사용하여 API 요청에 대한 검색 URL의 형식을 지정합니다. 검색 용어는 API로 전송되기 전에 URL로 인코딩되어야 합니다.
+1. 마지막 단계에서 변수를 사용하여 API 요청에 대한 검색 URL의 형식을 지정합니다. 검색 용어는 API로 보내기 전에 URL로 인코딩해야 합니다.
 
     ```javascript
     let request_params = {
@@ -92,7 +90,7 @@ ms.locfileid: "55155275"
         });
         ```
 
-    3. **end** 플래그가 신호로 전송되면 JSON을 처리할 수 있고 반환된 총 이미지 수와 함께 이미지의 URL을 인쇄할 수 있습니다.
+    3. **end** 플래그 신호가 처리되면 JSON 응답에서 첫 번째 결과를 가져옵니다. 반환된 총 이미지 수와 함께 첫 번째 이미지의 URL을 출력합니다.
 
         ```javascript
         response.on('end', function () {
@@ -103,7 +101,7 @@ ms.locfileid: "55155275"
          });
         ```
 
-## <a name="json-response"></a>JSON 응답
+## <a name="example-json-response"></a>예제 JSON 응답
 
 Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.
 
@@ -147,19 +145,20 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Bing Image Search 단일 페이지 앱 자습서](../tutorial-bing-image-search-single-page-app.md)
+> [단일 페이지 앱 만들기](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>참고 항목
 
 * [Bing Image Search란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* Bing Search API에 대한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
 * [무료 Cognitive Services 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

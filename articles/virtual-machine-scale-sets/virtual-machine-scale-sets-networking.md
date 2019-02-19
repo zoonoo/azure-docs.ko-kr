@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: a939438ad657066805f0179eb06f829abf301763
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 9203e786f701929a25251066190f5d507eacac02
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740130"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982032"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
 
 포털을 통해 Azure 가상 머신 확장 집합을 배포하면 인바운드 NAT 규칙이 있는 Azure Load Balancer와 같은 특정 네트워크 속성이 기본값으로 설정됩니다. 이 문서에서는 확장 집합을 사용하여 구성할 수 있는 고급 네트워킹 기능 중 일부를 사용하는 방법에 대해 설명합니다.
 
-이 문서에서 다루는 모든 기능은 Azure Resource Manager 템플릿을 사용하여 구성할 수 있습니다. Azure CLI 및 PowerShell 예제도 선택한 기능에 포함되어 있습니다. Azure CLI 2.0.10 이상과 PowerShell 4.2.0 이상을 사용하세요.
+이 문서에서 다루는 모든 기능은 Azure Resource Manager 템플릿을 사용하여 구성할 수 있습니다. Azure CLI 및 PowerShell 예제도 선택한 기능에 포함되어 있습니다.
 
 ## <a name="accelerated-networking"></a>가속 네트워킹
 Azure 가속 네트워킹은 가상 머신에서 SR-IOV(단일 루트 I/O 가상화)를 사용하도록 설정하여 네트워킹 성능을 향상시킵니다. 가속 네트워킹 사용에 대한 자세한 내용은 [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) 또는 [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) 가상 머신에 대한 가속 네트워킹을 참조하세요. 확장 집합에서 가속 네트워킹을 사용하려면 확장 집합의 networkInterfaceConfigurations 설정에서 enableAcceleratedNetworking을 **true**로 설정합니다. 예: 
@@ -164,19 +164,19 @@ Azure 템플릿을 사용하여 확장 집합을 만들려면 Microsoft.Compute/
     }
 }
 ```
-템플릿 예제: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
+예제 템플릿: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>확장 집합에 있는 가상 머신의 공용 IP 주소 쿼리
 CLI를 사용하여 확장 집합 가상 머신에 할당된 공용 IP 주소를 나열하려면 **az vmss list-instance-public-ips** 명령을 사용합니다.
 
-PowerShell을 사용하여 확장 집합 공용 IP 주소를 나열하려면 _Get-AzureRmPublicIpAddress_ 명령을 사용합니다. 예: 
+PowerShell을 사용하여 확장 집합 공용 IP 주소를 나열하려면 _Get-AzPublicIpAddress_ 명령을 사용합니다. 예: 
 ```PowerShell
-Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 공용 IP 주소 구성의 리소스 ID를 직접 참조하여 공용 IP 주소를 쿼리할 수도 있습니다. 예: 
 ```PowerShell
-Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
 확장 집합 가상 머신에 할당된 공용 IP 주소를 쿼리하려면 [Azure Resource Explorer](https://resources.azure.com) 또는 **2017-03-30** 버전 이상의 Azure REST API를 사용할 수 있습니다.
@@ -317,7 +317,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>확장 집합당 NSG 및 ASG
-[네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하면 보안 규칙을 사용하여 Azure 가상 네트워크에서 Azure 리소스와 주고 받는 트래픽을 필터링할 수 있습니다. [응용 프로그램 보안 그룹](../virtual-network/security-overview.md#application-security-groups)을 사용하면 Azure 리소스의 네트워크 보안을 처리하고 응용 프로그램 구조의 확장으로 그룹화할 수 있습니다.
+[네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하면 보안 규칙을 사용하여 Azure 가상 네트워크에서 Azure 리소스와 주고 받는 트래픽을 필터링할 수 있습니다. [애플리케이션 보안 그룹](../virtual-network/security-overview.md#application-security-groups)을 사용하면 Azure 리소스의 네트워크 보안을 처리하고 애플리케이션 구조의 확장으로 그룹화할 수 있습니다.
 
 네트워크 보안 그룹은 확장 집합 가상 머신 속성의 네트워크 인터페이스 구성 섹션에 참조를 추가하여 확장 집합에 직접 적용할 수 있습니다.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 786dbb258fa4299f80f7ff9d24a1c129a9506bb7
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7245fd60af91833dab26772e2aac08f675b14e6c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43663748"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982457"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트
 
@@ -30,6 +30,8 @@ ms.locfileid: "43663748"
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -60,53 +62,53 @@ $vmSize = 'Standard_DS1_v2'
 $cred = Get-Credential
 
 # Upload the VHD
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccount -Location $location `
+New-AzResourceGroup -Name $resourceGroup -Location $location
+New-AzStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccount -Location $location `
     -SkuName $storageType -Kind "Storage"
 $urlOfUploadedImageVhd = ('https://' + $storageaccount + '.blob.core.windows.net/' + $containername + '/' + $vhdName)
-Add-AzureRmVhd -ResourceGroupName $resourceGroup -Destination $urlOfUploadedImageVhd `
+Add-AzVhd -ResourceGroupName $resourceGroup -Destination $urlOfUploadedImageVhd `
     -LocalFilePath $localPath
 
 # Note: Uploading the VHD may take awhile!
 
 # Create a managed image from the uploaded VHD 
-$imageConfig = New-AzureRmImageConfig -Location $location
-$imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized `
+$imageConfig = New-AzImageConfig -Location $location
+$imageConfig = Set-AzImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized `
     -BlobUri $urlOfUploadedImageVhd
-$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $resourceGroup -Image $imageConfig
+$image = New-AzImage -ImageName $imageName -ResourceGroupName $resourceGroup -Image $imageConfig
  
 # Create the networking resources
-$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup -Location $location `
+$singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+$vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup -Location $location `
     -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $resourceGroup -Location $location `
+$pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $resourceGroup -Location $location `
     -AllocationMethod Dynamic
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description 'Allow RDP' -Access Allow `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name $ruleName -Description 'Allow RDP' -Access Allow `
     -Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location `
+$nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location `
     -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
 
 # Start building the VM configuration
-$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
+$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize
 
 # Set the VM image as source image for the new VM
-$vm = Set-AzureRmVMSourceImage -VM $vm -Id $image.Id
+$vm = Set-AzVMSourceImage -VM $vm -Id $image.Id
 
 # Finish the VM configuration and add the NIC.
-$vm = Set-AzureRmVMOSDisk -VM $vm  -DiskSizeInGB $diskSizeGB -CreateOption FromImage -Caching ReadWrite
-$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $computerName -Credential $cred `
+$vm = Set-AzVMOSDisk -VM $vm  -DiskSizeInGB $diskSizeGB -CreateOption FromImage -Caching ReadWrite
+$vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName $computerName -Credential $cred `
     -ProvisionVMAgent -EnableAutoUpdate
-$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic.Id
 
 # Create the VM
-New-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup -Location $location
+New-AzVM -VM $vm -ResourceGroupName $resourceGroup -Location $location
 
 # Verify that the VM was created
-$vmList = Get-AzureRmVM -ResourceGroupName $resourceGroup
+$vmList = Get-AzVM -ResourceGroupName $resourceGroup
 $vmList.Name
 
 
@@ -121,7 +123,7 @@ $vmList.Name
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -130,26 +132,26 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 | 명령                                                                                                             | 메모                                                                                                                                                                                |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | 모든 리소스가 저장되는 리소스 그룹을 만듭니다.                                                                                                                          |
-| [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount)                         | 저장소 계정을 만듭니다.                                                                                                                                                           |
-| [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd)                                               | 온-프레미스 가상 머신에서 Azure의 클라우드 저장소 계정에 있는 blob으로 가상 하드 디스크를 업로드합니다.                                                                       |
-| [New-AzureRmImageConfig](/powershell/module/azurerm.compute/new-azurermimageconfig)                               | 구성 가능한 이미지 개체를 만듭니다.                                                                                                                                                 |
-| [Set-AzureRmImageOsDisk](/powershell/module/azurerm.compute/set-azurermimageosdisk)                               | 이미지 개체의 운영 체제 디스크 속성을 설정합니다.                                                                                                                        |
-| [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage)                                           | 새 이미지를 만듭니다.                                                                                                                                                                 |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | 서브넷 구성을 만듭니다. 이 구성은 가상 네트워크 만들기 프로세스에서 사용됩니다.                                                                                |
-| [새-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)                         | 가상 네트워크를 만듭니다.                                                                                                                                                           |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)                       | 공용 IP 주소를 만듭니다.                                                                                                                                                         |
-| [새-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)                     | 네트워크 인터페이스를 만듭니다.                                                                                                                                                         |
-| [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)   | 네트워크 보안 그룹 규칙 구성을 만듭니다. 이 구성은 NSG가 만들어질 때 NSG 규칙을 만드는 데 사용됩니다.                                                       |
-| [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)             | 네트워크 보안 그룹을 만듭니다.                                                                                                                                                    |
-| [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork)                         | 리소스 그룹의 가상 네트워크를 가져옵니다.                                                                                                                                          |
-| [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig)                                     | VM 구성을 만듭니다. 이 구성은 VM 이름, 운영 체제 및 관리자 자격 증명 등의 정보를 포함합니다. 이 구성은 VM을 만드는 중에 사용됩니다. |
-| [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)                           | 가상 머신에 대한 이미지를 지정합니다.                                                                                                                                            |
-| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk)                                     | 가상 머신의 운영 체제 디스크 속성을 설정합니다.                                                                                                                      |
-| [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)                   | 가상 머신의 운영 체제 디스크 속성을 설정합니다.                                                                                                                      |
-| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?view=azurermps-6.8.1)                 | 가상 머신에 네트워크 인터페이스를 추가합니다.                                                                                                                                       |
-| [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)                                                 | 가상 머신을 만듭니다.                                                                                                                                                            |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | 리소스 그룹 및 포함된 모든 리소스를 제거합니다.                                                                                                                         |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)                           | 모든 리소스가 저장되는 리소스 그룹을 만듭니다.                                                                                                                          |
+| [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)                         | 저장소 계정을 만듭니다.                                                                                                                                                           |
+| [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd)                                               | 온-프레미스 가상 머신에서 Azure의 클라우드 저장소 계정에 있는 blob으로 가상 하드 디스크를 업로드합니다.                                                                       |
+| [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig)                               | 구성 가능한 이미지 개체를 만듭니다.                                                                                                                                                 |
+| [Set-AzImageOsDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azimageosdisk)                               | 이미지 개체의 운영 체제 디스크 속성을 설정합니다.                                                                                                                        |
+| [New-AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage)                                           | 새 이미지를 만듭니다.                                                                                                                                                                 |
+| [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | 서브넷 구성을 만듭니다. 이 구성은 가상 네트워크 만들기 프로세스에서 사용됩니다.                                                                                |
+| [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork)                         | 가상 네트워크를 만듭니다.                                                                                                                                                           |
+| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress)                       | 공용 IP 주소를 만듭니다.                                                                                                                                                         |
+| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface)                     | 네트워크 인터페이스를 만듭니다.                                                                                                                                                         |
+| [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig)   | 네트워크 보안 그룹 규칙 구성을 만듭니다. 이 구성은 NSG가 만들어질 때 NSG 규칙을 만드는 데 사용됩니다.                                                       |
+| [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup)             | 네트워크 보안 그룹을 만듭니다.                                                                                                                                                    |
+| [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)                         | 리소스 그룹의 가상 네트워크를 가져옵니다.                                                                                                                                          |
+| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig)                                     | VM 구성을 만듭니다. 이 구성은 VM 이름, 운영 체제 및 관리자 자격 증명 등의 정보를 포함합니다. 이 구성은 VM을 만드는 중에 사용됩니다. |
+| [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage)                           | 가상 머신에 대한 이미지를 지정합니다.                                                                                                                                            |
+| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk)                                     | 가상 머신의 운영 체제 디스크 속성을 설정합니다.                                                                                                                      |
+| [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem)                   | 가상 머신의 운영 체제 디스크 속성을 설정합니다.                                                                                                                      |
+| [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface?view=azurermps-6.8.1)                 | 가상 머신에 네트워크 인터페이스를 추가합니다.                                                                                                                                       |
+| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)                                                 | 가상 머신을 만듭니다.                                                                                                                                                            |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup)                     | 리소스 그룹 및 포함된 모든 리소스를 제거합니다.                                                                                                                         |
 
 ## <a name="next-steps"></a>다음 단계
 

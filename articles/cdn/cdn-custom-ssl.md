@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: f75b14ce2ca860ee894fe0a2ef501066b91f8e8a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: c9fb24cd6bcfae273c5430eee8d1fa8df58c6202
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755648"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236314"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -45,6 +45,8 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 > - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하지 않도록 설정합니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
 이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 엔드포인트를 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
@@ -103,11 +105,11 @@ CDN 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기
 
 PowerShell을 통해 Azure Active Directory에서 앱으로 Azure CDN을 등록합니다.
 
-1. 필요한 경우 로컬 컴퓨터의 PowerShell에 [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0)을 설치합니다.
+1. 필요한 경우 [Azure PowerShell](/powershell/azure/install-az-ps)을 로컬 머신에 설치합니다.
 
 2. PowerShell에서 다음 명령을 실행합니다.
 
-     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
 
     ![PowerShell에서 Azure CDN 등록](./media/cdn-custom-ssl/cdn-register-powershell.png)
               

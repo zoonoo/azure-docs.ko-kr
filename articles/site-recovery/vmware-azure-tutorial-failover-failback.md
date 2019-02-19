@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e3687ac5941d4f4fda70f96fa9df1ec1904e102e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 783f8006ba19622761beef0ff931bcbb80edde46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822479"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115898"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>복제된 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
@@ -98,7 +98,7 @@ VM 속성을 확인하고 VM이 [Azure 요구 사항](vmware-physical-azure-supp
 > [!IMPORTANT]
 > 온-프레미스 환경과 Azure 간에 VPN 연결이 있는 경우 재보호 및 장애 복구를 위해 프로세스 서버로 Azure VM을 설치해야 합니다. Azure에서 프로세스 서버를 설정하려면 [이 문서](vmware-azure-set-up-process-server-azure.md)의 지침을 따릅니다.
 
-재보호 및 장애 복구의 필수 요소에 대한 자세한 내용은 이 [섹션](vmware-azure-reprotect.md##before-you-begin)을 참조하세요. 
+재보호 및 장애 복구(failback)의 필수 요소에 대한 자세한 내용은 이 [섹션](vmware-azure-reprotect.md##before-you-begin)을 참조하세요. 
 
 ### <a name="configure-the-master-target-server"></a>마스터 대상 서버 구성
 

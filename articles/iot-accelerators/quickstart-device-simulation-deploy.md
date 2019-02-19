@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/28/2018
 ms.author: troyhop
-ms.openlocfilehash: 12f993f606fc1ef44280142d5acfa2687cd4e043
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 84b232b175d45a12bb6e0f8b462849282144c19b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601596"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097579"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>빠른 시작: Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행
 
@@ -44,7 +44,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 디바이스 시뮬레이션 솔루션과 함께 사용하려면 상자를 확인하여 IoT 허브를 배포합니다. 나중에 시뮬레이션이 사용하는 IoT 허브를 언제든 변경할 수 있습니다.
 
-**솔루션 만들기** 를 클릭하여 솔루션의 프로비전을 시작합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
+**만들기**를 클릭하여 솔루션 프로비저닝을 시작합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
 
 ![디바이스 시뮬레이션 솔루션 세부 정보](./media/quickstart-device-simulation-deploy/createform.png)
 

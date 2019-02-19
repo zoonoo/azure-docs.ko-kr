@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5f9af39616e45983a7ec592f33c3f2ffd34ea34f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091682"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233407"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
 
@@ -33,6 +33,8 @@ Azure Event Hubs에서는 Azure Stream Analytics를 사용하여 들어오는 �
 이 자습서를 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요][].
 
 ## <a name="prerequisites"></a>필수 조건
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -112,7 +114,7 @@ echo "Connection string = " $connectionString
 
 ```azurepowershell-interactive
 # Log in to Azure account.
-Login-AzureRMAccount
+Login-AzAccount
 
 # Set the values for the location and resource group.
 $location = "West US"
@@ -120,7 +122,7 @@ $resourceGroup = "ContosoResourcesEH"
 
 # Create the resource group to be used  
 #   for all resources for this tutorial.
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # The Event Hubs namespace name must be globally unique, so add a random number to the end.
 $eventHubNamespace = "contosoEHNamespace$(Get-Random)"
@@ -131,12 +133,12 @@ $eventHubName = "contosoEHhub$(Get-Random)"
 Write-Host "Event hub Name is " $eventHubName
 
 # Create the Event Hubs namespace.
-New-AzureRmEventHubNamespace -ResourceGroupName $resourceGroup `
+New-AzEventHubNamespace -ResourceGroupName $resourceGroup `
      -NamespaceName $eventHubNamespace `
      -Location $location
 
 # Create the event hub.
-$yourEventHub = New-AzureRmEventHub -ResourceGroupName $resourceGroup `
+$yourEventHub = New-AzEventHub -ResourceGroupName $resourceGroup `
     -NamespaceName $eventHubNamespace `
     -Name $eventHubName `
     -MessageRetentionInDays 3 `
@@ -144,7 +146,7 @@ $yourEventHub = New-AzureRmEventHub -ResourceGroupName $resourceGroup `
 
 # Get the event hub key, and retrieve the connection string from that object.
 # You need this to run the app that sends test messages to the event hub.
-$eventHubKey = Get-AzureRmEventHubKey -ResourceGroupName $resourceGroup `
+$eventHubKey = Get-AzEventHubKey -ResourceGroupName $resourceGroup `
     -Namespace $eventHubNamespace `
     -AuthorizationRuleName RootManageSharedAccessKey
 
@@ -361,10 +363,10 @@ az group delete --name $resourceGroup
 
 ### <a name="clean-up-resources-using-powershell"></a>PowerShell을 사용하여 리소스 정리
 
-리소스 그룹을 제거하려면 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용합니다.
+리소스 그룹을 제거하려면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용합니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계

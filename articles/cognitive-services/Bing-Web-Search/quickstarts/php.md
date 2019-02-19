@@ -4,33 +4,31 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 PHP를 통해 Bing Web Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 68d2542cb4f3ecafb942a0a60327bf7420bdc190
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193593"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166286"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>빠른 시작: PHP를 사용하여 Bing Web Search API 호출  
 
-이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 10분 내에 JSON 응답을 받습니다.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
-
-[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받아보세요. 이 Node.js 애플리케이션은 검색 요청을 API에 보내고 응답을 표시합니다. 이 애플리케이션은 JavaScript에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
 * [PHP 5.6.x](http://php.net/downloads.php) 이상
 * 구독 키  
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="enable-secure-http-support"></a>보안 HTTP 지원 사용
 

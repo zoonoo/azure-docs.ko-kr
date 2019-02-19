@@ -15,20 +15,22 @@ ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 9e27585d44214a2826ca2c4ac705eb6bb803344a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 845d47af75495a158e56312126c8e246b43f789f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586640"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112772"
 ---
 # <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>PowerShell을 사용하여 다른 구독에 있는 백업에서 웹앱 복원
 
 이 샘플 스크립트는 기존 웹앱에서 이전에 완료된 백업을 검색하고 다른 구독에 있는 웹앱으로 복원합니다. 
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다. 
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다. 
 
 ## <a name="sample-script"></a>샘플 스크립트
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-restore-diff-sub/backup-restore-diff-sub.ps1?highlight=1-6 "Restore a web app from a backup in another subscription")]
 
@@ -37,7 +39,7 @@ ms.locfileid: "53586640"
 더 이상 웹앱이 필요하지 않은 경우 다음 명령을 사용하여 리소스 그룹, 웹앱 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroupName -Force
+Remove-AzResourceGroup -Name $resourceGroupName -Force
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -46,10 +48,10 @@ Remove-AzureRmResourceGroup -Name $resourceGroupName -Force
 
 | 명령 | 메모 |
 |---|---|
-| [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) | Azure Resource Manager cmdlet 요청에 사용할 인증된 계정을 추가합니다.  |
-| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | 웹앱의 백업 목록을 가져옵니다. |
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | 웹앱 만들기 |
-| [Restore-AzureRmWebAppBackup](/powershell/module/azurerm.websites/restore-azurermwebappbackup) | 이전에 완료된 백업에서 웹앱을 복원합니다. |
+| [Add-AzAccount](/powershell/module/az.profile/add-azaccount) | Azure Resource Manager cmdlet 요청에 사용할 인증된 계정을 추가합니다.  |
+| [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | 웹앱의 백업 목록을 가져옵니다. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱 만들기 |
+| [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | 이전에 완료된 백업에서 웹앱을 복원합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

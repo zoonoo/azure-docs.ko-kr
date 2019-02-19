@@ -4,27 +4,23 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Java를 통해 Bing Web Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a8844e339f439de4e5446e00f8e40e9a0fd1a3de
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0d20d147bc77698e97630ad3bd5e58348db45f5b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172139"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187477"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>빠른 시작: Bing Web Search REST API 및 Java를 사용하여 웹 검색
 
-이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받습니다.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
-
-[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받습니다. 이 Java 애플리케이션은 검색 요청을 API에 보내고 응답을 표시합니다. 이 애플리케이션은 Java에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
@@ -32,6 +28,8 @@ ms.locfileid: "55172139"
 * [JDK 7 또는 8](https://aka.ms/azure-jdks)
 * [Gson 라이브러리](https://github.com/google/gson)
 * 구독 키
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-import-dependencies"></a>프로젝트 만들기 및 종속성 가져오기
 

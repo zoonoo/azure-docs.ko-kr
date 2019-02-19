@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ca0bdc3b88109a8d8c46f0a6a09297b0ca197165
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ab9439cbf46fd77a24aa07cab1884e4e50720e43
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478989"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56203763"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>자습서: Euromonitor Passport와 Azure Active Directory 통합
 
@@ -66,7 +67,7 @@ Azure AD에 Euromonitor Passport 통합을 구성하려면 갤러리의 Euromoni
 
 4. 검색 상자에 **Euromonitor Passport**를 입력하고 결과 패널에서 **Euromonitor Passport**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Euromonitor Passport](common/search-new-app.png)
+    ![결과 목록의 Euromonitor Passport](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -104,17 +105,17 @@ Euromonitor Passport에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     ![Euromonitor Passport 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+5. 애플리케이션을 **SP** 시작 모드에서 구성하려면 [Euromonitor Passport 지원 팀](mailto:passport.support@euromonitor.com)에서 로그온 URL을 가져와야 합니다. Euromonitor Passport 지원 팀에서 로그온 URL을 가져온 후 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
     ![Euromonitor Passport 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
 
-    **로그온 URL** 텍스트 상자에 `https://portal.euromonitor.com` URL을 입력합니다.
+    Euromonitor Passport 지원 팀에서 가져온 로그온 URL 값을 로그온 URL 텍스트 상자에 붙여넣습니다.
 
 6. Euromonitor Passport 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](./media/euromonitor-passport-tutorial/attribute1.png)
 
-7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다. 
+7. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
 
     | Name | 원본 특성|
     | ---------------| --------- |

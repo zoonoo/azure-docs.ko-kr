@@ -12,16 +12,17 @@ ms.topic: overview
 ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc18353ff89f8613847c977066e51620fb3e834f
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494667"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56190469"
 ---
 # <a name="what-is-hybrid-identity"></a>하이브리드 ID란? 
 
-오늘날 비즈니스와 기업에서는 온-프레미스 및 클라우드 애플리케이션을 점점 더 많이 혼합하고 있습니다.  사용자는 온-프레미스 및 클라우드 모두에서 이러한 애플리케이션에 액세스해야 합니다. 이 요구 사항은 도전적인 시나리오가 되었습니다. 
+오늘날의 비즈니스와 기업에서는 온-프레미스와 클라우드 애플리케이션이 점점 더 많이 혼합되고 있습니다.  사용자는 온-프레미스 및 클라우드 모두에서 이러한 애플리케이션에 액세스해야 합니다. 이 요구 사항은 도전적인 시나리오가 되었습니다. 
 
 Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능에 걸쳐 있습니다.  이러한 솔루션은 위치에 관계없이 모든 리소스에 대한 인증 및 권한 부여에 사용할 일반적인 사용자 ID를 만듭니다. 이를 **하이브리드 ID**라고 합니다.
 
@@ -42,14 +43,14 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능에 
 |수행 작업:|PHS 및 SSO<sup>1</sup>| PTA 및 SSO<sup>2</sup> | AD FS<sup>3</sup>| 
 |-----|-----|-----|-----| 
 |온-프레미스 Active Directory에서 만든 새 사용자, 연락처 및 그룹 계정을 클라우드에 자동으로 동기화|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
-|Office 365 하이브리드 시나리오에 대한 테넌트 설정|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
-|사용자가 온-프레미스 암호를 사용하여 로그인하고 Cloud Services에 액세스할 수 있도록 함|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
-|회사 자격 증명을 사용하여 Single Sign-On 구현|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)|  
-|클라우드에 암호 해시가 저장되지 않도록 함| |![권장](./media/whatis-hybrid-identity/ic195031.png)|![권장](./media/whatis-hybrid-identity/ic195031.png)| 
-|클라우드 다단계 인증 솔루션 사용| |![권장](./media/whatis-hybrid-identity/ic195031.png)|![권장](./media/whatis-hybrid-identity/ic195031.png)| 
-|온-프레미스 다단계 인증 솔루션 사용| | |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
-|사용자에 대한 스마트 카드 인증 지원<sup>4</sup>| | |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
-|Office 포털 및 Windows 10 Desktop에 암호 만료 알림 표시| | |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
+|Office 365 하이브리드 시나리오에 대한 테넌트를 설정합니다.|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
+|사용자가 자신의 온-프레미스 암호를 사용하여 로그인하고 클라우드 서비스에 액세스할 수 있도록 합니다.|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
+|회사 자격 증명을 사용하여 Single Sign-On을 구현합니다.|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)|  
+|클라우드에 암호 해시가 저장되지 않도록 합니다.| |![권장](./media/whatis-hybrid-identity/ic195031.png)|![권장](./media/whatis-hybrid-identity/ic195031.png)| 
+|클라우드 다단계 인증 솔루션을 사용하도록 설정합니다.| |![권장](./media/whatis-hybrid-identity/ic195031.png)|![권장](./media/whatis-hybrid-identity/ic195031.png)| 
+|온-프레미스 Multi-Factor Authentication 솔루션을 사용합니다.| | |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
+|사용자에 대한 스마트 카드 인증을 지원합니다.<sup>4</sup>| | |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
+|Office 포털 및 Windows 10 바탕 화면에 암호 만료 알림을 표시합니다.| | |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
 
 > <sup>1</sup> Single Sign-On을 사용하여 암호 해시 동기화 
 > 

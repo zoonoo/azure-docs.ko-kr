@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/04/2017
+ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1bee08800eb5b480024001f742e8965cbd609a73
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2e7e67236a2f9709bafc0a0383f6ac12b26ca57e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428888"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984191"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 모니터링 및 업데이트
 
@@ -40,7 +40,11 @@ Azure 모니터링은 Azure VM에서 부팅 및 성능 데이터를 수집하고
 > * 변경 내용 및 인벤토리 모니터링
 > * 고급 모니터링 설정
 
-이 자습서에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
+
+Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
+
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
@@ -50,10 +54,10 @@ Azure 모니터링은 Azure VM에서 부팅 및 성능 데이터를 수집하고
 $cred = Get-Credential
 ```
 
-이제 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 VM을 만들 수 있습니다. 다음 예제에서는 *EastUS* 위치에 *myVM*이라는 VM을 만듭니다. 아직 없는 경우 *myResourceGroupMonitorMonitor* 리소스 그룹 및 지원 네트워크 리소스가 만들어집니다.
+이제 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)으로 VM을 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myVM*이라는 VM을 만듭니다. 아직 없는 경우 *myResourceGroupMonitorMonitor* 리소스 그룹 및 지원 네트워크 리소스가 만들어집니다.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroupMonitor" `
     -Name "myVM" `
     -Location "East US" `
@@ -66,10 +70,10 @@ New-AzureRmVm `
 
 Windows 가상 머신을 부팅하면 부트 진단 에이전트가 문제 해결 목적에 사용할 수 있는 화면 출력을 캡처합니다. 이 기능은 기본적으로 사용하도록 설정되어 있습니다. 캡처한 스크린샷은 기본적으로 생성되는 Azure Storage 계정에 저장됩니다.
 
-[Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmbootdiagnosticsdata) 명령으로 부트 진단 데이터를 가져올 수 있습니다. 다음 예제에서는 부트 진단이 *c:\* 드라이브의 루트에 다운로드됩니다.
+[Get-AzureRmVMBootDiagnosticsData](https://docs.microsoft.com/powershell/module/az.compute/get-azvmbootdiagnosticsdata) 명령으로 부트 진단 데이터를 가져올 수 있습니다. 다음 예제에서는 부트 진단이 *c:\* 드라이브의 루트에 다운로드됩니다.
 
 ```powershell
-Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
+Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
 ## <a name="view-host-metrics"></a>호스트 메트릭 보기
@@ -259,13 +263,13 @@ VM을 중지하고 시작하면 활동 로그에 이벤트가 기록됩니다. *
 
 [Azure Automation](../../automation/automation-intro.md)에서 제공하는 업데이트 관리, 변경 내용 및 인벤토리 등의 솔루션을 사용하여 VM의 고급 모니터링을 수행할 수 있습니다.
 
-Log Analytics 작업 영역에 액세스할 수 있는 경우, **설정**에서 **고급 설정**을 선택하여 작업 영역 키와 작업 영역 식별자를 찾을 수 있습니다. [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) 명령을 사용하여 Microsoft Monitoring Agent 확장을 VM에 추가합니다. 아래 샘플에서는 변수 값을 업데이트하여 Log Analytics 작업 영역 키와 작업 영역 ID를 표시합니다.
+Log Analytics 작업 영역에 액세스할 수 있는 경우, **설정**에서 **고급 설정**을 선택하여 작업 영역 키와 작업 영역 식별자를 찾을 수 있습니다. [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) 명령을 사용하여 Microsoft Monitoring Agent 확장을 VM에 추가합니다. 아래 샘플에서는 변수 값을 업데이트하여 Log Analytics 작업 영역 키와 작업 영역 ID를 표시합니다.
 
 ```powershell
 $workspaceId = "<Replace with your workspace Id>"
 $key = "<Replace with your primary key>"
 
-Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
+Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
   -VMName "myVM" `
   -Publisher "Microsoft.EnterpriseCloud.Monitoring" `

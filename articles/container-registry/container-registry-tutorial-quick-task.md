@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754376"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55860476"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>자습서: Azure Container Registry 작업을 사용하여 클라우드에 컨테이너 이미지 빌드 및 배포
 
@@ -21,7 +21,7 @@ ms.locfileid: "53754376"
 
 "내부 루프" 개발 주기는 소스 제어를 커밋하기 전에 애플리케이션 코드를 작성, 빌드 및 테스트하는 반복적인 프로세스입니다. 빠른 작업은 내부 루프를 클라우드로 확장하여 빌드 성공 유효성 검사 및 성공적으로 빌드된 이미지를 컨테이너 레지스트리에 자동으로 푸시하는 기능을 제공합니다. 사용자의 이미지는 기본적으로 레지스트리에 가까운 클라우드에 빌드되므로 더 빠르게 배포할 수 있습니다.
 
-모든 Dockerfile 전문 지식은 ACR 작업으로 직접 전송할 수 있습니다. Dockerfile을 변경하여 ACR 작업을 통해 클라우드에 빌드할 필요 없이 실행할 명령만 변경하면 됩니다.
+모든 Dockerfile 전문 지식은 ACR 작업으로 직접 전송할 수 있습니다. Dockerfile을 변경하여 ACR 작업을 통해 클라우드에 빌드할 필요 없이 실행할 명령만 변경하면 됩니다. 
 
 이 자습서는 시리즈의 1부입니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "53754376"
 > * Azure에서 컨테이너 이미지 빌드
 > * Azure Container Instances에 컨테이너 배포
 
-후속 자습서에서는 코드 커밋 및 기본 이미지 업데이트 시 자동화된 컨테이너 이미지 빌드에 ACR 작업을 사용하는 방법에 대해 알아봅니다.
+후속 자습서에서는 코드 커밋 및 기본 이미지 업데이트 시 자동화된 컨테이너 이미지 빌드에 ACR 작업을 사용하는 방법에 대해 알아봅니다. ACR 작업은 YAML 파일을 사용하여 [여러 단계 작업](container-registry-tasks-multi-step.md)을 실행하여 빌드, 푸시 및 선택적으로 여러 컨테이너를 테스트하는 단계를 정의할 수 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

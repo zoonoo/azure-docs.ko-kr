@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b009e7501609ec3650bf15f2ab5051dbec0ada76
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 903a4d1a9864a9ab19df7c453adc002a8bd0f576
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659374"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983189"
 ---
-# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>PowerShell을 사용하여 영역 중복 가상 머신 확장 집합 만들기
+# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-azure-cli"></a>Azure CLI를 사용하여 영역 중복 가상 머신 확장 집합 만들기
 이 스크립트는 여러 가용성 영역에 걸쳐 Ubuntu를 실행하는 가상 머신 확장 집합을 만듭니다. 스크립트를 실행하면 RDP를 통해 가상 머신에 액세스할 수 있습니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

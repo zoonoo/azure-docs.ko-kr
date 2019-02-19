@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 06/11/2018
+ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7cf3db5020d6a100ca6afdd5a1dccd522189720d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ebb1a3fba95ed5794b3737d75c4ec182163a32fb
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978505"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984429"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Windows 가상 머신 모니터링
 
@@ -107,7 +107,7 @@ Azure Security Center가 구성 데이터로 채워지기 시작하면 설정한
 
 Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 경고를 표시합니다. 보안 경고 기능은 각 VM, Azure 네트워킹 로그 및 연결된 파트너 솔루션에서 수집된 데이터를 집계하여 Azure 리소스에 대한 보안 위협을 검색합니다. Security Center 위협 검색 기능에 대한 자세한 내용은 [Azure Security Center 검색 기능](../../security-center/security-center-detection-capabilities.md)을 참조하세요.
 
-보안 경고 기능을 사용하려면 Azure Security Center 가격 책정 계층을 *체험*에서 *표준*으로 높여야 합니다. 이 상위 가격 책정 계층으로 전환하면 60일 **평가판**을 사용할 수 있습니다. 
+보안 경고 기능을 사용하려면 Azure Security Center 가격 책정 계층을 *체험*에서 *표준*으로 높여야 합니다. 이 상위 가격 책정 계층으로 전환하면 **평가판**을 사용할 수 있습니다. 
 
 가격 책정 계층을 변경하려면:  
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7ae3886db6391836cd8d281e44c95c5253cc8dd5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 8c55b9b9ce6e98e91e7c6a712e0a9dbca0964512
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323800"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985468"
 ---
 지점 및 사이트 간 연결을 사용하여 VNet에 연결하는 각 클라이언트 컴퓨터에는 클라이언트 인증서가 설치되어 있어야 합니다. 이 인증서는 루트 인증서에서 생성하여 각 클라이언트 컴퓨터에 설치합니다. 유효한 클라이언트 인증서를 설치하지 않으면 클라이언트에서 VNet에 연결하려고 할 때 인증이 실패합니다.
 
@@ -31,4 +31,8 @@ ms.locfileid: "53323800"
   * [MakeCert 지침](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): 인증서를 생성할 Windows 10 컴퓨터에 대한 액세스 권한이 없는 경우 MakeCert를 사용합니다. MakeCert는 더 이상 사용되지 않지만, 인증서를 생성하는 데에는 여전히 사용할 수 있습니다. 생성된 인증서는 지원되는 모든 P2S 클라이언트에 설치할 수 있습니다.
   * [Linux 지침](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
 
-  자체 서명된 루트 인증서에서 클라이언트 인증서를 생성하는 경우 이를 생성하는 데 사용한 컴퓨터에 자동으로 설치됩니다. 다른 클라이언트 컴퓨터에 클라이언트 인증서를 설치하려면 전체 인증서 체인과 함께 .pfx 파일로 내보냅니다. 이렇게 하면 클라이언트에서 인증하는 데 필요한 루트 인증서 정보가 포함된 .pfx 파일이 만들어집니다. 인증서를 내보내는 단계는 [PowerShell을 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)를 참조하세요.
+  자체 서명된 루트 인증서에서 클라이언트 인증서를 생성하는 경우 이를 생성하는 데 사용한 컴퓨터에 자동으로 설치됩니다. 다른 클라이언트 컴퓨터에 클라이언트 인증서를 설치하려면 전체 인증서 체인과 함께 .pfx 파일로 내보냅니다. 이렇게 하면 클라이언트에서 인증하는 데 필요한 루트 인증서 정보가 포함된 .pfx 파일이 만들어집니다. 
+
+**인증서를 내보내려면**
+
+인증서를 내보내는 단계는 [PowerShell을 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport)를 참조하세요.

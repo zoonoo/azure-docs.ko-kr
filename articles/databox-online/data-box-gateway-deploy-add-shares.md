@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: fa31397e0ecffbd245557a824bdd770724bbc91c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0ceff87cd3075d517ee1c0027e19dbf423e44f5c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249883"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108758"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway를 사용하여 데이터 전송(미리 보기)
 
@@ -37,7 +37,7 @@ ms.locfileid: "51249883"
 
 Data Box Gateway에 공유를 추가하기 전에 다음 사항을 확인합니다.
 
-* [Hyper-V에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-hyperv.md) 또는 [VMware에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-vmware.md)에서 설명한 대로 가상 장치를 프로비전하고 연결했습니다. 
+* [Hyper-V에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-hyperv.md) 또는 [VMware에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-vmware.md)에서 설명한 대로 가상 디바이스를 프로비전하고 연결했습니다. 
 
     가상 디바이스는 [Azure Data Box Gateway 연결 및 활성화](data-box-gateway-deploy-connect-setup-activate.md)에서 자세히 설명한 대로 활성화되어 공유를 만들고 데이터를 전송할 준비가 됩니다.
 
@@ -121,13 +121,13 @@ Data Box 에지에 연결된 Linux 클라이언트에서 다음 단계를 수행
 
 2. NFS 클라이언트가 설치되면 다음 명령을 사용하여 Data Box Gateway 디바이스에서 만든 NFS 공유를 탑재합니다.
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     탑재를 설정하기 전에 로컬 컴퓨터에서 탑재 지점으로 작동할 디렉터리가 이미 만들어져 있고 파일이나 하위 폴더가 포함되어 있지 않은지 확인합니다.
 
     다음 예제에서는 NFS를 통해 게이트웨이 디바이스의 공유에 연결하는 방법을 보여 줍니다. 가상 디바이스 IP는 `10.10.10.60`이며, `mylinuxshare2` 공유는 ubuntuVM에 탑재되고, 탑재 지점은 `/home/databoxubuntuhost/gateway`입니다.
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
 > 미리 보기 릴리스에 적용되는 주의 사항은 다음과 같습니다.

@@ -16,20 +16,22 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: fc0046f16222fe20a7b11901690acccaae382a6c
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d0c38b69d8cb2fda85a85fd27f0a5b26da51b699
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650123"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106208"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database"></a>SQL Database에 App Service 앱 연결
 
 이 시나리오에서는 Azure SQL Database 및 App Service 앱을 만드는 방법을 알아봅니다. 그런 다음, 앱 설정을 사용하여 SQL Database를 앱에 연결합니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다.
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to a SQL database")]
 
@@ -38,7 +40,7 @@ ms.locfileid: "53650123"
 스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, App Service 앱 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -47,13 +49,13 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | App Service 계획을 만듭니다. |
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | App Service 앱을 만듭니다. |
-| [New-AzureRMSQLServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | SQL Database 서버를 만듭니다. |
-| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | SQL Database 서버에 대한 방화벽 규칙을 만듭니다. |
-| [New-AzureRMSQLDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | 데이터베이스 또는 Elastic Database를 만듭니다. |
-| [Set-AzureRmWebApp](/powershell/module/azurerm.websites/set-azurermwebapp) | App Service 앱의 구성을 수정합니다. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | App Service 앱을 만듭니다. |
+| [New-AzSQLServer](/powershell/module/az.sql/new-azsqlserver) | SQL Database 서버를 만듭니다. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | SQL Database 서버에 대한 방화벽 규칙을 만듭니다. |
+| [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | 데이터베이스 또는 Elastic Database를 만듭니다. |
+| [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | App Service 앱의 구성을 수정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

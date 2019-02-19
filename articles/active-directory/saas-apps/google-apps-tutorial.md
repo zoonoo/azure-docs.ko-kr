@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
-ms.openlocfilehash: dd413f9a7eba60fd72e7cc29f44f49b72eaaf806
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3cca5e6d5ccdac5ee9ed250edfc526919d710d83
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769409"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56208251"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>자습서: G Suite와 Azure Active Directory 통합
 
@@ -42,7 +43,7 @@ G Suite와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Google Apps 구독 또는 Google Cloud Platform 구독.
 
 > [!NOTE]
-> 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다. 이 문서는 새 사용자 Single Sign-On 환경을 사용하여 만들어졌습니다. 이전 환경을 계속 사용하는 경우 설치는 다를 수 있습니다. G Suite 애플리케이션의 Single Sign-On 설정에서 새로운 환경을 설정할 수 있습니다. **Azure AD, 엔터프라이즈 애플리케이션**으로 이동하고 **G Suite**를 선택하고 **Single Sign-On**을 선택한 다음, **새 환경 사용해 보기**를 클릭합니다.
+> 이 자습서의 단계를 테스트하기 위해 프로덕션 환경을 사용하는 것은 바람직하지 않습니다. 이 문서는 새 사용자 Single Sign-On 환경을 사용하여 만들어졌습니다. 이전 환경을 계속 사용하고 있으면 설정이 다르게 표시됩니다. G Suite 애플리케이션의 Single Sign-On 설정에서 새로운 환경을 설정할 수 있습니다. **Azure AD, 엔터프라이즈 애플리케이션**으로 이동하고 **G Suite**를 선택하고 **Single Sign-On**을 선택한 다음, **새 환경 사용해 보기**를 클릭합니다.
 
 이 자습서의 단계를 테스트하려면 다음 권장 사항을 준수해야 합니다.
 

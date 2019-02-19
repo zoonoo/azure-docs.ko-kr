@@ -4,26 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Go를 통해 Bing Web Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 11f15d37830bb177031ff90d93ea1053b66013ce
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3c64841656f81f2f78c02c54f08ca24cccd78586
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203241"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186865"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>빠른 시작: Bing Web Search REST API 및 Go를 사용하여 웹 검색
 
-이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 10분 내에 JSON 응답을 받습니다.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
+이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받습니다. 이 Go 애플리케이션은 검색 요청을 API에 보내고 응답을 표시합니다. 이 애플리케이션은 Go로 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
@@ -34,6 +32,8 @@ ms.locfileid: "55203241"
 * 구독 키
 
 이 빠른 시작에는 **핵심** 라이브러리만 필요하며 외부 종속성이 없습니다.  
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
 ## <a name="create-a-project-and-import-core-libraries"></a>프로젝트 만들기 및 핵심 라이브러리 가져오기
 

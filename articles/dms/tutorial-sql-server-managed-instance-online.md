@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Database Migration Service를 사용하여 SQL Server를 Azure SQL Database Managed Instance로 온라인 마이그레이션 수행 | Microsoft Docs'
-description: Azure Database Migration Service를 사용하여 SQL Server 온-프레미스에서Azure SQL Database Managed Instance로 온라인 마이그레이션을 수행하는 방법을 알아봅니다.
+title: '자습서: Azure Database Migration Service를 사용하여 SQL Server를 Azure SQL Database 관리되는 인스턴스로 온라인 마이그레이션 수행 | Microsoft Docs'
+description: Azure Database Migration Service를 사용하여 SQL Server 온-프레미스에서 Azure SQL Database 관리되는 인스턴스로 온라인 마이그레이션을 수행하는 방법을 알아봅니다.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -10,51 +10,52 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/04/2019
-ms.openlocfilehash: ac3f24530d23278eb8f59ddc195ae1ac4f881a37
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.date: 02/08/2019
+ms.openlocfilehash: 95eb5131cb953cdcb5f7c5cc255c80ae0b9e1ca8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700862"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997220"
 ---
-# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database Managed Instance 온라인으로 마이그레이션
-Azure Database Migration Service를 사용하면 최소의 중단 시간으로 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md)로 마이그레이션할 수 있습니다. 수동 작업이 필요한 추가적인 방법은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](../sql-database/sql-database-managed-instance-migrate.md) 문서를 참조하세요.
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database 관리되는 인스턴스로 온라인 마이그레이션
 
-이 자습서에서는 Azure Database Migration Service를 사용하여 **Adventureworks2012** 데이터베이스를 SQL Server의 온-프레미스 인스턴스에서 Azure SQL Database Managed Instance로 마이그레이션하고 가동 중지 시간을 최소화합니다.
+Azure Database Migration Service를 사용하면 최소의 중단 시간으로 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database 관리되는 인스턴스](../sql-database/sql-database-managed-instance.md)로 마이그레이션할 수 있습니다. 수동 작업이 필요한 추가적인 방법은 [SQL Server 인스턴스를 Azure SQL Database 관리되는 인스턴스로 마이그레이션](../sql-database/sql-database-managed-instance-migrate.md) 문서를 참조하세요.
+
+이 자습서에서는 Azure Database Migration Service를 사용하여 **Adventureworks2012** 데이터베이스를 SQL Server의 온-프레미스 인스턴스에서 Azure SQL Database 관리되는 인스턴스로 마이그레이션하고 가동 중지 시간을 최소화합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Azure Database Migration Service의 인스턴스를 만듭니다.
-> * Azure Database Migration Service를 사용하여 마이그레이션 프로젝트를 만들고 온라인 마이그레이션을 시작합니다.
-> * 마이그레이션을 모니터링합니다.
-> * 준비가 되면 마이그레이션을 중단합니다.
+> - Azure Database Migration Service의 인스턴스를 만듭니다.
+> - Azure Database Migration Service를 사용하여 마이그레이션 프로젝트를 만들고 온라인 마이그레이션을 시작합니다.
+> - 마이그레이션을 모니터링합니다.
+> - 준비가 되면 마이그레이션을 중단합니다.
 
 > [!NOTE]
 > Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.
-
 > [!IMPORTANT]
 > 최적의 마이그레이션 환경을 위해 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것이 좋습니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-이 문서에서는 SQL Server에서 Azure SQL Database Managed Instance로의 온라인 마이그레이션을 설명합니다. 오프라인 마이그레이션의 경우 [DMS를 사용하여 SQL Server를 Azure SQL Database Managed Instance 오프라인으로 마이그레이션](tutorial-sql-server-to-managed-instance.md)을 참조하세요.
+이 문서에서는 SQL Server에서 Azure SQL Database 관리되는 인스턴스로의 온라인 마이그레이션을 설명합니다. 오프라인 마이그레이션의 경우 [DMS를 사용하여 SQL Server를 Azure SQL Database 관리되는 인스턴스로 오프라인 마이그레이션](tutorial-sql-server-to-managed-instance.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 VNET을 만듭니다. 이를 통해 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에서 사이트 간 연결을 제공합니다. [Azure Database Migration Service를 사용한 Azure SQL DB Managed Instance 마이그레이션에 대한 네트워크 토폴로지에 대해 알아봅니다](https://aka.ms/dmsnetworkformi).
+- Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 VNET을 만듭니다. 이를 통해 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에서 사이트 간 연결을 제공합니다. [Azure Database Migration Service를 사용한 Azure SQL Database 관리되는 인스턴스 마이그레이션에 대한 네트워크 토폴로지를 알아봅니다](https://aka.ms/dmsnetworkformi).
 - Azure VNET(Virtual Network) 네트워크 보안 그룹 규칙이 443, 53, 9354, 445, 12000과 같은 통신 포트를 차단하지 않는지 확인합니다. Azure VNET NSG 트래픽 필터링에 대한 자세한 정보는 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 - [소스 데이터베이스 엔진 액세스를 위한 Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)을 구성합니다.
 - Azure Database Migration Service가 기본적으로 TCP 포트 1433인 원본 SQL Server에 액세스하도록 허용하려면 Windows 방화벽을 엽니다.
 - 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우, SQL Browser 서비스를 사용하도록 설정하고 방화벽을 통해 1434 UDP 포트에 액세스하도록 허용하여 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있습니다.
 - 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service에서 마이그레이션을 위해 445 SMB 포트를 통해 파일뿐만 아니라 원본 데이터베이스에 액세스할 수 있도록 허용하는 방화벽 규칙을 추가해야 합니다.
-- [Azure Portal에서 Azure SQL Database Managed Instance 만들기](https://aka.ms/sqldbmi) 문서의 세부 지침에 따라 Azure SQL Database Managed Instance를 만듭니다.
-- 원본 SQL Server와 대상 Managed Instance를 연결하는 데 사용되는 로그인이 sysadmin 서버 역할의 구성원인지 확인합니다.
+- [Azure Portal에서 Azure SQL Database 관리되는 인스턴스 만들기](https://aka.ms/sqldbmi) 문서의 세부 지침에 따라 Azure SQL Database 관리되는 인스턴스를 만듭니다.
+- 원본 SQL Server와 대상 관리되는 인스턴스를 연결하는 데 사용되는 로그인이 sysadmin 서버 역할의 구성원인지 확인합니다.
 - Azure Database Migration Service가 데이터베이스 마이그레이션에 사용할 수 있는 모든 데이터베이스 전체 데이터베이스 백업 파일과 후속 트랜잭션 로그 백업 파일이 포함된 SMB 네트워크 공유를 제공합니다.
 - 원본 SQL Server 인스턴스를 실행 중인 서비스 계정에 본인이 만든 네트워크 공유에 대한 쓰기 권한이 있고, 원본 서버의 컴퓨터 계정에 동일한 공유에 대한 읽기/쓰기 액세스 권한이 있는지 확인합니다.
 - 이전에 만든 네트워크 공유에 대한 전체 제어 권한을 갖고 있는 Windows 사용자(및 암호)를 메모해 둡니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다.
-- DMS 서비스가 대상 Azure Database Managed Instance 및 Azure Storage 컨테이너에 연결하는데 사용할 수 있는 응용 프로그램 ID 키를 생성하는 Azure Active Directory 응용 프로그램 ID를 만듭니다. 자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
+- DMS 서비스가 대상 Azure Database 관리되는 인스턴스 및 Azure Storage 컨테이너에 연결하는데 사용할 수 있는 애플리케이션 ID 키를 생성하는 Azure Active Directory 애플리케이션 ID를 만듭니다. 자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
 - DMS 서비스가 데이터베이스 백업 파일을 업로드하여 데이터베이스를 마이그레이션하는 데 사용할 수 있는 **표준 성능 계층**, Azure Storage 계정을 만들거나 기록합니다.  생성한 DMS 서비스와 동일한 지역에 Azure Storage 계정을 만들어야 합니다.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
@@ -82,26 +83,26 @@ Azure Database Migration Service를 사용하면 최소의 중단 시간으로 �
 
 3. **Migration Service 만들기** 화면에서 서비스, 구독, 신규 또는 기존 리소스 그룹의 이름을 지정합니다.
 
-4.  DMS 인스턴스를 만들려는 위치를 선택합니다.
+4. DMS 인스턴스를 만들려는 위치를 선택합니다.
 
 5. 기존 가상 네트워크(VNET)를 선택하거나 새로 만듭니다.
- 
-    VNET은 원본 SQL Server 및 대상 Azure SQL Database Managed Instance에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공합니다.
+
+    VNET은 원본 SQL Server 및 대상 Azure SQL Database 관리되는 인스턴스에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공합니다.
 
     Azure Portal에서 VNET을 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 가상 네트워크 만들기](https://aka.ms/DMSVnet) 문서를 참조하세요.
 
-    자세한 내용은 [Azure Database Migration Service를 사용한 Azure SQL DB Managed Instance 마이그레이션에 대한 네트워크 토폴로지](https://aka.ms/dmsnetworkformi) 문서를 참조하세요.
+    자세한 내용은 [Azure Database Migration Service를 사용한 Azure SQL Database 관리되는 인스턴스 마이그레이션에 대한 네트워크 토폴로지](https://aka.ms/dmsnetworkformi) 문서를 참조하세요.
 
 6. 프리미엄 가격 책정 계층에서 SKU를 선택합니다.
 
     > [!NOTE]
     > 온라인 마이그레이션은 프리미엄 계층을 사용하는 경우에만 지원됩니다. 
-   
+
     비용 및 가격 책정 계층에 대한 자세한 내용은 [가격 책정 페이지](https://aka.ms/dms-pricing)를 참조하세요.
-   
+
     ![DMS 서비스 만들기](media/tutorial-sql-server-to-managed-instance-online/dms-create-service3.png)
 
-7.  **만들기**를 선택하여 서비스를 만듭니다.
+7. **만들기**를 선택하여 서비스를 만듭니다.
 
 ## <a name="create-a-migration-project"></a>마이그레이션 프로젝트 만들기
 
@@ -112,7 +113,7 @@ Azure Database Migration Service를 사용하면 최소의 중단 시간으로 �
     ![Azure Database Migration Service의 모든 인스턴스 찾기](media/tutorial-sql-server-to-managed-instance-online/dms-search.png)
 
 2. **Azure Database Migration Services** 화면에서 직접 만든 인스턴스의 이름을 검색한 다음, 인스턴스를 선택합니다.
- 
+
 3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
 
 4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 형식** 텍스트 상자에서 **SQL Server**를 선택하고, **대상 서버 형식** 텍스트 상자에서 **Azure SQL Database Managed Instance**를 선택한 다음, **작업 형식 선택**에서 **온라인 데이터 마이그레이션**을 선택합니다.
@@ -141,25 +142,25 @@ Azure Database Migration Service를 사용하면 최소의 중단 시간으로 �
    ![원본 데이터베이스 선택](media/tutorial-sql-server-to-managed-instance-online/dms-source-database1.png)
 
     > [!IMPORTANT]
-    > SSIS(SQL Server Integration Services)를 사용하는 경우 DMS는 현재 SSIS 프로젝트/패키지의 카탈로그 데이터베이스(SSISDB)를 SQL Server에서 Azure SQL Database Managed Instance로 마이그레이션하는 기능을 지원하지 않습니다. 하지만 ADF(Azure Data Factory)에 SSIS를 프로비저닝하고 Azure SQL Database Managed Instance에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 문서를 참조하세요.
+    > SSIS(SQL Server Integration Services)를 사용하는 경우 DMS는 현재 SSIS 프로젝트/패키지의 카탈로그 데이터베이스(SSISDB)를 SQL Server에서 Azure SQL Database 관리되는 인스턴스로 마이그레이션하는 기능을 지원하지 않습니다. 하지만 ADF(Azure Data Factory)에 SSIS를 프로비저닝하고 Azure SQL Database 관리되는 인스턴스에서 호스팅하는 대상 SSISDB에 SSIS 프로젝트/패키지를 재배포할 수 있습니다. SSIS 패키지 마이그레이션에 대한 자세한 내용은 [SQL Server Integration Services 패키지를 Azure로 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages) 문서를 참조하세요.
 
 5. **저장**을 선택합니다.
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 
-1.  **마이그레이션 대상 세부 정보** 화면에서 DMS 인스턴스가 Azure SQL Database Managed Instance 및 Azure Storage Account의 대상 인스턴스에 연결하는 데 사용할 수 있는 **응용 프로그램 ID**와 **키**를 지정합니다.
+1. **마이그레이션 대상 세부 정보** 화면에서 DMS 인스턴스가 Azure SQL Database 관리되는 인스턴스 및 Azure Storage Account의 대상 인스턴스에 연결하는 데 사용할 수 있는 **애플리케이션 ID**와 **키**를 지정합니다.
 
     자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)를 참조하세요.
-    
-2. Azure SQL Database Managed Instance의 대상 인스턴스가 포함된 **구독**을 선택한 다음, 대상 인스턴스를 선택합니다.
 
-    Azure SQL Database Managed Instance를 아직 프로비전하지 않은 경우 인스턴스를 프로비저닝하는 데 도움이 되는 [링크](https://aka.ms/SQLDBMI)를 선택합니다. Azure SQL Database Managed Instance의 인스턴스가 준비되면 이 특정 프로젝트로 돌아가서 마이그레이션을 실행합니다.
+2. Azure SQL Database 관리되는 인스턴스의 대상 인스턴스가 포함된 **구독**을 선택한 다음, 대상 인스턴스를 선택합니다.
 
-3. **SQL 사용자**와 **암호**를 입력하여 Azure SQL Database Managed Instance의 대상 인스턴스에 연결합니다.
+    Azure SQL Database 관리되는 인스턴스를 아직 프로비저닝하지 않은 경우 인스턴스를 프로비저닝하는 데 도움이 되는 [링크](https://aka.ms/SQLDBMI)를 선택합니다. Azure SQL Database 관리되는 인스턴스의 인스턴스가 준비되면 이 프로젝트로 돌아가서 마이그레이션을 실행합니다.
+
+3. **SQL 사용자**와 **암호**를 입력하여 Azure SQL Database 관리되는 인스턴스의 대상 인스턴스에 연결합니다.
 
     ![대상 선택](media/tutorial-sql-server-to-managed-instance-online/dms-target-details3.png)
 
-2.  **저장**을 선택합니다.
+4. **저장**을 선택합니다.
 
 ## <a name="select-source-databases"></a>원본 데이터베이스 선택
 
@@ -170,7 +171,7 @@ Azure Database Migration Service를 사용하면 최소의 중단 시간으로 �
 2. **저장**을 선택합니다.
 
 ## <a name="configure-migration-settings"></a>마이그레이션 설정 구성
- 
+
 1. **마이그레이션 설정 구성** 화면에서 다음 세부 정보를 입력합니다.
 
     | | |
@@ -180,17 +181,17 @@ Azure Database Migration Service를 사용하면 최소의 중단 시간으로 �
     |**암호** | 사용자에 대한 암호입니다. |
     |**Azure Storage 계정의 구독** | Azure Storage 계정이 포함된 구독을 선택합니다. |
     |**Azure Storage 계정** | DMS가 SMB 네트워크 공유에서 백업 파일을 업로드하고 데이터베이스 마이그레이션에 사용할 수 있는 Azure Storage 계정을 선택합니다.  최적의 파일 업로드 성능을 위해서는 DMS 서비스와 동일한 지역에서 저장소 계정을 선택하는 것이 좋습니다. |
-    
+
     ![마이그레이션 설정 구성](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
 2. **저장**을 선택합니다.
- 
+
 ## <a name="review-the-migration-summary"></a>마이그레이션 요약 검토
 
 1. **마이그레이션 요약** 화면의 **작업 이름** 텍스트 상자에서 마이그레이션 작업의 이름을 지정합니다.
 
 2. 마이그레이션 프로젝트와 연결된 세부 정보를 검토하고 확인합니다.
- 
+
     ![마이그레이션 프로젝트 요약](media/tutorial-sql-server-to-managed-instance-online/dms-project-summary3.png)
 
 ## <a name="run-and-monitor-the-migration"></a>마이그레이션 실행 및 모니터링
@@ -198,7 +199,7 @@ Azure Database Migration Service를 사용하면 최소의 중단 시간으로 �
 1. **마이그레이션 실행**을 선택합니다.
 
 2. 마이그레이션 작업 화면에서 **새로 고침**을 선택하여 화면을 업데이트합니다.
- 
+
    ![진행 중인 마이그레이션 작업](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration2.png)
 
     데이터베이스 및 로그인 범주를 더 확장하여 각 서버 개체의 마이그레이션 상태를 모니터링할 수 있습니다.
@@ -207,26 +208,26 @@ Azure Database Migration Service를 사용하면 최소의 중단 시간으로 �
 
 ## <a name="performing-migration-cutover"></a>마이그레이션 중단 수행
 
-Azure SQL Database Managed Instance의 대상 인스턴스에서 전체 데이터베이스 백업이 복원되면 마이그레이션 중단을 수행하는 데 데이터베이스를 사용할 수 있습니다.
+Azure SQL Database 관리되는 인스턴스의 대상 인스턴스에서 전체 데이터베이스 백업이 복원되면 마이그레이션 중단을 수행하는 데 데이터베이스를 사용할 수 있습니다.
 
-1.  온라인 데이터베이스 마이그레이션을 완료할 준비가 되면 **중단 시작**을 선택합니다.
+1. 온라인 데이터베이스 마이그레이션을 완료할 준비가 되면 **중단 시작**을 선택합니다.
 
-2.  원본 데이터베이스로 들어오는 모든 트래픽을 중지합니다.
+2. 원본 데이터베이스로 들어오는 모든 트래픽을 중지합니다.
 
-3.  [비상 로그 백업]을 가져와서 SMB 네트워크 공유에서 백업 파일을 사용할 수 있도록 만든 다음 최종 트랜잭션 로그 백업이 복원될 때까지 기다립니다.
+3. [비상 로그 백업]을 가져와서 SMB 네트워크 공유에서 백업 파일을 사용할 수 있도록 만든 다음 최종 트랜잭션 로그 백업이 복원될 때까지 기다립니다.
 
     이 시점에서 **보류 중인 변경 내용**이 0으로 설정됩니다.
 
-4.  **확인**과 **적용**을 차례로 선택합니다.
+4. **확인**과 **적용**을 차례로 선택합니다.
 
     ![중단 완료 준비](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
-5.  데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 애플리케이션을 Azure SQL Database Managed Instance의 새 대상 인스턴스에 연결합니다.
+5. 데이터베이스 마이그레이션 상태가 **완료됨**으로 표시되면 애플리케이션을 Azure SQL Database 관리되는 인스턴스의 새 대상 인스턴스에 연결합니다.
 
     ![중단 완료](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- T-SQL RESTORE 명령을 사용하여 Managed Instance로 데이터베이스를 마이그레이션하는 방법을 보여 주는 자습서는 [복원 명령을 사용하여 백업을 Managed Instance에 복원](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요.
-- Managed Instance에 대한 자세한 내용은 [Managed Instance란?](../sql-database/sql-database-managed-instance.md)을 참조하세요.
-- Managed Instance에 앱을 연결하는 내용은 [응용 프로그램 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
+- T-SQL RESTORE 명령을 사용하여 관리되는 인스턴스로 데이터베이스를 마이그레이션하는 방법을 보여주는 자습서는 [복원 명령을 사용하여 백업을 관리되는 인스턴스에 복원](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요.
+- 관리되는 인스턴스에 대한 자세한 내용은 [관리되는 인스턴스란?](../sql-database/sql-database-managed-instance.md)을 참조하세요.
+- 관리되는 인스턴스에 앱을 연결하는 방법은 [애플리케이션 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.

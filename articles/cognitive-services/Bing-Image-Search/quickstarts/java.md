@@ -5,32 +5,29 @@ description: 이 빠른 시작을 사용하여 Java를 통해 Bing Image Search 
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 8/20/2018
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 13edea67a93ecf2d2b53dcc04a2c1d49b864952e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e00179f0fe3bf079cde672c9c8e3579f8c957b7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203286"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238303"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>빠른 시작: Bing Image Search REST API 및 Java를 사용하여 이미지 검색
 
-이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답을 받습니다. 이 간단한 Java 애플리케이션은 검색 쿼리를 API에 보내고 원시 결과를 표시합니다.
+이 빠른 시작을 사용하여 검색 요청을 Bing Image Search API로 보낼 수 있습니다. 이 Java 애플리케이션에서는 검색 쿼리를 API로 보내고 결과에 첫 번째 이미지의 URL을 표시합니다. 이 애플리케이션은 Java로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-이 애플리케이션은 Java에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
-
-이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java)에서 사용할 수 있습니다.
+이 샘플에 대한 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-* **검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
-* [JDK(Java Development Kit) 7 또는 8](https://aka.ms/azure-jdks)
+* [JDK(Java Development Kit)](https://aka.ms/azure-jdks)
 
 * [Gson 라이브러리](https://github.com/google/gson)
 
@@ -62,7 +59,7 @@ ms.locfileid: "55203286"
 
 ## <a name="construct-the-search-request-and-query"></a>검색 요청 및 쿼리 생성
 
-1. 마지막 단계에서 변수를 사용하여 API 요청에 대한 검색 URL의 형식을 지정합니다. 검색 용어는 요청에 추가되기 전에 URL로 인코딩되어야 합니다.
+1. 마지막 단계에서 변수를 사용하여 API 요청에 대한 검색 URL의 형식을 지정합니다. 검색 용어는 요청에 추가되기 전에 URL로 인코딩해야 합니다.
 
     ```java
     // construct the search request URL (in the form of endpoint + query string)
@@ -108,7 +105,7 @@ ms.locfileid: "55203286"
     String resultURL = first_result.get("thumbnailUrl").getAsString();
     ```
 
-## <a name="json-response"></a>JSON 응답
+## <a name="example-json-response"></a>예제 JSON 응답
 
 Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.
 
@@ -152,7 +149,7 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -164,7 +161,8 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
 ## <a name="see-also"></a>참고 항목
 
 * [Bing Image Search란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* Bing Search API에 대한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
 * [무료 Cognitive Services 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

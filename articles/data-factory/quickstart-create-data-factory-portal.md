@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory UI를 사용하여 Azure 데이터 팩터리 만들기 | Microsoft Docs
-description: Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만듭니다.
+description: Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만듭니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,19 +11,20 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 6f5a4e04c0d135e85624b04dbcdcda6b7d15a427
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018250"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989392"
 ---
-# <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Azure Data Factory UI를 사용하여 데이터 팩터리 만들기
+# <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](quickstart-create-data-factory-portal.md)
 
-이 빠른 시작에서는 Azure Data Factory UI를 사용하여 데이터 팩터리를 만들고 모니터링하는 방법에 대해 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob 저장소의 한 폴더에서 다른 폴더로 데이터를 *복사합니다*. Azure Data Factory를 사용하여 데이터를 *변환*하는 방법에 대한 자습서는 [자습서: Apache Spark를 사용하여 데이터 변환](tutorial-transform-data-spark-portal.md)을 참조하세요.
+이 빠른 시작에서는 Azure Data Factory UI를 사용하여 데이터 팩터리를 만들고 모니터링하는 방법에 대해 설명합니다. 이 데이터 팩터리에서 만든 파이프라인은 Azure Blob Storage의 한 폴더에서 다른 폴더로 데이터를 *복사합니다*. Azure Data Factory를 사용하여 데이터를 *변환*하는 방법에 대한 자습서는 [자습서: Spark를 사용하여 데이터 변환](tutorial-transform-data-spark-portal.md)을 참조하세요.
 
 > [!NOTE]
 > Azure Data Factory를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요. 
@@ -62,7 +63,7 @@ ms.locfileid: "48018250"
 
 1. **만들기**를 선택합니다.
 
-1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스) 응용 프로그램을 시작합니다.
+1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스) 애플리케이션을 시작합니다.
    
    !["작성 및 모니터링" 타일이 있는 데이터 팩터리에 대한 홈페이지](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
 1. **시작하기** 페이지에서 왼쪽 패널의 **작성자** 탭으로 전환합니다. 
@@ -91,7 +92,7 @@ ms.locfileid: "48018250"
    ![Azure Storage 연결된 서비스 설정](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
-이 절차에서는 **InputDataset** 및 **OutputDataset**라는 두 개의 데이터 세트를 만듭니다. 이러한 데이터 세트는 **AzureBlob** 유형입니다. 이 데이터 집합은 이전 섹션에서 만든 Azure Storage 연결된 서비스를 참조합니다. 
+이 프로시저에서는 두 개의 데이터 세트를 만듭니다. **InputDataset** 및 **OutputDataset** 이러한 데이터 세트는 **AzureBlob** 유형입니다. 이 데이터 집합은 이전 섹션에서 만든 Azure Storage 연결된 서비스를 참조합니다. 
 
 입력 데이터 세트는 입력 폴더의 원본 데이터를 나타냅니다. 입력 데이터 세트 정의에서 원본 데이터가 포함된 Blob 컨테이너(**adftutorial**), 폴더(**input**) 및 파일(**emp.txt**)을 지정합니다. 
 
@@ -99,10 +100,10 @@ ms.locfileid: "48018250"
 
 연결된 서비스 설정에서 원본 데이터가 포함된 Azure 저장소 계정을 지정했습니다. 원본 데이터 세트 설정에서 원본 데이터가 있는 정확한 위치(Blob 컨테이너, 폴더 및 파일)를 지정합니다. 싱크 데이터 세트 설정에서 데이터가 복사될 위치(Blob 컨테이너, 폴더 및 파일)를 지정합니다. 
  
-1. **+**(더하기) 단추를 선택한 다음 **데이터 집합**을 선택합니다.
+1. **+**(더하기) 단추를 선택한 다음, **데이터 세트**를 선택합니다.
 
    ![데이터 세트 만들기에 대한 메뉴](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
-1. **새 데이터 집합** 페이지에서 **Azure Blob Storage**를 선택한 다음 **마침**을 선택합니다. 
+1. **새 데이터 세트** 페이지에서 **Azure Blob Storage**를 선택한 다음, **마침**을 선택합니다. 
 
    !["Azure Blob Storage" 선택](./media/quickstart-create-data-factory-portal/select-azure-blob-dataset.png)
 1. 데이터 세트의 **일반** 탭에서 **이름**으로 **InputDataset**를 입력합니다. 
@@ -117,12 +118,13 @@ ms.locfileid: "48018250"
 
     ![입력 파일에 대한 찾아보기](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
     
-   d. (선택 사항) **데이터 미리 보기**를 선택하여 emp.txt 파일의 데이터를 미리 봅니다.     
+    d. (선택 사항) **데이터 미리 보기**를 선택하여 emp.txt 파일의 데이터를 미리 봅니다.     
+
 1. 단계를 반복하여 출력 데이터 세트를 만듭니다.  
 
-   a. **+**(더하기) 단추를 선택한 다음 **데이터 집합**을 선택합니다.
+   a. **+**(더하기) 단추를 선택한 다음, **데이터 세트**를 선택합니다.
 
-   b. **새 데이터 집합** 페이지에서 **Azure Blob Storage**를 선택한 다음 **마침**을 선택합니다.
+   b. **새 데이터 세트** 페이지에서 **Azure Blob Storage**를 선택한 다음, **마침**을 선택합니다.
 
    다. **일반** 테이블에서 이름으로 **OutputDataset**를 지정합니다.
 
@@ -209,4 +211,4 @@ ms.locfileid: "48018250"
 1. 지정된 종료 날짜 및 시간까지의 모든 파이프라인 실행에 대한 출력 파일이 **output** 폴더에 만들어졌는지 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인은 Azure Blob 저장소의 한 위치에서 다른 위치로 데이터를 복사합니다. 더 많은 시나리오에서의 데이터 팩터리 사용에 대해 알아보려면 [자습서](tutorial-copy-data-portal.md)를 따릅니다. 
+이 샘플의 파이프라인은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. 더 많은 시나리오에서의 데이터 팩터리 사용에 대해 알아보려면 [자습서](tutorial-copy-data-portal.md)를 따릅니다. 

@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 Batch 계정 만들기 | Microsoft Docs
+title: Azure Portal에서 계정 만들기 - Azure Batch | Microsoft Docs
 description: 클라우드에서 대규모 병렬 작업을 실행하도록 Azure Portal에서 Azure Batch 계정을 만드는 방법에 대해 알아봅니다.
 services: batch
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/18/2018
+ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89e41dc8e27cf39d9d0e6168dc7352267c321623
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 04631431c03f6fdd378bfa99edb9b67f8d6a0cad
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460525"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193920"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
@@ -58,9 +58,8 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 1. **만들기**를 선택하여 계정을 만듭니다.
 
-
-
 ## <a name="view-batch-account-properties"></a>Batch 계정 속성 보기
+
 계정이 만들어지면 계정을 선택하여 해당 설정 및 속성에 액세스합니다. 왼쪽 메뉴를 사용하여 모든 계정 설정 및 속성에 액세스할 수 있습니다.
 
 ![Azure Portal에서 배치 계정 페이지][account_blade]
@@ -75,12 +74,12 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 * 배치 계정에 적용되는 리소스 할당량을 보려면 **할당량**을 선택합니다. 자세한 내용은 [Batch 서비스 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
-
 ## <a name="additional-configuration-for-user-subscription-mode"></a>사용자 구독 모드에 대한 추가 구성
 
 사용자 구독 모드에서 배치 계정 만들기를 선택하면 계정을 만들기 전에 다음과 같은 추가 단계를 수행합니다.
 
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Azure Batch에서 구독에 액세스하도록 허용(일회성 작업)
+
 사용자 구독 모드에서 첫 번째 Batch 계정을 만들 때 구독을 Batch 계정에 등록합니다. (이전에 이 작업을 수행한 경우 다음 섹션으로 건너뜁니다.)
 
 1. [Azure Portal][azure_portal]에 로그인합니다.
@@ -98,13 +97,14 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 1. **역할 할당 추가** 페이지에서 **기여자** 역할을 선택하고 Batch API를 검색합니다. API를 찾을 때까지 다음 문자열 각각을 검색합니다.
     1. **MicrosoftAzureBatch**
     1. **Microsoft Azure Batch** - 최신 Azure AD 테넌트에서는 이 이름을 사용할 수도 있습니다.
-    1. **ddbf3205-c6bd-46ae-8127-60eb93363864**는 Batch API에 대한 ID입니다. 
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864**는 Batch API에 대한 ID입니다.
 
 1. Batch API를 찾았으면 해당 API를 선택하고 **저장**을 선택합니다.
 
     ![Batch 권한 추가][add_permission]
 
 ### <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
+
 사용자 구독 모드에서 Azure 키 자격 증명 모음은 만들려는 Batch 계정과 동일한 리소스 그룹에 속해야 합니다. Batch를 [사용할 수 있고](https://azure.microsoft.com/regions/services/) 구독에서 지원하는 지역에 리소스 그룹이 있는지 확인합니다.
 
 1. [Azure Portal][azure_portal]에서 **새로 만들기** > **보안** > **Key Vault**를 차례로 선택합니다.
@@ -113,7 +113,18 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 사용자 구독 모드에서 Batch 계정을 만들 때 키 자격 증명 모음에 대한 리소스 그룹을 사용하고, 풀 할당 모드로 **사용자 구독**을 지정하고, 키 자격 증명 모음을 선택합니다.
 
+### <a name="configure-subscription-quotas"></a>구독 할당량 구성
+
+코어 할당량은 사용자 구독 배치 계정에 기본적으로 설정되지 않습니다. 일반적인 Batch 코어 할당량은 사용자 구독 모드의 계정에 적용되지 않으므로 코어 할당량을 수동으로 설정해야 합니다.
+
+1. [Azure Portal][azure_portal]에서 사용자 구독 모드 배치 계정을 선택하여 해당 설정과 속성을 표시합니다.
+
+1. 왼쪽 메뉴에서 **할당량**을 선택하여 배치 계정과 연결된 코어 할당량을 보고 구성합니다.
+
+사용자 구독 모드 코어 할당량에 대한 자세한 내용은 [Batch 서비스 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
+
 ## <a name="other-batch-account-management-options"></a>다른 Batch 계정 관리 옵션
+
 Azure Portal을 사용하는 것 외에도 다음을 포함하는 도구로 Batch 계정을 만들고 관리할 수 있습니다.
 
 * [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
@@ -121,6 +132,7 @@ Azure Portal을 사용하는 것 외에도 다음을 포함하는 도구로 Batc
 * [Batch 관리 .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>다음 단계
+
 * Batch 서비스의 개념 및 기능에 대한 자세한 내용은 [Batch 기능 개요](batch-api-basics.md)를 참조하세요. 이 문서에서는 풀, 계산 노드, 작업 및 태스크 등의 기본 Batch 리소스에 대해 설명하고 대규모 계산 워크로드를 위한 서비스 기능 개요를 제공합니다.
 * [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 응용 프로그램 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 계산 노드에서 워크로드를 실행하는 응용 프로그램 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
 
@@ -136,4 +148,3 @@ Azure Portal을 사용하는 것 외에도 다음을 포함하는 도구로 Batc
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
 [register_provider]: ./media/batch-account-create-portal/register_provider.png
-

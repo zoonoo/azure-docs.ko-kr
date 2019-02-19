@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: b542ca2876149b9a60e5c5b9e3fa17284477864f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d94e2db66c8c5dac2b4d8551ae34a07cd68fd635
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241603"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106984"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Azure Data Box Gateway 문제 해결 
 
@@ -103,6 +103,7 @@ ms.locfileid: "50241603"
     |    2006            |    ERROR_CLOUD_ACCOUNT_DISABLED                            |    계정 또는 공유가 비활성화되어 있어 계정에 데이터를 업로드할 수 없습니다.                                                                                                                                                            |
     |    2007            |    ERROR_CLOUD_ACCOUNT_PERMISSIONS                         |    계정 권한이 잘못되었거나 만료되어 컨테이너에 연결할 수 없습니다. 액세스 권한을 확인하십시오.                                                                                                               |
     |    2008            |    ERROR_CLOUD_CONTAINER_SIZE_LIMIT_REACHED                |    컨테이너가 가득 차서 새 데이터를 추가할 수 없습니다. 유형에 따라 지원되는 컨테이너 크기는 Azure 사양을 확인하십시오. 예를 들어, Azure File에서 지원되는 최대 파일 크기는 5TB입니다.                                     |
+    |    2997            |    ERROR_ITEM_CANCELED                                     |    예기치 않은 오류가 발생했습니다. 자체적으로 해결되는 일시적인 오류입니다.                                                                           |
     |    2998            |    ERROR_UNMAPPED_FAILURE                                  |    예기치 않은 오류가 발생했습니다. 오류가 자체적으로 해결될 수 있지만 24시간 넘게 지속되는 경우에는 Microsoft 지원에 문의하세요.                                                                                                     |
     |    16000           |    RefreshException                                        |    이 파일을 가져올 수 없습니다.                                                                                                                                                                                                        |
     |    16001           |    RefreshAlreadyExistsException                           |    이 파일이 로컬 시스템에 이미 있기 때문에 가져올 수 없습니다.                                                                                                                                                         |

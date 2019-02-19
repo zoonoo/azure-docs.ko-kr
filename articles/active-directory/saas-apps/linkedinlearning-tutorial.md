@@ -4,7 +4,7 @@ description: Azure Active Directory와 LinkedIn Learning 간에 Single Sign-On�
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d5857070-bf79-4bd3-9a2a-4c1919a74946
 ms.service: Azure-Active-Directory
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: be5dd0a0fd1eb45c505a2f0ddf1489d21bfd38e6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9328564b082ba3eb0cff94652271fcd64cf2630c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821196"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56168769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>자습서: LinkedIn Learning과 Azure Active Directory 통합
 
@@ -118,13 +119,13 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값은 실제 식별자 및 회신 URL로 업데이트됩니다. 이는 자습서의 뒷부분에 나와 있는 **LinkedIn Learning Single Sign-On 구성** 섹션에서 설명합니다.
 
-5. LinkedIn Learning 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. **고유 사용자 식별자**의 기본값은 **user.userprincipalname**이지만 LinkedIn Learning에서 이 값이 사용자의 이메일 주소와 매핑되어야 합니다. 목록에서 **user.mail** 특성을 사용하거나 조직 구성을 기반으로 적절한 특성 값을 사용할 수 있기 위해서입니다. 
+5. LinkedIn Learning 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. LinkedIn Learning 애플리케이션에서는 **nameidentifier**가 **user.mail**에 매핑되는 것으로 예상하므로, 특성 매핑을 변경하기 위해 **편집** 아이콘을 클릭하여 특성 매핑을 편집해야 합니다.
 
     ![이미지](common/edit-attribute.png)
 
-6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
+6. 위에서 언급한 특성 외에도, LinkedIn Learning 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다.
     
-    | 이름 | 원본 특성 |
+    | Name | 원본 특성 |
     | ---------------| --------------- |
     | 이메일  | user.mail  |
     | department  | user.department  |
@@ -133,9 +134,9 @@ LinkedIn Learning에서 Azure AD Single Sign-On을 구성하려면 다음 단계
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](./media/linkedinlearning-tutorial/tutorial_usermail.png)
+    ![이미지](common/new-save-attribute.png)
 
-    ![이미지](./media/linkedinlearning-tutorial/tutorial_usermailedit.png)
+    ![이미지](common/new-attribute-details.png)
 
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 

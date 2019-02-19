@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5d844692b6199d93fa835da1021c9753311e17de
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824612"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112549"
 ---
 # <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
 
@@ -33,7 +33,7 @@ Azure는 고객 기반을 광범위하게 확장하고 있으며 수요가 증�
 고객은 다음과 같은 이유로 VM을 이동합니다.
 
 - 이미 한 Azure 지역에 배포했는데 애플리케이션 또는 서비스의 최종 사용자와 더 가까운 위치에 새 Azure 지역이 추가된 경우 **VM을 있는 그대로 새 Azure 지역으로 이동**하여 대기 시간을 줄이고 싶을 것입니다. 구독을 통합하려는 경우 또는 이동해야 하는 거버넌스/조직 규칙이 있는 경우에도 동일한 방식을 사용합니다. 
-- VM이 단일 인스턴스 VM으로 또는 가용성 집합의 일부로 배포되었고 가용성 SLA를 높이고 싶은 경우 **VM을 가용성 집합으로 이동**하면 됩니다. 
+- VM이 단일 인스턴스 VM으로 또는 가용성 집합의 일부로 배포되었고 가용성 SLA를 높이고 싶은 경우 **VM을 가용성 영역으로 이동**하면 됩니다. 
 
 ## <a name="how-to-move-azure-vms"></a>Azure VM을 이동하는 방법
 VM을 이동하려면 다음 단계를 수행해야 합니다.
@@ -97,7 +97,7 @@ VM을 이동하려면 다음 단계를 수행해야 합니다.
 
 2. **가용성 집합에 배포되는 각 계층의 VM** - Azure Site Recovery를 사용하여 VM에 복제를 사용하도록 선택할 때 가용성 집합의 VM을 별도의 가용성 영역에 배치하도록 구성할 수 있습니다. 이동 작업을 완료하면 가용성 SLA는 99.9%가 됩니다.
 
-      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
+     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
 
 ## <a name="next-steps"></a>다음 단계

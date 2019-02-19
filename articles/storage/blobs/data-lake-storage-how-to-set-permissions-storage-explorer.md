@@ -1,6 +1,6 @@
 ---
 title: Azure Storage 탐색기를 사용하여 Data Lake Storage Gen2에 대한 권한 설정
-description: 이 방법에서는 Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2(미리 보기) 지원 스토리지 계정 내의 파일 및 디렉터리에 대해 사용 권한을 설정하는 방법을 알아봅니다.
+description: 이 방법에서는 Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2 지원 스토리지 계정 내의 파일 및 디렉터리에 대해 사용 권한을 설정하는 방법을 알아봅니다.
 services: storage
 author: roygara
 ms.custom: mvc
@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: fd4ca3946ed4c32a8fd2f08c1c242c33dbca2aaf
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238316"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867055"
 ---
-# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2(미리 보기)와 함께 Azure Storage 탐색기를 사용하여 파일 및 디렉터리 수준 사용 권한 설정
+# <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2와 함께 Azure Storage 탐색기를 사용하여 파일 및 디렉터리 수준 사용 권한 설정
 
-Azure Data Lake Storage Gen2(미리 보기)에 저장된 파일은 세분화된 사용 권한 및 ACL(액세스 제어 목록) 관리를 지원합니다. 세분화된 사용 권한 및 ACL 관리를 함께 사용하면 매우 세부적인 수준에서 데이터 액세스를 관리할 수 있습니다.
+Azure Data Lake Storage Gen2에 저장된 파일은 세분화된 사용 권한 및 ACL(액세스 제어 목록) 관리를 지원합니다. 세분화된 사용 권한 및 ACL 관리를 함께 사용하면 매우 세부적인 수준에서 데이터 액세스를 관리할 수 있습니다.
 
 이 문서에서는 Azure Storage 탐색기를 사용하여 다음 작업을 수행하는 방법을 알아봅니다.
 

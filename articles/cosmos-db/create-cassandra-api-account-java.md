@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 7ef34ad17dbfbbadde7442fdcba2d02d25a6e4ad
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: fc1505526ddff33c68b6d7a4030338dd7d712598
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037501"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994475"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>자습서: 키/값 데이터를 저장하는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정 만들기
 
@@ -45,7 +45,7 @@ ms.locfileid: "54037501"
 
 2.  **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB**를 선택합니다. 
 
-3.  **새 계정**  창에서 새 Azure Cosmos 계정에 대한 설정을 입력합니다. 
+3. **새 계정** 창에서 새 Azure Cosmos 계정에 대한 설정을 입력합니다. 
 
    |설정   |제안 값  |설명  |
    |---------|---------|---------|

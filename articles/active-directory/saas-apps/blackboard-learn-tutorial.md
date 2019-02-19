@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b57bea85b76b69b1826a81aa582f5326db588cb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 30c13b511fdc4c348cb7356ccc2fb64c40239fc4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811573"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56169856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>자습서: Blackboard Learn과 Azure Active Directory 통합
 
@@ -118,7 +119,7 @@ Blackboard Learn에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 이미지와 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다. 여기서는 Userprincipalname을 고유한 사용자 특성으로 매핑했지만 조직의 사용자를 고유하게 식별하고 Blackboard Learn 사용자 이름 필드에 매핑하는 적합한 값에 매핑할 수 있습니다.
 
-    | 이름 | 원본 특성|
+    | Name | 원본 특성|
     | ---------------| --------------- |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
 
@@ -211,7 +212,7 @@ Blackboard Learn에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 ### <a name="create-blackboard-learn-test-user"></a>Blackboard Learn 테스트 사용자 만들기
 
-이 섹션에서는 Blackboard Learn에서 Britta Simon이라는 사용자를 만듭니다. Blackboard Learn 애플리케이션은 적절한 사용자 프로비전을 지원합니다. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-sign-on)** 섹션에서 설명한 대로 클레임을 구성해야 합니다.
+이 섹션에서는 Blackboard Learn에서 Britta Simon이라는 사용자를 만듭니다. Blackboard Learn 애플리케이션은 적절한 사용자 프로비전을 지원합니다. **Azure AD Single Sign-On 구성** 섹션에서 설명한 대로 클레임을 구성해야 합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

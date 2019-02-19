@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 09/18/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6581c389cb7b1aa9c6ce6b9e84b56017264822f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7ef7216b2d3adf99b0c1fd9ace84991169106529
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232956"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976268"
 ---
-# <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Java 클라이언트 SDK를 사용하여 Azure Media Services 시작
+# <a name="get-started-with-the-java-client-sdk-for-azure-media-services-legacy"></a>Java 클라이언트 SDK를 사용하여 Azure Media Services 시작(레거시)
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 이 자습서에서는 Java 클라이언트 SDK를 사용하여 Azure Media Services에서 기본 비디오 콘텐츠 배달 서비스를 구현하는 단계를 안내합니다.
@@ -48,7 +49,7 @@ Java용 Media Services SDK를 사용하려면 [Azure Media Services Java SDK](ht
 >[!NOTE]
 >Azure Media Services Java SDK의 소스 코드는 [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media)에서 찾을 수 있습니다. 마스터 분기가 아니라 0.9 분기로 전환해야 합니다. 
 
-## <a name="how-to-use-azure-media-services-with-java"></a>방법: Java에서 Azure Media Services 사용
+## <a name="how-to-use-azure-media-services-with-java"></a>방법: Java로 Azure Media Services 사용
 
 >[!NOTE]
 >Azure Media Services 계정이 만들어지면 **기본** 스트리밍 엔드포인트가 **중지됨** 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다.
@@ -58,9 +59,9 @@ Java용 Media Services SDK를 사용하려면 [Azure Media Services Java SDK](ht
 이 코드를 사용하려면 먼저 Media Services 계정을 설정해야 합니다. 계정 설정에 대한 자세한 내용은 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)(영문)을 참조하세요.
 
 이 코드는 Azure AD 서비스 주체 인증을 사용하여 Azure Media Services API에 연결됩니다. Azure AD 애플리케이션을 만들고 코드에서 다음 변수의 값을 지정합니다.
-* `tenant`: Azure AD 응용 프로그램이 있는 Azure AD 테넌트 도메인
-* `clientId`: Azure AD 응용 프로그램의 클라이언트 ID
-* `clientKey`: Azure AD 응용 프로그램의 클라이언트 키
+* `tenant`: Azure AD 애플리케이션이 있는 Azure AD 테넌트 도메인
+* `clientId`: Azure AD 애플리케이션의 클라이언트 ID
+* `clientKey`: Azure AD 애플리케이션의 클라이언트 키
 * `restApiEndpoint`: Azure Media Services 계정의 REST API 엔드포인트
 
 Azure AD 애플리케이션을 만들고 Azure Portal에서 위의 구성 값을 얻을 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure AD 인증 시작](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)의 **서비스 주체 인증** 섹션을 참조하세요.

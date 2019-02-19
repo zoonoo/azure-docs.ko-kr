@@ -4,30 +4,27 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록을 가져옵니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 937fd58b28a3e64f7f4f9fc4bf52e8280af81136
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 88347076888b68459747757d655759d3f83d19a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226981"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964562"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>빠른 시작: Translator Text API를 사용하여 Java를 통해 지원되는 언어 목록 가져오기
 
 이 빠른 시작에서는 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록을 가져옵니다.
 
-이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
-
 ## <a name="prerequisites"></a>필수 조건
 
 * [JDK 7 이상](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle](https://gradle.org/install/)
-* Translator Text에 대한 Azure 구독 키
 
 ## <a name="initialize-a-project-with-gradle"></a>Gradle을 사용하여 프로젝트 초기화
 
@@ -50,7 +47,7 @@ gradle init --type basic
 
 `build.gradle.kts`를 찾고 즐겨찾는 IDE 또는 텍스트 편집기를 사용하여 엽니다. 그런 다음, 이 빌드 구성에서 복사합니다.
 
-```
+```java
 plugins {
     java
     application
@@ -104,7 +101,6 @@ public class GetLanguages {
 `GetLanguages` 클래스에 이러한 줄을 추가합니다.
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
 
@@ -117,14 +113,13 @@ String url = "https://api.cognitive.microsofttranslator.com/languages?api-versio
 OkHttpClient client = new OkHttpClient();
 ```
 
-다음으로, GET 요청을 빌드해 보겠습니다.
+다음으로, `GET` 요청을 빌드해 보겠습니다.
 
 ```java
 // This function performs a GET request.
 public String Get() throws IOException {
     Request request = new Request.Builder()
             .url(url).get()
-            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();
@@ -167,6 +162,12 @@ public static void main(String[] args) {
 
 ```console
 gradle build
+```
+
+빌드가 완료되면 다음을 실행합니다.
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>샘플 응답

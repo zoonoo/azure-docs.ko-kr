@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure PowerShell을 사용하여 Azure 가상 머신 제어 | Microsoft Docs
+title: 자습서 - Azure PowerShell을 사용하여 Azure 가상 머신 관리 | Microsoft Docs
 description: 이 자습서에서는 Azure PowerShell을 사용하여 RBAC, 정책, 잠금 및 태그를 적용하여 Azure 가상 머신을 관리하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -11,23 +11,25 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/12/2018
+ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 6b36cdecb178a7189773abbfe963411e19764401
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9154680048b90c76961142398733ed390e36e130
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438663"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983902"
 ---
-# <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows 가상 머신 거버넌스에 대해 알아보기
+# <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>자습서: Azure PowerShell을 사용한 Windows 가상 머신 관리에 대해 알아보기
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
-이 문서의 예제에는 Azure PowerShell 6.0 이상이 필요합니다. PowerShell을 로컬로 실행하고 6.0 버전 이상이 없는 경우 [해당 버전을 업데이트](/powershell/azure/azurerm/install-azurerm-ps)하세요. 또한 `Connect-AzureRmAccount`을 실행하여 Azure와 연결해야 합니다. 로컬 설치의 경우 [Azure AD PowerShell 모듈을 다운로드](https://www.powershellgallery.com/packages/AzureAD/)하여 새 Azure Active Directory 그룹을 만들어야 합니다.
+Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
+
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="understand-scope"></a>범위 이해
 
@@ -38,7 +40,7 @@ ms.locfileid: "54438663"
 해당 리소스 그룹을 만들어 보겠습니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 현재 리소스 그룹이 비어 있습니다.
@@ -57,12 +59,12 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 Azure Active Directory 그룹을 사용하기가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서에서는 가상 머신 관리에 기존 그룹을 사용하거나, 포털을 사용하여 [Azure Active Directory 그룹을 만듭니다](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-새 그룹을 만들거나 기존 그룹을 찾은 뒤 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) 명령을 사용하여 Azure Active Directory 그룹을 리소스 그룹에 대한 Virtual Machine 기여자 역할에 할당합니다.  
+새 그룹을 만들거나 기존 그룹을 찾은 뒤 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) 명령을 사용하여 Azure Active Directory 그룹을 리소스 그룹에 대한 Virtual Machine 기여자 역할에 할당합니다.  
 
 ```azurepowershell-interactive
-$adgroup = Get-AzureRmADGroup -DisplayName <your-group-name>
+$adgroup = Get-AzADGroup -DisplayName <your-group-name>
 
-New-AzureRmRoleAssignment -ObjectId $adgroup.id `
+New-AzRoleAssignment -ObjectId $adgroup.id `
   -ResourceGroupName myResourceGroup `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
@@ -73,10 +75,10 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.id `
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[Azure Policy](../../azure-policy/azure-policy-introduction.md)는 구독의 모든 리소스가 회사 표준을 따르도록 관리하는 데 유용합니다. 사용 중인 구독에 이미 여러 개의 정책 정의가 있습니다. 사용 가능한 정책 정의를 보려면 [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) 명령을 사용합니다.
+[Azure Policy](../../azure-policy/azure-policy-introduction.md)는 구독의 모든 리소스가 회사 표준을 따르도록 관리하는 데 유용합니다. 사용 중인 구독에 이미 여러 개의 정책 정의가 있습니다. 사용 가능한 정책 정의를 보려면 [Get-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/Get-AzPolicyDefinition) 명령을 사용합니다.
 
 ```azurepowershell-interactive
-(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
+(Get-AzPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
 기존 정책 정의를 참조할 수 있습니다. 해당 정책 유형은 **BuiltIn** 또는 **사용자 지정** 중 하나입니다. 할당하고자 하는 조건을 설명하는 정책에 대한 정의를 검토해 보세요. 이 문서에서는 다음과 같은 정책을 할당할 수 있습니다.
@@ -85,7 +87,7 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.id `
 * 가상 머신에 대한 SKU를 제한합니다.
 * 관리 디스크를 사용하지 않는 가상 머신을 감사합니다.
 
-다음 예제에서는 표시 이름을 기준으로 세 가지 정책 정의를 검색합니다. [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) 명령을 사용하여 해당 정의를 리소스 그룹에 할당합니다. 일부 정책의 경우 매개 변수 값을 제공하여 허용된 값을 지정합니다.
+다음 예제에서는 표시 이름을 기준으로 세 가지 정책 정의를 검색합니다. [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment) 명령을 사용하여 해당 정의를 리소스 그룹에 할당합니다. 일부 정책의 경우 매개 변수 값을 제공하여 허용된 값을 지정합니다.
 
 ```azurepowershell-interactive
 # Values to use for parameters
@@ -93,27 +95,27 @@ $locations ="eastus", "eastus2"
 $skus = "Standard_DS1_v2", "Standard_E2s_v2"
 
 # Get the resource group
-$rg = Get-AzureRmResourceGroup -Name myResourceGroup
+$rg = Get-AzResourceGroup -Name myResourceGroup
 
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
-$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
-$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
-$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
+$locationDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
+$skuDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
+$auditDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
 
 # Assign policy for allowed locations
-New-AzureRMPolicyAssignment -Name "Set permitted locations" `
+New-AzPolicyAssignment -Name "Set permitted locations" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $locationDefinition `
   -listOfAllowedLocations $locations
 
 # Assign policy for allowed SKUs
-New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
+New-AzPolicyAssignment -Name "Set permitted VM SKUs" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $skuDefinition `
   -listOfAllowedSKUs $skus
 
 # Assign policy for auditing unmanaged disks
-New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
+New-AzPolicyAssignment -Name "Audit unmanaged disks" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $auditDefinition
 ```
@@ -123,7 +125,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 솔루션을 배포할 수 있도록 역할 및 정책을 할당했습니다. 기본 크기는 허용된 SKU 중 하나인 Standard_DS1_v2입니다. 이 단계를 실행할 때 자격 증명을 묻는 메시지가 나타납니다. 입력하는 값은 가상 머신에 대한 사용자 이름 및 암호로 구성됩니다.
 
 ```azurepowershell-interactive
-New-AzureRmVm -ResourceGroupName "myResourceGroup" `
+New-AzVm -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "East US" `
      -VirtualNetworkName "myVnet" `
@@ -139,18 +141,18 @@ New-AzureRmVm -ResourceGroupName "myResourceGroup" `
 
 [리소스 잠금](../../azure-resource-manager/resource-group-lock-resources.md)은 조직의 사용자가 실수로 중요한 리소스를 삭제하거나 수정하는 것을 방지합니다. 역할 기반 액세스 제어와 달리 리소스 잠금은 모든 사용자와 역할 전반에 제한을 적용합니다. 잠금 수준을 *CanNotDelete* 또는 *ReadOnly*로 설정할 수 있습니다.
 
-가상 머신 및 네트워크 보안 그룹을 잠그려면 [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) 명령을 사용합니다.
+가상 머신 및 네트워크 보안 그룹을 잠그려면 [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) 명령을 사용합니다.
 
 ```azurepowershell-interactive
 # Add CanNotDelete lock to the VM
-New-AzureRmResourceLock -LockLevel CanNotDelete `
+New-AzResourceLock -LockLevel CanNotDelete `
   -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
   -ResourceGroupName myResourceGroup
 
 # Add CanNotDelete lock to the network security group
-New-AzureRmResourceLock -LockLevel CanNotDelete `
+New-AzResourceLock -LockLevel CanNotDelete `
   -LockName LockNSG `
   -ResourceName myNetworkSecurityGroup `
   -ResourceType Microsoft.Network/networkSecurityGroups `
@@ -160,7 +162,7 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
 잠금을 테스트하려면 다음 명령을 실행해 봅니다.
 
 ```azurepowershell-interactive 
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 삭제 작업이 잠금 때문에 수행할 수 없음을 나타내는 오류가 표시됩니다. 리소스 그룹은 특별히 잠금을 제거하는 경우에 삭제할 수 있습니다. 해당 단계는 [리소스 정리](#clean-up-resources)에 표시됩니다.
@@ -171,30 +173,30 @@ Azure 리소스에 [태그](../../azure-resource-manager/resource-group-using-ta
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
-가상 머신에 태그를 적용하려면 [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) 명령을 사용합니다.
+가상 머신에 태그를 적용하려면 [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) 명령을 사용합니다.
 
 ```azurepowershell-interactive
 # Get the virtual machine
-$r = Get-AzureRmResource -ResourceName myVM `
+$r = Get-AzResource -ResourceName myVM `
   -ResourceGroupName myResourceGroup `
   -ResourceType Microsoft.Compute/virtualMachines
 
 # Apply tags to the virtual machine
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
+Set-AzResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
 ```
 
 ### <a name="find-resources-by-tag"></a>태그로 리소스 찾기
 
-태그 이름 및 값을 사용하여 리소스를 찾으려면 [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) 명령을 사용합니다.
+태그 이름 및 값을 사용하여 리소스를 찾으려면 [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) 명령을 사용합니다.
 
 ```azurepowershell-interactive
-(Get-AzureRmResource -Tag @{ Environment="Test"}).Name
+(Get-AzResource -Tag @{ Environment="Test"}).Name
 ```
 
 태그 값으로 모든 가상 머신 중지와 같은 관리 작업에 대한 반환 값을 사용할 수 있습니다.
 
 ```azurepowershell-interactive
-Get-AzureRmResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+Get-AzResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzVM
 ```
 
 ### <a name="view-costs-by-tag-values"></a>태그 값으로 비용 보기
@@ -203,23 +205,23 @@ Get-AzureRmResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-잠금이 해제될 때까지는 잠긴 네트워크 보안 그룹을 삭제할 수 없습니다. 잠금을 제거하려면 [Remove-AzureRmResourceLock](/powershell/module/azurerm.resources/remove-azurermresourcelock) 명령을 사용합니다.
+잠금이 해제될 때까지는 잠긴 네트워크 보안 그룹을 삭제할 수 없습니다. 잠금을 제거하려면 [Remove-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock) 명령을 사용합니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceLock -LockName LockVM `
+Remove-AzResourceLock -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
   -ResourceGroupName myResourceGroup
-Remove-AzureRmResourceLock -LockName LockNSG `
+Remove-AzResourceLock -LockName LockNSG `
   -ResourceName myNetworkSecurityGroup `
   -ResourceType Microsoft.Network/networkSecurityGroups `
   -ResourceGroupName myResourceGroup
 ```
 
-더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹, VM 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 72acc4fe0febaa09d6deb82043795b6003af683f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 28710ebfaef4c82212e0208c36f50a96f0dda083
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706782"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892051"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>자습서: Azure Lab Services로 랩 계정 설정
 Azure Lab Services에서 랩 계정은 조직의 랩을 관리하는 중앙 계정 역할을 합니다. 랩 계정에서 랩을 만들고 랩 계정의 모든 랩에 적용되는 정책을 설정할 수 있는 권한을 다른 사람에게 부여하세요. 이 자습서에서는 랩 관리자 권한으로 랩 계정을 만드는 방법을 알아봅니다. 
@@ -37,11 +37,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 다음 단계는 Azure Portal을 사용하여 Azure DevTest Labs로 랩 계정을 만드는 방법을 설명합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에 있는 주 메뉴에서 **리소스 만들기**를 선택합니다.
-3. Azure Marketplace에서 **Lab Services**를 검색하고 드롭다운 목록에서 **Lab Services**를 선택합니다. 
-4. 필터링된 서비스 목록에서 **Lab Services(미리 보기)** 를 선택합니다. 
-1. **랩 계정 만들기** 창에서 **만들기**를 선택합니다.
-2. **랩 계정** 창에서 다음 작업을 수행합니다. 
+2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다. **DEVOPS** 섹션에서 **랩 계정**을 선택합니다. **랩 계정** 옆에 있는 별표(`*`)를 선택하여 왼쪽 메뉴의 **즐겨찾기** 섹션에 추가합니다. 다음부터는 **즐겨찾기** 아래에서 **랩 계정**을 선택합니다.
+
+    ![모든 서비스 -> 랩 계정](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. **랩 계정** 페이지에서 도구 모음에 있는 **추가**를 선택합니다. 
+
+    ![랩 계정 페이지에서 추가 선택](../media/tutorial-setup-lab-account/add-lab-account-button.png)
+4. **랩 계정** 페이지에서 다음 작업을 수행합니다. 
     1. **랩 계정 이름**에 이름을 입력합니다. 
     2. 랩 계정을 만들려는 **Azure 구독**을 선택합니다.
     3. **리소스 그룹**의 경우 **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
@@ -49,9 +51,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     5. **만들기**를 선택합니다. 
 
         ![랩 계정 만들기 창](../media/tutorial-setup-lab-account/lab-account-settings.png)
-5. 랩 계정에 대한 페이지가 표시되지 않으면 **알림** 단추를 선택한 다음, 알림에서 **리소스로 이동** 단추를 클릭합니다. 
+5. 도구 모음의 **종 모양 아이콘**(**알림**)을 선택하고 배포가 성공했는지 확인한 후 **리소스로 이동**을 선택합니다. 
 
-    ![랩 계정 만들기 창](../media/tutorial-setup-lab-account/notification-go-to-resource.png)    
+    또는 **랩 계정** 페이지에서 **새로 고침**을 선택하고 생성된 랩 계정을 선택합니다. 
+
+    ![랩 계정 만들기 창](../media/tutorial-setup-lab-account/go-to-lab-account.png)    
 6. 다음과 같은 **랩 계정** 페이지가 표시됩니다.
 
     ![랩 계정 페이지](../media/tutorial-setup-lab-account/lab-account-page.png)
@@ -61,14 +65,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 강사가 클래스를 위한 랩을 만들 수 있도록 권한을 제공하려면 강사를 **랩 작성자** 역할에 추가합니다.
 
-1. **랩 계정** 페이지에서 **액세스 제어(IAM)** 를 선택하고 도구 모음에서 **+ 추가**를 클릭합니다. 
+1. **랩 계정** 페이지에서 **액세스 제어(IAM)** 를 선택하고, 도구 모음에서 **+ 역할 할당 추가**를 클릭합니다. 
 
-    ![랩 계정 페이지](../media/tutorial-setup-lab-account/access-control.png)
-2. **권한 추가** 페이지에서 **역할**에 대한 **랩 작성자**를 선택하고, 랩 작성자 역할에 추가할 사용자를 선택하고, **저장**을 선택합니다. 
+    ![액세스 제어 -> 역할 할당 추가 단추](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
+1. **역할 할당 추가** 페이지에서 **역할**에 대한 **랩 작성자**를 선택하고, 랩 작성자 역할에 추가할 사용자를 선택하고, **저장**을 선택합니다. 
 
-    ![랩 작성자 역할에 사용자 추가](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
+    ![랩 작성자 추가](../media/tutorial-setup-lab-account/add-lab-creator.png)
 
-## <a name="specify-marketplace-images-available-to-lab-owners"></a>랩 소유자에 사용할 수 있는 Marketplace 이미지 지정
+## <a name="specify-marketplace-images-available-to-lab-creators"></a>랩 작성자에 사용할 수 있는 Marketplace 이미지 지정
 랩 계정 소유자는 랩 작성자가 랩 계정에서 랩을 만들 때 사용할 수 있는 Marketplace 이미지를 지정할 수 있습니다. 
 
 1. 왼쪽 메뉴에서 **Marketplace 이미지**를 선택합니다. 기본적으로 이미지의 전체 목록이 표시됩니다(사용 및 사용 안 함으로 설정된 이미지 모두 포함). 맨 위의 드롭다운 목록에서 **Enabled only**(사용으로 설정된 이미지만)/**Disabled only**(사용 안 함으로 설정된 이미지만) 옵션을 선택하여 사용/사용 안 함으로 설정된 이미지만 표시하도록 목록을 필터링할 수 있습니다. 

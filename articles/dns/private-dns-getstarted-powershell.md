@@ -7,16 +7,18 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/24/2018
 ms.author: victorh
-ms.openlocfilehash: 872227e0521bd54e6bf7fdbe3626dfca34170863
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 73b8dfd741543560cd6ebf26178618a70bdae5f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257728"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992775"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure DNS 사설 영역 만들기
 
 이 아티클에서는 Azure PowerShell을 사용하여 첫 번째 사설 DNS 영역 및 레코드를 만드는 단계를 설명합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
@@ -46,25 +48,25 @@ These instructions assume you have already installed and signed in to Azure Powe
 먼저 DNS 영역을 포함할 리소스 그룹을 만듭니다. 
 
 ```azurepowershell
-New-AzureRMResourceGroup -name MyAzureResourceGroup -location "eastus"
+New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 ```
 
 ## <a name="create-a-dns-private-zone"></a>DNS 사설 영역 만들기
 
-DNS 영역은 **ZoneType** 매개 변수 값에 *Private* 값이 포함된 `New-AzureRmDnsZone` cmdlet을 사용하여 만듭니다. 다음 예제에서는 **contoso.local**이라는 DNS 영역을 **MyAzureResourceGroup**이라는 리소스 그룹에 만들고, **MyAzureVnet**이라는 가상 네트워크에서 DNS 영역을 사용할 수 있도록 합니다.
+DNS 영역은 **ZoneType** 매개 변수 값에 *Private* 값이 포함된 `New-AzDnsZone` cmdlet을 사용하여 만듭니다. 다음 예제에서는 **contoso.local**이라는 DNS 영역을 **MyAzureResourceGroup**이라는 리소스 그룹에 만들고, **MyAzureVnet**이라는 가상 네트워크에서 DNS 영역을 사용할 수 있도록 합니다.
 
 **ZoneType** 매개 변수를 생략하면 영역이 공용 영역으로 만들어지므로 사설 영역을 만들어야 합니다. 
 
 ```azurepowershell
-$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
-$vnet = New-AzureRmVirtualNetwork `
+$backendSubnet = New-AzVirtualNetworkSubnetConfig -Name backendSubnet -AddressPrefix "10.2.0.0/24"
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName MyAzureResourceGroup `
   -Location eastus `
   -Name myAzureVNet `
   -AddressPrefix 10.2.0.0/16 `
   -Subnet $backendSubnet
 
-New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
+New-AzDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
    -ZoneType Private `
    -RegistrationVirtualNetworkId @($vnet.Id)
 ```
@@ -76,16 +78,16 @@ New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
 
 ### <a name="list-dns-private-zones"></a>DNS 사설 영역 나열
 
-`Get-AzureRmDnsZone`에서 영역 이름을 생략하면, 리소스 그룹의 모든 영역을 열거할 수 있습니다. 이 작업은 영역 개체의 배열을 반환합니다.
+`Get-AzDnsZone`에서 영역 이름을 생략하면, 리소스 그룹의 모든 영역을 열거할 수 있습니다. 이 작업은 영역 개체의 배열을 반환합니다.
 
 ```azurepowershell
-Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
+Get-AzDnsZone -ResourceGroupName MyAzureResourceGroup
 ```
 
-`Get-AzureRmDnsZone`에서 영역 이름 및 리소스 그룹 이름을 모두 생략하여 Azure 구독의 모든 영역을 열거할 수 있습니다.
+`Get-AzDnsZone`에서 영역 이름 및 리소스 그룹 이름을 모두 생략하여 Azure 구독의 모든 영역을 열거할 수 있습니다.
 
 ```azurepowershell
-Get-AzureRmDnsZone
+Get-AzDnsZone
 ```
 
 ## <a name="create-the-test-virtual-machines"></a>테스트 가상 머신 만들기
@@ -93,7 +95,7 @@ Get-AzureRmDnsZone
 이제 사설 DNS 영역을 테스트할 수 있도록 두 대의 가상 머신을 만듭니다.
 
 ```azurepowershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myAzureResourceGroup" `
     -Name "myVM01" `
     -Location "East US" `
@@ -102,7 +104,7 @@ New-AzureRmVm `
     -addressprefix 10.2.0.0/24 `
     -OpenPorts 3389
 
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myAzureResourceGroup" `
     -Name "myVM02" `
     -Location "East US" `
@@ -116,12 +118,12 @@ New-AzureRmVm `
 
 ## <a name="create-an-additional-dns-record"></a>추가 DNS 레코드 만들기
 
-`New-AzureRmDnsRecordSet` cmdlet을 사용하여 레코드 집합을 만듭니다. 다음 예제에서는 리소스 그룹 **MyAzureResourceGroup**의 DNS 영역 **contoso.local**에 상대적 이름 **db**가 포함된 레코드를 만듭니다. 레코드 집합의 정규화된 이름은 **db.contoso.local**입니다. 레코드 형식은 "A"이고, IP 주소는 "10.2.0.4"이며, TTL은 3600초입니다.
+`New-AzDnsRecordSet` cmdlet을 사용하여 레코드 집합을 만듭니다. 다음 예제에서는 리소스 그룹 **MyAzureResourceGroup**의 DNS 영역 **contoso.local**에 상대적 이름 **db**가 포함된 레코드를 만듭니다. 레코드 집합의 정규화된 이름은 **db.contoso.local**입니다. 레코드 형식은 "A"이고, IP 주소는 "10.2.0.4"이며, TTL은 3600초입니다.
 
 ```azurepowershell
-New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
+New-AzDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
    -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
-   -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "10.2.0.4")
+   -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.2.0.4")
 ```
 
 ### <a name="view-dns-records"></a>DNS 레코드 보기
@@ -129,7 +131,7 @@ New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
 사용자 영역에 DNS 레코드를 나열하려면 다음을 실행하세요.
 
 ```azurepowershell
-Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
+Get-AzDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
 ```
 두 대의 테스트 가상 머신에 대해 자동으로 생성된 A 레코드가 표시되지 않습니다.
 
@@ -198,7 +200,7 @@ myVM02에서 반복
 더 이상 필요 없다면 **MyAzureResourceGroup** 리소스 그룹을 삭제하여 이 빠른 시작에서 만든 리소스를 삭제합니다.
 
 ```azurepowershell
-Remove-AzureRMResourceGroup -Name MyAzureResourceGroup
+Remove-AzResourceGroup -Name MyAzureResourceGroup
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 02/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 55c1aa4a478031ebc49ec5ab7ea5744d9d980470
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3356d7425e692f248a3850e8bef7b80d4daba276
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825758"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179946"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>자습서: Atlassian Cloud와 Azure Active Directory 통합
 
@@ -39,6 +40,7 @@ Atlassian Cloud와 Azure AD를 통합하도록 구성하려면 다음 항목이 
 
 * Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
 * Atlassian Cloud Single Sign-On을 사용하도록 설정된 구독
+* Atlassian Cloud 제품에 SAML(Security Assertion Markup Language) Single Sign-On을 사용하도록 설정하려면 Atlassian Access를 설정해야 합니다. [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager)에 대해 자세히 알아보세요.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -124,29 +126,15 @@ Atlassian Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
     > [!NOTE]
     > 위의 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Atlassian Cloud 클라이언트 지원 팀](https://support.atlassian.com/)에 문의하세요.
 
-6. Atlassian Cloud 애플리케이션은 특정 형식의 SAML 어설션을 찾아야 하며, 이를 위해 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다.
-
-    기본적으로 **사용자 ID** 값은 user.userprincipalname에 매핑됩니다. 이 값을 user.mail에 매핑되도록 변경합니다. 조직의 설정에 따라 적절한 다른 값을 선택할 수도 있지만, 대부분의 경우 메일을 사용하면 됩니다. 애플리케이션 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+6. Atlassian Cloud 애플리케이션은 특정 형식의 SAML 어설션을 예상하며, 따라서 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 **nameidentifier**가 **user.userprincipalname**과 매핑되는 기본 특성 목록을 보여줍니다. Atlassian Cloud 애플리케이션에서는 **nameidentifier**가 **user.mail**과 매핑되므로 특성 매핑을 변경하려면 **편집** 아이콘을 클릭하고 특성 매핑을 편집해야 합니다.
 
     ![이미지](common/edit-attribute.png)
 
-7. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 다음 단계를 수행합니다.
-
-    a. **편집** 아이콘을 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
-
-    ![이미지](./media/atlassian-cloud-tutorial/tutorial_usermail.png)
-
-    ![이미지](./media/atlassian-cloud-tutorial/tutorial_usermailedit.png)
-
-    b. **원본 특성** 목록에서 **user.mail**을 선택합니다.
-
-    다. **저장**을 클릭합니다.
-
-8. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
+7. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
-9. **Atlassian Cloud 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+8. **Atlassian Cloud 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 

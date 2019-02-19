@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e79b85a2dd47706ca83b6cbc2c59100b05574fab
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 24dfc9602f7329b4ea56db2257f29f5711510d22
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425563"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977799"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 SQL Server Windows 가상 머신 만들기
 
@@ -38,14 +38,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a id="powershell"></a> Azure PowerShell 가져오기
 
-이 빠른 시작에서는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ## <a name="configure-powershell"></a>PowerShell 구성
 
-1. PowerShell을 열고 **Connect-AzureRmAccount** 명령을 실행하여 Azure 계정에 대한 액세스를 설정합니다.
+1. PowerShell을 열고 **Connect-AzAccount** 명령을 실행하여 Azure 계정에 대한 액세스를 설정합니다.
 
    ```PowerShell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
 1. 자격 증명을 입력할 수 있는 화면이 표시됩니다. Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.
@@ -67,7 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 리소스 그룹을 만듭니다.
 
    ```PowerShell
-   New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+   New-AzResourceGroup -Name $ResourceGroupName -Location $Location
    ```
 
 ## <a name="configure-network-settings"></a>네트워크 설정 구성
@@ -80,14 +80,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    $PipName = $ResourceGroupName + $(Get-Random)
 
    # Create a subnet configuration
-   $SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix 192.168.1.0/24
+   $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix 192.168.1.0/24
 
    # Create a virtual network
-   $Vnet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
+   $Vnet = New-AzVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
       -Name $VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
 
    # Create a public IP address and specify a DNS name
-   $Pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
+   $Pip = New-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
       -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name $PipName
    ```
 
@@ -95,18 +95,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ```PowerShell
    # Rule to allow remote desktop (RDP)
-   $NsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
+   $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
 
    #Rule to allow SQL Server connections on port 1433
-   $NsgRuleSQL = New-AzureRmNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
+   $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
       -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
 
    # Create the network security group
    $NsgName = $ResourceGroupName + "nsg"
-   $Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
+   $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
       -Location $Location -Name $NsgName `
       -SecurityRules $NsgRuleRDP,$NsgRuleSQL
    ```
@@ -115,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ```PowerShell
    $InterfaceName = $ResourceGroupName + "int"
-   $Interface = New-AzureRmNetworkInterface -Name $InterfaceName `
+   $Interface = New-AzNetworkInterface -Name $InterfaceName `
       -ResourceGroupName $ResourceGroupName -Location $Location `
       -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $Pip.Id `
       -NetworkSecurityGroupId $Nsg.Id
@@ -137,13 +137,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    ```PowerShell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
-   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
-      Set-AzureRmVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
-      Set-AzureRmVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
-      Add-AzureRmVMNetworkInterface -Id $Interface.Id
+   $VMConfig = New-AzVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
+      Set-AzVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
+      Set-AzVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
+      Add-AzVMNetworkInterface -Id $Interface.Id
    
    # Create the VM
-   New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VMConfig
+   New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VMConfig
    ```
 
    > [!TIP]
@@ -154,7 +154,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 포털 통합 및 SQL VM 기능을 가져오려면 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 설치해야 합니다. 새 VM에 에이전트를 설치하려면 VM을 만든 후 다음 명령을 실행하세요.
 
    ```PowerShell
-   Set-AzureRmVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
    ```
 
 ## <a name="remote-desktop-into-the-vm"></a>VM에 원격 데스크톱으로 연결합니다.
@@ -162,7 +162,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 다음 명령을 사용하여 새 VM의 공용 IP 주소를 검색합니다.
 
    ```PowerShell
-   Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
+   Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
 1. 반환된 IP 주소를 명령줄 매개 변수로서 **mstsc**에 전달하여 원격 데스크톱 세션을 새 VM에서 시작합니다.
@@ -186,10 +186,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 VM을 계속해서 실행하지 않아도 되는 경우 사용 중이 아닌 VM을 중지하여 불필요한 요금을 방지할 수 있습니다. 다음 명령은 VM을 중지하지만 나중에 계속 사용할 수 있습니다.
 
 ```PowerShell
-Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
-**Remove-AzureRmResourceGroup** 명령을 사용하여 가상 머신과 관련된 모든 리소스를 영구적으로 삭제할 수도 있습니다. 그러면 가상 머신도 영구적으로 삭제되므로 이 명령을 사용할 때는 주의해야 합니다.
+**Remove-AzResourceGroup** 명령을 사용하여 가상 머신과 관련된 모든 리소스를 영구적으로 삭제할 수도 있습니다. 그러면 가상 머신도 영구적으로 삭제되므로 이 명령을 사용할 때는 주의해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

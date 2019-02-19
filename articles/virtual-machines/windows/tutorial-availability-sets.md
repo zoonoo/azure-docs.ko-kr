@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/09/2018
+ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dddb2e36a17ad8748ec13c24fecb23fa03887577
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3ee9740f9ef7e364c47bb205315683d1e4ea9294
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884047"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977130"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 고가용성 가상 머신 만들기 및 배포
 
-이 자습서에서는 가용성 집합이라는 기능을 사용하여 Azure에서 VM(Virtual Machine) 솔루션의 가용성과 안정성을 향상시키는 방법에 대해 알아봅니다. 가용성 집합을 사용하면 Azure에 배포한 VM이 클러스터의 격리된 여러 하드웨어 노드에 분산되도록 할 수 있습니다. 이렇게 하면 Azure 내의 하드웨어 또는 소프트웨어 오류가 발생할 때 VM의 하위 집합에만 영향을 주며 전체 솔루션을 사용 가능한 운영 상태로 유지할 수 있습니다.
+이 자습서에서는 가용성 집합을 사용하여 VM(Virtual Machine)의 가용성과 안정성을 향상시키는 방법에 대해 알아봅니다. 가용성 집합은 Azure에 배포한 VM이 클러스터의 격리된 여러 하드웨어 노드에 분산되어 있는지 확인합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -35,32 +35,39 @@ ms.locfileid: "54884047"
 > * 사용 가능한 VM 크기 확인
 > * Azure Advisor 확인
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure PowerShell 모듈 버전이 5.7.0 이상이어야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="availability-set-overview"></a>가용성 집합 개요
 
-가용성 집합은 해당 집합에 배치한 VM 리소스가 Azure 데이터 센터에 배포될 때 서로 간에 격리되도록 하기 위해 Azure에서 사용할 수 있는 논리적 그룹화 기능입니다. Azure는 가용성 집합 내에 배치한 VM을 여러 물리적 서버, 계산 랙, 저장 단위 및 네트워크 스위치에서 실행되도록 합니다. 하드웨어 또는 Azure 소프트웨어 오류가 발생할 경우 VM의 하위 집합에만 영향을 주는 한편 전체 애플리케이션은 계속 유지되어 고객이 계속 사용할 수 있습니다. 가용성 집합은 안정적인 클라우드 솔루션을 구축하려고 할 때 필수적인 기능입니다.
+가용성 집합은 VM 리소스가 배포될 때 서로를 격리하는 논리적 그룹화 기능입니다. Azure는 가용성 집합 내에 배치한 VM을 여러 물리적 서버, 컴퓨팅 랙, 스토리지 단위 및 네트워크 스위치에서 실행되도록 합니다. 하드웨어 또는 소프트웨어 장애가 발생하면, VM의 하위 집합만 영향을 받고 전체 솔루션은 작동 상태를 유지합니다. 가용성 집합은 안정적인 클라우드 솔루션을 구축하는 데 필수적입니다.
 
-4개의 프런트 엔드 웹 서버 및 2개의 백 엔드 VM이 있는 일반적인 VM 기반 솔루션을 가정하겠습니다. Azure를 사용하면 VM을 배포하기 전에 웹 계층에 하나, 백 계층에 하나를 포함한 두 개의 가용성 집합을 정의하려고 합니다. 새 VM을 만들 때 az vm create 명령에 대한 매개 변수로 가용성 집합을 지정할 수 있으며, Azure에서는 사용 가능한 집합 내에 만든 VM이 여러 물리적 하드웨어 리소스에서 자동으로 격리되도록 합니다. 웹 서버 VM 또는 백 엔드 VM 중 하나가 실행 중인 물리적 하드웨어에 문제가 발생한 경우 웹 서버 VM과 백 엔드 VM의 다른 인스턴스가 다른 하드웨어에 있기 때문에 계속 실행된다는 것을 알고 있습니다.
+4개의 프런트 엔드 웹 서버 및 2개의 백 엔드 VM이 있는 일반적인 VM 기반 솔루션을 가정하겠습니다. Azure를 사용하여 VM을 배포하기 전에 두 개의 가용성 집합(웹 계층에 하나, 백 계층에 하나)을 정의하려고 합니다. 새 VM을 만들 때 가용성 집합을 매개 변수로 지정합니다. Azure는 VM이 다수의 실제 하드웨어 리소스에서 격리되도록 합니다. 서버 중 하나가 실행 중인 실제 하드웨어에 문제가 발생해도, 서버의 다른 인스턴스는 계속 실행됩니다. 해당 인스턴스는 다른 하드웨어에 있기 때문입니다.
 
 Azure 내에서 신뢰할 수 있는 VM 기반 솔루션을 배포하려면 항상 가용성 집합을 사용합니다.
 
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
+
+Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
+
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+
 ## <a name="create-an-availability-set"></a>가용성 집합 만들기
 
-[New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset)을 사용하여 가용성 집합을 만들 수 있습니다. 이 예제에서는 *myResourceGroupAvailability* 리소스 그룹의 *myAvailabilitySet*이라는 가용성 집합에 대한 업데이트 및 장애 도메인 수를 모두 *2*로 설정합니다.
+한 위치의 하드웨어는 여러 개의 업데이트 도메인 및 장애 도메인으로 구분됩니다. **업데이트 도메인**은 동시에 다시 부팅할 수 있는 VM 그룹과 기본 물리적 하드웨어입니다. 동일한 **장애 도메인**의 VM은 공통의 저장소뿐만 아니라 공통의 전원 및 네트워크 스위치를 공유합니다.  
+
+[New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset)을 사용하여 가용성 집합을 만들 수 있습니다. 이 예제에서 업데이트 및 장애 도메인의 수는 모두 *2*이며 가용성 집합의 이름은 *myAvailabilitySet*입니다.
 
 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroupAvailability -Location EastUS
+New-AzResourceGroup `
+   -Name myResourceGroupAvailability `
+   -Location EastUS
 ```
 
-`-sku aligned` 매개 변수가 있는 [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset)을 사용하여 관리되는 가용성 집합을 만듭니다.
+`-sku aligned` 매개 변수가 있는 [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset)을 사용하여 관리형 가용성 집합을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmAvailabilitySet `
+New-AzAvailabilitySet `
    -Location "EastUS" `
    -Name "myAvailabilitySet" `
    -ResourceGroupName "myResourceGroupAvailability" `
@@ -70,11 +77,10 @@ New-AzureRmAvailabilitySet `
 ```
 
 ## <a name="create-vms-inside-an-availability-set"></a>가용성 집합에 포함된 VM 만들기
-하드웨어 전체에 올바르게 배포되도록 하려면 VM을 가용성 집합 내에 만들어야 합니다. VM을 만든 후에는 가용성 집합에 기존 VM을 추가할 수 없습니다. 
+VM이 하드웨어 전체에 올바르게 배포되도록 하려면 VM을 가용성 집합 내에 만들어야 합니다. VM을 만든 후에는 가용성 집합에 기존 VM을 추가할 수 없습니다. 
 
-한 위치의 하드웨어는 여러 개의 업데이트 도메인 및 장애 도메인으로 구분됩니다. **업데이트 도메인**은 동시에 다시 부팅할 수 있는 VM 그룹과 기본 물리적 하드웨어입니다. 동일한 **장애 도메인**의 VM은 공통의 저장소뿐만 아니라 공통의 전원 및 네트워크 스위치를 공유합니다. 
 
-[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 VM을 만들 때 `-AvailabilitySetName` 매개 변수를 사용하여 가용성 집합의 이름을 지정합니다.
+[New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만들 때 `-AvailabilitySetName` 매개 변수를 사용하여 가용성 집합의 이름을 지정합니다.
 
 먼저 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential)을 사용하여 VM에 대한 관리자 사용자 이름과 암호를 설정합니다.
 
@@ -82,12 +88,12 @@ New-AzureRmAvailabilitySet `
 $cred = Get-Credential
 ```
 
-이제 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 가용성 집합에 2개의 VM을 만듭니다.
+이제 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 가용성 집합에 2개의 VM을 만듭니다.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
 {
-    New-AzureRmVm `
+    New-AzVm `
         -ResourceGroupName "myResourceGroupAvailability" `
         -Name "myVM$i" `
         -Location "East US" `
@@ -100,27 +106,27 @@ for ($i=1; $i -le 2; $i++)
 }
 ```
 
-`-AsJob` 매개 변수는 VM을 백그라운드 작업으로 만들므로 PowerShell 프롬프트가 반환됩니다. `Job` cmdlet을 사용하여 백그라운드 작업의 세부 정보를 볼 수 있습니다. 두 VM을 만들고 구성하는 데 몇 분 정도 소요됩니다. 완료되면 기본 하드웨어에 2개의 가상 머신이 배포되어 있습니다. 
+두 VM을 만들고 구성하는 데 몇 분 정도 소요됩니다. 완료되면 기본 하드웨어에 2개의 가상 머신이 배포되어 있습니다. 
 
-리소스 그룹 > myResourceGroupAvailability > myAvailabilitySet으로 차례로 이동하여 포털에서 가용성 집합을 살펴보면 VM이 2개의 장애 및 업데이트 도메인에 배포되는 방식을 확인할 수 있습니다.
+**리소스 그룹** > **myResourceGroupAvailability** > **myAvailabilitySet**으로 차례로 이동하여 포털에서 가용성 집합을 살펴보면 VM이 2개의 장애 및 업데이트 도메인에 배포되는 방식을 확인할 수 있습니다.
 
 ![포털의 가용성 집합](./media/tutorial-availability-sets/fd-ud.png)
 
 ## <a name="check-for-available-vm-sizes"></a>사용 가능한 VM 크기 확인 
 
-나중에 더 많은 VM을 가용성 집합에 추가할 수 있지만 하드웨어에서 사용 가능한 VM 크기를 알아야 합니다. [Get-AzureRMVMSize](/powershell/module/azurerm.compute/get-azurermvmsize)를 사용하여 하드웨어 클러스터에서 사용 가능한 모든 가용성 집합 크기를 나열합니다.
+나중에 더 많은 VM을 가용성 집합에 추가할 수 있지만 하드웨어에서 사용 가능한 VM 크기를 알아야 합니다. [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize)를 사용하여 하드웨어 클러스터에서 사용 가능한 모든 가용성 집합 크기를 나열합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize `
+Get-AzVMSize `
    -ResourceGroupName "myResourceGroupAvailability" `
    -AvailabilitySetName "myAvailabilitySet"
 ```
 
 ## <a name="check-azure-advisor"></a>Azure Advisor 확인 
 
-또한 Azure Advisor를 사용하여 VM의 가용성을 개선하는 방법에 대한 자세한 정보를 볼 수 있습니다. Azure Advisor를 통해 Azure 배포를 최적화하기 위한 모범 사례를 따를 수 있습니다. 리소스 구성 및 사용량 원격 분석을 수행하고 Azure 리소스의 경제성, 성능, 고가용성 및 보안을 개선하는 데 도움이 되는 해결 방법을 권장합니다.
+또한 Azure Advisor를 사용하여 VM의 가용성을 개선하는 방법에 대한 자세한 정보를 볼 수 있습니다. Azure Advisor는 구성 및 사용량 원격 분석을 수행한 다음, Azure 리소스의 비용 효율성, 성능, 가용성 및 보안을 향상시키는 데 도움이 되는 해결 방법을 권장합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인하고, **모든 서비스**를 선택하고, **Advisor**를 입력합니다. Advisor 대시보드에 선택한 구독에 대한 개인화된 권장 사항이 표시됩니다. 자세한 내용은 [Azure Advisor 시작](../../advisor/advisor-get-started.md)을 참조하세요.
+[Azure Portal](https://portal.azure.com)에 로그인하고, **모든 서비스**를 선택하고, **Advisor**를 입력합니다. Advisor 대시보드에 선택한 구독에 대해 맞춤형 추천이 표시됩니다. 자세한 내용은 [Azure Advisor 시작](../../advisor/advisor-get-started.md)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

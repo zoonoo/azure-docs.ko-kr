@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Databricks에서 Spark를 사용하여 Azure Data Lake Storage Gen2 미리 보기 데이터에 액세스 | Microsoft Docs'
+title: '자습서: Spare를 사용하여 Azure Databricks로 Azure Data Lake Storage Gen2 데이터에 액세스 | Microsoft Docs'
 description: 이 자습서에서는 Azure Databricks 클러스터에서 Spark 쿼리를 실행하여 Azure Data Lake Storage Gen2 스토리지 계정의 데이터에 액세스하는 방법을 보여 줍니다.
 services: storage
 author: dineshmurthy
@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: 533665ebfa3d35ed5f03326cf5614e37056b7713
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813605"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891660"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>자습서: Azure Databricks에서 Spark를 사용하여 Data Lake Storage Gen2 미리 보기 데이터에 액세스
+# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>자습서: Spark를 사용하여 Azure Databricks로 Data Lake Storage Gen2 데이터에 액세스
 
-이 자습서에서는 Azure Databricks 클러스터를 Azure Data Lake Storage Gen2 미리 보기가 설정된 Azure 스토리지 계정에 저장된 데이터에 연결하는 방법을 보여 줍니다. 이 연결을 통해 기본적으로 사용자의 클러스터에서 데이터에 대한 쿼리 및 분석을 실행할 수 있습니다.
+이 자습서에서는 Azure Databricks 클러스터를 Azure Data Lake Storage Gen2가 활성화된 Azure 스토리지 계정에 저장된 데이터에 연결하는 방법을 보여줍니다. 이 연결을 통해 기본적으로 사용자의 클러스터에서 데이터에 대한 쿼리 및 분석을 실행할 수 있습니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -145,7 +145,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. 이 코드 블록에서 이 코드 블록의 `storage-account-name`, `application-id`, `authentication-id` 및 `tenant-id` 자리 표시자 값을 문서의 [스토리지 계정 구성을 보관하기](#config) 및 [서비스 주체 만들기](#service-principal) 섹션에서 단계를 완료했을 때 수집한 값으로 바꿉니다. `file-system-name` 자리 표시자를 파일 시스템에 지정할 이름으로 바꿉니다.
+18. 이 코드 블록에서 이 코드 블록의 `storage-account-name`, `application-id`, `authentication-id` 및 `tenant-id` 자리 표시자 값을 이 문서의 스토리지 계정 구성을 보관하기 및 [서비스 주체 만들기](#service-principal) 섹션에서 단계를 완료했을 때 수집한 값으로 바꿉니다. `file-system-name` 자리 표시자를 파일 시스템에 지정할 이름으로 바꿉니다.
 
 19. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다. 
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: b49c69a488402e593573e7f9e4fda81057519149
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732450"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884463"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 스토리지 계정 만들기
 
@@ -93,7 +93,7 @@ Azure Portal에서 범용 v2 저장소 계정을 만들려면 다음 단계를 �
 6. 저장소 계정을 만들려는 구독을 선택합니다.
 7. **다음: 고급 >** 선택
 8. 기본값으로 설정된 **보안** 및 **가상 네트워크** 필드 아래 값을 유지합니다.
-9. **Data Lake Storage Gen2(미리 보기)** 섹션에서 **계층적 네임스페이스**를 **사용**으로 설정합니다.
+9. **Data Lake Storage Gen2** 섹션에서 **계층적 네임스페이스**를 **사용**으로 설정합니다.
 10. **검토 + 만들기**를 클릭하여 스토리지 계정을 만듭니다.
 
     ![Azure Portal에서 저장소 계정을 표시하는 스크린샷](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)

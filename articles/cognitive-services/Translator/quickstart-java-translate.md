@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java 및 Translator Text REST API를 사용하여 텍스트 문자열을 영어에서 이탈리아어 및 독일어로 번역하는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: a757b766537cc4f1105d77478f4a1d7543c27e40
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e2e7535476965258d02f3cd3db0126a0e8a486ab
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227916"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963627"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-java"></a>빠른 시작: Translator Text API를 사용하여 Java를 통해 문자열 번역
 
@@ -170,6 +170,12 @@ public static void main(String[] args) {
 
 ```console
 gradle build
+```
+
+빌드가 완료되면 다음을 실행합니다.
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>샘플 응답

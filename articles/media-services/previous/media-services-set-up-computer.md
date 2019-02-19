@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 84ca8aff053fdcd7e085392ecf28ca687803a8f9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 108fd47eea88e4fe0bd8e3eb22cb03e1a092a29e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230219"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999150"
 ---
-# <a name="set-up-your-media-services-development-environment"></a>Media Services 개발 환경 설정
+# <a name="set-up-your-media-services-development-environment"></a>Media Services 개발 환경 설정  
 
 다음 단계에서는 Azure Media Services를 사용하여 개발할 때 필요한 필수 조건에 대해 설명합니다.
 
@@ -44,7 +44,7 @@ Azure Media Services API에 연결하려면 [Azure AD 인증을 사용하여 Azu
 
 ## <a name="next-steps"></a>다음 단계
 
-**Azure 코드 샘플** 갤러리: [Azure Media Services 코드 샘플](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)에서 여러 코드 샘플을 찾습니다.
+**Azure 코드 샘플** 갤러리의 [Azure Media Services 코드 샘플](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)에서 여러 코드 샘플을 찾습니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

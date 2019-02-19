@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 46ea73e0a0c2dd14dcafcaa332c7feb1c70445df
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602650"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098888"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>빠른 시작: 클라우드 기반 솔루션으로 산업용 IoT 디바이스 관리
 
@@ -42,7 +42,7 @@ Azure 구독에 솔루션 가속기를 배포할 때 일부 구성 옵션을 설
 
 솔루션 가속기를 배포하는 데 사용하려는 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 이 빠른 시작에서는 **Visual Studio Enterprise** 및 **미국 동부**를 사용합니다. 구독 내에서 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
 
-**솔루션 만들기**를 클릭하여 배포를 시작합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
+**만들기**를 클릭하여 배포를 시작합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
 
 ![연결된 팩터리 솔루션 세부 정보](./media/quickstart-connected-factory-deploy/createform.png)
 
@@ -54,7 +54,7 @@ Azure 구독에 배포가 완료되면 솔루션 타일에 녹색 확인 표시 
 
 ![새 솔루션 선택](./media/quickstart-connected-factory-deploy/choosenew.png)
 
-표시되는 패널에서 연결된 팩터리 솔루션 가속기에 대한 정보를 볼 수 있습니다. **솔루션 대시보드**를 선택하여 연결된 팩터리 솔루션 가속기를 봅니다.
+표시되는 페이지에서 연결된 팩터리 솔루션 가속기에 대한 정보를 볼 수 있습니다. **솔루션 가속기로 이동**을 선택하여 연결된 Factory 솔루션 가속기를 봅니다.
 
 ![솔루션 패널](./media/quickstart-connected-factory-deploy/solutionpanel.png)
 

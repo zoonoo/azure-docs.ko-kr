@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: tutorial
 ms.service: event-hubs-messaging
 ms.custom: mvc
-ms.openlocfilehash: bd76d8a7f3f41a8aa6b2e614d37f361a98ac4efd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e47c2af353a7f365534ba4cf9ce574c16a0ea4ca
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53281316"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233142"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>자습서: Event Hubs 네임스페이스에서 Virtual Networks 통합 및 방화벽 사용
 
@@ -30,9 +30,9 @@ ms.locfileid: "53281316"
 > * Event Hubs 네임스페이스로 방화벽(IP 필터링)을 설정하는 방법
 
 >[!WARNING]
-> Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Service Bus와 상호 작용하지 않도록 방지할 수 있습니다.
+> Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Event Hubs와 상호 작용하지 않도록 방지할 수 있습니다.
 >
-> Virtual Network가 활성화된 경우 본사 제품 통합은 현재 지원되지 않으며 곧 제공될 예정입니다.
+> Virtual Networks를 사용하도록 설정되면 첫 번째 파티 통합이 지원되지 않습니다.
 > Virtual Networks를 사용하지 않는 일반적인 Azure 시나리오 -
 > * Azure 진단 및 로깅
 > * Azure Stream Analytics

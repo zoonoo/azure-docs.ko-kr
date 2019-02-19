@@ -1,22 +1,22 @@
 ---
-title: 텍스트 분석 REST API(Azure의 Microsoft Cognitive Services)에서 핵심 구를 추출하는 방법 | Microsoft Docs
-description: 이 연습 자습서에서는 Azure의 Microsoft Cognitive Services에서 텍스트 분석 REST API를 사용하여 핵심 구를 추출하는 방법을 알아봅니다.
+title: Text Analytics REST API를 사용하여 핵심 구 추출 | Microsoft Docs
+description: Azure Cognitive Services에서 Text Analytics REST API를 사용하여 핵심 구를 추출하는 방법을 알아봅니다.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/12/2018
-ms.author: heidist
-ms.openlocfilehash: bbca745da1fe657c1316d9e4e5fbeeeabfa5e1ef
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216747"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245612"
 ---
-# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>예제: Text Analytics에서 핵심 구를 추출하는 방법
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>예제: Text Analytics를 사용하여 핵심 구를 추출하는 방법
 
 [핵심 구 추출 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)는 구조화되지 않은 텍스트를 평가하고 각 JSON 문서에 대해 핵심 구 목록을 반환합니다. 
 
@@ -29,13 +29,13 @@ ms.locfileid: "55216747"
 
 ## <a name="preparation"></a>준비
 
-핵심 구 추출은 사용할 텍스트를 더 큰 청크로 분할하여 제공할 때 가장 적합합니다. 이는 작은 텍스트 블록에서 더 나은 성능을 수행하는 감정 분석과는 반대입니다. 두 작업에서 최상의 결과를 얻으려면 이에 따라 입력을 다시 구성하는 것이 좋습니다.
+핵심 구 추출은 사용할 텍스트를 더 많이 제공할 때 가장 적합합니다. 이는 작은 양의 텍스트에서 더 효율적으로 수행되는 감정 분석과는 반대입니다. 두 작업에서 최상의 결과를 얻으려면 이에 따라 입력을 다시 구성하는 것이 좋습니다.
 
 id, text, language 형식의 JSON 문서가 있어야 합니다.
 
 문서 크기는 문서당 5,000자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 다음 예제는 핵심 구 추출에 제출할 수 있는 콘텐츠에 대한 설명입니다.
 
-```
+```json
     {
         "documents": [
             {
@@ -96,7 +96,7 @@ id, text, language 형식의 JSON 문서가 있어야 합니다.
 
 핵심 구 추출에 대한 출력 예제는 다음과 같습니다.
 
-```
+```json
     "documents": [
         {
             "keyPhrases": [

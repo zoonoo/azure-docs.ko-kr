@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java 및 Translator Text API를 사용하여 문장 길이를 확인하는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
-ms.openlocfilehash: 26c1d8c703f8bb03d06e742d52d639cf3dd24634
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e15934fb849e38d69772117a7578289a5843801a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208400"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963474"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>빠른 시작: Translator Text API를 사용하여 Java를 통해 문장 길이 확인
 
@@ -171,6 +171,12 @@ public static void main(String[] args) {
 
 ```console
 gradle build
+```
+
+빌드가 완료되면 다음을 실행합니다.
+
+```console
+gradle run
 ```
 
 ## <a name="sample-response"></a>샘플 응답

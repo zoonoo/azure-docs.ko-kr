@@ -5,15 +5,15 @@ services: load balancer
 author: KumudD
 ms.service: load-balancer
 ms.topic: include
-ms.date: 01/09/2018
+ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: c4989016d31880e1c1990c0eb46091c8f50018bc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 1d3ce900f7354b31e999c12b8e1eb0e23d391fcb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54211876"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56078589"
 ---
 | | 표준 SKU | 기본 SKU |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "54211876"
 | HA 포트 | 내부 부하 분산 장치 | 사용할 수 없음. |
 | 기본적으로 보안 적용 | 공용 IP, 공용 Load Balancer 엔드포인트, 내부 Load Balancer 엔드포인트는 네트워크 보안 그룹에 의해 허용 목록에 추가되지 않는 한 인바운드 흐름에 대해 닫힙니다. | 기본적으로 열려 있는 선택적 네트워크 보안 그룹입니다. |
 | [아웃바운드 연결](../articles/load-balancer/load-balancer-outbound-connections.md) | [아웃바운드 규칙](../articles/load-balancer/load-balancer-outbound-rules-overview.md)을 사용하여 풀 기반 아웃바운드 NAT를 명시적으로 정의할 수 있습니다. 부하 분산 규칙별 옵트아웃이 적용되는 여러 프런트 엔드를 사용할 수 있습니다. 가상 머신, 가용성 세트, Virtual Machine Scale Set가 아웃바운드 연결을 사용하도록 _반드시_ 아웃바운드 시나리오를 명시적으로 만들어야 합니다.  Virtual Network 서비스 엔드포인트에 아웃바운드 연결 없이 연결할 수 있으며, 처리된 데이터 수는 고려되지 않습니다.  VNet 서비스 엔드포인트로 사용할 수 없는 Azure PaaS 서비스를 포함하는 모든 공용 IP 주소는 아웃바운드 연결을 통해 연결해야 하며, 처리된 데이터 수도 고려되어야 합니다. 내부 Load Balancer만 가상 머신, 가용성 세트 또는 Virtual Machine Scale Set에 작동할 경우 기본 SNAT를 통한 아웃바운드 연결은 사용할 수 없습니다. 대신 [아웃바운드 규칙](../articles/load-balancer/load-balancer-outbound-rules-overview.md)을 사용합니다. 아웃바운드 SNAT 프로그래밍은 인바운드 부하 분산 규칙의 프로토콜을 기준으로 하는 전송 프로토콜 기준 방식입니다. | 여러 프런트 엔드가 있을 때 임의로 선택되는 단일 프런트 엔드입니다.  내부 Load Balancer만 가상 머신, 가용성 세트 또는 Virtual Machine Scale Set에 작동할 경우 기본 SNAT가 사용됩니다. |
-| [아웃바운드 규칙](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | 공용 IP 주소, 공용 IP 접두사 또는 둘 다, 구성 가능한 아웃바운드 유휴 시간 제한, 사용자 지정 SNAT 포트 할당을 사용하는 선언적 아웃바운드 NAT 구성 | 사용할 수 없음. |
+| [아웃바운드 규칙](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | 공용 IP 주소, 공용 IP 접두사 또는 둘 다, 구성 가능한 아웃바운드 유휴 시간 제한(4-120분), 사용자 지정 SNAT 포트 할당을 사용하는 선언적 아웃바운드 NAT 구성 | 사용할 수 없음. |
 |  [유휴 상태의 TCP 재설정](../articles/load-balancer/load-balancer-tcp-reset.md) | 규칙에서 유휴 시간 제한에 도달하면 TCP 재설정(TCP RST) 사용 | 사용할 수 없음 |
 | [여러 프런트 엔드](../articles/load-balancer/load-balancer-multivip-overview.md) | 인바운드 및 [아웃바운드](../articles/load-balancer/load-balancer-outbound-connections.md) | 인바운드 전용 |
 | 관리 작업 | 대부분 작업을 30초 이내에 수행 | 일반적으로 60-90+초. |

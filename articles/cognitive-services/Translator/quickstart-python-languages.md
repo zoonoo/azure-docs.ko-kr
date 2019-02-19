@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python과 함께 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 6f52df9166da371b38069138bc4389a9be6b0121
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 099485f37cc188307b6c04343ef174740acf07cb
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692225"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891582"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python을 통해 지원되는 언어 목록 가져오기
 
 이 빠른 시작에서는 Python 및 Translator Text REST API를 사용하여 지원되는 언어의 목록을 반환하는 GET 요청을 만드는 방법을 알아봅니다.
-
-이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작에는 다음이 필요합니다.
 
 * Python 2.7.x 또는 3.x
-* Translator Text에 대한 Azure 구독 키
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
@@ -44,25 +41,7 @@ import os, requests, uuid, json
 
 첫 번째 주석은 Python 해석기가 UTF-8 인코딩을 사용하라고 알려줍니다. 그런 다음, 필요한 모듈을 가져와 환경 변수에서 구독 키를 읽고 http 요청을 구성한 다음, 고유한 ID를 만들고 Translator Text API에서 반환하는 JSON 응답을 처리합니다.
 
-## <a name="set-the-subscription-key-base-url-and-path"></a>구독 키, 기본 url 및 경로를 설정합니다.
-
-이 샘플에서는 환경 변수 `TRANSLATOR_TEXT_KEY`에서 Translator Text 구독 키를 읽으려고 합니다. 환경 변수를 잘 모르는 경우에는 `subscriptionKey`를 문자열로 설정하고 조건문을 주석으로 처리할 수 있습니다.
-
-이 코드를 프로젝트에 복사합니다.
-
-```python
-# Checks to see if the Translator Text subscription key is available
-# as an environment variable. If you are setting your subscription key as a
-# string, then comment these lines out.
-if 'TRANSLATOR_TEXT_KEY' in os.environ:
-    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
-else:
-    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
-    exit()
-# If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
-```
+## <a name="set-the-base-url-and-path"></a>기준 URL 및 경로 설정
 
 Translator Text 글로벌 엔드포인트가 `base_url`로 설정되어 있습니다. `path`는 `languages` 루트를 설정하며 API의 버전 3을 실행하기 원한다는 것을 식별합니다.
 
@@ -77,13 +56,12 @@ constructed_url = base_url + path
 
 ## <a name="add-headers"></a>헤더 추가
 
-요청을 인증하는 가장 쉬운 방법은 구독 키에서 `Ocp-Apim-Subscription-Key` 헤더로 전달하는 것이며, 이 샘플에서 이 방법을 사용할 것입니다. 대안으로, 액세스 토큰에 구독 키를 대체하고 `Authorization` 헤더로서 액세스 토큰을 전달하여 요청의 유효성을 검사할 수 있습니다. 자세한 내용은 [인증](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)을 참조하세요.
+지원되는 언어를 가져오는 요청에는 인증이 필요하지 않습니다. `Content-type`을 `application/json`으로 설정하고 `X-ClientTraceId`를 추가하여 요청을 고유하게 식별합니다.
 
 이 코드 조각을 프로젝트에 복사합니다.
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }

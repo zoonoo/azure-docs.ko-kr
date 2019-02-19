@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/27/2018
+ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c5fa818a7f0d25a91ea6d272c30384de4c1765b3
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: aa8f4e188761c50391cd2ead49ae8d8b9081188f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887107"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983494"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM에 SQL, IIS, .NET 스택 설치
 
@@ -32,20 +32,22 @@ ms.locfileid: "54887107"
 > * SQL Server를 실행하는 VM 만들기
 > * SQL Server 확장 설치
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 AzureRM.Compute 모듈 버전 5.7.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM.Compute`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
+Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
+
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="create-a-iis-vm"></a>IIS VM 만들기 
 
-이 예제에서는 PowerShell Cloud Shell에서 [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) cmdlet을 사용하여 Windows Server 2016 VM을 빠르게 만든 다음, IIS와 .NET Framework를 설치합니다. IIS 및 SQL VM은 리소스 그룹 및 가상 네트워크를 공유하므로 그러한 이름의 변수를 만듭니다.
+이 예제에서는 PowerShell Cloud Shell에서 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet을 사용하여 Windows Server 2016 VM을 빠르게 만든 다음, IIS와 .NET Framework를 설치합니다. IIS 및 SQL VM은 리소스 그룹 및 가상 네트워크를 공유하므로 그러한 이름의 변수를 만듭니다.
 
 
 ```azurepowershell-interactive
 $vmName = "IISVM"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $resourceGroup `
     -Name $vmName `
     -Location "East US" `
@@ -57,10 +59,10 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-[Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet으로 사용자 지정 스크립트 확장을 사용하여 IIS 및 .NET Framework를 설치합니다.
+[Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet으로 사용자 지정 스크립트 확장을 사용하여 IIS 및 .NET Framework를 설치합니다.
 
 ```azurepowershell-interactive
-Set-AzureRmVMExtension `
+Set-AzVMExtension `
     -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
     -VMName $vmName `
@@ -73,29 +75,29 @@ Set-AzureRmVMExtension `
 
 ## <a name="create-another-subnet"></a>다른 서브넷 만들기
 
-SQL VM에 대한 두 번째 서브넷을 만듭니다. [Get-AzureRmVirtualNetwork]{/powershell/module/azurerm.network/get-azurermvirtualnetwork}를 사용하여 vNet을 가져옵니다.
+SQL VM에 대한 두 번째 서브넷을 만듭니다. [Get-AzVirtualNetwork]{/powershell/module/az.network/get-azvirtualnetwork}를 사용하여 vNet을 가져옵니다.
 
 ```azurepowershell-interactive
-$vNet = Get-AzureRmVirtualNetwork `
+$vNet = Get-AzVirtualNetwork `
    -Name $vNetName `
    -ResourceGroupName $resourceGroup
 ```
 
-[Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)를 사용하여 서브넷의 구성을 만듭니다.
+[Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig)를 사용하여 서브넷의 구성을 만듭니다.
 
 
 ```azurepowershell-interactive
-Add-AzureRmVirtualNetworkSubnetConfig `
+Add-AzVirtualNetworkSubnetConfig `
    -AddressPrefix 192.168.0.0/24 `
    -Name mySQLSubnet `
    -VirtualNetwork $vNet `
    -ServiceEndpoint Microsoft.Sql
 ```
 
-[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)를 사용하여 새 서브넷 구성으로 vNet을 업데이트합니다.
+[Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork)를 사용하여 새 서브넷 구성으로 vNet을 업데이트합니다.
    
 ```azurepowershell-interactive   
-$vNet | Set-AzureRmVirtualNetwork
+$vNet | Set-AzVirtualNetwork
 ```
 
 ## <a name="azure-sql-vm"></a>Azure SQL VM
@@ -104,7 +106,7 @@ $vNet | Set-AzureRmVirtualNetwork
 
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $resourceGroup `
     -Name "mySQLVM" `
     -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
@@ -116,10 +118,10 @@ New-AzureRmVm `
     -OpenPorts 3389,1401 
 ```
 
-[Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension)을 사용하여 [SQL Server 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)을 SQL VM에 추가합니다.
+[Set-AzVMSqlServerExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsqlserverextension)을 사용하여 [SQL Server 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)을 SQL VM에 추가합니다.
 
 ```azurepowershell-interactive
-Set-AzureRmVMSqlServerExtension `
+Set-AzVMSqlServerExtension `
    -ResourceGroupName $resourceGroup  `
    -VMName mySQLVM `
    -Name "SQLExtension" `

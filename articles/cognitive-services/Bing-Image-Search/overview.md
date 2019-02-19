@@ -4,31 +4,28 @@ titleSuffix: Azure Cognitive Services
 description: Bing Image Search API를 사용하면 애플리케이션에서 Bing의 인지 이미지 검색 기능을 사용할 수 있습니다. API를 사용하여 사용자 검색 쿼리를 보내면 Bing 이미지와 비슷한 관련 고품질 이미지를 가져와서 표시할 수 있습니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: overview
-ms.date: 10/11/2017
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 4ae9c0c1fb6cd341e812f9e8b35eaff789637561
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765649"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237317"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Bing Image Search API란?
 
-Bing Image Search API를 사용하면 애플리케이션에서 Bing의 인지 이미지 검색 기능을 사용할 수 있습니다. API를 사용하여 사용자 검색 쿼리를 보내면 [Bing 이미지](https://www.bing.com/images)와 비슷한 관련 고품질 이미지를 가져와서 표시할 수 있습니다.
+Bing Image Search API를 사용하면 애플리케이션에서 Bing의 이미지 검색 기능을 사용할 수 있습니다. 검색 쿼리를 API로 보내면 [bing.com/images](https://www.bing.com/images)와 비슷한 고품질 이미지를 얻을 수 있습니다.
 
-Bing Image Search API는 이미지 전용 검색 결과를 제공합니다. 다른 형식의 웹 콘텐츠에 대해서는 [Bing Web Search API](../bing-web-search/search-the-web.md), [Video Search API](https://docs.microsoft.com/azure/cognitive-services/Bing-Video-Search) 및 [News Search API](https://review.docs.microsoft.com/azure/cognitive-services/bing-news-search)를 사용합니다.
+Bing Image Search API에서 이미지 전용 검색 결과를 제공하지만, 다른 사용 가능한 [Bing Search API](../bing-web-search/bing-api-comparison.md)를 결합하거나 사용하여 웹에서 다양한 형식의 콘텐츠를 찾을 수 있습니다.
 
 ## <a name="bing-image-search-features"></a>Bing Image Search 기능
-
-Bing Image Search는 주로 검색 쿼리에서 관련 이미지를 찾아서 반환하지만, 이 서비스는 웹에서 지능적이고 집중적인 이미지 검색을 위한 몇 가지 추가 기능도 제공합니다.
-
 
 | 기능                                                                                                                                                                                 | 설명                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,10 +57,12 @@ API를 호출할 준비가 되면 [Cognitive Services API 계정](https://docs.m
 
 ## <a name="see-also"></a>참고 항목
 
-* [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 참조 섹션에는 이미지 기반 검색 결과를 요청하는 데 사용할 수 있는 엔드포인트, 헤더, API 응답 및 쿼리 매개 변수에 대한 정의 및 정보가 있습니다.
+* Bing Search API에 대한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
+
+* [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) 참조 섹션에는 API의 엔드포인트, 헤더, API 응답 및 쿼리 매개 변수에 대한 정보가 나와 있습니다.
 
 * [Bing 사용 및 표시 요구 사항](./useanddisplayrequirements.md)에서는 Bing 검색 API를 통해 획득한 콘텐츠와 정보의 허용 가능한 용도를 지정하고 있습니다.
 
-* [Bing Image Search API를 사용하여 웹에서 이미지 가져오기](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) 항목에서는 웹에서 이미지를 검색하고 가져오는 방법에 대해 설명합니다.
+* [Bing Image Search API를 사용하여 웹에서 이미지 가져오기](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) 문서에서는 웹에서 이미지를 검색하고 가져오는 방법에 대해 설명합니다.
 
-* [검색 쿼리 보내기 및 사용](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) 항목에서는 검색 쿼리를 작성, 사용자 지정 및 피벗하는 방법에 대해 설명합니다.
+* [검색 쿼리 보내기 및 사용](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) 문서에서는 검색 쿼리를 만들고, 사용자 지정하고, 피벗하는 방법에 대해 설명합니다.

@@ -4,7 +4,7 @@ description: 이 자습서에서는 Azure 포털을 사용하여 단일 비트 �
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: d53e2e76253bdccfeb43f6c718d9fe3ae7f3f21a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 28210c06892097abb831f3f6f27b8c68652a8957
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251988"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003996"
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Azure Media Services를 사용하여 Azure Portal로 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행하는 방법
+# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal-legacy"></a>Media Services를 사용하여 Azure Portal(레거시)로 다중 비트 전송률 스트림을 만드는 라이브 스트리밍을 수행하는 방법
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -40,7 +40,7 @@ ms.locfileid: "51251988"
 다음은 일반적인 라이브 스트리밍 애플리케이션을 만드는 일반적인 단계입니다.
 
 > [!NOTE]
-> 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 이 기간보다 긴 시간 동안 채널을 실행해야 하는 경우 amslived@microsoft.com에 문의하세요.
+> 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 더 시간 동안 채널을 실행해야 하는 경우 amslived@microsoft.com에 문의하세요.
 > 
 > 
 

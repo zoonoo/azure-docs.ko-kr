@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: a70e83737c6b56aee3279375ec653f12810b13b4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 3940c2f239a4354cfb44a499f7375f4ba34f8aa8
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749817"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892030"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스 시작하기
 
@@ -27,7 +27,7 @@ ms.locfileid: "55749817"
 
 다음 빠른 시작에서는 관리되는 인스턴스를 빠르게 만들고, 클라이언트 애플리케이션에 가상 머신 또는 지점과 사이트 간 VPN 연결을 구성하고, `.bak` 파일을 사용하여 새로운 관리되는 인스턴스로 데이터베이스를 복원할 수 있게 해줍니다.
 
-- [Azure Portal을 사용하여 관리되는 인스턴스 만들기](sql-database-managed-instance-get-started.md). Azure Portal에서 필요한 매개 변수(사용자 이름/암호, 코어 수, 최대 스토리지)를 구성하고, 네트워킹 세부 정보 및 인프라 요구 사항에 대해 알아볼 필요 없이 Azure 네트워크 환경을 자동으로 만들 수 있습니다. 관리되는 인스턴스를 만들도록 허용된 [구독 유형](sql-database-managed-instance-resource-limits.md#supported-subscription-types)만 있으면 됩니다. 사용하려는 자체 네트워크가 있거나 네트워크를 사용자 지정하려는 경우에는 관리되는 인스턴스에 대한 [네트워크 환경 구성](#configure-network-environment) 방법을 참조하세요.
+- [Azure Portal을 사용하여 관리되는 인스턴스 만들기](sql-database-managed-instance-get-started.md). Azure Portal에서 필요한 매개 변수(사용자 이름/암호, 코어 수, 최대 스토리지)를 구성하고, 네트워킹 세부 정보 및 인프라 요구 사항에 대해 알아볼 필요 없이 Azure 네트워크 환경을 자동으로 만들 수 있습니다. 관리되는 인스턴스를 만들도록 허용된 [구독 유형](sql-database-managed-instance-resource-limits.md#supported-subscription-types)만 있으면 됩니다. 사용하려는 자체 네트워크가 있거나 네트워크를 사용자 지정하려는 경우에는 관리되는 인스턴스에 대한 네트워크 환경을 구성하는 방법을 참조하세요.
 - 관리되는 인스턴스는 공개 엔드포인트를 사용하여 자체 VNet에 생성됩니다. 클라이언트 애플리케이션 액세스의 경우 동일한 VNet(여러 서브넷)에 VM을 만들거나 다음과 같은 빠른 시작 중 하나를 사용하여 클라이언트 컴퓨터에서 VNet에 대한 지점과 사이트 간 VPN 연결을 만들 수 있습니다.
   - 클라이언트 애플리케이션 연결에 사용할 [관리되는 인스턴스 VNet의 Azure Virtual Machine](sql-database-managed-instance-configure-vm.md)(SQL Server Management Studio 포함)을 만듭니다.
   - SQL Server Management Studio 및 기타 클라이언트 연결 애플리케이션이 있는 클라이언트 컴퓨터에서 [관리되는 인스턴스에 대한 지점과 사이트 간 VPN 연결](sql-database-managed-instance-configure-p2s.md)을 설정합니다. 이는 관리되는 인스턴스 및 VNet 연결에 대한 두 가지 옵션입니다.
@@ -44,7 +44,7 @@ ms.locfileid: "55749817"
 
 이 빠른 시작을 사용하면 데이터베이스 백업을 신속하게 만들고, 구성하고, 관리되는 인스턴스로 복원할 수 있습니다. 일부의 경우, 관리되는 인스턴스 배포와 필요한 네트워킹 환경을 사용자 지정하거나 자동화해야 합니다. 이러한 시나리오는 아래 설명되어 있습니다.
 
-## <a name="customizing-network-environment"></a>네트워크 환경 사용자 지정
+## <a name="customize-network-environment"></a>네트워크 환경 사용자 지정
 
 Azure Portal을 사용하여 인스턴스를 만드는 경우 VNet/서브넷을 자동으로 구성할 수 있지만, VNet과 서브넷의 매개 변수를 구성할 수 있기 때문에 관리되는 인스턴스를 만들기 전에 VNet/서브넷을 만드는 것이 좋습니다. 네트워크 환경을 만들고 구성하는 가장 쉬운 방법은 관리되는 인스턴스를 위한 네트워크와 서브넷을 만들고 구성하는 [Azure Resource 배포](sql-database-managed-instance-create-vnet-subnet.md) 템플릿을 사용하는 것입니다. Azure Resource Manager 배포 단추를 누르고 양식에 매개 변수를 입력하기만 하면 됩니다. 
 

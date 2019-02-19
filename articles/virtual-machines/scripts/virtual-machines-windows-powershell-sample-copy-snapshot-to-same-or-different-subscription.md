@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
-ms.openlocfilehash: 2905747b6ece93f018bd6ef67fae1b23ec9c9d5d
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8447ffc27068fbbdf5793acdc51bb9724ee41cb8
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41918144"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55976727"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>PowerShell을 사용하여 같은 구독 또는 다른 구독에 관리 디스크의 스냅숏 복사
 
@@ -29,6 +29,8 @@ ms.locfileid: "41918144"
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -41,8 +43,8 @@ ms.locfileid: "41918144"
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzureRmSnapshotConfig](/powershell/module/azurerm.compute/New-AzureRmSnapshotConfig) | 스냅숏 생성에 사용되는 스냅숏 구성을 만듭니다. 부모 스냅숏의 리소스 ID와 부모 스냅숏과 같은 위치를 포함합니다.  |
-| [New-AzureRmSnapshot](/powershell/module/azurerm.compute/New-AzureRmDisk) | 매개 변수로 전달된 스냅숏 구성, 스냅숏 이름 및 리소스 그룹 이름을 사용하여 스냅숏을 만듭니다. |
+| [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | 스냅숏 생성에 사용되는 스냅숏 구성을 만듭니다. 부모 스냅숏의 리소스 ID와 부모 스냅숏과 같은 위치를 포함합니다.  |
+| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | 매개 변수로 전달된 스냅숏 구성, 스냅숏 이름 및 리소스 그룹 이름을 사용하여 스냅숏을 만듭니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

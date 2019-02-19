@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 01/24/2019
-ms.openlocfilehash: c8b97ed5a1e1131e073783300a233ef72ef34110
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 57de2d9c63a4185997ac86056b9e3189ad66e478
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818654"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893138"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -153,7 +153,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    ```
 
-6. 이 코드 블록에서 이 코드 블록의 `application-id`, `authentication-id` 및 `tenant-id` 자리 표시자 값을 [스토리지 계정 구성을 보관하기](#config)의 단계를 완료했을 때 수집한 값으로 바꿉니다. `storage-account-name` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+6. 이 코드 블록에서 이 코드 블록의 `application-id`, `authentication-id` 및 `tenant-id` 자리 표시자 값을 스토리지 계정 구성을 보관하기의 단계를 완료했을 때 수집한 값으로 바꿉니다. `storage-account-name` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
 7. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 

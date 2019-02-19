@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c79f25eff553c359d969cd80a10eabbaaf50067d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 25335081e594c64b8d8cee02eebec6119e609618
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080751"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891501"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java 웹 애플리케이션 모니터링 시작
 
@@ -82,6 +82,8 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 4. **Application Insights로 원격 분석 사용**을 선택하고, Java 애플리케이션에 연결하려는 Application Insights 리소스 및 관련 **계측 키**를 선택합니다.
 
    ![Eclipse Azure 구성 메뉴](./media/java-quick-start/0007-j.png)
+
+5. Application Insights 플러그인을 구성한 후에는 애플리케이션을 [게시/다시 게시](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#publish-the-web-app-to-azure)해야 원격 분석 데이터 보내기를 시작할 수 있습니다.
 
 > [!NOTE]
 > Java용 Application Insights SDK는 라이브 메트릭을 캡처하고 시각화할 수 있지만, 처음으로 원격 분석 수집을 사용하도록 설정하면 포털에 데이터가 표시되기까지 몇 분이 걸릴 수 있습니다. 이 응용 프로그램이 트래픽이 적은 테스트 앱인 경우 활성 요청이나 작업이 있을 때만 대부분의 메트릭이 캡처됩니다.

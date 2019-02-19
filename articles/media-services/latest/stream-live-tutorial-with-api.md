@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 49598eb8579e20dd20ca63d11529ba106a510102
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 71ddf1d70953b721911a7315ab6875dd41a9a4db
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170524"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894176"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>자습서: .NET을 사용하여 Media Services v3로 라이브 스트리밍
 
@@ -166,7 +166,7 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 ## <a name="watch-the-event"></a>이벤트 보기
 
-이벤트를 시청하려면 [스트리밍 로케이터 만들기](#create-a-streaminglocator)에서 설명된 코드를 실행할 때 가져온 스트리밍 URL을 복사하고 원하는 플레이어를 사용합니다. [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 http://ampdemo.azureedge.net에서 스트림을 테스트할 수 있습니다. 
+이벤트를 시청하려면 스트리밍 로케이터 만들기에서 설명된 코드를 실행할 때 가져온 스트리밍 URL을 복사하고 원하는 플레이어를 사용합니다. [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 http://ampdemo.azureedge.net에서 스트림을 테스트할 수 있습니다. 
 
 라이브 이벤트가 중지되면 이벤트를 주문형 콘텐츠로 자동으로 변환합니다. 이벤트를 중단 및 삭제한 다음에도 자산을 삭제하지 않는 한 사용자는 주문형 비디오로 보관된 콘텐츠를 스트림할 수 있습니다. 자산을 이벤트에서 사용하는 경우 삭제할 수 없습니다. 이벤트를 먼저 삭제해야 합니다. 
 

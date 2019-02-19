@@ -5,19 +5,19 @@ description: 이 빠른 시작을 사용하여 PHP를 통해 Bing Image Search R
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 9/07/2018
+ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7015d22222113c1b38c9fd43f218f243d9be7bbd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cca6fba401d8673cf97897c24a9d6de2329f19a4
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181540"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232492"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>빠른 시작: Bing Image Search REST API 및 PHP를 사용하여 이미지 검색
 
@@ -49,7 +49,7 @@ ms.locfileid: "55181540"
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-a-http-request"></a>HTTP 요청 생성 및 수행
+## <a name="construct-and-perform-an-http-request"></a>HTTP 요청 생성 및 수행
 
 1. 마지막 단계의 변수를 사용하여 Image Search API에 대한 HTTP 요청을 준비합니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "55181540"
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-2. 웹 요청을 수행하고 JSON 응답을 가져옵니다.
+2. 웹 요청을 보내고 JSON 응답을 가져옵니다.
 
     ```php
     $context = stream_context_create($options);
@@ -81,7 +81,7 @@ ms.locfileid: "55181540"
         return array($headers, $result);
     ```
 
-## <a name="sample-json-response"></a>샘플 JSON 응답
+## <a name="example-json-response"></a>예제 JSON 응답
 
 Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.
 
@@ -125,7 +125,7 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -137,7 +137,8 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
 ## <a name="see-also"></a>참고 항목
 
 * [Bing Image Search란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* Bing Search API에 대한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
 * [무료 Cognitive Services 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: b1aa60b028efb4bf4820f1f084a7cf0eea6e9639
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bf4d2d18971948e15cca2e1b91d9d55a73cefe4b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808122"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56187919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>자습서: Symantec WSS(Web Security Service)와 Azure Active Directory 통합
 
@@ -79,7 +80,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 Symantec WSS(Web Securit
 Symantec WSS(Web Security Service)에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Symantec WSS(Web Security Service) Single Sign-On 구성](#configure-symantec-web-security-service-(wss)-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+2. **Symantec WSS(Web Security Service) Single Sign-On 구성** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
 5. **[Symantec WSS(Web Security Service) 테스트 사용자 만들기](#create-symantec-web-security-service-wss-test-user)** - Azure AD 표현과 연결된 Britta Simon에 해당하는 사용자를 Symantec WSS(Web Security Service)에 만듭니다.

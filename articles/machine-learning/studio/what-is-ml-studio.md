@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: bb01db14cec73b8c5668915a9eaab5e7728724df
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77c69e7e655770ab912e6ee25183e760f972504d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469122"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243691"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 Microsoft Azure Machine Learning Studio는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트, 배포할 수 있는 공동 끌어서 놓기 도구입니다. Machine Learning Studio는 Excel과 같은 BI 도구 또는 사용자 지정 앱에서 쉽게 사용할 수 있는 웹 서비스로 모델을 게시합니다.
@@ -36,11 +36,6 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 **Azure Machine Learning Studio**에서는 예측 분석 모델을 간편하게 빌드, 테스트, 반복할 수 있는 대화형 시각적 작업 영역을 제공합니다. ***데이터 세트***와 분석 ***모듈***을 대화형 캔버스로 끌어서 놓고 함께 연결하여 ***실험***을 생성하고 Machine Learning 스튜디오에서 실행합니다. 모델 디자인을 반복하려면 실험을 편집하고 필요에 따라 복사본을 저장하고 실험을 다시 실행합니다. 준비가 되면 ***학습 실험***을 ***예측 실험***으로 변환한 다음 다른 사용자가 모델에 액세스할 수 있도록 ***웹 서비스***로 게시할 수 있습니다.
 
 프로그래밍이 필요하지 않고 데이터 세트와 모듈을 시각적으로 연결하면 예측 분석 모델을 구성할 수 있습니다.
-
-> [!TIP]
-> Machine Learning Studio의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure Machine Learning Studio 기능 개요](studio-overview-diagram.md)를 참조하세요.
->
->
 
 ![Azure Machine Learning Studio 다이어그램: 실험을 만들고, 여러 원본에 대한 데이터 읽고, 점수 데이터를 쓰고, 모델을 작성합니다.][ml-studio-overview]
 
@@ -66,7 +61,7 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 * **설정** - 계정과 리소스를 구성하는 데 사용할 수 있는 설정 모음입니다.
 
 ### <a name="gallery"></a>갤러리
-**갤러리** 탭을 클릭하면 **[Azure AI Gallery](http://gallery.cortanaintelligence.com/)** 로 이동합니다. 갤러리는 데이터 과학자 및 개발자 커뮤니티가 Cortana Intelligence Suite의 구성 요소를 사용하여 만든 솔루션을 공유하는 곳입니다.
+**갤러리** 탭을 클릭하면 **[Azure AI Gallery](http://gallery.azure.ai/)** 로 이동합니다. 갤러리는 데이터 과학자 및 개발자 커뮤니티가 Cortana Intelligence Suite의 구성 요소를 사용하여 만든 솔루션을 공유하는 곳입니다.
 
 갤러리에 대한 자세한 내용은 [Azure AI Gallery의 솔루션 공유 및 검색](gallery-how-to-use-contribute-publish.md)을 참조하세요.
 
@@ -83,7 +78,7 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 
 간단한 실험을 만드는 예는 [Azure Machine Learning Studio에서 간단한 실험 만들기](create-experiment.md)를 참조하세요.
 
-예측 분석 솔루션을 만드는 자세한 연습 과정은 [Azure Machine Learning을 사용한 예측 솔루션 개발](walkthrough-develop-predictive-solution.md)을 참조하세요.
+예측 분석 솔루션을 만드는 자세한 연습 과정은 [Azure Machine Learning을 사용한 예측 솔루션 개발](tutorial-part1-credit-risk.md)을 참조하세요.
 
 ### <a name="datasets"></a>데이터 세트
 데이터 세트는 모델링 프로세스에서 사용할 수 있도록 Machine Learning Studio에 업로드된 데이터입니다. Machine Learning Studio에는 실험에 사용할 다양한 샘플 데이터 세트가 포함되고, 필요할 때 추가 데이터 세트를 업로드할 수 있습니다. 포함된 데이터 세트의 몇 가지 예제는 다음과 같습니다.
@@ -162,7 +157,7 @@ Machine Learning Studio에 포함된 샘플 데이터 세트의 목록은 [Azure
 * **샘플**: 전체를 대표하는 데이터 세트의 부분입니다. 샘플을 임의로 선택하거나 데이터 집합의 특정 기능에 따라 선택할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[단계별 자습서](create-experiment.md)를 사용하거나 [샘플을 기반으로 작업](sample-experiments.md)하여 예측 분석 및 기계 학습의 기본 사항을 알아볼 수 있습니다.
+[단계별 빠른 시작](create-experiment.md)을 사용하거나 [샘플 기반 빌드](sample-experiments.md)를 통해 예측 분석 및 기계 학습에 대한 기본 사항을 알아볼 수 있습니다.
 
 
 <!-- Module References -->

@@ -4,26 +4,24 @@ titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 C#을 통해 Bing Image Search REST API로 이미지 검색 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 9/07/2018
+ms.date: 02/06/2019
 ms.author: aahi
-ms.openlocfilehash: af67ca78921e677283148c4cb0350162eeb225f5
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7051c8e6cc6464e8ff274e92bdb543638c9af46a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181983"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238191"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>빠른 시작: Bing Image Search REST API 및 C#을 사용하여 이미지 검색
 
-이 빠른 시작을 사용하여 Bing Image Search API를 처음 호출하고 JSON 응답에서 결과를 확인합니다. 이 간단한 C# 애플리케이션은 HTTP 이미지 검색 쿼리를 API에 보내고 반환된 첫 번째 이미지의 URL을 표시합니다.
+이 빠른 시작을 사용하여 검색 요청을 Bing Image Search API로 보낼 수 있습니다. 이 C# 애플리케이션에서는 검색 쿼리를 API로 보내고 결과에 첫 번째 이미지의 URL을 표시합니다. 이 애플리케이션은 C#으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
-이 애플리케이션은 C#에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
-
-이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs)에서 사용할 수 있습니다.
+이 샘플에 대한 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
@@ -31,8 +29,6 @@ ms.locfileid: "55181983"
 * Linux/MacOS를 사용하는 경우 이 애플리케이션은 [Mono](http://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
-
-[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 
@@ -101,7 +97,7 @@ namespace BingSearchApisQuickstart
 
 `BingImageSearch` 메서드에서 다음 단계를 수행합니다.
 
-1. 검색 요청의 URI를 생성합니다. 검색 용어 `SearchTerm`는 문자열에 추가되기 전에 형식이 지정되어야 합니다.
+1. 검색 요청의 URI를 생성합니다. `SearchTerm` 검색 용어는 문자열에 추가되기 전에 형식을 지정해야 합니다.
 
     ```csharp
     static SearchResult BingImageSearch(string SearchTerm){
@@ -110,7 +106,7 @@ namespace BingSearchApisQuickstart
     //...
     ```
 
-2. 웹 요청을 수행하고 응답을 JSON 문자열로 가져옵니다.
+2. 웹 요청을 보내고 응답을 JSON 문자열로 가져옵니다.
 
     ```csharp
     WebRequest request = WebRequest.Create(uriQuery);
@@ -157,7 +153,7 @@ namespace BingSearchApisQuickstart
     ```  
 
 
-## <a name="json-response"></a>JSON 응답
+## <a name="example-json-response"></a>예제 JSON 응답
 
 Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답은 단일 결과를 표시하도록 잘렸습니다.
 
@@ -201,7 +197,7 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
         },
         "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
         "accentColor":"0050B2"
-    }
+    }]
 }
 ```
 
@@ -213,7 +209,8 @@ Bing Image Search API의 응답은 JSON으로 반환됩니다. 이 샘플 응답
 ## <a name="see-also"></a>참고 항목
 
 * [Bing Image Search란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
+* Bing Search API에 대한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) 
 * [무료 Cognitive Services 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

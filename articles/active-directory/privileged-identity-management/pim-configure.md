@@ -13,12 +13,13 @@ ms.topic: overview
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b5f1e5838fcf6eeac3b58fb0eef8fe08eb9202d4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 022fd8e1ab8445954b205f471cd1aa4d18e11545
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167141"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178161"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
@@ -60,11 +61,13 @@ PIM 및 설명서를 보다 정확하게 이해하려면 다음 용어를 검토
 | 활성 | Type | 사용자가 역할을 사용하기 위해 어떤 작업을 수행할 필요가 없는 역할 할당입니다. 활성으로 할당된 사용자에게는 역할에 할당된 권한이 있습니다. |
 | 활성화 |  | 사용자가 자격이 있는 역할을 사용하기 위해 하나 이상의 작업을 수행하는 프로세스입니다. 작업은 MFA(Multi-Factor Authentication) 검사를 수행하고, 비즈니스 근거를 제공하거나 지정된 승인자의 승인을 요청하는 과정을 포함할 수 있습니다. |
 | 할당됨 | 시스템 상태 | 활성 역할 할당이 있는 사용자입니다. |
-| 활성화됨 | 시스템 상태 | 적격 역할 할당이 있고, 역할을 활성화하기 위한 작업을 수행했으며, 현재 활성화된 사용자입니다. |
+| 활성화됨 | 시스템 상태 | 적격 역할 할당이 있고, 역할을 활성화하기 위한 작업을 수행했으며, 현재 활성화된 사용자입니다.  활성화되면 사용자는 미리 구성된 기간 동안 역할을 사용할 수 있으며, 이 기간이 끝나면 다시 활성화해야 합니다. |
 | 영구 적격 | 기간 | 사용자가 항상 역할을 활성화할 수 있는 자격이 있는 역할 할당입니다. |
 | 영구 활성 | 기간 | 사용자가 어떤 작업도 수행하지 않고 항상 역할을 사용할 수 있는 역할 할당입니다. |
 | 만료 적격 | 기간 | 사용자가 지정된 시작 및 종료 날짜 내에 역할을 활성화할 수 있는 자격이 있는 역할 할당입니다. |
 | 만료 활성화 | 기간 | 사용자가 지정된 시작 및 종료 날짜 내에 어떤 작업도 수행하지 않고 역할을 사용할 수 있는 역할 할당입니다. |
+| JIT(Just In Time) 액세스 |  | 사용자가 권한 있는 작업을 수행하기 위해 임시 사용 권한을 받는 모델이며, 악의적 또는 권한이 없는 사용자가 권한이 만료된 후 액세스 권한을 획득하는 것을 방지합니다. 액세스 권한은 사용자에게 필요한 경우에만 부여됩니다. |
+| 최소 권한 액세스 원칙 |  | 모든 사용자에게 수행할 권한이 있는 작업을 수행하는 데 필요한 최소 권한만 제공하는 권장 보안 방법입니다. 이 방법은 글로벌 관리자 수를 최소화하고, 그 대신 특정 시나리오에 특정 관리자 역할을 사용합니다. |
 
 ## <a name="what-does-pim-look-like"></a>PIM은 어떻게 표시되나요?
 
@@ -104,6 +107,6 @@ PIM은 다음과 같은 시나리오를 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM 사용 시작](pim-getting-started.md)
 - [PIM을 사용하기 위한 라이선스 요구 사항](subscription-requirements.md)
 - [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [PIM 배포](pim-deployment-plan.md)

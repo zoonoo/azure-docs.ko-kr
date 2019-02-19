@@ -15,20 +15,22 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 55dadea2e8c606c0b7d028e573edba75703628da
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: ec0a6fa516c11b443964380b0cfa35769d04b843
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53586839"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107415"
 ---
 # <a name="create-a-web-app-and-deploy-code-to-a-staging-environment"></a>웹앱 만들기 및 스테이징 환경에 코드 배포
 
 이 샘플 스크립트는 "스테이징"이라는 추가 배포 슬롯을 사용하여 App Service에서 웹앱을 만든 다음 "스테이징" 슬롯에 샘플 앱을 배포합니다.
 
-필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzureRmAccount`를 실행하여 Azure에 연결합니다.
+필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Connect-AzAccount`를 실행하여 Azure에 연결합니다.
 
 ## <a name="sample-script"></a>샘플 스크립트
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/deploy-deployment-slot/deploy-deployment-slot.ps1?highlight=1 "Create a web app and deploy code to a staging environment")]
 
@@ -37,7 +39,7 @@ ms.locfileid: "53586839"
 스크립트 샘플을 실행한 후에는 다음 명령을 사용하여 리소스 그룹, 웹앱 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -46,13 +48,13 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 | 명령 | 메모 |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | App Service 계획을 만듭니다. |
-| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | 웹앱을 만듭니다. |
-| [Set-AzureRmAppServicePlan](/powershell/module/azurerm.websites/set-azurermappserviceplan) | App Service 계획을 수정하여 해당 가격 책정 계층을 변경합니다. |
-| [New-AzureRmWebAppSlot](/powershell/module/azurerm.websites/new-azurermwebappslot) | 웹앱에 대한 배포 슬롯을 만듭니다. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | 리소스 그룹에서 리소스를 수정합니다. |
-| [Switch-AzureRmWebAppSlot](/powershell/module/azurerm.websites/switch-azurermwebappslot) | 웹앱의 배포 슬롯을 프로덕션으로 교환합니다. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
+| [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |
+| [Set-AzAppServicePlan](/powershell/module/az.websites/set-azappserviceplan) | App Service 계획을 수정하여 해당 가격 책정 계층을 변경합니다. |
+| [New-AzWebAppSlot](/powershell/module/az.websites/new-azwebappslot) | 웹앱에 대한 배포 슬롯을 만듭니다. |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | 리소스 그룹에서 리소스를 수정합니다. |
+| [Switch-AzWebAppSlot](/powershell/module/az.websites/switch-azwebappslot) | 웹앱의 배포 슬롯을 프로덕션으로 교환합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

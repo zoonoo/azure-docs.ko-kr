@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: be4549b8b9cca3f4aa48a21fb9377dbd203dde69
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 82e80b9dd4d20709fc8598e0fed3323046c21cfa
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751126"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189415"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>자습서: Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기
 
@@ -59,7 +59,7 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - apt install default-jre -y
+  - apt install openjdk-8-jre-headless -y
   - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
   - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
@@ -109,6 +109,21 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 ssh azureuser@<publicIps>
 ```
 
+`service` 명령을 사용하여 Jenkins가 실행되고 있는지 확인합니다.
+
+```bash
+$ service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Tue 2019-02-12 16:16:11 UTC; 55s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 4103)
+   CGroup: /system.slice/jenkins.service
+
+Feb 12 16:16:10 myVM systemd[1]: Starting LSB: Start Jenkins at boot time...
+...
+```
+
 Jenkins 설치를 위해 `initialAdminPassword`를 보고 복사합니다.
 
 ```bash
@@ -125,7 +140,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 - **저장 및 끝내기**를 선택합니다.
 - Jenkins가 준비되면 **Jenkins를 사용하여 시작**을 선택합니다.
   - Jenkins를 사용하여 시작할 때 웹 브라우저에 빈 페이지가 표시되는 경우 Jenkins 서비스를 다시 시작합니다. SSH 세션에서 `sudo service jenkins restart`를 입력한 다음, 웹 브라우저를 새로 고칩니다.
-- 사용자가 만든 사용자 이름 및 암호를 사용하여 Jenkins에 로그인합니다.
+- 필요한 경우 만든 사용자 이름과 암호를 사용하여 Jenkins에 로그인합니다.
 
 
 ## <a name="create-github-webhook"></a>GitHub 웹후크 만들기
@@ -133,11 +148,13 @@ GitHub를 통해 통합을 구성하려면 Azure 샘플 리포지토리에서 [N
 
 만든 분기 내부에 웹후크를 만듭니다.
 
-- **설정**을 선택한 다음 왼쪽에 있는 **통합 및 서비스**를 선택합니다.
-- **서비스 추가**를 선택한 다음, 필터 상자에 *Jenkins*를 입력합니다.
-- *Jenkins(GitHub 플러그 인)* 를 선택합니다.
-- **Jenkins 후크 URL**의 경우 `http://<publicIps>:8080/github-webhook/`를 입력합니다. 후행 슬래시(/)를 포함해야 합니다.
-- **서비스 추가**를 선택합니다.
+- **설정**을 선택한 다음, 왼쪽에 있는 **웹후크**를 선택합니다.
+- **Add webhook**(웹후크 추가)를 선택한 다음, 필터 상자에서 *Jenkins*를 입력합니다.
+- **Payload URL**(페이로드 URL)에 대해 `http://<publicIps>:8080/github-webhook/`를 입력합니다. 후행 슬래시(/)를 포함해야 합니다.
+- **Content type**(콘텐츠 형식)에 대해 *application/x-www-form-urlencoded*를 선택합니다.
+- **Which events would you like to trigger this webhook?**(이 웹후크가 트리거되도록 하려는 이벤트는 무엇입니까?)에 대해 *Just the push event*(푸시 이벤트만)를 선택합니다.
+- **Active**(활성)를 선택합니다.
+- **Add webhook**를 클릭합니다.
 
 ![분기된 리포지토리에 GitHub 웹후크 추가](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
@@ -166,7 +183,7 @@ response.end("Hello World!");
 
 변경 사항을 커밋하려면 맨 아래쪽에 **변경 내용 커밋** 단추를 선택합니다.
 
-Jenkins에서 작업 페이지의 왼쪽 아래 모서리에 있는 **기록 빌드** 섹션에서 새 빌드가 시작됩니다. 빌드 번호 링크를 선택하고 왼쪽에 있는 **콘솔 출력**을 선택합니다. 코드가 GitHub에서 로드되면 Jenkins가 수행하는 단계와 콘솔에 메시지 `Testing`을 출력하는 빌드 작업을 확인할 수 있습니다. GitHub에서 커밋이 수행될 때마다 웹후크는 Jenkins에 도달하며, 이 방법으로 새 빌드를 트리거합니다.
+Jenkins에서 작업 페이지의 왼쪽 아래 모서리에 있는 **기록 빌드** 섹션에서 새 빌드가 시작됩니다. 빌드 번호 링크를 선택하고 왼쪽에 있는 **콘솔 출력**을 선택합니다. 코드가 GitHub에서 로드되면 Jenkins가 수행하는 단계와 콘솔에 메시지 `Test`을 출력하는 빌드 작업을 확인할 수 있습니다. GitHub에서 커밋이 수행될 때마다 웹후크는 Jenkins에 도달하며, 이 방법으로 새 빌드를 트리거합니다.
 
 
 ## <a name="define-docker-build-image"></a>Docker 빌드 이미지 정의

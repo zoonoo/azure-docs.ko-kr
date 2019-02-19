@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 7644940418b7322e5ec4b02b793219b44ae3aa97
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: ed17d7cd887df6d8bd749ba4426d1a791b58d457
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885152"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56171233"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 Azure Portal에서 가상 머신 확장 집합을 만듭니다.
@@ -46,11 +46,12 @@ RHEL, CentOS, Ubuntu 또는 SLES와 같은 Windows Server 이미지 또는 Linux
     - **암호**는 12자 이상 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
     - Linux OS 디스크 이미지를 선택하는 경우 **SSH 공개 키**를 대신 선택할 수 있습니다. 공개 키만을 제공합니다(예: *~/.ssh/id_rsa.pub*). 포털에서 Azure Cloud Shell을 사용하여 [SSH 키를 만들고 사용](../virtual-machines/linux/mac-create-ssh-keys.md)할 수 있습니다.
 
-7. **공용 IP 주소 이름**을 입력합니다(예: *myPublicIP*).
-8. 고유한 **도메인 이름 레이블**을 입력합니다(예: *myuniquedns*). 이 DNS 레이블은 확장 집합 앞에 있는 부하 분산 장치에 대한 FQDN의 기준을 형성합니다.
-9. 확장 집합 옵션을 확인하려면 **만들기**를 선택합니다.
+    ![Azure Portal에서 가상 머신 확장 집합 만들기에 대한 기본 정보](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+1. **부하 분산 옵션 선택**에서 *부하 분산 장치* 같은 부하 분산 옵션을 선택합니다. 부하 분산 옵션에 대한 나머지 정보를 입력합니다. 예를 들어 *부하 분산 장치*의 경우 **공용 IP 주소 이름** 및 **도메인 이름 레이블**을 입력해야 합니다.
+1. **가상 네트워크 구성**에서 가상 네트워크 세부 정보를 입력합니다. 예를 들어 새 가상 네트워크 *myVirtualNetwork*를 만들고, 새 서브넷 *default*를 만들 수 있습니다.
+1. 확장 집합 옵션을 확인하려면 **만들기**를 선택합니다.
+    ![Azure Portal에서 가상 머신 확장 집합을 만들기 위한 네트워킹 기본 정보](./media/virtual-machine-scale-sets-create-portal/create-scale-set-networking-details.png)
 
-    ![Azure Portal에서 가상 머신 확장 집합 만들기](./media/virtual-machine-scale-sets-create-portal/create-scale-set.png)
 
 
 ## <a name="connect-to-a-vm-in-the-scale-set"></a>확장 집합의 VM에 연결

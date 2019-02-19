@@ -8,14 +8,14 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 3187c516ef22a97d2af89e08d5b99ad7a00d875d
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: cf47919ead890f0ad0e89646dde26276ebfb1127
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166460"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109744"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>자습서: Hyper-V에서 Azure Data Box Gateway 프로비전(미리 보기)
+# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>자습서: Hyper-V에서 Azure Data Box Gateway 프로비저닝(미리 보기)
 
 ## <a name="overview"></a>개요
 
@@ -44,7 +44,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 시작하기 전에 다음 사항을 확인합니다.
 
 * [Data Box Gateway에 대한 포털 준비](data-box-gateway-deploy-prep.md)의 모든 단계를 완료했습니다.
-* [Data Box Gateway에 대한 포털 준비](data-box-gateway-deploy-prep.md)에 설명된 대로 Azure Portal에서 Hyper-V에 대한 가상 장치 이미지를 다운로드했습니다.
+* [Data Box Gateway에 대한 포털 준비](data-box-gateway-deploy-prep.md)에 설명된 대로 Azure Portal에서 Hyper-V에 대한 가상 디바이스 이미지를 다운로드했습니다.
 
   > [!IMPORTANT]
   > Data Box Gateway에서 실행되는 소프트웨어는 Data Box Gateway 리소스에만 사용할 수 있습니다.
@@ -66,7 +66,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 
 시작하기 전에
 
-- Data Box Gateway를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Data Box Gateway 네트워킹 요구 사항](data-box-gateway-system-requirements.md#networking-requirements)을 참조하세요.
+- Data Box Gateway를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Data Box Gateway 네트워킹 요구 사항](data-box-gateway-system-requirements.md#networking-port-requirements)을 참조하세요.
 - 디바이스가 최적으로 작동할 수 있도록 최소 인터넷 대역폭이 20Mbps인지 확인합니다.
 
 
@@ -97,10 +97,10 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. 새 Virtual Machine 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
-5. **이름 및 위치 지정** 페이지에서 가상 장치의 **이름**을 입력합니다. **다음**을 클릭합니다.
+5. **이름 및 위치 지정** 페이지에서 가상 디바이스의 **이름**을 입력합니다. **다음**을 클릭합니다.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
-6. **세대 지정** 페이지에서 .vhdx 장치 이미지 유형으로 **세대 2**를 선택하고 **다음**을 클릭합니다.    
+6. **세대 지정** 페이지에서 .vhdx 디바이스 이미지 유형으로 **세대 2**를 선택하고 **다음**을 클릭합니다.    
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image4.png)
 7. **메모리 할당** 페이지에서 **시작 메모리**를 **8192MB** 이상으로 지정하고, 동적 메모리는 사용하도록 설정하지 않은 후 **다음**을 클릭합니다.
@@ -109,7 +109,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 8. **네트워킹 구성** 페이지에서 인터넷에 연결된 가상 스위치를 지정하고 **다음**을 클릭합니다.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image6.png)
-9. **가상 하드 디스크 연결** 페이지에서 **기존 가상 하드 디스크 사용**을 선택하고 가상 장치 이미지의 위치를 지정한 후 **다음**을 클릭합니다.
+9. **가상 하드 디스크 연결** 페이지에서 **기존 가상 하드 디스크 사용**을 선택하고 가상 디바이스 이미지의 위치를 지정한 후 **다음**을 클릭합니다.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image7.png)
 10. **요약**을 검토하고 **마침**을 클릭하여 가상 머신을 만듭니다.
@@ -158,7 +158,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
 2. 디바이스가 실행된 후에 디바이스를 선택하고 마우스 오른쪽 단추를 클릭하여 **연결**을 선택합니다.
 
-3. 디바이스가 준비되기까지 10~15분 정도 걸릴 수 있습니다. 콘솔에 진행률을 나타내는 상태 메시지가 표시됩니다. 디바이스가 준비되면 **작업**으로 이동합니다. `Ctrl + Alt + Delete`를 눌러 가상 장치에 로그인합니다. 기본 사용자는 *EdgeUser*이고, 기본 암호는 *Password1*입니다.
+3. 디바이스가 준비되기까지 10~15분 정도 걸릴 수 있습니다. 콘솔에 진행률을 나타내는 상태 메시지가 표시됩니다. 디바이스가 준비되면 **작업**으로 이동합니다. `Ctrl + Alt + Delete`를 눌러 가상 디바이스에 로그인합니다. 기본 사용자는 *EdgeUser*이고, 기본 암호는 *Password1*입니다.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
    
@@ -175,7 +175,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-디바이스가 최소 구성 요구 사항을 충족하지 않으면 배너 텍스트에 오류가 표시됩니다. 머신이 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [호스트 시스템이 최소 가상 장치 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
+디바이스가 최소 구성 요구 사항을 충족하지 않으면 배너 텍스트에 오류가 표시됩니다. 머신이 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [호스트 시스템이 최소 가상 디바이스 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 

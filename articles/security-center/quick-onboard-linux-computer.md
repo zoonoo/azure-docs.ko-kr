@@ -4,7 +4,7 @@ description: 이 빠른 시작에서는 Security Center에 Linux 컴퓨터를 �
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/02/2018
+ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1eab54d16dcc0facace9a51a4cf5b5d1243baf4f
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e6d2404e6f509c03d2d3965f34d8229de25df4b7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025396"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114623"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Linux 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Linux 에이전트를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 Linux 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
@@ -28,13 +28,13 @@ Azure 구독을 온보딩한 후 Linux 에이전트를 프로비전하여 Azure 
 이 빠른 시작에서는 Linux 컴퓨터에 Linux 에이전트를 설치하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
-Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)으로 등록할 수 있습니다.
+Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)으로 등록할 수 있습니다.
 
-이 빠른 시작을 시작하기 전에 Security Center의 표준 가격 책정 계층에 있어야 합니다. 업그레이드 지침은 [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md)을 참조하세요. 처음 60일 동안 추가 비용 없이 Security Center 표준을 사용해 볼 수 있습니다.
+이 빠른 시작을 수행하기 위해서는 Security Center의 가격 계층이 표준(Standard)이어야 합니다. 업그레이드 지침은 [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md)을 참조하세요. 비용 없이 Security Center의 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 ## <a name="add-new-linux-computer"></a>새 Linux 컴퓨터 추가
 
-1. [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
+1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
 2. **Microsoft Azure** 메뉴에서 **Security Center**를 선택합니다. **Security Center - 개요**가 열립니다.
 
  ![Security Center 개요][2]
@@ -82,7 +82,7 @@ Linux용 Security Center 에이전트에 대한 로그는 */var/opt/microsoft/om
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 Linux 컴퓨터에 에이전트를 프로비전했습니다. Security Center를 사용하는 방법을 자세히 알아보려면 보안 정책 구성 및 리소스 보안 평가 자습서로 계속 진행하세요.
+이 빠른 시작에서는 Linux 컴퓨터에 에이전트를 프로비전했습니다. Security Center를 사용하는 방법에 대한 자세한 내용은 보안 정책 구성 및 리소스 보안 평가를 위한 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [자습서: 보안 정책 정의 및 평가](tutorial-security-policy.md)

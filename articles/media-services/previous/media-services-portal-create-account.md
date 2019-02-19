@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/31/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 32e81b4c5c551f5fe7fd8ccda3e1b9a4e7d3b26f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d5b3af2b950dd33c797af874d56806de8049b358
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565941"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210682"
 ---
-# <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Media Services 계정 만들기
+# <a name="create-a-media-services-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Media Services 계정 만들기
 
 Azure Portal을 통해 AMS(Azure Media Services) 계정을 신속하게 만들 수 있습니다. 계정을 사용하여 Azure에서 미디어 콘텐츠를 저장, 암호화, 인코딩, 관리 및 스트리밍할 수 있는 Media Services에 액세스할 수 있습니다. Media Services 계정을 만들 때 연결된 스토리지 계정도 만듭니다(또는 기존 스토리지 계정 사용). Media Services 계정을 삭제하는 경우 관련 저장소 계정의 Blob은 삭제되지 않습니다.
 
 범용 V1 또는 범용 V2를 기본 저장소 계정으로 사용할 수 있습니다. 현재 Azure Portal을 사용하면 v1을 선택할 수 있습니다. 하지만 API 또는 PowerShell을 사용하여 계정을 만들 때 v2를 추가할 수 있습니다. 저장소 유형에 대한 자세한 내용은 [Azure 저장소 계정 정보](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)를 참조하세요.
 
-Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. Media Services 계정과 동일한 위치의 스토리지 계정을 사용하는 것이 좋습니다.
+Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. 추가 대기 시간 및 데이터 송신 비용이 발생하지 않도록 Media Services 계정과 동일한 위치에 스토리지 계정을 사용하는 것이 좋습니다.
 
 이 문서에서는 Azure Portal을 사용하여 Media Services 계정을 만드는 방법을 보여줍니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6bb075857d67885d968b495cc8d545af9994eaf0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169317"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175730"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -78,7 +78,7 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 ## <a name="requirements-and-constraints"></a>요구 사항 및 제약 조건
 
 가상 네트워크가 전역적으로 피어링될 때 다음 제약 조건이 적용됩니다.
-- 가상 네트워크는 Azure 국가별 클라우드를 제외한 모든 Azure 공용 클라우드 지역에 있을 수 있습니다.
+- 가상 네트워크는 Azure Government 클라우드를 제외한 모든 Azure 공용 클라우드 지역 및 Azure 중국 클라우드 지역에 있을 수 있습니다.
 - 하나의 가상 네트워크의 리소스는 전역적으로 피어링된 가상 네트워크에 있는 Azure 내부 부하 분산 장치의 프런트 엔드 IP 주소와 통신할 수 없습니다. 함께 통신하는 부하 분산 장치 및 리소스는 동일한 지역에 있어야 합니다.
 - 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용할 수 없습니다. 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용하려면 피어링된 가상 네트워크가 동일한 지역에 있어야 합니다.
 

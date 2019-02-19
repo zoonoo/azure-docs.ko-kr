@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/27/2018
+ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1d07990abcceace81f718bcbac28ff372a784172
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 568631705b590bb2ee312b9519164be17c8443ab
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427715"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984242"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 
@@ -34,9 +34,6 @@ Azure 가상 머신은 내부 및 외부 네트워크 통신에서 Azure 네트�
 > * 네트워크 트래픽 보안
 > * 백 엔드 VM 만들기
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure PowerShell 모듈 버전이 5.7.0 이상이어야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="vm-networking-overview"></a>VM 네트워킹 개요
 
@@ -57,22 +54,27 @@ Azure 가상 네트워크를 사용하면 네트워크에서 가상 머신, 인�
 - *myBackendVM* - 포트 1433을 사용하여 *myFrontendVM*과 통신하는 VM.
 
 
-## <a name="create-a-virtual-network-and-subnet"></a>가상 네트워크 및 서브넷 만들기
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
+
+Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
+
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
+
+
+## <a name="create-subnet"></a>서브넷 만들기 
 
 이 자습서에서는 두 개의 서브넷이 있는 단일 가상 네트워크를 만듭니다. 서브넷 하나는 웹 애플리케이션을 호스트하기 위한 프런트 엔드 서브넷이고 다른 하나는 데이터베이스 서버를 호스트하기 위한 백 엔드 서브넷입니다.
 
-가상 네트워크를 만들려면 먼저 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myRGNetwork*라는 리소스 그룹을 만듭니다.
+가상 네트워크를 만들려면 먼저 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myRGNetwork*라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
+New-AzResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
-### <a name="create-subnet-configurations"></a>서브넷 구성 만들기
-
-[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig)를 사용하여 *myFrontendSubnet*이라는 서브넷 구성을 만듭니다.
+[New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 *myFrontendSubnet*이라는 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
-$frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$frontendSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name myFrontendSubnet `
   -AddressPrefix 10.0.0.0/24
 ```
@@ -80,17 +82,17 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 그런 다음 *myBackendSubnet*이라는 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
-$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$backendSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -AddressPrefix 10.0.1.0/24
 ```
 
-### <a name="create-virtual-network"></a>가상 네트워크 만들기
+## <a name="create-virtual-network"></a>가상 네트워크 만들기
 
-[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 통해 *myFrontendSubnet*과 *myBackendSubnet*을 사용하여 *myVNet*이라는 VNET을 만듭니다.
+[New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork)를 통해 *myFrontendSubnet*과 *myBackendSubnet*을 사용하여 *myVNet*이라는 VNET을 만듭니다.
 
 ```azurepowershell-interactive
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -Name myVNet `
@@ -104,12 +106,12 @@ $vnet = New-AzureRmVirtualNetwork `
 
 공용 IP 주소를 사용하면 Azure 리소스를 인터넷에서 액세스할 수 있습니다. 공용 IP 주소의 할당 방법은 동적 또는 정적 할당으로 구성할 수 있습니다. 기본적으로 공용 IP 주소는 동적 할당됩니다. VM 할당을 취소하는 경우 동적 IP 주소도 해제됩니다. 이 동작은 VM 할당 취소를 포함하는 모든 작업 중에 IP 주소가 변경되게 합니다.
 
-할당 방법은 정적으로 설정할 수 있으며, 이렇게 하면 할당 취소된 상태에서도 VM에 할당된 IP 주소는 그대로 유지됩니다. 정적으로 할당된 IP 주소를 사용하는 경우 IP 주소 자체를 지정할 수 없습니다. 대신 사용 가능한 주소 풀에서 할당됩니다.
+할당 방법은 정적으로 설정할 수 있으며, 이렇게 하면 할당이 취소된 상태에서도 IP 주소가 VM에 할당된 상태로 유지됩니다. 정적 IP 주소를 사용하는 경우 IP 주소 자체는 지정할 수 없습니다. 대신 사용 가능한 주소 풀에서 할당됩니다.
 
-[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용하여 *myPublicIPAddress*라는 공용 IP 주소를 만듭니다.
+[New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress)를 사용하여 *myPublicIPAddress*라는 공용 IP 주소를 만듭니다.
 
 ```azurepowershell-interactive
-$pip = New-AzureRmPublicIpAddress `
+$pip = New-AzPublicIpAddress `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -AllocationMethod Dynamic `
@@ -120,10 +122,10 @@ $pip = New-AzureRmPublicIpAddress `
 
 ## <a name="create-a-front-end-vm"></a>프런트 엔드 VM 만들기
 
-가상 네트워크가 VNet에서 통신하려면 가상 네트워크 인터페이스(NIC)가 필요합니다. [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)를 사용하여 NIC를 만듭니다.
+가상 네트워크가 VNet에서 통신하려면 가상 네트워크 인터페이스(NIC)가 필요합니다. [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface)를 사용하여 NIC를 만듭니다.
 
 ```azurepowershell-interactive
-$frontendNic = New-AzureRmNetworkInterface `
+$frontendNic = New-AzNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -Name myFrontend `
@@ -137,10 +139,10 @@ $frontendNic = New-AzureRmNetworkInterface `
 $cred = Get-Credential
 ```
 
-[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 VM을 만듭니다.
+[New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmVM `
+New-AzVM `
    -Credential $cred `
    -Name myFrontend `
    -PublicIpAddressName myPublicIPAddress `
@@ -153,7 +155,7 @@ New-AzureRmVM `
 
 ## <a name="secure-network-traffic"></a>네트워크 트래픽 보안
 
-NSG(네트워크 보안 그룹)에는 VNet(Azure Virtual Network)에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷 또는 개별 네트워크 인터페이스에 연결할 수 있습니다. NSG가 네트워크 인터페이스에 연결되면 연결된 VM만 적용됩니다. NSG를 서브넷에 연결하면 규칙이 서브넷에 연결된 모든 리소스에 적용됩니다.
+NSG(네트워크 보안 그룹)에는 VNet(Azure Virtual Network)에 연결된 리소스에 대한 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다. NSG는 서브넷 또는 개별 네트워크 인터페이스에 연결할 수 있습니다. 네트워크 인터페이스에 연결된 NSG는 연결된 VM에만 적용됩니다. NSG를 서브넷에 연결하면 규칙이 서브넷에 연결된 모든 리소스에 적용됩니다.
 
 ### <a name="network-security-group-rules"></a>네트워크 보안 그룹 규칙
 
@@ -167,10 +169,10 @@ NSG 규칙은 트래픽이 허용되거나 거부되는 네트워킹 포트를 �
 
 ### <a name="create-network-security-groups"></a>네트워크 보안 그룹 만들기
 
-*myFrontendVM*에서 웹 트래픽의 수신이 허용되도록 [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)를 사용하여 *myFrontendNSGRule*이라는 인바운드 규칙을 만듭니다.
+*myFrontendVM*에서 웹 트래픽의 수신이 허용되도록 [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 *myFrontendNSGRule*이라는 인바운드 규칙을 만듭니다.
 
 ```azurepowershell-interactive
-$nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
+$nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
   -Name myFrontendNSGRule `
   -Protocol Tcp `
   -Direction Inbound `
@@ -185,7 +187,7 @@ $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
 백 엔드 서브넷에 대한 NSG를 만들어 *myFrontendVM*에서만 *myBackendVM*으로 내부 트래픽을 보내도록 제한할 수 있습니다. 다음 예제는 *myBackendNSGRule*이라는 NSG 규칙을 만듭니다.
 
 ```azurepowershell-interactive
-$nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
+$nsgBackendRule = New-AzNetworkSecurityRuleConfig `
   -Name myBackendNSGRule `
   -Protocol Tcp `
   -Direction Inbound `
@@ -197,20 +199,20 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-[New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)을 사용하여 *myFrontendNSG*라는 네트워크 보안 그룹을 추가합니다.
+[New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 *myFrontendNSG*라는 네트워크 보안 그룹을 추가합니다.
 
 ```azurepowershell-interactive
-$nsgFrontend = New-AzureRmNetworkSecurityGroup `
+$nsgFrontend = New-AzNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -Name myFrontendNSG `
   -SecurityRules $nsgFrontendRule
 ```
 
-New-AzureRmNetworkSecurityGroup을 사용하여 *myBackendNSG*라는 네트워크 보안 그룹을 추가합니다.
+이제 New-AzNetworkSecurityGroup을 사용하여 *myBackendNSG*라는 네트워크 보안 그룹을 추가합니다.
 
 ```azurepowershell-interactive
-$nsgBackend = New-AzureRmNetworkSecurityGroup `
+$nsgBackend = New-AzNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -Name myBackendNSG `
@@ -220,22 +222,22 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
 서브넷에 네트워크 보안 그룹을 추가합니다.
 
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myRGNetwork `
   -Name myVNet
 $frontendSubnet = $vnet.Subnets[0]
 $backendSubnet = $vnet.Subnets[1]
-$frontendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+$frontendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $vnet `
   -Name myFrontendSubnet `
   -AddressPrefix $frontendSubnet.AddressPrefix `
   -NetworkSecurityGroup $nsgFrontend
-$backendSubnetConfig = Set-AzureRmVirtualNetworkSubnetConfig `
+$backendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $vnet `
   -Name myBackendSubnet `
   -AddressPrefix $backendSubnet.AddressPrefix `
   -NetworkSecurityGroup $nsgBackend
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
 
 ## <a name="create-a-back-end-vm"></a>백엔드 VM 만들기
@@ -245,7 +247,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 *myBackendNic*을 만듭니다.
 
 ```azurepowershell-interactive
-$backendNic = New-AzureRmNetworkInterface `
+$backendNic = New-AzNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
   -Name myBackend `
@@ -261,7 +263,7 @@ $cred = Get-Credential
 *myBackendVM*을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmVM `
+New-AzVM `
    -Credential $cred `
    -Name myBackend `
    -ImageName "MicrosoftSQLServer:SQL2016SP1-WS2016:Enterprise:latest" `
@@ -271,7 +273,7 @@ New-AzureRmVM `
    -VirtualNetworkName myVNet
 ```
 
-사용되는 이미지에는 SQL Server가 설치되어 있지만 이 자습서에서는 사용하지 않습니다. 여기서는 웹 트래픽을 처리하도록 VM을 구성하는 방법 및 데이터베이스 관리를 처리하도록 VM을 구성하는 방법을 보여 주기 위해 포함되었습니다.
+이 예제의 이미지에는 SQL Server가 설치되어 있지만 이 자습서에서는 사용하지 않습니다. 여기서는 웹 트래픽을 처리하도록 VM을 구성하는 방법 및 데이터베이스 관리를 처리하도록 VM을 구성하는 방법을 보여 주기 위해 포함되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

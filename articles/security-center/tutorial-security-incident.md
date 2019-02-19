@@ -4,7 +4,7 @@ description: Azure Security Center 자습서 - 보안 인시던트에 대응
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: c2ecba5af4d0a8c95be59ad10cfc7ca8788439c9
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d3154e137aec8dcedcb066e2c9aab046b5a7b6e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026294"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108826"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>자습서: 보안 인시던트에 대응
 Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 악의적인 활동을 경고합니다. 또한 다른 보안 제품 및 서비스의 경고를 Security Center에 통합하고, 사용자 고유의 표시기 또는 인텔리전스 원본에 기반한 사용자 지정 경고를 만들 수 있습니다. 경고가 생성되면 조사하고 수정하기 위한 신속한 조치가 필요합니다. 이 자습서에서는 다음 방법을 알아봅니다.
@@ -33,7 +33,7 @@ Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하�
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center 표준 가격 책정 계층에 있어야 합니다. 처음 60일 동안 추가 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
+이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center 표준 가격 책정 계층에 있어야 합니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
 
 ## <a name="triage-security-alerts"></a>보안 경고 심사
 Security Center는 모든 보안 경고에 대해 통일된 보기를 제공합니다. 보안 경고는 심각도에 따라 순위가 결정되며, 가능한 경우 관련 경고가 보안 인시던트에 결합됩니다. 경고와 인시던트를 심사하는 경우 다음을 수행해야 합니다.

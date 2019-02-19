@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 15ddb29f090ca8dc14befc93e3377c181038b554
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816163"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211872"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>자습서: Palo Alto Networks Captive Portal과 Azure Active Directory 통합
 
@@ -81,7 +82,7 @@ Palo Alto Networks Captive Portal에서 Azure AD Single Sign-On을 구성하고 
 2. **[Palo Alto Networks Captive Portal Single Sign-On 구성](#configure-palo-alto-networks-captive-portal-single-sign-on)**: 애플리케이션에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)**: *Britta Simon* 사용자로 Azure AD Single Sign-On을 테스트합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)**: Britta Simon이 Azure AD Single Sign-On을 사용하도록 설정합니다.
-5. **[Palo Alto Networks Captive Portal 테스트 사용자 만들기](#create-palo-alto-networks-captive-portal-test-user)**: Azure AD 사용자에게 연결된 Palo Alto Networks Captive Portal에서 해당하는 *Britta Simon* 사용자를 만듭니다.
+5. **Palo Alto Networks Captive Portal 테스트 사용자 만들기**: Azure AD 사용자에게 연결된 Palo Alto Networks Captive Portal에서 해당하는 *Britta Simon* 사용자를 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)**: 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성

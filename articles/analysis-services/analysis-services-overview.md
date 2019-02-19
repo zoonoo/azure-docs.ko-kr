@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/08/2019
+ms.date: 02/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3e192449858d6cbd2d054fa7c70276739cfe1143
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 427f3f498ac04c68ef0b335b50c60db46b46d042
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189482"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243857"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -140,19 +140,21 @@ DirectQuery 모드*는 저장소 및 쿼리 실행에 백 엔드 관계형 데�
 
 \* 기능 가용성은 계층에 따라 다릅니다.
 
-## <a name="supported-datasources"></a>지원되는 데이터 원본
+## <a name="supported-data-sources"></a>지원되는 데이터 원본
 
 Azure Analysis Services에서 테이블 형식 모델은 간단한 텍스트 파일부터 Azure Data Lake Store의 빅 데이터까지 다양한 데이터 원본을 지원합니다. 자세한 내용은 [Azure Analysis Services에서 지원되는 데이터 원본](analysis-services-datasource.md)을 참조하세요.
 
 ## <a name="your-data-is-secure"></a>데이터가 안전함
 
-Azure Analysis Services는 여러 수준에서 중요한 데이터에 대한 보안을 제공합니다. 서버 수준에서: 방화벽, Azure 인증, 서버 관리자 역할 및 서버 쪽 암호화 또한 사용자 역할 데이터 모델 수준에서 행 수준 및 개체 수준 보안은 데이터가 안전하고 표시되는 사용자에게만 보여지는지 확인합니다.
+Azure Analysis Services는 여러 수준에서 중요한 데이터에 대한 보안을 제공합니다. Azure 서비스인 Analysis Services는 Azure 플랫폼의 일부로 자동으로 사용하도록 설정된 **기본** 수준의 DDoS(배포된 서비스 거부) 공격을 제공합니다. 자세한 내용은 [Azure DDoS Protection 표준 개요](../virtual-network/ddos-protection-overview.md)를 참조하세요. 
+
+서버 수준에서 Analysis Services는 방화벽, Azure 인증, 서버 관리자 역할 및 서버 쪽 암호화를 제공합니다. 데이터 모델 수준에서 사용자 역할, 행 수준 및 개체 수준 보안은 데이터가 안전하고 데이터를 볼 수 있는 사용자에게만 표시되도록 합니다.
 
 ### <a name="firewall"></a>방화벽
 
-Azure Analysis Services 방화벽은 규칙에 지정된 해다 IP 주소 이외의 모든 클라이언트 연결을 차단합니다. 개별 클라이언트 IP 또는 범위로 허용된 IP 주소를 지정하는 규칙을 구성합니다. Power BI(서비스) 연결은 허용되거나 차단될 수 있습니다. 포털에서 또는 PowerShell을 사용하여 방화벽 및 규칙을 구성합니다. 자세한 내용은 [서버 방화벅 구성](analysis-services-qs-firewall.md)을 참조하세요.
+Azure Analysis Services 방화벽은 규칙에 지정된 해다 IP 주소 이외의 모든 클라이언트 연결을 차단합니다. 기본적으로 방화벽 보호는 새 서버에 사용할 수 없습니다. 방화벽 보호를 사용하도록 설정하고 규칙이 서버 프로비전 스크립트의 일부로 구성되거나 서버를 만드는 즉시 포털에 구성되는 것이 좋습니다. 개별 클라이언트 IP 또는 범위로 허용된 IP 주소를 지정하는 규칙을 구성합니다. Power BI(서비스) 연결은 허용되거나 차단될 수 있습니다. 포털에서 또는 PowerShell을 사용하여 방화벽 및 규칙을 구성합니다. 자세한 내용은 [서버 방화벅 구성](analysis-services-qs-firewall.md)을 참조하세요.
 
-### <a name="authentication"></a>인증
+### <a name="authentication"></a>Authentication
 
 사용자 인증은 [AAD(Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md)에 의해 처리됩니다. 로그인하면 사용자는 데이터베이스에 대한 역할 기반 액세스에서 조직 계정 ID를 사용합니다. 사용자 ID는 서버가 위치한 구독에 대한 기본 Azure Active Directory의 멤버여야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
 
