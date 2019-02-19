@@ -15,7 +15,7 @@ ms.locfileid: "53652670"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure FAQ
 
-이 문서에서는 Avere vFXT for Azure가 요구 사항에 적합한지 판단하는 데 도움이 되는 질문에 대한 답변을 제공합니다. Avere vFXT에 대한 기본 정보를 제공하고, 다른 Azure 구성 요소 및 외부 공급업체의 제품과 작동하는 방법에 대해 설명합니다. 
+이 문서에서는 Avere vFXT for Azure가 사용자의 요구 사항에 적합한지 판단하는 데 도움이 되는 질문과 답변을 참조할 수 있습니다. Avere vFXT에 대한 기본 정보를 참조하고, 다른 Azure 구성 요소 및 외부 공급업체의 제품에 Avere vFXT가 어떻게 작동하는지 이해할 수 있습니다. 
 
 ## <a name="general"></a>일반 
 
@@ -33,7 +33,7 @@ Avere vFXT는 핫 계층과 쿨 계층 간에 데이터를 자동으로 계층�
 
 ### <a name="how-do-i-know-if-an-environment-is-right-for-avere-vfxt"></a>환경이 Avere vFXT에 적합한지 확인하려면 어떻게 할까요?
 
-이 질문에 대해 생각할 수 있는 가장 좋은 방법은 "캐시 가능한 워크로드인가요?"입니다. 즉, 워크로드의 읽기/쓰기 비율이 높은가요? 예를 들어 80/20 또는 70/30 읽기/쓰기입니다.
+이 질문에 답변하려면 워크로드가 캐시 가능한지 자문해보는 것이 좋습니다. 즉, 워크로드의 읽기/쓰기 비율이 높은지 따져보는 것입니다. 80/20 또는 70/30 읽기/쓰기 비율을 예로 들 수 있습니다.
 
 많은 수의 Azure 가상 머신에서 실행되는 파일 기반 분석 파이프라인이 있고 다음 조건 중 하나 이상이 충족되는 경우 Avere vFXT for Azure를 사용하는 것이 좋습니다.
 
@@ -43,7 +43,7 @@ Avere vFXT는 핫 계층과 쿨 계층 간에 데이터를 자동으로 계층�
 
 * 많은 클라이언트, 예를 들어 HPC(고성능 컴퓨팅) 클러스터에서 데이터를 요청하고 있습니다. 동시 요청 수가 많으면 대기 시간이 늘어날 수 있습니다.
 
-* 고객이 Azure 가상 머신에서 현재 파이프라인을 “있는 그대로” 실행하려고 하며, 확장성을 위해 POSIX 기반 공유 스토리지(또는 캐싱) 솔루션이 필요합니다. Avere vFXT for Azure를 사용하면 Azure Blob Storage를 기본적으로 호출하도록 작업 파이프라인을 다시 설계할 필요가 없습니다.
+* 고객이 Azure 가상 머신에서 현재 파이프라인을 “있는 그대로” 실행하려고 하며, 확장성을 위해 POSIX 기반 공유 스토리지(또는 캐싱) 솔루션을 필요로 합니다. Avere vFXT for Azure를 사용하면 Azure Blob Storage를 기본적으로 호출하도록 작업 파이프라인을 다시 설계할 필요가 없습니다.
 
 * HPC 애플리케이션은 NFSv3 클라이언트를 기반으로 합니다. (일부 경우에는 SMB 2.1 클라이언트를 사용할 수 있지만 성능이 제한됩니다.)
 
@@ -55,7 +55,7 @@ Avere vFXT는 핫 계층과 쿨 계층 간에 데이터를 자동으로 계층�
 
 Avere vFXT 캐시 솔루션은 수백, 수천 또는 수만 개의 컴퓨팅 코어를 처리하도록 빌드되었습니다. 간단한 작업을 실행하는 몇 개의 머신이 있는 경우 Avere vFXT는 적합한 솔루션이 아닙니다.
 
-일반적인 Avere vFXT 고객은 약 1,000개의 CPU 코어에서 시작하는 까다로운 워크로드를 실행합니다. 이러한 환경은 50,000개 이상의 코어를 사용할 수 있습니다. Avere vFXT는 확장할 수 있으므로 이러한 워크로드가 증가함에 따라 더 많은 처리량 또는 더 많은 IOPS를 요구하도록 지원하기 위해 노드를 추가할 수 있습니다.
+일반적인 Avere vFXT 고객은 약 1,000개의 CPU 코어에서 시작하는 까다로운 워크로드를 실행합니다. 이러한 환경은 50,000개 이상의 코어를 사용할 수 있습니다. Avere vFXT는 확장할 수 있으므로 더 많은 처리량 또는 더 많은 IOPS를 요구하면서 워크로드가 증가함에 따라 이를 지원하기 위해 노드를 추가할 수 있습니다.
 
 ### <a name="how-much-data-can-an-avere-vfxt-environment-store"></a>Avere vFXT 환경에서 저장할 수 있는 데이터의 양은 어떻게 되나요?
 
@@ -65,11 +65,11 @@ Avere vFXT는 캐시이며, 특별히 데이터를 저장하지 않습니다. RA
 
 2018년 11월 1일 현재, Avere vFXT for Azure는 자치 지역(중국, 독일) 및 정부 지역을 제외한 모든 지역에서 지원됩니다. 사용하려는 지역에서 Avere vFXT 클러스터를 만드는 데 필요한 대량의 컴퓨팅 코어와 VM 인스턴스를 지원할 수 있는지 확인합니다.
 
-### <a name="how-do-i-get-help-with-avere-vfxt"></a>Avere vFXT 지원을 받으려면 어떻게 할까요?
+### <a name="how-do-i-get-help-with-avere-vfxt"></a>Avere vFXT 관련 지원을 받으려면 어떻게 할까요?
 
-전문적인 지원 그룹에서 Avere vFXT for Azure를 지원합니다. [시스템 지원 받기](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)의 지침에 따라 Azure Portal에서 지원 티켓을 여세요. 
+전문적인 지원 그룹에서 Avere vFXT for Azure와 관련한 지원을 제공합니다. [시스템 지원 받기](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)의 지침에 따라 Azure Portal에서 지원 티켓을 여세요. 
 
-### <a name="is-avere-vfxt-highly-available"></a>Avere vFXT는 고가용성인가요?
+### <a name="is-avere-vfxt-highly-available"></a>Avere vFXT는 고가용성 시스템인가요?
 
 예, Avere vFXT는 독점적인 HA 솔루션으로 실행됩니다.
 
@@ -82,11 +82,11 @@ Avere vFXT는 캐시이며, 특별히 데이터를 저장하지 않습니다. RA
 
 ## <a name="technical-compute"></a>기술: 컴퓨팅
 
-### <a name="can-you-describe-what-an-avere-vfxt-environment-looks-like"></a>Avere vFXT 환경의 "모양"을 설명할 수 있나요?
+### <a name="can-you-describe-what-an-avere-vfxt-environment-looks-like"></a>Avere vFXT 환경의 “모습”을 설명할 수 있나요?
 
 Avere vFXT는 여러 개의 Azure 가상 머신으로 클러스터된 어플라이언스입니다. Python 라이브러리에서 클러스터 만들기, 삭제 및 수정을 처리합니다. 자세한 내용은 [Aere vFXT for Azure란?](avere-vfxt-overview.md)을 참조하세요. 
 
-### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Avere vFXT에서 실행하는 Azure 가상 머신의 종류는 어떻게 되나요?  
+### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Avere vFXT는 어떤 Azure 가상 머신의 종류에서 실행되나요?  
 
 Avere vFXT for Azure 클러스터는 Microsoft Azure E32s_v3 또는 D16s_v3 가상 머신을 사용합니다. 
 
@@ -100,7 +100,7 @@ Avere vFXT for Azure 클러스터는 Microsoft Azure E32s_v3 또는 D16s_v3 가�
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>Avere vFXT 환경의 크기를 조정할 수 있나요?
 
-Avere vFXT 클러스터는 3개의 가상 머신 노드만큼 작거나 24개의 노드만큼 클 수 있습니다. 클러스터에 9개가 넘는 노드가 필요한 경우 Azure 기술 지원 팀에 문의하여 지원 계획을 수립합니다. 노드 수가 많을수록 더 큰 배포 아키텍처가 필요합니다.
+Avere vFXT 클러스터는 3개의 가상 머신 노드만큼 작거나 24개의 노드만큼 클 수 있습니다. 클러스터에 9개가 넘는 노드가 필요한 경우 Azure 기술 지원 팀에 문의하여 계획을 수립하세요. 노드 수가 많을수록 더 큰 배포 아키텍처가 필요합니다.
 
 ### <a name="does-the-avere-vfxt-environment-autoscale"></a>Avere vFXT 환경은 "자동으로 크기 조정"할 수 있나요?
 
@@ -196,7 +196,7 @@ Avere vFXT 환경은 네트워크 게이트웨이 또는 VPN을 통해 고객 �
 
 ### <a name="can-i-run-avere-vfxt-with-public-ip-addresses"></a>공용 IP 주소를 사용하여 Avere vFXT를 실행할 수 있나요?
 
-아니요, Avere vFXT는 모범 사례를 통해 보호된 네트워크 환경 내에서 작동해야 합니다.  
+아니요, Avere vFXT는 모범 사례를 적용하여 보호된 네트워크 환경 내에서 작동해야 합니다.  
 
 ## <a name="technical-back-end-storage-core-filers"></a>기술: 백 엔드 스토리지(코어 파일러)
 
@@ -204,7 +204,7 @@ Avere vFXT 환경은 네트워크 게이트웨이 또는 VPN을 통해 고객 �
 
 Avere vFXT 클러스터는 최대 20개의 코어 파일러를 지원합니다. 
 
-### <a name="how-does-the-avere-vfxt-environment-store-data"></a>Avere vFXT 환경에서 데이터를 저장하려면 어떻게 하나요?
+### <a name="how-does-the-avere-vfxt-environment-store-data"></a>Avere vFXT 환경에서 데이터는 어떻게 저장되나요?
 
 Avere vFXT는 스토리지가 아닙니다. 즉, 코어 파일러라고 하는 여러 스토리지 대상에서 데이터를 읽고 쓰는 캐시입니다. Avere vFXT의 프리미엄 SSD 디스크에 저장된 데이터는 일시적이며, 결국에는 백 엔드 코어 파일러 스토리지로 플러시됩니다.
 
