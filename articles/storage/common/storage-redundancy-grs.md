@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55512111"
 ---
-# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GRS(영역 중복 스토리지): Azure Storage의 지역 간 복제
+# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GRS(지역 중복 스토리지): Azure Storage의 지역 간 복제
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
 
 ## <a name="read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소
