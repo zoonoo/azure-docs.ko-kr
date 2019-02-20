@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 799f47b291b3943dcb4d6b31bc8df732c28990cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/07/2019
+ms.openlocfilehash: a9e5be3c1dcbf4461bd00b2b1ce530aa16e441ef
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816597"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962131"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database Managed Instance 리소스 제한 사항에 대한 개요
 
@@ -34,7 +34,7 @@ Managed Instance에는 기본 인프라 및 아키텍처에 따라 달라지는 
 
 Azure SQL Database Managed Instance는 두 가지 하드웨어 세대(Gen4 및 Gen5)에 배포할 수 있습니다. 하드웨어 세대에는 다음 표에서 설명하는 다양한 특성이 있습니다.
 
-|   | **4세대** | **5세대** |
+|   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | 하드웨어 | Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어) | Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서, 고속 NVMe SSD, vCore = 1LP(하이퍼스레드) |
 | 컴퓨팅 | 8, 16, 24개 vCore | 8, 16, 24, 32, 40, 64, 80개 vCore |
@@ -51,7 +51,7 @@ Managed Instance에는 범용 및 중요 비즈니스용의 두 가지 서비스
 | --- | --- | --- |
 | vCore 수\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
 | 메모리 | Gen4: 56GB~168GB<br/>Gen5: 40.8GB~408GB<br/>\*vCore 수에 정비례 | Gen4: 56GB~168GB <br/> Gen5: 40.8GB~408GB<br/>\*vCore 수에 정비례 |
-| 최대 저장소 크기 | 8 TB | Gen 4: 1TB <br/> 5세대: <br/>- 1TB(8, 16개 vCore용)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
+| 최대 저장소 크기 | 8 TB | Gen4: 1TB <br/> Gen5: <br/>- 1TB(8, 16개 vCore용)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
 | 데이터베이스당 최대 저장소 | 인스턴스당 최대 저장소 크기에 따라 결정됨 | 인스턴스당 최대 저장소 크기에 따라 결정됨 |
 | 인스턴스당 최대 데이터베이스 수 | 100 | 100 |
 | 인스턴스당 최대 데이터베이스 파일 수 | 최대 280개 | 데이터베이스당 32,767개 파일 |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594361"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985467"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator 사용
 
@@ -74,36 +74,36 @@ Write Accelerator에서 지원하는 디스크를 사용하도록 설정하거�
 
 새 스위치 매개 변수인 **WriteAccelerator**가 추가된 cmdlet은 다음과 같습니다.
 
-- [Set-AzureRmVMOsDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-6.0.0)
-- [Add-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Add-AzureRmVMDataDisk?view=azurermps-6.0.0)
-- [Set-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Set-AzureRmVMDataDisk?view=azurermps-6.0.0)
-- [Add-AzureRmVmssDataDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Add-AzureRmVmssDataDisk?view=azurermps-6.0.0)
+- [집합 AzVMOsDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
+- [추가 AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
+- [집합 AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
+- [추가 AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
 
 매개 변수를 제공하지 않을 경우 해당 속성을 false로 설정하고 Write Accelerator에서 지원하지 않는 디스크를 배포합니다.
 
 새 스위치 매개 변수인 **OsDiskWriteAccelerator**가 추가된 cmdlet은 다음과 같습니다.
 
-- [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile?view=azurermps-6.0.0)
+- [집합 AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
 매개 변수 집합을 지정하지 않으면 기본적으로 해당 속성이 false로 설정되어 Write Accelerator를 이용하지 않는 디스크가 반환됩니다.
 
 새 선택적 부울(nullable이 아님) 매개 변수인 **-OsDiskWriteAccelerator**가 추가된 cmdlet은 다음과 같습니다.
 
-- [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Update-AzureRmVM?view=azurermps-6.0.0)
-- [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Update-AzureRmVmss?view=azurermps-6.0.0)
+- [업데이트 AzVM](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
+- [업데이트 AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
 
 Azure Write Accelerator의 디스크 지원을 제어하려면 $true 또는 $false를 지정합니다.
 
 명령 예제는 다음과 같습니다.
 
 ```PowerShell
-New-AzureRmVMConfig | Set-AzureRmVMOsDisk | Add-AzureRmVMDataDisk -Name "datadisk1" | Add-AzureRmVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVM
+New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
-Get-AzureRmVM | Update-AzureRmVM -OsDiskWriteAccelerator $true
+Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
 
-New-AzureRmVmssConfig | Set-AzureRmVmssStorageProfile -OsDiskWriteAccelerator | Add-AzureRmVmssDataDisk -Name "datadisk1" -WriteAccelerator:$false | Add-AzureRmVmssDataDisk -Name "logdisk1" -WriteAccelerator | New-AzureRmVmss
+New-AzVmssConfig | Set-AzVmssStorageProfile -OsDiskWriteAccelerator | Add-AzVmssDataDisk -Name "datadisk1" -WriteAccelerator:$false | Add-AzVmssDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVmss
 
-Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
+Get-AzVmss | Update-AzVmss -OsDiskWriteAccelerator:$false
 ```
 
 다음 섹션과 같이 두 가지 주요 시나리오를 스크립팅할 수 있습니다.
@@ -128,9 +128,9 @@ $size=1023
 #Pulls the VM info for later
 $vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
-Add-AzureRmVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
+Add-AzVMDataDisk -CreateOption empty -DiskSizeInGB $size -Name $vmname-$datadiskname -VM $vm -Caching None -WriteAccelerator:$true -lun $lunid
 #Updates the VM with the disk config - does not require a reboot
-Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
 ### <a name="enabling-write-accelerator-on-an-existing-azure-disk-using-powershell"></a>PowerShell을 사용하여 기존 Azure 디스크에서 Write Accelerator를 사용하도록 설정
@@ -149,9 +149,9 @@ $newstatus = $true
 #Pulls the VM info for later
 $vm=Get-AzurermVM -ResourceGroupName $rgname -Name $vmname
 #add a new VM data disk
-Set-AzureRmVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
+Set-AzVMDataDisk -VM $vm -Name $datadiskname -Caching None -WriteAccelerator:$newstatus
 #Updates the VM with the disk config - does not require a reboot
-Update-AzureRmVM -ResourceGroupName $rgname -VM $vm
+Update-AzVM -ResourceGroupName $rgname -VM $vm
 ```
 
 > [!Note]

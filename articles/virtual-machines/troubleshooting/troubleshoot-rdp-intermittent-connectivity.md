@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: f597669245787d935867389dc4780ec9d949bb8b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7fecf8c5fdafb64f7922054dd2bb9755b0dec031
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241238"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55881344"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Azure VM에에서 원격 데스크톱 연결이 자주 끊김
 
 이 문서에서는 RDP(원격 데스크톱 프로토콜)를 통한 Azure VM(Virtual Machine 연) 연결이 자주 끊기는 문제를 해결하는 방법을 설명합니다.
 
 > [!NOTE] 
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다. 클래식 배포 모델을 사용하는 대신 새 배포에 이 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다. 클래식 배포 모델을 사용하는 대신 새 배포에 이 모델을 사용하는 것이 좋습니다.
 
 ## <a name="symptom"></a>증상
 
@@ -81,10 +81,10 @@ RDP 수신기가 잘못 구성되면 이 문제가 발생할 수 있습니다. �
 
         REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'fInheritMaxIdleTime' /t REG_DWORD /d 1 /f
 
-        REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v ' MaxIdleTime' /t REG_DWORD /d 0 /f
+        REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxIdleTime' /t REG_DWORD /d 0 /f
 11. "최대 동시 연결 제한" 컨트롤을 설정합니다.
 
-        REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxInstanceCount' /t REG_DWORD /d ffffffff /f
+        REG ADD "HKLM\SYSTEM\CurrentControlSet\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxInstanceCount' /t REG_DWORD /d 4294967295 /f
 
 12. VM을 다시 시작하고 RDP를 사용하여 연결을 다시 시도합니다.
 

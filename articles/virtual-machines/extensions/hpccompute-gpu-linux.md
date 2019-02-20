@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 3e3d31f146fb49fdab8d955754572e4ea74dd3f6
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198391"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100264"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
 
@@ -71,7 +71,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 
 ### <a name="properties"></a>properties
 
-| 이름 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
@@ -82,10 +82,10 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 
 모든 설정은 선택 사항입니다. 기본 동작은 드라이버 설치에 필요하지 않은 경우 커널을 업데이트하지 않고, 지원되는 최신 드라이버 및 CUDA 도구 키트(해당하는 경우)를 설치하는 것입니다.
 
-| 이름 | 설명 | 기본값 | 유효한 값 | 데이터 형식 |
+| Name | 설명 | 기본값 | 유효한 값 | 데이터 형식 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 드라이버 설치에 필요하지 않은 경우에도 커널을 업데이트합니다. | false | true, false | 부울 |
-| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | 최신 | GRID: "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | 최신 | GRID: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | CUDA 도구 키트를 설치합니다. NC/ND 시리즈 VM에만 관련됩니다. | true | true, false | 부울 |
 
 
@@ -123,7 +123,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Set-AzureRmVMExtension
+Set-AzVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Location "southcentralus" `
@@ -159,7 +159,7 @@ az vm extension set `
 확장 배포 상태에 대한 데이터는 Azure Portal에서 Azure PowerShell 및 Azure CLI를 사용하여 검색할 수 있습니다. 지정된 VM에 대한 확장의 배포 상태를 보려면 다음 명령을 실행합니다.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 ```azurecli

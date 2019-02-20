@@ -64,7 +64,7 @@ items:
     - name: 온-프레미스 SQL에서 데이터 사용
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
-  - name: 모델을 만들고 학습 수행
+  - name: 모델 학습
     items:
     - name: 실험 수명 주기 관리
       href: version-control.md
@@ -87,6 +87,12 @@ items:
         href: interpret-model-results.md
       - name: 디버그
         href: debug-models.md
+    - name: 모델 다시 학습
+      items:
+      - name: “새” 웹 서비스
+        href: retrain-machine-learning-model.md
+      - name: 클래식 웹 서비스
+        href: retrain-classic-web-service.md
     - name: R 및 Python 사용
       items:
       - name: R로 시작
@@ -132,12 +138,6 @@ items:
     - name: 엔드포인트 만들기
       displayName: scale, scaling
       href: create-endpoint.md
-  - name: 모델 다시 학습
-    items:
-    - name: 새 웹 서비스 학습 및 배포
-      href: retrain-machine-learning-model.md
-    - name: 클래식 웹 서비스 학습 및 배포
-      href: retrain-classic-web-service.md
   - name: 모델 사용
     items:
     - name: 개요
@@ -146,11 +146,9 @@ items:
       href: consuming-from-excel.md
     - name: Excel 추가 기능 사용
       href: excel-add-in-for-web-services.md
-    - name: 웹앱 템플릿 사용
-      href: consume-web-service-with-web-app-template.md
     - name: Batch 풀 사용
       href: dedicated-capacity-for-bes-jobs.md
-  - name: 예
+  - name: 사용 사례
     items:
     - name: 고객 변동
       href: azure-ml-customer-churn-scenario.md
@@ -158,12 +156,14 @@ items:
       href: text-analytics-module-tutorial.md
     - name: Excel에서 Studio로 분석 마이그레이션
       href: linear-regression-in-azure.md
-  - name: Studio 데이터 보기 및 삭제
-    displayName: export
-    href: export-delete-personal-data-dsr.md
-  - name: 갤러리 데이터 보기 및 삭제
-    displayName: export
-    href: ai-gallery-control-personal-data-dsr.md
+  - name: 고객 데이터 삭제 및 내보내기
+    items:
+    - name: Studio 데이터
+      displayName: export
+      href: export-delete-personal-data-dsr.md
+    - name: 갤러리 데이터
+      displayName: export
+      href: ai-gallery-control-personal-data-dsr.md
 - name: 참고 자료
   items:
   - name: 알고리즘 및 모듈 참조
@@ -188,9 +188,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: 신경망 사용자 지정(Net#)
     href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: c6d072a6e032fb4059b422d0778eb78b01d3706e
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6649d1c39bdb0a66018feff73f9e9d2b39064155
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327683"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430236"

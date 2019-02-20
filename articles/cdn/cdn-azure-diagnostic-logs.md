@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 6fca764c191c801cbca86c573339b397e61ead07
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2b73deb18b518f257e1de6125ef6d4e35eb0e7b7
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700233"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236281"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
@@ -141,24 +141,26 @@ Log Analytics를 사용하여 로그를 저장하려면 아래 단계를 따릅�
 
 다음 예제는 Azure PowerShell Cmdlet을 통해 진단 로그를 사용하도록 설정하는 방법을 보여 줍니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Storage 계정에서 진단 로그 사용
 
 1. 로그인하고 구독을 선택합니다.
 
-    Connect-AzureRmAccount 
+    연결 AzAccount 
 
     Select-AzureSubscription -SubscriptionId 
 
 2. Storage 계정에서 진단 로그를 사용하도록 설정하려면 이 명령을 입력합니다.
 
     ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
+    Set-AzDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
     ```
 
 3. Log Analytics 작업 영역에서 진단 로그를 사용하도록 설정하려면 이 명령을 입력합니다.
 
     ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
+    Set-AzDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
     .<subscriptionName>" -WorkspaceId "/subscriptions/<workspaceId>.<workspaceName>" -Enabled $true -Categories CoreAnalytics 
     ```
 

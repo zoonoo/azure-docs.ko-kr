@@ -34,20 +34,30 @@ items:
     href: backup-rm-template-samples.md
 - name: 개념
   items:
+  - name: 지원 매트릭스
+    items:
+    - name: Azure Backup 지원 매트릭스
+      href: backup-support-matrix.md
+    - name: Azure VM 백업 지원 매트릭스
+      href: backup-support-matrix-iaas.md
+    - name: MABS(DPM/Azure Backup Server) 지원 매트릭스
+      href: backup-support-matrix-mabs-dpm.md
+    - name: MARS 에이전트 지원 매트릭스
+      href: backup-support-matrix-mars-agent.md
+  - name: 질문과 대답(FAQ)
+    items:
+    - name: FAQ-Recovery Services 자격 증명 모음
+      href: backup-azure-backup-faq.md
+    - name: FAQ-Azure VM 백업
+      href: backup-azure-vm-backup-faq.md
+    - name: FAQ-MARS 에이전트
+      href: backup-azure-file-folder-backup-faq.md
+    - name: FAQ-Azure Files 백업
+      href: backup-azure-files-faq.md
+    - name: FAQ-Azure VM에 SQL Server 데이터베이스 백업
+      href: faq-backup-sql-server.md
   - name: 백업 아키텍처
     href: backup-architecture.md
-  - name: 백업 지원 매트릭스
-    href: backup-support-matrix.md
-  - name: FAQ
-    items:
-    - name: Recovery Services 자격 증명 모음에 대한 FAQ
-      href: backup-azure-backup-faq.md
-    - name: Azure VM 백업에 대한 FAQ
-      href: backup-azure-vm-backup-faq.md
-    - name: Azure Backup 에이전트를 사용하여 파일-폴더 백업에 대한 FAQ
-      href: backup-azure-file-folder-backup-faq.md
-    - name: 백업 자격 증명 모음의 자동 업그레이드에 대한 FAQ
-      href: backup-upgrade-backup-vault.md
   - name: 역할 기반 Access Control
     href: backup-rbac-rs-vault.md
   - name: 하이브리드 백업 보안
@@ -104,45 +114,39 @@ items:
     items:
     - name: Azure 파일 공유 백업
       href: backup-azure-files.md
-    - name: Azure 파일 공유 백업 FAQ
-      href: backup-azure-files-faq.md
-  - name: Azure VM
+  - name: Azure VM 백업
     items:
-    - name: VM 준비
+    - name: Azure VM 백업 정보
+      href: backup-azure-vms-introduction.md
+    - name: Azure Backup Instant Restore를 사용하여 Azure VM 백업 및 복원
+      href: backup-instant-restore-capability.md
+    - name: Azure VM 백업
       items:
-      - name: 리소스 관리자 배포 VM 준비
-        href: backup-azure-arm-vms-prepare.md
-      - name: Linux VM의 애플리케이션 일치 백업
-        href: backup-azure-linux-app-consistent.md
-    - name: 환경 계획
-      items:
-      - name: VM 백업 인프라 계획
-        href: backup-azure-vms-introduction.md
-    - name: VM 백업
-      items:
-      - name: Recovery Services 자격 증명 모음에 Azure VM 백업
-        href: backup-azure-vms-first-look-arm.md
-      - name: 암호화된 VM 백업
-        href: backup-azure-vms-encryption.md
-      - name: VM을 만드는 동안 VM 백업 사용
+      - name: Azure VM을 만들 때 백업 사용
         href: backup-during-vm-creation.md
-    - name: VM 관리 및 모니터링
+      - name: VM 설정에서 Azure VM 백업
+        href: backup-azure-vms-first-look-arm.md
+      - name: Azure VM에 대한 자격 증명 모음 설정 및 백업 사용
+        href: backup-azure-arm-vms-prepare.md
+      - name: 암호화된 Azure VM 백업
+        href: backup-azure-vms-encryption.md
+      - name: Linux를 실행하는 Azure VM의 앱 일치 백업 구성
+        href: backup-azure-linux-app-consistent.md
+    - name: Azure VM 백업 관리 및 모니터링
       items:
-      - name: Azure Portal에서 Azure VM 백업 관리
+      - name: Azure VM 백업 관리
         href: backup-azure-manage-vms.md
       - name: Azure VM 백업에 대한 경고 모니터링
         href: backup-azure-monitor-vms.md
-    - name: VM에서 데이터 복원
+    - name: Azure VM 복원
       items:
+      - name: 포털에서 Azure VM 복원
+        href: backup-azure-arm-restore-vms.md
       - name: Azure VM 백업에서 파일 복구
         href: backup-azure-restore-files-from-vm.md
-      - name: Azure Portal에서 VM 복원
-        href: backup-azure-arm-restore-vms.md
-      - name: 인스턴트 복원 기능
-        href: backup-instant-restore-capability.md
       - name: 암호화된 VM 복원
         href: backup-azure-vms-encryption.md
-      - name: 암호화된 VM의 Key Vault 키 및 비밀 복원
+      - name: 암호화된 VM의 키 및 비밀 복원
         href: backup-azure-restore-key-secret.md
   - name: Azure Backup 보고서 구성
     items:
@@ -188,10 +192,14 @@ items:
       href: backup-azure-arm-userestapi-restoreazurevms.md
     - name: Azure Backup 작업 관리
       href: backup-azure-arm-userestapi-managejobs.md
-  - name: Azure VM의 SQL
+  - name: Azure VM에 SQL Server 데이터베이스 백업
     items:
-    - name: Azure에서 SQL 데이터베이스 백업
+    - name: Azure VM에 SQL Server 데이터베이스 백업
       href: backup-azure-sql-database.md
+    - name: 백업된 SQL Server 데이터베이스 복원
+      href: restore-sql-database-azure-vm.md
+    - name: 백업된 SQL Server 데이터베이스 관리
+      href: manage-monitor-sql-database-backup.md
   - name: Windows Server
     items:
     - name: Windows Server 파일 및 폴더 백업
@@ -262,9 +270,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: ce83f8b6b1a0c7ccd9f00672f9aaf9bb33152fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 77f6bf8c4dd12c31f7461b273322b4ce41e3c58d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997237"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428298"

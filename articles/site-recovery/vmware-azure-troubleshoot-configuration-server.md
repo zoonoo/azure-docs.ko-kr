@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0eebfd8b75f428d3b8f6024ed6ee71c18c1309f6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435977"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245731"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>구성 서버 문제 해결
 
@@ -60,7 +60,7 @@ ms.locfileid: "54435977"
 
 ## <a name="vcenter-discovery-failures"></a>vCenter 검색 실패
 
-vCenter 검색 실패를 해결하려면 vCenter 서버가 바이패스 목록 프록시 설정에 추가되어야 합니다. 이 작업을 수행하려면
+vCenter 검색 실패를 해결하려면 vCenter Server를 바이패스 목록 프록시 설정에 추가합니다. 
 
 - [여기](https://aka.ms/PsExec)에서 PsExec 도구를 다운로드하여 시스템 사용자 콘텐츠에 액세스합니다.
 - 명령줄 psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"를 실행하여 시스템 사용자 콘텐츠에서 Internet Explorer를 엽니다.
@@ -80,6 +80,11 @@ vCenter 검색 실패를 해결하려면 vCenter 서버가 바이패스 목록 �
 
 Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다. 로컬 관리자로 설치 프로그램을 실행하고 있는지 확인한 후에 설치 프로그램을 다시 실행합니다.
 
+## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Windows 라이선스를 Server Standard EVALUATION에서 Server Standard로 활성화하지 못함
+
+1. OVF를 통한 구성 서버 배포의 일환으로, 180일 동안 유효한 평가판 라이선스가 사용됩니다. 만료되기 전에 이 라이선스를 활성화해야 합니다. 그렇지 않은 경우 구성 서버가 자주 종료되어 복제 작업이 원활히 진행되지 못합니다.
+2. Windows 라이선스를 활성화할 수 없는 경우 [Windows 지원 팀](https://aka.ms/Windows_Support)에 문의하여 문제를 해결하세요.
+
 ## <a name="register-source-machine-with-configuration-server"></a>구성 서버에 원본 머신 등록
 
 ### <a name="if-the-source-machine-runs-windows"></a>원본 머신에서 Windows를 실행하는 경우
@@ -89,7 +94,7 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
 ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
   UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
-  ```
+```
 
 설정 | 세부 정보
 --- | ---
@@ -112,3 +117,140 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
 -i | 필수 매개 변수입니다. 구성 서버의 IP 주소를 지정합니다. 유효한 IP 주소를 사용합니다.
 -P |  필수. 암호가 저장되는 파일의 전체 파일 경로입니다. 유효한 폴더를 사용합니다.
 
+## <a name="unable-to-configure-the-configuration-server"></a>구성 서버를 구성할 수 없음
+
+가상 머신에서 구성 서버 이외의 애플리케이션을 설치하는 경우 마스터 대상을 구성하지 못할 수 있습니다. 
+
+구성 서버는 단일 용도의 서버여야 하며, 공유 서버로 사용하는 것은 지원되지 않습니다. 
+
+자세한 내용은 [구성 서버 배포](vmware-azure-deploy-configuration-server.md#faq)에서 구성 FAQ를 참조하세요. 
+
+## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>구성 서버 데이터베이스에서 보호된 항목에 대한 오래된 항목 제거 
+
+구성 서버에서 보호된 부실 컴퓨터를 제거하려면 다음 단계를 사용합니다. 
+ 
+1. 부실 항목의 원본 컴퓨터 및 IP 주소를 확인하려면 
+
+    1. 관리자 모드에서 MYSQL 명령줄을 엽니다. 
+    2. 다음 명령을 실행합니다. 
+   
+        ```
+        mysql> use svsdb1;
+        mysql> select id as hostid, name, ipaddress, ostype as operatingsystem, from_unixtime(lasthostupdatetime) as heartbeat from hosts where name!='InMageProfiler'\G;
+        ```
+
+        이 경우 해당 IP 주소 및 마지막 하트비트와 함께 등록된 컴퓨터의 목록이 반환됩니다. 부실 복제 쌍이 있는 호스트를 찾습니다.
+
+2. 관리자 권한 명령 프롬프트를 열고 C:\ProgramData\ASR\home\svsystems\bin으로 이동합니다. 
+4. 구성 서버에서 등록된 호스트 세부 정보와 부실 항목 정보를 제거하려면 부실 항목의 원본 컴퓨터와 IP 주소를 사용하여 다음 명령을 실행합니다. 
+   
+    `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
+ 
+    ipaddress가 10.0.0.4인 원본 서버 항목 "OnPrem-VM01"이 있는 경우 다음 명령을 대신 사용합니다.
+ 
+    `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
+ 
+5. 원본 컴퓨터에서 다음 서비스를 다시 시작하여 구성 서버에 다시 등록합니다. 
+ 
+    - InMage Scout Application 서비스
+    - InMage Scout VX Agent – Sentinel/Outpost
+
+## <a name="upgrade-fails-when-the-services-fail-to-stop"></a>서비스 중지 실패 시 업그레이드가 실패함
+
+특정 서비스가 중지되지 않으면 구성 서버 업그레이드가 실패합니다. 
+
+문제를 식별하려면 구성 서버의 C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile로 이동합니다. 다음 오류가 있으면 아래 단계를 사용하여 문제를 해결합니다. 
+
+    2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+    2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+    2018-06-28 14:28:12.944   Stopping svagents service.
+    2018-06-28 14:31:32.949   Unable to stop svagents service.
+    2018-06-28 14:31:32.949   Stopping svagents service.
+    2018-06-28 14:34:52.960   Unable to stop svagents service.
+    2018-06-28 14:34:52.960   Stopping svagents service.
+    2018-06-28 14:38:12.971   Unable to stop svagents service.
+    2018-06-28 14:38:12.971   Rolling back the install changes.
+    2018-06-28 14:38:12.971   Upgrade has failed.
+
+이 문제를 해결하려면
+
+다음 서비스를 수동으로 중지합니다.
+
+- cxprocessserver
+- InMage Scout VX Agent – Sentinel/Outpost 
+- Microsoft Azure Recovery Services 에이전트 
+- Microsoft Azure Site Recovery 서비스 
+- tmansvc
+  
+구성 서버를 업데이트하려면 [통합 설치](service-updates-how-to.md#links-to-currently-supported-update-rollups)를 다시 실행합니다.
+
+## <a name="azure-active-directory-application-creation-failure"></a>Azure Active Directory 애플리케이션 생성 실패
+
+AAD(Azure Active Directory)에서 [OVA(Open Virtualization Application)](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template
+) 템플릿을 사용하여 애플리케이션을 만들 수 있는 권한이 부족합니다.
+
+이 문제를 해결하려면 Azure Portal에 로그인하고 다음 중 하나를 수행합니다.
+
+- AAD에서 애플리케이션 개발자 역할을 요청합니다. 애플리케이션 개발자 역할에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+- AAD에서 **사용자가 애플리케이션을 만들 수 있음** 플래그를 *true*로 설정했는지 확인합니다. 자세한 내용은 [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
+
+## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>프로세스 서버/마스터 대상이 구성 서버와 통신할 수 없음 
+
+PS(프로세스 서버) 및 MT(마스터 대상) 모듈이 CS(구성 서버)와 통신할 수 없으며 Azure Portal에서 해당 상태가 연결되지 않음으로 표시됩니다.
+
+일반적으로 이 문제는 포트 443의 오류 때문입니다. 다음 단계에 따라 포트의 차단을 해제하고 CS와의 통신을 다시 사용하도록 설정합니다.
+
+**마스터 대상 에이전트에서 MARS 에이전트를 호출하는지 확인**
+
+마스터 대상 에이전트가 구성 서버 IP의 TCP 세션을 만들 수 있는지 확인하려면 마스터 대상 에이전트 로그에서 다음과 유사한 추적을 찾습니다.
+
+TCP <Replace IP with CS IP here>:52739 <Replace IP with CS IP here>:443 SYN_SENT 
+
+TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // 여기서 IP를 CS IP로 교체
+
+MT 에이전트 로그에 다음과 유사한 추적이 있으면 MT 에이전트가 포트 443에 대해 오류를 보고하는 것입니다.
+
+    #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+    #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+ 
+이 오류는 다른 애플리케이션에서도 포트 443을 사용하고 있거나 방화벽 설정으로 인해 해당 포트가 차단될 경우에 발생할 수 있습니다.
+
+이 문제를 해결하려면
+
+- 방화벽이 포트 443을 차단하지 않는지 확인합니다.
+- 해당 포트를 사용하는 다른 애플리케이션으로 인해 포트에 연결할 수 없으면 앱을 중지한 후 제거합니다.
+  - 앱을 중지할 수 없으면 새로운 정리 CS를 설정합니다.
+- 구성 서버를 다시 시작합니다.
+- IIS 서비스를 다시 시작합니다.
+
+### <a name="configuration-server-is-not-connected-due-to-incorrect-uuid-entries"></a>잘못된 UUID 항목으로 인해 구성 서버가 연결되지 않음
+
+이 오류는 데이터베이스에 여러 CS(구성 서버) 인스턴스 UUID 항목이 있을 때 발생할 수 있습니다. 이 문제는 구성 서버 VM을 복제하는 경우에 자주 발생합니다.
+
+이 문제를 해결하려면
+
+1. vCenter에서 부실/이전 CS VM을 제거합니다. 자세한 내용은 [서버 제거 및 보호 사용 안 함](site-recovery-manage-registration-and-protection.md)을 참조하세요.
+2. 구성 서버 VM에 로그인하고 MySQL svsdb1 데이터베이스에 연결합니다. 
+3. 다음 쿼리를 실행합니다.
+
+    > [!IMPORTANT]
+    >
+    > 더 이상 가상 머신을 보호하는 데 사용되지 않는 구성 서버의 부실 항목 또는 복제된 구성 서버의 UUID 세부 정보를 입력하는지 확인합니다. 잘못된 UUID를 입력하면 기존에 보호된 모든 항목의 정보가 손실됩니다.
+   
+    ```
+        MySQL> use svsdb1;
+        MySQL> delete from infrastructurevms where infrastructurevmid='<Stale CS VM UUID>';
+        MySQL> commit; 
+    ```
+4. 포털 페이지를 새로 고칩니다.
+
+## <a name="an-infinite-sign-in-loop-occurs-when-entering-your-credentials"></a>자격 증명을 입력하면 무한 로그인 루프가 발생함
+
+구성 서버 OVF에서 올바른 로그인 이름과 암호를 입력한 후 Azure 로그인이 올바른 자격 증명을 계속 묻습니다.
+
+이 문제는 시스템 시간이 올바르지 않을 때 발생할 수 있습니다.
+
+이 문제를 해결하려면
+
+컴퓨터에서 올바른 시간을 설정하고 로그인을 다시 시도하세요. 
+ 

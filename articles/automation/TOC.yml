@@ -81,28 +81,49 @@ items:
     - name: 역할 기반 액세스 제어 관리
       displayName: RBAC
       href: automation-role-based-access-control.md
-  - name: Runbook 만들기
+  - name: Runbook
     items:
+    - name: Runbook 관리
+      href: manage-runbooks.md
     - name: Runbook 형식
       displayName: graphical, python, powershell, powershell workflow
       href: automation-runbook-types.md
-    - name: Runbook 만들기 및 가져오기
-      href: automation-creating-importing-runbook.md
-    - name: 그래픽 Runbook 만들기
-      href: automation-first-runbook-graphical.md
-    - name: PowerShell Runbook 만들기
-      href: automation-first-runbook-textual-powershell.md
-    - name: PowerShell 워크플로 Runbook 만들기
-      href: automation-first-runbook-textual.md
-    - name: Python Runbook 만들기
-      href: automation-first-runbook-textual-python2.md
-    - name: 텍스트 Runbook 편집
-      displayName: powershell
-      href: automation-edit-textual-runbook.md
-    - name: 그래픽 Runbook 편집
-      href: automation-graphical-authoring-intro.md
-    - name: Runbook 테스트
-      href: automation-testing-runbook.md
+    - name: Runbook 만들기
+      items:
+      - name: 그래픽 Runbook
+        href: automation-first-runbook-graphical.md
+      - name: PowerShell Runbook
+        href: automation-first-runbook-textual-powershell.md
+      - name: PowerShell 워크플로 Runbook
+        href: automation-first-runbook-textual.md
+      - name: Python Runbook
+        href: automation-first-runbook-textual-python2.md
+      - name: Graphical Runbook SDK로 Runbook 만들기
+        href: graphical-runbook-sdk.md
+    - name: Runbook 편집
+      items:
+      - name: 텍스트 Runbook 편집
+        displayName: powershell
+        href: automation-edit-textual-runbook.md
+      - name: 그래픽 Runbook 편집
+        href: automation-graphical-authoring-intro.md
+    - name: Runbook 시작
+      href: start-runbooks.md
+    - name: 웹후크에서 Runbook 시작
+      href: automation-webhooks.md
+    - name: Runbook 입력 매개 변수
+      displayName: input,json
+      href: runbook-input-parameters.md
+    - name: 그래픽 Runbook에서 오류 처리
+      href: automation-runbook-graphical-error-handling.md
+    - name: Runbook 작업 추적
+      displayName: fair share, activity log
+      href: automation-runbook-execution.md
+    - name: Azure Automation 데이터 관리
+      displayName: backup
+      href: automation-managing-data.md
+    - name: Python 2 패키지 관리
+      href: python-packages.md
     - name: 학습 PowerShell 워크플로
       href: automation-powershell-workflow.md
     - name: 자식 Runbook
@@ -116,28 +137,6 @@ items:
     - name: 소스 제어 통합 - 레거시
       href: automation-source-control-integration-legacy.md
       displayname: github
-    - name: Graphical Runbook SDK로 Runbook 만들기
-      href: graphical-runbook-sdk.md
-  - name: 자동화
-    items:
-    - name: Runbook 시작
-      href: automation-starting-a-runbook.md
-    - name: 웹후크에서 Runbook 시작
-      href: automation-webhooks.md
-    - name: Runbook 입력 매개 변수 구성
-      href: automation-runbook-input-parameters.md
-    - name: 그래픽 Runbook에서 오류 처리
-      href: automation-runbook-graphical-error-handling.md
-    - name: Runbook 작업 추적
-      displayName: fair share, activity log
-      href: automation-runbook-execution.md
-    - name: Azure Automation 데이터 관리
-      displayName: backup
-      href: automation-managing-data.md
-    - name: Azure Automation Runbook에 JSON 개체 전달
-      href: automation-pass-json-string.md
-    - name: Python 2 패키지 관리
-      href: python-packages.md
   - name: Hybrid Runbook Worker
     items:
     - name: Hybrid Runbook Worker 개요
@@ -205,12 +204,6 @@ items:
       href: automation-create-alert-triggered-runbook.md
     - name: Amazon 웹 서비스 VM 만들기
       href: automation-scenario-aws-deployment.md
-    - name: GitHub Enterprise와 소스 제어 통합
-      displayName: CI, runbooks
-      href: automation-scenario-source-control-integration-with-github-ent.md
-    - name: Azure DevOps와 소스 제어 통합
-      displayName: VSTS, CI, runbooks
-      href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포
       href: automation-deploy-template-runbook.md
     - name: Azure Automation과 Event Grid 통합
@@ -292,9 +285,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: a5886c5af9db6945fe33efd8198b5527f580d297
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e35c51bb1d82f2c5eda708ab8bce71c2bf5b69b7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004588"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417026"
