@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 403f1cee04da17086a55adfbaed28388afd24d29
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 26268c892b0e900c410cd669454b8b6f02ee8886
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54211877"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102250"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure Managed Disks 개요
 
@@ -63,7 +63,7 @@ Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 �
 
 이러한 옵션을 좀 더 자세히 살펴보겠습니다.
 
-**스토리지 유형:** Managed Disks에서는 [표준 HDD](../articles/virtual-machines/windows/standard-storage.md), [표준 SSD](../articles/virtual-machines/windows/disks-standard-ssd.md) 및 [프리미엄](../articles/virtual-machines/windows/premium-storage.md)의 3개 성능 계층을 제공합니다. 관리 디스크에 대한 요금 청구는 디스크에 어떤 유형의 저장소를 선택했는지에 따라 달라집니다.
+**스토리지 유형:** Managed Disks에서는 [표준 HDD](../articles/virtual-machines/windows/standard-storage.md), [표준 SSD](../articles/virtual-machines/windows/standard-storage.md) 및 [프리미엄](../articles/virtual-machines/windows/premium-storage.md)의 3개 성능 계층을 제공합니다. 관리 디스크에 대한 요금 청구는 디스크에 어떤 유형의 저장소를 선택했는지에 따라 달라집니다.
 
 **디스크 크기**: 관리형 디스크에 청구되는 요금은 프로비전된 디스크 크기에 따라 달라집니다. Azure는 프로비전된 크기(올림)를 아래 테이블에 지정된 대로 가장 가까운 Managed Disks 옵션에 매핑합니다. 각각의 관리 디스크는 지원되는 프로비전된 크기 중 하나에 매핑되고 그에 따라 요금이 청구됩니다. 예를 들어 표준 관리 디스크를 만들고 프로비전된 크기를 200GB로 지정하면 S15 디스크 유형의 가격에 따라 요금이 청구됩니다.
 
@@ -75,9 +75,9 @@ Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 �
 
 다음은 표준 SSD 관리 디스크에 사용 가능한 디스크 크기이며, 별표가 표시된 크기는 현재 미리 보기로 제공됩니다.
 
-| **표준 SSD 관리 <br>디스크 유형** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
-|------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
-| 디스크 크기        | 128GiB | 256GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB) | 16,384GiB(16TiB) | 32,767GiB(TiB) |
+| **표준 SSD 관리 <br>디스크 유형** | **E4** | **E6** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| 디스크 크기        | 32GiB | 64GiB | 128GiB | 256GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB) | 16,384GiB(16TiB) | 32,767GiB(TiB) |
 
 다음은 표준 HDD 관리 디스크에 사용 가능한 디스크 크기이며, 별표가 표시된 크기는 현재 미리 보기로 제공됩니다.
 
