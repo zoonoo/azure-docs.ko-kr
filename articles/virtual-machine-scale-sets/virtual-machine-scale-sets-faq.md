@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 6b470bfbb97cb14ccb1f63b34218575b64e686de
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 924ed7c2a253ab74a4807559d190218d3125b92c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812593"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978598"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
@@ -61,7 +61,7 @@ Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 �
 
 **Q.** 크기 집합에서 여러 확장을 사용하는 경우, 실행 순서를 강제로 적용할 수 있나요?
 
-**A.** 직접적으로는 불가능하지만 customScript 확장의 경우 다른 확장이 완료될 때까지 사용자의 스크립트를 대기시킬 수 있습니다. 확장 시퀀싱에 대한 추가 지침은 블로그 게시물 [Azure 가상 머신 확장 집합의 확장 시퀀싱](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)에서 확인할 수 있습니다.
+**A.** 예, [확장 시퀀싱](virtual-machine-scale-sets-extension-sequencing.md) 확장 집합을 사용할 수 있습니다.
 
 **Q.** 크기 집합은 Azure 가용성 집합과 작업이 가능한가요?
 
@@ -176,7 +176,7 @@ az sf cluster create -h
 
 Azure의 최신 API 지원 인증서 작업에 대해서는 keyvaults 설명서를 검토하세요.
 
-자체 서명 인증서는 인증 기관에서 제공하는 분산 트러스트에 사용할 수 없으며, 엔터프라이즈 프로덕션 솔루션을 호스트하기 위한 어떤 Service Fabric 클러스터에도 사용하지 말아야 합니다. 추가 Service Fabric 보안 지침에 대해서는 [Azure Service Fabric 보안 모범 사례](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) 및 [Service Fabric 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)를 검토하세요.
+자체 서명 인증서는 인증 기관에서 제공하는 분산 트러스트에 사용할 수 없으며, 엔터프라이즈 프로덕션 솔루션을 호스트하기 위한 어떤 Service Fabric 클러스터에도 사용하지 말아야 합니다. 추가 Service Fabric 보안 지침에 대해서는 [Azure Service Fabric 보안 모범 사례](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) 및 [Service Fabric 클러스터 보안 시나리오](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)를 검토하세요.
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Resource Manager 템플릿에서 Linux 가상 머신 확장 집합으로 SSH 인증에 사용하려는 SSH 키 쌍을 지정할 수 있나요?
 
@@ -230,6 +230,7 @@ Linux VM을 만들 때 일반 텍스트로 SSH 공개 키를 제공할 수 있�
             }
         ]
     }
+}
 ```
 
 linuxConfiguration 요소 이름 | 필수 | 형식 | 설명
@@ -240,11 +241,11 @@ keyData | 예 | 문자열 | base64로 인코딩된 SSH 공개 키를 지정합�
 
 예제는 [101-vm-sshkey GitHub 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json)을 참조하세요.
 
-### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>동일한 Key Vault에서 둘 이상의 인증서를 추가한 후에 `Update-AzureRmVmss`를 실행하면 다음과 같은 메시지가 나타납니다.
+### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>동일한 Key Vault에서 둘 이상의 인증서를 추가한 후에 `Update-AzVmss`를 실행하면 다음과 같은 메시지가 나타납니다.
 
->Update-AzureRmVmss: 허용되지 않는 /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev의 반복 인스턴스가 포함된 비밀을 나열합니다.
+>업데이트-AzVmss: 허용되지 않는 /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev의 반복 인스턴스가 포함된 비밀을 나열합니다.
 
-이 기존 원본 자격 증명 모음에 대해 새 자격 증명 모음 인증서를 사용하는 대신, 동일한 자격 증명 모음을 다시 추가하려고 하면 이러한 현상이 발생할 수 있습니다. 다른 비밀을 더 추가하는 경우 `Add-AzureRmVmssSecret` 명령은 제대로 작동하지 않습니다.
+이 기존 원본 자격 증명 모음에 대해 새 자격 증명 모음 인증서를 사용하는 대신, 동일한 자격 증명 모음을 다시 추가하려고 하면 이러한 현상이 발생할 수 있습니다. 다른 비밀을 더 추가하는 경우 `Add-AzVmssSecret` 명령은 제대로 작동하지 않습니다.
 
 동일한 키 자격 증명 모음에서 더 많은 비밀을 추가하려면 $vmss.properties.osProfile.secrets[0].vaultCertificates 목록을 업데이트해야 합니다.
 
@@ -283,11 +284,11 @@ Linux VM에 대한 인증서를 배포하는 방법을 알아보려면 [고객�
 기존 비밀에 자격 증명 모음 인증서를 추가하려면 다음 PowerShell 예제를 참조하세요. 비밀 개체를 하나만 사용합니다.
 
 ```powershell
-$newVaultCertificate = New-AzureRmVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.net:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
+$newVaultCertificate = New-AzVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.net:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
 
 $vmss.VirtualMachineProfile.OsProfile.Secrets[0].VaultCertificates.Add($newVaultCertificate)
 
-Update-AzureRmVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssName
+Update-AzVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssName
 ```
 
 ### <a name="what-happens-to-certificates-if-you-reimage-a-vm"></a>VM을 이미지로 다시 설치하면 인증서는 어떻게 됩니까?
@@ -364,11 +365,11 @@ VM을 만든 다음 Key Vault에서 비밀을 업데이트하면 새 인증서�
 가상 머신 확장 집합 확장을 삭제하려면 다음 PowerShell 예제를 사용합니다.
 
 ```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName"
+$vmss = Get-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName"
 
-$vmss=Remove-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
+$vmss=Remove-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
 
-Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
+Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
 ```
 
 `$vmss`에서 extensionName 값을 찾을 수 있습니다.
@@ -392,18 +393,18 @@ Log Analytics와 통합되는 가상 머신 확장 집합 템플릿 예제의 �
 - VM 액세스 확장을 사용하여 암호를 다시 설정합니다.
 
     다음 PowerShell 예제를 사용합니다.
-    
+
     ```powershell
     $vmssName = "myvmss"
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-    
+
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
-    $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-    $vmss = Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-    Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
     ```
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>가상 머신 확장 집합의 모든 VM에 확장을 추가하려면 어떻게 하나요?
@@ -463,13 +464,13 @@ $vmssname = 'autolapbr'
 $location = 'eastus'
 
 # Retrieve the most recent version number of the extension.
-$allVersions= (Get-AzureRmVMExtensionImage -Location $location -PublisherName "Microsoft.Azure.Security" -Type "IaaSAntimalware").Version
+$allVersions= (Get-AzVMExtensionImage -Location $location -PublisherName "Microsoft.Azure.Security" -Type "IaaSAntimalware").Version
 $versionString = $allVersions[($allVersions.count)-1].Split(".")[0] + "." + $allVersions[($allVersions.count)-1].Split(".")[1]
 
-$VMSS = Get-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
+$VMSS = Get-AzVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
 echo $VMSS
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publisher "Microsoft.Azure.Security" -Type "IaaSAntimalware" -TypeHandlerVersion $versionString
-Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
+Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publisher "Microsoft.Azure.Security" -Type "IaaSAntimalware" -TypeHandlerVersion $versionString
+Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
 ### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>개인 저장소 계정에서 호스트되는 사용자 지정 스크립트를 실행해야 합니다. 이 스크립트는 저장소가 공용일 때 성공적으로 실행되지만 SAS(공유 액세스 서명)을 사용하려고 하면 실패합니다. 다음 메시지가 표시됩니다. “올바른 공유 액세스 서명에 대한 필수 매개 변수가 없음”. Link+SAS는 로컬 브라우저에서 잘 작동합니다.
@@ -630,7 +631,9 @@ Azure Portal의 가상 머신 확장 집합에서 VM 수를 변경하려면 가�
                     }
                 ]
             }
-        ],
+        ]
+    }
+}
 ```
 
 이 예제에서는 임계값에 도달될 경우 경고가 Pagerduty.com으로 이동됩니다.
