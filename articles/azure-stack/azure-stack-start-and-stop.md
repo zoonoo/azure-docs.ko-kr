@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/19/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: b8d13377b2fb1545ecf88645a5e19bf5eab24c74
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6b14f5e8967567030ce854d05c53a8d26027e9a6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238138"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428842"
 ---
 # <a name="start-and-stop-azure-stack"></a>시작 하 고 Azure Stack 중지
-이 문서의 적절히 종료 하 고 Azure Stack 서비스를 다시 시작 절차를 따라야 합니다. 종료는 실제로 환경의 전원을 끄고 전체 Azure Stack. 시작 모든 인프라 역할을 구동 하 고 종료 하기 전에 있었을 전원 상태를 테 넌 트 리소스를 반환 합니다.
+이 문서의 적절히 종료 하 고 Azure Stack 서비스를 다시 시작 절차를 따라야 합니다. 종료는 실제로 환경의 전원을 끄고 전체 Azure Stack. 모든 인프라 역할의 전원을 켭니다 시작 되 고 반환 리소스 종료 전에 있었을 전원 상태를 테 넌 트입니다.
 
 ## <a name="stop-azure-stack"></a>Azure Stack 중지 
 

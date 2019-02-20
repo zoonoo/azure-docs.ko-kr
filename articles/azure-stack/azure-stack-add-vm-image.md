@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/18/2019
+ms.date: 2/19/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: dce158e600d3bf5dbcc552aff82959208d7b47f8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0319445f946a53ace5718dce1ad593d0a8225ecc
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249064"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428519"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 머신 이미지를 Azure Stack에서 사용할 수 있도록
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용자에 게 합니다. 이러한 이미지는 Azure Resource Manager 템플릿에서 참조할 수 있습니다 하거나 Azure Marketplace ui Marketplace 항목으로 추가할 수 있습니다. 형식 중 하나는 이미지 전역 Azure Marketplace를 사용 하거나 사용자 고유의 사용자 지정 이미지를 추가할 수 있습니다. 포털 또는 Windows PowerShell을 사용 하 여 VM을 추가할 수 있습니다.
+Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용자에 게 합니다. 이러한 이미지는 Azure Resource Manager 템플릿에서 사용할 수 있습니다. 추가할 수 있습니다도 Azure Marketplace ui Marketplace 항목으로 합니다. 전역 Azure Marketplace를 이미지 형식 또는 사용자 고유의 사용자 지정 이미지를 사용 합니다. 포털 또는 Windows PowerShell을 사용 하 여 이미지를 추가할 수 있습니다.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>포털을 통해 VM 이미지 추가
 
