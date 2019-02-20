@@ -15,12 +15,15 @@ items:
 - name: 자습서
   items:
   - name: 원격 파일 및 스트림 비디오 인코딩 – REST
+    displayName: encoding, job, transform
     href: stream-files-tutorial-with-rest.md
   - name: 업로드된 파일 및 스트림 비디오 인코딩 – .NET
+    displayName: encode, encoding, job, transform
     href: stream-files-tutorial-with-api.md
   - name: 라이브 스트리밍 - .NET
     href: stream-live-tutorial-with-api.md
   - name: 비디오 분석 - .NET
+    displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
   expanded: true
 - name: 샘플
@@ -31,32 +34,54 @@ items:
     href: cli-samples.md
 - name: 개념
   items:
-  - name: 수집
+  - name: 클라우드 업로드 및 저장
+    href: storage-account-concept.md
     items:
     - name: 자산
       href: assets-concept.md
-  - name: 인코딩
-    href: encoding-concept.md
+  - name: Encoding
     items:
+    - name: 개요
+      displayName: Presets
+      href: encoding-concept.md
     - name: Transform 및 Job
       href: transforms-jobs-concept.md
     - name: Media Encoder Standard 형식
       href: media-encoder-standard-formats.md
     - name: Autogen 적응 비트 전송률 사다리
       href: autogen-bitrate-ladder.md
-  - name: 분석
-    href: analyzing-video-audio-files-concept.md
+  - name: 미디어 분석
     items:
+    - name: 개요
+      displayName: Presets
+      href: analyzing-video-audio-files-concept.md
     - name: Transform 및 Job
       href: transforms-jobs-concept.md
-  - name: Stream
+  - name: 패키징, 배달, 보호
     items:
+    - name: 패키징
+      items:
+      - name: 동적 패키징
+        href: dynamic-packaging-overview.md
+      - name: 필터
+        href: filters-concept.md
+      - name: 동적 매니페스트
+        href: filters-dynamic-manifest-overview.md
+    - name: 콘텐츠 보호
+      href: content-protection-overview.md
+      items:
+      - name: 액세스 제어를 포함한 다중 DRM 시스템
+        href: design-multi-drm-system-with-access-control.md
     - name: 스트리밍 엔드포인트
+      displayName: Origins
       href: streaming-endpoint-concept.md
     - name: 스트리밍 로케이터
+      displayName: URLs
       href: streaming-locators-concept.md
     - name: 스트리밍 정책
       href: streaming-policy-concept.md
+    - name: 콘텐츠 키 정책
+      href: content-key-policy-concept.md
   - name: 라이브 스트리밍
     href: live-streaming-overview.md
     items:
@@ -72,36 +97,19 @@ items:
       href: live-event-states-billing.md
     - name: 대기 시간
       href: live-event-latency.md
-  - name: 제공
+  - name: 모니터링
     items:
-    - name: 필터 및 동적 매니페스트
-      href: filters-dynamic-manifest-overview.md
-  - name: 모니터
-    items:
-    - name: Event Grid
+    - name: Event Grid를 사용하는 이벤트
       href: reacting-to-media-services-events.md
-  - name: 보호
-    href: content-protection-overview.md
+  - name: 플레이어 클라이언트
     items:
-    - name: 콘텐츠 키 정책
-      href: content-key-policy-concept.md
-    - name: 스트리밍 정책
-      href: streaming-policy-concept.md
-    - name: 스트리밍 로케이터
-      href: streaming-locators-concept.md
-    - name: 액세스 제어를 포함한 다중 DRM 시스템
-      href: design-multi-drm-system-with-access-control.md
-  - name: 재생
-    href: use-azure-media-player.md
-  - name: 계정
+    - name: Azure Media Player
+      href: use-azure-media-player.md
+  - name: Media Services 엔터티
     items:
-    - name: 할당량 및 제한 사항
-      href: limits-quotas-constraints.md
-    - name: Storage 계정
-      href: storage-account-concept.md
-  - name: 필터, 순서, 페이지 엔터티
-    href: entities-overview.md
-  - name: v2에서 v3로 마이그레이션
+    - name: 엔터티 정렬, 필터링, 페이징
+      href: entities-overview.md
+  - name: v2에서 v3로의 마이그레이션 지침
     href: migrate-from-v2-to-v3.md
 - name: 방법 가이드
   items:
@@ -113,19 +121,34 @@ items:
       href: access-api-cli-how-to.md
     - name: 미디어 예약 단위 크기 조정 - CLI
       href: media-reserved-units-cli-how-to.md
-  - name: Postman 구성
-    href: media-rest-apis-with-postman.md
+    - name: 개발 시작
+      href: developers-guide.md
+    - name: Postman 구성
+      href: media-rest-apis-with-postman.md
   - name: 콘텐츠 업로드
     items:
-    - name: HTTP(s)에서 - .NET
+    - name: HTTPS에서 - .NET
+      displayName: upload
       href: job-input-from-http-how-to.md
     - name: 로컬 파일에서 - .NET
+      displayName: upload
       href: job-input-from-local-file-how-to.md
     - name: 로컬 파일에서 - REST
+      displayName: upload
       href: upload-files-rest-how-to.md
   - name: 콘텐츠 인코딩
     items:
-    - name: 변환 사전 설정 사용자 지정 - .NET
+    - name: 작업 입력으로의 HTTPS - .NET
+      displayName: encode, encoding
+      href: job-input-from-http-how-to.md
+    - name: 작업 입력으로의 로컬 파일 - .NET
+      displayName: encode, encoding
+      href: job-input-from-local-file-how-to.md
+    - name: 작업 입력으로의 로컬 파일 - REST
+      displayName: encode
+      href: upload-files-rest-how-to.md
+    - name: 사용자 지정 변환 사용 - .NET
+      displayName: encode, encoding, tranform
       href: customize-encoder-presets-how-to.md
   - name: Event Grid 사용
     items:
@@ -215,13 +238,15 @@ items:
     href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: 릴리스 정보
     href: release-notes.md
+  - name: 할당량 및 제한 사항
+    href: limits-quotas-constraints.md
   - name: FAQ
     href: frequently-asked-questions.md
   - name: Azure 클라우드 및 지역
     href: azure-clouds-regions.md
-ms.openlocfilehash: 0ca98ea27a77418ee5a111a67bd013ab6ad40e55
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 05b20d905a5848cfcfd0f9c6d20e4addb5c776fc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330021"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340436"

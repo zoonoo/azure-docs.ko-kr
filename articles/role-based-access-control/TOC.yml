@@ -1,5 +1,5 @@
 items:
-- name: 역할 기반 액세스 제어 설명서
+- name: Azure 리소스에 대한 RBAC 설명서
   href: index.yml
 - name: 개요
   items:
@@ -9,15 +9,15 @@ items:
     href: rbac-and-directory-admin-roles.md
 - name: 빠른 시작
   items:
-  - name: 사용자의 역할 보기
+  - name: 사용자에 대한 액세스 권한 보기
     href: check-access.md
 - name: 자습서
   items:
-  - name: 사용자에 대한 액세스 권한 부여 - 포털
+  - name: 사용자 액세스 권한 부여 - 포털
     href: quickstart-assign-role-user-portal.md
-  - name: 사용자에 대한 액세스 권한 부여 - PowerShell
+  - name: 사용자 액세스 권한 부여 - PowerShell
     href: tutorial-role-assignments-user-powershell.md
-  - name: 그룹에 대한 액세스 권한 부여 - PowerShell
+  - name: 그룹 액세스 권한 부여 - PowerShell
     href: tutorial-role-assignments-group-powershell.md
   - name: 사용자 지정 역할 만들기 - PowerShell
     href: tutorial-custom-role-powershell.md
@@ -29,7 +29,7 @@ items:
     href: role-definitions.md
   - name: 거부 할당 이해
     href: deny-assignments.md
-  - name: RBAC용 PIM(Privileged Identity Management)
+  - name: Azure Resource용 PIM
     href: pim-azure-resource.md
   - name: Azure 관리에 대한 조건부 액세스
     href: conditional-access-azure-management.md
@@ -96,9 +96,9 @@ items:
   items:
   - name: Microsoft Learn을 통해 기술 쌓기
     href: /learn/browse/?products=azure-active-directory
-ms.openlocfilehash: 46ff0e024e2c7dc466120054b4a8e69fa47c14cd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 20500ad90e710b2c0e4359832a24a352c14ea0b2
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099210"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408768"

@@ -14,12 +14,12 @@ ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 6d82410e07e725b13385f6ff2b57218c1146a80a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 40973fbdd1965eb84776fc9365718c65fa0149a7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329294"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416992"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -205,7 +205,7 @@ CLI를 사용 하 여 가상 컴퓨터를 만들 수 있습니다, 전에 Azure 
       ```
 
       > [!NOTE]
-      > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login command` 제공 하지 않고는 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공이 명령을 실행 합니다.
+      > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login` 제공 하지 않고 명령을 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공이 명령을 실행 합니다.
    
       * 으로 로그인을 *서비스 주체*: 로그인 하기 전에 [Azure portal 통해 서비스 주체를 만들려면](azure-stack-create-service-principals.md) 또는 CLI 역할을 할당 합니다. 이제 다음 명령을 사용 하 여 로그인 합니다.
 

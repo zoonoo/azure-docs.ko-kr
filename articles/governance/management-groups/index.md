@@ -1,6 +1,6 @@
 ---
-title: Azure 관리 그룹으로 리소스 구성
-description: 관리 그룹 및 사용 방법에 대해 알아봅니다.
+title: Azure 관리 그룹으로 리소스 구성 - Azure Governance
+description: '관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대해 알아봅니다.'
 author: rthorn17
 manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -11,12 +11,6 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584608"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성
 
@@ -113,12 +107,12 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 
 ## <a name="audit-management-groups-using-activity-logs"></a>활동 로그를 사용하여 관리 그룹 감사
 
-이 API를 통해 관리 그룹을 추적하려면 [테넌트 활동 로그 API](/rest/api/monitor/tenantactivitylogs)를 사용합니다. 현재 PowerShell, CLI 또는 Azure Portal을 사용하여 관리 그룹 작업을 추적할 수 없습니다.
+이 API를 통해 관리 그룹을 추적하려면 [테넌트 활동 로그 API](/rest/api/monitor/tenantactivitylogs)를 사용합니다. 현재는 PowerShell, CLI 또는 Azure Portal을 사용하여 관리 그룹 작업을 추적할 수 없습니다.
 
 1. Azure AD 테넌트의 테넌트 관리자로 [액세스의 권한을 상승한](../../role-based-access-control/elevate-access-global-admin.md) 다음, `/providers/microsoft.insights/eventtypes/management` 범위에 대해 감사 사용자에게 읽기 역할을 할당합니다.
-1. 감사 사용자로 [테넌트 활동 로그 API](/rest/api/monitor/tenantactivitylogs)를 호출하여 관리 그룹 작업을 확인합니다. 모든 관리 그룹 작업에 대해 **Microsoft.Management** 리소스 공급자로 필터링하려고 합니다.  예제:
+1. 감사 사용자로 [테넌트 활동 로그 API](/rest/api/monitor/tenantactivitylogs)를 호출하여 관리 그룹 작업을 확인합니다. 모든 관리 그룹 작업에 대해 **Microsoft.Management** 리소스 공급자를 기준으로 필터링해야 합니다.  예제:
 
-```
+```http
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
 ```
 

@@ -59,7 +59,11 @@ items:
 - name: 방법 가이드
   items:
   - name: 작업 영역 관리
-    href: how-to-manage-workspace.md
+    items:
+    - name: 작업 영역에 대해 포털 사용
+      href: how-to-manage-workspace.md
+    - name: Resource Manager 템플릿 사용
+      href: how-to-create-workspace-template.md
   - name: 개발 환경 설정 
     items:
     - name: 개발 환경 구성
@@ -119,8 +123,6 @@ items:
       href: how-to-deploy-fpga-web-service.md
     - name: 문제 해결
       href: how-to-troubleshoot-deployment.md
-    - name: SSL로 웹 서비스 보호
-      href: how-to-secure-web-service.md
   - name: 웹 서비스 사용
     items:
     - name: 실시간 사용
@@ -136,25 +138,27 @@ items:
       href: how-to-enable-data-collection.md
     - name: Application Insights로 모니터링
       href: how-to-enable-app-insights.md
+  - name: 보안
+    items:
+    - name: 가상 네트워크 사용
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: SSL로 웹 서비스 보호
+      href: how-to-secure-web-service.md
   - name: 첫 번째 파이프라인 만들기
     href: how-to-create-your-first-pipeline.md
+  - name: 로깅 사용
+    displayName: logging
+    href: how-to-enable-logging.md
   - name: 리소스 할당량 관리
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: 가상 네트워크로 보호
-    displayName: vnet
-    href: how-to-enable-virtual-network.md
   - name: Machine Learning CLI 사용
     displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: 데이터 내보내기 및 삭제
     displayName: gdpr
     href: how-to-export-delete-data.md
-  - name: Resource Manager 템플릿 사용
-    href: how-to-create-workspace-template.md
-  - name: 로깅 사용
-    displayName: logging
-    href: how-to-enable-logging.md
 - name: 참고 자료
   items:
   - name: Machine Learning SDK
@@ -166,8 +170,6 @@ items:
   - name: 모니터링 SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
-  - name: Resource Manager 템플릿
-    href: /azure/templates/microsoft.machinelearningservices/allversions
 - name: 리소스
   items:
   - name: Azure 로드맵
@@ -183,9 +185,9 @@ items:
     href: support-for-aml-services.md
   - name: ML 제품 비교
     href: overview-more-machine-learning.md
-ms.openlocfilehash: eb803b44bbe72b80f4414a4de66bce519591dea7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 041a4b0f3ebecdaedb041ceb25f426a6e1825292
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268824"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338096"
