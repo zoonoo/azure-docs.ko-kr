@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c917e37d48f2b26d9a1e4d13b76dde5539ce94ea
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1a7a0604117dde55300a779bb1b7167c8da4e056
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116584"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266767"
 ---
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>자습서: Resource Manager 템플릿 배포 문제 해결
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Resource Manager 템플릿 배포 오류 문제를 해결하는 방법에 대해 알아봅니다. 이 자습서에서는 템플릿에서 두 가지 오류를 설정하고 활동 로그 및 배포 기록을 사용하여 문제를 해결하는 방법을 알아봅니다.
 

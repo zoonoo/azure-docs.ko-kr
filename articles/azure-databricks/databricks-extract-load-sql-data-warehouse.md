@@ -1,21 +1,19 @@
 ---
 title: '자습서: Azure Databricks를 사용하여 ETL 작업 수행'
 description: Data Lake Storage Gen2에서 Azure Databricks로 데이터를 추출하고 데이터를 전송한 다음, Azure SQL Data Warehouse에 데이터를 로드하는 방법을 알아봅니다.
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
 ms.date: 01/24/2019
-ms.openlocfilehash: 57de2d9c63a4185997ac86056b9e3189ad66e478
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b48ac9cf8eff001e62f54e41b5f76a9d006bc5ba
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893138"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328931"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 

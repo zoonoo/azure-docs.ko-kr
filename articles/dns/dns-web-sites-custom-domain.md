@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/20/2018
+ms.date: 2/19/2019
 ms.author: victorh
-ms.openlocfilehash: 638d6c5740f999af2f1dac7cbc51e0b6aeb38c0b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9ed0c8763835add485d6c60a43f4e4113ecde12e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996358"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429284"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>자습서: 사용자 지정 도메인에 웹앱에 대한 DNS 레코드 만들기 
 
@@ -84,7 +84,7 @@ App Services는 구성 시에만 이 레코드를 사용하여 사용자 지정 
 
 ```powershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
- -Name `"@" -RecordType "txt" -Ttl 600 `
+ -Name "@" -RecordType "txt" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
 ```
 

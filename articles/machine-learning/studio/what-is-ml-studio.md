@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 77c69e7e655770ab912e6ee25183e760f972504d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4f69de744be3a9926e1c5d3e674966e24c3020dc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243691"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455656"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 Microsoft Azure Machine Learning Studio는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트, 배포할 수 있는 공동 끌어서 놓기 도구입니다. Machine Learning Studio는 Excel과 같은 BI 도구 또는 사용자 지정 앱에서 쉽게 사용할 수 있는 웹 서비스로 모델을 게시합니다.
@@ -37,7 +37,7 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 
 프로그래밍이 필요하지 않고 데이터 세트와 모듈을 시각적으로 연결하면 예측 분석 모델을 구성할 수 있습니다.
 
-![Azure Machine Learning Studio 다이어그램: 실험을 만들고, 여러 원본에 대한 데이터 읽고, 점수 데이터를 쓰고, 모델을 작성합니다.][ml-studio-overview]
+![Azure Machine Learning Studio 다이어그램: 실험을 만들고, 여러 원본에 대한 데이터 읽고, 점수 데이터를 쓰고, 모델을 작성합니다.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Machine Learning Studio 시작
 [Machine Learning Studio](https://studio.azureml.net)를 처음 시작하면 **홈** 페이지가 표시됩니다. 여기에서 설명서, 동영상, 웹 세미나를 보고 다른 유용한 리소스를 찾을 수 있습니다.
@@ -107,9 +107,6 @@ Machine Learning Studio에 포함된 샘플 데이터 세트의 목록은 [Azure
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>예측 분석 웹 서비스 배포
 예측 분석 모델이 준비되면 Machine Learning Studio에서 곧바로 해당 모델을 웹 서비스로 배포할 수 있습니다. 이 프로세스에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
-
-[ml-studio-overview]:./media/what-is-ml-studio/azure-ml-studio-diagram.jpg
-
 
 
 ## <a name="key-machine-learning-terms-and-concepts"></a>주요 기계 학습 용어 및 개념

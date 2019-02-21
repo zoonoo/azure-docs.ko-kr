@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: e7d271ce37209a49e1c75d6114ed07b11558df44
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c8aafa2dc2798aee5576dab4781b42d4aa67ddd9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104995"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269266"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
 
@@ -48,8 +48,6 @@ Azure에서는 원래 클래식 배포 모델만 제공했습니다. 이 모델�
 리소스 관리자를 추가할 때 모든 리소스는 기본 리소스 그룹에 소급 추가되었습니다. 이제 클래식 배포를 통해 리소스를 만들 경우, 배포 시 해당 리소스 그룹을 지정하지 않은 경우에도 리소스가 해당 서비스에 대한 기본 리소스 그룹 내에서 자동으로 생성됩니다. 그러나 리소스 그룹 내에 존재한다 해도도 리소스 관리자 모델로 변환되었음을 의미하지는 않습니다.
 
 ## <a name="understand-support-for-the-models"></a>모델에 대한 지원 이해
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 다음의 세 가지 시나리오를 알고 있어야 합니다.
 

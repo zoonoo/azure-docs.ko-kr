@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6383a495ed3e3876e96b1249cb7b2286b240a481
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884599"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312245"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>빠른 시작: C#에서 불쾌한 자료에 대한 텍스트 콘텐츠 분석 
 
@@ -35,9 +35,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만들고 **TextModeration**으로 이름을 지정합니다. 
 1. 솔루션에 다른 프로젝트가 있는 경우 이것을 단일 시작 프로젝트로 선택합니다.
 1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 누르고 **NuGet 패키지 관리**를 선택한 후 다음 패키지를 찾아 설치합니다.
-    - Microsoft.Azure.CognitiveServices.ContentModerator
-    - Microsoft.Rest.ClientRuntime
-    - Newtonsoft.Json
+    - `Microsoft.Azure.CognitiveServices.ContentModerator`
+    - `Microsoft.Rest.ClientRuntime`
+    - `Newtonsoft.Json`
 
 ## <a name="add-text-moderation-code"></a>텍스트 조정 코드 추가
 

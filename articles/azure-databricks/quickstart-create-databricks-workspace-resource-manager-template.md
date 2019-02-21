@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 88538aa9528059458f6e73485f4839693caa943b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 179bb4586ce7d6b306decfcf4d312d541dc9232e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054497"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330480"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 4. 작업 영역 생성에는 몇 분 정도가 소요됩니다. 작업 영역을 만드는 동안 포털의 오른쪽에 **Azure Databricks에 대한 배포 제출** 타일이 표시됩니다. 타일을 보려면 대시보드에서 오른쪽으로 스크롤해야 할 수도 있습니다. 화면 위쪽에 진행률 표시줄이 표시되기도 합니다. 두 영역에서 진행 상태를 볼 수 있습니다.
 
-   ![Databricks 배포 타일](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks 배포 타일")
+   ![Databricks 배포 타일](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-deployment-tile.png "Databricks 배포 타일")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Databricks에서 Spark 클러스터 만들기
 
@@ -59,11 +59,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. Azure Databricks 포털로 리디렉션됩니다. 포털에서 **클러스터**를 클릭합니다.
 
-   ![Azure의 Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-on-azure.png "Azure의 Databricks")
+   ![Azure의 Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-on-azure.png "Azure의 Databricks")
 
 3. **새 클러스터** 페이지에서 값을 제공하여 클러스터를 만듭니다.
 
-   ![Azure에서 Databricks Spark 클러스터 만들기](./media/quickstart-create-databricks-workspace-portal/create-databricks-spark-cluster.png "Azure에서 Databricks Spark 클러스터 만들기")
+   ![Azure에서 Databricks Spark 클러스터 만들기](./media/quickstart-create-databricks-workspace-resource-manager-template/create-databricks-spark-cluster.png "Azure에서 Databricks Spark 클러스터 만들기")
 
    다음 항목 이외의 다른 모든 기본값을 허용합니다.
 
@@ -83,15 +83,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * [GitHub에서](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 샘플 JSON 파일을 다운로드합니다.
 * 사용자가 만든 Azure Blob Storage 계정에 샘플 JSON 파일을 업로드합니다. [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 파일을 업로드할 수 있습니다.
 
-다음 작업을 수행하여 Databricks에서 노트북을 만들고, Azure Blob 저장소 계정에서 데이터를 읽는 노트북을 구성한 다음, 이 데이터에 대해 Spark SQL 작업을 실행합니다.
+다음 작업을 수행하여 Databricks에서 노트북을 만들고, Azure Blob Storage 계정에서 데이터를 읽는 노트북을 구성한 다음, 이 데이터에 대해 Spark SQL 작업을 실행합니다.
 
 1. 왼쪽 창에서 **작업 영역**을 클릭합니다. **작업 영역** 드롭 다운에서 **만들기**를 클릭한 다음, **Notebook**을 클릭합니다.
 
-   ![Databricks에서 노트북 만들기](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Databricks에서 노트북 만들기")
+   ![Databricks에서 노트북 만들기](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-create-notebook.png "Databricks에서 노트북 만들기")
 
 2. **Notebook 만들기** 대화 상자에서 이름을 입력하고, 언어로 **Scala**를 선택한 다음, 이전에 만든 Spark 클러스터를 선택합니다.
 
-   ![Databricks에서 노트북 만들기](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Databricks에서 노트북 만들기")
+   ![Databricks에서 노트북 만들기](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-details.png "Databricks에서 노트북 만들기")
 
    **만들기**를 클릭합니다.
 
@@ -145,17 +145,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 6. 다음 스크린샷과 같이 테이블 형식으로 출력됩니다(일부 열만 표시됨).
 
-   ![샘플 JSON 데이터](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "샘플 JSON 데이터")
+   ![샘플 JSON 데이터](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sample-csv-data.png "샘플 JSON 데이터")
 
    기타 세부 사항 중 샘플 데이터는 라디오 채널(열 이름, **성별**)의 청중의 성별과 구독이 무료 또는 유료(열 이름, **수준**)인지 여부를 캡처합니다.
 
 7. 이제 이 데이터를 시각적으로 표현하여 각 성별, 무료 계정을 가진 사용자 수 및 유료 구독자 수를 보여줍니다. 테이블 형식 출력 하단에서 **가로 막대형 차트** 아이콘을 클릭한 다음 **플롯 옵션**을 클릭합니다.
 
-   ![가로 막대형 차트 만들기](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "가로 막대형 차트 만들기")
+   ![가로 막대형 차트 만들기](./media/quickstart-create-databricks-workspace-resource-manager-template/create-plots-databricks-notebook.png "가로 막대형 차트 만들기")
 
 8. **사용자 지정 플롯**에서 스크린샷에 표시된 것과 같이 값을 끌어서 놓습니다.
 
-   ![가로 막대형 차트 사용자 지정](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "가로 막대형 차트 사용자 지정")
+   ![가로 막대형 차트 사용자 지정](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-notebook-customize-plot.png "가로 막대형 차트 사용자 지정")
 
    * **키**를 **성별**로 설정합니다.
    * **시계열 그룹화**를 **수준**으로 설정합니다.
@@ -166,13 +166,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 9. 출력은 다음 스크린샷에 표시된 것처럼 시각적인 표시를 보여줍니다.
 
-   ![가로 막대형 차트 사용자 지정](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "가로 막대형 차트 사용자 지정")
+   ![가로 막대형 차트 사용자 지정](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sql-query-output-bar-chart.png "가로 막대형 차트 사용자 지정")
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 문서가 완료되면 클러스터를 종료할 수 있습니다. 이렇게 하려면 왼쪽 창의 Azure Databricks 작업 영역에서 **클러스터**를 선택합니다. 종료하려는 클러스터에서 **작업** 열 아래의 줄임표 위로 커서를 이동한 다음, **종료** 아이콘을 선택합니다.
 
-![Databricks 클러스터 중지](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Databricks 클러스터 중지")
+![Databricks 클러스터 중지](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Databricks 클러스터 중지")
 
 클러스터를 수동으로 종료하지 않은 경우 클러스터를 만드는 중에 **비활성 \_\_분 후 종료** 확인란을 선택하면 자동으로 중지됩니다. 이 경우 지정한 시간 동안 클러스터가 비활성 상태이면 클러스터가 자동으로 중지됩니다.
 
