@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: glenga
-ms.openlocfilehash: 9e85dbe21b98ce936ede09e741e83f59a865b73e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b39c8c19b494422d34bae7145d69e8e95cb16846
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999388"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416823"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -431,7 +431,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. 사용할 수 있는 Application Insights 리소스가 아직 없는 경우 [하나를 만듭니다](../azure-monitor/app/create-new-resource.md ). **애플리케이션 종류**를 **일반**으로 설정하고, **계측 키 복사**를 수행하는 섹션을 건너뜁니다.
 
-1. 사용하려는 Application Insights 리소스가 이미 있는 경우 [계측 키를 복사합니다](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key).
+1. 사용하려는 Application Insights 리소스가 이미 있는 경우 [계측 키를 복사합니다](../azure-monitor/app/create-new-resource.md#copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>앱 설정 구성 
 

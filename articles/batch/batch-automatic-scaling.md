@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1bd9710edddde04f76c6373a7718519f8ede8a19
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730014"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55869095"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 계산 노드의 크기를 조정하는 자동 크기 조정 수식 만들기
 
@@ -376,7 +376,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> 자동 크기 조정 가능한 풀을 만들 때는 **CreatePool**에 대한 호출에서 _targetDedicatedComputeNodes_ 매개 변수 또는 _targetLowPriorityComputeNodes_ 매개 변수를 지정하지 마세요. 대신 풀에 **AutoScaleEnabled** 및 **AutoScaleFormula** 속성을 지정합니다. 이러한 속성의 값은 각 노드 형식의 목표 수를 결정합니다. 또한 자동 크기 조정 가능한 풀의 크기를 수동으로 조정하려는 경우(예: [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync] 사용) 먼저 풀에서 자동 크기 조정을 **사용하지 않도록** 설정한 다음 풀의 크기를 조정합니다.
+> 자동 크기 조정 가능한 풀을 만들 때는 **CreatePool**에 대한 호출에서 _targetDedicatedNodes_ 매개 변수 또는 _targetLowPriorityNodes_ 매개 변수를 지정하지 마세요. 대신 풀에 **AutoScaleEnabled** 및 **AutoScaleFormula** 속성을 지정합니다. 이러한 속성의 값은 각 노드 형식의 목표 수를 결정합니다. 또한 자동 크기 조정 가능한 풀의 크기를 수동으로 조정하려는 경우(예: [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync] 사용) 먼저 풀에서 자동 크기 조정을 **사용하지 않도록** 설정한 다음 풀의 크기를 조정합니다.
 >
 >
 
@@ -412,7 +412,7 @@ Batch SDK마다 자동 크기 조정을 사용하도록 설정하는 방법을 �
   * 자동 크기 조정 수식 또는 평가 간격을 생략하면 Batch 서비스에서 해당 설정의 현재 값을 계속 사용합니다.
 
 > [!NOTE]
-> .NET에서 풀을 만들 때 **CreatePool** 메서드의 *targetDedicatedComputeNodes* 또는 *targetLowPriorityComputeNodes* 매개 변수에 대한 값을 지정했거나 다른 언어의 비교 가능한 매개 변수에 대한 값을 지정한 경우, 자동 크기 조정 수식을 평가할 때 해당 값이 무시됩니다.
+> .NET에서 풀을 만들 때 **CreatePool** 메서드의 *targetDedicatedNodes* 또는 *targetLowPriorityNodes* 매개 변수에 대한 값을 지정했거나 다른 언어의 비교 가능한 매개 변수에 대한 값을 지정한 경우, 자동 크기 조정 수식을 평가할 때 해당 값이 무시됩니다.
 >
 >
 

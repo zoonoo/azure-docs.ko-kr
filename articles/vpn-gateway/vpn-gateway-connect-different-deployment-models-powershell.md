@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b569a021dab5e6008dc61af3af8168585c5edc1b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509324"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416244"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -165,6 +165,8 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 
 ## <a name="creatermgw"></a>섹션 2 - RM VNet 게이트웨이 구성
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet에 대한 VPN Gateway를 만듭니다. 클래식 VNet의 게이트웨이에 대한 공용 IP 주소를 검색할 때까지 이 단계를 시작하지 않습니다. 
 
 1. PowerShell 콘솔에서 Azure 계정에 로그인합니다. 다음 cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음, Azure PowerShell에 사용할 수 있도록 계정 설정이 다운로드됩니다. 필요에 따라 "Try It" 기능을 사용하여 브라우저에서 Azure Cloud Shell을 시작할 수 있습니다.
@@ -172,18 +174,18 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
   Azure Cloud Shell을 사용하는 경우 다음 cmdlet을 건너뜁니다.
 
   ```azurepowershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ``` 
   올바른 구독을 사용하고 있는지 확인하려면 다음 cmdlet을 실행합니다.  
 
   ```azurepowershell-interactive
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
    
   둘 이상의 구독이 있는 경우 사용할 구독을 지정합니다.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+  Select-AzSubscription -SubscriptionName "Name of subscription"
   ```
 2. 로컬 네트워크 게이트웨이를 만듭니다. 가상 네트워크에서 로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 위치를 가리킵니다. 이 경우에 로컬 네트워크 게이트웨이는 클래식 VNet을 가리킵니다. Azure에서 참조할 수 있는 이름을 지정하고 주소 공간 접두사를 지정합니다. Azure는 지정된 IP 주소 접두사를 사용하여 온-프레미스 위치로 보낼 트래픽을 식별합니다. 나중에 게이트웨이를 만들기 전에 여기서 정보를 조정하는 경우 값을 수정하고 샘플을 다시 실행할 수 있습니다.
    
@@ -192,7 +194,7 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
    **-GatewayIpAddress**는 클래식 VNet 게이트웨이의 공용 IP 주소입니다. 다음 샘플 텍스트 "n.n.n.n"을 올바른 IP 주소를 반영하도록 변경해야 합니다.<br>
 
   ```azurepowershell-interactive
-  New-AzureRmLocalNetworkGateway -Name ClassicVNetLocal `
+  New-AzLocalNetworkGateway -Name ClassicVNetLocal `
   -Location "West US" -AddressPrefix "10.0.0.0/24" `
   -GatewayIpAddress "n.n.n.n" -ResourceGroupName RG1
   ```
@@ -201,7 +203,7 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
   이 단계에서는 이후 단계에 사용되는 변수도 설정합니다.
 
   ```azurepowershell-interactive
-  $ipaddress = New-AzureRmPublicIpAddress -Name gwpip `
+  $ipaddress = New-AzPublicIpAddress -Name gwpip `
   -ResourceGroupName RG1 -Location 'EastUS' `
   -AllocationMethod Dynamic
   ```
@@ -213,8 +215,8 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
    **-ResourceGroupName**은 VNet과 연결된 리소스 그룹입니다. 제대로 작동하려면 게이트웨이 서브넷이 이 VNet에 이미 존재하고 이름을 *GatewaySubnet* 으로 지정해야 합니다.<br>
 
   ```azurepowershell-interactive
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `
-  -VirtualNetwork (Get-AzureRmVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
+  $subnet = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet `
+  -VirtualNetwork (Get-AzVirtualNetwork -Name RMVNet -ResourceGroupName RG1)
   ``` 
 
 6. 게이트웨이 IP 주소 지정 구성을 만듭니다. 게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷을 정의합니다. 다음 샘플을 사용하여 게이트웨이 구성을 만듭니다.
@@ -222,14 +224,14 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
   **-SubnetId** 및 **-PublicIpAddressId** 매개 변수는 각각 서브넷 및 IP 주소 개체에서 id 속성이 전달되어야 합니다. 간단한 문자열을 사용할 수 없습니다. 이러한 변수는 공용 IP를 요청하는 단계 및 서브넷을 검색하는 단계에서 설정됩니다.
 
   ```azurepowershell-interactive
-  $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig `
+  $gwipconfig = New-AzVirtualNetworkGatewayIpConfig `
   -Name gwipconfig -SubnetId $subnet.id `
   -PublicIpAddressId $ipaddress.id
   ```
 7. 리소스 관리자 가상 네트워크 게이트웨이를 만듭니다. `-VpnType` 는 *RouteBased*여야 합니다. 게이트웨이를 만드는 데에는 45분 이상이 걸릴 수 있습니다.
 
   ```azurepowershell-interactive
-  New-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
+  New-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1 `
   -Location "EastUS" -GatewaySKU Standard -GatewayType Vpn `
   -IpConfigurations $gwipconfig `
   -EnableBgp $false -VpnType RouteBased
@@ -237,7 +239,7 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
 8. VPN 게이트웨이가 만들어지면 공용 IP 주소를 복사합니다. 클래식 VNet에 대한 로컬 네트워크 설정을 구성할 때 사용합니다. 다음 cmdlet을 사용하여 공용 IP 주소를 검색할 수 있습니다. 공용 IP 주소가 *IpAddress*로 반환에 나열됩니다.
 
   ```azurepowershell-interactive
-  Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
+  Get-AzPublicIpAddress -Name gwpip -ResourceGroupName RG1
   ```
 
 ## <a name="localsite"></a>섹션 3 - 클래식 VNet 로컬 사이트 설정 수정
@@ -274,14 +276,14 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
   변수를 설정합니다.
 
   ```azurepowershell-interactive
-  $vnet01gateway = Get-AzureRmLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
-  $vnet02gateway = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
+  $vnet01gateway = Get-AzLocalNetworkGateway -Name ClassicVNetLocal -ResourceGroupName RG1
+  $vnet02gateway = Get-AzVirtualNetworkGateway -Name RMGateway -ResourceGroupName RG1
   ```
    
   연결을 만듭니다. **-ConnectionType**은 Vnet2Vnet이 아닌 IPsec입니다.
 
   ```azurepowershell-interactive
-  New-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
+  New-AzVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1 `
   -Location "East US" -VirtualNetworkGateway1 `
   $vnet02gateway -LocalNetworkGateway2 `
   $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'

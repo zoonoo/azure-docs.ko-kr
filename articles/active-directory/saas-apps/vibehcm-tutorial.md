@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 395f99c986e0a51e8dd2c440d258724e862f275c
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 79787045f0379e6b672350206740297000f298c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48020702"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185573"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>자습서: Vibe HCM과 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ Vibe HCM의 Azure AD 통합을 구성하려면 갤러리의 Vibe HCM을 관리�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -71,7 +72,7 @@ Vibe HCM의 Azure AD 통합을 구성하려면 갤러리의 Vibe HCM을 관리�
 
     ![새 애플리케이션 단추][3]
 
-4. 검색 상자에 **Vibe HCM**을 입력하고 결과 패널에서 **Vibe HCM**을 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Vibe HCM**을 입력하고 결과 패널에서 **Vibe HCM**을 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 Vibe HCM](./media/vibehcm-tutorial/tutorial_vibehcm_addfromgallery.png)
 
@@ -91,11 +92,11 @@ Vibe HCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Vibe HCM 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Vibe HCM 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **Vibe HCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Vibe HCM** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Vibe HCM** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -107,7 +108,7 @@ Vibe HCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Vibe HCM 도메인 및 URL Single Sign-On 정보](./media/vibehcm-tutorial/tutorial_vibehcm_url.png)
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+4. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Vibe HCM 도메인 및 URL Single Sign-On 정보](./media/vibehcm-tutorial/tutorial_vibehcm_url1.png)
 
@@ -160,7 +161,7 @@ Vibe HCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
  
 ### <a name="create-a-vibe-hcm-test-user"></a>Vibe HCM 테스트 사용자 만들기
 
-이 섹션에서는 Vibe HCM에서 Britta Simon이라는 사용자를 만듭니다. Vibe HCM 플랫폼에서 사용자를 추가하려면 [Vibe HCM 지원 팀](mailto:support@vibehcm.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Vibe HCM에서 Britta Simon이라는 사용자를 만듭니다.  [Vibe HCM 지원 팀](mailto:support@vibehcm.com)과 협력하여 Vibe HCM 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -174,9 +175,9 @@ Vibe HCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![사용자 할당][201] 
 
-2. 애플리케이션 목록에서 **Vibe HCM**을 선택합니다.
+2. 응용 프로그램 목록에서 **Vibe HCM**을 선택합니다.
 
-    ![애플리케이션 목록의 Vibe HCM 링크](./media/vibehcm-tutorial/tutorial_vibehcm_app.png)  
+    ![응용 프로그램 목록의 Vibe HCM 링크](./media/vibehcm-tutorial/tutorial_vibehcm_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -202,7 +203,7 @@ Vibe HCM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

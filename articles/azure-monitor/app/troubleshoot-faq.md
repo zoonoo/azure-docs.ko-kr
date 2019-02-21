@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17774ea74c2462cb5b8a9dfe638b3dec02499d81
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 810a4708974d18a4bba048e3e402a172868178f3
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999167"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429692"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -270,7 +270,7 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 <ApplicationInsights>
   ...
   <TelemetryModules>
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector"/>
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <QuickPulseServiceEndpoint>https://rt.services.visualstudio.com/QuickPulseService.svc</QuickPulseServiceEndpoint>
     </Add>
   </TelemetryModules>

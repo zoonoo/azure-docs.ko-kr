@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: dfcbbacc5df394e0d2a515d557d655af0ea44d11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169975"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447425"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
 
@@ -221,8 +221,6 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 
 관리 서비스인 HDInsight는 VNET에서 들어오고 나가는 트래픽에 대한 HDinsight 상태 및 관리 서비스에 제한 없이 액세스할 수 있어야 합니다. NSG 및 UDR을 사용하는 경우 이러한 서비스가 HDInsight와 계속 통신할 수 있는지 확인해야 합니다.
 
-HDInsight는 여러 포트에서 서비스를 공개합니다. 가상 어플라이언스 방화벽을 사용할 경우 이러한 서비스에 사용된 포트에서 트래픽을 허용해야 합니다. 자세한 내용은 [필수 포트] 섹션을 참조하세요.
-
 ### <a id="hdinsight-ip"></a> 네트워크 보안 그룹 및 사용자 정의 경로가 있는 HDInsight
 
 네트워크 트래픽을 제어하는 데 **네트워크 보안 그룹** 또는 **사용자 정의 경로**를 사용할 계획인 경우 HDInsight를 설치하기 전에 다음 작업을 수행합니다.
@@ -305,8 +303,6 @@ HDInsight는 여러 포트에서 서비스를 공개합니다. 가상 어플라�
 3. __168.63.129.16__에서 액세스도 허용해야 합니다. 이 주소는 Azure 재귀 확인자입니다. 자세한 내용은 [VM 및 역할 인스턴스의 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조하세요.
 
 자세한 내용은 [네트워크 트래픽 제어](#networktraffic) 섹션을 참조하세요.
-
-아웃바운드 NSG 규칙의 경우 “대상 IP 주소”인 위의 주소에 도달하도록 VNET 내 모든 원본의 트래픽을 허용합니다.
 
 UDR(사용자 정의 경로)을 사용 중인 경우 경로를 지정하고 “인터넷”으로 설정된 다음 홉을 통해 VNET에서 위의 IP로의 아웃바운드 트래픽을 허용해야 합니다.
     

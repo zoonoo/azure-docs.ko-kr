@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 47bbdc1c50f0d96f1f26d5595a9e54814fa85188
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3be3008367f5c405f65dfd37b4384726ab2456c5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43311023"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209526"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>자습서: ZephyrSSO와 Azure Active Directory 통합
 
@@ -65,7 +66,7 @@ ZephyrSSO의 Azure AD 통합을 구성하려면 갤러리의 ZephyrSSO를 관리
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -73,7 +74,7 @@ ZephyrSSO의 Azure AD 통합을 구성하려면 갤러리의 ZephyrSSO를 관리
 
     ![새 애플리케이션 단추][3]
 
-4. 검색 상자에 **ZephyrSSO**를 입력하고 결과 패널에서 **ZephyrSSO**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **ZephyrSSO**를 입력하고 결과 패널에서 **ZephyrSSO**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 ZephyrSSO](./media/zephyrsso-tutorial/tutorial_zephyrsso_addfromgallery.png)
 
@@ -93,11 +94,11 @@ ZephyrSSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ZephyrSSO 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ZephyrSSO 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **ZephyrSSO에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **ZephyrSSO** 애플리케이션 통합 페이지에서 **Single sign-on**을 클릭합니다.
+1. Azure Portal의 **ZephyrSSO** 응용 프로그램 통합 페이지에서 **Single sign-on**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -160,7 +161,7 @@ ZephyrSSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
   
 ### <a name="create-a-zephyrsso-test-user"></a>ZephyrSSO 테스트 사용자 만들기
 
-이 섹션에서는 ZephyrSSO에서 Britta Simon이라는 사용자를 만듭니다. ZephyrSSO 플랫폼에서 사용자를 추가하려면 [ZephyrSSO 지원 팀](https://support.getzephyr.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 ZephyrSSO에서 Britta Simon이라는 사용자를 만듭니다.  [ZephyrSSO 지원 팀](https://support.getzephyr.com) 과 협력하여 ZephyrSSO 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -174,9 +175,9 @@ ZephyrSSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![사용자 할당][201]
 
-2. 애플리케이션 목록에서 **ZephyrSSO**를 선택합니다.
+2. 응용 프로그램 목록에서 **ZephyrSSO**를 선택합니다.
 
-    ![애플리케이션 목록의 ZephyrSSO 링크](./media/zephyrsso-tutorial/tutorial_zephyrsso_app.png)  
+    ![응용 프로그램 목록의 ZephyrSSO 링크](./media/zephyrsso-tutorial/tutorial_zephyrsso_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -202,7 +203,7 @@ ZephyrSSO에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

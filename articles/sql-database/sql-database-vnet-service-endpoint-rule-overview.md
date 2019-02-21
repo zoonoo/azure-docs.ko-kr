@@ -3,7 +3,7 @@ title: Azure SQL의 단일 및 풀링된 데이터베이스에 대한 VNet 엔�
 description: 서브넷을 Virtual Network 서비스 엔드포인트로 표시합니다. 그런 다음 해당 엔드포인트를 가상 네트워크 규칙으로 Azure SQL Database의 ACL에 추가합니다. 그러면 SQL Database가 해당 서브넷에 있는 모든 가상 머신과 다른 노드에서 보낸 통신을 수락합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 02/20/2019
+ms.openlocfilehash: 6ded590ac5a9c30655d8ed19c370ce476d1c9631
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118380"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456285"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>데이터베이스 서버에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 사용
 

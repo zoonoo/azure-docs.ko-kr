@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics를 사용하여 Active Directory 복제 상태 모니터링 | Microsoft Docs
+title: Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링 | Microsoft Docs
 description: Active Directory 복제 상태 솔루션 팩은 Active Directory 환경에서 복제 실패가 있는지를 정기적으로 모니터링합니다.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3b7aa932d24b7879ee3f46419afa2327ee48b403
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184121"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001003"
 ---
-# <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics를 사용하여 Active Directory 복제 상태 모니터링
+# <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링
 
 ![AD 복제 상태 기호](./media/ad-replication-status/ad-replication-status-symbol.png)
 
@@ -28,11 +28,26 @@ Active Directory는 엔터프라이즈 IT 환경의 핵심 구성 요소입니�
 
 AD 복제 상태 솔루션 팩은 Active Directory 환경에서 복제 실패가 있는지를 정기적으로 모니터링합니다.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
+
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-* 평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다. 또는 구성원 서버에 에이전트를 설치하고 Log Analytics에 AD 복제 데이터를 보내도록 에이전트를 구성해야 합니다. Windows 컴퓨터를 Log Analytics에 연결하는 방법을 알아보려면 [Log Analytics에 Windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md)을 참조하세요. 도메인 컨트롤러가 Log Analytics에 연결하려는 기존 System Center Operations Manager 환경에 이미 속하는 경우 [Log Analytics에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)을 참조하세요.
-* [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에 설명된 프로세스를 사용하여 Log Analytics 작업 영역에 Active Directory 복제 상태 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
+### <a name="install-agents-on-domain-controllers"></a>도메인 컨트롤러에 에이전트 설치
+평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다. 또는 구성원 서버에 에이전트를 설치하고 Azure Monitor에 AD 복제 데이터를 보내도록 에이전트를 구성해야 합니다. Windows 컴퓨터를 Azure Monitor에 연결하는 방법을 파악하려면 [Azure Monitor에 Windows 컴퓨터 연결](../../azure-monitor/platform/agent-windows.md)을 참조하세요. 도메인 컨트롤러가 Azure Monitor에 연결하려는 기존 System Center Operations Manager 환경에 이미 속해 있는 경우 [Azure Monitor에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)을 참조하세요.
+
+### <a name="enable-non-domain-controller"></a>비도메인 컨트롤러 사용
+Azure Monitor에 도메인 컨트롤러를 직접 연결하지 않으려는 경우 Azure Monitor에 연결된 도메인의 다른 컴퓨터를 사용하여 AD 복제 상태 솔루션 팩에 대한 데이터를 수집하고 데이터를 보내도록 할 수 있습니다.
+
+1. AD 복제 상태 솔루션을 사용하여 컴퓨터가 모니터링하려는 도메인의 구성원인지 확인합니다.
+2. 아직 연결되어 있지 않으면 [Windows 컴퓨터를 Azure Monitor에 연결](../../azure-monitor/platform/om-agents.md)하거나 [기존 Operations Manager 환경을 사용하여 Azure Monitor에 연결](../../azure-monitor/platform/om-agents.md)합니다.
+3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.<br>키: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>값: **IsTarget**<br>값 데이터: **true**
+
+   > [!NOTE]
+   > 이러한 변경 내용은 Microsoft Monitoring Agent 서비스(HealthService.exe)를 다시 시작할 때까지 적용되지 않습니다.
+### <a name="install-solution"></a>솔루션 설치
+[모니터링 솔루션 설치](solutions.md#install-a-monitoring-solution)에 설명된 프로세스에 따라 Log Analytics 작업 영역에 **Active Directory 복제 상태** 솔루션을 추가합니다. 추가 구성은 필요 없습니다.
+
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD 복제 상태 데이터 컬렉션 세부 정보
 다음 표에서는 데이터 수집 방법 및 AD 복제 상태에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
@@ -41,28 +56,15 @@ AD 복제 상태 솔루션 팩은 Active Directory 환경에서 복제 실패가
 | --- | --- | --- | --- | --- | --- | --- |
 |  Windows |&#8226; |&#8226; |  |  |&#8226; |5일마다 |
 
-## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>필요에 따라 AD 데이터를 Log Analytics에 전송하도록 비 도메인 컨트롤러 활성화
-Log Analytics에 도메인 컨트롤러를 직접 연결하지 않으려면 Log Analytics에 연결된 도메인에서 다른 컴퓨터를 사용하여 AD 복제 상태 솔루션 팩에 대한 데이터를 수집하고 데이터를 보낼 수도 있습니다.
 
-### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>비 도메인 컨트롤러가 AD 데이터를 Log Analytics에 보내도록 하려면
-1. AD 복제 상태 솔루션을 사용하여 컴퓨터가 모니터링하려는 도메인의 구성원인지 확인합니다.
-2. 연결되어 있지 않으면 [Log Analytics에 Windows 컴퓨터를 연결](../../azure-monitor/platform/om-agents.md)하거나 [기존 Operations Manager 환경을 사용하여 Log Analytics에 연결](../../azure-monitor/platform/om-agents.md)합니다.
-3. 해당 컴퓨터에서 다음 레지스트리 키를 설정합니다.
-
-   * 키: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-   * 값: **IsTarget**
-   * 값 데이터: **true**
-
-   > [!NOTE]
-   > 이러한 변경 내용은 Microsoft Monitoring Agent 서비스(HealthService.exe)를 다시 시작할 때까지 적용되지 않습니다.
-   >
-   >
 
 ## <a name="understanding-replication-errors"></a>복제 오류 이해
-AD 복제 상태 데이터를 Log Analytics에 전송하면 Log Analytics 대시보드에 현재 복제 오류 수를 나타내는 다음 이미지와 유사한 타일이 표시됩니다.  
-![AD 복제 상태 타일](./media/ad-replication-status/oms-ad-replication-tile.png)
 
-**중요 복제 오류**는 Active Directory 포리스트에 대한 [삭제 표식 수명](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx)의 75% 이상인 오류입니다.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
+AD 복제 상태 타일에는 현재 발생한 복제 오류 수가 표시됩니다. **중요 복제 오류**는 Active Directory 포리스트에 대한 [삭제 표식 수명](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx)의 75% 이상인 오류입니다.
+
+![AD 복제 상태 타일](./media/ad-replication-status/oms-ad-replication-tile.png)
 
 타일을 클릭하면 오류에 대한 자세한 정보를 볼 수 있습니다.
 ![AD 복제 상태 대시보드](./media/ad-replication-status/oms-ad-replication-dash.png)
@@ -104,11 +106,11 @@ AD 복제 상태 데이터를 Log Analytics에 전송하면 Log Analytics 대시
 >
 
 ### <a name="ad-replication-status-details"></a>AD 복제 상태 세부 정보
-목록 중 하나에 있는 항목을 클릭하면 로그 검색을 사용한 추가 세부 정보가 표시됩니다. 결과는 해당 항목과 관련된 오류만 표시하도록 필터링됩니다. 예를 들어 **대상 서버 상태(ADDC02)** 아래에 나열된 첫 번째 도메인 컨트롤러를 클릭하면 대상 서버로 나열된 해당 도메인 컨트롤러와 함께 오류를 보여 주는 필터링된 검색 결과가 표시됩니다.
+목록 중 하나에 있는 항목을 클릭하면 로그 쿼리를 사용한 추가 세부 정보가 표시됩니다. 결과는 해당 항목과 관련된 오류만 표시하도록 필터링됩니다. 예를 들어 **대상 서버 상태(ADDC02)** 아래에 나열된 첫 번째 도메인 컨트롤러를 클릭하면 대상 서버로 나열된 해당 도메인 컨트롤러의 오류를 표시하도록 쿼리 결과가 필터링됩니다.
 
-![검색 결과에서 AD 복제 상태 오류](./media/ad-replication-status/oms-ad-replication-search-details.png)
+![쿼리 결과의 AD 복제 상태 오류](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-여기에서 추가로 필터링하고 검색 쿼리 등을 수정할 수 있습니다. 로그 검색 사용에 대한 자세한 내용은 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
+여기에서 추가로 필터링, 로그 쿼리 수정 등을 수행할 수 있습니다. Azure Monitor에서 로그 쿼리를 사용하는 방법에 대한 자세한 내용은 [Azure Monitor의 로그 데이터 분석](../../azure-monitor/log-query/log-query-overview.md)을 참조하세요.
 
 **HelpLink** 필드는 해당 특정 오류에 대한 추가 세부 정보로 TechNet 페이지의 URL을 표시합니다. 이 링크를 브라우저 창에 복사하여 붙여넣고 문제 해결 및 오류 해결에 대한 정보를 볼 수 있습니다.
 
@@ -124,10 +126,11 @@ A: 정보는 5일마다 업데이트됩니다.
 A: 지금은 없습니다.
 
 **Q: 복제 상태를 보려면 내 Log Analytics 작업 영역에 내 도메인 컨트롤러를 모두 추가해야 하나요?**
-A: 아니요, 단일 도메인 컨트롤러만 추가되어야 합니다. Log Analytics 작업 영역에 도메인 컨트롤러가 여러 개 있는 경우 모든 데이터는 Log Analytics에 전송됩니다.
+A: 아니요, 단일 도메인 컨트롤러만 추가되어야 합니다. Log Analytics 작업 영역에 도메인 컨트롤러가 여러 개 있는 경우 모든 도메인 컨트롤러의 데이터가 Azure Monitor에 전송됩니다.
 
 **Q: 내 Log Analytics 작업 영역에 도메인 컨트롤러를 추가하고 싶지 않습니다. 여전히 AD 복제 상태 솔루션을 사용할 수 있습니까?**
-A: 예. 이 기능을 활성화하도록 레지스트리 키의 값을 설정할 수 있습니다. [비 도메인 컨트롤러가 AD 데이터를 Log Analytics에 보내도록 하려면](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)을 참조하세요.
+
+A: 예. 이 기능을 활성화하도록 레지스트리 키의 값을 설정할 수 있습니다. [비도메인 컨트롤러 사용](#enable-non-domain-controller)을 참조하세요.
 
 **Q: 데이터 수집을 수행하는 프로세스의 이름은 무엇인가요?**
 A: AdvisorAssessment.exe
@@ -147,9 +150,9 @@ A: Active Directory에 대한 일반 사용자 권한으로 충분합니다.
 ## <a name="troubleshoot-data-collection-problems"></a>데이터 수집 문제 해결
 데이터를 수집하려면 AD 복제 상태 솔루션 팩에 하나 이상의 도메인 컨트롤러가 Log Analytics 작업 영역에 연결되어 있어야 합니다. 도메인 컨트롤러에 연결할 때까지 **데이터가 여전히 수집되고 있다고** 표시하는 메시지가 표시됩니다.
 
-도메인 컨트롤러 중 하나를 연결하는 데 도움이 필요한 경우 [Log Analytics에 Windows 컴퓨터 연결](../../azure-monitor/platform/om-agents.md)에서 설명서를 볼 수 있습니다. 또는 도메인 컨트롤러가 이미 기존 System Center Operations Manager 환경에 연결된 경우 [Log Analytics에 System Center Operations Manager 연결](../../azure-monitor/platform/om-agents.md)에서 설명서를 볼 수 있습니다.
+도메인 컨트롤러 중 하나를 연결하는 데 도움이 필요한 경우 [Azure Monitor에 Windows 컴퓨터 연결](../../azure-monitor/platform/om-agents.md)에서 문서를 볼 수 있습니다. 또는 도메인 컨트롤러가 기존 System Center Operations Manager 환경에 이미 연결된 경우 [Azure Monitor에 System Center Operations Manager 연결](../../azure-monitor/platform/om-agents.md)에서 문서를 볼 수 있습니다.
 
-Log Analytics나 System Center Operations Manager에 도메인 컨트롤러를 직접 연결하지 않으려면 [비 도메인 컨트롤러가 AD 데이터를 Log Analytics에 보내도록 하려면](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)을 참조하세요.
+Azure Monitor 또는 System Center Operations Manager에 도메인 컨트롤러를 직접 연결하지 않으려는 경우 [비도메인 컨트롤러 사용](#enable-non-domain-controller)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics의 로그 검색](../../azure-monitor/log-query/log-query-overview.md) 을 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
+* [Azure Monitor의 로그 쿼리](../../azure-monitor/log-query/log-query-overview.md)를 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.

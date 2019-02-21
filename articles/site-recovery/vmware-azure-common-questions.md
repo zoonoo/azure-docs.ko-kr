@@ -1,19 +1,19 @@
 ---
 title: 일반적인 질문 - Azure Site Recovery를 사용하여 VMware에서 Azure로 재해 복구 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로의 온-프레미스 VMware VM 재해 복구를 설정할 때 발생하는 일반적인 질문을 요약하고 있습니다.
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 1/29/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 83c9a0baa4d853c8afcb5afe1c4e5cc4ed1e0073
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212242"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235227"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -31,8 +31,6 @@ ms.locfileid: "55212242"
 - **재해 복구**: 전체 재해 복구를 설정할 수 있습니다. 이 시나리오에서는 온-프레미스 VMware VM을 Azure 저장소에 복제합니다. 그런 다음, 온-프레미스 인프라를 사용할 수 없는 경우 Azure로 장애 조치할 수 있습니다. 장애 조치를 수행하면 복제된 데이터를 사용하여 Azure VM이 만들어집니다. 온-프레미스 데이터 센터를 다시 사용할 수 있을 때까지 Azure VM에서 응용 프로그램 및 작업에 액세스할 수 있습니다. 그런 다음, Azure에서 온-프레미스 사이트로 장애 복구할 수 있습니다.
 - **마이그레이션**: Site Recovery를 사용하여 온-프레미스 VMware VM을 Azure로 마이그레이션할 수 있습니다. 이 시나리오에서는 온-프레미스 VMware VM을 Azure 저장소에 복제합니다. 그런 다음, 온-프레미스에서 Azure로 장애 조치합니다. 장애 조치(failover) 후 Azure VM에서 앱과 워크로드가 실행되며 사용할 수 있습니다.
 
-
-
 ## <a name="azure"></a>Azure
 ### <a name="what-do-i-need-in-azure"></a>Azure에는 무엇이 필요한가요?
 Azure 구독, Recovery Services 저장소, 저장소 계정 및 가상 네트워크가 필요합니다. 자격 증명 모음, 저장소 계정 및 네트워크는 동일한 지역에 있어야 합니다.
@@ -44,7 +42,33 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 구독 관리자인 경우 필요한 복제 권한을 갖고 있습니다. 구독 관리자가 아닌 경우 Site Recovery를 구성할 때 지정한 리소스 그룹 및 가상 네트워크에 Azure VM을 만들 수 있는 권한과 선택한 저장소 계정에 쓸 수 있는 권한이 필요합니다. [자세히 알아보기](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Azure에서 게스트 OS 서버 라이선스를 사용할 수 있나요?
-예, Microsoft Software Assurance 고객은 Azure 하이브리드 혜택을 사용하여 Azure로 마이그레이션되거나 재해 복구를 위해 Azure를 사용하는 **Windows Server 머신**에 대한 라이선스 비용을 절감할 수 있습니다.
+예, Microsoft Software Assurance 고객은 [Azure 하이브리드 혜택](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/)을 활용해서 Azure로 마이그레이션되는 **Windows Server 머신**에 대한 라이선스 비용을 절감하거나 재해 복구에 Azure를 사용할 수 있습니다.
+
+## <a name="pricing"></a>가격
+
+### <a name="how-are-licensing-charges-handled-during-replication-after-failover"></a>장애 조치(failover) 후 복제 중에 라이선스 요금은 어떻게 처리되나요?
+
+자세한 내용은 [여기](https://aka.ms/asr_pricing_FAQ)에서 라이선스 관련 FAQ를 참조하세요.
+
+### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Site Recovery 사용 중 대략적인 요금을 계산하려면 어떻게 하나요?
+
+Azure Site Recovery를 사용하는 동안 [가격 계산기](https://aka.ms/asr_pricing_calculator)를 사용하여 비용을 예측할 수 있습니다. 자세한 예상 비용을 보려면 배포 플래너 도구(https://aka.ms/siterecovery_deployment_planner)를 실행하고 [비용 예상 보고서](https://aka.ms/asr_DP_costreport)를 분석합니다.
+
+### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>한 달 이상 Azure Site Recovery를 사용해 왔습니다. 그런데도 모든 보호된 인스턴스를 처음 31일 동안 무료로 사용할 수 있나요?
+
+예, Azure Site Recovery를 사용한 기간은 문제가 되지 않습니다. 모든 보호된 인스턴스에는 처음 31일 동안 Azure Site Recovery 요금이 부과되지 않습니다. 예를 들어 지난 6개월 동안 인스턴스 10개를 보호한 상태에서 11번째 인스턴스를 Azure Site Recovery에 연결하는 경우, 처음 31일 동안에는 11번째 인스턴스에 대한 Azure Site Recovery 요금이 부과되지 않습니다. 기존 인스턴스 10개는 31일 이상 보호되었기 때문에 Azure Site Recovery 요금이 계속 부과됩니다.
+
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>처음 31일 동안 다른 Azure 요금이 부과되나요?
+
+예, 보호된 인스턴스를 처음으로 사용하는 31일 동안 Azure Site Recovery는 무료이지만, Azure Storage, Storage 트랜잭션 및 데이터 전송 요금이 부과될 수 있습니다. 복구된 가상 머신에도 Azure Compute 요금이 부과될 수 있습니다.
+
+### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Azure Site Recovery를 사용하는 동안 어떤 요금이 발생하나요?
+
+자세한 내용은 [부과되는 비용 관련 FAQ](https://aka.ms/asr_pricing_FAQ)를 참조하세요.
+
+### <a name="is-there-a-cost-associated-to-perform-dr-drillstest-failover"></a>DR 드릴/테스트 장애 조치(failover) 수행과 관련된 비용이 있나요?
+
+DR 드릴에 대한 별도의 비용은 없습니다. 테스트 장애 조치(failover) 후에 가상 머신이 생성된 후 컴퓨팅 요금이 있습니다.
 
 ## <a name="azure-site-recovery-components-upgrade"></a>Azure Site Recovery 구성 요소 업그레이드
 
@@ -87,8 +111,12 @@ VMware에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](
 
 ## <a name="replication"></a>복제
 
-### <a name="what-apps-can-i-replicate"></a>복제할 수 있는 앱은 무엇인가요?
+### <a name="what-applications-can-i-replicate"></a>어떤 애플리케이션을 복제할 수 있나요?
 [복제 요구 사항](vmware-physical-azure-support-matrix.md##replicated-machines)을 준수하는 VMware VM에서 실행되는 모든 응용 프로그램 또는 작업을 복제할 수 있습니다. Site Recovery는 애플리케이션 인식 복제를 지원하므로 앱을 지능형 상태로 장애 조치 및 장애 복구할 수 있습니다. SharePoint, Exchange, Dynamics, SQL Server, Active Directory와 같은 Microsoft 애플리케이션과 통합되고, Oracle, SAP, IBM, Red Hat과 같은 선도적인 공급 업체와 긴밀하게 협력합니다. [자세히 알아봅니다](site-recovery-workload.md) .
+
+### <a name="can-i-protect-a-virtual-machine-that-has-docker-disk-configuration"></a>Docker 디스크 구성이 있는 가상 머신을 보호할 수 있나요?
+
+아니요, 이것은 지원되지 않는 시나리오입니다.
 
 ### <a name="can-i-replicate-to-azure-with-a-site-to-site-vpn"></a>사이트 간 VPN을 사용하여 Azure에 복제할 수 있나요?
 Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피어링을 사용하여 온-프레미스에서 Azure 저장소로 데이터를 복제합니다. 사이트 간 VPN 네트워크를 통한 복제는 지원되지 않습니다.
@@ -96,11 +124,13 @@ Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피�
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>ExpressRoute를 사용하여 Azure에 복제할 수 있나요?
 예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery는 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제합니다. Site Recovery 복제에 ExpressRoute를 사용하려면 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering) 또는 [Microsoft 피어링](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)을 설정해야 합니다. Microsoft 피어링은 복제에 권장되는 라우팅 도메인입니다. 복제를 위해 [네트워킹 요구 사항](vmware-azure-configuration-server-requirements.md#network-requirements)이 충족되는지도 확인합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
 
+### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>머신이 보호된 후 스토리지 계정을 변경하려면 어떻게 하나요?
+
+스토리지 계정은 프리미엄으로만 업그레이드할 수 있습니다. 다른 스토리지 계정을 사용하려면 원본 머신의 복제를 사용하지 않도록 설정하고 새 스토리지 계정으로 보호를 다시 사용해야 합니다. 이외에는 보호를 사용하도록 설정한 후 스토리지 계정을 변경할 수 없습니다.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN을 통해 복제할 수 없는 이유는 무엇인가요?
 
 Azure에 복제하는 경우 복제 트래픽이 Azure Storage 계정의 공용 엔드포인트에 도달하므로, ExpressRoute(공용 피어링)를 사용하여 공용 인터넷을 통해서만 복제할 수 있으며 VPN은 작동하지 않습니다.
-
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>복제된 VM에 대한 요구 사항은 무엇인가요?
 
@@ -108,6 +138,9 @@ Azure에 복제하는 경우 복제 트래픽이 Azure Storage 계정의 공용 
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
 VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
+
+### <a name="can-i-retain-the-ip-address-on-failover"></a>장애 조치(failover) 시 IP 주소를 유지할 수 있나요?
+예, 장애 조치(failover) 시 IP 주소를 유지할 수 있습니다. 장애 조치(failover) 전에 ‘컴퓨팅 및 네트워크’ 블레이드에서 대상 IP 주소를 언급해야 합니다. 또한 장애 복구(failback) 시 IP 충돌을 방지하기 위해 장애 조치(failover) 시 머신을 종료해야 합니다.
 
 ### <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
 확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.

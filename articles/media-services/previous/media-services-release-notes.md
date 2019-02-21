@@ -11,22 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: aa2a059dd470e671aa3483f2259bcf91796c070d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 81139734d0eb7d15e78c465c06fc429de48480c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631671"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182989"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
+
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
 
 > [!NOTE]
-> Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문제를 해결하기 위해 노력하고 있습니다. 문제를 보고하거나 질문이 있는 경우 [Azure Media Services MSDN 포럼]에서 게시물을 제출하세요.
-> 
-> 
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. 
+
+Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문제를 해결하기 위해 노력하고 있습니다. 문제를 보고하거나 질문이 있는 경우 [Azure Media Services MSDN 포럼]에서 게시물을 제출하세요. 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>현재 알려진 문제
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Media Services 관련 일반 문제

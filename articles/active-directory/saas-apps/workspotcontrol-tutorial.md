@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 520e625ba9689ebf35e985fe95609c62102e2493
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 8716d018756d1e6eadcd6ebeeaf4f67ad0bc4741
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312191"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>자습서: Workspot Control과 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ Workspot Control의 Azure AD 통합을 구성하려면 갤러리의 Workspot Con
 
     ![이미지](./media/workspotcontrol-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/workspotcontrol-tutorial/a_select_app.png)
     
@@ -71,7 +72,7 @@ Workspot Control의 Azure AD 통합을 구성하려면 갤러리의 Workspot Con
 
     ![이미지](./media/workspotcontrol-tutorial/a_new_app.png)
 
-4. 검색 상자에 **Workspot Control**을 입력하고 결과 패널에서 **Workspot Control**을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Workspot Control**을 입력하고 결과 패널에서 **Workspot Control**을 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
      ![이미지](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_addfromgallery.png)
 
@@ -91,7 +92,7 @@ Workspot Control에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Workspot Control 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Workspot Control 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **Workspot Control에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -134,7 +135,7 @@ Workspot Control에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. 로그인 URL
 
-    b. Azure Ad 식별자
+    b. Azure AD 식별자
 
     다. 로그아웃 URL
 
@@ -142,7 +143,7 @@ Workspot Control에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 7. 다른 웹 브라우저 창에서 Workspot Control에 보안 관리자로 로그인합니다.
 
-8. 페이지의 위쪽에 있는 도구 모음에서 **설치**를 클릭한 다음, **SAML**로 이동합니다.
+8. 페이지의 위쪽에 있는 도구 모음에서  **설치**를 클릭한 다음,  **SAML**로 이동합니다.
 
     ![이미지](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_setup.png)
 
@@ -150,7 +151,7 @@ Workspot Control에서 Azure AD Single Sign-On을 구성하고 테스트하려�
  
     ![이미지](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_saml.png)
 
-    a. Azure Portal에서 복사한 **Azure Ad 식별자** 값을 **엔터티 ID** 텍스트 상자에 붙여넣습니다.   
+    a. Azure Portal에서 복사한 **Azure Ad 식별자** 값을 **엔터티 ID** 텍스트 상자에 붙여넣습니다.   
 
     b. Azure Portal에서 복사한 **로그인 URL** 값을 **로그인 서비스 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -193,7 +194,7 @@ Azure AD 사용자가 Workspot Control에 로그인할 수 있도록 하려면 W
 
 1. 보안 관리자 권한으로 Workspot Control에 로그인합니다.
 
-2. 페이지의 위쪽에 있는 도구 모음에서 **사용자**를 클릭한 다음, **사용자 추가**로 이동합니다.
+2. 페이지의 위쪽에 있는 도구 모음에서  **사용자**를 클릭한 다음,  **사용자 추가**로 이동합니다.
 
     ![이미지](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_adduser.png)
 
@@ -217,11 +218,11 @@ Azure AD 사용자가 Workspot Control에 로그인할 수 있도록 하려면 W
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Workspot Control에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
 
     ![이미지](./media/workspotcontrol-tutorial/d_all_applications.png)
 
-2. 애플리케이션 목록에서 **Workspot Control**을 선택합니다.
+2. 응용 프로그램 목록에서 **Workspot Control**을 선택합니다.
 
     ![이미지](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_app.png)
 
@@ -247,4 +248,4 @@ Azure AD 사용자가 Workspot Control에 로그인할 수 있도록 하려면 W
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

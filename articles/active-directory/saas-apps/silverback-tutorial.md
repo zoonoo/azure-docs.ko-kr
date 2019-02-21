@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e7cb3049f680f81026e09388066001413922600a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123856"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56172715"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>자습서: Silverback과 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ Azure AD에 Silverback을 통합하도록 구성하려면 갤러리의 Silverbac
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -71,7 +72,7 @@ Azure AD에 Silverback을 통합하도록 구성하려면 갤러리의 Silverbac
 
     ![새 애플리케이션 단추][3]
 
-4. 검색 상자에 **Silverback**을 입력하고, 결과 패널에서 **Silverback**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Silverback**을 입력하고, 결과 패널에서 **Silverback**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 Silverback](./media/silverback-tutorial/tutorial_silverback_addfromgallery.png)
 
@@ -91,11 +92,11 @@ Silverback에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Silverback 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Silverback 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **Silverback에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Silverback** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Silverback** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -190,7 +191,7 @@ Azure AD 사용자가 Silverback에 로그인할 수 있도록 하려면 Silverb
 
 1. 관리자 권한으로 Silverback 서버에 로그인합니다.
 
-2. **사용자**로 이동하고 **새 장치 사용자를 추가**합니다.
+2. **사용자**로 이동하고 **새 디바이스 사용자를 추가**합니다.
 
 3. **기본** 페이지에서 다음 단계를 수행합니다.
 
@@ -225,9 +226,9 @@ Azure AD 사용자가 Silverback에 로그인할 수 있도록 하려면 Silverb
 
     ![사용자 할당][201] 
 
-2. 애플리케이션 목록에서 **Silverback**을 선택합니다.
+2. 응용 프로그램 목록에서 **Silverback**을 선택합니다.
 
-    ![애플리케이션 목록의 Silverback 링크](./media/silverback-tutorial/tutorial_silverback_app.png)  
+    ![응용 프로그램 목록의 Silverback 링크](./media/silverback-tutorial/tutorial_silverback_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -253,7 +254,7 @@ Azure AD 사용자가 Silverback에 로그인할 수 있도록 하려면 Silverb
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

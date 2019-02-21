@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d9d87e0e6427c0a0d4b16947fd0427e1c79d8f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097651"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341048"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -72,8 +72,6 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
                     * **전송된 바이트 - 대상에서 원본으로 - 버전 2만** 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP 및 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다.
 
 ## <a name="nsg-flow-logs-version-2"></a>NSG 흐름 로그 버전 2
-> [!NOTE] 
-> 미국 중서부 지역에서 흐름 로그 버전 2만 사용할 수 있습니다. 지원되지 않는 지역에서 버전 2를 사용하도록 설정하면 버전 1 로그가 스토리지 계정에 출력됩니다.
 
 로그의 버전 2에는 흐름 상태가 도입되었습니다. 수신하는 흐름 로그 버전을 구성할 수 있습니다. 흐름 로그를 사용하도록 설정하는 방법을 알아보려면 [NSG 흐름 로깅을 사용하도록 설정](network-watcher-nsg-flow-logging-portal.md)을 참조하세요.
 

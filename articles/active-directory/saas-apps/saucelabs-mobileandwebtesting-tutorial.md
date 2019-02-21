@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 55d84256f408e80600308ede22dbaa903b070d90
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9c4e3d074ad241ec6add6fe43b77413ce283e389
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267244"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>자습서: Sauce Labs - Mobile 및 Web Testing과 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ Sauce Labs - Mobile 및 Web Testing의 Azure AD 통합을 구성하려면 갤러
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -135,7 +136,7 @@ Sauce Labs - Mobile 및 Web Testing에서 Azure AD Single Sign-On을 구성하�
 
     a. **찾아보기**를 클릭하고 Azure AD에서 다운로드한 메타데이터 파일을 업로드합니다.
 
-    나. **JUST-IN-TIME 프로비전 허용** 확인란을 선택합니다.
+    b. **JUST-IN-TIME 프로비전 허용** 확인란을 선택합니다.
 
     다. **저장**을 클릭합니다.
 
@@ -175,7 +176,7 @@ Sauce Labs - Mobile 및 Web Testing에서 Azure AD Single Sign-On을 구성하�
 
 이 섹션은 Sauce Labs - Mobile 및 Web Testing에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Sauce Labs - Mobile 및 Web Testing은 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 아직 사용자가 없는 경우 Sauce Labs - Mobile 및 Web Testing에 액세스하는 동안 새 사용자가 만들어집니다.
 >[!Note]
->사용자를 수동으로 만들어야 하는 경우 [Sauce Labs - Mobile 및 Web Testing 지원 팀](mailto:support@saucelabs.com)에 문의합니다.
+>사용자를 수동으로 만들어야 하는 경우  [Sauce Labs - Mobile 및 Web Testing 지원 팀](mailto:support@saucelabs.com)에 문의합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -217,7 +218,7 @@ Sauce Labs - Mobile 및 Web Testing에서 Azure AD Single Sign-On을 구성하�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

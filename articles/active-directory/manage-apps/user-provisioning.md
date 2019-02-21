@@ -3,8 +3,8 @@ title: Azure AD에서 SaaS 앱 사용자를 자동으로 프로비저닝 | Micro
 description: Azure AD를 사용하여 여러 타사 SaaS 애플리케이션에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/30/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: a4fc037ed566905133f59163ef99d5e107ca4bcc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3e8b099f845df66dfe8c43bc6f968fd63b30d09d
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190924"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186355"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 
@@ -39,7 +40,7 @@ Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow
 
 * 원본 및 대상 시스템 간에 기존 ID를 일치시킬 수 있는 기능
 * 소스 시스템에서 대상 시스템으로 이동되어야 하는 사용자 데이터를 정의하는 사용자 지정 가능한 특성 매핑입니다.
-* 프로비저닝 오류를 메일로 경고 받을 수 있는 선택적 기능
+* 프로비전닝 오류를 전자 메일로 받을 수 있는 선택적 기능.
 * 모니터링 및 문제 해결에 도움이 되는 보고 및 활동 로그.
 
 ## <a name="why-use-automated-provisioning"></a>자동 프로비전을 사용하는 이유는 무엇입니까?
@@ -57,13 +58,13 @@ Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow
 **Azure AD 프로비전 서비스**는 각 애플리케이션 공급업체에서 제공하는 사용자 관리 API 엔드포인트에 연결하여 SaaS 앱 및 다른 시스템에 사용자를 프로비전합니다. 이러한 사용자 관리 API 엔드포인트를 사용하면 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 애플리케이션의 경우 프로비전 서비스는 그룹 및 역할과 같은 추가 ID 관련 개체를 만들고, 업데이트하고, 제거할 수 있습니다. 
 
 ![프로비전](./media/user-provisioning/provisioning0.PNG)
-그림 1: Azure AD Provisioning Service*
+그림 1: Azure AD Provisioning Service**
 
 ![아웃바운드 프로비전](./media/user-provisioning/provisioning1.PNG)
-그림 2: Azure AD에서 인기 있는 SaaS 애플리케이션으로의 “아웃바운드” 사용자 프로비저닝 워크플로*
+그림 2: Azure AD에서 인기 있는 SaaS 애플리케이션으로의 “아웃바운드” 사용자 프로비저닝 워크플로**
 
 ![인바운드 프로비전](./media/user-provisioning/provisioning2.PNG)
-그림 3: 인기 있는 HCM(Human Capital Management) 애플리케이션에서 Azure Active Directory 및 Windows Server Active Directory로의 “인바운드”사용자 프로비저닝 워크플로*
+그림 3: 인기 있는 HCM(Human Capital Management) 애플리케이션에서 Azure Active Directory 및 Windows Server Active Directory로의 “인바운드”사용자 프로비저닝 워크플로**
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Azure AD 자동 사용자 프로비전에서 사용할 수 있는 애플리케이션과 시스템은 무엇입니까?
@@ -107,7 +108,7 @@ SCIM 2.0 기반 사용자 관리 API를 구현하는 애플리케이션에 일�
 
 ![설정](./media/user-provisioning/provisioning_settings1.PNG)
 
-* **범위 지정 필터**는 대상 시스템에 프로비전 및/또는 프로비전 해제되어야 하는 원본 시스템의 사용자 및 그룹을 프로비전 서비스에 알립니다. 프로비전 범위에 속하는 사람을 결정하기 위해 함께 평가되는 범위 지정 필터에는 다음 두 가지 측면이 있습니다.
+* **범위 지정 필터**는 대상 시스템에 프로비전 및/또는 프로비전 해제되어야 하는 원본 시스템의 사용자 및 그룹을 프로비저닝 서비스에 알립니다. 프로비전 범위에 속하는 사람을 결정하기 위해 함께 평가되는 범위 지정 필터에는 다음 두 가지 측면이 있습니다.
 
     * **Filter on attribute values(특성 값 기준 필터링)** - 특성 매핑의 "원본 개체 범위" 메뉴를 사용하면 특정 특성 값에 따라 필터링할 수 있습니다. 예를 들어 "Department" 특성이 "Sales"인 사용자만 프로비전 범위에 속해야 한다고 지정할 수 있습니다. 자세한 내용은 [범위 지정 필터 사용](define-conditional-rules-for-provisioning-user-accounts.md)을 참조하세요.
 
@@ -220,7 +221,7 @@ ServiceNow, Google Apps, Box 등의 일부 애플리케이션은 사용자 프�
 
 * 프로비저닝 범위 내 사용자가 대상 애플리케이션의 기존 사용자와 일치하는지 여부 또는 처음 생성해야 하는지 여부. 모든 사용자가 처음 생성되는 동기화 작업이 모든 사용자가 기존 사용자와 일치하는 동기화 작업보다 대략 *두 배* 정도 오래 걸립니다.
 
-* [감사 로그](check-status-user-account-provisioning.md)의 오류 수. 많은 오류가 있고 프로비저닝 서비스가 격리 상태로 전환된 경우 성능이 저하됩니다. 
+* [감사 로그](check-status-user-account-provisioning.md)의 오류 수. 많은 오류가 있고 프로비저닝 서비스가 격리 상태로 전환된 경우 성능이 저하됩니다.    
 
 * 대상 시스템에서 구현된 요청 비율 한도 및 제한. 일부 대상 시스템은 큰 동기화 작업 중 성능에 영향을 줄 수 있는 요청 비율 한도 및 제한을 구현합니다. 이러한 조건에서 너무 많은 요청을 너무 빠르게 받는 앱은 응답 속도가 느려지거나 연결을 닫을 수도 있습니다. 성능을 개선하려면 커넥터가 앱이 처리할 수 있는 속도보다 빠르게 앱 요청이 전송되지 않도록 조정해야 합니다. Microsoft에서 빌드한 프로비저닝 커넥터는 이러한 조정 작업을 수행합니다. 
 

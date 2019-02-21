@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory와 Manabi Pocket 통합 | Microsoft Docs'
+title: '자습서: Manabi Pocket과 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory 및 Manabi Pocket 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0116cac7d0e44efee0112d57aedd4f5ee02833b3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3f5dd7012d280580dca76e50290bc2de4322d55c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430718"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198419"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>자습서: Azure Active Directory와 Manabi Pocket 통합
+# <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>자습서: Manabi Pocket과 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Manabi Pocket을 통합하는 방법에 대해 알아봅니다.
 
@@ -63,7 +64,7 @@ Manabi Pocket과 Azure AD의 통합을 구성하려면 갤러리의 Manabi Pocke
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -109,7 +110,7 @@ Manabi Pocket에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     a. **로그온 URL** 텍스트 상자에서 URL `https://ed-cl.com/`을 입력합니다.
 
-    나. **식별자** 텍스트 상자에서 `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 식별자 값은 실제 값이 아닙니다. 이 값을 실제 식별자로 업데이트하세요. 이 값을 얻으려면 [Manabi Pocket 클라이언트 지원 팀](mailto:info-ed-cl@ntt.com)에 문의하세요.
@@ -158,7 +159,7 @@ Manabi Pocket에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
 ### <a name="create-a-manabi-pocket-test-user"></a>Manabi Pocket 테스트 사용자 만들기
 
-이 섹션에서는 Manabi Pocket에서 Britta Simon이라는 사용자를 만듭니다. [Manabi Pocket 지원 팀](mailto:info-ed-cl@ntt.com)과 협력하여 Manabi Pocket 플랫폼의 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Manabi Pocket에서 Britta Simon이라는 사용자를 만듭니다.  [Manabi Pocket 지원 팀](mailto:info-ed-cl@ntt.com) 과 협력하여 Manabi Pocket 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -200,7 +201,7 @@ Manabi Pocket에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

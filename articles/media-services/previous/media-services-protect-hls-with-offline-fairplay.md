@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/10/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 710ec72e9867ad180afcae8273a093f48933112a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251835"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991517"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>iOS용 오프라인 FairPlay 스트리밍 
  Azure Media Services는 다음을 대상으로 하는 적절히 디자인된 [콘텐츠 보호 서비스](https://azure.microsoft.com/services/media-services/content-protection/) 집합을 제공합니다.
@@ -115,14 +115,14 @@ if (objDRMSettings.EnableOfflineMode)
 ## <a name="sample-ios-player"></a>샘플 iOS 플레이어
 FPS 오프라인 모드 지원은 iOS 10 이상에서만 제공됩니다. FPS Server SDK(버전 3.0 이상)에는 FPS 오프라인 모드에 대한 문서와 샘플이 포함되어 있습니다. 특히 FPS Server SDK(버전 3.0 이상)에는 오프라인 모드와 관련된 다음 두 항목이 들어 있습니다.
 
-* 문서: "Offline Playback with FairPlay Streaming and HTTP Live Streaming(FairPlay 스트리밍 및 HTTP 라이브 스트리밍을 사용하는 오프라인 재생)". Apple, 2016년 9월 14일 발행. FPS Server SDK 버전 4.0에서 이 문서는 주 FPS 문서에 병합되어 있습니다.
+* 문서: "FairPlay 스트리밍 및 HTTP 라이브 스트리밍을 사용하는 오프라인 재생" Apple, 2016년 9월 14일 발행. FPS Server SDK 버전 4.0에서 이 문서는 주 FPS 문서에 병합되어 있습니다.
 * 샘플 코드: \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\에 있는 FPS 오프라인 모드에 대한 HLSCatalog 샘플. HLSCatalog 샘플 앱에서 다음 코드 파일은 오프라인 모드 기능을 구현하는 데 사용됩니다.
 
     - AssetPersistenceManager.swift 코드 파일: AssetPersistenceManager는 다음 방법을 보여 주는 이 샘플의 기본 클래스입니다.
 
         - 다운로드를 시작 및 취소하고, 디바이스에서 기존 자산을 삭제하는 데 사용되는 API와 같은 HLS 스트림 다운로드를 관리합니다.
         - 다운로드 진행률을 모니터링합니다.
-    - AssetListTableViewController.swift 및 AssetListTableViewCell.swif 코드 파일: AssetListTableViewController는 이 샘플의 기본 인터페이스입니다. 이 인터페이스는 샘플이 재생, 다운로드, 삭제 또는 다운로드 취소에 사용할 수 있는 자산 목록을 제공합니다. 
+    - AssetListTableViewController.swift 및 AssetListTableViewCell.swift 코드 파일: AssetListTableViewController는 이 샘플의 주 인터페이스입니다. 이 인터페이스는 샘플이 재생, 다운로드, 삭제 또는 다운로드 취소에 사용할 수 있는 자산 목록을 제공합니다. 
 
 이러한 단계는 실행 중인 iOS 플레이어를 설정하는 방법을 보여 줍니다. FPS Server SDK 버전 4.0.1의 HLSCatalog 샘플에서 시작한다고 가정하고 다음과 같이 코드를 변경합니다.
 
@@ -204,7 +204,7 @@ FPS Server SDK의 버전 3 또는 버전 4 샘플을 사용하여 마스터 재�
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     이 API에 대한 설명서를 보려면 [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration 메서드](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet)를 참조하세요. 이 매개 변수는 오프라인 임대 기간(시간 단위)을 나타냅니다.
-- **iOS 장치에서 다운로드된/오프라인 파일 구조체는 무엇입니까?** iOS 디바이스에 다운로드된 파일 구조체는 다음 스크린샷과 같습니다. `_keys` 폴더에는 다운로드된 FPS 라이선스가 저징됩니다(각 라이선스 서비스 호스트당 하나의 저장소 파일). `.movpkg` 폴더에는 오디오 및 동영상 콘텐츠가 저장됩니다. 대시에 이어 숫자로 끝나는 이름의 첫 번째 폴더는 동영상 콘텐츠를 포함합니다. 숫자 값은 동영상 변환의 PeakBandwidth입니다. 대시에 이어 0으로 끝나는 이름의 두 번째 폴더는 오디오 콘텐츠를 포함합니다. "Data"라는 이름의 세 번째 폴더는 FPS 콘텐츠의 마스터 재생 목록을 포함합니다. 마지막으로, boot.xml은 `.movpkg` 폴더 내용에 대한 전체 설명을 제공합니다. 
+- **iOS 디바이스에서 다운로드된/오프라인 파일 구조체는 무엇입니까?** iOS 디바이스에 다운로드된 파일 구조체는 다음 스크린샷과 같습니다. `_keys` 폴더에는 다운로드된 FPS 라이선스가 저징됩니다(각 라이선스 서비스 호스트당 하나의 저장소 파일). `.movpkg` 폴더에는 오디오 및 동영상 콘텐츠가 저장됩니다. 대시에 이어 숫자로 끝나는 이름의 첫 번째 폴더는 동영상 콘텐츠를 포함합니다. 숫자 값은 동영상 변환의 PeakBandwidth입니다. 대시에 이어 0으로 끝나는 이름의 두 번째 폴더는 오디오 콘텐츠를 포함합니다. "Data"라는 이름의 세 번째 폴더는 FPS 콘텐츠의 마스터 재생 목록을 포함합니다. 마지막으로, boot.xml은 `.movpkg` 폴더 내용에 대한 전체 설명을 제공합니다. 
 
 ![오프라인 FairPlay iOS 샘플 앱 파일 구조체](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
 

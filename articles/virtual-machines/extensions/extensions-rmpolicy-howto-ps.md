@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dc68127f2d19426c372be027634bb2563dbfa6c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980876"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341660"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Azure Policy를 사용하여 Windows VM의 확장 설치 제한
 
@@ -30,7 +30,7 @@ Windows VM에서 특정 확장을 사용하거나 설치하지 못하도록 하�
 
 ## <a name="create-a-rules-file"></a>규칙 파일 만들기
 
-설치할 수 있는 확장을 제한하려면 확장을 식별하는 논리를 제공하는 [규칙](/azure/azure-policy/policy-definition#policy-rule)이 있어야 합니다.
+설치할 수 있는 확장을 제한하려면 확장을 식별하는 논리를 제공하는 [규칙](../../governance/policy/concepts/definition-structure.md#policy-rule)이 있어야 합니다.
 
 이 예제에서는 Azure Cloud Shell에서 규칙 파일을 만들어 ‘Microsoft.Compute’에 의해 게시된 확장을 거부하는 방법을 보여 줍니다. 그러나 PowerShell에서 로컬로 작업하는 경우 로컬 파일을 만들고 경로($home/clouddrive)를 컴퓨터에 있는 로컬 파일의 경로로 바꿀 수도 있습니다.
 
@@ -70,7 +70,7 @@ nano $home/clouddrive/rules.json
 
 ## <a name="create-a-parameters-file"></a>매개 변수 파일 만들기
 
-또한 블록에 확장 목록을 전달하는 데 사용할 구조를 만드는 [매개 변수](/azure/azure-policy/policy-definition#parameters)도 필요합니다. 
+또한 블록에 확장 목록을 전달하는 데 사용할 구조를 만드는 [매개 변수](../../governance/policy/concepts/definition-structure.md#parameters)도 필요합니다. 
 
 이 예제에서는 Cloud Shell에서 VM용 매개 변수 파일을 만드는 방법을 보여 줍니다. 그러나 PowerShell에서 로컬로 작업하는 경우 로컬 파일을 만들고 경로($home/clouddrive)를 컴퓨터에 있는 로컬 파일의 경로로 바꿀 수도 있습니다.
 
@@ -166,4 +166,4 @@ Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [Azure Policy](../../azure-policy/azure-policy-introduction.md)를 참조하세요.
+자세한 내용은 [Azure Policy](../../governance/policy/overview.md)를 참조하세요.

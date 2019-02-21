@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1e8bb6deeb66b506e1342fceb725b1563b822dff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989426"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453123"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Excel에서 Azure Machine Learning Studio 웹 서비스 사용
 
@@ -34,7 +34,7 @@ Excel 2013(이후 버전) 또는 Excel Online을 사용하는 경우 [Excel 추�
 
 1. 웹 서비스의 **대시보드** 탭에는 **요청/응답** 서비스의 행이 있습니다. 이 서비스에 단일 출력이 있는 경우 해당 행에 **Excel 통합 문서 다운로드** 링크가 표시됩니다.
    
-    ![][1]
+    ![](./media/consuming-from-excel/excellink.png)
 2. **Excel 통합 문서 다운로드**를 클릭합니다.
 
 **새 웹 서비스**
@@ -47,13 +47,13 @@ Excel 2013(이후 버전) 또는 Excel Online을 사용하는 경우 [Excel 추�
 1. 통합 문서를 엽니다.
 2. 보안 경고가 표시되면 **편집 사용** 단추를 클릭합니다.
    
-    ![][2]
+    ![](./media/consuming-from-excel/enableeditting.png)
 3. 보안 경고가 표시됩니다. **콘텐츠 사용** 단추를 클릭하여 스프레드시트에서 매크로를 실행합니다.
    
-    ![][3]
+    ![](./media/consuming-from-excel/enablecontent.png)
 4. 매크로가 활성화되면 테이블이 생성됩니다. 파란색 열은 RRS 웹 서비스의 입력 또는 **매개 변수**로 필요합니다. RRS 서비스의 출력인 **예측 값** 은 녹색입니다. 주어진 행의 모든 열이 채워지면 통합 문서에서 점수 매기기 API를 자동으로 호출하고 점수가 매겨진 결과를 표시합니다.
    
-    ![][4]
+    ![](./media/consuming-from-excel/sampletable.png)
 5. 둘 이상의 행에 대한 점수를 매기려면 두 번째 행을 데이터로 채웁니다. 그러면 예측 값이 생성됩니다. 여러 행을 한 번에 붙여 넣을 수도 있습니다.
 
 데이터를 시각화하는 예측 값을 사용하여 Excel 기능(그래프, 파워 맵, 조건부 서식 등) 중 하나를 사용할 수 있습니다.    
@@ -66,8 +66,3 @@ RRS 호출은 다음 두 가지 상황에서 수행됩니다.
 
 1. 행의 모든 **매개 변수**
 2. 모든 **매개 변수**가 있는 행에서 **매개 변수** 중 하나 이상이 변경될 때마다
-
-[1]: ./media/consuming-from-excel/excellink.png
-[2]: ./media/consuming-from-excel/enableeditting.png
-[3]: ./media/consuming-from-excel/enablecontent.png
-[4]: ./media/consuming-from-excel/sampletable.png

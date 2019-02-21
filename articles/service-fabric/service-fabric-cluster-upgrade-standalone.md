@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 6f0ffac9ecf4d0c8f6c3dc7c57670b168417cd3a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ed50f49b110d910a298e608f3625a3bddfe8a0a8
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51857818"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963169"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Service Fabric 독립 실행형 클러스터 업그레이드 및 업데이트
 
 최신 시스템의 경우 업그레이드 기능 디자인이 제품의 장기적 성공 달성의 비결입니다. Azure Service Fabric 독립 실행형 클러스터는 사용자가 소유하는 리소스입니다. 이 문서에서는 업그레이드 또는 업데이트할 수 있는 것을 설명합니다.
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 패브릭 버전 제어
-클러스터가 지원되는 Service Fabric 버전을 항상 실행하는지 확인합니다. Microsoft에서 새로운 버전의 Service Fabric 릴리스를 발표하면 이전 버전은 해당 발표일로부터 최소 60일 후 지원 종료되는 것으로 표시됩니다. 새로운 릴리스는 [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)에서 발표됩니다. 그러면 해당 시점에 새로운 릴리스를 선택할 수 있습니다.
+클러스터가 [지원되는 Service Fabric 버전](service-fabric-versions.md)을 항상 실행하는지 확인합니다. Microsoft에서 새로운 버전의 Service Fabric 릴리스를 발표하면 이전 버전은 해당 발표일로부터 최소 60일 후 지원 종료되는 것으로 표시됩니다. 새로운 릴리스는 [Service Fabric 팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)에서 발표됩니다. 그러면 해당 시점에 새로운 릴리스를 선택할 수 있습니다.
 
 Microsoft에서 자동 패브릭 업그레이드를 릴리스하면 클러스터가 수신하도록 설정할 수 있습니다. 또는 클러스터를 배치하려는 지원되는 패브릭 버전을 수동으로 선택할 수 있습니다. 자세한 내용은 [클러스터에서 실행되는 Service Fabric 버전 업그레이드](service-fabric-cluster-upgrade-windows-server.md)를 참조하세요.
 
@@ -50,7 +50,7 @@ POA(패치 오케스트레이션 애플리케이션)는 Service Fabric 클러스
 ## <a name="next-steps"></a>다음 단계
 *  [서비스 패브릭 클러스터 패브릭 설정](service-fabric-cluster-fabric-settings.md)
 *  [클러스터를 확장 및 축소하는](service-fabric-cluster-scale-up-down.md)
-*  [응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+* [애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 
 <!--Image references-->
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png

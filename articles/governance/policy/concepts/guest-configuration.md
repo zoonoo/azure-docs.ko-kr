@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 77d99c90e65647a1f4a4efb07ff5520596fa54cf
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ca8066caf77852c3ec1a8bd7cb534e8d74704bf2
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295171"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447279"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -22,6 +22,8 @@ Azure Policy는 Azure 리소스를 감사 및 [수정](../how-to/remediate-resou
 
 > [!IMPORTANT]
 > 현재는 **기본 제공** 정책만 게스트 구성에서 지원됩니다.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="extension-and-client"></a>확장 및 클라이언트
 

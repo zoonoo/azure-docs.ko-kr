@@ -13,27 +13,29 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 48f1789d4909a1c3af9e9ca01d0b9d0a8e6e09f8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: aac58cc0887c566c7377edf08f5a86e2d12cdf28
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299643"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993244"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure의 관리 솔루션에 대한 데이터 수집 상세 정보
-이 문서에는 Microsoft에서 제공하는 [관리 솔루션](solutions.md) 목록과 자세한 설명서 링크가 포함되어 있습니다.  메서드 및 Log Analytics로 데이터를 수집하는 빈도에 대한 정보도 제공합니다.  이 문서의 정보를 사용하여 제공되는 여러 솔루션을 식별하고 여러 관리 솔루션의 데이터 흐름 및 연결 요구 사항을 이해할 수 있습니다. 
+이 문서에는 Microsoft에서 제공하는 [관리 솔루션](solutions.md) 목록과 자세한 설명서 링크가 포함되어 있습니다.  Azure Monitor에 데이터를 수집하는 메서드 및 빈도에 대한 정보도 제공합니다.  이 문서의 정보를 사용하여 제공되는 여러 솔루션을 식별하고 여러 관리 솔루션의 데이터 흐름 및 연결 요구 사항을 이해할 수 있습니다. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="list-of-management-solutions"></a>관리 솔루션 목록
 
-다음 표에는 Microsoft에서 제공하는 Azure의 [관리 솔루션](solutions.md) 목록이 나열되어 있습니다. 열의 항목은 솔루션이 해당 메서드를 사용하여 Log Analytics로 데이터를 수집한다는 것을 의미합니다.  솔루션에서 선택된 열이 없으면 해당 솔루션은 다른 Azure 서비스에서 Log Analytics에 바로 데이터를 씁니다. 자세한 내용을 보려면 각 솔루션의 링크를 따라 자세한 설명서로 이동하세요.
+다음 표에는 Microsoft에서 제공하는 Azure의 [관리 솔루션](solutions.md) 목록이 나열되어 있습니다. 열의 항목은 솔루션이 해당 메서드를 사용하여 Azure Monitor로 데이터를 수집한다는 것을 의미합니다.  솔루션에서 선택된 열이 없으면 해당 솔루션은 다른 Azure 서비스에서 Azure Monitor에 바로 데이터를 씁니다. 자세한 내용을 보려면 각 솔루션의 링크를 따라 자세한 설명서로 이동하세요.
 
 열에 대한 설명은 다음과 같습니다.
 
-- **Microsoft 모니터링 에이전트** - Windows 및 Linux에서 SCOM의 관리 팩과 Azure의 관리 솔루션을 실행하기 위해 사용되는 에이전트입니다. 이 구성에서 에이전트는 Operations Manager 관리 그룹에 연결되지 않고 Log Analytics에 직접 연결됩니다. 
-- **Operations Manager** - Microsoft 모니터링 에이전트와 동일한 에이전트입니다. 이 구성에서는 Log Analytics에 연결된 [Operations Manager 관리 그룹에 연결](../../azure-monitor/platform/om-agents.md)됩니다. 
+- **Microsoft 모니터링 에이전트** - Windows 및 Linux에서 SCOM의 관리 팩과 Azure의 관리 솔루션을 실행하기 위해 사용되는 에이전트입니다. 이 구성에서 에이전트는 Operations Manager 관리 그룹에 연결되지 않고 Azure Monitor에 직접 연결됩니다. 
+- **Operations Manager** - Microsoft 모니터링 에이전트와 동일한 에이전트입니다. 이 구성에서는 Azure Monitor에 연결된 [Operations Manager 관리 그룹에 연결](../../azure-monitor/platform/om-agents.md)됩니다. 
 -  **Azure Storage** -솔루션이 Azure 스토리지 계정에서 데이터를 수집합니다. 
 - **Operations Manager 필요 여부** - 연결된 Operations Manager 관리 그룹은 관리 솔루션에서 데이터를 수집하는 데 필요합니다. 
-- **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** - 에이전트가 [SCOM 관리 그룹에 연결된 경우](../../azure-monitor/platform/om-agents.md) 데이터가 관리 서버에서 Log Analytics로 전송됩니다. 이 경우 에이전트가 Log Analytics에 직접 연결할 필요가 없습니다. 이 상자를 선택하지 않으면 에이전트가 SCOM 관리 그룹에 연결되어 있어도 데이터가 에이전트에서 Log Analytics로 직접 전송됩니다. 에이전트가 [Log Analytics 게이트웨이](../../azure-monitor/platform/gateway.md)를 통해 Log Analytics와 통신할 수 있어야 합니다.
+- **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** - 에이전트가 [SCOM 관리 그룹에 연결된 경우](../../azure-monitor/platform/om-agents.md) 데이터가 관리 서버에서 Azure Monitor로 전송됩니다. 이 경우 에이전트가 Azure Monitor에 직접 연결할 필요가 없습니다. 이 상자를 선택하지 않으면 에이전트가 SCOM 관리 그룹에 연결되어 있어도 데이터가 에이전트에서 Azure Monitor로 직접 전송됩니다. 에이전트가 [Log Analytics 게이트웨이](../../azure-monitor/platform/gateway.md)를 통해 Azure Monitor와 통신할 수 있어야 합니다.
 - **수집 빈도** - 관리 솔루션에서 데이터를 수집하는 빈도를 지정합니다. 
 
 

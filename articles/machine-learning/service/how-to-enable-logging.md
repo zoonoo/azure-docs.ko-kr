@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/11/2019
-ms.openlocfilehash: bff0feab7ce062c9e2515fa038d249838a809591
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/20/2019
+ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101439"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447534"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Azure Machine Learning Service에서 로깅 사용
 
@@ -112,7 +112,7 @@ logs = service.get_logs()
 요청/응답 시간, 실패율, 예외를 모니터링할 수 있는 Application Insights를 사용하여 웹 서비스에 대한 사용자 지정 스택 추적을 로그할 수도 있습니다. Application Insights를 사용하려면 기존 웹 서비스에서 `update()` 함수를 호출합니다.
 
 ```python
-service..update(enable_app_insights=True)
+service.update(enable_app_insights=True)
 ```
 
 Azure Portal에서 Application Insights를 사용하는 방법에 대한 자세한 내용은 [방법](how-to-enable-app-insights.md#enable-and-disable-in-the-portal)을 참조하세요.

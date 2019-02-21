@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 37549cc76e1490b0758de8e296523b0e70c98dbf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824008"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56191234"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>자습서: Leapsome과 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ Leapsome과 Azure AD의 통합을 구성하려면 갤러리의 Leapsome을 관�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -103,7 +104,7 @@ Leapsome에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
  
     ![Single Sign-On 대화 상자](./media/leapsome-tutorial/tutorial_leapsome_samlbase.png)
 
-1. **Leapsome 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **Leapsome 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Leapsome 도메인 및 URL Single Sign-On 정보](./media/leapsome-tutorial/tutorial_leapsome_url.png)
 
@@ -111,7 +112,7 @@ Leapsome에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Leapsome 도메인 및 URL Single Sign-On 정보](./media/leapsome-tutorial/tutorial_leapsome_url1.png)
 
@@ -260,7 +261,7 @@ Leapsome에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

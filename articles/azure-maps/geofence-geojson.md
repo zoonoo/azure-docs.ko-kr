@@ -3,21 +3,21 @@ title: Azure Maps의 지오펜스 GeoJSON 데이터 형식 | Microsoft Docs
 description: Azure Maps의 지오펜스 GeoJSON 데이터 형식에 대한 자세한 정보
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/08/2018
+ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa39661c8ecc4b594478def7d0cc9be3006294c4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5a654b7fdae341da62d94499830a5e1202dff921
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007491"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339637"
 ---
 # <a name="geofencing-geojson-data"></a>지오펜싱 GeoJSON 데이터
 
-Azure Maps [GET 지오펜스](https://docs.microsoft.com/rest/api/map/spatial/getgeofencepreview) 및 [POST 지오펜스](https://docs.microsoft.com/rest/api/map/spatial/postgeofencepreview) API를 사용하면 제공된 지오펜스 또는 펜스 세트를 기준으로 좌표의 근접성을 검색할 수 있습니다. 이 문서에서는 Azure Maps GET 및 POST API에 사용할 수 있는 지오펜스 데이터를 준비하는 방법을 자세히 설명합니다.
+Azure Maps [GET 지오펜스](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) 및 [POST 지오펜스](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) API를 사용하면 제공된 지오펜스 또는 펜스 세트를 기준으로 좌표의 근접성을 검색할 수 있습니다. 이 문서에서는 Azure Maps GET 및 POST API에 사용할 수 있는 지오펜스 데이터를 준비하는 방법을 자세히 설명합니다.
 
 지오펜스 또는 지오펜스 세트의 데이터는 [rfc7946](https://tools.ietf.org/html/rfc7946)에서 정의된 `GeoJSON` 형식의 `Feature` 개체 및 `FeatureCollection` 개체로 표시됩니다. 이외에도 다음 사항에 유의하세요.
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: ecfdd3fae1d394e3b57fcd325f44cad0d1a98534
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 91a68a208496904fcc8bfe13a227c61bf313214f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444897"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56198170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>자습서: iPass SmartConnect와 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ iPass SmartConnect가 Azure AD에 통합되도록 구성하려면 갤러리에�
 
     ![Azure Active Directory 단추][1]
 
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -103,11 +104,11 @@ iPass SmartConnect에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     ![Single Sign-On 대화 상자](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_samlbase.png)
 
-1. **iPass SmartConnect 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우, 단계를 수행하지 않아도 됩니다.
+1. **iPass SmartConnect 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우, 단계를 수행하지 않아도 됩니다.
 
     ![iPass SmartConnect 도메인 및 URL Single Sign-On 정보](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_url1.png)
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 고급 URL 설정 표시를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 고급 URL 설정 표시를 확인하고 다음 단계를 수행합니다.
 
     ![iPass SmartConnect 도메인 및 URL Single Sign-On 정보](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_url2.png)
 
@@ -123,7 +124,7 @@ iPass SmartConnect에서 Azure AD Single Sign-On을 구성하고 테스트하려
     | ---------------| --------------- |----------------|
     | firstname | user.givenname |   |
     | Lastname | user.surname | |
-    | email | user.userprincipalname | |
+    | 이메일 | user.userprincipalname | |
     | 사용자 이름 | user.userprincipalname | |
 
     a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
@@ -132,7 +133,7 @@ iPass SmartConnect에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     ![Configure Single Sign-On](./media/ipasssmartconnect-tutorial/tutorial_attribute_05.png)
 
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
 
@@ -184,7 +185,7 @@ iPass SmartConnect에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 ### <a name="create-an-ipass-smartconnect-test-user"></a>iPass SmartConnect 테스트 사용자 만들기
 
-이 섹션에서는 iPass SmartConnect에서 Britta Simon이라는 사용자를 만듭니다. [iPass SmartConnect 지원 팀](mailto:help@ipass.com)과 협력하여 iPass SmartConnect 플랫폼의 허용 목록에 포함해야 하는 사용자 또는 도메인을 추가합니다. 팀이 도메인을 추가하면 사용자가 iPass SmartConnect 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 iPass SmartConnect에서 Britta Simon이라는 사용자를 만듭니다.  [iPass SmartConnect 지원 팀](mailto:help@ipass.com) 과 협력하여 iPass SmartConnect 플랫폼의 허용 목록에 포함해야 하는 사용자 또는 도메인을 추가합니다. 팀이 도메인을 추가하면 사용자가 iPass SmartConnect 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -220,13 +221,13 @@ iPass SmartConnect에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-**SP 시작 흐름에서 응용 프로그램을 테스트하려면 다음 단계를 수행합니다.**
+**SP 시작 흐름에서 애플리케이션을 테스트하려면 다음 단계를 수행합니다.**
 
 a. [여기](https://om-activation.ipass.com/ClientActivation/ssolanding.go)에서 Windows iPass SmartConnect 클라이언트를 다운로드합니다.
 
 ![애플리케이션 목록의 iPass SmartConnect 링크](./media/ipasssmartconnect-tutorial/testing3.png)
 
-나. 클라이언트를 설치하고 시작합니다.
+b. 클라이언트를 설치하고 시작합니다.
 
 다. **시작**을 클릭합니다.
 
@@ -238,11 +239,11 @@ d. 도메인을 포함하여 Azure 사용자 이름을 입력합니다. **계속
 
 e. 인증에 성공하면 클라이언트 활성화가 시작됩니다. 클라이언트가 활성화됩니다.
 
-**IdP 시작 흐름에서 응용 프로그램을 테스트하려면 다음 단계를 수행합니다.**
+**IdP 시작 흐름에서 애플리케이션을 테스트하려면 다음 단계를 수행합니다.**
 
 a. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.
 
-나. iPass SmartConnect 앱을 클릭합니다.
+b. iPass SmartConnect 앱을 클릭합니다.
 
 다. SSA 페이지를 시작하고 **Windows용 앱 다운로드**를 클릭하여 iPass SmartConnect 클라이언트를 설치합니다.
 
@@ -257,7 +258,7 @@ f. 클라이언트가 활성화됩니다.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

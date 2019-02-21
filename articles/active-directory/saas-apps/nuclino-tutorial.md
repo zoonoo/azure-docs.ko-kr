@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a5346b98de48b1a2f8928c3c2bf30730588e9c1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 655ac490e528680f779eeca54899a022ddf3b89a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43145846"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56189561"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>자습서: Azure Active Directory와 Nuclino 통합
+# <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>자습서: Nuclino와 Azure Active Directory 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Nuclino를 통합하는 방법에 대해 알아봅니다.
 
@@ -65,7 +66,7 @@ Nuclino의 Azure AD 통합을 구성하려면 갤러리의 Nuclino를 관리되�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -73,7 +74,7 @@ Nuclino의 Azure AD 통합을 구성하려면 갤러리의 Nuclino를 관리되�
 
     ![새 애플리케이션 단추][3]
 
-4. 검색 상자에 **Nuclino**를 입력하고 결과 패널에서 **Nuclino**를 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Nuclino**를 입력하고 결과 패널에서 **Nuclino**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 Nuclino](./media/nuclino-tutorial/tutorial_nuclino_addfromgallery.png)
 
@@ -93,11 +94,11 @@ Nuclino에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Nuclino 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Nuclino 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **Nuclino에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **Nuclino** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **Nuclino** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -116,7 +117,7 @@ Nuclino에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 **인증** 섹션의 실제 식별자, 응답 URL로 이 값을 업데이트합니다.
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+4. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Nuclino 도메인 및 URL Single Sign-On 정보](./media/nuclino-tutorial/tutorial_nuclino_url2.png)
 
@@ -125,7 +126,7 @@ Nuclino에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Nuclino 클라이언트 지원 팀](mailto:contact@nuclino.com)에 문의하세요.
 
-5. Nuclino 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대한 다음 클레임을 구성하세요. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+5. Nuclino 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대한 다음 클레임을 구성하세요. 애플리케이션 통합 페이지의 **"사용자 특성"** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
 
     ![Configure Single Sign-On](./media/Nuclino-tutorial/tutorial_attribute.png)
 
@@ -229,7 +230,7 @@ Nuclino에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 이 섹션은 Nuclino에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Nuclino는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Nuclino에 액세스하는 동안 만들어집니다.
 
 > [!Note]
-> 사용자를 수동으로 만들어야 하는 경우 [Nuclino 지원 팀](mailto:contact@nuclino.com)에 문의하세요.
+> 사용자를 수동으로 만들어야 하는 경우  [Nuclino 지원 팀](mailto:contact@nuclino.com)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -243,9 +244,9 @@ Nuclino에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![사용자 할당][201]
 
-2. 애플리케이션 목록에서 **Nuclino**를 선택합니다.
+2. 응용 프로그램 목록에서 **Nuclino**를 선택합니다.
 
-    ![애플리케이션 목록의 Nuclino 링크](./media/nuclino-tutorial/tutorial_nuclino_app.png)  
+    ![응용 프로그램 목록의 Nuclino 링크](./media/nuclino-tutorial/tutorial_nuclino_app.png)  
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
@@ -271,7 +272,7 @@ Nuclino에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

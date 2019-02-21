@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeedes
-ms.openlocfilehash: cfeadbf1d46d9e36f8619cafe29d9dd69aad6eec
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 49a311b74fbc48f414f530e962af39d17a346353
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49118327"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175543"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>자습서: Phraseanet과 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ Phraseanet과 Azure AD 통합을 구성하려면 갤러리의 Phraseanet을 관�
 
     ![이미지](./media/phraseanet-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/phraseanet-tutorial/a_select_app.png)
     
@@ -71,7 +72,7 @@ Phraseanet과 Azure AD 통합을 구성하려면 갤러리의 Phraseanet을 관�
 
     ![이미지](./media/phraseanet-tutorial/a_new_app.png)
 
-4. 검색 상자에 **Phraseanet**을 입력하고 결과 패널에서 **Phraseanet**을 선택한 후, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **Phraseanet**을 입력하고 결과 패널에서 **Phraseanet**을 선택한 후, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
      ![이미지](./media/phraseanet-tutorial/tutorial_phraseanet_addfromgallery.png)
 
@@ -91,7 +92,7 @@ Phraseanet에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Phraseanet 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Phraseanet 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **Phraseanet에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
@@ -143,13 +144,13 @@ Phraseanet에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음 암호 상자에 표시된 값을 적어 둡니다.
+    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
 
     d. **만들기**를 선택합니다.
  
 ### <a name="create-a-phraseanet-test-user"></a>Phraseanet 테스트 사용자 만들기
 
-이 섹션에서는 Phraseanet에서 Britta Simon이라는 사용자를 만듭니다. [Phraseanet 지원 팀](mailto:support@alchemy.fr)에 문의하여 Phraseanet 플랫폼에 사용자를 추가하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Phraseanet에서 Britta Simon이라는 사용자를 만듭니다.  [Phraseanet 지원 팀](mailto:support@alchemy.fr)과 협력하여 Phraseanet 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -159,7 +160,7 @@ Phraseanet에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![이미지](./media/phraseanet-tutorial/d_all_applications.png)
 
-2. 애플리케이션 목록에서 **Phraseanet**을 선택합니다.
+2. 응용 프로그램 목록에서 **Phraseanet**을 선택합니다.
 
     ![이미지](./media/phraseanet-tutorial/tutorial_phraseanet_app.png)
 
@@ -185,6 +186,6 @@ Phraseanet에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 

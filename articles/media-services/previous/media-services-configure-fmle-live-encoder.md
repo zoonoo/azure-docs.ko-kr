@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 32bed77146284799faebdb8a44e2e610f49913cf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 02adb36bec574719f3f6d7f1c1b66124f96ccae1
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003740"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309236"
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>FMLE 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기(레거시)
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ ms.locfileid: "56003740"
 >
 >
 
-채널을 시작하는 동안 [인코더 구성](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp)을 수행할 수 있습니다.
+채널을 시작하는 동안 [인코더 구성](media-services-configure-fmle-live-encoder.md)을 수행할 수 있습니다.
 
 > [!IMPORTANT]
 > 채널이 준비 상태가 되는 즉시 요금이 청구되기 시작합니다. 자세한 내용은 [채널 상태](media-services-manage-live-encoder-enabled-channels.md#states)를 참조하세요.

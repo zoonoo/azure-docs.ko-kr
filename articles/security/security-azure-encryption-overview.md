@@ -4,7 +4,7 @@ description: Azure에서 다양한 암호화 옵션에 대해 알아보기
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: dc1ca62ce184ac290f289975ff609b8240351099
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 272cc843ab90eade06525f665d3cf2decf74a26f
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035099"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114657"
 ---
 # <a name="azure-encryption-overview"></a>Azure 암호화 개요
 
@@ -27,7 +27,7 @@ ms.locfileid: "47035099"
 
 ## <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
 
-미사용 데이터에는 모든 디지털 형식으로 된, 실제 미디어의 영구 저장소에 상주하는 정보가 포함됩니다. 미디어로는 자기 또는 광학 미디어의 파일, 보관된 데이터 및 데이터 백업이 포함될 수 있습니다. Microsoft Azure는 파일, 디스크, Blob 및 테이블 저장소 등 서로 다른 요구 사항을 충족하는 다양한 데이터 저장소 솔루션을 제공합니다. Microsoft는 또한 [Azure SQL Database](../sql-database/sql-database-technical-overview.md), [Azure Cosmos DB](../cosmos-db/introduction.md) 및 Azure Data Lake를 보호하기 위한 암호화도 제공합니다.
+미사용 데이터에는 모든 디지털 형식으로 된, 실제 미디어의 영구 저장소에 상주하는 정보가 포함됩니다. 미디어로는 자기 또는 광학 미디어의 파일, 보관된 데이터 및 데이터 백업이 포함될 수 있습니다. Microsoft Azure는 파일, 디스크, Blob 및 Table Storage 등 서로 다른 요구 사항을 충족하는 다양한 데이터 스토리지 솔루션을 제공합니다. Microsoft는 또한 [Azure SQL Database](../sql-database/sql-database-technical-overview.md), [Azure Cosmos DB](../cosmos-db/introduction.md) 및 Azure Data Lake를 보호하기 위한 암호화도 제공합니다.
 
 저장 데이터 암호화는 SaaS(Software-as-a-Service), PaaS(Platform-as-a-Service) 및 IaaS(Infrastructure-as-a-Service) 클라우드 모델 간의 서비스에 사용 가능합니다. 이 문서에서는 Azure의 암호화 옵션을 사용하는 데 도움이 되는 리소스를 요약하여 제공합니다.
 
@@ -50,11 +50,11 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 세 가지 서버 쪽 암호화 모델은 요구 사항에 따라 선택할 수 있는 서로 다른 키 관리 특성을 제공합니다.
 
-- **서비스 관리 키**: 낮은 오버헤드로 제어와 편의성을 모두 제공합니다.
+- **서비스 관리형 키**: 낮은 오버헤드로 제어와 편의성을 모두 제공합니다.
 
-- **고객 관리 키**: BYOK를 지원하거나 새 키를 생성하는 기능을 비롯하여 고객이 키를 제어할 수 있습니다.
+- **고객 관리형 키**: BYOK(Bring Your Own Key)를 지원하거나 새 키를 생성하는 등 키를 제어하도록 허용합니다.
 
-- **고객 제어 하드웨어에서 서비스 관리 키**: Microsoft의 제어 범위 밖에 있는 독점적인 리포지토리에서 키를 관리할 수 있습니다. 이 특성을 HYOK(Host Your Own Key)라고 합니다. 그러나 구성이 복잡하고 대부분의 Azure 서비스는 이 모델을 지원하지 않습니다.
+- **고객 제어형 하드웨어의 서비스 관리형 키**: Microsoft의 제어 범위 밖에 있는 독점적인 리포지토리에서 키를 관리할 수 있습니다. 이 특성을 HYOK(Host Your Own Key)라고 합니다. 그러나 구성이 복잡하고 대부분의 Azure 서비스는 이 모델을 지원하지 않습니다.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
@@ -64,7 +64,7 @@ Azure는 서비스 관리 키를 사용하는 서버 쪽 암호화, Key Vault의
 
 ### <a name="azure-storage-service-encryption"></a>Azure Storage 서비스 암호화
 
-Azure Blob 저장소와 Azure 파일 공유의 미사용 데이터는 서버 쪽 시나리오와 클라이언트 쪽 시나리오 모두에서 암호화할 수 있습니다.
+Azure Blob Storage와 Azure 파일 공유의 미사용 데이터는 서버 쪽 시나리오와 클라이언트 쪽 시나리오 모두에서 암호화할 수 있습니다.
 
 [Azure SSE(Storage 서비스 암호화)](../storage/common/storage-service-encryption.md)는 데이터를 저장하기 전에 자동으로 암호화하고, 데이터를 검색할 때 자동으로 암호 해독할 수 있습니다. 사용자는 이 프로세스를 전혀 인식하지 못합니다. Storage Service Encryption은 가장 강력한 블록 암호 중 하나인 256비트 [AES(Advanced Encryption Standard) 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용합니다. AES는 암호화, 암호 해독 및 키 관리를 투명하게 처리합니다.
 
@@ -72,7 +72,7 @@ Azure Blob 저장소와 Azure 파일 공유의 미사용 데이터는 서버 쪽
 
 다양한 방법으로 Azure BLOB의 클라이언트 쪽 암호화를 수행할 수 있습니다.
 
-.NET NuGet 패키지용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure 저장소에 데이터를 업로드하기 전에 클라이언트 애플리케이션 내에서 데이터를 암호화할 수 있습니다.
+.NET NuGet 패키지용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure 스토리지에 데이터를 업로드하기 전에 클라이언트 응용 프로그램 내에서 데이터를 암호화할 수 있습니다.
 
 .NET NuGet 패키지용 Azure Storage 클라이언트 라이브러리에 대한 자세한 내용과 다운로드 방법은 [Windows Azure Storage 8.3.0](https://www.nuget.org/packages/WindowsAzure.Storage) 문서를 참조하세요.
 

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 74f38ef3043cfa0e6df40c264b72cc5eae38544e
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e334795a63ff298ff8f0695340f35fdff1ad03e0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430292"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166524"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>자습서: Adaptive Insights와 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ Adaptive Insights가 Azure AD에 통합되도록 구성하려면 갤러리의 Ad
 
     ![이미지](./media/adaptivesuite-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/adaptivesuite-tutorial/a_select_app.png)
     
@@ -230,7 +231,7 @@ Azure AD 사용자가 Adaptive Insights에 로그인할 수 있도록 하려면 
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Adaptive Insights에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
 
     ![이미지](./media/adaptivesuite-tutorial/d_all_applications.png)
 
@@ -242,7 +243,7 @@ Azure AD 사용자가 Adaptive Insights에 로그인할 수 있도록 하려면 
 
     ![이미지](./media/adaptivesuite-tutorial/d_leftpaneusers.png)
 
-4. **추가** 단추를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **추가** 단추를 선택하고 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![이미지](./media/adaptivesuite-tutorial/d_assign_user.png)
 
@@ -260,4 +261,4 @@ Azure AD 사용자가 Adaptive Insights에 로그인할 수 있도록 하려면 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

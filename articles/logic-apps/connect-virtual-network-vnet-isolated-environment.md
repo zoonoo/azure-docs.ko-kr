@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 8d7fc6d8f581c3ad0e0f3266ea615acadcb7bc25
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/15/2019
+ms.openlocfilehash: d67bc99a63242dd56d65d6bdac0448c7742a6b9d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176206"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311905"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -67,9 +67,10 @@ ISE를 배포하는 가상 네트워크의 서브넷에서 인바운드 및 아�
 | Azure Logic Apps로 보내는 통신 <br>Azure Logic Apps에서 받는 통신 | 인바운드 <br>아웃바운드 | * <br>80 및 443 | 인터넷 <br>VIRTUAL_NETWORK |
 | Azure Active Directory | 아웃바운드 | * <br>80 및 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
 | Azure Storage 종속성 | 아웃바운드 | * <br>80 및 443 | VIRTUAL_NETWORK <br>Storage |
+| 논리 앱의 실행 기록 | 인바운드 | * <br>443 | 인터넷 <br>VIRTUAL_NETWORK |
 | 연결 관리 | 아웃바운드 | * <br>443 | VIRTUAL_NETWORK <br>인터넷 |
 | 진단 로그 및 메트릭 게시 | 아웃바운드 | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Logic Apps 디자이너 - 동적 속성 <br>논리 앱의 실행 기록 <br>커넥터 배포 <br>요청 트리거 엔드포인트 | 인바운드 | * <br>454 | 인터넷 <br>VIRTUAL_NETWORK |
+| Logic Apps 디자이너 - 동적 속성 <br>커넥터 배포 <br>요청 트리거 엔드포인트 | 인바운드 | * <br>454 | 인터넷 <br>VIRTUAL_NETWORK |
 | App Service 관리 종속성 | 인바운드 | * <br>454 및 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
 | API Management - 관리 엔드포인트 | 인바운드 | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
 | 이벤트 허브에 로그 정책 및 모니터링 에이전트의 종속성 | 아웃바운드 | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |

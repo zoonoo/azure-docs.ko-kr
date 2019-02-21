@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a3f40624e51ef287d70bed547eba7ec9e0882b0e
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3c4d702a33742da5501be208154cbdd593fa0524
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669198"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199717"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>자습서: Meta Networks Connector와 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ Meta Networks Connector가 Azure AD에 통합되도록 구성하려면 갤러리
     
     ![Azure Active Directory 단추][1]
     
-1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+1. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
     
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -103,7 +104,7 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하고 테스트�
  
     ![Single Sign-On 대화 상자](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_samlbase.png)
 
-1. **Meta Networks Connector 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+1. **Meta Networks Connector 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
     ![Meta Networks Connector 도메인 및 URL Single Sign-On 정보](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_url.png)
 
@@ -111,7 +112,7 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하고 테스트�
     
     1. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
     
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Meta Networks Connector 도메인 및 URL Single Sign-On 정보](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_url1.png)
 
@@ -240,7 +241,7 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하고 테스트�
 이 섹션은 Meta Networks Connector에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Meta Networks Connector는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Meta Networks Connector에 액세스하는 동안 만들어집니다.
 
 >[!Note]
->사용자를 수동으로 만들어야 하는 경우 [Meta Networks Connector 클라이언트 지원 팀](mailto:support@metanetworks.com)에 문의하세요.
+>사용자를 수동으로 만들어야 하는 경우  [Meta Networks Connector 클라이언트 지원 팀](mailto:support@metanetworks.com)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -282,7 +283,7 @@ Meta Networks Connector에서 Azure AD Single Sign-On을 구성하고 테스트�
 ## <a name="additional-resources"></a>추가 리소스
 
 - [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-- [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

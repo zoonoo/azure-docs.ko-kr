@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 19ed1c12768eed0265f65388984a5859b8f0630b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247757"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56210733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>자습서: My Award Points Top Sub/Top Team과 Azure Active Directory 통합
 
@@ -66,7 +67,7 @@ My Award Points Top Sub/Top Team을 Azure AD에 통합되도록 구성하려면 
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
 
@@ -161,7 +162,7 @@ My Award Points Top Sub/Top Team에서 Azure AD Single Sign-On을 구성하고 �
 
 ### <a name="create-a-my-award-points-top-subtop-team-test-user"></a>My Award Points Top Sub/Top Team 테스트 사용자 만들기
 
-이 섹션에서는 My Award Points Top Sub/Top Team에서 Britta Simon이라는 사용자를 만듭니다. [My Award Points Top Sub/Top Team 지원 팀](mailto:myawardpoints@biworldwide.com)을 사용하여 My Award Points Top Sub/Top Team 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 My Award Points Top Sub/Top Team에서 Britta Simon이라는 사용자를 만듭니다.  [My Award Points Top Sub/Top Team 지원 팀](mailto:myawardpoints@biworldwide.com) 과 협력하여 My Award Points Top Sub/Top Team 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -203,7 +204,7 @@ My Award Points Top Sub/Top Team에서 Azure AD Single Sign-On을 구성하고 �
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

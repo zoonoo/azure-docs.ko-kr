@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 14e631edb21c43ccde04a536760c2793ead40e90
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997081"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454697"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio 웹 서비스용 Excel 추가 기능
 Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비스를 호출할 수 있습니다.
@@ -29,13 +29,13 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 
 2. 웹 서비스를 클릭하여 선택합니다(이 예제의 경우 "Titanic Survivor Predictor (Excel Add-in Sample) [Score]").
    
-    ![웹 서비스 선택][01]
+    ![웹 서비스 선택](./media/excel-add-in-for-web-services/image1.png)
 3. 이렇게 하면 **Predict** 섹션으로 이동합니다.  이 통합 문서에는 이미 샘플 데이터가 포함되어 있지만 통합 문서가 비어 있는 경우에는 Excel에서 셀 하나를 선택하고 **샘플 데이터 사용**을 클릭할 수 있습니다.
 4. 머리글이 있는 데이터를 선택하고 입력 데이터 범위 아이콘을 클릭합니다.  "My data has headers" 상자가 선택되어 있는지 확인합니다.
 5. **Output** 아래에 출력을 배치할 셀 번호를 입력합니다(여기서는 "H1").
 6. **Predict**를 클릭합니다. "자동 예측" 확인란을 선택할 경우 선택한 영역(입력으로 지정된 영역)에서 변경 작업이 수행될 때 예측 단추를 누르지 않아도 요청 및 출력 셀 업데이트가 트리거됩니다.
    
-    ![Predict 섹션][02]
+    ![Predict 섹션](./media/excel-add-in-for-web-services/image1.png)
 
 웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포 방법에 대한 자세한 내용은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조하세요.
 
@@ -45,10 +45,10 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 
 1. Machine Learning Studio에서 왼쪽 창의 **WEB SERVICES** 섹션을 클릭한 다음 웹 서비스를 선택합니다.
    
-    ![Studio 웹 서비스 선택][04]
+    ![Studio 웹 서비스 선택](./media/excel-add-in-for-web-services/image4.png)
 2. 웹 서비스에 대한 API 키를 복사합니다.
    
-    ![Studio API 키][05]
+    ![Studio API 키](./media/excel-add-in-for-web-services/image5.png)
 3. 웹 서비스의 **DASHBOARD** 탭에서 **REQUEST/RESPONSE** 링크를 클릭합니다.
 4. **요청 URI** 섹션을 찾습니다.  URL을 복사하고 저장합니다.
 
@@ -70,23 +70,16 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 3. **기본 사용량 정보** 섹션을 찾습니다. **기본 키** 및 **요청-응답** URL을 복사하여 저장합니다.
 4. Excel에서 **웹 서비스** 섹션으로 이동합니다(**Predict** 섹션에 있는 경우 뒤로 화살표를 클릭하여 웹 서비스 목록으로 이동).
    
-    ![웹 서비스 선택으로 이동][03]
+    ![웹 서비스 선택으로 이동](./media/excel-add-in-for-web-services/image3.png)
 5. **Add Web Service**를 클릭합니다.
 6. URL을 **URL**이라고 레이블이 지정된 텍스트 상자에 붙여 넣습니다.
 7. API/기본 키를 **API 키**텍스트 상자에 붙여넣습니다.
 8. **추가**를 클릭합니다.
    
-    ![기존 웹 서비스에 대한 URL 및 API 키.][06]
+    ![기존 웹 서비스에 대한 URL 및 API 키.](./media/excel-add-in-for-web-services/image6.png)
 9. 웹 서비스를 사용하려면 위의 지침 "기존 웹 서비스를 사용하는 단계"를 따릅니다.
 
 ## <a name="sharing-your-workbook"></a>통합 문서 공유
 통합 문서를 저장하면 추가한 웹 서비스의 API/기본 키도 저장됩니다. 즉, 신뢰할 수 있는 사용자와만 통합 문서를 공유해야 합니다.
 
 다음 설명 섹션 또는 [포럼](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409)에서 질문을 할 수 있습니다.
-
-[01]: ./media/excel-add-in-for-web-services/image1.png
-[02]: ./media/excel-add-in-for-web-services/image2.png
-[03]: ./media/excel-add-in-for-web-services/image3.png
-[04]: ./media/excel-add-in-for-web-services/image4.png
-[05]: ./media/excel-add-in-for-web-services/image5.png
-[06]: ./media/excel-add-in-for-web-services/image6.png

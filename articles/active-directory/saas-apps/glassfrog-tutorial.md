@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory와 GlassFrog 통합 | Microsoft Docs'
+title: '자습서: GlassFrog와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory 및 GlassFrog 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 1fdd1e8acf446ba3e409e2ff0bf9ca18f581c299
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d6bdc9f2214f8a23ffd1a126905faf00f2fc4264
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433183"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199639"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>자습서: GlassFrog와 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ GlassFrog의 Azure AD 통합을 구성하려면 갤러리의 GlassFrog를 관리
 
     ![이미지](./media/glassfrog-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/glassfrog-tutorial/a_select_app.png)
     
@@ -71,7 +72,7 @@ GlassFrog의 Azure AD 통합을 구성하려면 갤러리의 GlassFrog를 관리
 
     ![이미지](./media/glassfrog-tutorial/a_new_app.png)
 
-4. 검색 상자에 **GlassFrog**를 입력하고 결과 패널에서 **GlassFrog**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **GlassFrog**를 입력하고 결과 패널에서 **GlassFrog**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
      ![이미지](./media/glassfrog-tutorial/tutorial_glassfrog_addfromgallery.png)
 
@@ -91,7 +92,7 @@ GlassFrog에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 GlassFrog 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 GlassFrog 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **GlassFrog에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -149,17 +150,17 @@ GlassFrog에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
 ### <a name="create-a-glassfrog-test-user"></a>GlassFrog 테스트 사용자 만들기
 
-이 섹션에서는 GlassFrog에서 Britta Simon이라는 사용자를 만듭니다. GlassFrog 플랫폼에서 사용자를 추가하려면 [GlassFrog 지원 팀](https://support.glassfrog.com/support/solutions/9000107654)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 GlassFrog에서 Britta Simon이라는 사용자를 만듭니다.  [GlassFrog 지원 팀](https://support.glassfrog.com/support/solutions/9000107654)과 협력하여 GlassFrog 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 GlassFrog에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
 
     ![이미지](./media/glassfrog-tutorial/d_all_applications.png)
 
-2. 애플리케이션 목록에서 **GlassFrog**를 선택합니다.
+2. 응용 프로그램 목록에서 **GlassFrog**를 선택합니다.
 
     ![이미지](./media/glassfrog-tutorial/tutorial_glassfrog_app.png)
 
@@ -185,6 +186,6 @@ GlassFrog에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 

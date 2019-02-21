@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 7edf1cbc5cc351e25a9ae7b319768376ea9968a3
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 679284783ac93662c1c96e813f9f028fffb434f0
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267539"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56173660"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>자습서: Spotinst와 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ Spotinst의 Azure AD 통합을 구성하려면 갤러리의 Spotinst를 관리�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드][2]
     
@@ -109,7 +110,7 @@ Spotinst에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **고급 URL 설정 표시**를 선택합니다.
 
-    나. **릴레이 상태** 텍스트 상자에 `<ID>` 값을 입력합니다.
+    b. **릴레이 상태** 텍스트 상자에 `<ID>` 값을 입력합니다.
 
     다. **SP** 시작 모드로 응용 프로그램을 구성하려는 경우 **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://console.spotinst.com`
 
@@ -134,7 +135,7 @@ Spotinst에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Configure Single Sign-On](./media/spotinst-tutorial/tutorial_attribute_05.png)
 
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
 
@@ -162,7 +163,7 @@ Spotinst에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. 인스턴스에 대한 **릴레이 상태** 값을 복사한 다음, Azure Portal에서 **Spotinst 도메인 및 URL** 섹션의 **릴레이 상태** 텍스트 상자에 붙여넣습니다.
 
-    나. **찾아보기**를 클릭하여 Azure Portal에서 다운로드한 메타데이터 xml 파일을 업로드합니다.
+    b. **찾아보기**를 클릭하여 Azure Portal에서 다운로드한 메타데이터 xml 파일을 업로드합니다.
 
     다. **저장**을 클릭합니다.
 
@@ -206,7 +207,7 @@ Spotinst에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
    a. 다른 웹 브라우저 창에서 Spotinst에 보안 관리자로 로그인합니다.
 
-   나. 화면 오른쪽 위에 있는 **사용자 아이콘**을 클릭하고 **설정**을 클릭합니다.
+   b. 화면 오른쪽 위에 있는 **사용자 아이콘**을 클릭하고 **설정**을 클릭합니다.
 
     ![Spotinst 설정](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
@@ -224,7 +225,7 @@ Spotinst에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     * **조직 역할, 계정 역할 및 계정**에 대해 조직별 세부 정보를 선택합니다.
 
-2. **IDP** 시작 모드에서 응용 프로그램을 구성한 경우 이 섹션에 작업 항목이 없습니다. Spotinst는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 새 사용자가 아직 존재하지 않는 경우 Spotinst에 액세스하는 동안 만들어집니다.
+2. **IDP** 시작 모드에서 애플리케이션을 구성한 경우 이 섹션에 작업 항목이 없습니다. Spotinst는 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 새 사용자가 아직 존재하지 않는 경우 Spotinst에 액세스하는 동안 만들어집니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -266,7 +267,7 @@ Spotinst에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 

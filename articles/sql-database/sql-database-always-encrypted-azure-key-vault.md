@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: fa37a83799ec50c7a8a87a0ac8a3232035a49234
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 670bdd43a4a581f349ca84c17ead67975fa0232e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755665"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110169"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: 중요한 데이터 보호 및 Azure Key Vault에 암호화 키 저장
 
@@ -53,7 +53,7 @@ AAD(Azure Active Directory) 애플리케이션을 설정하고 애플리케이�
 ## <a name="create-a-key-vault-to-store-your-keys"></a>키를 저장할 주요 자격 증명 모음 만들기
 클라이언트 앱이 구성되었고 애플리케이션 ID가 있으므로, 이제 키 자격 증명 모음을 만들고 사용자와 사용자 애플리케이션에서 이 자격 증명 모음의 암호(Always Encrypted 키)에 액세스할 수 있도록 액세스 정책을 구성해야 합니다. 새 열 마스터 키를 만들고 SQL Server Management Studio에서 암호화를 설정하기 위해서는 *create*, *get*, *list*, *sign*, *verify*, *wrapKey* 및 *unwrapKey* 권한이 필요합니다.
 
-다음 스크립트를 실행하여 주요 자격 증명 모음을 빠르게 만들 수 있습니다. 이러한 cmdlet에 대한 자세한 설명 및 주요 자격 증명 모음을 만들고 구성하는 방법은 [Azure Key Vault 시작](../key-vault/key-vault-get-started.md)을 참조하세요.
+다음 스크립트를 실행하여 주요 자격 증명 모음을 빠르게 만들 수 있습니다. 이러한 cmdlet에 대한 자세한 설명 및 Key Vault를 만들고 구성하는 방법은 [Azure Key Vault란?](../key-vault/key-vault-overview.md)을 참조하세요.
 
 ```powershell
     $subscriptionName = '<your Azure subscription name>'

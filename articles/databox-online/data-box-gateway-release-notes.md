@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0265de5b224e62d188fe6e3b9322d5c2e3f77fa1
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302124"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55883137"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Azure Data Box Gateway 미리 보기 릴리스 정보
 
@@ -52,9 +52,8 @@ ms.locfileid: "55302124"
 | **7.** |새로 고침 | 사용 권한 및 ACL(액세스 제어 목록)은 새로 고침 작업에서 유지되지 않습니다.  | |
 | **8.** |복사 | 데이터 복사가 실패하고  "파일 시스템 제한으로 인해 요청한 작업을 완료할 수 없습니다." 오류가 표시됩니다.  |파일과 연결된 ADS(대체 데이터 스트림)가 ReFS의 최대 한도인 128KB를 초과하면 이 오류가 발생합니다.  |
 | **9.** |바로 가기 링크 |기호 링크는 지원되지 않습니다.  |디렉터리로 이동하는 바로 가기 링크로 인해 디렉터리가 오프라인으로 표시되지 않습니다. 따라서 디렉터리가 오프라인이며 모든 관련 콘텐츠가 Azure에 완전히 업로드되었음을 나타내는 회색 십자 표시가 디렉터리에 표시되지 않을 수 있습니다. |
-| **10.** |온라인 도움말 |Azure Portal의 도움말 링크가 설명서에 연결되지 않을 수 있습니다.|도움말 링크는 일반 공급 릴리스에서 작동합니다. |
-
-
+| **10.** |공유 |페이지 Blob이 있는 기존 컨테이너를 블록 Blob 공유로, 또는 그 반대로 새로 고치면 파일 수정 시 업로드 오류가 발생합니다.  |이 동작은 다음 단계를 수행하는 경우에 실행됩니다. <li> 디바이스에서 블록 Blob 공유를 만듭니다. </li><li> 페이지 Blob이 있는 기존 클라우드 컨테이너와 공유를 연결합니다.</li><li>공유를 새로 고칩니다. </li><li>이미 클라우드에 페이지 Blob으로 저장된 새로 고쳐진 파일 중 일부를 수정합니다.</li> 업로드 오류가 표시됩니다. |
+| **11.** |온라인 도움말 |Azure Portal의 도움말 링크가 설명서에 연결되지 않을 수 있습니다.|도움말 링크는 일반 공급 릴리스에서 작동합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

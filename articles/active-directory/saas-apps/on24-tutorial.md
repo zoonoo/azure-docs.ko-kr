@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 1ec18f0013a7fa640395a8b8bedd9df8b0924c3a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0827895d58b0b7633ee4543495014c62b5394312
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071065"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>자습서: ON24 Virtual Environment SAML Connection과 Azure Active Directory 통합
 
@@ -63,7 +64,7 @@ Azure AD로의 ON24 Virtual Environment SAML Connection 통합을 구성하려�
 
     ![이미지](./media/on24-tutorial/selectazuread.png)
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션**으로 이동합니다. 그런 후 **모든 애플리케이션**으로 이동합니다.
 
     ![이미지](./media/on24-tutorial/a_select_app.png)
     
@@ -71,7 +72,7 @@ Azure AD로의 ON24 Virtual Environment SAML Connection 통합을 구성하려�
 
     ![이미지](./media/on24-tutorial/a_new_app.png)
 
-4. 검색 상자에 **ON24 Virtual Environment SAML Connection**을 입력하고 결과 패널에서 **ON24 Virtual Environment SAML Connection**을 선택한 후 **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
+4. 검색 상자에 **ON24 Virtual Environment SAML Connection**을 입력하고 결과 패널에서 **ON24 Virtual Environment SAML Connection**을 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
      ![이미지](./media/on24-tutorial/tutorial_on24_addfromgallery.png)
 
@@ -91,7 +92,7 @@ ON24 Virtual Environment SAML Connection에서 Azure AD Single Sign-On을 구성
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ON24 Virtual Environment SAML Connection 애플리케이션에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 ON24 Virtual Environment SAML Connection 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 **ON24 Virtual Environment SAML Connection에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
@@ -188,23 +189,23 @@ ON24 Virtual Environment SAML Connection에서 Azure AD Single Sign-On을 구성
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음 암호 상자에 표시된 값을 적어 둡니다.
+    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
 
     d. **만들기**를 선택합니다.
  
 ### <a name="create-an-on24-virtual-environment-saml-connection-test-user"></a>ON24 Virtual Environment SAML Connection 테스트 사용자 만들기
 
-이 섹션에서는 ON24 Virtual Environment SAML Connection에서 Britta Simon 사용자를 만듭니다. ON24 Virtual Environment SAML Connection 플랫폼에서 사용자를 추가하려면 [ON24 Virtual Environment SAML Connection 지원 팀](https://www.on24.com/about-us/support/)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 ON24 Virtual Environment SAML Connection에서 Britta Simon 사용자를 만듭니다.  [ON24 Virtual Environment SAML Connection 지원 팀](https://www.on24.com/about-us/support/)과 협력하여 ON24 Virtual Environment SAML Connection 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 ON24 Virtual Environment SAML Connection 액세스 권한을 부여하여 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 설정합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택합니다.
 
     ![이미지](./media/on24-tutorial/d_all_applications.png)
 
-2. 애플리케이션 목록에서 **ON24 Virtual Environment SAML Connection**을 선택합니다.
+2. 응용 프로그램 목록에서 **ON24 Virtual Environment SAML Connection**을 선택합니다.
 
     ![이미지](./media/on24-tutorial/tutorial_on24_app.png)
 
@@ -230,5 +231,5 @@ ON24 Virtual Environment SAML Connection에서 Azure AD Single Sign-On을 구성
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 

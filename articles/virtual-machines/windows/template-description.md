@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 6821c2000efa4a03f803871d9b33272175f1265c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d234e7f8a6005722a33a797f2b8ae6a1e1f4b98b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113246"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327768"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -290,7 +290,7 @@ Resource Manager는 배포되는 다른 리소스에 종속되지 않는 모든 
 
 ## <a name="disks-and-images"></a>디스크 및 이미지
    
-Azure에서 vhd 파일은 [디스크 또는 이미지](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 나타낼 수 있습니다. vhd 파일에서 운영 체제가 특정 VM이 되도록 특수화된 경우 디스크를 나타냅니다. vhd 파일에서 운영 체제가 여러 VM을 만드는 데 사용되도록 일반화된 경우 이미지를 나타냅니다.   
+Azure에서 vhd 파일은 [디스크 또는 이미지](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 나타낼 수 있습니다. vhd 파일에서 운영 체제가 특정 VM이 되도록 특수화된 경우 디스크를 나타냅니다. vhd 파일에서 운영 체제가 여러 VM을 만드는 데 사용되도록 일반화된 경우 이미지를 나타냅니다.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>플랫폼 이미지에서 새 가상 머신 및 새 디스크 만들기
 

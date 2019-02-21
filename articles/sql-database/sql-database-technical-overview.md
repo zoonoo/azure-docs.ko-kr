@@ -12,15 +12,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f4b72a95c64467ce287d2cb762222d17334aad57
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755428"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982270"
 ---
-# <a name="the-azure-sql-database-service"></a>Azure SQL Database 서비스
+# <a name="what-is-azure-sql-database-service"></a>Azure SQL Database 서비스란?
 
 SQL Database는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Microsoft Azure의 범용 관계형 데이터베이스 관리 서비스입니다. SQL Database는 서로 다른 두 구매 모델 내에서 동적으로 확장 가능한 성능을 제공합니다(vCore 기반 구매 모델 및 DTU 기반 구매 모델). 또한 SQL Database는 고도의 분석 및 보고를 위한 [columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 및 고도의 트랜잭션 처리를 위한 [메모리 내 OLTP](sql-database-in-memory.md)와 같은 옵션을 제공합니다. Microsoft에서는 SQL 코드 베이스를 모두 원활하게 패치하고 업데이트하며 기본 인프라의 모든 관리를 추상화합니다.
 
@@ -67,10 +67,10 @@ SQL Database는 가동 중지 시간이 없는 동적 확장성, 기본 제공 �
 SQL Database는 다음 두 가지 구매 모델을 제공합니다.
 
 - [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)에서는 경량부터 중량까지의 데이터베이스 워크로드를 지원하기 위해 세 가지 서비스 계층으로 컴퓨팅, 메모리, IO 리소스를 함께 제공합니다. 각 계층 내의 계산 크기는 이러한 리소스의 다양한 조합을 제공하여 추가 저장소 리소스를 추가할 수 있습니다.
-- [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 통해 vCore 개수, 크기나 메모리 및 저장소의 크기와 속도를 선택할 수 있습니다.
+- [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 통해 vCore 개수, 크기나 메모리 및 저장소의 크기와 속도를 선택할 수 있습니다. vCore 기반 구매 모델을 사용하면 [SQL Server용 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 사용하여 비용을 절약할 수도 있습니다. Azure 하이브리드 혜택에 대한 자세한 내용은 [질문과 대답](#sql-database-frequently-asked-questions-faq)을 참조하세요.
 
   > [!IMPORTANT]
-  > [하이퍼스케일 서비스 계층](sql-database-service-tier-hyperscale.md)은 현재 공개 미리 보기로 제공되고 있습니다. 프로덕션 워크로드는 하이퍼스케일 데이터베이스에서 아직 실행하지 않는 것이 좋습니다. 하이퍼스케일 데이터베이스를 다른 서비스 계층으로 업데이트할 수 없습니다. 테스트 목적으로 현재 데이터베이스의 복사본을 만들고 복사본을 하이퍼스케일 서비스 계층으로 업데이트하는 것이 좋습니다.
+  > 단일 데이터베이스에 대한 [하이퍼스케일 서비스 계층](sql-database-service-tier-hyperscale.md)은 현재 공개 미리 보기로 제공되고 있습니다. 프로덕션 워크로드는 하이퍼스케일 데이터베이스에서 아직 실행하지 않는 것이 좋습니다. 하이퍼스케일 데이터베이스를 다른 서비스 계층으로 업데이트할 수 없습니다. 테스트 목적으로 현재 데이터베이스의 복사본을 만들고 복사본을 하이퍼스케일 서비스 계층으로 업데이트하는 것이 좋습니다.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>리소스 사용률 극대화를 위한 탄력적 풀
 
@@ -195,6 +195,41 @@ SQL Database로 애플리케이션을 빌드하고 관리하는 작업의 편의
   Microsoft SQL Server, Azure SQL Database 및 SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원하는 Windows, macOS 및 Linux용 체험, 다운로드 가능한 오픈 소스 코드 편집기입니다.
 
 SQL Database는 MacOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 및 .NET을 사용하여 애플리케이션을 빌드하도록 지원합니다. SQL Database는 동일한 [연결 라이브러리](sql-database-libraries.md)를 SQL Server로 지원합니다.
+
+## <a name="sql-database-frequently-asked-questions-faq"></a>SQL Database FAQ(질문과 대답)
+
+### <a name="what-is-the-current-version-of-sql-database"></a>SQL Database의 최신 버전은 무엇인가요?
+
+SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니다.
+
+### <a name="can-i-control-when-patching-downtime-occurs"></a>패치 가동 중지 시간이 발생하는 경우를 제어할 수 있나요?
+
+ 아니요. 일반적으로 패치 적용에 따른 영향은 앱에서 [다시 시도 논리를 사용](sql-database-develop-overview.md#resiliency)하면 두드러지지 않습니다. Azure SQL Database에서 계획된 유지 관리 이벤트를 준비하는 방법에 대한 자세한 내용은 [Azure SQL Database의 Azure 유지 관리 이벤트 계획](sql-database-planned-maintenance.md)을 참조하세요.
+
+### <a name="azure-hybrid-benefit-questions"></a>Azure 하이브리드 혜택 질문
+
+#### <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>SQL Server에 대한 Azure 하이브리드 혜택에 이중 사용 권한이 있나요?
+
+마이그레이션이 원활하게 실행되도록 하려면 180일간의 이중 사용 권한 라이선스가 있어야 합니다. 180일 기간이 지난 후에는 SQL Server 라이선스는 클라우드의 SQL Database에만 사용할 수 있으며, 온-프레미스 및 클라우드에 대한 이중 사용 권한을 갖지 않습니다.
+
+#### <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>SQL Server에 대한 Azure 하이브리드 혜택이 라이선스 이동과 어떻게 다른가요?
+
+현재 SQL Server 고객에게는 타사 공유 서버에 라이선스를 다시 할당할 수 있는 Software Assurance에 대한 라이선스 이동 혜택을 제공합니다. 이 혜택은 Azure IaaS 및 AWS EC2에서 사용할 수 있습니다.
+SQL Server에 대한 Azure 하이브리드 혜택은 두 가지 주요 영역에서 라이선스 이동과 다릅니다.
+
+- 높은 수준으로 가상화된 워크로드를 Azure로 이동할 수 있는 경제적 이점을 제공합니다. SQL EE 고객은 높은 수준으로 가상화된 애플리케이션을 위해 온-프레미스에서 소유하는 모든 코어에 대해 Azure의 범용 SKU에서 4개 코어를 얻을 수 있습니다. 라이선스 이동은 가상화된 워크로드를 클라우드로 이동하는 데 특별한 비용상의 혜택을 허용하지 않습니다.
+- Azure SQL Database Managed Instance에서 SQL Server 온-프레미스와 항상 호환되는 PaaS 대상을 제공합니다.
+
+#### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>SQL Server에 대한 Azure 하이브리드 혜택의 구체적인 권한은 무엇인가요?
+
+SQL Server에 대한 Azure 하이브리드 혜택과 관련하여 SQL Database 고객이 보유하는 권한은 다음과 같습니다.
+
+|라이선스 공간|SQL Server에 대한 Azure 하이브리드 혜택의 내용|
+|---|---|
+|SA가 있는 SQL Server Enterprise Edition 핵심 고객|<li>범용 또는 중요 비즈니스 SKU 중 하나에 대한 기본 요금을 지불할 수 있습니다.</li><br><li>온-프레미스의 1개 코어 = 범용 SKU의 4개 코어</li><br><li>온-프레미스의 1개 코어 = 중요 비즈니스 SKU의 1개 코어</li>|
+|SA가 있는 SQL Server Standard Edition 핵심 고객|<li>범용 SKU에 대해서만 기본 요금을 지불할 수 있습니다.</li><br><li>온-프레미스의 1개 코어 = 범용 SKU의 1개 코어</li>|
+|||
+
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>SQL Server 엔지니어링 팀에 문의
 

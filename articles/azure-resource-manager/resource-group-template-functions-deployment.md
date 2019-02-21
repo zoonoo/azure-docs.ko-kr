@@ -12,16 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 58eca4c73a6e1fd0941e100a55bdad763b986590
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114351"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268108"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 배포 함수 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관련된 값을 가져오기 위한 다음 함수를 제공합니다.
 

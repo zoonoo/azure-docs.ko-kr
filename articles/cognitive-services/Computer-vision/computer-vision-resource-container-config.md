@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b6aaf7f7eaeb6d011fc29457a1b58584d6af8ec9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 5adb2a3c2a443e6c77c315935e0729cf8728e8cd
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984565"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308794"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>텍스트 인식 Docker 컨테이너 구성
 
@@ -29,11 +29,11 @@ ms.locfileid: "55984565"
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) 및 [`Eula`](#eula-setting) 설정은 함께 사용됩니다. 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](computer-vision-how-to-install-containers.md#billing)를 참조하세요.
+> [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-setting) 설정은 함께 사용됩니다. 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](computer-vision-how-to-install-containers.md)를 참조하세요.
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
-`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. [`Billing`](#billing-setting) 구성 설정용으로 지정된 _Computer Visio_ 리소스의 유효한 키인 값을 ApiKey에 대해 지정해야 합니다.
+`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. [`Billing`](#billing-configuration-setting) 구성 설정용으로 지정된 _Computer Visio_ 리소스의 유효한 키인 값을 ApiKey에 대해 지정해야 합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 

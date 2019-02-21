@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1d07ad7e60e1ee9ff3216767fcfc77405d557f44
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001700"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455112"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 배포하기 위한 모델을 준비하는 방법
 
@@ -50,11 +50,11 @@ Azure Machine Learning Studio는 예측 분석 모델을 개발한 다음 Azure 
 
 예를 들어 다음 실험은 샘플 인구 조사 데이터를 사용하여 2클래스 향상된 의사 결정 트리 모델을 학습합니다.
 
-![학습 실험][figure1]
+![학습 실험](./media/convert-training-experiment-to-scoring-experiment/figure1.png)
 
 이 실험의 모듈은 기본적으로 네 가지 기능을 수행합니다.
 
-![모듈 함수][figure2]
+![모듈 함수](./media/convert-training-experiment-to-scoring-experiment/figure2.png)
 
 이 학습 실험을 예측 실험으로 변환하면 이러한 모듈 중 일부는 다음과 같이 더 이상 필요하지 않거나 다른 용도로 사용됩니다.
 
@@ -70,7 +70,7 @@ Azure Machine Learning Studio는 예측 분석 모델을 개발한 다음 Azure 
 
 다음은 **웹 서비스 설정**을 클릭한 후 이 예제의 변화된 모양입니다.
 
-![변환된 예측 실험][figure3]
+![변환된 예측 실험](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
 **웹 서비스 설정**에서 수행한 작업으로 실험을 웹 서비스로 배포하도록 준비하는 데 충분할 수 있습니다. 그러나 실험에 특정한 몇 가지 추가 작업을 수행할 수도 있습니다.
 
@@ -79,7 +79,7 @@ Azure Machine Learning Studio는 예측 분석 모델을 개발한 다음 Azure 
 
 예를 들어 기본적으로 **웹 서비스 설정**은 위 그림과 같이 **웹 서비스 입력** 모듈을 데이터 흐름의 맨 위에 배치합니다. 그러나 다음과 같이 **웹 서비스 입력**을 데이터 처리 모듈 뒤에 수동으로 배치할 수 있습니다.
 
-![웹 서비스 입력 이동][figure4]
+![웹 서비스 입력 이동](./media/convert-training-experiment-to-scoring-experiment/figure4.png)
 
 이제 웹 서비스를 통해 제공되는 입력 데이터가 전처리 없이 모델 점수 매기기 모듈로 직접 전달됩니다.
 
@@ -88,14 +88,14 @@ Azure Machine Learning Studio는 예측 분석 모델을 개발한 다음 Azure 
 
 예를 들어 입력 데이터의 전체 벡터가 아닌 점수 매기기 결과만 반환하려면 [데이터 세트의 열 선택][select-columns] 모듈을 추가하여 점수 매기기 결과를 제외한 모든 열을 제외합니다. 그런 다음, **웹 서비스 출력** 모듈을 [데이터 세트의 열 선택][select-columns] 모듈의 출력으로 이동합니다. 실험은 다음과 같습니다.
 
-![웹 서비스 출력 이동][figure5]
+![웹 서비스 출력 이동](./media/convert-training-experiment-to-scoring-experiment/figure5.png)
 
 ### <a name="add-or-remove-additional-data-processing-modules"></a>추가 데이터 처리 모듈 추가 또는 제거
 점수를 매기는 동안 필요 없다는 것을 알고 있는 추가 모듈이 실험에 있는 경우 이러한 모듈을 제거할 수 있습니다. 예를 들어 **웹 서비스 입력** 모듈을 데이터 처리 모듈 이후의 시점으로 이동했기 때문에 예측 실험에서 [누락된 데이터 정리][clean-missing-data] 모듈을 제거할 수 있습니다.
 
 이제 예측 실험은 다음과 같은 모양입니다.
 
-![추가 모듈 제거][figure6]
+![추가 모듈 제거](./media/convert-training-experiment-to-scoring-experiment/figure6.png)
 
 
 ### <a name="add-optional-web-service-parameters"></a>선택적 웹 서비스 매개 변수 추가
@@ -116,16 +116,6 @@ Azure Machine Learning Studio는 예측 분석 모델을 개발한 다음 Azure 
 전체 배포 프로세스에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포][deploy]를 참조하세요.
 
 [deploy]: publish-a-machine-learning-web-service.md
-
-
-<!-- Images -->
-[figure1]:./media/convert-training-experiment-to-scoring-experiment/figure1.png
-[figure2]:./media/convert-training-experiment-to-scoring-experiment/figure2.png
-[figure3]:./media/convert-training-experiment-to-scoring-experiment/figure3.png
-[figure4]:./media/convert-training-experiment-to-scoring-experiment/figure4.png
-[figure5]:./media/convert-training-experiment-to-scoring-experiment/figure5.png
-[figure6]:./media/convert-training-experiment-to-scoring-experiment/figure6.png
-
 
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/

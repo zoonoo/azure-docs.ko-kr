@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102399"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961893"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드 및 업데이트
 
@@ -27,7 +27,7 @@ ms.locfileid: "55102399"
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 패브릭 버전 제어
 
-클러스터에서 지원되는 패브릭 버전이 항상 실행되도록 해야 합니다. 새로운 버전의 서비스 패브릭 릴리스를 발표하면 이전 버전은 해당 날짜부터 최소 60일 후 지원 종료되는 것으로 표시됩니다. 새로운 릴리스는 Service Fabric 팀 블로그에서 발표됩니다. 그러면 새로운 릴리스를 선택할 수 있습니다.
+클러스터에서 [지원되는 패브릭 버전](service-fabric-versions.md)이 항상 실행되도록 해야 합니다. 새로운 버전의 서비스 패브릭 릴리스를 발표하면 이전 버전은 해당 날짜부터 최소 60일 후 지원 종료되는 것으로 표시됩니다. 새로운 릴리스는 Service Fabric 팀 블로그에서 발표됩니다. 그러면 새로운 릴리스를 선택할 수 있습니다.
 
 클러스터가 실행되는 릴리스가 만료되기 14일 전에, 클러스터를 경고 성능 상태로 전환하는 상태 이벤트가 생성됩니다. 지원되는 패브릭 버전으로 업그레이드할 때까지 클러스터는 경고 상태로 유지됩니다.
 

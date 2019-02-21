@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 879a91d7007057e577631e157dae71f1566acab6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6af1c5347a522f7e42feecb6722dfbb64439d086
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118227"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341014"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>로그 경고의 API 기본 설정 전환
 
@@ -61,7 +61,7 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 또한 Azure Resource Manager API 호출을 단순화하는 오픈 소스 명령줄 도구 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell 명령줄에서 API를 액세스할 수 있습니다. 아래와 같이 샘플 PUT 호출에서 ARMclient 도구를 사용하여 특정 Log Analytics 작업 영역과 연결된 모든 경고 규칙을 전환합니다.
 
 ```PowerShell
-$switchJSON = {'scheduledQueryRulesEnabled': 'true'}
+$switchJSON = '{"scheduledQueryRulesEnabled": "true"}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
 

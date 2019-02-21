@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e3f60c3b0578647e68109a21ba7d57b083bea11
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae93cce7a26666383b609ac898a25fb84caee517
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184536"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>자습서: Workday와 Azure Active Directory 통합
 
@@ -113,7 +113,7 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Workday 도메인 및 URL Single Sign-On 정보](./media/workday-tutorial/tutorial_workday_url.png)
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. **식별자** 텍스트 상자에 URL `https://www.workday.com`를 입력합니다.
 
@@ -166,7 +166,7 @@ Workday에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     >[!NOTE]
     > 테넌트 URL의 값에 연결된 환경 특성의 값은:  
-    >-Workday 테넌트 URL의 도메인 이름이 impl로 시작되는 경우(예: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*) **Environment** 특성이 Implementation으로 설정되어 있어야 합니다.  
+    >-Workday 테넌트 URL의 도메인 이름이 impl로 시작되는 경우(예: *https://impl.workday.com/\<tenant\>/login-saml2.flex*) **Environment** 특성이 Implementation으로 설정되어 있어야 합니다.  
     >-도메인 이름이 다르게 시작되면 일치하는 **환경** 값을 [Workday 클라이언트 지원 팀](https://www.workday.com/en-us/partners-services/services/support.html)에 문의해야 합니다.
 
 12. **SAML 설정** 섹션에서 다음 단계를 수행합니다.

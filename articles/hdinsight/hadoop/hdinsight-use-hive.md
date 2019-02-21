@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0fa487e1ecd419780243b04a273110f3cf43761c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 03e15532d04a4c62796aad884c5e344688814672
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633966"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209237"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
@@ -204,11 +204,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 [Tez의 Apache Hive 디자인 문서](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)에는 선택 가능한 구현 및 튜닝 구성과 관련된 세부 정보가 포함되어 있습니다.
 
-Tez를 사용하여 실행된 작업을 디버깅하도록 보조하려면 HDInsight는 Tez 작업의 세부 정보를 볼 수 있도록 다음 웹 UI를 제공합니다.
-
-* [Linux 기반 HDInsight에서 Apache Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
-
-* [Windows 기반 HDInsight 클러스터에서 Apache Tez UI 사용](../hdinsight-debug-tez-ui.md)
+Tez를 사용하여 실행된 작업을 디버깅하도록 보조하기 위해 HDInsight는 Tez 작업의 세부 정보를 볼 수 있도록 다음 웹 UI를 제공합니다. [Linux 기반 HDInsight에서 Apache Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
 
 ### <a name="low-latency-analytical-processing-llap"></a>LLAP(짧은 대기 시간 분석 처리)
 

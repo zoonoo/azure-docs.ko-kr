@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c1718c5a2acfe49fba4974bcf7e580c45553113d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2bb6237e53f945b645f1ee757a53ef67270e2416
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108741"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268382"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
@@ -113,7 +113,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 10. **Web.config**를 선택합니다.
 11. system.webServer에서 이 구성을 추가합니다(특정 URL을 캡처하기 위해).
 
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*api*" />
@@ -129,7 +129,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
     </tracing>
     ```
 12. 느린 성능 문제를 해결하려면 이 구성을 추가합니다(캡처 요청에 30초 이상 걸리는 경우).
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*" />

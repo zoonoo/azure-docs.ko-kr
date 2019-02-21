@@ -3,8 +3,8 @@ title: Azure Active Directory의 특성 매핑에 대한 식 작성 | Microsoft 
 description: Azure Active Directory에서 SaaS 앱 개체의 자동화된 프로비전 중 허용되는 형식으로 특성 값을 변환하기 위해 식 매핑을 사용하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
-ms.openlocfilehash: 7b69929b210f0f30db28b18073893505d2977051
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 83a0685f75111a5552645d487589734846b05968
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179041"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164637"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 애플리케이션에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -34,10 +35,10 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
   1. 특성은 대괄호로 묶어야 합니다. 예: [attributeName]
   2. 문자열 상수는 큰따옴표로 묶어야 합니다. 예:  "미국"
   3. 기타 함수 예:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예:  "회사 이름: \"Contoso\""
+* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예:  "회사 이름: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>함수 목록
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>추가
@@ -49,7 +50,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 | Name | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름 |
+| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
 | **접미사** |필수 |문자열 |원본 값의 끝에 추가하려는 문자열입니다. |
 
 - - -
@@ -72,7 +73,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **설명:**<br> 다중 **source** 문자열 값을 단일 문자열로 결합할 수 있다는 점을 제외하고 Join()은 Append()와 유사하며, 각 값은 **separator** 문자열로 구분됩니다.
 
-원본 값 중 하나가 다중 값 특성인 경우, 해당 특성의 모든 값은 함께 조인되며 구분 기호 값을 구분합니다.
+원본 값 중 하나가 다중 값 특성인 경우, 해당 특성의 모든 값은 함께 조인되며 구분 기호 값에 의해 구분됩니다.
 
 **매개 변수:**<br> 
 
@@ -105,7 +106,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 | Name | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |문자열 | 일반적으로 이름 또는 성 특성 |
+| **원본** |필수 |문자열 | 일반적으로 이름 또는 성 특성입니다. |
 
 - - -
 ### <a name="not"></a>not
@@ -167,7 +168,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 | Name | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |문자열 | 평가할 고유한 값 생성 규칙 목록 |
+| **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |문자열 | 평가할 고유한 값 생성 규칙 목록입니다. |
 
 
 - - -
@@ -181,6 +182,19 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 | Name | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |필수 |문자열 |**[appRoleAssignments]** 개체. |
+
+- - -
+### <a name="split"></a>분할
+**함수:**<br> Split(원본, 구분 기호)
+
+**설명:**<br> 지정된 구분 기호 문자를 사용하여 문자열을 다중 값 배열로 분할합니다.
+
+**매개 변수:**<br> 
+
+| Name | 필수/ 반복 | Type | 메모 |
+| --- | --- | --- | --- |
+| **원본** |필수 |문자열 |**원본** 값입니다. |
+| **delimiter** |필수 |문자열 |문자열을 분할하는 데 사용할 문자(예: ",")를 지정 |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -232,7 +246,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 | Name | 필수/ 반복 | Type | 메모 |
 | --- | --- | --- | --- |
-| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름 |
+| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
 | **문화권** |옵션 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ## <a name="examples"></a>예
@@ -282,8 +296,18 @@ NormalizeDiacritics([givenName])
 * **입력**(givenName): "Zoë"
 * **출력**:  "Zoe"
 
-### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜
+### <a name="split-a-string-into-a-multi-valued-array"></a>문자열을 다중 값 배열로 분할
+문자열의 쉼표로 구분된 목록을 가져와 Salesforce의 PermissionSets 특성과 같은 다중 값 특성에 연결할 수 있는 배열로 분할해야 합니다. 이 예의 경우 Azure AD에서 사용 권한 세트의 목록을 extensionAttribute5에 채웠습니다.
 
+**식:** <br>
+Split([extensionAttribute5], ",")
+
+**샘플 입/출력:** <br>
+
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
+
+### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜
 SaaS 애플리케이션에 특정 형식의 날짜를 전송하려고 합니다. <br>
  예를 들어 ServiceNow에 대한 날짜 형식을 지정하려고 할 수 있습니다.
 
@@ -302,7 +326,6 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
  상태 코드가 미리 정의된 옵션 중 하나와 일치하지 않으면 기본값인 "오스트레일리아/시드니"를 사용합니다.
 
 **식:** <br>
-
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
 **샘플 입/출력:**
@@ -310,8 +333,19 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 * **입력**(상태): "QLD"
 * **출력**: "오스트레일리아/브리즈번"
 
-### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>생성된 userPrincipalName(UPN) 값을 소문자로 변환
+### <a name="replace-characters-using-a-regular-expression"></a>정규식을 사용하여 문자를 바꿈
+정규식 값과 일치하는 문자를 찾아 제거해야 합니다.
 
+**식:** <br>
+
+Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+
+**샘플 입/출력:**
+
+* **INPUT** (mailNickname: "john_doe72"
+* **출력**: "72"
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>생성된 userPrincipalName(UPN) 값을 소문자로 변환
 아래 예에서 UPN 값은 PreferredFirstName 및 PreferredLastName 원본 필드를 연결하여 생성되고, ToLower 함수는 생성된 문자열에서 작동하여 모든 문자를 소문자로 변환합니다. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -323,7 +357,6 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 * **출력**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>UPN(userPrincipalName) 특성의 고유한 값 생성
-
 사용자의 이름, 중간 이름, 성에 따라, UPN 특성에 값을 할당하려면 먼저 해당 UPN 특성에 대해 값을 생성하고 대상 AD 디렉터리에서 해당 값이 고유한지 확인해야 합니다.
 
 **식:** <br>
@@ -349,4 +382,3 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 * [SCIM를 사용하여 Azure Active Directory으로부터 애플리케이션에 사용자 및 그룹의 자동 프로비전 사용](use-scim-to-provision-users-and-groups.md)
 * [계정 프로비전 알림](user-provisioning.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
-
