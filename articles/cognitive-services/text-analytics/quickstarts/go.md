@@ -3,19 +3,19 @@ title: '빠른 시작: Go를 사용하여 텍스트 분석 API 호출'
 titleSuffix: Azure Cognitive Services
 description: Azure의 Microsoft Cognitive Services에서 텍스트 분석 API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
-author: noellelacharite
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 10/01/2018
-ms.author: nolachar
-ms.openlocfilehash: 5e4d3323281a71c2824962cc5ccd2c528913af6d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/15/2019
+ms.author: aahi
+ms.openlocfilehash: b4778c87ca5da266858cd05c67e5f0a78af731bc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862402"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330820"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Go를 사용하여 텍스트 분석 Cognitive Service 호출 
 <a name="HOLTop"></a>

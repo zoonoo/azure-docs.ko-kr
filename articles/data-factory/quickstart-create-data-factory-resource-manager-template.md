@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/28/2018
+ms.date: 02/20/2019
 ms.author: douglasl
-ms.openlocfilehash: bb6c3281ffc434bd31f901b2b7f6e540f893ca76
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c3a9864a901d44d0c84c6946c55e5dc2c700cbac
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001905"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447602"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Data Factory 만들기
 
@@ -135,7 +135,7 @@ Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resourc
     },
     "resources": [{
         "name": "[parameters('dataFactoryName')]",
-        "apiVersion": "2017-09-01-preview",
+        "apiVersion": "2018-06-01",
         "type": "Microsoft.DataFactory/factories",
         "location": "[parameters('dataFactoryLocation')]",
         "identity": {
@@ -147,7 +147,7 @@ Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resourc
                 "dependsOn": [
                     "[parameters('dataFactoryName')]"
                 ],
-                "apiVersion": "2017-09-01-preview",
+                "apiVersion": "2018-06-01",
                 "properties": {
                     "type": "AzureStorage",
                     "description": "Azure Storage linked service",
@@ -166,7 +166,7 @@ Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resourc
                     "[parameters('dataFactoryName')]",
                     "[variables('azureStorageLinkedServiceName')]"
                 ],
-                "apiVersion": "2017-09-01-preview",
+                "apiVersion": "2018-06-01",
                 "properties": {
                     "type": "AzureBlob",
                     "typeProperties": {
@@ -186,7 +186,7 @@ Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resourc
                     "[parameters('dataFactoryName')]",
                     "[variables('azureStorageLinkedServiceName')]"
                 ],
-                "apiVersion": "2017-09-01-preview",
+                "apiVersion": "2018-06-01",
                 "properties": {
                     "type": "AzureBlob",
                     "typeProperties": {
@@ -208,7 +208,7 @@ Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resourc
                     "[variables('inputDatasetName')]",
                     "[variables('outputDatasetName')]"
                 ],
-                "apiVersion": "2017-09-01-preview",
+                "apiVersion": "2018-06-01",
                 "properties": {
                     "activities": [{
                         "type": "Copy",
@@ -242,7 +242,7 @@ Azure Resource Manager 템플릿에 대한 일반적인 내용은 [Azure Resourc
                     "[variables('outputDatasetName')]",
                     "[variables('pipelineName')]"
                 ],
-                "apiVersion": "2017-09-01-preview",
+                "apiVersion": "2018-06-01",
                 "properties": {
                     "type": "ScheduleTrigger",
                     "typeProperties": {
@@ -492,7 +492,7 @@ AzureStorageLinkedService는 Azure 스토리지 계정을 데이터 팩터리에
     "dependsOn": [
         "[parameters('dataFactoryName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "AzureStorage",
         "description": "Azure Storage linked service",
@@ -520,7 +520,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
         "[parameters('dataFactoryName')]",
         "[variables('azureStorageLinkedServiceName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "AzureBlob",
         "typeProperties": {
@@ -547,7 +547,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
         "[parameters('dataFactoryName')]",
         "[variables('azureStorageLinkedServiceName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "AzureBlob",
         "typeProperties": {
@@ -576,7 +576,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
         "[variables('inputDatasetName')]",
         "[variables('outputDatasetName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "activities": [{
             "type": "Copy",
@@ -617,7 +617,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
         "[variables('outputDatasetName')]",
         "[variables('pipelineName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "ScheduleTrigger",
         "typeProperties": {

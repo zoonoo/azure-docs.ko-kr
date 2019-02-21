@@ -13,16 +13,14 @@ ms.devlang: na
 ms.date: 12/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99d4f3b6cf42ee21c34809b5604c4603da784e7b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cf1894a218af35459e0d0dc432c5813169856cca
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107823"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267703"
 ---
 # <a name="tutorial-move-azure-resources-to-another-resource-group-or-subscription"></a>자습서: 다른 리소스 그룹 또는 구독에 Azure 리소스 이동
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 한 리소스 그룹에서 다른 리소스 그룹으로 Azure 리소스를 이동하는 방법을 알아봅니다. 한 Azure 구독에서 다른 Azure 구독으로 Azure 리소스를 이동할 수도 있습니다. 이 자습서에서는 리소스 관리자 템플릿을 사용하여 두 개의 리소스 그룹 및 하나의 스토리지 계정을 배포합니다. 그런 다음, 하나의 리소스 그룹에서 다른 리소스 그룹으로 스토리지 계정을 이동합니다.
 
@@ -37,8 +35,6 @@ ms.locfileid: "56107823"
 > * 리소스를 정리합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-resources"></a>리소스 준비
 
@@ -98,6 +94,8 @@ New-AzDeployment `
 ## <a name="move-the-resource"></a>리소스 이동
 
 스토리지 계정은 원본 리소스 그룹(rg1) 내에 있습니다. 다음 PowerShell 스크립트를 실행하고 리소스를 대상 리소스 그룹(rg2)으로 이동합니다. 리소스를 배포할 때 사용한 동일한 프로젝트 이름을 사용해야 합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"
