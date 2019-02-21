@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: f0d368097c72efccf5dc15fe15ec0b7d920279e5
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 1d047e3dfe37929a02c141af675062abb9718786
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245885"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448146"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 이메일 및 첨부 파일 처리 자동화
 
@@ -178,24 +178,29 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 5. 편집기가 열리면 템플릿 코드를 이 샘플 코드로 바꿉니다. 이 코드는 HTML을 제거하고 호출자에 결과를 반환합니다.
 
    ``` CSharp
-   using System.Net;
-   using System.Text.RegularExpressions;
+    #r "Newtonsoft.Json"
 
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-   {
-      log.Info($"HttpWebhook triggered");
+    using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    using System.Text.RegularExpressions;
 
-      // Parse query parameter
-      string emailBodyContent = await req.Content.ReadAsStringAsync();
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+    {
+        log.LogInformation("HttpWebhook triggered");
 
-      // Replace HTML with other characters
-      string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
-      updatedBody = updatedBody.Replace("\\r\\n", " ");
-      updatedBody = updatedBody.Replace(@"&nbsp;", " ");
+        // Parse query parameter
+        string emailBodyContent = await new StreamReader(req.Body).ReadToEndAsync();
 
-      // Return cleaned text
-      return req.CreateResponse(HttpStatusCode.OK, new { updatedBody });
-   }
+         // Replace HTML with other characters
+        string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
+        updatedBody = updatedBody.Replace("\\r\\n", " ");
+        updatedBody = updatedBody.Replace(@"&nbsp;", " ");
+
+        // Return cleaned text
+        return (ActionResult) new OkObjectResult(new { updatedBody });
+    }
    ```
 
 6. 완료하면 **저장**을 선택합니다. 함수를 테스트하려면 편집기의 오른쪽 가장자리에 있는 화살표(**<**) 아이콘 아래에서 **테스트**를 선택합니다. 

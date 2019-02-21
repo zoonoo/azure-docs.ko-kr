@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: a15d37615ec6052ab63457a7814f70433be68c87
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: d7397546d4dc576a8488f605e20a0bfe15a01d7c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509561"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311174"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습
 
@@ -280,7 +280,7 @@ parser.add_argument('--data-folder', type=str, dest='data_folder', help='data fo
 parser.add_argument('--regularization', type=float, dest='reg', default=0.01, help='regularization rate')
 args = parser.parse_args()
 
-data_folder = os.path.join(args.data_folder, 'mnist')
+data_folder = args.data_folder
 print('Data folder:', data_folder)
 
 # load train and test set into numpy arrays
@@ -340,13 +340,13 @@ shutil.copy('utils.py', script_folder)
 * 학습 스크립트에서 필요한 매개 변수 
 * 학습에 필요한 Python 패키지
 
-이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드에 업로드됩니다. **data_folder**에서 데이터 저장소(`ds.as_mount()`)를 사용하도록 설정되었습니다.
+이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드에 업로드됩니다. **data_folder**에서 데이터 저장소(`ds.path('mnist').as_mount()`)를 사용하도록 설정되었습니다.
 
 ```python
 from azureml.train.estimator import Estimator
 
 script_params = {
-    '--data-folder': ds.as_mount(),
+    '--data-folder': ds.path('mnist').as_mount(),
     '--regularization': 0.8
 }
 

@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 87360d49892698458a021287d88240d98ba2ee19
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881510"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447585"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>빠른 시작: Java용 Speech SDK를 사용하여 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 [Speech Service SDK](speech-sdk.md)를 사용하여 Java 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 애플리케이션은 Speech SDK Maven 패키지와 64비트 Windows 또는 64비트 Ubuntu Linux 16.04/18.04 기반의 Eclipse Java IDE(v4.8)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
+이 문서에서는 [Speech SDK](speech-sdk.md)를 사용하여 Java 콘솔 애플리케이션을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 애플리케이션은 Speech SDK Maven 패키지와 64비트 Windows 또는 64비트 Ubuntu Linux 16.04/18.04 기반의 Eclipse Java IDE(v4.8)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
 > [!NOTE]
 > Speech Devices SDK 및 Roobo 디바이스에 대한 내용은 [Speech Devices SDK](speech-devices-sdk.md)를 참조하세요.
@@ -39,7 +39,7 @@ Ubuntu 16.04/18.04를 실행하는 경우 Eclipse를 시작하기 전에 이러�
 
 ```console
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 Windows(64비트)를 실행하는 경우 플랫폼에 맞는 Microsoft Visual C++ 재배포 가능 패키지가 설치되어 있는지 확인합니다.

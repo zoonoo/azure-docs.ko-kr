@@ -3,19 +3,19 @@ title: Azure Content Moderator란?
 titlesuffix: Azure Cognitive Services
 description: Content Moderator를 사용하여 사용자 생성 콘텐츠에서 부적절한 자료를 추적하고, 플래깅하고, 평가하고, 필터링하는 방법을 알아봅니다.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 6fe69cc56ec874b73083aefab9df8994942368c6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 7a6424921b869428d1dbeffadd68e173a32d8821
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872182"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455249"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 

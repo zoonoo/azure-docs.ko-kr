@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 11/05/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: ff3063193fa2a8f71f441aa64c8835fd7528ff4e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6a60afc45894518f92115976876ddd50efa1e410
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882627"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310188"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>자습서: 이미지에서 얼굴 데이터를 표시하는 WPF 앱 만들기
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. Visual Studio에서 [새 프로젝트] 대화 상자를 엽니다. **설치된 항목**, **Visual C#** 을 차례로 확장한 다음, **WPF 앱(.NET Framework)** 를 선택합니다.
 1. 애플리케이션 이름을 **FaceTutorial**로 지정하고 **확인**을 클릭합니다.
 1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 누르고 **NuGet 패키지 관리**를 선택한 후 다음 패키지를 찾아 설치합니다.
-    - Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
 ## <a name="add-the-initial-code"></a>초기 코드를 추가합니다.
 
