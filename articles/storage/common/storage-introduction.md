@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 953615a9c6b716db1db0c7bfb993f3d47aefd7a9
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: d84fe768170cffd433b18a1a3dacb1a9c2be7e9f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507776"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329987"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -169,7 +169,7 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 * [.NET용 저장소 데이터 이동 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>도구 및 유틸리티
-* [Storage용 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azure.storage)
+* [Storage용 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.storage)
 * [Storage용 Azure CLI Cmdlet](https://docs.microsoft.com/cli/azure/storage)
 * [AzCopy 명령줄 유틸리티](https://aka.ms/downloadazcopy)
 * [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.

@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0c235a9fd3898fa4525651d514c77432627603c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1962cef85c5e663de640f296a6e8e9efd5a1f4d6
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238961"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310358"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>빠른 시작: Python SDK를 사용하여 Azure Machine Learning 시작
 
@@ -89,7 +89,7 @@ SDK를 설치하기 전에, 격리된 Python 환경을 만드는 것이 좋습�
 1. conda 환경에 Jupyter Notebook 서버를 설치합니다.
 
   ```shell
-    conda install nb_conda
+    conda install -y nb_conda
     ```
 
 1. 이 환경을 Azure Machine Learning 자습서에 사용하려면 다음 패키지를 설치합니다.

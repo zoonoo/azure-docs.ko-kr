@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: e1eced2d00737a950ed441bd83614d9d6d0b9230
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1bfe0026e52107c85bf2c7e66414e937ad27f715
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731277"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267753"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 대화방 만들기
 
@@ -79,7 +79,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
 
 1. 다음 명령을 실행하여 `Microsoft.Azure.SignalR` NuGet 패키지에 대한 참조를 추가합니다.
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
+        dotnet add package Microsoft.Azure.SignalR
 
 2. 다음 명령을 실행하여 프로젝트에 대한 패키지를 복원합니다.
 
@@ -92,7 +92,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
     이 명령은 *.csproj* 파일이 있는 동일한 디렉터리에서 실행해야 합니다.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
     암호 관리자는 로컬로 호스트되는 웹앱을 테스트하는 데만 사용됩니다. 자습서의 뒷부분에서 Azure로 채팅 웹앱을 배포합니다. Azure로 웹앱이 배포되면, 암호 관리자를 사용하여 연결 문자열을 저장하는 대신, 애플리케이션 설정을 사용하게 됩니다.

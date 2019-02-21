@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 39019c4b11d055aa8f550928bd677e4ce33d6252
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 145a56bee857debdbf028834a3ed378efd8671c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885346"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447500"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>자습서: 코드를 한 줄도 쓰지 않고 Azure Data Explorer에서 데이터 수집
 
@@ -173,16 +173,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 다음 쿼리를 사용하여 데이터를 테이블에 매핑합니다.
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[
-{"column":"Timestamp","path":"$.time"},
-{"column":"ResourceId","path":"$.resourceId"},
-{"column":"MetricName","path":"$.metricName"},
-{"column":"Count","path":"$.count"},
-{"column":"Total","path":"$.total"},
-{"column":"Minimum","path":"$.minimum"},
-{"column":"Maximum","path":"$.maximum"},
-{"column":"Average","path":"$.average"},
-{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
 ```
 
 #### <a name="activity-logs-table-mapping"></a>활동 로그 테이블 매핑
@@ -190,8 +181,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 다음 쿼리를 사용하여 데이터를 테이블에 매핑합니다.
 
 ```kusto
-.create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[
-{"column":"Records","path":"$.records"}]'
+.create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 ### <a name="create-update-policy"></a>업데이트 정책 만들기
@@ -210,8 +200,8 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
             ResultType = tostring(events["resultType"]),
             ResultSignature = tostring(events["resultSignature"]),
             DurationMs = toint(events["durationMs"]),
-            IdentityAuthorization = events["identity.authorization"],
-            IdentityClaims = events["identity.claims"],
+            IdentityAuthorization = events.identity.authorization,
+            IdentityClaims = events.identity.claims,
             Location = tostring(events["location"]),
             Level = tostring(events["level"])
     }
@@ -220,7 +210,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 2. 대상 테이블에 [업데이트 정책](/azure/kusto/concepts/updatepolicy)을 추가합니다. 그러면 *ActivityLogsRawRecords* 중간 데이터 테이블의 새로 수집된 데이터에 대해 자동으로 쿼리가 실행 그 결과가 *ActivityLogsRecords* 테이블에 수집됩니다.
 
     ```kusto
-    .alter table ActivityLogRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-event-hub-namespace"></a>이벤트 허브 네임스페이스 만들기

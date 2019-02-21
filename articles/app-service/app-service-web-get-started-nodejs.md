@@ -3,7 +3,7 @@ title: Node.js 웹앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Azure App Service Web Apps에서 첫 번째 Node.js Hello World를 배포합니다.
 services: app-service\web
 documentationcenter: ''
-author: msangapu
+author: cephalin
 manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/30/2018
-ms.author: cephalin;msangapu
+ms.date: 02/15/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5223a60663e05747b58aa04e7a102f1d350badd4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 8d7bd808540ac697bde073201e88f49ace8b527a
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632300"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308675"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -182,12 +182,6 @@ Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ![Azure Portal의 App Service 페이지](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
-
-## <a name="video"></a>비디오
-
-비디오를 시청하여 이 빠른 시작의 작동 방식을 확인한 다음, 단계에 따라 첫 번째 .Node.js 앱을 Azure에 직접 게시해 보세요.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

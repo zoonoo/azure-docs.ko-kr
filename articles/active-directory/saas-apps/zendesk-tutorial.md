@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2019
+ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a40597178a8267febfd6ad18277d6b865c084d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d656a72e681c8cc73fa8b660684b8c194df3ae48
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180167"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>자습서: Zendesk와 Azure Active Directory 통합
 
@@ -109,12 +109,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     a. **로그온 URL** 텍스트 상자에서 `https://<subdomain>.zendesk.com` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
-    | |
-    |-|-|
-    | `<subdomain>.zendesk.com` |
-    | `https://<subdomain>.zendesk.com` |
-    | |
+  b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<subdomain>.zendesk.com` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Zendesk 클라이언트 지원 팀](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.

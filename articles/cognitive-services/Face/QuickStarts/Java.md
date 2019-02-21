@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 53a21977ecfae5ac7d39d670fa5f3ca62f939770
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b82f230c790f0615077cc96e83ece823713b0a73
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866902"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308981"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>빠른 시작: REST API 및 Java를 사용하여 이미지에서 얼굴 감지
 
