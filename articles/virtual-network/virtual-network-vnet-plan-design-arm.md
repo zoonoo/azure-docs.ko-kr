@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: ef293b39d0e82cdd26e0c41af5d63d0459064017
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820796"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339519"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
 
@@ -113,7 +113,7 @@ Azure에서는 리소스에 대한 [RBAC(역할 기반 액세스 제어)](../rol
 
 Azure Policy를 사용하여 정책 정의를 만들고, 할당하고, 관리할 수 있습니다. 정책 정의는 리소스에 대해 다양한 규칙을 적용하여 리소스를 조직의 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. Azure Policy는 리소스 평가를 실행하여 사용자의 정책 정의를 준수하지 않는 리소스를 검색합니다. 예를 들어 특정 리소스 그룹 또는 지역에서만 가상 네트워크를 만들도록 허용하는 정책을 정의하고 적용할 수 있습니다. 또 다른 정책은 모든 서브넷에 연결된 네트워크 보안 그룹을 필요로 할 수 있습니다. 이러한 정책은 리소스를 만들고 업데이트할 때 평가됩니다.
 
-정책은 다음 계층에 적용됩니다. 구독, 관리 그룹 및 리소스 그룹. [Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보거나 일부 가상 네트워크 [정책 템플릿](policy-samples.md) 샘플을 배포하세요.
+정책은 다음 계층에 적용됩니다. 구독, 관리 그룹 및 리소스 그룹. [Azure Policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보거나 일부 가상 네트워크 [정책 템플릿](policy-samples.md) 샘플을 배포하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

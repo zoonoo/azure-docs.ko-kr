@@ -3,20 +3,21 @@ title: Azure AD에서 응급 액세스 계정 관리 | Microsoft Docs
 description: 이 문서에서는 응급 액세스 계정을 사용하여 Azure AD(Azure Active Directory) 테넌트에서 실수로 계정이 잠기는 것을 방지하는 방법을 설명합니다.
 services: active-directory
 author: markwahl-msft
-ms.author: billmath
+ms.author: curtand
 ms.date: 12/21/2018
 ms.topic: article-type-from-white-list
 ms.service: active-directory
+ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d2a47360808c7c1c36d5e82b98582d9f6144fa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 974e00ce877dcf3b15dc7ce6d73f7d1331e20bb5
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176954"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429130"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Azure AD에서 응급 액세스 계정 관리
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d514074e56ff37cc7af6a97ea86aa9e02e3763e0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d15e3773a9b6e3dceb0799d206070730675c211d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492286"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310969"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 
@@ -31,7 +31,7 @@ Recovery Services 자격 증명 모음이 이미 열려 있는 경우 두 번째
 
    ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
-   Recovery Services 자격 증명 모음의 목록이 표시됩니다. 
+   Recovery Services 자격 증명 모음의 목록이 표시됩니다.
 
    ![목록에서 자격 증명 모음 선택](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
@@ -50,7 +50,7 @@ Recovery Services 자격 증명 모음이 이미 열려 있는 경우 두 번째
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Recovery Services 자격 증명 모음 강제 삭제
 
-PowerShell을 사용하여 Recovery Services 자격 증명 모음을 강제로 삭제할 수 있습니다. 강제란 Recovery Services 자격 증명 모음 및 모든 관련 백업 데이터를 영구적으로 삭제한다는 의미입니다. 
+PowerShell을 사용하여 Recovery Services 자격 증명 모음을 강제로 삭제할 수 있습니다. 강제란 Recovery Services 자격 증명 모음 및 모든 관련 백업 데이터를 영구적으로 삭제한다는 의미입니다.
 
 > [!Warning]
 > PowerShell을 사용하여 Recovery Services 자격 증명 모음을 삭제하는 경우 자격 증명 모음에서 모든 백업 데이터를 영구적으로 삭제하려는지 확인합니다.
@@ -95,7 +95,7 @@ Recovery Services 자격 증명 모음 삭제하려면
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
-   
+
 1. Azure Portal에서 구독에 로그인하고 자격 증명 모음이 삭제됐는지 확인합니다.
 
 
@@ -106,7 +106,6 @@ Recovery Services 자격 증명 모음 삭제하려면
 * Azure Storage(Azure 파일) 백업
 * Azure VM 백업의 SQL Server
 * Azure 가상 머신 백업
-* Microsoft Azure Recovery Services 에이전트 백업
 
 다음에 대한 **Backup 인프라** 메뉴(이미지 참조)를 사용합니다.
 
@@ -125,7 +124,7 @@ Recovery Services 자격 증명 모음 삭제하려면
 
 1. 목록의 모든 항목의 경우 해당 항목을 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **백업 중지**를 선택합니다.
 
-    ![백업 유형 선택](./media/backup-azure-delete-vault/stop-backup-item.png) 
+    ![백업 유형 선택](./media/backup-azure-delete-vault/stop-backup-item.png)
 
     백업 중지 메뉴가 열립니다.
 
@@ -154,9 +153,9 @@ Recovery Services 자격 증명 모음 삭제하려면
 
 ## <a name="removing-azure-backup-server-or-dpm"></a>Azure Backup Server 또는 DPM 제거
 
-1. 자격 증명 모음 대시보드 메뉴에서 관리 섹션으로 스크롤하여 **Backup 인프라**를 클릭합니다. 
+1. 자격 증명 모음 대시보드 메뉴에서 관리 섹션으로 스크롤하여 **Backup 인프라**를 클릭합니다.
 
-1. Azure Backup Server 및 System Center DPM 서버를 보려면 하위 메뉴에서 **Backup 관리 서버**를 클릭합니다. Azure File Servers, Azure VM의 SQL Servers 및 Azure 가상 머신을 중지하고 삭제할 수 있습니다. 
+1. Azure Backup Server 및 System Center DPM 서버를 보려면 하위 메뉴에서 **Backup 관리 서버**를 클릭합니다. Azure File Servers, Azure VM의 SQL Servers 및 Azure 가상 머신을 중지하고 삭제할 수 있습니다.
 
     ![대시보드를 열려면 자격 증명 모음 선택](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 

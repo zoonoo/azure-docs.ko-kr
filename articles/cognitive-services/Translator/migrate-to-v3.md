@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 98d2d3a54ff2f0c4ef326f8aae26e5ba8845d603
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 04d7bfcf0527b490bc18f6d85977d899823d5e69
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882354"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301879"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
@@ -41,19 +41,19 @@ Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했�
 
 | V2 API 메서드   | V3 API 호환성 |
 |:----------- |:-------------|
-| Translate     | [번역](reference/v3-0-translate.md)          |
-| TranslateArray      | [번역](reference/v3-0-translate.md)        |
-| GetLanguageNames      | [언어](reference/v3-0-languages.md)         |
-| GetLanguagesForTranslate     | [언어](reference/v3-0-languages.md)       |
-| GetLanguagesForSpeak      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Speak     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detect     | [검색](reference/v3-0-detect.md)         |
-| DetectArray     | [검색](reference/v3-0-detect.md)         |
-| AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
-| AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
-| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
-| GetTranslations      | 기능은 더 이상 지원되지 않습니다.         |
-| GetTranslationsArray      | 기능은 더 이상 지원되지 않습니다.         |
+| `Translate`     | [번역](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [번역](reference/v3-0-translate.md)        |
+| `GetLanguageNames`      | [언어](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [언어](reference/v3-0-languages.md)       |
+| `GetLanguagesForSpeak`      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `Detect`     | [검색](reference/v3-0-detect.md)         |
+| `DetectArray`     | [검색](reference/v3-0-detect.md)         |
+| `AddTranslation`     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| `AddTranslationArray`    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
+| `GetTranslations`      | 기능은 더 이상 지원되지 않습니다.         |
+| `GetTranslationsArray`      | 기능은 더 이상 지원되지 않습니다.         |
 
 ## <a name="move-to-json-format"></a>JSON 형식으로 이동
 
@@ -75,12 +75,12 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 | V3 메서드   | 청구에 계산되는 문자 |
 |:----------- |:-------------|
-| Languages     | 문자가 제출되지 않았습니다. 계산되지 않았습니다. 비용이 청구되지 않습니다.          |
-| Translate     | 수는 번역에 제출되는 문자 수 및 번역되는 언어 및 문자 수에 따라 다릅니다. 제출된 50개 문자 및 요청된 5개 언어는 50x5입니다.           |
-| Transliterate     | 음역에 제출된 문자 수가 계산됩니다.         |
-| Dictionary lookup &amp; example     | 사전 조회 및 예제에 제출된 문자 수가 계산됩니다.         |
-| BreakSentence     | 무료입니다.       |
-| Detect     | 무료입니다.      |
+| `Languages`     | 문자가 제출되지 않았습니다. 계산되지 않았습니다. 비용이 청구되지 않습니다.          |
+| `Translate`     | 수는 번역에 제출되는 문자 수 및 번역되는 언어 및 문자 수에 따라 다릅니다. 제출된 50개 문자 및 요청된 5개 언어는 50x5입니다.           |
+| `Transliterate`     | 음역에 제출된 문자 수가 계산됩니다.         |
+| `Dictionary lookup & example`     | 사전 조회 및 예제에 제출된 문자 수가 계산됩니다.         |
+| `BreakSentence`     | 무료입니다.       |
+| `Detect`     | 무료입니다.      |
 
 ## <a name="v3-end-points"></a>V3 엔드포인트
 
@@ -88,22 +88,21 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 * api.cognitive.microsofttranslator.com
 
-
 ## <a name="v3-api-text-translations-methods"></a>V3 API 텍스트 번역 메서드
 
-[언어](reference/v3-0-languages.md)
+[`Languages`](reference/v3-0-languages.md)
 
-[번역](reference/v3-0-translate.md)
+[`Translate`](reference/v3-0-translate.md)
 
-[음역](reference/v3-0-transliterate.md)
+[`Transliterate`](reference/v3-0-transliterate.md)
 
-[BreakSentence](reference/v3-0-break-sentence.md)
+[`BreakSentence`](reference/v3-0-break-sentence.md)
 
-[검색](reference/v3-0-detect.md)
+[`Detect`](reference/v3-0-detect.md)
 
-[사전/조회](reference/v3-0-dictionary-lookup.md)
+[`Dictionary/lookup`](reference/v3-0-dictionary-lookup.md)
 
-[사전/예제](reference/v3-0-dictionary-examples.md)
+[`Dictionary/example`](reference/v3-0-dictionary-examples.md)
 
 ## <a name="compatibility-and-customization"></a>호환성 및 사용자 지정
 
@@ -132,7 +131,6 @@ api.cognitive.microsofttranslator.com 엔드포인트를 사용하는 경우 Tra
 * api.microsofttranslator.com 엔드포인트를 사용하는 경우 Translator Text API 버전 2를 사용하고 있습니다.
 
 Translator API 버전은 번역 레코드를 만들지 않습니다. 번역은 누구와도 공유되지 않습니다. 추가 정보는 [Translator 비추적](http://www.aka.ms/NoTrace) 웹 페이지에 있습니다.
-
 
 ## <a name="links"></a>링크
 

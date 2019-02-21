@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: a9e5be3c1dcbf4461bd00b2b1ce530aa16e441ef
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c2cc1b5829f3bb530c01e2bfc3538006bb8663cb
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962131"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339314"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database Managed Instance 리소스 제한 사항에 대한 개요
 
@@ -40,7 +40,7 @@ Azure SQL Database Managed Instance는 두 가지 하드웨어 세대(Gen4 및 G
 | 컴퓨팅 | 8, 16, 24개 vCore | 8, 16, 24, 32, 40, 64, 80개 vCore |
 | 메모리 | vCore당 7GB | vCore당 5.1GB |
 | 메모리 내 OLTP 메모리 | vCore당 3GB | vCore당 2.6GB |
-| 최대 스토리지 크기(범용) |  8 TB | 1TB |
+| 최대 스토리지 크기(범용) |  8 TB | 8 TB |
 | 최대 저장소 크기(중요 비즈니스용) | 1TB | 코어 수에 따라 1TB, 2TB 또는 4TB |
 
 ### <a name="service-tier-characteristics"></a>서비스 계층 특성

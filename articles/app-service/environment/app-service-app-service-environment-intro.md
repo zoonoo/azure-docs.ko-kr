@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 205e61634a902ef052f665c65f2b67a66e6fe598
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2bb1a9c3922f435b6be78614aacff6e85bf475ff
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728230"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454245"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service Environment v1 소개
 
 > [!NOTE]
 > 이 문서는 ASE(App Service Environment) v1에 관한 내용입니다.  사용하기가 더 쉽고 더 강력한 인프라에서 실행되는 최신 버전의 App Service Environment가 있습니다. 새 버전에 대한 자세한 내용은 [App Service Environment 소개](intro.md)를 참조하세요.
-> 
 
 ## <a name="overview"></a>개요
+
 App Service 환경은 [Azure App Service](../overview.md)의 [프리미엄][PremiumTier] 서비스 계획 옵션으로, Web Apps, Mobile Apps 및 API Apps를 포함하여 높은 확장성에서 Azure App Service 앱을 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공합니다.  
 
 App Service Environment는 다음을 필요로 하는 애플리케이션 작업에 적합합니다.
@@ -46,16 +46,17 @@ App Service 환경이 어떻게 높은 확장성을 사용하고 네트워크 �
 
 AzureCon 심층 분석에 표시된 보안 아키텍처를 구성하는 방법을 보려면 App Service Environment를 사용하여 [계층화된 보안 아키텍처](app-service-app-service-environment-layered-security.md) 를 구현하는데 대한 문서를 참조하세요.
 
-App Service Environment에서 실행 중인 앱은 웹 애플리케이션 방화벽 (WAF) 등의 업스트림 디바이스에서 제어된 액세스를 가질 수 있습니다.  [App Service Environment에 대한 WAF 구성](app-service-app-service-environment-web-application-firewall.md) 의 문서는 이 시나리오에 대해 설명합니다. 
+App Service Environment에서 실행 중인 앱은 웹 애플리케이션 방화벽 (WAF) 등의 업스트림 디바이스에서 제어된 액세스를 가질 수 있습니다.  [App Service Environment에 대한 WAF 구성](app-service-app-service-environment-web-application-firewall.md) 의 문서는 이 시나리오에 대해 설명합니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="dedicated-compute-resources"></a>전용 Compute 리소스
+
 App Service Environment의 모든 컴퓨터 리소스는 전적으로 단일 구독 전용이며 App Service Environment는 단일 애플리케이션 전용으로 최대 50개 계산 리소스로 구성될 수 있습니다.
 
-App Service Environment는 1~3개 작업자 계산 리소스 풀뿐만 아니라 프런트 엔드 계산 리소스 풀로 구성됩니다. 
+App Service Environment는 1~3개 작업자 계산 리소스 풀뿐만 아니라 프런트 엔드 계산 리소스 풀로 구성됩니다.
 
-프런트 엔드 풀에는 App Service Environment 내의 앱 요청에 대한 자동 부하 분산뿐 아니라 SSL 종료를 담당하는 계산 리소스가 포함되어 있습니다. 
+프런트 엔드 풀에는 App Service Environment 내의 앱 요청에 대한 자동 부하 분산뿐 아니라 SSL 종료를 담당하는 계산 리소스가 포함되어 있습니다.
 
 각 작업자 풀에는 하나 이상의 Azure App Service 앱을 포함하는 [App Service 계획][AppServicePlan]에 할당된 계산 리소스가 있습니다.  App Service Environment에는 최대 세 가지 작업자 풀을 둘 수 있으므로 작업자 풀마다 다른 계산 리소스를 유연하게 선택할 수 있습니다.  
 
@@ -66,6 +67,7 @@ App Service Environment는 1~3개 작업자 계산 리소스 풀뿐만 아니라
 App Service 환경에서 지원되는 사용 가능한 계산 리소스 크기에 대한 자세한 내용은 [App Service 가격][AppServicePricing] 페이지에서 프리미엄 가격 책정 계층의 App Service 환경에 사용 가능한 옵션을 참조하세요.
 
 ## <a name="virtual-network-support"></a>Virtual Network 지원
+
 App Service 환경을 Azure Resource Manager 가상 네트워크에서 **만들 수도 있고** 클래식 배포 모델 가상 네트워크에서 **만들 수도 있습니다**([가상 네트워크에 대한 추가 정보][MoreInfoOnVirtualNetworks] 참조).  App Service Environment는 항상 가상 네트워크, 더 정확히 말하자면 가상 네트워크의 서브넷 내에 존재하므로 가상 네트워크의 보안 기능을 활용하여 인바운드 및 아웃바운드 네트워크 통신을 모두 제어할 수 있습니다.  
 
 App Service Environment는 공개 IP 주소가 있는 인터넷 연결이거나 Azure ILB(내부 부하 분산 장치) 주소만 있는 내부 연결일 수 있습니다.
@@ -77,6 +79,7 @@ App Service Environment는 공개 IP 주소가 있는 인터넷 연결이거나 
 App Service 환경이 가상 네트워크 및 온-프레미스 네트워크와 함께 작동하는 방법에 대한 자세한 내용은 [네트워크 아키텍처][NetworkArchitectureOverview], [인바운드 트래픽 제어][ControllingInboundTraffic] 및 [백 엔드에 안전하게 연결][SecurelyConnectingToBackends]에 대한 문서를 참조하세요. 
 
 ## <a name="getting-started"></a>시작
+
 App Service 환경을 시작하려면 [App Service 환경을 만드는 방법][HowToCreateAnAppServiceEnvironment]을 참조하세요.
 
 App Service 환경 네트워크 아키텍처의 개요는 [네트워크 아키텍처 개요][NetworkArchitectureOverview] 문서를 참조하세요.
@@ -104,5 +107,3 @@ ExpressRoute로 App Service 환경을 사용하는 방법에 대한 자세한 �
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 
 <!-- IMAGES -->
-
-

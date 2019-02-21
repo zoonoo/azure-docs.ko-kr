@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 536239a9ff98c76badfc042a2d59d19b8fb6f04a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1f71276c25e3ec1e5791d9b35f89aa95190c6afd
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770587"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341967"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Azure Policy를 사용하여 Linux VM의 확장 설치 제한
 
@@ -28,7 +28,7 @@ Linux VM에서 특정 확장을 사용하거나 설치하지 못하도록 하려
 
 ## <a name="create-a-rules-file"></a>규칙 파일 만들기
 
-설치할 수 있는 확장을 제한하려면 확장을 식별하는 논리를 제공하는 [규칙](/azure/azure-policy/policy-definition#policy-rule)이 있어야 합니다.
+설치할 수 있는 확장을 제한하려면 확장을 식별하는 논리를 제공하는 [규칙](../../governance/policy/concepts/definition-structure.md#policy-rule)이 있어야 합니다.
 
 이 예제에서는 Azure Cloud Shell에서 규칙 파일을 만들어 ‘Microsoft.OSTCExtensions’에 의해 게시된 확장 설치를 거부하는 방법을 보여 줍니다. 그러나 CLI에서 로컬로 작업하는 경우 로컬 파일을 만들고 경로(~/clouddrive)를 컴퓨터에 있는 로컬 파일의 경로로 바꿀 수도 있습니다.
 
@@ -69,7 +69,7 @@ vim ~/clouddrive/azurepolicy.rules.json
 
 ## <a name="create-a-parameters-file"></a>매개 변수 파일 만들기
 
-또한 블록에 확장 목록을 전달하는 데 사용할 구조를 만드는 [매개 변수](/azure/azure-policy/policy-definition#parameters)도 필요합니다. 
+또한 블록에 확장 목록을 전달하는 데 사용할 구조를 만드는 [매개 변수](../../governance/policy/concepts/definition-structure.md#parameters)도 필요합니다. 
 
 이 예제에서는 Cloud Shell에서 Linux VM용 매개 변수 파일을 만드는 방법을 보여 줍니다. 그러나 CLI에서 로컬로 작업하는 경우 로컬 파일을 만들고 경로(~/clouddrive)를 컴퓨터에 있는 로컬 파일의 경로로 바꿀 수도 있습니다.
 
@@ -171,6 +171,6 @@ az policy assignment delete --name 'not-allowed-vmextension-linux' --resource-gr
 az policy definition delete --name 'not-allowed-vmextension-linux'
 ```
 
-
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [Azure Policy](../../azure-policy/azure-policy-introduction.md)를 참조하세요.
+
+자세한 내용은 [Azure Policy](../../governance/policy/overview.md)를 참조하세요.

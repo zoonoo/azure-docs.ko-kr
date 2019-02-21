@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: eb344d6da15a8faf8f05720ae9b1fd49bd42db2f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808207"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447330"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Azure Search에서 "Cognitive Search"란?
 
@@ -96,18 +96,24 @@ Cognitive Search 파이프라인은 데이터 원본을 탐색하고 종단간 �
 
 + 미국 중서부
 + 미국 중남부
++ 미국 중북부
 + 미국 동부
 + 미국 동부 2
 + 미국 서부
 + 미국 서부 2
++ 미국 중부
 + 캐나다 중부
 + 서유럽
-+ 영국 남부
 + 북유럽
++ 영국 남부
++ 프랑스 중부
 + 브라질 남부
 + 동아시아
 + 동남아시아
 + 인도 중부
++ 일본 서부
++ 일본 동부
++ 한국 중부
 + 오스트레일리아 동부
 
 **2단계: 워크플로를 완벽하게 습득하기 위한 실무 경험**

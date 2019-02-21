@@ -3,8 +3,8 @@ title: App Services-Azure Stack에서에서 작업자 역할 확장 | Microsoft 
 description: Azure Stack의 App Services를 크기 조정에 대 한 자세한 지침
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor: ''
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
 ms.service: azure-stack
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: anwestg
-ms.reviewer: sethm
+ms.author: jeffgilb
+ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 26981d50239ddd7da79919291f2accd8b8ed4fc0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ac20ee9f6197a8322bb741020aee813c690847e
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241945"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445886"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack의 app Service: 인프라 또는 작업자 역할 추가
 

@@ -12,12 +12,12 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 64e743010b3ae615817639d9b2531b2f99979498
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: e53d77c4faea5b9461395a0098261866bdf6252f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156905"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430434"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse에 대한 경고 만들기
 
@@ -106,7 +106,6 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 ||||||               
 | SQL 데이터 웨어하우스 | cpu_percent | CPU 비율 | 평균 | 10분 |
 | SQL 데이터 웨어하우스 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 10분 |
-| SQL 데이터 웨어하우스 | 저장소 | 총 데이터베이스 크기 | 최대 | 10분 |
 | SQL 데이터 웨어하우스 | connection_successful | 성공적인 연결 | 합계 | 10분 |
 | SQL 데이터 웨어하우스 | connection_failed | 실패한 연결 | 합계 | 10분 |
 | SQL 데이터 웨어하우스 | blocked_by_firewall | 방화벽에 의해 차단 | 합계 | 10분 |

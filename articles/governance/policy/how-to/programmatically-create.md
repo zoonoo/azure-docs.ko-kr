@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b80a2effb4cdfe45ad3f37785f7e97449d60f00c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510836"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340147"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 
@@ -139,7 +139,7 @@ Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관
 
 1. 다음 호출 중 하나를 사용하여 정책 정의 만들기:
 
-   ```
+   ```console
    # For defining a policy in a subscription
    armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
 
@@ -169,7 +169,7 @@ Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관
 
 1. 다음 호출을 사용하여 정책 할당을 만듭니다.
 
-   ```
+   ```console
    armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
    ```
 
@@ -239,7 +239,7 @@ az policy definition show --name 'Audit Storage Accounts with Open Public Networ
 
 만든 정책 정의에 대한 정책 정의 ID는 다음 예제와 유사해야 합니다.
 
-```
+```output
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 

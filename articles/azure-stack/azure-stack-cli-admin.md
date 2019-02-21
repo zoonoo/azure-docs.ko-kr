@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/15/2019
-ms.openlocfilehash: 0d6a93b396e90f3bc27a1eb879556d774075c86f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 34a33c82813a0059cc286a7cb2d1fe984a5bf6d2
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243303"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452406"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Azure Stack 사용자에 대 한 Azure CLI를 사용 하도록 설정
 
@@ -40,12 +40,12 @@ Azure CLI가 개발 컴퓨터에서 사용할 수 있도록 Azure Stack의 사�
 ASDK 루트 인증서를 PEM 형식으로 내보내려면 로그인 하 고 다음 스크립트를 실행 합니다.
 
 ```powershell
-$label = "<Your Azure Stack CA root certificate name>"
+$label = "AzureStackSelfSignedRootCert"
 Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
 $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
 if (-not $root)
 {
-    Log-Error "Certificate with subject CN=$label not found"
+    Write-Error "Certificate with subject CN=$label not found"
     return
 }
 

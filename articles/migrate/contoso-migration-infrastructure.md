@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 32a489ee6266018ef1160a0870fe236cc6a72d36
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 17ec8eb779dec560cfc5350fecc0fb819e89195a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726987"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340130"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - 마이그레이션 인프라 배포
 
@@ -214,7 +214,7 @@ Contoso 관리자는 다음 표에서 요약한 대로 Azure 리소스 그룹을
 
 Contoso에서 온-프레미스 및 클라우드에서 리소스에 액세스하기 위한 일반적인 ID를 제공하려고 합니다. 이를 위해 온-프레미스 Active Directory를 Azure AD와 통합합니다. 이 모델의 경우 다음과 같습니다.
 
-- 사용자와 조직에서는 단일 ID를 활용하여 Office 365 또는 인터넷상의 수천 개의 다른 사이트와 같은 온-프레미스 응용 프로그램과 클라우드 서비스에 액세스할 수 있습니다.
+- 사용자와 조직에서는 단일 ID를 활용하여 Office 365 또는 인터넷상의 수천 개의 다른 사이트와 같은 온-프레미스 애플리케이션과 클라우드 서비스에 액세스할 수 있습니다.
 - 관리자는 AD의 그룹을 활용하여 Azure에서 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 구현할 수 있습니다.
 
 통합을 용이하게 하기 위해 Contoso는 [Azure AD Connect 도구](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)를 사용합니다. 도메인 컨트롤러에 도구를 설치하고 구성하면 로컬 온-프레미스 AD ID가 Azure AD와 동기화됩니다. 
@@ -252,7 +252,7 @@ Contoso에서 온-프레미스 및 클라우드에서 리소스에 액세스하�
 
 ### <a name="set-up-rbac"></a>RBAC 설정
 
-Azure [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용하면 Azure에 대한 액세스를 자세히 관리할 수 있습니다. RBAC를 사용하여 사용자가 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다. 범위 수준에서 사용자, 그룹 및 응용 프로그램에 적절한 RBAC 역할을 할당합니다. 역할 할당의 범위는 구독, 리소스 그룹 또는 단일 리소스일 수 있습니다. 
+Azure [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용하면 Azure에 대한 액세스를 자세히 관리할 수 있습니다. RBAC를 사용하여 사용자가 작업을 수행하는 데 필요한 액세스 만큼 권한을 부여할 수 있습니다. 범위 수준에서 사용자, 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당합니다. 역할 할당의 범위는 구독, 리소스 그룹 또는 단일 리소스일 수 있습니다. 
 
 이제 Contoso 관리자는 온-프레미스에서 동기화된 AD 그룹에 역할을 할당합니다.
 
@@ -646,7 +646,7 @@ Contoso는 ID 및 액세스 제어를 구성하면서 이미 거버넌스와 보
 
 Azure Policy 서비스는 리소스를 평가하여 현재 보유하고 있는 정책 정의를 준수하지 않는 리소스를 검색합니다. 예를 들어 특정 유형의 VM만 허용하거나 리소스에 특정 태그가 필요한 정책이 있을 수 있습니다. 
 
-Azure 정책은 정책 정의를 지정하고, 정책 할당은 정책을 적용해야 하는 범위를 지정합니다. 범위는 관리 그룹에서 리소스 그룹에 이르기까지 다양할 있습니다. 정책을 만들고 관리하는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-policy/create-manage-policy).
+Azure 정책은 정책 정의를 지정하고, 정책 할당은 정책을 적용해야 하는 범위를 지정합니다. 범위는 관리 그룹에서 리소스 그룹에 이르기까지 다양할 있습니다. 정책을 만들고 관리하는 방법에 대해 [자세히 알아보세요](../governance/policy/tutorials/create-and-manage.md).
 
 Contoso는 다음 두 가지 정책을 먼저 사용하려고 합니다.
 
@@ -748,7 +748,7 @@ Contoso는 중앙 집중식 정책 관리를 통해 전체 환경에서 보안 �
 
 #### <a name="assess-and-action"></a>평가 및 작업
 
-Contoso는 컴퓨터, 네트워크, 저장소, 데이터 및 응용 프로그램의 보안을 모니터링하는 지속적인 보안 평가를 활용하여 잠재적인 보안 문제를 검색합니다. 
+Contoso는 컴퓨터, 네트워크, 저장소, 데이터 및 애플리케이션의 보안을 모니터링하는 지속적인 보안 평가를 활용하여 잠재적인 보안 문제를 검색합니다. 
 
 - Security Center는 Contoso의 컴퓨팅, 인프라 및 데이터 리소스와 Azure 응용 프로그램 및 서비스에 대한 보안 상태를 분석합니다.
 - 지속적인 평가를 통해 Contoso 운영 팀에서 보안 업데이트가 누락된 시스템 또는 노출된 네트워크 포트와 같은 잠재적인 보안 문제를 검색할 수 있습니다. 
@@ -762,7 +762,7 @@ Contoso는 네트워크 보안 그룹을 사용하여 네트워크 트래픽을 
 
 - 네트워크 보안 그룹에는 원본 또는 대상 IP 주소, 포트 및 프로토콜에 따라 인바운드 또는 아웃바운드 네트워크 트래픽을 허용하거나 거부하는 보안 규칙 목록이 포함되어 있습니다.
 - 규칙이 서브넷에 적용되면 서브넷에 있는 모든 리소스에 적용됩니다. 네트워크 인터페이스 외에도 서브넷에 배포된 Azure 서비스의 인스턴스도 포함됩니다.
-- ASG(응용 프로그램 보안 그룹)를 사용하면 네트워크 보안을 응용 프로그램 구조의 자연스러운 확장으로 구성할 수 있으므로 VM을 그룹화하고 이러한 그룹에 따라 네트워크 보안 정책을 정의할 수 있습니다.
+- ASG(애플리케이션 보안 그룹)를 사용하면 네트워크 보안을 애플리케이션 구조의 자연스러운 확장으로 구성할 수 있으므로 VM을 그룹화하고 이러한 그룹에 따라 네트워크 보안 정책을 정의할 수 있습니다.
     - 애플리케이션 보안 그룹을 사용하는 경우 Contoso는 명시적 IP 주소를 수동으로 유지 관리하지 않고도 보안 정책을 광범위하게 다시 사용할 수 있습니다. 플랫폼은 명시적 IP 주소 및 여러 규칙 집합의 복잡성을 처리하여 비즈니스 논리에 집중할 수 있도록 합니다.
     - Contoso는 애플리케이션 보안 그룹을 보안 규칙의 원본 및 대상으로 지정할 수 있습니다. 보안 정책이 정의되면 Contoso는 VM을 만들고 VM NIC를 그룹에 할당할 수 있습니다. 
 
@@ -771,7 +771,7 @@ Contoso는 NSG와 ASG를 혼합하여 구현하며, NSG 관리를 수행하고�
 
 - 모든 서브넷(남-북)에서 들어오고 나가는 모든 트래픽에는 NSG 규칙이 적용됩니다(허브 네트워크의 GatewaySubnets 제외).
 - 모든 방화벽이나 도메인 컨트롤러는 서브넷 NSG와 NIC NSG 모두에서 보호됩니다.
-- 모든 프로덕션 응용 프로그램에는 ASG가 적용됩니다.
+- 모든 프로덕션 애플리케이션에는 ASG가 적용됩니다.
 
 
 이를 위해 Contoso는 애플리케이션을 찾는 방법에 대한 모델을 구축했습니다.

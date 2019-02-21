@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 30388185c415346b298dbada715b17e631c66769
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fc2cfcce57ad15d2bbad3242351492e184e7fd33
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096299"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415299"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft 피어링에 대한 경로 필터 구성: PowerShell
 > [!div class="op_single_selector"]
@@ -25,7 +25,7 @@ ms.locfileid: "53096299"
 
 경로 필터는 Microsoft 피어링을 통해 지원되는 서비스의 하위 집합을 사용하는 방법입니다. 이 문서의 단계는 ExpressRoute 회로에 대한 경로 필터를 구성하고 관리하는 데 도움이 됩니다.
 
-Dynamics 365 서비스, Office 365 서비스(예: Exchange Online, SharePoint Online, 비즈니스용 Skype) 및 Azure 공용 서비스(예: 저장소 및 SQL DB)는 Microsoft 피어링을 통해 액세스할 수 있습니다. Azure 공용 서비스는 지역 단위로 선택할 수 있으며, 공용 서비스별로 정의되지 않습니다. 
+Dynamics 365 서비스, Office 365 서비스(예: Exchange Online, SharePoint Online, 비즈니스용 Skype) 및 Azure 공용 서비스(예: 저장소 및 SQL DB)는 Microsoft 피어링을 통해 액세스할 수 있습니다. Azure 공용 서비스는 지역 단위로 선택할 수 있으며, 공용 서비스별로 정의되지 않습니다.
 
 Microsoft 피어링이 ExpressRoute 회로에 구성되고 경로 필터가 연결되면, 이러한 서비스에 대해 선택된 모든 접두사는 설정된 BGP 세션을 통해 보급됩니다. BGP 커뮤니티 값은 접두사를 통해 제공되는 서비스를 식별하는 모든 접두사에 연결됩니다. BGP 커뮤니티 값과 매핑되는 서비스의 목록은 [BGP 커뮤니티](expressroute-routing.md#bgp)를 참조하세요.
 

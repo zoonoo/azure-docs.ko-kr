@@ -160,6 +160,8 @@ items:
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: S2D VM에 대한 Azure간 복제 활성화
         href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+      - name: 디스크 제외
+        href: azure-to-azure-exclude-disks.md
       - name: 장애 조치(failover) 후 Azure VM 다시 보호
         href: azure-to-azure-how-to-reprotect.md
       - name: Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정
@@ -460,9 +462,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 0b9c7300737ca91508111de9e414249441ba0916
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 49cdd301f87db09e4950339e1925ac313a8cdd33
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980223"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454789"

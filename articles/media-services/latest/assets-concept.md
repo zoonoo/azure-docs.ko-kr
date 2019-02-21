@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 72229a723247d6f0d68341771b073d0626ab2edb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745999"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447313"
 ---
 # <a name="assets"></a>자산
 
@@ -48,8 +48,7 @@ Azure Media Services의 [자산](https://docs.microsoft.com/rest/api/media/asset
 4. Media Services v3 API를 사용하여 "입력" 자산을 처리하는 Transform 및 Job을 만듭니다. 자세한 내용은 [Transform 및 Jobs](transform-concept.md)를 참조하세요.
 5. "출력" 자산의 콘텐츠를 스트리밍합니다.
 
-> [!TIP]
-> 자산을 만들고, 쓰기 가능한 SAS URL을 스토리지의 자산 컨테이너로 가져오고, SAS URL을 사용하여 파일을 스토리지의 컨테이너에 업로드하는 방법을 보여주는 전체 .NET 예제는 [로컬 파일에서 작업 입력 만들기](job-input-from-local-file-how-to.md)를 참조하세요.
+자산을 만들고, 쓰기 가능한 SAS URL을 스토리지의 자산 컨테이너로 가져오고, SAS URL을 사용하여 파일을 스토리지의 컨테이너에 업로드하는 방법을 보여주는 전체 .NET 예제는 [로컬 파일에서 작업 입력 만들기](job-input-from-local-file-how-to.md)를 참조하세요.
 
 ### <a name="create-a-new-asset"></a>새 자산 만들기
 

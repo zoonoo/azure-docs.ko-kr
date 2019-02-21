@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1532c863a7906e7f3c1e0bc98d2080513263b9f8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7419baf99e4c508806361b408968dbf851a7f76c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105097"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343326"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
 이 가이드는 Azure Security Center의 사용을 계획 중인 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 대상으로 합니다.
@@ -126,7 +126,7 @@ Security Center의 RBAC을 사용하여 액세스 제어를 계획하는 경우,
 
 Security Center 정책에는 다음 구성 요소가 포함되어 있습니다.
 - [데이터 컬렉션](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): 에이전트 프로비전 및 데이터 컬렉션 설정입니다.
-- [보안 정책](https://docs.microsoft.com/azure/security-center/security-center-policies): [Azure Policy](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)에서는 Security Center에서 모니터링하고 권장하는 컨트롤을 결정하고, Azure Policy를 사용하여 새로운 정의를 만들고, 추가 정책을 정의하고, 관리 그룹에 정책을 할당합니다.
+- [보안 정책](https://docs.microsoft.com/azure/security-center/security-center-policies): [Azure Policy](../governance/policy/overview.md)에서는 Security Center에서 모니터링하고 권장하는 컨트롤을 결정하고, Azure Policy를 사용하여 새로운 정의를 만들고, 추가 정책을 정의하고, 관리 그룹에 정책을 할당합니다.
 - [전자 메일 알림](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): 보안 연락처 및 알림 설정입니다.
 - [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing): 무료 또는 표준 가격 책정 선택 영역입니다. 여기서 범위 내의 리소스에 사용할 수 있는 Security Center 기능을 결정합니다(구독, 리소스 그룹 및 작업 영역에 대해 지정할 수 있음).
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: cecf7f7fb79b6d7ebeed051b018a1e18375d68b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6eb08af9cdd19bc83d44d29874f6ac58b41ed8c8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045628"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302043"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts"></a>Durable Functions 패턴 및 기술 개념
 
@@ -401,14 +401,14 @@ module.exports = async function (context) {
 
 오케스트레이터 함수는 작업 함수를 예약하고 내부 큐 메시지를 통해 이러한 함수의 응답을 받습니다. 함수 앱이 Azure Functions 소비 계획에서 실행되면 이러한 큐는 [Azure Functions 크기 조정 컨트롤러](../functions-scale.md#how-the-consumption-plan-works)에서 모니터링되고 필요에 따라 새 계산 인스턴스가 추가됩니다. 여러 VM으로 확장되는 경우 하나의 VM에서 오케스트레이터 함수가 실행될 수 있는 반면, 호출되는 작업 함수는 별도의 여러 VM에서 실행됩니다. 지속성 함수의 크기 조정 동작에 대한 자세한 내용은 [성능 및 크기 조정](durable-functions-perf-and-scale.md)에서 찾을 수 있습니다.
 
-테이블 저장소는 오케스트레이터 계정에 대한 실행 기록을 저장하는 데 사용됩니다. 인스턴스가 특정 VM에서 리하이드레이션할 때마다 테이블 저장소에서 실행 기록을 가져와서 해당 로컬 상태를 다시 작성할 수 있습니다. 테이블 스토리지에서 기록을 사용할 수 있는 편리한 작업 중 하나는 [Microsoft Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같은 도구를 사용하여 오케스트레이션의 기록을 확인할 수 있다는 것입니다.
+Table Storage는 오케스트레이터 계정에 대한 실행 기록을 저장하는 데 사용됩니다. 인스턴스가 특정 VM에서 리하이드레이션할 때마다 Table Storage에서 실행 기록을 가져와서 해당 로컬 상태를 다시 작성할 수 있습니다. 테이블 스토리지에서 기록을 사용할 수 있는 편리한 작업 중 하나는 [Microsoft Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같은 도구를 사용하여 오케스트레이션의 기록을 확인할 수 있다는 것입니다.
 
 Storage Blob은 주로 여러 VM에서 오케스트레이션 인스턴스의 확장을 조정하기 위한 임대 메커니즘으로 사용됩니다. 또한 테이블 또는 큐에 직접 저장할 수 없는 큰 메시지의 데이터를 저장하는 데 사용됩니다.
 
 ![Microsoft Azure Storage 탐색기 스크린샷](./media/durable-functions-concepts/storage-explorer.png)
 
 > [!WARNING]
-> 테이블 저장소의 실행 기록을 확인하는 것이 쉽고 편리하지만 이 테이블에 대한 종속성은 사용하지 마세요. 지속성 함수 확장이 진화함에 따라 변경될 수 있습니다.
+> Table Storage의 실행 기록을 확인하는 것이 쉽고 편리하지만 이 테이블에 대한 종속성은 사용하지 마세요. 지속성 함수 확장이 진화함에 따라 변경될 수 있습니다.
 
 ## <a name="known-issues-and-faq"></a>알려진 문제 및 FAQ
 

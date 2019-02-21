@@ -9,17 +9,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: a28e3fb18f2c0b65557034e388d08918c622b8f4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255867"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268726"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager 배포에서 Windows 시스템 상태 백업
 이 문서에서는 Azure에 Windows 서버 시스템 상태를 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다.
 
-Azure Backup에 대해 자세히 알아보려면 이 [개요](backup-introduction-to-azure-backup.md)를 읽어보세요.
+Azure Backup에 대해 자세히 알아보려면 이 [개요](backup-overview.md)를 읽어보세요.
 
 Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있는 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 
@@ -131,7 +131,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 
     ![자격 증명 모음 자격 증명 다운로드 완료](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
 > [!NOTE]
-> 자격 증명 모음 자격 증명은 에이전트를 사용하려는 Windows Server의 로컬 위치에만 저장해야 합니다. 
+> 자격 증명 모음 자격 증명은 에이전트를 사용하려는 Windows Server의 로컬 위치에만 저장해야 합니다.
 >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
@@ -163,7 +163,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 
 이제 에이전트가 설치되었고 컴퓨터가 자격 증명 모음에 등록되었습니다. 백업을 구성하고 일정을 예약할 준비가 완료되었습니다.
 
-## <a name="back-up-windows-server-system-state"></a>Windows Server 시스템 상태 백업 
+## <a name="back-up-windows-server-system-state"></a>Windows Server 시스템 상태 백업
 초기 백업에는 다음 두 가지 작업이 포함됩니다.
 
 * 백업 예약
@@ -194,7 +194,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 
 6. **다음**을 클릭합니다.
 
-7. 이후 페이지에서 시스템 상태 백업에 대해 필요한 백업 빈도와 보존 정책을 선택합니다. 
+7. 이후 페이지에서 시스템 상태 백업에 대해 필요한 백업 빈도와 보존 정책을 선택합니다.
 
 8. 확인 페이지에서 정보를 검토한 다음 **마침**을 클릭합니다.
 

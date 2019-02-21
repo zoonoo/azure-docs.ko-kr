@@ -8,12 +8,12 @@ ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ac11b1a2b625d1fc7b62130580d1f188ead21051
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228783"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342731"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>솔루션을 온보딩할 때 발생하는 오류 문제 해결
 
@@ -73,7 +73,7 @@ The solution cannot be enabled due to missing permissions for the virtual machin
   * 정책의 대상을 특정 리소스(예: 특정 Automation 계정)로 다시 지정합니다.
   * 정책이 거부하도록 구성된 리소스 집합을 수정합니다.
 
-실패한 배포를 확인하려면 Azure Portal의 오른쪽 위 모서리에서 알림을 확인하거나 자동화 계정을 포함하는 리소스 그룹으로 이동하여 **설정**에 있는 **배포**를 선택합니다. Azure Policy에 대해 자세히 알아보려면 [Azure Policy 개요](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
+실패한 배포를 확인하려면 Azure Portal의 오른쪽 위 모서리에서 알림을 확인하거나 자동화 계정을 포함하는 리소스 그룹으로 이동하여 **설정**에 있는 **배포**를 선택합니다. Azure Policy에 대해 자세히 알아보려면 [Azure Policy 개요](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
 
 ## <a name="mma-extension-failures"></a>MMA 확장 오류
 

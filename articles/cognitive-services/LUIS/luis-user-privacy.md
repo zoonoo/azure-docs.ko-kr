@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 62d6dce4ccb5d4badbcf9b02cbbcda576ee63212
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: add526d8c09d2aa557ddd645e9016cb9c3b225a3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869252"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328200"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Cognitive Services의 LUIS(Language Understanding)에서 고객 데이터 내보내기 및 삭제
 
@@ -30,7 +30,7 @@ LUIS(Language Understanding Intelligent Service)는 서비스 작동을 위해 �
 - 등록 시 수집된 사용자 계정 콘텐츠
 - 모델 빌드에 필요한 학습 데이터(예: 의도 및 엔터티)
 - 사용자 모델을 개선하는 데 도움이 되는 런타임에 로깅된 사용자 쿼리
-  - 사용자는 요청에 `&log=false`를 추가하여 쿼리 로깅을 해제할 수 있습니다. 자세한 내용은 [여기](luis-resources-faq.md#how-can-i-disable-the-logging-of-utterances)를 참조하세요.
+  - 사용자는 요청에 `&log=false`를 추가하여 쿼리 로깅을 해제할 수 있습니다. 자세한 내용은 [여기](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)를 참조하세요.
 
 ## <a name="deleting-customer-data"></a>고객 데이터 삭제
 LUIS 사용자는 LUIS 웹 포털 또는 LUIS Programmatic API를 통해 모든 사용자 콘텐츠를 삭제할 모든 권한이 있습니다. 다음 표에는 두 작업에 도움이 되는 링크가 나와 있습니다.

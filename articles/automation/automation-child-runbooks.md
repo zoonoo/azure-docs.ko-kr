@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 37cf44e2c9d28b1aac8f2ab80ba29d126fb8651f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f52c9731b0289563037cbf065f3e22d652b40e74
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422971"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417434"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Automation의 자식 runbook
 
@@ -28,7 +28,7 @@ runbook 인라인을 호출하면 동일한 작업에서 부모 runbook으로 �
 
 runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되어야 합니다. runbook이 컴파일될 때 Azure Automation이 모든 자식 runbook과 연결을 빌드하기 때문입니다. 그렇지 않은 경우 부모 runbook은 올바르게 게시되도록 표시하지만 시작되면 예외를 생성합니다. 이 경우 자식 runbook을 제대로 참조하기 위해 부모 runbook을 다시 게시할 수 있습니다. 자식 runbook 중 하나가 변경되면 연결이 이미 만들어지기 때문에 부모 runbook을 다시 게시할 필요가 없습니다.
 
-인라인으로 호출되는 자식 runbook의 매개 변수는 복잡한 개체를 비롯한 어떤 데이터 형식도 될 수 있습니다. Azure Portal 또는 Start-AzureRmAutomationRunbook cmdlet을 사용하여 runbook을 시작할 때와 달리 [JSON 직렬화](automation-starting-a-runbook.md#runbook-parameters)는 수행되지 않습니다.
+인라인으로 호출되는 자식 runbook의 매개 변수는 복잡한 개체를 비롯한 어떤 데이터 형식도 될 수 있습니다. Azure Portal 또는 Start-AzureRmAutomationRunbook cmdlet을 사용하여 runbook을 시작할 때와 달리 [JSON 직렬화](start-runbooks.md#runbook-parameters)는 수행되지 않습니다.
 
 ### <a name="runbook-types"></a>Runbook 형식
 
@@ -65,7 +65,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > `Start-AzureRmAutomationRunbook` cmdlet과 `-Wait` 스위치를 함께 사용하여 자식 runbook을 호출하며 자식 runbook의 결과가 개체이면 오류가 발생할 수 있습니다. 이 오류를 해결하려면 [개체 출력을 포함하는 자식 runbook](troubleshoot/runbooks.md#child-runbook-object)을 참조하여 결과를 폴링하도록 논리를 구현하고 [Get-AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)를 사용하는 방법을 알아보세요.
 
-[Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet을 사용하여 [Windows PowerShell에서 Runbook 시작](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell)에서 설명한 대로 Runbook을 시작할 수 있습니다. 이 cmdlet에 사용할 두 가지 모드가 있습니다.  한 모드에서는 cmdlet이 자식 runbook에 대한 자식 작업이 만들어지면 작업 ID를 반환합니다.  **-wait** 매개 변수를 지정하여 사용하도록 설정할 수 있는 다른 모드에서 cmdlet은 자식 작업이 완료될 때까지 대기하고 자식 Runbook의 출력을 반환합니다.
+[Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet을 사용하여 [Windows PowerShell에서 Runbook 시작](start-runbooks.md#start-a-runbook-with-powershell)에서 설명한 대로 Runbook을 시작할 수 있습니다. 이 cmdlet에 사용할 두 가지 모드가 있습니다.  한 모드에서는 cmdlet이 자식 runbook에 대한 자식 작업이 만들어지면 작업 ID를 반환합니다.  **-wait** 매개 변수를 지정하여 사용하도록 설정할 수 있는 다른 모드에서 cmdlet은 자식 작업이 완료될 때까지 대기하고 자식 Runbook의 출력을 반환합니다.
 
 cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 작업에서 실행됩니다. 이 경우 Runbook 인라인을 호출하는 것보다 더 많은 작업이 진행되므로 추적하기가 더 어려울 수 있습니다. 부모는 각각이 완료되기를 기다리지 않고 비동기식으로 여러 자식 runbook을 시작할 수 있습니다. 인라인에서 자식 Runbook을 호출하는 동일한 종류의 병렬 실행에 대해 부모 Runbook은 [parallel 키워드](automation-powershell-workflow.md#parallel-processing)를 사용해야 합니다.
 
@@ -73,7 +73,7 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 
 기다리는 동안 부모 Runbook을 차단하지 않으려는 경우 `-Wait` 스위치 없이 `Start-AzureRmAutomationRunbook` cmdlet을 사용하여 자식 Runbook을 시작할 수 있습니다. 그런 다음, `Get-AzureRmAutomationJob`을 사용하여 작업 완료를 기다리고, `Get-AzureRmAutomationJobOutput` 및 `Get-AzureRmAutomationJobOutputRecord`를 사용하여 결과를 검색해야 합니다.
 
-[Runbook 매개 변수](automation-starting-a-runbook.md#runbook-parameters)에서 설명한 대로 cmdlet을 사용하여 시작된 자식 Runbook에 대한 매개 변수는 해시 테이블로 제공됩니다. 단순한 데이터 형식만 사용할 수 있습니다. runbook에 복잡한 데이터 형식을 가진 매개 변수가 있는 경우 인라인으로 호출해야 합니다.
+[Runbook 매개 변수](start-runbooks.md#runbook-parameters)에서 설명한 대로 cmdlet을 사용하여 시작된 자식 Runbook에 대한 매개 변수는 해시 테이블로 제공됩니다. 단순한 데이터 형식만 사용할 수 있습니다. runbook에 복잡한 데이터 형식을 가진 매개 변수가 있는 경우 인라인으로 호출해야 합니다.
 
 자식 Runbook을 별도 작업으로 시작할 때 구독 컨텍스트가 손실될 수 있습니다. 자식 Runbook은 특정 Azure 구독에 대해 Azure RM cmdlet을 실행하려면 부모 Runbook과는 별도로 이 구독에서 인증을 받아야 합니다.
 
@@ -120,6 +120,6 @@ Start-AzureRmAutomationRunbook `
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)
+* [Azure Automation에서 Runbook 시작](start-runbooks.md)
 * [Azure Automation에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 

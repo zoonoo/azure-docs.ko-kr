@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 3fb11ad74e3d1628cbf3f00e2aae648be3eea437
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1ac0f54aa4dfdc9db4724629c4dbfe7a4982838f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107687"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301233"
 ---
 # <a name="common-parameters-and-headers"></a>공통 매개 변수 및 헤더
 
@@ -34,12 +34,14 @@ ms.locfileid: "56107687"
 ## <a name="common-error-response"></a>공통 오류 응답
 서비스는 성공 또는 실패를 나타내는 HTTP 상태 코드를 사용합니다. 또한 실패에는 다음과 같은 형식의 응답이 포함됩니다.
 
+```
    {  
-     “error”: {  
+     "error": {  
      "code": "BadRequest",  
-     "message": “키 자격 증명 모음 SKU가 잘못되었습니다.”  
+     "message": "The key vault sku is invalid."  
      }  
    }  
+```
 
 |요소 이름 | Type | 설명 |
 |---|---|---|

@@ -14,12 +14,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 6866c6d208468e53b04ede1b5e596f0ea625c49d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f7d82b8cb609b390275617509946d640720f2dda
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248481"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456948"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack의 프로필에서 지 원하는 리소스 공급자 API 버전
 
@@ -57,28 +57,6 @@ Azure Stack에 대 한 API 프로필 버전 릴리스 작업 리듬에 한 설�
 | 구독 | 2016-10-01 |
 
 더 API 프로필에서 공급자에 대 한 각 리소스 종류에 대 한 버전의 목록은 참조 하세요 [2018-03-01-하이브리드에 대 한 세부 정보](#details-for-the-2018-03-01-hybrid) 프로필입니다.
-
-## <a name="overview-of-2018-03-01-hybrid"></a>2018-03-01-하이브리드 개요
-
-| 리소스 공급자 | Api 버전 |
-|------------------------------------------------|------------------------------|
-| Microsoft.Compute | 2016-03-30 |
-| Microsoft.Network | 2015-06-15 |
-| Microsoft.Storage (데이터 평면) | 2015-04-05  |
-| Microsoft.Storage (제어 평면) | 2016-01-01   |
-| Microsoft.Websites | 2016-01-01 |
-| Microsoft.KeyVault | 2016-10-01<br>(변경 되지 않음) |
-| Microsoft.Resources<br>(Azure Resource Manager 자체) | 2016-02-01 |
-| Microsoft.Authorization<Br>(정책 작업) | 2015-11-01 |
-| Microsoft.Insights | 2015-11-01 |
-| Microsoft.Keyvault | 2016-10-01 |
-| 정책 | 2015-10-01-미리 보기 |
-| 리소스 | 2016-02-01 |
-| Resources_Links | 2016-09-01 |
-| Resources_Locks | 2016-09-01 |
-| 구독 | 2016-06-1 |
-
-API 프로필에서 공급자에 대 한 각 리소스 종류의 버전 목록을 다음 섹션을 참조 하세요.
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-하이브리드에 대 한 세부 정보
 

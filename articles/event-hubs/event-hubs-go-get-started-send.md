@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 44cbea8cc40f83ed5fdd2863da0cb0a01e8dc2b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c0583f67d2351d05f877d0ebc1f29cea9e52c5eb
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091063"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311990"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>Go를 사용하여 Event Hubs에 이벤트 보내기
 
@@ -33,7 +33,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 * 로컬로 설치된 Go. 필요한 경우 [다음 지침](https://golang.org/doc/install)을 따릅니다.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 이벤트 허브 만들기
-첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 응용 프로그램에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다.
+첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다.
 
 이제 이 자습서의 다음 단계를 진행합니다.
 
@@ -111,7 +111,7 @@ for {
 
 // 2. send messages within program
 ctx = context.Background()
-hub.Send(ctx, eventhubs.NewEventFromString("hello Azure!")
+hub.Send(ctx, eventhubs.NewEventFromString("hello Azure!"))
 ```
 
 ## <a name="extras"></a>추가 항목
@@ -123,10 +123,10 @@ info, err := hub.GetRuntimeInformation(ctx)
 if err != nil {
     log.Fatalf("failed to get runtime info: %s\n", err)
 }
-log.Printf("got partition IDs: %s\n, info.PartitionIDs)
+log.Printf("got partition IDs: %s\n", info.PartitionIDs)
 ```
 
-애플리케이션을 실행하여 이벤트 허브에 이벤트를 보냅니다. 
+응용 프로그램을 실행하여 이벤트 허브에 이벤트를 보냅니다. 
 
 축하합니다! 이제 Event Hub에 메시지를 보냈습니다.
 

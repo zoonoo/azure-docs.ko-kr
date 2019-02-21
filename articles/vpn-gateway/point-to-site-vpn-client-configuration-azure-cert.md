@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 02/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0a9c5b5f0fd47f2fcf0c9df02789abae5f07f023
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 48dad37ca5ea5a74f52c60b8734d0296757e94aa
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564989"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417553"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -45,10 +45,12 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
 ### <a name="zipps"></a>PowerShell을 사용하여 파일 생성
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. VPN 클라이언트 구성 파일을 생성하는 경우 '-AuthenticationMethod' 값은 'EapTls'입니다. 다음 명령을 사용하여 VPN 클라이언트 구성 파일을 생성합니다.
 
-  ```powershell
-  $profile=New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
+  ```azurepowershell-interactive
+  $profile=New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
 
   $profile.VPNProfileSASUrl
   ```
@@ -79,7 +81,7 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
 다음 단계에 따라 인증서 인증을 위한 Mac VPN 기본 클라이언트를 구성합니다. Azure에 연결할 모든 Mac에서 다음 단계를 완료해야 합니다.
 
-1. **VpnServerRoot** 루트 인증서를 Mac으로 가져옵니다. 이렇게 하려면 해당 파일을 Mac으로 복사하고 두 번 클릭하면 됩니다.
+1. **VpnServerRoot** 루트 인증서를 Mac으로 가져옵니다. 이렇게 하려면 해당 파일을 Mac으로 복사하고 두 번 클릭하면 됩니다.  
 **추가**를 클릭하여 가져옵니다.
 
   ![인증서 추가](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
@@ -113,13 +115,10 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
 ## <a name="linuxgui"></a>Linux(strongSwan GUI)
 
-### <a name="1-generate-the-key-and-certificate"></a>1: 키 및 인증서 생성
+### <a name="extract-the-key-and-certificate"></a>키와 인증서를 추출합니다.
 
 strongSwan의 경우 클라이언트 인증서(.pfx 파일)에서 키와 인증서를 추출하고 개별 .pem 파일에 저장해야 합니다.
-
-[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
-
-### <a name="2-extract-the-key"></a>2: 키 추출
+다음 단계를 따르세요.
 
 1. [OpenSSL](https://www.openssl.org/source/)에서 OpenSSL을 다운로드 및 설치합니다.
 2. 명령줄 창을 열고 OpenSSL을 설치한 디렉터리로 변경합니다(예: 'c:\OpenSLL-Win64\bin\').
@@ -128,13 +127,13 @@ strongSwan의 경우 클라이언트 인증서(.pfx 파일)에서 키와 인증�
   ```
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
   ```
-4.  다음 명령을 실행하여 공용 인증서를 추출하고 새 파일에 저장합니다.
- 
+4.  이제 다음 명령을 실행하여 공용 인증서를 추출하고 새 파일에 저장합니다.
+
   ```
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
   ```
 
-### <a name="install"></a>3: 설치 및 구성
+### <a name="install"></a>설치 및 구성
 
 다음 지침은 Ubuntu 17.0.4에서 strongSwan 5.5.1을 통해 작성되었습니다. Ubuntu 16.0.10은 strongSwan GUI를 지원하지 않습니다. Ubuntu 16.0.10을 사용하려는 경우 [명령줄](#linuxinstallcli)을 사용해야 합니다. 아래 예제는 Linux 및 strongSwan 버전에 따라 표시되는 화면과 일치하지 않을 수 있습니다.
 
@@ -163,13 +162,14 @@ strongSwan의 경우 클라이언트 인증서(.pfx 파일)에서 키와 인증�
 
 ## <a name="linuxinstallcli"></a>Linux(strongSwan CLI)
 
-### <a name="1-generate-the-key-and-certificate"></a>1: 키 및 인증서 생성
+### <a name="install-strongswan"></a>strongSwan 설치
 
 다음 CLI 명령을 사용하거나 [GUI](#install)의 strongSwan 단계를 사용하여 strongSwan을 설치할 수 있습니다.
 
-[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
+1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
+2. `apt-get install libstrongswan-standard-plugins`
 
-### <a name="2-install-and-configure"></a>2: 설치 및 구성
+### <a name="install-and-configure"></a>설치 및 구성
 
 1. Azure Portal에서 VPNClient 패키지를 다운로드합니다.
 2. 파일을 추출합니다.

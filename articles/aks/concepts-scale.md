@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: f464b6411e1375fa005980454a9b61d2d6c05b0b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7cd6af1dc6b947abd91c9d25a4b102e52da9d24d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819113"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456727"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 크기 조정 옵션
 
@@ -23,7 +23,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 실행할 때 계산 �
 - [수동 크기 조정](#manually-scale-pods-or-nodes)
 - [HPA(Horizontal Pod Autoscaler)](#horizontal-pod-autoscaler)
 - [클러스터 자동 크기 조정기](#cluster-autoscaler)
-- AKS와 ACI(Azure Container Instance) 통합
+- [AKS와 ACI(Azure Container Instance) 통합](#burst-to-azure-container-instances)
 
 ## <a name="manually-scale-pods-or-nodes"></a>수동으로 Pod 또는 노드 크기 조정
 

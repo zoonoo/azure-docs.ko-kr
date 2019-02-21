@@ -10,12 +10,12 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a7753280c0b84b21f44e52c303b96f11cd4cd8af
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765793"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456999"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -73,7 +73,7 @@ Requirements:
 
 Active Directory 배포의 여러 사이트가 있는 경우 Azure Stack 배포에 가장 가까운 Active Directory 사이트를 구성 합니다. 구성을 원격 사이트에서 글로벌 카탈로그 서버를 사용 하 여 쿼리를 해결 하는 Azure Stack Graph 서비스를 하지 않아도 됩니다.
 
-추가 Azure Stack [공용 VIP 네트워크](azure-stack-network.md#public-vip-network) Azure Stack에 가장 가까운 Azure AD 사이트에는 서브넷입니다. 예를 들어, Active Directory 시애틀 및 레드먼드 시애틀 사이트에 배포 된 Azure Stack을 사용 하 여 두 사이트에 있으면 Azure Stack에 대 한 공용 VIP 네트워크 서브넷에 시애틀에 대 한 Azure AD 사이트 추가할는 있습니다.
+추가 Azure Stack [공용 VIP 네트워크](azure-stack-network.md#public-vip-network) Azure Stack에 가장 가까운 Active Directory 사이트에는 서브넷입니다. 예를 들어, Active Directory에 시애틀 및 레드먼드 시애틀 사이트에 배포 된 Azure Stack을 사용 하 여 두 사이트를 추가할 때 Azure Stack에 대 한 공용 VIP 네트워크 서브넷에 Active Directory 사이트에 시애틀에 대 한 합니다.
 
 Active Directory 사이트에 대 한 자세한 내용은 참조 하세요 [사이트 토폴로지 디자인](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)합니다.
 

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 04a172c40c24e4e0daaf17b495d2320f3a897a47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8ad1bf371c5d5dbcbf3657ad69eace2003a8dda9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975261"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342014"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Linux VM에 정책 적용
 조직은 정책을 사용하여 엔터프라이즈 전체에 다양한 규칙을 적용할 수 있습니다. 원하는 동작을 적용하여 조직의 성공에 기여함과 동시에 위험을 완화할 수 있습니다. 이 문서에서는 Azure Resource Manager 정책을 사용하여 조직의 Virtual Machines에 대해 원하는 동작을 정의하는 방법을 설명합니다.
 
-정책에 대한 소개는 [Azure Policy란?](../../azure-policy/azure-policy-introduction.md)을 참조하세요.
+정책에 대한 소개는 [Azure Policy란?](../../governance/policy/overview.md)을 참조하세요.
 
 ## <a name="permitted-virtual-machines"></a>허용되는 Virtual Machines
 조직에 대한 가상 머신이 애플리케이션과 호환되는지 확인하기 위해 허용된 운영 체제를 제한할 수 있습니다. 다음 정책 예제에서는 Ubuntu 14.04.2-LTS Virtual Machines만 만들 수 있도록 허용합니다.
@@ -210,6 +210,6 @@ ms.locfileid: "46975261"
 
 
 ## <a name="next-steps"></a>다음 단계
-* 앞의 예제와 표시된 바와 같이 정책 규칙을 정의한 후에는 정책 정의를 만들고 범위에 할당해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](../../azure-policy/assign-policy-definition.md), [PowerShell을 사용하여 정책 할당](../../azure-policy/assign-policy-definition-ps.md) 또는 [Azure CLI를 사용하여 정책 할당](../../azure-policy/assign-policy-definition-cli.md)을 참조하세요.
-* 리소스 정책에 대한 소개는 [Azure Policy란?](../../azure-policy/azure-policy-introduction.md)을 참조하세요.
+* 앞의 예제와 표시된 바와 같이 정책 규칙을 정의한 후에는 정책 정의를 만들고 범위에 할당해야 합니다. 범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. 정책을 할당하려면 [Azure Portal을 사용하여 리소스 정책 할당 및 관리](../../governance/policy/assign-policy-portal.md), [PowerShell을 사용하여 정책 할당](../../governance/policy/assign-policy-powershell.md) 또는 [Azure CLI를 사용하여 정책 할당](../../governance/policy/assign-policy-azurecli.md)을 참조하세요.
+* 리소스 정책에 대한 소개는 [Azure Policy란?](../../governance/policy/overview.md)을 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance)를 참조하세요.

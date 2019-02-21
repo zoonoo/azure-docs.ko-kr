@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508337"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417976"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -30,6 +30,8 @@ ms.locfileid: "55508337"
 가상 네트워크 게이트웨이가 아직 없으며 만들지 않으려면 VNet 피어링을 사용하여 VNet을 연결하는 것이 좋습니다. VNet 피어링은 VPN Gateway를 사용하지 않습니다. 자세한 내용은 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
 
 ### <a name="before"></a>시작하기 전에
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * 이 단계에서는 두 VNet이 이미 만들어졌다고 가정합니다. 이 문서를 사용하여 연습을 하는 경우 VNet이 없으면 단계 내에 VNet 만들기를 도와주는 링크가 있습니다.
 * VNet에 대한 주소 범위가 서로 겹치거나 게이트웨이가 연결되어 있는 다른 연결의 범위와 겹치지 않는지 확인합니다.
@@ -226,19 +228,19 @@ Resource Manager VNet이 없는 상태에서 이러한 단계를 연습으로 �
 관리자 권한으로 PowerShell 콘솔을 열고 Azure 계정에 로그인합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정이 다운로드됩니다. 다음 cmdlet은 Resource Manager 배포 모델의 Azure 계정에 대한 로그인 자격 증명을 묻습니다.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Azure 구독 목록을 가져옵니다.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 둘 이상의 구독이 있는 경우 사용할 구독을 지정합니다.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzSubscription -SubscriptionName "Name of subscription"
 ```
 
 다음으로, 클래식 PowerShell cmdlet(Service Management)을 사용하려면 로그인합니다. 클래식 배포 모델의 Azure 계정을 추가하려면 다음 명령을 사용합니다.

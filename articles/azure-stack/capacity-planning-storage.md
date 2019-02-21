@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: 29244c20bb4bbad8077788abbc29e6267f701d2e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/20/2019
+ms.openlocfilehash: 32e6e8ff4c37554a0c3fa50e243b241eed2953cf
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176353"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446004"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack 저장소 용량 계획
 다음 섹션에서는 Azure Stack 저장소 용량 계획 정보는 솔루션의 저장소 요구 사항에 대 한 계획을 지 원하는 제공 합니다.
@@ -38,7 +38,9 @@ Azure Stack의 하이퍼 컨버지드 구성을 통해 실제 스토리지 디�
 
 ![Azure storage 용량 계획](media/azure-stack-capacity-planning/storage.png)
 
-모든 플래시 구성에서 캐시 된 NVMe 용량 SATA SSD 또는 NVMe의 경우 선택 합니다. 하이브리드 구성에서 캐시 용량에는 HDD SATA SSD 및 NVMe 간에 선택 하는.
+모든 플래시 구성에서 구성에는 2 계층 또는 단일 계층 구성 될 수 있습니다.  구성이 단일 계층 경우 (예: NVMe SATA SSD 또는 SAS SSD) 같은 형식의 모든 용량 장치 되며 캐시 장치 사용 되지 않습니다. 2 계층 모든에서 플래시, 일반적인 구성 구성은 NVMe 캐시 장치 및 다음 중 하나 SATA 또는 SAS Ssd 용량 장치로 합니다.
+
+2 계층 구성, 하이브리드, 캐시는 NVMe, SATA 및 SAS SSD 용량 중에서 선택할은 HDD입니다. 
 
 저장소 공간 다이렉트 및 Azure Stack 저장소 구성의 간단한 요약을 아래와 같습니다.
 - 배율 단위 (모든 저장소 장치는 단일 풀 내의 구성) 당 하나의 저장소 공간 풀

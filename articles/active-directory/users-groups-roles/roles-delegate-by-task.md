@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fdede1308ac2c4c036d835a7be28b0e5ee180d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207079"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268435"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -202,8 +202,8 @@ Task | 최소 권한 역할 | 추가 역할
 MFA 사용 | 전역 관리자 | 
 MFA 사용 | 전역 관리자 | 
 MFA 서비스 설정 관리 | 전역 관리자 | 
-연락처 메서드를 다시 제공하도록 선택된 사용자 요구 | 전역 관리자 | 
-모든 저장된 디바이스에서 다단계 인증 복원  | 전역 관리자 | 
+연락처 메서드를 다시 제공하도록 선택된 사용자 요구 | 인증 관리자 | 
+모든 저장된 디바이스에서 다단계 인증 복원  | 인증 관리자 | 
 
 ## <a name="mfa-server"></a>MFA 서버 
 

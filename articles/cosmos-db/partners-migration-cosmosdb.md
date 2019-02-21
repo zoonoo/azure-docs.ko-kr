@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 25d2b9fac65525c56912e5daa7e5bcb4aa2cd5f4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 255182fe5e6c5576077dc97831628e4a13dfc026
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036004"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453531"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 마이그레이션 및 애플리케이션 개발 파트너
 
@@ -38,7 +38,7 @@ NoSQL 마이그레이션에서 애플리케이션 개발에 이르기까지 다�
 |![Coeo][7]     |   앱 혁신(기존 앱), <br/> 새로운 앱 개발 |    영국     |  [웹 사이트](http://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL 마이그레이션 |미국, 캐나다, 영국, 덴마크, 네덜란드, 스위스, 호주, 일본 | [웹 사이트](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL 마이그레이션       |    전역     |  [웹 사이트](http://www.infosys.com/)       |
-| ![Lagash][16] | NoSQL 마이그레이션, <br/> 새로운 앱 개발 | 아르헨티나, 칠레, 콜롬비아, 멕시코| [웹 사이트](https://lagash.com/)|
+| ![Lagash][16] | NoSQL 마이그레이션, <br/> 새로운 앱 개발 | 아르헨티나, 칠레, 콜롬비아, 멕시코| [웹 사이트](https://www.lagash.com/)|
 | ![Lambda3 Informatics][17] | NoSQL 마이그레이션, <br/> 새로운 앱 개발 | 브라질| [웹 사이트](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     앱 개발(새 앱)    |    미국     |  [웹 사이트](http://www.nealanalytics.com/)       |
 |![Pragmatic Works Software Inc][10]    |   NoSQL 마이그레이션      |   미국      |  [웹 사이트](http://www.pragmaticworks.com/)       |

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ea6d94ff1ee8c27c1642f24660a6ab4f276137a8
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506790"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330786"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -48,7 +48,7 @@ Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을
 Azure Storage의 내구성 및 가용성 보장에 대한 정보는 [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/)를 참조하세요.
 
 > [!NOTE]
-> Premium Storage는 LRS(로컬 중복 스토리지)만 지원합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../../virtual-machines/windows/premium-storage.md) 문서를 참조하세요.
+> Premium Storage는 LRS(로컬 중복 스토리지)만 지원합니다.
 
 ## <a name="changing-replication-strategy"></a>복제 전략 변경
 [Azure Portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 여러 [Azure 클라이언트 라이브러리](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools) 중 하나를 사용하여 저장소 계정의 복제 전략을 변경할 수 있습니다. 저장소 계정의 복제 유형을 변경해도 가동 중지 시간이 발생하지 않습니다.

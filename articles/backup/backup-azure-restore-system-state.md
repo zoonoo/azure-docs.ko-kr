@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 0b880d77004013d3b3eb1999b7e9344577b9fb4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: ab307548853a545c4aa8ee5a573ca5b1ca67c91d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266487"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310260"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -65,7 +65,7 @@ ms.locfileid: "54266487"
 
 9. 복구 대상에서 *WindowsImageBackup* 디렉터리를 서버의 중요하지 않은 볼륨에 복사합니다. 일반적으로 Windows OS 볼륨은 중요한 볼륨입니다.
 
-10. 성공적으로 복구되면 [Windows Server에 복원된 시스템 상태 파일 적용](backup-azure-restore-system-state.md#apply-restored-system-state-files-to-the-windows-server) 섹션의 단계에 따라 시스템 상태 복구 프로세스를 완료합니다.
+10. 성공적으로 복구되면 [Windows Server에 복원된 시스템 상태 파일 적용](backup-azure-restore-system-state.md) 섹션의 단계에 따라 시스템 상태 복구 프로세스를 완료합니다.
 
 ## <a name="recover-system-state-files-to-an-alternate-server"></a>대체 서버에 시스템 상태 파일 복구
 

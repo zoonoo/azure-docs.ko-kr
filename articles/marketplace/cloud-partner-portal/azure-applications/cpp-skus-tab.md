@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7f73e71677a700ba8047246addb2d27799c5a616
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a963db0b0b1a20c110f90bacdae092846f7bdd8b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890901"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342544"
 ---
 # <a name="azure-application-skus-tab"></a>Azure 애플리케이션 SKU 탭
 
@@ -139,7 +139,7 @@ SKU를 구성하는 단계는 관리되는 애플리케이션 제품과 솔루�
 
 #### <a name="policy-settings"></a>정책 설정
 
-관리되는 앱이 준수하는 정책을 추가합니다. Azure 리소스 정책에 대한 자세한 내용은 [Azure Policy란?](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)을 참조하세요. 
+관리되는 앱이 준수하는 정책을 추가합니다. Azure 리소스 정책에 대한 자세한 내용은 [Azure Policy란?](../../../governance/policy/overview.md)을 참조하세요.
 
 
    ![관리되는 애플리케이션에 대한 권한 부여 및 정책 설정](./media/azureapp-sku-details-managedapp-auth-policy.png)

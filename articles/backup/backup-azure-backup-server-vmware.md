@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: ee7ebb151653b611c652c072b8cb4c07754d9b68
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 5e5a6f32eeac674a6527d333b981bbdac20a9958
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269705"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309764"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -39,7 +39,7 @@ ms.locfileid: "53269705"
 
 ### <a name="before-you-start"></a>시작하기 전에
 
-- HTTPS를 사용하지 않으려는 경우 [기본 설정을 사용하지 않도록 설정](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol)할 수 있습니다.
+- HTTPS를 사용하지 않으려는 경우 [기본 설정을 사용하지 않도록 설정](backup-azure-backup-server-vmware.md)할 수 있습니다.
 - 일반적으로 vSphere Web Client를 사용하여 Azure Backup Server 머신의 브라우저에서 vCenter/ESXi 서버로 연결합니다. 처음 이 작업을 수행할 때는 연결이 안전하지 않으며 다음 메시지가 표시됩니다.
 - Azure Backup Server에서 백업을 처리하는 방법을 파악하는 것이 중요합니다.
     - 첫 번째 단계로 Azure Backup Server는 데이터를 로컬 디스크 스토리지에 백업합니다. Azure Backup Server가 보호된 데이터에 대한 디스크 복구 지점을 저장하는 디스크 및 볼륨 세트인 스토리지 풀이 Azure Backup Server에서 사용됩니다. 스토리지 풀은 DAS(직접 연결된 스토리지), 파이버 채널 SAN, iSCSI 스토리지 디바이스 또는 SAN일 수 있습니다. VMware VM 데이터를 로컬로 백업하기에 충분한 스토리지가 있는지 확인하는 것이 중요합니다.

@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
 ms.custom: mvc
-ms.openlocfilehash: ca0a6569dda89586c629cc46909862de4f27cf04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160914"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446327"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack 계산 용량 계획
 합니다 [Azure Stack에서 지 원하는 VM 크기](./user/azure-stack-vm-sizes.md) 기능은 Azure에서 지원 되는 하위 집합입니다. Azure는 과도 한 리소스 (로컬 및 서비스 수준에는 서버)를 방지 하려면 많은 벡터를 따라 리소스 제한을 둡니다. 테 넌 트 사용량에 대해 몇 가지 제한 없이, 다른 테 넌 트 리소스 overconsume 때 테 넌 트 환경을 저하 됩니다. VM에서 네트워크 송신에 대 한 Azure 제한 사항에 맞는 Azure Stack에서 대역폭 caps 있습니다. 저장소 리소스에 대 한 저장소 IOPs 한도 기본 과도 한 리소스를 방지 하려면 Azure Stack에서 저장소 액세스에 대 한 테 넌 트에서 구현 되었습니다.  
@@ -43,7 +43,7 @@ Azure stack 인프라 오류 시 복원할 때 기본 기술 (장애 조치 클�
 
 다음 계산을 테 넌 트 VM 배치에 사용할 수 있는 총, 사용 가능한 메모리에 발생 합니다. Azure Stack 배율 단위 전체에 대 한이 메모리 용량은입니다.
 
-  VM 배치에 사용 가능한 메모리가 총 서버 메모리-복원 력 예약 – Azure Stack 인프라 오버 헤드를 = <sup>1</sup>
+  VM 배치에 사용 가능한 메모리가 Vm-Azure Stack 인프라 오버 헤드를 실행 하 여 사용 된 총 서버 메모리-복원 력 예약 – 메모리 = <sup>1</sup>
 
   Resiliency reserve = H + R * (N-1) + V * (N-2)
 
