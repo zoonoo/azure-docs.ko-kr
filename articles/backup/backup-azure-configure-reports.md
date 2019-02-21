@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: e93c51365adfc867082e180d8e4db804d02003ca
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 945d8690ccb61916455ba4137f59c67c9a3d9f76
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297730"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237691"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup용 보고서를 구성하기 위해 수행해야 하는 단계를 설명합니다. 또한 Power BI를 사용하여 보고서에 액세스하는 방법도 설명합니다. 이러한 단계를 완료한 후에는 Power BI로 직접 이동하여 보고서를 확인, 사용자 지정 및 작성할 수 있습니다.
@@ -38,6 +38,7 @@ ms.locfileid: "55297730"
 
 ## <a name="configure-storage-account-for-reports"></a>보고서에 대한 저장소 계정 구성
 Azure Portal을 사용하여 Recovery Services 자격 증명 모음용 저장소 계정을 구성하려면 다음 단계를 수행합니다. 이 구성은 한 번만 수행하면 됩니다. 저장소 계정을 구성한 후에는 Power BI로 직접 이동하여 콘텐츠 팩을 확인하고 보고서를 사용할 수 있습니다.
+
 1. Recovery Services 자격 증명 모음이 이미 열려 있으면 다음 단계로 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않으면 Azure Portal에서 **모든 서비스**를 선택합니다.
 
    * 리소스 목록에서 **Recovery Services**를 입력합니다.
@@ -54,7 +55,7 @@ Azure Portal을 사용하여 Recovery Services 자격 증명 모음용 저장소
 3. **백업 보고서** 블레이드에서 **진단 설정** 링크를 선택합니다. 이 링크를 선택하면 고객 저장소 계정에 데이터를 푸시하는 데 사용되는 **진단 설정** UI가 열립니다.
 
       ![진단 사용 3단계](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
-4. **진단 켜기**를 선택하여 저장소 계정을 구성하는 데 사용되는 UI를 엽니다. 
+4. **진단 켜기**를 선택하여 저장소 계정을 구성하는 데 사용되는 UI를 엽니다.
 
       ![진단 사용 4단계](./media/backup-azure-configure-reports/enable-diagnostics.png)
 5. **이름** 상자에 설정 이름을 입력합니다. 보고 데이터가 저장소 계정으로 전송될 수 있도록 **저장소 계정에 보관** 확인란을 선택합니다.
@@ -73,11 +74,11 @@ Azure Portal을 사용하여 Recovery Services 자격 증명 모음용 저장소
       ![진단 설정 보기 9단계](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> 저장소 계정을 저장하여 보고서를 구성한 후에는 초기 데이터 푸시가 완료될 때까지 *24시간 동안 대기*합니다. 이 시간이 지난 후에만 Power BI에서 Azure Backup 앱을 가져오세요. 자세한 내용은 [FAQ 섹션](#frequently-asked-questions)을 참조하세요. 
+> 저장소 계정을 저장하여 보고서를 구성한 후에는 초기 데이터 푸시가 완료될 때까지 *24시간 동안 대기*합니다. 이 시간이 지난 후에만 Power BI에서 Azure Backup 앱을 가져오세요. 자세한 내용은 [FAQ 섹션](#frequently-asked-questions)을 참조하세요.
 >
 >
 
-## <a name="view-reports-in-power-bi"></a>Power BI에서 보고서 보기 
+## <a name="view-reports-in-power-bi"></a>Power BI에서 보고서 보기
 Recovery Services 자격 증명 모음을 사용하여 보고서용 저장소 계정을 구성한 후 보고 데이터 전송이 시작될 때까지는 약 24시간 정도 걸립니다. 저장소 계정을 설정하고 24시간 후에 Power BI에서 보고서를 보려면 다음 단계를 수행합니다.
 보고서를 사용자 지정하고 공유하려면 작업 영역을 만들고 다음 단계를 수행하세요.
 
@@ -90,20 +91,20 @@ Recovery Services 자격 증명 모음을 사용하여 보고서용 저장소 �
 4. 위의 5단계에서 구성한 저장소 계정의 이름을 입력하고 **다음**을 선택합니다.
 
     ![저장소 계정 이름 입력](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. 인증 방법 "키"를 사용하여 이 저장소 계정의 저장소 계정 키를 입력합니다. [저장소 액세스 키를 확인하고 복사](../storage/common/storage-account-manage.md#access-keys)하려면 Azure Portal에서 저장소 계정으로 이동합니다. 
+5. 인증 방법 "키"를 사용하여 이 저장소 계정의 저장소 계정 키를 입력합니다. [저장소 액세스 키를 확인하고 복사](../storage/common/storage-account-manage.md#access-keys)하려면 Azure Portal에서 저장소 계정으로 이동합니다.
 
      ![저장소 계정 입력](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
-     
+
 6. **로그인**을 선택합니다. 정상적으로 로그인되면 데이터 가져오기 알림이 표시됩니다.
 
     ![콘텐츠 팩 가져오기](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
-    
+
     가져오기가 완료되면 **성공** 알림이 표시됩니다. 저장소 계정에 많은 데이터가 있는 경우 콘텐츠 팩을 가져오는 데 시간이 좀 더 걸릴 수도 있습니다.
-    
+
     ![콘텐츠 팩 가져오기 성공](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
-    
+
 7. 데이터 가져오기가 정상 완료되면 **Azure Backup** 콘텐츠 팩이 탐색 창의 **앱**에 표시됩니다. 이제 **대시보드**, **보고서**, **데이터 세트** 아래의 목록에 Azure Backup이 표시됩니다.
-     
+
 8. **대시보드**에서 **Azure Backup**을 선택합니다. 그러면 고정 키 보고서 집합이 표시됩니다.
 
       ![Azure Backup 대시보드](./media/backup-azure-configure-reports/azure-backup-dashboard.png) <br/>
@@ -117,38 +118,32 @@ Recovery Services 자격 증명 모음을 사용하여 보고서용 저장소 �
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-**보고 데이터가 저장소 계정으로 전송되기 시작했는지를 확인하려면 어떻게 해야 하나요?**
-    
-   구성한 저장소 계정으로 이동한 다음 컨테이너를 선택합니다. 컨테이너에 insights-logs-azurebackupreport에 대한 항목이 있으면 보고 데이터가 흐르기 시작한 것입니다.
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>보고 데이터가 스토리지 계정으로 전송되기 시작했는지 확인하려면 어떻게 할까요?
+구성한 저장소 계정으로 이동한 다음 컨테이너를 선택합니다. 컨테이너에 insights-logs-azurebackupreport에 대한 항목이 있으면 보고 데이터가 흐르기 시작한 것입니다.
 
-**Power BI에서 Azure Backup 콘텐츠 팩 및 저장소 계정으로 데이터 푸시가 수행되는 빈도는 어느 정도인가요?**
+### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Power BI에서 Azure Backup 콘텐츠 팩 및 스토리지 계정으로 데이터 푸시가 수행되는 빈도는 어느 정도인가요?
+  신규 사용자의 경우 저장소 계정에 데이터를 푸시하는 데 약 24시간 정도 걸립니다. 이 초기 푸시가 완료된 후에는 아래 그림에 표시된 빈도로 데이터 새로 고침이 진행됩니다.
 
-   신규 사용자의 경우 저장소 계정에 데이터를 푸시하는 데 약 24시간 정도 걸립니다. 이 초기 푸시가 완료된 후에는 아래 그림에 표시된 빈도로 데이터 새로 고침이 진행됩니다. 
-      
-* **작업**, **경고**, **백업 항목**, **자격 증명 모음**, **보호된 서버** 및 **정책**과 관련된 데이터는 기록 시 고객 저장소 계정에 푸시됩니다.
-      
-* **저장소**와 관련된 데이터는 24시간마다 고객 저장소 계정에 푸시됩니다.
-   
-   ![Azure Backup 보고서 데이터 푸시 빈도](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+  * **작업**, **경고**, **백업 항목**, **자격 증명 모음**, **보호된 서버** 및 **정책**과 관련된 데이터는 기록 시 고객 저장소 계정에 푸시됩니다.
 
-* Power BI에는 [하루에 한 번 예약된 새로 고침](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed)이 있습니다. Power BI에서 콘텐츠 팩에 대한 데이터를 수동으로 새로 고칠 수 있습니다.
+  * **저장소**와 관련된 데이터는 24시간마다 고객 저장소 계정에 푸시됩니다.
 
-**보고서를 보존할 수 있는 기간은 어느 정도인가요?**
+       ![Azure Backup 보고서 데이터 푸시 빈도](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 
-   저장소 계정을 구성할 때 저장소 계정의 보고 데이터 보존 기간을 선택할 수 있습니다. 위에 나와 있는 “보고서용 저장소 계정 구성” 섹션의 6단계를 따르세요. [Excel에서 보고서를 분석](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/)하고 요구에 따라 더 오랜 보존 기간 동안 보고서를 저장할 수도 있습니다.
+  * Power BI에는 [하루에 한 번 예약된 새로 고침](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed)이 있습니다. Power BI에서 콘텐츠 팩에 대한 데이터를 수동으로 새로 고칠 수 있습니다.
 
-**저장소 계정을 구성하면 보고서에서 내 데이터를 모두 볼 수 있나요?**
+### <a name="how-long-can-i-retain-reports"></a>보고서를 보존할 수 있는 기간은 어느 정도인가요?
+저장소 계정을 구성할 때 저장소 계정의 보고 데이터 보존 기간을 선택할 수 있습니다. [보고서용 스토리지 계정 구성](backup-azure-configure-reports.md#configure-storage-account-for-reports) 섹션의 6단계를 따르세요. [Excel에서 보고서를 분석](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/)하고 요구에 따라 더 오랜 보존 기간 동안 보고서를 저장할 수도 있습니다.
 
-   저장소 계정을 구성한 후 생성된 모든 데이터는 저장소 계정에 푸시되며 보고서에서 확인할 수 있습니다. 진행 중인 작업은 보고를 위해 푸시되지 않으며, 완료되거나 실패하면 보고서로 전송됩니다.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>스토리지 계정을 구성하면 보고서에서 내 데이터를 모두 볼 수 있나요?
+ 저장소 계정을 구성한 후 생성된 모든 데이터는 저장소 계정에 푸시되며 보고서에서 확인할 수 있습니다. 진행 중인 작업은 보고를 위해 푸시되지 않으며, 완료되거나 실패하면 보고서로 전송됩니다.
 
-**보고서를 보는 데 사용할 저장소 계정을 이미 구성한 경우 다른 저장소 계정을 사용하도록 구성을 변경할 수 있나요?**
+### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>보고서를 보는 데 사용할 스토리지 계정을 이미 구성한 경우 다른 스토리지 계정을 사용하도록 구성을 변경할 수 있나요?
+예, 다른 저장소 계정을 가리키도록 구성을 변경할 수 있습니다. Azure Backup 콘텐츠 팩에 연결하는 동안 새로 구성된 저장소 계정을 사용하면 됩니다. 또한 다른 저장소 계정이 구성된 후 새 데이터는 이 저장소 계정으로 전송됩니다. 구성을 변경하기 전의 오래된 데이터는 계속해서 이전 저장소 계정에 유지됩니다.
 
-   예, 다른 저장소 계정을 가리키도록 구성을 변경할 수 있습니다. Azure Backup 콘텐츠 팩에 연결하는 동안 새로 구성된 저장소 계정을 사용하면 됩니다. 또한 다른 저장소 계정이 구성된 후 새 데이터는 이 저장소 계정으로 전송됩니다. 구성을 변경하기 전의 오래된 데이터는 계속해서 이전 저장소 계정에 유지됩니다.
+### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>여러 자격 증명 모음 및 구독의 보고서를 볼 수 있나요?
+예, 다양한 자격 증명 모음에 동일한 저장소 계정을 구성하여 자격 증명 모음 간 보고서를 볼 수 있습니다. 여러 구독의 자격 증명 모음에 대해 동일한 저장소 계정을 구성할 수도 있습니다. 그런 다음 Power BI에서 Azure Backup 콘텐츠 팩에 연결하는 동안 이 저장소 계정을 사용하여 보고서를 볼 수 있습니다. 선택한 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
 
-**여러 자격 증명 모음 및 구독의 보고서를 볼 수 있나요?**
-
-   예, 다양한 자격 증명 모음에 동일한 저장소 계정을 구성하여 자격 증명 모음 간 보고서를 볼 수 있습니다. 여러 구독의 자격 증명 모음에 대해 동일한 저장소 계정을 구성할 수도 있습니다. 그런 다음 Power BI에서 Azure Backup 콘텐츠 팩에 연결하는 동안 이 저장소 계정을 사용하여 보고서를 볼 수 있습니다. 선택한 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
-   
 ## <a name="troubleshooting-errors"></a>문제 해결 오류
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |
@@ -161,4 +156,3 @@ Recovery Services 자격 증명 모음을 사용하여 보고서용 저장소 �
 * [Azure Backup 보고 데이터 모델 사용](backup-azure-reports-data-model.md)
 * [Power BI에서 보고서 필터링](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Power BI에서 보고서 만들기](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-

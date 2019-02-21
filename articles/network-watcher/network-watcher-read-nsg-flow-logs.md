@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 7c35961894cbc8fb33f15b36910021f8ad38fac8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: dd4622e0359476f47a0ac939d59a2571e34a0a46
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976395"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112702"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG 흐름 로그 읽기
 
@@ -185,6 +185,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 
 ## <a name="next-steps"></a>다음 단계
 
-[오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)를 방문해 NSG 흐름 로그를 확인하는 다른 방법에 대해 자세히 알아보세요.
+NSG 흐름 로그를 보는 방법에 대해 자세히 알아보려면 [Elastic Stack 사용](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Grafana 사용](network-watcher-nsg-grafana.md) 및 [Graylog 사용](network-watcher-analyze-nsg-flow-logs-graylog.md)을 참조하세요. Blob을 직접 소비하고 다양한 로그 분석 소비자에게 공개하는 오픈 소스 Azure 함수 방식은 다음에서 찾을 수 있습니다. [Azure Network Watcher NSG 흐름 로그 커넥터](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector)
 
 Storage Blob에 대한 자세한 내용은 [Azure Functions Blob Storage 바인딩](../azure-functions/functions-bindings-storage-blob.md)을 참조하세요.

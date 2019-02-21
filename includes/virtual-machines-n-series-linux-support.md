@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 11/27/2018
+ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a1200494eac2d60083a6608d1af91379d8298070
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: b8aba410cd447f14fcce89fee93c5f6a253a34ce
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201502"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102247"
 ---
 ## <a name="supported-distributions-and-drivers"></a>지원되는 배포판 및 버전
 
@@ -34,7 +34,7 @@ Microsoft는 가상 워크스테이션으로 사용되는 NV 및 NVv2 시리즈 
 
 | 배포 | 드라이버 |
 | --- | -- |
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>CentOS 기반 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 7, 드라이버 분기 R410|
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>CentOS 기반 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 7.1, 드라이버 분기 R410|
 
 > [!WARNING] 
 > Red Hat 제품에 대한 타사 소프트웨어 설치는 Red Hat 지원 조건에 영향을 줄 수 있습니다. [Red Hat 기술 자료 문서](https://access.redhat.com/articles/1067)를 참조하세요.

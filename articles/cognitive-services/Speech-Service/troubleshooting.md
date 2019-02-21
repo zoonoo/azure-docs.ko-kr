@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 Speech Service SDK를 사용할 때 발생할 수 있는 문제를 해결하는 데 도움이 되는 정보를 제공합니다.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: c906a45443bcba8c84a0624c74255f19a492a4e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: dbcdfd117a39939491914ebddb717f404e07f09c
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217181"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55859320"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Speech Service SDK 문제 해결
 
@@ -67,6 +67,8 @@ ms.locfileid: "55217181"
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
+유효한 구독 키를 입력했다면 인증 토큰이 반환되고, 그렇지 않을 경우 오류가 반환됩니다.
+
 ### <a name="validate-an-authorization-token"></a>인증 토큰의 유효성 검사
 
 인증에 인증 토큰을 사용하는 경우, 다음 명령 중 하나를 실행하여 인증 토큰이 여전히 유효한지 확인합니다. 토큰은 10분 동안 유효합니다.
@@ -101,6 +103,8 @@ ms.locfileid: "55217181"
     ```
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
+
+유효한 인증 토큰을 입력했다면 오디오 파일의 음성 텍스트가 반환되고, 그렇지 않을 경우 오류가 반환됩니다.
 
 ---
 

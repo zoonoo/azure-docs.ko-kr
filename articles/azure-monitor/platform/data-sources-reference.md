@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: ec61b179627702af7f2c4bc0fc0989230f5eca84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885799"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001998"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure에서 모니터링 데이터 사용
 
 Azure 플랫폼 전반에 걸쳐 Azure Monitor 파이프라인을 사용하여 모니터링 데이터를 한 곳에 모았지만 일부 모니터링 데이터는 파이프라인에서 아직 사용할 수 없습니다. 이 문서에서는 Azure 서비스에서 프로그래밍 방식으로 모니터링 데이터에 액세스할 수 있는 여러 가지 방법을 요약합니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="options-for-data-consumption"></a>데이터 사용 옵션
 
@@ -40,7 +42,7 @@ Azure 플랫폼 전반에 걸쳐 Azure Monitor 파이프라인을 사용하여 �
 | Azure Monitor 메트릭 경고 | 공지 | [여기에 나오는 목록 참조](metrics-supported.md) | <ul><li>**웹후크:** [Azure 메트릭 경고](alerts-webhooks.md)</li></ul> |
 | Azure Monitor 활동 로그 경고 | 공지 | 모든 Azure 서비스 | <ul><li>**웹후크:** Azure 활동 로그 경고</li></ul> |
 | 자동 크기 조정 알림 | 공지 | [여기에 나오는 목록 참조](autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**웹후크:** [크기 자동 조정 알림 웹후크 페이로드 스키마](autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| 로그 검색 쿼리 경고 | 공지 | Log Analytics | <ul><li>**웹후크:** [로그 경고 규칙에 대한 웹후크 작업](alerts-log-webhook.md)</li></ul> |
+| 로그 검색 쿼리 경고 | 공지 | Azure Monitor 로그 | <ul><li>**웹후크:** [로그 경고 규칙에 대한 웹후크 작업](alerts-log-webhook.md)</li></ul> |
 | Application Insights 메트릭 경고 | 공지 | Application Insights | <ul><li>**웹후크:** [Application Insights 경고](../../azure-monitor/app/alerts.md)</li></ul> |
 | Application Insights 웹 테스트 | 공지 | Application Insights | <ul><li>**웹후크:** [Application Insights 경고](../../azure-monitor/app/alerts.md)</li></ul> |
 

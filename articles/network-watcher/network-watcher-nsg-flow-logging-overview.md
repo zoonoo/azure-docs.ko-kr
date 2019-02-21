@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 06130a5ade63e23fdcd139902a19694a510393a3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ff3c1e51bcf0b7d730019fad66ed8b0c3fe17a20
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332305"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097651"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -287,5 +287,6 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ## <a name="next-steps"></a>다음 단계
 
 - 흐름 로그를 사용하도록 설정하는 방법을 알아보려면 [NSG 흐름 로깅을 사용하도록 설정](network-watcher-nsg-flow-logging-portal.md)을 참조하세요.
+- 흐름 로그를 읽는 방법을 알아보려면 [NSG 흐름 로그 읽기](network-watcher-read-nsg-flow-logs.md)를 참조하세요.
 - NSG 로깅에 대해 알아보려면 [NSG(네트워크 보안 그룹)에 대한 Log Analytics](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 - 트래픽이 허용되거나 VM에서 거부할지 여부를 결정하려면 [VM 네트워크 트래픽 필터 문제 진단](diagnose-vm-network-traffic-filtering-problem.md)을 참조하세요.

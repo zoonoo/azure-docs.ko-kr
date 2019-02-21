@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 데이터 수집기 API를 사용하여 데이터 파이프라인 만들기 | Microsoft Docs
-description: REST API를 호출할 수 있는 모든 클라이언트에서 Log Analytics HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 저장소에 추가할 수 있습니다. 이 아티클에서는 자동화된 방식으로 파일에 저장된 데이터를 업로드하는 방법을 설명합니다.
+title: Azure Monitor 데이터 수집기 API를 사용하여 데이터 파이프라인 만들기 | Microsoft Docs
+description: REST API를 호출할 수 있는 모든 클라이언트에서 Azure Monitor HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 작업 영역에 추가할 수 있습니다. 이 아티클에서는 자동화된 방식으로 파일에 저장된 데이터를 업로드하는 방법을 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 94d026ce1d055d18a615919df6ed5021b15bf108
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186075"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003859"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>데이터 수집기 API를 사용하여 데이터 파이프라인 만들기
 
-[Log Analytics 데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md)를 사용하면 Log Analytics로 사용자 지정 데이터를 가져올 수 있습니다. 유일한 요구 사항은 데이터가 JSON 형식이고 30MB 이하의 세그먼트로 분할되어야 하는 것입니다. 다양한 방식으로 애플리케이션에서 직접 전송된 데이터에서 일회성 임시 업로드로 연결할 수 있는 완전히 유연한 메커니즘입니다. 이 아티클는 정기적이고 자동으로 파일에 저장된 데이터를 업로드해야 하는 일반적인 시나리오에 대한 일부 시작점을 간략하게 설명합니다. 여기에 표시된 파이프라인이 가장 효율적 또는 최적화되지 않지만 고유한 프로덕션 파이프라인을 빌드하기 위한 시작점으로 사용하려고 합니다.
+[Azure Monitor 데이터 수집기 API](data-collector-api.md)를 통해 모든 사용자 지정 로그 데이터를 Azure Monitor의 Log Analytics 작업 영역으로 가져올 수 있습니다. 유일한 요구 사항은 데이터가 JSON 형식이고 30MB 이하의 세그먼트로 분할되어야 하는 것입니다. 다양한 방식으로 애플리케이션에서 직접 전송된 데이터에서 일회성 임시 업로드로 연결할 수 있는 완전히 유연한 메커니즘입니다. 이 아티클는 정기적이고 자동으로 파일에 저장된 데이터를 업로드해야 하는 일반적인 시나리오에 대한 일부 시작점을 간략하게 설명합니다. 여기에 표시된 파이프라인이 가장 효율적 또는 최적화되지 않지만 고유한 프로덕션 파이프라인을 빌드하기 위한 시작점으로 사용하려고 합니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>예제 문제
 이 아티클의 나머지 부분에서는 Application Insights에서 페이지 보기 데이터를 검사합니다. 가상 시나리오에서는 기본적으로 Application Insights SDK에서 수집한 지리적 정보의 상관 관계를 만들어서 전 세계 모든 국가의 인구가 포함된 데이터를 사용자 지정하려고 합니다. 목표는 마케팅 달러를 가장 많이 소비해야 하는 위치를 식별하는 것입니다. 
@@ -42,13 +44,13 @@ ms.locfileid: "53186075"
 
 1. 프로세스는 새 데이터가 업로드되었는지 검색합니다.  이 예에서는 [Azure 논리 앱](../../logic-apps/logic-apps-overview.md)을 사용하며, 이 앱은 Blob에 업로드되는 새 데이터를 검색하는 트리거를 사용할 수 있습니다.
 
-2. 프로세서가 새 데이터를 읽고 Log Analytics에서 필요한 형식인 JSON으로 변환합니다.  이 예제에서는 [Azure Function](../../azure-functions/functions-overview.md)를 처리 코드를 실행하는 간단하고 비용 효율적인 방법으로 사용합니다. 이 함수는 새 데이터를 검색하는 데 사용한 동일한 논리 앱에서 시작합니다.
+2. 프로세서는 이 새로운 데이터를 읽고 이를 Azure Monitor에 필요한 형식인 JSON으로 변환합니다.이 예제에서는 처리 코드를 실행하기 위한 간단하고 비용 효율적인 방법으로 [Azure Function](../../azure-functions/functions-overview.md)을 사용합니다. 이 함수는 새 데이터를 검색하는 데 사용한 동일한 논리 앱에서 시작합니다.
 
-3. 마지막으로, JSON 개체를 사용할 수 있다면 Log Analytics로 전송됩니다. 동일한 논리 앱은 Log Analytics 데이터 수집기 작업에서 기본 제공 기능을 사용하여 데이터를 Log Analytics로 보냅니다.
+3. 마지막으로, JSON 개체를 사용할 수 있다면 Azure Monitor로 전송됩니다. 동일한 논리 앱은 Log Analytics 데이터 수집기 작업에서 기본 제공 기능을 사용하여 데이터를 Azure Monitor로 보냅니다.
 
 Blob Storage, 논리 앱 또는 Azure Function의 자세한 설정을 이 아티클에서 간략히 설명하지 않았지만 자세한 지침은 특정 제품 페이지에서 지원됩니다.
 
-이 파이프라인을 모니터링하려면 Application Insights를 사용하여 여기에서 Azure Function [세부 정보](../../azure-functions/functions-monitoring.md)를 모니터링하고, Log Analytics를 사용하여 여기에서 논리 앱 [세부 정보](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)를 모니터링합니다. 
+이 파이프라인을 모니터링하려면 Application Insights를 사용하여 Azure Function [세부 정보(여기)](../../azure-functions/functions-monitoring.md)를 모니터링하고, Azure Monitor를 사용하여 논리 앱 [세부 정보(여기)](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)를 모니터링합니다. 
 
 ## <a name="setting-up-the-pipeline"></a>파이프라인 설정
 파이프라인을 설정하려면 먼저 Blob 컨테이너를 만들고 구성했는지 확인합니다. 마찬가지로 데이터를 전송하려는 Log Analytics 작업 영역을 만들었는지 확인합니다.
@@ -136,10 +138,10 @@ Blob Storage, 논리 앱 또는 Azure Function의 자세한 설정을 이 아티
 ![Logic Apps 워크플로 전체 예제](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
 ## <a name="testing-the-pipeline"></a>파이프라인 테스트
-이제 새 파일을 이전에 구성한 Blob에 업로드하고 논리 앱에서 모니터링할 수 있습니다. 곧 논리 앱 시작의 새 인스턴스를 확인하고 Azure Function에 대해 호출한 다음, Log Analytics에 데이터를 성공적으로 보내야 합니다. 
+이제 새 파일을 이전에 구성한 Blob에 업로드하고 논리 앱에서 모니터링할 수 있습니다. 곧 논리 앱 시작의 새 인스턴스를 확인하고 Azure Function에 대해 호출한 다음, Azure Monitor에 데이터를 성공적으로 보내야 합니다. 
 
 >[!NOTE]
->새 데이터 형식을 처음으로 보내는 경우 데이터가 Log Analytics에 표시되는 데 최대 30분이 걸릴 수 있습니다.
+>새 데이터 형식을 처음으로 보내는 경우 데이터가 Azure Monitor에 표시되는 데 최대 30분이 걸릴 수 있습니다.
 
 
 ## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights의 다른 데이터와 상관 관계 만들기
@@ -163,7 +165,7 @@ app("fabrikamprod").pageViews
 
 * 오류 처리를 추가하고 논리 앱 및 함수에서 논리를 다시 시도하세요.
 * 30MB/단일 Log Analytics 수집 API 호출 제한을 초과하지 않도록 하는 논리를 추가합니다. 필요한 경우 작은 세그먼트로 데이터를 분할합니다.
-* Blob Storage에 대한 정리 정책을 설정합니다. Log Analytics에 성공적으로 보내면 보관을 위해 사용할 수 있는 원시 데이터를 유지하려는 경우가 아니면 계속 저장할 필요가 없습니다. 
+* Blob Storage에 대한 정리 정책을 설정합니다. Log Analytics 작업 영역에 성공적으로 보내면 보관을 위해 사용할 수 있는 원시 데이터를 유지하려는 경우가 아니면 계속 저장할 필요가 없습니다. 
 * 모니터링을 전체 파이프라인에 사용하도록 설정했는지 확인하여 추적 지점 및 경고를 적절하게 추가합니다.
 * 원본 제어를 활용하여 함수 및 논리 앱에 대한 코드를 관리합니다.
 * 적절한 변경 관리 정책을 따르는지 확인하고 스키마가 변경된 경우 함수 및 논리 앱을 적절하게 수정합니다.
@@ -171,4 +173,4 @@ app("fabrikamprod").pageViews
 
 
 ## <a name="next-steps"></a>다음 단계
-REST API 클라이언트에서 Log Analytics로 데이터를 작성하는 [데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md)에 대해 자세히 알아봅니다.
+REST API 클라이언트에서 Log Analytics 작업 영역으로 데이터를 작성하는 [데이터 수집기 API](data-collector-api.md)에 대해 자세히 알아봅니다.

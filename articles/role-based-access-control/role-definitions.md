@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ecfcfd5026f310a617f81af42483c29d89385288
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700726"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991364"
 ---
 # <a name="understand-role-definitions"></a>역할 정의 이해
 
@@ -147,7 +147,7 @@ Storage Blob 데이터 기여자(미리 보기)
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Alice는 구독 범위에서 와일드카드(`*`) 작업을 수행하므로 그녀의 권한은 그녀가 모든 관리 작업을 수행할 수 있도록 상속됩니다. 그러나 Alice는 데이터 작업을 수행할 수 없습니다. 예를 들어 Alice는 기본적으로 컨테이너 내부의 Blob을 읽을 수 없지만 컨테이너를 읽고, 쓰고, 삭제할 수 있습니다.
+Alice는 구독 범위에서 와일드카드(`*`) 작업을 수행하므로 그녀의 권한은 그녀가 모든 관리 작업을 수행할 수 있도록 상속됩니다. Alice는 컨테이너를 읽고 쓰며 삭제할 수 있습니다. 그러나 Alice는 추가 단계를 수행하지 않고도 데이터 작업을 수행할 수 없습니다. 예를 들어 Alice는 기본적으로 컨테이너 내부의 Blob을 읽을 수 없습니다. Blob을 읽으려면 스토리지 액세스 키를 검색하고 사용하여 Blob에 액세스해야 합니다.
 
 Bob의 권한은 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할에 지정된 `Actions` 및 `DataActions`로만 제한됩니다. 역할에 따라 Bob은 관리 및 데이터 작업을 모두 수행할 수 있습니다. 예를 들어 Bob은 지정된 저장소 계정에서 컨테이너를 읽고, 쓰고, 삭제할 수 있으며 Blob을 읽고, 쓰고, 삭제할 수도 있습니다.
 

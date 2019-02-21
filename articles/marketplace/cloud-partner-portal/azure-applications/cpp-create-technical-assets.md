@@ -14,18 +14,23 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6050ad98c87dbe38516a6ee3c4862495ad868031
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 78aa65614920d093b6ba0b8fa43614fd7f3c5176
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414353"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100434"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Azure 애플리케이션 기술 자산 준비
 
 이 문서에서는 Azure 애플리케이션 제품의 기술 자산을 준비하는 데 필요한 리소스에 대해 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
+
+Azure Resource Manager 템플릿을 작성하여 Azure 애플리케이션 솔루션을 정의하는 방법 및 이후에 앱 제품을 Azure Marketplace에 게시하는 방법을 간략하게 보여주는 [솔루션 템플릿 및 Azure Marketplace에 대한 관리되는 애플리케이션 빌드](https://channel9.msdn.com/Events/Build/2018/BRK3603) 비디오를 검토하세요.
+
+>[!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
+
 
 빠른 시작, 자습서 및 샘플을 제공하는 다음 Azure 애플리케이션 설명서를 검토합니다.
 
@@ -41,7 +46,7 @@ ms.locfileid: "53414353"
 - 자습서:
 
   - [정의 파일 만들기](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
-  - [마켓플레이스 응용 프로그램 게시](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
+  - [마켓플레이스 애플리케이션 게시](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
  - 샘플:
 
@@ -56,7 +61,7 @@ ms.locfileid: "53414353"
 엔지니어링 팀에는 다음 Microsoft 기술에 대한 지식이 있어야 합니다.
 
 - [Azure 서비스](https://azure.microsoft.com/services/)에 대한 기본적 이해
-- [Azure 응용 프로그램을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
+- [Azure 애플리케이션을 디자인 및 설계](https://azure.microsoft.com/solutions/architecture/)하는 방법
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) 및 [Azure 네트워킹](https://azure.microsoft.com/services/?filter=networking)에 대한 실무 지식
 - [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)에 대한 실무 지식
 - [JSON](https://www.json.org/)에 대한 실무 지식

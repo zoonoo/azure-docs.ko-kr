@@ -1,6 +1,6 @@
 ---
-title: Log Analytics HTTP 데이터 수집기 API | Microsoft Docs
-description: REST API를 호출할 수 있는 모든 클라이언트에서 Log Analytics HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 저장소에 추가할 수 있습니다. 이 문서는 API를 사용하는 방법을 설명하며, 다양한 프로그래밍 언어를 사용하여 데이터를 게시하는 방법을 예제로 제시합니다.
+title: Azure Monitor HTTP 데이터 수집기 API | Microsoft Docs
+description: REST API를 호출할 수 있는 모든 클라이언트에서 Azure Monitor HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 작업 영역에 추가할 수 있습니다. 이 문서는 API를 사용하는 방법을 설명하며, 다양한 프로그래밍 언어를 사용하여 데이터를 게시하는 방법을 예제로 제시합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,25 +11,27 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: bwren
-ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d2bf55129465a607fdc3bce3bd1735642c64e428
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211103"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237929"
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(공개 미리 보기)
-이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Log Analytics로 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 애플리케이션에서 수집하는 데이터를 포맷하고 요청에 포함하며 해당 요청을 Log Analytics에서 승인하게 하는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
+# <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)
+이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Azure Monitor로 로그 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 애플리케이션에서 수집한 데이터의 서식을 지정하고, 요청에 포함하며, 해당 요청에 대한 Azure Monitor의 인증을 받는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
-> Log Analytics HTTP 데이터 수집기 API는 공개 미리 보기 상태입니다.
+> Azure Monitor HTTP 데이터 수집기 API는 공개 미리 보기로 제공되고 있습니다.
 
 ## <a name="concepts"></a>개념
-HTTP 데이터 수집기 API를 사용하여 REST API를 수집할 수 있는 클라이언트에서 Log Analytics로 데이터를 전송하는 방법을 보여 줍니다.  Azure 또는 다른 클라우드에서 관리 데이터를 수집하는 Azure Automation의 Runbook, 또는 Log Analytics를 사용하여 데이터를 통합하고 분석하는 대체 관리 시스템일 수 있습니다.
+HTTP 데이터 수집기 API를 사용하여 REST API를 호출할 수 있는 클라이언트에서 Azure Monitor의 Log Analytics 작업 영역으로 로그 데이터를 전송할 수 있습니다.  Azure 또는 다른 클라우드에서 관리 데이터를 수집하는 Azure Automation의 Runbook이거나 Azure Monitor를 사용하여 로그 데이터를 통합하고 분석하는 대체 관리 시스템일 수 있습니다.
 
-Log Analytics 저장소의 모든 데이터는 특정 레코드 형식의 레코드로 저장됩니다.  JSON에서 여러 레코드로 HTTP 데이터 수집기 API에 보낼 데이터의 서식을 지정합니다.  데이터를 제출하면 개별 레코드가 요청 페이로드의 각 레코드에 대한 저장소에 만들어집니다.
+Log Analytics 작업 영역의 모든 데이터는 특정 레코드 종류의 레코드로 저장됩니다.  JSON에서 여러 레코드로 HTTP 데이터 수집기 API에 보낼 데이터의 서식을 지정합니다.  데이터를 제출하면 개별 레코드가 요청 페이로드의 각 레코드에 대한 저장소에 만들어집니다.
 
 
 ![HTTP 데이터 수집기 개요](media/data-collector-api/overview.png)
@@ -62,7 +64,7 @@ HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)
 | time-generated-field |데이터 항목의 타임스탬프가 포함된 데이터의 필드 이름입니다. 필드를 지정하면 그 내용이 **TimeGenerated**에 사용됩니다. 이 필드를 지정하지 않으면 **TimeGenerated**의 기본값은 메시지가 수집된 시간입니다. 메시지 필드의 내용은 ISO 8601 형식 YYYY-MM-DDThh:mm:ssZ를 따라야 합니다. |
 
 ## <a name="authorization"></a>권한 부여
-Log Analytics HTTP 데이터 수집기 API에 대한 모든 요청에는 권한 부여 헤더가 포함되어야 합니다. 요청을 인증하려면 요청을 수행하는 작업 영역에 대한 기본 키 또는 보조 키를 통해 요청을 서명해야 합니다. 그런 다음 요청의 일부로 해당 서명을 전달합니다.   
+Azure Monitor HTTP 데이터 수집기 API에 대한 모든 요청에는 인증 헤더가 포함되어야 합니다. 요청을 인증하려면 요청을 수행하는 작업 영역에 대한 기본 키 또는 보조 키를 통해 요청을 서명해야 합니다. 그런 다음 요청의 일부로 해당 서명을 전달합니다.   
 
 권한 부여 헤더의 형식은 다음과 같습니다.
 
@@ -130,11 +132,11 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
 ## <a name="record-type-and-properties"></a>레코드 유형 및 속성
-Log Analytics HTTP 데이터 수집기 API를 통해 데이터를 제출할 때 사용자 지정 레코드 유형을 정의합니다. 현재는 다른 데이터 형식과 솔루션으로 만든 기존 레코드 형식에 데이터를 쓸 수 없습니다. Log Analytics가 드러오는 데이터를 읽은 다음 입력한 값의 데이터 형식과 일치하는 속성을 만듭니다.
+Azure Monitor HTTP 데이터 수집기 API를 통해 데이터를 제출할 때 사용자 지정 레코드 종류를 정의합니다. 현재는 다른 데이터 형식과 솔루션으로 만든 기존 레코드 형식에 데이터를 쓸 수 없습니다. Azure Monitor는 들어오는 데이터를 읽은 다음, 입력된 값의 데이터 형식과 일치하는 속성을 만듭니다.
 
-Log Analytics API에 대한 각각의 요청은 레코드 형식의 이름과 함께 **Log-Type** 헤더를 포함해야 합니다. 이 사용자 지정 로그를 다른 로그 형식과 구분하기 위해 입력한 이름에는 접미사 **_CL**이 자동으로 추가됩니다. 예를 들어 **MyNewRecordType**을 입력하면 Log Analytics가 **MyNewRecordType_CL** 형식의 레코드를 만듭니다. 이렇게 하면 사용자가 만든 형식 이름과 Microsoft가 현재 또는 향후에 포함한 이름 사이의 충돌을 방지할 수 있습니다.
+데이터 수집기 API에 대한 각 요청에는 레코드 종류의 이름과 함께 **Log-Type** 헤더가 포함되어야 합니다. 이 사용자 지정 로그를 다른 로그 형식과 구분하기 위해 입력한 이름에는 접미사 **_CL**이 자동으로 추가됩니다. 예를 들어 이름으로 **MyNewRecordType**을 입력할 경우 Azure Monitor는 **MyNewRecordType_CL** 형식의 레코드를 만듭니다. 이렇게 하면 사용자가 만든 형식 이름과 Microsoft가 현재 또는 향후에 포함한 이름 사이의 충돌을 방지할 수 있습니다.
 
-속성의 데이터 형식을 식별하기 위해 Log Analytics가 속성 이름에 접미사를 추가합니다. 속성에 null 값이 있으면 속성이 해당 레코드에 포함되지 않습니다. 이 표는 속성 데이터 형식과 해당하는 접미사를 나열합니다.
+속성의 데이터 형식을 식별하기 위해 Azure Monitor는 속성 이름에 접미사를 추가합니다. 속성에 null 값이 있으면 속성이 해당 레코드에 포함되지 않습니다. 이 표는 속성 데이터 형식과 해당하는 접미사를 나열합니다.
 
 | 속성 데이터 형식 | 접미사 |
 |:--- |:--- |
@@ -144,10 +146,10 @@ Log Analytics API에 대한 각각의 요청은 레코드 형식의 이름과 �
 | 날짜/시간 |_t |
 | GUID |_g |
 
-Log Analytics가 각 속성에 사용하는 데이터 형식은 새 레코드에 대한 레코드 형식이 이미 존재하는지 여부에 따라 달라집니다.
+Azure Monitor가 각 속성에 사용하는 데이터 형식은 새 레코드의 레코드 종류가 이미 있는지 여부에 따라 달라집니다.
 
-* 레코드 형식이 없으면 Log Analytics가 새로 만듭니다. Log Analytics는 JSON 형식을 사용하여 새 레코드에 대한 각 속성의 데이터 형식을 결정합니다.
-* 레코드 형식이 없으면 Log Analytics가 기존 속성에 따라 새 레코드를 만들려 합니다. 새 레코드에서 속성에 대한 데이터 형식이 일치하지 않고 기존 형식으로 변환할 수 없거나, 레코드가 존재하지 않는 속성을 포함하는 경우 Log Analytics는 관련 접미사가 있는 새 속성을 만듭니다.
+* 레코드 종류가 없는 경우 Azure Monitor는 JSON 형식 유추를 통해 새 레코드 종류를 만들어 새 레코드에 포함된 각 속성의 데이터 형식을 결정합니다.
+* 레코드 종류가 있는 경우 Azure Monitor는 기존 속성에 따라 새 레코드를 만들려고 합니다. 새 레코드에 포함된 속성의 데이터 형식이 일치하지 않고 기존 형식으로 변환할 수 없거나, 레코드가 존재하지 않는 속성을 포함하는 경우 Azure Monitor는 관련 접미사가 있는 새 속성을 만듭니다.
 
 예를 들어, 이 제출 항목은 **number_d**, **boolean_b**, **string_s** 등의 세 가지 속성이 있는 레코드를 만듭니다.
 
@@ -157,20 +159,22 @@ Log Analytics가 각 속성에 사용하는 데이터 형식은 새 레코드에
 
 ![샘플 레코드 2](media/data-collector-api/record-02.png)
 
-그러나 이 다음 제출을 실행하면 Log Analytics가 새 속성 **boolean_d** 및 **string_d**를 만듭니다. 이 값은 변환할 수 없습니다.
+그러나 이 다음 제출을 실행하면 Azure Monitor가 새 속성 **boolean_d** 및 **string_d**를 만듭니다. 이 값은 변환할 수 없습니다.
 
 ![샘플 레코드 3](media/data-collector-api/record-03.png)
 
-이후 다음 항목을 제출하면 레코드 형식을 만들기 전에 Log Analytics가 **number_s**, **boolean_s** 및 **string_s** 등의 세 가지 속성으로 레코드를 만듭니다. 이 항목에서 각각의 초기 값은 문자열 형식이 됩니다.
+이후에 다음 항목을 제출한 경우 레코드 종류가 생성되기 전에 Azure Monitor는 **number_s**, **boolean_s** 및 **string_s**의 세 가지 속성을 가진 레코드를 만듭니다. 이 항목에서 각각의 초기 값은 문자열 형식이 됩니다.
 
 ![샘플 레코드 4](media/data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>데이터 제한
-Log Analytics 데이터 수집 API에 게시된 데이터에 대한 몇 가지 제약 조건이 있습니다.
+Azure Monitor 데이터 수집 API에 게시되는 데이터와 관련된 몇 가지 제약 조건이 있습니다.
 
-* Log Analytics 데이터 수집기 API의 게시물당 최대 30MB. 이는 단일 게시물에 대한 크기 제한입니다. 단일 게시물의 데이터가 30MB를 초과하는 경우 보다 작은 크기의 청크로 분할하여 동시에 보내야 합니다.
+* Azure Monitor 데이터 수집기 API에 대한 게시당 최대 30MB. 이는 단일 게시물에 대한 크기 제한입니다. 단일 게시물의 데이터가 30MB를 초과하는 경우 보다 작은 크기의 청크로 분할하여 동시에 보내야 합니다.
 * 최대 32KB의 필드 값 제한. 필드 값이 32KB보다 크면 데이터가 잘립니다.
 * 지정된 형식의 권장되는 최대 필드 수는 50개입니다. 이는 사용 편의성 및 검색 환경 관점에서의 실용적인 제한입니다.  
+* Log Analytics 작업 영역의 테이블은 최대 500개의 열(이 문서에서는 필드라고 함)만 지원합니다. 
+* 열 이름의 최대 문자 수는 500자입니다.
 
 ## <a name="return-codes"></a>반환 코드
 HTTP 상태 코드 200는 처리를 위한 요청을 받았다는 것을 의미합니다. 이 항목은 작업이 성공적으로 완료되었음을 나타냅니다.
@@ -196,15 +200,10 @@ HTTP 상태 코드 200는 처리를 위한 요청을 받았다는 것을 의미�
 | 503 |서비스를 사용할 수 없음 |ServiceUnavailable |현재 서비스가 요청을 받을 수 없습니다. 요청을 다시 시도하세요. |
 
 ## <a name="query-data"></a>쿼리 데이터
-Log Analytics HTTP 데이터 수집기 API에서 제출한 데이터를 쿼리하려면 지정한 **LogType** 값에 **_CL**을 첨부한 것과 같은 **형식**의 레코드를 검색하십시오. 예를 들어, **MyCustomLog**를 사용한 경우**Type=MyCustomLog_CL**을 갖는 모든 레코드를 반환합니다.
-
->[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](../../azure-monitor/log-query/log-query-overview.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
-
-> `MyCustomLog_CL`
+Azure Monitor HTTP 데이터 수집기 API에서 제출한 데이터를 쿼리하려면 지정한 **LogType** 값에 **_CL**을 추가한 형식과 같은 **형식**의 레코드를 검색합니다. 예를 들어 **MyCustomLog**를 사용한 경우 `MyCustomLog_CL`이 포함된 레코드를 모두 반환합니다.
 
 ## <a name="sample-requests"></a>샘플 요청
-다음 섹션에서는 다양한 프로그래밍 언어를 사용하여 Log Analytics HTTP 데이터 수집기에 데이터를 제출하는 방법의 샘플을 제공합니다.
+다음 섹션에서는 다양한 프로그래밍 언어를 사용하여 Azure Monitor HTTP 데이터 수집기 API에 데이터를 제출하는 방법의 샘플을 제공합니다.
 
 각각의 샘플에서 다음 절차를 통해 권한 부여 헤더에 대한 변수를 설정합니다.
 
@@ -226,7 +225,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
 $TimeStampField = ""
 
 
@@ -321,10 +320,10 @@ namespace OIAPIExample
         // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-        // LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of the event type that is being submitted to Azure Monitor
         static string LogName = "DemoExample";
 
-        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
         static string TimeStampField = "";
 
         static void Main()
@@ -468,6 +467,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- Log Analytics 저장소에서 데이터를 검색하려면 [Log Search API](../../azure-monitor/log-query/log-query-overview.md)를 사용합니다.
+- [로그 검색 API](../log-query/log-query-overview.md)를 사용하여 Log Analytics 작업 영역에서 데이터를 검색합니다.
 
-- Log Analytics에 대한 Logic Apps 워크플로를 사용하여 [데이터 수집기 API로 데이터 파이프라인을 만드는 방법](../../azure-monitor/platform/create-pipeline-datacollector-api.md)을 알아봅니다.
+- Azure Monitor에 대한 Logic Apps 워크플로를 사용하여 [데이터 수집기 API로 데이터 파이프라인을 만드는](create-pipeline-datacollector-api.md) 방법을 알아봅니다.

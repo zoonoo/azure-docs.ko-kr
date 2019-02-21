@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 34b38f979fcab765a35d8aa6f0714ce85beec6fe
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105188"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895842"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -218,7 +218,7 @@ Scout 업데이트 5는 누적 업데이트입니다. 여기에는 업데이트 
 
 #### <a name="new-platform-support"></a>새 플랫폼 지원
 * SUSE Linux Enterprise Server 11 SP4(서비스 팩 4)
-* SLES 11 SP4 64비트(**InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz**)는 기본 Scout GA 패키지(**InMage_Scout_Standard_8.0.1 GA.zip**)와 함께 패키지되어 있습니다. [자격 증명 모음 만들기](#create-a-vault)에서 설명한 대로 포털에서 GA 패키지를 다운로드합니다.
+* SLES 11 SP4 64비트(**InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz**)는 기본 Scout GA 패키지(**InMage_Scout_Standard_8.0.1 GA.zip**)와 함께 패키지되어 있습니다. 자격 증명 모음 만들기에서 설명한 대로 포털에서 GA 패키지를 다운로드합니다.
 
 
 #### <a name="bug-fixes-and-enhancements"></a>버그 수정 및 향상된 기능
@@ -252,7 +252,7 @@ Scout 업데이트 4는 누적 업데이트입니다. 여기에는 업데이트 
   * CentOS 6.8
 
 > [!NOTE]
-> RHEL/CentOS 7 64비트(**InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz**)가 기본 Scout GA 패키지(**InMage_Scout_Standard_8.0.1 GA.zip**)와 함께 패키지되어 있습니다. [자격 증명 모음 만들기](#create-a-vault)에서 설명한 대로 포털에서 Scout GA 패키지를 다운로드합니다.
+> RHEL/CentOS 7 64비트(**InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz**)가 기본 Scout GA 패키지(**InMage_Scout_Standard_8.0.1 GA.zip**)와 함께 패키지되어 있습니다. 자격 증명 모음 만들기에서 설명한 대로 포털에서 Scout GA 패키지를 다운로드합니다.
 
 #### <a name="bug-fixes-and-enhancements"></a>버그 수정 및 향상된 기능
 

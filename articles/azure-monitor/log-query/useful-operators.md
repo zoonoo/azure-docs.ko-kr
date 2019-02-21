@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 쿼리의 유용한 연산자 | Microsoft Docs
-description: Log Analytics 쿼리에서 다양한 시나리오에 사용할 일반 함수입니다.
+title: Azure Monitor 로그 쿼리의 유용한 연산자 | Microsoft Docs
+description: Azure Monitor 로그 쿼리에서 다양한 시나리오에 사용할 일반 함수입니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 060b1e469a31c335f062ccd332157d13e64f9318
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183985"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000151"
 ---
-# <a name="useful-operators-in-log-analytics-queries"></a>Log Analytics 쿼리의 유용한 연산자
+# <a name="useful-operators-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 유용한 연산자
 
-아래 표에서는 Log Analytics 쿼리에서 다양한 시나리오에 사용할 일반 함수를 제공합니다.
+아래 표에서는 Azure Monitor 로그 쿼리에서 다양한 시나리오에 사용할 일반 함수를 제공합니다.
 
 ## <a name="useful-operators"></a>유용한 연산자
 
@@ -46,4 +46,4 @@ Machine Learning                        |`evaluate autocluster`, `basket`, `diff
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log Analytics에서 쿼리 작성](get-started-queries.md)에 대한 단원을 계속 진행하세요.
+- [Azure Monitor에서 로그 쿼리 작성](get-started-queries.md) 단원을 계속 진행합니다.

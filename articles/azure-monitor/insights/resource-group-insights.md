@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587515"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997026"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 리소스 그룹 모니터링
 
@@ -93,9 +93,9 @@ App Service를 선택하면 Azure Monitor 통합 문서 템플릿 갤러리가 �
 
 ![편집 상자 스크린샷](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-그러면 표 시각화를 제공하는 기본 Log Analytics 쿼리가 표시됩니다.
+그러면 표 시각화를 제공하는 기본 로그 쿼리가 표시됩니다.
 
- ![Log analytics 쿼리 창 스크린샷](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![로그 쿼리 창 스크린샷](./media/resource-group-insights/0010-failure-edit-query.png)
 
 쿼리를 직접 수정할 수 있습니다. 또는 쿼리를 참조하여 매개 변수화된 사용자 지정 통합 문서를 디자인할 때 활용할 수 있습니다.
 

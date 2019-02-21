@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: 모범 사례를 사용하여 기술 자료를 개선하고 애플리케이션/챗봇 최종 사용자에게 보다 나은 결과를 제공할 수 있습니다.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4adadf4951ffbb31a354284340a3716b194d864d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 9ea62d731cf0c16c17f3c2e4f3e1954661289934
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219280"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245544"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 모범 사례
 [기술 자료 개발 수명 주기](../Concepts/development-lifecycle-knowledge-base.md)에서는 KB를 종합적으로 관리하는 방법을 안내합니다. 모범 사례를 사용하여 기술 자료를 개선하고 애플리케이션/챗봇 최종 사용자에게 보다 나은 결과를 제공할 수 있습니다.
@@ -74,7 +74,7 @@ QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니�
 [메타데이터](../How-To/edit-knowledge-base.md)는 메타데이터 태그에 따라 사용자 쿼리 결과를 줄일 수 있는 기능을 추가합니다. 쿼리가 같더라도 메타데이터 태그에 따라 기술 자료 답변이 달라질 수 있습니다. 예를 들어 식당 지점의 위치가 다르면 *“주차장 위치는 어디인가요”* 에 대한 대답이 달라질 수 있습니다. 즉, 메타데이터는 *위치: 시애틀* 또는 *위치: 레드몬드*입니다.
 
 ### <a name="use-synonyms"></a>동의어 사용
-영어에서는 동의어에 대한 지원이 일부 제공되므로 [단어 변경](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd)을 사용하여 다른 형식의 키워드에 동의어를 추가할 수 있습니다. 동의어는 QnA Maker 서비스 수준에서 추가하고 서비스의 모든 기술 자료에서 공유해야 합니다.
+영어에서는 동의어에 대한 지원이 일부 제공되므로 대/소문자를 구분하지 않는 [단어 변경](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd)을 사용하여 다른 형식의 키워드에 동의어를 추가할 수 있습니다. 동의어는 QnA Maker 서비스 수준에서 추가하고 서비스의 모든 기술 자료에서 공유해야 합니다.
 
 |원래 단어|동의어|
 |--|--|

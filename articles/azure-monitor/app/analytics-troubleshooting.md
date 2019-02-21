@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2016
+ms.date: 02/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf999e15c04a64f717bcd7bac87e357d5ccc92e6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ecf0638aa999208331603ac30ccf4eb17b3c4500
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189935"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960686"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Application Insights의 Analytics 문제 해결
 [Application Insights Analytics](analytics.md)에 문제가 있습니까? 여기에서 시작합니다. Analytics는 Azure Application Insights의 강력한 검색 도구입니다.
@@ -36,7 +36,7 @@ ms.locfileid: "54189935"
 
 포털 런타임에 내부 오류 발생 – 처리되지 않은 예외.
 
-* 브라우저의 캐시를 삭제합니다. 
+* 브라우저의 캐시를 삭제합니다.
 
 ## <a name="e-b"></a>403 ... 다시 로드하세요.
 ![403 ... 다시 로드하십시오.](media/analytics-troubleshooting/020.png)

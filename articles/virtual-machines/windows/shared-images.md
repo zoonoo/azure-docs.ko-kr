@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: ecac7216582fa07e9c25492ddeb25e9f155da563
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 07912369179a1d1226c750a8e86837fdc6887922
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305165"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984174"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>미리 보기: Azure PowerShell을 사용하여 공유 이미지 갤러리 만들기 
 
@@ -40,6 +40,7 @@ ms.locfileid: "54305165"
 | **이미지 정의** | 이미지는 갤러리 내에 정의되고, 내부적으로 사용하기 위해 충족해야 할 요구 사항과 이미지에 대한 정보를 전달합니다. 여기에는 이미지가 Windows인지, Linux인지 여부, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함됩니다. 이미지의 형식 정의입니다. |
 | **이미지 버전** | **이미지 버전**은 갤러리를 사용하는 경우 VM을 만들 때 사용합니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. 관리되는 이미지와 마찬가지로 **이미지 버전**을 사용하여 VM을 만들 때는 이미지 버전을 사용하여 VM의 새 디스크를 만듭니다. 이미지 버전은 여러 번 사용할 수 있습니다. |
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -49,12 +50,12 @@ ms.locfileid: "54305165"
  
 ## <a name="create-vms-from-an-image"></a>이미지에서 VM 만들기
 
-이미지 버전이 완료되면 하나 이상의 새 VM을 만들 수 있습니다. [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) cmdlet에 대해 설정된 간소화된 매개 변수 세트를 사용하면 이미지 버전의 이미지 ID만 제공하면 됩니다. 
+이미지 버전이 완료되면 하나 이상의 새 VM을 만들 수 있습니다. [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet에 대해 설정된 간소화된 매개 변수 세트를 사용하면 이미지 버전의 이미지 ID만 제공하면 됩니다. 
 
 이 예제에서는 *미국 동부* 데이터 센터에서 *myResourceGroup*에 *myVMfromImage*라는 VM을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
    -ResourceGroupName "myResourceGroup" `
    -Name "myVMfromImage" `
    -Image $imageVersion.Id `
@@ -70,10 +71,10 @@ New-AzureRmVm `
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet을 사용하여 리소스 그룹, VM 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myGalleryRG
+Remove-AzResourceGroup -Name myGalleryRG
 ```
 
 ## <a name="next-steps"></a>다음 단계

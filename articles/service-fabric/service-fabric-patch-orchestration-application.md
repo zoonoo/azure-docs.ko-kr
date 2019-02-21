@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 88618e5b9de9cb8ac46b9b167e6fa6dbccd73687
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732314"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234751"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -133,9 +133,9 @@ POA는 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체�
 
 3. 업데이트된 클러스터 매니페스트의 [새 클러스터 만들기](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) 또는 [클러스터 구성 업그레이드](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server)를 사용하여 이러한 변경 내용으로 클러스터 매니페스트를 업데이트합니다. 업데이트된 클러스터 매니페스트로 클러스터가 실행되면 Service Fabric Explorer의 시스템 서비스 섹션에서 `fabric:/System/RepairManagerService`라는, 클러스터에서 실행되고 있는 복구 관리자 시스템 서비스를 볼 수 있습니다.
 
-### <a name="disable-automatic-windows-update-on-all-nodes"></a>모든 노드에서 자동 Windows 업데이트 사용 안 함
+### <a name="configure-windows-updates-for-all-nodes"></a>모든 노드에 Windows 업데이트 구성
 
-자동 Windows 업데이트를 사용하면 여러 클러스터 노드를 동시에 다시 시작할 수 있으므로 가용성 손실이 발생할 수 있습니다. 패치 오케스트레이션 앱은 기본적으로 각 클러스터 노드에서 자동 Windows 업데이트를 사용하지 않으려 합니다. 그러나 설정이 관리자 또는 그룹 정책에 따라 관리되는 경우 명시적으로 Windows 업데이트 정책을 "다운로드하기 전에 알림"으로 설정하는 것이 좋습니다.
+자동 Windows 업데이트를 사용하면 여러 클러스터 노드가 동시에 다시 시작되어 가용성 손실이 발생할 수 있습니다. 패치 오케스트레이션 앱은 기본적으로 각 클러스터 노드에서 자동 Windows 업데이트를 사용하지 않으려 합니다. 그러나 설정이 관리자 또는 그룹 정책에 따라 관리되는 경우 명시적으로 Windows 업데이트 정책을 “다운로드하기 전에 알림”으로 설정하는 것이 좋습니다.
 
 ## <a name="download-the-app-package"></a>앱 패키지 다운로드
 

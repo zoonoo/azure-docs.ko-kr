@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: d2276eb11ce904b485440a6ce91981846a980dbc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462191"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994957"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 제품 내 사용자 데이터 내보내기 및 삭제
 
@@ -53,7 +53,7 @@ Machine Learning Studio에는 다음 세 가지 종류의 계정이 있습니다
     - UI, REST API 또는 PowerShell 패키지를 통해 개인 및 고객 데이터를 내보낼 수 있습니다.
     - Azure Portal에서 데이터를 삭제할 수 있습니다.
 
-## <a name="delete-workspace-data-in-studio"></a>Studio에서 작업 영역 데이터 삭제 
+## <a name="delete"></a>Studio에서 작업 영역 데이터 삭제 
 
 ### <a name="delete-individual-assets"></a>개별 자산 삭제
 

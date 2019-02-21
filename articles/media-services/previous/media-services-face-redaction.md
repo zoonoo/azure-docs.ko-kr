@@ -4,23 +4,23 @@ description: 이 항목에서는 Azure Media Analytics로 얼굴을 편집하는
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: 910cc246aa19e19b109fc660682c6b2dc239cbb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "33784452"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004896"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 편집
+# <a name="redact-faces-with-azure-media-analytics-legacy"></a>Azure 미디어 분석으로 얼굴 편집(레거시)
 ## <a name="overview"></a>개요
 **Azure Media Redactor**는 클라우드에서 확장성 있는 얼굴 편집 기능을 제공하는 [Azure Media Analytics](media-services-analytics-overview.md) MP(미디어 프로세서)입니다. 얼굴 편집을 사용하면 선택한 개인의 얼굴을 흐리게 표시하기 위해 동영상을 수정할 수 있습니다. 공공 안전과 새 미디어 시나리오를 위해 얼굴 편집 서비스를 사용할 수 있습니다. 짧은 장면이라도 여러 명의 얼굴이 포함된 경우 수동으로 편집하려면 많은 시간이 걸릴 수 있지만 이 서비스를 사용하면 몇 번의 간단한 단계를 통해 얼굴을 편집할 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-redactor/) 를 참조하세요.
 
@@ -135,7 +135,7 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 
 ## <a name="blur-types"></a>흐리게 형식
 
-**결합** 또는 **편집** 모드에는 JSON 입력 구성을 통해 선택할 수 있는 5가지 흐리게 모드가 있습니다(**낮음**, **중간**, **높음**, **상자** 및 **검정**). 기본적으로 **중간**이 사용됩니다.
+**결합** 또는 **편집** 모드에는 JSON 입력 구성을 통해 선택할 수 있는 5가지 흐리게 모드가 있습니다( **낮음**, **중간**, **높음**, **상자** 및 **검정**). 기본적으로 **중간**이 사용됩니다.
 
 아래에 흐리게 형식의 샘플을 확인할 수 있습니다.
 

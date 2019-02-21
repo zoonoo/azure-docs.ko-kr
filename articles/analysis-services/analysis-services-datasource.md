@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c7b3695e5cb43a9c8f659a3ac1baddab51526b2d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299047"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893734"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -28,14 +28,15 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 |Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예       |    아니요      |
 |Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예       |    아니요      |
 |Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아니요        |
-|Azure Data Lake Store<sup>[1](#tab1400a)</sup>     |   예       |    아니요      |
+|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   예       |    아니요      |
 |Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     예     |   아니요       |
 |Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예       |   아니요       |
 ||||
 
-<a name="tab1400a">1</a> 테이블 형식 1400 이상 모델에만 해당됩니다.   
-<a name="azsqlmanaged">2</a> Azure SQL Database Managed Instance가 지원도비니다. Managed Instance는 Azure VNet 내에서 개인 IP 주소를 사용하여 실행되므로 온-프레미스 데이터 게이트웨이가 필요합니다.   
-<a name="databricks">3</a> Spark 커넥터를 사용하는 Azure Databricks는 현재 지원되지 않습니다.
+<a name="tab1400a">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.   
+<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance가 지원됩니다. Managed Instance는 Azure VNet 내에서 개인 IP 주소를 사용하여 실행되므로 온-프레미스 데이터 게이트웨이가 필요합니다.   
+<a name="databricks">3</a> - Spark 커넥터를 사용하는 Azure Databricks는 현재 지원되지 않습니다.   
+<a name="gen2">4</a> - ADLS Gen2는 현재 지원되지 않습니다.
 
 
 **공급자**   

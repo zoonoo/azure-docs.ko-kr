@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 75aecd166d03b751f778221632fad68d279f63a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 11eb849567079bfb1293c3c1e8ce97c43b66d493
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468872"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116847"
 ---
 # <a name="choose-the-right-consistency-level"></a>올바른 일관성 수준 선택 
 
@@ -33,6 +33,8 @@ Cosmos DB SQL API 또는 Table API를 사용하여 애플리케이션이 빌드�
 - 세션 일관성에서 제공되는 것보다 덜 엄격한 일관성 보장이 필요한 경우 일관된 접두사 일관성 수준을 사용하는 것이 좋습니다.
 
 - 가장 높은 가용성 및 가장 낮은 대기 시간이 필요한 경우 최종 일관성 수준을 사용합니다.
+
+- 성능 저하 없이 데이터 내구성을 더 높이려면 애플리케이션 계층에서 사용자 지정 일관성 수준을 만들면 됩니다. 자세한 내용은 [애플리케이션에서 사용자 지정 동기화를 구현하는 방법](how-to-custom-synchronization.md)을 참조하세요.
 
 ## <a name="cassandra-mongodb-and-gremlin-api"></a>Cassandra, MongoDB 및 Gremlin API
 

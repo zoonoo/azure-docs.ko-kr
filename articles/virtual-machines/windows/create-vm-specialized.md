@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 53062ee6384113ef8c483bc9cc6b407559c35994
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 662713a5ef350bd34f25558de69e3cbfd5fc80a3
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406129"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982865"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell을 사용하여 특수 디스크에서 Windows VM 만들기
 
@@ -37,22 +37,16 @@ Azure Portal을 사용하여 [특수 VHD에서 새 VM을 만들](create-vm-speci
 
 이 문서에서는 관리 디스크를 사용하는 방법을 보여줍니다. 저장소 계정을 사용해야 하는 레거시 배포가 있는 경우 [저장소 계정의 특수한 VHD에서 VM 만들기](sa-create-vm-specialized.md)를 참조하세요.
 
-## <a name="before-you-begin"></a>시작하기 전에
-PowerShell을 사용하려면 AzureRM.Compute PowerShell 모듈이 최신 버전인지 확인합니다. 
-
-```powershell
-Install-Module AzureRM -RequiredVersion 6.0.0
-```
-자세한 내용은 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 참조하세요.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="option-1-use-an-existing-disk"></a>옵션 1: 기존 디스크 사용
 
-삭제한 VM이 있고 OS 디스크를 다시 사용하여 새 VM을 만들려는 경우 [Get-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermdisk?view=azurermps-6.8.1)를 사용합니다.
+삭제한 VM이 있고 OS 디스크를 다시 사용하여 새 VM을 만들려는 경우 [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk?view=azurermps-6.8.1)를 사용합니다.
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
 $osDiskName = 'myOsDisk'
-$osDisk = Get-AzureRmDisk `
+$osDisk = Get-AzDisk `
 -ResourceGroupName $resourceGroupName `
 -DiskName $osDiskName
 ```
@@ -76,31 +70,31 @@ VHD를 그대로 사용하여 새 VM을 만듭니다.
 사용 가능한 저장소 계정을 표시합니다.
 
 ```powershell
-Get-AzureRmStorageAccount
+Get-AzStorageAccount
 ```
 
 기존 저장소 계정을 사용하려면 [VHD 업로드](#upload-the-vhd-to-your-storage-account) 섹션을 진행합니다.
 
 저장소 계정을 만듭니다.
 
-1. 저장소 계정을 만들 리소스 그룹의 이름을 알아야 합니다. 구독에 있는 모든 리소스 그룹 목록을 보려면 Get-AzureRmResourceGroup을 사용합니다.
+1. 저장소 계정을 만들 리소스 그룹의 이름을 알아야 합니다. 구독에 있는 모든 리소스 그룹 목록을 보려면 Get-AzResourceGroup을 사용합니다.
    
     ```powershell
-    Get-AzureRmResourceGroup
+    Get-AzResourceGroup
     ```
 
     *미국 서부* 지역에 *myResourceGroup*이라는 이름의 리소스 그룹을 만듭니다.
 
     ```powershell
-    New-AzureRmResourceGroup `
+    New-AzResourceGroup `
        -Name myResourceGroup `
        -Location "West US"
     ```
 
-2. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet을 사용하여 새 리소스 그룹에 *mystorageaccount*라는 이름의 저장소 계정을 만듭니다.
+2. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 새 리소스 그룹에 *mystorageaccount*라는 이름의 스토리지 계정을 만듭니다.
    
     ```powershell
-    New-AzureRmStorageAccount `
+    New-AzStorageAccount `
        -ResourceGroupName myResourceGroup `
        -Name mystorageaccount `
        -Location "West US" `
@@ -109,12 +103,12 @@ Get-AzureRmStorageAccount
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>저장소 계정에 VHD 업로드 
-[Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet을 사용하여 저장소 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 “C:\Users\Public\Documents\Virtual hard disks\"의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 스토리지 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 저장되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
+[Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 VHD를 업로드합니다. 이 예제에서는 “C:\Users\Public\Documents\Virtual hard disks\"의 *myVHD.vhd* 파일을 *myResourceGroup* 리소스 그룹의 *mystorageaccount*라는 스토리지 계정에 업로드합니다. 파일은 *mycontainer*라는 컨테이너에 저장되고 새 파일 이름은 *myUploadedVHD.vhd*가 됩니다.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
 $urlOfUploadedVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzureRmVhd -ResourceGroupName $resourceGroupName `
+Add-AzVhd -ResourceGroupName $resourceGroupName `
    -Destination $urlOfUploadedVhd `
    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
 ```
@@ -138,13 +132,13 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>VHD에서 관리 디스크를 만들려면
 
-[New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk)를 사용하여 사용자의 저장소 계정에 있는 특수한 VHD로 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk1*을 사용하고, 디스크를 *Standard_LRS* 저장소에 배치하고, *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd*을 원본 VHD의 URI로 사용합니다.
+[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 사용자의 스토리지 계정에 있는 특수한 VHD로 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk1*을 사용하고, 디스크를 *Standard_LRS* 저장소에 배치하고, *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd*을 원본 VHD의 URI로 사용합니다.
 
 새 VM에 대한 새 리소스 그룹을 만듭니다.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location `
+New-AzResourceGroup -Location $location `
    -Name $destinationResourceGroup
 ```
 
@@ -153,8 +147,8 @@ New-AzureRmResourceGroup -Location $location `
 ```powershell
 $sourceUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
 $osDiskName = 'myOsDisk'
-$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType Standard_LRS  `
+$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
+    (New-AzDiskConfig -AccountType Standard_LRS  `
     -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
@@ -167,7 +161,7 @@ VM의 스냅숏을 만든 다음, 이 스냅숏을 사용하여 새 관리 디�
 
 ### <a name="take-a-snapshot-of-the-os-disk"></a>OS 디스크의 스냅숏 만들기
 
-전체 VM(모든 디스크 포함) 또는 단일 디스크의 스냅숏을 만들 수 있습니다. 다음 단계에서는 [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet을 사용하여 VM의 OS 디스크에 대한 스냅숏을 만드는 방법을 보여줍니다. 
+전체 VM(모든 디스크 포함) 또는 단일 디스크의 스냅숏을 만들 수 있습니다. 다음 단계에서는 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용하여 VM의 OS 디스크에 대한 스냅숏을 만드는 방법을 보여 줍니다. 
 
 먼저 일부 매개 변수를 설정합니다. 
 
@@ -181,20 +175,20 @@ $snapshotName = 'mySnapshot'
 VM 개체를 가져옵니다.
 
 ```powershell
-$vm = Get-AzureRmVM -Name $vmName `
+$vm = Get-AzVM -Name $vmName `
    -ResourceGroupName $resourceGroupName
 ```
 OS 디스크 이름을 가져옵니다.
 
  ```powershell
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName `
+$disk = Get-AzDisk -ResourceGroupName $resourceGroupName `
    -DiskName $vm.StorageProfile.OsDisk.Name
 ```
 
 스냅숏 구성을 만듭니다. 
 
  ```powershell
-$snapshotConfig =  New-AzureRmSnapshotConfig `
+$snapshotConfig =  New-AzSnapshotConfig `
    -SourceUri $disk.Id `
    -OsType Windows `
    -CreateOption Copy `
@@ -204,24 +198,24 @@ $snapshotConfig =  New-AzureRmSnapshotConfig `
 스냅숏을 만듭니다.
 
 ```powershell
-$snapShot = New-AzureRmSnapshot `
+$snapShot = New-AzSnapshot `
    -Snapshot $snapshotConfig `
    -SnapshotName $snapshotName `
    -ResourceGroupName $resourceGroupName
 ```
 
 
-이 스냅숏을 사용하여 고성능이 필요한 VM을 만들려면 `-AccountType Premium_LRS` 매개 변수를 New-AzureRmSnapshot 명령에 추가합니다. 이 매개 변수는 스냅숏을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
+이 스냅숏을 사용하여 고성능이 필요한 VM을 만들려면 `-AccountType Premium_LRS` 매개 변수를 New-AzSnapshot 명령에 추가합니다. 이 매개 변수는 스냅숏을 만들어서 프리미엄 관리 디스크로 저장되도록 합니다. 프리미엄 관리 디스크는 표준보다 비용이 높으므로 이 매개 변수를 사용하기 전에 프리미엄이 필요한지 확인하세요.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>스냅숏에서 새 디스크 만들기
 
-[New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk)를 사용하여 스냅숏에서 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk*를 사용합니다.
+[New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)를 사용하여 스냅숏에서 관리 디스크를 만듭니다. 이 예제에서는 디스크 이름에 *myOSDisk*를 사용합니다.
 
 새 VM에 대한 새 리소스 그룹을 만듭니다.
 
 ```powershell
 $destinationResourceGroup = 'myDestinationResourceGroup'
-New-AzureRmResourceGroup -Location $location `
+New-AzResourceGroup -Location $location `
    -Name $destinationResourceGroup
 ```
 
@@ -234,8 +228,8 @@ $osDiskName = 'myOsDisk'
 관리 디스크를 만듭니다.
 
 ```powershell
-$osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig  -Location $location -CreateOption Copy `
+$osDisk = New-AzDisk -DiskName $osDiskName -Disk `
+    (New-AzDiskConfig  -Location $location -CreateOption Copy `
     -SourceResourceId $snapshot.Id) `
     -ResourceGroupName $destinationResourceGroup
 ```
@@ -253,7 +247,7 @@ VM에 대한 [가상 네트워크](../../virtual-network/virtual-networks-overvi
    
     ```powershell
     $subnetName = 'mySubNet'
-    $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+    $singleSubnet = New-AzVirtualNetworkSubnetConfig `
        -Name $subnetName `
        -AddressPrefix 10.0.0.0/24
     ```
@@ -262,7 +256,7 @@ VM에 대한 [가상 네트워크](../../virtual-network/virtual-networks-overvi
    
     ```powershell
     $vnetName = "myVnetName"
-    $vnet = New-AzureRmVirtualNetwork `
+    $vnet = New-AzVirtualNetwork `
        -Name $vnetName -ResourceGroupName $destinationResourceGroup `
        -Location $location `
        -AddressPrefix 10.0.0.0/16 `
@@ -278,11 +272,11 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 VM에 로그인할 수 있
 ```powershell
 $nsgName = "myNsg"
 
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
     -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
     -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
    -ResourceGroupName $destinationResourceGroup `
    -Location $location `
    -Name $nsgName -SecurityRules $rdpRule
@@ -298,7 +292,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
    
     ```powershell
     $ipName = "myIP"
-    $pip = New-AzureRmPublicIpAddress `
+    $pip = New-AzPublicIpAddress `
        -Name $ipName -ResourceGroupName $destinationResourceGroup `
        -Location $location `
        -AllocationMethod Dynamic
@@ -308,7 +302,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
    
     ```powershell
     $nicName = "myNicName"
-    $nic = New-AzureRmNetworkInterface -Name $nicName `
+    $nic = New-AzNetworkInterface -Name $nicName `
        -ResourceGroupName $destinationResourceGroup `
        -Location $location -SubnetId $vnet.Subnets[0].Id `
        -PublicIpAddressId $pip.Id `
@@ -323,31 +317,31 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 
 ```powershell
 $vmName = "myVM"
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize "Standard_A2"
 ```
 
 ### <a name="add-the-nic"></a>NIC 추가
     
 ```powershell
-$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+$vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
     
 
 ### <a name="add-the-os-disk"></a>OS 디스크 추가 
 
-[Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk)를 사용하여 OS 디스크를 구성에 추가합니다. 이 예에서는 디스크 크기를 *128GB*로 설정하고 Managed Disk를 *Windows* OS 디스크로 연결합니다.
+[Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk)를 사용하여 OS 디스크를 구성에 추가합니다. 이 예에서는 디스크 크기를 *128GB*로 설정하고 Managed Disk를 *Windows* OS 디스크로 연결합니다.
  
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
+$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 
 ### <a name="complete-the-vm"></a>VM 완료 
 
-방금 만든 구성으로 [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 VM을 만듭니다.
+방금 만든 구성으로 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 VM을 만듭니다.
 
 ```powershell
-New-AzureRmVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
+New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
 ```
 
 이 명령에 성공할 경우 다음과 유사한 출력이 표시됩니다.
@@ -363,7 +357,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 새로 만든 VM은 [Azure Portal](https://portal.azure.com)에서 **찾아보기** > **가상 머신**에 표시되며 다음 PowerShell 명령을 사용해도 표시할 수 있습니다.
 
 ```powershell
-$vmList = Get-AzureRmVM -ResourceGroupName $destinationResourceGroup
+$vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 

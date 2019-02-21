@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics에서 쿼리 시작 | Microsoft Docs
-description: 이 문서에서는 Log Analytics에서 쿼리 작성을 시작하기 위한 자습서를 제공합니다.
+title: Azure Monitor에서 로그 쿼리 시작 | Microsoft Docs
+description: 이 문서에서는 Azure Monitor에서 로그 쿼리 작성을 시작하기 위한 자습서를 제공합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 326e12444067e950b9d6ae0862424589d444b83d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885501"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994890"
 ---
-# <a name="get-started-with-queries-in-log-analytics"></a>Log Analytics에서 쿼리 시작
+# <a name="get-started-with-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리 시작
 
 
 > [!NOTE]
-> 이 자습서를 완료하기 전에 [Analytics 포털 시작](get-started-portal.md)을 완료해야 합니다.
+> 이 자습서를 완료하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md)을 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-이 자습서에서는 Azure Log Analytics 쿼리를 작성하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Monitor 로그 쿼리를 작성하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
 - 쿼리의 구조 이해
 - 쿼리 결과 정렬
@@ -43,10 +43,10 @@ ms.locfileid: "52885501"
 쿼리는 테이블 이름 또는 *search* 명령을 사용하여 시작할 수 있습니다. 쿼리에 대한 명확한 범위를 정의하고 쿼리 성능 및 결과의 관련성을 개선하므로 테이블 이름을 사용하여 시작해야 합니다.
 
 > [!NOTE]
-> Azure Log Analytics 쿼리 언어는 대/소문자를 구분합니다. 언어 키워드는 일반적으로 소문자로 작성됩니다. 쿼리에서 테이블 또는 열 이름을 사용하는 경우 스키마 창에 표시된 대로 정확한 대/소문자를 사용해야 합니다.
+> Azure Monitor에서 사용되는 데이터 탐색기 쿼리 언어는 대/소문자를 구분합니다. 언어 키워드는 일반적으로 소문자로 작성됩니다. 쿼리에서 테이블 또는 열 이름을 사용하는 경우 스키마 창에 표시된 대로 정확한 대/소문자를 사용해야 합니다.
 
 ### <a name="table-based-queries"></a>테이블 기반 쿼리
-Azure Log Analytics는 테이블에 각각 여러 열로 구성된 데이터를 구성합니다. 모든 테이블 및 열은 Analytics 포털에서 스키마 창에 표시됩니다. 관심 있는 테이블을 식별한 다음, 일부 데이터를 살펴봅니다.
+Azure Monitor는 테이블에 각각 여러 열로 구성된 로그 데이터를 구성합니다. 모든 테이블 및 열은 Analytics 포털에서 Log Analytics의 스키마 창에 표시됩니다. 관심 있는 테이블을 식별한 다음, 일부 데이터를 살펴봅니다.
 
 ```Kusto
 SecurityEvent
@@ -164,7 +164,7 @@ SecurityEvent
 
 앞의 예제에서는 이 출력을 생성합니다.
 
-![Log Analytics 프로젝트 결과](media/get-started-queries/project.png)
+![쿼리 프로젝트 결과](media/get-started-queries/project.png)
 
 **project**를 사용하여 열 이름을 바꾸고 새 열을 정의할 수도 있습니다. 다음 예제에서는 project를 사용하여 다음을 수행합니다.
 
@@ -236,7 +236,7 @@ Perf
 
 출력을 명확히 하려면 시간에 따른 사용 가능한 메모리를 보여주는 시간 차트로 표시하도록 선택합니다.
 
-![시간에 따른 Log Analytics 메모리](media/get-started-queries/chart.png)
+![시간에 따른 쿼리 메모리](media/get-started-queries/chart.png)
 
 
 

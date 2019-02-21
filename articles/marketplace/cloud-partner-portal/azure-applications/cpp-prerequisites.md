@@ -14,16 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1fe847bd0cdceec7eccab8218ccf787d8f4366ba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195823"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097793"
 ---
 # <a name="azure-application-prerequisites"></a>Azure 애플리케이션 필수 구성 요소
 
-이 문서에서는 Azure Marketplace에 관리되는 애플리케이션 제품을 게시하기 위한 기술 및 비즈니스 필수 구성 요소를 설명합니다.
+이 문서에서는 Azure Marketplace에 관리되는 애플리케이션 제품을 게시하기 위한 기술 및 비즈니스 필수 구성 요소를 설명합니다.  아직 게시하지 않은 경우 [Azure Marketplace용 솔루션 템플릿 및 관리형 애플리케이션 빌드](https://channel9.msdn.com/Events/Build/2018/BRK3603) 비디오를 시청하세요.
+
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항
 
@@ -35,7 +36,8 @@ ms.locfileid: "53195823"
   * [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 커뮤니티가 참여한 템플릿을 사용하여 Azure Resource Manager를 통해 Azure 리소스를 배포하여 생산성을 높일 수 있습니다. Azure Resource Manager를 사용하면 선언적 템플릿을 통해 애플리케이션을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 애플리케이션 수명 주기의 각 단계 중에 애플리케이션을 반복해서 배포합니다.
   * [GitHub: Azure Resource Manager 빠른 시작 템플릿](https://github.com/azure/azure-quickstart-templates) 이 리포지토리는 커뮤니티가 참여한 현재 사용 가능한 모든 Azure Resource Manager 템플릿을 포함합니다. 검색 가능 템플릿 인덱스는 https://azure.microsoft.com/en-us/documentation/templates/에서 유지 관리됩니다.
 * UI 정의 만들기<br>
-자세한 내용은 [관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)를 참조하세요. 이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 응용 프로그램을 만들기 위한 사용자 인터페이스를 생성합니다.
+자세한 내용은 [관리되는 애플리케이션에 대한 Azure Portal 사용자 인터페이스 만들기](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)를 참조하세요. 이 문서에서는 createUiDefinition.json 파일의 핵심 개념을 소개합니다. Azure Portal에서 이 파일을 사용하여 관리되는 애플리케이션을 만들기 위한 사용자 인터페이스를 생성합니다.
+
 
 ## <a name="business-requirements"></a>비즈니스 요구 사항
 
@@ -52,20 +54,23 @@ ms.locfileid: "53195823"
 * 소프트웨어 및 타사 소프트웨어 종속성에 대해 사용 허가를 받을 책임이 있습니다.
 * Azure Marketplace 및 Azure Portal에 등록할 제안에 대한 조건을 충족하는 콘텐츠를 제공해야 합니다.
 * Microsoft Azure Marketplace 참가 정책 및 게시자 계약의 약관에 동의해야 합니다.
-* Microsoft Azure 웹 사이트 사용 조건, Microsoft 개인정보처리방침 및 Microsoft Azure Certified 프로그램 계약을 준수해야 합니다.
+* Microsoft Azure 웹 사이트 사용 약관, Microsoft 개인정보처리방침 및 Microsoft Azure Certified 프로그램 계약을 준수해야 합니다.
+
 
 ## <a name="publishing-requirements"></a>게시 요구 사항
 
 새 Azure 애플리케이션 제품을 게시하려면 다음 필수 구성 요소를 충족해야 합니다.
 
-* 메타데이터를 사용할 수 있도록 준비합니다. 다음 목록(일부임)은 이 메타데이터의 예제입니다.
+* 메타데이터를 사용할 수 있도록 준비합니다. 이 메타데이터의 예를 보여 주는 목록은 다음과 같습니다(완전하지 않음).
   * 제목
   * 설명(HTML 형식)
-  * PNG 형식이고 크기가 40 x 40 픽셀, 90 x 90 픽셀, 115 x 115 픽셀 및 255 x 115 픽셀로 고정되어 있는 로고 이미지입니다.
-* 사용 약관 및 개인정보처리방침
+  * 로고 이미지(PNG 형식) 및 고정된 이미지 크기(40x40 픽셀, 90x90 픽셀, 115x115 픽셀 및 255x115 픽셀)
+* *사용 약관* 및 *개인정보처리방침*
 * 문서화
 * 지원 연락처
 
+
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 애플리케이션 제품 만들기](./cpp-create-offer.md) 
+모든 요구 사항이 충족되면 [Azure 애플리케이션 제안을 만들](./cpp-create-offer.md) 준비가 됩니다. 
+ 

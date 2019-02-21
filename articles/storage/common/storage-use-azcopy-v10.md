@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: a4e115194d7e903edae4b4713c4f65eef9895cbf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9009e898b00212dba4dec9bf38af2bfa057b8ea
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467121"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244609"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>AzCopy v10(미리 보기)을 사용하여 데이터 전송
 
@@ -54,8 +54,11 @@ AzCopy v10은 설치가 필요하지 않습니다. 선호하는 명령줄 애플
 ## <a name="authentication-options"></a>인증 옵션
 
 AzCopy v10을 사용하면 Azure Storage로 인증할 때 다음 옵션을 사용할 수 있습니다.
-- **Azure Active Directory[Blob 및 ADLS Gen2에서 지원됨]**. Azure Active Directory를 사용하여 ```.\azcopy login```으로 로그인합니다.  사용자가 Azure Active Directory 인증을 사용하여 Blob 스토리지에 데이터를 쓰려면 ["Storage Blob 데이터 기여자" 역할이 할당](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)되어야 합니다.
-- **SAS 토큰[Blob 및 파일 서비스에서 지원됨]**. 명령줄에서 Blob 경로에 SAS 토큰을 추가하여 사용합니다. Azure Portal, [Storage 탐색기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 또는 원하는 다른 도구를 사용하여 SAS 토큰을 생성할 수 있습니다. 자세한 내용은 [예제](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)를 참조하세요.
+- **Azure Active Directory[Blob 및 ADLS Gen2 서비스 지원]**. Azure Active Directory를 사용하여 ```.\azcopy login```으로 로그인합니다.  사용자가 Azure Active Directory 인증을 사용하여 Blob 스토리지에 데이터를 쓰려면 ["Storage Blob 데이터 기여자" 역할이 할당](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)되어야 합니다.
+- **SAS 토큰[Blob 및 파일 서비스 지원]**. 명령줄에서 Blob 경로에 SAS 토큰을 추가하여 사용합니다. Azure Portal, [Storage 탐색기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 또는 원하는 다른 도구를 사용하여 SAS 토큰을 생성할 수 있습니다. 자세한 내용은 [예제](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)를 참조하세요.
+
+> [!IMPORTANT]
+> Microsoft 지원에 지원 요청을 제출하는 경우(또는 타사와 관련된 문제를 해결하려는 경우) SAS를 실수로 다른 사람과 공유하지 않도록 실행하려는 명령의 수정 버전을 공유해 주세요. 수정 버전은 로그 파일의 시작 부분에서 찾을 수 있습니다. 자세한 내용은 이 문서의 뒷부분에 나오는 문제 해결 섹션을 검토하세요.
 
 ## <a name="getting-started"></a>시작
 
@@ -206,11 +209,33 @@ set AZCOPY_CONCURRENCY_VALUE=<value>
 export AZCOPY_CONCURRENCY_VALUE=<value>
 # For MacOS
 export AZCOPY_CONCURRENCY_VALUE=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
 ```
 
 ## <a name="troubleshooting"></a>문제 해결
 
-AzCopy v10은 모든 작업에 대한 로그 파일 및 계획 파일을 만듭니다. 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다. 로그에는 실패 상태(UPLOADFAILED, COPYFAILED 및 DOWNLOADFAILED), 전체 경로, 실패 이유가 포함됩니다. 작업 로그 및 계획 파일은 %USERPROFILE\\.azcopy 폴더에 있습니다.
+AzCopy v10은 모든 작업에 대한 로그 파일 및 계획 파일을 만듭니다. 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다. 로그에는 실패 상태(UPLOADFAILED, COPYFAILED 및 DOWNLOADFAILED), 전체 경로, 실패 이유가 포함됩니다. 작업 로그 및 플랜 파일은 Windows의 %USERPROFILE\\.azcopy 폴더 또는 Mac 및 Linux의 $HOME\\.azcopy 폴더에 있습니다.
+
+> [!IMPORTANT]
+> Microsoft 지원에 지원 요청을 제출하는 경우(또는 타사와 관련된 문제를 해결하려는 경우) SAS를 실수로 다른 사람과 공유하지 않도록 실행하려는 명령의 수정 버전을 공유해 주세요. 수정 버전은 로그 파일의 시작 부분에서 찾을 수 있습니다.
+
+### <a name="change-the-location-of-the-log-files"></a>로그 파일의 위치 변경
+
+필요에 따라 또는 OS 디스크가 채워지는 것을 방지하기 위해 로그 파일의 위치를 변경할 수 있습니다.
+
+```cmd
+# For Windows:
+set AZCOPY_LOG_LOCATION=<value>
+# For Linux:
+export AZCOPY_LOG_LOCATION=<value>
+# For MacOS
+export AZCOPY_LOG_LOCATION=<value>
+# To check the current value of the variable on all the platforms
+.\azcopy env
+# If the value is blank then the default value is currently in use
+```
 
 ### <a name="review-the-logs-for-errors"></a>오류에 대한 로그 검토
 

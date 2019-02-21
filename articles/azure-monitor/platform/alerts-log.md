@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cb4b063d17555084f4065d7d7df931b96b95d9a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 29050be7587f88ce7a1f5370f50dcfa1ecd68306
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751483"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990448"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -106,8 +106,7 @@ ms.locfileid: "55751483"
 
     앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
-사용자는 [Azure Portal의 Logs Analytics 페이지](../../azure-monitor/log-query/portals.md#log-analytics-page
-)에서 해당 분석 쿼리를 종료한 다음, ‘+ 새 경고 규칙’ 단추를 통해 경고를 만들도록 푸시할 수 있습니다. 그런 다음, 위 자습서의 6단계에 있는 지침을 따릅니다.
+사용자는 [Logs Analytics](../log-query/portals.md)에서 해당 분석 쿼리를 종료한 다음, [경고 설정] 단추를 통해 경고를 만들도록 푸시할 수 있습니다. 그런 다음, 위 자습서의 6단계에 있는 지침을 따릅니다.
 
  ![Log Analytics - 경고 설정](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -317,12 +316,12 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
 > Log Analytics에 대한 로그 경고는 레거시 [Log Analytics 경고 API](../../azure-monitor/platform/api-alerts.md) 및 [Log Analytics 저장된 검색 및 경고](../../azure-monitor/insights/solutions-resources-searches-alerts.md)의 레거시 템플릿을 사용하여 관리할 수도 있습니다. 기본적으로 여기에서 설명하는 새 ScheduledQueryRules API 사용에 대한 자세한 내용은 [Log Analytics 경고에 대한 새 API로 전환](alerts-log-api-switch.md)을 참조하세요.
 
 
-로그 경고는 현재 전용 PowerShell 또는 CLI 명령이 없지만 아래와 같이 [리소스 템플릿 섹션](#azure-resource-template-for-application-insights)에 이전에 표시된 샘플 리소스 템플릿(sampleScheduledQueryRule.json)에 대한 Azure Resource Manager PowerShell cmdlet을 통해 사용할 수 있습니다.
+로그 경고는 현재 전용 PowerShell 또는 CLI 명령이 없지만 아래와 같이 리소스 템플릿 섹션에 이전에 표시된 샘플 리소스 템플릿(sampleScheduledQueryRule.json)에 대한 Azure Resource Manager PowerShell cmdlet을 통해 사용할 수 있습니다.
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
-[리소스 템플릿 섹션](#azure-resource-template-for-application-insights)에 이전에 표시된 샘플 리소스 템플릿(sampleScheduledQueryRule.json)에 대한 Azure CLI의 Azure Resource Manager 명령을 통한 사용량이 아래에 나와 있습니다.
+리소스 템플릿 섹션에 이전에 표시된 샘플 리소스 템플릿(sampleScheduledQueryRule.json)에 대한 Azure CLI의 Azure Resource Manager 명령을 통한 사용량이 아래에 나와 있습니다.
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

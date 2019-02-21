@@ -3,9 +3,8 @@ title: 테넌트를 제한하여 클라우드 앱에 대한 액세스 관리 - A
 description: 테넌트 제한을 사용하여 Azure AD 테넌트를 기준으로 앱에 액세스할 수 있는 사용자를 관리하는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: yossib
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: richagi
-ms.openlocfilehash: d6030c2bf169d74959279b9c05298db90138a94f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f2dc03b329ce8a4b42f44b958aee96654dafb098
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163095"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197745"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -89,7 +89,7 @@ login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 
 ### <a name="end-user-experience"></a>최종 사용자 환경
 
-예제 사용자는 Contoso 네트워크에 있지만 Outlook 온라인과 같은 공유 SaaS 애플리케이션의 Fabrikam 인스턴스에 액세스하려고 합니다. Fabricam이 Contoso 인스턴스에 대해 허용되지 않는 테넌트인 경우 다음과 같은 페이지가 표시됩니다.
+예제 사용자는 Contoso 네트워크에 있지만 Outlook 온라인과 같은 공유 SaaS 애플리케이션의 Fabrikam 인스턴스에 액세스하려고 합니다. Fabrikam이 Contoso 인스턴스에 대해 허용되지 않는 테넌트인 경우 다음과 같은 페이지가 표시됩니다.
 
 ![허용되지 않는 테넌트의 사용자에 대한 액세스 거부 페이지](./media/tenant-restrictions/end-user-denied.png)
 

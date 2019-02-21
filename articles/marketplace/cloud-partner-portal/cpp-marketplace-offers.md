@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 02/07/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ca4979188830fcb53732750a3eaadfc2009c4f9a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f13d49fde7f0e40f6dcb026fcb20cb11c028c64b
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658711"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100892"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure 및 AppSource Marketplace 제품
 
@@ -32,6 +32,18 @@ ms.locfileid: "55658711"
 **Azure Marketplace 및 AppSource에 대한 앱 및 서비스 빌드 - 빌드 2018**
 
 이러한 Marketplace에 대한 자세한 내용은 [Azure Marketplace 및 AppSource 게시 가이드](../marketplace-publishers-guide.md)를 참조하세요.
+
+
+## <a name="common-offer-operations"></a>일반적인 제품 작업
+
+새 제품을 만드는 과정은 예를 들어 [Azure 애플리케이션 제품](./azure-applications/cpp-azure-app-offer.md)과 [컨설팅 서비스 제품](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) 등 제품 유형 간에 크게 다릅니다.  반면, [Cloud 파트너 포털](https://cloudpartner.azure.com)의 제품에 대해 수행하는 다른 많은 작업은 제품 유형 간에 비교적 표준화되었습니다.  게시, 상태 보기, 업데이트 및 삭제와 같은 일반적인 작업은 [제품 관리](./manage-offers/cpp-manage-offers.md) 섹션에서 다루고 있습니다.
+
+
+## <a name="test-drive"></a>시험 사용
+
+*시험 사용*은 고객에게 설정된 각 제품에 대해 “구입 전 시험 사용” 데모 옵션을 제공하는 마켓플레이스 기능입니다.  시험 사용 기능은 제품 유형의 다음 하위 세트로 제한됩니다. [Azure 애플리케이션](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance 및 Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [SaaS 애플리케이션](./saas-app/cpp-saas-offer.md) 및 [가상 머신](./virtual-machine/cpp-virtual-machine-offer.md).  이 기능을 사용하려면 게시자가 해당 제품에 맞게 사용자 지정된 시험 사용 템플릿을 만들어야 합니다.  자세한 내용은 [시험 사용](../cloud-partner-portal-orig/what-is-test-drive.md) 섹션을 참조하세요.
+
+[시험 사용 필터](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive)를 적용하여 시험 사용 데모가 있는 기존 마켓플레이스 제품을 찾아볼 수 있습니다. 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Azure Marketplace 및 AppSource 제품 유형

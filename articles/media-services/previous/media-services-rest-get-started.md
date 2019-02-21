@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d27b508362193b79d7464ae49683479b2f8fc7ba
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237607"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991246"
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작
+# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작  
+
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 이 자습서에서는 AMS(Azure Media Services) REST API를 사용하여 주문형 비디오(VoD) 콘텐츠 제공 애플리케이션을 구현하는 단계를 안내합니다.
@@ -210,7 +211,7 @@ Blob 컨테이너에 디지털 미디어 파일을 업로드 한 후 **MERGE** H
 
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>쓰기 권한으로 AccessPolicy 만들기
-blob 저장소에 모든 파일을 업로드하기 전에 자산에 쓰기 위한 액세스 정책 권한을 설정합니다. 이렇게 하려면 AccessPolicies 엔터티 집합에 HTTP 요청을 게시합니다. 작성 시 DurationInMinutes 값을 정의하지 않으면 응답에서 500 내부 서버 오류 메시지가 다시 나타납니다. AccessPolicies에 대한 자세한 내용은 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy)를 참조하세요.
+년간 File Storage  유지 관리 비용 합계 이렇게 하려면 AccessPolicies 엔터티 집합에 HTTP 요청을 게시합니다. 작성 시 DurationInMinutes 값을 정의하지 않으면 응답에서 500 내부 서버 오류 메시지가 다시 나타납니다. AccessPolicies에 대한 자세한 내용은 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy)를 참조하세요.
 
 다음 예제에서는 AccessPolicy를 만드는 방법을 보여 줍니다.
 
@@ -268,7 +269,7 @@ SAS URL의 형식은 다음과 같습니다.
 다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
 * 지정된 자산과 연관된 고유 로케이터는 한 번에 5개 이상 가질 수 없습니다. 
-* 파일을 즉시 업로드해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 클라이언트 컴퓨터와 Media Services 사이에 시간차가 있을 수 있기 때문입니다. 또한 StartTime 값은 다음 DateTime 형식이어야 합니다. YYYY-MM-DDTHH:mm:ssZ(예: "2014-05-23T17:53:50Z").    
+* 파일을 즉시 업로드해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 클라이언트 컴퓨터와 Media Services 사이에 시간차가 있을 수 있기 때문입니다. 또한 StartTime 값은 다음 날짜/시간 형식이어야 합니다. YYYY-MM-DDTHH:mm:ssZ(예: "2014-05-23T17:53:50Z").    
 * 로케이터를 만든 후 사용할 수 있을 때까지 30-40초의 지연이 있을 수 있습니다. 이 문제는 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 및 원본 로케이터 모두에 적용됩니다.
 
 다음 예제에서는 요청 본문의 형식 속성에서 정의한 대로(SAS 로케이터의 경우 "1" 그리고 주문형 원본 로케이터의 경우 "2") SAS URL 로케이터를 만드는 방법을 보여 줍니다. 반환된 **경로** 속성은 파일 업로드 시 반드시 사용해야 하는 URL을 포함합니다.
@@ -326,7 +327,7 @@ SAS URL의 형식은 다음과 같습니다.
        "Name":null
     }
 
-### <a name="upload-a-file-into-a-blob-storage-container"></a>Blob 저장소 컨테이너에 파일 업로드
+### <a name="upload-a-file-into-a-blob-storage-container"></a>File Storage 사용 시작
 AccessPolicy와 로케이터를 설정했으면 실제 파일은 Azure Storage REST API를 사용하여 Azure Blob Storage 컨테이너에 업로드됩니다. 블록 blob으로 파일을 업로드해야 합니다. 페이지 blob은 Azure Media Services에서 지원되지 않습니다.  
 
 > [!NOTE]
@@ -407,7 +408,7 @@ Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST A
 
 Media Services에 자산을 삽입하고 나면 미디어를 클라이언트에 배달하기 전에 인코딩, 트랜스믹싱, 워터마크 지정 등을 수행할 수 있습니다. 이러한 활동은 높은 성능과 가용성을 보장하기 위해 여러 백그라운드 역할 인스턴스에 대해 예약 및 실행합니다. 이러한 활동을 작업이라고 하며 각 작업은 자산 파일에서 실제 작업을 수행하는 원자성 작업으로 구성됩니다(자세한 내용은 [작업](https://docs.microsoft.com/rest/api/media/operations/job), [태스크](https://docs.microsoft.com/rest/api/media/operations/task) 설명 참조).
 
-앞에서 언급한 대로, Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 클라이언트에 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 파일을 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 형식 중 하나로 동적 패키징합니다.
+앞에서 언급한 대로, Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 클라이언트에 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 파일을 다음 형식 중 하나로 동적 패키징합니다. HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH
 
 다음 섹션에서는 하나의 인코딩 작업을 포함하는 작업을 만드는 방법을 보여 줍니다. 이 작업은 **미디어 인코더 표준**을 사용하여 메자닌 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정합니다. 이 섹션에서는 작업 진행 상황을 모니터링하는 방법도 보여 줍니다. 작업이 완료되면 자산에 대한 액세스하는 데 필요한 로케이터를 만들 수 있습니다.
 
@@ -458,7 +459,7 @@ Media Services에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐�
     }
 
 ### <a name="create-a-job"></a>작업 만들기
-각 작업을 수행하려는 처리 유형에 따라 하나 이상의 작업을 가질 수 있습니다. REST API를 통해 두 방법 중 하나로 작업 및 관련된 작업을 만들 수 있습니다. 작업은 작업 엔터티에 대한 작업 탐색 속성 또는 OData 배치를 통해 인라인으로 정의될 수 있습니다. Media Services SDK는 일괄 처리를 사용합니다. 하지만 이 문서에 있는 코드 예제 가독성의 경우 작업은 인라인으로 정의됩니다. Batch 처리에 대한 정보는 [Open Data Protocol(OData) Batch 처리](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)를 참조하세요.
+각 작업을 수행하려는 처리 유형에 따라 하나 이상의 작업을 가질 수 있습니다. REST API를 통해 다음 두 가지 방법 중 하나로 작업 및 관련된 작업을 만들 수 있습니다. 작업 엔터티에 대한 작업 탐색 속성 또는 OData 일괄 처리를 통해 작업을 인라인으로 정의할 수 있습니다. Media Services SDK는 일괄 처리를 사용합니다. 하지만 이 문서에 있는 코드 예제 가독성의 경우 작업은 인라인으로 정의됩니다. Batch 처리에 대한 정보는 [Open Data Protocol(OData) Batch 처리](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)를 참조하세요.
 
 다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. 다음 설명서 섹션은 미디어 인코더 표준 프로세서에서 지원하는 모든 [작업 사전 설정](https://msdn.microsoft.com/library/mt269960) 목록을 포함합니다.  
 
@@ -692,7 +693,7 @@ Media Services를 사용하면 CancelJob 함수를 통해 실행 중인 작업�
 
 ## <a id="publish_get_urls"></a>REST API를 통해 자산을 게시하고 스트리밍 기능 및 URL 점진적 다운로드를 사용
 
-자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. Media Services는 두 가지 유형의 로케이터를 지원합니다.하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다. 
+자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. Media Services는 두 가지 유형의 로케이터를 지원합니다. 하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다. 
 
 로케이터를 만든 후에 파일을 스트리밍하거나 다운로드하는 데 사용되는 URL을 작성할 수 있습니다.
 
@@ -742,7 +743,7 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
 성공하면 사용자가 만든 AccessPolicy 엔터티를 설명하는 201 성공 코드가 반환됩니다. 이제 AccessPolicy Id를 로케이터 엔터티를 만들기 위해 배달하려는 파일이 포함된 자산(예: 출력 자산)의 자산 ID와 함께 사용합니다.
 
 > [!NOTE]
-> 이 기본 워크플로는 자산을 통합할 때 파일을 업로드하는 것과 같습니다(이 항목의 앞부분에서 설명함). 또한 파일을 업로드하는 것과 마찬가지로 사용자(또는 클라이언트)가 파일에 즉시 액세스해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 이 동작은 클라이언트와 Media Services 사이에 시간차가 있을 수 있기 때문에 필요합니다. StartTime 값은 YYYY-MM-DDTHH:mm:ssZ(예: 2014-05-23T17:53:50Z) 형식의 DateTime이어야 합니다.
+> 이 기본 워크플로는 자산을 통합할 때 파일을 업로드하는 것과 같습니다(이 항목의 앞부분에서 설명함). 또한 파일을 업로드하는 것과 마찬가지로 사용자(또는 클라이언트)가 파일에 즉시 액세스해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 이 동작은 클라이언트와 Media Services 사이에 시간차가 있을 수 있기 때문에 필요합니다. StartTime 값은 다음 날짜/시간 형식이어야 합니다. YYYY-MM-DDTHH:mm:ssZ(예: "2014-05-23T17:53:50Z").
 >
 >
 

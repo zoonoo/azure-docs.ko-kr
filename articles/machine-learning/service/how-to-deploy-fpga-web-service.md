@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9c26a2a0eaf9c2669a71cdca729a6e64fe5cd5c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d7403d4f791151b167f03ee79c30623bbd644008
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301308"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100717"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용하여 FPGA에 웹 서비스로 모델 배포
 
@@ -179,7 +179,7 @@ registered_model.delete()
 
 ## <a name="secure-fpga-web-services"></a>보안 FPGA 웹 서비스
 
-현재는 SSL을 사용하여 FPGA 웹 서비스를 보호할 수 없습니다.
+FPGA 웹 서비스 보안에 대한 자세한 내용은 [웹 서비스 보호](how-to-secure-web-service.md) 문서를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

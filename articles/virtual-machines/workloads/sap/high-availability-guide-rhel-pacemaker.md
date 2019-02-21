@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 6001681376011d03f7417d2099c0765e1a6cb5ae
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 3c4f1be97308062adc28a0b49ee36c3492906d63
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750121"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990219"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -216,7 +216,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 }
 ```
 
-### <a name="1-assign-the-custom-role-to-the-service-principal"></a>**[1]** 서비스 주체에 사용자 지정 역할 할당
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** 서비스 주체에 사용자 지정 역할 할당
 
 마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할을 더 이상 사용하지 마십시오!
 

@@ -8,20 +8,22 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 33f96c67e7179104d1895cf62f834d3b592bee04
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 86ccd35d14df529a22bd4cdcd50566e7dc0c1375
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487628"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983716"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>명령 실행을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
 명령 실행은 VM 에이전트를 사용하여 Azure Windows VM 내에서 PowerShell 스크립트를 실행합니다. 이러한 스크립트는 일반 컴퓨터 또는 애플리케이션 관리에 사용할 수 있으며, VM 액세스 및 네트워크 문제를 신속하게 진단 및 수정하고 VM을 정상 상태로 되돌리는 데 사용할 수 있습니다.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="benefits"></a>이점
 
-가상 머신에 액세스하는 데 사용할 수 있는 여러 옵션이 있습니다. 명령 실행은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 또는 Windows VM용 [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)을 통해 사용할 수 있습니다.
+가상 머신에 액세스하는 데 사용할 수 있는 여러 옵션이 있습니다. 명령 실행은 VM 에이전트를 사용하여 원격으로 가상 머신에서 스크립트를 실행할 수 있습니다. 명령 실행은 Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 또는 Windows VM용 [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand)을 통해 사용할 수 있습니다.
 
 이 기능은 가상 머신 내에서 스크립트를 실행하려는 경우 모든 시나리오에서 유용하며, 부적절한 네트워크 또는 관리 사용자 구성으로 인해 RDP 또는 SSH를 개방하지 않은 가상 머신의 문제를 해결하고 수정할 수 있는 유일한 방법입니다.
 
@@ -72,10 +74,11 @@ ms.locfileid: "55487628"
 
 ## <a name="powershell"></a>PowerShell
 
-다음은 Azure VM에서 PowerShell 스크립트를 실행하기 위해 [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet을 사용하는 예제입니다. cmdlet에서는 `ScriptPath` 변수에서 참조되는 스크립트가 cmdlet이 실행되는 위치의 로컬이어야 합니다.
+다음은 Azure VM에서 PowerShell 스크립트를 실행하기 위해 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet을 사용하는 예제입니다. cmdlet에서는 `-ScriptPath` 매개 변수에서 참조되는 스크립트가 cmdlet이 실행되는 위치의 로컬이어야 합니다.
+
 
 ```azurepowershell-interactive
-Invoke-AzureRmVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
 ## <a name="limiting-access-to-run-command"></a>명령 실행에 대한 액세스 제한

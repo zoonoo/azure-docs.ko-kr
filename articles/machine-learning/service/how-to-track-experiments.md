@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 83e17d4988753e757d6e30299e648af083b0a1a5
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 07b29b05bc15f57d6fd3ec64ceaee812b912b0f6
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239165"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977901"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Azure Machine Learning에서 실험 및 학습 메트릭 추적
 
@@ -31,7 +31,7 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
 |----|:----|:----|
 |스칼라 값 |함수:<br>`run.log(name, value, description='')`<br><br>예제:<br>run.log(“accuracy”, 0.95) |숫자 또는 문자열 값을 지정된 이름의 실행에 기록합니다. 메트릭을 실행에 기록하면 해당 메트릭이 실험의 실행 기록에 저장됩니다.  하나의 실행 내에서 동일한 메트릭을 여러 번 기록할 수 있으며 결과는 해당 메트릭의 벡터로 간주됩니다.|
 |목록|함수:<br>`run.log_list(name, value, description='')`<br><br>예제:<br>run.log_list(“accuracies”, [0.6, 0.7, 0.87]) | 값 목록을 지정된 이름의 실행에 기록합니다.|
-|행|함수:<br>`run.log_row(name, description=None, **kwargs)<br>예제:<br>run.log_row(“Y over X”, x=1, y=0.4) | *log_row*를 사용하여 kwargs에 설명된 대로 열이 여러 개 있는 메트릭을 만듭니다. 명명된 각 매개 변수는 지정된 값이 있는 열을 생성합니다.  *log_row*는 임의의 튜플을 로깅하기 위해 한 번 호출되거나 루프에서 여러 번 호출되어 전체 테이블을 생성할 수 있습니다.|
+|행|함수:<br>`run.log_row(name, description=None, **kwargs)<br>예제:<br>run.log_row("Y over X", x=1, y=0.4) | *log_row*를 사용하여 kwargs에 설명된 대로 열이 여러 개 있는 메트릭을 만듭니다. 명명된 각 매개 변수는 지정된 값이 있는 열을 생성합니다.  *log_row*는 임의의 튜플을 로깅하기 위해 한 번 호출되거나 루프에서 여러 번 호출되어 전체 테이블을 생성할 수 있습니다.|
 |테이블|함수:<br>`run.log_table(name, value, description='')`<br><br>예제:<br>run.log_table(“Y over X”, {”x”:[1, 2, 3], “y”:[0.6, 0.7, 0.89]}) | 사전 개체를 지정된 이름의 실행에 기록합니다. |
 |이미지|함수:<br>`run.log_image(name, path=None, plot=None)`<br><br>예제:<br>run.log_image(“ROC”, plt) | 이미지를 실행 기록에 로깅합니다. log_image를 사용하여 이미지 파일이나 matplotlib 도면을 실행에 기록합니다.  이러한 이미지는 실행 기록에서 볼 수 있고 비교할 수 있습니다.|
 |실행 태그 지정|함수:<br>`run.tag(key, value=None)`<br><br>예제:<br>run.tag(“selected”, “yes”) | 문자열 키와 선택적 문자열 값을 사용하여 실행에 대한 태그를 지정합니다.|
@@ -241,6 +241,12 @@ if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
 현재 ScriptRun 및 PipelineRun 유형만 취소 작업을 지원합니다.
+
+또한 다음 명령을 사용하여 CLI를 통해 실행을 취소할 수 있습니다.
+```shell
+az ml run cancel -r <run_id> -p <project_path>
+```
+
 
 ## <a name="view-run-details"></a>실행 세부 정보 보기
 

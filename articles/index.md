@@ -2,16 +2,10 @@
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
-description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 애플리케이션을 관리하는 방법을 알아봅니다. 설명서, 예제 코드, 자습서 등을 가져옵니다.
+description: 'Microsoft Azure 클라우드 서비스를 사용하여 강력한 애플리케이션을 관리하는 방법을 알아봅니다. 설명서, 예제 코드, 자습서 등을 가져옵니다.'
 ms.topic: hub-page
 featureFlags:
-- clicktale
-ms.openlocfilehash: 4ae03eedb96ecd1b460b06df3a80a7349c04e099
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330718"
+  - clicktale
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -195,6 +189,7 @@ Go</a>
                                                 <h4>관계형 데이터베이스</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL Database as a Service</a></li>
+                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">Azure VM의 SQL Server</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a service</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL Database as a Service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL Database as a Service</a></li>

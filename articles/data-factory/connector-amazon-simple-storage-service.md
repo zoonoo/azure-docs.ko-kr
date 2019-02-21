@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: cd07343e056493369d2093651ecf7c466595f412
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 16d0002ec8e42eec92895aaf582a8c2b3df2c3a6
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656586"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895264"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 저장소 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ Amazon S3 연결된 서비스에 다음 속성이 지원됩니다.
 | 형식 | 형식 속성은 **AmazonS3**으로 설정되어야 합니다. | 예 |
 | accessKeyId | 비밀 액세스 키의 ID입니다. |예 |
 | secretAccessKey | 비밀 액세스 키 자체입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| serviceUrl | 공식 Amazon S3 서비스가 아닌 S3 호환 스토리지 공급 기업의 데이터를 복사하는 경우 사용자 지정 S3 엔드포인트를 지정합니다. 예를 들어 [Google Cloud Storage에서 데이터를 복사](#copy-from-google-cloud-storage)하려면 `https://storage.googleapis.com`을 지정합니다. | 아니요 |
+| serviceUrl | 공식 Amazon S3 서비스가 아닌 S3 호환 스토리지 공급 기업의 데이터를 복사하는 경우 사용자 지정 S3 엔드포인트를 지정합니다. 예를 들어 Google Cloud Storage에서 데이터를 복사하려면 `https://storage.googleapis.com`을 지정합니다. | 아니요 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 >[!TIP]

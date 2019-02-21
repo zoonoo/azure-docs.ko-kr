@@ -4,23 +4,25 @@ description: 이 문서를 통해 Azure Key Vault에서 사용할 고유의 HSM 
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 3458bdc0f010cab622a5ddbb87cb8e1077c404a5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc7d9a8e0d2689be4a8beb5d42c43b9e18157472
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693887"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238116"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure Key Vault에 대해 HSM 보호된 키를 생성하고 전송하는 방법
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 보안을 강화하기 위해 Azure Key Vault 사용 시 HSM 경계를 절대로 벗어나지 않고 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이 시나리오를 흔히 BYOK( *Bring Your Own Key*)라고 합니다. HSM은 FIPS 140-2 Level 2 유효성 검사가 적용됩니다. Azure Key Vault는 HSM의 Thales nShield 제품군을 사용하여 키를 보호합니다.
 
@@ -30,7 +32,7 @@ ms.locfileid: "55693887"
 
 > [!NOTE]
 > Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](key-vault-whatis.md)  
-> HSM 보호된 키를 위해 주요 자격 증명 모음 만들기가 포함된 자습서를 시작하려면 [Azure Key Vault 시작](key-vault-get-started.md)을 참조하세요.
+> HSM 보호 키에 대한 자격 증명 모음을 만드는 내용이 포함된 자습서를 시작하려면 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요.
 
 다음은 인터넷을 통해 HSM 보호된 키를 생성하고 전송하는 작업에 대한 추가 정보입니다.
 
@@ -60,7 +62,7 @@ Azure Key Vault에 대해 BYOK(Bring Your Own Key)를 위한 필수 조건 목�
 | Azure 구독 |Azure Key Vault를 만들려면 Azure 구독이 필요합니다. [평가판에 가입](https://azure.microsoft.com/pricing/free-trial/) |
 | HSM 보호 키를 지원하는 Azure Key Vault 프리미엄 서비스 계층 |Azure Key Vault에 대한 서비스 계층 및 기능에 대한 자세한 내용은 [Azure Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/) 웹 사이트를 참조하세요. |
 | Thales HSM, 스마트 카드 및 지원 소프트웨어 |Thales 하드웨어 보안 모듈에 대한 액세스 권한 및 Thales HSM의 기본 작동 지식이 있어야 합니다. 호환되는 모델 목록을 보거나, HSM이 없는 경우 구매하려면 [Thales 하드웨어 보안 모듈](https://www.thales-esecurity.com/msrms/buy) 을 참조하세요. |
-| 다음 하드웨어 및 소프트웨어:<ol><li>Windows 운영 체제 Windows 7 이상 및 Thales nShield 소프트웨어 버전 11.50 이상이 설치된 오프라인 x64 워크스테이션.<br/><br/>이 워크스테이션에서 Windows 7을 실행하는 경우 [Microsoft.NET Framework 4.5를 설치](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)해야 합니다.</li><li>인터넷에 연결되어 있으며 Windows 7 이상의 Windows 운영 체제 및 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **최소 버전 1.1.0**이 설치된 워크스테이션</li><li>여유 공간이 16MB 이상인 USB 드라이브 또는 기타 휴대용 저장 장치 </li></ol> |보안상의 이유로 첫 번째 워크스테이션은 네트워크에 연결하지 않는 것이 좋습니다. 그러나 이 권고는 프로그램 방식으로 강제 적용되지는 않습니다.<br/><br/>이후의 지침에서는 이 워크스테이션을 분리된 워크스테이션이라고 합니다.</p></blockquote><br/>또한 테넌트 키가 프로덕션 네트워크용인 경우 별도의 두 번째 워크스테이션을 사용하여 도구 세트를 다운로드하고 테넌트 키를 업로드하는 것이 좋습니다. 그러나 테스트 목적인 경우에는 첫 번째와 동일한 워크스테이션을 사용할 수 있습니다.<br/><br/>이후의 지침에서는 이 두 번째 워크스테이션을 인터넷에 연결된 워크스테이션이라고 합니다.</p></blockquote><br/> |
+| 다음 하드웨어 및 소프트웨어:<ol><li>Windows 운영 체제 Windows 7 이상 및 Thales nShield 소프트웨어 버전 11.50 이상이 설치된 오프라인 x64 워크스테이션.<br/><br/>이 워크스테이션에서 Windows 7을 실행하는 경우 [Microsoft.NET Framework 4.5를 설치](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe)해야 합니다.</li><li>인터넷에 연결되어 있으며 Windows 7 이상의 Windows 운영 체제 및 [Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **최소 버전 1.1.0**이 설치된 워크스테이션</li><li>여유 공간이 16MB 이상인 USB 드라이브 또는 기타 휴대용 저장 장치 </li></ol> |보안상의 이유로 첫 번째 워크스테이션은 네트워크에 연결하지 않는 것이 좋습니다. 그러나 이 권고는 프로그램 방식으로 강제 적용되지는 않습니다.<br/><br/>이후의 지침에서는 이 워크스테이션을 분리된 워크스테이션이라고 합니다.</p></blockquote><br/>또한 테넌트 키가 프로덕션 네트워크용인 경우 별도의 두 번째 워크스테이션을 사용하여 도구 세트를 다운로드하고 테넌트 키를 업로드하는 것이 좋습니다. 그러나 테스트 목적인 경우에는 첫 번째와 동일한 워크스테이션을 사용할 수 있습니다.<br/><br/>이후의 지침에서는 이 두 번째 워크스테이션을 인터넷에 연결된 워크스테이션이라고 합니다.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>키 생성 및 Azure Key Vault에 전송
 
@@ -78,21 +80,19 @@ Azure Key Vault에 대해 BYOK(Bring Your Own Key)를 위한 필수 조건 목�
 
 ### <a name="step-11-install-azure-powershell"></a>1.1단계: Azure Powershell 설치
 
-인터넷에 연결된 워크스테이션에서 Azure Key Vault를 관리하기 위해 cmdlet이 포함된 Azure PowerShell 모듈을 다운로드하고 설치합니다. 이를 위해 0.8.13 이상 버전이 필요합니다.
-
-설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
+인터넷에 연결된 워크스테이션에서 Azure Key Vault를 관리하기 위해 cmdlet이 포함된 Azure PowerShell 모듈을 다운로드하고 설치합니다. 설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>1.2단계: Azure 구독 ID 가져오기
 
 Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
 ```Powershell
-   Add-AzureRMAccount
+   Connect-AzAccount
 ```
-팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. 그런 다음 [Get-azuresubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) 명령을 사용합니다.
+팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. 그런 다음, [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) 명령을 사용합니다.
 
 ```powershell
-   Get-AzureRMSubscription
+   Get-AzSubscription
 ```
 출력된 내용에서 Azure Key Vault에 사용할 구독 ID를 찾습니다. 이 구독 ID는 나중에 필요합니다.
 
@@ -246,7 +246,6 @@ USB 드라이브 또는 기타 휴대용 스토리지에서 BYOK 도구 집합 �
 
 이 3단계에서는 연결이 끊어진 워크스테이션에서 다음 절차를 수행합니다. 이 단계를 완료하려면 HSM이 초기화 모드에 있어야 합니다. 
 
-
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>3.1단계: HSM 모드를 'I'로 변경
 
 Thales nShield Edge를 사용하는 경우 모드를 다음으로 변경합니다. 1. 모드 단추를 사용하여 필요한 모드를 강조 표시합니다. 2. 몇 초 안에 지우기 단추를 몇 초간 길게 누릅니다. 모드가 변경되면 새로운 모드의 LED가 깜박임을 중지하고 켜져 있습니다. 상태 LED가 몇 초간 불규칙하게 깜박일 수도 있으며, 디바이스가 준비되면 정기적으로 깜박입니다. 그렇지 않으면 디바이스가 현재 모드로 유지되고 해당 모드 LED가 켜져 있습니다.
@@ -256,13 +255,13 @@ Thales nShield Edge를 사용하는 경우 모드를 다음으로 변경합니�
 명령 프롬프트를 시작하고 Thales의 새 영역 프로그램을 실행합니다.
 
    ```cmd
-    new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+    new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
 이 프로그램은 C:\ProgramData\nCipher\Key Management Data\local 폴더에 해당하는 %NFAST_KMDATA%\local\world에 **Security World** 파일을 만듭니다. 쿼럼에 다른 값을 사용할 수 있지만, 이 예에서는 각각에 대해 3개의 빈 카드와 핀을 입력하라는 메시지가 표시됩니다. 그러면 임의의 두 카드에서 보안 영역에 대한 모든 권한을 제공합니다. 이러한 카드가 새 보안 영역에 대한 **관리자 카드 집합** 이 됩니다.
 
 > [!NOTE]
-> HSM이 최신 암호 제품군 DLf3072s256mRijndael을 지 원하는 경우 --cipher-suite=DLf1024s160mRijndael을 --cipher-suite=DLf3072s256mRijndael로 바꿀 수 있습니다.
+> HSM이 최신 암호 제품군 DLf3072s256mRijndael을 지원하지 않는 경우 --cipher-suite= DLf3072s256mRijndael을 --cipher-suite=DLf1024s160mRijndael로 바꿀 수 있습니다.
 
 그런 다음 아래 작업을 수행합니다.
 
@@ -493,14 +492,14 @@ USB 드라이브 또는 기타 휴대용 스토리지를 사용하여 인터넷�
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>5단계: Azure Key Vault에 키 전송
 
-이 마지막 단계에서는 인터넷에 연결된 워크스테이션에서 [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet을 사용하여 연결이 끊어진 워크스테이션에서 Azure Key Vault HSM으로 복사한 키 전송 패키지를 업로드합니다.
+이 마지막 단계에서는 인터넷에 연결된 워크스테이션에서 [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용하여 연결이 끊어진 워크스테이션에서 Azure Key Vault HSM으로 복사한 키 전송 패키지를 업로드합니다.
 
    ```powershell
-        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+        Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
    ```
 
 업로드가 성공하면 방금 추가한 키의 속성이 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 주요 자격 증명 모음에서 이 HSM 보호된 키를 사용할 수 있습니다. 자세한 내용은 **Azure Key Vault 시작** 자습서에서 [HSM(하드웨어 보안 모듈)을 사용하려는 경우](key-vault-get-started.md) 를 참조하세요.
+이제 주요 자격 증명 모음에서 이 HSM 보호된 키를 사용할 수 있습니다. 자세한 내용은 **Azure Key Vault 시작** 자습서에서 [HSM(하드웨어 보안 모듈)을 사용하려는 경우](key-vault-overview.md) 를 참조하세요.

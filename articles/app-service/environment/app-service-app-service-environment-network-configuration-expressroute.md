@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 23faf3b88584f8031b4a2fdbc6d94ac2ae861431
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104457"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113382"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보
 
@@ -151,13 +151,20 @@ App Service Environment를 배포하려는 경우 서브넷에 경로 테이블�
 PowerApps용 App Service Environment를 시작하려면 [App Service Environment 소개][IntroToAppServiceEnvironment]를 참조하세요.
 
 <!-- LINKS -->
-[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/
-[ExpressRoute]: https://azure.microsoft.com/services/expressroute/
-[requiredports]: app-service-app-service-environment-control-inbound-traffic.md
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/
-<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ --> [UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md [AzureDownloads]: https://azure.microsoft.com/downloads/ [DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653  
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md [NewPortal]:  https://portal.azure.com
+[virtualnetwork]: https://azure.microsoft.com/services/virtual-network/ 
+[ExpressRoute]: https://azure.microsoft.com/services/expressroute/ 
+[requiredports]: app-service-app-service-environment-control-inbound-traffic.md 
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ 
+[UDROverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/ 
+<!-- Old link -- [UDRHowTo]: https://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/ -->
+
+[UDRHowTo]: https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell 
+[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md 
+[AzureDownloads]: https://azure.microsoft.com/downloads/ 
+[DownloadCenterAddressRanges]: https://www.microsoft.com/download/details.aspx?id=41653 
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/ 
+[IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md 
+[NewPortal]:  https://portal.azure.com 
 
 
 <!-- IMAGES -->

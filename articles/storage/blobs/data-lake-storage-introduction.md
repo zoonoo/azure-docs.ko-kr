@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 018171d4b2253c2cf7942f9f10424a9c695438b9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 713905ac0c6dcd53f468fe7e9af7c565ee38ac66
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809439"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106531"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
@@ -76,10 +76,10 @@ Data Lake Storage Gen2는 몇 가지 오픈 소스 플랫폼에서 지원합니�
 | 플랫폼 |  지원되는 버전 | 추가 정보 |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6 이상 | [HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 2.7 이상 | [Apache Hadoop 릴리스 보관 파일](https://hadoop.apache.org/release.html) |
+| [Hadoop](https://hadoop.apache.org/) | 3.2 이상 | [Apache Hadoop 릴리스 보관 파일](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1 이상 | [Cloudera Enterprise 6.x 릴리스 정보](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2 이상 | [Databricks Runtime 버전](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 2.6 이상 | [Hortonworks 설명서](https://docs.hortonworks.com/) |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 이상 | [Databricks Runtime 버전](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
+|[Hortonworks](https://hortonworks.com/)| 3.1.x 이상 | [클라우드 데이터 액세스 구성](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -87,5 +87,4 @@ Data Lake Storage Gen2는 몇 가지 오픈 소스 플랫폼에서 지원합니�
 
 -   [계층 구조 네임스페이스](data-lake-storage-namespace.md)
 -   [저장소 계정을 만드는](data-lake-storage-quickstart-create-account.md)
--   [Data Lake Storage Gen2를 사용하여 HDInsight 클러스터 만들기](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 -   [Azure Databricks에서 Data Lake Storage Gen2 계정 사용](data-lake-storage-quickstart-create-databricks-account.md)

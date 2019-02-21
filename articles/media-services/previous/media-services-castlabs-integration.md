@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Media Services(AMS)를 사용하여 PlayR
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 02/08/2019
 ms.author: Mingfeiy;willzhan;Juliako
-ms.openlocfilehash: aff5b94840e63176358d64a535c9cc0dd9ec617a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b3d8759f13f48e5fa95ff709fa283ed41e0ea25
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783192"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003213"
 ---
-# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>castLabs를 사용하여 Azure Media Services에 Widevine 라이선스 제공
+# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>castLabs를 사용하여 Azure Media Services에 Widevine 라이선스 제공 
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)
@@ -29,6 +29,7 @@ ms.locfileid: "33783192"
 > 
 
 ## <a name="overview"></a>개요
+
 이 문서에서는 Azure Media Services(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 Media Services PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 **castLabs** 라이선스 서버에서 제공됩니다.
 
 CENC(PlayReady 및/또는 Widevine)에 의해 보호되는 스트리밍 콘텐츠를 재생하려면 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용할 수 있습니다. 자세한 내용은 [AMP 문서](http://amp.azure.net/libs/amp/latest/docs/) 를 참조하십시오.
@@ -38,6 +39,7 @@ CENC(PlayReady 및/또는 Widevine)에 의해 보호되는 스트리밍 콘텐�
 ![통합](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ## <a name="typical-system-set-up"></a>일반적인 시스템 설정
+
 * 미디어 콘텐츠는 AMS에 저장됩니다.
 * 콘텐츠 키의 키 ID는 castLabs 및 AMS에 저장됩니다.
 * castLabs 및 AMS에는 모두 내장된 토큰 인증이 있습니다. 다음 섹션에서는 인증 토큰에 대해 설명합니다. 
@@ -46,9 +48,11 @@ CENC(PlayReady 및/또는 Widevine)에 의해 보호되는 스트리밍 콘텐�
 * Media Player는 클라이언트 플랫폼 기능에 따라 가져올 라이선스를 자동으로 결정합니다. 
 
 ## <a name="authentication-token-generation-for-getting-a-license"></a>라이선스를 가져오기 위한 인증 토큰 생성
+
 castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JSON 웹 토큰) 토큰 형식을 지원합니다. 
 
 ### <a name="jwt-token-in-ams"></a>AMS의 JWT 토큰
+
 다음 표에서는 AMS의 JWT 토큰을 설명합니다. 
 
 | 발급자 | 선택한 STS(보안 토큰 서비스)의 발급자 문자열 |
@@ -60,6 +64,7 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
 | SigningCredentials |PlayReady 라이선스 서버, castLabs 라이선스 서버 및 STS 간에 공유되는 키로, 대칭 또는 비대칭 키일 수 있습니다. |
 
 ### <a name="jwt-token-in-castlabs"></a>castLabs의 JWT 토큰
+
 다음 표에서는 castLabs의 JWT 토큰을 설명합니다. 
 
 | Name | 설명 |
@@ -69,7 +74,8 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
 | iat |Epoch의 현재 날짜/시간. |
 | jti |이 토큰에 대한 고유 식별자(모든 토큰은 castLabs 시스템에서 한 번만 사용할 수 있음). |
 
-## <a name="sample-solution-set-up"></a>샘플 솔루션 설정
+## <a name="sample-solution-setup"></a>샘플 솔루션 설정
+
 [샘플 솔루션](https://github.com/AzureMediaServicesSamples/CastlabsIntegration) 은 다음 두 프로젝트로 구성되어 있습니다.
 
 * PlayReady 및 Widevine에 대해 이미 수집된 자산에 DRM 제한을 설정하는 데 사용할 수 있는 콘솔 응용 프로그램.
@@ -94,7 +100,8 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
 3. 웹 사이트로 이동합니다.
 
 ## <a name="playing-back-a-video"></a>비디오 재생
-일반 암호화(PlayReady 및/또는 Widevine)를 사용하여 암호화된 비디오를 재생할 때는 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용할 수 있습니다. 콘솔 앱을 실행하는 경우 콘텐츠 키 ID와 매니페스트 URL이 화면에 표시됩니다.
+
+일반 암호화(PlayReady 및/또는 Widevine)를 사용하여 암호화된 비디오를 재생하려면 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)를 사용할 수 있습니다. 콘솔 앱을 실행하는 경우 콘텐츠 키 ID와 매니페스트 URL이 화면에 표시됩니다.
 
 1. 새 탭을 열고 STS를 시작합니다(http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid]).
 2. [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)로 이동합니다.

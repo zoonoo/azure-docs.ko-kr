@@ -6,36 +6,62 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c0636a3e1fa50f90c68393aea910f36d38d8eaf5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d8f57310cf4dbc2a27761fc44cfde6c8fd2791a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437270"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005542"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법
 
+Automation 계정의 Azure 모듈을 업데이트하려면 현재 오픈 소스인 [Azure 모듈 Runbook 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)를 사용하는 것이 좋습니다. 또한 포털의 **Azure 모듈 업데이트** 단추를 사용하여 Azure 모듈을 업데이트할 수 있습니다. 오픈 소스 Runbook을 사용하는 방법에 대한 자세한 내용은 [오픈 소스 Runbook을 사용하여 Azure 모듈 업데이트](#open-source)를 참조하세요.
+
 기본적으로 각 Automation 계정에 가장 일반적인 Azure PowerShell 모듈이 제공됩니다. Azure 팀에서는 Azure 모듈을 정기적으로 업데이트합니다. 포털에서 새 버전을 사용할 수 있으면 Automation 계정에서 모듈을 업데이트하는 방법이 제공됩니다.
 
-> [!NOTE]
-> Azure Automation에서는 새 [Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0)이 지원되지 않습니다.
+제품 그룹에 의해 정기적으로 모듈이 업데이트되므로 포함된 cmdlet이 변경될 수 있습니다. 이 작업은 매개 변수 이름을 바꾸거나 cmdlet을 완전히 중단하는 등 변경 형식에 따라 Runbook에 부정적인 영향을 줄 수 있습니다.
 
-제품 그룹에 의해 정기적으로 모듈이 업데이트되므로 포함된 cmdlet이 변경될 수 있습니다. 이 작업은 매개 변수 이름을 바꾸거나 cmdlet을 완전히 중단하는 등 변경 형식에 따라 Runbook에 부정적인 영향을 줄 수 있습니다. 자동화하는 프로세스 및 Runbook에 영향을 주지 않으려면 계속하기 전에 테스트 및 유효성 검사를 수행합니다. 이 용도로 설계된 전용 Automation 계정이 없는 경우 만들어서 Runbook을 개발하는 동안 다양한 시나리오를 테스트할 수 있습니다. 이 테스트에는 PowerShell 모듈을 업데이트하는 등 반복적인 변경 내용도 포함되어야 합니다. 로컬로 스크립트를 개발하는 경우 동일한 결과를 받는지 확인하기 위해 테스트할 때 Automation 계정에서 갖는 동일한 모듈 버전을 로컬로 갖는 것이 좋습니다. 결과의 유효성을 검사하고 필수 변경 내용을 적용한 후에 변경 내용을 프로덕션으로 이동할 수 있습니다.
+자동화하는 프로세스 및 Runbook에 영향을 주지 않으려면 계속하기 전에 테스트 및 유효성 검사를 수행합니다. 이 용도로 설계된 전용 Automation 계정이 없는 경우 만들어서 Runbook을 개발하는 동안 다양한 시나리오를 테스트할 수 있습니다. 이 테스트에는 PowerShell 모듈을 업데이트하는 등 반복적인 변경 내용도 포함되어야 합니다. 
+
+로컬로 스크립트를 개발하는 경우 동일한 결과를 받기 위해 테스트 시 Automation 계정에서 사용하는 것과 동일한 모듈 버전을 로컬에서 사용하는 것이 좋습니다. 결과의 유효성을 검사하고 필수 변경 내용을 적용한 후에 변경 내용을 프로덕션으로 이동할 수 있습니다.
 
 > [!NOTE]
 > 새 자동화 계정에 최신 모듈이 없을 수도 있습니다.
 
-## <a name="updating-azure-modules"></a>Azure 모듈 업데이트
+## <a name="open-source"></a>오픈 소스 Runbook을 사용하여 Azure 모듈 업데이트
+
+**Update-AutomationAzureModulesForAccount** Runbook을 사용하여 Azure 모듈을 업데이트하려면 GitHub의 [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 다운로드합니다. 그런 다음, Automation 계정으로 가져오거나 스크립트로 실행할 수 있습니다. 이 작업을 수행하는 방법에 대한 지침은 [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 확인할 수 있습니다.
+
+### <a name="considerations"></a>고려 사항
+
+다음은 이 프로세스를 사용하여 Azure 모듈을 업데이트할 때 고려해야 하는 몇 가지 사항입니다.
+
+* 원래 이름이 `Update-AutomationAzureModulesForAccount`인 이 Runbook을 가져오면 이 이름을 가진 내부 Runbook을 재정의합니다. 따라서 **Azure 모듈 업데이트** 단추를 누르거나 Azure Resource Manager API를 통해 직접 이 Runbook을 이 Automation 계정에 대해 호출할 경우 가져온 Runbook이 실행됩니다.
+
+* `Azure` 및 `AzureRM.*` 모듈만 현재 지원됩니다. 새 [Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az)은 아직 지원되지 않습니다.
+
+* Az 모듈이 포함된 Automation 계정에서 이 Runbook을 시작하지 마세요.
+
+* 이 Runbook을 시작하기 전에 Automation 계정에 [Azure 실행 계정 자격 증명](manage-runas-account.md)이 만들어져 있는지 확인합니다.
+
+* 이 코드를 Runbook이 아닌 일반 PowerShell 스크립트로 사용할 수 있습니다. 먼저 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) 명령을 사용하여 Azure에 로그인한 다음, `-Login $false`를 스크립트에 전달하면 됩니다.
+
+* 소버린 클라우드에서 이 Runbook을 사용하려면 `AzureRmEnvironment` 매개 변수를 사용하여 올바른 환경을 Runbook에 전달합니다.  허용되는 값은 **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud** 및 **AzureUSGovernment**입니다. `Get-AzureRmEnvironment | select Name`을 사용하여 이러한 값을 가져올 수 있습니다. 이 매개 변수에 값을 전달하지 않으면 Runbook이 기본적으로 **AzureCloud** Azure 공용 클라우드로 설정됩니다.
+
+* PowerShell 갤러리에서 사용할 수 있는 최신 버전 대신 특정 Azure PowerShell 모듈 버전을 사용하려면 이러한 버전을 **Update-AutomationAzureModulesForAccount** Runbook의 선택적 `ModuleVersionOverrides` 매개 변수에 전달합니다. 예제는 [Update-AutomationAzureModulesForAccount.ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1
+) Runbook을 참조하세요. `ModuleVersionOverrides` 매개 변수에 언급되지 않은 Azure PowerShell 모듈은 PowerShell 갤러리의 최신 모듈 버전으로 업데이트됩니다. `ModuleVersionOverrides` 매개 변수에 아무 것도 전달하지 않으면 모든 모듈이 PowerShell 갤러리의 최신 모듈 버전으로 업데이트됩니다. 이 동작은 **Azure 모듈 업데이트** 단추와 동일합니다.
+
+## <a name="update-azure-modules-in-the-azure-portal"></a>Azure Portal에서 Azure 모듈 업데이트
 
 1. Automation 계정의 모듈 계정 페이지에는 **Azure 모듈 업데이트**라는 옵션이 있습니다. 이 옵션은 항상 사용됩니다.<br><br> ![모듈 페이지의 Azure 모듈 업데이트 옵션](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
   > [!NOTE]
   > Azure 모듈을 업데이트하기 전에 테스트 Automation 계정에서 업데이트하여 Azure 모듈을 업데이트하기 전에 기존 스크립트가 예상대로 작동하는지 확인하는 것이 좋습니다.
   >
-  > **Azure 모듈 업데이트** 단추는 공용 클라우드에서만 사용할 수 있으며, [소버린 지역](https://azure.microsoft.com/global-infrastructure/)에서는 사용할 수 없습니다. 자세한 내용은 [모듈을 업데이트하는 다른 방법](#alternative-ways-to-update-your-modules) 섹션을 참조하세요.
+  > **Azure 모듈 업데이트** 단추는 공용 클라우드에서만 사용할 수 있으며, [소버린 지역](https://azure.microsoft.com/global-infrastructure/)에서는 사용할 수 없습니다. Azure 모듈을 업데이트하려면 **Update-AutomationAzureModulesForAccount** Runbook을 사용하세요. [Azure 모듈 Runbook 리포지토리 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)에서 다운로드할 수 있습니다. 오픈 소스 Runbook을 사용하는 방법에 대한 자세한 내용은 [오픈 소스 Runbook을 사용하여 Azure 모듈 업데이트](#open-source)를 참조하세요.
 
 2. **Azure 모듈 업데이트**를 클릭하면 계속 진행할 것인지 묻는 확인 알림이 나타납니다.<br><br> ![Azure 모듈 업데이트 알림](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
@@ -59,18 +85,6 @@ ms.locfileid: "54437270"
 
 Runbook에서 이러한 Azure PowerShell 모듈의 cmdlet을 사용하는 경우 최신 모듈을 사용하도록 매달 이 업데이트 프로세스를 수행하는 것이 좋습니다. Azure Automation은 `AzureRunAsConnection` 연결을 사용하여 모듈을 업데이트할 때 인증합니다. 서비스 주체가 만료되거나 구독 수준에서 더 이상 존재하지 않는 경우 모듈 업데이트에 실패합니다.
 
-## <a name="alternative-ways-to-update-your-modules"></a>모듈을 업데이트하는 다른 방법
-
-앞에서 언급한 대로 **Azure 모듈 업데이트** 단추는 소버린 클라우드에서 사용할 수 없으며, 글로벌 Azure 클라우드에서만 사용할 수 있습니다. 이는 PowerShell 갤러리에 있는 최신 버전의 Azure PowerShell 모듈이 현재 이러한 클라우드에 배포된 Resource Manager 리소스에서 작동하지 않을 수 있기 때문입니다.
-
-[Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) Runbook을 가져오고 실행하여 Automation 계정에서 Azure 모듈을 업데이트하려고 시도할 수 있습니다. 일반적으로 동시에 모든 Azure 모듈을 업데이트하는 것이 좋습니다. 그러나 갤러리에서 가져오려는 버전이 현재 대상 Azure 환경에 배포된 Azure 서비스와 호환되지 않는 경우 이 프로세스에 실패할 수 있습니다. 그러려면 Runbook 매개 변수에서 지정된 모듈의 호환 가능 버전을 확인해야 합니다.
-
-Runbook에 올바른 환경을 전달하려면 `AzureRmEnvironment` 매개 변수를 사용합니다.  허용되는 값은 **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud** 및 **AzureUSGovernment**입니다. `Get-AzureRmEnvironment | select Name`을 사용하여 이러한 값을 가져올 수 있습니다. 이 매개 변수에 값을 전달하지 않으면 Runbook이 기본적으로 **AzureCloud** Azure 공용 클라우드로 설정됩니다.
-
-PowerShell 갤러리에서 사용할 수 있는 최신 버전 대신 특정 Azure PowerShell 모듈 버전을 사용하려면 이러한 버전을 **Update-AzureModule** Runbook의 선택적 `ModuleVersionOverrides` 매개 변수로 전달합니다. 예를 들어 [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) Runbook을 참조하세요. `ModuleVersionOverrides` 매개 변수에 언급되지 않은 Azure PowerShell 모듈은 PowerShell 갤러리의 최신 모듈 버전으로 업데이트됩니다. `ModuleVersionOverrides` 매개 변수에 아무 것도 전달하지 않으면 모든 모듈이 PowerShell 갤러리의 최신 모듈 버전으로 업데이트됩니다. 이 동작은 **Azure 모듈 업데이트** 단추와 동일합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-* 통합 모듈에 대해 알아보고 Automation을 다른 시스템, 서비스 또는 솔루션과 통합하는 사용자 지정 모듈을 만드는 방법을 알아보려면 [통합 모듈](automation-integration-modules.md)을 참조하세요.
-
-
+자세한 내용은 오픈 소스 [Azure 모듈 Runbook 업데이트](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)를 참조하세요.

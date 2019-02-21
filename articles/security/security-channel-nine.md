@@ -4,7 +4,7 @@ description: 이 문서는 Channel 9의 엄선된 Azure 보안 프레젠테이�
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: 9e5e14aa-11d7-4242-8b7e-49fd0e79817a
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: b6e4539be76449093de0587e43b0e97243602967
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 148b26cc694abaa09bf5016f3c2f2fe3a1c12a70
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540138"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109812"
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Channel 9의 Azure 보안 동영상
 [Channel 9](https://channel9.msdn.com/) 은 제품 뒤 사용자를 앞으로 내보내 고객과 연결하는 커뮤니티입니다.
@@ -46,7 +46,7 @@ Azure Security Center를 통해 모든 Azure 리소스의 보안 상태를 중�
 
 [Azure의 SQL Server Virtual Machines 암호화로 보안 개선](https://channel9.msdn.com/Shows/Azure-Friday/Encryption-in-SQL-Azure-for-better-security)
 
-Jack Richins는 [Scott](https://channel9.msdn.com/Niners/Glucose) 에게 가상 컴퓨터 Azure 인스턴스에서 SQL Server 데이터베이스를 쉽게 암호화하는 방법을 가르치고 있습니다. 생각 보다 훨씬 쉽습니다!
+Jack Richins는 [Scott](https://channel9.msdn.com/Niners/Glucose)에게 Virtual Machine Azure 인스턴스에서 SQL Server 데이터베이스를 쉽게 암호화하는 방법을 가르치고 있습니다. 생각 보다 훨씬 쉽습니다!
 
 이 비디오에서 다루는 영역
 
@@ -56,7 +56,7 @@ Jack Richins는 [Scott](https://channel9.msdn.com/Niners/Glucose) 에게 가상 
 
 [DevTest Lab에서 보안 설정 방법](https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab)
 
-랩 소유자로서, 두 가지 랩 역할(소유자와 DevTest Lab 사용자)별로 랩 액세스를 보호할 수 있습니다. DevTest Lab 사용자 역할의 사용자가 제한된 액세스 권한이 있는 반면, 소유자 역할의 사용자는 랩에서 완전한 액세스 권한을 가지고 있습니다. 이 비디오에서는 이러한 역할을 가진 사용자를 랩에 추가하는 방법을 보여 줍니다.
+랩 소유자는 다음 두 가지 랩 역할을 통해 랩 액세스를 보호할 수 있습니다. 소유자 및 DevTest Lab 사용자. DevTest Lab 사용자 역할의 사용자가 제한된 액세스 권한이 있는 반면, 소유자 역할의 사용자는 랩에서 완전한 액세스 권한을 가지고 있습니다. 이 비디오에서는 이러한 역할을 가진 사용자를 랩에 추가하는 방법을 보여 줍니다.
 
 [Azure 앱에 대한 암호 관리](https://channel9.msdn.com/events/Build/2016/P456)
 

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 84f2b4d68bf95d18a63401f796e2ffca682c808f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567284"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002360"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -66,7 +66,7 @@ Video Indexer 웹 기반 포털에서 파일 업로드 대화 상자를 사용�
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>Video Indexer가 미디어에서 인사이트를 추출하는 데 얼마나 소요되나요?
 
-Video Indexer API 및 Video Indexer 웹 기반 인터페이스를 사용하여 비디오 또는 오디오 파일을 인덱스하는 데 소요되는 시간은 파일 길이 및 품질, 파일에서 발견된 인사이트 수, 사용 가능한 [예약된 단위](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) 수, [스트리밍 엔드포인트](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview)의 활성화 여부 등과 같은 여러 매개 변수에 따라 달라집니다. 대부분의 콘텐츠 형식에서 S3 형식의 예약된 단위 10개를 사용할 수 있다고 가정할 경우 오디오 또는 비디오 파일 지속 기간의 1/3에서 1/2 정도의 시간이 인덱싱에 소요된다고 예상합니다(예를 들어 10분짜리 원본 비디오는 3.5-5분 정도가 소요됨). 그러나 고유한 콘텐츠를 사용하여 몇 가지 테스트 파일을 실행하고 평균을 파악하는 것이 좋습니다.
+Video Indexer API 및 Video Indexer 웹 기반 인터페이스를 사용하여 비디오 또는 오디오 파일을 인덱스하는 데 소요되는 시간은 파일 길이 및 품질, 파일에서 발견된 인사이트 수, 사용 가능한 [예약된 단위](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) 수, [스트리밍 엔드포인트](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview)의 활성화 여부 등과 같은 여러 매개 변수에 따라 달라집니다. 고유한 콘텐츠를 사용하여 몇 가지 테스트 파일을 실행하고 평균을 파악하는 것이 좋습니다.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>사용자 지정 워크플로를 만들어 Video Indexer를 사용한 프로세스를 자동화할 수 있나요?
 

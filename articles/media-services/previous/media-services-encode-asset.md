@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c02d3483a98c358e53964d3932944b5d2dad9c53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ed4b581cb962c7db706a71ab995963a3c445af55
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240276"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998211"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 및 비교
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders-legacy"></a>Azure 주문형 미디어 인코더 개요 및 비교(레거시)
+
 ## <a name="encoding-overview"></a>Encoding 개요
 Azure Media Services는 클라우드에서 미디어의 인코딩에 대한 여러 옵션을 제공합니다.
 

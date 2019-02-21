@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091530"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894720"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute 회로 만들기 및 수정
 > [!div class="op_single_selector"]
@@ -51,7 +51,8 @@ ms.locfileid: "53091530"
   ![SKU 계층 및 데이터 요금제 구성](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
   * **계층** 은 ExpressRoute 표준 또는 ExpressRoute Premium 추가 기능이 사용되는지 여부를 결정합니다. **표준**을 지정하여 표준 SKU를 가져오거나 프리미엄 추가 기능을 위해 **프리미엄**을 지정할 수 있습니다.
-  * **데이터 요금제** 는 청구서 유형을 결정합니다. 데이터 요금제의 경우 **Metered**를 선택하고 무제한 데이터 요금제의 경우 **Unlimited**를 선택할 수 있습니다. 청구서 유형을 **Metered**에서 **Unlimited**로 변경할 수 있지만, **Unlimited**에서 **Metered**로는 변경할 수 없습니다.
+  * **데이터 요금제** 는 청구서 유형을 결정합니다. 데이터 요금제의 경우 **Metered**를 선택하고 무제한 데이터 요금제의 경우 **Unlimited**를 선택할 수 있습니다. 청구 유형을 **Metered**에서 **Unlimited**로 변경할 수 있습니다.
+    > [!IMPORTANT] **Unlimited**에서 **Metered**로 청구 유형을 변경할 수는 없습니다.
   * **피어링 위치**는 Microsoft와 피어링하는 물리적 위치입니다.
 
     > [!IMPORTANT]
@@ -117,10 +118,11 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 가동 중지 시간 없이 다음 작업을 수행할 수 있습니다.
 
 * ExpressRoute 회로에 대해 ExpressRoute 프리미엄 추가 기능을 사용하거나 사용하지 않을 수 있습니다.
-* 포트에 사용 가능한 용량이 있는 경우 ExpressRoute 회로의 대역폭을 증가시킵니다. 회로 대역폭 다운그레이드는 지원되지 않습니다. 
-* 요금제를 *데이터 요금*에서 *무제한 데이터 요금*으로 변경합니다. 요금제를 무제한 데이터 요금에서 데이터 요금으로 변경하는 것은 지원되지 않습니다.
+* 포트에 사용 가능한 용량이 있는 경우 ExpressRoute 회로의 대역폭을 증가시킵니다.
+  > [!IMPORTANT] 회로 대역폭 다운그레이드는 지원되지 않습니다. 
+* 요금제를 *데이터 요금*에서 *무제한 데이터 요금*으로 변경합니다.
+  > [!IMPORTANT] 요금제를 무제한 데이터 요금에서 데이터 요금으로 변경하는 것은 지원되지 않습니다.
 * *Allow Classic Operations*을 활성화하거나 비활성화할 수 있습니다.
-
 > [!IMPORTANT]
 > 기존 포트에 적절한 용량이 없는 경우 ExpressRoute 회로를 다시 만들어야 할 수 있습니다. 해당 위치에서 사용 가능한 추가 용량이 없는 경우 해당 회로를 업그레이드할 수 없습니다.
 >

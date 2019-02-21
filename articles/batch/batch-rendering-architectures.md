@@ -5,15 +5,15 @@ services: batch
 author: davefellows
 manager: jeconnoc
 ms.author: lahugh
-ms.date: 08/13/2018
+ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: d5102ba94e2b7808a457df00a87b35ef7022c454
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b8813466b9c0f74a608c0150c037dfec3db08dbc
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543498"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893819"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure 렌더링 참조 아키텍처
 
@@ -27,9 +27,9 @@ ms.locfileid: "53543498"
 
 * **네트워크** - 온-프레미스: Azure ExpressRoute 또는 VPN입니다. Azure: Azure VNet.
 
-* **스토리지** - 입력 및 출력 파일: Azure VM을 사용하는 NFS 또는 CFS이며, Azure 파일 동기화 또는 RSync를 통해 온-프레미스 스토리지와 동기화됩니다.
+* **스토리지** - 입력 및 출력 파일: Azure VM을 사용하는 NFS 또는 CFS이며, Azure 파일 동기화 또는 RSync를 통해 온-프레미스 스토리지와 동기화됩니다. 또는 다음과 같습니다. NFS를 사용하여 온프레미스 NAS 디바이스의 파일을 입력하거나 출력하는 Avere vFXT.
 
-  ![클라우드 버스팅 - NFS와 CFS가 있는 하이브리드](./media/batch-rendering-architectures/hybrid-nfs-cfs.png)
+  ![클라우드 버스팅 - NFS와 CFS가 있는 하이브리드](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>Blobfuse가 있는 하이브리드
 
@@ -51,9 +51,9 @@ ms.locfileid: "53543498"
 
 * **네트워크** - 온-프레미스: Azure ExpressRoute 또는 VPN입니다. Azure: Azure VNet.
 
-* **스토리지** - 크로스-프레미스: Avere vFXT. Azure Data Box를 통해 온-프레미스 파일을 선택적으로 Blob 저장소에 보관합니다.
+* **스토리지** - 크로스-프레미스: Avere vFXT. Azure Data Box를 통해 온-프레미스 파일을 선택적으로 Blob Storage 또는 온-프레미스 Avere FXT(NAS 가속화용)에 보관합니다.
 
-  ![클라우드 버스트 - 하이브리드 계산 및 저장소](./media/batch-rendering-architectures/hybrid-compute-storage.png)
+  ![클라우드 버스트 - 하이브리드 계산 및 저장소](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
 ## <a name="next-steps"></a>다음 단계

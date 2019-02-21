@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: fe22a465c21e9522b70ba307e2ec9772674000f2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488546"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997008"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 결과 해석
 이 토픽에서는 Azure Machine Learning Studio에서 예측 결과를 시각화하고 해석하는 방법을 설명합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
@@ -74,7 +74,7 @@ Azure Machine Learning에는 이러한 각 분류 유형을 다루는 여러 모
 
 **웹 서비스 게시**
 
-예측 결과를 철저히 파악하고 판단한 후에는 실험을 웹 서비스로 게시할 수 있습니다. 그러면 다양한 애플리케이션에 실험을 배포하고 호출하여 모든 새 붓꽃에 대한 클래스 예측을 얻을 수 있습니다. 학습 실험을 점수 매기기 실험으로 변경하여 웹 서비스로 게시하는 방법은 [Azure Machine Learning 웹 서비스 게시](walkthrough-5-publish-web-service.md)를 참조하세요. 이 절차에 따르면 그림 3에 표시된 대로 점수 매기기 실험이 제공됩니다.
+예측 결과를 철저히 파악하고 판단한 후에는 실험을 웹 서비스로 게시할 수 있습니다. 그러면 다양한 애플리케이션에 실험을 배포하고 호출하여 모든 새 붓꽃에 대한 클래스 예측을 얻을 수 있습니다. 학습 실험을 점수 매기기 실험으로 변경하여 웹 서비스로 게시하는 방법은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조하세요. 이 절차에 따르면 그림 3에 표시된 대로 점수 매기기 실험이 제공됩니다.
 
 ![점수 매기기 실험의 스크린샷](./media/interpret-model-results/3.png)
 

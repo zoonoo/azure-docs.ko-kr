@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 7e4756fb241500a2f153b452c6dc5a4e332bdd6b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881599"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962233"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Application Insights 스마트 검색 규칙 관리
 
@@ -31,6 +31,7 @@ ms.locfileid: "54881599"
 - 규칙을 사용하도록 설정된 경우(기본값은 **true**.)
 - 항목이 검색되었을 때 구독 소유자, 참가자 및 읽기 권한자에게 이메일을 보내야 하는 경우(기본값은 **true**.)
 - 항목이 검색되었을 때 알림을 받아야 하는 추가 메일 수신인
+- * _미리 보기_로 표시된 스마트 검색 규칙에는 이메일 구성을 사용할 수 없습니다.
 
 Azure Resource Manager를 통해 규칙 설정을 구성할 수 있도록, 이제 스마트 검색 규칙 구성은 Application Insights 리소스 내부에서 **ProactiveDetectionConfigs**라고 하는 내부 리소스로 제공됩니다.
 유연성을 극대화하기 위해 고유한 알림 설정을 사용하여 각 스마트 검색 규칙을 구성할 수 있습니다.

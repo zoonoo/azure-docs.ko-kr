@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: b2fc4b518ee0857014c59b84b89a0102b86f687a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820133"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56176240"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -102,9 +102,17 @@ AKS에서는 NGINX와 같은 도구를 사용하여 수신 리소스를 만들�
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹
 
-네트워크 보안 그룹은 AKS 노드와 같은 VM의 트래픽을 필터링합니다. LoadBalancer와 같은 Service를 만들 때 Azure 플랫폼은 필요한 모든 네트워크 보안 그룹 규칙을 자동으로 구성합니다. AKS 클러스터의 Pod에 대한 트래픽을 필터링하는 네트워크 보안 그룹 규칙은 수동으로 구성하지 않습니다. Kubernetes Service 매니페스트의 일부로 필요한 포트 및 전달을 정의하고, Azure 플랫폼에서 적절한 규칙을 만들거나 업데이트하도록 합니다.
+네트워크 보안 그룹은 AKS 노드와 같은 VM의 트래픽을 필터링합니다. LoadBalancer와 같은 Service를 만들 때 Azure 플랫폼은 필요한 모든 네트워크 보안 그룹 규칙을 자동으로 구성합니다. AKS 클러스터의 Pod에 대한 트래픽을 필터링하는 네트워크 보안 그룹 규칙은 수동으로 구성하지 않습니다. Kubernetes Service 매니페스트의 일부로 필요한 포트 및 전달을 정의하고, Azure 플랫폼에서 적절한 규칙을 만들거나 업데이트하도록 합니다. 다음 섹션인 pod에 자동으로 트래픽 필터 규칙 적용에 설명된 것처럼 네트워크 정책을 사용할 수 있습니다.
 
 SSH와 같은 트래픽에 대한 기본 네트워크 보안 그룹 규칙이 있습니다. 이러한 기본 규칙은 클러스터를 관리하고 액세스 문제를 해결하기 위한 것입니다. 이러한 기본 규칙이 삭제되면 AKS 관리와 관련된 문제가 발생할 수 있으며 SLO(서비스 수준 목표)를 위반할 수 있습니다.
+
+## <a name="network-policies"></a>네트워크 정책
+
+기본적으로 AKS 클러스터의 모든 pod는 트래픽을 제한 없이 송수신할 수 있습니다. 보안 향상을 위해 트래픽의 흐름을 제어하는 규칙을 정의할 수도 있습니다. 보통 백 엔드 애플리케이션은 필요한 프런트 엔드 서비스에만 제공되고, 데이터베이스 구성 요소는 연결된 애플리케이션 계층에서만 액세스할 수 있습니다.
+
+네트워크 정책은 사용자가 pod 간 트래픽 흐름을 제어할 수 있는 Kubernetes 기능입니다. 할당된 레이블, 네임스페이스 또는 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 보안 그룹은 pod가 아닌 AKS 노드에 더 적합합니다. 네트워크 정책을 통해 트래픽 흐름을 제어하기 위한 더 적합한 클라우드 네이티브 방법을 사용할 수 있습니다. Pod는 AKS 클러스터에서 동적으로 생성되므로 필요한 네트워크 정책을 자동으로 적용할 수 있습니다.
+
+자세한 내용은 [AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호][use-network-policies]를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -139,3 +147,4 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
+[use-network-policies]: use-network-policies.md

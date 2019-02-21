@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
 ms.date: 12/06/2018
-ms.openlocfilehash: 14a39d283d9ec4f8d5267e6a6628609ac79879ee
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 45cd4e884530836d515e0c6cce8a6fc9be109d88
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567505"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992010"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 회전
 
@@ -35,26 +35,13 @@ ms.locfileid: "55567505"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 이 방법 가이드에서는 이미 Azure SQL Database나 데이터 웨어하우스에 대해 Azure Key Vault의 키를 TDE 보호기로 사용하고 있다고 가정합니다. [BYOK 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
+- 이 방법 가이드에서는 이미 Azure SQL Database나 데이터 웨어하우스에 대해 Azure Key Vault의 키를 TDE 보호기로 사용하고 있다고 가정합니다. [Azure Key Vault 통합을 통한 투명한 데이터 암호화 - BYOK 지원](transparent-data-encryption-byok-azure-sql.md)을 참조하세요.
 - Azure PowerShell 버전 3.7.0 이상이 설치되어 실행 중이어야 합니다. 
 - [권장 선택 사항] HSM(하드웨어 보안 모듈)이나 로컬 키 저장소의 TDE 보호기에 대한 키 자료를 먼저 만들고 키 자료를 Azure Key Vault로 가져옵니다.  [HSM(하드웨어 보안 모듈) 및 Key Vault 사용 지침](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)에 따라 자세히 알아봅니다.
 
-## <a name="option-1-auto-rotation"></a>옵션 1: 자동 회전
+## <a name="manual-key-rotation"></a>수동 키 회전
 
-Key Vault에서 같은 키 이름과 키 자격 증명 모음을 사용하여 기존 TDE 보호기 키의 새 버전을 생성합니다. Azure SQL 서비스는 새 버전을 24시간 안에 사용하기 시작합니다. 
-
-[Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet을 사용하여 TDE 보호기의 새 버전을 만들려면
-
-   ```powershell
-   Add-AzureKeyVaultKey `
-   -VaultName <KeyVaultName> `
-   -Name <KeyVaultKeyName> `
-   -Destination <HardwareOrSoftware>
-   ```
-
-## <a name="option-2-manual-rotation"></a>옵션 2: 수동 회전
-
-이 옵션에서는 [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey), [Add-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) 및 [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) cmdlet을 사용하여 완전히 새로운 키를 추가합니다. 새로운 키 이름 또는 다른 키 자격 증명 모음을 사용할 수 있습니다. 
+수동 키 회전에서는 [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey), [Add-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) 및 [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) cmdlet을 사용하여 완전히 새로운 키를 추가합니다. 새로운 키 이름 또는 다른 키 자격 증명 모음을 사용할 수 있습니다. 이 방법을 사용하면 고가용성 및 지리적으로 분산된 시나리오를 지원하기 위해 서로 다른 키 자격 증명 모음에 동일한 키를 추가할 수 있습니다.
 
 >[!NOTE]
 >키 자격 증명 모음 이름과 키 이름을 결합한 길이는 94자를 초과할 수 없습니다.
@@ -107,4 +94,4 @@ Key Vault에서 같은 키 이름과 키 자격 증명 모음을 사용하여 �
 
 - 보안 위험이 있는 경우 잠재적으로 손상될 수 있는 TDE 보호기를 제거하는 방법을 알아봅니다. [잠재적으로 손상될 수 있는 키 제거](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) 
 
-- TDE에 대한 Bring Your Own Key 지원 시작: [PowerShell을 사용하여 Key Vault에서 고유 키로 TDE 설정](transparent-data-encryption-byok-azure-sql-configure.md)
+- TDE를 위한 Azure Key Vault 통합 및 Bring Your Own Key 지원 시작: [PowerShell을 사용하여 Key Vault에서 고유 키로 TDE 설정](transparent-data-encryption-byok-azure-sql-configure.md)

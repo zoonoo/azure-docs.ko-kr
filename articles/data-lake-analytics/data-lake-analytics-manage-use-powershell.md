@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
-ms.openlocfilehash: 5bd8763234aa02d68b6e86b7259fcf10b4ef4ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684287"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233585"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -23,13 +23,15 @@ ms.locfileid: "51684287"
 
 ## <a name="prerequisites"></a>필수 조건
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Data Lake Analytics와 함께 PowerShell을 사용하려면 다음과 같은 정보를 수집합니다. 
 
 * **구독 ID**: Data Lake Analytics 계정을 포함하는 Azure 구독의 ID입니다.
-* **리소스 그룹**: Data Lake Analytics 계정이 포함된 Azure 리소스 그룹의 이름입니다.
+* **리소스 그룹**: Data Lake Analytics 계정을 포함하는 Azure 리소스 그룹의 이름입니다.
 * **Data Lake Analytics 계정 이름**: Data Lake Analytics 계정의 이름입니다.
-* **기본 Data Lake Store 계정 이름**: 각 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다.
-* **위치**: Data Lake Analytics 계정의 위치입니다(예: "미국 동부 2" 또는 다른 지원되는 위치).
+* **기본 Data Lake Store 계정 이름**: 모든 Data Lake Analytics 계정에는 기본 Data Lake Store 계정이 있습니다.
+* **위치**: Data Lake Analytics 계정의 위치입니다(예: “미국 동부 2” 또는 다른 지원되는 위치).
 
 이 자습서의 PowerShell 코드 조각은 이러한 변수를 사용하여 이 정보를 저장합니다.
 
@@ -49,22 +51,22 @@ $location = "<Location>"
 
 ```powershell
 # Using subscription id
-Connect-AzureRmAccount -SubscriptionId $subId
+Connect-AzAccount -SubscriptionId $subId
 
 # Using subscription name
-Connect-AzureRmAccount -SubscriptionName $subname 
+Connect-AzAccount -SubscriptionName $subname 
 ```
 
 ## <a name="saving-authentication-context"></a>인증 컨텍스트 저장
 
-`Connect-AzureRmAccount` cmdlet은 항상 자격 증명을 묻는 메시지를 표시합니다. 다음 cmdlet을 사용하면 메시지가 표시되지 않게 할 수 있습니다.
+`Connect-AzAccount` cmdlet은 항상 자격 증명을 묻는 메시지를 표시합니다. 다음 cmdlet을 사용하면 메시지가 표시되지 않게 할 수 있습니다.
 
 ```powershell
 # Save login session information
-Save-AzureRmProfile -Path D:\profile.json  
+Save-AzAccounts -Path D:\profile.json  
 
 # Load login session information
-Select-AzureRmProfile -Path D:\profile.json 
+Select-AzAccounts -Path D:\profile.json 
 ```
 
 ### <a name="log-in-using-a-service-principal-identity-spi"></a>SPI(Service Principle Identity)를 사용하여 로그인
@@ -76,7 +78,7 @@ $spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 $spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
 
 $pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
-Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
+Login-AzAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
 ```
 
 ## <a name="manage-accounts"></a>계정 관리
@@ -336,7 +338,7 @@ $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 `New-AdlAnalyticsComputePolicy` cmdlet은 Data Lake Analytics 계정에 대한 새 계산 정책을 만듭니다. 이 예제에서는 지정된 사용자에게 제공되는 최대 AU를 50으로 설정하고, 최소 작업 우선 순위를 250으로 설정합니다.
 
 ```powershell
-$userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
+$userObjectId = (Get-AzAdUser -SearchString "garymcdaniel@contoso.com").Id
 
 New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
 ```
@@ -481,10 +483,10 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 
 ## <a name="working-with-azure"></a>Azure 작업
 
-### <a name="get-details-of-azurerm-errors"></a>AzureRm 오류에 대한 세부 정보 가져오기
+### <a name="get-error-details"></a>오류 세부 정보 가져오기
 
 ```powershell
-Resolve-AzureRmError -Last
+Resolve-AzError -Last
 ```
 
 ### <a name="verify-if-you-are-running-as-an-administrator-on-your-windows-machine"></a>Windows 컴퓨터에서 관리자로 실행 중인지 확인
@@ -505,7 +507,7 @@ function Test-Administrator
 ```powershell
 function Get-TenantIdFromSubscriptionName( [string] $subname )
 {
-    $sub = (Get-AzureRmSubscription -SubscriptionName $subname)
+    $sub = (Get-AzSubscription -SubscriptionName $subname)
     $sub.TenantId
 }
 
@@ -517,7 +519,7 @@ Get-TenantIdFromSubscriptionName "ADLTrainingMS"
 ```powershell
 function Get-TenantIdFromSubscriptionId( [string] $subid )
 {
-    $sub = (Get-AzureRmSubscription -SubscriptionId $subid)
+    $sub = (Get-AzSubscription -SubscriptionId $subid)
     $sub.TenantId
 }
 
@@ -541,7 +543,7 @@ Get-TenantIdFromDomain $domain
 ### <a name="list-all-your-subscriptions-and-tenant-ids"></a>모든 구독 및 테넌트 ID 나열
 
 ```powershell
-$subs = Get-AzureRmSubscription
+$subs = Get-AzSubscription
 foreach ($sub in $subs)
 {
     Write-Host $sub.Name "("  $sub.Id ")"
@@ -551,7 +553,7 @@ foreach ($sub in $subs)
 
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>템플릿을 사용하여 Data Lake Analytics 계정 만들기
 
-[템플릿을 사용하여 Data Lake Analytics 계정 만들기](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template) 샘플을 사용하는 Azure 리소스 그룹 템플릿을 사용할 수도 있습니다.
+다음 샘플을 사용하여 Azure 리소스 그룹 템플릿을 사용할 수 있습니다. [템플릿을 사용하여 Data Lake Analytics 계정 만들기](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
 
 ## <a name="next-steps"></a>다음 단계
 * [Microsoft Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)

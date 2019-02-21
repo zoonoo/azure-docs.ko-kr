@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics의 고급 쿼리 | Microsoft Docs
-description: 이 문서에서는 Analytics 포털을 사용하여 Log Analytics에서 쿼리를 작성하는 것에 대한 자습서를 제공합니다.
+title: Azure Monitor의 고급 쿼리 | Microsoft Docs
+description: 이 문서에서는 Analytics 포털을 사용하여 Azure Monitor에서 쿼리를 작성하는 것에 대한 자습서를 제공합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: b8441d72f85c2160cf756df37722fa6037441236
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 4e5574fa5a615e43d94069a03716fa290b957342
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191549"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993217"
 ---
-# <a name="writing-advanced-queries-in-log-analytics"></a>Log Analytics에서 고급 쿼리 작성
+# <a name="writing-advanced-queries-in-azure-monitor"></a>Azure Monitor에서 고급 쿼리 작성
 
 > [!NOTE]
-> 이 단원을 완료하기 전에 [Analytics 포털 시작](get-started-portal.md) 및 [쿼리 시작](get-started-queries.md)을 완료해야 합니다.
+> 이 단원을 완료하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 및 [쿼리 시작](get-started-queries.md)을 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Log Analytics 쿼리 언어를 사용에 대해서는 다른 단원을 참조하세요.
+Azure Monitor 로그 데이터에 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
 
 - [문자열 작업](string-operations.md)
 - [날짜 및 시간 작업](datetime-operations.md)

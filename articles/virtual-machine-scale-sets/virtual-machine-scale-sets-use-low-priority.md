@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: 85b974e954fd99f6f10426f1961ea9f4a5343c59
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 861c68ae8163e0ba8c2af2a3d96153ac3e84855f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811106"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978139"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>확장 집합에서 우선 순위가 낮은 VM(미리 보기)
 
@@ -69,10 +69,10 @@ az vmss create \
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
 우선 순위가 낮은 VM이 포함된 확장 집합을 만드는 프로세스는 [시작 문서](quick-create-powershell.md)에서 자세히 설명한 프로세스와 동일합니다.
-아래 예제와 같이 '--Priority' 매개 변수를 [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig)에 추가하고 *Low*로 설정하면 됩니다.
+아래 예제와 같이 '-Priority' 매개 변수를 [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig)에 추가하고 *Low*로 설정하면 됩니다.
 
 ```powershell
-$vmssConfig = New-AzureRmVmssConfig `
+$vmssConfig = New-AzVmssConfig `
     -Location "East US 2" `
     -SkuCapacity 2 `
     -SkuName "Standard_DS2" `

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2af68c0b9deb9d5b065f5fae42cf4bf927f0c671
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: cd129ea68315223516ac1cd3e7577b5ee4bf92e5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386457"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005117"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics를 사용하여 HDInsight 클러스터 모니터링
 
@@ -46,9 +46,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 섹션에서는 Azure Log Analytics 작업 영역을 사용하여 작업, 디버그 로그 등을 모니터링하도록 기존 HDInsight Hadoop 클러스터를 구성합니다.
 
-1. Azure Portal에서 HDInsight 클러스터를 엽니다.
-2. 왼쪽 창에서 **모니터링**을 선택합니다.
-3. 오른쪽 창에서 **사용**을 선택하고, 기존 Log Analytics 작업 영역을 선택한 다음, **저장**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+
+2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
+
+3. **ANALYTICS** 아래에서 **HDInsight 클러스터**를 선택합니다.
+
+4. 왼쪽의 **모니터링**에서 **Operations Management Suite**를 선택합니다.
+
+5. 기본 보기의 **OMS 모니터링**에서 **사용**을 선택합니다.
+
+6. **작업 영역 선택** 드롭다운 목록에서 기존 Log Analytics 작업 영역을 선택합니다.
+
+7. **저장**을 선택합니다.
 
     ![HDInsight 클러스터에 대한 모니터링 사용](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "HDInsight 클러스터에 대한 모니터링 사용")
 
@@ -91,7 +101,7 @@ HDInsight는 Azure Log Analytics에 추가할 수 있는 클러스터와 관련�
 * HDInsight Spark 모니터링
 * HDInsight Storm 모니터링
 
-관리 솔루션을 설치하기 위한 지침은 [Azure의 관리 솔루션](../azure-monitor/insights/solutions.md#install-a-management-solution)을 참조하세요. 실험하려면 HDInsight Hadoop 모니터링 솔루션을 설치합니다. 완료되면 **요약**에 **HDInsightHadoop** 타일이 나열됩니다. **HDInsightHadoop** 타일을 선택합니다. HDInsightHadoop 솔루션은 다음과 같습니다.
+관리 솔루션을 설치하기 위한 지침은 [Azure의 관리 솔루션](../azure-monitor/insights/solutions.md#install-a-monitoring-solution)을 참조하세요. 실험하려면 HDInsight Hadoop 모니터링 솔루션을 설치합니다. 완료되면 **요약**에 **HDInsightHadoop** 타일이 나열됩니다. **HDInsightHadoop** 타일을 선택합니다. HDInsightHadoop 솔루션은 다음과 같습니다.
 
 ![HDInsight 모니터링 솔루션 보기](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

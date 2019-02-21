@@ -4,21 +4,21 @@ titleSuffix: Azure Cognitive Services
 description: 이 업그레이드 가이드는 Bing Image Search API의 버전 5와 버전 7 사이의 변경 내용을 설명합니다. 이 가이드를 사용하면 버전 7을 사용하도록 업데이트해야 하는 애플리케이션의 부분을 식별하는 데 유용합니다.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 7F78B91F-F13B-40A4-B8A7-770FDB793F0F
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: ec870ee8b40e732bf12c90689fb7ca79a7ff516c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b3675821cd5565df409fac209b6763845460df1c
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55204187"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163380"
 ---
-# <a name="bing-image-search-api-upgrade-guide"></a>Bing Image Search API 업그레이드 가이드
+# <a name="bing-image-search-api-v7-upgrade-guide"></a>Bing Image Search API v7 업그레이드 가이드
 
 이 업그레이드 가이드는 Bing Image Search API의 버전 5와 버전 7 사이의 변경 내용을 식별합니다. 이 가이드를 사용하면 버전 7을 사용하도록 업데이트해야 하는 애플리케이션의 부분을 식별하는 데 유용합니다.
 

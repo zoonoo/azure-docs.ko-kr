@@ -4,16 +4,16 @@ description: Azure Automation Runbook을 사용하여 문제를 해결하는 방
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 1500fc5826b50e97e7fd51d18e672933275a9533
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cdcf7f466e65cffd36bdcc816a9808ecac2ae242
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468202"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991296"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -172,6 +172,32 @@ while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout
 
 $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
+
+### <a name="get-serializationsettings"></a>시나리오: get_SerializationSettings 메서드에 대한 작업 스트림에 오류가 표시됨
+
+#### <a name="issue"></a>문제
+
+다음 메시지와 함께 Runbook에 대한 작업 스트림에 오류가 표시됨
+
+```
+Connect-AzureRMAccount : Method 'get_SerializationSettings' in type 
+'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 
+'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 
+does not have an implementation.
+At line:16 char:1
++ Connect-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Connect-AzureRmAccount], TypeLoadException
+    + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+```
+
+#### <a name="cause"></a>원인
+
+이 오류의 원인은 Runbook에서 AzureRM 및 Az cmdlet을 모두 사용했기 때문입니다. `AzureRM`을 가져오기 전에 `Az`를 가져오면 발생합니다.
+
+#### <a name="resolution"></a>해결 방법
+
+Az 및 AzureRM cmdlet은 동일한 Runbook에 가져와 사용할 수 없습니다. Azure Automation에서 Az 지원에 대한 자세한 내용을 보려면 [Azure Automation에서 Az 모듈 지원](../az-modules.md)을 참조하세요.
 
 ### <a name="task-was-cancelled"></a>시나리오: 다음 오류로 인해 Runbook 실패: 작업이 취소됨
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827451"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991330"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기
 
@@ -21,7 +21,7 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
 
 ## <a name="metrics-in-azure"></a>Azure의 메트릭
 
-Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트의 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 사용하여 애플리케이션에서 Azure로 전송되는 반면 사용자 지정 메트릭은 다른 애플리케이션 특정 메트릭과 함께 Application Insights 리소스에 저장됩니다.
+[Azure Monitor의 메트릭](data-collection.md#metrics)은 시간이 지남에 따라 수집되고 저장된 일련의 측정된 값과 수입니다. 표준(또는 "플랫폼") 메트릭 및 사용자 지정 메트릭이 있습니다. 표준 메트릭은 Azure 플랫폼 자체에서 제공됩니다. 표준 메트릭은 Azure 리소스의 상태 및 사용량 통계를 반영합니다. 사용자 지정 메트릭은 [사용자 지정 이벤트의 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 사용하여 애플리케이션에서 Azure로 전송되는 반면 사용자 지정 메트릭은 다른 애플리케이션 특정 메트릭과 함께 Application Insights 리소스에 저장됩니다.
 
 ## <a name="create-a-new-chart"></a>새 차트 만들기
 
@@ -52,7 +52,7 @@ Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련�
 7. **메트릭 추가**를 클릭하고 3~6단계를 반복하여 동일한 차트에서 메트릭을 추가할 수 있습니다.
 
    > [!NOTE]
-   > 일반적으로 하나의 차트에서 다른 단위의 측정값(예: "밀리초" 및 "킬로바이트") 또는 크게 다른 규모를 갖는 메트릭을 사용하지 않습니다. 대신, 여러 차트를 사용하는 것이 좋습니다. 차트 추가 단추를 클릭하여 메트릭 탐색기에서 여러 개의 차트를 만듭니다.
+   > 일반적으로 하나의 차트에서 다른 단위의 측정값(예: "밀리초" 및 "킬로바이트") 또는 크게 다른 규모를 갖는 메트릭을 사용하지 않습니다. 대신, 여러 차트를 사용하는 것이 좋습니다. [차트 추가] 단추를 클릭하여 메트릭 탐색기에서 여러 개의 차트를 만듭니다.
 
 ## <a name="apply-filters-to-charts"></a>차트에 필터 적용
 

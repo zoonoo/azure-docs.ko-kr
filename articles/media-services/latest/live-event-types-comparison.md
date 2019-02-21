@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/06/2019
 ms.author: juliako
-ms.openlocfilehash: 9c8bff5a0a4f1599a3d23e0c7b07a1caca536a9b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153966"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55878360"
 ---
 # <a name="live-event-types-comparison"></a>라이브 이벤트 유형 비교
 
@@ -45,7 +45,7 @@ Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest
 | 출력 비디오의 최대 비디오 해상도|입력과 같음|720p(초당 30프레임에서)|
 | 입력 프로토콜|RTMP, fragmented-MP4(부드러운 스트리밍)|RTMP, fragmented-MP4(부드러운 스트리밍)|
 | 가격|[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭|[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭|
-| 최대 실행 시간|연중무휴 라이브 선형|연중 무휴|
+| 최대 실행 시간| 연중무휴 라이브 선형 | 최대 24 시간|
 | 포함된 CEA 608/708 캡션 데이터 전달 가능|예|예|
 | 슬레이트 삽입 지원|아니요|아니요|
 | API를 통한 광고 신호 지원| 아니요|아니요|

@@ -1,10 +1,10 @@
 ---
 title: Azure 네트워크 보안 | Microsoft Docs
-description: 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다.
+description: 애플리케이션 또는 엔터프라이즈의 요구 사항을 충족하기 위해 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405976"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111291"
 ---
 # <a name="azure-network-security"></a>Azure 네트워크 보안
 
@@ -151,9 +151,9 @@ VM(Virtual Machines), Cloud Services, App Service Environment 및 Virtual Machin
 
 VNet을 서로 연결하여 VNet에 연결된 리소스가 VNet을 통해 서로 통신하도록 할 수 있습니다. 다음 옵션 중 하나 또는 둘 다를 사용하여 VNet을 서로 연결할 수 있습니다.
 
-- **피어링:** 같은 Azure 지역 내 다른 Azure VNet에 연결되어 있는 리소스가 서로 통신할 수 있도록 합니다. VNet 내의 대역폭 및 대기 시간은 리소스가 동일한 VNet에 연결된 경우와 같습니다. 피어링에 대한 자세한 내용은 [Virtual Network 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 참조하세요.
+- **피어링:** 같은 Azure 지역 내의 서로 다른 Azure VNet에 연결되어 있는 리소스가 상호 통신할 수 있도록 합니다. VNet 내의 대역폭 및 대기 시간은 리소스가 동일한 VNet에 연결된 경우와 같습니다. 피어링에 대한 자세한 내용은 [Virtual Network 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 참조하세요.
 
-- **VNet 간 연결:** 같거나 서로 다른 Azure 지역에서 서로 다른 Azure VNet에 연결되어 있는 리소스가 상호 통신할 수 있도록 합니다. 피어링과 달리 트래픽이 Azure VPN Gateway를 통과해야 하기 때문에 VNet 간에 대역폭이 제한됩니다. VNet 간 연결을 사용하여 VNet을 연결하는 방법을 알아보세요. 자세한 내용은 [VNet 간 연결 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+- **VNet 간 연결:** 같거나 서로 다른 Azure 지역에서 서로 다른 Azure VNet에 연결되어 있는 리소스가 상호 통신할 수 있도록 합니다. 피어링과 달리, 트래픽이 Azure VPN Gateway를 통과해야 하기 때문에 VNet 간에 대역폭이 제한됩니다. VNet 간 연결을 사용하여 VNet을 연결하는 방법을 알아보세요. 자세한 내용은 [VNet 간 연결 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 **온-프레미스 연결**
 
@@ -161,11 +161,11 @@ VNet을 네트워크와 Azure 간의 개인 네트워크 연결을 통해 또는
 
 다음 옵션을 조합하여 온-프레미스 네트워크를 VNet에 연결할 수 있습니다.
 
-- **지점-사이트 간 VPN(가상 사설망):** 네트워크에 연결된 단일 PC와 VNet 간에 설정됩니다. 이 연결 유형은 기존 네트워크를 거의 변경할 필요가 없으므로 Azure을 이제 막 시작하는 사용자나 개발자에게 적합합니다. 이 연결은 SSTP 프로토콜을 사용하여 PC 및 VNet 간에 인터넷을 통한 암호화된 통신을 제공합니다. 트래픽이 인터넷을 통과하므로 지점 및 사이트 간 VPN의 대기 시간은 예측할 수 없습니다.
+- **지점 및 사이트 간 VPN(가상 사설망):** 네트워크에 연결된 단일 PC와 VNet 간에 설정됩니다. 이 연결 유형은 기존 네트워크를 거의 변경할 필요가 없으므로 Azure을 이제 막 시작하는 사용자나 개발자에게 적합합니다. 이 연결은 SSTP 프로토콜을 사용하여 PC 및 VNet 간에 인터넷을 통한 암호화된 통신을 제공합니다. 트래픽이 인터넷을 통과하므로 지점 및 사이트 간 VPN의 대기 시간은 예측할 수 없습니다.
 
-- **사이트 간 VPN:** VPN 장치와 Azure VPN Gateway 간에 설정됩니다. 이 연결 유형에서는 권한을 부여한 모든 온-프레미스 리소스에서 VNet에 액세스할 수 있습니다. 이 연결은 온-프레미스 디바이스와 Azure VPN Gateway 간에 인터넷을 통한 암호화된 통신을 제공하는 IPSec/IKE VPN입니다. 트래픽이 인터넷을 통과하므로 사이트 간 연결의 대기 시간은 예측 가능하지 않습니다.
+- **사이트 간 VPN:** VPN 디바이스와 Azure VPN Gateway 간에 설정됩니다. 이 연결 유형을 사용하면 권한을 부여한 모든 온-프레미스 리소스에서 VNet에 액세스할 수 있습니다. 이 연결은 온-프레미스 디바이스와 Azure VPN Gateway 간에 인터넷을 통한 암호화된 통신을 제공하는 IPSec/IKE VPN입니다. 트래픽이 인터넷을 통과하므로 사이트 간 연결의 대기 시간은 예측 가능하지 않습니다.
 
-- **Azure ExpressRoute:** ExpressRoute 파트너를 통해 네트워크와 Azure 간에 설정됩니다. 이 연결은 사설 전용입니다. 트래픽이 인터넷을 통과하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. 모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)을 읽어보세요.
+- **Azure ExpressRoute:** ExpressRoute 파트너를 통해 사용자 네트워크와 Azure 간에 설정됩니다. 이 연결은 사설 전용입니다. 트래픽이 인터넷을 통과하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. 모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)을 읽어보세요.
 
 **트래픽 필터링**
 
@@ -175,7 +175,7 @@ VM 및 Cloud Services 역할 인스턴스 [네트워크 트래픽](https://docs.
 
 - **NSG(네트워크 보안 그룹):** 각 NSG에는 원본 및 대상 IP 주소, 포트 및 프로토콜을 기준으로 트래픽을 필터링할 수 있는 여러 개의 인바운드 및 아웃바운드 보안 규칙이 포함될 수 있습니다. NSG는 VM의 각 NIC에 적용할 수 있습니다. NIC 또는 Azure 리소스가 연결된 서브넷에 NSG를 적용할 수도 있습니다. NSG에 대한 자세한 내용은 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)을 참조하세요.
 
-- **Virtual Network 어플라이언스:** Virtual Network 어플라이언스는 방화벽과 같은 네트워크 기능을 수행하는 소프트웨어를 실행하는 VM입니다. Azure Marketplace에서 사용할 수 있는 NVA 목록을 확인하세요. WAN 최적화 및 기타 네트워크 트래픽 기능을 제공하는 NVA도 사용할 수 있습니다. NVA는 일반적으로 사용자 정의 경로 또는 BGP 경로와 함께 사용됩니다. 또한 NVA를 사용하여 VNet 간의 트래픽을 필터링할 수도 있습니다.
+- **Virtual Network 어플라이언스:** 가상 네트워크 어플라이언스는 방화벽과 같은 네트워크 기능을 수행하는 소프트웨어를 실행하는 VM입니다. Azure Marketplace에서 사용할 수 있는 NVA 목록을 확인하세요. WAN 최적화 및 기타 네트워크 트래픽 기능을 제공하는 NVA도 사용할 수 있습니다. NVA는 일반적으로 사용자 정의 경로 또는 BGP 경로와 함께 사용됩니다. 또한 NVA를 사용하여 VNet 간의 트래픽을 필터링할 수도 있습니다.
 
 **라우팅**
 
@@ -183,7 +183,7 @@ VM 및 Cloud Services 역할 인스턴스 [네트워크 트래픽](https://docs.
 
 Azure는 VNet의 모든 서브넷에 연결된 리소스가 서로 통신할 수 있도록 하는 경로 테이블을 기본적으로 생성합니다. 다음 옵션 중 하나 또는 둘 다를 구현하여 Azure에서 생성되는 기본 경로를 재정의할 수 있습니다.
 
-- **사용자 정의 경로:** 각 서브넷에 대해 트래픽이 라우팅되는 위치를 제어하는 경로를 포함한 사용자 지정 경로 테이블을 만들 수 있습니다. 사용자 정의 경로에 대해 자세히 알아보려면 [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)를 참조하세요.
+- **사용자 정의 경로**: 각 서브넷에 대해 트래픽이 라우팅되는 위치를 제어하는 경로를 사용하여 사용자 지정 경로 테이블을 만들 수 있습니다. 사용자 정의 경로에 대해 자세히 알아보려면 [사용자 정의 경로](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)를 참조하세요.
 
 - **BGP 경로:** Azure VPN Gateway 또는 ExpressRoute 연결을 사용하여 온-프레미스 네트워크에 VNet을 연결하는 경우 VNet으로 BGP 경로를 전파할 수 있습니다.
 
@@ -282,13 +282,13 @@ NSG는 5튜플을 사용하여 트래픽을 평가하며, NSG에 대해 구성�
 
 NSG는 알고 있어야 하는 몇 가지 기본 제공 규칙을 제공합니다. 다음과 같습니다.
 
--   **특정 가상 네트워크 내에서 모든 트래픽 허용:** 동일한 Azure Virtual Network의 모든 VM이 통신할 수 있습니다.
+-   **특정 가상 네트워크 내에서 모든 트래픽 허용:** 동일한 Azure Virtual Network의 모든 VM이 서로 통신할 수 있습니다.
 
 -   **인바운드에 대한 Azure 부하 분산 허용:** 이 규칙을 사용하면 Azure Load Balancer를 위해 모든 원본 주소에서 대상 주소로의 트래픽이 허용됩니다.
 
 -   **모든 인바운드 거부:** 이 규칙은 명시적으로 허용되는 인터넷에서 수신되는 모든 트래픽을 차단합니다.
 
--   **인터넷으로의 모든 아웃바운드 트래픽 허용:** 이 규칙은 VM에서 인터넷으로의 연결을 시작할 수 있도록 합니다. 이러한 연결을 시작하지 않으려면 해당 연결을 차단하거나 강제 터널링을 적용하는 규칙을 만들어야 합니다.
+-   **모든 인터넷 아웃바운드 트래픽 허용:** 이 규칙을 사용하면 VM이 인터넷에 연결을 시작할 수 있습니다. 이러한 연결을 시작하지 않으려면 해당 연결을 차단하거나 강제 터널링을 적용하는 규칙을 만들어야 합니다.
 
 #### <a name="system-routes-and-user-defined-routes"></a>시스템 경로 및 사용자 정의 경로
 
@@ -320,11 +320,11 @@ Azure에서 강제 터널링은 가상 네트워크 UDR(사용자 정의 경로)
 
 -   각 가상 네트워크 서브넷에는 기본 제공 시스템 라우팅 테이블이 있습니다. 시스템 라우팅 테이블에는 다음 3개의 경로 그룹이 있습니다.
 
- -  **로컬 VNet 경로:** 동일한 가상 네트워크에서 대상 VM으로 직접
+ -  **로컬 VNet 경로**: 동일한 가상 네트워크의 대상 VM에 바로 연결
 
  - **온-프레미스 경로:** Azure VPN 게이트웨이로
 
- -  **기본 경로:** 인터넷으로 직접. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
+ -  **기본 경로**: 인터넷에 바로 연결됩니다. 이전의 두 경로를 벗어나는 개인 IP 주소로 향하는 패킷은 삭제됩니다.
 
 -   사용자 정의 경로가 릴리스되면서 라우팅 테이블을 만들어 기본 경로에 추가한 다음 라우팅 테이블을 VNet 서브넷에 연결하여 해당 서브넷에 강제 터널링을 사용할 수 있습니다.
 
@@ -368,7 +368,7 @@ Azure 네트워크 보안 어플라이언스는 VNet 보안 및 네트워크 기
 
 #### <a name="application-gateway"></a>애플리케이션 게이트웨이
 
-[Microsoft Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)는 ADC(응용 프로그램 배달 컨트롤러)를 서비스로 제공하는 전용 가상 어플라이언스입니다.
+[Microsoft Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)는 ADC(애플리케이션 배달 컨트롤러)를 서비스로 제공하는 전용 가상 어플라이언스입니다.
 
  ![Application Gateway](./media/azure-network-security/azure-network-security-fig-11.png)
 
@@ -383,7 +383,7 @@ Application Gateway를 통해 Application Gateway에 CPU 집약적인 SSL 종료
 -   단일 Application Gateway 뒤에 여러 웹 사이트를 호스트하는 기능
 
 
-[WAF(웹 응용 프로그램 방화벽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) 또한 Application Gateway의 일부로 제공됩니다. 이 기능은 일반적인 웹 취약점 및 악용으로부터 웹 애플리케이션을 보호합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성할 수 있습니다.
+[WAF(웹 애플리케이션 방화벽)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) 또한 Application Gateway의 일부로 제공됩니다. 이 기능은 일반적인 웹 취약점 및 악용으로부터 웹 애플리케이션을 보호합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성할 수 있습니다.
 
 Application Gateway WAF는 탐지 또는 방지 모드에서 실행할 수 있습니다. 일반적인 사용 사례는 관리자가 트래픽에서 악의적인 패턴을 관찰하기 위해 탐지 모드에서 실행하는 경우입니다. 악용 가능성이 감지되면 방지 모드로 전환되어 의심스러운 수신 트래픽을 차단합니다.
 
@@ -645,9 +645,9 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)에는 다음 로그가 지원됩니다.
 
-- **NetworkSecurityGroupEvent:** VM 및 MAC 주소 기반 인스턴스 역할에 NSG 규칙이 적용되는 항목을 포함합니다. 이러한 규칙에 대한 상태는 60초마다 수집됩니다.
+- **NetworkSecurityGroupEvent:** VM 및 MAC 주소 기반 인스턴스 역할에 적용된 NSG 규칙에 대한 항목을 포함합니다. 이러한 규칙에 대한 상태는 60초마다 수집됩니다.
 
-- **NetworkSecurityGroupRuleCounter:** 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용되는 횟수에 대한 항목을 포함합니다.
+- **NetworkSecurityGroupRuleCounter:** 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수에 대한 항목을 포함합니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음과 같은 심층적인 일부 보안 항목을 참조하여 보안에 대한 자세한 내용을 확인할 수 있습니다.

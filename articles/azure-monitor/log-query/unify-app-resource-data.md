@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: f9138ec06900f4a7f856cc90362d16496b7b4fed
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766015"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237674"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>여러 Azure Monitor Application Insights 리소스 통합 
 이 문서에서는 모든 Application Insights 애플리케이션 로그 데이터가 각기 다른 Azure 구독에 있더라도 한 곳에서 쿼리하고 확인하는 방법을 설명합니다. 사용이 중단된 Application Insights 커넥터 대신 이 방법을 사용할 수 있습니다. 단일 쿼리에 포함할 수 있는 Application Insights 리소스 수는 100개로 제한됩니다.  
@@ -32,7 +32,7 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-애플리케이션 목록에 합집합 연산자를 사용하는 함수를 만든 다음 별칭을 *applicationsScoping*으로 지정하여 쿼리를 함수로 저장합니다.  
+애플리케이션 목록에 합집합 연산자를 사용하는 함수를 만든 다음, *applicationsScoping*이라는 별칭으로 작업 영역의 쿼리를 함수로 저장합니다.  
 
 ```
 union withsource=SourceApp 
@@ -45,7 +45,7 @@ app('Contoso-app5').requests
 ```
 
 >[!NOTE]
->Logs 포털의 쿼리 탐색기로 이동한 다음 함수를 편집하거나 `SavedSearch` PowerShell cmdlet을 사용하여 언제든지 목록에 포함된 애플리케이션을 수정할 수 있습니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션을 지정하는 열을 결과에 추가합니다. 
+>언제든지 포털에서 작업 영역의 쿼리 탐색기로 이동한 후 편집할 함수를 선택하고 저장하여, 또는 `SavedSearch` PowerShell cmdlet을 사용하여 나열된 애플리케이션을 수정할 수 있습니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션을 지정하는 열을 결과에 추가합니다. 
 >
 >ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하므로 쿼리는 작업 영역에서 실행되지만 Application Insights 스키마를 사용합니다. 
 >

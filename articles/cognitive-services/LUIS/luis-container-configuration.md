@@ -4,19 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS 컨테이너 런타임 환경은 `docker run` 명령 인수를 사용하여 구성됩니다. LUIS에는 몇 가지 옵션 설정과 함께 여러 필수 설정이 있습니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 281358e51ed8585e5deb407b2432ee3b7ee1537f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55294726"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983273"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding Docker 컨테이너 구성 
 
@@ -59,7 +59,7 @@ LUIS**Language Understanding** 컨테이너 런타임 환경은 `docker run` 명
 
 ## <a name="billing-setting"></a>청구 설정
 
-`Billing` 설정은 컨테이너에 대한 미터 청구 정보를 추적하는 데 사용되는 Azure 기반 _Language Understanding_ 리소스의 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure 기반 _Language Understanding_ 리소스에 대해 유효한 엔드포인트 URI여야 합니다.
+`Billing` 설정은 컨테이너에 대한 미터 청구 정보를 추적하는 데 사용되는 Azure 기반 _Language Understanding_ 리소스의 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure 기반 _Language Understanding_ 리소스에 대해 유효한 엔드포인트 URI여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 

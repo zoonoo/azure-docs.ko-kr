@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 8d2cac7635b9d97561b3cebf517c95855407cbe3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 27a8e160fc33729c5b5266dffeb346f0296276fd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462786"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005287"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 
@@ -71,7 +71,7 @@ ms.locfileid: "55462786"
 
 ## <a name="point-in-time-restore"></a>지정 시간 복원
 
-Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases)를 사용하여 동일한 서버에 독립 실행형 데이터베이스, 풀링된 데이터베이스 또는 인스턴스 데이터베이스를 새 데이터베이스로써 이전 시점으로 복원할 수 있습니다. 데이터베이스를 원하는 서비스 계층 또는 계산 크기로 복원할 수 있습니다. 서버에 데이터베이스를 복원하기에 충분한 리소스가 있는지 확인합니다. 완료되면 복원된 데이터베이스는 일반적이고 완벽하게 액세스할 수 있는 온라인 데이터베이스입니다. 복원된 데이터베이스는 서비스 계층 및 계산 크기에 따라 정상 요금이 청구됩니다. 데이터베이스 복원이 완료될 때까지 요금이 발생하지 않습니다.
+Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases)를 사용하여 동일한 서버에 단일 데이터베이스, 풀링된 데이터베이스 또는 인스턴스 데이터베이스를 새 데이터베이스로써 이전 시점으로 복원할 수 있습니다. 데이터베이스를 원하는 서비스 계층 또는 계산 크기로 복원할 수 있습니다. 서버에 데이터베이스를 복원하기에 충분한 리소스가 있는지 확인합니다. 완료되면 복원된 데이터베이스는 일반적이고 완벽하게 액세스할 수 있는 온라인 데이터베이스입니다. 복원된 데이터베이스는 서비스 계층 및 계산 크기에 따라 정상 요금이 청구됩니다. 데이터베이스 복원이 완료될 때까지 요금이 발생하지 않습니다.
 
 일반적으로 복구를 위해 이전 지점까지 데이터베이스를 복원합니다. 이렇게 하는 경우 원본 데이터베이스에 대한 대체로 복원된 데이터베이스를 처리하거나 데이터를 검색하고 원래 데이터베이스를 업데이트하는 데 사용할 수 있습니다.
 
@@ -83,7 +83,7 @@ Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.
 
   복원된 데이터베이스에서 데이터를 가져와 사용자 또는 애플리케이션 오류로부터 복구하려면 복원된 데이터베이스에서 원본 데이터베이스로 데이터를 추출하는 데 필요한 데이터 복구 스크립트를 작성하고 실행해야 합니다. 복원 작업을 완료하는 데 긴 시간이 걸리지만 복원 중인 데이터베이스가 복원 과정 내내 데이터베이스 목록에 표시됩니다. 복원하는 동안 데이터베이스를 삭제하는 경우 작업이 취소되고 복원이 완료되지 않은 데이터베이스에 대해서는 비용이 청구되지 않습니다.
 
-Azure Portal을 사용하여 독립 실행형 데이터베이스, 풀링된 데이터베이스 또는 인스턴스 데이터베이스를 특정 시점으로 복구하려면 데이터베이스에 대한 페이지를 열고 도구 모음에서 **복원**을 클릭합니다.
+Azure Portal을 사용하여 단일 데이터베이스, 풀링된 데이터베이스 또는 인스턴스 데이터베이스를 특정 시점으로 복구하려면 데이터베이스에 대한 페이지를 열고 도구 모음에서 **복원**을 클릭합니다.
 
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -139,7 +139,7 @@ Azure Portal을 사용하여 [DTU 기반 모델 보존 기간](sql-database-serv
 
 ### <a name="powershell"></a>PowerShell
 
-- 독립 실행형 또는 풀링된 데이터베이스를 복원하려면 [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)를 참조하세요.
+- 단일 또는 풀링된 데이터베이스를 복원하려면 [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)를 참조하세요.
 
   | Cmdlet | 설명 |
   | --- | --- |
@@ -155,7 +155,7 @@ Azure Portal을 사용하여 [DTU 기반 모델 보존 기간](sql-database-serv
 
 ### <a name="rest-api"></a>REST API
 
-REST API를 사용하여 독립 실행형 또는 풀링된 데이터베이스를 복원하려면:
+REST API를 사용하여 단일 또는 풀링된 데이터베이스를 복원하려면:
 
 | API | 설명 |
 | --- | --- |
@@ -164,7 +164,7 @@ REST API를 사용하여 독립 실행형 또는 풀링된 데이터베이스를
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용하여 독립 실행형 또는 풀링된 데이터베이스를 복원하려면 [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore)를 참조하세요.
+Azure CLI를 사용하여 단일 또는 풀링된 데이터베이스를 복원하려면 [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore)를 참조하세요.
 
 ## <a name="summary"></a>요약
 

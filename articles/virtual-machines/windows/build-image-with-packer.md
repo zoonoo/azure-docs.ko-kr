@@ -14,44 +14,45 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: f848c6b654f3378df04d1320d957e76ac5384465
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0ae4c883baa156276646755273547a17d23edc55
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427827"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55982491"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Windows 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 머신)은 Windows 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 OS 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 빌드하는 방법을 자세히 설명합니다.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-azure-resource-group"></a>Azure 리소스 그룹 만들기
 빌드 프로세스 동안 Packer는 원본 VM을 빌드하므로 임시 Azure 리소스를 만듭니다. 이미지로 사용하기 위해 해당 원본 VM을 캡처하려면 리소스 그룹을 정의해야 합니다. Packer 빌드 프로세스의 출력은 이 리소스 그룹에 저장됩니다.
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```powershell
 $rgName = "myResourceGroup"
 $location = "East US"
-New-AzureRmResourceGroup -Name $rgName -Location $location
+New-AzResourceGroup -Name $rgName -Location $location
 ```
 
 ## <a name="create-azure-credentials"></a>Azure 자격 증명 만들기
 Packer는 서비스 사용자를 사용하여 Azure를 인증합니다. Azure 서비스 사용자는 앱, 서비스 및 Packer와 같은 자동화 도구를 사용할 수 있는 보안 ID입니다. 서비스 주체가 Azure에서 수행할 수 있는 작업에 대한 사용 권한은 사용자가 제어하고 정의합니다.
 
-[New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal)을 사용하여 서비스 사용자를 만들고 [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment)를 사용하여 리소스를 만들고 관리하는 권한을 서비스 사용자에게 할당합니다. 예제의 *&lt;암호&gt;* 를 고유한 암호로 바꿉니다.  
+[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal)을 사용하여 서비스 사용자를 만들고 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)를 사용하여 리소스를 만들고 관리하는 권한을 서비스 사용자에게 할당합니다. 예제의 *&lt;암호&gt;* 를 고유한 암호로 바꿉니다.  
 
 ```powershell
-$sp = New-AzureRmADServicePrincipal -DisplayName "AzurePacker" `
+$sp = New-AzADServicePrincipal -DisplayName "AzurePacker" `
     -Password (ConvertTo-SecureString "<password>" -AsPlainText -Force)
 Sleep 20
-New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-Azure를 인증하려면 [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription)을 사용하여 Azure 테넌트 및 구독 ID를 가져와야 합니다.
+Azure를 인증하려면 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription)을 사용하여 Azure 테넌트 및 구독 ID를 가져와야 합니다.
 
 ```powershell
-$sub = Get-AzureRmSubscription
+$sub = Get-AzSubscription
 $sub.TenantId[0]
 $sub.SubscriptionId[0]
 ```
@@ -70,7 +71,6 @@ $sub.SubscriptionId[0]
 | *client_secret*                     | `$securePassword`에서 지정한 암호 |
 | *tenant_id*                         | `$sub.TenantId` 명령의 출력 |
 | *subscription_id*                   | `$sub.SubscriptionId` 명령의 출력 |
-| *object_id*                         | `$sp.Id`를 사용하여 서비스 사용자 개체 ID 보기 |
 | *managed_image_resource_group_name* | 첫 번째 단계에서 만든 리소스 그룹의 이름 |
 | *managed_image_name*                | 만들어진 관리되는 디스크 이미지의 이름 |
 
@@ -83,7 +83,6 @@ $sub.SubscriptionId[0]
     "client_secret": "P@ssw0rd!",
     "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "object_id": "a7dfb070-0d5b-47ac-b9a5-cf214fff0ae2",
 
     "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",
@@ -208,10 +207,10 @@ Packer가 VM을 빌드하고 프로비저너를 실행하고 배포를 정리하
 
 
 ## <a name="create-a-vm-from-the-packer-image"></a>Packer 이미지에서 VM 만들기
-이제 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 이미지에서 VM을 만들 수 있습니다. 아직 없는 경우 지원 네트워크 리소스가 만들어집니다. 메시지가 표시되면 VM에 만들어질 관리 사용자 이름 및 암호를 입력합니다. 다음 예제에서는 *myPackerImage*에서 *myVM*이라는 VM을 만듭니다.
+이제 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)을 사용하여 이미지에서 VM을 만들 수 있습니다. 아직 없는 경우 지원 네트워크 리소스가 만들어집니다. 메시지가 표시되면 VM에 만들어질 관리 사용자 이름 및 암호를 입력합니다. 다음 예제에서는 *myPackerImage*에서 *myVM*이라는 VM을 만듭니다.
 
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -Location $location `
@@ -223,16 +222,16 @@ New-AzureRmVm `
     -Image "myPackerImage"
 ```
 
-Packer 이미지와 다른 리소스 그룹 또는 지역에서 VM을 만들려는 경우 이미지 이름 대신 이미지 ID를 지정합니다. [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage)를 사용하여 이미지 ID를 가져올 수 있습니다.
+Packer 이미지와 다른 리소스 그룹 또는 지역에서 VM을 만들려는 경우 이미지 이름 대신 이미지 ID를 지정합니다. [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/Get-AzImage)를 사용하여 이미지 ID를 가져올 수 있습니다.
 
 Packer 이미지에서 VM을 만드는 데 몇 분이 걸립니다.
 
 
 ## <a name="test-vm-and-webserver"></a>VM 및 웹 서버 테스트
-[Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 VM의 공용 IP 주소를 가져옵니다. 다음 예제에서는 앞서 만든 *myPublicIP*의 IP 주소를 가져옵니다.
+[Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress)를 사용하여 VM의 공용 IP 주소를 가져옵니다. 다음 예제에서는 앞서 만든 *myPublicIP*의 IP 주소를 가져옵니다.
 
 ```powershell
-Get-AzureRmPublicIPAddress `
+Get-AzPublicIPAddress `
     -ResourceGroupName $rgName `
     -Name "myPublicIPAddress" | select "IpAddress"
 ```

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: af5baf3444196e5a0e8412d9ab4f019fdccb033e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7cab21919eca9ba62fa57e1c6b2089c0b8e115dc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783682"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979975"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Media Services.NET SDK를 사용하여 자산 및 관련 엔터티 관리
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "33783682"
 > 
 > 
 
-이 항목에서는 .NET를 사용하여 Azure Media Services 엔터티를 관리하는 방법을 보여 줍니다. 
+이 항목에서는 .NET(레거시)을 사용하여 Azure Media Services 엔터티를 관리하는 방법을 보여 줍니다.
 
 >[!NOTE]
 > 2017년 4월 1일부터 레코드의 총 수가 최고 할당량 미만인 경우에도 사용자 계정에 있는 90일이 지난 작업 레코드는 연결된 태스크 레코드와 함께 자동으로 삭제됩니다. 예를 들어, 2017년 4월 1일에는 계정에 있는 2016년 12월 31일 이전의 모든 작업 레코드가 자동으로 삭제됩니다. 작업/태스크 정보를 보관해야 하는 경우에는 이 항목에 설명된 코드를 사용할 수 있습니다.
@@ -352,7 +352,7 @@ Media Services에서 자산 또는 해당 파일에 대한 액세스 정책을 �
 ## <a name="delete-a-job"></a>작업 삭제
 작업을 삭제하려면 State 속성에 표시된 작업의 상태를 확인해야 합니다. 완료되거나 취소된 작업을 삭제할 수 있지만, 큐에 대기됨, 예약됨 또는 처리 중 등의 특정 상태에 있는 작업을 먼저 취소해야 해당 작업을 삭제할 수 있습니다.
 
-다음 코드 예제에서는 작업 상태를 확인하고 상태가 완료됨 또는 취소됨일 때 삭제하는 방법으로 작업을 삭제하는 메서드를 보여 줍니다. 이 코드에서는 작업에 대한 참조를 가져오는 방법에 대한 이 항목의 이전 섹션인 작업 참조 가져오기를 사용합니다.
+다음 코드 예제에서는 작업 상태를 확인하고 상태가 완료됨 또는 취소됨일 때 삭제하는 방법으로 작업을 삭제하는 메서드를 보여 줍니다. 이 코드는 작업에 대한 참조를 가져오는 방법에 대한 이 항목의 이전 섹션에 따라 달라집니다. 작업 참조 가져오기
 
 ```csharp
     static void DeleteJob(string jobId)

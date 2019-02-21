@@ -15,24 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: c766303920913a3ed6e654b3f9b29a0b99bb012a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 92fee850b6ba013c759d3441219f1946a0faedb3
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041278"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984144"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>가상 머신 vCPU 할당량
 
 가상 머신 및 가상 머신 확장 집합에 대한 vCPU 할당량은 각 지역의 각 구독에 대해 두 가지 계층으로 정렬됩니다. 첫 번째 계층은 지역별 총 vCPU이며 두 번째 계층은 D 시리즈 vCPU와 같은 다양한 VM 크기 제품군 코어입니다. 새 VM이 배포될 때마다 VM에 대한 vCPU는 VM 크기 제품군 또는 지역별 총 vCPU 할당량에 대한 vCPU 할당량을 초과하지 않아야 합니다. 이러한 할당량 중 하나가 초과되면 VM 배포가 허용되지 않습니다. 지역에서 전체 가상 머신의 수에 대한 할당량도 있습니다. 이러한 각 할당량의 세부 정보는 [Azure Portal](https://portal.azure.com)에서 **구독** 페이지의 **사용량 + 할당량** 섹션에서 볼 수 있거나 PowerShell을 사용하여 값에 대해 쿼리할 수 있습니다.
 
+ [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)] 
  
 ## <a name="check-usage"></a>사용량 확인
 
-[Get-AzureRmVMUsage](/powershell/module/azurerm.compute/get-azurermvmusage) cmdlet을 사용하여 할당량 사용량을 확인할 수 있습니다.
+[Get-AzVMUsage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmusage) cmdlet을 사용하여 할당량 사용량을 확인할 수 있습니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVMUsage -Location "East US"
+Get-AzVMUsage -Location "East US"
 ```
 
 출력은 다음과 유사합니다.

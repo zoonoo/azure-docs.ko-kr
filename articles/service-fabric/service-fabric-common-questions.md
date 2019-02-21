@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: ce88c8c4850e5226ddda12ce5ee0e1d18b51ea5c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a63a10225f4dc55092c62e39b22cdf15d7f7ca5e
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104085"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217516"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -189,4 +189,4 @@ Service Fabric 런타임의 오픈 소스를 제공할 계획임을 [최근에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [핵심 Service Fabric 개념 및 모범 사례에 대해 알아보기](https://mva.microsoft.com/en-us/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965)
+[핵심 Service Fabric 개념](service-fabric-technical-overview.md) 및 [모범 사례](service-fabric-best-practices-overview.md)에 대해 알아보기

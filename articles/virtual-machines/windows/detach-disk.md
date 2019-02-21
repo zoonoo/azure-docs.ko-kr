@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: e27826629873566bf7b746649923c25e6ab70827
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 750bb275ef936b3911503cd4c0f50674d3dff2d1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457159"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981148"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
 
@@ -35,16 +35,18 @@ ms.locfileid: "55457159"
 디스크에 있는 기존 데이터를 다시 사용하려는 경우 동일한 또는 다른 가상 머신에 다시 연결할 수 있습니다.
 
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## <a name="detach-a-data-disk-using-powershell"></a>PowerShell을 사용하여 데이터 디스크 분리
 
 PowerShell을 사용하여 데이터 디스크를 *작동 중* 제거(hot remove)할 수 있지만, VM에서 해당 디스크를 분리할 때 해당 디스크가 전혀 사용되고 있지 않아야 합니다.
 
-이 예제에서는 **myResourceGroup** 리소스 그룹의 VM **myVM**에서 **myDisk**라는 디스크를 제거합니다. 먼저 [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet을 사용하여 디스크를 제거합니다. 그런 후 [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet으로 가상 머신의 상태를 업데이트하여 데이터 디스크 제거 프로세스를 완료합니다.
+이 예제에서는 **myResourceGroup** 리소스 그룹의 VM **myVM**에서 **myDisk**라는 디스크를 제거합니다. 먼저 [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) cmdlet을 사용하여 디스크를 제거합니다. 그런 다음, [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) cmdlet으로 가상 머신의 상태를 업데이트하여 데이터 디스크 제거 프로세스를 완료합니다.
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "myDisk"
-Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
+Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
 디스크가 저장소에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.

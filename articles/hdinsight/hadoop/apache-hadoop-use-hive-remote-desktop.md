@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6e0641f2d9427133f951ef63720b4efdac4defe5
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 60bed4786b61bc96b918511b63ae89daa1cba1c4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409057"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217431"
 ---
 # <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>원격 데스크톱을 사용하여 HDInsight에서 Apache Hadoop과 Hive 사용
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -103,10 +103,7 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 * [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문서를 참조하세요.
-
-* [Windows 기반 HDInsight 클러스터에서 Apache Tez UI 사용](../hdinsight-debug-tez-ui.md)
-* [Linux 기반 HDInsight에서 Apache Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
+Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문서를 참조하세요. [Linux 기반 HDInsight에서 Apache Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

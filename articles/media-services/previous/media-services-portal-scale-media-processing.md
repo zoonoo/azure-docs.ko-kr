@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 2aabdc503a694de46796b7c3afeedfcdb2f39ca9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 810d1bf6a550539b402721d089d8b041cfb48634
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037872"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991460"
 ---
 # <a name="change-the-reserved-unit-type"></a>예약 단위 유형 변경
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "51037872"
 
 ## <a name="overview"></a>개요
 
-Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결정하는 예약 단위 형식과 연결됩니다. **S1**, **S2**, **S3** 예약 단위 유형 중에서 선택할 수 있습니다. 예를 들어 **S2** 예약 단위 유형을 사용하는 경우 **S1** 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다.
+Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결정하는 예약 단위 형식과 연결됩니다. 예약 단위 유형 **S1**, **S2** 또는 **S3** 중에서 선택할 수 있습니다. 예를 들어 **S2** 예약 단위 유형을 사용하는 경우 **S1** 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다.
 
 예약 단위 유형을 지정하는 것 외에도 계정에 **RU(예약 단위)** 를 프로비전하도록 지정할 수 있습니다. 프로비전되는 RU의 수에 따라 특정 계정에서 동시에 처리할 수 있는 미디어 작업의 수가 결정됩니다.
 
@@ -53,7 +53,7 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
    
     선택한 예약 단위 유형의 예약 단위 수를 변경하려면 화면 위쪽에서 **미디어 예약 단위** 슬라이더를 사용합니다.
    
-    **예약된 단위 유형**을 변경하려면 **예약된 처리 단위의 속도** 표시줄을 클릭합니다. 그런 후, S1, S2 또는 S3 중에서 필요한 가격 책정 계층을 선택합니다.
+    **예약된 단위 유형**을 변경하려면 **예약된 처리 단위의 속도** 표시줄을 클릭합니다. 그런 후, 필요한 가격 책정 계층을 S1, S2 또는 S3 중에서 선택할 수 있습니다.
    
 3. 저장 단추를 눌러 변경 내용을 저장합니다.
    

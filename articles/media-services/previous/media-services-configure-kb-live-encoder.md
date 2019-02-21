@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/04/2018
+ms.date: 02/08/2019
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: f6d4fcf5e6ec8029bb0e7c303849fdceef5bace7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1672eb2ef0db36c9b30ca444fa4224eb1afbe828
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012091"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998487"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Haivision KB 라이브 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Haivision KB 라이브 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기  
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
@@ -59,30 +59,30 @@ ms.locfileid: "51012091"
 
 비디오:
 -   코덱: H.264
--   프로필: 높음(수준 4.0)
--   비트 전송률: 5,000kbps
+-   프로필 높음(수준 4.0)
+-   Bitrate: 5000kbps
 -   키 프레임: 2초(60프레임)
 -   프레임 속도: 30
 
 Audio:
 -   코덱: AAC(LC)
--   비트 전송률: 192kbps
--   샘플 속도: 44.1khz
+-   Bitrate: 192kbps
+-   샘플링 속도: 44.1kHz
 
 ## <a name="configuration-steps"></a>구성 단계
 1.  Haivision KB 사용자 인터페이스에 로그인합니다.
 2.  채널 제어 센터에서 **메뉴 단추**를 클릭하고 **채널 추가**를 선택합니다.  
-    ![스크린 샷 2017-08-14 at 9.15.09 AM.png](./media/media-services-configure-kb-live-encoder/step2.png)
+    ![스크린샷 2017-08-14, 오전 9.15.09](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  이름 필드에 **채널 이름**을 입력하고 다음을 클릭합니다.  
-    ![스크린 샷 2017-08-14 at 9.19.07 AM.png](./media/media-services-configure-kb-live-encoder/step3.png)
+    ![스크린샷 2017-08-14, 오전 9.19.07](./media/media-services-configure-kb-live-encoder/step3.png)
 4.  **입력 소스** 드롭 다운에서 **채널 입력 소스**를 선택하고 다음을 클릭합니다.
-    ![스크린 샷 2017-08-14 at 9.20.44 AM.png](./media/media-services-configure-kb-live-encoder/step4.png)
+    ![스크린샷 2017-08-14, 오전 9.20.44](./media/media-services-configure-kb-live-encoder/step4.png)
 5.  **Encoder Template** 드롭다운에서 **H264-720-AAC-192**를 선택하고 다음을 클릭합니다.
-    ![스크린 샷 2017-08-14 at 9.23.15 AM.png](./media/media-services-configure-kb-live-encoder/step5.png)
+    ![스크린샷 2017-08-14, 오전 9.23.15](./media/media-services-configure-kb-live-encoder/step5.png)
 6.  **새 출력 선택** 드롭다운에서 **RTMP**를 선택하고 다음을 클릭합니다.  
-    ![스크린 샷 2017-08-14 at 9.27.51 AM.png](./media/media-services-configure-kb-live-encoder/step6.png)
+    ![스크린샷 2017-08-14, 오전 9.27.51](./media/media-services-configure-kb-live-encoder/step6.png)
 7.  **채널 출력** 창에서 Azure 스트림 정보를 채웁니다. **서버** 영역에 있는 초기 채널 설치 프로그램에서 **RTMP** 링크를 붙여 넣습니다. **출력 이름** 영역에 채널의 이름을 입력합니다. Stream Name Template 영역에서 스트림에 이름을 지정하려면 템플릿 RTMPStreamName_%video_bitrate%를 사용합니다.
-    ![스크린 샷 2017-08-14 at 9.33.17 AM.png](./media/media-services-configure-kb-live-encoder/step7.png)
+    ![스크린샷 2017-08-14, 오전 9.33.17](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  다음을 클릭한 후 마침을 클릭합니다.
 9.  인코더가 채널을 시작하려면 **재생 단추**를 클릭합니다.  
     ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)

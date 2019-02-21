@@ -4,7 +4,7 @@ description: 이 항목에서는 클라이언트가 스트림의 특정 섹션�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/09/2019
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 04e6a1ac9b1fc94388580f03c6767da3da226c3a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5988ad92c9395332163182cb6995781d08bd5957
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783252"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236909"
 ---
-# <a name="creating-filters-with-azure-media-services-net-sdk"></a>Azure Media Services .NET SDK로 필터 생성
+# <a name="creating-filters-with-media-services-net-sdk"></a>Media Services .NET SDK로 필터 만들기 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST (영문)](media-services-rest-dynamic-manifest.md)
@@ -34,7 +34,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 
 이 문서에서는 Media Services .NET SDK를 사용하여 필더를 생성하고, 업데이트하며, 삭제하는 방법을 보여줍니다. 
 
-필터를 업데이트하는 경우 스트리밍 끝점이 규칙을 새로 고치는 데 최대 2분이 소요될 수 있습니다. 콘텐츠가 이 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터를 업데이트한 후에 항상 캐시를 지웁니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다. 
+필터를 업데이트하는 경우 스트리밍 엔드포인트가 규칙을 새로 고치는 데 최대 2분이 소요될 수 있습니다. 콘텐츠가 이 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터를 업데이트한 후에 항상 캐시를 지웁니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다. 
 
 ## <a name="types-used-to-create-filters"></a>필터 생성에 사용되는 형식
 필터를 생성할 때는 다음 형식이 사용됩니다. 

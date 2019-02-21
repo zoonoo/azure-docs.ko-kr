@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6c4cd4e698630c06ab8e7ba144791800f091abfa
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 7ce752fcee99b3f85099d83ab11451c427dea91e
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458944"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964018"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>DTU를 기반 구매 모델을 사용한 탄력적 풀에 대한 리소스 제한 
 
@@ -126,12 +126,11 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 | 데이터베이스당 최대 저장소 |사용자가 풀의 데이터베이스에 대해 설정한 최대 데이터베이스 크기입니다. 그러나 풀링된 데이터베이스는 할당된 풀 저장소를 공유합니다. *데이터베이스당* 전체 최대 저장소가 전체 사용 가능 저장소 *풀 공간*보다 크게 설정되더라도 모든 데이터베이스에서 실제로 사용하는 전체 공간은 사용 가능한 풀 제한을 초과할 수 없습니다. 최대 데이터베이스 크기는 데이터 파일의 최대 크기를 나타내고, 로그 파일에서 사용하는 공간을 포함하지 않습니다. |
 |||
  
-
-
 ## <a name="next-steps"></a>다음 단계
 
-- 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
-- 서버 및 구독 수준의 한도에 관한 정보는 [SQL Database 서버의 리소스 한도 개요](sql-database-resource-limits-database-server.md)를 참조하세요.
+- 단일 데이터베이스에 대한 vCore 리소스 제한의 경우 [vCore 기반 구매 모델을 사용하여 단일 데이터베이스에 대한 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조합니다.
+- 단일 데이터베이스에 대한 DTU 리소스 제한의 경우 [DTU 기반 구매 모델을 사용하여 단일 데이터베이스에 대한 리소스 제한](sql-database-dtu-resource-limits-single-databases.md)을 참조합니다.
+- 탄력적 풀에 대한 vCore 리소스 제한의 경우 [vCore 기반 구매 모델을 사용하여 탄력적 풀에 대한 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md)을 참조합니다.
+- 관리되는 인스턴스에 대한 리소스 제한의 경우 [관리되는 인스턴스 리소스 제한](sql-database-managed-instance-resource-limits.md)을 참조합니다.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
-- DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model)를 참조하세요.
-- tempdb 크기 한도에 대한 자세한 내용은 https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database를 참조하세요.
+- 데이터베이스 서버의 리소스 제한에 대한 자세한 내용은 서버 및 구독 수준의 한도에 관한 정보인 경우 [SQL Database 서버의 리소스 제한 개요](sql-database-resource-limits-database-server.md)를 참조하세요.

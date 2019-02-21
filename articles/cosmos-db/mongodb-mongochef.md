@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: c679d2e6b7dc8998016e79d265f368504d6def3d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: f2ba1a6fef944911c0706ca4e71be6a55bc4b16a
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038417"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961842"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Studio 3T를 사용하여 Cosmos 계정에 연결
 
@@ -26,7 +26,7 @@ Azure Cosmos DB의 MongoDB API를 사용하여 Cosmos 계정에 연결하려면 
 ## <a name="create-the-connection-in-studio-3t"></a>Studio 3T에서 연결 만들기
 Cosmos 계정을 Studio 3T 연결 관리자에 추가하려면 다음 단계를 수행합니다.
 
-1. [Azure Cosmos DB에 MongoDB 애플리케이션 연결](connect-mongodb-account.md) 문서의 지침을 사용하여 Azure Cosmos DB의 MongoDB API로 구성된 Cosmos 계정의 연결 정보를 검색합니다.
+1. [Azure Cosmos DB에 MongoDB 애플리케이션 연결](connect-mongodb-account.md) 문서의 지침을 사용하여 Azure Cosmos DB의 MongoDB용 API로 구성된 Cosmos 계정의 연결 정보를 검색합니다.
 
     ![연결 문자열 페이지의 스크린샷](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. **연결**을 클릭하여 연결 관리자를 열려고 **새 연결**을 클릭합니다.

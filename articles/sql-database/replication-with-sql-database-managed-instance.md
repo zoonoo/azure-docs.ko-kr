@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance에서 복제 구성 | Microsoft Docs
-description: Azure SQL Database Managed Instance에서 트랜잭션 복제를 구성하는 방법 알아보기
+title: Azure SQL Database 관리되는 인스턴스 데이터베이스에서 복제 구성 | Microsoft Docs
+description: Azure SQL Database 관리되는 인스턴스 데이터베이스에서 트랜잭션 복제를 구성하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,61 +11,58 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 038d8c919e68e68f886525a6c78139496edef8e1
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467666"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893021"
 ---
-# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에서 복제 구성
+# <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Azure SQL Database 관리되는 인스턴스 데이터베이스에서 복제 구성
 
-트랜잭션 복제를 사용하여 SQL Server 또는 Azure SQL Database Managed Instance 데이터베이스에서 Managed Instance로 데이터를 복제하거나 Managed Instance의 데이터베이스에서 변경한 내용을 다른 SQL Server, SQL Database 단일 데이터베이스 또는 탄력적 풀이나 다른 Managed Instance로 밀어넣을 수 있습니다. 복제는 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)에서 공개 미리 보기로 제공됩니다. Managed Instance는 게시자, 배포자 및 구독자 데이터베이스를 호스트할 수 있습니다. 사용 가능한 구성에 대해서는 [트랜잭션 복제 구성](sql-database-managed-instance-transactional-replication.md#common-configurations)을 참조하세요.
+트랜잭션 복제를 사용하면 SQL Server 데이터베이스 또는 다른 인스턴스 데이터베이스에서 Azure SQL Database 관리되는 인스턴스 데이터베이스로 데이터를 복제할 수 있습니다. 또한 트랜잭션 복제를 사용하여 Azure SQL Database 관리되는 인스턴스의 인스턴스 데이터베이스에서 변경한 사항을 Azure SQL Database의 단일 데이터베이스, Azure SQL Database 탄력적 풀의 풀링된 데이터베이스로 내보낼 수 있습니다. 트랜잭션 복제는 [Azure SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)에서 공개 미리 보기로 제공됩니다. 관리되는 인스턴스는 게시자, 배포자 및 구독자 데이터베이스를 호스트할 수 있습니다. 사용 가능한 구성에 대해서는 [트랜잭션 복제 구성](sql-database-managed-instance-transactional-replication.md#common-configurations)을 참조하세요.
 
 ## <a name="requirements"></a>요구 사항
 
-Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
+관리되는 인스턴스를 게시자 또는 배포자로 작동하도록 구성할 때 요구 사항은 다음과 같습니다.
 
-- 지리적 DR 구성에 없는 Azure SQL Database Managed Instance.
+- 관리되는 인스턴스가 현재 지역 복제 관계에 참여하고 있지 않습니다.
 
    >[!NOTE]
-   >Managed Instance로 구성되지 않은 Azure SQL Database는 구독자일 수만 있습니다.
+   >Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스만 구독자가 될 수 있습니다.
 
-- SQL Server의 모든 인스턴스는 동일한 vNet에 있어야 합니다.
+- 관리되는 인스턴스는 모두 동일한 vNet에 있어야 합니다.
 
 - 연결은 복제 참가자 간에 SQL 인증을 사용합니다.
 
 - 복제 작업 디렉터리에 대한 Azure Storage 계정 공유
 
-- Azure 파일 공유에 액세스하려면 관리되는 Managed Instance 서브넷의 보안 규칙에서 포트 445(TCP 아웃바운드)를 열어야 합니다.
+- Azure 파일 공유에 액세스하려면 관리되는 인스턴스 서브넷의 보안 규칙에서 포트 445(TCP 아웃바운드)를 열어야 합니다.
 
 ## <a name="features"></a>기능
 
 지원:
 
-- 온-프레미스 및 Azure SQL Database Managed Instance 인스턴스의 트랜잭션 및 스냅숏 복제 조합
-
-- 구독자는 온-프레미스, Azure SQL Database의 단일 데이터베이스 또는 Azure SQL Database 탄력적 풀의 풀링된 데이터베이스일 수 있습니다.
-
+- Azure SQL Database의 SQL Server 온-프레미스 및 관리되는 인스턴스의 트랜잭션 및 스냅숏 복제 조합
+- 구독자는 온-프레미스 SQL Server 데이터베이스, Azure SQL Database의 단일 데이터베이스 또는 Azure SQL Database 탄력적 풀에서 풀링된 데이터베이스일 수 있습니다.
 - 단방향 또는 양방향 복제.
 
-다음 기능은 지원되지 않습니다.
+Azure SQL Database의 관리되는 인스턴스에서는 다음과 같은 기능이 지원되지 않습니다.
 
 - 업데이트할 수 있는 구독
-
 - 활성 지역 복제
 
 ## <a name="configure-publishing-and-distribution-example"></a>게시 및 배포 예제 구성
 
-1. 포털에서 [Azure SQL Database Managed Instance를 만듭니다](sql-database-managed-instance-create-tutorial-portal.md).
+1. 포털에서 [Azure SQL Database 관리되는 인스턴스를 생성](sql-database-managed-instance-create-tutorial-portal.md)합니다.
 2. 작업 디렉터리에 대한 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account).
 
    저장소 키를 복사해야 합니다. [저장소 액세스 키 보기 및 복사](../storage/common/storage-account-manage.md#access-keys
 )를 참조하세요.
-3. 게시자에 대한 데이터베이스를 만듭니다.
+3. 게시자에 대한 인스턴스 데이터베이스를 만듭니다.
 
-   아래 예제 스크립트에서 `<Publishing_DB>`를 이 데이터베이스의 이름으로 바꿉니다.
+   아래 예제 스크립트에서 `<Publishing_DB>`를 인스턴스 데이터베이스의 이름으로 바꿉니다.
 
 4. 배포자에 대한 SQL 인증을 사용하여 데이터베이스 사용자를 만듭니다. 보안 암호를 사용합니다.
 

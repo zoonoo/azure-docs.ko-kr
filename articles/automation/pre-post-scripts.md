@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428242"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236008"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>사전 및 사후 스크립트 관리(미리 보기)
 
@@ -26,7 +26,7 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 
 ## <a name="using-a-prepost-script"></a>사전/사후 스크립트 사용
 
-업데이트 배포에서 사전 및 사후 스크립트를 사용하려면 업데이트 배포를 만들어야 합니다. **사전 스크립트 + 사후 스크립트(미리 보기)** 를 선택합니다. 그러면 **사전 스크립트 + 사후 스크립트 선택** 페이지가 열립니다.  
+업데이트 배포에 사전 및/또는 사후 스크립트를 사용하려면 업데이트 배포부터 만들어야 합니다. **사전 스크립트 + 사후 스크립트(미리 보기)** 를 선택합니다. 그러면 **사전 스크립트 + 사후 스크립트 선택** 페이지가 열립니다.  
 
 ![스크립트 선택](./media/pre-post-scripts/select-scripts.png)
 
@@ -42,7 +42,7 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 
 업데이트 배포 구성을 마칩니다.
 
-업데이트 배포가 완료되면 **업데이트 배포**로 이동하여 결과를 볼 수 있습니다. 여기서 알 수 있듯이 사전 스크립트 및 사후 스크립트의 상태가 제공됩니다.
+업데이트 배포가 완료되면 **업데이트 배포**로 이동하여 결과를 볼 수 있습니다. 여기서 알 수 있듯이, 사전 스크립트 및 사후 스크립트의 상태가 제공됩니다.
 
 ![업데이트 결과](./media/pre-post-scripts/update-results.png)
 
@@ -52,7 +52,9 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 
 ## <a name="passing-parameters"></a>매개 변수 전달
 
-사전 및 사후 스크립트가 구성되면 Runbook 예약과 같은 매개 변수를 전달할 수 있습니다. 매개 변수는 업데이트 배포를 만들 때 정의됩니다. 표준 Runbook 매개 변수 외에도 추가 매개 변수가 제공됩니다. 이 매개 변수는 **SoftwareUpdateConfigurationRunContext**입니다. 이 매개 변수는 JSON 문자열이며, 사전 또는 사후 스크립트에 매개 변수가 정의되면 업데이트 배포에서 자동으로 전달됩니다. 이 매개 변수에는 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration)에서 반환되는 정보의 하위 집합인 업데이트 배포에 대한 정보가 포함되어 있습니다. 다음 표에서는 변수에 제공되는 속성을 보여 줍니다.
+사전 및 사후 스크립트가 구성되면 Runbook 예약과 같은 매개 변수를 전달할 수 있습니다. 매개 변수는 업데이트 배포를 만들 때 정의됩니다. 사전 및 사후 스크립트의 매개 변수 형식은 `String`여야 합니다. 다른 개체 형식이 필요한 경우 `[System.Convert]`를 사용하여 다른 형식으로 캐스팅하거나 자체 논리를 사용하여 처리할 수 있습니다.
+
+표준 Runbook 매개 변수 외에도 추가 매개 변수가 제공됩니다. 이 매개 변수는 **SoftwareUpdateConfigurationRunContext**입니다. 이 매개 변수는 JSON 문자열이며, 사전 또는 사후 스크립트에 매개 변수가 정의되면 업데이트 배포에서 자동으로 전달됩니다. 이 매개 변수에는 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration)에서 반환되는 정보의 하위 집합인 업데이트 배포에 대한 정보가 포함되어 있습니다. 다음 표에서는 변수에 제공되는 속성을 보여줍니다.
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 속성
 
@@ -70,7 +72,7 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 |azureVirtualMachines     | 업데이트 배포의 Azure VM에 대한 resourceId 목록        |
 |nonAzureComputerNames|업데이트 배포의 비 Azure 컴퓨터 FQDN 목록|
 
-다음 예제는 **SoftwareUpdateConfigurationRunContext** 매개 변수에 전달된 JSON 문자열입니다.
+다음 예제는 **SoftwareUpdateConfigurationRunContext** 매개 변수에 전달되는 JSON 문자열입니다.
 
 ```json
 "SoftwareUpdateConfigurationRunContext":{
@@ -119,7 +121,7 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 > [!IMPORTANT]
 > 가져온 Runbook은 먼저 **게시**한 후에 사용해야 합니다. Automation 계정에서 Runbook을 찾으려면 **편집**을 선택하고 **게시**를 클릭합니다.
 
-샘플은 모두 다음 예제에 정의된 기본 템플릿을 기반으로 합니다. 이 템플릿은 사전 및 사후 스크립트에 사용할 사용자 고유의 Runbook을 만드는 데 사용할 수 있습니다. Azure를 통해 인증하고 `SoftwareUpdateConfigurationRunContext` 매개 변수를 처리하는 데 필요한 논리가 포함되어 있습니다.
+샘플은 모두 다음 예제에 정의된 기본 템플릿을 기반으로 합니다. 이 템플릿은 사전 및 사후 스크립트에 사용할 사용자 고유의 Runbook을 만드는 데 사용할 수 있습니다. Azure로 인증하고 `SoftwareUpdateConfigurationRunContext` 매개 변수를 처리하는 데 필요한 논리가 포함되어 있습니다.
 
 ```powershell
 <# 

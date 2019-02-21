@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 3eea59eba9fc1fc79a6f72a61860ee7e66a7df5b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 42e3464a190f296675b544e0087b664ff256f2fa
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994275"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003247"
 ---
-# <a name="input-metadata"></a>입력 메타데이터
+# <a name="input-metadata-legacy"></a>입력 메타데이터(레거시)
 
 인코딩 작업은 일부 인코딩 태스크를 수행할 입력 자산(또는 자산)과 연결됩니다.  태스크가 완료되는 즉시 출력 자산이 생성됩니다.  출력 자산에는 비디오, 오디오, 미리 보기, 매니페스트 등이 포함됩니다. 출력 자산에는 입력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름 형식은 &lt;asset_id&gt;_metadata.xml입니다(예: 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml). 여기서 &lt;asset_id&gt;는 입력 자산의 AssetId 값입니다.  
 
@@ -38,7 +38,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 
 이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
-| 이름 | 설명 |
+| Name | 설명 |
 | --- | --- |
 | **AssetFile**<br /><br /> minOccurs="1" maxOccurs="unbounded" |단일 자식 요소입니다. 자세한 내용은 [AssetFile 요소](media-services-input-metadata-schema.md#AssetFile)를 참조하세요. |
 
@@ -48,7 +48,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
  이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **Name**<br /><br /> 필수 |**xs:string** |자산 파일의 이름입니다. |
 | **크기**<br /><br /> 필수 |**xs:long** |자산 파일의 크기(바이트)입니다. |
@@ -65,7 +65,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 > 
 
 ### <a name="child-elements"></a>자식 요소
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **Programs**<br /><br /> minOccurs="0" | |자산 파일의 형식이 MPEG-TS인 경우 모든 [Programs 요소](media-services-input-metadata-schema.md#Programs)의 컬렉션입니다. |
 | **VideoTracks**<br /><br /> minOccurs="0" | |각각의 실제 자산 파일에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 이 요소에는 자산 파일의 일부인 모든 [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) 컬렉션이 포함됩니다. |
@@ -76,7 +76,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **Id**<br /><br /> 필수 |**xs:int** |이 오디오 또는 비디오 트랙의 0 기준 인덱스입니다.<br /><br /> 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
 | **Codec** |**xs:string** |비디오 트랙 코덱 문자열입니다. |
@@ -92,7 +92,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 > 
 
 ### <a name="child-elements"></a>자식 요소
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **Disposition**<br /><br /> minOccurs="0" maxOccurs="1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |프레젠테이션 정보가 포함됩니다(예: 특정 오디오 트랙이 시각 장애 시청자를 위한 것인지 여부). |
 | **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |다양한 정보를 저장하는 데 사용할 수 있는 일반 key/value 문자열입니다. 예제: key=”language” 및 value=”eng” |
@@ -105,7 +105,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
  이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **SampleFormat** |**xs:string** |샘플 형식입니다. |
 | **ChannelLayout** |**xs: string** |채널 레이아웃입니다. |
@@ -122,7 +122,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **FourCC**<br /><br /> 필수 |**xs:string** |비디오 코덱 FourCC 코드입니다. |
 | **프로필** |**xs: string** |비디오 트랙의 프로필입니다. |
@@ -146,7 +146,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **key**<br /><br /> 필수 |**xs:string** |key/value 쌍의 키입니다. |
 | **값**<br /><br /> 필수 |**xs:string** |key/value 쌍의 값입니다. |
@@ -155,7 +155,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 **ProgramType**은 프로그램을 설명하는 전역 복합 형식입니다.  
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **ProgramId**<br /><br /> 필수 |**xs:int** |Program ID입니다. |
 | **NumberOfPrograms**<br /><br /> 필수 |**xs:int** |프로그램 수입니다. |
@@ -170,7 +170,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="attributes"></a>특성
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **기본값**<br /><br /> 필수 |**xs: int** |기본 프레젠테이션임을 나타내려면 이 속성을 1로 설정합니다. |
 | **Dub**<br /><br /> 필수 |**xs:int** |더빙된 프레젠테이션임을 나타내려면 이 속성을 1로 설정합니다. |
@@ -188,7 +188,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 여러 **Program** 요소를 보유하는 래퍼 요소입니다.  
 
 ### <a name="child-elements"></a>자식 요소
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **Program**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |MPEG-TS 형식의 자산 파일에는 자산 파일의 프로그램에 대한 정보가 포함됩니다. |
 
@@ -198,7 +198,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
  이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="child-elements"></a>자식 요소
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **VideoTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[VideoTrackType(TrackType에서 상속)](media-services-input-metadata-schema.md#VideoTrackType) |자산 파일의 비디오 트랙에 대한 정보가 포함됩니다. |
 
@@ -208,7 +208,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
  이 문서의 마지막에 있는 [XML 예제](media-services-input-metadata-schema.md#xml)를 참조하세요.  
 
 ### <a name="elements"></a>요소
-| 이름 | type | 설명 |
+| Name | Type | 설명 |
 | --- | --- | --- |
 | **AudioTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[AudioTrackType(TrackType에서 상속)](media-services-input-metadata-schema.md#AudioTrackType) |자산 파일의 오디오 트랙에 대한 정보가 포함됩니다. |
 

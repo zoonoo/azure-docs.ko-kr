@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 쿼리에서 날짜/시간 값 사용 | Microsoft Docs
-description: Log Analytics 쿼리에서 날짜/시간 데이터를 사용하는 방법을 설명합니다.
+title: Azure Monitor 로그 쿼리에서 날짜/시간 값 사용 | Microsoft Docs
+description: Azure Monitor 로그 쿼리에서 날짜/시간 데이터를 사용하는 방법을 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 15767107a5c535cfda98da2a5177e15ca221f35d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214697"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999252"
 ---
-# <a name="working-with-date-time-values-in-log-analytics-queries"></a>Log Analytics 쿼리에서 날짜/시간 값 사용
+# <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 날짜/시간 값 사용
 
 > [!NOTE]
 > 이 단원을 완료하기 전에 [Analytics 포털 시작](get-started-portal.md) 및 [쿼리 시작](get-started-queries.md)을 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-이 문서에서는 Log Analytics 쿼리에서 날짜/시간 데이터를 사용하는 방법을 설명합니다.
+이 문서에서는 Azure Monitor 로그 쿼리에서 날짜/시간 데이터를 사용하는 방법을 설명합니다.
 
 
 ## <a name="date-time-basics"></a>날짜/시간 기본 사항
-Log Analytics 쿼리 언어에서는 두 가지 주 데이터 형식인 datetime 및 timespan이 날짜 및 시간에 연결되어 있습니다. 모든 날짜는 UTC로 표현됩니다. 여러 날짜/시간 형식이 지원되지만 ISO8601 형식이 선호됩니다. 
+데이터 탐색기 쿼리 언어에서는 두 가지 주 데이터 형식인 datetime 및 timespan이 날짜 및 시간에 연결되어 있습니다. 모든 날짜는 UTC로 표현됩니다. 여러 날짜/시간 형식이 지원되지만 ISO8601 형식이 선호됩니다. 
 
 timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 
@@ -161,7 +161,7 @@ Event
 | 값 기준으로 날짜 가져오기  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>다음 단계
-Log Analytics 쿼리 언어를 사용에 대해서는 다른 단원을 참조하세요.
+Azure Monitor 로그 데이터에 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
 
 - [문자열 작업](string-operations.md)
 - [집계 함수](aggregations.md)

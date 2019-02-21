@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54817625"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56242809"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -34,6 +34,10 @@ ms.locfileid: "54817625"
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
 
+## <a name="february-2019"></a>2019년 2월
+
+이제 Media Services v3가 Azure 국가별 클라우드에서 지원됩니다. 아직은 일부 클라우드에서 일부 기능을 사용할 수 없습니다. 자세한 내용은 [Azure Media Services v3가 있는 클라우드 및 지역](azure-clouds-regions.md)을 참조하세요.
+
 ## <a name="january-2019"></a>2019년 1월
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard 및 MPI 파일 
@@ -46,7 +50,7 @@ MPI 파일을 수정 또는 제거하거나 해당 파일의 존재 여부에 �
 
 V3 API의 GA 릴리스업데이트에는 다음이 포함됩니다.
        
-* **PresentationTimeRange** 속성은 **Assetfilter** 및 **AccountFilters**에 대해 더 이상 '필수'가 아닙니다. 
+* **PresentationTimeRange** 속성은 **자산 필터** 및 **계정 필터**에 대해 더 이상 '필수'가 아닙니다. 
 * **작업** 및 **변환**의 $top 및 $skip 쿼리 옵션이 제거되었으며 $orderby가 추가되었습니다. 새 순서 지정 기능을 추가되면서, $top 및 $skip 옵션을 이전에 구현하지 않았어도 실수로 노출되는 것으로 확인되었습니다.
 * 열거형 확장성을 다시 사용하도록 설정했습니다. 이 기능은 미리 보기 버전의 SDK에서 사용하도록 설정되며 GA 버전에서는 실수로 사용하지 않도록 설정되었습니다.
 * 두 개의 미리 정의된 스트리밍 정책 이름이 바뀌었습니다. **SecureStreaming**은 이제 **MultiDrmCencStreaming**입니다. **SecureStreamingWithFairPlay**는 이제 **Predefined_MultiDrmStreaming**입니다.
@@ -67,7 +71,7 @@ V3 API의 GA 릴리스업데이트에는 다음이 포함됩니다.
 - [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
 - [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
 - [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - 미디어 예약 단위를 관리할 수 있습니다
+- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - 미디어 예약 단위를 관리할 수 있습니다. 자세한 내용은 [미디어 예약 단위 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
 
 ### <a name="new-features-and-breaking-changes"></a>새 기능과 주요 변경 내용
 
@@ -141,7 +145,7 @@ Media Services v3에 지원되는 언어: .NET Core, Java, Node.js, Ruby, Typesc
 - RTMP 지원 향상(향상된 안정성 및 더 많은 소스 인코더 지원)
 - RTMPS 보안 수집
 
-    LiveEvent를 만들면 이제 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다. 
+    라이브 이벤트를 만들면 이제 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다. 
 - 24시간 코드 변환 지원 
 - SCTE35를 통한 RTMP의 광고 신호 지원 향상
 
@@ -149,7 +153,7 @@ Media Services v3에 지원되는 언어: .NET Core, Java, Node.js, Ruby, Typesc
 
 다음과 같은 Event Grid 지원 향상을 확인할 수 있습니다.
 
-- Azure EventGrid 통합으로 Logic Apps 및 Azure Functions를 사용하여 보다 쉽게 개발할 수 있습니다. 
+- Azure Event Grid 통합으로 Logic Apps 및 Azure Functions를 사용하여 보다 쉽게 개발할 수 있습니다. 
 - 인코딩, 라이브 채널 등의 이벤트를 구독하세요.
 
 ### <a name="cmaf-support"></a>CMAF 지원
@@ -179,11 +183,11 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 .Net SDK에는 다음과 같은 기능이 있습니다.
 
 * 미디어 콘텐츠를 인코딩하거나 분석할 수 있는 **Transform** 및 **Job**. 예를 들어 [스트림 파일](stream-files-tutorial-with-api.md) 및 [분석](analyze-videos-tutorial-with-api.md)을 참조하세요.
-* 최종 사용자 디바이스에 콘텐츠를 게시하고 스트리밍하는 **StreamingLocator**.
-* 콘텐츠 전송 시 키 배달 및 콘텐츠 보호(DRM)를 구성하는 **StreamingPolicy** 및 **ContentKeyPolicy**.
-* 라이브 스트리밍 콘텐츠의 수집 및 보관을 구성하는 **LiveEvent** 및**LiveOutput**.
+* 최종 사용자 디바이스에 콘텐츠를 게시하고 스트리밍하는 **스트리밍 로케이터**.
+* 콘텐츠를 전송할 때 키 전송 및 콘텐츠 보호(DRM)를 구성하는 **스트리밍 정책** 및 **콘텐츠 키 정책**.
+* 라이브 스트리밍 콘텐츠의 수집 및 보관을 구성하는 **라이브 이벤트** 및 **라이브 스트리밍**.
 * Azure Storage에 미디어 콘텐츠를 저장하고 게시하는 **Asset**. 
-* 실시간 및 주문형 미디어 콘텐츠에 대한 동적 패키징, 암호화 및 스트리밍을 구성 및 확장하는 **StreamingEndpoint**.
+* 실시간 및 주문형 미디어 콘텐츠에 대한 동적 패키징, 암호화 및 스트리밍을 구성하고 확장하는 **스트리밍 엔드포인트**.
 
 ### <a name="known-issues"></a>알려진 문제
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: f2be733fc0f127288a86372adf54a547983285db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250770"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998708"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES 사전 설정을 사용자 지정하여 고급 인코딩 수행 
 
@@ -239,8 +239,8 @@ ms.locfileid: "50250770"
 * Jpg/Png/BmpImage 요소에는 Start, Step 및 Range 문자열 특성이 있으며, 이러한 특성은 다음과 같이 해석될 수 있습니다.
 
   * 음수가 아닌 정수인 경우 프레임 번호(예: "Start": "120")
-  * % 접미사로 표시된 경우 소스 기간 기준(예: "Start": "15%")
-  * HH:MM:SS... 형식으로 표현되는 경우 타임스탬프(예: "Start" : "00:01:00")
+  * % 접미사로 표시된 경우 소스 기간 기준(예: "Start": "15%") 또는
+  * HH:MM:SS... 형식으로 표현되는 경우 타임스탬프(예: "Start": "00:01:00"
 
     표기법을 원하는 대로 혼용하거나 일치시킬 수 있습니다.
 
@@ -752,7 +752,7 @@ ms.locfileid: "50250770"
 
 
 ## <a id="audio_only"></a>오디오 전용 사전 설정
-이 섹션에서는 AAC 오디오 및 AAC 고급 품질 오디오라는 두 개의 오디오 전용 MES 사전 설정을 설명합니다.
+이 섹션에서는 두 개의 오디오 전용 MES 사전 설정인 AAC 오디오 및 AAC 고급 음질 오디오를 보여 줍니다.
 
 ### <a name="aac-audio"></a>AAC 오디오
     {

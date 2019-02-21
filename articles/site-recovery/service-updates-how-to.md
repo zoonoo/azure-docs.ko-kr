@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: a497784a665c62d23a017b71acf709120e34c369
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 67fe5da86b4736daa43a85a7a1a077c329732b60
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746968"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55890465"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery의 서비스 업데이트
 조직으로서 계획되거나 계획되지 않은 정전이 발생한 경우 데이터 그리고 실행 중인 앱/워크로드를 안전하게 유지하는 방법을 알아야 합니다. Azure Site Recovery는 사이트의 작동이 중단된 경우에도 VM 및 물리적 서버에서 실행 중인 앱을 계속 사용할 수 있도록 하여 BCDR 전략에 기여합니다. Site Recovery는 VM 및 물리적 서버에서 실행 중인 워크로드를 복제하여 기본 사이트를 사용할 수 없게 된 경우 보조 위치에서 계속 사용할 수 있도록 합니다. 사이트가 복구되어 다시 실행되면 워크로드를 기본 사이트로 복구합니다.
@@ -118,6 +118,7 @@ Azure Site Recovery는 새 기능 추가, 지원 매트릭스 개선 및 버그 
 
 |업데이트 롤업  |공급자  |통합 설치| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[ 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) - 핫픽스     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[업데이트 롤업 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[업데이트 롤업 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[업데이트 롤업 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0

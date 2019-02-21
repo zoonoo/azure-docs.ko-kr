@@ -2,21 +2,22 @@
 title: 애플리케이션에 대한 Single Sign-On - Azure Active Directory | Microsoft Docs
 description: Azure AD(Azure Active Directory)에서 애플리케이션을 구성하는 경우 Single Sign-On 방법을 선택하는 방법에 대해 알아봅니다. Single Sign-On을 사용하므로 사용자는 모든 애플리케이션에 대한 암호를 기억할 필요가 없어 계정 관리가 간소화됩니다.
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvindh
-ms.openlocfilehash: 8216eb9c076111bfa70633b24f36ac97b0ee319a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6984307dda58aeba840f2b6d08e84fb4f60cacc8
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664032"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163073"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션에 대한 Single Sign-On
 SSO(Single Sign-On)는 사용자가 Azure AD(Azure Active Directory)의 애플리케이션에 로그인할 때 보안 및 편리함을 제공합니다. 이 문서는 Single Sign-On 방법을 설명하고, 애플리케이션을 구성할 때 가장 적합한 SSO 방법을 선택하는 데 유용합니다.
@@ -58,7 +59,7 @@ Single Sign-On을 위해 애플리케이션을 구성하는 방법은 여러 가
 - [Azure Active Directory 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
 ## <a name="saml-sso"></a>SAML SSO
-**SAML Single Sign-On**을 사용하는 Azure AD는 사용자의 Azure AD 계정을 사용하여 애플리케이션에 인증합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. SAML 기반 Single Sign-On을 사용하면 SAML 클레임에서 정의하는 규칙에 따라 특정 애플리케이션 역할에 사용자를 매핑할 수 있습니다.
+**SAML Single Sign-On**을 사용하는 Azure AD는 사용자의 Azure AD 계정을 사용하여 애플리케이션에 인증합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. SAML 기반 Single Sign-On을 사용하면 SAML 클레임에서 정의하는 규칙에 따라 사용자를 특정 애플리케이션 역할에 매핑할 수 있습니다.
 
 애플리케이션에서 지원하는 경우 SAML 기반 Single Sign-On을 선택합니다.
 
@@ -85,7 +86,7 @@ SAML 프로토콜에 대한 자세한 정보는 [Single Sign-On SAML 프로토�
 HTML 기반 로그인 페이지가 있는 클라우드 기반 애플리케이션에 암호 기반 Single Sign-On이 지원됩니다. 사용자는 다음 브라우저를 사용할 수 있습니다.
 
 - Windows 7 이상의 Internet Explorer 11
-- Windows 10 Anniversary Edition 이상의 Microsoft Edge 
+- Windows 10 Anniversary Edition 이상의 Microsoft Edge
 - Windows 7 이상 및 Mac OS X 이상 Chrome
 - Windows XP SP2 이상 및 Mac OS X 10.6 이상 Firefox 26.0 이상
 

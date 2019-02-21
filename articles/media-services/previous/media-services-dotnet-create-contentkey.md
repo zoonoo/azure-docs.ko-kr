@@ -4,7 +4,7 @@ description: 자산에 대한 보안 액세스를 제공하는 콘텐츠 키를 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 53df4c4cef19f6eef99aa15bb265317aa0cd1d58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: af8c2b547e1ce1b15410ee20eb59934559ac41ac
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782742"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992163"
 ---
-# <a name="create-contentkeys-with-net"></a>.NET을 사용하여 Contentkey 만들기
+# <a name="create-contentkeys-with-net-legacy"></a>.NET을 사용하여 ContentKey 만들기(레거시)
 > [!div class="op_single_selector"]
 > * [REST (영문)](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -32,7 +32,7 @@ Media Services를 사용하면 암호화된 자산을 만들어서 제공할 수
 
 새 자산을 만들 때(예: [파일 업로드](media-services-dotnet-upload-files.md) 전) **StorageEncrypted**, **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션을 지정할 수 있습니다. 
 
-클라이언트에 자산을 제공할 때 **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption** 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](media-services-dotnet-configure-asset-delivery-policy.md)할 수 있습니다.
+클라이언트에 자산을 제공할 때 다음 두 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](media-services-dotnet-configure-asset-delivery-policy.md)할 수 있습니다. **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption**.
 
 암호화된 자산은 **ContentKey**와 연관되어야 합니다. 이 문서에서는 콘텐츠 키를 만드는 방법을 설명합니다.
 

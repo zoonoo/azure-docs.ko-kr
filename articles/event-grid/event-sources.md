@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 44bd92568db3a762453e1d76a620e6c792cd8913
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476039"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234189"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid의 이벤트 원본
 
@@ -26,7 +26,7 @@ Azure 구독 이벤트를 구독하여 Azure 구독 전반에서 리소스의 �
 
 |제목 |설명  |
 |---------|---------|
-| [자습서: Event Grid 및 Microsoft 팀을 사용한 Azure Automation](ensure-tags-exists-on-new-virtual-machines.md) |이벤트를 전송 하는 가상 머신을 만듭니다. 이벤트는 가상 머신에 태그를 지정하는 Automation Runbook을 트리거하고, Microsoft 팀 채널에 전송되는 메시지를 트리거합니다. |
+| [자습서: Event Grid 및 Microsoft Teams를 사용한 Azure Automation](ensure-tags-exists-on-new-virtual-machines.md) |이벤트를 전송 하는 가상 머신을 만듭니다. 이벤트는 가상 머신에 태그를 지정하는 Automation Runbook을 트리거하고, Microsoft 팀 채널에 전송되는 메시지를 트리거합니다. |
 | [방법: 포털을 통해 이벤트 구독](subscribe-through-portal.md) | 포털을 사용하여 Azure 구독에 대한 이벤트를 구독합니다. |
 | [Azure CLI: Azure 구독에 대한 이벤트 구독](./scripts/event-grid-cli-azure-subscription.md) |Azure 구독에 Event Grid 구독을 만들고 WebHook에 이벤트를 전송하는 샘플 스크립트입니다. |
 | [PowerShell: Azure 구독에 대한 이벤트 구독](./scripts/event-grid-powershell-azure-subscription.md)| Azure 구독에 Event Grid 구독을 만들고 WebHook에 이벤트를 전송하는 샘플 스크립트입니다. |
@@ -131,6 +131,16 @@ Blob Storage 이벤트를 구독하여 만든 blob 및 삭제된 이벤트에 �
 | [Resource Manager 템플릿: Blob 스토리지 및 구독 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Azure Blob Storage 계정을 배포하고 해당 스토리지 계정에 대한 이벤트를 구독합니다. WebHook에 이벤트를 보냅니다. |
 | [개요: Blob Storage 이벤트에 대응](../storage/blobs/storage-blob-event-overview.md) | Event Grid와 Blob Storage 통합의 개요입니다. |
 | [이벤트 스키마](event-schema-blob-storage.md) | Blob Storage 이벤트의 필드를 표시합니다. |
+
+## <a name="maps"></a>지도
+Azure Maps 이벤트를 구독하여 지오펜스 이벤트에 응답합니다. 예를 들어, 애플리케이션은 디바이스가 지오펜스에 들어오거나 나갈 때마다 이메일 알림을 제공할 수 있습니다.
+
+|제목  |설명  |
+|---------|---------|
+| [Event Grid를 사용하여 Azure Maps 이벤트에 대응](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid와 Azure Maps 통합에 관한 개요입니다. |
+| [자습서: 지오펜스 설정](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 이 자습서에서는 Azure Maps를 사용하여 지오펜스를 설정하는 기본 단계를 안내합니다. Azure Event Grid를 사용하여 지오펜스 결과를 스트림하고, 지오펜스 결과를 기반으로 하는 알림을 설정합니다. |
+| [이벤트 스키마](event-schema-azure-maps.md) | Azure Maps 이벤트의 필드를 표시합니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 

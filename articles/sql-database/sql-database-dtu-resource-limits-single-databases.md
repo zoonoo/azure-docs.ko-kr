@@ -3,7 +3,7 @@ title: Azure SQL Database DTU 기반 리소스 제한 단일 데이터베이스 
 description: 이 페이지에서는 Azure SQL Database에서 단일 데이터베이스에 대한 몇 가지 일반적인 DTU 기반 리소스 제한을 설명합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: e73bb2f1908abd049ea6e2406c0d1db02381695f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: bf4c823d42d26d9fa97ee6eb5ee6ea20b857cde8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455544"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993025"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU를 기반 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한
 
 이 문서에서는 DTU 기반 구매 모델을 사용하여 Azure SQL Database 단일 데이터베이스에 대한 리소스 제한을 자세히 설명합니다.
 
-탄력적 풀에 대한 DTU 기반 구매 모델 리소스 제한은 [DTU 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조합니다. vCore 기반 리소스 제한은 [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조합니다. 다양한 구매 모델에 관한 자세한 내용은 [구매 모델 및 서버 계층](sql-database-service-tiers.md)을 참조하세요.
+탄력적 풀에 대한 DTU 기반 구매 모델 리소스 제한은 [DTU 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조합니다. vCore 기반 리소스 제한은 [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조합니다. 다양한 구매 모델에 관한 자세한 내용은 [구매 모델 및 서버 계층](sql-database-purchase-models.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
@@ -130,8 +130,9 @@ ms.locfileid: "55455544"
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
-- 서버 및 구독 수준의 한도에 관한 정보는 [SQL Database 서버의 리소스 한도 개요](sql-database-resource-limits-database-server.md)를 참조하세요.
+- 단일 데이터베이스에 대한 vCore 리소스 제한의 경우 [vCore 기반 구매 모델을 사용하여 단일 데이터베이스에 대한 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
+- 탄력적 풀에 대한 vCore 리소스 제한의 경우 [vCore 기반 구매 모델을 사용하여 탄력적 풀에 대한 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
+- 탄력적 풀에 대한 DTU 리소스 제한의 경우 [DTU 기반 구매 모델을 사용하여 탄력적 풀에 대한 리소스 제한](sql-database-dtu-resource-limits-elastic-pools.md)을 참조하세요.
+- 관리되는 인스턴스에 대한 리소스 제한의 경우 [관리되는 인스턴스 리소스 제한](sql-database-managed-instance-resource-limits.md)을 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
-- DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model)를 참조하세요.
-- tempdb 크기 한도에 대한 자세한 내용은 [SQL Database tempdb 한도](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)를 참조하세요.
+- 데이터베이스 서버의 리소스 제한에 대한 자세한 내용은 서버 및 구독 수준의 한도에 관한 정보인 경우 [SQL Database 서버의 리소스 제한 개요](sql-database-resource-limits-database-server.md)를 참조하세요.

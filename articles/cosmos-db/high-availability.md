@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: eca20b775b97296510545c4d2f2f005fd91d6758
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471320"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56109761"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
@@ -58,11 +58,25 @@ Cosmos 계정이 N개 Azure 지역에 분산된 경우 데이터 복사본은 �
 
 ## <a name="building-highly-available-applications"></a>고가용성 애플리케이션 빌드
 
-- 높은 쓰기 및 읽기 가용성을 보장하려면 여러 쓰기 지역을 사용하여 두 개 이상의 지역을 포괄하도록 Cosmos 계정을 구성합니다. 이 구성은 SLA를 기반으로 하는 읽기 및 쓰기 작업의 가용성, 최소 대기 시간 및 확장성을 제공합니다. 자세한 내용은 [다중 쓰기 지역으로 Cosmos 계정을 구성하는 방법](tutorial-global-distribution-sql-api.md)을 참조하세요.
+- 높은 쓰기 및 읽기 가용성을 보장하려면 여러 쓰기 지역을 사용하여 두 개 이상의 지역을 포괄하도록 Cosmos 계정을 구성합니다. 이 구성은 SLA를 기반으로 하는 읽기 및 쓰기 작업의 가용성, 최소 대기 시간 및 확장성을 제공합니다. 자세한 내용은 [다중 쓰기 지역으로 Cosmos 계정을 구성하는 방법](tutorial-global-distribution-sql-api.md)을 참조하세요. 애플리케이션에서 다중 마스터를 구성하려면 [다중 마스터를 구성하는 방법](how-to-multi-master.md)을 참조하세요.
 
 - 단일 쓰기 지역으로 구성된 다중 지역 Cosmos 계정의 경우 [Azure CLI 또는 Azure Portal을 사용하여 자동 장애 조치를 사용하도록 설정](how-to-manage-database-account.md#automatic-failover)합니다. 자동 장애 조치(failover)를 사용하도록 설정하면, Cosmos DB는 지역 재해가 있을 때마다 자동으로 사용자 계정을 장애 조치(failover)합니다.  
 
 - Cosmos 계정의 가용성이 높더라도 애플리케이션이 고가용성을 유지하도록 올바르게 설계되지 않았을 수도 있습니다. 애플리케이션에 대해 종단 간 고가용성을 테스트하려면 애플리케이션 테스트 또는 DR(재해 복구) 훈련의 일환으로 [Azure CLI 또는 Azure Portal을 사용하여 수동 장애 조치(failover)](how-to-manage-database-account.md#manual-failover)를 주기적으로 호출합니다.
+
+
+비즈니스 연속성 계획을 개발할 때는 중단 이벤트가 발생한 후 애플리케이션이 완전히 복구되기까지 허용되는 최대 시간을 이해해야 합니다. 애플리케이션을 완전히 복구하는 데 필요한 시간을 RTO(복구 시간 목표)라고 합니다. 또한 중단 이벤트가 발생한 후 복구될 때 애플리케이션에서 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 기간도 이해해야 합니다. 손실될 수 있는 업데이트 기간을 RPO(복구 지점 목표)라고 합니다.
+
+다음 표에는 가장 일반적인 시나리오에 대한 RPO와 RTO가 있습니다.
+
+|지역 수 |구성 |일관성 수준|RPO |RTO |
+|---------|---------|---------|-------|-------|
+|1    | *    |*   | < 240분 | < 1주 |
+|>1     | 단일 마스터 복제 | 세션, 일관된 접두사, 최종 | < 15분 | < 15분 |
+|>1     | 단일 마스터 복제 | 제한된 부실 | K & T | < 15분 |
+|>1     | 다중 마스터 복제 | 세션, 일관된 접두사, 최종 | < 15분 | 0 |
+|>1     | 다중 마스터 복제 | 제한된 부실 | K & T | 0 |
+|>1     | * | 강력 | 0 | < 15분 |
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -72,3 +86,4 @@ Cosmos 계정이 N개 Azure 지역에 분산된 경우 데이터 복사본은 �
 * [전역적으로 프로비전된 처리량 크기 조정](scaling-throughput.md)
 * [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
 * [Azure Cosmos DB의 일관성 수준](consistency-levels.md)
+* [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)

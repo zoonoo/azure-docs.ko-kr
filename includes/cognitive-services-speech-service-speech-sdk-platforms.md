@@ -2,23 +2,23 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 02/08/2019
 ms.author: wolfma
-ms.openlocfilehash: 682b9a15fc6839ba91b026ac247908644ec185ef
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0b2c4acf3a059db55fde0910512c4d8a8a033e7f
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817265"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102249"
 ---
-| 프로그래밍 언어 | 플랫폼                                                                      | API 참조
-| -                    | -                                                                             | -
-| C#, .NET 표준    | Windows, UWP, .NET 표준(Windows)                                         | [Browse](https://aka.ms/csspeech/csharpref)
-| C/C++                | Windows, Linux                                                                | [Browse](https://aka.ms/csspeech/cppref)
-| 자바                 | Android                                                                       | [Browse](https://aka.ms/csspeech/javaref)
-| Java\*               | [장치](~/articles/cognitive-services/speech-service/speech-devices-sdk.md) | [Browse](https://aka.ms/csspeech/javaref)
-| Objective C          | iOS                                                                           | [Browse](https://aka.ms/csspeech/objectivecref)
-| JavaScript           | 브라우저                                                                       | [Browse](https://aka.ms/csspeech/javascriptref)
+| 프로그래밍 언어 | 플랫폼 | API 참조 |
+| -------------------- | -------- | ------------- |
+| C/C++ | Windows, Linux | [Browse](https://aka.ms/csspeech/cppref) |
+| C# | Windows, UWP, .NET Framework(Windows), .NET Core | [Browse](https://aka.ms/csspeech/csharpref) |
+| 자바 | Android, Windows, Linux | [Browse](https://aka.ms/csspeech/javaref) |
+| Java\* | [Speech Devices SDK](../articles/cognitive-services/speech-service/speech-devices-sdk.md) | [Browse](https://aka.ms/csspeech/javaref) |
+| JavaScript/Node.js | 브라우저, Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |
+| Objective-C | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| Python | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tr)  |
 
-\* *Java SDK는 [Speech Devices SDK](~/articles/cognitive-services/speech-service/speech-devices-sdk.md)에도 포함됩니다.*
-
+\* *Java SDK는 [Speech Devices SDK](../articles/cognitive-services/speech-service/speech-devices-sdk.md)에도 포함됩니다.*

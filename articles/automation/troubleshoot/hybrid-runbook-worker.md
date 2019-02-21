@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/11/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0ec099e0f210fc267a0a34f76136a517e0ae6ccc
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744520"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234544"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
@@ -187,6 +187,26 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 
 Start-Service -Name HealthService
 ```
+
+### <a name="already-registered"></a>시나리오: Hybrid Runbook Worker를 추가할 수 없습니다.
+
+#### <a name="issue"></a>문제
+
+`Add-HybridRunbookWorker` cmdlet을 사용하여 Hybrid Runbook Worker를 추가하려고 할 때 다음 메시지가 수신됩니다.
+
+```
+Machine is already registered to a different account
+```
+
+#### <a name="cause"></a>원인
+
+이는 머신이 이미 다른 Automation 계정에 등록되어 있거나 머신에서 Hybrid Runbook Worker를 제거한 후 다시 추가하려고 하는 경우에 발생할 수 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+이 문제를 해결하려면 다음 레지스트리 키를 제거하고 `Add-HybridRunbookWorker` cmdlet을 다시 시도합니다.
+
+`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
 ## <a name="next-steps"></a>다음 단계
 

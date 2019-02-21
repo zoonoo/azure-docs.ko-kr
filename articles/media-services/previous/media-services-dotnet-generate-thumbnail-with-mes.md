@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 9f717f0ae70c503d3527d5df2e6556c120146f3b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 430e3f0db2f053a2d5a6ea2a3e2a2d1c4418b501
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249344"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995138"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법 
 
 Media Encoder Standard를 사용하여 입력 동영상에서 하나 이상의 미리 보기를 [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) 또는 [BMP](https://en.wikipedia.org/wiki/BMP_file_format) 이미지 파일 형식으로 생성할 수 있습니다. 이미지를 생성하는 작업을 제출하거나 미리 보기 생성을 인코딩과 결합할 수 있습니다. 이 문서에서는 이러한 시나리오를 위해 몇 가지 샘플 XML 및 JSON 미리 보기 기본 설정을 제공합니다. 문서 끝에는 Media Services .NET SDK를 사용하여 인코딩 작업을 완료하는 방법을 보여 주는 [예제 코드](#code_sample)가 나와 있습니다.
 
@@ -552,8 +552,8 @@ namespace EncodeAndGenerateThumbnails
 * Jpg/Png/BmpImage 요소에는 Start, Step 및 Range 문자열 특성이 있으며, 이러한 특성은 다음과 같이 해석될 수 있습니다.
   
   * 음수가 아닌 정수인 경우 프레임 번호(예: "Start": "120")
-  * % 접미사로 표시된 경우 소스 기간 기준(예: "Start": "15%")
-  * HH:MM:SS... 형식. 예: “Start” : “00:01:00”
+  * % 접미사로 표시된 경우 소스 기간 기준(예: "Start": "15%") 또는
+  * HH:MM:SS... 형식. 예: “Start”: "00:01:00"
     
     표기법을 원하는 대로 혼용하거나 일치시킬 수 있습니다.
     

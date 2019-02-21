@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e4e935a9c78950517623acdf8196d51793fff18a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 879a91d7007057e577631e157dae71f1566acab6
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462463"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118227"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>로그 경고의 API 기본 설정 전환
 
@@ -30,6 +30,7 @@ ms.locfileid: "55462463"
 
 - 경고 규칙에서 [작업 영역 로그 검색을 교차](../log-query/cross-workspace-query.md)하고 Log Analytics 작업 영역이나 Application Insights 앱 같은 외부 리소스를 포괄할 수 있음
 - 쿼리에서 그룹화하는 데 여러 필드가 사용된 경우 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 사용하면 사용자가 Azure Portal에서 집계할 필드를 지정할 수 있음
+- [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 사용하여 만든 로그 경고는 최대 48시간까지 정의된 기간을 포함할 수 있으며 이전보다 더 오랜 기간 동안 데이터를 페치할 수 있음
 - [레거시 Log Analytics 경고 API](api-alerts.md)를 사용하여 세 가지 수준의 리소스를 만들 필요 없이 단일 리소스로 한 번에 경고 규칙을 만들 수 있음
 - Azure에 있는 쿼리 기반 로그 경고의 모든 변형을 위한 단일 프로그래밍 인터페이스 - 새로운 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 사용하여 Application Insights뿐 아니라 Log Analytics의 규칙을 관리할 수 있음
 - 모든 새 로그 경고 기능 및 향후 개발 사항은 새로운 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 통해서만 제공됨
@@ -57,6 +58,13 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 }
 ```
 
+또한 Azure Resource Manager API 호출을 단순화하는 오픈 소스 명령줄 도구 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell 명령줄에서 API를 액세스할 수 있습니다. 아래와 같이 샘플 PUT 호출에서 ARMclient 도구를 사용하여 특정 Log Analytics 작업 영역과 연결된 모든 경고 규칙을 전환합니다.
+
+```PowerShell
+$switchJSON = {'scheduledQueryRulesEnabled': 'true'}
+armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
+```
+
 새 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 사용하기 위해 Log Analytics 작업 영역에서 모든 경고 규칙을 성공적으로 전환하면 다음 응답이 제공됩니다.
 
 ```json
@@ -70,6 +78,12 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 
 ```
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+```
+
+위의 내용을 [ARMClient](https://github.com/projectkudu/ARMClient) 도구를 사용하여 PowerShell 명령줄에서 실행하려면 아래 샘플을 참조하세요.
+
+```PowerShell
+armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
 지정된 Log Analytics 작업 영역이 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)만 사용하도록 전환된 경우 응답 JSON이 다음과 같이 나열됩니다.

@@ -11,20 +11,24 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: e2159e7cc59830c3d0d10f1c5b9697ab5b45b666
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/06/2019
+ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/07/2019
-ms.locfileid: "55825110"
+ms.locfileid: "55875606"
 ---
 # <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Azure SQL Database(미리 보기)의 Machine Learning Services(R 포함)
 
 Machine Learning Services는 Azure SQL Database의 기능이며, 데이터베이스 내 R 스크립트를 실행하는 데 사용됩니다. 이 기능에는 고성능 예측 분석 및 기계 학습을 위한 Microsoft R 패키지가 포함됩니다. 관계형 데이터는 저장된 프로시저, R 문이 포함된 T-SQL 스크립트 또는 T-SQL이 포함된 R 코드를 통해 R 스크립트에서 사용할 수 있습니다.
 
-> [!NOTE]
-> Azure SQL Database의 Machine Learning Services(R 포함)는 현재 공개 미리 보기로 제공됩니다. 아래에서 [미리 보기에 등록](#signup)하세요.
+> [!IMPORTANT]
+> Azure SQL Database의 Machine Learning Services(R 포함)는 현재 **범용** 및 **중요 비즈니스용** 서비스 계층의 vCore 기반 구매 모델을 사용하는 단일 데이터베이스 및 탄력적 풀에서 공개 미리 보기로 제공됩니다. 초기 공개 미리 보기에서는 **하이퍼스케일** 서비스 계층과 **관리되는 인스턴스** 배포 옵션이 지원되지 않습니다. 현재 지원되는 언어는 R뿐입니다. 현재 Python에 대한 다른 지원은 제공되지 않습니다. 
+>
+> 미리 보기는 현재 유럽 서부, 북유럽, 미국 서부 2, 미국 동부, 미국 중남부, 미국 중북부, 캐나다 중부, 동남 아시아, 인도 남부 및 오스트레일리아 남동부 지역에서 사용할 수 있습니다. 
+>
+> 아래에서 [미리 보기에 등록](#signup)하세요.
 
 ## <a name="what-you-can-do-with-r"></a>R에서 수행할 수 있는 작업
 
@@ -55,10 +59,6 @@ Machine Learning Services는 Microsoft의 엔터프라이즈 R 패키지가 오�
 2. [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com)에서 Microsoft에 이메일을 보내서 공개 미리 보기에 등록할 수 있습니다. SQL Database의 Machine Learning Services(R 포함) 공개 미리 보기는 기본적으로 사용되지 않습니다.
 
 프로그램에 등록되면 Microsoft에서 사용자가 공개 미리 보기에 온보딩되고 기존 또는 새 데이터베이스에 대해 R을 사용하도록 설정됩니다.
-
-SQL Database의 Machine Learning Services(R 포함)는 현재 독립 실행형 및 탄력적 풀 배포 옵션을 위한 **범용** 및 **중요 비즈니스용** 서비스 계층의 vCore 기반 구매 모델에서만 사용할 수 있습니다. 초기 공개 미리 보기에서는 **하이퍼스케일** 서비스 계층과 **Managed Instance** 배포 옵션이 지원되지 않습니다.
-
-현재 지원되는 언어는 R뿐입니다. 현재 Python에 대한 다른 지원은 제공되지 않습니다. 미리 보기는 초기에 유럽 서부, 북유럽, 미국 서부 2, 미국 동부, 미국 중남부, 미국 중북부, 캐나다 중부, 동남 아시아, 인도 남부 및 오스트레일리아 남동부 지역에서 사용할 수 있습니다. 더 많은 지역이 나중에 추가됩니다.
 
 공개 미리 보기 기간에는 Machine Learning Services(R 포함)를 프로덕션 워크로드에 사용하지 마십시오.
 

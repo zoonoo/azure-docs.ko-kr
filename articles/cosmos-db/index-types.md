@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 50e8e63c9508aa9e81222f242ca330637075e42d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 02055ec07de2b08abdc949e17c668912431e00ce
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199071"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55871254"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱스 유형
 
@@ -42,7 +42,7 @@ Azure Cosmos DB는 모든 경로에 대해 문자열, 숫자 데이터 형식 �
 | ---------- | ---------------- |
 | 해시  | Hash over/prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (또는 /나 /props/)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5  |
 | 범위  | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop   |
-| 공간     | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled.     |
+| 공간     | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Point", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Polygon", ... }, c.prop) --with indexing on polygons enabled.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>인덱스 종류의 기본 동작
 

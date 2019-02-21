@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 5f111fea8fa1ef9f6e07c01f507e487c992729d5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 36350f8f359c6ad5cc5637ce0ce38838698cd68b
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233534"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177447"
 ---
-# <a name="media-services-development-with-net"></a>.NET을 사용한 Media Services 개발
+# <a name="media-services-development-with-net"></a>.NET을 사용한 Media Services 개발 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 이 문서에서는 .NET을 사용하여 Media Services 애플리케이션 개발을 시작하는 방법을 설명합니다.

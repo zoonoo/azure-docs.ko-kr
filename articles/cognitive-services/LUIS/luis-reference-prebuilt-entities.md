@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)에 포함된 미리 빌드된 엔터티 목록이 포함되어 있습니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
-ms.openlocfilehash: 4d5ce9775e7844fcc82aa993f5b01c7cc7ae4779
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 880c825ab8923dbdf17277a51378b6f4b624e091
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213738"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56179899"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>LUIS 모델에서 문화권별 엔터티
 
@@ -34,6 +34,7 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 |한국어|[ko-KR](#korean-entity-support)|
 |포르투갈어|[pt-BR(브라질)](#portuguese-brazil-entity-support)|
 |스페인어|[es-ES(스페인)](#spanish-spain-entity-support), [es-MX(멕시코)](#spanish-mexico-entity-support)|
+|터키어|[터키어](#turkish-entity-support)|
 
 ## <a name="chinese-entity-support"></a>중국어 엔터티 지원
 
@@ -51,7 +52,7 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
@@ -169,7 +170,7 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -190,7 +191,7 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    ✔   |
 [통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    ✔   | 
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -290,6 +291,32 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 [사용되지 않는 미리 빌드된 엔터티](luis-reference-prebuilt-deprecated.md)에 대한 참고를 참조하세요.
 
 KeyPhrase를 포르투갈어(브라질) ```pt-BR```의 모든 하위 문화권에서 사용할 수 없습니다.
+
+## <a name="turkish-entity-support"></a>터키어 엔터티 지원
+
+다음과 같은 엔터티가 지원됩니다.
+
+|미리 빌드된 엔터티|```tr-tr``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    -   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    -   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    -   | 
+[Email](luis-reference-prebuilt-email.md)   |    -   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
+[Number](luis-reference-prebuilt-number.md)   |    -   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    -   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    -   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
+[URL](luis-reference-prebuilt-url.md)   |    -   |
+
+[사용되지 않는 미리 빌드된 엔터티](luis-reference-prebuilt-deprecated.md)에 대한 참고를 참조하세요.
+
+KeyPhrase를 사용할 수 없습니다.
+
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>미리 빌드된 엔터티 문화권에 참여
 미리 빌드된 엔터티는 Recognizers-Text open-source 프로젝트에서 개발됩니다. 이 프로젝트에 [참여](https://github.com/Microsoft/Recognizers-Text)하세요. 이 프로젝트에는 문화권별 currency 예제가 포함되어 있습니다. 

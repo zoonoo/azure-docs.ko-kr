@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: d0942d3465811687937ce113e664fbf3f91277d0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b287a67c470cc1697065838e52916c285a2233a7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815254"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55960193"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 템플릿 만들기 및 관리
 랩의 템플릿은 모든 사용자의 가상 머신이 만들어지는 기본 가상 머신 이미지입니다. 랩 사용자에게 제공하려는 구성과 정확히 일치하도록 템플릿 가상 머신을 설정합니다. 랩 사용자에게 표시되는 템플릿의 이름 및 설명을 제공할 수 있습니다. 그런 후 랩 사용자가 템플릿 VM의 인스턴스를 사용할 수 있도록 템플릿을 게시합니다. 템플릿을 게시하면 Azure Lab Services가 템플릿을 사용하여 랩에 VM을 만듭니다. 이 과정에서 만들어지는 VM 수는 랩에 허용되는 최대 사용자 수와 같으며, 이 값은 랩의 사용 정책에서 설정할 수 있습니다. 모든 가상 머신은 템플릿과 구성이 동일합니다.
@@ -103,7 +103,12 @@ ms.locfileid: "55815254"
 1. 경고를 검토하고 **시작**을 선택합니다. 
 
     ![템플릿 시작 - 경고](../media/how-to-create-manage-template/start-template-warning.png)
+2. **템플릿** 섹션의 랩 타일에서 상태를 확인할 수 있습니다.
+
+    ![템플릿 시작 - 상태](../media/how-to-create-manage-template/template-start-status.png)
 1. 시작한 후에 VM에 연결하려면 **연결**을 선택하고 지침을 따릅니다. 
+
+    ![템플릿 VM에 연결 또는 중지](../media/how-to-create-manage-template/connect-stop-vm.png)
 1. 학생들이 랩을 사용하는 데 필요한 소프트웨어를 설치합니다(예: Visual Studio, Azure Storage Explorer 등). 
 2. 템플릿 VM의 연결을 종료합니다(원격 데스크톱 세션 종료). 
 3. **중지**를 선택하여 템플릿 VM을 **중지**합니다. 

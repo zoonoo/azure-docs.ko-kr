@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 8457df9ba809e183122fd53de75a40108e4a4ed1
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754305"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892779"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
 이 문서에서는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다.
@@ -73,10 +73,10 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-여기서 *sdc*는 원하는 디스크입니다. `parted`를 사용하여 디스크를 분할합니다. 디스크 크기가 2테비바이트(TiB) 이상이면 GPT 분할을 사용해야 하고, 2TiB 미만이면 MBR 또는 GPT 분할을 사용하면 됩니다. 파티션 1에 기본 디스크를 만들고, 나머지는 기본값을 적용합니다. 다음 예제에서는 */dev/sdc*에서 `parted` 프로세스를 시작합니다.
+여기서 *sdc*는 원하는 디스크입니다. `parted`를 사용하여 디스크를 분할합니다. 디스크 크기가 2테비바이트(TiB) 이상이면 GPT 분할을 사용해야 하고, 2TiB 미만이면 MBR 또는 GPT 분할을 사용하면 됩니다. MBR 분할을 사용하는 경우 `fdisk`를 사용할 수 있습니다. 파티션 1에 기본 디스크를 만들고, 나머지는 기본값을 적용합니다. 다음 예제에서는 */dev/sdc*에서 `fdisk` 프로세스를 시작합니다.
 
 ```bash
-sudo parted /dev/sdc
+sudo fdisk /dev/sdc
 ```
 
 새 파티션을 추가하려면 `n` 명령을 사용합니다. 이 예제에서는 주 파티션에 대해 `p`를 선택하고 기본 값의 나머지를 적용합니다. 다음 예제와 유사하게 출력됩니다.

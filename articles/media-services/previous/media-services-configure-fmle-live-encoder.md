@@ -4,7 +4,7 @@ description: 이 항목에서는 FMLE(Flash Media Live Encoder) 인코더를 구
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 32bed77146284799faebdb8a44e2e610f49913cf
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665888"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003740"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>FMLE 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>FMLE 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기(레거시)
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -33,7 +33,7 @@ ms.locfileid: "43665888"
 
 이 자습서에서는 AMSE(Azure Media Services 탐색기) 도구를 사용하여 AMS(Azure Media Services)를 관리하는 방법을 보여 줍니다. 이 도구는 Windows PC에서만 실행됩니다. Mac 또는 Linux에서는 Azure Portal을 사용하여 [채널](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) 및 [프로그램](media-services-portal-creating-live-encoder-enabled-channel.md)을 만듭니다.
 
-이 자습서에서는 AAC 사용 방법을 설명합니다. 그러나 FMLE는 AAC를 기본적으로 지원하지 않습니다. MainConcept과 같은 곳에서 AAC 인코딩에 대한 플러그 인( [AAC 플러그 인](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+이 자습서에서는 AAC 사용 방법을 설명합니다. 그러나 FMLE는 AAC를 기본적으로 지원하지 않습니다. MainConcept과 같은 곳에서 AAC 인코딩에 대한 플러그 인: [AAC 플러그 인](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)을 구매해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
@@ -77,16 +77,16 @@ ms.locfileid: "43665888"
 **비디오**:
 
 * 코덱: H.264
-* 프로필: 높음(수준 4.0)
-* 비트 전송률: 5,000kbps
+* 프로필 높음(수준 4.0)
+* Bitrate: 5000kbps
 * 키 프레임: 2초(60초)
 * 프레임 속도: 30
 
 **오디오**:
 
 * 코덱: AAC(LC)
-* 비트 전송률: 192kbps
-* 샘플 속도: 44.1khz
+* Bitrate: 192kbps
+* 샘플링 속도: 44.1kHz
 
 ### <a name="configuration-steps"></a>구성 단계
 1. 사용 중인 컴퓨터에 대한 FMLE(Flash Media Live Encoder)의 인터페이스로 이동합니다.
@@ -97,12 +97,12 @@ ms.locfileid: "43665888"
    * 입력 크기: 1280 x 720
    * 비트 전송률: 5,000kbps(네트워크 제한 사항에 따라 조정 가능)  
 
-     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
+     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
      인터레이스된 원본을 사용하는 경우 "디인터레이스" 옵션에 확인 표시를 합니다.
 2. 형식 옆에 있는 렌치 아이콘을 선택합니다. 이러한 추가 설정은 다음과 같이 설정되어야 합니다.
 
-   * 프로필: 기본
+   * 프로필 기본
    * 수준: 4.0
    * 키 프레임 빈도: 2초
 
@@ -110,8 +110,8 @@ ms.locfileid: "43665888"
 3. 다음의 중요한 오디오 설정을 설정합니다.
 
    * 형식: AAC
-   * 샘플 속도: 44,100hz
-   * 비트 전송률: 192kbps
+   * 샘플링 속도: 44100Hz
+   * Bitrate: 192kbps
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 4. FMLE의 **RTMP 엔드포인트**에 할당하기 위해 채널의 입력 URL을 가져옵니다.

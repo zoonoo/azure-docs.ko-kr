@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018714"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998623"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway 상태 모니터링 개요
 
@@ -27,7 +27,7 @@ Azure Application Gateway는 기본적으로 백 엔드 풀의 모든 리소스 
 
 애플리케이션 게이트웨이는 사용자 지정 프로브 구성을 설정하지 않는 경우 기본 상태 프로브를 자동으로 구성합니다. 모니터링 동작은 백 엔드 풀에 대해 구성된 IP 주소에 대한 HTTP 요청을 만들어 작동합니다. 기본 프로브의 경우 백 엔드 http 설정이 HTTPS에 대해 구성되면 프로브는 HTTPS를 사용하고 백엔드의 상태를 테스트합니다.
 
-예: 포트 80에서 HTTP 네트워크 트래픽을 수신할 백 엔드 서버 A, B, C를 사용하도록 애플리케이션 게이트웨이를 구성합니다. 기본 상태 모니터링은 정상 HTTP 응답에 대해 3개의 서버를 30초마다 테스트합니다. 정상 HTTP 응답은 [상태 코드](https://msdn.microsoft.com/library/aa287675.aspx) 200에서 399 사이입니다.
+예:  포트 80에서 HTTP 네트워크 트래픽을 수신할 백 엔드 서버 A, B, C를 사용하도록 애플리케이션 게이트웨이를 구성합니다. 기본 상태 모니터링은 정상 HTTP 응답에 대해 3개의 서버를 30초마다 테스트합니다. 정상 HTTP 응답은 [상태 코드](https://msdn.microsoft.com/library/aa287675.aspx) 200에서 399 사이입니다.
 
 서버 A에 대한 기본 프로브 확인이 실패하면 애플리케이션 게이트웨이가 백 엔드 풀에서 이를 제거하고 네트워크 트래픽이 이 서버로 이동되지 않습니다. 기본 프로브는 서버 A에 대해 30초마다 계속 확인합니다. 서버 A가 기본 상태 프로브에서 하나의 요청에 대해 성공적으로 응답하는 경우 백 엔드 풀에 정상으로 다시 추가되고 트래픽이 이 서버로 다시 이동하기 시작합니다.
 
@@ -44,7 +44,7 @@ Azure Application Gateway는 기본적으로 백 엔드 풀의 모든 리소스 
 
 예: 
 
-```
+```powershell
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
@@ -80,7 +80,7 @@ Application Gateway의 모든 인스턴스는 서로 독립적으로 백 엔드�
 
 | 프로브 속성 | 설명 |
 | --- | --- |
-| 이름 |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
+| Name |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
 | 프로토콜 |프로브를 보내는 데 사용하는 프로토콜입니다. 프로브는 백 엔드 HTTP 설정에 정의된 프로토콜을 사용합니다. |
 | 호스트 |프로브에 보낼 호스트 이름입니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. 그렇지 않으면 '127.0.0.1'을 사용합니다. 이 값은 VM 호스트 이름과 다릅니다. |
 | path |프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. |

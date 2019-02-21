@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 1370f541f8913d86db948a3165d6660a8cd66528
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f29c995c4fb4a1e87c95295779ff83dd133ac61c
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963507"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984395"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -31,7 +31,7 @@ ms.locfileid: "52963507"
 ## <a name="prerequisites"></a>필수 조건
 
 > [!NOTE]  
-> 해당 매개 변수와 동일한 VM을 사용하여 Update-AzureRmVM을 실행하려는 경우에는 사용자 지정 스크립트 확장을 사용하지 마세요. 대기 시간이 길어집니다.  
+> 해당 매개 변수와 동일한 VM을 사용하여 Update-AzVM을 실행하려는 경우에는 사용자 지정 스크립트 확장을 사용하지 마세요. 대기 시간이 길어집니다.  
 >   
 > 
 
@@ -55,7 +55,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 * 스크립트를 실행할 때 사용자 입력이 필요하지 않도록 합니다.
 * 스크립트를 실행하는 데 허용되는 시간은 90분입니다. 더 오래 걸리면 확장을 프로비전하는 데 실패합니다.
 * 스크립트 내에서 다시 부팅하지 마세요. 이 작업으로 인해 설치 중인 다른 확장에 문제가 발생합니다. 다시 부팅 후 확장은 다시 시작한 후 계속되지 않습니다. 
-* 재부팅할 스크립트가 있는 경우 응용 프로그램을 설치하고 스크립트를 실행합니다. Windows 예약된 작업을 사용하거나 DSC 또는 Chef, Puppet 확장과 같은 도구를 사용하여 다시 부팅을 예약할 수 있습니다.
+* 재부팅할 스크립트가 있는 경우 애플리케이션을 설치하고 스크립트를 실행합니다. Windows 예약된 작업을 사용하거나 DSC 또는 Chef, Puppet 확장과 같은 도구를 사용하여 다시 부팅을 예약할 수 있습니다.
 * 확장은 스크립트를 한 번만 실행합니다. 부팅할 때마다 스크립트를 실행하려면 확장을 사용하여 Windows 예약된 작업을 만들어야 합니다.
 * 스크립트를 실행할 시기를 예약하려면 확장을 사용하여 Windows 예약된 작업을 만들어야 합니다. 
 * 스크립트를 실행하는 경우 Azure Portal 또는 CLI에서 ‘전환 중’ 확장 상태만 표시됩니다. 실행 중인 스크립트의 상태 업데이트를 더 자주 수행하려는 경우 사용자 고유의 솔루션을 만들어야 합니다.
@@ -107,7 +107,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | string |
@@ -141,14 +141,14 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 이전 섹션에서 자세히 설명되어 있는 JSON 스키마는 Azure Resource Manager 템플릿에서 사용하여 Azure Resource Manager 템플릿 배포 중 사용자 지정 스크립트 확장을 실행할 수 있습니다. 다음 샘플은 사용자 지정 스크립트 확장을 사용하는 방법을 보여 줍니다.
 
 * [자습서: Azure Resource Manager 템플릿을 사용하여 가상 머신 확장 배포](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
-* [Windows 및 Azure SQL DB에 두 개의 계층 응용 프로그램 배포](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
+* [Windows 및 Azure SQL DB에 두 개의 계층 애플리케이션 배포](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>PowerShell 배포
 
-`Set-AzureRmVMCustomScriptExtension` 명령을 사용하여 사용자 지정 스크립트 확장을 기존 가상 머신에 추가할 수 있습니다. 자세한 내용은 [Set-AzureRmVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension)을 참조하세요.
+`Set-AzVMCustomScriptExtension` 명령을 사용하여 사용자 지정 스크립트 확장을 기존 가상 머신에 추가할 수 있습니다. 자세한 내용은 [Set-AzVMCustomScriptExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmcustomscriptextension)을 참조하세요.
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
+Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `
     -Location myLocation `
     -FileUri myURL `
@@ -173,7 +173,7 @@ $storagekey = "1234ABCD"
 $ProtectedSettings = @{"storageAccountName" = $storageaccname; "storageAccountKey" = $storagekey; "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File 1_Add_Tools.ps1"};
 
 #run command
-Set-AzureRmVMExtension -ResourceGroupName myRG `
+Set-AzVMExtension -ResourceGroupName myRG `
     -Location myLocation ` 
     -VMName myVM ` 
     -Name "buildserver1" ` 
@@ -190,7 +190,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG `
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
  
-Set-AzureRmVMExtension -ResourceGroupName myRG 
+Set-AzVMExtension -ResourceGroupName myRG 
     -Location myLocation ` 
     -VMName myVM ` 
     -Name "serverUpdate" 
@@ -213,7 +213,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 확장 배포 상태에 대한 데이터는 Azure PowerShell 모듈을 사용하여 Azure Portal에서 검색할 수 있습니다. 지정된 VM에 대한 확장의 배포 상태를 보려면 다음 명령을 실행합니다.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 확장 실행 출력은 대상 가상 머신의 다음 디렉터리 아래에 기록됩니다.

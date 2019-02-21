@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14a6bdfff486f13f18d42b1bd20880347d3ebbc8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 292063183561722eae76c3d30ce242facd22df26
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756532"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981454"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>모델 학습의 컴퓨팅 대상 설정
 
@@ -47,6 +47,11 @@ Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양
 |[Azure 데이터 레이크 분석](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
+**모든 컴퓨팅 대상을 여러 학습 작업에 다시 사용할 수 있습니다**. 예를 들어 원격 VM을 사용자의 작업 영역에 연결한 후에는 여러 작업에 다시 사용할 수 있습니다.
+
+> [!NOTE]
+> Azure Machine Learning 컴퓨팅은 영구 리소스로 생성되거나 실행을 요청할 때 동적으로 생성될 수 있습니다. 실행에 기반한 생성은 학습 실행이 완료된 후 컴퓨팅 대상을 제거하므로 이 방법으로 생성된 컴퓨팅 대상을 다시 사용할 수 없습니다.
+
 ## <a name="whats-a-run-configuration"></a>실행 구성이란?
 
 학습 시에는 보통 로컬 컴퓨터에서 시작한 후 나중에 다른 컴퓨팅 대상에서 해당 학습 스크립트를 실행합니다. Azure Machine Learning Service를 사용하면 스크립트를 변경할 필요 없이 다양한 컴퓨팅 대상에서 스크립트를 실행할 수 있습니다. 
@@ -73,7 +78,7 @@ Azure Machine Learning Service에는 다양한 컴퓨팅 대상에 대한 다양
 
 #### <a name="user-managed-environment"></a>사용자 관리 환경
 
-사용자 관리 환경에서는 사용자가 사용자 환경을 설정하고 컴퓨팅 대상에 학습 스크립트에 필요한 모든 패키지를 설치해야 합니다. 로컬 컴퓨터에서와 같이 학습 환경이 이미 구성되어 있다면 `user_managed_dependencies`를 True로 설정하여 설정 단계를 건너뛸 수 있습니다. Conda에서 자동으로 환경을 확인하지도 않고 아무 것도 설치하지 않습니다.
+사용자 관리 환경에서는 사용자가 사용자 환경을 설정하고 컴퓨팅 대상에 학습 스크립트에 필요한 모든 패키지를 설치해야 합니다. 로컬 머신에서와 같이 학습 환경이 이미 구성되어 있다면 `user_managed_dependencies`를 True로 설정하여 설정 단계를 건너뛸 수 있습니다. Conda에서 자동으로 환경을 확인하지도 않고 아무 것도 설치하지 않습니다.
 
 다음 코드는 사용자 관리 환경에 대한 학습 실행을 구성하는 예를 보여줍니다.
 
@@ -242,7 +247,7 @@ Azure Portal에서 작업 영역과 연결된 컴퓨팅 대상에 액세스할 �
 
 * 작업 영역에 연결된 [컴퓨팅 대상 보기](#portal-view)
 * 작업 영역에서 [컴퓨팅 대상 만들기](#portal-create)
-* [기존 컴퓨팅 대상 다시 사용](#portal-reuse)
+* 작업 영역 외부에서 만든 [컴퓨팅 대상 연결](#portal-reuse)
 
 대상을 만들고 작업 영역에 연결한 후 `ComputeTarget` 개체와 함께 실행 구성에서 대상을 사용합니다. 
 
@@ -293,9 +298,11 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 
 
-### <a id="portal-reuse"></a>기존 컴퓨팅 대상 다시 사용
+### <a id="portal-reuse"></a>컴퓨팅 대상 연결
 
-컴퓨팅 대상의 목록을 보려면 이전에 설명한 단계를 수행합니다. 그런 다음, 다음과 같은 단계를 사용하여 컴퓨팅 대상을 다시 사용합니다. 
+Azure Machine Learning Service 작업 영역 외부에서 만든 컴퓨팅 대상을 사용하려면 연결해야 합니다. 컴퓨팅 대상을 연결하면 작업 영역에서 사용할 수 있습니다.
+
+컴퓨팅 대상의 목록을 보려면 이전에 설명한 단계를 수행합니다. 그런 다음, 아래 단계에 따라 컴퓨팅 대상을 연결합니다. 
 
 1. 더하기 기호(+)를 선택하여 컴퓨팅 대상을 추가합니다. 
 1. 계산 대상의 이름을 입력합니다. 

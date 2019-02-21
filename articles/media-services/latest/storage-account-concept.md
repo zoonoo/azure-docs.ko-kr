@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 4668ff23710121e5495395d71902b9ffa4c01238
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 90e01f39fa6b31095d76d0dfae2f700b4fa2ca3f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220351"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182870"
 ---
 # <a name="storage-accounts"></a>Storage 계정
 
@@ -29,7 +29,7 @@ Media Services 계정을 만들려면 Azure Storage 계정 리소스의 이름�
 
 핫 저장소 계층과 쿨 저장소 계층 중 하나를 선택할 수 있도록 GPv2를 사용하는 것이 좋습니다. 스토리지 계정을 자세히 알아보려면 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조하세요. 
 
-Media Services 계정 및 연결된 모든 Storage 계정은 동일한 Azure 구독에 포함되어 있어야 합니다. Media Services 계정과 동일한 위치의 스토리지 계정을 사용하는 것이 좋습니다.
+Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azure 구독에 포함되어야 합니다. 추가 대기 시간 및 데이터 송신 비용이 발생하지 않도록 Media Services 계정과 동일한 위치에 있는 스토리지 계정을 사용하는 것이 좋습니다.
 
 ## <a name="assets-in-a-storage-account"></a>저장소 계정의 자산
 

@@ -4,7 +4,7 @@ description: 이 문서는 .NET SDK를 사용하여 Azure Media Services 원격 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: f8f55e37-0714-49ea-bf4a-e6c1319bec44
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 57b68207b5150980ce1ab9a807af40766c25c6c0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5a24bf415cd575ebf62a2843207872c66bbeb021
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783052"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989873"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-net"></a>.NET을 사용하여 Azure Media Services 원격 분석 구성
+# <a name="configuring-azure-media-services-telemetry-with-net-legacy"></a>.NET을 사용하여 Azure Media Services 원격 분석 구성(레거시)
 
 이 문서는 .NET SDK를 사용하여 AMS(Azure Media Services) 원격 분석을 구성할 때 수행할 수 있는 일반적인 단계를 설명합니다. 
 
@@ -41,7 +41,7 @@ ms.locfileid: "33783052"
 원격 분석을 사용하도록 설정하려면 다음 단계가 필요합니다.
 
 - Media Services 계정에 연결된 저장소 계정의 자격 증명을 가져옵니다. 
-- **EndPointType**이 **AzureTable**로 설정되고 endPointAddress가 저장소 테이블을 가리키는 알림 끝점을 만듭니다.
+- **EndPointType**이 **AzureTable**로 설정되고 endPointAddress가 저장소 테이블을 가리키는 알림 엔드포인트를 만듭니다.
 
 ```csharp
         INotificationEndPoint notificationEndPoint = 

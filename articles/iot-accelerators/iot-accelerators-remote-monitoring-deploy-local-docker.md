@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 208526b745a117c9ee14bab21f8a5ce05accd1fe
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 252aacfeb85f23699c6a2e2ac1f457f9e2b59b0e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382234"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997187"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - Docker
 
@@ -54,6 +54,8 @@ set PCS
 이 명령은 **start.cmd** 스크립트에서 설정한 모든 환경 변수를 표시합니다.
 
 Docker가 로컬 머신에서 실행되고 있는지 확인합니다.
+> [!NOTE]
+> Docker가 Windows에서 실행되고 있는 경우 [Linux 컨테이너](https://docs.docker.com/docker-for-windows/)를 실행해야 합니다.
 
 로컬 Docker 컨테이너에서 실행되는 마이크로 서비스에서 Azure 클라우드 서비스에 액세스해야 합니다. 컨테이너 내부에서 인터넷 주소를 ping하려면 다음 명령을 사용하여 Docker 환경의 인터넷 연결을 테스트할 수 있습니다.
 
@@ -66,6 +68,9 @@ docker run --rm -ti library/alpine ping google.com
 ```cmd/sh
 docker-compose up
 ```
+
+> [!NOTE] 
+> `docker-compose up`을 실행하기 전에 Docker와 [로컬 드라이브를 공유](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115)해야 합니다.
 
 이 명령을 처음 실행하는 경우 Docker는 Docker 허브에서 마이크로 서비스 이미지를 다운로드하여 컨테이너를 로컬로 빌드합니다. 다음 실행에서 Docker는 컨테이너를 즉시 실행합니다.
 

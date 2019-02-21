@@ -3,20 +3,20 @@ title: 엔드포인트 할당량 늘리기
 titleSuffix: Azure Cognitive Services
 description: Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 애플리케이션에 추가합니다.
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 802a5cc629a467527c916c5a41a9c00d06e85600
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 89778375c6362007a81eab72663f56492f4fe206
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491725"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997909"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager를 사용하여 키 전체에서 엔드포인트 할당량 관리
 Language Understanding(LUIS)은 단일 키의 할당량 이상으로 엔드포인트 요청 할당량을 늘리는 기능을 제공합니다. 이렇게 하려면 **게시** 페이지의 **리소스 및 키** 섹션에서 LUIS에 대해 더 많은 키를 만들고 LUIS 애플리케이션에 추가합니다. 
@@ -362,6 +362,9 @@ LUIS 엔드포인트가 있는 성공한 응답은 다음과 같습니다.
 ## <a name="use-the-traffic-manager-parent-profile"></a>Traffic Manager 부모 프로필 사용
 엔드포인트 간의 트래픽을 관리하려면 Traffic Manager DNS에 대한 호출을 삽입하여 LUIS 엔드포인트를 찾아야 합니다. 이 호출은 모든 LUIS 엔드포인트 요청에 대해 수행되고 LUIS 클라이언트 애플리케이션 사용자의 지리적 위치를 시뮬레이션해야 합니다. LUIS 클라이언트 애플리케이션과 엔드포인트 예측을 위한 LUIS 요청 간에 DNS 응답 코드를 추가합니다. 
 
+## <a name="resolving-a-degraded-state"></a>성능 저하 상태 문제 해결
+
+Traffic Manager에 대해 [진단 로그](../../traffic-manager/traffic-manager-diagnostic-logs.md)를 사용하도록 설정하여 엔드포인트의 성능 상태가 저하된 이유를 확인합니다.
 
 ## <a name="clean-up"></a>정리
 두 개의 LUIS 끝점 키, 세 개의 Traffic Manager 프로필과 이러한 5개의 리소스가 포함된 리소스 그룹을 제거합니다. 이 작업은 Azure Portal에서 수행합니다. 리소스 목록에서 5개의 리소스를 삭제합니다. 그런 다음, 리소스 그룹을 삭제합니다. 

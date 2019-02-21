@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/05/2019
-ms.openlocfilehash: 0ae6dea86019b84e8d086a595995f8bd5b2a55ed
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753302"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990073"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database 용어집
 
@@ -28,9 +28,9 @@ ms.locfileid: "55753302"
 ||탄력적 풀|[탄력적 풀](sql-database-elastic-pool.md)|
 ||Managed Instance|[관리되는 인스턴스](sql-database-managed-instance.md)|
 |서버 개체|SQL Database 서버 또는 데이터베이스 서버|[데이터베이스 서버](sql-database-servers.md)|
-||SQL Database 관리되는 인스턴스 또는 관리되는 인스턴스|[관리되는 인스턴스](sql-database-managed-instance.md)|
+||SQL Database 관리되는 인스턴스 서버, 관리되는 인스턴스 서버 또는 인스턴스 서버|[관리되는 인스턴스](sql-database-managed-instance.md)|
 데이터베이스 개체|Azure SQL 데이터베이스|Azure SQL Database의 모든 데이터베이스|
-||단일 데이터베이스|단일 데이터베이스 배포 옵션을 사용하여 독립 실행형 데이터베이스로 생성된 데이터베이스|
+||단일 데이터베이스|단일 데이터베이스 배포 옵션을 사용하여 생성된 데이터베이스|
 ||풀링된 데이터베이스|탄력적 풀 내에 만들어지거나 그리로 이동된 데이터베이스|
 ||인스턴스 데이터베이스|관리되는 인스턴스 내에 만들어진 데이터베이스|
 ||기본 데이터베이스|DTU 기반 구매 모델의 기본 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
@@ -39,7 +39,7 @@ ms.locfileid: "55753302"
 ||범용 데이터베이스|vCore 기반 구매 모델의 범용 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
 ||하이퍼스케일 데이터베이스|vCore 기반 구매 모델의 하이퍼스케일 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
 ||중요 비즈니스용 데이터베이스|vCore 기반 구매 모델의 중요 비즈니스용 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
-|[구매 모델 및 리소스](sql-database-service-tiers.md)|DTU 기반 구매 모델|[DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)|
+|[구매 모델 및 리소스](sql-database-purchase-models.md)|DTU 기반 구매 모델|[DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)|
 ||vCore 기반 구매 모델|[vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)|
 ||vCore|하이퍼바이저가 게스트 OS에 제공하는 코어|
 ||서비스 계층|구매 모델 내 서비스 수준|

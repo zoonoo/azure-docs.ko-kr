@@ -1,26 +1,18 @@
 ---
-title: '프레미스 간 연결을 위한 계획 및 설계: Azure VPN Gateway | Microsoft Docs'
+title: 프레미스 간 연결을 위한 계획 및 설계 Azure VPN Gateway| Microsoft Docs
 description: 크로스-프레미스, 하이브리드, VNet 간 연결에 대한 VPN Gateway 계획 및 설계에 대해 알아보세요.
 services: vpn-gateway
-documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
+author: yushwang
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 07/27/2017
-ms.author: cherylmc
-ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yushwang
+ms.openlocfilehash: 7802061ba09a30ca34ed3804ace846118c5edb9b
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23125481"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235369"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>VPN Gateway 계획 및 설계
 
@@ -30,12 +22,12 @@ ms.locfileid: "23125481"
 
 ### <a name="compare"></a>프레미스 간 연결 옵션
 
-온-프레미스 사이트를 가상 네트워크에 안전하게 연결하려면 사이트 간, 지점 및 사이트 간, Express 경로의 세 가지 방법을 사용할 수 있습니다. 사용 가능한 여러 크로스-프레미스 연결을 비교하십시오. 선택하는 옵션은 다음과 같은 다양한 고려 사항에 따라 달라질 수 있습니다.
+온-프레미스 사이트를 가상 네트워크에 안전하게 연결하는 방법으로는 사이트 간, 지점 및 사이트 간, ExpressRoute의 세 가지 방법이 있습니다. 사용 가능한 여러 크로스-프레미스 연결을 비교하십시오. 선택하는 옵션은 다음과 같은 다양한 고려 사항에 따라 달라질 수 있습니다.
 
 * 솔루션에 어떤 종류의 처리량이 필요한가요?
 * 보안 VPN을 통한 공용 인터넷을 통해 통신하시겠어요? 아니면 개인 연결을 통해 통신하시겠어요?
 * 사용할 수 있는 공용 IP 주소가 있나요?
-* VPN 장치를 사용할 계획인가요? 그렇다면 해당 장치가 호환되나요?
+* VPN 디바이스를 사용할 계획인가요? 그렇다면 해당 장치가 호환되나요?
 * 컴퓨터 몇 대만 연결하시겠어요? 아니면 사이트에 대한 영구 연결을 원하세요?
 * 만들려는 솔루션에 어떤 형식의 VPN Gateway가 필요한가요?
 * 어떤 게이트웨이 SKU를 사용해야 합니까?
@@ -83,7 +75,7 @@ VPN Gateway에는 게이트웨이 서브넷이라는 특정 서브넷이 필요�
 
 #### <a name="local"></a>로컬 네트워크 게이트웨이 정보
 
-로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 위치를 가리킵니다. 클래식 배포 모델에서 로컬 네트워크 게이트웨이는 로컬 네트워크 사이트라고 했습니다. 로컬 네트워크 게이트웨이를 구성할 때 이름을 지정하고, 온-프레미스 VPN 장치의 공용 IP 주소를 지정하고, 온-프레미스 위치에 있는 주소 접두사를 지정합니다. Azure는 네트워크 트래픽에 대상 주소 접두사를 보고 로컬 네트워크 게이트웨이에 대해 지정한 구성을 참조하며 그에 따라 패킷을 라우팅합니다. 필요에 따라 주소 접두사를 수정할 수 있습니다. 자세한 내용은 [로컬 네트워크 게이트웨이](vpn-gateway-about-vpn-gateway-settings.md#lng)를 참조하세요.
+로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 위치를 가리킵니다. 클래식 배포 모델에서 로컬 네트워크 게이트웨이는 로컬 네트워크 사이트라고 했습니다. 로컬 네트워크 게이트웨이를 구성할 때 이름을 지정하고, 온-프레미스 VPN 디바이스의 공용 IP 주소를 지정하고, 온-프레미스 위치에 있는 주소 접두사를 지정합니다. Azure는 네트워크 트래픽에 대상 주소 접두사를 보고 로컬 네트워크 게이트웨이에 대해 지정한 구성을 참조하며 그에 따라 패킷을 라우팅합니다. 필요에 따라 주소 접두사를 수정할 수 있습니다. 자세한 내용은 [로컬 네트워크 게이트웨이](vpn-gateway-about-vpn-gateway-settings.md#lng)를 참조하세요.
 
 #### <a name="gwtype"></a>게이트웨이 형식 정보
 
@@ -92,7 +84,7 @@ VPN Gateway에는 게이트웨이 서브넷이라는 특정 서브넷이 필요�
 게이트웨이 유형은 다음과 같습니다.
 
 * Vpn
-* Express 경로
+* ExpressRoute
 
 #### <a name="connectiontype"></a>연결 형식 정보
 
@@ -100,7 +92,7 @@ VPN Gateway에는 게이트웨이 서브넷이라는 특정 서브넷이 필요�
 
 * IPsec
 * Vnet2Vnet
-* Express 경로
+* ExpressRoute
 * VPNClient
 
 #### <a name="vpntype"></a>VPN 형식 정보
@@ -113,14 +105,14 @@ VPN Gateway에는 게이트웨이 서브넷이라는 특정 서브넷이 필요�
 
 [!INCLUDE [vpn-gateway-table-vpntype](../../includes/vpn-gateway-table-vpntype-include.md)]
 
-### <a name="devices"></a>사이트 간 연결에 대한 VPN 장치
+### <a name="devices"></a>사이트 간 연결에 대한 VPN 디바이스
 
 사이트 간 연결을 구성하려면 배포 모델과 상관없이 다음 항목이 필요합니다.
 
-* Azure VPN Gateway와 호환되는 VPN 장치
+* Azure VPN Gateway와 호환되는 VPN 디바이스
 * NAT 뒤에 있지 않은 공용 IPv4 IP 주소
 
-VPN 장치를 구성해본 경험이 필요하거나 누군가가 장치를 대신 구성해줄 수 있어야 합니다.
+VPN 디바이스를 구성해본 경험이 필요하거나 누군가가 디바이스를 대신 구성해줄 수 있어야 합니다.
 
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 

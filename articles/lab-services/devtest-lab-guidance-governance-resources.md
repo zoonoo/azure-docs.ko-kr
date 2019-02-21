@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: aff57e58ffd247bcc697908f2f25cbf17ff9b91a
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262077"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244133"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Azure DevTest Labs 인프라의 거버넌스 - 리소스
 이 문서에서는 조직 내 DevTest Labs용으로 리소스를 조정하고 관리하는 방법을 설명합니다. 
@@ -75,7 +76,7 @@ Azure DevOps 프로젝트 내에서 특정 프로젝트에 대해 랩을 사용�
 랩 내에서 리소스 삭제를 방지하려면 어떻게 해야 하나요?
 
 ### <a name="answer"></a>응답
-권한이 부여된 사용자만 리소스를 삭제하거나 랩 정책을 변경할 수 있도록 랩 수준에서 적절한 권한을 설정하는 것이 좋습니다. 개발자는 **DevTest Labs 사용자** 그룹 내에 포함되어야 합니다. 수석 개발자 또는 인프라 책임자는 **DevTest Labs 소유자**여야 합니다. 랩 소유자는 두 명만 지정하는 것이 좋습니다. 손상 방지를 위해 이 정책은 코드 리포지토리로 확대 적용됩니다. 랩 사용자는 리소스를 사용할 수는 있지만 랩 정책을 업데이트할 수는 없습니다. 랩 내에서 각 기본 제공 그룹이 소유하는 역할과 권한을 설명하는 [Azure DevTest Labs에서 소유자 및 사용자 추가](devtest-lab-add-devtest-user.md) 문서를 참조하세요.
+권한이 부여된 사용자만 리소스를 삭제하거나 랩 정책을 변경할 수 있도록 랩 수준에서 적절한 권한을 설정하는 것이 좋습니다. 개발자는 **DevTest Labs 사용자** 그룹 내에 포함되어야 합니다. 수석 개발자 또는 인프라 책임자는 **DevTest Labs 소유자**여야 합니다. 랩 소유자는 두 명만 지정하는 것이 좋습니다. 손상 방지를 위해 이 정책은 코드 리포지토리로 확대 적용됩니다. 랩 사용자는 리소스를 사용할 수는 있지만 랩 정책을 업데이트할 수는 없습니다. 각 기본 그룹이 랩 내에서 소유하는 역할과 권한 목록이 나열된 [Azure DevTest Labs에 소유자 및 사용자 추가](devtest-lab-add-devtest-user.md) 문서를 참조하세요.
 
 ## <a name="move-lab-to-another-resource-group"></a>다른 리소스 그룹으로 랩 이동 
 

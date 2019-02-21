@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 269ea0162f85c7bd632e0528680fc8b0e2885aa9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4536048db4abc25decf1dbf02c75833c570e41af
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818127"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118210"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
@@ -992,7 +992,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 이 섹션에는 다양한 원본의 ID 값을 지정하여 단일 문서를 읽는 다음과 같은 예제가 포함됩니다.
 
-* [큐 트리거, JSON에서 ID 조회](#queue-trigger-look-up-id-from-string-javascript)
+* [큐 트리거, JSON에서 ID 조회](#queue-trigger-look-up-id-from-json-javascript)
 * [HTTP 트리거, 쿼리 문자열에서 ID 조회](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP 트리거, 경로 데이터에서 ID 조회](#http-trigger-look-up-id-from-route-data-javascript)
 * [큐 트리거, 여러 문서 가져오기, SqlQuery 사용](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1200,7 +1200,7 @@ JavaScript 코드는 다음과 같습니다.
 
 이 섹션에는 다양한 원본의 ID 값을 지정하여 단일 문서를 읽는 다음과 같은 예제가 포함됩니다.
 
-* [큐 트리거, JSON에서 ID 조회](#queue-trigger-look-up-id-from-string-python)
+* [큐 트리거, JSON에서 ID 조회](#queue-trigger-look-up-id-from-json-python)
 * [HTTP 트리거, 쿼리 문자열에서 ID 조회](#http-trigger-look-up-id-from-query-string-python)
 * [HTTP 트리거, 경로 데이터에서 ID 조회](#http-trigger-look-up-id-from-route-data-python)
 * [큐 트리거, 여러 문서 가져오기, SqlQuery 사용](#queue-trigger-get-multiple-docs-using-sqlquery-python)
@@ -2288,7 +2288,7 @@ public String cosmosDbQueryById(
     }
 ```
 
-전체 예제는 [출력 - C# 예제](#output---c-example)를 참조하세요.
+전체 예제는 출력 - C# 예제를 참조하세요.
 
 ## <a name="output---configuration"></a>출력 - 구성
 

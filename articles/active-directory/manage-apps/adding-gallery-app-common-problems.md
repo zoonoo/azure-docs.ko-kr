@@ -3,8 +3,8 @@ title: Azure AD 갤러리 애플리케이션을 추가하는 문제 | Microsoft 
 description: Azure AD 갤러리 애플리케이션을 추가하는 경우 직면하는 일반적인 문제 및 문제를 해결하기 위해 수행할 수 있는 작업 이해
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: barbkess
-ms.openlocfilehash: 3621ca390add5c4a50cae6ed8f2baa5e3b1e2339
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173278"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237876"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션을 추가하는 문제
 
@@ -27,13 +28,13 @@ ms.locfileid: "55173278"
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>"추가" 단추를 클릭했고 애플리케이션이 나타나는 데 시간이 오래 걸렸음
 
-경우에 따라 디렉터리에 추가한 후 애플리케이션이 나타나는 데 1-2분 정도(경우에 따라 더 길게) 걸릴 수 있습니다. 이는 일반적인 예상되는 성능이 아니지만 [Azure Portal](https://portal.azure.com/)의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭하고 **진행 중** 또는 **완료** 알림 레이블이 지정된 **애플리케이션 만들기**를 찾아 애플리케이션 추가가 진행 중임을 볼 수 있습니다.
+경우에 따라 디렉터리에 추가한 후 애플리케이션이 나타나는 데 1-2분 정도(경우에 따라 더 길게) 걸릴 수 있습니다. 이는 예상한 정상 성능이 아니지만, [Azure Portal](https://portal.azure.com/)의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭하고 **진행 중** 또는 **완료** 알림 레이블이 지정된 **애플리케이션 추가**를 찾아 애플리케이션 추가가 진행 중임을 볼 수 있습니다.
 
 애플리케이션이 추가되지 않거나 **추가** 단추를 클릭할 때 오류가 발생하는 경우 **오류** 상태에 **알림**이 표시됩니다. 더 자세히 알아보거나 지원 엔지니어와 공유하기 위해 오류에 대한 자세한 정보를 원하는 경우 [포털 알림의 세부 정보를 확인하는 방법](#how-to-see-the-details-of-a-portal-notification) 섹션의 단계를 따라 오류에 대한 자세한 정보를 볼 수 있습니다.
 
 ## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>"추가" 단추를 클릭했고 애플리케이션이 나타나지 않았음
 
-경우에 따라 일시적인 문제, 네트워킹 문제 또는 버그로 인해 애플리케이션 추가에 실패합니다. Azure Portal의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭하고 **애플리케이션 만들기** 알림 옆의 빨간색(!) 아이콘이 표시되는 경우 이러한 상황이 발생한다고 말할 수 있습니다. 이는 애플리케이션을 만들 때 오류가 있었음을 나타냅니다.
+경우에 따라 일시적인 문제, 네트워킹 문제 또는 버그로 인해 애플리케이션 추가에 실패합니다. Azure Portal의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭하고 **애플리케이션 추가** 알림 옆의 빨간색(!) 아이콘이 표시되는 경우 이러한 상황이 발생한다고 말할 수 있습니다. 이는 애플리케이션을 만들 때 오류가 있었음을 나타냅니다.
 
 **추가** 단추를 클릭할 때 오류가 발생하는 경우 **오류** 상태에 **알림**이 표시됩니다. 더 자세히 알아보거나 지원 엔지니어와 공유하기 위해 오류에 대한 자세한 정보를 원하는 경우 [포털 알림의 세부 정보를 확인하는 방법](#how-to-see-the-details-of-a-portal-notification) 섹션의 단계를 따라 오류에 대한 자세한 정보를 볼 수 있습니다.
 
@@ -47,7 +48,7 @@ ms.locfileid: "55173278"
 
 다음 단계를 수행하여 포털 알림의 세부 정보를 확인할 수 있습니다.
 
-1.  Azure Portal의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭합니다.
+1.  Azure Portal의 오른쪽 위에 있는 **알림** 아이콘(벨)을 선택합니다.
 
 2.  **오류** 상태(옆에 빨간색(!)이 있는)에서 알림을 선택합니다.
 

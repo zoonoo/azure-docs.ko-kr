@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 81ec99c5de94736d68392cc7cf0bc3e305e0ce7d
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754018"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56164620"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 액세스 제어 및 권한 부여
 
@@ -37,11 +37,14 @@ ms.locfileid: "55754018"
 
 - **서버 관리자**
 
-Azure SQL 서버를 만들 때 **서버 관리자 로그인**을 지정해야 합니다. SQL 서버는 master 데이터베이스에 로그인으로 해당 계정을 만듭니다. 이 계정은 SQL Server 인증(사용자 이름 및 암호)을 사용하여 연결됩니다. 이러한 계정 중 하나만 존재할 수 있습니다.   
+  Azure SQL 서버를 만들 때 **서버 관리자 로그인**을 지정해야 합니다. SQL 서버는 master 데이터베이스에 로그인으로 해당 계정을 만듭니다. 이 계정은 SQL Server 인증(사용자 이름 및 암호)을 사용하여 연결됩니다. 이러한 계정 중 하나만 존재할 수 있습니다.
 
-- **Azure Active Directory 관리자**   
+  > [!NOTE]
+  > 서버 관리자에 대한 암호를 다시 설정하려면 [Azure Portal](https://portal.azure.com)로 이동하여 **SQL Server**를 클릭하고 목록에서 서버를 선택한 다음, **암호 재설정**을 클릭합니다.
 
-하나의 Azure Active Directory 계정, 개인 또는 보안 그룹 계정을 관리자로 구성할 수도 있습니다. Azure AD 관리자를 구성하는 것은 선택 사항이지만, Azure AD 계정을 사용하여 SQL Database에 연결하려면 Azure AD 관리자를 **반드시** 구성해야 합니다. Azure Active Directory 액세스 구성에 대한 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL Data Warehouse에 연결](sql-database-aad-authentication.md) 및 [SQL Database 및 SQL Data Warehouse를 사용한 Azure AD MFA에 대한 SSMS 지원](sql-database-ssms-mfa-authentication.md)을 참조하세요.
+- **Azure Active Directory 관리자**
+
+  하나의 Azure Active Directory 계정, 개인 또는 보안 그룹 계정을 관리자로 구성할 수도 있습니다. Azure AD 관리자를 구성하는 것은 선택 사항이지만, Azure AD 계정을 사용하여 SQL Database에 연결하려면 Azure AD 관리자를 **반드시** 구성해야 합니다. Azure Active Directory 액세스 구성에 대한 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL Data Warehouse에 연결](sql-database-aad-authentication.md) 및 [SQL Database 및 SQL Data Warehouse를 사용한 Azure AD MFA에 대한 SSMS 지원](sql-database-ssms-mfa-authentication.md)을 참조하세요.
 
 **서버 관리자** 및 **Azure AD 관리자** 계정에는 다음과 같은 특징이 있습니다.
 
@@ -72,7 +75,6 @@ Azure SQL 서버를 만들 때 **서버 관리자 로그인**을 지정해야 �
 > [!IMPORTANT]
 > Microsoft Azure 및 SQL Database에 대한 업데이트와 동기화 상태를 유지하려면 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
 
-
 ## <a name="additional-server-level-administrative-roles"></a>추가 서버 수준 관리 역할
 
 >[!IMPORTANT]
@@ -85,7 +87,7 @@ SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이
 이러한 관리 역할 중 하나는 **dbmanager** 역할입니다. 이 역할의 멤버는 새 데이터베이스를 만들 수 있습니다. 이 역할을 사용하려면 `master` 데이터베이스에 사용자를 만든 다음 해당 사용자를 **dbmanager** 데이터베이스 역할에 추가합니다. 데이터베이스를 만들려면 사용자는 마스터 데이터베이스의 SQL Server 로그인을 기반으로 한 사용자이거나 Azure Active Directory 사용자를 기반으로 한 포함된 데이터베이스 사용자여야 합니다.
 
 1. 관리자 계정을 사용하여 master 데이터베이스에 연결합니다.
-2. 선택적 단계: 선택적 단계: [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 문을 사용하여 SQL Server 인증 로그인을 만듭니다. 샘플 문:
+2. 선택적 단계: [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 문을 사용하여 SQL Server 인증 로그인을 만듭니다. 샘플 문:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';

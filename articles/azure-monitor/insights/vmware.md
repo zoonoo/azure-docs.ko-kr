@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: c14267f6fc7f8c6be9199b9f25b6430b5f1aa5dd
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 9f5bdc3686e35f09b461bd5c2df695218b48ede3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887413"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993370"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics의 VMware 모니터링(미리 보기) 솔루션
 
@@ -34,7 +34,7 @@ Log Analytics VMware 모니터링 솔루션은 대규모 VMware 로그에 적합
 ## <a name="install-and-configure-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-* [관리 솔루션 설치](../insights/solutions.md#install-a-management-solution)에 설명된 프로세스를 사용하여 구독에 VMware 모니터링 솔루션을 추가합니다.
+* [모니터링 솔루션 설치](../insights/solutions.md#install-a-monitoring-solution)에 설명된 프로세스를 사용하여 구독에 VMware 모니터링 솔루션을 추가합니다.
 
 #### <a name="supported-vmware-esxi-hosts"></a>지원되는 VMware ESXi 호스트
 vSphere ESXi 호스트 5.5, 6.0 및 6.5

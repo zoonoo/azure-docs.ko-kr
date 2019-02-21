@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics의 DNS 분석 솔루션 | Microsoft Docs
-description: Log Analytics의 DNS 분석 솔루션을 설정 및 사용하여 보안, 성능 및 작업 관련 정보를 DNS 인프라에 수집합니다.
+title: Azure Monitor의 DNS 분석 솔루션 | Microsoft Docs
+description: Azure Monitor의 DNS 분석 솔루션을 설정 및 사용하여 보안, 성능 및 작업 관련 정보를 DNS 인프라에 수집합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 21b44b1c739818206fdba9d10250a2976f1d90db
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746866"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992724"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
 ![DNS 분석 기호](./media/dns-analytics/dns-analytics-symbol.png)
 
-이 문서에서는 Azure Log Analytics의 Azure DNS 분석 솔루션을 설정 및 사용하여 보안, 성능 및 작업 관련 정보를 DNS 인프라에 수집하는 방법을 설명합니다.
+이 문서에서는 Azure Monitor의 Azure DNS 분석 솔루션을 설정 및 사용하여 보안, 성능 및 작업 관련 정보를 DNS 인프라에 수집하는 방법을 설명합니다.
 
 DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
@@ -42,21 +42,21 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
-| [Windows 에이전트](../../azure-monitor/platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
-| [Linux 에이전트](../../azure-monitor/learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
-| [System Center Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
-| [Azure 저장소 계정](../../azure-monitor/platform/collect-azure-metrics-logs.md) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
+| [Windows 에이전트](../platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
+| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| [Azure 저장소 계정](../platform/collect-azure-metrics-logs.md) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
 
-솔루션이 Log Analytics가 설치된 DNS 서버에서 DNS 인벤토리 및 DNS 이벤트 관련 데이터를 수집합니다. 이 데이터는 Log Analytics에 업로드된 후 솔루션 대시보드에 표시됩니다. DNS Powershell cmdlet을 실행하여 DNS 서버, 영역 및 리소스 레코드 수와 같은 인벤토리 관련 데이터가 수집됩니다. 데이터가 2일마다 한 번씩 업데이트됩니다. 이벤트 관련 데이터가 Windows Server 2012 R2의 향상된 DNS 로깅 및 진단이 제공하는 [분석 및 감사 로그](https://technet.microsoft.com/library/dn800669.aspx#enhanc)를 통해 거의 실시간으로 수집됩니다.
+솔루션이 Log Analytics가 설치된 DNS 서버에서 DNS 인벤토리 및 DNS 이벤트 관련 데이터를 수집합니다. 이 데이터는 Azure Monitor에 업로드된 후 솔루션 대시보드에 표시됩니다. DNS Powershell cmdlet을 실행하여 DNS 서버, 영역 및 리소스 레코드 수와 같은 인벤토리 관련 데이터가 수집됩니다. 데이터가 2일마다 한 번씩 업데이트됩니다. 이벤트 관련 데이터가 Windows Server 2012 R2의 향상된 DNS 로깅 및 진단이 제공하는 [분석 및 감사 로그](https://technet.microsoft.com/library/dn800669.aspx#enhanc)를 통해 거의 실시간으로 수집됩니다.
 
 ## <a name="configuration"></a>구성
 
 다음 정보를 사용하여 솔루션을 구성합니다.
 
-- 모니터링할 각 DNS 서버에 [Windows](../../azure-monitor/platform/agent-windows.md) 또는 [Operations Manager](../../azure-monitor/platform/om-agents.md) 에이전트가 있어야 합니다.
-- [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace)에서 Log Analytics 작업 영역으로 DNS 분석 솔루션을 추가할 수 있습니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](../../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용할 수도 있습니다.
+- 모니터링할 각 DNS 서버에 [Windows](../platform/agent-windows.md) 또는 [Operations Manager](../platform/om-agents.md) 에이전트가 있어야 합니다.
+- [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace)에서 Log Analytics 작업 영역으로 DNS 분석 솔루션을 추가할 수 있습니다. [솔루션 갤러리에서 Azure Monitor 솔루션 추가](solutions.md)에서 설명한 과정을 사용할 수도 있습니다.
 
 솔루션은 추가 구성이 필요 없이 데이터 수집을 시작합니다. 그러나 다음 구성을 사용하여 데이터 수집을 사용자 지정할 수 있습니다.
 
@@ -64,7 +64,7 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 솔루션 대시보드에서 **구성**을 클릭하여 DNS 분석 구성 페이지를 엽니다. 다음과 같은 2가지 유형의 구성 변경을 수행할 수 있습니다.
 
-- **허용 목록에 포함된 도메인 이름**. 솔루션이 모든 조회 쿼리를 처리하는 것은 아닙니다. 도메인 이름 접미사의 허용 목록이 유지됩니다. 이 허용 목록의 도메인 이름 접미사와 일치하는 도메인 이름으로 확인되는 조회 쿼리는 솔루션에서 처리되지 않습니다. 허용 목록에 포함된 도메인 이름이 처리되지 않으면 Log Analytics에 전송되는 데이터를 최적화하는 데 도움이 됩니다. 기본 허용 목록에는 인기 있는 공용 도메인 이름(예: www.google.com 및 www.facebook.com 등)이 포함됩니다. 스크롤하여 전체 기본 목록을 볼 수 있습니다.
+- **허용 목록에 포함된 도메인 이름**. 솔루션이 모든 조회 쿼리를 처리하는 것은 아닙니다. 도메인 이름 접미사의 허용 목록이 유지됩니다. 이 허용 목록의 도메인 이름 접미사와 일치하는 도메인 이름으로 확인되는 조회 쿼리는 솔루션에서 처리되지 않습니다. 허용 목록에 포함된 도메인 이름이 처리되지 않으면 Azure Monitor에 전송되는 데이터를 최적화하는 데 도움이 됩니다. 기본 허용 목록에는 인기 있는 공용 도메인 이름(예: www.google.com 및 www.facebook.com 등)이 포함됩니다. 스크롤하여 전체 기본 목록을 볼 수 있습니다.
 
  목록을 수정하여 조회 정보를 보려는 도메인 이름 접미사를 추가할 수 있습니다. 조회 정보를 보지 않으려는 도메인 이름 접미사는 제거할 수 있습니다.
 
@@ -83,13 +83,14 @@ Operations Manager 관리 그룹이 Log Analytics 작업 영역에 연결된 경
 - Microsoft DNS 데이터 수집기 인텔리전스 팩(Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS 분석 구성(Microsoft.IntelligencePack.Dns.Configuration)
 
-솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)을 참조하세요.
+솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../platform/om-agents.md)을 참조하세요.
 
 ## <a name="use-the-dns-analytics-solution"></a>DNS 분석 솔루션 사용
 
-이 섹션에서는 모든 대시보드 기능과 사용 방법에 대해 설명합니다.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-작업 영역에 솔루션을 추가하고 나면, Azure Portal의 Log Analytics 개요 페이지에 DNS 인프라의 간단한 요약에 대한 **솔루션 보기** 링크가 포함됩니다. 여기에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. 지난 24시간 동안 악성 도메인을 해결하기 위해 클라이언트에서 수행한 요청 수도 포함됩니다. 타일을 클릭하면 솔루션 대시보드가 열립니다.
+
+DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. 지난 24시간 동안 악성 도메인을 해결하기 위해 클라이언트에서 수행한 요청 수도 포함됩니다. 타일을 클릭하면 솔루션 대시보드가 열립니다.
 
 ![DNS 분석 타일](./media/dns-analytics/dns-tile.png)
 
@@ -188,4 +189,4 @@ Operations Manager 관리 그룹이 Log Analytics 작업 영역에 연결된 경
 
 ## <a name="next-steps"></a>다음 단계
 
-[로그를 검색](../../azure-monitor/log-query/log-query-overview.md)하여 자세한 DNS 로그 레코드를 볼 수 있습니다.
+[로그를 쿼리](../log-query/log-query-overview.md)하여 자세한 DNS 로그 레코드를 볼 수 있습니다.

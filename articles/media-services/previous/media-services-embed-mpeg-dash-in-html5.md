@@ -2,7 +2,7 @@
 title: DASH.js를 사용하여 HTML5 애플리케이션에 MPEG-DASH 적응 스트리밍 비디오 포함 | Microsoft Docs
 description: 이 토픽에서는 DASH.js를 사용하여 HTML5 애플리케이션에 MPEG-DASH 적응 스트리밍 비디오를 포함시키는 방법을 보여 줍니다.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 2b0e6bf643f55e1809b29def7766c58b59f4bb50
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2c8e71a058b2c770741c38f07c6c440fea90f2b2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783382"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998436"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>DASH.js를 사용하여 HTML5 애플리케이션에 MPEG-DASH 적응 스트리밍 비디오 포함
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs-legacy"></a>DASH.js를 사용하여 HTML5 애플리케이션에 MPEG-DASH 적응 스트리밍 비디오 포함(레거시)
+
 ## <a name="overview"></a>개요
 MPEG-DASH는 고품질 적응 비디오 스트리밍 출력을 전달하려는 개발자에게 많은 혜택을 제공하는 비디오 콘텐츠의 적응 스트리밍을 위한 ISO 표준입니다. MPEG-DASH를 사용하면 네트워크 정체 상태일 때 비디오 스트림이 자동으로 낮은 화질로 조정됩니다. 따라서 플레이어가 재생할 다음 몇 초를 다운로드(버퍼링)하는 동안 뷰어에 "일시 중지된" 비디오가 표시될 가능성을 줄여줍니다. 네트워크 정체가 줄어들면 비디오 플레이어가 높은 품질의 스트림에 다시 돌아갑니다. 또한 이렇게 필요한 대역폭으로 조정하는 기능 덕분에 비디오의 시작 시간이 더욱 빨라집니다. 즉, 처음 몇 초는 낮은 품질로 세그먼트를 빠르게 다운로드하여 재생한 다음 충분한 콘텐츠가 버퍼링되고 나면 높은 품질로 설정할 수 있습니다.
 
@@ -112,7 +113,7 @@ MediaPlayer에 MPD 파일의 URL을 전달하여 재생해야 하는 비디오�
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>참고 항목
-[비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
+[비디오 플레이어 애플리케이션 개발](media-services-develop-video-players.md)
 
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js) 
 

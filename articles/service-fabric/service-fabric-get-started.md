@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: f4ae164a9862a32b45fd5bd0ae7bc09a1180c344
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 373bcecfb1780aa567b1250e53096b9eed0d0f21
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733487"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858742"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 * Visual Studio 2015 2.4.11116.1용 Service Fabric 도구
 * Visual Studio 2017 15.9에는 Visual Studio 2.4.11024.1용 Service Fabric 도구가 포함되어 있습니다. 
 
-지원되는 버전 목록은 [Service Fabric 지원](service-fabric-support.md)을 참조하세요.
+지원되는 버전 목록은 [Service Fabric 버전](service-fabric-versions.md)을 참조하세요.
 
 > [!NOTE]
 > 단일 컴퓨터 클러스터(OneBox)는 애플리케이션 또는 클러스터 업그레이드용으로 지원되지 않습니다. 클러스터 업그레이드를 수행해야 하거나 애플리케이션 업그레이드 수행 시에 문제가 발생하는 경우에는 OneBox 클러스터를 삭제한 후에 다시 만드세요. 

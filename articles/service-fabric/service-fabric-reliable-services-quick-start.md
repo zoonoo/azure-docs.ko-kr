@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 6977fa0a62767cebbd1000335c6c3a33a5991c2c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eb0fd7e4feb28d60173b638a15dbce598f78e6bf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208168"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56182955"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 > [!div class="op_single_selector"]
@@ -28,17 +28,15 @@ ms.locfileid: "34208168"
 > 
 > 
 
-Azure Service Fabric 애플리케이션에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 가이드에서는 [Reliable Services](service-fabric-reliable-services-introduction.md)를 사용하여 상태 비저장 및 상태 저장 Service Fabric 애플리케이션을 만드는 방법을 보여줍니다.  이 Microsoft Virtual Academy 비디오는 상태 비저장 신뢰할 수 있는 서비스를 만드는 방법을 보여줍니다.<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
-<img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
-</a></center>
+Azure Service Fabric 애플리케이션에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 가이드에서는 [Reliable Services](service-fabric-reliable-services-introduction.md)를 사용하여 상태 비저장 및 상태 저장 Service Fabric 애플리케이션을 만드는 방법을 보여 줍니다.  
 
 ## <a name="basic-concepts"></a>기본 개념
 Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 됩니다.
 
 * **서비스 유형**: 서비스 구현입니다. 이름 및 버전 번호와 함께 `StatelessService` 및 기타 코드 또는 여기에 사용된 종속성을 확장하도록 사용자가 작성한 클래스에 의해 정의됩니다.
-* **명명된 서비스 인스턴스**: 서비스를 실행하려면 클래스 유형의 개체 인스턴스를 만드는 것처럼 서비스 유형의 명명된 인스턴스를 만듭니다. 서비스 인스턴스는 "fabric:/MyApp/MyService"와 같은 "fabric:/" 체계를 사용하는 URI 형식의 이름을 갖습니다.
-* **서비스 호스트**: 호스트 프로세스 내에서 실행해야 하는 사용자가 만든 명명된 서비스 인스턴스입니다. 서비스 호스트는 서비스의 인스턴스에서 실행할 수 있는 프로세스일 뿐입니다.
-* **서비스 등록**: 등록은 모든 항목을 함께 모읍니다. Service Fabric에서 실행할 인스턴스를 만들 수 있도록 서비스 호스트의 Service Fabric 런타임에 서비스 유형을 등록해야 합니다.  
+* **명명된 서비스 인스턴스**: 서비스를 실행하려는 경우 클래스 유형의 개체 인스턴스를 만드는 것처럼 서비스 유형의 명명된 인스턴스를 만듭니다. 서비스 인스턴스는 "fabric:/MyApp/MyService"와 같은 "fabric:/" 체계를 사용하는 URI 형식의 이름을 갖습니다.
+* **서비스 호스트**: 생성한 명명된 서비스 인스턴스는 호스트 프로세스 내에서 실행해야 합니다. 서비스 호스트는 서비스의 인스턴스에서 실행할 수 있는 프로세스일 뿐입니다.
+* **서비스 등록**: 서비스를 등록하면 모든 요소가 통합 등록됩니다. Service Fabric에서 실행할 인스턴스를 만들 수 있도록 서비스 호스트의 Service Fabric 런타임에 서비스 유형을 등록해야 합니다.  
 
 ## <a name="create-a-stateless-service"></a>상태 비저장 서비스 만들기
 상태 비저장 서비스는 현재 클라우드 애플리케이션에서 정상인 서비스 유형입니다. 서비스 자체가 안정적으로 저장되거나 항상 사용 가능해야 하는 데이터를 포함하기 때문에 상태 비저장으로 간주됩니다. 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고 이를 위해 높은 가용성과 안정성을 유지해야 합니다.
@@ -53,7 +51,7 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 
 이제 솔루션에는 2개의 프로젝트가 있습니다.
 
-* *HelloWorld*. *서비스*가 포함된 *응용 프로그램* 프로젝트입니다. 또한 애플리케이션을 배포하는 데 도움이 되는 다양한 PowerShell 스크립트 뿐만 아니라 애플리케이션을 설명하는 애플리케이션 매니페스트가 포함되어 있습니다.
+* *HelloWorld*. *서비스*가 포함된 *애플리케이션* 프로젝트입니다. 또한 애플리케이션을 배포하는 데 도움이 되는 다양한 PowerShell 스크립트 뿐만 아니라 애플리케이션을 설명하는 애플리케이션 매니페스트가 포함되어 있습니다.
 * *HelloWorldStateless*. 서비스 프로젝트입니다. 상태 비저장 서비스 구현을 포함합니다.
 
 ## <a name="implement-the-service"></a>서비스 구현
@@ -125,7 +123,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 서비스가 이동하거나 다시 시작하는 경우에도 카운터 값을 상태 비저장에서 항상 사용 가능하고 지속되게 만들려면 상태 저장 서비스가 필요합니다.
 
-동일한 *HelloWorld* 응용 프로그램에서 응용 프로그램 프로젝트의 서비스 참조를 마우스 오른쪽 단추로 클릭하고 **추가 -> 새 Service Fabric 서비스**를 선택하여 새 서비스를 추가할 수 있습니다.
+동일한 *HelloWorld* 애플리케이션에서 애플리케이션 프로젝트의 서비스 참조를 마우스 오른쪽 단추로 클릭하고 **추가 -&gt; 새 Service Fabric 서비스**를 선택하여 새 서비스를 추가할 수 있습니다.
 
 ![Service Fabric 애플리케이션에 서비스 추가](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
@@ -205,7 +203,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 신뢰할 수 있는 컬렉션 작업은 *트랜잭션*이므로 여러 신뢰할 수 있는 컬렉션 및 작업에서 상태를 일관성 있게 유지할 수 있습니다. 예를 들어 신뢰할 수 있는 큐에서 작업 항목을 제거하고, 작업을 수행하고, 신뢰할 수 있는 사전의 결과를 모두 단일 트랜잭션 내에 저장할 수 있습니다. 이는 원자성 작업으로 처리되며, 전체 작업이 성공하거나 롤백되도록 보장합니다. 항목을 큐에서 제거한 다음이지만 결과를 저장하기 전에 오류가 발생하면 전체 트랜잭션이 롤백되고 항목이 처리를 위해 큐에 남아 있습니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
-*HelloWorld* 응용 프로그램으로 돌아갑니다. 이제 서비스를 빌드하고 배포할 수 있습니다. **F5**키를 누르면 응용 프로그램이 빌드되고 로컬 클러스터에 배포됩니다.
+*HelloWorld* 애플리케이션으로 돌아갑니다. 이제 서비스를 빌드하고 배포할 수 있습니다. **F5**키를 누르면 애플리케이션이 빌드되고 로컬 클러스터에 배포됩니다.
 
 서비스가 실행되기 시작한 후에 **진단 이벤트** 창에서 생성된 ETW(Windows용 이벤트 추적) 이벤트를 볼 수 있습니다. 애플리케이션의 상태 비저장 서비스 및 상태 저장 서비스 모두에서 이벤트가 표시됩니다. **일시 중지** 단추를 클릭하여 스트림을 일시 중지할 수 있습니다. 그런 다음 해당 메시지를 확장하여 메시지의 세부 정보를 검사할 수 있습니다.
 
@@ -217,15 +215,15 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 ![Visual Studio에서 진단 이벤트 보기](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
 ## <a name="next-steps"></a>다음 단계
-[Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
+[Visual Studio에서 서비스 패브릭 애플리케이션 디버깅](service-fabric-debugging-your-application.md)
 
-[시작: OWIN 자체 호스팅을 사용하는 서비스 패브릭 Web API 서비스](service-fabric-reliable-services-communication-webapi.md)
+[시작: OWIN 자체 호스팅을 사용하는 Service Fabric Web API 서비스](service-fabric-reliable-services-communication-webapi.md)
 
 [신뢰할 수 있는 컬렉션에 대한 자세한 정보](service-fabric-reliable-services-reliable-collections.md)
 
-[응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
+[애플리케이션 배포](service-fabric-deploy-remove-applications.md)
 
-[응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+[애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 
 [신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 

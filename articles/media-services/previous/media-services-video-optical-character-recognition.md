@@ -4,7 +4,7 @@ description: Azure 미디어 분석 OCR(광학 문자 인식)을 사용하면 �
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4a7a31b4e0069d2c94a4f109248d7b02c0b03faa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e0fa769c9071cac0dccaf43c312c80c7d097e345
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785902"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005134"
 ---
-# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure 미디어 분석을 사용하여 비디오 파일의 텍스트 콘텐츠를 디지털 텍스트로 변환
+# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure 미디어 분석을 사용하여 비디오 파일의 텍스트 콘텐츠를 디지털 텍스트로 변환  
 ## <a name="overview"></a>개요
 비디오 파일에서 텍스트 콘텐츠를 추출하고 편집 및 검색 가능한 디지털 텍스트를 생성해야 할 경우 Azure 미디어 분석 OCR(광학 문자 인식)을 사용하는 것이 좋습니다. 이 Azure 미디어 프로세서는 비디오 파일의 텍스트 콘텐츠를 검색하고 사용할 수 있는 텍스트 파일을 생성합니다. OCR을 사용하면 미디어의 비디오 신호에서 의미 있는 메타데이터를 자동으로 추출할 수 있습니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "33785902"
 이 문서에서는 **Azure Media OCR**에 대한 세부 정보를 제공하고 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다. 자세한 내용과 예는 [이 블로그](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/)를 참조하세요.
 
 ## <a name="ocr-input-files"></a>OCR 입력 파일
-동영상 파일입니다. 현재 MP4, MOV 및 WMV 형식이 지원됩니다.
+동영상 파일입니다. 현재 다음 형식이 지원됩니다. MP4, MOV 및 WMV.
 
 ## <a name="task-configuration"></a>작업 구성
 작업 구성(사전 설정) **Azure 미디어 OCR**로 작업을 만들 때에는 JSON 또는 XML을 사용하여 구성 사전 설정을 지정해야 합니다. 
@@ -45,8 +45,8 @@ ms.locfileid: "33785902"
 | 특성 이름 | 설명 |
 | --- | --- |
 |AdvancedOutput| AdvancedOutput을 true로 설정하면 JSON 출력에는 모든 단일 단어(구 및 지역 외에)에 대해 위치 데이터가 포함됩니다. 이러한 세부 정보를 표시하지 않으려면 flag를 false로 설정합니다. 기본값은 False입니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)를 참조하세요.|
-| 언어 |(선택 사항) 검색할 텍스트의 언어에 대해 설명합니다. AutoDetect(기본값), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish 중 하나일 수 있습니다. |
-| TextOrientation |(선택 사항) 검색할 텍스트의 방향에 대해 설명합니다.  "Left"는 모든 문자의 위쪽이 왼쪽을 향함을 나타냅니다.  기본 텍스트(예: 책에서 사용되는 텍스트)를 "위쪽" 방향으로 호출할 수 있습니다.  AutoDetect(기본값), Up, Right, Down, Left 중 하나일 수 있습니다. |
+| 언어 |(선택 사항) 검색할 텍스트의 언어에 대해 설명합니다. 다음 중 하나 AutoDetect(기본값), Arabic, ChineseSimplified, ChineseTraditional, Czech Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, SerbianCyrillic, SerbianLatin, Slovak, Spanish, Swedish, Turkish |
+| TextOrientation |(선택 사항) 검색할 텍스트의 방향에 대해 설명합니다.  "Left"는 모든 문자의 위쪽이 왼쪽을 향함을 나타냅니다.  기본 텍스트(예: 책에서 사용되는 텍스트)를 "위쪽" 방향으로 호출할 수 있습니다.  다음 중 하나 AutoDetect(기본값), Up, Right, Down, Left |
 | TimeInterval |(선택 사항) 샘플링 속도를 설명합니다.  기본값은 1/2초 간격입니다.<br/>JSON 형식 – HH:mm:ss.SSS(기본값 00:00:00.500)<br/>XML 형식 – W3C XSD 기간 기본 형식(기본 PT0.5) |
 | DetectRegions |(선택 사항) 텍스트를 검색할 비디오 프레임 내의 영역을 지정하는 DetectRegion 개체의 배열입니다.<br/>DetectRegion 개체는 다음 4개 정수 값으로 구성됩니다.<br/>Left - 왼쪽 여백에서 픽셀<br/>Top - 위쪽 여백에서 픽셀<br/>Width – 영역 너비(픽셀)<br/>Height – 영역 높이(픽셀) |
 

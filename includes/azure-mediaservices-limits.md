@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 9cd5a63b5b1d7000605f90752be755356d40bb4a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279789"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56213129"
 ---
 >[!NOTE]
 >고정되지 않는 리소스의 경우 지원 티켓을 열어 발생되는 할당량을 요청할 수 있습니다. 더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 **마십시오**.
@@ -27,7 +27,7 @@ ms.locfileid: "52279789"
 | AMS 계정당 라이브 채널  |5|
 | 채널당 중지 상태인 프로그램  |50|
 | 채널당 실행 상태인 프로그램  |3|
-| AMS 계정당 실행 상태인 스트리밍 엔드포인트|2|
+| Media Services 계정당 스트리밍 엔드포인트(중지됨 또는 실행 중)|2|
 | 스트리밍 엔드포인트당 스트리밍 단위 |10 |
 | Storage 계정 | 1,000<sup>(5)</sup>(고정) |
 | 정책 | 1,000,000<sup>(6)</sup> |

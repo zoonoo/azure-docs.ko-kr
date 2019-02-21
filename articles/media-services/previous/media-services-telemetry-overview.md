@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Media Services 원격 분석에 대한 �
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 95c20ec4-c782-4063-8042-b79f95741d28
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 97df0876afd8b7258f985ab375b14f4aabde6e22
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48b88aed833b0cd15f47195c67be80fe75fe153f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786142"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005185"
 ---
-# <a name="azure-media-services-telemetry"></a>Azure Media Services 원격 분석
+# <a name="azure-media-services-telemetry"></a>Azure Media Services 원격 분석  
 
 AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분석/메트릭 데이터에 액세스할 수 있습니다. 현재 버전의 AMS를 사용하면 라이브 **Channel**, **StreamingEndpoint** 및 라이브 **Archive** 엔터티에 대한 원격 분석 데이터를 수집할 수 있습니다. 
 
@@ -75,7 +75,7 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>계정 ID는 여러 Media Services 계정이 동일한 저장소 계정에 기록되는 워크플로를 간소화하기 위해 파티션 키에 포함됩니다.
 RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>행 키는 파티션 내의 상위 n개 스타일 쿼리를 허용하기 위해 자정까지 남은 시간(초)부터 시작됩니다. 자세한 내용은 [이](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) 문서를 참조하세요. 
 타임 스탬프|날짜/시간|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
-type|원격 분석 데이터를 제공하는 엔터티 형식|Channel/StreamingEndpoint/Archive<br/><br/>이벤트 형식은 문자열 값입니다.
+Type|원격 분석 데이터를 제공하는 엔터티 형식|Channel/StreamingEndpoint/Archive<br/><br/>이벤트 형식은 문자열 값입니다.
 Name|원격 분석 이벤트의 이름입니다.|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|원격 분석 이벤트가 발생한 시간(UTC)|2016-09-09T22:42:36.924Z<br/><br/>원격 분석을 보내는 엔터티(예: 채널)가 관측된 시간을 제공합니다. 구성 요소 간에 시간 동기화 문제가 있을 수 있으므로 이 값은 근사치입니다.
 ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -85,22 +85,22 @@ ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 
 각각이 다음 빈도로 푸시되는 세 가지 유형의 엔터티별 원격 분석 데이터 항목이 있습니다.
 
-- 스트리밍 끝점: 30초 간격
-- 라이브 채널: 1분 간격
-- 라이브 보관: 1분 간격
+- 스트리밍 엔드포인트: 30초마다
+- 라이브 채널: 매분
+- 라이브 보관: 매분
 
-**스트리밍 끝점**
+**스트리밍 엔드포인트**
 
 자산|값|예
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 타임 스탬프|타임 스탬프|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
-type|type|StreamingEndpoint
+Type|Type|StreamingEndpoint
 Name|Name|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|서비스 ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-HostName|끝점의 호스트 이름|builddemoserver.origin.mediaservices.windows.net
+HostName|엔드포인트의 호스트 이름|builddemoserver.origin.mediaservices.windows.net
 StatusCode|레코드 HTTP 상태|200
 ResultCode|결과 코드 세부 정보|S_OK
 RequestCount|집계의 총 요청|3
@@ -115,7 +115,7 @@ E2ELatency|평균 종단 간 대기 시간|250
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 타임 스탬프|타임 스탬프|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
-type|type|채널
+Type|Type|채널
 Name|Name|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|서비스 ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -140,7 +140,7 @@ Healthy|다음과 같은 경우 True <br/>overlapCount, <br/>DiscontinuityCount,
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 타임 스탬프|타임 스탬프|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
-type|type|보관
+Type|Type|보관
 Name|Name|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|서비스 ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
@@ -167,7 +167,7 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 
 ### <a name="how-to-define-streaming-unit-count"></a>스트리밍 단위 수를 정의하는 방법
 
-스트리밍 단위 수는 서비스 스트리밍 끝점의 최대 처리량을 한 스트리밍 끝점의 최대 처리량으로 나누어 정의할 수 있습니다. 한 스트리밍 끝점의 최대 사용 가능한 처리량은 160Mbps입니다.
+스트리밍 단위 수는 서비스 스트리밍 엔드포인트의 최대 처리량을 한 스트리밍 엔드포인트의 최대 처리량으로 나누어 정의할 수 있습니다. 한 스트리밍 엔드포인트의 최대 사용 가능한 처리량은 160Mbps입니다.
 예를 들어 고객 서비스의 최대 처리량을 40MBps(특정 기간 동안의 BytesSent 최대값)로 가정합니다. 그러면 스트리밍 단위 수는 (40MBps)*(8비트/바이트)/(160Mbps) = 2개의 스트리밍 단위가 됩니다.
 
 ### <a name="how-to-find-average-requestssecond"></a>평균 요청 수/초를 확인하는 방법
@@ -196,7 +196,7 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 
 ### <a name="how-to-find-streaming-request-failures-and-reasons"></a>스트리밍 요청 실패 및 이유를 찾는 방법
 
-스트리밍 요청 실패 및 이유를 찾으려면 ResultCode가 S_OK가 아닌 모든 스트리밍 끝점 데이터 항목을 찾습니다. 해당 StatusCode 필드는 요청 실패의 이유를 나타냅니다.
+스트리밍 요청 실패 및 이유를 찾으려면 ResultCode가 S_OK가 아닌 모든 스트리밍 엔드포인트 데이터 항목을 찾습니다. 해당 StatusCode 필드는 요청 실패의 이유를 나타냅니다.
 
 ### <a name="how-to-consume-data-with-external-tools"></a>외부 도구에서 데이터를 사용하는 방법
 

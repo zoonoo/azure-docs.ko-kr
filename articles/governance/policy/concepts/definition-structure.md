@@ -4,17 +4,17 @@ description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fc0d5c4abc3b8584212798d5ea5b6ab65404e93d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698295"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237420"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -90,8 +90,20 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 > [!NOTE]
 > 매개 변수를 기존 및 할당된 정의에 추가할 수 있습니다. 새 매개 변수는 **defaultValue** 속성을 포함해야 합니다. 이렇게 하면 정책 또는 이니셔티브의 기존 지정이 간접적으로 유효하지 않게 됩니다.
 
-예를 들어 리소스를 배포할 수 있는 위치를 제한하는 정책을 정의할 수 있습니다.
-정책을 만들 때 다음 매개 변수를 선언합니다.
+### <a name="parameter-properties"></a>매개 변수 속성
+
+매개 변수에는 정책 정의에 사용되는 다음 속성이 있습니다.
+
+- **name**: 매개 변수의 이름입니다. 정책 규칙 내의 `parameters` 배포 함수에서 사용됩니다. 자세한 내용은 [매개 변수 값 사용](#using-a-parameter-value)을 참조하세요.
+- `type`: 매개 변수가 **문자열** 또는 **배열**인지를 확인합니다.
+- `metadata`: Azure Portal에서 사용자에게 친숙한 정보를 표시하는 데 주로 사용되는 하위 속성을 정의합니다.
+  - `description`: 매개 변수의 용도에 대한 설명입니다. 허용 가능한 값의 예를 제공하는 데 사용할 수 있습니다.
+  - `displayName`: 매개 변수에 대해 포털에 표시되는 이름입니다.
+  - `strongType`: (선택 사항) 포털을 통해 정책 정의를 할당할 때 사용됩니다. 컨텍스트 인식 목록을 제공합니다. 자세한 내용은 [strongType](#strongtype)을 참조하세요.
+- `defaultValue`: (선택 사항) 값이 지정되지 않은 경우 할당에서 매개 변수의 값을 설정합니다. 할당된 기존 정책 정의를 업데이트할 때 필요합니다.
+- `allowedValues`: (선택 사항) 할당 중에 매개 변수가 허용하는 값 목록을 제공합니다.
+
+예를 들어 리소스를 배포할 수 있는 위치를 제한하는 정책 정의를 정의할 수 있습니다. 해당 정책 정의의 매개 변수는 **allowedLocations**일 수 있습니다. 이 매개 변수는 정책 정의의 각 할당에서 허용되는 값을 제한하는 데 사용됩니다. **strongType**을 사용하면 포털을 통해 할당을 완료할 때 경험이 개선됩니다.
 
 ```json
 "parameters": {
@@ -102,21 +114,17 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-매개 변수의 형식은 문자열 또는 배열이 될 수 있습니다. 메타데이터 속성은 Azure Portal과 같은 도구에 사용되어 사용자 친화적 정보를 표시합니다.
-
-메타데이터 속성 안에서 **strongType**을 사용하여 Azure Portal 내의 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType**에서 현재 허용되는 값은 다음과 같습니다.
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### <a name="using-a-parameter-value"></a>매개 변수 값 사용
 
 정책 규칙에서 다음 `parameters` 배포 값 함수 구문을 사용하여 매개 변수를 참조합니다.
 
@@ -126,6 +134,19 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+이 샘플은 [매개 변수 속성](#parameter-properties)에 설명된 **allowedLocations** 매개 변수를 참조합니다.
+
+### <a name="strongtype"></a>strongType
+
+`metadata` 속성 안에 **strongType**을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType**에서 현재 허용되는 값은 다음과 같습니다.
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## <a name="definition-location"></a>정의 위치
 
@@ -187,7 +208,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ### <a name="conditions"></a>조건
 
-조건은 **field**에서 특정 기준을 충족하는지를 평가합니다. 지원되는 조건은 다음과 같습니다.
+조건은 **field** 또는 **value** 접근자가 특정 기준을 충족하는지 여부를 평가합니다. 지원되는 조건은 다음과 같습니다.
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -231,7 +252,53 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
   - 이 대괄호 구문은 마침표가 있는 태그 이름을 지원합니다.
   - 여기서 **\<tagName\>** 은 조건의 유효성을 검사하기 위한 태그 이름입니다.
   - 예: `tags[Acct.CostCenter]` 여기서 **Acct.CostCenter**는 태그의 이름입니다.
+
 - 속성 별칭 - 목록은 [별칭](#aliases)을 참조하세요.
+
+### <a name="value"></a>값
+
+**value**를 사용하여 조건을 구성할 수도 있습니다. **value**는 [매개 변수](#parameters), [지원되는 템플릿 함수](#policy-functions) 또는 리터럴에 대해 조건을 확인합니다.
+**value**는 지원되는 모든 [조건](#conditions)과 쌍을 이룹니다.
+
+#### <a name="value-examples"></a>값 예제
+
+이 정책 규칙 예제는 **value**를 사용하여 `resourceGroup()` 함수의 결과와 반환된 **name** 속성을 `*netrg`의 **like** 조건과 비교합니다. 규칙은 이름이 `*netrg`로 끝나는 리소스 그룹에서 `Microsoft.Network/*` **type**이 아닌 리소스를 모두 거부합니다.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+이 정책 규칙 예제에서는 **value**를 사용하여 여러 중첩 함수의 결과가 **equals** `true`인지 확인합니다. 이 규칙은 최소 3개의 태그가 없는 리소스를 모두 거부합니다.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### <a name="effect"></a>결과
 
@@ -274,12 +341,15 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ### <a name="policy-functions"></a>정책 함수
 
-정책 규칙 내에서 여러 가지 [Resource Manager 템플릿 함수](../../../azure-resource-manager/resource-group-template-functions.md)를 사용할 수 있습니다. 현재 지원되는 함수는 다음과 같습니다.
+다음 배포 및 리소스 함수를 제외하고 모든 [Resource Manager 템플릿 함수](../../../azure-resource-manager/resource-group-template-functions.md)를 정책 규칙 내에서 사용할 수 있습니다.
 
-- [매개 변수](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [subscription](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- deployment()
+- list*
+- providers()
+- reference()
+- resourceId()
+- variables()
 
 `field` 함수도 정책 규칙에 사용할 수 있습니다. `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
 

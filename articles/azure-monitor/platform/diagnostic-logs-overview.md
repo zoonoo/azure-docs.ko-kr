@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885850"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001997"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Azure 리소스에서 로그 데이터 수집 및 소비
 
@@ -40,7 +40,9 @@ ms.locfileid: "54885850"
 
 * 감사 또는 수동 검사를 위해 [**Storage 계정**](../../azure-monitor/platform/archive-diagnostic-logs.md)에 저장합니다. **리소스 진단 설정**을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 * [타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 **Event Hubs**로 스트림](diagnostic-logs-stream-event-hubs.md)합니다.
-* 데이터를 스토리지에 먼저 쓰지 않아도 Log Analytics에 데이터가 즉시 기록되는 [Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)으로 분석하세요.  
+* 데이터를 스토리지에 먼저 쓰지 않아도 Azure Monitor에 데이터가 즉시 기록되는 [Azure Monitor](../../azure-monitor/platform/collect-azure-metrics-logs.md)로 분석하세요.  
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hubs 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
 
@@ -56,7 +58,7 @@ ms.locfileid: "54885850"
 
 리소스 진단 로그는 리소스 진단 설정을 사용하여 구성됩니다. 테넌트 진단 로그는 테넌트 진단 설정을 사용하여 구성됩니다. 서비스 제어에 대한 **진단 설정**:
 
-* 진단 로그 및 메트릭을 보내는 위치(Storage 계정, Event Hubs 및/또는 Log Analytics).
+* 진단 로그 및 메트릭을 보내는 위치(Storage 계정, Event Hubs 및/또는 Azure Monitor).
 * 전송되는 로그 범주 및 메트릭 데이터의 전송 여부.
 * 각 로그 항목을 저장소 계정에 유지해야 하는 기간.
     - 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
@@ -235,5 +237,4 @@ Azure Monitor REST API를 사용하여 진단 설정을 변경하려면 [이 문
 
 * [**Event Hubs**로 리소스 진단 로그 스트림](diagnostic-logs-stream-event-hubs.md)
 * [Azure Monitor REST API를 사용하여 리소스 진단 설정 변경](https://docs.microsoft.com/rest/api/monitor/)
-* [Azure Storage에서 Log Analytics를 사용하여 로그 분석](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-
+* [Azure Storage에서 Azure Monitor를 사용하여 로그 분석](collect-azure-metrics-logs.md)

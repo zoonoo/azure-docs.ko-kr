@@ -13,18 +13,29 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 61bbc65c543801b0f783d01dfb803f47dbcf8a07
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0d24fbe075316e492b638a2877439af270250d70
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215302"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234634"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java 개발자 가이드
 
 Linux 기반의 Azure App Service는 Java 개발자가 Tomcat 또는 Java SE(Standard Edition) 패키지 웹 애플리케이션을 신속하게 구축하고, 완벽하게 관리되는 Linux 기반 서비스에 배포하고, 규모를 조정할 수 있게 도와줍니다. 명령줄에서 또는 IntelliJ, Eclipse, Visual Studio Code 같은 편집기에서 Maven 플러그 인을 사용하여 애플리케이션을 배포할 수 있습니다.
 
 이 가이드에서는 Linux용 App Service를 사용하는 Java 개발자를 위해 핵심 개념을 설명하고 지침을 제공합니다. Linux용 Azure App Service를 사용한 경험이 없는 분들은 먼저 [Java 빠른 시작](quickstart-java.md)을 정독해야 합니다. Java 개발에 국한되지 않는 Linux용 App Service 사용에 대한 일반적인 질문의 답은 [App Service Linux FAQ](app-service-linux-faq.md)에서 찾을 수 있습니다.
+
+## <a name="deploying-your-app"></a>앱 배포
+
+.jar과 .war 파일을 배포하려면 Maven 플러그 인을 사용할 수 있습니다. Maven 플러그 인에 대한 자세한 내용은 [이 설명서](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable)를 참조하세요. 
+
+Maven을 사용하지 않는 경우 배포 방법은 보관 형식에 따라 달라집니다.
+
+- .war 파일을 Tomcat에 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file)를 참조하세요.
+- Java SE 이미지에서 .jar 파일을 배포하려면 Kudu 사이트의 `/api/zipdeploy/` 엔드포인트를 사용합니다. 이 API에 대한 자세한 내용은 [이 설명서](https://docs.microsoft.com/azure/app-service/deploy-zip#rest)를 참조하세요.
+
+FTP를 사용하여 .war 또는.jar을 배포하지 마십시오. FTP 도구는 시작 스크립트, 종속성 또는 기타 런타임 파일을 업로드하기 위해 설계되었습니다. 웹앱을 배포하기 위한 최적의 선택은 아닙니다.
 
 ## <a name="logging-and-debugging-apps"></a>앱 로깅 및 디버깅
 

@@ -6,17 +6,18 @@ keywords: 클립, 하위 클립, 인코딩, 미디어
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 227a312839950652924e75f0bafb474ce7bac588
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: def72c1bb42d083c38640f7c6165c305a5820c75
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448672"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003281"
 ---
-# <a name="configure-localization"></a>지역화 구성
+# <a name="configure-localization-legacy"></a>지역화 구성(레거시)
+
 Azure Media Clipper는 18개 언어로 제공됩니다. 위젯 언어를 설정하려면 초기화 중에 `language` 매개 변수를 정의해야 합니다. 다음 목록에서 원하는 언어 코드 문자열에서 전달합니다.
 - 중국어(간체): zh-hans
 - 중국어(번체): zh-hant

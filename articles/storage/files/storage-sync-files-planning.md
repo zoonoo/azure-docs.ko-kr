@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 5bff36f17b407c95858924a2a88b133500c350b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751415"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56200499"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -167,10 +167,14 @@ Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버"
 > 동기화가 제대로 작동하려면 장애 조치(Failover) 클러스터의 모든 노드에 Azure 파일 동기화 에이전트를 설치해야 합니다.
 
 ### <a name="data-deduplication"></a>데이터 중복 제거
-클라우드 계층화를 사용하도록 설정하지 않은 볼륨의 경우 Azure 파일 동기화는 볼륨에 Windows Server 데이터 중복 제거를 사용하도록 지원합니다. 현재, 클라우드 계층화가 사용되도록 설정된 Azure 파일 동기화와 데이터 중복 제거 간에는 상호 운용성이 지원되지 않습니다.
+**에이전트 버전 5.0.2.0**   
+Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사용하면 볼륨의 데이터 중복 제거가 지원됩니다. 클라우드 계층화가 사용되는 볼륨에서 중복 제거를 사용하면 추가 스토리지를 프로비저닝하지 않고도 더 많은 파일을 온-프레미스에 캐시할 수 있습니다.
+
+**Windows Server 2012 R2 또는 이전 에이전트 버전**  
+클라우드 계층화를 사용하도록 설정하지 않은 볼륨의 경우 Azure 파일 동기화는 볼륨에 Windows Server 데이터 중복 제거를 사용하도록 지원합니다.
 
 ### <a name="distributed-file-system-dfs"></a>분산 파일 시스템(DFS)
-Azure 파일 동기화에서는 [Azure 파일 동기화 에이전트 1.2](https://go.microsoft.com/fwlink/?linkid=864522)부터 DFS 네임스페이스(DFS-N) 및 DFS 복제(DFS-R)와의 상호 작용을 지원합니다.
+Azure 파일 동기화에서는 DFS-N(DFS 네임스페이스) 및 DFS-R(DFS 복제)과의 상호 작용을 지원합니다.
 
 **DFS 네임스페이스(DFS-N)**: DFS-N 서버에서 Azure 파일 동기화가 완전히 지원됩니다. 하나 이상의 DFS-N 멤버에 Azure 파일 동기화 에이전트를 설치하면 서버 엔드포인트 및 클라우드 엔드포인트 간에 데이터를 동기화할 수 있습니다. 자세한 내용은 [DFS 네임스페이스 개요](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview)를 참조하세요.
  
@@ -254,7 +258,7 @@ Azure 파일 동기화에서는 Storage 동기화 서비스와 동일한 지역�
 Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(지역 중복 저장소) 중복](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 옵션과 통합해야 합니다. GRS 저장소는 일반적으로 상호 작용하는 주 지역의 저장소 및 쌍을 이루는 보조 지역의 저장소 간에 비동기 블록 복제를 사용하여 작동합니다. Azure 지역이 일시적 또는 영구적으로 오프라인으로 전환하게 하는 재해 발생 시 Microsoft는 쌍을 이루는 하위 지역에 스토리지를 장애 조치(Failover)합니다. 
 
 > [!Warning]  
-> Azure 파일 공유를 GRS 스토리지 계정에 클라우드 엔드포인트로 사용하는 경우 스토리지 계정의 장애 조치(Failover)를 시작하지 않아야 합니다. 이러한 계정을 장애 조치(Failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다. Azure 지역의 손실의 경우 Microsoft는 Azure 파일 동기화와 호환되는 방식으로 스토리지 계정의 장애 조치(Failover)를 트리거합니다.
+> Azure 파일 공유를 GRS 스토리지 계정에 클라우드 엔드포인트로 사용하는 경우 스토리지 계정의 장애 조치(Failover)를 시작하지 않아야 합니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다. Azure 지역의 손실의 경우 Microsoft는 Azure 파일 동기화와 호환되는 방식으로 스토리지 계정의 장애 조치(Failover)를 트리거합니다.
 
 지역 중복 저장소 및 Azure 파일 동기화 간의 장애 조치 통합을 지원하려면 모든 Azure 파일 동기화 지역이 저장소로 사용되는 보조 지역과 일치하는 해당 보조 지역과 쌍을 이루어야 합니다. 이러한 쌍은 다음과 같습니다.
 

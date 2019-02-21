@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/14/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ff1281a249abf456176cffe2b02ef3c63b718d5a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8526716b299d26d8d70c9c5e5cdace34e188d019
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767999"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56111070"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법
 이 문서에서는 새 SQL VM 리소스 공급자(**Microsoft.SqlVirtualMachine**)를 사용하여 Azure에서 SQL Server 가상 머신의 라이선스 모델을 변경하는 방법에 대해 설명합니다. SQL Server를 호스트하는 VM(가상 머신)의 두 가지 라이선스 모델은 사용당 지급 및 BYOL(사용자 라이선스 필요)입니다. 이제 PowerShell 또는 Azure CLI를 사용하여 SQL Server VM에서 사용하는 라이선스 모델을 수정할 수 있습니다. 
@@ -34,6 +34,7 @@ ms.locfileid: "55767999"
   >[!NOTE]
   > - 현재 라이선스 모델을 변환하는 기능은 종량제 SQL Server VM 이미지를 시작할 때만 사용할 수 있습니다. 포털에서 사용자 라이선스 필요 이미지로 시작하는 경우 해당 이미지를 종량제로 변환할 수 없습니다. 
   > - CSP 고객은 먼저 종량제 VM을 배포한 후 사용자 라이선스 필요로 변환하여 AHB 혜택을 활용할 수 있습니다. 
+
 
 ## <a name="prerequisites"></a>필수 조건
 SQL VM 리소스 공급자를 사용하려면 SQL IaaS 확장이 필요합니다. 따라서 SQL VM 리소스 공급자를 계속 사용하려면 다음이 필요합니다.
@@ -56,7 +57,7 @@ SQL Server VM을 SQL 리소스 공급자에 등록하려면 리소스 공급자�
 
 ```powershell
 # Register the new SQL resource provider for your subscription
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
+Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 
 #### <a name="using-azure-portal"></a>Azure Portal 사용
@@ -87,30 +88,31 @@ PowerShell을 사용하여 라이선스 모델을 변경할 수 있습니다.  �
 
 다음 코드 조각은 사용당 지급 라이선스 모델을 BYOL(또는 Azure 하이브리드 혜택 사용)로 전환합니다. 
 ```PowerShell
-#example: $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
-$SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
+#example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
+$SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType="AHUB"
 <# the following code snippet is only necessary if using Azure Powershell version > 4
 $SqlVm.Kind= "LicenseChange"
 $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
 $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
-$SqlVm | Set-AzureRmResource -Force 
+$SqlVm | Set-AzResource -Force 
 ``` 
 
 다음 코드 조각은 BYOL 모델을 사용당 지급으로 전환합니다.
 ```PowerShell
-#example: $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
-$SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
+#example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
+$SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType="PAYG"
 <# the following code snippet is only necessary if using Azure Powershell version > 4
 $SqlVm.Kind= "LicenseChange"
 $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
 $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
-$SqlVm | Set-AzureRmResource -Force 
+$SqlVm | Set-AzResource -Force 
 ```
 
   >[!NOTE]
-  > 라이선스 간에 전환하려면 새 SQL VM 리소스 공급자를 사용하고 있어야 합니다. SQL Server VM을 새 공급자에 등록하기 전에 이러한 명령을 실행하려고 하면 다음 오류가 발생할 수 있습니다. `Get-AzureRmResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` 이 오류가 표시되면 [새 리소스 공급자에 SQL Server VM을 등록](#register-existing-sql-server-vm-with-sql-resource-provider)하세요. 
+  > 라이선스 간에 전환하려면 새 SQL VM 리소스 공급자를 사용하고 있어야 합니다. SQL Server VM을 새 공급자에 등록하기 전에 이러한 명령을 실행하려고 하면 다음 오류가 발생할 수 있습니다. `Get-AzResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` 이 오류가 표시되면 새 리소스 공급자에 SQL Server VM을 등록하세요. 
+
  
 
 ## <a name="use-azure-cli"></a>Azure CLI 사용
@@ -137,8 +139,8 @@ az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --reso
 
 ```PowerShell
 # View current licensing model for your SQL Server VM
-#example: $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
-$SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
+#example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
+$SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType
 ```
 
@@ -157,7 +159,7 @@ SQL IaaS 확장은 SQL VM 리소스 공급자에 SQL Server VM을 등록하는 �
 ### <a name="cannot-validate-argument-on-parameter-sku"></a>'Sku' 매개 변수의 인수가 유효한지 확인할 수 없음
 Azure PowerShell 4.0 이후 버전을 사용하는 경우 SQL Server VM 라이선스 모델을 변경하려고 하면 이 오류가 발생할 수 있습니다.
 
-`Set-AzureRmResource : Cannot validate argument on parameter 'Sku'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.`
+`Set-AzResource : Cannot validate argument on parameter 'Sku'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.`
 
 이 오류를 해결하려면 라이선스 모델을 전환할 때 앞서 언급한 PowerShell 코드 조각에서 이러한 줄의 주석 처리를 제거합니다. 
 ```PowerShell

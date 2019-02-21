@@ -3,9 +3,8 @@ title: Azure AD를 사용하는 앱에 대한 액세스 관리 | Microsoft Docs
 description: Azure Active Directory는 조직이 앱을 각 사용자가 액세스할 수 있도록 지정하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: barbkess
-ms.openlocfilehash: 0c8450523890430587bedebbcd77ceddd8a03e42
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.author: celested
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 14957a94dbe8330553a4090e22d80d6cc2ee06eb
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183393"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56217329"
 ---
 # <a name="managing-access-to-apps"></a>앱에 대한 액세스 관리
 앱이 조직의 ID 시스템에 통합된 후에 진행 중인 액세스 관리, 사용 평가 및 보고는 계속 쉽지 않을 것입니다. 대부분의 경우 IT 관리자나 기술 지원팀이 앱에 대한 액세스를 관리하는 데 지속적이고 적극적인 역할을 맡습니다. 경우에 따라 할당은 일반 또는 부서 IT 팀에서 수행됩니다. 종종 할당 의사 결정은 비즈니스 의사 결정자에게 위임되며 IT가 할당을 수행하기 전에 승인을 필요로 합니다.  다른 조직에서는 역할 기반 Access Control(RBAC) 또는 특성 기반 Access Control(ABAC)과 같은 기존의 자동화된 ID 및 액세스 관리 시스템의 통합에 투자합니다. 통합 및 규칙 개발은 모두 전문화되고 비용이 높은 경향이 있습니다. 관리 방법에 대한 모니터링 또는 보고는 별도로 비용이 드는 복잡한 투자입니다.
@@ -39,7 +39,7 @@ ms.locfileid: "55183393"
 Azure AD를 사용하여 사용 및 할당 보고를 완전히 통합하여 관리자가 할당 상태, 할당 오류 및 사용을 쉽게 보고하도록 설정합니다.
 
 ## <a name="complex-application-assignment-with-azure-ad"></a>Azure AD를 사용하여 복잡한 애플리케이션 할당
-Salesforce와 같은 애플리케이션을 고려합니다. 많은 조직에서 Salesforce는 마케팅 및 판매 조직에서 주로 사용됩니다. 종종 영업 팀의 멤버가 Salesforce에 대해 제한된 액세스만 가능한 반면 마케팅 팀의 멤버는 높은 액세스 권한이 있습니다. 대부분의 경우 정보 근로자의 광범위한 집단은 애플리케이션에 액세스가 제한되었습니다. 이러한 규칙의 예외는 문제를 복잡하게 만듭니다. 이러한 일반 규칙에 관계 없이 사용자에게 액세스 권한을 부여하거나 해당 역할을 변경하는 것은 마케팅 또는 판매 리더십 팀의 특권입니다.
+Salesforce와 같은 애플리케이션을 고려합니다. 많은 조직에서 Salesforce는 마케팅 및 판매 팀에서 주로 사용됩니다. 종종 영업 팀의 멤버가 Salesforce에 대해 제한된 액세스만 가능한 반면 마케팅 팀의 멤버는 높은 액세스 권한이 있습니다. 대부분의 경우 정보 근로자의 광범위한 집단은 애플리케이션에 액세스가 제한되었습니다. 이러한 규칙의 예외는 문제를 복잡하게 만듭니다. 이러한 일반 규칙에 관계 없이 사용자에게 액세스 권한을 부여하거나 해당 역할을 변경하는 것은 마케팅 또는 판매 리더십 팀의 특권입니다.
 
 Azure AD를 사용하여 Single Sign-On(SSO) 및 자동화된 프로비전에 Salesforce와 같은 애플리케이션을 미리 구성할 수 있습니다. 애플리케이션이 구성되면 관리자는 일회성 작업을 만들어 적절한 그룹을 만들고 할당할 수 있습니다. 이 예제에서 관리자는 다음의 할당을 실행할 수 있습니다.
 

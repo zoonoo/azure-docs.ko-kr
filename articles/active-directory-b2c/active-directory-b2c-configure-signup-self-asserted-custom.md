@@ -1,38 +1,40 @@
 ---
-title: 사용자 지정 정책에서 등록 수정 및 자체 어설션된 공급자 구성 | Microsoft Docs
-description: 등록에 클레임을 추가하고 사용자 입력을 구성하는 연습
+title: 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정 - Azure Active Directory B2C | Microsoft Docs
+description: 사용자 입력을 사용자 지정하고 Azure Active Directory B2C의 등록 또는 로그인 경험에 클레임을 추가하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2017
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2989af12407bdddf6e55e8967a0a574fff690208
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3e48ce4adc64f434b80210ff8aa36a983ba88c26
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179211"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894924"
 ---
-# <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: 새 클레임을 추가하도록 가입 수정 및 사용자 입력 구성
+#  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 사용자가 제공한 항목(클레임)을 등록 사용자 경험에 추가합니다.  드롭다운으로 항목을 구성하고 필요한 경우 정의합니다.
+이 문서에서는 사용자가 제공한 새 항목(클레임)을 Azure AD(Azure Active Directory) B2C의 등록 사용자 경험에 추가합니다.  항목을 드롭다운으로 구성하고 필수 여부를 정의합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다.  진행하기 전에 등록/로그인 사용자 경험을 테스트하여 새 로컬 계정을 등록합니다.
+[사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다. 진행하기 전에 등록/로그인 사용자 경험을 테스트하여 새 로컬 계정을 등록합니다.
+
+## <a name="add-claims"></a>클레임 추가
+
+사용자로부터 초기 데이터를 수집하는 작업은 등록 또는 로그인 사용자 경험을 사용하여 수행됩니다. 나중에 프로필 편집 사용자 경험을 통해 추가 클레임을 수집할 수 있습니다. Azure AD B2C가 사용자로부터 직접, 정보를 대화형으로 수집할 때마다 Identity Experience Framework는 자체 어설션 공급자를 사용합니다.
 
 
-사용자로부터 초기 데이터 수집은 등록/로그인을 통해 수행합니다.  프로필 편집 사용자 경험을 통해 추가 클레임을 나중에 수집할 수 있습니다. 언제든지 Azure AD B2C가 사용자로부터 정보를 직접 대화형으로 수집하며 Identity Experience Framework는 해당 `selfasserted provider`를 사용합니다. 아래 단계는 이 공급자가 사용될 때마다 적용됩니다.
+### <a name="define-the-claim"></a>클레임 정의
 
-
-## <a name="define-the-claim-its-display-name-and-the-user-input-type"></a>클레임, 해당 표시 이름 및 사용자 입력 형식을 정의합니다.
-사용자에게 도시를 요청해 보겠습니다.  TrustFrameworkBase 정책 파일의 `<ClaimsSchema>` 요소에 다음 요소를 추가합니다.
+사용자에게 도시를 요청해 보겠습니다. TrustFrameworkBase 정책 파일의 **ClaimsSchema** 요소에 다음 요소를 추가합니다.
 
 ```xml
 <ClaimType Id="city">
@@ -42,14 +44,15 @@ ms.locfileid: "55179211"
   <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
-여기에 클레임을 사용자 지정할 추가 옵션이 있습니다.  전체 스키마는 **Identity Experience Framework 기술 참조 가이드**를 참조하세요.  이 가이드는 참조 섹션에 곧 게시될 예정입니다.
 
-* `<DisplayName>`은 사용자용 *레이블*을 정의하는 문자열입니다.
+다음 요소는 클레임을 정의하는 데 사용됩니다.
 
-* `<UserHelpText>`는 사용자가 필요한 항목을 이해하는 데 도움이 됩니다.
+- **DisplayName** - 사용자에게 표시되는 레이블을 정의하는 문자열입니다.
+- **UserHelpText** - 사용자가 필요한 내용을 파악할 수 있도록 도와줍니다.
+- **UserInputType** - 텍스트 상자, 라디오 선택, 드롭다운 목록 또는 다중 선택일 수 있습니다.
 
-* `<UserInputType>`에는 다음 4가지 옵션이 강조 표시됩니다.
-    * `TextBox`
+#### <a name="textbox"></a>TextBox
+
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -59,7 +62,8 @@ ms.locfileid: "55179211"
 </ClaimType>
 ```
 
-    * `RadioSingleSelectduration` - 단일 선택을 적용합니다.
+#### <a name="radiosingleselect"></a>RadioSingleSelect
+
 ```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
@@ -73,10 +77,9 @@ ms.locfileid: "55179211"
 </ClaimType>
 ```
 
-    * `DropdownSingleSelect` - 유효한 값만 선택할 수 있습니다.
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 ![드롭다운 옵션의 스크린샷](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
-
 
 ```xml
 <ClaimType Id="city">
@@ -91,11 +94,9 @@ ms.locfileid: "55179211"
 </ClaimType>
 ```
 
-
-* `CheckboxMultiSelect` 하나 이상의 값을 선택할 수 있습니다.
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
 ![다중 선택 옵션의 스크린샷](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
-
 
 ```xml
 <ClaimType Id="city">
@@ -110,142 +111,169 @@ ms.locfileid: "55179211"
 </ClaimType>
 ```
 
-## <a name="add-the-claim-to-the-sign-upsign-in-user-journey"></a>등록/로그인 사용자 경험에 클레임 추가
+### <a name="add-the-claim-to-the-user-journey"></a>사용자 경험에 클레임 추가
 
-1. 클레임을 `<OutputClaim ClaimTypeReferenceId="city"/>`로 TechnicalProfile`LocalAccountSignUpWithLogonEmail`(TrustFrameworkBase 정책 파일에 있음)에 추가합니다.  이 TechnicalProfile에서는 SelfAssertedAttributeProvider를 사용합니다.
+1. TrustFrameworkBase 정책 파일에 있는 `LocalAccountSignUpWithLogonEmail` 기술 프로필에 클레임을 `<OutputClaim ClaimTypeReferenceId="city"/>`로 추가합니다. 이 기술 프로필은 SelfAssertedAttributeProvider를 사용합니다.
 
-  ```xml
-  <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-    <DisplayName>Email signup</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-      <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-      <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-      <Item Key="language.button_continue">Create</Item>
-    </Metadata>
-    <CryptographicKeys>
-      <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
-    </CryptographicKeys>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" />
-    </InputClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
-      <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-      <OutputClaim ClaimTypeReferenceId="newUser" />
-      <!-- Optional claims, to be collected from the user -->
-      <OutputClaim ClaimTypeReferenceId="givenName" />
-      <OutputClaim ClaimTypeReferenceId="surName" />
-      <OutputClaim ClaimTypeReferenceId="city"/>
-    </OutputClaims>
-    <ValidationTechnicalProfiles>
-      <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
-    </ValidationTechnicalProfiles>
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
-
-2. 클레임을 AAD-UserWriteUsingLogonEmail에 `<PersistedClaim ClaimTypeReferenceId="city" />`로 추가하여 사용자로부터 클레임을 수집한 후 AAD 디렉터리에 클레임을 기록합니다. 향후 사용할 디렉터리에 클레임을 보관하지 않으려면 이 단계를 건너뛰어도 됩니다.
-
-  ```xml
-  <!-- Technical profiles for local accounts -->
-  <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
-    <Metadata>
-      <Item Key="Operation">Write</Item>
-      <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
-    </Metadata>
-    <IncludeInSso>false</IncludeInSso>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
-    </InputClaims>
-    <PersistedClaims>
-      <!-- Required claims -->
-      <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
-      <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
-      <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
-      <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
-      <!-- Optional claims. -->
-      <PersistedClaim ClaimTypeReferenceId="givenName" />
-      <PersistedClaim ClaimTypeReferenceId="surname" />
-      <PersistedClaim ClaimTypeReferenceId="city" />
-    </PersistedClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-    </OutputClaims>
-    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-    <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-  </TechnicalProfile>
-  ```
-
-3. 사용자가 `<OutputClaim ClaimTypeReferenceId="city" />`로 로그인할 때 디렉터리에서 읽어오는 TechnicalProfile에 클레임을 추가합니다.
-
-  ```xml
-  <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
-    <Metadata>
-      <Item Key="Operation">Read</Item>
-      <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
-      <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
-    </Metadata>
-    <IncludeInSso>false</IncludeInSso>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
-    </InputClaims>
-    <OutputClaims>
-      <!-- Required claims -->
-      <OutputClaim ClaimTypeReferenceId="objectId" />
-      <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
-      <!-- Optional claims -->
-      <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
-      <OutputClaim ClaimTypeReferenceId="displayName" />
-      <OutputClaim ClaimTypeReferenceId="otherMails" />
-      <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <IncludeTechnicalProfile ReferenceId="AAD-Common" />
-  </TechnicalProfile>
-  ```
-
-4. `<OutputClaim ClaimTypeReferenceId="city" />`를 RP 정책 파일 SignUporSignIn.xml에 추가하여 이 클레임이 성공적인 사용자 경험 후 애플리케이션에 토큰으로 전송되도록 합니다.
-
-  ```xml
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="OpenIdConnect" />
+    ```xml
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+      <DisplayName>Email signup</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
+        <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
+        <Item Key="language.button_continue">Create</Item>
+      </Metadata>
+      <CryptographicKeys>
+        <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
+      </CryptographicKeys>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" />
+      </InputClaims>
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+        <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" />
+        <OutputClaim ClaimTypeReferenceId="newUser" />
+        <!-- Optional claims, to be collected from the user -->
         <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        <OutputClaim ClaimTypeReferenceId="surName" />
+        <OutputClaim ClaimTypeReferenceId="city"/>
+      </OutputClaims>
+      <ValidationTechnicalProfiles>
+        <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+      </ValidationTechnicalProfiles>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    ```
+
+2. AAD-UserWriteUsingLogonEmail 기술 프로필에 클레임을 `<PersistedClaim ClaimTypeReferenceId="city" />`로 추가하여 사용자로부터 클레임을 수집한 후 AAD 디렉터리에 씁니다. 향후 사용할 디렉터리에 클레임을 보관하지 않으려면 이 단계를 건너뛰어도 됩니다.
+
+    ```xml
+    <!-- Technical profiles for local accounts -->
+    <TechnicalProfile Id="AAD-UserWriteUsingLogonEmail">
+      <Metadata>
+        <Item Key="Operation">Write</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalAlreadyExists">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" Required="true" />
+      </InputClaims>
+      <PersistedClaims>
+        <!-- Required claims -->
+        <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
+        <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
+        <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
+        <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
+        <!-- Optional claims. -->
+        <PersistedClaim ClaimTypeReferenceId="givenName" />
+        <PersistedClaim ClaimTypeReferenceId="surname" />
+        <PersistedClaim ClaimTypeReferenceId="city" />
+      </PersistedClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="newUser" PartnerClaimType="newClaimsPrincipalCreated" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+      </OutputClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+    </TechnicalProfile>
+    ```
+
+3. 사용자가 로그인할 때 디렉터리에서 읽어오는 기술 프로필에 `<OutputClaim ClaimTypeReferenceId="city" />` 클레임을 추가합니다.
+
+    ```xml
+    <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
+      <Metadata>
+        <Item Key="Operation">Read</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+        <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames" Required="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Required claims -->
+        <OutputClaim ClaimTypeReferenceId="objectId" />
+        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+        <!-- Optional claims -->
+        <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>
-      <SubjectNamingInfo ClaimType="sub" />
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
-  </RelyingParty>
-  ```
+    ```
 
-## <a name="test-the-custom-policy-using-run-now"></a>"지금 실행"을 사용하여 사용자 지정 정책 테스트
+    ```xml
+    <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <Metadata>
+        <Item Key="Operation">Read</Item>
+        <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+      </Metadata>
+      <IncludeInSso>false</IncludeInSso>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" Required="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Optional claims -->
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" />
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="otherMails" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+      <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+    </TechnicalProfile>
+    ```
+   
+4. SignUporSignIn.xml 파일에 `<OutputClaim ClaimTypeReferenceId="city" />` 클레임을 추가하여 성공적인 사용자 경험 후에 이 클레임이 애플리케이션에 토큰으로 전송되도록 합니다.
 
-1. **Azure AD B2C 블레이드**를 열고 **ID 경험 프레임워크 > 사용자 지정 정책**로 이동합니다.
-2. 업로드한 사용자 지정 정책을 선택하고 **지금 실행** 단추를 클릭합니다.
+    ```xml
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+          <OutputClaim ClaimTypeReferenceId="identityProvider" />
+          <OutputClaim ClaimTypeReferenceId="city" />
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+
+## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 맨 위 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 Azure AD 테넌트가 포함된 디렉터리를 선택하여 Azure AD 테넌트가 포함된 디렉터리를 사용합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
+4. **Identity Experience Framework(미리 보기)** 를 선택합니다.
+5. **사용자 지정 정책 업로드**를 선택한 후 변경한 두 정책 파일을 업로드합니다.
+2. 업로드한 등록 또는 로그인 정책을 선택하고 **지금 실행** 단추를 클릭합니다.
 3. 전자 메일 주소를 사용하여 등록할 수 있습니다.
 
-테스트 모드의 등록 화면은 다음과 유사하게 표시됩니다.
+등록 화면은 다음과 유사하게 표시됩니다.
 
 ![수정된 등록 옵션의 스크린샷](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  이제 애플리케이션에 반환되는 토큰은 아래 표시된 것처럼 `city` 클레임을 포함합니다.
+애플리케이션으로 다시 전송되는 토큰에는 `city` 클레임이 포함됩니다.
+
 ```json
 {
   "exp": 1493596822,
@@ -266,19 +294,16 @@ ms.locfileid: "55179211"
 }
 ```
 
-## <a name="optional-remove-email-verification-from-signup-journey"></a>선택 사항: 가입 과정에서 이메일 확인 제거
+## <a name="optional-remove-email-verification"></a>선택 사항: 메일 확인 제거
 
-전자 메일 확인을 건너뛰려면 정책 작성자가 `PartnerClaimType="Verified.Email"`을 제거하도록 선택하면 됩니다. “Required” = true가 제거되지 않으면 이메일 주소가 필요하지만 확인되지 않습니다.  이 옵션이 사용자의 사용 사례에 적합한지 신중하게 고려하세요.
+메일 확인을 건너뛰기 위해 `PartnerClaimType="Verified.Email"` 제거를 선택할 수 있습니다. 이 경우 “Required” = true를 제거하지 않으면 메일 주소가 필수이지만 확인되지 않습니다.  이 옵션이 해당 사용 사례에 적합한지 신중하게 고려하세요.
 
-확인된 메일은 시작 팩의 TrustFrameworkBase 정책 파일의 `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">`에서 기본적으로 사용하도록 설정됩니다.
+확인된 메일은 TrustFrameworkBase 정책 파일의 `<TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">`에서 기본적으로 사용하도록 설정됩니다.
+
 ```xml
 <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-정책이 소셜 계정을 지원하는 경우 아래 나열된 기술 프로필을 변경하여 소셜 계정 로그인에 대한 흐름에 새 클레임을 추가하세요. 이러한 클레임은 소셜 계정 로그인에서 사용자의 데이터를 수집하고 쓰는 데 사용합니다.
-
-1. 기술 프로필 **SelfAsserted-Social**을 찾아 출력 클레임을 추가하세요. **OutputClaims**의 클레임 순서는 Azure AD B2C가 화면에서 클레임을 렌더링하는 순서를 제어합니다. 예: `<OutputClaim ClaimTypeReferenceId="city" />`
-2. 기술 프로필 **AAD-UserWriteUsingAlternativeSecurityId**를 찾아 유지 클레임을 추가하세요. 예: `<PersistedClaim ClaimTypeReferenceId="city" />`
-3. 기술 프로필 **AAD-UserReadUsingAlternativeSecurityId**를 찾아 출력 클레임을 추가하세요. 예: `<OutputClaim ClaimTypeReferenceId="city" />`
+[사용자 지정 프로필 편집 정책에서 사용자 지정 특성을 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)하는 방법을 알아봅니다.

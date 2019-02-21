@@ -16,16 +16,17 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2c889368afe601bc7188f3b0989e7799c88131b4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e950450a1ebe710a56ccfa0e8abefc7104602ec5
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081962"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206177"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스에서 세션 위험이 감지되면 액세스 차단  
 
-환경을 보호하려면 로그인 작업으로부터 의심스러운 사용자를 차단하는 것이 좋습니다. [Azure AD(Azure Active Directory) Identity Protection](../active-directory-identityprotection.md)은 각 로그인을 분석하고 사용자 계정의 합법적인 소유자가 수행하지 않은 로그인 시도 가능성을 계산합니다. 가능성(낮음, 중간, 높음)은 [로그인 위험 수준](conditions.md#sign-in-risk)이라는 계산된 값의 양식으로 나타납니다. 로그인 위험 조건을 설정하여 특정 로그인 위험 수준에 응답하도록 조건부 액세스 정책을 구성할 수 있습니다. 
+환경을 보호하려는 경우 의심스러운 사용자의 로그인을 차단할 수 있습니다. [Azure AD(Azure Active Directory) Identity Protection](../active-directory-identityprotection.md)은 각 로그인을 분석하고 사용자 계정의 합법적인 소유자가 수행하지 않은 로그인 시도 가능성을 계산합니다. 가능성(낮음, 중간, 높음)은 [로그인 위험 수준](conditions.md#sign-in-risk)이라는 계산된 값의 양식으로 나타납니다. 로그인 위험 조건을 설정하여 특정 로그인 위험 수준에 응답하도록 조건부 액세스 정책을 구성할 수 있습니다. 
 
 이 빠른 시작에서는 구성된 로그인 위험 수준을 감지한 경우 로그인을 차단하는 [조건부 액세스 정책](../active-directory-conditional-access-azure-portal.md)을 구성하는 방법을 보여줍니다. 
 

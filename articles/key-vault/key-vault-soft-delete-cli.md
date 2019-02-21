@@ -2,17 +2,17 @@
 title: Azure Key Vault - CLI로 일시 삭제를 사용하는 방법
 description: CLI 코드 캡처를 통한 일시 삭제의 사용 사례 예제
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: bryanla
-ms.openlocfilehash: 242398eb0bb4d4ddd2764bd66c99a7f9603ea1b9
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f0c1db2274eea6281bd4a350909b79d048ad21c4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663947"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116726"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -226,5 +226,5 @@ az keyvault purge --location westus --name ContosoVault
 ## <a name="other-resources"></a>기타 리소스
 
 - Key Vault의 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](key-vault-ovw-soft-delete.md)를 참조하세요.
-- Azure Key Vault 사용의 일반적인 개요는 [Azure Key Vault 시작](key-vault-get-started.md)을 참조하세요.
+- Azure Key Vault 사용에 대한 일반적인 개요는 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요.
 

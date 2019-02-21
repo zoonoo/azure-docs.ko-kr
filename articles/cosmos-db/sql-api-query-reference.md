@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 457f64b9ae9101628df5347c921bfa057a7cb754
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475196"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991432"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB의 SQL 언어 참조 
 
@@ -493,7 +493,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |**산술**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|더하기<br /><br /> 빼기<br /><br /> 곱하기<br /><br /> 나누기<br /><br /> Modulo 연산|  
 |**비트**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|비트 OR<br /><br /> 비트 AND<br /><br /> 비트 XOR<br /><br /> 왼쪽 시프트<br /><br /> 오른쪽 시프트<br /><br /> 0 채우기 오른쪽 시프트|  
-|**논리**|**및**<br /><br /> **또는**|논리 결합입니다. 두 인수가 **true**이면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 논리 결합입니다. 두 인수가 **true**이면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.|  
+|**논리**|**및**<br /><br /> **또는**|논리 결합입니다. 두 인수가 **true**이면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 논리적 분리. 인수가 **true**이면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.|  
 |**비교**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|같음 - 두 인수가 같으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 같지 않음 - 인수가 같지 않으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 큼 - 첫 번째 인수가 두 번째 인수보다 크면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 크거나 같음 - 첫 번째 인수가 두 번째 인수보다 크거나 같으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 작음 - 첫 번째 인수가 두 번째 인수보다 작으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 작거나 같음 - 첫 번째 인수가 두 번째 인수보다 작거나 같으면 **true**를 반환하고, 그렇지 않으면 **false**를 반환합니다.<br /><br /> 병합 - 첫 번째 인수가 **undefined** 값이면 두 번째 인수를 반환합니다.|  
 |**String**|**&#124;&#124;**|연결 - 두 인수의 연결을 반환합니다.|  
   
@@ -620,7 +620,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|아포스트로피(')|U+0027|  
 |\\"|따옴표(")|U+0022|  
-|\\\|역슬래시(\\)|U+005C|  
+|\\\ |백슬래시(\\)|U+005C|  
 |\\/|슬래시(/)|U+002F|  
 |\b|백스페이스|U+0008|  
 |\f|폼 피드|U+000C|  

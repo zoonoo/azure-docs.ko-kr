@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 5edf301ffc87a17963c3c32c7ea1b559e0834cf7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 222891df5b54a8f2c3464fc3bddf9f6b32c28d36
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244473"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244796"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 위한 알고리즘 선택 방법
 
@@ -41,12 +41,10 @@ ms.locfileid: "55244473"
 완벽하게 맞는 것이 없는 경우도 있습니다. 경험에 기반한 권장 방법으로 제공되는 것이므로 정확하지 않은 것에 대해 걱정하지 않아도 됩니다.
 수많은 데이터 과학자가 최적의 알고리즘을 찾는 가장 확실한 방법은 모든 알고리즘을 시도해보는 것이라고 말합니다.
 
-동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI Gallery](http://gallery.cortanaintelligence.com/)에서 [다중 클래스 분류자 비교: 문자 인식](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92)을 참조하세요.
+동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험의 예제는 [Azure AI Gallery](http://gallery.azure.ai/)에서 [다중 클래스 분류자 비교: 문자 인식](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92)을 참조하세요.
 
 > [!TIP]
-> Machine Learning Studio의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure Machine Learning Studio 기능 개요](studio-overview-diagram.md)를 참조하세요.
-> 
-> 
+> 기계 학습 기본 사항에 대한 이해하기 쉬운 인포그래픽 개요를 다운로드하여 일반적인 기계 학습 질문에 답변하는 데 널리 사용되는 알고리즘에 대해 알아보려면 [알고리즘 예제를 포함한 기계 학습 기본 사항](basics-infographic-with-algorithm-examples.md)을 참조하세요.
 
 ## <a name="flavors-of-machine-learning"></a>기계 학습의 다양한 특징
 
@@ -242,13 +240,11 @@ Microsoft Research의 John Langford가 시작하여 진행한 VW는 스톡 카 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* 알고리즘을 설명하고 예제를 제공하는 다운로드 가능한 인포그래픽은 [다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 Machine Learning 기본 사항](basics-infographic-with-algorithm-examples.md)을 참조하세요.
+* 기계 학습 기본 사항에 대한 이해하기 쉬운 인포그래픽 개요를 다운로드하여 일반적인 기계 학습 질문에 답변하는 데 널리 사용되는 알고리즘에 대해 알아보려면 [알고리즘 예제를 포함한 기계 학습 기본 사항](basics-infographic-with-algorithm-examples.md)을 참조하세요.
 
 * Machine Learning Studio에서 사용할 수 있는 모든 기계 학습 알고리즘의 범주별 목록은 Machine Learning Studio Algorithm 및 모듈 도움말에서 [초기화 모델](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model)을 참조하세요.
 
 * Machine Learning Studio의 전체 알고리즘 및 모듈에 대한 알파벳 순서 목록은 Machine Learning Studio 알고리즘 및 모듈 도움말에서 [Machine Learning Studio 모듈의 A-Z 목록](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list)을 참조하세요.
-
-* Machine Learning Studio의 기능을 개략적으로 제공하는 다이어그램을 다운로드하고 인쇄하려면 [Azure Machine Learning Studio 기능 개요](studio-overview-diagram.md)를 참조하세요.
 
 <!-- Media -->
 

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b90457ed939999b5163078750650c92a3516cca
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816580"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234240"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -203,20 +203,28 @@ ms.locfileid: "55816580"
 [Azure Monitor - 활동 로그 경고 API](https://docs.microsoft.com/rest/api/monitor/activitylogalerts)는 REST API이며 Azure Resource Manager REST API와 완벽하게 호환됩니다. 따라서 Resource Manager cmdlet 뿐 아니라 Azure CLI를 사용하여 Powershell을 통해 사용할 수 있습니다.
 
 ## <a name="powershell"></a>PowerShell
-이전에 리소스 템플릿 섹션에 표시된 샘플 리소스 템플릿(sampleActivityLogAlert.json)에 대한 Azure Resource Manager PowerShell cmdlet을 통한 사용량은 아래에 나와 있습니다.
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
-```
-여기에서 sampleActivityLogAlert.parameters.json에는 경고 규칙 생성에 필요한 매개 변수에 대해 제공된 값이 있습니다.
+
+활동 로그 경고에서는 다음과 같은 전용 PowerShell cmdlet을 사용할 수 있습니다.
+
+- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): 새로 만들거나 기존 활동 로그 경고 규칙 리소스를 업데이트하려면
+- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): 하나 이상의 활동 로그 경고 규칙 리소스를 검색하려면
+- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): 사용자 확인을 통해 활동 로그 경고 규칙 리소스를 삭제하려면
+- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): 기존 활동 로그 경고 규칙 리소스를 사용하도록 설정하려면
+- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): 기존 활동 로그 경고 규칙 리소스를 사용하지 않도록 설정하려면
 
 ## <a name="cli"></a>CLI
-이전에 리소스 템플릿 섹션에 표시된 샘플 리소스 템플릿(sampleActivityLogAlert.json)에 대한 Azure CLI의 Azure Resource Manager 명령을 통한 사용량은 아래에 나와 있습니다.
 
-```azurecli
-az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
-```
-*sampleActivityLogAlert.parameters.json* 파일에는 경고 규칙 생성에 필요한 매개 변수용으로 제공된 값이 있습니다.
+설정된 [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert)의 전용 Azure CLI 명령을 활동 로그 경고 규칙을 관리하는 데 사용할 수 있습니다.
 
+새로운 활동 로그 경고 규칙을 만들려면 다음 중 하나를 사용합니다.
+
+1. [az monitor activity-log alert create](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): 새로운 활동 로그 경고 규칙 리소스 만들기
+1. [az monitor activity-log alert scope](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): 생성된 활동 로그 경고 규칙에 대한 범위 추가
+1. [az monitor activity-log alert action-group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): 활동 로그 경고 규칙에 작업 그룹 추가
+
+하나의 활동 로그 경고 규칙 리소스를 검색하려면 Azure CLI 명령 [az monitor activity-log alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+)를 사용할 수 있습니다. 또한 리소스 그룹의 모든 활동 로그 경고 규칙 리소스를 보려면 [az monitor activity-log alert list](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)를 사용합니다.
+Azure CLI 명령 [az monitor activity-log alert delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete)를 사용하여 활동 로그 경고 규칙 리소스를 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

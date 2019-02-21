@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: 8a5832433d1d8c81c22c828ec4659c10951f680a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103635"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234070"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Azure Service Bus에서 Virtual Network 서비스 엔드포인트 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "55103635"
 >[!WARNING]
 > Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Service Bus와 상호 작용하지 않도록 방지할 수 있습니다.
 >
-> 신뢰할 수 있는 Microsoft 서비스는 Virtual Networks가 구현되는 시점에 지원되지 않으며 곧 제공될 예정입니다.
+> 신뢰할 수 있는 Microsoft 서비스는 Virtual Networks가 구현되는 시점에 지원되지 않습니다.
 >
 > Virtual Networks가 작동하지 않는 일반적인 Azure 시나리오(목록은 전체 목록이 **아님**) -
 > - Azure Monitor

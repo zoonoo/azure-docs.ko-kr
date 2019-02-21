@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 95dc004e1a4b34f1f3a3c547da4ea7cd35e8c753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821476"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236111"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Log Analytics의 사용량 및 비용 관리
 
@@ -116,6 +116,9 @@ Log Analytics 작업 영역에 레거시 가격 책정 계층에 대한 액세�
 
 > [!NOTE]
 > 작업 영역이 Automation 계정에 연결된 경우 *독립 실행형(GB당)* 가격 책정 계층을 선택하려면 모든 **Automation 및 제어** 솔루션을 삭제하고 Automation 계정에 대한 연결을 해제해야 합니다. 작업 영역 블레이드의 **일반**에서 **솔루션**을 클릭하여 솔루션을 보고 삭제합니다. Automation 계정에 대한 연결을 해제하려면 **가격 책정 계층** 블레이드에서 Automation 계정의 이름을 클릭합니다.
+
+> [!NOTE]
+> (ARM을 통해 가격 책정 계층을 설정하는 방법)[https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] 및 구독이 기존 가격 책정 모델 또는 새 가격 책정 모델 중 어디에 있든 ARM 배포를 성공하는 방법을 자세히 알아볼 수 있습니다. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics에서 더 이상 데이터를 수집하지 않는 문제 해결

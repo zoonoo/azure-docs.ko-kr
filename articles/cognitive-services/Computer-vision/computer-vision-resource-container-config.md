@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Computer Vision에서 텍스트 인식 컨테이너에 대한 다양한 설정을 구성합니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: f29bb4ec8154c1d17eef18310037c42426d1522f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b6aaf7f7eaeb6d011fc29457a1b58584d6af8ec9
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458655"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984565"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>텍스트 인식 Docker 컨테이너 구성
 
@@ -45,7 +45,7 @@ ms.locfileid: "55458655"
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 설정은 컨테이너에 대한 청구 정보를 측정하는 데 사용되는 Azure의 _Computer Vision_ 리소스 엔드포인트 URI를 지정합니다. Azure에 있는 _Computer Vision_ 리소스의 유효한 엔드포인트 URI인 값을 이 구성 설정에 대해 지정해야 합니다.
+`Billing` 설정은 컨테이너에 대한 청구 정보를 측정하는 데 사용되는 Azure의 _Computer Vision_ 리소스 엔드포인트 URI를 지정합니다. Azure에 있는 _Computer Vision_ 리소스의 유효한 엔드포인트 URI인 값을 이 구성 설정에 대해 지정해야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "55458655"
 
 Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 서비스 데이터를 저장하지 않습니다. 
 
-호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](computer-vision-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
+호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](computer-vision-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
 
 |옵션| Name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
@@ -112,7 +112,7 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 ### <a name="basic-example"></a>기본 예제 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
@@ -122,7 +122,7 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 ### <a name="logging-example-with-command-line-arguments"></a>명령줄 인수를 사용한 로깅 예제
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
@@ -133,7 +133,7 @@ Computer Vision 컨테이너는 입력 또는 출력 탑재를 사용하여 학�
 
 ### <a name="logging-example-with-environment-variable"></a>환경 변수를 사용한 로깅 예제
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \

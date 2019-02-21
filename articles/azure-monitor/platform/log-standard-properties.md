@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Log Analytics 보고서의 표준 속성 | Microsoft Docs
-description: Azure Monitor Log Analytics에서 여러 데이터 형식에 공통적인 속성에 대해 설명합니다.
+title: Azure Monitor 로그 레코드의 표준 속성 | Microsoft Docs
+description: Azure Monitor 로그에서 여러 데이터 형식에 공통적인 속성에 대해 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: 27c732a2ddd21401ffbefa727cbb8001ec288293
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 2309e7762ad36f59e0833e675e7012ee3c459e3e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381942"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997042"
 ---
-# <a name="standard-properties-in-log-analytics-records"></a>Log Analytics 레코드의 표준 속성
-[Log Analytics](../log-query/log-query-overview.md)의 데이터는 각각 고유한 속성 집합이 있는 특정 데이터 형식의 레코드 집합으로 저장됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.
+# <a name="standard-properties-in-azure-monitor-log-records"></a>Azure Monitor 로그 레코드의 표준 속성
+Azure Monitor의 로그 데이터는 각각 고유한 속성 집합이 있는 특정 데이터 형식의 [레코드 세트로 저장](../log-query/log-query-overview.md)됩니다. 많은 데이터 형식에는 여러 형식에 공통적인 표준 속성이 있습니다. 이 문서에서는 이러한 속성에 대해 설명하고 쿼리에 속성을 사용하는 방법의 예를 제공합니다.
 
 이러한 속성 중 일부는 여전히 구현 중이므로 일부 데이터 형식에서는 표시되지만 다른 데이터 형식에는 표시되지 않을 수 있습니다.
 
@@ -39,7 +39,7 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## <a name="type"></a>type
+## <a name="type"></a>Type
 **Type** 속성은 레코드가 검색된 테이블 이름을 보유하며 테이블 이름을 레코드 유형이라고 생각해도 됩니다. 이 속성은 `search` 연산자를 사용하여 여러 유형의 레코드를 구분하는 쿼리처럼 여러 테이블의 레코드를 결합하는 쿼리에 유용합니다. 경우에 따라 **Type** 대신 **$table**을 사용할 수도 있습니다.
 
 ### <a name="examples"></a>예
@@ -151,6 +151,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log Analytics 데이터의 저장](../log-query/log-query-overview.md) 방법을 자세히 알아보세요.
-- [Log Analytics에서 쿼리 작성](../../azure-monitor/log-query/get-started-queries.md) 단원을 계속 진행하세요.
-- [Log Analytics에서 테이블 조인](../../azure-monitor/log-query/joins.md) 단원을 계속 진행하세요.
+- [Azure Monitor 로그 데이터](../log-query/log-query-overview.md)가 저장되는 방법에 대해 자세히 알아보세요.
+- [로그 쿼리 작성](../../azure-monitor/log-query/get-started-queries.md) 단원을 계속 진행하세요.
+- [로그 쿼리에서 테이블 조인](../../azure-monitor/log-query/joins.md) 단원을 계속 진행하세요.

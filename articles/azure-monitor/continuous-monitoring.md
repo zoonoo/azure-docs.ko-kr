@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fdccb4e94d9b9fd8b698575c890efad56a115a3e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452822"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994026"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -64,7 +64,7 @@ ms.locfileid: "54452822"
 
 - [Azure Pipelines](/azure/devops/pipelines)를 사용하여 지속적인 배포를 구현하고 CI/CD 테스트를 기반으로 코드 커밋에서 프로덕션으로 전체 프로세스를 자동화합니다.
 - [품질 게이트](/azure/devops/pipelines/release/approvals/gates)를 사용하여 모니터링을 사전 배포 또는 사후 배포에 통합합니다. 이렇게 하면 애플리케이션이 개발 환경에서 프로덕션 환경으로 이동하고 인프라 환경 또는 규모의 차이가 KPI에 부정적인 영향을 주지 않으므로 핵심 상태/성과 지표(KPI)가 충족됩니다.
-- 개발, 테스트, 카나리아 및 프로덕션과 같은 다양한 배포 환경 간에 [개별 모니터링 인스턴스를 유지 관리](../azure-monitor/app/separate-resources.md)합니다. 이렇게 하면 수집된 데이터가 연결된 애플리케이션 및 인프라 간에 관련됩니다. 환경 간에 데이터를 상호 연결해야 하면 [메트릭 탐색기에서 다중 리소스 차트](../azure-monitor/platform/metrics-charts.md)를 사용하거나 [Log Analytics에서 리소스 간 쿼리](log-query/cross-workspace-query.md)를 만들 수 있습니다.
+- 개발, 테스트, 카나리아 및 프로덕션과 같은 다양한 배포 환경 간에 [개별 모니터링 인스턴스를 유지 관리](../azure-monitor/app/separate-resources.md)합니다. 이렇게 하면 수집된 데이터가 연결된 애플리케이션 및 인프라 간에 관련됩니다. 환경 간에 데이터를 상호 연결해야 하면 [메트릭 탐색기에서 다중 리소스 차트](../azure-monitor/platform/metrics-charts.md)를 사용하거나 [Azure Monitor에서 리소스 간 쿼리](log-query/cross-workspace-query.md)를 만들 수 있습니다.
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>작업을 사용하여 실행 가능한 경고 만들기

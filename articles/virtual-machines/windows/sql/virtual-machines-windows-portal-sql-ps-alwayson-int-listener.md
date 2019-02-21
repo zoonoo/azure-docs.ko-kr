@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/22/2017
+ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b412d2b054fc8703c7524479359a3670782fd646
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064001"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980894"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 이 문서에서는 다음을 수행하는 방법을 보여 줍니다.
@@ -38,24 +38,52 @@ ms.locfileid: "54064001"
 * [Azure VM의 Always On 가용성 그룹 구성(GUI)](virtual-machines-windows-portal-sql-availability-group-tutorial.md)   
 * [Azure 리소스 관리자 및 PowerShell을 사용하여 VNet-VNet 연결 구성](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
+
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
+## <a name="verify-powershell-version"></a>PowerShell 버전 확인
+
+이 문서의 예제는 Azure PowerShell 모듈 버전 5.4.1에서 테스트되었습니다.
+
+PowerShell 모듈이 5.4.1 이상인지 확인합니다.
+
+[Azure PowerShell 모듈 설치](http://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요.
+
 ## <a name="configure-the-windows-firewall"></a>Windows 방화벽 구성
+
 SQL Server 액세스를 허용하도록 Windows 방화벽을 구성합니다. 방화벽 규칙에서 SQL Server 인스턴스 및 수신기 프로브에서 사용하는 포트에 TCP 연결을 허용합니다. 자세한 지침은 [데이터베이스 엔진 액세스를 위해 Windows 방화벽 구성](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1)을 참조하세요. SQL Server 포트 및 프로브 포트에 대한 인바운드 규칙을 만듭니다.
 
 Azure 네트워크 보안 그룹을 사용하여 액세스를 제한하는 경우 허용 규칙에 백 엔드 SQL Server VM IP 주소, AG 수신기에 대한 Load Balancer 부동 IP 주소 및 클러스터 코어 IP 주소가 포함되는지 확인합니다.
 
-## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>예제 스크립트: PowerShell을 사용하여 내부 부하 분산 장치 만들기
-> [!NOTE]
-> [Microsoft 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)으로 가용성 그룹을 만든 경우 내부 부하 분산 장치는 이미 만들어져 있습니다. 
-> 
-> 
+## <a name="determine-the-load-balancer-sku-required"></a>필요한 부하 분산 장치 SKU 확인
 
-다음 PowerShell 스크립트는 내부 부하 분산 장치를 만들고, 부하 분산 규칙을 구성하고, 부하 분산 장치에 대한 IP 주소를 설정합니다. 이 스크립트를 실행하려면 Windows PowerShell ISE를 열고 스크립트 창으로 스크립트를 붙여 넣습니다. `Connect-AzureRmAccount`를 사용하여 PowerShell에 로그인합니다. 여러 Azure 구독이 있는 경우 `Select-AzureRmSubscription ` 사용하여 구독을 설정합니다. 
+[Azure Load Balancer](../../../load-balancer/load-balancer-overview.md)는 기본 및 표준이라는 두 SKU에서 사용 가능합니다. 표준 부하 분산 장치를 사용하는 것이 좋습니다. 가상 머신이 가용성 세트에 있는 경우 기본 부하 분산 장치가 허용됩니다. 표준 부하 분산 장치에는 표준 IP 주소를 사용하는 모든 VM IP 주소가 필요합니다.
+
+현재 가용성 그룹을 위한 [Microsoft 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)은 기본 IP 주소를 사용하는 기본 부하 분산 장치를 사용합니다.
+
+이 문서의 예제에서는 표준 부하 분산 장치를 지정합니다. 예제에서 스크립트는 `-sku Standard`를 포함합니다.
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+```
+
+기본 부하 분산 장치를 만들려면 부하 분산 장치를 만드는 줄에서 `-sku Standard`를 제거합니다. 예: 
+
+```PowerShell
+$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+```
+
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>예제 스크립트: PowerShell을 사용하여 내부 부하 분산 장치 만들기
+
+> [!NOTE]
+> [Microsoft 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)으로 가용성 그룹을 만든 경우 내부 부하 분산 장치는 이미 만들어져 있습니다.
+
+다음 PowerShell 스크립트는 내부 부하 분산 장치를 만들고, 부하 분산 규칙을 구성하고, 부하 분산 장치에 대한 IP 주소를 설정합니다. 이 스크립트를 실행하려면 Windows PowerShell ISE를 열고 스크립트 창으로 스크립트를 붙여 넣습니다. `Connect-AzAccount`를 사용하여 PowerShell에 로그인합니다. 여러 Azure 구독이 있는 경우 `Select-AzSubscription ` 사용하여 구독을 설정합니다. 
 
 ```powershell
-# Connect-AzureRmAccount
-# Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
+# Connect-AzAccount
+# Select-AzSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<Resource Group Name>" # Resource group name
 $VNetName = "<Virtual Network Name>"         # Virtual network name
@@ -74,30 +102,30 @@ $LBConfigRuleName = "ILBCR_$ListenerPort"    # The Load Balancer Rule Object Nam
 $FrontEndConfigurationName = "FE_SQLAGILB_1" # Object name for the front-end configuration 
 $BackEndConfigurationName ="BE_SQLAGILB_1"   # Object name for the back-end configuration
 
-$VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName 
+$VNet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName 
 
-$Subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName 
+$Subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName 
 
-$FEConfig = New-AzureRMLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -PrivateIpAddress $ILBIP -SubnetId $Subnet.id
+$FEConfig = New-AzLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -PrivateIpAddress $ILBIP -SubnetId $Subnet.id
 
-$BEConfig = New-AzureRMLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName 
+$BEConfig = New-AzLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName 
 
-$SQLHealthProbe = New-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -Protocol tcp -Port $ProbePort -IntervalInSeconds 15 -ProbeCount 2
+$SQLHealthProbe = New-AzLoadBalancerProbeConfig -Name $LBProbeName -Protocol tcp -Port $ProbePort -IntervalInSeconds 15 -ProbeCount 2
 
-$ILBRule = New-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP 
+$ILBRule = New-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP 
 
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe 
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe 
 
-$bepool = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB 
+$bepool = Get-AzLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB 
 
 foreach($VMName in $VMNames)
     {
-        $VM = Get-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VMName 
+        $VM = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $VMName 
         $NICName = ($vm.NetworkProfile.NetworkInterfaces.Id.split('/') | select -last 1)
-        $NIC = Get-AzureRmNetworkInterface -name $NICName -ResourceGroupName $ResourceGroupName
+        $NIC = Get-AzNetworkInterface -name $NICName -ResourceGroupName $ResourceGroupName
         $NIC.IpConfigurations[0].LoadBalancerBackendAddressPools = $BEPool
-        Set-AzureRmNetworkInterface -NetworkInterface $NIC
-        start-AzureRmVM -ResourceGroupName $ResourceGroupName -Name $VM.Name 
+        Set-AzNetworkInterface -NetworkInterface $NIC
+        start-AzVM -ResourceGroupName $ResourceGroupName -Name $VM.Name 
     }
 ```
 
@@ -115,8 +143,8 @@ foreach($VMName in $VMNames)
 다음 스크립트는 기존 부하 분산 장치에 새 IP 주소를 추가합니다. ILB는 부하 분산 프런트 엔드 포트에 대해 수신기 포트를 사용합니다. 이 포트는 SQL Server에서 수신 대기 중인 포트일 수 있습니다. SQL Server의 기본 인스턴스의 경우 포트는 1433입니다. 가용성 그룹에 대한 부하 분산 규칙에는 부동 IP(Direct Server Return)가 필요하므로 백 엔드 포트는 프런트 엔드 포트와 동일합니다. 사용자 환경에 맞게 변수를 업데이트합니다. 
 
 ```powershell
-# Connect-AzureRmAccount
-# Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
+# Connect-AzAccount
+# Select-AzSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 
 $ResourceGroupName = "<ResourceGroup>"          # Resource group name
 $VNetName = "<VirtualNetwork>"                  # Virtual network name
@@ -127,7 +155,7 @@ $ILBIP = "<n.n.n.n>"                            # IP address
 [int]$ListenerPort = "<nnnn>"                   # AG listener port
 [int]$ProbePort = "<nnnnn>"                     # Probe port 
 
-$ILB = Get-AzureRmLoadBalancer -Name $ILBName -ResourceGroupName $ResourceGroupName 
+$ILB = Get-AzLoadBalancer -Name $ILBName -ResourceGroupName $ResourceGroupName 
 
 $count = $ILB.FrontendIpConfigurations.Count+1
 $FrontEndConfigurationName ="FE_SQLAGILB_$count"  
@@ -135,22 +163,22 @@ $FrontEndConfigurationName ="FE_SQLAGILB_$count"
 $LBProbeName = "ILBPROBE_$count"
 $LBConfigrulename = "ILBCR_$count"
 
-$VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName 
-$Subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName
+$VNet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName 
+$Subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName
 
-$ILB | Add-AzureRmLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -PrivateIpAddress $ILBIP -SubnetId $Subnet.Id 
+$ILB | Add-AzLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -PrivateIpAddress $ILBIP -SubnetId $Subnet.Id 
 
-$ILB | Add-AzureRmLoadBalancerProbeConfig -Name $LBProbeName  -Protocol Tcp -Port $Probeport -ProbeCount 2 -IntervalInSeconds 15  | Set-AzureRmLoadBalancer 
+$ILB | Add-AzLoadBalancerProbeConfig -Name $LBProbeName  -Protocol Tcp -Port $Probeport -ProbeCount 2 -IntervalInSeconds 15  | Set-AzLoadBalancer 
 
-$ILB = Get-AzureRmLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
+$ILB = Get-AzLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
 
-$FEConfig = get-AzureRMLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -LoadBalancer $ILB
+$FEConfig = get-AzLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -LoadBalancer $ILB
 
-$SQLHealthProbe  = Get-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -LoadBalancer $ILB
+$SQLHealthProbe  = Get-AzLoadBalancerProbeConfig -Name $LBProbeName -LoadBalancer $ILB
 
-$BEConfig = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAddressPools[0].Name -LoadBalancer $ILB 
+$BEConfig = Get-AzLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAddressPools[0].Name -LoadBalancer $ILB 
 
-$ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzureRmLoadBalancer   
+$ILB | Add-AzLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzLoadBalancer   
 ```
 
 ## <a name="configure-the-listener"></a>수신기 구성
@@ -205,9 +233,9 @@ SQLCMD 연결은 주 복제본을 호스트하는 SQL Server 인스턴스에 자
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet
 다음 PowerShell cmdlet을 사용하여 Azure 가상 머신에 대한 내부 부하 분산 장치를 만듭니다.
 
-* [New-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx)는 부하 분산 장치를 만듭니다. 
-* [New-AzureRMLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx)는 부하 분산 장치에 대한 프런트 엔드 IP 구성을 만듭니다. 
-* [New-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx)는 부하 분산 장치에 대한 규칙 구성을 만듭니다. 
-* [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx)는 부하 분산 장치에 대한 백 엔드 주소 풀 구성을 만듭니다. 
-* [New-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx)는 부하 분산 장치에 대한 프로브 구성을 만듭니다.
-* [Remove-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx)는 Azure 리소스 그룹에서 부하 분산 장치를 제거합니다.
+* [New-AzLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx)는 부하 분산 장치를 만듭니다. 
+* [New-AzLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx)는 부하 분산 장치에 대한 프런트 엔드 IP 구성을 만듭니다. 
+* [New-AzLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx)는 부하 분산 장치에 대한 규칙 구성을 만듭니다. 
+* [New-AzLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx)는 부하 분산 장치에 대한 백 엔드 주소 풀 구성을 만듭니다. 
+* [New-AzLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx)는 부하 분산 장치에 대한 프로브 구성을 만듭니다.
+* [Remove-AzLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx)는 Azure 리소스 그룹에서 부하 분산 장치를 제거합니다.

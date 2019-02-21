@@ -1,11 +1,11 @@
 ---
-title: .NET SDK를 사용하여 스트리밍 끝점을 관리합니다. | Microsoft Docs
-description: 이 문서에서는 Azure Portal을 사용하여 스트리밍 끝점을 관리하는 방법을 설명합니다.
+title: .NET SDK를 사용하여 스트리밍 엔드포인트를 관리합니다. | Microsoft Docs
+description: 이 문서에서는 Azure Portal을 사용하여 스트리밍 엔드포인트를 관리하는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
 writer: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 0da34a97-f36c-48d0-8ea2-ec12584a2215
 ms.service: media-services
@@ -13,46 +13,46 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 741eb35c58fb723985a60f6ac071892c02d08412
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: caa2ef878100394fe4bb3282024958bb9dcb46aa
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782932"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977086"
 ---
-# <a name="manage-streaming-endpoints-with-net-sdk"></a>.NET SDK를 사용하여 스트리밍 끝점 관리
+# <a name="manage-streaming-endpoints-with-net-sdk-legacy"></a>.NET SDK(레거시)를 사용하여 스트리밍 엔드포인트 관리
 
 >[!NOTE]
 >[개요](media-services-streaming-endpoints-overview.md) 문서를 검토해야 합니다. 또한 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)도 살펴보세요.
 
 이 문서의 코드는 Azure Media Services .NET SDK를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 
-- 기본 스트리밍 끝점을 살펴봅니다.
-- 새 스트리밍 끝점을 만들거나 추가합니다.
+- 기본 스트리밍 엔드포인트를 살펴봅니다.
+- 새 스트리밍 엔드포인트를 만들거나 추가합니다.
 
-    다른 CDN 및 직접 액세스를 사용하려는 경우 여러 스트리밍 끝점을 배치하는 것이 좋습니다.
+    다른 CDN 및 직접 액세스를 사용하려는 경우 여러 스트리밍 엔드포인트를 배치하는 것이 좋습니다.
 
     > [!NOTE]
-    > 스트리밍 끝점이 실행 중인 상태일 때만 요금이 청구됩니다.
+    > 스트리밍 엔드포인트가 실행 중인 상태일 때만 요금이 청구됩니다.
     
-- 스트리밍 끝점을 업데이트합니다.
+- 스트리밍 엔드포인트를 업데이트합니다.
     
     Update() 함수를 호출해야 합니다.
 
-- 스트리밍 끝점을 삭제합니다.
+- 스트리밍 엔드포인트를 삭제합니다.
 
     >[!NOTE]
-    >기본 스트리밍 끝점은 삭제할 수 없습니다.
+    >기본 스트리밍 엔드포인트는 삭제할 수 없습니다.
 
-스트리밍 끝점의 크기를 조정하는 방법에 대한 자세한 내용은 [이 문서](media-services-portal-scale-streaming-endpoints.md)를 참조하세요.
+스트리밍 엔드포인트의 크기를 조정하는 방법에 대한 자세한 내용은 [이 문서](media-services-portal-scale-streaming-endpoints.md)를 참조하세요.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-## <a name="add-code-that-manages-streaming-endpoints"></a>스트리밍 끝점을 관리하는 코드 추가
+## <a name="add-code-that-manages-streaming-endpoints"></a>스트리밍 엔드포인트를 관리하는 코드 추가
     
 Program.cs의 코드를 다음 코드로 바꿉니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: mbullwin
-ms.openlocfilehash: bde73e9ee87ab9165c1d2dd720377d2f9c8771cb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4ec6e1288b34f04350a88697ca13ed044922ee50
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565958"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002245"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 [Azure Portal](https://portal.azure.com)에서 웹앱, 모바일 백 엔드, [Azure App Service](../../app-service/overview.md)의 API 앱에 대한 애플리케이션 성능 모니터링을 설정할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 해당 작업에 대한 원격 분석을 저장하고 분석하는 Application Insights 서비스에 보내는 앱을 계측합니다. 여기서 메트릭 차트 및 검색 도구를 사용하여 문제를 진단하고 성능을 개선하며 사용량 평가할 수 있습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "55565958"
 * **빌드 시간** - 개발 중인 앱에서 패키지를 설치할 수 있습니다. 이 옵션은 융통성이 뛰어납니다. 동일한 표준 패키지 외에도 원격 분석 데이터를 사용자 지정하거나 고유한 원격 분석을 보내는 코드를 작성할 수 있습니다. 앱 도메인의 의미 체계에 따라 특정 작업 또는 레코드 이벤트를 기록할 수 있습니다. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Application Insights를 사용하여 시간 계측 실행
-Azure에서 App Service를 이미 실행 중인 경우 이미 일부 요청 및 오류 비율을 모니터링하고 있습니다. Application Insights를 추가하여 응답 시간, 종속성 호출 모니터링, 스마트 검색, 강력한 Log Analytics 쿼리 언어 등 더 많은 것을 얻을 수 있습니다. 
+Azure에서 App Service를 이미 실행 중인 경우 이미 일부 요청 및 오류 비율을 모니터링하고 있습니다. Application Insights를 추가하여 응답 시간, 종속성 호출 모니터링, 스마트 검색, 강력한 데이터 탐색기 쿼리 언어 등 더 많은 것을 얻을 수 있습니다. 
 
 1. App Service의 Azure 제어판에서 **Application Insights를 선택**합니다.
 

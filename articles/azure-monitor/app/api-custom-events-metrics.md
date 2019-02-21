@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: d67085d2e90e318a8f134103f0798554b8967d6d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2b26261fdbae07bf3eea793efe6ff0755ca3f577
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814421"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895995"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -572,6 +572,20 @@ telemetry.trackTrace({
     properties: properties
 });
 ```
+
+*클라이언트/브라우저 쪽 JavaScript*
+
+```javascript
+trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
+```
+
+메서드 출입 같은 진단 이벤트를 기록합니다.
+
+ 매개 변수 | 설명
+---|---
+`message` | 진단 데이터입니다. 이름보다 훨씬 길어질 수 있습니다.
+`properties` | 문자열 대 문자열의 맵: 포털에서 [예외를 필터링](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties)하는 데 사용되는 추가 데이터입니다. 기본적으로 비어 있습니다.
+`severityLevel` | 지원되는 값: [SeverityLevel.ts](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/JavaScript/JavaScriptSDK.Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
 

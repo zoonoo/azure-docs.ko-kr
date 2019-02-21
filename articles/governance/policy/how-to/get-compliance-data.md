@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9fc22e35b2e435b6452f0f36c34687a15bee39c2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766421"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114113"
 ---
 # <a name="getting-compliance-data"></a>준수 데이터 가져오기
 
@@ -428,11 +428,11 @@ PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
-## <a name="log-analytics"></a>Log Analytics
+## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-`AzureActivity` 솔루션이 구독에 연결된 [Log Analytics](../../../log-analytics/log-analytics-overview.md) 작업 영역이 있는 경우 간단한 Azure Data Explorer 쿼리 및 `AzureActivity` 테이블을 사용하여 평가 주기에서 규정을 준수하지 않는 결과를 볼 수도 있습니다. Log Analytics의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
+`AzureActivity` 솔루션이 구독에 연결된 [Log Analytics](../../../log-analytics/log-analytics-overview.md) 작업 영역이 있는 경우 간단한 Azure Data Explorer 쿼리 및 `AzureActivity` 테이블을 사용하여 평가 주기에서 규정을 준수하지 않는 결과를 볼 수도 있습니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
 
-![Log Analytics를 사용하여 정책 준수](../media/getting-compliance-data/compliance-loganalytics.png)
+![Azure Monitor 로그를 사용한 정책 준수](../media/getting-compliance-data/compliance-loganalytics.png)
 
 ## <a name="next-steps"></a>다음 단계
 

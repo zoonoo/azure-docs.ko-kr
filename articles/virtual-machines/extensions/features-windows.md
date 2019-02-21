@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025908"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980470"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -75,12 +75,12 @@ Windows 게스트 에이전트는 에이전트 트래픽 요청을 리디렉션�
 
 ## <a name="discover-vm-extensions"></a>VM 확장 검색
 
-Azure VM에서 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage)를 사용합니다. 다음 예제에서는 *WestUS* 위치에서 모든 사용 가능한 확장을 나열합니다.
+Azure VM에서 여러 다양한 VM 확장을 사용할 수 있습니다. 전체 목록을 보려면 [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage)를 사용합니다. 다음 예제에서는 *WestUS* 위치에서 모든 사용 가능한 확장을 나열합니다.
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location "WestUS" | `
-Get-AzureRmVMExtensionImageType | `
-Get-AzureRmVMExtensionImage | Select Type, Version
+Get-AzVmImagePublisher -Location "WestUS" | `
+Get-AzVMExtensionImageType | `
+Get-AzVMExtensionImage | Select Type, Version
 ```
 
 ## <a name="run-vm-extensions"></a>VM 확장 실행
@@ -91,10 +91,10 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 
 ### <a name="powershell"></a>PowerShell
 
-개별 확장을 실행하기 위한 몇 가지 PowerShell 명령이 존재합니다. 목록을 보려면 [Get-command](/powershell/module/microsoft.powershell.core/get-command)를 사용하고 *확장*을 필터링합니다.
+개별 확장을 실행하기 위한 몇 가지 PowerShell 명령이 존재합니다. 목록을 보려면 [Get-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command)를 사용하고 *확장*을 필터링합니다.
 
 ```powershell
-Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
+Get-Command Set-Az*Extension* -Module AzureRM.Compute
 ```
 
 다음과 유사한 출력이 표시됩니다.
@@ -102,25 +102,25 @@ Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
 ```powershell
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Set-AzureRmVMAccessExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMADDomainExtension                     4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMAEMExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBackupExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMBginfoExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMChefExtension                         4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMCustomScriptExtension                 4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMDscExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMExtension                             4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVMSqlServerExtension                    4.5.0      AzureRM.Compute
-Cmdlet          Set-AzureRmVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAccessExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMADDomainExtension                     4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMAEMExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBackupExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMBginfoExtension                       4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMChefExtension                         4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMDscExtension                          4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMExtension                             4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      AzureRM.Compute
+Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
 ```
 
 다음 예제에서는 사용자 지정 스크립트 확장을 사용하여 GitHub 리포지토리에서 대상 가상 머신에 스크립트를 다운로드한 후 스크립트를 실행합니다. 사용자 지정 스크립트 확장에 대한 자세한 내용은 [사용자 지정 스크립트 확장 개요](custom-script-windows.md)를 참조하세요.
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
+Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" -Name "myCustomScript" `
     -FileUri "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/windows-custom-script-simple/support-scripts/Create-File.ps1" `
     -Run "Create-File.ps1" -Location "West US"
@@ -131,12 +131,12 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
 ```powershell
 $cred=Get-Credential
 
-Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
+Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
     -Location WestUS -UserName $cred.GetNetworkCredential().Username `
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzureRmVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzureRmVMExtension 참조](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension)를 참조하세요.
+`Set-AzVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzVMExtension 참조](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension)를 참조하세요.
 
 
 ### <a name="azure-portal"></a>Azure portal
@@ -269,7 +269,7 @@ VM 확장을 실행하는 경우 자격 증명, 저장소 계정 이름 및 저�
 #### <a name="listing-extensions-deployed-to-a-vm"></a>VM에 배포된 확장 나열
 
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
+$vm = Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
 $vm.Extensions | select Publisher, VirtualMachineExtensionType, TypeHandlerVersion
 ```
 
@@ -310,10 +310,10 @@ Windows 게스트 에이전트에는 *확장 처리 코드*만 포함됩니다. 
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>확장이 VM에서 autoUpgradeMinorVersion로 설정되었는지를 식별합니다.
 
-확장이 'autoUpgradeMinorVersion'을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm)을 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
+확장이 ‘autoUpgradeMinorVersion’을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
 
 ```powerShell
- $vm = Get-AzureRmVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
+ $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
@@ -366,10 +366,10 @@ AutoUpgradeMinorVersion     : True
 
 ### <a name="view-extension-status"></a>확장 상태 보기
 
-VM 확장이 VM에 대해 실행된 후에 [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm)을 사용하여 확장 상태를 반환합니다. *하위 상태[0]* 에서는 확장 프로비전이 성공했음을 보여줍니다. 즉, VM에 배포에 성공했지만 VM 내에서 확장의 실행에 실패했습니다. *하위 상태[1]*
+VM 확장이 VM에 대해 실행된 후에 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용하여 확장 상태를 반환합니다. *하위 상태[0]* 에서는 확장 프로비전이 성공했음을 보여줍니다. 즉, VM에 배포에 성공했지만 VM 내에서 확장의 실행에 실패했습니다. *하위 상태[1]*
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
+Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
 ```
 
 다음 예제 출력과 유사하게 출력됩니다.
@@ -402,10 +402,10 @@ Azure Portal에서 확장 실행 상태를 찾을 수도 있습니다. 확장의
 
 ### <a name="rerun-vm-extensions"></a>VM 확장 다시 실행
 
-VM 확장을 다시 실행해야 하는 경우가 있을 수 있습니다. 확장을 다시 실행하려면 확장을 제거한 다음 원하는 실행 방법으로 확장을 다시 실행하면 됩니다. 확장을 제거하려면 다음과 같이 [Remove-AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension)을 사용합니다.
+VM 확장을 다시 실행해야 하는 경우가 있을 수 있습니다. 확장을 다시 실행하려면 확장을 제거한 다음 원하는 실행 방법으로 확장을 다시 실행하면 됩니다. 확장을 제거하려면 다음과 같이 [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension)을 사용합니다.
 
 ```powershell
-Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
+Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
 다음과 같이 Azure Portal에서 확장을 제거할 수도 있습니다.

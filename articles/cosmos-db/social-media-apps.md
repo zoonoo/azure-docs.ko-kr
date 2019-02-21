@@ -4,14 +4,14 @@ description: Azure Cosmos DB 및 기타 Azure 서비스의 저장소 유연성�
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/11/2019
 ms.author: maquaran
-ms.openlocfilehash: 8d6dfa292bd597c2e37f7111e3a068010dc4653c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 36b77ff6666c2c8b0d27cbdc8552ade15b21d005
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042686"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100366"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
 
@@ -222,7 +222,7 @@ Azure Search에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 
 마지막으로 해결해야 하는 중요한 사항은 **확장성**입니다. 아키텍처를 디자인할 때 각 구성 요소는 자체적으로 크기가 조정될 수 있어야 합니다. 결국 더 많은 데이터를 처리해야 하거나 더 큰 지리적 범위를 포괄하려고 할 수 있습니다. 다행스럽게도 Cosmos DB를 사용하여 **턴키 환경**에서 이러한 두 가지 작업을 모두 수행할 수 있습니다.
 
-Cosmos DB는 기본적으로 [동적 분할](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/)을 지원합니다. 문서에 특성으로 정의되는 지정된 **파티션 키**를 기준으로 파티션을 자동으로 만듭니다. 올바른 파티션 키를 정의하는 작업은 디자인 타임에 수행해야 합니다. 자세한 내용은 [올바른 파티션 키 선택](partitioning-overview.md#choose-partitionkey) 문서를 참조하세요.
+Cosmos DB는 기본적으로 동적 분할을 지원합니다. 문서에 특성으로 정의되는 지정된 **파티션 키**를 기준으로 파티션을 자동으로 만듭니다. 올바른 파티션 키를 정의하는 작업은 디자인 타임에 수행해야 합니다. 자세한 내용은 [Azure Cosmos DB 분할](partitioning-overview.md)을 참조하세요.
 
 소셜 환경의 경우 쿼리 및 쓰기 방식에 따라 분할 전략을 조정해야 합니다. (예를 들어, 동일한 파티션 내의 읽기는 적절하지만, 쓰기를 여러 파티션에 분산하는 "핫 스폿"은 피해야 합니다.) 임시 키(일/월/주) 기준, 콘텐츠 범주, 지리적 지역 또는 사용자별 파티션을 옵션으로 사용할 수 있습니다. 실제로 소셜 환경에서의 데이터 쿼리 방식 및 표시 방식에 따라 옵션이 결정됩니다.
 

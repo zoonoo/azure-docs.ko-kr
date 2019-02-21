@@ -15,18 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: e32e2833edc7027a984bb27b34608e4b1b898113
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6821c2000efa4a03f803871d9b33272175f1265c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767086"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113246"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
 이 문서에서는 가상 머신에 적용되는 Azure Resource Manager 템플릿의 측면을 설명합니다. 이 문서는 가상 머신을 만들기 위한 완전한 템플릿 설명하지 않습니다. 이를 위해 저장소 계정, 네트워크 인터페이스, 공용 IP 주소 및 가상 네트워크에 대한 리소스 정의가 필요합니다. 이러한 리소스를 함께 정의할 수 있는 방법에 대한 자세한 내용은 [Resource Manager 템플릿 연습](../../azure-resource-manager/resource-manager-template-walkthrough.md)을 참조하세요.
 
 갤러리에 VM 리소스를 포함하는 [많은 템플릿](https://azure.microsoft.com/documentation/templates/?term=VM)이 있습니다. 템플릿에 포함될 수 있는 모든 요소가 여기에 설명되어 있지 않습니다.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 이 예제에서는 지정된 수의 VM을 만들기 위한 템플릿의 일반적인 리소스 섹션을 보여 줍니다.
 
@@ -163,8 +165,9 @@ ms.locfileid: "55767086"
 최신 API 버전을 가져오기 위해 이러한 기회를 사용합니다.
 
 - REST API - [모든 리소스 공급자 나열](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
+- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
 - Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider)
+
 
 ## <a name="parameters-and-variables"></a>매개 변수 및 변수
 
@@ -442,7 +445,7 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 ![확장 상태 가져오기](./media/template-description/virtual-machines-show-extensions.png)
 
-**Get-AzureRmVMExtension** PowerShell 명령, **vm extension get** Azure CLI 명령 또는 **Get extension information** REST API를 사용하여 확장 정보를 가져올 수도 있습니다.
+**Get-AzVMExtension** PowerShell 명령, **vm extension get** Azure CLI 명령 또는 **Get extension information** REST API를 사용하여 확장 정보를 가져올 수도 있습니다.
 
 ## <a name="deployments"></a>배포
 

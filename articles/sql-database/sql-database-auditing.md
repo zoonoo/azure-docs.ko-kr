@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 0c79554d2db4c1dc17cfbdeed052c1ae16cd68c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.date: 02/07/2019
+ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297687"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234665"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -125,6 +125,7 @@ Log Analytics에 감사 로그를 작성하도록 선택한 경우:
 이벤트 허브에 감사 로그를 작성하도록 선택한 경우:
 
 - 이벤트 허브에서 감사 로그 데이터를 사용하려면 이벤트를 사용하고 이벤트를 대상에 작성하도록 스트림을 설정해야 합니다. 자세한 내용은 [Azure Event Hubs 설명서](https://docs.microsoft.com/azure/event-hubs/)를 참조하세요.
+- Event Hub의 감사 로그는 [Apache Avro](http://avro.apache.org/) 이벤트의 본문에서 캡처되고 UTF-8 인코딩을 통해 JSON 형식을 사용하여 저장됩니다. 감사 로그를 읽으려면 [Avro 도구](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) 또는 이 형식을 처리하는 유사한 도구를 사용할 수 있습니다.
 
 Azure 저장소 계정에 감사 로그를 작성하도록 선택한 경우 로그를 보는 데 사용할 수 있는 여러 가지 방법이 있습니다.
 
@@ -251,7 +252,7 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 
 다음 예제처럼 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 템플릿을 사용하여 Azure SQL 데이터베이스 감사를 관리할 수 있습니다.
 
-- [감사가 설정된 Azure SQL Server를 배포하여 Azure Blob 스토리지 계정에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [감사가 설정된 Azure SQL Server를 배포하여 감사 로그를 Azure Blob Storage 계정에 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [감사가 설정된 Azure SQL Server를 배포하여 Log Analytics에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [감사가 설정된 Azure SQL Server를 배포하여 Event Hubs에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 

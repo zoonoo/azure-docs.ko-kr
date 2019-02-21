@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 36d6733ddc73ace2026ea838cf8f701db95469e6
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448469"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965259"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>예제 3 - 방화벽, UDR, NSG로 네트워크를 보호하는 DMZ 구축
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
@@ -109,35 +109,46 @@ VNETLocal은 항상 특정 네트워크의 VNet의 주소 접두사로 정의됩
 이 예제에서는 다음 명령을 사용하여 경로 테이블을 빌드하고 사용자 정의 경로를 만든 다음, 경로 테이블을 서브넷에 바인딩합니다. 아래에서 달러 기호로 시작하는 모든 항목(예: $BESubnet)은 본 문서의 참조 섹션의 스크립트 중 사용자 정의 변수입니다.
 
 1. 가장 먼저 기본 라우팅 테이블을 만들어야 합니다. 이 코드 조각은 백 엔드 서브넷을 위한 테이블을 만드는 방식을 보여줍니다. 스크립트에서는 프런트 엔드 서브넷에 대해 해당 테이블도 만듭니다.
-   
-     New-AzureRouteTable -Name $BERouteTableName `
-   
-         -Location $DeploymentLocation `
-         -Label "Route table for $BESubnet subnet"
+
+   ```powershell
+   New-AzureRouteTable -Name $BERouteTableName `
+       -Location $DeploymentLocation `
+       -Label "Route table for $BESubnet subnet"
+   ```
+
 2. 경로 테이블이 만들어지면 특정 사용자 정의 경로를 추가할 수 있습니다. 이 코드 조각에서는 모든 트래픽(0.0.0.0/0)이 가상 어플라이언스를 통해 라우팅됩니다(스크립트 앞부분에서 가상 어플라이언스를 만들었을 때 변수인 $VMIP[0]을 사용하여 할당된 IP 주소를 전달). 스크립트에서는 프런트 엔드 테이블에 해당 규칙도 만듭니다.
-   
-     Get-AzureRouteTable $BERouteTableName | `
-   
-         Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
-         -NextHopType VirtualAppliance `
-         -NextHopIpAddress $VMIP[0]
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
+
 3. 위의 경로 항목은 기본 "0.0.0.0/0" 경로를 재정의하지만, VNet 내의 트래픽이 네트워크 가상 어플라이언스가 아닌 대상으로 직접 라우팅되도록 하는 기본 10.0.0.0/16 규칙이 존재합니다. 이 동작을 해결하려면 다음 규칙을 추가해야 합니다.
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
-            -NextHopType VirtualAppliance `
-            -NextHopIpAddress $VMIP[0]
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
+
 4. 이 시점에서 선택을 해야 합니다. 위의 두 경로에서는 모든 트래픽이 방화벽으로 라우팅되어 평가를 받으며, 단일 서브넷 내에 있는 트래픽도 마찬가지입니다. 서브넷 내에 있는 트래픽이 방화벽의 관여 없이 로컬로 라우팅되도록 하려는 경우에는 이렇게 해도 좋지만, 타사의 매우 구체적인 규칙을 추가할 수 있습니다. 이 경로는 로컬 서브넷을 가리키는 모든 주소가 직접 라우팅할 수 있음을 나타냅니다(NextHopType = VNETLocal).
-   
-        Get-AzureRouteTable $BERouteTableName | `
-            Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
-            -NextHopType VNETLocal
+
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+           -NextHopType VNETLocal
+   ```
+
 5. 마지막으로 사용자 정의 경로를 사용하여 만들고 채운 라우팅 테이블이 이제 서브넷에 바인딩됩니다. 스크립트에서는 프런트 엔드 경로 테이블도 프런트 엔드 서브넷에 바인딩됩니다. 백 엔드 서브넷의 바인딩 스크립트는 다음과 같습니다.
-   
-     Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
-   
-        -SubnetName $BESubnet `
-        -RouteTableName $BERouteTableName
+
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
+       -SubnetName $BESubnet `
+       -RouteTableName $BERouteTableName
+   ```
 
 ## <a name="ip-forwarding"></a>IP 전달
 UDR에는 IP 전달이라는 도우미 기능이 있습니다. IP 전달은 어플라이언스로 구체적 주소 지정이 되지 않은 트래픽을 수신한 다음 해당 트래픽을 최종 대상으로 전달할 수 있도록 하는 가상 어플라이언스의 설정입니다.
@@ -152,10 +163,11 @@ UDR에는 IP 전달이라는 도우미 기능이 있습니다. IP 전달은 어�
 IP 전달 설정은 단일 명령이며 VM을 만들 때 지정할 수 있습니다. 이 예제의 흐름상 코드 조각은 스크립트 끝을 향하며 UDR 명령으로 그룹화되어 있습니다.
 
 1. 가상 어플라이언스인 VM 인스턴스(이 경우 방화벽)를 호출하고 IP 전달을 사용하도록 설정합니다. 달러 기호로 시작하는 빨간색 항목(예: $VMName[0])은 이 문서의 참조 섹션에 있는 스크립트 중 사용자 정의 변수입니다. 대괄호 안의 0, [0]은 VM 어레이에서 첫 번째 VM을 나타냅니다. 예제 스크립트를 수정하지 않고 사용하려면 첫 번째 VM(VM 0)이 방화벽이어야 합니다.
-   
-     Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
-   
+
+    ```powershell
+    Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
         Set-AzureIPForwarding -Enable
+    ```
 
 ## <a name="network-security-groups-nsg"></a>네트워크 보안 그룹(NSG)
 이 예제에서는 NSG 그룹을 빌드한 후 단일 규칙을 로드합니다. 그런 다음 이 그룹을 프런트 엔드 및 백 엔드 서브넷에만 바인딩합니다(SecNet 제외). 선언적으로 다음 규칙을 빌드합니다.
@@ -166,22 +178,26 @@ IP 전달 설정은 단일 명령이며 VM을 만들 때 지정할 수 있습니
 
 이 예제의 네트워크 보안 그룹에서 흥미로운 점 하나는 아래와 같이 보안 서브넷을 포함한 전체 가상 네트워크에 대해 인터넷 트래픽을 거부하는 하나의 규칙만 포함되어 있다는 점입니다. 
 
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
-        Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
-        from the Internet" `
-        -Type Inbound -Priority 100 -Action Deny `
-        -SourceAddressPrefix INTERNET -SourcePortRange '*' `
-        -DestinationAddressPrefix VIRTUAL_NETWORK `
-        -DestinationPortRange '*' `
-        -Protocol *
+```powershell
+Get-AzureNetworkSecurityGroup -Name $NSGName | `
+    Set-AzureNetworkSecurityRule -Name "Isolate the $VNetName VNet `
+    from the Internet" `
+    -Type Inbound -Priority 100 -Action Deny `
+    -SourceAddressPrefix INTERNET -SourcePortRange '*' `
+    -DestinationAddressPrefix VIRTUAL_NETWORK `
+    -DestinationPortRange '*' `
+    -Protocol *
+```
 
 하지만 NSG가 프런트 엔드 및 백 엔드 서브넷에만 바인딩되어 있기 때문에 이 규칙은 보안 서브넷에 대한 인바운드 트래픽에서 처리되지 않습니다. 그 결과 NSG 규칙에 VNet의 주소로 인터넷 트래픽을 거부하도록 설정되어 있는 경우에도 NSG가 보안 서브넷에 바인딩되지 않았기 때문에 트래픽이 보안 서브넷으로 이동합니다.
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $FESubnet -VirtualNetworkName $VNetName
+```powershell
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $FESubnet -VirtualNetworkName $VNetName
 
-    Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
-        -SubnetName $BESubnet -VirtualNetworkName $VNetName
+Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
+    -SubnetName $BESubnet -VirtualNetworkName $VNetName
+```
 
 ## <a name="firewall-rules"></a>방화벽 규칙
 방화벽에서 전달 규칙을 만들어야 합니다. 방화벽은 모든 인바운드, 아웃바운드, 인트라-VNet 트래픽을 차단 또는 전달하기 때문에 많은 방화벽 규칙이 필요합니다. 또한 모든 인바운드 트래픽은 방화벽으로 처리하기 위해 다른 포트에 있는 보안 서비스 공용 IP 주소에 도달합니다. 나중에 재작업을 하지 않도록 서브넷 및 방화벽 규칙을 설정하기 전에 논리적 흐름을 다이어그램으로 그리는 것이 가장 좋습니다. 다음 그림은 이 예제의 방화벽 규칙을 논리적으로 나타낸 것입니다.
@@ -233,9 +249,11 @@ IP 전달 설정은 단일 명령이며 VM을 만들 때 지정할 수 있습니
 
 엔드포인트는 예제 스크립트와 같이 VM을 만들거나 빌드를 게시할 때 열 수 있으며 아래 코드 조각에 표시되어 있습니다. 달러 기호로 시작하는 항목(예: $VMName[$i])은 이 문서의 참조 섹션에 있는 스크립트 중 사용자 정의 변수입니다. 대괄호 안의 "$i", [$i]는 VM 어레이에서 특정 VM의 어레이 번호를 나타냅니다.
 
-    Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
-        -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
-        Update-AzureVM
+```powershell
+Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
+    -VM (Get-AzureVM -ServiceName $ServiceName[$i] -Name $VMName[$i]) | `
+    Update-AzureVM
+```
 
 여기서는 변수 사용으로 인해 분명히 표시되어 있지 않지만 엔드포인트는 보안 클라우드 서비스에서 **만** 열립니다. 이유는 방화벽에서 모든 인바운드 트래픽을 처리하도록 하기 위해서입니다(라우팅, NAT 수행, 삭제).
 
@@ -592,6 +610,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 > 
 > 
 
+```powershell
     <# 
      .SYNOPSIS
       Example of DMZ and User Defined Routing in an isolated network (Azure only, no hybrid connections)
@@ -604,7 +623,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
        - A Network Virtual Appliance (NVA), in this case a Barracuda NextGen Firewall
        - One server on the FrontEnd Subnet
        - Three Servers on the BackEnd Subnet
-       - IP Forwading from the FireWall out to the internet
+       - IP Forwarding from the FireWall out to the internet
        - User Defined Routing FrontEnd and BackEnd Subnets to the NVA
 
       Before running script, ensure the network configuration file is created in
@@ -702,7 +721,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
           $SubnetName += $FESubnet
           $VMIP += "10.0.1.4"
 
-        # VM 2 - The First Appliaction Server
+        # VM 2 - The First Application Server
           $VMName += "AppVM01"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -711,7 +730,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
           $SubnetName += $BESubnet
           $VMIP += "10.0.2.5"
 
-        # VM 3 - The Second Appliaction Server
+        # VM 3 - The Second Application Server
           $VMName += "AppVM02"
           $ServiceName += $BackEndService
           $VMFamily += "Windows"
@@ -730,7 +749,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Varibles or   #
+    # No User Defined Variables or   #
     # Configuration past this point #
     # ----------------------------- #
 
@@ -741,7 +760,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 
       # Create Storage Account
         If (Test-AzureName -Storage -Name $StorageAccountName) { 
-            Write-Host "Fatal Error: This storage account name is already in use, please pick a diffrent name." -ForegroundColor Red
+            Write-Host "Fatal Error: This storage account name is already in use, please pick a different name." -ForegroundColor Red
             Return}
         Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
               New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
@@ -872,7 +891,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
             |Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $FEPrefix `
             -NextHopType VNETLocal
 
-      # Assoicate the Route Tables with the Subnets
+      # Associate the Route Tables with the Subnets
         Write-Host "Binding Route Tables to the Subnets" -ForegroundColor Cyan 
         Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
             -SubnetName $BESubnet `
@@ -920,11 +939,12 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
       Write-Host " - Install Test Web App (Run Post-Build Script on the IIS Server)" -ForegroundColor Gray
       Write-Host " - Install Backend resource (Run Post-Build Script on the AppVM01)" -ForegroundColor Gray
       Write-Host
-
+```
 
 #### <a name="network-config-file"></a>네트워크 구성 파일
 업데이트된 위치로 이 xml 파일을 저장하고 이 파일에 대한 링크를 위의 스크립트에 있는 $NetworkConfigFile 변수에 추가합니다.
 
+```xml
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
@@ -957,6 +977,7 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
         </VirtualNetworkSites>
       </VirtualNetworkConfiguration>
     </NetworkConfiguration>
+```
 
 #### <a name="sample-application-scripts"></a>샘플 애플리케이션 스크립트
 이에 대한 샘플 애플리케이션 및 기타 DMZ 예제를 설치하려는 경우 다음 링크를 통해 제공됩니다. [샘플 애플리케이션 스크립트][SampleApp]

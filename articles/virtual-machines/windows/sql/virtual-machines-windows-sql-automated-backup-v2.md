@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 432df6d73b2eaa42645fe25ad9c743b7fcef06a8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e20599833d3073e4819dbc974d4b2afe962ba18a
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331658"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984310"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
 
@@ -153,16 +153,18 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 PowerShell을 사용하여 자동화된 Backup v2를 구성할 수도 있습니다. 시작하기 전에 다음을 수행해야 합니다.
 
 - [최신 Azure PowerShell을 다운로드하여 설치합니다](https://aka.ms/webpi-azps).
-- Windows PowerShell을 열고 **Connect-AzureRmAccount** 명령을 사용하여 계정에 연결합니다.
+- Windows PowerShell을 열고 **Connect-AzAccount** 명령을 사용하여 계정에 연결합니다.
+
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ### <a name="install-the-sql-iaas-extension"></a>SQL IaaS 확장 설치
-Azure Portal에서 SQL Server 가상 머신을 프로비전한 경우 SQL Server IaaS 확장이 이미 설치되어 있을 것입니다. **Get-AzureRmVM** 명령을 실행하고 **Extensions** 속성을 검사하여 VM에 대해 해당 확장이 설치되어 있는지 확인할 수 있습니다.
+Azure Portal에서 SQL Server 가상 머신을 프로비전한 경우 SQL Server IaaS 확장이 이미 설치되어 있을 것입니다. **Get-AzVM** 명령을 호출하고 **Extensions** 속성을 검사하여 VM에 대해 해당 확장이 설치되어 있는지 확인할 수 있습니다.
 
 ```powershell
 $vmname = "vmname"
 $resourcegroupname = "resourcegroupname"
 
-(Get-AzureRmVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions 
+(Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions 
 ```
 
 SQL Server IaaS 에이전트 확장이 설치되어 있는 경우 "SqlIaaSAgent" 또는 "SQLIaaSExtension"으로 표시됩니다. 확장에 대한 **ProvisioningState**가 "Succeeded"로 표시되어야 합니다. 
@@ -171,16 +173,16 @@ SQL Server IaaS 에이전트 확장이 설치되어 있는 경우 "SqlIaaSAgent"
 
 ```powershell
 $region = “EASTUS2”
-Set-AzureRmVMSqlServerExtension -VMName $vmname `
+Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region 
 ```
 
 ### <a id="verifysettings"></a> 현재 설정 확인
-프로비전 동안 자동화된 백업을 사용하도록 설정한 경우 PowerShell을 사용하여 현재 구성을 확인할 수 있습니다. **Get-AzureRmVMSqlServerExtension** 명령을 실행하고 **AutoBackupSettings** 속성을 검사합니다.
+프로비전 동안 자동화된 백업을 사용하도록 설정한 경우 PowerShell을 사용하여 현재 구성을 확인할 수 있습니다. **Get-AzVMSqlServerExtension** 명령을 실행하고 **AutoBackupSettings** 속성을 검사합니다.
 
 ```powershell
-(Get-AzureRmVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
+(Get-AzVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
 ```
 
 다음과 유사한 결과가 표시됩니다.
@@ -214,27 +216,27 @@ LogBackupFrequency          : 60
 $storage_accountname = “yourstorageaccount”
 $storage_resourcegroupname = $resourcegroupname
 
-$storage = Get-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
+$storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
     -Name $storage_accountname -ErrorAction SilentlyContinue
 If (-Not $storage)
-    { $storage = New-AzureRmStorageAccount -ResourceGroupName $storage_resourcegroupname `
+    { $storage = New-AzStorageAccount -ResourceGroupName $storage_resourcegroupname `
     -Name $storage_accountname -SkuName Standard_GRS -Location $region } 
 ```
 
 > [!NOTE]
 > 자동화된 백업을 사용할 경우 Premium Storage에 백업을 저장할 수 없지만 Premium Storage를 사용하는 VM 디스크에서 백업을 가져올 수 있습니다.
 
-그런 후 **New-AzureRmVMSqlServerAutoBackupConfig** 명령을 통해 자동화된 백업 v2 설정을 사용하도록 지정하고 Azure Storage 계정에 백업을 저장합니다. 이 예제에서는 백업이 10일 동안 보관되도록 설정되어 있습니다. 시스템 데이터베이스 백업이 사용되도록 설정됩니다. 전체 백업은 20시부터 시작해서 2시간 동안 진행되는 것으로 매주 예약되어 있습니다. 로그 백업은 30분 간격으로 예약됩니다. 두 번째 명령인 **Set-AzureRmVMSqlServerExtension**은 지정된 Azure VM을 이러한 설정으로 업데이트합니다.
+그런 다음, **New-AzVMSqlServerAutoBackupConfig** 명령을 사용하여 자동화된 Backup v2 설정을 사용하도록 설정 및 구성하고 Azure Storage 계정에 백업을 저장합니다. 이 예제에서는 백업이 10일 동안 보관되도록 설정되어 있습니다. 시스템 데이터베이스 백업이 사용되도록 설정됩니다. 전체 백업은 20시부터 시작해서 2시간 동안 진행되는 것으로 매주 예약되어 있습니다. 로그 백업은 30분 간격으로 예약됩니다. 두 번째 명령인 **Set-AzVMSqlServerExtension**은 지정된 Azure VM을 이러한 설정으로 업데이트합니다.
 
 ```powershell
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
     -RetentionPeriodInDays 10 -StorageContext $storage.Context `
     -ResourceGroupName $storage_resourcegroupname -BackupSystemDbs `
     -BackupScheduleType Manual -FullBackupFrequency Weekly `
     -FullBackupStartHour 20 -FullBackupWindowInHours 2 `
     -LogBackupFrequencyInMinutes 30 
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname 
 ```
 
@@ -246,7 +248,7 @@ SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 
 $password = "P@ssw0rd"
 $encryptionpassword = $password | ConvertTo-SecureString -AsPlainText -Force  
 
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
     -EnableEncryption -CertificatePassword $encryptionpassword `
     -RetentionPeriodInDays 10 -StorageContext $storage.Context `
     -ResourceGroupName $storage_resourcegroupname -BackupSystemDbs `
@@ -254,19 +256,19 @@ $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
     -FullBackupStartHour 20 -FullBackupWindowInHours 2 `
     -LogBackupFrequencyInMinutes 30 
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
 설정이 적용되었는지 확인하려면 [자동화된 Backup 구성을 확인](#verifysettings)합니다.
 
 ### <a name="disable-automated-backup"></a>자동화된 Backup 사용 안 함
-자동화된 백업을 사용하지 않도록 설정하려면 동일한 스크립트를 **-Enable** 매개 변수 없이 **New-AzureRmVMSqlServerAutoBackupConfig** 명령에 대해 실행합니다. **-Enable** 매개 변수가 없는 경우 기능을 해제하는 명령을 신호로 보냅니다. 설치와 마찬가지로 자동화된 Backup을 사용하지 않도록 설정하는 데도 몇 분 정도 걸릴 수 있습니다.
+자동화된 Backup을 사용하지 않도록 설정하려면 동일한 스크립트를 **-Enable** 매개 변수 없이 **New-AzVMSqlServerAutoBackupConfig** 명령에 대해 실행합니다. **-Enable** 매개 변수가 없는 경우 기능을 해제하는 명령을 신호로 보냅니다. 설치와 마찬가지로 자동화된 Backup을 사용하지 않도록 설정하는 데도 몇 분 정도 걸릴 수 있습니다.
 
 ```powershell
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
@@ -288,21 +290,21 @@ $logbackupfrequency = "30"
 
 # ResourceGroupName is the resource group which is hosting the VM where you are deploying the SQL IaaS Extension 
 
-Set-AzureRmVMSqlServerExtension -VMName $vmname `
+Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region
 
 # Creates/use a storage account to store the backups
 
-$storage = Get-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
+$storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
     -Name $storage_accountname -ErrorAction SilentlyContinue
 If (-Not $storage)
-    { $storage = New-AzureRmStorageAccount -ResourceGroupName $storage_resourcegroupname `
+    { $storage = New-AzStorageAccount -ResourceGroupName $storage_resourcegroupname `
     -Name $storage_accountname -SkuName Standard_GRS -Location $region }
 
 # Configure Automated Backup settings
 
-$autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
+$autobackupconfig = New-AzVMSqlServerAutoBackupConfig -Enable `
     -RetentionPeriodInDays $retentionperiod -StorageContext $storage.Context `
     -ResourceGroupName $storage_resourcegroupname -BackupSystemDbs `
     -BackupScheduleType $backupscheduletype -FullBackupFrequency $fullbackupfrequency `
@@ -311,7 +313,7 @@ $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
 
 # Apply the Automated Backup settings to the VM
 
-Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
+Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 

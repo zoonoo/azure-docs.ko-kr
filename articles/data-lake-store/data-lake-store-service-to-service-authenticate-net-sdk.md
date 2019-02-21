@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 58d8cfdbd2ad5d7e727decfa3e3cfdd7151b0048
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3075f515b8095451a873727fef696fd523664d0a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250208"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891721"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증
 > [!div class="op_single_selector"]
@@ -35,10 +35,10 @@ ms.locfileid: "53250208"
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **Azure Active Directory "웹" 응용 프로그램 만들기**. [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
+* **Azure Active Directory "웹" 애플리케이션 만들기**. [Azure Active Directory를 사용하여 Data Lake Storage Gen1로 서비스 간 인증](data-lake-store-service-to-service-authenticate-using-active-directory.md)의 단계를 완료해야 합니다.
 
-## <a name="create-a-net-application"></a>.NET 응용 프로그램 만들기
-1. Visual Studio를 열고 콘솔 응용 프로그램을 만듭니다.
+## <a name="create-a-net-application"></a>.NET 애플리케이션 만들기
+1. Visual Studio를 열고 콘솔 애플리케이션을 만듭니다.
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "53250208"
    | --- | --- |
    | Category |Templates/Visual C#/Windows |
    | Template |콘솔 애플리케이션 |
-   | 이름 |CreateADLApplication |
+   | Name |CreateADLApplication |
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 
 5. NuGet 패키지를 프로젝트에 추가합니다.
@@ -63,55 +63,60 @@ ms.locfileid: "53250208"
 
 6. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
 
-        using System;
-        using System.IO;
-        using System.Linq;
-        using System.Text;
-        using System.Threading;
-        using System.Collections.Generic;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
-                
-        using Microsoft.Rest;
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.DataLake.Store;
-        using Microsoft.Azure.Management.DataLake.Store.Models;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+```csharp
+using System;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+
+using Microsoft.Rest;
+using Microsoft.Rest.Azure.Authentication;
+using Microsoft.Azure.Management.DataLake.Store;
+using Microsoft.Azure.Management.DataLake.Store.Models;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+```
 
 ## <a name="service-to-service-authentication-with-client-secret"></a>클라이언트 암호를 사용하여 서비스 간 인증
-.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다.  이 코드 조각을 사용하면 Azure AD 웹 애플리케이션의 클라이언트 비밀/키를 사용하여 애플리케이션을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. 
+.NET 클라이언트 애플리케이션에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 애플리케이션에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다.  이 코드 조각을 사용하면 Azure AD 웹 애플리케이션의 클라이언트 비밀/키를 사용하여 애플리케이션을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. 
 
-    private static void Main(string[] args)
-    {    
-        // Service principal / appplication authentication with client secret / key
-        // Use the client ID of an existing AAD "Web App" application.
-        string TENANT = "<AAD-directory-domain>";
-        string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
-        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
-        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
-        string secret_key = "<AAD_WEB_APP_SECRET_KEY>";
-        var armCreds = GetCreds_SPI_SecretKey(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, secret_key);
-        var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
-    }
+```csharp
+private static void Main(string[] args)
+{    
+    // Service principal / application authentication with client secret / key
+    // Use the client ID of an existing AAD "Web App" application.
+    string TENANT = "<AAD-directory-domain>";
+    string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
+    System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+    System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+    string secret_key = "<AAD_WEB_APP_SECRET_KEY>";
+    var armCreds = GetCreds_SPI_SecretKey(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, secret_key);
+    var adlCreds = GetCreds_SPI_SecretKey(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, secret_key);
+}
+```
 
 앞의 코드 조각은 도우미 함수 `GetCreds_SPI_SecretKey`를 사용합니다. 이 도우미 함수에 대한 코드는 [여기 GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_secretkey)에서 사용할 수 있습니다.
 
 ## <a name="service-to-service-authentication-with-certificate"></a>인증서를 사용하여 서비스 간 인증
 
-.NET 클라이언트 응용 프로그램에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 응용 프로그램에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다. 이 코드 조각을 사용하면 Azure AD 웹 애플리케이션의 인증서를 사용하여 애플리케이션을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. Microsoft Azure Active Directory 애플리케이션을 만드는 방법에 대한 지침은 [인증서로 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
+.NET 클라이언트 애플리케이션에서 이 코드 조각을 추가합니다. 자리 표시자 값을 Microsoft Azure Active Directory 웹 애플리케이션에서 검색된 값(필수 구성 요소로 나열된)으로 바꿉니다. 이 코드 조각을 사용하면 Azure AD 웹 애플리케이션의 인증서를 사용하여 애플리케이션을 Data Lake Storage Gen1에 **비 대화형으로** 인증할 수 있습니다. Microsoft Azure Active Directory 애플리케이션을 만드는 방법에 대한 지침은 [인증서로 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
 
-    
-    private static void Main(string[] args)
-    {
-        // Service principal / application authentication with certificate
-        // Use the client ID and certificate of an existing AAD "Web App" application.
-        string TENANT = "<AAD-directory-domain>";
-        string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
-        System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
-        System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
-        var cert = new X509Certificate2(@"d:\cert.pfx", "<certpassword>");
-        var armCreds = GetCreds_SPI_Cert(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, cert);
-        var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
-    }
+```csharp
+private static void Main(string[] args)
+{
+    // Service principal / application authentication with certificate
+    // Use the client ID and certificate of an existing AAD "Web App" application.
+    string TENANT = "<AAD-directory-domain>";
+    string CLIENTID = "<AAD_WEB_APP_CLIENT_ID>";
+    System.Uri ARM_TOKEN_AUDIENCE = new System.Uri(@"https://management.core.windows.net/");
+    System.Uri ADL_TOKEN_AUDIENCE = new System.Uri(@"https://datalake.azure.net/");
+    var cert = new X509Certificate2(@"d:\cert.pfx", "<certpassword>");
+    var armCreds = GetCreds_SPI_Cert(TENANT, ARM_TOKEN_AUDIENCE, CLIENTID, cert);
+    var adlCreds = GetCreds_SPI_Cert(TENANT, ADL_TOKEN_AUDIENCE, CLIENTID, cert);
+}
+```
 
 앞의 코드 조각은 도우미 함수 `GetCreds_SPI_Cert`를 사용합니다. 이 도우미 함수에 대한 코드는 [여기 GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert)에서 사용할 수 있습니다.
 

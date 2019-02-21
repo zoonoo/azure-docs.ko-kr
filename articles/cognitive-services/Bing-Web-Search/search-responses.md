@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Bing Web Search API에서 사용하는 응답 형식 및 응답에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: f76c9bfa5dc6a3542ace7025e0889ee64cd2e783
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188629"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232895"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
 
@@ -91,7 +91,7 @@ The following shows an example of how you might display the webpage in a search 
 }, ...
 ```
 
-사용자의 디바이스에 따라 일반적으로 사용자가 나머지 이미지를 볼 수 있는 옵션을 사용하여 썸네일의 하위 집합을 표시할 수 있습니다.
+사용자의 디바이스에 따라 일반적으로 사용자가 나머지 이미지를 [넘겨볼 수 있는](paging-webpages.md) 옵션을 사용하여 썸네일의 하위 집합을 표시할 수 있습니다.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -314,7 +314,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 |기호|설명|
 |------------|-----------------|
-|Sqrt|제곱근|
+|정렬|제곱근|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|삼각함수(인수 사용, 라디안 단위)|
 |ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|역삼각함수(라디안 단위로 결과 제공)|
 |Exp[x], E^x|지수 함수|
@@ -428,6 +428,48 @@ Bing이 판단하기에 사용자가 다른 것을 검색하고자 하는 경우
     }]
 }, ...
 ```
+
+다음은 Bing이 추천 단어를 사용하는 방법을 보여줍니다.
+
+![Bing 추천 단어 예제](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+
+## <a name="response-headers"></a>응답 헤더
+
+Bing Web Search API의 응답에 다음 헤더가 포함될 수 있습니다.
+
+|||
+|-|-|
+|`X-MSEdge-ClientID`|Bing에서 사용자에게 할당한 고유한 ID|
+|`BingAPIs-Market`|요청을 이행하는 데 사용된 지역/국가|
+|`BingAPIs-TraceId`|이 요청에 대한 Bing API 서버의 로그 항목(지원용)|
+
+클라이언트 ID를 유지하고 후속 요청과 함께 반환하는 것이 특히 중요합니다. 이렇게 하면 검색은 검색 결과의 순위 지정에서 과거 컨텍스트를 사용하고 일관된 사용자 환경도 제공합니다.
+
+그러나 JavaScript에서 Bing Web Search API를 호출하면 브라우저의 기본 제공 보안 기능(CORS)이 이러한 헤더 값으로의 액세스를 차단할 수 있습니다.
+
+헤더에 액세스하기 위해 CORS 프록시를 통해 Bing Web Search API 요청을 만들 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 이를 JavaScript에서 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 있습니다.
+
+[자습서 앱](tutorial-bing-web-search-single-page-app.md)이 선택적 클라이언트 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다.
+
+    npm install -g cors-proxy-server
+
+다음으로, HTML 파일에서 Bing Web Search API 엔드포인트를 다음으로 변경합니다.
+
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+
+마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.
+
+    cors-proxy-server
+
+자습서 앱을 사용하는 동안에는 명령 창을 열어 두세요. 창을 닫으면 프록시가 중지됩니다. 검색 결과 아래의 확장 가능한 HTTP 헤더 섹션에서 여러 `X-MSEdge-ClientID` 헤더를 볼 수 있으며 요청마다 동일한지 확인합니다.
+
+## <a name="response-headers-in-production"></a>프로덕션에서 응답 헤더
+
+이전 응답에서 설명한 CORS 프록시 방식은 개발, 테스트 및 학습에 적합합니다.
+
+프로덕션 환경에서는 Bing Web Search API를 사용하는 웹 페이지와 동일한 도메인에서 서버 쪽 스크립트를 호스트해야 합니다. 이 스크립트는 웹 페이지 JavaScript의 요청에 따라 API 호출을 수행하고 헤더를 포함한 모든 결과를 다시 클라이언트로 전달해야 합니다. 두 리소스(페이지 및 스크립트)가 원본을 공유하므로 CORS는 사용되지 않으며 특수 헤더가 웹 페이지의 JavaScript에 액세스할 수 있습니다.
+
+이 방법은 또한 API 키가 서버 쪽 스크립트에서만 필요하기 때문에 API 키가 공개적으로 노출되지 않도록 합니다. 이 스크립트는 다른 메서드를 사용하여 요청이 승인되었는지 확인할 수 있습니다.
 
 다음은 Bing이 추천 단어를 사용하는 방법을 보여줍니다.
 

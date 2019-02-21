@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 01/10/2019
+ms.date: 02/09/2019
 ms.author: rolyon
-ms.openlocfilehash: 2b8836525e085b41cc8d011087c4fc71afe453cb
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822513"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163770"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 사용 약관을 시작하는 방법을 설명합니다.
@@ -333,6 +334,9 @@ Azure Information Protection 앱에 대한 조건부 액세스 정책을 구성�
 Microsoft Intune 등록 앱에 대한 조건부 액세스 정책을 구성하고 Intune에 디바이스를 등록하기 전에 사용 약관을 요구할 수 있습니다. 자세한 내용은 [조직에 적합한 약관 솔루션 선택 블로그 게시물](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409) 읽기를 참조하세요.
 
 ![Microsoft Intune 클라우드 앱](./media/active-directory-tou/cloud-app-intune.png)
+
+> [!NOTE]
+> [디바이스별 사용 약권](#per-device-terms-of-use)에 대해 Intune 등록 앱이 지원되지 않습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

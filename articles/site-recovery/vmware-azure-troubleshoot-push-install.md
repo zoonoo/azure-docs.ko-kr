@@ -6,23 +6,29 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 01/18/2019
-ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/07/2019
+ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411750"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895689"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 
 모바일 서비스 설치는 복제를 사용하도록 설정하는 동안 주요한 단계입니다. 이 단계의 성공은 필수 구성 요소 충족 및 지원되는 구성 작업에 달려 있습니다. 모바일 서비스를 설치하는 동안 접하는 가장 일반적인 문제의 원인은 다음과 같습니다.
 
-* 자격 증명/권한 오류
-* 로그인 실패
-* 연결 오류
-* 지원되지 않는 운영 체제
-* VSS 설치 오류
+* [자격 증명/권한 오류](#credentials-check-errorid-95107--95108)
+* [로그인 실패](#login-failures-errorid-95519-95520-95521-95522)
+* [연결 오류](#connectivity-failure-errorid-95117--97118)
+* [파일 및 프린터 공유 오류](#file-and-printer-sharing-services-check-errorid-95105--95106)
+* [WMI 실패](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
+* [지원되지 않는 운영 체제](#unsupported-operating-systems)
+* [지원되지 않는 부트 구성](#unsupported-boot-disk-configurations-errorid-95309-95310-95311)
+* [VSS 설치 오류](#vss-installation-failures)
+* [디바이스 UUID 대신 GRUB 구성에 디바이스 이름 사용](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320)
+* [LVM 볼륨](#lvm-support-from-920-version)
+* [다시 부팅 경고](#install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266)
 
 복제를 활성화하면 Azure Site Recovery가 가상 머신에 모바일 서비스 에이전트 설치를 푸시하려고 합니다. 이러한 시도의 일환으로 구성 서버가 가상 머신에 연결하여 에이전트를 복사하려고 합니다. 설치에 성공하려면 아래에 있는 단계별 문제 해결 지침을 따르십시오.
 
@@ -56,12 +62,14 @@ ms.locfileid: "54411750"
 
 선택한 사용자 계정의 자격 증명을 수정하려면 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)에 제공된 지침을 따릅니다.
 
-## <a name="login-failure-errorid-95519"></a>로그인 실패(ErrorID: 95519)
+## <a name="login-failures-errorid-95519-95520-95521-95522"></a>로그인 실패(ErrorID: 95519, 95520, 95521, 95522)
+
+### <a name="credentials-of-the-user-account-have-been-disabled-errorid-95519"></a>사용자 계정의 자격 증명이 사용하지 않도록 설정됨(ErrorID: 95519)
 
 복제를 사용하도록 설정하는 동안 선택한 사용자 계정을 사용할 수 없습니다. 사용자 계정을 사용하려면 [여기](https://aka.ms/enable_login_user)서 문서를 참조하거나, *username* 텍스트를 실제 사용자 이름으로 대체하여 다음 명령을 실행합니다.
 `net user 'username' /active:yes`
 
-## <a name="login-failure-errorid-95520"></a>로그인 실패(ErrorID: 95520)
+### <a name="credentials-locked-out-due-to-multiple-failed-login-attempts-errorid-95520"></a>로그인 시도에 여러 번 실패하여 자격 증명이 잠김(ErrorID: 95520)
 
 머신에 대한 액세스 시도가 여러 번 실패하면 사용자 계정이 잠깁니다. 실패 원인은 다음과 같을 수 있습니다.
 
@@ -70,11 +78,11 @@ ms.locfileid: "54411750"
 
 따라서 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)에 제공된 지침에 따라 선택한 자격 증명을 수정하고 잠시 후에 작업을 다시 시도합니다.
 
-## <a name="login-failure-errorid-95521"></a>로그인 실패(ErrorID: 95521)
+### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>원본 머신에서 로그온 서버를 사용할 수 없음(ErrorID: 95521)
 
 이 오류는 원본 머신에서 로그온 서버를 사용할 수 없는 경우에 발생합니다. 로그온 서버를 사용할 수 없는 경우 로그인 요청이 실패하여 모바일 에이전트를 설치할 수 없습니다. 로그인에 성공하려면 원본 머신에서 로그온 서버를 사용할 수 있는지 확인하고 로그온 서비스를 시작합니다. 자세한 지침을 보려면 [여기](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available)를 클릭합니다.
 
-## <a name="login-failure-errorid-95522"></a>로그인 실패(ErrorID: 95522)
+### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>원본 머신에서 로그온 서비스가 실행되지 않음(ErrorID: 95522)
 
 로그인 서비스가 원본 머신에서 실행되고 있지 않아 로그인 요청이 실패했습니다. 따라서 모바일 에이전트를 설치할 수 없습니다. 오류를 해결하려면 성공적인 로그인을 위해 원본 머신에서 로그온 서비스가 실행되고 있는지 확인합니다. 로그온 서비스를 시작하려면 명령 프롬프트에서 “net start Logon” 명령을 실행하거나 작업 관리자에서 “NetLogon” 서비스를 시작합니다.
 
@@ -138,15 +146,17 @@ ms.locfileid: "54411750"
 실패에 대한 또 다른 가장 일반적인 이유는 지원되지 않는 운영 체제일 수 있습니다. 모바일 서비스를 성공적으로 설치하려면 지원되는 운영 체제/커널 버전에 설치해야 합니다. 개인 패치를 사용하지 마세요.
 Azure Site Recovery에서 어떤 운영 체제 및 커널 버전이 지원되는지 알아보려면 [지원 매트릭스 문서](vmware-physical-azure-support-matrix.md#replicated-machines)를 참조하세요.
 
-## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>부트 및 시스템 파티션/볼륨이 동일한 디스크가 아님(ErrorID: 95309)
+## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>지원되지 않는 부팅 디스크 구성(ErrorID: 95309, 95310, 95311)
+
+### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>부트 및 시스템 파티션/볼륨이 동일한 디스크가 아님(ErrorID: 95309)
 
 9.20 이전 버전에서는 서로 다른 디스크의 부트 및 시스템 파티션/볼륨이 지원되지 않는 구성이었습니다. [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 이 구성이 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
 
-## <a name="boot-disk-not-found-errorid-95310"></a>부트 디스크를 찾을 수 없음(ErrorID: 95310)
+### <a name="the-boot-disk-is-not-available-errorid-95310"></a>부팅 디스크를 사용할 수 없음(ErrorID: 95310)
 
 부트 디스크가 없는 가상 머신은 보호할 수 없습니다. 이는 장애 조치 작업 중에 가상 머신의 원활한 복구를 보장하기 위한 것입니다. 부트 디스크가 없으면 장애 조치 후 머신을 부팅하지 못합니다. 가상 머신에 부트 디스크가 있는지 확인하고 작업을 다시 시도하세요. 또한 동일한 머신에 부트 디스크가 여러 개 있는 것도 지원되지 않습니다.
 
-## <a name="multiple-boot-disks-found-errorid-95311"></a>부트 디스크가 여러 개임(ErrorID: 95311)
+### <a name="multiple-boot-disks-present-on-the-source-machine-errorid-95311"></a>원본 머신에 여러 개의 부팅 디스크가 있음(ErrorID: 95311)
 
 부트 디스크가 여러 개인 가상 머신은 [지원되는 구성](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)이 아닙니다.
 
@@ -154,9 +164,45 @@ Azure Site Recovery에서 어떤 운영 체제 및 커널 버전이 지원되는
 
 9.20 이전 버전에서는 여러 디스크에 배치된 루트 파티션 또는 볼륨이 지원되지 않는 구성이었습니다. [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 이 구성이 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
 
-## <a name="grub-uuid-failure-errorid-95320"></a>GRUB UUID 실패(ErrorID: 95320)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>UUID 대신 디바이스 이름이 GRUB 구성에 언급되어 보호를 사용하도록 설정하지 못함(ErrorID: 95320)
 
-원본 머신의 GRUB가 UUID 대신 디바이스 이름을 사용하는 경우 모바일 에이전트 설치에 실패합니다. GRUB 파일을 변경하려면 시스템 관리자에게 연락하세요.
+**가능한 원인:** </br>
+GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 **root** 및 **resume** 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름으로 포함되어 있을 수 있습니다. Site Recovery에서는 UUID를 사용해야 합니다. 디바이스 이름은 VM을 다시 부팅하면 변경될 수 있는데, 장애 조치(failover) 시에 VM 이름이 달라지면 문제가 발생하기 때문입니다. 예:  </br>
+
+
+- 아래에는 이러한 오류의 원인이 되는 GRUB 파일 **/boot/grub2/grub.cfg**에서 발췌한 줄이 나와 있습니다. <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- 아래에는 GRUB 파일 **/boot/grub/menu.lst**에서 발췌한 줄이 나와 있습니다.
+*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+위에서 굵게 표시된 문자열을 살펴보면 GRUB의 “root” 및 “resume” 매개 변수에 대해 UUID 대신 실제 디바이스 이름이 사용된 것을 확인할 수 있습니다.
+ 
+**해결 방법:**<br>
+디바이스 이름을 해당 UUID로 바꿔야 합니다.<br>
+
+
+1. 다음 "blkid <device name>" 명령을 실행하여 디바이스의 UUID를 확인합니다. 예: <br>
+```
+blkid /dev/sda1
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+blkid /dev/sda2 
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```
+
+2. 이제 디바이스 이름을 “root=UUID=<UUID>” 형식의 UUID로 바꿉니다. 예를 들어 “/boot/grub2/grub.cfg”, “/boot/grub2/grub.cfg” 또는 “/etc/default/grub” 파일에서 위에 언급된 root 및 resume 매개 변수의 디바이스 이름을 UUID로 바꾸면 파일의 줄이 다음과 같이 표시됩니다. <br>
+*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+3. 보호 다시 시작
+
+## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>모바일 서비스 설치가 완료되고 재부팅하라는 경고가 표시됨(ErrorID: 95265 및 95266)
+
+Site Recovery 모바일 서비스에는 여러 구성 요소가 있으며, 그중에서 하나를 필터 드라이버라고 합니다. 필터 드라이버는 시스템 재부팅 시에만 시스템 메모리에 로드됩니다. 따라서 시스템 재부팅 시 새 필터 드라이버가 로드될 때만 필터 드라이버를 수정할 수 있습니다.
+
+이는 경고이며, 기존 복제는 새 에이전트 업데이트 후에도 작동한다는 것에 **유의**하세요. 새 필터 드라이버의 혜택을 얻기 위해 언제든지 재부팅을 선택할 수 있지만, 재부팅하지 않을 경우 이전 필터 드라이버도 계속 작동합니다. 따라서 재부팅하지 않고 업데이트한 후에는 필터 드라이버를 제외한 **모바일 서비스의 기타 개선 사항과 수정 사항의 혜택이 실현**됩니다. 따라서 업그레이드 후의 재부팅은 권장 사항이지만 필수는 아닙니다. 재부팅이 필요한 경우에 대한 자세한 내용을 보려면 [여기](https://aka.ms/v2a_asr_reboot)를 클릭하세요.
+
+> [!TIP]
+>유지 관리 기간 중에 업그레이드를 예약하는 모범 사례는 [여기](https://aka.ms/v2a_asr_upgrade_practice)를 참조하세요.
 
 ## <a name="lvm-support-from-920-version"></a>9.20 버전의 LVM 지원
 

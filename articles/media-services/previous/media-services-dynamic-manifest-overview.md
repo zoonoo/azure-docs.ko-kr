@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/25/2018
+ms.date: 02/10/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312972"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000013"
 ---
 # <a name="filters-and-dynamic-manifests"></a>필터 및 동적 매니페스트
 
@@ -35,7 +35,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 스트리밍 라이브 이벤트 또는 주문형 비디오 등의 콘텐츠를 고객에게 전달할 경우 다양한 네트워크 조건의 다양한 디바이스에 고품질 비디오를 제공하는 것이 목표입니다. 이 목표를 위해 다음을 수행합니다.
 
 * 사용자의 스트림을 다중 비트 전송률([가변 품질](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) 비디오 스트림으로 인코딩(품질 및 네트워크 상태를 관리) 
-* Media Services [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징(여러 디바이스의 스트리밍 관리 가능) Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG DASH입니다. 
+* Media Services [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징(여러 디바이스의 스트리밍 관리 가능) Media Services서 다음과 같은 적응 비트 전송률 스트리밍 기술 제공을 지원합니다. HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 
 
 ### <a name="manifest-files"></a>매니페스트 파일
 가변 품질 스트리밍을 위해 자산을 인코딩하면 **매니페스트** (재생 목록) 파일이 만들어집니다(텍스트 기반 또는 XML 기반 파일). **매니페스트** 파일에는 트랙 유형(오디오, 비디오 또는 텍스트), 트랙 이름, 시작 및 종료 시간, 비트 전송률(품질), 트랙 언어, 프레젠테이션 창(고정 기간의 슬라이딩 창), 비디오 코덱(FourCC) 등의 스트리밍 메타 데이터가 포함됩니다. 또한 다음으로 재생할 수 있는 비디오 조각 및 위치에 대한 정보를 제공하여 다음 조각을 검색하도록 플레이어에 지시합니다. 조각(또는 세그먼트)은 비디오 콘텐츠의 실제 "청크"입니다.
@@ -80,7 +80,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 * 비디오의 시작 부분을 자릅니다("비디오 트리밍").
 * 플레이어의 DVR 창 길이를 제한하기 위해 프레젠테이션 창(DVR)을 조정합니다("프레젠테이션 창 조정").
 
-이러한 유연성을 실현하기 위해 Media Services는 미리 정의된 **필터**를 기반으로 [동적 매니페스트](media-services-dynamic-manifest-overview.md#filters)를 제공합니다.  필터를 정의하고 나면 클라이언트가 비디오의 특정 변환 또는 하위 클립을 스트리밍하는 데 해당 필터를 사용할 수 있습니다. 스트리밍 URL에서 필터를 지정할 수 있습니다. [동적 패키징](media-services-dynamic-packaging-overview.md)에서 지원하는 HLS, MPEG-DASH 및 부드러운 스트리밍 등의 적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. 예: 
+이러한 유연성을 실현하기 위해 Media Services는 미리 정의된 **필터**를 기반으로 [동적 매니페스트](media-services-dynamic-manifest-overview.md#filters)를 제공합니다.  필터를 정의하고 나면 클라이언트가 비디오의 특정 변환 또는 하위 클립을 스트리밍하는 데 해당 필터를 사용할 수 있습니다. 스트리밍 URL에서 필터를 지정할 수 있습니다. [동적 패키징](media-services-dynamic-packaging-overview.md)에서 지원하는 다음과 같은 적응 비트 전송률 스트리밍 프로토콜에 필터를 적용할 수 있습니다. HLS, MPEG-DASH 및 부드러운 스트리밍. 예: 
 
 필터가 있는 MPEG DASH URL
 
@@ -120,7 +120,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 
 ![변환 필터링 예제][renditions2]
 
-다음 예제에서는 7개의 ISO MP4 비디오 변환(180p에서 1080p까지)으로 메자닌 자산을 인코드하는 데 인코더가 사용되었습니다. 인코딩된 자산은 HLS, 부드러운 스트리밍 및 MPEG DASH 등의 스트리밍 프로토콜 중 하나로 동적으로 패키징할 수 있습니다.  다이어그램의 맨 위에 필터가 없는 자산을 위한 HLS 매니페스트가 나와 있습니다(7개의 모든 변환 포함).  왼쪽 아래에는 "ott" 필터가 적용된 HLS 매니페스트가 표시되어 있습니다. "ott" 필터는 1Mbps 아래의 모든 비트 전송률을 제거하도록 지정하며, 이 때문에 응답에서 맨 아래의 두 품질 수준이 제거됩니다. 오른쪽 아래에는 "mobile" 필터가 적용된 HLS 매니페스트가 나와 있습니다. "mobile" 필터는 해상도가 720p보다 높은 변환을 제거하도록 지정하며, 이 때문에 두 개의 1080p 변환이 제거됩니다.
+다음 예제에서는 7개의 ISO MP4 비디오 변환(180p에서 1080p까지)으로 메자닌 자산을 인코드하는 데 인코더가 사용되었습니다. 인코딩된 자산은 다음 스트리밍 프로토콜 중 하나로 동적으로 패키징할 수 있습니다. HLS, Smooth 및 MPEG DASH.  다이어그램의 맨 위에 필터가 없는 자산을 위한 HLS 매니페스트가 나와 있습니다(7개의 모든 변환 포함).  왼쪽 아래에는 "ott" 필터가 적용된 HLS 매니페스트가 표시되어 있습니다. "ott" 필터는 1Mbps 아래의 모든 비트 전송률을 제거하도록 지정하며, 이 때문에 응답에서 맨 아래의 두 품질 수준이 제거됩니다. 오른쪽 아래에는 "mobile" 필터가 적용된 HLS 매니페스트가 나와 있습니다. "mobile" 필터는 해상도가 720p보다 높은 변환을 제거하도록 지정하며, 이 때문에 두 개의 1080p 변환이 제거됩니다.
 
 ![변환 필터링][renditions1]
 

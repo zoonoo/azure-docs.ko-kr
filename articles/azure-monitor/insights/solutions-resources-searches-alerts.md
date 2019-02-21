@@ -13,14 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c46c65fe7e720e3afdd976e2480e8f183cc4398d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901193"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980111"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
+
+> [!IMPORTANT]
+> [Log Analytics 경고가 Azure Monitor로 확장되었으므로](../platform/alerts-extend.md) Resource Manager 템플릿을 사용하여 경고를 만드는 데 필요한 세부 정보는 이제 유효 기간이 지났습니다. Resource Manager 템플릿을 사용하여 로그 경고를 만드는 방법에 대한 자세한 내용은 [Azure 리소스 템플릿을 사용하여 로그 경고 관리](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template)를 참조합니다.
 
 > [!NOTE]
 > 현재 Preview로 제공되는 관리 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.

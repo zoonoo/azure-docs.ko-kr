@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: d49c16741f581b2ad09dc173e8380fdf77391dbe
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: deb8eacb1e9c55feba6b356eedc61ba57c3a6566
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299064"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110322"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Service Fabric에서 실행되는 컨테이너에 인증서 파일 가져오기
 
-인증서를 지정하여 컨테이너 서비스를 보호할 수 있습니다. Service Fabric은 컨테이너 내부에 Windows 또는 Linux 클러스터(5.7 이상 버전)의 노드에 설치된 인증서에 액세스하는 서비스의 메커니즘을 제공합니다. 클러스터의 모든 노드에서 LocalMachine에 인증서를 설치해야 합니다. 인증서 정보는 다음 코드 조각이 표시한 대로 `ContainerHostPolicies` 태그의 애플리케이션 매니페스트에서 제공됩니다.
+인증서를 지정하여 컨테이너 서비스를 보호할 수 있습니다. Service Fabric은 컨테이너 내부에 Windows 또는 Linux 클러스터(5.7 이상 버전)의 노드에 설치된 인증서에 액세스하는 서비스의 메커니즘을 제공합니다. 인증서는 클러스터의 모든 노드에서 LocalMachine 아래 인증서 저장소에 설치해야 합니다. 인증서에 해당하는 개인 키는 사용이 가능하고, 액세스가 가능하며 Windows에서 내보낼 수 있어야 합니다. 인증서 정보는 다음 코드 조각이 표시한 대로 `ContainerHostPolicies` 태그의 애플리케이션 매니페스트에서 제공됩니다.
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -31,7 +31,7 @@ ms.locfileid: "51299064"
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Windows 클러스터의 경우 애플리케이션을 시작할 때 런타임은 인증서를 읽고 각 인증서의 PFX 파일 및 암호를 생성합니다. 다음과 같은 환경 변수를 사용하여 컨테이너 내에서 이 PFX 파일 및 암호에 액세스할 수 있습니다. 
+Windows 클러스터의 경우 애플리케이션을 시작할 때 런타임은 참조된 각 인증서와 해당 개인 키를 임의로 생성된 암호로 보호되는 PFX 파일로 내보냅니다. PFX 및 암호 파일은 각각 다음 환경 변수를 사용하여 컨테이너 내부에 액세스할 수 있습니다. 
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PFX
 * Certificates_ServicePackageName_CodePackageName_CertName_Password

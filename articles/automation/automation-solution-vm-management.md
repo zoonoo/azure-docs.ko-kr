@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/30/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0473bccbd249f70139d815b8353f1ac271df754f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658389"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979652"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -209,7 +209,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 |External_AutoStop_TimeAggregationOperator | 조건을 평가하기 위해 선택한 기간 크기에 적용되는 시간 집계 연산자입니다. 사용 가능한 값은 **Average**, **Minimum**, **Maximum**, **Total** 및 **Last**입니다.|
 |External_AutoStop_TimeWindow | Azure에서 경고를 트리거하기 위해 선택된 메트릭을 분석하는 기간입니다. 이 매개 변수는 시간 간격 형식의 입력을 허용합니다. 가능한 값은 5분에서 6시간 사이입니다.|
 |External_EnableClassicVMs| 솔루션이 클래식 VM을 대상으로 하는지 여부를 지정합니다. 기본값은 True입니다. CSP 구독의 경우 False로 설정해야 합니다.|
-|External_ExcludeVMNames | 공백 없이 쉼표로 이름을 구분하여 제외할 VM 이름을 입력합니다.|
+|External_ExcludeVMNames | 공백 없이 쉼표로 이름을 구분하여 제외할 VM 이름을 입력합니다. VM은 140개로 제한됩니다. 140개를 초과하는 VM을 추가하면 제외할 VM이 추가되어 실수로 시작되거나 종료될 수 있습니다.|
 |External_Start_ResourceGroupNames | 시작 작업의 대상이 될 하나 이상의 리소스 그룹을 쉼표로 구분해서 지정합니다.|
 |External_Stop_ResourceGroupNames | 중지 작업의 대상이 될 하나 이상의 리소스 그룹을 쉼표로 구분해서 지정합니다.|
 |Internal_AutomationAccountName | Automation 계정의 이름을 지정합니다.|
@@ -333,7 +333,7 @@ VM이 실행될 때 시작/중지 솔루션에 포함되도록 하는 데 사용
 
 ### <a name="exclude-a-vm"></a>VM 제외
 
-솔루션에서 VM을 제외하려면 해당 VM을 **External_ExcludeVMNames** 변수에 추가할 수 있습니다. 이 변수는 시작/중지 솔루션에서 제외할 특정 VM의 쉼표로 구분된 목록입니다.
+솔루션에서 VM을 제외하려면 해당 VM을 **External_ExcludeVMNames** 변수에 추가할 수 있습니다. 이 변수는 시작/중지 솔루션에서 제외할 특정 VM의 쉼표로 구분된 목록입니다. 이 목록은 140개의 VM으로 제한됩니다. 140개를 초과하는 VM을 쉼표로 구분된 목록에 추가하는 경우 제외하도록 설정된 VM이 실수로 시작되거나 중지될 수 있습니다.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>시작 및 종료 일정 수정
 

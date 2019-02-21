@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 0c7e0e539ca884739f5bf633946a4704d29b132b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9f8d6488d12b5550c3390699b9c34380b51b60f9
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448231"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112600"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
 이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure Monitor에서 [최신 메트릭 경고](../../azure-monitor/platform/alerts-metric-near-real-time.md)를 구성하는 방법을 설명합니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 최신 메트릭 경고는 현재 [이 리소스 유형 집합](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에 대해 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 메트릭 경고에 대해 지정된 Resource Manager 템플릿은 Microsoft.OperationalInsights/workspaces 리소스 종류에 대해 작동하지 않습니다. Log Analytics의 메트릭 지원은 미리 보기로 제공되고 있습니다. 리소스 템플릿에서 미리 보기 기능을 사용하려는 사용자는 [Azure 경고 피드백](mailto:azurealertsfeedback@microsoft.com)에 문의하세요.
+> 리소스 형식에 대한 메트릭 경고를 만드는 리소스 템플릿: Azure Log Analytics 작업 영역(예를 들면,) `Microsoft.OperationalInsights/workspaces`에는 추가적인 단계가 필요합니다. 자세한 내용은 [로그에 대한 메트릭 경고 - 리소스 템플릿](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)을 참조하세요.
 
 기본적인 단계는 다음과 같습니다.
 

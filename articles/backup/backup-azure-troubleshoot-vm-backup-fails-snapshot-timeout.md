@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 5eecd750642610737d346c5c270349e285106e95
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820439"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56236977"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -253,3 +253,6 @@ Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [
 
 5. 복원 지점 컬렉션을 정리하려면 **삭제**를 클릭합니다.
 6. 백업 작업을 다시 시도합니다.
+
+> [!NOTE]
+ >리소스(RP 컬렉션)에 여러 복원 지점이 있는 경우 포털에서 동일한 복원 지점을 삭제하면 시간 제한으로 인해 작업이 실패할 수 있습니다. 이것은 일부 복원 지점이 규정된 시간에 삭제되지 않아 작업 시간이 초과되는 알려진 CRP 문제입니다. 그러나 삭제 작업은 일반적으로 2~3회 재시도 후 성공합니다.

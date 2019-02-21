@@ -9,16 +9,29 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.custom: seodec2018
-ms.openlocfilehash: 9b682b9cd17c174363dcd04707a11075e30cc8e1
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 62f9d24204e734b7b5e2ed97f361ccf228ba89dc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214830"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005049"
 ---
-# <a name="query-types-and-composition-in-azure-search"></a>Azure Search의 쿼리 유형 및 구성
+# <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search에서 쿼리를 작성하는 방법
 
-Azure Search에서 쿼리는 왕복 작업의 전체 사양입니다. 매개 변수는 인덱스에서 문서를 찾는 일치 조건, 엔진에 대한 실행 지침 및 응답을 형성하는 지시문을 제공합니다. 보다 정확하게, 범위 내 필드, 검색 방법, 반환할 필드, 정렬 또는 필터링 여부 등을 지정할 수 있습니다. 지정하지 않을 경우, 쿼리는 검색 가능한 모든 필드에 대해 전체 텍스트 검색 작업으로 실행되고, 점수가 매겨지지 않은 결과 집합을 임의의 순서로 반환합니다.
+Azure Search에서 쿼리는 왕복 작업의 전체 사양입니다. 요청의 매개 변수는 인덱스에서 문서를 찾는 일치 조건, 엔진에 대한 실행 지침 및 응답을 형성하는 지시문을 제공합니다. 
+
+쿼리 요청은 풍부한 구문으로, 범위 내 필드, 검색 방법, 반환할 필드, 정렬 또는 필터링 여부 등을 지정할 수 있습니다. 지정하지 않을 경우, 쿼리는 검색 가능한 모든 필드에 대해 전체 텍스트 검색 작업으로 실행되고, 점수가 매겨지지 않은 결과 집합을 임의의 순서로 반환합니다.
+
+### <a name="apis-and-tools-for-testing"></a>테스트를 위한 API 및 도구
+
+다음 표에는 쿼리를 제출하기 위한 API 및 도구 기반 접근 방법이 나와 있습니다.
+
+| 방법 | 설명 |
+|-------------|-------------|
+| [검색 탐색기(포털)](search-explorer.md) | 검색 표시줄 및 인덱스와 api-version 선택을 위한 옵션을 제공합니다. 결과는 JSON 문서로 반환됩니다. <br/>[자세한 정보](search-get-started-portal.md#query-index) | 
+| [Postman 또는 기타 HTTP 테스트 도구](search-fiddler.md) | Azure Search로 쿼리를 전송하기 위해 HTTP 요청 헤더 및 본문을 설정하는 방법을 설명합니다.  |
+| [SearchIndexClient(.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Azure Search 인덱스를 쿼리하는 데 사용할 수 있는 클라이언트입니다.  <br/>[자세한 정보](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Search Documents(REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | 인덱스에 대한 GET 또는 POST 메서드로, 추가 입력을 위해 쿼리 매개 변수를 사용합니다.  |
 
 ## <a name="a-first-look-at-query-requests"></a>쿼리 요청 소개
 
@@ -52,7 +65,7 @@ Azure Search에서 쿼리 실행은 항상 하나의 인덱스에 대해 수행�
 
 이 쿼리 문자열을 탐색기의 검색 창에 붙여넣으면 됩니다.`search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
 
-### <a name="how-query-operations-are-enabled-by-the-index"></a>인덱스로 쿼리 작업을 사용하는 방법
+## <a name="how-query-operations-are-enabled-by-the-index"></a>인덱스로 쿼리 작업을 사용하는 방법
 
 인덱스 디자인과 쿼리 디자인은 Azure Search와 밀접하게 결합됩니다. 먼저 알아야 하는 중요한 사실은 각 필드의 특성과 함께 인덱스 스키마에 의해 빌드할 수 있는 쿼리의 종류가 결정된다는 것입니다. 
 
@@ -148,17 +161,6 @@ Azure Search에서 검색 결과를 검색 점수가 아닌 다른 값으로 정
 
 ### <a name="hit-highlighting"></a>적중 항목 강조 표시
 Azure Search에서 검색 쿼리와 일치하는 검색 결과의 정확한 부분을 강조하려면 **`highlight`**, **`highlightPreTag`** 및 **`highlightPostTag`** 매개 변수를 사용합니다. 어떤 *검색 가능한* 필드의 일치 텍스트를 강조할지를 지정할 수 있으며 Azure Search에서 반환하는 일치 텍스트의 시작 및 끝부분에 추가할 정확한 문자열 태그를 지정할 수 있습니다.
-
-## <a name="apis-and-tools-for-testing"></a>테스트를 위한 API 및 도구
-
-다음 표에는 쿼리를 제출하기 위한 API 및 도구 기반 접근 방법이 나와 있습니다.
-
-| 방법 | 설명 |
-|-------------|-------------|
-| [SearchIndexClient(.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Azure Search 인덱스를 쿼리하는 데 사용할 수 있는 클라이언트입니다.  <br/>[자세한 정보](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Search Documents(REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | 인덱스에 대한 GET 또는 POST 메서드로, 추가 입력을 위해 쿼리 매개 변수를 사용합니다.  |
-| [Fiddler, Postman 또는 기타 HTTP 테스트 도구](search-fiddler.md) | Azure Search로 쿼리를 전송하기 위해 요청 헤더 및 본문을 설정하는 방법을 설명합니다.  |
-| [Azure Portal의 검색 탐색기](search-explorer.md) | 검색 표시줄 및 인덱스와 api-version 선택을 위한 옵션을 제공합니다. 결과는 JSON 문서로 반환됩니다. <br/>[자세한 정보](search-get-started-portal.md#query-index) | 
 
 ## <a name="see-also"></a>참고 항목
 

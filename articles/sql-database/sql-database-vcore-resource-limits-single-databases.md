@@ -3,7 +3,7 @@ title: Azure SQL Database vCore 기반 리소스 제한 - 단일 데이터베이
 description: 이 페이지에서는 Azure SQL Database에서 단일 데이터베이스에 대한 몇 가지 일반적인 vCore 기반 리소스 제한을 설명합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/01/2019
-ms.openlocfilehash: 494b9b5d8be804842406aac98d3b328c7848570d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 02/08/2019
+ms.openlocfilehash: 735c3dc4764f45512386a0c53a389f355f069aa3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663981"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998154"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도
 
@@ -260,5 +260,9 @@ SQL Database 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
+- 단일 데이터베이스에 대한 DTU 리소스 제한의 경우 [DTU 기반 구매 모델을 사용하여 단일 데이터베이스에 대한 리소스 제한](sql-database-dtu-resource-limits-single-databases.md)을 참조하세요.
+- 탄력적 풀에 대한 vCore 리소스 제한의 경우 [vCore 기반 구매 모델을 사용하여 탄력적 풀에 대한 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
+- 탄력적 풀에 대한 DTU 리소스 제한의 경우 [DTU 기반 구매 모델을 사용하여 탄력적 풀에 대한 리소스 제한](sql-database-dtu-resource-limits-elastic-pools.md)을 참조하세요.
+- 관리되는 인스턴스에 대한 리소스 제한의 경우 [관리되는 인스턴스 리소스 제한](sql-database-managed-instance-resource-limits.md)을 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
+- 데이터베이스 서버의 리소스 제한에 대한 자세한 내용은 서버 및 구독 수준의 한도에 관한 정보인 경우 [SQL Database 서버의 리소스 제한 개요](sql-database-resource-limits-database-server.md)를 참조하세요.

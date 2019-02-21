@@ -1,6 +1,6 @@
 ---
-title: DistCp를 사용하여 Azure Data Lake Storage Gen2 미리 보기에 데이터 복사 | Microsoft Docs
-description: DistCp 도구를 사용하여 Data Lake Storage Gen2 미리 보기에서 데이터를 복사합니다.
+title: DistCp를 사용하여 Azure Data Lake Storage Gen2에 데이터 복사 | Microsoft Docs
+description: DistCp 도구를 사용하여 Data Lake Storage Gen2에서 데이터 복사
 services: storage
 author: seguler
 ms.subservice: data-lake-storage-gen2
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 9c12f96399de218241c8aa7ed686113c17a7410c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8328ea5afb66bbecdafbb06dcbf6700194d62f9e
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244150"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864063"
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 미리 보기 간에 데이터 복사
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사
 
 [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html)를 사용하여 범용 V2 스토리지 계정과 계층 구조 네임스페이스를 사용하도록 설정된 범용 V2 스토리지 계정 간에 데이터를 복사할 수 있습니다. 이 문서에서는 DistCp 도구를 사용하는 방법에 대한 지침을 제공합니다.
 
@@ -24,8 +24,8 @@ DistCp는 다양한 명령줄 매개 변수를 제공하며, 이 도구의 사�
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Data Lake Storage Gen2 미리 보기 기능(계층 구조 네임스페이스)을 사용하도록 설정되지 않은 기존 Azure Storage 계정**
-* **Data Lake Storage Gen2(미리 보기) 기능을 사용하는 Azure Storage 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen2 미리 보기 스토리지 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조하세요.
+* **Data Lake Storage Gen2 기능(계층 구조 네임스페이스)을 사용하도록 설정되지 않은 기존 Azure Storage 계정**.
+* **Data Lake Storage Gen2 기능을 사용하는 Azure Storage 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen2 스토리지 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조하세요.
 * 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정에 만든 **파일 시스템**
 * Data Lake Storage Gen2를 사용하는 스토리지 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](data-lake-storage-use-hdi-cluster.md)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 

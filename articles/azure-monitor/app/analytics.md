@@ -10,17 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/08/2018
+ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 24a911978d6c9f9a33c81254a5e2f5951029ff3a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: c9392d910098e8a2dfadc4842dfcfe185f01fafc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120889"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004522"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights의 분석
-Analytics는 [Application Insights](../../azure-monitor/app/app-insights-overview.md)의 강력한 검색 및 쿼리 도구입니다. Analytics는 웹 도구이므로 설치가 필요하지 않습니다. 앱 중 하나에 대해 Application Insights를 이미 구성한 경우 앱의 [개요 블레이드](../../azure-monitor/app/app-insights-dashboards.md)에서 Analytics를 열어 앱의 데이터를 분석할 수 있습니다.
+Analytics는 [Application Insights](app-insights-overview.md)의 강력한 검색 및 쿼리 도구입니다. Analytics는 웹 도구이므로 설치가 필요하지 않습니다.
+앱 중 하나에 대해 Application Insights를 이미 구성한 경우 앱의 [개요 블레이드](app-insights-dashboards.md)에서 Analytics를 열어 앱의 데이터를 분석할 수 있습니다.
 
 ![portal.azure.com에서 Application Insights 리소스를 열고 분석을 클릭합니다.](./media/analytics/001.png)
 
@@ -28,6 +29,12 @@ Analytics는 [Application Insights](../../azure-monitor/app/app-insights-overvie
 <br>
 <br>
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
+
+## <a name="relation-to-azure-monitor-logs"></a>Azure Monitor 로그와의 관계
+Application Insights 분석은 Azure Monitor 로그와 같은 [Azure Data Explorer](/azure/data-explorer)를 기반으로 하며 [데이터 탐색기 쿼리 언어](/azure/kusto/query)도 사용합니다. Azure Monitor 로그와 동일한 [Log Analytics 포털](../log-query/get-started-portal.md)을 사용하지만 데이터는 별도의 파티션에 저장됩니다.
+
+Application Insights 분석에서 Log Analytics 작업 영역의 데이터에 직접 액세스하거나 Log Analytics에서 애플리케이션 데이터에 직접 액세스할 수는 없습니다. 두 데이터 세트를 함께 쿼리하려면 [Log Analytics에서 쿼리](../log-query/log-query-overview.md)를 작성하고 [app() 식](../log-query/app-expression.md)을 사용하여 애플리케이션 데이터에 액세스합니다.
+
 
 ## <a name="query-data-in-analytics"></a>Analytics의 쿼리 데이터
 일반적인 쿼리는 테이블 이름으로 시작하며 그 뒤에 `|`로 구분된 일련의 *연산자*가 있습니다.

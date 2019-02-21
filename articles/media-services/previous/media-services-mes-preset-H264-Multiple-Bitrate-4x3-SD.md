@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 5db0d1043ad4b06540056be68a5c2b8a52c8f123
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3656597bda36446def7d4e4981ced4868ea6249d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247778"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55988071"
 ---
 # <a name="h264-multiple-bitrate-4x3-sd"></a>H264 다중 비트 전송률 4x3 SD
 `Media Encoder Standard`는 인코딩 작업을 만들 때 사용할 수 있는 인코딩 미리 설정을 정의합니다. `preset name`을 사용하여 미디어 파일을 인코딩할 형식을 지정할 수 있습니다. 또는 자신만의 JSON 또는 XML 기반 미리 설정(UTF-8 또는 UTF-16 인코딩을 사용하여)을 만들 수 있습니다. 그런 다음 사용자 지정 미리 설정을 인코더에 전달합니다. `Media Encoder Standard` 인코더에서 지원되는 모든 미리 설정 이름의 목록을 보려면 [Media Encoder Standard에 대한 작업 미리 설정](media-services-mes-presets-overview.md)을 참조하세요.  
@@ -29,7 +29,7 @@ ms.locfileid: "50247778"
  미리 설정은 스테레오 AAC 오디오 및 1600kbps에서 400kbps에 이르는 5 GOP 정렬 MP4 파일 집합을 생성합니다. 미리 설정의 프로필, 비트 전송률, 샘플링 주기 등에 대한 자세한 내용을 보려면 아래 정의된 XML 또는 JSON을 검토하세요. 미리 설정에 포함된 각 요소의 의미 및 유효한 값에 대한 설명은 [Media Encoder Standard 스키마](media-services-mes-schema.md) 항목을 참조하세요.  
   
 > [!NOTE]
->  계층에서 `Width` 및 `Height` 값을 수정하는 경우 가로 세로 비율을 일관적으로 유지해야 합니다. 예: 1920x1080, 1280x720, 1080x576, 640x360. 가로 세로 비율을 혼합하여 사용하지 말아야 합니다. 예: 1280x720, 720x480, 640x360.  
+>  계층에서 `Width` 및 `Height` 값을 수정하는 경우 가로 세로 비율을 일관적으로 유지해야 합니다. 예:  1920x1080, 1280x720, 1080x576, 640x360. 가로 세로 비율을 혼합하여 사용하지 말아야 합니다. 예: 1280x720, 720x480, 640x360.  
   
  XML  
   

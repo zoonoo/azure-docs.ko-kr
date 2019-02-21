@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ada3210a59e0c3044551bee54b0a705b4b513594
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254437"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005151"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Media Encoder Standard를 사용하여 자산을 인코딩하는 방법
 > [!div class="op_single_selector"]
@@ -30,6 +30,7 @@ ms.locfileid: "51254437"
 >
 
 ## <a name="overview"></a>개요
+
 인터넷을 통해 디지털 비디오를 배달하려면 미디어를 압축해야 합니다. 디지털 비디오 파일은 대용량이기 때문에 인터넷을 통해 전달하거나 고객의 디바이스에서 제대로 표시하지 못할 수 있습니다. Encoding은 고객이 미디어를 볼 수 있도록 비디오 및 오디오를 압축하는 과정입니다.
 
 Encoding 작업은 Azure Media Services에서 가장 일반적인 처리 작업 중 하나입니다. 인코딩 작업을 만들어 한 인코딩에서 다른 인코딩으로 미디어 파일을 변환합니다. 인코드할 때는 Media Services 기본 제공 인코더(미디어 인코더 표준)를 사용할 수 있습니다. 또한 Media Services 파트너가 제공하는 인코더를 사용할 수 있습니다. 타사 인코더는 Azure Marketplace를 통해 사용할 수 있습니다. 인코더에 정의된 미리 설정 문자열을 사용하여 또는 미리 설정 구성 파일을 사용하여 인코딩 작업의 세부 정보를 지정할 수 있습니다. 사용할 수 있는 미리 설정 유형을 보려면 [Media Encoder Standard에 대한 작업 미리 설정](https://msdn.microsoft.com/library/mt269960)을 참조하세요.
@@ -54,12 +55,13 @@ Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체�
 AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을 사용하여 Azure Media Services API 액세스](media-services-use-aad-auth-to-access-ams-api.md)를 참조하세요. 
 
 ## <a name="create-a-job-with-a-single-encoding-task"></a>작업을 단일 인코딩 작업으로 만들기
+
 > [!NOTE]
 > Media Services REST API를 사용할 때는 다음 사항을 고려해야 합니다.
 >
 > Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 >
-> JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(Accept: application/json;odata=verbose)으로 설정해야 합니다.
+> JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)으로 설정해야 합니다. Accept: application/json;odata=verbose.
 >
 >
 

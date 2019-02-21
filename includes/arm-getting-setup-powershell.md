@@ -4,12 +4,12 @@ ms.service: azure-powershell
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: sewhee
-ms.openlocfilehash: 5f224ab3b0040bcba6b99d8db744e9dbde4a63c9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b93722147959881dfbffbb47b7a3e4b140044525
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572467"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247019"
 ---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>리소스 관리자 템플릿에 대한 PowerShell 설정
 리소스 관리자에서 Azure PowerShell을 사용하려면 먼저 올바른 Windows PowerShell 및 Azure PowerShell 버전이 있어야 합니다.
@@ -63,5 +63,5 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 현재 
     $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
     Select-AzureRmSubscription -SubscriptionName $subscr -Current
 
-Azure 구독 및 계정에 대한 자세한 내용은 [방법: 구독에 연결](/powershell/azureps-cmdlets-docs#step-3-connect)을 참조하세요.
+Azure 구독 및 계정에 대한 자세한 내용은 [방법: 구독에 연결](/powershell/azureps-cmdlets-docs)을 참조하세요.
 

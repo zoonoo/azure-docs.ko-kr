@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0f6677cce369117886a8b4534423414c2fd56d0c
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d9cedd05e949d9684473d620629314a34802c1fc
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331064"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977306"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines에서 SQL Server의 자동화된 패치(리소스 관리자)
 > [!div class="op_single_selector"]
@@ -53,6 +53,8 @@ ms.locfileid: "54331064"
 **Azure PowerShell**:
 
 * [최신 Azure PowerShell 명령을 설치합니다](/powershell/azure/overview) .
+
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > 자동화된 패치는 SQL Server IaaS 에이전트 확장에 의존합니다. 현재 SQL 가상 머신 갤러리 이미지는 기본적으로 이 확장을 추가합니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
@@ -103,13 +105,13 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 ## <a name="configuration-with-powershell"></a>PowerShell을 사용하여 구성
 SQL VM을 프로비전한 후 PowerShell을 사용하여 자동화된 패치를 구성합니다.
 
-다음 예제에서는 PowerShell을 사용하여 기존 SQL Server VM에 대해 자동화된 패치를 구성합니다. **AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig** 명령은 자동 업데이트에 대한 새 유지 관리 기간을 구성합니다.
+다음 예제에서는 PowerShell을 사용하여 기존 SQL Server VM에 대해 자동화된 패치를 구성합니다. **AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig** 명령은 자동 업데이트에 대한 새 유지 관리 기간을 구성합니다.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
-    Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+    Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
 > [!IMPORTANT]
 > 확장 프로그램이 아직 설치되지 않은 경우 확장 프로그램을 설치하면 SQL Server 서비스가 다시 시작됩니다.
@@ -125,7 +127,7 @@ SQL VM을 프로비전한 후 PowerShell을 사용하여 자동화된 패치를 
 
 SQL Server IaaS 에이전트를 설치하고 구성하는 데는 몇 분 정도 걸릴 수 있습니다.
 
-자동화된 패치를 사용하지 않으려면 동일한 스크립트를 **AzureRM.Compute\New-AzureRmVMSqlServerAutoPatchingConfig**에 대해 **-Enable** 매개 변수 없이 실행합니다. **-Enable** 매개 변수가 없는 경우 기능을 해제하는 명령을 신호로 보냅니다.
+자동화된 패치를 사용하지 않으려면 동일한 스크립트를 **AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig**에 대해 **-Enable** 매개 변수 없이 실행합니다. **-Enable** 매개 변수가 없는 경우 기능을 해제하는 명령을 신호로 보냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.

@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fc4d09b59e568a693b7f7951e9e716d04a5a2a49
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d664c33c4535d25ec93fd1f36c990f2764a4e071
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729271"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000816"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용하기 위한 JavaScript 샘플
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C 애플리케이션에 사용자 고유의 JavaScript 클라이언트 쪽 코드를 추가할 수 있습니다. 이 문서에서는 스크립트 실행이 가능하도록 [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 변경하는 방법을 설명합니다.
+Azure AD(Azure Active Directory) B2C 애플리케이션에 사용자 고유의 JavaScript 클라이언트 쪽 코드를 추가할 수 있습니다. 이 문서에서는 스크립트 실행이 가능하도록 [사용자 지정 정책](active-directory-b2c-overview-custom.md) 또는 [사용자 흐름](user-flow-javascript-overview.md)을 변경하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-애플리케이션의 사용자 인터페이스 요소에 대해 [페이지 계약](page-contract.md)을 선택합니다. JavaScript를 사용하려면 사용자 지정 정책의 모든 콘텐츠 정의에 대해 페이지 계약 버전을 정의해야 합니다.
+애플리케이션의 사용자 인터페이스 요소에 대해 [페이지 계약](page-contract.md)을 선택합니다. JavaScript를 사용하려면 사용자 흐름 또는 사용자 지정 정책의 모든 콘텐츠 정의에 대해 페이지 계약 버전을 정의해야 합니다.
 
 ## <a name="add-the-scriptexecution-element"></a>ScriptExecution 요소 추가
 

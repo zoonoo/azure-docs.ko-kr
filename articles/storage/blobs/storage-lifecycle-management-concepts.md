@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: dd74cac3000f6a280d5b8faa858c2143d17a7e55
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247802"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211447"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Storage 수명 주기 관리(미리 보기)
 
@@ -37,7 +37,7 @@ ms.locfileid: "55247802"
 수명 주기 관리 기능은 무료 미리 보기로 제공됩니다. [Blob 나열](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 및 [Blob 계층 설정](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API 호출에 대한 일반 작업 비용은 고객에게 청구됩니다. 가격 책정에 대한 자세한 내용은 [블록 Blob 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
 
 ## <a name="register-for-preview"></a>미리 보기 등록 
-공개 미리 보기에 등록하려면 이 기능을 구독에 등록해 달라는 요청을 제출해야 합니다. 요청은 일반적으로 2주 내에 승인됩니다. 요청이 승인되면 다음 지역의 모든 기존 및 새로운 GPv2 또는 Blob Storage 계정이 이 기능을 포함합니다. 미국 서부 2, 미국 중서부, 미국 동부 2 및 유럽 서부 미리 보기는 블록 blob만 지원합니다. 대부분의 미리 보기와 마찬가지로, GA가 진행될 때까지 프로덕션 워크로드에서 이 기능을 사용할 수 없습니다.
+공개 미리 보기에 등록하려면 이 기능을 구독에 등록해 달라는 요청을 제출해야 합니다. 요청은 일반적으로 72시간 내에 승인됩니다. 요청이 승인되면 다음 지역의 모든 기존 및 새로운 GPv2 또는 Blob Storage 계정이 이 기능을 포함합니다. 미국 서부 2, 미국 중서부, 미국 동부 2 및 유럽 서부 미리 보기는 블록 blob만 지원합니다. 대부분의 미리 보기와 마찬가지로, GA가 진행될 때까지 프로덕션 워크로드에서 이 기능을 사용할 수 없습니다.
 
 요청을 제출하려면 다음 PowerShell 또는 CLI 명령을 실행합니다.
 

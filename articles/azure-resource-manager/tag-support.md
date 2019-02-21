@@ -4,17 +4,19 @@ description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509918"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246054"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다.
+
+쉼표로 구분된 값 파일과 동일한 데이터를 가져오려면 [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv) 파일을 다운로드합니다.
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | 리소스 종류 | 태그 지원 |
@@ -1123,13 +1125,14 @@ ms.locfileid: "55509918"
 | servers/communicationLinks | 아니요 | 
 | servers/databases | 예(아래 참고를 참조) | 
 | servers/encryptionProtector | 아니요 | 
+| servers/firewallRules | 아니요 | 
 | servers/keys | 아니요 | 
 | servers/restorableDroppedDatabases | 아니요 | 
 | servers/serviceobjectives | 아니요 | 
 | servers/tdeCertificates | 아니요 | 
 
 > [!NOTE]
-> Master 데이터베이스는 태그를 지원하지 않지만 다른 데이터베이스는 태그를 지원합니다.
+> master 데이터베이스는 태그를 지원하지 않지만, Data Warehouse 데이터베이스를 포함한 다른 데이터베이스는 태그를 지원합니다.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

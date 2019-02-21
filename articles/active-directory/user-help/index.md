@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-title: 인증, 앱 및 디바이스 관리에 대한 사용자 도움말 - Azure Active Directory | Microsoft Docs
-description: 사용자 도움말은 보안 정보, 2단계 인증, 셀프 서비스 암호 재설정, 디바이스 관리, Microsoft Authenticator 앱 및 My Apps 포털 등의 설정 및 사용에 도움이 필요한 사람들을 위한 것입니다.
+title: '인증, 앱 및 디바이스 관리에 대한 사용자 도움말 - Azure Active Directory | Microsoft Docs'
+description: '사용자 도움말은 보안 정보, 2단계 인증, 셀프 서비스 암호 재설정, 디바이스 관리, Microsoft Authenticator 앱 및 My Apps 포털 등의 설정 및 사용에 도움이 필요한 사람들을 위한 것입니다.'
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -11,13 +11,8 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0af4cf345efe2180249f9c9491e9f66f75ac4514
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188718"
 ---
+
 # <a name="user-help-for-authentication-apps-and-device-management"></a>인증, 앱 및 디바이스 관리에 대한 사용자 도움말
 
 이 콘텐츠는 보안 정보, 2단계 인증의 설정 및 사용, 자신의 암호 재설정 방법 학습, Azure Active Directory 디바이스의 설정 및 연결, Microsoft Authenticator 앱과 My Apps 포털의 설정 및 사용 등을 지원하기 위한 것입니다.
@@ -29,6 +24,62 @@ ms.locfileid: "56188718"
 
 
 <ul class="panelContent cardsF">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Microsoft Authenticator 앱 도움말</h3>
+                        <p>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">개요</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-download-install">앱 다운로드 및 설치</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-add-account-overview">계정 추가</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-sign-in">앱을 사용하여 로그인</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-backup-recovery">계정 자격 증명 백업 및 복구</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>    
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>내 프로필(미리 보기) 포털 도움말</h3>
+                        <p>
+                        <a href="/azure/active-directory/user-help/myprofile-portal-overview">개요</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-security-info-overview">보안 정보 관리</a><br/>
+                        <a href="/azure/active-directory/user-help/myprofile-portal-recent-activity-page">최근 로그인 작업 보기</a><br/>
+                        <a href="/azure/active-directory/user-help/myprofile-portal-organizations-page">조직 관리</a><br/>
+                        <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">연결된 디바이스 관리</a><br/>
+                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">개인 정보 관련 정보 보기</a><br/>                       
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>보안 정보(미리 보기) 도움말</h3>
+                        <p>
+                        <a href="/azure/active-directory/user-help/user-help-security-info-overview">개요</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-signin">로그인 페이지 프롬프트에서 설정</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-auth-app">인증자 앱 설정</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-text-msg">문자 메시지 설정</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-phone-number">전화 통화 설정</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-sign-in">로그인 방법</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
     <li>
         <div class="cardSize">
             <div class="cardPadding">
@@ -61,37 +112,16 @@ ms.locfileid: "56188718"
                 </div>
             </div>
         </div>
-    </li>
-<li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>보안 정보(미리 보기) 도움말</h3>
-                        <p>
-                        <a href="/azure/active-directory/user-help/security-info-setup-auth-app">인증자 앱 설정</a><br/>
-                        <a href="/azure/active-directory/user-help/security-info-setup-text-msg">문자 메시지 설정</a><br/>
-                        <a href="/azure/active-directory/user-help/security-info-setup-phone-number">전화 통화 설정</a><br/>
-                        <a href="/azure/active-directory/user-help/security-info-manage-settings">보안 정보 관리</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-sign-in">로그인 방법</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
+    </li>      
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Microsoft Authenticator 앱 도움말</h3>
+                        <h3>내 디바이스 관리 도움말</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">개요</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-auth-app-download-install">앱 다운로드 및 설치</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-auth-app-add-account-overview">계정 추가</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-auth-app-sign-in">앱을 사용하여 로그인</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-auth-app-backup-recovery">계정 자격 증명 백업 및 복구</a>
+                        <a href="/azure/active-directory/user-help/user-help-join-device-on-network">작업 장치 조인</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">작업할 개인 디바이스 등록</a>
                         </p>
                     </div>
                 </div>
@@ -112,20 +142,5 @@ ms.locfileid: "56188718"
                 </div>
             </div>
         </div>
-    </li>
-<li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>내 디바이스 관리 도움말</h3>
-                        <p>
-                        <a href="/azure/active-directory/user-help/user-help-join-device-on-network">작업 장치 조인</a><br/>
-                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">작업할 개인 디바이스 등록</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
+    </li>    
 </ul>

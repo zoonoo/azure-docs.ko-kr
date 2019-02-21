@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: c0875861a90080c649596880804fe6538c04bc51
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f3ca140fd8606f60a07b71db32cf2d3987ed7860
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497620"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56233602"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 배포 모드
 
 리소스를 배포할 때 배포를 증분 업데이트 또는 전체 업데이트할지 지정합니다.  이러한 두 모드 간 주요 차이점은 Resource Manager가 템플릿에 없는 리소스 그룹에서 기존 리소스를 처리하는 방식입니다. 기본 모드는 증분입니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+루트 수준 템플릿만 전체 배포 모드를 지원합니다. [연결된 또는 중첩된 템플릿](resource-group-linked-templates.md)의 경우 증분 모드만 사용해야 합니다. 
 
 ## <a name="incremental-and-complete-deployments"></a>증분 및 전체 배포
 
@@ -84,7 +84,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-[연결 또는 중첩 된 템플릿](resource-group-linked-templates.md)을 사용하는 경우 `mode` 속성을 `Incremental`로 설정해야 합니다. 루트 수준 템플릿만 전체 배포 모드를 지원합니다.
+다음 예제에서는 증분 배포 모드로 연결된 템플릿 세트를 보여줍니다.
 
 ```json
 "resources": [

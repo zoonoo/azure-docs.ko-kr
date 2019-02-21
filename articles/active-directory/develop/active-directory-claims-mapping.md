@@ -12,14 +12,15 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
-ms.openlocfilehash: 18cd96c87f294f1dd8e62f41dd759558c2013aa0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aad699df2de8b745058784790e672f5b8c6e98e9
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241673"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209747"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에서 내보낸 클레임 사용자 지정(미리 보기)
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
 > [!NOTE]
 > 이 기능은 현재 포털을 통해 제공되는 [클레임 사용자 지정](active-directory-saml-claims-customization.md)을 바꾸고 대체합니다. 이 문서에 자세히 설명된 Graph/PowerShell 방법과 함께 포털을 사용하여 동일한 애플리케이션에서 클레임을 사용자 지정하는 경우 해당 애플리케이션용으로 발급된 토큰은 포털의 구성을 무시합니다. 이 문서에 설명된 방법을 통해 만들어진 구성은 포털에서 반영되지 않습니다.
@@ -184,7 +185,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 |wids|
 |win_ver|
 
-### <a name="table-2-saml-restricted-claim-set"></a>표 2: SAML 제한 클레임 집합
+### <a name="table-2-saml-restricted-claim-set"></a>표 2: SAML 제한된 클레임 집합
 
 |클레임 형식(URI)|
 | ----- |
@@ -257,25 +258,25 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 애플리케이션 �
 
 **문자열:** ClaimsSchema
 
-**데이터 형식:** 하나 이상의 클레임 스키마 항목을 가진 JSON Blob입니다.
+**데이터 형식:** 하나 이상의 클레임 스키마 항목이 있는 JSON Blob입니다.
 
-**요약:** 이 속성은 기본 클레임 집합 및 핵심 클레임 집합 외에도 정책의 영향을 받는 토큰에 표시될 클레임을 정의합니다.
+**요약:** 이 속성은 기본 클레임 집합 및 핵심 클레임 집합 외에도 정책의 영향을 받는 토큰에 포함될 클레임을 정의합니다.
 이 속성에 정의된 각 클레임 스키마 항목의 경우 특정 정보가 필요합니다. 데이터의 출처(**Value** 또는 **Source/ID 쌍**) 및 데이터를 내보내는 클레임(**클레임 유형**)을 지정합니다.
 
 ### <a name="claim-schema-entry-elements"></a>클레임 스키마 항목 요소
 
-**값:** Value 요소는 클레임에 내보내지는 데이터로 정적 값을 정의합니다.
+**Value:** Value 요소는 클레임에 내보내질 데이터로 정적 값을 정의합니다.
 
-**원본/ID 쌍:** Source 및 ID 요소는 클레임의 데이터가 제공되는 위치를 정의합니다. 
+**Source/ID 쌍:**: Source 및 ID 요소는 클레임의 데이터가 제공되는 위치를 정의합니다. 
 
 Source 요소는 다음 중 하나로 설정합니다. 
 
-- "user": 클레임의 데이터가 User 개체의 속성입니다. 
-- "application": 클레임의 데이터가 애플리케이션(클라이언트) 서비스 주체의 속성입니다. 
-- "resource": 클레임의 데이터가 리소스 서비스 주체의 속성입니다.
-- "audience": 클레임의 데이터가 토큰의 대상 그룹인 서비스 주체(클라이언트 또는 리소스 서비스 주체)의 속성입니다.
-- "company": 클레임의 데이터가 리소스 테넌트에 대한 Company 개체의 속성입니다.
-- "transformation": 클레임의 데이터가 클레임 변환에서 제공됩니다(이 문서의 뒷부분에서 "클레임 변환" 섹션을 참조).
+- “user”: 클레임의 데이터가 User 개체의 속성입니다. 
+- “application”: 클레임의 데이터가 애플리케이션(클라이언트) 서비스 주체의 속성입니다. 
+- “resource”: 클레임의 데이터가 리소스 서비스 주체의 속성입니다.
+- “audience”: 클레임의 데이터가 토큰의 대상 그룹인 서비스 주체(클라이언트 또는 리소스 서비스 주체)의 속성입니다.
+- “company”: 클레임의 데이터가 리소스 테넌트에 대한 Company 개체의 속성입니다.
+- “transformation”: 클레임의 데이터가 클레임 변환에서 제공됩니다(이 문서의 뒷부분에 있는 “클레임 변환” 섹션 참조).
 
 원본이 변환인 경우 **TransformationID** 요소도 이 클레임 정의에 포함되어야 합니다.
 
@@ -329,11 +330,11 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 |애플리케이션, 리소스, 대상 그룹|tags|서비스 주체 태그|
 |회사|tenantcountry|테넌트 국가|
 
-**TransformationID:** TransformationID 요소는 Source 요소가 "변환"으로 설정된 경우에만 제공해야 합니다.
+**TransformationID:** TransformationID 요소는 Source 요소가 “transformation”으로 설정된 경우에만 제공해야 합니다.
 
 - 이 요소는 이 클레임에 대한 데이터가 생성되는 방식을 정의하는 **ClaimsTransformation** 속성에서 변환 항목의 ID 요소와 일치해야 합니다.
 
-**클레임 형식:** **JwtClaimType** 및 **SamlClaimType** 요소는 이 클레임 스키마 항목이 참조하는 클레임을 정의합니다.
+**클레임 유형:** **JwtClaimType** 및 **SamlClaimType** 요소는 이 클레임 스키마 항목이 참조하는 클레임을 정의합니다.
 
 - JwtClaimType에는 JWT로 내보낼 클레임 이름이 포함되어야 합니다.
 - SamlClaimType에는 SAML 토큰으로 내보낼 클레임 URI가 포함되어야 합니다.
@@ -345,41 +346,41 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 **문자열:** ClaimsTransformation
 
-**데이터 형식:** 하나 이상의 변환 항목을 가진 JSON Blob입니다. 
+**데이터 형식:** 하나 이상의 변환 항목이 있는 JSON Blob입니다. 
 
-**요약:** 이 속성을 사용하여 클레임 스키마에 지정된 클레임에 대한 출력 데이터를 생성하기 위해 원본 데이터에 일반 변환을 적용합니다.
+**요약:** 클레임 스키마에 지정된 클레임에 대한 출력 데이터를 생성하기 위해 이 속성을 사용하여 원본 데이터에 일반 변환을 적용합니다.
 
-**ID:** ID 요소를 사용하여 클레임 스키마 항목의 TransformationID에서 이 변환 항목을 참조합니다. 이 값은 이 정책 내에서 각 변환 항목에 고유해야 합니다.
+**ID:** ID 요소를 사용하여 TransformationID 클레임 스키마 항목에서 이 변환 항목을 참조합니다. 이 값은 이 정책 내에서 각 변환 항목에 고유해야 합니다.
 
 **TransformationMethod:** TransformationMethod 요소는 클레임에 대한 데이터를 생성하기 위해 수행할 작업을 식별합니다.
 
 선택한 방법에 따라 입력 및 출력 집합이 예상됩니다. **InputClaims**, **InputParameters** 및 **OutputClaims** 요소를 사용하여 입력과 출력을 정의합니다.
 
-#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>표 4: 변환 메서드 및 예상 입력 및 출력
+#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>표 4: 변환 메서드와 예상 입력 및 출력
 
 |TransformationMethod|예상 입력|예상 출력|설명|
 |-----|-----|-----|-----|
 |Join|string1, string2, 구분 기호|outputClaim|구분 기호를 사용하여 입력 문자열을 조인합니다. 예: string1:"foo@bar.com" , string2:"sandbox" , separator:"."는 outputClaim:"foo@bar.com.sandbox"를 생성합니다.|
 |ExtractMailPrefix|mail|outputClaim|메일 주소의 로컬 부분을 추출합니다. 예: mail:"foo@bar.com"은 outputClaim:"foo"를 생성합니다. \@ 기호가 없으면 원본 입력 문자열이 현재 그대로 반환됩니다.|
 
-**InputClaims:** InputClaims 요소를 사용하여 클레임 스키마 항목에서 변환에 데이터를 전달할 수 있습니다. 두 개의 특성인 **ClaimTypeReferenceId** 및 **TransformationClaimType**이 있습니다.
+**InputClaims:** InputClaims 요소를 사용하여 클레임 스키마 항목의 데이터를 변환에 전달합니다. 이 요소에는 두 개의 특성인 **ClaimTypeReferenceId** 및 **TransformationClaimType**이 있습니다.
 
 - **ClaimTypeReferenceId**가 클레임 스키마 항목의 ID 요소와 조인되어 적절한 입력 클레임을 찾습니다. 
 - **TransformationClaimType**은 이 입력에 고유 이름을 지정하는 데 사용됩니다. 이 이름은 변환 방법에 대한 예상 입력 중 하나와 일치해야 합니다.
 
-**InputParameters:** InputParameters 요소를 사용하여 변환에 상수 값을 전달합니다. 두 개의 특성인 **Value** 및 **ID**가 있습니다.
+**InputParameters:** InputParameters 요소를 사용하여 상수 값을 변환에 전달합니다. 이 요소에는 두 개의 특성인 **Value** 및 **ID**가 있습니다.
 
 - **Value**는 전달할 실제 상수 값입니다.
 - **ID**는 입력에 고유 이름을 지정하는 데 사용됩니다. 이름은 변환 방법에 필요한 입력 중 하나와 일치해야 합니다.
 
-**OutputClaims:** OutputClaims 요소를 사용하여 변환에 의해 생성된 데이터를 보관하고 클레임 스키마 항목에 연결합니다. 두 개의 특성인 **ClaimTypeReferenceId** 및 **TransformationClaimType**이 있습니다.
+**OutputClaims:** OutputClaims 요소를 사용하여 변환에 의해 생성된 데이터를 보관하고 클레임 스키마 항목에 연결합니다. 이 요소에는 두 개의 특성인 **ClaimTypeReferenceId** 및 **TransformationClaimType**이 있습니다.
 
 - **ClaimTypeReferenceId**가 클레임 스키마 항목의 ID와 조인되어 적절한 출력 클레임을 찾습니다.
 - **TransformationClaimType**은 출력에 고유 이름을 지정하는 데 사용됩니다. 이름은 변환 방법에 필요한 출력 중 하나와 일치해야 합니다.
 
 ### <a name="exceptions-and-restrictions"></a>예외 및 제한 사항
 
-**SAML NameID 및 UPN:** NameID 및 UPN 값을 소싱하는 특성과 허용되는 클레임 변환은 제한됩니다. 허용되는 값을 확인하려면 표 5와 6을 참조하세요.
+**SAML NameID 및 UPN:**: NameID 및 UPN 값이 제공되는 특성과 허용되는 클레임 변환은 제한됩니다. 허용되는 값을 확인하려면 표 5와 6을 참조하세요.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>표 5: SAML NameID에 대한 데이터 원본으로 허용되는 특성
 
@@ -447,7 +448,7 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
         Get-AzureADPolicy
     
     ```
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>예제: 서비스 주체에 발급된 토큰에서 기본 클레임을 생략하는 정책을 만들고 할당합니다.
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>예제: 서비스 주체에 발급된 토큰에서 기본 클레임을 생략하는 정책 만들기 및 할당
 이 예제에서는 연결된 서비스 주체에 발급된 토큰에서 기본 클레임 집합을 제거하는 정책을 만듭니다.
 
 1. 클레임 매핑 정책을 만듭니다. 특정 서비스 주체에 연결되는 이 정책은 토큰에서 기본 클레임 집합을 제거합니다.
@@ -493,7 +494,7 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
     Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
     ```
 
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>예제: 서비스 주체에 발급된 토큰에서 클레임 변환을 사용하는 정책 만들기 및 할당
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>예제: 서비스 주체에 발급된 토큰에 클레임 변환을 사용하는 정책 만들기 및 할당
 
 이 예제에서는 연결된 서비스 주체에 발급된 JWT에 사용자 지정 클레임 “JoinedData”를 내보내는 정책을 만듭니다. 이 클레임에는 사용자 개체의 extensionattribute1 특성에 저장된 데이터와 ".sandbox"를 조인하여 만든 값이 포함됩니다. 이 예제에서는 토큰에 기본 클레임 집합을 제외합니다.
 

@@ -3,9 +3,8 @@ title: Azure AD 특성 매핑 사용자 지정 | Microsoft Docs
 description: Azure Active Directory의 Saas 앱에 대한 어떤 특성 매핑이 있고 어떻게 비즈니스 요구 사항에 맞게 수정하는지를 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eaf6890223526b213ac4ec1180288b95fe6eaa29
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c1926849c8ec63b4240d951e46b1341f31f7c5bd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149865"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56170349"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정
 Microsoft Azure AD는 Salesforce, Google Apps 등과 같은 타사 SaaS 애플리케이션에 프로비전을 하는 사용자에 대한 지원을 제공합니다. 타사 SaaS 애플리케이션을 프로비전하는 사용자가 있을 경우 Azure Portal은 해당 특성 값을 특성 매핑이라는 형식으로 제어합니다.

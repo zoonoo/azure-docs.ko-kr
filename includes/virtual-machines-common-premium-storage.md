@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 2e8b2753a441b0d7f27745fdf622b26dcee7784a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572457"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247027"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM의 고성능 Premium Storage 및 관리 디스크
 
 Azure Premium Storage는 입력/출력(I/O) 사용량이 많은 워크로드가 있는 VM(가상 머신)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Premium Storage를 사용하는 VM 디스크는 SSD(반도체 드라이브)에 데이터를 저장합니다. 프리미엄 스토리지의 속도 및 성능을 활용하기 위해 기존 VM 디스크를 Premium Storage로 마이그레이션할 수 있습니다.
 
-Azure에서는 여러 프리미엄 저장소 디스크를 VM에 연결할 수 있습니다. 여러 디스크를 사용하면 애플리케이션에 VM당 최대 256TB의 저장소가 제공되며, 미리 보기 크기를 사용할 경우에는 애플리케이션에 VM 당 최대 약 2PiB의 저장소가 제공될 수 있습니다. Premium Storage를 사용할 경우 VM당 80,000 IOPS(초당 I/O 작업 수) 및 VM당 디스크 처리량을 2,000MB/초까지 달성할 수 있습니다. 읽기 작업의 대기 시간이 매우 짧습니다.
+Azure에서는 여러 Premium Storage 디스크를 VM에 연결할 수 있습니다. 여러 디스크를 사용하면 애플리케이션에 VM당 최대 256TB의 저장소가 제공되며, 미리 보기 크기를 사용할 경우에는 애플리케이션에 VM 당 최대 약 2PiB의 저장소가 제공될 수 있습니다. Premium Storage를 사용할 경우 VM당 80,000 IOPS(초당 I/O 작업 수) 및 VM당 디스크 처리량을 2,000MB/초까지 달성할 수 있습니다. 읽기 작업의 대기 시간이 매우 짧습니다.
 
 Premium Storage를 사용하여 Azure는 Dynamics AX, Dynamics CRM, Exchange Server, SAP Business Suite 및 SharePoint 팜 등의 까다로운 엔터프라이즈 애플리케이션을 클라우드로 리프트 앤 시프트하는 기능을 제공합니다. 일관된 고성능 및 짧은 대기 시간을 필요로 하는 SQL Server, Oracle, MongoDB, MySQL, Redis 등 성능 집약적 데이터베이스 워크로드를 애플리케이션에서 실행할 수 있습니다.
 
@@ -51,33 +51,33 @@ Premium Storage 기능 중 일부는 다음과 같습니다.
 
 * **Premium Storage 디스크**
 
-    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 다양한 Azure VM을 지원합니다. 다음과 같은 8개의 GA 디스크 크기를 선택할 수 있습니다. P4(32GiB), P6(64GiB), P10(128GiB), P15(256GiB), P20(512GiB), P30(1,024GiB), P40(2,048GiB), P50(4,095GiB). 뿐만 아니라 다음과 같은 3개의 미리보기 디스크 크기를 선택할 수 있습니다. P60 8,192GiB(8TiB), P70 16,348GiB(16TiB), P80 32,767GiB(32TiB). P4, P6, P15, P60, P70 및 P80 디스크 크기는 현재 Managed Disks에만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 애플리케이션 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#scalability-and-performance-targets)에서 설명합니다.
+    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 다양한 Azure VM을 지원합니다. 다음과 같은 8가지 GA 디스크 크기를 선택할 수 있습니다.  P4(32GiB), P6(64GiB), P10(128GiB), P15(256GiB), P20(512GiB), P30(1,024GiB), P40(2,048GiB), P50(4,095GiB). 다음과 같은 세 가지 미리 보기 디스크 크기도 제공됩니다. P60 8,192GiB(8TiB), P70 16,348GiB(16TiB), P80 32,767GiB(32TiB). P4, P6, P15, P60, P70 및 P80 디스크 크기는 현재 Managed Disks에만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 애플리케이션 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#scalability-and-performance-targets)에서 설명합니다.
 
 * **프리미엄 페이지 Blob**
 
     Premium Storage에서는 페이지 Blob을 지원합니다. 페이지 Blob을 사용하여 Premium Storage에 VM의 관리되지 않는 영구적인 디스크를 저장합니다. 표준 Azure Storage와 달리 Premium Storage는 블록 Blob, 추가 Blob, 파일, 테이블 또는 큐를 지원하지 않습니다. 프리미엄 페이지 Blob는 P10~P50 및 P60(8191GiB)과 같은 여섯 가지 크기를 지원합니다. P60 프리미엄 페이지 Blob은 VM 디스크로 연결되도록 지원되지 않습니다. 
 
-    프리미엄 저장소 계정에 있는 모든 개체는 페이지 Blob이 됩니다. 페이지 Blob은 지원되는 프로비전 크기 중 하나에 맞춰집니다. 이 때문에 프리미엄 저장소 계정은 매우 작은 Blob을 저장하기에는 적합하지 않습니다.
+    Premium Storage 계정에 있는 모든 개체는 페이지 Blob이 됩니다. 페이지 Blob은 지원되는 프로비전 크기 중 하나에 맞춰집니다. 이 때문에 Premium Storage 계정은 매우 작은 Blob을 저장하기에는 적합하지 않습니다.
 
 * **Premium Storage 계정**
 
-    Premium Storage를 사용하려면 관리되지 않는 디스크에 대한 프리미엄 스토리지 계정을 만들어야 합니다. [Azure Portal](https://portal.azure.com)에서 프리미엄 저장소 계정을 만들려면 **Premium** 성능 계층을 선택합니다. **LRS(로컬 중복 저장소)** 복제 옵션을 선택합니다. 성능 계층을 **Premium_LRS**로 설정하여 프리미엄 저장소 계정을 만들 수도 있습니다. 성능 계층을 변경하려면 다음 방법 중 하나를 사용합니다.
+    Premium Storage를 사용하려면 관리되지 않는 디스크에 대한 프리미엄 스토리지 계정을 만들어야 합니다. [Azure Portal](https://portal.azure.com)에서 Premium Storage 계정을 만들려면 **Premium** 성능 계층을 선택합니다. **LRS(로컬 중복 저장소)** 복제 옵션을 선택합니다. 성능 계층을 **Premium_LRS**로 설정하여 Premium Storage 계정을 만들 수도 있습니다. 성능 계층을 변경하려면 다음 방법 중 하나를 사용합니다.
      
     - [Azure Storage용 PowerShell](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
     - [Azure Storage용 Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp)(Azure Resource Manager 배포용) 또는 Azure Storage 리소스 공급자 클라이언트 라이브러리 중 하나
 
-    프리미엄 스토리지 계정 한도에 대해 자세히 알아보려면 [Premium Storage 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets)를 참조하세요.
+    프리미엄 스토리지 계정 한도에 대해 자세히 알아보려면 Premium Storage 확장성 및 성능 목표를 참조하세요.
 
 * **프리미엄 로컬 중복 저장소**
 
-    프리미엄 저장소 계정은 복제 옵션으로 로컬 중복 저장소만 지원합니다. 로컬 중복 저장소는 단일 지역 내에 데이터 복사본 3개를 유지합니다. 지역적 재해 복구를 위해 [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md)을 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 또한 백업 자격 증명 모음으로 GRS(지역 중복 저장소) 계정을 사용해야 합니다. 
+    Premium Storage 계정은 복제 옵션으로 로컬 중복 스토리지만 지원합니다. 로컬 중복 저장소는 단일 지역 내에 데이터 복사본 3개를 유지합니다. 지역적 재해 복구를 위해 [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md)을 사용하여 VM 디스크를 다른 지역에 백업해야 합니다. 또한 백업 자격 증명 모음으로 GRS(지역 중복 저장소) 계정을 사용해야 합니다. 
 
     Azure는 저장소 계정을 관리되지 않는 디스크의 컨테이너로 사용합니다. 관리되지 않는 디스크로 Premium Storage를 지원하는 Azure VM을 만들고 프리미엄 스토리지 계정을 선택하는 경우 운영 체제와 데이터 디스크가 해당 스토리지 계정에 저장됩니다.
 
 ## <a name="supported-vms"></a>지원되는 VM
 
-Premium Storage는 다양한 Azure VM에서 지원됩니다. 이러한 VM 유형에는 표준 및 프리미엄 저장소 디스크를 사용할 수 있습니다. Premium Storage와 호환되지 않는 VM 시리즈에서는 프리미엄 스토리지 디스크를 사용할 수 없습니다.
+Premium Storage는 다양한 Azure VM에서 지원됩니다. 이러한 VM 유형에는 표준 및 Premium Storage 디스크를 사용할 수 있습니다. Premium Storage와 호환되지 않는 VM 시리즈에서는 프리미엄 스토리지 디스크를 사용할 수 없습니다.
 
 
 Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windows VM 크기](../articles/virtual-machines/windows/sizes.md)를 참조하세요. Azure에서 Linux용 VM 유형 및 크기에 대한 자세한 내용은 [Linux VM 크기](../articles/virtual-machines/linux/sizes.md)를 참조하세요.
@@ -97,15 +97,15 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
     동일한 Premium Storage VM에 프리미엄 및 표준 디스크를 모두 사용할 수 있습니다. Premium Storage를 사용하면 VM을 프로비전하고 VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑할 수 있습니다.
 
     > [!NOTE]
-    > [저장소 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 저장소 공간은 사용하는 각 디스크에 대해 하나의 열로 설정해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. 기본적으로 서버 관리자에서는 최대 8개의 디스크를 열로 설정할 수 있습니다. 8개 이상의 디스크가 있는 경우 PowerShell을 사용하여 볼륨을 만듭니다. 열 수를 수동으로 지정합니다. 그렇지 않은 경우 서버 관리자 UI는 더 많은 디스크가 있더라도 8개의 열을 계속 사용합니다. 예를 들어 단일 스트라이프 세트에 32개의 디스크가 있다면 32개의 열을 지정합니다. 가상 디스크에서 사용하는 열 수를 지정하려면 [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet에서 *NumberOfColumns* 매개 변수를 사용합니다. 자세한 내용은 [저장소 공간 개요](https://technet.microsoft.com/library/hh831739.aspx) 및 [저장소 공간 FAQ](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)를 참조하세요.
+    > [스토리지 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용하여 Premium Storage 데이터 디스크를 스트라이프하는 경우, 스토리지 공간은 사용하는 각 디스크에 대해 하나의 열로 설정해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. 기본적으로 서버 관리자에서는 최대 8개의 디스크를 열로 설정할 수 있습니다. 8개 이상의 디스크가 있는 경우 PowerShell을 사용하여 볼륨을 만듭니다. 열 수를 수동으로 지정합니다. 그렇지 않은 경우 서버 관리자 UI는 더 많은 디스크가 있더라도 8개의 열을 계속 사용합니다. 예를 들어 단일 스트라이프 세트에 32개의 디스크가 있다면 32개의 열을 지정합니다. 가상 디스크에서 사용하는 열 수를 지정하려면 [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet에서 *NumberOfColumns* 매개 변수를 사용합니다. 자세한 내용은 [저장소 공간 개요](https://technet.microsoft.com/library/hh831739.aspx) 및 [저장소 공간 FAQ](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)를 참조하세요.
     >
     > 
 
 * **캐시**
 
-    Premium Storage를 지원하는 VM(Virtual Machines)에는 처리량을 한 차원 높이고 대기 시간을 줄이기 위한 고유의 캐싱 기능이 있습니다. 해당 캐싱 기능은 기본적인 프리미엄 저장소 디스크 성능을 능가합니다. 모든 VM이 캐싱을 지원하는 것은 아니므로 VM 사양에서 관심 있는 VM 크기를 검토하세요.  캐싱을 지원하는 VM은 해당 사양에 "최대 캐시 및 임시 저장소 처리량" 측정값이 표시됩니다.  또한 VM 제목 바로 아래에도 이와 같이 지정됩니다.
+    Premium Storage를 지원하는 VM(Virtual Machines)에는 처리량을 한 차원 높이고 대기 시간을 줄이기 위한 고유의 캐싱 기능이 있습니다. 해당 캐싱 기능은 기본적인 Premium Storage 디스크 성능을 능가합니다. 모든 VM이 캐싱을 지원하는 것은 아니므로 VM 사양에서 관심 있는 VM 크기를 검토하세요.  캐싱을 지원하는 VM은 해당 사양에 "최대 캐시 및 임시 저장소 처리량" 측정값이 표시됩니다.  또한 VM 제목 바로 아래에도 이와 같이 지정됩니다.
     
-    캐싱을 사용할 경우 프리미엄 저장소 디스크의 디스크 캐싱 정책을 **ReadOnly**, **ReadWrite** 또는 **None**으로 설정할 수 있습니다. 기본 디스크 캐싱 정책은 모든 프리미엄 데이터 디스크에 대해서는 **ReadOnly**이고 운영 체제 디스크에 대해서는 **ReadWrite**입니다. 최적의 애플리케이션 성능을 얻으려면 올바른 캐시 설정을 사용해야 합니다. 
+    캐싱을 사용할 경우 Premium Storage 디스크의 디스크 캐싱 정책을 **ReadOnly**, **ReadWrite** 또는 **None**으로 설정할 수 있습니다. 기본 디스크 캐싱 정책은 모든 프리미엄 데이터 디스크에 대해서는 **ReadOnly**이고 운영 체제 디스크에 대해서는 **ReadWrite**입니다. 최적의 애플리케이션 성능을 얻으려면 올바른 캐시 설정을 사용해야 합니다. 
     
     예를 들어, SQL Server 데이터 파일처럼 읽기 작업이 많거나 읽기 전용인 데이터 디스크의 경우에는 디스크 캐싱 정책을 **ReadOnly**로 설정하세요. SQL Server 로그 파일처럼 쓰기 작업이 많거나 쓰기 전용인 데이터 디스크의 경우에는 디스크 캐싱 정책을 **None**으로 설정하세요. 
     
@@ -119,22 +119,22 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 
 * **VM 규모 한도 및 성능**
 
-    각 Premium Storage 지원 VM 크기에는 규모 한도가 있으며 IOPS, 대역폭 및 VM당 연결할 수 있는 디스크 수에 대한 성능 사양이 있습니다. VM에 프리미엄 저장소 디스크를 사용하는 경우 VM에서 디스크 트래픽을 운용하기에 충분한 IOPS 및 대역폭이 있어야 합니다.
+    각 Premium Storage 지원 VM 크기에는 규모 한도가 있으며 IOPS, 대역폭 및 VM당 연결할 수 있는 디스크 수에 대한 성능 사양이 있습니다. VM에 Premium Storage 디스크를 사용하는 경우 VM에서 디스크 트래픽을 운용하기에 충분한 IOPS 및 대역폭이 있어야 합니다.
 
-    예를 들어, STANDARD_DS1 VM에는 프리미엄 저장소 디스크 트래픽에 대해 32MB/초의 전용 대역폭이 있습니다. P10 프리미엄 저장소 디스크는 100MB/초의 대역폭을 제공할 수 있습니다. 이 VM에 P10 프리미엄 저장소 디스크가 연결되어 있는 경우 대역폭을 32MB/초까지만 올릴 수 있습니다. P10 디스크가 제공할 수 있는 최대 100MB/초는 사용할 수 없습니다.
+    예를 들어, STANDARD_DS1 VM에는 Premium Storage 디스크 트래픽에 대해 32MB/초의 전용 대역폭이 있습니다. P10 Premium Storage 디스크는 100MB/초의 대역폭을 제공할 수 있습니다. 이 VM에 P10 Premium Storage 디스크가 연결되어 있는 경우 대역폭을 32MB/초까지만 올릴 수 있습니다. P10 디스크가 제공할 수 있는 최대 100MB/초는 사용할 수 없습니다.
 
     현재 DS 시리즈에서 가장 큰 VM은 Standard_DS15_v2입니다. Standard_DS15_v2는 모든 디스크에 걸쳐 최대 960MB/초를 제공할 수 있습니다. GS 시리즈에서 가장 큰 VM은 Standard_GS5입니다. Standard_GS5는 모든 디스크에 걸쳐 최대 2,000MB/초를 제공할 수 있습니다.
 
-    이러한 한도는 디스크 트래픽에만 해당됩니다. 이러한 한도에 캐시 적중 수 및 네트워크 트래픽은 포함되지 않습니다. VM 네트워크 트래픽에는 별도의 대역폭이 제공됩니다. 네트워크 트래픽에 대한 대역폭은 프리미엄 저장소 디스크에 사용된 전용 대역폭과는 다릅니다.
+    이러한 한도는 디스크 트래픽에만 해당됩니다. 이러한 한도에 캐시 적중 수 및 네트워크 트래픽은 포함되지 않습니다. VM 네트워크 트래픽에는 별도의 대역폭이 제공됩니다. 네트워크 트래픽에 대한 대역폭은 Premium Storage 디스크에 사용된 전용 대역폭과는 다릅니다.
 
     Premium Storage 지원 VM에 대한 최대 IOPS 및 처리량(대역폭)에 대한 최신 정보는 [Windows VM 크기](../articles/virtual-machines/windows/sizes.md) 또는 [Linux VM 크기](../articles/virtual-machines/linux/sizes.md)를 참조하세요.
 
-    프리미엄 저장소 디스크 및 해당 IOPS와 처리량 한도는 다음 섹션의 표를 참조하세요.
+    Premium Storage 디스크 및 해당 IOPS와 처리량 한도는 다음 섹션의 표를 참조하세요.
 
 ## <a name="scalability-and-performance-targets"></a>확장성 및 성능 대상
 이 섹션에서는 Premium Storage 사용 시 고려해야 하는 확장성 및 성능 목표에 대해 설명합니다.
 
-프리미엄 저장소 계정에는 다음과 같은 확장성 목표가 있습니다.
+Premium Storage 계정에는 다음과 같은 확장성 목표가 있습니다.
 
 | 총 계정 용량 | 로컬 중복 저장소 계정의 총 대역폭 |
 | --- | --- | 
@@ -146,10 +146,10 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 
 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md)를 참조하세요.
 
-관리되지 않는 디스크에 프리미엄 저장소 계정을 사용하는 경우 애플리케이션이 단일 저장소 계정의 확장성 목표를 초과하면 관리 디스크로 마이그레이션하려고 할 수 있습니다. 관리 디스크로 마이그레이션하지 않으려면 애플리케이션이 다수의 저장소 계정을 사용하도록 빌드합니다. 그런 다음 이 저장소 계정 간에 데이터를 분할합니다. 예를 들어 51TB 디스크를 여러 VM에 연결하려는 경우에는 두 개의 저장소 계정에 분산합니다. 단일 프리미엄 저장소 계정의 한도는 35TB입니다. 단일 프리미엄 저장소 계정에 35TB를 넘는 프로비전된 디스크가 없도록 해야 합니다.
+관리되지 않는 디스크에 Premium Storage 계정을 사용하는 경우 응용 프로그램이 단일 스토리지 계정의 확장성 목표를 초과하면 관리 디스크로 마이그레이션하려고 할 수 있습니다. 관리 디스크로 마이그레이션하지 않으려면 애플리케이션이 다수의 저장소 계정을 사용하도록 빌드합니다. 그런 다음 이 저장소 계정 간에 데이터를 분할합니다. 예를 들어 51TB 디스크를 여러 VM에 연결하려는 경우에는 두 개의 저장소 계정에 분산합니다. 단일 Premium Storage 계정의 한도는 35TB입니다. 단일 Premium Storage 계정에 35TB를 넘는 프로비전된 디스크가 없도록 해야 합니다.
 
 ### <a name="premium-storage-disk-limits"></a>Premium Storage 디스크 한도
-프리미엄 저장소 디스크를 프로비전할 때 디스크의 크기가 최대 IOPS 및 처리량(대역폭)을 결정합니다. Azure에서는 P4(Managed Disks 전용), P6(Managed Disks 전용), P10, P15(Managed Disks 전용), P20, P30, P40 및 P50과 같은 여덟 가지 GA 형식의 프리미엄 저장소 디스크를 제공합니다. 뿐만 아니라 P60, P70 및 P80이라는 세 가지 미리 보기 디스크 크기를 제공합니다. 각 프리미엄 저장소 디스크 유형에는 특정 IOPS 및 처리량 한도가 있습니다. 디스크 유형에 대한 한도는 다음 표에 설명되어 있습니다.
+Premium Storage 디스크를 프로비전할 때 디스크의 크기가 최대 IOPS 및 처리량(대역폭)을 결정합니다. Azure는 다음과 같은 8가지 GA 형식의 프리미엄 스토리지 디스크를 제공합니다. P4(Managed Disks 전용), P6(Managed Disks 전용), P10, P15(Managed Disks 전용), P20, P30, P40 및 P50. 다음과 같은 세 가지 미리 보기 디스크 크기도 제공됩니다. P60, P70 및 P80. 각 Premium Storage 디스크 유형에는 특정 IOPS 및 처리량 한도가 있습니다. 디스크 유형에 대한 한도는 다음 표에 설명되어 있습니다.
 
 별표로 표시되는 크기는 현재 미리 보기로 제공됩니다.
 
@@ -160,18 +160,18 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 | 디스크당 처리량 | 초당 25MB | 초당 50MB | 초당 100MB | 초당 125MB | 초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB | 초당 480MB | 초당 750MB | 초당 750MB |
 
 > [!NOTE]
-> [Premium Storage 지원 VM](#premium-storage-supported-vms) 섹션에서 설명한 대로 VM에서 디스크 트래픽을 운용하기에 충분한 대역폭을 사용할 수 있는지 확인해야 합니다. 그렇지 않으면 처리량 및 IOPS가 낮은 값으로 제한됩니다. 최대 처리량 및 IOPS는 이전 표에 설명된 디스크 한도가 아닌 VM 한도를 기초로 합니다.  
+> [Premium Storage 지원 VM]() 섹션에서 설명한 대로 VM에서 디스크 트래픽을 운용하기에 충분한 대역폭을 사용할 수 있는지 확인해야 합니다. 그렇지 않으면 처리량 및 IOPS가 낮은 값으로 제한됩니다. 최대 처리량 및 IOPS는 이전 표에 설명된 디스크 한도가 아닌 VM 한도를 기초로 합니다.  
 > Azure는 대규모로 병렬되도록 Premium Storage 플랫폼을 설계합니다. 애플리케이션을 다중 스레드로 디자인하면 더 큰 디스크 크기에서 제공되는 고성능 목표를 달성하는 데 도움이 됩니다.
 
 다음은 Premium Storage 확장성 및 성능 목표에 대해 알아야 하는 중요한 사항입니다.
 
 * **프로비전된 용량 및 성능**
 
-    프리미엄 저장소 디스크를 프로비전하면 표준 저장소와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 저장소 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 애플리케이션에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다. 프리미엄 SSD 디스크는 대상 성능 99.9%의 시간을 제공하도록 설계되었습니다.
+    Premium Storage 디스크를 프로비전하면 표준 스토리지와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 저장소 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 애플리케이션에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다. 프리미엄 SSD 디스크는 대상 성능 99.9%의 시간을 제공하도록 설계되었습니다.
 
 * **디스크 크기**
 
-    앞의 섹션의 표에 나와 있는 것처럼 디스크 크기(올림)는 테이블에 지정되어 있는 가장 가까운 프리미엄 저장소 디스크 옵션에 매핑합니다. 예를 들어 100GB의 디스크 크기는 P10 옵션으로 분류됩니다. 최대 100MB/초 처리량으로 최대 500 IOPS를 수행할 수 있습니다. 마찬가지로 400GB의 디스크 크기는 P20으로 분류됩니다. 최대 150MB/초 처리량으로 최대 2,300 IOPS를 수행할 수 있습니다.
+    앞의 섹션의 표에 나와 있는 것처럼 디스크 크기(올림)는 테이블에 지정되어 있는 가장 가까운 Premium Storage 디스크 옵션에 매핑합니다. 예를 들어 100GB의 디스크 크기는 P10 옵션으로 분류됩니다. 최대 100MB/초 처리량으로 최대 500 IOPS를 수행할 수 있습니다. 마찬가지로 400GB의 디스크 크기는 P20으로 분류됩니다. 최대 150MB/초 처리량으로 최대 2,300 IOPS를 수행할 수 있습니다.
 
     > [!NOTE]
     > 기존 디스크의 크기를 쉽게 확대할 수 있습니다. 예를 들어, 30GB 크기의 디스크를 128GB 또는 1TB로 확대할 수 있습니다. 용량이 더 필요하거나 IOPS 및 처리량이 더 필요한 경우 P20 디스크를 P30 디스크로 전환할 수 있습니다. 
@@ -196,7 +196,7 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 
 ## <a name="throttling"></a>제한
 
-애플리케이션 IOPS 또는 처리량이 프리미엄 저장소 디스크에 대해 할당된 한도를 초과하는 경우 제한이 발생할 수 있습니다. VM의 모든 디스크의 디스크 트래픽이 VM에서 사용할 수 있는 디스크 대역폭 한도를 초과하는 경우에도 제한이 발생할 수 있습니다. 제한을 방지하려면 디스크에 대해 보류 중인 I/O 요청 수를 제한하는 것이 좋습니다. 프로비전한 디스크의 확장성 및 성능 목표에 따라, VM에 사용할 수 있는 디스크 대역폭에 따라 제한을 사용합니다.  
+응용 프로그램 IOPS 또는 처리량이 Premium Storage 디스크에 대해 할당된 한도를 초과하는 경우 제한이 발생할 수 있습니다. VM의 모든 디스크의 디스크 트래픽이 VM에서 사용할 수 있는 디스크 대역폭 한도를 초과하는 경우에도 제한이 발생할 수 있습니다. 제한을 방지하려면 디스크에 대해 보류 중인 I/O 요청 수를 제한하는 것이 좋습니다. 프로비전한 디스크의 확장성 및 성능 목표에 따라, VM에 사용할 수 있는 디스크 대역폭에 따라 제한을 사용합니다.  
 
 애플리케이션이 제한을 방지하도록 설계된 경우 가장 낮은 대기 시간을 얻을 수 있습니다. 그러나 디스크에 대해 보류 중인 I/O 요청 수가 너무 작으면 애플리케이션이 디스크에서 사용할 수 있는 최대 IOPS 및 처리량 수준을 활용할 수 없습니다.
 
@@ -229,15 +229,15 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 
 디스크가 VM에 연결되어 있으면 디스크에서 일부 API 작업이 허용되지 않습니다. 예를 들어 디스크가 VM에 연결되어 있는 경우 해당 Blob에 대해 [Blob 복사](/rest/api/storageservices/Copy-Blob) 작업을 수행할 수 없습니다. 대신 [스냅숏 Blob](/rest/api/storageservices/Snapshot-Blob) REST API를 사용하여 Blob의 스냅숏을 먼저 만듭니다. 그런 다음 스냅숏의 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 수행하여 연결된 디스크를 복사합니다. 또는 디스크를 분리한 후 필요한 작업을 수행할 수 있습니다.
 
-프리미엄 저장소 Blob 스냅숏에 다음 한도가 적용됩니다.
+Premium Storage Blob 스냅숏에 다음 한도가 적용됩니다.
 
-| 프리미엄 저장소 한도 | 값 |
+| Premium Storage 한도 | 값 |
 | --- | --- |
 | Blob당 최대 스냅숏 수 | 100 |
 | 스냅숏의 Storage 계정 용량<br>(스냅숏의 데이터만 포함합니다. 기본 Blob의 데이터는 포함하지 않습니다.) | 10TB |
 | 연속 스냅숏 사이의 최소 시간 | 10분 |
 
-스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 프리미엄 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](../articles/storage/common/storage-use-azcopy.md) 및 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 참조하세요.
+스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 Premium Storage 계정에서 지역 중복 표준 스토리지 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](../articles/storage/common/storage-use-azcopy.md) 및 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 참조하세요.
 
 프리미엄 스토리지 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Premium Storage로 Blob service 작업](https://go.microsoft.com/fwlink/?LinkId=521969)을 참조하세요.
 
@@ -251,12 +251,12 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 ## <a name="premium-storage-for-linux-vms"></a>Linux VM용 Premium Storage
 다음 정보를 사용하여 Premium Storage에서 Linux VM을 설정할 수 있습니다.
 
-**ReadOnly** 또는 **None**으로 캐시 설정을 한 모든 프리미엄 저장소 디스크의 경우, Premium Storage에 대한 확장성 목표를 수행하려면 파일 시스템을 탑재할 때 “barrier(장벽)”를 사용하지 않도록 설정해야 합니다. 프리미엄 저장소 디스크에 쓰기는 이러한 캐시 설정에 대해 지속되기 때문에 이 시나리오에는 barrier(장벽)가 필요하지 않습니다. 쓰기 요청이 성공적으로 완료되면 데이터는 영구 저장소에 작성됩니다. “barrier(장벽)”를 사용하지 않도록 설정하려면 다음 방법 중 하나를 사용합니다. 파일 시스템에 대해 하나를 선택합니다.
+**ReadOnly** 또는 **None**으로 캐시 설정을 한 모든 프리미엄 스토리지 디스크의 경우, Premium Storage에 대한 확장성 목표를 수행하려면 파일 시스템을 탑재할 때 “barrier(장벽)”를 사용하지 않도록 설정해야 합니다. Premium Storage 디스크에 쓰기는 이러한 캐시 설정에 대해 지속되기 때문에 이 시나리오에는 barrier(장벽)가 필요하지 않습니다. 쓰기 요청이 성공적으로 완료되면 데이터는 영구 저장소에 작성됩니다. “barrier(장벽)”를 사용하지 않도록 설정하려면 다음 방법 중 하나를 사용합니다. 파일 시스템에 대해 하나를 선택합니다.
   
 * **reiserFS**에 대해 barrier를 사용하지 않도록 설정하려면 `barrier=none` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier=flush`를 사용합니다.)
 * **ext3/ext4**에 대해 barrier를 사용하지 않도록 설정하려면 `barrier=0` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier=1`를 사용합니다.)
 * **XFS**에 대해 barrier를 사용하지 않도록 설정하려면 `nobarrier` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier`를 사용합니다.)
-* **ReadWrite**으로 캐시가 설정된 프리미엄 저장소 디스크의 경우 쓰기 지속성을 위해 barrier를 사용하도록 설정합니다.
+* **ReadWrite**으로 캐시가 설정된 Premium Storage 디스크의 경우 쓰기 지속성을 위해 barrier를 사용하도록 설정합니다.
 * 볼륨 레이블의 경우 VM을 다시 시작한 후 유지하려면 디스크에 UUID(Universally Unique Identifier) 참조로 /etc/fstab을 업데이트해야 합니다. 자세한 내용은 [관리 디스크를 Linux VM에 추가](../articles/virtual-machines/linux/add-disk.md)를 참조하세요.
 
 다음 Linux 배포판은 Azure Premium Storage로 유효성이 검사되었습니다. Premium Storage 사용 시 더 나은 성능 및 안정성을 위해 적어도 이러한 버전 중 하나(또는 더 최신 버전)로 VM을 업그레이드하는 것이 좋습니다. 버전 중 일부는 Azure용 최신 LIS(Linux 통합 서비스) v4.0이 필요합니다. 배포판을 다운로드하여 설치하려면 다음 표에 나와 있는 링크를 따라가세요. 유효성 검사가 완료됨에 따라 목록에 이미지가 추가됩니다. 유효성 검사 시 이미지마다 성능이 다른 것으로 나타납니다. 성능은 워크로드 특성 및 이미지 설정에 따라 달라집니다. 다른 종류의 워크로드에 대해 서로 다른 이미지가 조정됩니다.
@@ -292,9 +292,9 @@ sudo yum install microsoft-hyper-v
 
 Premium Storage를 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
 
-* **프리미엄 저장소 디스크 및 Blob 크기**
+* **Premium Storage 디스크 및 Blob 크기**
 
-    프리미엄 저장소 디스크 또는 Blob에 대한 청구는 프로비전된 디스크 또는 Blob 크기에 따라 달라집니다. Azure는 프로비전된 크기(반올림됨)를 가장 가까운 프리미엄 저장소 디스크 옵션에 매핑합니다. 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#premium-storage-scalability-and-performance-targets)의 표를 참조하세요. 각각의 디스크는 지원되는 프로비전된 디스크 크기에 매핑되고 그에 따라 요금이 청구됩니다. 프로비전된 디스크에 대한 청구는 Premium Storage 제품의 월별 가격을 사용하여 시간당 비례합니다. 예를 들어 P10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 P10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양이나 사용한 IOPS 및 처리량에 관계없이 적용됩니다.
+    Premium Storage 디스크 또는 Blob에 대한 청구는 프로비전된 디스크 또는 Blob 크기에 따라 달라집니다. Azure는 프로비전된 크기(반올림됨)를 가장 가까운 Premium Storage 디스크 옵션에 매핑합니다. 자세한 내용은 [Premium Storage 확장성 및 성능 목표]()의 표를 참조하세요. 각각의 디스크는 지원되는 프로비전된 디스크 크기에 매핑되고 그에 따라 요금이 청구됩니다. 프로비전된 디스크에 대한 청구는 Premium Storage 제품의 월별 가격을 사용하여 시간당 비례합니다. 예를 들어 P10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 P10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양이나 사용한 IOPS 및 처리량에 관계없이 적용됩니다.
 
 * **프리미엄 관리되지 않는 디스크 스냅숏**
 

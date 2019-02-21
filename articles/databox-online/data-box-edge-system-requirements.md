@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 60c4b22fb34a66a0ff68db26030be0e0ea3c0066
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470251"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113773"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Azure Data Box Edge 시스템 요구 사항(미리 보기)
 
@@ -47,13 +47,15 @@ Data Box Edge를 사용하기 위한 시스템 요구 사항은 다음과 같습
 
 [!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-## <a name="port-configuration-for-data-box-edge"></a>Data Box Edge의 포트 구성
+## <a name="networking-port-requirements"></a>네트워킹 포트 요구 사항
+
+### <a name="port-requirements-for-data-box-edge"></a>Data Box Edge에 대한 포트 요구 사항
 
 다음 테이블에는 SMB, 클라우드 또는 관리 트래픽을 고려하여 방화벽에서 열려야 하는 포트가 나열되어 있습니다. 이 테이블에서 *인* 또는 *인바운드*는 디바이스에 대한 들어오는 클라이언트 요청 액세스에서 방향을 참조합니다. *아웃* 또는 *아웃바운드*는 배포 후 데이터를 외부로 보내는 Data Box Edge 디바이스에서 방향을 참조합니다.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
-## <a name="port-configuration-for-iot-edge"></a>IoT Edge의 포트 구성
+### <a name="port-requirements-for-iot-edge"></a>IoT Edge에 대한 포트 요구 사항
 
 Azure IoT Edge는 지원되는 IoT Hub 프로토콜을 사용하여 온-프레미스 Edge 디바이스에서 Azure 클라우드로의 아웃바운드 통신을 허용합니다. 인바운드 통신은 Azure IoT Hub에서 메시지를 Azure IoT Edge 디바이스에 푸시해야 하는 특정 시나리오에만 필요합니다(예: 클라우드에서 디바이스로 메시지 전송).
 
@@ -80,18 +82,7 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 
 ### <a name="url-patterns-for-gateway-feature"></a>게이트웨이 기능용 URL 패턴
 
-|    URL 패턴                                                                                                                                                                                                                                                                                                                                                                                                                                                      |    구성 요소 또는 기능                                                                           |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://\*.databoxedge.azure.com/\*<br>https://\*.servicebus.windows.net/\*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                                                                           |    Azure Data Box Edge 서비스<br>Azure Service Bus<br>인증 서비스                           |
-|    http://\*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                                |    디바이스 활성화                                                                                    |
-|    http://crl.microsoft.com/pki/\*<br>http://www.microsoft.com/pki/\*                                                                                                                                                                                                                                                                                                                                                                                                  |    인증서 해지                                                                               |
-|    https://\*.core.windows.net/\*<br>https://\*.data.microsoft.com<br>http://\*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                            |    Azure 저장소 계정 및 모니터링                                                                |
-|    http://windowsupdate.microsoft.com<br>http://\*.windowsupdate.microsoft.com<br>https://\*.windowsupdate.microsoft.com<br>http://\*.update.microsoft.com<br>https://\*.update.microsoft.com<br>http://\*.windowsupdate.com<br>http://download.microsoft.com<br>http://\*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://\*.ws.microsoft.com<br>https://\*.ws.microsoft.com<br>http://\*.mp.microsoft.com |    Microsoft 업데이트 서버                                                                             |
-|    http://\*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                                          |    Akamai CDN                                                                                           |
-|    https://\*.partners.extranet.microsoft.com/\*                                                                                                                                                                                                                                                                                                                                                                                                                    |    지원 패키지                                                                                      |
-|    http://\*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                                     |    Windows의 원격 분석 서비스는 사용자 환경 및 진단 원격 분석 업데이트를 참조하세요.      |
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |                                                                                                         |
-
+[!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
 ### <a name="url-patterns-for-compute-feature"></a>컴퓨팅 기능용 URL 패턴
 
@@ -107,4 +98,4 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 
 ## <a name="next-step"></a>다음 단계
 
-* [Azure Data Box Edge 배포](data-box-Edge-deploy-prep.md)
+- [Azure Data Box Edge 배포](data-box-Edge-deploy-prep.md)

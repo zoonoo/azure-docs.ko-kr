@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 32679e37062fbf77ce6ab03b6ea708c0d5eeea30
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dbf614f9749039b054e1134df31334a6248e2b78
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816240"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981403"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기
 
@@ -117,12 +117,12 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
-가용성 영역을 사용하려면 지원되는 Azure 지역에 확장 집합을 만들어야 합니다. `-Zone` 매개 변수를 [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) 명령에 추가하고, 사용할 지역(예: 지역 *1*, *2* 또는 *3*)을 지정합니다.
+가용성 영역을 사용하려면 지원되는 Azure 지역에 확장 집합을 만들어야 합니다. `-Zone` 매개 변수를 [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) 명령에 추가하고, 사용할 지역(예: 영역 *1*, *2* 또는 *3*)을 지정합니다.
 
 다음 예제에서는 *미국 동부 2* 영역 *1*에 *myScaleSet*이라는 단일 영역 확장 집합을 만듭니다. 가상 네트워크, 공용 IP 주소 및 부하 분산 장치에 대한 Azure 네트워크 리소스가 자동으로 만들어집니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 원하는 관리 자격 증명을 제공합니다.
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `
@@ -139,7 +139,7 @@ New-AzureRmVmss `
 영역 중복 확장 집합을 만들려면 여러 영역을 `-Zone` 매개 변수로 지정합니다. 다음 예제에서는 *미국 동부 2* 영역 *1, 2, 3*에 *myScaleSet*이라는 영역 중복 확장 집합을 만듭니다. 가상 네트워크, 공용 IP 주소 및 부하 분산 장치에 대한 영역 중복 Azure 네트워크 리소스가 자동으로 만들어집니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 원하는 관리 자격 증명을 제공합니다.
 
 ```powershell
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS2" `
   -VMScaleSetName "myScaleSet" `

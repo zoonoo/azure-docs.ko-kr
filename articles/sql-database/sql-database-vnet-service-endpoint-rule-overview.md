@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 및 SQL Data Warehouse에 대한 Virtual Network 서비스 엔드포인트 및 규칙 | Microsoft Docs
+title: Azure SQL의 단일 및 풀링된 데이터베이스에 대한 VNet 엔드포인트 및 규칙 | Microsoft Docs
 description: 서브넷을 Virtual Network 서비스 엔드포인트로 표시합니다. 그런 다음 해당 엔드포인트를 가상 네트워크 규칙으로 Azure SQL Database의 ACL에 추가합니다. 그러면 SQL Database가 해당 서브넷에 있는 모든 가상 머신과 다른 노드에서 보낸 통신을 수락합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 6fdcf0b5baf28aee931307b28e1f161fddaa4d8e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453930"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118380"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Azure SQL에 대한 Virtual Network 서비스 엔드포인트 및 규칙 사용
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>데이터베이스 서버에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 사용
 
-*가상 네트워크 규칙*은 Azure [SQL Database](sql-database-technical-overview.md) 또는 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure SQL Database 및 SQL Data Warehouse에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
+*가상 네트워크 규칙*은 Azure [SQL Database](sql-database-technical-overview.md)의 단일 데이터베이스 및 탄력적 풀 또는 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)의 데이터베이스에 대한 데이터베이스 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure SQL Database 및 SQL Data Warehouse에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
 
 > [!IMPORTANT]
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. 이 문서는 **Azure SQL Database Managed Instance**에 적용되지 *않습니다*.
+> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. Azure SQL Database의 **관리되는 인스턴스** 배포는 서비스 엔드포인트와 연결되지 않으므로 이 문서는 해당 배포에 적용되지 *않습니다*.
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 [가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]가 있어야 합니다.
 

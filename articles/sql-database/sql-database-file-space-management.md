@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 파일 공간 관리| Microsoft Docs
-description: 이 페이지에서는 Azure SQL Database에서 파일 공간을 관리하는 방법을 설명하고 데이터베이스를 축소해야 하는지 결정하는 방법은 물론 데이터베이스 축소 작업을 수행하는 방법을 위한 코드 샘플을 제공합니다.
+title: Azure SQL Database 단일/풀링된 데이터베이스 파일 공간 관리 | Microsoft Docs
+description: 이 페이지에서는 Azure SQL Database의 단일 및 풀링된 데이터베이스로 파일 공간을 관리하는 방법을 설명하고, 단일 및 풀링된 데이터베이스를 축소해야 할지 여부를 결정하는 방법은 물론 데이터베이스 축소 작업을 수행하는 방법에 대한 코드 샘플을 제공합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,20 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/11/2019
+ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468634"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110152"
 ---
-# <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL Database에서 파일 공간 관리리
-이 문서에서는 Azure SQL Database의 다양한 종류의 저장소 공간을 설명하고 데이터베이스 및 탄력적 풀에 할당된 파일 공간을 명시적으로 관리해야 하는 경우 취할 수 있는 단계를 설명합니다.
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Azure SQL Database의 단일 및 풀링된 데이터베이스의 파일 공간 관리
+
+이 문서에서는 Azure SQL Database의 단일 및 풀링된 데이터베이스에 대한 다양한 종류의 스토리지 공간을 설명하고 데이터베이스 및 탄력적 풀에 할당된 파일 공간을 명시적으로 관리해야 하는 경우 취할 수 있는 단계를 설명합니다.
+
+> [!NOTE]
+> 이 문서는 Azure SQL Database의 관리되는 인스턴스 배포 옵션에는 적용되지 않습니다.
 
 ## <a name="overview"></a>개요
 
-Azure SQL 데이터베이스의 경우, 데이터베이스에 대한 기본 데이터 파일의 할당이 사용되는 데이터 페이지의 양을 초과할 수 있는 워크로드 패턴이 있습니다. 이 상태는 사용되는 공간이 증가하고 그 후에 데이터가 삭제되는 경우 발생할 수 있습니다. 이렇게 되는 이유는 데이터가 삭제될 때 할당되어 있는 파일 공간이 자동으로 회수되지 않기 때문입니다.
+Azure SQL Database의 단일 및 풀링된 데이터베이스를 사용하면, 데이터베이스에 대한 기본 데이터 파일의 할당이 사용되는 데이터 페이지의 양을 초과할 수 있는 워크로드 패턴이 있습니다. 이 상태는 사용되는 공간이 증가하고 그 후에 데이터가 삭제되는 경우 발생할 수 있습니다. 이렇게 되는 이유는 데이터가 삭제될 때 할당되어 있는 파일 공간이 자동으로 회수되지 않기 때문입니다.
 
 파일 공간 사용량 모니터링 및 데이터 파일 축소는 다음과 같은 시나리오에서 필요할 수 있습니다.
 
@@ -33,17 +37,20 @@ Azure SQL 데이터베이스의 경우, 데이터베이스에 대한 기본 데�
 - 단일 데이터베이스 또는 탄력적 풀을 더 작은 최대 크기의 다른 서비스 계층 또는 성능 계층으로 변경하는 것을 허용합니다.
 
 ### <a name="monitoring-file-space-usage"></a>파일 공간 사용량 모니터링
+
 Azure Portal 및 다음 API에 표시되는 대부분의 저장소 공간 메트릭은 사용한 데이터 페이지의 크기만 측정합니다.
+
 - PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)를 포함한 Azure Resource Manager 기반 메트릭 API
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 그러나 다음 API는 데이터베이스 및 탄력적 풀에 할당된 공간의 크기도 측정합니다.
+
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>데이터 파일 축소
 
-SQL DB 서비스는 사용되지 않은 할당된 공간을 회수하기 위해 데이터 파일을 자동으로 축소하지 않습니다. 이렇게 하면 데이터베이스 성능에 잠재적인 영향을 미치기 때문입니다.  하지만 고객이 [사용되지 않은 할당된 공간 회수](#reclaim-unused-allocated-space)에 설명된 단계를 수행하기로 선택하면 셀프 서비스를 통해 데이터의 파일을 축소할 수 있습니다. 
+SQL Database 서비스는 사용되지 않은 할당된 공간을 회수하기 위해 데이터 파일을 자동으로 축소하지 않습니다. 이렇게 하면 데이터베이스 성능에 잠재적인 영향을 미치기 때문입니다.  하지만 고객이 [사용되지 않은 할당된 공간 회수](#reclaim-unused-allocated-space)에 설명된 단계를 수행하기로 선택하면 셀프 서비스를 통해 데이터 파일을 축소할 수 있습니다.
 
 > [!NOTE]
 > 데이터 파일과 달리 SQL Database 서비스는 로그 파일을 자동으로 축소합니다. 이 작업은 데이터베이스 성능에 영향을 미치지 않기 때문입니다. 
@@ -62,13 +69,14 @@ SQL DB 서비스는 사용되지 않은 할당된 공간을 회수하기 위해 
 
 다음 다이어그램에서는 데이터베이스에 대한 여러 저장소 공간 유형 간의 관계를 보여 줍니다.
 
-![저장소 공간 유형 및 관계](./media/sql-database-file-space-management/storage-types.png) 
+![저장소 공간 유형 및 관계](./media/sql-database-file-space-management/storage-types.png)
 
-## <a name="query-a-database-for-storage-space-information"></a>저장소 공간 정보를 데이터베이스에 쿼리
+## <a name="query-a-single-database-for-storage-space-information"></a>스토리지 공간 정보에 대해 단일 데이터베이스 쿼리
 
-데이터베이스에 대한 저장소 공간 수량을 확인하려면 다음 쿼리를 사용할 수 있습니다.  
+다음 쿼리를 사용하여 단일 데이터베이스의 스토리지 공간 수량을 확인할 수 있습니다.  
 
 ### <a name="database-data-space-used"></a>사용된 데이터베이스 데이터 공간
+
 다음 쿼리를 수정하여 사용된 데이터베이스 데이터 공간의 크기를 반환합니다.  쿼리 결과의 단위는 MB입니다.
 
 ```sql
@@ -81,6 +89,7 @@ ORDER BY end_time DESC
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>할당된 데이터베이스 데이터 공간 및 사용되지 않은 공간
+
 다음 쿼리를 사용하여 할당된 데이터베이스 데이터 공간 크기 및 할당된 사용되지 않은 공간 크기를 반환합니다.  쿼리 결과의 단위는 MB입니다.
 
 ```sql
@@ -94,6 +103,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### <a name="database-data-max-size"></a>데이터베이스 데이터 최대 크기
+
 다음 쿼리를 수정하여 데이터베이스 데이터 최대 크기를 반환합니다.  쿼리 결과의 단위는 바이트입니다.
 
 ```sql
@@ -137,7 +147,7 @@ ORDER BY end_time DESC
 
 풀의 각 데이터베이스에 할당된 공간을 확인하는 쿼리 결과를 함께 추가하여 탄력적 풀에 대한 할당된 총 공간을 확인할 수 있습니다. 할당된 탄력적 풀 공간은 탄력적 풀 최대 크기를 초과할 수 없습니다.  
 
-PowerShell 스크립트를 사용하려면 SQL Server PowerShell 모듈이 필요합니다. 설치하려면 [PowerShell 모듈 다운로드](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017)를 참조하세요.
+PowerShell 스크립트를 사용하려면 SQL Server PowerShell 모듈이 필요합니다. 설치하려면 [PowerShell 모듈 다운로드](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module)를 참조하세요.
 
 ```powershell
 # Resource group name
@@ -218,7 +228,7 @@ DBCC SHRINKDATABASE (N'db1')
 
 ### <a name="auto-shrink"></a>자동 축소
 
-또는 데이터베이스에 대한 자동 축소를 사용하도록 설정할 수 있습니다.  자동 축소는 파일 관리의 복잡도를 줄여 주며 데이터베이스 성능에 대한 영향이 SHRINKDATABASE 또는 SHRINKFILE보다 더 적습니다.  자동 축소는 많은 데이터베이스에서 탄력적 풀을 관리하는 데 특히 유용할 수 있습니다.  그러나 자동 축소의 파일 공간 회수 효과는 SHRINKDATABASE 및 SHRINKFILE보다 떨어질 수 있습니다.
+또는 데이터베이스에 대한 자동 축소를 사용하도록 설정할 수 있습니다.  자동 축소는 파일 관리의 복잡도를 줄여 주며 데이터베이스 성능에 대한 영향이 `SHRINKDATABASE` 또는 `SHRINKFILE`보다 더 적습니다.  자동 축소는 많은 데이터베이스에서 탄력적 풀을 관리하는 데 특히 유용할 수 있습니다.  그러나 자동 축소의 파일 공간 회수 효과는 `SHRINKDATABASE` 및 `SHRINKFILE`보다 떨어질 수 있습니다.
 자동 축소를 사용하도록 설정하려면 다음 명령에서 데이터베이스의 이름을 수정합니다.
 
 

@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d82e0aa1f803001cf3bab5ec133a59f1fe19e4aa
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546864"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981420"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>가상 머신 규모 집합에 대한 계획된 유지 관리 알림
+
 
 Azure는 주기적으로 업데이트를 수행하여 VM(가상 머신)에 대한 호스트 인프라의 안정성, 성능 및 보안을 향상시킵니다. 업데이트에는 호스팅 환경 패치 또는 하드웨어 업그레이드 및 서비스 해제가 포함될 수 있습니다. 대부분의 업데이트는 호스팅된 VM에 영향을 주지 않습니다. 그러나 업데이트는 다음 시나리오에서 VM에 영향을 줍니다.
 
@@ -38,10 +39,8 @@ Azure는 주기적으로 업데이트를 수행하여 VM(가상 머신)에 대�
 
 두 기간이 존재하는 이유는 Azure에서 유지 관리를 자동으로 시작할 시기를 파악하면서 유지 관리를 시작하고 VM을 다시 부팅하는 데 충분한 시간을 제공하기 위한 것입니다.
 
-
 Azure Portal, PowerShell, REST API 및 Azure CLI를 사용하여 가상 머신 확장 집합 VM에 대한 유지 관리 기간을 쿼리하고, 셀프 서비스 유지 관리를 시작할 수 있습니다.
 
-  
 ## <a name="should-you-start-maintenance-during-the-self-service-window"></a>셀프 서비스 기간 동안 유지 관리를 시작해야 하나요?  
 
 다음 지침은 선택한 시간에 유지 관리를 시작할지 여부를 결정하는 데 도움이 됩니다.
@@ -118,12 +117,12 @@ Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보�
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>PowerShell을 사용하여 유지 관리 상태 확인
 
-Azure PowerShell을 사용하여 가상 머신 확장 집합의 VM이 유지 관리에 대해 예약된 시기를 볼 수 있습니다. 계획된 유지 관리 정보는 `-InstanceView` 매개 변수를 사용하는 경우 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) cmdlet을 통해 사용할 수 있습니다.
+Azure PowerShell을 사용하여 가상 머신 확장 집합의 VM이 유지 관리에 대해 예약된 시기를 볼 수 있습니다. 계획된 유지 관리 정보는 `-InstanceView` 매개 변수를 사용하는 경우 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cmdlet을 통해 사용할 수 있습니다.
  
 유지 관리가 계획된 경우에만 유지 관리 정보가 반환됩니다. VM 인스턴스에 영향을 주는 유지 관리가 예약되지 않은 경우 이 cmdlet에서 유지 관리 정보를 반환하지 않습니다. 
 
 ```powershell
-Get-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
+Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
 **MaintenanceRedeployStatus**로 반환되는 속성은 다음과 같습니다. 
@@ -140,10 +139,10 @@ Get-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId i
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>PowerShell을 사용하여 VM 인스턴스에서 유지 관리 시작
 
-**IsCustomerInitiatedMaintenanceAllowed**가 **true**로 설정되는 경우 VM에서 유지 관리를 시작할 수 있습니다. [Set-AzureRmVmss](/powershell/module/azurerm.compute/set-azurermvmss) cmdlet을 `-PerformMaintenance` 매개 변수와 함께 사용합니다.
+**IsCustomerInitiatedMaintenanceAllowed**가 **true**로 설정되는 경우 VM에서 유지 관리를 시작할 수 있습니다. [Set-AzVmss](/powershell/module/az.compute/set-azvmss) cmdlet을 `-PerformMaintenance` 매개 변수와 함께 사용합니다.
 
 ```powershell
-Set-AzureRmVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
+Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
 ```
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>CLI를 사용하여 유지 관리 상태 확인

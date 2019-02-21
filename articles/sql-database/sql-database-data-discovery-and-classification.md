@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: b85afeb18fdd93afdedbee00df995ba52a66cd5e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731855"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892884"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database 데이터 검색 및 분류
 
@@ -143,7 +143,8 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 - [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 지정된 열의 민감도 레이블을 만들거나 업데이트합니다.
 - [삭제](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 지정된 열의 민감도 레이블을 삭제합니다.
 - [가져오기](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 지정된 열의 민감도 레이블을 가져옵니다.
-- [데이터베이스별 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) - 지정된 데이터베이스의 민감도 레이블을 가져옵니다.
+- [데이터베이스별 최신 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - 지정된 데이터베이스의 최신 민감도 레이블을 가져옵니다.
+- [데이터베이스별 권장 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - 지정된 데이터베이스의 최신 민감도 레이블을 가져옵니다.
 
 ## <a id="subheading-5"></a>다음 단계
 

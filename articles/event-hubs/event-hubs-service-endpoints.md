@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2ad525ee0e10064d4d606dc1f899ef813fe92ab5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273505"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56232606"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs에서 Virtual Network 서비스 엔드포인트 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "53273505"
 >[!WARNING]
 > Virtual Networks 통합을 구현하면 다른 Azure 서비스가 Event Hubs와 상호 작용하지 않도록 방지할 수 있습니다.
 >
-> 신뢰할 수 있는 Microsoft 서비스는 Virtual Networks가 구현되는 시점에 지원되지 않으며 곧 제공될 예정입니다.
+> 신뢰할 수 있는 Microsoft 서비스는 Virtual Networks가 구현되는 시점에 지원되지 않습니다.
 >
 > Virtual Networks가 작동하지 않는 일반적인 Azure 시나리오(목록은 전체 목록이 **아님**) -
 > - Azure Monitor
@@ -74,7 +74,7 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 
 > [!NOTE]
 > 가능한 거부 규칙은 없지만 Azure Resource Manager 템플릿은 기본 작업이 **"허용"** 으로 설정되며 연결을 제한하지 않습니다.
-> 가상 네트워크 또는 방화벽 규칙을 만들 때 ***“defaultAction”*** 을 변경해야 합니다.
+> Virtual Network 또는 방화벽 규칙을 만들 때 ***"defaultAction"*** 을 변경해야 합니다.
 > 
 > from
 > ```json

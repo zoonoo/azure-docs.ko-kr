@@ -4,7 +4,7 @@ description: 이 토픽에서는 장기 실행 작업을 폴링하는 방법을 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: fa456a2d0bb427af80d67a0b971fe8bd41bb7868
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f5098b2691f7c73be5df6b44479082bf25effde7
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783082"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998045"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Azure Media Services를 사용하여 라이브 스트리밍 제공
 
@@ -30,9 +30,9 @@ Microsoft Azure Media Services는 작업(예: 채널 만들기, 시작, 중지 �
 Media Services .NET SDK는 요청을 보내고 작업이 완료되기를 기다리는 API를 제공합니다(내부적으로 API는 일정 간격으로 작업 진행을 폴링함). 예를 들어 channel.Start()를 호출하면, 채널이 시작된 후 메서드가 반환됩니다. 비동기 버전: await channel.StartAsync()를 사용할 수도 있습니다(작업 기반 비동기 패턴에 대한 내용은 [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx) 참조). 작업 요청을 보낸 다음 작업이 완료될 때까지 상태에 대해 폴링하는 API를 "폴링 메서드"라고 합니다. 리치 클라이언트 애플리케이션 및/또는 상태 저장 서비스에 이 메서드 (특히 비동기 버전)를 사용하는 것이 좋습니다.
 
 애플리케이션이 장기 실행하는 http 요청을 기다릴 수 없는 시나리오가 있으며 수동으로 작업 진행 상태를 폴링하려는 경우도 있습니다. 전형적인 예는 상태 비저장 웹 서비스와 상호작용하는 브라우저입니다. 브라우저가 채널을 만들도록 요청하면 웹 서비스는 장기 실행 작업을 시작하고 브라우저에 작업 ID를 반환합니다. 브라우저는 ID에 따라 작업 상태를 가져오도록 웹 서비스에 요청할 수 있습니다. Media Services .NET SDK는 이 시나리오에 유용한 API를 제공합니다. 이 API를 “비 폴링 메서드”라고 합니다.
-"비 폴링 메서드"에는 Send*OperationName*Operation(예: SendCreateOperation)과 같은 이름 지정 패턴이 있습니다. Send*OperationName*Operation 메서드는 **IOperation** 개체를 반환합니다. 반환된 개체는 작업을 추적하는 데 사용할 수 있는 정보를 포함합니다. Send*OperationName*OperationAsync 메서드는 **Task<IOperation>** 를 반환합니다.
+“비 폴링 메서드”는 다음과 같은 명명 패턴을 사용합니다. Send*OperationName*Operation(예: SendCreateOperation). Send*OperationName*Operation 메서드는 **IOperation** 개체를 반환합니다. 반환된 개체는 작업을 추적하는 데 사용할 수 있는 정보를 포함합니다. Send*OperationName*OperationAsync 메서드는 **Task<IOperation>** 를 반환합니다.
 
-현재 **Channel**, **StreamingEndpoint** 및 **Program** 클래스가 비 폴링 메서드를 지원합니다.
+현재 다음 클래스에서 비 폴링 메서드를 지원합니다.  **Channel**, **StreamingEndpoint** 및 **Program**.
 
 작업 상태에 대해 폴링하려면 **GetOperation** 메서드를 **OperationBaseCollection** 클래스에서 사용합니다. **Channel** 및 **StreamingEndpoint** 작업에 대한 작업 상태를 다음 간격으로 확인하려면, 30초를 사용합니다. **Program** 작업에 대해서는 10초를 사용합니다.
 

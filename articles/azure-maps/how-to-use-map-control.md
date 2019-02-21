@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 850f9b28c112c11fd98a8abc81a1811cd26d81cc
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 877393de20788b0aa1c76084b121a82f12715cd3
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166034"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118074"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
@@ -23,46 +23,154 @@ ms.locfileid: "49166034"
 
 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용하여 웹 페이지에 지도를 포함할 수 있습니다.
 
-1. 새 파일을 만들고, 이름을 **MapSearch.html**로 지정합니다.
+1. 새 HTML 파일 만들기
 
-2. 파일의 `<head>` 요소에 Azure Maps 스타일시트 및 스크립트 소스 참조를 추가합니다.
+2. Azure Maps 웹 SDK에서 로드합니다. 두 가지 옵션 중 하나를 사용하여 수행할 수 있습니다.
+    
+    a. 파일의 `<head>` 요소에 있는 스타일시트 및 스크립트 참조에 URL 엔드포인트를 추가하여 Azure Maps 웹 SDK의 글로벌 호스팅 CDN 버전을 사용합니다.
 
     ```html
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
     ```
 
-3. 브라우저에서 새 맵을 렌더링하려면 `<style>` 요소에 **#map** 참조를 추가합니다.
+    b. 아니면 [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) NPM 패키지를 사용하여 로컬에서 Azure Maps 웹 SDK 소스 코드를 로드하여 앱으로 호스트합니다. 이 패키지에는 TypeScript 정의도 포함됩니다.
+
+    > npm install azure-maps-control
+
+    그런 다음, Azure Maps 스타일시트에 대한 참조와 스크립트 소스 참조를 파일의 `<head>` 요소에 추가합니다.
+
+    ```html
+    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css" />
+    <script src="node_modules/azure-maps-control/dist/js/atlas.min.js"></script>
+    ```
+
+3. 맵이 페이지 본문 전체를 채우도록 렌더링하려면 `<head>` 요소에 다음 `<style>` 요소를 추가합니다.
 
     ```html
     <style>
-        #map {
-            width: 100%;
-            height: 100%;
+        html, body {
+            margin: 0;
+        }
+    
+        #myMap {
+            height: 100vh;
+            width: 100vw;
         }
     </style>
     ```
 
-4. 맵 컨트롤을 초기화하려면 HTML 본문에 새 섹션을 정의하고 스크립트를 만듭니다. 스크립트에서 자체 Azure Maps 계정 키를 사용합니다. 계정을 만들거나 키를 찾아야 하는 경우 [Azure Maps 계정과 키를 관리하는 방법](how-to-manage-account-keys.md)을 참조하세요. **setLanguage** 메서드는 맵 레이블 및 컨트롤에 사용할 언어를 지정합니다. 지원되는 언어에 대한 자세한 내용은 [지원되는 언어](https://docs.microsoft.com/azure/azure-maps/supported-languages)를 참조하세요.
+4. 페이지 본문에 `<div>` 요소를 추가하고 **myMap**이라는 `id`를 부여합니다. 
 
     ```html
-    <div id="map">
-        <script>
-            atlas.setSubscriptionKey("<_your account key_>");
-            atlas.setLanguage("en");
-            var map = new atlas.Map("map", {
-                center: [-122.33263,47.59093],
-                zoom: 12
-            });
-        </script>
-    </div>
+    <body>
+        <div id="myMap"></div>
+    </body>
     ```
 
-5. 웹 브라우저에서 파일을 열고 렌더링된 맵을 봅니다.
+5. 맵 컨트롤을 초기화하려면 HTML 본문에 새 섹션을 정의하고 스크립트를 만듭니다. 자신의 Azure Maps 계정 키나 AAD(Azure Active Directory) 자격 증명으로 [인증 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.authenticationoptions)을 사용하여 맵을 인증합니다. 계정을 만들거나 키를 찾아야 하는 경우 [Azure Maps 계정과 키를 관리하는 방법](how-to-manage-account-keys.md)을 참조하세요. **언어** 옵션은 맵 레이블 및 컨트롤에 사용할 언어를 지정합니다. 지원되는 언어에 대한 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요. 인증에 구독 키를 사용하는 경우입니다.
+
+    ```html
+    <script type='text/javascript'>
+        var map = new atlas.Map('myMap', {
+            center: [-122.33, 47.6],
+            zoom: 12,
+            language: 'en-US',
+            authOptions: {
+                authType: 'subscriptionKey',
+                subscriptionKey: '<Your Azure Maps Key>'
+            }
+        });
+    </script>
+    ```
+
+    인증에 AAD(Azure Active Directory)를 사용하는 경우입니다.
+
+    ```html
+    <script type='text/javascript'>
+        var map = new atlas.Map('myMap', {
+            center: [-122.33, 47.6],
+            zoom: 12,
+            language: 'en-US',
+            authOptions: {
+                authType: 'aad',
+                clientId: '<Your AAD Client Id>',
+                aadAppId: '<Your AAD App Id',
+                aadTenant: 'msft.ccsctp.net'
+            }
+        });
+    </script>
+    ```
+
+6. 선택적으로 다음 메타 태그 요소를 페이지 머리글에 추가하는 것이 도움이 될 수 있습니다.
+
+    ```html
+    <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    
+    <!-- Ensures the web page looks good on all screen sizes. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    ```
+
+7. HTML 파일을 모두 모으면 다음과 같은 모양입니다.
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    
+        <meta charset="utf-8" />
+        
+        <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+        <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    
+        <!-- Ensures the web page looks good on all screen sizes. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    
+        <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    
+        <style>
+            html, body {
+                margin: 0;
+            }
+        
+            #myMap {
+                height: 100vh;
+                width: 100vw;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="myMap"></div>
+        
+        <script type='text/javascript'>
+            //Create an instance of the map control and set some options.
+            var map = new atlas.Map('myMap', {
+                center: [-122.33, 47.6],
+                zoom: 12,
+                language: 'en-US',
+                authOptions: {
+                    authType: 'subscriptionKey',
+                    subscriptionKey: '<Your Azure Maps Key>'
+                }
+            });
+        </script>
+    </body>
+    </html>
+    ```
+
+8. 웹 브라우저에서 파일을 열고 렌더링된 맵을 봅니다. 다음과 같아야 합니다.
+
+    <iframe height="700" style="width: 100%;" scrolling="no" title="맵 컨트롤을 사용하는 방법" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>맵 컨트롤을 사용하는 방법</a>를 참조하세요.
+    </iframe>
 
 ## <a name="next-steps"></a>다음 단계
 
-전체 예제를 사용하여 맵을 만드는 방법을 알아봅니다.
+맵을 만들고 상호 작용하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [맵 만들기](map-create.md)

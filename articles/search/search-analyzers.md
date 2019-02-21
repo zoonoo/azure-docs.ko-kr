@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 008a24fe9822ca51b81e1f6979a3731d794a8867
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631945"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964341"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Azure Search의 텍스트 처리용 분석기
 
@@ -92,7 +92,7 @@ Azure Search는 추가적인 `indexAnalyzer` 및 `searchAnalyzer` 필드 매개 
 * 분석기는 검색 가능한 필드에 대한 필드 클래스의 속성입니다.
 * 사용자 지정 분석기는 인덱스 정의의 일부입니다. 가볍게 사용자 지정(예: 한 필터에서 단일 옵션 사용자 지정)되거나 여러 위치에서 사용자 지정될 수도 있습니다.
 * 이 경우에 사용자 지정 분석기는 "my_analyzer"이며, 사용자 지정된 표준 토크나이저 "my_standard_tokenizer" 및 소문자 필터와 사용자 지정된 asciifolding 필터 "my_asciifolding"라는 두 개의 토큰 필터를 차례로 사용합니다.
-* 또한 토크나이저 앞에 밑줄이 표시된 모든 대시를 바꾸는 사용자 지정 "map_dash" char 필터를 정의합니다(표준 토크나이저는 대시로 나뉘지만 밑줄이 없음).
+* 또한 2개의 사용자 지정 문자 필터 "map_dash" 및 "remove_whitespace"를 정의합니다. 첫 번째 필터는 모든 대시를 밑줄로 바꾸고 두 번째 필터는 모든 공백을 제거합니다. 공백은 매핑 규칙에서 UTF-8로 인코딩되어야 합니다. 문자 필터는 토큰화 전에 적용되며 결과 토큰에 영향을 미칩니다(표준 토크나이저는 대시 및 공백으로 분리되지만 밑줄은 사용하지 않습니다).
 
 ~~~~
   {
@@ -116,7 +116,8 @@ Azure Search는 추가적인 `indexAnalyzer` 및 `searchAnalyzer` 필드 매개 
            "name":"my_analyzer",
            "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
            "charFilters":[
-              "map_dash"
+              "map_dash",
+              "remove_whitespace"
            ],
            "tokenizer":"my_standard_tokenizer",
            "tokenFilters":[
@@ -130,6 +131,11 @@ Azure Search는 추가적인 `indexAnalyzer` 및 `searchAnalyzer` 필드 매개 
            "name":"map_dash",
            "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
            "mappings":["-=>_"]
+        },
+        {
+           "name":"remove_whitespace",
+           "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
+           "mappings":["\\u0020=>"]
         }
      ],
      "tokenizers":[

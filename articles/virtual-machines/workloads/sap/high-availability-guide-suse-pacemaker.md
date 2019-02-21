@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 68d9df20ca303d6f9f80d05a614da3eda466b3f8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b0842bfc4c9d60420f6409afc4bc42692346050b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657963"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999660"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -521,7 +521,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 }
 ```
 
-### <a name="1-assign-the-custom-role-to-the-service-principal"></a>**[1]** 서비스 주체에 사용자 지정 역할 할당
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** 서비스 주체에 사용자 지정 역할 할당
 
 마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할을 더 이상 사용하지 마십시오!
 

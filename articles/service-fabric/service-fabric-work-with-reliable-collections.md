@@ -4,7 +4,7 @@ description: 신뢰할 수 있는 컬렉션으로 작업하는 모범 사례를 
 services: service-fabric
 documentationcenter: .net
 author: tylermsft
-manager: timlt
+manager: jeanpaul.connock
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
 ms.service: Service-Fabric
@@ -12,40 +12,40 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/19/2017
+ms.date: 02/12/2019
 ms.author: twhitney
-ms.openlocfilehash: 86e1370bb5241dbe14b34cebe2f2ee6d71a0a323
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e7f0219919fe0569633cc85b89a1a91b1704b269
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193538"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114827"
 ---
 # <a name="working-with-reliable-collections"></a>신뢰할 수 있는 컬렉션 작업
-Service Fabric은 신뢰할 수 있는 컬렉션을 통해 .NET 개발자에게 사용할 수 있는 상태 저장 프로그래밍 모델을 제공합니다. 즉, 서비스 패브릭은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 클래스를 제공합니다. 이러한 클래스를 사용하는 경우 상태가 분할되고(확장성의 경우) 복제되며(가용성의 경우) 파티션 내에서 트랜잭션 처리됩니다(ACID 의미 체계의 경우). 신뢰할 수 있는 사전 개체의 일반적인 사용을 살펴보고 실제로 어떤 역할을 하는지 확인하겠습니다.
+Service Fabric은 신뢰할 수 있는 컬렉션을 통해 .NET 개발자에게 사용할 수 있는 상태 저장 프로그래밍 모델을 제공합니다. 즉, 서비스 패브릭은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 클래스를 제공합니다. 이러한 클래스를 사용하는 경우 상태가 분할되고(확장성의 경우) 복제되며(가용성의 경우) 파티션 내에서 트랜잭션 처리됩니다(ACID 의미 체계의 경우). 신뢰할 수 있는 사전 개체의 일반적인 사용을 살펴보고 실제로 어떤 역할을 하는지 살펴보겠습니다.
 
 ```csharp
-
-///retry:
-
-try {
+try
+{
    // Create a new Transaction object for this partition
-   using (ITransaction tx = base.StateManager.CreateTransaction()) {
+   using (ITransaction tx = base.StateManager.CreateTransaction())
+   {
       // AddAsync takes key's write lock; if >4 secs, TimeoutException
       // Key & value put in temp dictionary (read your own writes),
-      // serialized, redo/undo record is logged & sent to
-      // secondary replicas
+      // serialized, redo/undo record is logged & sent to secondary replicas
       await m_dic.AddAsync(tx, key, value, cancellationToken);
 
       // CommitAsync sends Commit record to log & secondary replicas
       // After quorum responds, all locks released
       await tx.CommitAsync();
    }
-   // If CommitAsync not called, Dispose sends Abort
+   // If CommitAsync isn't called, Dispose sends Abort
    // record to log & all locks released
 }
-catch (TimeoutException) {
-   await Task.Delay(100, cancellationToken); goto retry;
+catch (TimeoutException)
+{
+   // choose how to handle the situation where you couldn't get a lock on the file because it was 
+   // already in use. You might delay and retry the operation
 }
 ```
 
@@ -65,7 +65,8 @@ catch (TimeoutException) {
 신뢰할 수 있는 컬렉션이 내부적으로 작업하는 방법을 이해했으므로 이 중에서 몇 가지 일반적인 오용을 살펴보겠습니다. 아래 코드를 확인합니다.
 
 ```csharp
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // AddAsync serializes the name/user, logs the bytes,
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
@@ -84,8 +85,8 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    user.LastLogin = DateTime.UtcNow;  // Do this BEFORE calling AddAsync
    await m_dic.AddAsync(tx, name, user);
    await tx.CommitAsync();
@@ -95,14 +96,14 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 일반적인 실수를 보여주는 또 다른 예는 다음과 같습니다.
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // Use the user’s name to look up their data
-   ConditionalValue<User> user =
-      await m_dic.TryGetValueAsync(tx, name);
+   ConditionalValue<User> user = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
-   if (user.HasValue) {
+   if (user.HasValue)
+   {
       // The line below updates the property’s value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
@@ -113,19 +114,19 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 
 다시 일반 .NET 사전으로 위의 코드가 제대로 작동하며 이는 일반적인 패턴입니다. 개발자는 키를 사용하여 값을 조회합니다. 값이 있는 경우 개발자는 속성의 값을 변경합니다. 그러나 신뢰할 수 있는 컬렉션으로 이 코드는 **개체를 신뢰할 수 있는 컬렉션에 제공하면 수정해서는 안됩니다**에서 설명한 바와 같이 동일한 문제를 보여줍니다.
 
-신뢰할 수 있는 컬렉션에서 값을 업데이트하는 올바른 방법은 기존 값에 대한 참조를 가져오고 변경할 수 없는 이 참조에서 참조하는 개체를 고려하는 것입니다. 그런 다음 원래 개체의 정확한 복사본인 새 개체를 만듭니다. 이제 이 새 개체의 상태를 수정하고 새 개체를 컬렉션에 작성하여 바이트 배열로 직렬화되며 이는 로컬 파일에 추가되고 복제본에 전송됩니다. 변경 내용을 커밋한 후에 메모리내 개체인 로컬 파일 및 모든 복제본은 정확히 동일한 상태입니다. 모두 정상입니다.
+신뢰할 수 있는 컬렉션에서 값을 업데이트하는 올바른 방법은 기존 값에 대한 참조를 가져오고 변경할 수 없는 이 참조에서 참조하는 개체를 고려하는 것입니다. 그런 다음, 원본 개체의 정확한 복사본인 새 개체를 만듭니다. 이제 이 새 개체의 상태를 수정하고 새 개체를 컬렉션에 작성하여 바이트 배열로 직렬화되며 이는 로컬 파일에 추가되고 복제본에 전송됩니다. 변경 내용을 커밋한 후에 메모리내 개체인 로컬 파일 및 모든 복제본은 정확히 동일한 상태입니다. 모두 정상입니다.
 
 아래 코드는 신뢰할 수 있는 컬렉션에서 값을 업데이트하는 올바른 방법을 보여줍니다.
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // Use the user’s name to look up their data
-   ConditionalValue<User> currentUser =
-      await m_dic.TryGetValueAsync(tx, name);
+   ConditionalValue<User> currentUser = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
-   if (currentUser.HasValue) {
+   if (currentUser.HasValue)
+   {
       // Create new user object with the same state as the current user object.
       // NOTE: This must be a deep copy; not a shallow copy. Specifically, only
       // immutable state can be shared by currentUser & updatedUser object graphs.
@@ -136,31 +137,32 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 
       // Update the key’s value to the updateUser info
       await m_dic.SetValue(tx, name, updatedUser);
-
       await tx.CommitAsync();
    }
 }
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>변경할 수 없는 데이터 형식을 정의하여 프로그래머 오류 방지
-이상적으로는 변경할 수 없다고 간주되는 개체의 상태를 변경하는 코드를 실수로 생성한 경우 컴파일러가 오류를 보고할 수 있어야 합니다. 하지만 C# 컴파일러에는 이 작업을 수행하는 기능이 없습니다. 따라서 잠재적인 프로그래머 버그를 방지하려면 신뢰할 수 있는 컬렉션을 사용하여 사용할 형식을 변경할 수 없는 형식으로 정의하는 것이 좋습니다. 즉, 핵심 값 형식(예: 숫자[Int32, UInt64 등], DateTime, Guid, TimeSpan 등)을 사용해야 합니다. 물론 문자열도 사용할 수 있습니다. 컬렉션 속성을 직렬화 및 역직렬화하면 성능이 떨어질 수 있기 때문에 해당 속성을 방지하는 것이 좋습니다. 그러나 컬렉션 속성을 사용하려는 경우 .NET의 변경 불가능 컬렉션 라이브러리([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/))를 사용하는 것이 좋습니다. 이 라이브러리는 http://nuget.org에서 다운로드할 수 있습니다. 또한 클래스를 봉인하고 가능한 경우 읽기 전용 필드를 만드는 것이 좋습니다.
+이상적으로는 변경할 수 없다고 간주되는 개체의 상태를 변경하는 코드를 실수로 생성한 경우 컴파일러가 오류를 보고할 수 있어야 합니다. 하지만 C# 컴파일러에는 이 작업을 수행하는 기능이 없습니다. 따라서 잠재적인 프로그래머 버그를 방지하려면 신뢰할 수 있는 컬렉션을 사용하여 사용할 형식을 변경할 수 없는 형식으로 정의하는 것이 좋습니다. 즉, 핵심 값 형식(예: 숫자[Int32, UInt64 등], DateTime, Guid, TimeSpan 등)을 사용해야 합니다. 문자열을 사용할 수도 있습니다. 직렬화 및 역직렬화하면 성능이 떨어질 수 있기 때문에 컬렉션 속성을 피하는 것이 가장 좋습니다. 그러나 컬렉션 속성을 사용하려는 경우 .NET의 변경 불가능 컬렉션 라이브러리([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/))를 사용하는 것이 좋습니다. 이 라이브러리는 http://nuget.org에서 다운로드할 수 있습니다. 또한 클래스를 봉인하고 가능한 경우 읽기 전용 필드를 만드는 것이 좋습니다.
 
 아래의 UserInfo 형식은 앞에서 설명한 권장 사항을 활용하는 변경할 수 없는 형식을 정의하는 방법을 보여줍니다.
 
 ```csharp
-
 [DataContract]
 // If you don’t seal, you must ensure that any derived classes are also immutable
-public sealed class UserInfo {
+public sealed class UserInfo
+{
    private static readonly IEnumerable<ItemId> NoBids = ImmutableList<ItemId>.Empty;
 
-   public UserInfo(String email, IEnumerable<ItemId> itemsBidding = null) {
+   public UserInfo(String email, IEnumerable<ItemId> itemsBidding = null) 
+   {
       Email = email;
       ItemsBidding = (itemsBidding == null) ? NoBids : itemsBidding.ToImmutableList();
    }
 
    [OnDeserialized]
-   private void OnDeserialized(StreamingContext context) {
+   private void OnDeserialized(StreamingContext context)
+   {
       // Convert the deserialized collection to an immutable collection
       ItemsBidding = ItemsBidding.ToImmutableList();
    }
@@ -175,7 +177,8 @@ public sealed class UserInfo {
 
    // Since each UserInfo object is immutable, we add a new ItemId to the ItemsBidding
    // collection by creating a new immutable UserInfo object with the added ItemId.
-   public UserInfo AddItemBidding(ItemId itemId) {
+   public UserInfo AddItemBidding(ItemId itemId)
+   {
       return new UserInfo(Email, ((ImmutableList<ItemId>)ItemsBidding).Add(itemId));
    }
 }
@@ -184,13 +187,13 @@ public sealed class UserInfo {
 ItemId 형식은 다음과 같이 변경할 수 없는 형식이기도 합니다.
 
 ```csharp
-
 [DataContract]
-public struct ItemId {
-
+public struct ItemId
+{
    [DataMember] public readonly String Seller;
    [DataMember] public readonly String ItemName;
-   public ItemId(String seller, String itemName) {
+   public ItemId(String seller, String itemName)
+   {
       Seller = seller;
       ItemName = itemName;
    }
@@ -198,7 +201,7 @@ public struct ItemId {
 ```
 
 ## <a name="schema-versioning-upgrades"></a>스키마 버전 관리(업그레이드)
-내부적으로 신뢰할 수 있는 컬렉션은 .NET에 있는 DataContractSerializer를 사용하여 개체를 직렬화합니다. 직렬화된 개체는 기본 복제본의 로컬 디스크에 유지되고 보조 복제본에도 전송됩니다. 서비스가 완성되면 서비스에 필요한 데이터(스키마)의 종류를 변경할 가능성이 높습니다. 데이터의 버전 관리에 주의를 기울여서 접근해야 합니다. 무엇보다도 언제든 오래된 데이터를 역직렬화할 수 있어야 합니다. 즉, 역직렬화 코드는 이전 버전과 제한 없이 호환되어야 합니다. 서비스 코드의 버전 333은 5년 전에 서비스 코드의 버전 1이 신뢰할 수 있는 컬렉션에 배치한 데이터에서 작동할 수 있어야 합니다.
+내부적으로 신뢰할 수 있는 컬렉션은 .NET에 있는 DataContractSerializer를 사용하여 개체를 직렬화합니다. 직렬화된 개체는 기본 복제본의 로컬 디스크에 유지되고 보조 복제본에도 전송됩니다. 서비스가 완성되면 서비스에 필요한 데이터(스키마)의 종류를 변경할 가능성이 높습니다. 데이터의 버전 관리에 신중해야 합니다. 무엇보다도 언제든 오래된 데이터를 역직렬화할 수 있어야 합니다. 즉, 역직렬화 코드는 이전 버전과 제한 없이 호환되어야 합니다. 서비스 코드의 버전 333은 5년 전에 서비스 코드의 버전 1이 신뢰할 수 있는 컬렉션에 배치한 데이터에서 작동할 수 있어야 합니다.
 
 또한 서비스 코드는 한 번에 하나의 업그레이드 도메인을 업그레이드합니다. 따라서 업그레이드하는 동안 다른 두 버전의 서비스 코드를 동시에 실행합니다. 이전 버전의 서비스 코드가 새 스키마를 처리할 수 없을 수 있으므로 서비스 코드의 새 버전이 새 스키마를 사용하지 않도록 해야 합니다. 가능하면 서비스의 각 버전이 1버전에서 앞으로의 버전과 호환되도록 디자인해야 합니다. 즉, 서비스 코드의 V1이 명시적으로 처리하지 않는 스키마 요소를 무시할 수 있어야 합니다. 그러나 명시적으로 알지 못하는 모든 데이터를 저장하고 사전 키 또는 값을 업데이트하는 경우 다시 작성할 수 있어야 합니다.
 
@@ -212,7 +215,7 @@ public struct ItemId {
 ## <a name="next-steps"></a>다음 단계
 이후에 호환 가능한 데이터 계약 만들기에 대해 알아보려면 [이후 호환 가능한 데이터 계약](https://msdn.microsoft.com/library/ms731083.aspx)을 참조하세요.
 
-데이터 계약을 버전 관리하는 모범 사례를 알아보려면 [데이터 계약 버전 관리](https://msdn.microsoft.com/library/ms731138.aspx)를 참조하세요.
+데이터 계약 버전 관리에 대한 모범 사례를 알아보려면 [데이터 계약 버전 관리](https://msdn.microsoft.com/library/ms731138.aspx)를 참조하세요.
 
 내결함성 데이터 계약의 버전을 구현하는 방법을 알아보려면 [버전 내결함성 직렬화 콜백](https://msdn.microsoft.com/library/ms733734.aspx)을 참조하세요.
 

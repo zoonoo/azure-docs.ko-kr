@@ -1,26 +1,26 @@
 ---
-title: Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 미리 보기 사용
-description: Azure Data Lake Storage Gen2 미리 보기의 데이터를 쿼리하고 분석 결과를 저장하는 방법을 알아봅니다.
+title: Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
+description: Azure Data Lake Storage Gen2의 데이터를 쿼리하고 분석 결과를 저장하는 방법을 알아봅니다.
 author: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 739076289a1324cb47f0c980f0d21b153c7b5edc
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: df65c29b39921eda6ba2bd682e5938f58a9e4de7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662961"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964580"
 ---
-# <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 미리 보기 사용
+# <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
-HDInsight 클러스터의 데이터를 분석하기 위해 Azure Blob Storage, Azure Data Lake Storage Gen2 미리 보기가 활성화된 Azure Blob Storage 또는 Azure Data Lake Storage Gen1의 조합에 데이터를 저장할 수 있습니다. 모든 저장소 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+HDInsight 클러스터의 데이터를 분석하기 위해 Azure Blob Storage, Azure Data Lake Storage Gen2가 활성화된 Azure Blob Storage 또는 Azure Data Lake Storage Gen1의 조합에 데이터를 저장할 수 있습니다. 모든 저장소 옵션을 사용하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
 Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 시스템은 기본 체계와 권한을 의미합니다. 상대 경로를 확인하기 위해 사용할 수 있습니다. HDInsight 클러스터 만들기 프로세스 중에 Azure Storage에 Blob 컨테이너를 지정하거나 Data Lake Storage Gen2에서 기본 파일 시스템으로 제공하는 계층 구조 네임스페이스를 지정할 수 있습니다. 또는 HDInsight 3.5를 사용하는 경우 몇 가지 예외를 제외하고 컨테이너 또는 계층 구조 네임스페이스를 기본 파일 시스템으로 선택할 수 있습니다.
 
-이 문서에서는 Data Lake Storage Gen2가 HDInsight 클러스터에서 작동하는 방식에 대해 알아봅니다. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [Hadoop, Spark, Kafka 등으로 Azure Data Lake Storage를 사용하여 HDInsight 클러스터 설정](data-lake-storage-quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+이 문서에서는 Data Lake Storage Gen2가 HDInsight 클러스터에서 작동하는 방식에 대해 알아봅니다. HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [Hadoop, Spark, Kafka 등으로 Azure Data Lake Storage를 사용하여 HDInsight 클러스터 설정](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)을 참조하세요.
 
 Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 스토리지 솔루션입니다. HDInsight는 Azure Data Lake Storage를 클러스터의 기본 파일 시스템으로 사용할 수 있습니다. HDFS(Hadoop Distributed File System) 인터페이스를 통해 HDInsight의 전체 구성 요소 집합이 Azure Data Lake Storage의 파일에서 직접 작동할 수 있습니다.
 
@@ -154,7 +154,7 @@ az storage account create \
 ```
 
 > [!NOTE]
-> Data Lake Storage Gen2의 공개 미리 보기 기간에는 `--sku Standard_LRS`만 지원됩니다.
+> Data Lake Storage Gen2의 공개 기간에는 `--sku Standard_LRS`만 지원됩니다.
 
 저장소 계정에 생성된 지리적 지역을 지정하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려는 동일한 지역에 저장소 계정을 만듭니다.
 
@@ -209,7 +209,6 @@ HDInsight 클러스터를 만드는 동안 클러스터와 연결할 Azure Stora
 
 * [Azure Data Lake Storage Gen2용 ABFS Hadoop 파일 시스템 드라이버](data-lake-storage-abfs-driver.md)
 * [Azure Data Lake Storage Gen2 소개](data-lake-storage-introduction.md)
-* [Azure Data Lake Storage Gen2를 사용하여 Hadoop, Spark, Kafka 등이 포함된 HDInsight 클러스터 설정](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 * [distcp를 사용하여 Azure Data Lake Storage Gen2에 데이터 수집](data-lake-storage-use-distcp.md)
 
 [powershell-install]: /powershell/azure/install-az-ps

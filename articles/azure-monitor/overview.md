@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098033"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001995"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -28,6 +28,7 @@ Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석 �
 ## <a name="overview"></a>개요
 다음 다이어그램은 Azure Monitor에 대한 개요를 제공합니다. 다이어그램의 중심에는 Azure Monitor의 두 가지 데이터 사용 기본 유형인 메트릭 및 로그를 저장하는 데이터 저장소가 있습니다. 왼쪽에는 이러한 [데이터 저장소](platform/data-collection.md)를 채우는 [모니터링 데이터의 원본](platform/data-sources.md)이 있습니다. 오른쪽에는 이렇게 수집된 데이터를 사용하여 Azure Monitor가 수행하는 분석, 경고, 외부 시스템으로 스트리밍 등의 여러 함수가 있습니다.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Azure Monitor 개요](media/overview/overview.png)
 
@@ -35,11 +36,11 @@ Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석 �
 ## <a name="monitoring-data-platform"></a>데이터 플랫폼 모니터링
 Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [메트릭 및 로그](platform/data-collection.md) 중 한 쪽에 적합합니다. [메트릭](platform/data-collection.md#metrics)은 시간상 특정 지점에서 시스템의 일부 측면을 설명하는 숫자 값입니다. 메트릭은 간단하며 실시간에 가까운 시나리오를 지원할 수 있습니다. [로그](platform/data-collection.md#logs)에는 각 형식에 대해 다양한 속성 집합이 포함된 레코드로 구성된 다양한 데이터 형식이 포함됩니다. 이벤트 및 추적과 같은 원격 분석은 분석을 위해 모두 결합될 수 있도록 성능 데이터 외에 로그로 저장됩니다.
 
-많은 Azure 리소스의 경우 Azure Monitor가 수집한 데이터는 Azure Portal의 [개요] 페이지에서 바로 볼 수 있습니다. 예를 들어 아무 가상 머신을 살펴보면 성능 메트릭을 표시하는 여러 차트를 볼 수 있습니다. 아무 그래프를 클릭하면 Azure Portal의 [메트릭 탐색기](platform/metrics-charts.md)에서 데이터가 열리고, 시간에 따른 여러 메트릭의 값을 차트로 볼 수 있습니다.  대화형으로 차트를 보거나 다른 시각화 요소를 사용하여 보려는 대시보드에 고정할 수 있습니다.
+많은 Azure 리소스의 경우 Azure Monitor가 수집한 데이터는 Azure Portal의 [개요] 페이지에서 바로 볼 수 있습니다. 예를 들어 아무 가상 머신을 살펴보면 성능 메트릭을 표시하는 여러 차트를 볼 수 있습니다. 아무 그래프나 클릭하면 Azure Portal의 [메트릭 탐색기](platform/metrics-charts.md)에서 데이터가 열리고, 시간에 따른 여러 메트릭의 값을 차트로 볼 수 있습니다.  대화형으로 차트를 보거나 다른 시각화 요소를 사용하여 보려는 대시보드에 고정할 수 있습니다.
 
 ![메트릭](media/overview/metrics.png)
 
-Azure Monitor가 수집한 데이터는 Log Analytics에 저장되고, Log Analytics에는 수집한 데이터를 신속하게 검색, 통합, 분석할 수 있는 [풍부한 쿼리 언어](log-query/log-query-overview.md)가 포함되어 있습니다.  Azure Portal에서 [Log Analytics 페이지](log-query/portals.md)를 사용하여 쿼리를 만들고 테스트한 다음, 이러한 도구를 사용하여 데이터를 직접 분석하거나 [시각화](visualizations.md) 또는 [경고 규칙](platform/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
+Azure Monitor로 수집한 로그 데이터는 수집된 데이터를 신속하게 검색, 통합 및 분석하는 [쿼리](log-query/log-query-overview.md)로 분석할 수 있습니다.  Azure Portal에서 [Log Analytics](log-query/portals.md)를 사용하여 쿼리를 만들고 테스트한 다음, 이러한 도구를 사용하여 데이터를 직접 분석하거나 [시각화](visualizations.md) 또는 [경고 규칙](platform/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
 
 Azure Monitor는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 같은 고급 기능도 포함하는 [Data Explorer 쿼리 언어](/azure/kusto/query/) 버전을 사용합니다. [여러 강좌](log-query/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.  [SQL](log-query/sql-cheatsheet.md) 및 [Splunk](log-query/splunk-cheatsheet.md)에 이미 익숙한 사용자에게는 특정 지침이 제공됩니다.
 
@@ -54,7 +55,7 @@ Azure Monitor는 다양한 원본에서 데이터를 수집할 수 있습니다.
 - **Azure 구독 모니터링 데이터**: Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. 
 - **Azure 테넌트 모니터링 데이터**: Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다.
 
-Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  리소스가 생성되거나 수정되면 [활동 로그](platform/activity-logs-overview.md)가 기록됩니다. [메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
+Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  리소스가 생성되거나 수정되면 [활동 로그](platform/activity-logs-overview.md)가 기록됩니다. [메트릭](platform/data-collection.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
 
 [진단을 사용하도록 설정](platform/diagnostic-logs-overview.md)하고 계산 리소스에 [에이전트를 추가](platform/agent-windows.md)하여 수집하는 데이터를 실제 리소스 작업으로 확장할 수 있습니다. 이렇게 하면 리소스의 내부 작업에 대한 원격 분석 데이터가 수집되며, Windows 및 Linux 게스트 운영 체제에서 로그 및 메트릭을 수집하도록 여러 [데이터 원본](platform/agent-data-sources.md)을 구성할 수 있습니다. 
 

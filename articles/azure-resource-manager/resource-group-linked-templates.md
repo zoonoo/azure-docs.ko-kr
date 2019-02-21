@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: ac07b5af28dc869b6aa05c269c9225d546d651a0
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 92e5fb782eed3344a55178d6ba74dfd6d7b8cafd
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490433"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235913"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -31,7 +31,9 @@ ms.locfileid: "55490433"
 
 자습서의 경우 [자습서: 연결된 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-linked-templates.md)를 참조하세요.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> 연결된 템플릿 또는 중첩된 템플릿의 경우 [증분](deployment-modes.md) 배포 모드만 사용할 수 있습니다.
+>
 
 ## <a name="link-or-nest-a-template"></a>템플릿 연결 또는 중첩
 
@@ -52,8 +54,6 @@ ms.locfileid: "55490433"
 ```
 
 배포 리소스에 제공하는 속성은 외부 템플릿에 연결하는지 또는 기본 템플릿에 인라인 템플릿을 중첩하는지 여부에 따라 달라집니다.
-
-연결된 템플릿 및 중첩된 템플릿 둘 다에서 [증분](deployment-modes.md) 배포 모드만 사용할 수 있습니다.
 
 ### <a name="nested-template"></a>중첩된 템플릿
 
@@ -467,8 +467,8 @@ PowerShell에서는 다음 명령을 사용하여 컨테이너용 토큰을 얻�
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
-$token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
-$url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
+$token = New-AzStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
+$url = (Get-AzStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 

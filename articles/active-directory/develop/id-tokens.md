@@ -16,24 +16,25 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 74f071d91003c63fd8db590572a7c9dea1b8915b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c92472d276b3f03e5a3855587de4ca8a045bfec2
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092775"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234428"
 ---
 # <a name="id-tokens"></a>ID 토큰
 
-`id_tokens`는 [OpenID Connect](v1-protocols-openid-connect-code.md) 흐름의 일부로 클라이언트 애플리케이션에 전송됩니다. 액세스 토큰과 함께 또는 액세스 토큰 대신 보낼 수 있고 클라이언트가 사용자를 인증하는 데 사용됩니다. 
+`id_tokens`는 [OpenID Connect](v1-protocols-openid-connect-code.md) 흐름의 일부로 클라이언트 애플리케이션에 전송됩니다. 액세스 토큰과 함께 또는 액세스 토큰 대신 보낼 수 있고 클라이언트가 사용자를 인증하는 데 사용됩니다.
 
 ## <a name="using-the-idtoken"></a>id_token 사용
 
-ID 토큰은 해당 토큰이 클레임하는 사용자의 유효성을 확인하고 유용한 추가 정보를 가져오기 위해 사용하는 것이고 [액세스 토큰](access-tokens.md) 대신 사용해서는 안 됩니다. 이 토큰이 제공하는 클레임은 애플리케이션 내부 UX, 데이터베이스 입력, 클라이언트 애플리케이션에 대한 액세스 제공을 위해 사용됩니다. 
+ID 토큰은 해당 토큰이 클레임하는 사용자의 유효성을 확인하고 유용한 추가 정보를 가져오기 위해 사용하는 것이고 [액세스 토큰](access-tokens.md) 대신 사용해서는 안 됩니다. 이 토큰이 제공하는 클레임은 애플리케이션 내부 UX, 데이터베이스 입력, 클라이언트 애플리케이션에 대한 액세스 제공을 위해 사용됩니다.
 
 ## <a name="claims-in-an-idtoken"></a>Id_token의 클레임
 
-Microsoft ID용 `id_tokens`는 [JWT](https://tools.ietf.org/html/rfc7519)입니다. 즉 헤더, 페이로드, 서명 부분으로 구성됩니다. 헤더와 페이로드를 사용하여 토큰의 신뢰성을 확인하며 페이로드에는 클라이언트가 요청한 사용자에 관한 정보가 포함됩니다. 명시된 경우를 제외하고 여기의 모든 클레임은 v1.0 및 v2.0 토큰에 모두 표시됩니다.
+Microsoft ID용 `id_tokens`는 [JWT](https://tools.ietf.org/html/rfc7519)입니다. 즉 헤더, 페이로드, 서명 부분으로 구성됩니다. 헤더와 서명을 사용하여 토큰의 신뢰성을 확인할 수 있으며, 페이로드에는 클라이언트가 요청한 사용자에 관한 정보가 포함됩니다. 명시된 경우를 제외하고 여기의 모든 클레임은 v1.0 및 v2.0 토큰에 모두 표시됩니다.
 
 ### <a name="v10"></a>v1.0
 

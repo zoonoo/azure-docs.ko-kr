@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
-ms.openlocfilehash: ed6c21762fed331e2f11378ec9b6d91cba9bec11
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.reviewer: christianreddington,anthdela,juselph
+ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250868"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244882"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Azure DevTest Labs 인프라 강화
 엔터프라이즈급으로 DevTest Labs를 구현하기 전에 몇 가지 중요한 사항을 결정해야 합니다. 높은 수준에서 이러한 결정 사항을 파악하는 조직은 향후에도 적절한 디자인 관련 결정을 내릴 수 있습니다. 하지만 이러한 결정 사항으로 인해 조직의 개념 증명 시작이 지연되어서는 안 됩니다. 초기 강화 계획에 포함되는 세 가지 주요 영역은 다음과 같습니다.
@@ -66,4 +67,4 @@ DevTest Lab 개념 증명에는 각기 책임이 정의된 세 가지 기본 역
 - **DevTest Labs 사용자** – DevTest Labs 사용자는 랩에서 가상 머신을 만들고 사용할 수 있습니다. 이 개별 사용자에게는 직접 만드는 VM에 대한 최소한의 관리 기능(VM 시작/중지/삭제/구성)이 제공됩니다. 하지만 다른 사용자의 VM을 관리할 수는 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 시리즈의 다음 문서인 [Azure DevTest Labs의 구현 오케스트레이션](devtest-lab-guidance-orchestrate-implementation.md)을 참조하세요.
+이 시리즈의 다음 문서를 참조하세요. [Azure DevTest Labs의 구현 오케스트레이션](devtest-lab-guidance-orchestrate-implementation.md)

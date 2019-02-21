@@ -11,18 +11,40 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: cea5f2a3eaa7bddb523d95936fbe0a50e0fd16ed
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4e7cc1340a85e1d00c2f64abeb35a99052184c52
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564343"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100179"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다.  각 SDK에 대한 전체 설명은 다음 참조 문서를 참조하세요.
 + Azure Machine Learning의 [**Python용 기본 SDK**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-11"></a>2019-02-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1015"></a>Python용 Azure Machine Learning SDK v1.0.15
+
++ **새로운 기능**
+  + Azure Machine Learning 파이프라인에 AzureBatchStep([Notebook](https://aka.ms/pl-azbatch)), HyperDriveStep([Notebook](https://aka.ms/pl-hyperdrive)) 및 시간 기반 일정 예약 기능([Notebook](https://aka.ms/pl-schedule))이 추가되었습니다.
+  +  DataTranferStep이 Azure SQL Server 및 Azure Database for PostgreSQL에서 작동하도록 업데이트되었습니다([Notebook](https://aka.ms/pl-data-trans)).
+
++ **변경된 기능**
+  + `PublishedPipeline.get_published_pipeline`이 사용되지 않는 대신 `PublishedPipeline.get`이 사용됩니다.
+  + `Schedule.get_schedule`이 사용되지 않는 대신 `Schedule.get`이 사용됩니다.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1012"></a>Azure Machine Learning 데이터 준비 SDK v1.0.12
+
++ **새로운 기능**
+  + 데이터 준비 SDK는 이제 데이터 저장소를 사용하여 Azure SQL 데이터베이스에서 읽을 수 있도록 지원합니다.
+ 
++ **변경된 기능**
+  + 대용량 데이터에서 특정 작업의 메모리 성능이 크게 향상되었습니다.
+  + `read_pandas_dataframe()`에는 이제 `temp_folder`를 지정해야 합니다.
+  + `ColumnProfile`의 `name` 속성은 더 이상 사용되지 않습니다. 대신 `column_name`을 사용합니다.
 
 ## <a name="2019-01-28"></a>2019-01-28
 

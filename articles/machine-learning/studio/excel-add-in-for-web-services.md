@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 57c9f9a0b6f3a0502a07ca3124cbe157d8008117
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c9c5ad0af39b698175c4bc7cb7f720452546ec10
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486897"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997081"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio 웹 서비스용 Excel 추가 기능
 Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비스를 호출할 수 있습니다.
@@ -24,8 +24,8 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 
 1. 타이타닉호의 승객에 대한 데이터와 Excel 추가 기능이 들어 있는 [샘플 Excel 파일](https://aka.ms/amlexcel-sample-2)을 엽니다. 
  
-> [!NOTE]
-> 파일과 관련된 웹 서비스 목록이 보이고 하단에 "자동 예측" 확인란이 표시됩니다. 자동 예측을 사용하도록 설정하면 입력이 변경될 때마다 **모든** 서비스의 예측이 업데이트됩니다. 선택하지 않는 경우 새로 고치려면 "모두 예측"을 클릭해야 합니다. 서비스 수준에서 자동 예측을 사용하도록 설정하려면 6단계로 이동합니다.
+    > [!NOTE]
+    > 파일과 관련된 웹 서비스 목록이 보이고 하단에 "자동 예측" 확인란이 표시됩니다. 자동 예측을 사용하도록 설정하면 입력이 변경될 때마다 **모든** 서비스의 예측이 업데이트됩니다. 선택하지 않는 경우 새로 고치려면 "모두 예측"을 클릭해야 합니다. 서비스 수준에서 자동 예측을 사용하도록 설정하려면 6단계로 이동합니다.
 
 2. 웹 서비스를 클릭하여 선택합니다(이 예제의 경우 "Titanic Survivor Predictor (Excel Add-in Sample) [Score]").
    
@@ -37,7 +37,7 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
    
     ![Predict 섹션][02]
 
-웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포 방법에 대한 자세한 내용은 [연습 5단계: Azure Machine Learning 웹 서비스 배포](walkthrough-5-publish-web-service.md)를 참조하세요.
+웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포 방법에 대한 자세한 내용은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조하세요.
 
 웹 서비스에 대한 API 키를 가져옵니다. 새 Machine Learning 웹 서비스의 기존 Machine Learning 웹 서비스를 게시했는지 여부에 따라 이 작업을 수행하는 위치가 달라집니다.
 
@@ -65,7 +65,7 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 
 ## <a name="steps-to-add-a-new-web-service"></a>새 웹 서비스 추가 단계
 
-1. 웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포 방법에 대한 자세한 내용은 [연습 5단계: Azure Machine Learning 웹 서비스 배포](walkthrough-5-publish-web-service.md)를 참조하세요.
+1. 웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포 방법에 대한 자세한 내용은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조하세요.
 2. **사용**을 클릭합니다.
 3. **기본 사용량 정보** 섹션을 찾습니다. **기본 키** 및 **요청-응답** URL을 복사하여 저장합니다.
 4. Excel에서 **웹 서비스** 섹션으로 이동합니다(**Predict** 섹션에 있는 경우 뒤로 화살표를 클릭하여 웹 서비스 목록으로 이동).

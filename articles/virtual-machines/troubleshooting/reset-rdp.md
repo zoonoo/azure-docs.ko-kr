@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 77eb372bbe3647e03919aae21087d3270c22148a
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 875f2d9dbbece4e9587462c6e8bdb2b2d8536c86
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506561"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979890"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Windows VM에서 원격 데스크톱 서비스 또는 해당 관리자 암호 다시 설정
 Windows VM(가상 머신)에 연결할 수 없는 경우 로컬 관리자 암호를 다시 설정하거나 원격 데스크톱 서비스 구성을 다시 설정할 수 있습니다(Windows 도메인 컨트롤러에서는 지원되지 않음). 암호를 다시 설정하려면 Azure Portal이나 Azure PowerShell의 VM 액세스 확장을 사용합니다. VM에 로그인한 후 해당 로컬 관리자의 암호를 다시 설정합니다.  
@@ -54,11 +54,11 @@ PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>VMAccess 확장 및 PowerShell을 사용하여 다시 설정
 
-먼저 [최신 PowerShell 모듈을 설치 및 구성](/powershell/azure/overview)하고 [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet을 사용하여 Azure 구독에 로그인해야 합니다.
+먼저 [최신 PowerShell 모듈을 설치 및 구성](/powershell/azure/overview)하고 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 구독에 로그인해야 합니다.
 
 ### <a name="reset-the-local-administrator-account-password"></a>**로컬 관리자 계정 암호를 다시 설정**
 
-- [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet을 사용하여 관리자 암호 또는 사용자 이름을 다시 설정합니다. 버전 1은 사용되지 않으므로 `typeHandlerVersion` 설정은 2.0 이상이어야 합니다. 
+- [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet을 사용하여 관리자 암호 또는 사용자 이름을 다시 설정합니다. 버전 1은 사용되지 않으므로 `typeHandlerVersion` 설정은 2.0 이상이어야 합니다. 
 
     ```powershell
     $SubID = "<SUBSCRIPTION ID>" 
@@ -66,9 +66,9 @@ PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성
     $VmName = "<VM NAME>" 
     $Location = "<LOCATION>" 
  
-    Connect-AzureRmAccount 
-    Select-AzureRMSubscription -SubscriptionId $SubID 
-    Set-AzureRmVMAccessExtension -ResourceGroupName $RgName -Location $Location -VMName $VmName -Credential (get-credential) -typeHandlerVersion "2.0" -Name VMAccessAgent 
+    Connect-AzAccount 
+    Select-AzSubscription -SubscriptionId $SubID 
+    Set-AzVMAccessExtension -ResourceGroupName $RgName -Location $Location -VMName $VmName -Credential (get-credential) -typeHandlerVersion "2.0" -Name VMAccessAgent 
     ```
 
     > [!NOTE] 
@@ -76,10 +76,10 @@ PowerShell을 사용하는 경우 [최신 PowerShell 모듈을 설치 및 구성
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**원격 데스크톱 서비스 구성 다시 설정**
 
-1. [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet을 사용하여 VM에 대한 원격 액세스를 다시 설정합니다. 다음 예제에서는 리소스 그룹 `myVMAccess`의 VM `myVM`에서 `myResourceGroup` 진단 확장을 다시 설정합니다.
+1. [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet을 사용하여 VM에 대한 원격 액세스를 다시 설정합니다. 다음 예제에서는 리소스 그룹 `myVMAccess`의 VM `myVM`에서 `myResourceGroup` 진단 확장을 다시 설정합니다.
 
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
+    Set-AzVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
     ```
 
     > [!TIP]

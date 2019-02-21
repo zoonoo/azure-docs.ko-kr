@@ -10,18 +10,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 344b049c46243c06c32ed061410f48f71bc70f54
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580946"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984582"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>구독 전체의 Azure 활동 로그를 Log Analytics에 수집
+# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>다른 Azure Active Directory 테넌트에 있는 구독 전체의 Azure 활동 로그를 Log Analytics에 수집
 
-이 문서에서는 Logic Apps용 Azure Log Analytics Data Collector 커넥터를 사용하여 Azure 활동 로그를 Log Analytics 작업 영역으로 수집하는 방법을 단계별로 안내합니다. 다른 Azure Active Directory의 작업 영역에 로그를 보내야 하는 경우 이 문서의 프로세스를 사용합니다. 예를 들어 관리 서비스 공급자인 경우 고객의 구독에서 활동 로그를 수집하여 자체 구독의 Log Analytics 작업 영역에 저장하는 것이 좋습니다.
+이 문서에서는 Logic Apps용 Azure Log Analytics Data Collector 커넥터를 사용하여 Azure 활동 로그를 Log Analytics 작업 영역으로 수집하는 방법을 단계별로 안내합니다. 다른 Azure Active Directory 테넌트의 작업 영역에 로그를 보내야 하는 경우 이 문서의 과정을 사용합니다. 예를 들어 관리 서비스 공급자인 경우 고객의 구독에서 활동 로그를 수집하여 자체 구독의 Log Analytics 작업 영역에 저장하는 것이 좋습니다.
 
 Log Analytics 작업 영역이 동일한 Azure 구독에 있거나 동일한 Azure Active Directory의 다른 구독에 있는 경우 [Azure 활동 로그 솔루션](collect-activity-logs.md)의 단계에 따라 Azure 활동 로그를 수집합니다.
 
@@ -128,7 +128,7 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
    |설정 | 설명  |
    |:---|:---|
-   | 이름           | Logic App의 고유 이름입니다. |
+   | Name           | Logic App의 고유 이름입니다. |
    | 구독   | Logic App이 포함될 Azure 구독을 선택합니다. |
    | 리소스 그룹 | 기존 Azure 리소스 그룹을 선택하거나 Logic App에 사용할 리소스 그룹을 새로 만듭니다. |
    | 위치       | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다. |

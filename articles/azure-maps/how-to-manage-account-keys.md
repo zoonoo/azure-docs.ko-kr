@@ -1,6 +1,6 @@
 ---
-title: Azure Maps 계정 및 키 관리 | Microsoft Docs
-description: Azure Portal을 사용하여 Azure Maps 계정을 관리하고 액세스 키를 관리할 수 있습니다.
+title: Azure Maps 계정 관리 | Microsoft Docs
+description: Azure Portal을 사용하여 Azure Maps 계정을 관리할 수 있습니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/12/2018
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 81746279e935f9fa5b6ef00bc8d31e75f4d3bd20
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 488167b4893c314af99b354a2422204ebbf34c5e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103047"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113695"
 ---
-# <a name="manage-your-azure-maps-account-and-keys"></a>Azure Maps 계정 및 키 관리
+# <a name="manage-your-azure-maps-account"></a>Azure Maps 계정 관리
 
-Azure Portal을 통해 Azure Maps 계정 및 키를 관리할 수 있습니다. 계정과 키가 있으면 웹 사이트 또는 모바일 애플리케이션에서 API를 구현할 수 있습니다.
+Azure Portal을 통해 Azure Maps 계정을 관리할 수 있습니다. 계정이 생기면 웹 사이트 또는 모바일 애플리케이션에서 API를 구현할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -32,16 +32,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 4. 새로운 계정에 대한 정보를 입력합니다.
 
 ![포털에서 계정 정보 입력](./media/how-to-manage-account-keys/new-account-portal.png)
-
-## <a name="manage-keys-on-the-account-page"></a>계정 페이지에서 키 관리
-
-계정을 만들고 나면 무작위로 생성된 두 개의 키를 받게 됩니다. 지도 데이터를 검색하거나 새 JavaScript 맵 인스턴스를 만들려면 키를 사용하여 Azure Maps API에 대해 인증합니다.
-
-Azure Portal에서 키를 찾을 수 있습니다. 계정으로 이동합니다. 그런 다음, 메뉴에서 **키**를 선택합니다.
-
-![포털에서 계정 키 관리](./media/how-to-manage-account-keys/account-keys-portal.png)
-
-이 페이지에서 키를 복사하거나 새 키를 생성할 수 있습니다.
 
 ## <a name="delete-an-account"></a>계정 삭제
 

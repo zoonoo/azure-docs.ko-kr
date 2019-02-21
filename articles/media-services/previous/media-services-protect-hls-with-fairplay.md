@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 32f3f4fd3f4f299c9b084ab8604b56ea70e639a4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 49b763cba505a3423b47e5a2601db53b8e47a5fe
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368231"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993976"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호
 Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다.  
@@ -28,7 +28,7 @@ Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라�
     전체 청크는 **AES-128 CBC** 모드를 사용하여 암호화됩니다. 스트림의 암호 해독은 iOS 및 OS X 플레이어에서 고유하게 지원됩니다. 자세한 내용은 [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)을 참조하세요.
 * **Apple FairPlay**
 
-    개별 비디오 및 오디오 샘플은 **AES-128 CBC** 모드를 사용하여 암호화됩니다. **FairPlay 스트리밍** (FPS)은 장치 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 사용하여 FPS를 지원합니다.
+    개별 비디오 및 오디오 샘플은 **AES-128 CBC** 모드를 사용하여 암호화됩니다. **FairPlay 스트리밍** (FPS)은 디바이스 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 사용하여 FPS를 지원합니다.
 * **Microsoft PlayReady**
 
 다음 이미지에서는 **HLS + FairPlay 또는 PlayReady 동적 암호화** 워크플로를 보여 줍니다.
@@ -85,7 +85,7 @@ FairPlay 암호화된 스트림을 재생하려면 먼저 실제 ASK를 받은 �
   * .pfx 파일
   * .pfx에 대한 암호
 
-OS X, Apple TV, iOS의 Safari 클라이언트는 **AES-128 CBC** 암호화로 HLS를 지원합니다.
+다음 클라이언트는 **AES-128 CBC** 암호화로 HLS를 지원합니다. OS X, Apple TV, iOS의 Safari.
 
 ## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>FairPlay 동적 암호화 및 라이선스 배달 서비스 구성
 다음은 Media Services 라이선스 배달 서비스를 사용하고 동적 암호화도 사용하여 FairPlay로 자산을 보호하는 일반적인 단계입니다.
@@ -138,7 +138,7 @@ iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay
 * 하나의 암호화만 자산에 적용되었으면 URL에 암호화 형식을 지정할 필요가 없습니다.
 * 암호화 형식은 대/소문자를 구분하지 않습니다.
 * 다음과 같은 암호화 형식을 지정할 수 있습니다.  
-  * **cenc**: 일반 암호화(PlayReady 또는 Widevine)
+  * **cenc**:  일반 암호화(PlayReady 또는 Widevine)
   * **cbcs-aapl**: FairPlay
   * **cbc**: AES 봉투 암호화
 

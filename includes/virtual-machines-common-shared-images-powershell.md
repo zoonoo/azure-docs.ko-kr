@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3ec5b9c6357f0d075ddd9b0fd5c8a88ee2846209
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8770aaeff3e0d7b2d6a39f596aafebf15ed48b23
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192751"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55985004"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
@@ -27,31 +27,31 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 공유 이미지 갤러리는 미리 보기 상태이지만 기능을 등록해야 사용할 수 있습니다. 공유 이미지 갤러리 기능을 등록하려면:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature `
+Register-AzProviderFeature `
    -FeatureName GalleryPreview `
    -ProviderNamespace Microsoft.Compute
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ## <a name="get-the-managed-image"></a>관리되는 이미지 가져오기
 
-[Get-AzureRmImage](/powershell/module/AzureRM.Compute/get-azurermimage)를 사용하여 리소스 그룹에서 사용할 수 있는 이미지 목록을 볼 수 있습니다. 이미지 이름과 해당 이미지가 어떤 리소스 그룹에 들어 있는지 알 수 있으면 `Get-AzureRmImage`를 다시 사용하여 이미지 개체를 가져오고 나중에 사용할 수 있게 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *myImage*라는 이미지를 가져온 후 변수 *$managedImage*에 할당합니다. 
+[Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage)를 사용하여 리소스 그룹에서 사용할 수 있는 이미지 목록을 볼 수 있습니다. 이미지 이름과 해당 이미지가 어떤 리소스 그룹에 들어 있는지 알 수 있으면 `Get-AzImage`를 다시 사용하여 이미지 개체를 가져오고 나중에 사용할 수 있게 변수에 저장할 수 있습니다. 이 예제에서는 "myResourceGroup" 리소스 그룹에서 *myImage*라는 이미지를 가져온 후 변수 *$managedImage*에 할당합니다. 
 
 ```azurepowershell-interactive
-$managedImage = Get-AzureRmImage `
+$managedImage = Get-AzImage `
    -ImageName myImage `
    -ResourceGroupName myResourceGroup
 ```
 
 ## <a name="create-an-image-gallery"></a>이미지 갤러리 만들기 
 
-이미지 갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 갤러리 이름은 구독 내에서 고유해야 합니다. [New-AzureRmGallery](/powershell/module/AzureRM.Compute/new-azurermgallery)를 사용하여 이미지 갤러리를 만듭니다. 다음 예제에서는 *myGalleryRG* 리소스 그룹에 *myGallery*라는 갤러리를 만듭니다.
+이미지 갤러리는 이미지 공유를 활성화하는 데 사용되는 기본 리소스입니다. 갤러리 이름은 구독 내에서 고유해야 합니다. [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery)를 사용하여 이미지 갤러리를 만듭니다. 다음 예제에서는 *myGalleryRG* 리소스 그룹에 *myGallery*라는 갤러리를 만듭니다.
 
 ```azurepowershell-interactive
-$resourceGroup = New-AzureRMResourceGroup `
+$resourceGroup = New-AzResourceGroup `
    -Name 'myGalleryRG' `
    -Location 'West Central US'  
-$gallery = New-AzureRmGallery `
+$gallery = New-AzGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
@@ -60,10 +60,10 @@ $gallery = New-AzureRmGallery `
    
 ## <a name="create-an-image-definition"></a>이미지 정의 만들기 
 
-[New-AzureRmGalleryImageDefinition](/powershell/module/azurerm.compute/new-azurermgalleryimageversion)을 사용하여 갤러리 이미지 정의를 만듭니다. 이 예제에서 갤러리 이미지의 이름은 *myGalleryImage*입니다.
+[New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 갤러리 이미지 정의를 만듭니다. 이 예제에서 갤러리 이미지의 이름은 *myGalleryImage*입니다.
 
 ```azurepowershell-interactive
-$galleryImage = New-AzureRmGalleryImageDefinition `
+$galleryImage = New-AzGalleryImageDefinition `
    -GalleryName $gallery.Name `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $gallery.Location `
@@ -87,7 +87,7 @@ $galleryImage = New-AzureRmGalleryImageDefinition `
 
 ```powershell
 # The following should set the source image as myImage1 from the table above
-$vmConfig = Set-AzureRmVMSourceImage `
+$vmConfig = Set-AzVMSourceImage `
    -VM $vmConfig `
    -PublisherName myPublisher `
    -Offer myOffer `
@@ -98,14 +98,14 @@ $vmConfig = Set-AzureRmVMSourceImage `
 
 ##<a name="create-an-image-version"></a>이미지 버전 만들기
 
-[New-AzureRmGalleryImageVersion](/powershell/module/AzureRM.Compute/new-azurermgalleryimageversion)을 사용하여 관리되는 이미지에서 이미지 버전을 만듭니다. 이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다.
+[New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)을 사용하여 관리되는 이미지에서 이미지 버전을 만듭니다. 이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다.
 
 
 ```azurepowershell-interactive
 $region1 = @{Name='South Central US';ReplicaCount=1}
 $region2 = @{Name='West Central US';ReplicaCount=2}
 $targetRegions = @($region1,$region2)
-$job = $imageVersion = New-AzureRmGalleryImageVersion `
+$job = $imageVersion = New-AzGalleryImageVersion `
    -GalleryImageDefinitionName $galleryImage.Name `
    -GalleryImageVersionName '1.0.0' `
    -GalleryName $gallery.Name `

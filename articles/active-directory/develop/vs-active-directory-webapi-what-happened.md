@@ -12,12 +12,13 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 04732d6541fd6132360d4c235b35979c70772922
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 7f4946251cf72d7869ec5fc2f0fd844b9c06ac34
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141395"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56161935"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>내 WebAPI 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용
 
@@ -33,7 +34,7 @@ ms.locfileid: "42141395"
 
 프로젝트 파일(*.NET 참조) 및 `packages.config`(NuGet 참조)에 영향을 줍니다.
 
-| type | 참고 자료 |
+| Type | 참고 자료 |
 | --- | --- |
 | .NET; NuGet | Microsoft.Owin |
 | .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -46,7 +47,7 @@ ms.locfileid: "42141395"
 
 **디렉터리 데이터 읽기** 옵션을 선택한 경우 추가 참조는 다음과 같습니다.
 
-| type | 참고 자료 |
+| Type | 참고 자료 |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer(Visual Studio 2015만 해당) |
@@ -60,7 +61,7 @@ ms.locfileid: "42141395"
 
 다음 참조가 제거됩니다(Visual Studio 2015와 마찬가지로 ASP.NET 4 프로젝트만 해당).
 
-| type | 참고 자료 |
+| Type | 참고 자료 |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

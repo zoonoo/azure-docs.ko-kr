@@ -17,12 +17,13 @@ ms.workload: identity
 ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 26721aa0eac69875f6a3704025e6ab71a54a1e31
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078103"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56166032"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 위치 조건이란? 
 
@@ -34,9 +35,9 @@ ms.locfileid: "55078103"
 
 Azure AD에서는 공용 인터넷의 어디에서든지 디바이스, 앱 및 서비스에 대해 Single Sign-On을 수행할 수 있습니다. 위치 조건을 사용하여 사용자의 네트워크 위치를 기준으로 클라우드 앱에 대한 액세스를 제어할 수 있습니다. 위치 조건에 대한 일반적인 사용 사례는 다음과 같습니다.
 
-- 회사 네트워크 외부에 있을 때 서비스에 액세스하는 사용자에 대해 다단계 인증 요구  
+- 서비스에 액세스하는 사용자가 회사 네트워크 외부에 있는 경우 다단계 인증을 요구합니다.
 
-- 특정 국가 또는 지역에서 서비스에 액세스하는 사용자에 대한 액세스 차단 
+- 특정 국가 또는 지역에서 서비스에 액세스하는 사용자에 대한 액세스 차단
 
 위치는 명명된 위치 또는 다단계 인증의 신뢰할 수 있는 IP를 나타내는 네트워크 위치에 대한 레이블입니다.
 
@@ -64,7 +65,7 @@ Azure AD에서는 공용 인터넷의 어디에서든지 디바이스, 앱 및 �
 
 - **국가/지역** - 이 옵션을 사용하여 명명된 위치를 정의할 하나 이상의 국가를 선택할 수 있습니다. 
 
-- **알 수 없는 영역 포함** - 일부 IP 주소는 특정 국가에 매핑되지 않습니다. 이 옵션을 사용하면 이러한 IP 주소를 명명된 위치에 포함할지를 선택할 수 있습니다. 명명된 위치를 사용하는 정책이 알 수 없는 위치에 적용될지도 선택할 수 있습니다.
+- **알 수 없는 영역 포함** - 일부 IP 주소는 특정 국가에 매핑되지 않습니다. 이 옵션을 사용하면 이러한 IP 주소를 명명된 위치에 포함할지를 선택할 수 있습니다. 명명된 위치를 사용하는 정책이 알 수 없는 위치에 적용되어야 하는 경우 이 설정을 사용합니다.
 
 구성할 수 있는 명명된 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 다음을 구성할 수 있습니다.
 
@@ -150,7 +151,7 @@ Azure AD에서는 공용 인터넷의 어디에서든지 디바이스, 앱 및 �
 
 ### <a name="cloud-proxies-and-vpns"></a>클라우드 프록시 및 VPN 
 
-클라우드 호스티드 프록시 또는 VPN 솔루션을 사용하면 정책을 평가하는 동안 Azure AD가 사용하는 IP 주소는 프록시의 IP 주소입니다. 사용자를 포함하는 XFF(X-Forwarded-For) 헤더는 신뢰할 수 있는 원본에서 가져왔다는 확인이 없어서 IP 주소를 속이는 방법을 제공할 수 있으므로 사용되지 않습니다. 
+클라우드 호스티드 프록시 또는 VPN 솔루션을 사용하면 정책을 평가하는 동안 Azure AD가 사용하는 IP 주소는 프록시의 IP 주소입니다. 사용자의 공용 IP 주소를 포함하는 XFF(X-Forwarded-For) 헤더는 신뢰할 수 있는 원본에서 가져왔다는 확인이 없어서 IP 주소를 속이는 방법을 제공할 수 있으므로 사용되지 않습니다. 
 
 클라우드 프록시가 있는 경우 도메인 가입 디바이스를 요구하는 데 사용되는 정책이나 AD FS의 내부 회사 네트워크 클레임이 사용될 수 있습니다.
 

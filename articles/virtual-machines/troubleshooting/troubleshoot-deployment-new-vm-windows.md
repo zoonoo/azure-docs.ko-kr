@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24a12c9144535fecd23be432ee33402eb6528b28
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8f18fbabe52c9170cde70900933ce96a3a6400c7
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412026"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984344"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Azure에서 새 Windows VM 생성 시 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -48,17 +48,17 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 
 **업로드 오류:**
 
-**N<sup>1</sup>:** OS가 일반화된 Windows이고 특수화된 것으로 업로드된다면, VM이 OOBE 화면에서 중단되면서 프로비전 시간 초과 오류가 발생합니다.
+**N<sup>1</sup>:** OS가 일반화된 Windows이고 특수화된 것으로 업로드된다면, VM이 OOBE 화면에서 중단되면서 프로비전 시간 제한 오류가 발생합니다.
 
 **N<sup>2</sup>:** OS가 특수화된 Windows이고 일반화된 것으로 업로드된다면, 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행되기 때문에 VM이 OOBE 화면에서 중단되면서 프로비전 실패 오류가 발생합니다.
 
 **해결 방법**
 
-이 두 가지 오류를 모두 해결하려면, OS와 같은 설정(일반화/특수화)으로, [Add-AzureRmVhd를 사용하여 원본 VHD를 업로드](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd)합니다(온-프레미스에 있는). 일반화된 것으로 업로드하려면, 먼저 sysprep을 실행해야 합니다.
+이 두 가지 오류를 모두 해결하려면, OS와 같은 설정(일반화/특수화)으로, [Add-AzVhd를 사용하여 온-프레미스에 있는 원본 VHD를 업로드](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd)합니다. 일반화된 것으로 업로드하려면, 먼저 sysprep을 실행해야 합니다.
 
 **캡처 오류:**
 
-**N<sup>3</sup>:** OS가 일반화된 Windows이고 특수화된 것으로 캡처된다면, 원본 VM이 일반화된 것으로 표시되어 사용할 수 없기 때문에 프로비전 시간 초과 오류가 발생합니다.
+**N<sup>3</sup>:** OS가 일반화된 Windows이고 특수화된 것으로 캡처된다면, 원본 VM이 일반화된 것으로 표시되어 사용할 수 없기 때문에 프로비전 시간 제한 오류가 발생합니다.
 
 **N<sup>4</sup>:** OS가 특수화된 Windows이고 일반화된 것으로 캡처된다면, 새 VM이 원래 컴퓨터 이름, 사용자 이름 및 암호로 실행되기 때문에 프로비전 실패 오류가 발생합니다. 또한, 원본 VM이 일반화된 것으로 표시되기 때문에 사용할 수 없습니다.
 
@@ -69,7 +69,7 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 ## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>문제: 사용자 지정/갤러리/마켓플레이스 이미지, 할당 오류
 이 오류는 요청되는 VM 크기를 지원할 수 없거나 요청을 수용할 여유 공간이 없는 클러스터에 새 VM 요청이 고정된 상황에서 발생합니다.
 
-**원인 1:** 클러스터가 요청한 VM 크기를 지원할 수 없습니다.
+**원인 1:** 클러스터가 요청된 VM 크기를 지원할 수 없습니다.
 
 **해결 방법 1:**
 

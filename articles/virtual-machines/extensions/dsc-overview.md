@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 18d6478763fd6551cc8baac6ea54e8d91f1a28e6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: e5e134fa7dd08bad4220866dd4f5bd9b788e624e
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629971"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980604"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 필요한 상태 구성 확장 처리기 소개
 
@@ -35,7 +35,7 @@ DSC 확장은 Automation DSC 서비스와 별도로 사용할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **로컬 컴퓨터**: Azure VM 확장과 상호 작용하려면 Azure Portal 또는 Azure PowerShell SDK를 사용해야 합니다.
+- **로컬 머신**: Azure VM 확장과 상호 작용하려면 Azure Portal 또는 Azure PowerShell SDK를 사용해야 합니다.
 - **게스트 에이전트**: DSC 구성을 통해 구성된 Azure VM은 WMF(Windows Management Framework) 4.0 이상을 지원하는 OS여야 합니다. 지원되는 OS 버전의 전체 목록은 [DSC 확장 버전 기록](/powershell/dsc/azuredscexthistory)을 참조하세요.
 
 ## <a name="terms-and-concepts"></a>용어 및 개념
@@ -46,7 +46,7 @@ DSC 확장은 Automation DSC 서비스와 별도로 사용할 수 있습니다. 
 - **노드**: DSC 구성에 대한 대상입니다. 이 문서에서 *노드*는 항상 Azure VM을 나타냅니다.
 - **구성 데이터**: 구성에 대한 환경 데이터를 포함하는 .psd1 파일입니다.
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>아키텍처
 
 Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure VM에서 실행되는 DSC 구성을 제공하고 적용하며 보고합니다. DSC 확장은 구성 문서 및 매개 변수 집합을 허용합니다. 파일을 제공하지 않으면 확장에 [기본 구성 스크립트](#default-configuration-script)가 포함됩니다. 기본 구성 스크립트는 [로컬 구성 관리자](/powershell/dsc/metaconfig)에서 메타데이터를 설정하는 데만 사용됩니다.
 
@@ -56,11 +56,11 @@ Azure DSC 확장은 Azure VM 에이전트 프레임워크를 사용하여 Azure 
 - **wmfVersion** 속성을 지정한 경우 VM의 OS와 호환되지 않을 경우를 제외하고 해당 버전의 WMF가 설치됩니다.
 - **wmfVersion** 속성을 지정하지 않은 경우 WMF의 적용 가능한 최신 버전이 설치됩니다.
 
-WMF를 설치하려면 컴퓨터를 다시 시작해야 합니다. 다시 시작한 후에 확장은 **modulesUrl** 속성(제공된 경우)에 지정된 .zip 파일을 다운로드합니다. 이 위치가 Azure Blob 저장소인 경우 **sasToken** 속성에 SAS 토큰을 지정하여 파일에 액세스할 수 있습니다. .zip을 다운로드하고 압축을 푼 후에 **configurationFunction**에 정의된 구성 함수를 실행하여 .mof 파일을 생성합니다. 그런 다음, 확장은 생성된 .mof 파일을 사용하여 `Start-DscConfiguration -Force`를 실행합니다. 확장은 출력을 캡처하고 Azure 상태 채널에 작성합니다.
+WMF를 설치하려면 컴퓨터를 다시 시작해야 합니다. 다시 시작한 후에 확장은 **modulesUrl** 속성(제공된 경우)에 지정된 .zip 파일을 다운로드합니다. 이 위치가 Azure Blob Storage인 경우 **sasToken** 속성에 SAS 토큰을 지정하여 파일에 액세스할 수 있습니다. .zip을 다운로드하고 압축을 푼 후에 **configurationFunction**에 정의된 구성 함수를 실행하여 .mof 파일을 생성합니다. 그런 다음, 확장은 생성된 .mof 파일을 사용하여 `Start-DscConfiguration -Force`를 실행합니다. 확장은 출력을 캡처하고 Azure 상태 채널에 작성합니다.
 
 ### <a name="default-configuration-script"></a>기본 구성 스크립트
 
-Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 사용할 수 있도록 기본 구성 스크립트가 포함되어 있습니다. 스크립트 매개 변수는 [로컬 구성 관리자](/powershell/dsc/metaconfig)의 구성 가능한 속성과 정렬됩니다. 스크립트 매개 변수에 대해서는 [기본 구성 스크립트](dsc-template.md#default-configuration-script) 에 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](dsc-template.md)을 참 조하세요. 전체 스크립트에 대해서는 [GitHub의 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)을 참조하세요.
+Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 사용할 수 있도록 기본 구성 스크립트가 포함되어 있습니다. 스크립트 매개 변수는 [로컬 구성 관리자](/powershell/dsc/metaconfig)의 구성 가능한 속성과 정렬됩니다. 스크립트 매개 변수에 대해서는 [Desired State Configuration 확장과 Azure Resource Manager 템플릿](dsc-template.md)에서 [기본 구성 스크립트](dsc-template.md#default-configuration-script)를 참조하세요. 전체 스크립트에 대해서는 [GitHub의 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true)을 참조하세요.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Resource Manager 템플릿의 DSC 확장
 
@@ -70,17 +70,17 @@ Azure DSC 확장에는 Azure Automation DSC 서비스에 VM을 온보딩할 때 
 
 DSC 확장 관리에 사용되는 PowerShell cmdlet은 대화형 문제 해결 및 정보 수집 시나리오에 가장 적합합니다. cmdlet을 사용하여 DSC 확장 배포를 패키징하고 게시하며 모니터링할 수 있습니다. DSC 확장용 cmdlet은 [기본 구성 스크립트](#default-configuration-script)에서 사용할 수 있도록 아직 업데이트되지 않았습니다.
 
-**Publish-AzureRmVMDscConfiguration** cmdlet은 구성 파일을 가져와, 종속 DSC 리소스를 검색한 다음, .zip 파일을 만듭니다. .zip 파일에는 구성과, 구성을 실행하는 데 필요한 DSC 리소스가 포함됩니다. 또한 이 cmdlet에서는 *-OutputArchivePath* 매개 변수를 사용하여 로컬로 패키지를 만들 수도 있습니다. 그렇지 않으면 이 cmdlet은 Blob 저장소에 .zip 파일을 게시하고 이 파일을 SAS 토큰으로 보호합니다.
+**Publish-AzVMDscConfiguration** cmdlet은 구성 파일을 가져와, 종속 DSC 리소스를 검색한 다음, .zip 파일을 만듭니다. .zip 파일에는 구성과, 구성을 실행하는 데 필요한 DSC 리소스가 포함됩니다. 또한 이 cmdlet에서는 *-OutputArchivePath* 매개 변수를 사용하여 로컬로 패키지를 만들 수도 있습니다. 그렇지 않으면 이 cmdlet은 Blob Storage에 .zip 파일을 게시하고 이 파일을 SAS 토큰으로 보호합니다.
 
 이 cmdlet에서 만든 .ps1 구성 스크립트는 보관 폴더 루트의 .zip 파일에 있습니다. 모듈 폴더는 리소스의 보관 폴더에 있습니다.
 
-**Set-AzureRmVMDscExtension** cmdlet은 PowerShell DSC 확장에 필요한 설정을 VM 구성 개체에 삽입합니다.
+**Set-AzVMDscExtension** cmdlet은 PowerShell DSC 확장에 필요한 설정을 VM 구성 개체에 삽입합니다.
 
-**Get-AzureRmVMDscExtension** cmdlet은 특정 VM의 DSC 확장 상태를 가져옵니다.
+**Get-AzVMDscExtension** cmdlet은 특정 VM의 DSC 확장 상태를 가져옵니다.
 
-**Get-AzureRmVMDscExtensionStatus** cmdlet은 DSC 확장 처리기에 의해 실행되는 DSC 구성의 상태를 가져옵니다. 이 작업은 단일 VM 또는 VM 그룹에서 수행할 수 있습니다.
+**Get-AzVMDscExtensionStatus** cmdlet은 DSC 확장 처리기에 의해 실행되는 DSC 구성의 상태를 가져옵니다. 이 작업은 단일 VM 또는 VM 그룹에서 수행할 수 있습니다.
 
-**Remove-AzureRmVMDscExtension** cmdlet은 특정 VM에서 확장 처리기를 제거합니다. 이 cmdlet은 구성을 제거하거나 WMF를 제거하거나 VM에 적용된 설정을 변경하지 *않습니다*. 확장 처리기를 제거합니다. 
+**Remove-AzVMDscExtension** cmdlet은 특정 VM에서 확장 처리기를 제거합니다. 이 cmdlet은 구성을 제거하거나 WMF를 제거하거나 VM에 적용된 설정을 변경하지 *않습니다*. 확장 처리기를 제거합니다. 
 
 Resource Manager DSC 확장 cmdlet에 대한 중요 정보:
 
@@ -117,9 +117,9 @@ $location = 'westus'
 $vmName = 'myVM'
 $storageName = 'demostorage'
 #Publish the configuration script to user storage
-Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
+Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
-Set-AzureRmVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
 ```
 
 ## <a name="azure-portal-functionality"></a>Azure Portal 기능
@@ -133,17 +133,17 @@ Set-AzureRmVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMN
 
 포털에서는 다음 입력을 수집합니다.
 
-- **구성 모듈 또는 스크립트**: 이 필드는 필수입니다(양식이 [기본 구성 스크립트](#default-configuration-script)에 대해 업데이트되지 않음). 구성 모듈 및 스크립트에는 구성 스크립트가 있는 .ps1 파일 또는 루트에 .ps1 구성 스크립트가 있는 .zip 파일이 필요합니다. .zip 파일을 사용하는 경우 모든 종속 리소스를 .zip의 모듈 폴더에 포함해야 합니다. Azure PowerShell SDK에 포함된 **Publish-AzureVMDscConfiguration -OutputArchivePath** cmdlet을 사용하여 .zip 파일을 만들 수 있습니다. .zip 파일은 사용자 Blob 저장소로 업로드되고 SAS 토큰에 의해 보호됩니다.
+- **구성 모듈 또는 스크립트**: 이 필드는 필수입니다(양식이 [기본 구성 스크립트](#default-configuration-script)에 대해 업데이트되지 않음). 구성 모듈 및 스크립트에는 구성 스크립트가 있는 .ps1 파일 또는 루트에 .ps1 구성 스크립트가 있는 .zip 파일이 필요합니다. .zip 파일을 사용하는 경우 모든 종속 리소스를 .zip의 모듈 폴더에 포함해야 합니다. Azure PowerShell SDK에 포함된 **Publish-AzureVMDscConfiguration -OutputArchivePath** cmdlet을 사용하여 .zip 파일을 만들 수 있습니다. .zip 파일은 사용자 Blob Storage로 업로드되고 SAS 토큰에 의해 보호됩니다.
 
 - **구성의 모듈 정규화된 이름**: .ps1 파일에 여러 개의 구성 함수를 포함할 수 있습니다. 구성 .ps1 스크립트의 이름 뒤에 \\ 및 구성 함수의 이름을 입력합니다. 예를 들어, .ps1 스크립트 이름이 configuration.ps1이고 구성이 **IisInstall**이면 **configuration.ps1\IisInstall**을 입력합니다.
 
 - **구성 인수**: 구성 함수가 인수를 사용하는 경우 **argumentName1=value1,argumentName2=value2** 형식으로 여기에 입력합니다. 이 형식은 PowerShell cmdlet 또는 Resource Manager 템플릿에서 구성 인수가 수락되는 형식과는 다릅니다.
 
-- **구성 데이터 PSD1 파일**: 이 필드는 선택적 필드입니다. 구성에 .psd1의 구성 데이터 파일이 필요한 경우 이 필드를 사용하여 데이터 필드를 선택하고 사용자 Blob 저장소에 업로드합니다. 구성 데이터 파일은 blob 저장소의 SAS 토큰에 의해 보호됩니다.
+- **구성 데이터 PSD1 파일**: 이 필드는 선택 사항입니다. 구성에 .psd1의 구성 데이터 파일이 필요한 경우 이 필드를 사용하여 데이터 필드를 선택하고 사용자 Blob Storage에 업로드합니다. 구성 데이터 파일은 Blob Storage의 SAS 토큰에 의해 보호됩니다.
 
 - **WMF 버전**: VM에 설치해야 하는 WMF(Windows Management Framework)의 버전을 지정합니다. 이 속성을 최신으로 설정하면 WMF의 가장 최신 버전이 설치됩니다. 현재, 이 속성에 대해 사용할 수 있는 값은 4.0, 5.0, 5.1 및 최신뿐입니다. 가능한 값은 업데이트에 따라 달라집니다. 기본값은 **latest**입니다.
 
-- **데이터 컬렉션**: 확장에서 원격 분석을 수집할지를 결정합니다. 자세한 내용은 [Azure DSC 확장 데이터 컬렉션](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/)을 참조하세요.
+- **데이터 수집**: 확장에서 원격 분석을 수집할지를 결정합니다. 자세한 내용은 [Azure DSC 확장 데이터 컬렉션](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/)을 참조하세요.
 
 - **버전**: 설치할 DSC 확장의 버전을 지정합니다. 버전에 대한 정보는 [DSC 확장 버전 기록](/powershell/dsc/azuredscexthistory)을 참조하세요.
 

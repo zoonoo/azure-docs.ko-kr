@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 46457711c1611e614f89a813b1856687beb27ac7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 372d3d88c0a160c1f294f07e58c5e11dbf5eac5e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311448"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456608"
 documentType: LandingData
 title: Azure Machine Learning 서비스 설명서
 metadata:
   title: Azure Machine Learning 서비스 설명서 - 자습서, API 참조 | Microsoft Docs
-  description: Azure Machine Learning 서비스는 기계 학습 모델의 개발, 교육, 테스트, 배포, 관리 및 추적에 사용할 수 있는 클라우드 기반 환경을 제공합니다. Azure Machine Learning Service는 Scikit-learn, Tensorflow, Pytorch 또는 기타 Python 기반 프레임워크와 같은 오픈 소스 기술을 완벽하게 지원합니다. 빠른 시작 및 자습서를 통해 기계 학습 워크플로에 Azure Machine Learning Service를 사용하는 방법을 알아보세요.
+  description: Azure Machine Learning Service는 신속하게 데이터를 준비하고, 기계 학습 모델을 학습 및 배포할 수 있는 SDK 및 서비스를 제공합니다. 자동 크기 조정 컴퓨팅 및 파이프라인을 사용하여 생산성을 개선하고 비용을 줄이세요. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요. 빠른 시작 및 자습서를 시작해 보세요.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -17,12 +17,21 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 2/15/2019
+  ms.date: 2/19/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning Service는 신속하게 데이터를 준비하고, 기계 학습 모델을 학습 및 배포할 수 있는 클라우드 환경을 제공합니다. 자동화된 기계 학습을 통해 알고리즘을 식별하고 하이퍼 매개 변수를 더 빠르게 조정하세요. 자동 크기 조정 컴퓨팅 및 파이프라인을 사용하여 생산성을 개선하고 비용을 줄이세요. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크를 서비스 SDK와 함께 사용하여 이러한 기능에 액세스하세요. 빠른 시작 및 자습서를 시작해 보세요.
+  description: Azure Machine Learning Service는 신속하게 데이터를 준비하고, 기계 학습 모델을 학습 및 배포할 수 있는 SDK 및 서비스를 제공합니다. 자동 크기 조정 컴퓨팅 및 파이프라인을 사용하여 생산성을 개선하고 비용을 줄이세요. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요. 빠른 시작 및 자습서를 시작해 보세요.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: 비디오 보기(9:58)
+    href: https://www.youtube.com/watch?v=GBDSBInvz08
+    width: 250
 sections:
 - title: 5분 빠른 시작
   items:
@@ -51,9 +60,9 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://aka.ms/aml-sdk">기본 SDK(Python)</a>
-    - html: <a href="https://aka.ms/data-prep-sdk">데이터 준비 SDK(Python)</a>
-    - html: <a href="https://aka.ms/aml-monitoring-sdk">모니터링 SDK(Python)</a>
+    - html: '<a href="https://aka.ms/aml-sdk">기본 Python SDK</a>: 핵심 기능, 자동화된 기계 학습, 파이프라인 등입니다.'
+    - html: '<a href="https://aka.ms/data-prep-sdk">데이터 준비</a> Python SDK: 데이터를 준비하고 변환합니다.'
+    - html: '<a href="https://aka.ms/aml-monitoring-sdk">모니터링</a> Python SDK: 배포된 웹 서비스에서 데이터를 수집합니다.'
 - title: 기타 Azure Machine Learning 기술
   items:
   - type: list

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용한 자동 사용자 프로비전을 위한 Cisco Spark 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory를 사용한 자동 사용자 프로비저닝을 위한 Cisco Spark 구성 | Microsoft Docs'
 description: 사용자 계정을 Cisco Spark에 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: aafbde6907e59be3b0ff1d5807ffe4a7d2fffaa4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346107"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56211209"
 ---
-# <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Cisco Spark 구성
+# <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cisco Spark 구성
 
 
 이 자습서에서는 사용자를 Cisco Spark로 자동으로 프로비전 및 프로비전 해제하도록 Azure AD(Azure Active Directory)를 구성하기 위해 Cisco Spark 및 Azure AD에서 수행하는 단계를 보여 줍니다.
@@ -45,13 +46,13 @@ ms.locfileid: "44346107"
 ## <a name="adding-cisco-spark-from-the-gallery"></a>갤러리에서 Cisco Spark 추가
 Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Cisco Spark를 구성하기 전에, Cisco Spark를 Azure AD 애플리케이션 갤러리에서 관리되는 SaaS 애플리케이션 목록으로 추가해야 합니다.
 
-**Azure AD 응용 프로그램 갤러리에서 Cisco Spark를 추가하려면 다음 단계를 수행합니다.**
+**Azure AD 애플리케이션 갤러리에서 Cisco Spark를 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 섹션][2]
 
@@ -91,7 +92,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 ### <a name="to-configure-automatic-user-provisioning-for-cisco-spark-in-azure-ad"></a>Azure AD에서 Cisco Spark에 대한 자동 사용자 프로비전을 구성하려면 다음을 수행합니다.
 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory > 엔터프라이즈 응용 프로그램 > 모든 응용 프로그램**으로 차례로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션**으로 차례로 이동합니다.
 
 2. SaaS 애플리케이션 목록에서 Cisco Spark를 선택합니다.
 
@@ -179,7 +180,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 ## <a name="next-steps"></a>다음 단계

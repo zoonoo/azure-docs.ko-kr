@@ -4,7 +4,7 @@ description: 이 문서를 참조하여 Azure CLI를 사용해 Key Vault에서 �
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: key-vault
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 11ace1b5cce742579256d08ecfe9d9a7412d3d7c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822496"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115626"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
 
@@ -145,18 +145,18 @@ Azure Key Vault에서 소프트웨어 보호 키를 만들도록 하려면 `az k
 az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --protection software
 ```
 
-.pem 파일에 기존 키가 있는 경우 Azure Key Vault에 업로드할 수 있습니다. 소프트웨어 또는 HSM을 사용하여 키를 보호하도록 선택할 수 있습니다. 다음을 사용하여 .pem 파일에서 키를 가져와서 소프트웨어를 통해 보호합니다.
+.pem 파일에 기존 키가 있는 경우 Azure Key Vault에 업로드할 수 있습니다. 소프트웨어 또는 HSM을 사용하여 키를 보호하도록 선택할 수 있습니다. 이 예제에서는 .pem 파일에서 키를 가져와서 소프트웨어에서 "hVFkk965BuUv"라는 암호를 사용하여 보호합니다.
 
 ```azurecli
-az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "Pa$$w0rd" --protection software
+az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
 이제 해당 URI를 사용하여 Azure Key Vault를 만들거나 업로드하는 이 키를 참조할 수 있습니다. 항상 현재 버전을 가져오려면 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용합니다. 이 특정 버전을 가져오려면 https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id]를 사용합니다. 예를 들어 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**입니다. 
 
-자격 증명 모음에 암호가 SQLPassword이고 Azure Key Vault에 대한 Pa$$w0rd 값이 있는 비밀을 추가합니다. 
+자격 증명 모음에 암호가 SQLPassword이고 Azure Key Vault에 대한 "hVFkk965BuUv" 값이 있는 비밀을 추가합니다. 
 
 ```azurecli
-az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "Pa$$w0rd"
+az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
 해당 URI를 사용하여 이 암호를 참조합니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하여 항상 현재 버전을 가져오고, https://[keyvault-name].vault.azure.net/secret/[secret-name]/[secret-unique-id]를 사용하여 이 특정 버전을 가져옵니다. 예를 들어 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**입니다.
@@ -164,7 +164,7 @@ az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --val
 .pem 또는 .pfx를 사용하여 인증서를 자격 증명 모음으로 가져옵니다.
 
 ```azurecli
-az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "Pa$$w0rd"
+az keyvault certificate import --vault-name "ContosoKeyVault" --file "c:\cert\cert.pfx" --name "ContosoCert" --password "hVFkk965BuUv"
 ```
 
 만든 키, 암호 또는 인증서를 살펴보겠습니다.
@@ -203,7 +203,7 @@ Azure Active Directory에 애플리케이션을 등록하는 방법에 대한 �
 Azure Active Directory에서 애플리케이션을 등록하려면 다음을 수행합니다.
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "Pa$$w0rd" --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 

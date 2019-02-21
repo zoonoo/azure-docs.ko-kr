@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Portal을 사용하여 콘텐츠 보호 �
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: dc5439c98b5abc69b6cb1ba144e015426bb887ce
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423552"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996957"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Azure Portal을 사용하여 콘텐츠 보호 정책 구성
  Azure Media Services를 사용하면 컴퓨터를 떠날 때부터 저장, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Media Services를 사용하면 128비트 암호화 키를 사용하여 AES(Advanced Encryption Standard)로 동적 암호화된 콘텐츠를 배달할 수 있습니다. PlayReady 및/또는 Widevine DRM(디지털 권한 관리)과 Apple FairPlay를 사용하여 일반적인 암호화(CENC)와 함께 사용할 수도 있습니다. 
@@ -93,7 +93,7 @@ FairPlay 암호화를 사용하도록 설정하려면 **FairPlay 구성**을 선
 자산에 대해 **암호화**를 선택하는 경우 **AES** 또는 **DRM**의 두 옵션이 제공됩니다. 
 
 #### <a name="aes"></a>AES
-부드러운 스트리밍, HLS 및 MPEG-DASH의 모든 스트리밍 프로토콜에서 AES 암호화되지 않은 키 암호화를 사용합니다.
+다음과 같은 모든 스트리밍 프로토콜에서 AES 암호화되지 않은 키 암호화를 사용합니다. 부드러운 스트리밍, HLS 및 MPEG-DASH.
 
 ![암호화 구성](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
@@ -102,7 +102,7 @@ FairPlay 암호화를 사용하도록 설정하려면 **FairPlay 구성**을 선
 
     a. **MPEG-DASH를 사용하는 PlayReady 및 Widevine** - PlayReady 및 Widevine DRM의 MPEG-DASH 스트림을 동적으로 암호화합니다.
 
-    나. **MPEG-DASH를 사용하는 PlayReady 및 Widevine + HLS를 사용하는 FairPlay** - PlayReady 및 Widevine DRM의 MPEG-DASH 스트림을 동적으로 암호화합니다. 이 옵션은 FairPlay의 HLS 스트림도 암호화합니다.
+    b. **MPEG-DASH를 사용하는 PlayReady 및 Widevine + HLS를 사용하는 FairPlay** - PlayReady 및 Widevine DRM의 MPEG-DASH 스트림을 동적으로 암호화합니다. 이 옵션은 FairPlay의 HLS 스트림도 암호화합니다.
 
     다. **부드러운 스트리밍, HLS 및 MPEG-DASH만 사용하는 PlayReady** - PlayReady DRM의 부드러운 스트리밍, HLS, MPEG-DASH 스트림을 동적으로 암호화합니다.
 

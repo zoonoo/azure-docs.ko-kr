@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database 서비스 계층 - DTU | Microsoft Docs
-description: 계산 크기 및 저장소 크기를 제공하기 위한 단일 및 풀 데이터베이스에 대한 서비스 계층에 대해 알아보세요.
+title: Azure SQL Database 서비스 계층 - DTU 기반 구매 모델 | Microsoft Docs
+description: 컴퓨팅 및 스토리지 크기를 제공하기 위한 단일 및 풀 데이터베이스에 대한 DTU 기반 구매 모델의 서비스 계층에 대해 알아보세요.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,22 +11,22 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6319deb36088317cb289134b7068720e97cb10b7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/08/2019
+ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507657"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993608"
 ---
-# <a name="dtu-based-service-tiers"></a>DTU 기반 서비스 계층
+# <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 
-DTU 기반 서비스 계층은 포함된 저장소의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 계산 크기로 구분됩니다. 모든 서비스 계층은 가동 중지 시간 없이 계산 크기를 변경할 수 있는 유연성을 제공합니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 계산 크기에 따라 시간 단위로 청구됩니다.
+DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고정된 양, 고정된 백업 보존 기간 및 고정 가격을 갖춘 다양한 컴퓨팅 크기로 구분됩니다. DTU 기반 구매 모델에서 모든 서비스 계층은 가동 중지 시간 없이 컴퓨팅 크기를 변경할 수 있는 유연성을 제공합니다. 단일 데이터베이스 및 탄력적 풀은 서비스 계층 및 계산 크기에 따라 시간 단위로 청구됩니다.
 
 > [!IMPORTANT]
-> 현재 공개 미리 보기로 있는 SQL Database Managed Instance는 DTU 기반 구매 모델을 지원하지 않습니다. 자세한 내용은 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
+> SQL Database 관리되는 인스턴스는 DTU 기반 구매 모델을 지원하지 않습니다. 자세한 내용은 [Azure SQL Database Managed Instance](sql-database-managed-instance.md)를 참조하세요.
 > [!NOTE]
-> vCore 기반 서비스 계층에 대한 내용은 [vCore 기반 서비스 계층](sql-database-service-tiers-vcore.md)을 참조하세요. DTU 기반 서비스 계층과 vCore 기반 서비스 계층을 구분하는 방법에 대한 자세한 내용은 [Azure SQL Database 구매 모델](sql-database-service-tiers.md)을 참조하세요.
+> vCore 기반 서비스 계층에 대한 내용은 [vCore 기반 서비스 계층](sql-database-service-tiers-vcore.md)을 참조하세요. DTU 기반 서비스 계층과 vCore 기반 서비스 계층을 구분하는 방법에 대한 자세한 내용은 [Azure SQL Database 구매 모델](sql-database-purchase-models.md)을 참조하세요.
 
 ## <a name="compare-the-dtu-based-service-tiers"></a>DTU 기반 서비스 계층 비교
 
@@ -34,8 +34,8 @@ DTU 기반 서비스 계층은 포함된 저장소의 고정된 양, 고정된 �
 
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:| --:|
-|대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션||
-|작동 시간 SLA|99.99%|99.99%|99.99%|미리 보기에 있는 동안 해당 없음|
+|대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션|
+|작동 시간 SLA|99.99%|99.99%|99.99%|
 |Backup 보존|7 일|35일|35일|
 |CPU|낮음|낮음, 보통, 높음|보통, 높음|
 |IO 처리량(근사치) |DTU당 2.5 IOPS| DTU당 2.5 IOPS | DTU당 48 IOPS|
@@ -49,12 +49,12 @@ DTU 기반 서비스 계층은 포함된 저장소의 고정된 양, 고정된 �
 
 ## <a name="single-database-dtu-and-storage-limits"></a>단일 데이터베이스 DTU 및 저장소 제한
 
-계산 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers.md#dtu-based-purchasing-model)을 참조하세요.
+계산 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-purchase-models.md#dtu-based-purchasing-model)을 참조하세요.
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
 | 최대 저장소 크기 | 2GB | 1TB | 4 TB  |
-| 최대 DTU | 5 | 3000 | 4000 | |
+| 최대 DTU | 5 | 3000 | 4000 | 
 ||||||
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ DTU 기반 서비스 계층은 포함된 저장소의 고정된 양, 고정된 �
 ||||||
 
 > [!IMPORTANT]
-> 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 미국 중서부, 중국 동부, US DoD 중부, 독일 중부, US DoD 동부, US Gov 남서부, 미국 아이오와 주 정부, 독일 북동부, 중국 북부. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+> 현재 다음을 제외한 모든 지역에서 프리미엄 계층의 스토리지는 1TB를 초과하여 사용할 수 있습니다. 미국 중서부, 중국 동부, US DoD 중부, 독일 중부, US DoD 동부, US Gov 남서부, 미국 아이오와 주 정부, 독일 북동부, 중국 북부. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
@@ -88,7 +88,7 @@ DTU 기반 서비스 계층은 포함된 저장소의 고정된 양, 고정된 �
 
 ### <a name="benchmark-summary"></a>벤치마크 요약
 
-ASDB는 OLTP(온라인 트랜잭션 처리) 워크로드에서 가장 빈번하게 발생하는 기본 데이터베이스 작업의 성능을 측정합니다. 클라우드 컴퓨팅을 예상하고 벤치마크를 설계했지만, 데이터베이스 스키마, 데이터 채우기, 트랜잭션은 OLTP 워크로드에서 가장 일반적으로 사용되는 기본 요소를 광범위하게 나타내도록 설계되었습니다.
+벤치마크는 OLTP(온라인 트랜잭션 처리) 워크로드에서 가장 빈번하게 발생하는 기본 데이터베이스 작업의 성능을 측정합니다. 클라우드 컴퓨팅을 예상하고 벤치마크를 설계했지만, 데이터베이스 스키마, 데이터 채우기, 트랜잭션은 OLTP 워크로드에서 가장 일반적으로 사용되는 기본 요소를 광범위하게 나타내도록 설계되었습니다.
 
 ### <a name="schema"></a>스키마
 

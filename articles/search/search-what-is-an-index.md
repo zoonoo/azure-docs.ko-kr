@@ -1,32 +1,114 @@
 ---
-title: 인덱스 정의 및 개념 - Azure Search
-description: 반전된 인덱스의 실제 구조를 포함하여 Azure Search의 인덱스 용어 및 개념을 소개합니다.
-author: brjohnstmsft
-manager: jlembicz
-ms.author: brjohnst
+title: 인덱스 정의 및 개념 만들기 - Azure Search
+description: 구성 요소 파트 및 물리적 구조를 포함하여 Azure Search의 인덱스 용어 및 개념을 소개합니다.
+author: HeidiSteen
+manager: cgronlun
+ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 11/08/2017
+ms.date: 02/01/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 5a39021367c2f51125876081e9174eb372d7b9c9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 77f4b597ad4b87db7e720dd57191c6b192a4c93b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353161"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000953"
 ---
-# <a name="indexes-and-indexing-overview-in-azure-search"></a>Azure Search의 인덱스 및 인덱싱 개요
+# <a name="create-a-basic-index-in-azure-search"></a>Azure Search에서 기본 인덱스 만들기
 
-Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 및 전체 텍스트 검색에서 사용되는 *문서* 및 기타 구조의 지속형 저장소입니다. 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 예를 들어 전자 상거래 소매점은 판매하는 각 항목에 대한 문서를 포함할 수 있으며 뉴스 조직은 각 기사에 대한 문서를 포함할 수 있습니다. 이러한 개념을 익숙한 데이터베이스와 동일하게 매핑: *인덱스*는 *테이블*과 개념적으로 유사하며 *문서*는 테이블의 *행*과 거의 비슷합니다.
+Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 및 전체 텍스트 검색에서 사용되는 *문서* 및 기타 구조의 지속형 저장소입니다. 개념상, 문서는 인덱스에서 검색 가능한 데이터의 단일 단위입니다. 예를 들어 전자 상거래 소매점은 판매하는 각 항목에 대한 문서를 포함할 수 있으며 뉴스 조직은 각 기사에 대한 문서를 포함할 수 있습니다. 이러한 개념을 익숙한 데이터베이스와 동일하게 매핑: *인덱스*는 *테이블*과 개념적으로 유사하며 *문서*는 테이블의 *행*과 거의 비슷합니다.
 
-문서를 추가 또는 업로드하고 검색 쿼리를 Azure Search에 제출하는 경우 요청을 Search 서비스의 특정 인덱스에 전송하게 됩니다. 인덱스에 문서를 추가하는 프로세스를 *인덱싱*이라고 합니다.
+인덱스를 추가하거나 업로드하면 Azure Search는 제공된 스키마를 기반으로 해서 물리적 구조를 만듭니다. 예를 들어 인덱스의 필드가 검색 가능으로 표시된 경우 해당 필드에 대해 반전된 인덱스가 생성됩니다. 나중에 문서를 추가 또는 업로드하거나 Azure Search에 검색 쿼리를 제출하는 경우 검색 서비스의 특정 인덱스에 요청을 전송하게 됩니다. 문서 값이 포함된 필드 로드를 ‘인덱싱’ 또는 데이터 수집이라고 합니다.
 
-## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Azure Search 인덱스에서 필드 형식 및 속성
+포털, [REST API](search-create-index-rest-api.md) 또는 [.NET SDK](search-create-index-dotnet.md)에서 인덱스를 만들 수 있습니다.
+
+## <a name="components-of-an-index"></a>인덱스의 구성 요소
+
+아래 그림과 같이 Azure Search 인덱스는 다음 요소로 구성됩니다. 
+
+일반적으로 [‘필드 컬렉션’](#fields-collection)이 인덱스의 가장 큰 파트이고, 각 필드에 이름과 유형이 지정되며 사용 방법을 결정하는 허용 가능한 동작으로 특성이 지정됩니다. 기타 요소에는 [제안](#suggesters), [점수 매기기 프로필](#scoring-profiles), 사용자 지정을 지원하는 구성 요소 파트가 있는 [분석기](#analyzers), [CORS](#cors) 옵션 등이 있습니다.
+
+```json
+{  
+  "name": (optional on PUT; required on POST) "name_of_index",  
+  "fields": [  
+    {  
+      "name": "name_of_field",  
+      "type": "Edm.String | Collection(Edm.String) | Edm.Int32 | Edm.Int64 | Edm.Double | Edm.Boolean | Edm.DateTimeOffset | Edm.GeographyPoint",  
+      "searchable": true (default where applicable) | false (only Edm.String and Collection(Edm.String) fields can be searchable),  
+      "filterable": true (default) | false,  
+      "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),  
+      "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),  
+      "key": true | false (default, only Edm.String fields can be keys),  
+      "retrievable": true (default) | false,  
+      "analyzer": "name_of_analyzer_for_search_and_indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+      "searchAnalyzer": "name_of_search_analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+      "indexAnalyzer": "name_of_indexing_analyzer", (only if 'searchAnalyzer' is set and 'analyzer' is not set)
+      "synonymMaps": [ "name_of_synonym_map" ] (optional, only one synonym map per field is currently supported)
+    }  
+  ],  
+  "suggesters": [  
+    {  
+      "name": "name of suggester",  
+      "searchMode": "analyzingInfixMatching",  
+      "sourceFields": ["field1", "field2", ...]  
+    }  
+  ],  
+  "scoringProfiles": [  
+    {  
+      "name": "name of scoring profile",  
+      "text": (optional, only applies to searchable fields) {  
+        "weights": {  
+          "searchable_field_name": relative_weight_value (positive #'s),  
+          ...  
+        }  
+      },  
+      "functions": (optional) [  
+        {  
+          "type": "magnitude | freshness | distance | tag",  
+          "boost": # (positive number used as multiplier for raw score != 1),  
+          "fieldName": "...",  
+          "interpolation": "constant | linear (default) | quadratic | logarithmic",  
+          "magnitude": {  
+            "boostingRangeStart": #,  
+            "boostingRangeEnd": #,  
+            "constantBoostBeyondRange": true | false (default)  
+          },  
+          "freshness": {  
+            "boostingDuration": "..." (value representing timespan leading to now over which boosting occurs)  
+          },  
+          "distance": {  
+            "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)  
+            "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)  
+          },  
+          "tag": {  
+            "tagsParameter": "..." (parameter to be passed in queries to specify a list of tags to compare against target fields)  
+          }  
+        }  
+      ],  
+      "functionAggregation": (optional, applies only when functions are specified)   
+        "sum (default) | average | minimum | maximum | firstMatching"  
+    }  
+  ],  
+  "analyzers":(optional)[ ... ],
+  "charFilters":(optional)[ ... ],
+  "tokenizers":(optional)[ ... ],
+  "tokenFilters":(optional)[ ... ],
+  "defaultScoringProfile": (optional) "...",  
+  "corsOptions": (optional) {  
+    "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],  
+    "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)  
+  }  
+}
+```
+
+## <a name="fields-collection-and-attribution"></a>필드 컬렉션 및 특성
 스키마를 정의할 때 인덱스에서 각 필드의 이름, 형식 및 특성을 지정해야 합니다. 필드 형식은 해당 필드에 저장된 데이터를 분류합니다. 특성은 개별 필드에 설정되어 필드를 사용하는 방법을 지정합니다. 다음 표에서는 지정할 수 있는 형식 및 특성을 열거합니다.
 
-### <a name="field-types"></a>필드 형식
-| 메시지를 입력한 다음 | 설명 |
+### <a name="data-types"></a>데이터 형식
+| Type | 설명 |
 | --- | --- |
 | *Edm.String* |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 텍스트입니다(단어 분리, 형태소 분석 등). |
 | *Collection(Edm.String)* |전체 텍스트 검색을 위해 선택적으로 토큰화할 수 있는 문자열 목록입니다. 컬렉션에 있는 항목 수에 이론적인 상한은 없지만 페이로드 크기의 16MB 상한이 컬렉션에 적용됩니다. |
@@ -39,7 +121,7 @@ Azure Search에서 *인덱스*는 Azure Search 서비스의 필터링된 검색 
 
 Azure Search의 [지원되는 데이터 형식에 대한 자세한 내용은 여기서](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) 확인할 수 있습니다.
 
-### <a name="field-attributes"></a>필드 특성
+### <a name="index-attributes"></a>인덱스 특성
 | 특성 | 설명 |
 | --- | --- |
 | *키* |문서 조회에 사용하는 각 문서의 고유 ID를 제공하는 문자열입니다. 모든 인덱스에는 하나의 키가 있어야 합니다. 필드 한 개만 키가 될 수 있으며, 이 필드 형식을 Edm.String으로 설정해야 합니다. |
@@ -51,8 +133,36 @@ Azure Search의 [지원되는 데이터 형식에 대한 자세한 내용은 여
 
 Azure Search의 [인덱스 특성은 여기서](https://docs.microsoft.com/rest/api/searchservice/Create-Index) 확인할 수 있습니다.
 
-## <a name="guidance-for-defining-an-index-schema"></a>인덱스 스키마를 정의하기 위한 지침
-인덱스를 설계할 때 계획 단계에서 각 의사 결정에 대해 신중하게 생각합니다. 인덱스를 각 필드로 디자인하는 경우 검색 사용자 환경 및 비즈니스 요구를 [적절한 특성](https://docs.microsoft.com/rest/api/searchservice/Create-Index)으로 할당해야 한다는 점을 염두에 두는 것이 중요합니다. 배포된 후 인덱스를 변경하려면 데이터를 다시 작성하고 다시 로드해야 합니다.
+## <a name="suggesters"></a>확인기
+제안기는 검색에서 자동 완성 또는 자동 완성 쿼리를 지원하는 데 사용되는 인덱스의 필드를 정의하는 스키마 섹션입니다. 일반적으로 사용자가 검색 쿼리를 입력하는 동안 부분 검색 문자열이 제안(Azure Search Service REST API)으로 전송되며 API는 제안 구 세트를 반환합니다. 인덱스에서 정의하는 확인기는 미리 입력 검색 용어를 작성하는 데 사용되는 필드를 결정합니다. 구성 정보에 대한 자세한 내용은 [제안기 추가](index-add-suggesters.md)를 참조하세요.
 
-데이터 저장소 요구 사항이 시간이 지남에 따라 변하는 경우 파티션을 추가하거나 제거하여 용량을 늘리거나 줄일 수 있습니다. 자세한 내용은 [Azure에서 Search 서비스 관리](search-manage.md) 또는 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
+## <a name="scoring-profiles"></a>점수 매기기 프로필
 
+점수 매기기 프로필은 검색 결과에서 더 위쪽에 표시할 항목을 제어할 수 있는 사용자 지정 점수 매기기 동작을 정의하는 스키마 섹션입니다. 점수 매기기 프로필은 필드 가중치와 함수로 구성됩니다. 사용하려면 쿼리 문자열에서 이름별로 프로필을 지정합니다.
+
+기본 점수 매기기 프로필은 결과 집합에 있는 모든 항목에 대한 검색 점수를 계산하기 위해 백그라운드에서 작동합니다. 이름이 지정되지 않은 내부 점수 매기기 프로필을 사용할 수 있습니다. 또는 사용자 지정 프로필이 쿼리 문자열에 지정되지 않은 경우 항상 호출되는 기본값으로 사용자 지정 프로필을 사용하도록 defaultScoringProfile을 설정합니다.
+
+자세한 내용은 [점수 매기기 프로필 추가](index-add-scoring-profiles.md)를 참조하세요.
+
+## <a name="analyzers"></a>분석기
+
+분석기 요소는 필드에 사용할 언어 분석기의 이름을 설정합니다. 허용되는 값 세트는 [Azure Search의 언어 분석기](index-add-language-analyzers.md)를 참조하세요. 이 옵션은 검색 가능한 필드에만 사용할 수 있으며 **searchAnalyzer** 또는 **indexAnalyzer**와 함께 설정할 수 없습니다. 필드에 대해 분석기를 선택한 후에는 변경할 수 없습니다.
+
+## <a name="cors"></a>CORS
+
+브라우저에서는 모든 원본 간 요청을 차단하므로 클라이언트 쪽 JavaScript는 기본적으로 API를 호출할 수 없습니다. 인덱스에 대한 원본 간 쿼리를 허용하려면 **corsOptions** 특성을 설정하여 CORS(원본 간 리소스 공유)를 사용하도록 설정합니다. 보안상의 이유로 쿼리 API에서만 CORS가 지원됩니다. 
+
+CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
+
++ **allowedOrigins**(필수): 인덱스에 대한 액세스 권한을 부여할 원본 목록입니다. 이 원본에서 제공되는 모든 JavaScript 코드는 올바른 API 키를 제공하는 경우 인덱스를 쿼리하도록 허용됩니다. 각 원본은 보통 `protocol://<fully-qualified-domain-name>:<port>` 형식이지만 `<port>`는 대개 생략됩니다. 자세한 내용은 [원본 간 리소스 공유(위키백과)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)를 참조하세요.
+
+  모든 원본에 대한 액세스를 허용하려면 **allowedOrigins** 배열에서 `*`를 단일 항목으로 포함합니다. 프로덕션 검색 서비스에는 권장되지 않지만 개발 및 디버깅에 유용한 경우가 많습니다.
+
++ **maxAgeInSeconds**(선택 사항): 브라우저는 이 값을 사용하여 CORS 실행 전 응답을 캐시할 기간(초)을 결정합니다. 이 값은 음수가 아닌 정수여야 합니다. 이 값이 클수록 성능은 개선되지만 CORS 정책 변경 내용이 적용되는 시간은 더 오래 걸립니다. 이 값을 설정하지 않으면 기본 기간인 5분이 사용됩니다.
+
+## <a name="next-steps"></a>다음 단계
+
+인덱스 작성을 파악했으면 포털에서 계속해서 첫 번째 인덱스를 만들 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [인덱스 추가(포털)](search-create-index-portal.md)

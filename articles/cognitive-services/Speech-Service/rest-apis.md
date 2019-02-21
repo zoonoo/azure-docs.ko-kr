@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Speech-to-Text 및 Text-to-Speech REST API를 사용하는 방법을 알아봅니다. 이 문서에서는 권한 부여 옵션, 쿼리 옵션, 요청을 구성하고 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ce33f20d44ac284655569ff66825533650b9d9c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247445"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998951"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API
 
@@ -27,7 +27,7 @@ REST API를 사용하기 전에 다음 사항을 이해하세요.
 * Speech-to-Text REST API는 최종 결과만 반환합니다. 부분 결과는 제공되지 않습니다.
 * Text-to-Speech REST API에는 인증 헤더가 필요합니다. 즉, 서비스에 액세스하기 위해 토큰 교환을 완료해야 합니다. 자세한 내용은 [인증](#authentication)을 참조하세요.
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 Speech-to-Text 또는 Text-to-Speech REST API에 대한 각 요청에는 인증 헤더가 필요합니다. 이 표에서는 각 서비스에 대해 지원되는 헤더를 보여 줍니다.
 
@@ -66,7 +66,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-응답 본문에는 JWT(Java Web Token) 형식의 액세스 토큰이 포함됩니다.
+응답 본문에는 JWT(JSON Web Token) 형식의 액세스 토큰이 포함됩니다.
 
 #### <a name="powershell-sample"></a>PowerShell 샘플
 

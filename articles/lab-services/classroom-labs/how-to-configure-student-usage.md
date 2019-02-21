@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490450"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964817"
 ---
 # <a name="configure-usage-settings-and-policies"></a>사용 설정 및 정책 구성
 이 문서에서는 랩에 사용자를 추가하고, 사용자를 랩에 등록하고, VM을 사용할 수 있는 시간을 제어하는 방법 등을 설명합니다. 
@@ -29,7 +29,9 @@ ms.locfileid: "55490450"
 
 1. 왼쪽 메뉴에서 **사용자**를 선택합니다.
 2. 도구 모음에서 **사용자 추가**를 선택합니다. 
-3. **사용자 추가** 페이지에서 여러 줄에 걸쳐 또는 세미콜론으로 구분해서 단일 줄에 사용자의 이메일 주소를 입력합니다. 
+
+    ![사용자 추가 단추](../media/how-to-configure-student-usage/add-users-button.png)
+1. **사용자 추가** 페이지에서 여러 줄에 걸쳐 또는 세미콜론으로 구분해서 단일 줄에 사용자의 이메일 주소를 입력합니다. 
 
     ![사용자 이메일 주소 추가](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. **저장**을 선택합니다. 목록에서 사용자의 이메일 주소 및 해당 상태(등록됨 또는 등록 해제됨)를 확인합니다. 
@@ -64,11 +66,14 @@ ms.locfileid: "55490450"
 
 1. 왼쪽 메뉴에서 **사용자**를 선택합니다.
 2. 도구 모음에서 **사용자당 할당량: 제한 없음**을 선택합니다. 
-3. **사용자당 할당량** 페이지에서 **사용자는 VM을 사용할 수는 시간 제한**을 선택합니다. 
-4. **각 사용자에게 시간을 얼마나 제공하시겠습니까?** 에 시간을 입력하고 **저장**을 선택합니다. 
+3. **사용자당 할당량** 페이지에서 다음 옵션 중 하나를 선택합니다. 
+    1. **없음**. 사용자는 예약된 시간 동안 또는 랩 소유자가 가상 머신을 사용하도록 설정한 경우에만 가상 머신을 사용할 수 있습니다.
+    2. **제한 없음(기본값)**. 사용자가 시간 제한 없이 가상 머신을 사용할 수 있습니다.
+    3. **사용자당 시간 수 지정**. 사용자는 예약된 시간 외에도 설정된 시간(아래에 지정) 동안 가상 머신을 사용할 수 있습니다. 이 옵션을 선택하는 경우 텍스트 상자에 **시간**을 입력합니다. 
 
-    ![사용자당 시간 수](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. 이제 도구 모음에 시간 수가 표시됩니다. **사용자당 할당량: &lt;시간 수&gt;** 
+        ![사용자당 시간 수](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+    4. **저장**을 선택합니다. 
+5. 이제 도구 모음에서 변경된 값을 확인할 수 있습니다. **사용자당 할당량: &lt;시간 수&gt;** 
 
     ![사용자당 할당량](../media/how-to-configure-student-usage/quota-per-user.png)
 
@@ -78,8 +83,19 @@ ms.locfileid: "55490450"
 ### <a name="add-users-by-uploading-a-csv-file"></a>CSV 파일을 업로드하여 사용자 추가
 사용자의 이메일 주소가 있는 CSV 파일을 업로드하여 사용자를 추가할 수도 있습니다.
 
-1. 도구 모음에서 **CSV 업로드**를 선택합니다.
-2. 사용자 이메일 주소가 있는 CSV 파일을 선택합니다. Excel에서 열면 모든 이메일 주소가 하나의 열에 표시됩니다. 
+1. 하나의 열에 사용자의 이메일 주소가 포함된 CSV 파일을 만듭니다.
+
+    ![사용자당 할당량](../media/how-to-configure-student-usage/csv-file-with-users.png)
+2. 랩의 **사용자** 페이지에서 도구 모음의 **CSV 업로드**를 선택합니다.
+
+    ![CSV 업로드 단추](../media/how-to-configure-student-usage/upload-csv-button.png)
+3. 사용자 이메일 주소가 있는 CSV 파일을 선택합니다. CSV 파일을 선택한 후 **열기**를 선택하면 다음 **사용자 추가** 창이 표시됩니다. 이메일 주소 목록은 CSV 파일의 이메일 주소로 채워집니다. 
+
+    ![CSV 파일의 이메일 주소로 채워진 사용자 추가 창](../media/how-to-configure-student-usage/add-users-window.png)
+4. **사용자 추가** 창에서 **저장**을 선택합니다. 
+5. 사용자 목록에 사용자가 표시되는지 확인합니다. 
+
+    ![추가된 사용자 목록](../media/how-to-configure-student-usage/list-of-added-users.png)
 
 ## <a name="manage-user-vms"></a>사용자 VM 관리
 학생이 사용자가 입력한 등록 링크를 사용하여 Azure Lab Services에 등록하면 **가상 머신** 탭에서 학생에게 할당된 VM이 표시됩니다. 

@@ -1,6 +1,6 @@
 ---
-title: Log Analytics의 검색 쿼리 | Microsoft Docs
-description: 이 문서에서는 Log Analytics에서 검색 쿼리 작성을 시작하기 위한 자습서를 제공합니다.
+title: Azure Monitor 로그에서 쿼리 검색 | Microsoft Docs
+description: 이 문서에서는 Azure Monitor 로그 쿼리에서 검색 사용을 시작하기 위한 자습서를 제공합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 1f3131585a8f6581690eda777b8ffc96768b3cc6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: cda66b91a0e829ec3bc84a82c190b9d856827ad3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885304"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004454"
 ---
-# <a name="search-queries-in-log-analytics"></a>Log Analytics의 검색 쿼리
+# <a name="search-queries-in-azure-monitor-logs"></a>Azure Monitor 로그에서 쿼리 검색
 
 > [!NOTE]
-> 이 단원을 완료하기 전에 [Log Analytics에서 쿼리 시작](get-started-queries.md)을 완료해야 합니다.
+> 이 단원을 완료하기 전에 [Azure Monitor 로그 쿼리 시작](get-started-queries.md)을 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Azure Log Analytics 쿼리는 테이블 이름 또는 search 명령을 사용하여 시작할 수 있습니다. 이 자습서는 검색 기반 쿼리를 다룹니다. 각 메서드에 대한 이점이 있습니다.
+Azure Monitor 로그 쿼리는 테이블 이름 또는 검색 명령을 사용하여 시작할 수 있습니다. 이 자습서는 검색 기반 쿼리를 다룹니다. 각 메서드에 대한 이점이 있습니다.
 
 테이블 기반 쿼리는 쿼리의 범위를 지정하여 시작하므로 검색 쿼리보다 효율적인 경향이 있습니다. 검색 쿼리는 덜 구조적이며 이로 인해 열 또는 테이블에서 특정 값을 검색할 때 더 좋은 선택입니다. **search**는 지정된 값에 대해 지정된 테이블 또는 모든 테이블에서 모든 열을 검색할 수 있습니다. 처리되는 데이터의 양은 매우 클 수 있으며 이는 이러한 쿼리를 완료하는 데 시간이 더 오래 걸릴 수 있는 이유이며 매우 큰 결과 집합을 반환할 수 있습니다.
 
@@ -144,4 +144,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log Analytics 쿼리 언어 사이트](https://aka.ms/LogAnalyticsLanguage)에서 추가 자습서를 참조하세요.
+- [데이터 탐색기 쿼리 언어 사이트](/azure/kusto/query/)에서 추가 자습서를 참조하세요.

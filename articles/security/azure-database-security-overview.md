@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure 데이터베이스 보안 기능에 대�
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f9297946b7e09bc8c516470515d0eee9885d5d38
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584777"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116323"
 ---
 # <a name="azure-database-security-overview"></a>Azure 데이터베이스 보안 개요
 
@@ -106,15 +106,15 @@ Always Encrypted는 데이터를 소유하고 볼 수 있는 사용자와 데이
 
 #### <a name="firewall-and-firewall-rules"></a>방화벽 및 방화벽 규칙
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)는 Azure 및 기타 인터넷 기반 응용 프로그램의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다. 자세한 내용은 [Azure SQL Database 방화벽 규칙 개요](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)를 참조하세요.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/)는 Azure 및 기타 인터넷 기반 애플리케이션의 관계형 데이터베이스 서비스를 제공합니다. 데이터를 보호하기 위해 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 데이터베이스에 대한 액세스를 허용합니다. 자세한 내용은 [Azure SQL Database 방화벽 규칙 개요](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)를 참조하세요.
 
 Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 있습니다. 사용자의 컴퓨터에서 SQL Database에 액세스하려면 클라이언트 컴퓨터 방화벽이 TCP 포트 1433을 통해 나가는 TCP 통신을 허용해야 합니다. 다른 애플리케이션에 인바운드 연결이 필요하지 않은 경우 TCP 포트 1433에서 인바운드 연결을 차단합니다.
 
-#### <a name="authentication"></a>인증
+#### <a name="authentication"></a>Authentication
 
 인증은 데이터베이스에 연결할 때 사용자의 ID를 증명하는 방법을 가리킵니다. SQL Database는 두 가지 인증 유형을 지원합니다.
 
--   **SQL Server 인증:** 논리적 SQL 인스턴스가 만들어질 때, SQL Database 구독자 계정이라는 단일 로그인 계정이 만들어집니다. 이 계정은 [SQL Server 인증](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview)(사용자 이름 및 암호)을 사용하여 연결됩니다. 이 계정은 논리적 서버 인스턴스 및 해당 인스턴스에 연결된 모든 사용자 데이터베이스에서 관리자입니다. 구독자 계정의 사용 권한은 제한할 수 없습니다. 이러한 계정 중 하나만 존재할 수 있습니다.
+-   **SQL Server 인증**: 논리적 SQL 인스턴스가 만들어질 때, SQL Database 구독자 계정이라는 단일 로그인 계정이 만들어집니다. 이 계정은 [SQL Server 인증](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview)(사용자 이름 및 암호)을 사용하여 연결됩니다. 이 계정은 논리적 서버 인스턴스 및 해당 인스턴스에 연결된 모든 사용자 데이터베이스에서 관리자입니다. 구독자 계정의 사용 권한은 제한할 수 없습니다. 이러한 계정 중 하나만 존재할 수 있습니다.
 -   **Azure Active Directory 인증**: [Azure AD 인증](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)은 Azure AD의 ID를 사용하여 Azure SQL Database 및 Azure SQL Data Warehouse에 연결하는 메커니즘입니다. 이를 사용하여 데이터베이스 사용자의 ID를 중앙에서 관리할 수 있습니다.
 
 ![SQL Database를 사용하는 Azure AD 인증](./media/azure-databse-security-overview/azure-database-fig2.png)
@@ -143,7 +143,7 @@ Azure SQL Database 서비스는 TCP 포트 1433을 통해서만 사용할 수 �
 
 [SQL Database 동적 데이터 마스킹](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)에서는 권한이 없는 사용자에 대해 중요한 데이터를 마스킹해 표시함으로써 데이터 노출을 제한합니다. Azure SQL Database의 V12 버전에서는 동적 데이터 마스킹을 지원합니다.
 
-[동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)을 수행하면 응용 프로그램 계층에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 동적 데이터 마스킹은 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다. 이때 데이터베이스의 데이터 자체는 변경되지 않습니다.
+[동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)을 수행하면 애플리케이션 계층에 대한 영향을 최소화하면서 표시할 중요한 데이터의 양을 지정할 수 있도록 하여 중요한 데이터에 대한 무단 액세스를 방지할 수 있습니다. 동적 데이터 마스킹은 지정된 데이터베이스 필드에 대한 쿼리의 결과 집합에서 중요한 데이터를 숨기는 정책 기반 보안 기능입니다. 이때 데이터베이스의 데이터 자체는 변경되지 않습니다.
 
 > [!Note]
 > Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역할이 동적 데이터 마스킹을 구성할 수 있습니다.
@@ -176,8 +176,8 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
 두 가지 감사 방법이 있습니다.
 
--   **Blob 감사** - Azure Blob Storage에 로그가 기록됩니다. 이는 새로운 감사 방법으로, 뛰어난 성능을 제공하고, 보다 세밀한 개체 수준 감사를 지원하며, 보다 비용 효율적인 방법입니다.
--   **테이블 감사** - Azure Table Storage에 로그가 기록됩니다.
+-   **Blob 감사**: 로그는 Azure Blob Storage에 쓰기됩니다. 이는 새로운 감사 방법으로, 뛰어난 성능을 제공하고, 보다 세밀한 개체 수준 감사를 지원하며, 보다 비용 효율적인 방법입니다.
+-   **테이블 감사**: Azure Table Storage에 로그가 기록됩니다.
 
 ### <a name="threat-detection"></a>위협 감지
 

@@ -11,17 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: bdb4db2d1a9447e8e328728288c1cf425c65a988
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/13/2019
+ms.openlocfilehash: 59eb0b842392faa2adfcd99b028f1e283a7e8db7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511835"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243832"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층
 
 Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 보장하기 위해 클라우드 환경에 대해 조정되는 SQL Server 데이터베이스 엔진 아키텍처를 기반으로 합니다. Azure SQL Database에 사용되는 세 가지 아키텍처 모델이 있습니다.
+
 - [범용](sql-database-service-tier-general-purpose.md): 대부분의 일반 워크로드용으로 디자인되었습니다.
 - [중요 비즈니스용](sql-database-service-tier-business-critical.md): 읽기 가능한 단일 복제본을 포함하는 대기 시간이 짧은 워크로드용으로 디자인되었습니다.
 - [하이퍼스케일](sql-database-service-tier-hyperscale.md): 여러 개의 읽기 가능한 복제본을 포함하는 초대형 데이터베이스(최대 100TB)용으로 디자인되었습니다.
@@ -29,7 +30,7 @@ Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 �
 이 문서에서는 vCore 기반 구매 모델의 범용 및 중요 비즈니스용 서비스 계층에 대한 저장소 및 백업 고려 사항을 설명합니다.
 
 > [!NOTE]
-> vCore 기반 구매 모델의 하이퍼스케일 서비스 계층에 대한 자세한 내용은 [하이퍼스케일 서비스 계층](sql-database-service-tier-hyperscale.md)을 참조하세요. vCore 기반 구매 모델과 DTU 기반 구매 모델의 비교는 [Azure SQL Database 구매 모델 및 리소스](sql-database-service-tiers.md)를 참조하세요.
+> vCore 기반 구매 모델의 하이퍼스케일 서비스 계층에 대한 자세한 내용은 [하이퍼스케일 서비스 계층](sql-database-service-tier-hyperscale.md)을 참조하세요. vCore 기반 구매 모델과 DTU 기반 구매 모델의 비교는 [Azure SQL Database 구매 모델 및 리소스](sql-database-purchase-models.md)를 참조하세요.
 
 ## <a name="data-and-log-storage"></a>데이터 및 로그 저장
 
@@ -40,8 +41,8 @@ Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 �
 - 필요한 싱글 데이터베이스 크기(MDF 크기)를 구성하면 추가 저장소의 30%가 LDF를 지원하도록 자동으로 추가됩니다
 - Managed Instance의 저장소 크기는 32GB의 배수로 지정해야 합니다.
 - 단일 데이터베이스 크기는 10GB와 지원되는 최대 크기 사이에서 선택할 수 있습니다.
-  - 표준 저장소의 경우, 크기는 10GB 증분 단위로 늘리거나 줄입니다.
-  - Premium Storage의 경우, 크기는 250GB 증분 단위로 늘리거나 줄입니다.
+  - 표준 또는 범용 서비스 계층의 스토리지 크기는 10GB 단위로 늘리거나 줄이세요.
+  - 프리미엄 또는 중요 비즈니스용 서비스 계층의 스토리지 크기는 250GB 단위로 늘리거나 줄이세요.
 - 범용 서비스 계층의 경우 `tempdb`에서 연결형 SSD를 사용하며, 이 저장소의 비용이 vCore 가격에 포함됩니다.
 - 중요 비즈니스 서비스 계층의 경우 `tempdb`에서 MDF 및 LDF 파일이 포함된 연결형 SSD를 공유하며, tempDB 저장소의 비용이 vCore 가격에 포함됩니다.
 

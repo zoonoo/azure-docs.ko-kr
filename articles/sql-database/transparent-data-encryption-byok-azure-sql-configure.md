@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell 및 CLI: 사용자 고유 키로 SQL TDE 사용 - Azure SQL Database | Microsoft Docs'
+title: 'PowerShell 및 CLI: Azure Key Vault와 SQL TDE를 사용하도록 설정 - Bring your own key - Azure SQL Database | Microsoft Docs'
 description: PowerShell 또는 CLI를 통해 미사용 데이터 암호화에 TDE(투명한 데이터 암호화)를 사용하도록 Azure SQL Database 및 Data Warehouse를 구성하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,16 +12,16 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: be73f5cb7db232538f301b2eb56bf61267fce5d5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f1cb99799e3aa5c0b37643112f8644d1aabfd666
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566723"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108095"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell 및 CLI: Azure Key Vault에서 사용자 고유 키를 사용하여 투명한 데이터 암호화 사용
+# <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 및 CLI: Azure Key Vault에서 고객 관리형 키로 투명한 데이터 암호화를 사용하도록 설정
 
-이 문서에서는 SQL Database 또는 Data Warehouse에서 TDE(투명한 데이터 암호화)에 대해 Azure Key Vault의 키를 사용하는 방법에 대해 설명합니다. BYOK(Bring Your Own Key) 지원을 통한 TDE에 대한 자세한 내용은 [Azure SQL에 대한 TDE Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md)를 방문하세요. 
+이 문서에서는 SQL Database 또는 Data Warehouse에서 TDE(투명한 데이터 암호화)에 대해 Azure Key Vault의 키를 사용하는 방법에 대해 설명합니다. Azure Key Vault 통합으로 TDE - BYOK(Bring Your Own Key) 지원에 대해 자세히 알아보려면 [Azure Key Vault에서 고객 관리형 키로 TDE](transparent-data-encryption-byok-azure-sql.md)를 참조하세요. 
 
 ## <a name="prerequisites-for-powershell"></a>PowerShell용 필수 구성 요소
 
@@ -29,8 +29,8 @@ ms.locfileid: "55566723"
 - [권장되는 선택 사항] TDE 보호기 키 자료의 로컬 복사본을 만들기 위한 HSM(하드웨어 보안 모듈) 또는 로컬 키 저장소가 있어야 합니다.
 - Azure PowerShell 버전 4.2.0 이상이 설치되어 실행 중이어야 합니다. 
 - TDE에 사용할 Azure Key Vault 및 키를 만듭니다.
-   - [PowerShell에 대한 Key Vault 지침](../key-vault/key-vault-get-started.md)
-   - [HSM(하드웨어 보안 모듈) 및 Key Vault 사용 지침](../key-vault/key-vault-get-started.md#HSM)
+   - [PowerShell에 대한 Key Vault 지침](../key-vault/key-vault-overview.md)
+   - [HSM(하드웨어 보안 모듈) 및 Key Vault 사용 지침](../key-vault/key-vault-hsm-protected-keys.md)
  - 키 자격 증명 모음에는 TDE에 사용할 다음 속성이 있어야 합니다.
    - [일시 삭제](../key-vault/key-vault-ovw-soft-delete.md)
    - [PowerShell로 Key Vault 일시 삭제를 사용하는 방법](../key-vault/key-vault-soft-delete-powershell.md) 
@@ -196,7 +196,7 @@ ms.locfileid: "55566723"
 - 명령줄 인터페이스 버전 2.0 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure 플랫폼 간 명령줄 인터페이스 2.0 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)을 참조하세요. 
 - TDE에 사용할 Azure Key Vault 및 키를 만듭니다.
    - [CLI 2.0을 사용하여 Key Vault 관리](../key-vault/key-vault-manage-with-cli2.md)
-   - [HSM(하드웨어 보안 모듈) 및 Key Vault 사용 지침](../key-vault/key-vault-get-started.md#HSM)
+   - [HSM(하드웨어 보안 모듈) 및 Key Vault 사용 지침](../key-vault/key-vault-hsm-protected-keys.md)
  - 키 자격 증명 모음에는 TDE에 사용할 다음 속성이 있어야 합니다.
    - [일시 삭제](../key-vault/key-vault-ovw-soft-delete.md)
    - [CLI로 Key Vault 일시 삭제를 사용하는 방법](../key-vault/key-vault-soft-delete-cli.md) 

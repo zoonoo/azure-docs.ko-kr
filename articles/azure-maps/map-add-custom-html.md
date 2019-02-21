@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5df3b9541dafad64e012519802b09b19ef199a03
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 1c812a77429e13ea39b2f4946043c13e10aaf097
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231737"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993745"
 ---
 # <a name="add-html-markers-to-the-map"></a>맵에 HTML 표식 추가
 
@@ -68,20 +68,11 @@ HTML 표식의 이점 중 하나는 CSS를 사용하여 얻을 수 있는 여러
 
 ## <a name="add-mouse-events-to-html-markers"></a>HTML 표식에 마우스 이벤트 추가
 
-이러한 샘플에서는 표시자의 HTML 콘텐츠에 표준 JavaScript 이벤트를 추가하여 HTML 표식에 마우스 이벤트를 추가하는 방법을 보여줍니다. 
-
-표식의 `htmlContent`가 DOM 요소(div, img...)인 경우 직접 이벤트를 추가할 수 있습니다. 
+이러한 샘플은 HTML 표식에 마우스를 추가하고 이벤트를 드래그하는 방법을 보여 줍니다.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='HTML 표식에 마우스 이벤트 추가' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>HTML 표식에 마우스 이벤트 추가</a>를 참조하세요.
-</iframe>
-
-`htmlContent`가 문자열(즉, 기본값과 같음)인 경우 DOM 요소를 만들고 문자열을 innerHTML로 추가한 다음, htmlContent로 DOM 요소를 추가할 수 있습니다. `htmlContent`가 템플릿 기반 문자열인 경우 먼저 문자열에서 `{text}` 및 `{color}` 값의 찾기/바꾸기를 수행해야 합니다.
-
-<br/>
-
-<iframe height='500' scrolling='no' title='기본 HTML 표식에 마우스 이벤트 추가' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>기본 HTML 표식에 마우스 이벤트 추가</a>를 참조하세요.
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계

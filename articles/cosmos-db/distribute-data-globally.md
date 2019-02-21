@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.openlocfilehash: 28c945223d225d7e91df1041bcbe02ee87b93c6a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 75940f9c3c8022c5445eb998b133a156dacde9b5
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475060"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106871"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Azure Cosmos DB를 사용한 전역 데이터 배포 - 개요
 
@@ -22,6 +22,8 @@ Azure Cosmos DB는 전역적으로 분산되는 데이터베이스 서비스로 
 고객은 데이터베이스가 전역적으로 분산되고 모든 Azure 지역에서 사용 가능하도록 구성할 수 있습니다. 대기 시간을 줄이려면 데이터를 사용자와 가깝게 배치합니다. 필수 지역을 선택하는 작업은 애플리케이션의 글로벌 도달률 및 사용자가 있는 위치에 따라 달라집니다. Azure Cosmos DB는 계정 내의 데이터를 계정과 연결된 모든 지역에 투명하게 복제합니다. 애플리케이션이 로컬로 읽고 쓸 수 있는 전역적으로 분산된 Azure Cosmos 데이터베이스 및 컨테이너의 단일 시스템 이미지를 제공합니다. 
 
 Azure Cosmos DB를 사용하면 언제든지 계정과 연결된 지역을 추가하거나 제거할 수 있습니다. 애플리케이션이 지역을 추가하거나 제거하기 위해 일시 중지되거나 재배포될 필요가 없습니다. 서비스를 제공하는 멀티 호밍 기능으로 인해 애플리케이션은 계속해서 항상 사용 가능합니다.
+
+![고가용성 배포 토폴로지](./media/distribute-data-globally/deployment-topology.png)
 
 ## <a name="key-benefits-of-global-distribution"></a>전역 분산의 주요 혜택
 
@@ -50,6 +52,7 @@ Azure Cosmos DB 멀티 호밍 API를 사용하여 애플리케이션은 가장 �
 다음 문서에서 전역 분산에 대해 자세히 알아보세요.
 
 * [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
+* [애플리케이션에서 다중 마스터를 구성하는 방법](how-to-multi-master.md)
 * [클라이언트 멀티 호밍 구성](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Azure Cosmos DB 계정에서 지역 추가 또는 제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [SQL API 계정에 대한 사용자 지정 충돌 해결 정책 만들기](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

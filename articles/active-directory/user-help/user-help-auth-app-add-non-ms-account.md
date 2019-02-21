@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: afcac73af84010f37eccd018f39852712e495b84
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 714a78c436b7071717e2df12c2a65999920f8c63
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55772742"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192135"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>비 Microsoft 계정 추가
 2단계 인증용으로 Microsoft Authenticator 앱에 Google, Facebook, GitHub 등의 비 Microsoft 계정을 추가합니다. Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 앱 및 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원하는 모든 계정과 호환됩니다.
@@ -55,7 +56,7 @@ ms.locfileid: "55772742"
 4. 디바이스 카메라를 사용하여 PC의 **Authenticator 설정** 페이지에서 QR 코드를 스캔합니다.
 
     >[!Note]
-    >카메라가 올바르게 작동하지 않으면 [QR 코드 및 URL을 수동으로 입력](#add-an-account-to-the-app-manually)할 수 있습니다.
+    >카메라가 올바르게 작동하지 않으면 QR 코드 및 URL을 수동으로 입력할 수 있습니다.
 
 5. 디바이스의 Microsoft Authenticator 앱 **계정** 페이지를 검토하여 계정 정보가 올바르며 6자리 확인 코드가 연결되어 있는지 확인합니다.
 
@@ -94,7 +95,7 @@ ms.locfileid: "55772742"
 3. 디바이스 카메라를 사용하여 PC의 **2단계 인증** 페이지에서 QR 코드를 스캔합니다.
 
     >[!Note]
-    >카메라가 올바르게 작동하지 않으면 [QR 코드 및 URL을 수동으로 입력](#add-an-account-to-the-app-manually)할 수 있습니다.
+    >카메라가 올바르게 작동하지 않으면 QR 코드 및 URL을 수동으로 입력할 수 있습니다.
 
 4. 디바이스의 Microsoft Authenticator 앱 **계정** 페이지를 검토하여 계정 정보가 올바르며 6자리 확인 코드가 연결되어 있는지 확인합니다.
 
@@ -165,7 +166,7 @@ ms.locfileid: "55772742"
 6. 디바이스 카메라를 사용해 PC의 **코드를 받을 방법 선택** 페이지에서 QR 코드를 스캔합니다.
 
     >[!Note]
-    >카메라가 올바르게 작동하지 않으면 [QR 코드 및 URL을 수동으로 입력](#add-an-account-to-the-app-manually)할 수 있습니다.
+    >카메라가 올바르게 작동하지 않으면 QR 코드 및 URL을 수동으로 입력할 수 있습니다.
 
 5. 디바이스의 Microsoft Authenticator 앱 **계정** 페이지를 검토하여 계정 정보가 올바르며 6자리 확인 코드가 연결되어 있는지 확인합니다.
 

@@ -4,7 +4,7 @@ description: 이 문서에서는 사고 대응 시나리오에서 Azure Security
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 684098dd2780e827ccc74b7fbbb16a2be75fa3e1
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619880"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114300"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>사고 대응에 Azure Security Center 사용
 대부분의 조직은 공격을 받은 후에 보안 사고에 대응하는 방법을 알아봅니다. 비용과 손상을 줄이려면 공격이 발생하기 전에 사고 대응 계획을 적절히 수립하는 것이 중요합니다. Azure Security Center는 사고에 대응하는 여러 단계에서 사용할 수 있습니다.
@@ -84,7 +84,7 @@ Judy는 Azure 포털에 로그인했으며 Security Center 콘솔을 사용하�
    > 이 시나리오의 목적상 Judy는 위 그림에서 보여 있듯이 악의적인 SQL 작업 경고에 대한 평가를 수행합니다.
    >
    >
-2. **악성 SQL 작업** 경고를 클릭한 다음 **악성 SQL 작업**: ![인시던트 정보](./media/security-center-incident-response/security-center-incident-response-fig5.png) 블레이드에서 공격받은 리소스를 검토합니다.
+2. **악성 SQL 작업** 경고를 클릭한 다음, **악성 SQL 작업** 블레이드:  ![인시던트 정보](./media/security-center-incident-response/security-center-incident-response-fig5.png)에서 공격받은 리소스를 검토합니다.
 
     이 블레이드에서 Judy는 공격받은 리소스와 관련하여 공격이 발생한 빈도 및 감지된 시기를 기록할 수 있습니다.
 3. **공격받은 리소스** 를 클릭하여 이 공격에 대한 자세한 정보를 얻을 수 있습니다.

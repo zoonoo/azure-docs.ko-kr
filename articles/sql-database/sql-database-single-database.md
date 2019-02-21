@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: a2500988b174e49870f4da7087b3fa4c81f3c77a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754985"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099329"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
 
-단일 데이터베이스 배포 옵션은 자체 리소스 세트를 사용하여 Azure SQL Database에 독립 실행형 데이터베이스를 만들고 SQL Database 서버를 통해 관리됩니다. 단일 데이터베이스를 사용하면 각 데이터베이스가 서로 격리되고 이식 가능하며, [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 및 보장된 컴퓨팅 크기 내에서 자체의 고유 서비스 계층을 갖추게 됩니다.
+단일 데이터베이스 배포 옵션은 자체 리소스 집합을 사용하여 Azure SQL Database에 데이터베이스를 만들고 SQL Database 서버를 통해 관리됩니다. 단일 데이터베이스를 사용하면 각 데이터베이스가 서로 격리되고 이식 가능하며, [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 및 보장된 컴퓨팅 크기 내에서 자체의 고유 서비스 계층을 갖추게 됩니다.
 
 > [!IMPORTANT]
 > 단일 데이터베이스는 Azure SQL Database의 세 가지 배포 옵션 중 하나입니다. 나머지 두 가지 옵션은 [탄력적 풀](sql-database-elastic-pool.md)과 [관리되는 인스턴스](sql-database-managed-instance.md)입니다.
@@ -58,5 +58,5 @@ SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](sql-da
 ## <a name="next-steps"></a>다음 단계
 
 - 단일 데이터베이스를 신속하게 시작할 수 있도록 [단일 데이터베이스 빠른 시작 guide.md](sql-database-single-database-quickstart-guide.md)를 시작합니다.
-- SQL Server 데이터베이스를 Azure로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure SQL Database로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
+- SQL Server 데이터베이스를 Azure로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure SQL Database로 마이그레이션](sql-database-single-database-migrate.md)을 참조하세요.
 - 지원되는 기능에 대한 자세한 내용은 [기능](sql-database-features.md)을 참조하세요.

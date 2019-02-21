@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 미리 보기 계층 구조 네임스페이스
-description: Azure Data Lake Storage Gen2 미리 보기에 대한 계층 구조 네임스페이스의 개념 설명
+title: Azure Data Lake Storage Gen2 계층 구조 네임스페이스
+description: Azure Data Lake Storage Gen2에 대한 계층 구조 네임스페이스의 개념 설명
 services: storage
 author: jamesbak
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 967e24ae6e004fe6ce2b1c0aa6c039f46be2598c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b423d40884dd9132312e79ba0cbff00b8771b207
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244507"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55877034"
 ---
-# <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 미리 보기 계층 구조 네임스페이스
+# <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 계층 구조 네임스페이스
 
-Azure Data Lake Storage Gen2 미리 보기를 사용하여 개체 스토리지 규모 및 가격에 파일 시스템 성능을 제공할 수 있는 주요 메커니즘은 **계층 구조 네임스페이스**를 추가한 것입니다. 이렇게 하면 계정 내의 개체/파일 컬렉션이 컴퓨터의 파일 시스템이 구성되는 것과 동일한 방식으로 디렉터리 및 중첩된 하위 디렉터리의 계층 구조로 구성될 수 있습니다. 계층 구조 네임스페이스를 사용하도록 설정하면 스토리지 계정에서 분석 엔진 및 프레임워크에 친숙한 파일 시스템 의미 체계를 통해 개체 스토리지의 확장성 및 비용 효율성을 제공할 수 있습니다.
+Azure Data Lake Storage Gen2를 사용하여 개체 스토리지 규모 및 가격에 파일 시스템 성능을 제공할 수 있는 주요 메커니즘은 **계층 구조 네임스페이스**를 추가한 것입니다. 이렇게 하면 계정 내의 개체/파일 컬렉션이 컴퓨터의 파일 시스템이 구성되는 것과 동일한 방식으로 디렉터리 및 중첩된 하위 디렉터리의 계층 구조로 구성될 수 있습니다. 계층 구조 네임스페이스를 사용하도록 설정하면 스토리지 계정에서 분석 엔진 및 프레임워크에 친숙한 파일 시스템 의미 체계를 통해 개체 스토리지의 확장성 및 비용 효율성을 제공할 수 있습니다.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>계층 구조 네임스페이스의 이점
 
@@ -29,18 +29,17 @@ Azure Data Lake Storage Gen2 미리 보기를 사용하여 개체 스토리지 �
 
 - **친숙한 인터페이스 스타일:** 파일 시스템이 개발자와 사용자 모두에게 쉽게 이해됩니다. Data Lake Storage Gen2를 통해 노출되는 파일 시스템 인터페이스는 크고 작은 컴퓨터에서 사용되는 동일한 패러다임이므로 클라우드로 이동할 때 새 스토리지 패러다임을 배울 필요가 없습니다.
 
-개체 저장소가 이전에 계층 구조 네임스페이스를 지원하지 않았던 이유 중 하나는 계층 구조 네임스페이스가 확장을 제한했기 때문입니다. 그러나 Data Lake Storage Gen2 계층 구조 네임스페이스는 규모가 선형으로 조정되고 데이터 용량 또는 성능을 저하시키지 않습니다.
+개체 스토리지가 이전에 계층 구조 네임스페이스를 지원하지 않았던 이유 중 하나는 계층 구조 네임스페이스가 확장을 제한했기 때문입니다. 그러나 Data Lake Storage Gen2 계층 구조 네임스페이스는 규모가 선형으로 조정되고 데이터 용량 또는 성능을 저하시키지 않습니다.
 
 ## <a name="when-to-enable-the-hierarchical-namespace"></a>계층 구조 네임스페이스를 사용하는 경우
 
-디렉터리를 조작하는 파일 시스템을 위해 설계된 저장소 워크로드의 경우, 계층 구조 네임스페이스를 켜는 것이 좋습니다. 여기에는 분석 처리에 주로 사용되는 모든 워크로드가 포함됩니다. 계층 구조 네임스페이스를 사용하면 높은 수준의 구성이 필요한 데이터 세트에도 유용합니다.
+디렉터리를 조작하는 파일 시스템을 위해 설계된 스토리지 워크로드의 경우, 계층 구조 네임스페이스를 켜는 것이 좋습니다. 여기에는 분석 처리에 주로 사용되는 모든 워크로드가 포함됩니다. 계층 구조 네임스페이스를 사용하면 높은 수준의 구성이 필요한 데이터 세트에도 유용합니다.
 
 계층 구조 네임스페이스를 사용하는 이유는 TCO 분석을 통해 결정됩니다. 일반적으로 저장소 가속화로 인한 워크로드 대기 시간을 개선하려면 계산 리소스에 사용되는 시간을 단축해야 합니다. 계층 구조 네임스페이스를 통해 구현되는 원자성 디렉터리 조작으로 인해 많은 워크로드의 대기 시간이 향상될 수 있습니다. 많은 워크로드에서 계산 리소스는 총 비용의 85%를 초과하므로 워크로드 대기 시간이 적게 감소하더라도 TCO 절감 금액은 상당합니다. 계층 구조 네임스페이스를 사용하여 저장소 비용이 증가하는 경우에도 감소된 계산 비용으로 인해 TCO는 낮아집니다.
 
 ## <a name="when-to-disable-the-hierarchical-namespace"></a>계층 구조 네임스페이스를 사용하지 않는 경우
 
-일부 개체 저장소 워크로드의 경우, 계층 구조 네임스페이스 사용이 유용하지 않을 수 있습니다. 이러한 워크로드의 예로는 백업, 이미지 스토리지 및 개체 구성이 개체 자체와 별도로(‘예:’ 별도의 데이터베이스에) 저장되는 기타 애플리케이션이 포함됩니다.
-
+일부 개체 스토리지 워크로드의 경우, 계층 구조 네임스페이스 사용이 유용하지 않을 수 있습니다. 예를 들어 백업, 이미지 스토리지 및 개체 구성이 개체 자체와 별도로(‘예:’ 별도의 데이터베이스에) 저장되는 기타 애플리케이션이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 쿼리에서 차트 및 다이어그램 만들기 | Microsoft Docs
-description: 데이터를 여러 다른 방법으로 표시하기 위한 Azure Log Analytics의 다양한 시각화에 대해 설명합니다.
+title: Azure Monitor 로그 쿼리에서 차트 및 다이어그램 만들기 | Microsoft Docs
+description: 로그 데이터를 여러 다른 방법으로 표시하기 위한 Azure Monitor의 다양한 시각화에 대해 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 049e50f5800194c4126003f7e5ff7ae60b3de768
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 381e8361d31660d90eaee3f7a500139af1ef2a82
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186228"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992996"
 ---
-# <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Log Analytics 쿼리에서 차트 및 다이어그램 만들기
+# <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 차트 및 다이어그램 만들기
 
 > [!NOTE]
-> 이 단원을 완료하기 전에 [Log Analytics 쿼리의 고급 집계](advanced-aggregations.md)를 완료해야 합니다.
+> 이 단원을 완료하기 전에 [Azure Monitor 로그 쿼리의 고급 집계](advanced-aggregations.md)를 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-이 문서에서는 데이터를 여러 다른 방법으로 표시하기 위한 Azure Log Analytics의 다양한 시각화에 대해 설명합니다.
+이 문서에서는 로그 데이터를 여러 다른 방법으로 표시하기 위한 Azure Monitor의 다양한 시각화에 대해 설명합니다.
 
 ## <a name="charting-the-results"></a>결과 차트로 작성
 먼저 지난 시간 동안의 운영 체제별 컴퓨터 수를 검토합니다.
@@ -93,7 +93,7 @@ SecurityEvent
 ![가로 막대형 차트 AccountType](media/charts/charts-and-diagrams-multiDimension2.png)
 
 ## <a name="next-steps"></a>다음 단계
-Log Analytics 쿼리 언어를 사용에 대해서는 다른 단원을 참조하세요.
+Azure Monitor 로그 데이터에 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
 
 - [문자열 작업](string-operations.md)
 - [날짜 및 시간 작업](datetime-operations.md)

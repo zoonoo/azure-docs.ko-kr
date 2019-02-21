@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Tableau Online 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Tableau Online 구성 | Microsoft Docs'
 description: 사용자 계정을 Tableau Online으로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 4f6297fa8477ff4794bee589737e047993427c06
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345865"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56194872"
 ---
-# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Tableau Online 구성
+# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Tableau Online 구성
 
 이 자습서에서는 사용자 및/또는 그룹을 Tableau Online으로 자동으로 프로비전하고 프로비전을 해제하도록 Azure AD(Azure Active Directory)를 구성하기 위해 Tableau Online 및 Azure AD에서 수행하는 단계를 보여줍니다.
 
@@ -42,13 +43,13 @@ ms.locfileid: "44345865"
 ## <a name="adding-tableau-online-from-the-gallery"></a>갤러리에서 Tableau Online 추가
 Azure AD를 사용하여 사용자를 자동으로 프로비전하도록 Tableau Online을 구성하기 전에 Tableau Online을 Azure AD 애플리케이션 갤러리에서 관리되는 SaaS 애플리케이션 목록으로 추가해야 합니다.
 
-**Azure AD 응용 프로그램 갤러리에서 Tableau Online을 추가하려면 다음 단계를 수행합니다.**
+**Azure AD 애플리케이션 갤러리에서 Tableau Online을 추가하려면 다음 단계를 수행합니다.**
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 패널에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**으로 이동합니다.
+2. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**으로 이동합니다.
 
     ![엔터프라이즈 애플리케이션 섹션][2]
 
@@ -89,7 +90,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ### <a name="to-configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>Azure AD에서 Tableau Online에 대한 자동 사용자 프로비전을 구성하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory > 엔터프라이즈 응용 프로그램 > 모든 응용 프로그램**으로 차례로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션**으로 차례로 이동합니다.
 
 2. SaaS 애플리케이션 목록에서 Tableau Online을 선택합니다.
 
@@ -115,9 +116,9 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 6. Tableau Online에 대한 관리 계정에 로그인한 후에 **도메인** 및 **콘텐츠 URL**에 대한 값을 관리 페이지의 URL에서 추출할 수 있습니다.
 
-    *   Tableau Online 계정에 대한 **도메인**을 URL의 이 부분에서 복사할 수 있습니다. ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+    *   Tableau Online 계정에 대한 **도메인**을 URL의 이 부분에서 복사할 수 있습니다. ![Tableau Online 프로비저닝](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
 
-    *   Tableau Online 계정에 대한 **콘텐츠 URL**을 이 섹션에서 복사할 수 있고 계정을 설정하는 동안 정의된 값입니다. 이 예제에서 값은 "contoso"입니다. ![Tableau Online 프로비전](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+    *   Tableau Online 계정에 대한 **콘텐츠 URL**을 이 섹션에서 복사할 수 있고 계정을 설정하는 동안 정의된 값입니다. 이 예제에서 값은 “contoso”입니다. ![Tableau Online 프로비저닝](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
         > [!NOTE]
         > **도메인**은 여기에 표시된 것과 다를 수 있습니다. 
@@ -170,7 +171,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 
 ## <a name="next-steps"></a>다음 단계

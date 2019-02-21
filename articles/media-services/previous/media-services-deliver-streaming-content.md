@@ -2,7 +2,7 @@
 title: .NET을 사용하여 Azure Media Services 콘텐츠 게시 | Microsoft Docs
 description: 스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 224c9cf5ef9925645de1d94dc5bc03c15ba91432
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8e34d8cfbcd655dbb49279a0cefd63818963652a
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783212"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999184"
 ---
-# <a name="publish-azure-media-services-content-using-net"></a>.NET을 사용하여 Azure Media Services 콘텐츠 게시
+# <a name="publish-media-services-content-using-net"></a>.NET을 사용하여 Media Services 콘텐츠 게시  
 > [!div class="op_single_selector"]
 > * [REST (영문)](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)

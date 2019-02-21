@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: 9973eaa7e930d38e78289219e726b5934d82ee86
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf53df30dfccb76a6f33621038ba7f031a69f6de
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33945385"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979703"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Azure Windows VM 확장 오류 문제 해결
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -32,7 +32,7 @@ Azure Powershell에서 Azure Resource Manager 템플릿을 실행할 수 있습�
 
 Azure PowerShell:
 
-      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
 
 샘플 출력은 다음과 같습니다.
 
@@ -65,7 +65,7 @@ Azure PowerShell:
 참고: 이후에는 확장을 제거할 필요가 없도록 이 기능이 향상될 예정입니다.
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>Azure Powershell에서 확장 제거
-    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 확장이 제거되면 템플릿을 다시 실행하여 VM에서 스크립트를 실행할 수 있습니다.
 

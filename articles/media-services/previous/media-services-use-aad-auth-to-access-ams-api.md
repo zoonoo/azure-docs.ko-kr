@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 320afdb1e4f71150680e9bed6a4c1c9955c99936
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230627"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994104"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure Media Services API 액세스  
  
 Azure Media Services API는 RESTful API입니다. 이 API와 REST API 또는 제공되는 클라이언트 SDK를 사용하여 미디어 리소스에 대한 작업을 수행할 수 있습니다. Azure Media Services는 Microsoft .NET용 Media Services 클라이언트 SDK를 제공합니다. Media Services 리소스 및 Media Services API에 액세스할 수 있는 권한을 부여하려면 먼저 인증을 거쳐야 합니다. 
 
@@ -82,7 +82,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인�
     * Media Services(원시) 애플리케이션 리디렉션 URI.
     * REST Media Services의 리소스 URI.
         
-        REST API 엔드포인트를 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
+        REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
 
     이러한 매개 변수 값을 가져오려면 사용자 인증 옵션과 [Azure Portal을 사용하여 Azure AD 인증 설정 액세스](media-services-portal-get-started-with-aad.md)를 참조하세요.
 
@@ -122,7 +122,7 @@ Azure AD 애플리케이션을 만든 후 다음 설정에 대한 값을 가져�
 
     * REST Media Services의 리소스 URI.
 
-        REST API 엔드포인트를 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
+        REST API 끝점을 나타내는 URI(예: https://test03.restv2.westus.media.azure.net/api/))입니다.
 
     * Azure AD 애플리케이션 값: 클라이언트 ID 및 클라이언트 암호.
     
@@ -138,16 +138,16 @@ Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 1단계에
 
 ## <a name="troubleshooting"></a>문제 해결
 
-예외: “원격 서버에서 (401) 권한 없음 오류를 반환했습니다.”
+예외: “원격 서버에서 오류를 반환했습니다. (401) 권한 없음.”
 
-해결 방법: Media Services REST 요청이 성공하기 위해서는 호출하는 사용자에게 액세스를 시도하는 Media Services 계정에 대한 참가자 또는 소유자 역할이 있어야 합니다. 자세한 내용은 [액세스 제어](media-services-use-aad-auth-to-access-ams-api.md#access-control) 섹션을 참조하세요.
+해결 방법: Media Services REST 요청이 성공하기 위해서는 호출하는 사용자에게 액세스를 시도하는 Media Services 계정에 대한 기여자 또는 소유자 역할이 있어야 합니다. 자세한 내용은 [액세스 제어](media-services-use-aad-auth-to-access-ams-api.md#access-control) 섹션을 참조하세요.
 
 ## <a name="resources"></a>리소스
 
 다음 문서는 Azure AD 인증 개념을 간략히 설명합니다. 
 
 - [Azure AD로 해결된 인증 시나리오](../../active-directory/develop/authentication-scenarios.md)
-- [Azure AD에서 응용 프로그램 추가, 업데이트 또는 제거](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+- [Azure AD에서 애플리케이션 추가, 업데이트 또는 제거](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [PowerShell을 사용하여 역할 기반 Access Control 구성 및 관리](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>다음 단계

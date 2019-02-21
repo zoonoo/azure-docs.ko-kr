@@ -4,19 +4,19 @@ titlesuffix: Face - Azure Cognitive Services
 description: 컨테이너에 대한 구성 설정입니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 218343db4d8ac7e35f58951ee177f5c288aed3d9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a70c200f0260d87d35eae8728ed1f908e7061f32
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476420"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55979108"
 ---
 # <a name="configure-face-docker-containers"></a>Face Docker 컨테이너 구성
 
@@ -45,7 +45,7 @@ ms.locfileid: "55476420"
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing` 설정은 컨테이너에 대한 청구 정보를 측정하는 데 사용되는 Azure의 _Face_ 리소스에 대한 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure의 _Face_ 리소스에 대한 유효한 엔드포인트 URI여야 합니다.
+`Billing` 설정은 컨테이너에 대한 청구 정보를 측정하는 데 사용되는 Azure의 _Face_ 리소스에 대한 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure의 _Face_ 리소스에 대한 유효한 엔드포인트 URI여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
@@ -112,7 +112,7 @@ Face 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 ### <a name="basic-example"></a>기본 예제 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
@@ -122,7 +122,7 @@ Face 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 ### <a name="logging-example-with-command-line-arguments"></a>명령줄 인수를 사용한 로깅 예제
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
@@ -131,7 +131,7 @@ Face 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 ### <a name="logging-example-with-environment-variable"></a>환경 변수를 사용한 로깅 예제
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \

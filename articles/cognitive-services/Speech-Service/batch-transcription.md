@@ -4,19 +4,19 @@ titlesuffix: Azure Cognitive Services
 description: Batch Transcription은 Azure Blob과 같이 스토리지에 많은 양의 오디오를 전사하려는 경우에 이상적입니다. 전용 REST API를 사용하면 SAS(공유 액세스 서명) URI가 있는 오디오 파일을 가리키고 비동기식으로 전사를 수신할 수 있습니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: bf89180ea98473d2da3495286396a12c6f25288f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0e03c388dac4a70fc45150287154406551ac2672
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228664"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55867123"
 ---
 # <a name="why-use-batch-transcription"></a>Batch Transcription을 사용하는 이유
 
@@ -49,7 +49,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 > [!NOTE]
 > Batch Transcription API에는 S0 키(유료 계층)가 필요합니다. 무료(f0) 키로는 작동하지 않습니다.
 
-스테레오 오디오 스트림의 경우 Batch Transcription API는 전사하는 동안 왼쪽 및 오른쪽 채널을 분할합니다. 결과를 포함하는 2개의 JSON 파일이 각각 단일 채널에서 만들어집니다. 말하기 기준 타임스탬프를 사용하여 개발자는 순서가 지정된 최종 기록을 만들 수 있습니다. 다음 JSON 샘플에는 욕설 필터 및 문장 부호 모델을 설정하기 위한 속성을 포함하는 채널의 출력이 표시됩니다.
+스테레오 오디오 스트림의 경우 Batch Transcription API는 전사하는 동안 왼쪽 및 오른쪽 채널을 분할합니다. 결과를 포함하는 2개의 JSON 파일이 각각 단일 채널에서 만들어집니다. 말하기 기준 타임스탬프를 사용하여 개발자는 순서가 지정된 최종 기록을 만들 수 있습니다. 다음 JSON은 욕설 필터, 문장 부호 모델 및 단어 수준의 타임스탬프를 설정하기 위한 속성을 포함하는 샘플 요청을 보여줍니다.
 
 ```json
 {
@@ -60,7 +60,8 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
   "description": "An optional description of the transcription.",
   "properties": {
     "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic"
+    "PunctuationMode": "DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True"
   },
 ```
 
@@ -208,7 +209,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
 이 문서의 샘플은 [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI)에서 찾을 수 있습니다.
 
 > [!NOTE]
-> 일반적으로 오디오 전사에는 오디오 파일의 기간과 동일한 시간 범위에 더해 2-3분의 오버헤드가 필요합니다.
+> 일괄 처리를 통한 오디오 전사에 대한 시간 SLA는 제공하지 않습니다. 하지만 전사 작업이 실행되면(실행 중 상태) 일반적으로 실시간보다 빠르게 처리됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

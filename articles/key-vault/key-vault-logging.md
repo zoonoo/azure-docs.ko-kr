@@ -4,7 +4,7 @@ description: 이 자습서를 사용하여 Azure Key Vault 로깅을 시작할 �
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 7229cedf2ad5e211847054b53c34e54f633f57e0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 95c7e5b58bcd79cbe4893561ec8f2a0ed1f9bf77
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434770"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56110237"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
 Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
 
 ## <a name="introduction"></a>소개
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 하나 이상의 키 자격 증명 모음을 만든 후 키 자격 증명 모음이 액세스되는 방법, 시기 및 사용자를 모니터링하려는 경우가 있습니다. Azure 저장소 계정에 제공하는 정보를 저장하는 키 자격 증명 모음에 대한 로깅을 사용하여 이를 수행할 수 있습니다. **insights-logs-auditevent** 라는 새 컨테이너가 지정된 저장소 계정에 대해 자동으로 만들어지고 여러 키 자격 증명 모음에 대한 로그를 수집하기 위해 이 저장소 계정을 사용할 수 있습니다.
 
@@ -36,7 +38,7 @@ Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 
 이 자습서를 사용하면 저장소 계정을 만들고 로깅을 활성화하고 수집되는 로깅 정보를 해석하는 Azure Key Vault를 시작하는 데 도움이 됩니다.  
 
 > [!NOTE]
-> 이 자습서는 키 자격 증명 모음, 키 또는 암호를 만드는 방법에 대한 지침을 다루지 않습니다. 이에 대한 설명은 [Azure Key Vault 시작](key-vault-get-started.md)을 참조하세요. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는 [이 해당 자습서](key-vault-manage-with-cli2.md)를 참조하세요.
+> 이 자습서는 키 자격 증명 모음, 키 또는 암호를 만드는 방법에 대한 지침을 다루지 않습니다. 자세한 내용은 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는 [이 해당 자습서](key-vault-manage-with-cli2.md)를 참조하세요.
 >
 > 이 문서에서는 진단 로깅을 업데이트하기 위한 Azure PowerShell 지침을 제공합니다. 그러나 **진단 로그** 섹션에서 Azure Portal의 Azure Monitor를 사용하여 동일한 기능을 사용하도록 설정할 수 있습니다. 
 >
@@ -49,7 +51,7 @@ Azure Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-whatis.md)
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 사용하고 있는 기존 키 자격 증명 모음  
-* Azure PowerShell, **최소 버전 1.0.1**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `(Get-Module azure -ListAvailable).Version`을 입력합니다.  
+* Azure PowerShell, **최소 버전 1.0.0**. Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 이미 Azure PowerShell가 설치되어 있고 버전을 알 수 없는 경우, Azure PowerShell 콘솔에서 `$PSVersionTable.PSVersion`을 입력합니다.  
 * 키 자격 증명 모음 로그에 대한 Azure의 충분한 저장소.
 
 ## <a id="connect"></a>구독에 연결
@@ -57,7 +59,7 @@ Azure Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-whatis.md)
 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.  
 
 ```PowerShell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. Azure PowerShell은 이 계정과 연관된 모든 구독을 받고 기본적으로 첫 번째 구독을 사용합니다.
@@ -65,13 +67,13 @@ Connect-AzureRmAccount
 구독이 여러 개인 경우 Azure Key Vault을 만드는 데 사용된 특정된 하나를 지정해야 합니다. 계정에 대한 구독을 보려면 다음을 입력합니다.
 
 ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
 ```
 
 그런 다음 로깅하려는 키 자격 증명 모음과 연결된 구독을 지정하려면 다음을 입력합니다.
 
 ```PowerShell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -85,10 +87,10 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 
 로그에 대해 기존 저장소 계정을 사용할 수 있지만 키 자격 증명 모음 로그 전용 새 저장소 계정을 만듭니다. 나중에 이를 지정해야 하는 경우 편의를 위해 **sa**라는 변수로 정보를 저장합니다.
 
-추가적인 관리 편이성을 위해 키 자격 증명 모음을 포함하는 것과 동일한 리소스 그룹을 사용합니다. [시작 자습서](key-vault-get-started.md)에서 이 리소스 그룹은 **ContosoResourceGroup** 이며 동아시아 위치를 계속해서 사용합니다. 이 값을 적절하게 사용자 고유 값으로 대체합니다.
+추가적인 관리 편이성을 위해 키 자격 증명 모음을 포함하는 것과 동일한 리소스 그룹을 사용합니다. [시작 자습서](key-vault-overview.md)에서 이 리소스 그룹은 **ContosoResourceGroup** 이며 동아시아 위치를 계속해서 사용합니다. 이 값을 적절하게 사용자 고유 값으로 대체합니다.
 
 ```PowerShell
- $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
+ $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
 > [!NOTE]
@@ -101,15 +103,15 @@ Azure PowerShell 구성에 관한 자세한 내용은 [Azure PowerShell 설치 �
 시작 자습서에서 주요 자격 증명 모음 이름은 **ContosoKeyVault**이었으므로 해당 이름을 계속해서 사용하고 **kv**라는 변수에 세부 정보를 저장합니다.
 
 ```PowerShell
-$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+$kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
 ## <a id="enable"></a>로깅 사용
 
-키 자격 증명 모음에 대한 로깅을 사용하려면 새 저장소 계정 및 키 자격 증명 모음용으로 만든 변수와 함께 Set-AzureRmDiagnosticSetting cmdlet을 사용합니다. **-Enabled** 플래그를 **$true**로 설정하고 범주를 AuditEvent(Key Vault 로깅에 대한 유일한 범주)로 설정합니다.
+키 자격 증명 모음에 대한 로깅을 사용하려면 새 스토리지 계정 및 키 자격 증명 모음용으로 만든 변수와 함께 Set-AzDiagnosticSetting cmdlet을 사용합니다. **-Enabled** 플래그를 **$true**로 설정하고 범주를 AuditEvent(Key Vault 로깅에 대한 유일한 범주)로 설정합니다.
 
 ```PowerShell
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 출력은 다음과 같습니다.
@@ -129,7 +131,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 선택적으로 오래된 로그를 자동으로 삭제하는 로그에 대한 보존 정책을 설정할 수도 있습니다. 예를 들어 **-RetentionEnabled** 플래그를 사용하여 보존 정책을 **$true**로 설정하고 **-RetentionInDays** 매개 변수를 **90**으로 설정하므로 90일보다 오래된 로그는 자동으로 삭제됩니다.
 
 ```PowerShell
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
 다음이 로깅됩니다.
@@ -152,7 +154,7 @@ $container = 'insights-logs-auditevent'
 이 컨테이너에 있는 모든 Blob을 나열하려면 다음을 입력합니다.
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 출력은 다음과 유사합니다.
@@ -183,13 +185,13 @@ New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Forc
 그런 다음 모든 Blob 목록을 가져옵니다.  
 
 ```PowerShell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-'Get-AzureStorageBlobContent'를 통해 이 목록을 파이프하여 Blob을 대상 폴더로 다운로드합니다.
+'Get-AzStorageBlobContent'를 통해 이 목록을 파이프하여 Blob을 대상 폴더로 다운로드합니다.
 
 ```PowerShell
-$blobs | Get-AzureStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
+$blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
 이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만들고 이 구조는 Blob을 파일로 다운로드하고 저장하는 데 사용됩니다.
@@ -199,32 +201,32 @@ $blobs | Get-AzureStorageBlobContent -Destination C:\Users\username\ContosoKeyVa
 * 여러 키 자격 증명 모음이 있고 CONTOSOKEYVAULT3이라는 하나의 키 자격 증명 모음에 대한 로그를 다운로드하려는 경우:
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
 ```
 
 * 리소스 그룹이 여러 개이고 하나의 리소스 그룹에 대한 로그를 다운로드하려는 경우 `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`을(를) 사용합니다.
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
 ```
 
 * 2016년 1월의 모든 로그를 다운로드하려는 경우 `-Blob '*/year=2016/m=01/*'`을(를) 사용합니다.
 
 ```PowerShell
-Get-AzureStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
 ```
 
-이제 로그에 있는 것을 확인할 준비가 되었습니다. 진행하기 전에 알아야 할 Get-AzureRmDiagnosticSetting에 대한 두 개 이상의 매개 변수는 다음과 같습니다.
+이제 로그에 있는 것을 확인할 준비가 되었습니다. 진행하기 전에 알아야 할 Get-AzDiagnosticSetting에 대한 두 개 이상의 매개 변수는 다음과 같습니다.
 
-* 주요 자격 증명 모음 리소스의 진단 설정 상태를 쿼리하려면: `Get-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId`
-* 주요 자격 증명 모음 리소스의 로깅을 사용하지 않으려면: `Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories AuditEvent`
+* 주요 자격 증명 모음 리소스의 진단 설정 상태를 쿼리하려면: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
+* 주요 자격 증명 모음 리소스의 로깅을 사용하지 않으려면: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
 ## <a id="interpret"></a>Key Vault 로그 해석
 
 개별 Blob은 JSON Blob 형식으로 텍스트로 저장됩니다. 실행 중
 
 ```PowerShell
-Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
+Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 
 아래에 표시된 것과 비슷한 로그 항목을 반환합니다.
@@ -280,7 +282,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 | operationName | REST API 명령 |
 | --- | --- |
-| 인증 |Azure Active Directory 엔드포인트를 통해 |
+| Authentication |Azure Active Directory 엔드포인트를 통해 |
 | VaultGet |[키 자격 증명 모음에 대한 정보 가져오기](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
 | VaultPut |[키 자격 증명 모음 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
 | VaultDelete |[키 자격 증명 모음 삭제](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
@@ -314,10 +316,10 @@ Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault Au
 
 ## <a id="next"></a>다음 단계
 
-웹 애플리케이션에서 Azure Key Vault를 사용하는 자습서는 [웹 애플리케이션에서 Azure Key Vault 사용](key-vault-use-from-web-application.md)을 참조하세요.
+.NET 웹 애플리케이션에서 Azure Key Vault를 사용하는 자습서는 [웹 애플리케이션에서 Azure Key Vault 사용](tutorial-net-create-vault-azure-web-app.md)을 참조하세요.
 
 프로그래밍 참조는 [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-Azure Key Vault의 Azure PowerShell 1.0 cmdlet 목록은 [Azure Key Vault Cmdlet](/powershell/module/azurerm.keyvault/#key_vault)을 참조하세요.
+Azure Key Vault의 Azure PowerShell 1.0 cmdlet 목록은 [Azure Key Vault Cmdlet](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)을 참조하세요.
 
 Azure Key Vault을 사용하는 키 회전 및 로그 감사에 대한 자습서는 [종단 간 키 회전 및 감사를 사용하여 Key Vault를 설정하는 방법](key-vault-key-rotation-log-monitoring.md)을 참조하세요.

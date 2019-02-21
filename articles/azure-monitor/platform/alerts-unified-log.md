@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 18c05f2a9dd9f7e4a6d5ec62806870311c5eb130
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 5722db5be656641301299956172ee19249be7895
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745719"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106407"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
-이 문서에서는 [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) 내에서 지원되는 경고 형식 중 하나이며 사용자가 Azure의 분석 플랫폼을 경고의 기준으로 사용하게 하는 로그 경고의 세부 정보를 제공합니다.
+이 문서에서는 [Azure Alerts](../platform/alerts-overview.md) 내에서 지원되는 경고 형식 중 하나이며 사용자가 Azure의 분석 플랫폼을 경고의 기준으로 사용하게 하는 로그 경고의 세부 정보를 제공합니다.
 
-로그 경고는 [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)에 대해 만든 로그 검색 규칙으로 이루어집니다. 로그 경고의 사용법에 대한 자세한 내용은 [Azure에서 로그 경고 만들기](../../azure-monitor/platform/alerts-log.md)를 참조
+로그 경고는 [Azure Monitor](../learn/tutorial-viewdata.md) 또는 [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events)에 대해 만든 로그 검색 규칙으로 이루어집니다. 로그 경고의 사용법에 대한 자세한 내용은 [Azure에서 로그 경고 만들기](../platform/alerts-log.md)를 참조
 
 > [!NOTE]
-> [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)에서 인기 있는 로그 데이터는 이제 Azure Monitor의 메트릭 플랫폼에서도 사용할 수 있습니다. 세부 정보 보기의 경우 [로그에 대한 메트릭 경고](../../azure-monitor/platform/alerts-metric-logs.md)를 참조하세요.
+> [Azure Monitor](../learn/tutorial-viewdata.md)에서 인기 있는 로그 데이터를 이제 Azure Monitor의 메트릭 플랫폼에서도 사용할 수 있습니다. 세부 정보 보기의 경우 [로그에 대한 메트릭 경고](../platform/alerts-metric-logs.md)를 참조하세요.
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>로그 검색 경고 규칙 - 정의 및 형식
@@ -41,7 +41,7 @@ ms.locfileid: "55745719"
 
 - **임계값**.  로그 검색 결과를 평가하여 경고를 만들어야 하는지 여부를 결정합니다.  임계값은 다양한 유형의 로그 검색 경고 규칙에 따라 다릅니다.
 
-로그 검색 규칙은 [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 또는 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events)에 적용되고 두 가지 형식일 수 있습니다. 이러한 각 유형에 대해서는 다음 섹션에서 자세히 설명합니다.
+로그 쿼리 규칙은 [Azure Log Analytics](../learn/tutorial-viewdata.md) 또는 [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events)에 적용되고 두 가지 형식일 수 있습니다. 이러한 각 유형에 대해서는 다음 섹션에서 자세히 설명합니다.
 
 - **[결과 수](#number-of-results-alert-rules)** - 로그 검색에서 반환되는 레코드 수가 지정된 수를 초과할 때 만들어지는 단일 경고입니다.
 - **[미터법](#metric-measurement-alert-rules)** -  로그 검색 결과에서 지정된 임계값을 초과하는 값을 포함한 각 개체에 대해 만들어지는 경고입니다.
@@ -99,14 +99,28 @@ ms.locfileid: "55745719"
 - **쿼리:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 - **기간:** 30분<br>
 - **경고 빈도:** 5분<br>
-- **집계 값:** 90 초과<br>
+- **경고 논리 - 조건 및 임계값:** 90 초과<br>
+- **그룹 필드(Aggregate-on):** Computer
 - **경고 트리거 조건:** 총 위반 2 초과<br>
 
-이 쿼리는 각 컴퓨터에 대해 5분 간격으로 평균 값을 만듭니다.  이 쿼리는 이전 30분 동안 수집된 데이터에 대해 5분마다 실행됩니다.  세 개의 컴퓨터에 대한 샘플 데이터는 다음과 같습니다.
+이 쿼리는 각 컴퓨터에 대해 5분 간격으로 평균 값을 만듭니다.  이 쿼리는 이전 30분 동안 수집된 데이터에 대해 5분마다 실행됩니다. 선택한 그룹 필드(Aggregate-on)가 열 형식의 'Computer'이기 때문에 AggregatedValue가 'Computer'의 다양한 값으로 분할되고 각 컴퓨터의 평균 프로세서 사용률이 5분의 시간 bin에 대해 결정됩니다.  3대의 컴퓨터에 대한 샘플 쿼리 결과는 아래와 같습니다.
+
+
+|TimeGenerated [UTC] |Computer  |AggregatedValue  |
+|---------|---------|---------|
+|20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
+|20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |
+|20xx-xx-xxT01:00:00Z     |   srv03.contoso.com      |    83     |
+|...     |   ...      |    ...     |
+|20xx-xx-xxT01:30:00Z     |   srv01.contoso.com      |    88     |
+|20xx-xx-xxT01:30:00Z     |   srv02.contoso.com      |    84     |
+|20xx-xx-xxT01:30:00Z     |   srv03.contoso.com      |    92     |
+
+쿼리 결과가 표시될 경우 다음과 같습니다.
 
 ![샘플 쿼리 결과](media/alerts-unified-log/metrics-measurement-sample-graph.png)
 
-이 예제에서 srv02와 srv03은 기간 동안 90% 임계값을 3회 위반했기 때문에 이들에 대해 별도의 경고가 만들어집니다.  **경고 트리거 조건**이 **연속**으로 변경된 경우 세 개의 연속 샘플에 대한 임계값을 위반했기 때문에 srv03에 대해서만 경고가 만들어집니다.
+이 예에서는 3대의 컴퓨터 각각에 대해 5분의 bin으로 5분 동안의 평균 프로세서 사용률이 계산된 것을 볼 수 있습니다. srv01은 1:25 bin에서 임계값 90을 한 번만 위반했습니다. 이에 비해 srv02는 1:10, 1:15 및 1:25 bin에서 임계값 90을 초과했으며 srv03은 1:10, 1:15, 1:20 및 1:30에서 임계값 90을 초과했습니다. 경고는 총 위반 횟수가 2를 초과하는 경우를 기준으로 트리거하도록 구성되었으므로 srv02 및 srv03만 기준을 충족하는 것으로 나타납니다. 따라서 srv02와 srv03은 여러 시간 bin에서 90% 임계값을 2회 위반했기 때문에 별도의 경고가 만들어집니다.  *Continuous breaches* 옵션에 대해 *경고 트리거 조건:* 매개 변수가 대신 구성된 경우 srv03이 1:10 ~ 1:20 범위의 3번 연속 시간 bin에 대해 임계값을 위반했으므로 srv03에 대해서**만** 경고가 발생합니다. srv02는 1:10 ~ 1:15 범위에서 2번 연속 시간 bin에 대해 임계값을 위반했으므로 경고가 발생하지 **않습니다**.
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>로그 검색 경고 규칙 - 실행 및 상태
 
@@ -114,11 +128,11 @@ ms.locfileid: "55745719"
 
 이제 [결과 수 형식 로그 경고에 대해 제공된 예제](#example-of-number-of-records-type-log-alert)의 구성에 따라 *Contoso-Log-Alert*라는 로그 경고 규칙이 있다고 가정합시다. 
 - Contoso-Log-Alert가 Azure 경고에 의해 실행된 오후 1시 5분에 로그 검색 결과는 임계값 미만인 0개의 레코드를 생성해 경고를 실행하지 않습니다. 
-- 다음 반복에서 Contoso-Log-Alert가 Azure 경고에 의해 실행된 오후 1시 10분에 로그 검색 결과는 연결된 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 트리거한 직후 임계값을 초과하는 5개의 레코드를 생성해 경고를 실행합니다. 
-- Contoso-Log-Alert가 Azure 경고에 의해 실행된 오후 1시 15분에 로그 검색 결과는 연결된 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 트리거한 직후 임계값을 초과하는 2개의 레코드를 생성해 경고를 실행합니다.
+- 다음 반복에서 Contoso-Log-Alert가 Azure 경고에 의해 실행된 오후 1시 10분에 로그 검색 결과는 연결된 [작업 그룹](../platform/action-groups.md)을 트리거한 직후 임계값을 초과하는 5개의 레코드를 생성해 경고를 실행합니다. 
+- Contoso-Log-Alert가 Azure 경고에 의해 실행된 오후 1시 15분에 로그 검색 결과는 연결된 [작업 그룹](../platform/action-groups.md)을 트리거한 직후 임계값을 초과하는 2개의 레코드를 생성해 경고를 실행합니다.
 - 이제 다음 반복에서 Contoso-Log-Alert가 Azure 경고에 의해 실행된 오후 1시 20분에 로그 검색 결과는 임계값 미만인 0개의 레코드를 생성하므로 경고를 실행하지 않습니다.
 
-그러나 위에 나열된 사례에서 Azure 경고는 1시 10분에 확인된 근본 문제가 지속되는지 오후 1시 15분에 확인할 수 없습니다. 새로운 순 오류가 있는 경우에는 사용자가 제공한 쿼리가 이전 레코드를 고려할 수 있으므로 Azure 경고는 확신할 수 있습니다. 따라서 오후 1시 15분에 Contoso-Log-Alert이 실행되면 구성된 [작업 그룹](../../azure-monitor/platform/action-groups.md)이 다시 실행됩니다. 이제 아무 레코드도 표시되지 않는 오후 1시 20분에 Azure 경고는 레코드의 원인이 해결되었는지 확신할 수 없습니다. 따라서 Contoso-Log-Alert는 Azure Alert 대시보드 및/또는 경고의 해결을 알리는 알림에서 "해결됨"으로 변경되지 않습니다.
+그러나 위에 나열된 사례에서 Azure 경고는 1시 10분에 확인된 근본 문제가 지속되는지 오후 1시 15분에 확인할 수 없습니다. 새로운 순 오류가 있는 경우에는 사용자가 제공한 쿼리가 이전 레코드를 고려할 수 있으므로 Azure 경고는 확신할 수 있습니다. 따라서 오후 1시 15분에 Contoso-Log-Alert이 실행되면 구성된 [작업 그룹](../platform/action-groups.md)이 다시 실행됩니다. 이제 아무 레코드도 표시되지 않는 오후 1시 20분에 Azure 경고는 레코드의 원인이 해결되었는지 확신할 수 없습니다. 따라서 Contoso-Log-Alert는 Azure Alert 대시보드 및/또는 경고의 해결을 알리는 알림에서 "해결됨"으로 변경되지 않습니다.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>로그 경고의 가격 책정 및 대금 청구
@@ -133,9 +147,8 @@ ms.locfileid: "55745719"
     > `<, >, %, &, \, ?, /`와 같은 잘못된 문자가 있는 경우 청구서에서 `_`로 바뀝니다. [레거시 Log Analytics API](api-alerts.md)를 사용하여 경고 규칙 청구를 위해 만든 scheduleQueryRules 리소스를 삭제하려면 사용자가 [레거시 Log Analytics API](api-alerts.md)를 사용하여 원래의 일정과 경고 작업을 삭제해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure의 로그 경고에서 만들기](../../azure-monitor/platform/alerts-log.md)에 대해 알아봅니다.
+* [Azure의 로그 경고에서 만들기](../platform/alerts-log.md)에 대해 알아봅니다.
 * [Azure의 로그 경고에서 웹후크](alerts-log-webhook.md)를 이해합니다.
-* [Azure Alerts](../../azure-monitor/platform/alerts-overview.md)에 대해 알아봅니다.
-* [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아봅니다.
-* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)에 대해 자세히 알아보기    
-
+* [Azure Alerts](../platform/alerts-overview.md)에 대해 알아봅니다.
+* [Application Insights](../app/analytics.md)에 대해 자세히 알아봅니다.
+* [Azure Monitor 로그 쿼리](../log-query/log-query-overview.md)에 대해 자세히 알아봅니다.    

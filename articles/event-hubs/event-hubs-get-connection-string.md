@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31220002f8529fd31407470e7650a4c97b62f2b4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535277"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238150"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Event Hubs 연결 문자열 가져오기
 
@@ -51,13 +51,16 @@ Event Hubs 네임스페이스가 있으면 아래와 같이 포털의 개요 섹
 ![Event Hubs에서 연결 문자열 가져오기](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Azure PowerShell을 사용하여 연결 문자열 가져오기
-Get-AzureRmEventHubNamespaceKey를 사용하여 아래와 같이 특정 정책/규칙 이름에 대한 연결 문자열을 가져올 수 있습니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Get-AzEventHubNamespaceKey를 사용하여 아래와 같이 특정 정책/규칙 이름에 대한 연결 문자열을 가져올 수 있습니다.
 
 ```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
+Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
 
-자세한 내용은 [Azure Event Hubs PowerShell 모듈](https://docs.microsoft.com/powershell/module/azurerm.eventhub/get-azurermeventhubkey)을 참조하세요.
+자세한 내용은 [Azure Event Hubs PowerShell 모듈](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey)을 참조하세요.
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Azure CLI를 사용하여 연결 문자열 가져오기
 다음을 사용하여 네임스페이스에 대한 연결 문자열을 가져올 수 있습니다.

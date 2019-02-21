@@ -5,17 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 57ba4b35cf470eff040d4a2dca42c60820fa9d9e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079973"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56163005"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Azure Active Directory B2B 공동 작업 초대 전자 메일의 요소
 
@@ -66,6 +67,14 @@ ms.locfileid: "55079973"
 
   ![받는 사람이 초대를 충전할 필요가 없는 경우](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
+## <a name="how-the-language-is-determined"></a>언어를 결정하는 방법
+초대 이메일에서 게스트 사용자에게 표시되는 언어는 다음 설정에 의해 결정됩니다. 이러한 설정은 우선 순위 순서대로 나열됩니다. 설정이 구성되지 않은 경우 목록의 다음 설정이 언어를 결정합니다. 
+- 초대 만들기 API를 사용하는 경우 [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) 개체의 **messageLanguage** 속성
+-   게스트의 [사용자 개체](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)에 지정한 **preferredLanguage** 속성
+-   게스트 사용자의 홈 테넌트의 속성에 설정된 **알림 언어**(Azure AD 테넌트만 해당)
+-   리소스 테넌트의 속성에 설정된 **알림 언어**
+
+이러한 설정을 하나도 구성하지 않은 경우 기본 언어는 영어(미국)입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

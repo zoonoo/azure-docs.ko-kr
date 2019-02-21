@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: ce7892401b2b04565a00c33c5301b9c0cd05d5f5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/11/2019
+ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732756"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098361"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database 관리되는 인스턴스로 마이그레이션
 
-이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [Azure SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)로 마이그레이션하는 방법에 대해 설명합니다.
+이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [Azure SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)로 마이그레이션하는 방법에 대해 설명합니다. 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하는 방법에 대한 자세한 내용은 [단일 또는 풀링된 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure 데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
 
 높은 수준에서 데이터베이스 마이그레이션 프로세스는 다음과 같습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "55732756"
 - [애플리케이션 모니터링](#monitor-applications)
 
 > [!NOTE]
-> 개별 데이터베이스를 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하려면 [Azure SQL Database로 SQL Server 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
+> 개별 데이터베이스를 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하려면 [Azure SQL Database로 SQL Server 데이터베이스 마이그레이션](sql-database-single-database-migrate.md)을 참조하세요.
 
 ## <a name="assess-managed-instance-compatibility"></a>관리되는 인스턴스 호환성 평가
 
@@ -47,7 +47,7 @@ ms.locfileid: "55732756"
 - 운영 체제 또는 파일 시스템에 직접 액세스해야 하는 경우(예: SQL Server가 있는 동일한 가상 머신에 타사 또는 사용자 지정 에이전트를 설치하는 경우)
 - FileStream/FileTable, PolyBase 및 인스턴스 간 트랜잭션과 같이 아직 지원되지 않는 기능에 대한 엄격한 종속성이 있는 경우
 - 특정 버전의 SQL Server(예: 2012)를 반드시 유지해야 하는 경우
-- 공개 미리 보기에서 관리되는 인스턴스가 제공하는 컴퓨팅 요구 사항이 훨씬 낮고(예: 하나의 vCore) 데이터베이스 통합이 허용되지 않는 옵션인 경우
+- 컴퓨팅 요구 사항이 관리되는 인스턴스에서 제공하는 것보다 훨씬 낮고(예: 하나의 vCore) 데이터베이스 통합이 허용되지 않는 옵션인 경우
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>최적 크기의 관리되는 인스턴스에 배포
 

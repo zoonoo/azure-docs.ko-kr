@@ -15,17 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: roiyz
-ms.openlocfilehash: 2613584e336243128067a76ce424e640ebdf94e0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4fb31721da679b21fa311340269cf07f93cd903
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817338"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981267"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Azure 가상 머신에 대한 원격 데스크톱 연결 문제 해결
 Windows 기반 Azure VM(가상 머신)에 RDP(원격 데스크톱 프로토콜) 연결은 여러 이유로 실패하여 VM에 액세스하지 못할 수 있습니다. 이러한 문제는 VM의 원격 데스크톱 서비스, 네트워크 연결 또는 호스트 컴퓨터의 원격 데스크톱 클라이언트에서 발생할 수 있습니다. 이 문서는 RDP 연결 문제를 해결하기 위한 가장 일반적인 방법 중 일부를 안내합니다. 
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 <a id="quickfixrdp"></a>
 
@@ -107,7 +109,7 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
 다음 예제에서는 `myResourceGroup`, `myVM`, `myVMAccessExtension` 등의 변수를 사용합니다. 이러한 변수 이름 및 위치를 사용자 고유의 값으로 바꿉니다.
 
 > [!NOTE]
-> [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet을 사용하여 사용자 자격 증명 및 RDP 구성을 다시 설정합니다. 다음 예제에서 `myVMAccessExtension`은 프로세스의 일부로 지정하는 이름입니다. VMAccessAgent로 이전에 작업한 경우 `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"`을 사용하여 기존 확장의 이름을 가져와서 VM의 속성을 확인할 수 있습니다. 이름을 보려면 출력의 'Extensions' 섹션에서 이름을 확인합니다.
+> [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet을 사용하여 사용자 자격 증명 및 RDP 구성을 다시 설정합니다. 다음 예제에서 `myVMAccessExtension`은 프로세스의 일부로 지정하는 이름입니다. VMAccessAgent로 이전에 작업한 경우 `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"`을 사용하여 기존 확장의 이름을 가져와서 VM의 속성을 확인할 수 있습니다. 이름을 보려면 출력의 'Extensions' 섹션에서 이름을 확인합니다.
 
 각 문제 해결 단계 후 VM에 다시 연결을 시도합니다. 그래도 연결할 수 없으면 다음 단계를 시도합니다.
 
@@ -116,7 +118,7 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
     다음 예제에서는 `WestUS` 위치에 있는 `myVM`이라는 VM과 `myResourceGroup`이라는 리소스 그룹에서 RDP 연결을 다시 설정합니다.
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location Westus -Name "myVMAccessExtension"
     ```
 2. **네트워크 보안 그룹 규칙 확인**. 이 문제 해결 단계에서는 네트워크 보안 그룹에 RDP 트래픽을 허용하는 규칙이 있는지 확인합니다. RDP의 기본 포트는 TCP 포트 3389입니다. VM을 만들 때 RDP 트래픽을 허용하는 규칙이 자동으로 생성되지 않을 수도 있습니다.
@@ -124,7 +126,7 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
     첫째, 네트워크 보안 그룹의 모든 구성 데이터를 `$rules` 변수에 할당합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 네트워크 보안 그룹 `myNetworkSecurityGroup`에 대한 정보를 가져옵니다.
    
     ```powershell
-    $rules = Get-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
+    $rules = Get-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
         -Name "myNetworkSecurityGroup"
     ```
    
@@ -164,7 +166,7 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
     이제 VM의 자격 증명을 업데이트합니다. 다음 예제에서는 `WestUS` 위치에 있는 `myVM`이라는 VM과 `myResourceGroup`이라는 리소스 그룹에서 자격 증명을 업데이트합니다.
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location WestUS -Name "myVMAccessExtension" `
         -UserName $cred.GetNetworkCredential().Username `
         -Password $cred.GetNetworkCredential().Password
@@ -174,14 +176,14 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
     다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 다시 시작합니다.
    
     ```powershell
-    Restart-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+    Restart-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
 5. **VM 다시 배포**. 이 문제 해결 단계에서는 Azure 내의 다른 호스트에 VM을 다시 배포하여 기본 플랫폼 또는 네트워킹 문제를 해결합니다.
    
     다음 예제에서는 `WestUS` 위치에 있는 `myVM`이라는 VM과 `myResourceGroup`이라는 리소스 그룹을 다시 배포합니다.
    
     ```powershell
-    Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
+    Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
 6. **라우팅을 확인**합니다. Network Watcher의 [다음 홉](../../network-watcher/network-watcher-check-next-hop-portal.md) 기능을 사용하여 트래픽이 가상 머신으로 들어가거나 나가도록 라우팅하는 데 경로가 방해가 되지 않는지 확인합니다. 네트워크 인터페이스의 유효 경로를 모두 볼 수 있도록 유효 경로를 검토할 수도 있습니다. 자세한 내용은 [유효 경로를 사용하여 VM 트래픽 흐름 문제 해결](../../virtual-network/diagnose-network-routing-problem.md)을 참조하세요.

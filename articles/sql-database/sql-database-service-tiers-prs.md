@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c223b55e8854c9d304354d917e07f4dd7720e72c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.date: 02/07/2019
+ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507820"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55958493"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database Premium RS 서비스 계층(미리 보기)이 더 이상 사용되지 않음 - 마이그레이션 옵션
 
@@ -50,8 +50,8 @@ Microsoft 가격 책정 및 설명서와 함께 이 문서의 지침을 참조�
 
 |**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|
-|프리미엄 RS 1|범용 1 vCore(Gen 4)|표준 3|
-|프리미엄 RS 2|범용 2 vCore(Gen 4)|표준 4|
+|프리미엄 RS 1|범용 1 vCore(Gen4)|표준 3|
+|프리미엄 RS 2|범용 2 vCore(Gen4)|표준 4|
 |프리미엄 RS 4|범용 4 vCore(Gen4)|표준 6|
 |프리미엄 RS 6|범용 6 vCore(Gen4)|표준 7|
 
@@ -59,8 +59,8 @@ Microsoft 가격 책정 및 설명서와 함께 이 문서의 지침을 참조�
 
 |**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|
-|프리미엄 RS 풀 125 DTU|범용 1 vCore(Gen 4)|표준 풀 100 eDTU|
-|프리미엄 RS 풀 250 DTU|범용 2 vCore(Gen 4)|표준 풀 250 eDTU|
+|프리미엄 RS 풀 125 DTU|범용 1 vCore(Gen4)|표준 풀 100 eDTU|
+|프리미엄 RS 풀 250 DTU|범용 2 vCore(Gen4)|표준 풀 250 eDTU|
 |프리미엄 RS 풀 500 DTU|범용 4 vCore(Gen4)|표준 풀 500 eDTU|
 |프리미엄 RS 풀 1000 DTU|범용 8 vCore(Gen4)|표준 풀 1000 eDTU|
 
@@ -70,10 +70,10 @@ Microsoft 가격 책정 및 설명서와 함께 이 문서의 지침을 참조�
 
 |**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|
-|프리미엄 RS 1|(미리 보기) 하이퍼스케일 1 vCore(Gen 4) 또는 중요 비즈니스용 1 vCore(Gen 4)|프리미엄 1|
-|프리미엄 RS 2|(미리 보기) 하이퍼스케일 2 vCore(Gen 4) 또는 중요 비즈니스용 2 vCore(Gen 4)|프리미엄 2|
-|프리미엄 RS 4|(미리 보기) 하이퍼스케일 4 vCore(Gen 4) 또는 중요 비즈니스용 4 vCore(Gen 4)|프리미엄 4
-|프리미엄 RS 6|(미리 보기) 하이퍼스케일 6 vCore(Gen 4) 또는 중요 비즈니스용 6 vCore(Gen 4)|프리미엄 6|
+|프리미엄 RS 1|(미리 보기) 하이퍼스케일 1 vCore(Gen4) 또는 중요 비즈니스용 1 vCore(Gen4)|프리미엄 1|
+|프리미엄 RS 2|(미리 보기) 하이퍼스케일 2 vCore(Gen4) 또는 중요 비즈니스용 2 vCore(Gen4)|프리미엄 2|
+|프리미엄 RS 4|(미리 보기) 하이퍼스케일 4 vCore(Gen4) 또는 중요 비즈니스용 4 vCore(Gen4)|프리미엄 4
+|프리미엄 RS 6|(미리 보기) 하이퍼스케일 6 vCore(Gen4) 또는 중요 비즈니스용 6 vCore(Gen4)|프리미엄 6|
 
 |**현재 상태...**|**필적할만한 vCore 기반 서비스 계층으로 마이그레이션...**|**필적할만한 DTU 기반 서비스 계층으로 마이그레이션...**|
 |---|---|---|

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f21c54100a46d2f6ba28d2063bea91b84ea06d4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769324"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098105"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>SSL을 사용하여 Azure Machine Learning 서비스로 웹 서비스 보호
 
@@ -82,6 +82,16 @@ SSL를 사용하도록 설정하여 서비스를 배포하거나 다시 배포�
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
++ **FPGA(필드 프로그래머블 게이트 어레이)에 배포**
+
+  FPGA에 배포하는 동안 아래 코드 조각과 같이 SSL 관련 매개 변수 값을 제공합니다.
+
+    ```python
+    from azureml.contrib.brainwave import BrainwaveWebservice
+
+    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
+    ```
+
 ## <a name="update-your-dns"></a>DNS 업데이트
 
 다음으로는 웹 서비스를 가리키도록 DNS를 업데이트해야 합니다.
@@ -97,10 +107,6 @@ SSL를 사용하도록 설정하여 서비스를 배포하거나 다시 배포�
   아래 그림과 같이 AKS 클러스터 "공용 IP 주소"의 "구성" 탭에서 DNS를 업데이트합니다. 공용 IP 주소는 AKS 에이전트 노드 및 기타 네트워킹 리소스를 포함하는 리소스 그룹 아래에 생성된 리소스 종류 중 하나로 표시됩니다.
 
   ![Azure Machine Learning 서비스: SSL로 웹 서비스 보호](./media/how-to-secure-web-service/aks-public-ip-address.png)
-
-+ **FPGA**:
-
-현재는 FPGA에 배포된 서비스에 SSL을 사용할 수는 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 방법 배우기:

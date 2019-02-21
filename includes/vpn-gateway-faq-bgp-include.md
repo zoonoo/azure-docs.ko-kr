@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/14/2019
+ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 894724b08876e96119bf72ce65e22c6ae884d8da
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306882"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56247007"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP가 모든 Azure VPN Gateway SKU를 지원하나요?
 아니요. BGP는 Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** 및 **HighPerformance** VPN 게이트웨이에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
@@ -49,6 +49,9 @@ Azure VPN 게이트웨이는 온-프레미스 BGP 디바이스에 다음 경로�
 * VNet 주소 접두어
 * Azure VPN 게이트웨이에 연결된 각 로컬 네트워크 게이트웨이의 주소 접두어
 * Azure VPN 게이트웨이에 연결된 다른 BGP 피어링 세션에서 확인한 경로( **기본 경로 또는 다른 VNet 접두어와 겹치는 경로 제외**)
+
+### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>Azure VPN 게이트웨이에 접두사를 몇 개나 보급할 수 있나요?
+최대 4000개의 접두사를 지원합니다. 접두사의 수가 제한을 초과하는 경우 BGP 세션은 삭제됩니다.
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Azure VPN 게이트웨이에 기본 경로(0.0.0.0/0)를 보급할 수 있나요?
 예.

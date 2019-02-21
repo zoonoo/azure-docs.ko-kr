@@ -13,13 +13,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: f82c96b972baa161658f4a864572bfcb791939ed
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/07/2019
+ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729000"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894397"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database 관리되는 인스턴스 감사 시작
 
@@ -154,7 +154,7 @@ ms.locfileid: "55729000"
 
 추가 정보는 다음을 참조하세요.
 
-- [Azure SQL Database 및 SQL Server의 데이터베이스에서 단일 데이터베이스, 탄력적 풀 및 관리되는 인스턴스 간의 감사 차이점](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
+- [Azure SQL Database 및 SQL Server의 데이터베이스에서 단일 데이터베이스, 탄력적 풀 및 관리되는 인스턴스 간의 감사 차이점](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -223,7 +223,7 @@ Log Analytics는 통합 검색 및 사용자 지정 대시보드를 사용하여
 
 Azure SQL Database의 데이터베이스 및 SQL Server의 데이터베이스 감사 간의 주요 차이점은 다음과 같습니다.
 
-- Azure SQL Database의 관리되는 인스턴스 배포 옵션을 사용하면 감사는 서버 수준에서 작동하며 `.xel` 로그 파일을 Azure Blob Storage 계정에 저장합니다.
+- Azure SQL Database의 관리되는 인스턴스 배포 옵션을 사용하면 감사는 서버 수준에서 작동하며 `.xel` 로그 파일이 Azure Blob Storage에 저장됩니다.
 - Azure SQL Database의 단일 데이터베이스 및 탄력적 풀 배포 옵션을 사용하면 감사는 데이터베이스 수준에서 작동합니다.
 - SQL Server 온-프레미스/가상 머신에서 감사는 서버 수준에서 작동하지만 파일 시스템/Windows 이벤트 로그에 이벤트를 저장합니다.
 

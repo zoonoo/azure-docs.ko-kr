@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 921788d1cd3ff24140bdff0c9b6a181e4ab7f0a8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: efaa9101fbe46e0db2f582fe5a208dd8b16f095f
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816223"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003587"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>PowerShell을 사용하여 Traffic Manager 관리
 
@@ -32,6 +32,8 @@ Azure Traffic Manager는 Traffic Manager 프로필을 호출하는 설정 모음
 
 ## <a name="setting-up-azure-powershell"></a>Azure PowerShell 설정
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 이러한 지침은 Microsoft Azure PowerShell을 사용합니다. 다음 문서는 Azure PowerShell 설치 및 구성하는 방법을 설명합니다.
 
 * [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)
@@ -39,7 +41,7 @@ Azure Traffic Manager는 Traffic Manager 프로필을 호출하는 설정 모음
 이 문서의 예제에서는 기존 리소스 그룹이 있다고 가정합니다. 다음 명령을 사용하여 리소스 그룹을 만들 수 있습니다.
 
 ```powershell
-New-AzureRmResourceGroup -Name MyRG -Location "West US"
+New-AzResourceGroup -Name MyRG -Location "West US"
 ```
 
 > [!NOTE]
@@ -47,10 +49,10 @@ New-AzureRmResourceGroup -Name MyRG -Location "West US"
 
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 
-Traffic Manager 프로필을 만들려면 `New-AzureRmTrafficManagerProfile` cmdlet를 사용합니다.
+Traffic Manager 프로필을 만들려면 `New-AzTrafficManagerProfile` cmdlet를 사용합니다.
 
 ```powershell
-$profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$profile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 ```
 
 다음 표는 매개 변수를 설명합니다.
@@ -70,10 +72,10 @@ cmdlet는 Azure에서 Traffic Manager 프로필 만들고 해당 프로필 개�
 
 ## <a name="get-a-traffic-manager-profile"></a>Traffic Manager 프로필 가져오기
 
-기존 Traffic Manager 프로필 개체를 검색하려면 `Get-AzureRmTrafficManagerProfle` cmdlet를 사용합니다.
+기존 Traffic Manager 프로필 개체를 검색하려면 `Get-AzTrafficManagerProfle` cmdlet를 사용합니다.
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 ```
 
 이 cmdlet은 Traffic Manager 프로필 개체를 반환합니다.
@@ -82,18 +84,18 @@ $profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName M
 
 Traffic Manager 프로필을 수정하려면 3 단계 프로세스를 따릅니다.
 
-1. `Get-AzureRmTrafficManagerProfile`을 사용하여 프로필을 검색하거나 `New-AzureRmTrafficManagerProfile`에서 반환된 프로필을 사용합니다.
+1. `Get-AzTrafficManagerProfile`을 사용하여 프로필을 검색하거나 `New-AzTrafficManagerProfile`에서 반환된 프로필을 사용합니다.
 2. 프로필을 수정합니다. 엔드포인트를 추가 및 제거하거나 엔드포인트 또는 프로필 매개 변수를 변경할 수 있습니다. 이러한 변경은 오프라인 작업입니다. 프로필을 나타내는 메모리에 있는 로컬 개체만 변경합니다.
-3. `Set-AzureRmTrafficManagerProfile` cmdlet을 사용하여 변경 내용을 커밋합니다.
+3. `Set-AzTrafficManagerProfile` cmdlet을 사용하여 변경 내용을 커밋합니다.
 
 프로필의 RelativeDnsName을 제외하고 모든 프로필 속성을 변경할 수 있습니다. RelativeDnsName를 변경하려면 프로필 및 새 이름이 있는 새 프로필을 삭제해야 합니다.
 
 다음 예제는 프로필의 TTL을 변경하는 방법을 보여 줍니다.
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 $profile.Ttl = 300
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
 Traffic Manager 엔드포인트에는 세 가지 종류가 있습니다.
@@ -105,7 +107,7 @@ Traffic Manager 엔드포인트에는 세 가지 종류가 있습니다.
 세 가지 경우 모두, 엔드포인트는 두 가지 방법으로 추가될 수 있습니다.
 
 1. 앞에서 설명한 3 단계 프로세스를 사용합니다. 이 방법의 장점은 여러 엔드포인트 변경이 단일 업데이트에서 이뤄진다는 점입니다.
-2. New-AzureRmTrafficManagerEndpoint cmdlet 사용. 이 cmdlet은 엔드포인트를 단일 작업의 기존 Traffic Manager 프로필에 추가합니다.
+2. New-AzTrafficManagerEndpoint cmdlet 사용. 이 cmdlet은 엔드포인트를 단일 작업의 기존 Traffic Manager 프로필에 추가합니다.
 
 ## <a name="adding-azure-endpoints"></a>Azure 엔드포인트 추가
 
@@ -116,35 +118,35 @@ Azure 엔드포인트는 Azure에서 호스팅되는 서비스를 나타냅니�
 
 각 경우에 다음이 해당됩니다.
 
-* 서비스는 `Add-AzureRmTrafficManagerEndpointConfig` 또는 `New-AzureRmTrafficManagerEndpoint`의 'targetResourceId' 매개 변수를 사용하여 지정합니다.
+* 서비스는 `Add-AzTrafficManagerEndpointConfig` 또는 `New-AzTrafficManagerEndpoint`의 'targetResourceId' 매개 변수를 사용하여 지정합니다.
 * 'Target' 및 'EndpointLocation'은 TargetResourceId에 포함됩니다.
 * '가중치' 지정은 선택 사항입니다. 가중치는 '가중' 트래픽 라우팅 메서드를 사용하도록 프로필을 구성한 경우에만 사용됩니다. 그렇지 않으면 무시됩니다. 지정된 경우, 이 값은 1과 1000 사이의 숫자여야 합니다. 기본값은 '1'입니다.
 * '우선 순위' 지정은 선택 사항입니다. 우선 순위는 '우선 순위' 트래픽 라우팅 메서드를 사용하도록 프로필을 구성한 경우에만 사용됩니다. 그렇지 않으면 무시됩니다. 유효한 값은 낮은 숫자가 더 높은 우선 순위를 나타내도록 한 1부터 1000까지의 숫자입니다. 한 엔드포인트에 대해 지정한 경우 모든 엔드포인트에 대해 지정되어야 합니다. 생략한 경우 '1'부터 시작하는 기본값이 엔드포인트가 나열된 순서대로 적용됩니다.
 
-### <a name="example-1-adding-app-service-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>예제 1: `Add-AzureRmTrafficManagerEndpointConfig`를 사용하여 App Service 엔드포인트 추가
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>예제 1: `Add-AzTrafficManagerEndpointConfig`를 사용하여 App Service 엔드포인트 추가
 
-이 예제에서는 Traffic Manager 프로필을 만들고 `Add-AzureRmTrafficManagerEndpointConfig` cmdlet을 사용하여 두 개의 App Service 엔드포인트를 추가합니다.
+이 예제에서는 Traffic Manager 프로필을 만들고 `Add-AzTrafficManagerEndpointConfig` cmdlet을 사용하여 두 개의 App Service 엔드포인트를 추가합니다.
 
 ```powershell
-$profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-$webapp1 = Get-AzureRMWebApp -Name webapp1
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
-$webapp2 = Get-AzureRMWebApp -Name webapp2
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+$profile = New-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$webapp1 = Get-AzWebApp -Name webapp1
+Add-AzTrafficManagerEndpointConfig -EndpointName webapp1ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp1.Id -EndpointStatus Enabled
+$webapp2 = Get-AzWebApp -Name webapp2
+Add-AzTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
-### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>예 2: `New-AzureRmTrafficManagerEndpoint`를 사용하여 publicIpAddress 엔드포인트 추가
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>예 2: `New-AzTrafficManagerEndpoint`를 사용하여 publicIpAddress 엔드포인트 추가
 
 이 예제에서는 공용 IP 주소 리소스가 Traffic Manager 프로필에 추가됩니다. 공용 IP 주소는 구성된 DNS 이름이 있어야 하고 VM의 NIC 또는 부하 분산 장치에 바인딩될 수 있습니다.
 
 ```powershell
-$ip = Get-AzureRmPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
-New-AzureRmTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
+$ip = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyRG
+New-AzTrafficManagerEndpoint -Name MyIpEndpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 ```
 
 ## <a name="adding-external-endpoints"></a>외부 엔드포인트 추가
 
-Traffic Manager는 외부 엔드포인트를 사용하여 Azure 외부에서 호스팅되는 서비스에 트래픽을 보냅니다. Azure 엔드포인트와 마찬가지로 외부 엔드포인트는 `Add-AzureRmTrafficManagerEndpointConfig` 뒤 이어 `Set-AzureRmTrafficManagerProfile` 또는 `New-AzureRMTrafficManagerEndpoint`을 사용하여 추가할 수 있습니다.
+Traffic Manager는 외부 엔드포인트를 사용하여 Azure 외부에서 호스팅되는 서비스에 트래픽을 보냅니다. Azure 엔드포인트와 마찬가지로 외부 엔드포인트는 `Add-AzTrafficManagerEndpointConfig` 뒤 이어 `Set-AzTrafficManagerProfile` 또는 `New-AzTrafficManagerEndpoint`을 사용하여 추가할 수 있습니다.
 
 외부 엔드포인트를 지정하는 경우:
 
@@ -152,23 +154,23 @@ Traffic Manager는 외부 엔드포인트를 사용하여 Azure 외부에서 호
 * 'Performance' 트래픽 라우팅 메서드를 사용하는 경우 'EndpointLocation'이 필수입니다. 그렇지 않은 경우 선택적입니다. 값은 [올바른 Azure 지역 이름](https://azure.microsoft.com/regions/)이어야 합니다.
 * 'Weight' 및 'Priority'는 선택 사항입니다.
 
-### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>예제 1: `Add-AzureRmTrafficManagerEndpointConfig`와 `Set-AzureRmTrafficManagerProfile`을 사용하여 외부 엔드포인트 추가
+### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>예제 1: `Add-AzTrafficManagerEndpointConfig`와 `Set-AzTrafficManagerProfile`을 사용하여 외부 엔드포인트 추가
 
 이 예제에서는 Traffic Manager 프로필을 만들고 두 개의 외부 엔드포인트를 추가하고 변경 내용을 커밋합니다.
 
 ```powershell
-$profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName eu-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointLocation "North Europe" -EndpointStatus Enabled
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-us.contoso.com -EndpointLocation "Central US" -EndpointStatus Enabled
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+$profile = New-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+Add-AzTrafficManagerEndpointConfig -EndpointName eu-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointLocation "North Europe" -EndpointStatus Enabled
+Add-AzTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProfile $profile -Type ExternalEndpoints -Target app-us.contoso.com -EndpointLocation "Central US" -EndpointStatus Enabled
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>예 2: `New-AzureRmTrafficManagerEndpoint`를 사용하여 외부 엔드포인트 추가
+### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>예 2: `New-AzTrafficManagerEndpoint`를 사용하여 외부 엔드포인트 추가
 
 이 예제에서는 기존 프로필에 외부 엔드포인트를 추가합니다. 프로필은 프로필 및 리소스 그룹 이름을 사용하여 지정합니다.
 
 ```powershell
-New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
+New-AzTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceGroupName MyRG -Type ExternalEndpoints -Target app-eu.contoso.com -EndpointStatus Enabled
 ```
 
 ## <a name="adding-nested-endpoints"></a>'중첩' 엔드포인트 추가
@@ -182,26 +184,26 @@ New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -Reso
 * Azure 엔드포인트에 대해 'Weight' 및 'Priority'는 선택 사항입니다.
 * 'MinChildEndpoints' 매개 변수는 선택적입니다. 기본값은 '1'입니다. 사용할 수 있는 엔드포인트 수가 이 임계값 아래로 떨어지는 경우 부모 프로필은 자식 프로필의 '성능이 저하되었다'고 간주하고 트래픽을 부모 프로필에 있는 다른 엔드포인트로 전환합니다.
 
-### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>예제 1: `Add-AzureRmTrafficManagerEndpointConfig`와 `Set-AzureRmTrafficManagerProfile`을 사용하여 중첩된 엔드포인트 추가
+### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>예제 1: `Add-AzTrafficManagerEndpointConfig`와 `Set-AzTrafficManagerProfile`을 사용하여 중첩된 엔드포인트 추가
 
 이 예제에서는 새 Traffic Manager 자식 및 부모 프로필을 만들고 자식을 부모의 중첩 엔드포인트로 추가하고 변경 내용을 커밋합니다.
 
 ```powershell
-$child = New-AzureRmTrafficManagerProfile -Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-$parent = New-AzureRmTrafficManagerProfile -Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
-Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint -TrafficManagerProfile $parent -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+$child = New-AzTrafficManagerProfile -Name child -ResourceGroupName MyRG -TrafficRoutingMethod Priority -RelativeDnsName child -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$parent = New-AzTrafficManagerProfile -Name parent -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName parent -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+Add-AzTrafficManagerEndpointConfig -EndpointName child-endpoint -TrafficManagerProfile $parent -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
 이 예제에서는 간단한 설명을 위해 자식 또는 부모 프로필에 다른 엔드포인트를 추가하지 않았습니다.
 
-### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>예 2: `New-AzureRmTrafficManagerEndpoint`를 사용하여 중첩된 엔드포인트 추가
+### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>예 2: `New-AzTrafficManagerEndpoint`를 사용하여 중첩된 엔드포인트 추가
 
 이 예제에서는 기존 부모 프로필에 기존 자식 프로필을 중첩된 엔드포인트로 추가합니다. 프로필은 프로필 및 리소스 그룹 이름을 사용하여 지정합니다.
 
 ```powershell
-$child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
-New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+$child = Get-AzTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
+New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
 ```
 
 ## <a name="adding-endpoints-from-another-subscription"></a>다른 구독에서 엔드포인트 추가
@@ -209,39 +211,39 @@ New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -Reso
 Traffic Manager는 다른 구독의 엔드포인트에서 사용할 수 있습니다. Traffic Manager에 필요한 입력을 검색하려면 추가하려는 엔드포인트로 구독을 전환해야 합니다. 그런 다음, Traffic Manager 프로필을 포함하는 구독으로 전환하고 여기에 엔드포인트를 추가해야 합니다. 아래 예제에서는 공용 IP 주소로 이 작업을 수행하는 방법을 보여줍니다.
 
 ```powershell
-Set-AzureRmContext -SubscriptionId $EndpointSubscription
-$ip = Get-AzureRmPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
+Set-AzContext -SubscriptionId $EndpointSubscription
+$ip = Get-AzPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
 
-Set-AzureRmContext -SubscriptionId $trafficmanagerSubscription
-New-AzureRmTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
+Set-AzContext -SubscriptionId $trafficmanagerSubscription
+New-AzTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 ```
 
 ## <a name="update-a-traffic-manager-endpoint"></a>Traffic Manager 엔드포인트 업데이트
 
 기존 Traffic Manager 엔드포인트를 업데이트하는 방법은 두 가지입니다.
 
-1. `Get-AzureRmTrafficManagerProfile`을 사용하여 Traffic Manager 프로필을 가져오고 프로필 내의 엔드포인트 속성을 업데이트하고 `Set-AzureRmTrafficManagerProfile`를 사용하여 변경 내용을 커밋합니다. 이 메서드는 한 번에 엔드포인트를 둘 이상 업데이트할 수 있다는 장점이 있습니다.
-2. `Get-AzureRmTrafficManagerEndpoint`을 사용하여 Traffic Manager 엔드포인트 가져오고 엔드포인트 속성을 업데이트하고 `Set-AzureRmTrafficManagerEndpoint`를 사용하여 변경 내용을 커밋합니다. 이 메서드는 프로필에서 엔드포인트 배열로 인덱싱하지 않아도 되므로 훨씬 간단합니다.
+1. `Get-AzTrafficManagerProfile`을 사용하여 Traffic Manager 프로필을 가져오고 프로필 내의 엔드포인트 속성을 업데이트하고 `Set-AzTrafficManagerProfile`를 사용하여 변경 내용을 커밋합니다. 이 메서드는 한 번에 엔드포인트를 둘 이상 업데이트할 수 있다는 장점이 있습니다.
+2. `Get-AzTrafficManagerEndpoint`을 사용하여 Traffic Manager 엔드포인트 가져오고 엔드포인트 속성을 업데이트하고 `Set-AzTrafficManagerEndpoint`를 사용하여 변경 내용을 커밋합니다. 이 메서드는 프로필에서 엔드포인트 배열로 인덱싱하지 않아도 되므로 훨씬 간단합니다.
 
-### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>예제 1: `Get-AzureRmTrafficManagerProfile`과 `Set-AzureRmTrafficManagerProfile`을 사용하여 엔드포인트 업데이트
+### <a name="example-1-updating-endpoints-using-get-aztrafficmanagerprofile-and-set-aztrafficmanagerprofile"></a>예제 1: `Get-AzTrafficManagerProfile`과 `Set-AzTrafficManagerProfile`을 사용하여 엔드포인트 업데이트
 
 이 예제에서는 기존 프로필 내에서 두 개의 엔드포인트에 대한 우선 순위를 수정합니다.
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
+$profile = Get-AzTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG
 $profile.Endpoints[0].Priority = 2
 $profile.Endpoints[1].Priority = 1
-Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
+Set-AzTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>예 2: `Get-AzureRmTrafficManagerEndpoint`와 `Set-AzureRmTrafficManagerEndpoint`를 사용하여 엔드포인트 업데이트
+### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>예 2: `Get-AzTrafficManagerEndpoint`와 `Set-AzTrafficManagerEndpoint`를 사용하여 엔드포인트 업데이트
 
 이 예제에서는 기존 프로필에 있는 단일 엔드포인트의 가중치를 수정합니다.
 
 ```powershell
-$endpoint = Get-AzureRmTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
+$endpoint = Get-AzTrafficManagerEndpoint -Name myendpoint -ProfileName myprofile -ResourceGroupName MyRG -Type ExternalEndpoints
 $endpoint.Weight = 20
-Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
+Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 ```
 
 ## <a name="enabling-and-disabling-endpoints-and-profiles"></a>엔드포인트 및 프로필 활성화 및 비활성화
@@ -260,10 +262,10 @@ Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourc
 Traffic Manager 프로필을 비활성화하려면:
 
 ```powershell
-Disable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+Disable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
-Disable-AzureRmTrafficManagerProfile cmdlet은 확인 프롬프트를 표시합니다. 이 프롬프트는 '-Force' 매개 변수를 사용하여 표시되지 않게 할 수 있습니다.
+Disable-AzTrafficManagerProfile cmdlet은 확인 프롬프트를 표시합니다. 이 프롬프트는 '-Force' 매개 변수를 사용하여 표시되지 않게 할 수 있습니다.
 
 ### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>예 2: Traffic Manager 엔드포인트 활성화 및 비활성화
 
@@ -279,27 +281,27 @@ Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -Prof
 마찬가지로 Traffic Manager 엔드포인트를 비활성화하려면:
 
 ```powershell
-Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
+Disable-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG -Force
 ```
 
-`Disable-AzureRmTrafficManagerProfile`과 마찬가지로, `Disable-AzureRmTrafficManagerEndpoint` cmdlet는 확인 프롬프트를 표시합니다. 이 프롬프트는 '-Force' 매개 변수를 사용하여 표시되지 않게 할 수 있습니다.
+`Disable-AzTrafficManagerProfile`과 마찬가지로, `Disable-AzTrafficManagerEndpoint` cmdlet는 확인 프롬프트를 표시합니다. 이 프롬프트는 '-Force' 매개 변수를 사용하여 표시되지 않게 할 수 있습니다.
 
 ## <a name="delete-a-traffic-manager-endpoint"></a>Traffic Manager 엔드포인트 삭제
 
-개별 엔드포인트를 제거하려면 `Remove-AzureRmTrafficManagerEndpoint` cmdlet을 사용합니다.
+개별 엔드포인트를 제거하려면 `Remove-AzTrafficManagerEndpoint` cmdlet을 사용합니다.
 
 ```powershell
-Remove-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+Remove-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 ```
 
 이 cmdlet은 확인 프롬프트를 표시합니다. 이 프롬프트는 '-Force' 매개 변수를 사용하여 표시되지 않게 할 수 있습니다.
 
 ## <a name="delete-a-traffic-manager-profile"></a>Traffic Manager 프로필 삭제
 
-Traffic Manager 프로필을 삭제하려면 프로필 이름 및 리소스 그룹 이름을 지정하는 `Remove-AzureRmTrafficManagerProfile` cmdlet을 사용합니다.
+Traffic Manager 프로필을 삭제하려면 프로필 이름 및 리소스 그룹 이름을 지정하는 `Remove-AzTrafficManagerProfile` cmdlet을 사용합니다.
 
 ```powershell
-Remove-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Force]
+Remove-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Force]
 ```
 
 이 cmdlet은 확인 프롬프트를 표시합니다. 이 프롬프트는 '-Force' 매개 변수를 사용하여 표시되지 않게 할 수 있습니다.
@@ -307,14 +309,14 @@ Remove-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG [-Fo
 삭제할 프로필은 프로필 개체를 사용하여 지정할 수도 있습니다.
 
 ```powershell
-$profile = Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
-Remove-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile [-Force]
+$profile = Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
+Remove-AzTrafficManagerProfile -TrafficManagerProfile $profile [-Force]
 ```
 
 이 순서는 파이프될 수도 있습니다.
 
 ```powershell
-Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzureRmTrafficManagerProfile [-Force]
+Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzTrafficManagerProfile [-Force]
 ```
 
 ## <a name="next-steps"></a>다음 단계

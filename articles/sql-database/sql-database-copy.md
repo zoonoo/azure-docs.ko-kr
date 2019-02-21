@@ -1,25 +1,25 @@
 ---
 title: Azure SQL Database 복사 | Microsoft Docs
-description: 같은 서버 또는 다른 서버에 기존 Azure SQL 데이터베이스의 트랜잭션 방식으로 일관된 사본을 만듭니다.
+description: 기존 Azure SQL 데이터베이스에 대한 트랜잭션 일치 복사본을 같거나 다른 서버에 만듭니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/07/2019
+ms.openlocfilehash: 6e25c0970a48674e157dac5f51c9508596ff6ea1
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461342"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097085"
 ---
-# <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>트랜잭션 측면에서 일관된 Azure SQL Database의 복사본을 만듭니다.
+# <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Azure SQL 데이터베이스에 대한 트랜잭션 일치 복사본 복사
 
 Azure SQL Database는 동일한 서버 또는 다른 서버에서 기존 Azure SQL Database의 트랜잭션 측면에서 일관된 복사본을 만들기 위한 여러 가지 방법을 제공합니다. Azure Portal, PowerShell 또는 T-SQL을 사용하여 SQL Database를 복사할 수 있습니다. 
 
@@ -68,6 +68,7 @@ New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 [CREATE DATABASE](https://msdn.microsoft.com/library/ms176061.aspx) 문으로 원본 데이터베이스 복사를 시작합니다. 이 문을 실행하면 데이터베이스 복사 프로세스가 시작됩니다. 데이터베이스 복사는 비동기 프로세스이므로 CREATE DATABASE 문은 데이터베이스가 복사가 완료되기 전에 반환됩니다.
 
 ### <a name="copy-a-sql-database-to-the-same-server"></a>동일한 서버에 SQL 데이터베이스 복사
+
 서버 수준 보안 주체 로그인이나 복사하려는 데이터베이스에서 만든 로그인을 사용하여 master 데이터베이스에 로그인합니다. 데이터베이스 복사가 성공하려면 서버 수준 보안 주체가 아닌 로그인이 dbmanager 역할의 구성원이어야 합니다.
 
 이 명령은 Database1을 동일한 서버에서 이름이 Database2인 새 데이터베이스에 복사합니다. 데이터베이스 크기에 따라 복사 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
@@ -86,6 +87,9 @@ New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
+## <a name="to-move-a-database-between-subscriptions"></a>구독 간에 데이터베이스를 이동하려면
+
+[Azure Portal](https://portal.azure.com)에서 **SQL Server** 를 클릭하고, 목록에서 데이터베이스를 호스팅하는 서버를 선택합니다. **이동**을 클릭한 후 이동할 리소스와 이동 대상인 구독을 선택합니다.
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>복사 작업 진행률 모니터링
 
@@ -96,7 +100,6 @@ sys.databases 및 sys.dm_database_copies 뷰 쿼리를 통해 복사 프로세�
 
 > [!NOTE]
 > 진행 중인 복사를 취소하려면 새 데이터베이스에서 [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) 문을 실행합니다. 또는 원본 데이터베이스에서 DROP DATABASE 문을 실행해도 복사 프로세스가 취소됩니다.
-> 
 
 ## <a name="resolve-logins"></a>로그인 확인
 

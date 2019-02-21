@@ -4,15 +4,13 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 50c0c781e7e1c95896a22f0cd71ed20bbad4c2b3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164798"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55888780"
 ---
-<!--author=alkohli last changed: 01/20/2017-->
-
 #### <a name="to-create-a-manual-backup"></a>수동 백업을 만들려면
 
 1. StorSimple Device Manager 서비스로 이동한 다음, **디바이스**를 클릭합니다. 테이블 형식 디바이스 목록에서 디바이스를 선택합니다. **설정 >관리 > Backup 정책**으로 이동합니다.
@@ -23,7 +21,7 @@ ms.locfileid: "50164798"
 
 3. **지금 백업** 블레이드에서 다음 단계를 수행합니다.
 
-    1. **로컬** 스냅숏 또는 **클라우드** 스냅숏의 드롭다운 목록에서 적절한 **스냅숏 유형**을 선택합니다. 빠른 백업 또는 복원을 위해서는 로컬 스냅숏을, 데이터 복원력을 위해서는 클라우드 스냅숏을 선택합니다.
+    1. 드롭다운 목록에서 적절한 **스냅숏 유형**을 선택합니다. **로컬** 스냅숏 또는 **클라우드** 스냅숏을 선택합니다. 빠른 백업 또는 복원을 위해서는 로컬 스냅숏을, 데이터 복원력을 위해서는 클라우드 스냅숏을 선택합니다.
 
         ![수동 백업 만들기](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 

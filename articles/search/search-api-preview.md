@@ -12,23 +12,23 @@ ms.workload: search
 ms.date: 06/28/2018
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e496e4e2e7e2f66033d090a0534911bff4c53baa
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 524c1a6d083db02349c7dae9a0131228613dc170
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310288"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997613"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Azure Search Service REST api-version 2017-11-11-Preview
 이 문서에서는 `api-version=2017-11-11-Preview` 버전의 Azure Search Service REST API를 설명하면서 아직 일반 공개되지 않은 실험적 기능을 제공합니다.
 
 > [!NOTE]
-> 미리 보기 기능은 사용자 의견을 수집하고 변경하기 위해 테스트 및 실험에 사용할 수 있습니다. 프로덕션 응용 프로그램에서 미리 보기 API를 사용하지 않는 것이 좋습니다.
+> 미리 보기 기능은 사용자 의견을 수집하고 변경하기 위해 테스트 및 실험에 사용할 수 있습니다. 프로덕션 애플리케이션에서 미리 보기 API를 사용하지 않는 것이 좋습니다.
 
 
 ## <a name="new-in-2017-11-11-preview"></a>2017-11-11-Preview의 새로운 기능
 
-[**자동 완성**](search-autocomplete-tutorial.md)은 검색 표시줄에 보완적인 자동 완성 환경을 추가하는 기존의 [추천 단어 API](https://docs.microsoft.com/rest/api/searchservice/suggestions)를 결합합니다. 자동 완성은 후속 검색에 대한 쿼리 문자열로 선택할 수 있는 후보 쿼리 용어를 반환합니다. 추천 단어는 부분적인 입력에 대한 응답으로 실제 문서를 반환합니다. 검색 결과는 즉시 제공되며, 검색어 입력의 길이가 길어지고 좀 더 구체화됨에 따라 동적으로 변경됩니다.
+[**자동 완성**](search-autocomplete-tutorial.md)은 검색 창에 보완적인 자동 완성 환경을 추가하는 기존의 [추천 단어 API](https://docs.microsoft.com/rest/api/searchservice/suggestions)를 결합합니다. 자동 완성은 후속 검색에 대한 쿼리 문자열로 선택할 수 있는 후보 쿼리 용어를 반환합니다. 추천 단어는 부분적인 입력에 대한 응답으로 실제 문서를 반환합니다. 검색 결과는 즉시 제공되며, 검색어 입력의 길이가 길어지고 좀 더 구체화됨에 따라 동적으로 변경됩니다.
 
 지금 공개 미리 보기 상태인 [**인식 검색**](cognitive-search-concept-intro.md)은 텍스트가 아닌 원본 및 구분되지 않는 텍스트에서 잠재적인 정보를 찾아 이를 Azure Search에서 전체 텍스트 검색 가능한 콘텐츠로 변환하는 Azure Search의 새로운 보강 기능입니다. 미리 보기 REST API에서는 다음 리소스가 도입되거나 수정되었습니다. 다른 모든 REST API는 GA 버전을 호출하든 미리 보기 버전을 호출하든 상관없이 동일합니다.
 

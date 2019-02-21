@@ -15,17 +15,20 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: d21d588660b67da024491151fe4f4376cebba46f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730275"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001173"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service에서 WebJobs로 백그라운드 작업 실행
 
 ## <a name="overview"></a>개요
 WebJobs는 웹앱, API 앱 또는 모바일 앱과 동일한 컨텍스트에서 프로그램이나 스크립트를 실행할 수 있도록 하는 [Azure App Service](https://docs.microsoft.com/azure/app-service/)의 기능입니다. 웹 작업을 사용하는 데 추가 비용은 없습니다.
+
+> [!IMPORTANT]
+> WebJobs는 Linux의 App Service에 대해서는 아직 지원되지 않습니다.
 
 이 문서에서는 실행 파일 또는 스크립트를 업로드하기 위해 [Azure Portal](https://portal.azure.com)을 사용하여 WebJobs를 배포하는 방법을 보여줍니다. Visual Studio를 사용하여 WebJobs를 개발하고 배포하는 방법에 대한 정보는 [Visual Studio를 사용하여 WebJobs 배포](webjobs-dotnet-deploy-vs.md)를 참조하세요.
 

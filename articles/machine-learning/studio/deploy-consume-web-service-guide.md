@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 64276047410280f8e818cf695f1fbb0c80fdd693
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2add42e56f939dbfeb33ac2774d404411b1fefb
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497675"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55997254"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio 웹 서비스: 배포 및 사용
 Azure Machine Learning을 통해 웹 서비스로 기계 학습 워크플로 및 모델을 배포할 수 있습니다. 그런 다음, 이러한 웹 서비스를 실시간으로 또는 배치 모드로 예측을 수행하도록 인터넷을 통해 애플리케이션에서 기계 학습 모델을 호출하는 데 사용할 수 있습니다. 웹 서비스는 RESTFul이므로 .NET 및 Java와 같은 다양한 프로그래밍 언어 및 플랫폼과 Excel과 같은 애플리케이션에서 호출될 수 있습니다.
@@ -31,10 +31,10 @@ Machine Learning Studio 및 Microsoft Azure Machine Learning 웹 서비스 포�
 
 * Azure Resource Manager를 기준으로 하는 새 웹 서비스를 배포하는 방법에 대한 개요는 [새 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
 * 웹 서비스를 배포하는 방법에 대한 연습은 [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
-* 웹 서비스를 만들고 배포하는 방법에 대한 전체 연습은 [연습 1단계: Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)를 참조하세요.
+* 웹 서비스를 만들고 배포하는 방법에 대한 전체 연습은 [자습서 1: 신용 위험 예측](tutorial-part1-credit-risk.md)을 시작하세요.
 * 웹 서비스 배포의 특정 예제는 다음을 참조하세요.
 
-  * [연습 5단계: Azure Machine Learning 웹 서비스 배포](walkthrough-5-publish-web-service.md)
+  * [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)
   * [여러 지역에 웹 서비스를 배포하는 방법](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>웹 서비스 리소스 공급자 API(Azure Resource Manager API) 사용
@@ -84,7 +84,7 @@ Azure Machine Learning 웹 서비스 포털에서 웹 서비스를 테스트할 
 
 * [새 웹 서비스 배포](publish-a-machine-learning-web-service.md)
 * [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)
-* [연습 5단계: Azure Machine Learning 웹 서비스 배포](walkthrough-5-publish-web-service.md)
+* [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>엑셀에서
 웹 서비스를 사용하는 Excel 템플릿을 다운로드할 수 있습니다.

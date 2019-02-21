@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 쿼리의 고급 집계 | Microsoft Docs
-description: Log Analytics 쿼리를 사용할 수 있는 고급 집계 옵션 중 일부를 설명합니다.
+title: Azure Monitor 로그 쿼리의 고급 집계 | Microsoft Docs
+description: Azure Monitor 로그 쿼리를 사용할 수 있는 고급 집계 옵션 중 일부를 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 1116d03fc9c2328365b0bde29cf9ea900e58b7ed
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186364"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005423"
 ---
-# <a name="advanced-aggregations-in-log-analytics-queries"></a>Log Analytics 쿼리의 고급 집계
+# <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 고급 집계
 
 > [!NOTE]
-> 이 단원을 완료하기 전에 [Log Analytics 쿼리의 집계](./aggregations.md)를 완료해야 합니다.
+> 이 단원을 완료하기 전에 [Azure Monitor 쿼리의 집계](./aggregations.md)를 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-이 문서에서는 Log Analytics 쿼리를 사용할 수 있는 고급 집계 옵션 중 일부를 설명합니다.
+이 문서에서는 Azure Monitor 쿼리를 사용할 수 있는 고급 집계 옵션 중 일부를 설명합니다.
 
 ## <a name="generating-lists-and-sets"></a>목록 및 집합 생성
 `makelist`를 사용하여 특정 열의 값 순서를 기준으로 데이터를 피벗할 수 있습니다. 예를 들어, 컴퓨터에 발생한 가장 일반적인 정렬 이벤트를 탐색할 수 있습니다. 기본적으로 각 컴퓨터에서 Eventid 순서를 기준으로 데이터를 피벗할 수 있습니다. 
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>다음 단계
 
-Log Analytics 쿼리 언어를 사용에 대해서는 다른 단원을 참조하세요.
+Azure Monitor 로그 데이터에 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
 
 - [문자열 작업](string-operations.md)
 - [날짜 및 시간 작업](datetime-operations.md)

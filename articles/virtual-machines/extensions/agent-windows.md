@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: bba03d8e62c481e9eb5cce8468a6a84f5e492d2f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 051c9cb0c6c1af121a1bdd1f553ef124f980b49d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253995"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55977154"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
@@ -72,12 +72,13 @@ msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /q
 
 ### <a name="powershell"></a>PowerShell
 
-Azure Resource Manager PowerShell 모듈을 사용하여 Azure VM에 대한 정보를 검색할 수 있습니다. Azure VM 에이전트의 프로비전 상태와 같이 VM에 대한 정보를 보려면 [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm)을 사용합니다.
+Azure Resource Manager PowerShell 모듈을 사용하여 Azure VM에 대한 정보를 검색할 수 있습니다. Azure VM 에이전트의 프로비전 상태와 같이 VM에 대한 정보를 보려면 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용합니다.
 
-powershell Get-AzureRmVM
+```powershell
+Get-AzVM
 ```
 
-The following condensed example output shows the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
+다음의 요약 예제 출력에서는 *OSProfile* 내부에 중첩된 *ProvisionVMAgent* 속성을 보여줍니다. 이 속성을 사용하여 VM 에이전트가 VM에 배포되었는지 여부를 확인할 수 있습니다.
 
 ```PowerShell
 OSProfile                  :
@@ -91,7 +92,7 @@ OSProfile                  :
 다음 스크립트는 VM 이름의 간단한 목록과 VM 에이전트의 상태를 반환하는 데 사용할 수 있습니다.
 
 ```PowerShell
-$vms = Get-AzureRmVM
+$vms = Get-AzVM
 
 foreach ($vm in $vms) {
     $agent = $vm | Select -ExpandProperty OSProfile | Select -ExpandProperty Windowsconfiguration | Select ProvisionVMAgent

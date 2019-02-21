@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: c20f455a0a325dadd3eeeb77dea7026de4834c56
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 4522914f249413300ffa5bb1545d840711777bff
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757357"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235917"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C 테넌트에 웹 API 애플리케이션 추가
 
@@ -38,20 +38,20 @@ ms.locfileid: "55757357"
 
 1. **애플리케이션**을 선택한 다음, *webapi1*을 선택합니다.
 2. **게시된 범위**를 선택합니다.
-3. **범위**에 `Hello.Read`를 입력하고, 설명에 `Read access to hello`를 입력합니다.
-4. **범위**에 `Hello.Write`를 입력하고, 설명에 `Write access to hello`를 입력합니다.
+3. **범위**에 `Read`를 입력하고, 설명에 `Read access to the application`를 입력합니다.
+4. **범위**에 `Write`를 입력하고, 설명에 `Write access to the application`를 입력합니다.
 5. **저장**을 클릭합니다.
 
 게시된 범위는 클라이언트 애플리케이션 사용 권한을 웹 API에 부여하는 데 사용할 수 있습니다.
 
 ## <a name="grant-permissions"></a>권한 부여
 
-애플리케이션에서 보호된 웹 API를 호출하려면 애플리케이션 사용 권한을 API에 부여해야 합니다. 필수 조건 자습서에서 *webapp1*이라는 웹 애플리케이션을 Azure AD B2C에 만들었습니다. 이 애플리케이션은 웹 API를 호출하는 데 사용됩니다.
+애플리케이션에서 보호된 웹 API를 호출하려면 애플리케이션 사용 권한을 API에 부여해야 합니다. 예를 들어 [자습서: Azure Active Directory B2C에서 애플리케이션 등록](tutorial-register-applications.md)의 웹 애플리케이션은 *webapp1*이라는 Azure AD B2C에 만들어집니다. 이 애플리케이션을 사용하여 웹 API를 호출할 수 있습니다.
 
 1. **애플리케이션**을 선택한 다음, 웹 애플리케이션을 선택합니다.
 2. **API 액세스**를 선택한 다음, **추가**를 선택합니다.
 3. **API 선택** 드롭다운에서 *webapi1*을 선택합니다.
-4. **범위 선택** 드롭다운에서 이전에 정의한 **Hello.Read** 및 **Hello.Write**를 선택합니다.
+4. **범위 선택** 드롭다운에서, 이전에 정의한 **읽기** 및 **쓰기** 범위를 선택합니다.
 5. **확인**을 클릭합니다.
 
 애플리케이션이 보호된 웹 API를 호출하도록 등록됩니다. 사용자가 Azure AD B2C로 인증하여 애플리케이션을 사용합니다. 애플리케이션은 Azure AD B2C에서 권한을 부여받아 보호된 웹 API에 액세스합니다.

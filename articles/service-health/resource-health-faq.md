@@ -1,25 +1,18 @@
 ---
 title: Azure Resource Health FAQ | Microsoft Docs
 description: Azure Resource Health 개요
-services: Resource health
-documentationcenter: dev-center-name
 author: stephbaron
-manager: ''
-editor: ''
-ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
-ms.service: service-health
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: Supportability
-ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: 821495ceb052184f3216c8ed696b39db33db00ac
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.topic: conceptual
+ms.service: service-health
+ms.date: 01/29/2019
+ms.workload: Supportability
+ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977212"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55884548"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health FAQ
 Azure Resource Health에 대해 자주 묻는 질문과 답변에 대해 알아보세요.

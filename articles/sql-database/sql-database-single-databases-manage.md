@@ -3,7 +3,7 @@ title: Azure SQL Database 서버 및 단일 데이터베이스 만들기/관리 
 description: SQL Database 서버 및 단일 데이터베이스를 만들고 관리하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7d1f11abbe88bff5a7e16984aacd4953ad4f9e12
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: 0a43414ef446beb3f5d6c8e357390363a95ac31c
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751194"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099346"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 SQL Database 서버 및 단일 데이터베이스 만들기 및 관리
 
@@ -57,7 +57,7 @@ Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-manag
 
 ## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: SQL Database 서버 및 단일 데이터베이스 관리
 
-Azure PowerShell을 사용하여 Azure SQL Database 서버, 독립 실행형/풀링된 데이터베이스, SQL Database 서버 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
+Azure PowerShell을 사용하여 Azure SQL Database 서버, 단일 및 풀링된 데이터베이스, SQL Database 서버 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 > [!TIP]
 > PowerShell 예제 스크립트는 [PowerShell을 사용하여 Azure SQL 단일 데이터베이스 만들기 및 SQL Database 서버 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md) 및 [PowerShell을 사용하여 SQL 단일 데이터베이스 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.
@@ -141,7 +141,7 @@ Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 
 
 | 명령 | 설명 |
 | --- | --- |
-|[Servers - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|새 서버를 만들거나 업데이트합니다.|
+|[서버 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|새 서버를 만들거나 업데이트합니다.|
 |[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|SQL 서버를 삭제합니다.|
 |[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|서버를 가져옵니다.|
 |[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|구독의 서버 목록을 반환합니다.|
@@ -150,15 +150,15 @@ Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 
 |[데이터베이스 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
 |[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|데이터베이스를 삭제합니다.|
 |[데이터베이스 - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
-|[데이터베이스 - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
-|[데이터베이스 - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
 |[데이터베이스 - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
-|[Firewall Rules - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|방화벽 규칙을 만들거나 업데이트합니다.|
-|[Firewall Rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|방화벽 규칙을 삭제합니다.|
-|[Firewall Rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|방화벽 규칙을 가져옵니다.|
-|[Firewall Rules - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|방화벽 규칙 목록을 반환합니다.|
+|[방화벽 규칙 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|방화벽 규칙을 만들거나 업데이트합니다.|
+|[방화벽 규칙 - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|방화벽 규칙을 삭제합니다.|
+|[방화벽 규칙 - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|방화벽 규칙을 가져옵니다.|
+|[방화벽 규칙 - List by server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|방화벽 규칙 목록을 반환합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 
-- SQL Server 데이터베이스를 Azure로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure SQL Database로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
+- SQL Server 데이터베이스를 Azure로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure SQL Database로 마이그레이션](sql-database-single-database-migrate.md)을 참조하세요.
 - 지원되는 기능에 대한 자세한 내용은 [기능](sql-database-features.md)을 참조하세요.

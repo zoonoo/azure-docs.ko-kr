@@ -9,12 +9,12 @@ ms.topic: article
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: fe7d3956c1a5ead55acd8605086668e20e85e1d2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 22cfdd22a8d2adacb5a5a5c817a628fe2c072755
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496077"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001700"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 배포하기 위한 모델을 준비하는 방법
 
@@ -22,7 +22,7 @@ Azure Machine Learning Studio는 예측 분석 모델을 개발한 다음 Azure 
 
 이를 위해 Studio를 사용하여 모델을 학습하고, 점수를 매기고, 편집하는 *학습 실험*이라는 실험을 만듭니다. 이 학습 실험에 만족하면 사용자 데이터에 대한 점수를 매기도록 구성된 *예측 실험*으로 변환함으로써 모델을 배포할 준비가 됩니다.
 
-[연습: Azure Machine Learning의 신용 위험 평가에 대한 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)에서 이 프로세스의 예제를 볼 수 있습니다.
+이 과정에 대한 예는 [자습서 1: 신용 위험 예측](tutorial-part1-credit-risk.md)에서 확인할 수 있습니다.
 
 이 문서에서는 학습 실험을 예측 실험으로 변환하는 방법과 예측 실험을 배포하는 방법에 대해 자세히 설명합니다. 이러한 세부 정보를 이해하면 배포된 모델을 더 효과적으로 구성하는 방법을 알 수 있습니다.
 

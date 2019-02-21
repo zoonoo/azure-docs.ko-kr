@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.openlocfilehash: d37d5cb2b89b82bd9741dee0946b3a77d456b22a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c9733346d091a6829bd5b42c80201df3a1357fe3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405755"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243113"
 ---
 # <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>개요: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps을 사용한 B2B 엔터프라이즈 통합 시나리오
 
@@ -33,7 +33,7 @@ BizTalk Server 또는 Microsoft Azure BizTalk Services를 잘 알고 있다면 �
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>엔터프라이즈 통합을 시작하는 방법
 
-**Azure Portal**에서 Logic App Designer를 통한 엔터프라이즈 통합 팩을 사용하여 B2B 앱을 구축하고 관리할 수 있습니다. [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "Logic Apps PowerShell")을 사용하여 Logic Apps를 관리할 수도 있습니다.
+**Azure Portal**에서 Logic App Designer를 통한 엔터프라이즈 통합 팩을 사용하여 B2B 앱을 구축하고 관리할 수 있습니다. [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp)을 사용하여 논리 앱을 관리할 수도 있습니다.
 
 Azure Portal에서 앱을 만들기 전에 수행해야 하는 고급 단계는 다음과 같습니다.
 

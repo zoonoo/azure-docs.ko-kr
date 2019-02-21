@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database를 사용한 트랜잭션 복제 | Microsoft Docs
-description: Azure SQL Database에서 독립 실행형 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스와 함께 SQL Server 트랜잭션 복제를 사용하는 방법에 대해 알아봅니다.
+description: Azure SQL Database에서 단일 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스와 함께 SQL Server 트랜잭션 복제를 사용하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,15 +11,15 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1c542c1e906b078b76b78ed30af8bdf67110199c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/08/2019
+ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814115"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993812"
 ---
-# <a name="transactional-replication-with-standalone-pooled-and-instance-databases-in-azure-sql-database"></a>Azure SQL Database에서 독립 실행형 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스와 함께 트랜잭션 복제 사용
+# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스와 함께 트랜잭션 복제
 
 트랜잭션 복제는 Azure SQL Database 또는 SQL Server의 테이블에서 원격 데이터베이스에 있는 테이블로 데이터를 복제할 수 있도록 하는 Azure SQL Database 및 SQL Server의 기능입니다. 이 기능을 사용하면 서로 다른 데이터베이스의 여러 테이블을 동기화할 수 있습니다.
 
@@ -37,22 +37,21 @@ ms.locfileid: "55814115"
 
 ![SQL Database를 사용한 복제](media/replication-to-sql-database/replication-to-sql-database.png)
 
-
 **게시자**는 배포자에게 업데이트를 전송하여 일부 테이블(문서)에 대해 변경된 내용을 게시하는 인스턴스 또는 서버입니다. 다음 버전의 SQL Server에서 지원되는 온-프레미스 SQL Server에서 모든 Azure SQL 데이터베이스로 게시할 수 있습니다.
 
-   - SQL Server 2019(미리 보기)
-   - SQL Server 2016 ~ SQL 2017
-   - SQL Server 2014 SP1 CU3 이상(12.00.4427)
-   - SQL Server 2014 RTM CU10(12.00.2556)
-   - SQL Server 2012 SP3 이상(11.0.6020)
-   - SQL Server 2012 SP2 CU8(11.0.5634.0)
-   - Azure에서 게시 개체를 지원하지 않는 다른 버전의 SQL Server에서는 [데이터 다시 게시](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) 방법을 사용하여 데이터를 최신 버전의 SQL Server로 이동할 수 있습니다. 
+- SQL Server 2019(미리 보기)
+- SQL Server 2016 ~ SQL 2017
+- SQL Server 2014 SP1 CU3 이상(12.00.4427)
+- SQL Server 2014 RTM CU10(12.00.2556)
+- SQL Server 2012 SP3 이상(11.0.6020)
+- SQL Server 2012 SP2 CU8(11.0.5634.0)
+- Azure에서 게시 개체를 지원하지 않는 다른 버전의 SQL Server에서는 [데이터 다시 게시](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) 방법을 사용하여 데이터를 최신 버전의 SQL Server로 이동할 수 있습니다. 
 
 **배포자**는 게시자에서 문서의 변경 내용을 수집하고 구독자에게 배포하는 인스턴스 또는 서버입니다. 배포자는 Azure SQL Database Managed Instance 또는 SQL Server(게시자 버전보다 같거나 높은 모든 버전)일 수 있습니다. 
 
-**구독자**는 게시자에 대한 변경 내용을 수신하는 인스턴스 또는 서버입니다. 구독자는 Azure SQL Database 또는 SQL Server 데이터베이스의 독립 실행형 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스 중 하나일 수 있습니다. 독립 실행형 또는 풀링된 데이터베이스의 구독자는 푸시 구독자로 구성해야 합니다. 
+**구독자**는 게시자에 대한 변경 내용을 수신하는 인스턴스 또는 서버입니다. 구독자는 Azure SQL Database 또는 SQL Server 데이터베이스의 단일 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스 중 하나일 수 있습니다. 단일 또는 풀링된 데이터베이스의 구독자는 푸시 구독자로 구성해야 합니다. 
 
-| 역할 | 독립 실행형 및 풀링된 데이터베이스 | 인스턴스 데이터베이스 |
+| 역할 | 단일 및 풀링된 데이터베이스 | 인스턴스 데이터베이스 |
 | :----| :------------- | :--------------- |
 | **게시자** | 아니요 | 예 | 
 | **배포자** | 아니요 | 예|
@@ -63,7 +62,7 @@ ms.locfileid: "55814115"
 다음과 같은 여러 [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017)이 있습니다.
 
 
-| 복제 | 독립 실행형 및 풀링된 데이터베이스 | 인스턴스 데이터베이스|
+| 복제 | 단일 및 풀링된 데이터베이스 | 인스턴스 데이터베이스|
 | :----| :------------- | :--------------- |
 | [**트랜잭션**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 예(구독자로) | 예 | 
 | [**스냅숏**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 예(구독자로) | 예|
@@ -107,11 +106,11 @@ ms.locfileid: "55814115"
 - 두 Managed Instance가 동일한 위치에 있습니다.
 - 게시자 및 배포자 데이터베이스를 호스트하는 Managed Instance는 [자동 장애 조치(failover) 그룹을 사용하여 지리적으로 복제](sql-database-auto-failover-group.md)될 수 없습니다.
 
-### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-standalone-pooled-and-instance-database"></a>독립 실행형 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스에 구독자가 있는 온-프레미스의 게시자 및 배포자 
+### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>단일 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스에 구독자가 있는 온-프레미스의 게시자 및 배포자 
 
 ![구독자로서의 Azure SQL DB](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-이 구성에서 Azure SQL Database(독립 실행형 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스)는 구독자입니다. 이 구성은 온-프레미스에서 Azure로의 마이그레이션을 지원합니다. 구독자가 독립 실행형 또는 풀링된 데이터베이스에 있는 경우에는 푸시 모드여야 합니다.  
+이 구성에서 Azure SQL Database(단일 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스)는 구독자입니다. 이 구성은 온-프레미스에서 Azure로의 마이그레이션을 지원합니다. 구독자가 단일 또는 풀링된 데이터베이스에 있는 경우에는 푸시 모드여야 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

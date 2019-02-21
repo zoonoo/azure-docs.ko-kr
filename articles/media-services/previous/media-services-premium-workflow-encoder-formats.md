@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: c38ca56bc71215ed7fb64d346571ca517a79914f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a24448507fa16a48ab3522c3307261d989d773ee
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450203"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895027"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>미디어 인코더 Premium 워크플로 형식 및 코덱
 
@@ -33,7 +33,7 @@ ms.locfileid: "54450203"
 
 [Media Encoder Premium Workflow 입력 형식 및 코덱](#input_formats)
 
-[Media Encoder Premium Workflow 출력 형식 및 코덱](#output_formats)
+Media Encoder Premium Workflow 출력 형식 및 코덱
 
 **미디어 인코더 Premium 워크플로** 는 [이](#closed_captioning) 섹션에 설명된 선택 캡션을 지원합니다. 
 

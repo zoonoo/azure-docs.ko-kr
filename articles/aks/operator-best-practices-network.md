@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 15b389e2158cb3a2070cc09b20f79f4274fde5d9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699128"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56175458"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
 
@@ -120,6 +120,34 @@ WAF(웹 애플리케이션 방화벽)는 수신 트래픽을 필터링하여 추
 
 부하 분산 장치 또는 수신 리소스는 트래픽 분산을 미세 조정하기 위해 AKS 클러스터에서 계속 실행됩니다. App Gateway는 리소스 정의를 사용하여 중앙에서 수신 컨트롤러로 관리될 수 있습니다. 시작하려면 [Application Gateway 수신 컨트롤러를 만드세요][app-gateway-ingress].
 
+## <a name="control-traffic-flow-with-network-policies"></a>네트워크 정책을 통해 트래픽 흐름을 제어
+
+**모범 사례 지침** - 네트워크 정책을 사용하여 pod에 트래픽을 허용하거나 거부합니다. 기본적으로 모든 트래픽이 클러스터 내에서 pod 간에 허용됩니다. 보안 향상을 위해 pod 통신을 제한하는 규칙을 정의합니다.
+
+네트워크 정책은 사용자가 pod 간 트래픽 흐름을 제어할 수 있는 Kubernetes 기능입니다. 할당된 레이블, 네임스페이스 또는 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 정책을 통해 트래픽 흐름을 제어하는 클라우드 네이티브 방법을 사용할 수 있습니다. Pod는 AKS 클러스터에서 동적으로 생성되므로 필요한 네트워크 정책을 자동으로 적용할 수 있습니다. Pod 간 트래픽을 제어하는 데 Azure 네트워크 보안 그룹을 사용하지 말고, 네트워크 정책을 사용합니다.
+
+네트워크 정책을 사용하려면 AKS 클러스터를 만들 때 기능을 사용하도록 설정해야 합니다. 기존 AKS 클러스터에서는 네트워크 정책을 사용하도록 설정할 수 없습니다. 클러스터에서 네트워크 정책을 사용하도록 설정하고 필요에 따라 사용할 수 있도록 미리 계획합니다.
+
+네트워크 정책은 YAML 매니페스트를 사용하여 Kubernetes 리소스로 생성됩니다. 정책이 정의된 pod에 적용된 다음, 수신 또는 송신 규칙이 트래픽 흐름 방식을 정의합니다. 다음 예제에서는 적용된 *app: backend* 레이블을 통해 네트워크 정책을 pod에 적용합니다. 그런 다음, 수신 규칙은 *app: frontend* 레이블을 통한 포드의 트래픽만 허용합니다.
+
+```yaml
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: backend-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: backend
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend
+```
+
+정책을 시작하려면 [AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호][use-network-policies]를 참조하세요.
+
 ## <a name="securely-connect-to-nodes-through-a-bastion-host"></a>요새 호스트를 통해 노드에 안전하게 연결
 
 **모범 사례 지침** - AKS 노드에 대한 원격 연결을 노출하지 않도록 합니다. 관리 가상 네트워크에서 요새 호스트 또는 점프 상자를 만듭니다. 요새 호스트를 사용하여 트래픽을 원격 관리 작업을 위한 AKS 클러스터로 안전하게 라우팅할 수 있습니다.
@@ -155,5 +183,6 @@ AKS의 작업 대부분은 Azure 관리 도구를 사용하거나 Kubernetes API
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
+[use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md

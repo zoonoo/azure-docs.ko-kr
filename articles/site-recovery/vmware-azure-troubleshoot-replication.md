@@ -1,22 +1,61 @@
 ---
 title: Azure Site Recovery를 사용한 VMware VM 및 물리적 서버와 Azure 간 재해 복구에 대한 복제 문제 해결 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용한 VMware VM 및 물리적 서버와 Azure 간 재해 복구 중에 일반적인 복제 문제를 해결하는 방법을 제공합니다.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/18/2019
-ms.author: ramamill
-ms.openlocfilehash: 5c2d33b39614ded95ac38e07c844b0a8cafa7cd2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 02/7/2019
+ms.author: mayg
+ms.openlocfilehash: 71c07d93d75ee372a50ec4ff5fc81e92926d329b
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411478"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964783"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
 Azure Site Recovery를 사용하여 VMware 가상 머신 또는 물리적 서버를 보호하는 경우 특정 오류 메시지가 나타날 수 있습니다. 이 문서에서는 [Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware VM 및 실제 서버를 Azure에 복제하는 경우 발생할 수 있는 몇 가지 일반적인 문제를 설명합니다.
+
+## <a name="monitor-process-server-health-to-avoid-replication-issues"></a>복제 문제 방지를 위해 프로세스 서버 상태 모니터링
+
+포털에서 PS(프로세스 서버) 상태를 모니터링하여 연결된 원본 머신에 대한 복제가 진행 중인지 확인하는 것이 좋습니다. 자격 증명 모음에서 관리 > Site Recovery 인프라 > 구성 서버로 이동합니다. 구성 서버 블레이드에서 연결된 서버 아래의 프로세스 서버를 클릭합니다. 상태 통계가 포함된 프로세스 서버 블레이드가 열립니다. 복제, 인증서 만료 날짜 및 사용 가능한 여유 공간에 필요한 PS 서비스의 CPU 활용률, 메모리 사용량, 상태를 추적할 수 있습니다. 모든 통계의 상태가 녹색이어야 합니다. 
+
+**메모리 및 CPU 사용량을 70% 미만으로, 사용 가능한 공간을 25% 이상으로 유지하는 것이 좋습니다**. 사용 가능한 공간은 프로세스 서버의 캐시 디스크 공간을 가리키며, Azure로 업로드하기 전에 원본 머신의 복제 데이터를 저장하는 데 사용됩니다. 20% 미만으로 감소하면 모든 연결된 원본 머신에 대한 복제가 제한됩니다. [용량 지침](./site-recovery-plan-capacity-vmware.md#capacity-considerations)에 따라 원본 머신을 복제하는 데 필요한 구성을 파악합니다.
+
+PS 머신에서 다음 서비스가 실행 중인지 확인합니다. 실행되지 않고 있는 모든 서비스를 시작하거나 다시 시작합니다.
+
+**기본 제공 프로세스 서버**
+
+* cxprocessserver
+* InMage PushInstall
+* Log Upload 서비스(LogUpload)
+* InMage Scout Application 서비스
+* Microsoft Azure Recovery Services 에이전트(obengine)
+* InMage Scout VX Agent - Sentinel/Outpost(svagents)
+* tmansvc
+* World Wide Web Publishing 서비스(W3SVC)
+* MySQL
+* Microsoft Azure Site Recovery 서비스(dra)
+
+**스케일 아웃 프로세스 서버**
+
+* cxprocessserver
+* InMage PushInstall
+* Log Upload 서비스(LogUpload)
+* InMage Scout Application 서비스
+* Microsoft Azure Recovery Services 에이전트(obengine)
+* InMage Scout VX Agent - Sentinel/Outpost(svagents)
+* tmansvc
+
+**장애 복구(failback)를 위한 Azure의 프로세스 서버**
+
+* cxprocessserver
+* InMage PushInstall
+* Log Upload 서비스(LogUpload)
+
+모든 서비스의 StartType이 **자동 또는 자동(지연된 시작)** 으로 설정되었는지 확인합니다. Microsoft Azure Recovery Services 에이전트(obengine) 서비스에는 위와 같은 StartType 설정이 필요하지 않습니다.
 
 ## <a name="initial-replication-issues"></a>초기 복제 문제
 
@@ -26,7 +65,7 @@ Azure Site Recovery를 사용하여 VMware 가상 머신 또는 물리적 서버
 
 다음 목록은 원본 컴퓨터를 확인하는 방법입니다.
 
-*  원본 서버의 명령줄에서 다음 명령을 실행하여 Telnet으로 HTTPS 포트(기본 HTTPS 포트: 9443)를 통해 프로세스 서버를 ping합니다. 이 명령은 네트워크 연결 문제와 방화벽 포트 차단 문제가 있는지 확인합니다.
+*  원본 서버의 명령줄에서 아래의 명령을 실행하여 텔넷으로 HTTPS 포트를 통해 프로세스 서버를 ping합니다. 프로세스 서버는 HTTPS 포트 9443을 기본적으로 사용하여 복제 트래픽을 주고받습니다. 등록 시 이 포트를 수정할 수 있습니다. 다음 명령은 네트워크 연결 문제와 방화벽 포트 차단 문제가 있는지 확인합니다.
 
 
    `telnet <process server IP address> <port>`
@@ -35,13 +74,42 @@ Azure Site Recovery를 사용하여 VMware 가상 머신 또는 물리적 서버
    > [!NOTE]
    > Telnet을 사용하여 연결을 테스트합니다. `ping`은 사용하지 않도록 합니다. 텔넷을 설치하지 않은 경우 [텔넷 클라이언트 설치](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)에 나열된 단계를 완료합니다.
 
+   텔넷이 PS 포트에 성공적으로 연결할 수 있는 경우 빈 화면이 표시됩니다.
+
    프로세스 서버에 연결할 수 없는 경우 프로세스 서버에서 인바운드 포트 9443을 허용합니다. 예를 들어, 네트워크에 경계 네트워크 또는 스크린된 서브넷이 있는 경우 프로세스 서버에서 인바운드 포트 9443을 허용해야 할 수 있습니다. 그런 다음, 문제가 여전히 발생하는지 확인합니다.
 
-*  **InMage Scout VX Agent – Sentinel/OutpostStart** 서비스의 상태를 확인합니다. 서비스가 실행되고 있지 않으면 서비스를 시작하고 문제가 여전히 발생하는지 확인합니다.   
+*  텔넷이 연결되고 원본 머신이 PS에 연결할 수 없다고 보고하는 경우 원본 머신에서 웹 브라우저를 열고 https://<PS_IP>: <PS_Data_Port>/ 주소에 연결할 수 있는지 확인합니다.
+
+    이 주소에 도달하면 HTTPS 인증서 오류가 발생합니다. 인증서 오류를 무시하고 계속하면 400 - 잘못된 요청이 발생합니다. 이는 서버가 브라우저의 요청을 처리할 수 없으며 서버에 대한 표준 HTTPS 연결이 제대로 작동하고 정상 상태임을 의미합니다.
+
+    실패하면 브라우저의 오류 메시지에 대한 세부 정보가 지침을 제공합니다. 예를 들어 프록시 인증이 잘못된 경우 프록시 서버에서 오류 메시지에 필요한 작업과 함께 407 - 프록시 인증을 반환합니다. 
+
+*  네트워크 업로드 실패와 관련된 오류는 원본 VM에서 다음 로그를 참조하세요.
+
+       C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\svagents*.log 
 
 ### <a name="check-the-process-server"></a>프로세스 서버 확인
 
 다음 목록은 프로세스 서버를 확인하는 방법입니다.
+
+> [!NOTE]
+> 프로세스 서버에 고정 IPv4 주소가 있어야 하며 NAT IP가 구성되어 있으면 안 됩니다.
+
+* **원본 머신과 프로세스 서버 간의 연결 확인**
+1. 원본 머신에서 텔넷에 연결할 수 있지만 원본에서 PS에 연결할 수 없는 경우 원본 VM에서 cxpsclient 도구를 실행하여 원본 VM의 cxprocessserver와 엔드투엔드 연결을 확인합니다.
+
+       <install folder>\cxpsclient.exe -i <PS_IP> -l <PS_Data_Port> -y <timeout_in_secs:recommended 300>
+
+    해당 오류에 대한 자세한 내용은 다음 디렉터리에서 PS에 대해 생성된 로그를 참조하세요.
+
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.err
+       and
+       C:\ProgramData\ASR\home\svsystems\transport\log\cxps.xfer
+2. PS의 하트비트가 없는 경우 PS에 대한 다음 로그를 참조하세요.
+
+       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
+       and
+       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
 
 *  **프로세스 서버가 데이터를 Azure로 적극적으로 밀어넣는지 확인합니다**.
 

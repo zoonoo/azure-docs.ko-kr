@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: QnA Maker로 만든 기술 자료를 새 기술 자료로 이동합니다.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 73f355a6e8c9373a5c31dd7cfebd4455aa324302
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809746"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245918"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 
@@ -56,7 +56,7 @@ ms.locfileid: "55809746"
     이때 모든 기술 자료 콘텐츠인 질문, 답변 및 메타데이터와 URL 및 원본 파일의 이름을 새 기술 자료로 가져옵니다. 
 
 ## <a name="chat-logs-and-alterations"></a>채팅 로그 및 변경 내용
-변경 내용(동의어)은 자동으로 가져오지 않습니다. 이전 기술 자료의 변경 내용을 내보내려면 [V2 API](https://aka.ms/qnamaker-v2-apis)를 사용하고, 새 기술 자료에서 변경 내용을 이동하려면 [V4 API](https://aka.ms/qnamaker-v4-apis)를 사용합니다.
+대/소문자를 구분하지 않는 변경 내용(동의어)은 자동으로 가져오지 않습니다. 이전 기술 자료의 변경 내용을 내보내려면 [V2 API](https://aka.ms/qnamaker-v2-apis)를 사용하고, 새 기술 자료에서 변경 내용을 이동하려면 [V4 API](https://aka.ms/qnamaker-v4-apis)를 사용합니다.
 
 새 기술 자료는 Application Insights를 사용하여 채팅 로그를 저장하기 때문에 채팅 로그를 마이그레이션할 방법이 없습니다. 
 

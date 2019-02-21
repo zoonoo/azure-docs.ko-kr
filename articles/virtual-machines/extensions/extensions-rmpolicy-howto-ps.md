@@ -13,18 +13,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 68a652fe16162d96d4ec07e6690f10f0bd34f2c0
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434992"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980876"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Azure Policy를 사용하여 Windows VM의 확장 설치 제한
 
 Windows VM에서 특정 확장을 사용하거나 설치하지 못하도록 하려면 PowerShell을 사용하여 리소스 그룹 내의 VM 확장을 제한하는 Azure 정책을 만들 수 있습니다. 
 
-이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 Cloud Shell 내의 Azure PowerShell을 사용합니다. PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 3.6 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 
+이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 Cloud Shell 내의 Azure PowerShell을 사용합니다. 
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="create-a-rules-file"></a>규칙 파일 만들기
 
@@ -97,13 +99,13 @@ nano $home/clouddrive/parameters.json
 
 ## <a name="create-the-policy"></a>정책 만들기
 
-정책 정의는 사용하려는 구성을 저장하는 데 사용되는 개체입니다. 정책 정의는 규칙 및 매개 변수 파일을 사용하여 정책을 정의합니다. [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) cmdlet을 사용하여 정책 정의를 만듭니다.
+정책 정의는 사용하려는 구성을 저장하는 데 사용되는 개체입니다. 정책 정의는 규칙 및 매개 변수 파일을 사용하여 정책을 정의합니다. [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition) cmdlet을 사용하여 정책 정의를 만듭니다.
 
  정책 규칙 및 매개 변수는 사용자가 만든 파일이며 Cloud Shell에 .json 파일로 저장됩니다.
 
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
    -Name "not-allowed-vmextension-windows" `
    -DisplayName "Not allowed VM Extensions" `
    -description "This policy governs which VM extensions that are explicitly denied."   `
@@ -116,13 +118,13 @@ $definition = New-AzureRmPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>정책 할당
 
-이 예제에서는 [New-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment)를 사용하여 리소스 그룹에 정책을 할당합니다. **myResourceGroup** 리소스 그룹에 생성된 VM은 VM 액세스 에이전트 또는 사용자 지정 스크립트 확장을 설치할 수 없습니다. 
+이 예제에서는 [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment)를 사용하여 리소스 그룹에 정책을 할당합니다. **myResourceGroup** 리소스 그룹에 생성된 VM은 VM 액세스 에이전트 또는 사용자 지정 스크립트 확장을 설치할 수 없습니다. 
 
-[Get-AzureRMSubscription | Format-Table](/powershell/module/azurerm.profile/get-azurermsubscription) cmdlet을 사용하여 예제의 ID 대신 사용할 구독 ID를 가져옵니다.
+[Get-AzSubscription | Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) cmdlet을 사용하여 예제의 ID 대신 사용할 구독 ID를 가져옵니다.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
-$assignment = New-AzureRMPolicyAssignment `
+$assignment = New-AzPolicyAssignment `
    -Name "not-allowed-vmextension-windows" `
    -Scope $scope `
    -PolicyDefinition $definition `
@@ -139,10 +141,10 @@ $assignment
 
 ## <a name="test-the-policy"></a>정책 테스트
 
-정책을 테스트하려면 VM 액세스 확장을 사용합니다. 다음은 실패하고 “Set-AzureRmVMAccessExtension : 정책에서 ‘myVMAccess’ 리소스를 거부했습니다.” 메시지가 표시됩니다.
+정책을 테스트하려면 VM 액세스 확장을 사용합니다. 다음은 실패하고 “Set-AzVMAccessExtension: 정책에서 ‘myVMAccess’ 리소스를 거부했습니다.” 메시지가 표시됩니다.
 
 ```azurepowershell-interactive
-Set-AzureRmVMAccessExtension `
+Set-AzVMAccessExtension `
    -ResourceGroupName "myResourceGroup" `
    -VMName "myVM" `
    -Name "myVMAccess" `
@@ -154,13 +156,13 @@ Set-AzureRmVMAccessExtension `
 ## <a name="remove-the-assignment"></a>할당 제거
 
 ```azurepowershell-interactive
-Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
+Remove-AzPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 ```
 
 ## <a name="remove-the-policy"></a>정책 제거
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension-windows
+Remove-AzPolicyDefinition -Name not-allowed-vmextension-windows
 ```
     
 ## <a name="next-steps"></a>다음 단계

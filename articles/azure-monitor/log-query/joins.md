@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 쿼리의 조인 | Microsoft Docs
-description: 이 문서에서는 Log Analytics 쿼리 언어에서 조인을 사용하는 방법에 대한 정보를 제공합니다.
+title: Azure Monitor 로그 쿼리에서 조인 | Microsoft Docs
+description: 이 문서는 Azure Monitor 쿼리 언어에서 조인을 사용하는 방법에 대한 단원을 포함합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c1f578c11fff963ee4bec47bd3737cd224b14720
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885424"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004658"
 ---
-# <a name="joins-in-log-analytics-queries"></a>Log Analytics 쿼리의 조인
+# <a name="joins-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 조인
 
 > [!NOTE]
-> 이 단원을 완료하기 전에 [Analytics 포털 시작](get-started-portal.md) 및 [쿼리 시작](get-started-queries.md)을 완료해야 합니다.
+> 이 단원을 완료하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 및 [Azure Monitor 로그 쿼리](get-started-queries.md)를 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -105,7 +105,7 @@ _kind_ 인수를 사용하여 조인 유형을 지정합니다. 다음 표에 �
 
 
 ## <a name="next-steps"></a>다음 단계
-Log Analytics 쿼리 언어를 사용에 대해서는 다른 단원을 참조하세요.
+Azure Monitor 로그 쿼리 사용에 대한 다른 단원을 참조하세요.
 
 - [문자열 작업](string-operations.md)
 - [집계 함수](aggregations.md)

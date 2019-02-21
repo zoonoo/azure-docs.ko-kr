@@ -3,9 +3,8 @@ title: Azure Active Directory에서 SCIM을 사용하여 앱 프로비전 자동
 description: Azure Active Directory는 SCIM 프로토콜 사양에 정의된 인터페이스를 가진 웹 서비스가 향하는 애플리케이션 또는 ID 저장소에 사용자 및 그룹을 자동으로 프로비전할 수 있습니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/12/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: e16598a10cbbe4cfa65e6b5394e749bfee99dbdc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 946a70a1b3fe2ddcaf8ec58b9ebc297f1d8894fd
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732586"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56178858"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동 프로비전
 
@@ -38,7 +38,7 @@ Azure AD(Active Directory)는 [SCIM(System for Cross-Domain Identity Management)
 
 Azure Active Directory에서 SCIM을 사용하는 방법에 대한 두 가지 사용 사례가 있습니다.
 
-* **SCIM을 지원하는 애플리케이션에 사용자 및 그룹 프로비전** - SCIM 2.0을 지원하고 인증에 OAuth 전달자 토큰을 사용하는 애플리케이션은 별도의 구성 없이 Azure AD에서 작동합니다.
+* **SCIM을 지원하는 애플리케이션에 사용자 및 그룹 프로비저닝** - SCIM 2.0을 지원하며 인증에 OAuth 전달자 토큰을 사용하는 애플리케이션은 별도의 구성 없이 Azure AD에서 바로 작동합니다.
   
 * **다른 API 기반 프로비전을 지원하는 애플리케이션에 대한 프로비전 솔루션 빌드** - 비SCIM 애플리케이션의 경우 Azure AD SCIM 엔드포인트와 애플리케이션에서 사용자 프로비저닝을 지원하는 API 간에 변환하는 SCIM 엔드포인트를 만들 수 있습니다. SCIM 엔드포인트 개발을 지원하기 위해 SCIM 엔드포인트를 제공하고 SCIM 메시지를 변환하는 방법을 보여주는 코드 샘플과 함께 CLI(공용 언어 인프라) 라이브러리가 있습니다.  
 
@@ -153,7 +153,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트�
    ![][2]
    *그림 4: Azure Portal에서 프로비전 구성*
     
-6. **테넌트 URL** 필드에 인터넷에 노출된 URL 및 SCIM 엔드포인트의 포트를 입력합니다. 이 항목은 http://testmachine.contoso.com:9000 또는 http://<ip-address>:9000/과 유사합니다. 여기서 <ip-address>는 인터넷에 노출된 IP 주소입니다.  
+6. **테넌트 URL** 필드에 인터넷에 노출된 URL 및 SCIM 엔드포인트의 포트를 입력합니다. 이 항목은 http://testmachine.contoso.com:9000 또는 http://\<ip-address>:9000/과 유사합니다. 여기서 \<ip-address>는 인터넷에 노출된 IP 주소입니다.  
 7. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청에 따라 Azure AD에서 발급한 OAuth 전달자 토큰이 포함됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
 8. **연결 테스트** 단추를 클릭하여 Azure Active Directory에서 SCIM 엔드포인트에 연결을 시도합니다. 시도가 실패하면 오류 정보가 표시됩니다.  
 

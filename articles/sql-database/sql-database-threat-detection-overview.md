@@ -11,13 +11,13 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 395bf57b967ebeefe0a4168b53a4341c304e3d4f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/08/2019
+ms.openlocfilehash: 5f20fc6ac19e2c9d304f4ab429e485fedaa29f64
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729509"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56001888"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL Database 위협 탐지
 
@@ -77,7 +77,7 @@ Azure SQL Database를 위한 위협 탐지는 데이터베이스에 액세스하
 
 ## <a name="next-steps"></a>다음 단계
 
-- [독립 실행형 및 풀링된 데이터베이스의 위협 탐지](sql-database-threat-detection.md)에 대해 자세히 알아봅니다.
+- [단일 및 풀링된 데이터베이스의 위협 탐지](sql-database-threat-detection.md)에 대해 자세히 알아봅니다.
 - [관리되는 인스턴스의 위협 탐지](sql-database-managed-instance-threat-detection.md)에 대해 자세히 알아봅니다.
 - [고급 데이터 보안](sql-database-advanced-data-security.md)에 대해 자세히 알아봅니다.
 - [Azure SQL Database 감사](sql-database-auditing.md)에 대해 자세히 알아봅니다.

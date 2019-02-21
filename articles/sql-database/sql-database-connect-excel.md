@@ -1,6 +1,6 @@
 ---
-title: SQL Database에 Excel 연결 | Microsoft Docs
-description: Microsoft Excel을 클라우드의 Azure SQL 데이터베이스에 연결하는 방법을 알아봅니다. 보고 및 데이터 탐색을 위해 Excel로 데이터를 가져옵니다.
+title: Azure SQL Database의 단일 데이터베이스에 Excel 연결 | Microsoft Docs
+description: Azure SQL Database의 단일 데이터베이스에 Microsoft Excel을 연결하는 방법을 알아봅니다. 보고 및 데이터 탐색을 위해 Excel로 데이터를 가져옵니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,19 +11,21 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 552293b402c697073587e887522d2daa3e33cdb6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/12/2019
+ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754585"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237017"
 ---
-# <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Azure SQL 데이터베이스에 Excel 연결 및 보고서 만들기
+# <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Azure SQL Database의 단일 데이터베이스에 Excel을 연결하고 보고서 만들기
 
-클라우드에서 SQL Database에 Excel을 연결하여 데이터를 가져오고 데이터베이스의 값을 기준으로 테이블 및 차트를 만듭니다. 이 자습서에서는 Excel과 데이터베이스 테이블 간의 연결을 설정하고 Excel에 대한 데이터 및 연결 정보가 있는 파일을 저장한 후 데이터베이스 값에서 피벗 차트를 만듭니다.
+Azure SQL Database의 단일 데이터베이스에 Excel을 연결하여 데이터를 가져오고, 데이터베이스의 값을 기반으로 테이블 및 차트를 만듭니다. 이 자습서에서는 Excel과 데이터베이스 테이블 간의 연결을 설정하고 Excel에 대한 데이터 및 연결 정보가 있는 파일을 저장한 후 데이터베이스 값에서 피벗 차트를 만듭니다.
 
-시작하기 전에 Azure에서 SQL 데이터베이스가 필요합니다. SQL 데이터베이스가 없다면 [첫 번째 SQL 데이터베이스 만들기](sql-database-single-database-get-started.md) 를 참조하여 몇 분 내에 샘플 데이터와 함께 실행되는 데이터베이스를 가져옵니다. 이 문서에서는 해당 문서에서 샘플 데이터를 Excel에 가져오지만 고유의 데이터에서 비슷한 단계를 따를 수 있습니다.
+시작하려면 단일 데이터베이스가 필요합니다. 아직 없으면 [단일 데이터베이스 만들기](sql-database-single-database-get-started.md) 및 [서버 수준 IP 방화벽 만들기](sql-database-server-level-firewall-rule.md)를 참조하여 몇 분 내에 샘플 데이터가 실행 중인 단일 데이터베이스를 가져옵니다.
+
+이 문서에서는 해당 문서에서 샘플 데이터를 Excel에 가져오지만 고유의 데이터에서 비슷한 단계를 따를 수 있습니다.
 
 또한 Excel의 사본이 필요합니다. 이 문서는 [Microsoft Excel 2016](https://products.office.com/)를 사용합니다.
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 642c59e9349585ea2287f7bf439250dbfef9ba7a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d25fcbce99017ff19adebd61275b395c980a3cf5
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766251"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891698"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SQL API에 대한 Azure Cosmos DB .NET Core SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -49,6 +49,12 @@ Azure Cosmos DB .NET Core SDK에는 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotne
 * 최상위 CosmosClient 및 관련 CosmosDatabases, CosmosContainers 및 CosmosItems 클래스 간에 분할되는 메서드가 포함된 새 개체 모델
 * 스트림 지원
 * 상태 코드를 반환하고 응답이 반환되지 않을 경우에만 예외를 throw하는 서버에서 업데이트된 CosmosResponseMessage
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+
+* 환경 변수 설정 “POCOSerializationOnly”가 추가되었습니다.
+
+* DocumentDB.Spatial.Sql.dll이 제거되고 Microsoft.Azure.Documents.ServiceInterop.dll에 포함되었습니다.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 
@@ -227,6 +233,7 @@ Azure Cosmos DB .NET Core Preview SDK에는 [Azure Cosmos DB .NET SDK](sql-api-s
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.2.2](#2.2.2) |2019년 2월 6일 |--- |
 | [2.2.1](#2.2.1) |2018년 12월 24일 |--- |
 | [2.2.0](#2.2.0) |2018년 12월 7일 |--- |
 | [2.1.3](#2.1.3) |2018년 10월 15일 |--- |

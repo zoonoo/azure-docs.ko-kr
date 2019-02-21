@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ae57605b0fb2cba8cdb0c2f9ecfbab8eef7a5197
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468277"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995066"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>활성 지역 복제를 사용하여 읽기 가능한 보조 데이터베이스 만들기
 
@@ -46,6 +46,14 @@ ms.locfileid: "55468277"
 장애 조치(failover) 후에는 새로운 주 데이터베이스에서 서버 및 데이터베이스의 인증 요구 사항이 구성되어 있는지 확인합니다. 자세한 내용은 [재해 복구 후의 SQL Database 보안](sql-database-geo-replication-security-config.md)을 참조하세요.
 
 활성 지역 복제는 스냅숏 격리를 사용하여 주 데이터베이스의 커밋된 트랜잭션을 보조 데이터베이스로 비동기적으로 복제하는 SQL Server의 [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) 기술을 활용합니다. 자동 장애 조치 그룹은 활성 지역 복제를 기반으로 하는 그룹 의미 체계를 제공하지만 동일한 비동기 복제 메커니즘이 사용됩니다. 지정된 지점에서 보조 데이터베이스는 주 데이터베이스보다 약간 뒤에 있을 수 있는 반면 보조 데이터는 절대 부분 트랜잭션을 갖지 않습니다. 지역 간 중복을 사용하면 자연 재해, 인간의 치명적인 실수 또는 악의적 행위로 인해 데이터 센터의 일부 또는 전체가 영구적으로 손실되더라도 애플리케이션을 빠르게 복구할 수 있습니다. 특정 RPO 데이터를 [비즈니스 연속성 개요](sql-database-business-continuity.md)에서 찾을 수 있습니다.
+
+> [!NOTE]
+> 두 지역 간에 네트워크 연결이 실패하면 연결을 다시 설정하도록 10초마다 재시도합니다.
+> [!IMPORTANT]
+> 장애 조치(failover) 전에 주 데이터베이스의 중요한 변경 내용이 보조 데이터베이스에 복제되도록 보장하려면 동기화를 강제 적용하여 중요한 변경 내용(예: 암호 업데이트)이 복제되도록 할 수 있습니다. 강제 동기화는 모든 커밋된 트랜잭션이 복제될 때까지 호출 스레드를 차단하므로 성능에 영향을 주게 됩니다. 자세한 내용은 [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync)를 참조하세요. 주 데이터베이스와 지역 보조 데이터베이스 간의 복제 지연을 모니터링하려면 [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database)를 참조하세요.
+
+
+
 
 다음 그림은 미국 중북부 지역에 주 데이터베이스, 미국 중남부 지역에 보조 데이터베이스가 구성된 활성 지역 복제의 예입니다.
 
@@ -94,7 +102,7 @@ ms.locfileid: "55468277"
 
 - **구성 가능한 보조 데이터베이스의 크기 계산**
 
-  동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 보조 데이터베이스는 주 데이터베이스와 동일한 계산 크기(DTU 또는 vCore 수)로 만드는 것이 좋습니다. 복제 지연 시간이 늘어나고 잠재적으로 보조 데이터베이스의 가용성이 손실될 위험이 있으므로 계산 크기가 더 작은 보조 데이터베이스는 이로 인해 장애 조치 후에 상당한 데이터 손실을 초래할 수 있습니다. 따라서 게시된 RPO = 5초를 보증할 수 없습니다. 더 큰 계산 크기로 업그레이드될 때까지 새 주 데이터베이스의 계산 용량이 부족하므로 장애 조치(failover) 후에 애플리케이션의 성능에 영향을 미칠 수 있는 다른 위험이 있습니다. 업그레이드 시간은 데이터베이스 크기에 따라 달라집니다. 또한 현재 이러한 업그레이드를 수행하려면 주 및 보조 데이터베이스가 모두 온라인 상태여야 하며, 이에 따라 가동 중단이 완화될 때까지 완료할 수 없습니다. 계산 크기가 더 작은 보조 데이터베이스를 만들려는 경우 Azure Portal의 로그 IO 백분율 차트에서 복제 로드를 유지하는 데 필요한 보조 데이터베이스의 최소 계산 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 또는 [ys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  SQL Database 계산 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](sql-database-service-tiers.md)을 참조하세요.
+  동일한 서비스 계층을 확보하려면 주 데이터베이스와 보조 데이터베이스 모두 필요합니다. 또한 보조 데이터베이스는 주 데이터베이스와 동일한 계산 크기(DTU 또는 vCore 수)로 만드는 것이 좋습니다. 복제 지연 시간이 늘어나고 잠재적으로 보조 데이터베이스의 가용성이 손실될 위험이 있으므로 계산 크기가 더 작은 보조 데이터베이스는 이로 인해 장애 조치 후에 상당한 데이터 손실을 초래할 수 있습니다. 따라서 게시된 RPO = 5초를 보증할 수 없습니다. 더 큰 계산 크기로 업그레이드될 때까지 새 주 데이터베이스의 계산 용량이 부족하므로 장애 조치(failover) 후에 애플리케이션의 성능에 영향을 미칠 수 있는 다른 위험이 있습니다. 업그레이드 시간은 데이터베이스 크기에 따라 달라집니다. 또한 현재 이러한 업그레이드를 수행하려면 주 및 보조 데이터베이스가 모두 온라인 상태여야 하며, 이에 따라 가동 중단이 완화될 때까지 완료할 수 없습니다. 계산 크기가 더 작은 보조 데이터베이스를 만들려는 경우 Azure Portal의 로그 IO 백분율 차트에서 복제 로드를 유지하는 데 필요한 보조 데이터베이스의 최소 계산 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 또는 [ys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  SQL Database 계산 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](sql-database-purchase-models.md)을 참조하세요.
 
 - **사용자 제어 장애 조치 및 장애 복구**
 
@@ -122,7 +130,7 @@ ms.locfileid: "55468277"
 
 앞서 설명한 것처럼 Azure PowerShell 및 REST API를 사용하여 활성 지역 복제를 프로그래밍 방식으로 관리할 수 있습니다. 다음 표는 사용 가능한 명령의 집합을 보여 줍니다. 활성 지역 복제는 관리를 위해 [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) 및 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)을 비롯한 Azure Resource Manager API 집합을 포함합니다. 이러한 API는 리소스 그룹을 사용해야 하며 RBAC(역할 기반 보안)를 지원합니다. 액세스 역할을 구현하는 방법에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../role-based-access-control/overview.md)을 참조하세요.
 
-### <a name="t-sql-manage-failover-of-standalone-and-pooled-databases"></a>T-SQL: 독립 실행형 및 풀링된 데이터베이스의 장애 조치(failover) 관리
+### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL: 단일 및 풀링된 데이터베이스의 장애 조치(failover) 관리
 
 > [!IMPORTANT]
 > 이러한 Transact-SQL 명령은 활성 지역 복제에만 적용되고 장애 조치(failover) 그룹에는 적용되지 않습니다. 따라서 장애 조치(failover) 그룹만 지원하는 Managed Instance에도 적용되지 않습니다.
@@ -138,7 +146,7 @@ ms.locfileid: "55468277"
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |커밋된 모든 트랜잭션이 복제되고 활성 보조 데이터베이스에서 승인될 때까지 애플리케이션이 대기하도록 합니다. |
 |  | |
 
-### <a name="powershell-manage-failover-of-standalone-and-pooled-databases"></a>PowerShell: 독립 실행형 및 풀링된 데이터베이스의 장애 조치(failover) 관리
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: 단일 및 풀링된 데이터베이스의 장애 조치(failover) 관리
 
 | Cmdlet | 설명 |
 | --- | --- |
@@ -152,7 +160,7 @@ ms.locfileid: "55468277"
 > [!IMPORTANT]
 > 샘플 스크립트는 [활성 지역 복제를 사용하여 단일 데이터베이스 구성 및 장애 조치(failover)](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) 및 [활성 지역 복제를 사용하여 풀링된 데이터베이스 구성 및 장애 조치(failover)](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)를 참조하세요.
 
-### <a name="rest-api-manage-failover-of-standalone-and-pooled-databases"></a>REST API: 독립 실행형 및 풀링된 데이터베이스의 장애 조치(failover) 관리
+### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: 단일 및 풀링된 데이터베이스의 장애 조치(failover) 관리
 
 | API | 설명 |
 | --- | --- |

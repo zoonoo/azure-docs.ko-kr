@@ -7,18 +7,18 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: danlep
-ms.openlocfilehash: e2ec1b7ad6d1489836937d30b89d0f0f681a9bfa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a4b9b382755e73b6218432624c471346e9698752
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819589"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56193393"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 역할 및 권한
 
 Azure Container Registry 서비스는 Azure Container Registry에 대한 다양한 수준의 권한을 제공하는 Azure 역할 세트를 지원합니다. Azure RBAC([역할 기반 액세스 제어](../role-based-access-control/index.yml))를 사용하여 레지스트리를 조작해야 하는 사용자 또는 서비스 주체에 특정 권한을 할당합니다.
 
-| 역할/권한       | Resource Manager 액세스| 레지스트리 만들기/삭제 | [이미지 푸시](#push-image) | [이미지 풀](#pull-image) | 정책 변경 |   [이미지 서명](#sign-images)  |
+| 역할/권한       | [Resource Manager 액세스](#access-resource-manager)| [레지스트리 만들기/삭제](#create-and-delete-registry) | [이미지 푸시](#push-image) | [이미지 풀](#pull-image) | [정책 변경](#change-policies) |   [이미지 서명](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- |
 | 소유자 | X | X | X | X | X |  |  
 | 참가자 | X | X | X | X | X |  |  
@@ -45,19 +45,19 @@ Visual Studio Code [Docker 확장](https://code.visualstudio.com/docs/azure/dock
 
 ## <a name="access-resource-manager"></a>Resource Manager 액세스
 
-Azure Portal 및 [Azure CLI](/cli/azure/)에서는 Azure Resource Manager에 액세스해야 합니다. 예를 들어, `az acr list` 명령을 사용하여 레지스트리 목록을 가져오려면 이 권한 집합이 필요합니다. 
+Azure Portal 및 [Azure CLI](/cli/azure/)를 통한 레지스트리 관리에는 Azure Resource Manager 액세스가 필요합니다. 예를 들어, `az acr list` 명령을 사용하여 레지스트리 목록을 가져오려면 이 권한 집합이 필요합니다. 
 
-## <a name="createdelete-registry"></a>레지스트리 만들기/삭제
+## <a name="create-and-delete-registry"></a>레지스트리 만들기 및 삭제
 
 Azure Container Registry를 만들고 삭제하는 기능입니다.
 
 ## <a name="push-image"></a>푸시 이미지
 
-이미지를 `docker push`하거나, 지원되는 다른 아티팩트를 레지스트리에 푸시하는 기능입니다. 인증된 ID를 사용하여 레지스트리에 [인증](container-registry-authentication.md)해야 합니다. 
+이미지를 `docker push`하거나, Helm 차트와 같은 [지원되는 다른 아티팩트](container-registry-image-formats.md)를 레지스트리에 푸시하는 기능입니다. 인증된 ID를 사용하여 레지스트리에 [인증](container-registry-authentication.md)해야 합니다. 
 
 ## <a name="pull-image"></a>이미지 풀
 
-보장되지 않은 이미지를 `docker pull`하거나 레지스트리에서 지원되는 다른 아티팩트를 풀하는 기능입니다. 인증된 ID를 사용하여 레지스트리에 [인증](container-registry-authentication.md)해야 합니다.
+보장되지 않은 이미지를 `docker pull`하거나, Helm 차트와 같은 [지원되는 다른 아티팩트](container-registry-image-formats.md)를 레지스트리에 풀하는 기능입니다. 인증된 ID를 사용하여 레지스트리에 [인증](container-registry-authentication.md)해야 합니다.
 
 ## <a name="change-policies"></a>정책 변경
 

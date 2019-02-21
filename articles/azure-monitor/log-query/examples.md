@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Log Analytics 쿼리 예제 | Microsoft Docs
-description: Kusto 언어를 사용하는 Log Analytics의 쿼리 예제를 제공합니다.
+title: Azure Monitor 로그 쿼리 예제 | Microsoft Docs
+description: Azure Monitor의 로그 쿼리에서 데이터 탐색기 쿼리 언어를 사용하는 예제입니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: d5cad3869e74f33a2d1a56352c658bb9c8f23db6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52885811"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993200"
 ---
-# <a name="log-analytics-query-examples"></a>Log Analytics 쿼리 예제
-이 문서에는 [Kusto 언어](https://docs.microsoft.com/azure/kusto/query/)를 사용하여 Log Analytics에서 여러 형식의 데이터를 검색하는 [쿼리](../../azure-monitor/log-query/log-query-overview.md)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  
+# <a name="azure-monitor-log-query-examples"></a>Azure Monitor 로그 쿼리 예제
+이 문서에는 [데이터 탐색기 쿼리 언어](https://docs.microsoft.com/azure/kusto/query/)를 사용하여 Azure Monitor에서 여러 형식의 로그 데이터를 검색하는 [쿼리](log-query-overview.md)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  
 
-이러한 샘플에서 사용되는 다양한 키워드에 대한 자세한 내용은 [Kusto 언어 참조](https://docs.microsoft.com/azure/kusto/query/)를 참조하세요. Log Analytics를 처음 사용하는 경우에는 [쿼리 작성 단원](get-started-queries.md)을 진행하세요.
+이러한 샘플에서 사용되는 다양한 키워드에 대한 자세한 내용은 [Kusto 언어 참조](https://docs.microsoft.com/azure/kusto/query/)를 참조하세요. Azure Monitor를 처음 사용하는 경우에는 [쿼리 작성 단원](get-started-queries.md)을 진행하세요.
 
 ## <a name="events"></a>이벤트
 
@@ -440,4 +440,4 @@ Update
 ## <a name="next-steps"></a>다음 단계
 
 - [Kusto 언어 참조](/azure/kusto/query)에서 언어에 대한 자세한 내용을 참조합니다.
-- [Log Analytics에서 쿼리 작성 단원](get-started-queries.md)을 진행합니다.
+- [Azure Monitor에서 로그 쿼리 작성 단원](get-started-queries.md)을 계속 진행합니다.

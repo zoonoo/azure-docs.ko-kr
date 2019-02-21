@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics를 사용하여 Active Directory 환경 최적화 | Microsoft Docs
+title: Azure Monitor를 사용하여 Active Directory 환경 최적화 | Microsoft Docs
 description: Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 환경의 위험 및 상태를 평가할 수 있습니다.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 063cedc679c3365e6352549e78c75ecff903cae7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8a1e08263790f1a04e672fd9d5a17c2bd1b45ce8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193011"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999031"
 ---
-# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Log Analytics에서 Active Directory Health Check 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
+# <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Azure Monitor에서 Active Directory 상태 검사 솔루션을 사용하여 사용자의 Active Directory 환경 최적화
 
 ![AD Health Check 기호](./media/ad-assessment/ad-assessment-symbol.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 서버 환경의 위험 및 상태를 평가할 수 있습니다. 이 문서에서는 잠재적인 문제에 대해 올바른 조치를 취할 수 있도록 솔루션을 설치하고 사용하도록 도와줍니다.
 
@@ -40,22 +42,22 @@ Active Directory Health Check 솔루션을 사용하여 일정한 간격으로 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Active Directory Health Check 솔루션을 사용하려면 MMA(Microsoft Monitoring Agent)가 설치된 각 컴퓨터에 지원되는 버전의 .NET Framework 4.5.2 이상을 설치해야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Log Analytics 서비스에서 사용됩니다.
+* Active Directory Health Check 솔루션을 사용하려면 MMA(Microsoft Monitoring Agent)가 설치된 각 컴퓨터에 지원되는 버전의 .NET Framework 4.5.2 이상을 설치해야 합니다.  MMA 에이전트는 System Center 2016 - Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용됩니다.
 * 이 솔루션은 Windows Server 2008 및 2008 R2, Windows Server 2012 및 2012 R2 및 Windows Server 2016을 실행하는 도메인 컨트롤러를 지원합니다.
 * Azure Marketplace로부터 Active Directory Health Check 솔루션을 추가하기 위한 Azure Portal의 Log Analytics 작업 공간  추가 구성은 필요 없습니다.
 
   > [!NOTE]
-  > 솔루션을 추가하면 에이전트가 있는 서버에 AdvisorAssessment.exe 파일이 추가됩니다. 구성 데이터가 판독되고 처리를 위해 클라우드의 Log Analytics 서비스로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.
+  > 솔루션을 추가하면 에이전트가 있는 서버에 AdvisorAssessment.exe 파일이 추가됩니다. 구성 데이터가 판독되고 처리를 위해 클라우드의 Azure Monitor로 전송됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.
   >
   >
 
-평가되는 도메인의 구성원인 도메인 컨트롤러에 대해 상태 검사를 수행하려면 에이전트와, 다음 지원되는 방법 중 하나를 통한 Log Analytics 연결이 필요합니다.
+평가되는 도메인의 구성원인 도메인 컨트롤러에 대해 상태 검사를 수행하려면 에이전트와 다음 지원되는 방법 중 하나를 사용한 Azure Monitor 연결이 필요합니다.
 
 1. 도메인 컨트롤러를 아직 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2에서 모니터링하지 않는 경우 [MMA(Microsoft Monitoring Agent)](../../azure-monitor/platform/agent-windows.md)를 설치합니다.
-2. System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2로 모니터링되며 관리 그룹이 Log Analytics 서비스와 통합되지 않은 경우, 도메인 컨트롤러는 Log Analytics와 멀티 홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있으며 Operations Manager를 통해 모니터링할 수 있습니다.  
+2. System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2로 모니터링되며 관리 그룹이 Azure Monitor 서비스와 통합되지 않은 경우, 도메인 컨트롤러는 Azure Monitor와 멀티 홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있으며 Operations Manager를 통해 모니터링할 수 있습니다.  
 3. 그렇지 않고 Operations Manager 관리 그룹이 서비스와 통합된 경우, 작업 영역에서 솔루션을 활성화한 후 [에이전트 관리 컴퓨터 추가](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics)의 단계에 따라 데이터 수집을 위한 도메인 컨트롤러를 추가해야 합니다.  
 
-Operations Manager 관리 그룹에 보고하는 도메인 컨트롤러의 에이전트는 데이터를 수집하여 할당된 관리 서버로 전달한 다음 관리 서버에서 Log Analytics 서비스로 직접 보냅니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
+Operations Manager 관리 그룹에 보고하는 도메인 컨트롤러의 에이전트는 데이터를 수집하여 할당된 관리 서버로 전달한 다음, 관리 서버에서 Azure Monitor로 직접 보냅니다.  이 데이터는 Operations Manager 데이터베이스에 기록되지 않습니다.  
 
 ## <a name="active-directory-health-check-data-collection-details"></a>Active Directory Health Check 데이터 수집 정보
 
@@ -73,7 +75,7 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 - NTFRS(파일 복제 서비스) API
 - 사용자 지정 C# 코드
 
-데이터는 도메인 컨트롤러에서 수집되고 7일마다 Log Analytics에 전달됩니다.  
+데이터는 도메인 컨트롤러에서 수집되고 7일마다 Azure Monitor에 전달됩니다.  
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>권장 사항 우선 순위 이해
 작성된 모든 권장 구성은 권장 사항의 상대적 중요도를 식별하는 가중치 값을 제공합니다. 10개의 가장 중요한 권장 사항만 표시됩니다.
@@ -107,30 +109,33 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 인프라에 대한 요약된 규정 준수 평가를 본 다음 세부 권장 사항을 확인합니다.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
-3. Azure Portal에서 Log Analytics 작업 영역의 **개요** 타일을 클릭합니다.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 4. **개요** 페이지에서 **Active Directory 상태 검사** 타일을 클릭합니다.
 5. **상태 검사** 페이지에서, 주요 영역 블레이드 중 하나에 있는 요약 정보를 검토한 다음 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.
 6. 주요 영역 페이지에서 사용자 환경에 대해 우선순위가 지정된 권장 사항을 볼 수 있습니다. 권장하는 이유에 대한 세부 정보를 보려면 **영향을 받는 개체** 아래에서 해당 권장 사항을 클릭합니다.<br><br> ![Health Check 권장 사항의 이미지](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
 7. **권장 조치**에 제안된 올바른 조치를 수행할 수 있습니다. 항목이 처리되면, 이후 평가는 수행된 권장 조치 및 늘어난 규정 준수 점수를 기록합니다. 수정된 항목은 **전달된 개체**로 나타납니다.
 
 ## <a name="ignore-recommendations"></a>권장 사항 무시
-무시하려는 권장 사항이 있는 경우 Log Analytics에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
+무시하려는 권장 사항이 있는 경우 Azure Monitor에서 평가 결과에 권장 사항이 표시되는 것을 방지하는 데 사용할 텍스트 파일을 만들 수 있습니다.
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>무시할 권장 사항을 식별하려면
-1. Azure Portal에서 선택한 작업 영역에 대한 Log Analytics 작업 영역 페이지에서 **로그 검색** 타일을 클릭합니다.
-2. 다음 쿼리를 사용하여 사용자 환경의 컴퓨터에 대해 실패한 권장 사항을 나열합니다.
+[!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)]
 
-    ```
-    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
-    ```
-    로그 검색 쿼리를 보여 주는 스크린샷은 다음과 같습니다.<br><br> ![실패한 권장 사항](./media/ad-assessment/ad-failed-recommendations.png)
+다음 쿼리를 사용하여 사용자 환경의 컴퓨터에 대해 실패한 권장 사항을 나열합니다.
 
-3. 무시할 권장 사항을 선택합니다. RecommendationId 값은 다음 절차에서 사용됩니다.
+```
+ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
+```
+
+로그 쿼리를 보여 주는 스크린샷은 다음과 같습니다.<br><br> ![실패한 권장 사항](media/ad-assessment/ad-failed-recommendations.png)
+
+무시할 권장 사항을 선택합니다. RecommendationId 값은 다음 절차에서 사용됩니다.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>IgnoreRecommendations.txt 텍스트 파일을 만들고 사용하려면
 1. IgnoreRecommendations.txt라는 파일을 만듭니다.
-2. Log Analytics에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여 넣거나 입력한 다음 파일을 저장하고 닫습니다.
-3. Log Analytics에서 권장 사항을 무시할 각 컴퓨터의 다음 폴더에 파일을 둡니다.
+2. Azure Monitor에서 무시할 각 권장 사항에 대한 RecommendationId를 별도의 줄에 붙여넣거나 입력한 다음, 파일을 저장하고 닫습니다.
+3. Azure Monitor에서 권장 사항을 무시할 각 컴퓨터의 다음 폴더에 파일을 둡니다.
    * Microsoft Monitoring Agent(직접 또는 Operations Manager를 통해 연결됨)가 있는 컴퓨터 - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
    * Operations Manager 2012 R2 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * Operations Manager 2016 관리 서버 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
@@ -138,7 +143,7 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 ### <a name="to-verify-that-recommendations-are-ignored"></a>권장 사항이 무시되었는지 확인하려면
 다음 예약된 상태 검사가 실행된 후(기본적으로 7일마다) 지정된 권장 사항이 대시보드에 *무시됨*으로 표시됩니다.
 
-1. 다음 로그 검색 쿼리를 사용하여 무시된 모든 권장 사항을 나열할 수 있습니다.
+1. 다음 로그 쿼리를 사용하여 무시된 모든 권장 사항을 나열할 수 있습니다.
 
     ```
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
@@ -177,11 +182,11 @@ Active Directory Health Check는 사용자가 사용하도록 설정한 에이�
 
 *왜 상위 10개의 권장 사항만을 표시하나요?*
 
-* 엄청난 소비적인 작업을 나열하는 대신, 먼저 우선순위가 지정된 권장 사항 해결에 주의를 기울이는 것이 좋습니다. 권장 사항을 해결한 후에 추가 권장 사항을 사용할 수 있습니다. 자세한 목록을 참조하는 것을 선호하는 경우 로그 검색을 사용하여 모든 권장 사항을 볼 수 있습니다.
+* 엄청난 소비적인 작업을 나열하는 대신, 먼저 우선순위가 지정된 권장 사항 해결에 주의를 기울이는 것이 좋습니다. 권장 사항을 해결한 후에 추가 권장 사항을 사용할 수 있습니다. 자세한 목록을 참조하는 것을 선호하는 경우 로그 쿼리를 사용하여 모든 권장 사항을 볼 수 있습니다.
 
 *권장 사항을 무시하는 방법이 있나요?*
 
 * 예, 위의 [권장 사항 무시](#ignore-recommendations) 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics의 로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 사용하여 상세 AD Health Check 데이터 및 권장 사항의 분석 방법을 알아봅니다.
+* [Azure Monitor 로그 쿼리](../log-query/log-query-overview.md)를 사용하여 상세 AD 상태 검사 데이터 및 권장 사항의 분석 방법을 알아봅니다.

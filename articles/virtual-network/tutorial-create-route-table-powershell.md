@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0c2ff94d65e775a12fd76b3115aa8b69ae9a405f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b4dc2e48093398077071eb2423a80c86eb62c67
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815016"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894941"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -248,7 +248,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 이 문서에서는 라우팅을 테스트하는 데 경로 추적이 사용되지만, 프로덕션 배포에 Windows 방화벽을 통한 ICMP를 허용하지 않는 것이 좋습니다.
 
-[IP 전달을 사용하도록 설정](#enable-ip-forwarding)에서 VM의 네트워크 인터페이스에 대해 Azure 내에서 IP 전달을 사용하도록 설정했습니다. VM 내 운영 체제 또는 VM 내에서 실행 중인 애플리케이션도 네트워크 트래픽을 전달할 수 있어야 합니다. *myVmNva*의 운영 체제 내에서 IP 전달을 사용하도록 설정합니다.
+IP 전달을 사용하도록 설정에서 VM의 네트워크 인터페이스에 대해 Azure 내에서 IP 전달을 사용하도록 설정했습니다. VM 내 운영 체제 또는 VM 내에서 실행 중인 애플리케이션도 네트워크 트래픽을 전달할 수 있어야 합니다. *myVmNva*의 운영 체제 내에서 IP 전달을 사용하도록 설정합니다.
 
 *myVmPrivate* VM의 명령 프롬프트에서 다음과 같이 *myVmNva*에 대한 원격 데스크톱 연결을 만듭니다.
 

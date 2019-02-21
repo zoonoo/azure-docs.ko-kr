@@ -13,19 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: b5f851fe5c8aebba441903ccc004b7dbd0029ba3
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412034"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984769"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
  이 문서에서는 Microsoft Azure에서 Windows VM(가상 머신)을 시작할 때 발생할 수 있는 BitLocker 오류에 대해 설명합니다.
 
-> [!NOTE] 
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다. 클래식 배포 모델을 사용하는 대신 새 배포에 이 모델을 사용하는 것이 좋습니다.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
  ## <a name="symptom"></a>증상
 
@@ -57,17 +56,17 @@ ms.locfileid: "47412034"
     $rgName = "myResourceGroup"
     $osDiskName = "ProblemOsDisk"
 
-    New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzureRmDisk -diskName $osDiskName -ResourceGroupName $rgName
+    New-AzDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzDisk -diskName $osDiskName -ResourceGroupName $rgName
 
     $recoveryVMName = "myRecoveryVM" 
     $recoveryVMRG = "RecoveryVMRG" 
-    $OSDisk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $osDiskName;
+    $OSDisk = Get-AzDisk -ResourceGroupName $rgName -DiskName $osDiskName;
 
-    $vm = get-AzureRMVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
+    $vm = get-AzVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
 
-    Add-AzureRmVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
+    Add-AzVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
 
-    Update-AzureRMVM -VM $vm -ResourceGroupName $recoveryVMRG
+    Update-AzVM -VM $vm -ResourceGroupName $recoveryVMRG
     ```
      관리 디스크를 Blob 이미지에서 복원된 VM에 연결할 수 없습니다.
 
@@ -76,7 +75,7 @@ ms.locfileid: "47412034"
 4. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행하여 Azure 구독에 로그인합니다.
 
     ```Powershell
-    Add-AzureRMAccount -SubscriptionID [SubscriptionID]
+    Add-AzAccount -SubscriptionID [SubscriptionID]
     ```
 
 5. 다음 스크립트를 실행하여 BEK 파일의 이름을 확인합니다.

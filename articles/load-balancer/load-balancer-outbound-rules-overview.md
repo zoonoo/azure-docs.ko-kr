@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a0b679ef7a1a468c8a849b0a3fb9f744a392dd3
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439105"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243606"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 아웃바운드 규칙
 
@@ -34,7 +34,7 @@ Azure Load Balancer는 가상 네트워크에서 인바운드 연결 외에도 �
 - 특정 공용 IP 주소로 변환되어야 하는 가상 머신 
 - [아웃바운드 SNAT 포트](load-balancer-outbound-connections.md#snat)를 할당해야 하는 방법
 - 아웃바운드 변환을 제공하는 프로토콜
-- 아웃바운드 연결 유휴 시간 제한에 사용할 기간
+- 아웃바운드 연결 유휴 시간 제한에 사용할 기간(4-120분)
 - 유휴 시간 제한 시 TCP 재설정을 보낼지 여부(공개 미리 보기에서) 
 
 아웃바운드 규칙은 [아웃바운드 연결](load-balancer-outbound-connections.md) 문서에서 설명한 [시나리오 2](load-balancer-outbound-connections.md#lb)를 확장하며 시나리오 우선 순위는 그대로 유지됩니다.
@@ -90,7 +90,7 @@ VM당 10,000개의 SNAT 포트를 할당하려면 다음 매개 변수를 사용
 
 ### <a name="idletimeout"></a> 아웃바운드 흐름 유휴 시간 제한 제어
 
-아웃바운드 규칙은 아웃바운드 흐름 유휴 시간 제한을 제어하고 이를 애플리케이션의 요구와 일치시키는 구성 매개 변수를 제공합니다.  아웃바운드 유휴 시간 제한은 기본적으로 4분입니다.  매개 변수는 이 특정 규칙과 일치하는 흐름에 대한 유휴 시간 제한을 분 단위로 지정하기 위해 4-66의 값을 허용합니다.
+아웃바운드 규칙은 아웃바운드 흐름 유휴 시간 제한을 제어하고 이를 애플리케이션의 요구와 일치시키는 구성 매개 변수를 제공합니다.  아웃바운드 유휴 시간 제한은 기본적으로 4분입니다.  매개 변수는 이 특정 규칙과 일치하는 흐름에 대한 유휴 시간 제한을 분 단위로 지정하기 위해 4-120의 값을 허용합니다.
 
 아웃바운드 유휴 시간 제한을 1시간으로 설정하려면 다음 매개 변수를 사용합니다.
 
@@ -205,7 +205,7 @@ disableOutboundSNAT 매개 변수의 기본값은 false입니다. 즉 부하 분
 ## <a name="limitations"></a>제한 사항
 
 - 프런트 엔드 IP 주소당 사용 가능한 사용 후 삭제 포트의 최대 수는 51,200개입니다.
-- 구성 가능한 아웃바운드 유휴 시간 제한 범위는 4-66분(240-4,000초)입니다.
+- 구성 가능한 아웃바운드 유휴 시간 제한 범위는 4-120분(240-7200초)입니다.
 - Load Balancer는 아웃바운드 NAT에 대해 ICMP를 지원하지 않습니다.
 - 아웃바운드 규칙은 포털을 통해 구성하거나 볼 수 없습니다.  대신 템플릿, REST API, Az CLI 2.0 또는 PowerShell을 사용하세요.
 - 아웃바운드 규칙은 기본 NIC 및 기본 IP 구성에만 적용할 수 있습니다.

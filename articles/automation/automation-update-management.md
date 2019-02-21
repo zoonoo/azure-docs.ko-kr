@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/28/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94171da3c60de3efc4e2a234494816899c3d2f05
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 0afb8a09fa9780755bcfeef678b76e176f11b348
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511856"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56246037"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -600,6 +600,13 @@ Linux 컴퓨터에 업데이트를 배포할 때 업데이트 분류를 선택�
 
 업데이트 분류에 따라 업데이트를 배포하는 것은 CentOS에서 기본적으로 지원되지 않습니다. CentOS에 대한 업데이트를 제대로 배포하려면 업데이트를 적용할 수 있도록 모든 분류를 선택합니다. SUSE의 경우 분류로 ‘기타 업데이트’*만* 선택하면 zypper(패키지 관리자)와 관련된 보안 업데이트나 해당 종속성이 먼저 필요한 경우에도 일부 보안 업데이트가 설치될 수 있습니다. 이 동작은 zypper의 제한 사항입니다. 경우에 따라 업데이트 배포를 다시 실행해야 할 수도 있습니다. 확인하려면 업데이트 로그를 확인합니다.
 
+## <a name="remove-a-vm-for-update-management"></a>업데이트 관리용 VM 제거
+
+업데이트 관리에서 VM을 제거하려면:
+
+* Log Analytics 작업 영역에서, 범위 구성 `MicrosoftDefaultScopeConfig-Updates`에 대한 저장된 검색에서 VM을 제거합니다. 저장된 검색은 작업 영역의 **일반**에서 찾을 수 있습니다.
+* [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) 또는 [Linux용 Log Analytics 에이전트](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources)를 제거합니다.
+  
 ## <a name="troubleshoot"></a>문제 해결
 
 업데이트 관리 문제를 해결하는 방법을 알아보려면 [업데이트 관리 문제 해결](troubleshoot/update-management.md)을 참조하세요.

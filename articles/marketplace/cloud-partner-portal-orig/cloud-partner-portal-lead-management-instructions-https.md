@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0d14b2eeb90bd360b71b315d7b4f4459f17f5672
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8898149e6858c5a1cdb2d4510ad2764ffe25fda5
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073768"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55964256"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>HTTPS 엔드포인트를 사용하여 잠개 고객 관리 구성
 
@@ -65,7 +65,7 @@ HTTPS 엔드포인트를 사용하여 Azure Marketplace 및 AppSource 잠재 고
 
     ![잠재 고객 선택](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
 
-4. Flow에는 잠재 고객 정보를 입력하기 위한 양식이 나와 있습니다. 동적 콘텐츠 추가하도록 선택하여 입력 요청의 항목을 매핑할 수 있습니다. 다음 화면 캡처에는 **LeadTitle**이 예제로 나와 있습니다.
+4. Flow에는 잠재 고객 정보를 입력하기 위한 양식이 나와 있습니다. 동적 콘텐츠 추가하도록 선택하여 입력 요청의 항목을 매핑할 수 있습니다. 다음 화면 캡처에는 **OfferTitle**이 예제로 나와 있습니다.
 
     ![동적 콘텐츠 추가](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 

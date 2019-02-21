@@ -5,24 +5,24 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/07/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: ca1012e0f1b0b7a9e0d8bd88d94876c20d22dec5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fce7beeda352b9add3603fb74c558ad1b64fac2a
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473785"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55895519"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake Storage Gen2 보안 가이드
 
-Azure Data Lake Storage Gen2 미리 보기는 Azure Storage 계정을 기반으로 하는 기능 세트입니다. 따라서 이 문서의 모든 참조는 계층 구조 네임스페이스를 사용하도록 설정된 Azure Storage 계정(Data Lake Storage Gen2 기능)을 대상으로 합니다.
+Azure Data Lake Storage Gen2는 Azure Storage 계정을 기반으로 하는 기능 세트입니다. 따라서 이 문서의 모든 참조는 계층 구조 네임스페이스를 사용하도록 설정된 Azure Storage 계정(Data Lake Storage Gen2 기능)을 대상으로 합니다.
 
 - Azure Storage에 쓴 모든 데이터는 [SSE(Storage 서비스 암호화)](storage-service-encryption.md)를 사용하여 자동으로 암호화됩니다. 자세한 내용은 [Azure Blob, Files, Tables 및 Queue Storage에 대한 기본 암호화 발표](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/)를 참조하세요.
 - Azure AD(Azure Active Directory) 및 RBAC(역할 기반 액세스 제어)는 다음과 같이 리소스 관리 작업 및 데이터 작업 모두에 대한 Azure Storage에 지원됩니다.
     - 저장소 계정으로 범위가 지정된 RBAC 역할을 보안 주체에 할당하고 Azure AD를 사용하여 키 관리와 같은 리소스 관리 작업의 권한을 부여할 수 있습니다.
-    - Azure AD 통합은 Azure Storage의 데이터 작업에 대한 미리 보기로 지원됩니다. 구독, 리소스 그룹, 스토리지 계정 또는 개별 파일 시스템으로 범위가 지정된 RBAC 역할은 Azure 리소스에 대한 보안 주체 또는 관리 ID에 할당할 수 있습니다. 자세한 내용은 [Azure Active Directory(미리 보기)를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.
+    - Azure AD 통합은 Azure Storage의 데이터 작업에 지원됩니다. 구독, 리소스 그룹, 스토리지 계정 또는 개별 파일 시스템으로 범위가 지정된 RBAC 역할은 Azure 리소스에 대한 보안 주체 또는 관리 ID에 할당할 수 있습니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.
 - [공유 액세스 서명](../storage-dotnet-shared-access-signature-part-1.md)을 사용하여 Azure Storage의 데이터 개체에 대한 위임된 액세스 권한을 부여할 수 있습니다.
 
 이 문서에서는 Azure Storage에서 사용할 수 있는 이러한 각 보안 기능에 대해 간략히 설명합니다. 각 항목을 좀 더 자세히 확인할 수 있도록 각 기능의 세부 정보를 제공하는 문서에 대한 링크가 제공됩니다.
@@ -133,7 +133,7 @@ Azure Key Vault를 사용하면 Azure Active Directory를 사용하여 키에 �
 
 Azure Storage에서 데이터 개체에 대한 액세스를 인증하는 데 다음을 포함한 세 가지 옵션이 있습니다.
 
-- Azure AD를 사용하여 파일 시스템 및 큐에 대한 액세스 권한을 부여합니다(미리 보기). Azure AD는 코드에서 암호를 저장할 필요성 제거를 포함하여 권한 부여에 대한 다른 인증 방법에 비해 여러 가지 이점을 제공합니다. 자세한 내용은 [Azure Active Directory(미리 보기)를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요. 
+- Azure AD를 사용하여 파일 시스템 및 큐에 대한 액세스 권한을 부여합니다. Azure AD는 코드에서 암호를 저장할 필요성 제거를 포함하여 권한 부여에 대한 다른 인증 방법에 비해 여러 가지 이점을 제공합니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요. 
 - 저장소 계정 키를 사용하여 공유 키를 통해 액세스 권한을 부여합니다. 공유 키를 통한 권한 부여는 애플리케이션에 저장소 계정 키를 저장해야 하므로 가능한 경우 대신 Azure AD를 사용하는 것이 좋습니다. 프로덕션 애플리케이션 또는 Azure 테이블 및 파일에 대한 액세스 권한 부여의 경우 Azure AD 통합이 미리 보기로 제공되는 동안 계속해서 공유 키를 사용합니다.
 - 공유 액세스 서명을 사용하여 특정 시간 동안 특정 데이터 개체에 제어된 권한을 부여합니다.
 
@@ -229,7 +229,7 @@ SAS가 손상되었거나, 회사 보안 또는 규정 준수 요구 때문에 �
 
     이 문서에서는 SAS 모델에 대한 설명, 공유 액세스 서명의 예, SAS에 대한 권장 모범 사용 사례를 제공합니다. 부여된 사용 권한을 해지하는 방법도 설명합니다.
 
-* 인증
+* Authentication
 
   * [Azure Storage 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * 공유 액세스 서명 시작 자습서

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: f0f929e7caece9bea10dbe09e237bc987ad93d44
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159658"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234003"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해 
 컨테이너용 Azure Monitor를 사용하면 성능 차트 및 상태 정보를 통해 AKS(Azure Kubernetes Service) 클러스터의 워크로드를 모니터링할 수 있습니다. 즉, AKS 클러스터에서 직접 볼 수도 있고 Azure Monitor에서 구독의 모든 AKS 클러스터를 볼 수도 있습니다. 특정 AKS 클러스터를 모니터링할 때에도 ACI(Azure Container Instances)를 볼 수 있습니다.
@@ -145,7 +145,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| 이름 | 호스트의 이름입니다. |
+| Name | 호스트의 이름입니다. |
 | 상태 | 노드 상태의 Kubernetes 보기입니다. |
 | 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 선택한 기간 동안 백분위에 기반한 평균 노드 백분율입니다. |
 | 평균, 최소, 최대, 50번째, 90번째 | 선택한 기간 동안 백분위를 기준으로 하는 평균 노드 실제 값입니다. 평균 값은 노드에 대해 설정된 CPU/메모리 제한에서 측정됩니다. Pod 및 컨테이너의 경우에는 호스트에서 보고된 평균 값입니다. |
@@ -174,7 +174,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| 이름 | 컨트롤러의 이름입니다.|
+| Name | 컨트롤러의 이름입니다.|
 | 상태 | *확인*, *종료됨*, *실패함*, *중지됨* 또는 *일시 정지됨*과 같은 상태로 실행이 완료된 컨테이너의 롤업 상태입니다. 컨테이너가 실행 중이지만 상태가 제대로 표시되지 않았거나 에이전트에 의해 선택되지 않았고 30분 넘게 응답하지 않은 경우 상태는 *알 수 없음*이 됩니다. 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
 | 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 평균 롤업입니다. |
 | 평균, 최소, 최대, 50번째, 90번째  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
@@ -211,7 +211,7 @@ Linux OS를 실행하는 Azure Container Instances 가상 노드는 목록에서
 
 | 열 | 설명 | 
 |--------|-------------|
-| 이름 | 컨트롤러의 이름입니다.|
+| Name | 컨트롤러의 이름입니다.|
 | 상태 | 컨테이너의 상태입니다(있는 경우). 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
 | 평균&nbsp;%, 최소&nbsp;%, 최대&nbsp;%, 50번째&nbsp;%, 90번째&nbsp;% | 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 롤업입니다. |
 | 평균, 최소, 최대, 50번째, 90번째  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
@@ -275,5 +275,5 @@ Log Analytics에 전달되는 컨테이너 로그 출력은 STDOUT 및 STDERR입
 | **꺾은선형 차트 표시 옵션을 선택**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 CPU | 
 | **꺾은선형 차트 표시 옵션을 선택**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 메모리 |
 
-## <a name="alerting"></a>경고
-컨테이너용 Azure Monitor는 고객이 지원하는 프로세스 및 절차에 따라 복사 및 수정할 수 있는 미리 정의된 경고 세트를 포함하고 있지 않습니다. 그 때까지 [Azure Monitor를 사용하여 로그 경고 만들기](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json)를 확인하고 자체적인 경고 세트를 만드는 방법을 알아보세요.  
+## <a name="next-steps"></a>다음 단계
+컨테이너용 Azure Monitor는 고객이 지원하는 프로세스 및 절차에 따라 복사 및 수정하도록 미리 정의된 경고 세트를 포함하고 있지 않습니다. [컨테이너를 위한 Azure Monitor로 성능 경고 만들기](container-insights-alerts.md)를 검토하여 높은 CPU 및 메모리 사용률에 권장되는 경고를 만드는 방법에 대해 알아봅니다.  

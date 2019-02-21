@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9db6736813b6d99efad687581f19d23023e1593a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 093fa1414ec624f66bc7cb4559fa8c0535834c10
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814540"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55981930"
 ---
 # <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Azure 빠른 시작 템플릿을 사용하여 SQL Server VM에서 WSFC, 수신기 만들기 및 Always On 가용성 그룹에 대해 ILB 구성
 이 문서에서는 Azure 빠른 시작 템플릿을 사용하여 Azure에서 SQL Server Virtual Machines에 대한 Always On 가용성 그룹 구성의 배포를 부분적으로 자동화하는 방법을 설명합니다. 이 프로세스에서 사용되는 두 개의 Azure 빠른 시작 템플릿이 있습니다. 
@@ -153,8 +153,8 @@ ILB를 구성하고 AG 수신기를 만들려면 다음을 수행합니다.
 
 ```PowerShell
 # Remove the AG listener
-# example: Remove-AzureRmResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
-Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
+# example: Remove-AzResource -ResourceId '/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLAG-RG/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/Cluster/availabilitygrouplisteners/aglistener' -Force
+Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
 ```
  
 ## <a name="common-errors"></a>일반 오류
@@ -166,7 +166,7 @@ AG 수신기 Azure 빠른 시작 템플릿에 사용된 선택한 가용성 그�
 ### <a name="connection-only-works-from-primary-replica"></a>연결이 주 복제본에서만 작동함
 이 동작은 ILB 구성을 일관성 없는 상태로 두는, 실패한 **101-sql-vm-aglistener-setup** 템플릿 배포에서 발생할 가능성이 큽니다. 백 엔드 풀에 가용성 집합이 나열되는지, 상태 프로브 및 부하 분산 규칙에 대한 규칙이 있는지 확인합니다. 누락된 항목이 있으면 ILB 구성이 일관성 없는 상태입니다. 
 
-이 동작을 해결하려면 [PowerShell](#remove-availability-group-listener)을 사용하여 수신기를 제거하고 Azure Portal을 통해 내부 Load Balancer를 삭제한 다음, [3단계](#step-3---manually-create-the-internal-load-balanced-ilb)에서 다시 시작합니다. 
+이 동작을 해결하려면 [PowerShell](#remove-availability-group-listener)을 사용하여 수신기를 제거하고 Azure Portal을 통해 내부 Load Balancer를 삭제한 다음, 3단계에서 다시 시작합니다. 
 
 ### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest - SQL 가상 머신 목록만 업데이트할 수 있습니다.
 이 오류는 수신기가 SSMS(SQL Server Management Studio)를 통해 삭제되었지만 SQL VM 리소스 공급자에서 삭제되지 않은 경우 **101-sql-vm-aglistener-setup** 템플릿을 배포할 때 발생할 수 있습니다. SSMS를 통해 수신기를 삭제해도 수신기의 메타데이터는 SQL VM 리소스 공급자에서 제거되지 않습니다. [PowerShell](#remove-availability-group-listener)을 사용하여 리소스 공급자에서 수신기를 삭제해야 합니다. 

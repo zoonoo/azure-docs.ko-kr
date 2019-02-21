@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics로 리소스 검색 | Microsoft Docs
+title: Azure Monitor로 리소스 쿼리 | Microsoft Docs
 description: 이 문서에서는 구독의 여러 작업 영역과 특정 App Insights 앱에서 리소스를 쿼리하는 방법을 설명합니다.
 services: log-analytics
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 42191b21faec7bb1929a12e6bc1a724d269acb1d
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ccc9a74c4e238ebfcab0fc05a3bf825000917843
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298877"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998949"
 ---
-# <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics에서 리소스 간 로그 검색 수행  
+# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Azure Monitor에서 리소스 간 로그 쿼리 수행  
 
-이전에는 Azure Log Analytics로 현재 작업 영역 내의 데이터만 분석할 수 있었기 때문에 구독에 정의된 여러 작업 영역을 쿼리할 수 없었습니다.  또한 Application Insights에서 직접 또는 Visual Studio에서, Application Insights를 사용하여 웹 기반 애플리케이션에서 수집된 원격 분석 항목만 검색할 수 있습니다.  이로 인해 운영 및 애플리케이션 데이터를 고유하게 분석하는 데 어려움이 나타납니다.   
+이전에는 Azure Monitor로 현재 작업 영역 내의 데이터만 분석할 수 있었기 때문에 구독에 정의된 여러 작업 영역을 쿼리할 수 없었습니다.  또한 Application Insights에서 직접 또는 Visual Studio에서, Application Insights를 사용하여 웹 기반 애플리케이션에서 수집된 원격 분석 항목만 검색할 수 있습니다.  이로 인해 운영 및 애플리케이션 데이터를 고유하게 분석하는 데 어려움이 나타납니다.   
 
-이제 여러 Log Analytics 작업 영역뿐만 아니라 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱의 데이터도 쿼리가 가능합니다. 이를 통해 시스템 차원의 데이터 보기가 가능합니다.  [로그 분석](portals.md#log-analytics-page)에서 이러한 유형의 쿼리만 수행할 수 있습니다. 단일 쿼리에 포함할 수 있는 리소스 (Log Analytics 작업 영역 및 Application Insights 앱)의 수는 100개로 제한됩니다. 
+이제 여러 Log Analytics 작업 영역뿐만 아니라 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱의 데이터도 쿼리가 가능합니다. 이를 통해 시스템 차원의 데이터 보기가 가능합니다.  [로그 분석](portals.md)에서 이러한 유형의 쿼리만 수행할 수 있습니다. 단일 쿼리에 포함할 수 있는 리소스 (Log Analytics 작업 영역 및 Application Insights 앱)의 수는 100개로 제한됩니다. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Log Analytics 작업 영역 전체 및 Application Insights 쿼리
 쿼리에 다른 작업 영역을 참조하려면 [*workspace*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) 식별자를 사용하고 Application Insights의 앱의 경우 [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression) 식별자를 사용합니다.  
@@ -101,9 +101,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>여러 리소스에 리소스 간 쿼리 사용
-리소스 간 쿼리를 사용하여 여러 Log Analytics 및 Application Insights 리소스에서 데이터의 상관 관계를 지정하는 경우 쿼리는 복잡하고 유지 관리하기 어려워질 수 있습니다. [Log Analytics의 함수](../../azure-monitor/log-query/functions.md)를 활용하여 쿼리 리소스 범위에서 쿼리 논리를 분리합니다. 이는 쿼리 구조를 간소화합니다. 다음 예제에서는 여러 Application Insights 리소스를 모니터링하고 애플리케이션 이름으로 실패한 요청의 수를 시각화하는 방법을 보여줍니다. 
+리소스 간 쿼리를 사용하여 여러 Log Analytics 작업 영역 및 Application Insights 리소스에서 데이터의 상관 관계를 지정하는 경우 쿼리는 복잡하고 유지 관리하기 어려워질 수 있습니다. [Azure Monitor 로그 쿼리의 함수](functions.md)를 활용하여 쿼리 리소스 범위에서 쿼리 논리를 분리합니다. 이는 쿼리 구조를 간소화합니다. 다음 예제에서는 여러 Application Insights 리소스를 모니터링하고 애플리케이션 이름으로 실패한 요청의 수를 시각화하는 방법을 보여줍니다. 
 
-Application Insights 리소스의 범위를 참조하는 다음과 같은 쿼리를 만듭니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션 이름을 지정하는 열을 추가합니다. 별칭 _applicationsScoping_을 사용하여 [함수로 쿼리를 저장합니다](../../azure-monitor/log-query/functions.md#create-a-function).
+Application Insights 리소스의 범위를 참조하는 다음과 같은 쿼리를 만듭니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션 이름을 지정하는 열을 추가합니다. 별칭 _applicationsScoping_을 사용하여 [함수로 쿼리를 저장합니다](functions.md#create-a-function).
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -131,4 +131,5 @@ applicationsScoping
 
 ## <a name="next-steps"></a>다음 단계
 
-Log Analytics에 사용할 수 있는 모든 쿼리 구문 옵션을 보려면 [Log Analytics 로그 검색 참조](https://docs.microsoft.com/azure/log-analytics/query-language/kusto)를 검토하세요.    
+- 로그 쿼리 개요와 Azure Monitor 로그 데이터가 구조화되는 방법을 보려면 [Azure Monitor에서 로그 데이터 분석](log-query-overview.md)을 검토하세요.
+- Azure Monitor 로그 쿼리에 대한 모든 리소스를 확인하려면 [Azure Monitor 로그 쿼리](query-language.md)를 검토하세요.

@@ -16,12 +16,13 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077252"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185454"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>방법: Azure AD 앱에 선택적 클레임 제공(공개 미리 보기)
 
@@ -76,7 +77,7 @@ ms.locfileid: "55077252"
 | `ztdid`                    | 무인 배포 ID | JWT | | [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)에 사용된 디바이스 ID |
 |`email`                     | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.|  
 | `acct`             | 테넌트의 사용자 계정 상태입니다. | JWT, SAML | | 사용자가 테넌트의 구성원인 경우 값은 `0`입니다. 게스트인 경우 값은 `1`입니다. |
-| `upn`                      | UserPrincipalName 클레임입니다. | JWT, SAML  |           | 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다. <br> 추가 속성: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
+| `upn`                      | UserPrincipalName 클레임입니다. | JWT, SAML  |           | 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다.  |
 
 ### <a name="v20-optional-claims"></a>v2.0 선택적 클레임
 
@@ -85,30 +86,28 @@ ms.locfileid: "55077252"
 **표 3: V2.0 전용 선택적 클레임**
 
 | JWT 클레임     | Name                            | 설명                                | 메모 |
-|---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
+|---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |
 | `pwd_exp`     | 암호 만료 시간        | 암호가 만료되는 날짜/시간입니다. |       |
-| `pwd_url`     | 암호 변경 URL             | 사용자가 암호 변경을 위해 방문할 수 있는 URL입니다.   |       |
-| `in_corp`     | 기업 네트워크 내부        | 클라이언트가 회사 네트워크에서 로그인하는 경우 알립니다. 아닌 경우, 클레임은 포함되지 않습니다.   |       |
-| `nickname`    | 애칭                        | 이름 및 성과는 별개인 사용자의 추가 이름입니다. |       |                                                                                                                |       |
+| `pwd_url`     | 암호 변경 URL             | 사용자가 암호 변경을 위해 방문할 수 있는 URL입니다.   |   |
+| `in_corp`     | 기업 네트워크 내부        | 클라이언트가 회사 네트워크에서 로그인하는 경우 알립니다. 아닌 경우, 클레임은 포함되지 않습니다.   |  MFA의 [신뢰할 수 있는 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips)를 기반으로 합니다.    |
+| `nickname`    | 애칭                        | 이름 및 성과는 별개인 사용자의 추가 이름입니다. | 
 | `family_name` | 성                       | Azure AD 사용자 개체에 정의된 사용자의 성을 제공합니다. <br>"family_name":"Miller" |       |
 | `given_name`  | 이름                      | Azure AD 사용자 개체에 설정된 대로 사용자의 이름 또는 "지정된 이름"을 제공합니다.<br>"given_name": "Frank"                   |       |
+| `upn`       | 사용자 계정 이름 | username_hint 매개 변수와 함께 사용할 수 있는 사용자에 식별자입니다.  사용자에 대한 지속형 식별자가 아니며 키 데이터에 사용할 수 없습니다. | 클레임의 구성에 대해서는 아래 [추가 속성](#additional-properties-of-optional-claims)을 참조하세요. |
 
 ### <a name="additional-properties-of-optional-claims"></a>선택적 클레임의 추가 속성
 
-일부 선택적 클레임은 클레임이 반환되는 방식을 변경하도록 구성할 수 있습니다. 대개 이러한 추가 속성을 사용하여 다른 데이터 기대가 포함된 온-프레미스 애플리케이션을 마이그레이션할 수 있습니다(예: UPN에서 `include_externally_authenticated_upn_without_hash`를 통해 해시 표시(`#`)를 처리할 수 없는 클라이언트에 사용할 수 있음).
+일부 선택적 클레임은 클레임이 반환되는 방식을 변경하도록 구성할 수 있습니다. 대개 이러한 추가 속성을 사용하면 다른 데이터 기대가 포함된 온-프레미스 애플리케이션을 마이그레이션하는 데 도움이 됩니다(예: `include_externally_authenticated_upn_without_hash`는 UPN에서 해시 표시(`#`)를 처리할 수 없는 클라이언트에 유용).
 
-**표 4: 표준 선택적 클레임에 대한 구성 값**
+**표 4: 선택적 클레임 구성을 위한 값**
 
-| 속성 이름                                     | 추가 속성 이름                                                                                                             | 설명 |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |  SAML 및 JWT 응답 모두에 사용할 수 있습니다.        |
-| | `include_externally_authenticated_upn`              | 리소스 테넌트에 저장된 게스트 UPN을 포함합니다. 예를 들어 `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
-| | `include_externally_authenticated_upn_without_hash` | 해시 표시(`#`)가 밑줄(`_`)로 바뀐다는 점을 제외하고 위와 같습니다(예: `foo_hometenant.com_EXT_@resourcetenant.com`). |             
-
-> [!Note]
->추가 속성 없이 UPN 선택적 클레임을 지정하면 어떤 동작도 변경되지 않습니다. 토큰에서 발급된 새 클레임을 보려면 하나 이상의 추가 속성을 추가해야 합니다. 
+| 속성 이름  | 추가 속성 이름 | 설명 |
+|----------------|--------------------------|-------------|
+| `upn`          |                          | SAML 및 JWT 응답과 v1.0 및 v2.0 토큰 모두에 사용할 수 있습니다. |
+|                | `include_externally_authenticated_upn`  | 리소스 테넌트에 저장된 게스트 UPN을 포함합니다. 예를 들어 `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | 해시 표시(`#`)가 밑줄(`_`)로 바뀐다는 점 외에는 위와 같습니다(예: `foo_hometenant.com_EXT_@resourcetenant.com`). |
 
 #### <a name="additional-properties-example"></a>추가 속성 예제
 
@@ -151,12 +150,12 @@ ms.locfileid: "55077252"
 "saml2Token": [ 
               { 
                     "name": "upn", 
-                    "essential": true
+                    "essential": false
                },
                { 
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
-                    "essential": true
+                    "essential": false
                }
        ]
    }

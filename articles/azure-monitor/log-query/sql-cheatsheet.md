@@ -1,6 +1,6 @@
 ---
-title: SQL-Azure Log Analytics 쿼리 언어 참고 자료 | Microsoft Docs
-description: Log Analytics 쿼리에서 다양한 시나리오에 사용할 일반 함수입니다.
+title: SQL-Azure Monitor 로그 쿼리 참고 자료 | Microsoft Docs
+description: Azure Monitor에서 로그 쿼리를 작성하는 데 SQL에 익숙한 사용자를 위한 도움말입니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 35438644842d5280bd789efa135805ba9943cb8b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183050"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993669"
 ---
-# <a name="sql-to-log-analytics-query-language-cheat-sheet"></a>SQL-Azure Log Analytics 쿼리 언어 참고 자료 
+# <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL-Azure Monitor 로그 쿼리 참고 자료 
 
-아래 표를 통해 SQL에 익숙한 사용자가 Log Analytics 쿼리 언어를 알아볼 수 있습니다. Log Analytics를 사용하여 일반적인 시나리오 및 동등한 시나리오를 해결하기 위한 T-SQL 명령을 살펴봅니다.
+아래 표는 SQL에 익숙한 사용자가 Azure Monitor에서 로그 쿼리를 작성하기 위한 데이터 탐색기 쿼리 언어를 알아보는 데 도움이 됩니다. Azure Monitor 로그 쿼리에서 일반적인 시나리오 및 동등한 시나리오를 해결하기 위한 T-SQL 명령을 살펴봅니다.
 
-## <a name="sql-to-log-analytics"></a>SQL-Log Analytics
+## <a name="sql-to-azure-monitor"></a>SQL-Azure Monitor
 
-설명                             |SQL 쿼리                                                                                          |Azure Log Analytics 쿼리
+설명                             |SQL 쿼리                                                                                          |Azure Monitor 로그 쿼리
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 테이블에서 모든 데이터 선택            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 테이블에서 특정 열 선택    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -50,4 +50,4 @@ Join                                    |`SELECT * FROM dependencies JOIN except
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log Analytics에서 쿼리 작성](get-started-queries.md)에 대한 단원을 계속 진행하세요.
+- [Azure Monitor에서 로그 쿼리 작성](get-started-queries.md) 단원을 계속 진행합니다.

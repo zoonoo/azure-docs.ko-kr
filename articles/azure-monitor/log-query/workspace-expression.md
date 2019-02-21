@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 쿼리의 workspace() 식 | Microsoft Docs
-description: workspace 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 작업 영역에서 데이터를 검색하기 위해 Log Analytics 쿼리에서 사용됩니다.
+title: Azure Monitor 로그 쿼리의 workspace() 식 | Microsoft Docs
+description: workspace 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 작업 영역에서 데이터를 검색하기 위해 Azure Monitor 로그 쿼리에서 사용됩니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 24a737a728b0a249fda76cbff481bea284ac24aa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182947"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55992995"
 ---
-# <a name="workspace-expression-in-log-analytics-query"></a>Log Analytics 쿼리의 workspace() 식
+# <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 workspace() 식
 
-`workspace` 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 작업 영역에서 데이터를 검색하기 위해 Log Analytics 쿼리에서 사용됩니다. Application Insights 쿼리에 로그 데이터를 포함하고 로그 쿼리를 통해 여러 작업 영역의 데이터를 쿼리하는 데 유용합니다.
+`workspace` 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 작업 영역에서 데이터를 검색하기 위해 Azure Monitor 쿼리에서 사용됩니다. Application Insights 쿼리에 로그 데이터를 포함하고 로그 쿼리를 통해 여러 작업 영역의 데이터를 쿼리하는 데 유용합니다.
 
 
 ## <a name="syntax"></a>구문
@@ -71,5 +71,6 @@ union
 
 ## <a name="next-steps"></a>다음 단계
 
-- Application Insights 앱을 가리키는 [앱 식](workspace-expression.md)을 참조하세요.
-- [Log Analytics 데이터](../../azure-monitor/log-query/log-query-overview.md)의 저장 방법을 알아보세요.
+- Application Insights 앱을 가리키는 [app 식](app-expression.md)을 참조하세요.
+- [Azure Monitor 데이터](log-query-overview.md)가 저장되는 방법에 대해 알아보세요.
+- [데이터 탐색기 쿼리 언어](/azure/kusto/query/)에 대한 전체 설명서에 액세스합니다.

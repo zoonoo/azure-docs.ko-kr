@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 02/05/2018
 ms.author: ramamill
-ms.openlocfilehash: 1d5c2dccabbc2acdddec6176d9b52681d4a18e68
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: b7454226b96ff2f6a76285d708a7ce2ad1c3a6de
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744095"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56235889"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -130,38 +130,42 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 
 ## <a name="faq"></a>FAQ
 
-1. 구성 서버가 설치된 VM을 다른 용도로 사용할 수 있나요?
+1. OVF를 통해 구성 서버에 제공된 라이선스는 얼마 동안 유효한가요? 라이선스를 다시 활성화하지 않으면 어떻게 되나요?
+
+    OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. 라이선스가 만료되기 전에 다시 활성화해야 합니다. 그렇지 않으면 구성 서버가 자주 종료되어 복제 작업이 중단될 수 있습니다.
+
+2. 구성 서버가 설치된 VM을 다른 용도로 사용할 수 있나요?
 
     **아니요**, 구성 서버 용도로만 VM을 사용하는 것이 좋습니다. 재해 복구를 효율적으로 관리하려면 [필수 구성 요소](#prerequisites)에 설명된 사양을 모두 따라야 합니다.
-2. 구성 서버에 이미 등록된 자격 증명 모음을 새로 만든 자격 증명 모음으로 전환할 수 있나요?
+3. 구성 서버에 이미 등록된 자격 증명 모음을 새로 만든 자격 증명 모음으로 전환할 수 있나요?
 
     **아니요**, 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다.
-3. 물리적 컴퓨터와 가상 머신을 모두 보호하는 데 동일한 구성 서버를 사용할 수 있나요?
+4. 물리적 컴퓨터와 가상 머신을 모두 보호하는 데 동일한 구성 서버를 사용할 수 있나요?
 
     **예**, 물리적 머신과 가상 머신을 복제하는 데 동일한 구성 서버를 사용할 수 있습니다. 그러나 물리적 머신은 VMware VM으로만 장애 복구(failback)할 수 있습니다.
-4. 구성 서버의 용도는 무엇이고, 어디서 사용되나요?
+5. 구성 서버의 용도는 무엇이고, 어디서 사용되나요?
 
     구성 서버 및 해당 기능에 대해 자세히 알아보려면 [VMware를 Azure 복제 아키텍처로](vmware-azure-architecture.md)를 참조하세요.
-5. 최신 버전의 구성 서버는 어디서 찾을 수 있나요?
+6. 최신 버전의 구성 서버는 어디서 찾을 수 있나요?
 
     포털을 통해 구성 서버를 업그레이드하는 단계는 [구성 서버 업그레이드](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 참조하세요. 모든 Site Recovery 구성 요소를 업그레이드하는 방법에 대한 자세한 지침은 [여기](https://aka.ms/asr_how_to_upgrade)를 참조하세요.
-6. 구성 서버의 암호는 어디서 다운로드할 수 있나요?
+7. 구성 서버의 암호는 어디서 다운로드할 수 있나요?
 
     암호를 다운로드하려면 [이 문서](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)를 참조하세요.
-7. 암호를 변경할 수 있나요?
+8. 암호를 변경할 수 있나요?
 
     **아니요**, **구성 서버의 암호를 변경하지 않는 것**이 좋습니다. 암호를 변경하면 보호되는 머신의 복제가 중단되고 심각한 상태가 됩니다.
-8. 자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
+9. 자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
 
     **Recovery Services 자격 증명 모음**에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 통해 다운로드합니다. 서버에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 파일을 다운로드합니다.
-9. 기존 구성 서버를 복제하고 복제 오케스트레이션에 사용할 수 있나요?
+10. 기존 구성 서버를 복제하고 복제 오케스트레이션에 사용할 수 있나요?
 
     **아니요**, 복제된 구성 서버 구성 요소를 사용하는 것은 지원되지 않습니다.
 
-10. 구성 서버의 IP를 변경할 수 있나요?
+11. 구성 서버의 IP를 변경할 수 있나요?
 
     **아니요**,구성 서버의 IP 주소는 변경하지 않는 것이 좋습니다. 구성 서버에 할당된 모든 IP가 DHCP IP가 아닌 정적 IP인지 확인합니다.
-11. Azure에서 구성 서버를 설정할 수 있나요?
+12. Azure에서 구성 서버를 설정할 수 있나요?
 
     데이터 전송 대기 시간을 최소화하기 위해 v-Center에서 직접 볼 수 있는 온-프레미스 환경에 구성 서버를 설정하는 것이 좋습니다. [장애 복구](vmware-azure-manage-configuration-server.md#failback-requirements)를 위해 구성 서버의 예약된 백업을 수행할 수 있습니다.
 

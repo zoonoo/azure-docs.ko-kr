@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d485195b868b6cbca587c736ac02663491742cdb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d700423ea966cab3b0f546d21d4d2f5ca5208971
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236877"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990516"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services 오류 코드
 Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원되지 않는 작업에 대한 인증 토큰 만료와 같은 문제에 따라 서비스에서 HTTP 오류 코드를 받을 수도 있습니다. 다음은 Media Services에서 반환되는 **HTTP 오류 코드** 및 가능한 원인의 목록입니다.  
@@ -92,7 +92,7 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 요청을 처리하는 동안 Media Services가 처리를 계속 실행하는 것을 막는 오류가 발생합니다. 다음 이유 중 하나 때문일 수 있습니다.
 
 * Media Services 계정의 서비스 할당량 정보를 일시적으로 사용할 수 없기 때문에 Asset 또는 Job을 만들 수 없습니다.
-* 계정의 저장소 계정 정보를 일시적으로 사용할 수 없기 때문에 Asset 또는 IngestManifest blob 저장소 컨테이너를 만들 수 없습니다.
+* Azure File Storage 일반적으로 사용 가능(영문)
 * 기타 예기치 않은 오류.
 
 ## <a name="503-service-unavailable"></a>503 서비스를 사용할 수 없음

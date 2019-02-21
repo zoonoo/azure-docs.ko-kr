@@ -3,21 +3,23 @@ title: 릴리스 정보 - Custom Vision Service
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: bba65a495963142e8b3201a026dc13a8cfff8e70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b712f47fe9272e0ae6ccb9ab9847462729434698
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207363"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894414"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service 릴리스 정보
 
+## <a name="january-22-2019"></a>2019년 1월 22일
+- 다음과 같은 새 Azure 지역에 대한 지원이 추가되었습니다. 미국 서부 2, 미국 동부, 미국 동부 2, 유럽 서부, 유럽 북부, 동남 아시아, 오스트레일리아 동부, 인도 중부, 영국 남부, 일본 동부 및 미국 중북부. 미국 중남부에 대한 지원은 계속됩니다. 
 
 ## <a name="december-12-2018"></a>2018년 12월 12일
 - 개체 감지 모델(도입된 개체 감지 컴팩트 도메인) 내보내기를 지원합니다.

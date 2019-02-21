@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics에서 텍스트 데이터 구문 분석 | Microsoft Docs
-description: 데이터가 수집될 때와 쿼리에서 검색될 때 Log Analytics 레코드의 데이터를 구문 분석하기 위한 다양한 옵션을 설명하고, 각각의 상대적인 이점을 비교합니다.
+title: Azure Monitor 로그에서 텍스트 데이터 구문 분석 | Microsoft Docs
+description: 데이터가 수집될 때와 쿼리에서 검색될 때 Azure Monitor 레코드의 로그 데이터를 구문 분석하기 위한 다양한 옵션을 설명하고, 각각의 상대적인 이점을 비교합니다.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 0d589156824c7b9f3f6a8c31591d69479d11780a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214133"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002221"
 ---
-# <a name="parse-text-data-in-log-analytics"></a>Log Analytics에서 텍스트 데이터 구문 분석
-Log Analytics에서 수집된 일부 데이터에는 하나의 속성에 여러 개의 정보 부분이 포함되어 있습니다. 이 데이터를 여러 속성으로 구문 분석하면 쿼리에서 더 쉽게 사용할 수 있습니다. 일반적인 예로, 여러 값이 있는 전체 로그 항목을 단일 속성으로 수집하는 [사용자 지정 로그](../../log-analytics/log-analytics-data-sources-custom-logs.md)가 있습니다. 서로 다른 값에 대해 별도의 속성을 만들면 각각을 검색하고 집계할 수 있습니다.
+# <a name="parse-text-data-in-azure-monitor-logs"></a>Azure Monitor 로그에서 텍스트 데이터 구문 분석
+Azure Monitor에서 수집된 일부 데이터에는 하나의 속성에 여러 개의 정보 부분이 포함되어 있습니다. 이 데이터를 여러 속성으로 구문 분석하면 쿼리에서 더 쉽게 사용할 수 있습니다. 일반적인 예로, 여러 값이 있는 전체 로그 항목을 단일 속성으로 수집하는 [사용자 지정 로그](../../log-analytics/log-analytics-data-sources-custom-logs.md)가 있습니다. 서로 다른 값에 대해 별도의 속성을 만들면 각각을 검색하고 집계할 수 있습니다.
 
-이 문서에서는 데이터가 수집될 때와 쿼리에서 검색될 때 Log Analytics 레코드의 데이터를 구문 분석하기 위한 다양한 옵션을 설명하고, 각각의 상대적인 이점을 비교합니다.
+이 문서에서는 데이터가 수집될 때와 쿼리에서 검색될 때 Azure Monitor 레코드의 로그 데이터를 구문 분석하기 위한 다양한 옵션을 설명하고, 각각의 상대적인 이점을 비교합니다.
 
 
 ## <a name="parsing-methods"></a>구문 분석 방법
@@ -60,7 +60,7 @@ Log Analytics에서 수집된 일부 데이터에는 하나의 속성에 여러 
 - 매우 큰 레코드 세트(수십억 개의 레코드)에 대해 복잡한 논리를 실행할 때 오버헤드를 만들 수 있습니다.
 
 ## <a name="parse-data-as-its-collected"></a>수집된 데이터 구문 분석
-데이터를 수집할 때 구문 분석하는 방법에 대한 자세한 내용은 [Log Analytics에서 사용자 지정 필드 만들기](../../log-analytics/log-analytics-custom-fields.md)를 참조하세요. 이렇게 하면 다른 속성처럼 쿼리에서 사용할 수 있는 사용자 지정 속성이 테이블에 만들어집니다.
+데이터를 수집할 때 구문 분석하는 방법에 대한 자세한 내용은 [Azure Monitor에서 사용자 지정 필드 만들기](../platform/custom-fields.md)를 참조하세요. 이렇게 하면 다른 속성처럼 쿼리에서 사용할 수 있는 사용자 지정 속성이 테이블에 만들어집니다.
 
 ## <a name="parse-data-in-query-using-patterns"></a>패턴을 사용하여 쿼리의 데이터 구문 분석
 구문 분석하려는 데이터를 레코드 간에 반복되는 패턴으로 식별할 수 있는 경우 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)의 다양한 연산자를 사용하여 데이터의 특정 부분을 하나 이상의 새 속성으로 추출할 수 있습니다.
@@ -106,7 +106,7 @@ AzureActivity
 | distinct UPNUserPart, Caller
 ```
 
-효율적인 대량 구문 분석을 사용하도록 설정하기 위해 Log Analytics는 다른 정규식 변형 중 일부와 비슷하지만 동일하지 않은 re2 버전의 정규식을 사용합니다. 자세한 내용은 [re2 식 구문](https://aka.ms/kql_re2syntax)을 참조하세요.
+효율적인 대량 구문 분석을 사용하도록 설정하기 위해 Azure Monitor는 다른 정규식 변형 중 일부와 비슷하지만 동일하지 않은 re2 버전의 정규식을 사용합니다. 자세한 내용은 [re2 식 구문](https://aka.ms/kql_re2syntax)을 참조하세요.
 
 
 ## <a name="parse-delimited-data-in-a-query"></a>쿼리에서 구분 기호로 분리된 데이터 구문 분석

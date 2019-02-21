@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.openlocfilehash: dfc47c40ce82eb8e9d414cb49c22bee033d000a6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1c50a6e14955b2c31222ff1317aa99ad28866ec8
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239034"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55864743"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>빅 데이터 요구 사항을 위한 Azure Data Lake Storage Gen2 사용
 
@@ -82,6 +82,8 @@ HDFS를 사용하여 로컬 컴퓨터의 기존 Hadoop 클러스터에 대량의
 Data Lake Storage Gen2의 데이터를 사용할 수 있게 되면 지원되는 빅 데이터 애플리케이션을 사용하여 해당 데이터에 대한 분석을 실행할 수 있습니다. 현재 Azure HDInsight 및 Azure Databricks를 사용하여 Azure Data Lake Storage Gen2에 저장된 데이터에 대한 데이터 분석 작업을 실행할 수 있습니다.
 
 ![Data Lake Storage Gen2의 데이터 분석](./media/data-lake-storage-data-scenarios/analyze-data.png "Data Lake Storage Gen2의 데이터 분석")
+
+예를 들어 [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)을 참조하세요.
 
 
 ## <a name="download-data-from-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 데이터 다운로드

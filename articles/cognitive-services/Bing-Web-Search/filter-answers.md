@@ -4,23 +4,23 @@ titleSuffix: Azure Cognitive Services
 description: Bing Web Search API의 검색 결과를 필터링하고 표시하는 방법을 알아봅니다.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 01/12/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: c59cb173480fbeefa890317fb4804f07b9f58f76
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 26c38c34543683a3fc450d3a0ae932d8bd30dc98
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158182"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56199496"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>검색 응답에 포함되는 답변 필터링  
 
-웹을 쿼리할 때 Bing은 검색과 관련된 모든 콘텐츠를 반환합니다. 예를 들어 검색 쿼리가 “sailing+dinghies”인 경우 응답에는 다음과 같은 답변이 포함될 수 있습니다.
+웹을 쿼리할 때 Bing은 검색에 대해 찾은 관련된 모든 콘텐츠를 반환합니다. 예를 들어 검색 쿼리가 “sailing+dinghies”인 경우 응답에는 다음과 같은 답변이 포함될 수 있습니다.
 
 ```json
 {
@@ -44,8 +44,16 @@ ms.locfileid: "55158182"
     }
 }    
 ```
+[responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) 쿼리 매개 변수를 사용하여 수신하는 콘텐츠의 유형(예: 이미지, 비디오 및 뉴스)을 필터링할 수 있습니다. Bing에서 지정한 답변의 관련 콘텐츠를 찾으면 반환됩니다. 응답 필터는 쉼표로 구분된 답변 목록입니다. 
 
-이미지, 비디오, 뉴스 등의 특정 콘텐츠 형식에 관심이 있는 경우 [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) 쿼리 매개 변수를 사용하여 해당 답변만 요청할 수 있습니다. Bing에서 지정한 답변의 관련 콘텐츠를 찾으면 해당 콘텐츠도 반환됩니다. 응답 필터는 쉼표로 구분된 답변 목록입니다. 아래에서는 `responseFilter`를 사용하여 돛단배의 이미지, 비디오 및 뉴스를 요청하는 방법을 보여 줍니다. 쿼리 문자열을 인코드하면 쉼표가 %2C로 바뀝니다.  
+응답에서 이미지와 같은 특정 콘텐츠 유형을 제외하려면 `responseFilter` 값의 시작 부분에 `-` 문자를 추가할 수 있습니다. 쉼표(`,`)를 사용하여 제외된 형식을 구분할 수 있습니다. 예: 
+
+```
+&responseFilter=-images,-videos
+```
+
+
+아래에서는 `responseFilter`를 사용하여 돛단배의 이미지, 비디오 및 뉴스를 요청하는 방법을 보여 줍니다. 쿼리 문자열을 인코드하면 쉼표가 %2C로 바뀝니다.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&responseFilter=images%2Cvideos%2Cnews&mkt=en-us HTTP/1.1  
@@ -80,12 +88,6 @@ Host: api.cognitive.microsoft.com
         }
     }
 }
-```
-
-이미지와 같은 특정 형식의 콘텐츠를 응답에서 제외하려는 경우 responseFilter 값에 하이픈(빼기) 접두사를 사용하여 제외할 수 있습니다. 쉼표를 사용하여 별도 제외된 형식:
-
-```
-&responseFilter=-images,-videos
 ```
 
 Bing이 이전 응답에서 비디오 및 뉴스 결과를 반환하지 않았다고 해서 비디오 및 뉴스 콘텐츠가 없는 것은 아닙니다. 단지 해당 페이지에 포함되지 않은 것입니다. 그러나 더 많은 결과를 [페이징](./paging-webpages.md)하면 후속 페이지에 이러한 콘텐츠가 있을 가능성이 큽니다. 또한 [Video Search API](../bing-video-search/search-the-web.md) 및 [News Search API](../bing-news-search/search-the-web.md) 엔드포인트를 직접 호출하는 경우 응답에 결과가 포함될 가능성이 큽니다.

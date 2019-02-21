@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: e11ef458fad11f04ce159d5e79c4152d2bd7e4c6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6f67ad04fed2018ba71dd39ed03c24e6aebecf90
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746794"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55984735"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>스크립트 작업을 사용하여 Windows 기반 HDInsight 클러스터 사용자 지정
 **스크립트 동작** 은 클러스터 생성 과정 중 클러스터에 추가 소프트웨어를 설치하기 위해 [사용자 지정 스크립트](hdinsight-hadoop-script-actions.md) 를 호출하는 데 사용될 수 있습니다.
@@ -62,17 +62,12 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
     ![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
 
-    <table border='1'>
-        <tr><th>자산</th><th>값</th></tr>
-        <tr><td>Name</td>
-            <td>스크립트 작업의 이름을 지정합니다.</td></tr>
-        <tr><td>스크립트 URI</td>
-            <td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI를 지정합니다. s</td></tr>
-        <tr><td>헤드/작업자</td>
-            <td>사용자 지정 스크립트가 실행되는 노드(**헤드** 또는 **작업자**)를 지정합니다.</b>
-        <tr><td>매개 변수</td>
-            <td>스크립트에 필요한 경우 매개 변수를 지정합니다.</td></tr>
-    </table>
+      |자산|값|  
+      |---|---|
+      |Name|스크립트 작업의 이름을 지정합니다.|
+      |스크립트 URI|클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI를 지정합니다.|
+      |헤드/작업자|사용자 지정 스크립트가 실행되는 노드(**헤드** 또는 **작업자**)를 지정합니다.|
+      |매개 변수|스크립트에 필요한 경우 매개 변수를 지정합니다.|
 
     ENTER 키를 누르고 두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다.
 3. **선택** 을 클릭하여 스크립트 작업 구성을 저장하고 계속 클러스터를 만듭니다.
@@ -80,7 +75,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 ## <a name="call-scripts-using-azure-powershell"></a>Azure PowerShell을 사용하여 스크립트 호출
 이 다음 PowerShell 스크립트는 Windows 기반 HDInsight 클러스터에 Spark를 설치하는 방법을 보여줍니다.  
 
-    ```powershell
+```powershell  
     # Provide values for these variables
     $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
@@ -159,7 +154,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
             -OSType Windows `
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
-    ```
+```
 
 다른 소프트웨어를 설치하려면 스크립트에서 스크립트 파일을 바꿔야 합니다.
 
@@ -172,12 +167,14 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 1. Visual Studio를 사용하여 C# 콘솔 애플리케이션을 만듭니다.
 2. NuGet 패키지 관리자 콘솔에서 다음 명령을 실행합니다.
-    ```powershell
+
+    ```powershell  
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
     ```
-3. Program.cs 파일에서 다음 using 문을 사용합니다.
+
+1. Program.cs 파일에서 다음 using 문을 사용합니다.
 
     ```csharp
         using System;

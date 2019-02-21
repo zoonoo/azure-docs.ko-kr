@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 쿼리의 app() 식 | Microsoft Docs
-description: app 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱에서 데이터를 검색하기 위해 Log Analytics 쿼리에서 사용됩니다.
+title: Azure Monitor 로그 쿼리의 app() 식 | Microsoft Docs
+description: app 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱에서 데이터를 검색하기 위해 Azure Monitor 로그 쿼리에서 사용됩니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: db92db315875348ff05ec3a34b1a9fa946479c27
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104663"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998538"
 ---
-# <a name="app-expression-in-log-analytics-query"></a>Log Analytics 쿼리의 app() 식
+# <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 쿼리에서 app() 식
 
-`app` 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱에서 데이터를 검색하기 위해 Log Analytics 쿼리에서 사용됩니다. 이 식은 Log Analytics 쿼리에 애플리케이션 데이터를 포함하고 Application Insights 쿼리를 통해 여러 애플리케이션의 데이터를 쿼리하는 데 유용합니다.
+`app` 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱에서 데이터를 검색하기 위해 Azure Monitor 쿼리에서 사용됩니다. 이 식은 Azure Monitor 로그 쿼리에 애플리케이션 데이터를 포함하고 Application Insights 쿼리를 통해 여러 애플리케이션의 데이터를 쿼리하는 데 유용합니다.
 
 
 
@@ -79,4 +79,5 @@ union
 ## <a name="next-steps"></a>다음 단계
 
 - Log Analytics 작업 영역을 가리키는 [작업 영역 식](workspace-expression.md)을 참조하세요.
-- [Log Analytics 데이터](../../azure-monitor/log-query/log-query-overview.md)의 저장 방법을 알아보세요.
+- [Azure Monitor 데이터](../../azure-monitor/log-query/log-query-overview.md)가 저장되는 방법에 대해 알아보세요.
+- [데이터 탐색기 쿼리 언어](/azure/kusto/query/)에 대한 전체 설명서에 액세스합니다.

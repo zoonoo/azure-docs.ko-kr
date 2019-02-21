@@ -4,7 +4,7 @@ description: Adobe 오픈 소스 미디어 프레임워크용 Azure Media Servic
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 1664dc16e93fa825962690ec3ed5681478005d59
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cfabc068e801c610c9e393eea50213a3c5ad26ea
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229631"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000100"
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Adobe 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인을 사용하는 방법
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Adobe 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인을 사용하는 방법  
 ## <a name="overview"></a>개요
 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인 2.0(SS for OSMF)은 OSMF의 기본 기능을 확장하며 기존 및 새로운 OSMF 플레이어에 Microsoft 부드러운 스트리밍 콘텐츠 재생을 추가합니다. 이 플러그 인은 또한 SMP(Strobe Media Playback)에 부드러운 스트리밍 재생 기능을 추가합니다.
 

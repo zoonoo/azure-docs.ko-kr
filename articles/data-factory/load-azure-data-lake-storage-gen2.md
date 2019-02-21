@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2(미리 보기)에 데이터 로드
-description: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2(미리 보기)에 데이터 복사
+title: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드
+description: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 복사
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 108ced5416eb7cd6826f4f96d4f62fd33e8f5653
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6b03e08200c4d20a64fad329abda71c5c7edab26
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680857"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55876082"
 ---
-# <a name="load-data-into-azure-data-lake-storage-gen2-preview-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2(미리 보기)에 데이터 로드
+# <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드
 
-Azure Data Lake Storage Gen2 미리 보기는 [Azure Blob 스토리지](../storage/blobs/storage-blobs-introduction.md)에 구축된 빅 데이터 분석 전용의 기능 세트입니다. 이를 사용하면 파일 시스템 및 개체 저장소 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다.
+Azure Data Lake Storage Gen2는 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)를 기반으로 하는 빅 데이터 분석 전용의 기능 세트입니다. 이를 사용하면 파일 시스템 및 개체 저장소 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다.
 
 Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 분석 솔루션을 빌드할 때 서비스를 사용하여 풍부한 온-프레미스 및 크라우드 기반 데이터 저장소의 데이터로 레이크를 채우고 시간을 절약할 수 있습니다. 지원되는 커넥터의 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
@@ -57,7 +57,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
    
    ![데이터 팩터리 홈페이지](./media/load-azure-data-lake-storage-gen2/data-factory-home-page.png)
 
-   **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 응용 프로그램을 시작합니다.
+   **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
 
 ## <a name="load-data-into-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 데이터 로드
 
@@ -92,7 +92,7 @@ Azure Data Factory는 스케일 아웃, 관리되는 데이터 이동 솔루션�
 
     ![출력 폴더 지정](./media/load-azure-data-lake-storage-gen2/specify-binary-copy.png)
     
-7. **대상 데이터 저장소** 페이지에서 **+ 새 연결 만들기**를 클릭한 다음, **Azure Data Lake Storage Gen2(미리 보기)** 를 선택하고 **계속**을 선택합니다.
+7. **대상 데이터 스토리지** 페이지에서 **+ 새 연결 만들기**를 클릭한 다음, **Azure Data Lake Storage Gen2**를 선택하고 **계속**을 선택합니다.
 
     ![대상 데이터 저장소 페이지](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
 

@@ -4,7 +4,7 @@ description: 컴퓨터로 자산을 다운로드하는 방법에 대해 알아�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed53fe191dcf740f949b2d9cdcc3c97e30d85544
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 798c7e4b5efa3ca016f5e1b7e5c0967599fa6436
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782802"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993115"
 ---
-# <a name="how-to-deliver-an-asset-by-download"></a>방법: 다운로드를 통해 자산 제공
+# <a name="how-to-deliver-an-asset-by-download"></a>방법: 다운로드를 통해 자산 제공  
 이 문서에서는 Media Services에 업로드된 미디어 자산을 제공하는 옵션에 대해 설명합니다. 다양한 애플리케이션 시나리오에서 Media Services 콘텐츠를 제공할 수 있습니다. 인코딩한 다음, 생성된 미디어 자산을 다운로드하거나 스트리밍 로케이터를 사용하여 액세스합니다. 향상된 성능과 확장성을 위해 Content Delivery Network(CDN)를 사용하여 콘텐츠를 배달할 수도 있습니다.
 
 이 예제에는 Media Services에서 로컬 컴퓨터로 미디어 자산을 다운로드하는 방법을 보여줍니다. 이 코드에서는 작업 ID를 사용하여 Media Services 계정에 연결된 작업을 쿼리하고 **OutputMediaAssets** 컬렉션(작업 실행의 결과로 반환되는 하나 이상의 출력 미디어 자산 집합)에 액세스합니다. 이 예제에서는 작업에서 출력 미디어 자산을 다운로드하는 방법을 보여 주지만, 동일한 방법을 사용하여 다른 자산을 다운로드할 수도 있습니다.

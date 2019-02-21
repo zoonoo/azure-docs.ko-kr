@@ -1,6 +1,6 @@
 ---
-title: 오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화 | Microsoft Docs
-description: 이 페이지에서는 오픈 소스 도구를 사용하여 NSG 흐름 로그를 시각화하는 방법을 설명합니다.
+title: Network Watcher 및 Elastic Stack을 사용하여 네트워크 보안 그룹 흐름 로그 관리 및 분석 | Microsoft Docs
+description: Network Watcher 및 Elastic Stack을 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그를 관리하고 분석합니다.
 services: network-watcher
 documentationcenter: na
 author: mattreatMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822911"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099006"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화
 

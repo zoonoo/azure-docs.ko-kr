@@ -4,23 +4,23 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS(Language Understanding) 일괄 테스트 집합을 사용하여 잘못된 의도 및 엔터티가 있는 발화를 찾습니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: dcc5e463eab6c5de612df45963f160156315a34a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213228"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116901"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
- 일괄 테스트는 현재 학습된 모델의 포괄적인 테스트로, LUIS에서 성능을 측정할 수 있습니다. 일괄 처리 테스트에 사용되는 데이터 세트에는 의도 예제 발화 또는 예측 런타임 엔드포인트에서 수신된 예제 발화를 포함하지 않습니다. 
+ 일괄 테스트는 현재 학습된 모델의 포괄적인 테스트로, LUIS에서 성능을 측정할 수 있습니다. 일괄 처리 테스트에 사용되는 데이터 세트에는 예측 런타임 엔드포인트에서 수신한 발언이나 의도의 예제 발언을 포함해서는 안됩니다. 
 
 <a name="batch-testing"></a>
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c1718c5a2acfe49fba4974bcf7e580c45553113d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721566"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108741"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
@@ -43,7 +43,7 @@ ms.locfileid: "53721566"
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>PowerShell를 사용하여 App Service Web Apps를 어떻게 자동화할 수 있나요?
 
-PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관리할 수 있습니다. 블로그 게시물 [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)(PowerShell을 사용하여 Azure App Service에 호스트된 Web Apps 자동화)에서 Azure Resource Manager 기반 PowerShell cmdlet을 사용하여 일반적인 작업을 자동화하는 방법을 설명합니다. 이 블로그 게시물에는 다양한 Web Apps 관리 작업에 대한 샘플 코드도 있습니다. 모든 App Service Web Apps cmdlet에 대한 설명과 구문은 [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0)를 참조하세요.
+PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관리할 수 있습니다. 블로그 게시물 [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/)(PowerShell을 사용하여 Azure App Service에 호스트된 Web Apps 자동화)에서 Azure Resource Manager 기반 PowerShell cmdlet을 사용하여 일반적인 작업을 자동화하는 방법을 설명합니다. 이 블로그 게시물에는 다양한 Web Apps 관리 작업에 대한 샘플 코드도 있습니다. 모든 App Service 웹앱 cmdlet에 대한 설명과 구문은 [Az.Websites](/powershell/module/az.websites)를 참조하세요.
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>내 웹앱의 이벤트 로그는 어떻게 볼 수 있나요?
 

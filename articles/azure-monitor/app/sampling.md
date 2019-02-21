@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 0b56451231f1fda4e5bd156d0aded6e84c9c0162
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8e9cb570f69eb29887f4f904ba7b2b35548f3771
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117455"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55965361"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -195,6 +195,63 @@ SDK 기반 적응 또는 고정 비율 샘플링이 작동되는 동안에는 �
 샘플링 비율의 경우 100/N(여기서 N은 정수)에 가까운 백분율을 선택합니다.  현재 샘플링은 다른 값을 지원하지 않습니다.
 
 서버에서도 고정 비율 샘플링을 사용하도록 설정하는 경우 클라이언트와 서버가 동기화되므로 검색에서 관련된 페이지 보기 및 요청 사이를 이동할 수 있습니다.
+
+## <a name="aspnet-core-sampling"></a>ASP.NET Core 샘플링
+
+적응 샘플링은 모든 ASP.NET Core 애플리케이션에 기본적으로 사용됩니다. 샘플링 동작을 사용하지 않도록 설정하거나 사용자 지정할 수 있습니다.
+
+### <a name="turning-off-adaptive-sampling"></a>적응 샘플링 끄기
+
+```ApplicationInsightsServiceOptions```을 사용하여 ```ConfigureServices``` 메서드에서 Application Insights 서비스를 추가할 때 기본 샘플링 기능을 비활성화할 수 있습니다.
+
+``` c#
+public void ConfigureServices(IServiceCollection services)
+{
+// ...
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+aiOptions.EnableAdaptiveSampling = false;
+services.AddApplicationInsightsTelemetry(aiOptions);
+
+//...
+}
+```
+
+위의 코드는 샘플링 기능을 비활성화합니다. 더 많은 사용자 지정 옵션을 사용하여 샘플링을 추가하려면 다음 단계를 수행합니다.
+
+### <a name="configure-sampling-settings"></a>샘플링 설정 구성
+
+아래와 같이 ```TelemetryProcessorChainBuilder```의 확장 메서드를 사용하여 샘플링 동작을 사용자 지정합니다.
+
+> [!IMPORTANT]
+> 이 메서드를 사용하여 샘플링을 구성하는 경우 AddApplicationInsightsTelemetry()와 함께 aiOptions.EnableAdaptiveSampling = false; 설정을 사용하십시오.
+
+``` c#
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+
+var builder = configuration .TelemetryProcessorChainBuilder;
+// version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+// var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+
+// Using adaptive sampling
+builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+ 
+// OR Using fixed rate sampling   
+double fixedSamplingPercentage = 50;
+builder.UseSampling(fixedSamplingPercentage);
+
+builder.Build();
+
+// ...
+}
+
+```
+
+**위의 메서드를 사용하여 샘플링을 구성하는 경우 AddApplicationInsightsTelemetry()와 함께 ```aiOptions.EnableAdaptiveSampling = false;``` 설정을 사용하십시오.**
+
+이렇게 하지 않으면 TelemetryProcessor 체인에 여러 샘플링 프로세서가 있게 되어 의도하지 않은 결과를 초래할 것입니다.
 
 ## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>ASP.NET 및 Java 웹 사이트에 대한 고정 비율 샘플링
 고정 비율 샘플링은 웹 서버와 웹 브라우저에서 전송되는 트래픽을 줄입니다. 적응 샘플링과 달리 사용자가 결정한 고정 비율로 원격 분석을 줄어듭니다. 또한 클라이언트와 서버 샘플링을 동기화하여 관련 항목이 유지되도록 합니다. 예를 들어 Search의 페이지 보기에서 관련 요청을 찾을 수 있습니다.

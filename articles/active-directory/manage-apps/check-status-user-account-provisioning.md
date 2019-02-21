@@ -3,8 +3,8 @@ title: SaaS 애플리케이션에 대한 Azure Active Directory 자동 사용자
 description: 자동 사용자 계정 프로비전 작업의 상태를 확인하는 방법과 개별 사용자의 프로비전 문제를 해결하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,15 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser
-ms.openlocfilehash: 833fe24f83a2f159fd00d24c67b6864ce614c445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203915"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56206993"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
@@ -62,9 +63,9 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 
 * 동기화가 마지막으로 실행된 시간 - 일반적으로 [초기 동기화](user-provisioning.md#what-happens-during-provisioning)가 완료된 후 20-40분마다 동기화가 발생합니다.
 
-* [초기 동기화](user-provisioning.md#what-happens-during-provisioning)가 완료되었는지 여부
+* [초기 동기화](user-provisioning.md#what-happens-during-provisioning)가 완료되었는지 여부.
 
-* 프로비전 프로세스의 격리 여부 및 격리 상태에 대한 이유(예: 잘못된 관리자 자격 증명으로 인해 대상 시스템과 통신하지 못하는 경우)
+* 프로비저닝 프로세스의 격리 여부 및 격리 상태에 대한 이유(예: 잘못된 관리자 자격 증명으로 인해 대상 시스템과 통신하지 못하는 경우).
 
 프로비전 요약 보고서는 프로비전 작업의 작동 상태를 확인하기 위해 관리자가 먼저 확인해야 합니다.
 
@@ -79,7 +80,7 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 
 * **내보내기 이벤트** - Azure AD 프로비전 서비스에서 사용자 계정 또는 그룹 개체를 대상 시스템에 작성할 때마다 "내보내기" 이벤트가 기록됩니다. 이러한 이벤트는 이벤트 발생 시 Azure AD 프로비전 서비스에서 작성한 모든 사용자 특성과 해당 값을 기록합니다. 사용자 계정 또는 그룹 개체를 대상 시스템에 작성하는 동안 오류가 발생하면 여기에 표시됩니다.
 
-* **프로세스 에스크로 이벤트** - 프로비전 서비스에서 작업을 시도하는 동안 오류가 발생하고 백오프 간격으로 작업 다시 시도를 시작할 때 프로세스 에스크로가 발생합니다. 프로비전 작업이 중지될 때마다 "에스크로" 이벤트가 기록됩니다.
+* **프로세스 에스크로 이벤트** - 프로비전 서비스에서 작업을 시도하는 동안 오류가 발생하고 백오프 간격으로 작업 다시 시도를 시작할 때 프로세스 에스크로가 발생합니다. 프로비저닝 작업이 다시 시도될 때마다 “에스크로” 이벤트가 기록됩니다.
 
 개별 사용자에 대한 프로비전 이벤트를 볼 때 일반적으로 다음과 같은 순서로 이벤트가 발생합니다.
 

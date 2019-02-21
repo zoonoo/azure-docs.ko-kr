@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: mialdrid
+ms.date: 02/11/2019
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0415c329364f8df312667e725f3c5376ea13a6f4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098101"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100740"
 ---
 # <a name="about-expressroute-direct-preview"></a>ExpressRoute Direct 정보(미리 보기)
 
@@ -58,7 +58,7 @@ Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처�
 
 ## <a name="circuit-skus"></a>회로 SKU
 
-ExpressRoute Direct는 Azure 저장소 및 기타 빅 데이터 서비스에 대규모 데이터 수집 시나리오를 지원합니다. ExpressRoute Direct의 ExpressRoute 회로는 이제 **40Gbps** 및 **100Gbps** 회로 SKU도 지원합니다.
+ExpressRoute Direct는 Azure 저장소 및 기타 빅 데이터 서비스에 대규모 데이터 수집 시나리오를 지원합니다. ExpressRoute Direct의 ExpressRoute 회로는 이제 **40Gbps** 및 **100Gbps** 회로 SKU도 지원합니다. 실제 포트 쌍은 불과 **100Gbps**이며 5Gbps, 10Gbps, 40Gbps, 100Gbps의 대역폭(조합할 경우 최대 200Gbps)으로 여러 가상 회로를 포함할 수 있습니다. 
 
 ## <a name="vlan-tagging"></a>VLAN 태그 지정
 

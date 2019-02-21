@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 37dd51a60d9ec6e018f58e2cfd593490d126670b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 3dac11ac4409ddde5264307439533bd583d75a9d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888654"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993061"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI를 사용하여 DNS 영역 파일 가져오기 및 내보내기 
 
@@ -116,7 +116,7 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
     az network dns record-set list -g myresourcegroup -z contoso.com
     ```
 
-* PowerShell cmdlet `Get-AzureRmDnsRecordSet`를 사용하여 레코드를 나열할 수 있습니다.
+* Azure CLI 명령 `az network dns record-set ns list`를 사용하여 레코드를 나열할 수 있습니다.
 * `nslookup` 을 사용하여 레코드에 대한 이름 확인의 유효성을 검사할 수 있습니다. 영역이 아직 위임되지 않았기 때문에 올바른 Azure DNS 이름 서버를 명시적으로 지정해야 합니다. 다음 샘플은 영역에 할당된 이름 서버 이름을 검색하는 방법을 보여 줍니다. 또한 `nslookup`을 사용하여 "www" 레코드를 쿼리하는 방법을 보여줍니다.
 
     ```azurecli
@@ -188,6 +188,6 @@ az network dns zone export -g <resource group> -n <zone name> -f <zone file name
 
 **myresourcegroup** 리소스 그룹의 기존 **contoso.com** Azure DNS 영역을 현재 폴더의 **contoso.com.txt** 파일로 내보내려면 `azure network dns zone export` 명령을 실행합니다. 이 명령은 Azure DNS 서비스를 호출하여 영역에서 레코드 집합을 열거하고 BIND와 호환 가능한 영역 파일에 결과를 내보냅니다.
 
-    ```
-    az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
-    ```
+```
+az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
+```

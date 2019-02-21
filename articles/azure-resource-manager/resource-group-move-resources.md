@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 84f8d8ecbeacc5acb6b19462096e6fbd1aa45816
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810289"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108775"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -28,7 +28,7 @@ ms.locfileid: "55810289"
 리소스를 이동할 때는 새 리소스 그룹으로만 이동됩니다. 이동 작업으로 리소스의 위치를 변경할 수 없습니다. 새 리소스 그룹은 다른 위치를 가질 수 있지만 리소스의 위치는 변경되지 않습니다.
 
 > [!NOTE]
-> 이 문서에서는 기존 Azure 계정 제품 내에서 리소스를 이동하는 방법을 설명합니다. 실제로 Azure 계정 제안(예: 무료에서 종량제로 업그레이드)을 변경하려는 경우 구독을 변환해야 합니다.
+> 이 문서에서는 기존 Azure 구독 간에 리소스를 이동하는 방법을 설명합니다. 실제로 Azure 구독을 업그레이드하려면(예: 평가판에서 종량제로 업그레이드) 구독을 변환해야 합니다.
 > * 평가판을 업그레이드하려면 [평가판 또는 Microsoft Imagine Azure 구독을 종량제로 업그레이드](..//billing/billing-upgrade-azure-subscription.md)를 참조하세요.
 > * 종량제 계정을 변경하려면 [다른 제안으로 Azure 종량제 구독 변경](../billing/billing-how-to-switch-azure-offer.md)을 참조하세요.
 > * 구독을 변환할 수 없으면 [Azure 지원 요청을 만듭니다](../azure-supportability/how-to-create-azure-support-request.md). 문제 유형으로 **구독 관리**를 선택합니다.
@@ -102,7 +102,7 @@ ms.locfileid: "55810289"
 * 포털 대시보드
 * Power BI - Power BI Embedded 및 Power BI Workspace Collection 모두
 * 공용 IP - 기본 SKU 공용 IP는 이동할 수 있습니다. 표준 SKU 공용 IP는 이동할 수 없습니다.
-* Recovery Services 자격 증명 모음 - [비공개 미리 보기](#recovery-services-limitations)에 등록합니다.
+* Recovery Services 자격 증명 모음 - [미리 보기](#recovery-services-limitations)에 등록합니다.
 * Azure Cache for Redis - 가상 네트워크를 사용하여 Azure Cache for Redis 인스턴스를 구성하는 경우 다른 구독으로 인스턴스를 이동할 수 없습니다. [가상 네트워크 제한 사항](#virtual-networks-limitations)을 참조하십시오.
 * Scheduler
 * Search - 서로 다른 지역의 여러 Search 리소스를 하나의 작업으로 모두 이동할 수는 없습니다. 대신 별도 작업으로 이동합니다.
@@ -310,7 +310,7 @@ App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 �
 
 ### <a name="recovery-services-limitations"></a>Recovery Services 제한 사항
 
- Recovery Services 자격 증명 모음을 이동하려면 비공개 미리 보기에 등록해야 합니다. 체험해 보려면 AskAzureBackupTeam@microsoft.com에 메일을 보내세요.
+ Recovery Services 자격 증명 모음을 이동하려면 [제한된 공개 미리 보기](../backup/backup-azure-move-recovery-services-vault.md)에 등록해야 합니다.
 
 현재 지역별로 한 번에 하나의 Recovery Services 자격 증명 모음을 이동할 수 있습니다. Azure Files, Azure 파일 동기화 또는 IaaS 가상 머신의 SQL을 백업하는 자격 증명 모음은 이동할 수 없습니다.
 

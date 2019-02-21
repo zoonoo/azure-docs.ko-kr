@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2016
+ms.date: 02/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: c284236af64c3981a5d15570bcd2705bb7d6a99b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: edbd7000001ae6927078e2f1bb9e348cc78f9efa
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121057"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962114"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights의 스마트 감지
  스마트 감지는 웹 애플리케이션에서 잠재적인 성능 문제를 자동으로 경고해 줍니다. 앱에서 [Application Insights](../../azure-monitor/app/app-insights-overview.md)로 보내는 원격 분석의 사전 분석을 수행합니다. 실패율이나 클라이언트 또는 서버 성능의 비정상적인 패턴이 갑자기 증가하는 경우 경고가 발생합니다. 이 기능에는 구성이 필요하지 않습니다. 애플리케이션에서 충분한 원격 분석을 보내는 경우 작동합니다.
@@ -46,6 +46,14 @@ ms.locfileid: "54121057"
 * [스마트 감지 - Azure 클라우드 서비스 문제](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). 앱이 Azure Cloud Services에서 호스트되고 역할 인스턴스에 시작 실패, 빈번한 재활용 또는 런타임 충돌이 있는 경우 경고가 발생합니다.
 
 (각 알림에서 도움말 링크를 통해 관련 문서로 이동할 수 있습니다.)
+
+## <a name="smart-detection-email-notifications"></a>스마트 검색 이메일 알림
+
+미리 보기로 표시된 규칙을 제외한 모든 스마트 검색 규칙은 기본적으로 검색이 탐지되면 이메일 알림을 보내도록 구성됩니다.
+
+특정 스마트 검색 규칙에 대한 이메일 알림 구성은 스마트 검색 **설정** 블레이드를 열고 **규칙 편집** 블레이드를 여는 규칙을 선택하여 수행할 수 있습니다.
+
+또는 Azure Resource Manager 템플릿을 사용하여 구성을 변경할 수 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Application Insights 스마트 검색 규칙 관리를 참조](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)합니다.
 
 ## <a name="video"></a>비디오
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 19e340609e80998037938bdad59e9e6e74894bad
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140403"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56098309"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>연결된 팩터리 솔루션 가속기 연습
 
@@ -46,7 +46,7 @@ OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-
 
 이 솔루션은 [OPC UA Pub/Sub 사양](https://opcfoundation.org/news/opc-foundation-news/opc-foundation-announces-support-of-publish-subscribe-for-opc-ua/)을 사용하여 OPC UA 원격 분석 데이터를 IoT Hub에 JSON 형식으로 보냅니다. 이 솔루션은 이 목표를 달성하기 위해 [OPC 게시자](https://github.com/Azure/iot-edge-opc-publisher) IoT Edge 모듈을 사용합니다.
 
-또한 이 솔루션은 온-프레미스 OPC UA 서버와의 연결을 설정할 수 있는 OPC UA 클라이언트가 웹 애플리케이션과 통합되었습니다. 이 클라이언트는 [역방향 프록시](https://wikipedia.org/wiki/Reverse_proxy)를 사용하며 IoT Hub의 도움을 받아 온-프레미스 방화벽에서 포트를 열지 않고도 연결을 만들 수 있습니다. 이 통신 패턴을 [서비스 지원 통신](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)이라고 합니다. 이 솔루션은 이 목표를 달성하기 위해 [OPC 프록시](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge 모듈을 사용합니다.
+또한 이 솔루션은 온-프레미스 OPC UA 서버와의 연결을 설정할 수 있는 OPC UA 클라이언트가 웹 애플리케이션과 통합되었습니다. 이 클라이언트는 [역방향 프록시](https://wikipedia.org/wiki/Reverse_proxy)를 사용하며 IoT Hub의 도움을 받아 온-프레미스 방화벽에서 포트를 열지 않고도 연결을 만들 수 있습니다. 이 통신 패턴을 서비스 지원 통신이라고 합니다. 이 솔루션은 이 목표를 달성하기 위해 [OPC 프록시](https://github.com/Azure/iot-edge-opc-proxy/) IoT Edge 모듈을 사용합니다.
 
 
 ## <a name="simulation"></a>시뮬레이션
@@ -117,7 +117,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 - OPC 프록시 모듈의 양방향 통신에 대한 전송 채널로 사용됩니다.
 
 ## <a name="azure-storage"></a>Azure Storage
-솔루션은 VM에 대 한 디스크 저장소로 Azure Blob 저장소를 사용하여 배포 데이터를 저장합니다.
+클라이언트가 File Storage에 액세스하면 사용되는 SMB 버전은 운영 체제에서 지원하는 SMB 버전에 따라 달라집니다.
 
 ## <a name="web-app"></a>웹앱
 솔루션 가속기의 일부로 배포된 웹앱은 통합된 OPC UA 클라이언트, 경고 처리 및 원격 분석 시각화를 포함합니다.

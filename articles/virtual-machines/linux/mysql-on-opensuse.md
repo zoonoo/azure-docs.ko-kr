@@ -1,6 +1,6 @@
 ---
 title: Azure에서 OpenSUSE VM에 MySQL 설치 | Microsoft Docs
-description: Azure에서 OpenSUSE Linux 가상 컴퓨터에 MySQL을 설치하는 방법을 알아봅니다.
+description: Azure에서 OpenSUSE Linux 가상 머신에 MySQL을 설치하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: za-rhoads
-ms.openlocfilehash: 98eb331fbd82ff718b01c99afd6840e3c2252777
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 06fb4b9c39b773393d7a58bba44f240265e2200f
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227865"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893704"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Azure에서 OpenSUSE Linux를 실행하는 가상 머신에 MySQL 설치
 
@@ -130,7 +130,7 @@ mysql -u root -p
 
 이제 새로운 MySQL 사용자를 만듭니다.
 
-```   
+```sql
 CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
@@ -142,7 +142,7 @@ CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
 데이터베이스를 만들고 `mysqluser` 사용자 권한을 부여합니다.
 
-```   
+```sql
 CREATE DATABASE testdatabase;
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
@@ -151,7 +151,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
 다른 컴퓨터에서 로그인을 사용하도록 설정합니다. 이 예제에서 로그인을 허용하는 컴퓨터의 IP 주소는 *10.112.113.114*입니다.
 
-```   
+```sql
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
 ```
    

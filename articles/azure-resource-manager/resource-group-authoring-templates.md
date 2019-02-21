@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07f4d170ec6f9d71ea3ecdabd88f4438fb7c1c69
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 509c9cbe3a4c2f930c9fdfda186d78118dbe4b80
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745592"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56237845"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 
@@ -46,7 +46,7 @@ ms.locfileid: "55745592"
 | 매개 변수 |아니요 |배포를 실행하여 리소스 배포를 사용자 지정할 때 제공되는 값입니다. |
 | variables |아니요 |템플릿에서 템플릿 언어 식을 단순화하는 JSON 조각으로 사용되는 값입니다. |
 | functions |아니요 |템플릿 내에서 사용할 수 있는 사용자 정의 함수입니다. |
-| 리소스 |예 |리소스 그룹에 배포 또는 업데이트되는 리소스 종류입니다. |
+| 리소스 |예 |리소스 그룹 또는 구독에 배포되거나 업데이트되는 리소스 종류입니다. |
 | outputs |아니요 |배포 후 반환되는 값입니다. |
 
 각 요소에는 사용자가 설정할 수 있는 속성이 있습니다. 다음 예제에서는 템플릿에 대한 전체 구문을 보여 줍니다.
@@ -217,7 +217,7 @@ ms.locfileid: "55745592"
 사용자 함수를 정의할 때는 다음과 같은 몇 가지 제한 사항이 있습니다.
 
 * 함수는 변수에 액세스할 수 없습니다.
-* 함수가 템플릿 매개 변수에 액세스할 수 없습니다. 즉, [매개 변수 함수](resource-group-template-functions-deployment.md#parameters)는 함수 매개 변수로 제한됩니다.
+* 함수는 함수에 정의된 매개 변수만 사용할 수 있습니다. 사용자 정의 함수 내의 [매개 변수 함수](resource-group-template-functions-deployment.md#parameters)를 사용하는 경우 해당 함수의 매개 변수로 제한됩니다.
 * 함수는 다른 사용자 정의 함수를 호출할 수 없습니다.
 * 함수는 [참조 함수](resource-group-template-functions-resource.md#reference)를 사용할 수 없습니다.
 * 함수의 매개 변수는 기본값을 가질 수 없습니다.
@@ -298,9 +298,23 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 
 자세한 내용은 [Azure Resource Manager 템플릿의 출력 섹션](resource-manager-templates-outputs.md)을 참조하세요.
 
-## <a name="comments"></a>설명
+<a id="comments" />
 
-템플릿에 주석을 추가하는 몇 가지 옵션이 있습니다.
+## <a name="comments-and-metadata"></a>주석 및 메타데이터
+
+템플릿에 주석 및 메타데이터를 추가하는 몇 가지 옵션이 있습니다.
+
+`metadata` 개체는 템플릿의 거의 모든 위치에 추가할 수 있습니다. Azure Resource Manager는 해당 개체를 무시하지만 JSON 편집기가 해당 속성이 유효하지 않음을 경고할 수 있습니다. 개체 내에 필요한 속성을 정의합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
 
 **매개 변수**에 대해 `description` 속성과 함께 `metadata` 개체를 추가합니다.
 
@@ -342,18 +356,6 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
     "properties": {}
   }
 ]
-```
-
-`metadata` 개체는 템플릿의 거의 모든 위치에 추가할 수 있습니다. Azure Resource Manager는 해당 개체를 무시하지만 JSON 편집기가 해당 속성이 유효하지 않음을 경고할 수 있습니다. 개체 내에 필요한 속성을 정의합니다.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
 ```
 
 **outputs**의 경우 출력 값에 메타데이터 개체를 추가합니다.

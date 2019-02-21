@@ -11,19 +11,19 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/30/2019
-ms.openlocfilehash: 18e786ba45e476df2ab223a47f1b77ef6b778d7f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 02/13/2019
+ms.openlocfilehash: 4ddeef417490b5b928f46dce428acc3e5febe159
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657776"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245986"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure Portal에서 Azure SQL Database에 대한 활성 지역 복제 구성 및 장애 조치(Failover) 시작
 
 이 문서에서는 [Azure Portal](http://portal.azure.com)을 사용하여 Azure SQL Database에서 [단일 및 풀링된 데이터베이스의 활성 지역 복제](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)를 구성하고 장애 조치(failover)를 시작하는 방법을 보여 줍니다.
 
-단일 및 풀링된 데이터베이스를 사용하는 자동 장애 조치(failover) 그룹에 대한 자세한 내용은 [단일 및 풀링된 데이터베이스로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)를 참조하세요. Managed Instance를 사용하는 자동 장애 조치(failover) 그룹(미리 보기)에 대한 자세한 내용은 [단일 및 풀링된 데이터베이스로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)를 참조하세요.
+단일 및 풀링된 데이터베이스를 사용하는 자동 장애 조치(failover) 그룹에 대한 자세한 내용은 [단일 및 풀링된 데이터베이스로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)를 참조하세요. Managed Instance(미리 보기)를 사용하는 자동 장애 조치(failover) 그룹에 대한 자세한 내용은 [관리되는 인스턴스를 사용하는 장애 조치(failover) 그룹 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

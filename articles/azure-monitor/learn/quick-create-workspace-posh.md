@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 1f78f0cd98a5a1960737ce37c5540889ca395bea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 073ce3075f6c14230ad76f70feb8d01d17b4e2e0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428865"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005474"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Azure PowerShell로 Log Analytics 작업 영역 만들기
 
-PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 자체 데이터 리포지토리, 데이터 원본 및 솔루션이 있는 고유한 환경인 Log Analytics 작업 영역을 Azure에 배포하는 방법을 보여줍니다.  이 문서에 설명된 단계는 다음 원본에서 데이터를 수집하려는 경우에 필요합니다.
+PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell 모듈이 사용됩니다. 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Azure Monitor에서 Log Analytics 작업 영역을 배포하는 방법을 보여 줍니다. Log Analytics 작업 영역은 Azure Monitor 로그 데이터에 대한 고유한 환경입니다. 각 작업 영역에는 자체 데이터 리포지토리 및 구성이 있으며 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장하도록 구성됩니다. 다음 원본에서 데이터를 수집하려는 경우 Log Analytics 작업 영역이 필요합니다.
 
 * 구독의 Azure 리소스  
 * System Center Operations Manager에서 모니터링하는 온-프레미스 컴퓨터  
@@ -31,8 +31,8 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
  
 Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 경우 다음 항목을 참조하세요.
 
-* [Azure 가상 머신에서 데이터 수집](../../azure-monitor/learn/quick-collect-azurevm.md)
-* [하이브리드 Linux 컴퓨터에서 데이터 수집](../../azure-monitor/learn/quick-collect-linux-computer.md)
+* [Azure 가상 머신에서 데이터 수집](../learn/quick-collect-azurevm.md)
+* [하이브리드 Linux 컴퓨터에서 데이터 수집](../learn/quick-collect-linux-computer.md)
 * [하이브리드 Windows 컴퓨터에서 데이터 수집](quick-collect-windows-computer.md)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
@@ -126,7 +126,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 ## <a name="next-steps"></a>다음 단계
 이제 사용 가능한 작업 영역이 있으므로 모니터링 원격 분석의 컬렉션을 구성하고, 해당 데이터를 분석하는 로그 검색을 실행하고, 추가 데이터 및 분석 정보를 제공하는 관리 솔루션을 추가할 수 있습니다.  
 
-* Azure 진단 또는 Azure Storage를 사용하여 Azure 리소스의 데이터 수집을 사용하려면 [Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집](../../azure-monitor/platform/collect-azure-metrics-logs.md)을 참조하세요.  
-* [System Center Operations Manager를 데이터 원본으로 추가](../../azure-monitor/platform/om-agents.md)하여 Operations Manager 관리 그룹을 보고하는 에이전트에서 데이터를 수집하고 Log Analytics 작업 영역에 저장합니다.  
-* [Configuration Manager](../../azure-monitor/platform/collect-sccm.md)를 연결하여 계층에서 컬렉션의 멤버인 컴퓨터를 가져옵니다.  
-* [관리 솔루션](../../azure-monitor/insights/solutions.md)을 사용할 수 있는지 및 작업 영역에서 솔루션을 추가하거나 제거하는 방법을 검토합니다.
+* Azure 진단 또는 Azure Storage를 사용하여 Azure 리소스의 데이터 수집을 사용하려면 [Azure Monitor에서 사용할 Azure 서비스 로그 및 메트릭 수집](../platform/collect-azure-metrics-logs.md)을 참조하세요.  
+* [System Center Operations Manager를 데이터 원본으로 추가](../platform/om-agents.md)하여 Operations Manager 관리 그룹을 보고하는 에이전트에서 데이터를 수집하고 Log Analytics 작업 영역에 저장합니다.  
+* [Configuration Manager](../platform/collect-sccm.md)를 연결하여 계층에서 컬렉션의 멤버인 컴퓨터를 가져옵니다.  
+* [모니터링 솔루션](../insights/solutions.md)을 사용할 수 있는지 및 작업 영역에서 솔루션을 추가하거나 제거하는 방법을 검토합니다.

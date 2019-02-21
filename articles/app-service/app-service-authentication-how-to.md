@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 34902016578d92847bd83a7dede8ef73bb640b3e
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: da3c90579dafebf1b5b362c7129e681663a0a7ab
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301580"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55891881"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -174,7 +174,7 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 클라이언트 코드(예: 모바일 앱 또는 브라우저 내 JavaScript)에서 HTTP `GET` 요청을 `/.auth/me`에 전송합니다. 반환된 JSON에는 공급자별 토큰이 있습니다.
 
 > [!NOTE]
-> 액세스 토큰은 공급자 리소스에 액세스하기 위한 것이므로 클라이언트 암호를 사용하여 공급자를 구성하는 경우에만 표시됩니다. 새로 고침 토큰을 가져오는 방법을 알아보려면 [액세스 토큰 새로 고침](#refresh-access-tokens)을 참조하세요.
+> 액세스 토큰은 공급자 리소스에 액세스하기 위한 것이므로 클라이언트 암호를 사용하여 공급자를 구성하는 경우에만 표시됩니다. 새로 고침 토큰을 가져오는 방법을 알아보려면 액세스 토큰 새로 고침을 참조하세요.
 
 ## <a name="refresh-identity-provider-tokens"></a>ID 공급자 토큰 새로 고침
 

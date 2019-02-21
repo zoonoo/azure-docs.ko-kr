@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1c4637bf3b71ade6cceb4427180edf8bc408670
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 23fa146b7bdaef0451984d0fbc638c57691cf259
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408105"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56201723"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -25,6 +25,7 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
 * __헤드 노드 또는 에지 노드에 대한 SSH 연결에서 Beeline 사용__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
 * __Azure Virtual Network를 통해 HDInsight에 연결하는 클라이언트에서 Beeline 사용__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Azure Virtual Network를 통해 HDInsight ESP(Enterprise Security Package) 클러스터에 연결하는 클라이언트에서 Beeline 사용__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
 * __공용 인터넷을 통해 HDInsight에 연결하는 클라이언트에서 Beeline 사용__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -35,6 +36,8 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 > `clustername`을 HDInsight 클러스터 이름으로 바꿉니다.
 >
 > 가상 네트워크를 통해 클러스터에 연결할 때 `<headnode-FQDN>`을 클러스터 헤드 노드의 정규화된 도메인 이름으로 바꿉니다.
+>
+> ESP(Enterprise Security Package) 클러스터에 연결하는 경우 `<AAD-Domain>`을 클러스터가 조인된 AAD(Azure Active Directory)의 이름으로 바꿉니다. `<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다.
 
 ## <a id="prereq"></a>필수 조건
 
@@ -67,6 +70,12 @@ Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이�
 
         ```bash
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+        ```
+    * AAD(Azure Active Directory)에 조인된 ESP(Enterprise Security Package) 클러스터에 연결하는 경우 도메인 이름 `<AAD-Domain>` 및 클러스터에 액세스할 수 있는 권한이 있는 도메인 사용자 계정의 이름 `<username>`을 지정해야 합니다.
+        
+        ```bash
+        kinit <username>
+        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
         ```
 
 2. Beeline 명령은 일반적으로 `!` 문자로 시작합니다. 예를 들어 `!help`는 도움말을 표시합니다. 그러나 일부 명령에서는 `!`를 생략할 수 있습니다. 예를 들어 `help`도 작동합니다.
@@ -271,10 +280,7 @@ HDInsight에서 Hadoop을 사용하여 작업할 수 있는 다른 방법에 대
 * [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-Hive와 함께 Tez를 사용하는 경우 다음 문서를 참조하세요.
-
-* [Windows 기반 HDInsight 클러스터에서 Apache Tez UI 사용](../hdinsight-debug-tez-ui.md)
-* [Linux 기반 HDInsight에서 Apache Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
+Hive와 함께 Tez를 사용하는 경우 다음 문서를 참조하세요. [Linux 기반 HDInsight에서 Apache Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

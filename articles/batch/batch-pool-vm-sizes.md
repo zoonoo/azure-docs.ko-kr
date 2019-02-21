@@ -12,24 +12,24 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 787c10ab75a3534a73e04f1bd60462ea02fcf42a
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191720"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56186001"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대한 VM 크기 선택
 
-Azure Batch 풀에 대한 노드 크기를 선택하면 Azure에서 사용할 수 있는 거의 모든 VM 크기 중에서 선택할 수 있습니다. Azure는 다양한 작업에 맞게 다양한 크기의 Linux 및 Windows VM을 제공합니다. 
+Azure Batch 풀에 대한 노드 크기를 선택하면 Azure에서 사용할 수 있는 거의 모든 VM 크기 중에서 선택할 수 있습니다. Azure는 다양한 작업에 맞게 다양한 크기의 Linux 및 Windows VM을 제공합니다.
 
 VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습니다.
+
 * 일부 VM 제품군 또는 VM 크기는 Batch에서 지원되지 않습니다. 
 * 일부 VM 크기는 제한되어 있으므로 할당하기 전에 특별히 사용하도록 설정해야 합니다.
-
 
 ## <a name="supported-vm-families-and-sizes"></a>지원되는 VM 제품군 및 크기
 
@@ -42,16 +42,16 @@ Virtual Machine 구성의 Batch 풀은 다음을 *제외한* 모든 VM 크기([L
 | 기본 A 시리즈 | Basic_A0(A0) |
 | A 시리즈 | Standard_A0 |
 | B 시리즈 | 모두 |
-| DC 시리즈 | 모두 | 
+| DC 시리즈 | 모두 |
 | 익스트림 메모리 최적화 | 모두 |
-| Hb 시리즈<sup>1</sup> | 모두 | 
+| Hb 시리즈<sup>1</sup> | 모두 |
 | Hc 시리즈<sup>1</sup> | 모두 |
 | Lsv2 시리즈 | 모두 |
 | NDv2 시리즈<sup>1</sup> | 모두 |
-| NVv2 시리즈<sup>1</sup> | 모두 |
+| NVv2 시리즈 | 모두 |
 | SAP HANA | 모두 |
 
-<sup>1</sup>현재는 지원하지 않지만 향후 지원할 예정입니다.
+<sup>1</sup> 사용자 구독 모드의 Batch 계정에서 사용할 수 있습니다. 사용자 구독 모드 Batch 계정에 코어 할당량이 설정되어 있어야 합니다. 자세한 내용은 [사용자 구독 모드에 대한 구성](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)을 참조하세요.
 
 다음 VM 시리즈는 낮은 우선 순위 노드에서만 지원됩니다.
 
@@ -74,6 +74,7 @@ Cloud Service 구성의 Batch 풀은 다음을 *제외한* 모든 [Cloud Service
 ## <a name="restricted-vm-families"></a>제한되는 VM 제품군
 
 다음 VM 제품군은 Batch 풀에 할당할 수 있지만 특정 할당량 증가를 요청해야 합니다([이 문서 ](batch-quota-limit.md#increase-a-quota) 참조).
+
 * NCv2 시리즈
 * NCv3 시리즈
 * ND 시리즈
@@ -82,7 +83,7 @@ Cloud Service 구성의 Batch 풀은 다음을 *제외한* 모든 [Cloud Service
 
 ## <a name="size-considerations"></a>크기 고려 사항
 
-* **애플리케이션 요구 사항** - 노드에서 실행할 애플리케이션의 특성 및 요구 사항을 고려합니다. 애플리케이션이 다중 스레드되었는지 여부 및 애플리케이션에서 소비하는 메모리 양과 같은 측면은 가장 적절하고 비용 효과적인 노드 크기를 결정하는 데 도움을 줄 수 있습니다. 다중 인스턴스 [MPI 작업](batch-mpi.md) 또는 CUDA 애플리케이션의 경우, 각각 특수화된 [HPC](../virtual-machines/linux/sizes-hpc.md) 또는 [GPU 가능](../virtual-machines/linux/sizes-gpu.md) VM 크기를 고려합니다. [Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용](batch-pool-compute-intensive-sizes.md)을 참조하세요. 
+* **애플리케이션 요구 사항** - 노드에서 실행할 애플리케이션의 특성 및 요구 사항을 고려합니다. 애플리케이션이 다중 스레드되었는지 여부 및 애플리케이션에서 소비하는 메모리 양과 같은 측면은 가장 적절하고 비용 효과적인 노드 크기를 결정하는 데 도움을 줄 수 있습니다. 다중 인스턴스 [MPI 작업](batch-mpi.md) 또는 CUDA 애플리케이션의 경우, 각각 특수화된 [HPC](../virtual-machines/linux/sizes-hpc.md) 또는 [GPU 가능](../virtual-machines/linux/sizes-gpu.md) VM 크기를 고려합니다. [Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용](batch-pool-compute-intensive-sizes.md)을 참조하세요.
 
 * **노드당 태스크 수** - 한 번에 하나의 태스크가 하나의 노드에서 실행된다고 가정하여 노드 크기를 선택하는 것이 일반적입니다. 하지만 작업 실행 중에 계산 노드에서 여러 태스크(따라서 여러 애플리케이션 인스턴스)를 [병렬로 실행하는](batch-parallel-node-tasks.md) 것이 유리할 수도 있습니다. 이 경우 병렬 태스크 실행에 대해 증가되는 수요를 수용할 수 있도록 멀티 코어 노드 크기를 선택하는 것이 일반적입니다.
 
@@ -97,6 +98,4 @@ Cloud Service 구성의 Batch 풀은 다음을 *제외한* 모든 [Cloud Service
 ## <a name="next-steps"></a>다음 단계
 
 * Batch에 대한 심층적인 개요는 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)을 참조하세요.
-* 계산 집약적 VM 크기를 사용하는 방법에 대한 자세한 내용은 [Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용](batch-pool-compute-intensive-sizes.md)을 참조하세요. 
-
-
+* 계산 집약적 VM 크기를 사용하는 방법에 대한 자세한 내용은 [Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용](batch-pool-compute-intensive-sizes.md)을 참조하세요.

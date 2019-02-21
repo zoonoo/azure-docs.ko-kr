@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/23/2019
+ms.date: 02/13/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 30d9cef89bed1c43fa1d058ff90fe2d9a52260f7
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096690"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56234291"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>인증 및 권한 부여 오류 코드
 
@@ -190,7 +191,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS90016 | MissingRequiredClaim - 액세스 토큰이 잘못되었습니다. 필수 클레임이 누락되었습니다. |
 | AADSTS90019 | MissingTenantRealm - Azure AD가 요청에서 테넌트 식별자를 확인할 수 없습니다. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - 주체 이름 형식이 유효하지 않거나 예상된 `name[/host][@realm]` 형식에 맞지 않습니다. 주체 이름이 필요하고 호스트 및 영역은 선택 사항이며 null로 설정할 수 있습니다. |
-| AADSTS90023 | InvalidRequest |
+| AADSTS90023 | InvalidRequest - 인증 서비스 요청이 잘못되었습니다. |
 | AADSTS90024 | RequestBudgetExceededError - 일시적인 오류가 발생했습니다. 다시 시도하세요. |
 | AADSTS90033 | MsodsServiceUnavailable - MSODS(Microsoft Online Directory Service)를 사용할 수 없습니다. |
 | AADSTS90036 | MsodsServiceUnretryableFailure - MSODS가 호스트하는 WCF 서비스에서 다시 시도할 수 없는 예기치 않은 오류가 발생했습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |

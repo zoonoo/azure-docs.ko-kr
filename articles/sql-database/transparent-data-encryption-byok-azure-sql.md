@@ -1,5 +1,5 @@
 ---
-title: TDE - BYOK(Bring Your Own Key) - Azure SQL Database| Microsoft Docs
+title: TDE - Azure Key Vault 통합 또는 BYOK(Bring Your Own Key) - Azure SQL Database| Microsoft Docs
 description: SQL Database 및 Data Warehouse에서 Azure Key Vault를 통해 BYOK(Bring Your Own Key)를 TDE(투명한 데이터 암호화)에 지원합니다. BYOK를 통한 TDE 개요, 이점, 작동 방법, 고려 사항 및 권장 사항을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,23 +11,24 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 474e8d708a335b27899e818dcdba1fb469ad94a6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/08/2019
+ms.openlocfilehash: 15ca5c007b2f7a1217b4b921e11f97b4fd6e3741
+ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469246"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56238167"
 ---
-# <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL 투명한 데이터 암호화: Bring Your Own Key 지원
+# <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure Key Vault의 고객 관리형 키를 사용하여 Azure SQL 투명한 데이터 암호화: Bring Your Own Key 지원
 
-[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)에 대한 BYOK(Bring Your Own Key) 지원을 사용하면 TDE 보호기라는 비대칭 키를 사용하여 DEK(데이터베이스 암호화 키)를 암호화할 수 있습니다.  TDE 보호기는 사용자의 제어 하에 Azure의 클라우드 기반 외부 키 관리 시스템인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)에 저장됩니다. Azure Key Vault는 TDE에서 BYOK 지원을 통합한 최초의 키 관리 서비스입니다. 데이터베이스의 부팅 페이지에 저장된 TDE DEK는 TDE 보호기에서 암호화되고 해독됩니다. TDE 보호기는 Azure Key Vault에 저장되며 키 자격 증명 모음을 벗어나지 않습니다. 서버의 키 자격 증명 모음에 대한 액세스가 철회되면 데이터베이스를 해독하여 메모리로 읽을 수 없습니다. Azure SQL Database의 경우 TDE 보호기는 SQL Database 서버 수준에서 설정되며 해당 서버와 연결된 모든 데이터베이스에서 상속됩니다. Azure SQL Managed Instance의 경우, TDE 보호기는 인스턴스 수준에서 설정되며 해당 인스턴스의 모든 *암호화된* 데이터베이스에 의해 상속됩니다. *서버*라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
+[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)와 Azure Key Vault를 통합하면 TDE 보호기라는 고객 관리형 비대칭 키를 사용하여 DEK(데이터베이스 암호화 키)를 암호화할 수 있습니다.  TDE 보호기는 고객이 소유하고 관리하는 Azure의 클라우드 기반 외부 키 관리 시스템인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)에 저장됩니다. 데이터베이스의 부팅 페이지에 저장되는 TDE DEK는 TDE 보호기를 통해 암호화 및 암호 해독되고, 보호기는 Azure Key Vault에 저장되며 절대 키 자격 증명 모음을 벗어나지 않습니다.  SQL Database가 DEK를 암호화 및 암호 해독하려면 고객 소유의 키 자격 증명 모음에 대한 권한을 부여해야 합니다. 키 자격 증명 모음에 대한 논리 SQL 서버의 권한이 철회되면 데이터베이스에 액세스할 수 없게 되고 모든 데이터가 암호화됩니다. Azure SQL Database의 경우 TDE 보호기는 논리 SQL 서버 수준에서 설정되며 해당 서버와 연결된 모든 데이터베이스에서 상속됩니다. [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)의 경우 TDE 보호기는 인스턴스 수준에서 설정되며 해당 인스턴스의 모든 *암호화된* 데이터베이스에 의해 상속됩니다. *서버*라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
 
-BYOK 지원을 사용하면 사용자는 키 회전, 키 자격 증명 모음 권한, 키 삭제를 포함한 키 관리 작업을 제어하고, Azure Key Vault 기능을 사용하여 모든 TDE 보호기에 대한 감사/보고를 사용하도록 설정할 수 있습니다. Key Vault는 중앙 집중식 키 관리를 제공하고 긴밀하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하며, 키와 데이터 관리 간의 역할 분리를 촉진하여 규정을 준수할 수 있도록 합니다.  
+TDE와 Azure Key Vault가 통합되면 사용자는 키 회전, 키 자격 증명 모음 권한, 키 백업을 포함한 키 관리 작업을 제어하고, Azure Key Vault 기능을 사용하여 모든 TDE 보호기에 감사/보고를 사용하도록 설정할 수 있습니다. Key Vault는 중앙 집중식 키 관리를 제공하고, 철저하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하고, 보안 정책 규정을 준수하도록 키 관리와 데이터 관리의 책임을 분리합니다.  
 
-BYOK 기반 TDE에서 제공하는 이점은 다음과 같습니다.
+TDE와 Azure Key Vault를 통합하면 다음과 같은 이점이 있습니다.
 
 - TDE 보호기를 자체 관리하는 기능을 통해 향상된 투명성과 세분화된 제어
+- 언제든지 데이터베이스에 액세스할 수 없도록 권한을 철회하는 기능
 - Key Vault에 호스팅하여 TDE 보호기를 중앙에서 관리(다른 Azure 서비스에서 사용되는 다른 키 및 비밀 포함)
 - 조직 내에서 키 및 데이터 관리 책임을 분리하여 역할 분리 지원
 - Key Vault가 Microsoft에서 암호화 키를 보거나 추출하지 못하도록 설계되었으므로 사용자 고유의 클라이언트에서 더 많은 신뢰 획득
@@ -36,7 +37,7 @@ BYOK 기반 TDE에서 제공하는 이점은 다음과 같습니다.
 > [!IMPORTANT]
 > Key Vault를 사용하여 시작하려는 사용자가 서비스 관리 TDE를 사용하는 경우 Key Vault에서 TDE 보호기로 전환하는 과정에서 TDE는 활성화된 상태로 유지됩니다. 데이터베이스 파일의 가동 중지 시간 또는 다시 암호화가 없습니다. 서비스 관리 키에서 Key Vault 키로 전환하는 경우 빠른 온라인 작업인 DEK(데이터베이스 암호화 키)만 다시 암호화하면 됩니다.
 
-## <a name="how-does-tde-with-byok-support-work"></a>BYOK 지원 기반 TDE의 작동 방식
+## <a name="how-does-tde-with-azure-key-vault-integration-support-work"></a>Azure Key Vault와 통합된 TDE는 어떻게 작업을 지원하나요?
 
 ![Key Vault에 대한 서버 인증](./media/transparent-data-encryption-byok-azure-sql/tde-byok-server-authentication-flow.PNG)
 
@@ -45,13 +46,13 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
 > [!IMPORTANT]
 > **TDE 보호기가 Azure Key Vault에 저장되면 Azure Key Vault를 벗어나지 않는 것**이 중요합니다. 서버는 Key Vault 내의 TDE 보호기 키 자료에만 키 작업 요청을 보낼 수 있으며 **TDE 보호기에 액세스하거나 캐시하지 않습니다**. Key Vault 관리자는 언제든지 서버의 Key Vault 권한을 철회할 수 있습니다. 이 경우 서버에 대한 모든 연결이 끊어집니다.
 
-## <a name="guidelines-for-configuring-tde-with-byok"></a>BYOK 기반 TDE 구성에 대한 지침
+## <a name="guidelines-for-configuring-tde-with-azure-key-vault"></a>Azure Key Vault와 통합된 TDE 구성 지침
 
 ### <a name="general-guidelines"></a>일반 지침
 
 - Azure Key Vault와 Azure SQL Database/Managed Instance는 동일한 테넌트에 있어야 합니다.  테넌트 간 키 자격 증명 모음 및 서버 상호 작용은 **지원되지 않습니다**.
 - 필요한 리소스에 사용할 구독을 결정합니다. 나중에 구독 간에 서버를 이동하려면 BYOK 기반 TDE를 새로 설정해야 합니다. [리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)에 대해 자세히 알아보세요.
-- BYOK 기반 TDE를 구성하는 경우 반복되는 래핑/래핑 해제 작업을 통해 자격 증명 모음에 배치되는 로드를 고려해야 합니다. 예를 들어 SQL Database 서버와 연결된 모든 데이터베이스에서 동일한 TDE 보호기를 사용하므로 해당 서버의 장애 조치(failover)는 서버에 있는 데이터베이스만큼 자격 증명 모음에 대한 키 작업을 트리거합니다. 경험과 문서화된 [키 자격 증명 모음 서비스 제한](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)을 기반으로 하여 단일 구독에서 최대 500개의 표준/범용 또는 200개의 프리미엄/중요 비즈니스용 데이터베이스를 하나의 Azure Key Vault에 연결하여 자격 증명 모음의 TDE 보호기에 액세스할 때 고가용성을 일관되게 보장하는 것이 좋습니다.
+- Azure Key Vault와 통합된 TDE를 구성할 때 반복되는 래핑/래핑 해제 작업을 통해 자격 증명 모음에 배치되는 로드를 고려해야 합니다. 예를 들어 SQL Database 서버와 연결된 모든 데이터베이스에서 동일한 TDE 보호기를 사용하므로 해당 서버의 장애 조치(failover)는 서버에 있는 데이터베이스만큼 자격 증명 모음에 대한 키 작업을 트리거합니다. 경험과 문서화된 [키 자격 증명 모음 서비스 제한](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)을 기반으로 하여 단일 구독에서 최대 500개의 표준/범용 또는 200개의 프리미엄/중요 비즈니스용 데이터베이스를 하나의 Azure Key Vault에 연결하여 자격 증명 모음의 TDE 보호기에 액세스할 때 고가용성을 일관되게 보장하는 것이 좋습니다.
 - 권장: 온-프레미스에 TDE 보호기 복사본을 유지합니다.  이렇게 하려면 HSM 디바이스에서 TDE 보호기를 로컬로 만들고, 키 에스크로 시스템에서 TDE 보호기의 로컬 복사본을 저장해야 합니다.  [로컬 HSM에서 Azure Key Vault로 키를 전송하는 방법](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)을 알아봅니다.
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Azure Key Vault 구성 지침
@@ -64,12 +65,12 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
 - Azure AD(Azure Active Directory) ID를 사용하여 키 자격 증명 모음에 대한 액세스 권한을 SQL Database 서버에 부여합니다.  포털 UI를 사용하면 Azure AD ID가 자동으로 만들어지고 키 자격 증명 모음 액세스 권한이 서버에 부여됩니다.  PowerShell을 사용하여 BYOK 기반 TDE를 구성하면 Azure AD ID가 만들어져야 하고 완료가 확인되어야 합니다. PowerShell을 사용하는 경우 자세한 단계별 지침은 [BYOK 기반 TDE 구성](transparent-data-encryption-byok-azure-sql-configure.md) 및 [Managed Instance에 대해 BYOK 기반 TDE 구성](http://aka.ms/sqlmibyoktdepowershell)을 참조하세요.
 
   > [!NOTE]
-  > Azure AD Identity가 **실수로 삭제되거나 키 자격 증명 모음의 액세스 정책을 사용하여 서버의 권한이 철회**되는 경우, 서버의 키 자격 증명 모음에 대한 액세스 권한이 손실되고 TDE로 암호화된 데이터베이스가 24시간 내에 삭제됩니다.
+  > Azure AD Identity가 **실수로 삭제되거나 키 자격 증명 모음의 액세스 정책을 사용하여 서버의 권한이 철회**되는 경우 서버의 키 자격 증명 모음에 대한 액세스 권한이 손실되고 TDE로 암호화된 데이터베이스는 24시간 내에 액세스할 수 없게 됩니다.
 
 - Azure Key Vault와 함께 방화벽 및 가상 네트워크를 사용하는 경우 다음을 구성해야 합니다. - 신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 바이패스하도록 허용 - [예] 선택
 
  > [!NOTE]
- > TDE 암호화된 SQL 데이터베이스가 방화벽을 바이패스하지 못하기 때문에 Key Vault에 액세스하지 못할 경우 데이터베이스는 24시간 내에 삭제됩니다.
+ > TDE로 암호화된 SQL 데이터베이스가 방화벽을 바이패스할 수 없어 키 자격 증명 모음에 대한 액세스 권한을 잃게 되면 24시간 내에 데이터베이스에 액세스할 수 없게 됩니다.
 
 - 모든 암호화 키에 대한 감사 및 보고 사용: Key Vault는 다른 SIEM(보안 정보 및 이벤트 관리) 도구에 쉽게 삽입되는 로그를 제공합니다. OMS(Operations Management Suite) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)는 이미 통합된 서비스의 한 예입니다.
 - 암호화된 데이터베이스의 고가용성을 보장하려면 서로 다른 지역에 있는 두 개의 Azure Key Vault로 각 SQL Database 서버를 구성합니다.
@@ -83,7 +84,7 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
    > [!NOTE]
    > 그러나 테스트를 위해 Azure Key Vault로 키를 만들 수는 있지만 개인 키가 키 자격 증명 모음을 벗어날 수 없으므로 이 키는 에스크로할 수 없습니다.  키가 손실되면(키 자격 증명 모음에서 실수로 인한 삭제, 만료 등) 영구적인 데이터 손실이 발생하므로 프로덕션 데이터를 암호화하는 데 사용되는 키는 항상 백업하고 에스크로합니다.
 
-- 만료 날짜가 없는 키를 사용하고, 이미 사용 중인 키에는 만료 날짜를 설정하지 않습니다. **키가 만료되면 암호화된 데이터베이스에서 TDE 보호기에 대한 액세스 권한이 손실되고 해당 데이터베이스가 24시간 내에 삭제됩니다**.
+- 만료 날짜가 없는 키를 사용하고, 이미 사용 중인 키에는 만료 날짜를 설정하지 마세요. **키가 만료되면 암호화된 데이터베이스는 TDE 보호기에 대한 액세스 권한을 잃고 24시간 내에 액세스할 수 없게 됩니다**.
 - 키를 사용하도록 설정되어 있고 *가져오기*, *키 래핑* 및 *키 래핑 해제* 작업을 수행할 수 있는 권한이 있는지 확인합니다.
 - Azure Key Vault에서 처음으로 키를 사용하기 전에 Azure Key Vault 키 백업을 만듭니다. [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) 명령에 대해 자세히 알아보세요.
 - 키가 변경될 때마다(예: ACL 추가, 태그 추가, 키 특성 추가) 새 백업을 만듭니다.

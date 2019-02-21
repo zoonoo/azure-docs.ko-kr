@@ -12,14 +12,16 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 5e9d2746c223c679d30c31b3bd6f1e5cbfafbe1d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4d5c7f8a91bb63cdd80a6f70603e34f8130b92ef
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498100"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106684"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 Azure의 핵심 이점은 일관성입니다. 한 위치에 대한 개발 투자를 다른 위치에서 다시 사용할 수 있습니다. 템플릿을 사용하면 전역 Azure, Azure 소버린 클라우드 및 Azure Stack을 비롯한 전체 환경에서 배포의 일관성이 유지되며 배포를 반복할 수 있습니다. 그러나 클라우드 간에 템플릿을 재사용하려면 이 가이드에서 설명하는 클라우드 특정 종속성을 고려해야 합니다.
 
@@ -61,14 +63,14 @@ Azure Resource Manager 기능은 항상 전역 Azure에 먼저 도입됩니다. 
 
 1. 리포지토리의 로컬 복제본이 있으면 PowerShell을 사용하여 대상의 Azure Resource Manager에 연결합니다.
 
-1. psm1 모듈을 가져오고 Test-AzTemplateFunctions cmdlet을 실행합니다.
+1. psm1 모듈을 가져오고 Test-AzureRmureRmTemplateFunctions cmdlet을 실행합니다.
 
   ```powershell
   # Import the module
   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzTemplateFunctions cmdlet
-  Test-AzTemplateFunctions -path <path to local clone>
+  # Execute the Test-AzureRmTemplateFunctions cmdlet
+  Test-AzureRmTemplateFunctions -path <path to local clone>
   ```
 
 스크립트는 각각 고유한 템플릿 함수만 포함하는 여러 개의 최소화된 템플릿을 배포합니다. 스크립트 출력은 지원되는 템플릿 함수와 사용할 수 없는 템플릿 함수를 보고합니다.
@@ -211,7 +213,7 @@ Azure Resource Manager는 런타임에 기본 템플릿을 평가하고, 중첩�
 }
 ```
 
-이 방법을 사용하면 구성 스크립트를 포함한 모든 배포 아티팩트를 템플릿 자체와 동일한 위치에 저장할 수 있습니다. 모든 링크의 위치를 변경하려면 _artifactsLocation 매개 변수에 대해 다른 기준 URL을 지정하기만 하면 됩니다.
+이 방법을 사용하면 구성 스크립트를 포함한 모든 배포 아티팩트를 템플릿 자체와 동일한 위치에 저장할 수 있습니다. 모든 링크의 위치를 변경하려면 _artifactsLocation 매개 변수_에 대해 다른 기준 URL을 지정하기만 하면 됩니다.
 
 ## <a name="factor-in-differing-regional-capabilities"></a>지역별 기능 차이 고려
 
@@ -232,7 +234,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 다음 PowerShell cmdlet을 사용하여 사용 가능한 리소스 공급자를 확인할 수도 있습니다.
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 ### <a name="verify-the-version-of-all-resource-types"></a>모든 리소스 종류의 버전 확인
@@ -250,7 +252,7 @@ az provider list --query "[].{namespace:namespace, resourceType:resourceType[]}"
 다음 PowerShell cmdlet을 사용할 수도 있습니다.
 
 ```azurepowershell-interactive
-Get-AzResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
+Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
 ```
 
 ### <a name="refer-to-resource-locations-with-a-parameter"></a>매개 변수를 사용하여 리소스 위치 참조
@@ -493,10 +495,10 @@ Azure는 다양한 VM 이미지를 제공합니다. Microsoft 및 파트너가 �
 az vm image list -all
 ```
 
-Azure PowerShell cmdlet인 [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하여 동일한 목록을 검색하고, `-Location` 매개 변수를 사용하여 원하는 위치를 지정할 수 있습니다. 예: 
+`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예: 
 
 ```azurepowershell-interactive
-Get-AzVMImagePublisher -Location "West Europe" | Get-AzVMImageOffer | Get-AzVMImageSku | Get-AzureRMVMImage
+Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
 ```
 
 이 명령은 몇 분 후에 전역 Azure 클라우드의 유럽 서부 지역에서 사용 가능한 모든 이미지를 반환합니다.
@@ -529,7 +531,7 @@ az vm list-sizes --location "West Europe"
 Azure PowerShell의 경우 다음을 사용합니다.
 
 ```azurepowershell-interactive
-Get-AzVMSize -Location "West Europe"
+Get-AzureRmVMSize -Location "West Europe"
 ```
 
 사용 가능한 서비스의 전체 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable)을 참조하세요.
@@ -596,10 +598,10 @@ Get-AzVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-또한 Azure PowerShell [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예: 
+Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예: 
 
 ```azurepowershell-interactive
-Get-AzVmImagePublisher -Location myLocation | Get-AzVMExtensionImageType | Get-AzVMExtensionImage | Select Type, Version
+Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
 ```
 
 #### <a name="ensure-that-versions-are-available"></a>버전을 사용할 수 있는지 확인
@@ -617,16 +619,16 @@ VM 확장은 자사 리소스 관리자 리소스이므로 고유한 API 버전�
 
 템플릿의 모든 대상 위치에 VM 확장 리소스의 API 버전이 있어야 합니다. 위치 종속성은 앞의 “모든 리소스 종류의 버전 확인” 섹션에서 설명한 리소스 공급자 API 버전 가용성처럼 작동합니다.
 
-VM 확장 리소스에 사용할 수 있는 API 버전 목록을 검색하려면 다음과 같이 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) cmdlet에 **Microsoft.Compute** 리소스 공급자를 사용합니다.
+VM 확장 리소스에 사용 가능한 API 버전 목록을 검색하려면 다음과 같이 [Get-AzureRmResourceProvider](/powershell/module/az.resources/get-azresourceprovider) cmdlet에 **Microsoft.Compute** 리소스 공급자를 사용합니다.
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
+Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
 ```
 
 가상 머신 확장 집합에 VM 확장을 사용할 수도 있습니다. 동일한 위치 조건이 적용됩니다. 클라우드 일관성을 위한 템플릿을 개발하려면 배포할 모든 위치에서 API 버전을 사용할 수 있는지 확인합니다. 확장 집합에 대한 VM 확장 리소스의 API 버전을 검색하려면 이전과 동일한 cmdlet을 사용하되 가상 머신 확장 집합 리소스 종류를 다음과 같이 지정합니다.
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
+Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
 각 특정 확장의 버전도 관리됩니다. 이 버전은 VM 확장의 `typeHandlerVersion` 속성에 표시됩니다. 템플릿을 배포할 위치에서 템플릿 VM 확장의 `typeHandlerVersion` 요소에 지정된 버전을 사용할 수 있는지 확인합니다. 예를 들어, 다음 코드는 버전 1.7을 지정합니다.
@@ -647,13 +649,13 @@ Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -E
         ...   
 ```
 
-특정 VM 확장에 사용할 수 있는 버전 목록을 검색하려면 [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet을 사용합니다. 다음 예제에서는 **myLocation**에서 PowerShell DSC(Desired State Configuration) VM 확장에 사용 가능한 버전을 검색합니다.
+특정 VM 확장에 사용할 수 있는 버전 목록을 검색하려면 [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet을 사용합니다. 다음 예제에서는 **myLocation**에서 PowerShell DSC(Desired State Configuration) VM 확장에 사용 가능한 버전을 검색합니다.
 
 ```azurepowershell-interactive
-Get-AzVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
+Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-게시자 목록을 가져오려면 [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) 명령을 사용합니다. 형식을 요청하려면 [Get-AzVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) 명령을 사용합니다.
+게시자 목록을 가져오려면 [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) 명령을 사용합니다. 형식을 요청하려면 [Get-AzureRmVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) 명령을 사용합니다.
 
 ## <a name="tips-for-testing-and-automation"></a>테스트 및 자동화에 대한 팁
 

@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: e4b217ada2aae159680b113b6ddcb41c9d121f24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/07/2019
+ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753064"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894703"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database 및 SQL Data Warehouse IP 방화벽 규칙
 
@@ -92,7 +92,7 @@ Azure에서 애플리케이션을 Azure SQL Server에 연결할 수 있게 하�
 > [!TIP]
 > [SQL Database 감사](sql-database-auditing.md)를 사용하여 서버 수준 및 데이터베이스 수준의 방화벽 변경 내용을 감사할 수 있습니다.
 
-## <a name="manage-ip-firewall-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 IP 방화벽 규칙 관리
+## <a name="manage-server-level-ip-firewall-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 서버 수준 IP 방화벽 규칙 관리
 
 Azure Portal에서 서버 수준 IP 방화벽 규칙을 설정하려면 Azure SQL Database의 개요 페이지 또는 SQL Database 서버의 개요 페이지로 이동합니다.
 
@@ -196,7 +196,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [방화벽 규칙 삭제](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |서버 |서버 수준 IP 방화벽 규칙을 제거합니다. |
 | [방화벽 규칙 가져오기](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | 서버 | 서버 수준 IP 방화벽 규칙을 가져옵니다. |
 
-## <a name="server-level-ip-firewall-rule-versus-a-database-level-ip-firewall-rule"></a>서버 수준 IP 방화벽 규칙 및 데이터베이스 수준 IP 방화벽 규칙
+## <a name="server-level-versus-database-level-ip-firewall-rules"></a>서버 수준 및 데이터베이스 수준 IP 방화벽 규칙 비교
 
 Q. 한 데이터베이스의 사용자가 다른 데이터베이스에서 완전히 분리되어야 하나요?
 그렇다면 데이터베이스 수준 IP 방화벽 규칙을 사용하여 액세스 권한을 부여하세요. 이렇게 하면 서버 수준 IP 방화벽 규칙을 사용할 수 없게 되며, 방화벽을 통과해서 모든 데이터베이스에 액세스하도록 허용되므로 방어 수준이 약해집니다.

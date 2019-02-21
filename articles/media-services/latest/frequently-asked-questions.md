@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: juliako
-ms.openlocfilehash: be4c08bc31c8811655230ab89b48271f4c2b3164
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756583"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55875494"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 질문과 대답
 
@@ -36,17 +36,7 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 
 ### <a name="how-does-pagination-work"></a>페이지 매김은 어떻게 작동하나요?
 
-Media Services는 OData를 지원하는 리소스에 대해 $top을 지원하지만, $top에 전달되는 값은 1,000 미만이어야 합니다(예: 페이지 매김에 대한 페이지 크기).
-
-이렇게 하면 $top(예: 가장 최근의 100개 항목)을 사용하여 작은 항목 샘플을 얻거나 페이지 매김을 사용하는 모든 항목을 페이징할 수 있습니다. 
-
-Media Services에서는 사용자가 지정한 페이지 크기로 데이터를 페이징하도록 지원하지 않습니다.
-
-자세한 내용은 [필터링, 정렬, 페이징](entities-overview.md)을 참조하세요.
-
-### <a name="how-to-retrieve-an-entity-in-media-services-v3"></a>Media Services v3에서 엔터티를 검색하는 방법은 무엇인가요?
-
-v3은 **Azure Resource Manager**에서 빌드된 관리 및 운영 기능을 모두 제공하는 통합된 API 화면을 기반으로 합니다. **Azure Resource Manager**에 따라 리소스 이름은 항상 고유합니다. 따라서 고유 식별자 문자열(예: GUID)을 리소스에 사용할 수 있습니다.
+페이지 매김을 사용할 때는 항상 다음 링크를 사용하여 컬렉션을 열거하고, 특정 페이지 크기에 따라 달라지지 않아야 합니다. 자세한 내용과 예제는 [필터링, 정렬, 페이징](entities-overview.md)을 참조하세요.
 
 ## <a name="live-streaming"></a>라이브 스트리밍 
 

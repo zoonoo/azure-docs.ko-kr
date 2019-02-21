@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ebca3060e902c0a45619c2bd64240537cd95308d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b43e496323da75dfc63f889283257fac41f48abf
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811854"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117734"
 ---
 # <a name="administer-your-iot-central-application"></a>IoT Central 애플리케이션 관리
 
@@ -141,15 +141,15 @@ IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단
 
 ## <a name="export-data"></a>데이터 내보내기
 
-**연속 데이터 내보내기**를 사용하도록 설정하여 측정, 디바이스 및 디바이스 템플릿 데이터를 Azure Blob 스토리지 계정에 내보낼 수 있습니다. [데이터를 내보내는 방법](#howto-export-data)에 대해 자세히 알아보세요.
+**연속 데이터 내보내기**를 사용하도록 설정하여 측정, 디바이스 및 디바이스 템플릿 데이터를 Azure Blob 스토리지 계정에 내보낼 수 있습니다. [데이터를 내보내는](#export-data) 방법에 대해 자세히 알아보세요.
 
 ## <a name="manage-device-connection"></a>디바이스 연결 관리
 
-다음 키 및 인증서를 사용하여 애플리케이션에서 규모에 맞게 디바이스를 연결합니다. [디바이스 연결](#concepts-connectivity)에 대해 자세히 알아보세요.
+다음 키 및 인증서를 사용하여 애플리케이션에서 규모에 맞게 디바이스를 연결합니다. [디바이스 연결](/azure/iot-central/concepts-connectivity-experimental?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)에 대해 자세히 알아보세요.
 
 ## <a name="use-access-tokens"></a>액세스 토큰 사용
 
-개발자 도구에서 사용하기 위한 액세스 토큰을 생성합니다. 현재 한 가지 개발자 도구를 사용할 수 있습니다. 디바이스 메시지와 속성 및 설정의 변경 사항을 모니터링할 수 있는 IoT Central 탐색기입니다. [IoT Central 탐색기](#howto-use-iotc-explorer)에 대해 자세히 알아보세요. 
+개발자 도구에서 사용하기 위한 액세스 토큰을 생성합니다. 현재 한 가지 개발자 도구를 사용할 수 있습니다. 디바이스 메시지와 속성 및 설정의 변경 사항을 모니터링할 수 있는 IoT Central 탐색기입니다. IoT Central 탐색기에 대해 자세히 알아보세요. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>제어 평면 작업에 Azure SDK 사용
 

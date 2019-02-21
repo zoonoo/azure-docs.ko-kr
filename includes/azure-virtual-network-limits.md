@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: fe1993a914ea4d3bd8ab9116748198cbb0c1c43c
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513948"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55904987"
 ---
 <a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 클래식 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -76,11 +76,12 @@ ms.locfileid: "55513948"
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
 | 리소스 | 기본 제한 |
-| --- | --- | --- |
+| --- | --- |
 | 부하 분산 장치 | 1000 | 
 | 리소스당 규칙 수, 기본 | 250 |
 | 리소스당 규칙 수, 표준 | 1500 | 
 | IP 구성당 규칙 수 | 299 |
+| NIC당 규칙 | 500 |
 | 프런트 엔드 IP 구성 수, 기본 | 200 |
 | 프런트 엔드 IP 구성 수, 표준 | 600 |
 | 백 엔드 풀 수, 기본 | 100, 단일 가용성 집합 |
@@ -88,7 +89,5 @@ ms.locfileid: "55513948"
 | Load Balancer당 백 엔드 리소스, 표준 * | 150 |
 | HA 포트 수, 표준 | 내부 프런트 엔드당 1 |
 
-** 독립 실행형 가상 머신, 가용성 집합 및 가상 머신 확장 집합의 임의 조합으로 이루어진 최대 150개의 리소스.
-
-기본값에서 제한을 늘려야 하는 경우 [지원에 문의하세요](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
+** 독립 실행형 가상 머신 리소스, 가용성 집합 리소스 및 가상 머신 확장 집합 리소스의 임의 조합으로 이루어진 최대 150개의 리소스.
 

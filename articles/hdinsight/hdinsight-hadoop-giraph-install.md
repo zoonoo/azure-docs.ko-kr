@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec80be0ece3596eab418ac39507954142944e34a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4bcd7bcef0969cec82d42ead6307e72a3abea6e1
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260494"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978871"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Apache Giraph 설치 및 사용
 
@@ -46,17 +46,12 @@ ms.locfileid: "54260494"
 
     ![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
 
-    <table border='1'>
-        <tr><th>자산</th><th>값</th></tr>
-        <tr><td>이름</td>
-            <td>스크립트 작업의 이름을 지정합니다. 예: <b>Install Giraph</b></td></tr>
-        <tr><td>스크립트 URI</td>
-            <td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예: <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
-        <tr><td>노드 유형</td>
-            <td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
-        <tr><td>매개 변수</td>
-            <td>스크립트에 필요한 경우 매개 변수를 지정합니다. Giraph를 설치하는 스크립트는 매개 변수가 필요하지 않으므로 공백으로 둘 수 있습니다.</td></tr>
-    </table>
+    |자산|값|  
+    |---|---|  
+    |Name|스크립트 작업의 이름을 지정합니다. 예: **Install Giraph**|
+    |스크립트 URI|클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예: *https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |노드 유형|사용자 지정 스크립트가 실행되는 노드를 지정합니다. **모든 노드**, **헤드 노드만** 또는 **작업자 노드만**을 선택할 수 있습니다.
+    |매개 변수|스크립트에 필요한 경우 매개 변수를 지정합니다. Giraph를 설치하는 스크립트는 매개 변수가 필요하지 않으므로 공백으로 둘 수 있습니다.|  
 
     두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 만들기를 시작합니다.
 
@@ -78,6 +73,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
     개체 간 거리로 위의 값(또는 가중치)을 사용하여 그리면 다음과 같을 수 있습니다.
 
     ![원과 거리가 다른 선으로 그린 tiny_graph.txt](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
+
 2. SimpleShortestPathsComputation 예제를 실행합니다. 다음 Azure PowerShell cmdlet에서 tiny_graph.txt 파일을 입력으로 사용하여 예제를 실행합니다.
 
     > [!IMPORTANT]  

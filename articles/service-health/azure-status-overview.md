@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/16/2018
+ms.date: 02/11/2019
 ms.author: stbaron
-ms.openlocfilehash: 7121087d9d9699a73b88e07599f70e0c7c40c1eb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6054b33e4068d36c5bfbb80120086a92a03525c8
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308283"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56097511"
 ---
 # <a name="azure-status"></a>Azure 상태
-[Azure 상태](https://azure.microsoft.com/status/)는 Azure 서비스 상태에 대한 전반적인 보기를 제공합니다. Azure 상태를 사용하여 서비스 가용성에 대한 최신 정보를 얻을 수 있습니다. 모든 사용자는 Azure 상태에 대한 액세스를 가지며 해당 서비스 상태를 보고하는 모든 서비스를 볼 수 있습니다. 
+[Azure 상태](https://azure.microsoft.com/status/)는 Azure 서비스 및 지역의 상태에 대한 글로벌 보기를 제공합니다. Azure 상태를 사용하여 서비스 가용성에 대한 최신 정보를 얻을 수 있습니다. Azure 상태는 모든 사용자에게 제공되어 서비스 상태를 보고하는 모든 서비스와 광범위한 영향을 주는 인시던트를 보여 줍니다. 그러나 현재 Azure 사용자인 경우 [Azure Service Health](https://aka.ms/azureservicehealth)에서 맞춤형 환경을 사용하는 것이 좋습니다. Azure Service Health에는 모든 가동 중단, 향후 계획된 유지 관리 작업 및 서비스 추천 사항이 포함되어 있습니다.
 
 ![Azure 상태 페이지](./media/azure-status-overview/azure-status.PNG)
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 95206d0e3cb7bdb619524237ca1e466414c5acf5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2ac140e40ec1c70bf04c35512c28e84f59522bb8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492886"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55989426"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Excel에서 Azure Machine Learning Studio 웹 서비스 사용
 
@@ -26,7 +26,7 @@ Excel 2013(이후 버전) 또는 Excel Online을 사용하는 경우 [Excel 추�
 
 
 ## <a name="steps"></a>단계
-웹 서비스를 게시합니다. [이 페이지](walkthrough-5-publish-web-service.md) 에서는 게시 방법을 설명합니다. 현재 Excel 통합 문서 기능은 단일 출력(즉, 단일 점수 매기기 레이블)이 있는 요청/응답 서비스에 대해서만 지원됩니다. 
+웹 서비스를 게시합니다. [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)에서는 이 작업을 수행하는 방법을 설명합니다. 현재 Excel 통합 문서 기능은 단일 출력(즉, 단일 점수 매기기 레이블)이 있는 요청/응답 서비스에 대해서만 지원됩니다. 
 
 웹 서비스를 만든 후 스튜디오의 왼쪽에서 **웹 서비스** 섹션을 클릭한 다음 Excel에서 사용할 웹 서비스를 선택합니다.
 

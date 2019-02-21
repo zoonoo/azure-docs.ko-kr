@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53594375"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56213119"
 ---
 [가상 머신 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)과 [Azure Monitor의 자동 조정 기능](../articles/azure-monitor/platform/autoscale-overview.md)을 사용하면 [VM(가상 머신)](../articles/virtual-machines/windows/overview.md)을 쉽게 [자동으로 크기 조정](../articles/azure-monitor/platform/autoscale-best-practices.md)할 수 있습니다. VM은 자동으로 크기 조정되도록 설정된 확장 집합의 멤버여야 합니다. 이 문서에서는 자동 및 수동 방법을 사용하여 VM을 수직 및 수평으로 확장하는 방법을 더 잘 이해할 수 있는 정보를 제공합니다.
 
@@ -57,11 +57,11 @@ Azure Monitor의 자동 크기 조정 기능을 사용하면 [메트릭](../arti
 
 확장 집합의 용량을 변경하여 VM을 추가하거나 제거할 수 있습니다. Azure Portal에서 크기 조정 화면의 재정의 조건 표시줄을 왼쪽이나 오른쪽으로 밀어 확장 집합의 VM 수를 줄이거나 늘릴 수 있습니다(**인스턴스 수**로 표시됨).
 
-Azure PowerShell을 사용하면 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss)를 통해 확장 집합 개체를 가져와야 합니다. 그런 다음 **sku.capacity** 속성을 원하는 VM 수로 설정하고 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss)를 통해 확장 집합을 업데이트합니다. Azure CLI를 사용하면 [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) 명령에 대한 **--new-capacity** 매개 변수를 통해 용량을 변경합니다.
+Azure PowerShell을 사용하면 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)를 사용하여 확장 집합 개체를 가져와야 합니다. 그런 다음, **sku.capacity** 속성을 원하는 VM 수로 설정하고 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss)를 통해 확장 집합을 업데이트합니다. Azure CLI를 사용하면 [az vmss scale](/cli/azure/vmss?view=azure-cli-latest#az-vmss-scale) 명령에 대한 **--new-capacity** 매개 변수를 통해 용량을 변경합니다.
 
 ### <a name="vertical"></a>Vertical
 
-Azure Portal에서 확장 집합에 대한 크기 조정 화면에서 VM의 크기를 수동으로 변경할 수 있습니다. Azure PowerShell을 Get-AzureRmVmss와 함께 사용하고, 이미지 참조 SKU 속성을 설정한 다음, [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) 및 [Update-AzureRmVmssInstance](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmssinstance)를 사용하면 됩니다.
+Azure Portal에서 확장 집합에 대한 크기 조정 화면에서 VM의 크기를 수동으로 변경할 수 있습니다. Azure PowerShell을 Get-AzVmss와 함께 사용하여 이미지 참조 SKU 속성을 설정한 다음, [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) 및 [Update-AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance)를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

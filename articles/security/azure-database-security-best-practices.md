@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure 데이터베이스 보안을 위한 일�
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: cceea9fa613d2a2428427bfe73eb50550db6c69a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281628"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56117972"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 데이터베이스 보안 모범 사례
 보안은 데이터베이스 관리에서 가장 중요하며 항상 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)의 최우선 순위였습니다. HIPAA, ISO 27001/27002, PCI DSS 수준 1을 포함한 대부분의 규정 또는 보안 요구 사항을 충족할 수 있도록 데이터베이스를 철저히 보호할 수 있습니다. 보안 규정 준수 인증의 최신 목록은 [Microsoft Azure 보안 센터 사이트](https://azure.microsoft.com/support/trust-center/services/)에서 제공합니다. 또한 규정 요구 사항에 따라 특정 Azure 데이터 센터에 데이터베이스를 배치하도록 선택할 수도 있습니다.
@@ -125,7 +125,7 @@ Azure AD 인증은 Azure AD의 ID를 사용하여 Azure SQL Database 및 [SQL Da
 데이터를 보호하는 다른 방법으로 다음을 사용해보세요.
 
 - [셀 수준 암호화](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) 는 특정 열 또는 서로 다른 암호화 키를 가진 데이터의 셀도 암호화합니다.
-- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용합니다. 그러면 클라이언트에서 클라이언트 응용 프로그램 내의 중요한 데이터를 암호화하므로 데이터베이스 엔진(SQL Database 또는 SQL Server)에 암호화 키가 공개되지 않습니다. 따라서 Always Encrypted는 데이터를 소유하고 볼 수 있는 사용자와 데이터를 관리하지만 액세스할 수 없는 사용자를 구별합니다.
+- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용합니다. 그러면 클라이언트에서 클라이언트 애플리케이션 내의 중요한 데이터를 암호화하므로 데이터베이스 엔진(SQL Database 또는 SQL Server)에 암호화 키가 공개되지 않습니다. 따라서 Always Encrypted는 데이터를 소유하고 볼 수 있는 사용자와 데이터를 관리하지만 액세스할 수 없는 사용자를 구별합니다.
 - [행 수준 보안](/sql/relational-databases/security/row-level-security)을 사용합니다. 그러면 고객이 쿼리를 실행하는 사용자의 특성을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. 특성의 예로는 그룹 멤버 자격 및 실행 컨텍스트가 있습니다.
 
 데이터베이스 수준 암호화를 사용하지 않는 조직은 SQL 데이터베이스에 있는 데이터를 손상시키는 공격에 더 취약할 수 있습니다.
@@ -158,10 +158,10 @@ SQL Server Database Engine 또는 개별 데이터베이스의 인스턴스를 �
 
 이러한 규칙은 Microsoft의 모범 사례를 기반으로 하며, 데이터베이스 및 중요한 데이터에 가장 심각한 위험 요소인 보안 문제를 중점적으로 표시합니다. 이러한 규칙은 데이터베이스 수준 문제 및 서버 수준 보안 문제(예: 서버 방화벽 설정 및 서버 수준 권한)에 모두 적용됩니다. 이러한 규칙은 규정 준수 표준을 충족하기 위한 규제 기관의 대다수 요구 사항을 나타내기도 합니다.
 
-**모범 사례**: 위협 검색을 사용하도록 설정합니다.  
-**세부 정보**: 위협을 조사하고 완화하는 방법과 관련한 권장 사항과 보안 경고가 수신되도록 Azure SQL Database [위협 검색](../sql-database/sql-database-threat-detection.md)을 사용하도록 설정합니다. 그러면 의심스러운 데이터베이스 활동, 잠재적 취약성 및 SQL 삽입 공격뿐만 아니라 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고도 표시됩니다.
+**모범 사례**: 위협 탐지를 사용합니다.  
+**세부 정보**:  위협을 조사하고 완화하는 방법과 관련한 권장 사항과 보안 경고가 수신되도록 Azure SQL Database [위협 탐지](../sql-database/sql-database-threat-detection.md)를 사용하도록 설정합니다. 그러면 의심스러운 데이터베이스 활동, 잠재적 취약성 및 SQL 삽입 공격뿐만 아니라 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고도 표시됩니다.
 
-고급 SQL 보안 기능용 통합 패키지인 [Advanced Threat Protection](../sql-database/sql-advanced-threat-protection.md)에는 앞에서 설명한 데이터 검색 및 분류, 취약성 평가, 위협 검색 등의 서비스가 포함되어 있습니다. 이 패키지를 통해 이러한 기능을 한 곳에서 사용하도록 설정하고 관리할 수 있습니다.
+고급 SQL 보안 기능용 통합 패키지인 [Advanced Threat Protection](../sql-database/sql-advanced-threat-protection.md)에는 앞에서 설명한 데이터 검색 및 분류, 취약성 평가, 위협 탐지 등의 서비스가 포함되어 있습니다. 이 패키지를 통해 이러한 기능을 한 곳에서 사용하도록 설정하고 관리할 수 있습니다.
 
 이러한 기능을 사용하도록 설정하는 경우의 이점은 다음과 같습니다.
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/07/2019
 ms.author: juliako
-ms.openlocfilehash: d176152429ecac1ed4e570533f1bc0426cc7655f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a5a4205c97e4db25d5d0a92472610364d912b278
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767455"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55963440"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Azure Media Services v3가 있는 클라우드 및 지역
 
@@ -40,7 +40,7 @@ Azure Media Services v3는 전 세계 Azure, Azure Government, Azure Germany, Az
 * [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## <a name="region-code-name"></a>Azure 지역 코드 이름 
+### <a name="region-code-name"></a>Azure 지역 코드 이름 
 
 **location** 매개 변수를 제공해야 하는 경우 지역 코드 이름을 **location** 값으로 제공해야 합니다. 계정이 속해 있고 호출을 라우팅해야 하는 Azure 지역의 코드 이름을 가져오려면 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)에서 다음 줄을 실행합니다.
 
@@ -62,6 +62,42 @@ az account list-locations
       "subscriptionId": null
     }
 ```
+
+## <a name="endpoints"></a>엔드포인트  
+
+다른 국가별 Azure 클라우드에서 Media Services 계정에 연결할 때 다음 엔드포인트를 알아야 합니다.
+
+### <a name="global-azure"></a>글로벌 Azure
+
+|엔드포인트 ||
+| --- | --- | 
+| Azure 리소스 관리자 |  `https://management.azure.com/` |
+| Authentication | `https://login.microsoftonline.com/` | 
+| 토큰 대상 그룹 | `https://management.core.windows.net/` |
+
+### <a name="azure-government"></a>Azure Government
+
+|엔드포인트||
+| --- | --- | 
+| Azure 리소스 관리자 |  `https://management.usgovcloudapi.net/` |
+| Authentication | `https://login.microsoftonline.us/` | 
+| 토큰 대상 그룹 | `https://management.core.usgovcloudapi.net/` |
+
+### <a name="azure-germany"></a>Azure Germany
+
+| 엔드포인트 ||
+| --- | --- |  
+| Azure 리소스 관리자 | `https://management.cloudapi.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
+| 토큰 대상 그룹 | `https://management.core.cloudapi.de/`|
+
+### <a name="azure-china-21vianet"></a>Azure China 21Vianet
+
+|엔드포인트||
+| --- | --- | 
+| Azure 리소스 관리자 | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
+| 토큰 대상 그룹 |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="next-steps"></a>다음 단계
 

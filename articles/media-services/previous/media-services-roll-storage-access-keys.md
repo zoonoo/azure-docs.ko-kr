@@ -4,7 +4,7 @@ description: 이 문서에서는 저장소 액세스 키를 롤링한 후 Media 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 4ab2c58e5a0f9e04d824eeea443a13af7a32617d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 419e7b1ae05f92b5b97f5317c0315a71958eff9e
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619659"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005168"
 ---
-# <a name="update-media-services-after-rolling-storage-access-keys"></a>저장소 액세스 키 롤링 후 Media Services 업데이트
+# <a name="update-media-services-after-rolling-storage-access-keys"></a>저장소 액세스 키 롤링 후 Media Services 업데이트 
 
 새 AMS(Azure Media Services) 계정을 만들 때 미디어 콘텐츠를 저장하는 데 사용되는 Azure Storage 계정을 선택하도록 요청받습니다. Media Services 계정에 저장소 계정을 둘 이상 추가할 수 있습니다. 이 문서에서는 저장소 키를 회전하는 방법을 보여 줍니다. 또한 미디어 계정에 저장소 계정을 추가하는 방법도 보여 줍니다. 
 
@@ -68,7 +68,7 @@ Media Services는 제공되는 저장소 키에 따라 달라집니다. 특히, 
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>AMS 계정에 저장소 계정을 추가하는 단계
 
-[Media Services 계정에 여러 저장소 계정 연결](meda-services-managing-multiple-storage-accounts.md) 문서에서는 AMS 계정에 저장소 계정을 추가하는 방법을 보여 줍니다.
+다음 문서에는 스토리지 계정을 AMS 계정에 추가하는 방법을 보여 줍니다. [여러 스토리지 계정을 Media Services 계정에 연결](meda-services-managing-multiple-storage-accounts.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -77,4 +77,4 @@ Media Services는 제공되는 저장소 키에 따라 달라집니다. 특히, 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>승인
-이 문서를 만들 때 기여한 다음 사람들에게 감사 드리고자 합니다. Cenk Dingiloglu, Milan Gada, Seva Titov
+이 문서를 작성하는 데 기여해 주신 Cenk Dingiloglu, Milan Gada, Seva Titov에게 감사드립니다.

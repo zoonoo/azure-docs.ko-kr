@@ -4,7 +4,7 @@ description: PaaS 웹 및 모바일 애플리케이션 보안을 위한 Azure St
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: ''
 ms.service: security
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: TomShinder
-ms.openlocfilehash: ac01aaca8c147b1f474b59ac57424f5cdc5f8a8d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3ad97c7adb5901c1da1d174d12d5d6a91831cc74
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451870"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56108928"
 ---
-# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Azure Storage를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안을 유지하는 모범 사례
-이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 애플리케이션 보안을 위한 Azure Storage 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
+# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Azure Storage를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안을 유지하는 모범 사례
+이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 응용 프로그램 보안을 위한 Azure Storage 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
 
 Azure에서는 온-프레미스에서는 쉽게 달성할 수 없는 방식으로 저장소를 배포하고 사용할 수 있습니다. Azure Storage를 사용하면 비교적 적은 노력으로 높은 수준의 확장성 및 가용성을 얻을 수 있습니다. Azure Storage는 Windows 및 Linux Azure Virtual Machines의 기반일 뿐만 아니라 대규모 분산 애플리케이션도 지원할 수 있습니다.
 
-Azure Storage는 Blob 스토리지, 테이블 스토리지, 큐 스토리지 및 파일 스토리지 등의 4가지 서비스를 제공합니다. 자세한 내용은 [Microsoft Azure Storage 소개](../storage/storage-introduction.md)를 참조하세요.
+Azure Storage는 다음과 같은 4가지 서비스를 제공합니다. Blob Storage, Table Storage, Queue Storage 및 File Storage. 자세한 내용은 [Microsoft Azure Storage 소개](../storage/storage-introduction.md)를 참조하세요.
 
 [Azure Storage 보안 가이드](../storage/common/storage-security-guide.md)는 Azure Storage 및 보안에 대한 자세한 정보를 제공합니다. 이 모범 사례 문서에서는 보안 가이드에 나오는 일부 개념을 소개하고 좀 더 자세한 정보를 원하는 사용자를 위해 보안 가이드 및 기타 원본에 대한 링크를 제공합니다.
 
@@ -39,7 +39,7 @@ Azure Storage는 Blob 스토리지, 테이블 스토리지, 큐 스토리지 및
 
 
 ## <a name="use-a-shared-access-signature-instead-of-a-storage-account-key"></a>저장소 계정 키 대신 공유 액세스 서명 사용
-액세스 제어는 중요합니다. Azure Storage 액세스를 쉽게 제어할 수 있도록 하기 위해 스토리지 계정을 만들 때는 512비트 SAK(스토리지 계정 키) 2개가 생성됩니다. 이처럼 키가 중복 생성되므로 일상적인 키 순환 중에 서비스 중단을 방지할 수 있습니다. 
+액세스 제어는 중요합니다. Azure Storage 액세스를 쉽게 제어할 수 있도록 하기 위해 저장소 계정을 만들 때는 512비트 SAK(저장소 계정 키) 2개가 생성됩니다. 이처럼 키가 중복 생성되므로 일상적인 키 순환 중에 서비스 중단을 방지할 수 있습니다. 
 
 저장소 액세스 키는 우선 순위가 높은 비밀로, 저장소 액세스 제어를 담당하는 사용자만 액세스할 수 있어야 합니다. 잘못된 사용자가 이러한 키에 액세스하면 저장소를 완전히 제어하고 저장소에서 파일을 바꾸거나 삭제하거나 추가할 수 있게 됩니다. 여기에는 조직 또는 고객에게 손상을 줄 수 있는 맬웨어 및 다른 유형의 콘텐츠가 포함됩니다.
 
@@ -72,7 +72,7 @@ RBAC에 대한 자세한 내용은 다음을 참조하세요.
 
 또한 클라이언트 쪽 암호화를 사용하면 암호화 키를 단독으로 제어할 수 있습니다. 자체 암호화 키를 생성하고 관리할 수 있습니다. 클라이언트 쪽 암호화는 Azure Storage 클라이언트 라이브러리가 CEK(콘텐츠 암호화 키)를 생성하고 KEK(키 암호화 키)를 사용하여 래핑(암호화)하는 봉투(envelope) 기술을 사용합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 [Azure Key Vault](../key-vault/key-vault-whatis.md)에 저장됩니다.
 
-클라이언트 쪽 암호화는 Java 및 .NET 저장소 클라이언트 라이브러리에 기본적으로 제공되어 있습니다. 클라이언트 애플리케이션 내에서 데이터를 암호화하고 자체 암호화 키를 생성 및 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](../storage/storage-client-side-encryption.md)를 참조하세요.
+클라이언트 쪽 암호화는 Java 및 .NET 저장소 클라이언트 라이브러리에 기본적으로 제공되어 있습니다. 클라이언트 응용 프로그램 내에서 데이터를 암호화하고 자체 암호화 키를 생성 및 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage용 클라이언트 쪽 암호화 및 Azure Key Vault](../storage/storage-client-side-encryption.md)를 참조하세요.
 
 ## <a name="enable-storage-service-encryption-for-data-at-rest"></a>미사용 데이터에 대해 저장소 서비스 암호화 사용
 File Storage에 대해 [Storage 서비스 암호화](../storage/storage-service-encryption.md)가 사용되도록 설정되면 데이터는 AES-256 암호화를 사용하여 자동으로 암호화됩니다. Microsoft는 모든 암호화, 해독 및 키 관리를 처리합니다. 이 기능은 LRS 및 GRS 중복 유형에 사용할 수 있습니다.
@@ -82,5 +82,5 @@ File Storage에 대해 [Storage 서비스 암호화](../storage/storage-service-
 이 문서에서는 PaaS 웹 및 모바일 애플리케이션 보안을 위한 Azure Storage 보안 모범 사례 모음을 소개했습니다. PaaS 배포 보안 유지에 대한 자세한 내용은 다음을 참조하세요.
 
 - [PaaS 배포 보안](security-paas-deployments.md)
-- [Azure App Services를 사용하여 PaaS 웹 및 모바일 응용 프로그램 보안](security-paas-applications-using-app-services.md)
+- [Azure App Services를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안](security-paas-applications-using-app-services.md)
 - [Azure에서 PaaS 데이터베이스 보안 유지](security-paas-applications-using-sql.md)

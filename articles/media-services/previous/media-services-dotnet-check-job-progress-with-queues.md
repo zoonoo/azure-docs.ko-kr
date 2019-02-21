@@ -1,6 +1,6 @@
 ---
 title: Azure Queue Storage를 사용하여 .NET으로 Media Services 작업 알림 모니터링 | Microsoft 문서
-description: Azure 큐 저장소를 사용하여 Media Services 작업 알림을 모니터링하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다.
+description: Azure Queue Storage를 사용하여 Media Services 작업 알림을 모니터링하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,23 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 5ddee0ca94535688a0634ef8575f3aedad649a43
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a863915ceef437957170d87ac4cc452d651a8dab
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037501"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55994955"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Azure 큐 저장소를 사용하여 .NET으로 Media Services 작업 알림 모니터링
-인코딩 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [Azure 큐 저장소](../../storage/storage-dotnet-how-to-use-queues.md)에 알림을 배달하도록 Media Services를 구성할 수 있습니다. 큐 저장소에서 알림을 가져와 작업 진행 상태를 모니터링할 수 있습니다. 
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net-legacy"></a>Azure Queue Storage를 사용하여 .NET으로 Media Services 작업 알림 모니터링(레거시)
 
-세계 어디에서나 큐 저장소에 배달된 메시지에 액세스할 수 있습니다. Queue Storage 메시징 아키텍처는 안정적이고 확장성이 뛰어납니다. 다른 방법을 사용하는 것보다 메시지에 대한 Queue Storage를 폴링하는 것이 좋습니다.
+인코딩 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [Azure Queue Storage](../../storage/storage-dotnet-how-to-use-queues.md)에 알림을 배달하도록 Media Services를 구성할 수 있습니다. Queue Storage에서 알림을 가져와 작업 진행 상태를 모니터링할 수 있습니다. 
+
+세계 어디에서나 Queue Storage에 배달된 메시지에 액세스할 수 있습니다. Queue Storage 메시징 아키텍처는 안정적이고 확장성이 뛰어납니다. 다른 방법을 사용하는 것보다 메시지에 대한 Queue Storage를 폴링하는 것이 좋습니다.
 
 Media Services 알림 수신에 대한 일반적인 시나리오는 인코딩 작업 후 일부 추가 작업을 수행해야 하는 콘텐츠 관리 시스템을 개발하는 경우(예를 들어, 다음에는 워크플로에서 다음 단계를 트리거하거나 콘텐츠를 게시)입니다.
 
-이 문서에서는 큐 저장소에서 알림 메시지를 가져오는 방법을 보여 줍니다.  
+이 문서에서는 Queue Storage에서 알림 메시지를 가져오는 방법을 보여 줍니다.  
 
 ## <a name="considerations"></a>고려 사항
 Queue Storage를 사용하는 Media Services 애플리케이션을 개발할 때 다음 사항을 고려합니다.
@@ -338,7 +339,7 @@ namespace JobNotification
 }
 ```
 
-위의 예제는 다음과 같이 출력되고 사용자의 값이 달라집니다.
+위 예제는 다음과 같이 출력됩니다. 값은 달라질 수 있습니다.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

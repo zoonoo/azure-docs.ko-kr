@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4af7af6616b5415cd13abacd6aca13bd412d4ad8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464384"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55998103"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Azure Machine Learning Studio 웹 서비스 사용 방법
 
@@ -70,7 +70,7 @@ Machine Learning 웹 서비스에 대한 자세한 내용은 [Machine Learning �
 ## <a id="connect"></a>Machine Learning 웹 서비스에 연결
 HTTP 요청 및 응답을 지원하는 모든 프로그래밍 언어를 사용하여 Machine Learning 웹 서비스에 연결할 수 있습니다. Machine Learning 웹 서비스 도움말 페이지에서 C#, Python 및 R로 작성된 예제를 볼 수 있습니다.
 
-**Machine Learning API 도움말** 웹 서비스를 배포하면 Machine Learning API 도움말이 생성됩니다. [Azure Machine Learning 연습 - 웹 서비스 배포](walkthrough-5-publish-web-service.md)를 참조하세요.
+**Machine Learning API 도움말** 웹 서비스를 배포하면 Machine Learning API 도움말이 생성됩니다. [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조하세요.
 Machine Learning API 도움말에는 예측 웹 서비스에 대한 세부 정보가 포함되어 있습니다.
 
 1. 사용하고 있는 웹 서비스를 클릭합니다.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: abdc50d6d3d27ab7611994089345a997afc72cae
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082645"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106464"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Azure Traffic Manager에서 진단 로깅 사용
 
@@ -26,29 +26,31 @@ Azure Traffic Manager 진단 로그는 Traffic Manager 프로필 리소스의 �
 
 ## <a name="enable-diagnostic-logging"></a>진단 로깅 사용
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 *AzureRM* PowerShell 모듈 버전 6.13.1 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 설치된 버전을 확인할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`도 실행하여 Azure에 로그인해야 합니다.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인할 수 있습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`도 실행하여 Azure에 로그인해야 합니다.
 
 1. **Traffic Manager 프로필 검색:**
 
-    진단 로깅을 사용하도록 설정하려면 Traffic Manager 프로필의 ID가 필요합니다. [Get-AzureRmTrafficManagerProfile](/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile)을 사용하여 진단 로깅을 사용하도록 설정하려는 Traffic Manager 프로필을 검색합니다. 출력에 Traffic Manager 프로필의 ID 정보가 포함되어 있습니다.
+    진단 로깅을 사용하도록 설정하려면 Traffic Manager 프로필의 ID가 필요합니다. [Get-AzTrafficManagerProfile](/powershell/module/az.TrafficManager/Get-azTrafficManagerProfile)을 사용하여 진단 로깅을 사용하도록 설정하려는 Traffic Manager 프로필을 검색합니다. 출력에 Traffic Manager 프로필의 ID 정보가 포함되어 있습니다.
 
     ```azurepowershell-interactive
-    Get-AzureRmTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
+    Get-AzTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
     ```
 
 2. **Traffic Manager 프로필에 대한 진단 로깅 사용:**
 
-    이전 단계에서 [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest)을 통해 가져온 ID를 사용하여 Traffic Manager 프로필에 대한 진단 로깅을 사용하도록 설정합니다. 다음 명령은 Traffic Manager 프로필에 대한 자세한 정보 로그를 지정된 Azure Storage 계정에 저장합니다. 
+    이전 단계에서 [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest)을 통해 가져온 ID를 사용하여 Traffic Manager 프로필에 대한 진단 로깅을 사용하도록 설정합니다. 다음 명령은 Traffic Manager 프로필에 대한 자세한 정보 로그를 지정된 Azure Storage 계정에 저장합니다. 
 
       ```azurepowershell-interactive
-    Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+    Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **진단 설정 확인:**
 
-      [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest)을 사용하여 Traffic Manager 프로필에 대한 진단 설정을 확인합니다. 다음 명령은 리소스에 대해 기록되는 범주를 표시합니다.
+      [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest)을 사용하여 Traffic Manager 프로필에 대한 진단 설정을 확인합니다. 다음 명령은 리소스에 대해 기록되는 범주를 표시합니다.
 
      ```azurepowershell-interactive
-     Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
+     Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
      ```  
       Traffic Manager 프로필 리소스와 연결된 모든 로그 범주가 '사용'으로 표시되는지 확인합니다. 또한 스토리지 계정이 올바르게 설정되어 있는지도 확인합니다.
 

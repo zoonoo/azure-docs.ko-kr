@@ -2,7 +2,7 @@
 title: REST를 사용하여 Azure Media Services 콘텐츠 게시
 description: 스트리밍 URL을 작성하는 데 사용되는 로케이터를 만드는 방법에 대해 알아봅니다. REST API를 사용하는 코드입니다.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 8385dedd494c0cef968cb869ded3e92ce213da5e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 185e047bb1877d5ee4660653c0e7b6b32f273a0c
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785862"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55991602"
 ---
-# <a name="publish-azure-media-services-content-using-rest"></a>REST를 사용하여 Azure Media Services 콘텐츠 게시
+# <a name="publish-azure-media-services-content-using-rest"></a>REST를 사용하여 Azure Media Services 콘텐츠 게시 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST (영문)](media-services-rest-deliver-streaming-content.md)

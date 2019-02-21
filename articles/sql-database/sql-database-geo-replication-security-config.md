@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1430bc4a9de863c25e40a2655f0a1cd7a75ae0f7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561402"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55858283"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>지역 복원 또는 장애 조치를 위해 Azure SQL Database 보안 구성 및 관리
 
@@ -32,6 +32,9 @@ master 데이터베이스에서 로그인에 매핑되어야 하는 기존 사�
 ## <a name="how-to-configure-logins-and-users"></a>로그인 및 사용자를 구성하는 방법
 
 포함된 사용자가 아닌 로그인과 사용자를 사용하는 경우 master 데이터베이스에 동일한 로그인이 있는지 확인하는 추가 단계를 수행해야 합니다. 다음 섹션에서는 관련된 단계 및 추가 고려 사항을 간략히 설명합니다.
+
+  >[!NOTE]
+  > 또한 Azure Active Directory(AAD) 로그인을 사용하여 데이터베이스를 관리할 수도 있습니다. 자세한 내용은 [Azure SQL 로그인 및 사용자](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)를 참조하세요.
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>보조 또는 복구된 데이터베이스에 대한 사용자 액세스 설정
 

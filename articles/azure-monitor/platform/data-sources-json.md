@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor에서 사용자 지정 JSON 데이터 수집 | Microsoft Docs
-description: Linux용 Log Analytics 에이전트를 사용하여 Log Analytics로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 curl 또는 FluentD의 300+ 플러그 인의 하나와 같은 JSON을 반환하는 간단한 스크립트일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
+description: Linux용 Log Analytics 에이전트를 사용하여 Azure Monitor로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 curl 또는 FluentD의 300+ 플러그 인의 하나와 같은 JSON을 반환하는 간단한 스크립트일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 36f914109d8d3879d23511cb37055d20db4d670c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8b03d6838e9d942da766e0c7aa4c2c2e161a6b14
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105222"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55990124"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Azure Monitor에서 Linux용 Log Analytics 에이전트를 사용하여 사용자 지정 JSON 데이터 원본 수집
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Linux용 Log Analytics 에이전트를 사용하여 [Log Analytics](data-collection.md)로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 [curl](https://curl.haxx.se/) 또는 [FluentD의 300+ 플러그 인](http://www.fluentd.org/plugins/all)의 하나와 같은 JSON을 반환하는 간단한 스크립트일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
+Linux용 Log Analytics 에이전트를 사용하여 [Azure Monitor](data-collection.md)로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 [curl](https://curl.haxx.se/) 또는 [FluentD의 300+ 플러그 인](http://www.fluentd.org/plugins/all)의 하나와 같은 JSON을 반환하는 간단한 스크립트일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
 
 
 > [!NOTE]
@@ -33,7 +33,7 @@ Linux용 Log Analytics 에이전트를 사용하여 [Log Analytics](data-collect
 
 ### <a name="configure-input-plugin"></a>입력 플러그 인 구성
 
-Log Analytics에서 JSON 데이터를 수집하려면 `oms.api.`를 입력 플러그 인에서 FluentD 태그의 시작 부분에 추가합니다.
+Azure Monitor에서 JSON 데이터를 수집하려면 `oms.api.`를 입력 플러그 인에서 FluentD 태그의 시작 부분에 추가합니다.
 
 예를 들어 다음은 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`에서 별도 구성 파일 `exec-json.conf`입니다.  FluentD 플러그 인 `exec`를 사용하여 30초마다 curl 명령을 실행합니다.  이 명령의 출력은 JSON 출력 플러그 인을 통해 수집됩니다.
 
@@ -87,9 +87,9 @@ Log Analytics에서 JSON 데이터를 수집하려면 `oms.api.`를 입력 플�
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>출력
-`<FLUENTD_TAG>_CL`의 레코드 형식으로 Log Analytics에 데이터가 수집됩니다.
+`<FLUENTD_TAG>_CL`의 레코드 형식으로 Azure Monitor에 데이터가 수집됩니다.
 
-예를 들어 `tomcat_CL`의 레코드 형식으로 Log Analytics에 사용자 지정 태그 `tag oms.api.tomcat`이 수집됩니다.  다음 로그 쿼리로 이 형식의 모든 레코드를 검색할 수 있습니다.
+예를 들어 `tomcat_CL`의 레코드 형식으로 Azure Monitor에 사용자 지정 태그 `tag oms.api.tomcat`이 수집됩니다.  다음 로그 쿼리로 이 형식의 모든 레코드를 검색할 수 있습니다.
 
     Type=tomcat_CL
 
@@ -106,4 +106,4 @@ Log Analytics에서 JSON 데이터를 수집하려면 `oms.api.`를 입력 플�
 
 
 ## <a name="next-steps"></a>다음 단계
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../../log-analytics/log-analytics-queries.md)에 대해 알아봅니다. 
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../log-query/log-query-overview.md)에 대해 알아봅니다. 

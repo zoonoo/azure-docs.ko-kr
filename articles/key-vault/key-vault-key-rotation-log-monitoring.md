@@ -4,7 +4,7 @@ description: 키 회전 및 Key Vault 로그의 모니터링을 통해 설정을
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dbfd993a8464c569d30f11e305d4bae000a778f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: deb50a71b179c3cb03d5da22e336c42b26fe0bfa
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077711"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106123"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>키 회전 및 감사를 사용하여 Azure Key Vault 설정
 
 ## <a name="introduction"></a>소개
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있습니다. 사용자 응용 프로그램에서는 키 또는 암호 정보를 더 이상 유지할 필요가 없으며, 필요에 따라 자격 증명 모음에서 요청할 수 있습니다. 이렇게 하면 애플리케이션의 동작에 영향을 주지 않고 키 및 비밀을 업데이트할 수 있으며 키 및 비밀 관리 동작에 대한 다양한 가능성이 열립니다.
 
@@ -36,7 +38,7 @@ Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있�
 - 예기치 않은 요청이 있을 때 Key Vault 감사 로그를 모니터하고 경고를 생성하는 방법도 보여 줍니다.
 
 > [!NOTE]
-> 이 자습서는 Key Vault의 초기 설정에 대해서는 자세히 다루지 않습니다. 이에 대한 설명은 [Azure Key Vault 시작](key-vault-get-started.md)을 참조하세요. 플랫폼 간 명령줄 인터페이스 지침은 [CLI를 사용하여 Key Vault 관리](key-vault-manage-with-cli2.md)를 참조하세요.
+> 이 자습서는 Key Vault의 초기 설정에 대해서는 자세히 다루지 않습니다. 자세한 내용은 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요. 플랫폼 간 명령줄 인터페이스 지침은 [CLI를 사용하여 Key Vault 관리](key-vault-manage-with-cli2.md)를 참조하세요.
 >
 >
 
@@ -45,7 +47,7 @@ Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있�
 애플리케이션을 통해 Azure Key Vault에서 비밀을 검색하려면 먼저 비밀을 만들어 Key Vault에 업로드해야 합니다. 이렇게 하려면 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. PowerShell이 이 계정과 연결된 모든 구독을 가져옵니다. PowerShell은 기본적으로 첫 번째 구독을 사용합니다.
@@ -53,19 +55,19 @@ Connect-AzureRmAccount
 구독이 여러 개인 경우 Key Vault을 만드는 데 사용된 구독을 지정해야 할 수도 있습니다. 계정에 대한 구독을 보려면 다음을 입력합니다.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 로깅하려는 Key Vault와 연결된 구독을 지정하려면 다음을 입력합니다.
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscriptionID>
+Set-AzContext -SubscriptionId <subscriptionID>
 ```
 
 이 문서에서는 저장소 계정 키를 비밀로 저장하는 방법을 설명하므로 해당 저장소 계정 키를 가져와야 합니다.
 
 ```powershell
-Get-AzureRmStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
+Get-AzStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <storageAccountName>
 ```
 
 비밀(이 예에서는 저장소 계정 키)을 검색한 후에는 보안 문자열로 변환한 후 해당 값을 사용하여 Key Vault에 비밀을 만들어야 합니다.
@@ -73,13 +75,13 @@ Get-AzureRmStorageAccountKey -ResourceGroupName <resourceGroupName> -Name <stora
 ```powershell
 $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
-Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
+Set-AzKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
 
 그런 다음, 만든 비밀의 URI를 가져옵니다. 이 URI는 이후에 비밀을 검색하기 위해 Key Vault를 호출하는 단계에서 사용됩니다. 다음 PowerShell 명령을 실행하고 비밀 URI인 ID 값을 기록해 둡니다.
 
 ```powershell
-Get-AzureKeyVaultSecret –VaultName <vaultName>
+Get-AzKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>애플리케이션 설정
@@ -110,7 +112,7 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 애플리케이션에서 Key Vault로 모든 호출을 설정하기 전에 Key Vault에 애플리케이션 및 해당 권한에 대한 정보를 알려야 합니다. 다음 명령은 Azure Active Directory 앱에서 Key Vault 이름 및 응용 프로그램 ID를 가져와 Key Vault에 응용 프로그램에 대한 **Get** 액세스 권한을 부여합니다.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
 이제 애플리케이션 호출의 빌드를 시작할 준비가 되었습니다. 애플리케이션에서 Azure Key Vault 및 Azure Active Directory와 상호 작용하는 데 필요한 NuGet 패키지를 먼저 설치해야 합니다. Visual Studio 패키지 관리자 콘솔에서 다음 명령을 입력합니다. 이 문서를 작성할 당시 Azure Active Directory 패키지의 최신 버전은 3.10.305231913이므로 최신 버전을 확인하고 그에 따라 업데이트해야 할 수 있습니다.
@@ -188,7 +190,7 @@ Azure Automation이 Key Vault의 비밀 값을 설정할 수 있도록 허용하
 Azure Automation 연결에 대한 애플리케이션 ID를 검색한 후에는 이 애플리케이션에서 Key Vault의 비밀을 업데이트할 권한이 있음을 Key Vault에 알려야 합니다. 다음 PowerShell 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
+Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
 ```
 
 다음으로 Azure Automation 인스턴스 아래에서 **Runbooks**을 선택하고 **Runbook 추가**를 선택합니다. **빠른 생성**을 선택합니다. runbook의 이름을 지정하고 runbook 유형으로 **PowerShell**을 선택합니다. 설명을 추가하는 옵션이 있습니다. 마지막으로 **만들기**를 클릭합니다.
@@ -205,7 +207,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -230,12 +232,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 편집기 창에서 **테스트 창**을 선택하여 스크립트를 테스트합니다. 스크립트가 오류 없이 실행되면 **게시**를 선택한 후 runbook 구성 창에서 runbook에 대한 일정을 다시 적용할 수 있습니다.
@@ -246,9 +248,9 @@ Key Vault를 설정할 때 감사를 켜서 Key Vault에 대해 발생하는 액
 먼저 Key Vault에서 로깅을 사용하도록 설정해야 합니다. 이 작업은 다음 PowerShell 명령을 통해 수행할 수 있습니다(전체 설명은 [key-vault-로깅](key-vault-logging.md)에서 확인할 수 있음).
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
-$kv = Get-AzureRmKeyVault -VaultName '<vaultName>'
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = New-AzStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Type Standard\_LRS -Location 'East US'
+$kv = Get-AzKeyVault -VaultName '<vaultName>'
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
 로깅이 활성화되면 감사 로그가 지정된 저장소 계정으로 수집하기 시작합니다. 이러한 로그에는 Key Vault를 어떻게, 언제, 누가 액세스하는지에 대한 이벤트가 포함됩니다.

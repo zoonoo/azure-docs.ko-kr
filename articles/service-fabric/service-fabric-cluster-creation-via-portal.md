@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: f0c2108ee75f843e8285c5e2c5c55834643dc7da
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 71448125d7308ca28e7241fd4019aadba430214e
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620543"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56106140"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Azure Portal을 사용하여 Azure에 Service Fabric 클러스터(Linux 또는 W
 이 인증서는 클러스터를 보호하고 무단 액세스를 방지하기 위해 필요합니다. 다음 몇 가지 방법으로 클러스터 보안을 제공합니다.
 
 * **클러스터 인증:** 클러스터 페더레이션에 대한 노드 간 통신을 인증합니다. 이 인증서로 자신의 신분을 증명할 수 있는 노드만 클러스터에 가입할 수 있습니다.
-* **서버 인증:** 관리 클라이언트에 클러스터 관리 엔드포인트를 인증하여 관리 클라이언트기 실제 클러스터와 통신하는지 알 수 있도록 합니다. 이 인증서는 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer에 대해 SSL도 제공합니다.
+* **서버 인증:** 관리 클라이언트에 클러스터 관리 엔드포인트를 인증하여 관리 클라이언트가 실제 클러스터와 통신하는지 알 수 있도록 합니다. 이 인증서는 HTTPS 관리 API 및 HTTPS를 통한 Service Fabric Explorer에 대해 SSL도 제공합니다.
 
 이를 위해 인증서는 다음 요구 사항을 충족해야 합니다.
 
@@ -71,7 +71,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 * 애플리케이션 구성 값의 암호화 및 암호 해독
 * 복제 중에 노드 간 데이터 암호화 
 
-[Azure Portal을 통해 클러스터를 만드는](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md) 경우, 응용 프로그램 인증서를 구성할 수 없습니다. 클러스터 설치 시에 애플리케이션 인증서를 구성하려면 [Azure Resource Manager를 사용하여 클러스터를 만들어야][create-cluster-arm] 합니다. 만든 클러스터에 애플리케이션 인증서를 추가할 수도 있습니다.
+[Azure Portal을 통해 클러스터를 만드는](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md) 경우, 애플리케이션 인증서를 구성할 수 없습니다. 클러스터 설치 시에 애플리케이션 인증서를 구성하려면 [Azure Resource Manager를 사용하여 클러스터를 만들어야][create-cluster-arm] 합니다. 만든 클러스터에 애플리케이션 인증서를 추가할 수도 있습니다.
 
 ## <a name="create-cluster-in-the-azure-portal"></a>Azure 포털에서 클러스터 만들기
 
@@ -210,13 +210,13 @@ Powershell 또는 CLI를 사용하여 클러스터에 대한 관리 작업을 �
 클러스터에서 지정한 각 NodeType에 따라 Virtual Machine Scale Set가 설정됩니다. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
 ## <a name="next-steps"></a>다음 단계
-이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [애플리케이션 암호를 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.
+이제 관리 인증을 위해 인증서를 사용하는 보안 클러스터가 구축되었습니다. 다음으로, [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)하고 [애플리케이션 비밀을 관리](service-fabric-application-secret-management.md)하는 방법을 알아봅니다.  또한 [Service Fabric 지원 옵션](service-fabric-support.md)을 알아봅니다.
 
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.com/
-[key-vault-get-started]: ../key-vault/key-vault-get-started.md
+[key-vault-get-started]: ../key-vault/key-vault-overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md

@@ -3,8 +3,8 @@ title: Azure AD 애플리케이션 프록시에 대한 보안 고려 사항 | Mi
 description: Azure AD 애플리케이션 프록시를 사용하는 경우 보안 고려 사항 설명
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 3e8d9cc44e4e83dac963b3d85f7dd4d058323bf6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813826"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56207231"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -147,7 +148,7 @@ Azure AD를 사용하여 사전 인증하도록 앱을 구성한 경우 사용�
 
 2. 모든 확인을 거친 후에 Azure AD STS에서 애플리케이션에 대해 서명된 토큰을 발급하고 사용자를 다시 애플리케이션 프록시 서비스로 리디렉션합니다.
 
-3. 애플리케이션 프록시는 애플리케이션을 수정하기 위해 토큰이 발행되었는지 확인합니다. 토큰이 Azure AD에 의해 서명되었는지, 아직 유효한 기간 내에 있는지를 확인하는 등 다른 확인 작업도 수행합니다.
+3. 애플리케이션 프록시는 토큰이 올바른 애플리케이션으로 발행되었는지 확인합니다. 토큰이 Azure AD에 의해 서명되었는지, 아직 유효한 기간 내에 있는지를 확인하는 등 다른 확인 작업도 수행합니다.
 
 4. 애플리케이션 프록시는 암호화된 인증 쿠키를 설정하여 애플리케이션에 대한 인증이 발생했음을 나타냅니다. 쿠키에는 Azure AD의 토큰 및 인증 기준이 되는 사용자 이름과 같은 다른 데이터를 기반으로 하는 만료 타임스탬프가 포함됩니다. 쿠키는 애플리케이션 프록시 서비스에만 알려진 개인 키를 사용하여 암호화됩니다.
 

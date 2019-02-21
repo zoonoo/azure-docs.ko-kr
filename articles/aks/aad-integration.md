@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 78f00b00465b6d834f30411485a874d6d2116ea4
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0dced367f62ab97d62cd4b11758e13a05278442e
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081248"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56099261"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -220,7 +220,9 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 
 완료되면 인증 토큰이 캐시됩니다. 토큰이 만료되거나 Kubernetes config 파일이 다시 생성될 때 로그인할지를 묻는 메시지가 다시 표시됩니다.
 
-성공적으로 로그인한 후 인증 오류 메시지가 표시되는 경우 로그인하는 사용자가 Azure AD에서 게스트가 아닌지 확인합니다(다른 디렉터리에서 페더레이션된 로그인을 사용하는 경우 게스트인 경우가 종종 있음).
+성공적으로 로그인한 후에 권한 부여 오류 메시지가 표시되는 경우 다음 사항에 해당하는지 여부를 확인합니다.
+1. 로그인한 사용자는 Azure AD 인스턴스의 게스트가 아닙니다(다른 디렉터리에서 페더레이션 로그인을 사용하는 경우가 많음).
+2. 사용자는 200개가 넘는 그룹의 멤버가 아닙니다.
 
 ```console
 error: You must be logged in to the server (Unauthorized)

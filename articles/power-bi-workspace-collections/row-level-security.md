@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258853"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55892238"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 행 수준 보안
 
@@ -48,7 +48,7 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 세트 및 보고서가
 이 스키마로 알 수 있는 몇 가지 사항은 다음과 같습니다.
 
 * **Total Sales**와 같은 모든 측정값은 **Sales** 팩트 테이블에 저장됩니다.
-* **Item**, **Time**, **Store** 및 **District**의 추가 관련 차원 테이블이 있습니다.
+* 다음과 같은 4개의 추가 관련 차원 테이블이 있습니다. **Item**, **Time**, **Store** 및 **District**.
 * 관계선의 화살표는 테이블 간에 필터가 흐를 수 있는 방향을 나타냅니다. 예를 들어, 필터가 **Time[Date]** 에 배치되면 현재 스키마에서 **Sales** 테이블의 값만 필터링합니다. 관계선에서 모든 화살표가 sales 테이블만 가리키므로 이 필터에 다른 테이블은 영향을 받지 않습니다.
 * **District** 테이블은 각 지역에 대한 관리자가 누구인지를 나타냅니다.
   
@@ -94,7 +94,7 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 세트 및 보고서가
 * **username** (선택 사항) – RLS에 사용되며 RLS 규칙을 적용할 때 사용자를 식별하는 데 사용할 수 있는 문자열입니다. Power BI Embedded를 사용하는 행 수준 보안 사용을 참조하세요.
 * **역할** – 행 수준 보안 규칙을 적용할 때 선택할 역할이 들어 있는 문자열입니다. 둘 이상의 역할을 전달하는 경우 문자열 배열로 전달해야 합니다.
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) 메서드를 사용하여 토큰을 만듭니다. 사용자 이름 속성이 있으면 역할에 하나 이상의 값을 전달해야 합니다.
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) 메서드를 사용하여 토큰을 만듭니다. 사용자 이름 속성이 있으면 역할에 하나 이상의 값을 전달해야 합니다.
 
 예를 들어 EmbedSample을 변경할 수 있습니다. DashboardController 줄 55는 다음과 같이 업데이트할 수 있습니다.
 

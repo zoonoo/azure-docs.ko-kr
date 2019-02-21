@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage Gen2 미리 보기용 Azure Blob 파일 시스템 드라이버
+title: Azure Data Lake Storage Gen2용 Azure Blob 파일 시스템 드라이버
 description: ABFS Hadoop 파일 시스템 드라이버
 services: storage
 author: jamesbak
@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f50723fa494df0ff1490bf27451394a6e13da467
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 47646a1593f01c4ea695b549bbde22260ffaf2f7
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240882"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55962437"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>ABFS(Azure Blob 파일 시스템) 드라이버: Hadoop 전용 Azure Storage 드라이버
 
-Azure Data Lake Storage Gen2 미리 보기에서 데이터에 대한 기본 액세스 방법 중 하나는 [Hadoop 파일 시스템](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html)을 통해서입니다. Data Lake Storage Gen2를 사용하면 Azure Blob Storage 사용자가 새 드라이버인 `ABFS`(Azure Blob File System 드라이버)에 액세스할 수 있습니다. ABFS는 Apache Hadoop의 일부이며 많은 Hadoop의 상업용 배포 버전에 포함됩니다. 이 드라이버를 사용하면 많은 애플리케이션과 프레임워크에서 Data Lake Storage Gen2를 명시적으로 참조하는 코드 없이 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
+Azure Data Lake Storage Gen2에서 데이터에 대한 기본 액세스 방법 중 하나는 [Hadoop 파일 시스템](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html)을 통해서입니다. Data Lake Storage Gen2를 사용하면 Azure Blob Storage 사용자가 새 드라이버인 `ABFS`(Azure Blob File System 드라이버)에 액세스할 수 있습니다. ABFS는 Apache Hadoop의 일부이며 많은 Hadoop의 상업용 배포 버전에 포함됩니다. 이 드라이버를 사용하면 많은 애플리케이션과 프레임워크에서 Data Lake Storage Gen2를 명시적으로 참조하는 코드 없이 Azure Blob Storage의 데이터에 액세스할 수 있습니다.
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>이전 기능: Windows Azure Storage Blob 드라이버
 
@@ -42,7 +42,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 내부적으로 ABFS 드라이버는 URI에 지정된 리소스를 파일 및 디렉터리로 변환하고 해당 리소스를 사용하여 Azure Data Lake Storage REST API를 호출합니다.
 
-### <a name="authentication"></a>인증
+### <a name="authentication"></a>Authentication
 
 ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 애플리케이션은 Data Lake Storage Gen2 지원 계정 내에 포함된 리소스에 안전하게 액세스할 수 있습니다. 사용 가능한 인증 체계의 전체 세부 정보는 [Azure Storage 보안 가이드](../common/storage-security-guide.md)에 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
@@ -62,6 +62,5 @@ ABFS 드라이버는 [Hadoop 공식 설명서](http://hadoop.apache.org/docs/cur
 
 ## <a name="next-steps"></a>다음 단계
 
-- [HDInsight 클러스터 설치](./data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 - [Azure Databricks 클러스터 만들기](./data-lake-storage-quickstart-create-databricks-account.md)
 - [Azure Data Lake Storage Gen2 URI 사용](./data-lake-storage-introduction-abfs-uri.md)

@@ -4,7 +4,7 @@ description: 이 문서는 Azure Service Fabric 보안의 개요를 제공합니
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 629b6fba9ced5fa2ccf22f473fe25c87d1cc4818
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3e7717d4ee07a1f3bfebb5e09b983af68aa4ea31
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436813"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116223"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric 보안 개요
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. Service Fabric은 클라우드 애플리케이션 개발 및 관리에서 발생하는 과제를 해결합니다. 개발자와 관리자가 복잡한 인프라 문제를 피하고 업무 수행에 필수적인 까다로운 워크로드를 확장 가능하고 신뢰할 수 있도록 구현하는 데 집중할 수 있습니다.
@@ -48,7 +48,7 @@ Azure Portal, Azure Resource Manager 템플릿 또는 독립 실행형 JSON 템�
 Service Fabric은 Service Fabric 클러스터에 연결된 클라이언트에 대해 두 가지 액세스 제어 형식을 지원합니다.
 
 -   **관리자**: 읽기/쓰기 기능을 포함한 관리 기능에 대한 모든 권한을 가집니다.
--   **사용자**: 기본적으로 관리 기능(예: 쿼리 기능)에 대한 읽기 권한 및 응용 프로그램과 서비스를 확인하는 기능만 갖습니다.
+-   **사용자**: 기본적으로 관리 기능(예: 쿼리 기능)에 대한 읽기 권한 및 애플리케이션과 서비스를 확인하는 기능만 갖습니다.
 
 액세스 제어를 사용하여 클러스터 관리자는 특정 유형의 클러스터 작업에 대한 액세스를 제한할 수 있습니다. 이렇게 하면 클러스터의 보안을 강화합니다.
 
@@ -62,7 +62,7 @@ Azure Portal, Resource Manager 템플릿 또는 독립 실행형 JSON 템플릿�
 
 #### <a name="client-to-node-azure-active-directory-security"></a>클라이언트-노드 Azure Active Directory 보안
 
-Azure에서 실행되는 클라이언트는 Azure AD(Azure Active Directory)를 사용하여 관리 끝점에 안전하게 액세스할 수 있습니다. 필요한 Azure Active Directory 아티팩트를 만드는 방법, 클러스터를 만드는 동안 이러한 아티팩트를 채우는 방법 및 나중에 해당 클러스터에 연결하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 클러스터 설정](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 참조하세요.
+Azure에서 실행되는 클라이언트는 Azure AD(Azure Active Directory)를 사용하여 관리 엔드포인트에 안전하게 액세스할 수 있습니다. 필요한 Azure Active Directory 아티팩트를 만드는 방법, 클러스터를 만드는 동안 이러한 아티팩트를 채우는 방법 및 나중에 해당 클러스터에 연결하는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 클러스터 설정](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)을 참조하세요.
 
 조직(테넌트)에서는 Azure AD를 사용하여 애플리케이션에 대한 사용자 액세스를 관리할 수 있습니다. 웹 기반 로그인 UI를 갖는 애플리케이션과 네이티브 클라이언트 환경을 갖는 애플리케이션이 있습니다.
 
@@ -73,7 +73,7 @@ Azure 클러스터의 경우 Azure AD 보안을 사용하여 노드 간 보안�
 Windows Server 2012 R2 및 Active Directory가 있는 독립 실행형 Windows Server 클러스터의 경우 그룹 관리 서비스 계정(gMSA)으로 Windows 보안을 사용하는 것이 좋습니다. 그렇지 않은 경우 Windows 계정으로 Windows 보안을 사용합니다.
 
 ## <a name="understand-monitoring-and-diagnostics-in-service-fabric"></a>Service Fabric에서 모니터링 및 진단 이해
-[모니터링 및 진단](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)은 모든 환경에서 응용 프로그램 및 서비스를 개발, 테스트 및 배포하는 데 중요합니다. Service Fabric 솔루션은 로컬 개발 환경 또는 프로덕션 환경에서 애플리케이션과 서비스가 예상대로 작동하는지 확인하는 모니터링 및 진단을 구현할 때 가장 효과적입니다.
+[모니터링 및 진단](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)은 모든 환경에서 애플리케이션 및 서비스를 개발, 테스트 및 배포하는 데 중요합니다. Service Fabric 솔루션은 로컬 개발 환경 또는 프로덕션 환경에서 애플리케이션과 서비스가 예상대로 작동하는지 확인하는 모니터링 및 진단을 구현할 때 가장 효과적입니다.
 
 보안의 관점에서 볼 때 모니터링 및 진단의 주요 목표는 다음과 같습니다.
 
@@ -83,7 +83,7 @@ Windows Server 2012 R2 및 Active Directory가 있는 독립 실행형 Windows S
 
 모니터링 및 진단의 워크플로는 다음 세 단계로 구성됩니다.
 
-1.  **이벤트 생성**: 이벤트 생성에는 인프라(클러스터) 수준 및 응용 프로그램/서비스 수준의 이벤트(로그, 추적, 사용자 지정 이벤트)가 모두 포함됩니다. 제공되는 계측 및 계측을 추가하는 방법을 이해하려면 [인프라 수준 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) 및 [애플리케이션 수준 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app)를 참조하세요.
+1.  **이벤트 생성**: 이벤트 생성에는 인프라(클러스터) 수준 및 애플리케이션/서비스 수준의 이벤트(로그, 추적, 사용자 지정 이벤트)가 모두 포함됩니다. 제공되는 계측 및 계측을 추가하는 방법을 이해하려면 [인프라 수준 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-infra) 및 [애플리케이션 수준 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app)를 참조하세요.
 
 2.  **이벤트 집계**: 생성된 이벤트를 표시하려면 먼저 수집하고 집계해야 합니다. 일반적으로 [Azure 진단](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad)(에이전트 기반 로그 수집과 유사) 또는 [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow)(프로세스 내 로그 수집)를 사용하는 것이 좋습니다.
 

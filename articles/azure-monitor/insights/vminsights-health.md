@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: f61f420b6a738a410deed2d68acc06862600104f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563340"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55961272"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 Azure 가상 머신의 상태 이해하기
 Azure에는 모니터링 공간에서 개별적으로 특정 역할이나 작업을 수행하는 여러 서비스가 포함되지만, Azure 가상 머신에서 호스팅되는 운영 체제에 대한 심층적인 상태 관점 뷰는 제공되지 않았습니다.  Log Analytics나 Azure Monitor를 사용하여 다양한 조건을 모니터링할 수 있지만 핵심 구성 요소 상태나 가상 머신의 전반적인 상태를 모델링하고 나타내도록 설계되지 않았습니다.  VM용 Azure Monitor 상태 기능을 사용하면 주요 구성 요소와 이들의 관계, 구성 요소의 상태를 측정하는 방법을 지정하는 기준이 되는 모델을 사용하여 Windows 또는 Linux 게스트 OS의 가용성 및 성능을 사전에 모니터링하고 비정상 상태가 감지되면 경고를 표시합니다.  
@@ -44,7 +44,7 @@ VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 
 >
 >현재 제공되는 기능 중에서 VM용 Azure Monitor의 상태 기능 도입으로 인해 사용이 불가능해지는 기능은 없습니다.
 
->단, 이 변경으로 인해 서비스 및 상태 기록이 잠깐 동안 중단됩니다. 그리고 상태 진단의 두 환경에도 영향이 있습니다. 즉, 상태 변경 기록이 재설정되며 상태 진단 페이지의 상태 변경 열에서 상태 조건의 이전 상태 변경 내용을 검토할 수 없습니다. 모든 중요 업무용 VM의 기록 데이터를 확인하려는 경우에는 참조용으로 상태 조건 데이터 및 해당 상태 변경 내용의 스크린샷을 생성할 수 있습니다. 
+>이러한 변화로 인해 상태 진단의 두 환경에도 변화가 생겼습니다. 즉, 상태 변경 기록이 재설정되며 상태 진단 페이지의 상태 변경 열에서 상태 조건의 이전 상태 변경 내용을 검토할 수 없습니다. 모든 중요 업무용 VM의 기록 데이터를 확인하려는 경우에는 참조용으로 상태 조건 데이터 및 해당 상태 변경 내용의 스크린샷을 생성할 수 있습니다. 
 
 ## <a name="monitoring-configuration-details"></a>모니터링 구성 세부 정보
 이 섹션에서는 Azure Windows 및 Linux 가상 머신을 모니터링하도록 정의된 기본 상태 조건을 설명합니다. 모든 상태 조건은 비정상 상태가 충족되면 경고를 표시하도록 미리 구성됩니다. 
@@ -106,7 +106,7 @@ Azure VM의 상태를 보려면 가상 머신의 왼쪽 창에서 **인사이트
 
 ![선택한 Azure 가상 머신에 대한 VM용 Azure Monitor 상태 개요](./media/vminsights-health/vminsights-directvm-health.png)
 
-**게스트 VM 상태** 섹션 아래 **상태** 탭에 있는 테이블에는 가상 머신의 현재 성능 상태 및 비정상적인 구성 요소에서 발생한 VM 상태 경고의 총 수가 표시됩니다. 경고 환경에 대한 자세한 내용은 [경고](#alerting-and-alert-management) 섹션을 참조하세요.  
+**게스트 VM 상태** 섹션 아래 **상태** 탭에 있는 테이블에는 가상 머신의 현재 성능 상태 및 비정상적인 구성 요소에서 발생한 VM 상태 경고의 총 수가 표시됩니다. 경고 환경에 대한 자세한 내용은 경고 섹션을 참조하세요.  
 
 다음 표에는 VM에 대해 정의된 상태가 나와 있습니다. 
 

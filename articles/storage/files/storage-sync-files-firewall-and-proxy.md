@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: c0a1d2bf1d7a103ad473cadb1528bd9b9a4c90de
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: fab8ec5a6ca94d2f30ec47da390885339adf8b43
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488019"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56192220"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 Azure 파일 동기화는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -100,7 +100,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 | **Azure Active Directory** | https://graph.windows.net/ | Azure 파일 동기화 배포의 일부로, 구독의 Azure Active Directory에 서비스 주체가 만들어집니다. 이 URL이 해당 작업에 사용됩니다. 이 보안 주체는 Azure 파일 동기화 서비스에 대한 최소한의 권한 집합을 위임하는 데 사용됩니다. Azure 파일 동기화의 초기 설정을 수행하는 사용자는 구독 소유자 권한이 있는 인증된 사용자여야 합니다. |
 | **Azure Storage** | &ast;.core.windows.net | 서버는 파일을 다운로드할 때 저장소 계정의 Azure 파일 공유와 직접 소통하면서 데이터 이동을 보다 효율적으로 수행합니다. 서버에는 대상으로 지정된 파일 공유 액세스만 허용하는 SAS 키가 있습니다. |
 | **Azure 파일 동기화** | &ast;.one.microsoft.com | 초기 서버 등록 후 서버는 해당 지역에서 Azure 파일 동기화 서비스 인스턴스에 대한 지역별 URL을 수신합니다. 서버는 이 URL을 사용하여 동기화를 처리하는 인스턴스와 직접 효율적으로 통신할 수 있습니다. |
-| **Microsoft PKI** | http://ocsp.msocsp.com | Azure 파일 동기화 에이전트가 설치되면 PKI URL을 사용하여 Azure 파일 동기화 서비스 및 Azure 파일 공유와 통신하는 데 필요한 중간 인증서를 다운로드합니다. OCSP URL은 인증서의 상태를 확인하는 데 사용됩니다. |
+| **Microsoft PKI** | https://www.microsoft.com/pki/mscorp<br>http://ocsp.msocsp.com | Azure 파일 동기화 에이전트가 설치되면 PKI URL을 사용하여 Azure 파일 동기화 서비스 및 Azure 파일 공유와 통신하는 데 필요한 중간 인증서를 다운로드합니다. OCSP URL은 인증서의 상태를 확인하는 데 사용됩니다. |
 
 > [!Important]
 > &ast;.one.microsoft.com에 대한 트래픽을 허용할 때 서버에서 동기화 서비스 이외의 위치로 트래픽이 전달될 수 있습니다. 하위 도메인에서 더 많은 Microsoft 서비스를 사용할 수 있습니다.

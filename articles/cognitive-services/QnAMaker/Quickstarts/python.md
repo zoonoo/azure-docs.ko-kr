@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 빠르게 시작하는 데 도움이 되는 Python 정보와 코드 샘플을 가져옵니다.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ca0d8bcbf2d4b050560d1575ef690205eacca830
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e732417daada836dc7de58fadf69e8edb4ebcb14
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222170"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244643"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Python에서 QnA Maker REST API를 사용하는 방법
 <a name="HOLTop"></a>
@@ -35,8 +35,8 @@ ms.locfileid: "55222170"
 - [기술 자료 삭제](#Delete)
 - [현재 엔드포인트 키 가져오기](#GetKeys)
 - [현재 엔드포인트 키 다시 생성](#PutKeys)
-- [현재 단어 변경 집합 가져오기](#GetAlterations)
-- [현재 단어 변경 집합 바꾸기](#PutAlterations)
+- [현재 대/소문자를 구분하지 않는 단어 변경 세트 가져오기](#GetAlterations)
+- [현재 대/소문자를 구분하지 않는 단어 변경 세트 바꾸기](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 

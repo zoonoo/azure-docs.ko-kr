@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: 599b16f633d9a0de5165bdf5cb3d7b82abca655b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: bc83a2cde841e7d1e90cb46304c879fcc6cedb72
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597713"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56105776"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 가상 머신에 대한 주요 자격 증명 모음 설정
 
@@ -35,15 +35,15 @@ Azure Resource Manager 스택에서 비밀/인증서는 주요 자격 증명 모
 >
 
 ## <a name="use-powershell-to-set-up-key-vault"></a>PowerShell을 사용하여 주요 자격 증명 모음 설정
-PowerShell을 사용하여 주요 자격 증명 모음을 만들려면 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md#vault)을 참조하세요.
+PowerShell을 사용하여 키 자격 증명 모음을 만들려면 [PowerShell을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색](../../key-vault/quick-create-powershell.md)을 참조하세요.
 
 새 주요 자격 증명의 경우 다음 PowerShell cmdlet을 사용할 수 있습니다.
 
-    New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
+    New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -EnabledForDeployment
 
 기존 주요 자격 증명의 경우 다음 PowerShell cmdlet을 사용할 수 있습니다.
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
+    Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
 ## <a name="use-cli-to-set-up-key-vault"></a>CLI를 사용하여 주요 자격 증명 모음 설정
 CLI(명령줄 인터페이스)를 사용하여 주요 자격 증명 모음을 만들려면 [CLI를 사용하여 키 자격 증명 모음 관리](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault)를 참조하세요.

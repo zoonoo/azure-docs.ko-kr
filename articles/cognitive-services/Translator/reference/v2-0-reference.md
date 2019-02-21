@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: V2.0 Translator Text API에 대한 참조 문서입니다.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9491550aae8f88621d947572741f492adcf9cdd0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8d57723f6e51fb392e4fdbfb2b2a445d48635e3
+ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463228"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55861717"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -327,7 +327,7 @@ binary
 |text|(empty)   |필수 사항입니다. wave 스트림에 대해 읽을 지정된 언어의 문장을 포함하는 문자열입니다. 읽을 텍스트 크기는 2,000자를 초과하지 않아야 합니다.|쿼리|string|
 |언어|(empty)   |필수 사항입니다. 텍스트를 읽을 지원되는 언어 코드를 나타내는 문자열입니다. 이 코드는 메서드 `GetLanguagesForSpeak`에서 반환된 코드 목록에 있어야 합니다.|쿼리|string|
 |format|(empty)|선택 사항입니다. content-type ID를 지정하는 문자열입니다. 현재 `audio/wav` 및 `audio/mp3`를 사용할 수 있습니다. 기본값은 `audio/wav`입니다.|쿼리|string|
-|options|(empty)    |<ul><li>선택 사항입니다. 합성한 음성의 속성을 지정하는 문자열입니다.<li>`MaxQuality` 및 `MinSize`는 오디오 신호의 품질을 지정하는 데 사용할 수 있습니다. `MaxQuality`를 사용하면 최고 품질의 음성을 얻을 수 있고, `MinSize`를 사용하면 가장 작은 크기의 음성을 얻을 수 있습니다. 기본값은 `MinSize`입니다.</li><li>`female` 및 `male`은 음성의 원하는 성별을 지정하는 데 사용할 수 있습니다. 기본값은 `female`입니다. 여러 옵션을 포함하려면 세로 줄을 사용합니다.|` to include multiple options. For example  `MaxQuality|Male`.</li></li></ul> |쿼리|string|
+|options|(empty)    |<ul><li>선택 사항입니다. 합성한 음성의 속성을 지정하는 문자열입니다.<li>`MaxQuality` 및 `MinSize`는 오디오 신호의 품질을 지정하는 데 사용할 수 있습니다. `MaxQuality`를 사용하면 최고 품질의 음성을 얻을 수 있고, `MinSize`를 사용하면 가장 작은 크기의 음성을 얻을 수 있습니다. 기본값은 `MinSize`입니다.</li><li>`female` 및 `male`은 음성의 원하는 성별을 지정하는 데 사용할 수 있습니다. 기본값은 `female`입니다. 여러 옵션을 포함하려면 세로 막대(`|`)를 사용하세요. 예: `MaxQuality|Male`.</li></li></ul> |쿼리|string|
 |권한 부여|(empty)|`appid` 필드 또는 `Ocp-Apim-Subscription-Key` 헤더를 지정하지 않은 경우 필수입니다. 권한 부여 토큰:  `"Bearer" + " " + "access_token"`.|머리글|string|
 |Ocp-Apim-Subscription-Key|(empty)  |`appid` 필드 또는 `Authorization` 헤더를 지정하지 않은 경우 필수입니다.|머리글|string|
 

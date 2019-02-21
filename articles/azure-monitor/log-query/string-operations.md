@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 쿼리에서 문자열 사용 | Microsoft Docs
-description: 이 문서에서는 Analytics 포털을 사용하여 Log Analytics에서 쿼리를 작성하는 것에 대한 자습서를 제공합니다.
+title: Azure Monitor 로그 쿼리에서 문자열 작업 | Microsoft Docs
+description: Azure Monitor 로그 쿼리에서 문자열을 편집, 비교, 검색하고 다양한 기타 작업을 수행하는 방법을 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 729d98dda1ae0a1410a15ee1e40c670ca211d864
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186245"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55995410"
 ---
-# <a name="working-with-strings-in-log-analytics-queries"></a>Log Analytics 쿼리에서 문자열 사용
+# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 문자열 작업
 
 
 > [!NOTE]
-> 이 자습서를 완료하기 전에 [Analytics 포털 시작](get-started-portal.md) 및 [쿼리 시작](get-started-queries.md)을 완료해야 합니다.
+> 이 자습서를 완료하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 및 [Azure Monitor 로그 쿼리 시작](get-started-queries.md)을 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-이 문서에서는 문자열을 편집, 비교, 검색하고 다양한 기타 작업을 수행하는 방법을 설명합니다. 
+이 문서에서는 문자열을 편집, 비교, 검색하고 다양한 기타 작업을 수행하는 방법을 설명합니다.
 
 문자열의 각 문자에는 해당 위치에 따라 인덱스 번호가 있습니다. 첫 번째 문자는 인덱스 0에 있고, 다음 문자는 1에 있습니다. 이와 같이 계속 적용됩니다. 다른 문자열 함수는 다음 섹션에 나와 있는 것처럼 인덱스 번호를 사용합니다. 다음 예제 대부분이 특정 데이터 원본을 사용하지 않고 문자열 조작을 보여 주기 위해 **print** 명령을 사용합니다.
 
@@ -51,37 +51,37 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 연산자       |설명                         |대/소문자 구분|예제(`true` 생성)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |같음                              |yes           |`"aBc" == "aBc"`
-`!=`           |같지 않음                          |yes           |`"abc" != "ABC"`
+`==`           |같음                              |예           |`"aBc" == "aBc"`
+`!=`           |같지 않음                          |예           |`"abc" != "ABC"`
 `=~`           |같음                              |아니요            |`"abc" =~ "ABC"`
 `!~`           |같지 않음                          |아니요            |`"aBc" !~ "xyz"`
 `has`          |오른쪽이 왼쪽의 전체 항임 |아니요|`"North America" has "america"`
 `!has`         |오른쪽이 왼쪽의 전체 항이 아님       |아니요            |`"North America" !has "amer"` 
-`has_cs`       |오른쪽이 왼쪽의 전체 항임 |yes|`"North America" has_cs "America"`
-`!has_cs`      |오른쪽이 왼쪽의 전체 항이 아님       |yes            |`"North America" !has_cs "amer"` 
+`has_cs`       |오른쪽이 왼쪽의 전체 항임 |예|`"North America" has_cs "America"`
+`!has_cs`      |오른쪽이 왼쪽의 전체 항이 아님       |예            |`"North America" !has_cs "amer"` 
 `hasprefix`    |오른쪽이 왼쪽의 항 접두사임         |아니요            |`"North America" hasprefix "ame"`
 `!hasprefix`   |오른쪽이 왼쪽의 항 접두사가 아님     |아니요            |`"North America" !hasprefix "mer"` 
-`hasprefix_cs`    |오른쪽이 왼쪽의 항 접두사임         |yes            |`"North America" hasprefix_cs "Ame"`
-`!hasprefix_cs`   |오른쪽이 왼쪽의 항 접두사가 아님     |yes            |`"North America" !hasprefix_cs "CA"` 
+`hasprefix_cs`    |오른쪽이 왼쪽의 항 접두사임         |예            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |오른쪽이 왼쪽의 항 접두사가 아님     |예            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |오른쪽이 왼쪽의 항 접미사임         |아니요            |`"North America" hassuffix "ica"`
 `!hassuffix`   |오른쪽이 왼쪽의 항 접미사가 아님     |아니요            |`"North America" !hassuffix "americ"
-`hassuffix_cs`    |오른쪽이 왼쪽의 항 접미사임         |yes            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |오른쪽이 왼쪽의 항 접미사가 아님     |yes            |`"North America" !hassuffix_cs "icA"
+`hassuffix_cs`    |오른쪽이 왼쪽의 항 접미사임         |예            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |오른쪽이 왼쪽의 항 접미사가 아님     |예            |`"North America" !hassuffix_cs "icA"
 `contains`     |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |아니요            |`"FabriKam" contains "BRik"`
 `!contains`    |오른쪽이 왼쪽에 발생하지 않음           |아니요            |`"Fabrikam" !contains "xyz"`
-`contains_cs`   |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |yes           |`"FabriKam" contains_cs "Kam"`
-`!contains_cs`  |오른쪽이 왼쪽에 발생하지 않음           |yes           |`"Fabrikam" !contains_cs "Kam"`
+`contains_cs`   |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |예           |`"FabriKam" contains_cs "Kam"`
+`!contains_cs`  |오른쪽이 왼쪽에 발생하지 않음           |예           |`"Fabrikam" !contains_cs "Kam"`
 `startswith`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|아니요            |`"Fabrikam" startswith "fab"`
 `!startswith`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|아니요        |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|yes            |`"Fabrikam" startswith_cs "Fab"`
-`!startswith_cs`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|yes        |`"Fabrikam" !startswith_cs "fab"`
+`startswith_cs`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|예            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|예        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|아니요             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|아니요         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|yes             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|yes         |`"Fabrikam" !endswith "brik"`
-`matches regex`|왼쪽에 오른쪽의 일치 항목이 포함됨        |yes           |`"Fabrikam" matches regex "b.*k"`
-`in`           |요소 중 하나와 같음       |yes           |`"abc" in ("123", "345", "abc")`
-`!in`          |어떤 요소와도 같지 않음   |yes           |`"bca" !in ("123", "345", "abc")`
+`endswith_cs`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|예             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|예         |`"Fabrikam" !endswith "brik"`
+`matches regex`|왼쪽에 오른쪽의 일치 항목이 포함됨        |예           |`"Fabrikam" matches regex "b.*k"`
+`in`           |요소 중 하나와 같음       |예           |`"abc" in ("123", "345", "abc")`
+`!in`          |어떤 요소와도 같지 않음   |예           |`"bca" !in ("123", "345", "abc")`
 
 
 ## <a name="countof"></a>countof

@@ -16,12 +16,13 @@ ms.subservice: pim
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ad64fba0288aa5663e008484d6f0d2cbdff0bca6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f7b7aa010b3001045566bc55fb440a2171145881
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187291"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56177255"
 ---
 # <a name="license-requirements-to-use-pim"></a>PIM을 사용하기 위한 라이선스 요구 사항
 
@@ -33,6 +34,7 @@ PIM을 사용하려면 디렉터리에 다음과 같은 유료 또는 평가판 
 
 - Azure AD Premium P2
 - EMS(Enterprise Mobility + Security) E5
+- Microsoft 365 M5
 
 자세한 내용은 [Azure Active Directory란?](../fundamentals/active-directory-whatis.md)을 참조하세요.
 
@@ -63,5 +65,6 @@ Azure AD Premium P2, EMS E5 또는 평가판 라이선스가 만료되면 디렉
 
 ## <a name="next-steps"></a>다음 단계
 
+- [PIM 배포](pim-deployment-plan.md)
 - [PIM 사용 시작](pim-getting-started.md)
 - [PIM에서 관리할 수 없는 역할](pim-roles.md)

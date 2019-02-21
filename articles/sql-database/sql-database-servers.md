@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ea7f32a08a6a183bac21436e7d58afe10c4d7b20
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 02/08/2019
+ms.openlocfilehash: db82c109e6ae807addafd4d188a24609c4066cd9
+ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756651"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56100695"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Azure SQL Database 서버 및 이 서버에 대한 관리
 
 ## <a name="what-is-an-azure-sql-database-server"></a>Azure SQL Database 서버란?
 
-SQL Database 서버는 여러 독립 실행형 또는 [풀링된](sql-database-elastic-pool.md) 데이터베이스, [로그인](sql-database-manage-logins.md), [방화벽 규칙](sql-database-firewall-configure.md), [감사 규칙](sql-database-auditing.md), [위협 탐지 정책](sql-database-threat-detection.md) 및 [장애 조치(Failover) 그룹](sql-database-auto-failover-group.md)에 대한 중앙 관리 지점의 역할을 하는 논리적 구문입니다. SQL Database 서버는 리소스 그룹과 다른 지역에 위치할 수 있습니다. Azure SQL Database를 만들기 전에 SQL Database 서버가 있어야 합니다. SQL Database 서버에서 관리하는 모든 데이터베이스는 SQL Database 서버와 동일한 지역 내에서 생성됩니다.
+SQL Database 서버는 여러 단일 또는 [풀링된](sql-database-elastic-pool.md) 데이터베이스, [로그인](sql-database-manage-logins.md), [방화벽 규칙](sql-database-firewall-configure.md), [감사 규칙](sql-database-auditing.md), [위협 탐지 정책](sql-database-threat-detection.md) 및 [장애 조치(Failover) 그룹](sql-database-auto-failover-group.md)에 대한 중앙 관리 지점의 역할을 하는 논리적 구문입니다. SQL Database 서버는 리소스 그룹과 다른 지역에 위치할 수 있습니다. Azure SQL Database를 만들기 전에 SQL Database 서버가 있어야 합니다. SQL Database 서버에서 관리하는 모든 데이터베이스는 SQL Database 서버와 동일한 지역 내에서 생성됩니다.
 
 SQL Database 서버는 온-프레미스 환경에서 친숙할 수 있는 SQL Server 인스턴스와 구별됩니다. 특히, SQL Database 서비스는 데이터베이스를 관리하는 SQL Database 서버와 관련하여 데이터베이스의 위치를 보장하지는 않으며 인스턴스 수준의 액세스 또는 기능을 노출하지 않습니다. 반대로, 관리되는 인스턴스의 인스턴스 데이터베이스는 모두 온-프레미스 환경에서 SQL Server를 친숙하게 사용하는 것과 동일한 방식으로 함께 배치됩니다.
 
@@ -189,5 +189,5 @@ Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 
 
 ## <a name="next-steps"></a>다음 단계
 
-- SQL Server 데이터베이스를 Azure로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure SQL Database로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요.
+- SQL Server 데이터베이스를 Azure로 마이그레이션하는 방법에 대한 자세한 내용은 [Azure SQL Database로 마이그레이션](sql-database-single-database-migrate.md)을 참조하세요.
 - 지원되는 기능에 대한 자세한 내용은 [기능](sql-database-features.md)을 참조하세요.

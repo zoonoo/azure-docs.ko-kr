@@ -7,14 +7,14 @@ services: key-vault
 ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
-manager: mbaldwin
+manager: barbkess
 ms.date: 10/03/2018
-ms.openlocfilehash: 152e1e5892e3a72286205c2f5bf4e18b2a2bcbf7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9b1a4e23ed0da0637b44ac52dd4d1baeb22cd6ce
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814846"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56118057"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 관리 스토리지 계정 - CLI
 
@@ -44,6 +44,12 @@ ms.locfileid: "55814846"
       
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Key Vault를 사용하여 스토리지 계정 키를 관리하는 방법에 대한 단계별 지침
 --------------------------------------------------------------------------------
+개념상, 수행되는 단계 목록은 다음과 같습니다.
+- 먼저 (기존) 스토리지 계정을 가져옵니다.
+- 그런 다음, (기존) 키 자격 증명 모음을 페치합니다.
+- 자격 증명 모음에 KeyVault 관리형 스토리지 계정을 추가하고 Key1을 활성 키로, 다시 생성 기간을 180일로 설정합니다.
+- 마지막으로, Key1을 사용하여 지정된 스토리지 계정에 대한 스토리지 컨텍스트를 설정합니다.
+
 아래 지침에서는 저장소 계정에 대한 운영자 권한이 있는 서비스로 Key Vault를 할당합니다.
 
 > [!NOTE]
@@ -56,13 +62,13 @@ ms.locfileid: "55814846"
     ```
     위의 명령의 결과에서 ID 필드 복사
     
-2. 아래 명령을 실행하여 Azure Key Vault 서비스 주체의 개체 ID 가져오기
+2. 아래 명령을 실행하여 Azure Key Vault 서비스 주체의 개체 ID를 가져옵니다.
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
-    이 명령이 완료되면 결과에서 개체 ID 찾기
+    이 명령이 완료되면 결과에서 개체 ID를 찾습니다.
     ```console
         {
             ...
@@ -71,7 +77,7 @@ ms.locfileid: "55814846"
         }
     ```
     
-3. Azure Key Vault ID에 저장소 키 운영자 역할 할당
+3. Azure Key Vault ID에 스토리지 키 운영자 역할을 할당합니다.
 
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
@@ -85,9 +91,41 @@ ms.locfileid: "55814846"
     ```
     사용자가 저장소 계정을 만들지 않고 저장소 계정에 대한 사용 권한이 없을 경우 아래 단계는 Key Vault에서 모든 저장소 사용 권한을 관리할 수 있는지 확인하기 위해 사용자 계정에 대한 사용 권한을 설정합니다.
     
+
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Key Vault를 사용하여 SAS 토큰을 만들고 생성하는 방법에 대한 단계별 지침
+--------------------------------------------------------------------------------
+Key Vault에 SAS(공유 액세스 서명) 토큰을 생성하도록 요청할 수도 있습니다. 공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. SAS로 계정 키를 공유하지 않고 저장 계정의 리소스에 대한 클라이언트의 액세스를 승인할 수 있습니다. 이는 애플리케이션에서 공유 액세스 서명을 사용하는 중요한 점입니다. SAS는 계정 키를 손상시키지 않고 스토리지 리소스를 공유할 수 있는 보안 방법입니다.
+
+위에 나열된 단계를 완료하면 다음 명령을 실행하여 Key Vault에 사용자의 SAS 토큰을 생성하도록 요청할 수 있습니다. 
+
+아래 단계에서 수행되는 작업 목록은 다음과 같습니다.
+- 자격 증명 모음 ‘<VaultName>’의 KeyVault 관리형 스토리지 계정 ‘<YourStorageAccountName>’에 ‘<YourSASDefinitionName>’(이)라는 계정 SAS 정의를 설정합니다. 
+- 서비스, 컨테이너 및 개체 리소스 종류에 대해 Blob, 파일, 테이블 및 큐 서비스의 계정 SAS 토큰을 만듭니다. 이 토큰은 모든 권한이 있으며 https를 사용하고 시작 및 종료 날짜가 지정됩니다.
+- 자격 증명 모음에 KeyVault 관리형 스토리지 SAS 정의를 설정합니다. 템플릿 URI는 위에서 만든 SAS 토큰으로, SAS 유형은 ‘계정’이고 N일간 유효합니다.
+- SAS 정의에 해당하는 KeyVault 비밀에서 실제 액세스 토큰을 검색합니다.
+
+1. 이 단계에서는 SAS 정의를 만듭니다. 이 SAS 정의가 생성되고 나면 Key Vault에 추가 SAS 토큰을 생성하도록 요청할 수 있습니다. 이 작업에는 스토리지/setsas 권한이 필요합니다.
+
+```
+$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+```
+위의 작업에 대한 자세한 도움말은 [여기](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)에서 확인할 수 있습니다.
+
+이 작업이 성공적으로 실행되면 아래와 비슷한 출력이 표시됩니다. 확인했습니다.
+
+```console
+   "se=2020-01-01&sp=***"
+```
+
+2. 이 단계에서는 위에서 생성된 출력($sasToken)을 사용하여 SAS 정의를 만듭니다. 자세한 문서를 보려면 [여기](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)를 참조하세요.   
+
+```
+az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+```
+                        
+
  > [!NOTE] 
  > 사용자에게 저장소 계정에 대한 권한이 없는 경우 먼저 사용자의 개체 ID를 가져옵니다.
-
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
@@ -96,11 +134,11 @@ ms.locfileid: "55814846"
     
     ```
     
-## <a name="how-to-access-your-storage-account-with-sas-tokens"></a>SAS 토큰을 사용하여 스토리지 계정에 액세스하는 방법
+## <a name="fetch-sas-tokens-in-code"></a>코드에서 SAS 토큰 페치
 
 이 섹션에서는 Key Vault에서 [SAS 토큰](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)을 가져와서 스토리지 계정에 대한 작업을 수행하는 방법을 설명합니다.
 
-아래 섹션에서는 Key Vault에 저장된 스토리지 계정 키를 가져와서 스토리지 계정의 SAS(공유 액세스 서명) 정의를 만드는 데 사용하는 방법을 보여줍니다.
+아래 섹션에서는 위에 표시된 대로 SAS 정의가 생성된 후 SAS 토큰을 페치하는 방법을 보여 줍니다.
 
 > [!NOTE] 
   [기본 개념](key-vault-whatis.md#basic-concepts)에 설명된 것처럼 3가지 방법으로 Key Vault에 인증할 수 있습니다.
@@ -132,19 +170,9 @@ sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
+### <a name="relevant-azure-cli-commands"></a>관련 Azure CLI 명령
 
-### <a name="relavant-azure-cli-cmdlets"></a>관련 Azure CLI cmdlet
-[Azure CLI 스토리지 Cmdlet](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
-
-### <a name="relevant-powershell-cmdlets"></a>관련 PowerShell cmdlet
-
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
+[Azure CLI Storage 명령](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ## <a name="see-also"></a>참고 항목
 

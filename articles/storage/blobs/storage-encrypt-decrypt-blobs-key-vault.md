@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 09bb74ead0ff52cc7a70170357ddc54a91bf00d9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239410"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56116102"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독
 ## <a name="introduction"></a>소개
@@ -43,7 +43,7 @@ Azure Storage에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft St
 4. 그런 다음 암호화된 데이터를 Azure Storage 서비스에 업로드합니다.
 
 ## <a name="set-up-your-azure-key-vault"></a>Azure Key Vault 설정
-이 자습서를 계속하려면 자습서 [Azure Key Vault 시작](../../key-vault/key-vault-get-started.md)에 요약된 다음 단계를 수행해야 합니다.
+이 자습서를 계속하려면 자습서 [Azure Key Vault란?](../../key-vault/key-vault-overview.md)에 요약된 다음 단계를 수행해야 합니다.
 
 * 키 자격 증명 모음을 만듭니다.
 * 키 또는 암호를 키 자격 증명 모음에 추가합니다.

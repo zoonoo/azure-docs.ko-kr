@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/24/2018
+ms.date: 02/11/2019
 ms.author: juliako
-ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789232"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56243988"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services 이벤트에 대한 Azure Event Grid 스키마
 
@@ -24,15 +24,13 @@ ms.locfileid: "53789232"
 
 샘플 스크립트 및 자습서 목록은 [Media Services 이벤트 원본](../../event-grid/event-sources.md#azure-subscriptions)을 참조하세요.
 
-## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
-
-### <a name="job-related-event-types"></a>작업 관련 이벤트 유형
+## <a name="job-related-event-types"></a>작업 관련 이벤트 유형
 
 Media Services는 아래에 설명된 **작업** 관련 이벤트 유형을 내보냅니다. **작업** 관련 이벤트에 대해 “모니터링 작업 상태 변경” 및 “모니터링 작업 출력 상태 변경”의 두 범주가 있습니다. 
 
 JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있습니다. 또는 특정 이벤트(예: JobErrored, JobFinished 및 JobCanceled와 같은 최종 상태)만 구독할 수 있습니다. 
 
-#### <a name="monitoring-job-state-changes"></a>작업 상태 변경 모니터링
+### <a name="monitoring-job-state-changes"></a>작업 상태 변경 모니터링
 
 | 이벤트 유형 | 설명 |
 | ---------- | ----------- |
@@ -44,7 +42,9 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 | Microsoft.Media.JobCanceled| 작업이 취소됨 상태로 전환되는 이벤트를 가져옵니다. 작업 출력을 포함하는 최종 상태입니다.|
 | Microsoft.Media.JobErrored| 작업이 오류 상태로 전환되는 이벤트를 가져옵니다. 작업 출력을 포함하는 최종 상태입니다.|
 
-#### <a name="monitoring-job-output-state-changes"></a>작업 출력 상태 변경 모니터링
+[스키마 예제](#event-schema-examples)가 이어집니다.
+
+### <a name="monitoring-job-output-state-changes"></a>작업 출력 상태 변경 모니터링
 
 | 이벤트 유형 | 설명 |
 | ---------- | ----------- |
@@ -56,11 +56,13 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 | Microsoft.Media.JobOutputCanceled| 작업 출력이 취소됨 상태로 전환되는 이벤트를 가져옵니다.|
 | Microsoft.Media.JobOutputErrored| 작업 출력이 오류 상태로 전환되는 이벤트를 가져옵니다.|
 
-### <a name="live-event-types"></a>라이브 이벤트 유형
+[스키마 예제](#event-schema-examples)가 이어집니다.
+
+## <a name="live-event-types"></a>라이브 이벤트 유형
 
 Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보냅니다. **라이브** 이벤트에는 스트림 수준 이벤트와 트랙 수준 이벤트의 두 가지 범주가 있습니다. 
 
-#### <a name="stream-level-events"></a>스트림 수준 이벤트
+### <a name="stream-level-events"></a>스트림 수준 이벤트
 
 스트림 수준 이벤트는 스트림 또는 연결마다 발생합니다. 각 이벤트에는 연결 또는 스트림을 식별하는 `StreamId` 매개 변수가 있습니다. 각 스트림 또는 연결에는 서로 다른 유형의 트랙이 하나 이상 있습니다. 예를 들어, 인코더의 연결 하나에는 하나의 오디오 트랙과 4개의 비디오 트랙이 있을 수 있습니다. 스트림 이벤트 유형은 다음과 같습니다.
 
@@ -70,7 +72,9 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | Microsoft.Media.LiveEventEncoderConnected | 인코더에서 라이브 이벤트와의 연결을 설정합니다. |
 | Microsoft.Media.LiveEventEncoderDisconnected | 인코더에서 연결을 끊습니다. |
 
-#### <a name="track-level-events"></a>트랙 수준 이벤트
+[스키마 예제](#event-schema-examples)가 이어집니다.
+
+### <a name="track-level-events"></a>트랙 수준 이벤트
 
 트랙 수준 이벤트는 트랙마다 발생합니다. 추적 이벤트 유형은 다음과 같습니다.
 
@@ -83,7 +87,9 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | 미디어 서버에서 들어오는 트랙의 불연속성을 감지합니다. |
 
-## <a name="event-schemas-and-properties"></a>이벤트 스키마 및 속성
+[스키마 예제](#event-schema-examples)가 이어집니다.
+
+## <a name="event-schema-examples"></a>이벤트 스키마 예제
 
 ### <a name="jobstatechange"></a>JobStateChange
 
@@ -109,7 +115,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | previousState | string | 이벤트 전의 작업 상태입니다. |
 | state | string | 이 이벤트에서 알리는 직업의 새로운 상태입니다. 예를 들어, “예약됨: 작업을 실행할 준비가 됨” 또는 “완료됨: 작업이 완료됨”입니다.|
@@ -179,7 +185,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | outputs | 배열 | 작업 출력을 가져옵니다.|
 
@@ -272,7 +278,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | streamId | string | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
 | ingestUrl | string | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
@@ -319,7 +325,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | streamId | string | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 제공해야 합니다. |
 | ingestUrl | string | 라이브 이벤트에서 제공하는 수집 URL입니다. |
@@ -353,7 +359,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | streamId | string | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
 | ingestUrl | string | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
@@ -410,7 +416,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | trackType | string | 트랙 유형입니다(예: Audio/Video). |
 | trackName | string | 트랙의 이름입니다. |
@@ -450,7 +456,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | trackType | string | 트랙 유형입니다(예: Audio/Video). |
 | trackName | string | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -489,7 +495,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | minLastTimestamp | string | 모든 트랙(오디오 또는 비디오) 중에서 마지막 타임스탬프의 최솟값입니다. |
 | typeOfTrackWithMinLastTimestamp | string | 마지막 타임스탬프가 최소인 트랙 유형(오디오 또는 비디오)입니다. |
@@ -525,7 +531,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | firstTimestamp | string | 비디오 유형의 트랙/품질 수준 중 하나에 대해 받은 타임스탬프입니다. |
 | firstDuration | string | 첫 번째 타임스탬프가 있는 데이터 청크의 기간입니다. |
@@ -567,7 +573,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | trackType | string | 트랙 유형입니다(예: Audio/Video). |
 | trackName | string | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -611,7 +617,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | trackType | string | 트랙 유형입니다(예: Audio/Video). |
 | trackName | string | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -625,7 +631,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | -------- | ---- | ----------- |
 | 토픽 | string | EventGrid 항목입니다. 이 속성에는 Media Services 계정에 대한 리소스 ID가 있습니다. |
 | 제목 | string | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |

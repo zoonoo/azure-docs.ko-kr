@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f08f4cc74c37ccbbcab071b82f67f912e9fd9fd1
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b87fa166f82e4302b5430064d41c293731c60470
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065327"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56107704"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Azure Maps 계정의 가격 책정 계층 관리
 
@@ -34,7 +34,7 @@ Azure Maps 계정을 만든 후 Azure Maps 계정에 대한 가격 책정 계층
 ![가격 책정 계층 변경](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
 
 > [!NOTE]
-> Azure Maps 계정에 대한 가격 책정 계층을 업그레이드 또는 다운그레이드하는 경우 새 구독 키를 생성할 필요가 없습니다.
+> Azure Maps 계정에 대한 가격 책정 계층을 업그레이드 또는 다운그레이드하는 경우 새 구독 키 또는 클라이언트 ID(Azure AD 인증용)를 생성할 필요가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

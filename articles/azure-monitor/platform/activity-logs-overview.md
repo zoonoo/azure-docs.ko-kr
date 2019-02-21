@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883775"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002118"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 
@@ -83,7 +83,7 @@ Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 
 
 필터 집합을 정의한 후에는 항상 특정 이벤트를 주시하도록 Azure 대시보드에 쿼리를 고정할 수 있습니다.
 
-[Log Analytics 활동 로그 분석 솔루션](../../azure-monitor/platform/collect-activity-logs.md)의 활동 로그 데이터를 표시하는 **로그** 아이콘을 클릭하면 더 많은 기능에 대해 확인할 수 있습니다. 활동 로그 블레이드는 로그에 대한 기본 필터/찾아보기 경험을 제공하지만, Log Analytics를 사용하면 더 효과적으로 데이터를 피벗, 쿼리 및 시각화할 수 있습니다.
+[활동 로그 수집 및 분석 솔루션](../../azure-monitor/platform/collect-activity-logs.md)의 활동 로그 데이터를 표시하는 **로그** 아이콘을 클릭하면 더 많은 기능에 대해 확인할 수 있습니다. 활동 로그 블레이드는 로그에 대한 기본 필터/찾아보기 경험을 제공하지만, Azure Monitor 로그 기능을 사용하면 더 효과적으로 데이터를 피벗, 쿼리 및 시각화할 수 있습니다.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>로그 프로필을 사용하여 활동 로그 내보내기
 **로그 프로필**은 활동 로그를 내보내는 방식을 제어합니다. 로그 프로필을 사용하여 다음을 구성할 수 있습니다.

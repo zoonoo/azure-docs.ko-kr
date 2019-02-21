@@ -5,25 +5,28 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 9164c335eb85676a419c1cb805b2217ea73c40fe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7cca9d9c91f35c30bbd71ae82b9f02447051078d
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497828"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55983171"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
 Azure Monitor는 이제 리소스 전체에서 '하나의 메트릭' 및 '하나의 경고'를 지원하는 통합된 전체 스택 모니터링 서비스가 되었습니다. 자세한 내용은 [새 Azure Monitor에 대한 블로그 게시물](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/)을 참조하세요. 새 Azure 모니터링 및 경고 플랫폼은 성장하고 있는 클라우드 컴퓨팅에 보조를 맞추고 Microsoft 지능형 클라우드 원칙에 맞게 더 빠르고, 더 스마트하게, 확장 가능하도록 설계되었습니다. 
 
-새 Azure 모니터링 및 경고 플랫폼을 사용함에 따라 Azure 경고의 *클래식 경고 보기* 섹션 내에서 호스팅되는 "클래식" 모니터링 및 경고 플랫폼은 **2019년 6월 이후로 사용이 중지됩니다**.
+새 Azure 모니터링 및 경고 플랫폼을 사용함에 따라 Azure 경고의 *클래식 경고 보기* 섹션 내에서 호스트되는 "클래식" 모니터링 및 경고 플랫폼은 **Azure 공용 클라우드에서 2019년 6월 이후로 사용이 중지됩니다**. [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md)는 영향을 받지 않습니다.
 
  ![Azure Portal의 클래식 경고](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 새 플랫폼에서 경고를 시작하고 다시 만드는 것이 좋습니다. 많은 수의 경고가 있는 고객을 위해 중단 또는 추가 비용 없이 기존 클래식 경고를 새 경고 시스템으로 자동으로 전환할 수 있는 방법을 제공하기 위해 노력하고 있습니다.
+
+> [!IMPORTANT]
+> 활동 로그에서 생성된 클래식 경고 규칙은 더 이상 사용 또는 마이그레이션되지 않습니다. 활동 로그에서 생성된 모든 클래식 경고 규칙은 새로운 Azure Monitor - 경고에서 액세스하여 사용할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-activity-log.md)를 참조하세요. 마찬가지로, Service Health에 대한 경고는 새로운 Service Health 섹션에서 현재 상태로 액세스하여 사용할 수 있습니다. 자세한 내용은 [서비스 상태 알림에서 경고](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)를 참조하세요.
 
 ## <a name="unified-metrics-and-alerts-in-application-insights"></a>Application Insights의 통합 메트릭 및 경고
 
@@ -60,7 +63,7 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 - 클래식 모니터링 및 경고 서비스는 사용이 중지되며 새 경고 규칙을 만들 때 더 이상 사용할 수 없습니다.
 - 2019년 6월 이후에도 경고(클래식)에 계속 남아 있는 모든 경고 규칙은 계속 실행되고 알림을 발생하지만 수정할 수 없습니다.
 - 2019년 7월부터 클래식 모니터링 및 경고의 모든 경고 규칙은 Microsoft에서 새 Azure Monitor 플랫폼의 해당 경고로 자동으로 마이그레이션합니다. 이 프로세스는 가동 중지 시간 없이 원활하게 진행되며 고객이 모니터링 범위를 손실하지 않도록 보장합니다.
-- 새 경고 플랫폼으로 마이그레이션된 경고 규칙은 이전처럼 모니터링 범위를 제공하지만 새 페이로드를 사용하여 알림을 생성합니다. 클래식 경고 규칙과 연결된 모든 이메일 주소, 웹후크 엔드포인트 또는 논리 앱 링크는 마이그레이션 시에 이월되지만, 새 플랫폼에서는 경고 페이로드가 달라지므로 올바르게 동작하지 않을 수도 있습니다.
+- 새 경고 플랫폼으로 마이그레이션된 경고 규칙은 이전처럼 모니터링 범위를 제공하지만 새 페이로드를 사용하여 알림을 생성합니다. 클래식 경고 규칙과 연결된 모든 이메일 주소, webhook 엔드포인트 또는 논리 앱 링크는 마이그레이션 시에 이월되지만, 새 플랫폼에서는 경고 페이로드가 달라지므로 올바르게 동작하지 않을 수도 있습니다.
 
 > [!IMPORTANT]
 > Microsoft Azure Monitor에서는 클래식 경고 규칙을 새 플랫폼으로 자동 마이그레이션하는 도구가 고객에게 곧 제공될 예정입니다. 그리고 2019년 7월부터는 계속 사용 중인 모든 클래식 경고 규칙에 대해 이 도구를 반드시 실행해야 합니다. 고객은 클래식 경고 규칙이 마이그레이션된 후에 [Application Insights의 통합 메트릭 및 경고](#unified-metrics-and-alerts-in-application-insights) 또는 [기타 Azure 리소스용 통합 메트릭 및 경고](#unified-metrics-and-alerts-for-other-azure-resources)에서 클래식 경고 규칙 페이로드를 사용하는 자동화 기능이 새 페이로드를 처리할 수 있도록 조정되었는지를 확인해야 합니다. 

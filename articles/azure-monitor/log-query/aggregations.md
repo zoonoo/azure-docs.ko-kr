@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 쿼리의 집계 | Microsoft Docs
-description: 데이터를 분석하는 유용한 방법을 제공하는 Log Analytics 쿼리의 집계 함수에 대해 설명합니다.
+title: Azure Monitor 로그 쿼리의 집계 | Microsoft Docs
+description: 데이터를 분석하는 유용한 방법을 제공하는 Azure Monitor 로그 쿼리의 집계 함수에 대해 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f5ecd68c1538fb9e21345221aa22c28217002271
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185752"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56000850"
 ---
-# <a name="aggregations-in-log-analytics-queries"></a>Log Analytics 쿼리의 집계
+# <a name="aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 집계
 
 > [!NOTE]
 > 이 단원을 완료하기 전에 [Analytics 포털 시작](get-started-portal.md) 및 [쿼리 시작](get-started-queries.md)을 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-이 문서에서는 데이터를 분석하는 유용한 방법을 제공하는 Log Analytics 쿼리의 집계 함수에 대해 설명합니다. 이러한 함수는 입력 테이블의 집계된 결과로 테이블을 생성하는 `summarize` 연산자를 모두 사용합니다.
+이 문서에서는 데이터를 분석하는 유용한 방법을 제공하는 Azure Monitor 로그 쿼리의 집계 함수에 대해 설명합니다. 이러한 함수는 입력 테이블의 집계된 결과로 테이블을 생성하는 `summarize` 연산자를 모두 사용합니다.
 
 ## <a name="counts"></a>Counts
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Log Analytics 쿼리 언어를 사용에 대해서는 다른 단원을 참조하세요.
+Azure Monitor 로그 데이터에 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
 
 - [문자열 작업](string-operations.md)
 - [날짜 및 시간 작업](datetime-operations.md)

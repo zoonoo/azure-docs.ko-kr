@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1b5c32d79e3664caf18cfc81fca563b295574cf4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7cc65c0564b6171e66c4337ce02e1c2d6449e101
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329320"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55975418"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server 에이전트 확장을 사용하여 Azure Virtual Machines에서 관리 작업 자동화(Resource Manager)
 > [!div class="op_single_selector"]
@@ -64,6 +64,8 @@ VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사�
 
 * [최신 Azure PowerShell 명령 다운로드 및 구성](/powershell/azure/overview)
 
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > 이번에 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)은 Azure에서 SQL Server FCI에 대해 지원되지 않습니다. FCI에 참여하는 VM에서 확장을 제거하는 것이 좋습니다. 확장이 지원하는 기능은 에이전트를 제거한 후 SQL VM에 사용할 수 없습니다.
 
@@ -71,7 +73,7 @@ VM에서 SQL Server IaaS 에이전트 확장을 사용하기 위한 요구 사�
 SQL Server IaaS 에이전트 확장은 SQL Server 가상 머신 갤러리 이미지 중 하나를 프로비전할 때 자동으로 설치됩니다. 이러한 SQL Server VM 중 하나에서 확장을 수동으로 다시 설치해야 하는 경우 다음 PowerShell 명령을 사용합니다.
 
 ```powershell
-Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
+Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
 ```
 
 > [!IMPORTANT]
@@ -85,13 +87,13 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 
 ![Azure Portal에서 SQL Server IaaS 에이전트 확장](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
-**Get-AzureRmVMSqlServerExtension** Azure PowerShell cmdlet을 사용할 수도 있습니다.
+**Get-AzVMSqlServerExtension** Azure PowerShell cmdlet을 사용할 수도 있습니다.
 
-    Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+    Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
 
 이전 명령은 에이전트가 설치되어 있는지 확인하고 일반적인 상태 정보를 제공합니다. 다음 명령을 사용하여 자동화된 Backup 및 패치에 대한 특정 상태 정보를 가져올 수도 있습니다.
 
-    $sqlext = Get-AzureRmVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+    $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
     $sqlext.AutoPatchingSettings
     $sqlext.AutoBackupSettings
 
@@ -100,9 +102,9 @@ Azure Portal에서 가상 머신 속성의 **확장** 창에서 줄임표를 클
 
 ![Azure Portal에서 SQL Server IaaS 에이전트 확장 제거](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-uninstall.png)
 
-**Remove-AzureRmVMSqlServerExtension** PowerShell cmdlet을 사용할 수도 있습니다.
+**Remove-AzVMSqlServerExtension** PowerShell cmdlet을 사용할 수도 있습니다.
 
-    Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
+    Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
 
 ## <a name="next-steps"></a>다음 단계
 확장에 의해 지원되는 서비스 중 하나를 사용하기 시작합니다. 자세한 내용은 이 문서의 [지원되는 서비스](#supported-services) 섹션에서 참조된 문서를 참조하세요.

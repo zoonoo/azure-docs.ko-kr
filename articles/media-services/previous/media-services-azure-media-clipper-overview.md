@@ -6,17 +6,18 @@ keywords: 클립, 하위 클립, 인코딩, 미디어
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 0fc04fb64e6d34c46f20b4ba5ff8a1ffc8da9c31
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d306bc3b9e206e5f21f9c16c0cd32bc599f1b6d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237913"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56003162"
 ---
-# <a name="create-clips-with-azure-media-clipper"></a>Azure Media Clipper를 사용하여 클립 만들기
+# <a name="create-clips-with-azure-media-clipper"></a>Azure Media Clipper를 사용하여 클립 만들기 
+
 Azure Media Clipper는 웹 개발자가 사용자에게 미디어 클립을 만들기 위한 인터페이스를 제공할 수 있는 무료 JavaScript 라이브러리입니다. 이 도구는 모든 웹 페이지에 통합할 수 있으며 자산 로드 및 클리핑 작업 제출을 위한 API를 제공합니다.
 
 Azure Media Clipper를 사용하면 다음을 수행할 수 있습니다.

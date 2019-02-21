@@ -4,24 +4,24 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 32d09722e8c396a64451018ac92fbc7bc072f461
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ff7ba04271c150018f2c55b62e40542a686608cf
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50132941"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55904955"
 ---
 ## <a name="create-client"></a>클라이언트 연결 만들기
 `WindowsAzure.MobileServiceClient` 개체를 만들어 클라이언트 연결을 만듭니다.  `appUrl` 을 모바일 앱에 대한 URL로 바꿉니다.
 
-```
+```javascript
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
 ## <a name="table-reference"></a>테이블 작업
 데이터에 액세스하거나 데이터를 업데이트하려면 백 엔드 테이블에 대한 참조를 만듭니다. `tableName` 을 테이블의 이름으로 바꿉니다.
 
-```
+```javascript
 var table = client.getTable(tableName);
 ```
 
@@ -39,7 +39,7 @@ var table = client.getTable(tableName);
 테이블 참조가 있는 경우 이를 사용하여 서버에서 데이터를 쿼리할 수 있습니다.  쿼리는 "LINQ와 유사한" 언어로 만들어집니다.
 테이블에서 모든 데이터를 반환하려면 다음 코드를 사용합니다.
 
-```
+```javascript
 /**
  * Process the results that are received by a call to table.read()
  *
@@ -72,7 +72,7 @@ table
 #### <a name="table-filter"></a>서버에서 데이터 필터링
 테이블 참조에서 `where` 절을 사용할 수 있습니다.
 
-```
+```javascript
 table
     .where({ userId: user.userId, complete: false })
     .read()
@@ -81,7 +81,7 @@ table
 
 개체를 필터링하는 함수도 사용할 수 있습니다.  이 경우 `this` 변수가 필터링되는 현재 개체에 할당됩니다.  다음 코드는 이전 예와 기능적으로 동일합니다.
 
-```
+```javascript
 function filterByUserId(currentUserId) {
     return this.userId === currentUserId && this.complete === false;
 }
@@ -95,7 +95,7 @@ table
 #### <a name="table-paging"></a>데이터를 통한 페이징
 `take()` 및 `skip()` 메서드를 활용합니다.  예를 들어 테이블을 100개 행 레코드로 분할하려는 경우 다음과 같습니다.
 
-```
+```javascript
 var totalCount = 0, pages = 0;
 
 // Step 1 - get the total number of records
@@ -123,7 +123,7 @@ function loadPage(pageNum) {
 #### <a name="sorting-data"></a>방법: 정렬된 데이터 반환
 `.orderBy()` 또는 `.orderByDescending()` 쿼리 메서드 사용:
 
-```
+```javascript
 table
     .orderBy('name')
     .read()
@@ -171,7 +171,7 @@ table
 ### <a name="deleting"></a>방법: 데이터 삭제
 레코드를 삭제하려면 `.del()` 메서드를 호출합니다.  개체 참조에 ID를 전달합니다.
 
-```
+```javascript
 table
     .del({ id: '7163bc7a-70b2-4dde-98e9-8818969611bd' })
     .done(function () {

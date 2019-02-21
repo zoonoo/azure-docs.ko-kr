@@ -8,16 +8,18 @@ ms.topic: include file for PowerShell for Azure DNS
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: 388bea528b138d78b9ec23ceea295108306c61e9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9c0874199a21f7357ae387e7ac4a26267c6635fc
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31613605"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56078590"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Azure DNS를 위한 Azure PowerShell 설정
 
 ### <a name="before-you-begin"></a>시작하기 전에
+
+[!INCLUDE [requires-azurerm](requires-azurerm.md)]
 
 구성을 시작하기 전에 다음 항목이 있는지 확인합니다.
 
@@ -36,7 +38,7 @@ Find-Module -Name AzureRM.Dns
 Find-Module -Name AzureRM.Network 
 ``` 
  
-위 명령의 출력에서는 AzureRM.Dns의 버전이 4.1.0 이상이고 AzureRM.Network의 버전이 5.4.0 이상임을 표시해야 합니다.  
+위 명령의 출력에서는 AzureRM.Dns 버전이 4.1.0 이상이고, AzureRM.Network 버전이 5.4.0 이상임을 표시해야 합니다.  
 
 시스템에 이전 버전이 있는 경우 최신 버전의 Azure PowerShell을 설치하거나, 모듈 버전 옆에 있는 링크를 사용하여 PowerShell 갤러리에서 위의 모듈을 다운로드하여 설치할 수 있습니다. 그러면 다음 명령을 사용하여 설치할 수 있습니다. 두 모듈이 모두 필요하며 이전 버전과 완전히 호환됩니다. 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 8beebfc0bd845fc7dbe8b1f1665aba7820c78767
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cc1405d2dd972aff6091a9d5b60ff9da18185286
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432084"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55978105"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell-preview"></a>Azure PowerShell(미리 보기)을 사용하여 가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
 
@@ -36,49 +36,53 @@ Azure Disk Encryption이 지원되는 경우는 다음과 같습니다.
 
 현재 미리 보기에서는 확장 집합 VM의 이미지로 다시 설치 작업과 업그레이드 작업이 지원되지 않습니다. 가상 머신 확장 집합용 Azure Disk Encryption은 테스트 환경에서만 사용하는 것이 권장됩니다. 미리 보기에서는 암호화된 확장 집합에서 OS 이미지를 업그레이드해야 할 필요가 있는 프로덕션 환경에서 디스크 암호화를 사용하도록 설정하지 마세요.
 
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure PowerShell 모듈 버전이 5.7.0 이상이어야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="register-for-disk-encryption-preview"></a>디스크 암호화 미리 보기를 위해 등록
 
-가상 머신 확장 집합용 Azure Disk Encryption 미리 보기를 사용하려면 [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature)를 사용하여 사용자가 구독을 직접 등록해야 합니다. 디스크 암호화 미리 보기 기능을 처음 사용할 때는 다음 단계를 수행하기만 하면 됩니다.
+가상 머신 확장 집합용 Azure Disk Encryption 미리 보기를 사용하려면 [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature)를 사용하여 사용자가 구독을 직접 등록해야 합니다. 디스크 암호화 미리 보기 기능을 처음 사용할 때는 다음 단계를 수행하기만 하면 됩니다.
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-등록 요청을 전파하는 데 최대 10분까지 걸릴 수 있습니다. [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) 명령을 사용하여 등록 상태를 확인할 수 있습니다. `RegistrationState`가 *Registered*로 보고되면 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider)를 사용하여 *Microsoft.Compute* 공급자를 다시 등록합니다.
+
+등록 요청을 전파하는 데 최대 10분까지 걸릴 수 있습니다. [Get-AzProviderFeature](/powershell/module/az.resources/Get-AzProviderFeature) 명령을 사용하여 등록 상태를 확인할 수 있습니다. `RegistrationState`가 *Registered*로 보고되면 [Register-AzResourceProvider](/powershell/module/az.resources/Register-AzResourceProvider)를 사용하여 *Microsoft.Compute* 공급자를 다시 등록합니다.
+
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>디스크 암호화가 활성화된 Azure Key Vault 만들기
 
 Azure Key Vault는 애플리케이션 및 서비스에 안전하게 구현할 수 있는 키와 암호를 저장할 수 있습니다. 암호화 키는 소프트웨어 보호를 사용하여 Azure Key Vault에 저장되거나 FIPS 140-2 레벨 2 표준 인증 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. 이러한 암호화 키는 VM에 연결된 가상 디스크를 암호화하고 암호를 해독하는 데 사용됩니다. 이러한 암호화 키에 대한 제어를 유지하고 그 사용을 감사할 수 있습니다.
 
-[New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault)를 사용하여 Key Vault를 만듭니다. Key Vault를 디스크 암호화에 사용할 수 있도록 허용하려면 *EnabledForDiskEncryption* 매개 변수를 설정합니다. 또한 다음 예제에서는 리소스 그룹 이름, Key Vault 이름 및 위치에 대한 변수를 정의합니다. 사용자 고유의 Key Vault 이름을 제공합니다.
+[New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)를 사용하여 Key Vault를 만듭니다. Key Vault를 디스크 암호화에 사용할 수 있도록 허용하려면 *EnabledForDiskEncryption* 매개 변수를 설정합니다. 또한 다음 예제에서는 리소스 그룹 이름, Key Vault 이름 및 위치에 대한 변수를 정의합니다. 사용자 고유의 Key Vault 이름을 제공합니다.
 
 ```azurepowershell-interactive
 $rgName="myResourceGroup"
 $vaultName="myuniquekeyvault"
 $location = "EastUS"
 
-New-AzureRmResourceGroup -Name $rgName -Location $location
-New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $location -EnabledForDiskEncryption
+New-AzResourceGroup -Name $rgName -Location $location
+New-AzKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $location -EnabledForDiskEncryption
 ```
 
 ### <a name="use-an-existing-key-vault"></a>기존 Key Vault 사용
 
 이 단계는 디스크 암호화로 사용하려는 기존 Key Vault가 있는 경우에만 필요합니다. 이전 섹션에서 Key Vault를 만든 경우 이 단계를 건너뜁니다.
 
-[Set-AzureRmKeyVaultAccessPolicy](/powershell/module/AzureRM.KeyVault/Set-AzureRmKeyVaultAccessPolicy)를 사용하여 확장 집합과 동일한 구독 및 지역에 있는 기존의 Key Vault에서 디스크 암호화를 사용하도록 설정할 수 있습니다. 다음과 같이 *$vaultName* 변수에서 기존 Key Vault의 이름을 정의합니다.
+[Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-AzKeyVaultAccessPolicy)를 사용하여 확장 집합과 동일한 구독 및 지역에 있는 기존의 Key Vault에서 디스크 암호화를 사용하도록 설정할 수 있습니다. 다음과 같이 *$vaultName* 변수에서 기존 Key Vault의 이름을 정의합니다.
+
 
 ```azurepowershell-interactive
 $vaultName="myexistingkeyvault"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
+Set-AzKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 ```
 
 ## <a name="create-a-scale-set"></a>확장 집합 만들기
@@ -89,12 +93,12 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -EnabledForDiskEncryption
 $cred = Get-Credential
 ```
 
-이제 [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 트래픽을 개별 VM 인스턴스로 배포하기 위해 부하 분산 장치도 생성됩니다. 부하 분산 장치는 TCP 포트 80에서 트래픽을 분산할 뿐만 아니라 TCP 포트 3389의 원격 데스크톱 트래픽 및 TCP 포트 5985의 PowerShell 원격을 허용하는 규칙을 포함합니다.
+이제 [New-AzVmss](/powershell/module/az.compute/new-azvmss)를 사용하여 가상 머신 확장 집합을 만듭니다. 트래픽을 개별 VM 인스턴스로 배포하기 위해 부하 분산 장치도 생성됩니다. 부하 분산 장치는 TCP 포트 80에서 트래픽을 분산할 뿐만 아니라 TCP 포트 3389의 원격 데스크톱 트래픽 및 TCP 포트 5985의 PowerShell 원격을 허용하는 규칙을 포함합니다.
 
 ```azurepowershell-interactive
 $vmssName="myScaleSet"
 
-New-AzureRmVmss `
+New-AzVmss `
     -ResourceGroupName $rgName `
     -VMScaleSetName $vmssName `
     -Location $location `
@@ -108,13 +112,14 @@ New-AzureRmVmss `
 
 ## <a name="enable-encryption"></a>암호화 사용
 
-확장 집합에서 VM 인스턴스를 암호화하려면 먼저 [Get-AzureRmKeyVault](/powershell/module/AzureRM.KeyVault/Get-AzureRmKeyVault)를 사용하여 Key Vault URI 및 리소스 ID에 대한 정보를 얻습니다. 이러한 변수는 [Set-AzureRmVmssDiskEncryptionExtension](/powershell/module/AzureRM.Compute/Set-AzureRmVmssDiskEncryptionExtension)으로 암호화 프로세스를 시작하는 데 사용됩니다.
+확장 집합에서 VM 인스턴스를 암호화하려면 먼저 [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault)를 사용하여 Key Vault URI 및 리소스 ID에 대한 정보를 얻습니다. 이러한 변수는 [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/Set-AzVmssDiskEncryptionExtension)으로 암호화 프로세스를 시작하는 데 사용됩니다.
+
 
 ```azurepowershell-interactive
-$diskEncryptionKeyVaultUrl=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
-$keyVaultResourceId=(Get-AzureRmKeyVault -ResourceGroupName $rgName -Name $vaultName).ResourceId
+$diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
+$keyVaultResourceId=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).ResourceId
 
-Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vmssName `
+Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vmssName `
     -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId –VolumeType "All"
 ```
 
@@ -122,10 +127,11 @@ Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetNam
 
 ## <a name="check-encryption-progress"></a>암호화 진행 확인
 
-디스크 암호화의 상태를 확인하려면 [Get-AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Get-AzureRmVmssDiskEncryption)을 사용합니다.
+디스크 암호화의 상태를 확인하려면 [Get-AzVmssDiskEncryption](/powershell/module/az.compute/Get-AzVmssDiskEncryption)을 사용합니다.
+
 
 ```azurepowershell-interactive
-Get-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
+Get-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
 
 VM 인스턴스가 암호화될 때 *EncryptionSummary* 코드는 다음 예제 출력에 표시된 대로 *ProvisioningState/succeeded*를 보고합니다.
@@ -150,10 +156,11 @@ EncryptionExtensionInstalled : True
 
 ## <a name="disable-encryption"></a>암호화 사용 안 함
 
-암호화된 VM 인스턴스 디스크를 더 이상 사용하지 않으려는 경우 다음과 같이 [Disable-AzureRmVmssDiskEncryption](/powershell/module/AzureRM.Compute/Disable-AzureRmVmssDiskEncryption)을 사용하여 암호화를 비활성화할 수 있습니다.
+암호화된 VM 인스턴스 디스크를 더 이상 사용하지 않으려는 경우 다음과 같이 [Disable-AzVmssDiskEncryption](/powershell/module/az.compute/Disable-AzVmssDiskEncryption)을 사용하여 암호화를 비활성화할 수 있습니다.
+
 
 ```azurepowershell-interactive
-Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
+Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
 ```
 
 ## <a name="next-steps"></a>다음 단계

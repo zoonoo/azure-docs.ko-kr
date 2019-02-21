@@ -1,6 +1,6 @@
 ---
-title: AzCopy를 사용하여 Blob 스토리지 데이터 이동 - Team Data Science Process
-description: AzCopy를 사용하여 Azure Blob Storage의 데이터 이동
+title: AzCopy를 사용하여 Blob Storage 데이터 복사 - Team Data Science Process
+description: AzCopy를 사용하여 Azure Blob Storage 간 데이터 복사
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3165aad326ad476eb5064f0b99acd8c3f5a036d8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6c0951eb6ad3b7651da97e1a49c5edf5ab55a199
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474703"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56209577"
 ---
-# <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>AzCopy를 사용하여 Azure Blob Storage 간 데이터 이동
+# <a name="copy-data-to-and-from-azure-blob-storage-using-azcopy"></a>AzCopy를 사용하여 Azure Blob Storage 간 데이터 복사
 AzCopy는 Microsoft Azure Blob, 파일 및 Table Storage에 대해 데이터 업로드, 다운로드 및 복사를 수행하도록 디자인된 명령줄 유틸리티입니다.
 
 AzCopy 설치 지침 및 Azure 플랫폼에서 사용하는 방법에 대한 추가 정보는 [AzCopy 명령줄 유틸리티 시작](../../storage/common/storage-use-azcopy.md)을 참조하세요.
@@ -65,10 +65,10 @@ Azure blob에서 파일을 다운로드하려면 다음 명령을 사용합니�
     AzCopy /Source:https://<your_account_name>.blob.core.windows.net/<your_container_name>/<your_sub_directory_at_blob>  /Dest:<your_local_directory> /SourceKey:<your_account_key> /Pattern:<file_pattern> /S
 
 
-## <a name="transfer-blobs-between-azure-containers"></a>Azure 컨테이너 간 Blob 전송
-Azure 컨테이너 간 Blob을 전송하려면 다음 명령을 사용합니다.
+## <a name="copy-blobs-between-azure-containers"></a>Azure 컨테이너 간 Blob 복사
+Azure 컨테이너 간 Blob을 복사하려면 다음 명령을 사용합니다.
 
-    # Transferring blobs between Azure containers
+    # Copying blobs between Azure containers
     AzCopy /Source:https://<your_account_name1>.blob.core.windows.net/<your_container_name1>/<your_sub_directory_at_blob1> /Dest:https://<your_account_name2>.blob.core.windows.net/<your_container_name2>/<your_sub_directory_at_blob2> /SourceKey:<your_account_key1> /DestKey:<your_account_key2> /Pattern:<file_pattern> /S
 
     <your_account_name>: your storage account name
@@ -76,7 +76,7 @@ Azure 컨테이너 간 Blob을 전송하려면 다음 명령을 사용합니다.
     <your_container_name>: your container name
     <your_sub_directory_at_blob>: the sub directory in the container
     <your_local_directory>: directory of local file system where files to be uploaded from or the directory of local file system files to be downloaded to
-    <file_pattern>: pattern of file names to be transferred. The standard wildcards are supported
+    <file_pattern>: pattern of file names to be copied. The standard wildcards are supported
 
 
 ## <a name="tips-for-using-azcopy"></a>AzCopy 사용에 대한 팁

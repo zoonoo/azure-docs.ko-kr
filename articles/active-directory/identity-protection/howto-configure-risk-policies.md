@@ -13,15 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: f9ffbebee06ab7b9e010c7e6c84fee533611fb38
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567658"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56197541"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>방법: Azure Active Directory Identity Protection에서 위험 정책 구성(새로 고침)
 
@@ -81,7 +82,7 @@ MFA를 요구하는 로그인 위험 보안 정책을 구성할 수 있습니다
 
 위험한 로그인에 대해 MFA를 요구하려는 경우 다음을 수행해야 합니다.
 
-1. 영향을 받는 사용자에 대해 [다단계 인증 등록 정책](#multi-factor-authentication-registration-policy)을 사용하도록 설정합니다.
+1. 영향을 받는 사용자에 대해 다단계 인증 등록 정책을 사용하도록 설정합니다.
 
 2. 영향을 받는 사용자가 위험하지 않은 세션에 로그인하여 MFA 등록을 수행해야 합니다.
 

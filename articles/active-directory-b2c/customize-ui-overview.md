@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c81701dff8d7eebf08aa6b16c61e6915a905c729
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 767e64d4d53702ede7b55edc747366ab3d32ae4d
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172717"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55996102"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정 정보
 
@@ -24,17 +24,19 @@ Azure AD(Azure Active Directory) B2C가 애플리케이션에 제공하는 UI(�
 이러한 환경에 있어 필요에 따라 다양한 방식으로 애플리케이션의 UI를 사용자 지정할 수 있습니다. 예: 
 
 - [사용자 흐름](active-directory-b2c-reference-policies.md)을 사용하여 애플리케이션에 등록 또는 로그인, 암호 재설정 또는 프로필 편집 환경을 제공하는 경우 [UI를 사용자 지정하는 Azure Portal](tutorial-customize-ui.md)을 사용합니다.
+- v2 사용자 흐름을 사용하는 경우 [페이지 레이아웃 템플릿](#page-layout-templates)을 사용하여 추가 사용자 지정 없이 사용자 흐름 페이지의 모양을 변경할 수 있습니다. 예를 들어 사용자 흐름의 모든 페이지에 바다색 또는 녹회색 테마를 적용할 수 있습니다.
 - 로그인 전용, 첨부된 암호 재설정 페이지와 확인 이메일을 제공하는 경우 [Azure AD 로그인 페이지](../active-directory/fundamentals/customize-branding.md)에 사용되는 것과 동일한 사용자 지정 단계를 사용합니다.
 - 고객이 로그인하기 전에 프로필을 편집하려는 경우 Azure AD 로그인 페이지를 사용자 지정하는 데 사용되는 것과 동일한 단계를 사용하여 사용자 지정하는 페이지로 리디렉션됩니다.
 - [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 애플리케이션에서 등록 또는 로그인, 암호 재설정 또는 프로필 편집을 제공하는 경우 [UI를 사용자 지정하는 정책 파일](active-directory-b2c-ui-customization-custom.md)을 사용합니다.
 - 고객의 결정에 따라 동적 콘텐츠를 제공해야 하는 경우 쿼리 문자열에 전송된 매개 변수에 따라 [페이지 콘텐츠를 변경할 수 있는 사용자 지정 정책](active-directory-b2c-ui-customization-custom-dynamic.md) 을 사용합니다. 예를 들어 Azure AD B2C 등록 또는 로그인 페이지의 배경 이미지는 웹 또는 모바일 애플리케이션에서 전달한 매개 변수에 따라 변경됩니다.
+- Azure AD B2C [사용자 흐름](user-flow-javascript-overview.md) 또는 [사용자 지정 정책](page-contract.md)에서 JavaScript 클라이언트 쪽 코드를 사용할 수 있습니다.
 
 Azure AD B2C는 고객의 브라우저에서 코드를 실행하고 [CORS(원본 간 리소스 공유)](https://www.w3.org/TR/cors/)라는 최신 방법을 사용합니다. 런타임 시 사용자 흐름이나 정책에서 지정하는 URL에서 콘텐츠를 로드합니다. 다른 페이지에 다른 URL을 지정합니다. URL에서 콘텐츠가 로드된 후 Azure AD B2C에서 삽입된 HTML 조각과 병합된 다음, 고객에게 표시됩니다.
 
-시작하기 전에 다음 지침을 검토하세요.
+사용자 고유의 HTML 및 CSS 파일을 사용하여 UI를 사용자 지정할 경우 시작하기 전에 다음 지침을 검토하세요.
 
 - Azure AD B2C는 HTML 콘텐츠를 페이지에 병합합니다. Azure AD B2C가 제공하는 기본 콘텐츠를 복사하여 변경하지 마세요. 처음부터 HTML 콘텐츠를 빌드하고 기본 콘텐츠를 참조로 사용하는 것이 가장 좋습니다.
-- 보안상의 이유로 콘텐츠에 JavaScript를 포함할 수 없습니다.
+- JavaScript는 이제 사용자 지정 콘텐츠에 포함될 수 있습니다.
 - 지원되는 브라우저 버전은 다음과 같습니다. 
     - Internet Explorer 11, 10 및 Microsoft Edge
     - Internet Explorer 9 및 8에 대한 제한된 지원
@@ -42,9 +44,23 @@ Azure AD B2C는 고객의 브라우저에서 코드를 실행하고 [CORS(원본
     - Mozilla Firefox 38.0 이상
 - Azure AD B2C에서 삽입된 HTML에 의해 생성되는 POST 작업을 방해하므로 HTML에 양식 태그가 포함되지 않도록 합니다.
 
+## <a name="page-layout-templates"></a>페이지 레이아웃 템플릿
+
+v2 사용자 흐름의 경우 기본 페이지를 더 잘 보이도록 하고 나만의 사용자 지정을 위한 좋은 기초가 되는 미리 디자인된 템플릿을 선택할 수 있습니다.
+
+왼쪽 메뉴의 **사용자 지정**에서 **페이지 레이아웃**을 선택합니다. 그런 다음, **템플릿(미리 보기)** 을 선택합니다.
+
+![페이지 레이아웃 템플릿 선택](media/customize-ui-overview/template.png)
+
+목록에서 템플릿을 선택합니다. 예를 들어 **Ocean Blue** 템플릿은 다음 레이아웃을 사용자 흐름 페이지에 적용합니다.
+
+![Ocean Blue 템플릿](media/customize-ui-overview/ocean-blue.png)
+
+템플릿을 선택하면 선택한 레이아웃이 사용자 흐름의 모든 페이지에 적용되고 각 페이지의 URI는 **사용자 지정 페이지 URI** 필드에 표시됩니다.
+
 ## <a name="where-do-i-store-ui-content"></a>UI 콘텐츠는 어디에 저장하나요?
 
-[Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), 웹 서버, CDN, AWS S3 또는 파일 공유 시스템과 같이 어느 곳에나 UI 콘텐츠를 호스트할 수 있습니다. 중요한 점은 CORS를 사용하도록 설정한 상태에서 공개적으로 사용 가능한 HTTPS 엔드포인트에서 콘텐츠를 호스팅하는 것입니다. 콘텐츠에 지정하는 경우 절대 URL을 사용해야 합니다.
+사용자 고유의 HTML 및 CSS 파일을 사용하여 UI를 사용자 지정하면 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), 웹 서버, CDN, AWS S3 또는 파일 공유 시스템과 같이 어느 곳에나 UI 콘텐츠를 호스트할 수 있습니다. 중요한 점은 CORS를 사용하도록 설정한 상태에서 공개적으로 사용 가능한 HTTPS 엔드포인트에서 콘텐츠를 호스팅하는 것입니다. 콘텐츠에 지정하는 경우 절대 URL을 사용해야 합니다.
 
 ## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
 

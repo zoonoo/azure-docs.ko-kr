@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Service Fabric 보안을 위한 여러 �
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
-ms.openlocfilehash: 718b6b38121981bdec1f677537f9cd1180dfdb08
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391221"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56114708"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 보안 모범 사례
 Azure에 애플리케이션을 배포하는 것은 빠르고, 쉽고, 비용 효율적입니다. 프로덕션에 클라우드 애플리케이션을 배포하기 전에 애플리케이션에서 보안 클러스터를 구현하기 위한 필수 및 권장 모범 사례의 목록을 검토합니다.
@@ -173,7 +173,7 @@ Service Fabric은 클러스터에 보안을 적용하고 애플리케이션 보�
 
     배포 시 키 자격 증명 모음을 사용해야 합니다. 그러면 계산 리소스 공급자가 자격 증명 모음에서 인증서를 가져와서 VM 인스턴스에 설치할 수 있습니다.
 
-키 자격 증명 모음 설정 방법에 대한 자세한 내용은 [Azure Key Vault 시작](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)을 참조하세요.
+키 자격 증명 모음 설정 방법에 대한 자세한 내용은 [Azure Key Vault란?](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)을 참조하세요.
 
 ## <a name="assign-users-to-roles"></a>역할에 사용자 할당
 클러스터를 나타내는 애플리케이션을 만들었으면 사용자를 Service Fabric에서 지원하는 역할(읽기 전용 및 관리자)에 할당합니다. Azure Portal을 사용하여 역할을 할당할 수 있습니다.

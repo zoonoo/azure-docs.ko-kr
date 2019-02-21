@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 쿼리에서 문자열 사용 | Microsoft Docs
-description: 이 문서에서는 Analytics 포털을 사용하여 Log Analytics에서 쿼리를 작성하는 것에 대한 자습서를 제공합니다.
+title: Azure Monitor 로그 쿼리에서 문자열 작업 | Microsoft Docs
+description: 이 문서에서는 Azure Portal에서 Azure Monitor Log Analytics를 사용하여 Azure Monitor에서 로그 데이터를 쿼리하고 분석하는 방법에 대한 자습서를 제공합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 24f22d659ccfb6923ad2a038e12454716b2c5445
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263886"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55993727"
 ---
-# <a name="working-with-json-and-data-structures-in-log-analytics-queries"></a>Log Analytics 쿼리에서 JSON 및 데이터 구조 사용
+# <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 JSON 및 데이터 구조 사용
 
 > [!NOTE]
-> 이 단원을 완료하기 전에 [Analytics 포털 시작](get-started-portal.md) 및 [쿼리 시작](get-started-queries.md)을 완료해야 합니다.
+> 이 단원을 완료하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 및 [Azure Monitor 로그 쿼리 시작](get-started-queries.md)을 완료해야 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -131,7 +131,7 @@ print hosts_object
 ![스키마 빌드](media/json-data-structures/buildschema.png)
 
 ## <a name="next-steps"></a>다음 단계
-Log Analytics 쿼리 언어를 사용에 대해서는 다른 단원을 참조하세요.
+Azure Monitor에서 로그 쿼리 사용에 대한 다른 단원을 참조하세요.
 
 - [문자열 작업](string-operations.md)
 - [날짜 및 시간 작업](datetime-operations.md)

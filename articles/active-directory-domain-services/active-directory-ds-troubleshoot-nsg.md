@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2f66c6956c803979ee6717f7327379c7bc9e97bb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 503e52266c1c6be71e60a751c40ef0a54f0d9b12
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181897"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56112499"
 ---
 # <a name="troubleshoot-invalid-networking-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 네트워킹 구성 문제 해결
 이 문서를 통해 다음과 같은 경고 메시지가 발생하는 네트워크 관련 구성 오류를 해결하고 문제를 해결합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "55181897"
 2. 테이블에서 관리되는 도메인이 사용하도록 설정된 서브넷에 연결된 NSG를 선택합니다.
 3. 왼쪽 패널의 **설정**에서 **인바운드 보안 규칙**을 클릭합니다.
 4. 작동 중인 규칙을 검토하여 [이러한 포트](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)에 대한 액세스를 막고 있는 규칙을 식별합니다.
-5. 규정을 준수하도록 규칙을 삭제하거나 규칙을 추가하거나 NSG를 처음부터 새로 만드는 등 NSG를 편집합니다. 다음은 [규칙 추가](#add-a-rule-to-a-network-security-group-using-the-azure-portal) 또는 [규격 NSG 만들기](#create-a-nsg-for-azure-ad-domain-services-using-powershell)를 수행하는 단계입니다.
+5. 규정을 준수하도록 규칙을 삭제하거나 규칙을 추가하거나 NSG를 처음부터 새로 만드는 등 NSG를 편집합니다. [규칙을 추가](#add-a-rule-to-a-network-security-group-using-the-azure-portal)하거나 새로운 규격 준수 NSG를 만드는 단계는 다음과 같습니다.
 
 ## <a name="sample-nsg"></a>샘플 NSG
 다음 표에서는 Microsoft에서 정보를 모니터링, 관리 및 업데이트하도록 하면서, 관리되는 도메인을 안전하게 유지하는 샘플 NSG를 보여 줍니다.

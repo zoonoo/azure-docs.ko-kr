@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: acae8076350c26e7a7157fd2063f64220b167771
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5c5615dcfc9d43016bdf995a22ae29a5c5dd2c6f
+ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486064"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56185386"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight에서 Enterprise Security Package 사용
 
@@ -28,12 +28,13 @@ HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입�
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Active Directory와 HDInsight 통합
 
-오픈 소스 Apache Hadoop은 인증 및 보안에 Kerberos를 사용합니다. 따라서 ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터 노드는 Azure AD DS에서 관리하는 도메인에 조인됩니다. Kerberos 보안은 클러스터의 Hadoop 구성 요소에 대해 구성됩니다. 
+오픈 소스 Apache Hadoop은 인증 및 보안에 Kerberos 프로토콜을 사용합니다. 따라서 ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터 노드는 Azure AD DS에서 관리하는 도메인에 조인됩니다. Kerberos 보안은 클러스터의 Hadoop 구성 요소에 대해 구성됩니다. 
 
 다음 작업은 자동으로 만들어집니다.
-- 각 Hadoop 구성 요소에 대한 서비스 주체 
+
+- 각 Hadoop 구성 요소에 대한 서비스 주체
 - 또한 도메인에 가입된 각 머신에 대한 머신 보안 주체
-- 이러한 서비스 및 머신 보안 주체를 저장하는 각 클러스터에 대한 OU(조직 구성 단위) 
+- 이러한 서비스 및 머신 보안 주체를 저장하는 각 클러스터에 대한 OU(조직 구성 단위)
 
 요약하면 다음으로 환경을 설정해야 합니다.
 
@@ -47,7 +48,7 @@ HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메�
 ### <a name="azure-active-directory-domain-services"></a>Azure Active Directory Domain Services
 [Azure AD DS](../../active-directory-domain-services/active-directory-ds-overview.md)는 관리되는 도메인을 제공합니다. 이 도메인은 Windows Server Active Directory와 완벽하게 호환됩니다. Microsoft는 HA(고가용성) 설정에서 도메인을 관리하고, 패치하고, 모니터링하는 작업에 주의를 기울입니다. 도메인 컨트롤러를 유지 관리할 걱정 없이 클러스터를 배포할 수 있습니다. 
 
-사용자, 그룹 및 암호는 Azure AD(Azure Active Directory)에서 동기화됩니다. Azure AD 인스턴스에서 Azure AD DS로 단방향 동기화를 사용하면 사용자가 동일한 회사 자격 증명을 통해 클러스터에 로그인할 수 있습니다. 
+사용자, 그룹 및 암호는 Azure AD에서 동기화됩니다. Azure AD 인스턴스에서 Azure AD DS로 단방향 동기화를 사용하면 사용자가 동일한 회사 자격 증명을 통해 클러스터에 로그인할 수 있습니다. 
 
 자세한 내용은 [Azure AD DS를 사용하여 ESP가 포함된 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)을 참조하세요.
 
@@ -57,38 +58,38 @@ HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메�
 
 Kerberos가 암호 해시를 사용하므로 [Azure AD DS에서 암호 해시 동기화를 사용하도록 설정](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)해야 합니다. 
 
-ADFS(Active Directory Federation Services)와 페더레이션을 함께 사용하고 있으면, ADFS 인프라에 장애가 발생하고 자격 증명 보호가 손상된 경우 재해 복구에도 도움이 되는 암호 해시 동기화를 사용하도록 설정해야 합니다(권장 설정은 [여기](https://youtu.be/qQruArbu2Ew) 참조). 자세한 내용은 [Azure AD Connect에서 암호 해시 동기화 사용](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요. 
+AD FS(Active Directory Federation Services)를 통한 페더레이션을 사용하는 경우 암호 해시 동기화를 사용하도록 설정해야 합니다. (권장되는 설정은 [이 비디오](https://youtu.be/qQruArbu2Ew)를 참조하세요.) 암호 해시 동기화는 AD FS 인프라에 실패한 경우 재해 복구에 유용하며 유출된 자격 증명 보호 기능도 제공합니다. 자세한 내용은 [Azure AD Connect에서 암호 해시 동기화 사용](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요. 
 
 Azure AD 및 Azure AD DS 없이 온-프레미스 Active Directory 또는 IaaS VM의 Active Directory만 사용하는 방식은 ESP가 포함된 HDInsight 클러스터에 대해 지원되는 구성이 아닙니다.
 
-페더레이션이 사용되고 있고 암호 해시가 제대로 동기화되지만 인증 오류가 발생하고 있다면, PowerShell 서비스 주체 클라우드 암호 인증이 사용하도록 설정되었는지 확인하세요. 사용하도록 설정되지 않은 경우에는 AAD 테넌트에 대한 [HRD(홈 영역 검색) 정책](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)을 설정해야 합니다. HRD 정책을 확인하고 설정하려면:
+페더레이션을 사용 중이고 암호 해시가 올바르게 동기화되었지만 인증 오류가 발생하는 경우에는 PowerShell 서비스 주체에 대해 클라우드 암호 인증이 활성화되어 있는지 확인합니다. 그렇지 않은 경우 Azure AD 테넌트에 대해 [HRD(홈 영역 검색) 정책](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md)을 설정해야 합니다. HRD 정책을 확인하고 설정하려면:
 
- 1. AzureAD PowerShell 모듈 설치
-
- ```
-  Install-Module AzureAD
- ```
-
- 2. 전역 관리자(테넌트 관리자) 자격 증명을 사용하는 ```Connect-AzureAD```
-
- 3. “Microsoft Azure PowerShell” 서비스 주체가 이미 만들어졌는지 확인
+ 1. Azure AD PowerShell 모듈을 설치합니다.
 
  ```
-  $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+    Install-Module AzureAD
  ```
 
- 4. 존재하지 않는 경우($powershellSPN -eq$null) 서비스 주체 만들기
+ 2. 글로벌 관리자(테넌트 관리자) 자격 증명을 사용하여 `Connect-AzureAD`를 입력합니다.
+
+ 3. Microsoft Azure PowerShell 서비스 주체가 이미 만들어졌는지 확인합니다.
 
  ```
-  $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+    $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
  ```
 
- 5. 정책을 만들고 이 서비스 주체에 연결: 
+ 4. 존재하지 않는 경우(즉, `($powershellSPN -eq $null)`인 경우) 서비스 주체를 만듭니다.
 
  ```
- $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+ ```
 
- Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+ 5. 정책을 만들고 이 서비스 주체에 연결합니다.
+
+ ```
+    $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+    Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
  ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c280a1f7e060ab7637e8d0b2484951f72b58a89c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fe671dec730cd1a593c6413c38625677c3f9d164
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081197"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55894108"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 
@@ -54,7 +54,7 @@ Data Factory 서비스를 통해 데이터를 이동하고 변환하는 파이�
 [Azure Data Factory 소개](data-factory-introduction.md) 및 [첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 문서를 참조하여 Azure Data Factory 서비스를 빠르게 시작합니다.
 
 ### <a name="data-factory-and-machine-learning-together"></a>Data Factory 및 Machine Learning
-Azure Data Factory를 사용하면 예측 분석을 위해 게시된 [Azure Machine Learning][azure-machine-learning] 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 **일괄 처리 실행 작업**을 사용하면 Azure Machine Learning Studio 웹 서비스를 호출하여 데이터에 대해 일괄 처리 방식으로 예측할 수 있습니다. 자세한 내용은 [일괄 처리 실행 작업을 사용하여 Azure Machine Learning Studio 웹 서비스 호출](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) 섹션을 참조하세요.
+Azure Data Factory를 사용하면 예측 분석을 위해 게시된 [Azure Machine Learning][azure-machine-learning] 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 **일괄 처리 실행 작업**을 사용하면 Azure Machine Learning Studio 웹 서비스를 호출하여 데이터에 대해 일괄 처리 방식으로 예측할 수 있습니다. 자세한 내용은 일괄 처리 실행 작업을 사용하여 Azure Machine Learning Studio 웹 서비스 호출 섹션을 참조하세요.
 
 시간이 지남에 따라 Azure Machine Learning Studio 점수 매기기 실험의 예측 모델에서 새 입력 데이터 세트를 사용하여 재학습해야 합니다. 다음 단계를 수행하여 Data Factory 파이프라인에서 Azure Machine Learning Studio 모델을 재학습할 수 있습니다.
 

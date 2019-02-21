@@ -3,20 +3,20 @@ title: Azure Maps에서 지원되는 지도 스타일 | Microsoft Docs
 description: Azure Maps에서 지원되는 지도 스타일
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/02/2018
+ms.date: 02/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 923b9fef75fa610ee817a86ce0b4d6b322153f01
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888463"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56113434"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps에서 지원되는 지도 스타일
-Azure Maps는 아래 설명된 대로 몇 가지 다른 기본 제공 지도 스타일을 지원합니다.
+Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타일을 지원합니다.
 
 ## <a name="road"></a>도로
 **도로** 지도는 도로, 자연적 특징 및 인공적 특징을 해당 특징에 대한 레이블과 함께 표시하는 표준 지도입니다.
@@ -56,7 +56,16 @@ Azure Maps는 아래 설명된 대로 몇 가지 다른 기본 제공 지도 스
 ## <a name="night"></a>야간
 **야간**은 색이 지정된 도로 및 기호가 포함된 어두운 버전의 도로 지도 스타일입니다.
 
-![야간](./media/supported-map-styles/night.PNG)
+![야간](./media/supported-map-styles/night.png)
 
 **적용 가능한 API:**
-* JS 지도 컨트롤 
+* JS 지도 컨트롤
+
+## <a name="roadshadedrelief"></a>road_shaded_relief
+**도로 음영 입체**는 지구의 등고선으로 채워진 Azure Maps 주요 스타일입니다.
+
+![음영 입체](./media/supported-map-styles/shaded-relief.png)
+
+**적용 가능한 API:**
+* JS 지도 컨트롤
+* [지도 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile)

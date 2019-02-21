@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 9689854d9a28debbfbcf908391806fffac6a2006
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450186"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56005525"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
-Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작동합니다. 이러한 메트릭은 플랫폼 메트릭, [사용자 지정 메트릭](../../azure-monitor/platform/metrics-custom-overview.md), [메트릭으로 전환된 Log Analytics의 주요 로그](../../azure-monitor/platform/alerts-metric-logs.md), Application Insights 표준 메트릭이 될 수 있습니다. 메트릭 경고는 주기적으로 하나 이상의 메트릭 시계열에서 조건이 참인지 평가하고 평가에 부합하면 사용자에게 알립니다. 메트릭 경고는 상태를 저장합니다. 즉 상태가 변경될 때만 알림을 보냅니다.
+Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작동합니다. 이러한 메트릭은 플랫폼 메트릭, [사용자 지정 메트릭](../../azure-monitor/platform/metrics-custom-overview.md), [메트릭으로 전환된 Azure Monitor의 주요 로그](../../azure-monitor/platform/alerts-metric-logs.md), Application Insights 표준 메트릭이 될 수 있습니다. 메트릭 경고는 주기적으로 하나 이상의 메트릭 시계열에서 조건이 참인지 평가하고 평가에 부합하면 사용자에게 알립니다. 메트릭 경고는 상태를 저장합니다. 즉 상태가 변경될 때만 알림을 보냅니다.
 
 ## <a name="how-do-metric-alerts-work"></a>메트릭 경고 작동 방식
 

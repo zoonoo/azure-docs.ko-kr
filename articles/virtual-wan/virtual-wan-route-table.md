@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 7d5cd8aab0f368ffec636e6dfcacf127c910dafc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 45e5c43cf5eb8df1df5b26ffae50d2881bb086e4
+ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190173"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56115201"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>가상 허브 경로 테이블을 생성하여 네트워크 가상 어플라이언스에 대한 트래픽 조정
 
@@ -36,7 +36,7 @@ ms.locfileid: "54190173"
 
 1. 일반적으로 가상 네트워크의 Azure Marketplace(링크)에서 프로비저닝되며 사용자가 선택한 타사 소프트웨어인 네트워크 가상 어플라이언스(NVA)가 있습니다.
 2. NVA 네트워크 인터페이스에 지정된 개인용 IP가 있습니다. 
-3. NVA를 가상 허브에 배포할 수 없습니다. 별도의 VNet에 배포해야 합니다. 이 문서에서는 VNet을 'DMZ VNet'이라고 합니다.
+3. NVA를 가상 허브에 배포할 수 없습니다. 별도의 VNet에 배포해야 합니다. 이 문서에서는 NVA VNet을 'DMZ VNet'이라고 합니다.
 4. 'DMZ VNet'에는 하나 이상의 가상 네트워크가 연결되어 있을 수 있습니다. 이 문서에서는 이 VNet을 '간접 스포크 VNet'이라고 합니다. 이러한 VNet은 VNet 피어링을 사용하여 DMZ VNet에 연결할 수 있습니다.
 5. 2개의 VNet이 이미 생성되었는지 확인합니다. 이 Vnet은 스포크 VNet으로 사용됩니다. 이 문서에서 VNet 스포크 주소 공간은 10.0.2.0/24 및 10.0.3.0/24입니다. VNet을 만드는 방법에 관한 정보가 필요하면 [PowerShell을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-powershell.md)를 참조하세요.
 6. VNet에 가상 네트워크 게이트웨이가 없는지 확인합니다.

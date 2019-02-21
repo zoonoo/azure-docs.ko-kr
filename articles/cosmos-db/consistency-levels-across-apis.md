@@ -7,26 +7,26 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807000"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56002003"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API
 
-Azure Cosmos DB에서 제공되는 5가지 일관성 모델은 Azure Cosmos DB SQL API에서 기본적으로 지원됩니다. Azure Cosmos DB를 사용하는 경우 SQL API는 기본값입니다. 
+Azure Cosmos DB에서 제공되는 5가지 일관성 모델은 SQL API에서 기본적으로 지원됩니다. Azure Cosmos DB를 사용하는 경우 SQL API는 기본값입니다. 
 
-Azure Cosmos DB는 인기 있는 데이터베이스에 대한 와이어 프로토콜 호환 API를 기본적으로 지원합니다. 데이터베이스에는 MongoDB, Apache Cassandra, Gremlin 및 Azure Table Storage가 있습니다. 이러한 데이터베이스는 정확하게 정의된 일관성 모델 또는 일관성 수준에 대한 SLA 지원 보장을 제공하지 않습니다. 이러한 데이터베이스는 일반적으로 Azure Cosmos DB에서 제공된 5가지 일관성 모델의 하위 집합만 제공합니다. SQL API, Gremlin API 및 Table API의 경우 Azure Cosmos DB 계정에서 구성된 기본 일관성 수준을 사용합니다. 
+Azure Cosmos DB는 인기 있는 데이터베이스에 대한 와이어 프로토콜 호환 API를 기본적으로 지원합니다. 데이터베이스에는 MongoDB, Apache Cassandra, Gremlin 및 Azure Table Storage가 있습니다. 이러한 데이터베이스는 정확하게 정의된 일관성 모델 또는 일관성 수준에 대한 SLA 지원 보장을 제공하지 않습니다. 이러한 데이터베이스는 일반적으로 Azure Cosmos DB에서 제공된 5가지 일관성 모델의 하위 집합만 제공합니다. SQL API, Gremlin API 및 Table API의 경우 Azure Cosmos 계정에서 구성된 기본 일관성 수준을 사용합니다. 
 
-다음 섹션에서는 Apache Cassandra 4.x 및 MongoDB 3.4용 OSS 클라이언트 드라이버에서 요청된 데이터 일관성 간의 매핑을 보여 줍니다. 또한 이 문서에서는 Apache Cassandra 및 MongoDB용 해당 Azure Cosmos DB 일관성 수준을 보여 줍니다.
+다음 섹션은 Apache Cassandra 및 MongoDB용 OSS 클라이언트 드라이버로 요청된 데이터 일관성 간의 매핑을 각각 보여주며, Azure Cosmos DB에서 해당 일관성 수준을 보여 줍니다.
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra 및 Azure Cosmos DB 일관성 수준 간 매핑
 
-이 표는 Apache Cassandra와 Azure Cosmos DB의 일관성 수준 간의 일관성 매핑을 보여줍니다. 각 Cassandra 읽기 및 쓰기 일관성 수준에 해당하는 Cosmos DB 일관성 수준에서는 더욱 강력한, 즉, 더욱 엄격한 보증을 제공합니다.
+아래 표는 Cassandra API에 사용할 수 있는 다양한 일관성 조합과 Cosmos DB의 동등한 기본 일관성 수준 매핑을 설명합니다. Apache Cassandra 쓰기 및 읽기 모드의 모든 조합은 Cosmos DB에서 기본적으로 지원됩니다. Apache Cassandra 쓰기 및 읽기 일관성 모델의 모든 조합에서 Cosmos DB는 Apache Cassandra와 동일하거나 더 높은 일관성 보장을 제공합니다. 또한 Cosmos DB는 가장 약한 쓰기 모드에서도 Apache Cassandra보다 높은 내구성을 제공합니다.
 
-다음 표는 Azure Cosmos DB와 Cassandra 사이의 **쓰기 일관성 매핑**을 보여줍니다.
+다음 표는 Azure Cosmos DB와 Cassandra 사이의 **쓰기 일관성 매핑**을 보여 줍니다.
 
 | Cassandra | Azure Cosmos DB | 보증 |
 | - | - | - |
@@ -42,7 +42,7 @@ Azure Cosmos DB는 인기 있는 데이터베이스에 대한 와이어 프로�
 | LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE    | 제한된 부실 | <ul><li>제한된 부실입니다.</li><li>최대 K 버전 또는 t 시간만큼 뒤쳐져 있습니다.</li><li>해당 지역에서 최근에 커밋된 값을 읽습니다.</li></ul> |
 | ONE, LOCAL_ONE, ANY   | 일관적인 접두사 | 하위 지역 일관적인 접두사 |
 
-다음 표는 Azure Cosmos DB와 Cassandra 사이의 **읽기 일관성 매핑**을 보여줍니다.
+다음 표는 Azure Cosmos DB와 Cassandra 사이의 **읽기 일관성 매핑**을 보여 줍니다.
 
 | Cassandra | Azure Cosmos DB | 보증 |
 | - | - | - |

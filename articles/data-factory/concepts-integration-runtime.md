@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 29105f97385b11e59ccd3af9d13521ea803bfdb0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 80d84fcede0d293b083ea75f24e9b0bd3125b265
+ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024232"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55959678"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(Integration Runtime)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
 
-- **데이터 이동**: 공용 네트워크의 데이터 저장소 및 개인 네트워크(온-프레미스 또는 가상 사설망)의 데이터 저장소 간에 데이터를 이동합니다. 기본 제공 커넥터, 형식 변환, 열 매핑 및 성능이 뛰어나고 확장 가능한 데이터 전송에 대한 지원을 제공합니다.
+- **데이터 이동**: 공용 네트워크의 데이터 저장소 및 개인 네트워크(온-프레미스 또는 가상 사설망)의 데이터 저장소 간에 데이터를 복사합니다. 기본 제공 커넥터, 형식 변환, 열 매핑 및 성능이 뛰어나고 확장 가능한 데이터 전송에 대한 지원을 제공합니다.
 - **작업 디스패치**:  통합 런타임은 Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server 등 다양한 컴퓨팅 서비스에서 실행하는 변환 작업을 디스패치 및 모니터링합니다.
 - **SSIS 패키지 실행**: SSIS(SQL Server 통합 서비스) 패키지를 관리되는 Azure 컴퓨팅 환경에서 고유하게 실행합니다.
 

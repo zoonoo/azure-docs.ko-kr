@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 059c90df16a46c2575635d7c729ec563ef1130c6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1015e6774dac1258820e3ca4b3d06786046a8554
+ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459726"
+ms.lasthandoff: 02/09/2019
+ms.locfileid: "55980859"
 ---
 # <a name="create-a-snapshot"></a>스냅숏 만들기
 
@@ -42,9 +42,9 @@ ms.locfileid: "55459726"
 
 ## <a name="use-powershell"></a>PowerShell 사용
 
-다음 단계에서는 [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet을 사용하여 VHD 디스크를 복사하고, 스냅숏 구성을 만들고, 디스크의 스냅숏을 만드는 방법을 보여 줍니다. 
+다음 단계에서는 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용하여 VHD 디스크를 복사하고, 스냅숏 구성을 만들고, 디스크의 스냅숏을 만드는 방법을 보여 줍니다. 
 
-시작하기 전에 AzureRM.Compute PowerShell 모듈이 최신 버전(버전 5.7.0 이상이어야 함)인지 확인합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. PowerShell을 로컬에서 실행하는 경우 [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount)를 실행하여 Azure에 대한 연결을 만듭니다.
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 1. 일부 매개 변수를 설정합니다. 
 
@@ -58,7 +58,7 @@ $snapshotName = 'mySnapshot'
 2. VM을 가져옵니다.
 
  ```azurepowershell-interactive
-$vm = get-azurermvm `
+$vm = get-azvm `
    -ResourceGroupName $resourceGroupName 
    -Name $vmName
 ```
@@ -66,7 +66,7 @@ $vm = get-azurermvm `
 3. 스냅숏 구성을 만듭니다. 이 예제에서 스냅숏은 OS 디스크의 스냅숏입니다.
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig 
+$snapshot =  New-AzSnapshotConfig 
    -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
    -Location $location 
    -CreateOption copy
@@ -78,7 +78,7 @@ $snapshot =  New-AzureRmSnapshotConfig
 4. 스냅숏을 만듭니다.
 
  ```azurepowershell-interactive
-New-AzureRmSnapshot 
+New-AzSnapshot 
    -Snapshot $snapshot 
    -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 

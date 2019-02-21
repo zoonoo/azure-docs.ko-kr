@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9a4c31df51f804d4738e3a2eb4ce904e793c3f1b
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856386"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "56004998"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)란?
 
@@ -41,7 +41,7 @@ VM용 Azure Monitor 솔루션에는 온-프레미스 또는 다른 클라우드 
 >[!NOTE]
 >현재 상태 기능은 Azure Virtual Machines 및 가상 머신 확장 집합에만 제공됩니다. 성능 및 맵 기능은 사용자 환경 또는 다른 클라우드 공급자에 호스트된 Azure VM 및 가상 머신을 모두 지원합니다.
 
-Log Analytics와 통합하면 강력한 집계, 필터링을 제공하고, 시간에 따른 데이터 추세를 분석할 수 있습니다. Azure Monitor, 서비스 맵 또는 Log Analytics 단독으로는 워크로드를 포괄적으로 모니터링할 수 없습니다.  
+Azure Monitor 로그와 통합하면 강력한 집계, 필터링을 제공하고, 시간에 따른 데이터 추세를 분석할 수 있습니다. Azure Monitor 또는 서비스 맵 단독으로는 워크로드를 포괄적으로 모니터링할 수 없습니다.  
 
 단일 VM의 이러한 데이터를 가상 머신에서 직접 볼 수 있으며, Azure Monitor를 사용하여 VM의 집계 뷰를 제공할 수 있습니다. 이 뷰는 각 기능의 다음 큐브 뷰를 기준으로 합니다.
 

@@ -8,15 +8,15 @@ manager: pchoudh
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 35d447fb7024b8be0bd427305b9e43fa60b1a90d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 757ef07c1268cbf159ce98dfb8ba1980616e4a3a
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223190"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56245136"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다. 
@@ -58,7 +58,7 @@ ms.locfileid: "55223190"
 > QnA Maker의 최신 버전에는 점수 매기기 논리에 대한 개선 사항이 포함되며 임계값에 영향을 줄 수 있습니다. 언제든지 서비스를 업데이트하여 필요한 경우 임계값을 테스트하고 조정해야 합니다. [여기](https://www.qnamaker.ai/UserSettings)에서 QnA 서비스 버전을 확인할 수 있습니다. 최신 업데이트를 가져오는 방법은 [여기](../How-To/troubleshooting-runtime.md)를 참조하세요.
 
 ## <a name="improve-confidence-scores"></a>신뢰도 점수 개선
-사용자 쿼리에 대한 특정 응답의 신뢰도 점수를 향상하기 위해 사용자 쿼리를 해당 응답의 대체 질문으로 기술 자료에 추가할 수 있습니다. [단어 변경](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd)을 사용하여 KB의 키워드에 동의어를 추가할 수도 있습니다.
+사용자 쿼리에 대한 특정 응답의 신뢰도 점수를 향상하기 위해 사용자 쿼리를 해당 응답의 대체 질문으로 기술 자료에 추가할 수 있습니다. 대/소문자를 구분하지 않는 [단어 변경](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd)을 사용하여 KB의 키워드에 동의어를 추가할 수도 있습니다.
 
 
 ## <a name="similar-confidence-scores"></a>유사한 신뢰도 점수
@@ -66,8 +66,9 @@ ms.locfileid: "55223190"
 
 
 ## <a name="confidence-score-differences"></a>신뢰도 점수 차이
-콘텐츠가 동일하더라도 기술 자료의 테스트 버전과 게시된 버전 간에 답변의 신뢰도 점수가 사소하게 변경될 수 있습니다. 이는 테스트 및 게시된 기술 자료 콘텐츠가 서로 다른 Azure Search 인덱스에 있기 때문입니다.
-[게시](../How-To/publish-knowledge-base.md) 작업의 작동 방식을 보려면 여기를 참조하세요.
+콘텐츠가 동일하더라도 기술 자료의 테스트 버전과 게시된 버전 간에 답변의 신뢰도 점수가 사소하게 변경될 수 있습니다. 이는 테스트 및 게시된 기술 자료 콘텐츠가 서로 다른 Azure Search 인덱스에 있기 때문입니다. 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다. [게시](../How-To/publish-knowledge-base.md) 작업의 작동 방식을 알아보세요.
+
+다른 Azure 지역에 기술 자료가 있는 경우 각 Azure 지역에서는 자체 Azure Search 인덱스를 사용합니다. 다른 인덱스가 사용되므로 점수가 정확하게 일치하지 않습니다. 
 
 
 ## <a name="no-match-found"></a>일치하는 항목 없음

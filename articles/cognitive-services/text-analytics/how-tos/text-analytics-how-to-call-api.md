@@ -3,19 +3,19 @@ title: 텍스트 분석 API 호출
 titlesuffix: Azure Cognitive Services
 description: 텍스트 분석 REST API를 호출하는 방법을 알아봅니다.
 services: cognitive-services
-author: ashmaka
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/01/2018
-ms.author: ashmaka
-ms.openlocfilehash: 579040c3a1466d431a9ae2105edbf02fa41570b6
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/13/2019
+ms.author: aahi
+ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
+ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211591"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56244031"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -30,9 +30,7 @@ ms.locfileid: "55211591"
 
 ## <a name="prerequisites"></a>필수 조건
 
-**텍스트 분석 API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 
-
-Cognitive Services 등록 시 생성된 [엔드포인트 및 액세스 키](text-analytics-how-to-access-key.md)가 있어야 합니다. 
+Text Analytics API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)과 Cognitive Services에 가입할 때 생성된 [엔드포인트 및 액세스 키](text-analytics-how-to-access-key.md)가 있어야 합니다. 
 
 <a name="json-schema"></a>
 

@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Office 365 관리 솔루션 | Microsoft Docs
-description: 이 문서에서는 Azure에서 Office 365 솔루션을 구성하고 사용하는 방법에 대해 자세히 설명합니다.  또한 Log Analytics에서 작성되는 Office 365 레코드에 대해서도 자세히 설명합니다.
+description: 이 문서에서는 Azure에서 Office 365 솔루션을 구성하고 사용하는 방법에 대해 자세히 설명합니다.  또한 Azure Monitor에서 작성되는 Office 365 레코드에 대해서도 자세히 설명합니다.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -12,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
+ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216615"
+ms.lasthandoff: 02/11/2019
+ms.locfileid: "55999303"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
 ![Office 365 로고](media/solution-office-365/icon.png)
 
-Office 365 관리 솔루션을 사용하면 Log Analytics에서 Office 365 환경을 모니터링할 수 있습니다.
+Office 365 관리 솔루션을 사용하면 Azure Monitor에서 Office 365 환경을 모니터링할 수 있습니다.
 
 - Office 365 계정에서 사용자 활동을 모니터링하면 사용량 패턴을 분석하고 동작 경향을 식별할 수 있습니다. 예를 들어 조직 외부나 인기 SharePoint 사이트에서 공유하는 파일과 같은 특정 사용 시나리오를 추출할 수 있습니다.
 - 관리자 활동을 모니터링하면 구성 변경 내용이나 높은 권한이 필요한 작업을 추적할 수 있습니다.
 - 조직 요구 사항에 따라 사용자 지정할 수 있는 부적절한 사용자 행동을 검색하고 조사할 수 있습니다.
 - 감사 및 규정 준수 방식을 제시할 수 있습니다. 예를 들어 기밀 파일에 대한 파일 액세스 작업을 모니터링하여 감사 및 규정 준수 프로세스를 보다 원활하게 진행할 수 있습니다.
-- 조직의 Office 365 활동 데이터를 토대로 [log searches](../log-query/log-query-overview.md) 기능을 사용해 운영상의 문제를 해결할 수 있습니다.
+- 조직의 Office 365 활동 데이터를 토대로 [로그 쿼리](../log-query/log-query-overview.md) 기능을 사용해 운영상의 문제를 해결할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 솔루션을 설치하고 구성하려면 다음 항목이 필요합니다.
@@ -43,7 +43,7 @@ Office 365 관리 솔루션을 사용하면 Log Analytics에서 Office 365 환�
 이 솔루션은 [연결된 관리 그룹](../platform/om-agents.md)에 관리 팩을 설치하지 않습니다.
   
 ## <a name="install-and-configure"></a>설치 및 구성
-먼저 [구독에 Office 365 솔루션](solutions.md#install-a-management-solution)을 추가합니다. 추가된 후에는 이 섹션의 구성 단계를 수행하여 Office 365 구독에 대한 액세스 권한을 부여해야 합니다.
+먼저 [구독에 Office 365 솔루션](solutions.md#install-a-monitoring-solution)을 추가합니다. 추가된 후에는 이 섹션의 구성 단계를 수행하여 Office 365 구독에 대한 액세스 권한을 부여해야 합니다.
 
 ### <a name="required-information"></a>필요한 정보
 이 절차를 시작하려면 먼저 다음 정보를 수집해야 합니다.
@@ -375,7 +375,7 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>제거
-[관리 솔루션을 제거](solutions.md#remove-a-management-solution)의 프로세스를 사용하여 Office 365 관리 솔루션을 제거할 수 있습니다. 제거해도 Office 365에서 Log Analytics로 데이터 수집이 중단되지 않습니다. 아래 절차에 따라 Office 365에서 구독을 취소하고 데이터 수집을 중지합니다.
+[관리 솔루션을 제거](solutions.md#remove-a-monitoring-solution)의 프로세스를 사용하여 Office 365 관리 솔루션을 제거할 수 있습니다. 이렇게 해도 Office 365에서 Azure Monitor로 데이터 수집이 중단되지 않습니다. 아래 절차에 따라 Office 365에서 구독을 취소하고 데이터 수집을 중지합니다.
 
 1. 다음 스크립트를 *office365_unsubscribe.ps1*로 저장합니다.
 
@@ -479,9 +479,12 @@ At line:12 char:18
 Office 365 솔루션은 [Log Analytics 에이전트](../platform/agent-data-sources.md)에서 데이터를 검색하지 않습니다.  즉, Office 365에서 직접 데이터를 검색합니다.
 
 ### <a name="collection-frequency"></a>수집 빈도
-데이터가 처음으로 수집될 때까지 몇 시간이 걸릴 수 있습니다. 데이터 수집이 시작되면 Office 365는 레코드가 생성될 때마다 상세 데이터가 포함된 [웹후크 알림](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications)을 Log Analytics로 보냅니다. 이 레코드는 수신된 후 몇 분 안에 Log Analytics에서 사용할 수 있습니다.
+데이터가 처음으로 수집될 때까지 몇 시간이 걸릴 수 있습니다. 데이터 수집이 시작되면 Office 365는 레코드가 생성될 때마다 상세 데이터가 포함된 [webhook 알림](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications)을 Azure Monitor로 보냅니다. 이 레코드는 수신된 후 몇 분 안에 Azure Monitor에서 사용할 수 있습니다.
 
 ## <a name="using-the-solution"></a>솔루션 사용
+
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 Office 365 솔루션을 Log Analytics 작업 영역에 추가하면 대시보드에 **Office 365** 타일이 추가됩니다. 이 타일은 현재 환경의 컴퓨터 수 및 그래픽 표현과 업데이트 준수를 표시합니다.<br><br>
 ![Office 365 요약 타일](media/solution-office-365/tile.png)  
 
@@ -501,9 +504,9 @@ Office 365 솔루션을 Log Analytics 작업 영역에 추가하면 대시보드
 
 
 
-## <a name="log-analytics-records"></a>Log Analytics 레코드
+## <a name="azure-monitor-log-records"></a>Azure Monitor 로그 레코드
 
-Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 레코드의 **Type**은 **OfficeActivity**입니다.  **OfficeWorkload** 속성에 따라 해당 레코드가 참조하는 Office 365 서비스(Exchange, AzureActiveDirectory, SharePoint 또는 OneDrive)가 결정됩니다.  **RecordType** 속성은 작업의 유형을 지정합니다.  속성은 각 작업 유형에 따라 달라지며, 아래 표에 나와 있습니다.
+Office 365 솔루션이 Azure Monitor의 Log Analytics 작업 영역에서 생성하는 모든 레코드의 **Type**은 **OfficeActivity**입니다.  **OfficeWorkload** 속성에 따라 해당 레코드가 참조하는 Office 365 서비스(Exchange, AzureActiveDirectory, SharePoint 또는 OneDrive)가 결정됩니다.  **RecordType** 속성은 작업의 유형을 지정합니다.  속성은 각 작업 유형에 따라 달라지며, 아래 표에 나와 있습니다.
 
 ### <a name="common-properties"></a>공용 속성
 다음 속성은 모든 Office 365 레코드에 공통적으로 적용됩니다.
@@ -708,6 +711,6 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics](../log-query/log-query-overview.md)의 로그 검색을 사용하여 자세한 업데이트 데이터 보기
+* [Azure Monitor의 로그 쿼리](../log-query/log-query-overview.md)를 사용하여 자세한 업데이트 데이터를 확인합니다.
 * [고유한 대시보드 만들기](../learn/tutorial-logs-dashboards.md)를 수행하여 자주 사용하는 Office 365 검색 쿼리를 표시합니다.
 * 중요한 Office 365 활동에 대해 미리 알림을 받을 수 있도록 [경고 만들기](../platform/alerts-overview.md)를 수행합니다.  
