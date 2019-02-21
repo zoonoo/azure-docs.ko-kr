@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: fba109e04369c05f98e863b7dd0fa3d51f40d0ad
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810244"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310294"
 ---
 # <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 대량 삽입을 최적화하고 임시 데이터 사용 
 이 문서에서는 Azure Database for PostgreSQL 서버에서 대량 삽입 작업을 최적화하고 임시 데이터를 사용하는 방법을 설명합니다.
@@ -25,9 +25,9 @@ ms.locfileid: "55810244"
 
 기록되지 않는 테이블을 만들려면 다음 옵션을 사용합니다.
 - `CREATE UNLOGGED TABLE <tableName>` 구문을 사용하여 기록되지 않는 테이블을 새로 만듭니다.
-- `ALTER <tableName> SET UNLOGGED` 구문을 사용하여 기존의 기록된 테이블을 기록되지 않는 테이블로 변환합니다.  
+- `ALTER TABLE <tableName> SET UNLOGGED` 구문을 사용하여 기존의 기록된 테이블을 기록되지 않는 테이블로 변환합니다.  
 
-프로세스를 역방향으로 수행하려면 `ALTER <tableName> SET LOGGED` 구문을 사용합니다.
+프로세스를 역방향으로 수행하려면 `ALTER TABLE <tableName> SET LOGGED` 구문을 사용합니다.
 
 ## <a name="unlogged-table-tradeoff"></a>기록되지 않은 테이블 단점
 기록되지 않는 테이블은 충돌로부터 안전하지 않습니다. 기록되지 않은 테이블은 충돌 후 자동으로 잘리거나 불완전하게 종료될 수 있습니다. 또한 기록되지 않는 테이블의 콘텐츠는 대기 서버로 복제되지 않습니다. 기록되지 않은 테이블에서 생성된 모든 인덱스는 자동으로 기록되지도 않습니다. 삽입 작업이 완료되면 삽입이 지속될 수 있도록 테이블을 기록되는 테이블로 변환합니다.

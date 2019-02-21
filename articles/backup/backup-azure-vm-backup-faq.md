@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: 55fbc997f6aaf4cf99bfb8492a2e4ac608c72af8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494904"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310277"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>질문과 대답-Azure Backup
 
@@ -81,7 +81,7 @@ VM 복원은 Azure VM의 빠른 만들기 옵션이라고 생각하시면 됩니
   * 백업 당시에는 없던 구성 설정을 추가합니다.
   * 생성되는 리소스의 명명 규칙을 제어합니다.
   * 가용성 집합에 VM을 추가합니다.
-  * PowerShell 또는 템플릿을 사용하여 구성해야 하는 다른 설정을 추가합니다.  w
+  * PowerShell 또는 템플릿을 사용하여 구성해야 하는 다른 설정을 추가합니다.
 
 ### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>관리 디스크로 업그레이드한 후 비관리형 VM 디스크의 백업을 복원할 수 있나요?
 예, 디스크를 비관리형에서 관리형으로 마이그레이션하기 전에 만든 백업을 사용할 수 있습니다.

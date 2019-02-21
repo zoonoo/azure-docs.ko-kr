@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 5af403b2d75a552719088daa17259f0771b77a94
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 0140cb4fd1721e1d13840fe27db223c0ebec7d8a
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765684"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301896"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics 에이전트를 사용하여 로그 데이터 수집
 
@@ -78,10 +78,10 @@ Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송
 
 |에이전트 리소스|포트 |방향 |HTTPS 검사 무시|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드|예 |  
-|*.oms.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드|예 |  
-|\*.blob.core.windows.net |포트 443 |인바운드 및 아웃바운드|예 |  
-|* .azure-automation.net |포트 443 |인바운드 및 아웃바운드|예 |  
+|*.ods.opinsights.azure.com |포트 443 |아웃바운드|예 |  
+|*.oms.opinsights.azure.com |포트 443 |아웃바운드|예 |  
+|\*.blob.core.windows.net |포트 443 |아웃바운드|예 |  
+|* .azure-automation.net |포트 443 |아웃바운드|예 |  
 
 
 Azure Automation Hybrid Runbook Worker를 사용하여 사용자 환경에서 Runbook을 사용하기 위해 Automation 서비스에 연결하고 등록하려면 [Hybrid Runbook Worker에 대한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명된 URL 및 포트 번호에 대한 액세스 권한이 있어야 합니다. 

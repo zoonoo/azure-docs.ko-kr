@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/9/2019
+ms.date: 2/19/2019
 ms.author: douglasl
-ms.openlocfilehash: 5cc625e07f1c92c53491e83f4049bad12cd9d1a1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: b672264e1cb3cd415532cf4bcfbbd268afffa70d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158264"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415940"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime을 위한 Azure Active Directory 인증 활성화
 
@@ -172,7 +172,7 @@ Azure SQL Database Managed Instance는 직접 ADF에 대한 관리 ID로 데이�
 6.  쿼리 창에서 다음 T-SQL 스크립트를 실행하여 ADF에 대한 관리 ID를 이진 형식으로 변환합니다.
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = {your SERVICE IDENTITY APPLICATION ID}
+    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -181,7 +181,7 @@ Azure SQL Database Managed Instance는 직접 ADF에 대한 관리 ID로 데이�
 7.  쿼리 창을 지우고 다음 T-SQL 스크립트를 실행하여 ADF에 대한 관리 ID를 사용자로 추가합니다.
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID ={your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
