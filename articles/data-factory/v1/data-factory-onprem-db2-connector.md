@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e190faca778f4a65a3bd4a29d05c01a89ee7e11
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816733"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311531"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -116,7 +116,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
 
-- [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties) 형식의 DB2 연결된 서비스
+- [OnPremisesDb2](data-factory-onprem-db2-connector.md) 형식의 DB2 연결된 서비스
 - [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 Azure Blob 스토리지 연결된 서비스
 - [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
 - [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)

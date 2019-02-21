@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c09816d45169ce9bb6c926b8b17b075ea1059ec7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e56169d74d1669c3bb7adda06590145d2ca31b72
+ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695375"
+ms.lasthandoff: 02/08/2019
+ms.locfileid: "55893343"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Azure 통한 SaaS 판매 - API
 
@@ -68,7 +68,7 @@ Azure Portal을 사용하여 새 애플리케이션을 등록하려면 다음 �
     -   **로그온 URL**: 웹앱/API 애플리케이션에서 앱의 기준 URL을 제공합니다.웹 애플리케이션의 경우 앱의 기준 URL을 제공합니다. 예를 들어 **http://localhost:31544**은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
     -   **리디렉션 URI**: 네이티브 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: **http://MyFirstAADApp**).
 
-        ![SaaS AD 앱 등록](./media/saas-offer-app-registration-2.png) 웹 애플리케이션 또는 네이티브 애플리케이션에 대한 구체적인 예제를 보려면 [Azure AD 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started)의 시작하기 섹션에서 사용할 수 있는 빠른 시작 안내 설정을 확인하세요.
+        ![SaaS AD 앱 등록](./media/saas-offer-app-registration-2.png) 웹 애플리케이션 또는 네이티브 애플리케이션에 대한 구체적인 예제를 보려면 [Azure AD 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)의 시작하기 섹션에서 사용할 수 있는 빠른 시작 안내 설정을 확인하세요.
 
 5.  작업을 마쳤으면 **만들기**를 클릭합니다. Azure AD가 애플리케이션에 고유한 애플리케이션 ID를 할당하면 애플리케이션의 기본 등록 페이지로 이동합니다. 애플리케이션이 웹 또는 네이티브 애플리케이션인지에 따라 애플리케이션에 기능을 추가하기 위해 다른 옵션이 제공됩니다.
 
@@ -148,7 +148,9 @@ Azure Marketplace API의 끝점은 `https://marketplaceapi.microsoft.com`입니�
 
 ### <a name="resolve-subscription"></a>구독 확인
 
-엔드포인트 확인에 대한 POST 작업을 사용하여 토큰을 영구 리소스 ID로 확인할 수 있습니다.
+엔드포인트 확인에 대한 POST 작업을 사용하여 마켓플레이스 토큰을 영구 리소스 ID로 확인할 수 있습니다.  리소스 ID는 SAAS 구독의 고유 식별자입니다. 
+
+사용자가 ISV의 웹 사이트로 리디렉션되면 URL에 쿼리 매개 변수의 토큰이 포함됩니다. ISV는 이 토큰을 사용하고, 이를 확인하는 요청을 수행해야 합니다. 응답에는 고유한 SAAS 구독 ID, 이름, 제품 ID 및 리소스 계획이 포함됩니다. 이 토큰은 한 시간 동안만 유효합니다.
 
 *요청*
 

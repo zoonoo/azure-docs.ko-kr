@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: cbc9fa5586b848de79c52142f75b22b744fdae38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e83ff9f3bf02a134919d497662744028e1b9acda
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105953"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343020"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Azure Security Center에서 모니터링되는 Azure 보안 정책
 이 문서에서는 Security Center에서 모니터링할 수 있는 Azure Policy 정의 목록을 제공합니다. 보안 정책에 대한 자세한 내용은 [보안 정책 작업](tutorial-security-policy.md)을 참조하세요.
@@ -96,4 +96,4 @@ Security Center에서 모니터링되는 기본 제공 정책을 이해하려면
 * [Azure Security Center FAQ](security-center-faq.md): 서비스 사용에 관한 질문과 대답에 대한 답을 가져옵니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/): Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
-Azure Policy에 대해 자세히 알아보려면 [Azure Policy란?](../azure-policy/azure-policy-introduction.md)을 참조하세요.
+Azure Policy에 대해 자세히 알아보려면 [Azure Policy란?](../governance/policy/overview.md)을 참조하세요.
