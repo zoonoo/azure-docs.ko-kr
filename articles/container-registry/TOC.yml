@@ -58,6 +58,8 @@ items:
       href: container-registry-repositories.md
     - name: 컨테이너 이미지 가져오기
       href: container-registry-import-images.md
+    - name: 컨테이너 이미지 잠금
+      href: container-registry-image-lock.md
     - name: 컨테이너 이미지 삭제
       href: container-registry-delete.md
     - name: 콘텐츠 신뢰(미리 보기)
@@ -68,7 +70,7 @@ items:
       href: container-registry-webhook.md
     - name: Helm 차트 리포지토리(미리 보기)
       href: container-registry-helm-repos.md
-  - name: 인증
+  - name: Authentication
     items:
     - name: 인증 개요
       href: container-registry-authentication.md
@@ -135,9 +137,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-container-registry
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: 2f622c23a3278f202fceb177459f8cf81d334f57
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bce8a055a537a1ac147e2779a891b0ae64b9a3c8
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870693"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652164"

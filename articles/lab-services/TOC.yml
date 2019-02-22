@@ -173,6 +173,8 @@ items:
         href: devtest-lab-mandatory-artifacts.md
       - name: 사용자 지정 아티팩트 만들기
         href: devtest-lab-artifact-author.md
+      - name: 랩에 아티팩트 리포지토리 추가
+        href: add-artifact-repository.md
       - name: 아티팩트 실패 진단
         href: devtest-lab-troubleshoot-artifact-failure.md
     - name: 가상 네트워크 관리
@@ -223,9 +225,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
   - name: 가격
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-ms.openlocfilehash: 783aec352d79c56525751142e4e5e95697149dbc
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d27b3f85b947a9ce10118d515665889133bab336
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747291"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594103"
