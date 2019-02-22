@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 5252eed66018cd2028545567dfe62ca7ba17be7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/19/2019
+ms.openlocfilehash: 884c87501a54a582177cba99596fe6f0b4cccf36
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247819"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593338"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>서비스 유효성 검사에 대 한 릴리스 정보
 
@@ -28,14 +28,13 @@ ms.locfileid: "55247819"
 이 문서는 서비스로 Azure Stack 유효성 검사에 대 한 릴리스 정보에서는 합니다.
 
 ## <a name="version-405"></a>4.0.5 버전
+
 2019 년 1 월 17
 
--  디스크 식별 테스트를 저장소 풀 불일치 주소를 업데이트 합니다. 버전: 5.1.14.0  -> 5.1.15.0
--  소프트웨어 및 콘텐츠 유효성 검사 불일치를 승인 하는 azure Stack 월별 업데이트 확인 주소로 업데이트 합니다. 버전: 5.1.14.0  -> 5.1.15.0
--  필요한 검사를 수행 하도록 OEM 확장 패키지 확인 업데이트 *하기 전에* Azure Stack 업데이트 단계입니다. 버전: 5.1.14.0  -> 5.1.15.0
--  내부 버그 수정
-
-
+- 디스크 식별 테스트를 저장소 풀 불일치 주소를 업데이트 합니다. 버전: 5.1.14.0 -> 5.1.15.0
+- 소프트웨어 및 콘텐츠 유효성 검사 불일치를 승인 하는 azure Stack 월별 업데이트 확인 주소로 업데이트 합니다. 버전: 5.1.14.0 -> 5.1.17.0
+- OEM 확장 패키지 확인 Azure Stack 업데이트 단계 전에 필요한 검사를 수행 하도록 업데이트 합니다. 버전: 5.1.14.0 -> 5.1.16.0
+- 내부 버그 수정
 
 ## <a name="version-402"></a>버전 4.0.2
 
@@ -77,7 +76,7 @@ Azure Stack 월별 업데이트 확인 워크플로 실행 중인 경우 OEM 업
 
 - 업데이트 VaaS 필수 구성 요소 및 VHD
 
-    `Install-VaaSPrerequisites` 이제 솔루션 유효성 검사 중 문제를 해결 하려면 클라우드 관리자 자격 증명이 필요 합니다. 설명서 [에이전트를 다운로드 및 설치](azure-stack-vaas-local-agent.md#download-and-install-the-agent) 다음을 사용 하 여 업데이트 되었습니다.
+    `Install-VaaSPrerequisites` 이제 패키지 유효성 검사 중 문제를 해결 하려면 클라우드 관리자 자격 증명이 필요 합니다. 설명서 [에이전트를 다운로드 및 설치](azure-stack-vaas-local-agent.md#download-and-install-the-agent) 다음을 사용 하 여 업데이트 되었습니다.
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -104,7 +103,7 @@ Azure Stack 월별 업데이트 확인 워크플로 실행 중인 경우 OEM 업
 
   - 패키지 서명 알림
 
-    OEM 사용자 지정 패키지를 솔루션의 유효성 검사 워크플로의 일부로 전송 되 면 게시 된 사양을 따르는지 확인 하는 패키지 형식 유효성 검사가 수행 됩니다. 패키지 맞지 않는 경우 실행이 실패 합니다. 전자 메일 알림 대화 상대의 등록 된 Azure Active Directory 테 넌 트에 대 한 전자 메일 주소로 보내집니다.
+    OEM 사용자 지정 패키지를 패키지 유효성 검사 워크플로의 일부로 전송 되 면 게시 된 사양을 따르는지 확인 하는 패키지 형식 유효성 검사가 수행 됩니다. 패키지 맞지 않는 경우 실행이 실패 합니다. 전자 메일 알림 대화 상대의 등록 된 Azure Active Directory 테 넌 트에 대 한 전자 메일 주소로 보내집니다.
 
   - 대화형 테스트 범주
 

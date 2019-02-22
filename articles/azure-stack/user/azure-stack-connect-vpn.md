@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 882724c5f45cc2c5b3debb8fa80538239a98b749
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: aa467910cfa2dad84af3905db3592657cae85be9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240695"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594358"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack VPN을 사용 하 여 Azure에 연결
 
@@ -305,4 +305,4 @@ VPN 연결을 확인 하려면 두 개의 Vm 만들기: Azure에서 사용 하 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 및 Azure에 앱 배포 스택](azure-stack-solution-pipeline.md)
+* [Azure 및 Azure에 앱 배포 스택](azure-stack-solution-pipeline.md)

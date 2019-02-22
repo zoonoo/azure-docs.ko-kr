@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 02/19/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b3a9ee66907b51a40e9f4b0871d9f6ba6e29763a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242402"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594052"
 ---
 # <a name="validate-oem-packages"></a>OEM 패키지 유효성 검사
 
@@ -35,7 +35,7 @@ ms.locfileid: "55242402"
 
 ## <a name="managing-packages-for-validation"></a>유효성 검사에 대 한 패키지 관리
 
-사용 하는 경우는 **패키지 유효성 검사** 패키지의 유효성을 검사 하는 워크플로 대 한 URL을 제공 해야 합니다는 **Azure Storage blob**합니다. 이 blob에는 솔루션 배포 시에 설치 된 OEM 패키지입니다. 설치 중에 만든 Azure Storage 계정을 사용 하 여 blob을 만듭니다 (참조 [유효성 검사 서비스 리소스로 설정](azure-stack-vaas-set-up-resources.md)).
+사용 하는 경우는 **패키지 유효성 검사** 패키지의 유효성을 검사 하는 워크플로 대 한 URL을 제공 해야 합니다는 **Azure Storage blob**합니다. 이 blob은 업데이트 프로세스의 일부로 설치 되는 패키지에 OEM을 서명 하는 테스트입니다. 설치 중에 만든 Azure Storage 계정을 사용 하 여 blob을 만듭니다 (참조 [유효성 검사 서비스 리소스로 설정](azure-stack-vaas-set-up-resources.md)).
 
 ### <a name="prerequisite-provision-a-storage-container"></a>필수 조건: 저장소 컨테이너를 프로 비전
 
@@ -58,7 +58,9 @@ ms.locfileid: "55242402"
 
 만들 때를 **패키지 유효성 검사** VaaS 포털에서 워크플로 해야 패키지를 포함 하는 Azure Storage blob에 대 한 URL을 제공 합니다.
 
-#### <a name="option-1-generating-an-account-sas-url"></a>옵션 1: 계정 SAS URL을 생성합니다.
+#### <a name="option-1-generating-a-blob-sas-url"></a>옵션 1: Blob SAS URL 생성
+
+저장소 컨테이너 또는 blob에 대 한 공용 읽기 액세스를 사용 하도록 설정 하지 않으려는 경우이 옵션을 사용 합니다.
 
 1. 에 [Azure portal](https://portal.azure.com/)에 저장소 계정으로 이동 하 고 패키지에 포함 된.zip으로 이동
 
@@ -68,20 +70,23 @@ ms.locfileid: "55242402"
 
 4. 설정할 **시작 시간** 은 현재 시간 및 **종료 시간** 48 시간 이상 **시작 시간**합니다. 동일한 패키지를 사용 하 여 다른 테스트 실행은 늘리는 것이 좋습니다 **종료 시간** 테스트 길이 대 한 합니다. 후 VaaS 통해 예약 된 테스트가 **종료 시간** 는 실패 하 고 새 SAS를를 생성 해야 합니다.
 
-5. 선택 **URL 및 blob SAS 토큰을 생성 합니다.**
+5. **URL 및 Blob SAS 토큰 생성**을 선택합니다.
 
-사용 하 여 **Blob SAS URL** 새를 시작할 때 **패키지 유효성 검사** VaaS 포털에서 워크플로.
+사용 된 **Blob SAS URL** 포털로 Url blob 패키지를 제공 합니다.
 
-#### <a name="option-2-using-public-read-container"></a>옵션 2: 공용 읽기 컨테이너를 사용 하 여
+#### <a name="option-2-grant-public-read-access"></a>옵션 2: 공용 읽기 액세스 권한 부여
 
 > [!CAUTION]
-> 이 옵션은 익명 읽기 전용 액세스에 대 한 컨테이너를 엽니다.
+> 이 옵션에 blob을 익명 읽기 전용 액세스를 엽니다.
 
 1. 권한 부여 **공개 읽기 액세스 blob에 대해서만** 섹션의 지침에 따라 패키지 컨테이너에 [컨테이너 및 blob에 익명의 사용자 권한 부여](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs)합니다.
 
-2. 패키지 컨테이너에서 속성 창을 열려면 패키지 blob 컨테이너에서 선택 합니다.
+> [!NOTE]
+> 패키지 URL을 제공 하는 경우는 *대화형 테스트* 부여 해야 합니다 (예: 월간 azurestack의 경우 업데이트 확인 또는 OEM 확장 패키지 확인), **전체 공개 읽기 액세스** 를 테스트를 진행 합니다.
 
-3. 복사 합니다 **URL**합니다. 새를 시작할 때이 값을 사용할 **패키지 유효성 검사** VaaS 포털에서 워크플로.
+2. 패키지 컨테이너에서 속성 창을 열려면 패키지 blob을 선택 합니다.
+
+3. 복사 합니다 **URL**합니다. 포털 Url blob 패키지를 제공 하는 경우이 값을 사용 합니다.
 
 ## <a name="apply-monthly-update"></a>월별 업데이트를 적용 합니다.
 
@@ -99,7 +104,7 @@ ms.locfileid: "55242402"
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
-5. 솔루션 배포 시에 설치 된 OEM 패키지에는 Azure Storage blob URL을 입력 합니다. 자세한 내용은 [VaaS 패키지 blob URL 생성](#generate-package-blob-url-for-vaas)합니다.
+5. Azure Storage 입력 OEM 패키지에 Microsoft에서 서명 요구를 서명 하는 blob URL을 테스트 합니다. 자세한 내용은 [VaaS 패키지 blob URL 생성](#generate-package-blob-url-for-vaas)합니다.
 
 6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
@@ -113,9 +118,16 @@ ms.locfileid: "55242402"
 9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     테스트 요약 페이지로 리디렉션됩니다.
 
+## <a name="required-tests"></a>필요한 테스트
+
+다음 테스트는 OEM 패키지 유효성 검사를 위해 필요 합니다.
+
+- OEM 확장 패키지 확인
+- 클라우드 시뮬레이션 엔진
+
 ## <a name="run-package-validation-tests"></a>패키지 유효성 검사 테스트를 실행 합니다.
 
-1. 에 **패키지 유효성 검사 테스트 요약** 페이지 유효성 검사를 완료 하는 데 필요한 테스트 목록이 표시 됩니다. 이 워크플로에서 테스트는 약 24 시간 동안 실행합니다.
+1. 에 **패키지 유효성 검사 테스트 요약** 페이지에서 나열 된 테스트 시나리오에 적절 한 하위 집합을 실행 합니다.
 
     유효성 검사 워크플로에서 **예약** 워크플로 만드는 동안 지정 된 워크플로 수준 일반적인 매개 변수를 사용 하는 테스트 (참조 [서비스로AzureStack유효성검사에대한워크플로일반매개변수](azure-stack-vaas-parameters.md)). 테스트 매개 변수 값에 유효 하지 않게 됩니다, 경우 있습니다 해야 재충전할 하에 설명 된 대로 [워크플로 매개 변수를 수정](azure-stack-vaas-monitor-test.md#change-workflow-parameters)합니다.
 
@@ -125,13 +137,11 @@ ms.locfileid: "55242402"
 
 2. 테스트를 실행 하는 에이전트를 선택 합니다. 자세한 내용은 추가 하는 방법에 대 한 로컬 테스트 실행 에이전트 참조 하십시오 [로컬 에이전트를 배포](azure-stack-vaas-local-agent.md)합니다.
 
-3. 4 및 5 다음 테스트를 각각에 대 한 단계 수행:
-    - OEM 확장 패키지 확인
-    - 클라우드 시뮬레이션 엔진
+3. 전체 OEM 확장 패키지 확인 선택할 **일정** 테스트 인스턴스 예약에 대 한 프롬프트를 열려면 상황에 맞는 메뉴에서입니다.
 
-4. 선택 **일정** 테스트 인스턴스 예약에 대 한 프롬프트를 열려면 상황에 맞는 메뉴에서입니다.
+4. 테스트 매개 변수를 검토 하 고 선택한 **제출** 실행의 OEM 확장 패키지 확인을 예약 합니다.
 
-5. 테스트 매개 변수를 검토 하 고 선택한 **제출** 실행에 대 한 테스트를 예약 합니다.
+5. OEM 확장 패키지 확인에 대 한 결과 검토 합니다. 테스트 성공 되 면 클라우드 시뮬레이션 엔진 실행을 예약 합니다.
 
 모든 테스트가 성공적으로 완료 되 면 VaaS 솔루션 및 패키지 유효성 검사 프로그램의 이름을 보내지 [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) 패키지 서명 요청을 합니다.
 

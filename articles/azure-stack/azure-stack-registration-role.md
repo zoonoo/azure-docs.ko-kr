@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 02/13/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
-ms.lastreviewed: 01/10/2019
-ms.openlocfilehash: 80caa470675a78a9c2e3d4c055333719f54fe64a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/13/2019
+ms.openlocfilehash: 4858e33023ff0f94bb9fb879b01846184df2491e
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247887"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652147"
 ---
 # <a name="create-a-registration-role-for-azure-stack"></a>Azure Stack에 대 한 등록 역할 만들기
 
@@ -33,7 +33,7 @@ Azure 구독에서 소유자 권한 부여 않으려는 경우 Azure Stack에 �
 
 Azure Stack을 등록할 때 등록 계정에는 다음 Azure Active Directory 사용 권한 및 Azure 구독 권한 필요 합니다.
 
-* **Azure Active Directory 테 넌 트에서 응용 프로그램 등록 사용 권한:** 관리자 응용 프로그램 등록 권한을 가집니다. 사용자에 대 한 권한 테 넌 트의 모든 사용자에 대 한 전역 설정입니다. 보기 또는 변경 설정 참조 [Azure AD 리소스에 액세스할 수 있는 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)합니다.
+* **Azure Active Directory 테 넌 트에서 응용 프로그램 등록 사용 권한:** 관리자 응용 프로그램 등록 권한을 가집니다. 사용자에 대 한 권한 테 넌 트의 모든 사용자에 대 한 전역 설정입니다. 참조를 확인 하거나 설정을 변경 하려면 [는 Azure AD 리소스에 액세스할 수 있는 응용 프로그램 및 서비스 주체를 만들고](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)합니다.
 
     *사용자는 응용 프로그램을 등록할 수 있습니다* 으로 설정 되어 있어야 합니다 **예** 사용자 계정을 Azure Stack 등록에 사용 하도록 합니다. 앱 등록 설정이로 설정 되어 있으면 **No**, 사용자 계정을 사용할 수 없습니다 하 고 Azure Stack 등록 하려면 전역 관리자 계정을 사용 해야 합니다.
 

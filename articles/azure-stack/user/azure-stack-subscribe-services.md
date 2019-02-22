@@ -13,25 +13,25 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 66c462dee3a2940a7a090101ffb9cec7e4ff1e7c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 431c31b39103e5ef21cb83b388167cab57e0c129
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981294"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649087"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>자습서: 만들기 및 구독 테스트
 
-이 자습서는 제품을 포함 하는 구독을 만들고 다음 테스트 하는 방법을 보여줍니다. 테스트의 경우 클라우드 관리자로 Azure Stack 사용자 포털에 로그인 할 제품을 구독 한 다음 가상 컴퓨터를 만듭니다.
+이 자습서에는 제품을 포함 하는 구독을 만들고 테스트 하는 방법을 보여 줍니다. 테스트의 경우 클라우드 관리자로 Azure Stack 사용자 포털에 로그인 할 제품을 구독 한 다음 가상 컴퓨터를 만듭니다.
 
 > [!TIP]
-> 고급 평가 환경을 더 할 수 있습니다 [특정 사용자에 대 한 구독 만들기](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) 했다가 사용자 포털에서 해당 사용자로 로그인 합니다. 
+> 고급 평가 환경을 더 할 수 있습니다 [특정 사용자에 대 한 구독 만들기](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) 했다가 사용자 포털에서 해당 사용자로 로그인 합니다.
 
-이 자습서에서는 Azure Stack 제품을 구독 하는 방법을 보여 줍니다.
+이 자습서에서는 Azure Stack 제품을 구독 하는 방법을 보여줍니다.
 
 학습할 내용:
 
@@ -60,10 +60,10 @@ ms.locfileid: "55981294"
 
 ## <a name="test-the-offer"></a>제품 테스트
 
-사용자 포털에 로그인 하는 동안에 새 구독 기능을 사용 하 여 가상 컴퓨터를 프로 비전 하 여 제품을 테스트할 수 있습니다. 
+사용자 포털에 로그인 하는 동안에 새 구독 기능을 사용 하 여 가상 컴퓨터를 프로 비전 하 여 제품을 테스트할 수 있습니다.
 
 > [!NOTE]
-> 이 테스트는 Windows Server 2016 Datacenter VM을 Azure Stack marketplace에 처음 추가 되어 있는지 필요 합니다. 
+> 이 테스트는 Windows Server 2016 Datacenter VM을 Azure Stack marketplace에 처음 추가 되어 있는지 필요 합니다.
 
 1. 사용자 포털에 로그인 합니다.
 
@@ -84,7 +84,6 @@ ms.locfileid: "55981294"
 > [!NOTE]
 > 가상 머신 배포를 완료 하려면 몇 분 정도 걸립니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서 배운 내용을:
@@ -92,7 +91,6 @@ ms.locfileid: "55981294"
 > [!div class="checklist"]
 > * 제품 구독 
 > * 제품 테스트
-
 
 > [!div class="nextstepaction"]
 > [커뮤니티 템플릿에서 VM 만들기](azure-stack-create-vm-template.md)

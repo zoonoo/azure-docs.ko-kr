@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 460edc7f092764cce3584c81371db4801fbd69bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c866bb1ff5603f08377ed96ddd81eedf71e243bf
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240017"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593237"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>자습서: 서비스 유효성 검사에 대 한 리소스 설정
 
@@ -92,7 +92,7 @@ Azure AD 관리자로 VaaS Azure AD 응용 프로그램을 테 넌 트를 대신
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-테스트 실행 도중 VaaS Azure Storage 계정에 진단 로그를 출력합니다. 테스트 로그 외에도 저장소 계정을 사용할 수도 있습니다 업로드 OEM 확장 패키지를 솔루션 유효성 검사 워크플로에 대 한 합니다.
+테스트 실행 도중 VaaS Azure Storage 계정에 진단 로그를 출력합니다. 테스트 로그 외에도 저장소 계정을 사용할 수도 있습니다 업로드 OEM 확장 패키지에 패키지 유효성 검사 워크플로에 대 한 합니다.
 
 Azure Storage 계정에 Azure Stack 환경에 없는 Azure 공용 클라우드에서 호스팅됩니다.
 

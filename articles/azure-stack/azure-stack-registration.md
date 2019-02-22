@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 62fde78cce05e62489931868da3d21c8b2e16928
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: ebf8066139df93aefe1cfa21f2dc80ab57ca84bb
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430341"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652453"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -53,11 +53,13 @@ Azure Stack에 Azure를 등록 하기 전에 다음이 필요 합니다.
 
 - 사용자 이름 및 구독에 대 한 소유자가 계정에 대 한 암호입니다.
 
-- 사용자 계정에 Azure 구독에 액세스할 수 있으며 해당 구독과 연결 된 디렉터리에 id 응용 프로그램 및 서비스 주체를 만들 수 있는 권한이 필요 합니다. 권장 Azure를 사용 하 여 Azure Stack 등록 하는 최소 권한 관리를 사용 하 여 [등록에 사용할 서비스 계정을 만드는](azure-stack-registration-role.md) 전역 관리자 자격 증명을 사용 하는 대신 합니다.
+- 사용자 계정에 Azure 구독에 액세스할 수 있으며 해당 구독과 연결 된 디렉터리에 id 응용 프로그램 및 서비스 주체를 만들 수 있는 권한이 필요 합니다. 권장 Azure를 사용 하 여 Azure Stack 등록 하는 최소 권한 관리를 사용 하 여 합니다. 등록에 대 한 구독에 대 한 액세스를 제한 하는 사용자 지정 역할 정의 만드는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Stack에 대 한 등록 역할을 만들고](azure-stack-registration-role.md)합니다.
 
 - Azure Stack 리소스 공급자 등록 (세부 정보에 대 한 다음 Azure Stack 리소스 공급자 등록 섹션 참조).
 
 등록이 완료 되 면 Azure Active Directory 전역 관리자 권한이 필요 하지 않습니다. 그러나 일부 작업에는 전역 관리자 자격 증명을 필요할 수 있습니다. 예를 들어, 리소스 공급자 설치 관리자 스크립트 또는 권한 부여 요청을 새로운 기능. 일시적으로 계정의 전역 관리자 권한이 다시 시작 하거나의 소유자가 별도 전역 관리자 계정을 사용 합니다 *공급자 구독을 기본*입니다.
+
+Azure Stack 등록은 사용자가 Azure Active Directory에서 사용자 서비스의 소유자입니다. Azure Stack 등록 된 사용자만 Azure Stack 등록을 수정할 수 있습니다. 사용자 등록 서비스의 소유자가 아닌 관리자가 아닌 사용자를 등록 하거나 다시 Azure Stack을 등록 하 려, 403 응답을 발생할 수 있습니다. 403 응답을 나타냅니다 사용자 작업을 완료할 수 있는 권한이 없습니다.
 
 이러한 요구 사항을 충족 하는 Azure 구독이 없으면 있습니다 [여기서 무료 Azure 계정을 만들](https://azure.microsoft.com/free/?b=17.06)합니다. Azure Stack 등록 비용 없이 Azure 구독에서 발생 합니다.
 
@@ -479,6 +481,13 @@ Get-AzsRegistrationToken 입력된 매개 변수에서 등록 토큰을 생성�
 | UsageReportingEnabled | True/False | Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다. 이 매개 변수에 대해 허용 된 값은: True, False). |
 | AgreementNumber | 문자열 |  |
 
+## <a name="registration-failures"></a>등록 오류
+
+Azure Stack 사용자의 등록을 시도 하는 동안 아래 오류 중 하나가 나타날 수 있습니다.
+1. $HostName에 대 한 필수 하드웨어 정보를 검색할 수 없습니다. 물리적 호스트 및 연결을 확인 한 다음 다시 등록을 실행 하려고 합니다.
+2. 하드웨어 정보 가져오기-하세요 물리적 호스트 및 연결을 확인 하 고 등록을 다시 실행 하려고 $hostName에 연결할 수 없습니다.
+
+원인: 이 일반적으로 정품 인증을 시도 하는 호스트에서 하드웨어 세부 Bios UUID와 CPU를 가져오려고 것 이므로 실제 호스트에 연결할 수 없기 때문에 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

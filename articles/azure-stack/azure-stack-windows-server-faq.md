@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b498283ee117935438c55e5162e92acdb0f5ebfe
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249683"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649903"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace FAQ의에서 Windows Server
 
@@ -38,7 +38,7 @@ ms.locfileid: "55249683"
 
 Microsoft는 두 가지 버전의 Azure Stack Marketplace를 통해 Windows Server 이미지를 제공합니다.
 
-- **사용 하 여 비용을 지불**: 이러한 이미지 정 Windows 미터를 실행합니다. 
+- **사용 하 여 비용을 지불**: 이러한 이미지 정 Windows 미터를 실행합니다.
    사용 해야 합니다. 사용 하는 EA (기업 계약) 고객은 *소비 청구 모델*; Csp에 게 SPLA 라이선스를 사용 하지 않으려는 합니다.
 - **Bring Your Own License (BYOL)**: 이러한 이미지는 기본 미터를 실행합니다.
    사용 해야 합니다. EA 고객은 Windows Server 라이선스로; SPLA 라이선스를 사용 하는 Csp 합니다.
@@ -74,23 +74,23 @@ Azure Stack에 Windows Server 가상 컴퓨터를 활성화 하려면 다음 조
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>내 가상 머신이 활성화 되는 어떻게 확인할 수 있습니까?
 
-관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다. 
+관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다.
 
 ```shell
 slmgr /dlv
-``` 
+```
 
 제대로 활성화, 명확 하 게 표시 된이 표시 되 고 호스트 이름을 표시 하는 경우는 `slmgr` 출력 합니다. 회원님의 뒤에 다른 가상 컴퓨터를에서 표시 하는 또는 최신이 아닐 때 화면의 워터 마크에 종속 되지 않습니다.
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>내 VM이 AVMA를 어떻게 수정 하는 데 설정 되지?
 
-관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다. 
+관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다.
 
 ```shell
-slmgr /ipk <AVMA key> 
+slmgr /ipk <AVMA key>
 ```
 
-문서를 참조 하세요 [가상 컴퓨터 자동 정품 인증](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) 이미지에 대해 사용할 키입니다.
+참조 된 [가상 컴퓨터 자동 정품 인증](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) 이미지에 대해 사용할 키에 대 한 문서.
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>내 Windows Server 이미지를 만들려면 하나요, 하려면 어떻게 해야 합니까 AVMA를 사용 하는 게?
 

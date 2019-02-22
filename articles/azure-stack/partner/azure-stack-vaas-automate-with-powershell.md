@@ -10,25 +10,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/17/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6287b4f07c99dd45628ed4b9eb1412200cf7cd43
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 99a1b218919380dcdb0c1dba4540d9f8219d2df3
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244609"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593644"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>PowerShell 사용 하 여 Azure Stack 유효성 검사 자동화
 
 유효성 검사 (VaaS) 서비스로 사용 하 여 테스트 실행을 자동화 하는 기능을 제공 합니다 **LaunchVaaSTests.ps1** 스크립트입니다.
 
-다음 워크플로에 대 한 PowerShell을 사용할 수 있습니다.
-
-- 테스트 통과
+> [!NOTE]
+> Automation만 테스트 통과 워크플로에 대해 제공 됩니다. 패키지 유효성 검사 및 솔루션 유효성 검사 워크플로 VaaS 포털을 통해 에서만 지원 됩니다.
 
 이 자습서에서는 스크립트를 작성 하는 방법을 알아봅니다입니다.
 

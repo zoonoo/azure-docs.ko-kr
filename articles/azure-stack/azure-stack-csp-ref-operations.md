@@ -15,12 +15,12 @@ ms.date: 01/23/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: aca051dd20ceaeb608baa144a81e0584043a1c52
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6f2a2eb9902e8567b5fa27ed93dd8be2fe3a01b3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002057"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587075"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack에서 테 넌 트 등록 관리
 
@@ -60,7 +60,7 @@ Azure Stack 및 API 프로필에 대 한 자세한 내용은 참조 하세요. [
 
 ### <a name="powershell"></a>PowerShell
 
-테 넌 트에 추가할 새 AzureRmResource cmdlet을 사용 합니다. [Azure Stack에 연결](/azure-stack-powershell-configure-admin.md), 다음 프롬프트에서 다음 cmdlet을 사용 하 여:
+테 넌 트에 추가할 새 AzureRmResource cmdlet을 사용 합니다. [Azure Stack에 연결](azure-stack-powershell-configure-admin.md), 다음 프롬프트에서 다음 cmdlet을 사용 하 여:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -91,7 +91,7 @@ Azure Stack 및 API 프로필에 대 한 자세한 내용은 참조 하세요. [
 
 ### <a name="powershell"></a>PowerShell
 
-등록 된 모든 테 넌 트를 나열 하려면 Get AzureRmResource cmdlet을 사용 합니다. [Azure Stack에 연결](/azure-stack-powershell-configure-admin.md), 다음 프롬프트에서 다음 cmdlet을 사용 하 여:
+등록 된 모든 테 넌 트를 나열 하려면 Get AzureRmResource cmdlet을 사용 합니다. [Azure Stack에 연결](azure-stack-powershell-configure-admin.md), 다음 프롬프트에서 다음 cmdlet을 사용 하 여:
 
 ```powershell
   Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -142,7 +142,7 @@ api-version=2017-06-01 HTTP/1.1`
 
 ### <a name="powershell"></a>PowerShell
 
-테 넌 트를 제거 하려면 제거 AzureRmResource cmdlet을 사용 합니다. [Azure Stack에 연결](/azure-stack-powershell-configure-admin.md), 다음 프롬프트에서 다음 cmdlet을 사용 하 여:
+테 넌 트를 제거 하려면 제거 AzureRmResource cmdlet을 사용 합니다. [Azure Stack에 연결](azure-stack-powershell-configure-admin.md), 다음 프롬프트에서 다음 cmdlet을 사용 하 여:
 
 ```powershell
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01

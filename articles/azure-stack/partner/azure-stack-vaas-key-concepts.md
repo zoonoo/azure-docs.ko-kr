@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 01/07/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f5c47dd3453c0c8f02f1b0a87e5f2fff123f8be
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: dd2d8c0e277bca844160fc0017d350d5aa183679
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242810"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593168"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>서비스 키 개념으로 유효성 검사
 
@@ -46,7 +46,7 @@ VaaS 워크플로 VaaS 솔루션의 컨텍스트 내에서 작동합니다. Azur
 ![VaaS 워크플로 타일](media/tile_all-workflows.png)
 
 > [!NOTE]
-> 합니다 **솔루션 유효성 검사** 워크플로 현재 두 가지 시나리오를 지원 합니다. [OEM 패키지 유효성 검사](azure-stack-vaas-validate-oem-package.md) 하 고 [Microsoft의 소프트웨어 업데이트의 유효성을 검사](azure-stack-vaas-validate-microsoft-updates.md)합니다.
+> 합니다 **패키지 유효성 검사** 워크플로 현재 두 가지 시나리오를 지원 합니다. [OEM 패키지 유효성 검사](azure-stack-vaas-validate-oem-package.md) 하 고 [Microsoft의 소프트웨어 업데이트의 유효성을 검사](azure-stack-vaas-validate-microsoft-updates.md)합니다.
 
 워크플로 형식에 대 한 자세한 내용은 참조 하세요. [서비스로 Azure Stack에 대 한 유효성 검사를 란?](azure-stack-vaas-overview.md)합니다.
 
@@ -56,8 +56,8 @@ VaaS 워크플로 VaaS 솔루션의 컨텍스트 내에서 작동합니다. Azur
 2. 새 워크플로 만들려면에서 선택 **시작** 타일입니다. 각 워크플로 관련 내용은 다음 문서를 참조 합니다.
     - 테스트 통과: [빠른 시작: 서비스 포털로 유효성 검사를 사용 하 여 첫 번째 테스트를 예약 하려면](azure-stack-vaas-schedule-test-pass.md)
     - 솔루션의 유효성 검사: [새 Azure Stack 솔루션의 유효성을 검사합니다](azure-stack-vaas-validate-solution-new.md)
-    - 솔루션의 유효성 검사: [Microsoft의 소프트웨어 업데이트의 유효성을 검사합니다](azure-stack-vaas-validate-microsoft-updates.md)
-    - 솔루션의 유효성 검사: [OEM 패키지 유효성 검사](azure-stack-vaas-validate-oem-package.md)
+    - 패키지 유효성 검사 (월간 업데이트): [Microsoft의 소프트웨어 업데이트의 유효성을 검사합니다](azure-stack-vaas-validate-microsoft-updates.md)
+    - 패키지 유효성 검사 (패키지 서명): [OEM 패키지 유효성 검사](azure-stack-vaas-validate-oem-package.md)
 
 3. 를 관리 하거나 기존 워크플로 모니터링에서 선택 **관리** 워크플로 타일입니다. 이름을 사용 하 여 워크플로 선택 합니다 **편집** 단추 속성을 보거나 일반적인 테스트 매개 변수를 변경 합니다.
 
