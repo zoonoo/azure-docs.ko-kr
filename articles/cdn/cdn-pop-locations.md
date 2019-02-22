@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2019
 ms.locfileid: "55692599"
 ---
-# <a name="azure-cdn-coverage-by-metro"></a>지역별 Azure CDN 범위  
+# <a name="azure-cdn-coverage-by-metro"></a>대도시별 Azure CDN 범위 
 > [!div class="op_single_selector"]
 > * [지역별 POP 위치](cdn-pop-locations.md)
 > * [약어별 POP 위치](cdn-pop-abbreviations.md)

@@ -53,6 +53,7 @@ items:
       - name: Xamarin
         href: mobile-apps-with-xamarin.md
   - name: 2 - 데이터 마이그레이션
+    displayName: import
     href: import-data.md
   - name: 3 - 데이터 쿼리
     href: tutorial-query-sql-api.md
@@ -76,15 +77,16 @@ items:
     href: cli-samples.md
 - name: 개념
   items:
-  - name: 모델 문서 데이터
-    href: modeling-data.md
   - name: 글로벌 분포
     items:
     - name: 개요
+      displayName: replication, replicate, geo distribution
       href: distribute-data-globally.md
     - name: 일관성 수준
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: consistency-levels.md
     - name: 올바른 일관성 수준 선택
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: consistency-levels-choosing.md
     - name: 일관성 수준 및 Azure Cosmos DB API
       href: consistency-levels-across-apis.md
@@ -93,8 +95,10 @@ items:
     - name: 고가용성
       href: high-availability.md
     - name: 전역적으로 프로비전된 처리량 크기 조정
+      displayName: request units, RUs, RU
       href: scaling-throughput.md
     - name: 충돌 유형 및 해결 정책
+      displayName: last write wins, custom
       href: conflict-resolution-policies.md
     - name: 글로벌 배포 - 내부 살펴보기
       href: global-dist-under-the-hood.md
@@ -111,26 +115,36 @@ items:
   - name: 프로비전된 처리량
     items:
     - name: 요청 단위
+      displayName: RUs, RU
       href: request-units.md
     - name: 컨테이너 및 데이터베이스에 대한 처리량 프로비전
+      displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
       href: set-throughput.md
   - name: Azure Cosmos 계정 작업
     href: account-overview.md
   - name: 컨테이너 및 항목
     items:
     - name: 데이터베이스, 컨테이너 및 항목 작업
+      displayName: collection, document
       href: databases-containers-items.md
     - name: SQL 언어 참조
+      displayName: collection, document
       href: sql-api-query-reference.md
     - name: SQL 쿼리 예제
+      displayName: collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains
       href: how-to-sql-query.md
+    - name: 모델 문서 데이터
+      displayName: document
+      href: modeling-data.md
     - name: 인덱싱
       items:
       - name: 개요
         href: index-overview.md
       - name: 인덱스 정책
+        displayName: consistent, none
         href: index-policy.md
       - name: 인덱스 형식
+        displayName: hash, range, spatial
         href: index-types.md
       - name: 인덱스 경로
         href: index-paths.md
@@ -143,8 +157,10 @@ items:
       - name: 변경 피드 프로세서
         href: change-feed-processor.md
       - name: Azure Functions 트리거
+        displayName: change feed
         href: change-feed-functions.md
     - name: TTL(Time to live)
+      displayName: delete, delete data, ttl
       href: time-to-live.md
     - name: 고유 키 제약 조건
       href: unique-keys.md
@@ -165,6 +181,7 @@ items:
     - name: 요금 청구 방식
       href: understand-your-bill.md
     - name: 프로비전된 처리량 비용 최적화
+      displayName: request units, RUs, RU
       href: optimize-cost-throughput.md
     - name: 쿼리 비용 최적화
       href: optimize-cost-queries.md
@@ -185,6 +202,7 @@ items:
     - name: 데이터 암호화.
       href: database-encryption-at-rest.md
     - name: 데이터에 안전하게 액세스
+      displayName: master key, resource token, users, roles
       href: secure-access-to-data.md
     - name: IP 방화벽
       href: firewall-support.md
@@ -241,6 +259,7 @@ items:
         - name: Node.js 및 대응 앱
           href: tutorial-develop-mongodb-react.md
       - name: 2 - 데이터 마이그레이션
+        displayName: import
         href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 - 데이터 쿼리
         href: tutorial-query-mongodb.md
@@ -257,6 +276,7 @@ items:
       - name: Mongoose를 사용하여 연결
         href: mongodb-mongoose.md
       - name: 전세계에 읽기 배포
+        displayName: read preference
         href: mongodb-readpreference.md
       - name: TTL(Time To Live) - MongoDB
         href: mongodb-time-to-live.md
@@ -266,6 +286,7 @@ items:
         href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
         maintainContext: true
   - name: Gremlin API
+    displayName: graph, graph database
     items:
     - name: 소개
       href: graph-introduction.md
@@ -323,6 +344,7 @@ items:
       - name: 3 - 데이터 쿼리
         href: cassandra-api-query-data.md
       - name: 4 - 데이터 마이그레이션
+        displayName: import
         href: cassandra-import-data.md
     - name: 방법 가이드
       items:
@@ -370,6 +392,7 @@ items:
       - name: 1 - 계정 만들기
         href: tutorial-develop-table-dotnet.md
       - name: 2 - 데이터 마이그레이션
+        displayName: import
         href: table-import.md
       - name: 3 - 데이터 쿼리
         href: tutorial-query-table.md
@@ -423,6 +446,7 @@ items:
     - name: 다중 마스터 구성
       href: how-to-multi-master.md
     - name: 일관성 수준 관리
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: how-to-manage-consistency.md
     - name: 사용자 지정 동기화 구현
       href: how-to-custom-synchronization.md
@@ -431,8 +455,10 @@ items:
   - name: 프로비전된 처리량
     items:
     - name: 컨테이너에서 처리량 프로비전
+      displayName: request units, RUs, RU, collection level
       href: how-to-provision-container-throughput.md
     - name: 데이터베이스에서 처리량 프로비전
+      displayName: request units, RUs, RU, shared throughput, database level
       href: how-to-provision-database-throughput.md
   - name: 컨테이너 및 항목 작업
     items:
@@ -441,6 +467,7 @@ items:
     - name: 컨테이너 쿼리
       href: how-to-query-container.md
     - name: TTL(Time to Live) 구성
+      displayName: delete, delete data, ttl
       href: how-to-time-to-live.md
     - name: Azure Storage 탐색기를 사용하여 데이터 작업
       href: storage-explorer.md
@@ -627,9 +654,9 @@ items:
       href: use-cases.md
     - name: 소셜 미디어 앱
       href: social-media-apps.md
-ms.openlocfilehash: f2f061aebd996f62f793ba515f574c8a3748b87f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: f1f36d86466f93c0acac30364ba648391fb03095
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429118"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652521"

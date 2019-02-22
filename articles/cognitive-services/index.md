@@ -1,21 +1,16 @@
 ---
 layout: HubPage
 title: Azure Cognitive Services 설명서
-description: 사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해하고 해석할 수 있도록 앱, 웹 사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 API를 사용하는 방법을 보여줍니다.
+description: '사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해하고 해석할 수 있도록 앱, 웹 사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 API를 사용하는 방법을 보여줍니다.'
 services: cognitive-services
 author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 02/15/2019
+ms.date: 02/21/2019
 ms.topic: hub-page
-ms.openlocfilehash: 12957121d386afdc911bb0be954c0066d580e83e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338039"
 ---
+
 <h1>Azure Cognitive Services 설명서</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">사용자의 요구 사항을 자연스러운 의사 소통 방식으로 보고 듣고 말하고 이해할 수 있도록 앱, 웹사이트 및 봇에 지능적인 알고리즘을 빌드하는 방법을 알아봅니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.</p>
 
@@ -77,7 +72,6 @@ ms.locfileid: "56338039"
                 </div>
             </a>
         </li>
-
         <li>
             <a href="/azure/cognitive-services/language-support/">
                 <div class="cardSize">
@@ -133,7 +127,7 @@ ms.locfileid: "56338039"
                         <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">C# 사용</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">Java 사용</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">Node.js 사용</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk#analyze-an-image">Python 사용</a></p>
+                        <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk">Python 사용</a></p>
                     </div>
                 </div>
             </div>
@@ -151,10 +145,9 @@ ms.locfileid: "56338039"
                     <div class="cardText">
                         <h3>Speech Service를 사용하여 음성 인식</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">C# 사용</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Java 사용</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Objective-C 사용</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">JavaScript 사용</a></p>
-                        <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">C++ 사용</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-python">Python 사용</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Java 사용</a></p>
                     </div>
                 </div>
             </div>
@@ -214,7 +207,7 @@ ms.locfileid: "56338039"
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/csharp">C# 사용</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/java">Java 사용</a></p>
                         <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/nodejs">Node.js 사용</a></p>
-                        <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/python">Python 사용</a></p>
+                        <p><a href="/azure/cognitive-services/bing-web-search/web-sdk-python-quickstart">Python 사용</a></p>
                     </div>
                 </div>
             </div>
@@ -234,7 +227,7 @@ ms.locfileid: "56338039"
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/csharp">C# 사용</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/java">Java 사용</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/nodejs">Node.js 사용</a></p>
-                        <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/python">Python 사용</a></p>
+                        <p><a href="/azure/cognitive-services/bing-image-search/image-sdk-python-quickstart">Python 사용</a></p>
                     </div>
                 </div>
             </div>

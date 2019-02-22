@@ -11,12 +11,6 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: fa2cce2314b3df0d9d32d9d8d6ede5a70520a7d4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647248"
 ---
 <div class="content">
    <h1>Azure의 Docker</h1>   
@@ -28,7 +22,7 @@ Docker는 Linux 및 Windows에서 컨테이너와 함께 빠르게 사용할 수
     </div>
 <h2>5분 빠른 시작</h2>
 <p>Azure에 Docker를 배포하는 방법 알아보기:</p>
-<a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS">Ubuntu 빠른 시작 템플릿에 Docker 배포</a><br/>
+<a href="https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/">Ubuntu 빠른 시작 템플릿에 Docker 배포</a><br/>
 <h2>단계별 자습서</h2>
 <p>애플리케이션에서, 그리고 CI/CD 파이프라인의 일부로 Docker를 사용하는 방법 알아보기:</p>
 <ol>
