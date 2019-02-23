@@ -230,7 +230,7 @@
 
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=media-services)
-## [Azure PowerShell(Resource Manager)](/powershell/module/azurerm.media)
+## [Azure PowerShell(Resource Manager)](/powershell/module/az.media)
 ## [Azure PowerShell(서비스 관리)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)

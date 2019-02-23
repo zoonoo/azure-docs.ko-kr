@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 02/22/2010
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 0ac20ee9f6197a8322bb741020aee813c690847e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 839fa7fe8374f1f85b019178d4c3fe53f7137372
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445886"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729647"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack의 app Service: 인프라 또는 작업자 역할 추가
 
@@ -37,11 +37,6 @@ ms.locfileid: "56445886"
 Azure Stack 설치에서 기본 App Service를 사용 하 여 배포 된 내용을 확실 하지 않은 경우의 추가 정보를 검토할 수 있습니다 합니다 [App Service에서 Azure Stack 개요](azure-stack-app-service-overview.md)합니다.
 
 Azure Stack의 azure App Service는 Virtual Machine Scale Sets를 사용 하 여 모든 역할을 배포 하 고이 워크 로드의 크기 조정 기능의 이점을 활용으로. 따라서 앱 서비스 관리자를 통해 수행 됩니다 작업자 계층의 모든 크기 조정
-
-> [!IMPORTANT]
-> 현재 Azure Stack 릴리스 정보에서 식별 한 대로 포털에서 가상 머신 확장 집합 확장, 따라서 PowerShell 예제를 사용 하 여 스케일 아웃할 수는 없습니다.
->
->
 
 ## <a name="add-additional-workers-with-powershell"></a>PowerShell 사용 하 여 추가 작업자를 추가 합니다.
 
@@ -80,7 +75,7 @@ Azure Stack의 azure App Service는 Virtual Machine Scale Sets를 사용 하 여
 
 3. 앱 서비스 관리에서 새 역할 인스턴스의 상태를 모니터링, 개별 역할 인스턴스의 상태를 확인 하려면 목록에서 역할 종류를 클릭 합니다.
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>앱 서비스 리소스 공급자 관리자 내에서 직접 추가 작업자를 추가 합니다.
+## <a name="add-additional-workers-using-the-administration-portal"></a>관리 포털을 사용 하는 추가 작업자를 추가 합니다.
 
 1. 서비스 관리자로 Azure Stack 관리 포털에 로그인 합니다.
 

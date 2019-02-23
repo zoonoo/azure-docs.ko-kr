@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ed2205455c4d3c82554f3d552bacc059fffa68e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cbfe4fcf30e9529f191f2a80de8ab83e7e0811f7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174659"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735899"
 ---
 # <a name="add-public-ip-addresses"></a>공용 IP 주소를 추가 합니다.
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*  
@@ -53,11 +53,6 @@ Azure Stack 시스템의 초기 배포 후 언제 든 지 Azure Stack 시스템�
 8.   CIDR 표기법에서 추가 하려는 주소 블록을 입력 합니다.  예:  192.168.203.0/24
 9.  시작 ip 주소 범위 (CIDR 블록) 필드에 유효한 CIDR 범위를 제공 하는 경우 끝 IP 주소 및 사용 가능한 IP 주소 필드는 자동으로 채워집니다.  읽기 전용 이며 이러한 주소 범위의 필드에 값을 수정 하지 않고 변경할 수 없습니다 있도록 자동으로 생성 합니다.
 10. 항목이 블레이드 및 확인 정보를 검토 한 후 해결, 변경 내용 커밋 및 Azure Stack에 주소 범위를 추가 하려면 확인을 클릭 합니다.
-
-## <a name="update-the-acls-on-your-top-of-rack-switches"></a>업데이트-Top-of-rack 스위치에 대 한 Acl
-작업에 새로 추가 된 IP 범위를 사용 하도록 설정 하기 위해 수행 해야 할 마지막으로 액세스 제어 목록 (Acl)-Top-of-rack (ToR) 스위치에 업데이트 하는 것입니다.  ToR 스위치 새로 추가 된 IP 범위에 Azure Stack 외부에서 연결에 새 범위까지 작동 하지 것입니다 하는 방식으로 잠금에 대 한 Acl은 스위치에 대 한 Acl에 추가 됩니다.  
-
-OEM에 문의 하 여 ToR 스위치에서 Acl을 업데이트 하기 위해 작업 해야 합니다.  지원 되는 방식으로이 작업을 수행 하는 데 필요한 도구를 갖습니다.
 
 
 ## <a name="next-steps"></a>다음 단계 

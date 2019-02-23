@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312857"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733702"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>응용 프로그램 리소스 액세스 권한을 부여 Azure Stack에서 서비스 주체 만들기
 
@@ -75,7 +75,7 @@ Azure Stack에 Azure AD를 사용 하 여 id 저장소로, 하는 경우 서비�
 
 2. **응용 프로그램 ID**를 복사하고 응용 프로그램 코드에 저장합니다. 샘플 응용 프로그램의 응용 프로그램 사용 **클라이언트 id** 참조할 때 합니다 **응용 프로그램 ID**합니다.
 
-     ![응용 프로그램에 대 한 응용 프로그램 ID](./media/azure-stack-create-service-principal/image12.png)
+     ![응용 프로그램에 대 한 응용 프로그램 ID](./media/azure-stack-create-service-principals/image12.png)
 3. 인증 키를 생성하려면 **키**를 선택합니다.
 
 4. 키에 대한 설명 및 키의 기간을 제공합니다. 완료되면 **저장**을 선택합니다.
@@ -83,7 +83,7 @@ Azure Stack에 Azure AD를 사용 하 여 id 저장소로, 하는 경우 서비�
 >[!IMPORTANT]
 키, 키를 저장 한 후 **값** 표시 됩니다. 나중에 키를 검색할 수 없습니다 때문에이 값을 적어둡니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
 
-![저장 된 키에 대 한 경고를 키 값입니다.](./media/azure-stack-create-service-principal/image15.png)
+![저장 된 키에 대 한 경고를 키 값입니다.](./media/azure-stack-create-service-principals/image15.png)
 
 마지막 단계로 [응용 프로그램 역할 할당](azure-stack-create-service-principals.md)합니다.
 
@@ -110,7 +110,7 @@ AD FS를 사용 하 여 id 저장소로 Azure Stack을 배포한 경우에 다�
 
 2. 응용 프로그램을 할당 하려면 구독을 선택 합니다. 이 예제에서는 구독이 Visual Studio Enterprise입니다.
 
-     ![할당을 위한 Visual Studio Enterprise 구독을 선택 합니다.](./media/azure-stack-create-service-principal/image16.png)
+     ![할당을 위한 Visual Studio Enterprise 구독을 선택 합니다.](./media/azure-stack-create-service-principals/image16.png)
 
 3. 선택 **액세스 제어 (IAM)** 구독에 대 한 합니다.
 

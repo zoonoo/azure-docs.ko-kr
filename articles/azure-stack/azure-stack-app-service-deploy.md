@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 60767c3c61b0d386e4ac9b0a93d16ad161c59949
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0467f131ab4300ba3217ed01f37ebb7f4b8dbe5e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445937"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732775"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack에 App Service 리소스 공급자 추가
 
@@ -132,22 +132,7 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
     ![App Service 설치 관리자][10]
 
-11. App Service 리소스 공급자 데이터베이스를 호스트 하 고 다음을 선택 하는 데 사용 하는 서버 인스턴스에 대 한 SQL Server 세부 정보를 입력 **다음**합니다. 설치 관리자는 SQL 연결 속성의 유효성을 검사 합니다.
-
-    > [!NOTE]
-    > 관리자는 계속 진행 하기 전에 SQL Server에 대 한 연결을 테스트 하려고 합니다. 그러나 기존 가상 네트워크에 배포 하는이 연결 테스트가 실패할 수 있습니다. 계속 하려면 경고 및 프롬프트를 지정 하는 합니다. SQL Server 정보가 올바른 경우 배포를 계속 합니다.
-    >
-    > Azure Stack 1.3 이상에서 Azure App Service에서 설치 관리자는 SQL Server SQL Server 수준에서 사용 하도록 설정 하는 데이터베이스 포함에 있는지 확인 합니다.  없는 경우 예외가 발생 하 여 묻는 메시지가 나타납니다.
-    > ```sql
-    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
-    >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
-    >    GO
-    >    ***********************************************************
-    > ```
-    > 참조 된 [Azure Stack 1.3에서 Azure App Service에 대 한 릴리스 정보](azure-stack-app-service-release-notes-update-three.md) 대 한 자세한 내용은 합니다.
+11. App Service 리소스 공급자 데이터베이스를 호스트 하 고 다음을 선택 하는 데 사용 하는 서버 인스턴스에 대 한 SQL Server 세부 정보를 입력 **다음**합니다. 설치 관리자는 SQL 연결 속성의 유효성을 검사 합니다.<br><br>App Service 관리자는 계속 진행 하기 전에 SQL Server에 대 한 연결을 테스트 하려고 합니다. 기존 가상 네트워크에 배포 하는 경우이 연결 테스트에 실패할 수 있습니다. 계속 하려면 경고 및 프롬프트를 지정 하는 합니다. SQL Server 정보가 올바른 경우 배포를 계속 합니다.
 
     ![App Service 설치 관리자][11]
 
