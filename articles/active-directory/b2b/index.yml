@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5ec95e9f1f91c31620644d3bd66118ed89337228
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 15c1e8af5e6df658ea24ce357aeeee711eaf9279
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078563"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673497"
 documentType: LandingData
 title: Azure Active Directory B2B 설명서
 metadata:
   document_id: 
-  title: Azure Active Directory B2B 설명서 - 자습서, 빠른 시작, 개념, 참조 | Microsoft Docs
-  description: B2B 게스트 사용자 액세스를 사용하여 외부 파트너와 안전하게 리소스를 공유하고 공동으로 작업하는 방법을 알아봅니다.
+  title: Azure Active Directory B2B 설명서 | Microsoft Docs
+  description: B2B 게스트 사용자 액세스를 사용하여 외부 파트너와 공유 및 공동 작업하는 방법에 대해 알아보려면 자습서, 빠른 시작 및 방법을 사용합니다.
   services: active-directory
   ms.subservice: authentication
   author: msmimart
@@ -41,10 +41,12 @@ sections:
     style: icon48
     items:
     - image:
+        alt: 
         src: ./media/index/i_security-management.png
       text: Azure Portal에서 게스트 사용자 추가
       href: b2b-quickstart-add-guest-users-portal.md
     - image:
+        alt: 
         src: ./media/index/i_security-management.png
       text: PowerShell을 사용하여 게스트 사용자 추가
       href: b2b-quickstart-invite-powershell.md

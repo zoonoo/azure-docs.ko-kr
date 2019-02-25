@@ -1,0 +1,35 @@
+items:
+- name: 메인프레임 재호스팅
+  items:
+  - name: 개요
+    items:
+    - name: 시작하기
+      href: overview.md
+    - name: 워크로드
+      href: partner-workloads.md
+  - name: Micro Focus
+    items:
+    - name: 시작하기
+      href: /microfocus/get-started.md
+    - name: Micro Focus Enterprise Server 설치
+      href: /microfocus/set-up-micro-focus-on-azure.md
+    - name: 데모
+      href: /microfocus/demo.md
+  - name: TmaxSoft OpenFrame
+    href: https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/
+  - name: IBM
+    items:
+    - name: 시작하기
+      href: /ibm/get-started.md
+    - name: IBM zD&T 설치
+      href: /ibm/install-ibm-z-environment.md
+    - name: zD&T에서 ADCD 설정
+      href: /ibm/demo.md
+    - name: IBM Db2 pureScale
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure
+ms.openlocfilehash: 846fd60edafb23d6d3a023331cb74ca7aebc3a2f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56739415"

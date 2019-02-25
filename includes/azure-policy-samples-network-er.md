@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: b797502343d1cc3af0eb5db0732da3815986c676
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c50ea038220e1c8eafbdfe077fddaf2466fd11bd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318264"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741208"
 ---
-### <a name="express-route"></a>Express 경로
+### <a name="expressroute"></a>ExpressRoute
 
 |  |  |
 |---------|---------|
-| [허용되는 Express Route 대역폭](../articles/governance/policy/samples/allowed-express-route-bandwidth.md) | 기본 경로는 지정된 대역폭 집합을 사용해야 합니다. 사용자는 Express Route에 대해 지정될 수 있는 SKU의 배열을 지정합니다. |
-| [허용되는 Express Route SKU](../articles/governance/policy/samples/allowed-express-route-skus.md) | Express Routes는 승인된 SKU를 사용해야 합니다. 허용되는 SKU 배열을 지정합니다. |
-| [허용되는 Express Route 피어링 위치](../articles/governance/policy/samples/allowed-express-route-peering.md) | Express Routes는 지정된 피어링 위치를 사용해야 합니다. 허용되는 피어링 위치 배열을 지정합니다. |
+| [허용되는 ExpressRoute 대역폭](../articles/governance/policy/samples/allowed-express-route-bandwidth.md) | ExpressRoute가 지정된 대역폭 집합을 사용해야 합니다. 사용자는 ExpressRoute에 지정할 수 있는 SKU의 배열을 지정합니다. |
+| [허용되는 ExpressRoute SKU](../articles/governance/policy/samples/allowed-express-route-skus.md) | ExpressRoute가 승인된 SKU를 사용해야 합니다. 허용되는 SKU 배열을 지정합니다. |
+| [허용되는 ExpressRoute 피어링 위치](../articles/governance/policy/samples/allowed-express-route-peering.md) | ExpressRoute가 지정된 피어링 위치를 사용해야 합니다. 허용되는 피어링 위치 배열을 지정합니다. |
