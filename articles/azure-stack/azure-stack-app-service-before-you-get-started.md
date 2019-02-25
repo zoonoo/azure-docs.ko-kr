@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 0be1814fd501824056bc80d4aeb561ff58735125
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 02/22/2019
+ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447449"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737487"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack에서 App Service를 사용 하 여 시작 하기 전에
 
@@ -307,6 +307,16 @@ Azure App Service on Azure Stack에 대 한 SQL Server 인스턴스를 모든 Ap
 > SQL IaaS 가상 머신 이미지 수가 Marketplace 관리 기능을 통해 사용할 수 있습니다. 해야 마켓플레이스 항목을 사용 하는 VM을 배포 하기 전에 항상 최신 버전의 SQL IaaS 확장을 다운로드 합니다. SQL 이미지를 Azure에서 사용할 수 있는 SQL Vm과 동일 합니다. 이러한 이미지를 IaaS 확장에서 만들고 포털의 향상 된 기능에 해당 하는 SQL Vm에 대 한 자동 패치, 백업 기능과 같은 기능을 제공 합니다.
 >
 모든 SQL Server 역할에 대해 기본 인스턴스나 명명 된 인스턴스를 사용할 수 있습니다. 명명된 된 인스턴스를 사용 하는 경우 해야 수동으로 SQL Server Browser 서비스를 시작 하 고 포트 1434를 열어야 합니다.
+
+App Service 설치 관리자는 SQL Server에 사용 하도록 설정 하는 데이터베이스 포함 하는지 확인 합니다. App Service 데이터베이스를 호스팅하는 SQL Server에서 데이터베이스 포함을 사용 하도록 설정 하려면 다음 SQL 명령을 실행 합니다.
+
+```sql
+sp_configure 'contained database authentication', 1;  
+GO  
+RECONFIGURE;  
+GO
+```
+
 
 >[!IMPORTANT]
 > 기존 가상 네트워크에 App Service를 배포 하려는 경우 SQL Server는 App Service 및 파일 서버에서 별도 서브넷에 배포 되어야 합니다.
