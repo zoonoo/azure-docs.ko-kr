@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/25/2018
+ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9341eefdbe1eaa8e27394fd4b10f50b1a48bd4c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/25/2019
+ms.openlocfilehash: 65894ccd9514bce1d429b336f8bd5e6674048e65
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247326"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820266"
 ---
 # <a name="what-is-azure-stack"></a>Azure Stack이란?
 
@@ -33,15 +33,15 @@ Azure Stack 두 가지 배포 옵션 사용자의 요구를 충족하기 위해 
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack 개발 키트
 
-Microsoft [ASDK(Azure Stack Development Kit)](./asdk/asdk-what-is.md)는 Azure Stack에 대한 평가 및 학습에 사용할 수 있는 Azure Stack의 단일 노드 배포입니다.  또한 ASDK를 개발자 환경으로 사용하여 Azure와 일치하는 API 및 툴링을 사용하여 앱을 빌드할 수 있습니다.
+Microsoft [ASDK(Azure Stack Development Kit)](./asdk/asdk-what-is.md)는 Azure Stack에 대한 평가 및 학습에 사용할 수 있는 Azure Stack의 단일 노드 배포입니다.  도구 및 Api를 사용 하 여 앱을 빌드하는 개발자 환경으로 Azure를 사용 하 여 일치 하는 ASDK도 사용할 수 있습니다.
 
 >[!Note]
 >ASDK는 프로덕션 환경으로 사용되지 않습니다.
 
 ASDK에는 다음과 같은 제한 사항이 있습니다.
 
-* ASDK는 단일 Azure AD(Azure Active Directory) 또는 AD FS(Active Directory Federation Service) ID 공급자와 연결됩니다. 이 디렉터리에 여러 사용자를 만들고 각 사용자에게 구독을 할당할 수 있습니다.
-* Azure Stack 구성 요소는 하나의 호스트 컴퓨터에 배포되므로 테넌트 리소스에 사용할 수 있는 물리적 리소스가 제한적입니다. 이 구성은 규모 또는 성능 평가를 위한 것이 아닙니다.
+* ASDK를 단일 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS) id 공급자와 연결 됩니다. 이 디렉터리에 여러 사용자를 만들고 각 사용자에게 구독을 할당할 수 있습니다.
+* 없기 때문에 Azure Stack 구성 요소를 단일 호스트 컴퓨터에 배포 된, 제한 된 물리적 리소스 테 넌 트 리소스에 대해 사용할 수 있습니다. 이 구성은 규모와 성능 평가용 아닙니다.
 * 네트워크 시나리오는 단일 호스트 및 NIC 배포 요구 사항으로 인해 제한됩니다.
 
 ## <a name="azure-stack-integrated-systems"></a>Azure Stack 통합 시스템

@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252050"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819363"
 ---
 # <a name="use-the-azure-stack-portal"></a>Azure Stack 포털 사용
 
@@ -40,6 +40,10 @@ Azure Stack 포털을 사용 하 여 공용 제품을 구독할 수 있으며 �
 대시보드 타일의 기본 집합을 포함합니다. 선택할 수 있습니다 **대시보드 편집** 기본 대시보드를 수정 하거나 선택 **새 대시보드** 사용자 지정 대시보드를 만듭니다. 쉽게 추가 하거나 타일을 제거 하 여 대시보드를 사용자 지정할 수 있습니다. 예를 들어 계산 타일을 추가 하려면 선택 **+ 리소스 만들기**합니다. 마우스 오른쪽 단추로 클릭 **계산**를 선택한 후 **대시보드에 고정**합니다.
 
 ![Azure Stack 사용자 포털의 화면 캡처](media/azure-stack-use-portal/userportal.png)
+
+원래 설정으로 대시보드를 복원 합니다.
+1.  선택 **대시보드 편집**합니다. 
+2.  마우스 오른쪽 단추로 클릭 **기본 상태로 재설정**합니다.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>사용 가능한 리소스를 찾아 구독 만들기
 

@@ -11,7 +11,7 @@
 ### [Azure DNS 및 Traffic Manager를 사용하여 재해 복구](disaster-recovery-dns-traffic-manager.md)
 ## 계획 및 디자인
 ### [가상 네트워크](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [크로스 프레미스 연결 - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [크로스 프레미스 연결 - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [크로스 프레미스 연결 - 개별 전용](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### 백 엔드 연결 상호 운용성
 #### [접두사 및 테스트 설정](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -22,7 +22,7 @@
 ##  개념
 ### [가상 네트워크](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [네트워크 부하 분산](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [응용 프로그램 부하 분산](../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [애플리케이션 부하 분산](../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS](../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS 기반 트래픽 분산](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [온-프레미스 연결 - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -35,12 +35,12 @@
 # 방법
 ## 인터넷 연결
 ### [네트워크 부하 분산 공용 서버](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [응용 프로그램 부하 분산 공용 서버](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [웹 응용 프로그램 보호](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [애플리케이션 부하 분산 공용 서버](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [웹 애플리케이션 보호](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [위치 간 트래픽 배포](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## 내부 연결
 ### [네트워크 부하 분산 개인 서버](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [응용 프로그램 부하 분산 개인 서버](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [애플리케이션 부하 분산 개인 서버](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [가상 네트워크 연결(동일한 위치)](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [가상 네트워크 연결(다른 위치)](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## 크로스 프레미스 연결
