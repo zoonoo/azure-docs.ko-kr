@@ -11,17 +11,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: b3ad10c62d393e2508d3ea04f0e49d3ffbf184cd
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d1c7340038731ebde10a7ffcb0ef2adcde18e901
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886376"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267498"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
-Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 J2EE, 호스팅된 온-프레미스, 하이브리드 또는 공용 클라우드를 포함하여 다양한 플랫폼에서 앱과 함께 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
+Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 Java EE, 호스트된 온-프레미스, 하이브리드 또는 공용 클라우드를 포함하여 다양한 플랫폼에서 앱과 함께 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
 
 [소개 애니메이션을 살펴보겠습니다](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
@@ -46,7 +46,7 @@ Application Insights는 애플리케이션 팀에서 앱의 작동 방식과 사
 
 * **요청 속도, 응답 시간 및 실패율** - 하루 중 어느 시간에 어떤 페이지를 가장 많이 방문하는지, 사용자가 어디에 있는지 확인합니다. 어떤 페이지가 가장 성능이 우수한지 확인합니다. 요청이 더 있는데 응답 시간과 실패율이 높아지면 아마도 리소스 문제가 있는 것입니다. 
 * **종속성 비율, 응답 시간 및 실패율** - 외부 서비스 때문에 속도가 느려지는지 확인합니다.
-* **예외** - 집계 통계를 분석하거나 특정 인스턴스를 선택하여 스택 추적 및 관련 요청을 자세히 알아봅니다. 서버 및 브라우저 예외가 전부 보고됩니다.
+* **예외** - 집계된 통계를 분석하거나 특정 인스턴스를 선택하여 스택 추적 및 관련 요청을 자세히 분석합니다. 서버 및 브라우저 예외가 전부 보고됩니다.
 * **페이지 보기 및 로드 성능** - 사용자의 브라우저에서 보고합니다.
 * 웹 페이지의 **AJAX 호출** - 속도, 응답 시간 및 실패율.
 * **사용자 및 세션 수**.
@@ -107,7 +107,7 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 * **런타임: 서버에서 웹앱을 계측합니다.** 코드에 대한 업데이트를 방지합니다. 서버에 대한 관리자 액세스 권한이 필요합니다.
   * [**IIS 온-프레미스 또는 VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Azure 웹앱 또는 VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**J2EE**](../../azure-monitor/app/java-live.md)
+  * [**Java EE**](../../azure-monitor/app/java-live.md)
 * **개발 타임: 코드에 Application Insights를 추가합니다.** 사용자 지정 원격 분석을 작성하고 백 엔드 및 데스크톱 앱을 계측할 수 있습니다.
   * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 업데이트 2 이상
   * [Java](../../azure-monitor/app/java-get-started.md)
@@ -122,7 +122,7 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 다음을 사용하여 런타임에 시작하세요.
 
 * [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [J2EE 서버](../../azure-monitor/app/java-live.md)
+* [Java EE 서버](../../azure-monitor/app/java-live.md)
 
 다음을 사용하여 개발 시에 시작하세요.
 

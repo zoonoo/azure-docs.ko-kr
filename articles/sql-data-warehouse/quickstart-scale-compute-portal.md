@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kevin
-ms.reviewer: igorstan
-ms.openlocfilehash: 31ec1537a0075f486130a3bcf1017d35b47e499d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.reviewer: jrasnick
+ms.openlocfilehash: 2e3bb00cee679671ed382ee46690fc4dff8bddfb
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463653"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453888"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse의 컴퓨팅 조정
 
@@ -31,9 +31,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이미 있는 데이터 웨어하우스의 크기를 조정하거나 [빠른 시작: 만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 데이터 웨어하우스를 만듭니다.  이 빠른 시작은 **mySampleDataWarehouse** 크기를 조정합니다.
 
+>[!Note]
+>크기를 조정하려면 데이터 웨어하우스가 온라인 상태여야 합니다. 
+
 ## <a name="scale-compute"></a>계산 조정
 
-SQL Data Warehouse에서 데이터 웨어하우스 단위를 조정하여 계산 리소스를 늘리거나 줄일 수 있습니다. [만들기 및 연결 - 포털](create-data-warehouse-portal.md)에서 **mySampleDataWarehouse**를 만들고 400 DWU로 초기화했습니다. 다음 단계에서는 **mySampleDataWarehouse**에 대해 DWU를 조정합니다.
+SQL Data Warehouse 컴퓨팅 리소스는 데이터 웨어하우스 단위를 늘리거나 줄여서 확장할 수 있습니다. [만들기 및 연결 - 포털] 빠른 시작(create-data-warehouse-portal.md)에서 **mySampleDataWarehouse**를 만들고 이를 400DWU로 초기화했습니다. 다음 단계에서는 **mySampleDataWarehouse**에 대해 DWU를 조정합니다.
 
 데이터 웨어하우스 단위를 변경하려면
 
@@ -54,7 +57,7 @@ SQL Data Warehouse에서 데이터 웨어하우스 단위를 조정하여 계산
 
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 데이터 웨어하우스에 대한 계산 성능을 조정하는 방법을 배웠습니다. Azure SQL Data Warehouse에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
+이제 데이터 웨어하우스에 맞게 컴퓨팅 크기를 조정하는 방법을 알아보았습니다. Azure SQL Data Warehouse에 대해 자세히 알아보려면 데이터 로드에 대한 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 >[SQL 데이터 웨어하우스로 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md)

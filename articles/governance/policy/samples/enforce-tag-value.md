@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 태그 및 해당 값 강제 적용
-description: 이 샘플 정책에는 지정된 태그 이름 및 값이 필요합니다.
+description: 이 샘플 정책 정의에서는 각각 매개 변수로 설정된 태그 이름 및 값이 필요합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 952f932d850806553b6e7e2f9efad2643a2ecdf3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0524c0e9e67cd477b8aa8ba8005cf8ebcce3f1da
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242637"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337849"
 ---
-# <a name="enforce-tag-and-its-value"></a>태그 및 해당 값 강제 적용
+# <a name="sample---enforce-tag-and-its-value"></a>샘플 - 태그 및 해당 값 강제 적용
 
 이 정책에는 지정된 태그 이름 및 값이 필요합니다. 강제 적용할 태그 이름 및 값을 지정합니다.
 

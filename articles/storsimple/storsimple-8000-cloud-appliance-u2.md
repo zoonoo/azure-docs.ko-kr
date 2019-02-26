@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 70a109b9aee46e6b6b65a9a5c139abdf1aa9bab9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387687"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330599"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure에서 StorSimple Cloud Appliance 배포 및 관리(업데이트 3 이상)
 
@@ -45,7 +45,7 @@ StorSimple Cloud Appliance는 두 가지 모델 즉, 표준 8010(이전의 1100)
 | **최대 용량** |30TB |64TB |
 | **Azure VM** |Standard_A3(4 코어, 7GB 메모리)| Standard_DS3 (4 코어, 14GB 메모리)|
 | **지역 가용성** |모든 Azure 지역 |Premium Storage 및 DS3 Azure VM을 지원하는 Azure 지역<br></br>[이 목록](https://azure.microsoft.com/regions/services/)을 사용하여 **Virtual Machines > DS 시리즈** 및 **저장소 > 디스크 저장소**를 자신의 지역에서 사용할 수 있습니다. |
-| **저장소 유형** |로컬 디스크에 Azure Standard Storage 사용<br></br> [Standard Storage 계정을 만드는](../storage/common/storage-create-storage-account.md) |로컬 디스크용 Azure Premium Storage 사용<sup>2</sup> <br></br>[Premium Storage 계정을 만드는](../virtual-machines/windows/premium-storage.md) |
+| **저장소 유형** |로컬 디스크에 Azure Standard Storage 사용<br></br> [Standard Storage 계정을 만드는](../storage/common/storage-create-storage-account.md) |로컬 디스크용 Azure Premium Storage 사용<sup>2</sup> <br></br> |
 | **워크로드 지침** |백업으로부터 항목 수준 파일 읽어오기 |클라우드 개발 및 테스트 시나리오 <br></br>짧은 대기 시간 및 더 높은 성능 워크로드<br></br>재해 복구용 보조 디바이스 |
 
 <sup>1</sup> *이전에 1100로 알려짐*.
@@ -63,7 +63,7 @@ StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드�
 |  | 물리적 디바이스 | 클라우드 어플라이언스 |
 | --- | --- | --- |
 | **위치**: |데이터 센터에 상주합니다. |Azure에서 실행됩니다. |
-| **네트워크 인터페이스** |네트워크 인터페이스가 여섯 개(DATA 0에서 DATA 5까지 ) 있습니다. |네트워크 인터페이스가 하나만(DATA 0) 있습니다. |
+| **네트워크 인터페이스** |네트워크 인터페이스가 6개(DATA 0부터 DATA 5까지) 있습니다. |네트워크 인터페이스가 하나만(DATA 0) 있습니다. |
 | **등록** |초기 구성 단계 중에 등록됩니다. |등록은 별도의 작업입니다. |
 | **서비스 데이터 암호화 키** |물리적 디바이스에서 다시 생성된 후 새 키로 클라우드 어플라이언스를 업데이트합니다. |클라우드 어플라이언스에서 다시 생성할 수 없습니다. |
 | **지원되는 볼륨 유형** |로컬로 고정된 볼륨과 계층화된 볼륨을 모두 지원합니다. |계층화된 볼륨만 지원합니다. |
@@ -94,7 +94,7 @@ StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드�
 클라우드 어플라이언스를 만들기 전에 StorSimple 디바이스 관리자 서비스에 대한 다음 업데이트를 확인합니다.
 
 * 클라우드 어플라이언스에 대해 호스트 서버가 될 VM에 대해 [액세스 제어 레코드](storsimple-8000-manage-acrs.md)를 추가합니다.
-* 클라우드 어플라이언스와 동일한 지역에 [저장소 계정](storsimple-8000-manage-storage-accounts.md#add-a-storage-account)을 사용합니다. 다른 영역의 Storage 계정으로 성능이 저하될 수 있습니다. 클라우드 어플라이언스에 Standard 또는 Premium Storage 계정을 사용할 수 있습니다. 자세한 내용은 [Standard Storage 계정](../storage/common/storage-create-storage-account.md) 또는 [Premium Storage 계정](../virtual-machines/windows/premium-storage.md)을 만드는 방법을 참조하세요.
+* 클라우드 어플라이언스와 동일한 지역에 [저장소 계정](storsimple-8000-manage-storage-accounts.md#add-a-storage-account)을 사용합니다. 다른 영역의 Storage 계정으로 성능이 저하될 수 있습니다. 클라우드 어플라이언스에 Standard 또는 Premium Storage 계정을 사용할 수 있습니다. 자세한 내용은 [Standard Storage 계정](../storage/common/storage-create-storage-account.md)을 만드는 방법을 참조하세요.
 * 데이터에 사용된 계정이 아닌 클라우드 어플라이언스 생성을 위해 다른 저장소 계정을 사용합니다. 동일한 저장소 계정을 사용하면 성능이 저하될 수 있습니다.
 
 시작하기 전에 다음 정보가 있는지 확인합니다.
@@ -173,7 +173,7 @@ Windows PowerShell 인터페이스를 통한 클라우드 어플라이언스에 
 > [!WARNING]
 > **보안 강화를 위해 엔드포인트에 연결할 때 HTTPS를 사용하고 PowerShell 원격 세션을 완료한 후 엔드포인트를 삭제하는 것이 좋습니다.**
 
-[StorSimple 장치에 원격으로 연결](storsimple-8000-remote-connect.md)의 절차에 따라 클라우드 어플라이언스에 대한 원격 서비스를 설정해야 합니다.
+[StorSimple 디바이스에 원격으로 연결](storsimple-8000-remote-connect.md)의 절차에 따라 클라우드 어플라이언스에 대한 원격 서비스를 설정해야 합니다.
 
 ## <a name="connect-directly-to-the-cloud-appliance"></a>클라우드 어플라이언스에 직접 연결
 
@@ -271,9 +271,9 @@ StorSimple Cloud Appliance를 이전에 구성하고 사용했지만 이제 용�
 4. 프롬프트에서 다음 cmd를 실행합니다.
 
     `nslookup windows.net`
-5. `nslookup`이 실패하는 경우 인터넷 연결 실패로 인해 클라우드 어플라이언스를 StorSimple 장치 관리자 서비스에 등록하지 못하게 됩니다.
+5. `nslookup`이 실패하는 경우 인터넷 연결 실패로 인해 클라우드 어플라이언스를 StorSimple 디바이스 관리자 서비스에 등록하지 못하게 됩니다.
 6. 가상 네트워크에 필요한 변경 사항을 수행하여 클라우드 어플라이언스가 _windows.net_과 같은 Azure 사이트에 액세스할 수 있도록 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [StorSimple 장치 관리자 서비스를 사용하여 클라우드 어플라이언스를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 알아봅니다.
+* [StorSimple 디바이스 관리자 서비스를 사용하여 클라우드 어플라이언스를 관리](storsimple-8000-manager-service-administration.md)하는 방법을 알아봅니다.
 * [백업 세트에서 StorSimple 볼륨을 복원](storsimple-8000-restore-from-backup-set-u2.md)하는 방법을 알아봅니다.

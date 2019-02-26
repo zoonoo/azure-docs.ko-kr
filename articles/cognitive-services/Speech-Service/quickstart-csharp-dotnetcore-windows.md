@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: 음성 인식, C#(.NET Core Windows) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Speech Service SDK를 사용하여 Windows .NET Core의 C#에서 음성을 인식하는 방법 알아보기
+description: Speech SDK를 사용하여 Windows의 .NET Core에서 C#으로 음성을 인식하는 방법을 알아봅니다.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: cf6ffdad9fbbf1705c0160e16de0e5ee3e5929a1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1f6cbb511546784b316da1e978abf84c41ac753c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869945"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446055"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>빠른 시작: .NET Core용 Speech SDK를 사용하여 음성 인식
 

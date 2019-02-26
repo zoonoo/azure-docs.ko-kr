@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 71ddf1d70953b721911a7315ab6875dd41a9a4db
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894176"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338600"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>자습서: .NET을 사용하여 Media Services v3로 라이브 스트리밍
 
@@ -126,7 +126,7 @@ previewEndpoint를 사용하여 인코더에서 입력이 실제로 수신되고
 #### <a name="create-a-streaming-locator"></a>스트리밍 로케이터 만들기
 
 > [!NOTE]
-> Azure Media Services 계정이 만들어지면 **기본** 스트리밍 엔드포인트가 **중지됨** 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다. 
+> Azure Media Services 계정이 만들어지면 **기본** 스트리밍 엔드포인트가 **중지됨** 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 [동적 패키징](dynamic-packaging-overview.md) 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있어야 합니다. 
 
 스트리밍 로케이터를 사용하여 라이브 출력 자산을 게시한 경우 스트리밍 로케이터가 만료 또는 삭제되는 시점 중 먼저 도래하는 시점까지 라이브 이벤트(DVR 기간 길이까지)를 계속 볼 수 있습니다.
 

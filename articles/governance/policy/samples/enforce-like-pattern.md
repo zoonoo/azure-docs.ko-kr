@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 유사 패턴 적용
-description: 이 샘플 정책에서는 리소스가 명명 규칙에 대한 유사 패턴을 충족해야 합니다.
+description: 이 샘플 정책 정의에서는 리소스가 명명 규칙에 대한 유사 패턴을 충족해야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7bc7624cdcc6676d3f622f30e9549a2e444c1d6f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6ff890773a045220b7e2f343d86434fe9109ef1a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243037"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338481"
 ---
-# <a name="enforce-like-pattern-for-naming-conventions"></a>명명 규칙에 대한 유사 패턴 적용
+# <a name="sample---enforce-like-pattern-for-naming-conventions"></a>샘플 - 명명 규칙에 대한 유사 패턴 적용
 
 리소스 이름이 명명 규칙에 대한 유사 패턴을 충족하도록 요구합니다. 허용된 유사 패턴을 매개 변수로 지정합니다.
 

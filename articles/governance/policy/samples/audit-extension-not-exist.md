@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 확장이 존재하지 않을 경우 감사
-description: 이 샘플 정책은 확장이 가상 머신과 함께 배포되지 않은 경우 감사합니다.
+description: 이 샘플 정책 정의는 확장이 가상 머신과 함께 배포되지 않은 경우 감사를 수행합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7e5f396bb4acfdef0d49d38019b6c4d19661d9ae
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0c0f41c01d33add81508d828259ddcdd48d0cbc8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244184"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340878"
 ---
-# <a name="audit-if-extension-does-not-exist"></a>확장이 존재하지 않을 경우 감사
+# <a name="sample---audit-if-extension-does-not-exist"></a>샘플 - 확장이 존재하지 않을 경우 감사
 
 이 정책은 확장이 가상 머신과 함께 배포되지 않은 경우 감사합니다. 확장 게시자를 지정하고 배포되었는지 여부를 확인하기 위해 입력합니다.
 

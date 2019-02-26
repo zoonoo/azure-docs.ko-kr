@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 승인된 VM 이미지
-description: 이 샘플 정책에서는 승인된 사용자 지정 이미지만 환경에 배포되어야 합니다.
+description: 이 샘플 정책 정의에서는 승인된 사용자 지정 이미지만 환경에 배포되어야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: e5b6b3e34f3c85d7fdc90f4f54acbbfac0d75061
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8134ca98fe190a161d940387926e6b3dfea2989c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243912"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337971"
 ---
-# <a name="approved-vm-images"></a>승인된 VM 이미지
+# <a name="sample---approved-vm-images"></a>샘플 - 승인된 VM 이미지
 
 이 정책에서는 승인된 사용자 지정 이미지만 환경에 배포되어야 합니다. 승인된 이미지 ID 배열을 지정합니다.
 

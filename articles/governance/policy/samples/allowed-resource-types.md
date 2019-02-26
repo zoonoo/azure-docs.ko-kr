@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 허용되는 리소스 종류
-description: 이 샘플 정책은 승인된 리소스 종류만 배포되도록 보장합니다.
+description: 이 샘플 정책 정의에서는 승인된 리소스 종류만 배포되도록 보장합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3d2f065f875cd012a808af985e36469c85532913
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0dc58bb11d6415cb1003a8b505e337ab385f7d46
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243640"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339994"
 ---
-# <a name="allowed-resource-types"></a>허용되는 리소스 유형
+# <a name="sample---allowed-resource-types"></a>샘플 - 허용되는 리소스 종류
 
 이 정책은 승인된 리소스 종류만 배포되도록 보장합니다. 허용되는 리소스 종류 배열을 지정합니다.
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ad6ea26535190d2fc5798e1223c2196d3d5a5d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1fde586563c142690078a693970a9a24bd5cacb4
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211141"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>자습서: SAP NetWeaver와 Azure Active Directory 통합
 
@@ -175,7 +175,14 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 
     ![SAP NetWeaver 도메인 및 URL Single Sign-On 정보](common/sp-identifier-reply.png)
 
-    **로그인 URL** 텍스트 상자에서 `https://<your company instance of SAP NetWeaver>` 패턴을 사용하여 URL을 입력합니다.
+    d. **로그인 URL** 텍스트 상자에서 `https://<your company instance of SAP NetWeaver>` 패턴을 사용하여 URL을 입력합니다.
+
+    > [!NOTE]
+    > 인스턴스에 대해 잘못된 회신 URL이 구성되었다는 오류를 보고하는 고객은 많지 않습니다. 이러한 오류 메시지가 표시되는 경우 다음 PowerShell 스크립트를 해결 방법으로 사용하여 인스턴스에 대해 올바른 회신 URL을 설정할 수 있습니다.
+    ```
+    Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+    ``` 
+    > ServicePrincipal 개체 ID는 먼저 직접 설정하거나 여기에서 전달할 수 있습니다.
 
 12. SAP NetWeaver 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
@@ -374,4 +381,3 @@ SAP NetWeaver에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 
 - [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cdc7ef8ee991719153f6daed01fbb76f945a7a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e233de6f0909477e5033d2a0104f9165e86a9077
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194941"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311038"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>자습서: Workplace by Facebook과 Azure Active Directory 통합
 
@@ -143,31 +143,38 @@ Workplace by Facebook에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 1. 다른 웹 브라우저 창에서 Workplace by Facebook 회사 사이트에 관리자로 로그인합니다.
   
-   > [!NOTE]
-   > SAML 인증 프로세스의 일환으로 Workplace는 Azure AD에 매개 변수를 전달하기 위해 최대 2.5KB 크기의 쿼리 문자열을 사용할 수 있습니다.
+    > [!NOTE]
+    > SAML 인증 프로세스의 일환으로 Workplace는 Azure AD에 매개 변수를 전달하기 위해 최대 2.5KB 크기의 쿼리 문자열을 사용할 수 있습니다.
 
-2. **관리 패널**에서 차례로 **보안** 탭 및 **인증**으로 이동합니다.
+2. **관리 패널**에서 **보안** 탭으로 이동합니다.
 
-3. **SAML 인증** 아래 드롭다운 목록에서 **SSO 전용**을 선택합니다.
+    ![관리 패널](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-4. Azure Portal의 **Workplace by Facebook 구성** 섹션에서 복사한 값을 해당 필드에 입력합니다.
+3. **인증** 탭에서 **SSO(Single Sign-On)** 를 선택하고 다음 단계를 수행합니다.
 
-    * **SAML URL** 텍스트 상자에, Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
-    * **SAML 발급자 URL 텍스트 상자**에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
-    * **SAML 로그아웃 리디렉션**(선택 사항)에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
-    * Azure Portal에서 다운로드한 **base-64로 인코딩된 인증서**를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음 **SAML 인증서** 텍스트 상자에 붙여 넣습니다.
+    ![[인증] 탭](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-5. **기본 SAML 구성** 섹션에 나열된 대상 그룹 URL, 받는 사람 URL 및 ACS(Assertion Consumer Service) URL을 입력해야 할 수 있습니다.
+    a. **SAML URL** 텍스트 상자에, Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
-6. 섹션 맨 아래로 스크롤하여 **SSO 테스트** 단추를 클릭합니다. Azure AD 로그인 페이지가 있는 팝업 창이 나타납니다. 일반적인 인증처럼 자격 증명을 입력합니다.
+    b. **SAML 발급자 URI 텍스트 상자**에 Azure Portal에서 복사한 **Azure Ad 식별자** 값을 붙여넣습니다.
+
+    다. **SAML 로그아웃 리디렉션**(선택 사항)에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
+
+    d. Azure Portal에서 다운로드한 **base-64로 인코딩된 인증서**를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음 **SAML 인증서** 텍스트 상자에 붙여 넣습니다.
+
+    e. 인스턴스의 **대상 URL**을 복사하여 Azure Portal의  **기본 SAML 구성**  섹션에 있는  **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
+
+    f. 인스턴스의 **받는 사람 URL**을 복사하여 Azure Portal의  **기본 SAML 구성**  섹션에 있는  **로그온 URL** 텍스트 상자에 붙여넣습니다.
+
+    g. 섹션 맨 아래로 스크롤하여 **SSO 테스트** 단추를 클릭합니다. Azure AD 로그인 페이지가 있는 팝업 창이 나타납니다. 일반적인 인증처럼 자격 증명을 입력합니다.
 
     **문제 해결:** Azure AD에서 반환되는 이메일 주소가 로그인한 Workplace 계정과 동일한지 확인합니다.
 
-7. 테스트가 성공적으로 완료되면 페이지 하단으로 스크롤하여 **저장** 단추를 클릭합니다.
+    h. 테스트가 성공적으로 완료되면 페이지 하단으로 스크롤하여 **저장** 단추를 클릭합니다.
 
-8. Workplace를 사용하는 모든 사용자에게 이제 인증을 위한 Azure AD 로그인 페이지가 제공됩니다.
+    i. Workplace를 사용하는 모든 사용자에게 이제 인증을 위한 Azure AD 로그인 페이지가 제공됩니다.
 
-9. **SAML 로그아웃 리디렉션(선택 사항)** -
+4. **SAML 로그아웃 리디렉션(선택 사항)** -
 
     Azure AD의 로그아웃 페이지를 가리키는 데 사용할 수 있는 SAML 로그아웃 URL을 선택적으로 구성하도록 선택할 수 있습니다. 이 설정을 사용하도록 설정하고 구성하면 더 이상 사용자가 Workplace 로그아웃 페이지로 이동하지 않습니다. 대신 SAML 로그아웃 리디렉션 설정에 추가된 URL로 사용자가 리디렉션됩니다.
 

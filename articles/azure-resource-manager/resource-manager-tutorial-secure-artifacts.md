@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8be7a3d862e7b496a4e3b3077e4c53018bf97bb8
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: cd692442791f57e1560a97f09253ccd1a8264fb3
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233322"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269096"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>자습서: Azure Resource Manager 템플릿 배포에서 아티팩트 보호
 
@@ -36,8 +36,6 @@ SAS(공유 액세스 서명)가 포함된 Azure Storage 계정을 사용하여 A
 > * 배포 확인
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -218,6 +216,9 @@ New-AzResourceGroupDeployment `
     -bacpacFileName $bacpacFileName `
     -TemplateFile azuredeploy.json
 ```
+
+> [!NOTE]
+> Cloud shell에서 Azure PowerShell 사용과 관련된 파일 IO 문제가 있습니다.  오류 메시지는 *cmdlet에 대한 동적 매개 변수를 검색할 수 없습니다. 'Azure:/azuredeploy.json' 경로는 존재하지 않으므로 찾을 수 없습니다.* 입니다.  임시 해결 방법은 `New-AzResourceGroupDeploy` 명령에 **-TemplateFile** 스위치를 포함하지 않는 것입니다. 이 명령은 파일 이름을 입력하라는 메시지를 표시합니다.
 
 생성된 암호를 사용합니다. [필수 조건](#prerequisites)을 참조하세요.
 _artifactsLocation, _artifactsLocationSasToken 및 bacpacFileName이라는 값은 [SAS 토큰 생성](#generate-a-sas-token)을 참조하세요.

@@ -1,23 +1,23 @@
 ---
 title: '빠른 시작: 음성 인식, Objective-C - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Speech Service SDK를 사용하여 iOS의 Objective-C에서 음성을 인식하는 방법 알아보기
+description: Speech SDK를 사용하여 iOS에서 Objective-C로 음성을 인식하는 방법을 알아봅니다.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: f92a5c5ea064d91eae065c96e656416b21714e98
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5f6a66b4005a0fa7106830d7e53950a9902cd078
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878105"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447245"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>빠른 시작: Speech Service SDK를 사용하여 iOS의 Objective-C에서 음성 인식
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Objective-C로 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "55878105"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.2.0`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.3.0`입니다.
 
 Mac 및 iOS용 Cognitive Services Speech SDK는 현재 Cocoa Framework로 배포됩니다.
 https://aka.ms/csspeech/iosbinary에서 다운로드할 수 있습니다. 홈 디렉터리에 파일을 다운로드합니다.

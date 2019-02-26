@@ -9,16 +9,18 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/30/2018
 ms.author: alzam
-ms.openlocfilehash: 8de152af72acaecd5bcd9c43b812394508c91eca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f13c31b0c7a85ea4e24f73bdc1fee9c96e51ab35
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507980"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417206"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell을 사용하여 VNet-VNet VPN Gateway 연결 구성
 
 이 스크립트는 VNet-VNet 연결 형식을 사용하여 두 개의 가상 네트워크를 연결합니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables for VNET 1
@@ -50,95 +52,95 @@ ms.locfileid: "55507980"
   $Connection21 = "VNet2toVNet1"
 
 # Create first resource group
-New-AzureRmResourceGroup -Name $RG1 -Location $Location1
+New-AzResourceGroup -Name $RG1 -Location $Location1
 
 # Create a virtual network 1
-$virtualNetwork1 = New-AzureRmVirtualNetwork `
+$virtualNetwork1 = New-AzVirtualNetwork `
   -ResourceGroupName $RG1 `
   -Location $Location1 `
   -Name $VNetName1 `
   -AddressPrefix $VNetPrefix11
 
 # Create a subnet configuration
-Add-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1 -VirtualNetwork $virtualNetwork1
+Add-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1 -VirtualNetwork $virtualNetwork1
 
 # Set the subnet configuration for virtual network 1
-$virtualNetwork1 | Set-AzureRmVirtualNetwork
+$virtualNetwork1 | Set-AzVirtualNetwork
 
 # Add a gateway subnet
-Add-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1 -VirtualNetwork $virtualNetwork1
+Add-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1 -VirtualNetwork $virtualNetwork1
 
 # Set the subnet configuration for the virtual network
-$virtualNetwork1 | Set-AzureRmVirtualNetwork
+$virtualNetwork1 | Set-AzVirtualNetwork
 
 # Request a public IP address
-$gwpip1= New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 -Location $Location1 `
+$gwpip1= New-AzPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 -Location $Location1 `
  -AllocationMethod Dynamic
 
 # Create the gateway IP address configuration
-$vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
-$subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName1 -VirtualNetwork $vnet1
-$gwipconfig1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -SubnetId $subnet1.Id -PublicIpAddressId $gwpip1.Id
+$vnet1 = Get-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+$subnet1 = Get-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -VirtualNetwork $vnet1
+$gwipconfig1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -SubnetId $subnet1.Id -PublicIpAddressId $gwpip1.Id
 
 # Create the VPN gateway (takes 20-40 minutes)
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
  -Location $Location1 -IpConfigurations $gwipconfig1 -GatewayType Vpn `
  -VpnType RouteBased -GatewaySku VpnGw1 
 
 # Create the second resource group
-New-AzureRmResourceGroup -Name $RG2 -Location $Location2
+New-AzResourceGroup -Name $RG2 -Location $Location2
 
 # Create a virtual network 2
-$virtualNetwork2 = New-AzureRmVirtualNetwork `
+$virtualNetwork2 = New-AzVirtualNetwork `
   -ResourceGroupName $RG2 `
   -Location $Location2 `
   -Name $VNetName2 `
   -AddressPrefix $VNetPrefix21
 
 # Create a subnet configuration
-Add-AzureRmVirtualNetworkSubnetConfig -Name $FESubName2 -AddressPrefix $FESubPrefix2 -VirtualNetwork $virtualNetwork2
+Add-AzVirtualNetworkSubnetConfig -Name $FESubName2 -AddressPrefix $FESubPrefix2 -VirtualNetwork $virtualNetwork2
 
 # Set the subnet configuration for virtual network 2
-$virtualNetwork2 | Set-AzureRmVirtualNetwork
+$virtualNetwork2 | Set-AzVirtualNetwork
 
 # Add a gateway subnet
-Add-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName2 -AddressPrefix $GWSubPrefix2 -VirtualNetwork $virtualNetwork2
+Add-AzVirtualNetworkSubnetConfig -Name $GWSubName2 -AddressPrefix $GWSubPrefix2 -VirtualNetwork $virtualNetwork2
 
 # Set the subnet configuration for the virtual network
-$virtualNetwork2 | Set-AzureRmVirtualNetwork
+$virtualNetwork2 | Set-AzVirtualNetwork
 
 # Request a public IP address
-$gwpip2 = New-AzureRmPublicIpAddress -Name $GWIPName2 -ResourceGroupName $RG2 -Location $Location2 `
+$gwpip2 = New-AzPublicIpAddress -Name $GWIPName2 -ResourceGroupName $RG2 -Location $Location2 `
  -AllocationMethod Dynamic
 
 # Create the gateway IP address configuration
-$vnet2 = Get-AzureRmVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2
-$subnet2 = Get-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName2 -VirtualNetwork $vnet2
-$gwipconfig2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName2 -SubnetId $subnet2.Id -PublicIpAddressId $gwpip2.Id
+$vnet2 = Get-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2
+$subnet2 = Get-AzVirtualNetworkSubnetConfig -Name $GWSubName2 -VirtualNetwork $vnet2
+$gwipconfig2 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName2 -SubnetId $subnet2.Id -PublicIpAddressId $gwpip2.Id
 
 # Create the VPN gateway (takes 20-40 minutes)
-New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 `
+New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 `
  -Location $Location2 -IpConfigurations $gwipconfig2 -GatewayType Vpn `
  -VpnType RouteBased -GatewaySku VpnGw1
 
 # Create the connections
-$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
-$vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
-New-AzureRmVirtualNetworkGatewayConnection -Name $Connection12 -ResourceGroupName $RG1 `
+$vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+$vnet2gw = Get-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
+New-AzVirtualNetworkGatewayConnection -Name $Connection12 -ResourceGroupName $RG1 `
 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet2gw -Location $Location1 `
 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
-New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG2 `
+New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG2 `
 -VirtualNetworkGateway1 $vnet2gw -VirtualNetworkGateway2 $vnet1gw -Location $Location2 `
 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
  ```
  
 ## <a name="clean-up-resources"></a>리소스 정리
 
-만든 리소스가 더 이상 필요하지 않으면 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹을 삭제합니다. 그러면 리소스 그룹 및 포함된 모든 리소스가 삭제됩니다.
+만든 리소스가 더 이상 필요하지 않으면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹을 삭제합니다. 그러면 리소스 그룹 및 포함된 모든 리소스가 삭제됩니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name TestRG1
-Remove-AzureRmResourceGroup -Name TestRG2
+Remove-AzResourceGroup -Name TestRG1
+Remove-AzResourceGroup -Name TestRG2
 ```
  
  
@@ -148,20 +150,20 @@ Remove-AzureRmResourceGroup -Name TestRG2
 
 | 명령 | 메모 |
 |---|---|
-| [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) | 서브넷 구성을 추가합니다. 이 구성은 가상 네트워크 만들기 프로세스에서 사용됩니다. |
-| [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork) | 가상 네트워크 세부 정보를 불러옵니다. |
-| [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway) | 가상 네트워크 게이트웨이 세부 정보를 불러옵니다. |
-| [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig) | 가상 네트워크 서브넷 구성 세부 정보를 불러옵니다. |
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | 서브넷 구성을 만듭니다. 이 구성은 가상 네트워크 만들기 프로세스에서 사용됩니다. |
-| [새-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | 가상 네트워크를 만듭니다. |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | 공용 IP 주소를 만듭니다. |
-| [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) | 게이트웨이 IP 구성을 새로 만듭니다. |
-| [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/new-azurermvirtualnetworkgateway) | VPN 게이트웨이를 만듭니다. |
-| [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection) | vnet 간 연결을 만듭니다. |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
-| [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) | 가상 네트워크에 대한 서브넷 구성을 설정합니다. |
-| [Set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) | VPN 게이트웨이에 대한 구성을 설정합니다. |
+| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 서브넷 구성을 추가합니다. 이 구성은 가상 네트워크 만들기 프로세스에서 사용됩니다. |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 가상 네트워크 세부 정보를 불러옵니다. |
+| [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) | 가상 네트워크 게이트웨이 세부 정보를 불러옵니다. |
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크 서브넷 구성 세부 정보를 불러옵니다. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | 서브넷 구성을 만듭니다. 이 구성은 가상 네트워크 만들기 프로세스에서 사용됩니다. |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 가상 네트워크를 만듭니다. |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | 공용 IP 주소를 만듭니다. |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | 게이트웨이 IP 구성을 새로 만듭니다. |
+| [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | VPN 게이트웨이를 만듭니다. |
+| [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | vnet 간 연결을 만듭니다. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
+| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크에 대한 서브넷 구성을 설정합니다. |
+| [Set-AzVirtualNetworkGateway](/powershell/module/az.network/set-azvirtualnetworkgateway) | VPN 게이트웨이에 대한 구성을 설정합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

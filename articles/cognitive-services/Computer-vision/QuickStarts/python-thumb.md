@@ -8,47 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 85a8bcaeecc998a2020a657e6944a18c82a0159e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c29ea46513624215421845b99bd8306b73a5a9ac
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860170"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309015"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 사용하여 썸네일 생성
 
-이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지에서 썸네일을 생성합니다. [썸네일 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) 메서드를 사용하여 이미지의 썸네일을 생성할 수 있습니다. 높이와 너비를 지정합니다. 입력 이미지의 가로 세로 비율과 다를 수 있습니다. Computer Vision은 스마트 자르기를 사용하여 관심 영역을 지능적으로 식별하고 해당 영역을 기반으로 자르기 좌표를 생성합니다.
-
-[MyBinder](https://mybinder.org)의 Jupyter Notebook을 사용하면 이 빠른 시작을 단계별로 실행할 수 있습니다. Binder를 시작하려면 다음 단추를 선택합니다.
-
-[![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+이 빠른 시작에서는 Computer Vision의 REST API를 사용하여 이미지에서 썸네일을 생성합니다. [썸네일 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) 메서드를 사용하여 원하는 높이와 너비를 지정할 수 있으며 Computer Vision은 스마트 자르기를 사용하여 관심 영역을 지능적으로 식별하고 해당 영역을 기반으로 자르기 좌표를 생성합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Computer Vision을 사용하려면 구독 키가 필요합니다. [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
-
-## <a name="prerequisites"></a>필수 조건
-
-- 샘플을 로컬로 실행하려면 [Python](https://www.python.org/downloads/)이 설치되어 있어야 합니다.
 - Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
+- [Visual Studio Code](https://code.visualstudio.com/download) 같은 코드 편집기
 
 ## <a name="create-and-run-the-sample"></a>샘플 만들기 및 실행
 
-샘플을 만들고 실행하려면 다음 단계를 수행합니다.
-
-1. 다음 코드를 텍스트 편집기에 복사합니다.
-1. 필요한 경우 코드에서 다음 내용을 변경합니다.
-    1. `subscription_key`의 값을 구독 키로 바꿉니다.
-    1. 필요한 경우 `vision_base_url`의 값을 구독 키를 가져온 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
-    1. 필요에 따라 `image_url`의 값을 썸네일을 생성하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-thumbnail.py`
-1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-thumbnail.py`
+샘플을 만들고 실행하려면 코드 편집기에 다음 코드를 복사합니다. 
 
 ```python
 import requests
@@ -92,13 +75,27 @@ plt.axis("off")
 print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 ```
 
+다음으로, 아래 작업을 수행합니다.
+1. `subscription_key`의 값을 구독 키로 바꿉니다.
+1. 필요한 경우 `vision_base_url`의 값을 구독 키를 가져온 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
+1. 필요에 따라 `image_url`의 값을 썸네일을 생성하려는 다른 이미지의 URL로 바꿉니다.
+1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-thumbnail.py`
+1. 명령 프롬프트 창을 엽니다.
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-thumbnail.py`
+
 ## <a name="examine-the-response"></a>응답 검사
 
-성공적인 응답이 썸네일에 대한 이미지 데이터를 나타내는 이진 데이터로 반환됩니다. 요청이 성공하면 샘플에서 응답으로 이진 데이터에서 썸네일이 생성되고 표시됩니다. 요청이 실패하면 응답이 명령 프롬프트 창에 표시됩니다. 실패된 요청에 대한 응답은 무엇이 잘못되었는지 확인할 수 있도록 오류 코드 및 메시지를 포함합니다.
+성공적인 응답이 썸네일에 대한 이미지 데이터를 나타내는 이진 데이터로 반환됩니다. 샘플은 이 이미지를 표시합니다. 요청이 실패하면 응답이 명령 프롬프트 창에 표시되고 오류 코드가 포함됩니다.
+
+## <a name="run-in-jupyter-optional"></a>Jupyter에서 실행(선택 사항)
+
+[MyBinder](https://mybinder.org)의 Jupyter Notebook을 사용하면 필요에 따라 이 빠른 시작을 단계별로 실행할 수 있습니다. Binder를 시작하려면 다음 단추를 선택합니다.
+
+[![바인더](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 ## <a name="next-steps"></a>다음 단계
 
-Computer Vision을 사용하는 Python 애플리케이션을 탐색합니다. 이 프로그램은 OCR(광학 문자 인식)을 수행하고, 스마트하게 자른 썸네일을 만들고, 이미지에서 얼굴을 비롯한 시각적 특징을 감지하고, 분류하고, 태그를 지정하고, 설명합니다. Computer Vision API를 사용하여 신속하게 실험하려면 [API 테스트 콘솔 열기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)를 사용하세요.
+다음으로, 썸네일 생성 기능에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Computer Vision API Python 자습서](../Tutorials/PythonTutorial.md)
+> [썸네일 생성](../concept-generating-thumbnails.md)

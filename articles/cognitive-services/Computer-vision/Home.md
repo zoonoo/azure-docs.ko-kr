@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/22/2018
+ms.date: 02/20/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4322b118268ee88235190f5672585d17ea365495
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872649"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453055"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -45,17 +45,17 @@ Azure의 Computer Vision 서비스는 개발자에게 이미지를 처리하고 
 
 ## <a name="extract-text-from-images"></a>이미지에서 텍스트 추출
 
-Computer Vision을 사용하여 [OCR을 통해 이미지의 텍스트를 시스템에서 읽을 수 있는 문자 스트림으로 추출](concept-extracting-text-ocr.md)할 수 있습니다. 필요한 경우 OCR은 수평 이미지 축을 기준으로 인식된 텍스트의 회전 각도로 수정하고, 각 단어에 대한 프레임 좌표를 제공합니다. OCR은 25개 언어를 지원하며, 추출된 텍스트의 언어를 자동으로 감지합니다.
+Computer Vision을 사용하여 [OCR(광학 문자 인식)을 통해 이미지의 텍스트를 머신에서 읽을 수 있는 문자 스트림으로 추출](concept-extracting-text-ocr.md)할 수 있습니다. 필요한 경우 OCR은 인식된 텍스트의 회전을 수정하고 각 단어에 대한 프레임 좌표를 제공합니다. OCR은 25개 언어를 지원하며, 인식된 텍스트의 언어를 자동으로 감지합니다.
 
-또한 이미지에서 [인쇄 텍스트 및 필기 텍스트를 인식](concept-recognizing-text.md)할 수도 있습니다. Computer Vision은 영수증, 포스터, 명함, 편지 및 화이트보드와 같은 서로 다른 표면과 배경이 있는 다양한 사물의 이미지에서 인쇄 텍스트와 필기 텍스트를 모두 감지하고 추출할 수 있습니다. 현재 인쇄 텍스트와 필기 텍스트는 미리 보기에서 인식할 수 있으며 영어만 지원됩니다.  
+또한 이미지에서 [인쇄 텍스트와 필기 텍스트를 인식](concept-recognizing-text.md)할 수도 있습니다. Computer Vision은 영수증, 포스터, 명함, 편지 및 화이트보드와 같은 서로 다른 표면과 배경이 있는 다양한 사물의 이미지에서 인쇄 텍스트와 필기 텍스트를 모두 감지하고 추출할 수 있습니다. 현재 인쇄 텍스트와 필기 텍스트의 인식은 미리 보기로 있으며, 영어만 지원됩니다. 
 
 ## <a name="moderate-content-in-images"></a>이미지 콘텐츠 조정
 
-Computer Vision을 사용하여 [이미지에서 성인용 및 선정적인 콘텐츠를 감지](concept-detecting-adult-content.md)하고, 이미지에 성인용 또는 선정적인 콘텐츠가 포함되어 있을 가능성을 평가하고, 둘 다에 대한 신뢰도 점수를 생성할 수 있습니다. 성인용 및 선정적인 콘텐츠 감지 필터는 기본 설정에 맞게 슬라이딩 눈금에 설정할 수 있습니다.
+Computer Vision을 사용하여 이미지에서 [성인 및 외설 콘텐츠를 감지](concept-detecting-adult-content.md)하고 둘 모두에 대한 신뢰도 점수를 반환할 수 있습니다. 성인용 및 선정적인 콘텐츠 감지 필터는 기본 설정에 맞게 슬라이딩 눈금에 설정할 수 있습니다.
 
 ## <a name="use-containers"></a>컨테이너 사용
 
-[Computer Vision 컨테이너를 사용](computer-vision-how-to-install-containers.md)하여 표준화된 Docker 컨테이너를 데이터에 더 가깝게 설치함으로써 로컬에서 인쇄 및 필기된 텍스트를 인식할 수 있습니다.
+데이터에 더 가깝게 표준화된 Docker 컨테이너를 설치함으로써 [Computer Vision 컨테이너를 사용](computer-vision-how-to-install-containers.md)하여 인쇄 텍스트와 필기 텍스트를 로컬로 인식합니다.
 
 ## <a name="image-requirements"></a>이미지 요구 사항
 

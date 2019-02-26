@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 허용되는 ExpressRoute 대역폭
-description: 이 샘플 정책에서는 ExpressRoute가 지정된 대역폭 집합을 사용해야 합니다.
+description: 이 샘플 정책 정의에서는 ExpressRoute가 지정된 대역폭 세트를 사용해야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: fc98e9085844749153ee6f45466cc367eef2ffff
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: eacd2dd7ddecba47d00ea09cb45f99e991bfd2dc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244747"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341609"
 ---
-# <a name="allowed-expressroute-bandwidth"></a>허용되는 ExpressRoute 대역폭
+# <a name="sample---allowed-expressroute-bandwidth"></a>샘플 - 허용되는 ExpressRoute 대역폭
 
 이 정책에서는 ExpressRoute가 지정된 대역폭 집합을 사용해야 합니다. 사용자는 ExpressRoute에 지정할 수 있는 SKU의 배열을 지정합니다.
 

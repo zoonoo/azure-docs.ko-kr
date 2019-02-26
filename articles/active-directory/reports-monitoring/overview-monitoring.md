@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 228d54f1b2b438c05779b96025d3ad03a7757beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 961f7bf85ed8bb67c8284edea1846e96895d7f46
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165096"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452851"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>Azure Active Directory 모니터링이란? (미리 보기)
 
@@ -57,14 +57,14 @@ Azure 저장소 계정으로 로그를 라우팅하면 [보존 정책](reference
 
 로그를 Azure 이벤트 허브로 라우팅하면 Sumologic 및 Splunk 같은 타사 SIEM 도구와 통합할 수 있습니다. 이 통합을 통해 Azure AD 활동 로그 데이터를 SIEM에서 관리하는 다른 데이터와 결합하여 환경에 보다 풍부한 인사이트를 얻을 수 있습니다. [로그를 이벤트 허브로 스트리밍](tutorial-azure-monitor-stream-logs-to-event-hub.md)하는 방법을 알아보세요.
 
-## <a name="send-logs-to-log-analytics"></a>Log Analytics로 로그 보내기
+## <a name="send-logs-to-azure-monitor-logs"></a>Azure Monitor 로그에 로그 보내기
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)는 여러 소스의 모니터링 데이터를 통합하는 솔루션으로, 애플리케이션 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공합니다. Azure AD 활동 로그를 Log Analytics로 보내서 수집한 데이터를 신속하게 검색하고, 모니터링하고, 경고할 수 있습니다. [Log Analytics로 데이터를 보내는 방법](howto-integrate-activity-logs-with-log-analytics.md)을 알아보세요.
+[Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)는 여러 원본의 모니터링 데이터를 통합하고, 애플리케이션 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공하는 솔루션입니다. Azure AD 활동 로그를 Azure Monitor 로그에 보내면 수집된 데이터를 빠르게 검색, 모니터링 및 경고할 수 있습니다. [데이터를 Azure Monitor 로그에 보내는 방법](howto-integrate-activity-logs-with-log-analytics.md)에 대해 알아보세요.
 
-Azure AD 활동 로그용으로 미리 작성된 보기를 설치하여 로그인 및 감사 이벤트가 관련된 일반적인 시나리오를 모니터링할 수 있습니다. [Azure AD 활동 로그용 Log Analytics 보기를 설치하는 방법](howto-install-use-log-analytics-views.md)을 알아보세요.
+Azure AD 활동 로그용으로 미리 작성된 보기를 설치하여 로그인 및 감사 이벤트가 관련된 일반적인 시나리오를 모니터링할 수 있습니다. [Azure AD 활동 로그에 대한 Log Analytics 보기를 설치하고 사용하는 방법](howto-install-use-log-analytics-views.md)에 대해 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Monitor의 활동 로그](concept-activity-logs-azure-monitor.md)
 * [이벤트 허브로 로그 스트리밍](tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [Log Analytics로 로그 보내기](howto-integrate-activity-logs-with-log-analytics.md)
+* [Azure Monitor 로그에 로그 보내기](howto-integrate-activity-logs-with-log-analytics.md)

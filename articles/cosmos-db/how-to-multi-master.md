@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: effe6fa942ce0cabace08e72dba90baf8646680e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118860"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312143"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-in-azure-cosmos-db"></a>Azure Cosmos DB의 애플리케이션에서 다중 마스터를 구성하는 방법
+# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 애플리케이션에서 다중 마스터를 구성하는 방법
 
-애플리케이션에서 다중 마스터 기능을 사용하려면 애플리케이션에서 다중 지역 쓰기를 사용하도록 설정하고 애플리케이션이 배포된 현재 지역을 설정하여 멀티 호밍 기능을 구성해야 합니다.
+애플리케이션에서 다중 마스터 기능을 사용하려면 다중 지역 쓰기를 사용하도록 설정하고 멀티호밍 기능을 구성해야 합니다. 멀티호밍은 애플리케이션이 배포된 현재 지역을 설정하여 구성합니다.
 
 ## <a id="netv2"></a>.NET SDK v2
 
-애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `UseMultipleWriteLocations`를 true로 설정하고 `SetCurrentLocation`를 애플리케이션이 배포되고 Cosmos DB가 복제되는 지역으로 구성합니다.
+애플리케이션에서 다중 마스터를 사용하도록 설정하려면 `UseMultipleWriteLocations`를 true로 설정하고 `SetCurrentLocation`을 애플리케이션이 배포되고 Azure Cosmos DB가 복제되는 지역으로 구성합니다.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy

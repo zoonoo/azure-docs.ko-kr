@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 진단 설정 감사
-description: 이 샘플 정책은 진단 설정이 지정된 리소스 형식에 대해 사용하도록 설정되지 않은 경우 감사합니다.
+description: 이 샘플 정책 정의는 진단 설정이 지정된 리소스 형식에 대해 사용하도록 설정되지 않은 경우 감사를 수행합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 77d430138ea1fe7f3a0e6e81031fb3a733f47b1c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: f5b3a5cfd8adb97918a727bd05133d6c1b9f8a42
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241464"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343726"
 ---
-# <a name="audit-diagnostic-setting"></a>진단 설정 감사
+# <a name="sample---audit-diagnostic-setting"></a>샘플 - 진단 설정 감사
 
 이 기본 제공은 진단 설정이 지정된 리소스 형식에 대해 사용하도록 설정되지 않은지를 감사합니다. 진단 설정이 사용되도록 설정되었는지 여부를 확인하려면 리소스 형식의 배열을 지정합니다.
 

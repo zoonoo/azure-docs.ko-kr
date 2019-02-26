@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112549"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309865"
 ---
 # <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
 
@@ -51,7 +51,7 @@ VM을 이동하려면 다음 단계를 수행해야 합니다.
 > 현재 Azure Site Recovery는 한 Azure 지역에서 다른 Azure 지역으로 VM 이동을 지원하지만, 같은 Azure 지역 내 이동은 지원하지 않습니다. 
 
 > [!NOTE]
-> 이러한 단계에 대한 자세한 지침은 여기에 언급된 각 시나리오의 설명서에 제공됩니다.
+> 이러한 단계에 대한 자세한 지침은 [여기](#next-steps)에 언급된 각 시나리오의 설명서에 제공됩니다.
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>다중 계층 배포를 위한 일반적인 아키텍처
 아래 섹션에서는 고객이 Azure에서 다중 계층 애플리케이션에 가장 많이 선택하는 배포 아키텍처를 살펴봅니다. 공용 IP를 사용하는 3계층 애플리케이션을 예로 들어 설명하겠습니다. 계층마다(웹, 애플리케이션 및 데이터베이스) VM 2대가 있으며 Load Balancer를 통해 다른 계층과 연결됩니다. 데이터베이스 계층에서는 HA(고가용성)를 위해 VM 간에 SQL Always ON 복제가 사용됩니다.

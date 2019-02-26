@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기'
+title: '빠른 시작: Azure Data Explorer 클러스터 및 데이터베이스 만들기'
 description: 이 빠른 시작에서 Azure 데이터 탐색기 클러스터 및 데이터베이스를 만들고 데이터를 수집(로드)하는 방법을 알아봅니다.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214820"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408836"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>빠른 시작: Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>빠른 시작: Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기를 사용하려면 먼저 *클러스터*를 만들고 이 클러스터에 *데이터베이스*를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 *수집*(로드)합니다. 이 빠른 시작에서는 클러스터와 데이터베이스를 만듭니다. 후속 문서에서는 데이터를 수집하는 방법을 보여줍니다.
 
@@ -77,8 +77,8 @@ Azure 리소스 그룹에 계산 및 저장소 리소스 집합이 정의된 Azu
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | 데이터베이스 이름 | *TestDatabase* | 데이터베이스 이름은 클러스터 내에서 고유해야 합니다.
-    | 보존 기간 | *3650* | 데이터를 쿼리에 사용할 수 있도록 보장된 기간입니다. 시간 범위는 데이터가 수집된 시간부터 측정됩니다.
-    | 캐시 기간 | *31* | 자주 쿼리되는 데이터를 장기 저장소가 아닌 SSD 저장소 또는 RAM에 보관할 수 있는 시간 범위입니다.
+    | 보존 기간 | *3650* | 데이터를 쿼리에 사용할 수 있도록 보장되는 시간 범위(일)입니다. 시간 범위는 데이터가 수집된 시간부터 측정됩니다.
+    | 캐시 기간 | *31* | 자주 쿼리되는 데이터를 장기 스토리지가 아닌 SSD 스토리지 또는 RAM에 보관할 수 있는 시간 범위(일)입니다.
     | | | |
 
 1. **저장**을 선택하여 데이터베이스를 만듭니다. 만들기에는 일반적으로 채 1분이 소요되지 않습니다. 프로세스가 완료되면 클러스터 **개요** 탭으로 되돌아갑니다.
@@ -130,6 +130,6 @@ Azure 리소스 그룹에 계산 및 저장소 리소스 집합이 정의된 Azu
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [빠른 시작: 이벤트 허브에서 Azure 데이터 탐색기로 데이터 수집](ingest-data-event-hub.md)
+> [빠른 시작: 이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
 
 

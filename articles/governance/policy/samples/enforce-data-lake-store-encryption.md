@@ -1,6 +1,6 @@
 ---
 title: 샘플 - Data Lake Store에 대한 암호화 필요
-description: 이 샘플 정책에는 Data Lake Store에 대한 암호화가 필요합니다.
+description: 이 샘플 정책 정의에서는 Data Lake Store 암호화를 사용하도록 설정해야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 557198fcdc2c191986cedf4b384e0bf117dfa86d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e4de4c78bec9f4ffa6c4e2711a2d4260279ca559
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241685"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340606"
 ---
-# <a name="require-data-lake-store-encryption"></a>Data Lake Store 암호화 필요
+# <a name="sample---require-data-lake-store-encryption"></a>샘플 - Data Lake Store 암호화 필요
 
 이 기본 제공 정책은 암호화가 설정되지 않은 모든 Data Lake Store 계정을 거부합니다.
 

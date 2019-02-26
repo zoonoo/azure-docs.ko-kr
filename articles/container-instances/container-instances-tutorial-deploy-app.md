@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191108"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326742"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>자습서: Azure Container Instances에 컨테이너 애플리케이션 배포
 
@@ -36,26 +36,20 @@ ms.locfileid: "53191108"
 
 ### <a name="get-registry-credentials"></a>레지스트리 자격 증명 가져오기
 
-[두 번째 자습서](container-instances-tutorial-prepare-acr.md) 만든 이미지처럼 개인 컨테이너 레지스트리에 호스트되는 이미지를 배포하는 경우 레지스트리 자격 증명을 제공해야 합니다.
+[두 번째 자습서](container-instances-tutorial-prepare-acr.md)에서 만든 이미지처럼 개인 컨테이너 레지스트리에 호스트되는 이미지를 배포하는 경우 레지스트리에 액세스하기 위한 자격 증명을 제공해야 합니다. [Azure Container Instances의 Azure Container Registry를 사용하여 인증](../container-registry/container-registry-auth-aci.md)에 나온 대로 여러 시나리오에서 모범 사례는 레지스트리에 *끌어오기* 사용 권한이 있는 Azure Active Directory 서비스 주체를 만들고 구성하는 것입니다. 필요한 사용 권한을 가진 서비스 주체를 만들려면 샘플 스크립트에 대한 문서를 참조하세요. 서비스 주체 ID 및 서비스 주체 암호를 적어둡니다. 컨테이너를 배포하는 경우 이러한 자격 증명을 사용합니다.
 
-먼저, 컨테이너 레지스트리 로그인 서버의 전체 이름을 가져옵니다(`<acrName>`을 레지스트리 이름으로 바꾸기).
+또한 컨테이너 레지스트리 로그인 서버의 전체 이름이 필요합니다(`<acrName>`을 레지스트리 이름으로 바꾸기).
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-다음으로, 컨테이너 레지스트리 암호를 가져옵니다.
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
 ### <a name="deploy-container"></a>컨테이너 배포
 
-이제 [az container create][az-container-create] 명령을 사용하여 컨테이너를 배포합니다. `<acrLoginServer>` 및 `<acrPassword>`를 이전 두 개의 명령에서 얻은 값으로 바꿉니다. `<acrName>`을 컨테이너 레지스트리의 이름으로 바꾸고 `<aciDnsLabel>`을 원하는 DNS 이름으로 바꿉니다.
+이제 [az container create][az-container-create] 명령을 사용하여 컨테이너를 배포합니다. `<acrLoginServer>`를 이전 명령에서 얻은 값으로 바꿉니다. `<service-principal-ID>` 및 `<service-principal-password>`를 레지스트리에 액세스하기 위해 만든 서비스 주체 ID 및 암호로 바꿉니다. `<aciDnsLabel>`을 원하는 DNS 이름으로 바꿉니다.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 몇 초 정도 지나면 Azure에서 초기 응답이 수신됩니다. `--dns-name-label` 값은 컨테이너 인스턴스를 만드는 Azure 지역 내에서 고유해야 합니다. 명령을 실행한 결과 **DNS 이름 레이블** 오류 메시지가 표시되는 경우에는 이전 명령의 값을 수정합니다.
@@ -70,7 +64,7 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 
 상태가 *보류 중*에서 *실행 중*으로 변경될 때까지 [az container show][az-container-show] 명령을 1분 미만으로 반복합니다. 컨테이너가 *실행 중* 상태가 되면 다음 단계를 진행합니다.
 
-## <a name="view-the-application-and-container-logs"></a>애플리케이션 및 컨테이너 로그 보기
+## <a name="view-the-application-and-container-logs"></a>응용 프로그램 및 컨테이너 로그 보기
 
 배포에 성공하면 [az container show][az-container-show] 명령을 사용하여 컨테이너의 FQDN(정규화된 도메인 이름)을 표시합니다.
 
@@ -84,7 +78,7 @@ $ az container show --resource-group myResourceGroup --name aci-tutorial-app --q
 "aci-demo.eastus.azurecontainer.io"
 ```
 
-실행 중인 애플리케이션을 보려면 원하는 브라우저에서 표시된 DNS 이름으로 이동합니다.
+실행 중인 응용 프로그램을 보려면 원하는 브라우저에서 표시된 DNS 이름으로 이동합니다.
 
 ![브라우저의 Hello World 앱][aci-app-browser]
 
@@ -117,7 +111,7 @@ az group delete --name myResourceGroup
 
 > [!div class="checklist"]
 > * Azure CLI를 사용하여 Azure Container Registry의 컨테이너 배포
-> * 브라우저에서 애플리케이션 보기
+> * 브라우저에서 응용 프로그램 보기
 > * 컨테이너 로그 보기
 
 기본 사항을 알아보았으니, 컨테이너 그룹의 작동 방식 등 Azure Container Instances에 대해 자세히 알아보겠습니다.

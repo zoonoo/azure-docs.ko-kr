@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 허용되는 스토리지 계정 SKU
-description: 이 샘플 정책에서는 저장소 계정이 승인된 SKU를 사용해야 합니다.
+description: 이 샘플 정책 정의에서는 스토리지 계정이 승인된 SKU를 사용해야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 72af4c7fbc2f4822e15d33202b108ef45b5043ce
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 5d033255f45736440a6f860b9adacbd64f5446ff
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241583"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341320"
 ---
-# <a name="allowed-storage-account-skus"></a>허용되는 저장소 계정 SKU
+# <a name="sample---allowed-storage-account-skus"></a>샘플 - 허용되는 스토리지 계정 SKU
 
 이 정책에서는 저장소 계정이 승인된 SKU를 사용해야 합니다. 승인된 SKU 배열을 지정합니다.
 

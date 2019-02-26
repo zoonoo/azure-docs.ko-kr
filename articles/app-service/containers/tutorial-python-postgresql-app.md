@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 161778c921026547c532b05474a60dd0d3e9fa7a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 11918ecf741ef31354cb281d3e439585506683f4
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237803"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417230"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Azure App Service에서 Python 및 PostgreSQL 앱 빌드
 
@@ -35,7 +35,7 @@ ms.locfileid: "56237803"
 > * Azure Portal에서 앱 관리
 
 > [!NOTE]
-> Azure Database for PostgreSQL를 만들기 전에 해당 지역에서 사용할 수 있는 컴퓨팅 세대를 [여기](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores)서 확인하세요.
+> Azure Database for PostgreSQL를 만들기 전에, [해당 Azure 지역에서 사용할 수 있는 컴퓨팅 세대](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores)를 확인하세요.
 
 macOS에서 이 문서의 단계를 수행할 수 있습니다. Linux와 Windows의 지침은 대부분 동일하지만, 차이점은 이 자습서에서 자세히 설명하지 않습니다.
 

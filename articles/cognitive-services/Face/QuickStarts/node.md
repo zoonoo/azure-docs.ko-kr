@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b30e9da523e564f531ec8e9cebe5b16653e579f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bbb5cf9a043f8f4ab4202b6113d1c1b915f3b8a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858878"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312772"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>빠른 시작: Face REST API 및 Node.js를 사용하여 이미지에서 얼굴 감지
 
@@ -26,12 +26,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
+- [Visual Studio Code](https://code.visualstudio.com/download) 같은 코드 편집기
 
-## <a name="create-the-nodejs-script"></a>Node.js 스크립트 만들기
+## <a name="set-up-the-node-environment"></a>노드 환경 설정
 
-다음 코드는 Face API를 호출하고 이미지에서 얼굴 특성 데이터를 가져옵니다. 먼저, 텍스트 편집기에 코드를 복사합니다. 일부 코드를 변경해야 실행할 수 있습니다.&mdash;
+프로젝트를 만들 폴더로 이동하고 *facedetection.js*라는 새 파일을 만듭니다. 그런 다음, `requests` 모듈을 이 프로젝트에 설치합니다. 그러면 스크립트로 HTTP 요청을 만들 수 있습니다.
 
-```nodejs
+```shell
+npm install request --save
+```
+
+## <a name="write-the-nodejs-script"></a>Node.js 스크립트 작성
+
+다음 코드를 *facedetection.js*에 붙여넣습니다. 이 필드는 Face 서비스에 연결하는 방법과 입력 데이터를 가져올 위치를 지정합니다. `subscriptionKey` 필드를 구독 키의 값으로 업데이트해야 하며 올바른 지역 식별자가 포함되도록 `uriBase` 문자열을 변경해야 할 수도 있습니다(모든 지역 엔드포인트 목록에 대해서는 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조). 사용자 고유의 입력 이미지를 가리키도록 `imageUrl` 필드를 변경하려고 할 수 있습니다.
+
+```javascript
 'use strict';
 
 const request = require('request');
@@ -46,7 +55,12 @@ const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/det
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+```
 
+그런 다음, 아래 코드를 추가하여 Face API를 호출하고 입력 이미지에서 얼굴 특성 데이터를 가져옵니다. `returnFaceAttributes` 필드는 검색할 얼굴 특성을 지정합니다. 의도된 용도에 따라 이 문자열을 변경하려고 할 수 있습니다.
+
+
+```javascript
 // Request parameters.
 const params = {
     'returnFaceId': 'true',
@@ -76,26 +90,12 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-### <a name="subscription-key"></a>구독 키
-`<Subscription Key>`를 유효한 Face 구독 키로 바꿉니다.
-
-### <a name="face-endpoint-url"></a>Face 엔드포인트 URL
-
-URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`는 쿼리할 Azure Face 엔드포인트를 나타냅니다. 이 URL의 첫 번째 부분을 사용자 구독 키에 해당하는 지역에 맞게 변경해야 합니다(모든 지역 엔드포인트 목록을 보려면 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조).
-
-### <a name="url-query-string"></a>URL 쿼리 문자열
-
-`returnFaceAttributes` 필드는 검색할 얼굴 특성을 지정합니다. 의도된 용도에 따라 이 문자열을 변경하려고 할 수 있습니다.
-
-### <a name="image-source-url"></a>이미지 원본 URL
-`imageUrl` 필드는 입력으로 사용할 이미지를 나타냅니다. 이것은 분석하려는 이미지를 가리키도록 변경할 수 있습니다.
-
 ## <a name="save-and-run-the-script"></a>스크립트 저장 및 실행
 
-변경한 후에는 파일을 JavaScript(.js) 스크립트로 저장합니다. 그런 다음, 명령 프롬프트를 열고 `node` 명령으로 실행합니다.
+변경한 후에는 명령 프롬프트를 열고 `node` 명령으로 파일을 실행합니다.
 
 ```
-node myfile.js
+node facedetection.js
 ```
 
 콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 예: 
@@ -281,7 +281,7 @@ node myfile.js
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Face API를 호출하는 cURL 명령을 작성하여 이미지에서 얼굴을 감지하고 속성을 반환했습니다. 다음에는 Face API 참조 설명서를 살펴보고 보다 자세히 알아보겠습니다.
+이 빠른 시작에서는 Azure Face API를 호출하는 Node.js 스크립트를 작성하여 이미지에서 얼굴을 감지하고 특성을 반환했습니다. 다음에는 Face API 참조 설명서를 살펴보고 보다 자세히 알아보겠습니다.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

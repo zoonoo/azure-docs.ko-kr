@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: c3671df61eea5c826227706106cbb48dc70ad55f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 82d8a8085ca285c95a550678cdc534e586a4faa7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157758"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415967"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>자습서: .NET을 사용하여 비디오 업로드, 인코딩 및 스트리밍
 
@@ -125,6 +125,10 @@ Event Grid는 고가용성, 일관된 성능 및 동적 확장을 위해 설계�
 **작업**은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고 완료되면 **취소됨**이 표시됩니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
+
+### <a name="job-error-codes"></a>작업 오류 코드
+
+[오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
 
 ### <a name="get-a-streaming-locator"></a>스트리밍 로케이터 가져오기
 

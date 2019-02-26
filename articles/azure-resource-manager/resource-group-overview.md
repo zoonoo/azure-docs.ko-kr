@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: fbfbb4e452032073d92e7c2b93f78669da0ceaf5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1d576b24e96d6c4c88d6fbef86cb1c6cf7f7c61a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691560"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268133"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 
 Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure 구독에서 리소스를 생성, 업데이트 및 삭제할 수 있게 해주는 일관적인 관리 레이어를 제공합니다. 여기의 액세스 제어, 감사 및 태깅 기능을 사용하여 배포 후 리소스를 보호 및 정리할 수 있습니다.
 
-포털, PowerShell, Azure CLI, REST API 또는 클라이언트 SDK를 통해 작업을 수행하면 Azure Resource Manager API가 요청을 처리합니다. 모든 요청이 동일한 API를 통해 처리되므로 모든 여러 도구에서 일관적인 결과 및 기능을 볼 수 있습니다.
+포털, PowerShell, Azure CLI, REST API 또는 클라이언트 SDK를 통해 작업을 수행하면 Azure Resource Manager API가 요청을 처리합니다. 모든 요청이 동일한 API를 통해 처리되므로 모든 여러 도구에서 일관적인 결과 및 기능을 볼 수 있습니다. 포털에서 사용할 수 있는 모든 기능은 PowerShell, Azure CLI, Azure REST API 및 클라이언트 SDK를 통해서도 사용 가능합니다. API를 통해 처음 릴리스된 기능은 처음 릴리스된 지 180일 이내에 포털에 표시됩니다.
 
 다음 그림에서는 모든 도구가 Azure Resource Manager API와 상호 작용하는 방법을 보여 줍니다. API는 요청을 인증하고 권한을 부여하는 리소스 관리자 서비스에 요청을 전달합니다. 그런 다음, Resource Manager는 적절한 서비스로 요청을 라우팅합니다.
 

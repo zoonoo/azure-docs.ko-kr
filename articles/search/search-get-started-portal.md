@@ -1,21 +1,21 @@
 ---
 title: Azure Portal을 사용하여 빠른 시작 자습서 인덱싱 및 쿼리 - Azure Search
-description: 이 빠른 시작 자습서에서는 Azure Portal 및 기본 제공 샘플 데이터를 사용하여 Azure Search에서 인덱스를 생성합니다. 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 등을 살펴봅니다.
+description: Azure Portal에서 기본 제공 샘플 데이터와 데이터 가져오기 마법사를 사용하여 Azure Search에서 첫 번째 인덱스를 빌드 및 쿼리하는 방법에 대해 알아보세요.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53be1180f074c075ed2ca2d544b9b164a3a1bdd6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991313"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270337"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>빠른 시작: Azure Search 가져오기, 인덱싱 및 쿼리에 기본 제공 포털 도구 사용
 
@@ -94,15 +94,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 스토리지 요구 사항은 선택의 결과에 따라 달라지지 않습니다. 예를 들어 여러 필드에 **조회 가능** 특성을 설정하는 경우 스토리지 요구 사항이 증가하지 않습니다.
 
-기본적으로 마법사는 키 필드에 대한 기반으로 고유 식별자에 대한 데이터 원본을 검색합니다. 문자열은 검색 가능한 것으로 규정됩니다. 정수는 검색 가능하고, 필터링 가능하고, 정렬 가능하고, 패싯 가능한 것으로 규정됩니다.
+기본적으로 마법사는 키 필드에 대한 기반으로 고유 식별자에 대한 데이터 원본을 검색합니다. *문자열*은 **탐색** 및 **검색 가능**한 것으로 규정됩니다. *정수*는 **검색 가능**하고, **필터링 가능**하고, **정렬 가능**하고, **패싯 가능**한 것으로 규정됩니다.
 
-1. 모든 기본값을 적용합니다.
+1. 기본값을 그대로 적용합니다. 
 
-  ![생성된 realestate 인덱스](media/search-get-started-portal/realestateindex2.png)
+   기존 realestate 데이터 원본을 사용하여 마법사를 두 번째로 다시 실행하면 인덱스가 기본 특성으로 구성되지 않습니다. 향후 가져오기에서는 특성을 수동으로 선택해야 합니다.
+
+   ![생성된 realestate 인덱스](media/search-get-started-portal/realestateindex2.png)
 
 2. 다음 페이지를 계속합니다.
 
-  ![다음 페이지 인덱서 만들기](media/search-get-started-portal/next-button-create-indexer.png)
+   ![다음 페이지 인덱서 만들기](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>4단계 - 인덱서 구성
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 427f3f498ac04c68ef0b335b50c60db46b46d042
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 114dac10592213d3b2fdfff909913039b3dba344
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243857"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429437"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -61,9 +61,9 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
-|S1    |    40     |    10     |
-|S2    |    100     |    25     |
-|S3    |    200     |    50     |
+|S0    |    40     |    10     |
+|S1    |    100     |    25     |
+|S2    |    200     |    50     |
 |S4    |    400     |    100     |
 |S8*    |    320     |    200     |
 |S9*    |    640    |    400     |
@@ -217,7 +217,7 @@ Power BI, Excel, Reporting Services 및 타사 도구와 같은 최신 데이터
 
 ## <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
 
-Azure Analysis Services는 Azure 메트릭과 통합되어 서버의 성능 및 상태를 모니터링할 수 있도록 리소스 특정 메트릭의 확장된 수를 제공합니다. 자세한 내용은 [서버 메트릭 모니터링](analysis-services-monitor.md)을 참조하세요. [Azure 리소스 진단 로그란?](../azure-monitor/platform/diagnostic-logs-overview.md)에서 메트릭을 기록합니다. 로그를 모니터링하 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 자세한 내용은 [진단 로깅 설정](analysis-services-logging.md)을 참조하세요.
+Azure Analysis Services는 Azure 메트릭과 통합되어 서버의 성능 및 상태를 모니터링할 수 있도록 리소스 특정 메트릭의 확장된 수를 제공합니다. 자세한 내용은 [서버 메트릭 모니터링](analysis-services-monitor.md)을 참조하세요. [Azure 리소스 진단 로그란?](../azure-monitor/platform/diagnostic-logs-overview.md)에서 메트릭을 기록합니다. 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 보내고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트림하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 자세한 내용은 [진단 로깅 설정](analysis-services-logging.md)을 참조하세요.
 
 Azure Analysis Services는 [DMV(동적 관리 뷰)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)도 사용하도록 지원합니다. SQL 구문에 따라 서버 인스턴스에 대한 메타데이터 및 모니터링 정보를 반환하는 DMV 인터페이스 스키마 행 집합입니다.
 

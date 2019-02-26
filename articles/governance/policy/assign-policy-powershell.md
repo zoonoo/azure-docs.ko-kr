@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell을 사용하여 비준수 리소스를 식별하는 정책 만들기
+title: Azure PowerShell을 사용하여 비준수 리소스에 대한 정책 만들기
 description: Azure PowerShell을 사용하여 비준수 리소스를 식별하는 Azure Policy 할당을 만들 수 있습니다.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b5f4306fc1627e679f8f59a92bae4124a48cbd42
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: de8192ee0f0dad1ccc385aa28892a3ef4f5c4a86
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856471"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338736"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Azure PowerShell을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -72,7 +72,7 @@ $policyAssignment.PolicyAssignmentId
 
 다음으로 JSON 파일로 출력되는 비준수 리소스의 리소스 ID를 가져오려면 다음 명령을 실행합니다.
 
-```
+```console
 armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 

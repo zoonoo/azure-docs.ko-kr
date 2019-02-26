@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 02/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 5a72bfccd69a51aa6bafb34bb768b48640e554af
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 254ebb9e23a80f71d2c46e6666362d764ff03141
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243011"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341592"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>자습서: Azure Data Box 반송 및 Azure에 대한 데이터 업로드 확인
 
@@ -42,9 +42,7 @@ ms.locfileid: "56243011"
 ## <a name="ship-data-box-back"></a>Data Box 반송
 
 1. 디바이스의 전원이 꺼져 있고 케이블이 분리되었는지 확인합니다. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
-2. 디바이스를 미국에서 배송하는 경우 배송 레이블이 E-ink 디스플레이에 표시되는지 확인하고 운송업체에 픽업을 예약합니다. 레이블이 손상 또는 손실되었거나 E-ink 디스플레이에 표시되지 않으면 Microsoft 지원에 문의하세요. 고객 지원팀에서 제안하는 경우에만 Azure Portal에서 **개요 > 포장용 레이블 다운로드**로 차례로 이동합니다. 배송 레이블을 다운로드하여 디바이스에 부착합니다.
-
-    디바이스를 유럽에서 배송하는 경우 E-ink 디스플레이에 배송 레이블이 표시되지 않습니다. 대신 반송 레이블이 배송 레이블 아래 투명 파우치에 포함됩니다. 오래된 배송 레이블을 제거하여 배송 레이블이 명확히 보이도록 합니다.
+2. 배송 레이블이 E-ink 디스플레이에 표시되는지 확인하고 운송업체에 픽업을 예약합니다. 레이블이 손상 또는 손실되었거나 E-ink 디스플레이에 표시되지 않으면 Microsoft 지원에 문의하세요. 고객 지원팀에서 제안하는 경우에만 Azure Portal에서 **개요 > 포장용 레이블 다운로드**로 차례로 이동합니다. 배송 레이블을 다운로드하여 디바이스에 부착합니다.
     
 3. 디바이스를 반송하는 경우 UPS로 픽업을 예약합니다. 픽업을 예약하려면 현지 UPS(국가 특정 무료 전화 번호)에 전화하거나 Data Box를 가장 가까운 반납 위치에 인계합니다.
 

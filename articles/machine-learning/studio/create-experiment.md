@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f5b24b21c4511b535509421aaa35ba3498e9f6a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246020"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453174"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>빠른 시작: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
 
@@ -57,15 +57,15 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. 실험은 캔버스의 위쪽에서 볼 수 있는 기본 이름이 지정됩니다. 이 텍스트를 선택하고 **자동차 가격 예측**과 같이 의미 있는 것으로 이름을 바꿉니다. 이름은 고유할 필요가 없습니다.
 
-    ![실험 이름 바꾸기][rename-experiment]
+    ![실험 이름 바꾸기](./media/create-experiment/rename-experiment.png)
 
 1. 실험 캔버스 왼쪽에는 데이터 세트와 모듈의 팔레트가 있습니다. 이 팔레트 맨 위에 있는 검색 상자에 **automobile**을 입력하여 레이블이 **Automobile price data (Raw)** 인 데이터 세트를 찾습니다. 실험 캔버스에 데이터 세트를 끌어 놓습니다.
 
-    ![자동차 데이터 세트를 찾고 실험 캔버스 위로 끌어서 놓기][type-automobile]
+    ![자동차 데이터 세트를 찾고 실험 캔버스 위로 끌어서 놓기](./media/create-experiment/type-automobile.png)
 
 이 데이터의 모양을 확인하려면 자동차 데이터 세트의 아래쪽에 있는 출력 포트를 클릭한 다음, **시각화**를 선택합니다.
 
-![출력 포트를 클릭하고 "시각화" 선택][select-visualize]
+![출력 포트를 클릭하고 "시각화" 선택](./media/create-experiment/select-visualize.png)
 
 > [!TIP]
 > 데이터 세트 및 모듈에는 쪽의 입력 포트, 아래쪽의 출력을 작은 원으로 나타내는 입력 및 출력 포트가 있습니다.
@@ -74,7 +74,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 이 데이터 세트에서 각 행은 자동차를 나타내며, 각 자동차와 연결된 변수는 열로 표시됩니다. 특정 자동차에 대한 변수를 사용하여 가격을 맨 오른쪽 열(26열의 "가격")에 예측합니다.
 
-![데이터 시각화 창에서 자동차 데이터 보기][visualize-auto-data]
+![데이터 시각화 창에서 자동차 데이터 보기](./media/create-experiment/visualize-auto-data.png)
 
 오른쪽 위 모서리에서 "**x**"를 클릭하여 시각화 창을 닫습니다.
 
@@ -89,9 +89,9 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. 모듈 팔레트의 위쪽에 있는 검색 상자에서 **열 선택**을 입력하여 [데이터 세트에서 열 선택][select-columns] 모듈을 찾습니다. 그런 다음, 실험 캔버스로 끌어서 놓습니다. 이 모듈을 사용하면 모델에서 포함하거나 제외할 데이터 열을 선택할 수 있습니다.
 
-1. **자동차 가격 데이터(원시)** 데이터 세트의 입력 포트를 [데이터 세트의 열 선택][select-columns] 모듈의 입력 포트에 연결합니다.
+1. **자동차 가격 데이터(원시)** 데이터 세트의 출력 포트를 '데이터 세트에서 열 선택'의 입력 포트에 연결합니다.
 
-    !["데이터 세트에서 열 선택" 모듈을 실험 캔버스에 추가 및 연결][type-select-columns]
+    !["데이터 세트에서 열 선택" 모듈을 실험 캔버스에 추가 및 연결](./media/create-experiment/type-select-columns.png)
 
 1. [데이터 세트에서 열 선택][select-columns] 모듈을 클릭하고 **속성** 창에서 **열 선택기 시작**을 클릭합니다.
 
@@ -100,26 +100,26 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
     - 다음 드롭다운에서 **제외** 및 **열 이름**을 선택한 후 텍스트 상자 내부를 클릭합니다. 열 목록이 표시됩니다. **normalized-losses**를 선택하면 텍스트 상자에 추가됩니다.
     - 확인 표시(OK) 단추(오른쪽 아래)를 클릭하여 열 선택기를 닫습니다.
 
-    ![열 선택기 시작 및 "normalized-losses" 열 제외][launch-column-selector]
+    ![열 선택기 시작 및 "normalized-losses" 열 제외](./media/create-experiment/launch-column-selector.png)
 
     이제 **데이터 세트에서 열 선택**의 속성 창은 **nomalized-losses**를 제외한 데이터 세트의 모든 열을 통과한다는 것을 나타냅니다.
 
-    !["normalized-losses" 열이 제외되었음을 보여 주는 속성 창][showing-excluded-column]
+    !["normalized-losses" 열이 제외되었음을 보여 주는 속성 창](./media/create-experiment/showing-excluded-column.png)
 
     > [!TIP] 
     > 모듈을 두 번 클릭하고 텍스트를 입력하여 모듈에 주석을 추가할 수 있습니다. 그러면 모듈이 실험에서 수행하는 내용을 한눈에 볼 수 있습니다. 이 경우에 [데이터 세트에서 열 선택][select-columns] 모듈을 두 번 클릭하고 "정규화된 손실 제외"라는 주석을 입력합니다.
 
-    ![모듈을 두 번 클릭하여 주석 추가][add-comment]
+    ![모듈을 두 번 클릭하여 주석 추가](./media/create-experiment/add-comment.png)
 
 1. [누락된 데이터 정리][clean-missing-data] 모듈을 실험 캔버스로 끌어 놓고 [데이터 세트에서 열 선택][select-columns] 모듈과 연결합니다. **속성** 창에서 **정리 모드** 아래 **전체 열 제거**를 선택합니다. 이러한 옵션은 [누락된 데이터 정리][clean-missing-data]에서 누락 값이 있는 모든 행을 제거하여 데이터를 정리하도록 지정합니다. 모듈을 두 번 클릭하고 주석 "Remove missing value rows"를 입력합니다.
 
-    !["누락된 데이터 정리" 모듈에 대한 정리 모드를 "전체 행 제거"로 설정][set-remove-entire-row]
+    !["누락된 데이터 정리" 모듈에 대한 정리 모드를 "전체 행 제거"로 설정](./media/create-experiment/set-remove-entire-row.png)
 
 1. 페이지 아래쪽의 **실행**을 클릭하여 실험을 실행합니다.
 
     실험이 실행 완료되면 모든 모듈에 성공적으로 완료되었음을 나타내는 녹색 확인 표시가 표시됩니다. 오른쪽 위 모서리에서 **Finished running** 상태도 확인됩니다.
 
-    ![실행된 이후의 실험에 대한 표시][early-experiment-run]
+    ![실행된 이후의 실험에 대한 표시](./media/create-experiment/early-experiment-run.png)
 
 > [!TIP]
 > 왜 지금 실험을 실행했을까요? 실험을 실행하여 데이터에 대한 열 정의는 데이터 세트에서 [누락된 데이터 정리][select-columns] 모듈을 통해, 그리고 [누락된 데이터 정리][clean-missing-data] 모듈을 통해 전달됩니다. 즉, [누락된 데이터 정리][clean-missing-data]에 연결하는 모든 모듈은 같은 정보를 갖게 됩니다.
@@ -140,7 +140,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. 다른 [데이터 세트에서 열 선택][select-columns] 모듈을 실험 캔버스에 끌어 놓습니다. [누락된 데이터 정리][clean-missing-data] 모듈의 왼쪽 출력 포트를 [데이터 세트에서 열 선택][select-columns] 모듈의 입력 포트에 연결합니다.
 
-    !["데이터 세트에서 열 선택" 모듈을 "누락된 데이터 정리" 모듈에 연결][connect-clean-to-select]
+    !["데이터 세트에서 열 선택" 모듈을 "누락된 데이터 정리" 모듈에 연결](./media/create-experiment/connect-clean-to-select.png)
 
 1. 모듈을 두 번 클릭하고 "Select features for prediction"을 입력합니다.
 
@@ -152,7 +152,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. 확인 표시(확인) 단추를 클릭합니다.
 
-    ![예측에 포함될 열(기능) 선택][select-columns-to-include]
+    ![예측에 포함될 열(기능) 선택](./media/create-experiment/select-columns-to-include.png)
 
 이 모듈은 다음 단계에서 사용할 학습 알고리즘에 전달하려는 기능만 포함하도록 필터링된 데이터 세트를 생성합니다. 나중에 돌아와서 다른 선택 기능을 사용하여 다시 시도할 수 있습니다.
 
@@ -174,7 +174,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. [데이터 분할][split] 모듈을 클릭하여 선택합니다. **첫 번째 출력 데이터 세트의 행 분수**(캔버스의 오른쪽에 있는 **속성** 창에서)를 찾아서 0.75로 설정합니다. 그러면 데이터의 75%를 모델 학습에 사용하고 25%는 테스트용으로 보유합니다.
 
-    !["데이터 분할" 모듈의 분할 비율을 0.75로 설정][set-split-data-percentage]
+    !["데이터 분할" 모듈의 분할 비율을 0.75로 설정](./media/create-experiment/set-split-data-percentage.png)
 
     > [!TIP]
     > **Random seed** 매개 변수를 변경하면 학습 및 테스트용으로 서로 다른 무작위 샘플을 생성할 수 있습니다. 이 매개 변수는 난수 발생기의 시드를 제어합니다.
@@ -185,19 +185,19 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. [모델 학습][train-model] 모듈을 찾아 실험 캔버스로 끌어 놓습니다. [선형 회귀][linear-regression] 모듈의 출력 포트를 [모델 학습][train-model] 모듈의 왼쪽 포트에 연결하고 [분할 데이터][split] 모듈의 데이터 학습 출력(왼쪽 포트)를 [모델 학습][train-model] 모듈의 오른쪽 입력 포트에 연결합니다.
 
-    !["모델 학습" 모듈을 "선형 회귀" 및 "데이터 분할" 모듈 모두에 연결][connect-train-model]
+    !["모델 학습" 모듈을 "선형 회귀" 및 "데이터 분할" 모듈 모두에 연결](./media/create-experiment/connect-train-model.png)
 
 1. [모델 학습][train-model] 모듈을 선택하고 **속성** 창에서 **열 선택기 시작**을 클릭한 다음 **가격** 열을 선택합니다. **가격**은 모델에서 예측할 값입니다.
 
     **사용 가능한 열** 목록에서 가격 열을 **선택한 열** 목록으로 이동하여 열 선택기에서 **가격** 열을 선택합니다.
 
-    !["모델 학습" 모듈에 대한 가격 열 선택][select-price-column]
+    !["모델 학습" 모듈에 대한 가격 열 선택](./media/create-experiment/select-price-column.png)
 
 1. 실험을 실행합니다.
 
 이제 가격을 예측하는 데 새 자동차 데이터의 점수를 매기는 데 사용할 수 있는 학습된 회귀 모델이 있습니다.
 
-![실행된 이후의 실험에 대한 표시][second-experiment-run]
+![실행된 이후의 실험에 대한 표시](./media/create-experiment/second-experiment-run.png)
 
 ## <a name="predict-new-automobile-prices"></a>새 자동차 가격 예측
 
@@ -205,21 +205,21 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 1. [모델 점수 매기기][score-model] 모듈을 찾아 실험 캔버스로 끌어 놓습니다. [모델 학습][train-model]모듈의 출력 포트를 [모델 점수 매기기][score-model]의 왼쪽 입력 포트에 연결합니다. 오른쪽 입력 포트를 [데이터 분할][split] 모듈의 테스트 데이터 출력(오른쪽 포트)을 [모델 점수 매기기][score-model]의 오른쪽 입력 포트에 연결합니다.
 
-    !["모델 점수 매기기" 모듈을 "모델 학습" 및 "데이터 분할" 모듈 모두에 연결][connect-score-model]
+    !["모델 점수 매기기" 모듈을 "모델 학습" 및 "데이터 분할" 모듈 모두에 연결](./media/create-experiment/connect-score-model.png)
 
 1. 실험을 실행하고, [모델 점수 매기기][score-model]의 출력 포트를 클릭하여 [모델 점수 매기기][score-model] 모듈의 출력을 보고, **시각화**를 선택합니다. 출력에 테스트 데이터에서 가져온 알려진 값과 함께 가격 예측 값이 표시됩니다.  
 
-    !["모델 점수 매기기" 모듈의 출력][score-model-output]
+    !["모델 점수 매기기" 모듈의 출력](./media/create-experiment/score-model-output.png)
 
 1. 마지막으로 결과의 품질을 테스트합니다. [모델 평가][evaluate-model] 모듈을 선택하여 실험 캔버스로 끌어 놓은 후 [모델 점수 매기기][score-model] 모듈의 출력 포트를 [모델 평가][evaluate-model]의 왼쪽 입력 포트에 연결합니다. 최종 실험은 다음과 같이 표시됩니다.
 
-    ![최종 실험][complete-linear-regression-experiment]
+    ![최종 실험](./media/create-experiment/complete-linear-regression-experiment.png)
 
 1. 실험을 실행합니다.
 
 [모델 평가][evaluate-model] 모듈의 출력을 보려면 출력 포트를 클릭한 다음 **시각화**를 선택합니다.
 
-![실험 평가 결과][evaluation-results]
+![실험 평가 결과](./media/create-experiment/evaluation-results.png)
 
 모델에 대한 다음 통계가 표시됩니다.
 
@@ -241,35 +241,6 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 
 > [!div class="nextstepaction"]
 > [자습서: Studio에서 예측 솔루션 개발](tutorial-part1-credit-risk.md)
-
-<!-- Images -->
-[sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png
-[rename-experiment]: ./media/create-experiment/rename-experiment.png
-[visualize-auto-data]:./media/create-experiment/visualize-auto-data.png
-[select-visualize]: ./media/create-experiment/select-visualize.png
-[showing-excluded-column]:./media/create-experiment/showing-excluded-column.png
-[set-remove-entire-row]:./media/create-experiment/set-remove-entire-row.png
-[early-experiment-run]:./media/create-experiment/early-experiment-run.png
-[select-columns-to-include]:./media/create-experiment/select-columns-to-include.png
-[second-experiment-run]:./media/create-experiment/second-experiment-run.png
-[connect-score-model]:./media/create-experiment/connect-score-model.png
-[evaluation-results]:./media/create-experiment/evaluation-results.png
-[complete-linear-regression-experiment]:./media/create-experiment/complete-linear-regression-experiment.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[type-automobile]:./media/create-experiment/type-automobile.png
-[type-select-columns]:./media/create-experiment/type-select-columns.png
-[launch-column-selector]:./media/create-experiment/launch-column-selector.png
-[add-comment]:./media/create-experiment/add-comment.png
-[connect-clean-to-select]:./media/create-experiment/connect-clean-to-select.png
-
-[set-split-data-percentage]:./media/create-experiment/set-split-data-percentage.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[connect-train-model]:./media/create-experiment/connect-train-model.png
-[select-price-column]:./media/create-experiment/select-price-column.png
-
-[score-model-output]:./media/create-experiment/score-model-output.png
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

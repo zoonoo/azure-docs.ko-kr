@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed159decb51d71e8c0beddb285f6c01ae264ed2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f72cbd719cea585144be3757f0791a74bde452ab
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206670"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416771"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>빠른 시작: Azure Active Directory를 사용하여 Web API 보안 유지
 
@@ -45,21 +45,20 @@ ms.locfileid: "56206670"
 
 ```Shell
 {
-  "name": "node-aad-demo",
+  "name": "active-directory-webapi-nodejs",
   "version": "0.0.1",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "passport": "0.4.0",
-    "passport-azure-ad": "3.0.8",
-    "restify": "6.0.1",
-    "restify-plugins": "1.6.0"
+    "passport-azure-ad": "4.0.0",
+    "restify": "7.7.0"
   }
 }
 ```
 
-`package.json`이 만들어지면 명령 프롬프트에서 `npm install`을 실행하여 패키지 종속성을 설치합니다. 
+`package.json`이 만들어지면 명령 프롬프트에서 `npm install`을 실행하여 패키지 종속성을 설치합니다.
 
 #### <a name="configure-the-project-to-use-active-directory"></a>Active Directory를 사용하도록 프로젝트 구성
 
@@ -116,7 +115,7 @@ module.exports.credentials = {
 ```JavaScript
 const
       restify = require('restify')
-    , restifyPlugins = require('restify-plugins')
+    , restifyPlugins = require ('restify').plugins
     , passport = require('passport')
     , BearerStrategy = require('passport-azure-ad').BearerStrategy
     , config = require('./config')
@@ -127,7 +126,7 @@ const
 
 코드의 섹션 내용:
 
-- `restify` 및 `restify-plugins` 모듈은 Restify 서버를 설정하기 위해 참조됩니다.
+- `restify` 및 플러그 인 모듈은 Restify 서버를 설정하기 위해 참조됩니다.
 - `passport` 및 `passport-azure-ad` 모듈은 Azure AD와의 통신을 담당합니다.
 - `config` 변수는 이전 단계에서 만든 `config.js` 파일의 값으로 초기화됩니다.
 - 사용자 토큰이 보안 엔드포인트로 전달될 때 `authenticatedUserTokens`에서 사용자 토큰을 저장하기 위한 배열이 만들어집니다.

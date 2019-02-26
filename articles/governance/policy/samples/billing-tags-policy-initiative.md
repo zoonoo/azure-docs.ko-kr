@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 청구 태그 정책 이니셔티브
-description: 이 샘플 정책 집합은 비용 센터 및 제품 이름에 대해 지정된 태그 값을 필요로 합니다.
+description: 이 샘플 정책 정의에서는 비용 센터 및 제품 이름에 대한 지정된 태그 값이 필요합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4592ac63561a59bfc0e4351cc5ad83f138955370
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b659d6f681b980b956992f0d488995fd1a55de93
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242858"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337605"
 ---
-# <a name="billing-tags-policy-initiative"></a>청구 태그 정책 이니셔티브
+# <a name="sample---billing-tags-policy-initiative"></a>샘플 - 청구 태그 정책 이니셔티브
 
 이 정책 집합은 비용 센터 및 제품 이름에 대해 지정된 태그 값을 필요로 합니다. 기본 제공 정책을 사용하여 필수 태그를 적용합니다. 태그에 대한 필수 값을 지정합니다.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 9c0255382e2cfe09683931408d25ffb3f60419d1
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 4441797eb41dc909a98be3c42931140e71e36f80
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508899"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270354"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 콘솔 앱 빌드
 
@@ -72,7 +72,10 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
      * ```touch app.js```
      * ```touch config.js```
 
-4. npm을 통해 @azure/cosmos 모듈을 설치합니다. 다음 명령을 사용합니다.
+4. `package.json` 파일을 만들고 초기화합니다. 다음 명령을 사용합니다.
+   * ```npm init -y```
+
+5. npm을 통해 @azure/cosmos 모듈을 설치합니다. 다음 명령을 사용합니다.
    * ```npm install @azure/cosmos --save```
 
 ## <a id="Config"></a>앱의 구성 설정
@@ -190,13 +193,12 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
-   const url = require('url');
    ```
 
 1. 이전에 저장한 ```config.endpoint``` 및 ```config.primaryKey```를 사용하는 코드를 복사하고 붙여넣어서 새 CosmosClient를 만듭니다.
 
    ```javascript
-   const url = require('url');
+   const config = require('./config');
 
    // ADD THIS PART TO YOUR CODE
    const endpoint = config.endpoint;
@@ -280,7 +282,6 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
-   const url = require('url');
 
    const endpoint = config.endpoint;
    const masterKey = config.primaryKey;
@@ -382,7 +383,6 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
    const CosmosClient = require('@azure/cosmos').CosmosClient;
 
    const config = require('./config');
-   const url = require('url');
 
    const endpoint = config.endpoint;
    const masterKey = config.primaryKey;
@@ -695,7 +695,6 @@ Azure Cosmos DB는 JSON 항목 삭제를 지원합니다.
 const CosmosClient = require('@azure/cosmos').CosmosClient;
 
 const config = require('./config');
-const url = require('url');
 
 const endpoint = config.endpoint;
 const masterKey = config.primaryKey;
@@ -889,9 +888,9 @@ node app.js
 * [Azure Cosmos DB 계정][create-account]. 
 * GitHub에서 제공하는 [시작](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started) 솔루션. 
 
-npm을 통해 **@azure/cosmos** 모듈을 설치합니다. 다음 명령을 사용합니다. 
+npm을 통해 프로젝트의 종속성을 설치합니다. 다음 명령을 사용합니다. 
 
-* ```npm install @azure/cosmos --save``` 
+* ```npm install``` 
 
 다음으로, ```config.js``` 파일에서 config.endpoint 및 config.primaryKey 값을 [3단계: 앱의 구성 설정](#Config)에서 설명한 대로 업데이트합니다.  
 

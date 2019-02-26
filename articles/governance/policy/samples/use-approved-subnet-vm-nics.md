@@ -1,6 +1,6 @@
 ---
 title: 샘플 - VM 네트워크 인터페이스에 대해 승인된 서브넷 사용
-description: 이 샘플 정책에서는 네트워크 인터페이스가 승인된 서브넷을 사용해야 합니다.
+description: 이 샘플 정책 정의에서는 네트워크 인터페이스가 승인된 서브넷을 사용해야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: d4f27b98581f7ea2adbbb69d6041e6ad190cc0e7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 854dbb6d3743c0e8af8a267a425286624453b688
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242740"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341116"
 ---
-# <a name="use-approved-subnet-for-vm-network-interfaces"></a>VM 네트워크 인터페이스에 승인된 서브넷을 사용합니다.
+# <a name="sample---use-approved-subnet-for-vm-network-interfaces"></a>샘플 - VM 네트워크 인터페이스에 대해 승인된 서브넷 사용
 
 이 정책에서는 네트워크 인터페이스가 승인된 서브넷을 사용해야 합니다. 승인된 서브넷의 ID를 지정합니다.
 

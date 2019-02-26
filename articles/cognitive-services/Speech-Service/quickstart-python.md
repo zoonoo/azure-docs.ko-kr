@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 43ae1339b2b6880656c68957a3d4ed2d2f13b559
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859544"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447120"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>빠른 시작: Python용 Speech SDK를 사용하여 음성 인식
 
@@ -26,16 +26,16 @@ ms.locfileid: "55859544"
 ## <a name="prerequisites"></a>필수 조건
 
 * Speech Service에 대한 Azure 구독 키입니다. [무료로 가져올 수 있습니다](get-started.md).
-* [Python 3.5 이상](https://www.python.org/downloads/), 64비트.
+* [Python 3.5 이상](https://www.python.org/downloads/)
 * Python Speech SDK 패키지는 다음과 같은 운영 체제용으로 제공됩니다. 
-    * Windows: x64.
+    * Windows: x64 및 x86
     * Mac: macOS X 버전 10.12 이상.
     * Linux: x64의 Ubuntu 16.04 또는 18.04.
 * Ubuntu에서 필요한 패키지를 설치하려면 다음 명령을 실행합니다.
 
   ```sh
   sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
   ```
 
 * Windows에서 플랫폼에 대한 [Visual Studio 2017용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다.

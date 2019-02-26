@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 모든 NIC에서 NSG x
-description: 이 샘플 정책에서는 특정 네트워크 보안 그룹이 모든 가상 네트워크 인터페이스와 함께 사용됩니다.
+description: 이 샘플 정책 정의에서는 특정 네트워크 보안 그룹이 모든 가상 네트워크 인터페이스와 함께 사용되어야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 37701a2240f5b017efdbd051972952c9f0449d69
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: d297d296f8b33122ce2b8079c5ee6c79705bcc55
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245969"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342561"
 ---
-# <a name="nsg-x-on-every-nic"></a>모든 NIC에서 NSG x
+# <a name="sample---network-security-group-x-on-every-nic"></a>샘플 - 모든 NIC의 네트워크 보안 그룹 X
 
 이 정책에서는 특정 네트워크 보안 그룹이 모든 가상 네트워크 인터페이스와 함께 사용됩니다. 사용할 네트워크 보안 그룹의 ID를 지정합니다.
 

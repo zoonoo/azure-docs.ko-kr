@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 사용자 정의 경로 테이블 없음
-description: 이 샘플 정책은 가상 네트워크가 사용자 정의 경로 테이블과 함께 배포되는 것을 금지합니다.
+description: 이 샘플 정책 정의에서는 가상 네트워크가 사용자 정의 경로 테이블과 함께 배포되는 것이 금지됩니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: db0e7ec5d684f71b3a8426cdf5256adaa8467383
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6155477f7ff70544032e4890cae215fb68523a11
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242875"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341422"
 ---
-# <a name="no-user-defined-route-table"></a>사용자 정의 경로 테이블 없음
+# <a name="sample---no-user-defined-route-table"></a>샘플 - 사용자 정의 경로 테이블 없음
 
 이 정책은 가상 네트워크가 사용자 정의 경로 테이블과 함께 배포되는 것을 금지합니다.
 

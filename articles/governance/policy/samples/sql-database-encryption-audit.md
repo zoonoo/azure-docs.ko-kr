@@ -1,6 +1,6 @@
 ---
 title: 샘플 ‑ SQL Database에 대한 투명한 데이터 암호화 감사
-description: 이 샘플 정책은 SQL Database가 투명한 데이터 암호화를 사용하지 않는지를 감사합니다.
+description: 이 샘플 정책 정의에서는 SQL Database가 투명한 데이터 암호화를 사용하지 않는지를 감사합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 98d86d721f028a32d65ab4d336cc5579a0845607
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a35c7045f132b23dbe23978118d0c1cf865f9bab
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244694"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342612"
 ---
-# <a name="audit-sql-database-encryption"></a>SQL Database 암호화 감사
+# <a name="sample---audit-sql-database-encryption"></a>샘플 - SQL Database 암호화 감사
 
 이 기본 제공 정책은 SQL Database가 투명한 데이터 암호화를 사용하지 않는지를 감사합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure 데이터 복사 도구를 사용하여 데이터 복사 | Microsoft Docs
-description: Azure Data Factory를 만든 다음, 데이터 복사 도구를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다.
+description: Azure Data Factory를 만든 다음, 데이터 복사 도구를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터를 복사합니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: a9ba02478b17b29343236a91fe637357c1414717
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ebc0f93055a014888d01fa9bffc7702b99380234
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015325"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417468"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터 복사
+# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [현재 버전](tutorial-copy-data-tool.md)
 
-이 자습서에서는 Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 그런 다음, 데이터 복사 도구를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사하는 파이프라인을 만듭니다.
+이 자습서에서는 Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 그런 다음, 데이터 복사 도구를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터를 복사하는 파이프라인을 만듭니다.
 
 > [!NOTE]
 > Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -43,7 +43,7 @@ ms.locfileid: "54015325"
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
 
-다음 단계를 수행하여 자습서에서 사용할 Blob 저장소와 SQL 데이터베이스를 준비합니다.
+다음 단계를 수행하여 자습서에서 사용할 Blob Storage와 SQL 데이터베이스를 준비합니다.
 
 #### <a name="create-a-source-blob"></a>원본 Blob 만들기
 
@@ -152,7 +152,7 @@ ms.locfileid: "54015325"
 
     ![새로 연결된 싱크 서비스](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 
-    b. 갤러리에서 **Azure Blob Storage**를 선택한 후 **다음**을 선택합니다.
+    b. 갤러리에서 **Azure SQL Database**를 선택하고, **다음**을 선택합니다.
 
     ![Azure SQL DB 선택](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 
@@ -193,7 +193,7 @@ ms.locfileid: "54015325"
 1. 왼쪽의 **작성** 탭을 선택하여 편집기 모드로 전환합니다. 편집기를 사용하여 도구를 통해 만든 연결된 서비스, 데이터 세트 및 파이프라인을 업데이트할 수 있습니다. Data Factory UI에서 이러한 엔터티를 편집하는 방법에 대한 자세한 내용은 [이 자습서의 Azure Portal 버전](tutorial-copy-data-portal.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 샘플의 파이프라인이 Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다.
+이 샘플의 파이프라인이 Blob Storage에서 SQL 데이터베이스로 데이터를 복사합니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.

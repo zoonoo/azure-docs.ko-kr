@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d50bb6ca67d7d09525013b65d0635e8e16b4cb4e
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162721"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417281"
 ---
 # <a name="quickstart-stream-video-files---net"></a>빠른 시작: 비디오 파일 스트리밍 - .NET
 
@@ -81,6 +81,8 @@ ms.locfileid: "55162721"
 
 1. 웹 브라우저를 열고 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)로 이동합니다.
 2. 애플리케이션을 실행할 때 얻은 URL 값 중 하나를 **URL:** 상자에 붙여넣습니다. 
+ 
+     URL을 HLS, Dash 또는 부드러운 스트리밍 형식으로 붙여넣을 수 있으며, Azure Media Player는 디바이스에서 재생하기 위한 적절한 스트리밍 프로토콜로 자동으로 전환합니다.
 3. **플레이어 업데이트**를 누릅니다.
 
 Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 환경에서는 사용할 수 없습니다. 
@@ -100,6 +102,10 @@ az group delete --name amsResourceGroup
 샘플의 각 기능이 무엇을 하는지에 관한 설명은 코드를 검토하고 [이 소스 파일 ](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs)의 주석을 확인합니다.
 
 [파일 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md) 자습서는 고급 스트리밍 예제를 자세한 설명을 곁들여 제공합니다. 
+
+### <a name="job-error-codes"></a>작업 오류 코드
+
+[오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
 
 ## <a name="multithreading"></a>다중 스레딩
 

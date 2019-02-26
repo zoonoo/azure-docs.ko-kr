@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6789e1d6e514ce107ab96fddbaa582ccbe922bbb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243725"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453616"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>자습서 1: 신용 위험 예측 - Azure Machine Learning Studio
 
@@ -23,9 +23,9 @@ ms.locfileid: "56243725"
 
 신용대출 지원 시 애플리케이션에서 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
-신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Microsoft Azure Machine Learning을 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Azure Machine Learning Studio 및 Machine Learning 웹 서비스가 사용됩니다.  
+신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Microsoft Azure Machine Learning Studio를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Azure Machine Learning Studio 및 Machine Learning 웹 서비스가 사용됩니다.  
 
-3부로 구성된 이 자습서는 공개적으로 사용할 수 있는 신용 위험 데이터에서 시작합니다.  그런 다음, 예측 모델을 개발하고 학습합니다.  마지막으로 모델을 웹 서비스로 배포합니다.
+이 3부로 구성된 자습서에서는 공개적으로 사용 가능한 신용 위험 데이터부터 시작합니다.  그런 다음, 예측 모델을 개발하고 학습합니다.  마지막으로 모델을 웹 서비스로 배포합니다.
 
 1부 자습서에서 수행하는 작업은 다음과 같습니다. 
  
@@ -55,7 +55,7 @@ ms.locfileid: "56243725"
 
 Machine Learning Studio를 사용하려면 Microsoft Azure Machine Learning Studio 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.  
 
-작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
+작업 영역을 만들려면 [Azure Machine Learning Studio 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
 
 작업 영역을 만든 후 Machine Learning Studio([https://studio.azureml.net/Home](https://studio.azureml.net/Home))를 엽니다. 둘 이상의 작업 영역이 있는 경우 창의 오른쪽 위 모서리에 있는 도구 모음에서 작업 영역을 선택할 수 있습니다.
 

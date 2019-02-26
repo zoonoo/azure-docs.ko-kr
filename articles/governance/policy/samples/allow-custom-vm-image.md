@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 리소스 그룹에서 사용자 지정 VM 이미지 허용
-description: 이 샘플 정책에서는 사용자 지정 이미지가 승인된 리소스 그룹의 이미지여야 합니다.
+description: 이 샘플 정책 정의에서는 사용자 지정 이미지가 승인된 리소스 그룹의 이미지여야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: c1afedf9d3c3ebb68d4c5344cd8795851e2bd10a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 2fe72b6f13c1bda6978a541d3665a8389ee6fa59
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242059"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340912"
 ---
-# <a name="allow-custom-vm-image-from-a-resource-group"></a>리소스 그룹으로부터 사용자 지정 VM 이미지 허용
+# <a name="sample---allow-custom-vm-image-from-a-resource-group"></a>샘플 - 리소스 그룹에서 사용자 지정 VM 이미지 허용
 
 이 샘플 정책에서는 사용자 지정 이미지가 승인된 리소스 그룹의 이미지여야 합니다. 승인된 리소스 그룹의 이름을 지정합니다.
 

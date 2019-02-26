@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: c9c336b9aed06095849f33060ff6969e8b7bfcaf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881709"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309644"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Knowledge Exploration Service 시작
 
@@ -228,7 +228,7 @@ Azure 외부에서 `kes.exe`를 실행하는 경우 인덱스가 10,000개의 �
 
 `kes.exe`가 Azure 계정에 액세스할 수 있게 하려면 Azure Portal에서 [Azure 게시 설정 파일을 다운로드](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade)합니다. 메시지가 표시되면 원하는 Azure 계정에 로그인합니다. `kes.exe`가 실행되는 작업 디렉터리에 파일을 *AzurePublishSettings.xml*로 저장합니다.
 
-큰 인덱스를 작성하고 호스트하는 방법에는 두 가지가 있습니다. 첫 번째 방법은 Azure의 Windows VM에서 스키마 및 데이터 파일을 준비하는 것입니다. 그런 다음, [`kes.exe build_index`](#building-index)를 실행하여 크기 제한 없이 VM에서 로컬로 인덱스를 작성합니다. 제한 없이 프로토타입을 신속하게 생성하기 위해 [`kes.exe host_service`](#hosting-service)를 사용하여 결과로 생성된 인덱스를 VM에서 로컬로 호스트할 수 있습니다. 자세한 단계는 [Azure VM 자습서](../../../articles/virtual-machines/windows/quick-create-portal.md)를 참조하세요.
+큰 인덱스를 작성하고 호스트하는 방법에는 두 가지가 있습니다. 첫 번째 방법은 Azure의 Windows VM에서 스키마 및 데이터 파일을 준비하는 것입니다. 그런 다음, `kes.exe build_index`를 실행하여 크기 제한 없이 VM에서 로컬로 인덱스를 작성합니다. 제한 없이 프로토타입을 신속하게 생성하기 위해 `kes.exe host_service`를 사용하여 결과로 생성된 인덱스를 VM에서 로컬로 호스트할 수 있습니다. 자세한 단계는 [Azure VM 자습서](../../../articles/virtual-machines/windows/quick-create-portal.md)를 참조하세요.
 
 두 번째 방법은 [`kes.exe build_index`](CommandLine.md#build_index-command)에 `--remote` 매개 변수를 사용하여 원격 Azure 빌드를 수행하는 것입니다. 그러면 Azure VM 크기가 지정됩니다. `--remote` 매개 변수를 지정하면 명령은 해당 크기의 임시 Azure VM을 만듭니다. VM에서 인덱스를 작성하고, 인덱스를 대상 Blob Storage에 업로드한 다음, 완료 시 VM을 삭제합니다. 인덱스를 작성하는 동안 Azure 구독에 VM 비용이 청구됩니다.
 

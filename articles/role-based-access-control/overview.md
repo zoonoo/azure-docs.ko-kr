@@ -1,6 +1,6 @@
 ---
-title: Azure의 RBAC(역할 기반 액세스 제어)란? | Microsoft Docs
-description: Azure의 RBAC(역할 기반 액세스 제어) 개요를 살펴봅니다. 역할 할당을 사용하여 Azure 리소스에 대한 액세스를 제어합니다.
+title: Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란? | Microsoft Docs
+description: Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)의 개요를 제공합니다. 역할 할당을 사용하여 Azure 리소스에 대한 액세스를 제어합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 2d8f3ffb4f7d90b053c8a285d62007f5655d9adb
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303325"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338634"
 ---
-# <a name="what-is-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)란?
+# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?
 
 클라우드 리소스에 대한 액세스 관리는 클라우드를 사용하는 모든 조직에서 중요한 기능입니다. RBAC(역할 기반 액세스 제어)는 Azure 리소스에 액세스할 수 있는 사용자, 해당 리소스로 수행할 수 있는 작업 및 액세스 권한이 있는 영역을 관리하는 데 도움을 줍니다.
 
@@ -72,15 +72,15 @@ Azure에는 사용 가능한 [기본 제공 역할](built-in-roles.md)이 여러
 - [읽기 권한자](built-in-roles.md#reader) - 기존 Azure 리소스를 볼 수 있습니다.
 - [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) - Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다.
 
-나머지 기본 제공 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 [Virtual Machine 기여자](built-in-roles.md#virtual-machine-contributor) 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](custom-roles.md)을 만들면 됩니다.
+나머지 기본 제공 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 [Virtual Machine 기여자](built-in-roles.md#virtual-machine-contributor) 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)을 만들면 됩니다.
 
-Azure에는 개체 내 데이터에 대한 액세스 권한을 부여할 수 있는 데이터 작업(현재 미리 보기)이 도입되었습니다. 예를 들어 사용자가 저장소 계정에 대한 데이터 읽기 액세스 권한을 갖고 있는 경우 해당 저장소 계정 내의 BLOB 또는 메시지를 읽을 수 있습니다. 자세한 내용은 [역할 정의 이해](role-definitions.md)를 참조하세요.
+Azure에는 개체 내 데이터에 대한 액세스 권한을 부여할 수 있는 데이터 작업(현재 미리 보기)이 도입되었습니다. 예를 들어 사용자가 저장소 계정에 대한 데이터 읽기 액세스 권한을 갖고 있는 경우 해당 저장소 계정 내의 BLOB 또는 메시지를 읽을 수 있습니다. 자세한 내용은 [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)를 참조하세요.
 
 ### <a name="scope"></a>범위
 
 *범위*는 액세스가 적용되는 리소스의 세트입니다. 역할에 할당할 때 범위를 정의하여 허용되는 작업을 추가로 제한할 수 있습니다. 이러한 기능은 누군가를 단일 리소스 그룹에 대해서만 [웹 사이트 기여자](built-in-roles.md#website-contributor)로 지정하려는 경우에 유용합니다.
 
-Azure는 여러 수준([관리 그룹](../azure-resource-manager/management-groups-overview.md), 구독, 리소스 그룹 또는 리소스)에서 구독을 지정할 수 있습니다. 범위는 부모-자식 관계로 구조화되어 있습니다.
+Azure는 여러 수준([관리 그룹](../governance/management-groups/index.md), 구독, 리소스 그룹 또는 리소스)에서 구독을 지정할 수 있습니다. 범위는 부모-자식 관계로 구조화되어 있습니다.
 
 ![역할 할당 범위](./media/overview/rbac-scope.png)
 
@@ -108,7 +108,7 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 
 ## <a name="deny-assignments"></a>거부 할당
 
-이전에는 RBAC가 거부가 없는 허용 전용 모델이었지만 이제 RBAC는 제한된 방식으로 거부 할당을 지원합니다. *거부 할당*은 역할 할당과 마찬가지로 액세스를 거부하기 위해 특정 범위에서 사용자, 그룹, 서비스 주체 또는 관리 ID에게 거부 작업 세트를 연결합니다. 역할 할당은 *허용된* 일련의 작업을 정의하고 거부 할당은 *허용되지 않는* 일련의 작업을 정의합니다. 즉, 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 지정된 작업을 사용자가 수행할 수 없도록 차단합니다. 거부 할당은 역할 할당보다 우선합니다. 현재 거부 할당은**읽기 전용**이며 Azure를 통해서만 설정할 수 있습니다. 자세한 내용은 [거부 할당 이해](deny-assignments.md) 및 [Azure Portal을 사용하여 거부 할당 보기](deny-assignments-portal.md)를 참조하세요.
+이전에는 RBAC가 거부가 없는 허용 전용 모델이었지만 이제 RBAC는 제한된 방식으로 거부 할당을 지원합니다. *거부 할당*은 역할 할당과 마찬가지로 액세스를 거부하기 위해 특정 범위에서 사용자, 그룹, 서비스 주체 또는 관리 ID에게 거부 작업 세트를 연결합니다. 역할 할당은 *허용된* 일련의 작업을 정의하고 거부 할당은 *허용되지 않는* 일련의 작업을 정의합니다. 즉, 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 지정된 작업을 사용자가 수행할 수 없도록 차단합니다. 거부 할당은 역할 할당보다 우선합니다. 현재 거부 할당은**읽기 전용**이며 Azure를 통해서만 설정할 수 있습니다. 자세한 내용은 [Azure 리소스에 대한 거부 할당 이해](deny-assignments.md) 및 [Azure Portal을 사용하여 Azure 리소스에 대한 거부 할당 보기](deny-assignments-portal.md)를 참조하세요.
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>RBAC에서 사용자가 리소스에 액세스 권한이 있는지 확인하는 방법
 
@@ -132,7 +132,7 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작: RBAC 및 Azure Portal을 사용하여 사용자에게 액세스 권한 부여](quickstart-assign-role-user-portal.md)
-- [RBAC 및 Azure Portal을 사용하여 액세스 관리](role-assignments-portal.md)
+- [빠른 시작: Azure Portal을 사용하여 사용자가 Azure 리소스에 대해 갖는 액세스 권한 보기](check-access.md)
+- [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-portal.md)
 - [Azure의 다양한 역할 이해](rbac-and-directory-admin-roles.md)
 - [엔터프라이즈 클라우드 채택: Azure에서 리소스 액세스 관리](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

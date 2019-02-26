@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487883"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447364"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup의 기능에 대한 개요
 Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스이며, 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 여러 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계 없이 모든 Azure Backup 구성 요소는 Azure에서 Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 특정 데이터, 애플리케이션 또는 워크로드 보호하는 데 사용할 구성 요소에 대한 내용은 이 문서의 뒷부분에 있는 [Azure Backup 구성 요소 표](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요.
@@ -33,7 +33,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 
 * LRS(로컬 중복 저장소)는 데이터 센터의 저장소 배율 단위로 데이터를 세 번 복제합니다(세 개의 데이터 복사본을 만듦). 모든 데이터 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류로부터 데이터를 보호하기 위한 저비용 옵션입니다.
 
-* GRS(지역 중복 저장소)는 기본값이며 권장되는 복제 옵션입니다. GRS는 데이터 원본의 기본 위치에서 수백 마일 떨어진 보조 지역으로 데이터를 복제합니다. GRS는 LRS보다 많은 비용이 소요되지만 GRS는 지역 가동 중단이 발생해도 높은 수준의 데이터 내구성을 제공합니다.
+* GRS(지역 중복 저장소)는 기본값이며 권장되는 복제 옵션입니다. GRS는 데이터를 [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)(원본 데이터의 기본 위치에서 수백 마일 떨어진 곳)인 보조 지역에 복제합니다. GRS는 LRS보다 많은 비용이 소요되지만 GRS는 지역 가동 중단이 발생해도 높은 수준의 데이터 내구성을 제공합니다.
 
 **무제한 데이터 전송** - Azure Backup은 인바운드 또는 아웃바운드 데이터를 무제한으로 전송할 수 있습니다. 또한 전송되는 데이터에 대해 요금을 청구하지 않습니다. 그러나 Azure Import/Export 서비스를 통해 대량의 데이터를 가져오는 경우 인바운드 데이터와 관련 된 비용이 발생합니다. 이 비용에 대한 자세한 내용은 [Azure Backup의 오프라인 백업 워크플로](backup-azure-backup-import-export.md)를 참조하세요. 아웃바운드 데이터는 복원 작업 중에 Recovery Services 자격 증명 모음에서 전송된 데이터입니다.
 
@@ -44,7 +44,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 **장기 보존** - 단기 및 장기 데이터 보존을 위해 Recovery Services 자격 증명 모음을 사용할 수 있습니다. Azure는 Recovery Services 자격 증명 모음에 데이터를 유지할 수 있는 기간을 제한하지 않습니다. 원하는 만큼 자격 증명 모음에 데이터를 유지할 수 있습니다. Azure Backup에는 보호된 인스턴스당 9999개 복구 지점의 제한이 있습니다. 이 제한이 백업 필요성에 어떻게 영향을 줄 수 있는지에 대한 설명은 이 문서의 [Backup 및 보존](backup-introduction-to-azure-backup.md#backup-and-retention) 섹션을 참조하세요.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>어떤 Azure Backup 구성 요소를 사용해야 합니까?
-각 Azure Backup 구성 요소로 보호할 수 있는 항목에 대한 자세한 내용은 다음 표를 참조하세요. 
+각 Azure Backup 구성 요소로 보호할 수 있는 항목에 대한 자세한 내용은 다음 표를 참조하세요.
 
 | 구성 요소 | 이점 | 제한 | 보호 대상 | 백업 저장 위치 |
 | --- | --- | --- | --- | --- |
@@ -62,7 +62,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 | Azure IaaS VM Backup |<p>**예**</p><p>Azure 패브릭의 일부</p><p>[Azure IaaS(Infrastructure as a Service) 가상 머신의 백업](backup-azure-vms-introduction.md)에 맞게 특별히 설정됩니다.</p> |<p>**아니요**</p> <p>System Center DPM을 사용하여 데이터 센터의 가상 머신을 백업합니다.</p> |<p>Recovery Services 자격 증명 모음</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>어떤 애플리케이션 및 워크로드를 백업할 수 있나요?
-다음 표에서는 Azure Backup을 사용하여 보호할 수 있는 데이터와 워크로드의 매트릭스를 제공합니다. Azure Backup 솔루션 열에는 해당 솔루션의 배포 설명서에 대한 링크가 있습니다. 
+다음 표에서는 Azure Backup을 사용하여 보호할 수 있는 데이터와 워크로드의 매트릭스를 제공합니다. Azure Backup 솔루션 열에는 해당 솔루션의 배포 설명서에 대한 링크가 있습니다.
 
 | 데이터 또는 워크로드 | 원본 환경 | Azure Backup 솔루션 |
 | --- | --- | --- |
@@ -81,17 +81,17 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 다음 표에서는 Linux를 지원하는 Azure Backup 구성 요소를 보여줍니다.  
 
 **구성 요소** | **Linux(Azure 인증)**
---- | --- 
-Azure Backup(MARS) 에이전트 | 아니요(Windows 기반 에이전트만) 
+--- | ---
+Azure Backup(MARS) 에이전트 | 아니요(Windows 기반 에이전트만)
 System Center DPM | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원</br></br> Azure VM에서 파일 일치 백업을 사용할 수 없음
-Azure Backup 서버 | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원</br></br> Azure VM에서 파일 일치 백업을 사용할 수 없음 
+Azure Backup 서버 | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원</br></br> Azure VM에서 파일 일치 백업을 사용할 수 없음
 Azure IaaS VM Backup | [사전 스크립트 및 사후 스크립트 프레임워크](backup-azure-linux-app-consistent.md)를 사용하여 앱 일치 백업<br/><br/> [파일 수준 복구](backup-azure-restore-files-from-vm.md)<br/><br/> [복원된 디스크에서 VM 만들기](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [복원된 지점에서 VM 만들기](backup-azure-arm-restore-vms.md#create-new-create-a-vm)
 
-## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup에서 Premium Storage VM 사용
-Azure Backup은 Premium Storage VM을 보호합니다. Azure Premium Storage는 I/O 집중 워크로드를 지원하도록 설계된 SSD(반도체 드라이브) 기반 스토리지이며, Premium Storage는 VM(가상 컴퓨터) 워크로드에 유용합니다. Premium Storage에 대한 자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../virtual-machines/windows/premium-storage.md) 문서를 참조하세요.
+## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup에서 Premium Storage지 VM 사용
+Azure Backup은 Premium Storage VM을 보호합니다. Azure Premium Storage는 I/O 집약적 워크로드를 지원하도록 설계된 SSD(반도체 드라이브) 기반 스토리지입니다. Premium Storage는 VM(가상 컴퓨터) 워크로드에 유용합니다. Premium Storage 및 다른 디스크 유형에 대한 자세한 내용은 [디스크 유형 선택](../virtual-machines/windows/disks-types.md) 문서를 참조하세요.
 
 ### <a name="back-up-premium-storage-vms"></a>Premium Storage VM 백업
-Premium Storage VM을 백업하는 동안, Backup 서비스는 프리미엄 스토리지 계정에 "AzureBackup-"이라는 임시 준비 위치를 만듭니다. 준비 위치의 크기는 복구 지점 스냅숏의 크기와 같습니다. Premium Storage 계정에 임시 준비 위치에 맞게 충분한 여유 공간이 있어야 합니다. 자세한 내용은 [Premium Storage 제한](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) 문서를 참조하세요. 백업 작업이 완료되면, 준비 위치가 삭제됩니다. 준비 위치에 사용된 스토리지의 가격은 모든 [Premium Storage 가격 책정](../virtual-machines/windows/premium-storage.md#pricing-and-billing)과 일치합니다.
+Premium Storage VM을 백업하는 동안 Backup 서비스는 "AzureBackup-"이라는 임시 준비 위치를 Premium Storage 계정에 만듭니다. 준비 위치의 크기는 복구 지점 스냅숏의 크기와 같습니다. Premium Storage 계정에는 임시 준비 위치를 수용할 수 있을 만큼 충분한 사용 가능한 공간이 있어야 합니다. 자세한 내용은 [Azure 스토리지 확장성 목표](../storage/common/storage-scalability-targets.md) 문서를 참조하세요. 백업 작업이 완료되면, 준비 위치가 삭제됩니다. 준비 위치에 사용된 스토리지의 가격은 모든 [Premium Storage 가격 책정](../virtual-machines/windows/disks-types.md)과 일치합니다.
 
 > [!NOTE]
 > 준비 위치를 수정하거나 편집하지 마십시오.

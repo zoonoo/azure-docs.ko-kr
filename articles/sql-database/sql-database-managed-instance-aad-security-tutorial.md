@@ -1,6 +1,6 @@
 ---
-title: Azure AD 로그인을 사용하는 Azure SQL Database 관리되는 인스턴스 보안 | Microsoft Docs
-description: Azure SQL Database에서 관리되는 인스턴스를 보호하고 Azure AD 로그인을 사용하는 기술 및 기능에 대해 알아봅니다.
+title: Azure AD 서버 보안 주체(로그인)를 사용하는 Azure SQL Database 관리되는 인스턴스 보안 | Microsoft Docs
+description: Azure SQL Database에서 관리되는 인스턴스를 보호하고 Azure AD 서버 보안 주체(로그인)를 사용하는 기술 및 기능에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,15 +9,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 402e10d9b99dbf0eeba8aac27071e4d78fdf0f01
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.date: 02/20/2019
+ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984514"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456931"
 ---
-# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-logins"></a>자습서: Azure AD 로그인을 사용하는 Azure SQL Database 관리되는 인스턴스 보안
+# <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>자습서: Azure SQL Database에서 Azure AD 서버 보안 주체(로그인)를 사용하는 관리되는 인스턴스 보안
 
 관리되는 인스턴스는 최신 SQL Server 온-프레미스(Enterprise Edition) 데이터베이스 엔진의 보안 기능을 거의 대부분 제공합니다.
 
@@ -29,16 +29,16 @@ ms.locfileid: "55984514"
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> - 관리되는 인스턴스에 대한 Azure AD(Active Directory) 로그인 만들기
-> - 관리되는 인스턴스의 Azure AD 로그인에 대한 권한 부여
-> - Azure AD 로그인에서 Azure AD 사용자 만들기
+> - 관리되는 인스턴스에 대한 Azure AD(Active Directory) 서버 보안 주체(로그인) 만들기
+> - 관리되는 인스턴스의 Azure AD 서버 보안 주체(로그인)에 대한 권한 부여
+> - Azure AD 서버 보안 주체(로그인)에서 Azure AD 사용자 만들기
 > - Azure AD 사용자에게 권한 할당 및 데이터베이스 보안 관리
 > - Azure AD 사용자에 가장 사용
 > - Azure AD 사용자에 데이터베이스 간 쿼리 사용
 > - 위협 방지, 감사, 데이터 마스킹, 암호화 등의 보안 기능에 대해 알아보기
 
 > [!NOTE]
-> 관리되는 인스턴스에 대한 Azure AD 로그인은 **공개 미리 보기**입니다.
+> 관리되는 인스턴스에 대한 Azure AD 서버 보안 주체(로그인)는 **공개 미리 보기**에 있습니다.
 
 자세한 내용은 [Azure SQL Database 관리되는 인스턴스 개요](sql-database-managed-instance-index.yml) 및 [기능](sql-database-managed-instance.md) 문서를 참조하세요.
 
@@ -61,15 +61,15 @@ ms.locfileid: "55984514"
 > [!NOTE] 
 > 관리되는 인스턴스는 내부 VNET에만 액세스할 수 있으므로 [SQL Database 방화벽 규칙](sql-database-firewall-configure.md)이 적용되지 않습니다. 관리되는 인스턴스는 자체적인 [기본 방화벽](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md)을 갖추고 있습니다.
 
-## <a name="create-an-azure-ad-login-for-a-managed-instance-using-ssms"></a>SSMS를 사용하여 관리되는 인스턴스에 대한 Azure AD 로그인 만들기
+## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>SSMS를 사용하여 관리되는 인스턴스에 대한 Azure AD 서버 보안 주체(로그인) 만들기
 
-첫 번째 Azure AD 로그인은 표준 SQL Server 계정(비 azure AD)인 `sysadmin`으로 만들어야 합니다. 관리되는 인스턴스에 연결하는 예제는 다음 문서를 참조하세요.
+첫 번째 Azure AD 서버 보안 주체(로그인)는 `sysadmin`인 표준 SQL Server 계정(비 Azure AD)에서 만들어야 합니다. 관리되는 인스턴스에 연결하는 예제는 다음 문서를 참조하세요.
 
 - [빠른 시작: 관리되는 인스턴스에 연결하도록 Azure VM 구성](sql-database-managed-instance-configure-vm.md)
 - [빠른 시작: 온-프레미스에서 관리되는 인스턴스로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> 관리되는 인스턴스를 설정하는 데 사용된 Azure AD 관리자는 관리되는 인스턴스 내에 Azure AD 로그인을 만드는 데 사용할 수 없습니다. SQL Server 계정 `sysadmin`을 사용하여 첫 번째 Azure AD 로그인을 만들어야 합니다. 이는 임시 제한이며 Azure AD 로그인이 일반 공급되면 사라질 예정입니다. Azure AD 관리자 계정을 사용하여 로그인을 만들려고 시도하면 `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.` 오류가 발생합니다.
+> 관리되는 인스턴스를 설정하는 데 사용된 Azure AD 관리자는 관리되는 인스턴스 내에 Azure AD 서버 보안 주체(로그인)를 만드는 데 사용할 수 없습니다. `sysadmin` SQL Server 계정을 사용하여 첫 번째 Azure AD 서버 보안 주체(로그인)를 만들어야 합니다. 이는 Azure AD 서버 보안 주체(로그인)가 GA(일반 공급)되면 제거될 임시적인 제한입니다. Azure AD 관리자 계정을 사용하여 로그인을 만들려고 시도하면 `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.` 오류가 발생합니다.
 
 1. 표준 SQL Server 계정(비 azure AD)인 `sysadmin`을 사용하여 [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance)를 통해 관리되는 인스턴스에 로그인합니다.
 
@@ -109,7 +109,7 @@ ms.locfileid: "55984514"
 
 ## <a name="granting-permissions-to-allow-the-creation-of-managed-instance-logins"></a>관리되는 인스턴스 로그인을 만들 수 있도록 권한 부여
 
-다른 Azure AD 로그인을 만들려면 보안 주체(SQL 또는 Azure AD)에 SQL Server 역할 또는 권한이 부여되어야 합니다.
+다른 Azure AD 서버 보안 주체(로그인)를 만들려면 SQL Server 역할 또는 권한을 보안 주체(SQL 또는 Azure AD)에 부여해야 합니다.
 
 ### <a name="sql-authentication"></a>SQL 인증
 
@@ -117,10 +117,10 @@ ms.locfileid: "55984514"
 
 ### <a name="azure-ad-authentication"></a>Azure AD 인증
 
-- 새로 만든 Azure AD 로그인에 다른 Azure AD 사용자, 그룹 또는 애플리케이션에 대한 다른 로그인을 만드는 기능을 허용하려면 로그인에 `sysadmin` 또는 `securityadmin` 서버 역할을 부여해야 합니다. 
-- 적어도 다른 Azure AD 로그인을 만들 수 있도록 **ALTER ANY LOGIN** 권한을 Azure AD 로그인에 부여해야 합니다. 
-- 마스터에 새로 만들어진 Azure AD 로그인에는 기본적으로 표준 권한 **CONNECT SQL** 및 **VIEW ANY DATABASE**가 부여됩니다.
-- `sysadmin` 서버 역할은 관리되는 인스턴스 내의 여러 Azure AD 로그인에 부여할 수 있습니다.
+- 새로 만든 Azure AD 서버 보안 주체(로그인)에서 다른 Azure AD 사용자, 그룹 또는 애플리케이션에 대한 다른 로그인을 만들 수 있도록 하려면 로그인 `sysadmin` 또는 `securityadmin` 서버 역할을 부여합니다. 
+- 다른 Azure AD 서버 보안 주체(로그인)를 만들려면 적어도 **ALTER ANY LOGIN** 권한을 Azure AD 서버 보안 주체(로그인)에 부여해야 합니다. 
+- 마스터에 새로 만든 Azure AD 서버 보안 주체(로그인)에 부여된 표준 권한은 기본적으로 **CONNECT SQL** 및 **VIEW ANY DATABASE**입니다.
+- `sysadmin` 서버 역할은 관리되는 인스턴스 내의 여러 Azure AD 서버 보안 주체(로그인)에 부여할 수 있습니다.
 
 `sysadmin` 서버 역할에 로그인을 추가하려면:
 
@@ -128,7 +128,7 @@ ms.locfileid: "55984514"
 
 1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
-1. 다음 T-SQL 구문을 사용하여 Azure AD 로그인에 `sysadmin` 서버 역할을 부여합니다.
+1. 다음 T-SQL 구문을 사용하여 `sysadmin` 서버 역할을 Azure AD 서버 보안 주체(로그인)에 부여합니다.
 
     ```sql
     ALTER SERVER ROLE sysadmin ADD MEMBER login_name
@@ -142,11 +142,11 @@ ms.locfileid: "55984514"
     GO
     ```
 
-## <a name="create-additional-azure-ad-logins-using-ssms"></a>SSMS를 사용하여 추가 Azure AD 로그인 만들기
+## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>SSMS를 사용하여 추가 Azure AD 서버 보안 주체(로그인) 만들기
 
-Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그인에서 **FROM EXTERNAL PROVIDER** 절과 **CREATE LOGIN**을 사용하여 추가 로그인을 만들 수 있습니다.
+Azure AD 서버 보안 주체(로그인)가 만들어지고 `sysadmin` 권한이 부여되면, 해당 로그인에서 **CREATE LOGIN**과 함께 **FROM EXTERNAL PROVIDER** 절을 사용하여 추가 로그인을 만들 수 있습니다.
 
-1. SQL Server Management Studio를 사용하여 Azure AD 로그인으로 관리되는 인스턴스에 연결합니다. 관리되는 인스턴스 호스트 이름을 입력합니다. SSMS 인증의 경우 Azure AD 계정으로 로그인할 때 다음 세 가지 옵션 중에서 선택할 수 있습니다.
+1. SQL Server Management Studio를 사용하여 Azure AD 서버 보안 주체(로그인)로 관리되는 인스턴스에 연결합니다. 관리되는 인스턴스 호스트 이름을 입력합니다. SSMS 인증의 경우 Azure AD 계정으로 로그인할 때 다음 세 가지 옵션 중에서 선택할 수 있습니다.
 
     - Active Directory - MFA 지원을 통한 유니버설 인증
     - Active Directory - 암호
@@ -205,7 +205,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
 
 1. 테스트 삼아 새로 만든 로그인 또는 그룹을 사용하여 관리되는 인스턴스에 로그인합니다. 관리되는 인스턴스에 대한 새 연결을 열고, 인증할 때 새 로그인을 사용합니다.
 1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 새 연결을 위한 **새 쿼리**를 선택합니다.
-1. 다음 명령을 실행하여 새로 만든 Azure AD 로그인에 대한 서버 권한을 확인합니다.
+1. 다음 명령을 실행하여 새로 만든 Azure AD 서버 보안 주체(로그인)에 대한 서버 권한을 확인합니다.
 
     ```sql
     SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
@@ -215,7 +215,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
 > [!NOTE]
 > Azure AD 게스트 사용자는 Azure AD 그룹의 일부로 추가되는 경우에만 관리되는 인스턴스 로그인에 지원됩니다. Azure AD 게스트 사용자는 다른 Azure AD에서 관리되는 인스턴스가 속한 Azure AD로 초대되는 계정입니다. 예를 들어 joe@contoso.com(Azure AD 계정) 또는 steve@outlook.com(MSA 계정)을 Azure AD aadsqlmi의 그룹에 추가할 수 있습니다. 사용자가 그룹에 추가되면 **CREATE LOGIN** 구문을 사용하여 그룹의 관리되는 인스턴스 **마스터** 데이터베이스에 로그인을 만들 수 있습니다. 이 그룹의 구성원인 게스트 사용자는 현재 로그인(joe@contoso.com 또는 steve@outlook.com)을 사용하여 관리되는 인스턴스에 연결할 수 있습니다.
 
-## <a name="create-an-azure-ad-user-from-the-azure-ad-login-and-give-permissions"></a>Azure AD 로그인에서 Azure AD 사용자를 만들고 권한 부여
+## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login-and-give-permissions"></a>Azure AD 서버 보안 주체(로그인)에서 Azure AD 사용자 만들기 및 권한 부여
 
 개별 데이터베이스에 권한 부여는 관리되는 인스턴스가 SQL Server 온-프레미스에서 작동하는 방식과 매우 비슷한 방식으로 작동합니다. 데이터베이스의 기존 로그인에서 사용자를 만들고 해당 데이터베이스에 대한 권한을 부여하거나 데이터베이스 역할에 추가할 수 있습니다.
 
@@ -229,7 +229,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
 
 1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 관리되는 인스턴스에 로그인합니다.
 1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
-1. 쿼리 창에서 다음 구문을 사용하여 Azure AD 로그인에서 Azure AD 사용자를 만듭니다.
+1. 쿼리 창에서 다음 구문을 사용하여 Azure AD 서버 보안 주체(로그인)에서 Azure AD 사용자를 만듭니다.
 
     ```sql
     USE <Database Name> -- provide your database name
@@ -247,7 +247,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
     GO
     ```
 
-1. 그룹인 Azure AD 로그인에서 Azure AD 사용자를 만드는 기능도 지원됩니다.
+1. 그룹인 Azure AD 서버 보안 주체(로그인)에서 Azure AD 사용자를 만드는 것도 지원됩니다.
 
     다음 예제에서는 Azure AD 그룹에 있는 Azure AD 그룹 _mygroup_에 대한 로그인을 만듭니다.
 
@@ -261,7 +261,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
     **mygroup**에 속한 모든 사용자는 **MyMITestDB** 데이터베이스에 액세스할 수 있습니다.
 
     > [!IMPORTANT]
-    > Azure AD 로그인에서 **사용자**를 **로그인**의 login_name과 동일한 user_name을 지정합니다.
+    > Azure AD 서버 보안 주체(로그인)에서 **USER**를 만들 때 **LOGIN**에서 user_name을 동일한 login_name으로 지정합니다.
 
     자세한 내용은 [사용자 만들기](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current)를 참조하세요.
 
@@ -383,7 +383,7 @@ Azure AD 로그인을 만들고 `sysadmin` 권한을 부여하면 해당 로그�
 
 ## <a name="using-cross-database-queries-in-managed-instances"></a>관리되는 인스턴스에서 데이터베이스 간 쿼리 사용
 
-Azure AD 로그인을 사용하는 Azure AD 계정에는 데이터베이스 간 쿼리가 지원됩니다. Azure AD 그룹을 사용하여 데이터베이스 간 쿼리를 테스트하려면 다른 데이터베이스 및 테이블을 만들어야 합니다. 다른 데이터베이스 및 테이블이 있으면 만들기를 건너뛰어도 됩니다.
+Azure AD 서버 보안 주체(로그인)를 사용하는 Azure AD 계정에는 데이터베이스 간 쿼리가 지원됩니다. Azure AD 그룹을 사용하여 데이터베이스 간 쿼리를 테스트하려면 다른 데이터베이스 및 테이블을 만들어야 합니다. 다른 데이터베이스 및 테이블이 있으면 만들기를 건너뛰어도 됩니다.
 
 1. SQL Server Management Studio를 사용하여 `sysadmin` 계정으로 관리되는 인스턴스에 로그인합니다.
 1. **개체 탐색기**에서 서버를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
@@ -424,15 +424,15 @@ Azure AD 로그인을 사용하는 Azure AD 계정에는 데이터베이스 간 
 
     **TestTable2**의 테이블 결과가 보일 것입니다.
 
-## <a name="additional-scenarios-supported-for-azure-ad-logins-public-preview"></a>Azure AD 로그인(공개 미리 보기)에 지원되는 추가 시나리오 
+## <a name="additional-scenarios-supported-for-azure-ad-server-principals-logins-public-preview"></a>Azure AD 서버 보안 주체(로그인)에 지원되는 추가 시나리오(공개 미리 보기) 
 
-- Azure AD 로그인에는 SQL 에이전트 관리 및 작업 실행이 지원됩니다.
-- 데이터베이스 백업 및 복원 작업은 Azure AD 로그인을 통해 실행할 수 있습니다.
-- Azure AD 로그인 및 인증 이벤트와 관련된 모든 명령문의 [감사](sql-database-managed-instance-auditing.md).
-- `sysadmin` 서버 역할의 구성원인 Azure AD 로그인의 전용 관리 연결.
-- Azure AD 로그인은 [sqlcmd 유틸리티](/sql/tools/sqlcmd-utility) 및 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 도구를 사용하여 지원됩니다.
-- 로그온 트리거는 Azure AD 로그인에서 오는 로그온 이벤트에 지원됩니다.
-- Service Broker 및 DB 메일은 Azure AD 로그인을 사용하여 설정할 수 있습니다.
+- SQL 에이전트 관리 및 작업 실행이 Azure AD 서버 보안 주체(로그인)에서 지원됩니다.
+- 데이터베이스 백업 및 복원 작업은 Azure AD 서버 보안 주체(로그인)에서 실행될 수 있습니다.
+- Azure AD 서버 보안 주체(로그인) 및 인증 이벤트와 관련된 모든 명령문에 대한 [감사](sql-database-managed-instance-auditing.md) 기능이 있습니다.
+- `sysadmin` 서버 역할의 멤버인 Azure AD 서버 보안 주체(로그인)에 대한 전용 관리자 연결 기능이 있습니다.
+- Azure AD 서버 보안 주체(로그인)는 [sqlcmd 유틸리티](/sql/tools/sqlcmd-utility) 및 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 도구를 통해 지원됩니다.
+- 로그온 트리거는 Azure AD 서버 보안 주체(로그인)에서 발생하는 로그온 이벤트에 지원됩니다.
+- Service Broker 및 DB 메일은 Azure AD 서버 보안 주체(로그인)를 사용하여 설정할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

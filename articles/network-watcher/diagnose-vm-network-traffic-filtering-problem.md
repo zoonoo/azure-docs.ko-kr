@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 1802df4e6cbe77b4bc7ee2ee49f24d8dc51de015
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180524"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429233"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -37,7 +37,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 ## <a name="create-a-vm"></a>VM 만들기
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **+ 리소스 만들기**를 선택합니다.
-2. **계산**을 선택한 다음, **Windows Server 2016 Datacenter** 또는 **Ubuntu Server 17.10 VM**을 선택합니다.
+2. **컴퓨팅**을 선택한 다음, **Windows Server 2016 Datacenter** 또는 **Ubuntu Server** 버전을 선택합니다.
 3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **확인**을 선택합니다.
 
     |설정|값|
@@ -45,7 +45,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |Name|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |구독| 사용 중인 구독을 선택합니다.|
+    |구독| 구독을 선택합니다.|
     |리소스 그룹| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
 
@@ -62,7 +62,7 @@ Network Watcher와의 네트워크 통신을 테스트하려면 먼저 하나 �
 하나 이상의 지역에서 이미 Network Watcher를 사용하도록 설정한 경우 [IP 흐름 확인 사용](#use-ip-flow-verify)으로 건너뜁니다.
 
 1. 포털에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
-2. 이전 단계에서 VM이 배포된 지역이기 때문에 미국 동부 지역에서 네트워크 감시자를 활성화합니다. **지역**을 선택하여 확장한 다음, 다음 그림처럼 **미국 동부** 오른쪽에서 **...** 를 선택합니다.
+2. 이전 단계에서 VM이 배포된 지역이기 때문에 미국 동부 지역에서 네트워크 감시자를 활성화합니다. **지역**을 선택하여 확장하고, 다음 그림처럼 **미국 동부** 오른쪽에서 **...** 를 선택합니다.
 
     ![Network Watcher 사용](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 

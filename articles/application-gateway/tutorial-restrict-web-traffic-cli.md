@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: db95ec05d7c2a61a75c0051b65d9c9c9943b732c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 3ce40c2e0726094113253258d3b3f0bf6d876f6f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753659"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452645"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 웹 애플리케이션 방화벽 활성화
 
@@ -140,7 +140,7 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>저장소 계정 만들기 및 진단 구성
 
-이 자습서에서 애플리케이션 게이트웨이는 저장소 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Log Analytics 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다. 
+이 자습서에서 애플리케이션 게이트웨이는 저장소 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Azure Monitor 로그 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다. 
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 

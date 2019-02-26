@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure CLI를 사용하여 사용자 지정 역할 만들기 | Microsoft Docs
-description: Azure CLI를 사용하여 사용자 지정 역할 만들기를 시작합니다.
+title: 자습서 - Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 | Microsoft Docs
+description: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기를 시작합니다.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: d2b34fa12836416f68d57f0147dd0364a1501c13
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9cd736272fce71f08006d32a169b88d092a48231
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698022"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340215"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-cli"></a>자습서: Azure CLI를 사용하여 사용자 지정 역할 만들기
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
 
-[기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우, 사용자 지정 역할을 만들 수 있습니다. 이 자습서에서는 Azure CLI를 사용하여 Reader 지원 티켓이라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 통해 사용자는 구독의 모든 것을 살펴보고 지원 티켓을 열 수 있습니다.
+[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 이 자습서에서는 Azure CLI를 사용하여 Reader 지원 티켓이라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 통해 사용자는 구독의 모든 것을 살펴보고 지원 티켓을 열 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -269,4 +269,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure CLI를 사용하여 사용자 지정 역할 만들기](custom-roles-cli.md)
+> [Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](custom-roles-cli.md)

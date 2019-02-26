@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8c63b97f9d4423bf57909da7716675915a5271ef
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a4481e1bbc6248a9616fa7b3fe1d67c7d90af56e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994055"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429420"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>자습서: 인식 검색 API를 호출하는 방법 알아보기(미리 보기)
 
@@ -79,7 +79,7 @@ Azure Search에 대한 REST 호출을 만들려면 PowerShell이나 Telerik Fidd
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob service를 설정하고 샘플 데이터 로드
 
-보강 파이프라인은 Azure 데이터 원본에서 데이터를 가져옵니다. 원본 데이터는 [Azure Search 인덱서](search-indexer-overview.md)의 지원되는 데이터 원본 유형에서 생성되어야 합니다. Azure Table Storage는 인식 검색을 지원하지 않습니다. 이 연습에서는 BLOB 저장소를 사용하여 여러 가지 콘텐츠 형식을 보여줍니다.
+보강 파이프라인은 Azure 데이터 원본에서 데이터를 가져옵니다. 원본 데이터는 [Azure Search 인덱서](search-indexer-overview.md)의 지원되는 데이터 원본 유형에서 생성되어야 합니다. Azure Table Storage는 인식 검색을 지원하지 않습니다. 이 연습에서는 Blob Storage를 사용하여 여러 가지 콘텐츠 형식을 보여줍니다.
 
 1. [샘플 데이터를 다운로드합니다](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). 샘플 데이터는 여러 종류의 작은 파일 집합으로 구성됩니다. 
 
@@ -87,7 +87,7 @@ Azure Search에 대한 REST 호출을 만들려면 PowerShell이나 Telerik Fidd
 
 1. 앞에서 만든 `basicdemo` 컨테이너에서 Azure Storage 탐색기를 사용하여 **업로드**를 클릭하고 샘플 파일을 업로드합니다.
 
-1. 샘플 파일이 로드되면 Blob 저장소에 대한 컨테이너 이름 및 연결 문자열을 가져옵니다. 이렇게 하려면 Azure Portal에서 저장소 계정으로 이동해야 합니다. 그리고 **액세스 키**에서 **연결 문자열** 필드를 복사합니다.
+1. 샘플 파일이 로드되면 Blob Storage에 대한 컨테이너 이름 및 연결 문자열을 가져옵니다. 이렇게 하려면 Azure Portal에서 저장소 계정으로 이동해야 합니다. 그리고 **액세스 키**에서 **연결 문자열** 필드를 복사합니다.
 
   연결 문자열은 다음 예제와 비슷한 URL이어야 합니다.
 
@@ -95,7 +95,7 @@ Azure Search에 대한 REST 호출을 만들려면 PowerShell이나 Telerik Fidd
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
-공유 액세스 서명을 제공하는 방법을 포함하여 연결 문자열을 지정하는 여러 방법이 있습니다. 데이터 원본 자격 증명에 대한 자세한 내용은 [Azure Blob 저장소 인덱싱](search-howto-indexing-azure-blob-storage.md#Credentials)을 참조하세요.
+공유 액세스 서명을 제공하는 방법을 포함하여 연결 문자열을 지정하는 여러 방법이 있습니다. 데이터 원본 자격 증명에 대한 자세한 내용은 [Azure Blob Storage 인덱싱](search-howto-indexing-azure-blob-storage.md#Credentials)을 참조하세요.
 
 ## <a name="create-a-data-source"></a>데이터 소스 만들기
 
@@ -403,9 +403,7 @@ Content-Type: application/json
 
 구성 매개 변수의 ```"dataToExtract":"contentAndMetadata"``` 문도 확인합니다. 이 명령문은 다른 파일 형식의 콘텐츠 및 각 파일과 관련된 메타데이터를 자동으로 추출하도록 인덱서에 지시합니다. 
 
-콘텐츠가 추출되면 데이터 원본에서 찾은 이미지의 텍스트를 추출하도록 ```ImageAction```을 설정할 수 있습니다. ```"ImageAction":"generateNormalizedImages"```는 이미지의 텍스트(예: 정지 신호의 "정지"라는 단어)를 추출하라고 인덱서에 알려주고, 해당 텍스트를 콘텐츠 필드의 일부로 포함합니다. 이 동작은 문서에 포함된 이미지(예: PDF 내 이미지)뿐 아니라 JPG 파일 같은 데이터 원본의 이미지에도 적용됩니다.
-
-이 미리 보기에서 ```"generateNormalizedImages"```는 유일하게 ```"ImageAction"```의 유효한 값입니다.
+콘텐츠가 추출되면 데이터 원본에서 찾은 이미지의 텍스트를 추출하도록 ```imageAction```을 설정할 수 있습니다. ```"imageAction":"generateNormalizedImages"``` 구성은 OCR 기술 및 텍스트 병합 기술과 결합되어 이미지에서 텍스트(예: 트래픽 중지 신호의 "중지"라는 단어)를 추출하고 해당 텍스트를 콘텐츠 필드의 일부로 포함시키도록 인덱서에 지시합니다. 이 동작은 문서에 포함된 이미지(예: PDF 내 이미지)뿐 아니라 JPG 파일 같은 데이터 원본의 이미지에도 적용됩니다.
 
 ## <a name="check-indexer-status"></a>인덱서 상태 확인
 

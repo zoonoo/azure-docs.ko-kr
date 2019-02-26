@@ -1,6 +1,6 @@
 ---
 title: 샘플 - SQL DB 수준 감사 설정 감사
-description: 이 샘플 정책은 해당 설정이 지정한 설정과 일치하지 않는 경우 SQL 데이터베이스 감사 설정을 감사합니다.
+description: 이 샘플 정책 정의는 해당 설정이 지정한 설정과 일치하지 않는 경우 SQL Database 감사 설정을 감사합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: e9eae6d2b9768436eb838945af32df63be160bb8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e319886333a0270bc9535607a40d73944d1e78f7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242705"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338193"
 ---
-# <a name="audit-sql-db-level-audit-setting"></a>Microsoft SQL DB 수준 감사 설정 감사
+# <a name="sample---audit-sql-db-level-audit-setting"></a>샘플 - SQL DB 수준 감사 설정 감사
 
 이 정책에서는 해당 설정이 지정한 설정과 일치하지 않는 경우 Microsoft Azure SQL Database 감사 설정을 감사합니다. 감사 설정이 사용 또는 사용 안 함으로 설정되었는지 여부를 나타내는 값을 지정 합니다.
 

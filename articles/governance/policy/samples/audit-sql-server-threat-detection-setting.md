@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 서버 수준 위협 탐지 설정 감사
-description: 이 샘플 정책은 해당 정책이 지정된 상태로 설정되지 않은 경우 SQL 데이터베이스 보안 경고 정책을 감사합니다.
+description: 이 샘플 정책 정의는 해당 정책이 지정된 상태로 설정되지 않은 경우 SQL Server 보안 경고 정책을 감사합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,16 +8,16 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9e0ea3b65a4c442358c357e9603d607d8464c21b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ba694618bf86ef8e97241c955a40790960be2f0c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242178"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341371"
 ---
-# <a name="audit-server-level-threat-detection-setting"></a>서버 수준 위협 감지 설정 감사
+# <a name="sample---audit-server-level-threat-detection-setting"></a>샘플 - 서버 수준 위협 탐지 설정 감사
 
-이 정책은 해당 정책이 지정된 상태로 설정되지 않은 경우 SQL 데이터베이스 보안 경고 정책을 감사합니다. 위협 감지가 사용 또는 사용 안 함으로 설정되었는지 여부를 나타내는 값을 지정 합니다.
+이 정책은 해당 정책이 지정된 상태로 설정되지 않은 경우 SQL Server 보안 경고 정책을 감사합니다. 위협 감지가 사용 또는 사용 안 함으로 설정되었는지 여부를 나타내는 값을 지정 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 

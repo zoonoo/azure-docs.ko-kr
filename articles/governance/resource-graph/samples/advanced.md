@@ -1,6 +1,6 @@
 ---
 title: 고급 쿼리 샘플
-description: Azure Resource Graph를 사용하여 일부 고급 쿼리를 실행합니다.
+description: Azure Resource Graph를 사용하여 VMSS 용량, 사용된 모든 태그 나열 및 정규식과 일치하는 가상 머신을 비롯한 일부 고급 쿼리를 실행합니다.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cb2755384f8b87c74aa283af0c75f9f869fb31cd
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bb1733090ac2a4f3fad837e55943706309c4a5a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854669"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344015"
 ---
 # <a name="advanced-resource-graph-queries"></a>고급 Resource Graph 쿼리
 

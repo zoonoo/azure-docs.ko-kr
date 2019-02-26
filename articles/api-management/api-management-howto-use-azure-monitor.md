@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8b95c311cd91ab6db84fb6640be5b6c1a6c0a9a5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443120"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454807"
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -40,8 +40,8 @@ Azure Monitor를 통해 Azure 리소스의 메트릭 또는 로그에 대해 시
 ## <a name="prerequisites"></a>필수 조건
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-+ 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
++ 또한 [첫 번째 API 가져오기 및 게시](import-and-publish.md) 자습서도 완료 합니다.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -124,7 +124,7 @@ API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor
 
     ![진단 로그](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. **진단 켜기**를 클릭합니다. 진단 로그를 메트릭과 함께 저장소 계정에 보관하고, Event Hub에 스트리밍하고, Log Analytics에 보낼 수 있습니다. 
+3. **진단 켜기**를 클릭합니다. 진단 로그를 메트릭과 함께 스토리지 계정에 보관하고, Event Hub로 스트림하고, Azure Monitor 로그로 보낼 수 있습니다. 
 
 API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 요청에 대한 진단 로그(시간 단위로 일괄 처리됨)를 제공합니다.
 
@@ -173,7 +173,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 }  
 ```
 
-| 자산  | type | 설명 |
+| 자산  | Type | 설명 |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | 부울 | HTTP 요청이 완료되고 응답 상태 코드가 2xx 또는 3xx 범위 이내이면 True입니다. |
 | 실시간 | 날짜-시간 | 게이트웨이에서 HTTP 요청을 수신하는 타임스탬프 |
@@ -183,7 +183,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | callerIpAddress | string | 즉각적인 게이트웨이 호출자의 IP 주소(중간자 가능) |
 | CorrelationId | string | API Management에서 할당하는 고유의 http 요청 식별자 |
 | location | string | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
-| httpStatusCodeCategory | string | http 응답 상태 코드의 범주: 성공(301 이하 또는 304 또는 307), 권한 없음(401, 403, 429) 권한이 없음, 잘못됨(400, 500 및 600 사이), 기타 |
+| httpStatusCodeCategory | string | http 응답 상태 코드의 범주: 성공(301 이하, 304 또는 307), 권한이 없음(401, 403, 429), 오류가 있음(400, 500~600), 기타 |
 | ResourceId | string | "API Management 리소스 Id /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
 | properties | object | 현재 요청의 속성 |
 | 메서드 | string | 들어오는 요청의 HTTP 메서드 |

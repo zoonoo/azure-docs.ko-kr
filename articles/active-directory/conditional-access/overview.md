@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41771db4ff674b2f0df941286358d3154034ea1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e6f1174351f0907ce2bef21324c7ba81c81498b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194362"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266716"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스란?
 
@@ -109,11 +109,7 @@ Azure AD 조건부 액세스를 사용하여 권한 있는 사용자가 클라�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세히 알아보려는 경우 다음을 수행합니다.
-    - 조건에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스의 조건](conditions.md)을 참조하세요.
+사용자 환경에서 조건부 액세스를 구현하는 방법은 [Azure Active Directory에서 조건부 액세스 배포 계획](plan-conditional-access.md)을 참조하세요.
 
-    - 액세스 제어에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스의 액세스 제어](controls.md)를 참조하세요.
 
-- 조건부 액세스 정책을 구성하는 경험을 쌓으려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
 
-- 권장된 정책을 사용하여 단계별 배포 계획을 원하는 경우 [조건부 액세스 배포 계획](https://aka.ms/conditionalaccessdeploymentplan)을 참조하세요.

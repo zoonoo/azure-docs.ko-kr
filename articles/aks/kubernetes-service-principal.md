@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 2bc0579d3dd60d66a23a29dabff7e43ca8dfee76
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b8cbeacda98aec639724f30fe3a7e94346f05ba4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435398"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308757"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -128,11 +128,10 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 
 - Kubernetes 클러스터의 마스터 및 노드 VM에서 서비스 주체 자격 증명은 `/etc/kubernetes/azure.json` 파일에 저장됩니다.
 - [az aks create][az-aks-create] 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 머신의 `~/.azure/aksServicePrincipal.json` 파일에 기록됩니다.
 - [az aks create][az-aks-create]로 만든 AKS 클러스터를 삭제하는 경우 자동으로 생성된 서비스 주체는 삭제되지 않습니다.
-    - 서비스 주체를 삭제하려면 먼저 [az ad app list][az-ad-app-list]로 서비스 주체에 대한 ID를 가져옵니다. 다음 예제에서는 *myAKSCluster*라는 클러스터에 대해 쿼리한 다음, [az ad app delete][az-ad-app-delete]로 앱 ID를 삭제합니다. 이러한 이름을 고유한 값으로 바꿉니다.
+    - 서비스 주체를 삭제하려면 클러스터에 *servicePrincipalProfile.clientId*를 쿼리한 다음, [az ad app delete][az-ad-app-delete]로 삭제합니다. 다음 리소스 그룹과 클러스터 이름을 고유한 값으로 바꿉니다.
 
         ```azurecli
-        az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
-        az ad app delete --id <appId>
+        az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
 ## <a name="next-steps"></a>다음 단계

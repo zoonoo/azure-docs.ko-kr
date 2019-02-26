@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/27/2018
+ms.date: 02/12/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ca11c25f5e2dc793bc3c8a4ee10b4a89139ce1f3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d71a566d5c6dc5505b4bd939e294f8428e9a5b93
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879227"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312910"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>빠른 시작: Computer Vision SDK 및 C#을 사용하여 텍스트를 추출
 
-이 빠른 시작에서는 Computer Vision Windows 클라이언트 라이브러리를 사용하여 이미지에서 필기 또는 인쇄 텍스트를 추출합니다.
+이 빠른 시작에서는 C#용 Computer Vision SDK를 사용하여 이미지에서 필기 또는 인쇄 텍스트를 추출합니다. 원한다면 GitHub의 [Cognitive Services Csharp Vision](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) 리포지토리에서 전체 샘플 앱으로 이 가이드의 코드를 다운로드할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -28,12 +28,7 @@ ms.locfileid: "55879227"
 * [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) 클라이언트 라이브러리 NuGet 패키지. 패키지를 다운로드할 필요는 없습니다. 설치 지침은 아래에 제공됩니다.
 
-## <a name="recognizetextasync-method"></a>RecognizeTextAsync 메서드
-
-> [!TIP]
-> [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
-
-`RecognizeTextAsync` 및 `RecognizeTextInStreamAsync` 메서드는 원격 및 로컬 이미지 각각에 대해 [텍스트 인식 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)를 래핑합니다. `GetTextOperationResultAsync` 메서드는 [텍스트 인식 작업 결과 가져오기 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)를 래핑합니다.  이 메서드를 사용하여 이미지의 텍스트를 감지하고 인식된 문자를 머신에서 사용 가능한 문자 스트림으로 추출할 수 있습니다.
+## <a name="create-and-run-the-sample-app"></a>샘플 앱 만들기 및 실행
 
 샘플을 실행하려면 다음 단계를 수행합니다.
 
@@ -42,7 +37,143 @@ ms.locfileid: "55879227"
     1. 메뉴에서 **도구**를 클릭하고, **NuGet 패키지 관리자**를 선택한 다음, **솔루션에 대한 NuGet 패키지 관리**를 선택합니다.
     1. **찾아보기** 탭을 클릭하고, **검색** 상자에 "Microsoft.Azure.CognitiveServices.Vision.ComputerVision"을 입력합니다.
     1. **Microsoft.Azure.CognitiveServices.Vision.ComputerVision**이 표시될 때 선택한 다음, 프로젝트 이름 옆의 확인란을 클릭하고, **설치**를 클릭합니다.
-1. `Program.cs`를 다음 코드로 바꿉니다.
+1. `Program.cs`를 다음 코드로 바꿉니다. `RecognizeTextAsync` 및 `RecognizeTextInStreamAsync` 메서드는 원격 및 로컬 이미지 각각에 대해 [텍스트 인식 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)를 래핑합니다. `GetTextOperationResultAsync` 메서드는 [텍스트 인식 작업 결과 가져오기 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)를 래핑합니다.
+
+    ```csharp
+    using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+    using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+
+    using System;
+    using System.IO;
+    using System.Threading.Tasks;
+
+    namespace ExtractText
+    {
+        class Program
+        {
+            // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+            private const string subscriptionKey = "<SubscriptionKey>";
+
+            // For printed text, change to TextRecognitionMode.Printed
+            private const TextRecognitionMode textRecognitionMode =
+                TextRecognitionMode.Handwritten;
+
+            // localImagePath = @"C:\Documents\LocalImage.jpg"
+            private const string localImagePath = @"<LocalImage>";
+
+            private const string remoteImageUrl =
+                "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +
+                "Cursive_Writing_on_Notebook_paper.jpg/" +
+                "800px-Cursive_Writing_on_Notebook_paper.jpg";
+
+            private const int numberOfCharsInOperationId = 36;
+
+            static void Main(string[] args)
+            {
+                ComputerVisionClient computerVision = new ComputerVisionClient(
+                    new ApiKeyServiceClientCredentials(subscriptionKey),
+                    new System.Net.Http.DelegatingHandler[] { });
+
+                // You must use the same region as you used to get your subscription
+                // keys. For example, if you got your subscription keys from westus,
+                // replace "westcentralus" with "westus".
+                //
+                // Free trial subscription keys are generated in the "westus"
+                // region. If you use a free trial subscription key, you shouldn't
+                // need to change the region.
+
+                // Specify the Azure region
+                computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
+
+                Console.WriteLine("Images being analyzed ...");
+                var t1 = ExtractRemoteTextAsync(computerVision, remoteImageUrl);
+                var t2 = ExtractLocalTextAsync(computerVision, localImagePath);
+
+                Task.WhenAll(t1, t2).Wait(5000);
+                Console.WriteLine("Press ENTER to exit");
+                Console.ReadLine();
+            }
+
+            // Recognize text from a remote image
+            private static async Task ExtractRemoteTextAsync(
+                ComputerVisionClient computerVision, string imageUrl)
+            {
+                if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+                {
+                    Console.WriteLine(
+                        "\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
+                    return;
+                }
+
+                // Start the async process to recognize the text
+                RecognizeTextHeaders textHeaders =
+                    await computerVision.RecognizeTextAsync(
+                        imageUrl, textRecognitionMode);
+
+                await GetTextAsync(computerVision, textHeaders.OperationLocation);
+            }
+
+            // Recognize text from a local image
+            private static async Task ExtractLocalTextAsync(
+                ComputerVisionClient computerVision, string imagePath)
+            {
+                if (!File.Exists(imagePath))
+                {
+                    Console.WriteLine(
+                        "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
+                    return;
+                }
+
+                using (Stream imageStream = File.OpenRead(imagePath))
+                {
+                    // Start the async process to recognize the text
+                    RecognizeTextInStreamHeaders textHeaders =
+                        await computerVision.RecognizeTextInStreamAsync(
+                            imageStream, textRecognitionMode);
+
+                    await GetTextAsync(computerVision, textHeaders.OperationLocation);
+                }
+            }
+
+            // Retrieve the recognized text
+            private static async Task GetTextAsync(
+                ComputerVisionClient computerVision, string operationLocation)
+            {
+                // Retrieve the URI where the recognized text will be
+                // stored from the Operation-Location header
+                string operationId = operationLocation.Substring(
+                    operationLocation.Length - numberOfCharsInOperationId);
+
+                Console.WriteLine("\nCalling GetHandwritingRecognitionOperationResultAsync()");
+                TextOperationResult result =
+                    await computerVision.GetTextOperationResultAsync(operationId);
+
+                // Wait for the operation to complete
+                int i = 0;
+                int maxRetries = 10;
+                while ((result.Status == TextOperationStatusCodes.Running ||
+                        result.Status == TextOperationStatusCodes.NotStarted) && i++ < maxRetries)
+                {
+                    Console.WriteLine(
+                        "Server status: {0}, waiting {1} seconds...", result.Status, i);
+                    await Task.Delay(1000);
+
+                    result = await computerVision.GetTextOperationResultAsync(operationId);
+                }
+
+                // Display the results
+                Console.WriteLine();
+                var lines = result.RecognitionResult.Lines;
+                foreach (Line line in lines)
+                {
+                    Console.WriteLine(line.Text);
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+    ```
+
 1. `<Subscription Key>`를 유효한 구독 키로 바꿉니다.
 1. 필요한 경우 `computerVision.Endpoint`를 구독 키와 연결된 Azure 지역으로 변경합니다.
 1. 필요에 따라 `textRecognitionMode`를 `TextRecognitionMode.Printed`로 설정합니다.
@@ -50,148 +181,12 @@ ms.locfileid: "55879227"
 1. 필요에 따라 `remoteImageUrl`을 다른 이미지로 설정합니다.
 1. 프로그램을 실행합니다.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
-using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
 
-using System;
-using System.IO;
-using System.Threading.Tasks;
+## <a name="examine-the-response"></a>응답 검사
 
-namespace ExtractText
-{
-    class Program
-    {
-        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        private const string subscriptionKey = "<SubscriptionKey>";
+성공적인 응답에는 각 이미지에 대해 인식된 텍스트 행이 출력됩니다.
 
-        // For printed text, change to TextRecognitionMode.Printed
-        private const TextRecognitionMode textRecognitionMode =
-            TextRecognitionMode.Handwritten;
-
-        // localImagePath = @"C:\Documents\LocalImage.jpg"
-        private const string localImagePath = @"<LocalImage>";
-
-        private const string remoteImageUrl =
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +
-            "Cursive_Writing_on_Notebook_paper.jpg/" +
-            "800px-Cursive_Writing_on_Notebook_paper.jpg";
-
-        private const int numberOfCharsInOperationId = 36;
-
-        static void Main(string[] args)
-        {
-            ComputerVisionClient computerVision = new ComputerVisionClient(
-                new ApiKeyServiceClientCredentials(subscriptionKey),
-                new System.Net.Http.DelegatingHandler[] { });
-
-            // You must use the same region as you used to get your subscription
-            // keys. For example, if you got your subscription keys from westus,
-            // replace "westcentralus" with "westus".
-            //
-            // Free trial subscription keys are generated in the "westus"
-            // region. If you use a free trial subscription key, you shouldn't
-            // need to change the region.
-
-            // Specify the Azure region
-            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
-
-            Console.WriteLine("Images being analyzed ...");
-            var t1 = ExtractRemoteTextAsync(computerVision, remoteImageUrl);
-            var t2 = ExtractLocalTextAsync(computerVision, localImagePath);
-
-            Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press ENTER to exit");
-            Console.ReadLine();
-        }
-
-        // Recognize text from a remote image
-        private static async Task ExtractRemoteTextAsync(
-            ComputerVisionClient computerVision, string imageUrl)
-        {
-            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
-            {
-                Console.WriteLine(
-                    "\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
-                return;
-            }
-
-            // Start the async process to recognize the text
-            RecognizeTextHeaders textHeaders =
-                await computerVision.RecognizeTextAsync(
-                    imageUrl, textRecognitionMode);
-
-            await GetTextAsync(computerVision, textHeaders.OperationLocation);
-        }
-
-        // Recognize text from a local image
-        private static async Task ExtractLocalTextAsync(
-            ComputerVisionClient computerVision, string imagePath)
-        {
-            if (!File.Exists(imagePath))
-            {
-                Console.WriteLine(
-                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
-                return;
-            }
-
-            using (Stream imageStream = File.OpenRead(imagePath))
-            {
-                // Start the async process to recognize the text
-                RecognizeTextInStreamHeaders textHeaders =
-                    await computerVision.RecognizeTextInStreamAsync(
-                        imageStream, textRecognitionMode);
-
-                await GetTextAsync(computerVision, textHeaders.OperationLocation);
-            }
-        }
-
-        // Retrieve the recognized text
-        private static async Task GetTextAsync(
-            ComputerVisionClient computerVision, string operationLocation)
-        {
-            // Retrieve the URI where the recognized text will be
-            // stored from the Operation-Location header
-            string operationId = operationLocation.Substring(
-                operationLocation.Length - numberOfCharsInOperationId);
-
-            Console.WriteLine("\nCalling GetHandwritingRecognitionOperationResultAsync()");
-            TextOperationResult result =
-                await computerVision.GetTextOperationResultAsync(operationId);
-
-            // Wait for the operation to complete
-            int i = 0;
-            int maxRetries = 10;
-            while ((result.Status == TextOperationStatusCodes.Running ||
-                    result.Status == TextOperationStatusCodes.NotStarted) && i++ < maxRetries)
-            {
-                Console.WriteLine(
-                    "Server status: {0}, waiting {1} seconds...", result.Status, i);
-                await Task.Delay(1000);
-
-                result = await computerVision.GetTextOperationResultAsync(operationId);
-            }
-
-            // Display the results
-            Console.WriteLine();
-            var lines = result.RecognitionResult.Lines;
-            foreach (Line line in lines)
-            {
-                Console.WriteLine(line.Text);
-            }
-            Console.WriteLine();
-        }
-    }
-}
-```
-
-## <a name="recognizetextasync-response"></a>RecognizeTextAsync 응답
-
-성공적인 응답에는 각 이미지에 대해 인식된 텍스트 행이 표시됩니다.
-
-원시 JSON 출력의 예제는 [빠른 시작: 필기 텍스트 추출 - REST, C#](../QuickStarts/CSharp-hand-text.md#examine-the-response)을 참조하세요.
-
-```cmd
+```console
 Calling GetHandwritingRecognitionOperationResultAsync()
 
 Calling GetHandwritingRecognitionOperationResultAsync()
@@ -202,6 +197,8 @@ dog
 The quick brown fox jumps over the lazy
 Pack my box with five dozen liquor jugs
 ```
+
+[빠른 시작: 필기 텍스트 추출 - REST, C#](../QuickStarts/CSharp-hand-text.md#examine-the-response)에서 API 호출에서 원시 JSON 출력 예를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

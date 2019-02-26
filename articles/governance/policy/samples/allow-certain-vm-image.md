@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 특정 VM 플랫폼 이미지만 허용
-description: 이 샘플 정책에서는 가상 머신이 특정 버전의 UbuntuServer를 사용합니다.
+description: 이 샘플 정책 정의에서는 가상 머신이 특정 버전의 UbuntuServer를 사용합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f585995cd948c16f576cae8c67bf37ab07a5575f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a2268dfe0ee696c675c069c9770f66c7ba0b1fa9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241532"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342748"
 ---
-# <a name="only-allow-a-certain-vm-platform-image"></a>특정 VM 플랫폼 이미지만을 허용함
+# <a name="sample---only-allow-a-certain-vm-platform-image"></a>샘플 - 특정 VM 플랫폼 이미지만 허용
 
 가상 머신이 특정 버전의 UbuntuServer를 사용해야 합니다.
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1724454ff67f6cfe3646b59e8302a3dd099081
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217448"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301182"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱이란?
 2단계 인증을 사용하는 경우 Microsoft Authenticator 앱으로 계정에 쉽게 로그인할 수 있습니다. 2단계 인증을 사용하면 특히 중요한 정보를 볼 때 보다 안전하게 계정에 액세스할 수 있습니다. 암호를 잊어버리거나 암호가 노출될 수 있으므로 2단계 인증은 다른 사람이 침입하기 어렵게 만들어서 계정을 보호하는 추가 보안 단계입니다.
@@ -59,11 +59,11 @@ PIN을 사용하여 인증 프로세스를 완료하는 경우 디바이스의 �
 ## <a name="who-decides-if-you-use-this-feature"></a>이 기능의 사용 여부는 누가 결정하나요?
 계정 유형에 따라 사용자가 2단계 인증을 사용하도록 조직에서 결정할 수도 있고, 사용자가 직접 결정할 수도 있습니다.
 
-- **회사 또는 학교 계정** 회사 또는 학교 계정(예: alain@contoso.com)을 사용하는 경우 특정 인증 방법과 함께 2단계 인증을 사용해야 하는지 여부는 조직에서 결정합니다. Microsoft Authenticator 앱에 회사 또는 학교 계정을 추가하는 방법에 대한 자세한 내용은 [회사 또는 학교 계정 추가](microsoft-authenticator-app-add-work-account.md)를 참조하세요.
+- **회사 또는 학교 계정** 회사 또는 학교 계정(예: alain@contoso.com)을 사용하는 경우 특정 인증 방법과 함께 2단계 인증을 사용해야 하는지 여부는 조직에서 결정합니다. Microsoft Authenticator 앱에 회사 또는 학교 계정을 추가하는 방법에 대한 자세한 내용은 [회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md)를 참조하세요.
 
-- **개인 Microsoft 계정.** 개인 Microsoft 계정에 2단계 인증을 설정하도록 선택할 수 있습니다(예: alain@outlook.com). 개인 Microsoft 계정 추가에 대한 자세한 내용은 
+- **개인 Microsoft 계정.** 개인 Microsoft 계정에 2단계 인증을 설정하도록 선택할 수 있습니다(예: alain@outlook.com). 개인 Microsoft 계정 추가에 대한 자세한 내용은 [개인 계정 추가](user-help-auth-app-add-personal-ms-account.md)를 참조하세요.
 
-- **비 Microsoft 계정**을 참조하세요. 비 Microsoft 계정에 2단계 인증을 설정하도록 선택할 수 있습니다(예: alain@gmail.com). 비 Microsoft 계정에서 2단계 인증이라는 용어를 사용하지 않을 수도 있지만, **보안** 또는 **로그인** 설정에서 해당 기능을 찾을 수 있을 것입니다. Microsoft Authenticator 앱은 TOTP 표준을 지원하는 계정과 호환됩니다.
+- **비 Microsoft 계정**을 참조하세요. 비 Microsoft 계정에 2단계 인증을 설정하도록 선택할 수 있습니다(예: alain@gmail.com). 비 Microsoft 계정에서 2단계 인증이라는 용어를 사용하지 않을 수도 있지만, **보안** 또는 **로그인** 설정에서 해당 기능을 찾을 수 있을 것입니다. Microsoft Authenticator 앱은 TOTP 표준을 지원하는 계정과 호환됩니다. Microsoft 이외의 계정 추가에 대한 자세한 내용은 [비 Microsoft 계정 추가](user-help-auth-app-add-non-ms-account.md)를 참조하세요.
 
 ## <a name="in-this-section"></a>섹션 내용
 
@@ -71,7 +71,8 @@ PIN을 사용하여 인증 프로세스를 완료하는 경우 디바이스의 �
 |------|------------|
 |[앱 다운로드 및 설치](user-help-auth-app-download-install.md)|Android 및 iOS를 실행하는 디바이스용 Microsoft Authenticator 앱을 받아서 설치할 수 있는 위치 및 방법을 설명합니다.|
 |[회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md)|Microsoft Authenticator 앱에 다양한 회사 또는 학교 계정과 개인 계정을 추가하는 방법을 설명합니다.|
-|[개인 계정 추가](user-help-auth-app-add-personal-ms-account.md)|Microsoft Authenticator 앱에 개인 Microsoft 및 비 Microsoft 계정을 추가하는 방법을 설명합니다.|
+|[개인 계정 추가](user-help-auth-app-add-personal-ms-account.md)|Microsoft Authenticator 앱에 개인 Microsoft 계정을 추가하는 방법을 설명합니다.|
+|[비 Microsoft 계정 추가](user-help-auth-app-add-non-ms-account.md)|Microsoft Authenticator 앱에 Microsoft 이외의 계정을 추가하는 방법을 설명합니다.|
 |[수동으로 계정 추가](user-help-auth-app-add-account-manual.md)|제공된 QR 코드를 스캔할 수 없는 경우 Microsoft Authenticator 앱에 수동으로 계정을 추가하는 방법을 설명합니다.|
 |[앱을 사용하여 로그인](user-help-auth-app-sign-in.md)|Microsoft Authenticator 앱을 사용하여 다양한 계정에 로그인하는 방법을 설명합니다.|
 |[계정 자격 증명 백업 및 복구](user-help-auth-app-backup-recovery.md)| Microsoft Authenticator 앱을 사용하여 계정 자격 증명을 백업 및 복구하는 방법에 대한 정보를 제공합니다.|

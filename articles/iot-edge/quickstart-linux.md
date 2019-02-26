@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 65780252fe19ff1af3c37d25c7a65c2071961fb9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 455b0bb0cb6c53200edb7a0f3540006408329321
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994873"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453236"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>빠른 시작: Linux x64 디바이스에 첫 번째 IoT Edge 모듈 배포
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>빠른 시작: Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 
 Azure IoT Edge는 클라우드의 강력한 기능을 사물 인터넷 디바이스로 옮겨놓습니다. 이 빠른 시작에서는 클라우드 인터페이스를 사용하여 미리 작성된 코드를 IoT Edge 장치에 원격으로 배포하는 방법에 대해 알아봅니다.
 
@@ -29,7 +29,7 @@ Azure IoT Edge는 클라우드의 강력한 기능을 사물 인터넷 디바이
 
 ![다이어그램 - 빠른 시작: 디바이스 및 클라우드의 아키텍처](./media/quickstart-linux/install-edge-full.png)
 
-이 빠른 시작에서는 Linux 컴퓨터 또는 가상 머신을 IoT Edge 디바이스로 전환합니다. 그런 다음, Azure Portal에서 모듈을 디바이스에 배포할 수 있습니다. 이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다.
+이 빠른 시작에서는 IoT Edge 디바이스로 구성되는 Azure 가상 머신을 만드는 과정을 안내합니다. 그런 다음, Azure Portal에서 모듈을 디바이스에 배포할 수 있습니다. 이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다.
 
 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만드세요.
 
@@ -62,12 +62,12 @@ IoT Edge 장치:
    ```
 
    새 가상 머신을 만들고 시작하는 데 몇 분 정도 걸릴 수 있습니다. 
+   
+   이 시점에서 `MarketplacePurchaseEligibilityFailed` 오류가 발생할 수 있습니다. 이 경우 [Ubuntu의 Azure IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu)로 이동하고 `Get It Now`를 클릭하여 사용 약관에 동의해야 합니다. 명령을 다시 시도하기 전에 로그인하고 사용 약관에 동의합니다.
 
    새 가상 머신을 만들 때 create 명령 출력의 일부로 제공되는 **publicIpAddress**를 기록해 둡니다. 빠른 시작의 뒷부분에서 이 공용 IP 주소를 사용하여 가상 머신에 연결할 것입니다.
 
-* 로컬 시스템에서 Azure IoT Edge 런타임을 실행하려면 [Linux(x64)에서 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)의 지침을 따르세요.
-
-* Raspberry Pi와 같은 ARM32 기반 디바이스를 사용하려면 [Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux-arm.md)의 지침을 따르세요.
+* 사용자 고유의 디바이스에서 Azure IoT Edge 런타임을 실행하려면 [Linux(x64)에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md) 및 [Linux(ARM32v7/armhf)에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux-arm.md)의 지침을 따르세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

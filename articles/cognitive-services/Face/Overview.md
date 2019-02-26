@@ -2,33 +2,36 @@
 title: Face API란?
 titleSuffix: Azure Cognitive Services
 description: Face 서비스를 사용하여 이미지에서 얼굴을 감지하고 분석하는 방법을 알아봅니다.
-author: SteveMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 10/29/2018
-ms.author: sbowles
-ms.openlocfilehash: 655234bfec650ef027e325ff8df23fe91eecfd43
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861055"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455979"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Face API란?
 
 Azure Face API는 이미지에서 사람 얼굴을 감지, 인식 및 분석하기 위한 알고리즘을 제공하는 인지 서비스입니다. 얼굴 정보를 처리하는 기능은 보안, 자연스러운 사용자 인터페이스, 이미지 콘텐츠 분석 및 관리, 모바일 앱, 로봇과 같은 다양한 소프트웨어 시나리오에서 중요합니다.
 
-Face API는 각각 다음 섹션에 설명된 다양한 기능을 제공합니다. 각 기능에 대해 자세히 알아보고 필요에 맞는지 확인하려면 참조하세요.
+Face API는 각각 다음 섹션에 설명된 다양한 기능을 제공합니다. 각 항목에 대해 자세히 알아보려면 계속 읽어보세요.
 
 ## <a name="face-detection"></a>얼굴 감지
 
-Face API는 이미지에서 사람 얼굴을 감지하고 해당 위치의 사각형 좌표를 반환할 수 있습니다. 필요에 따라 얼굴 감지는 포즈, 성별, 연령, 머리 포즈, 수염 및 안경과 같은 일련의 얼굴 관련 속성을 추출할 수 있습니다.
+Face API는 이미지에서 사람 얼굴을 감지하고 해당 위치의 사각형 좌표를 반환할 수 있습니다. 필요에 따라 얼굴 감지는 자세, 머리 자세, 성별, 연령, 감정, 수염 및 안경과 같은 일련의 얼굴 관련 특성을 추출할 수 있습니다.
 
 ![얼굴 주위에 사각형이 그려지고 연령 및 성별이 표시된 여자와 남자의 이미지](./Images/Face.detection.jpg)
 
-얼굴 감지 기능은 [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)를 통해 제공되지만 얼굴 데이터로 추가 작업을 수행하려는 경우 Face API(이 서비스)를 사용해야 합니다. 얼굴 감지에 대한 자세한 내용은 [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 참조하세요.
+> [!NOTE] 
+> 얼굴 감지 기능은 [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)를 통해 제공되지만 얼굴 데이터로 추가 작업을 수행하려는 경우 Face API(이 서비스)를 사용해야 합니다. 
+
+얼굴 감지에 대한 자세한 내용은 [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 참조하세요.
 
 ## <a name="face-verification"></a>얼굴 확인
 

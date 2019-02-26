@@ -10,25 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 02/14/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c2684c7373d9ee4536b248650c7012c261166b81
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 37d84206246e60ed16244d6172a5e22ca18524c9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235396"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270252"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Visual Studio Code 및 Azure Resource Manager 도구 확장을 사용하여 Azure Resource Manager 템플릿을 만들고 편집하는 방법을 알아봅니다. 확장이 없이 Visual Studio Code에서 Resource Manager 템플릿을 만들 수 있지만, 확장에서는 템플릿 개발을 간소화하는 자동 완성 옵션을 제공합니다. Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure Resource Manager 개요](resource-group-overview.md)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -54,6 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. **열기**를 선택하여 파일을 엽니다.
 4. **파일**>**이름으로 저장**을 차례로 선택하여 파일을 **azuredeploy.json**으로 저장합니다.
 
@@ -94,6 +91,9 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 경험하
 ## <a name="deploy-the-template"></a>템플릿 배포
 
 템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 빠른 시작에서는 Azure Cloud Shell을 사용합니다. Cloud Shell은 구성이 필요하지 않은 웹 애플리케이션입니다. Azure CLI와 Azure PowerShell을 모두 지원합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 
@@ -148,7 +148,10 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 경험하
     
     ---
 
-    파일 이름을 **azuredeploy.json**이 아닌 다른 이름으로 저장한 경우 템플릿 파일 이름을 업데이트합니다.
+    > [!NOTE]
+    > Cloud shell에서 Azure PowerShell 사용과 관련된 파일 IO 문제가 있습니다.  오류 메시지는 *cmdlet에 대한 동적 매개 변수를 검색할 수 없습니다. 'Azure:/azuredeploy.json' 경로는 존재하지 않으므로 찾을 수 없습니다.* 입니다.  임시 해결 방법은 `New-AzResourceGroupDeploy` 명령에 **-TemplateFile** 스위치를 포함하지 않는 것입니다. 이 명령은 파일 이름을 입력하라는 메시지를 표시합니다.
+
+    파일 이름을 **azuredeploy.json**이 아닌 다른 이름으로 저장한 경우 템플릿 파일 이름을 업데이트합니다. 
 
     다음 스크린샷에서는 배포 샘플을 보여줍니다.
 

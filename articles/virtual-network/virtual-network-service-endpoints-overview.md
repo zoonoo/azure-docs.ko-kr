@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 60296400c40a1e79758dc53d60d2f1c61d79fd88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 70d931a8038a9b673f3303831903287acb43a567
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108197"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418010"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -33,11 +33,15 @@ VNet(Virtual Network) 서비스 엔드포인트는 직접 연결을 통해 가�
 - **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 지역에서 일반 공급됩니다.
 - **[Azure Database for PostgreSQL 서버](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 일반적으로 데이터베이스 서비스를 사용할 수 있는 Azure 지역에 제공됩니다.
 - **[Azure Database for MySQL 서버](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 일반적으로 데이터베이스 서비스를 사용할 수 있는 Azure 지역에 제공됩니다.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
-- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
-- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
-- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 지역에서 일반 공급됩니다.
+- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)**: 모든 Azure 지역에서 일반 공급됩니다.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 지역에서 일반 공급됩니다.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 지역에서 일반 공급됩니다.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: ADLS Gen1을 사용할 수 있는 모든 Azure 지역에서 일반 공급됩니다.
+
+**공개 미리 보기**
+
+- **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: Azure Database for MariaDB가 제공되는 모든 Azure 지역에서 사용할 수 있는 미리 보기입니다.
 
 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
 

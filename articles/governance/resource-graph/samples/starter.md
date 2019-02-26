@@ -1,6 +1,6 @@
 ---
 title: 시작 쿼리 샘플
-description: Azure Resource Graph를 사용하여 일부 시작 쿼리를 실행합니다.
+description: Azure Resource Graph를 사용하여 리소스 개수 계산, 리소스 정렬 또는 특정 태그를 포함한 일부 시작 쿼리를 실행합니다.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 85d54503e980d8c51128c8b5235197759a536003
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fd945b5fd9f26cc65c5b049406831228a3d5f327
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852357"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338719"
 ---
 # <a name="starter-resource-graph-queries"></a>Resource Graph 시작 쿼리
 

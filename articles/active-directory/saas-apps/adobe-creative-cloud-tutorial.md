@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccb593e198e4dff8f30bddfe26071523ea7a893d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a160c604050f567f3fc0f77ca20a22349f07fd9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179232"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341167"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>자습서: Adobe Creative Cloud와 Azure Active Directory 통합
 
@@ -45,7 +45,7 @@ Adobe Creative Cloud와 Azure AD의 통합을 구성하려면 다음 항목이 �
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-* Adobe Creative Cloud에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+* Adobe Creative Cloud에서 **SP** 시작 SSO를 지원합니다.
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>갤러리에서 Adobe Creative Cloud 추가
 
@@ -67,7 +67,7 @@ Adobe Creative Cloud가 Azure AD에 통합되도록 구성하려면 Adobe Creati
 
 4. 검색 상자에서 **Adobe Creative Cloud**를 입력하고, 결과 패널에서 **Adobe Creative Cloud**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
-     ![결과 목록의 Adobe Creative Cloud](common/search-new-app.png)
+    ![결과 목록의 Adobe Creative Cloud](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -101,29 +101,23 @@ Adobe Creative Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단
 
     ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **IDP** 시작 모드에서 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Adobe Creative Cloud 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
+    ![Adobe Creative Cloud 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
 
-    a. **식별자** 텍스트 상자에서 `https://www.okta.com/saml2/service-provider/<token>` 패턴을 사용하여 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://adobe.com` 값을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://<company name>.okta.com/auth/saml20/accauthlinktest` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://www.okta.com/saml2/service-provider/<token>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Adobe Creative Cloud 클라이언트 지원 팀](https://www.adobe.com/au/creativecloud/business/teams/plans.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 식별자 값은 실제 값이 아닙니다. 실제 식별자로 이 값을 업데이트하세요. 이 값을 얻으려면 [Adobe Creative Cloud 클라이언트 지원 팀](https://www.adobe.com/au/creativecloud/business/teams/plans.html)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
-
-    **로그온 URL** 텍스트 상자에서 `https://adobe.com` 값을 입력합니다.
-
-    ![Adobe Creative Cloud 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
-
-6. Adobe Creative Cloud 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
+5. Adobe Creative Cloud 애플리케이션에는 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 
     ![이미지](common/edit-attribute.png)
 
-7. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
- 
+6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
+
     | 이름 | 원본 특성|
     |----- | --------- |
     | FirstName | user.givenname |
@@ -151,11 +145,11 @@ Adobe Creative Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단
     > [!NOTE]
     > SAML 응답에서 이메일 클레임 값이 입력되려면 사용자에게 유효한 Office 365 ExO 라이선스가 있어야 합니다.
 
-8. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
+7. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
-9. **Adobe Creative Cloud 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+8. **Adobe Creative Cloud 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 

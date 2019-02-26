@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 허용되지 않는 VM 확장
-description: 이 샘플 정책은 지정된 확장의 사용을 금지합니다.
+description: 이 샘플 정책 정의에서는 가상 머신에서 지정된 확장의 사용이 금지됩니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3c92acb72603812797b77a378cdd747147b942eb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c600b6d91260b892f9d2c09a21b14fe1b3f38886
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245340"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341441"
 ---
-# <a name="not-allowed-vm-extensions"></a>허용되는 않는 VM 확장
+# <a name="sample---not-allowed-vm-extensions"></a>샘플 - 허용되지 않는 VM 확장
 
 지정된 확장의 사용을 금지합니다. 금지된 확장 형식을 포함하는 배열을 지정합니다.
 

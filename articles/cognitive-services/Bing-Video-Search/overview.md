@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: a7fbd9eb70c50f3bbd154726bdaa807c2bc41818
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863961"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267175"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Bing Video Search API란?
 
@@ -29,7 +29,7 @@ Bing Video Search API를 통해 쉽게 서비스 및 애플리케이션에 비�
 | [비디오 결과 필터링 및 제한](concepts/get-videos.md#filtering-videos)                      | 쿼리 매개 변수를 편집하여 반환된 비디오를 필터링합니다.                                                                                                       |
 | [썸네일 자르기, 크기 조정 및 표시](resize-and-crop-thumbnails.md)                                                | Bing Video Search API에서 반환하는 비디오에 대한 썸네일 미리 보기를 편집하고 표시합니다.                                                                                      |
 | [인기 비디오 가져오기](trending-videos.md) | 전 세계의 최신 비디오를 검색합니다.                                                                                                          |
-| [비디오 인사이트 가져오기](video-insights.md) | 전 세계로부터의 최신 이미지 검색을 사용자 지정합니다.                                                                                                          |
+| [비디오 인사이트 가져오기](video-insights.md) | 전 세계로부터의 최신 비디오 검색을 사용자 지정합니다.                                                                                                          |
 
 ## <a name="workflow"></a>워크플로
 

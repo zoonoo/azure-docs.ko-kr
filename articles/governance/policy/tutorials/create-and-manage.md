@@ -1,5 +1,5 @@
 ---
-title: Azure Policy를 사용하여 규정 준수를 적용하는 정책 만들기 및 관리
+title: 규정 준수를 적용하는 정책 만들기 및 관리
 description: Azure Policy를 사용하여 표준을 적용하고, 규정 준수 및 감사 요구 사항을 충족하며, 비용을 통제하고, 보안 및 성능 일관성을 유지하며, 엔터프라이즈 수준 디자인 원칙을 적용합니다.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: cb6f033c784832efab23c747057b1c0ef1b317fa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: e49cffc5ba08d400c733ef7c211132c4909f9ef4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730274"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343564"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -354,7 +354,7 @@ az policy definition list
 
    ![이니셔티브 정의](../media/create-and-manage/initiative-definition-2.png)
 
-1. 매개 변수가 이니셔티브에 추가되는 정책 정의에 있으면 **정책 및 매개 변수** 영역의 정책 이름 아래에 표시됩니다. _값_은 '값 설정'(이 이니셔티브의 모든 할당에 대해 하드 코드됨) 또는 '이니셔티브 매개 변수 사용'(각 이니셔티브 할당 중에 설정됨)으로 설정할 수 있습니다. ‘값 설정’을 선택하면 ‘값’ 오른쪽의 드롭다운에서 값을 입력하거나 선택할 수 있습니다. '이니셔티브 매개 변수 사용'을 선택하면 새 **이니셔티브 매개 변수** 섹션이 표시되어 이니셔티브 할당 중에 설정될 매개 변수를 정의할 수 있습니다. 이니셔티브 매개 변수에 허용되는 값은 이니셔티브 할당 중에 설정될 수 있는 값을 더 자세히 제한할 수 있습니다.
+1. 매개 변수가 이니셔티브에 추가되는 정책 정의에 있으면 **정책 및 매개 변수** 영역의 정책 이름 아래에 표시됩니다. _값_은 '값 설정'(이 이니셔티브의 모든 할당에 대해 하드 코드됨) 또는 '이니셔티브 매개 변수 사용'(각 이니셔티브 할당 중에 설정됨)으로 설정할 수 있습니다. ‘값 설정’을 선택하면 _값_ 오른쪽의 드롭다운에서 값을 입력하거나 선택할 수 있습니다. '이니셔티브 매개 변수 사용'을 선택하면 새 **이니셔티브 매개 변수** 섹션이 표시되어 이니셔티브 할당 중에 설정될 매개 변수를 정의할 수 있습니다. 이니셔티브 매개 변수에 허용되는 값은 이니셔티브 할당 중에 설정될 수 있는 값을 더 자세히 제한할 수 있습니다.
 
    ![이니셔티브 정의 매개 변수](../media/create-and-manage/initiative-definition-3.png)
 

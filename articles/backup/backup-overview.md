@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 298c9fabca9d1994e0b952fdf8b48b70370c3ec2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 79a53c1b11a1bac0ea83afdd1333423aff4d6aa6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490673"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428469"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup이란?
 
@@ -25,17 +25,19 @@ Azure Backup 서비스는 Microsoft Azure 클라우드에 데이터를 백업합
 
 Azure Backup에서 제공하는 주요 이점은 다음과 같습니다.
 
-- **온-프레미스 백업 오프로드**: Azure Backup은 온-프레미스 리소스를 클라우드에 백업할 수 있는 간단한 솔루션을 제공합니다. 복잡한 온-프레미스 백업 솔루션을 배포할 필요 없이 장단기 백업을 수행합니다. 테이프 또는 오프사이트 백업을 수행할 필요가 없습니다.
+- **온-프레미스 백업 오프로드**: Azure Backup은 온-프레미스 리소스를 클라우드에 백업할 수 있는 간단한 솔루션을 제공합니다. 복잡한 온-프레미스 백업 솔루션을 배포할 필요 없이 장단기 백업을 수행합니다. 
 - **Azure IaaS VM 백업**: Azure Backup은 실수로 데이터가 삭제되지 않도록 방지하기 위해 독립적이고 격리된 백업을 제공합니다. 백업은 복구 지점이 기본적으로 관리되는 Recovery Services 자격 증명 모음에 저장됩니다. 구성 및 확장성이 간단하고, 백업이 최적화되어 있으며, 필요에 따라 쉽게 복원할 수 있습니다.
-- **손쉬운 크기 조정**: Azure Backup은 유지 관리 또는 모니터링 오버헤드 없이 기본 성능과 Azure 클라우드의 무제한 크기 조정을 사용하여 고가용성을 제공합니다. 이벤트 정보를 제공하도록 경고를 설정할 수 있지만 클라우드에 있는 데이터의 고가용성에 대해 걱정할 필요가 없습니다.
-- **무제한 데이터 전송**: Azure Backup은 전송하는 인바운드 또는 아웃바운드 데이터의 양을 제한하지 않습니다. 또한 전송되는 데이터에 대해 요금을 청구하지 않습니다. 그러나 Azure Import/Export 서비스를 통해 대량의 데이터를 가져오는 경우 인바운드 데이터와 관련 된 비용이 발생합니다. 이 비용에 대한 자세한 내용은 [Azure Backup의 오프라인 백업 워크플로](backup-azure-backup-import-export.md)를 참조하세요. 아웃바운드 데이터는 복원 작업 중에 Recovery Services 자격 증명 모음에서 전송된 데이터입니다.
+- **손쉬운 크기 조정** - Azure Backup은 유지 관리 또는 모니터링 오버헤드 없이 기본 성능과 Azure 클라우드의 무제한 크기 조정을 사용하여 고가용성을 제공합니다. 
+- **무제한 데이터 전송** - Azure Backup은 사용자가 전송하는 인바운드 또는 아웃바운드 데이터의 양 또는 전송되는 데이터의 변경을 제한하지 않습니다.
+    - 아웃바운드 데이터는 복원 작업 중에 Recovery Services 자격 증명 모음에서 전송된 데이터입니다.
+    - Azure Import/Export 서비스를 통해 오프라인 초기 백업을 수행하여 대량의 데이터를 가져오는 경우 인바운드 데이터와 관련된 비용이 발생합니다.  [자세히 알아보기](backup-azure-backup-import-export.md). 
 - **안전한 데이터 유지**: 데이터 암호화를 통해 공용 클라우드에서 데이터를 안전하게 전송하고 저장할 수 있습니다. 암호화 암호는 로컬에서 저장되며, Azure에서 전송되거나 저장되지는 않습니다. 데이터를 복원해야 하는 경우 암호화 암호 또는 키만 이으면 됩니다.
 - **애플리케이션 일치 백업 가져오기**: 애플리케이션 일치 백업은 백업 복사본을 복원하는 데 필요한 모든 데이터가 복구 지점에 있음을 의미합니다. Azure Backup에서 애플리케이션 일치 백업을 제공하므로 데이터를 복원하기 위한 추가 수정 프로그램이 필요하지 않습니다. 애플리케이션 일치 데이터를 복원하면 실행 상태로 빠르게 돌아갈 수 있으므로 복원 시간을 줄여줍니다.
-- **단기 및 장기 보존**: **장기 보존** - 단기 및 장기 데이터 보존을 위해 Recovery Services 자격 증명 모음을 사용할 수 있습니다. Azure는 Recovery Services 자격 증명 모음에 데이터를 유지할 수 있는 기간을 제한하지 않습니다. 원하는 만큼 자격 증명 모음에 데이터를 유지할 수 있습니다. Azure Backup에는 보호된 인스턴스당 9999개 복구 지점의 제한이 있습니다. 이 제한이 백업 필요성에 어떻게 영향을 줄 수 있는지에 대한 설명은 이 문서의 [Backup 및 보존](backup-introduction-to-azure-backup.md#backup-and-retention) 섹션을 참조하세요.
-- **자동 저장소 관리** - 일부는 온-프레미스, 일부는 클라우드인 하이브리드 환경에는 종종 다른 유형의 저장소가 필요합니다. Azure Backup을 사용하면 온-프레미스 저장소 디바이스를 사용하기 위한 비용이 들지 않습니다. Azure Backup은 백업 저장소를 자동으로 할당하고 관리하며 사용한 만큼 지불(pay-as-you-use) 모델을 사용합니다. ‘사용한 만큼 지불’은 사용하는 저장소에 대한 요금만 지불한다는 의미입니다. 자세한 내용은 [Azure 가격 책정](https://azure.microsoft.com/pricing/details/backup)을 참조하세요.
-- **여러 저장소 옵션** - 높은 가용성의 한 양상으로 저장소 복제가 있습니다. Azure Backup에는 두 가지 유형의 복제, 즉 [로컬 중복 저장소](../storage/common/storage-redundancy-lrs.md)와 [지역 중복 저장소](../storage/common/storage-redundancy-grs.md)가 있습니다. 필요에 따라 다음과 같은 백업 저장소 옵션을 선택합니다.
-    - LRS(로컬 중복 저장소)는 데이터 센터의 저장소 배율 단위로 데이터를 세 번 복제합니다(세 개의 데이터 복사본을 만듦). 모든 데이터 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류로부터 데이터를 보호하기 위한 저비용 옵션입니다.
-    - GRS(지역 중복 저장소)는 기본값이며 권장되는 복제 옵션입니다. GRS는 데이터 원본의 기본 위치에서 수백 마일 떨어진 보조 지역으로 데이터를 복제합니다. GRS는 LRS보다 많은 비용이 소요되지만 GRS는 지역 가동 중단이 발생해도 높은 수준의 데이터 내구성을 제공합니다.
+- **단기 및 장기 데이터 보존**: 단기 및 장기 데이터 보존을 위해 Recovery Services 자격 증명 모음을 사용할 수 있습니다. Azure는 Recovery Services 자격 증명 모음에 데이터를 유지할 수 있는 기간을 제한하지 않습니다. 원하는 만큼 데이터를 유지할 수 있습니다. Azure Backup에는 보호된 인스턴스당 9999개 복구 지점의 제한이 있습니다. 이 제한이 백업 요구 사항에 미치는 영향에 대한 [자세한 정보](backup-introduction-to-azure-backup.md#backup-and-retention)를 확인하세요.
+- **자동 저장소 관리** - 일부는 온-프레미스, 일부는 클라우드인 하이브리드 환경에는 종종 다른 유형의 저장소가 필요합니다. Azure Backup을 사용하면 온-프레미스 저장소 디바이스를 사용하기 위한 비용이 들지 않습니다. Azure Backup은 백업 스토리지를 자동으로 할당하고 관리하며, 종량제 모델을 사용하므로 사용한 스토리지 비용만 지불하면 됩니다. 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/backup).
+- **여러 스토리지 옵션** - Azure Backup은 스토리지/데이터의 고가용성을 유지하는 두 가지 종류의 복제를 제공합니다.
+    - [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy-lrs.md)는 데이터 센터의 스토리지 배율 단위로 데이터를 세 번 복제합니다(세 개의 데이터 복사본 생성). 모든 데이터 복사본은 동일한 지역 내에 있습니다. LRS는 로컬 하드웨어 오류로부터 데이터를 보호하기 위한 저비용 옵션입니다.
+    - [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy-grs.md)는 기본값이며 권장하는 복제 옵션입니다. GRS는 데이터 원본의 기본 위치에서 수백 마일 떨어진 보조 지역으로 데이터를 복제합니다. GRS는 LRS보다 많은 비용이 소요되지만 GRS는 지역 가동 중단이 발생해도 높은 수준의 데이터 내구성을 제공합니다.
 
 
 ## <a name="whats-the-difference-between-azure-backup-and-azure-site-recovery"></a>Azure Backup과 Azure Site Recovery의 차이점은 무엇인가요?
@@ -64,52 +66,53 @@ Azure Backup은 온-프레미스 머신과 Azure VM을 모두 백업할 수 있�
 
 **머신** | **백업 시나리오**
 --- | ---
-**온-프레미스 머신(실제/가상)** |  개별 온-프레미스 머신을 백업할 수 있습니다.<br/><br/>System Center DPM(Data Protection Manager)으로 보호되는 온-프레미스 머신을 백업할 수 있습니다.<br/><br/> MABS(Microsoft Azure Backup 서버)로 보호되는 온-프레미스 머신을 백업할 수 있습니다.
-**Azure VM** | 개별 Azure VM을 백업할 수 있습니다.<br/><br/> DPM 또는 MABS로 보호되는 Azure VM을 백업할 수 있습니다.
+**온-프레미스 백업** |  1) 온-프레미스 Windows 머신에서 Azure Backup MARS(Microsoft Azure Recovery Services) 에이전트를 실행하여 개별 파일 및 시스템 상태를 백업합니다. <br/><br/>2) 온-프레미스 머신을 백업 서버(System Center DPM(Data Protection Manager) 또는 MABS(Microsoft Azure Backup Server))에 백업한 다음, Azure의 Azure Backup Recovery Services 자격 증명 모음에 백업하도록 백업 서버를 구성합니다.
+**Azure VM** | 1) 개별 Azure VM에 백업을 사용하도록 설정합니다. 백업을 사용하도록 설정하면 Azure Backup은 VM에서 실행되는 Azure VM 에이전트의 확장을 설치합니다. 이 에이전트는 전체 VM을 백업합니다.<br/><br/> 2) Azure VM에서 MARS 에이전트를 실행합니다. VM의 개별 파일 및 폴더를 백업하려는 경우에 유용합니다.<br/><br/> 3) Azure에서 실행되는 DPM 서버 또는 MABS에 Azure VM을 백업합니다. 그런 다음, Azure Backup을 사용하는 자격 증명 모음에 DPM 서버/MABS를 백업합니다. 
 
-### <a name="back-up-servers"></a>백업 서버
 
-온-프레미스 서버와 해당 워크로드 또는 Azure VM과 해당 워크로드를 먼저 백업 서버에 백업한 다음, Recovery Services 자격 증명 모음에 백업할 수 있습니다. 
+## <a name="why-use-a-backup-server"></a>백업 서버를 사용하는 이유는 무엇인가요?
 
-**백업 서버** | **세부 정보**
---- | ---
-**System Center DPM(Data Protection Manager)** | Azure Backup을 사용하여 DPM으로 보호되는 데이터를 백업할 수 있습니다.<br/><br/> - DPM이 온-프레미스(실제 또는 가상) 또는 Azure에서 실행될 수 있습니다.<br/><br/> - 데이터를 DPM 서버에 백업하여 온-프레미스 머신과 Azure VM에서 실행되는 다양한 형식의 데이터를 보호할 수 있습니다.<br/><br/> 그러면 Azure Backup 서비스를 사용하여 DPM 서버를 Recovery Services 자격 증명 모음에 백업할 수 있습니다.<br/><br/> DPM 서버와 이 서버에서 보호하는 머신이 동일한 네트워크에 있어야 합니다. 온-프레미스 머신은 온-프레미스 DPM 서버에서만 보호할 수 있습니다. 마찬가지로, Azure VM은 Azure에서 실행되는 DPM에서만 보호할 수 있습니다.
-**MABS(Microsoft Azure Backup 서버)** | Azure Backup을 사용하여 MABS로 보호되는 데이터를 백업할 수 있습니다.<br/><br/> - MABS가 온-프레미스(실제 또는 가상) 또는 Azure에서 실행될 수 있습니다.<br/><br/> - 데이터를 MABS에 백업하여 온-프레미스 머신과 Azure VM에서 실행되는 다양한 형식의 데이터를 보호할 수 있습니다.<br/><br/> - 그러면 Azure Backup 서비스를 사용하여 MABS를 Recovery Services 자격 증명 모음에 백업할 수 있습니다.<br/><br/> - MABS는 MABS를 사용하여 테이프에 백업할 수 없다는 점을 제외하면 DPM과 비슷한 기능을 제공합니다. MABS에는 System Center 라이선스가 필요하지 않습니다.<br/><br/> DPM과 마찬가지로, 온-프레미스 머신은 온-프레미스 MABS에서만 보호할 수 있습니다. Azure VM은 Azure의 MABS에서만 보호할 수 있습니다.
 
-먼저 DPM/MABS에 백업한 다음, 자격 증명 모음에 백업하는 이점은 다음과 같습니다.
 
-- DPM/MAB에 백업하면 파일/폴더/볼륨 백업 및 머신 상태 백업(완전 백업, 시스템 상태) 외에도 SQL Server, Exchange 및 SharePoint와 같은 일반적인 앱에 최적화된 앱 인식 백업을 제공합니다.
-- 백업하려는 각 머신에 Azure Backup 에이전트를 설치할 필요가 없습니다. 각 머신에서 DPM/MABS 보호 에이전트를 실행하고, Azure Backup Microsoft Azure Recovery Services 에이전트는 DPM 서버/MABS에서만 실행됩니다.
+
+머신과 앱을 MABS/DPM 스토리지에 백업한 다음, DPM/MABS 스토리지를 자격 증명 모음에 백업하면 다음과 같은 장점이 있습니다.
+
+- MABS/DPM에 백업하면 파일/폴더/볼륨 백업 및 머신 상태 백업(완전 백업, 시스템 상태) 외에도 SQL Server, Exchange 및 SharePoint와 같은 일반적인 앱에 최적화된 앱 인식 백업을 제공합니다.
+- 온-프레미스 머신의 경우 백업하려는 각 머신에 MARS 에이전트를 설치할 필요가 없습니다. 각 머신은 DPM/MABS 보호 에이전트를 실행하며, MARS 에이전트는 MABS/DPM에서만 실행됩니다.
 - 백업 실행을 위한 더 유연하고 세분화된 일정 예약 옵션이 있습니다.
 - 단일 콘솔에서 보호 그룹으로 모이는 여러 머신에 대한 백업을 관리할 수 있습니다. 이는 여러 머신에서 앱이 계층화되고 이러한 앱을 함께 백업하려는 경우에 특히 유용합니다.
 
-## <a name="what-can-be-backed-up"></a>백업할 수 있는 대상은 무엇인가요?
+백업 서버를 사용할 때 [백업의 작동 원리](backup-architecture.md#architecture-back-up-to-dpmmabs) 및 백업 서버의 [지원 요구 사항](backup-support-matrix-mabs-dpm.md)을 자세히 알아보세요.
 
-**머신** | **백업 서버** | **백업**
+## <a name="what-can-i-back-up"></a>어떤 것을 백업할 수 있나요?
+
+**머신** | **백업 방법** | **백업**
 --- | --- | ---
-온-프레미스 Windows VM | DPM 또는 MABS에 백업되지 않음 | 파일, 폴더, 시스템 상태를 백업합니다.
-Azure VM(Windows 및 Linux) | DPM 또는 MABS에 백업되지 않음 | 파일, 폴더, 시스템 상태를 백업합니다.<br/><br/> Windows 머신의 경우 앱 인식 백업이고, Linux 머신의 경우 파일 인식 백업입니다.
-온-프레미스 VM/Azure VM | DPM에서 보호 | 파일/폴더/공유/볼륨 및 앱별 데이터를 포함하여 DPM에서 보호하는 모든 데이터를 백업합니다. DPM으로 백업할 수 대상을 [알아봅니다](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
-온-프레미스 VM/Azure VM | MABS에서 보호 | 파일/폴더/공유/볼륨 및 앱별 데이터를 포함하여 MABS에서 보호하는 모든 데이터를 백업합니다. MABS에서 백업할 수 있는 대상을 [알아봅니다](backup-mabs-protection-matrix.md).
+**온-프레미스 Windows VM** | MARS 에이전트 실행 | 파일, 폴더, 시스템 상태를 백업합니다.<br/><br/> Linux 머신은 지원되지 않습니다.
+**온-프레미스 컴퓨터** | DPM/MABS에 백업 | 파일/폴더/공유/볼륨 및 앱별 데이터를 포함하여 [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) 또는 [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs)로 보호되는 모든 것을 백업합니다. 
+**Azure VM** | Azure VM 에이전트 백업 확장 실행 | 전체 VM 백업
+**Azure VM** | MARS 에이전트 실행 | 파일, 폴더, 시스템 상태를 백업합니다.<br/><br/> Linux 머신은 지원되지 않습니다.
+**Azure VM** | Azure에서 실행되는 MABS/DPM에 백업 | 파일/폴더/공유/볼륨 및 앱별 데이터를 포함하여 [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) 또는 [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807)으로 보호되는 모든 것을 백업합니다.
 
 ## <a name="what-backup-agents-do-i-need"></a>필요한 백업 에이전트는 무엇인가요?
-**시나리오** | **에이전트** | **세부 정보**
---- | --- | ---
-온-프레미스 머신(백업 서버 없음) | MARS(Microsoft Azure Recovery Services) 에이전트는 Windows 머신에서 실행됩니다. | Azure Backup 배포 중에 MARS 에이전트를 다운로드하여 설치합니다.<br/><br/> Windows 머신만 지원합니다.
-Azure VM(백업 서버 없음) | 명시적 에이전트가 필요하지 않습니다. 백업용 Azure VM 확장이 Azure VM에서 실행됩니다. | 확장은 Azure VM 백업을 처음 실행할 때 설치됩니다.<br/><br/> Windows 및 Linux 지원을 지원합니다.
-DPM에서 보호하는 온-프레미스 머신/Azure VM | MARS 에이전트가 DPM 서버에서 실행됩니다. | 개별 머신에 MARS 에이전트가 필요하지 않습니다.<br/><br/> DPM을 배포할 때 보호하는 각 머신에 DPM 보호 에이전트가 설치됩니다. 
-MABS에서 보호하는 온-프레미스 머신 및 Azure VM 백업 | MARS 에이전트가 MABS에서 실행됩니다. | 개별 머신에 MARS 에이전트가 필요하지 않습니다.<br/><br/> MABS를 배포할 때 보호하는 각 머신에 MABS 보호 에이전트가 설치됩니다. 
 
+**시나리오** | **에이전트** 
+--- | --- 
+**Azure VM 백업** | 에이전트가 필요 없습니다. 백업용 Azure VM 확장은 Azure VM 백업을 처음으로 실행할 때 Azure VM에 설치됩니다.<br/><br/> Windows 및 Linux 지원을 지원합니다.
+**온-프레미스 Windows 머신 백업** | MARS 에이전트를 머신에 직접 다운로드하여 설치하고 실행합니다. 
+**MARS 에이전트를 사용하여 Azure VM 백업** | MARS 에이전트를 머신에 직접 다운로드하여 설치하고 실행합니다. MARS 에이전트는 백업 확장과 함께 실행할 수 있습니다.
+**온-프레미스 머신 및 Azure VM을 DPM/MABS에 백업** | DPM 또는 MABS 보호 에이전트는 보호하려는 머신에서 실행됩니다. MARS 에이전트는 Azure에 백업할 DPM 서버/MABS에서 실행됩니다.
 
 ## <a name="which-backup-agent-should-i-use"></a>사용해야 하는 백업 에이전트는 무엇인가요?
 
 **Backup** | **해결 방법** | **제한 사항**
 --- | --- | ---
-온-프레미스 Windows 머신을 백업하려고 합니다. 머신은 DPM 또는 MABS에서 보호하지 않습니다. | 머신에 MARS 에이전트를 설치합니다. | 파일, 폴더 및 시스템 상태를 Azure에 백업할 수 있습니다. 앱 인식 백업이 아닙니다.
-온-프레미스 Linux 머신을 백업하려고 합니다. 머신은 DPM 또는 MABS에서 보호하지 않습니다. | Azure에 백업하려면 DPM 또는 MABS를 배포해야 합니다.
-온-프레미스 Windows 머신에서 실행되는 앱을 백업하려고 합니다. | 앱 인식 백업의 경우 Windows 머신은 DPM 또는 MABS에서 보호해야 합니다.
-Azure VM을 백업하려고 합니다. | Azure Backup을 사용하여 백업을 실행합니다. 백업 확장은 Windows 또는 Linux Azure VM에서 자동으로 구성됩니다. | VM 디스크가 백업됩니다.<br/><br/> Windows VM의 경우 앱 일치 백업이 수행됩니다. Linux의 경우 파일 일치 백업이 수행됩니다. 앱 인식 백업이 필요한 경우 사용자 지정 스크립트를 사용하여 이를 구성해야 합니다.
-백업 및 복구 설정의 세분화된 유연성을 사용하여 Azure VM을 백업하려고 합니다. | Azure에서 실행되는 DPM 또는 MABS를 통해 Azure VM을 보호하면 백업 일정 예약을 더 유연하게 처리하고 파일, 폴더, 볼륨, 앱 및 시스템 상태를 완벽하게 보호 및 복원할 수 있습니다.
+**전체 Azure VM을 백업하려는 경우** | VM에 백업을 사용하도록 설정합니다. 백업 확장은 Windows 또는 Linux Azure VM에서 자동으로 구성됩니다. | 전체 VM이 백업됩니다. <br/><br/> Windows VM의 경우 앱 일치 백업이 수행됩니다. Linux의 경우 파일 일치 백업이 수행됩니다. Linux VM에 대한 앱 인식이 필요한 경우 사용자 지정 스크립트를 사용하여 이를 구성해야 합니다.
+**Azure VM의 특정 파일/폴더를 백업하려는 경우** | VM에 MARS 에이전트를 배포합니다.
+**온-프레미스 Windows 머신을 직접 백업하려는 경우** | 머신에 MARS 에이전트를 설치합니다. | 파일, 폴더 및 시스템 상태를 Azure에 백업할 수 있습니다. 앱 인식 백업이 아닙니다.
+**온-프레미스 Linux 머신을 직접 백업하려는 경우** | Azure에 백업하려면 DPM 또는 MABS를 배포해야 합니다.
+**온-프레미스에서 실행되는 앱을 백업하려는 경우** | 앱 인식 백업의 경우 머신을 DPM 또는 MABS로 보호해야 합니다.
+**Azure VM의 백업 및 복구를 세밀하고 유연하게 설정하려는 경우** | Azure에서 실행되는 MABS/DPM으로 Azure VM을 보호하면 백업 일정 예약을 보다 유연하게 처리하고 파일, 폴더, 볼륨, 앱 및 시스템 상태를 매우 유연하게 보호하고 복원할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

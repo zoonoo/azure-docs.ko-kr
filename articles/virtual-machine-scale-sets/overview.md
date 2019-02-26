@@ -16,12 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: manayar
-ms.openlocfilehash: 23c04f85c994a8b300ffec23b4660d3d431ef69b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 5cd9593bba1e97f52bfa37467920959b1ef0f698
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740428"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329615"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>가상 머신 확장 집합이란?
 Azure 가상 머신 확장 집합을 사용하면 부하 분산된 동일한 VM 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 확장 집합은 애플리케이션에 고가용성을 제공하고 많은 수의 VM을 중앙에서 관리, 구성 및 업데이트할 수 있게 합니다. 가상 머신 확장 집합을 사용하면 컴퓨팅, 빅 데이터 및 컨테이너 작업과 같은 영역에 대한 대규모 서비스를 구축할 수 있습니다.
@@ -37,17 +37,17 @@ Azure 가상 머신 확장 집합은 많은 VM에서 실행되는 애플리케�
     - 확장 집합을 사용하면 동일한 기본 OS 이미지 및 구성에 모든 VM 인스턴스가 만들어집니다. 이 방법을 사용하면 추가 구성 작업 또는 네트워크 관리 없이 수백 개의 VM을 쉽게 관리할 수 있습니다.
     - 확장 집합은 기본 4계층 트래픽 분산에는 [Azure 부하 분산 장치](../load-balancer/load-balancer-overview.md)를 사용하고, 고급 7계층 트래픽 분산 및 SSL 종료에는 [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)를 사용하도록 지원합니다.
 
-- **고가용성 및 응용 프로그램 복원력 제공**
+- **고가용성 및 애플리케이션 복원력 제공**
     - 확장 집합은 애플리케이션의 여러 인스턴스를 실행하는 데 사용됩니다. 이러한 VM 인스턴스 중 하나에 문제가 있는 경우, 고객은 중단을 최소화하면서 다른 VM 인스턴스 중 하나를 통해 애플리케이션에 계속 액세스합니다.
     - 추가 가용성을 위해 [가용성 영역](../availability-zones/az-overview.md)을 사용하여 단일 데이터 센터 또는 여러 데이터 센터 내에서 VM 인스턴스를 확장 집합에 자동으로 배포할 수 있습니다.
 
-- **리소스 수요 변화에 따라 자동으로 응용 프로그램 크기 조정**
+- **리소스 수요 변화에 따라 자동으로 애플리케이션 크기 조정**
     - 애플리케이션에 대한 고객의 요구는 하루 또는 일주일 내내 변할 수 있습니다. 고객 요구를 맞추기 위해 확장 집합은 애플리케이션 수요가 증가함에 따라 VM 인스턴스 수를 자동으로 늘린 다음, 수요가 감소함에 따라 VM 인스턴스 수를 줄일 수 있습니다.
     - 또한 자동 크기 조정은 수요가 낮을 때 애플리케이션을 실행하는 불필요한 VM 인스턴스의 수를 최소화하는 한편, 수요가 증가하고 추가 VM 인스턴스가 자동으로 추가될 때 고객이 허용 가능한 수준의 성능을 계속 확보할 수 있습니다. 이 기능은 필요에 따라 비용을 절감하고 Azure 리소스를 효율적으로 만드는 데 도움이 됩니다.
 
 - **대규모 작업**
     - 확장 집합은 최대 1,000개의 VM 인스턴스를 지원합니다. 사용자 고유의 사용자 지정 VM 이미지를 만들고 업로드하는 경우 300개 VM 인스턴스로 제한됩니다.
-    - 프로덕션 작업에서 최상의 성능을 얻으려면 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) 및 [Premium Storage](../virtual-machines/windows/premium-storage.md)를 사용합니다.
+    - 프로덕션 워크로드에서 최상의 성능을 얻으려면 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 사용합니다.
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>가상 머신과 확장 집합 간의 차이점

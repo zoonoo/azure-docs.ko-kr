@@ -9,17 +9,18 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/17/2018
 ms.author: alzam
-ms.openlocfilehash: 1f89d6a33346abc8a84f5bc5c0e46e5431fb80ec
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a4cec6661750935cefd3767be7e10e2674ee8473
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510943"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415479"
 ---
 # <a name="download-vpn-device-template-using-powershell"></a>PowerShell을 사용한 VPN 디바이스 템플릿 다운로드
 
 이 스크립트는 연결을 위해 VPN 디바이스 템플릿을 다운로드합니다.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables
@@ -28,19 +29,19 @@ $GWName      = "VNet1GW"
 $Connection  = "VNet1toSite1"
 
 # List the available VPN device models and versions
-Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
+Get-AzVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
 
 # Download the configuration template for the connection
-Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG `
+Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG `
 -DeviceVendor Juniper -DeviceFamily Juniper_SRX_GA -FirmwareVersion Juniper_SRX_12.x_GA
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-만든 리소스가 더 이상 필요하지 않으면 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹을 삭제합니다. 그러면 리소스 그룹 및 포함된 모든 리소스가 삭제됩니다.
+만든 리소스가 더 이상 필요하지 않으면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹을 삭제합니다. 그러면 리소스 그룹 및 포함된 모든 리소스가 삭제됩니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name TestRG1
+Remove-AzResourceGroup -Name TestRG1
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -49,8 +50,8 @@ Remove-AzureRmResourceGroup -Name TestRG1
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice) | 사용 가능한 모든 VPN 디바이스 모델 및 버전을 나열합니다. |
-| [Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript) | 연결에 대한 구성 템플릿을 다운로드합니다. |
+| [Get-AzVirtualNetworkGatewaySupportedVpnDevice](/powershell/module/az.network/Get-azVirtualNetworkGatewaySupportedVpnDevice) | 사용 가능한 모든 VPN 디바이스 모델 및 버전을 나열합니다. |
+| [Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript](/powershell/module/az.network/Get-azVirtualNetworkGatewayConnectionVpnDeviceConfigScript) | 연결에 대한 구성 템플릿을 다운로드합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

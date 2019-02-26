@@ -2,33 +2,26 @@
 title: PowerShell을 사용하여 Azure VPN 게이트웨이 만들기 및 관리 | Microsoft Docs
 description: 자습서 - Azure PowerShell 모듈을 사용하여 VPN 게이트웨이 만들기 및 관리
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
-ms.date: 05/14/2018
+ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 17c8a55c27a276fa1e2e04ebb9f748fa6d59a9dc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: afe71953e9917ccf274742124d59cb790f15521b
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55505974"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414136"
 ---
-# <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 VPN 게이트웨이 만들기 및 관리
+# <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>자습서: PowerShell을 사용하여 VPN 게이트웨이 만들기 및 관리
 
 Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스 간 연결을 제공합니다. 이 자습서에서는 VPN 게이트웨이 만들기 및 관리 같은 기본적인 Azure VPN 게이트웨이 배포 항목을 다룹니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * VPN 게이트웨이 만들기
+> * 공용 IP 주소 보기
 > * VPN 게이트웨이 크기 조정
 > * VPN Gateway 다시 설정
 
@@ -38,13 +31,13 @@ Azure VPN 게이트웨이는 고객 프레미스와 Azure 사이에 프레미스
 
 ### <a name="azure-cloud-shell-and-azure-powershell"></a>Azure Cloud Shell 및 Azure PowerShell
 
-[!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.3 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 
+[!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ## <a name="common-network-parameter-values"></a>일반 네트워크 매개 변수 값
 
-환경 및 네트워크 설정에 따라 아래 값을 변경합니다.
+환경 및 네트워크 설정에 따라 아래 값을 변경한 다음, 값을 복사하고 붙여넣어 이 자습서의 변수를 설정합니다. Cloud Shell 세션 시간이 초과되거나 다른 PowerShell 창을 사용해야 하는 경우 변수를 복사하여 새 세션에 붙여넣고 자습서를 계속 진행합니다.
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
@@ -64,23 +57,23 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="create-resource-group"></a>리소스 그룹 만들기
+## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령으로 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹을 먼저 만들어야 합니다. 다음 예제에서는 *미국 동부* 지역에 *TestRG1*이라는 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 리소스 그룹을 먼저 만들어야 합니다. 다음 예제에서는 *미국 동부* 지역에 *TestRG1*이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
+New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
 ```
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-Azure VPN 게이트웨이는 가상 네트워크를 위한 프레미스 간 연결 및 P2S VPN 서버 기능을 제공합니다. 기존 가상 네트워크에 VPN 게이트웨이를 추가하거나 새 가상 네트워크 및 게이트웨이를 만듭니다. 이 예제는 세 개의 서브넷이 있는 새로운 가상 네트워크를 만듭니다. [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 및 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 프런트 엔드, 백 엔드 및 게이트웨이 서브넷을 만듭니다.
+Azure VPN 게이트웨이는 가상 네트워크를 위한 프레미스 간 연결 및 P2S VPN 서버 기능을 제공합니다. 기존 가상 네트워크에 VPN 게이트웨이를 추가하거나 새 가상 네트워크 및 게이트웨이를 만듭니다. 이 예제는 세 개의 서브넷이 있는 새로운 가상 네트워크를 만듭니다. [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 및 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 프런트 엔드, 백 엔드 및 게이트웨이 서브넷을 만듭니다.
 
 ```azurepowershell-interactive
-$fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
-$besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
-$gwsub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubnet1 -AddressPrefix $GwPrefix1
-$vnet   = New-AzureRmVirtualNetwork `
+$fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
+$besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
+$gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubnet1 -AddressPrefix $GwPrefix1
+$vnet   = New-AzVirtualNetwork `
             -Name $VNet1 `
             -ResourceGroupName $RG1 `
             -Location $Location1 `
@@ -90,26 +83,26 @@ $vnet   = New-AzureRmVirtualNetwork `
 
 ## <a name="request-a-public-ip-address-for-the-vpn-gateway"></a>VPN 게이트웨이에 대한 공용 IP 주소 요청
 
-Azure VPN Gateway는 인터넷을 통해 온-프레미스 VPN 디바이스와 통신하여 IKE(Internet Key Exchange) 협상을 수행하고 IPsec 터널을 설정합니다. [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) 및 [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) 명령을 사용하여 아래 예제와 같이 공용 IP 주소를 만들어서 VPN 게이트웨이에 할당합니다.
+Azure VPN Gateway는 인터넷을 통해 온-프레미스 VPN 디바이스와 통신하여 IKE(Internet Key Exchange) 협상을 수행하고 IPsec 터널을 설정합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) 및 [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) 명령을 사용하여 아래 예제와 같이 공용 IP 주소를 만들어서 VPN 게이트웨이에 할당합니다.
 
 > [!IMPORTANT]
 > 현재는 게이트웨이에 동적 공용 IP 주소만 사용할 수 있습니다. 고정 IP 주소는 Azure VPN 게이트웨이에서 지원되지 않습니다.
 
 ```azurepowershell-interactive
-$gwpip    = New-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroupName $RG1 `
+$gwpip    = New-AzPublicIpAddress -Name $GwIP1 -ResourceGroupName $RG1 `
               -Location $Location1 -AllocationMethod Dynamic
-$subnet   = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' `
+$subnet   = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' `
               -VirtualNetwork $vnet
-$gwipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 `
+$gwipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 `
               -Subnet $subnet -PublicIpAddress $gwpip
 ```
 
-## <a name="create-vpn-gateway"></a>VPN 게이트웨이 만들기
+## <a name="create-a-vpn-gateway"></a>VPN 게이트웨이 만들기
 
-VPN 게이트웨이를 만드는 데에는 45분 이상이 걸릴 수 있습니다. 게이트웨이 만들기가 완료되면 가상 네트워크와 VNet 간에 연결을 만들 수 있습니다. 또는 가상 네트워크와 온-프레미스 위치 간에 연결을 만듭니다. [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/New-AzureRmVirtualNetworkGateway) cmdlet을 사용하여 VPN 게이트웨이를 만듭니다.
+VPN 게이트웨이를 만드는 데에는 45분 이상이 걸릴 수 있습니다. 게이트웨이 만들기가 완료되면 가상 네트워크와 VNet 간에 연결을 만들 수 있습니다. 또는 가상 네트워크와 온-프레미스 위치 간에 연결을 만듭니다. [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet을 사용하여 VPN 게이트웨이를 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
+New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
   -Location $Location1 -IpConfigurations $gwipconf -GatewayType Vpn `
   -VpnType RouteBased -GatewaySku VpnGw1
 ```
@@ -119,47 +112,51 @@ New-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 * VpnType: **RouteBased**를 사용하여 더 넓은 범위의 VPN 디바이스 및 더 많은 라우팅 기능과 상호 작용합니다.
 * GatewaySku: 기본값은 **VpnGw1**입니다. 더 높은 처리량 또는 더 많은 연결이 필요한 경우 VpnGw2 또는 VpnGw3으로 변경합니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
 
+TryIt을 사용하는 경우 세션 시간이 초과될 수 있습니다. 그래도 괜찮습니다. 게이트웨이는 만들기를 계속 진행합니다.
+
 게이트웨이 만들기가 완료되면 가상 네트워크와 다른 VNet 간에 연결을 만들거나 가상 네트워크와 온-프레미스 위치 간에 연결을 만들 수 있습니다. 클라이언트 컴퓨터에서 VNet으로 P2S 연결을 구성할 수도 있습니다.
 
-## <a name="resize-vpn-gateway"></a>VPN 게이트웨이 크기 조정
+## <a name="view-the-gateway-public-ip-address"></a>게이트웨이 공용 IP 주소 보기
 
-게이트웨이를 만든 후 VPN 게이트웨이 SKU를 변경할 수 있습니다. 다양한 게이트웨이 SKU가 처리량, 연결 수 등의 다양한 사양을 지원합니다. 다음 예제에서는 [Resize-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Resize-AzureRmVirtualNetworkGateway) 명령을 사용하여 게이트웨이 크기를 VpnGw1에서 VpnGw2로 조정합니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
+공용 IP 주소의 이름을 알고 있는 경우 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) 명령을 사용하여 게이트웨이에 할당된 공용 IP 주소를 표시합니다.
+
+세션 시간이 초과되면 이 자습서 시작 부분의 일반 네트워크 매개 변수를 세 세션에 복사하고 계속 진행합니다.
 
 ```azurepowershell-interactive
-$gateway = Get-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
-Resize-AzureRmVirtualNetworkGateway -GatewaySku VpnGw2 -VirtualNetworkGateway $gateway
+$myGwIp = Get-AzPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1
+$myGwIp.IpAddress
+```
+
+## <a name="resize-a-gateway"></a>게이트웨이 크기 조정
+
+게이트웨이를 만든 후 VPN 게이트웨이 SKU를 변경할 수 있습니다. 다양한 게이트웨이 SKU가 처리량, 연결 수 등의 다양한 사양을 지원합니다. 다음 예제에서는 [Resize-AzVirtualNetworkGateway](/powershell/module/az.network/Resize-azVirtualNetworkGateway) 명령을 사용하여 게이트웨이 크기를 VpnGw1에서 VpnGw2로 조정합니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
+
+```azurepowershell-interactive
+$gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
+Resize-AzVirtualNetworkGateway -GatewaySku VpnGw2 -VirtualNetworkGateway $gateway
 ```
 
 또한 VPN 게이트웨이 크기 조정 작업이 기존 연결 및 구성을 중단하거나 제거하지는 **않지만**, 완료하는 데 약 30-45분이 걸립니다.
 
-## <a name="reset-vpn-gateway"></a>VPN 게이트웨이 다시 설정
+## <a name="reset-a-gateway"></a>게이트웨이 다시 설정
 
-문제 해결 단계의 일부로, VPN 게이트웨이가 IPsec/IKE 터널 구성을 강제로 다시 시작하도록 Azure VPN 게이트웨이를 다시 설정할 수 있습니다. 게이트웨이를 다시 설정하려면 [Reset-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Reset-AzureRmVirtualNetworkGateway) 명령을 사용합니다.
+문제 해결 단계의 일부로, VPN 게이트웨이가 IPsec/IKE 터널 구성을 강제로 다시 시작하도록 Azure VPN 게이트웨이를 다시 설정할 수 있습니다. 게이트웨이를 다시 설정하려면 [Reset-AzVirtualNetworkGateway](/powershell/module/az.network/Reset-azVirtualNetworkGateway) 명령을 사용합니다.
 
 ```azurepowershell-interactive
-$gateway = Get-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
-Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gateway
+$gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
+Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 ```
 
 자세한 내용은 [VPN 게이트웨이 다시 설정](vpn-gateway-resetgw-classic.md)을 참조하세요.
 
-## <a name="get-the-gateway-public-ip-address"></a>게이트웨이 공용 IP 주소 가져오기
+## <a name="clean-up-resources"></a>리소스 정리
 
-공용 IP 주소의 이름을 알고 있는 경우 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-6.8.1) 명령을 사용하여 게이트웨이에 할당된 공용 IP 주소를 표시합니다.
+[다음 자습서](vpn-gateway-tutorial-vpnconnection-powershell.md)를 이어서 진행하는 경우 이러한 리소스가 계속 필요하므로 그대로 유지하세요.
 
-```azurepowershell-interactive
-$myGwIp = Get-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1
-$myGwIp.IpAddress
-```
-
-## <a name="delete-vpn-gateway"></a>VPN 게이트웨이 삭제
-
-프레미스 간 연결 및 VNet-VNet 연결을 완전하게 구성하려면 VPN 게이트웨이 외에도 여러 리소스 종류가 필요합니다. 게이트웨이 자체를 삭제하려면 먼저 VPN 게이트웨이와 이어진 연결을 삭제해야 합니다. 게이트웨이를 삭제한 후에는 게이트웨이의 공용 IP 주소를 삭제할 수 있습니다. 자세한 단계는 [VPN 게이트웨이 삭제](vpn-gateway-delete-vnet-gateway-powershell.md)를 참조하세요.
-
-게이트웨이가 프로토타입 또는 개념 증명의 일부인 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹, VPN 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
+그러나 게이트웨이가 프로토타입, 테스트 또는 개념 증명 배포의 일부인 경우 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹, VPN 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $RG1
+Remove-AzResourceGroup -Name $RG1
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -168,6 +165,7 @@ Remove-AzureRmResourceGroup -Name $RG1
 
 > [!div class="checklist"]
 > * VPN 게이트웨이 만들기
+> * 공용 IP 주소 보기
 > * VPN 게이트웨이 크기 조정
 > * VPN Gateway 다시 설정
 

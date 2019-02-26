@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332475"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428974"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
 
@@ -37,18 +37,15 @@ NSG(네트워크 보안 그룹)를 사용하면 VM(가상 머신)에 대한 인�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-> [!NOTE] 
-> 미국 중서부 지역에서 흐름 로그 버전 2만 사용할 수 있습니다. 지원되지 않는 지역에서 버전 2를 사용하도록 설정하면 버전 1 로그가 스토리지 계정에 출력됩니다.
-
 ## <a name="create-a-vm"></a>VM 만들기
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **+ 리소스 만들기**를 선택합니다.
-2. **계산**을 선택한 다음, **Windows Server 2016 Datacenter** 또는 **Ubuntu Server 17.10 VM**을 선택합니다.
+2. **컴퓨팅**을 선택한 다음, **Windows Server 2016 Datacenter** 또는 **Ubuntu Server** 버전을 선택합니다.
 3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **확인**을 선택합니다.
 
     |설정|값|
     |---|---|
-    |이름|myVm|
+    |Name|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |구독| 구독을 선택합니다.|
@@ -91,7 +88,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 
     | 설정        | 값                                                        |
     | ---            | ---   |
-    | 이름           | 길이가 3~24자이고 소문자 및 숫자만 포함할 수 있고 모든 Azure Storage 계정에서 고유해야 합니다.                                                               |
+    | Name           | 길이가 3~24자이고 소문자 및 숫자만 포함할 수 있고 모든 Azure Storage 계정에서 고유해야 합니다.                                                               |
     | 위치       | **미국 동부**를 선택합니다.                                           |
     | 리소스 그룹 | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
 

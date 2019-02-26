@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1866a5d86d3ee47371a5eb6e14c2976798d2b4da
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ab920094561b9143945793ddd4ea3da877a7ae90
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787853"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340538"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 조치(Failover) 및 장애 복구
 
@@ -70,6 +70,16 @@ VM의 장애 조치(failover) 후 주 지역에 다시 복제되도록 다시 �
 3. **리소스 그룹, 네트워크, 저장소 및 가용성 집합** 정보를 검토합니다. (신규)가 표시된 리소스는 다시 보호 작업의 일부로 생성되었습니다.
 4. **확인**을 클릭하여 다시 보호 작업을 트리거합니다. 이 작업은 최신 데이터로 대상 사이트를 시드합니다. 그런 다음 델타를 주 지역에 복제합니다. 이제 VM이 보호된 상태입니다.
 
+> [!NOTE]
+> 다시 보호 작업 흐름과 다시 보호 중에 발생하는 작업에 대한 자세한 내용은 [“방법” 섹션](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)을 참조하세요.
+
+
 ## <a name="fail-back-to-the-primary-region"></a>주 지역으로 장애 복구(failback)
 
-VM이 다시 보호된 후 필요에 따라 주 지역으로 장애 복구(failback)할 수 있습니다. 이렇게 하려면 이 문서의 설명에 따라 보조 지역에서 주 지역으로의 장애 조치(failover)를 설정하세요.
+VM이 다시 보호된 후 필요에 따라 주 지역으로 장애 복구(failback)할 수 있습니다. 이렇게 하려면 이 문서의 설명에 따라 보조 지역에서 주 지역으로의 장애 조치(failover)를 설정합니다.
+
+![마우스 오른쪽 단추를 클릭하여 다시 보호](./media/azure-to-azure-tutorial-failover-failback/failback.png)
+
+위의 스크린샷을 보면 “ContosoWin2016” VM이 미국 중부에서 미국 동부로 장애 조치(failover)되었다가 미국 동부에서 미국 중부로 장애 복구(failback)되었습니다.
+
+장애 조치(failover)로 인해 보조 지역 즉, 재해 복구 지역의 VM은 종료되고, 주 지역에서 VM이 생성되어 부팅됩니다. 위에 나온 것처럼 DR VM이 정지 할당 취소 상태로 유지됨을 **참고**하세요. 이 동작은 Azure Site Recovery가 가상 머신의 정보를 저장하므로 계획적인 것입니다. 이는 나중에 주 지역을 보조 지역으로 장애 조치(failover)하는 데 유용할 수 있습니다. 할당 취소된 가상 머신에 대해서는 요금이 부과되지 않으므로 그대로 유지해야 합니다.

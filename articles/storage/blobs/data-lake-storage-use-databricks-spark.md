@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891660"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452611"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>자습서: Spark를 사용하여 Azure Databricks로 Data Lake Storage Gen2 데이터에 액세스
 
@@ -38,6 +38,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * AzCopy v10을 설치합니다. [AzCopy v10을 사용하여 데이터 전송](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
+*  서비스 주체를 만듭니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+
+   해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
+
+   :heavy_check_mark: 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에 있는 단계를 수행할 때 **스토리지 Blob 데이터 기여자** 역할을 서비스 주체에 할당해야 합니다.
+
+   > [!IMPORTANT]
+   > 역할을 Data Lake Storage Gen2 스토리지 계정의 범위에 할당해야 합니다. 역할은 부모 리소스 그룹 또는 구독에 할당할 수 있지만, 이러한 역할 할당이 스토리지 계정에 전파될 때까지 권한 관련 오류가 발생합니다.
+
+   :heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 단계를 수행하는 경우 테넌트 ID, 애플리케이션 ID 및 인증 키 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
+
 ### <a name="download-the-flight-data"></a>비행 데이터 다운로드
 
 이 자습서에서는 Bureau of Transportation Statistics의 비행 데이터를 사용하여 ETL 작업을 수행하는 방법을 보여줍니다. 자습서를 완료하려면 이 데이터를 다운로드해야 합니다.
@@ -49,24 +60,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 3. **다운로드** 단추를 선택하고 결과를 컴퓨터에 저장합니다. 
 
 4. 압축된 파일을 풀고, 파일 이름 및 파일 경로를 적어 둡니다. 이후 단계에서 이 정보가 필요합니다.
-
-## <a name="get-your-storage-account-name"></a>스토리지 계정 이름 가져오기
-
-스토리지 계정 이름이 필요합니다. 스토리지 계정 이름을 가져오려면 [Azure Portal](https://portal.azure.com/)에 로그인하여 **모든 서비스**를 선택하고, *스토리지*라는 용어로 필터링합니다. 그런 다음, **스토리지 계정**을 선택하고 스토리지 계정을 찾습니다.
-
-이름을 텍스트 파일에 붙여넣습니다. 곧 필요하게 될 것입니다.
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>서비스 주체 만들기
-
-이 토픽의 지침에 따라 서비스 주체를 만듭니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
-
-해당 문서의 단계를 수행할 때 해야 하는 몇 가지 사항이 있습니다.
-
-:heavy_check_mark: 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에서 단계를 수행하는 경우 해당 애플리케이션을 **Blob Storage 기여자 역할**에 할당해야 합니다.
-
-:heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 단계를 수행하는 경우 테넌트 ID, 애플리케이션 ID 및 인증 키 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
 
 ## <a name="create-an-azure-databricks-service"></a>Azure Databricks 서비스 만들기
 
@@ -145,9 +138,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. 이 코드 블록에서 이 코드 블록의 `storage-account-name`, `application-id`, `authentication-id` 및 `tenant-id` 자리 표시자 값을 이 문서의 스토리지 계정 구성을 보관하기 및 [서비스 주체 만들기](#service-principal) 섹션에서 단계를 완료했을 때 수집한 값으로 바꿉니다. `file-system-name` 자리 표시자를 파일 시스템에 지정할 이름으로 바꿉니다.
 
-19. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다. 
+18. 이 코드 블록에서 `application-id`, `authentication-id`, `tenant-id` 및 `storage-account-name` 자리 표시자 값을 이 자습서의 필수 조건을 수행하는 동안 수집한 값으로 바꿉니다. `file-system-name` 자리 표시자 값을 파일 시스템에 제공하려는 이름으로 바꿉니다.
+
+   * `application-id` 및 `authentication-id`는 서비스 주체 만들기의 일환으로 활성 디렉터리에 등록한 앱에서 가져온 것입니다.
+
+   * `tenant-id`는 구독에서 가져온 것입니다.
+
+   * `storage-account-name`은 Azure Data Lake Storage Gen2 스토리지 계정의 이름입니다.
+
+19. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 
     나중에 명령을 추가할 것이므로 이 Notebook을 계속 열어 둡니다.
 

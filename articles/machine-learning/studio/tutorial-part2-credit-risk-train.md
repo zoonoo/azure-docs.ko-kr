@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8ffcfc86823d46e65e116eed86ef35fcba2a99bf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 45407e183c70fe67e6bd59e3fd86a50a31844c47
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56006941"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453490"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>자습서 2: 신용 위험 모델 학습 - Azure Machine Learning Studio
 
-이 자습서에서는 예측 분석 솔루션을 개발하는 과정을 자세히 살펴보겠습니다. Machine Learning Studio에서 간단한 모델을 개발합니다.  그 후 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이렇게 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제2부**입니다.
+이 자습서에서는 예측 분석 솔루션을 개발하는 과정을 자세히 살펴보겠습니다. Machine Learning Studio에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이렇게 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제2부**입니다.
 
 신용대출 지원 시 애플리케이션에서 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
-신용 위험 평가는 복잡한 문제이지만, 이 연습에서는 약간 단순화하여 살펴보겠습니다. Microsoft Azure Machine Learning을 사용하여 예측 분석 솔루션을 만들 수 있는 방법의 예로 신용 위험 평가를 사용할 것입니다. 이 솔루션에 Azure Machine Learning Studio 및 Machine Learning 웹 서비스를 사용할 것입니다.  
+신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Microsoft Azure Machine Learning Studio를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Azure Machine Learning Studio 및 Machine Learning 웹 서비스가 사용됩니다.  
 
-이 3부로 구성된 자습서에서는 공개적으로 사용 가능한 신용 위험 데이터부터 시작합니다.  그 후 예측 모델을 개발하고 학습합니다.  마지막으로 모델을 웹 서비스로 배포합니다.
+이 3부로 구성된 자습서에서는 공개적으로 사용 가능한 신용 위험 데이터부터 시작합니다.  그런 다음, 예측 모델을 개발하고 학습합니다.  마지막으로 모델을 웹 서비스로 배포합니다.
 
 [이 자습서의 제1부](tutorial-part1-credit-risk.md)에서는 Machine Learning Studio 작업 영역을 만들고, 데이터를 업로드하고, 실험을 만들었습니다.
 
@@ -191,9 +191,9 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 이러한 값을 검토하면 찾고 있는 결과에 가장 근접한 모델을 결정할 수 있습니다. 돌아가서 다른 모델에서 매개 변수 값을 변경하여 실험을 반복할 수 있습니다. 
 
 이러한 결과를 해석하고 모델 성능을 조정하는 과학 및 기술은 이 연습의 범위를 벗어납니다. 추가 도움말을 보려면 다음 문서를 확인할 수 있습니다.
-- [Azure Machine Learning에서 모델 성능을 평가하는 방법](evaluate-model-performance.md)
-- [Azure Machine Learning에서 알고리즘을 최적화하는 매개 변수 선택](algorithm-parameters-optimize.md)
-- [Azure Machine Learning에서 모델 결과 해석](interpret-model-results.md)
+- [Azure Machine Learning Studio에서 모델 성능을 평가하는 방법](evaluate-model-performance.md)
+- [Azure Machine Learning Studio에서 알고리즘을 최적화하는 매개 변수 선택](algorithm-parameters-optimize.md)
+- [Azure Machine Learning Studio에서 모델 결과 해석](interpret-model-results.md)
 
 > [!TIP]
 > 실험을 실행할 때마다 해당 반복에 대한 레코드가 실행 기록에서 유지됩니다. 이러한 반복을 확인하고 캔버스 아래에서 **실행 기록 보기**를 클릭하여 원하는 반복으로 돌아갈 수 있습니다. **속성** 창에서 **이전 실행**을 클릭하여 열었던 반복의 바로 이전 반복으로 돌아갈 수도 있습니다.

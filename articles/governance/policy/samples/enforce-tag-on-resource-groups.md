@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 리소스 그룹에 태그 및 해당 값 강제 적용
-description: 이 샘플 정책에서는 리소스 그룹에 대한 태그 및 값이 필요합니다.
+description: 이 샘플 정책 정의에서는 리소스 그룹에 대한 태그 및 값이 필요합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8fd9ba2e6e5eae43476102c8928c67d6015ec2eb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 73990de30525dff4e3a0981ebca96368f56845fe
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245663"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339076"
 ---
-# <a name="enforce-tag-and-its-value-on-resource-groups"></a>리소스 그룹에 태그 및 해당 값 강제 적용
+# <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>샘플 - 리소스 그룹에 태그 및 해당 값 강제 적용
 
 이 정책에서는 리소스 그룹에 대한 태그 맟 값이 필요합니다. 필수 태그 이름 및 값을 지정합니다.
 

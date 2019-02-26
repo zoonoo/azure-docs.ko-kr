@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: dbae234739cd58278b1dc56c956a5fb058394681
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 003bd5ccae2b22dc411259226d84b11444694651
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913413"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417908"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작
 
@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |속성  |설명  |
     |---------|---------|
     |**클러스터 유형**     | **Hadoop**을 선택합니다. |
-    |**운영 체제**     |  Azure 구독을 선택합니다. |
+    |**운영 체제**     | **Linux**를 선택합니다. |
     |**버전**     | **Hadoop 2.7.3(HDI 3.6)** 을 선택합니다.|
 
     **선택**을 클릭한 다음, **다음**을 클릭합니다.

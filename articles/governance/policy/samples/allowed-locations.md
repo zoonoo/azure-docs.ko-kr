@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 허용되는 위치
-description: 이 샘플 정책에서는 모든 리소스가 승인된 위치에 배포되어야 합니다.
+description: 이 샘플 정책 정의에서는 모든 리소스가 승인된 위치에 배포되어야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: a13f181e90f0435f23e22a7c4db42976bd0afb44
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 70e1b2b20c4846626121dec190dff220a154b81b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243551"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341354"
 ---
-# <a name="allowed-locations"></a>허용되는 위치
+# <a name="sample---allowed-region-locations"></a>샘플 - 허용되는 지역 위치
 
 이 정책을 사용하면 조직에서 리소스를 배포할 때 지정할 수 있는 위치를 제한할 수 있습니다. 지역 규정 준수 요구 사항을 적용하는 데 사용합니다. 리소스 그룹, Microsoft.AzureActiveDirectory/b2cDirectories 및 '글로벌' 지역을 사용하는 리소스를 제외합니다. 허용되는 위치의 배열을 지정합니다.
 

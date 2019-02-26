@@ -10,54 +10,38 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 09/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: b5959e014b7e531b8f52fcbe6f6492576eedd61a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c7ac631ded5d781b2d2949d65f6197e194521055
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875674"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268926"
 ---
 # <a name="what-is-bing-autosuggest"></a>Bing Autosuggest란?
 
-Bing Search API에 쿼리를 보내는 경우 Bing Autosuggest API를 사용하여 검색 상자 환경을 개선할 수 있습니다. Bing Autosuggest API는 사용자가 검색 상자에 입력하는 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. 검색 상자의 드롭다운 목록에 제안 사항을 표시합니다. 제안된 용어는 다른 사용자가 검색한 제안 쿼리 및 사용자 의도를 기반으로 합니다.
+애플리케이션에서 Bing Search API에 쿼리를 보내는 경우 Bing Autosuggest API를 사용하여 사용자의 검색 환경을 개선할 수 있습니다. Bing Autosuggest API는 검색 상자에 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. 검색 상자에 문자를 입력하면 제안이 드롭다운 목록으로 표시될 수 있습니다.
 
-일반적으로 사용자가 검색 상자에 새 문자를 입력할 때마다 이 API를 호출합니다. 쿼리 문자열의 완전성은 API가 반환하는 제안된 쿼리 용어의 관련성에 영향을 줍니다. 쿼리 문자열이 완전할수록 제안된 쿼리 용어 목록의 관련성이 커집니다. 예를 들어 API가 *s*에 대해 반환할 수 있는 제안은 *sailing dinghies*에 대해 반환하는 쿼리보다 관련성이 낮을 가능성이 큽니다.
+## <a name="bing-autosuggest-api-features"></a>Bing Autosuggest API 기능
 
-## <a name="getting-suggested-search-terms"></a>제안된 검색어 가져오기
+| 기능                                                                                                                                                                                 | 설명                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [실시간 검색 용어 제안](concepts/get-suggestions.md) | Autosuggest API를 사용하여 입력하는 대로 제안되는 검색 용어를 표시하여 앱 환경을 향상시킵니다. |
 
-다음 예제에서는 *sail*에 대해 제안된 쿼리 문자열을 반환하는 요청을 보여 줍니다. [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query) 쿼리 매개 변수를 설정할 때 사용자의 부분 쿼리 용어를 URL 인코딩해야 합니다. 예를 들어 사용자가 *sailing les*를 입력한 경우 `q`를 `sailing+les` 또는 `sailing%20les`로 설정합니다.
+## <a name="workflow"></a>워크플로
 
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-X-MSEdge-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
+Bing Autosuggest API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고 JSON을 구문 분석할 수 있는 프로그래밍 언어에서 쉽게 호출할 수 있습니다. 
 
-다음 응답에는 제안된 쿼리 용어를 포함하는 [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction) 개체 목록이 포함됩니다.
+1. Bing Search API에 대한 액세스 권한이 있는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)을 만듭니다. Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)을 만들 수 있습니다.
+2. 사용자가 애플리케이션의 검색 상자에 새 문자를 입력할 때마다 이 API에 요청을 보냅니다.
+3. 반환된 JSON 메시지를 구문 분석하여 API 응답을 처리합니다.
 
-```json
-{
-    "url" : "https:\/\/www.bing.com\/search?q=sailing+lessons+seattle&FORM=USBAPI",
-    "displayText" : "sailing lessons seattle",
-    "query" : "sailing lessons seattle",
-    "searchKind" : "WebSearch"
-}, ...
-```
+일반적으로 사용자가 애플리케이션의 검색 상자에 새 문자를 입력할 때마다 이 API를 호출합니다. 더 많은 문자를 입력하면 API는 관련성이 더 높은 제안된 검색 쿼리를 반환합니다. 예를 들어 API가 단일 `s`에 대해 반환할 수 있는 제안은 `sail`에 대해 반환하는 쿼리보다 관련성이 낮을 가능성이 큽니다.
 
-각 제안에는 `displayText`, `query` 및 `url` 필드가 포함됩니다. `displayText` 필드에는 검색 상자의 드롭다운 목록을 채우는 데 사용하는 제안된 쿼리가 포함됩니다. 응답에 포함된 모든 제안을 지정된 순서대로 표시해야 합니다.
-
-다음은 제안된 쿼리 용어를 사용하는 드롭다운 검색 상자의 예를 보여줍니다.
+다음 예제에서는 Bing Autosuggest API에서 제안된 쿼리 용어와 함께 드롭다운 검색 상자를 보여 줍니다.
 
 ![드롭다운 검색 상자 목록 자동 제안](./media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-사용자가 드롭다운 목록에서 제안된 쿼리를 선택하면 개발자는 `query` 필드의 쿼리 용어를 사용하여 [Bing Web Search API](../bing-web-search/search-the-web.md)를 호출하고 결과를 직접 표시할 수 있습니다. 또는 `url` 필드에 URL을 사용하여 사용자를 Bing 검색 결과 페이지로 보낼 수도 있습니다.
-
-## <a name="throttling-requests"></a>제한 요청
-
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+사용자가 드롭다운 목록에서 제안을 선택하면 이 제안을 사용하여 Bing Search API 중 하나로 검색을 시작하거나 Bing 검색 결과 페이지로 바로 이동할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

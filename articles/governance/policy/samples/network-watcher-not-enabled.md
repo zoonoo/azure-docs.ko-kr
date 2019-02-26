@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 지역에서 Network Watcher를 사용할 수 없는 경우 감사
-description: 이 샘플 정책은 Network Watcher를 특정 지역에 대해 사용하도록 설정되지 않은 경우 감사합니다.
+description: 이 샘플 정책 정의는 Network Watcher를 특정 지역에 대해 사용하도록 설정되지 않은 경우 감사합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 66aca50f0697a648bda60c1dacb439fd6399a764
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 418efd2652098ed04f1d150cfe25b011cdd15eeb
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245697"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342629"
 ---
-# <a name="audit-if-network-watcher-is-not-enabled-for-region"></a>Network Watcher를 지역에 대해 사용하도록 설정되지 않은 경우 감사
+# <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>샘플 - 지역에서 Network Watcher를 사용할 수 없는 경우 감사
 
 이 정책은 Network Watcher를 지역에 대해 사용하도록 설정되지 않은 경우 감사합니다. Network Watcher가 사용하도록 설정되었는지 여부를 확인하려면 지역의 이름을 지정합니다.
 

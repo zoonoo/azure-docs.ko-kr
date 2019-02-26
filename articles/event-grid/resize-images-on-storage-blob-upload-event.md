@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: b3ddaf7667baf98d9d5daa93a3106e457d0aeacb
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0bd602ff6c6d42730439dac2b898899b07dcb2cc
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756872"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301454"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
@@ -27,7 +27,19 @@ ms.locfileid: "55756872"
 
 Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미지 업로드 앱에 추가합니다.
 
-![Microsoft Edge 브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
+![브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+
+![브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+![브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+---
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -46,10 +58,6 @@ Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미
 
 이전에 사용자의 구독에서 Event Grid 리소스 공급자를 등록한 적이 없는 경우, 등록되었는지 확인합니다.
 
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
-```
-
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid
 ```
@@ -62,33 +70,30 @@ Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로�
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-Azure Functions에는 일반 저장소 계정이 필요합니다. [az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령을 사용하여 리소스 그룹에 별도의 일반 스토리지 계정을 만듭니다.
-
-Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 
-
-다음 명령에서 `<general_storage_account>` 자리 표시자는 일반 저장소 계정에 대한 전역적으로 고유한 이름으로 바꿉니다. 
+Azure Functions에는 일반 저장소 계정이 필요합니다. 이전 자습서에서 만든 Blob Storage 계정 외에도 [az storage account create](/cli/azure/storage/account) 명령을 사용하여 리소스 그룹에 별도의 일반 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 
 
 1. 이전 자습서에서 만든 리소스 그룹 이름을 보관하는 변수를 설정합니다. 
 
     ```azurecli-interactive
-    resourceGroupName=<Name of the resource group that you created in the previous tutorial>
+    resourceGroupName=myResourceGroup
     ```
-2. Azure 함수에 필요한 스토리지 계정 이름에 대한 변수를 설정합니다. 
+2. Azure Functions에 필요한 새 스토리지 계정 이름에 대한 변수를 설정합니다. 
 
     ```azurecli-interactive
-    functionstorage=<name of the storage account to be used by function>
+    functionstorage=<name of the storage account to be used by the function>
     ```
-3. Azure 함수에 대한 스토리지 계정을 만듭니다. 이미지를 포함하는 스토리지와는 다릅니다. 
+3. Azure 함수에 대한 스토리지 계정을 만듭니다. 
 
     ```azurecli-interactive
-    az storage account create --name $functionstorage --location eastus --resource-group $resourceGroupName --sku Standard_LRS --kind storage
+    az storage account create --name $functionstorage --location southeastasia \
+    --resource-group $resourceGroupName --sku Standard_LRS --kind storage
     ```
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기  
 
-함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 서버를 사용하지 않는 함수 코드 실행을 위한 환경을 제공합니다. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 함수 앱을 만듭니다. 
+함수 실행을 호스트하는 함수 앱이 있어야 합니다. 함수 앱은 서버를 사용하지 않는 함수 코드 실행을 위한 환경을 제공합니다. [az functionapp create](/cli/azure/functionapp) 명령을 사용하여 함수 앱을 만듭니다. 
 
-다음 명령에서 `<function_app>` 자리 표시자를 고유한 함수 앱 이름으로 대체합니다. 함수 앱은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. `<general_storage_account>`의 경우 사용자가 만든 일반 저장소 계정의 이름을 대체합니다.
+다음 명령에서 사용자 고유의 함수 앱 이름을 제공합니다. 함수 앱은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 
 
 1. 만들려는 함수 앱의 이름을 지정합니다. 
 
@@ -98,29 +103,62 @@ Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문�
 2. Azure 함수를 만듭니다. 
 
     ```azurecli-interactive
-    az functionapp create --name $functionapp --storage-account  $functionstorage --resource-group $resourceGroupName --consumption-plan-location eastus
+    az functionapp create --name $functionapp --storage-account $functionstorage \
+    --resource-group $resourceGroupName --consumption-plan-location southeastasia
     ```
 
 이제 [이전 자습서][previous-tutorial]에서 만든 Blob Storage에 연결하도록 함수 앱을 구성해야 합니다.
 
 ## <a name="configure-the-function-app"></a>함수 앱 구성
 
-함수에는 Blob Storage 계정에 연결된 연결 문자열이 필요합니다. 다음 단계에서 Azure에 배포하는 함수 코드는 앱 설정 myblobstorage_STORAGE에서 연결 문자열을 검색하고, 앱 설정 myContainerName에서 썸네일 이미지 컨테이너 이름을 검색합니다. [az storage account show-connection-string](/cli/azure/storage/account) 명령으로 연결 문자열을 가져옵니다. [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 명령을 사용하여 애플리케이션 설정을 설정합니다.
+이 함수는 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 명령을 사용하여 함수 앱의 애플리케이션 설정에 추가된 Blob Storage 계정에 대한 자격 증명이 필요합니다.
 
-다음 CLI 명령에서 `<blob_storage_account>`는 이전 자습서에서 만든 Blob Storage 계정의 이름입니다.
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-1. 이미지를 포함하는 스토리지 계정에 대한 연결 문자열을 가져옵니다. 
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
 
-    ```azurecli-interactive
-    storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
-    ```
-2. 함수 앱을 구성합니다. 
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails \
+THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+```
 
-    ```azurecli-interactive
-    az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
-    ```
+# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
 
-    `FUNCTIONS_EXTENSION_VERSION=~2` 설정은 함수 앱을 Azure Functions 런타임의 버전 2.x에서 실행하게 만듭니다.
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString \
+THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+```
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+```azurecli-interactive
+blobStorageAccount=<name of the Blob storage account you created in the previous tutorial>
+
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+-n $blobStorageAccount --query [0].value --output tsv)
+
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
+--name $blobStorageAccount --query connectionString --output tsv)
+
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
+--settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails \
+AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
+AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey \
+AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+```
+
+---
+
+`FUNCTIONS_EXTENSION_VERSION=~2` 설정은 함수 앱을 Azure Functions 런타임의 버전 2.x에서 실행하게 만듭니다.
 
 이제 이 함수 앱에 함수 코드 프로젝트를 배포할 수 있습니다.
 
@@ -128,23 +166,30 @@ Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문�
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-샘플 C# 스크립트(.csx) 크기 조정은 [GitHub](https://github.com/Azure-Samples/function-image-upload-resize)에서 사용할 수 있습니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 명령을 사용하여 함수 앱에 배포합니다. 
-
-다음 명령에서 `<function_app>`은 이전에 만든 함수 앱의 이름입니다.
+샘플 C# 크기 조정 기능은 [GitHub](https://github.com/Azure-Samples/function-image-upload-resize)에서 사용할 수 있습니다. 이 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 명령을 사용하여 함수 앱에 배포합니다. 
 
 ```azurecli-interactive
 az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+
 샘플 Node.js 크기 조정 기능은 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node)에서 사용할 수 있습니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 명령을 사용하여 함수 앱에 배포합니다.
 
-다음 명령에서 `<function_app>`은 이전에 만든 함수 앱의 이름입니다.
+```azurecli-interactive
+az functionapp deployment source config --name $functionapp \
+--resource-group $resourceGroupName --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+```
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+샘플 Node.js 크기 조정 기능은 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10)에서 사용할 수 있습니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 명령을 사용하여 함수 앱에 배포합니다.
 
 ```azurecli-interactive
-az functionapp deployment source config --name <function_app> \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+az functionapp deployment source config --name $functionapp \
+--resource-group $resourceGroupName --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
 ---
 
@@ -152,10 +197,22 @@ az functionapp deployment source config --name <function_app> \
 
 Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 포함됩니다. 차례로 URL을 입력 바인딩에 전달하여 Blob Storage에서 업로드된 이미지를 가져옵니다. 이 함수는 미리 보기 이미지를 생성하고 Blob Storage에서 결과 스트림을 별도의 컨테이너에 기록합니다. 
 
-이 프로젝트에서는 트리거 형식에 `EventGridTrigger`를 사용합니다. 일반 HTTP 트리거보다는 Event Grid 트리거를 사용하는 것이 좋습니다. Event Grid는 Event Grid Function 트리거의 유효성을 자동으로 검사합니다. 일반 HTTP 트리거를 사용하면 [유효성 검사 응답](security-authentication.md#webhook-event-delivery)을 구현해야 합니다.
+이 프로젝트에서는 트리거 형식에 `EventGridTrigger`를 사용합니다. 일반 HTTP 트리거보다는 Event Grid 트리거를 사용하는 것이 좋습니다. Event Grid는 Event Grid Function 트리거의 유효성을 자동으로 검사합니다. 일반 HTTP 트리거를 사용하면 [유효성 검사 응답](security-authentication.md)을 구현해야 합니다.
 
-이 함수에 대해 자세히 알아보려면 [function.json 및 run.csx 파일](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/imageresizerfunc)을 참조하세요.
- 
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
+이 함수에 대해 자세히 알아보려면 [function.json 및 run.csx 파일](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/ImageFunctions)을 참조하세요.
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+
+이 함수에 대해 자세히 알아보려면 [function.json 및 index.js 파일](https://github.com/Azure-Samples/storage-blob-resize-function-node/tree/master/Thumbnail)을 참조하세요.
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+이 함수에 대해 자세히 알아보려면 [function.json 및 index.js 파일](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail)을 참조하세요.
+
+---
+
 함수 프로젝트 코드는 공개 샘플 리포지토리에서 직접 배포됩니다. Azure Functions의 배포 옵션에 대한 자세한 내용은 [Azure Functions에 대한 지속적인 배포](../azure-functions/functions-continuous-deployment.md)를 참조하세요.
 
 ## <a name="create-an-event-subscription"></a>이벤트 구독 만들기
@@ -197,11 +254,25 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 웹앱에서 이미지 크기 조정을 테스트하려면 게시된 앱의 URL로 이동합니다. 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.
 
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+
 **사진 업로드** 영역을 클릭하여 파일을 선택 및 업로드합니다. 이 영역에 사진을 끌어갈 수도 있습니다. 
 
 업로드된 이미지가 사라진 후에는 업로드된 이미지의 사본이 **생성된 미리 보기** 카루셀에 표시됩니다. 이 이미지는 함수를 통해 크기 조정되어 *썸네일* 컨테이너에 추가되었으며 웹 클라이언트가 다운로드한 것입니다.
 
-![Microsoft Edge 브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
+![브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+
+# <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
+
+**파일 선택**을 클릭하여 파일을 선택한 다음, **이미지 업로드**를 클릭합니다. 성공적으로 업로드되면 브라우저가 성공 페이지로 이동합니다. 홈 페이지로 돌아가려면 해당 링크를 클릭합니다. 업로드된 이미지의 복사본이 **생성된 썸네일** 영역에 표시됩니다. (처음에 이미지가 표시되지 않으면 페이지를 다시 로드해 보세요.) 이 이미지는 함수를 통해 크기 조정되어 *썸네일* 컨테이너에 추가되었으며 웹 클라이언트가 다운로드한 것입니다.
+
+![브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+
+# <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
+
+**파일 선택**을 클릭하여 파일을 선택한 다음, **이미지 업로드**를 클릭합니다. 성공적으로 업로드되면 브라우저가 성공 페이지로 이동합니다. 홈 페이지로 돌아가려면 해당 링크를 클릭합니다. 업로드된 이미지의 복사본이 **생성된 썸네일** 영역에 표시됩니다. (처음에 이미지가 표시되지 않으면 페이지를 다시 로드해 보세요.) 이 이미지는 함수를 통해 크기 조정되어 *썸네일* 컨테이너에 추가되었으며 웹 클라이언트가 다운로드한 것입니다.
+
+![브라우저에 게시된 웹앱](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ## <a name="next-steps"></a>다음 단계
 

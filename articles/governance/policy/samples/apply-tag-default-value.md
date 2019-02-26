@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 태그 및 기본값 적용
-description: 이 샘플 정책은 태그가 제공되지 않은 경우 지정된 태그 이름 및 값을 추가합니다.
+description: 이 샘플 정책 정의는 태그가 제공되지 않은 경우 지정된 태그 이름 및 값을 추가합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: ef044d5ccba706ebc0c7102414cb1e2b42b537cb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 989d09b3e4b576fa21156ec71485c54422c643b7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242161"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338227"
 ---
-# <a name="apply-tag-and-its-default-value"></a>태그 및 기본값 적용
+# <a name="sample---apply-tag-and-its-default-value"></a>샘플 - 태그 및 기본값 적용
 
 이 정책에서는 해당 태그가 제공되지 않으면 지정된 태그 이름 및 값을 추가합니다. 적용할 태그 이름 및 값을 지정합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: 자습서 - RBAC 및 Azure PowerShell을 사용하여 사용자에게 액세스 권한 부여 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어)를 사용하여 사용자에게 Azure PowerShell을 사용하여 구독의 모든 항목을 살펴보고 리소스 그룹의 모든 항목을 관리할 수 있는 액세스 권한을 부여할 수 있습니다.
+title: 자습서 - RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여 | Microsoft Docs
+description: RBAC(역할 기반 액세스 제어) 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한을 부여하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7f5e67edd2a5300ae1898e2620ee8ace80ac6d92
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b9aefc8eae733d9f43d1f5399c1464b40367f09e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109030"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343479"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>자습서: RBAC 및 Azure PowerShell을 사용하여 사용자에게 액세스 권한 부여
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>자습서: RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
 
-[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 이 자습서에서는 Azure PowerShell을 사용하여 사용자에게 구독의 모든 항목을 살펴보고 리소스 그룹의 모든 항목을 관리할 수 있는 액세스 권한을 부여합니다.
+[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 자습서에서는 Azure PowerShell을 사용하여 사용자에게 구독의 모든 항목을 살펴보고 리소스 그룹의 모든 항목을 관리할 수 있는 액세스 권한을 부여합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -279,4 +279,4 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [RBAC 및 PowerShell을 사용하여 액세스 관리](role-assignments-powershell.md)
+> [RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-powershell.md)

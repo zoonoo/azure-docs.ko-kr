@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093043"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429250"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 개의 가상 머신 간의 네트워크 통신 모니터링
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 가상 머신 간의 네트워크 통신 모니터링
 
 VM(가상 머신)과 다른 VM과 같은 엔드포인트 간의 통신의 성공은 조직에 대해 중요할 수 있습니다. 경우에 따라 통신을 중단할 수 있는 구성 변경 내용이 도입됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     |설정|값|
     |---|---|
-    |이름|myVm1|
+    |Name|myVm1|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |구독| 구독을 선택합니다.|
@@ -73,11 +73,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 |단계|설정|값|
 |---|---|---|
-| 1 | **17.10 Ubuntu Server VM** 선택 |                                                                         |
-| 3 | 이름                              | myVm2                                                                   |
-| 3 | 인증 유형               | SSH 공개 키를 붙여넣거나 **암호**를 선택하고 암호를 입력합니다. |
-| 3 | 리소스 그룹                    | **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.                 |
-| 6 | 확장                        | **Linux용 네트워크 에이전트**                                             |
+| 1 | **Ubuntu Server** 버전 선택 |                                                                         |
+| 3 | Name                                  | myVm2                                                                   |
+| 3 | 인증 유형                   | SSH 공개 키를 붙여넣거나 **암호**를 선택하고 암호를 입력합니다. |
+| 3 | 리소스 그룹                        | **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.                 |
+| 6 | 확장                            | **Linux용 네트워크 에이전트**                                             |
 
 VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기 전에 VM이 배포를 완료하도록 기다립니다.
 
@@ -93,7 +93,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
 
     | 설정                  | 값               |
     | ---------                | ---------           |
-    | 이름                     | myVm1-myVm2(22)     |
+    | Name                     | myVm1-myVm2(22)     |
     | 원본                   |                     |
     | 가상 머신          | myVm1               |
     | 대상              |                     |
@@ -152,7 +152,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
     | 대상 포트 범위 | 22             |
     | 조치                  | 거부           |
     | 우선 순위                | 100            |
-    | 이름                    | DenySshInbound |
+    | Name                    | DenySshInbound |
 
 5. 연결 모니터가 60초 간격으로 조사하므로 몇 분 정도를 대기한 다음, 포털의 왼쪽에서 **Network Watcher** 및 **연결 모니터**를 선택한 다음, **myVm1-myVm2(22)** 모니터링을 다시 선택합니다. 다음 그림에 나와 있는 대로 결과가 이제 달라집니다.
 
@@ -160,7 +160,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
 
     **myvm2529** 네트워크 인터페이스의 상태 열에 빨간색 느낌표 아이콘을 확인할 수 있습니다.
 
-6. 상태가 변경된 이유를 알아보려면 이전 그림에서 10.0.0.5를 선택합니다. 연결 모니터는 통신 오류에 대한 이유가 *다음 네트워크 보안 그룹 규칙에 의해 차단된 트래픽: UserRule_DenySshInbound*임을 알립니다.
+6. 상태가 변경된 이유를 알아보려면 이전 그림에서 10.0.0.5를 선택합니다. 연결 모니터에서 다음과 같은 통신 실패 이유를 알려줍니다. *UserRule_DenySshInbound 네트워크 보안 그룹 규칙으로 인해 트래픽이 차단되었습니다*.
 
     누군가가 4단계에서 만든 보안 규칙을 구현했음을 모르는 경우 규칙이 통신 문제를 일으키는 연결 모니터로부터 알아봅니다. 그런 다음, VM 간의 통신을 복원하려면 규칙을 변경하거나, 재정의하거나, 제거할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 스토리지 계정 및 가상 머신에 대해 허용된 SKU
-description: 이 샘플 정책에서는 저장소 계정 및 가상 머신이 승인된 SKU를 사용해야 합니다.
+description: 이 샘플 정책 정의에서는 스토리지 계정 및 가상 머신이 승인된 SKU를 사용해야 합니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4e194e70c13fe70702e700fcaafa7cdf981e0147
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: cb6ccf87cc14424801a06cc2e9749e2fc2f6ee4a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242076"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339909"
 ---
-# <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>저장소 계정 및 가상 머신에 대해 허용된 SKU
+# <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>샘플 - 스토리지 계정 및 가상 머신에 대해 허용된 SKU
 
 이 정책에서는 저장소 계정 및 가상 머신이 승인된 SKU를 사용해야 합니다. 승인된 SKU를 확보하려면 기본 제공 정책을 사용합니다. 승인된 가상 머신 SKU 배열 및 승인된 저장소 계정 SKU 배열을 지정합니다.
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413675"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417333"
 ---
 # <a name="transform-and-protect-your-api"></a>API 변환 및 보호 
 
@@ -41,8 +41,8 @@ ms.locfileid: "50413675"
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + [Azure API Management의 정책 개념](api-management-howto-policies.md)을 이해합니다.
-+ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-+ 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
++ 또한 [첫 번째 API 가져오기 및 게시](import-and-publish.md) 자습서를 완료합니다.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -126,9 +126,10 @@ ms.locfileid: "50413675"
 1. **데모 회의 API**를 선택합니다.
 2. **모든 작업**을 선택합니다.
 3. 화면 맨 위에서 **디자인** 탭을 선택합니다.
-4. **인바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.5. **&lt;인바운드&gt;** 요소 내부에 커서를 놓습니다.
-5. 오른쪽 창의 **액세스 제한 정책**에서 **+ 키당 호출 속도 제한**을 클릭합니다.
-6. **rate-limit-by-key** 코드(**\<인바운드\>** 요소에서)를 다음 코드로 수정합니다.
+4. **인바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
+5. **&lt;인바운드&gt;** 요소 내부에 커서를 놓습니다.
+6. 오른쪽 창의 **액세스 제한 정책**에서 **+ 키당 호출 속도 제한**을 클릭합니다.
+7. **rate-limit-by-key** 코드(**\<인바운드\>** 요소에서)를 다음 코드로 수정합니다.
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

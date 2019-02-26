@@ -15,12 +15,12 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 9fce35f811a4d2440ba73e4f305ede6891928069
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 00b96b5bfa88a6c1c31d3415027ce1d4eda11e6b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633285"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339093"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할
 
@@ -73,7 +73,7 @@ Azure RBAC는 [Azure Resource Manager](../azure-resource-manager/resource-group-
 | [판독기](built-in-roles.md#reader) | <ul><li>Azure 리소스 보기</li></ul> | 모든 리소스 종류에 적용됩니다. |
 | [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) | <ul><li>Azure 리소스에 대한 사용자 액세스 관리</li></ul> |  |
 
-나머지 기본 제공 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 [Virtual Machine 기여자](built-in-roles.md#virtual-machine-contributor) 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 기본 제공 역할 전체 목록은 [기본 제공 역할](built-in-roles.md)을 참조하세요.
+나머지 기본 제공 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어 [Virtual Machine 기여자](built-in-roles.md#virtual-machine-contributor) 역할을 사용하면 사용자가 가상 머신을 만들고 관리할 수 있습니다. 기본 제공 역할의 전체 목록은 [Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)을 참조하세요.
 
 Azure Portal 및 Azure Resource Manager API만이 Azure RBAC를 지원합니다. RBAC 역할이 할당된 사용자, 그룹 및 애플리케이션은 [Azure 클래식 배포 모델 API](../azure-resource-manager/resource-manager-deployment-model.md)를 사용할 수 없습니다.
 
@@ -95,7 +95,7 @@ Azure AD 관리자 역할은 사용자 만들기 또는 편집, 다른 사용자
 | [사용자 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>사용자 및 그룹과 관련된 모든 것을 만들고 관리</li><li>지원 티켓 관리</li><li>서비스 상태 모니터링</li><li>사용자, 기술 지원팀 관리자 및 다른 사용자 관리자의 암호 변경</li></ul> |  |
 | [대금 청구 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>구매</li><li>구독 관리</li><li>지원 티켓 관리</li><li>서비스 상태 모니터링</li></ul> |  |
 
-Azure AD 관리자 역할 전체 목록은 [Azure Active Directory에서 관리자 역할 할당](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)을 참조하세요.
+Azure AD 관리자 역할의 전체 목록은 [Azure Active Directory에서 관리자 역할 사용 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
 Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 관리자 역할 목록을 볼 수 있습니다.
 
@@ -122,6 +122,6 @@ Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 관리자 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [RBAC(역할 기반 액세스 제어)란?](overview.md)
-- [Azure Active Directory에서 관리자 역할 할당](/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Azure 구독 관리자 추가 또는 변경](/azure/billing/billing-add-change-azure-subscription-administrator)
+- [Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?](overview.md)
+- [Azure Active Directory의 관리자 역할 사용 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Azure 구독 관리자 추가 또는 변경](../billing/billing-add-change-azure-subscription-administrator.md)

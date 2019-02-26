@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077458"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268399"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -70,7 +70,7 @@ a.  Azure Data Box를 가져오려면 Azure Portal에 로그인하고 Data Box �
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>Q. Azure Portal에서 Data Box 주문을 만들 수 없습니다. 왜 그럴까요?
 a. Data Box 주문을 만들 수 없는 경우 구독 유형이나 액세스에 문제가 있는 것입니다. 
 
-구독을 확인합니다. Data Box는 EA(기업계약), CSP(클라우드 솔루션 공급자) 또는 종량제 구독에서만 사용할 수 있습니다. 구독이 이 유형에 해당하지 않는다면 Microsoft 지원에 문의하여 구독을 업그레이드합니다.
+구독을 확인합니다. Data Box는 EA(기업계약), CSP(클라우드 솔루션 공급자) 구독 제품에서만 사용할 수 있습니다. 구독이 이 유형에 해당하지 않는다면 Microsoft 지원에 문의하여 구독을 업그레이드합니다.
 
 구독에 대해 지원되는 제안 유형이 있는 경우 구독 액세스 수준을 확인하세요. 주문을 만들려면 구독에서 기여자 또는 소유자여야 합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 샘플 - 하이브리드 사용 혜택 거부
-description: 이 샘플 정책에서는 AHUB(Azure Hybrid Use Benefit) 사용을 금지합니다.
+description: 이 샘플 정책 정의에서는 AHUB(Azure Hybrid Use Benefit) 사용이 금지됩니다.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: b880d46016fa64e0a433957723872c0269d7828a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0255a1dba3553bf83f38a795a6e4df9fb219b5d4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245017"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341286"
 ---
-# <a name="deny-hybrid-use-benefit"></a>하이브리드 사용 혜택 거부
+# <a name="sample---deny-hybrid-use-benefit"></a>샘플 - 하이브리드 사용 혜택 거부
 
 AHUB(Azure Hybrid Use Benefit) 사용을 금지합니다. 온-프레미스 라이선스 사용을 허용하기 원하지 않을 때 사용합니다.
 

@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d5cba3b21ff6099a4132a7ebfab38d1ead9afded
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 91814579675882ba969f5903ebeddcebbcbd6616
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118085"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301539"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps용 Application Insights 개요
 
@@ -230,6 +230,6 @@ Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아
 * [ASP.NET 웹 애플리케이션](../../azure-monitor/app/asp-net.md)
 * [Java 웹 애플리케이션](../../azure-monitor/app/java-get-started.md)
 * [Node.js 웹 애플리케이션](../../azure-monitor/app/nodejs.md)
-* [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) 또는 [Azure](../../azure-monitor/app/app-insights-overview.md)에서 호스트되는 이미 배포된 앱
+* [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [Java EE](../../azure-monitor/app/java-live.md) 또는 [Azure](../../azure-monitor/app/app-insights-overview.md)에서 호스트되는 이미 배포된 앱
 * [웹 페이지](../../azure-monitor/app/javascript.md) - 단일 페이지 앱 또는 일반 웹 페이지 - 독립적으로 또는 다른 서버 옵션과 함께 사용
 * [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md) - 공용 인터넷에서 앱 테스트
