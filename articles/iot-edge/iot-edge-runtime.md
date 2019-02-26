@@ -56,9 +56,9 @@ IoT Edge 허브는 IoT Edge 솔루션에서 사용하는 대역폭을 줄이기 
 
 ### <a name="module-communication"></a>모듈 통신
 
- 모듈 간 통신을 용이하게 하는 IoT Edge 허브 IoT Edge 허브를 메시지 broker로 사용하면 모듈이 서로 독립적으로 유지됩니다. 모듈은 메시지를 수락하는 입력과 메시지를 쓰는 출력을 지정하기만 하면 됩니다. 솔루션 개발자는 이러한 입력과 출력을 함께 연결하여 모듈에서 해당 솔루션과 관련된 순서로 데이터를 처리하도록 합니다. 
+ IoT Edge 허브는 모듈 간 통신을 용이하게 합니다. IoT Edge 허브를 메시지 broker로 사용하면 모듈이 서로 독립적으로 유지됩니다. 모듈은 메시지를 수락하는 입력과 메시지를 쓰는 출력을 지정하기만 하면 됩니다. 솔루션 개발자는 이러한 입력과 출력을 함께 연결하여 모듈에서 해당 솔루션과 관련된 순서로 데이터를 처리하도록 합니다. 
 
-![모듈 간 통신을 용이하게 하는 IoT Edge 허브](./media/iot-edge-runtime/module-endpoints.png)
+![IoT Edge 허브는 모듈 간 통신을 용이하게 합니다](./media/iot-edge-runtime/module-endpoints.png)
 
 IoT Edge 허브에 데이터를 보내려면 모듈에서 SendEventAsync 메서드를 호출합니다. 첫 번째 인수는 메시지를 보낼 출력을 지정합니다. 다음 의사 코드는 메시지를 output1에 보냅니다.
 
