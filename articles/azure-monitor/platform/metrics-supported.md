@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: be2274b5d7a0e39733440379ce9678ab012d7d27
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8ee900554371644f374e4aeed51f1eeb0c18569e
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473829"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408870"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다.  레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 아래 목록에는 통합 Azure Monitor 메트릭 파이프라인을 통해 사용할 수 있는 메트릭만 포함됩니다. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)을 사용하세요.
@@ -652,14 +652,52 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
-|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
-|---|---|---|---|---|---|
-|MetadataRequests|메타데이터 요청|개수|개수|메타데이터 요청 수. Cosmos DB는 컬렉션, 데이터베이스 등과 해당 구성을 무료로 열거할 수 있는 각 계정에 대한 시스템 메타데이터 컬렉션을 유지 관리합니다.|DatabaseName, CollectionName, 지역, StatusCode|
-|MongoRequestCharge|Mongo 요청 요금|개수|합계|사용된 Mongo 요청 단위|DatabaseName, CollectionName, 지역, CommandName, ErrorCode|
-|MongoRequests|Mongo 요청|개수|개수|생성된 Mongo 요청 수|DatabaseName, CollectionName, 지역, CommandName, ErrorCode|
-|TotalRequestUnits|총 요청 단위|개수|합계|사용된 요청 단위|DatabaseName, CollectionName, 지역, StatusCode|
-|TotalRequests|총 요청 수|개수|개수|요청 수|DatabaseName, CollectionName, 지역, StatusCode|
+### <a name="request-metrics"></a>요청 메트릭
 
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원| 시간 단위| 레거시 메트릭 매핑 | 사용 현황 |
+|---|---|---|---|---|---| ---| ---| ---|
+| TotalRequests |   총 요청 수| 개수   | 개수 | 요청 수|  DatabaseName, CollectionName, 지역, StatusCode|   모두 |   TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Internal Server error, Service Unavailable, Throttled Requests, Average Requests per Second |    분 단위로 상태 코드별 요청, 컬렉션을 모니터링하는 데 사용합니다. 초당 평균 요청 수를 가져오려면 개수 집계(분)를 사용한 후 60으로 나눕니다. |
+| MetadataRequests |    메타데이터 요청   |개수| 개수   | 메타데이터 요청 수. Azure Cosmos DB는 컬렉션, 데이터베이스 등과 해당 구성을 무료로 열거할 수 있는 각 계정에 대한 시스템 메타데이터 컬렉션을 유지 관리합니다.    | DatabaseName, CollectionName, 지역, StatusCode| 모두|  |메타데이터 요청으로 인한 제한을 모니터링하는 데 사용합니다.|
+| MongoRequests |   Mongo 요청| 개수 | 개수|  생성된 Mongo 요청 수   | DatabaseName, CollectionName, 지역, CommandName, ErrorCode| 모두 |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate|   Mongo 요청 오류, 명령 유형별 사용량을 모니터링하는 데 사용합니다. |
+
+
+### <a name="request-unit-metrics"></a>요청 단위 메트릭
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원| 시간 단위| 레거시 메트릭 매핑 | 사용 현황 |
+|---|---|---|---|---|---| ---| ---| ---|
+| MongoRequestCharge|   Mongo 요청 요금 |  개수   |합계  |사용된 Mongo 요청 단위|  DatabaseName, CollectionName, 지역, CommandName, ErrorCode|   모두 |Mongo Query Request Charge, Mongo Update Request Charge, Mongo Delete Request Charge, Mongo Insert Request Charge, Mongo Count Request Charge| Mongo 리소스 RU(분)를 모니터링하는 데 사용합니다.|
+| TotalRequestUnits |총 요청 단위|   개수|  합계|  사용된 요청 단위| DatabaseName, CollectionName, 지역, StatusCode    |모두|   TotalRequestUnits|  분 단위로 총 RU 사용량을 모니터링하는 데 사용합니다. 초당 사용한 평균 RU를 가져오려면 합계 집계(분)를 사용한 후 60으로 나눕니다.|
+| ProvisionedThroughput |프로비전된 처리량|    개수|  최대 |컬렉션 단위로 프로비전된 처리량|  DatabaseName, CollectionName|   5M| |   컬렉션당 프로비전된 처리량을 모니터링하는 데 사용합니다.|
+
+### <a name="storage-metrics"></a>Storage 메트릭
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원| 시간 단위| 레거시 메트릭 매핑 | 사용 현황 |
+|---|---|---|---|---|---| ---| ---| ---|
+| AvailableStorage| 사용 가능한 스토리지   |바이트| 합계|  지역당 5분 단위로 보고된 사용 가능한 총 스토리지|   DatabaseName, CollectionName, Region|   5M| 사용 가능한 스토리지|   사용 가능한 스토리지 용량을 모니터링하는 데 사용합니다(고정 스토리지 컬렉션에만 해당). 최소 단위는 5분이어야 합니다.| 
+| DataUsage |데이터 사용량 |바이트| 합계   |지역당 5분 단위로 보고된 총 데이터 사용량|    DatabaseName, CollectionName, Region|   5M  |데이터 크기  | 컬렉션 및 지역의 총 데이터 사용량을 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다.|
+| IndexUsage|   인덱스 사용량|    바이트|  합계   |지역당 5분 단위로 보고된 총 인덱스 사용량|    DatabaseName, CollectionName, Region|   5M| 인덱스 크기| 컬렉션 및 지역의 총 데이터 사용량을 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다. |
+| DocumentQuota|    문서 할당량| 바이트|  합계|  지역당 5분 단위로 보고된 총 스토리지 할당량 f에 적용 가능| DatabaseName, CollectionName, Region|   5M  |저장소 용량|  컬렉션 및 지역의 총 할당량을 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다.|
+| DocumentCount|    문서 수| 개수   |합계  |지역당 5분 단위로 보고된 총 문서 수|  DatabaseName, CollectionName, Region|   5M  |문서 수|컬렉션 및 지역의 문서 수를 모니터링하는 데 사용합니다. 최소 단위는 5분이어야 합니다.|
+
+### <a name="latency-metrics"></a>대기 시간 메트릭
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원| 시간 단위| 사용 현황 |
+|---|---|---|---|---|---| ---| ---| ---|
+| ReplicationLatency    | 복제 대기 시간|  밀리초|   Minimum,Maximum,Average | 지역 사용 계정에 대한 원본 및 대상 지역의 P99 복제 대기 시간| SourceRegion, TargetRegion| 모두 | 지역에서 복제된 계정에 대한 두 지역 간 P99 복제 대기 시간을 모니터링하는 데 사용합니다. |
+
+### <a name="availability-metrics"></a>가용성 메트릭
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원| 시간 단위| 레거시 메트릭 매핑 | 사용 현황 |
+|---|---|---|---|---|---| ---| ---| ---|
+| ServiceAvailability   | 서비스 가용성| 백분율 |Minimum,Maximum|   1시간 단위의 계정 요청 가용성|  |   1H  | 서비스 가용성  | 전달된 총 요청의 백분율입니다. 요청은 상태 코드가 410, 500 또는 503인경 우 시스템 오류로 인해 실패한 것으로 간주됩니다. 시간 단위로 계정의 가용성을 모니터링하는 데 사용합니다. |
+
+### <a name="cassandra-api-metrics"></a>Cassandra API 메트릭
+
+|메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원| 시간 단위| 사용 현황 |
+|---|---|---|---|---|---| ---| ---| ---|
+| CassandraRequests | Cassandra 요청 |  개수|  개수|  수행된 Cassandra API 요청 수|  DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|   모두| 분 단위로 Cassandra 요청을 모니터링하는 데 사용합니다. 초당 평균 요청 수를 가져오려면 개수 집계(분)를 사용한 후 60으로 나눕니다.|
+| CassandraRequestCharges|  Cassandra 요청 요금| 개수|   Sum, Min, Max, Avg| Cassandra API 요청에 사용된 요청 단위|   DatabaseName, CollectionName, Region, OperationType, ResourceType|  모두| Cassandra API 계정에서 분당 사용된 RU를 모니터링하는 데 사용합니다.|
+| CassandraConnectionClosures   | Cassandra 연결 차단 |개수| 개수   |닫힌 Cassandra 연결 수|    ClosureReason, Region|  모두 | 클라이언트와 Azure Cosmos DB Cassandra API 간 연결을 모니터링하는 데 사용합니다.|
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 

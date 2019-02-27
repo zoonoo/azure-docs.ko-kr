@@ -35,13 +35,16 @@
 ## 고가용성 구성
 ### [백업 및 복원에 Azure Storage 사용](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ### Always On 가용성 그룹
-#### [Azure Portal 템플릿 사용](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [빠른 시작 템플릿 사용](virtual-machines-windows-sql-availability-group-quickstart-template.md)
-#### [수동 - 필수 조건](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-#### [수동 - 자습서](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [부하 분산 장치 - Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [부하 분산 장치 - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)
+#### [Azure Portal 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Azure 빠른 시작 템플릿](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [여러 영역](virtual-machines-windows-portal-sql-availability-group-dr.md)
+#### 수동으로 구성    
+##### [필수 구성 요소](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+##### [자습서](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+##### [부하 분산 장치 - Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+##### [부하 분산 장치 - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+
 ### 장애 조치 클러스터 인스턴스
 #### [구성](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 

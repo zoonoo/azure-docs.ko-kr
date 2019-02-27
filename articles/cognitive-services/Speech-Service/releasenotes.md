@@ -8,17 +8,70 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: a5b8cd7da465bc2dc58c2b89852903669c18bf4b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871798"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446837"
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: 2019년 2월 릴리스
+
+**새로운 기능**
+
+* Speech SDK는 AudioConfig 클래스를 통해 입력 마이크를 선택할 수 있도록 지원합니다. 따라서 비기본 마이크에서 Speech Service로 오디오 데이터를 스트리밍할 수 있습니다. 자세한 내용은 [오디오 입력 디바이스 선택](how-to-select-audio-input-devices.md)을 설명하는 설명서를 참조하십시오. JavaScript에서는 아직 사용할 수 없습니다.
+* 이제 Speech SDK는 베타 버전의 Unity를 지원합니다. [GitHub 샘플 리포지토리](https://aka.ms/csspeech/samples)의 문제 섹션을 통해 피드백을 제공하세요. 이 릴리스에서는 Windows x86 및 x64(데스크톱 또는 유니버설 Windows 플랫폼 애플리케이션)와 Android(ARM32/64, x86)의 Unity를 지원합니다. 자세한 내용은 [Unity 빠른 시작](quickstart-csharp-unity.md)을 참조하세요.
+
+**샘플**
+
+다음 새 콘텐츠는 [샘플 리포지토리](https://aka.ms/csspeech/samples)에서 사용할 수 있습니다.
+
+* AudioConfig.FromMicrophoneInput에 대한 추가 샘플
+* 의도 인식 및 변환에 대한 추가 Python 샘플
+* iOS에서 연결 개체를 사용하는 방법에 대한 추가 샘플
+* 오디오 출력을 사용한 변환에 대한 추가 Java 예제
+* [일괄 처리 기록 REST API](batch-transcription.md)
+
+**향상된 기능/변경 사항**
+
+* Python
+  * SpeechConfig의 매개 변수 확인 및 오류 메시지를 개선했습니다.
+  * 연결 개체에 대한 지원을 추가했습니다.
+  * Windows에서 32비트 Python(x86)을 지원합니다.
+  * Python용 Speech SDK가 베타를 벗어났습니다.
+* iOS
+  * SDK는 이제 iOS SDK 버전 12.1용으로 빌드되었습니다.
+  * SDK는 이제 iOS 버전 9.2 이상을 지원합니다.
+  * 참조 설명서를 개선하고 몇 가지 속성 이름을 수정합니다.
+* JavaScript
+  * 연결 개체에 대한 지원을 추가했습니다.
+  * 번들로 묶은 JavaScript의 형식 정의 파일을 추가했습니다.
+  * 구문 힌트의 초기 지원 및 구현이 제공됩니다.
+  * 인식을 위해 서비스 JSON을 사용하는 속성 컬렉션을 반환합니다.
+* 이제 Windows DLL이 버전 리소스를 포함합니다.
+
+**버그 수정**
+
+* 빈 프록시 이름과 프록시 암호가 올바르게 처리되지 않았습니다. 이 릴리스에서는 프록시 이름과 프록시 암호를 빈 문자열로 설정하면 프록시에 연결될 때 제출되지 않습니다.
+* SDK에서 만든 SessionId가 항상 일부 언어&nbsp;/ 환경에서 무작위인 것은 아니었습니다. 이 문제를 수정하기 위해 난수 생성기 초기화를 추가했습니다.
+* 권한 부여 토큰 처리를 개선했습니다. 권한 부여 토큰을 사용하려는 경우 SpeechConfig에서 지정하고 구독 키를 비워둡니다. 그런 다음, 평소처럼 인식기를 만듭니다.
+* 일부 경우에 연결 개체가 올바르게 해제되지 않았습니다. 이 문제가 해결되었습니다.
+* Safari에서도 오디오 출력의 변환 합성을 지원하도록 JavaScript 샘플을 수정했습니다.
+
+## <a name="speech-sdk-121"></a>Speech SDK 1.2.1
+
+JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음과 같이 수정했습니다.
+
+* speech.end가 아닌 turn.end에서 스트림 끝을 실행합니다.
+* 현재 전송이 실패한 경우 다음 전송을 예약하지 않는 오디오 펌프의 버그를 수정했습니다.
+* 인증 토큰을 사용한 연속 인식을 수정했습니다.
+* 다른 인식기/엔드포인트의 버그를 수정했습니다.
+* 설명서 향상된 기능입니다.
 
 ## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: 2018년 12월 릴리스
 
