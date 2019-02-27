@@ -94,6 +94,8 @@ items:
       href: acu.md
     - name: 벤치마크 점수
       href: compute-benchmark-scores.md
+    - name: vCPU 할당량
+      href: quotas.md
   - name: 유지 관리 및 업데이트
     href: maintenance-and-updates.md
   - name: 디스크 저장소
@@ -124,12 +126,8 @@ items:
     href: backup-recovery.md
   - name: 고성능 컴퓨팅
     href: high-performance-computing.md
-  - name: 배포 고려 사항
-    items:
-    - name: 인프라 지침
-      href: infrastructure-example.md
-    - name: vCPU 할당량
-      href: quotas.md
+  - name: 인프라 예제
+    href: infrastructure-example.md
 - name: 방법 가이드
   items:
   - name: VM 만들기
@@ -461,9 +459,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ
     href: faq.md
-ms.openlocfilehash: 1b6d748758ba201391c80f8bded8215ae4161fbc
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 909c367475f5c41f03f7a30bb68bfc365dde581b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430372"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889744"

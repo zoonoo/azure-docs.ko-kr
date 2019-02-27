@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 1fa85fa26594ef6e5df2d05bb3bcc34e5689c3be
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1fb9917e30a88cf5a68c9e170d66eeaa1d477deb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728406"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877149"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -311,7 +311,7 @@ Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스�
 
 3. **속성**을 선택합니다. 이 블레이드는 상태 및 사용자 환경의 세부 정보를 보여 줍니다. 상태 수 있습니다 **Registered** 또는 **등록 되지 않은**합니다.
 
-    [ ![지역 관리 타일](media/azure-stack-registration/admin1sm.png "지역 관리 타일") ](media/azure-stack-registration/admin1.png#lightbox)
+    [![지역 관리 타일](media/azure-stack-registration/admin1sm.png "지역 관리 타일")](media/azure-stack-registration/admin1.png#lightbox)
 
     등록 하는 경우 속성을 다음과 같습니다.
     

@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 88cbfc895d188162d0f242a5aceaab721a6c877f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239106"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877948"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack에서 할당량 유형
 
@@ -74,7 +74,7 @@ ms.locfileid: "55239106"
 3.  열리는 블레이드에서 선택 **서비스 및 할당량**합니다.
 4.  클릭 하 여 확인 하려는 할당량을 선택 합니다 **이름을** 열입니다.
 
-    [ ![할당량](media/azure-stack-quota-types/quotas1sm.png "할당량 보기") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![할당량](media/azure-stack-quota-types/quotas1sm.png "할당량 보기")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>리소스 공급자
 
@@ -92,7 +92,7 @@ ms.locfileid: "55239106"
 2.  해당 이름을 클릭 하 여 할당량을 편집 하려는 계획을 선택 합니다.
 3.  열리는 블레이드에서 선택 **서비스 및 할당량**합니다.
 4.  클릭 하 여 편집 하려는 할당량을 선택 합니다 **이름을** 열입니다.
-    [ ![할당량](media/azure-stack-quota-types/quotas1sm.png "할당량 보기") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![할당량](media/azure-stack-quota-types/quotas1sm.png "할당량 보기")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5.  열리는 블레이드에서 선택 **계산에서 편집**를 **네트워크에서 편집**, 또는 **저장소에서 편집**합니다.
     ![할당량](media/azure-stack-quota-types/quotas3.png "할당량 보기")    

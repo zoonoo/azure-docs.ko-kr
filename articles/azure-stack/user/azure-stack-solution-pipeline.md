@@ -15,12 +15,12 @@ ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: bfbafea13f49ada59dae88e0336f926a8ad89d36
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: deaf7defe5aca4f53df073b19e471a52bd7b8a5d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430253"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878747"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack에 앱 배포
 
@@ -335,7 +335,7 @@ Azure DevOps에 대 한 최신 업데이트는 인증용 인증서를 사용 하
 > [!Note]
  > Azure Stack 환경과 Windows Server 및 SQL Server를 실행 하려면 신디케이티드 올바른 이미지가 필요 합니다. App Service에서 배포도 있어야 합니다. Azure Stack 연산자 요구 사항에 대 한 App Service 설명서 "전제 조건" 섹션을 검토 합니다.
 
-CI/CD 하이브리드 응용 프로그램 코드와 인프라 코드를 적용할 수 있습니다. 사용 하 여 [웹과 같은 Azure Resource Manager 템플릿 ](https://azure.microsoft.com/resources/templates/) 두 클라우드 모두에 배포 하려면 Azure DevOps 서비스에서 앱 코드입니다.
+CI/CD 하이브리드 응용 프로그램 코드와 인프라 코드를 적용할 수 있습니다. 사용 하 여 [웹과 같은 Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/) 두 클라우드 모두에 배포 하려면 Azure DevOps 서비스에서 앱 코드입니다.
 
 ### <a name="add-code-to-an-azure-devops-services-project"></a>Azure DevOps 서비스 프로젝트에 코드 추가
 

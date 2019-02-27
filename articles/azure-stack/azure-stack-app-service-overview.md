@@ -15,12 +15,12 @@ ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a638d5cdfbd3af46335cfb8e4970306534fc1c3b
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: cbdf864c2c10d5eb1c0f9a903bd186370b96a72f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445987"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879640"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 개요에 대한 App Service
 
@@ -53,7 +53,7 @@ App Service는 각각 특정 워크 로드를 호스트 하기 위한 여러 가
 - 프런트 엔드와 api를 단일 웹앱에 배포합니다.
 - 프런트 엔드 코드를 웹앱에 배포하고 백 엔드 코드를 API 앱에 배포합니다.
 
-   [ ![모니터링 데이터를 사용 하 여 app Service 개요](media/azure-stack-app-service-overview/image01.png "모니터링 데이터를 사용 하 여 App Service 개요") ](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![모니터링 데이터를 사용 하 여 app Service 개요](media/azure-stack-app-service-overview/image01.png "모니터링 데이터를 사용 하 여 App Service 개요")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## <a name="what-is-an-app-service-plan"></a>App Service 계획의 정의
 

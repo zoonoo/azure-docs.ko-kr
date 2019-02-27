@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 280a811e943c2e81a96875e3c8ba8efdb86fbf2a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 38ab7b80e2f03176c3bedfd98a2d0e20fc02592b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004828"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865895"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정
 
@@ -38,7 +38,7 @@ PowerShell cmdlet, 백업을 사용 하도록 설정 하 고, 백업, 시작 하
 
 ## <a name="prepare-powershell-environment"></a>PowerShell 환경 준비
 
-PowerShell 환경 구성에 대 한 지침을 참조 하세요 [Azure Stack 용 PowerShell 설치 ](azure-stack-powershell-install.md)합니다. Azure Stack에 로그인 하려면 참조 [운영자 환경을 구성 하 고 Azure Stack에 로그인](azure-stack-powershell-configure-admin.md)합니다.
+PowerShell 환경 구성에 대 한 지침을 참조 하세요 [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다. Azure Stack에 로그인 하려면 참조 [운영자 환경을 구성 하 고 Azure Stack에 로그인](azure-stack-powershell-configure-admin.md)합니다.
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Backup을 사용 하려면 백업 공유를 자격 증명 및 암호화 키를 제공 합니다.
 

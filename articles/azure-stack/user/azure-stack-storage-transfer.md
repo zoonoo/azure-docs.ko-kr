@@ -14,12 +14,12 @@ ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ea36dbe30eddc3d503631c31e46291101ea175d4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f0860552f78e428f5b452aea6bcebe7f6a3a886a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239539"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881705"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack 저장소에 대 한 데이터 전송 도구를 사용 합니다.
 
@@ -45,7 +45,7 @@ Microsoft Azure Stack의 디스크, blob, 테이블, 큐 및 계정 관리 기�
 
     사용자 인터페이스를 사용 하 여 사용 하기 쉬운 독립 실행형 앱입니다.
 
-* [Blobfuse ](#blobfuse)
+* [Blobfuse](#blobfuse)
 
     Linux 파일 시스템을 통해 저장소 계정의 기존 블록 blob 데이터에 액세스할 수 있는 Azure Blob Storage에 대 한 가상 파일 시스템 드라이버입니다. 
 

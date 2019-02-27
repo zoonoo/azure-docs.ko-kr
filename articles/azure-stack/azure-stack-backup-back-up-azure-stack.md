@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: c42490b7d46df77bffd13fdda02884704fb13b67
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 685183f61c1574d8c533efad8a7e0c46b1e2d23c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210308"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870315"
 ---
 # <a name="back-up-azure-stack"></a>Azure Stack 백업
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure Stack에서 주문형 백업을 수행 합니다. PowerShell 환경 구성에 대 한 지침을 참조 하세요 [Azure Stack 용 PowerShell 설치 ](azure-stack-powershell-install.md)합니다. Azure Stack에 로그인 하려면 참조 [관리자 포털을 사용 하 여 Azure Stack에서](azure-stack-manage-portals.md)합니다.
+Azure Stack에서 주문형 백업을 수행 합니다. PowerShell 환경 구성에 대 한 지침을 참조 하세요 [Azure Stack 용 PowerShell 설치](azure-stack-powershell-install.md)합니다. Azure Stack에 로그인 하려면 참조 [관리자 포털을 사용 하 여 Azure Stack에서](azure-stack-manage-portals.md)합니다.
 
 ## <a name="start-azure-stack-backup"></a>Azure Stack 백업 시작
 

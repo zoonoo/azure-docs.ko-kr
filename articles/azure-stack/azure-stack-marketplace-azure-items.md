@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 924befd2ec1949973123acc9b7c7d1b89e707e3e
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6dad4fc98dccc5c8db22019fdc548efdf7165d9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245629"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888749"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -252,4 +252,5 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise를 사용 하면 Azure Stack 인프라의 전체 수명 주기를 자동화할 수 있습니다. **두 Puppet Marketplace 항목 다운로드 합니다.** | Puppet |
 | ![Quest 신속한 복구](media/azure-stack-marketplace-azure-items/quest.png) | [Quest 신속한 복구 코어](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | 데이터 보호를 advanced 신속 하 게 복구할 백업, 복제 및 복구 하나 사용 하기 쉬운 소프트웨어 솔루션에서을 통합 합니다. | Quest Software |
 | ![SUSE 3.1 Manager 프록시 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE 3.1 Manager 프록시 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | 최고의 오픈 소스 인프라 관리 합니다. | SUSE |
+| ![CipherTrust Cloud Key Manager](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Cloud Key Manager](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | Microsoft Azure 및 다른 클라우드 공급자 가져오기 BYOK Your Own Key () Api 활용 하 CipherTrust 클라우드 키 관리자 키 관리 복잡성을 줄이고 운영 비용을 통해 암호화 키의 다중 수명 주기 컨트롤을 제공 하 여 중앙 집중식 관리 및 표시 유형입니다. | Thales eSecurity |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [As a Service ZeroDown 소프트웨어 비즈니스 연속성](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | 해당 비즈니스 연속성을 통해 회사 데이터에 대 한 지속적인 액세스를 사용 하 여 기업 (BCaaS) 서비스로 제공 하는 ZeroDown® 소프트웨어 기술™ 네트워크 중단이 발생 하는 경우 일반적으로 아키텍처, 보호 응용 프로그램 및 트랜잭션 엔터프라이즈를 약화 됩니다. | ZeroDown 소프트웨어 |

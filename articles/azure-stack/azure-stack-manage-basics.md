@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba1e7d7f9226b3ca42d4117be33b9c236f0557b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164025"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867323"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 관리 기본 사항
 Azure Stack 관리 접하는 경우 알아야 할 몇 가지 있습니다. 이 문서에서는 Azure Stack 운영자 역할의 개요 및 생산성을 높이려는 신속 하 게 사용자에 게 필요한를 제공 합니다.
@@ -119,7 +119,7 @@ Azure Stack에서 서비스를 사용 하는 방법, 환경에 연결 하는 방
 
 개발 키트 환경에서 사용자 개발 키트 호스트에 대 한 원격 데스크톱 액세스 없는 경우는 연결을 구성 해야 가상 사설망 (VPN) Azure Stack에 액세스 하기 전에. 참조 [Azure Stack에 연결](azure-stack-connect-azure-stack.md)합니다. 
 
-사용자가 알아야 할 하는 방법 [사용자 포털에 액세스할 ](user/azure-stack-use-portal.md) 또는 PowerShell을 통해 연결 하는 방법입니다. 통합된 시스템 환경에서 사용자 포털 주소 배포 마다 다릅니다. 올바른 URL을 사용 하 여 사용자에 게 제공 해야 합니다.
+사용자가 알아야 할 하는 방법 [사용자 포털에 액세스할](user/azure-stack-use-portal.md) 또는 PowerShell을 통해 연결 하는 방법입니다. 통합된 시스템 환경에서 사용자 포털 주소 배포 마다 다릅니다. 올바른 URL을 사용 하 여 사용자에 게 제공 해야 합니다.
 
 PowerShell을 사용 하는 경우 서비스 사용 하기 전에 리소스 공급자를 등록 하려면 사용자가 할 수 있습니다. (리소스 공급자는 서비스를 관리 하는 데 사용 합니다. 네트워킹 리소스 공급자 가상 네트워크, 네트워크 인터페이스 및 부하 분산 장치 등의 리소스를 관리 하는 예를 들어.) 시켜야 하 [설치](user/azure-stack-powershell-install.md) PowerShell [다운로드](user/azure-stack-powershell-download.md) 추가 모듈 및 [구성](user/azure-stack-powershell-configure-user.md) PowerShell (리소스 공급자 등록을 포함).
 

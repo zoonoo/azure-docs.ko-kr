@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 77b3d8bd1d16e90e9929c41f0f28940694dc7906
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416516"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889837"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 업데이트
 
@@ -34,7 +34,14 @@ ms.locfileid: "56416516"
 
 ## <a name="build-reference"></a>빌드 참조
 
-Azure Stack 1901 업데이트 빌드 번호는 **1.1901.0.95**합니다.
+Azure Stack 1901 업데이트 빌드 번호는 **1.1901.0.95** 하거나 **1.1901.0.99** 2019 년 2 월 26 일 후입니다. 다음 참고를 참조 하세요.
+
+> [!IMPORTANT]  
+> Microsoft에서 1901 년에 1811 (1.1811.0.101)에서 업데이트 하는 고객은 영향을 줄 수 있는 문제를 검색 및 문제를 해결 하는 업데이트 된 1901 패키지를 출시 했습니다: 1.1901.0.99, 1.1901.0.95에서 업데이트를 작성 합니다. 1.1901.0.95를 이미 업데이트는 고객에 게는 추가 작업을 수행할 필요가 없습니다.
+>
+> 1811에 있는 연결 된 고객 관리자 포털에서 사용할 수 있는 새 1901 (1.1901.0.99) 패키지를 자동으로 표시 됩니다 및 준비 하는 경우 설치 해야 합니다. 연결이 끊긴된 고객을 다운로드 하 고 동일한 프로세스를 사용 하 여 새 1901 패키지를 가져올 수 [여기에 설명 된](azure-stack-apply-updates.md)합니다.
+>
+> 다음 전체 또는 핫픽스 패키지를 설치 하는 경우 버전 1901 중 하나를 사용 하 여 고객에 게는 영향이 없습니다.
 
 ## <a name="hotfixes"></a>핫픽스
 
@@ -84,9 +91,9 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
    * **AzureRm.Insights**  
          AzureRm의 롤업 모듈 이제 이미 게시 된 버전이 5.1.5 지원 합니다 **api-version 2018-01-01** 메트릭을 메트릭 정의 리소스 종류에 대 한 합니다.
 
-- **AzureStack 1.7.0** 이 주요 변경 내용 릴리스 합니다. 주요 변경 내용에 대 한 내용은 참조 https://aka.ms/azspshmigration170
+- **AzureStack 1.7.0** 이 주요 변경 내용 릴리스 합니다. 호환성이 손상되는 변경에 대한 자세한 내용은 https://aka.ms/azspshmigration170를 참조하세요.
    * **Azs.Backup.Admin 모듈**  
-         호환성이 손상되는 변경 내용: 백업은 인증서 기반 암호화 모드를 변경합니다. 대칭 키에 대 한 지원이 사용 되지 않습니다.  
+         호환성이 손상되는 변경 내용: Backup이 인증서 기반 암호화 모드로 변경됩니다. 대칭 키에 대한 지원은 사용되지 않습니다.  
    * **Azs.Fabric.Admin 모듈**  
          `Get-AzsInfrastructureVolume` 사용 되지 않습니다. 새 cmdlet을 사용 하 여 `Get-AzsVolume`입니다.  
          `Get-AzsStorageSystem` 사용 되지 않습니다.  새 cmdlet을 사용 하 여 `Get-AzsStorageSubSystem`입니다.  
@@ -170,33 +177,6 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
    Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
      -DirectoryTenantName $homeDirectoryTenantName -Verbose
-   ```
-
-- 현재 Azure Stack의 마켓플레이스 배포를 통해 확장을 다운로드 하려면 명시적으로 필요 없이 성공적으로 배포 하는 확장 됩니다. 이러한 확장의 버전을 제거 하는 중입니다. Azure Stack 운영자 Azure Stack marketplace에서 이러한 확장을 명시적으로 게시 이제 해야 합니다.
-
-   | Type                     | 버전        |
-   |--------------------------|----------------|
-   | DSC                      | 2.19.0.0       |
-   | IaaSAntimalware          | 1.4.0.0        |
-   | BGInfo                   | 2.1            |
-   | VMAccessAgent            | 2.0            |
-   | CustomScriptExtension    | 1.8            |
-   | MicrosoftMonitoringAgent | 1.0.10900.0    |
-   | IaaSDiagnostics          | 1.10.1.1       |
-   | VMAccessForLinux         | 1.4.0.0        |
-   | CustomScriptForLinux     | 1.5.2.0        |
-   | DockerExtension          | 1.1.1606092330 |
-   | JsonADDomainExtension    | 1.3            |
-   | OSPatchingForLinux       | 2.3.0.1        |
-   | WebRole                  | 4.3000.14.0    |
-
-   확장을 배포할 때 Azure Stack 사용자 설정 하는 것이 좋습니다 `autoUpgradeMinorVersion` 하 **true**합니다. 예: 
-
-   ```json
-   "type": "Extension",
-           "publisher": "ExtensionPublisher",
-           "typeHandlerVersion": "1.2",
-           "autoUpgradeMinorVersion": "true"
    ```
 
 - 정확 하 게 Azure Stack 용량을 계획에 새 고려해 야가 있습니다. 1901 업데이트를 사용 하 여 만들 수 있는 가상 머신의 총 수에 제한이 이제 됩니다.  이 제한은 솔루션 안정성 문제를 방지 하려면 일시적인 것입니다. 소스 Vm 수를 높게에서 안정성 문제를 해결 하는 하지만 수정에 대 한 일정 아직 확인 되지 않았습니다. 1901 업데이트에서는 이제 됩니다는 서버당 60 Vm의 총 솔루션 최대 700입니다.  예를 들어, 8 서버 Azure Stack VM 한도 480 (8 * 60) 것입니다.  12-16 서버의 Azure Stack 솔루션도 700 것입니다. 이 제한은 염두, 모든 계산 용량 고려 사항 복원 력 예약 및 CPU와 같은 가상 스탬프를 유지 하려는 운영자는 실제 비율을 만들었습니다. 자세한 내용은 capacity planner의 새 릴리스를 참조 하세요.  

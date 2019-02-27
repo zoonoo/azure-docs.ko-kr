@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 92774592f86a71a8482fd3d44eca404fcf2d4e6e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/26/2019
+ms.openlocfilehash: 00fb888f201f4bb8d211050b288516021d837dc5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429556"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888774"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 사용량 API의에서 질문과 대답
 
@@ -407,6 +407,10 @@ ms.locfileid: "56429556"
 | 400/잘못 된 요청 |*SubscriptionIdMissingInRequest* |호출자의 구독 ID가 없습니다. |
 | 400/잘못 된 요청 |*InvalidAggregationGranularity* |잘못 된 집계가 세분성이 요청 되었습니다. 유효한 값은 일별 및 시간입니다. |
 | 503 |*ServiceUnavailable* |서비스 사용량이 또는 호출 제한 되 고 다시 시도 가능한 오류가 발생 했습니다. |
+
+## <a name="what-is-the-policy-for-charging-for-vms"></a>Vm에 대 한 청구에 대 한 정책은 무엇 인가요?
+
+실행 및 중지 된 Vm 사용 현황 데이터를 생성합니다. Azure를 사용 하 여 일치를 할당 취소는 사용 현황 데이터의 내보내기를 중지 하려면 필요 합니다. 포털을 사용할 수 없는 있지만 연산 리소스 공급자가 실행 되는 경우에서 사용량 발생 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [고객 청구 및 Azure Stack의 비용 정산](azure-stack-billing-and-chargeback.md)

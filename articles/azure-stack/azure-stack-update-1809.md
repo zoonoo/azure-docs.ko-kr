@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a4298a8bd78f178c56776e703e72ff99aac54207
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694383"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887912"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -77,7 +77,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 ### <a name="changes"></a>변경 내용
 
 <!-- 2635202 - IS, ASDK -->
-- 백업 서비스 인프라에서 이동 합니다 [공용 인프라 네트워크](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) 에 [공용 VIP 네트워크](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network)합니다. 고객은 서비스에 공용 VIP 네트워크에서 백업 저장소 위치에 액세스할 수 있도록 해야 합니다.  
+- 백업 서비스 인프라에서 이동 합니다 [공용 인프라 네트워크](https://docs.microsoft.com/azure/azure-stack/azure-stack-network) 에 [공용 VIP 네트워크](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network)합니다. 고객은 서비스에 공용 VIP 네트워크에서 백업 저장소 위치에 액세스할 수 있도록 해야 합니다.  
 
 > [!IMPORTANT]  
 > 파일 서버에 공용 VIP 네트워크에서 연결을 허용 하지 않는 방화벽이 있는 경우 이러한 변경으로 인해 실패 "오류 53 네트워크 경로 찾을 수 없습니다."를 사용 하 여 인프라 백업 이 주요 변경 내용에 적절 한 해결 방법은 없습니다. Microsoft는 고객 피드백에 따라 핫픽스에서이 변경 내용 되돌리기 됩니다. 살펴보시기 합니다 [업데이트 단계 섹션 게시](#post-update-steps) 1809에 사용할 수 있는 핫픽스에 대 한 자세한 정보에 대 한 합니다. 핫픽스를 사용할 수 있는 네트워크 정책에는 공용 VIP 네트워크에 인프라 리소스에 액세스를 허용 하지 않는 경우에 1809로 업데이트 한 후 적용 해야 합니다. 이 변경 1811의 모든 시스템에 적용 됩니다. 추가 작업이 필요 하지 않습니다. 있는지 1809에서 핫픽스를 적용 합니다.  

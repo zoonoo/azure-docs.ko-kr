@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: c28fce9c6c9d7b0ddeba54e1ba643817436adb4e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2845bb09fa44c3bd9cee914e2446403b4182b0d5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244966"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871046"
 ---
 # <a name="region-management-in-azure-stack"></a>Azure Stack의 지역 관리
 
@@ -39,7 +39,7 @@ Azure Stack에서 사용할 수 있는 지역 관리 기능 집합이 합니다 
 
 영역을 클릭 하는 경우는 **지역 관리** 타일을 다음 정보에 액세스할 수 있습니다.
 
-[ ![지역 관리 블레이드의 창 설명](media/azure-stack-region-management/regionssm.png "지역 관리 블레이드") ](media/azure-stack-region-management/regions.png#lightbox)
+[![지역 관리 블레이드의 창 설명](media/azure-stack-region-management/regionssm.png "지역 관리 블레이드")](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **리소스 메뉴**합니다. 특정 인프라 관리 영역에 액세스 하 고 보려면 저장소 계정 및 가상 네트워크와 같은 사용자 리소스를 관리 합니다.
 
@@ -55,5 +55,5 @@ Azure Stack에서 사용할 수 있는 지역 관리 기능 집합이 합니다 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack의 상태 및 경고 모니터링](azure-stack-monitor-health.md)
+- [Azure Stack에서 상태 및 경고 모니터링](azure-stack-monitor-health.md)
 - [Azure Stack에서 업데이트 관리](azure-stack-updates.md)
