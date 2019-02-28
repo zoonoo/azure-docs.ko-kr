@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: 1d047e3dfe37929a02c141af675062abb9718786
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: aa534ca4fb29237de6377c7225a11f4758f39c55
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448146"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588384"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 이메일 및 첨부 파일 처리 자동화
 
@@ -100,7 +100,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
       ![완료된 저장소 컨테이너](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   저장소 컨테이너를 만들려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontainer) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)를 사용할 수도 있습니다. 
+   저장소 컨테이너를 만들려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)를 사용할 수도 있습니다. 
 
 다음으로, Storage 탐색기를 스토리지 계정에 연결합니다.
 

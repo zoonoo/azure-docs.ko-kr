@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 686e008a83924460b1f85212b5c06796b6bc8217
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354215"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593202"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -270,7 +270,7 @@ END
 1. **Integration Runtime 설정** 창에서 **데이터 이동을 수행하고 활동을 외부 계산으로 디스패치합니다**를 선택하고, **다음**을 클릭합니다. 
 
    ![통합 런타임 형식 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. **개인 네트워크**를 선택하고 **다음**을 클릭합니다. 
+1. **사설망**을 선택하고 **다음**을 클릭합니다. 
 
    ![사설망 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. **이름**에 대해 **MySelfHostedIR**을 입력하고 **다음**을 클릭합니다. 
@@ -508,9 +508,9 @@ END
     1. **가져오기 매개 변수**를 선택합니다. 
     1. 매개 변수에 대해 다음 값을 지정합니다. 
 
-        | 이름 | type | 값 | 
+        | Name | type | 값 | 
         | ---- | ---- | ----- |
-        | LastModifiedtime | Datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | 문자열 | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![저장 프로시저 활동 - 저장 프로시저 설정](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)

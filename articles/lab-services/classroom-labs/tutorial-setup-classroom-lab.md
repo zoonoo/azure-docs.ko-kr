@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998521"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649592"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -69,10 +69,8 @@ ms.locfileid: "55998521"
 
     ![완료된 템플릿 페이지 구성](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. **템플릿 구성** 페이지에서 다음 단계를 수행합니다. 이 자습서에서는 이러한 단계가 **선택 사항**입니다.
-    1. **시작**을 선택하여 템플릿 VM을 시작합니다.
     2. **연결**을 선택하여 템플릿 VM에 연결합니다. 
-    3. 템플릿 VM에 소프트웨어를 설치하고 구성합니다. 
-    4. VM을 **중지**합니다.  
+    3. 템플릿 VM에 소프트웨어를 설치하고 구성합니다.     
     5. 템플릿에 대한 **설명**을 입력합니다.
 9. 템플릿 페이지에서 **다음**을 선택합니다. 
 10. **템플릿 게시** 페이지에서 다음 작업을 수행합니다. 

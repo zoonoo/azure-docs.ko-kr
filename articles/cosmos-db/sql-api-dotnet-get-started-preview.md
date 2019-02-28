@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 39f71ffbe6369ada4f04c456cdb3b15d257a3ef1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2e0dc5c69a6cc875f4e673a494387db79c1dd1fa
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700369"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672555"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>.NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정의 데이터 관리(SDK 버전 3 미리 보기)
 
@@ -76,14 +76,16 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 
 ## <a id="Connect"></a>3단계: Azure Cosmos DB 계정에 연결
 1. 먼저 **Program.cs** 파일에서 C# 애플리케이션의 시작 부분에 있는 참조를 다음 참조로 바꿉니다.
-    ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using System.Configuration;
-    using Microsoft.Azure.Cosmos;
-    using System.Collections.Generic;
-    using System.Net;
-    ```
+
+   ```csharp
+   using System;
+   using System.Threading.Tasks;
+   using System.Configuration;
+   using Microsoft.Azure.Cosmos;
+   using System.Collections.Generic;
+   using System.Net;
+   ```
+
 1. 이제 공용 클래스 ``Program``에 이러한 상수 및 변수를 추가합니다.
     ```csharp
     public class Program

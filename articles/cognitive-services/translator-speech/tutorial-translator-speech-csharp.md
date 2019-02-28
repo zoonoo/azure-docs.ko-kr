@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 383e17e0a9e60b52a63420af19c2bca4337083d4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876915"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673754"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>자습서: C#의 Translator Speech 애플리케이션
 
@@ -33,7 +34,7 @@ ms.locfileid: "55876915"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 Community Edition을 포함하여 Visual Studio 2017의 모든 버전이 필요합니다. 
+이 자습서에서는 Community Edition을 포함하여 Visual Studio 2017의 모든 버전이 필요합니다.
 
 Visual Studio 솔루션은 애플리케이션에 대한 설치 관리자도 빌드합니다. 이 기능을 지원하려면 [WiX 도구 집합](http://wixtoolset.org/) 및 [WiX 도구 집합 Visual Studio 확장](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension)이 필요합니다.
 
@@ -63,7 +64,7 @@ Visual Studio에서 Speech Translator 솔루션(`SpeechTranslator.sln`)을 연 �
 
 즉 음성 변환의 경우 소스 언어는 전사에 지원되는 언어여야 합니다. 텍스트 결과를 원한다고 가정하는 경우 출력 언어는 텍스트 변환에 지원되는 언어 중 하나일 수 있습니다. 음성 출력을 원하는 경우 텍스트 음성 변환에 지원되는 언어로만 변환할 수 있습니다.
 
-Microsoft는 수시로 새 언어에 대한 지원을 추가할 수 있습니다. 이러한 이유로 애플리케이션에서 지원되는 언어에 대한 지식을 하드 코드하면 안됩니다. 대신, Translator Speech API는 런타임에서 지원되는 언어를 검색할 수 있는 언어 엔드포인트를 제공합니다. 다음 언어 목록 중에서 하나 이상을 받도록 선택할 수 있습니다. 
+Microsoft는 수시로 새 언어에 대한 지원을 추가할 수 있습니다. 이러한 이유로 애플리케이션에서 지원되는 언어에 대한 지식을 하드 코드하면 안됩니다. 대신, Translator Speech API는 런타임에서 지원되는 언어를 검색할 수 있는 언어 엔드포인트를 제공합니다. 다음 언어 목록 중에서 하나 이상을 받도록 선택할 수 있습니다.
 
 | | |
 |-|-|
@@ -73,7 +74,7 @@ Microsoft는 수시로 새 언어에 대한 지원을 추가할 수 있습니다
 
 Languages(언어) 엔드포인트에는 구독 키가 필요하지 않으며 해당 사용량은 할당량에 계산되지 않습니다. 해당 URI는 `https://dev.microsofttranslator.com/languages`이며 결과는 JSON 형식으로 반환됩니다.
 
-아래에 표시된 `MainWindow.xaml.cs`의 `UpdateLanguageSettingsAsync()` 메서드는 Languages 엔드포인트를 호출하여 지원되는 언어 목록을 가져옵니다. 
+아래에 표시된 `MainWindow.xaml.cs`의 `UpdateLanguageSettingsAsync()` 메서드는 Languages 엔드포인트를 호출하여 지원되는 언어 목록을 가져옵니다.
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -193,9 +194,9 @@ private async Task UpdateLanguageSettingsAsync()
 
 Languages 엔드포인트는 요청의 `Accept-Languages` 헤더를 사용하여 언어 이름이 표현되는 언어를 결정합니다. 예를 들어 영어 화자에게 "독일어"로 알려진 언어는 독일어로 "Deutsch", 스페인어로 "Alemán"이라고 하며, 언어 목록에서는 이러한 차이를 반영합니다. 이 헤더에는 시스템의 기본 언어가 사용됩니다.
 
-요청을 보내고 JSON 응답을 받으면 응답이 내부 데이터 구조로 구문 분석됩니다. 그런 다음, 이러한 구조는 [소스 언어] 및 [대상 언어] 메뉴를 구성하는 데 사용됩니다. 
+요청을 보내고 JSON 응답을 받으면 응답이 내부 데이터 구조로 구문 분석됩니다. 그런 다음, 이러한 구조는 [소스 언어] 및 [대상 언어] 메뉴를 구성하는 데 사용됩니다.
 
-사용자가 선택한 [대상 언어]에 따라 사용할 수 있는 음성이 달라지기 때문에 아직은 [음성] 메뉴를 설정할 수 없습니다. 대신, 각 언어에 사용할 수 있는 음성은 나중에 사용하기 위해 저장됩니다. 나중에 사용자가 [대상 언어]를 선택할 때 `ToLanguage_SelectionChanged` 처리기(동일한 소스 파일에 있음)에서 `UpdateVoiceComboBox()`를 호출하여 [음성] 메뉴를 업데이트합니다. 
+사용자가 선택한 [대상 언어]에 따라 사용할 수 있는 음성이 달라지기 때문에 아직은 [음성] 메뉴를 설정할 수 없습니다. 대신, 각 언어에 사용할 수 있는 음성은 나중에 사용하기 위해 저장됩니다. 나중에 사용자가 [대상 언어]를 선택할 때 `ToLanguage_SelectionChanged` 처리기(동일한 소스 파일에 있음)에서 `UpdateVoiceComboBox()`를 호출하여 [음성] 메뉴를 업데이트합니다.
 
 단순히 재미를 위해, 사용자가 앞에서 애플리케이션을 실행하지 않은 경우 [대상 언어]가 임의로 선택됩니다. (메뉴 설정은 세션 간에 저장됩니다.)
 
@@ -281,7 +282,7 @@ private void Connect()
         TranslateTo = ((ComboBoxItem)this.ToLanguage.SelectedItem).Tag.ToString(),
         Voice = voicename,
     };
-    
+
     options.Hostname = baseUrl;
     options.AuthHeaderKey = "Authorization";
     options.AuthHeaderValue = ""; // set later in ConnectAsync.
@@ -368,11 +369,11 @@ private void Connect()
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
 {
     await ADMAuthenticate(options);
-    
+
     TextMessageDecoder textDecoder;
-    
+
     s2smtClient = new SpeechClient((SpeechTranslateClientOptions)options, CancellationToken.None);
-    
+
     s2smtClient.OnBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnEndOfBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnTextData += (c, a) => { textDecoder.AppendData(a); lastReceivedPacketTick = DateTime.Now.Ticks; };
@@ -410,7 +411,7 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
     {
         SafeInvoke(() =>
         {
-            // We only care to react to server disconnect when our state is Connected. 
+            // We only care to react to server disconnect when our state is Connected.
             if (currentState == UiState.Connected)
             {
                 Log("E: Connection has been lost.");

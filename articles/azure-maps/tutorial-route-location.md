@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7fb382c6c57972484eff80c0d7355319a1f9178a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7b5b82e80ab4998f7cd106f469bf7ac8e271285d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893554"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588367"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 관심 지점으로 라우팅
 
@@ -202,7 +202,7 @@ ms.locfileid: "55893554"
         endPoint.geometry.coordinates[0];
     ```
 
-3. 경로를 가져오려면 다음 블록의 코드를 스크립트에 추가합니다. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리한 다음, [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest)를 사용하여 GeoJSON 형식으로 응답을 구문 분석합니다. 그런 다음, 데이터 원본에 대한 응답으로 맵에 자동으로 렌더링하는 경로 선을 추가합니다.
+3. 경로를 가져오려면 다음 블록의 코드를 스크립트에 추가합니다. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리한 다음, [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest)를 사용하여 GeoJSON 형식으로 응답을 구문 분석합니다. 그런 다음, 데이터 원본에 대한 응답으로 맵에 자동으로 렌더링하는 경로 선을 추가합니다.
 
     ```JavaScript
     //Execute the car route query then add the route to the map once a response is received.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c43c410c731dc46e9eda64bffcfdf49800653dd5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f352542f72226358cd700359eb5aac16e1aa8ad5
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998252"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652487"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>Azure CLI를 사용하여 Blob Storage 계정에 대한 이벤트 구독
 
@@ -25,7 +25,6 @@ ms.locfileid: "55998252"
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
 
 ## <a name="sample-script"></a>샘플 스크립트
 

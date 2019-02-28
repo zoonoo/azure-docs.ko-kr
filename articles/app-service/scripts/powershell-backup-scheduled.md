@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1fe21e8c7a4f4b73648eb5cf0cd3ee5e96dff760
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 262706868fe286f2134e71f53330ebd2eeb66488
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107598"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587840"
 ---
 # <a name="create-a-scheduled-backup-for-a-web-app-using-powershell"></a>PowerShell을 사용하여 웹앱에 대한 예약된 백업 만들기
 
@@ -50,8 +50,8 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Storage 계정을 만듭니다. |
-| [New-AzStorageContainer](/powershell/module/azure.storage/new-AzStoragecontainer) | Azure 저장소 컨테이너를 만듭니다. |
-| [New-AzStorageContainerSASToken](/powershell/module/azure.storage/new-AzStoragecontainersastoken) | Azure Storage 컨테이너에 대한 SAS 토큰을 생성합니다. |
+| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | Azure 저장소 컨테이너를 만듭니다. |
+| [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-AzStoragecontainersastoken) | Azure Storage 컨테이너에 대한 SAS 토큰을 생성합니다. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | App Service 계획을 만듭니다. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | 웹앱을 만듭니다. |
 | [Edit-AzWebAppBackupConfiguration](/powershell/module/az.websites/edit-azwebappbackupconfiguration) | 웹앱에 대한 백업 구성을 편집합니다. |

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 869bee8fcd0d1c2876ac7317fb239a1d5c61cb87
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536528"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864552"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for PostgreSQL 디자인
 
@@ -78,7 +78,7 @@ Azure Database for PostgreSQL 서비스는 서버 수준 방화벽을 사용합�
 
 1.  배포가 완료되면 왼쪽 메뉴에서 **모든 리소스**를 클릭하고, **mydemoserver** 이름을 입력하여 새로 만든 서버를 검색합니다. 검색 결과에 나열된 서버 이름을 클릭합니다. 서버에 대한 **개요** 페이지가 열리고 추가 구성을 위한 옵션이 제공됩니다.
 
-   ![PostgreSQL용 Azure Database - 서버 검색 ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![PostgreSQL용 Azure Database - 서버 검색](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.  서버 페이지에서 **연결 보안**을 선택합니다. 
 
@@ -98,7 +98,7 @@ Azure Database for PostgreSQL 서버를 만들 때 또한 기본 **postgres** �
 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭하고 방금 만든 서버를 검색합니다.
 
-   ![PostgreSQL용 Azure Database - 서버 검색 ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   ![PostgreSQL용 Azure Database - 서버 검색](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2. **mydemoserver**서버 이름을 클릭합니다.
 

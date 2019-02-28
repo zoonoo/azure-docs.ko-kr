@@ -4,14 +4,14 @@ description: 오픈 소스 Azure Cosmos DB 데이터 마이그레이션 도구�
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: 972602bb6c5fc80433c2479516f8d0a5d885e4dd
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c2020688359fafe6cf39dacc84c84ea79251ddbb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446939"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733353"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션
 
@@ -58,7 +58,7 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 
 ## <a id="Install"></a>설치
 
-마이그레이션 도구 소스 코드는 GitHub의 [이 리포지토리](https://github.com/azure/azure-documentdb-datamigrationtool)에서 사용할 수 있습니다. 솔루션을 로컬로 다운로드하여 컴파일하거나 [미리 컴파일된 이진 파일을 다운로드](https://cosmosdbtools.blob.core.windows.net/datamigrationtool/2019.02.19-1.8.2/dt-1.8.2.zip)한 후 다음 중 하나를 실행할 수 있습니다.
+마이그레이션 도구 소스 코드는 GitHub의 [이 리포지토리](https://github.com/azure/azure-documentdb-datamigrationtool)에서 사용할 수 있습니다. 솔루션을 로컬로 다운로드하여 컴파일하거나 [미리 컴파일된 이진 파일을 다운로드](http://aka.ms/csdmtool)한 후 다음 중 하나를 실행할 수 있습니다.
 
 * **Dtui.exe**: 도구의 그래픽 인터페이스 버전
 * **Dt.exe**: 도구의 명령줄 버전

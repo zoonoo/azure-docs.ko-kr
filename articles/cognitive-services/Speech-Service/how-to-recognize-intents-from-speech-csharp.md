@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9166ac5bf630b66ae46f356e17a327162f06af2a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 680c10d8402853f1ac2f519b8f07f81b9718ab9e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867174"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867000"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>자습서: C#용 Speech SDK를 사용하여 음성에서 의도 인식
 
@@ -77,7 +77,7 @@ Azure 대시보드에서 LUIS 리소스를 만든 후에는 [LUIS 포털](https:
 
 ## <a name="create-a-speech-project-in-visual-studio"></a>Visual Studio에서 음성 프로젝트 만들기
 
-[!INCLUDE [Create project ](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+[!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 
 ## <a name="add-the-code"></a>코드 추가
 

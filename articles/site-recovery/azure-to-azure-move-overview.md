@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a73eac1dea731bbf1ffb903ddf2438e791fec9d5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309865"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726452"
 ---
 # <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
 
@@ -70,7 +70,7 @@ VM을 이동하려면 다음 단계를 수행해야 합니다.
 
 
 
- ## <a name="move-vms-as-is-to-a-target-region"></a>VM을 있는 그대로 대상 Azure 지역으로 이동
+## <a name="move-vms-as-is-to-a-target-region"></a>VM을 있는 그대로 대상 Azure 지역으로 이동
 
 위에서 언급한 [아키텍처](#typical-architectures-for-a-multi-tier-deployment)에 따라, VM을 있는 그대로 대상 Azure 지역으로 이동했을 때 배포의 모양이 결정됩니다.
 

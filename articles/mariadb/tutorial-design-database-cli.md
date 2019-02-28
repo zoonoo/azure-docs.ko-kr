@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ed80008548585015c9e29aaea013fdeb85fd8e9d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541194"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872780"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for MariaDB 디자인
 
@@ -27,6 +27,8 @@ Azure Database for MariaDB는 MariaDB 커뮤니티 버전 데이터베이스 엔
 > * 쿼리 데이터
 > * 데이터 업데이트
 > * 데이터 복원
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 브라우저에서 Azure Cloud Shell을 사용하거나 컴퓨터에 [Azure CLI를 설치]( /cli/azure/install-azure-cli)하여 이 자습서의 코드 블록을 실행할 수 있습니다.
 

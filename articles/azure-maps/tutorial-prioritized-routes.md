@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5458c7e74728952df89380a3649c6ed60eb6ea9a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0ec047f38596bed4d3f0bc5520dc9c7fc18b4c24
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749766"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585239"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 
@@ -248,7 +248,7 @@ ms.locfileid: "55749766"
         datasource.add(routeLine, 0);
     });
     ```
-    위의 코드 조각은 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리하고, [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest)를 사용하여 응답을 GeoJSON 형식으로 구문 분석합니다. 그 후 반환되는 경로의 좌표 배열을 만들어서 데이터 원본에 추가합니다. 하지만 데이터 원본의 다른 선보다 먼저 렌더링되도록 인덱스 0을 추가합니다. 이는 트럭 경로 계산이 종종 승용차 경로 계산보다 느리기 때문이며, 트럭 경로 선이 승용차 경로 후에 데이터 원본에 추가되면 그 위에 렌더링됩니다. 두 속성(파란색의 멋진 음영인 스트로크 색 및 9픽셀의 스트로크 너비)이 트럭 경로 선에 추가됩니다. 
+    위의 코드 조각은 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리하고, [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest)를 사용하여 응답을 GeoJSON 형식으로 구문 분석합니다. 그 후 반환되는 경로의 좌표 배열을 만들어서 데이터 원본에 추가합니다. 하지만 데이터 원본의 다른 선보다 먼저 렌더링되도록 인덱스 0을 추가합니다. 이는 트럭 경로 계산이 종종 승용차 경로 계산보다 느리기 때문이며, 트럭 경로 선이 승용차 경로 후에 데이터 원본에 추가되면 그 위에 렌더링됩니다. 두 속성(파란색의 멋진 음영인 스트로크 색 및 9픽셀의 스트로크 너비)이 트럭 경로 선에 추가됩니다. 
 
 4. 다음 JavaScript 코드를 추가하여 승용차 경로를 요청하고 결과를 표시합니다.
 
@@ -267,7 +267,7 @@ ms.locfileid: "55749766"
         datasource.add(routeLine);
     });
     ```
-    이 코드 조각은 자동차에 대해 동일한 트럭 경로 쿼리를 사용합니다. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리하고, [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest)를 사용하여 응답을 GeoJSON 형식으로 구문 분석합니다. 그런 다음, 반환되는 경로의 좌표 배열을 만들어서 데이터 원본에 추가합니다. 두 속성(보라색 음영인 스트로크 색 및 5픽셀의 스트로크 너비)이 승용차 경로 선에 추가됩니다. 
+    이 코드 조각은 자동차에 대해 동일한 트럭 경로 쿼리를 사용합니다. [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리하고, [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest)를 사용하여 응답을 GeoJSON 형식으로 구문 분석합니다. 그런 다음, 반환되는 경로의 좌표 배열을 만들어서 데이터 원본에 추가합니다. 두 속성(보라색 음영인 스트로크 색 및 5픽셀의 스트로크 너비)이 승용차 경로 선에 추가됩니다. 
 
 5. **MapTruckRoute.html** 파일을 저장하고, 브라우저를 새로 고쳐 결과를 확인합니다. Maps API와 성공적으로 연결되면 다음과 비슷한 지도가 표시됩니다.
 

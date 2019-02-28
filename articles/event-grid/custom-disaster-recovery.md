@@ -3,16 +3,16 @@ title: Azure Event Grid에서 사용자 지정 항목용 자체 재해 복구 �
 description: 지역 중단을 잘 넘겨서 Azure Event Grid를 연결된 상태로 유지하세요.
 services: event-grid
 author: banisadr
-ms.service: even-grid
+ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa
-ms.openlocfilehash: d1cf09df2db3abe65d7c3c048438e6791129940a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a77c208c208ef7e0df170733dbe89963fc5cb846
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701439"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727182"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Event Grid에서 사용자 지정 항목용 자체 재해 복구 빌드
 

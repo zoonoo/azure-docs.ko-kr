@@ -4,17 +4,17 @@ description: 이 자습서에서는 Azure Machine Learning을 Edge 디바이스�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/15/2018
+ms.date: 02/21/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 464d16d4bbcbdbefd36ce1132630ad702d7a0c90
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0f7201ffd71a6bc3e68f83f005c693cae4fef84a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076975"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649003"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
@@ -58,7 +58,7 @@ Azure IoT Edge 장치:
 
 IoT Edge 디바이스에서 프로세스 식별을 사용하지 않도록 설정하려면 IoT Edge 디먼 구성의 **연결** 섹션에서 **workload_uri** 및 **management_uri**의 IP 주소와 포트를 입력해야 합니다.
 
-먼저 IP 주소를 가져옵니다. 명령줄에 `ipconfig`를 입력하고 **docker0** 인터페이스의 IP 주소를 복사합니다.
+먼저 IP 주소를 가져옵니다. 명령줄에 `ifconfig`를 입력하고 **docker0** 인터페이스의 IP 주소를 복사합니다.
 
 IoT Edge 디먼 구성 파일을 편집합니다.
 
