@@ -44,12 +44,18 @@ items:
     href: how-application-gateway-works.md
   - name: 애플리케이션 게이트웨이 구성 요소
     href: application-gateway-components.md
-  - name: SSL 정책 개요
-    href: application-gateway-ssl-policy-overview.md
-  - name: 웹 응용 프로그램 방화벽
-    href: waf-overview.md
-  - name: WAF 구성
-    href: application-gateway-waf-configuration.md
+  - name: SSL
+    items:
+    - name: SSL 정책 개요
+      href: application-gateway-ssl-policy-overview.md
+    - name: 종단 간 SSL
+      href: ssl-overview.md
+  - name: WAF
+    items:
+    - name: 웹 애플리케이션 방화벽
+      href: waf-overview.md
+    - name: WAF 구성
+      href: application-gateway-waf-configuration.md
   - name: URL 라우팅
     href: url-route-overview.md
   - name: 다중 사이트 호스팅
@@ -206,9 +212,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 스택 오버플로
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 6e181ed44c473482c02c6fda6131f258838e9713
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 7fd344a06dcd29c53d313a59c484101b1d0b2c8f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807748"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985668"

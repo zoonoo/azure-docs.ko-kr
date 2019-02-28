@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a4c3d952edd115748c6a63f031d9c8e115aedb1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1af6214833109ad89e8b5f27eefc0c99cdaf2496
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884463"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984189"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 스토리지 계정 만들기
 
@@ -83,7 +83,7 @@ Azure Portal에서 리소스 그룹을 만들려면 다음 단계를 수행합�
 Azure Portal에서 범용 v2 저장소 계정을 만들려면 다음 단계를 수행합니다.
 
 > [!NOTE]
-> 계층 구조 네임스페이스는 현재 모든 공용 영역에서 사용할 수 있습니다. 현재 소버린 클라우드에서는 사용할 수 없습니다.
+> 계층 구조 네임스페이스는 현재 모든 공용 영역에서 사용할 수 있습니다.
 
 1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스의 메뉴를 열고 **모든 서비스**를 선택합니다. 그런 다음 **Storage**로 스크롤하고 **Storage 계정**을 선택합니다. 나타나는 **Storage 계정** 창에서 **추가**를 선택합니다.
 2. 앞에서 만든 **구독** 및 **리소스 그룹**을 선택합니다.
@@ -141,7 +141,7 @@ Login-AzAccount
 PowerShell에서 새 리소스 그룹을 만들려면 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용합니다. 
 
 > [!NOTE]
-> 계층 구조 네임스페이스는 현재 모든 공용 영역에서 사용할 수 있습니다. 현재 소버린 클라우드에서는 사용할 수 없습니다.
+> 계층 구조 네임스페이스는 현재 모든 공용 영역에서 사용할 수 있습니다.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -201,7 +201,7 @@ az group create `
 ```
 
 > [!NOTE]
-> > 계층 구조 네임스페이스는 현재 모든 공용 영역에서 사용할 수 있습니다. 현재 소버린 클라우드에서는 사용할 수 없습니다.
+> > 계층 구조 네임스페이스는 현재 모든 공용 영역에서 사용할 수 있습니다.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>범용 v2 저장소 계정 만들기
 

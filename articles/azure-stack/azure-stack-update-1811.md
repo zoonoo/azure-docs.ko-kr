@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 14e587276deab9656c3be04c96182942767ae0f2
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099142"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986025"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 업데이트
 
@@ -86,6 +86,8 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
     제대로 필수 확장 호스트 인증서를 가져온 후 관리자 포털에서 1811 업데이트를 다시 시작할 수 있습니다. Microsoft Azure Stack 운영자 업데이트 과정에서 유지 관리 기간을 예약 하려면 조언, 하는 동안 확장 호스트 인증서 누락으로 인 한 실패 영향을 주지 않아야 기존 워크 로드 또는 서비스입니다.  
 
     이 업데이트를 설치 하는 동안 Azure Stack 사용자 포털을 사용할 수 없는 경우 확장 호스트를 구성 하는 동안 확장 호스트의 구성에는 최대 5 시간까지 걸릴 수 있습니다. 이 시간 동안 업데이트 상태를 확인하거나, [Azure Stack 관리자 PowerShell 또는 권한 있는 엔드포인트](azure-stack-monitor-update.md)를 사용하여 실패한 업데이트 설치를 다시 시작할 수 있습니다.
+
+- Azure Stack에서 System Center Operations Manager (SCOM)을 관리 되는 경우에 1811 적용 하기 전에 10.0.3.11 버전으로 Microsoft Azure Stack 용 관리 팩을 업데이트 해야 합니다.
 
 ## <a name="new-features"></a>새로운 기능
 

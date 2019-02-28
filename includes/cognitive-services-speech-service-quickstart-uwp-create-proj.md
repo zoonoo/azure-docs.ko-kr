@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: c8ef95f6a01b64b722544d9397d928387a69d7c7
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 2e495f9aed18ebc4007e63b8ef03641a72d21079
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458386"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56963376"
 ---
 1. Visual Studio 2017을 시작합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "56458386"
 1. 패키지 관리자 콘솔에 다음 출력 줄이 표시됩니다.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.3.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.3.1' to helloworld
    ```
 
 1. 애플리케이션은 음성 입력에 마이크를 사용하므로 **마이크** 기능을 프로젝트에 추가합니다. 솔루션 탐색기에서 **Package.appxmanifest**를 두 번 클릭하여 애플리케이션 매니페스트를 편집합니다. 그런 다음, **기능** 탭으로 전환하고 **마이크** 기능에 대한 확인란을 선택한 후 변경 내용을 저장합니다.

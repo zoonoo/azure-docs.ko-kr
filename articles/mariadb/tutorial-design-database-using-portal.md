@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2bbe69d114df61f6ca01add0b3459220d59d83e0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538109"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880518"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for MariaDB 데이터베이스 디자인
 
@@ -28,6 +28,8 @@ Azure Database for MariaDB는 클라우드에서 고가용성 MySQL 데이터베
 > * 쿼리 데이터
 > * 데이터 업데이트
 > * 데이터 복원
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: c2ef0d34897171e04d0982405909183634ebb696
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f054cf101f24d7cc571e9f90943122e42beb9dc6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115405"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983492"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Active Directory Federated Services를 사용 하 여 Azure Stack에 Kubernetes 배포
 
@@ -226,3 +226,5 @@ Id 솔루션으로 AD FS를 사용 하는 경우 서비스 주체를 설정 하 
 ## <a name="next-steps"></a>다음 단계
 
 [클러스터에 연결](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+
+[Kubernetes 대시보드를 사용 하도록 설정](azure-stack-solution-template-kubernetes-dashboard.md)

@@ -35,12 +35,12 @@ items:
   - name: Azure CLI
     href: cli-samples.md
 - name: 개념
+  href: concepts-overview.md
   items:
   - name: 클라우드 업로드 및 저장
     href: storage-account-concept.md
-    items:
-    - name: 자산
-      href: assets-concept.md
+  - name: 자산
+    href: assets-concept.md
   - name: Encoding
     items:
     - name: 개요
@@ -66,13 +66,14 @@ items:
       - name: 동적 패키징
         displayName: packager
         href: dynamic-packaging-overview.md
-      - name: 필터
-        href: filters-concept.md
       - name: 동적 매니페스트
         href: filters-dynamic-manifest-overview.md
+      - name: 필터
+        href: filters-concept.md
     - name: 콘텐츠 보호
-      href: content-protection-overview.md
       items:
+      - name: 개요
+        href: content-protection-overview.md
       - name: 액세스 제어를 포함한 다중 DRM 시스템
         href: design-multi-drm-system-with-access-control.md
       - name: DRM 라이선스
@@ -94,8 +95,9 @@ items:
     - name: 콘텐츠 키 정책
       href: content-key-policy-concept.md
   - name: 라이브 스트리밍
-    href: live-streaming-overview.md
     items:
+    - name: 개요
+      href: live-streaming-overview.md
     - name: 라이브 이벤트 및 라이브 출력
       href: live-events-outputs-concept.md
     - name: 권장되는 라이브 인코더
@@ -242,9 +244,9 @@ items:
     href: frequently-asked-questions.md
   - name: Azure 클라우드 및 지역
     href: azure-clouds-regions.md
-ms.openlocfilehash: 05743bbc6bc448fbea5b084fd945d1e056bf16e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 726c49754b1e04be8a9f03cc754c067994b98565
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867782"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958417"

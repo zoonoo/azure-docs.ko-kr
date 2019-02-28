@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 4e6d981ef1ac7985e9f230cfbbda440a765e20ea
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695488"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959190"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>.NET Core 콘솔 앱 빌드로 Azure Cosmos DB SQL API 계정의 데이터 관리(SDK 버전 3 미리 보기)
 
@@ -131,9 +131,9 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 
    포털에서 URI를 복사하고 `Program.cs` 파일의 `<your endpoint URL>`에 붙여넣습니다. 포털에서 기본 키를 복사하고 `<your primary key>`에 붙여넣습니다.
 
-   ![Azure Portal에서 Azure Cosmso DB 키를 가져오는 스크린샷](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Azure Portal에서 Azure Cosmos DB 키를 가져오는 스크린샷](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
-1. 다음으로, `CosmosClient`의 새 인스턴스를 만들고 프로그램에 대한 몇 가지 스캐폴딩을 설정합니다.
+1. 다음으로 `CosmosClient`의 새 인스턴스를 만들고 프로그램에 대한 몇 가지 스캐폴딩을 설정합니다.
 
    **Main** 메서드 아래에 **GetStartedDemoAsync**라는 이름의 새 비동기 작업을 추가하면, 새 `CosmosClient`가 인스턴스화됩니다. **GetStartedDemoAsync**를 Azure Cosmos DB 리소스에서 작업하는 메서드를 호출하는 진입점으로 사용합니다.
 

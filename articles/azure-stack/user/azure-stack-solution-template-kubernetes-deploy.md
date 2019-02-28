@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 9ce21a6b01dc4f4a99e5c70faf1e004bf7918dad
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594120"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986246"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes 배포
 
@@ -60,6 +60,8 @@ AD FS를 사용 하는 경우 클러스터 설치에 대 한 지침을 참조 �
 알게 될 것을 **Helm** 패키지 관리자를 설치 하 고 클러스터에 앱을 배포 하는 데 유용 합니다. 를 설치 하 고 클러스터에서 Helm 사용에 대 한 참조 [helm.sh](https://helm.sh/)합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+[Kubernetes 대시보드를 사용 하도록 설정](azure-stack-solution-template-kubernetes-dashboard.md)
 
 [Kubernetes를 추가할 Marketplace (Azure Stack 연산자)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 

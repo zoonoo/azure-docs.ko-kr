@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7b73a0efbe20b43b3ba8e94fce3aabf12ea918e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997101"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986059"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
@@ -31,7 +31,7 @@ ms.locfileid: "55997101"
 
 사용자에 게 Marketplace 항목으로 Kubernetes를 제공할 수 있습니다. 그런 다음 사용자가 단일의 조정 된 작업에서 Kubernetes를 배포 수 있습니다.
 
-다음 문서를 배포 하 고 독립 실행형 Kubernetes 클러스터에 대 한 리소스를 프로 비전 하는 Azure Resource Manager 템플릿을 사용 하 여 확인 합니다. Kubernetes 클러스터 마켓플레이스 항목 0.3.0 Azure Stack 버전 1808 필요합니다. 시작 하기 전에 Azure Stack 및 Azure 전역 테 넌 트 설정을 확인 합니다. Azure Stack에 대 한 필수 정보를 수집 합니다. Azure Stack Marketplace 및 테 넌 트에 필요한 리소스를 추가 합니다. 클러스터는 Ubuntu server, 사용자 지정 스크립트 및 Kubernetes 항목을 marketplace에 따라 달라 집니다.
+다음 문서를 배포 하 고 독립 실행형 Kubernetes 클러스터에 대 한 리소스를 프로 비전 하는 Azure Resource Manager 템플릿을 사용 하 여 확인 합니다. 시작 하기 전에 Azure Stack 및 Azure 전역 테 넌 트 설정을 확인 합니다. Azure Stack에 대 한 필수 정보를 수집 합니다. Azure Stack Marketplace 및 테 넌 트에 필요한 리소스를 추가 합니다. 클러스터는 Ubuntu server, 사용자 지정 스크립트 및 marketplace에서 Kubernetes 클러스터 Marketplace 항목에 따라 달라 집니다.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>계획, 제공 및 구독 만들기
 

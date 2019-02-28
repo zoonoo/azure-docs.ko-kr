@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743688"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804651"
 ---
 # <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>빠른 시작: Event Grid알림을 구독하여 Azure Data Explorer에 Azure Blob 수집
 
@@ -58,7 +58,7 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
 
 1. Azure Portal의 클러스터 아래에서 **쿼리**를 선택합니다.
 
-    ![쿼리 애플리케이션 링크](media/ingest-data-event-hub/query-explorer-link.png)
+    ![쿼리 애플리케이션 링크](media/ingest-data-event-grid/query-explorer-link.png)
 
 1. 다음 명령을 창에 복사하고, **실행**을 선택하여 수집된 데이터를 받을 테이블(TestTable)을 만듭니다.
 
@@ -82,11 +82,11 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
 
 1. 앞에서 만든 클러스터 아래에서 **데이터베이스**, **TestDatabase**를 차례로 선택합니다.
 
-    ![테스트 데이터베이스 선택](media/ingest-data-event-hub/select-test-database.png)
+    ![테스트 데이터베이스 선택](media/ingest-data-event-grid/select-test-database.png)
 
 1. **데이터 수집**, **데이터 연결 추가**를 차례로 선택합니다.
 
-    ![데이터 수집](media/ingest-data-event-hub/data-ingestion-create.png)
+    ![데이터 수집](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1. 연결 형식 선택: **Blob Storage**
 
@@ -185,9 +185,9 @@ Event Grid를 다시 사용하지 않으려는 경우, 비용이 발생하지 �
 
 1. Azure Portal에서 맨 왼쪽에 있는 **리소스 그룹**을 선택한 다음, 만든 리소스 그룹을 선택합니다.  
 
-    왼쪽 메뉴가 접혀 있으면 ![[확장] 단추를](media/ingest-data-event-hub/expand.png) 클릭하여 펼칩니다.
+    왼쪽 메뉴가 접혀 있으면 ![[확장] 단추를](media/ingest-data-event-grid/expand.png) 클릭하여 펼칩니다.
 
-   ![삭제할 리소스 그룹 선택](media/ingest-data-event-hub/delete-resources-select.png)
+   ![삭제할 리소스 그룹 선택](media/ingest-data-event-grid/delete-resources-select.png)
 
 1. **test-resource-group** 아래에서 **리소스 그룹 삭제**를 선택합니다.
 

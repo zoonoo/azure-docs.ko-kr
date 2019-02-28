@@ -3,7 +3,7 @@ title: 빠른 시작 - 웹앱을 Azure Service Fabric Mesh에 배포 | Microsoft
 description: 이 빠른 시작에서는 Visual Studio를 사용하여 ASP.NET Core 웹 사이트를 만들고 Azure Service Fabric Mesh에 게시하는 방법을 보여 줍니다.
 services: service-fabric-mesh
 documentationcenter: .net
-author: tylermsft
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/17/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 35ce19d796a9889d734bd5dde20a7c56485656f1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b30676e0c5782a95c629571cadead7bf58211789
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888548"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804920"
 ---
-# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>빠른 시작: 웹앱 만들기 및 Azure Service Fabric Mesh에 배포
+# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>빠른 시작: Azure Service Fabric Mesh에 웹앱 만들기 및 배포
 
 Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다.
 
@@ -50,7 +50,7 @@ Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트...** 
 
 ![Visual Studio의 새 Service Fabric Mesh 프로젝트 대화 상자](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-service-fabric-service.png)
 
-**새 ASP.NET Core 웹 응용 프로그램** 대화 상자가 나타납니다. **웹 응용 프로그램**을 선택하고 **확인**을 클릭합니다.
+**새 ASP.NET Core 웹 애플리케이션** 대화 상자가 나타납니다. **웹 애플리케이션**을 선택하고 **확인**을 클릭합니다.
 
 ![Visual Studio의 새 ASP.NET Core 애플리케이션](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-aspnetcore-app.png)
 
@@ -70,7 +70,7 @@ Service Fabric Mesh 프로젝트를 Azure에 게시하려면 Visual Studio에서
 
 ![Visual Studio에서 Service Fabric Mesh 프로젝트를 마우스 오른쪽 단추로 클릭](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-right-click-publish.png)
 
-**Service Fabric 응용 프로그램 게시** 대화 상자가 표시됩니다.
+**Service Fabric 애플리케이션 게시** 대화 상자가 표시됩니다.
 
 ![Visual Studio의 Service Fabric Mesh 게시 대화 상자](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-dialog.png)
 
@@ -80,7 +80,7 @@ Azure 계정과 구독을 선택합니다. **위치**를 선택합니다. 이 �
 
 ![Visual Studio Service Fabric Mesh 새 리소스 그룹 대화 상자](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-**Service Fabric 응용 프로그램 게시** 대화 상자로 돌아간 다음, **Azure Container Registry**에서 **\<새 컨테이너 레지스트리 만들기...>** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다. 이 빠른 시작에서는 **미국 동부**를 사용합니다. 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 드롭다운에서 선택합니다. **SKU**를 **기본**으로 설정하고 **만들기**를 클릭하여 게시 대화 상자로 돌아갑니다.
+**Service Fabric 애플리케이션 게시** 대화 상자로 돌아간 다음, **Azure Container Registry**에서 **\<새 컨테이너 레지스트리 만들기...&gt;** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다. 이 빠른 시작에서는 **미국 동부**를 사용합니다. 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 드롭다운에서 선택합니다. **SKU**를 **기본**으로 설정하고 **만들기**를 클릭하여 게시 대화 상자로 돌아갑니다.
 
 ![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -99,7 +99,7 @@ The application was deployed successfully and it can be accessed at http://...
 
 웹 브라우저를 열고 URL로 이동하여 Azure에서 실행되는 웹 사이트를 확인합니다.
 
-![Service Fabric Mesh 웹 애플리케이션 실행](media/service-fabric-mesh-tutorial-deploy-dotnetcore/deployed-web-project.png)
+![Service Fabric Mesh 웹 응용 프로그램 실행](media/service-fabric-mesh-tutorial-deploy-dotnetcore/deployed-web-project.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -118,6 +118,6 @@ Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Fabric Mesh 애플리케이션을 만들고 배포하는 방법을 자세히 알아보려면 자습서를 계속 진행합니다.
+Service Fabric Mesh 응용 프로그램을 만들고 배포하는 방법을 자세히 알아보려면 자습서를 계속 진행합니다.
 > [!div class="nextstepaction"]
-> [다중 서비스 웹 응용 프로그램 만들기, 디버그 및 Service Fabric Mesh에 배포](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> [다중 서비스 웹 애플리케이션 만들기, 디버그 및 Service Fabric Mesh에 배포](service-fabric-mesh-tutorial-create-dotnetcore.md)

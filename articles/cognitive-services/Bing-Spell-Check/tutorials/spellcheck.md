@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 09/28/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 086bcbe48fbace1a199e195e32fd1ad1bbd6ff46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0a7b8637ae3ca7342a04f6bf3f8a808539d980eb
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869894"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886165"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>자습서: 웹 페이지 Spell Check 클라이언트 빌드
 
-이 자습서에서는 사용자가 Bing Spell Check API를 쿼리할 수 있게 하는 웹 페이지 빌드합니다.
+이 자습서에서는 사용자가 Bing Spell Check API를 쿼리할 수 있게 하는 웹 페이지 빌드합니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html)에 제공됩니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 

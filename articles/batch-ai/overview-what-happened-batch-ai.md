@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 87dcf18a2517561e3166726f8f1f1a70c2ec7713
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fb1114e94c227ce6787532c6059186399d0f57f0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447806"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961361"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>Azure Batch AI에 대한 새로운 소식
 
@@ -282,7 +282,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-[Azure ML 서비스 설명서](../machine-learning/service/how-to-access-data.md#create-a-datastore)에서 추가 스토리지 계정을 등록하거나 등록된 다른 데이터 저장소에 대한 참조를 가져오는 방법에 대해 자세히 알아보세요.
+[Azure ML 서비스 설명서](../machine-learning/service/how-to-access-data.md#access)에서 추가 스토리지 계정을 등록하거나 등록된 다른 데이터 저장소에 대한 참조를 가져오는 방법에 대해 자세히 알아보세요.
 
 
 #### <a name="downloading-and-uploading-data"></a>데이터 다운로드 및 업로드 
@@ -434,7 +434,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-이 학습 코드 조각(tf_mnist_replica.py 파일 포함)에 대한 전체 정보는 [Azure ML Notebook 샘플 github 리포지토리](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server)에서 찾을 수 있습니다. 데이터 저장소 자체를 개별 노드에 탑재할 수 있거나, 학습 데이터를 노드 자체에서 다운로드할 수 있습니다. 추정기에서 데이터 저장소를 참조하는 방법에 대한 자세한 내용은 [Azure ML 서비스 설명서](../machine-learning/service/how-to-access-data.md#access-datastores-for-training)를 참조하세요. 
+이 학습 코드 조각(tf_mnist_replica.py 파일 포함)에 대한 전체 정보는 [Azure ML Notebook 샘플 github 리포지토리](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server)에서 찾을 수 있습니다. 데이터 저장소 자체를 개별 노드에 탑재할 수 있거나, 학습 데이터를 노드 자체에서 다운로드할 수 있습니다. 추정기에서 데이터 저장소를 참조하는 방법에 대한 자세한 내용은 [Azure ML 서비스 설명서](../machine-learning/service/how-to-access-data.md#access)를 참조하세요. 
 
 Azure ML에서 실행을 제출하는 것은 submit 함수를 통해 이루어집니다.
 
