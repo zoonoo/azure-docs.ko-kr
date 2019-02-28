@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 02/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 007c63c163b6e972bd59189569c92c99d2718cbe
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 5f44e3c4a1b7f28133ecd232fc49a34931bddfa4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301488"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729834"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk란?
 
@@ -132,8 +132,8 @@ a. Data Box Disk에서 사용할 수 있는 도구 세트로는 세 가지 도�
  - [Windows용 Data Box Disk 도구 집합 다운로드](https://aka.ms/databoxdisktoolswin) 
  - [Linux용 Data Box Disk 도구 집합 다운로드](https://aka.ms/databoxdisktoolslinux)
  
- ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>Q. Data Box Disk를 사용하여 Azure Files로 데이터를 전송한 다음, Azure 파일 동기화에서 데이터를 사용할 수 있나요? 
- a. Data Box Disk에서는 Azure Files가 지원되지 않습니다. Azure 파일 동기화에서 파일 데이터를 나중에 사용하는 경우에도 메타데이터가 유지되지 않습니다.
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>Q. Data Box Disk를 사용하여 Azure Files로 데이터를 전송한 다음, Azure 파일 동기화에서 데이터를 사용할 수 있나요? 
+a. Data Box Disk에서는 Azure Files가 지원되지 않습니다. Azure 파일 동기화에서 파일 데이터를 나중에 사용하는 경우에도 메타데이터가 유지되지 않습니다.
 
 
 ## <a name="verify-and-upload"></a>확인 및 업로드

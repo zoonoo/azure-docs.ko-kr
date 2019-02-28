@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 공동 작업이란? | Microsoft Docs
+title: Azure Active Directory B2B 공동 작업이란? - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B 공동 작업은 외부 파트너와 안전하게 리소스를 공유하고 공동으로 작업할 수 있도록 게스트 사용자 액세스를 지원합니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f787faceeb9c517ada124411e8090d0b91bd433f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6fa36ab67957dcba7b5282e219706e442be9dc97
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182258"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674483"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 

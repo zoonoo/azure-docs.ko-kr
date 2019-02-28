@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/14/2019
+ms.date: 02/25/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 37d84206246e60ed16244d6172a5e22ca18524c9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 33bc10bb601fa14a34b6032c54b0c751a3608ccc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270252"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823657"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
 
@@ -132,8 +132,8 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 경험하
     read resourceGroupName &&
     echo "Enter the location (i.e. centralus):" &&
     read location &&
-    az group create --name $resourceGroupName --location $location &&
-    az group deployment create --resource-group $resourceGroupName --template-file "azuredeploy.json"
+    az group create --name $resourceGroupName --location "$location" &&
+    az group deployment create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
@@ -142,14 +142,11 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 경험하
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
     ```
     
     ---
-
-    > [!NOTE]
-    > Cloud shell에서 Azure PowerShell 사용과 관련된 파일 IO 문제가 있습니다.  오류 메시지는 *cmdlet에 대한 동적 매개 변수를 검색할 수 없습니다. 'Azure:/azuredeploy.json' 경로는 존재하지 않으므로 찾을 수 없습니다.* 입니다.  임시 해결 방법은 `New-AzResourceGroupDeploy` 명령에 **-TemplateFile** 스위치를 포함하지 않는 것입니다. 이 명령은 파일 이름을 입력하라는 메시지를 표시합니다.
 
     파일 이름을 **azuredeploy.json**이 아닌 다른 이름으로 저장한 경우 템플릿 파일 이름을 업데이트합니다. 
 

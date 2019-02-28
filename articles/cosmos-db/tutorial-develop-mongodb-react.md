@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.reviewer: sngun
-ms.openlocfilehash: 2033c309a63c7135ba845aebbfc4e353380429f6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ef245c2ef5da2b3dc9780e772a71e8ef896e1aff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043280"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959802"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React 및 Azure Cosmos DB에서 MongoDB 앱 만들기  
 
@@ -102,8 +102,6 @@ Angular를 사용하여 동일한 앱을 빌드하시겠습니까? [Angular 자�
 > * 앱을 Azure Cosmos DB 계정에 연결
 > * Postman을 사용하여 앱 테스트
 > * 애플리케이션 실행 및 데이터베이스에 Heroes 추가
-
-이 자습서 시리즈의 추가 비디오에서는 애플리케이션을 배포하고 전역으로 데이터를 복제하는 방법을 다룹니다.
 
 다음 자습서로 진행하여 Azure Cosmos DB로 MongoDB 데이터를 가져오는 방법을 알아볼 수 있습니다.  
 

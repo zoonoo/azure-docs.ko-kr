@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d1c7340038731ebde10a7ffcb0ef2adcde18e901
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8648042c114c514df2218249719faa3ff19df5ec
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267498"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669825"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
 Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 Java EE, 호스트된 온-프레미스, 하이브리드 또는 공용 클라우드를 포함하여 다양한 플랫폼에서 앱과 함께 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
@@ -107,7 +107,6 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 * **런타임: 서버에서 웹앱을 계측합니다.** 코드에 대한 업데이트를 방지합니다. 서버에 대한 관리자 액세스 권한이 필요합니다.
   * [**IIS 온-프레미스 또는 VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Azure 웹앱 또는 VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Java EE**](../../azure-monitor/app/java-live.md)
 * **개발 타임: 코드에 Application Insights를 추가합니다.** 사용자 지정 원격 분석을 작성하고 백 엔드 및 데스크톱 앱을 계측할 수 있습니다.
   * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 업데이트 2 이상
   * [Java](../../azure-monitor/app/java-get-started.md)
@@ -117,12 +116,10 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 * Visual Studio App Center와 통합하여 **[모바일 앱 사용을 분석](../../azure-monitor/learn/mobile-center-quickstart.md)** 합니다.
 * **[가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)** -서버에서 정기적으로 웹 사이트를 ping합니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 다음을 사용하여 런타임에 시작하세요.
 
 * [IIS 서버](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Java EE 서버](../../azure-monitor/app/java-live.md)
 
 다음을 사용하여 개발 시에 시작하세요.
 

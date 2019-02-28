@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4768c38b2e76bfa8cdff3187c32c03fdaaf57bbf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a2c6b95d62f6210ecfdd560bc1c00a3e055be3ee
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207656"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880354"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>자습서: dmarcian과 Azure Active Directory 통합
 
@@ -143,15 +143,15 @@ dmarcian에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. 오른쪽 위 모서리에서 **프로필**을 클릭하고 **기본 설정**으로 이동합니다.
 
-    ![기본 설정 ](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
+    ![기본 설정](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
 
 3. 아래로 스크롤하여 **Single Sign On** 섹션을 클릭한 다음, **구성**을 클릭합니다.
 
-    ![단일 ](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
+    ![단일](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
 
 4. **SAML Single Sign-On** 페이지에서 **상태**를 **사용**으로 설정하고 다음 단계를 수행합니다.
 
-    ![인증 ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
+    ![인증](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
     * **ID 공급자에 dmarcian 추가** 섹션 아래에서 **복사**를 클릭하여 인스턴스에 대한 **Assertion Consumer Service URL**을 복사하고, Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -189,7 +189,7 @@ dmarcian에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -229,15 +229,15 @@ Azure AD 사용자가 dmarcian에 로그인할 수 있도록 하려면 dmarcian�
 
 2. 오른쪽 위 모서리에서 **프로필**을 클릭하고 **사용자 관리**로 이동합니다.
 
-    ![사용자 ](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
+    ![사용자](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
 
 3. **SSO 사용자** 섹션의 오른쪽에서 **새 사용자 추가**를 클릭합니다.
 
-    ![사용자 추가 ](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
+    ![사용자 추가](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
 
 4. **새 사용자 추가** 팝업에서 다음 단계를 수행합니다.
 
-    ![새 사용자 ](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
+    ![새 사용자](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
     a. **새 사용자 이메일** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 이메일을 입력합니다.
 
@@ -253,9 +253,9 @@ Azure AD 사용자가 dmarcian에 로그인할 수 있도록 하려면 dmarcian�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
