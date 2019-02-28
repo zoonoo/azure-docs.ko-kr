@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell을 사용하여 사용자 지정 역할 만들기 | Microsoft Docs
-description: Azure PowerShell을 사용하여 RBAC(역할 기반 액세스 제어)에 대한 사용자 지정 역할을 만드는 방법을 알아봅니다. 여기에는 사용자 지정 역할을 나열, 생성, 업데이트 및 삭제하는 방법이 포함됩니다.
+title: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 | Microsoft Docs
+description: Azure PowerShell을 사용하여 RBAC(역할 기반 액세스 제어)로 Azure 리소스에 대한 사용자 지정 역할을 만드는 방법을 알아봅니다. 여기에는 사용자 지정 역할을 나열, 생성, 업데이트 및 삭제하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 26e5b33504ff543e8442108e4368ce3b04f25df4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 92c061a7f854b46ab5aee07aa5e648ace8f9ae52
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696764"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343845"
 ---
-# <a name="create-custom-roles-using-azure-powershell"></a>Azure PowerShell을 사용하여 사용자 지정 역할 만들기
+# <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
 
-[기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우, 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 Azure PowerShell을 사용하여 사용자 지정 역할을 만들고 관리하는 방법을 설명합니다.
+[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들면 됩니다. 이 문서에서는 Azure PowerShell을 사용하여 사용자 지정 역할을 만들고 관리하는 방법을 설명합니다.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -296,6 +296,6 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure PowerShell을 사용하여 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
-- [Azure의 사용자 지정 역할](custom-roles.md)
+- [자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
+- [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
 - [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)

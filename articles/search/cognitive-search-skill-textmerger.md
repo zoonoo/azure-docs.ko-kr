@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a3c64a26ed5ee7454fcfd22f47c1a161f65c6de7
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a769a71fe1e99467121eb49a490fa2d0ab4339d3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445360"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446413"
 ---
 #    <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술
 
@@ -78,7 +78,7 @@ Microsoft.Skills.Text.MergeSkill
 
 텍스트 병합기를 사용하는 일반적인 시나리오는 이미지의 텍스트 표현(이미지의 캡션 또는 OCR 기술에서의 텍스트)을 문서의 콘텐츠 필드에 병합하는 것입니다. 
 
-다음 기술 집합 예제는 OCR 기술을 사용하여 문서에 포함된 이미지에서 텍스트를 추출합니다. 다음으로 각 이미지에서 원본 및 OCR된 텍스트 모두를 포함하는 *merged_text* 필드를 만듭니다. 
+다음 기술 집합 예제는 OCR 기술을 사용하여 문서에 포함된 이미지에서 텍스트를 추출합니다. 다음으로 각 이미지에서 원본 및 OCR된 텍스트 모두를 포함하는 *merged_text* 필드를 만듭니다. OCR 기술에 대한 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr)에서 확인할 수 있습니다.
 
 ```json
 {
@@ -86,7 +86,6 @@ Microsoft.Skills.Text.MergeSkill
   "skills":
   [
     {
-        "name": "OCR skill",
         "description": "Extract text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",

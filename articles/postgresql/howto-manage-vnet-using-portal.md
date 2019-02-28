@@ -6,18 +6,19 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.openlocfilehash: 6f16428b6e5eacedd32712c6ccb212c376e244e8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3f57f37ce8c0406e45eff68031bd084e5b22063a
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537242"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414586"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL VNet 서비스 엔드포인트 및 VNet 규칙 만들기 및 관리
 VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트워크의 개인 주소 공간을 Azure Database for PostgreSQL 서버로 확장합니다. 제한을 포함하여 Azure Database for PostgreSQL VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for PostgreSQL 서버 VNet 서비스 엔드포인트](concepts-data-access-and-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for PostgreSQL에 대한 지원되는 모든 지역에서 사용할 수 있습니다.
 
 > [!NOTE]
 > VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
+> VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure Virtual Machines가 Azure Database for PostgreSQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
 
 ## <a name="create-a-vnet-rule-and-enable-service-endpoints-in-the-azure-portal"></a>VNet 규칙을 만들고 Azure Portal의 서비스 엔드포인트를 사용하도록 설정
 

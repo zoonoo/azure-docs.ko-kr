@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f0fe4bef436576bec90d1d770d262c2c22d280a3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: edd011509c9129e95bcf7ea49f5a84e17fffd176
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694587"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310553"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure 스토리지 계정에 대한 사용자 지정 도메인 이름 구성
 
@@ -56,7 +56,7 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 
 사용자 지정 도메인을 Blob 엔드포인트에 매핑하면 [Azure Portal](https://portal.azure.com)에서 도메인을 등록하는 동안 잠시 가동 중지될 수 있습니다. 현재 도메인에서 가동 중지 시간이 없어야 하는 SLA(서비스 수준 계약)가 설정된 애플리케이션을 지원하고 있다면 Azure *asverify* 하위 도메인을 중간 등록 단계로 사용합니다. 이 단계를 통해 DNS 매핑이 진행되는 동안 사용자가 도메인에 액세스할 수 있어야 합니다.
 
-중간 방법은 [*asverify* 하위 도메인을 사용하여 사용자 지정 도메인 등록](#register-a-custom-domain-using-the-asverify-subdomain)에서 설명합니다.
+중간 방법은 *asverify* 하위 도메인을 사용하여 사용자 지정 도메인 등록에서 설명합니다.
 
 ## <a name="register-a-custom-domain"></a>사용자 지정 도메인 등록
 다음 명령문을 적용하는 경우 이 섹션의 프로시저를 사용하여 도메인을 등록합니다.
@@ -65,7 +65,7 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 
 Azure DNS를 사용하여 Azure Blob 저장소에 대한 사용자 지정 DNS 이름을 구성할 수 있습니다. 자세한 내용은 [Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage)을 참조하세요.
 
-사용자 지정 도메인이 현재 가동 중지 시간이 없어야 하는 애플리케이션을 지원하고 있다면 [*asverify* 하위 도메인을 사용하여 사용자 지정 도메인 등록](#register-a-custom-domain-using-the-asverify-subdomain)의 프로시저를 사용합니다.
+사용자 지정 도메인이 현재 가동 중지 시간이 없어야 하는 애플리케이션을 지원하고 있다면 *asverify* 하위 도메인을 사용하여 사용자 지정 도메인 등록의 절차를 사용합니다.
 
 사용자 지정 도메인 이름을 구성하려면 DNS에서 새 CNAME 레코드를 만듭니다. CNAME 레코드에서 도메인 이름의 별칭을 지정합니다. 해당 예제에서는 사용자 지정 도메인의 주소를 스토리지 계정의 Blob 스토리지 엔드포인트에 매핑합니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9918dd55181eb82257f23f8974159ed5e762fedd
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016497"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268087"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 | runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전입니다. | 아니요       |
 | compilationMode     | <p>U-SQL의 컴파일 모드 다음 값 중 하나여야 합니다. **의미 체계:** 의미 체계 검사 및 필수 온전성 검사만 수행합니다. **전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다. **SingleBox:** TargetType이 SingleBox로 설정된 상태에서 전체 컴파일을 수행합니다. 이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. | 아니요 |
 
-Data Factory는 스크립트 정의에 대해 [SearchLogProcessing.txt 스크립트 정의](#sample-u-sql-script) 참조를 제출합니다. 
+스크립트 정의에 대해서는 [SearchLogProcessing.txt](#sample-u-sql-script)를 참조하세요. 
 
 ## <a name="sample-u-sql-script"></a>샘플 U-SQL 스크립트
 

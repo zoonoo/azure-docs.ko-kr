@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 4e5574fa5a615e43d94069a03716fa290b957342
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 401a8d527fc3a8d0430e7eff965b6f5e20db8dc0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993217"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268022"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Azure Monitor에서 고급 쿼리 작성
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>다음 단계
-Azure Monitor 로그 데이터에 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
+Azure Monitor 로그 데이터에 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
 
 - [문자열 작업](string-operations.md)
 - [날짜 및 시간 작업](datetime-operations.md)

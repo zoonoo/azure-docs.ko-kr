@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 0ff2fbf8ddfdd191c72cfdb36a9462076f8dec5b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657300"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301573"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>비동기 메시징 패턴 및 고가용성
 
@@ -62,77 +62,10 @@ Azure 내의 다른 구성 요소에는 서비스 문제가 있는 경우도 있
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>단일 하위 시스템에서 Service Bus 오류
 애플리케이션의 경우 Service Bus의 내부 구성 요소가 일치하지 않는 상황이 발생할 수 있습니다. Service Bus가 이를 감지하는 경우 애플리케이션에서 데이터를 수집하여 상황을 진단하기 위해 지원합니다. 데이터가 수집되면 애플리케이션은 일관 된 상태로 반환하기 위해 다시 시작됩니다. 이 프로세스는 매우 신속하게 발생하고 엔터티가 최대 몇 분 동안 사용 불가 상태로 나타날 수 있지만 일반적인 가동 중지 시간은 훨씬 짧습니다.
 
-이러한 경우 클라이언트 애플리케이션은 [System.TimeoutException][System.TimeoutException] 또는 [MessagingException][MessagingException] 예외를 생성합니다. Service Bus는 자동화된 클라이언트 다시 시도 논리의 형태로 이 문제에 대한 완화 방법을 포함합니다. 다시 시도 기간이 끝나고 메시지가 전달되지 않으면 [쌍을 이루는 네임스페이스][paired namespaces]와 같은 다른 기능을 사용하여 탐색할 수 있습니다. 쌍을 이루는 네임스페이스에는 이 문서에서 설명하는 다른 주의 사항이 있습니다.
-
-### <a name="failure-of-service-bus-within-an-azure-datacenter"></a>Azure 데이터 센터 내에서 Service Bus의 오류
-Azure 데이터 센터에 장애에 대한 가장 가능성이 높은 원인은 Service Bus 또는 종속 시스템의 업그레이드 배포 실패입니다. 플랫폼이 완성되어 이러한 유형의 오류가 발생할 가능성이 감소했습니다. 또한 데이터 센터 장애가 다음과 같은 이유로 발생할 수 있습니다.
-
-* 전기 중단(전력 공급 및 전력 생산 불가).
-* 연결.(클라이언트와 Azure 간에 인터넷 끊김)
-
-두 경우 모두 자연 재해 또는 인재가 문제를 발생시킵니다. 이 문제를 해결하고 메시지를 보낼 수 있는지 확인하려면 [쌍을 이루는 네임스페이스][paired namespaces]를 사용하여 기본 위치가 다시 정상인 동안 메시지를 보조 위치로 보내도록 할 수 있습니다. 자세한 정보는 [Service Bus 중단 및 재해로부터 애플리케이션을 보호하는 모범 사례][Best practices for insulating applications against Service Bus outages and disasters]를 참조하세요.
-
-## <a name="paired-namespaces"></a>쌍을 이루는 네임스페이스
-[쌍을 이루는 네임스페이스][paired namespaces] 기능은 데이터 센터 내의 Service Bus 엔터티 또는 배포가 사용할 수 없게 된 시나리오를 지원합니다. 이 이벤트가 드물게 발생하는 반면 분산된 시스템은 여전히 최악의 시나리오를 처리하기 위해 준비되어야 합니다. 일반적으로 이 이벤트는 Service Bus가 의존 하는 일부 요소가 수명이 짧기 때문에 발생합니다. 정전 중 애플리케이션 가용성을 유지 관리하려면 Service Bus 사용자가 가급적이면 별도 데이터 센터에서 두 개의 별도 네임스페이스를 사용하여 메시징 엔터티를 호스팅할 수 있습니다. 이 섹션의 나머지 부분에서는 다음과 같은 용어를 사용합니다.
-
-* 기본 네임스페이스: 보내기 및 받기 작업을 위해 애플리케이션이 상호 작용하는 네임스페이스입니다.
-* 보조 네임스페이스: 기본 네임스페이스에 대한 백업 역할을 하는 네임스페이스입니다. 애플리케이션 논리는 이 네임스페이스 상호작용하지 않습니다.
-* 장애 조치(failover) 간격: 애플리케이션이 기본 네임 스페이스에서 보조 네임스페이스로 전환하기 전에 일반적인 오류를 수락하는 기간입니다.
-
-쌍을 이루는 네임스페이스는 *가용성 보내기*를 지원합니다. 보내기 가용성은 메시지를 보내는 기능을 보존합니다. 보내기 가용성을 사용하려면 애플리케이션이 다음 요구 사항을 충족해야 합니다.
-
-1. 기본 네임스페이스에서 메시지를 수신할 수만 있습니다.
-2. 지정된 큐 또는 토픽으로 보낸 메시지는 잘못된 순서로 도착할 수 있습니다.
-3. 세션 내의 메시지가 잘못된 순서로 도착할 수 있습니다. 세션의 정상적인 기능에 문제가 생겼습니다. 애플리케이션이 세션을 논리적으로 그룹 메시지에 사용하는 것을 의미합니다.
-4. 세션 상태는 기본 네임스페이스에서 유지 관리됩니다.
-5. 보조 큐가 기본 큐에 모든 메시지를 전달하기 전에 기본 큐는 온라인이 되어 메시지를 수락하기 시작할 수 있습니다.
-
-다음 섹션에서는 API, 즉 API가 어떻게 구현되는지를 설명하고 기능을 사용하는 샘플 코드를 보여줍니다. 이 기능과 관련된 비용이 청구될 수 있습니다.
-
-### <a name="the-messagingfactorypairnamespaceasync-api"></a>The MessagingFactory.PairNamespaceAsync API
-쌍을 이루는 네임스페이스 기능은 [Microsoft.ServiceBus.Messaging.MessagingFactory][Microsoft.ServiceBus.Messaging.MessagingFactory] 클래스에 [PairNamespaceAsync][PairNamespaceAsync] 메서드를 포함합니다.
-
-```csharp
-public Task PairNamespaceAsync(PairedNamespaceOptions options);
-```
-
-작업이 완료되면 네임스페이스 쌍이 완료되고 [MessagingFactory][MessagingFactory] 인스턴스로 만든 [MessageReceiver][MessageReceiver], [QueueClient][QueueClient] 또는 [TopicClient][TopicClient]에 대해 작업할 준비가 됩니다. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]는 [MessagingFactory][MessagingFactory] 개체와 사용할 수 있는 다양한 유형의 쌍에 대한 기본 클래스입니다. 현재 유일하게 파생된 클래스는 [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions]이며 이는 보내기 가용성 요구 사항을 구현합니다. [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions]에는 서로 간에 빌드한 생성자의 집합이 있습니다. 대부분의 매개 변수가 있는 생성자를 살펴보면 다른 생성자의 동작을 이해할 수 있습니다.
-
-```csharp
-public SendAvailabilityPairedNamespaceOptions(
-    NamespaceManager secondaryNamespaceManager,
-    MessagingFactory messagingFactory,
-    int backlogQueueCount,
-    TimeSpan failoverInterval,
-    bool enableSyphon)
-```
-
-이러한 매개 변수는 다음과 같은 의미가 있습니다.
-
-* *secondaryNamespaceManager*: [PairNamespaceAsync][PairNamespaceAsync] 메서드가 보조 네임스페이스를 설정하는 데 사용할 수 있는 보조 네임 스페이스에 대한 초기화된 [NamespaceManager][NamespaceManager] 인스턴스입니다. 네임스페이스 관리자는 네임스페이스에서 큐 목록을 가져오고 필요한 백로그 큐가 존재하는지 확인하는 데 사용됩니다. 이러한 큐가 존재하지 않는 경우 만들어집니다. [NamespaceManager][NamespaceManager]는 **관리** 클레임으로 토큰을 만드는 기능을 필요로 합니다.
-* *messagingFactory*: 보조 네임스페이스에 대한 [MessagingFactory][MessagingFactory] 인스턴스입니다. [EnableSyphon][EnableSyphon] 속성이 **true**로 설정된 경우 [MessagingFactory][MessagingFactory] 개체는 백로그 큐에서 메시지를 보내고 받는 데 사용됩니다.
-* *backlogQueueCount*: 만들려는 백로그 큐 수입니다. 이 값은 적어도 1이어야 합니다. 백로그에 메시지를 보낼 때 이러한 큐 중 하나가 무작위로 선택됩니다. 값을 1로 설정한 경우 하나의 큐만 사용될 수 있습니다. 이 문제가 발생하고 백로그 큐 하나에서 오류를 생성하면 클라이언트는 다른 백로그 큐를 시도할 수 없고 메시지를 전송하는 데 실패할 수도 있습니다. 이 값을 큰 값으로, 기본값을 10으로 설정하는 것이 좋습니다. 이 애플리케이션에서 하루에 보내는 데이터의 크기에 따라 더 높거나 낮은 값으로 변경할 수 있습니다. 각 백로그 큐는 최대 5GB의 메시지를 보관할 수 있습니다.
-* *failoverInterval*: 모든 단일 엔터티를 보조 네임스페이스로 전환하기 전에 기본 네임스페이스에서 오류를 수락하는 기간입니다. 장애 조치는 엔터티 단위로 발생합니다. 단일 네임스페이스의 엔터티는 주로 Service Bus 내의 다른 노드에 있습니다. 한 엔터티의 오류가 다른 오류를 의미하지는 않습니다. 이 값을 [System.TimeSpan.Zero][System.TimeSpan.Zero]로 설정하여 먼저 일시적이지 않은 오류가 발생한 후에 즉시 보조에 대한 장애 조치를 할 수 있습니다. 장애 조치 타이머를 트리거하는 오류는 [IsTransient][IsTransient] 속성이 false 또는 [System.TimeoutException][System.TimeoutException]인 [MessagingException][MessagingException]입니다. [UnauthorizedAccessException][UnauthorizedAccessException]과 같은 다른 예외는 클라이언트가 잘못 구성되어 있다고 나타내기 때문에 장애 조치를 발생하지 않습니다. [ServerBusyException][ServerBusyException]은 올바른 패턴이 10초를 기다리고 다음 메시지를 다시 보내기 때문에 장애 조치를 발생하지 않습니다.
-* *enableSyphon*: 이 특정 쌍이 메시지를 보조 네임스페이스에서 기본 네임스페이스로 다시 사이펀해야 함을 나타냅니다. 일반적으로 메시지를 보내는 애플리케이션이 이 값을 **false**로 설정합니다. 메시지를 수신하는 애플리케이션이 값을 **true**로 설정해야 합니다. 이러한 경우가 자주 있다는 이유로 메시지 발신자 보다 적은 메시지 수신자가 더 적습니다. 수신자의 수에 따라 단일 애플리케이션 인스턴스가 사이펀 의무를 처리하도록 선택할 수 있습니다. 여러 수신자를 사용하면 각 백로그 큐에 비용 청구의 영향을 미칩니다.
-
-코드를 사용하려면 기본 [MessagingFactory][MessagingFactory] 인스턴스, 보조 [MessagingFactory][MessagingFactory] 인스턴스, 보조 [NamespaceManager][NamespaceManager] 인스턴스 및 [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] 인스턴스를 만듭니다. 호출은 다음과 같이 간단할 수 있습니다.
-
-```csharp
-SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions = new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
-primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
-```
-
-[PairNamespaceAsync][PairNamespaceAsync] 메서드에서 반환한 작업이 완료되면 모든 것이 설정되고 사용할 준비가 됩니다. 작업이 반환되기 전에 쌍이 올바로 작동하는 데 필요한 백그라운드 작업을 모두 완료하지 못했을 수도 있습니다. 결과적으로 작업을 반환할 때까지 메시지를 보내기 시작하지 말아야 합니다. 잘못된 자격 증명 또는 백로그 큐 만들기 실패와 같은 오류가 발생한 경우 작업이 완료되면 해당 예외는 throw됩니다. 작업이 반환되면 [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] 인스턴스에서 [BacklogQueueCount][BacklogQueueCount] 속성을 검사하여 큐를 찾거나 만들었는지 확인합니다. 앞의 코드의 경우 작업이 다음과 같이 나타납니다.
-
-```csharp
-if (sendAvailabilityOptions.BacklogQueueCount < 1)
-{
-    // Handle case where no queues were created.
-}
-```
+이러한 경우 클라이언트 애플리케이션은 [System.TimeoutException][System.TimeoutException] 또는 [MessagingException][MessagingException] 예외를 생성합니다. Service Bus는 자동화된 클라이언트 다시 시도 논리의 형태로 이 문제에 대한 완화 방법을 포함합니다. 다시 시도 기간이 끝나고 메시지가 전달되지 않으면 [중단 및 재해 처리][handling outages and disasters]에 대한 문서에 언급된 다른 기능을 사용하여 검색할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 Service Bus에서 비동기 메시징의 기본 사항을 알아보았으므로 [쌍을 이루는 네임스페이스]에 대한 자세한 내용을 읽습니다.[paired namespaces]
+이제 Service Bus에서 비동기 메시징의 기본 사항을 알아보았으므로 [중단 및 재해 처리][handling outages and disasters]에 대한 자세한 내용을 읽습니다.
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -152,4 +85,4 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 [IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
 [BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN
-[paired namespaces]: service-bus-paired-namespaces.md
+[handling outages and disasters]: service-bus-outages-disasters.md

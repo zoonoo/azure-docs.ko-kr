@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 02/11/2019
+ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9748d61b1aa336c5300dd414d53388f48a41368
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243988"
+ms.locfileid: "56268790"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services 이벤트에 대한 Azure Event Grid 스키마
 
@@ -42,7 +42,7 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 | Microsoft.Media.JobCanceled| 작업이 취소됨 상태로 전환되는 이벤트를 가져옵니다. 작업 출력을 포함하는 최종 상태입니다.|
 | Microsoft.Media.JobErrored| 작업이 오류 상태로 전환되는 이벤트를 가져옵니다. 작업 출력을 포함하는 최종 상태입니다.|
 
-[스키마 예제](#event-schema-examples)가 이어집니다.
+다음에 나오는 [스키마 예제](#event-schema-examples)를 참조하세요.
 
 ### <a name="monitoring-job-output-state-changes"></a>작업 출력 상태 변경 모니터링
 
@@ -56,7 +56,15 @@ JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있�
 | Microsoft.Media.JobOutputCanceled| 작업 출력이 취소됨 상태로 전환되는 이벤트를 가져옵니다.|
 | Microsoft.Media.JobOutputErrored| 작업 출력이 오류 상태로 전환되는 이벤트를 가져옵니다.|
 
-[스키마 예제](#event-schema-examples)가 이어집니다.
+다음에 나오는 [스키마 예제](#event-schema-examples)를 참조하세요.
+
+### <a name="monitoring-job-output-progress"></a>작업 출력 진행 상태 모니터링
+
+| 이벤트 유형 | 설명 |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputProgress| 이 이벤트는 작업 처리 진행 상태를 0%에서 100%까지 반영합니다. 진행 상태 값이 5% 이상 증가했거나 마지막 이벤트(하트비트) 이후 30초가 넘은 경우 서비스에서 이벤트 전송을 시도합니다. 진행 상태 값이 0%에서 시작하거나 100%에 도달한다고 보장되지 않는 경우 시간에 따라 일정한 비율로 증가한다고 보장되지도 않습니다. 처리가 완료되었음을 확인하는 데 이 이벤트를 사용하면 안 됩니다. 대신, 상태 변경 이벤트를 사용해야 합니다.|
+
+다음에 나오는 [스키마 예제](#event-schema-examples)를 참조하세요.
 
 ## <a name="live-event-types"></a>라이브 이벤트 유형
 
@@ -72,7 +80,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | Microsoft.Media.LiveEventEncoderConnected | 인코더에서 라이브 이벤트와의 연결을 설정합니다. |
 | Microsoft.Media.LiveEventEncoderDisconnected | 인코더에서 연결을 끊습니다. |
 
-[스키마 예제](#event-schema-examples)가 이어집니다.
+다음에 나오는 [스키마 예제](#event-schema-examples)를 참조하세요.
 
 ### <a name="track-level-events"></a>트랙 수준 이벤트
 
@@ -87,7 +95,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | 미디어 서버에서 들어오는 트랙의 불연속성을 감지합니다. |
 
-[스키마 예제](#event-schema-examples)가 이어집니다.
+다음에 나오는 [스키마 예제](#event-schema-examples)를 참조하세요.
 
 ## <a name="event-schema-examples"></a>이벤트 스키마 예제
 
@@ -245,6 +253,29 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
       "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+### <a name="joboutputprogress"></a>JobOutputProgress
+
+예제 스키마는 다음과 유사합니다.
+
+ ```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
+  "eventType": "Microsoft.Media.JobOutputProgress",
+  "eventTime": "2018-12-10T18:20:12.1514867",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "data": {
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    },
+    "label": "VideoAnalyzerPreset_0",
+    "progress": 86
   },
   "dataVersion": "1.0",
   "metadataVersion": "1"

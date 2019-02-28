@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: 180780c3a3a644a8da0fa544c37bc8cd252c982f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c192b3e995cacd3085f343d1f6b2c243f1531acc
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469501"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415513"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -28,7 +28,7 @@ Microsoft Azure Storage 탐색기는 Windows, macOS 및 Linux에서 Azure Storag
 1. 앱이 "투명 프록시"를 통해 연결됩니다. 즉, 회사 서버와 같은 서버가 HTTPS 트래픽을 가로 채고 해독한 다음, 자체 서명된 인증서를 사용하여 암호화하는 것을 의미합니다.
 2. 수신한 HTTPS 메시지에 자체 서명된 SSL 인증서를 삽입하는 애플리케이션을 실행하고 있습니다. 인증서 삽입을 수행하는 애플리케이션에는 바이러스 백신, 네트워크 트래픽 검사 소프트웨어 등이 포함됩니다.
 
-Storage 탐색기가 자체 서명된 또는 신뢰할 수 없는 인증서를 발견하면, 수신된 HTTPS 메시지가 변경된 것인지 더 이상은 알 수 없습니다. 자체 서명된 인증서의 복사본이 있으면 다음 단계를 통해 Storage 탐색기가 이를 신뢰하게 할 수 있습니다.
+Storage 탐색기가 자체 서명된 인증서나 신뢰할 수 없는 인증서를 발견하면, 수신된 HTTPS 메시지가 변경되었는지 여부를 더 이상 알 수 없습니다. 자체 서명된 인증서의 복사본이 있으면 다음 단계를 통해 Storage 탐색기가 이를 신뢰하게 할 수 있습니다.
 
 1. 인증서의 Base-64 인코딩 X.509(.cer) 사본 가져오기
 2. **편집** > **SSL 인증서** > **인증서 가져오기**를 클릭한 다음, 파일 선택기를 사용하여 해당 .cer 파일을 찾고 선택하고 엽니다.
@@ -53,6 +53,20 @@ Storage 탐색기가 자체 서명된 또는 신뢰할 수 없는 인증서를 �
 위의 단계를 사용하여 자체 서명된 인증서를 찾을 수 없는 경우 사용자 의견 도구를 통해 당사에 문의하여 도움을 받습니다. 또는 명령줄에서 `--ignore-certificate-errors` 플래그를 사용하여 Storage 탐색기를 시작합니다. 이 플래그로 시작하면 Storage 탐색기가 인증서 오류를 무시하게 됩니다.
 
 ## <a name="sign-in-issues"></a>로그인 문제
+
+### <a name="blank-sign-in-dialog"></a>빈 로그인 대화 상자
+빈 로그인 대화 상자는 Electron에서 지원되지 않는 리디렉션을 Storage 탐색기가 수행하도록 요청하는 ADFS에 의해 주로 발생합니다. 이 문제를 해결하기 위해 디바이스 코드 흐름을 로그인에 사용할 수 있습니다. 이렇게 하려면 다음 단계를 수행합니다.
+1. “실험적” -> “디바이스 코드 로그인 사용”으로 이동합니다.
+2. 왼쪽 세로 막대의 플러그 아이콘 또는 계정 패널의 “계정 추가”를 통해 연결 대화 상자를 엽니다.
+3. 로그인하려는 환경을 선택합니다.
+4. “로그인” 단추를 클릭합니다.
+5. 다음 패널의 지침을 따릅니다.
+
+참고: 이 기능은 현재 1.7.0 미리 보기에서만 사용할 수 있습니다.
+
+기본 브라우저가 이미 다른 계정에 로그인되어 있어서 사용할 계정에 로그인하는 데 문제가 있는 경우 다음을 수행할 수 있습니다.
+1. 링크 및 코드를 브라우저의 개인 세션에 수동으로 복사합니다.
+2. 링크 및 코드를 다른 브라우저에 수동으로 복사합니다.
 
 ### <a name="reauthentication-loop-or-upn-change"></a>재인증 루프 또는 UPN 변경
 재인증 루프에 있거나 계정 중 한 계정의 UPN을 변경한 경우 다음을 수행하세요.
@@ -90,7 +104,7 @@ macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 
 성공적으로 로그인한 후 구독을 검색할 수 없는 경우 다음 단계에 따라 문제를 해결합니다.
 
 * 해당 계정이 원하는 구독에 액세스할 수 있는지 확인합니다. 사용할 Azure 환경에 대한 포털에 로그인하여 액세스 권한이 있는지 확인할 수 있습니다.
-* 올바른 Azure 환경(Azure, Azure China, Azure Germany, Azure US Government 또는 사용자 지정 환경)을 사용하여 로그인했는지 확인합니다.
+* 올바른 Azure 환경(Azure, Azure 중국 21Vianet, Azure 독일, Azure 미국 정부 또는 사용자 지정 환경)을 사용하여 로그인했는지 확인합니다.
 * 프록시 뒤에 있는 경우 Storage 탐색기 프록시를 제대로 구성했는지 확인합니다.
 * 계정을 제거하고 다시 추가해 봅니다.
 * "자세한 정보" 링크가 있는 경우 실패하는 테넌트에 대해 어떤 오류 메시지가 보고되는지 찾아보고 참조하세요. 확인한 오류 메시지로 무엇을 할지 확실하지 않은 경우 자유롭게 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)하세요.
@@ -116,7 +130,7 @@ macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 
 * 프록시 URL 및 포트 번호
 * 프록시가 요구하는 경우 사용자 이름과 암호
 
-Storage 탐색기는 프록시 설정 구성에 대한 .pac 파일을 지원하지 않습니다.
+Storage 탐색기는 프록시 설정 구성에 대한 프록시 자동 구성 파일을 지원하지 않습니다.
 
 ### <a name="common-solutions"></a>일반적인 솔루션
 

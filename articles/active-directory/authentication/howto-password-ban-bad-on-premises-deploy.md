@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4a4b760652ce38e27e12e9eb73fbe7692eddbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8d39b614c373c63cf1405c5db0f64581c481d1f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204375"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417207"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>미리 보기: Azure AD 암호 보호 배포
 
@@ -53,15 +53,18 @@ ms.locfileid: "56204375"
     |`https://login.microsoftonline.com`|인증 요청|
     |`https://enterpriseregistration.windows.net`|Azure AD 암호 보호 기능|
 
+* Azure AD 암호 보호 프록시 서비스를 호스트하는 모든 머신이 아웃바운드 TLS 1.2 HTTP 트래픽을 허용하도록 구성되어야 합니다.
 * Azure AD 암호 보호 프록시 서비스 및 포리스트를 Azure AD에 등록하기 위한 전역 관리자 계정
 * Windows Server Active Directory 포리스트를 Azure AD에 등록하기 위한 포리스트 루트 도메인의 Active Directory 도메인 관리자 권한이 있는 계정
 * DC 에이전트 서비스 소프트웨어를 실행하는 모든 Active Directory 도메인은 sysvol 복제에 DFSR을 사용해야 합니다.
 
 ## <a name="single-forest-deployment"></a>단일 포리스트 배포
 
-다음 다이어그램은 Azure AD 암호 보호의 기본 구성 요소가 온-프레미스 Active Directory 환경에서 함께 작동하는 방식을 보여 줍니다.  
+다음 다이어그램은 Azure AD 암호 보호의 기본 구성 요소가 온-프레미스 Active Directory 환경에서 함께 작동하는 방식을 보여 줍니다.
 
 ![Azure AD 암호 보호 구성 요소가 함께 작동하는 방식](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+배포하기 전에 소프트웨어의 작동 방식을 검토하는 것이 좋습니다. [Azure AD 암호 보호에 대한 개념적 개요](concept-password-ban-bad-on-premises.md)를 참조하세요.
 
 ### <a name="download-the-software"></a>소프트웨어 다운로드
 

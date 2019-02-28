@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50f2c174f21243a70c830c1c30127e0629c81972
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110254"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310738"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
@@ -88,7 +88,7 @@ Security Center에서는 파일 및 레지스트리 변경 내용이 포함된 �
 4. **파일 무결성 모니터링 적용**을 선택하여 FIM을 사용하도록 설정합니다.
 
 > [!NOTE]
-> 언제든지 설정을 변경할 수 있습니다. 자세한 내용은 아래의 [모니터링된 엔터티 수정](security-center-file-integrity-monitoring.md#edit-monitored-items)을 참조하세요.
+> 언제든지 설정을 변경할 수 있습니다. 자세한 내용은 아래의 모니터링되는 엔터티 편집을 참조하세요.
 >
 >
 

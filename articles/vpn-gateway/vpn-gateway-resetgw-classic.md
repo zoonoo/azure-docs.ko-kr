@@ -2,25 +2,17 @@
 title: Azure VPN Gateway를 초기화하여 IPsec 터널 다시 설정 | Microsoft Docs
 description: 이 문서에서는 Azure VPN Gateway를 초기화하여 IPsec 터널을 설정하는 과정을 안내합니다. 이 문서는 클래식 및 Resource Manager 배포 모델의 VPN Gateway에 모두 적용됩니다.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8db17b92208bd956bd5f9b855249f03ecd5e2c59
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6e57979e2c43cc47504495cce23947b93abb4020
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756702"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414936"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway 다시 설정
 
@@ -62,11 +54,13 @@ Azure Portal을 사용하여 Resource Manager VPN Gateway를 다시 설정할 �
 
 ### <a name="resource-manager-deployment-model"></a>리소스 관리자 배포 모델
 
-게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureRmVirtualNetworkGateway**입니다. 다시 설정을 수행하기 전에 최신 버전의 [Resource Manager PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0)이 있는지 확인합니다. 다음 예제에서는 TestRG1 리소스 그룹에서 VNet1GW라는 가상 네트워크 게이트웨이를 다시 설정합니다.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzVirtualNetworkGateway**입니다. 다시 설정을 수행하기 전에 최신 버전의 [Resource Manager PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0)이 있는지 확인합니다. 다음 예제에서는 TestRG1 리소스 그룹에서 VNet1GW라는 가상 네트워크 게이트웨이를 다시 설정합니다.
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
+$gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
 결과:

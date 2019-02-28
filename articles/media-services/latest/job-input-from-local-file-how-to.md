@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: 4860390820c29cd8f44ebbf5e05e8c58090d5740
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3eb16034cc6507944ca7bebb59893e0d72a6f4c9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996954"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415462"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>로컬 파일에서 작업 입력 만들기
 
@@ -33,6 +33,10 @@ Media Services v3에서는, 비디오를 처리할 작업을 제출할 때 입�
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
+
+## <a name="job-error-codes"></a>작업 오류 코드
+
+[오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

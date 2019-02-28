@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: e635eddabe239268829d3a907df10392c7e1b6a3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e574759ff8af172841db9fc94ee860a19dd14200
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850961"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415368"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>PowerShell을 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
 
@@ -47,7 +47,7 @@ New-SelfSignedCertificate cmdlet을 사용하여 자체 서명된 루트 인증�
 
 ### <a name="example-1"></a>예 1
 
-이 예제에서는 이전 섹션에서 선언된 '$cert' 변수를 사용합니다. 자체 서명된 루트 인증서를 만든 후 PowerShell 콘솔을 종료했거나 새 PowerShell 콘솔 세션에서 추가 클라이언트 인증서를 생성하려는 경우 [예제 2](#ex2)의 단계를 사용합니다.
+자체 서명된 루트 인증서를 만든 후에 PowerShell 콘솔을 닫지 않은 경우 이 예제를 사용합니다. 이 예제는 이전 섹션에서 계속되며 선언된 ‘$cert’ 변수를 사용합니다. 자체 서명된 루트 인증서를 만든 후 PowerShell 콘솔을 종료했거나 새 PowerShell 콘솔 세션에서 추가 클라이언트 인증서를 생성하려는 경우 [예제 2](#ex2)의 단계를 사용합니다.
 
 샘플을 수정 및 실행하여 클라이언트 인증서를 생성합니다. 다음 예제를 수정하지 않고 실행할 경우 결과적으로 'P2SChildCert'라는 클라이언트 인증서가 만들어집니다.  자식 인증서에 다른 이름을 지정하려는 경우 CN 값을 수정합니다. 이 예제를 실행하는 경우는 TextExtension을 변경하지 마세요. 생성하는 클라이언트 인증서는 컴퓨터의 'Certificates - Current User\Personal\Certificates'에 자동으로 설치됩니다.
 

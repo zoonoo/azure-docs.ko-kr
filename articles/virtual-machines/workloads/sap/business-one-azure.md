@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bb3c2a9cfc1bccf4656be83c6babbe9c7ec139fb
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: f0e96b87e46872bebe7563e08f0eb7a33b11015f
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745353"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329851"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP Business One
 이 문서에서는 Azure Virtual Machines에 SAP Business One을 배포하는 지침을 제공합니다. 이 문서는 SAP용 Business One 설치 문서를 대체하지 않습니다. 이 문서에서는 Business One 애플리케이션을 실행할 Azure 인프라에 대한 기본 계획 및 배포 지침을 다루어야 합니다.
@@ -119,7 +119,7 @@ Azure에 배포하는 데 필요한 네트워크 인프라는 단일 Business On
 
 원칙적으로, 다음 지침을 따라야 합니다.
 
-- [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)보다 [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) 사용
+- 표준 HDD보다 프리미엄 SSD를 사용합니다. 사용 가능한 디스크 유형에 대한 자세한 내용은 [디스크 유형 선택](../../windows/disks-types.md) 문서를 참조하세요.
 - 비관리형 디스크보다 Azure Managed Disks 사용
 - 디스크 구성을 사용하여 충분한 IOPS 및 I/O 처리량이 구성되었는지 확인
 - 비용 효율적인 저장소 구성을 위해 /hana/data 및 /hana/log 볼륨 결합
@@ -138,7 +138,6 @@ SQL Server의 DBMS 쪽에 대한 대략적인 크기 조정 예상은 다음과 
 | 최대 150명 | 32 | 128GB | D32s_v3, E32s_v3 |
 
 위에 나열된 크기 조정은 시작할 위치에 대한 아이디어를 제공합니다. 필요한 리소스가 더 많거나 적을 수 있으며, 이 경우 Azure에서 쉽게 조정할 수 있습니다. VM을 다시 시작하기만 하면 VM 유형 간에 변경할 수 있습니다.
-
 
 #### <a name="sap-hana-as-dbms"></a>SAP HANA를 DBMS로 사용
 SAP HANA를 DBMS로 사용하는 다음 섹션에서는 [Azure의 SAP HANA 운영 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) 문서의 고려 사항을 따라야 합니다.

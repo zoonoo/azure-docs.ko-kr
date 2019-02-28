@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 99b7b83ca2d7f6f19df137e6ecf5deaf411e9a5e
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 799a40d759dc5614bd43234638982d5275d9d325
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634747"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429199"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 
@@ -43,6 +43,7 @@ ms.locfileid: "45634747"
 
 [sles-hae-guides]:https://www.suse.com/documentation/sle-ha-12/
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
+[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
@@ -75,7 +76,8 @@ ms.locfileid: "45634747"
 * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [SUSE Linux Enterprise 고가용성 확장 12 SP3 모범 사례 가이드][sles-hae-guides]
   * DRBD 및 Pacemaker를 사용하는 고가용성 NFS 저장소
-* [SAP 응용 프로그램 12 SP3용 SUSE Linux Enterprise Server 모범 사례 가이드][sles-for-sap-bp]
+* [SAP 애플리케이션 12 SP3용 SUSE Linux Enterprise Server 모범 사례 가이드][sles-for-sap-bp]
+* [SUSE High Availability Extension 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>개요
 
@@ -215,7 +217,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    <pre><code>sudo zypper install drbd drbd-kmp-default drbd-utils
    </code></pre>
 
-1. **[A]** drbd 장치용 파티션 만들기
+1. **[A]** drbd 디바이스용 파티션 만들기
 
    사용 가능한 데이터 디스크 모두 나열
 
@@ -313,7 +315,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    }
    </code></pre>
 
-1. **[A]** NFS drbd 장치 만들기
+1. **[A]** NFS drbd 디바이스 만들기
 
    <pre><code>sudo vi /etc/drbd.d/<b>NW1</b>-nfs.res
    </code></pre>
@@ -385,13 +387,13 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    sudo drbdadm primary --force <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]** 새 drbd 장치가 동기화될 때까지 대기
+1. **[1]** 새 drbd 디바이스가 동기화될 때까지 대기
 
    <pre><code>sudo drbdsetup wait-sync-resource NW1-nfs
    sudo drbdsetup wait-sync-resource NW2-nfs
    </code></pre>
 
-1. **[1]** drbd 장치에서 파일 시스템 만들기
+1. **[1]** drbd 디바이스에서 파일 시스템 만들기
 
    <pre><code>sudo mkfs.xfs /dev/drbd0
    sudo mkdir /srv/nfs/NW1
@@ -430,7 +432,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    
 ### <a name="configure-cluster-framework"></a>클러스터 프레임워크 구성
 
-1. **[1]** 클러스터 구성에 SAP 시스템 NW1용 NFS drbd 장치 추가
+1. **[1]** 클러스터 구성에 SAP 시스템 NW1용 NFS drbd 디바이스 추가
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
@@ -481,7 +483,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
      g-<b>NW1</b>_nfs ms-drbd_<b>NW1</b>_nfs:Master
    </code></pre>
 
-1. **[1]** 클러스터 구성에 SAP 시스템 NW2용 NFS drbd 장치 추가
+1. **[1]** 클러스터 구성에 SAP 시스템 NW2용 NFS drbd 디바이스 추가
 
    <pre><code># Enable maintenance mode
    sudo crm configure property maintenance-mode=true

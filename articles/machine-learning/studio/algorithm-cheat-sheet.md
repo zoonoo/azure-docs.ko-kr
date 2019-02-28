@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 83a8a7f927e78f3524128338d874334ebf0b3df1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884004"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453939"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 기계 학습 알고리즘 치트 시트
 
-**Azure Machine Learning 알고리즘 치트 시트**를 사용하면 예측 분석 모델에 대한 적합한 알고리즘을 선택할 수 있습니다.
+**Azure Machine Learning Studio 알고리즘 치트 시트**를 사용하면 예측 분석 모델에 대한 적합한 알고리즘을 선택할 수 있습니다.
 
 [Azure Machine Learning 스튜디오](https://studio.azureml.net/)에는 ***회귀***, ***분류***, ***클러스터링***, ***이상 감지*** 제품군 등의 대규모 알고리즘 라이브러리가 있습니다. 각 항목은 다양한 유형의 기계 학습 문제를 해결하기 위해 고안되었습니다.
 
@@ -27,14 +27,12 @@ ms.locfileid: "55884004"
 
 **여기서 치트 시트 다운로드: [기계 학습 알고리즘 치트 시트(11x17인치)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
-![기계 학습 알고리즘 치트 시트: 기계 학습 알고리즘을 선택하는 방법을 알아봅니다.][cheat-sheet]
-
-[cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
+![기계 학습 알고리즘 치트 시트: 기계 학습 알고리즘을 선택하는 방법을 알아봅니다.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png)
 
 간편하게 보관하면서 알고리즘을 선택할 수 있도록 tabloid 크기로 Machine Learning Studio 알고리즘 치트 시트를 다운로드하여 인쇄합니다.
 
 > [!NOTE]
-> 적합한 알고리즘을 선택하기 위해 이 치트 시트를 사용하는 방법, 다양한 유형의 Machine Learning 알고리즘 및 사용 방법에 대한 자세한 논의는 [Microsoft Azure Machine Learning에서 알고리즘을 선택하는 방법](algorithm-choice.md)을 참조하세요.
+> 적합한 알고리즘을 선택하기 위해 이 치트 시트를 사용하는 방법, 다양한 유형의 기계 학습 알고리즘 및 사용 방법에 대한 자세한 논의는 [Microsoft Azure Machine Learning Studio에서 알고리즘을 선택하는 방법](algorithm-choice.md)을 참조하세요.
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Machine Learning Studio 알고리즘 치트 시트 관련 참고 사항 및 용어 정의
 
@@ -44,7 +42,7 @@ ms.locfileid: "55884004"
 
 * Machine Learning의 세 가지 주요 범주는 **감독 학습**, **자율 학습** 및 **보충 학습**입니다.
 
-  * **감독 학습**에서 각 데이터 요소는 관심 범주 또는 값과 연결되거나 해당 레이블이 지정됩니다.  범주 레이블의 예는 이미지를 'cat' 또는 'dog'로 할당하는 것입니다.  값 레이블의 예는 중고차와 연결된 판매 가격입니다. 감독 학습의 목표는 이와 같은 많은 레이블이 지정된 예제를 연구한 다음 향후 데이터 요소에 대한 예측을 수행할 수 있도록 하는 것입니다. 예를 들어 올바른 동물로 새 사진을 식별하거나 다른 중고 자동차에 정확한 판매 가격을 할당합니다. 이는 널리 사용되고 유용한 기계 학습 유형입니다. [K-Means 클러스터링][k-means-clustering]을 제외한 Azure Machine Learning의 모든 모듈은 감독 학습 알고리즘입니다.
+  * **감독 학습**에서 각 데이터 요소는 관심 범주 또는 값과 연결되거나 해당 레이블이 지정됩니다.  범주 레이블의 예는 이미지를 'cat' 또는 'dog'로 할당하는 것입니다.  값 레이블의 예는 중고차와 연결된 판매 가격입니다. 감독 학습의 목표는 이와 같은 많은 레이블이 지정된 예제를 연구한 다음 향후 데이터 요소에 대한 예측을 수행할 수 있도록 하는 것입니다. 예를 들어 올바른 동물로 새 사진을 식별하거나 다른 중고 자동차에 정확한 판매 가격을 할당합니다. 이는 널리 사용되고 유용한 기계 학습 유형입니다. [K-평균 클러스터링][k-means-clustering]을 제외한 Azure Machine Learning Studio의 모든 모듈은 감독 학습 알고리즘입니다.
 
   * **자율 학습**에서 데이터 요소에는 연결된 레이블이 없습니다. 대신, 자율 학습 알고리즘의 목표는 어떤 방식으로든 데이터를 구성하거나 해당 구조를 설명하는 것입니다. 이는 K-Means처럼 클러스터로 그룹화하거나 더 간단하게 표시되도록 복잡한 데이터를 보는 다양한 방법을 찾는 것을 의미할 수 있습니다.
 

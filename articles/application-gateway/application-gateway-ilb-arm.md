@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: b9bdc3f4a0f7eb20b1c0cbc33fb257577da08c26
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92d0e079f9fafbb6c000c6b1746f37a16add4cf7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598490"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417350"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>ILB(내부 부하 분산 장치)를 사용하여 Application Gateway 만들기
 
-Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분산 장치) 끝점이라고 알려진 인터넷에 노출되지 않은 내부 끝점을 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 비즈니스 애플리케이션의 내부 라인에 대해 유용합니다. 또한 인터넷에 노출되지 않은 보안 경계에 앉아 있는 다중 계층 애플리케이션 내에 포함된 서비스 및 계층에 유용하지만 여전히 라운드 로빈 부하 분산, 세션 인력 또는 SSL(Secure Sockets Layer) 종료가 필요합니다.
+Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분산 장치) 엔드포인트라고 알려진 인터넷에 노출되지 않은 내부 엔드포인트를 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 비즈니스 애플리케이션의 내부 라인에 대해 유용합니다. 또한 인터넷에 노출되지 않은 보안 경계에 앉아 있는 다중 계층 애플리케이션 내에 포함된 서비스 및 계층에 유용하지만 여전히 라운드 로빈 부하 분산, 세션 인력 또는 SSL(Secure Sockets Layer) 종료가 필요합니다.
 
 이 문서는 ILB와 애플리케이션 게이트웨이 구성 단계를 안내합니다.
 
@@ -31,13 +31,13 @@ Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분�
 
 1. 웹 플랫폼 설치 관리자를 사용하여 Azure PowerShell cmdlet의 최신 버전을 설치합니다. **다운로드 페이지** 의 [Windows PowerShell](https://azure.microsoft.com/downloads/)섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
 2. Application Gateway에 대한 가상 네트워크 및 서브넷을 만듭니다. 서브넷을 사용 중인 가상 머신 또는 클라우드 배포가 없는지 확인합니다. Application Gateway는 가상 네트워크 서브넷에서 단독이어야 합니다.
-3. 응용 프로그램 게이트웨이를 사용하도록 구성된 서버가 존재하거나 가상 네트워크나 공용 IP/VIP가 할당된 해당 끝점이 만들어져야 합니다.
+3. 애플리케이션 게이트웨이를 사용하도록 구성된 서버가 존재하거나 가상 네트워크나 공용 IP/VIP가 할당된 해당 엔드포인트가 만들어져야 합니다.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>애플리케이션 게이트웨이를 만드는 데 필요한 것은 무엇입니까?
 
 * **백 엔드 서버 풀:** 백 엔드 서버의 IP 주소 목록입니다. 나열된 IP 주소는 애플리케이션 게이트웨이에 대한 다른 서브넷의 가상 네트워크에 속하거나 공용 IP/VIP이어야 합니다.
-* **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
-* **프런트 엔드 포트:** 이 포트는 응용 프로그램 게이트웨이에 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
+* **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜, 쿠키 기반 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
+* **프런트 엔드 포트:** 이 포트는 애플리케이션 게이트웨이에서 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
 * **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 경우 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
 * **규칙:** 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽이 이동되는 백 엔드 서버 풀을 정의합니다. 현재는 *기본* 규칙만 지원 됩니다. *기본* 규칙은 라운드 로빈 부하 분산입니다.
 
@@ -137,7 +137,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
-이 단계에서는 IP 주소가 "10.1.1.8, 10.1.1.9, 10.1.1.10"인 "pool01"이라는 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 끝점에서 들어오는 네트워크 트래픽을 수신합니다. 사용자 고유의 응용 프로그램 IP 주소 끝점을 추가하려면 이전 IP 주소를 바꿉니다.
+이 단계에서는 IP 주소가 "10.1.1.8, 10.1.1.9, 10.1.1.10"인 "pool01"이라는 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 엔드포인트에서 들어오는 네트워크 트래픽을 수신합니다. 사용자 고유의 애플리케이션 IP 주소 엔드포인트를 추가하려면 이전 IP 주소를 바꿉니다.
 
 ### <a name="step-3"></a>3단계
 
@@ -188,7 +188,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 이 단계에서는 Application Gateway의 인스턴스 크기를 구성합니다.
 
 > [!NOTE]
-> *InstanceCount* 의 기본값은 2이고, 최대값은 10입니다. *GatewaySize* 에 대한 기본값은 보통입니다. Standard_Small, Standard_Medium 및 Standard_Large 간에 선택할 수 있습니다.
+> 용량의 기본값은 2입니다. SKU 이름의 경우 Standard_Small, Standard_Medium 및 Standard_Large 중에서 선택할 수 있습니다.
 
 ## <a name="create-an-application-gateway-by-using-new-azureapplicationgateway"></a>New-AzureApplicationGateway를 사용하여 애플리케이션 게이트웨이 만들기
 
@@ -218,7 +218,7 @@ $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw
 
 ### <a name="step-2"></a>2단계
 
-`Stop-AzureRmApplicationGateway`를 사용하여 응용 프로그램 게이트웨이를 중지합니다. 이 샘플의 첫째 줄에는 `Stop-AzureRmApplicationGateway` cmdlet이 표시되고 그 다음에 출력이 표시됩니다.
+`Stop-AzureRmApplicationGateway`를 사용하여 애플리케이션 게이트웨이를 중지합니다. 이 샘플의 첫째 줄에는 `Stop-AzureRmApplicationGateway` cmdlet이 표시되고 그 다음에 출력이 표시됩니다.
 
 ```powershell
 Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  

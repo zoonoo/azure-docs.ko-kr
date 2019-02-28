@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e533f3db8a9d40ee062e65d96fa9bf33a366e3a8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cb136391610035911af3614f88f5ea823f86922d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206350"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456332"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure Monitor의 Azure AD 활동 로그(미리 보기)
 
@@ -31,13 +31,13 @@ ms.locfileid: "56206350"
 * 데이터를 장기간 보존하기 위해 Azure 스토리지 계정에 Azure AD 활동 로그를 보관합니다.
 * Splunk 및 QRadar 같은 인기 있는 SIEM(보안 정보 및 이벤트 관리) 도구를 사용하여 Azure AD 활동 로그를 Azure 이벤트 허브로 스트리밍하여 분석합니다.
 * Azure AD 활동 로그를 이벤트 허브로 스트리밍하여 고유한 사용자 지정 로그 솔루션과 통합합니다.
-* Azure AD 활동 로그를 Log Analytics에 보내 연결된 데이터에 대한 다양한 시각화, 모니터링 및 경고를 가능하게 합니다.
+* Azure AD 활동 로그를 Azure Monitor 로그에 보내 연결된 데이터에 대한 다양한 시각화, 모니터링 및 경고를 사용합니다.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>지원되는 보고서
 
-이 기능을 사용하여 Azure AD 감사 로그 및 로그인 로그를 Azure 스토리지 계정, 이벤트 허브, Log Analytics 또는 사용자 지정 솔루션으로 라우팅할 수 있습니다. 
+이 기능을 사용하여 Azure AD 감사 로그 및 로그인 로그를 Azure Storage 계정, 이벤트 허브, Azure Monitor 로그 또는 사용자 지정 솔루션으로 라우팅할 수 있습니다. 
 
 * **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)를 통해 테넌트에서 수행된 모든 작업의 기록에 액세스할 수 있습니다.
 * **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 통해 감사 로그에 보고된 작업을 수행한 사용자를 확인할 수 있습니다.
@@ -60,7 +60,7 @@ ms.locfileid: "56206350"
 
 * *ListKeys* 권한이 있는 Azure 저장소 계정. Blob 저장소 계정이 아닌 일반 저장소 계정을 사용하는 것이 좋습니다. 스토리지 가격 책정 정보는 [Azure Storage 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=storage)를 참조하세요. 
 * 타사 솔루션과 통합할 Azure Event Hubs 네임스페이스.
-* Log Analytics에 로그를 보내는 Azure Log Analytics 작업 영역
+* Azure Monitor 로그에 로그를 보내는 Azure Log Analytics 작업 영역
 
 ## <a name="cost-considerations"></a>비용 고려 사항
 
@@ -94,9 +94,9 @@ Azure AD 라이선스가 이미 있는 경우 저장소 계정 및 이벤트 허
 | 감사 | 1,000 | 0.1 | 52 | 104KB | 1 | 8,640 | $10.80 |
 | 로그인 | 1,000 | 178 | 53,400 | 106.8MB&nbsp; | 418 | 3,611,520 | $11.06 |  
 
-### <a name="log-analytics-cost-considerations"></a>Log Analytics 비용에 대한 고려 사항
+### <a name="azure-monitor-logs-cost-considerations"></a>Azure Monitor 로그 비용 고려 사항
 
-Log Analytics 작업 영역 관리와 관련된 비용을 검토하려면 [Log Analytics에서 데이터 볼륨 및 보존을 제어하여 비용 관리](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage)를 참조하세요.
+Azure Monitor 로그 관리와 관련된 비용을 검토하려면 [Azure Monitor 로그에서 데이터 볼륨 및 보존을 제어하여 비용 관리](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage)를 참조하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -106,37 +106,37 @@ Log Analytics 작업 영역 관리와 관련된 비용을 검토하려면 [Log A
 
 **A**: 현재 B2C 관련 감사 이벤트가 포함되지 않지만, 이 기능을 라우팅하는 데 로그인 활동 로그와 감사 로그를 모두 사용할 수 있습니다. 현재 지원되는 로그 유형 및 기능 기반 로그를 알아보려면 [감사 로그 스키마](reference-azure-monitor-audit-log-schema.md) 및 [로그인 로그 스키마](reference-azure-monitor-sign-ins-log-schema.md)를 참조하세요. 
 
----
+-----
 
 **Q: 작업 수행 후 해당 로그가 내 이벤트 허브에 표시되려면 얼마나 걸리나요?**
 
 **A**: 작업이 수행된 후 2~5분 이내에 이벤트 허브에 로그가 나타나야 합니다. Event Hubs에 대한 자세한 내용은 [Azure Event Hubs란?](../../event-hubs/event-hubs-about.md)을 참조하세요.
 
----
+-----
 
 **Q: 작업 수행 후 해당 로그가 내 스토리지 계정에 표시되려면 얼마나 걸리나요?**
 
 **A**: Azure Storage 계정의 경우 대기 시간은 어디서나 작업 수행 후 5~15분입니다.
 
----
+-----
 
 **Q: 관리자가 진단 설정의 보존 기간을 변경하면 어떻게 되나요?**
 
 **A**: 변경 이후에 수집되는 로그에는 새 보존 정책이 적용됩니다. 정책 변경 이전에 수집된 로그에는 아무런 변화가 없습니다.
 
----
+-----
 
 **Q: 데이터를 저장하는 데 비용이 얼마나 들까요?**
 
 **A**: 스토리지 비용은 로그의 크기와 사용자가 선택한 보존 기간에 따라 달라집니다. 생성된 로그 볼륨에 따라 달라지는 예상 테넌트 비용 목록을 보려면 [활동 로그에 대한 Storage 크기](#storage-size-for-activity-logs) 섹션을 참조하세요.
 
----
+-----
 
 **Q: 이벤트 허브에 데이터를 스트리밍하는 데 비용이 얼마나 들까요?**
 
 **A**: 스트리밍 비용은 분당 수신 메시지 수에 따라 다릅니다. 이 문서에서는 메시지 수를 기반으로 비용을 계산하고 예상 비용을 나열하는 방법을 설명합니다. 
 
----
+-----
 
 **Q: Azure AD 활동 로그를 SIEM 시스템과 통합하려면 어떻게 할까요?**
 
@@ -146,35 +146,35 @@ Log Analytics 작업 영역 관리와 관련된 비용을 검토하려면 [Log A
 
 - [보고 Graph API](concept-reporting-api.md)를 사용하여 데이터에 액세스한 다음, 고유한 스크립트를 사용하여 SIEM 시스템에 푸시합니다.
 
----
+-----
 
 **Q: 현재 지원되는 SIEM 도구는 무엇인가요?** 
 
 **A**: Azure Monitor는 현재 [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar 및 [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory)에서 지원됩니다. 커넥터의 작동 원리에 대한 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)을 참조하세요.
 
----
+-----
 
 **Q: Azure AD 활동 로그를 Splunk 인스턴스와 통합하려면 어떻게 할까요?**
 
 **A**: 먼저 [Azure AD 활동 로그를 이벤트 허브로 라우팅](quickstart-azure-monitor-stream-logs-to-event-hub.md)한 다음, [Splunk를 사용하여 활동 로그 통합](tutorial-integrate-activity-logs-with-splunk.md) 단계를 수행합니다.
 
----
+-----
 
 **Q: Azure AD 활동 로그를 Sumo Logic과 통합하려면 어떻게 할까요?** 
 
 **A**: 먼저 [Azure AD 활동 로그를 이벤트 허브로 라우팅](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory)한 다음, [SumoLogic에서 Azure AD 애플리케이션 설치 및 대시보드 보기](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) 단계를 수행합니다.
 
----
+-----
 
 **Q: 외부 SIEM 도구를 사용하지 않고 이벤트 허브에서 데이터에 액세스할 수 있나요?** 
 
 **A**: 예. 사용자 지정 애플리케이션에서 로그에 액세스하려면 [Event Hubs API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)를 사용합니다. 
 
----
+-----
 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [저장소 계정에 활동 로그 보관](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [활동 로그를 이벤트 허브로 라우팅](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Log Analytics와 활동 로그 통합](howto-integrate-activity-logs-with-log-analytics.md)
+* [Azure Monitor와 활동 로그 통합](howto-integrate-activity-logs-with-log-analytics.md)

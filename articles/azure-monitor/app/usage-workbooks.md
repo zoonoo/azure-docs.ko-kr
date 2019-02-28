@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: f7133ed74c9862a7e3d496a9093faaf3959e0d78
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993421"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270150"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기
 
@@ -77,7 +77,7 @@ ms.locfileid: "55993421"
 
 * 사용 현황의 감소와 동일한 기간 동안 사이트에서 throw한 예외의 수는?
 * 일부 페이지를 보는 사용자에 대한 페이지 로드 시간의 분포는 무엇이었습니까?
-* 사이트의 일부 페이지 집합을 봤지만 다른 일부 페이지 집합을 보지 않은 사용자의 수는? 사이트 기능의 여러 하위 세트를 사용하는 사용자의 클러스터가 있는지 이해하는 데 유용할 수 있습니다(데이터 탐색기 쿼리 언어에서 `kind=leftanti` 한정자가 포함된 `join` 연산자 사용).
+* 사이트의 일부 페이지 집합을 봤지만 다른 일부 페이지 집합을 보지 않은 사용자의 수는? 이 질문은 사이트 기능의 각기 다른 하위 집합을 사용하는 사용자 클러스터가 있는지 여부를 파악하는 데 유용할 수 있습니다([Kusto 쿼리 언어](/azure/kusto/query/)에서는 `kind=leftanti` 한정자와 함께 `join` 연산자 사용).
 
 또한 통합 문서를 시작한 애플리케이션의 컨텍스트에서만 쿼리하도록 제한되지 않습니다. 해당 리소스에 대한 액세스 권한이 있다면 Log Analytics 작업 영역뿐만 아니라 여러 Application Insights 모니터링 앱 간에 쿼리를 수행할 수 있습니다.
 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bd6531bc950e006f15924bb9a0d6428f9e69d544
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460729"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330837"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 9월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 9월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.
@@ -24,6 +24,9 @@ Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. �
 [Microsoft](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/)는 2018년 4월에 성능/컴퓨팅 기능은 기존 세대의 5배이고 동시 처리 가능 작업 수는 4배이며 스토리지도 무제한으로 사용 가능한 Azure SQL Data Warehouse Gen2를 발표했습니다. Gigaom의 [Data Warehouse in the cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)에 언급된 것처럼, SQL Data Warehouse Gen2는 **Amazon Redshift보다 42% 더 강력한 성능을 제공합니다**.
 
 이제 Gen2는 작은 데이터 웨어하우스 또는 개발/테스트 환경을 실행할 수 있고 개선된 모든 최신 서비스를 이용할 수 있는 저렴한 진입점으로써 DWU500c를 제공합니다. 이 새로운 진입점은 [적응형 캐싱](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [초고속 데이터 셔플링](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), [실시간 데이터 웨어하우스](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/) 지원을 포함하여 Gen2의 모든 기능을 그대로 유지합니다.
+
+## <a name="sql-vulnerability-assessment"></a>SQL 취약성 평가
+[SQL VA(취약성 평가)](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/25/sql-vulnerability-assessment-now-supports-azure-sql-data-warehouse-and-azure-sql-database-managed-instance/)는 지속적으로 데이터 웨어하우스를 모니터링하는 사용하기 쉬운 서비스입니다. 항상 높은 수준의 보안을 보장하고 조직의 정책을 충족하도록 지원합니다. 발견된 각 문제에 대해 실행 가능한 수정 단계와 함께 포괄적인 보안 보고서를 제공합니다. 이 보고서를 사용하면 데이터베이스 보안 상태를 사전에 쉽게 관리하고 보안 전문가가 아니더라도 영향이 가장 높은 작업에 집중할 수 있습니다. 자주 변경되고 추적이 어려운 동적인 환경에서는 데이터 웨어하우스가 공격에 취약해질 수 있는 설정을 감지하는 데 VA가 매우 유용합니다.
 
 ## <a name="improved-availability-with-query-restartability"></a>쿼리 재시작을 통해 가용성 향상
 쿼리를 실행하는 동안 쿼리 실패의 원인이 되는 여러 가지 문제가 발생할 수 있습니다. 네트워크 중단, 하드웨어 오류 또는 연결 끊김으로 인해 작업이 중단될 수 있습니다. SQL Data Warehouse는 이제 단계 또는 명령문 수준 SELECT 쿼리에 대한 쿼리 재시작을 지원합니다. 

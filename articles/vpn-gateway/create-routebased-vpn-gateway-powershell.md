@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 02/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9460f184e3da6769048b30ca743169c5a6044bd0
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 8622de88b1edc7b0f5eb2571a55415837ad28dc7
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55505532"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416907"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>PowerShell을 사용하여 경로 기반 VPN 게이트웨이 만들기
 
@@ -20,44 +20,44 @@ ms.locfileid: "55505532"
 
 이 문서의 단계에서는 VNet, 서브넷, 게이트웨이 서브넷 및 경로 기반 VPN 게이트웨이(가상 네트워크 게이트웨이)를 만듭니다. 게이트웨이 생성이 완료되면 연결을 만들 수 있습니다. 이러한 단계에는 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.3.0 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name TestRG1 -Location EastUS
+New-AzResourceGroup -Name TestRG1 -Location EastUS
 ```
 
 ## <a name="vnet"></a>가상 네트워크 만들기
 
-[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 **EastUS** 위치에 **VNet1**이라는 가상 네트워크를 만듭니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 **EastUS** 위치에 **VNet1**이라는 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzureRmVirtualNetwork `
+$virtualNetwork = New-AzVirtualNetwork `
   -ResourceGroupName TestRG1 `
   -Location EastUS `
   -Name VNet1 `
   -AddressPrefix 10.1.0.0/16
 ```
 
-[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) cmdlet을 사용하여 서브넷 구성을 만듭니다.
+[New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet을 사용하여 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name Frontend `
   -AddressPrefix 10.1.0.0/24 `
   -VirtualNetwork $virtualNetwork
 ```
 
-[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork) cmdlet을 사용하여 가상 네트워크에 대한 서브넷 구성을 설정합니다.
+[Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) cmdlet을 사용하여 가상 네트워크에 대한 서브넷 구성을 설정합니다.
 
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzureRmVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetwork
 ```
 
 ## <a name="gwsubnet"></a>게이트웨이 서브넷 추가
@@ -67,19 +67,19 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 VNet에 대한 변수를 설정합니다.
 
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
+$vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
 ```
 
-[Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/Add-AzureRmVirtualNetworkSubnetConfig) cmdlet을 사용하여 게이트웨이 서브넷을 만듭니다.
+[Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-azVirtualNetworkSubnetConfig) cmdlet을 사용하여 게이트웨이 서브넷을 만듭니다.
 
 ```azurepowershell-interactive
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
 ```
 
-[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork) cmdlet을 사용하여 가상 네트워크에 대한 서브넷 구성을 설정합니다.
+[Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) cmdlet을 사용하여 가상 네트워크에 대한 서브넷 구성을 설정합니다.
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzureRmVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetwork
 ```
 
 ## <a name="PublicIP"></a>공용 IP 주소 요청
@@ -87,7 +87,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 VPN 게이트웨이에는 동적으로 할당된 공용 IP 주소가 있어야 합니다. VPN 게이트웨이에 대한 연결을 만들 때 사용자가 지정한 IP 주소입니다. 다음 예제를 사용하여 공용 IP 주소를 요청합니다.
 
 ```azurepowershell-interactive
-$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+$gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>게이트웨이 IP 주소 구성 만들기
@@ -95,26 +95,26 @@ $gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -L
 게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷을 정의합니다. 다음 예제를 사용하여 게이트웨이 구성을 만듭니다.
 
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
+$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+$gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
 ## <a name="CreateGateway"></a>VPN 게이트웨이 만들기
 
-VPN 게이트웨이를 만드는 데에는 45분 이상이 걸릴 수 있습니다. 게이트웨이가 완료되면 가상 네트워크와 VNet 간에 연결을 만들 수 있습니다. 또는 가상 네트워크와 온-프레미스 위치 간에 연결을 만듭니다. [New-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/New-AzureRmVirtualNetworkGateway) cmdlet을 사용하여 VPN 게이트웨이를 만듭니다.
+VPN 게이트웨이를 만드는 데에는 45분 이상이 걸릴 수 있습니다. 게이트웨이가 완료되면 가상 네트워크와 VNet 간에 연결을 만들 수 있습니다. 또는 가상 네트워크와 온-프레미스 위치 간에 연결을 만듭니다. [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet을 사용하여 VPN 게이트웨이를 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
 ## <a name="viewgw"></a>VPN 게이트웨이 보기
 
-[Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGateway) cmdlet을 사용하여 VPN 게이트웨이를 볼 수 있습니다.
+[Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway) cmdlet을 사용하여 VPN 게이트웨이를 볼 수 있습니다.
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGateway -Name Vnet1GW -ResourceGroup TestRG1
+Get-AzVirtualNetworkGateway -Name Vnet1GW -ResourceGroup TestRG1
 ```
 
 출력은 다음 예제와 유사합니다.
@@ -164,10 +164,10 @@ BgpSettings            : {
 
 ## <a name="viewgwpip"></a>공용 IP 주소 보기
 
-VPN 게이트웨이의 공용 IP 주소를 보려면 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Get-AzureRmPublicIpAddress) cmdlet을 사용합니다.
+VPN 게이트웨이의 공용 IP 주소를 보려면 [Get-AzPublicIpAddress](/powershell/module/az.network/Get-azPublicIpAddress) cmdlet을 사용합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
+Get-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
 ```
 
 예제 응답에서 IpAddress 값이 공용 IP 주소입니다.
@@ -201,10 +201,10 @@ IpTags                   : {}
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-만든 리소스가 더 이상 필요하지 않으면 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 명령을 사용하여 리소스 그룹을 삭제합니다. 그러면 리소스 그룹 및 포함된 모든 리소스가 삭제됩니다.
+만든 리소스가 더 이상 필요하지 않으면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 명령을 사용하여 리소스 그룹을 삭제합니다. 그러면 리소스 그룹 및 포함된 모든 리소스가 삭제됩니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name TestRG1
+Remove-AzResourceGroup -Name TestRG1
 ```
 
 ## <a name="next-steps"></a>다음 단계

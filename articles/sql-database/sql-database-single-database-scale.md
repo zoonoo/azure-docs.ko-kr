@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 7afdcc402840aede1fe9678bf5f4012213edf9fa
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1eac1da2d8d9a289cb456fc08d7e7c2bc7784aa6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961349"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454024"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
@@ -42,7 +42,7 @@ vCore 수를 처음 선택한 후에는 [Azure Portal](sql-database-single-datab
 
 서비스 계층 및/또는 데이터베이스의 계산 크기를 변경하게 되면 새 계산 크기에서 원본 데이터베이스의 복제본을 만든 다음, 복제본에 대한 연결을 전환합니다. 이 프로세스 중에 데이터가 손실되지는 않지만 복제본으로 전환할 경우 잠깐 동안 데이터베이스에 대한 연결이 비활성화되므로 비행의 일부 트랜잭션이 롤백될 수 있습니다. 전환 시간은 다양하지만, 일반적으로 99%는 30초 미만입니다. 연결을 사용할 수 없는 짧은 시간에 많은 수의 항공편 트랜잭션이 있으면 전환 시간이 더 길어질 수 있습니다.
 
-전체 확장 프로세스 기간은 변경 전후 데이터베이스의 크기 및 서비스 계층에 따라 달라집니다. 예를 들어 범용 서비스 계층으로, 이 계층에서 또는 이 계층 내에서 변경되는 250GB 데이터베이스는 6시간 내에 완료되어야 합니다. 중요 비즈니스 계층 내에서 계산 크기를 변경하는 동일한 크기의 데이터베이스에 대한 강화는 3시간 내에 완료되어야 합니다.
+전체 확장 프로세스 기간은 일반적으로 변경 전후 데이터베이스의 크기 및 서비스 계층에 따라 달라집니다. 예를 들어 범용 서비스 계층 내에서 컴퓨팅 크기를 변경하는 데이터베이스는 크기와 관계없이 몇 분 이내에 완료되어야 합니다. 반면, 중요 비즈니스용 계층 내에서 컴퓨팅 크기를 변경하는 대기 시간은 일반적으로 100GB당 90분 이하입니다.
 
 > [!TIP]
 > 진행 중인 작업을 모니터링하려면 [Manage operations using the SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list)(SQL REST API를 사용하여 작업 관리), [Manage operations using CLI](/cli/azure/sql/db/op)(CLI를 사용하여 작업 관리), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)(T-SQL을 사용하여 작업 관리) 및 다음 두 가지 PowerShell 명령, 즉 [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 및 [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)를 참조하세요.

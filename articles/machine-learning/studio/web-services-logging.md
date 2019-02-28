@@ -1,6 +1,6 @@
 ---
 title: 웹 서비스 로깅 - Azure Machine Learning Studio | Microsoft Docs
-description: Machine Learning 웹 서비스에 대해 로깅을 사용하도록 설정하는 방법을 알아봅니다. 로깅은 API 문제를 해결하는 데 도움이 되는 추가 정보를 제공합니다.
+description: Machine Learning Studio 웹 서비스에 대해 로깅을 사용하는 방법을 알아봅니다. 로깅은 API 문제를 해결하는 데 도움이 되는 추가 정보를 제공합니다.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -15,21 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 80a5ec64a2afd2367acaedd6e44ffe1a21e9c622
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 53eedd4d00b212879389d29541c4ca55ea1bfde6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474390"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270101"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio 웹 서비스에 대해 로깅 사용
-이 문서에서는 Machine Learning 웹 서비스의 로깅 기능을 설명합니다. 로깅은 오류 번호 및 메시지 외에 Machine Learning API 호출 문제를 해결하는 데 유용한 추가 정보를 제공합니다.  
+이 문서에서는 Machine Learning Studio 웹 서비스의 로깅 기능을 설명합니다. 로깅은 오류 번호 및 메시지 외에 Machine Learning Studio API 호출 문제를 해결하는 데 유용한 추가 정보를 제공합니다.  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>웹 서비스에서 로깅을 사용하도록 설정하는 방법
 
-[Azure Machine Learning 웹 서비스](https://services.azureml.net) 포털에서 로깅을 사용하도록 설정합니다. 
+[Azure Machine Learning Studio 웹 서비스](https://services.azureml.net) 포털에서 로깅을 사용하도록 설정합니다. 
 
-1. [https://services.azureml.net](https://services.azureml.net)에서 Azure Machine Learning 웹 서비스 포털에 로그인합니다. 클래식 웹 서비스의 경우 Machine Learning 스튜디오에서 Machine Learning 웹 서비스 페이지에 있는 **새 웹 서비스 환경**을 클릭하여 포털로 가져올 수도 있습니다.
+1. [https://services.azureml.net](https://services.azureml.net)에서 Azure Machine Learning Studio 웹 서비스 포털에 로그인합니다. 클래식 웹 서비스의 경우 Machine Learning Studio에서 Machine Learning Studio 웹 서비스 페이지에 있는 **새 웹 서비스 환경**을 클릭하여 포털로 가져올 수도 있습니다.
 
    ![새 웹 서비스 환경 링크](./media/web-services-logging/new-web-services-experience-link.png)
 

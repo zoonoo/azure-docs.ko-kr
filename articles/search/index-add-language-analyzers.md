@@ -1,7 +1,7 @@
 ---
 title: 언어 분석기 추가 - Azure Search
 description: Azure Search의 비영어 쿼리 및 인덱스를 위한 다국어 어휘 텍스트 분석 기능입니다.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,20 +19,20 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b5c562994c169a8c5d51ee31a9606c5c40162603
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007611"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328296"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Azure Search 인덱스에 언어 분석기 추가
 
-‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 [전체 텍스트 검색 엔진](https://docs.microsoft.com/azure/search/search-lucene-query-architecture)의 특정 구성 요소입니다. 검색 가능한 모든 필드에 `analyzer` 속성이 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 인덱스에 번역된 문자열이 포함되어 있는 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.  
+‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다. 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 인덱스에 번역된 문자열이 포함되어 있는 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.  
 
 Azure Search는 Lucene를 통해 지원되는 35개 분석기와 Office 및 Bing에서 사용되는 Microsoft 소유 자연어 처리 기술을 통해 지원되는 50개 분석기를 지원합니다.
 
-## <a name="compare-language-analyzer-types"></a>언어 분석기 유형 비교 
+## <a name="comparing-analyzers"></a>분석기 비교
 
 일부 개발자는 보다 친숙하고 간단한 Lucene의 오픈 소스 솔루션을 선호할 수 있습니다. Lucene 언어 분석기가 더 빠르지만 Microsoft 분석기에는 분류 정리, 단어 분해(독일어, 덴마크어, 네덜란드어, 스웨덴어, 노르웨이어, 에스토니아어, 핀란드어, 헝가리어, 슬로바키아어 등의 언어) 및 엔터티 인식(URL, 메일, 날짜, 숫자)과 같은 고급 기능이 있습니다. 가능한 경우 Microsoft 분석기와 Lucene 분석기를 비교하여 어떤 것이 더 적합한지 결정해야 합니다. 
 
@@ -49,15 +49,17 @@ Azure Search는 Lucene를 통해 지원되는 35개 분석기와 Office 및 Bing
  > [!Tip]
  > [검색 분석기 데모](https://alice.unearth.ai/)에서는 표준 Lucene 분석기, Lucene 영어 분석기 및 Microsoft 영어 자연어 프로세서를 통해 생성된 결과를 나란히 비교합니다. 제공한 각 검색 입력의 경우 각 분석기의 결과가 인접한 창에 표시됩니다.
 
-## <a name="analyzer-configuration"></a>분석기 구성
+## <a name="configuring-analyzers"></a>분석기 구성
 
-인덱스 정의의 각 필드에 대해 `analyzer` 속성을 언어 및 공급업체를 지정하는 분석기 이름으로 설정할 수 있습니다. 해당 필드를 인덱싱 및 검색하는 경우 동일한 분석기를 적용합니다. 예를 들어 영어, 프랑스어, 스페인어 호텔 설명을 표시하는 개별 필드를 같은 인덱스에서 나란히 표시할 수 있습니다.  
+언어 분석기는 있는 그대로 사용됩니다. 인덱스 정의의 각 필드에 대한 **analyzer** 속성으로 언어 및 언어 체계 스택(Microsoft 또는 Lucene)을 지정하는 분석기 이름을 설정할 수 있습니다. 해당 필드를 인덱싱 및 검색하는 경우 동일한 분석기를 적용합니다. 예를 들어 영어, 프랑스어, 스페인어 호텔 설명을 표시하는 개별 필드를 같은 인덱스에서 나란히 표시할 수 있습니다. 또는 **analyzer**대신 **indexAnalyzer** 및 **searchAnalyzer**를 사용하여 인덱싱 시간과 쿼리 시간에 서로 다른 분석 규칙을 사용할 수 있습니다. 
 
-**searchFields** 쿼리 매개 변수를 사용하여 쿼리에서 검색할 언어별 필드를 지정합니다. analyzer 속성을 포함하는 쿼리 예제는 문서 검색에서 검토할 수 있습니다. 
+**searchFields** 쿼리 매개 변수를 사용하여 쿼리에서 검색할 언어별 필드를 지정합니다. analyzer 속성을 포함하는 쿼리 예제는 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents)에서 검토할 수 있습니다. 
 
 인덱스 속성에 대한 자세한 내용은 [인덱스 만들기 &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요. Azure Search의 분석에 대한 자세한 내용은 [Azure Search의 분석기](https://docs.microsoft.com/azure/search/search-analyzers)를 참조하세요.
 
-## <a name="analyzer-list"></a>분석기 목록  
+<a name="language-analyzer-list"></a>
+
+## <a name="language-analyzer-list"></a>언어 분석기 목록 
  다음은 Lucene 및 Microsoft 분석기 이름으로 지원되는 언어의 목록입니다.  
 
 |언어|Microsoft 분석기 이름|Lucene 분석기 이름|  

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C를 사용하여 Amazon 계정으로 등록 설정 및 로그인 | Microsoft Docs
+title: Amazon 계정으로 등록 및 로그인 설정 - Azure Active Directory B2C | Microsoft Docs
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 Amazon 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 207a33931d7be88355241ea8c282dc7c39c9971c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4f60db91a1fb667586287873245fd5face343713
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169963"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427737"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Amazon 계정으로 등록 설정 및 로그인
 
 ## <a name="create-an-amazon-application"></a>Amazon 애플리케이션 만들기
 
-Azure AD(Azure Active Directory) B2C에서 Amazon 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. Amazon 계정이 없는 경우 [https://www.amazon.com/](https://www.amazon.com/)에서 얻을 수 있습니다.
+Azure AD(Azure Active Directory) B2C에서 Amazon 계정을 [ID 공급자](active-directory-b2c-reference-oauth-code.md)로 사용하려면 테넌트에 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. Amazon 계정이 없는 경우 [https://www.amazon.com/](https://www.amazon.com/)에서 얻을 수 있습니다.
 
 1. Amazon 계정 자격 증명을 사용하여 [Amazon 개발자 센터](https://login.amazon.com/)에 로그인합니다.
 2. 이미 수행한 경우 **등록**을 클릭하고 개발자 등록 단계를 수행하며 정책에 동의합니다.

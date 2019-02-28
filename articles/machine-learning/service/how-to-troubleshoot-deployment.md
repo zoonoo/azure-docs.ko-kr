@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 83ee548befdc7ef0a4e7ed2d4b4e61b42a217f12
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 112fff011ebfedc1abf6981661da5fd4d97fc3d0
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247071"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267149"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Azure Machine Learning AKS 및 ACI 서비스 배포 문제 해결
 
@@ -196,12 +196,15 @@ $ docker run -p 8000:5001 <image_id>
 종종 채점 스크립트의 `init()` 함수에서, 컨테이너의 모델 파일 또는 모델 파일의 폴더를 찾기 위해 `Model.get_model_path()` 함수가 호출됩니다. 모델 파일 또는 폴더를 찾을 수 없는 경우 이로 인해 문제가 발생합니다. 이 오류를 디버그하는 가장 쉬운 방법은 컨테이너 셸에서 아래의 Python 코드를 실행하는 것입니다.
 
 ```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
 from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
 이렇게 하면 채점 스크립트가 모델 파일 또는 폴더를 찾을 것으로 예상되는 컨테이너의 로컬 경로(`/var/azureml-app`의 상대 경로)가 인쇄됩니다. 그러면 예상 위치에 파일 또는 폴더가 실제로 있는지 확인할 수 있습니다.
 
+로깅 수준을 디버그로 설정하면 추가 정보가 기록되어 오류를 식별하는 데 유용할 수 있습니다.
 
 ## <a name="function-fails-runinputdata"></a>함수 실패: run(input_data)
 서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 예: 

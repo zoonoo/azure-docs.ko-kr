@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 649fe5ebadf69a90b4794fcaf4519ea5bcc0c4a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874189"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269743"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 HDFS CLI 사용
 
@@ -26,17 +26,37 @@ HDInsight는 컴퓨터 노드에 로컬로 연결된 분산 파일 시스템에 
 >[!IMPORTANT]
 >클러스터가 만들어지면 HDInsight 클러스터 요금 청구가 시작되고 클러스터가 삭제되면 요금 청구가 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다. 클러스터를 삭제하는 방법은 [토픽에 대한 문서](../../hdinsight/hdinsight-delete-cluster.md)를 참조하세요. 그러나 Data Lake Storage Gen2가 사용되는 스토리지 계정에 저장된 데이터는 HDInsight 클러스터가 삭제된 후에도 유지됩니다.
 
+### <a name="create-a-file-system"></a>파일 시스템 만들기
+
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+
+* `<file-system-name>` 자리 표시자를 파일 시스템에 지정할 이름으로 바꿉니다.
+
+* `<storage-account-name>` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
+
 ### <a name="get-a-list-of-files-or-directories"></a>파일 또는 디렉터리 목록 가져오기
 
-    hdfs dfs -ls <args>
+    hdfs dfs -ls <path>
+
+`<path>` 자리 표시자를 파일 시스템 또는 파일 시스템 폴더의 URI로 바꿉니다.
+
+예: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ### <a name="create-a-directory"></a>디렉터리 만들기
 
-    hdfs dfs -mkdir [-p] <paths>
+    hdfs dfs -mkdir [-p] <path>
 
-### <a name="delete-a-file-or-a-directory"></a>파일 또는 디렉터리 삭제
+`<path>` 자리 표시자를 루트 파일 시스템 이름 또는 파일 시스템 내의 폴더로 바꿉니다.
 
-    hdfs dfs -rm [-skipTrash] URI [URI ...]
+예: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
+
+### <a name="delete-a-file-or-directory"></a>파일 또는 디렉터리 삭제
+
+    hdfs dfs -rm <path>
+
+`<path>` 자리 표시자를 삭제하려는 파일 또는 폴더의 URI로 바꿉니다.
+
+예: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ### <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Linux에서 HDInsight Hadoop 클러스터로 HDFS CLI 사용
 
@@ -52,11 +72,15 @@ hdfs dfs -mkdir /samplefolder
 ```
 Azure Portal에 있는 HDInsight 클러스터 블레이드의 “SSH + 클러스터 로그인” 섹션에서 연결 문자열을 찾을 수 있습니다. SSH 자격 증명은 클러스터 생성 시 지정되었습니다.
 
-HDFS CLI에 대한 자세한 내용은 [공식 문서](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) 및 [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)(HDFS 권한 가이드)를 참조하세요. Databricks에서 ACL에 대한 자세한 내용은 [Secrets CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli)를 참조하세요. 
+HDFS CLI에 대한 자세한 내용은 [공식 문서](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) 및 [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)(HDFS 권한 가이드)를 참조하세요. Databricks에서 ACL에 대한 자세한 내용은 [Secrets CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli)를 참조하세요.
 
 ## <a name="hdfs-cli-with-azure-databricks"></a>Azure Databricks를 사용한 HDFS CLI
 
 Databricks는 Databricks REST API 위에 빌드된 사용하기 쉬운 CLI를 제공합니다. 오픈 소스 프로젝트는 [GitHub](https://github.com/databricks/databricks-cli)에서 호스트됩니다. 다음은 일반적으로 사용되는 명령입니다.
+
+### <a name="create-a-file-system"></a>파일 시스템 만들기
+
+여기에 지침을 넣습니다.
 
 ### <a name="get-a-list-of-files-or-directories"></a>파일 또는 디렉터리 목록 가져오기
 

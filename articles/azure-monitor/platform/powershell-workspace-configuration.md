@@ -2,24 +2,18 @@
 title: PowerShell을 사용하여 Log Analytics 작업 영역 만들기 및 구성 | Microsoft Docs
 description: Log Analytics는 온-프레미스 또는 클라우드 인프라의 서버에서 데이터를 사용합니다. Azure 진단에 의해 생성된 경우에 Azure 저장소에서 컴퓨터 데이터를 수집할 수 있습니다.
 services: log-analytics
-documentationcenter: ''
 author: richrundmsft
-manager: jochan
-editor: ''
-ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: e34d45d2d7c81ec5f15a5441ce2bb0f082c65155
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5b64ecbb82e88b43546946ef30bf3107874af170
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884115"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446480"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell을 사용하여 Log Analytics 관리
 [Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/)을 사용하여 명령줄에서 또는 스크립트의 일부로 Log Analytics의 다양한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
@@ -63,7 +57,7 @@ ms.locfileid: "54884115"
 11. Windows 컴퓨터에서 사용 가능한 메모리(MB) 성능 카운터 수집
 12. 사용자 지정 로그 수집 
 
-```
+```PowerShell
 
 $ResourceGroup = "oms-example"
 $WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique - Get-Random helps with this for the example code
@@ -184,23 +178,22 @@ New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroup
 
 # Custom Logs
 New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
-
 ```
 위의 예에서 regexDelimiter는 줄 바꿈에 대한 “\\n”으로 정의되었습니다. 로그 구분 기호는 타임스탬프일 수도 있습니다.  지원되는 형식은 다음과 같습니다.
 
 | 형식 | Json RegEx 형식에서는 표준 RegEx에서 모든 \에 대해 두 개의 \\를 사용하므로 RegEx 앱에서 테스트하는 경우 \\를 \로 줄입니다. |
 | --- | --- |
-| YYYY-MM-DD HH:MM:SS  | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
-| M/D/YYYY HH:MM:SS AM/PM | (([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm) |
-| dd/MMM/yyyy HH:MM:SS | ((([0-3]\\\\d)\|(\\\\d))/(Jan\|Feb\|Mar\|May\|Apr\|Jul\|Jun\|Aug\|Oct\|Sep\|Nov\|Dec\|jan\|feb\|mar\|may\|apr\|jul\|jun\|aug\|oct\|sep\|nov\|dec)/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]) |
-| MMM dd yyyy HH:MM:SS | (((?:Jan(?:uary)?\|Feb(?:ruary)?\|Mar(?:ch)?\|Apr(?:il)?\|May\|Jun(?:e)?\|Jul(?:y)?\|Aug(?:ust)?\|Sep(?:tember)?\|Sept\|Oct(?:ober)?\|Nov(?:ember)?\|Dec(?:ember)?)).*?((?:(?:[0-2]?\\\\d{1})\|(?:[3][01]{1})))(?![\\\\d]).*?((?:(?:[1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?:[2]{1}\\\\d{3})))(?![\\\\d]).*?((?:(?:[0-1][0-9])\|(?:[2][0-3])\|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\\\s?(?:am\|AM\|pm\|PM))?)) |
-| yyMMdd HH:mm:ss | ([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
-| ddMMyy HH:mm:ss | (([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9]) |
-| MMM d HH:mm:ss | (Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s?([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0-1]?[0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9]) |
-| MMM  d HH:mm:ss<br> MMM 뒤에 두 개의 공백 | (Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
-| MMM d HH:mm:ss | (Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9]) |
-| dd/MMM/yyyy:HH:mm:ss +zzzz<br> 여기서 +는 + 또는 -<br> 여기서 zzzz 시간 오프셋 | (([0-2][1-9]\|[3][0-1])\\\\/(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\/((19\|20)[0-9][0-9]):([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\\\s[\\\\+\|\\\\-][0-9]{4}) |
-| yyyy-MM-ddTHH:mm:ss<br> T는 리터럴 문자 T | ((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9] |
+| `YYYY-MM-DD HH:MM:SS` | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
+| `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\\\d)\|[0-9])/(([0-3]\\\\d)\|(\\\\d))/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\\\s(AM\|PM\|am\|pm)` |
+| `dd/MMM/yyyy HH:MM:SS` | `((([0-3]\\\\d)\` |`(\\\\d))/(Jan\|Feb\|Mar\|May\|Apr\|Jul\|Jun\|Aug\|Oct\|Sep\|Nov\|Dec\|jan\|feb\|mar\|may\|apr\|jul\|jun\|aug\|oct\|sep\|nov\|dec)/((\\\\d{2})\|(\\\\d{4}))\\\\s((\\\\d)\` | `([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9])` |
+| `MMM dd yyyy HH:MM:SS` | `(((?:Jan(?:uary)?\|Feb(?:ruary)?\|Mar(?:ch)?\|Apr(?:il)?\|May\|Jun(?:e)?\|Jul(?:y)?\|Aug(?:ust)?\|Sep(?:tember)?\|Sept\|Oct(?:ober)?\|Nov(?:ember)?\|Dec(?:ember)?)).*?((?:(?:[0-2]?\\\\d{1})\|(?:[3][01]{1})))(?![\\\\d]).*?((?:(?:[1]{1}\\\\d{1}\\\\d{1}\\\\d{1})\|(?:[2]{1}\\\\d{3})))(?![\\\\d]).*?((?:(?:[0-1][0-9])\|(?:[2][0-3])\|(?:[0-9])):(?:[0-5][0-9])(?::[0-5][0-9])?(?:\\\\s?(?:am\|AM\|pm\|PM))?))` |
+| `yyMMdd HH:mm:ss` | `([0-9]{2}([0][1-9]\|[1][0-2])([0-2][0-9]\|[3][0-1])\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` |
+| `ddMMyy HH:mm:ss` | `(([0-2][0-9]\|[3][0-1])([0][1-9]\|[1][0-2])[0-9]{2}\\\\s\\\\s?([0-1]?[0-9]\|[2][0-3]):[0-5][0-9]:[0-5][0-9])` |
+| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s?([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0-1]?[0-9]\|[2][0-3]):([0-5][0-9]):([0-5][0-9])` |
+| `MMM  d HH:mm:ss` <br> MMM 뒤에 두 개의 공백 | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` |
+| `MMM d HH:mm:ss` | `(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\s([0]?[1-9]\|[1-2][0-9]\|[3][0-1])\\\\s([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])` |
+| `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> 여기서 +는 + 또는 - <br> 여기서 zzzz 시간 오프셋 | `(([0-2][1-9]\|[3][0-1])\\\\/(Jan\|Feb\|Mar\|Apr\|May\|Jun\|Jul\|Aug\|Sep\|Oct\|Nov\|Dec)\\\\/((19\|20)[0-9][0-9]):([0][0-9]\|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\\\s[\\\\+\|\\\\-][0-9]{4})` |
+| `yyyy-MM-ddTHH:mm:ss` <br> T는 리터럴 문자 T | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Azure 진단을 인덱싱하도록 Log Analytics 구성
 에이전트 없이 Azure 리소스를 모니터링할 경우 리소스가 Azure 진단을 사용할 수 있어야 하며 Log Analytics 작업 영역에 쓰도록 구성되어야 합니다. 이러한 방식은 데이터를 Log Analytics에 바로 보내며 데이터를 저장소 계정에 쓸 필요가 없습니다. 지원되는 리소스는 다음과 같습니다.
@@ -230,7 +223,7 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 사용 가능한 로그에 대한 자세한 내용은 [진단 로그에 지원되는 서비스 및 스키마](../../azure-monitor/platform/diagnostic-logs-schema.md)를 참조하세요.
 
-```
+```PowerShell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
 $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
@@ -238,7 +231,7 @@ $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUP
 Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-위의 cmdlet을 사용하여 다른 구독에 속하는 리소스에서 로그를 수집할 수도 있습니다. 리소스 생성 로그의 ID 및 로그를 보내는 작업 영역의 ID를 모두 제공하기 때문에 cmdlet은 구독 간에 작업이 가능합니다.
+위의 cmdlet을 사용하여 다른 구독에 속하는 리소스에서 로그를 수집할 수도 있습니다. 로그를 만드는 리소스의 ID와 로그가 전송되는 작업 영역의 ID를 둘 다 제공하기 때문에 cmdlet이 구독 간에 작동할 수 있습니다.
 
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>저장소에서 Azure 진단을 인덱싱하도록 Log Analytics 구성
@@ -254,7 +247,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId
 3. 새로 만든 구성을 추가 위치에서 오는 데이터를 인덱싱하도록 업데이트
 4. 새로 만든 구성 삭제
 
-```
+```PowerShell
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
 $workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
@@ -276,7 +269,7 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 
 ```
 
-위의 스크립트를 사용하여 다른 구독에 속하는 저장소 계정에서 로그를 수집할 수도 있습니다. 저장소 계정 리소스 ID와 해당 액세스 키를 제공하기 때문에 스크립트는 구독 간에 작업이 가능합니다. 액세스 키를 변경할 때 저장소 정보가 새 키를 갖도록 업데이트해야 합니다.
+위의 스크립트를 사용하여 다른 구독에 속하는 저장소 계정에서 로그를 수집할 수도 있습니다. 스토리지 계정 리소스 ID와 해당 액세스 키를 제공하기 때문에 스크립트가 구독 간에 작동할 수 있습니다. 액세스 키를 변경할 때 저장소 정보가 새 키를 갖도록 업데이트해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

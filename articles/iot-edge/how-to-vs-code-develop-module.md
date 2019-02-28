@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 01/12/2019
+ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5abc13a39db3f1061e3df76857645d8075feade5
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245755"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456710"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -262,6 +262,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
       import ptvsd
       ptvsd.enable_attach(('0.0.0.0',  5678))
       ```
+
    - 디버그할 콜백에 다음 단일 코드 줄을 추가합니다.
 
       ```python
@@ -350,6 +351,12 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
 > [!NOTE]
 > 앞의 예제에서는 컨테이너에서 IoT Edge 모듈을 디버그하는 방법을 보여 줍니다. 모듈의 컨테이너 `createOptions` 설정에 노출된 포트를 추가했습니다. 모듈의 디버깅이 끝나면 프로덕션에서 사용할 준비가 완료된 IoT Edge 모듈을 얻기 위해 이러한 노출된 포트를 제거하는 것이 좋습니다.
+
+## <a name="build-and-debug-a-module-remotely"></a>원격으로 모듈 빌드 및 디버그
+
+SSH 연결을 지원하기 위한 Docker 및 Moby 엔진의 최신 변경 내용과 환경 설정을 Visual Studio Code 명령 팔레트 및 Azure IoT Edge 터미널에 삽입할 수 있는 Azure IoT Tools의 새 설정을 사용하여 이제 원격 디바이스에서 모듈을 빌드하고 디버그할 수 있습니다.
+
+자세한 내용과 단계별 지침은 이 [IoT 개발자 블로그 항목](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

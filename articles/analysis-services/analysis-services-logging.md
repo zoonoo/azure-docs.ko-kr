@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 480d453cc906fa1b1d93e00bd4a6d2b080768a47
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105839"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428995"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
-Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. [Azure 리소스 진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)의 서비스인 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보낼 수 있습니다. 
+Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. [Azure 리소스 진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure Monitor 로그](../azure-monitor/azure-monitor-log-hub.md)로 내보낼 수 있습니다.
 
-![Storage, Event Hubs 또는 Log Analytics에 대한 진단 로깅](./media/analysis-services-logging/aas-logging-overview.png)
+![Storage, Event Hubs 또는 Azure Monitor 로그에 진단 로깅](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>다음이 로깅됩니다.
@@ -82,7 +82,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
     * **저장소 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 저장소 계정이 필요합니다. [저장소 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 저장소 계정을 선택합니다. 새로 만든 저장소 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
     * **이벤트 허브로 스트림**. 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. 자세한 내용은 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
-    * **Log Analytics에 보내기**. 이 옵션을 사용하려면 기존 작업 영역을 사용하거나 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) 단계를 따라 새 Log Analytics 작업 영역을 만듭니다. Log Analytics에서 로그를 보는 방법에 대한 자세한 내용은 이 문서의 [Log Analytics에서 로그 보기](#view-logs-in-log-analytics)를 참조하세요.
+    * **Azure Monitor(Log Analytics 작업 영역)로 보내기**. 이 옵션을 사용하려면 기존 작업 영역을 사용하거나, 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md) 리소스를 사용합니다. 로그를 보는 방법에 대한 자세한 내용은 이 문서의 [Log Analytics 작업 영역에서 로그 보기](#view-logs-in-log-analytics)를 참조하세요.
 
     * **엔진**. xEvents를 기록하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
     * **서비스**. 서비스 수준 이벤트를 기록하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
@@ -150,47 +150,43 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 * 더 이상 저장소 계정에 유지하지 않으려는 로그를 삭제합니다.
 * 이전 로그가 저장소 계정에서 삭제되도록 보존 기간을 설정해야 합니다.
 
-## <a name="view-logs-in-log-analytics"></a>Log Analytics에서 로그 보기
+## <a name="view-logs-in-log-analytics-workspace"></a>Log Analytics 작업 영역에서 로그 보기
 
-메트릭 및 서버 이벤트는 병렬 분석을 위해 Log Analytics에서 xEvents와 통합됩니다. 아키텍처에서 진단 로깅 데이터에 대한 전체적인 뷰를 제공하는 다른 Azure 서비스에서 이벤트를 수신하도록 Log Analytics를 구성할 수도 있습니다.
+메트릭 및 서버 이벤트는 병렬 분석을 위해 Log Analytics 작업 영역 리소스의 xEvents와 통합됩니다. 다른 Azure 서비스에서 이벤트를 수신하여 아키텍처의 진단 로깅 데이터를 전체적으로 표시하도록 Log Analytics 작업 영역을 구성할 수도 있습니다.
 
-Log Analytics에서 진단 데이터를 보려면 아래에 표시된 대로 왼쪽 메뉴의 로그 검색 페이지 또는 관리 영역을 엽니다.
+진단 데이터를 보려면 Log Analytics 작업 영역의 왼쪽 메뉴에서 **로그**를 엽니다.
 
 ![Azure Portal에서 로그 검색 옵션](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-데이터 컬렉션을 사용했으므로 **로그 검색**에서 **수집된 모든 데이터**를 클릭합니다.
+쿼리 작성기에서 **LogManagement** > **AzureDiagnostics**를 확장합니다. AzureDiagnostics에는 엔진 및 서비스 이벤트가 포함됩니다. 쿼리는 즉석에서 생성됩니다. EventClass\_의 필드에는 xEvent 이름이 포함됩니다. 온-프레미스 로깅에 xEvents를 사용한 경우 익숙해 보일 수 있습니다. **EventClass\_s** 또는 이벤트 이름 중 하나를 클릭하면 Log Analytics 작업 영역이 계속 쿼리를 생성합니다. 나중에 다시 사용하도록 쿼리를 저장해야 합니다.
 
-**형식**에서 **AzureDiagnostics**를 클릭하고 **적용**을 클릭합니다. AzureDiagnostics에는 엔진 및 서비스 이벤트가 포함됩니다. Log Analytics 쿼리는 즉석에서 생성됩니다. EventClass\_의 필드에는 xEvent 이름이 포함됩니다. 온-프레미스 로깅에 xEvents를 사용한 경우 익숙해 보일 수 있습니다.
+### <a name="example-query"></a>예제 쿼리
+이 쿼리는 model 데이터베이스 및 서버에 대한 각 쿼리 종료/새로 고침 종료 이벤트의 CPU를 계산하고 반환합니다.
 
-**EventClass\_s** 또는 이벤트 이름 중 하나를 클릭하면 Log Analytics가 계속 쿼리를 구성합니다. 나중에 다시 사용하도록 쿼리를 저장해야 합니다.
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+window
+| where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
+| where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
+| extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
+| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
+| join kind=leftouter (
+window
+    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
+    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
+    ) on RootActivityId_g
+| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
 
-Log Analytics를 확인하세요. 여기에서는 수집된 데이터에 대한 향상된 쿼리, 대시보드 및 경고 기능이 포함된 웹 사이트를 제공합니다.
-
-### <a name="queries"></a>쿼리
-
-수백 개의 쿼리를 사용할 수 있습니다. 시작하기 위한 몇 가지 지침은 다음과 같습니다.
-새 로그 검색 쿼리 언어를 사용하는 방법에 대한 자세한 내용은 [Log Analytics에서 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md)를 참조하세요. 
-
-* 쿼리는 완료되는데 5분(300,000밀리초) 넘게 걸린 Azure Analysis Services에 제출된 쿼리를 반환합니다.
-
-    ```
-    search * | where ( Type == "AzureDiagnostics" ) | where ( EventClass_s == "QUERY_END" ) | where toint(Duration_s) > 300000
-    ```
-
-* 규모 확장 복제본을 식별합니다.
-
-    ```
-    search * | summarize count() by ServerName_s
-    ```
-    규모 확장을 사용하는 경우 ServerName\_의 필드 값이 이름에 추가된 복제본 인스턴스 수를 포함하기 때문에 읽기 전용 복제본을 식별할 수 있습니다. 자원 필드에는 Azure 리소스 이름이 포함됩니다. 이것은 사용자에게 표시되는 서버 이름과 일치합니다. 복제본의 경우 IsQueryScaleoutReadonlyInstance_s 필드는 true와 같습니다.
+```
 
 
-
-> [!TIP]
-> 공유하려는 Log Analytics 쿼리가 있으십니까? GitHub 계정이 있는 경우 이 문서에 추가할 수 있습니다. 이 페이지의 상단 오른쪽에서 **편집**을 클릭하기만 하면 됩니다.
+수백 개의 쿼리를 사용할 수 있습니다. 쿼리에 대한 자세한 내용은 [Azure Monitor 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)을 참조하세요.
 
 
-## <a name="tutorial---turn-on-logging-by-using-powershell"></a>자습서 - PowerShell을 사용하여 로깅 켜기
+## <a name="turn-on-logging-by-using-powershell"></a>PowerShell을 사용하여 로깅 켜기
+
 이 빠른 자습서에서는 Analysis Service 서버와 동일한 구독 및 리소스 그룹에서 저장소 계정을 만듭니다. 그러면 Set-AzureRmDiagnosticSetting을 사용하여 진단 로깅을 설정하고, 출력을 새 저장소 계정에 전송합니다.
 
 ### <a name="prerequisites"></a>필수 조건
@@ -227,7 +223,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 
 ### <a name="create-a-new-storage-account-for-your-logs"></a>로그에 대한 새 저장소 계정 만들기
 
-서버와 동일한 구독에서 제공되는 로그에 기존 저장소 계정을 사용할 수 있습니다. 이 자습서의 경우 Analysis Services 로그에 전용인 새 저장소 계정을 만듭니다. 편의를 위해 저장소 계정 세부 정보를 **sa**라는 변수에 저장합니다.
+서버와 동일한 구독에서 제공되는 로그에 기존 저장소 계정을 사용할 수 있습니다. 이 자습서의 경우 Analysis Services 로그에 전용인 새 스토리지 계정을 만듭니다. 편의를 위해 저장소 계정 세부 정보를 **sa**라는 변수에 저장합니다.
 
 또한 Analysis Services 서버를 포함하는 것과 동일한 리소스 그룹을 사용합니다. 또한 `awsales_resgroup`, `awsaleslogs` 및 `West Central US`의 값을 고유한 값으로 바꿉니다.
 
@@ -253,7 +249,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
-출력은 다음과 비슷합니다.
+출력은 다음 예제와 비슷합니다.
 
 ```powershell
 StorageAccountId            : 
@@ -292,7 +288,7 @@ Location                    :
 Tags                        :
 ```
 
-저장소 계정에 정보를 저장하는 서버에 로깅을 사용할 수 있는지 확인합니다.
+이 출력은 이제 서버에 대한 로깅을 사용할 수 있으며 스토리지 계정에 정보가 저장됨을 확인합니다.
 
 이전 로그를 자동으로 삭제하도록 로그에 대한 보존 정책을 설정할 수도 있습니다. 예를 들어 **-RetentionEnabled** 플래그를 사용하는 보존 정책을 **$true**로 설정하고 **-RetentionInDays** 매개 변수를 **90**으로 설정합니다. 90일보다 오래된 로그는 자동으로 삭제됩니다.
 

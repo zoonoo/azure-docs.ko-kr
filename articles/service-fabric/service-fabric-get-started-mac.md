@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 6bcf096bd51990cf280784deceac19eea05d32b4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4dac40e9fad8361c0e6c8a8758028743f2506f56
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977131"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428094"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -53,14 +53,14 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    이러한 설정은 Docker 설치 경로의 daemon.json 파일에서 직접 업데이트할 수 있습니다.
+    이러한 설정은 Docker 설치 경로의 daemon.json 파일에서 직접 업데이트할 수 있습니다. Docker에서 디먼 구성 설정을 직접 수정할 수 있습니다. **Docker 아이콘**을 선택한 다음 **기본 설정** > **디먼** > **고급**을 선택합니다.
     
     >[!NOTE]
     >
-    >daemon.json 파일의 위치는 컴퓨터마다 다를 수 있습니다. 예: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >daemon.json 파일의 위치가 머신마다 다를 수 있기 때문에 Docker에서 직접 디먼을 수정하는 것이 좋습니다. 예: ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
-    >권장되는 방식은 디먼 구성 설정을 Docker에서 직접 수정하는 것입니다. **Docker 아이콘**을 선택한 다음 **기본 설정** > **디먼** > **고급**을 선택합니다.
-    >
+
+    >[!TIP]
     >대규모 애플리케이션을 테스트할 때에는 Docker에 할당된 리소스를 늘리는 것이 좋습니다. 이렇게 하려면 **Docker 아이콘**을 선택한 다음, **고급**을 선택하여 코어 및 메모리 수를 조정합니다.
 
 2. 새 디렉터리에서 Service Fabric 이미지를 빌드할 `Dockerfile` 파일을 만듭니다.
@@ -110,7 +110,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. 잠시 후 클러스터가 시작되면, 다음 명령을 사용하여 로그를 보거나 대시보드로 이동하여 클러스터 상태([http://localhost:19080](http://localhost:19080))를 볼 수 있습니다.
+5. 클러스터를 시작하는 데 시간이 걸립니다. 클러스터가 실행되면 다음 명령을 사용하여 로그를 보거나, 대시보드로 이동하여 클러스터 상태([http://localhost:19080](http://localhost:19080))를 볼 수 있습니다.
 
     ```bash 
     docker logs sftestcluster
@@ -118,7 +118,7 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
 
 
 
-6. 작업을 모두 마쳤으면 이 명령을 사용하여 컨테이너를 중지하고 정리합니다.
+6. 컨테이너를 중지하고 정리하려면 다음 명령을 사용합니다. 그러나 여기서는 다음 단계에서 이 컨테이너를 사용합니다.
 
     ```bash 
     docker rm -f sftestcluster
@@ -173,6 +173,9 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
     brew cask install java
     brew install gradle
     ```
+
+    >[!TIP]
+    > 올바른 JDK 버전이 설치되어 있는지 확인해야 합니다. 
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>터미널에서 Mac에 애플리케이션 배포
 

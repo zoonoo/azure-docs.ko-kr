@@ -428,6 +428,8 @@ items:
       href: vmware-azure-troubleshoot-failback-reprotect.md
     - name: Microsoft Azure Site Recovery 공급 기업 업그레이드 오류 문제 해결
       href: vmware-azure-troubleshoot-upgrade-failures.md
+    - name: vCenter 검색 실패 문제 해결
+      href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
   - name: Hyper-V
     items:
     - name: Hyper-V 복제 문제 해결
@@ -462,9 +464,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 49cdd301f87db09e4950339e1925ac313a8cdd33
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 04547a737cc05b3f1049d76e536366e608ee665a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454789"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866439"

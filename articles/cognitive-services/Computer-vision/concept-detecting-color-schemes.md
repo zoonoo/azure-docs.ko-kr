@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0793f572e043248af409e65cca4fd854f1371900
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880886"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313078"
 ---
 # <a name="detect-color-schemes-in-images"></a>이미지에서 색 구성표 검색
 
-Computer Vision은 이미지에서 색을 추출합니다. 색은 주조 전경색, 주조 배경색 및 전체 이미지의 주조색이라는 세 가지 컨텍스트에서 분석됩니다. 색은 12가지 기준 강조색으로 그룹화됩니다. 해당 강조색은 검정, 파랑, 갈색, 회색, 초록, 주황, 분홍, 자주, 청록, 흰색 및 노랑입니다. Computer Vision은 이미지에서 추출된 색을 분석하여 주조색 및 채도의 조합을 통해 시청자에게 이미지에 대한 가장 활발한 색을 나타내는 강조색을 반환합니다. 이미지의 색에 따라 단순한 흑백 또는 강조색이 16진수 색 코드로 반환될 수 있습니다. 또한 Computer Vision은 이미지가 흑백인지 여부를 나타내는 부울 값을 반환합니다.
+Computer Vision은 이미지의 색을 분석하여 세 가지 특성(주조 전경색, 주조 배경색 및 전체 이미지의 주조색 세트)을 제공합니다. 반환되는 색은 검정, 파랑, 갈색, 회색, 초록, 주황, 분홍, 자주, 청록, 흰색 및 노랑 세트에 속합니다. 
+
+Computer Vision은 주조색과 채도의 조합을 기반으로 하여 이미지에서 가장 선명한 색을 나타내는 강조 색도 추출합니다. 강조 색은 16진수 HTML 색 코드로 반환됩니다. 
+
+또한 Computer Vision은 이미지가 흑백인지 여부를 나타내는 부울 값을 반환합니다.
 
 ## <a name="color-scheme-detection-examples"></a>색 구성표 검색 예제
 
-다음 예제에서는 예제 이미지의 색 구성표를 검색할 때 Computer Vision에서 반환된 JSON 응답을 보여줍니다. 이 경우에 예제 이미지는 흑백 이미지가 아니지만 기조 전경색 및 배경색이 검은색이고 전체 이미지에 대한 주조색이 검은색 및 흰색입니다.
+다음 예제에서는 예제 이미지의 색 구성표를 검색할 때 Computer Vision에서 반환된 JSON 응답을 보여줍니다. 이 경우 예제 이미지는 흑백 이미지가 아니라 기조 전경색 및 배경색이 검은색이고 전체 이미지의 주조색이 검은색과 흰색입니다.
 
 ![옥외 산](./Images/mountain_vista.png)
 
@@ -48,7 +52,7 @@ Computer Vision은 이미지에서 색을 추출합니다. 색은 주조 전경�
 
 ### <a name="dominant-color-examples"></a>주조색 예제
 
-다음 표에서는 Computer Vision에서 반환된 각 예제 이미지에 대한 주조 전경색, 배경색 및 이미지 색에 대해 설명합니다.
+다음 표에서는 각 샘플 이미지에 대해 반환되는 전경색, 배경색 및 이미지 색을 보여 줍니다.
 
 | 이미지 | 주조색 |
 |-------|-----------------|
@@ -57,7 +61,7 @@ Computer Vision은 이미지에서 색을 추출합니다. 색은 주조 전경�
 
 ### <a name="accent-color-examples"></a>강조색 예제
 
- 다음 표에서는 Computer Vision에서 반환된 각 예제 이미지에 대한 강조색을 16진수 HTML 색상 값으로 설명합니다.
+ 다음 표에서는 각 예제 이미지에 대해 반환되는 강조 색을 16진수 HTML 색 값으로 보여 줍니다.
 
 | 이미지 | 강조 색 |
 |-------|--------------|
@@ -67,7 +71,7 @@ Computer Vision은 이미지에서 색을 추출합니다. 색은 주조 전경�
 
 ### <a name="black--white-detection-examples"></a>흑백 검색 예제
 
-다음 표에서는 Computer Vision에서 반환한 대로 각 예제 이미지가 흑백인지를 나타냅니다.
+다음 표에서는 샘플 이미지의 검은색과 흰색에 대한 Computer Vision의 평가를 보여 줍니다.
 
 | 이미지 | 흑백? |
 |-------|----------------|

@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1967ba60088cae2b946cfcfe1467c2de5aebccdf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879954"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308862"
 ---
-# <a name="image-categorization-with-computer-vision"></a>Computer Vision을 사용하여 이미지 범주화
+# <a name="categorize-images"></a>이미지 분류
 
-Computer Vision은 태그 지정 및 설명 외에도 이전 버전에서 정의된 분류 기반 범주를 반환합니다. 이러한 범주는 부모/자식 계층 구조를 가진 분류로 구성되어 있습니다. 모든 범주는 영어로 표시됩니다. 범주는 단독으로 사용하거나 새 태그 지정 모델에서 사용할 수 있습니다.
+Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 분류 기반 범주를 반환합니다. 태그와 달리, 범주는 부모/자식 계층으로 구성되고 개수가 더 적습니다(태그는 수천 개인 반면 86개). 모든 범주 이름은 영어입니다. 범주는 단독으로 또는 최신 태그 모델과 함께 수행될 수 있습니다.
 
 ## <a name="the-86-category-concept"></a>86개 범주 개념
 
-다음 다이어그램에 표시된 86개 개념 목록에 따라 이미지는 대분류에서 소분류로 분류될 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
+Computer Vision은 다음 다이어그램에 나온 86개 범주 목록을 사용하여 이미지를 광범위하게 또는 구체적으로 범주화할 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
 
 ![범주 분류에 있는 모든 범주의 그룹화된 목록](./Images/analyze_categories-v2.png)
 

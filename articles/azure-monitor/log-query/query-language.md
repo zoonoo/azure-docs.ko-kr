@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: f2c4939436db5ae4c862cb311cc66a162ac716e3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 01d452f97134093e9b40b6ec32f1c9fed41564aa
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989256"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343054"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리
-Azure Monitor 로그는 Azure Data Explorer에서 빌드되고, Azure Monitor 로그 쿼리는 동일한 쿼리 언어의 한 버전을 사용합니다. [Azure Data Explorer 쿼리 언어 문서](/azure/kusto/query)에는 언어에 대한 모든 세부 정보가 나와 있으며, Azure Monitor 로그 쿼리 작성을 위한 주요 리소스로 참조해야 합니다. 이 페이지에는 쿼리를 작성하는 방법 및 Azure Monitor 언어 구현과의 차이점을 알아보기 위한 다른 리소스의 링크가 나와 있습니다.
+Azure Monitor 로그는 Azure Data Explorer에서 빌드되고, Azure Monitor 로그 쿼리는 동일한 Kusto 쿼리 언어의 한 버전을 사용합니다. [Kusto 쿼리 언어 문서](/azure/kusto/query)에는 언어에 대한 모든 세부 정보가 나와 있으며, Azure Monitor 로그 쿼리 작성을 위한 주요 리소스로 참조해야 합니다. 이 페이지에는 쿼리를 작성하는 방법 및 Azure Monitor 언어 구현과의 차이점을 알아보기 위한 다른 리소스의 링크가 나와 있습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -36,8 +36,8 @@ Azure Monitor 로그는 Azure Data Explorer에서 빌드되고, Azure Monitor �
 
 ## <a name="reference"></a>참고 자료
 
-- [쿼리 언어 참조](/azure/kusto/query)는 Data Explorer 쿼리 언어에 대한 전체 언어 참조입니다.
-- [Azure Monitor 로그 쿼리 언어 차이](data-explorer-difference.md)에서는 Data Explorer 쿼리 언어 버전 간의 차이점을 설명합니다.
+- [쿼리 언어 참조](/azure/kusto/query)는 Kusto 쿼리 언어에 대한 전체 언어 참조입니다.
+- [Azure Monitor 로그 쿼리 언어 차이](data-explorer-difference.md)에서는 Kusto 쿼리 언어 버전 간의 차이점을 설명합니다.
 - [Azure Monitor 로그 레코드의 표준 속성](../../azure-monitor/platform/log-standard-properties.md)에서는 모든 Azure Monitor 로그 데이터의 표준이 되는 속성을 설명합니다.
 - [Azure Monitor에서 리소스 간 로그 쿼리 수행](../../azure-monitor/log-query/cross-workspace-query.md)에서는 여러 Log Analytics 작업 영역 및 Application Insights 애플리케이션의 데이터를 사용하는 로그 쿼리를 작성하는 방법을 설명합니다.
 
@@ -65,4 +65,4 @@ Azure Monitor 로그는 Azure Data Explorer에서 빌드되고, Azure Monitor �
  
 ## <a name="next-steps"></a>다음 단계
 
-- [Data Explorer 쿼리 언어에 대한 전체 참조 설명서](/azure/kusto/query/)에 액세스합니다.
+- [Kusto 쿼리 언어에 대한 전체 참조 문서](/azure/kusto/query/)에 액세스합니다.

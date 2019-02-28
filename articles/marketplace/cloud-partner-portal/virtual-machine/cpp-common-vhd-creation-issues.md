@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 535a947f7a4b9c750d585ce854a14be80c4a135c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639400"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327309"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>일반적인 VHD 만들기 문제(FAQ)
 
@@ -27,7 +27,7 @@ ms.locfileid: "49639400"
 
 ## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Premium Storage에 업로드된 VHD를 사용하여 Azure Portal에서 VM을 만들려면 어떻게 해야 하나요?
 
-현재 Azure Marketplace는 관리되는 스토리지 또는 Azure Premium Storage에 있는 이미지에서 VM 제안을 만들도록 지원하지 않습니다.  이러한 스토리지 계정 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) 및 [VM의 고성능 Premium Storage 및 관리 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 참조하세요.
+현재 Azure Marketplace는 관리되는 스토리지 또는 Azure Premium Storage에 있는 이미지에서 VM 제안을 만들도록 지원하지 않습니다.  이러한 스토리지 옵션에 대한 자세한 내용은 [Azure Managed Disks 개요](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)를 참조하세요.
 
 
 ## <a name="can-you-use-generation-2-vms-for-offers"></a>2세대 VM은 제안에 사용할 수 있나요?
@@ -73,7 +73,7 @@ Azure Resource Manager 배포 모델을 사용하는 경우 VPN을 설정하는 
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>VM에서 시작 작업에 있는 사용자 지정 스크립트 확장을 어떻게 관리하나요?
 
-[Windows용 사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/) 문서에서 Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템의 문제 해결 단계에 대해 자세히 설명하고 있습니다.
+다음 문서에서는 Azure PowerShell 모듈, Azure Resource Manager 템플릿을 사용하여 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템의 자세한 문제 해결 단계를 설명합니다. [Windows용 사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Azure Marketplace에서 32비트 애플리케이션 또는 서비스가 지원되나요?

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: d6065420b9081333fc257501ace868f64220ca63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dafafa8ff5d721034b3b10bdeb1a2fc09cd32835
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005253"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267583"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk-Azure Monitor 로그 쿼리
 
-이 문서는 Splunk에 익숙한 사용자가 Azure Monitor에서 로그 쿼리를 작성하기 위한 Data Explorer 쿼리 언어를 알아보는 데 도움이 됩니다. 주요 차이점을 이해하기 위해 이 둘을 직접 비교하고, 기존 지식을 활용할 수 있는 유사점도 파악합니다.
+이 문서는 Splunk에 익숙한 사용자가 Azure Monitor에서 로그 쿼리를 작성하기 위한 Kusto 쿼리 언어를 알아보는 데 도움이 됩니다. 주요 차이점을 이해하기 위해 이 둘을 직접 비교하고, 기존 지식을 활용할 수 있는 유사점도 파악합니다.
 
 ## <a name="structure-and-concepts"></a>구조 및 개념
 

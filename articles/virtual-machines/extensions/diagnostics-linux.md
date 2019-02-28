@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387049"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313537"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -127,7 +127,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 }
 ```
 
-이름 | 값
+Name | 값
 ---- | -----
 storageAccountName | 확장에 의해 데이터가 기록될 저장소 계정의 이름입니다.
 storageAccountEndPoint | (선택 사항) 저장소 계정이 있는 클라우드를 식별하는 엔드포인트입니다. 이 설정이 없는 경우 LAD는 Azure 공용 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 저장소 계정을 사용하려면 이 값을 적절하게 설정합니다.
@@ -316,7 +316,7 @@ sinks | (선택 사항) LAD가 집계된 메트릭 결과를 보내는 쉼표로
 class | "counter"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counter | "class"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counterSpecifier | Azure Metrics 네임스페이스 내에서 특정 메트릭을 식별합니다.
-condition | (선택 사항) 메트릭이 적용되는 개체의 특정 인스턴스를 선택하거나 해당 개체의 모든 인스턴스에서 집계를 선택합니다. 자세한 내용은 [`builtin` 메트릭 정의](#metrics-supported-by-builtin)를 참조하세요.
+condition | (선택 사항) 메트릭이 적용되는 개체의 특정 인스턴스를 선택하거나 해당 개체의 모든 인스턴스에서 집계를 선택합니다. 자세한 내용은 `builtin` 메트릭 정의를 참조하세요.
 sampleRate | 이 메트릭의 원시 샘플이 수집되는 속도를 설정하는 IS 8601 간격입니다. 설정하지 않은 경우 컬렉션 간격은 [sampleRateInSeconds](#ladcfg) 값으로 설정됩니다. 지원되는 최소 샘플 속도는 15초(PT15S)입니다.
 단위 | 문자열 "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond" 중 하나여야 합니다. 메트릭에 대한 단위를 정의합니다. 수집된 데이터의 소비자는 수집된 데이터 값이 이 단위와 일치할 것으로 예상합니다. LAD는 이 필드를 무시합니다.
 displayName | Azure Metrics에서 이 데이터에 연결되는 레이블(연결된 로캘 설정에서 지정된 언어)입니다. LAD는 이 필드를 무시합니다.

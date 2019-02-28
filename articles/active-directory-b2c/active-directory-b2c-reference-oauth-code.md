@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C에서 인증 코드 흐름 | Microsoft Docs
+title: 인증 코드 흐름 - Azure Active Directory B2C | Microsoft Docs
 description: Azure AD B2C 및 OpenID Connect 인증 프로토콜을 사용하여 웹앱 빌드 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
@@ -7,17 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f1f372cd8fc5ea1e64fbe195fd15790cd0535347
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4ee67f07965036a71151d7b6a5092b9a76d94999
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164030"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428689"
 ---
-# <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0 인증 코드 흐름
+# <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 OAuth 2.0 인증 코드 흐름
+
 디바이스에 설치된 앱에서 OAuth 2.0 인증 코드 권한 부여를 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. OAuth 2.0의 Azure AD B2C(Azure Active Directory B2C) 구현을 사용하면 모바일 및 데스크톱 앱에 등록, 로그인 및 기타 ID 관리 작업을 추가할 수 있습니다. 이 문서는 언어 독립적입니다. 이 문서에서는 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
 
 OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools.ietf.org/html/rfc6749)에서 설명합니다. 웹 애플리케이션 및 기본적으로 설치된 애플리케이션을 포함하여 대부분의 [애플리케이션 형식](active-directory-b2c-apps.md)에서 인증 및 권한 부여에 사용할 수 있습니다. OAuth 2.0 인증 코드 흐름을 사용하여 [권한 부여 서버](active-directory-b2c-reference-protocols.md)를 통해 보호되는 리소스에 액세스하는 데 사용할 수 있는 애플리케이션에 대한 액세스 토큰 및 새로 고침 토큰을 안전하게 획득할 수 있습니다.  새로 고침 토큰을 사용하면 일반적으로 1시간 후 액세스 토큰이 만료되면 클라이언트가 새 액세스(및 새로 고침) 토큰을 획득할 수 있습니다.
@@ -27,7 +28,7 @@ OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](https://tools
 > [!NOTE]
 > Azure AD B2C를 사용하여 ID 관리를 웹앱에 추가하려면 OAuth 2.0 대신 [OpenID Connect](active-directory-b2c-reference-oidc.md)를 사용합니다.
 
-Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OAuth 2.0의 흐름을 확장합니다. Azure AD B2C는 [사용자 흐름 매개 변수](active-directory-b2c-reference-policies.md)를 도입했습니다. 사용자 흐름을 사용하면 OAuth 2.0을 통해 가입, 로그인 및 프로필 관리와 같은 사용자 환경을 애플리케이션에 추가할 수 있습니다. 이 문서에서는 OAuth 2.0 및 사용자 흐름을 사용하여 네이티브 애플리케이션에서 이러한 환경을 각각 구현하는 방법을 설명합니다. 또한 Web API에 액세스하기 위한 액세스 토큰을 얻는 방법을 보여 줍니다.
+Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OAuth 2.0의 흐름을 확장합니다. Azure AD B2C는 [사용자 흐름 매개 변수](active-directory-b2c-reference-policies.md)를 도입했습니다. 사용자 흐름을 사용하면 OAuth 2.0을 통해 가입, 로그인 및 프로필 관리와 같은 사용자 환경을 애플리케이션에 추가할 수 있습니다. OAuth 2.0 프로토콜을 사용하는 ID 공급자에는 [Amazon](active-directory-b2c-setup-amzn-app.md), [Azure Active Directory](active-directory-b2c-setup-oidc-azure-active-directory.md), [Facebook](active-directory-b2c-setup-fb-app.md), [GitHub](active-directory-b2c-setup-github-app.md), [Google](active-directory-b2c-setup-goog-app.md) 및 [LinkedIn](active-directory-b2c-setup-li-app.md)이 포함됩니다.
 
 이 문서의 예제 HTTP 요청에서는 샘플 Azure AD B2C 디렉터리인 **fabrikamb2c.onmicrosoft.com**을 사용합니다. 또한 애플리케이션 예제 및 사용자 흐름도 사용합니다. 이러한 값을 사용하여 요청을 직접 시도하거나 사용자 고유의 값으로 바꿀 수 있습니다.
 [사용자 고유의 Azure AD B2C 디렉터리, 애플리케이션 및 사용자 흐름을 가져오는](#use-your-own-azure-ad-b2c-directory) 방법을 알아보세요.

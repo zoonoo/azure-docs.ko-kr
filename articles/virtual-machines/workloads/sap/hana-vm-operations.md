@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c85d405502890253bcdb80c652ed53f58546de9c
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 32c326ff7bef98f9d8f4f20664889109d291a6ea
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747053"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328846"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -68,10 +68,10 @@ VPN 또는 ExpressRoute를 통한 사이트 간 연결은 프로덕션 시나리
 [SAP 클라우드 플랫폼](https://cal.sap.com/)을 통해 Azure VM 서비스에 전체 설치된 SAP HANA 플랫폼을 배포할 수도 있습니다. 설치 프로세스는 [Azure에서 SAP S/4HANA 또는 BW/4HANA 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) 또는 [여기](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)에서 릴리스된 자동화로 설명되어 있습니다.
 
 ### <a name="choose-azure-storage-type"></a>Azure Storage 유형 선택
-Azure에서는 SAP HANA를 실행하는 Azure VM에 적합한 두 가지 저장소 유형을 제공합니다.
+Azure에서는 SAP HANA를 실행하는 Azure VM에 적합한 두 가지 저장소 유형을 제공합니다. 두 스토리지 유형은 표준 HDD(하드 디스크 드라이브) 및 프리미엄 SSD(반도체 드라이브)입니다. 이러한 디스크 유형에 대한 자세한 내용은 [디스크 유형 선택](../../windows/disks-types.md) 문서를 참조하세요.
 
-- [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- 표준 HDD(하드 디스크 드라이브)
+- 프리미엄 SSD(반도체 드라이브)
 
 Azure는 Azure Standard 및 Premium Storage에서 VHD를 위한 두 가지 배포 방법을 제공합니다. 전반적인 시나리오에서 가능하다면 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) 배포를 활용하세요.
 
@@ -408,7 +408,7 @@ DT 2.0 모범 사례 지침에 따라 디스크 IO 처리량은 물리적 코어
 
 DT 2.0 VM에 여러 Azure 디스크를 연결하고 OS 수준에서 소프트웨어 RAID(스트라이핑)를 만들어 VM당 최대 디스크 처리량 한도를 달성해야 합니다. 이와 관련하여 단일 Azure 디스크는 최대 VM 한도에 도달하는 처리량을 제공할 수 없습니다. DT 2.0을 실행하려면 Azure Premium Storage가 필수적입니다. 
 
-- 사용 가능한 Azure 디스크 유형에 대한 자세한 내용은 [여기서](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) 찾을 수 있습니다.
+- 사용 가능한 Azure 디스크 유형에 대한 자세한 내용은 [여기서](../../windows/disks-types.md) 찾을 수 있습니다.
 - mdadm을 통해 소프트웨어 RAID를 만드는 방법에 대한 자세한 내용은 [여기서](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid) 찾을 수 있습니다.
 - 최대 처리량에 적합한 스트라이프 볼륨을 만들도록 LVM을 구성하는 방법에 대한 자세한 내용은 [여기서](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm) 찾을 수 있습니다.
 

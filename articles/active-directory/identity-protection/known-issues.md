@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd894b214366302af4651b5944e250086be14beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183839"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339026"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Azure Active Directory의 갱신된 ID 보호 기능 관련 FAQ 및 알려진 문제에 대해 설명합니다.
 
@@ -33,6 +33,8 @@ ms.locfileid: "56183839"
 
 
 갱신된 ID 보호의 **사용자 위험 해제** 기능은 갱신된 ID 보호의 사용자 위험 기록에 포함된 행위자를 **\<사용자 블레이드를 가리키는 하이퍼링크가 적용된 관리자 이름\>** 으로 설정합니다.
+
+사용자 위험 해제 흐름에서 대기 시간을 일으키는 현재 알려진 문제가 있습니다. “사용자 위험 정책”이 있는 경우 “사용자 위험 해제”를 클릭하면 몇 분 이내에 해제된 사용자에게 정책 적용이 중지됩니다. 그러나 해제된 사용자의 “위험 상태”를 새로 고치는 UX에서 알려진 지연이 있습니다. 해결 방법으로, 브라우저 수준에서 페이지를 새로 고쳐 최신 사용자 “위험 상태”를 확인합니다.
 
 
 ## <a name="risky-users-report"></a>위험한 사용자 보고서

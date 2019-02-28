@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 6b39d01266cdde0316d1a660429d5ccab546dac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873634"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445460"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Custom Vision을 사용하여 분류자를 빌드하는 방법
 
@@ -23,26 +23,28 @@ ms.locfileid: "55873634"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 유효한 [Microsoft 계정](https://account.microsoft.com/account) 또는 AAD(Azure Active Directory) 계정("회사 또는 학교 계정")
-
-    > [!IMPORTANT] 
-    > [Microsoft 국가별 클라우드](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud)의 AAD 사용자용 로그인은 현재 지원되지 않습니다.
+- 유효한 Azure 구독. 평가판 [계정을 만들 수 있습니다](https://azure.microsoft.com/free/).
 - 분류자를 학습시키는 데 사용할 이미지 세트. 이미지 선택 팁은 아래 설명을 참조하세요.
-- 선택 사항: Microsoft 계정 또는 AAD 계정과 연결된 Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있습니다. Azure 구독이 없으면 __제한된 평가판__ 프로젝트 2개만 만들 수 있습니다.
+
+
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure Portal에서 Custom Vision 리소스 만들기
+Custom Vision 서비스를 사용하려면 [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)에서 Custom Vision 학습 및 예측 리소스를 만들어야 합니다. 이렇게 하면 학습 및 예측 리소스가 둘 다 생성됩니다. 
 
 ## <a name="create-a-new-project"></a>새 프로젝트 만들기
 
-웹 브라우저에서 [Custom Vision 웹 페이지](https://customvision.ai)로 이동하여 __로그인__을 선택합니다.
+웹 브라우저에서 [Custom Vision 웹 페이지](https://customvision.ai)로 이동하여 __로그인__을 선택합니다. Azure Portal에 로그인하는 데 사용한 계정과 동일한 계정으로 로그인합니다.
 
 ![로그인 페이지 이미지](./media/browser-home.png)
 
-Azure 계정이 있는 경우 프로젝트를 만드는 동안 [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision)에서 Custom Vision Service 학습 및 예측 리소스를 만들라는 메시지가 표시됩니다.
 
 1. 첫 번째 프로젝트를 만들려면 **새 프로젝트**를 선택합니다. **새 프로젝트 만들기** 대화 상자가 표시됩니다.
 
     ![새 프로젝트 대화 상자에는 이름, 설명 및 도메인 필드가 있습니다.](./media/getting-started-build-a-classifier/new-project.png)
 
-1. 프로젝트에 대한 이름과 설명을 입력합니다. 그런 다음 리소스 그룹을 선택합니다. 로그인한 계정이 Azure 계정과 연결되어 있으면 리소스 그룹 드롭다운에는 Custom Vision Service 리소스를 포함하는 모든 Azure 리소스 그룹이 표시됩니다. 두 경우 모두 이 드롭다운에서 __제한된 평가판__을 선택할 수도 있습니다.
+1. 프로젝트에 대한 이름과 설명을 입력합니다. 그런 다음 리소스 그룹을 선택합니다. 로그인한 계정이 Azure 계정과 연결되어 있으면 리소스 그룹 드롭다운에는 Custom Vision Service 리소스를 포함하는 모든 Azure 리소스 그룹이 표시됩니다. 
+
+> [!NOTE]
+> 사용 가능한 리소스 그룹이 없는 경우 [Azure Portal](https://portal.azure.com/)에 로그인하는 데 사용한 계정과 동일한 계정으로 [customvision.ai](https://customvision.ai)에 로그인했는지 확인합니다. 또한 Custom Vision 리소스가 있는 Azure Portal의 디렉터리와 동일한 “디렉터리”를 Custom Vision 포털에서 선택했는지 확인합니다. 두 사이트 모두, 화면 오른쪽 위에 있는 드롭다운 계정 메뉴에서 디렉터리를 선택할 수 있습니다. 
 
 1. __프로젝트 형식__ 아래에서 __분류__를 선택합니다. 그런 다음 __분류 유형__ 아래에서 사용 사례에 따라 **다중 레이블** 또는 **다중 클래스**를 선택합니다. 다중 레이블 분류에서는 0개 이상의 태그가 이미지에 적용되는 반면 다중 클래스 분류에서는 이미지가 단일 범주로 정렬됩니다. 즉, 제출하는 모든 이미지가 가장 적합한 태그로 정렬됩니다. 원하는 경우 나중에 분류 유형을 변경할 수 있습니다.
 
@@ -95,6 +97,11 @@ Azure 계정이 있는 경우 프로젝트를 만드는 동안 [Azure Portal](ht
     ![진행 표시줄에 완료된 작업이 모두 표시됩니다.](./media/getting-started-build-a-classifier/add-images04.png)
 
 다른 이미지 세트를 업로드하려면 이 섹션의 맨 위로 돌아가서 해당 단계를 반복합니다. 프로젝트에서 일정 시점이 되면 분류자의 정확도를 높이기 위해 _부정 샘플_을 추가해야 할 수도 있습니다. 부정 샘플은 다른 어떤 태그와도 일치하지 않는 샘플입니다. 이러한 이미지를 업로드할 때는 특수 **부정** 레이블을 적용합니다.
+
+> [!NOTE]
+> Custom Vision Service는 몇 가지 자동 음화 이미지 처리를 지원합니다. 예를 들어 사과와 바나나 분류자를 빌드 중이며 예측을 위해 신발 이미지를 제출하는 경우, 분류자는 해당 이미지의 점수를 사과와 바나나 둘 다에 대해 0%에 가깝게 지정해야 합니다.
+
+> 반면에 부정 이미지가 학습에 사용된 이미지 변형에 불과한 경우, 모델이 뛰어난 유사성 때문에 부정 이미지를 레이블이 지정된 클래스로 분류할 수 있습니다. 예를 들어, 오렌지와 포도 분류자가 있으며 귤 이미지를 제공하는 경우 귤의 많은 특징이 오렌지와 유사하기 때문에 귤이 오렌지로 점수가 매겨질 수 있습니다. 부정 이미지가 이러한 특성을 가질 경우, 학습 중에 하나 이상의 추가 태그(예: **기타**)를 만들고 부정 이미지에 이 태그를 레이블로 지정하여 모델이 이러한 클래스를 보다 잘 구분하도록 할 수 있습니다.
 
 ## <a name="train-the-classifier"></a>분류자 학습
 

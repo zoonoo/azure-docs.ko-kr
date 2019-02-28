@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: da43d1261b0ba9bd65998fbaa9fe9e364e686071
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a9a38d30ec2a8e9139470531960d47fef1025269
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992129"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328625"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 서비스 계층, Azure 하이브리드 혜택 및 마이그레이션
 
@@ -42,7 +42,7 @@ vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 �
 |적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 저장소 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 애플리케이션입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|확장성이 우수한 저장소 및 읽기 크기 조정 요구 사항이 포함된 대부분의 비즈니스 워크로드|
 |컴퓨팅|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|Gen4: 1-24개 vCore<br/>Gen5: 1-80개 vCore|
 |메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB |Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB|
-|Storage|[프리미엄 원격 스토리지](../virtual-machines/windows/premium-storage.md)를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~8TB |로컬 SSD 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
+|Storage|원격 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~8TB |로컬 SSD 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB~4TB<br/>Managed Instance: 32GB~4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
 |IO 처리량(근사치)|단일 데이터베이스: vCore당 500 IOPS(최대 7,000 IOPS)</br>Managed Instance: [파일의 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 다름|vCore당 5000 IOPS(최대 200,000 IOPS)|TBD|
 |가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA|?|
 |Backup|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 및 복원은 빠른 복구를 위한 이러한 스냅숏을 사용합니다. 백업은 즉각적이며 IO 계산 성능에 영향을 주지 않습니다. 데이터 작업의 크기가 아닙니다(몇 시간 또는 며칠 대신 몇 분이 소요됨).|

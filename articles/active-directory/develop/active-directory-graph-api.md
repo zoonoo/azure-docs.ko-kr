@@ -1,9 +1,9 @@
 ---
 title: Azure Active Directory Graph API | Microsoft Docs
-description: REST API 엔드포인트를 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있도록 해주는 Azure AD Graph API에 대한 개요 및 빠른 시작 가이드입니다.
+description: REST API 엔드포인트를 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있는 Azure AD Graph API에 대한 개요 및 빠른 시작 가이드입니다.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: lleonard-msft
 manager: mtillman
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
@@ -13,21 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: alleonar
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b26c8a0d040ab91c53e04593280885ef7fd13eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 567ea09a50edc043f2022a47d08576720550e750
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173762"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448095"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
 > [!IMPORTANT]
-> Azure Active Directory 리소스에 액세스하려면 Azure AD Graph API 대신 [Microsoft Graph](https://developer.microsoft.com/graph/)를 사용하는 것이 좋습니다. 이제 Microsoft는 Azure AD Graph API를 더 이상 개선하지 않을 것이며 Microsoft Graph에 주력하고 있습니다. Azure AD Graph API가 적절할 수 있는 시나리오는 매우 제한적입니다. 자세한 내용은 Office 개발자 센터에서 [Microsoft Graph 또는 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 블로그 게시물을 참조하세요.
+>
+> 2019년 2월 기준으로, Azure Active Directory Graph API는 사용되지 않고 Microsoft Graph API로 대체됩니다.  
+>
+> 전환하기 쉽도록 이전 버전의 Azure AD Graph API가 최신 버전보다 먼저 서비스 해제됩니다.  
+>
+> 자세한 내용, 업데이트 및 시간 프레임은 Office 개발자 센터에서 [Microsoft Graph 또는 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 블로그 게시물을 참조하세요.
+>
+> 앞으로 애플리케이션은 Microsoft Graph API를 사용해야 합니다. 
+
+
 
 이 문서는 Azure AD Graph API에 적용됩니다. Microsoft Graph API와 관련된 유사한 정보는 [Microsoft Graph API 사용](https://docs.microsoft.com/graph/use-the-api)을 참조하세요. 
 

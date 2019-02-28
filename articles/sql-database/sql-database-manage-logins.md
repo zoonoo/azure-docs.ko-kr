@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 34c7d431815ae7a9452bb0703cde18050d38bdb7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164620"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301760"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 액세스 제어 및 권한 부여
 
@@ -84,9 +84,9 @@ SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이
 
 ### <a name="database-creators"></a>데이터베이스 작성자
 
-이러한 관리 역할 중 하나는 **dbmanager** 역할입니다. 이 역할의 멤버는 새 데이터베이스를 만들 수 있습니다. 이 역할을 사용하려면 `master` 데이터베이스에 사용자를 만든 다음 해당 사용자를 **dbmanager** 데이터베이스 역할에 추가합니다. 데이터베이스를 만들려면 사용자는 마스터 데이터베이스의 SQL Server 로그인을 기반으로 한 사용자이거나 Azure Active Directory 사용자를 기반으로 한 포함된 데이터베이스 사용자여야 합니다.
+이러한 관리 역할 중 하나는 **dbmanager** 역할입니다. 이 역할의 멤버는 새 데이터베이스를 만들 수 있습니다. 이 역할을 사용하려면 `master` 데이터베이스에 사용자를 만든 다음 해당 사용자를 **dbmanager** 데이터베이스 역할에 추가합니다. 데이터베이스를 만들려면 사용자가 `master` 데이터베이스의 SQL Server 로그인을 기반으로 한 사용자이거나 Azure Active Directory 사용자를 기반으로 한 포함된 데이터베이스 사용자여야 합니다.
 
-1. 관리자 계정을 사용하여 master 데이터베이스에 연결합니다.
+1. 관리자 계정을 사용하여 `master` 데이터베이스에 연결합니다.
 2. 선택적 단계: [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) 문을 사용하여 SQL Server 인증 로그인을 만듭니다. 샘플 문:
 
    ```sql
@@ -98,7 +98,7 @@ SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이
 
    성능 향상을 위해 로그인(서버 수준 보안 주체)이 데이터베이스 수준에서 일시적으로 캐시됩니다. 인증 캐시를 새로 고치려면 [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx)를 참조하세요.
 
-3. master 데이터베이스에서 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 문을 사용하여 사용자를 만듭니다. 사용자는 Azure Active Directory 인증 포함된 데이터베이스 사용자(Azure AD 인증에 대한 환경을 구성한 경우)이거나, SQL Server 인증 포함된 데이터베이스 사용자 또는 SQL Server 인증 로그인 기반 SQL Server 인증 사용자(이전 단계에서 만든)일 수 있습니다. 샘플 문:
+3. `master` 데이터베이스에서 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 문을 사용하여 사용자를 만듭니다. 사용자는 Azure Active Directory 인증 포함된 데이터베이스 사용자(Azure AD 인증에 대한 환경을 구성한 경우)이거나, SQL Server 인증 포함된 데이터베이스 사용자 또는 SQL Server 인증 로그인 기반 SQL Server 인증 사용자(이전 단계에서 만든)일 수 있습니다. 샘플 문:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -106,7 +106,7 @@ SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. **ALTER ROLE** 문을 사용하여 새 사용자를 [dbmanager](https://msdn.microsoft.com/library/ms189775.aspx) 데이터베이스 역할에 추가합니다. 샘플 문:
+4. [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 문을 사용하여 `master`의 **dbmanager** 데이터베이스 역할에 새 사용자를 추가합니다. 샘플 문:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -118,7 +118,7 @@ SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이
 
 5. 필요한 경우 새 사용자의 연결을 허용하도록 방화벽 규칙을 구성합니다. (새 사용자는 기존 방화벽 규칙에 의해 적용될 수 있습니다.)
 
-이제 사용자는 master 데이터베이스에 연결할 수 있으며 새 데이터베이스를 만들 수 있습니다. 데이터베이스를 만드는 계정이 데이터베이스의 소유자가 됩니다.
+이제 사용자가 `master` 데이터베이스에 연결할 수 있으며 새 데이터베이스를 만들 수 있습니다. 데이터베이스를 만드는 계정이 데이터베이스의 소유자가 됩니다.
 
 ### <a name="login-managers"></a>로그인 관리자
 
@@ -141,11 +141,19 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 GRANT ALTER ANY USER TO Mary;
 ```
 
-추가 사용자에게 데이터베이스의 모든 권한을 부여하려면 `ALTER ROLE` 문을 사용하여 **db_owner** 고정 데이터베이스 역할의 멤버로 만듭니다.
+추가 사용자에게 데이터베이스의 모든 권한을 부여하려면 **db_owner** 고정 데이터베이스 역할의 멤버로 설정합니다.
+
+Azure SQL Database에서는 `ALTER ROLE` 문을 사용합니다.
 
 ```sql
-ALTER ROLE db_owner ADD MEMBER Mary; 
+ALTER ROLE db_owner ADD MEMBER Mary;
 ```
+
+Azure SQL Data Warehouse에서는 [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)를 사용합니다.
+```sql
+EXEC sp_addrolemember 'db_owner', 'Mary';
+```
+
 
 > [!NOTE]
 > SQL Database 서버 로그인을 기반으로 데이터베이스 사용자를 만드는 일반적인 이유 중 하나는 여러 데이터베이스에 액세스해야 하는 사용자입니다. 포함된 데이터베이스 사용자가 개별 엔터티이므로 각 데이터베이스는 자체 사용자 및 암호를 유지합니다. 따라서 사용자가 각 데이터베이스의 암호를 모두 기억해야 하므로 오버헤드가 발생할 수 있으며, 여러 데이터베이스의 여러 암호를 변경해야 할 때 변경이 어려울 수 있습니다. 그러나 SQL Server 로그인 및 고가용성(활성 지역 복제 및 장애 조치(failover) 그룹)을 사용할 때 각 서버에서 SQL Server 로그인을 수동으로 설정해야 합니다. 그렇지 않으면 장애 조치(failover) 발생 후 데이터베이스 사용자가 더 이상 서버 로그인에 매핑되지 않으며, 장애 조치(failover) 후 데이터베이스에 액세스할 수 없게 됩니다. 지역 복제에 대한 로그인을 구성하는 방법에 대한 자세한 내용은 [지역 복원 또는 장애 조치를 위해 Azure SQL Database 보안 구성 및 관리](sql-database-geo-replication-security-config.md)를 참조하세요.

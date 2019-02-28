@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 280538c16f5a464f759eca74cce8ff6a97bfa4b2
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244301"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455061"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>PowerShell을 사용하여 한 실험에서 Studio 모델 및 웹 서비스 엔드포인트 만들기
 
@@ -25,9 +25,9 @@ ms.locfileid: "56244301"
 
 모든 위치의 모든 데이터 세트에 대한 병합된 버전을 사용하여 모델을 한 번 학습할 수 있습니다. 하지만 위치마다 환경이 고유하므로 각 위치에 대한 데이터 세트를 사용하여 회귀 모델을 별도로 학습하는 것이 더 나은 방법입니다. 이렇게 하면 학습된 각 모델이 서로 다른 저장소 크기, 볼륨, 지리, 인구, 자전거 친화적인 교통 환경 등을 고려할 수 있습니다.
 
-이것은 가장 좋은 방법일 수 있지만 Azure Machine Learning에서 각각 고유한 위치를 나타내는 1,000번의 학습 실험을 만들고 싶지는 않습니다. 이는 엄청난 작업일 뿐 아니라, 각 실험마다 학습 데이터 세트를 제외하고는 모든 구성 요소가 동일하므로 비효율적입니다.
+이것이 가장 좋은 방법일 수 있지만 Azure Machine Learning Studio에서 각각 고유한 위치를 나타내는 1,000번의 학습 실험을 만들고 싶지는 않을 것입니다. 이는 엄청난 작업일 뿐 아니라, 각 실험마다 학습 데이터 세트를 제외하고는 모든 구성 요소가 동일하므로 비효율적입니다.
 
-다행히 [Azure Machine Learning 재학습 API](retrain-models-programmatically.md)를 사용하고 [Azure Machine Learning PowerShell](powershell-module.md)로 작업을 자동화하여 이 작업을 수행할 수 있습니다.
+다행히 [Azure Machine Learning Studio 재학습 API](retrain-models-programmatically.md)를 사용하고 [Azure Machine Learning Studio PowerShell](powershell-module.md)로 작업을 자동화하여 이 작업을 수행할 수 있습니다.
 
 > [!NOTE]
 > 샘플이 더 빨리 실행되도록 위치 수를 1,000개에서 10개로 줄입니다. 하지만 동일한 원리와 절차가 1,000개의 위치에 적용됩니다. 그러나 1,000개 데이터 세트에서 학습하려는 경우 다음 PowerShell 스크립트를 병렬로 실행하는 것이 좋습니다. 이 작업을 수행하는 방법은 이 문서의 범위를 벗어나는 내용이지만 인터넷에서 PowerShell 다중 스레딩의 예제를 찾을 수 있습니다.  

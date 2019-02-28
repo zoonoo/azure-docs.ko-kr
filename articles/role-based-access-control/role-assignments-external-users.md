@@ -1,6 +1,6 @@
 ---
-title: Azure에서 RBAC를 사용하여 외부 사용자를 위한 액세스 관리 | Microsoft Docs
-description: Azure에서 RBAC(역할 기반 액세스 제어)를 사용하여 조직 외부의 사용자에 대한 액세스를 관리하는 방법을 알아봅니다.
+title: RBAC를 사용하여 Azure 리소스에 대한 외부 사용자의 액세스 관리 | Microsoft Docs
+description: RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 조직 외부 사용자의 액세스를 관리하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284526"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343863"
 ---
-# <a name="manage-access-for-external-users-using-rbac"></a>RBAC를 사용하여 외부 사용자를 위한 액세스 관리
+# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>RBAC를 사용하여 Azure 리소스에 대한 외부 사용자의 액세스 관리
 
 RBAC(역할 기반 액세스 제어)를 사용하면 환경의 특정 리소스에 액세스해야 하지만 전체 인프라 또는 청구 관련 범위에 액세스하지 않아도 되는 외부 공동 작업자, 공급업체 또는 프리랜서와 협력하는 대기업 및 SMB의 보안을 더 효율적으로 관리할 수 있습니다. RBAC를 통해 관리자 계정에서 관리하는 Azure 구독을 소유하는 유연성(구독 수준에서 서비스 관리자 역할)을 제공하고 동일한 구독이지만 관리 권한 없이 작업하도록 여러 사용자를 초대할 수 있습니다.
 
@@ -55,7 +55,7 @@ Azure Portal에서 관리자로 로그인한 후에 "구독"을 선택하고 원
 
 ![Azure Portal의 액세스 제어 IAM 기능에서 새 사용자 추가](./media/role-assignments-external-users/2.png)
 
-다음 단계에서는 할당하고 역할 및 RBAC 역할에 할당할 사용자를 선택합니다. **역할** 드롭다운 메뉴에서는 Azure에서 사용할 수 있는 기본 제공 RBAC 역할만을 관리 사용자에게 표시합니다. 각 역할 및 역할의 할당 가능한 범위에 대한 자세한 설명은 [기본 제공 역할](built-in-roles.md)을 참조하세요.
+다음 단계에서는 할당하고 역할 및 RBAC 역할에 할당할 사용자를 선택합니다. **역할** 드롭다운 메뉴에서는 Azure에서 사용할 수 있는 기본 제공 RBAC 역할만을 관리 사용자에게 표시합니다. 각 역할 및 역할의 할당 가능한 범위에 대한 자세한 설명은 [Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)을 참조하세요.
 
 관리 사용자는 외부 사용자의 이메일 주소를 추가해야 합니다. 예상된 동작을 기존 테넌트에서 외부 사용자에세 표시하지 않습니다. 외부 사용자를 초대한 후에 현재 구독 범위에서 RBAC 역할에 할당한 모든 사용자와 함께 **[구독] > [액세스 제어(IAM)]** 를 표시합니다.
 

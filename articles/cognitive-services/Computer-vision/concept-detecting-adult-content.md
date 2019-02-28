@@ -8,27 +8,34 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 64db05e5e40b76d219ea0e3214c20297f32da4b5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861275"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312541"
 ---
-# <a name="detecting-adult-and-racy-content"></a>성인 및 외설 콘텐츠 검색
+# <a name="detect-adult-and-racy-content"></a>성인 및 외설 콘텐츠 검색
 
-다양한 시각적 범주 중 성인/외설 그룹을 사용하면 성인용 자료를 검색하고 성적인 콘텐츠를 포함하는 이미지 표시를 제한할 수 있습니다. 사용자의 기본 설정에 맞게 슬라이딩 눈금에 성인/외설 콘텐츠 검색 필터를 설정할 수 있습니다.
+Computer Vision은 개발자가 소프트웨어에서 이러한 이미지의 표시를 제한할 수 있도록 이미지의 성인 자료를 검색할 수 있습니다. 콘텐츠 플래그는 0과 1 사이의 점수로 적용되므로 개발자가 고유한 기본 설정에 따라 결과를 해석할 수 있습니다. 
 
-## <a name="defining-adult-and-racy-content"></a>성인 및 외설 콘텐츠 정의
+> [!NOTE]
+> 이 기능은 [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) 서비스를 통해서도 제공됩니다. 텍스트 조정, 사용자 검토 워크플로 등의 좀 더 엄격한 콘텐츠 조정 시나리오에 대한 솔루션으로 이 대안을 참조하세요.
 
-[분석 이미지 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)에서 다룬 다양한 시각적 기능 중에서 성인 시작적 기능을 사용하면 성인 및 외설 이미지를 검색하도록 설정할 수 있습니다. "성인" 이미지는 본질 상 공격적이며 노출 및 성적 행위를 묘사하는 이미지로 정의됩니다. "외설" 이미지는 본질 상 성적으로 선정적이며 "성인"으로 태그가 지정된 이미지보다 적게 성적으로 노골적인 콘텐츠를 포함하는 이미지로 정의됩니다. 성인 시각적 기능 형식은 성적으로 선정적이고 노골적인 성적 콘텐츠를 포함하는 이미지를 표시하지 않도록 제한하는 데 일반적으로 사용됩니다.
+## <a name="content-flag-definitions"></a>콘텐츠 플래그 정의
 
-## <a name="identifying-adult-and-racy-content"></a>성인 및 외설 콘텐츠 식별
+**성인** 이미지는 본질적으로 음란물이며 주로 노출 또는 성적 행위를 묘사하는 이미지로 정의됩니다. 
 
-이미지 분석 메서드는 메서드의 JSON 응답에서 각각 성인 및 외설 콘텐츠를 나타내는 `isAdultContent` 및 `isRacyContent`라는 두 개의 속성을 반환합니다. 두 속성은 모두 부울 값, true 또는 false를 반환합니다. 또한 메서드는 각각 성인 및 외설 콘텐츠를 식별하는 신뢰도 점수를 나타내는 `adultScore` 및 `racyScore`라는 두 개의 속성을 반환합니다. 성인 및 외설 콘텐츠 검색에 대한 신뢰도 필터는 특정 시나리오에 따라 기본 설정에 맞게 슬라이딩 눈금에서 설정할 수 있습니다.
+**외설** 이미지는 본질적으로 선정적이며 주로 **성인**으로 태그가 지정된 이미지보다 성적으로 덜 노골적인 콘텐츠를 포함하는 이미지로 정의됩니다. 
+
+## <a name="identify-adult-and-racy-content"></a>성인 및 외설 콘텐츠 식별
+
+[분석](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API입니다.
+
+이미지 분석 메서드는 각각 성인 및 외설 콘텐츠를 나타내는 `isAdultContent` 및 `isRacyContent`라는 두 개의 부울 속성을 메서드의 JSON 응답으로 반환합니다. 또한 메서드는 각각 성인 및 외설 콘텐츠를 식별하는 신뢰도 점수를 나타내는 `adultScore` 및 `racyScore`라는 두 개의 속성을 반환합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

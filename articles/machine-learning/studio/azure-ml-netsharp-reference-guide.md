@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: be6c04fe31aaa8d4b9081942b054575ff548cf5a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 2051a14532f00f24be0c8cb0ca03a7b2b4078a45
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300373"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457016"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 Net# 인공신경망 사양 언어에 대한 가이드
 
@@ -56,7 +56,7 @@ Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 �
 
 ## <a name="supported-customizations"></a>지원되는 사용자 지정
 
-Azure Machine Learning에서 만드는 신경망 모델의 아키텍처는 Net#을 사용하여 광범위하게 사용자 지정할 수 있습니다. 다음을 수행할 수 있습니다.
+Azure Machine Learning Studio에서 만드는 신경망 모델의 아키텍처는 Net#을 사용하여 광범위하게 사용자 지정할 수 있습니다. 다음을 수행할 수 있습니다.
 
 + 숨겨진 계층을 만들고 각 계층의 노드 수를 제어합니다.
 + 계층이 서로 연결되는 방법을 지정합니다.

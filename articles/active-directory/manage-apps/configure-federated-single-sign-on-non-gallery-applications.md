@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99fa8cbc211469185f2503718c84bc1b12db44c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 56c992b1cc0e8f1d9743ff8226ab48852afc1168
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178223"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313129"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
@@ -29,13 +29,13 @@ ms.locfileid: "56178223"
 ## <a name="overview-of-steps-required"></a>필요한 단계 개요
 다음은 비갤러리(예: 사용자 지정) 애플리케이션에 대해 SAML 2.0을 사용하여 페더레이션된 Single Sign-On을 구성하는 데 필요한 단계를 요약한 개요입니다.
 
--   [Azure AD에서 애플리케이션의 메타데이터 값 구성(로그온 URL, 식별자, 회신 URL)](#_Configuring_single_sign-on)
+-   Azure AD에서 애플리케이션의 메타데이터 값 구성(로그온 URL, 식별자, 회신 URL)
 
 -   [사용자 식별자를 선택하고 애플리케이션에 보낼 사용자 특성 추가](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Azure AD 메타데이터 및 인증서 검색](#download-the-azure-ad-metadata-or-certificate)
 
--   [애플리케이션에서 Azure AD 메타데이터 값 구성(로그온 URL, 발급자, 로그아웃 URL 및 인증서)](#_Configuring_single_sign-on)
+-   애플리케이션에서 Azure AD 메타데이터 값 구성(로그온 URL, 발급자, 로그아웃 URL 및 인증서)
 
 -   애플리케이션에 사용자 할당
 

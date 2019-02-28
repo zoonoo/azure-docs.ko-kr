@@ -1,6 +1,6 @@
 ---
-title: RBAC 및 REST API를 사용하여 액세스 관리 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 REST API를 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
+title: RBAC 및 REST API를 사용하여 Azure 리소스 액세스 관리 | Microsoft Docs
+description: RBAC(역할 기반 액세스 제어) 및 REST API를 사용하여 Azure 리소스에 대한 사용자, 그룹 및 애플리케이션의 액세스를 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 859a410a4ff9204e8e52fbd2cc3b38823f4bb830
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435221"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338413"
 ---
-# <a name="manage-access-using-rbac-and-the-rest-api"></a>RBAC 및 REST API를 사용하여 액세스 관리
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>RBAC 및 REST API를 사용하여 Azure 리소스에 대한 액세스 관리
 
-[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 이 문서에서는 RBAC 및 REST API를 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 설명합니다.
+[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 문서에서는 RBAC 및 REST API를 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 설명합니다.
 
 ## <a name="list-access"></a>액세스 권한 나열
 
-RBAC에서 역할 할당을 나열하면 액세스 권한이 나열됩니다. 역할 할당을 나열하려면 [역할 할당 - 나열](/rest/api/authorization/roleassignments/list) REST API 중 하나를 사용합니다. 결과를 구체화하려면 범위와 선택적 필터를 지정합니다. API를 호출하려면 지정된 범위에서 `Microsoft.Authorization/roleAssignments/read` 작업에 액세스할 수 있어야 합니다. 여러 [기본 제공 역할](built-in-roles.md)에는 이 작업에 대한 액세스 권한이 부여되어 있습니다.
+RBAC에서 역할 할당을 나열하면 액세스 권한이 나열됩니다. 역할 할당을 나열하려면 [역할 할당 - 나열](/rest/api/authorization/roleassignments/list) REST API 중 하나를 사용합니다. 결과를 구체화하려면 범위와 선택적 필터를 지정합니다. API를 호출하려면 지정된 범위에서 `Microsoft.Authorization/roleAssignments/read` 작업에 액세스할 수 있어야 합니다. [Azure에 대한 여러 기본 제공 역할](built-in-roles.md)에는 이 작업에 대한 액세스 권한이 부여됩니다.
 
 1. 다음 요청으로 시작합니다.
 
@@ -38,7 +38,7 @@ RBAC에서 역할 할당을 나열하면 액세스 권한이 나열됩니다. �
 
 1. URI 내에서 *{scope}* 를 역할 할당을 나열하려는 범위로 바꿉니다.
 
-    | 범위 | type |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
@@ -77,7 +77,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
     
 1. URI 내에서 *{scope}* 를 역할 할당에 대한 범위로 바꿉니다.
 
-    | 범위 | type |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
@@ -105,7 +105,7 @@ RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합
 
 1. URI 내에서 *{scope}* 를 제거할 역할 할당에 대한 범위로 바꿉니다.
 
-    | 범위 | type |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
@@ -117,4 +117,4 @@ RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합
 
 - [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](../azure-resource-manager/resource-group-template-deploy-rest.md)
 - [Azure REST API 참조](/rest/api/azure/)
-- [REST API를 사용하여 사용자 지정 역할 만들기](custom-roles-rest.md)
+- [REST API를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](custom-roles-rest.md)

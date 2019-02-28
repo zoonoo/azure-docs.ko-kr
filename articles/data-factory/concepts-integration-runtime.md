@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 80d84fcede0d293b083ea75f24e9b0bd3125b265
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959678"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56344032"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(Integration Runtime)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
@@ -69,7 +69,7 @@ Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아
 자체 호스팅 IR로 다음을 수행할 수 있습니다.
 
 - 클라우드 데이터 저장소와 개인 네트워크의 데이터 저장소 간에 복사 작업 실행.
-- 온-프레미스 또는 Azure Virtual Network에서 컴퓨팅 리소스에 대해 다음과 같은 변환 작업 디스패치: HDInsight Hive 작업(BYOC), HDInsight Pig 작업(BYOC), HDInsight MapReduce 작업(BYOC), HDInsight Spark 작업(BYOC), HDInsight Streaming 작업(BYOC), Machine Learning 배치 실행 작업, Machine Learning 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .Net 사용자 지정 작업, 조회 작업 및 메타데이터 가져오기 작업
+- 온-프레미스 또는 Azure Virtual Network에서 컴퓨팅 리소스에 대해 다음과 같은 변환 작업 디스패치: HDInsight Hive 작업(BYOC-Bring Your Own Cluster), HDInsight Pig 작업(BYOC), HDInsight MapReduce 작업(BYOC), HDInsight Spark 작업(BYOC), HDInsight Streaming 작업(BYOC), Machine Learning 배치 실행 작업, Machine Learning 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .NET 사용자 지정 작업, 조회 작업 및 메타데이터 가져오기 작업
 
 > [!NOTE] 
 > 자체 호스팅 통합 런타임을 사용하여 SAP Hana, MySQL 등 BYOD(bring-your-own driver)를 요구하는 데이터 저장소를 지원합니다.  자세한 내용은 [지원되는 데이터 소스](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

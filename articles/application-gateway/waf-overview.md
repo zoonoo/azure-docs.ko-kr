@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 71990244db859a61885968a502d9849a36d81dce
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425177"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454262"
 ---
 # <a name="web-application-firewall-waf"></a>WAF(웹 애플리케이션 방화벽)
 
@@ -63,7 +63,7 @@ Application Gateway가 제공하는 향상된 보안 기능으로는 SSL 정책 
 
 현재 WAF 공개 미리 SKU에는 다음과 같은 기능이 포함됩니다.
 
-- **요청 크기 제한** - 사용자는 웹 응용 프로그램 방화벽을 통해 상한과 하한 사이의 범위에서 요청 크기 제한을 구성할 수 있습니다.
+- **요청 크기 제한** - 사용자는 웹 애플리케이션 방화벽을 통해 상한과 하한 사이의 범위에서 요청 크기 제한을 구성할 수 있습니다.
 - **제외 목록** - 사용자는 WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다.
 
 WAF 공개 미리 보기에 대한 자세한 내용은 [웹 애플리케이션 방화벽 요청 크기 제한 및 제외 목록(공개 미리 보기)](application-gateway-waf-configuration.md)을 참조하세요.
@@ -133,7 +133,7 @@ Application Gateway WAF는 다음 두 가지 모드에서 실행되도록 구성
 
 ### <a name="application-gateway-waf-reports"></a>WAF 모니터링
 
-Application Gateway의 상태를 모니터링하는 것이 중요합니다. 웹 애플리케이션 방화벽 및 보호되는 애플리케이션의 상태를 모니터링하는 기능은 로깅과 Azure Monitor, Azure Security Center 및 Log Analytics의 통합을 통해 제공됩니다.
+Application Gateway의 상태를 모니터링하는 것이 중요합니다. 웹 애플리케이션 방화벽 및 이 방화벽이 보호하는 애플리케이션의 상태를 모니터링하는 기능은 로깅과 Azure Monitor, Azure Security Center 및 Azure Monitor 로그와의 통합을 통해 제공됩니다.
 
 ![진단](./media/waf-overview/diagnostics.png)
 
@@ -149,7 +149,7 @@ Application Gateway의 상태를 모니터링하는 것이 중요합니다. 웹 
 
 #### <a name="logging"></a>로깅
 
-Application Gateway WAF는 감지된 각 위협에 대한 상세 보고를 제공합니다. 로깅은 Azure 진단 로그에 통합되고 경고는 json 형식으로 기록됩니다. 이러한 로그는 [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)와 통합될 수 있습니다.
+Application Gateway WAF는 감지된 각 위협에 대한 상세 보고를 제공합니다. 로깅은 Azure 진단 로그에 통합되고 경고는 json 형식으로 기록됩니다. 이러한 로그는 [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md)와 통합될 수 있습니다.
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 

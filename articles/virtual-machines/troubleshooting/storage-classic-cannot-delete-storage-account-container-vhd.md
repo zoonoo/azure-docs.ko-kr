@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 72493c6bba556314c3652be5251463d1d1e005bd
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383746"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330616"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>클래식 스토리지 리소스 삭제 오류 문제 해결
 이 문서에서는 Azure 클래식 Storage 계정, 컨테이너 또는 *.vhd 페이지 Blob 파일을 삭제하려고 할 때 다음 오류 중 하나가 발생할 경우의 문제 해결 지침을 제공합니다. 
@@ -21,10 +21,10 @@ ms.locfileid: "54383746"
 
 이 문서에서는 클래식 스토리지 리소스의 문제만 다룹니다. Azure Portal, PowerShell 또는 CLI를 사용하여 클래식 가상 머신을 삭제하는 경우에는 디스크가 자동으로 삭제되지 않습니다. "디스크" 리소스를 삭제하는 옵션이 제공됩니다. 이 옵션을 선택하지 않으면 "디스크" 리소스는 스토리지 계정, 컨테이너 및 실제 *.vhd 페이지 blob 파일의 삭제를 방지합니다.
 
-Azure 디스크에 관한 자세한 내용은 [여기](../../virtual-machines/windows/about-disks-and-vhds.md)에서 찾을 수 있습니다. Azure는 손상 방지를 위해 VM에 연결된 디스크 삭제를 차단합니다. 또한 VM에 연결된 페이지 Blob가 있는 스토리지 계정 및 컨테이너의 삭제도 차단합니다. 
+Azure 디스크에 관한 자세한 내용은 [여기](../../virtual-machines/windows/managed-disks-overview.md)에서 찾을 수 있습니다. Azure는 손상 방지를 위해 VM에 연결된 디스크 삭제를 차단합니다. 또한 VM에 연결된 페이지 Blob가 있는 스토리지 계정 및 컨테이너의 삭제도 차단합니다. 
 
 ## <a name="what-is-a-disk"></a>"Disk"란?
-"Disk" 리소스는 *.vhd 페이지 blob 파일을 가상 머신에 OS 디스크 또는 데이터 디스크로 탑재하는 데 사용합니다. OS 디스크 또는 데이터 디스크 리소스는 삭제할 때까지 *.vhd 파일에 대한 임대를 계속 유지합니다. 위의 이미지에 표시된 경로의 모든 스토리지 리소스는 "디스크" 리소스가 가리키고 있으면 삭제할 수 없습니다.
+"Disk" 리소스는 *.vhd 페이지 blob 파일을 가상 머신에 OS 디스크 또는 데이터 디스크로 탑재하는 데 사용합니다. OS 디스크 또는 데이터 디스크 리소스는 삭제할 때까지 *.vhd 파일에 대한 임대를 계속 유지합니다. 아래 이미지에 표시된 경로의 모든 스토리지 리소스는 “디스크” 리소스가 가리키고 있으면 삭제할 수 없습니다.
 
 ![디스크(클래식) “속성” 창이 열려 있는 포털 스크린샷](./media/storage-classic-cannot-delete-storage-account-container-vhd/Disk_Lease_Illustration.jpg) 
 

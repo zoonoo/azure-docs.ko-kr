@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0afb8a09fa9780755bcfeef678b76e176f11b348
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: df4ae4b0c3f230947e0b9a5885070049f32a4b2f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246037"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429865"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -188,6 +188,8 @@ Operations Manager 관리 그룹이 Log Analytics와 통신하는지 확인하�
 관리되는 Linux 컴퓨터 각각에서 3시간마다 검사가 수행됩니다.
 
 관리되는 컴퓨터의 업데이트 데이터를 대시보드에 표시하는 데 30분에서 6시간이 걸릴 수 있습니다.
+
+업데이트 관리를 사용하는 머신의 평균 Log Analytics 데이터 사용량은 월별 약 25MB입니다. 이 값은 근사값이며, 사용자 환경에 따라 변경될 수 있습니다. 사용자 환경을 모니터링하여 정확한 사용량을 확인하는 것이 좋습니다.
 
 ## <a name="viewing-update-assessments"></a>업데이트 평가 보기
 

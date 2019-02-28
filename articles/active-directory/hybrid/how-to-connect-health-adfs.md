@@ -16,12 +16,12 @@ ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4714a4ee5f90194a3be47b1e5878dfa8e230f42b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4d239d372a514b24a4e022f62ceec2dfee94d187
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173490"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430406"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](how-to-connect-health-sync.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조하세요.
@@ -199,7 +199,7 @@ AD FS 고객은 암호 인증 엔드포인트를 인터넷에 공개하여 최�
 부하 분산 장치 IP 주소가 표시되는 경우 웹 애플리케이션 프록시 서버에 요청을 전달할 때 외부 부하 분산 장치에서 클라이언트 IP 주소를 보내지 않을 가능성이 큽니다. 포워드 클라이언트 IP 주소를 전달하도록 올바르게 부하 분산 장치를 구성하세요. 
 
 3. IP 주소를 차단하려면 어떻게 해야 할까요?  <br />
-식별된 악성 IP 주소는 방화벽에 추가되거나 Exchange에서 차단해야 합니다.   <br />
+식별된 악성 IP 주소는 방화벽에 추가되거나 Exchange에서 차단해야 합니다. ADFS 2016의 경우 금지된 IP 속성에서 직접 IP 주소를 차단할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection#banned-ip-addresses)   <br />
 
 4. 이 보고서에 항목이 표시되지 않는 이유는 무엇인가요? <br />
    - 실패한 로그인 활동이 임계값 설정을 초과하지 않습니다. 

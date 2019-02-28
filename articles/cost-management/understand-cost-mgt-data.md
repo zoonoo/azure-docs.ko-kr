@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 79cf839a23d41058e0d9583a378dc063cd220136
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981760"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447466"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -61,6 +61,8 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 | **지원 플랜** | Azure Government 표준 지원 | MS-AZR-USGOV-0041P |
 | **지원 플랜** | Azure Government Pro-Direct 지원 | MS-AZR-USGOV-0042P |
 | **지원 플랜** | Azure Government 개발자 지원 | MS-AZR-USGOV-0043P |
+
+종량제, MSDN 및 Visual Studio 제품 분류가 있는 고객의 경우 2018년 10월 2일부터 Cost Management에서 데이터를 사용할 수 있습니다.
 
 구독 데이터가 표시되지 않고 구독이 지원되는 제품에 해당하는지 확인하려는 경우 구독이 지원되는지 확인할 수 있습니다. Azure 구독이 지원되는지 확인하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다. 그런 다음, 왼쪽 메뉴 창에서 **모든 서비스**를 선택합니다. 서비스 목록에서 **구독**을 선택합니다. 구독 목록 메뉴에서 확인할 구독을 클릭합니다. 구독이 개요 탭에 표시되며, **제품** 및 **제품 ID**를 확인할 수 있습니다. 다음 이미지에 예가 나와 있습니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4f8929182995445ff0b327bc22a9cdf75ec5641b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262589"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312994"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](https://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 디바이스에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -26,7 +26,7 @@ Power BI에 Application Insights 데이터를 내보내는 세 가지 방법이 
 
 * [**Analytics 쿼리 내보내기**](#export-analytics-queries). 이는 선호되는 방법입니다. 원하는 쿼리를 작성하여 Power BI에 내보냅니다. 이 쿼리를 다른 데이터와 함께 대시보드에 배치할 수 있습니다.
 * [**연속 내보내기 및 Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). 이 방법은 데이터를 오랜 기간 저장하려는 경우에 유용합니다. 데이터를 오랜 기간 보존해야 할 필요가 없다면 분석 쿼리를 내보내는 방법을 사용하세요. 연속 내보내기 및 Stream Analytics의 경우 추가 설정 작업이 필요하고 저장 오버헤드가 추가로 발생합니다.
-* [**Power BI 어댑터**](#power-pi-adapter). 일련의 차트가 미리 정의되어 있으나, 다른 원본에서 직접 쿼리를 추가할 수 있습니다.
+* **Power BI 어댑터**. 일련의 차트가 미리 정의되어 있으나, 다른 원본에서 직접 쿼리를 추가할 수 있습니다.
 
 > [!NOTE]
 > Power BI 어댑터는 이제 **사용되지 않습니다**. 이 솔루션의 미리 정의된 파트는 정적이고 편집할 수 없는 쿼리로 채워집니다. 이러한 쿼리는 편집할 수 없으며, 데이터의 특정 속성에 따라 Power BI에 대한 연결이 성공할 수 있지만 데이터는 채워지지 않습니다. 이는 하드 코딩된 쿼리 내에 설정된 제외 기준 때문입니다. 이 솔루션은 일부 고객에게 여전히 효과적일 수 있지만 어댑터 유연성이 결여되어 있기 때문에 [**Analytics 쿼리 내보내기**](#export-analytics-queries) 기능을 사용하는 것이 좋습니다.

@@ -1,25 +1,22 @@
 ---
-title: 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기 - Azure Portal | Microsoft Docs
+title: 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기 - Azure Portal
 description: Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 12/28/2017
+ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: fc418f58b299dcba08fda65000c5356c51f471e6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993306"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454320"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 생성 및 구성
 
-Azure Portal을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com*의 예를 사용한다고 가정합니다.
+Azure Portal을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 문서에서는 가상 머신을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 문서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com*의 예제를 사용한다고 가정합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -35,11 +32,11 @@ Azure Portal을 사용하여 [애플리케이션 게이트웨이](multiple-site-
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
-## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
 
 가상 네트워크는 사용자가 만든 리소스 간의 통신에 필요합니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다. 애플리케이션 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다.
 
@@ -47,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
 3. 애플리케이션 게이트웨이에 대해 다음 값을 입력합니다.
 
-    - *myAppGateway* - 응용 프로그램 게이트웨이의 이름
+    - *myAppGateway* - 애플리케이션 게이트웨이의 이름
     - *myResourceGroupAG* - 새 리소스 그룹의 이름
 
     ![새 애플리케이션 게이트웨이 만들기](./media/create-multiple-sites-portal/application-gateway-create.png)
@@ -141,6 +138,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 3. **확인**을 클릭합니다.
 4. *fabrikamListener* 이름을 사용하여 두 번째 수신기를 만들고 두 번째 도메인 이름을 사용합니다. 이 예제에서는 *www.fabrikam.com*이 사용됩니다.
 
+![다중 사이트 수신기](media/create-multiple-sites-portal/be-listeners.png)
+
 ## <a name="create-routing-rules"></a>라우팅 규칙 만들기
 
 규칙은 나열된 순서대로 처리되고 트래픽은 특이성에 관계없이 일치하는 첫 번째 규칙을 사용하여 전달됩니다. 예를 들어 기본 수신기를 사용하는 규칙과 다중 사이트 수신기를 사용하는 규칙이 둘 다 같은 포트에 있는 경우 다중 사이트 규칙이 예상대로 작동하려면 다중 사이트 수신기를 사용하는 규칙은 기본 수신기를 사용하는 규칙 앞에 나열되어야 합니다. 
@@ -180,12 +179,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 다음 방법에 대해 알아보았습니다.
-
-> [!div class="checklist"]
-> * 애플리케이션 게이트웨이 만들기
-> * 백 엔드 서버용 가상 머신 만들기
-> * 백 엔드 서버로 백 엔드 풀 만들기
-> * 백 엔드 수신기 만들기
-> * 라우팅 규칙 만들기
-> * 도메인에서 CNAME 레코드 만들기
+[Application Gateway를 사용하여 App Service 구성](create-web-app.md)

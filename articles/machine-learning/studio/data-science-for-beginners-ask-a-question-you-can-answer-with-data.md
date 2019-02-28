@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/03/2018
-ms.openlocfilehash: bddb97083bd1d1538b9f60ec3c0798cf1e964b1e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 7134a22532622d7de25a23897f83dc453d8a4344
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498151"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454058"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
 ## <a name="video-3-data-science-for-beginners-series"></a>비디오 3: 초급자를 위한 데이터 과학 시리즈
@@ -89,7 +89,7 @@ ms.locfileid: "55498151"
 
 데이터로 답할 수 있는 질문의 기본적인 원리에 대해 알아보았습니다.
 
-Microsoft Azure Machine Learning의 “초급자를 위한 데이터 과학”에 있는 다른 비디오도 확인해보세요.
+Microsoft Azure Machine Learning Studio의 “초급자를 위한 데이터 과학”에 포함된 다른 비디오도 확인해보세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](create-experiment.md)

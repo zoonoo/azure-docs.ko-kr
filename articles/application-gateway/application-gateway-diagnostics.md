@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: 6cd21448742778b0a2a27aea41f7940b1a216cdc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231107"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453304"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭
 
@@ -90,7 +90,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ## <a name="diagnostic-logging"></a>진단 로그
 
-Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 관리하고 문제를 해결할 수 있습니다. 이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. 모든 로그는 Azure Blob Storage에서 추출하고 다양한 도구(예: [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md),Excel 및 Power BI)에서 볼 수 있습니다. 다음 목록에서 다른 종류의 로그에 대해 자세히 알아볼 수 있습니다.
+Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 관리하고 문제를 해결할 수 있습니다. 이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. Azure Blob Storage에서 모든 로그를 추출하여 다양한 도구(예: [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md),Excel 및 Power BI)에서 볼 수 있습니다. 다음 목록에서 다른 종류의 로그에 대해 자세히 알아볼 수 있습니다.
 
 * **활동 로그**: [Azure 활동 로그](../monitoring-and-diagnostics/insights-debugging-with-events.md)(이전의 작업 로그 및 감사 로그)를 사용하여 Azure 구독에 제출된 모든 작업과 상태를 확인할 수 있습니다. 활동 로그 항목은 기본적으로 수집되고 Azure Portal에서 볼 수 있습니다.
 * **액세스 로그**: 이 로그를 사용하여 Application Gateway 액세스 패턴을 확인하고 중요한 정보를 분석할 수 있습니다. 여기에는 호출자의 IP, 요청된 URL, 응답 대기 시간, 반환 코드, 바이트 입출력이 포함됩니다. 액세스 로그는 300초마다 수집됩니다. 이 로그에는 Application Gateway 인스턴스당 하나의 레코드가 포함됩니다. Application Gateway 인스턴스는 instanceId 속성으로 식별됩니다.
@@ -104,7 +104,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 
 * **스토리지 계정**: 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
 * **Event Hubs**: 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
-* **Log Analytics**: Log Analytics는 일반적으로 애플리케이션을 실시간 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
+* **Azure Monitor 로그**: Azure Monitor 로그는 일반적으로 애플리케이션을 실시간으로 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
 
 ### <a name="enable-logging-through-powershell"></a>PowerShell을 통한 로깅 사용
 
@@ -298,7 +298,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>액세스, 성능 및 방화벽 로그 보기 및 분석
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)는 Blob Storage 계정에서 카운터 및 이벤트 로그 파일을 수집할 수 있습니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
+[Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md)는 Blob Storage 계정에서 카운터 및 이벤트 로그 파일을 수집할 수 있습니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
 
 저장소 계정에 연결하고 액세스 및 성능 로그에 대한 JSON 로그 항목을 검색할 수도 있습니다. JSON 파일을 다운로드한 후 CSV로 변환하여 Excel, Power BI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
 
@@ -374,7 +374,7 @@ Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](ht
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)를 사용하여 카운터 및 이벤트 로그 시각화
+* [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md)를 사용하여 카운터 및 이벤트 로그를 시각화합니다.
 * [Power BI를 사용하여 Azure 활동 로그 시각화](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) 블로그 게시물
 * [Power BI 등에서 Azure 활동 로그 보기 및 분석](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) 블로그 게시물
 

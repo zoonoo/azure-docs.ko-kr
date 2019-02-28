@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: deba3962adb6d1fed8c52376c9c953a96bd6ce4e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 077aebec9a0420ac5f440f78ca9dc664b4cc8c6d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699094"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416754"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결을 구성합니다. PowerShell
 
@@ -31,9 +31,13 @@ ms.locfileid: "55699094"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+
+이 문서에 나오는 대부분의 단계에서 Cloud Shell을 사용할 수 있습니다. 그러나 루트 인증서 공개 키를 업로드하려면 PowerShell을 로컬로 사용하거나 Azure Portal을 사용해야 합니다.
 
 ### <a name="example"></a>예제 값
 
@@ -66,7 +70,7 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 ### <a name="declare-variables"></a>변수 선언
 
-사용할 변수를 선언합니다. 다음 샘플을 사용하여 필요할 때 고유한 값으로 대체합니다.
+사용할 변수를 선언합니다. 다음 샘플을 사용하여 필요할 때 고유한 값으로 대체합니다. 이 연습을 수행하는 동안 PowerShell/Cloud Shell 세션을 닫게 되는 경우 값을 복사하고 붙여넣어 변수를 다시 선언하세요.
 
   ```azurepowershell-interactive
   $VNetName  = "VNet1"
@@ -91,35 +95,35 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 1. 리소스 그룹을 만듭니다.
 
   ```azurepowershell-interactive
-  New-AzureRmResourceGroup -Name $RG -Location $Location
+  New-AzResourceGroup -Name $RG -Location $Location
   ```
 2. 가상 네트워크에 대한 서브넷 구성을 만들고 *FrontEnd*, *BackEnd* 및 *GatewaySubnet*으로 이름을 지정합니다. 이러한 접두사는 선언된 VNet 주소 공간의 일부여야 합니다.
 
   ```azurepowershell-interactive
-  $fesub = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
-  $besub = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
-  $gwsub = New-AzureRmVirtualNetworkSubnetConfig -Name $GWSubName -AddressPrefix $GWSubPrefix
+  $fesub = New-AzVirtualNetworkSubnetConfig -Name $FESubName -AddressPrefix $FESubPrefix
+  $besub = New-AzVirtualNetworkSubnetConfig -Name $BESubName -AddressPrefix $BESubPrefix
+  $gwsub = New-AzVirtualNetworkSubnetConfig -Name $GWSubName -AddressPrefix $GWSubPrefix
   ```
 3. 가상 네트워크 만들기
 
   이 예제에서 -DnsServer 서버 매개 변수는 선택 사항입니다. 값을 지정하더라도 새 DNS 서버를 만들지 않습니다. 지정한 DNS 서버 IP 주소는 VNet에서 연결하는 리소스에 대한 이름을 확인할 수 있는 DNS 서버여야 합니다. 이 예에서는 개인 IP 주소를 사용하지만 DNS 서버의 IP 주소가 아닐 가능성이 높습니다. 고유한 값을 사용해야 합니다. 지정한 값은 P2S 연결 또는 VPN 클라이언트가 아니라 VNet에 배포한 리소스에서 사용됩니다.
 
   ```azurepowershell-interactive
-  New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
+  New-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
   ```
 4. 만든 가상 네트워크에 대한 변수를 지정합니다.
 
   ```azurepowershell-interactive
-  $vnet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-  $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+  $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+  $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
   ```
 5. VPN Gateway에는 공용 IP 주소가 있어야 합니다. 먼저 IP 주소 리소스를 요청하고, 가상 네트워크 게이트웨이를 만들 때 참조합니다. VPN Gateway가 생성될 때 IP 주소는 리소스에 동적으로 할당됩니다. 현재 VPN Gateway는 *동적* 공용 IP 주소 할당만 지원합니다. 고정 공용 IP 주소 할당을 요청할 수 없습니다. 하지만 IP 주소가 VPN 게이트웨이에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 공용 IP 주소가 변경됩니다. VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드 시에는 변경되지 않습니다.
 
   동적으로 할당된 공용 IP 주소를 요청합니다.
 
   ```azurepowershell-interactive
-  $pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
-  $ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
+  $pip = New-AzPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+  $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
   ```
 
 ## <a name="creategateway"></a>3. VPN Gateway 만들기
@@ -132,7 +136,7 @@ VNet용 가상 네트워크 게이트웨이를 구성하고 만듭니다.
 * VPN 게이트웨이는 선택한 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md)에 따라 완료하는 데 최대 45분이 걸릴 수 있습니다. 이 예제에서는 IKEv2를 사용합니다.
 
 ```azurepowershell-interactive
-New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
+New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 ```
@@ -142,8 +146,8 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 VPN 게이트웨이에서 만들기를 완료한 후에 VPN 클라이언트 주소 풀을 추가할 수 있습니다. VPN 클라이언트 주소 풀은 연결할 때 VPN 클라이언트에서 IP 주소를 받는 범위입니다. 연결 원본이 되는 온-프레미스 위치 또는 연결 대상이 되는 VNet과 겹치지 않는 개인 IP 주소 범위를 사용합니다. 이 예제에서 VPN 클라이언트 주소 풀은 1단계에서 [변수](#declare)로 선언되었습니다.
 
 ```azurepowershell-interactive
-$Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
-Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPool $VPNClientAddressPool
+$Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPool $VPNClientAddressPool
 ```
 
 ## <a name="Certificates"></a>5. 인증서 생성
@@ -165,23 +169,25 @@ Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddre
 
 VPN 게이트웨이에서 만들기가 완료되었는지 확인합니다. 완료되었으면 신뢰할 수 있는 루트 인증서의 .cer 파일(공개 키 정보 포함)을 Azure로 업로드할 수 있습니다. a.cer 파일이 업로드되면 Azure는 이.cer 파일을 사용하여 신뢰할 수 있는 루트 인증서에서 생성된 클라이언트 인증서를 설치한 클라이언트를 인증합니다. 필요한 경우 나중에 신뢰할 수 있는 루트 인증서 파일을 최대 20개까지 추가로 업로드할 수 있습니다.
 
+Azure Cloud Shell을 사용하여 이 정보를 업로드할 수 없습니다. 컴퓨터에서 로컬로 PowerShell을 사용해도 되고, [Azure Portal 단계](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)를 사용해도 됩니다.
+
 1. 인증서 이름에 대한 변수를 선언하고 변수를 고유한 값으로 바꿉니다.
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   $P2SRootCertName = "P2SRootCert.cer"
   ```
 2. 파일 경로를 고유한 값으로 바꾼 후 cmdlet을 실행합니다.
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   $filePathForCert = "C:\cert\P2SRootCert.cer"
   $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($filePathForCert)
   $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
-  $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
+  $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
   ```
-3. 공개 키 정보를 Azure에 업로드합니다. 인증서 정보가 업로드되면 Azure는 이를 신뢰할 수 있는 루트 인증서로 간주합니다.
+3. 공개 키 정보를 Azure에 업로드합니다. 인증서 정보가 업로드되면 Azure는 해당 인증서를 신뢰할 수 있는 루트 인증서로 간주합니다.
 
-  ```azurepowershell-interactive
-  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64
+  ```azurepowershell
+  Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64
   ```
 
 ## <a name="clientcertificate"></a>7. 내보낸 클라이언트 인증서 설치
@@ -260,32 +266,33 @@ Azure에 최대 20개의 루트 인증서 .cer 파일을 추가할 수 있습니
 
 #### <a name="certmethod1"></a>방법 1
 
-루트 인증서를 업로드하는 가장 효율적인 방법입니다.
+
+루트 인증서를 업로드하는 가장 효율적인 방법입니다. 이 방법을 사용하려면 Azure PowerShell cmdlet이 컴퓨터에 로컬로 설치되어야 합니다(Azure Cloud Shell 아님).
 
 1. 업로드할 .cer 파일을 준비합니다.
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   $filePathForCert = "C:\cert\P2SRootCert3.cer"
   $cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2($filePathForCert)
   $CertBase64_3 = [system.convert]::ToBase64String($cert.RawData)
-  $p2srootcert = New-AzureRmVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64_3
+  $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64_3
   ```
 2. 파일을 업로드합니다. 한 번에 하나의 파일만 업로드할 수 있습니다.
 
-  ```azurepowershell-interactive
-  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64_3
+  ```azurepowershell
+  Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64_3
   ```
 
 3. 인증서 파일이 업로드되었는지 확인하려면
 
-  ```azurepowershell-interactive
-  Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
+  ```azurepowershell
+  Get-AzVpnClientRootCertificate -ResourceGroupName "TestRG" `
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
-#### <a name="certmethod2"></a>방법 2
+#### <a name="certmethod2"></a>방법 2 - Azure Portal
 
-이 방법은 방법 1보다 더 많은 단계를 포함하지만 결과는 동일합니다. 인증서 데이터를 보는 데 필요한 경우 포함됩니다.
+이 방법은 방법 1보다 더 많은 단계를 포함하지만 결과는 동일합니다. 인증서 데이터를 보는 데 필요한 경우 포함됩니다. 이 방법을 사용하려면 Azure PowerShell cmdlet이 컴퓨터에 로컬로 설치되어야 합니다(Azure Cloud Shell 아님).
 
 1. Azure에 추가할 새 루트 인증서를 만들고 준비합니다. Base-64로 인코딩된 X.509(.CER)로 공개 키를 내보내고 텍스트 편집기로 엽니다. 다음 예제와 같이 값을 복사합니다.
 
@@ -298,19 +305,19 @@ Azure에 최대 20개의 루트 인증서 .cer 파일을 추가할 수 있습니
 
 2. 인증서 이름 및 키 정보를 변수로 지정합니다. 다음 예제에 나와 있는 것처럼 정보를 고유한 정보로 바꿉니다.
 
-  ```azurepowershell-interactive
+  ```azurepowershell
   $P2SRootCertName2 = "ARMP2SRootCert2.cer"
   $MyP2SCertPubKeyBase64_2 = "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
   ```
 3. 새 루트 인증서를 추가합니다. 한번에 하나의 인증서만 추가할 수 있습니다.
 
-  ```azurepowershell-interactive
-  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $MyP2SCertPubKeyBase64_2
+  ```azurepowershell
+  Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $MyP2SCertPubKeyBase64_2
   ```
 4. 다음 예제를 사용하여 새 인증서가 올바르게 추가되었는지 확인할 수 있습니다.
 
-  ```azurepowershell-interactive
-  Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
+  ```azurepowershell
+  Get-AzVpnClientRootCertificate -ResourceGroupName "TestRG" `
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
@@ -327,12 +334,12 @@ Azure에 최대 20개의 루트 인증서 .cer 파일을 추가할 수 있습니
 2. 인증서를 제거합니다.
 
   ```azurepowershell-interactive
-  Remove-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
+  Remove-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
   ```
 3. 다음 예제를 사용하여 인증서가 성공적으로 제거되었는지 확인합니다.
 
   ```azurepowershell-interactive
-  Get-AzureRmVpnClientRootCertificate -ResourceGroupName "TestRG" `
+  Get-AzVpnClientRootCertificate -ResourceGroupName "TestRG" `
   -VirtualNetworkGatewayName "VNet1GW"
   ```
 
@@ -357,14 +364,14 @@ Azure에 최대 20개의 루트 인증서 .cer 파일을 추가할 수 있습니
 4. 해지된 인증서 목록에 지문을 추가합니다. 지문이 추가되면 "성공"이라고 표시됩니다.
 
   ```azurepowershell-interactive
-  Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
+  Add-AzVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
   -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG `
   -Thumbprint $RevokedThumbprint1
   ```
 5. 지문이 인증서 해지 목록에 추가되었는지 확인합니다.
 
   ```azurepowershell-interactive
-  Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
+  Get-AzVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
   ```
 6. 지문이 추가된 후에는 인증서를 더 이상 연결에 사용할 수 없습니다. 이 인증서를 사용하여 연결하려는 클라이언트에서 인증서가 더 이상 유효하지 않다고 하는 메시지를 받습니다.
 
@@ -383,13 +390,13 @@ Azure에 최대 20개의 루트 인증서 .cer 파일을 추가할 수 있습니
 2. 인증서 지문을 인증서 해지 목록에서 제거합니다.
 
   ```azurepowershell-interactive
-  Remove-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
+  Remove-AzVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
   -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
   ```
 3. 해지된 목록에서 지문이 제거되었는지 확인합니다.
 
   ```azurepowershell-interactive
-  Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
+  Get-AzVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
   ```
 
 ## <a name="faq"></a>지점 및 사이트 간 FAQ

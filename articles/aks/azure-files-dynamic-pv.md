@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 841c65fd8420fdfe681cb99ee7054cb4edd5fcd3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2cf9a98a2f27c9088266a976118acdb56f8a65d7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53968994"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300825"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
@@ -26,32 +26,20 @@ Kubernetes 영구적 볼륨에 대한 자세한 내용은 [Kubernetes 영구적 
 
 또한 Azure CLI 버전 2.0.46 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-class"></a>저장소 클래스 만들기
 
-Azure Files 공유를 Kubernetes 볼륨으로 동적으로 만들면 AKS **노드** 리소스 그룹에 들어 있는 모든 저장소 계정을 사용할 수 있습니다. 이 그룹은 AKS 클러스터에 대한 리소스 프로비전에서 만들어진 *MC_* 접두사가 있는 계정입니다. [az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져옵니다.
+저장소 클래스는 Azure 파일 공유를 만드는 방법을 정의하는 데 사용됩니다. 스토리지 계정은 Azure 파일 공유를 보관할 스토리지 클래스에서 사용할 수 있도록 자동으로 *_MC* 리소스 그룹에 생성됩니다. *skuName*에서 다음 [Azure Storage 중복성][storage-skus] 중 하나를 선택합니다.
 
-```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-
-MC_myResourceGroup_myAKSCluster_eastus
-```
-
-[az storage account create][az-storage-account-create] 명령을 사용하여 저장소 계정을 만듭니다.
-
-이전 단계에서 수집한 리소스 그룹의 이름으로 `--resource-group`을, 사용자가 원하는 이름으로 `--name`을 업데이트합니다. 사용자 고유의 저장소 계정 이름을 제공합니다.
-
-```azurecli
-az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --sku Standard_LRS
-```
+* *Standard_LRS* - 표준 LRS(로컬 중복 스토리지)
+* *Standard_GRS* - 표준 GRS(지역 중복 스토리지)
+* *Standard_RAGRS* - 표준 RA-GRS(읽기 액세스 지역 중복 스토리지)
 
 > [!NOTE]
 > Azure Files는 현재 표준 저장소에서만 작동합니다. Premium Storage를 사용하는 경우 볼륨이 프로비전되지 않습니다.
 
-## <a name="create-a-storage-class"></a>저장소 클래스 만들기
+Azure 파일의 Kubernetes 저장소 클래스에 대한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조하세요.
 
-저장소 클래스는 Azure 파일 공유를 만드는 방법을 정의하는 데 사용됩니다. 클래스에 저장소 계정을 지정할 수 있습니다. 저장소 계정을 지정하지 않으면 *skuName* 및 *location*을 지정해야 하고, 연결된 리소스 그룹의 모든 저장소 계정이 일치하는지 평가됩니다. Azure 파일의 Kubernetes 저장소 클래스에 대한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조하세요.
-
-`azure-file-sc.yaml` 파일을 만들고 다음 예제 매니페스트를 복사합니다. *storageAccount* 값을 이전 단계에서 만든 저장소 계정의 이름으로 바꿉니다. *mountOptions*에 대한 자세한 내용은 [탑재 옵션][mount-options] 섹션을 참조하세요.
+`azure-file-sc.yaml` 파일을 만들고 다음 예제 매니페스트를 복사합니다. *mountOptions*에 대한 자세한 내용은 [탑재 옵션][mount-options] 섹션을 참조하세요.
 
 ```yaml
 kind: StorageClass
@@ -66,7 +54,6 @@ mountOptions:
   - gid=1000
 parameters:
   skuName: Standard_LRS
-  storageAccount: mystorageaccount
 ```
 
 [kubectl apply][kubectl-apply] 명령을 사용하여 저장소 클래스를 만듭니다.
@@ -116,7 +103,7 @@ kubectl apply -f azure-pvc-roles.yaml
 
 PVC(영구적 볼륨 클레임)는 저장소 클래스 개체를 사용하여 Azure 파일 공유를 동적으로 프로비전합니다. 다음 YAML을 사용하여 크기가 *5GB*이고 *ReadWriteMany* 액세스 권한을 가진 영구적 볼륨 클레임을 만들 수 있습니다. 액세스 모드에 대한 자세한 내용은 [Kubernetes 영구 볼륨][access-modes] 설명서를 참조하세요.
 
-이제 `azure-file-pvc.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다. *storageClassName*이 마지막 단계에서 만든 저장소 클래스와 일치하는지 확인합니다.
+이제 `azure-file-pvc.yaml`이라는 파일을 만들고 다음 YAML에 복사합니다. *storageClassName*이 마지막 단계에서 만든 스토리지 클래스와 일치하는지 확인합니다.
 
 ```yaml
 apiVersion: v1
@@ -295,3 +282,4 @@ Azure Files를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알�
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[storage-skus]: ../storage/common/storage-redundancy.md

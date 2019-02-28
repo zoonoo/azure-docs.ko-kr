@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 42b0b7a1ca2767a7051a6c57ef2aeac8cf2bb64c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 10dc7a2c7e4de44979ec72b1d292c69866e1faae
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477406"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326411"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환
 
-Managed Disk는 세 가지 스토리지 옵션을 제공합니다. [프리미엄 SSD](../windows/premium-storage.md), 표준 SSD 및 [표준 HDD](../windows/standard-storage.md)입니다. 성능 요구 사항에 따라 최소한의 가동 중지 시간으로 옵션 사이를 쉽게 전환할 수 있습니다. 이 항목은 현재 관리되지 않는 디스크에 지원되지 않습니다. 하지만 디스크 유형 사이를 쉽게 전환하도록 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
+Managed Disks는 4가지 [디스크 형식](disks-types.md) 옵션을 제공합니다. Ultra SSD(반도체 드라이브), 프리미엄 SSD, 표준 SSD 및 표준 HDD(하드 디스크 드라이브)입니다. 성능 요구 사항에 따라 최소한의 가동 중지 시간으로 옵션 사이를 쉽게 전환할 수 있습니다. 이 항목은 현재 관리되지 않는 디스크에 지원되지 않습니다. 하지만 디스크 유형 사이를 쉽게 전환하도록 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
 
 이 문서는 Azure CLI를 사용하여 관리 디스크를 표준에서 프리미엄으로, 또 그 반대로 변환하는 방법을 설명합니다. CLI를 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 * 변환은 기존 유지 관리 기간 동안 디스크 저장소의 마이그레이션을 예약하도록 VM의 재시작이 필요합니다. 
-* 관리되지 않는 디스크를 사용하는 경우, 이 문서를 사용하여 저장소 옵션 사이로 전환하려면 먼저 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)해야 합니다. 
+* 관리되지 않는 디스크를 사용하는 경우, 이 문서를 사용하여 저장소 옵션 사이로 전환하려면 먼저 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)해야 합니다.
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>VM의 모든 관리 디스크를 표준에서 프리미엄으로, 또 그 반대로 변환

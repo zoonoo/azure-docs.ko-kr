@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: add222c024b5adde1ce81d6ed7f725d0a691c232
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246054"
+ms.locfileid: "56270390"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다.
@@ -1132,7 +1132,7 @@ ms.locfileid: "56246054"
 | servers/tdeCertificates | 아니요 | 
 
 > [!NOTE]
-> master 데이터베이스는 태그를 지원하지 않지만, Data Warehouse 데이터베이스를 포함한 다른 데이터베이스는 태그를 지원합니다.
+> master 데이터베이스는 태그를 지원하지 않지만, Azure SQL Data Warehouse 데이터베이스를 포함한 다른 데이터베이스는 태그를 지원합니다. Azure SQL Data Warehouse 데이터베이스가 활성(일시 중지 아님) 상태여야 합니다.
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

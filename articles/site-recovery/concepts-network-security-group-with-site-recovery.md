@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 4885be7547d404505b50c563036f260166cbc2cc
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6b980ae7539642e67609be802b2e31b287d09f72
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833825"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415273"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Azure Site Recovery에서 네트워크 보안 그룹 사용
 
@@ -45,7 +45,7 @@ Resource Manager 배포 모델에서 NSG는 서브넷 또는 개별 네트워크
 
 Azure Site Recovery를 사용하면 온-프레미스 [Hyper-V 가상 머신](hyper-v-azure-architecture.md), [VMware 가상 머신](vmware-azure-architecture.md) 및 [물리적 서버](physical-azure-architecture.md)에 대해 Azure로 마이그레이션 및 재해 복구를 할 수 있습니다. 온-프레미스와 Azure 간 모든 시나리오의 경우 복제 데이터는 Azure Storage 계정에 전송돼 저장됩니다. 복제 동안 모든 가상 머신 요금을 지불하지 않습니다. Azure에 장애 조치를 실행하면 Site Recovery에서 Azure IaaS 가상 머신을 자동으로 만듭니다.
 
-Azure로 장애 조치한 후에 VM을 만들면 NSG를 사용하여 네트워크 트래픽을 가상 네트워크 및 VM으로 제한할 수 있습니다. Site Recovery는 장애 조치 작업의 일부로 NSG를 만들지 않습니다. 장애 조치를 시작하기 전에 필요한 Azure NSG를 만드는 것이 좋습니다. 그런 다음, Site Recovery의 강력한 [복구 계획](site-recovery-create-recovery-plans.md)에서 자동화 스크립트를 사용하여 장애 조치 중에 자동으로 장애 조치된 VM에 NSG를 연결할 수 있습니다.
+Azure로 장애 조치한 후에 VM을 만들면 NSG를 사용하여 네트워크 트래픽을 가상 네트워크 및 VM으로 제한할 수 있습니다. Site Recovery는 장애 조치 작업의 일부로 NSG를 만들지 않습니다. 장애 조치(failover)를 시작하기 전에 필요한 Azure NSG를 만드는 것이 좋습니다. 그런 다음, Site Recovery의 강력한 [복구 계획](site-recovery-create-recovery-plans.md)에서 자동화 스크립트를 사용하여 장애 조치 중에 자동으로 장애 조치된 VM에 NSG를 연결할 수 있습니다.
 
 예를 들어 장애 조치 후 VM 구성이 위에서 설명한 [시나리오 예](concepts-network-security-group-with-site-recovery.md#using-network-security-groups)와 비슷한 경우 다음과 같이 수행할 수 있습니다:
 -   대상 Azure 지역에서 DR 계획의 일부로 **Contoso VNet** 및 **Contoso 서브넷**을 만들 수 있습니다.
@@ -61,7 +61,7 @@ Azure Site Recovery를 사용하면 [Azure 가상 머신](azure-to-azure-archite
 
 Azure VM 복제의 경우 원본 Azure 지역의 NSG 규칙이 복제 트래픽에 대한 [아웃바운드 연결](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)을 허용하는지 확인합니다. 또한 이 [NSG 구성 예제](azure-to-azure-about-networking.md#example-nsg-configuration)를 통해 이러한 필수 규칙을 테스트하고 확인할 수도 있습니다.
 
-Site Recovery는 장애 조치 작업의 일부로 NSG를 만들거나 복제하지 않습니다. 장애 조치를 시작하기 전에 대상 Azure 지역에 필요한 NSG를 만드는 것이 좋습니다. 그런 다음, Site Recovery의 강력한 [복구 계획](site-recovery-create-recovery-plans.md)에서 자동화 스크립트를 사용하여 장애 조치 중에 자동으로 장애 조치된 VM에 NSG를 연결할 수 있습니다.
+Site Recovery는 장애 조치 작업의 일부로 NSG를 만들거나 복제하지 않습니다. 장애 조치(failover)를 시작하기 전에 대상 Azure 지역에 필요한 NSG를 만드는 것이 좋습니다. 그런 다음, Site Recovery의 강력한 [복구 계획](site-recovery-create-recovery-plans.md)에서 자동화 스크립트를 사용하여 장애 조치 중에 자동으로 장애 조치된 VM에 NSG를 연결할 수 있습니다.
 
 앞에서 설명한 [시나리오 예](concepts-network-security-group-with-site-recovery.md#using-network-security-groups)를 고려하면 다음과 같습니다.
 -   VM에 대한 복제를 사용하도록 설정하면 Site Recovery는 대상 Azure 지역에 **Contoso VNet** 및 **Contoso 서브넷**의 복제본을 만들 수 있습니다.

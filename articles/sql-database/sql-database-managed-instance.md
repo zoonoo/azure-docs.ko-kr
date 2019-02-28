@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: d8959e25280a9d1dd62549c698f7b2b6b98d6154
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/20/2019
+ms.openlocfilehash: d19dabb4e74e7a108ae769f55cd65ef108019fdc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964154"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454744"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>가상 네트워크 및 거의 100%의 호환성으로 SQL Database 고급 데이터 보안 사용
 
@@ -47,7 +47,7 @@ Managed Instance는 Azure SQL Database와 SQL Server 데이터베이스 엔진 �
 | --- | --- |
 |하드웨어를 구입하고 관리할 필요가 없음 <br>기본 인프라 관리를 위한 오버헤드가 없음 <br>신속한 프로비전 및 서비스 크기 조정 <br>자동 패치 적용 및 버전 업그레이드 <br>다른 PaaS 데이터 서비스와 통합 |99.99% 작동 시간 SLA  <br>기본 제공 [고가용성](sql-database-high-availability.md) <br>[자동화된 백업](sql-database-automated-backups.md)으로 보호되는 데이터 <br>고객이 구성 가능한 백업 보존 기간 <br>사용자가 시작하는 [백업](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[특정 시점 데이터베이스 복원](sql-database-recovery-using-backups.md#point-in-time-restore) 기능 |
 |**보안 및 규정 준수** | **관리**|
-|격리된 환경([VNet 통합](sql-database-managed-instance-connectivity-architecture.md), 단일 테넌트 서비스, 전용 계산 및 저장소) <br>[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 인증](sql-database-aad-authentication.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 로그인</a>(**공개 미리 보기**) <br>Azure SQL 데이터베이스와 동일한 표준 준수 <br>[SQL 감사](sql-database-managed-instance-auditing.md) <br>[위협 검색](sql-database-managed-instance-threat-detection.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
+|격리된 환경([VNet 통합](sql-database-managed-instance-connectivity-architecture.md), 단일 테넌트 서비스, 전용 계산 및 저장소) <br>[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 인증](sql-database-aad-authentication.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 서버 보안 주체(로그인)</a>(**공개 미리 보기**) <br>Azure SQL 데이터베이스와 동일한 표준 준수 <br>[SQL 감사](sql-database-managed-instance-auditing.md) <br>[위협 검색](sql-database-managed-instance-threat-detection.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
 
 Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 
@@ -150,9 +150,9 @@ Azure SQL Database는 데이터를 보호하는 데 사용할 수 있는 일단�
 
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory 통합
 
-Managed Instance 배포 옵션은 기존 SQL 서버 데이터베이스 엔진 로그인 및 AAD(Azure Active Directory)와 통합된 로그인을 지원합니다. AAD 로그인(**공개 미리 보기**)은 온-프레미스 환경에서 사용하는 온-프레미스 데이터베이스 로그인의 Azure 클라우드 버전입니다. AAD 로그인을 사용하면 동일한 Managed Instance 내에서 데이터베이스 간 쿼리를 비롯한 모든 인스턴스 수준 작업을 수행할 수 있는 실제 인스턴스 범위의 보안 주체로 Azure Active Directory 테넌트의 사용자 및 그룹을 지정할 수 있습니다.
+Managed Instance 배포 옵션은 기존 SQL 서버 데이터베이스 엔진 로그인 및 AAD(Azure Active Directory)와 통합된 로그인을 지원합니다. Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)는 온-프레미스 환경에서 사용 중인 온-프레미스 데이터베이스 로그인의 Azure 클라우드 버전입니다. Azure AD 서버 보안 주체(로그인)를 사용하면 동일한 Managed Instance 내에서 데이터베이스 간 쿼리를 비롯한 모든 인스턴스 수준 작업을 수행할 수 있는 실제 인스턴스 범위의 보안 주체로 Azure Active Directory 테넌트의 사용자 및 그룹을 지정할 수 있습니다.
 
-AAD 로그인(**공개 미리 보기**)을 만들기 위한 새 구문인 **FROM EXTERNAL PROVIDER**가 소개되었습니다. 구문에 대한 자세한 내용은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하고 [Managed Instance에 대한 Azure Active Directory 관리자 프로비전](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)을 검토하세요.
+Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)를 만들기 위한 새 구문인 **FROM EXTERNAL PROVIDER**가 소개되었습니다. 구문에 대한 자세한 내용은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하고 [Managed Instance에 대한 Azure Active Directory 관리자 프로비전](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)을 검토하세요.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 통합 및 Multi-Factor Authentication
 

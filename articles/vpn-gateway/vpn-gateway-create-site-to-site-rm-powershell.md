@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4c29c4666a6cf492055d7937a117da8b5f291442
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: f0a0a17fa14272b78be5f431213c37d33619ff2f
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696918"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415003"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>PowerShell을 사용하여 사이트 간 VPN 연결로 VNet 만들기
 
@@ -32,6 +32,8 @@ ms.locfileid: "55696918"
 
 ## <a name="before"></a>시작하기 전에
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 구성을 시작하기 전에 다음 기준을 충족하는지 확인합니다.
 
 * 호환되는 VPN 디바이스 및 이 디바이스를 구성할 수 있는 사람이 있는지 확인합니다. 호환되는 VPN 디바이스 및 디바이스 구성에 대한 자세한 내용은 [VPN 디바이스 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
@@ -44,8 +46,8 @@ ms.locfileid: "55696918"
 
 로컬로 PowerShell을 설치하여 사용하려는 경우 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet은 자주 업데이트되며, 일반적으로 PowerShell cmdlet을 업데이트하여 최신 기능을 가져와야 합니다. PowerShell cmdlet을 업데이트하지 않으면 지정된 값이 실패할 수 있습니다. 
 
-사용 중인 버전을 찾으려면 'Get-Module -ListAvailable AzureRM'을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
-PowerShell을 로컬에서 실행하는 경우 'Connect-AzureRmAccount'를 실행하여 Azure와의 연결을 만들어야 합니다.
+사용 중인 버전을 찾으려면 ‘Get-Module -ListAvailable Az’를 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
+PowerShell을 로컬에서 실행하는 경우 ‘Connect-AzAccount’도 실행하여 Azure와의 연결을 만들어야 합니다.
 
 
 ### <a name="example"></a>예제 값
@@ -89,14 +91,14 @@ ConnectionName          = VNet1toSite1
 
 [!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="vnet"></a>가상 네트워크 및 게이트웨이 서브넷을 만들려면
+### <a name="vnet"></a>가상 네트워크 및 게이트웨이 서브넷 만들기
 
 이 예제에서는 가상 네트워크 및 게이트웨이 서브넷을 만듭니다. 게이트웨이 서브넷을 추가해야 하는 가상 네트워크가 이미 있는 경우 [이미 만든 가상 네트워크에 게이트웨이 서브넷을 추가하려면](#gatewaysubnet)을 참조하세요.
 
 리소스 그룹 만들기:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name TestRG1 -Location 'East US'
+New-AzResourceGroup -Name TestRG1 -Location 'East US'
 ```
 
 가상 네트워크를 만듭니다.
@@ -104,13 +106,13 @@ New-AzureRmResourceGroup -Name TestRG1 -Location 'East US'
 1. 변수를 설정합니다.
 
   ```azurepowershell-interactive
-  $subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27
-  $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Frontend' -AddressPrefix 10.1.0.0/24
+  $subnet1 = New-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27
+  $subnet2 = New-AzVirtualNetworkSubnetConfig -Name 'Frontend' -AddressPrefix 10.1.0.0/24
   ```
 2. VNet을 만듭니다.
 
   ```azurepowershell-interactive
-  New-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1 `
+  New-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1 `
   -Location 'East US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
   ```
 
@@ -121,22 +123,22 @@ New-AzureRmResourceGroup -Name TestRG1 -Location 'East US'
 1. 변수를 설정합니다.
 
   ```azurepowershell-interactive
-  $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
+  $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
   ```
 2. 게이트웨이 서브넷을 만듭니다.
 
   ```azurepowershell-interactive
-  Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+  Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
   ```
 3. 구성을 설정합니다.
 
   ```azurepowershell-interactive
-  Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+  Set-AzVirtualNetwork -VirtualNetwork $vnet
   ```
 
 ## 2. <a name="localnet"></a>로컬 네트워크 게이트웨이 만들기
 
-로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 위치를 가리킵니다. Azure가 참조할 수 있는 사이트 이름을 지정한 다음, 연결을 만들 온-프레미스 VPN 디바이스의 IP 주소를 지정합니다. 또한 VPN Gateway를 통해 VPN 디바이스로 라우팅될 IP 주소 접두사를 지정합니다. 사용자가 지정하는 주소 접두사는 온-프레미스 네트워크에 있는 접두사입니다. 온-프레미스 네트워크가 변경되면 이러한 접두사를 쉽게 업데이트할 수 있습니다.
+LNG(로컬 네트워크 게이트웨이)는 일반적으로 온-프레미스 위치를 가리킵니다. 가상 네트워크 게이트웨이와 동일하지 않습니다. Azure가 참조할 수 있는 사이트 이름을 지정한 다음, 연결을 만들 온-프레미스 VPN 디바이스의 IP 주소를 지정합니다. 또한 VPN Gateway를 통해 VPN 디바이스로 라우팅될 IP 주소 접두사를 지정합니다. 사용자가 지정하는 주소 접두사는 온-프레미스 네트워크에 있는 접두사입니다. 온-프레미스 네트워크가 변경되면 이러한 접두사를 쉽게 업데이트할 수 있습니다.
 
 다음 값을 사용합니다.
 
@@ -146,38 +148,41 @@ New-AzureRmResourceGroup -Name TestRG1 -Location 'East US'
 로컬 네트워크 게이트웨이에 단일 주소 접두사를 추가하려면:
 
   ```azurepowershell-interactive
-  New-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
+  New-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
   -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.101.0.0/24'
   ```
 
 로컬 네트워크 게이트웨이에 중복 주소 접두사를 추가하려면:
 
   ```azurepowershell-interactive
-  New-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
+  New-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
   -Location 'East US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.101.0.0/24','10.101.1.0/24')
   ```
 
-로컬 네트워크 게이트웨이에 대한 IP 주소 접두사를 수정하려면:<br>
+로컬 네트워크 게이트웨이에 대한 IP 주소 접두사를 수정하려면:
+
 경우에 따라 로컬 네트워크 게이트웨이 접두사를 변경합니다. IP 주소 접두사를 수정하기 위해 수행하는 단계는 VPN Gateway 연결을 만들었는지에 따라 달라집니다. 이 문서의 [로컬 네트워크 게이트웨이에 대한 IP 주소 접두사 수정](#modify) 섹션을 참조하세요.
 
 ## <a name="PublicIP"></a>3. 공용 IP 주소 요청
 
-VPN Gateway에는 공용 IP 주소가 있어야 합니다. 먼저 IP 주소 리소스를 요청하고, 가상 네트워크 게이트웨이를 만들 때 참조합니다. VPN Gateway가 생성될 때 IP 주소는 리소스에 동적으로 할당됩니다. 현재 VPN Gateway는 *동적* 공용 IP 주소 할당만 지원합니다. 고정 공용 IP 주소 할당을 요청할 수 없습니다. 하지만 IP 주소가 VPN Gateway에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 공용 IP 주소가 변경됩니다. VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드 시에는 변경되지 않습니다.
+VPN Gateway에는 공용 IP 주소가 있어야 합니다. 먼저 IP 주소 리소스를 요청하고, 가상 네트워크 게이트웨이를 만들 때 참조합니다. VPN Gateway가 생성될 때 IP 주소는 리소스에 동적으로 할당됩니다. 
+
+현재 VPN Gateway는 *동적* 공용 IP 주소 할당만 지원합니다. 고정 공용 IP 주소 할당을 요청할 수 없습니다. 하지만 IP 주소가 VPN 게이트웨이에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 공용 IP 주소가 변경됩니다. VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드 시에는 변경되지 않습니다.
 
 가상 네트워크 VPN Gateway에 할당할 공용 IP 주소를 요청합니다.
 
 ```azurepowershell-interactive
-$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+$gwpip= New-AzPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>4. 게이트웨이 IP 주소 지정 구성 만들기
 
-게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷을 정의합니다. 다음 예제를 사용하여 게이트웨이 구성을 만듭니다.
+게이트웨이 구성은 사용할 공용 IP 주소 및 서브넷(‘GatewaySubnet’)을 정의합니다. 다음 예제를 사용하여 게이트웨이 구성을 만듭니다.
 
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
+$vnet = Get-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+$gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
 ```
 
 ## <a name="CreateGateway"></a>5. VPN Gateway 만들기
@@ -191,7 +196,7 @@ $gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -Subnet
 * 사용할 게이트웨이 SKU를 선택합니다. 특정 SKU에 대한 구성 제한이 있습니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요. -GatewaySku와 관련하여 VPN 게이트웨이를 만들 때 오류가 발생하면 최신 버전의 PowerShell cmdlet을 설치했는지 확인합니다.
 
 ```azurepowershell-interactive
-New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'East US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
@@ -200,13 +205,13 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 
 ## <a name="ConfigureVPNDevice"></a>6. VPN 디바이스 구성
 
-온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 디바이스가 필요합니다. 이 단계에서는 VPN 디바이스를 구성합니다. VPN 디바이스를 구성할 때 다음이 필요합니다.
+온-프레미스 네트워크에 대한 사이트 간 연결에는 VPN 디바이스가 필요합니다. 이 단계에서는 VPN 디바이스를 구성합니다. VPN 디바이스를 구성할 때 다음 항목이 필요합니다.
 
 - 공유 키 - 사이트 간 VPN 연결을 만들 때 지정하는 것과 동일한 공유 키입니다. 이 예제에서는 기본적인 공유 키를 사용합니다. 실제로 사용할 키는 좀 더 복잡하게 생성하는 것이 좋습니다.
-- 가상 네트워크 게이트웨이의 공용 IP 주소 Azure Portal, PowerShell 또는 CLI를 사용하여 공용 IP 주소를 볼 수 있습니다. PowerShell을 사용하여 가상 네트워크 게이트웨이의 공용 IP 주소를 찾으려면 다음 예제를 사용합니다.
+- 가상 네트워크 게이트웨이의 공용 IP 주소 Azure Portal, PowerShell 또는 CLI를 사용하여 공용 IP 주소를 볼 수 있습니다. PowerShell을 사용하여 가상 네트워크 게이트웨이의 공용 IP 주소를 찾으려면 다음 예제를 사용합니다. 이 예제에서 VNet1GWPIP는 이전 단계에서 만든 공용 IP 주소 리소스의 이름입니다.
 
   ```azurepowershell-interactive
-  Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG1
+  Get-AzPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1
   ```
 
 [!INCLUDE [Configure VPN device](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
@@ -214,17 +219,17 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 
 ## <a name="CreateConnection"></a>7. VPN 연결 만들기
 
-다음으로 가상 네트워크 게이트웨이와 VPN 디바이스 사이에 사이트 간 VPN 연결을 만듭니다. 사용자 고유의 값으로 대체해야 합니다. 공유 키는 VPN 디바이스 구성에 사용한 값과 일치해야 합니다. 사이트 간 '-ConnectionType'은 *IPsec*입니다.
+다음으로 가상 네트워크 게이트웨이와 VPN 디바이스 사이에 사이트 간 VPN 연결을 만듭니다. 사용자 고유의 값으로 대체해야 합니다. 공유 키는 VPN 디바이스 구성에 사용한 값과 일치해야 합니다. 사이트 간 '-ConnectionType'은 **IPsec**입니다.
 
 1. 변수를 설정합니다.
   ```azurepowershell-interactive
-  $gateway1 = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-  $local = Get-AzureRmLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+  $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+  $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
   ```
 
 2. 연결을 만듭니다.
   ```azurepowershell-interactive
-  New-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
+  New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
   -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
   ```
@@ -244,7 +249,7 @@ VPN 연결을 확인하는 몇 가지 방법이 있습니다.
 
 ## <a name="modify"></a>로컬 네트워크 게이트웨이에 대한 IP 주소 접두사를 수정하려면
 
-온-프레미스 위치에 라우팅하려는 IP 주소 접두사를 변경하는 경우 로컬 네트워크 게이트웨이를 수정할 수 있습니다. 두 가지 지침이 제공됩니다. 게이트웨이 연결을 이미 만들었는지 여부에 따라 선택하는 지침이 다릅니다.
+온-프레미스 위치에 라우팅하려는 IP 주소 접두사를 변경하는 경우 로컬 네트워크 게이트웨이를 수정할 수 있습니다. 두 가지 지침이 제공됩니다. 게이트웨이 연결을 이미 만들었는지 여부에 따라 선택하는 지침이 다릅니다. 이러한 예제를 사용하는 경우 사용자 환경과 일치하도록 값을 수정합니다.
 
 [!INCLUDE [Modify prefixes](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
 

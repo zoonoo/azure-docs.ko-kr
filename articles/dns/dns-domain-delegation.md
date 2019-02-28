@@ -4,14 +4,14 @@ description: 도메인 위임을 변경하고 Azure DNS 이름 서버를 사용�
 services: dns
 author: vhorne
 ms.service: dns
-ms.date: 1/22/2019
+ms.date: 2/19/2019
 ms.author: victorh
-ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 85f7318ac584e324f58d2ad470dc896e79e416d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461033"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417891"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Azure DNS를 사용하여 DNS 영역 위임
 
@@ -27,7 +27,7 @@ Domain Name System은 도메인 계층 구조입니다. 계층 구조는 이름�
 
 **도메인 등록 기관** - 도메인 등록 기관은 인터넷 도메인 이름을 제공할 수 있는 회사입니다. 사용하려는 인터넷 도메인이 사용 가능한지 확인하고 구입할 수 있게 해줍니다. 도메인 이름이 등록되면 도메인 이름에 대한 법적 소유자가 됩니다. 인터넷 도메인이 이미 있는 경우 현재 도메인 등록 기관을 사용하여 Azure DNS에 위임합니다.
 
-지정된 도메인 이름의 소유자에 대한 자세한 정보나 도메인 구입 방법에 대한 정보를 알아보려면 [Azure AD에서 인터넷 도메인 관리](https://msdn.microsoft.com/library/azure/hh969248.aspx)를 참조하세요.
+공인된 도메인 등록 기관에 대한 자세한 내용은 [ICANN 공인 등록 기관](https://www.icann.org/registrar-reports/accredited-list.html)을 참조하세요.
 
 ### <a name="resolution-and-delegation"></a>확인 및 위임
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 880ae672409704ddcd5597ae758f8c786c3c0720
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244490"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327853"
 ---
 # <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
 
@@ -78,7 +78,7 @@ Blob Storage 계정은 사용 패턴을 기준으로 데이터 저장을 위한 
 다음 성능 계층 중 하나에 대해 범용 저장소 계정을 구성할 수 있습니다.
 
 * Blob, 파일, 테이블, 큐 및 Azure 가상 머신 디스크를 저장하기 위한 표준 성능 계층
-* Azure 가상 머신 디스크만 저장하기 위한 프리미엄 성능 계층 Premium Storage의 자세한 개요는 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../../virtual-machines/windows/premium-storage.md)를 참조하세요.
+* 비관리형 가상 머신 디스크만 저장하기 위한 프리미엄 성능 계층
 
 ## <a name="access-tiers-for-block-blob-data"></a>블록 Blob 데이터를 위한 액세스 계층
 

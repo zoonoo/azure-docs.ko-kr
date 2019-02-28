@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 36902edd7b2df472960d19b8ef9a4ebd4cdfe695
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 937ac1d892cdea849d7e5a89c8e69c6b069f2efd
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906683"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333884"
 ---
 이 문서에서는 이전 세대의 가상 머신 크기에 대한 정보를 제공합니다. 이러한 크기를 계속 사용할 수 있지만 새로운 세대도 사용 가능합니다.
 
@@ -22,11 +22,11 @@ ms.locfileid: "37906683"
 
 ACU: 160
 
-Premium Storage: 지원됨
+Premium Storage:  지원됨
 
-Premium Storage 캐싱: 지원됨
+Premium Storage 캐싱:  지원됨
 
-| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3.5 |7 |4 |4,000/32(43) |3,200/32 |2 / 500 |
 | Standard_DS2 |2 |7 |14 |8 |8,000/64(86) |6,400/64 |2 / 1000 |
@@ -39,18 +39,18 @@ Premium Storage 캐싱: 지원됨
 
 ACU: 160 <sup>1</sup>
 
-Premium Storage: 지원됨
+Premium Storage:  지원됨
 
-Premium Storage 캐싱: 지원됨
+Premium Storage 캐싱:  지원됨
 
-| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |8 |8,000/64(72) |6,400/64 |2 / 1000 |
 | Standard_DS12 |4 |28 |56 |16 |16,000/128(144) |12,800/128 |4 / 2000 |
 | Standard_DS13 |8 |56 |112 |32 |32,000/256(288) |25,600/256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |64 |64,000/512(576) |51,200/512 |8 / 8000 |
 
-<sup>1</sup> DS 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 머신 작업을 위한 고성능 스토리지](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
+<sup>1</sup> DS 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)을 참조하세요.
 
 
 
@@ -58,13 +58,13 @@ Premium Storage 캐싱: 지원됨
 
 ACU: 160
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-| 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 500                 |
+| Standard_D1  | 1         | 3.5         | 50             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 500                 |
 | Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
 | Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
 | Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
@@ -75,11 +75,11 @@ Premium Storage 캐싱: 지원되지 않음
 
 ACU: 160
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-| 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
 | Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
@@ -92,20 +92,20 @@ Premium Storage 캐싱: 지원되지 않음
 
 ACU: 225
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
 A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. 이러한 크기를 실행하는 하드웨어는 고성능 컴퓨팅(HPC) 클러스터 애플리케이션, 모델링 및 시뮬레이션을 포함하는 계산 집약적 및 네트워크 집약적 애플리케이션을 위해 디자인되고 최적화되었습니다. A8-A11 시리즈는 Intel Xeon E5-2670 @ 2.6 GHZ를 사용하고 H 시리즈는 Intel Xeon E5-2667 v3 @ 3.2 GHz를 사용합니다.  이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
-| 크기 | vCPU | 메모리: GiB | 임시 저장소(HDD) GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수|
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(HDD): GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수|
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8 <sup>1</sup> |8 |56 |382 |32 |32x500 |2 |
 | Standard_A9 <sup>1</sup> |16 |112 |382 |64 |64x500 |4 |
 | Standard_A10 |8 |56 |382 |32 |32x500 |2  |
 | Standard_A11 |16 |112 |382 |64 |64x500 |4 |
 
-<sup>1</sup>MPI 응용 프로그램의 경우 초단기 대기 시간 및 고대역폭을 제공하는 FDR InfiniBand 네트워크를 통해 전용 RDMA 백 엔드 네트워크를 사용할 수 있습니다.
+<sup>1</sup>MPI 애플리케이션의 경우 초단기 대기 시간 및 고대역폭을 제공하는 FDR InfiniBand 네트워크를 통해 전용 RDMA 백 엔드 네트워크를 사용할 수 있습니다.
 
 <br>
 
@@ -113,11 +113,11 @@ A8-A11 및 H 시리즈는 *계산 집약적 인스턴스*라고도 합니다. �
 
 ACU: 50-100
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-| 크기 | vCPU | 메모리: GiB | 임시 저장소(HDD) GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps)  |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(HDD): GiB | 최대 데이터 디스크 수 | 최대 데이터 디스크 처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 <sup>1</sup> |1 |0.768 |20 |1 |1x500 |2 / 100 |
 | Standard_A1 |1 |1.75 |70 |2 |2x500 |2 / 500  |
@@ -143,9 +143,9 @@ Premium Storage 캐싱: 지원되지 않음
 
 ## <a name="basic-a"></a>Basic A
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
 기본 계층 크기는 부하 분산, 크기 자동 조정 또는 메모리 집약 가상 머신이 필요하지 않은 개발 워크로드 및 기타 애플리케이션에 기본적으로 사용됩니다.
 

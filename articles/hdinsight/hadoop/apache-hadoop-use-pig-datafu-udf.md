@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 982ed4533c34cd4a6613d289ef4712001977538f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d67c3e452da05c626721d4c3144e612e6f9e0af4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436221"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338447"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>HDInsight에서 Apache Pig와 함께 Apache DataFu Pig 사용
 
@@ -90,7 +90,9 @@ Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니
 >
 > * 클러스터에서 Azure Storage를 사용하는 경우 `wasb://` 경로를 사용합니다. 예: `register wasb:///example/jars/datafu-pig-1.4.0.jar`
 >
-> * 클러스터에서 Azure Data Lake Store를 사용하는 경우 `adl://` 경로를 사용합니다. 예: `register adl://home/example/jars/datafu-pig-1.4.0.jar`
+> * 클러스터에서 Azure Data Lake Store Gen2를 사용하는 경우 `abfs://` 경로를 사용합니다. 예: `register abfs://home/example/jars/datafu-pig-1.4.0.jar`
+>
+> * 클러스터에서 Azure Data Lake Store Gen1을 사용하는 경우 `adl://` 경로를 사용합니다. 예: `register adl://home/example/jars/datafu-pig-1.4.0.jar`
 
 종종 DataFu 함수에 대한 별칭을 정의합니다. 다음 예제에서는 `SHA`의 별칭을 정의합니다.
 

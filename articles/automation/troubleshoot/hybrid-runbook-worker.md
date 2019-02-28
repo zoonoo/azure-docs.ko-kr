@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e3726037e16acdf1d6d624dbf8c2088a57b0bde6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 703f27dab6ca6252647ecb37d17d0f4faf045097
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234544"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268689"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
@@ -204,7 +204,7 @@ Machine is already registered to a different account
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 해결하려면 다음 레지스트리 키를 제거하고 `Add-HybridRunbookWorker` cmdlet을 다시 시도합니다.
+이 문제를 해결하려면 다음 레지스트리 키를 제거하고 `HealthService`를 다시 시작한 다음, `Add-HybridRunbookWorker` cmdlet을 다시 시도합니다.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 6/8/2018
+ms.date: 02/20/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 733d2896ef15d2e78073268e263a144ea25846ec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 98231ab55ce66f06d591dc9c933e4790460625c8
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985467"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56458398"
 ---
 # <a name="enable-write-accelerator"></a>Write Accelerator 사용
 
@@ -42,17 +42,17 @@ Azure 디스크/VHD에 Write Accelerator를 사용하는 경우 적용되는 제
 
 - 프리미엄 디스크 캐싱을 '없음' 또는 '읽기 전용'으로 설정해야 합니다. 다른 모든 캐싱 모드는 지원되지 않습니다.
 - 쓰기 가속기 지원 디스크용으로 스냅숏이 현재 지원되지 않습니다. 백업 중에 Azure Backup 서비스는 VM에 연결된 쓰기 가속기 지원 디스크를 자동으로 제외합니다.
-- 더 작은 I/O 크기(32KiB 이하)에서만 가속화된 경로를 사용합니다. 데이터가 대량으로 로드되거나 여러 DBMS의 트랜잭션 로그 버퍼가 저장소에 유지되기 전에 더 많이 채워지는 워크로드 상황에서 디스크에 기록된 I/O는 가속화된 경로를 사용하지 않을 수 있습니다.
+- 더 작은 I/O 크기(512KiB 이하)에서만 가속화된 경로를 사용합니다. 데이터가 대량으로 로드되거나 여러 DBMS의 트랜잭션 로그 버퍼가 저장소에 유지되기 전에 더 많이 채워지는 워크로드 상황에서 디스크에 기록된 I/O는 가속화된 경로를 사용하지 않을 수 있습니다.
 
 Write Accelerator에서 지원할 수 있는 VM당 Azure Premium Storage VHD 수는 제한됩니다. 이 제한은 현재 다음과 같습니다.
 
 | VM SKU | Write Accelerator 디스크 수 | VM당 Write Accelerator 디스크 IOPS |
 | --- | --- | --- |
-| M128ms, 128s | 16 | 8000 |
-| M64ms, M64ls, M64s | 8 | 4000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 2000 |
-| M16ms, M16s | 2 | 1000 |
-| M8ms, M8s | 1 | 500 |
+| M128ms, 128s | 16 | 20000 |
+| M64ms, M64ls, M64s | 8 | 10000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 5,000 |
+| M16ms, M16s | 2 | 2500 |
+| M8ms, M8s | 1 | 1250 |
 
 IOPS 제한은 VM당 및 디스크가 *아닌* VM을 기준으로 합니다. 모든 Write Accelerator 디스크는 동일한 VM당 IOPS 제한을 공유합니다.
 

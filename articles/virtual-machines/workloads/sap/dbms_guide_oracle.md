@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cb868da60d56728e5d0c450ab362d6f381b90ea
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6ef8498ae1aa9be0322f508b3723778311e2cdd5
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756566"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327785"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
 
@@ -249,7 +249,7 @@ ms.locfileid: "55756566"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -357,7 +357,7 @@ tempfiles를 위한 적절한 양의 공간 크기를 결정하려면 기존 시
 ### <a name="storage-configuration"></a>Storage 구성
 NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 Managed Disks(권장) 또는 VHD의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 또는 [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 기준으로 합니다. 
 
-[Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에 [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 사용하는 것이 좋습니다.
+[Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
 
 네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 다음을 참조하세요.
 
@@ -444,11 +444,11 @@ SAP 설치 설명서에 따라 Oracle 관련 파일을 VM의 부팅 디스크용
 
 ### <a name="storage-configuration"></a>Storage 구성
 
-ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 기준으로 합니다. 
+ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 [Azure Managed Disks](../../windows/managed-disks-overview.md)를 기준으로 합니다.
 
-Oracle Linux UEK 커널의 경우 [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms)를 지원하는 데 최소 UEK 버전 4가 필요합니다.
+Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching)를 지원하려면 최소 UEK 버전 4가 필요합니다.
 
-[Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에 [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 사용하는 것이 좋습니다.
+[Azure Managed Disks](../../windows/managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [Azure 프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
 
 네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은  
 

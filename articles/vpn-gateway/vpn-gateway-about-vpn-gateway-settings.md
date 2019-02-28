@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 02/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3bf3dd325af48f99e109f651628883d8f946fdc8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 24b08bb843b4f1a0eb9f2471cb17b81f2c8ac4d0
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512485"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417536"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -20,13 +20,15 @@ VPN Gateway는 공용 연결을 통해 가상 네트워크와 온-프레미스 �
 
 VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 리소스의 구성에 따라 좌우됩니다. 이 문서의 섹션에서는 Resource Manager 배포 모델에서 생성된 가상 네트워크의 VPN Gateway와 관련된 리소스 및 설정에 대해 설명합니다. [VPN Gateway 정보](vpn-gateway-about-vpngateways.md) 문서에서 각 연결 솔루션에 대한 설명 및 토폴로지 다이어그램을 찾을 수 있습니다.
 
->[!NOTE]
-> 이 문서에 나오는 값은 VPN 게이트웨이(-GatewayType Vpn을 사용하는 가상 네트워크 게이트웨이)에 적용됩니다. 이 문서에서는 게이트웨이 유형 또는 영역 중복 게이트웨이 중 일부를 다룹니다.
->
->* -GatewayType 'ExpressRoute'에 적용되는 값에 대해서는 [ExpressRoute에 대한 가상 네트워크 게이트웨이](../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요.
->* 영역 중복 게이트웨이에 대한 내용은 [영역 중복 게이트웨이 정보](about-zone-redundant-vnet-gateways.md)를 참조하세요.
->* Virtual WAN에 대한 내용은 [Virtual WAN 정보](../virtual-wan/virtual-wan-about.md)를 참조하세요. 
->
+이 문서에 나오는 값은 VPN 게이트웨이(-GatewayType Vpn을 사용하는 가상 네트워크 게이트웨이)에 적용됩니다. 이 문서에서는 게이트웨이 유형 또는 영역 중복 게이트웨이 중 일부를 다룹니다.
+
+* -GatewayType 'ExpressRoute'에 적용되는 값에 대해서는 [ExpressRoute에 대한 가상 네트워크 게이트웨이](../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요.
+
+* 영역 중복 게이트웨이에 대한 내용은 [영역 중복 게이트웨이 정보](about-zone-redundant-vnet-gateways.md)를 참조하세요.
+
+* Virtual WAN에 대한 내용은 [Virtual WAN 정보](../virtual-wan/virtual-wan-about.md)를 참조하세요.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="gwtype"></a>게이트웨이 유형
 
@@ -42,7 +44,7 @@ VPN Gateway에는 `-GatewayType` *Vpn*이 필요합니다.
 예제:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
@@ -62,7 +64,7 @@ Azure Portal을 사용하여 Resource Manager 가상 네트워크 게이트웨�
 다음 PowerShell 예제에서는 `-GatewaySku`를 VpnGw1으로 지정합니다. PowerShell을 사용하여 게이트웨이를 만드는 경우 먼저 IP 구성을 만든 다음, 변수를 사용하여 참조해야 합니다. 이 예제에서 구성 변수는 $gwipconfig입니다.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -101,7 +103,7 @@ Resource Manager 배포 모델에서 각 구성이 작동하려면 특정 가상
 다음 PowerShell 예제에서는 *IPsec*연결 유형이 필요한 S2S 연결을 만듭니다.
 
 ```powershell
-New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
@@ -119,7 +121,7 @@ VPN Gateway 구성에 대한 가상 네트워크 게이트웨이 만들 때 VPN 
 다음 PowerShell 예제에서는 `-VpnType` 를 *RouteBased*로 지정합니다. 게이트웨이를 만들 때 -VpnType이 구성에 정확한지 확인해야 합니다.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -141,21 +143,21 @@ VPN Gateway를 만들기 전에 게이트웨이 서브넷을 만들어야 합니
 다음 Resource Manager PowerShell 예제에서는 이름이 GatewaySubnet인 게이트웨이 서브넷을 보여 줍니다. CIDR 표기법이 /27을 지정하는 것을 확인할 수 있으며 이는 이번에 존재하는 대부분의 구성에 대한 충분한 IP 주소를 허용합니다.
 
 ```powershell
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="lng"></a>로컬 네트워크 게이트웨이
 
-VPN Gateway 구성을 만들 때 로컬 네트워크 게이트웨이는 종종 온-프레미스 위치를 나타냅니다. 클래식 배포 모델에서 로컬 네트워크 게이트웨이는 로컬 사이트라고 했습니다. 
+ 로컬 네트워크 게이트웨이는 가상 네트워크 게이트웨이와 다릅니다. VPN 게이트웨이 구성을 만들 때 로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 위치를 나타냅니다. 클래식 배포 모델에서 로컬 네트워크 게이트웨이는 로컬 사이트라고 했습니다.
 
 로컬 네트워크 게이트웨이에 이름인 온-프레미스 VPN 디바이스의 공용 IP 주소를 지정하고 온-프레미스 위치에 있는 주소 접두사를 지정합니다. Azure는 네트워크 트래픽에 대상 주소 접두사를 보고 로컬 네트워크 게이트웨이에 대해 지정한 구성을 참조하며 그에 따라 패킷을 라우팅합니다. VPN Gateway 연결을 사용하는 VNet-VNet 구성에 대해서도 로컬 네트워크 게이트웨이를 지정합니다.
 
 다음 PowerShell 예제에서는 새 로컬 네트워크 게이트웨이 만듭니다.
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
@@ -167,7 +169,7 @@ VPN Gateway를 구성하기 위해 REST API, PowerShell cmdlet 또는 Azure CLI�
 
 | **클래식** | **리소스 관리자** |
 | --- | --- |
-| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
+| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | 지원되지 않음 | [Azure CLI](/cli/azure/network/vnet-gateway)|
 

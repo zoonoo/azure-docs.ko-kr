@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인 | Microsoft Docs
+title: Facebook 계정으로 등록 및 로그인 설정 - Azure Active Directory B2C | Microsoft Docs
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 Facebook 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
 author: davidmu1
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ea1afb83c3e381c33b1c29c224d1ce0cc1d3d080
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 56534589c89fefb38f206f1c57da7996ae43e81d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163044"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428502"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Facebook 계정으로 등록 설정 및 로그인
 
 ## <a name="create-a-facebook-application"></a>Facebook 애플리케이션 만들기
 
-Azure AD(Azure Active Directory) B2C에서 Facebook 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. Facebook 계정이 없는 경우 [https://www.facebook.com/](https://www.facebook.com/)에서 얻을 수 있습니다.
+Azure AD(Azure Active Directory) B2C에서 Facebook 계정을 [ID 공급자](active-directory-b2c-reference-oauth-code.md)로 사용하려면 테넌트에 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. Facebook 계정이 없는 경우 [https://www.facebook.com/](https://www.facebook.com/)에서 얻을 수 있습니다.
 
 1. Facebook 계정 자격 증명으로 [개발자용 Facebook](https://developers.facebook.com/)에 로그인합니다.
 2. 아직 등록하지 않은 경우 Facebook 개발자로 등록해야 합니다. 등록하려면 페이지의 오른쪽 위에서 **등록**을 선택하고 Facebook의 정책에 동의하고 등록 단계를 완료합니다.

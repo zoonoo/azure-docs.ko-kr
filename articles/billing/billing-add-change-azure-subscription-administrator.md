@@ -13,20 +13,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: d3bdcc267c55434a71c915f7d4e575d47522986b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6cc965f8e775e02e9dec9f610516739a9a2c1936
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110577"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56448010"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
 Azure 리소스에 대한 액세스를 관리하려면 적절한 관리자 역할이 있어야 합니다. Azure에는 선택할 수 있는 몇 가지 기본 제공 역할이 있는 RBAC(역할 기반 액세스 제어)라는 인증 시스템이 있습니다. 이러한 역할은 관리 그룹, 구독 또는 리소스 그룹과 같은 다른 범위에서 할당할 수 있습니다.
 
-RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 좋습니다. 단, 클래식 배포 모델을 계속 사용하는 경우에는 클래식 구독 관리자를 사용해야 합니다. 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md) 및 [Azure 클래식 구독 관리자](../role-based-access-control/classic-administrators.md)를 참조하세요.
+RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 좋습니다. 그러나 여전히 클래식 배포 모델을 사용 중이고, [Azure 서비스 관리 PowerShell 모듈](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure)을 사용하여 클래식 리소스를 관리하는 경우에는 클래식 관리자를 사용해야 합니다. 
+
+> [!TIP]
+> Azure Portal을 통해서만 클래식 리소스를 관리하는 경우 클래식 관리자를 사용할 필요가 없습니다.
+
+자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md) 및 [Azure 클래식 구독 관리자](../role-based-access-control/classic-administrators.md)를 참조하세요.
 
 이 문서에서는 구독 범위에서 RBAC를 사용하여 사용자에 대한 관리자 역할을 추가하거나 변경하는 방법을 설명합니다.
 

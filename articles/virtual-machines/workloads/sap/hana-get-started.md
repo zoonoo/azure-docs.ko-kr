@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 561eff75ef4268acd3f737f7aaa92ccaacfda7f3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976905"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328721"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>빠른 시작: Azure VM에서 단일 인스턴스 SAP HANA 수동 설치
 ## <a name="introduction"></a>소개
@@ -112,11 +112,11 @@ SAP NetWeaver 또는 S/4HANA 애플리케이션 계층에 대해 SAP에서 인�
 
 1. 2개 테스트 VM이 포함된 Azure 가상 네트워크를 만듭니다.
 2. Azure Resource Manager 모델에 따라 운영 체제(이 예제에서는 SLES(SUSE Linux Enterprise Server) 및 SLES for SAP Applications 12 SP1)가 포함된 2개의 Azure VM을 배포합니다.
-3. 애플리케이션 서버 VM에 2개의 Azure 표준 또는 프리미엄 스토리지 디스크(예: 75GB 및 500GB 디스크)를 연결합니다.
-4. HANA DB 서버 VM에 프리미엄 저장소 디스크를 연결합니다. 자세한 내용은 이 설명서의 뒷부분에 나오는 "디스크 설정" 섹션을 참조하세요.
+3. 응용 프로그램 서버 VM에 2개의 Azure 표준 또는 Premium Storage 디스크(예: 75GB 및 500GB 디스크)를 연결합니다.
+4. HANA DB 서버 VM에 Premium Storage 디스크를 연결합니다. 자세한 내용은 이 설명서의 뒷부분에 나오는 "디스크 설정" 섹션을 참조하세요.
 5. 크기 또는 처리량 요구 사항에 따라 여러 디스크를 연결한 다음 VM 내부의 OS 수준에서 논리 볼륨 관리 또는 MDADM(다중 장치 관리 도구)을 사용하여 스트라이프 볼륨을 만듭니다.
 6. 연결된 디스크 또는 논리 볼륨에 XFS 파일 시스템을 만듭니다.
-7. 새 XFS 파일 시스템을 OS 수준에서 탑재합니다. 모든 SAP 소프트웨어에 대해 하나의 파일 시스템을 사용합니다. 다른 소프트웨어(예: /sapmnt 디렉터리 및 백업)에는 다른 파일 시스템을 사용합니다. SAP HANA DB 서버에서 XFS 파일 시스템을 프리미엄 저장소 디스크(예: /hana 및 /usr/sap)에 탑재합니다. 이 프로세스는 Linux Azure VM에서 크지 않은 루트 파일 시스템이 가득 차지 않도록 방지하기 위해 필요합니다.
+7. 새 XFS 파일 시스템을 OS 수준에서 탑재합니다. 모든 SAP 소프트웨어에 대해 하나의 파일 시스템을 사용합니다. 다른 소프트웨어(예: /sapmnt 디렉터리 및 백업)에는 다른 파일 시스템을 사용합니다. SAP HANA DB 서버에서 XFS 파일 시스템을 Premium Storage 디스크(예: /hana 및 /usr/sap)에 탑재합니다. 이 프로세스는 Linux Azure VM에서 크지 않은 루트 파일 시스템이 가득 차지 않도록 방지하기 위해 필요합니다.
 8. /etc/hosts 파일에 테스트 VM의 로컬 IP 주소를 입력합니다.
 9. /etc/fstab 파일에 **nofail** 매개 변수를 입력합니다.
 10. 사용 중인 Linux OS 릴리스에 따라 Linux 커널 매개 변수를 설정합니다. 자세한 내용은 HANA에 대해 설명하는 해당 SAP Note 및 이 가이드의 "커널 매개 변수" 섹션을 참조하세요.
@@ -134,11 +134,11 @@ SAP NetWeaver 또는 S/4HANA 애플리케이션 계층에 대해 SAP에서 인�
 
 1. 2개 테스트 VM이 포함된 Azure 가상 네트워크를 만듭니다.
 2. Azure Resource Manager 모델에 따라 운영 체제(이 예제에서는 SLES 및 SLES for SAP Applications 12 SP1)가 포함된 2개의 Azure VM을 배포합니다.
-3. 앱 서버 VM에 2개의 Azure 표준 또는 프리미엄 저장소 디스크(예: 75GB 및 500GB 디스크)를 연결합니다.
-4. HANA DB 서버 VM에 프리미엄 저장소 디스크를 연결합니다. 자세한 내용은 이 설명서의 뒷부분에 나오는 "디스크 설정" 섹션을 참조하세요.
+3. 앱 서버 VM에 2개의 Azure 표준 또는 Premium Storage 디스크(예: 75GB 및 500GB 디스크)를 연결합니다.
+4. HANA DB 서버 VM에 Premium Storage 디스크를 연결합니다. 자세한 내용은 이 설명서의 뒷부분에 나오는 "디스크 설정" 섹션을 참조하세요.
 5. 크기 또는 처리량 요구 사항에 따라 여러 디스크를 연결하고 VM 내부의 OS 수준에서 LVM(논리 볼륨 관리) 또는 MDADM(다중 장치 관리 도구)을 사용하여 스트라이프 볼륨을 만듭니다.
 6. 연결된 디스크 또는 논리 볼륨에 XFS 파일 시스템을 만듭니다.
-7. 새 XFS 파일 시스템을 OS 수준에서 탑재합니다. 모든 SAP 소프트웨어에 대해 하나의 파일 시스템을 사용하고, 다른 소프트웨어(예: /sapmnt 디렉터리 및 백업)에는 다른 파일 시스템을 사용합니다. SAP HANA DB 서버에서 XFS 파일 시스템을 프리미엄 저장소 디스크(예: /hana 및 /usr/sap)에 탑재합니다. 이 프로세스는 Linux Azure VM에서 크지 않은 루트 파일 시스템이 가득 차지 않도록 방지하기 위해 필요합니다.
+7. 새 XFS 파일 시스템을 OS 수준에서 탑재합니다. 모든 SAP 소프트웨어에 대해 하나의 파일 시스템을 사용하고, 다른 소프트웨어(예: /sapmnt 디렉터리 및 백업)에는 다른 파일 시스템을 사용합니다. SAP HANA DB 서버에서 XFS 파일 시스템을 Premium Storage 디스크(예: /hana 및 /usr/sap)에 탑재합니다. 이 프로세스는 Linux Azure VM에서 크지 않은 루트 파일 시스템이 가득 차지 않도록 방지하기 위해 필요합니다.
 8. /etc/hosts 파일에 테스트 VM의 로컬 IP 주소를 입력합니다.
 9. /etc/fstab 파일에 **nofail** 매개 변수를 입력합니다.
 10. 사용 중인 Linux OS 릴리스에 따라 커널 매개 변수를 설정합니다. 자세한 내용은 HANA에 대해 설명하는 해당 SAP Note 및 이 가이드의 "커널 매개 변수" 섹션을 참조하세요.
@@ -189,13 +189,13 @@ SAP NetWeaver 또는 S/4HANA 애플리케이션 계층에 대해 SAP에서 인�
 ### <a name="disk-setup"></a>디스크 설정
 Azure에서 Linux VM의 루트 파일 시스템의 크기는 제한됩니다. 따라서 SAP를 실행하기 위한 추가 디스크 공간을 Azure VM에 연결해야 합니다. SAP 애플리케이션 서버 Azure VM의 경우 Azure 표준 스토리지 디스크로도 충분할 수 있습니다. 그러나 SAP HANA DBMS Azure VM의 경우 프로덕션 및 비 프로덕션 구현에 대해 Azure Premium Storage 디스크를 반드시 사용해야 합니다.
 
-[SAP HANA TDI 저장소 요구 사항](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)(영문)에 따라 다음과 같은 Azure Premium Storage 저장소 구성이 제안됩니다. 
+[SAP HANA TDI 스토리지 요구 사항](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)(영문)에 따라 다음과 같은 Azure Premium Storage 스토리지 구성이 제안됩니다. 
 
 | VM SKU | RAM |  /hana/data 및 /hana/log <br /> (LVM 또는 MDADM으로 스트라이프됨) | /hana/shared | /root 볼륨 | /usr/sap |
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-제안된 디스크 구성에서 HANA 데이터 볼륨 및 로그 볼륨은 LVM 또는 MDADM으로 스트라이프된 Azure Premium Storage 디스크의 동일한 집합에 배치됩니다. Azure Premium Storage는 중복성을 위해 세 개의 디스크 이미지를 유지하므로 RAID 중복성 수준을 정의할 필요가 없습니다. 충분한 저장소를 구성하려면 [SAP HANA TDI 저장소 요구 사항](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)(영문) 및 [SAP HANA 서버 설치 및 업데이트 가이드](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm)(영문)를 참조하세요. 또한 [VM의 고성능 Premium Storage 및 관리 디스크](https://docs.microsoft.com/azure/storage/storage-premium-storage)에서 설명한 대로 다른 Azure Premium Storage 디스크의 다른 VHD(가상 하드 디스크) 처리량도 고려해 보세요. 
+제안된 디스크 구성에서 HANA 데이터 볼륨 및 로그 볼륨은 LVM 또는 MDADM으로 스트라이프된 Azure Premium Storage 디스크의 동일한 집합에 배치됩니다. Azure Premium Storage는 중복성을 위해 세 개의 디스크 이미지를 유지하므로 RAID 중복성 수준을 정의할 필요가 없습니다. 충분한 저장소를 구성하려면 [SAP HANA TDI 저장소 요구 사항](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)(영문) 및 [SAP HANA 서버 설치 및 업데이트 가이드](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm)(영문)를 참조하세요. 또한 [VM의 고성능 Premium Storage 및 관리 디스크](../../windows/disks-types.md)에서 설명한 대로 다른 Azure Premium Storage 디스크의 다른 VHD(가상 하드 디스크) 처리량도 고려해 보세요. 
 
 HANA DBMS VM에 추가 Premium Storage 디스크를 추가하여 데이터베이스 또는 트랜잭션 로그 백업을 저장할 수 있습니다.
 
@@ -206,9 +206,7 @@ HANA DBMS VM에 추가 Premium Storage 디스크를 추가하여 데이터베이
 
 Linux를 게스트 OS로 실행하는 Azure VM에 디스크를 연결하는 방법에 대한 자세한 내용은 [Linux VM에 디스크 추가](../../linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
-Azure Premium Storage에서는 디스크 캐싱 모드를 정의할 수 있습니다. /hana/data 및 /hana/log를 보유하는 스트라이프 집합의 경우 디스크 캐싱을 비활성화해야 합니다. 다른 볼륨(디스크)의 경우 캐싱 모드를 **ReadOnly**로 설정해야 합니다.
-
-자세한 내용은 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../../windows/premium-storage.md)를 참조하세요.
+Azure 프리미엄 SSD를 사용하면 디스크 캐싱 모드를 정의할 수 있습니다. /hana/data 및 /hana/log를 보유하는 스트라이프 집합의 경우 디스크 캐싱을 비활성화해야 합니다. 다른 볼륨(디스크)의 경우 캐싱 모드를 **ReadOnly**로 설정해야 합니다.
 
 VM 만들기를 위한 샘플 JSON 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)으로 이동합니다.
 vm-simple-sles 템플릿은 기본 템플릿입니다. 여기에는 100GB 추가 데이터 디스크가 포함된 저장소 섹션이 있습니다. 이 템플릿을 기반으로 사용할 수 있습니다. 특정 구성에 맞게 템플릿을 조정할 수 있습니다.

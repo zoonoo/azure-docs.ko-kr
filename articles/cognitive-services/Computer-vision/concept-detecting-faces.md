@@ -8,23 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 81e846c6ffc0361b7154c962dbc047b9e5ae55e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1056b8be113d56342aea8f83d5325737f7ecb93b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872988"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308454"
 ---
 # <a name="face-detection-with-computer-vision"></a>Computer Vision으로 얼굴 감지
 
-Computer Vision은 사진에서 사람 얼굴을 감지하고 감지된 각 얼굴에 대해 연령, 성별 및 사각형을 생성합니다. Computer Vision은 [Face](/azure/cognitive-services/face/)에서 찾을 수 있는 기능의 하위 집합을 제공하며, 얼굴 식별 및 자세 감지와 같은 더 자세한 분석을 위해 Face 서비스를 사용할 수 있습니다.  
+Computer Vision은 이미지에서 사람 얼굴을 감지하고 감지된 각 얼굴에 대해 연령, 성별 및 사각형을 생성합니다. 
+
+> [!NOTE]
+> 이 기능은 Azure [Face](/azure/cognitive-services/face/) 서비스를 통해서도 제공됩니다. 얼굴 인식 및 자세 감지를 비롯한 더 자세한 얼굴 감지에 대해서는 이 대안을 참조하세요. 
 
 ## <a name="face-detection-examples"></a>얼굴 감지 예제
 
-첫 번째 예제는 하나의 사람 얼굴을 포함하는 이미지에 대해 Computer Vision에서 반환된 JSON 응답을 보여줍니다.
+다음 예제는 사람 얼굴이 하나인 이미지에 대해 Computer Vision에서 반환된 JSON 응답을 보여줍니다.
 
 ![비전 분석 여성 지붕 얼굴](./Images/woman_roof_face.png)
 
@@ -51,7 +54,7 @@ Computer Vision은 사진에서 사람 얼굴을 감지하고 감지된 각 얼�
 }
 ```
 
-두 번째 예제는 여러 사람 얼굴을 포함하는 이미지에 대해 반환된 JSON 응답을 보여줍니다.
+다음 예제는 사람 얼굴이 여러 개인 이미지에 대해 반환된 JSON 응답을 보여줍니다.
 
 ![비전 분석 가족 사진 얼굴](./Images/family_photo_face.png)
 
@@ -110,4 +113,4 @@ Computer Vision은 사진에서 사람 얼굴을 감지하고 감지된 각 얼�
 
 ## <a name="next-steps"></a>다음 단계
 
-[도메인별 콘텐츠 검색](concept-detecting-domain-content.md)에 대한 개념을 알아봅니다.
+[이미지 분석](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 참조 설명서를 참조하여 얼굴 감지 기능을 사용하는 방법에 대해 자세히 알아봅니다.

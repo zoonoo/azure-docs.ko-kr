@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: d7be248e49baf4e7fd10d6b37df1473e92ccfce7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d182d23bf4b3f4dc1ed42a737e8fe8b753c035ae
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651727"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340741"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>HDInsight에서 Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
 
@@ -75,7 +75,11 @@ HDInsight의 HBase는 클러스터를 만들 때 선택한 기본 스토리지�
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-Azure Data Lake Storage에서 구문은 다음과 같습니다.
+Azure Data Lake Storage Gen2에서 구문은 다음과 같습니다.
+
+    abfs://<containername>@<accountname>.dfs.core.windows.net/<path>
+
+Azure Data Lake Storage Gen1에서 구문은 다음과 같습니다.
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 
@@ -176,7 +180,7 @@ hbase 셸 내에서 테이블 및 이 스냅숏의 이름이 포함된 snapshot 
 
      hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -copy-to <hdfsHBaseLocation>
 
-`<hdfsHBaseLocation>`은 원본 클러스터에 액세스할 수 있는 저장소 위치 중 하나일 수 있으며, 대상 클러스터에서 사용하는 hbase 폴더를 가리켜야 합니다. 예를 들어 원본 클러스터에 보조 Azure Storage 계정이 연결되어 있고 해당 계정이 대상 클러스터의 기본 저장소에서 사용하는 컨테이너에 대한 액세스를 제공하는 경우 다음 명령을 사용할 수 있습니다.
+`<hdfsHBaseLocation>`은 원본 클러스터에 액세스할 수 있는 저장소 위치 중 하나일 수 있으며, 대상 클러스터에서 사용하는 hbase 폴더를 가리켜야 합니다. 예를 들어 원본 클러스터에 보조 Azure Storage 계정이 연결되어 있고 해당 계정이 대상 클러스터의 기본 스토리지에서 사용하는 컨테이너에 대한 액세스를 제공하는 경우 다음 명령을 사용할 수 있습니다.
 
     hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 

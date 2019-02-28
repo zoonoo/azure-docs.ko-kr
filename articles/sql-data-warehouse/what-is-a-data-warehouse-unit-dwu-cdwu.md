@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 76db38a59d2239de79ebcdcfd454ac60a8f514be
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299897"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447823"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWU(데이터 웨어하우스 단위) 및 cDWU(계산 데이터 웨어하우스 단위)
 가격 및 성능을 최적화하기 위한 이상적인 데이터 웨어하우스 단위(DWU, cDWU) 수 선택에 대한 권장 사항 및 단위 수를 변경하는 방법 
@@ -37,7 +37,9 @@ DWU 늘리기:
 - 동시 쿼리 및 동시성 슬롯의 최대 수를 늘립니다.
 
 ## <a name="service-level-objective"></a>서비스 수준 목표
-SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2에 대한 서비스 수준은 cDWU(계산 데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c). Gen1 서비스 수준은 DWU로 측정됩니다(예: DW2000). 
+SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2에 대한 서비스 수준은 cDWU(계산 데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c). Gen1 서비스 수준은 DWU로 측정됩니다(예: DW2000).
+  > [!NOTE]
+  > Azure SQL Data Warehouse Gen2는 최근에 100cDWU만큼 낮은 컴퓨팅 계층을 지원하기 위해 크기 조정 기능을 추가했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](upgrade-to-latest-generation.md)를 참조하세요.
 
 T-SQL에서 SERVICE_OBJECTIVE 설정은 데이터 웨어하우스에 대한 서비스 수준 및 성능 계층을 결정합니다.
 

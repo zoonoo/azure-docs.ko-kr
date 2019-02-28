@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/05/2018
-ms.openlocfilehash: 194f92b84b17fc2f2c9bc8f3aca6f6ad05f65d30
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 821ee126350d18102ec92de04436a76050734dc4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241447"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456829"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 ## <a name="video-5-data-science-for-beginners-series"></a>비디오 5: 초급자를 위한 데이터 과학 시리즈
@@ -52,7 +52,7 @@ ms.locfileid: "56241447"
 
 Microsoft에는 무료로 사용해 볼 수 있는 [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/)라는 클라우드 기반 서비스가 있습니다. 이 서비스는 여러 다른 기계 학습 알고리즘을 시험해 볼 수 있는 작업 영역을 제공하며, 솔루션을 계획할 때 웹 서비스로 실행될 수 있습니다.
 
-이 서비스의 일부를 **[Azure AI 갤러리](https://gallery.azure.ai/)** 라고 합니다. 여기에는 사용자들이 작성한 후 다른 사용자를 위해 제공한 Azure Machine Learning 실험 또는 모델 컬렉션을 비롯한 리소스가 포함됩니다. 이러한 실험은 다른 사람이 생각한 내용과 힘들게 작업한 결과를 자신의 솔루션에 활용할 수 있는 좋은 방법입니다. 누구나 검색할 수 있습니다.
+이 서비스의 일부를 **[Azure AI 갤러리](https://gallery.azure.ai/)** 라고 합니다. 여기에는 사용자들이 빌드한 후 다른 사용자를 위해 제공한 Azure Machine Learning Studio 실험 또는 모델 컬렉션을 비롯한 리소스가 포함되어 있습니다. 이러한 실험은 다른 사람이 생각한 내용과 힘들게 작업한 결과를 자신의 솔루션에 활용할 수 있는 좋은 방법입니다. 누구나 검색할 수 있습니다.
 
 ![Azure AI 갤러리](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -88,8 +88,8 @@ Microsoft에는 무료로 사용해 볼 수 있는 [Azure Machine Learning Studi
 
 [Azure AI 갤러리](https://gallery.azure.ai)에서는 자체 솔루션에 대한 시작점으로 사용할 수 있는 작동 중인 실험을 찾을 수 있습니다.
 
-Microsoft Azure Machine Learning의 “초급자를 위한 데이터 과학”에 있는 다른 비디오도 확인해보세요.
+Microsoft Azure Machine Learning Studio의 “초급자를 위한 데이터 과학”에 포함된 다른 비디오도 확인해보세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Machine Learning으로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
+* [Azure Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
 * [Microsoft Azure의 Machine Learning 소개 보기](what-is-machine-learning.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure에서 관리 그룹을 변경, 삭제 또는 관리하는 방법
-description: 관리 그룹 계층 구조를 유지 관리하고 업데이트하는 방법을 알아봅니다.
+title: Azure에서 관리 그룹을 변경, 삭제 또는 관리하는 방법 - Azure 거버넌스
+description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582420"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342590"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -39,11 +39,11 @@ ms.locfileid: "52582420"
 
 1. 페이지 맨 위에서 **그룹 이름 바꾸기** 옵션을 선택합니다.
 
-   ![그룹 이름 바꾸기](./media/detail_action_small.png)
+   ![그룹 옵션 이름 바꾸기](./media/detail_action_small.png)
 
 1. 메뉴가 열릴 때 표시하려는 새 이름을 입력합니다.
 
-   ![그룹 이름 바꾸기](./media/rename_context.png)
+   ![그룹 창 이름 바꾸기](./media/rename_context.png)
 
 1. **저장**을 선택합니다.
 
@@ -87,11 +87,11 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
    - 아이콘이 사용되지 않도록 설정되면 아이콘 위로 마우스 선택기를 가져가면 이유가 표시됩니다.
 
-   ![그룹 삭제](./media/delete.png)
+   ![그룹 옵션 삭제](./media/delete.png)
 
 1. 관리 그룹을 삭제할 것인지 확인하는 창이 열립니다.
 
-   ![그룹 삭제](./media/delete_confirm.png)
+   ![그룹 삭제 확인 창](./media/delete_confirm.png)
 
 1. **예**를 선택합니다.
 
@@ -195,13 +195,13 @@ az account management-group show --name 'Contoso'
 
 1. 이동하려는 목록의 구독에 대해 행 끝에 있는 줄임표를 선택합니다.
 
-   ![이동](./media/move_small.png)
+   ![이동 옵션](./media/move_small.png)
 
 1. **이동**을 선택합니다.
 
 1. 열리는 메뉴에서 **부모 관리 그룹**을 선택합니다.
 
-   ![이동](./media/move_small_context.png)
+   ![이동 창](./media/move_small_context.png)
 
 1. **저장**을 선택합니다.
 

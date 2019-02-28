@@ -11,26 +11,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/10/2019
+ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5049a5a829ce8e94b62409c9d3b1439e8431fb1
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101423"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447517"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
-RBAC(역할 기반 액세스 제어)를 사용하여 리소스에 대한 액세스를 관리하는 것이 좋습니다. 그러나 클래식 배포 모델을 계속 사용하는 경우에는 클래식 구독 관리자 역할을 사용해야 합니다. 서비스 관리자 및 공동 관리자. 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
+RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 액세스를 관리하는 것이 좋습니다. 그러나 클래식 배포 모델을 계속 사용하는 경우에는 클래식 구독 관리자 역할을 사용해야 합니다. 서비스 관리자 및 공동 관리자. 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
 
 이 문서에서는 공동 관리자 및 서비스 관리자 역할을 추가하거나 변경하는 방법과 계정 관리자를 확인하는 방법을 설명합니다.
 
 ## <a name="add-a-co-administrator"></a>공동 관리자 추가
 
 > [!TIP]
-> 사용자가 Azure 클래식 배포를 관리해야 하는 경우 공동 관리자만 추가하면 됩니다. 다른 모든 용도로 RBAC를 사용하는 것이 좋습니다.
+> 사용자가 [Azure 서비스 관리 PowerShell 모듈](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure)을 사용하여 Azure 클래식 배포를 관리해야 하는 경우에만 공동 관리자를 추가하면 됩니다. 사용자가 Azure Portal을 통해서만 클래식 리소스를 관리하는 경우 사용자에 대한 클래식 관리자를 추가할 필요가 없습니다.
 
 1. 서비스 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -155,4 +155,4 @@ RBAC(역할 기반 액세스 제어)를 사용하여 리소스에 대한 액세�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure의 다양한 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [RBAC 및 Azure Portal을 사용하여 액세스 관리](../role-based-access-control/role-assignments-portal.md)
+* [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)

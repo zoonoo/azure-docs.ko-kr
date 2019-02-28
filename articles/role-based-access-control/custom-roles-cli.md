@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 사용자 지정 역할 만들기 | Microsoft Docs
-description: Azure CLI를 사용하여 RBAC(역할 기반 액세스 제어)를 위한 사용자 지정 역할을 만드는 방법을 알아봅니다. 여기에는 사용자 지정 역할을 나열, 생성, 업데이트 및 삭제하는 방법이 포함됩니다.
+title: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 | Microsoft Docs
+description: Azure CLI를 사용하여 RBAC(역할 기반 액세스 제어)로 Azure 리소스에 대한 사용자 지정 역할을 만드는 방법을 알아봅니다. 여기에는 사용자 지정 역할을 나열, 생성, 업데이트 및 삭제하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3b5d18a3e0bf846137dfdf68b8e5dd9e2db58792
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b768f6e240c354369246a6d978ed3e8dd2f58f92
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437259"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338141"
 ---
-# <a name="create-custom-roles-using-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 역할 만들기
+# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
 
-[기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 직접 만들 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 역할을 만들고 관리하는 방법에 대해 설명합니다.
+[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들면 됩니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 역할을 만들고 관리하는 방법에 대해 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -162,6 +162,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure CLI를 사용하여 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)
-- [Azure의 사용자 지정 역할](custom-roles.md)
+- [자습서: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)
+- [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
 - [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)

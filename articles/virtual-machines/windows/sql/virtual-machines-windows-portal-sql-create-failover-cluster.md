@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359938"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328555"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -180,7 +180,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
    | SQL Server | 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다.
    | 상태 프로브 | 59999 | 모든 공개 TCP 포트입니다. 이후 단계에서 이 포트를 사용하려면 부하 분산 장치 [상태 프로브](#probe) 및 클러스터를 구성합니다.  
 
-1. 가상 컴퓨터에 저장소를 추가합니다. 자세한 내용은 [저장소 추가](../premium-storage.md)를 참조하세요.
+1. 가상 컴퓨터에 저장소를 추가합니다. 자세한 내용은 [저장소 추가](../disks-types.md)를 참조하세요.
 
    두 가상 머신에 두 개 이상의 데이터 디스크가 필요합니다.
 
@@ -188,7 +188,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
       >[!NOTE]
       >NTFS 포맷 디스크를 연결하는 경우 디스크 자격 확인 없이 S2D를 사용할 수 있습니다.  
 
-   각 VM에 최소 두 개의 Premium Storage(SSD 디스크)를 연결합니다. 적어도 P30(1TB) 디스크가 좋습니다.
+   각 VM에 최소 두 개의 프리미엄 SSD를 연결합니다. 적어도 P30(1TB) 디스크가 좋습니다.
 
    호스트 캐싱을 **읽기 전용**으로 설정합니다.
 

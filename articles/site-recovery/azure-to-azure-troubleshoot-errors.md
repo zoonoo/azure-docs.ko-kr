@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 289d9f9398816f6ec9774eb6326da4d22bcd649e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fdeef8be1cfaabde326f68a1207f7c38d037a502
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882168"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313299"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -295,7 +295,7 @@ VM에서 복제를 사용하도록 설정하려면 프로비전 상태가 **성�
 --- | --- | ---
 150172<br></br>**메시지**: 가상 머신에 포함된 (DiskName)의 크기가 (DiskSize)이며 지원되는 최소 크기인 1024MB보다 작기 때문에 가상 머신에 대한 보호를 사용하도록 설정할 수 없습니다. | - 디스크가 지원되는 크기(1024MB)보다 작습니다.| 디스크 크기가 지원되는 크기 범위 내에 있는지 확인하고 작업을 다시 시도하십시오. 
 
-## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>UUID가 아닌 GRUB 구성에 나와 있는 값이 디바이스 이름으로 포함되어 있어 보호를 사용하도 설정하지 못함(오류 코드 151126)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>UUID 대신 디바이스 이름이 GRUB 구성에 언급되어 보호를 사용하도록 설정하지 못함(오류 코드 151126)
 
 **가능한 원인:** </br>
 GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 **root** 및 **resume** 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름으로 포함되어 있을 수 있습니다. Site Recovery에서는 UUID를 사용해야 합니다. 디바이스 이름은 VM을 다시 부팅하면 변경될 수 있는데, 장애 조치(failover) 시에 VM 이름이 달라지면 문제가 발생하기 때문입니다. 예:  </br>

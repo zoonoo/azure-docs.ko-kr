@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 4505dcf5d9407a609bcf97c56835ff186607127d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c5e67e581d3fc370710528609bf94b1110416c33
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563741"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311378"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -103,10 +103,10 @@ RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>VM에서 만료된 RHUI 클라이언트 인증서 업데이트
 
-RHEL 7.4(이미지 URN: `RedHat:RHEL:7.4:7.4.2018010506`)와 같은 이전 RHEL VM 이미지를 사용하는 경우 현재는 만료된 SSL 클라이언트 인증서로 인해 RHUI에 연결 문제가 발생합니다. 이 경우 _"인증서가 만료되어 SSL 피어에서 거부되었습니다."_ 와 같은 오류가 표시됩니다. 이 문제를 해결하려면 다음 명령을 사용하여 VM에서 RHUI 클라이언트 패키지를 업데이트합니다.
+RHEL 7.4(이미지 URN: `RedHat:RHEL:7.4:7.4.2018010506`)와 같은 이전 RHEL VM 이미지를 사용하는 경우 현재는 만료된 SSL 클라이언트 인증서로 인해 RHUI에 연결 문제가 발생합니다. 이 경우 _“인증서가 만료되어 SSL 피어에서 거부되었습니다.”_ 또는 _“오류: 리포지토리에 대한 리포지토리 메타데이터(repomd.xml)를 검색할 수 없습니다. 해당 경로를 확인하고 다시 시도하세요.”_ 와 같은 오류가 표시됩니다. 이 문제를 해결하려면 다음 명령을 사용하여 VM에서 RHUI 클라이언트 패키지를 업데이트합니다.
 
 ```bash
-sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
+sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 ```
 
 또는 `sudo yum update`를 실행하면 다른 리포지토리에 대해 표시되는 "만료된 SSL 인증서" 오류에 관계없이 클라이언트 인증서 패키지(RHEL 버전에 따라 다름)를 업데이트할 수도 있습니다. 이 업데이트가 성공하면 다른 RHUI 리포지토리에 대한 일반 연결이 복원되어 `sudo yum update`를 성공적으로 실행할 수 있습니다.

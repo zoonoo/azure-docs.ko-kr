@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 02/14/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4026f710def26b50da87ebb8fdafcafc74d84758
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dca184e5b94d69845bfa6e2d83753f53554cadeb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185828"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266750"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - 보안 개요
 
-‘보안 개요’를 통해 조직의 보안 상태에 대한 인사이트를 얻을 수 있습니다. 잠재적 공격을 식별하고 정책의 효과를 이해하는 데 도움이 됩니다.
+[보안 개요](https://aka.ms/IdentityProtectionRefresh)를 통해 조직의 보안 상태에 대한 인사이트를 얻을 수 있습니다. 잠재적 공격을 식별하고 정책의 효과를 이해하는 데 도움이 됩니다.
 
 ‘보안 개요’는 크게 다음 두 개의 섹션으로 나뉩니다.
 

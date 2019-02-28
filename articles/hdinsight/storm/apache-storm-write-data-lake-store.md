@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 53f81a06a0a10d4526816b5117eb12f01d75e25a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 301de81fc9b8bdb8b295700de33065d988379334
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819164"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428797"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
 
@@ -50,15 +50,18 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 HdfsBolt는 사용자가 제공하는 파일 구성표를 사용하여 HDFS에 쓰는 방법을 인식합니다. HDInsight를 사용하는 경우 다음 구성표 중 하나를 사용합니다.
 
 * `wasb://`: Azure Storage 계정과 함께 사용
-* `adl://`: Azure Data Lake Storage와 함께 사용
+* `abfs://`: Azure Data Lake Storage Gen2에서 사용됩니다.
+* `adl://`: Azure Data Lake Storage Gen1에서 사용됩니다.
 
 다음 표에서는 여러 시나리오에 대한 파일 구성표를 사용하는 경우의 예를 제공합니다.
 
 | 구성표 | 메모 |
 | ----- | ----- |
 | `wasb:///` | 기본 스토리지 계정은 Azure Storage 계정의 Blob 컨테이너입니다. |
-| `adl:///` | 기본 스토리지 계정은 Azure Data Lake Storage의 디렉터리입니다. 클러스터를 만드는 동안 클러스터의 HDFS 루트인 Data Lake Storage의 디렉터리를 지정합니다. 예를 들어 `/clusters/myclustername/` 디렉터리가 있습니다. |
+| `abfs:///` | 기본 스토리지 계정이 Azure Data Lake Storage Gen2 계정의 디렉터리입니다. |
+| `adl:///` | 기본 스토리지 계정이 Azure Data Lake Storage Gen1의 디렉터리입니다. 클러스터를 만드는 동안 클러스터의 HDFS 루트인 Data Lake Storage의 디렉터리를 지정합니다. 예를 들어 `/clusters/myclustername/` 디렉터리가 있습니다. |
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | 클러스터와 연결된 기본이 아닌 추가 Azure Storage 계정입니다. |
+| `abfs://CONTAINER@ACCOUNT.dfs.core.windows.net/` | 클러스터와 연결된 기본이 아닌 추가 Azure Storage 계정입니다. |
 | `adl://STORENAME/` | 클러스터에서 사용하는 Data Lake Storage의 루트입니다. 이 구성표를 사용하면 클러스터 파일 시스템이 포함된 디렉터리 외부에 있는 데이터에 액세스할 수 있습니다. |
 
 자세한 내용은 Apache.org의 [HdfsBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 참조를 참조하세요.
@@ -180,7 +183,7 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
         hdfs.url: wasb:///
 
     > [!IMPORTANT]  
-    > 이 예제에서는 클러스터에서 Azure Storage 계정을 기본 스토리지로 사용한다고 가정합니다. 클러스터에서 Azure Data Lake Storage를 사용하는 경우 `hdfs.url: adl:///`을 대신 사용합니다.
+    > 이 예제에서는 클러스터에서 Azure Storage 계정을 기본 스토리지로 사용한다고 가정합니다. 클러스터에서 Azure Data Lake Storage Gen2를 사용하는 경우 `hdfs.url: abfs:///`를 대신 사용합니다. 클러스터에서 Azure Data Lake Storage Gen1을 사용하는 경우 `hdfs.url: adl:///`를 대신 사용합니다.
     
     파일을 저장하려면 __Ctrl + X__를 사용한 다음 __Y__를 입력하고 마지막으로 __Enter__ 키를 누릅니다. 이 파일의 값은 데이터가 기록되는 Data Lake Storage URL 및 디렉터리 이름을 설정합니다.
 

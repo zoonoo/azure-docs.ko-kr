@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: a0a06ff79d1a48e8fbbc13a8e2410817c020d9a9
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: af72b0255c8e01398048f075134efb452f28b81e
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510037"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417570"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Azure 가용성 영역에서 영역 중복 가상 네트워크 게이트웨이 만들기
 
@@ -21,19 +21,21 @@ Azure 가용성 영역에서 VPN 및 ExpressRoute 게이트웨이를 배포할 �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 자신의 컴퓨터 또는 Azure Cloud Shell에 로컬로 설치된 PowerShell을 사용할 수 있습니다. PowerShell을 로컬로 설치하고 사용하도록 선택한 경우 이 기능을 사용하려면 PowerShell 모듈의 최신 버전이 필요합니다.
 
 [!INCLUDE [Cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ### <a name="to-use-powershell-locally"></a>PowerShell을 로컬로 사용하려면 다음을 수행합니다.
 
-Cloud Shell을 사용하는 대신 컴퓨터에서 로컬로 PowerShell을 사용하는 경우 PowerShell 모듈 6.1.1 이상을 설치해야 합니다. 설치한 PowerShell의 버전을 확인하려면 다음 명령을 사용합니다.
+Cloud Shell을 사용하는 대신 컴퓨터에서 로컬로 PowerShell을 사용하는 경우 PowerShell 모듈 1.0.0 이상을 설치해야 합니다. 설치한 PowerShell의 버전을 확인하려면 다음 명령을 사용합니다.
 
 ```azurepowershell
-Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
+Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
 ```
 
-업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
+업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 [!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
 
@@ -62,15 +64,15 @@ $GwIPConf1   = "gwipconf1"
 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
+New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
 ```
 
 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
-$fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
-$besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
-$vnet = New-AzureRmVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNet1Prefix -Subnet $fesub1,$besub1
+$fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
+$besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
+$vnet = New-AzVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNet1Prefix -Subnet $fesub1,$besub1
 ```
 
 ## <a name="gwsub"></a>3. 게이트웨이 서브넷 추가
@@ -80,14 +82,14 @@ $vnet = New-AzureRmVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location
 게이트웨이 서브넷을 추가합니다.
 
 ```azurepowershell-interactive
-$getvnet = Get-AzureRmVirtualNetwork -ResourceGroupName $RG1 -Name VNet1
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $getvnet
+$getvnet = Get-AzVirtualNetwork -ResourceGroupName $RG1 -Name VNet1
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $getvnet
 ```
 
 가상 네트워크에 대한 게이트웨이 서브넷 구성을 설정합니다.
 
 ```azurepowershell-interactive
-$getvnet | Set-AzureRmVirtualNetwork
+$getvnet | Set-AzVirtualNetwork
 ```
 ## <a name="publicip"></a>4. 공용 IP 주소 요청
  
@@ -98,7 +100,7 @@ $getvnet | Set-AzureRmVirtualNetwork
 **표준** PublicIpaddress SKU가 포함된 공용 IP 주소를 요청하고 모든 영역을 지정하지 않습니다. 이 경우 만들어진 표준 공용 IP 주소는 영역 중복 공용 IP가 됩니다.   
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
+$pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
 ### <a name="ipzonalgw"></a>영역 게이트웨이의 경우
@@ -106,7 +108,7 @@ $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Nam
 **표준** PublicIpaddress SKU가 포함된 공용 IP 주소를 요청합니다. 영역(1, 2 또는 3)을 지정합니다. 이 영역에 모든 게이트웨이 인스턴스가 배포됩니다.
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
+$pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
 ```
 
 ### <a name="ipregionalgw"></a>지역 게이트웨이의 경우
@@ -114,14 +116,14 @@ $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Nam
 **기본** PublicIpaddress SKU가 포함된 공용 IP 주소를 요청합니다. 이 경우 게이트웨이가 지역 게이트웨이로 배포되며 게이트웨이에 기본 제공된 영역 중복성이 없습니다. 게이트웨이 인스턴스는 각각 모든 영역에서 만들어집니다.
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
+$pip1 = New-AzPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
 ```
 ## <a name="gwipconfig"></a>5. IP 구성 만들기
 
 ```azurepowershell-interactive
-$getvnet = Get-AzureRmVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $GwSubnet1 -VirtualNetwork $getvnet
-$gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subnet -PublicIpAddress $pip1
+$getvnet = Get-AzVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name $GwSubnet1 -VirtualNetwork $getvnet
+$gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subnet -PublicIpAddress $pip1
 ```
 
 ## <a name="gwconfig"></a>6. 게이트웨이 만들기
@@ -131,13 +133,13 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $
 ### <a name="for-expressroute"></a>ExpressRoute의 경우
 
 ```azurepowershell-interactive
-New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType ExpressRoute
+New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType ExpressRoute
 ```
 
 ### <a name="for-vpn-gateway"></a>VPN Gateway의 경우
 
 ```azurepowershell-interactive
-New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased
+New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased
 ```
 
 ## <a name="faq"></a>FAQ

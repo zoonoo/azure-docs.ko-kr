@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 R 모듈 정의
 titleSuffix: Azure Machine Learning Studio
-description: 이 항목에서는 Azure Machine Learning에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다.
+description: 이 토픽에서는 Azure Machine Learning Studio에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0da5456845b940ef88ac40ffed1f53e84fe54080
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 43691988e3f4f253c642702ad19272a5267c14cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488308"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56457033"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio에 사용할 사용자 지정 R 모듈 정의
 
@@ -24,9 +24,9 @@ ms.locfileid: "55488308"
 
 
 ## <a name="what-is-a-custom-r-module"></a>사용자 지정 R 모듈이란?
-**사용자 지정 모듈** 은 사용자의 작업 영역에 업로드하고 Azure Machine Learning 실험의 일부로 실행할 수 있는 사용자 정의 모듈입니다. 사용자 지정 R 모듈은 사용자 정의 R 함수를 실행하는 **사용자 지정 모듈** 입니다. **R** 은 통계학자 및 데이터 과학자가 알고리즘을 구현하는 데 널리 사용되는 통계 컴퓨팅 및 그래픽용 프로그래밍 언어입니다. 현재, R은 사용자 지정 모듈에서 지원되는 유일한 언어이지만 향후 릴리스에서는 추가 언어에 대한 지원이 예정되어 있습니다.
+**사용자 지정 모듈**은 작업 영역에 업로드하고 Azure Machine Learning Studio 실험의 일부로 실행할 수 있는 사용자 정의 모듈입니다. 사용자 지정 R 모듈은 사용자 정의 R 함수를 실행하는 **사용자 지정 모듈** 입니다. **R** 은 통계학자 및 데이터 과학자가 알고리즘을 구현하는 데 널리 사용되는 통계 컴퓨팅 및 그래픽용 프로그래밍 언어입니다. 현재, R은 사용자 지정 모듈에서 지원되는 유일한 언어이지만 향후 릴리스에서는 추가 언어에 대한 지원이 예정되어 있습니다.
 
-사용자 지정 모듈은 다른 모든 모듈처럼 사용할 수 있다는 점에서 Azure Machine Learning에서 **첫 번째 클래스** 상태를 유지합니다. 다른 모듈과 함께 실행하거나, 게시된 실험이나 시각화에 포함할 수 있습니다. 사용자는 모듈에 의해 구현되는 알고리즘, 사용할 입력 및 출력 포트, 모델링 매개 변수 및 기타 여러 런타임 동작을 제어할 수 있습니다. 사용자 지정 모듈을 포함한 실험을 공유하기 쉽도록 Azure AI 갤러리에 게시할 수도 있습니다.
+사용자 지정 모듈은 다른 모든 모듈처럼 사용할 수 있다는 점에서 Azure Machine Learning Studio에서 **첫 번째 클래스 상태**로 유지됩니다. 다른 모듈과 함께 실행하거나, 게시된 실험이나 시각화에 포함할 수 있습니다. 사용자는 모듈에 의해 구현되는 알고리즘, 사용할 입력 및 출력 포트, 모델링 매개 변수 및 기타 여러 런타임 동작을 제어할 수 있습니다. 사용자 지정 모듈을 포함한 실험을 공유하기 쉽도록 Azure AI 갤러리에 게시할 수도 있습니다.
 
 ## <a name="files-in-a-custom-r-module"></a>사용자 지정 R 모듈의 파일
 사용자 지정 R 모듈은 최소한 다음 두 개의 파일을 포함하는 .zip 파일로 정의됩니다.
@@ -55,7 +55,7 @@ ms.locfileid: "55488308"
     } 
 
 ### <a name="the-xml-definition-file"></a>XML 정의 파일
-이 `CustomAddRows` 함수를 Azure Machine Learning 모듈로 노출하려면 XML 정의 파일을 만들어 **사용자 지정 행 추가** 모듈의 표시 및 동작 방식을 지정해야 합니다. 
+이 `CustomAddRows` 함수를 Azure Machine Learning Studio 모듈로 노출하려면 XML 정의 파일을 만들어 **사용자 지정 행 추가** 모듈의 표시 및 동작 방식을 지정해야 합니다. 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -105,7 +105,7 @@ XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 Custom
 
 ## <a name="elements-in-the-xml-definition-file"></a>인수
 ### <a name="module-elements"></a>Module 요소
-**Module** 요소는 XML 파일에서 사용자 지정 모듈을 정의하는 데 사용됩니다. 여러 **module** 요소를 사용하여 여러 모듈을 하나의 XML 파일에 정의할 수 있습니다. 작업 영역의 각 모듈은 이름이 고유해야 합니다. 기존 사용자 지정 모듈과 동일한 이름으로 사용자 지정 모듈을 등록하면 기존 모듈이 새 모듈로 바뀝니다. 그러나 사용자 지정 모듈을 기존 Azure Machine Learning 모듈과 동일한 이름으로 등록할 수 있습니다. 이 경우 모듈 팔레트의 **사용자 지정** 범주에 표시됩니다.
+**Module** 요소는 XML 파일에서 사용자 지정 모듈을 정의하는 데 사용됩니다. 여러 **module** 요소를 사용하여 여러 모듈을 하나의 XML 파일에 정의할 수 있습니다. 작업 영역의 각 모듈은 이름이 고유해야 합니다. 기존 사용자 지정 모듈과 동일한 이름으로 사용자 지정 모듈을 등록하면 기존 모듈이 새 모듈로 바뀝니다. 그러나 사용자 지정 모듈을 기존 Azure Machine Learning Studio 모듈과 동일한 이름으로 등록할 수 있습니다. 이 경우 모듈 팔레트의 **사용자 지정** 범주에 표시됩니다.
 
     <Module name="Custom Add Rows" isDeterministic="false"> 
         <Owner>Microsoft Corporation</Owner>
@@ -330,7 +330,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
   * **default** - 기본 속성 값은 **Item** 요소 중 하나의 id 값에 해당해야 합니다.
 
 ### <a name="auxiliary-files"></a>보조 파일
-사용자 지정 모듈 ZIP 파일에 있는 모든 파일은 실행 시간 동안 사용할 수 있습니다. 모든 디렉터리 구조는 있는 그대로 유지됩니다. 따라서 파일 소싱이 로컬과 Azure Machine Learning 실행에서 동일하게 작동합니다. 
+사용자 지정 모듈 ZIP 파일에 있는 모든 파일은 실행 시간 동안 사용할 수 있습니다. 모든 디렉터리 구조는 있는 그대로 유지됩니다. 따라서 파일 소싱이 로컬과 Azure Machine Learning Studio 실행에서 동일하게 작동합니다. 
 
 > [!NOTE]
 > 모든 파일은 'src' 디렉터리로 추출되므로 모든 경로에 'src/' 접두사가 있어야 합니다.

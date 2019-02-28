@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d992d13a67c7b01f82b615e7131a20b84dec9e8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851023"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456234"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>다른 Azure 지역으로 ADE(Azure Disk Encryption) 사용 가능 가상 머신 복제
 
@@ -24,6 +24,7 @@ ms.locfileid: "52851023"
 >
 
 ## <a name="required-user-permissions"></a>필요한 사용자 권한
+Azure Site Recovery에서는 대상 영역에 키 자격 증명 모음을 만들고 해당 영역에 키를 복사할 수 있는 권한이 사용자에게 있어야 합니다.
 
 포털에서 ADE VM 복제를 사용하도록 설정하려는 사용자에게는 아래 권한이 있어야 합니다.
 - 키 자격 증명 모음 권한
@@ -43,12 +44,22 @@ ms.locfileid: "52851023"
     - 암호화
     - 암호 해독
 
-포털에서 키 자격 증명 모음 리소스로 이동한 다음 사용자에게 필요한 권한을 추가하는 방식으로 권한을 관리할 수 있습니다.
+포털에서 키 자격 증명 모음 리소스로 이동한 다음 사용자에게 필요한 권한을 추가하는 방식으로 권한을 관리할 수 있습니다. 예를 들어 아래 단계별 가이드에서는 원본 영역에 있는 키 자격 증명 모음 “ContosoWeb2Keyvault”에 대해 사용하는 방법을 보여 줍니다.
 
-![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermissions.png)
+
+-  “홈> Keyvaults> ContosoWeb2KeyVault> 액세스 정책”으로 이동
+
+![keyvault 권한](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
+
+
+
+- 사용자 권한이 없음을 확인할 수 있으므로, “새로 추가”와 사용자 및 권한을 클릭하여 위에서 언급한 권한을 추가합니다.
+
+![keyvault 권한](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
 
 DR(재해 복구)을 사용하도록 설정하는 사용자에게 키를 복사하는 데 필요한 권한이 없으면 암호화 비밀과 키를 대상 지역에 복사하는 데 필요한 적절한 권한이 있는 보안 관리자에게 아래에 링크로 제공된 스크립트를 제공할 수 있습니다.
 
+권한 문제를 해결하려면 [이 문서](#trusted-root-certificates-error-code-151066)를 참조하세요.
 >[!NOTE]
 >포털에서 ADE VM 복제를 사용하도록 설정하려면 키 자격 증명 모음, 비밀 및 키에 대한 “나열” 이상의 권한이 필요합니다.
 >
@@ -124,12 +135,26 @@ Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니
 
 ## <a name="update-target-vm-encryption-settings"></a>대상 VM 암호화 설정 업데이트
 아래 시나리오에서는 대상 VM 암호화 설정을 업데이트해야 합니다.
-  - VM에서 Site Recovery 복제를 사용하도록 설정했으며 나중에 원본 VM에서 ADE(Azure Disk Encryption)를 사용하도록 설정한 경우
-  - VM에서 Site Recovery 복제를 사용하도록 설정했으며 나중에 원본 VM에서 디스크 암호화 키 및/또는 키 암호화 키를 변경한 경우
+  - VM에서 Site Recovery 복제를 사용하고 나중에 원본 VM에서 ADE(Azure Disk Encryption)를 사용하도록 설정한 경우
+  - VM에서 Site Recovery 복제를 사용하고 나중에 원본 VM에서 디스크 암호화 키 및/또는 키 암호화 키를 변경한 경우
 
 [스크립트](#copy-ade-keys-to-dr-region-using-powershell-script)를 사용하여 암호화 키를 대상 지역에 복사한 다음 **Recovery Services 자격 증명 모음 -> 복제된 항목 -> 속성 -> 계산 및 네트워크**에서 대상 암호화 설정을 업데이트할 수 있습니다.
 
 ![update-ade-settings](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+
+## <a name="trusted-root-certificates-error-code-151066"></a>Azure 간에 VM을 복제하는 중 발생한 키 자격 증명 모음 권한 문제 해결
+
+**원인 1:** 필요한 권한이 없는 대상 영역에서 이미 생성된 Keyvault를 선택했을 수 있습니다.
+Azure Site Recovery에서 만들도록 하지 않고 대상 영역에 이미 생성된 Keyvault를 선택하는 경우, 키 자격 증명 모음에 위에서 언급한 필요한 권한이 있는지 확인합니다.</br>
+*예*: 사용자가 원본 영역에 “ContososourceKeyvault”라는 키 자격 증명 모음이 있는 VM을 복제하려고 합니다.
+원본 영역 키 자격 증명 모음에 대한 모든 권한이 사용자에게 있지만, 보호 중에 이미 생성된 키 자격 증명 모음 “ContosotargetKeyvault”를 선택합니다. 이 키 자격 증명 모음에는 권한이 없으므로 보호에서 오류가 발생합니다.</br>
+**해결 방법:** “홈> Keyvaults> ContososourceKeyvault> 액세스 정책”으로 이동하여 위에 표시된 대로 권한을 추가합니다. 
+
+**원인 2:** 암호 해독-암호화 권한이 없는 대상 영역에서 이미 생성된 Keyvault를 선택했을 수 있습니다.
+Azure Site Recovery에서 만들도록 하지 않고 대상 영역에 이미 생성된 Keyvault를 선택하는 경우, 원본 영역에 있는 키도 암호화하는 경우 사용자에게 암호 해독-암호화 권한이 있는지 확인합니다.</br>
+*예*: 사용자가 원본 영역에 “ContososourceKeyvault”라는 키 자격 증명 모음이 있는 VM을 복제하려고 합니다.
+원본 영역 키 자격 증명 모음에 대한 모든 권한이 사용자에게 있지만, 보호 중에 이미 생성된 키 자격 증명 모음 “ContosotargetKeyvault”를 선택합니다. 이 키 자격 증명 모음에는 암호 해독 및 암호화 권한이 없습니다.</br>
+**해결 방법:** “홈> Keyvaults> ContososourceKeyvault> 액세스 정책”으로 이동하여 키 권한> 암호화 작업 아래에 권한을 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

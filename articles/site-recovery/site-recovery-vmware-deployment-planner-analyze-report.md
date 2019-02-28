@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7b308f3298af436b6537234cff571759551a2d4e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7504d23cbaf8a497e6ea86b5a383413474c0d034
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221608"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329970"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner 보고서 분석
 
@@ -177,7 +177,7 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 
 **VM 이름**: 보고서가 생성될 때 VMListFile에 사용되는 VM 이름 또는 IP 주소입니다. 또한 이 열은 VM에 연결된 디스크(VMDK)를 나열합니다. 중복 이름 또는 IP 주소와 vCenter VM을 구분하기 위해 이름에 ESXi 호스트 이름을 포함합니다. 나열된 ESXi 호스트는 도구가 프로 파일링 기간 중에 발견한 VM을 배치하는 호스트입니다.
 
-**VM 호환성**: 값은 **Yes** 및 **Yes**\*입니다. **예**\*는 VM이 [Azure Premium Storage](https://aka.ms/premium-storage-workload)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 예: 
+**VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [프리미엄 SSD](../virtual-machines/windows/disks-types.md)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동량 또는 IOPS 디스크는 P20 또는 P30 범주에 적합하지만 디스크의 크기 때문에 P10 또는 P20에 낮게 매핑됩니다. 스토리지 계정 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형이 결정됩니다. 예: 
 * 128GB 미만은 P10입니다.
 * 128GB ~ 256GB는 P15입니다.
 * 256GB ~ 512GB는 P20입니다.

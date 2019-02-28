@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509136"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327013"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정
 Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장 및 액세스하기 위한 여러 가지 기능을 제공합니다. 이 문서에서는 Azure 파일, Blob 및 디스크에 대해 설명하고 이러한 기능 중에서 선택하는 데 도움이 되도록 작성되었습니다.
@@ -56,7 +56,7 @@ Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하�
 |범위|단일 가상 머신에 배타적으로 적용|여러 가상 머신 간에 공유 액세스|  
 |스냅숏 및 복사|예|예|  
 |구성|가상 컴퓨터 시작 시 연결됨|가상 컴퓨터가 시작된 후 연결됨|  
-|인증|기본 제공|net use로 설정|  
+|Authentication|기본 제공|net use로 설정|  
 |REST를 사용하여 액세스|VHD 내의 파일에 액세스할 수 없음|공유에 저장된 파일에 액세스할 수 있음|  
 |최대 크기|4TiB 디스크|공유 내 5TiB 파일 공유 및 1TiB 파일|  
 |최대 IOps|500IOps|1000IOps|  
@@ -67,4 +67,4 @@ Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하�
   
 일부 SMB 기능은 클라우드에 적용되지 않습니다. 자세한 내용은 [Azure File 서비스에서 지원되지 않는 기능](/rest/api/storageservices/features-not-supported-by-the-azure-file-service)을 참조하세요.
   
-디스크에 대한 자세한 내용 [디스크 및 이미지 관리](../../virtual-machines/windows/about-disks-and-vhds.md) 및 [Windows Virtual Machine에 데이터 디스크를 연결하는 방법](../../virtual-machines/windows/attach-managed-disk-portal.md)을 참조하세요.
+디스크에 대한 자세한 내용은 [관리 디스크 소개](../../virtual-machines/windows/managed-disks-overview.md) 및 [Windows Virtual Machine에 데이터 디스크를 연결하는 방법](../../virtual-machines/windows/attach-managed-disk-portal.md)을 참조하세요.

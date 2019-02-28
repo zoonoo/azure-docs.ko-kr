@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 2f26c4ae352ea5385886abcaecba5f50d30c530a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f5c42b73b0452392cdd2a06619722b3f7de2cc27
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537225"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417485"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
@@ -23,6 +23,7 @@ ms.locfileid: "53537225"
 
 > [!NOTE]
 > 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for PostgreSQL이 배포된 모든 Azure 공용 클라우드 지역에서 사용할 수 있습니다.
+> VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure Virtual Machines가 Azure Database for PostgreSQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
 
 <a name="anch-terminology-and-description-82f" />
 

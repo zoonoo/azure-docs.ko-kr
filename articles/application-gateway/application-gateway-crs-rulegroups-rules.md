@@ -12,12 +12,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 4/16/2018
 ms.author: victorh
-ms.openlocfilehash: 15a86410e8ca853c2ca2431cb9a62de628972703
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b45e782984f637f1b084ec757000dde9dd3a5777
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320104"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302041"
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>제공되는 웹 애플리케이션 방화벽 CRS 규칙 그룹 및 규칙 목록
 
@@ -27,6 +27,11 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ## <a name="owasp30"></a> OWASP_3.0
 
+### <a name="General"></a> <p x-ms-format-detection="none">일반</p>
+
+|RuleId|설명|
+|---|---|
+|200004|가능한 다중 파트 일치하지 않는 경계.|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
@@ -239,6 +244,8 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 |941290|IE XSS 필터 - 공격 감지됨.|
 |941300|IE XSS 필터 - 공격 감지됨.|
 |941310|US-ASCII 잘못된 형식의 Encoding XSS 필터 - 공격 감지됨.|
+|941330|IE XSS 필터 - 공격 감지됨.|
+|941340|IE XSS 필터 - 공격 감지됨.|
 |941350|UTF-7 Encoding IE XSS - 공격 감지됨.|
 |941013|규칙 941013|
 |941014|규칙 941014|
@@ -255,18 +262,29 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 |942011|규칙 942011|
 |942012|규칙 942012|
 |942100|libinjection을 통한 SQL 삽입 공격 감지됨|
+|942110|SQL 삽입 공격: 일반적인 삽입 테스트 감지됨|
+|942130|SQL 삽입 공격: SQL 반복 감지됨.|
 |942140|SQL 삽입 공격 = 일반 DB 이름 감지됨|
 |942160|sleep() 또는 benchmark()를 사용하는 블라인드 sqli 테스트 감지.|
 |942170|조건부 쿼리를 포함하여 SQL benchmark 및 sleep 삽입 공격 감지|
+|942190|MSSQL 코드 실행 및 정보 수집 시도 감지|
+|942200|MySQL 주석-/공백-난독 처리된 삽입 및 억음 악센트 기호 종료 감지|
 |942230|조건부 SQL 삽입 시도 감지|
+|942260|기본 SQL 인증 바이패스 시도 감지 2/3|
 |942270|기본적인 sql 삽입 검색. mysql oracle 및 기타에 대한 일반적인 공격 문자열.|
 |942290|기본적인 MongoDB SQL 삽입 시도 찾기|
+|942300|MySQL 주석, 조건 및 ch(a)r 삽입 감지|
 |942320|MySQL 및 PostgreSQL에 저장된 저장 프로시저/함수 삽입 감지|
+|942330|클래식 SQL 삽입 프로빙 감지 1/2|
+|942340|기본 SQL 인증 바이패스 시도 감지 3/3|
 |942350|MySQL UDF 삽입 및 기타 데이터/구조 조작 시도 감지|
+|942360|연결된 기본 SQL 삽입 및 SQLLFI 시도 감지|
+|942370|클래식 SQL 삽입 프로빙 감지 2/2|
 |942013|규칙 942013|
 |942014|규칙 942014|
 |942150|SQL 삽입 공격|
 |942410|SQL 삽입 공격|
+|942430|제한된 SQL 문자 이상 감지(인수): 특수 문자 # 초과(12)|
 |942440|SQL 주석 시퀀스가 감지됨.|
 |942450|SQL 16진수 Encoding이 식별됨|
 |942015|규칙 942015|
@@ -550,6 +568,6 @@ Application Gateway WAF(웹 애플리케이션 방화벽)는 일반적인 취약
 
 ## <a name="next-steps"></a>다음 단계
 
-[WAF 규칙 사용자 지정](application-gateway-customize-waf-rules-portal.md)을 방문하여 WAF 규칙을 사용하지 않도록 설정하는 방법을 알아봅니다.
+다음을 방문하여 WAF 규칙을 사용하지 않도록 설정하는 방법을 알아봅니다. [WAF 규칙 사용자 지정](application-gateway-customize-waf-rules-portal.md)
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png

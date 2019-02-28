@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dd65988146d3738d8540ddf4e54ed57813e10c16
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243540"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453990"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 사용하여 고객 이탈 분석
 ## <a name="overview"></a>개요
-이 문서에서는 Azure Machine Learning을 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 이 문서에서는 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 Machine Learning을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
+이 문서에서는 Azure Machine Learning Studio를 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 이 문서에서는 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 Machine Learning을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
 
 ### <a name="acknowledgements"></a>감사의 말
-이 실험은 Microsoft의 수석 데이터 과학자인 Serge Berger와 이전 Microsoft Azure Machine Learning 제품 관리자인 Roger Barga가 개발하고 테스트했습니다. Azure 설명서 팀은 담당자들의 전문 지식을 인정하고 이 백서를 공유한 것에 대해 감사해하고 있습니다.
+이 실험은 Microsoft의 수석 데이터 과학자인 Serge Berger와 이전 Microsoft Azure Machine Learning Studio 제품 관리자인 Roger Barga가 개발하고 테스트했습니다. Azure 설명서 팀은 담당자들의 전문 지식을 인정하고 이 백서를 공유한 것에 대해 감사해하고 있습니다.
 
 > [!NOTE]
 > 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 Machine Learning 모델을 작성하는 방법의 예제를 보려면 [Azure AI 갤러리](http://gallery.azure.ai/)의 [소매 변동 모델 템플릿](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)을 참조하세요.
@@ -54,11 +54,11 @@ ms.locfileid: "56243540"
 2. 개입 모델에서는 개입 수준이 이탈 가능성과 CLV(Customer Lifetime Value) 크기에 어떤 영향을 미치는지를 고려할 수 있습니다.
 3. 이 분석은 최적의 제품을 제공하기 위한 고객층을 대상으로 하는 사전 마케팅 캠페인으로 확대되는 정성 분석에 적합합니다.  
 
-![][1]
+![위험 허용 오차와 의사 결정 모델이 실행 가능한 인사이트를 산출하는 방법을 보여주는 다이어그램](./media/azure-ml-customer-churn-scenario/churn-1.png)
 
 이러한 미래 예측 접근법은 이탈을 처리하는 가장 좋은 방법이지만 복잡성 문제가 있습니다. 따라서 다중 모델 원형을 개발하고 모델 간의 종속성을 추적해야 합니다. 모델 간의 조작은 다음 다이어그램과 같이 캡슐화할 수 있습니다.  
 
-![][2]
+![이탈 모델 상호 작용 다이어그램](./media/azure-ml-customer-churn-scenario/churn-2.png)
 
 *그림 4: 통합 다중 모델 원형*  
 
@@ -71,13 +71,13 @@ ms.locfileid: "56243540"
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Machine Learning Studio에서 모델링 원형 구현
-방금 설명한 문제에 대해 통합 모델링 및 점수 매기기 접근법을 구현하는 가장 좋은 방법은 무엇일까요? 이 섹션에서는 Azure Machine Learning Studio를 사용하여 이 작업을 하는 방법을 보여 줍니다.  
+설명된 문제를 감안할 때 통합 모델링 및 채점 방식을 구현하는 가장 좋은 방법은 무엇일까요? 이 섹션에서는 Azure Machine Learning Studio를 사용하여 이 작업을 하는 방법을 보여 줍니다.  
 
 다중 모델 접근법은 이탈에 대한 전역적인 원형을 디자인할 때 필수 요소입니다. 접근법의 점수 매기기(예측) 부분도 다중 모델이어야 합니다.  
 
 다음 다이어그램에서는 Microsoft에서 만든, 이탈을 예측하는 데 Machine Learning Studio의 네 가지 점수 매기기 알고리즘을 사용하는 프로토타입을 보여 줍니다. 다중 모델 접근법은 전체 분류자를 만들어 정확도를 높일 뿐만 아니라 과잉 맞춤을 방지하고 예측 기능 선택을 개선하기 위해 사용합니다.  
 
-![][3]
+![상호 연결된 모듈이 많이 있는 복잡한 Studio 작업 영역을 보여주는 스크린샷](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *그림 5: 일탈 모델링 접근법의 프로토타입*  
 
@@ -86,9 +86,9 @@ ms.locfileid: "56243540"
 ### <a name="data-selection-and-preparation"></a>데이터 선택 및 준비
 모델을 빌드하고 고객 점수를 매기는 데 사용되는 데이터는 CRM Vertical 솔루션에서 얻고 고객 개인 정보를 보호하도록 데이터가 난독 처리됩니다. 이 데이터에는 미국의 구독 회원 8,000명에 대한 정보가 포함되어 있으며, 세 가지 소스 데이터, 즉 프로비저닝 데이터(구독 메타데이터), 활동 데이터(시스템 사용) 및 고객 지원 데이터가 통합되어 있습니다. 로열티 메타데이터 또는 신용 점수와 같은 고객에 대한 비즈니스 관련 정보는 데이터에 포함되지 않습니다.  
 
-간단히 말해 데이터 준비가 이미 다른 곳에서 완료되었다고 가정하므로 ETL 및 데이터 정리 프로세스는 범위를 벗어납니다.   
+간단히 말해 데이터 준비가 이미 다른 곳에서 완료되었다고 가정하므로 ETL 및 데이터 정리 프로세스는 범위를 벗어납니다.
 
-모델링에 대한 기능 선택은 임의 포리스트 모듈을 사용하는 프로세스에 포함된 예측 변수 집합에 대한 사전 중요도 점수 매기기를 기반으로 합니다. Machine Learning Studio에서 구현하기 위해 대표적인 기능에 대한 평균, 중앙값 및 범위를 계산했습니다. 예를 들어 사용자 활동에 대한 최소값 및 최대값 같은 정성 데이터에 대한 집계를 추가했습니다.    
+모델링에 대한 기능 선택은 임의 포리스트 모듈을 사용하는 프로세스에 포함된 예측 변수 집합에 대한 사전 중요도 점수 매기기를 기반으로 합니다. Machine Learning Studio에서 구현하기 위해 대표적인 기능에 대한 평균, 중앙값 및 범위를 계산했습니다. 예를 들어 사용자 활동에 대한 최소값 및 최대값 같은 정성 데이터에 대한 집계를 추가했습니다.
 
 또한 최근 6개월 동안의 임시 정보를 캡처했습니다. 1년 동안의 데이터를 분석하고 통계상 중요한 추세라도 6개월 후에는 이탈에 대한 영향이 크게 감소하도록 설정했습니다.  
 
@@ -96,11 +96,11 @@ ms.locfileid: "56243540"
 
 다음 다이어그램에서는 사용된 데이터를 보여 줍니다.  
 
-![][4]
+![원시 값으로 사용된 데이터 샘플을 보여주는 스크린샷](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
 *그림 6: 데이터 원본 발췌(난독 처리됨)*  
 
-![][5]
+![데이터 원본에서 추출한 통계 기능을 보여주는 스크린샷](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
 *그림 7: 데이터 원본에서 추출된 기능*
  
@@ -122,7 +122,7 @@ ms.locfileid: "56243540"
 
 다음 다이어그램에서는 모델이 생성된 시퀀스를 나타내는 실험 디자인 화면의 일부를 보여 줍니다.  
 
-![][6]  
+![스튜디오 실험의 작은 섹션의 스크린샷 캔버스](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
 *그림 8: Machine Learning Studio에서 모델 만들기*  
 
@@ -135,18 +135,18 @@ ms.locfileid: "56243540"
 이 섹션에서는 점수 데이터 세트에 따라 모델 정확도에 대한 결과를 제공합니다.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>점수 매기기의 정확도 및 정밀도
-일반적으로 Azure Machine Learning의 구현은 정확도가 SAS보다 10~15%(AUC(Area Under Curve)) 정도 낮습니다.  
+일반적으로 Azure Machine Learning Studio의 구현은 정확도가 SAS보다 10~15%(AUC 또는 곡선 아래 영역) 정도 낮습니다.  
 
 그러나 이탈의 가장 중요한 메트릭은 오분류 비율입니다. 즉, 분류자를 통해 예측된 상위 N명의 이탈자 가운데 실제로 이탈하지 **않았지만** 특별 대우를 받은 비율(%)입니다. 다음 다이어그램에서는 모든 모델에 대한 이 오분류 비율을 비교합니다.  
 
-![][7]
+![4가지 알고리즘의 성능을 비교하는 곡선 그래프 아래 영역](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
 *그림 9: Passau 프로토타입 AUC(Area Under Curve)*
 
 ### <a name="using-auc-to-compare-results"></a>AUC를 사용하여 결과 비교
 AUC(Area Under Curve)는 긍정적 및 부정적 모집단에 대한 점수 분포 간에 *분리성* 의 전역 측정값을 나타내는 메트릭입니다. 이는 기존 ROC(Receiver Operator Characteristic) 그래프와 비슷하지만 한 가지 중요한 차이는 AUC 메트릭은 임계값을 선택할 필요가 없다는 것입니다. 대신에 AUC 메트릭은 **모든** 가능한 선택 항목에 대한 결과를 요약합니다. 이와 달리 기존 ROC 그래프는 세로축의 긍정적 비율, 가로축의 긍정적 오류 비율 및 분류 임계값을 보여 줍니다.   
 
-AUC 값을 통해 모델을 비교할 수 있으므로 일반적으로 AUC는 다양한 알고리즘(또는 다양한 시스템)에 대한 가치의 측정값으로 사용됩니다. 이는 기상학 및 생물공학과 같은 산업에서 일반적인 접근법입니다. 따라서 AUC는 분류자 성능을 평가하는 데 널리 사용되는 대표적인 도구입니다.  
+AUC 값을 통해 모델을 비교할 수 있으므로 AUC는 다양한 알고리즘(또는 다양한 시스템)에 대한 가치의 측정값으로 사용됩니다. 이는 기상학 및 생물공학과 같은 산업에서 일반적인 접근법입니다. 따라서 AUC는 분류자 성능을 평가하는 데 널리 사용되는 대표적인 도구입니다.  
 
 ### <a name="comparing-misclassification-rates"></a>오분류 비율 비교
 8,000여 개 구독에 대한 CRM 데이터를 사용하여 해당 데이터 세트에 대한 오분류 비율을 비교했습니다.  
@@ -160,14 +160,14 @@ AUC 값을 통해 모델을 비교할 수 있으므로 일반적으로 AUC는 �
 
 Wikipedia의 다음 다이어그램에서는 효과적이고 이해하기 쉬운 그래픽을 보여 줍니다.  
 
-![][8]
+![과녁이 두 개 있습니다. 한 과녁에는 적중 표시가 서로 떨어져 있지만 과녁의 중앙에 가까이 있고, “Low accuracy: good trueness, poor precision”(낮은 정확도: 양호한 충실도, 낮은 정밀도)라고 표시되어 있습니다. 다른 과녁에는 적중 표시가 가까이 모여 있지만 과녁의 중앙에서 멀리 있고 "Low accuracy: poor trueness, good precision"(낮은 정확도: 낮은 충실도, 양호한 정밀도)라고 표시되어 있습니다.](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
 *그림 10: 정확도와 정밀도 간의 균형 유지*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>향상된 의사 결정 트리 모델의 정확도 및 정밀도 결과
 다음 차트에는 네 가지 모델 가운데 가장 정확할 수 있는 향상된 의사 결정 트리 모델에 대해 Machine Learning 프로토타입을 사용한 점수 매기기의 원시 결과가 나와 있습니다.  
 
-![][9]
+![네 가지 알고리즘에 대한 정확도, 정밀도, 회수율, F-점수, AUC, 평균 로그 손실 및 교육 로그 손실을 보여주는 표](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
 *그림 11: 향상된 의사 결정 트리 모델 특성*
 
@@ -200,13 +200,13 @@ Machine Learning Studio에서 호스트된 모델은 실행 속도 성능이 SAS
 
 하지만 Machine Learning Studio를 사용한 셀프 서비스 분석에서 기대되는 것은 사업부나 부서별로 등급이 지정된 네 가지 정보 범주가 이탈에 대한 기계 학습의 중요한 출처가 된다는 점입니다.  
 
-Azure Machine Learning에서 제공되는 또 다른 흥미로운 기능은 이미 사용할 수 있는 미리 정의된 모듈의 리포지토리에 사용자 지정 모듈을 추가하는 기능입니다. 이 기능은 기본적으로 라이브러리를 선택하고 수직적 시장에 대한 템플릿을 만들 기회를 제공합니다. 이는 마켓플레이스에서 Azure Machine Learning의 중요한 차별화 요소입니다.  
+Azure Machine Learning Studio에서 제공되는 또 다른 흥미로운 기능은 이미 사용할 수 있는 미리 정의된 모듈의 리포지토리에 사용자 지정 모듈을 추가하는 기능입니다. 이 기능은 기본적으로 라이브러리를 선택하고 수직적 시장에 대한 템플릿을 만들 기회를 제공합니다. 이는 마켓플레이스에서 Azure Machine Learning Studio의 중요한 차별화 요소입니다.  
 
 특히 빅데이터 분석과 관련된 이 토픽은 나중에 설명할 기회가 있을 것입니다.
   
 
 ## <a name="conclusion"></a>결론
-이 문서에서는 일반 프레임워크를 사용하여 일반적인 문제인 고객 이탈을 방지하기 위한 합리적인 접근법에 대해 설명합니다. 점수 매기기 모델의 프로토타입을 고려하고 Azure Machine Learning을 사용하여 해당 프로토타입을 구현했습니다. 마지막으로 SAS의 비슷한 알고리즘과 비교하여 프로토타입 솔루션의 정확도와 성능을 평가했습니다.  
+이 문서에서는 일반 프레임워크를 사용하여 일반적인 문제인 고객 이탈을 방지하기 위한 합리적인 접근법에 대해 설명합니다. 채점 모델의 프로토타입을 고려하고 Azure Machine Learning Studio를 사용하여 해당 프로토타입을 구현했습니다. 마지막으로 SAS의 비슷한 알고리즘과 비교하여 프로토타입 솔루션의 정확도와 성능을 평가했습니다.  
 
  
 
@@ -223,17 +223,6 @@ Azure Machine Learning에서 제공되는 또 다른 흥미로운 기능은 이�
  
 
 ## <a name="appendix"></a>부록
-![][10]
+![이탈 프로토타입에 대한 프레젠테이션 스냅숏](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
 *그림 12: 이탈 프로토타입에 대한 프레젠테이션 스냅숏*
-
-[1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
-[2]: ./media/azure-ml-customer-churn-scenario/churn-2.png
-[3]: ./media/azure-ml-customer-churn-scenario/churn-3.png
-[4]: ./media/azure-ml-customer-churn-scenario/churn-4.png
-[5]: ./media/azure-ml-customer-churn-scenario/churn-5.png
-[6]: ./media/azure-ml-customer-churn-scenario/churn-6.png
-[7]: ./media/azure-ml-customer-churn-scenario/churn-7.png
-[8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
-[9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
-[10]: ./media/azure-ml-customer-churn-scenario/churn-10.png

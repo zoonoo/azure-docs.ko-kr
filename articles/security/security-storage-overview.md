@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2019
 ms.author: terrylan
-ms.openlocfilehash: 5d8c9ae52152df6a0e016c12234afe4ae780b251
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115439"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326759"
 ---
 # <a name="azure-storage-security-overview"></a>Azure Storage 보안 개요
 
@@ -79,7 +79,7 @@ SAS는 저장소 리소스에 인증된 액세스를 수행하는 데 필요한 
 
 Storage 서비스를 암호화에 대해 자세히 알아봅니다.
 
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)에 [Azure Storage 서비스 암호화](https://azure.microsoft.com/services/storage/)를 사용할 수 있습니다. 다른 Azure Storage 형식에 대한 자세한 내용은 [Azure 파일](https://azure.microsoft.com/services/storage/files/), [디스크(Premium Storage)](https://azure.microsoft.com/services/storage/premium-storage/), [테이블 스토리지](https://azure.microsoft.com/services/storage/tables/) 및 [큐 스토리지](https://azure.microsoft.com/services/storage/queues/)를 참조하세요.
+* [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)에 [Azure Storage 서비스 암호화](https://azure.microsoft.com/services/storage/)를 사용할 수 있습니다. 다른 Azure Storage 형식에 대한 자세한 내용은 [Azure Files](https://azure.microsoft.com/services/storage/files/), [Table Storage](https://azure.microsoft.com/services/storage/tables/) 및 [Queue Storage](https://azure.microsoft.com/services/storage/queues/)를 참조하세요.
 * [휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure 디스크 암호화

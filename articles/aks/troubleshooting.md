@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468838"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327564"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -34,7 +34,11 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>고급 네트워킹을 사용하여 AKS 클러스터를 배포하는 동안 insufficientSubnetSize 오류가 발생합니다. 어떻게 해야 하나요?
 
-AKS를 만드는 동안 네트워킹에 대한 사용자 지정 Azure Virtual Network 옵션에서 Azure CNI(ontainer Network Interface)가 IPAM(IP 주소 관리)에 사용됩니다. AKS 클러스터의 노드 수는 1에서 100개 사이일 수 있습니다. 이전 섹션에 따라, 서브넷 크기는 노드 수와 노드당 최대 pod 수를 곱한 값보다 커야 합니다. 이 관계는 서브넷 크기 > 클러스터의 노드 수 * 노드당 최대 pod 수로 나타낼 수 있습니다.
+Azure CNI(고급 네트워킹)를 사용하는 경우 AKS는 구성된 노드당 “max-pods”에 따라 IP 주소를 미리 할당합니다. AKS 클러스터의 노드 수는 1~110개 사이일 수 있습니다. 구성된 노드당 최대 Pod 수를 기준으로, 서브넷 크기는 “노드 수와 노드당 최대 Pod 수를 곱한 값”보다 커야 합니다. 다음 기본 수식은 이 내용을 요약해서 보여 줍니다.
+
+서브넷 크기 > 클러스터의 노드 수(향후 크기 조정 요구 사항 고려) * 노드당 최대 Pod 수
+
+자세한 내용은 [클러스터에 대한 IP 주소 지정 계획](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)을 참조하세요.
 
 ## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>내 Pod가 CrashLoopBackOff 모드에서 중단됩니다. 어떻게 해야 하나요?
 

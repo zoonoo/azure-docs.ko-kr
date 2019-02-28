@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: db92db315875348ff05ec3a34b1a9fa946479c27
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0abe2c869a05d359f692db105eb647f9e6a69df8
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998538"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266427"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 쿼리에서 app() 식
 
@@ -80,4 +80,4 @@ union
 
 - Log Analytics 작업 영역을 가리키는 [작업 영역 식](workspace-expression.md)을 참조하세요.
 - [Azure Monitor 데이터](../../azure-monitor/log-query/log-query-overview.md)가 저장되는 방법에 대해 알아보세요.
-- [데이터 탐색기 쿼리 언어](/azure/kusto/query/)에 대한 전체 설명서에 액세스합니다.
+- [ 쿼리 언어](/azure/kusto/query/)에 대한 전체 문서에 액세스합니다.

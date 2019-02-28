@@ -7,12 +7,12 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: af067cabf312ec3c2556b84dc4d739e41ec0aacc
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: aef55660d07c8923a82baf7f8b6320abf3ccdd1d
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535287"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430219"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Azure Database for MySQL에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
@@ -24,6 +24,7 @@ ms.locfileid: "53535287"
 
 > [!NOTE]
 > 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for MySQL이 배포된 모든 Azure 지역에서 사용할 수 있습니다.
+> VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure Virtual Machines가 Azure Database for MySQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
 
 <a name="anch-terminology-and-description-82f" />
 

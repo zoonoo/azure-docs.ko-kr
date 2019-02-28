@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: kgremban
-ms.openlocfilehash: 3b56097f8805b4c6d95256ae1753daf5ded266fb
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 86e690e5ff437d924b9c548c2d75afb1866b14aa
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888399"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446786"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
 
@@ -302,12 +302,118 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
             "category": "DirectMethods",
             "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
             "location": "Resource location"
         }
     ]
 }
 ```
+
+#### <a name="distributed-tracing-preview"></a>분산 추적(미리 보기)
+
+분산 추적 범주는 추적 컨텍스트 헤더를 전달하는 메시지의 상관 관계 ID를 추적합니다. 이러한 로그를 완전히 사용하려면 [IoT Hub 분산 추적(미리 보기)을 사용하여 IoT 애플리케이션 엔드투엔드 분석 및 진단](iot-hub-distributed-tracing.md)에 따라 클라이언트 쪽 코드를 업데이트해야 합니다.
+
+`correlationId`를 확인하고, `trace-id` 및 `span-id`를 포함하는 [W3C 추적 컨텍스트](https://github.com/w3c/trace-context) 제안을 준수합니다. 
+
+##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>IoT Hub D2C(디바이스-클라우드) 로그
+
+IoT Hub는 유효한 추적 속성이 포함된 메시지가 IoT Hub에 도착할 때 이 로그를 기록합니다. 
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubD2C",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Receive message success",
+            "durationMs": "",
+            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+여기서 `durationMs`는 IoT Hub 시계가 디바이스 시계와 동기화되지 않아 기간 계산이 잘못될 수 있기 때문에 계산되지 않습니다. 디바이스-클라우드 대기 시간의 급증을 캡처하려면 `properties` 섹션에서 타임스탬프를 사용한 논리를 작성하는 것이 좋습니다.
+
+| 자산 | Type | 설명 |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **messageSize** | 정수  | 디바이스-클라우드 메시지의 크기(바이트) |
+| **deviceId** | ASCII 7비트 영숫자 문자의 문자열 | 디바이스의 ID |
+| **callerLocalTimeUtc** | UTC 타임스탬프 | 디바이스 로컬 시계에서 보고한 메시지 생성 시간 |
+| **calleeLocalTimeUtc** | UTC 타임스탬프 | IoT Hub 서비스 쪽 시계에서 메시지가 IoT Hub의 게이트웨이에 도착했다고 보고한 시간 |
+
+##### <a name="iot-hub-ingress-logs"></a>IoT Hub 수신 로그
+
+IoT Hub는 유효한 추적 속성이 포함된 메시지가 내부 또는 기본 제공 이벤트 허브에 작성될 때 이 로그를 기록합니다.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubIngress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Ingress message success",
+            "durationMs": "10",
+            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+`properties` 섹션에서는 이 로그에 메시지 수신에 대한 추가 정보가 포함됩니다.
+
+| 자산 | Type | 설명 |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **isRoutingEnabled** | 문자열 | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
+| **parentSpanId** | 문자열 | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
+
+##### <a name="iot-hub-egress-logs"></a>IoT Hub 송신 로그
+
+IoT Hub는 [라우팅](iot-hub-devguide-messages-d2c.md)이 사용되고 메시지가 [엔드포인트](iot-hub-devguide-endpoints.md)에 작성될 때 이 로그를 기록합니다. 라우팅이 사용되지 않는 경우에는 IoT Hub에서 이 로그를 기록하지 않습니다.
+
+```json
+{
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubEgress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-98ac3578922acd26-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Egress message success",
+            "durationMs": "10",
+            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+`properties` 섹션에서는 이 로그에 메시지 수신에 대한 추가 정보가 포함됩니다.
+
+| 자산 | Type | 설명 |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **endpointName** | 문자열 | 라우팅 엔드포인트의 이름입니다. |
+| **endpointType** | 문자열 | 라우팅 엔드포인트의 유형입니다. |
+| **parentSpanId** | 문자열 | 부모 메시지(이 경우 IoT Hub 수신 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
+
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Azure Event Hubs의 로그 읽기
 

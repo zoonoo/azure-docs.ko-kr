@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 29e6215358eaf544f32f585744ed36f30822d134
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820787"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446752"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
-이 자습서에서는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)에서 App Service Certificate을 작성(구매)한 다음, App Service 앱에 바인딩하여 웹앱을 보호하는 방법을 보여줍니다.
+이 자습서에서는 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)에서 App Service 인증서를 작성(구매)한 다음, App Service 앱에 바인딩하여 [App Service 앱](https://docs.microsoft.com/azure/app-service/) 또는 [Function App](https://docs.microsoft.com/azure/azure-functions/)을 보호하는 방법을 보여 줍니다.
 
 > [!TIP]
 > App Service Certificates는 Azure 또는 비 Azure 서비스에 대해 사용할 수 있으며 App Services로 제한되지 않습니다. 그렇게 하려면 어디서든 사용할 수 있는 App Service Certificate의 로컬 PFX 복사본을 만들어야 합니다. 자세한 내용은 [App Service Certificate의 로컬 PFX 복사본 만들기](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)를 참고하세요.
@@ -35,7 +35,7 @@ ms.locfileid: "54820787"
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
 - [App Service 앱 만들기](/azure/app-service/)
-- [도메인 이름을 웹앱에 매핑](app-service-web-tutorial-custom-domain.md)하거나 [Azure에서 구입하여 구성](manage-custom-dns-buy-domain.md)
+- [도메인 이름을 앱에 매핑](app-service-web-tutorial-custom-domain.md)하거나 [Azure에서 구입하여 구성](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -49,7 +49,7 @@ ms.locfileid: "54820787"
 
 | 설정 | 설명 |
 |-|-|
-| 이름 | App Service Certificate에 대한 식별 이름입니다. |
+| Name | App Service Certificate에 대한 식별 이름입니다. |
 | Naked 도메인 호스트 이름 | 여기에 루트 도메인을 지정하면 루트 도메인 및 `www` 하위 도메인을 ‘둘 다’ 보호하는 인증서를 얻게 됩니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`). |
 | 구독 | 웹앱이 호스팅된 데이터 센터입니다. |
 | 리소스 그룹 | 인증서를 포함하는 리소스 그룹입니다. 예를 들어, 새로운 리소스 그룹을 사용하거나 App Service 앱과 동일한 리소스 그룹을 선택할 수 있습니다. |
@@ -70,7 +70,7 @@ ms.locfileid: "54820787"
 
 | 설정 | 설명 |
 |-|-|
-| 이름 | 영숫자와 대시로 구성된 고유한 이름입니다. |
+| Name | 영숫자와 대시로 구성된 고유한 이름입니다. |
 | 리소스 그룹 | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
 | 위치 | App Service 앱과 동일한 위치를 선택합니다. |
 | 가격 책정 계층  | 자세한 내용은 [Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. |

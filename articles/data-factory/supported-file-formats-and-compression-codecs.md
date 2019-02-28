@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 433718c19e0df5fac87273f2b46f8ae090ed7510
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: e1a928711a596c159ac920f11c123b73b72d3aa2
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888569"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313418"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱
 
-*이 항목은 [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) 및 [SFTP](connector-sftp.md) 커넥터에 적용됩니다.*
+*이 문서는 [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) 및 [SFTP](connector-sftp.md) 커넥터에 적용됩니다.*
 
 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. **특정 형식의 파일을 구문 분석하거나 생성**하려면 Azure Data Factory에서는 다음 파일 형식 유형을 지원합니다.
 
@@ -428,6 +428,13 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 - **JRE 사용**: 64비트 IR에는 64비트 JRE가 필요합니다. [여기](https://go.microsoft.com/fwlink/?LinkId=808605)서 찾을 수 있습니다.
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
+>[!TIP]
+>자체 호스팅 Integration Runtime을 사용하여 데이터를 Parquet 형식으로 또는 그 반대로 복사하고 “java를 호출할 때 오류가 발생함, 메시지: **java.lang.OutOfMemoryError:Java heap space**”라는 오류가 발생하는 경우 JVM의 최소/최대 힙 크기를 조정하도록 자체 호스팅 IR을 호스트하는 머신에서 `_JAVA_OPTIONS` 환경 변수를 추가하여 그러한 복사 기능을 강화한 다음, 파이프라인을 다시 실행할 수 있습니다. 
+
+![자체 호스팅 IR에서 JVM 힙 크기 설정](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+
+예: 변수 `_JAVA_OPTIONS`를 `-Xms256m -Xmx16g` 값으로 설정합니다. 플래그 `Xms`는 JVM(Java Virtual Machine)의 초기 메모리 할당 풀을 지정하고, `Xmx`는 최대 메모리 할당 풀을 지정합니다. 즉, JVM은 `Xms`의 메모리 양으로 시작하고 최대 `Xmx`의 메모리 양을 사용할 수 있음을 의미합니다. 기본적으로 ADF는 최소 64MB 및 최대 1G를 사용합니다.
+
 ### <a name="data-type-mapping-for-parquet-files"></a>Parquet 파일에 대한 데이터 형식 매핑
 
 | Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(Deserialize) | Parquet 원본 형식(Serialize) |
@@ -486,8 +493,8 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 | SByte | Byte |
 | Byte | 짧음 |
 | Int16 | 짧음 |
-| UInt16 | int |
-| Int32 | int |
+| UInt16 | Int |
+| Int32 | Int |
 | UInt32 | long |
 | Int64 | long |
 | UInt64 | 문자열 |

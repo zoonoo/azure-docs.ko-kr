@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/18/2019
-ms.openlocfilehash: 0bb7c047f6bd03a45aa6c5c6d07b8022ee59bec9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 02/20/2019
+ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217189"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453140"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL에서 인증을 위해 Azure Active Directory 인증 사용
 
@@ -101,16 +101,16 @@ Azure SQL Database, Managed Instance 또는 SQL Data Warehouse에 포함된 데�
 
 ### <a name="manage-instances"></a>인스턴스 관리
 
-- Azure AD 로그인 및 사용자는 [Managed Instances](sql-database-managed-instance.md)에 대한 미리 보기 기능으로 지원됩니다.
-- Azure AD 그룹에 매핑된 Azure AD 로그인을 데이터베이스 소유자로 설정하는 기능은 [Managed Instance](sql-database-managed-instance.md)에서 지원되지 않습니다.
+- Azure AD 서버 보안 주체(로그인) 및 사용자는 [Managed Instance](sql-database-managed-instance.md)의 미리 보기 기능으로 지원됩니다.
+- Azure AD 그룹에 매핑된 Azure AD 서버 보안 주체(로그인)를 데이터베이스 소유자로 설정하는 기능은 [Managed Instance](sql-database-managed-instance.md)에서 지원되지 않습니다.
     - 이것이 확장되어 그룹이 `dbcreator` 서버 역할의 일부로 추가되면 이 그룹의 사용자는 Managed Instance에 연결하여 새 데이터베이스를 만들 수 있지만 데이터베이스에 액세스할 수는 없습니다. 새 데이터베이스 소유자는 Azure AD 사용자가 아닌 SA이기 때문입니다. 개별 사용자가 `dbcreator` 서버 역할에 추가되면 이 문제가 발생하지 않습니다.
-- Azure AD 로그인에는 SQL 에이전트 관리 및 작업 실행이 지원됩니다.
-- 데이터베이스 백업 및 복원 작업은 Azure AD 로그인을 통해 실행할 수 있습니다.
-- Azure AD 로그인 및 인증 이벤트와 관련된 모든 명령문을 감사하는 기능이 지원됩니다.
-- sysadmin 서버 역할의 구성원인 Azure AD 로그인의 전용 관리 연결이 지원됩니다.
+- Azure AD 서버 보안 주체(로그인)의 경우 SQL 에이전트 관리 및 작업 실행이 지원됩니다.
+- Azure AD 서버 보안 주체(로그인)는 데이터베이스 백업 및 복원 작업을 실행할 수 있습니다.
+- Azure AD 서버 보안 주체(로그인) 및 인증 이벤트와 관련된 모든 문을 감사할 수 있습니다.
+- sysadmin 서버 역할의 구성원인 Azure AD 서버 보안 주체(로그인)의 관리자 전용 연결이 지원됩니다.
     - SQLCMD 유틸리티 및 SQL Server Management Studio를 통해 지원됩니다.
-- 로그온 트리거는 Azure AD 로그인에서 오는 로그온 이벤트에 지원됩니다.
-- Service Broker 및 DB 메일은 Azure AD 로그인을 사용하여 설정할 수 있습니다.
+- 로그온 트리거는 Azure AD 서버 보안 주체(로그인)에서 오는 로그온 이벤트에 대해 지원됩니다.
+- Service Broker 및 DB 메일은 Azure AD 서버 보안 주체(로그인)를 사용하여 설정할 수 있습니다.
 
 
 ## <a name="connecting-using-azure-ad-identities"></a>Azure AD ID를 사용하여 연결
@@ -121,7 +121,7 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 - Azure AD 사용자 이름 및 암호 사용
 - 애플리케이션 토큰 인증 사용
 
-Azure AD 로그인(**공개 미리 보기**)에 지원되는 인증 방법은 다음과 같습니다.
+Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)에 대해 지원되는 인증 방법은 다음과 같습니다.
 
 - Azure Active Directory 암호
 - Azure Active Directory 통합
@@ -133,7 +133,7 @@ Azure AD 로그인(**공개 미리 보기**)에 지원되는 인증 방법은 �
 
 - 관리 효율성을 높일 수 있게 관리자 권한으로 전용 Azure AD 그룹을 프로비전하는 것이 좋습니다.   
 - Azure SQL Database 서버 또는 Azure SQL Data Warehouse에 대해 한 번에 하나의 Azure AD 관리자(그룹 또는 사용자)만 구성할 수 있습니다.
-  - Managed Instance에 대한 Azure AD 로그인(**공개 미리 보기**)을 추가하면 `sysadmin` 역할에 추가할 수 있는 여러 Azure AD 로그인이 생성될 가능성이 있습니다.
+  - Managed Instance에 대한 Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)를 추가하면 `sysadmin` 역할에 추가할 수 있는 Azure AD 서버 보안 주체(로그인)가 여러 개 생성될 수 있습니다.
 - SQL Server에 대한 Azure AD 관리자만 Azure Active Directory 계정을 사용하여 Azure SQL Database 서버, Managed Instance 또는 Azure SQL Data Warehouse에 처음 연결할 수 있습니다. Active Directory 관리자가 이후의 Azure AD 데이터베이스 사용자를 구성할 수 있습니다.   
 - 연결 제한 시간은 30초로 설정하는 것이 좋습니다.   
 - SQL Server 2016 Management Studio 및 Visual Studio 2015용 SQL Server Data Tools(버전 14.0.60311.1 2016년 4월 이상)는 Azure Active Directory 인증을 지원합니다. Azure AD 인증은 **.NET Framework Data Provider for SqlServer**(.NET Framework 4.6 버전 이상)에서 지원됩니다. 따라서 이러한 도구 및 데이터 계층 애플리케이션(DAC 및 .BACPAC)의 최신 버전에서는 Azure AD 인증을 사용할 수 있습니다.   
@@ -147,12 +147,12 @@ Azure AD 로그인(**공개 미리 보기**)에 지원되는 인증 방법은 �
 ## <a name="next-steps"></a>다음 단계
 
 - Azure AD를 만들고 채운 후 Azure SQL Database 및 Azure SQL Data Warehouse에서 Azure AD를 구성하는 방법은 [SQL Database, Managed Instance 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)를 참조하세요.
-- Managed Instance에 Azure AD 로그인을 사용하는 방법에 대한 자습서는 [Managed Instance를 사용하는 Azure AD 로그인](sql-database-managed-instance-aad-security-tutorial.md)을 참조하세요.
+- Managed Instance에 Azure AD 서버 보안 주체(로그인)를 사용하는 방법에 대한 자습서는 [Managed Instance를 사용하는 Azure AD 서버 보안 주체(로그인)](sql-database-managed-instance-aad-security-tutorial.md)를 참조하세요.
 - SQL Database의 액세스 및 제어에 대한 개요는 [SQL Database 액세스 및 제어](sql-database-control-access.md)를 참조하세요.
 - SQL Database의 로그인, 사용자 및 데이터베이스 역할에 대한 개요는 [로그인, 사용자 및 데이터베이스 역할](sql-database-manage-logins.md)을 참조하세요.
 - 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](https://msdn.microsoft.com/library/ms181127.aspx)를 참조하세요.
 - 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121.aspx)을 참조하세요.
-- Managed Instance에 대한 Azure AD 로그인을 만드는 구문은 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)을 참조하세요.
+- Managed Instance에 대한 Azure AD 서버 보안 주체(로그인)를 만드는 구문은 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)을 참조하세요.
 - SQL Database의 방화벽 규칙에 대한 자세한 내용은 [SQL Database 방화벽 규칙](sql-database-firewall-configure.md)을 참조하세요.
 
 <!--Image references-->

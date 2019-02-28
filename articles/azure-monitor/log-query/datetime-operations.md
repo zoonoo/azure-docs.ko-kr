@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 2465fdcc3bf7128d4813fa5f682ffda8f504f2b6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8350524e51d8ced45586d085fe1b49274aa6db9d
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999252"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269981"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 날짜/시간 값 사용
 
@@ -31,7 +31,7 @@ ms.locfileid: "55999252"
 
 
 ## <a name="date-time-basics"></a>날짜/시간 기본 사항
-데이터 탐색기 쿼리 언어에서는 두 가지 주 데이터 형식인 datetime 및 timespan이 날짜 및 시간에 연결되어 있습니다. 모든 날짜는 UTC로 표현됩니다. 여러 날짜/시간 형식이 지원되지만 ISO8601 형식이 선호됩니다. 
+Kusto 쿼리 언어에는 날짜 및 시간과 관련된 두 가지 기본 데이터 형식인 datetime과 timespan이 있습니다. 모든 날짜는 UTC로 표현됩니다. 여러 날짜/시간 형식이 지원되지만 ISO8601 형식이 선호됩니다. 
 
 timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 
@@ -45,7 +45,7 @@ timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 |microsecond | microsecond  |
 |tick        | 나노초   |
 
-날짜/시간은 `todatetime` 연산자로 문자열을 캐스팅하여 만들 수 있습니다. 예를 들어, 특정 시간 범위에 전송된 VM 하트비트를 검토하려면 시간 범위를 지정하는 데 편리한 [between 연산자](/azure/kusto/query/betweenoperator)를 사용할 수 있습니다.
+날짜/시간은 `todatetime` 연산자로 문자열을 캐스팅하여 만들 수 있습니다. 예를 들어 특정 시간 프레임에 전송된 VM 하트비트를 검토하려면 `between` 연산자를 사용하여 시간 범위를 지정합니다.
 
 ```Kusto
 Heartbeat
@@ -82,7 +82,7 @@ Heartbeat
 ```
 
 ## <a name="converting-time-units"></a>시간 단위 변환
-datetime 또는 timespan을 기본값 이외의 시간 단위로 나타내는 것이 유용할 수 있습니다. 예를 들어, 지난 30분 동안의 오류 이벤트를 검토하며, 얼마나 오래 전에 이벤트가 발생했는지를 보여주는 계산 열이 필요한 경우 다음을 입력합니다.
+datetime 또는 timespan을 기본값 이외의 시간 단위로 표시할 수도 있습니다. 예를 들어 지난 30분 동안의 오류 이벤트를 검토하고 있으며 얼마나 오래전에 이벤트가 발생했는지를 보여 주는 계산 열이 필요한 경우가 있습니다.
 
 ```Kusto
 Event
@@ -91,7 +91,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-다음과 같이 값을 포함하고 있는 _timeAgo_ 열을 참조할 수 있습니다. "00:09:31.5118992"는 hh:mm:ss.fffffff 형식으로 지정되었음을 의미합니다. 이러한 값을 시작 시간 이후에 경과한 분의 _numver_로 서식을 지정하려면 해당 값을 "1분"으로 나누기만 하면 됩니다.
+`timeAgo` 열에는 다음과 같은 값이 있습니다. “00:09:31.5118992”는 값이 hh:mm:ss.fffffff 형식으로 지정되었음을 의미합니다. 이러한 값을 시작 시간 이후에 경과한 분의 `numver` 형식으로 지정하려면 해당 값을 “1분”으로 나눕니다.
 
 ```Kusto
 Event
@@ -103,7 +103,7 @@ Event
 
 
 ## <a name="aggregations-and-bucketing-by-time-intervals"></a>시간 간격에 따른 집계 및 버킷팅
-또 다른 매우 일반적인 시나리오는 특정 기간 동안 특정 시간 간격으로 통계를 얻어야 하는 경우입니다. 이를 위해 `bin` 연산자를 summarize 절의 일부로 사용할 수 있습니다.
+또 다른 일반적인 시나리오는 특정 기간에 특정 시간 조직으로 통계를 얻어야 하는 경우입니다. 이 시나리오에서는 `bin` 연산자를 summarize 절의 일부로 사용할 수 있습니다.
 
 다음 쿼리를 사용하여 마지막 30분 동안 5분 간격으로 발생한 이벤트의 수를 가져옵니다.
 
@@ -113,7 +113,7 @@ Event
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
 ```
 
-그러면 다음 테이블이 생성됩니다.  
+이 쿼리는 다음 테이블을 생성합니다.  
 |TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
@@ -131,7 +131,7 @@ Event
 | summarize events_count=count() by startofday(TimeGenerated) 
 ```
 
-그러면 다음 결과가 생성됩니다.
+이 쿼리는 다음 결과를 생성합니다.
 
 |timestamp|count_|
 |--|--|
@@ -139,11 +139,11 @@ Event
 |2018-07-29T00:00:00.000|12,315|
 |2018-07-30T00:00:00.000|16,847|
 |2018-07-31T00:00:00.000|12,616|
-|2018-08-01T00:00:00.000|5,416  |
+|2018-08-01T00:00:00.000|5,416|
 
 
 ## <a name="time-zones"></a>표준 시간대
-모든 날짜/시간 값은 UTC로 표현되므로 이러한 값을 현지 표준 시간대로 변환하는 것이 유용한 경우도 많습니다. 예를 들어이 계산을 사용하여 UTC에서 PST 시간으로 변환하려면 다음을 입력합니다.
+모든 날짜/시간 값은 UTC로 표시되므로 이러한 값을 현지 표준 시간대로 변환하는 것이 유용한 경우도 많습니다. 예를 들어이 계산을 사용하여 UTC에서 PST 시간으로 변환하려면 다음을 입력합니다.
 
 ```Kusto
 Event
@@ -158,10 +158,10 @@ Event
 | 값을 bin 크기로 반올림 | [bin](/azure/kusto/query/binfunction) |
 | 특정 날짜 또는 시간 가져오기 | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
 | 값의 부분 가져오기 | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
-| 값 기준으로 날짜 가져오기  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
+| 상대 날짜 값 가져오기  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>다음 단계
-Azure Monitor 로그 데이터에 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
+Azure Monitor 로그 데이터에 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
 
 - [문자열 작업](string-operations.md)
 - [집계 함수](aggregations.md)

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: c682bca1f3d4f0e2659ed107a2b15e4e4e28b0d9
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492490"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453871"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Azure Machine Learning Studio 웹 서비스 포털을 사용하여 웹 서비스 관리
 Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
@@ -28,7 +28,8 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * 청구 계획을 만들거나 삭제하거나 업데이트합니다(새 서비스에만 해당).
 * 엔드포인트를 추가하거나 삭제 합니다(기존 서비스에만 해당).
 
-
+>[!NOTE]
+>**웹 서비스** 탭의 [Machine Learning Studio](http://studio.azureml.net)에서 기존 웹 서비스를 관리할 수도 있습니다.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>새 Resources Manager 기반 웹 서비스를 관리하기 위한 권한
 
@@ -38,7 +39,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 
 *웹 서비스 배포에 실패했습니다. 이 계정은 작업 영역을 포함하는 Azure 구독에 대한 충분한 액세스 권한이 없습니다. 웹 서비스를 Azure에 배포하려면 같은 계정을 작업 영역에 초대하여 작업 영역을 포함하는 Azure 구독에 액세스할 권한이 이 계정에 제공되어야 합니다.*
 
-작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure Machine Learning 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
+작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
 
 액세스 권한 설정에 대한 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
@@ -107,7 +108,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 
 ## <a name="manage-classic-web-services"></a>기존 웹 서비스 관리
 > [!NOTE]
-> 이 섹션의 절차는 Azure Machine Learning 웹 서비스 포털을 통해 기본 웹 서비스를 관리하는 것과 관련됩니다. Machine Learning Studio 및 Azure Portal을 통해 기존 웹 서비스를 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning 작업 영역 관리](manage-workspace.md)를 참조하세요.
+> 이 섹션의 절차는 Azure Machine Learning 웹 서비스 포털을 통해 기본 웹 서비스를 관리하는 것과 관련됩니다. Machine Learning Studio 및 Azure Portal을 통해 기존 웹 서비스를 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio 작업 영역 관리](manage-workspace.md)를 참조하세요.
 > 
 > 
 

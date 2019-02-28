@@ -1,6 +1,6 @@
 ---
-title: RBAC 및 Azure Resource Manager 템플릿을 사용하여 액세스 관리 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 Azure Resource Manager 템플릿을 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 알아봅니다.
+title: RBAC 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 액세스 관리 | Microsoft Docs
+description: RBAC(역할 기반 액세스 제어) 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 사용자, 그룹 및 애플리케이션의 액세스를 관리하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b8c6ac78447a4e4db79ed75100222eee8d528b58
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 537ee35e96a41cd02605319e244d39c6567c3bf1
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696900"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337206"
 ---
-# <a name="manage-access-using-rbac-and-azure-resource-manager-templates"></a>RBAC 및 Azure Resource Manager 템플릿을 사용하여 액세스 관리
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>RBAC 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 액세스 관리
 
-[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. Azure PowerShell 또는 Azure CLI를 사용하는 것 외에도 RBAC 및 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure 리소스에 대한 액세스를 관리할 수 있습니다. 템플릿은 리소스를 일관되고 반복적으로 배포해야 하는 경우 유용할 수 있습니다. 이 문서에서는 RBAC 및 템플릿을 사용하여 액세스를 관리할 수 있는 방법을 설명합니다.
+[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. Azure PowerShell 또는 Azure CLI를 사용하는 것 외에도 RBAC 및 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure 리소스에 대한 액세스를 관리할 수 있습니다. 템플릿은 리소스를 일관되고 반복적으로 배포해야 하는 경우 유용할 수 있습니다. 이 문서에서는 RBAC 및 템플릿을 사용하여 액세스를 관리할 수 있는 방법을 설명합니다.
 
 ## <a name="example-template-to-create-a-role-assignment"></a>역할 할당을 만드는 예제 템플릿
 
@@ -251,6 +251,6 @@ Azure CLI를 사용하여 이전 템플릿을 배포하려면 다음 단계를 �
     
 ## <a name="next-steps"></a>다음 단계
 
-- [첫 번째 Azure Resource Manager 템플릿을 만들고 배포](../azure-resource-manager/resource-manager-create-first-template.md)
+- [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/resource-group-authoring-templates.md)
 - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=rbac)

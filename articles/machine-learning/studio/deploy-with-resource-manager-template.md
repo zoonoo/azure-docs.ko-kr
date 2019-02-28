@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Manager를 사용하여 Studio 작업 영역 배포
 titleSuffix: Azure Machine Learning Studio
-description: Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 배포하는 방법
+description: Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning Studio에 대한 작업 영역을 배포하는 방법
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: c7f75b2553ada469f4963531fc33f6e5105084b1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 38cd41fecb98a008bbf5a93eddd0d6a346cf3ef7
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487799"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453973"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Azure Machine Learning Studio 작업 영역 배포
 
-Azure Resource Manager 배포 템플릿을 사용하면 유효성 검사와 상호 연결된 구성 요소를 배포하고 메커니즘을 다시 시도하는 확장성 있는 방법을 제공하여 시간을 절약할 수 있습니다. Azure Machine Learning 작업 영역을 설정하려면 예를 들어 먼저 Azure 저장소 계정을 구성한 다음 작업 영역을 배포해야 합니다. 수백 개의 작업 영역에 대해 이 작업을 수동으로 수행한다고 가정합니다. 쉬운 대안은 Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning 작업 영역 및 모든 종속성을 배포하는 것입니다. 이 문서는 이 과정을 단계별로 안내합니다. Azure Resource Manager에 대한 개요는 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+Azure Resource Manager 배포 템플릿을 사용하면 유효성 검사와 상호 연결된 구성 요소를 배포하고 메커니즘을 다시 시도하는 확장성 있는 방법을 제공하여 시간을 절약할 수 있습니다. 예를 들어 Azure Machine Learning Studio 작업 영역을 설정하려면 먼저 Azure Storage 계정을 구성한 다음, 작업 영역을 배포해야 합니다. 수백 개의 작업 영역에 대해 이 작업을 수동으로 수행한다고 가정합니다. 쉬운 대안은 Azure Resource Manager 템플릿을 사용하여 Studio 작업 영역 및 모든 종속성을 배포하는 것입니다. 이 문서는 이 과정을 단계별로 안내합니다. Azure Resource Manager에 대한 개요는 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>단계별: Machine Learning 작업 영역 만들기
-Azure 리소스 그룹을 만든 다음 리소스 관리자 템플릿을 사용하여 새 Azure 저장소 계정 및 새 Azure Machine Learning 작업 영역을 배포합니다. 배포가 완료되면 생성된 작업 영역에 대한 중요한 정보를 인쇄합니다(기본 키, workspaceID 및 작업 영역에 대한 URL).
+Azure 리소스 그룹을 만든 다음, Resource Manager 템플릿을 사용하여 새 Azure Storage 계정 및 새 Azure Machine Learning Studio 작업 영역을 배포합니다. 배포가 완료되면 생성된 작업 영역에 대한 중요한 정보를 인쇄합니다(기본 키, workspaceID 및 작업 영역에 대한 URL).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
 Machine Learning 작업 영역은 연결된 데이터 세트를 저장하려면 Azure 저장소 계정이 필요합니다.
@@ -97,7 +97,7 @@ Connect-AzureRmAccount
 ```
 이 단계는 각 세션에 대해 반복해야 합니다. 인증되면 구독 정보가 표시됩니다.
 
-![Azure 계정][1]
+![Azure 계정](./media/deploy-with-resource-manager-template/azuresubscription.png)
 
 이제 Azure에 대한 액세스가 있으므로 리소스 그룹을 만들 수 있습니다.
 
@@ -111,7 +111,7 @@ $rg
 리소스 그룹이 올바르게 프로비전되었는지 확인합니다. **ProvisioningState** 는 "Succeeded"여야 합니다.
 리소스 그룹 이름은 저장소 계정 이름을 생성하는 템플릿에 의해 사용됩니다. 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다.
 
-![리소스 그룹][2]
+![리소스 그룹](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
 
 * 리소스 그룹 배포를 사용하여 새 Machine Learning 작업 영역을 배포합니다.
 
@@ -133,14 +133,12 @@ $rgd.Outputs.mlWorkspaceToken.Value
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
-작업 영역이 프로비전되면 [Azure Machine Learning에 대한 PowerShell 모듈](https://aka.ms/amlps)을 사용하여 많은 Azure Machine Learning Studio 작업을 자동화할 수도 있습니다.
+작업 영역이 프로비전되면 [Azure Machine Learning Studio용 PowerShell 모듈](https://aka.ms/amlps)을 사용하여 많은 Azure Machine Learning Studio 작업을 자동화할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다.
 * [Azure 빠른 시작 템플릿 리포지토리](https://github.com/Azure/azure-quickstart-templates)를 살펴봅니다.
 * [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39)에 대한 이 동영상을 시청합니다.
-* [Resource Manager 템플릿 참조 도움말](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
-<!--Image references--> [1]: ./media/deploy-with-resource-manager-template/azuresubscription.png [2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png을 참조합니다.
-
+* [Resource Manager 템플릿 참조 도움말](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)을 참조하세요.
 
 <!--Link references-->

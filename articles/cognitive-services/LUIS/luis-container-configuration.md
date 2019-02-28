@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: 281358e51ed8585e5deb407b2432ee3b7ee1537f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ee08f5e15180a618d1a9c48b7d59b9e1f8bc90ae
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983273"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329118"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding Docker 컨테이너 구성 
 
@@ -193,5 +193,5 @@ ApiKey={APPLICATION_ID} \
 ## <a name="next-steps"></a>다음 단계
 
 * [컨테이너 설치 및 실행 방법](luis-container-howto.md)을 리뷰합니다.
-* [FAQ(질문과 대답)](luis-resources-faq.md)를 참조하여 LUIS 기능과 관련된 문제를 해결합니다.
-* 더 많은 [Cognitive Services 컨테이너](../cognitive-services-container-support.md)를 사용합니다.
+* LUIS 기능과 관련된 문제를 해결하려면 [문제 해결](troubleshooting.md)을 참조하세요.
+* 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

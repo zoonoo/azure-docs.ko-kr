@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 2c6569d92913a3cff9ee51529dd381386ed2a792
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818994"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456506"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -24,7 +24,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 워크로드를 실행하
 - [노드 보안](#node-security)
 - [클러스터 업그레이드](#cluster-upgrades)
 - [네트워크 보안](#network-security)
-- Kubernetes 비밀
+- [Kubernetes 비밀](#kubernetes-secrets)
 
 ## <a name="master-security"></a>마스터 보안
 
@@ -36,9 +36,9 @@ AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관
 
 AKS 노드는 사용자가 관리하고 유지하는 Azure 가상 머신입니다. 노드는 Docker 컨테이너 런타임을 통해 최적화된 Ubuntu Linux 배포를 실행합니다. AKS 클러스터가 생성되거나 강화되면 노드는 최신 OS 보안 업데이트 및 구성을 사용하여 자동으로 배포됩니다.
 
-Azure 플랫폼은 야간에 OS 보안 패치를 노드에 자동으로 적용합니다. OS 보안 업데이트에 호스트 다시 부팅이 필요한 경우에는 다시 부팅이 자동으로 수행되지 않습니다. 노드를 수동으로 다시 부팅하거나 일반적인 방법은 Kubernetes에 대한 오픈 소스 다시 부팅 디먼인 [Kured][kured]를 사용하는 것입니다. Kured는 [DaemonSet][aks-daemonset]으로 실행되며 다시 부팅이 필요한 것을 나타내는 파일이 있는지 각 노드를 모니터링합니다. 다시 부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
+Azure 플랫폼은 야간에 OS 보안 패치를 노드에 자동으로 적용합니다. OS 보안 업데이트에 호스트 다시 부팅이 필요한 경우에는 다시 부팅이 자동으로 수행되지 않습니다. 노드를 수동으로 다시 부팅하거나 일반적인 방법은 Kubernetes에 대한 오픈 소스 다시 부팅 디먼인 [Kured][kured]를 사용하는 것입니다. Kured는 [DaemonSet][aks-daemonsets]로 실행되며 각 노드에서 다시 부팅해야 함을 나타내는 파일이 있는지 모니터링합니다. 다시 부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
 
-노드는 공용 IP 주소가 할당되지 않은 상태에서 개인 가상 네트워크 서브넷에 배포됩니다. 문제 해결 및 관리를 목적으로 SSH는 기본적으로 사용하도록 설정됩니다. SSH 액세스는 내부 IP 주소를 사용하는 경우에만 가능합니다. Azure 네트워크 보안 그룹 규칙은 AKS 노드에 대한 IP 범위 액세스를 추가로 제한하는 데 사용할 수 있습니다. 기본 네트워크 보안 그룹 SSH 규칙을 삭제하고 노드에서 SSH 서비스를 사용하지 않도록 설정하면 Azure 플랫폼에서 유지 관리 작업을 수행할 수 없습니다.
+노드는 공용 IP 주소가 할당되지 않은 상태에서 개인 가상 네트워크 서브넷에 배포됩니다. 문제 해결 및 관리를 목적으로 SSH는 기본적으로 사용하도록 설정됩니다. SSH 액세스는 내부 IP 주소를 사용하는 경우에만 가능합니다.
 
 저장소를 제공하기 위해 노드는 Azure Managed Disks를 사용합니다. 대부분의 VM 노드 크기의 경우 해당되는 항목은 고성능 SSD로 지원되는 프리미엄 디스크입니다. 관리 디스크에 저장된 데이터는 미사용 시 Azure 플랫폼에서 자동으로 저장 데이터 암호화됩니다. 중복성을 높이기 위해 이러한 디스크는 Azure 데이터 센터 내에서 안전하게 복제됩니다.
 
@@ -46,7 +46,7 @@ AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌�
 
 ## <a name="cluster-upgrades"></a>클러스터 업그레이드
 
-보안 및 규정 준수 또는 최신 기능을 사용하기 위해, Azure는 AKS 클러스터 및 구성 요소의 업그레이드를 오케스트레이션하는 도구를 제공합니다. 업그레이드 오케스트레이션에는 Kubernetes 마스터 및 에이전트 구성 요소가 모두 포함됩니다. AKS 클러스터에 사용할 수 있는 Kubernetes 버전 목록을 볼 수 있습니다. 업그레이드 프로세스를 시작하려면 사용 가능한 버전 중 하나를 지정합니다. 그러면 Azure에서 각각의 AKS 노드가 안전하게 차단되고 드레이닝되어 업그레이드가 수행됩니다.
+보안 및 규정 준수 또는 최신 기능을 사용하기 위해, Azure는 AKS 클러스터 및 구성 요소의 업그레이드를 오케스트레이션하는 도구를 제공합니다. 업그레이드 오케스트레이션에는 Kubernetes 마스터 및 에이전트 구성 요소가 모두 포함됩니다. AKS 클러스터에 [사용할 수 있는 Kubernetes 버전 목록](supported-kubernetes-versions.md)을 볼 수 있습니다. 업그레이드 프로세스를 시작하려면 사용 가능한 버전 중 하나를 지정합니다. 그러면 Azure에서 각각의 AKS 노드가 안전하게 차단되고 드레이닝되어 업그레이드가 수행됩니다.
 
 ### <a name="cordon-and-drain"></a>차단 및 드레이닝
 
@@ -57,7 +57,7 @@ AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌�
 - Pod는 해당 클러스터에서 다시 실행되도록 예약됩니다.
 - 모든 노드가 성공적으로 업그레이드될 때까지 동일한 프로세스를 사용하여 클러스터의 다음 노드가 차단되고 드레이닝됩니다.
 
-자세한 내용은 [업그레이드 및 AKS 클러스터][aks-upgrade-cluster]를 참조하세요.
+자세한 내용은 [AKS 클러스터 업그레이드][aks-upgrade-cluster]를 참조하세요.
 
 ## <a name="network-security"></a>네트워크 보안
 

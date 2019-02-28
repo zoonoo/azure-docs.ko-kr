@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: af3a654010fa676096bfad895d5814b2cefa8e71
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997137"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453582"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
@@ -85,6 +85,11 @@ PITR 백업은 지역 중복 백업이며 [Azure Storage 지역 간 복제](../s
 PITR과 마찬가질 LTR 백업은 지역 중복 백업이며 [Azure Storage 지역 간 복제](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)로 보호됩니다.
 
 자세한 내용은 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
+
+## <a name="storage-costs"></a>저장소 비용
+기본적으로 7일 분량의 자동화된 데이터베이스 백업이 RA-GRS 표준 Blob Storage에 복사됩니다. 저장소는 주별 전체 백업, 일별 차등 백업 및 5분마다 복사되는 트랜잭션 로그 백업에 사용됩니다. 트랜잭션 로그의 크기는 데이터베이스 변동률에 따라 다릅니다. 데이터베이스 크기의 100%와 같은 최소 스토리지 양은 추가 요금 없이 제공됩니다. 추가로 사용되는 백업 스토리지의 경우 GB/월 단위로 요금이 청구됩니다.
+
+스토리지 가격에 대한 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/sql-database/single/) 페이지를 참조하세요. 
 
 ## <a name="are-backups-encrypted"></a>백업이 암호화되나요?
 

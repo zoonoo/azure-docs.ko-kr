@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 87331ed0d9e5a4ff51e3669390d1b40dea58574a
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: af6a32d7e32f23561b207c729402eaea7925f520
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389241"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453854"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
@@ -75,18 +75,18 @@ Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다�
 
 ## <a name="logging"></a>로깅 
 
-Azure Firewall은 로그를 Azure Storage, Event Hub 또는 Log Analytics에 보낼 수 있습니다. 앱을 지원되는 모든 대상과 통합하려면 [Azure Firewall 포털] > [진단 로그]로 이동하여 원하는 대상에 대한 로그를 설정합니다. Log Analytics와 통합하면 Azure Firewall에 전송된 모든 트래픽에 대한 로깅을 볼 수 있습니다. 거부되는 트래픽을 보려면 [Log Analytics 포털] > [로그]를 열고 다음과 같은 쿼리를 입력합니다. 
+Azure Firewall은 로그를 Azure Storage, Event Hub 또는 Azure Monitor 로그에 보낼 수 있습니다. 앱을 지원되는 모든 대상과 통합하려면 [Azure Firewall 포털] > [진단 로그]로 이동하여 원하는 대상에 대한 로그를 설정합니다. Azure Monitor 로그와 통합하면 Azure Firewall에 전송된 모든 트래픽에 대한 로깅을 볼 수 있습니다. 거부되는 트래픽을 보려면 Log Analytics 작업 영역 포털 > 로그를 열고 다음과 같은 쿼리를 입력합니다. 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-Azure Firewall과 Log Analytics를 통합하면 모든 애플리케이션 종속성을 알지 못하는 상태에서 애플리케이션을 처음 작동할 때 매우 유용합니다. [Azure Monitor에서 Log Analytics 데이터 분석](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)에서 Log Analytics에 대해 자세히 알아볼 수 있습니다.
+Azure Firewall과 Azure Monitor 로그를 통합하면 모든 애플리케이션 종속성을 알지 못하는 상태에서 애플리케이션을 처음 작동할 때 매우 유용합니다. Azure Monitor 로그에 대한 자세한 내용은 [Azure Monitor에서 로그 데이터 분석](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)을 참조하세요.
  
 ## <a name="dependencies"></a>종속성
 
 다음 정보는 Azure Firewall 이외의 방화벽 어플라이언스를 구성하는 경우에만 필요합니다. 
 
 - 서비스 엔드포인트 지원 서비스는 서비스 엔드포인트로 구성되어야 합니다.
-- IP 주소 종속성은 HTTP/S가 아닌 트래픽에 대한 것입니다.
+- IP 주소 종속성은 HTTP/S가 아닌 트래픽(TCP 및 UDP 모두)에 대한 것입니다.
 - FQDN HTTP/HTTPS 엔드포인트는 방화벽 디바이스에 배치할 수 있습니다.
 - 와일드카드 HTTP/HTTPS 엔드포인트는 몇 가지 한정자를 기반으로 하여 ASE에 따라 달라질 수 있는 종속성입니다. 
 - Linux 종속성은 Linux 응용 프로그램을 ASE에 배포하는 경우에만 문제가 됩니다. Linux 응용 프로그램을 ASE에 배포하지 않는 경우 이러한 주소는 방화벽에 추가할 필요가 없습니다. 

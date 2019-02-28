@@ -10,17 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 02/19/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5c809153b3b86a5460bd2c235d9f6226fb50a024
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f89eca6fb8893210f4c65adc42598ab0e0b531f4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118798"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454335"
 ---
-# <a name="explore-net-trace-logs-in-application-insights"></a>Application Insights에서 .NET 추적 로그 탐색
-ASP.NET 애플리케이션에서 진단 추적에 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하는 경우 [Azure Application Insights][start]로 로그를 보내서 탐색 및 검색할 수 있습니다. 서비스를 제공하는 각 사용자 요청과 연결된 추적을 식별하고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있도록 로그가 애플리케이션에서 들어오는 다른 원격 분석과 병합됩니다.
+# <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 추적 로그 검색
+
+ASP.NET/ASP.NET Core 애플리케이션에서 진단 추적에 ILogger, NLog, log4Net 또는 System.Diagnostics.Trace를 사용하는 경우 [Azure Application Insights][start]로 로그를 보내서 살펴보고 검색할 수 있습니다. 서비스를 제공하는 각 사용자 요청과 연결된 추적을 식별하고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있도록 로그가 애플리케이션에서 들어오는 다른 원격 분석과 병합됩니다.
 
 > [!NOTE]
 > 로그 캡처 모듈이 필요한가요? 타사 로거에 대한 유용한 어댑터지만 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하지 않는 경우 [Application Insights TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)를 직접 호출하는 것이 좋습니다.
@@ -30,23 +31,18 @@ ASP.NET 애플리케이션에서 진단 추적에 NLog, log4Net 또는 System.Di
 ## <a name="install-logging-on-your-app"></a>앱에 대한 로깅 설치
 프로젝트에서 선택한 로깅 프레임워크를 설치합니다. 그러면 app.config 또는 web.config에 항목이 생성됩니다.
 
-System.Diagnostics.Trace를 사용하는 경우 web.config에 항목을 추가해야 합니다.
-
 ```XML
-
     <configuration>
-     <system.diagnostics>
-       <trace autoflush="false" indentsize="4">
-         <listeners>
-           <add name="myListener"
-             type="System.Diagnostics.TextWriterTraceListener"
-             initializeData="TextWriterOutput.log" />
-           <remove name="Default" />
-         </listeners>
-       </trace>
-     </system.diagnostics>
+      <system.diagnostics>
+    <trace autoflush="true" indentsize="0">
+      <listeners>
+        <add name="myAppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener" />
+      </listeners>
+    </trace>
+  </system.diagnostics>
    </configuration>
 ```
+
 ## <a name="configure-application-insights-to-collect-logs"></a>로그를 수집하도록 Application Insights 구성
 **[프로젝트에 Application Insights를 추가](../../azure-monitor/app/asp-net.md)** 하지 않은 경우 지금 추가합니다. 로그 수집기를 포함하는 옵션이 나타납니다.
 
@@ -60,15 +56,28 @@ System.Diagnostics.Trace를 사용하는 경우 web.config에 항목을 추가�
 1. Log4Net 또는 NLog를 사용하려는 경우 프로젝트에 설치합니다.
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 3. "Application Insights" 검색
-4. 다음 패키지 중에서 적절한 패키지를 하나 선택합니다.
+4. 다음 패키지 중 하나를 선택합니다.
 
-   * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
-   * Microsoft.ApplicationInsights.EventSourceListener (to capture EventSource events)
-   * Microsoft.ApplicationInsights.EtwCollector(ETW 이벤트 캡쳐)
-   * Microsoft.ApplicationInsights.NLogTarget
-   * Microsoft.ApplicationInsights.Log4NetAppender
+   - ILogger의 경우: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+   - NLog의 경우: [Microsoft.ApplicationInsights.NLogTarget](http://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - Log4Net의 경우: [Microsoft.ApplicationInsights.Log4NetAppender](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - System.Diagnostics의 경우: [Microsoft.ApplicationInsights.TraceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+   - [Microsoft.ApplicationInsights.DiagnosticSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [Microsoft.ApplicationInsights.EtwCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - [Microsoft.ApplicationInsights.EventSourceListener](http://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
+[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
-NuGet 패키지는 필요한 어셈블리를 설치하고 web.config 또는 app.config를 수정합니다.
+NuGet 패키지는 필요한 어셈블리를 설치하고, 해당하는 경우 web.config 또는 app.config를 수정합니다.
+
+## <a name="ilogger"></a>ILogger
+
+콘솔 애플리케이션 및 ASP.NET Core와 함께 Application Insights ILogger 구현을 사용하는 예제는 이 [문서](ilogger.md)를 참조하세요.
 
 ## <a name="insert-diagnostic-log-calls"></a>진단 로그 호출 삽입
 System.Diagnostics.Trace를 사용하는 경우 일반적인 호출 방법은 다음과 같습니다.

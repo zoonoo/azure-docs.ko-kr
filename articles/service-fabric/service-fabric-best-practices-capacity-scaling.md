@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: d6f2ca53829642009adbc50061966c5a7e924f7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240406"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446820"
 ---
 # <a name="capacity-planning-and-scaling"></a>용량 계획 및 크기 조정
 
@@ -33,7 +33,7 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트하�
 * Virtual Machine Scale Set 노드를 한 번에 하나씩만 수평으로 크기를 조정하면 되는 경우
   * 3개 이상의 노드 크기를 한 번에 확장하려는 경우에는 [Virtual Machine Scale Set를 추가하여 Service Fabric 클러스터를 확장](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)해야 합니다. 하지만 Virtual Machine Scale Sets는 한 번에 한 노드씩 수평으로 확장하고 규모를 감축하는 것이 가장 안전합니다.
 * Service Fabric 클러스터의 안정성이 Silver 이상이고 자동 크기 조정 규칙을 구성하는 Scale Set의 내구성이 Silver 이상인 경우
-  * 자동 크기 조정 규칙 용량[최소]은 Virtual Machine Instances 5개 이상이어야 하며 주 노드 형식의 안정성 계층 최소값 이상이어야 합니다.
+  * 자동 크기 조정 규칙 용량[최솟값]은 5개 이상의 가상 머신 인스턴스이어야 하며 주 노드 형식의 안정성 계층 최솟값 이상이어야 합니다.
 
 > [!NOTE]
 > Azure Service Fabric 상태 저장 서비스 패브릭:/System/InfastructureService/<NODE_TYPE_NAME>은(는) 내구성이 Silver 이상인 모든 노드 형식에서 실행됩니다. 클러스터 노드 형식에서 Azure를 실행할 수 있는 시스템 서비스는 이 노드 형식뿐입니다. 

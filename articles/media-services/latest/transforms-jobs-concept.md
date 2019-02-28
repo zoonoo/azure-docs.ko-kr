@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: e84f74fe4678a65a33c9cc728f290e7c905b2261
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: d621afd682e6040179777f4cd6d991ff31acb5a3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743738"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445494"
 ---
 # <a name="transforms-and-jobs"></a>Transform 및 Job
  
@@ -27,6 +27,10 @@ ms.locfileid: "55743738"
 [작업](https://docs.microsoft.com/rest/api/media/jobs)은 **변환**을 특정 입력 비디오 또는 오디오 콘텐츠에 적용하기 위한 Azure Media Services에 대한 실제 요청입니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. **작업**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. 입력 비디오의 위치는 HTTPS URL, SAS URL 또는 [자산](https://docs.microsoft.com/rest/api/media/assets)을 사용하여 지정할 수 있습니다. Event Grid로 이벤트를 모니터링하여 작업의 진행 상황 및 상태를 가져올 수 있습니다. 자세한 내용은 [Event Grid를 사용하여 이벤트 모니터링](job-state-events-cli-how-to.md)을 참조하세요.
 
 작업을 제출한 후 [작업](https://docs.microsoft.com/rest/api/media/jobs) 엔터티에 대한 업데이트 작업을 사용하여 *설명* 및 *우선 순위* 속성을 수정할 수 있습니다. *우선 순위* 속성에 대한 변경은 작업이 아직 큐에 대기 중인 상태에만 유효합니다. 작업 처리가 시작되었거나 완료된 경우 우선 순위를 변경해도 아무 효과가 없습니다.
+
+다음 다이어그램은 변환/작업 워크플로를 보여 줍니다.
+
+![변환](./media/encoding/transforms-jobs.png)
 
 > [!NOTE]
 > 날짜/시간 형식의 **변환** 및 **작업** 속성의 우선 순위는 언제나 UTC 형식입니다.
@@ -49,10 +53,21 @@ ms.locfileid: "55743738"
 
 **변환**을 사용하면 작성법을 만들고(1단계), 해당 작성법을 사용하여 작업을 제출(2단계)할 수 있습니다.
 
+## <a name="job-error-codes"></a>작업 오류 코드
+
+[오류 코드](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)를 참조하세요.
+
 ## <a name="paging"></a>페이징
 
 [Media Services 엔터티 필터링, 순서 지정, 페이징](entities-overview.md)을 참조하세요.
 
+## <a name="configure-media-reserved-units"></a>미디어 예약 단위 구성
+
+Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분석 및 비디오 분석 작업의 경우 10개의 S3 MRU(미디어 예약 단위)를 사용하여 계정을 프로비전하는 것이 좋습니다. 10개가 넘는 S3 MRU가 필요한 경우 [Azure Portal](https://portal.azure.com/)을 사용하여 지원 티켓을 엽니다.
+
+자세한 내용은 [CLI를 사용하여 미디어 처리 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-[비디오 파일 업로드, 인코딩 및 스트림](stream-files-tutorial-with-api.md)
+- [자습서: .NET](stream-files-tutorial-with-api.md)를 사용하여 비디오 업로드, 인코딩 및 스트림
+- [자습서: .NET을 사용하여 Media Services v3에서 비디오 분석](analyze-videos-tutorial-with-api.md)

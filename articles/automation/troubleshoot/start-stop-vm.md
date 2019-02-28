@@ -6,17 +6,66 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/30/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ef2a782a19dd319de346f14d6189759d0a26686c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d8ef70088d904720a81ac558206a3140d7bbecd6
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55665774"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270000"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>작업 시간 외 VM 시작/중지 문제 해결
+
+## <a name="deployment-failure"></a>시나리오: VM 시작/중지 솔루션이 제대로 배포되지 않음
+
+### <a name="issue"></a>문제
+
+[작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md)을 배포할 때 다음 오류 중 하나가 표시됩니다.
+
+```
+Account already exists in another resourcegroup in a subscription. ResourceGroupName: [MyResourceGroup].
+```
+
+```
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.OperationsManagement'.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.Insights'.
+```
+
+```
+The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
+```
+
+### <a name="cause"></a>원인
+
+다음 이유 중 하나로 인해 배포가 실패할 수 있습니다.
+
+1. 선택한 지역에 동일한 이름의 Automation 계정이 이미 있습니다.
+2. VM 시작/중지 솔루션 배포를 허용하지 않는 정책이 적용되었습니다.
+3. `Microsoft.OperationsManagement`, `Microsoft.Insights` 또는 `Microsoft.Automation` 리소스 종류가 등록되지 않았습니다.
+4. Log Analytics 작업 영역에 잠금이 있습니다.
+
+### <a name="resolution"></a>해결 방법
+
+다음 목록에서 문제의 잠재적인 해결 방법이나 검색 위치를 확인합니다.
+
+1. Automation 계정은 다른 리소스 그룹에 있는 경우에도 Azure 지역 내에서 고유해야 합니다. 대상 지역의 기존 Automation 계정을 확인합니다.
+2. 기존 정책 때문에 VM 시작/중지 솔루션을 배포하는 데 필요한 리소스를 사용할 수 없습니다. Azure Portal의 정책 할당으로 이동하여 이 리소스의 배포를 허용하지 않는 정책 할당이 있는지 여부를 확인합니다. 이에 대한 자세한 내용은 [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)를 참조하세요.
+3. VM 시작/중지 솔루션을 배포하려면 다음 Azure 리소스 네임스페이스에 구독을 등록해야 합니다.
+    * `Microsoft.OperationsManagement`
+    * `Microsoft.Insights`
+    * `Microsoft.Automation`
+
+   공급자를 등록할 때 발생하는 오류에 대한 자세한 내용은 [리소스 공급자 등록 오류 해결](../../azure-resource-manager/resource-manager-register-provider-errors.md)을 참조하세요.
+4. Log Analytics 작업 영역에 잠금이 설정된 경우 Azure Portal에서 해당 작업 영역으로 이동하여 리소스에 대한 잠금을 제거합니다.
 
 ## <a name="all-vms-fail-to-startstop"></a>시나리오: 모든 VM을 시작/중지하지는 못 함
 

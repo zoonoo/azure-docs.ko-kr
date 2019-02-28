@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435313"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342926"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용
 
@@ -27,7 +27,7 @@ Apache Hadoop 스트리밍은 스크립트 또는 실행 파일을 사용하여 
 
 ## <a name="net-on-hdinsight"></a>HDInsight에서.NET
 
-__Linux 기반 HDInsight__ 클러스터는 [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 응용 프로그램을 실행합니다. Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다. HDInsight와 함께 제공되는 Mono 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전](../hdinsight-component-versioning.md)을 참조하세요. 특정 버전의 Mono를 사용하려면 [Mono 설치 또는 업데이트](../hdinsight-hadoop-install-mono.md) 문서를 참조하세요.
+__Linux 기반 HDInsight__ 클러스터는 [Mono(https://mono-project.com)](https://mono-project.com)를 사용하여 .NET 애플리케이션을 실행합니다. Mono 버전 4.2.1은 HDInsight 버전 3.6에 포함되어 있습니다. HDInsight와 함께 제공되는 Mono 버전에 대한 자세한 내용은 [HDInsight 구성 요소 버전](../hdinsight-component-versioning.md)을 참조하세요. 특정 버전의 Mono를 사용하려면 [Mono 설치 또는 업데이트](../hdinsight-hadoop-install-mono.md) 문서를 참조하세요.
 
 .NET 프레임워크 버전과 Mono의 호환성에 대한 자세한 내용은 [Mono 호환성](https://www.mono-project.com/docs/about-mono/compatibility/)을 참조하세요.
 
@@ -175,7 +175,13 @@ namespace reducer
 
 2. 다음 명령 중 하나를 사용하여 MapReduce 작업을 시작합니다.
 
-    * 기본 스토리지로 __Data Lake Storage__를 사용하는 경우
+    * 기본 스토리지로 __Data Lake Storage Gen2__를 사용하는 경우:
+
+        ```bash
+        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+        ```
+
+    * 기본 스토리지로 __Data Lake Storage Gen1__을 사용하는 경우:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -190,7 +196,7 @@ namespace reducer
     다음 목록은 각 매개 변수가 하는 기능에 대한 설명입니다.
 
     * `hadoop-streaming.jar`: 스트리밍 MapReduce 기능이 포함된 jar 파일입니다.
-    * `-files`: 이 작업에 `mapper.exe` 및 `reducer.exe` 파일을 추가합니다. 각 파일 앞의 `adl:///` 및 `wasb:///`는 클러스터의 기본 저장소의 루트에 대한 경로입니다.
+    * `-files`: 이 작업에 `mapper.exe` 및 `reducer.exe` 파일을 추가합니다. 각 파일 앞의 `abfs:///`, `adl:///` 및 `wasb:///`는 클러스터의 기본 스토리지 루트 경로입니다.
     * `-mapper`: mapper를 구현하는 파일을 지정합니다.
     * `-reducer`: reducer를 구현하는 파일을 지정합니다.
     * `-input`: 입력 데이터입니다.

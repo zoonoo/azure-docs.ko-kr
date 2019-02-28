@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인 설정 | Microsoft Docs
+title: OpenID Connect로 등록 및 로그인 설정 - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인을 설정하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c609ac5ebb6c0516472f00a5625a26459f49d131
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: de0c866889f15f096bea26915f58cd4e268dfed3
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171697"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428758"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인 설정
 
@@ -23,8 +23,7 @@ ms.locfileid: "55171697"
 > 이 기능은 공개 미리 보기 상태입니다. 프로덕션 환경에서는 이 기능을 사용하지 마세요.
 
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 사용자를 안전하게 로그인하는 데 사용할 수 있는 OAuth 2.0을 기반으로 빌드된 인증 프로토콜입니다. 이 프로토콜을 사용하는 [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)와 같은 ID 공급자는 대부분 Azure AD B2C에서 지원됩니다. 이 문서에서는 사용자 지정 OpenID Connect ID 공급 기업을 사용자 흐름에 추가하는 방법을 설명합니다.
-
+[OpenID Connect](active-directory-b2c-reference-oidc.md)는 사용자를 안전하게 로그인하는 데 사용할 수 있는 OAuth 2.0을 기반으로 빌드된 인증 프로토콜입니다. 이 프로토콜을 사용하는 ID 공급자는 대부분 Azure AD B2C에서 지원됩니다. 이 문서에서는 사용자 지정 OpenID Connect ID 공급 기업을 사용자 흐름에 추가하는 방법을 설명합니다.
 
 ## <a name="add-the-identity-provider"></a>ID 공급자 추가
 

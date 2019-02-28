@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: 884f6a81796341e274027095691585212d5a3749
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54829929"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328030"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger 패브릭 컨소시엄 네트워크
 
@@ -113,7 +113,7 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 | 매개 변수 이름 | 설명 | 허용되는 값 |
 |---|---|---|
 **크기 조정 유형**|여러 개의 컨테이너를 포함하는 단일 가상 머신 또는 스케일 아웃 모델의 다중 가상 머신 중 하나인 배포 유형입니다.|단일 VM 또는 다중 VM |
-**VM 디스크 유형**|배포된 각 노드를 지원하는 저장소 형식. <br/> 스토리지에 대한 자세한 내용은 [Microsoft Azure Storage 소개](https://docs.microsoft.com/azure/storage/common/storage-introduction) 및 [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 참조하세요.|표준 SSD <br/> 프리미엄 SSD |
+**VM 디스크 유형**|배포된 각 노드를 지원하는 저장소 형식. <br/> 사용 가능한 디스크 유형에 대한 자세한 내용은 [디스크 유형 선택](../../virtual-machines/windows/disks-types.md)을 참조하세요.|표준 SSD <br/> 프리미엄 SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>다중 VM 배포(추가 설정)
 

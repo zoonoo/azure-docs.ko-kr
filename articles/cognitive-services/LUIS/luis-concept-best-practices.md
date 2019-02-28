@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: ba51da8b71406cb1bf7446bd66818a6a74e61317
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243419"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428910"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Cognitive Services로 Language Understanding 앱을 빌드하는 경우의 모범 사례
 앱 작성 프로세스를 사용하여 LUIS 앱을 빌드합니다. 
@@ -77,23 +77,32 @@ LUIS의 예측 데이터를 사용하여 의도가 겹치는지 확인합니다.
 * 개념: [LUIS 앱에 대한 주기 작성](luis-concept-app-iteration.md)
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>이후 반복에서 구문 목록 및 패턴 추가
-[구문 목록](luis-concept-feature.md)을 사용하면 앱 도메인에 관련된 단어의 사전을 정의할 수 있습니다. 몇 가지 단어를 사용하여 구문 목록을 시드한 다음, 제안 기능을 사용하면 LUIS가 앱과 관련된 어휘에서 더 많은 단어를 인식합니다. 구문 목록이 정확하게 일치하지 않으므로 모든 단어를 어휘에 추가하지는 마세요. 
+
+앱이 테스트되기 전에는 이러한 방법을 적용하지 않는 것이 좋습니다. 문구 목록 및 패턴을 추가하기 전에 앱이 어떻게 작동하는지 이해해야 합니다. 사례를 적용하지 않은 상태에서 앱이 어떻게 작동하는지 이해했으면 앱에 적용되는 각 기능을 추가합니다. 각 [반복](luis-concept-app-iteration.md)에서 이러한 기능을 추가하거나, 각 버전에서 기능을 변경할 필요가 없습니다. 
+
+모델 디자인을 시작할 때 기능을 추가해도 아무 문제 없지만, 모델이 발화로 테스트된 후에 각 기능이 결과를 어떻게 바꾸는지 확인하는 것이 더 편리합니다. 
+
+[활성 학습](luis-concept-review-endpoint-utterances.md)의 추가 혜택을 얻을 수 있도록 [엔드포인트](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)를 통해 테스트하는 것이 좋습니다. [대화형 테스트 창](luis-interactive-test.md)도 유효한 테스트 방법입니다. 
+ 
+
+### <a name="phrase-lists"></a>문구 목록
+
+[구문 목록](luis-concept-feature.md)을 사용하면 앱 도메인에 관련된 단어의 사전을 정의할 수 있습니다. 몇 가지 단어를 사용하여 구문 목록을 시드한 다음, 제안 기능을 사용하면 LUIS가 앱과 관련된 어휘에서 더 많은 단어를 인식합니다. 구 목록은 앱에 중요한 단어 또는 구와 연관된 신호를 강화하여 의도 감지 및 엔터티 분류를 향상합니다. 
+
+구문 목록이 정확하게 일치하지 않으므로 모든 단어를 어휘에 추가하지는 마세요. 
+
+자세한 내용은 다음을 참조하세요.
+* 개념: [LUIS 앱의 구문 목록 기능](luis-concept-feature.md)
+* 방법: [단어 목록의 신호를 강화하는 구문 사용](luis-how-to-add-features.md)
+
+### <a name="patterns"></a>패턴
 
 서로 매우 비슷한 엔드포인트의 실제 사용자 발화는 단어 선택 및 배치 패턴을 표시할 수 있습니다. [패턴](luis-concept-patterns.md) 기능은 이 단어 선택 및 배치를 정규식과 함께 사용하여 예측 정확도를 개선합니다. 패턴의 정규식은 패턴을 일치시키는 동안 무시하려는 단어 및 문장 부호를 고려합니다. 
 
 문장 부호를 무시할 수 있도록 문장 부호에 패턴의 [선택적 구문](luis-concept-patterns.md) 을 사용합니다. [명시적 목록](luis-concept-patterns.md#explicit-lists)을 사용하여 구문 문제에 대해 패턴을 보완합니다. 
 
-앱이 엔드포인트 요청을 수신하기 전에는 이러한 사례를 적용하지 마세요. 문구 목록 및 패턴을 추가하기 전에 앱이 어떻게 작동하는지 이해해야 합니다. 사례를 적용하지 않은 상태에서 앱이 어떻게 작동하는지 이해했으면 앱에 적용되는 각 기능을 추가합니다. 
-
-모델 디자인을 시작할 때 추가해도 아무 문제 없지만, 앱에 실제 트래픽을 사용한 후 기능을 추가하면 각 기능이 결과를 어떻게 바꾸는지 쉽게 확인할 수 있습니다. 
-
-각 반복을 사용하여 이러한 기능을 추가하거나 각 버전을 사용하여 기능을 변경할 필요가 없습니다. 
-
 자세한 내용은 다음을 참조하세요.
-* 개념: [LUIS 앱에 대한 주기 작성](luis-concept-app-iteration.md)
-* 개념: [LUIS 앱의 구문 목록 기능](luis-concept-feature.md)
 * 개념: [패턴을 통해 예측 정확도 개선](luis-concept-patterns.md)
-* 방법: [단어 목록의 신호를 강화하는 구문 사용](luis-how-to-add-features.md)
 * 방법: [패턴을 추가하여 예측 정확도를 개선하는 방법](luis-how-to-model-intent-pattern.md)
 
 ## <a name="balance-your-utterances-across-all-intents"></a>모든 의도에서 발언의 균형 맞추기

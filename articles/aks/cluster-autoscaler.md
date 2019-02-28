@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: bfdea1d5380750ec23964cd8564db9b3a9539f15
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f8804a157c21f3c90c667646689eec0968bc9027
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754648"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453004"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -27,7 +27,9 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞추려면 �
 
 이 문서를 진행하려면 Azure CLI 버전 2.0.55 이상을 실행하고 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
-클러스터 자동 크기 조정기를 지원하는 AKS 클러스터는 가상 머신 확장 집합을 사용하고 Kubernetes 버전 *1.12.4* 이상을 실행해야 합니다. 이 확장 집합 지원은 미리 보기로 제공됩니다. 확장 집합을 사용하는 클러스터를 옵트인하고 만들려면 다음 예제와 같이 [az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치합니다.
+### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
+
+클러스터 자동 크기 조정기를 지원하는 AKS 클러스터는 가상 머신 확장 집합을 사용하고 Kubernetes 버전 *1.12.4* 이상을 실행해야 합니다. 이 확장 집합 지원은 미리 보기로 제공됩니다. 확장 집합을 사용하는 클러스터를 옵트인하고 만들려면 먼저 다음 예제와 같이 [az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치합니다.
 
 ```azurecli-interactive
 az extension add --name aks-preview
@@ -35,6 +37,26 @@ az extension add --name aks-preview
 
 > [!NOTE]
 > *aks-preview* 확장을 설치하면 사용자가 만드는 모든 AKS 클러스터에는 확장 집합 미리 보기 배포 모델이 사용됩니다. 완전하게 지원되는 기본 클러스터를 옵트아웃하고 만들려면 `az extension remove --name aks-preview`를 사용하여 확장을 제거합니다.
+
+### <a name="register-scale-set-feature-provider"></a>확장 집합 기능 공급자 등록
+
+확장 집합을 사용하는 AKS를 만들려면 구독에서 기능 플래그도 사용해야 합니다. *VMSSPreview* 기능 플래그를 등록하려면 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용합니다.
+
+```azurecli-interactive
+az feature register --name VMSSPreview --namespace Microsoft.ContainerService
+```
+
+상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
+```
+
+준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *Microsoft.ContainerService* 리소스 공급자 등록을 새로 고칩니다.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
 
 ## <a name="about-the-cluster-autoscaler"></a>클러스터 자동 크기 조정기 정보
 
@@ -149,6 +171,9 @@ az aks update \
 [aks-scale-apps]: tutorial-kubernetes-scale.md
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

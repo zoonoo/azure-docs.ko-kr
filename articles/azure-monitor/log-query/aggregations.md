@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 31ff0435487592577915e526abcb97197f591449
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 864e9586082ed95bf17135414ec4b879e3034ace
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000850"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267345"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 집계
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-Azure Monitor 로그 데이터에 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
+Azure Monitor 로그 데이터에 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
 
 - [문자열 작업](string-operations.md)
 - [날짜 및 시간 작업](datetime-operations.md)

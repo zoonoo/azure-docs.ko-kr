@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 68f640f6962802c45ca369786c4e5d0d4f785fa6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3f064769728d5d081c4a110e6c981c4b36aad384
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105080"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300587"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -280,8 +280,8 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 
 관리 ID가 있는 앱에는 다음 두 가지 환경 변수가 정의되어 있습니다.
 
-- MSI_ENDPOINT
-- MSI_SECRET
+- MSI_ENDPOINT - 로컬 토큰 서비스의 URL입니다.
+- MSI_SECRET - SSRF(서버 쪽 요청 위조) 공격을 완화하는 데 사용되는 헤더입니다. 플랫폼에서 값을 회전합니다.
 
 **MSI_ENDPOINT**는 앱이 토큰을 요청할 수 있는 로컬 URL입니다. 리소스 토큰을 가져오려면 이 엔드포인트에 다음 매개 변수를 포함하여 HTTP GET 요청을 보냅니다.
 
@@ -289,7 +289,7 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 > |-----|-----|-----|
 > |resource|쿼리|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.|
 > |api-version|쿼리|사용할 토큰 API의 버전입니다. "2017-09-01"은 현재 지원되는 유일한 버전입니다.|
-> |secret|헤더|MSI_SECRET 환경 변수의 값입니다.|
+> |secret|헤더|MSI_SECRET 환경 변수의 값입니다. 이 헤더는 SSRF(서버 쪽 요청 위조) 공격을 완화하는 데 사용됩니다.|
 > |clientid|쿼리|(선택 사항) 사용할 사용자 할당 ID의 식별자입니다. 생략하면 시스템 할당 ID가 사용됩니다.|
 
 성공적인 200 OK 응답에는 다음 속성을 가진 JSON 본문이 포함됩니다.

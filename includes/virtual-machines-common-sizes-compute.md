@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8cc24ad5c15cf456f0a66a34d549a43e55d02706
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 5a4495dd675b662273715b5c13a5594adc87fceb
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52585765"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333904"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -31,13 +31,13 @@ Fs 시리즈는 Premium Storage 외에도 F 시리즈의 모든 기능을 제공
 
 ## <a name="fsv2-series-sup1sup"></a>Fsv2 시리즈 <sup>1</sup>
 
-ACU: 195~210
+ACU: 195 - 210
 
-Premium Storage: 지원됨
+Premium Storage:  지원됨
 
-Premium Storage 캐싱: 지원됨
+Premium Storage 캐싱:  지원됨
 
-| 크기             | vCPU 수 | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기             | vCPU 수 | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|-------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000/31(32)           | 3200/47                | 2 / 875                 |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000/63(64)           | 6400/95                | 2 / 1,750               |
@@ -50,19 +50,19 @@ Premium Storage 캐싱: 지원됨
 
 <sup>1</sup> Fsv2 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 
-<sup>2</sup> 64개를 초과하는 vCPU에는 지원되는 게스트 OS인 Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 및 Red Hat Enterprise Linux, LIS 4.2.1을 사용하는 CentOS 7.3 또는 Oracle Linux 7.3 중 하나가 필요합니다.
+<sup>2</sup> 64개를 초과하는 vCPU에는 지원되는 게스트 OS인 Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 및 LIS 4.2.1을 사용하는 Red Hat Enterprise Linux, CentOS 7.3 또는 Oracle Linux 7.3 중 하나가 필요합니다.
 
 <sup>3</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
 ## <a name="fs-series-sup1sup"></a>Fs 시리즈 <sup>1</sup>
 
-ACU: 210-250
+ACU: 210 - 250
 
-Premium Storage: 지원됨
+Premium Storage:  지원됨
 
-Premium Storage 캐싱: 지원됨
+Premium Storage 캐싱:  지원됨
 
-| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4,000/32(12) |3,200/48 |2 / 750 |
 | Standard_F2s |2 |4 |8 |8 |8,000/64(24) |6,400/96 |2 / 1500 |
@@ -72,20 +72,20 @@ Premium Storage 캐싱: 지원됨
 
 MBps = 초당 10^6바이트, GiB = 1024^3바이트
 
-<sup>1</sup> Fs 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 머신 작업을 위한 고성능 스토리지](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
+<sup>1</sup> Fs 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)을 참조하세요.
 
 
 <br>
 
 ## <a name="f-series"></a>F 시리즈
 
-ACU: 210-250
+ACU: 210 - 250
 
-Premium Storage: 지원되지 않음
+Premium Storage:  지원되지 않음
 
-Premium Storage 캐싱: 지원되지 않음
+Premium Storage 캐싱:  지원되지 않음
 
-| 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+| 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 4 / 4x500                         | 2 / 750                 |
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1500                     |

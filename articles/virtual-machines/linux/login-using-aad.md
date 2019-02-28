@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: f640ea2e8af8c8ae2bc8a6a1224adca17e897b81
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5ef84f6dbabbfed802a61306eeae09e0b0ccf36f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811327"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456168"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인(미리 보기)
 
@@ -50,7 +50,7 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
 | openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
 | SUSE Linux Enteprise Server | SLES 12 |
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10 및 Ubuntu Server 18.04 |
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 및 Ubuntu Server 18.04 |
 
 
 현재 이 기능의 미리 보기 기간 동안 다음과 같은 Azure 지역이 지원됩니다.

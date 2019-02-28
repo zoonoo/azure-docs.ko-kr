@@ -4,19 +4,19 @@ ms.service: service-fabric
 ms.topic: include
 ms.date: 01/31/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a20311a0285bf8fda5498241a60b85093039ad19
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 179d87a0c1af587148f1b5ffa2cad8085ef0886f
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513258"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56306863"
 ---
 ## <a name="preventative"></a>예방
 
 | 보안 특성 | 예/아니요 | 메모 |
 |---|---|--|
 | 저장 데이터 암호화:<ul><li>서버 쪽 암호화</li><li>고객 관리 키로 서버 쪽 암호화</li><li>기타 암호화 기능(예: 클라이언트 쪽, 상시 암호화 등)</ul>| 예 | 고객은 클러스터 및 클러스터가 빌드된 VM(가상 머신) 확장 세트를 소유합니다. VM 확장 세트에서 Azure Disk Encryption을 설정할 수 있습니다. |
-| 전송 중 암호화:<ul><li>Express 경로 암호화</li><li>Vnet 내부 암호화</li><li>VNet 간 암호화</ul>| 예 |  |
+| 전송 중 암호화:<ul><li>기본 경로 암호화</li><li>Vnet 내부 암호화</li><li>VNet 간 암호화</ul>| 예 |  |
 | 암호화 키 처리(CMK, BYOK 등)| 예 | 고객은 클러스터 및 클러스터가 빌드된 VM(가상 머신) 확장 세트를 소유합니다. VM 확장 세트에서 Azure Disk Encryption을 설정할 수 있습니다. |
 | 열 수준 암호화(Azure Data Services)| 해당 없음 |  |
 | API 호출 암호화| 예 | Service Fabric API 호출은 Azure Resource Manager를 통해 수행됩니다. 유효한 JSON 웹 토큰(JWT)이 필요합니다. |

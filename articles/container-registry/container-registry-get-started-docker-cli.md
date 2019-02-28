@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: c27af57ce4fa80a4ae167ce1e27018d049923a3f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 164d705a16dd82a1c5f3ff6f5e6982f80eb40dab
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982848"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330871"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 개인 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
 
@@ -116,10 +116,10 @@ Nginx 이미지가 더 이상 필요하지 않으면 [docker rmi](https://docs.d
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
-Azure 컨테이너 레지스트리에서 이미지를 제거하려면 Azure CLI 명령 [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete)를 사용합니다. 예를 들어, 다음 명령은 태그에서 참조하는 매니페스트, 모든 연결된 계층 데이터, 기타 해당 매니페스트를 참조하는 모든 태그를 삭제합니다.
+Azure 컨테이너 레지스트리에서 이미지를 제거하려면 Azure CLI 명령 [az acr repository delete](/cli/azure/acr/repository#az-acr-repository-delete)를 사용합니다. 예를 들어, 다음 명령은 `samples/nginx:latest` 태그에서 참조하는 매니페스트, 모든 고유한 계층 데이터, 기타 해당 매니페스트를 참조하는 모든 태그를 삭제합니다.
 
 ```azurecli
-az acr repository delete --name myregistry --repository samples/nginx --tag latest --manifest
+az acr repository delete --name myregistry --image samples/nginx:latest
 ```
 
 ## <a name="next-steps"></a>다음 단계

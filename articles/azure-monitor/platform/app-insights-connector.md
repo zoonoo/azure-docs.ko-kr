@@ -11,21 +11,27 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 3013d8997660df95fb12c8b18c1120f726eead04
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8b1504961254fefcaafc22008b4cc5adaf77e9c4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216023"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447874"
 ---
-# <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관리 솔루션(미리 보기)
+# <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 커넥터 관리 솔루션(사용되지 않음)
 
 ![Application Insights 기호](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)와 [여러 Azure Monitor Application Insights 리소스를 확인](../log-query/unify-app-resource-data.md)하는 기능이 지원되므로 Application Insights 커넥터 관리 솔루션은 필요하지 않습니다. Azure 상업용 클라우드 및 Azure US Government 클라우드용 OMS 포털이 2019년 1월 15일 공식적으로 사용이 중지되어 더 이상 사용되지 않음에 따라, Application Insights 커넥터도 더 이상 사용되지 않고 Azure Marketplace에서 제거될 예정이며 2019년 3월 30일에 공식적으로 사용이 중지됩니다. 기존 연결은 2019년 6월 30일까지 계속 작동합니다. OMS 포털 사용 중단으로 포털에서 기존 연결을 구성하고 제거할 방법이 없습니다. 2019년 1월에 사용할 수 있는 REST API를 사용하여 지원되며 [Azure 업데이트](https://azure.microsoft.com/updates/)에 알림이 게시됩니다. 자세한 내용은 [Azure로 이동하는 OMS 포털](../../azure-monitor/platform/oms-portal-transition.md)을 참조하세요.
+> [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)가 지원되므로 Application Insights 커넥터 관리 솔루션이 더 이상 필요하지 않습니다. 사용되지 않으며, Azure 상용 클라우드에 대해 2019년 1월 15일에 공식적으로 사용 중단된 OMS 포털과 함께 Azure Marketplace에서 제거되었습니다. Azure 미국 정부 클라우드의 경우 2019년 3월 30일에 사용 중지됩니다.
+>
+>기존 연결은 2019년 6월 30일까지 계속 작동합니다.  OMS 포털 사용 중단으로 포털에서 기존 연결을 구성하고 제거할 방법이 없습니다. PowerShell을 사용하여 기존 연결을 제거하는 스크립트는 아래의 [PowerShell을 사용하여 커넥터 제거](#removing-the-connector-with-powershell)를 참조하세요.
+>
+>여러 애플리케이션에 대한 Application Insights 로그 데이터를 쿼리하는 방법에 대한 지침은 [Azure Monitor Application Insights 리소스 통합](../log-query/unify-app-resource-data.md)을 참조하세요. OMS 포털 지원 중단에 대한 자세한 내용은 [Azure로 이동하는 OMS 포털](../../azure-monitor/platform/oms-portal-transition.md)을 참조하세요.
+>
+> 
 
 Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악하는 데 도움이 됩니다. 개발자가 Application Insights에서 참조하는 것과 동일한 애플리케이션 원격 분석 뷰를 Log Analytics에서 사용할 수 있습니다. 그러나 Log Analytics와 Application Insights 앱을 통합하는 경우 작업 및 애플리케이션 데이터가 한 곳에 있게 되므로 애플리케이션에 대한 가시성이 향상됩니다. 동일한 뷰가 있으면 앱 개발자와 공동 작업을 수행하는 데 도움이 됩니다. 공통 뷰는 애플리케이션 및 플랫폼 문제를 감지하고 해결하는 데 소요되는 시간을 줄일 수 있습니다.
 
@@ -262,6 +268,57 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 ## <a name="sample-log-searches"></a>샘플 로그 검색
 
 이 솔루션에는 대시보드에 표시되는 샘플 로그 검색 집합이 없습니다. 그러나 설명이 포함된 샘플 로그 검색 쿼리가 [Application Insights 커넥터 정보 보기](#view-application-insights-connector-information) 섹션에 표시됩니다.
+
+## <a name="removing-the-connector-with-powershell"></a>PowerShell을 사용하여 커넥터 제거
+OMS 포털 사용 중단으로 포털에서 기존 연결을 구성하고 제거할 방법이 없습니다. 다음 PowerShell 스크립트를 사용하여 기존 연결을 제거할 수 있습니다. 이 작업을 수행하려면 작업 영역의 owner 또는 contributor이고 Application Insights 리소스의 reader여야 합니다.
+
+```PowerShell
+$Subscription_app = "App Subscription Name"
+$ResourceGroup_app = "App ResourceGroup"
+$Application = "Application Name"
+$Subscription_workspace = "Workspace Subscription Name"
+$ResourceGroup_workspace = "Workspace ResourceGroup"
+$Workspace = "Workspace Name"
+
+Connect-AzureRmAccount
+Set-AzureRmContext -SubscriptionId $Subscription_app
+$AIApp = Get-AzureRmApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
+Set-AzureRmContext -SubscriptionId $Subscription_workspace
+Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
+```
+
+REST API 호출을 호출하는 다음 PowerShell 스크립트를 사용하여 애플리케이션 목록을 검색할 수 있습니다. 
+
+```PowerShell
+Connect-AzureRmAccount
+$Tenant = "TenantId"
+$Subscription_workspace = "Workspace Subscription Name"
+$ResourceGroup_workspace = "Workspace ResourceGroup"
+$Workspace = "Workspace Name"
+$AccessToken = "AAD Authentication Token" 
+
+Set-AzureRmContext -SubscriptionId $Subscription_workspace
+$LAWorkspace = Get-AzureRmOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
+
+$Headers = @{
+    "Authorization" = "Bearer $($AccessToken)"
+    "x-ms-client-tenant-id" = $Tenant
+}
+
+$Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
+$ConnectionsJson = $Connections | ConvertTo-Json
+```
+이 스크립트가 Azure Active Directory에 인증하려면 전달자 인증 토큰이 필요합니다. 이 토큰을 검색하는 한 가지 방법은 [REST API 문서 사이트](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate)의 문서를 사용하는 것입니다. **사용해 보기**를 클릭하고 Azure 구독에 로그인합니다. 다음 이미지와 같이 **요청 미리 보기**에서 전달자 토큰을 복사할 수 있습니다.
+
+
+![전달자 토큰](media/app-insights-connector/bearer-token.png)
+
+
+로그 쿼리를 사용하여 애플리케이션 목록을 검색할 수도 있습니다.
+
+```Kusto
+ApplicationInsights | summarize by ApplicationName
+```
 
 ## <a name="next-steps"></a>다음 단계
 

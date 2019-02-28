@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: b771e36344ff26c9a817a0314e0f223b6e809a17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871705"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328268"
 ---
 # <a name="service-health"></a>서비스 상태
 서비스 상태에서는 사용하는 영역에 있는 Azure 서비스의 상태를 추적하는 사용자 지정 가능한 대시보드를 제공합니다. 이 대시보드에서 지속적인 서비스 문제, 계획된 향후 유지 관리 또는 관련 상태 공지와 같은 활성 이벤트를 추적할 수 있습니다. 이벤트가 비활성화되면, 최대 90일 동안 상태 기록에 배치됩니다. 마지막으로 Service Health 대시보드를 사용하여 서비스 문제로 인해 영향이 발생할 경우 사전에 알리는 서비스 상태 경고를 만들고 관리할 수 있습니다.
@@ -24,6 +24,9 @@ Service Health는 리소스에 영향을 줄 수 있는 다음과 같은 세 가
 1. **서비스 문제** - 즉시 사용자에게 영향을 주는 Azure 서비스의 문제입니다. 
 2. **계획된 유지 관리** - 나중에 서비스의 가용성에 영향을 줄 수 있는 예정된 유지 관리입니다.  
 3. **상태 자문** - 주의가 필요한 Azure 서비스의 변경 내용입니다. Azure 기능이 사용되지 않거나 사용 할당량을 초과하는 경우를 예로 들 수 있습니다.
+
+> [!NOTE]
+> Service Health 이벤트를 보려면 사용자에게 구독의 reader 역할이 있어야 합니다.
 
 ## <a name="get-started-with-service-health"></a>Service Health 시작
 Service Health 대시보드를 시작하려면 포털 대시보드에서 Service Health 타일을 선택합니다. 이전에 타일을 제거했거나 사용자 지정 대시보드를 사용 중인 경우 “추가 서비스”(대시보드의 왼쪽 아래)에서 Service Health 서비스를 검색합니다.

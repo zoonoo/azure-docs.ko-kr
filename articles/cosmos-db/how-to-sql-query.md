@@ -3,15 +3,15 @@ title: Azure Cosmos DB에 대한 SQL 쿼리
 description: Azure Cosmos DB에 대한 SQL 구문, 데이터베이스 개념 및 SQL 쿼리를 알아봅니다. SQL은 Azure Cosmos DB에서 JSON 쿼리 언어로 사용될 수 있습니다.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f8b23533127b9798e5a677f646f94ae0a53fcde8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822411"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455962"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리 예제
 
@@ -1369,13 +1369,13 @@ Cosmos DB는 일반적인 작업을 위해 많은 기본 제공 함수도 지원
 | CEILING (num_expr) | 지정한 숫자 식보다 크거나 같은 가장 작은 정수 값을 반환합니다. |
 | FLOOR (num_expr) | 지정한 숫자 식보다 작거나 같은 가장 큰 정수 값을 반환합니다. |
 | EXP (num_expr) | 지정한 숫자 식의 지수를 반환합니다. |
-| [LOG(num_expr [,base])](#bk_log) | 지정한 숫자 식의 자연 로그 또는 지정한 밑을 사용하는 로그를 반환합니다. |
+| LOG (num_expr ,base) | 지정한 숫자 식의 자연 로그 또는 지정한 밑을 사용하는 로그를 반환합니다. |
 | LOG10 (num_expr) | 지정한 숫자 식의 상용 로그를 반환합니다. |
 | ROUND (num_expr) | 가장 가까운 정수 값으로 반올림한 숫자 값을 반환합니다. |
 | TRUNC (num_expr) | 가장 가까운 정수 값으로 버린 숫자 값을 반환합니다. |
 | SQRT (num_expr) | 지정한 숫자 식의 제곱근을 반환합니다. |
 | SQUARE (num_expr) | 지정한 숫자 식의 거듭제곱을 반환합니다. |
-| [POWER(num_expr, num_expr)](#bk_power) | 지정한 값까지 지정한 숫자 식의 거듭제곱을 반환합니다. |
+| POWER (num_expr, num_expr) | 지정한 값까지 지정한 숫자 식의 거듭제곱을 반환합니다. |
 | SIGN (num_expr) | 지정한 숫자 식의 부호 값(-1, 0, 1)을 반환합니다. |
 | ACOS (num_expr) | 코사인 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 아크코사인이라고도 합니다. |
 | ASIN (num_expr) | 사인 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 이 함수를 아크사인이라고도 합니다. |

@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: b368ef3b5503d90b0eb928113e8154aabca9c04a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157142"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453259"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Azure Portal을 사용하여 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이를 만듭니다.
 
@@ -130,9 +130,9 @@ Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-이 자습서에서 애플리케이션 게이트웨이는 저장소 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Log Analytics 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다.
+이 자습서에서 애플리케이션 게이트웨이는 저장소 계정을 사용하여 검색 및 방지 목적으로 데이터를 저장합니다. Azure Monitor 로그 또는 Event Hub를 사용하여 데이터를 기록할 수도 있습니다.
 
-1. Azure Portal의 왼쪽 위에 있는 **새로 만들기**를 클릭합니다.
+1. Azure Portal의 왼쪽 위에서 **새로 만들기**를 클릭합니다.
 2. **저장소**를 선택한 다음, **저장소 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
 3. 저장소 계정의 이름을 입력하고 리소스 그룹에 **기존 그룹 사용**을 선택한 다음, **myResourceGroupAG**를 선택합니다. 이 예제에서 저장소 계정 이름은 *myagstore1*입니다. 다른 설정에 대한 기본값을 적용한 다음, **만들기**를 클릭합니다.
 

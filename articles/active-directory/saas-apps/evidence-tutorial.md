@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84ea41388151087a0da965e3f8724907b615dee0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc6bcd30a9835fe3cece103b9a773fb24cadbe4a
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161577"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>자습서: Evidence.com과 Azure Active Directory 통합
 
@@ -77,10 +77,10 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 Evidence.com의 관련 �
 Evidence.com에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Evidence.com Single Sign-On 구성](#configure-evidence.com-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+2. **[Evidence.com Single Sign-On 구성](#configure-evidencecom-single-sign-on)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
 3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
 4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Evidence.com 테스트 사용자 만들기](#create-evidence.com-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Evidence.com에 만듭니다.
+5. **[Evidence.com 테스트 사용자 만들기](#create-evidencecom-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Evidence.com에 만듭니다.
 6. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
@@ -161,7 +161,7 @@ Evidence.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -215,9 +215,9 @@ Azure AD 사용자가 로그인할 수 있도록 Evidence.com 애플리케이션
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

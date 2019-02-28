@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 203cb07c9450a590b45caa66092fe0199d985058
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978156"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342680"
 ---
-# <a name="try-the-speech-service-for-free"></a>Speech Service 체험해 보기
+# <a name="try-speech-services-for-free"></a>Speech Service 평가판 사용해 보기
 
 Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가판을 통해 서비스 기능을 확인하고 서비스가 애플리케이션 요구 사항에 적합한지 판단할 수 있습니다.
 
-시간이 더 필요하면 Microsoft Azure 계정에 등록하세요. 그러면 최대 30일 동안 유료 Speech Service에 적용할 수 있는 $200의 서비스 크레딧이 제공됩니다.
+시간이 더 필요하면 Microsoft Azure 계정에 가입하세요. 최대 30일 동안 유료 Speech Service 구독에 적용할 수 있는 $200의 서비스 크레딧이 제공됩니다.
 
 마지막으로 Speech Service는 애플리케이션 개발에 적합한 작은 용량의 체험 계층을 제공합니다. 서비스 크레딧이 만료된 후에도 이 무료 구독을 유지할 수 있습니다.
 
@@ -63,11 +63,11 @@ Speech Service는 쉽고 저렴하게 시작할 수 있습니다. 30일 평가�
 
 [Microsoft 계정 포털](https://account.microsoft.com/account)에서 체험 Microsoft 계정을 등록할 수 있습니다. 시작하려면 **Microsoft에 로그인**을 클릭한 다음, 로그인하라는 메시지가 표시되면 **계정 만들기**를 클릭합니다. 단계에 따라 새 Microsoft 계정을 만들고 확인합니다.
 
-Azure 계정이 만들어지면 다음 섹션의 단계에 따라 Speech 서비스에 대한 구독을 시작합니다.
+Azure 계정이 만들어지면 다음 섹션의 단계에 따라 Speech 서비스 구독을 시작합니다.
 
 ## <a name="create-a-speech-resource-in-azure"></a>Azure에서 음성 리소스 만들기
 
-Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추가하려면 다음을 수행합니다.
+Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추가하려면:
 
 1. Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -114,7 +114,7 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 > 평가판 키는 미국 서부(`westus`) 지역에서 만들어집니다. Azure 대시보드를 통해 만든 구독을 선택하면 다른 지역에 있을 수 있습니다.
 
 * 애플리케이션에서 [Speech SDK](speech-sdk.md)를 사용하는 경우 Speech 구성을 만들 때 `westus`와 같은 지역 코드를 제공합니다.
-* 애플리케이션에서 Speech 서비스의 [REST API](rest-apis.md) 중 하나를 사용하는 경우 지역은 요청 시 사용하는 엔드포인트 URI의 일부가 됩니다.
+* 애플리케이션에서 Speech Services의 [REST API](rest-apis.md) 중 하나를 사용하는 경우 해당 지역은 요청 시 사용하는 엔드포인트 URI의 일부가 됩니다.
 
 지역에 대해 만든 키는 해당 지역에서만 유효합니다. 다른 지역에서 사용하려고 하면 인증 오류가 발생합니다.
 

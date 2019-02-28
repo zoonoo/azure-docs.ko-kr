@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 646d5a1aec7387d8f7ee632f5e46f988e1bc012c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fd0f8241c07f603089b896dcfc9ece29f1e33d1c
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882219"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428207"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 애플리케이션으로 액세스 토큰의 사용자 흐름 통과
 
@@ -24,12 +24,12 @@ ms.locfileid: "55882219"
 
 Azure AD(Azure Active Directory) B2C 의 [사용자 흐름](active-directory-b2c-reference-policies.md)은 애플리케이션 사용자에게 ID 공급자를 등록하거나 로그인할 수 있는 기회를 제공합니다. 이 과정이 시작되면 Azure AD B2C는 ID 공급자로부터 [액세스 토큰](active-directory-b2c-reference-tokens.md)을 받습니다. Azure AD B2C는 이 토큰을 사용하여 해당 사용자에 대한 정보를 검색합니다. 사용자는 Azure AD B2C에서 등록한 애플리케이션으로 토큰이 통과되도록 사용자 흐름에서 클레임을 활성화합니다.
 
-Azure AD B2C는 현재 [Facebook](active-directory-b2c-setup-fb-app.md) 및 [Google](active-directory-b2c-setup-goog-app.md)이 포함된 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) ID 공급자의 액세스 토큰 통과만 지원합니다. 다른 모든 ID 공급자에 대한 클레임은 빈 상태로 반환됩니다.
+Azure AD B2C에서는 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) 및 [OpenID Connect](active-directory-b2c-reference-oidc.md) ID 공급자의 액세스 토큰을 전달할 수 있습니다. 다른 모든 ID 공급자에 대한 클레임은 빈 상태로 반환됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - 애플리케이션에서 [v2 사용자 흐름](user-flow-versions.md)을 사용하고 있어야 합니다.
-- 사용자 흐름은 OAuth 2.0 ID 공급자를 사용하여 구성됩니다.
+- 사용자 흐름은 OAuth 2.0 또는 OpenID Connect ID 공급자를 사용하여 구성됩니다.
 
 ## <a name="enable-the-claim"></a>클레임 사용
 

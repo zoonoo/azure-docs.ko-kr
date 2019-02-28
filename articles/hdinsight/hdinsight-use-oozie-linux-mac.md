@@ -8,13 +8,13 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.openlocfilehash: 11c5d44d44bf66bc7f50dac13c1c7cf0ae7acfff
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 02/15/2019
+ms.openlocfilehash: b77f87ef922d2f759fd8d72505effa3d8e96c403
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994388"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339432"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
 
@@ -301,7 +301,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
     ```
 
     > [!NOTE]  
-    > HDInsight 클러스터에서 Azure Storage를 기본 저장소로 사용하면 `<value>` 요소의 내용은 `wasb://`로 시작합니다. 대신 Azure Data Lake Storage를 사용하는 경우 `adl://`로 시작합니다.
+    > HDInsight 클러스터에서 Azure Storage를 기본 스토리지로 사용하면 `<value>` 요소의 내용은 `wasb://`로 시작합니다. Azure Data Lake Storage Gen1을 대신 사용하는 경우 `adl://`로 시작합니다. Azure Data Lake Storage Gen2를 사용하는 경우 `abfs://`로 시작합니다.
 
     다음 단계에서 사용되므로 `<value>` 요소의 내용을 저장합니다.
 

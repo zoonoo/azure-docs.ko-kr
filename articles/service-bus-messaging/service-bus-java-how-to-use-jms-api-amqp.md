@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: aschhab
-ms.openlocfilehash: f0c3aac95b1d19dc3f217cc146532254d8740ca0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 23a0c731eea22a772d7423bc3047af1183d55b7f
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853292"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312892"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Service Bus 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
 AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 애플리케이션을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다.
@@ -44,7 +44,8 @@ Service Bus를 사용하여 JMS 애플리케이션을 빌드 및 실행할 때 A
 * geronimo-jms\_1.1\_spec-1.0.jar
 * qpid-jms-client-[version].jar
 
-> ![참고] JMS JAR 이름 및 버전이 변경되었을 수 있습니다. 자세한 내용은 [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10)을 참조하세요.
+> [!NOTE]
+> JMS JAR 이름 및 버전이 변경되었을 수 있습니다. 자세한 내용은 [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10)을 참조하세요.
 
 ## <a name="coding-java-applications"></a>Java 애플리케이션 코딩
 ### <a name="java-naming-and-directory-interface-jndi"></a>JNDI(Java Naming and Directory Interface)

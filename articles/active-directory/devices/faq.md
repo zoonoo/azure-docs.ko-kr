@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9517ccac4006edec473e25c5e6524ce62d4e1259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210105"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269062"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -157,7 +157,11 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 **A:** 사용자가 Multi-Factor Authentication을 사용하여 디바이스를 Azure AD에 조인 또는 등록할 수 있습니다. 그러면 디바이스 자체가 해당 사용자의 신뢰할 수 있는 두 번째 요소가 됩니다. 동일한 사용자가 디바이스에 로그인하여 애플리케이션에 액세스할 때마다 Azure AD는 디바이스를 두 번째 요소로 간주합니다. 해당 사용자가 추가 Multi-Factor Authentication 프롬프트 없이 원활하게 애플리케이션에 액세스할 수 있게 해줍니다. 
 
-이 동작은 해당 디바이스에 로그인하는 다른 사용자에게 적용되지 않습니다. 따라서 해당 디바이스에 액세스하는 다른 모든 사용자에게 Multi-Factor Authentication이 요구됩니다. 그 후 Multi-Factor Authentication을 요구하는 애플리케이션에 액세스할 수 있습니다.
+이 동작은 다음과 같습니다.
+
+- Azure AD 조인 디바이스 및 Azure AD 등록 디바이스에는 적용되지만 하이브리드 Azure AD 조인 디바이스에는 적용되지 않습니다.
+
+- 해당 디바이스에 로그인하는 다른 사용자에게 적용되지 않습니다. 따라서 해당 디바이스에 액세스하는 다른 모든 사용자에게 Multi-Factor Authentication이 요구됩니다. 그 후 Multi-Factor Authentication을 요구하는 애플리케이션에 액세스할 수 있습니다.
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C에서 Azure Active Directory 조직에 대한 로그인 설정 | Microsoft Docs
+title: Azure Active Directory 조직에 대한 로그인 설정 - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인을 설정합니다.
 services: active-directory-b2c
 author: davidmu1
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9078cbfd14e61b2de0d513e513413ae3c79137e3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0da27c5ce872d1b4e1b4c63f6f4207bb5ca4d6ef
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166223"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428077"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
 
 >[!NOTE]
 > 이 기능은 공개 미리 보기 상태입니다. 프로덕션 환경에서는 이 기능을 사용하지 마세요.
 
-이 문서에서는 Azure AD(Azure Active Directory) B2C의 사용자 흐름을 사용하여 특정 Azure AD(Azure Active Directory) 조직의 사용자에 대해 로그인을 사용하도록 설정하는 방법을 보여줍니다.
+Azure AD B2C에서 Azure AD(Azure Active Directory)를 [ID 공급자](active-directory-b2c-reference-oauth-code.md)로 사용하려면 해당 계정을 나타내는 애플리케이션을 만들어야 합니다. 이 문서에서는 Azure AD B2C의 사용자 흐름을 사용하여 특정 Azure AD 조직의 사용자에 대한 로그인을 설정하는 방법을 보여 줍니다.
 
 ## <a name="create-an-azure-ad-app"></a>Azure AD 앱 만들기
 

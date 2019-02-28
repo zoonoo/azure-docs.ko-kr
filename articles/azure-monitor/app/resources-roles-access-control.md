@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 023f0e560900aa582be1f28e553358adb0c87b1e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 36b49002a5e947f2803e00974f242e49eb26d45b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118475"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309253"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
 
@@ -113,6 +113,32 @@ Outlook.com, OneDrive, Windows Phone 또는 XBox Live를 사용하는 사람은 
 ## <a name="related-content"></a>관련 콘텐츠
 
 * [Azure의 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)
+
+## <a name="powershell-query-to-determine-role-membership"></a>역할 멤버 자격을 확인하기 위한 PowerShell 쿼리
+
+특정 역할은 알림 및 이메일 알림에 연결할 수 있으므로 지정된 역할에 속하는 사용자의 목록을 생성할 수 있는 것이 유용할 수 있습니다. 이러한 목록 유형을 생성하는 데 도움이 되도록 사용자의 특정 필요에 맞게 조정할 수 있는 다음과 같은 샘플 쿼리가 제공됩니다.
+
+### <a name="query-entire-subscription-for-admin-roles--contributor-roles"></a>관리자 역할 + 기여자 역할을 위한 전체 구독 쿼리
+
+```powershell
+(Get-AzureRmRoleAssignment -IncludeClassicAdministrators | Where-Object {$_.RoleDefinitionName -in @('ServiceAdministrator', 'CoAdministrator', 'Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
+
+### <a name="query-within-the-context-of-a-specific-application-insights-resource-for-owners-and-contributors"></a>소유자 및 기여자에 대한 특정 Application Insights 리소스의 컨텍스트 내에서 쿼리
+
+```powershell
+$resourceGroup = “RGNAME”
+$resourceName = “AppInsightsName”
+$resourceType = “microsoft.insights/components”
+(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
+
+### <a name="query-within-the-context-of-a-specific-resource-group-for-owners-and-contributors"></a>소유자 및 기여자에 대한 특정 리소스 그룹의 컨텍스트 내에서 쿼리
+
+```powershell
+$resourceGroup = “RGNAME”
+(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+```
 
 <!--Link references-->
 

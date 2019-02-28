@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2018
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 058d6d398f6bb54e8569e727f118a325c338049d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f49b8ed592422927288e24b164a04645e2e37744
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154745"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301386"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>리소스 관리자 템플릿과 리소스 관리자 REST API로 리소스 배포
 
@@ -81,8 +81,21 @@ ms.locfileid: "50154745"
     요청 콘텐츠와 응답 콘텐츠 중 하나 또는 둘 다를 기록하려면 요청에 **debugSetting** 을 포함합니다.
 
   ```json
-  "debugSetting": {
-    "detailLevel": "requestContent, responseContent"
+  {
+    "properties": {
+      "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "mode": "Incremental",
+      "parametersLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "debugSetting": {
+        "detailLevel": "requestContent, responseContent"
+      }
+    }
   }
   ```
 
@@ -159,22 +172,50 @@ ms.locfileid: "50154745"
 
 ## <a name="redeploy-when-deployment-fails"></a>배포 실패 시 다시 배포
 
-배포가 실패하는 경우, 배포 기록의 이전 배포가 자동으로 다시 배포되도록 지정할 수 있습니다. 이 옵션을 사용하려면 배포가 배포 기록에서 식별될 수 있도록 고유한 이름을 지정해야 합니다. 고유한 이름이 없으면 현재 실패한 배포가 기록에서 이전에 성공한 배포를 덮어쓸 수 있습니다. 루트 수준 배포에만 이 옵션을 사용할 수 있습니다. 중첩된 템플릿의 배포는 다시 배포할 수 없습니다.
+배포가 실패하면 배포 기록에서 이전에 성공한 배포를 자동으로 다시 배포할 수 있습니다. 재배포를 지정하려면 요청 본문에서 `onErrorDeployment` 속성을 사용합니다.
+
+이 옵션을 사용하려면 배포가 배포 기록에서 식별될 수 있도록 고유한 이름을 지정해야 합니다. 고유한 이름이 없으면 현재 실패한 배포가 기록에서 이전에 성공한 배포를 덮어쓸 수 있습니다. 루트 수준 배포에만 이 옵션을 사용할 수 있습니다. 중첩된 템플릿의 배포는 다시 배포할 수 없습니다.
 
 현재 배포가 실패할 경우 마지막으로 성공적으로 배포를 다시 배포하려면 다음을 사용합니다.
 
 ```json
-"onErrorDeployment": {
-  "type": "LastSuccessful",
-},
+{
+  "properties": {
+    "templateLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "mode": "Incremental",
+    "parametersLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "onErrorDeployment": {
+      "type": "LastSuccessful",
+    }
+  }
+}
 ```
 
 현재 배포가 실패할 경우 특정 배포를 다시 배포하려면 다음을 사용합니다.
 
 ```json
-"onErrorDeployment": {
-  "type": "SpecificDeployment",
-  "deploymentName": "<deploymentname>"
+{
+  "properties": {
+    "templateLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "mode": "Incremental",
+    "parametersLink": {
+      "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+      "contentVersion": "1.0.0.0"
+    },
+    "onErrorDeployment": {
+      "type": "SpecificDeployment",
+      "deploymentName": "<deploymentname>"
+    }
+  }
 }
 ```
 

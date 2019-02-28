@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f21f835ea50563497b73fb6e4505f60411029406
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cd24d4ad026af7d8bce70902376c3a31d659a203
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883001"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56427874"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 애플리케이션으로 액세스 토큰의 사용자 지정 정책 통과
 
@@ -24,11 +24,11 @@ ms.locfileid: "55883001"
 
 Azure AD(Azure Active Directory) B2C의 [사용자 지정 정책](active-directory-b2c-get-started-custom.md)은 애플리케이션 사용자에게 ID 공급자를 등록하거나 로그인할 수 있는 기회를 제공합니다. 이 과정에서 Azure AD B2C는 ID 공급자로부터 [액세스 토큰](active-directory-b2c-reference-tokens.md)을 받습니다. Azure AD B2C는 이 토큰을 사용하여 해당 사용자에 대한 정보를 검색합니다. 사용자 지정 정책에 클레임 유형 및 출력 클레임을 추가하여 Azure AD B2C에서 등록한 애플리케이션에 토큰을 전달합니다. 
 
-Azure AD B2C는 현재 Facebook 및 [Google](active-directory-b2c-custom-setup-goog-idp.md)을 비롯한 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) ID 공급자의 액세스 토큰 통과만 지원합니다. 다른 모든 ID 공급자에 대한 클레임은 빈 상태로 반환됩니다.
+Azure AD B2C에서는 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) 및 [OpenID Connect](active-directory-b2c-reference-oidc.md) ID 공급자의 액세스 토큰을 전달할 수 있습니다. 다른 모든 ID 공급자에 대한 클레임은 빈 상태로 반환됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 사용자 지정 정책은 OAuth 2.0 ID 공급자를 사용하여 구성됩니다.
+- 사용자 지정 정책은 OAuth 2.0 또는 OpenID Connect ID 공급자를 사용하여 구성됩니다.
 
 ## <a name="add-the-claim-elements"></a>클레임 요소 추가 
 

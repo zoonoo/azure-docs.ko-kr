@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 79bc9310eb3f7c8dd2b295405cea70c514d343d3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6eb759928d504bf1a3ccac4bc1aa983bb6a47979
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820874"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339367"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리
 
@@ -60,7 +60,7 @@ HDInsight의 Ambari REST API에 대한 기본 URI는 https://CLUSTERNAME.azurehd
 >
 > `https://MyCluster.azurehdinsight.net/api/v1/clusters/mycluster`
 
-### <a name="authentication"></a>인증
+### <a name="authentication"></a>Authentication
 
 HTTPS를 요구하는 HDInsight에서 Ambari로 연결 클러스터 만들기 중 입력한 관리자 계정 이름(기본값은 **admin**) 및 암호를 사용합니다.
 
@@ -255,7 +255,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 * `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - 이 값은 클러스터에서 기본 스토리지에 Azure Storage 계정을 사용하고 있음을 나타냅니다. `ACCOUNTNAME` 값은 저장소 계정의 이름입니다. `CONTAINER` 부분은 저장소 계정에서 blob 컨테이너의 이름입니다. 이 컨테이너는 클러스터에 대한 HDFS 호환 저장소의 루트입니다.
 
-* `adl://home` - 이 값은 클러스터가 기본 스토리지에 Azure Data Lake Storage를 사용하고 있음을 나타냅니다.
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` - 이 값은 클러스터가 기본 스토리지에 Azure Data Lake Storage Gen2를 사용하고 있음을 나타냅니다. `ACCOUNTNAME` 및 `CONTAINER` 값은 앞에서 언급한 Azure Storage에서 동일한 의미를 갖습니다.
+
+* `adl://home` - 이 값은 클러스터가 기본 스토리지에 Azure Data Lake Storage Gen1을 사용하고 있음을 나타냅니다.
 
     Data Lake Storage 계정 이름을 찾으려면 다음 예제를 사용합니다.
 

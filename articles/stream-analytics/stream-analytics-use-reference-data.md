@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f065a7c428f191e37449145e946b26c3133ede05
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c10f8a3f515d3401dbb469a7e4a31c4fe3501
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700036"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329816"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 참조 데이터(조회 테이블이라고도 함)는 정적이거나 느리게 변경되는 특성을 지닌 한정된 데이터 집합으로, 데이터 스트림을 조회하거나 상관 관계를 지정하는 데 사용됩니다. 예를 들어 IoT 시나리오에서는 센서에 대한 메타데이터를 참조 데이터에 저장하고(보통 변경하지 않음) 실시간 IoT 데이터 스트림과 조인할 수 있습니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용하려면 일반적으로 쿼리에서 [참조 데이터 조인](https://msdn.microsoft.com/library/azure/dn949258.aspx)을 사용합니다. 
@@ -74,7 +74,7 @@ Stream Analytics에서 참조 데이터 정의를 업데이트하는 데 필요�
 
 ## <a name="azure-sql-database-preview"></a>Azure SQL Database(미리 보기)
 
-Azure SQL Database 참조 데이터는 Stream Analytics 작업에서 검색되고 처리를 위해 메모리에 스냅숏으로 저장됩니다. 또한 참조 데이터의 스냅숏은 구성 설정에서 지정하는 스토리지 계정의 컨테이너에 저장됩니다. 컨테이너는 작업이 시작할 때 자동 생성되며 작업이 중지되면 자동으로 삭제됩니다.
+Azure SQL Database 참조 데이터는 Stream Analytics 작업에서 검색되고 처리를 위해 메모리에 스냅숏으로 저장됩니다. 또한 참조 데이터의 스냅숏은 구성 설정에서 지정하는 스토리지 계정의 컨테이너에 저장됩니다. 컨테이너는 작업을 시작할 때 자동 생성됩니다. 작업이 중지되거나 실패 상태가 되면, 작업을 다시 시작할 때 자동 생성된 컨테이너가 삭제됩니다.  
 
 참조 데이터가 느리게 변화하는 데이터 세트인 경우 작업에서 사용되는 스냅숏을 정기적으로 새로 고쳐야 합니다. Stream Analytics를 사용하면 Azure SQL Database 입력 연결을 구성할 때 새로 고침 빈도를 설정할 수 있습니다. Stream Analytics 런타임은 새로 고침 빈도에서 지정된 간격으로 Azure SQL Database를 쿼리합니다. 지원되는 가장 빠른 새로 고침 빈도는 1분에 한 번씩입니다. 각 새로 고침의 경우 Stream Analytics는 제공된 스토리지 계정에 새 스냅숏을 저장합니다.
 

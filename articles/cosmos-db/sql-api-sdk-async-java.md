@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 2/8/2019
 ms.author: moderakh
-ms.openlocfilehash: 88fcfec903dac9d939d658e5d06a51ab8ff1aba9
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979176"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416278"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Async Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -45,13 +45,12 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](https://netty.io/)를 지�
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
-* Direct GA
+* 이제 직접 모드 연결이 GA(일반 공급)로 출시되었습니다. 직접 모드 연결을 사용하는 샘플은 [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub 리포지토리를 참조하세요.
 * QueryMetrics 지원이 추가되었습니다.
-* 순서가 중요한 java.util.Collection을 수락하는 API가 java.util.List를 대신 수락하도록 변경되었습니다.
-  이제 ConnectionPolicy#getPreferredLocations(), JsonSerialization 및 PartitionKey(.)는 List를 수락합니다.
+* 순서가 중요한 java.util.Collection을 수락하는 API가 java.util.List를 대신 수락하도록 변경되었습니다. 이제 ConnectionPolicy#getPreferredLocations(), JsonSerialization 및 PartitionKey(.)는 List를 수락합니다.
 
 ### <a name="a-name240-beta-1240-beta-1"></a><a name="2.4.0-beta-1"/>2.4.0-beta-1
-* Direct 지원이 추가되었습니다.
+* 직접 모드 연결 지원이 추가되었습니다.
 * 순서가 중요한 java.util.Collection을 수락하는 API가 java.util.List를 대신 수락하도록 변경되었습니다.
   이제 ConnectionPolicy#getPreferredLocations(), JsonSerialization 및 PartitionKey(.)는 List를 수락합니다.
 * 게이트웨이 모드의 문서 쿼리에 대한 세션 버그를 수정했습니다.

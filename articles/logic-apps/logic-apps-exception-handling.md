@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686265"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308726"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -29,12 +29,12 @@ ms.locfileid: "51686265"
 
 재시도 정책 유형은 다음과 같습니다. 
 
-| type | 설명 | 
+| Type | 설명 | 
 |------|-------------| 
-| [**기본**](#default-retry) | 이 정책은 7.5초마다 [*기하급수적으로 증가하는*](#exponential-retry) 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. | 
-| [**지수 간격**](#exponential-retry)  | 이 정책은 다음 요청을 보내기 전에 기하급수적으로 증가하는 범위에서 선택된 임의의 간격만큼 대기합니다. | 
-| [**고정 간격**](#fixed-retry)  | 이 정책은 다음 요청을 보내기 전에 지정된 간격만큼 대기합니다. | 
-| [**없음**](#no-retry)  | 요청을 다시 보내지 않습니다. | 
+| **기본값** | 이 정책은 7.5초마다 *기하급수적으로 증가하는* 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. | 
+| **지수 간격**  | 이 정책은 다음 요청을 보내기 전에 기하급수적으로 증가하는 범위에서 선택된 임의의 간격만큼 대기합니다. | 
+| **고정 간격**  | 이 정책은 다음 요청을 보내기 전에 지정된 간격만큼 대기합니다. | 
+| **없음**  | 요청을 다시 보내지 않습니다. | 
 ||| 
 
 재시도 정책 제한에 대한 자세한 내용은 [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#request-limits)을 참조하세요. 
@@ -71,7 +71,7 @@ ms.locfileid: "51686265"
 
 *필수*
 
-| 값 | type | 설명 |
+| 값 | Type | 설명 |
 |-------|------|-------------|
 | <*retry-policy-type*> | 문자열 | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) | 
 | <*retry-interval*> | 문자열 | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. | 
@@ -80,7 +80,7 @@ ms.locfileid: "51686265"
 
 *선택 사항*
 
-| 값 | type | 설명 |
+| 값 | Type | 설명 |
 |-------|------|-------------|
 | <*minimum-interval*> | 문자열 | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
 | <*maximum-interval*> | 문자열 | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 

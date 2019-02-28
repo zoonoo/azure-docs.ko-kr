@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 51376661530d5de67e0efeacbcfd0d3a56078511
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 492beba1040cef3d5a910cc9db3fe16b41c33cd6
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117955"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301590"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
 
@@ -246,7 +246,7 @@ Network Watcher는 진단 로그 보기를 제공합니다. 이 보기에는 진
 
 Application Insights는 성능 및 유용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
 
-온-프레미스 또는 클라우드에서 호스팅되는지 여부에 관계없이 .NET, Node.js 및 J2EE를 포함하여 다양한 플랫폼의 응용 프로그램에서 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점이 있습니다.
+온-프레미스 또는 클라우드에서 호스팅되는지 여부에 관계없이 .NET, Node.js 및 Java EE를 포함하여 다양한 플랫폼의 애플리케이션에서 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점이 있습니다.
 
 ![Application Insights 다이어그램](./media/azure-log-audit/azure-log-audit-fig6.png)
 

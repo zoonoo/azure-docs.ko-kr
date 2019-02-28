@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 1/29/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 85c5947fa32751bd8381d6a1d59e91ba2026f5f0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: be6823486490ca6bc414e89c62a22f996aa27089
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822785"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329952"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
@@ -88,7 +88,7 @@ VMware 가상 머신을 복제하는 경우:
 2. **속성**에서 해당 VM에 대한 복제 및 장애 조치(failover) 정보를 볼 수 있습니다.
 3. **컴퓨팅 및 네트워크** > **컴퓨팅 속성**에서 여러 VM 속성을 변경할 수 있습니다.
 * Azure VM 이름 - 필요한 경우 Azure 요구 사항을 준수하도록 이름을 수정합니다.
-* 대상 VM 크기 또는 유형 - 원본 VM 크기를 기준으로 기본 VM 크기가 선택됩니다. 장애 조치(failover) 전에 언제든지 필요에 따라 다른 VM 크기를 선택할 수 있습니다. 원본 디스크도 VM 디스크 크기의 기준이 됩니다. VM 디스크 크기는 장애 조치(failover) 후에만 변경할 수 있습니다. [Standard](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) 및 [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) 디스크 크기와 IOPS에 대해 자세히 알아보세요.
+* 대상 VM 크기 또는 유형 - 원본 VM 크기를 기준으로 기본 VM 크기가 선택됩니다. 장애 조치(failover) 전에 언제든지 필요에 따라 다른 VM 크기를 선택할 수 있습니다. 원본 디스크도 VM 디스크 크기의 기준이 됩니다. VM 디스크 크기는 장애 조치(failover) 후에만 변경할 수 있습니다. [디스크에 대한 확장성 목표](../virtual-machines/windows/disk-scalability-targets.md) 문서에서 디스크 크기 및 IOPS에 대해 자세히 알아봅니다.
 
     ![계산 및 네트워크 속성](./media/vmware-azure-enable-replication/vmproperties.png)
 

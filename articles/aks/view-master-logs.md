@@ -7,34 +7,34 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: a8fefdf352507f0e0c0757625297f667907eb9bc
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230597"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455996"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토
 
-AKS(Azure Kubernetes Service)에서 *kube-apiserver* 및 *kube-controller-manager* 같은 마스터 구성 요소는 관리되는 서비스로 제공됩니다. *kubelet* 및 컨테이너 런타임을 실행하는 노드를 생성 및 관리하고, 관리되는 Kubernetes API 서버를 통해 애플리케이션을 배포합니다. 애플리케이션 및 서비스의 문제를 해결하려면 이러한 마스터 구성 요소에서 생성한 로그를 확인해야 합니다. 이 문서에서는 Azure Log Analytics를 사용하여 Kubernetes 마스터 구성 요소의 로그를 활성화하고 쿼리하는 방법을 보여 줍니다.
+AKS(Azure Kubernetes Service)에서 *kube-apiserver* 및 *kube-controller-manager* 같은 마스터 구성 요소는 관리되는 서비스로 제공됩니다. *kubelet* 및 컨테이너 런타임을 실행하는 노드를 생성 및 관리하고, 관리되는 Kubernetes API 서버를 통해 애플리케이션을 배포합니다. 애플리케이션 및 서비스의 문제를 해결하려면 이러한 마스터 구성 요소에서 생성한 로그를 확인해야 합니다. 이 문서에서는 Azure Monitor 로그를 사용하여 Kubernetes 마스터 구성 요소의 로그를 활성화하고 쿼리하는 방법을 보여 줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서의 경우 Azure 계정에서 실행 중인 기존 AKS 클러스터가 필요합니다. AKS 클러스터가 아직 없는 경우 [Azure CLI] [ cli-quickstart] 또는 [Azure Portal][portal-quickstart]을 사용하여 만듭니다. Log Analytics는 RBAC 지원 및 RBAC 미지원 AKS 클러스터 모두에서 작동합니다.
+이 문서의 경우 Azure 계정에서 실행 중인 기존 AKS 클러스터가 필요합니다. AKS 클러스터가 아직 없는 경우 [Azure CLI] [ cli-quickstart] 또는 [Azure Portal][portal-quickstart]을 사용하여 만듭니다. Azure Monitor 로그는 RBAC 지원 및 RBAC 미지원 AKS 클러스터 둘 다에서 작동합니다.
 
 ## <a name="enable-diagnostics-logs"></a>진단 로그 사용
 
-Log Analytics는 여러 소스의 데이터를 수집하고 검토하는 데 도움이 되도록 환경에 대한 통찰력을 제공하는 분석 엔진과 쿼리 언어를 제공합니다. 작업 영역은 데이터를 정렬하고 분석하는 데 사용되며, Application Insights 및 Security Center와 같은 다른 Azure 서비스와 통합할 수 있습니다. 다른 플랫폼을 사용하여 로그를 분석하려면 Azure 저장소 계정 또는 이벤트 허브로 진단 로그를 보내는 옵션을 대신 선택할 수 있습니다. 자세한 내용은 [Azure Log Analytics란?][log-analytics-overview]을 참조하세요.
+Azure Monitor 로그는 여러 원본의 데이터를 수집하고 검토하는 데 도움이 되도록 환경에 대한 인사이트를 제공하는 분석 엔진과 쿼리 언어를 제공합니다. 작업 영역은 데이터를 정렬하고 분석하는 데 사용되며, Application Insights 및 Security Center와 같은 다른 Azure 서비스와 통합할 수 있습니다. 다른 플랫폼을 사용하여 로그를 분석하려면 Azure 저장소 계정 또는 이벤트 허브로 진단 로그를 보내는 옵션을 대신 선택할 수 있습니다. 자세한 내용은 [Azure Monitor 로그란?][log-analytics-overview]을 참조하세요.
 
-Log Analytics는 Azure Portal에서 사용하도록 설정되고 관리됩니다. AKS 클러스터의 Kubernetes 마스터 구성 요소에 대한 로그 수집을 사용하도록 설정하려면 웹 브라우저에서 Azure Portal을 열고 다음 단계를 완료하세요.
+Azure Monitor 로그는 Azure Portal에서 사용하도록 설정되고 관리됩니다. AKS 클러스터의 Kubernetes 마스터 구성 요소에 대한 로그 수집을 사용하도록 설정하려면 웹 브라우저에서 Azure Portal을 열고 다음 단계를 완료하세요.
 
 1. AKS 클러스터의 리소스 그룹(예: *myResourceGroup*)을 선택합니다. 개별 AKS 클러스터 리소스가 포함된 리소스 그룹(예: *MC_myResourceGroup_myAKSCluster_eastus*)은 선택하지 마세요.
 1. 왼쪽에서 **진단 설정**을 선택합니다.
 1. AKS 클러스터(예: *myAKSCluster*)를 선택한 후 **진단 켜기**.
-1. *myAKSClusterLogs*와 같은 이름을 입력한 후 **Log Analytics에 보내기** 옵션을 선택합니다.
-    * Log Analytics *구성*을 선택한 후 기존 작업 영역을 선택하거나 **새 작업 영역 만들기**를 선택합니다.
+1. *myAKSClusterLogs* 등의 이름을 입력하고 **Log Analytics 작업 영역에 보내기** 옵션을 선택합니다.
+    * Log Analytics 작업 영역 ‘구성’을 선택한 다음, 기존 작업 영역을 선택하거나 **새 작업 영역 만들기**를 선택합니다.
     * 작업 영역을 만들어야 하는 경우, 이름, 리소스 그룹 및 위치를 지정합니다.
-1. 사용 가능한 로그 목록에서 사용하도록 설정하려는 로그를 선택합니다. 기본적으로 *kube-apiserver*, *kube-controller-manager* 및 *kube-scheduler* 로그가 사용하도록 설정됩니다. *kube-audit* 및 *cluster-autoscaler*와 같은 추가 로그를 사용하도록 설정할 수 있습니다. Log Analytics가 사용하도록 설정되면 수집된 로그를 반환하고 변경할 수 있습니다.
+1. 사용 가능한 로그 목록에서 사용하도록 설정하려는 로그를 선택합니다. 기본적으로 *kube-apiserver*, *kube-controller-manager* 및 *kube-scheduler* 로그가 사용하도록 설정됩니다. *kube-audit* 및 *cluster-autoscaler*와 같은 추가 로그를 사용하도록 설정할 수 있습니다. Log Analytics 작업 영역이 사용하도록 설정되면 수집된 로그를 반환하고 변경할 수 있습니다.
 1. 준비되면 **저장**을 선택하여 선택된 로그의 수집을 사용하도록 설정합니다.
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Log Analytics는 Azure Portal에서 사용하도록 설정되고 관리됩니다
 
 다음의 예제 포털 스크린샷에서는 *진단 설정* 창과 Log Analytics 작업 영역 생성 옵션을 보여줍니다.
 
-![AKS 클러스터의 Log Analytics에 대한 Log Analytics 작업 영역을 사용하도록 설정](media/view-master-logs/enable-oms-log-analytics.png)
+![AKS 클러스터의 Azure Monitor 로그에 대해 Log Analytics 작업 영역을 사용하도록 설정](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>AKS 클러스터의 테스트 Pod 예약
 
@@ -115,7 +115,7 @@ AzureDiagnostics
 
 추가 로그를 보려면 사용하도록 설정할 추가 로그에 따라 쿼리에서 *Category* 이름을 *kube-controller-manager* 또는 *kube-scheduler*로 업데이트하면 됩니다. 이때 검색하려는 이벤트를 구체화하기 위해 추가적인 *where* 문을 사용할 수 있습니다.
 
-로그 데이터를 쿼리하고 필터링하는 방법에 대한 자세한 내용을 보려면 [Log Analytics 로그 검색으로 수집된 데이터 보기 또는 분석][analyze-log-analytics]을 참조하세요.
+로그 데이터를 쿼리하고 필터링하는 방법에 대한 자세한 내용은 [Log Analytics 로그 검색을 사용하여 수집한 데이터 보기 또는 분석][analyze-log-analytics]을 참조하세요.
 
 ## <a name="log-event-schema"></a>로그 이벤트 스키마
 

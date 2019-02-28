@@ -2,24 +2,24 @@
 title: Node.js를 사용하여 이벤트 전송 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에서 이벤트를 보내는 Node.js 애플리케이션을 만드는 연습을 제공합니다.
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 7281e6bb2dda5dc3fddb5f39bf271293ebb88a73
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/19/2019
+ms.author: spelluru
+ms.openlocfilehash: ec3182d11f1b2ffa31acd05fa1f2db695f3f2cf7
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732022"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447721"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Node.js를 사용하여 Azure Event Hubs로 이벤트 전송
 
-Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
+Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
 이 자습서에서는 Node.js로 작성된 애플리케이션에서 이벤트 허브로 이벤트를 전송하는 방법을 설명합니다.
 
@@ -34,7 +34,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 - Visual Studio Code(권장) 또는 다른 IDE
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 이벤트 허브 만들기
-첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스와 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 수행한 다음, 이 자습서의 다음 단계를 진행하세요.
+첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스와 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 수행한 다음, 이 자습서의 다음 단계를 계속 진행하세요.
 
 문서의 지침에 따라 이벤트 허브 네임스페이스에 대한 연결 문자열을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 해당 연결 문자열은 이 자습서의 뒷부분에서 사용합니다.
 
@@ -56,7 +56,7 @@ GitHub에서 [샘플](https://github.com/Azure/azure-event-hubs-node/tree/master
 
 1. Visual Studio Code에서 프로젝트를 엽니다. 
 2. **client** 폴더에 **.env**라는 파일을 만듭니다. 루트 폴더의 **sample.env**에서 샘플 환경 변수를 복사하여 붙여넣습니다.
-3. 이벤트 허브 연결 문자열, 이벤트 허브 이름 및 저장소 엔드포인트를 구성합니다. Azure Portal 이벤트 허브 페이지의 **RootManageSharedAccessKey** 아래 **연결 문자열-기본** 키에서 이벤트 허브의 연결 문자열을 복사할 수 있습니다. 자세한 단계는 [연결 문자열 가져오기](event-hubs-create.md#create-an-event-hubs-namespace)를 참조하세요.
+3. 이벤트 허브 연결 문자열, 이벤트 허브 이름 및 저장소 엔드포인트를 구성합니다. 이벤트 허브에 대한 연결 문자열을 가져오는 방법에 대한 자세한 내용은 [연결 문자열 가져오기](event-hubs-create.md#create-an-event-hubs-namespace)를 참조하세요.
 4. Azure CLI에서 **client** 폴더 경로로 이동합니다. 다음 명령을 실행하여 node 패키지를 설치하고 프로젝트를 빌드합니다.
 
     ```shell
@@ -71,29 +71,39 @@ GitHub에서 [샘플](https://github.com/Azure/azure-event-hubs-node/tree/master
 
 
 ## <a name="review-the-sample-code"></a>샘플 코드 검토 
-node.js를 사용하여 이벤트 허브로 이벤트를 전송하는 샘플 코드는 다음과 같습니다. sampleSender.js 파일을 수동으로 만든 다음, 실행하면 이벤트 허브로 이벤트를 전송할 수 있습니다. 
-
+이벤트 허브로 이벤트를 보내려면 simpleSender.js 파일의 샘플 코드를 검토합니다.
 
 ```javascript
-const { EventHubClient, EventPosition } = require('@azure/event-hubs');
-
-const client = EventHubClient.createFromConnectionString(process.env["EVENTHUB_CONNECTION_STRING"], process.env["EVENTHUB_NAME"]);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const lib_1 = require("../lib");
+const dotenv = require("dotenv");
+dotenv.config();
+const connectionString = "EVENTHUB_CONNECTION_STRING";
+const entityPath = "EVENTHUB_NAME";
+const str = process.env[connectionString] || "";
+const path = process.env[entityPath] || "";
 
 async function main() {
-    // NOTE: For receiving events from Azure Stream Analytics, please send Events to an EventHub where the body is a JSON object/array.
-    // const eventData = { body: { "message": "Hello World" } };
-    const data = { body: "Hello World 1" };
+    const client = lib_1.EventHubClient.createFromConnectionString(str, path);
+    const data = {
+        body: "Hello World!!"
+    };
     const delivery = await client.send(data);
-    console.log("message sent successfully.");
+    console.log(">>> Sent the message successfully: ", delivery.tag.toString());
+    console.log(delivery);
+    console.log("Calling rhea-promise sender close directly. This should result in sender getting reconnected.");
+    await Object.values(client._context.senders)[0]._sender.close();
+    // await client.close();
 }
 
 main().catch((err) => {
-    console.log(err);
+    console.log("error: ", err);
 });
 
 ```
 
-스크립트를 실행하기 전에 환경 변수를 설정하세요. 다음 예제에 나와 있는 것처럼 명령줄에서 환경 변수를 구성할 수도 있고 [dotenv package](https://www.npmjs.com/package/dotenv#dotenv)를 사용할 수도 있습니다. 
+스크립트를 실행하기 전에 환경 변수를 설정하세요. 다음 예제와 같이 명령줄에서 환경 변수를 구성할 수도 있고, [dotenv package](https://www.npmjs.com/package/dotenv#dotenv)를 사용할 수도 있습니다. 
 
 ```shell
 // For windows

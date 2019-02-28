@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 11/17/2018
+ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 9a96edbc70eeda8acee792a71d84b4a2c6c4fef8
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 247d72396d1737d568a89656c544bbe699f11e30
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745387"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342391"
 ---
 # <a name="analyzing-video-and-audio-files"></a>비디오 및 오디오 파일 분석
 
 Azure Media Services v3을 사용하면 AMS v3 분석기 사전 설정(이 문서에 설명되어 있음)을 통해 Video Indexer로 비디오 및 오디오 파일에서 인사이트를 추출할 수 있습니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요. Video Indexer 및 Media Services 분석기 미리 설정을 사용하려는 경우를 이해하려면 [비교 문서](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 확인하세요.
 
-Media Services v3 사전 설정을 사용하여 콘텐츠를 분석하려면 **Transform**을 만들고 다음 사전 설정 중 하나를 사용하는 **Job**을 제출합니다. **AudioAnalyzerPreset** 또는 **VideoAnalyzerPreset**. 다음 문서에서는 **VideoAnalyzerPreset**을 사용하는 방법을 설명합니다. [자습서: Azure Media Services를 통해 비디오 분석](analyze-videos-tutorial-with-api.md).
+Media Services v3 사전 설정을 사용하여 콘텐츠를 분석하려면 **Transform**을 만들고 다음 사전 설정 중 하나를 사용하는 **Job**을 제출합니다. [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) 또는 **AudioAnalyzerPreset**. 다음 문서에서는 **VideoAnalyzerPreset**을 사용하는 방법을 설명합니다. [자습서: Azure Media Services를 통해 비디오 분석](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > 비디오 또는 오디오 분석기 사전 설정을 사용할 때는 Azure Portal을 통해 S3 미디어 예약 10단위를 갖도록 계정을 설정합니다. 자세한 내용은 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)을 참조하세요.

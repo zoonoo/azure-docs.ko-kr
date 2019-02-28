@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: ce95406cbcb6d9514159d84d653a9ff361713aec
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: bdba294e1ee776d90b93f715e930ec26765abb7f
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744401"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343037"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
 
 일반적으로 Azure 리소스는 Azure 구독의 리소스 그룹에 배포합니다. 그러나 Azure 리소스 그룹을 만들고 구독 수준에서 Azure 리소스를 만들 수도 있습니다. 구독 수준에서 템플릿을 배포하려면 Azure CLI 및 Azure PowerShell을 사용합니다. Azure Portal은 구독 수준의 배포를 지원하지 않습니다.
 
-Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 및 위치를 사용하여 [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) 리소스를 정의합니다. 리소스 그룹을 만든 후 동일한 템플릿에서 해당 리소스 그룹에 리소스를 배포할 수 있습니다. 구독 수준에서 배포할 수 있는 리소스는 다음과 같습니다. [정책](../azure-policy/azure-policy-introduction.md) 및 [역할 기반 액세스 제어](../role-based-access-control/overview.md).
+Azure Resource Manager 템플릿에서 리소스 그룹을 만들려면 리소스 그룹의 이름 및 위치를 사용하여 [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions) 리소스를 정의합니다. 리소스 그룹을 만든 후 동일한 템플릿에서 해당 리소스 그룹에 리소스를 배포할 수 있습니다. 구독 수준에서 배포할 수 있는 리소스는 다음과 같습니다. [정책](../governance/policy/overview.md) 및 [역할 기반 액세스 제어](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -307,7 +307,7 @@ New-AzDeployment `
 
 ### <a name="define-and-assign-policy"></a>정책 정의 및 할당
 
-정책은 같은 서식 파일에 [정의](../azure-policy/policy-definition.md)하고 할당할 수 있습니다.
+정책은 같은 서식 파일에 [정의](../governance/policy/concepts/definition-structure.md)하고 할당할 수 있습니다.
 
 ```json
 {

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 6f34e1a611ddb477f38a703a49aeb8a178157671
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 8f5a0a22ecea0b5df0f4108984b2a65d4add2bf8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120277"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301777"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
 
@@ -35,7 +35,7 @@ Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로
 * [ASP.NET 웹 앱](../../azure-monitor/app/asp-net.md)
   * [예외 모니터링 추가](../../azure-monitor/app/asp-net-exceptions.md)
   * [종속성 모니터링 추가](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [J2EE 웹앱](../../azure-monitor/app/java-get-started.md)
+* [Java EE 웹앱](../../azure-monitor/app/java-get-started.md)
   * [종속성 모니터링 추가](../../azure-monitor/app/java-agent.md)
 
 ## <a name="view"></a>성능 메트릭 탐색

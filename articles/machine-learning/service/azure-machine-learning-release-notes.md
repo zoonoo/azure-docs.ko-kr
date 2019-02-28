@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e7cc1340a85e1d00c2f64abeb35a99052184c52
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: f02a44f41eba8cc4298b9fc730354799ca0aad0c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100179"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446769"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -29,7 +29,7 @@ ms.locfileid: "56100179"
 ### <a name="azure-machine-learning-sdk-for-python-v1015"></a>Python용 Azure Machine Learning SDK v1.0.15
 
 + **새로운 기능**
-  + Azure Machine Learning 파이프라인에 AzureBatchStep([Notebook](https://aka.ms/pl-azbatch)), HyperDriveStep([Notebook](https://aka.ms/pl-hyperdrive)) 및 시간 기반 일정 예약 기능([Notebook](https://aka.ms/pl-schedule))이 추가되었습니다.
+  + Azure Machine Learning Pipelines에 AzureBatchStep([Notebook](https://aka.ms/pl-azbatch)), HyperDriveStep([Notebook](https://aka.ms/pl-hyperdrive)) 및 시간 기반 일정 예약 기능([Notebook](https://aka.ms/pl-schedule))이 추가되었습니다.
   +  DataTranferStep이 Azure SQL Server 및 Azure Database for PostgreSQL에서 작동하도록 업데이트되었습니다([Notebook](https://aka.ms/pl-data-trans)).
 
 + **변경된 기능**

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 880b4e4ce09fec3caf70586c2cfb54236d13b668
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8bcb00029acbe8c64e29addbc9291a694f1de98b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996307"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267720"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights 설정: 종속성 추적
 *종속성*은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](../../azure-monitor/app/app-insights-overview.md)는 애플리케이션이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 측정합니다. 특정 호출을 조사하여 요청 및 예외와 연관지을 수 있습니다.
@@ -133,7 +133,7 @@ ms.locfileid: "55996307"
 ![요청 유형을 클릭하고, 인스턴스를 클릭하여 동일한 인스턴스의 다른 보기로 이동하고, 클릭하여 예외 세부 정보를 표시합니다.](./media/asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>분석
-[데이터 탐색기 쿼리 언어](https://aka.ms/LogAnalyticsLanguage)에서 종속성을 추적할 수 있습니다. 다음은 몇 가지 예제입니다.
+[Kusto 쿼리 언어](/azure/kusto/query/)에서 종속성을 추적할 수 있습니다. 다음은 몇 가지 예제입니다.
 
 * 실패한 종속성 호출을 찾습니다.
 

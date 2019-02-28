@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Cosmos DB에서 고가용성을 제공하
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fc818d2d7db60a8def99c2ad635580253dc795e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b5e99b421e66f087a1793f5301736e192ef75c08
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109761"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311242"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
@@ -64,19 +64,7 @@ Cosmos 계정이 N개 Azure 지역에 분산된 경우 데이터 복사본은 �
 
 - Cosmos 계정의 가용성이 높더라도 애플리케이션이 고가용성을 유지하도록 올바르게 설계되지 않았을 수도 있습니다. 애플리케이션에 대해 종단 간 고가용성을 테스트하려면 애플리케이션 테스트 또는 DR(재해 복구) 훈련의 일환으로 [Azure CLI 또는 Azure Portal을 사용하여 수동 장애 조치(failover)](how-to-manage-database-account.md#manual-failover)를 주기적으로 호출합니다.
 
-
-비즈니스 연속성 계획을 개발할 때는 중단 이벤트가 발생한 후 애플리케이션이 완전히 복구되기까지 허용되는 최대 시간을 이해해야 합니다. 애플리케이션을 완전히 복구하는 데 필요한 시간을 RTO(복구 시간 목표)라고 합니다. 또한 중단 이벤트가 발생한 후 복구될 때 애플리케이션에서 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 기간도 이해해야 합니다. 손실될 수 있는 업데이트 기간을 RPO(복구 지점 목표)라고 합니다.
-
-다음 표에는 가장 일반적인 시나리오에 대한 RPO와 RTO가 있습니다.
-
-|지역 수 |구성 |일관성 수준|RPO |RTO |
-|---------|---------|---------|-------|-------|
-|1    | *    |*   | < 240분 | < 1주 |
-|>1     | 단일 마스터 복제 | 세션, 일관된 접두사, 최종 | < 15분 | < 15분 |
-|>1     | 단일 마스터 복제 | 제한된 부실 | K & T | < 15분 |
-|>1     | 다중 마스터 복제 | 세션, 일관된 접두사, 최종 | < 15분 | 0 |
-|>1     | 다중 마스터 복제 | 제한된 부실 | K & T | 0 |
-|>1     | * | 강력 | 0 | < 15분 |
+- 전 세계적으로 분산된 데이터베이스 환경에서 지역 전체 가동 중단이 발생할 경우, 일관성 수준과 데이터 내구성 사이에 직접적인 관계가 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트가 발생한 후 애플리케이션이 완전히 복구되기까지 허용되는 최대 시간을 이해해야 합니다. 애플리케이션을 완전히 복구하는 데 필요한 시간을 RTO(복구 시간 목표)라고 합니다. 또한 중단 이벤트가 발생한 후 복구될 때 애플리케이션에서 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 기간도 이해해야 합니다. 손실될 수 있는 업데이트 기간을 RPO(복구 지점 목표)라고 합니다. Azure Cosmos DB의 RPO 및 RTO를 확인하려면 [일관성 수준 및 데이터 내구성](consistency-levels-tradeoffs.md#rto)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

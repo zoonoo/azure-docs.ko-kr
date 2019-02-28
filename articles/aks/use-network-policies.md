@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: ade5a39273aa807f6c69f76342a0f715c7a96309
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232177"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447177"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -27,21 +27,7 @@ Kubernetes에서 최신 마이크로 서비스 기반 애플리케이션을 실�
 
 Azure CLI 버전 2.0.56 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
-## <a name="overview-of-network-policy"></a>네트워크 정책 개요
-
-기본적으로 AKS 클러스터의 모든 pod는 트래픽을 제한 없이 송수신할 수 있습니다. 보안을 강화하기 위해 트래픽의 흐름을 제어하는 규칙을 정의할 수 있습니다. 예를 들어, 백 엔드 애플리케이션은 필요한 프런트 엔드 서비스에만 자주 제공되고, 데이터베이스 구성 요소는 연결된 애플리케이션 계층에서만 액세스할 수 있습니다.
-
-네트워크 정책은 pod 간 트래픽 흐름을 제어할 수 있는 Kubernetes 리소스입니다. 할당된 레이블, 네임스페이스 또는 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 정책은 YAML 매니페스트로 정의되고, 배포 또는 서비스도 만드는 보다 광범위한 매니페스트의 일부로 포함될 수 있습니다.
-
-작동 중인 네트워크 정책을 보기 위해 다음과 같이 트래픽 흐름을 정의하는 정책을 만든 후 확장해 보겠습니다.
-
-* pod에 대한 모든 트래픽을 거부합니다.
-* pod 레이블을 기준으로 트래픽을 허용합니다.
-* 네임스페이스를 기준으로 트래픽을 허용합니다.
-
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>AKS 클러스터 만들기 및 네트워크 정책 사용
-
-네트워크 정책은 클러스터를 만든 경우에만 사용하도록 설정할 수 있습니다. 기존 AKS 클러스터에서는 네트워크 정책을 사용하도록 설정할 수 없습니다. 네트워크 정책을 사용하여 AKS를 만들려면 먼저 구독에 대해 기능 플래그를 사용하도록 설정합니다. *EnableNetworkPolicy* 기능 플래그를 등록하려면 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용합니다.
+네트워크 정책을 사용하여 AKS를 만들려면 먼저 구독에 대해 기능 플래그를 사용하도록 설정합니다. *EnableNetworkPolicy* 기능 플래그를 등록하려면 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용합니다.
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
@@ -59,7 +45,25 @@ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/E
 az provider register --namespace Microsoft.ContainerService
 ```
 
-AKS 클러스터에서 네트워크 정책을 사용하려면 [Azure CNI 플러그 인][azure-cni]을 사용하고 사용자 고유의 가상 네트워크 및 서브넷을 정의해야 합니다. 필요한 서브넷 범위를 계획하는 방법에 대한 자세한 내용은 [고급 네트워킹 구성][use-advanced-networking]을 참조하세요. 다음 예제 스크립트는 다음과 같은 작업을 수행합니다.
+## <a name="overview-of-network-policy"></a>네트워크 정책 개요
+
+기본적으로 AKS 클러스터의 모든 pod는 트래픽을 제한 없이 송수신할 수 있습니다. 보안을 강화하기 위해 트래픽의 흐름을 제어하는 규칙을 정의할 수 있습니다. 예를 들어, 백 엔드 애플리케이션은 필요한 프런트 엔드 서비스에만 자주 제공되고, 데이터베이스 구성 요소는 연결된 애플리케이션 계층에서만 액세스할 수 있습니다.
+
+네트워크 정책은 pod 간 트래픽 흐름을 제어할 수 있는 Kubernetes 리소스입니다. 할당된 레이블, 네임스페이스 또는 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 정책은 YAML 매니페스트로 정의되고, 배포 또는 서비스도 만드는 보다 광범위한 매니페스트의 일부로 포함될 수 있습니다.
+
+작동 중인 네트워크 정책을 보기 위해 다음과 같이 트래픽 흐름을 정의하는 정책을 만든 후 확장해 보겠습니다.
+
+* pod에 대한 모든 트래픽을 거부합니다.
+* pod 레이블을 기준으로 트래픽을 허용합니다.
+* 네임스페이스를 기준으로 트래픽을 허용합니다.
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>AKS 클러스터 만들기 및 네트워크 정책 사용
+
+네트워크 정책은 클러스터를 만든 경우에만 사용하도록 설정할 수 있습니다. 기존 AKS 클러스터에서는 네트워크 정책을 사용하도록 설정할 수 없습니다. 
+
+AKS 클러스터에서 네트워크 정책을 사용하려면 [Azure CNI 플러그 인][azure-cni]을 사용하고 사용자 고유의 가상 네트워크 및 서브넷을 정의해야 합니다. 필요한 서브넷 범위를 계획하는 방법에 대한 자세한 내용은 [고급 네트워킹 구성][use-advanced-networking]을 참조하세요.
+
+다음 예제 스크립트는 다음과 같은 작업을 수행합니다.
 
 * 가상 네트워크 및 서브넷을 만듭니다.
 * AKS 클러스터에서 사용할 Azure AD(Active Directory) 서비스 주체를 만듭니다.
@@ -86,7 +90,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-read SP_ID <<< $(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
+SP_ID=$(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
 
 # Wait 15 seconds to make sure that service principal has propagated
 echo "Waiting for service principal to propagate..."
@@ -241,6 +245,9 @@ spec:
           app: webapp
           role: frontend
 ```
+
+> [!NOTE]
+> 이 네트워크 정책은 수신 규칙에 대해 *namespaceSelector* 및 *podSelector* 요소를 사용합니다. YAML 구문은 수신 규칙의 추가 여부에 중요합니다. 이 예제에서 수신 규칙이 적용되려면 두 요소가 모두 일치해야 합니다. Kubernetes *1.12* 이전 버전에서는 이러한 요소가 올바르게 해석되지 않아 네트워크 트래픽이 예상대로 제한되지 않을 수 있습니다. 자세한 내용은 [to 및 from 선택기][policy-rules]의 동작을 참조하세요.
 
 [kubectl apply][kubectl-apply] 명령을 사용하여 업데이트된 네트워크 정책을 적용하고 YAML 매니페스트의 이름을 지정합니다.
 
@@ -442,6 +449,7 @@ kubectl delete namespace development
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

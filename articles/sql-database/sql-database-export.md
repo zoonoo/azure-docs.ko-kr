@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database를 BACPAC 파일로 내보내기 | Microsoft Docs
+title: 단일 또는 풀링된 Azure SQL Database를 BACPAC 파일로 내보내기 | Microsoft Docs
 description: Azure Portal을 사용하여 Azure SQL 데이터베이스를 BACPAC 파일로 내보내기
 services: sql-database
 ms.service: sql-database
@@ -11,22 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 050da5e71fd804055d0a2ece1150b79b3922170f
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.date: 02/18/2019
+ms.openlocfilehash: 757d7e039b24beb170545d8055bad16410cf7883
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100587"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415887"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL Database를 BACPAC 파일로 내보내기
 
 다른 플랫폼에 보관하거나 이동하기 위해 데이터베이스를 내보내야 할 경우 데이터베이스 스키마 및 데이터를 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일로 내보낼 수 있습니다. BACPAC 파일은 메타데이터 및 SQL Server 데이터베이스의 데이터를 포함하는 BACPAC의 확장명을 가진 ZIP 파일입니다. BACPAC 파일은 Azure Blob Storage 또는 온-프레미스 스토리지의 로컬 스토리지에 저장할 수 있으며 나중에 Azure SQL Database 또는 SQL Server 온-프레미스 설치로 다시 가져올 수 있습니다.
-
-> [!IMPORTANT]
-> Azure SQL Database 자동화된 내보내기는 2017년 3월 1일에 사용이 중지되었습니다. [장기 백업 보존](sql-database-long-term-retention.md
-) 또는 [Azure Automation](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md)을 사용하여 선택한 일정에 따라 PowerShell을 사용해 주기적으로 SQL Database를 보관할 수 있습니다. 샘플의 경우 GitHub에서 [샘플 PowerShell 스크립트](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)를 다운로드합니다.
->
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Azure SQL Database를 내보낼 경우 고려 사항
 
@@ -34,6 +29,7 @@ ms.locfileid: "56100587"
 - Blob Storage로 내보내는 경우 BACPAC 파일의 최대 크기는 200GB입니다. 더 큰 BACPAC 파일을 보관하려면 로컬 저장소로 내보냅니다.
 - 이 문서에서 설명하는 방법을 사용하여 Azure Premium Storage에서 BACPAC 파일을 내보낼 수는 없습니다.
 - Azure SQL Database에서 내보내기 작업이 20시간을 초과하면 취소될 수 있습니다. 내보내는 중에 성능을 향상시키기 위해 다음을 수행할 수 있습니다.
+
   - 계산 크기를 일시적으로 늘립니다.
   - 내보내기 중에 모든 읽기 및 쓰기 작업 중단
   - 모든 대형 테이블에 null이 아닌 값의 [클러스터형 인덱스](https://msdn.microsoft.com/library/ms190457.aspx) 를 사용합니다. 클러스터형 인덱스가 없는 경우 6~12시간 이상 소요되면 내보내기에 실패할 수 있습니다. 전체 테이블 내보내기를 시도하려면 내보내기 서비스에서 테이블 스캔을 완료해야 하기 때문입니다. 테이블이 내보내기에 최적화되었는지 확인하는 좋은 방법은 **DBCC SHOW_STATISTICS**를 실행하고 *RANGE_HI_KEY*가 null이 아닌지와 해당 값이 잘 배포되어 있는지 검토하는 것입니다. 자세한 내용은 [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)를 참조하세요.
@@ -43,14 +39,22 @@ ms.locfileid: "56100587"
 
 ## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Azure Portal을 사용하여 BACPAC 파일로 내보내기
 
-[Azure Portal](https://portal.azure.com)을 사용하여 데이터베이스를 내보내려면 데이터베이스에 대한 페이지를 열고 도구 모음에서 **내보내기**를 클릭합니다. BACPAC 파일 이름을 지정하고, 내보내기에 필요한 Azure Storage 계정 및 컨테이너를 제공하고, 원본 데이터베이스에 연결할 자격 증명을 제공합니다.
+> [!NOTE]
+> [관리되는 인스턴스](sql-database-managed-instance.md)는 현재 Azure Portal을 사용하여 데이터베이스를 BACPAC 파일로 내보내는 기능을 지원하지 않습니다. 관리되는 인스턴스를 BACPAC 파일로 내보내려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다.
 
-![데이터베이스 내보내기](./media/sql-database-export/database-export.png)
+1. [Azure Portal](https://portal.azure.com)을 사용하여 데이터베이스를 내보내려면 데이터베이스에 대한 페이지를 열고 도구 모음에서 **내보내기**를 클릭합니다.
 
-내보내기 작업의 진행률을 모니터링하려면 내보낼 데이터베이스가 포함된 SQL Database 서버에 해당하는 페이지를 엽니다. 아래로 **작업**이 나올 때까지 스크롤한 다음 **Import/Export** 기록을 클릭합니다.
+   ![데이터베이스 내보내기](./media/sql-database-export/database-export1.png)
 
-![내보내기 기록](./media/sql-database-export/export-history.png)
-![내보내기 기록 상태](./media/sql-database-export/export-history2.png)
+2. BACPAC 파일 이름을 지정하고 내보내기에 대해 기존 Azure Storage 계정 및 컨테이너를 선택한 다음, 원본 데이터베이스에 액세스할 수 있는 적절한 자격 증명을 제공합니다.
+
+    ![데이터베이스 내보내기](./media/sql-database-export/database-export2.png)
+
+3. **확인**을 클릭합니다.
+
+4. 내보내기 작업의 진행률을 모니터링하려면 내보낼 데이터베이스가 포함된 SQL Database 서버에 해당하는 페이지를 엽니다. **설정**에서 **가져오기/내보내기 기록**을 클릭합니다.
+
+   ![내보내기 기록](./media/sql-database-export/export-history.png)
 
 ## <a name="export-to-a-bacpac-file-using-the-sqlpackage-utility"></a>SQLPackage 유틸리티를 사용하여 BACPAC 파일로 내보내기
 
@@ -66,9 +70,12 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.d
 
 ## <a name="export-to-a-bacpac-file-using-sql-server-management-studio-ssms"></a>SSMS(SQL Server Management Studio)를 사용하여 BACPAC 파일로 내보내기
 
-또한 최신 버전의 SQL Server Management Studio에서는 Azure SQL Database를 BACPAC 파일로 내보내기 위한 마법사도 제공합니다. [데이터 계층 애플리케이션 내보내기](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)를 참조하세요.
+최신 버전의 SQL Server Management Studio에서는 Azure SQL 데이터베이스를 BACPAC 파일로 내보내기 위한 마법사를 제공합니다. [데이터 계층 애플리케이션 내보내기](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)를 참조하세요.
 
 ## <a name="export-to-a-bacpac-file-using-powershell"></a>PowerShell을 사용하여 BACPAC 파일로 내보내기
+
+> [!NOTE]
+> [관리되는 인스턴스](sql-database-managed-instance.md)는 현재 Azure PowerShell을 사용하여 데이터베이스를 BACPAC 파일로 내보내는 기능을 지원하지 않습니다. 관리되는 인스턴스를 BACPAC 파일로 내보내려면 SQL Server Management Studio 또는 SQLPackage를 사용합니다.
 
 [New-AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet을 사용하여 Azure SQL Database 서비스에 데이터베이스 내보내기 요청을 제출합니다. 데이터베이스 크기에 따라 내보내기 작업을 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
@@ -95,7 +102,7 @@ $exportStatus
 
 ## <a name="next-steps"></a>다음 단계
 
-- 보관을 위해 데이터베이스를 내보내는 방법의 대안으로 사용되는 Azure SQL Database 백업의 장기 백업 보존에 대해 알아보려면 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
+- 보관을 위해 데이터베이스를 내보내는 방법의 대안으로 사용되는 단일 데이터베이스 및 풀링된 데이터베이스의 장기 백업 보존에 대한 자세한 내용은 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요. SQL 에이전트 작업을 사용하여 장기 백업 보존의 대안으로 [복사 전용 데이터베이스 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server)을 예약할 수 있습니다.
 - BACPAC 파일을 사용하는 마이그레이션에 관한 SQL Server 고객 자문 팀 블로그는 [BACPAC 파일을 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)을 참조하세요.
 - SQL Server Database에 BACPAC를 가져오는 방법에 대해 자세히 알아보려면 [SQL Server Database로 BACPAC 가져오기](https://msdn.microsoft.com/library/hh710052.aspx)를 참조하세요.
 - SQL Server 데이터베이스에서 BACPAC를 내보내는 방법을 알아보려면 [데이터 계층 애플리케이션 내보내기](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)를 참조하세요.

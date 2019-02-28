@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f1700e124d1f572d0bf0ca76ea7c465f1ecf96c1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 35367a9ebc9ff09f40defd444f6ceb8ff54efe07
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657419"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430287"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
 Azure Automation에서 실행되는 Runbook과 Hybrid Runbook Worker에서 실행되는 Runbook은 구조상 차이점이 없습니다. 각 항목에서 사용하는 Runbook은 크게 다를 수 있습니다. Hybrid Runbook Worker를 대상으로 하는 Runbook은 일반적으로 로컬 컴퓨터 자체에서 리소스를 관리하거나 배포된 로컬 환경의 리소스에 맞게 리소스를 관리하기 때문에 이 차이점이 나타납니다. Azure Automation의 Runbook은 일반적으로 Azure 클라우드에서 리소스를 관리합니다.
 
-Hybrid Runbook Worker에서 실행할 Runbook을 작성하는 경우, 하이브리드 작업자를 호스팅하는 컴퓨터 내에서 Runbook을 편집하고 테스트해야 합니다. 호스트 컴퓨터에는 로컬 리소스를 관리하고 액세스하는 데 필요한 모든 PowerShell 모듈과 네트워크 액세스가 있습니다. Hybrid Worker 머신에서 Runbook이 테스트되면 Hybrid Worker에서 실행하는 데 사용할 수 있는 Azure Automation 환경에 업로드할 수 있습니다. Windows용 로컬 시스템 계정 또는 Linux에서 특수 사용자 계정 **nxautomation**으로 실행되는 작업을 알아야 합니다. 이 동작은 Hybrid Runbook Worker의 Runbook을 작성할 때 미묘한 차이점을 추가할 수 있습니다. 자신의 Runbook을 작성하는 경우 이러한 변경 내용을 검토해야 합니다.
+Hybrid Runbook Worker에서 실행할 Runbook을 작성하는 경우, 하이브리드 작업자를 호스팅하는 컴퓨터 내에서 Runbook을 편집하고 테스트해야 합니다. 호스트 컴퓨터에는 로컬 리소스를 관리하고 액세스하는 데 필요한 모든 PowerShell 모듈과 네트워크 액세스가 있습니다. Hybrid Worker 머신에서 Runbook이 테스트되면 Hybrid Worker에서 실행하는 데 사용할 수 있는 Azure Automation 환경에 업로드할 수 있습니다. Windows용 로컬 시스템 계정 또는 Linux용 특수 사용자 계정 `nxautomation`으로 실행되는 작업을 아는 것이 중요합니다. 이 동작은 Hybrid Runbook Worker의 Runbook을 작성할 때 미묘한 차이점을 추가할 수 있습니다. 자신의 Runbook을 작성하는 경우 이러한 변경 내용을 검토해야 합니다.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 시작
 
@@ -44,7 +44,7 @@ Hybrid Runbook Worker에서 실행하는 Runbook은 Azure에 없는 리소스에
 
 ### <a name="runbook-authentication"></a>Runbook 인증
 
-기본적으로 Runbook은 온-프레미스 컴퓨터에서 Windows용 로컬 시스템 계정 및 특별한 Linux용 사용자 계정 **nxautomation**의 컨텍스트에서 실행되므로 액세스하는 리소스에 자체 인증을 제공해야 합니다.
+기본적으로 Runbook은 온-프레미스 컴퓨터에서 Windows용 로컬 시스템 계정 및 Linux용 특수 사용자 계정 `nxautomation`의 컨텍스트에서 실행되므로 액세스하는 리소스에 자체 인증을 제공해야 합니다.
 
 여러 리소스를 인증할 수 있도록 자격 증명을 지정할 수 있는 cmdlet과 함께 Runbook의 [자격 증명](automation-credentials.md) 및 [인증서](automation-certificates.md) 자산을 사용할 수 있습니다. 다음 예제에서는 컴퓨터를 다시 시작하는 Runbook의 일부를 보여 줍니다. 이 예제에서는 자격 증명 자산에서 자격 증명을 검색하고 변수 자산에서 컴퓨터 이름을 검색한 다음 Restart-Computer cmdlet에서 이러한 값을 사용합니다.
 
@@ -59,7 +59,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 ### <a name="runas-account"></a>실행 계정
 
-기본적으로 Hybrid Runbook Worker는 Windows용 로컬 시스템 및 특별한 Linux용 사용자 계정 **nxautomation**을 사용하여 Runbook을 실행합니다. Runbook이 로컬 리소스에 고유한 인증을 제공하는 대신 Hybrid worker 그룹에 **실행** 계정을 지정할 수 있습니다. 로컬 리소스에 액세스 권한이 있는 [자격 증명 자산](automation-credentials.md)을 지정하고 그룹의 Hybrid Runbook Worker에서 실행될 때 모든 Runbook이 이러한 자격 증명으로 실행됩니다.
+기본적으로 Hybrid Runbook Worker는 Windows용 로컬 시스템 및 Linux용 특수 사용자 계정 `nxautomation`을 사용하여 Runbook을 실행합니다. Runbook이 로컬 리소스에 고유한 인증을 제공하는 대신 Hybrid worker 그룹에 **실행** 계정을 지정할 수 있습니다. 로컬 리소스에 액세스 권한이 있는 [자격 증명 자산](automation-credentials.md)을 지정하고 그룹의 Hybrid Runbook Worker에서 실행될 때 모든 Runbook이 이러한 자격 증명으로 실행됩니다.
 
 자격 증명에 대한 사용자 이름은 다음 서식 중 하나여야 합니다.
 
@@ -247,7 +247,7 @@ $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprin
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Runbook이 서명되고 나면, Automation 계정으로 가져오고 서명 블록과 함께 게시해야 합니다. Runbook을 가져오는 방법에 대한 자세한 내용은 [파일의 Runbook을 Azure Automation으로 가져오기](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation)를 참조하세요.
+Runbook이 서명되고 나면, Automation 계정으로 가져오고 서명 블록과 함께 게시해야 합니다. Runbook을 가져오는 방법에 대한 자세한 내용은 [파일의 Runbook을 Azure Automation으로 가져오기](manage-runbooks.md#import-a-runbook)를 참조하세요.
 
 ### <a name="linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker
 
@@ -271,7 +271,7 @@ sudo gpg --generate-key
 
 GPG는 키 쌍을 만드는 단계를 안내합니다. 이름, 이메일 주소, 만료 시간, 암호를 제공하고 키가 생성될 때까지 머신에서 충분한 엔트로피를 기다려야 합니다.
 
-GPG 디렉터리가 sudo를 사용하여 생성되었으므로 소유자를 nxautomation으로 변경해야 합니다. 
+GPG 디렉터리가 sudo를 사용하여 생성되었으므로 소유자를 `nxautomation`으로 변경해야 합니다. 
 
 다음 명령을 실행하여 소유자를 변경합니다.
 
@@ -300,7 +300,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 서명 유효성 검사가 구성되면 다음 명령을 사용하여 Runbook에 서명할 수 있습니다.
 
 ```bash
-gpg –clear-sign <runbook name>
+gpg –-clear-sign <runbook name>
 ```
 
 서명된 Runbook의 이름은 `<runbook name>.asc`입니다.

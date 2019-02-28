@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/19/2019
 ms.author: magoedte
-ms.openlocfilehash: 1dba84c686fbb873f044b4980990baa396a94c79
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237674"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429519"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>여러 Azure Monitor Application Insights 리소스 통합 
 이 문서에서는 모든 Application Insights 애플리케이션 로그 데이터가 각기 다른 Azure 구독에 있더라도 한 곳에서 쿼리하고 확인하는 방법을 설명합니다. 사용이 중단된 Application Insights 커넥터 대신 이 방법을 사용할 수 있습니다. 단일 쿼리에 포함할 수 있는 Application Insights 리소스 수는 100개로 제한됩니다.  
@@ -68,6 +68,9 @@ applicationsScoping
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>여러 Application Insights 리소스 및 작업 영역 데이터 쿼리 
 Connector를 중지하고 Application Insights 데이터 보존 기간(90일)에 따라 잘린 시간 범위에 대해 쿼리를 수행해야 하는 경우 작업 영역과 Application Insights 리소스에서 중간 기간에 대해 [리소스 간 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)를 수행해야 합니다. 위에서 설명한 새 Application Insights 데이터 보존 기간에 따라 애플리케이션 데이터가 누적될 때까지 이 쿼리를 수행합니다. Application Insights의 스키마와 작업 영역의 스키마는 서로 다르기 때문에 이 쿼리는 다소 조작해야 합니다. 스키마 차이점이 강조 표시되어 있는 이 섹션 뒷부분의 표를 참조하세요. 
+
+>[!NOTE]
+>로그 경고의 [리소스 간 쿼리](../log-query/cross-workspace-query.md)는 새 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)에서 지원됩니다. [레거시 Log Analytics 경고 API](../platform/api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [scheduledQueryRules API에 대한 ARM 템플릿](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)을 사용하면 전환하지 않고 [리소스 간 쿼리](../log-query/cross-workspace-query.md) 로그 경고 규칙을 만들 수 있지만, 이 경고 규칙은 Azure Portal이 아닌 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 통해 관리할 수 있습니다.
 
 예를 들어 2018년 11월 1일에 Connector 작동이 중지된 경우 작업 영역의 애플리케이션 데이터와 Application Insights 리소스 간에 로그를 쿼리할 때는 다음 예제와 같이 쿼리를 생성합니다.
 

@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 096f310b7c82718ea836d1b2048ca665a1e1e2f4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 49f045e8da5094f583c01c514bf92f6bf3fe1c09
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994957"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453367"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 제품 내 사용자 데이터 내보내기 및 삭제
 
@@ -70,8 +70,8 @@ Machine Learning Studio에는 다음 세 가지 종류의 계정이 있습니다
 ![Machine Learning Studio에서 체험 작업 영역 삭제](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-data-with-powershell"></a>PowerShell을 사용하여 Studio 데이터 내보내기
-PowerShell을 사용하여 Azure Machine Learning Studio에서 명령을 통해 모든 정보를 이식 가능한 형식으로 내보낼 수 있습니다. 자세한 내용은 [Azure Machine Learning용 PowerShell 모듈](powershell-module.md) 문서를 참조하세요.
+PowerShell을 사용하여 Azure Machine Learning Studio에서 명령을 통해 모든 정보를 이식 가능한 형식으로 내보낼 수 있습니다. 자세한 내용은 [Azure Machine Learning Studio용 PowerShell 모듈](powershell-module.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-웹 서비스 및 약정 요금 청구를 다루는 설명서는 [Azure Machine Learning REST API 참조](https://docs.microsoft.com/rest/api/machinelearning/)를 참조하세요. 
+웹 서비스 및 약정 플랜 청구를 다루는 문서는 [Azure Machine Learning Studio REST API 참조](https://docs.microsoft.com/rest/api/machinelearning/)를 참조하세요. 

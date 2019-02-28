@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 3c7feda32bf162499888720ce56edac55197abe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005525"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342986"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
-Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작동합니다. 이러한 메트릭은 플랫폼 메트릭, [사용자 지정 메트릭](../../azure-monitor/platform/metrics-custom-overview.md), [메트릭으로 전환된 Azure Monitor의 주요 로그](../../azure-monitor/platform/alerts-metric-logs.md), Application Insights 표준 메트릭이 될 수 있습니다. 메트릭 경고는 주기적으로 하나 이상의 메트릭 시계열에서 조건이 참인지 평가하고 평가에 부합하면 사용자에게 알립니다. 메트릭 경고는 상태를 저장합니다. 즉 상태가 변경될 때만 알림을 보냅니다.
+Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작동합니다. 이 메트릭은 [플랫폼 메트릭](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [사용자 지정 메트릭](../../azure-monitor/platform/metrics-custom-overview.md), [메트릭으로 변환되는 Azure Monitor의 주요 로그](../../azure-monitor/platform/alerts-metric-logs.md) 및 Application Insights 메트릭일 수 있습니다. 메트릭 경고는 주기적으로 하나 이상의 메트릭 시계열에서 조건이 참인지 평가하고 평가에 부합하면 사용자에게 알립니다. 메트릭 경고는 상태를 저장합니다. 즉 상태가 변경될 때만 알림을 보냅니다.
 
 ## <a name="how-do-metric-alerts-work"></a>메트릭 경고 작동 방식
 
@@ -65,8 +65,6 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 일정 시간 후 "myVM"의 사용량이 정상 상태, 즉 임계값 미만으로 떨어집니다. 경고 규칙은 해결 알림을 보내기 위해 두 번 이상 조건을 모니터링합니다. 조건이 유동적인 경우 소음을 줄이기 위해 세 번 연속 경고 조건에 부합하지 않으면 경고 규칙에서 해결/비활성화 메시지를 보냅니다.
 
 해결됨 알림은 웹후크 또는 이메일을 통해 전송되므로 Azure Portal의 경고 인스턴스 상태(모니터 상태라고도 함)도 해결됨으로 설정됩니다.
-
-## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고를 사용한 모니터링 축소
 
 ### <a name="using-dimensions"></a>차원 사용
 
@@ -123,9 +121,9 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 되돌아 보기 기간과 위반 수를 늘리면 필터링 경고에서 크게 벗어나는 중요한 위반에 대한 정의만 경고하도록 허용할 수 있습니다. [동적 임계값 고급 옵션에 대해 자세히 알아보세요](alerts-dynamic-thresholds.md#what-do-the-advanced-settings-in-dynamic-thresholds-mean).
 
-### <a name="monitoring-multiple-resources-using-metric-alerts"></a>메트릭 경고를 사용하여 여러 리소스 모니터링
+## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고를 사용한 모니터링 축소
 
-앞 섹션에서 본 것처럼 각각의 차원 조합을 모니터링하는 단일 메트릭 경고 규칙(즉 메트릭 시계열)이 가능합니다. 그러나 이전에는 한 번에 하나의 리소스로 제한되었습니다. Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수도 있습니다. 이 기능은 현재 미리 보기이며 가상 머신에서만 지원됩니다. 또한 단일 메트릭 경고가 한 Azure 지역의 리소스를 모니터링할 수 있습니다.
+지금까지 단일 메트릭 경고를 사용하여 단일 Azure 리소스와 관련된 하나 이상의 메트릭 시계열을 모니터링하는 방법을 확인했습니다. 많은 리소스에 동일한 경고 규칙을 적용하려는 경우가 많습니다. Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수도 있습니다. 이 기능은 현재 가상 머신에서만 지원됩니다. 또한 단일 메트릭 경고가 한 Azure 지역의 리소스를 모니터링할 수 있습니다.
 
 다음 세 가지 방법 중 하나로 단일 메트릭 경고를 통해 모니터링 범위를 지정할 수 있습니다.
 
@@ -133,7 +131,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 - 구독 내 하나 이상의 리소스 그룹에 있는 모든 가상 머신(한 Azure 지역에 있는)
 - 구독의 모든 가상 머신(한 Azure 지역에 있는)
 
-여러 리소스를 모니터링하는 메트릭 경고 규칙 만들기는 현재 Azure Portal을 통해 지원되지 않습니다. [Azure Resource Manager 템플릿](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources)을 통해 이러한 규칙을 만들 수 있습니다. 각 가상 머신에 대한 개별 알림을 받게 됩니다.
+여러 리소스를 모니터링하는 메트릭 경고 규칙을 만드는 작업은 단일 리소스를 모니터링하는 [다른 메트릭 경고를 만드는](alerts-metric.md) 것과 같습니다. 차이점은 모니터링하려는 모든 리소스를 사용자가 선택한다는 것입니다. [Azure Resource Manager 템플릿](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-metric-alert-that-monitors-multiple-resources)을 통해 이러한 규칙을 만들 수도 있습니다. 각 가상 머신에 대한 개별 알림을 받게 됩니다.
 
 ## <a name="typical-latency"></a>일반적인 대기 시간
 
@@ -149,7 +147,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 |-------------------------------------------------|----------------------------|
 | Microsoft.ApiManagement/service | 예 |
 | Microsoft.Batch/batchAccounts| 예|
-|Microsoft.Cache/redis| 예
+|Microsoft.Cache/redis| 예 |
 |Microsoft.ClassicCompute/virtualMachines | 아니요 |
 |Microsoft.ClassicCompute/domainNames/slots/roles | 아니요|
 |Microsoft.CognitiveServices/accounts | 아니요 |
@@ -160,7 +158,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 |Microsoft.DBforMySQL/servers| 예|
 |Microsoft.DBforPostgreSQL/servers| 예|
 |Microsoft.Devices/IotHubs | 아니요|
-|Microsoft.DocumentDB/databaseAccounts| 아니요|
+|Microsoft.DocumentDB/databaseAccounts| 예|
 |Microsoft.EventHub/namespaces | 예|
 |Microsoft.Logic/workflows | 예|
 |Microsoft.Network/loadBalancers |예|
@@ -168,16 +166,16 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 |Microsoft.Network/applicationGateways| 예|
 |Microsoft.Network/expressRouteCircuits| 예|
 |Microsoft.Network/trafficManagerProfiles | 예|
-|Microsoft.Search/searchServices | 아니요|
-|Microsoft.ServiceBus/namespaces| 아니요|
+|Microsoft.Search/searchServices | 예|
+|Microsoft.ServiceBus/namespaces| 예 |
 |Microsoft.Storage/storageAccounts | 예|
 |Microsoft.StreamAnalytics/streamingjobs| 예|
 |Microsoft.TimeSeriesInsights/environments | 예|
 |Microsoft. Web/serverfarms | 예 |
 |Microsoft. Web/sites(함수 제외) | 예|
 |Microsoft. Web/hostingEnvironments/multiRolePools | 아니요|
-|Microsoft. Web/hostingEnvironments/workerPools| 아니요
-|Microsoft.SQL/Servers | 아니요|
+|Microsoft. Web/hostingEnvironments/workerPools| 아니요 |
+|Microsoft.SQL/Servers | 아니요 |
 
 ## <a name="next-steps"></a>다음 단계
 

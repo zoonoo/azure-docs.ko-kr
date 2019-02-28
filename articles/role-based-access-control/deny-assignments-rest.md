@@ -1,6 +1,6 @@
 ---
-title: RBAC 및 REST API를 사용하여 거부 할당 나열 - Azure | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 REST API를 사용하여 사용자, 그룹 및 애플리케이션에 대한 거부 할당을 나열하는 방법을 알아봅니다.
+title: REST API를 사용하여 Azure 리소스에 대한 거부 할당 나열 - Azure | Microsoft Docs
+description: Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 및 REST API를 사용하여 사용자, 그룹 및 애플리케이션에 대한 거부 할당을 나열하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44c1d3b18bb9bdc63247379fe3f277cb6542f2da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975588"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341626"
 ---
-# <a name="list-deny-assignments-using-rbac-and-the-rest-api"></a>RBAC 및 REST API를 사용하여 거부 할당 나열
+# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 거부 할당 나열
 
 현재 거부 할당은**읽기 전용**이며 Azure를 통해서만 설정할 수 있습니다. 자신의 거부 할당을 만들 수는 없지만, 할당이 사용자의 유효한 권한에 영향을 줄 수 있으므로 거부 할당을 나열할 수 있습니다. 이 문서에서는 RBAC 및 REST API를 사용하여 거부 할당을 나열하는 방법을 설명합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "46975588"
 
 1. URI 내에서 *{scope}* 를 거부 할당을 나열하려는 범위로 바꿉니다.
 
-    | 범위 | type |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
@@ -60,7 +60,7 @@ ms.locfileid: "46975588"
 
 1. URI 내에서 *{scope}* 를 거부 할당을 나열하려는 범위로 바꿉니다.
 
-    | 범위 | type |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
@@ -95,6 +95,6 @@ ms.locfileid: "46975588"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [거부 할당 이해](deny-assignments.md)
+- [Azure 리소스에 대한 거부 할당 이해](deny-assignments.md)
 - [Azure Active Directory에서 전역 관리자에 대한 액세스 권한 상승](elevate-access-global-admin.md)
 - [Azure REST API 참조](/rest/api/azure/)

@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775e6968282c94abec64fb410f2cc720ba0913e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad6dda9e41f1ea87439ffc315f020d4e3566e0c6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168441"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453548"
 ---
 # <a name="add-your-work-or-school-account"></a>회사 또는 학교 계정 추가
 조직에서 2단계 인증을 사용하는 경우 인증 방법 중 하나로 Microsoft Authenticator 앱을 사용하도록 회사 또는 학교 계정을 설정할 수 있습니다.
@@ -27,7 +27,7 @@ ms.locfileid: "56168441"
 
 ## <a name="add-your-work-or-school-account"></a>회사 또는 학교 계정 추가
 
-1. PC에서는 [추가 보안 인증](https://aka.ms/mfasetup) 페이지로 이동합니다.
+1. 컴퓨터에서 [추가 보안 확인](https://aka.ms/mfasetup) 페이지로 이동합니다.
 
     >[!Note]
     >**추가 보안 인증** 페이지가 표시되지 않는 경우에는 관리자가 보안 정보(미리 보기) 환경을 켰을 수 있습니다. 이 경우 [인증자 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md) 섹션의 지침을 따라야 합니다. 이외의 경우에는 조직의 지원 센터에 도움을 요청해야 합니다. 보안 정보에 대한 자세한 내용은 [보안 정보 관리](security-info-manage-settings.md)를 참조하세요.
@@ -40,7 +40,7 @@ ms.locfileid: "56168441"
 
 3. Microsoft Authenticator 앱을 열고 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가**를 선택한 다음, **회사 또는 학교 계정**을 선택합니다.
 
-4. 디바이스 카메라를 사용해 PC의 **모바일 앱 구성** 화면에서 QR 코드를 스캔한 후 **완료**를 선택합니다.
+4. 디바이스 카메라를 사용해 컴퓨터의 **모바일 앱 구성** 화면에서 QR 코드를 스캔하고 **완료**를 선택합니다.
 
     >[!Note]
     >카메라가 QR 코드를 캡처할 수 없는 경우에는 2단계 인증을 위해 Microsoft Authenticator 앱에 계정 정보를 수동으로 추가할 수 있습니다. 자세한 내용 및 이를 수행하는 방법은 [수동으로 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.

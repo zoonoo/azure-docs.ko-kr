@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4698268d8e7798d0664d9eb6c33862d9641ff9fc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: f5d453fbacb44105c491c9e69085a219099943fa
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895587"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326911"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -339,7 +339,7 @@ pipeline_run1.wait_for_completion()
 
 게시된 모든 파이프라인에는 REST 엔드포인트가 있습니다. 이 엔드포인트는 비-Python 클라이언트 등의 외부 시스템에서 파이프라인 실행을 호출합니다. 이 엔드포인트는 일괄 처리 채점 및 다시 학습 시나리오에서 “관리되는 반복 가능성”을 지원합니다.
 
-이전 파이프라인의 실행을 호출하려면 [AzureCliAuthentication 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)에 설명된 대로 Azure Active Directory 인증 헤더 토큰이 필요합니다.
+이전 파이프라인의 실행을 호출하려면 [AzureCliAuthentication 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)에 설명된 대로 Azure Active Directory 인증 헤더 토큰이 필요합니다. [Azure Machine Learning에서 인증](https://aka.ms/pl-restep-auth) 노트북에서 자세한 내용을 알아보세요.
 
 ```python
 response = requests.post(published_pipeline1.endpoint, 

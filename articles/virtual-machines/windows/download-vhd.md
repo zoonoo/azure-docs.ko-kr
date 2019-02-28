@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: f62c1b815180e39468a39b8bc2a220a6bfb9ea5a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3d44a4a723c39bf9780475a2ac3088da94285f6e
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726298"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329373"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Azure에서 Windows VHD 다운로드
 
-이 문서에서는 Azure Portal을 사용하여 Azure에서 [Windows VHD(가상 하드 디스크)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 파일을 다운로드하는 방법을 배웁니다. 
+이 문서에서는 Azure Portal을 사용하여 Azure에서 Windows VHD(가상 하드 디스크) 파일을 다운로드하는 방법을 알아봅니다.
 
 ## <a name="stop-the-vm"></a>VM을 중지합니다.
 

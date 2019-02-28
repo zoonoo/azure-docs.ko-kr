@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: f0c9c06e953df16199acda5f821fdac35b86f07f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bbd73035993d3a981744eb5377fe0bf2c9d55b63
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477559"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268858"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
@@ -31,7 +31,7 @@ Linux용 데이터 과학 Virtual Machine은 Azure에서 딥 러닝을 포함한
   * [Caffe2](https://github.com/caffe2/caffe2): Caffe의 플랫폼 간 버전
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Microsoft Research의 심화 학습 소프트웨어 도구 키트
   * [H2O](https://www.h2o.ai/): 오픈 소스 빅 데이터 플랫폼 및 그래픽 사용자 인터페이스
-  * [Keras](https://keras.io/): Python의 Theano 및 TensorFlow용 고급 신경망 네트워크 API
+  * [Keras](https://keras.io/): Python의 TensorFlow, Microsoft Cognitive Toolkit 및 Theano용 고급 신경망 네트워크 API
   * [MXNet](http://mxnet.io/): 많은 언어 바인딩을 사용하는 유연하고 효율적인 심층 학습 라이브러리
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): 일반적인 심층 학습 작업을 단순화하는 그래픽 시스템
   * [PyTorch](http://pytorch.org/): 동적 네트워크를 지원하는 고급 Python 라이브러리
@@ -177,7 +177,7 @@ JupyterHub에서 몇 가지 예제 Notebook이 제공됩니다.
 H2O는 빠른 메모리 내 분산형 기계 학습 및 예측 분석 플랫폼입니다. Python 패키지는 루트 및 py35 Anaconda 환경 둘 다에 설치됩니다. R 패키지도 설치됩니다. 실행 명령줄에서 H2O 를 시작하려면 `java -jar /dsvm/tools/h2o/current/h2o.jar`을 실행합니다. 다양한 [명령줄 옵션](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line)을 구성할 수 있습니다. 흐름 웹 UI는 시작할 http://localhost:54321 로 이동하여 액세스할 수 있습니다. 샘플 노트북은 JupyterHub에서도 사용할 수 있습니다.
 
 #### <a name="keras"></a>Keras
-Keras는 TensorFlow 또는 Theano에서 실행될 수 있는 Python의 고급 신경망 네트워크 API입니다. 루트 및 py35 Python 환경에서 사용할 수 있습니다. 
+Keras는 TensorFlow, Microsoft Cognitive Toolkit 또는 Theano에서 실행될 수 있는 Python의 고급 신경망 네트워크 API입니다. 루트 및 py35 Python 환경에서 사용할 수 있습니다. 
 
 #### <a name="mxnet"></a>MXNet
 MXNet은 효율성과 유연성을 위해 디자인된 심층 학습 프레임워크입니다. DSVM에 R 및 Python 바인딩이 포함되어 있습니다. 샘플 노트북은 JupyterHub에 포함되어 있고 샘플 코드는 /dsvm/samples/mxnet에서 사용할 수 있습니다.

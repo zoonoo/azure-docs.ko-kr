@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 분석기 추가 - Azure Search
 description: Azure Search 전체 텍스트 검색 쿼리에서 사용되는 텍스트 토크나이저 및 문자 필터를 수정합니다.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,22 +19,24 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 150510ec09744b1350a93bde4e2a4dcb141867c0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 957c8033efc386d8e8cb13cbed921c597af4f11b
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007541"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302083"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Azure Search 인덱스에 사용자 지정 분석기 추가
 
-*사용자 지정 분석기*는 검색 엔진의 텍스트 처리를 사용자 지정하는 데 사용되는 사용자 지정 토크나이저 및 선택적 필터의 조합입니다. 예를 들어, *문자 필터*로 사용자 지정 분석기를 만들어 텍스트 입력이 토큰화되기 전에 HTML 태그를 제거할 수 있습니다.
+*사용자 지정 분석기*는 기존 토크나이저 및 선택적 필터의 사용자 정의 조합으로 구성된 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다. 토크나이저와 필터를 새로운 방식으로 결합하면 특정 결과를 달성하도록 검색 엔진에서 처리하는 텍스트를 사용자 지정할 수 있습니다. 예를 들어, *문자 필터*로 사용자 지정 분석기를 만들어 텍스트 입력이 토큰화되기 전에 HTML 태그를 제거할 수 있습니다.
+
+ 필터의 조합을 다양하게 만드는 여러 사용자 지정 분석기를 정의할 수 있지만 각 필드는 분석을 인덱싱하는 분석기 하나와 검색 분석에 대한 분석기 하나만을 사용할 수 있습니다. 고객 분석기의 모양은 [사용자 지정 분석기 예제](search-analyzers.md#Example1)를 참조하세요.
 
 ## <a name="overview"></a>개요
 
- [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)의 역할은 간단히 말해서 효율적인 쿼리 및 검색이 가능하도록 문서를 처리하고 저장하는 것입니다. 상위 수준에서 볼 때는 문서에서 중요한 단어를 추출하고, 인덱스에 추가한 후, 해당 인덱스를 사용하여 지정된 쿼리의 단어와 일치하는 문서를 찾는 것이 핵심입니다. 문서 및 검색 쿼리에서 단어를 추출하는 프로세스를 어휘 분석이라고 합니다. 어휘 분석을 수행하는 구성 요소를 분석기라고 합니다.
+ [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)의 역할은 간단히 말해서 효율적인 쿼리 및 검색이 가능하도록 문서를 처리하고 저장하는 것입니다. 상위 수준에서 볼 때는 문서에서 중요한 단어를 추출하고, 인덱스에 추가한 후, 해당 인덱스를 사용하여 지정된 쿼리의 단어와 일치하는 문서를 찾는 것이 핵심입니다. 설명서 및 검색 쿼리에서 단어를 추출하는 프로세스를 *어휘 분석*이라고 합니다. 어휘 분석을 수행하는 구성 요소를 *분석기*라고 합니다.
 
- Azure Search에서는 [분석기](#AnalyzerTable) 테이블의 미리 정의된 언어 중립적 분석기 세트와 [언어 분석기 &#40;Azure Search 서비스 REST API&#41;](index-add-language-analyzers.md)에 나열된 언어별 분석기 세트에서 선택할 수 있습니다. 사용자 고유의 사용자 지정 분석기를 정의하는 옵션도 제공됩니다.  
+ Azure Search에서는 [분석기](#AnalyzerTable) 테이블의 미리 정의된 언어 중립적 분석기 세트 또는 [언어 분석기 &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md)에 나열된 언어별 분석기 세트에서 선택할 수 있습니다. 사용자 고유의 사용자 지정 분석기를 정의하는 옵션도 제공됩니다.  
 
  사용자 지정 분석기를 사용하여 텍스트를 인덱싱 가능하고 검색 가능한 토큰으로 변환하는 프로세스를 제어할 수 있습니다 이것은 미리 정의된 단일 토크나이저, 하나 이상의 토큰 필터 및 하나 이상의 문자 필터로 구성된 사용자 정의 구성입니다. 토크나이저는 텍스트를 토큰과 토크나이저에서 내보낸 토큰을 수정하는 토큰 필터로 구분합니다. 문자 필터는 토크나이저에서 처리되기 전의 입력 텍스트를 준비하기 위해 적용됩니다. 예를 들어, 문자 필터는 특정 문자 또는 기호를 대신할 수 있습니다.
 
@@ -50,22 +52,13 @@ ms.locfileid: "56007541"
 
 -   ASCII 접기. 표준 ASCII 접기 필터를 추가하여 검색 용어에서 ö 또는 ê와 같은 분음 부호를 정규화합니다.  
 
- 필터의 조합을 다양하게 만드는 여러 사용자 지정 분석기를 정의할 수 있지만 각 필드는 분석을 인덱싱하는 분석기 하나와 검색 분석에 대한 분석기 하나만을 사용할 수 있습니다.  
-
- 이 페이지는 지원되는 분석기, 토크나이저, 토큰 필터 및 문자 필터의 목록을 제공합니다. 사용 예제에서 인덱스 정의에 대한 변경 설명을 확인할 수도 있습니다. Azure Search 구현에 활용되는 기본 기술에 대한 자세한 배경 정보는 [분석 패키지 요약(Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html)을 참조하세요. 분석기 구성 예제를 보려면 [Azure Search의 분석기 > 예제](https://docs.microsoft.com/azure/search/search-analyzers#examples)를 참조하세요.
-
-
-## <a name="default-analyzer"></a>기본 분석기  
-
-기본적으로 Azure Search에서는 [Apache Lucene 표준 분석기(표준 Lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html)를 사용하여 검색 가능 필드를 분석합니다. 이 분석기는 ["유니코드 텍스트 구분"](https://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.  
-
- 필드 정의 내의 다른 분석기로 명시적으로 재정의하지 않으면 자동으로 모든 검색 가능 필드에 사용됩니다. 아래의 사용 가능한 [분석기](#AnalyzerTable) 목록에 있는 여러 미리 정의된 분석기나 사용자 지정 분석기를 대신 사용할 수 있습니다.
+ 이 페이지는 지원되는 분석기, 토크나이저, 토큰 필터 및 문자 필터의 목록을 제공합니다. 사용 예제에서 인덱스 정의에 대한 변경 설명을 확인할 수도 있습니다. Azure Search 구현에 활용되는 기본 기술에 대한 자세한 배경 정보는 [분석 패키지 요약(Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html)을 참조하세요. 분석기 구성의 예제는 [Azure Search의 분석기 추가](search-analyzers.md#examples)를 참조하세요.
 
 ## <a name="validation-rules"></a>유효성 검사 규칙  
  분석기, 토크나이저, 토큰 필터 및 문자 필터의 이름은 고유해야 하며 미리 정의된 분석기, 토크나이저, 토큰 필터 또는 문자 필터와 같을 수 없습니다. 이미 사용 중인 이름에 대해서는 [속성 참조](#PropertyReference)를 참조하세요.
 
-## <a name="create-a-custom-analyzer"></a>사용자 지정 분석기 만들기
- 인덱스를 만들 때 사용자 지정 분석기를 정의할 수 있습니다. 사용자 지정 분석기를 지정하는 구문은 이 섹션에 설명되어 있습니다. [Azure Search의 분석기](https://docs.microsoft.com/azure/search/search-analyzers#examples)에서 샘플 정의를 검토하여 구문을 숙지할 수도 있습니다.  
+## <a name="create-custom-analyzers"></a>사용자 지정 분석기 만들기
+ 인덱스를 만들 때 사용자 지정 분석기를 정의할 수 있습니다. 사용자 지정 분석기를 지정하는 구문은 이 섹션에 설명되어 있습니다. 또한 [Azure Search의 분석기 추가](search-analyzers.md#examples)에 샘플 정의를 검토하여 구문을 숙지할 수도 있습니다.  
 
  분석기 정의에는 토큰화 후 처리를 위한 이름, 형식, 하나 이상의 문자 필터, 최대 하나의 토크나이저가 포함됩니다. 문자 필터는 토큰화 전에 적용됩니다. 토큰 필터 및 문자 필터는 왼쪽에서 오른쪽으로 적용됩니다.
 
@@ -148,12 +141,13 @@ ms.locfileid: "56007541"
 문자 필터, 토크나이저 및 토큰 필터의 정의는 사용자 지정 옵션을 설정하는 경우에만 인덱스에 추가됩니다. 기존 필터 또는 토크나이저를 있는 그대로 사용하려면 분석기 정의에서 이름으로 지정합니다.
 
 <a name="Testing custom analyzers"></a>
-## <a name="test-a-custom-analyzer"></a>사용자 지정 분석기 테스트
+
+## <a name="test-custom-analyzers"></a>사용자 지정 분석기 테스트
 
 [REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)에서 **분석기 작업 테스트**를 사용하여 분석기가 지정된 텍스트를 토큰으로 분할하는 방법을 확인할 수 있습니다.
 
 **요청**
-~~~~
+```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
     api-key: [admin key]
@@ -162,9 +156,9 @@ ms.locfileid: "56007541"
      "analyzer":"my_analyzer",
      "text": "Vis-à-vis means Opposite"
   }
-~~~~
+```
 **응답**
-~~~~
+```
   {
     "tokens": [
       {
@@ -193,21 +187,21 @@ ms.locfileid: "56007541"
       }
     ]
   }
- ~~~~
+```
 
- ## <a name="update-a-custom-analyzer"></a>사용자 지정 분석기 업데이트
+ ## <a name="update-custom-analyzers"></a>사용자 지정 분석기 업데이트
 
 분석기, 토크나이저, 토큰 필터 또는 문자 필터는 일단 정의한 후에는 수정할 수 없습니다. 인덱스 업데이트 요청에서 `allowIndexDowntime` 플래그가 true로 설정된 경우에만 이러한 새 항목을 기존 인덱스에 추가할 수 있습니다.
 
-~~~~
+```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
-~~~~
+```
 
 이 작업 중에 인덱스가 몇 초 이상 오프라인 상태가 되면 인덱싱 및 쿼리 요청이 실패합니다. 인덱스의 성능 및 쓰기 가용성은 인덱스를 업데이트한 후 몇 분 동안, 인덱스가 아주 큰 경우에는 더 긴 시간 동안 제대로 작동하지 않을 수 있습니다. 그렇지만 이러한 효과는 일시적이며 결과적으로는 자체 해결됩니다.
 
  <a name="ReferenceIndexAttributes"></a>
 
-## <a name="index-attribute-reference"></a>인덱스 특성 참조
+## <a name="analyzer-reference"></a>분석기 참조
 
 아래 표에는 인덱스 정의의 분석기, 토크나이저, 토큰 필터 및 문자 필터 섹션에 대한 구성 속성이 나와 있습니다. 인덱스의 분석기, 토크나이저 또는 필터의 구조는 이러한 특성으로 구성됩니다. 값 할당 정보에 대해서는 [속성 참조](#PropertyReference)를 참조하세요.
 
@@ -289,7 +283,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |[stop](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html)|StopAnalyzer|비문자에서 텍스트를 나누고, 소문자 및 중지 단어 토큰 필터를 적용합니다.<br /><br /> **옵션**<br /><br /> stopwords (type: string array) - 중지 단어 목록입니다. 기본값은 미리 정의된 영어 목록입니다. |  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html)|(형식은 옵션이 사용 가능할 때만 적용됨) |공백 토크나이저를 사용하는 분석기입니다. 255자보다 긴 토큰은 분할됩니다.|  
 
- <sup>1</sup> 분석기 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "PatternAnalyzer"는 실제로 "#Microsoft.Azure.Search.PatternAnalyzer"로 지정됩니다. 간단히 나타내기 위해 이 접두사를 제거했지만 코드에는 필요합니다. 
+ <sup>1</sup> 분석기 형식은 코드에서 항상 접두사로 "#Microsoft.Azure.Search"가 붙습니다. 따라서 "PatternAnalyzer"는 실제로 "#Microsoft.Azure.Search.PatternAnalyzer"로 지정됩니다. 간단히 나타내기 위해 접두사를 제거했지만 코드에서는 필요합니다. 
  
 사용자 지정할 수 있는 분석기에만 analyzer_type이 제공됩니다. 키워드 분석기를 사용할 때처럼 옵션이 없는 경우 연결된 #Microsoft.Azure.Search 형식도 없습니다.
 
@@ -390,5 +384,5 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 ## <a name="see-also"></a>참고 항목  
  [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Azure Search의 분석기 > 예제](https://docs.microsoft.com/azure/search/search-analyzers#examples)    
+ [Azure Search의 분석기 > 예제](search-analyzers.md#examples)    
  [인덱스 만들기 &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

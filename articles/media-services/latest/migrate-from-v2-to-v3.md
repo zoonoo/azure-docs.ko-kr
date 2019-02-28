@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 02/04/2019
 ms.author: juliako
-ms.openlocfilehash: b05c174bf96e78efd66f2c673e46ab43700c09f9
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744175"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340351"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -45,11 +45,11 @@ ms.locfileid: "55744175"
 
 * 파일 기반 작업 처리의 경우 HTTP(S) URL을 입력으로 사용할 수 있습니다.<br/>아직 콘텐츠를 Azure에 저장하거나 자산을 만들 필요가 없습니다.
 * 파일 기반 작업 처리를 위한 [변환](transforms-jobs-concept.md) 개념을 도입합니다. 변환을 사용하여 재사용 가능한 구성을 빌드하고, Azure Resource Manager 템플릿을 만들고, 여러 고객 또는 테넌트 간에 처리 설정을 격리할 수 있습니다.
-* 동적 패키징 및 동적 암호화 설정이 서로 다른 여러 개의 [스트리밍 로케이터](streaming-locators-concept.md)가 자산에 있을 수 있습니다.
+* [동적 패키징](dynamic-packaging-overview.md) 및 동적 암호화 설정이 각기 다른 [스트리밍 로케이터](streaming-locators-concept.md)가 자산에 여러 개 있을 수 있습니다.
 * [콘텐츠 보호](content-key-policy-concept.md)에서 다중 키 기능을 지원합니다.
 * 단일 비트 전송률 기여 피드를 다중 비트 전송률이 있는 출력 스트림으로 코드 변환하기 위해 Media Services를 사용할 때 최대 24시간 분량의 라이브 이벤트를 스트리밍할 수 있습니다.
 * 대기 시간이 짧은 새 라이브 스트리밍이 라이브 이벤트에서 지원됩니다. 자세한 내용은 [대기 시간](live-event-latency.md)을 참조하세요.
-* 라이브 이벤트 미리 보기는 동적 패키징 및 동적 암호화를 지원합니다. 이렇게 하면 DASH 및 HLS 패키징뿐만 아니라 미리 보기에서도 콘텐츠 보호가 가능합니다.
+* 라이브 이벤트 미리 보기는 [동적 패키징](dynamic-packaging-overview.md) 및 동적 암호화를 지원합니다. 이렇게 하면 DASH 및 HLS 패키징뿐만 아니라 미리 보기에서도 콘텐츠 보호가 가능합니다.
 * 라이브 출력은 v2 API의 Program 엔터티보다 사용 방법이 간단합니다. 
 * RTMP 지원 향상(향상된 안정성 및 더 많은 소스 인코더 지원)
 * RTMPS 보안 수집<br/>라이브 이벤트를 만들면 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다.   

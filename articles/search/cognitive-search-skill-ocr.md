@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 485837d6235f4868665df2907c01fa1bd26db357
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6fa316452b5b9f56c33de00b96c2cf57c40edfcc
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766370"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429658"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
 
@@ -53,7 +53,7 @@ OCR(광학 문자 인식) 기술은 이미지 파일에서 인쇄 및 필기한 
 
 | 입력 이름      | 설명                                          |
 |---------------|------------------------------------------------------|
-| 이미지         | 복합 형식입니다. ```imageAction```이 ```generateNormalizedImages```로 설정된 경우 현재 Azure Blob 인덱서에서 생성한 "/document/normalized_images" 필드만 사용합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
+| 이미지         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
 
 
 ## <a name="skill-outputs"></a>기술 출력

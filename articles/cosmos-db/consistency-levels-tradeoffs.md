@@ -4,15 +4,15 @@ description: Azure Cosmos DB에서 다양한 일관성 수준의 가용성 및 �
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ee0dc1bec39bf95cbf4f3bf7ecea92b877a78b88
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113756"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309203"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>일관성, 가용성 및 성능의 장단점 
 
@@ -44,22 +44,23 @@ Azure Cosmos DB는 선택 사항 스펙트럼으로 데이터 일관성에 접�
 
 - 지정된 쓰기 작업 유형(예: 삽입, 바꾸기, upsert, 삭제 등)의 경우 요청 단위에 대한 쓰기 처리량은 모든 일관성 수준에서 동일합니다.
 
-## <a name="consistency-levels-and-data-durability"></a>일관성 수준 및 데이터 내구성
+## <a id="rto"></a>일관성 수준 및 데이터 내구성
 
-전 세계적으로 분산된 데이터베이스 환경에서 지역 전체 가동 중단이 발생할 경우, 일관성 수준과 데이터 내구성 사이에 직접적인 관계가 있습니다. 이 테이블은 지역 전체의 가동 중단이 발생할 경우 일관성 모델과 데이터 내구성 사이의 관계를 정의합니다. 분산 시스템에서는 강력한 일관성이 있더라도 CAP 정리로 인해 RPO와 RTO가 0인 분산 데이터베이스를 두는 것은 불가능하다는 점에 유의해야 합니다. 이유에 대해 자세히 알아보려면  [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
+전 세계적으로 분산된 데이터베이스 환경에서 지역 전체 가동 중단이 발생할 경우, 일관성 수준과 데이터 내구성 사이에 직접적인 관계가 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트가 발생한 후 애플리케이션이 완전히 복구되기까지 허용되는 최대 시간을 이해해야 합니다. 애플리케이션을 완전히 복구하는 데 필요한 시간을 RTO(복구 시간 목표)라고 합니다. 또한 중단 이벤트가 발생한 후 복구될 때 애플리케이션에서 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 기간도 이해해야 합니다. 손실될 수 있는 업데이트 기간을 RPO(복구 지점 목표)라고 합니다.
+
+이 테이블은 지역 전체의 가동 중단이 발생할 경우 일관성 모델과 데이터 내구성 사이의 관계를 정의합니다. 분산 시스템에서는 강력한 일관성이 있더라도 CAP 정리로 인해 RPO와 RTO가 0인 분산 데이터베이스를 두는 것은 불가능하다는 점에 유의해야 합니다. 이유에 대해 자세히 알아보려면  [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
 
 |**지역**|**복제 모드**|**일관성 수준**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|단일 또는 다중 마스터|일관성 수준|< 240분|< 1주|
 |>1|단일 마스터|세션, 일관된 접두사, 최종|< 15분|< 15분|
-|>1|단일 마스터|제한된 부실|K & T*|< 15분|
+|>1|단일 마스터|제한된 부실|K & T|< 15분|
 |>1|다중 마스터|세션, 일관된 접두사, 최종|< 15분|0|
-|>1|다중 마스터|제한된 부실|K & T*|0|
+|>1|다중 마스터|제한된 부실|K & T|0|
 |>1|단일 또는 다중 마스터|강력|0|< 15분|
 
-* K & T = 항목에 대한 "K" 버전(업데이트) 수입니다. 또는 "T" 시간 간격입니다.
-
-
+K = 항목에 대한 “K” 버전(업데이트) 수입니다.
+T = 마지막 업데이트 이후 시간 “T” 시간 간격입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

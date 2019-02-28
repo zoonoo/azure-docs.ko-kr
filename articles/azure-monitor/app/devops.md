@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: faeba611dfc55307f8f855ee45a1a8d37603f2f5
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0c7f248023a97bdad09c2c51e9e9a28073def086
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117387"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300128"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
 ## <a name="why-do-i-need-application-insights"></a>Application Insights가 필요한 이유는 무엇일까요?
-Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와 성능 문제에 대해 알려주고 고객이 앱을 어떻게 사용하는지 분석하도록 도와줍니다. 다양한 플랫폼(예: ASP.NET, J2EE, Node.js)에서 실행되는 앱에 호환되고 클라우드 또는 온-프레미스에서 호스팅됩니다. 
+Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와 성능 문제에 대해 알려주고 고객이 앱을 어떻게 사용하는지 분석하도록 도와줍니다. 다양한 플랫폼(예: ASP.NET, Java EE, Node.js)에서 실행되는 앱에 작동하며 클라우드 또는 온-프레미스에서 호스트됩니다. 
 
 ![Web Apps을 제공하는 방법의 복잡성 측면](./media/devops/010.png)
 

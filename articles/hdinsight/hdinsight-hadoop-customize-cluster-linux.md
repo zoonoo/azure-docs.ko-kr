@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea83d061f7160db04c847be66e79da60da78634d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d325cfd679c2a8b878ae9a7b483431aba32b2a5a
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662910"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313282"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
 
@@ -55,7 +55,7 @@ HDInsight 클러스터를 만드는 경우 Azure 구독에 대한 [기여자] �
 
     * HDInsight 클러스터에서 액세스할 수 있는 Azure Data Lake Storage 계정. HDInsight에서 Azure Data Lake Storage를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
-        Data Lake Storage에 저장되는 스크립트에 대한 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다.
+        Data Lake Storage Gen1에 저장되는 스크립트에 대한 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다.
 
         > [!NOTE]  
         > HDInsight에서 Data Lake Storage에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다.

@@ -8,53 +8,132 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: df7e61bb9d064c4530c0212cc02fbdd849017612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872002"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312540"
 ---
-# <a name="detecting-domain-specific-content"></a>도메인 특정 콘텐츠 검색
+# <a name="detect-domain-specific-content"></a>도메인 특정 콘텐츠 검색
 
-Computer Vision은 태그 지정 및 최상위 수준 분류 외에도 특수(또는 도메인 특정) 정보를 지원합니다. 특수 정보는 독립 실행형 메서드로 구현하거나 상위 수준 분류를 사용하여 구현할 수 있습니다. 도메인 특정 모델을 추가하여 86개 범주 분류를 더욱 세분화하는 수단으로 사용됩니다.
+Computer Vision은 태깅 및 고급 분류뿐 아니라 특수 데이터에 대해 학습된 모델을 사용한 도메인 특정 분석을 추가로 지원합니다. 
 
-도메인 특정 모델을 사용하는 두 가지 옵션이 있습니다.
+도메인 특정 모델을 사용하는 두 가지 방법은 단독으로 사용하거나(범위 지정 분석), 분류 기능의 향상으로 사용하는 것입니다.
 
-* 범위가 지정된 분석  
-  HTTP POST를 호출하여 선택한 모델만 분석합니다. 사용할 모델을 알고 있는 경우 모델의 이름을 지정합니다. 해당 모델에 관련된 정보만 얻게 됩니다. 예를 들어 이 옵션을 사용하여 유명인 인식만 찾을 수 있습니다. 응답에는 잠재적 일치 유명인 목록이 신뢰도 점수와 함께 포함됩니다.
-* 향상된 분석  
-  분석을 통해 86개 범주 분류의 범주와 관련된 추가 세부 정보를 제공합니다. 이 옵션은 사용자가 하나 이상 도메인 특정 모델의 세부 정보 외에 일반 이미지 분석을 가져오려는 애플리케이션에서 사용할 수 있습니다. 이 메서드를 호출하는 경우 86개 범주 분류의 분류자가 먼저 호출됩니다. 범주 중 하나가 알려지거나 일치하는 모델의 범주와 일치할 경우 분류자 호출이 두 번째로 전달됩니다. 예를 들어 HTTP POST 호출의 `details` 매개 변수가 "all"로 설정되거나 "celebrities"를 포함하는 경우 메서드는 86개 범주 분류자가 호출된 후에 유명인 분류자를 호출합니다. 이미지가 `people_` 또는 해당 범주의 하위 범주로 분류되는 경우 유명인 분류자를 호출합니다.
+### <a name="scoped-analysis"></a>범위가 지정된 분석
 
-## <a name="listing-domain-specific-models"></a>도메인 특정 모델 나열
+[Models/\<model\>/Analyze](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API를 호출하면 선택한 도메인 특정 모델만 사용하여 이미지를 분석할 수 있습니다. 
 
-Computer Vision에서 지원되는 도메인 특정 모델을 나열할 수 있습니다. 현재 Computer Vision은 도메인 관련 콘텐츠를 검색하는 데 다음과 같은 도메인 특정 모델을 지원합니다.
+다음은 지정된 이미지에 대해 **models/celebrities/analyze** API에서 반환된 샘플 JSON 응답입니다.
+
+![서 있는 Satya Nadella](./images/satya.jpeg)
+
+```json
+{
+  "result": {
+    "celebrities": [{
+      "faceRectangle": {
+        "top": 391,
+        "left": 318,
+        "width": 184,
+        "height": 184
+      },
+      "name": "Satya Nadella",
+      "confidence": 0.99999856948852539
+    }]
+  },
+  "requestId": "8217262a-1a90-4498-a242-68376a4b956b",
+  "metadata": {
+    "width": 800,
+    "height": 1200,
+    "format": "Jpeg"
+  }
+}
+```
+
+### <a name="enhanced-categorization-analysis"></a>향상된 분류 분석  
+
+도메인 특정 모델을 사용하여 일반 이미지 분석을 보완할 수도 있습니다. [분석](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 호출의 *details* 매개 변수에 도메인 특정 모델을 지정하여 [고급 분류](concept-categorizing-images.md)의 일부로 이 작업을 수행합니다. 
+
+이 경우 86개 범주 분류의 분류자가 먼저 호출됩니다. 검색된 범주에 일치하는 도메인 특정 모델이 있는 경우 해당 모델을 통해 이미지가 전달되고 결과가 추가됩니다. 
+
+다음 JSON 응답은 보다 광범위한 분류 분석의 `detail` 노드로 도메인 특정 분석을 포함할 수 있는 방법을 보여 줍니다.
+
+```json
+"categories":[  
+  {  
+    "name":"abstract_",
+    "score":0.00390625
+  },
+  {  
+    "name":"people_",
+    "score":0.83984375,
+    "detail":{  
+      "celebrities":[  
+        {  
+          "name":"Satya Nadella",
+          "faceRectangle":{  
+            "left":597,
+            "top":162,
+            "width":248,
+            "height":248
+          },
+          "confidence":0.999028444
+        }
+      ],
+      "landmarks":[  
+        {  
+          "name":"Forbidden City",
+          "confidence":0.9978346
+        }
+      ]
+    }
+  }
+]
+```
+
+## <a name="list-the-domain-specific-models"></a>도메인 특정 모델 나열
+
+현재 Computer Vision은 다음과 같은 도메인 특정 모델을 지원합니다.
 
 | Name | 설명 |
 |------|-------------|
 | 유명인 | `people_` 범주에서 분류된 이미지에 대해 지원되는 유명인 인식 |
 | 랜드마크 | `outdoor_` 또는 `building_` 범주에서 분류된 이미지에 대해 지원되는 랜드마크 인식 |
 
-### <a name="domain-model-list-example"></a>도메인 모델 목록 예제
-
-다음과 같은 JSON은 Computer Vision에서 지원되는 도메인 특정 모델을 나열합니다.
+[Models](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API를 호출하면 각 모델이 적용될 수 있는 범주와 함께 이 정보가 반환됩니다.
 
 ```json
-{
-    "models": [
-        {
-            "name": "celebrities",
-            "categories": ["people_", "人_", "pessoas_", "gente_"]
-        },
-        {
-            "name": "landmarks",
-            "categories": ["outdoor_", "户外_", "屋外_", "aoarlivre_", "alairelibre_",
-                "building_", "建筑_", "建物_", "edifício_"]
-        }
-    ]
+{  
+  "models":[  
+    {  
+      "name":"celebrities",
+      "categories":[  
+        "people_",
+        "人_",
+        "pessoas_",
+        "gente_"
+      ]
+    },
+    {  
+      "name":"landmarks",
+      "categories":[  
+        "outdoor_",
+        "户外_",
+        "屋外_",
+        "aoarlivre_",
+        "alairelibre_",
+        "building_",
+        "建筑_",
+        "建物_",
+        "edifício_"
+      ]
+    }
+  ]
 }
 ```
 

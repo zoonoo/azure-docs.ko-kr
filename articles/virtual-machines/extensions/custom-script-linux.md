@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: 87d15f7b351f2b8b6a8c010651d82faa66b28918
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: f8b0955afa1705dd8e3c01a943cc5e5d885f9c71
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276468"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456965"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
 
-사용자 지정 스크립트 확장은 Azure Resource Manager 템플릿과 통합됩니다. Azure CLI, PowerShell, Azure Portal 또는 Azure Virtual Machines REST API를 사용하여 실행할 수 있습니다.
+사용자 지정 스크립트 확장은 Azure Resource Manager 템플릿과 통합됩니다. Azure CLI, PowerShell 또는 Azure Virtual Machines REST API를 사용하여 실행할 수도 있습니다.
 
 이 문서에서는 Azure CLI에서 사용자 지정 스크립트 확장을 사용하는 방법 및 Azure Resource Manager 템플릿을 사용하여 확장을 실행하는 방법을 자세히 설명합니다. 또한 Linux 시스템에 대한 문제 해결 단계도 제공합니다.
 
@@ -107,7 +107,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 | 데이터 형식 | 
+| Name | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute.Extensions | string |

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10c8c0043d04d99ad10e475f903979edb0ddcb70
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc63eb792e58d960ae67138b5e58e6b705945030
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266903"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446395"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -70,7 +70,7 @@ HANA 대규모 인스턴스 단위는 SMT 인스턴스에 연결할 수 있습�
 
 SLES12 SP1 및 RHEL 7.2부터 이러한 매개 변수를 /etc/sysctl.d 디렉터리의 구성 파일에 설정해야 합니다. 예를 들어 이름이 91-NetApp-HANA.conf인 구성 파일을 만들어야 합니다. 이전 SLES 및 RHEL 릴리스의 경우 /etc/sysctl.conf에서 이러한 매개 변수를 설정해야 합니다.
 
-SLES12부터 모든 RHEL 릴리스의 경우 다음 사항에 유의하세요. 
+RHEL 6.3부터 모든 RHEL 릴리스에서는 다음 사항에 유의하세요. 
 - sunrpc.tcp_slot_table_entries = 128 매개 변수를 /etc/modprobe.d/sunrpc-local.conf에서 설정해야 합니다. 파일이 없는 경우 다음 항목을 추가해서 파일을 먼저 만들어야 합니다. 
     - options sunrpc tcp_max_slot_table_entries=128
 

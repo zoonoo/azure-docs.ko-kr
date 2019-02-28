@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: e1edf0ed0c9efcb9f0c81718621706550bf3c4d7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012006"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311719"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스 또는 속성의 여러 인스턴스 배포
 
@@ -33,26 +33,26 @@ ms.locfileid: "51012006"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "apiVersion": "2016-01-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": 3
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "apiVersion": "2016-01-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -85,22 +85,22 @@ ms.locfileid: "51012006"
 ```json
 "parameters": { 
   "org": { 
-     "type": "array", 
-     "defaultValue": [ 
-         "contoso", 
-         "fabrikam", 
-         "coho" 
-      ] 
+    "type": "array", 
+    "defaultValue": [ 
+      "contoso", 
+      "fabrikam", 
+      "coho" 
+    ] 
   }
 }, 
 "resources": [ 
   { 
-      "name": "[concat('storage', parameters('org')[copyIndex()])]", 
-      "copy": { 
-         "name": "storagecopy", 
-         "count": "[length(parameters('org'))]" 
-      }, 
-      ...
+    "name": "[concat('storage', parameters('org')[copyIndex()])]", 
+    "copy": { 
+      "name": "storagecopy", 
+      "count": "[length(parameters('org'))]" 
+    }, 
+    ...
   } 
 ]
 ```
@@ -119,30 +119,30 @@ ms.locfileid: "51012006"
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "apiVersion": "2016-01-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": 4,
-                "mode": "serial",
-                "batchSize": 2
-            }
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "apiVersion": "2016-01-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": 4,
+        "mode": "serial",
+        "batchSize": 2
+      }
+    }
+  ],
+  "outputs": {}
 }
-``` 
+```
 
 모드 속성은 기본 값인 **병렬**을 수용합니다.
 
@@ -164,13 +164,13 @@ ms.locfileid: "51012006"
   "properties": {
     "storageProfile": {
       "copy": [{
-          "name": "dataDisks",
-          "count": 3,
-          "input": {
-              "lun": "[copyIndex('dataDisks')]",
-              "createOption": "Empty",
-              "diskSizeGB": "1023"
-          }
+        "name": "dataDisks",
+        "count": 3,
+        "input": {
+          "lun": "[copyIndex('dataDisks')]",
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        }
       }],
       ...
 ```
@@ -187,22 +187,22 @@ Resource Manager는 배포 중 `copy` 배열을 확장합니다. 배열 이름�
   "properties": {
     "storageProfile": {
       "dataDisks": [
-          {
-              "lun": 0,
-              "createOption": "Empty",
-              "diskSizeGB": "1023"
-          },
-          {
-              "lun": 1,
-              "createOption": "Empty",
-              "diskSizeGB": "1023"
-          },
-          {
-              "lun": 2,
-              "createOption": "Empty",
-              "diskSizeGB": "1023"
-          }
-      }],
+        {
+          "lun": 0,
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        },
+        {
+          "lun": 1,
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        },
+        {
+          "lun": 2,
+          "createOption": "Empty",
+          "diskSizeGB": "1023"
+        }
+      ],
       ...
 ```
 
@@ -210,27 +210,27 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 
 ```json
 {
-    "name": "string",
-    "type": "Microsoft.Network/loadBalancers",
-    "apiVersion": "2017-10-01",
-    "properties": {
-        "copy": [
-          {
-              "name": "loadBalancingRules",
-              "count": "[length(parameters('loadBalancingRules'))]",
-              "input": {
-                ...
-              }
-          },
-          {
-              "name": "probes",
-              "count": "[length(parameters('loadBalancingRules'))]",
-              "input": {
-                ...
-              }
-          }
-        ]
-    }
+  "name": "string",
+  "type": "Microsoft.Network/loadBalancers",
+  "apiVersion": "2017-10-01",
+  "properties": {
+    "copy": [
+      {
+        "name": "loadBalancingRules",
+        "count": "[length(parameters('loadBalancingRules'))]",
+        "input": {
+          ...
+        }
+      },
+      {
+        "name": "probes",
+        "count": "[length(parameters('loadBalancingRules'))]",
+        "input": {
+          ...
+        }
+      }
+    ]
+  }
 }
 ```
 
@@ -238,39 +238,41 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 
 ```json
 {
-    "type": "Microsoft.Network/virtualNetworks",
-    "name": "[concat(parameters('vnetname'), copyIndex())]",
-    "apiVersion": "2018-04-01",
-    "copy":{
-        "count": 2,
-        "name": "vnetloop"
+  "type": "Microsoft.Network/virtualNetworks",
+  "name": "[concat(parameters('vnetname'), copyIndex())]",
+  "apiVersion": "2018-04-01",
+  "copy":{
+    "count": 2,
+    "name": "vnetloop"
+  },
+  "location": "[resourceGroup().location]",
+  "properties": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "[parameters('addressPrefix')]"
+      ]
     },
-    "location": "[resourceGroup().location]",
-    "properties": {
-        "addressSpace": {
-            "addressPrefixes": [
-                "[parameters('addressPrefix')]"
-            ]
-        },
-        "copy": [
-            {
-                "name": "subnets",
-                "count": 2,
-                "input": {
-                    "name": "[concat('subnet-', copyIndex('subnets'))]",
-                    "properties": {
-                        "addressPrefix": "[variables('subnetAddressPrefix')[copyIndex('subnets')]]"
-                    }
-                }
-            }
-        ]
-    }
+    "copy": [
+      {
+        "name": "subnets",
+        "count": 2,
+        "input": {
+          "name": "[concat('subnet-', copyIndex('subnets'))]",
+          "properties": {
+            "addressPrefix": "[variables('subnetAddressPrefix')[copyIndex('subnets')]]"
+          }
+        }
+      }
+    ]
+  }
 }
 ```
 
 ## <a name="variable-iteration"></a>변수 반복
 
-변수의 여러 인스턴스를 만들려면 변수 섹션에서 `copy` 요소를 사용합니다. 관련 값이 있는 개체의 여러 인스턴스를 만든 다음, 해당 값을 리소스 인스턴스에 할당할 수 있습니다. 복사본을 사용하여 배열 속성 또는 배열이 있는 개체를 만들 수 있습니다. 다음 예제에서는 두 가지 방법을 모두 보여 줍니다.
+변수의 여러 인스턴스를 만들려면 변수 섹션에서 `copy` 속성을 사용합니다. `input` 속성의 값에서 생성된 요소 배열을 만듭니다. 변수 내부 또는 변수 섹션의 최상위 수준에서 `copy` 속성을 사용할 수 있습니다. 변수 반복 내부에 `copyIndex`를 사용하는 경우 반복의 이름을 제공해야 합니다.
+
+다음 예제에서는 동적으로 생성된 요소로 배열 변수를 만드는 여러 가지 방법을 보여 줍니다. 변수 내부에 copy를 사용하여 개체 및 문자열의 배열을 만드는 방법을 보여 줍니다. 또한 최상위 수준에서 copy를 사용하여 개체, 문자열 및 정수의 배열을 만드는 방법을 보여 줍니다.
 
 ```json
 {
@@ -288,18 +290,33 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
             "diskSizeGB": "1",
             "diskIndex": "[copyIndex('disks')]"
           }
+        },
+        {
+          "name": "diskNames",
+          "count": 5,
+          "input": "[concat('myDataDisk', copyIndex('diskNames', 1))]"
         }
       ]
     },
     "copy": [
       {
-        "name": "disks-top-level-array",
+        "name": "top-level-object-array",
         "count": 5,
         "input": {
-          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "name": "[concat('myDataDisk', copyIndex('top-level-object-array', 1))]",
           "diskSizeGB": "1",
-          "diskIndex": "[copyIndex('disks-top-level-array')]"
+          "diskIndex": "[copyIndex('top-level-object-array')]"
         }
+      },
+      {
+        "name": "top-level-string-array",
+        "count": 5,
+        "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+      },
+      {
+        "name": "top-level-integer-array",
+        "count": 5,
+        "input": "[copyIndex('top-level-integer-array')]"
       }
     ]
   },
@@ -313,68 +330,56 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
       "value": "[variables('disk-array-on-object').disks]",
       "type" : "array"
     },
-    "exampleArray": {
-      "value": "[variables('disks-top-level-array')]",
+    "exampleObjectArray": {
+      "value": "[variables('top-level-object-array')]",
+      "type" : "array"
+    },
+    "exampleStringArray": {
+      "value": "[variables('top-level-string-array')]",
+      "type" : "array"
+    },
+    "exampleIntegerArray": {
+      "value": "[variables('top-level-integer-array')]",
       "type" : "array"
     }
   }
 }
 ```
 
-둘 중 한 방법을 사용하는 copy 요소는 배열이므로 리소스에 대해 1 초과 변수를 지정할 수 있습니다. 만들려는 각 변수에 대해 개체를 추가합니다.
-
-```json
-"copy": [
-  {
-    "name": "first-variable",
-    "count": 5,
-    "input": {
-      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
-    }
-  },
-  {
-    "name": "second-variable",
-    "count": 3,
-    "input": {
-      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
-    }
-  },
-]
-```
-
 ## <a name="depend-on-resources-in-a-loop"></a>루프의 리소스에 따라 달라짐
+
 `dependsOn` 요소를 사용하여 어떤 리소스를 다른 리소스 다음에 배포하도록 지정합니다. 루프의 리소스 컬렉션에 따라 달라지는 리소스를 배포하려면 dependsOn 요소에 복사 루프의 이름을 제공합니다. 다음 예제에서는 Virtual Machine을 배포하기 전에 저장소 계정 3개를 배포하는 방법을 보여줍니다. 전체 Virtual Machine 정의는 표시되지 않습니다. 참고로 copy 요소의 name은 `storagecopy`로 설정되고 Virtual Machines에 대한 dependsOn 요소도 `storagecopy`로 설정되었습니다.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "resources": [
-        {
-            "apiVersion": "2016-01-01",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-            "location": "[resourceGroup().location]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {},
-            "copy": {
-                "name": "storagecopy",
-                "count": 3
-            }
-        },
-        {
-            "apiVersion": "2015-06-15", 
-            "type": "Microsoft.Compute/virtualMachines", 
-            "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
-            "dependsOn": ["storagecopy"],
-            ...
-        }
-    ],
-    "outputs": {}
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "resources": [
+    {
+      "apiVersion": "2016-01-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {},
+      "copy": {
+        "name": "storagecopy",
+        "count": 3
+      }
+    },
+    {
+      "apiVersion": "2015-06-15", 
+      "type": "Microsoft.Compute/virtualMachines", 
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+      "dependsOn": ["storagecopy"],
+      ...
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -388,19 +393,19 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 ```json
 "resources": [
 {
-    "type": "Microsoft.DataFactory/datafactories",
-    "name": "exampleDataFactory",
-    ...
-    "resources": [
+  "type": "Microsoft.DataFactory/datafactories",
+  "name": "exampleDataFactory",
+  ...
+  "resources": [
     {
-        "type": "datasets",
-        "name": "exampleDataSet",
-        "dependsOn": [
-            "exampleDataFactory"
-        ],
-        ...
+      "type": "datasets",
+      "name": "exampleDataSet",
+      "dependsOn": [
+        "exampleDataFactory"
+      ],
+      ...
     }
-}]
+  ]
 ```
 
 둘 이상의 데이터 세트를 만들려면 데이터 팩터리의 외부로 이동합니다. 데이터 세트는 데이터 팩터리와 같은 수준에 있어야 하지만 여전히 데이터 팩터리의 자식 리소스입니다. 형식 및 이름 속성을 통해 데이터 집합과 데이터 팩터리 간의 관계를 유지합니다. 템플릿의 해당 위치에서 형식을 더 이상 유추할 수 없으므로 `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}` 형식으로 정규화된 형식을 제공해야 합니다.
@@ -412,21 +417,21 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 ```json
 "resources": [
 {
-    "type": "Microsoft.DataFactory/datafactories",
-    "name": "exampleDataFactory",
-    ...
+  "type": "Microsoft.DataFactory/datafactories",
+  "name": "exampleDataFactory",
+  ...
 },
 {
-    "type": "Microsoft.DataFactory/datafactories/datasets",
-    "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
-    "dependsOn": [
-        "exampleDataFactory"
-    ],
-    "copy": { 
-        "name": "datasetcopy", 
-        "count": "3" 
-    } 
-    ...
+  "type": "Microsoft.DataFactory/datafactories/datasets",
+  "name": "[concat('exampleDataFactory', '/', 'exampleDataSet', copyIndex())]",
+  "dependsOn": [
+    "exampleDataFactory"
+  ],
+  "copy": {
+    "name": "datasetcopy",
+    "count": "3"
+  },
+  ...
 }]
 ```
 
@@ -448,5 +453,5 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 * 자습서를 살펴보려면 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)를 참조하세요.
 
 * 템플릿 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
-* 템플릿 배포 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 애플리케이션 배포](resource-group-template-deploy.md)를 참조하세요.
+* 템플릿 배포 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](resource-group-template-deploy.md)를 참조하세요.
 

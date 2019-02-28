@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/10/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: e87ff83470ac8d375b4eee3b69f8793e3e11c0f5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497420"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341405"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>리소스 공급자 등록 오류 해결
 
@@ -45,13 +45,21 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 오류 메시지는 지원되는 위치 및 API 버전에 대해 제안을 제공해야 합니다. 템플릿을 제안된 값 중 하나로 변경할 수 있습니다. 대부분의 공급자는 Azure Portal이나 사용 중인 명령줄 인터페이스에 의해 자동으로 등록되지만, 그렇지 않은 경우도 있습니다. 특정 리소스 공급자를 전에 사용하지 않은 경우 해당 공급자를 등록해야 합니다.
 
+또는 가상 머신에 대해 자동 종료를 해제할 수 없을 경우 다음과 비슷한 오류 메시지가 표시될 수 있습니다.
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
+
 ## <a name="cause"></a>원인
 
-세 가지 이유 중 하나로 이러한 오류가 나타납니다.
+이러한 오류가 표시되는 이유는 다음과 같습니다.
 
-* 리소스 공급자가 구독에 대해 등록되지 않았습니다.
+* 필요한 리소스 공급자가 구독에 대해 등록되지 않았습니다.
 * 해당 리소스 종류에 대해 API 버전이 지원되지 않습니다.
 * 해당 리소스 종류에 대해 위치가 지원되지 않습니다.
+* VM 자동 종료의 경우 Microsoft.DevTestLab 리소스 공급자를 등록해야 합니다.
 
 ## <a name="solution-1---powershell"></a>해결 방법 1 - PowerShell
 

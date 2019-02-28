@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: 65de1279c47f5992dd82e9f4634b3de52925769c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0cb3bc63f9c3d63c68edba0b4162970e18fca76d
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568382"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312704"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>디바이스 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -361,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다. SELECT 절에 대한 예제는 [디바이스 쌍 쿼리 시작](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) 섹션에서 찾을 수 있습니다.
+**Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다. SELECT 절에 대한 일부 예제는 디바이스 쌍 쿼리 시작 섹션에서 확인할 수 있습니다.
 
 현재 **SELECT***와 다른 선택 절은 디바이스 쌍에 대한 집계 쿼리에서만 지원됩니다.
 

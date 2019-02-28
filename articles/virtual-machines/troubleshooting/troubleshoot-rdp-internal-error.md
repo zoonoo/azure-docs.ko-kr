@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dd75d5a3186bbb6ba82e2deb83a7e8429e32a3f2
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 4476e4732dfcf8d79c9678a7ff4719eba10e48f3
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134525"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445784"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>원격 데스크톱을 통해 Azure VM에 연결하려고 할 때 내부 오류 발생
 
@@ -65,23 +65,25 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 
     1. 3389 서비스를 사용하는 애플리케이션에 대한 서비스를 중지합니다.
 
-        Stop-Service -Name<ServiceName>
+            Stop-Service -Name <ServiceName> -Force
 
     2. 터미널 서비스를 시작합니다.
 
-        Start-Service -Name Termservice
+            Start-Service -Name Termservice
 
 2. 애플리케이션을 중지할 수 없거나 이 방법이 사용자에게 적용되지 않으면 RDP에 대한 포트를 변경합니다.
 
     1. 포트를 변경합니다.
 
-        Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
+            Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
 
-        Stop-Service -Name Termservice Start-Service -Name Termservice
+            Stop-Service -Name Termservice -Force
+            
+            Start-Service -Name Termservice 
 
     2. 새 포트에 대한 방화벽을 설정합니다.
 
-        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT(decimal)>
+            Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
 
     3. Azure Portal RDP 포트에서 [새 포트에 대한 네트워크 보안 그룹을 업데이트](../../virtual-network/security-overview.md)합니다.
 
@@ -89,7 +91,13 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 
 1.  PowerShell 인스턴스에서 다음 명령을 하나씩 실행하여 RDP 자체 서명된 인증서를 갱신합니다.
 
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint
+        Import-Module PKI 
+    
+        Set-Location Cert:\LocalMachine 
+        
+        $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) 
+        
+        Remove-Item -Path $RdpCertThumbprint
 
         Stop-Service -Name "SessionEnv"
 
@@ -112,7 +120,9 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 
         md c:\temp
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt 
+        
+        takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
@@ -120,7 +130,9 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt 
+        
+        Restart-Service TermService -Force
 
 4. VM을 다시 시작한 후 VM에 대한 원격 데스크톱 연결을 시작합니다. 오류가 여전히 발생하는 경우 다음 단계로 이동합니다.
 
@@ -161,7 +173,7 @@ RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러
 
     이 스크립트에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
 
-    ```powershell
+    ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
     REM Enable Serial Console
@@ -191,6 +203,7 @@ RDP 클라이언트는 TLS 1.0을 기본 프로토콜로 사용합니다. 그러
         Md F:\temp
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt
+        
         takeown /f "F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"

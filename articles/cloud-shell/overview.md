@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 1ad85a57762ae4fba30e1699b38eaa52d45ab26e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4195016bb029d2cf8f5042a853fa591609bd486e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447210"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428536"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
 Azure Cloud Shell은 Azure 리소스를 관리하기 위한 브라우저에서 액세스할 수 있는 대화형 셸입니다.
@@ -53,7 +53,7 @@ Cloud Shell은 Microsoft에서 관리되므로 널리 사용되는 명령줄 도
 [Cloud Shell에 설치된 전체 도구 목록](features.md#tools)을 봅니다.
 
 ### <a name="integrated-cloud-shell-editor"></a>Cloud Shell 편집기 통합
-Cloud Shell은 오픈 소스 Monaco 편집기에 따라 통합된 그래픽 텍스트 편집기를 제공합니다. Azure CLI 2.0 또는 Azure PowerShell을 통해 원활하게 배포하기 위해 `code .`를 실행하여 간단하게 구성 파일을 만들고 편집합니다.
+Cloud Shell은 오픈 소스 Monaco 편집기에 따라 통합된 그래픽 텍스트 편집기를 제공합니다. Azure CLI 또는 Azure PowerShell을 통해 원활하게 배포하기 위해 `code .`를 실행하여 간단하게 구성 파일을 만들고 편집합니다.
 
 [Cloud Shell 편집기에 대해 자세히 알아보세요](using-cloud-shell-editor.md).
 
@@ -68,7 +68,7 @@ Cloud Shell은 다음에서 사용할 수 있는 유연한 도구입니다.
 * [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)
 * [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/overview)
 * [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [VS Code Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Visual Studio Code Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Microsoft Azure Files 저장소 연결
 Cloud Shell 머신은 임시이며, 파일을 저장하려면 기존 또는 새로운 Azure Files 공유를 `clouddrive`로 탑재해야 합니다.

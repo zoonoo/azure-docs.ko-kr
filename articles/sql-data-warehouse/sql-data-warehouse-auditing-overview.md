@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ef791bdfafbbd49cacad1a75c7171b9a030df2a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456224"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342307"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 감사
 
@@ -74,10 +74,13 @@ SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할
     ![탐색 창][8]
 
     > [!IMPORTANT]
-    > 서버 수준 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **Blob 추가**에 기록됩니다.
+    > 감사 로그는 Azure 구독의 Azure Blob 스토리지에 있는 **Blob 추가**에 기록됩니다.
     >
-    > * **Premium Storage**는 현재 Blob 추가에서 **지원되지 않습니다**.
-    > * **VNet의 저장소**는 현재 **지원되지 않습니다**.
+    > - 모든 스토리지 종류(v1, v2, Blob)가 지원됩니다.
+    > - 모든 스토리지 복제 구성이 지원됩니다.
+    > - **프리미엄 스토리지**는 현재 **지원되지 않습니다**.
+    > - **VNet의 저장소**는 현재 **지원되지 않습니다**.
+    > - **방화벽 뒤의 스토리지**는 현재 **지원되지 않습니다**.
 
 8. **저장**을 클릭합니다.
 

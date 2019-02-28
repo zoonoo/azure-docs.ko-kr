@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: d13f21da88ae3fb9dfa67b11285e0c3e984d5e5b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ef97d4e2fd0951e30a725e8f2f9603a73c61f1ca
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421814"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416119"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포
 
@@ -23,11 +23,11 @@ ms.locfileid: "54421814"
 
 이렇게 하면 Azure 리소스 배포를 자동화할 수 있습니다. Azure Storage와 같은 안전한 중앙 위치에서 Resource Manager 템플릿을 유지 관리할 수 있습니다.
 
-이 항목에서는 [Azure Storage](../storage/common/storage-introduction.md)에 저장된 Resource Manager 템플릿을 사용하여 새 Azure Storage 계정을 배포하는 PowerShell Runbook을 만듭니다.
+이 문서에서는 [Azure Storage](../storage/common/storage-introduction.md)에 저장된 Resource Manager 템플릿을 사용하여 새 Azure Storage 계정을 배포하는 PowerShell Runbook을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음과 같은 항목이 필요합니다.
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [체험 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
 * [Automation 계정](automation-sec-configure-azure-runas-account.md) .  이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
@@ -176,7 +176,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Templa
 ## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Azure Automation 계정으로 Runbook 가져오기 및 게시
 
 이제 PowerShell을 사용하여 Runbook을 Azure Automation 계정으로 가져온 다음 이 Runbook을 게시합니다.
-Azure Portal에서 Runbook을 가져오고 게시하는 방법에 대한 자세한 내용은 [Azure Automation에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)를 참조하세요.
+Azure Portal에서 Runbook을 가져오고 게시하는 방법에 대한 자세한 내용은 [Azure Automation에서 Runbook 관리](manage-runbooks.md)를 참조하세요.
 
 `DeployTemplate.ps1`을 PowerShell Runbook으로 Automation 계정에 가져오려면 다음 PowerShell 명령을 실행합니다.
 

@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 6dad4fc98dccc5c8db22019fdc548efdf7165d9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 86a3542c39fe81607187442799ef7b546e053a8e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888749"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985838"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -166,7 +166,6 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | C + +로 작성 된 고성능 오픈 소스 NoSQL 데이터베이스입니다. | Bitnami |
 | ![복제를 사용 하 여 MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [복제를 사용 하 여 MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | C + +로 작성 된 고성능 오픈 소스 NoSQL 데이터베이스입니다. **이 솔루션 템플릿에 1807 이상 버전 이어야 하 여 Azure Stack와도 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트를 필요 합니다.** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | 온라인 학습 커뮤니티를 위한 효과적인 CMS입니다. | Bitnami |
-| ![Multicraft](media/azure-stack-marketplace-azure-items/multicraft.png) | [Multicraft](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multicraft) | Minecraft 서버 호스팅 솔루션과 컨트롤 패널입니다. | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | 무료 및 오픈 소스 포럼 소프트웨어입니다. | Bitnami |
 | ![MySQL](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql) | 가장 인기 있는 데이터베이스 시스템입니다. | Bitnami |
 | ![복제를 사용 하 여 MySQL](media/azure-stack-marketplace-azure-items/mysql.png) | [복제를 사용 하 여 MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql-cluster) | MySQL은 빠르고, 신뢰할 수 있는, 확장성 및 사용 하기 쉬운 오픈 소스 관계형 데이터베이스 시스템입니다. MySQL 서버는 중요 업무용, 과도 한 부하가 프로덕션 시스템도 mass를 통해 배포 된 소프트웨어를 포함 하는 경우와 위한 것입니다. 이 솔루션 구성 가능한 복제본 수에 마스터 노드에서 데이터베이스를 복제할 여러 Vm을 사용 합니다. **이 솔루션 템플릿에 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트도 필요합니다.** | Bitnami |

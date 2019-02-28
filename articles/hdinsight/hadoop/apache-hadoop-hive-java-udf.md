@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: a58c61287cfc7828fe0dc15beda9d54f02a694c3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4a3da9e2ad4d5ab83c1e906b3ab43540e819b48c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814149"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342007"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
 
@@ -213,7 +213,7 @@ Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만�
     ```
 
     > [!NOTE]
-    > 이 예제에서는 Azure Storage가 클러스터에 대한 기본 스토리지라고 가정합니다. 클러스터가 Data Lake Storage를 대신 사용하는 경우 `wasb:///` 값을 `adl:///`로 변경합니다.
+    > 이 예제에서는 Azure Storage가 클러스터에 대한 기본 스토리지라고 가정합니다. 클러스터가 Azure Data Lake Storage Gen2를 대신 사용하는 경우 `wasb:///` 값을 `abfs:///`로 변경합니다. 클러스터가 Azure Data Lake Storage Gen1을 사용하는 경우 `wasb:///` 값을 `adl:///`로 변경합니다.
 
 3. UDF를 사용하여 검색한 값을 테이블에서 소문자 문자열로 변환합니다.
 

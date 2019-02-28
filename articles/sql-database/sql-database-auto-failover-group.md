@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 2857b7f5347cf546a9745dcbea02f636a798f4a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004250"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301930"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -60,14 +60,18 @@ ms.locfileid: "56004250"
 
   장애 조치(failover) 그룹의 보조 데이터베이스를 호스트하는 SQL Database 서버 또는 Managed Instance입니다. 보조 서버는 주 서버와 동일한 지역에 있을 수 없습니다.
 
-- **SQL Database 서버의 장애 조치(failover) 그룹에 데이터베이스 추가**
+- **장애 조치(failover) 그룹에 단일 데이터베이스 추가**
 
-  동일한 SQL Database 서버의 탄력적 풀 내에 있는 단일 데이터베이스 또는 여러 개의 데이터베이스를 동일한 장애 조치(failover) 그룹에 포함할 수 있습니다. 장애 조치(failover) 그룹에 단일 데이터베이스를 추가하면 동일한 버전과 계산 크기를 사용하는 보조 데이터베이스가 자동으로 만들어집니다. 탄력적 풀에 주 데이터베이스가 있으면 보조 서버가 동일한 이름을 가진 탄력적 풀에 자동으로 만들어집니다. 보조 서버에 보조 데이터베이스가 이미 있는 데이터베이스를 추가하면 해당 지역 복제가 그룹에 상속됩니다. 장애 조치(failover) 그룹에 속하지 않는 서버에 보조 데이터베이스가 이미 있는 데이터베이스를 추가하면 새 보조 데이터베이스가 보조 서버에 만들어집니다.
+  동일한 SQL Database 서버에 있는 여러 개의 단일 데이터베이스를 동일한 장애 조치(failover) 그룹에 포함할 수 있습니다. 장애 조치(failover) 그룹에 단일 데이터베이스를 추가하면 동일한 버전과 컴퓨팅 크기를 사용하는 보조 데이터베이스가 보조 서버에 자동으로 만들어집니다.  장애 조치(failover) 그룹을 만들 때 해당 서버를 지정했습니다. 보조 서버에 보조 데이터베이스가 이미 있는 데이터베이스를 추가하는 경우 해당 지역 복제 링크가 그룹에 상속됩니다. 장애 조치(failover) 그룹에 속하지 않는 서버에 보조 데이터베이스가 이미 있는 데이터베이스를 추가하면 새 보조 데이터베이스가 보조 서버에 만들어집니다.
   
 > [!IMPORTANT]
   > Managed Instance에서 모든 사용자 데이터베이스가 복제됩니다. 장애 조치(failover) 그룹에서 복제를 위해 사용자 데이터베이스 하위 집합을 선택할 수 없습니다.
 
-- **장애 조치 그룹 읽기-쓰기 수신기**
+- **장애 조치(failover) 그룹에 탄력적 풀의 데이터베이스 추가**
+
+  탄력적 풀에 있는 전체 또는 여러 개의 데이터베이스를 동일한 장애 조치(failover) 그룹에 포함할 수 있습니다. 탄력적 풀에 주 데이터베이스가 있는 경우 동일한 이름을 가진 보조 데이터베이스가 탄력적 풀에 자동으로 만들어집니다(보조 풀). 장애 조치(failover) 그룹에서 만들 보조 데이터베이스를 호스트하기에 충분한 여유 용량과 정확히 동일한 이름을 가진 탄력적 풀이 보조 서버에 있는지 확인해야 합니다. 보조 풀에 보조 데이터베이스가 이미 있는 데이터베이스를 풀에 추가하는 경우 해당 지역 복제 링크가 그룹에 상속됩니다. 장애 조치(failover) 그룹에 속하지 않는 보조 데이터베이스가 서버에 이미 있는 데이터베이스를 추가하는 경우 새 보조 데이터베이스가 보조 풀에 만들어집니다.
+  
+  - **장애 조치 그룹 읽기-쓰기 수신기**
 
   현재 주 데이터베이스의 URL을 가리키는 DNS CNAME 레코드가 생성됩니다. 장애 조치 후 주 데이터베이스가 변경되면 읽기-쓰기 SQL 애플리케이션이 해당 주 데이터베이스에 투명하게 다시 연결할 수 있습니다.
 

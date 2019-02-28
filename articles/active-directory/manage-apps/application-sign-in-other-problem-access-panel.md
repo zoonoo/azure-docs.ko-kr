@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05efbe3feb81b11d547cd50d8ba3f87c2ff0e5b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 52f8e20cb66fb9c516435dd40ff7e362567bb338
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164722"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310868"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>액세스 패널의 애플리케이션에 로그인하는 문제
 
@@ -250,13 +250,13 @@ Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로�
 
 비갤러리 애플리케이션을 구성하려면 Azure AD 프리미엄이 있어야 하며 애플리케이션에서 SAML 2.0을 지원해야 합니다. Azure AD 버전에 대한 자세한 내용은 [Azure AD 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
 
--   [Azure AD에서 애플리케이션의 메타데이터 값 구성(로그온 URL, 식별자, 회신 URL)](#configuring-single-sign-on)
+-   Azure AD에서 애플리케이션의 메타데이터 값 구성(로그온 URL, 식별자, 회신 URL)
 
 -   [사용자 식별자를 선택하고 애플리케이션에 보낼 사용자 특성 추가](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
 -   [Azure AD 메타데이터 및 인증서 검색](#download-the-azure-ad-metadata-or-certificate)
 
--   [애플리케이션에서 Azure AD 메타데이터 값 구성(로그온 URL, 발급자, 로그아웃 URL 및 인증서)](#configuring-single-sign-on)
+-   애플리케이션에서 Azure AD 메타데이터 값 구성(로그온 URL, 발급자, 로그아웃 URL 및 인증서)
 
 ### <a name="configure-the-applications-metadata-values-in-azure-ad-sign-on-url-identifier-reply-url"></a>Azure AD에서 애플리케이션의 메타데이터 값 구성(로그온 URL, 식별자, 회신 URL)
 

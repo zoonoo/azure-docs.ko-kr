@@ -10,19 +10,19 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 67843efd87e0d1cdd1a392fdd24d29decae093e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0940cb9e42588990e2109d02fda462f343443876
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997008"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456081"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 결과 해석
 이 토픽에서는 Azure Machine Learning Studio에서 예측 결과를 시각화하고 해석하는 방법을 설명합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
 
 
 
-Azure Machine Learning에는 다음과 같이 네 가지 주된 유형의 기계 학습 모델이 있습니다.
+Azure Machine Learning Studio에는 다음 네 가지 주요 기계 학습 모델 종류가 있습니다.
 
 * 분류
 * 클러스터링
@@ -35,11 +35,11 @@ Azure Machine Learning에는 다음과 같이 네 가지 주된 유형의 기계
 * 클러스터링을 위한 [클러스터에 할당][assign-to-clusters] 모듈
 * 추천 시스템을 위한 [매치박스 추천 점수 매기기][score-matchbox-recommender]
 
-이 문서에서는 이러한 각 모듈의 예측 결과를 해석하는 방법에 대해 설명합니다. 이러한 모델에 대한 개요는 [Azure Machine Learning에서 알고리즘을 최적화하는 매개 변수를 선택하는 방법](algorithm-parameters-optimize.md)을 참조하세요.
+이 문서에서는 이러한 각 모듈의 예측 결과를 해석하는 방법에 대해 설명합니다. 이러한 모델에 대한 개요는 [Azure Machine Learning Studio에서 알고리즘을 최적화하는 매개 변수를 선택하는 방법](algorithm-parameters-optimize.md)을 참조하세요.
 
-이 항목에서는 예측 해석에 대해 다루지만 모델 평가는 다루지 않습니다. 모델 평가 방법에 대한 자세한 내용은 [Azure Machine Learning에서 모델 성능을 평가하는 방법](evaluate-model-performance.md)을 참조하세요.
+이 항목에서는 예측 해석에 대해 다루지만 모델 평가는 다루지 않습니다. 모델 평가 방법에 대한 자세한 내용은 [Azure Machine Learning Studio에서 모델 성능을 평가하는 방법](evaluate-model-performance.md)을 참조하세요.
 
-Azure Machine Learning을 처음 사용하며 시작하기 위해 간단한 실험을 만드는 방법에 대한 도움이 필요한 경우 Azure Machine Learning Studio의 [Azure Machine Learning Studio에서 간단한 실험 만들기](create-experiment.md)를 참조하세요.
+Azure Machine Learning Studio를 처음 사용하며, 시작하기 위해 간단한 실험을 만드는 방법에 대한 도움이 필요한 경우 Azure Machine Learning Studio의 [Azure Machine Learning Studio에서 간단한 실험 만들기](create-experiment.md)를 참조하세요.
 
 ## <a name="classification"></a>분류
 분류 문제의 하위 범주는 다음 두 가지가 있습니다.
@@ -47,12 +47,12 @@ Azure Machine Learning을 처음 사용하며 시작하기 위해 간단한 실�
 * 2클래스에만 문제가 있음(2클래스 또는 이진 분류)
 * 세 개 이상의 클래스에 문제가 있음(다중 클래스 분류)
 
-Azure Machine Learning에는 이러한 각 분류 유형을 다루는 여러 모듈이 있지만 예측 결과를 해석하는 방법은 비슷합니다.
+Azure Machine Learning Studio에는 이러한 각 분류 유형을 다루는 여러 모듈이 있지만 예측 결과를 해석하는 방법은 비슷합니다.
 
 ### <a name="two-class-classification"></a>2클래스 분류
 **예제 실험**
 
-2클래스 분류 문제의 예로 붓꽃 분류를 들 수 있습니다. 이 작업은 특징에 따라 붓꽃을 분류하는 것입니다. Azure Machine Learning에서 제공하는 붓꽃 데이터 집합은 널리 사용되는 [붓꽃 데이터 집합](http://en.wikipedia.org/wiki/Iris_flower_data_set)의 하위 집합입니다. 이 집합에는 꽃의 종류가 두 가지(클래스 0과 1)뿐입니다. 각 꽃에는 네 가지 특징이 있습니다(꽃받침 길이, 꽃받침 너비, 꽃잎 길이 및 꽃잎 너비).
+2클래스 분류 문제의 예로 붓꽃 분류를 들 수 있습니다. 이 작업은 특징에 따라 붓꽃을 분류하는 것입니다. Azure Machine Learning Studio에서 제공하는 아이리스 데이터 세트는 널리 사용되는 [아이리스 데이터 세트](http://en.wikipedia.org/wiki/Iris_flower_data_set)의 하위 집합입니다. 이 집합에는 꽃의 종류가 두 가지(클래스 0과 1)뿐입니다. 각 꽃에는 네 가지 특징이 있습니다(꽃받침 길이, 꽃받침 너비, 꽃잎 길이 및 꽃잎 너비).
 
 ![붓꽃 실험의 스크린샷](./media/interpret-model-results/1.png)
 
@@ -226,7 +226,7 @@ Azure Machine Learning에는 이러한 각 분류 유형을 다루는 여러 모
 * 고객 특징 데이터
 * 음식점 기능 데이터
 
-Azure Machine Learning의 [매치박스 추천 학습][train-matchbox-recommender] 모듈을 사용하여 여러 가지를 수행할 수 있습니다.
+Azure Machine Learning Studio의 [매치박스 추천 학습][train-matchbox-recommender] 모듈을 사용하여 여러 가지를 수행할 수 있습니다.
 
 * 지정된 사용자와 항목의 등급 예측
 * 지정된 사용자를 위한 항목 추천
@@ -237,7 +237,7 @@ Azure Machine Learning의 [매치박스 추천 학습][train-matchbox-recommende
 
 ![매치박스 추천](./media/interpret-model-results/19_1.png)
 
-추천 시스템의 일반적인 Azure Machine Learning 실험은 그림 20과 비슷합니다. 추천 시스템 모듈 사용 방법에 대한 자세한 내용은 [매치박스 추천 학습][train-matchbox-recommender] 및 [매치박스 추천 점수 매기기][score-matchbox-recommender]를 참조하세요.
+추천 시스템의 일반적인 Azure Machine Learning Studio 실험은 그림 20과 비슷합니다. 추천 시스템 모듈 사용 방법에 대한 자세한 내용은 [매치박스 추천 학습][train-matchbox-recommender] 및 [매치박스 추천 점수 매기기][score-matchbox-recommender]를 참조하세요.
 
 ![추천 시스템 실험](./media/interpret-model-results/20.png)
 

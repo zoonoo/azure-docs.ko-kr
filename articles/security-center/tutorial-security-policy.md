@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90c508fb5ad3caf961747f2ac10bae42dd1f4c35
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114963"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343513"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
-이 문서에서는 보안 정책을 구성하는 방법 및 Security Center에서 보안 정책을 보는 방법을 설명합니다. Azure Security Center에서는 등록되는 각 구독에 자동으로 해당 [기본 제공 보안 정책](security-center-policy-definitions.md)을 할당합니다. 관리 그룹 및 여러 구독에서 정책을 설정할 수도 있는 [Azure Policy](../azure-policy/azure-policy-introduction.md)에서 보안 정책을 구성할 수 있습니다.
+이 문서에서는 보안 정책을 구성하는 방법 및 Security Center에서 보안 정책을 보는 방법을 설명합니다. Azure Security Center에서는 등록되는 각 구독에 자동으로 해당 [기본 제공 보안 정책](security-center-policy-definitions.md)을 할당합니다. 관리 그룹 및 여러 구독에서 정책을 설정할 수도 있는 [Azure Policy](../governance/policy/overview.md)에서 보안 정책을 구성할 수 있습니다.
 
-PowerShell을 사용하여 정책을 설정하는 방법에 대한 지침은 [빠른 시작: Azure RM PowerShell 모듈을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기](../azure-policy/assign-policy-definition-ps.md)를 참조하세요.
+PowerShell을 사용하여 정책을 설정하는 방법에 대한 지침은 [빠른 시작: Azure PowerShell 모듈을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기](../governance/policy/assign-policy-powershell.md)를 참조하세요.
 
 >[!NOTE]
 > Security Center와 Azure Policy의 통합이 시작되었습니다. 기존 고객의 경우 Security Center의 이전 보안 정책이 더 이상 사용되지 않으며 새로운 기본 제공 이니셔티브로 자동 마이그레이션됩니다. 새로운 이니셔티브가 Azure Policy에 포함되어 있다는 점을 제외하면 이러한 변경은 리소스나 환경에 영향을 주지 않습니다.
 
 ## <a name="what-are-security-policies"></a>보안 정책이란?
-보안 정책은 워크로드에서 원하는 구성을 정의하고 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Azure Policy에서 Azure 구독에 대한 정책을 정의하고 워크로드의 유형 또는 데이터의 민감도에 맞게 정책을 조정할 수 있습니다. 예를 들어 개인 식별 정보와 같이 규제된 데이터를 사용하는 애플리케이션은 다른 작업보다 높은 수준의 보안이 필요할 수 있습니다. 여러 구독이나 관리 그룹에 걸쳐 정책을 설정하려면 [Azure Policy](../azure-policy/azure-policy-introduction.md)에서 정책을 설정합니다.
+보안 정책은 워크로드에서 원하는 구성을 정의하고 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Azure Policy에서 Azure 구독에 대한 정책을 정의하고 워크로드의 유형 또는 데이터의 민감도에 맞게 정책을 조정할 수 있습니다. 예를 들어 개인 식별 정보와 같이 규제된 데이터를 사용하는 애플리케이션은 다른 작업보다 높은 수준의 보안이 필요할 수 있습니다. 여러 구독이나 관리 그룹에 걸쳐 정책을 설정하려면 [Azure Policy](../governance/policy/overview.md)에서 정책을 설정합니다.
 
 보안 정책에 따라 Azure Security Center에서 얻는 보안 권장 사항이 결정됩니다. 잠재적인 취약성을 식별하고 위협을 완화하는 데 도움이 되려면 보안 권장 사항 규정 준수를 모니터링할 수 있습니다. 적절한 옵션을 결정하는 방법에 대한 자세한 내용은 [기본 제공 보안 정책](security-center-policy-definitions.md) 목록을 참조하세요.
 
@@ -52,7 +52,7 @@ Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으�
 - 전체 조직 또는 조직 내 비즈니스 단위를 나타낼 수 있는 관리 그룹 및 구독에 정책을 할당합니다.
 - 정책 준수를 모니터링합니다.
 
-Azure Policy에 대한 자세한 내용은 [규정 준수를 적용하는 정책 만들기 및 관리](../azure-policy/create-manage-policy.md)를 참조하세요.
+Azure Policy에 대한 자세한 내용은 [규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)를 참조하세요.
 
 Azure 정책은 다음 구성 요소로 구성됩니다.
 
@@ -236,4 +236,4 @@ Security Center는 Azure에서 사용자, 그룹 및 서비스에 할당할 수 
 * [Azure Security Center FAQ](security-center-faq.md): 서비스 사용에 관한 질문과 대답에 대한 답을 가져옵니다.
 * [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/): Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
-Azure Policy에 대해 자세히 알아보려면 [Azure Policy란?](../azure-policy/azure-policy-introduction.md)을 참조하세요.
+Azure Policy에 대해 자세히 알아보려면 [Azure Policy란?](../governance/policy/overview.md)을 참조하세요.

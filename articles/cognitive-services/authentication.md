@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: erhopf
-ms.openlocfilehash: f724bba5acdda20d31d067b850634178a0650cf7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2f9b477e076b038a6a695952ee3f770b30ad179b
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859748"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429471"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Cognitive Services에 대한 요청 인증
 
@@ -58,7 +58,7 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
-다음 비디오는 Cognitive Services 키를 사용하는 방법을 보여줍니다. 
+다음 비디오는 Cognitive Services 키를 사용하는 방법을 보여줍니다.
 
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>다중 서비스 구독 키로 인증
 
@@ -127,16 +127,15 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ### <a name="sample-requests"></a>샘플 요청
 
-인증 토큰에 대한 단일 서비스 구독 키를 교환하려면 이 URL을 사용합니다. `https://api.cognitive.microsoft.com/sts/v1.0/issueToken`.
+인증 토큰에 대한 구독 키를 교환하려면 다음 URL을 사용합니다. `https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 ```cURL
 curl -v -X POST \
-"https://api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
 -H "Content-type: application/x-www-form-urlencoded" \
+-H "Content-length: 0" \
 -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
-
-다중 서비스 구독 키를 사용하는 경우 토큰 교환을 위해 지역별 엔드포인트를 사용해야 합니다. 이 URL(`https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken`)을 사용하여 다중 서비스 구독 키를 인증 토큰으로 교환합니다.
 
 토큰 교환을 지원하는 다중 서비스 지역은 다음과 같습니다.
 
@@ -147,13 +146,6 @@ curl -v -X POST \
 | `japaneast` | `northeurope` | `southcentralus` |
 | `southeastasia` | `uksouth` | `westcentralus` |
 | `westeurope` | `westus` | `westus2` |
-
-```cURL
-curl -v -X POST \
-"https://YOUR-REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
--H "Content-type: application/x-www-form-urlencoded" \
--H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
-```
 
 인증 토큰을 가져온 후에 각 요청에서 `Authorization` 헤더로 전달해야 합니다. Translator Text API에 대한 호출 샘플은 다음과 같습니다.
 

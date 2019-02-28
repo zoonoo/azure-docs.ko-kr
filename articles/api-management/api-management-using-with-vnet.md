@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: d0af6c098f68c23bf9ef6161bd307afec518ead7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: cc4893837feeec6116750a7e37e7621af11ab0a4
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011694"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453922"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -126,11 +126,11 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 >[!IMPORTANT]
 > API Management 서비스를 성공적으로 배포하려면 *목적*이 **볼드**인 포트가 필요합니다. 하지만 다른 포트를 차단할 경우 실행 중인 서비스사를 용 및 모니터링하는 기능이 저하됩니다.
 
-* **SSL 기능**: SSL 인증서 체인 작성 및 유효성 검사를 사용하도록 설정하려면 API Management에서 ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com으로의 아웃바운드 네트워크 연결이 필요합니다. API Management에 업로드하는 인증서에 CA 루트의 전체 체인이 포함되어 있으면 이 종속성은 필요하지 않습니다.
++ **SSL 기능**: SSL 인증서 체인 작성 및 유효성 검사를 사용하도록 설정하려면 API Management에서 ocsp.msocsp.com, mscrl.microsoft.com 및 crl.microsoft.com으로의 아웃바운드 네트워크 연결이 필요합니다. API Management에 업로드하는 인증서에 CA 루트의 전체 체인이 포함되어 있으면 이 종속성은 필요하지 않습니다.
 
-* **DNS 액세스**: DNS 서버와의 통신을 위해서는 포트 53에서 아웃바운드 액세스가 필요합니다. 사용자 지정 DNS 서버가 VPN 게이트웨이의 다른 쪽 끝에 있는 경우 API Management를 호스팅하는 서브넷에서 DNS 서버에 연결할 수 있어야 합니다.
++ **DNS 액세스**: DNS 서버와의 통신을 위해서는 포트 53에서 아웃바운드 액세스가 필요합니다. 사용자 지정 DNS 서버가 VPN 게이트웨이의 다른 쪽 끝에 있는 경우 API Management를 호스팅하는 서브넷에서 DNS 서버에 연결할 수 있어야 합니다.
 
-* **메트릭 및 상태 모니터링**: Azure Monitoring 엔드포인트에 대한 아웃바운드 네트워크 연결은 다음 도메인에서 확인합니다. 
++ **메트릭 및 상태 모니터링**: Azure Monitoring 엔드포인트에 대한 아웃바운드 네트워크 연결은 다음 도메인에서 확인합니다. 
 
     | Azure 환경 | 엔드포인트                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -138,17 +138,22 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
-* **SMTP 릴레이**: 호스트 `ies.global.microsoft.com`에서 확인되는 SMTP 릴레이에 대한 아웃바운드 네트워크 연결입니다.
++ **SMTP 릴레이**: 호스트 `ies.global.microsoft.com`에서 확인되는 SMTP 릴레이에 대한 아웃바운드 네트워크 연결입니다.
 
-* **Azure Portal 진단**: Virtual Network 내부에서 API Management 확장을 사용할 때 Azure Portal에서 진단 로그의 흐름을 사용하도록 설정하려면 포트 443에서 `dc.services.visualstudio.com`에 대한 아웃바운드 액세스가 필요합니다. 이는 확장을 사용할 때 발생할 수 있는 문제 해결에 도움이 됩니다.
++ **개발자 포털 CAPTCHA**: `client.hip.live.com` 호스트에서 확인되는 개발자 포털 CAPTCHA에 대한 아웃바운드 네트워크 연결입니다.
 
-* **Express Route 설정**: 고객의 일반적인 구성은 온-프레미스 흐름 대신 아웃바운드 인터넷 트래픽을 강제하는 기본 경로(0.0.0.0/0)로 정의되어 있습니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 해결책은 하나의(또는 그 이상) [UDR][UDRs](사용자 정의 경로)을 Azure API Management를 포함하는 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
-  가능하면 다음 구성을 사용하는 것이 좋습니다.
- * ExpressRoute 구성은 0.0.0.0/0을 보급하고 기본적으로 모든 아웃바운드 트래픽 온-프레미스를 강제로 터널링합니다.
- * Azure API Management를 포함하는 서브넷에 적용된 UDR은 다음 홉 형식을 갖는 인터넷으로 0.0.0.0/0을 정의합니다.
- 이러한 단계의 결합된 효과는 서브넷 수준 UDR이 강제된 터널링에 ExpressRoute를 담당하고 Azure API Management에서 아웃바운드 인터넷 액세스를 보장합니다.
++ **Azure Portal 진단**: Virtual Network 내부에서 API Management 확장을 사용할 때 Azure Portal에서 진단 로그의 흐름을 사용하도록 설정하려면 포트 443에서 `dc.services.visualstudio.com`에 대한 아웃바운드 액세스가 필요합니다. 이는 확장을 사용할 때 발생할 수 있는 문제 해결에 도움이 됩니다.
 
-* **네트워크 가상 어플라이언스를 통한 라우팅**: UDR을 사용하여 기본 경로(0.0.0.0/0)로 Azure에서 실행 중인 네트워크 가상 어플라이언스를 통해 API Management 서브넷에서 인터넷으로 향하는 트래픽을 라우팅하도록 구성하면 인터넷에서 가상 네트워크 서브넷 내에 배포된 API Management 서비스 인스턴스로 들어오는 관리 트래픽이 차단됩니다. 이 구성은 지원되지 않습니다.
++ **Express Route 설정**: 고객의 일반적인 구성은 온-프레미스 흐름 대신 아웃바운드 인터넷 트래픽을 강제하는 기본 경로(0.0.0.0/0)로 정의되어 있습니다. 이 트래픽 흐름은 변함없이 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 해결책은 하나의(또는 그 이상) [UDR][UDRs](사용자 정의 경로)을 Azure API Management를 포함하는 서브넷에 정의하는 것입니다. UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
+
+    가능하면 다음 구성을 사용하는 것이 좋습니다.
+
+     * ExpressRoute 구성은 0.0.0.0/0을 보급하고 기본적으로 모든 아웃바운드 트래픽 온-프레미스를 강제로 터널링합니다.
+     * Azure API Management를 포함하는 서브넷에 적용된 UDR은 다음 홉 형식을 갖는 인터넷으로 0.0.0.0/0을 정의합니다.
+
+    이러한 단계의 결합된 효과는 서브넷 수준 UDR이 강제된 터널링에 ExpressRoute를 담당하고 Azure API Management에서 아웃바운드 인터넷 액세스를 보장합니다.
+
++ **네트워크 가상 어플라이언스를 통한 라우팅**: UDR을 사용하여 기본 경로(0.0.0.0/0)로 Azure에서 실행 중인 네트워크 가상 어플라이언스를 통해 API Management 서브넷에서 인터넷으로 향하는 트래픽을 라우팅하도록 구성하면 인터넷에서 가상 네트워크 서브넷 내에 배포된 API Management 서비스 인스턴스로 들어오는 관리 트래픽이 차단됩니다. 이 구성은 지원되지 않습니다.
 
 >[!WARNING]
 >**공용 피어링 경로에서 개인 피어링 경로로 경로의 교차 보급을 잘못**한 ExpressRoute 구성에서는 Azure API Management가 지원되지 않습니다. 구성된 공용 피어링이 있는 ExpressRoute 구성은 다양한 Microsoft Azure IP 주소 범위 집합에 대해 Microsoft에서 경로 보급을 받습니다. 이러한 주소 범위의 교차 보급을 개인 피어링 경로에 잘못한 경우 Azure API Management 인스턴스의 서브넷에서 모든 아웃바운드 네트워크 패킷이 고객의 온-프레미스 네트워크 인프라에 강제 터널링되는 잘못된 최종 결과를 발생시킵니다. 이 네트워크 흐름은 Azure API Management를 중단합니다. 이 문제를 해결하려면 공용 피어링 경로에서 개인 피어링 경로로 이어진 교차 보급 경로를 중지합니다.

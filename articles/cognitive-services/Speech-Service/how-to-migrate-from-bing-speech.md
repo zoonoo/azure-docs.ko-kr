@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 73df93345cf73939f33afedfd655cef847d895dc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bd9e9d64849c90d23146b814d2d48a8400d069f0
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863570"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447959"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech Service로 마이그레이션
 
@@ -65,7 +65,7 @@ Speech Service는 트랜잭션 기반 모델 대신 시간 기반 가격 책정 
 
 Speech Service [REST API](rest-apis.md)는 Bing Speech API와 호환됩니다. 현재 Bing Speech REST API를 사용 중인 경우 REST 엔드포인트만 변경하고 Speech Service 구독 키로 전환해야 합니다.
 
-또한 Speech Service WebSocket 프로토콜도 Bing Speech에서 사용되는 프로토콜과 호환됩니다. 새로 개발할 때에는 Websocket보다 Speech Service SDK를 사용하는 것이 좋습니다. 기존 코드를 SDK로 마이그레이션하는 것도 좋은 생각입니다. 그러나 REST API와 마찬가지로, WebSocket을 통해 Bing Speech를 사용하는 기존 코드에서는 엔드포인트와 업데이트된 키만 변경하면 됩니다.
+또한 Speech Service WebSocket 프로토콜도 Bing Speech에서 사용되는 프로토콜과 호환됩니다. 새로 개발할 때에는 Websocket보다 Speech SDK를 사용하는 것이 좋습니다. 기존 코드를 SDK로 마이그레이션하는 것도 좋은 생각입니다. 그러나 REST API와 마찬가지로, WebSocket을 통해 Bing Speech를 사용하는 기존 코드에서는 엔드포인트와 업데이트된 키만 변경하면 됩니다.
 
 특정 프로그래밍 언어에 대해 Bing Speech 클라이언트 라이브러리를 사용하는 경우 API가 다르기 때문에 [Speech SDK](speech-sdk.md)에서 사용 중인 응용 프로그램으로 변경해야 합니다. Speech SDK는 새 기능에 액세스하면서 코드를 좀 더 간단히 만들어줄 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor 로그 쿼리 예제 | Microsoft Docs
-description: Azure Monitor의 로그 쿼리에서 데이터 탐색기 쿼리 언어를 사용하는 예제입니다.
+description: Kusto 쿼리 언어를 사용한 Azure Monitor의 로그 쿼리 예제입니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 81852590ec714c458ebf2ba2b714d0b20f0b873c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993200"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416652"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor 로그 쿼리 예제
-이 문서에는 [데이터 탐색기 쿼리 언어](https://docs.microsoft.com/azure/kusto/query/)를 사용하여 Azure Monitor에서 여러 형식의 로그 데이터를 검색하는 [쿼리](log-query-overview.md)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  
+이 문서에는 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 Azure Monitor에서 여러 형식의 로그 데이터를 검색하는 [쿼리](log-query-overview.md)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  
 
 이러한 샘플에서 사용되는 다양한 키워드에 대한 자세한 내용은 [Kusto 언어 참조](https://docs.microsoft.com/azure/kusto/query/)를 참조하세요. Azure Monitor를 처음 사용하는 경우에는 [쿼리 작성 단원](get-started-queries.md)을 진행하세요.
 
@@ -38,7 +38,7 @@ Event
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>unmarshaling 관련 이벤트 검색
-**Event** 및 **SecurityEvents** 테이블에서 _unmashaling_ 이 언급된 레코드를 검색합니다.
+**Event** 및 **SecurityEvents** 테이블에서 _unmarshaling_이 언급된 레코드를 검색합니다.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"

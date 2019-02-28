@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d6778e1749493a04a73d0ac210c1557b89343d00
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 2a030daa8d9c30add1beb3a2628aa16b2da22dde
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695583"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338855"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>모든 Azure 구독 및 관리 그룹을 관리하는 액세스 권한 상승
 
@@ -263,5 +263,5 @@ CanDelegate        : False
 
 ## <a name="next-steps"></a>다음 단계
 
-- [여러 역할의 이해](rbac-and-directory-admin-roles.md)
-- [REST를 사용하는 역할 기반 액세스 제어](role-assignments-rest.md)
+- [Azure의 다양한 역할 이해](rbac-and-directory-admin-roles.md)
+- [RBAC 및 REST API를 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-rest.md)

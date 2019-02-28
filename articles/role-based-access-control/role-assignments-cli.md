@@ -1,6 +1,6 @@
 ---
-title: RBAC 및 Azure CLI를 사용하여 액세스 관리 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 Azure CLI를 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
+title: RBAC 및 Azure CLI를 사용하여 Azure 리소스에 대한 액세스 관리 | Microsoft Docs
+description: RBAC(역할 기반 액세스 제어) 및 Azure CLI를 사용하여 Azure 리소스에 대한 사용자, 그룹 및 애플리케이션의 액세스를 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6d1e64c7630f3fd35124e6671476174ddfc16bb6
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437102"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341721"
 ---
-# <a name="manage-access-using-rbac-and-azure-cli"></a>RBAC 및 Azure CLI를 사용하여 액세스 관리
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>RBAC 및 Azure CLI를 사용하여 Azure 리소스에 대한 액세스 관리
 
-[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 이 문서에서는 RBAC 및 Azure CLI를 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 설명합니다.
+[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 문서에서는 RBAC 및 Azure CLI를 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -311,5 +311,5 @@ az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure CLI를 사용하여 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)
-- [Azure 리소스 및 리소스 그룹 관리를 위해 Azure CLI 사용](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+- [자습서: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)
+- [Azure 리소스 및 리소스 그룹 관리를 위해 Azure CLI 사용](../azure-resource-manager/cli-azure-resource-manager.md)

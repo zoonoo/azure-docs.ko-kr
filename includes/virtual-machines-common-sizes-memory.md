@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b992947245175803f8f2f8c6a5aba70fe13bde2c
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 97efb82f104742993f7b2fac40a74f4feb9e0b38
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084024"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333896"
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
@@ -36,7 +36,7 @@ Premium Storage:  지원됨
 
 Premium Storage 캐싱:  지원됨
 
-ESv3 시리즈 인스턴스는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0을 통해 3.5GHz를 달성하고 프리미엄 저장소를 사용할 수 있습니다. Ev3 시리즈 인스턴스는 메모리 집약적 엔터프라이즈 애플리케이션에 적합합니다.
+ESv3 시리즈 인스턴스는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0을 통해 3.5GHz를 달성하고 Premium Storage를 사용할 수 있습니다. Ev3 시리즈 인스턴스는 메모리 집약적 엔터프라이즈 애플리케이션에 적합합니다.
 
 
 | 크기             | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
@@ -68,7 +68,7 @@ Premium Storage 캐싱:  지원되지 않음
 
 Ev3 시리즈 인스턴스는 2.3GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0을 통해 3.5GHz를 달성할 수 있습니다. Ev3 시리즈 인스턴스는 메모리 집약적 엔터프라이즈 애플리케이션에 적합합니다.
 
-데이터 디스크 저장소는 가상 머신과 별도로 비용이 청구됩니다. 프리미엄 저장소 디스크를 사용하려면 ESv3 크기를 사용합니다. ESv3 크기의 가격 및 요금 청구 기준은 Ev3 시리즈와 동일합니다. 
+데이터 디스크 저장소는 가상 머신과 별도로 비용이 청구됩니다. Premium Storage 디스크를 사용하려면 ESv3 크기를 사용합니다. ESv3 크기의 가격 및 요금 청구 기준은 Ev3 시리즈와 동일합니다. 
 
 
 | 크기            | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 NIC 수/네트워크 대역폭 |
@@ -143,7 +143,7 @@ Premium Storage 캐싱:  지원됨
 | Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80,000/800(2,112) |40,000/1,000 |8 / 16000 |
 | Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> |32 |448 |896 |64 |160,000/1,600(4,224) |80,000/2,000 |8 / 20000 |
 
-<sup>1</sup> GS 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다. 자세한 내용은 [Premium Storage: Azure 가상 머신 워크로드를 위한 고성능 스토리지](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요. 
+<sup>1</sup> GS 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다. 자세한 내용은 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)을 참조하세요.
 
 <sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
@@ -188,7 +188,7 @@ Premium Storage 캐싱:  지원됨
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80,000/640(720) |64,000/960 |8 / 25000&nbsp;<sup>4</sup>
 
 
-<sup>1</sup> DSv2 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 머신 워크로드를 위한 고성능 스토리지](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
+<sup>1</sup> DSv2 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [고성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)을 참조하세요.
 
 <sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 

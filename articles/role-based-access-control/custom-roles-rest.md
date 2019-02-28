@@ -1,6 +1,6 @@
 ---
-title: REST API를 사용하여 사용자 지정 역할 만들기 - Azure | Microsoft Docs
-description: REST API를 사용하여 RBAC(역할 기반 액세스 제어)에 대한 사용자 지정 역할을 만드는 방법을 알아봅니다. 여기에는 사용자 지정 역할을 나열, 생성, 업데이트 및 삭제하는 방법이 포함됩니다.
+title: REST API를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 - Azure | Microsoft Docs
+description: REST API를 사용하여 RBAC(역할 기반 액세스 제어)로 Azure 리소스에 대한 사용자 지정 역할을 만드는 방법을 알아봅니다. 여기에는 사용자 지정 역할을 나열, 생성, 업데이트 및 삭제하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8a1bbe8217e2d4a9846f56124e248e19cbe70b19
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: cfcb7ef2a4fc02932f9d03c277b105c4b1e0ff3a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436065"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338770"
 ---
-# <a name="create-custom-roles-using-the-rest-api"></a>REST API를 사용하여 사용자 지정 역할 만들기
+# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
 
-[기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 직접 만들 수 있습니다. 이 문서에서는 REST API를 사용하여 사용자 지정 역할을 만들고 관리하는 방법에 대해 설명합니다.
+[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들면 됩니다. 이 문서에서는 REST API를 사용하여 사용자 지정 역할을 만들고 관리하는 방법에 대해 설명합니다.
 
 ## <a name="list-roles"></a>역할 나열
 
@@ -38,7 +38,7 @@ ms.locfileid: "37436065"
 
 1. URI 내에서 *{scope}* 를 나열하려는 역할에 대한 범위로 바꿉니다.
 
-    | 범위 | type |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
@@ -67,7 +67,7 @@ ms.locfileid: "37436065"
 
 1. URI 내에서 *{scope}* 를 나열하려는 역할에 대한 범위로 바꿉니다.
 
-    | 범위 | type |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
@@ -115,7 +115,7 @@ ms.locfileid: "37436065"
 
 1. URI 내에서 *{scope}* 를 사용자 지정 역할의 첫 번째 `assignableScopes`로 바꿉니다.
 
-    | 범위 | type |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
@@ -179,7 +179,7 @@ ms.locfileid: "37436065"
 
 1. URI 내에서 *{scope}* 를 사용자 지정 역할의 첫 번째 `assignableScopes`로 바꿉니다.
 
-    | 범위 | type |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
@@ -262,7 +262,7 @@ ms.locfileid: "37436065"
 
 1. URI 내에서 *{scope}* 를 삭제하려는 사용자 지정 역할에 대한 범위로 바꿉니다.
 
-    | 범위 | type |
+    | 범위 | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 구독 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
@@ -272,6 +272,6 @@ ms.locfileid: "37436065"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure의 사용자 지정 역할](custom-roles.md)
-- [RBAC 및 REST API를 사용하여 액세스 관리](role-assignments-rest.md)
+- [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
+- [RBAC 및 REST API를 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-rest.md)
 - [Azure REST API 참조](/rest/api/azure/)

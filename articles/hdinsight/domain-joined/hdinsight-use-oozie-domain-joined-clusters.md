@@ -8,13 +8,13 @@ ms.author: omidm
 ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 02/15/2019
+ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436282"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343292"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
 
@@ -168,7 +168,7 @@ nano workflow.xml
  ```
 4. `clustername`을 클러스터의 이름으로 바꿉니다. 
 
-5. 파일을 저장하려면 Ctrl + X를 선택합니다. `Y` 을 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
+5. 파일을 저장하려면 Ctrl + X를 선택합니다. [https://slack.botframework.com](`Y`) 을 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
 
     워크플로는 두 부분으로 구분됩니다.
     *   **자격 증명 섹션.** 이 섹션에서는 Oozie 작업을 인증하는 데 사용되는 자격 증명을 사용합니다.
@@ -217,11 +217,12 @@ nano workflow.xml
        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
-  
-   a. `domainuser`를 도메인에 대한 사용자 이름으로 바꿉니다.  
-   b. `ClusterShortName`을 클러스터의 약식 이름으로 바꿉니다. 예를 들어 클러스터 이름이 https:// *[예제 링크]* sechadoopcontoso.azurehdisnight.net인 경우 `clustershortname`은 클러스터의 첫 6자인 **sechad**입니다.  
-   다. `jdbcurlvalue`를 Hive 구성의 JDBC URL로 바꿉니다. 예를 들어 jdbc:hive2://headnodehost:10001/;transportMode=http입니다.      
-   d. 파일을 저장하려면 Ctrl+X를 선택하고 `Y`를 입력한 후 **Enter** 키를 누릅니다.
+
+   * Azure Data Lake Storage Gen1을 기본 클러스터 스토리지로 사용하는 경우 `nameNode` 속성에 대해 `adl://home` URI를 사용합니다. Azure Blob Storage를 사용하는 경우 이 값을 `wasb://home`으로 변경합니다. Azure Data Lake Storage Gen2를 사용하는 경우에는 `abfs://home`으로 변경합니다.
+   * `domainuser`를 도메인에 대한 사용자 이름으로 바꿉니다.  
+   * `ClusterShortName`을 클러스터의 약식 이름으로 바꿉니다. 예를 들어 클러스터 이름이 https:// *[예제 링크]* sechadoopcontoso.azurehdisnight.net인 경우 `clustershortname`은 클러스터의 첫 6자인 **sechad**입니다.  
+   * `jdbcurlvalue`를 Hive 구성의 JDBC URL로 바꿉니다. 예를 들어 jdbc:hive2://headnodehost:10001/;transportMode=http입니다.      
+   * 파일을 저장하려면 Ctrl+X를 선택하고 `Y`를 입력한 후 **Enter** 키를 누릅니다.
 
    이 속성 파일은 Oozie 작업을 실행할 때 로컬에 존재해야 합니다.
 

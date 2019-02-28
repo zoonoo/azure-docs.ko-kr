@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: 231dcee1a9b330b2f8721283c39c71002a75fcac
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49476316"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334025"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 지역 및 가용성
 Azure는 전 세계 여러 데이터 센터에서 작동합니다. 이러한 데이터 센터는 지리적 영역으로 그룹화되므로 애플리케이션을 빌드할 위치를 유연하게 선택할 수 있습니다. 성능, 가용성 및 중복성을 최대화하는 옵션을 함께 Azure에서 VMs(가상 머신)가 작동하는 위치와 방법을 이해하는 것이 중요합니다. 이 문서에서는 Azure의 가용성 및 중복성 기능에 대 한 개요를 제공합니다.
@@ -72,8 +72,8 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 
 | 복제 전략 | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| 데이터가 여러 시설에 걸쳐 복제됩니다. |아니요 |예 |예 |yes |
-| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니요 |아니요 |yes |
+| 데이터가 여러 시설에 걸쳐 복제됩니다. |아니요 |예 |예 |예 |
+| 기본 위치와 보조 위치에서 데이터를 읽을 수 있습니다. |아니요 |아니요 |아니요 |예 |
 | 별도 노드에서 유지 관리되는 데이터 복사본 수입니다. |3 |3 |6 |6 |
 
 [여기에서 Azure Storage 복제 옵션](../articles/storage/common/storage-redundancy.md)에 대해 자세히 알아볼 수 있습니다. 관리 디스크에 대한 자세한 내용은 [Azure Managed Disks 개요](../articles/virtual-machines/windows/managed-disks-overview.md)를 참조하세요.
@@ -85,14 +85,14 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 * 프리미엄 Managed Disks는 SSD(반도체 드라이브)로 지원되며, 표준 Managed Disks는 일반 회전 디스크로 지원됩니다. 프리미엄 및 표준 Managed Disks는 모두 디스크에 프로비전된 용량에 따라 요금이 청구됩니다.
 
 **관리되지 않는 디스크**
-* 프리미엄 저장소는 SSD(반도체 드라이브)로 지원되며, 디스크 용량에 따라 요금이 청구됩니다.
+* Premium Storage는 SSD(반도체 드라이브)로 지원되며, 디스크 용량에 따라 요금이 청구됩니다.
 * 표준 저장소는 일반적인 회전 디스크로 지원되며, 사용 중인 용량 및 원하는 저장소 가용성을 기준으로 요금이 청구됩니다.
   * RA-GRS의 경우 해당 데이터를 또 다른 Azure 지역에 복제하는 대역폭에 대해 추가적인 지역 복제 데이터 전송 비용이 부과됩니다.
 
 다양한 스토리지 형식 및 가용성에 대한 가격 책정 정보를 보려면 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
 
 ## <a name="availability-sets"></a>가용성 집합
-가용성 세트은 중복성과 가용성을 제공하기 위해 Azure에서 애플리케이션이 빌드되는 방식을 이해할 수 있도록 하는 데이터 센터에 있는 VM의 논리적 그룹입니다. 고가용성 애플리케이션을 제공하고 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족할 수 있도록 가용성 집합 내에 둘 이상의 VM을 만드는 것이 좋습니다. 가용성 집합 자체에 대한 비용은 없으므로 만드는 각 VM 인스턴스에 대해서만 요금을 지불합니다. 단일 VM이 [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md)를 사용하는 경우, Azure SLA는 계획되지 않은 유지 관리 이벤트에 적용합니다. 
+가용성 세트은 중복성과 가용성을 제공하기 위해 Azure에서 애플리케이션이 빌드되는 방식을 이해할 수 있도록 하는 데이터 센터에 있는 VM의 논리적 그룹입니다. 고가용성 애플리케이션을 제공하고 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 충족할 수 있도록 가용성 집합 내에 둘 이상의 VM을 만드는 것이 좋습니다. 가용성 집합 자체에 대한 비용은 없으므로 만드는 각 VM 인스턴스에 대해서만 요금을 지불합니다. 단일 VM이 [Azure 프리미엄 SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd)를 사용하는 경우, 계획되지 않은 유지 관리 이벤트에 대해 Azure SLA가 적용됩니다.
 
 가용성 집합은 하드웨어 오류를 방지하고 업데이트를 안전하게 적용할 수 있도록 하는 두 가지 추가 그룹, 즉 FD(장애 도메인)와 UD(업데이트 도메인)로 구성됩니다. [Linux VM](../articles/virtual-machines/linux/manage-availability.md) 또는 [Windows VM](../articles/virtual-machines/windows/manage-availability.md)의 가용성을 관리하는 방법에 대한 자세한 내용을 확인하세요.
 
@@ -111,7 +111,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 
 ## <a name="availability-zones"></a>가용성 영역
 
-[가용성 영역](../articles/availability-zones/az-overview.md)은 가용성 집합의 대안으로써 VM에 있는 응용 프로그램 및 데이터의 가용성을 유지해야 하는 컨트롤 수준을 확장합니다. 가용성 영역은 Azure 지역 내에서 물리적으로 별도 영역입니다. 지원되는 Azure 지역당 3개의 가용성 영역이 있습니다. 각 가용성 영역에는 고유한 소스, 네트워크 및 냉각 장치가 있습니다. 영역에 복제된 VM을 사용하는 솔루션을 설계하여 데이터 센터 손실로부터 앱과 데이터를 보호할 수 있습니다. 하나의 영역이 손상되면 다른 영역에서 복제된 앱 및 데이터를 즉시 사용할 수 있습니다. 
+[가용성 영역](../articles/availability-zones/az-overview.md)은 가용성 집합의 대안으로써 VM에 있는 애플리케이션 및 데이터의 가용성을 유지해야 하는 컨트롤 수준을 확장합니다. 가용성 영역은 Azure 지역 내에서 물리적으로 별도 영역입니다. 지원되는 Azure 지역당 3개의 가용성 영역이 있습니다. 각 가용성 영역에는 고유한 소스, 네트워크 및 냉각 장치가 있습니다. 영역에 복제된 VM을 사용하는 솔루션을 설계하여 데이터 센터 손실로부터 앱과 데이터를 보호할 수 있습니다. 하나의 영역이 손상되면 다른 영역에서 복제된 앱 및 데이터를 즉시 사용할 수 있습니다. 
 
 ![가용성 영역](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 

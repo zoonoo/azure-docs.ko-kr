@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 9aff955a2ae0f40785036c2fee22804785e6526a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002288"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269963"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Azure Monitor의 로그 데이터 분석
 
-Azure Monitor에서 수집된 로그 데이터는 [Azure Data Explorer](/azure/data-explorer)를 기반으로 하는 Log Analytics 작업 영역에 저장됩니다. 다양한 원본에서 원격 분석을 수집하고 [데이터 탐색기의 쿼리 언어](/azure/kusto/query)를 사용하여 데이터를 검색하고 분석합니다.
+Azure Monitor에서 수집된 로그 데이터는 [Azure Data Explorer](/azure/data-explorer)를 기반으로 하는 Log Analytics 작업 영역에 저장됩니다. 다양한 원본에서 원격 분석을 수집하고 데이터 탐색기에서 사용되는 [Kusto 쿼리 언어](/azure/kusto/query)를 통해 데이터를 검색하고 분석합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -47,7 +47,7 @@ Azure Monitor에서 로그 쿼리를 사용하는 다양한 방법은 다음과 
 ![로그 검색](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>쿼리 작성
-Azure Monitor에서는 다양한 방법으로 로그 데이터를 검색하고 분석하는 [버전의 데이터 탐색기 쿼리 언어](get-started-queries.md)를 사용합니다.  일반적으로 기본 쿼리로 시작하고, 요구 사항이 복잡해지면 더 많은 고급 기능을 사용하게 됩니다.
+Azure Monitor는 [Kusto 쿼리 언어의 한 버전](get-started-queries.md)을 사용하여 다양한 방법으로 로그 데이터를 검색하고 분석합니다.  일반적으로 기본 쿼리로 시작하고, 요구 사항이 복잡해지면 더 많은 고급 기능을 사용하게 됩니다.
 
 쿼리의 기본 구조는 원본 테이블이며 그 뒤에 파이프 문자 `|`로 구분된 일련의 연산자가 있습니다.  여러 연산자와 함께 연결하여 데이터를 구체화하고 고급 기능을 수행할 수 있습니다.
 

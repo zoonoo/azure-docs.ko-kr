@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1902d00bc69fd12e7d424a2c2ab3bea562ff4e79
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108775"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417094"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -55,7 +55,7 @@ ms.locfileid: "56108775"
 * API Management
 * App Service 앱(웹앱) - [App Service 제한](#app-service-limitations)
 * App Service Certificate - [App Service Certificate 제한 사항](#app-service-certificate-limitations)을 참조하세요.
-* Automation
+* Automation - Runbook이 Automation 계정과 동일한 리소스 그룹에 있어야 합니다.
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure Data Explorer
@@ -134,6 +134,7 @@ ms.locfileid: "56108775"
 * Azure Firewall
 * Azure Migrate
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
+* 클래식 애플리케이션
 * Container Instances
 * 컨테이너 서비스
 * Data Box

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 71ede3d6eb35935e3fec32e8fd4bb71d6c698486
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5b9c0a71c8b01810474e4936fdd4a0852baf0ed7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697109"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343156"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -5689,5 +5689,5 @@ ms.locfileid: "55697109"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [사용자 지정 역할](custom-roles.md)
-- [기본 제공 역할](built-in-roles.md)
+- [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
+- [Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC의 역할 정의 이해 | Microsoft Docs
-description: Azure에서 리소스에 대해 세분화된 액세스를 관리하기 위해 RBAC(역할 기반 액세스 제어)의 역할 정의에 대해 알아봅니다.
+title: Azure 리소스에 대한 RBAC의 역할 정의 이해 | Microsoft Docs
+description: Azure 리소스의 세분화된 액세스 관리에 사용되는 RBAC(역할 기반 액세스 제어)의 역할 정의에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 8966eb337af07b90e7d9c697a4bfd14c543540aa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991364"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342782"
 ---
-# <a name="understand-role-definitions"></a>역할 정의 이해
+# <a name="understand-role-definitions-for-azure-resources"></a>Azure 리소스에 대한 역할 정의 이해
 
-역할이 작동하는 방식을 이해하려거나 사용자 고유의 [사용자 지정 역할](custom-roles.md)을 만드는 경우 역할을 정의하는 방법을 이해하는 데 도움이 됩니다. 이 문서에서는 역할 정의에 대한 자세한 내용을 설명하고 몇 가지 예제를 제공합니다.
+역할의 작동 방식을 파악하려고 하거나, [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)을 만드는 경우 역할이 정의되는 방식을 파악하면 도움이 됩니다. 이 문서에서는 역할 정의에 대한 자세한 내용을 설명하고 몇 가지 예제를 제공합니다.
 
 ## <a name="role-definition-structure"></a>역할 정의 구조
 
@@ -151,6 +151,8 @@ Alice는 구독 범위에서 와일드카드(`*`) 작업을 수행하므로 그�
 
 Bob의 권한은 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할에 지정된 `Actions` 및 `DataActions`로만 제한됩니다. 역할에 따라 Bob은 관리 및 데이터 작업을 모두 수행할 수 있습니다. 예를 들어 Bob은 지정된 저장소 계정에서 컨테이너를 읽고, 쓰고, 삭제할 수 있으며 Blob을 읽고, 쓰고, 삭제할 수도 있습니다.
 
+스토리지의 관리 및 데이터 평면 보안에 대한 자세한 내용은 [Azure Storage 보안 가이드](../storage/common/storage-security-guide.md)를 참조하세요.
+
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>RBAC를 사용한 데이터 작업을 지원하는 도구는 무엇인가요?
 
 데이터 작업을 보고 작업하려면 도구 또는 SDK의 올바른 버전이 있어야 합니다.
@@ -225,10 +227,10 @@ Azure Portal에서는 또한 Azure AD 환경에서 큐 및 Blob 컨테이너의 
 | 역할은 네트워크 리소스 그룹에만 할당할 수 있습니다. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | 역할은 모든 범위에 할당할 수 있습니다. | `"/"` |
 
-사용자 지정 역할에 대한 내용은 `AssignableScopes` [사용자 지정 역할](custom-roles.md)을 참조하세요.
+사용자 지정 역할의 `AssignableScopes`에 대한 자세한 내용은 [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [기본 제공 역할](built-in-roles.md)
-* [사용자 지정 역할](custom-roles.md)
+* [Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)
+* [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
 * [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)

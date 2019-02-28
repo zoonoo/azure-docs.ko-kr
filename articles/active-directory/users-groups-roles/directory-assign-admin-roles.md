@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 02/08/19
+ms.date: 02/16/19
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 199c0e53fb9462a121072dbea8c90928c0d75abf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c1496653c319b4732614cd1c8148afb5c5b06215
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178952"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456744"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
-Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도록 별도의 관리자를 지정할 수 있습니다. 관리자는 Azure AD 포털에서 사용자 추가 또는 변경, 관리 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 및 도메인 이름 관리와 같은 작업을 수행하도록 지정할 수 있습니다.
+Azure AD(Azure Active Directory)를 사용하면 제한된 관리자가 권한이 적은 역할로 기능을 수행하도록 지정할 수 있습니다. 관리자는 Azure AD 포털에서 사용자 추가 또는 변경, 관리 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 및 도메인 이름 관리와 같은 작업을 수행하도록 지정할 수 있습니다. 기본 사용자 권한은 Azure AD의 사용자 설정에서만 변경할 수 있습니다.
 
 전역 관리자는 모든 관리 기능에 액세스할 수 있습니다. 기본적으로 Azure 구독에 등록하는 사람에게는 디렉터리에 대한 글로벌 관리자 역할이 할당됩니다. 글로벌 관리자와 권한 있는 역할 관리자만 관리자 역할을 위임할 수 있습니다. 비즈니스 위험을 줄이기 위해 회사의 소수 사람에게만 이 역할을 할당하는 것이 좋습니다.
 
@@ -42,7 +42,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 * **[애플리케이션 개발자](#application-developer)**: 이 역할의 사용자는 "사용자가 애플리케이션을 등록할 수 있음" 설정이 아니오로 설정된 경우 애플리케이션 등록을 만들 수 있습니다. 또한 이 역할은 “사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음” 설정이 아니오로 설정된 경우 구성원이 직접 동의하도록 허용합니다. 이 역할의 구성원은 새 애플리케이션 등록 또는 엔터프라이즈 애플리케이션을 만들 때 소유자로 추가됩니다.
 
-* **[인증 관리자](#authentication-administrator)**: 이 역할의 사용자는 현재 인증 방법 정보를 확인하고 비암호 자격 증명을 설정 또는 다시 설정할 수 있습니다. 인증 관리자는 관리자가 아닌 다른 사용자 또는 다음 역할의 구성원에 대해서만 다음 로그인할 때 MFA 프롬프트를 표시하여 사용자가 기존 비암호 자격 증명(예: MFA, FIDO)에 대해 다시 등록 및 ‘디바이스에 MFA 저장’ 철회를 강제 적용할 수 있습니다.
+* **[인증 관리자](#authentication-administrator)**: 이 역할의 사용자는 비암호 자격 증명을 설정하거나 재설정할 수 있습니다. 인증 관리자는 관리자가 아닌 다른 사용자 또는 다음 역할의 구성원에 대해서만 다음 로그인할 때 MFA 프롬프트를 표시하여 사용자가 기존 비암호 자격 증명(예: MFA, FIDO)에 대해 다시 등록 및 ‘디바이스에 MFA 저장’ 철회를 강제 적용할 수 있습니다.
   * 인증 관리자
   * 디렉터리 읽기 권한자
   * 게스트 초대자

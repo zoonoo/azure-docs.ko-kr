@@ -1,26 +1,19 @@
 ---
-title: SQL Server VM용 Azure Backup 문제 해결 가이드 | Microsoft Docs
-description: SQL Server VM을 Azure로 백업하는 문제 해결 정보입니다.
+title: Azure Backup을 사용한 SQL Server 데이터베이스 백업 문제 해결 | Microsoft Docs
+description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 services: backup
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
+author: anuragm
+manager: shivamg
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 02/19/2019
 ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296124"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428622"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure에 SQL Server 백업 문제 해결
 
@@ -28,11 +21,11 @@ ms.locfileid: "55296124"
 
 ## <a name="public-preview-limitations"></a>공개 미리 보기 제한 사항
 
-공개 미리 보기 제한 사항을 확인하려면 [Azure에 SQL Server 데이터베이스 백업](backup-azure-sql-database.md#public-preview-limitations) 문서를 참조하세요.
+공개 미리 보기 제한 사항을 확인하려면 [Azure에 SQL Server 데이터베이스 백업](backup-azure-sql-database.md#preview-limitations) 문서를 참조하세요.
 
 ## <a name="sql-server-permissions"></a>SQL Server 사용 권한
 
-가상 머신에서 SQL Server 데이터베이스에 대한 보호를 구성하려면 가상 머신에 **AzureBackupWindowsWorkload** 확장이 설치되어 있어야 합니다. **UserErrorSQLNoSysadminMembership** 오류가 발생하면 SQL 인스턴스에서 필요한 백업 권한이 없다는 의미입니다. 이 오류를 해결하려면 [마켓플레이스 SQL VM이 아닌 VM에 대한 사용 권한 설정](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms)의 단계를 수행하세요.
+가상 머신에서 SQL Server 데이터베이스에 대한 보호를 구성하려면 가상 머신에 **AzureBackupWindowsWorkload** 확장이 설치되어 있어야 합니다. **UserErrorSQLNoSysadminMembership** 오류가 발생하면 SQL 인스턴스에서 필요한 백업 권한이 없다는 의미입니다. 이 오류를 해결하려면 [마켓플레이스 SQL VM이 아닌 VM에 대한 사용 권한 설정](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)의 단계를 수행하세요.
 
 ## <a name="troubleshooting-errors"></a>오류 문제 해결
 
@@ -56,13 +49,13 @@ SQL Server를 Azure로 보호하는 동안 발생한 문제와 오류를 해결�
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
 | 이 SQL 데이터베이스는 요청된 백업 유형을 지원하지 않습니다. | 요청된 백업 유형을 데이터베이스 복구 모델에서 허용하지 않을 때 발생합니다. 이 오류는 다음과 같은 상황에서 발생할 수 있습니다. <br/><ul><li>단순 복구 모델을 사용하는 데이터베이스에 로그 백업이 허용되지 않습니다.</li><li>마스터 데이터베이스에 차등 및 로그 백업이 허용되지 않습니다.</li></ul>자세한 내용은 [SQL 복구 모델](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) 설명서를 참조하세요. | 단순 복구 모델에서 DB에 대한 로그 백업이 실패하면 다음 옵션 중 하나를 시도합니다.<ul><li>데이터베이스가 단순 복구 모드인 경우 로그 백업을 사용하지 않도록 설정합니다.</li><li>[SQL 설명서](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server)를 사용하여 데이터베이스 복구 모델을 전체 또는 대량 기록으로 변경합니다. </li><li> 여러 데이터베이스를 백업하는 변경할 수 없는 표준 정책이 있고 복구 모델을 변경하지 않으려는 경우에는 오류를 무시합니다. 전체 및 차등 백업은 일정에 따라 작동합니다. 로그 백업은 예상대로 건너뜁니다.</li></ul>마스터 데이터베이스를 사용하면서 차등 백업이나 로그 백업을 구성한 경우 다음 중 원하는 단계를 사용합니다.<ul><li>포털을 사용하여 마스터 데이터베이스의 백업 정책 일정을 전체로 변경합니다.</li><li>여러 데이터베이스를 백업하는 변경할 수 없는 표준 정책이 있는 경우에는 오류를 무시합니다. 전체 백업은 일정에 따라 작동합니다. 차등 또는 로그 백업은 예상대로 발생하지 않습니다.</li></ul> |
-| 충돌하는 작업이 동일한 데이터베이스에서 이미 실행 중이기 때문에 작업이 취소되었습니다. | 동시에 실행되는 [백업 및 복원 제한 사항에 대한 블로그 항목](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database)을 참조하세요.| [SSMS(SQL Server Management Studio)를 사용하여 백업 작업을 모니터링합니다.](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms) 충돌하는 작업이 실패하면 작업을 다시 시작합니다.|
+| 충돌하는 작업이 동일한 데이터베이스에서 이미 실행 중이기 때문에 작업이 취소되었습니다. | 동시에 실행되는 [백업 및 복원 제한 사항에 대한 블로그 항목](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database)을 참조하세요.| [SSMS(SQL Server Management Studio)를 사용하여 백업 작업을 모니터링합니다.](manage-monitor-sql-database-backup.md) 충돌하는 작업이 실패하면 작업을 다시 시작합니다.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
-| SQL 데이터베이스가 없습니다. | 데이터베이스 삭제되었거나 이름이 변경되었습니다. | <ul><li>데이터베이스가 실수로 삭제되었거나 이름이 변경되었는지 확인합니다.</li><li>데이터베이스가 실수로 삭제된 경우 백업을 계속하려면 데이터베이스를 원래 위치로 복원합니다.</li><li>데이터베이스를 삭제했고 향후 백업이 필요하지 않은 경우에는 Recovery Services 자격 증명 모음에서 ["데이터 삭제/보관"을 통해 백업 중지](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms)를 클릭합니다.</li>|
+| SQL 데이터베이스가 없습니다. | 데이터베이스 삭제되었거나 이름이 변경되었습니다. | 데이터베이스가 실수로 삭제되었거나 이름이 변경되었는지 확인합니다.<br/><br/> 데이터베이스가 실수로 삭제된 경우 백업을 계속하려면 데이터베이스를 원래 위치로 복원합니다.<br/><br/> 데이터베이스를 삭제했고 향후 백업이 필요하지 않은 경우에는 Recovery Services 자격 증명 모음에서 ["데이터 삭제/보관"을 통해 백업 중지](manage-monitor-sql-database-backup.md)를 클릭합니다.
 
 ### <a name="usererrorsqllsnvalidationfailure"></a>UserErrorSQLLSNValidationFailure
 

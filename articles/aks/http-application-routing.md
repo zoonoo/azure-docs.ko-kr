@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742391"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312286"
 ---
 # <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 
@@ -38,6 +38,9 @@ AKS 클러스터를 배포할 때 Azure CLI를 통해 HTTP 애플리케이션 �
 ```azurecli
 az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
+
+> [!TIP]
+> 여러 개의 추가 기능을 사용하려는 경우 쉼표로 구분된 목록으로 제공합니다. 예를 들어 HTTP 애플리케이션 라우팅 및 모니터링을 사용하려면 `--enable-addons http_application_routing,monitoring` 형식을 사용합니다.
 
 [az aks enable-addons][az-aks-enable-addons] 명령을 사용하여 기존 AKS 클러스터에서 HTTP 라우팅을 활성화할 수도 있습니다. 기존 클러스터에서 HTTP 라우팅을 활성화하려면 `--addons` 매개 변수를 추가하고 다음 예제에서와 같이 *http_application_routing*을 지정합니다.
 

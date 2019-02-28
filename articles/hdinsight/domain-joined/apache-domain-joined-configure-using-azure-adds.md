@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: b6cc65d10fc8924686d01c02177a9cb76f7a9571
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 722a40dca0a64407a407ecad6d990d1651b0e998
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660921"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415734"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -95,6 +95,10 @@ AAD-DS가 NSG로 보호되는 경우 [필요한 모든 포트](https://docs.micr
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>ESP로 HDInsight 클러스터 만들기
 
 이전 단계를 올바르게 설정한 후에 할 일은 ESP가 활성화된 HDInsight 클러스터를 만드는 것입니다. HDInsight 클러스터를 만들 때 **사용자 지정** 탭에서 Enterprise Security Package를 사용하도록 설정할 수 있습니다. 배포에 Azure Resource Manager 템플릿을 사용하는 것을 선호하는 경우 마지막 "요약" 페이지에서 포털 환경을 한 번 사용하여 미리 채워진 템플릿을 다운로드해 두면 나중에 재사용할 수 있습니다.
+
+> [!NOTE]  
+> ESP 클러스터 이름의 처음 6자는 사용자 환경에서 고유해야 합니다. 예를 들어 여러 VNET에 다수의 ESP 클러스터가 있는 경우 클러스터 이름의 처음 6자가 고유하게 하는 명명 규칙을 선택해야 합니다.
+
 
 ![Azure HDInsight Enterprise Security Package 도메인 유효성 검사](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
 

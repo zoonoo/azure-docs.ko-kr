@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2017
-ms.openlocfilehash: a6708a1c414277cd4ee9b90851e19a94ea86c55b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2810a059bebc3fa89aef8f75b27250328d81e678
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491674"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455282"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 디버그
 
@@ -33,7 +33,7 @@ ms.locfileid: "55491674"
 
 [모델 학습][train-model] 모듈에는 다음 두 가지 입력이 필요합니다.
 
-1. Azure Machine Learning에서 제공하는 모델 컬렉션의 Machine Learning 모델 유형
+1. Azure Machine Learning Studio에서 제공하는 모델 컬렉션의 기계 학습 모델 유형
 2. 예측할 변수를 지정하는 지정된 레이블 열이 있는 학습 데이터(다른 열은 기능으로 간주됨)
 
 다음과 같은 경우 이 모듈에서 오류가 발생할 수 있습니다.

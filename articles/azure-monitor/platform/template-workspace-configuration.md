@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.openlocfilehash: e948842a49e87df156eb59a7e25634772550d933
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 46be596cbd2641b9ecd3206f44a6e7de7beed255
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235498"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417511"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용한 Log Analytics 관리
 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Log Analytics 작업 영역 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
@@ -56,7 +56,7 @@ ms.locfileid: "56235498"
 
 > [!NOTE]
 >새 2018년 4월 가격 책정 모델을 선택한 구독에서 Log Analytics 작업 영역을 만들거나 구성할 때 유효한 유일한 Log Analytics 가격 책정 계층은 **PerGB2018**입니다.  
->일부 구독이 (2018년 4월 이전 가격 책정 모델)[https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model]인 경우 **독립 실행형**을 지정할 수 있으며, 이 방법은 2018년 4월 이전 가격 책정 모델의 구독과 새 가격 책정의 구독 모두에 성공할 것입니다. 새 가격 책정 모델을 도입한 구독의 작업 영역에서는 가격 책정 계층이 **PerGB2018**로 설정됩니다. 
+>일부 구독이 [2018년 4월 이전 가격 책정 모델](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model)인 경우 **독립 실행형** 가격 책정 계층을 지정할 수 있으며, 이 방법은 2018년 4월 이전 가격 책정 모델의 구독과 새 가격 책정의 구독 둘 다에서 성공합니다. 새 가격 책정 모델을 도입한 구독의 작업 영역에서는 가격 책정 계층이 **PerGB2018**로 설정됩니다. 
 
 ### <a name="create-and-deploy-template"></a>템플릿 만들기 및 배포
 

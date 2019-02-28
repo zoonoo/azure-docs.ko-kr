@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: f0326e6f05f44b5f2c4416a1c1db09bc5816a297
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558314"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301675"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 
@@ -189,7 +189,7 @@ Time Series Insights 미리 보기는 Blob 크기 최적화 전략을 사용하�
 
 ### <a name="scale"></a>확장
 
-Time Series Insights 미리 보기는 환경을 기준으로 초당 최대 6Mbps(메가비트)의 초기 수신 크기를 지원합니다. 개선된 크기 조정 지원을 제공하기 위해 작업 중입니다. 이러한 개선 사항에 맞게 설명서를 업데이트할 예정입니다.
+Time Series Insights 미리 보기는 환경을 기준으로 초당 최대 6메가바이트(Mbps)의 초기 수신 크기를 지원합니다. 개선된 크기 조정 지원을 제공하기 위해 작업 중입니다. 이러한 개선 사항에 맞게 설명서를 업데이트할 예정입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

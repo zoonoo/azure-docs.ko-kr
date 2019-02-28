@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 1d1bb3c99c82683dde9247da86e80d800fe06631
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 933d37f576d0b8507d2311a3e31e34182a0a2e69
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992995"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269838"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 workspace() 식
 
@@ -73,4 +73,4 @@ union
 
 - Application Insights 앱을 가리키는 [app 식](app-expression.md)을 참조하세요.
 - [Azure Monitor 데이터](log-query-overview.md)가 저장되는 방법에 대해 알아보세요.
-- [데이터 탐색기 쿼리 언어](/azure/kusto/query/)에 대한 전체 설명서에 액세스합니다.
+- [ 쿼리 언어](/azure/kusto/query/)에 대한 전체 문서에 액세스합니다.

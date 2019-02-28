@@ -3,7 +3,7 @@ title: Azure AD v2.0 UWP 시작 | Microsoft Docs
 description: UWP(유니버설 Windows 플랫폼) 응용 프로그램이 Azure Active Directory v2.0 엔드포인트로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
-ms.author: andret
+ms.date: 02/18/2019
+ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7d4e586dcb90153fb4d037c9c9821cd3ea3182
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6e130da9bf12d25cc5c77c825512717bdf2ba5a1
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176716"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408819"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
 
@@ -74,14 +74,11 @@ ms.locfileid: "56176716"
 2. **패키지 관리자 콘솔** 창에서 다음 명령을 복사 및 붙여넣기합니다.
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
+    Install-Package Microsoft.Identity.Client
     ```
 
 > [!NOTE]
-> 이 명령은 [Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)를 설치합니다. MSAL은 Azure Active Directory v2.0에 의해 보호되는 API에 액세스하는 사용자 토큰을 쿼리, 캐시 및 새로 고칩니다.
-
-> [!NOTE]
-> 이 자습서는 최신 버전의 MSAL.NET을 사용하지 않지만 업데이트하는 중입니다.
+> 이 명령은 [Microsoft 인증 라이브러리](https://aka.ms/msal-net)를 설치합니다. MSAL은 Azure Active Directory v2.0에 의해 보호되는 API에 액세스하는 사용자 토큰을 쿼리, 캐시 및 새로 고칩니다.
 
 ## <a name="initialize-msal"></a>MSAL 초기화
 이 단계에서는 토큰 처리와 같이 MSAL과 상호 작용을 처리하는 클래스를 만들 수 있습니다.
@@ -159,7 +156,8 @@ ms.locfileid: "56176716"
     
             try
             {
-                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, App.PublicClientApp.Users.FirstOrDefault());
+                var accounts = await App.PublicClientApp.GetAccountsAsync();
+                authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
             }
             catch (MsalUiRequiredException ex)
             {
@@ -203,15 +201,15 @@ ms.locfileid: "56176716"
 
 결국 `AcquireTokenSilentAsync` 메서드가 실패합니다. 사용자가 로그아웃했거나 다른 디바이스에서 해당 암호를 변경하면 실패할 수 있습니다. MSAL이 대화형 작업을 요구해 이 문제를 해결할 수 있다고 감지하면 `MsalUiRequiredException` 예외를 발생합니다. 애플리케이션에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
 
-* 즉시 `AcquireTokenAsync`에 대해 호출할 수 있습니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 일반적으로 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 응용 프로그램에서 사용됩니다. 이 설정 안내에서 생성하는 샘플은 패턴을 따릅니다. 샘플을 처음으로 실행할 때 작업에 표시됩니다. 
-    * 이 애플리케이션을 사용한 사용자가 없기 때문에 `PublicClientApp.Users.FirstOrDefault()`에는 null 값이 포함되며 `MsalUiRequiredException` 예외가 throw됩니다.
-    * 그런 다음, 샘플의 코드는 `AcquireTokenAsync`를 호출하여 예외를 처리합니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다.
+* 즉시 `AcquireTokenAsync`에 대해 호출할 수 있습니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다. 일반적으로 이 패턴은 사용자가 사용할 수 있는 오프라인 콘텐츠가 없는 온라인 응용 프로그램에서 사용됩니다. 이 설정 안내에서 생성하는 샘플은 패턴을 따릅니다. 샘플을 처음으로 실행할 때 작업에 표시됩니다.
+  * 이 애플리케이션을 사용한 사용자가 없기 때문에 `accounts.FirstOrDefault()`에는 null 값이 포함되며 `MsalUiRequiredException` 예외가 throw됩니다.
+  * 그런 다음, 샘플의 코드는 `AcquireTokenAsync`를 호출하여 예외를 처리합니다. 이 호출로 인해 사용자에게 로그인하라는 메시지가 표시됩니다.
 
 * 또는 대신 대화형 로그인이 필요한 사용자에게 시각적 표시를 제공합니다. 그런 다음, 로그인할 적절한 시기를 선택할 수 있습니다. 또는 애플리케이션이 나중에 `AcquireTokenSilentAsync`를 다시 시도할 수 있습니다. 사용자가 중단 없이 다른 응용 프로그램 기능을 사용할 수 있는 경우에 이 패턴이 종종 사용됩니다. 예제로 응용 프로그램에서 오프라인 콘텐츠를 사용할 수 있는 경우입니다. 이 경우에 사용자는 보호된 리소스에 액세스하거나, 오래된 정보를 새로 고치기 위해 로그인하는 시점을 결정할 수 있습니다. 또는 네트워크가 일시적으로 사용할 수 없게 된 후에 복원된 경우 응용 프로그램이 `AcquireTokenSilentAsync`를 다시 시도하도록 결정할 수 있습니다.
 
 ## <a name="call-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>방금 가져온 토큰을 사용하여 Microsoft Graph API를 호출합니다.
 
-* **MainPage.xaml.cs**에 다음과 같은 새 메서드를 추가합니다. 이 메서드는 [인증] 헤더를 사용하여 Graph API에 대한 `GET` 요청을 수행하는 데 사용됩니다.
+* **MainPage.xaml.cs**에 다음과 같은 새 메서드를 추가합니다. 이 메서드는 `Authorization` 헤더를 사용하여 Graph API에 대한 `GET` 요청을 수행하는 데 사용됩니다.
 
     ```csharp
     /// <summary>
@@ -255,11 +253,12 @@ ms.locfileid: "56176716"
     /// </summary>
     private void SignOutButton_Click(object sender, RoutedEventArgs e)
     {
-        if (App.PublicClientApp.Users.Any())
+        var accounts = await App.PublicClientApp.GetAccountsAsync();
+        if (accounts.Any())
         {
             try
             {
-                App.PublicClientApp.Remove(App.PublicClientApp.Users.FirstOrDefault());
+                App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
                 this.ResultText.Text = "User has signed-out";
                 this.CallGraphButton.Visibility = Visibility.Visible;
                 this.SignOutButton.Visibility = Visibility.Collapsed;
@@ -333,7 +332,7 @@ ms.locfileid: "56176716"
     ```
 
 > [!IMPORTANT]
-> Windows 통합 인증은 이 샘플에 대해 기본적으로 구성되지 않았습니다. *엔터프라이즈 인증* 또는 *공유 사용자 인증서* 기능을 요청하는 응용 프로그램은 Windows 스토어를 통해 더 높은 수준의 확인이 필요합니다. 또한 일부 개발자가 더 높은 수준의 확인을 수행하려고 합니다. 페더레이션된 Azure Active Directory 도메인을 사용한 Windows 통합 인증이 필요한 경우에만 이 설정을 사용하도록 설정합니다.
+> [Windows 통합 인증](https://aka.ms/msal-net-iwa)은 이 샘플에 대해 기본적으로 구성되지 않습니다. *엔터프라이즈 인증* 또는 *공유 사용자 인증서* 기능을 요청하는 응용 프로그램은 Windows 스토어를 통해 더 높은 수준의 확인이 필요합니다. 또한 일부 개발자가 더 높은 수준의 확인을 수행하려고 합니다. 페더레이션된 Azure Active Directory 도메인을 사용한 Windows 통합 인증이 필요한 경우에만 이 설정을 사용하도록 설정합니다.
 
 ## <a name="test-your-code"></a>코드 테스트
 

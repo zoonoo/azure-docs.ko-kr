@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: cd84948b5895a628fc94cc2946156d9fa2284369
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 73f8b1323f6cd22ef215fba4ec45714f099032f6
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508677"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415836"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Azure VPN Gateway(미리 보기)에 대해 OpenVPN 클라이언트 구성
 
@@ -24,12 +24,14 @@ ms.locfileid: "55508677"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 확인합니다. 자세한 내용은 [Azure VPN Gateway에 대해 OpenVPN 구성](vpn-gateway-howto-openvpn.md)을 참조하세요.
 
 ## <a name="windows"></a>Windows 클라이언트
 
 1. 공식 [OpenVPN 웹 사이트](https://openvpn.net/index.php/open-source/downloads.html)에서 OpenVPN 클라이언트를 다운로드하여 설치합니다.
-2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 ‘New-AzureRmVpnClientConfiguration’에서 이 작업을 수행할 수 있습니다.
+2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 ‘New-AzVpnClientConfiguration’에서 이 작업을 수행할 수 있습니다.
 3. 프로필의 압축을 풉니다. 다음으로 메모장을 사용하여 OpenVPN 폴더의 *vpnconfig.ovpn* 구성 파일을 엽니다.
 4. 만들고 게이트웨이의 P2S 구성에 업로드한 P2S 클라이언트 인증서를 [내보냅니다](vpn-gateway-certificates-point-to-site.md#clientexport).
 5. *.pfx*에서 개인 키 및 base64 지문을 추출합니다. 여러 가지 방법으로 이 작업을 수행할 수 있습니다. 머신에서 OpenSSL을 사용하는 것이 하나의 방법입니다. *profileinfo.txt* 파일은 CA 및 클라이언트 인증서에 대한 개인 키 및 지문을 포함합니다. 클라이언트 인증서의 지문을 사용해야 합니다.
@@ -64,7 +66,7 @@ VPN 게이트웨이에 대해 OpenVPN을 구성하는 단계를 완료했는지 
 ## <a name="mac"></a>Mac 클라이언트
 
 1. [TunnelBlik](https://tunnelblick.net/downloads.html)와 같은 OpenVPN 클라이언트를 다운로드하여 설치합니다. 
-2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점-사이트 간 구성 탭 또는 PowerShell의 ‘New-AzureRmVpnClientConfiguration’을 사용하여 이 작업을 수행할 수 있습니다.
+2. 게이트웨이에 대한 VPN 프로필을 다운로드합니다. Azure Portal의 지점 및 사이트 간 구성 탭 또는 PowerShell의 ‘New-AzVpnClientConfiguration’에서 이 작업을 수행할 수 있습니다.
 3. 프로필의 압축을 풉니다. 메모장에서 OpenVPN 폴더의 vpnconfig.ovpn 구성 파일을 엽니다.
 4. base64에서 P2S 클라이언트 인증서 공개 키를 사용하여 P2S 클라이언트 인증서 섹션을 채웁니다. PEM 형식의 인증서에서 .cer 파일을 열고 인증서 헤더 사이에 base64 키를 복사할 수 있습니다. 인증서를 내보내 인코드된 공용 키를 가져오는 방법에 대한 자세한 내용은 [공용 키 내보내기](vpn-gateway-certificates-point-to-site.md#cer)를 참조하세요.
 5. base64에서 P2S 클라이언트 인증서 개인 키를 사용하여 개인 키 섹션을 채웁니다. 개인 키를 추출하는 방법에 대한 자세한 내용은 [개인 키 내보내기](https://openvpn.net/community-resources/how-to/#pki)를 참조하세요.

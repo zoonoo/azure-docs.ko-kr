@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: b6a2ca70faa36b94ace8158f33e58b5e6688ece3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002221"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268195"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Azure Monitor 로그에서 텍스트 데이터 구문 분석
 Azure Monitor에서 수집된 일부 데이터에는 하나의 속성에 여러 개의 정보 부분이 포함되어 있습니다. 이 데이터를 여러 속성으로 구문 분석하면 쿼리에서 더 쉽게 사용할 수 있습니다. 일반적인 예로, 여러 값이 있는 전체 로그 항목을 단일 속성으로 수집하는 [사용자 지정 로그](../../log-analytics/log-analytics-data-sources-custom-logs.md)가 있습니다. 서로 다른 값에 대해 별도의 속성을 만들면 각각을 검색하고 집계할 수 있습니다.
@@ -63,7 +63,7 @@ Azure Monitor에서 수집된 일부 데이터에는 하나의 속성에 여러 
 데이터를 수집할 때 구문 분석하는 방법에 대한 자세한 내용은 [Azure Monitor에서 사용자 지정 필드 만들기](../platform/custom-fields.md)를 참조하세요. 이렇게 하면 다른 속성처럼 쿼리에서 사용할 수 있는 사용자 지정 속성이 테이블에 만들어집니다.
 
 ## <a name="parse-data-in-query-using-patterns"></a>패턴을 사용하여 쿼리의 데이터 구문 분석
-구문 분석하려는 데이터를 레코드 간에 반복되는 패턴으로 식별할 수 있는 경우 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)의 다양한 연산자를 사용하여 데이터의 특정 부분을 하나 이상의 새 속성으로 추출할 수 있습니다.
+구문 분석하려는 데이터를 레코드 간에 반복되는 패턴으로 식별할 수 있는 경우 [Kusto 쿼리 언어](/azure/kusto/query/)의 다양한 연산자를 사용하여 데이터의 특정 부분을 하나 이상의 새 속성으로 추출할 수 있습니다.
 
 ### <a name="simple-text-patterns"></a>간단한 텍스트 패턴
 
@@ -139,7 +139,7 @@ MyCustomCSVLog_CL
 ```
 
 ## <a name="parse-predefined-structures-in-a-query"></a>쿼리에서 미리 정의된 구조체 구문 분석
-데이터의 형식이 알려진 구조체로 지정되면 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)의 함수 중 하나를 사용하여 미리 정의된 구조체를 구문 분석할 수 있습니다.
+데이터 형식이 알려진 구조체로 지정된 경우 [Kusto 쿼리 언어](/azure/kusto/query/)의 함수 중 하나를 사용하여 미리 정의된 구조체를 구문 분석할 수 있습니다.
 
 - [JSON](/azure/kusto/query/parsejsonfunction)
 - [XML](/azure/kusto/query/parse-xmlfunction)

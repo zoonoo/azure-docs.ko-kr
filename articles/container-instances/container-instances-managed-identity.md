@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: bf807a4d24b72c948707ade28f06c4eb2a54c0a0
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657028"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311566"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -27,6 +27,9 @@ ms.locfileid: "55657028"
 > * 관리 ID를 사용하여 실행 중인 컨테이너에서 Key Vault에 액세스
 
 다른 Azure 서비스에 액세스하려면 예제를 조정하여 Azure Container Instances에서 ID를 사용하도록 설정하고 사용합니다. 이러한 예제는 대화형입니다. 그러나 실제로 컨테이너 이미지는 Azure 서비스에 액세스하는 코드를 실행합니다.
+
+> [!NOTE]
+> 현재 가상 네트워크에 배포된 컨테이너 그룹의 관리 ID를 사용할 수 없습니다.
 
 ## <a name="why-use-a-managed-identity"></a>관리 ID를 사용하는 이유
 

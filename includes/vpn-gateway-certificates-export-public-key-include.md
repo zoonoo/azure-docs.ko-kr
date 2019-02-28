@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/13/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3c6485406c67bf84b9e0fdfb9f4683abe5062d6c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: afd4836229c60ebef1536d4fa1ca4206a492e56d
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444249"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418112"
 ---
 자체 서명된 루트 인증서를 만든 후에는 개인 키가 아닌 루트 인증서 공개 키 .cer 파일을 내보냅니다. 이 파일은 나중에 Azure에 업로드합니다. 다음 단계는 자체 서명된 루트 인증서에 대한 .cer 파일을 내보내는 데 도움이 됩니다.
 
-1. 인증서에서 .cer 파일을 가져오려면 **사용자 인증서 관리**를 엽니다. 일반적으로 'Certificates - Current User\Personal\Certificates'에서 자체 서명된 루트 인증서를 찾아 마우스 오른쪽 단추로 클릭합니다. **모든 태스크**를 클릭한 다음 **내보내기**를 클릭합니다. 이렇게 하면 **인증서 내보내기 마법사**가 열립니다. Current User\Personal\Certificates에서 인증서를 찾을 수 없는 경우 로컬 컴퓨터 인증서("인증서 - 현재 사용자”가 아닌 "인증서 - 로컬 컴퓨터"로 표시됨)에 대한 인증서 관리자를 연 것일 수 있습니다. 현재 사용자 범위에 있는 인증서 관리자를 열려면 ```certmgr```을 입력하여 인증서를 만들 때와 동일한 PowerShell에서 시작합니다.
+1. 인증서에서 .cer 파일을 가져오려면 **사용자 인증서 관리**를 엽니다. 일반적으로 'Certificates - Current User\Personal\Certificates'에서 자체 서명된 루트 인증서를 찾아 마우스 오른쪽 단추로 클릭합니다. **모든 태스크**를 클릭한 다음 **내보내기**를 클릭합니다. 이렇게 하면 **인증서 내보내기 마법사**가 열립니다. Current User\Personal\Certificates에서 인증서를 찾을 수 없는 경우 “인증서 -현재 사용자” 대신 실수로 “인증서 - 로컬 컴퓨터”를 열었을 수 있습니다. PowerShell을 사용하여 현재 사용자 범위에서 인증서 관리자를 열려는 경우 콘솔 창에 *certmgr*을 입력합니다.
 
    ![내보내기](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. 마법사에서 **다음**을 클릭합니다.

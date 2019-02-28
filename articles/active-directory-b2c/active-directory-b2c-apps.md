@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ea179ff7e4b525e86003faadfb92e090476bd81
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172649"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446378"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Azure Active Directory B2C에 사용할 수 있는 애플리케이션 유형
 
@@ -91,10 +91,10 @@ Accept: application/json
 Web API는 웹 애플리케이션, 데스크톱 및 모바일 애플리케이션, 단일 페이지 애플리케이션, 서버 쪽 데몬 및 다른 Web API까지 포함하여 많은 유형의 클라이언트에서 토큰을 받을 수 있습니다. 다음은 Web API를 호출하는 웹 애플리케이션에 대한 전체 흐름을 보여주는 예입니다.
 
 1. 웹 애플리케이션에서 정책을 실행하고, 사용자는 사용자 환경을 완료합니다.
-2. Azure AD B2C에서 `access_token`과 권한 부여 코드를 브라우저에 반환합니다.
-3. 브라우저에서 `access_token` 및 권한 부여 코드를 리디렉션 URI에 게시합니다.
-4. 웹 서버에서 `access token`의 유효성을 검사하고 세션 쿠키를 설정합니다.
-5. `access_token`이 권한 부여 코드, 애플리케이션 클라이언트 ID 및 자격 증명을 사용하여 Azure AD B2C에 제공됩니다.
+2. Azure AD B2C에서 (OpenID Connect) `id_token`과 인증 코드를 브라우저에 반환합니다.
+3. 브라우저에서 `id_token` 및 권한 부여 코드를 리디렉션 URI에 게시합니다.
+4. 웹 서버에서 `id_token`의 유효성을 검사하고 세션 쿠키를 설정합니다.
+5. 웹 서버는 인증 코드, 애플리케이션 클라이언트 ID 및 클라이언트 자격 증명을 제공하여 Azure AD B2C에 `access_token`을 요청합니다.
 6. `access_token` 및 `refresh_token`이 웹 서버에 반환됩니다.
 7. 웹 API가 권한 부여 헤더에서 `access_token`을 사용하여 호출됩니다.
 8. 웹 API에서 토큰의 유효성을 검사합니다.

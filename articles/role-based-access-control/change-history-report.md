@@ -1,6 +1,6 @@
 ---
-title: Azure에서 RBAC 변경 사항에 대한 활동 로그 보기 | Microsoft Docs
-description: 지난 90일 동안의 RBAC(역할 기반 액세스 제어) 변경 사항에 대한 활동 로그를 봅니다.
+title: Azure 리소스에 대한 RBAC 변경 내용의 활동 로그 보기 | Microsoft Docs
+description: 지난 90일 동안의 Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 변경 내용의 활동 로그를 봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ff09647dc3271c947b3037afcfacc33951ddb07
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117651"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338815"
 ---
-# <a name="view-activity-logs-for-rbac-changes"></a>RBAC 변경 사항에 대한 활동 로그 보기
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Azure 리소스에 대한 RBAC 변경 내용의 활동 로그 보기
 
-때로는 감사 또는 문제 해결 목적과 같은 RBAC(역할 기반 액세스 제어) 변경에 대한 정보가 필요합니다. 구독 내에서 누군가가 역할 할당 또는 역할 정의를 변경할 때마다 변경 내용이 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md)에 기록됩니다. 활동 로그를 보고 지난 90일 동안의 RBAC 변경 사항을 모두 확인할 수 있습니다.
+때로는 감사, 문제 해결 등의 목적으로 Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 변경 내용과 관련된 정보가 필요합니다. 구독 내에서 누군가가 역할 할당 또는 역할 정의를 변경할 때마다 변경 내용이 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md)에 기록됩니다. 활동 로그를 보고 지난 90일 동안의 RBAC 변경 사항을 모두 확인할 수 있습니다.
 
 ## <a name="operations-that-are-logged"></a>기록되는 작업
 

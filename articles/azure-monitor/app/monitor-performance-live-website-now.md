@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3daa1c7b3594de227c43d7e722ee9c6cae0902f8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f7d7b7f470f43d8a7a1cd94b4b1ce79503f0dfca
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301614"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301029"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights 상태 모니터를 사용한 런타임 시 웹앱 계측
 
@@ -27,7 +27,7 @@ ms.locfileid: "55301614"
 
 - 앱을 Azure App Services에 배포하는 경우 [이러한 지침](azure-web-apps.md)을 따릅니다.
 - 앱을 Azure VM에 배포하는 경우 Azure 제어판에서 Application Insights 모니터링을 켤 수 있습니다.
-- ([라이브 J2EE 웹앱](java-live.md) 및 [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.)
+- [라이브 Java EE 웹앱](java-live.md) 및 [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.
 
 
 ![실패한 요청, 서버 응답 시간 및 서버 요청에 대한 정보를 포함하는 App Insights 개요 그래프 스크린샷](./media/monitor-performance-live-website-now/overview-graphs.png)

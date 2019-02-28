@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 0edb3441083a6eb6f95b3ca3ade2bf0b1582858d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564955"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313036"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -51,7 +51,7 @@ A: 새 로그에서는 목록 보기를 사용할 수 없습니다. 결과 테�
 
 ### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>Q. 쿼리를 실행하면 추천 필터 목록이 제공됩니다. 필터를 확인하려면 어떻게 해야 하나요? 
 
-A: 왼쪽 창에서 '필터'를 클릭하면 새 필터 구현의 미리 보기가 표시됩니다. 이 기능은 현재 UI의 레코드 한도가 10,000개로 제한되는 대신 전체 결과 집합을 기반으로 합니다. 현재 가장 많이 사용되는 필터 목록과 각 필터의 가장 일반적인 10가지 값입니다. 
+A: 왼쪽 창에서 ‘필터’를 클릭하면 새 필터 구현의 미리 보기가 표시됩니다. 이 기능은 현재 UI의 레코드 한도가 10,000개로 제한되는 대신 전체 결과 집합을 기반으로 합니다. 현재 가장 많이 사용되는 필터 목록과 각 필터의 가장 일반적인 10가지 값입니다. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. VM에서 드릴다운한 후 로그에  "이 구독에 대한 리소스 공급자 'Microsoft.Insights'를 등록하여 이 쿼리를 사용하도록 설정" 오류가 표시된 이유는 무엇입니까? 
 

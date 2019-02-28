@@ -10,14 +10,14 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: a97e49c8d1a972e2b9d9ff34173d9aed07a22a19
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0c298ba2074a57bd182b23e5fd9bc6b68ee496ad
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295545"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300452"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>리소스 관리자 템플릿과 Azure CLI로 리소스 배포
 
@@ -90,7 +90,9 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>배포 실패 시 다시 배포
 
-배포가 실패하는 경우, 배포 기록의 이전 배포가 자동으로 다시 배포되도록 지정할 수 있습니다. 이 옵션을 사용하려면 배포가 배포 기록에서 식별될 수 있도록 고유한 이름을 지정해야 합니다. 고유한 이름이 없으면 현재 실패한 배포가 기록에서 이전에 성공한 배포를 덮어쓸 수 있습니다. 루트 수준 배포에만 이 옵션을 사용할 수 있습니다. 중첩된 템플릿의 배포는 다시 배포할 수 없습니다.
+배포가 실패하면 배포 기록에서 이전에 성공한 배포를 자동으로 다시 배포할 수 있습니다. 재배포를 지정하려면 배포 명령에 `--rollback-on-error` 매개 변수를 사용합니다.
+
+이 옵션을 사용하려면 배포가 배포 기록에서 식별될 수 있도록 고유한 이름을 지정해야 합니다. 고유한 이름이 없으면 현재 실패한 배포가 기록에서 이전에 성공한 배포를 덮어쓸 수 있습니다. 루트 수준 배포에만 이 옵션을 사용할 수 있습니다. 중첩된 템플릿의 배포는 다시 배포할 수 없습니다.
 
 성공한 마지막 배포를 다시 배포하려면 `--rollback-on-error` 매개 변수를 플래그로 추가합니다.
 

@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2019
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: aadc92c232d32d827644caa52b3c362d9c8d4c9b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 92e5dd5190a76bd09e33ea4c40a5b5cc2d66bc7b
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691034"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301133"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 출력 섹션
 
-Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 들어, 배포된 리소스에 액세스하기 위한 URI를 반환할 수 있습니다.
+Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 들어, 배포된 리소스에 액세스하기 위한 URI를 반환할 수 있습니다. 선택적 `condition` 속성을 사용하여 출력 값의 반환 여부를 지정합니다.
 
 ## <a name="define-and-use-output-values"></a>출력 값 정의 및 사용
 
@@ -31,6 +31,18 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 ```json
 "outputs": {
   "resourceID": {
+    "type": "string",
+    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+  }
+}
+```
+
+다음 예제에서는 새 항목이 배포되었는지 여부에 따라 공용 IP 주소의 리소스 ID를 조건부로 반환하는 방법을 보여 줍니다.
+
+```json
+"outputs": {
+  "resourceID": {
+    "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
     "type": "string",
     "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
   }
@@ -70,6 +82,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 ```json
 "outputs": {
     "<outputName>" : {
+        "condition": "<boolean-value-whether-to-output-value>",
         "type" : "<type-of-output-value>",
         "value": "<output-value-expression>"
     }
@@ -79,6 +92,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
 | outputName |예 |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
+| condition |아니요 | 이 출력 값의 반환 여부를 나타내는 부울 값입니다. `true`이면 해당 값이 배포의 출력에 포함됩니다. `false`이면 이 배포에 대한 출력 값을 건너뜁니다. 지정하지 않으면 기본값은 `true`입니다. |
 | 형식 |예 |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. |
 | 값 |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. |
 

@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: f8227495d7ca2e1d43b74066d359d0d59e456263
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2f00b01bb07aafca847897f0c31d24d4add7cdbf
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451210"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328880"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-standard-storage-accounts"></a>표준 스토리지 계정의 Azure Storage 확장성 및 성능 목표
 
-이 문서에서는 표준 Azure Storage 계정의 확장성 및 성능 목표에 대해 자세히 설명합니다. 여기에 나열된 확장성 및 성능 목표는 최첨단 목표이지만 달성할 수 있습니다. 모든 경우, 계정 사용량에 따라 달성된 요청 속도 및 대역폭은 저장된 개채의 크기 및 애플리케이션이 수행한 작업 형태에 따릅니다. 
+이 문서에서는 Azure Storage 계정의 확장성 및 성능 목표에 대해 자세히 설명합니다. 여기에 나열된 확장성 및 성능 목표는 최첨단 목표이지만 달성할 수 있습니다. 모든 경우, 계정 사용량에 따라 달성된 요청 속도 및 대역폭은 저장된 개채의 크기 및 애플리케이션이 수행한 작업 형태에 따릅니다. 
 
 해당 성능이 요구 사항을 충족시키는지 여부를 확인 하려면 서비스를 반드시 테스트해야 합니다. 가능하면 트래픽 속도가 갑자기 증가하지 않고 파티션 간의 트래픽이 적절하게 분산되도록 보장합니다.
 
@@ -26,7 +26,10 @@ ms.locfileid: "55451210"
 ## <a name="standard-storage-account-scale-limits"></a>표준 스토리지 계정 크기 조정 제한
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-## <a name="storage-resource-provider-scale-limits"></a>스토리지 리소스 공급자 크기 조정 제한 
+## <a name="premium-storage-account-scale-limits"></a>Premium Storage 계정 크기 조정 제한
+[!INCLUDE [azure-premium-limits](../../../includes/azure-storage-limits-premium.md)]
+
+## <a name="storage-resource-provider-scale-limits"></a>스토리지 리소스 공급자 크기 조정 제한
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 

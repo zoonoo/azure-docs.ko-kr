@@ -1,6 +1,6 @@
 ---
-title: Azure Portal을 사용하여 거부 할당 보기 | Microsoft Docs
-description: Azure Portal을 사용하여 특정 동작에 대해 특정 범위에서 액세스 권한이 거부된 사용자, 그룹, 서비스 주체 및 관리 ID를 보는 방법에 대해 알아봅니다.
+title: Azure Portal을 사용하여 Azure 리소스에 대한 거부 할당 보기 - Azure | Microsoft Docs
+description: Azure Portal을 사용하여 특정 범위에서 특정 Azure 리소스 작업에 대한 액세스가 거부된 사용자, 그룹, 서비스 주체 및 관리 ID를 보는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f5870ddbbb8be0ebbeae7656485521a327b86d5b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637728"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343241"
 ---
-# <a name="view-deny-assignments-using-the-azure-portal"></a>Azure Portal을 사용하여 거부 할당 보기
+# <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 리소스에 대한 거부 할당 보기
 
-[거부 할당](deny-assignments.md)은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 작업을 사용자가 수행할 수 없도록 차단합니다. 고유한 거부 할당을 만들 수 없는 경우에도, 거부 할당이 사용자의 전체적인 권한에 영향을 줄 수 있으므로 거부 할당을 볼 수는 있습니다. 거부 할당에 대한 정보를 얻으려면 `Microsoft.Authorization/denyAssignments/read` 권한이 있어야 하며, 이것은 대부분의 [기본 제공 역할](built-in-roles.md)에 포함됩니다.
+[거부 할당](deny-assignments.md)은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 고유한 거부 할당을 만들 수 없는 경우에도, 거부 할당이 사용자의 전체적인 권한에 영향을 줄 수 있으므로 거부 할당을 볼 수는 있습니다. 거부 할당에 대한 정보를 가져오려면 `Microsoft.Authorization/denyAssignments/read` 권한이 있어야 합니다. 이 권한은 [Azure 리소스에 대한 대부분의 기본 제공 역할](built-in-roles.md)에 포함되어 있습니다.
 
 이 문서에서는 Azure Portal을 사용하여 거부 할당을 보는 방법에 대해 설명합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "52637728"
 
     | 작업 유형 | 설명 |
     | --- | --- |
-    | **Actions**  | 거부된 관리 작업입니다. |
+    | **actions**  | 거부된 관리 작업입니다. |
     | **NotActions** | 거부된 관리 작업에서 제외되는 관리 작업입니다. |
     | **DataActions**  | 거부된 데이터 작업입니다. |
     | **NotDataActions** | 거부된 데이터 작업에서 제외되는 데이터 작업입니다. |
@@ -105,5 +105,5 @@ ms.locfileid: "52637728"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [거부 할당 이해](deny-assignments.md)
-* [RBAC 및 REST API를 사용하여 거부 할당 나열](deny-assignments-rest.md)
+* [Azure 리소스에 대한 거부 할당 이해](deny-assignments.md)
+* [REST API를 사용하여 Azure 리소스에 대한 거부 할당 나열](deny-assignments-rest.md)

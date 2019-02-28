@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a1ea364180d389ffdbfc7cedd740a0e493070b3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6b849ad72554af163d8ac3d5ff1248023dc71052
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998997"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268529"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -104,7 +104,7 @@ Application Insights 리소스를 엽니다. [Azure Portal](https://portal.azure
 ## <a name="step-4-publish-your-app"></a>4단계: 앱 게시
 IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트림](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream)을 보고 모두 문제 없이 실행되고 있는지 확인합니다.
 
-원격 분석이 Application Insights 포털에 구축되고, 이 곳에서 메트릭을 모니터링하고 원격 분석을 검색하고 [대시보드](../../azure-monitor/app/app-insights-dashboards.md)를 설정할 수 있습니다. 또한 강력한 [데이터 탐색기 쿼리 언어](https://aka.ms/LogAnalyticsLanguage)를 사용하여 사용량 및 성능을 분석하거나 특정 이벤트를 찾을 수 있습니다.
+원격 분석이 Application Insights 포털에 구축되고, 이 곳에서 메트릭을 모니터링하고 원격 분석을 검색하고 [대시보드](../../azure-monitor/app/app-insights-dashboards.md)를 설정할 수 있습니다. 또한 강력한 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 사용량 및 성능을 분석하거나 특정 이벤트를 찾을 수 있습니다.
 
 [Visual Studio](../../azure-monitor/app/visual-studio.md)에서 진단 검색 및 [추세](../../azure-monitor/app/visual-studio-trends.md) 등의 도구를 사용하여 원격 분석을 계속 수행할 수도 있습니다.
 

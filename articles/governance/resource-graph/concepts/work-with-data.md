@@ -1,6 +1,6 @@
 ---
 title: 대규모 데이터 세트로 작업
-description: Azure Resource Graph에서 큰 데이터 세트를 가져오는 방법을 파악합니다.
+description: Azure Resource Graph를 사용하는 동안 큰 데이터 세트를 가져오고 제어하는 방법을 파악합니다.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: ab24e2045dabf045f1879dd76e599f5ab344f07b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 8808f42cdd6fb547b70695278993faa0f52cdb61
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513198"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338396"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 

@@ -3,17 +3,17 @@ title: Azure Backup Agent 문제 해결
 description: Azure Backup 에이전트의 설치 및 등록 문제 해결
 services: backup
 author: saurabhsensharma
-manager: shreeshd
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: 65eb6ef088c9baae67d65607ede771f3c9d11a41
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ce6293e63e672df9683ab607a304f8c7275911c5
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114147"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446616"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -24,8 +24,13 @@ ms.locfileid: "56114147"
 | ---     | ---     | ---    |
 | **오류** </br> *잘못된 보관 자격 증명이 제공되었습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. (ID: 34513)* | <ul><li> 자격 증명 모음 자격 증명이 유효하지 않습니다. (즉 등록되기 전 다운로드된지 48시간 이상이 지났습니다.)<li>MARS 에이전트는 Windows Temp 디렉터리에 파일을 다운로드할 수 없습니다. <li>자격 증명 모음 자격 증명이 네트워크 위치에 있습니다. <li>TLS 1.0을 사용하지 않도록 설정되어 있습니다.<li> 구성된 프록시 서버가 연결을 차단하고 있습니다. <br> |  <ul><li>새 자격 증명 모음 자격 증명을 다운로드합니다.(**참고**: 여러 자격 증명 모음 자격 증명 파일을 이전에 다운로드한 경우 다운로드한 최신 파일은 48시간 동안만 유효합니다.) <li>**IE** > **설정** > **인터넷 옵션** > **보안** > **인터넷**을 시작합니다. 다음으로 **사용자 지정 수준**을 선택하고 파일 다운로드 섹션이 표시될 때까지 스크롤합니다. 그런 다음 **사용**을 선택합니다.<li>또한 이러한 사이트를 IE [신뢰할 수 있는 사이트](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements)에 추가해야 합니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다. <li> 컴퓨터와 날짜 및 시간을 일치시킵니다.<li>파일 다운로드가 허용되지 않는다는 오류가 발생하면 C:/Windows/Temp 디렉터리에 많은 수의 파일이 있을 가능성이 있습니다.<li>C:/Windows/Temp로 이동하여 확장명이 .tmp인 파일이 60,000 또는 65,000개 넘게 있는지 확인합니다. 있는 경우 해당 파일을 삭제합니다.<li>.NET Framework 4.6.2가 설치되어 있는지 확인합니다. <li>PCI 준수로 인해 TLS 1.0을 사용하지 않도록 설정한 경우 이 [문제 해결 페이지](https://support.microsoft.com/help/4022913)를 참조하세요. <li>서버에 바이러스 백신 소프트웨어가 설치되어 있는 경우 다음 파일을 바이러스 백신 검사에서 제외합니다. <ul><li>CBengine.exe<li>.NET Framework와 관련되어 있는 CSC.exe 서버에 설치된 모든 .NET 버전에 대한 CSC.exe 파일이 있습니다. 영향을 받는 서버의 모든 .NET Framework 버전에 연결된 CSC.exe 파일을 제외합니다. <li>폴더를 스크래치하거나 위치를 캐시합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.<br><li>bin 폴더는 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin입니다.
 
+## <a name="unable-to-download-vault-credential-file"></a>자격 증명 모음 파일을 다운로드할 수 없음
 
-## <a name="the-mars-agent-was-unable-to-connect-to-azure-backup"></a>MARS 에이전트가 Azure Backup에 연결할 수 없습니다.
+| 오류 세부 정보 | 권장 작업 |
+| ---     | ---    |
+|자격 증명 모음 파일을 다운로드하지 못했습니다. (ID: 403) | <ul><li> 다른 브라우저를 사용하여 자격 증명 모음을 다운로드하거나 아래 단계를 수행합니다. <ul><li> IE를 시작하고 F12 키를 누릅니다. </li><li> **네트워크** 탭으로 이동하여 IE 캐시와 쿠키를 지웁니다. </li> <li> 페이지를 새로 고칩니다.<br>또는</li></ul> <li> 구독이 사용 안 함/만료된 상태인지 확인합니다.<br>또는</li> <li> 자격 증명 모음 파일 다운로드를 차단하는 방화벽 규칙이 있는지 확인합니다. <br>또는</li> <li> 자격 증명 모음의 한도(자격 증명 모음당 50개 머신)를 모두 사용하지 않았는지 확인합니다.<br>또는</li>  <li> 자격 증명 모음을 다운로드하고 자격 증명 모음으로 서버를 등록하는 데 필요한 Azure Backup 권한이 사용자에게 있는지 확인합니다( [문서](backup-rbac-rs-vault.md) 참조).</li></ul> | 
+
+## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Microsoft Azure Recovery Services 에이전트에서 Microsoft Azure Backup에 연결할 수 없습니다.
 
 | 오류 세부 정보 | 가능한 원인 | 권장 작업 |
 | ---     | ---     | ---    |
@@ -54,6 +59,9 @@ ms.locfileid: "56114147"
 ## <a name="backups-dont-run-according-to-the-schedule"></a>백업이 일정에 따라 실행되지 않음
 수동 백업은 문제 없이 실행되지만 예약 백업이 자동으로 트리거되지 않으면 다음 작업을 시도해보세요.
 
+- Windows Server 백업 일정이 Azure 파일 및 폴더 백업 일정과 충돌하지 않는지 확인합니다.
+- **제어판** > **관리 도구** > **작업 스케줄러**로 이동합니다. **Microsoft**를 확장하고 **온라인 백업**을 선택합니다. **Microsoft OnlineBackup**을 두 번 클릭하고 **트리거** 탭으로 이동합니다. 상태가 **사용**으로 설정되어 있는지 확인합니다. 설정되지 않은 경우 **편집**을 선택하고 **사용** 확인란을 선택한 다음, **확인**을 클릭합니다. **일반** 탭에서 **보안 옵션**으로 이동하여 작업을 실행하도록 선택된 사용자 계정이 서버의 **로컬 관리자 그룹** 또는 **SYSTEM** 중 하나인지 확인합니다.
+
 - PowerShell 3.0 이상이 서버에 설치되었는지 확인합니다. PowerShell 버전을 확인하려면 다음 명령을 실행하고 *주* 버전 번호가 3 이상인지 확인합니다.
 
   `$PSVersionTable.PSVersion`
@@ -67,9 +75,6 @@ ms.locfileid: "56114147"
   `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
 
   `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
-
-- **제어판** > **관리 도구** > **작업 스케줄러**로 이동합니다. **Microsoft**를 확장하고 **온라인 백업**을 선택합니다. **Microsoft OnlineBackup**을 두 번 클릭하고 **트리거** 탭으로 이동합니다. 상태가 **사용**으로 설정되어 있는지 확인합니다. 그렇지 않은 경우 **편집**을 선택하고 **사용** 확인란을 선택합니다. **일반** 탭에서 **보안 옵션**으로 이동합니다. 작업 실행을 위해 선택한 사용자 계정이 **시스템** 또는 서버의 **로컬 관리자 그룹** 중 하나인지 확인합니다.
-
 
 > [!TIP]
 > 변경 내용이 일관적으로 적용되도록 위의 단계를 수행한 후 서버를 다시 부팅합니다.
@@ -99,7 +104,7 @@ ms.locfileid: "56114147"
 
 8.  Microsoft iSCSI 초기자 서비스를 다시 시작합니다. 이렇게 하려면 서비스를 마우스 오른쪽 단추로 클릭하고, **중지**를 선택하고, 다시 마우스 오른쪽 단추로 클릭하고, **시작**을 선택합니다.
 
-9.  **인스턴트 복원**을 사용하여 복구를 다시 시도합니다.
+9.  [**즉시 복원**](backup-instant-restore-capability.md)을 사용하여 복구를 다시 시도합니다.
 
 복구가 계속 실패하면 서버 또는 클라이언트를 다시 부팅합니다. 다시 부팅하지 않으려는 경우 또는 서버를 다시 부팅한 후에도 복구가 계속 실패하는 경우 다른 머신에서 복구를 시도해 봅니다. [이 문서](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)의 단계를 따릅니다.
 

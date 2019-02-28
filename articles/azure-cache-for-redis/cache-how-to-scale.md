@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: yegu
-ms.openlocfilehash: 5f448c1c66520a5941ad867eaf3c89c22693cc45
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 495fc031150d04f253279606baebb5d64d52bce7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235575"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313435"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure Cache for Redis 크기를 조정하는 방법
 Azure Cache for Redis에는 캐시 크기와 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 캐시를 만든 후 애플리케이션 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
@@ -115,7 +115,7 @@ Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 
 * [크기를 조정하는 동안 캐시의 데이터가 손실되나요?](#will-i-lose-data-from-my-cache-during-scaling)
 * [사용자 지정 데이터베이스 설정이 크기 조정 하는 동안에 영향을 받나요?](#is-my-custom-databases-setting-affected-during-scaling)
 * [크기를 조정하는 동안 내 캐시를 사용할 수 있나요?](#will-my-cache-be-available-during-scaling)
-* [지역 복제를 구성하여 내 캐시의 크기를 조정하거나 클러스터에서 분할된 데이터베이스를 변경할 수 없는 이유는 무엇인가요?](#scaling-limitations-with-geo-relication)
+* 지역 복제를 구성하여 내 캐시의 크기를 조정하거나 클러스터의 분할된 데이터베이스를 변경할 수 없는 이유는 무엇인가요?
 * [지원되지 않는 작업](#operations-that-are-not-supported)
 * [크기 조정은 시간이 얼마나 걸리나요?](#how-long-does-scaling-take)
 * [크기 조정이 완료되었는지 어떻게 알 수 있나요?](#how-can-i-tell-when-scaling-is-complete)

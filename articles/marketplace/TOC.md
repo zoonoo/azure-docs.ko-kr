@@ -1,5 +1,6 @@
 # [Azure Marketplace 및 AppSource 설명서](index.md)
 ## [Azure Marketplace 및 AppSource 로드맵](./marketplace-roadmap.md)
+## [Azure Marketplace 정책 및 용어](./policies-terms.md)
 
 ## [Azure Marketplace 및 AppSource 개요 및 이점](./marketplace-publishers-guide.md)  
 ### [마켓플레이스에서 게시자 되기](./become-publisher.md)  
@@ -29,7 +30,6 @@
 #### [제안 목록 모범 사례](./gtm-offer-listing-best-practices.md)
 #### [추천 받기](./gtm-how-to-get-featured.md)
 #### [Marketplace 콘텐츠 유효성 검사](./marketplace-criteria-content-validation.md)
-#### [등급 및 검토 정책](./rating-review-policies.md)   
 
 ### [마켓플레이스 혜택](./gtm-your-marketplace-benefits.md)
 #### [Microsoft를 통한 비즈니스 홍보](./gtm-promote-your-business.md)
@@ -37,9 +37,6 @@
 
 ### [Azure Marketplace 및 AppSource 지원](./support-azure-marketplace.md)
 #### [Marketplace FAQ](./marketplace-faq-publisher-guide.md)
-#### [Marketplace 용어](./marketplace-terms.md)
-#### [Marketplace 참가 정책](./marketplace-participation-policy.md)
-
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 

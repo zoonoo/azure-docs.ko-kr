@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/072019
-ms.openlocfilehash: 4f025680c1c637f8b8475be2d5784d08e9e2343b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/15/2019
+ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962012"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328676"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>vCore 기반 구매 모델 한도를 사용한 탄력적 풀에 대한 리소스 제한
 
@@ -59,11 +59,11 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-\* 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
+\* 개별 데이터베이스에 대한 최대 동시 작업자(요청) 수는 [단일 데이터베이스 리소스 한도](sql-database-vcore-resource-limits-single-databases.md)를 참조하세요. 예를 들어 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore 수가 2개인 경우 최대 동시 작업자 수는 200개입니다.  데이터베이스당 최대 vCore 수가 0.5개이면 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 수는 50개입니다.  vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>범용 서비스 계층: 4세대 컴퓨팅 플랫폼(2부)
 
-|계산 크기|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|계산 크기|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
 |vCore 수|7|8|9|10|16|24|
@@ -85,7 +85,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-\* 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
+\* 개별 데이터베이스에 대한 최대 동시 작업자(요청) 수는 [단일 데이터베이스 리소스 한도](sql-database-vcore-resource-limits-single-databases.md)를 참조하세요. 예를 들어 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore 수가 2개인 경우 최대 동시 작업자 수는 200개입니다.  데이터베이스당 최대 vCore 수가 0.5개이면 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 수는 50개입니다.  vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>범용 서비스 계층: 5세대 컴퓨팅 플랫폼(1부)
 
@@ -111,7 +111,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-\* 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
+\* 개별 데이터베이스에 대한 최대 동시 작업자(요청) 수는 [단일 데이터베이스 리소스 한도](sql-database-vcore-resource-limits-single-databases.md)를 참조하세요. 예를 들어 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore 수가 2개인 경우 최대 동시 작업자 수는 200개입니다.  데이터베이스당 최대 vCore 수가 0.5개이면 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 수는 50개입니다.  vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>범용 서비스 계층: 5세대 컴퓨팅 플랫폼(2부)
 
@@ -136,7 +136,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |읽기 확장|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-\* 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
+\* 개별 데이터베이스에 대한 최대 동시 작업자(요청) 수는 [단일 데이터베이스 리소스 한도](sql-database-vcore-resource-limits-single-databases.md)를 참조하세요. 예를 들어 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore 수가 2개인 경우 최대 동시 작업자 수는 200개입니다.  데이터베이스당 최대 vCore 수가 0.5개이면 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 수는 50개입니다.  vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>중요 비즈니스 서비스 계층: 스토리지 크기 및 컴퓨팅 크기
 
@@ -164,7 +164,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |읽기 확장|예|예|예|예|예|예|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-\* 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
+\* 개별 데이터베이스에 대한 최대 동시 작업자(요청) 수는 [단일 데이터베이스 리소스 한도](sql-database-vcore-resource-limits-single-databases.md)를 참조하세요. 예를 들어 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore 수가 2개인 경우 최대 동시 작업자 수는 200개입니다.  데이터베이스당 최대 vCore 수가 0.5개이면 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 수는 50개입니다.  vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>중요 비즈니스 서비스 계층: 4세대 컴퓨팅 플랫폼(2부)
 
@@ -190,7 +190,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |읽기 확장|예|예|예|예|예|예|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-\* 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
+\* 개별 데이터베이스에 대한 최대 동시 작업자(요청) 수는 [단일 데이터베이스 리소스 한도](sql-database-vcore-resource-limits-single-databases.md)를 참조하세요. 예를 들어 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore 수가 2개인 경우 최대 동시 작업자 수는 200개입니다.  데이터베이스당 최대 vCore 수가 0.5개이면 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 수는 50개입니다.  vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>중요 비즈니스 서비스 계층: 5세대 컴퓨팅 플랫폼(1부)
 
@@ -216,7 +216,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |읽기 확장|예|예|예|예|예|예|예|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-\* 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
+\* 개별 데이터베이스에 대한 최대 동시 작업자(요청) 수는 [단일 데이터베이스 리소스 한도](sql-database-vcore-resource-limits-single-databases.md)를 참조하세요. 예를 들어 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore 수가 2개인 경우 최대 동시 작업자 수는 200개입니다.  데이터베이스당 최대 vCore 수가 0.5개이면 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 수는 50개입니다.  vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>중요 비즈니스 서비스 계층: 5세대 컴퓨팅 플랫폼(2부)
 
@@ -242,7 +242,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |읽기 확장|예|예|예|예|예|예|예|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 
-\* 개별 데이터베이스의 최대 동시 작업자(요청)는 [단일 데이터베이스 리소스 제한](sql-database-vcore-resource-limits-single-databases.md)을 참조하세요.
+\* 개별 데이터베이스에 대한 최대 동시 작업자(요청) 수는 [단일 데이터베이스 리소스 한도](sql-database-vcore-resource-limits-single-databases.md)를 참조하세요. 예를 들어 탄력적 풀이 Gen5를 사용 중이고 데이터베이스당 최대 vCore 수가 2개인 경우 최대 동시 작업자 수는 200개입니다.  데이터베이스당 최대 vCore 수가 0.5개이면 Gen5에는 vCore당 최대 100개의 동시 작업자가 있으므로 최대 동시 작업자 수는 50개입니다.  vCore 수가 1개 이하인 다른 데이터베이스당 최대 vCore 설정의 경우 최대 동시 작업자 수가 유사하게 크기 조정됩니다.
 
 탄력적 풀의 모든 vCore가 사용 중인 경우 풀의 각 데이터베이스는 동일한 양의 계산 리소스를 받아서 쿼리를 처리합니다. SQL Database 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 데이터베이스당 최소 vCore 수가 0이 아닌 값으로 설정되면, 탄력적 풀 리소스 공유 공정성이 각 데이터베이스에 대해 보장된 리소스의 양에 추가됩니다.
 

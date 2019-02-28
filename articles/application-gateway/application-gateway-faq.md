@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 81a84e1ff4a9ed974a69762ce35075780e8d1f96
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 040aeda10410cc164c3f68b6615ebfb12d45541e
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991534"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453497"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -346,7 +346,7 @@ PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth`를 사용하거�
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>진단 로그에서 보존 정책은 무엇인가요?
 
-진단 로그는 고객 저장소 계정으로 전달되고 고객은 기본 설정에 따라 보존 정책을 설정할 수 있습니다. 진단 로그는 Event Hub 또는 Log Analytics로도 전송할 수 있습니다. 자세한 내용은 [Application Gateway 진단](application-gateway-diagnostics.md)을 참조하세요.
+진단 로그는 고객 저장소 계정으로 전달되고 고객은 기본 설정에 따라 보존 정책을 설정할 수 있습니다. 진단 로그를 이벤트 허브 또는 Azure Monitor 로그에도 전송할 수 있습니다. 자세한 내용은 [Application Gateway 진단](application-gateway-diagnostics.md)을 참조하세요.
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Application Gateway에 대한 감사 로그를 어떻게 얻나요?
 
@@ -358,7 +358,7 @@ Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포�
 
 ### <a name="how-do-i-analyze-traffic-statistics-for-application-gateway"></a>Application Gateway에 대한 트래픽 통계를 분석하려면 어떻게 해야 하나요?
 
-Azure Log Analytics, Excel, Power BI 등 여러 메커니즘을 통해 액세스 로그를 보고 분석할 수 있습니다.
+Azure Monitor 로그, Excel, Power BI 등의 여러 메커니즘을 통해 액세스 로그를 보고 분석할 수 있습니다.
 
 또한 Application Gateway 액세스 로그에 대해 널리 사용되는 [GoAccess](https://goaccess.io/) 로그 분석기를 설치하고 실행하는 Resource Manager 템플릿을 게시했습니다. GoAccess는 고유 방문자, 요청한 파일, 호스트, 운영 체제, 브라우저, HTTP 상태 코드 및 기타 유용한 HTTP 트래픽 통계를 제공 합니다. 자세한 내용은 [GitHub의 Resource Manager 템플릿 폴더에 대한 추가 정보 파일](https://aka.ms/appgwgoaccessreadme)을 참조하세요.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f658f6bb9e66eda13dbf4213e37dcd96b17f76e7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c70c3cc1818e85c03c78524d1e8571af6d686218
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411020"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429063"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 
@@ -45,7 +45,7 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 | 입력 이름      | 설명                                          |
 |---------------|------------------------------------------------------|
-| 이미지         | 복합 형식입니다. ```imageAction```이 ```generateNormalizedImages```로 설정된 경우 현재 Azure Blob 인덱서에서 생성한 "/document/normalized_images" 필드만 사용합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
+| 이미지         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: RBAC 및 Azure Portal을 사용하여 엑세스 관리 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 Azure Portal을 사용하여 사용자, 그룹, 서비스 주체 및 관리 ID의액세스 권한을 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
+title: RBAC 및 Azure Portal을 사용하여 Azure 리소스 액세스 관리 | Microsoft Docs
+description: RBAC(역할 기반 액세스 제어) 및 Azure Portal을 사용하여 사용자, 그룹, 서비스 주체 및 관리형 ID의 Azure 리소스 액세스를 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412311"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342340"
 ---
-# <a name="manage-access-using-rbac-and-the-azure-portal"></a>RBAC 및 Azure Portal을 사용하여 액세스 관리
+# <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리
 
-[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 이 문서에서는 RBAC 및 Azure Portal을 사용하여 사용자, 그룹, 서비스 주체 및 관리 ID의 액세스 권한을 관리하는 방법을 설명합니다.
+[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 문서에서는 RBAC 및 Azure Portal을 사용하여 사용자, 그룹, 서비스 주체 및 관리 ID의 액세스 권한을 관리하는 방법을 설명합니다.
 
 ## <a name="open-access-control-iam"></a>액세스 제어(IAM) 열기
 
@@ -41,7 +41,7 @@ ms.locfileid: "54412311"
 
 ## <a name="view-roles-and-permissions"></a>역할 및 권한 보기
 
-역할 정의는 역할 할당에 사용되는 권한 컬렉션입니다. Azure에는 70개가 넘는 [기본 제공 역할](built-in-roles.md)이 있습니다. 다음 단계에 따라 관리 및 데이터 창에서 수행할 수 있는 역할 및 권한을 볼 수 있습니다.
+역할 정의는 역할 할당에 사용되는 권한 컬렉션입니다. Azure는 [Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)을 70개 넘게 보유하고 있습니다. 다음 단계에 따라 관리 및 데이터 창에서 수행할 수 있는 역할 및 권한을 볼 수 있습니다.
 
 1. 관리 그룹, 구독, 리소스 그룹 또는 리소스 등, 역할 및 권한을 보려는 범위에서 **액세스 제어(IAM)** 를 엽니다.
 
@@ -165,7 +165,7 @@ RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서: RBAC 및 Azure Portal을 사용하여 사용자에게 액세스 권한 부여](quickstart-assign-role-user-portal.md)
-* [자습서: RBAC 및 Azure PowerShell을 사용하여 사용자에게 액세스 권한 부여](tutorial-role-assignments-user-powershell.md)
-* [Azure의 RBAC 문제 해결](troubleshooting.md)
-* [Azure 관리 그룹으로 리소스 구성](../azure-resource-manager/management-groups-overview.md)
+* [자습서: RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](quickstart-assign-role-user-portal.md)
+* [자습서: RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여](tutorial-role-assignments-user-powershell.md)
+* [Azure 리소스에 대한 RBAC 문제 해결](troubleshooting.md)
+* [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/index.md)

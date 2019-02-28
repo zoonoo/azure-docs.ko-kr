@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/29/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487237"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429267"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -180,6 +180,8 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |Linux 패키지|1250||
 |Services|250||
 |디먼|250||
+
+변경 내용 추적 및 인벤토리를 사용하는 머신의 평균 Log Analytics 데이터 사용량은 월별 약 40MB입니다. 이 값은 근사값이며, 사용자 환경에 따라 변경될 수 있습니다. 사용자 환경을 모니터링하여 정확한 사용량을 확인하는 것이 좋습니다.
 
 ### <a name="windows-service-tracking"></a>Windows 서비스 추적
 

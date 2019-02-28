@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: aff3f47624fe21e1d0f020e8e5732e60b4b53657
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54084058"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56333807"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -41,7 +41,7 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 애플리케이션에 중복성을 제공하기 위해 여러 개의 가상 머신을 가용성 집합으로 그룹화하는 것이 좋습니다. 데이터 센터 내의 이러한 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 컴퓨터를 사용할 수 있고 99.95% Azure SLA가 충족되도록 합니다. 자세한 내용은 [Virtual Machines에 대한 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)를 참조하세요.
 
 > [!IMPORTANT]
-> 가용성 집합 안에 단일 인스턴스 가상 머신을 단독으로 두지 않도록 하십시오. 이러한 구성의 VM은 SLA 보증에 맞지 않으며 단일 VM이 [Azure Premium Storage](../articles/virtual-machines/windows/premium-storage.md)를 사용하는 경우를 제외하고 Azure 계획된 유지 관리 이벤트 중에 가동 중지하게 됩니다. 프리미엄 저장소를 사용하는 단일 VM의 경우 Azure SLA가 적용됩니다.
+> 가용성 집합 안에 단일 인스턴스 가상 머신을 단독으로 두지 않도록 하십시오. 이러한 구성의 VM에는 SLA 보증이 적용되지 않으며, 단일 VM이 [Azure 프리미엄 SSD](../articles/virtual-machines/windows/disks-types.md#premium-ssd)를 사용하는 경우를 제외하고 Azure 계획된 유지 관리 이벤트 중에 가동 중지됩니다. 프리미엄 SSD를 사용하는 단일 VM에는 Azure SLA가 적용됩니다.
 
 기본 Azure 플랫폼에서는 가용성 집합에 포함된 각각의 가상 머신을 **업데이트 도메인** 및 **장애 도메인**에 할당합니다. 특정 가용성 집합의 경우 기본적으로 사용자가 구성할 수 없는 다섯 개의 업데이트 도메인이 할당되어(그런 다음 최대 20개의 업데이트 도메인을 제공하도록 Resource Manager 배포를 늘릴 수 있음) 동시에 재부팅할 수 있는 가상 머신 및 기본 물리적 하드웨어 그룹을 나타냅니다. 단일 가용성 집합 내에 5개 이상의 가상 머신을 구성한 경우 6번째 가상 머신은 동일한 업데이트 도메인에 첫 번째 가상 머신으로 배치되고, 7번째 가상 머신은 동일한 업데이트 도메인에 두 번째 가상 머신으로 배치되는 식입니다. 재부팅되는 업데이트 도메인의 순서는 계획된 유지 보수 중 순차적으로 진행할 수 없으며 한 번에 하나의 업데이트 도메인만이 재부팅됩니다. 다시 부팅된 업데이트 도메인을 복구할 시간으로 30분이 제공되며 이 시간이 지나면 다른 업데이트 도메인에서 유지 관리가 시작됩니다.
 
@@ -60,7 +60,7 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
 
-[관리되지 않는 디스크](../articles/virtual-machines/windows/about-disks-and-vhds.md#types-of-disks)에서 VM을 사용하려는 경우 VM의 VHD(가상 하드 디스크)를 [페이지 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)로 저장하는 Storage 계정에 대한 아래의 유용한 모범 사례를 따릅니다.
+비관리 디스크에서 VM을 사용하려는 경우 VM의 VHD(가상 하드 디스크)를 [페이지 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)으로 저장하는 스토리지 계정에 대한 아래의 모범 사례를 따릅니다.
 
 1. **동일한 저장소 계정에서 VM과 모든 디스크(OS 및 데이터) 연결 유지**
 2. 스토리지 계정에 더 많은 VHD를 추가하기 전에 **Storage 계정에서 관리되지 않는 디스크의 수에 대한 [제한](../articles/storage/common/storage-scalability-targets.md) 검토**

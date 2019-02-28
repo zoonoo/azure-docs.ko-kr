@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: a8251881b114d7b102481476d3e77923b34d34c7
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 99647770df9a8ca194559863a1d7212faf1c83a1
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982389"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328217"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -358,5 +358,5 @@ LUIS 컨테이너는 Asure 계정에서 _Language Understanding_을 사용하여
 ## <a name="next-steps"></a>다음 단계
 
 * [컨테이너 구성](luis-container-configuration.md)에서 구성 설정을 검토합니다.
-* [FAQ(질문과 대답)](luis-resources-faq.md)를 참조하여 LUIS 기능과 관련된 문제를 해결합니다.
-* 더 많은 [Cognitive Services 컨테이너](../cognitive-services-container-support.md)를 사용합니다.
+* LUIS 기능과 관련된 문제를 해결하려면 [문제 해결](troubleshooting.md)을 참조하세요.
+* 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 47f9dfea24dc3134e6a2f476affaaff7e60efe8c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260383"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313571"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum 인증 증명 컨소시엄
 
@@ -359,7 +359,7 @@ SSH 키(인증 유형 = 공개 키)|원격 로그인에 사용하는 보안 셸 
 
     -  공정한 표현을 보장하기 위해 네트워크상의 나머지 멤버와 동일한 유효성 검사기 노드 수를 선택합니다
 
-    -  [이전 단계](#step-1-add-the-new-admin)에서 제공한 것과 동일한 Ethereum 주소를 사용합니다.
+    -  이전 단계에서 제공한 것과 동일한 Ethereum 주소를 사용합니다.
 
     -  *Ethereum 설정* 탭에서 제공한 *컨소시엄 데이터 URL*을 전달합니다.
 

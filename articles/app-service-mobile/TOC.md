@@ -131,7 +131,7 @@
 #### [다른 곳에서 얻은 SSL 인증서 사용](../app-service/app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### App Service 환경 보안
-#### [웹 응용 프로그램 방화벽 구성](../app-service/environment/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [웹 애플리케이션 방화벽 구성](../app-service/environment/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [계층화된 보안 아키텍처 구현](../app-service/environment/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [백 엔드 리소스에 안전하게 연결](../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: d1127834732a6fc82e0331370a6c4173e9f61dcf
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0a0d003f3d78c6d18938e9c87dd4862f7429d55b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685415"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728695"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 스크립트(.csx) 개발자 참조
 
@@ -57,7 +57,7 @@ FunctionsProject
 
 함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.csx)과 바인딩 구성 파일(function.json)이 있습니다.
 
-Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](functions-triggers-bindings.md#local-development-azure-functions-core-tools)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
+Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#local-development-azure-functions-core-tools)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 ## <a name="binding-to-arguments"></a>인수에 바인딩
 
@@ -224,7 +224,7 @@ public class Order
 
 ## <a name="binding-to-method-return-value"></a>메서드 반환 값에 바인딩
 
-*function.json*에서 이름 `$return`을 사용하여 출력 바인딩에 메서드 반환 값을 사용할 수 있습니다. 예제를 보려면 [트리거 및 바인딩](functions-triggers-bindings.md#using-the-function-return-value)을 참조하세요.
+*function.json*에서 이름 `$return`을 사용하여 출력 바인딩에 메서드 반환 값을 사용할 수 있습니다. 예제를 보려면 [트리거 및 바인딩](./functions-bindings-return-value.md)을 참조하세요.
 
 성공적인 함수 실행이 항상 출력 바인딩으로 전달할 반환 값을 생성하는 경우에만 반환 값을 사용합니다. 그렇지 않으면 다음 섹션에 나와 있는 것처럼 `ICollector` 또는 `IAsyncCollector`를 사용합니다.
 
@@ -376,12 +376,12 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 함수 스크립트 파일을 포함하는 디렉터리는 어셈블리 변경 내용이 자동으로 감시됩니다. 다른 디렉터리의 어셈블리 변경 내용을 감시하려면 [host.json](functions-host-json.md)의 `watchDirectories` 목록에 해당 디렉터리를 추가합니다.
 
 ## <a name="using-nuget-packages"></a>NuGet 패키지 사용
-C# 함수에서 NuGet 패키지를 사용하려면 *extensions.csproj* 파일을 함수 앱의 파일 시스템에 있는 함수의 폴더에 업로드합니다. 다음은 *Microsoft.ProjectOxford.Face* 버전 *1.1.0*에 참조를 추가하는 예제 *extensions.csproj* 파일입니다.
+C# 함수에서 NuGet 패키지를 사용하려면 *function.proj* 파일을 함수 앱의 파일 시스템에 있는 함수의 폴더에 업로드합니다. 다음은 *Microsoft.ProjectOxford.Face* 버전 *1.1.0*에 참조를 추가하는 예제 *function.proj* 파일입니다.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net46</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     
     <ItemGroup>
@@ -399,20 +399,15 @@ C# 함수에서 NuGet 패키지를 사용하려면 *extensions.csproj* 파일을
 3. *extensions.csproj* 파일을 업로드하면 함수의 스트리밍 로그에 다음 예제와 같은 출력이 표시됩니다.
 
 ```
-2016-04-04T19:02:48.745 Restoring packages.
-2016-04-04T19:02:48.745 Starting NuGet restore
-2016-04-04T19:02:50.183 MSBuild auto-detection: using msbuild version '14.0' from 'D:\Program Files (x86)\MSBuild\14.0\bin'.
-2016-04-04T19:02:50.261 Feeds used:
-2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
-2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
-2016-04-04T19:02:50.261
+2018-12-14T22:00:48.658 [Information] Restoring packages.
+2018-12-14T22:00:48.681 [Information] Starting packages restore
+2018-12-14T22:00:57.064 [Information] Restoring packages for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj...
 2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
-2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
-2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
-2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.
-2016-04-04T19:02:57.189
-2016-04-04T19:02:57.189
-2016-04-04T19:02:57.455 Packages restored.
+2018-12-14T22:01:00.844 [Information] Installing Newtonsoft.Json 10.0.2.
+2018-12-14T22:01:01.041 [Information] Installing Microsoft.ProjectOxford.Common.DotNetStandard 1.0.0.
+2018-12-14T22:01:01.140 [Information] Installing Microsoft.ProjectOxford.Face.DotNetStandard 1.0.0.
+2018-12-14T22:01:09.799 [Information] Restore completed in 5.79 sec for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj.
+2018-12-14T22:01:10.905 [Information] Packages restored.
 ```
 
 ## <a name="environment-variables"></a>환경 변수
@@ -476,7 +471,7 @@ public static async Task Run(string input, Binder binder)
 
 ### <a name="multiple-attribute-example"></a>다중 특성 예제
 
-앞의 예제에서는 함수 앱의 주 Storage 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 저장소 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `IBinder`가 아닌 `Binder` 매개 변수를 사용합니다.  예: 
+앞의 예제에서는 함수 앱의 주 Storage 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 스토리지 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `IBinder`가 아닌 `Binder` 매개 변수를 사용합니다.  예: 
 
 ```cs
 using Microsoft.Azure.WebJobs;

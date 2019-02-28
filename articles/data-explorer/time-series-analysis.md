@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: dd9314b8c61a98e6bc080503bcdd6b5c6257bd49
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: b7d498b34fa3e247d5d4688f8d87213e7707fd86
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750565"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408785"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 시계열 분석
 
@@ -224,9 +224,9 @@ demo_many_series1
 |   |   |
 | --- | --- |
 |   | 개수 |
-|   | 23115 |
+|   | 18339 |
 
-이제 읽기 개수 메트릭의 23115 시계열 집합을 만들려고 합니다. `by` 절을 make-series 문에 추가하고, 선형 회귀를 적용하고, 가장 중요한 감소 추세를 포함한 상위 두 개의 시계열을 선택합니다.
+이제 읽기 개수 메트릭의 18339 시계열 세트를 만들려고 합니다. `by` 절을 make-series 문에 추가하고, 선형 회귀를 적용하고, 가장 중요한 감소 추세를 포함한 상위 두 개의 시계열을 선택합니다.
 
 ```kusto
 let min_t = toscalar(demo_many_series1 | summarize min(TIMESTAMP));  
@@ -235,7 +235,7 @@ demo_many_series1
 | make-series reads=avg(DataRead) on TIMESTAMP in range(min_t, max_t, 1h) by Loc, Op, DB
 | extend (rsquare, slope) = series_fit_line(reads)
 | top 2 by slope asc 
-| render timechart with(title='Service Traffic Outage for 2 instances (out of 23115)')
+| render timechart with(title='Service Traffic Outage for 2 instances (out of 18339)')
 ```
 
 ![상위 두 개의 시계열](media/time-series-analysis/time-series-top-2.png)
@@ -258,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | 37 | 1151 | -102743.910227889 |
 |   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 
-2분이 안 되는 시간에 ADX는 20,000개가 넘는 시계열을 분석하여 읽기 개수가 갑자기 줄어든 비정상적인 두 개의 시계열을 검색했습니다.
+2분 미만의 시간에 ADX는 20,000개에 가까운 시계열을 분석하고 읽기 개수가 갑자기 줄어든 비정상적인 시계열 2개를 검색했습니다.
 
 ADX 빠른 성능과 결합된 이러한 고급 기능은 시계열 분석을 위해 고유하고 강력한 솔루션을 제공합니다.

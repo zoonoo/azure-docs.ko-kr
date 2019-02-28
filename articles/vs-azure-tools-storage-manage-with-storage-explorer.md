@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 77763765e75500d994235bba0a5c0c3bb3e3be70
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756821"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311208"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage 탐색기 시작
 
@@ -221,7 +221,7 @@ Storage 탐색기를 사용하면 외부 스토리지 계정에 연결하여 스
 
 3. 사용자 B는 Storage 탐색기를 통해 제공된 SAS를 사용하여 사용자 A에 속한 계정에 연결합니다.
 
-### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>공유하려는 계정에 대한 SAS 연결 문자열 생성
+### <a name="generate-a-sas-query-string-for-the-account-you-want-to-share"></a>공유하려는 계정에 대한 SAS 쿼리 문자열 생성
 
 1. Storage 탐색기에서 공유하려는 스토리지 계정을 마우스 오른쪽 단추로 클릭하고 **공유 액세스 서명 가져오기...** 를 선택합니다.
 
@@ -231,7 +231,7 @@ Storage 탐색기를 사용하면 외부 스토리지 계정에 연결하여 스
 
     ![SAS 가져오기 대화 상자][15]
 
-3. **연결 문자열** 텍스트 상자 옆에서 **복사**를 선택하여 클립보드에 복사한 다음 **닫기**를 클릭합니다.
+3. **쿼리 문자열** 텍스트 상자 옆에 있는 **복사**를 선택하여 클립보드에 복사한 다음, **닫기**를 클릭합니다.
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>SAS 연결 문자열을 사용하여 저장소 계정에 연결
 

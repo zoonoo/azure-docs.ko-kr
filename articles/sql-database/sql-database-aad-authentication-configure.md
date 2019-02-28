@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 87c3633bb3ed3537d1e258b9d8d50fd6d6356d81
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 02/20/2019
+ms.openlocfilehash: ced83fc31e9e4944f7392169b703056dc5b4fd98
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960033"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454840"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>SQL을 사용하여 Azure Active Directory 인증 구성 및 관리
 
@@ -143,7 +143,7 @@ Managed Instance는 보안 그룹 구성원 자격을 통한 사용자 인증 �
 
     관리자 변경 과정에는 몇 분 정도 소요될 수 있습니다. 그런 다음 새 관리자가 Active Directory 관리자 상자에 표시됩니다.
 
-Managed Instance에 Azure AD 관리를 프로비전한 후, <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> 구문으로 Azure AD 로그인(**공개 미리 보기**) 생성을 시작할 수 있습니다. 자세한 내용은 [Managed Instance 개요](sql-database-managed-instance.md#azure-active-directory-integration)를 참조하세요.
+Managed Instance에 대한 Azure AD 관리자를 프로비전한 후, <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> 구문으로 Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**) 생성을 시작할 수 있습니다. 자세한 내용은 [Managed Instance 개요](sql-database-managed-instance.md#azure-active-directory-integration)를 참조하세요.
 
 > [!TIP]
 > 나중에 관리자를 제거하려면, Active Directory 관리자 페이지 위쪽에서 **관리자 제거**를 선택한 다음, **저장**을 선택합니다.
@@ -249,7 +249,7 @@ CLI 명령에 대한 자세한 내용은 [SQL - az sql](https://docs.microsoft.c
 
 ## <a name="configure-your-client-computers"></a>클라이언트 컴퓨터 구성
 
-모든 클라이언트 컴퓨터에서 Azure AD를 사용하여 Azure SQL Database 또는 Azure SQL Data Warehouse에 연결하는 응용 프로그램 또는 사용자를 통해 다음 소프트웨어를 설치해야 합니다.
+모든 클라이언트 컴퓨터에서 Azure AD를 사용하여 Azure SQL Database 또는 Azure SQL Data Warehouse에 연결하는 애플리케이션 또는 사용자를 통해 다음 소프트웨어를 설치해야 합니다.
 
 - [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx)에서 .NET Framework 4.6 이상
 - SQL Server용 Azure Active Directory 인증 라이브러리(**ADALSQL.DLL**)는 다운로드 센터( [Microsoft SQL Server용 Microsoft Active Directory 인증 라이브러리)](https://www.microsoft.com/download/details.aspx?id=48742)에서 여러 언어로 제공됩니다(x86 및 amd64 모두 해당).
@@ -264,7 +264,7 @@ CLI 명령에 대한 자세한 내용은 [SQL - az sql](https://docs.microsoft.c
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Azure AD ID에 매핑된 데이터베이스에서 포함된 데이터베이스 사용자 만들기
 
 >[!IMPORTANT]
->Managed Instance에서 이제 Azure AD 로그인(**공개 미리 보기**)이 지원됩니다. 이를 통해 사용자, 그룹 또는 에서 로그인을 만들 수 있습니다. Azure AD 로그인은 데이터베이스 사용자를 포함된 데이터베이스 사용자로 만들지 않고도 Managed Instance에 인증할 수 있는 기능을 제공합니다. 자세한 내용은 [Managed Instance 개요](sql-database-managed-instance.md#azure-active-directory-integration)를 참조하세요. Azure AD 로그인을 만드는 구문은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하세요.
+>이제 Managed Instance에서 Azure AD 서버 보안 주체(로그인)(**공개 미리 보기**)를 지원합니다. 이 지원을 통해 Azure AD 사용자, 그룹 또는 애플리케이션에서 로그인을 만들 수 있습니다. Azure AD 서버 보안 주체(로그인) 로그인은 데이터베이스 사용자를 포함된 데이터베이스 사용자로 만들지 않고도 Managed Instance에 인증할 수 있는 기능을 제공합니다. 자세한 내용은 [Managed Instance 개요](sql-database-managed-instance.md#azure-active-directory-integration)를 참조하세요. Azure AD 서버 보안 주체(로그인)를 만드는 구문은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하세요.
 
 Azure Active Directory 인증에는 포함된 데이터베이스 사용자로 만들 데이터베이스 사용자가 필요합니다. Azure AD ID를 기반으로 하는 포함된 데이터베이스 사용자는 마스터 데이터베이스에 로그인이 없는 데이터베이스 사용자이며, 데이터베이스와 연결된 Azure AD 디렉터리의 ID에 매핑됩니다. Azure AD ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 포함된 데이터베이스 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
 
@@ -294,7 +294,7 @@ Azure AD 또는 페더레이션 도메인 그룹을 나타내는 포함된 데�
 CREATE USER [ICU Nurses] FROM EXTERNAL PROVIDER;
 ```
 
-Azure AD 토큰을 사용하여 연결할 응용 프로그램을 나타내는 포함된 데이터베이스 사용자를 만들려면 다음을 실행합니다.
+Azure AD 토큰을 사용하여 연결할 애플리케이션을 나타내는 포함된 데이터베이스 사용자를 만들려면 다음을 실행합니다.
 
 ```sql
 CREATE USER [appName] FROM EXTERNAL PROVIDER;
@@ -323,14 +323,11 @@ Azure AD 관리자가 제대로 설정되었는지 확인하려면 Azure AD 관�
 Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 소유한 서버 관리자 아님)를 프로비전하려면 해당 데이터베이스에 대한 액세스가 있는 Azure AD ID로 데이터베이스에 연결합니다.
 
 > [!IMPORTANT]
-> Azure Active Directory 인증에 대한 지원은 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 및 Visual Studio 2015의 [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)에서 사용 가능합니다. SSMS의 2016년 8월 릴리스에는 관리자가 전화 통화, 문자 메시지, PIN이 있는 스마트 카드 또는 모바일 앱 알림을 사용하여 Multi-Factor Authentication을 요구할 수 있도록 하는 Active Directory 유니버설 인증도 포함되어 있습니다. SSDT에서는 Azure AD 로그인 및 사용자(**공개 미리 보기**)를 사용할 수 없습니다.
+> Azure Active Directory 인증에 대한 지원은 [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 및 Visual Studio 2015의 [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx)에서 사용 가능합니다. SSMS의 2016년 8월 릴리스에는 관리자가 전화 통화, 문자 메시지, PIN이 있는 스마트 카드 또는 모바일 앱 알림을 사용하여 Multi-Factor Authentication을 요구할 수 있도록 하는 Active Directory 유니버설 인증도 포함되어 있습니다.
 
 ## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>SSMS 또는 SSDT를 사용하여 연결하는 데 Azure AD ID 사용
 
 다음 절차에서는 SQL Server Management Studio 또는 SQL Server Database Tools를 사용하여 SQL Database를 Azure AD ID에 연결하는 방법을 보여 줍니다.
-
->[!IMPORTANT]
->SSDT에서는 Azure AD 로그인 및 사용자(**공개 미리 보기**)를 사용할 수 없습니다.
 
 ### <a name="active-directory-integrated-authentication"></a>Active Directory 통합 인증
 
@@ -356,13 +353,13 @@ Azure AD 관리 도메인을 사용하여 Azure AD 사용자 이름과 연결할
     ![AD 암호 인증 선택][12]
 4. **옵션** 단추를 선택하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다. (이전 옵션의 그래픽을 참조하세요.)
 
-## <a name="using-an-azure-ad-identity-to-connect-from-a-client-application"></a>클라이언트 응용 프로그램에서 연결하는 데 Azure AD ID 사용
+## <a name="using-an-azure-ad-identity-to-connect-from-a-client-application"></a>클라이언트 애플리케이션에서 연결하는 데 Azure AD ID 사용
 
-다음 절차에서는 클라이언트 응용 프로그램에서 SQL Database를 Azure AD ID에 연결하는 방법을 보여 줍니다.
+다음 절차에서는 클라이언트 애플리케이션에서 SQL Database를 Azure AD ID에 연결하는 방법을 보여 줍니다.
 
 ### <a name="active-directory-integrated-authentication"></a>Active Directory 통합 인증
 
-Windows 통합 인증을 사용하려면 도메인의 Active Directory를 Azure Active Directory와 페더레이션해야 합니다. 데이터베이스에 연결되는 클라이언트 응용 프로그램(또는 서비스)은 사용자의 도메인 자격 증명으로 도메인에 가입된 컴퓨터에서 실행되어야 합니다.
+Windows 통합 인증을 사용하려면 도메인의 Active Directory를 Azure Active Directory와 페더레이션해야 합니다. 데이터베이스에 연결되는 클라이언트 애플리케이션(또는 서비스)은 사용자의 도메인 자격 증명으로 도메인에 가입된 컴퓨터에서 실행되어야 합니다.
 
 통합 인증 및 Azure AD ID를 사용하여 데이터베이스에 연결하려면 데이터베이스 연결 문자열의 인증 키워드가 Active Directory 통합으로 설정되어 있어야 합니다. 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
 
@@ -392,10 +389,10 @@ conn.Open();
 
 이 인증 방법을 사용하면 AAD(Azure Active Directory)에서 토큰을 가져와 Azure SQL Database 또는 AzureSQL Data Warehouse에 연결할 수 있습니다. 이는 인증서 기반 인증을 비롯한 정교한 시나리오를 지원합니다. Azure AD 토큰 인증을 사용하려면 다음 네 가지 기본 단계를 완료해야 합니다.
 
-1. Azure Active Directory에 응용 프로그램을 등록하고 코드에 대한 클라이언트 ID를 가져옵니다.
-2. 응용 프로그램을 나타내는 데이터베이스 사용자를 만듭니다(이전 6단계에서 완료).
-3. 응용 프로그램을 실행하는 클라이언트 컴퓨터에서 인증서를 만듭니다.
-4. 인증서를 응용 프로그램의 키로 추가합니다.
+1. Azure Active Directory에 애플리케이션을 등록하고 코드에 대한 클라이언트 ID를 가져옵니다.
+2. 애플리케이션을 나타내는 데이터베이스 사용자를 만듭니다(이전 6단계에서 완료).
+3. 애플리케이션을 실행하는 클라이언트 컴퓨터에서 인증서를 만듭니다.
+4. 인증서를 애플리케이션의 키로 추가합니다.
 
 샘플 연결 문자열:
 

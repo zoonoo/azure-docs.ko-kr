@@ -257,12 +257,12 @@ items:
       href: apache-hbase-replication.md
     - name: Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
       href: apache-hbase-backup-replication.md
-  - name: Log Analytics를 사용한 모니터링
+  - name: Azure Monitor 로그를 사용한 모니터링
     items:
-    - name: Azure Log Analytics 사용
+    - name: Azure Monitor 로그 사용
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: Log Analytics로 쿼리 사용
+    - name: Azure Monitor 로그에서 쿼리 사용
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: 클러스터 성능 모니터링
@@ -367,9 +367,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: a501f1ea05306c00acab04cbdba51b51903305a6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cf1967a53e638f6415a9d7b77f0e9d2a4fe87db4
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326088"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889531"

@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.date: 02/15/2019
+ms.openlocfilehash: 2f16ba3fde73705d431ba97d65059b178020bb62
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635700"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340300"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Apache Sqoop을 사용하여 HDInsight의 Hadoop과 SQL Database 간에 데이터 가져오기 및 내보내기
 
@@ -105,7 +105,7 @@ GO
     데이터의 필드는 탭 문자로 구분되어 있으며 줄은 줄 바꿈 문자로 종료됩니다.
 
     > [!IMPORTANT]  
-    > `wasb:///` 경로는 Azure Storage를 기본 클러스터 저장소로 사용하는 클러스터에 작동합니다. Azure Data Lake Storage를 사용하는 클러스터에서는 `adl:///`을 대신 사용합니다.
+    > `wasb:///` 경로는 Azure Storage를 기본 클러스터 스토리지로 사용하는 클러스터에 작동합니다. Azure Data Lake Storage Gen2를 사용하는 클러스터에서는 `abfs:///`를 대신 사용합니다. Azure Data Lake Storage Gen1을 사용하는 클러스터에서는 `adl:///`을 대신 사용합니다.
 
 2. 가져오기가 완료되면 다음 명령을 사용하여 새로운 디렉터리에 데이터를 나열합니다.
 

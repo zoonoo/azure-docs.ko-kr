@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b7515a5c22b98fb14499e07057ff52311fc6e67
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: acdd2f5cb345ca5c5462394ae5c6135ad43b2143
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744827"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415711"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>SAP 워크로드 시나리오 호스팅 및 실행에 Azure 사용
 
-Microsoft Azure를 선택하면 중요 업무용 SAP 워크로드 및 시나리오를 확장 가능하고 규정을 준수하는 엔터프라이즈 입증 플랫폼에서 안정적으로 실행할 수 있습니다.  Azure의 확장성, 유연성 및 비용 절감을 활용하세요. Microsoft와 SAP 사이의 확장된 파트너 관계 덕분에 Azure에서 개발/테스트 및 프로덕션 시나리오 전체에서 SAP 애플리케이션을 실행할 수 있으며 완전한 지원을 받을 수 있습니다. SAP NetWeaver에서 SAP S4/HANA, SAP BI로, Linux에서 Windows로, SAP HANA에서 SQL로, 모두 가능합니다.
+Microsoft Azure를 선택하면 중요 업무용 SAP 워크로드 및 시나리오를 확장 가능하고 규정을 준수하는 엔터프라이즈 입증 플랫폼에서 안정적으로 실행할 수 있습니다.  Azure의 확장성, 유연성 및 비용 절감을 활용하세요. Microsoft와 SAP 사이의 확장된 파트너 관계 덕분에 Azure에서 개발/테스트 및 프로덕션 시나리오 전체에서 SAP 애플리케이션을 실행할 수 있으며 완전한 지원을 받을 수 있습니다. SAP NetWeaver에서 SAP S/4HANA, SAP BI까지, Linux에서 Windows까지, SAP HANA에서 SQL까지 모두 지원됩니다.
 
 Azure에 다양한 DBMS가 있는 SAP NetWeaver 시나리오 호스팅 외에, Azure의 SAP BI와 같은 다른 다양한 SAP 워크로드 시나리오를 호스팅할 수 있습니다. 
 

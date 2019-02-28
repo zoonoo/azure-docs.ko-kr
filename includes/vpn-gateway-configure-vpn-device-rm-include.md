@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 02/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 886fa6c088f2fbabb3d3ba1cd0b15bbc488784f3
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30198114"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418307"
 ---
-**VPN 장치 구성 스크립트를 다운로드하려면,**
+**VPN 디바이스 구성 스크립트를 다운로드하려면:**
 
 사용하고 있는 VPN 디바이스에 따라 VPN 디바이스 구성 스크립트를 다운로드할 수 있습니다. 자세한 내용은 [VPN 디바이스 구성 스크립트 다운로드](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md)를 참조하세요.
 
@@ -27,7 +27,7 @@ ms.locfileid: "30198114"
 
 - 디바이스 구성 설정에 대한 링크는 [확인된 VPN 디바이스](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)를 참조하세요. 디바이스 구성에 대한 링크가 가장 효율적으로 제공됩니다. 최신 구성 정보에 대해서는 항상 디바이스 제조업체에 문의하는 것이 가장 좋습니다. 목록에는 테스트 한 버전이 표시됩니다. OS가 해당 목록에 없는 경우에 버전이 호환되는 것이 여전히 가능합니다. VPN 디바이스에 대한 OS 버전이 호환되는지 확인하려면 해당 디바이스 제조업체에 문의하십시오.
 
-- VPN 디바이스 구성의 개요는 [타사 VPN 디바이스 구성의 개요](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md)를 참조하세요.
+- VPN 디바이스 구성의 개요는 [VPN 디바이스 구성 개요](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md)를 참조하세요.
 
 - 디바이스 구성 샘플을 편집하는 방법에 대한 정보는 [샘플 편집](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
 

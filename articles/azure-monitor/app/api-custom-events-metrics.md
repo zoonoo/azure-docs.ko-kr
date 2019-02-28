@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/16/2018
+ms.date: 02/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2b26261fdbae07bf3eea793efe6ff0755ca3f577
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1383c59ca88400868f83d30d04d9b0e5f5401282
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895995"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268960"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -400,7 +400,7 @@ pageViews
 
 ## <a name="operation-context"></a>작업 컨텍스트
 
-원격 분석 항목을 작업 컨텍스트와 연결하여 상호 연결할 수 있습니다. 표준 요청 추적 모듈은 예외 및 HTTP 요청이 처리되는 동안 전송되는 다른 이벤트에 대해 이를 수행합니다. [검색](../../azure-monitor/app/diagnostic-search.md) 및 [분석](analytics.md)에서 작업 ID를 사용하여 요청과 연결된 모든 이벤트를 쉽게 찾을 수 있습니다.
+원격 분석 항목을 작업 컨텍스트와 연결하여 상호 연결할 수 있습니다. 표준 요청 추적 모듈은 예외 및 HTTP 요청이 처리되는 동안 전송되는 다른 이벤트에 대해 이를 수행합니다. [Search](../../azure-monitor/app/diagnostic-search.md) 및 [Analytics](analytics.md)에서 작업 ID를 사용하여 요청과 연결된 모든 이벤트를 쉽게 찾을 수 있습니다.
 
 상관 관계에 대한 자세한 내용은 [Application Insights의 원격 분석 상관 관계](../../azure-monitor/app/correlation.md)를 참조하세요.
 
@@ -508,7 +508,7 @@ catch (ex)
 SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackException을 명시적으로 호출할 필요는 없습니다.
 
 * ASP.NET: [예외를 catch하는 코드 작성](../../azure-monitor/app/asp-net-exceptions.md).
-* J2EE: [예외가 자동으로 catch됨](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
+* Java EE: [예외가 자동으로 catch됨](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
 * JavaScript: 예외가 자동으로 catch됨. 자동 수집을 사용하지 않도록 설정하려면 웹 페이지에 삽입하는 코드 조각에 다음 한 줄을 추가합니다.
 
 ```javascript
@@ -1144,7 +1144,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 * **InstrumentationKey**: Azure에서 원격 분석이 표시되는 Application Insights 리소스입니다. 일반적으로 ApplicationInsights.config에서 선택합니다.
 * **Location**: 디바이스의 지리적 위치입니다.
 * **Operation**: 웹앱에서 현재 HTTP 요청입니다. 다른 유형의 앱에서는 이 값을 설정하여 이벤트를 그룹화할 수 있습니다.
-  * **Id**: 진단 검색의 이벤트를 검사할 때 관련 항목을 찾을 수 있도록 여러 이벤트를 상호 연결하는 생성된 값입니다.
+  * **ID**: 진단 검색의 이벤트를 검사할 때 관련 항목을 찾을 수 있도록 여러 이벤트를 상호 연결하는 생성된 값입니다.
   * **Name**: 식별자이며, 일반적으로 HTTP 요청의 URL입니다.
   * **SyntheticSource**: null이거나 비어 있지 않다면 요청의 원본이 로봇 또는 웹 테스트로 확인되었음을 나타내는 문자열입니다. 기본적으로 메트릭 탐색기의 계산에서 제외됩니다.
 * **Properties**: 모든 원격 분석 데이터와 함께 전송되는 속성입니다. 개별 Track* 호출에서 재정의될 수 있습니다.

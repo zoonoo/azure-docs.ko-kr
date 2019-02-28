@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: b399e18aa3cdd83d0c6907999f6446fd566259a1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998589"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414747"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -29,10 +29,10 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 비디오가 업로드되면 Video Indexer가 필요에 따라 비디오를 인코딩합니다(이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결](connect-to-azure.md)되는 Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
 
 ## <a name="uploading-considerations"></a>업로드 고려 사항
-    
+
 - URL을 기반으로 하여 비디오를 업로드하는 경우(기본 설정) TLS 1.2 이상을 사용하여 엔드포인트를 보호해야 합니다.
-- URL 옵션을 사용하면 업로드 크기가 10GB로 제한됩니다.
-- 바이트 배열 옵션을 사용하면 업로드 크기가 2GB로 제한됩니다. 
+- URL 옵션을 사용하면 업로드 크기가 25GB로 제한됩니다.
+- 바이트 배열 옵션을 사용하면 업로드 크기가 2GB로 제한됩니다.
 - 바이트 배열 옵션은 30분 후 시간 초과됩니다.
 - `videoURL` 매개 변수에 제공된 URL은 인코딩해야 합니다.
 

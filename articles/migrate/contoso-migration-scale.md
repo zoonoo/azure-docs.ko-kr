@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: c36572230387ffc33a46913dbcc1259ea65f84f5
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104236"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328581"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - Azure 대상 마이그레이션 크기 조정
 
@@ -292,11 +292,10 @@ Contoso는 용량 고려 사항에 따라 이러한 구성 요소를 배포하�
 **구성 서버** | 100~200개 VM을 함께 복제하는 작업에 대한 Contoso의 예상과 [구성 서버 크기 요구 사항](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server)에 따라 다음과 같은 구성 서버 머신이 필요합니다.<br/><br/> CPU: 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz)<br/><br/> 메모리: 32GB<br/><br/> 캐시 디스크: 1TB<br/><br/> 데이터 변경률: 1TB ~ 2TB<br/><br/> 크기 요구사항 외에도 Contoso는 구성 서버가 마이그레이션할 VM과 동일한 네트워크 및 LAN 세그먼트에서 최적의 위치에 있는지 확인해야 합니다.
 **프로세스 서버** | Contoso는100~200개 VM을 복제하는 기능을 사용하여 독립 실행형 전용 프로세스 서버를 배포합니다.<br/><br/> CPU: 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz)<br/><br/> 메모리: 32GB<br/><br/> 캐시 디스크: 1TB<br/><br/> 데이터 변경률: 1TB ~ 2TB<br/><br/> 프로세스 서버는 사용량이 매우 많으므로 복제에 필요한 디스크 I/O, 네트워크 트래픽 및 CPU를 처리할 수 있는 ESXi 호스트에 있어야 합니다. Contoso는 이 목적으로 전용 호스트를 고려합니다. 
 **네트워킹** | Contoso는 현재 사이트 간 VPN 인프라를 검토했고 Azure ExpressRoute를 구현하기로 결정했습니다. 이 구현은 대기 시간을 줄이고 대역폭을 Contoso의 기본 미국 동부 2 Azure 지역으로 개선하므로 중요합니다.<br/><br/> **모니터링**: Contoso는 프로세스 서버에서 데이터 흐름을 주의 깊게 모니터링해야 합니다. 데이터가 네트워크 대역폭을 오버로드하는 경우 Contoso는 [프로세스 서버 대역폭의 제한](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth)을 고려합니다.
-**Azure 저장소** | 마이그레이션을 위해 Contoso는 대상 Azure Storage 계정의 적합한 유형 및 개수를 식별해야 합니다.  Site Recovery는 VM 데이터를 Azure 저장소에 복제합니다.<br/><br/> Site Recovery는 표준 또는 프리미엄(SSD) 저장소 계정으로 복제할 수 있습니다.<br/><br/> Contoso는 저장소를 결정하기 위해 [저장소 한도](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 검토하고 시간에 따른 예상 성장률 및 사용량 증가를 고려해야 합니다. 마이그레이션의 속도 및 우선 순위에 따라 Contoso는 프리미엄 저장소 계정을 사용하기로 결정했습니다.<br/><br/> 마이그레이션 프로세스 중에 여러 저장소 계정을 만들고 다시 사용합니다.
-Contoso는 Azure에 배포된 모든 VM에 관리 디스크를 사용하도록 결정했습니다.  필요한 IOPS에 따라 디스크가 표준(HDD) 또는 프리미엄(SSD)인지 여부가 결정됩니다.<br/>.<br/>
+**Azure 저장소** | 마이그레이션을 위해 Contoso는 대상 Azure Storage 계정의 적합한 유형 및 개수를 식별해야 합니다.  Site Recovery는 VM 데이터를 Azure 저장소에 복제합니다.<br/><br/> Site Recovery는 표준 또는 프리미엄(SSD) 저장소 계정으로 복제할 수 있습니다.<br/><br/> Contoso는 저장소를 결정하기 위해 [저장소 한도](../virtual-machines/windows/disks-types.md)를 검토하고 시간에 따른 예상 성장률 및 사용량 증가를 고려해야 합니다. Contoso는 마이그레이션의 속도 및 우선 순위를 고려하여 프리미엄 SSD를 사용하기로 했습니다.<br/><br/>
+Contoso는 Azure에 배포된 모든 VM에 관리 디스크를 사용하도록 결정했습니다.  필요한 IOPS에 따라 디스크가 표준 HDD, 표준 SSD 또는 프리미엄(SSD)인지 여부가 결정됩니다.<br/><br/>
 
-
-#### <a name="data-migration-service"></a>데이터 마이그레이션 서비스 
+#### <a name="data-migration-service"></a>데이터 마이그레이션 서비스
 
 Azure DMS(Database Migration Service)는 가동 중지 시간을 최소화하면서 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있는 완전히 관리되는 서비스입니다.
 

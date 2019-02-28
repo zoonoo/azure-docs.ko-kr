@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 599e6b0cd615be7275df127b0b2f174bd8e6c290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994890"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269859"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리 시작
 
@@ -43,7 +43,7 @@ ms.locfileid: "55994890"
 쿼리는 테이블 이름 또는 *search* 명령을 사용하여 시작할 수 있습니다. 쿼리에 대한 명확한 범위를 정의하고 쿼리 성능 및 결과의 관련성을 개선하므로 테이블 이름을 사용하여 시작해야 합니다.
 
 > [!NOTE]
-> Azure Monitor에서 사용되는 데이터 탐색기 쿼리 언어는 대/소문자를 구분합니다. 언어 키워드는 일반적으로 소문자로 작성됩니다. 쿼리에서 테이블 또는 열 이름을 사용하는 경우 스키마 창에 표시된 대로 정확한 대/소문자를 사용해야 합니다.
+> Azure Monitor에서 사용되는 Kusto 쿼리 언어는 대/소문자를 구분합니다. 언어 키워드는 일반적으로 소문자로 작성됩니다. 쿼리에서 테이블 또는 열 이름을 사용하는 경우 스키마 창에 표시된 대로 정확한 대/소문자를 사용해야 합니다.
 
 ### <a name="table-based-queries"></a>테이블 기반 쿼리
 Azure Monitor는 테이블에 각각 여러 열로 구성된 로그 데이터를 구성합니다. 모든 테이블 및 열은 Analytics 포털에서 Log Analytics의 스키마 창에 표시됩니다. 관심 있는 테이블을 식별한 다음, 일부 데이터를 살펴봅니다.

@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: b322ca0c3a19f0a832fe50b6cfbaaad287205d5e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 136a83c586b2f797269beff3cdd0afb9973cb7c8
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812908"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340521"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -357,6 +357,6 @@ Databricks 클러스터를 준비하고 샘플 노트북을 가져오려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-- [ MNIST 데이터 세트로 Azure Machine Learning에서 모델 교육](tutorial-train-models-with-aml.md)
+- MNIST 데이터 세트를 사용하여 Azure Machine Learning에서 [모델 학습](tutorial-train-models-with-aml.md)
 - [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk) 참조 보기
 - [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)에 대해 알아보기

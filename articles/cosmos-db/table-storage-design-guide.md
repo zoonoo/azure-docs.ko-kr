@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 433f99d72feb7dc697050049817478a8c8b679e6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6495a4e4da9330cba562c7fd6530369c09d180da
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820966"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302066"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure Storage 테이블 설계 가이드: 확장성 있는 고성능 테이블 설계
 
@@ -721,6 +721,9 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 ### <a name="log-tail-pattern"></a>로그 테일 패턴
 날짜 및 시간 역순으로 정렬된 *RowKey* 값을 사용하여 가장 최근에 파티션에 추가된 **n** 개의 엔터티를 검색합니다.  
+
+> [!NOTE]
+> Azure Cosmso DB의 Azure Table API에서 반환한 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬되지 않습니다. 따라서 이 패턴은 Azure Cosmos DB가 아닌 Azure Table Storage에 적합합니다. 자세한 기능 차이 목록에 대해서는 [Azure Table Storage와 Azure Cosmos DB의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
 
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 일반적인 요구 사항은 가장 최근에 생성된 엔터티(예: 직원이 제출한 가장 최근 비용 청구 10개)를 검색할 수 있는 것입니다. 테이블 쿼리는 집합에서 첫 번째 엔터티를 반환하는 **$top** 쿼리 작업을 지원합니다. 집합에 있는 마지막 *n*개의 엔터티를 반환하는 동등한 쿼리 작업은 없습니다.  

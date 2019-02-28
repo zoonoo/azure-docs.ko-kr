@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 92914b26497634de1a0c61738c6aba37acb37c17
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109320"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428640"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
 Azure 서비스 패브릭 클러스터는 사용자가 소유하는 리소스입니다. 사용자는 권한이 없는 사용자가 연결되는 것을 방지하기 위해 클러스터를 보호해야 합니다. 보안 클러스터는 클러스터에서 프로덕션 워크로드를 실행하는 경우에 특히 중요합니다. 보안이 되지 않은 클러스터를 만들 수 있지만 클러스터가 공용 인터넷에 관리 엔드포인트를 노출하는 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다. 보호되지 않은 클러스터는 프로덕션 워크로드에 지원되지 않습니다. 
@@ -73,7 +73,12 @@ Service Fabric 클러스터는 웹 기반 [Service Fabric Explorer][service-fabr
 Azure에서 실행 중인 클라이언트의 경우 Azure AD(Azure Active Directory)를 사용하여 관리 엔드포인트에 대한 액세스를 보호할 수 있습니다. 필요한 Azure AD 아티팩트를 만드는 방법 및 클러스터를 만들 때 채우는 방법을 알아보려면 [클라이언트를 인증하도록 Azure AD 설정](service-fabric-cluster-creation-setup-aad.md)을 참조하세요.
 
 ## <a name="security-recommendations"></a>보안 권장 사항
-Azure 클러스터의 경우 노드 간 보안에 대해 Azure AD 보안을 사용하여 클라이언트 및 인증서를 인증하는 것이 좋습니다.
+Azure에 호스트된 공용 네트워크에 배포된 Service Fabric 클러스터의 경우 클라이언트-노드 상호 인증에 추천되는 사항은 다음과 같습니다.
+*   클라이언트 ID에 Azure Active Directory 사용
+*   HTTP 통신의 서버 ID 및 SSL 암호화에 대한 인증서
+
+Azure에 호스트된 공용 네트워크에 배포된 Service Fabric 클러스터의 경우 노드 간 보안에 추천되는 사항은 클러스터 인증서를 사용하여 노드를 인증하는 것입니다. 
+
 
 독립 실행형 Windows Server 클러스터의 경우 Windows Server 2012 R2 및 Windows Active Directory가 설치된 경우 그룹 관리 서비스 계정으로 Windows 보안을 사용하는 것이 좋습니다. 그렇지 않은 경우 Windows 계정으로 Windows 보안을 사용합니다.
 

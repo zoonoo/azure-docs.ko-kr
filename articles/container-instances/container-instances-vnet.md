@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077474"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313486"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -35,6 +35,7 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 
 * 컨테이너 그룹을 배포하려는 서브넷에는 다른 리소스 종류가 포함되어 있지 않아야 합니다. 컨테이너 그룹을 배포하기 전에 기존 서브넷에서 기존 리소스를 모두 제거하거나 새 서브넷을 만들어야 합니다.
 * 가상 네트워크에 배포되는 컨테이너 그룹은 현재 공용 IP 주소 또는 DNS 이름 레이블을 지원하지 않습니다.
+* 가상 네트워크에 배포된 컨테이너 그룹의 [관리 ID](container-instances-managed-identity.md)를 사용할 수 없습니다.
 * 가상 네트워크에 컨테이너 그룹을 배포할 때는 네트워킹 리소스가 추가로 사용되므로 대개 표준 컨테이너 인스턴스를 배포할 때보다 속도가 다소 느립니다.
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항

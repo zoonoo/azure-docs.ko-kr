@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 976976bc3e1913c8c3edb55dfc268a8d93afcd9f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d1f1ec45e1d4fc2fc6091a2f946caf6bc59441a9
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185331"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417060"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -62,7 +62,7 @@ B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 �
 이제 B2C 테넌트에서 사용자를 만들기, 읽기 및 업데이트하는 권한을 가진 애플리케이션이 있습니다.
 
 > [!NOTE]
-> 권한 부여가 완전히 처리되려면 몇 분 정도 걸립니다.
+> 권한 부여가 완전히 처리되려면 몇 분 정도 걸릴 수 있습니다.
 > 
 > 
 

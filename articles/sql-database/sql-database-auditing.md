@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: d092b4e8096b311ba9ca9d3fbceea8fb57bf4aa9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234665"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339790"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -43,8 +43,11 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 > [!IMPORTANT]
 > 감사 로그는 Azure 구독의 Azure Blob Storage에 있는 **Blob 추가**에 기록됩니다.
 >
-> - **Premium Storage**는 현재 Blob 추가에서 **지원되지 않습니다**.
+> - 모든 스토리지 종류(v1, v2, blob)가 지원됩니다.
+> - 모든 스토리지 복제 구성이 지원됩니다.
+> - **Premium Storage**는 현재 **지원되지 않습니다**.
 > - **VNet의 저장소**는 현재 **지원되지 않습니다**.
+> - **방화벽 뒤의 스토리지**는 현재 **지원되지 않습니다**.
 
 ## <a id="subheading-8"></a>서버 수준 및 데이터베이스 수준 감사 정책 정의
 

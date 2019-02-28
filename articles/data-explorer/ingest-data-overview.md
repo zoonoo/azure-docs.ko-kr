@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 1/14/2019
-ms.openlocfilehash: 8d5fc1c579fd09f1a71d63dce4d1673ef5a8652b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 2/18/2019
+ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354623"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340181"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 데이터 탐색기 데이터 수집
 
@@ -39,15 +39,21 @@ ms.locfileid: "54354623"
 
 Azure 데이터 탐색기는 각각의 목표 시나리오, 장점 및 단점이 있는 여러 가지 수집 메서드를 지원합니다. Azure 데이터 탐색기는 공통 서비스에 대한 파이프라인 및 커넥터, SDK를 사용한 프로그래밍 방식 수집, 탐색용 엔진에 대한 직접 액세스를 제공합니다.
 
-### <a name="ingestion-using-pipelines"></a>파이프라인을 사용하여 수집
+### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>파이프라인, 커넥터 및 플러그 인을 사용한 수집
 
-Azure 데이터 탐색기는 현재 Azure Portal의 관리 마법사를 사용하여 관리할 수 있는 이벤트 허브 파이프라인을 지원합니다. 자세한 내용은 [빠른 시작: 이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)을 참조하세요.
+Azure Data Explorer는 현재 다음을 지원합니다.
 
-### <a name="ingestion-using-connectors-and-plugins"></a>커넥터 및 플러그 인을 사용하여 수집
+* Event Grid 파이프라인 - Azure Portal의 관리 마법사를 사용하여 관리할 수 있습니다. 자세한 내용은 [Azure Data Explorer에 Azure Blob 수집](ingest-data-event-grid.md)을 참조하세요.
 
-* Azure Data Explorer는 Logstash 플러그 인을 지원합니다. 자세한 내용은 [Azure Data Explorer용 Logstash 출력 플러그 인](https://github.com/Azure/logstash-output-kusto/blob/master/README.md)을 참조하세요.
+* 이벤트 허브 파이프라인 - Azure Portal의 관리 마법사를 사용하여 관리할 수 있습니다. 자세한 내용은 [이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)을 참조하세요.
 
-* Azure Data Explorer는 Kafka 커넥터를 지원합니다. 자세한 내용은 [빠른 시작: Kafka에서 Azure Data Explorer로 데이터 수집](ingest-data-kafka.md)을 참조하세요.
+* Logstash 플러그 인 - [Logstash에서 Azure Data Explorer로 데이터 수집](ingest-data-logstash.md)을 참조하세요.
+
+* Kafka 커넥터 - [Kafka에서 Azure Data Explorer로 데이터 수집](ingest-data-kafka.md)을 참조하세요.
+
+### <a name="ingestion-using-integration-services"></a>통합 서비스를 사용한 수집
+
+* ADF(Azure Data Factory) - Azure Data Explorer에(서) 데이터를 복사하기 위한 Azure 분석 워크로드에 대한 완전 관리형 데이터 통합 서비스입니다. 자세한 내용은 [Azure Data Factory를 사용하여 Azure Data Explorer에(서) 데이터 복사](/azure/data-factory/connector-azure-data-explorer)를 참조하세요.
 
 ### <a name="programmatic-ingestion"></a>프로그래밍 방식 수집
 
@@ -131,21 +137,27 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 스키마 매핑은 원본 데이터 필드를 대상 테이블 열에 바인딩하는 데 도움이 됩니다.
 
 * [CSV 매핑](/azure/kusto/management/mappings?branch=master#csv-mapping)(선택 사항)은 모든 서수 기반 형식에서 작동합니다. 수집 명령 매개 변수를 사용하여 수행하거나 [테이블에 미리 만들고](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) 수집 명령 매개 변수에서 참조할 수 있습니다.
-* [JSON 매핑](/azure/kusto/management/mappings?branch=master#json-mapping)(필수) 및 [Avro 매핑](/azure/kusto/management/mappings?branch=master#avro-mapping)(필수)은 수집 명령 매개 변수를 사용하여 수행하거나 [테이블에 미리 만들고](/azure/kusto/management/tables#create-ingestion-mapping) 수집 명령 매개 변수에서 참조할 수 있습니다.
+* [JSON 매핑](/azure/kusto/management/mappings?branch=master#json-mapping)(필수) 및 [Avro 매핑](/azure/kusto/management/mappings?branch=master#avro-mapping)(필수)은 ingest 명령 매개 변수를 사용하여 수행할 수 있습니다. [테이블에 미리 만들고](/azure/kusto/management/tables#create-ingestion-mapping) ingest 명령 매개 변수에서 참조할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [빠른 시작: 이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
+> [이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [빠른 시작: Kafka에서 Azure Data Explorer로 데이터 수집](ingest-data-kafka.md)
+> [Event Grid 구독을 사용하여 Azure Data Explorer로 데이터 수집](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [빠른 시작: Azure Data Explorer Python 라이브러리를 사용하여 데이터 수집](python-ingest-data.md)
+> [Kafka에서 Azure Data Explorer로 데이터 수집](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [빠른 시작: Azure Data Explorer Node 라이브러리를 사용하여 데이터 수집](node-ingest-data.md)
+> [Azure Data Explorer Python 라이브러리를 사용하여 데이터 수집](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [빠른 시작: Azure Data Explorer .NET Standard SDK(미리 보기)를 사용하여 데이터 수집](net-standard-ingest-data.md)
+> [Azure Data Explorer Node 라이브러리를 사용하여 데이터 수집](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Azure Data Explorer .NET Standard SDK(미리 보기)를 사용하여 데이터 수집](net-standard-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Logstash에서 Azure Data Explorer로 데이터 수집](ingest-data-logstash.md)

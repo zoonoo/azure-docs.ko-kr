@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 94482666d0db3157b0c18c0b47f9937457172521
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 18258bf8ac9d241fd8a01957d903b1db882c2d36
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116000"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326877"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>관리 디스크의 저장소 형식 업데이트
 
-Azure Managed Disk는 세 가지 스토리지 옵션 [프리미엄 SSD](../windows/premium-storage.md), [표준 SSD](../windows/disks-standard-ssd.md) 및 [표준 HDD](../windows/standard-storage.md)를 제공합니다. 관리 디스크를 성능 요구 사항에 따라 최소한의 가동 중지 시간으로 저장소 형식 간 전환할 수 있습니다. 저장소 형식 간 전환은 관리되지 않는 디스크에는 지원되지 않습니다. 단, [비관리 디스크를 관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)은 손쉽게 수행할 수 있습니다.
+Azure 관리 디스크는 Ultra SSD(반도체 드라이브), 프리미엄 SSD, 표준 SSD 및 표준 HDD(하드 디스크 드라이브)라는 네 가지 스토리지 유형 옵션을 제공합니다. 관리 디스크를 성능 요구 사항에 따라 최소한의 가동 중지 시간으로 저장소 형식 간 전환할 수 있습니다. 저장소 형식 간 전환은 관리되지 않는 디스크에는 지원되지 않습니다. 단, [비관리 디스크를 관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)은 손쉽게 수행할 수 있습니다.
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -35,6 +35,7 @@ Azure Managed Disk는 세 가지 스토리지 옵션 [프리미엄 SSD](../windo
 * 비관리 디스크를 사용하는 경우 저장소 형식 간에 전환할 수 있도록 먼저 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)합니다. 
 * 이 문서의 예제에는 Azure PowerShell 모듈 6.0.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)를 실행하여 Azure와 연결합니다.
 
+* 이 문서의 예제에는 Azure PowerShell 모듈 6.0.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount)를 실행하여 Azure와 연결합니다.
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>VM의 모든 관리 디스크를 표준에서 프리미엄으로 변환
 

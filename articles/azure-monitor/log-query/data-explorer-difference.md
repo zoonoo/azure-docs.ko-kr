@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor 로그 쿼리 언어 차이점 | Microsoft Docs
-description: Azure Monitor에서 사용되는 데이터 탐색기 쿼리 언어에 대한 참조 정보입니다. Azure Monitor와 관련된 추가 요소와 Azure Monitor 로그 쿼리에 지원되지 않는 요소가 포함됩니다.
+description: Azure Monitor에서 사용되는 Kusto 쿼리 언어에 대한 참조 정보입니다. Azure Monitor와 관련된 추가 요소와 Azure Monitor 로그 쿼리에 지원되지 않는 요소가 포함됩니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: bwren
-ms.openlocfilehash: 9c58796fa19ffb6d38582c809f7bb6ca948bd92c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1185f3f96fd39f168d138d7dbf66e7780884b1fa
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003632"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266733"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Azure Monitor 로그 쿼리 언어 차이점
 
-[Azure Monitor의 로그](log-query-overview.md)는 [Azure Data Explorer](/azure/data-explorer)에서 빌드되고 [동일한 쿼리 언어](/azure/kusto/query)를 사용하는 반면, 언어의 버전에는 몇 가지 차이점이 있습니다. 이 문서에서는 Azure Monitor 로그 쿼리에 사용되는 버전과 데이터 탐색기에 사용되는 언어의 버전 간에 다른 요소를 식별합니다.
+[Azure Monitor 로그](log-query-overview.md)는 [Azure Data Explorer](/azure/data-explorer)를 토대로 빌드되고 동일한 [Kusto 쿼리 언어](/azure/kusto/query)를 사용하는 반면, 언어 버전에 몇 가지 차이점이 있습니다. 이 문서에서는 Azure Monitor 로그 쿼리에 사용되는 버전과 데이터 탐색기에 사용되는 언어의 버전 간에 다른 요소를 식별합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="data-explorer-elements-not-supported-in-azure-monitor"></a>데이터 탐색기 요소는 Azure Monitor에서 지원되지 않습니다.
-다음 섹션에서는 Azure Monitor에서 지원되지 않는 데이터 탐색기 쿼리 언어의 요소를 설명합니다.
+## <a name="kql-elements-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 KQL 요소
+다음 섹션에서는 Azure Monitor에서 지원되지 않는 Kusto 쿼리 언어의 요소를 설명합니다.
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Azure Monitor에서 지원되지 않는 명령문
 
@@ -64,4 +64,4 @@ ms.locfileid: "56003632"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Monitor 로그 쿼리 작성을 위한 다른 리소스](query-language.md)에 대한 참조를 가져옵니다.
-- [Data Explorer 쿼리 언어에 대한 전체 참조 설명서](/azure/kusto/query/)에 액세스합니다.
+- [Kusto 쿼리 언어에 대한 전체 참조 문서](/azure/kusto/query/)에 액세스합니다.

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7b937158be39f9a1f7f9374611a150fd11837f02
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 888cc9d894861c7d7b808500cd60bbed9faa05d7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910269"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309120"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML Services에 대한 Azure Storage 솔루션
 
@@ -119,9 +119,9 @@ HDInsight 클러스터와 연결된 Azure AD(Azure Active Directory) 서비스 �
 
 클러스터를 만든 후 하나 이상의 Data Lake Storage 계정에 클러스터 액세스를 추가할 수도 있습니다. Data Lake Storage에 대한 Azure Portal 항목을 열고 **데이터 탐색기 > 액세스 > 추가**로 이동합니다. 
 
-### <a name="how-to-access-data-lake-storage-from-ml-services-on-hdinsight"></a>HDInsight의 ML Services에서 Data Lake Storage에 액세스하는 방법
+### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>HDInsight의 ML Services에서 Data Lake Storage Gen1에 액세스하는 방법
 
-Data Lake Storage에 대한 액세스 권한을 부여했으면 보조 Azure Storage 계정과 동일한 방식으로 HDInsight의 ML Services 클러스터에서 스토리지를 사용할 수 있습니다. 유일한 차이점은 다음과 같이 **wasb://** 접두사가 **adl://** 로 변경된다는 것입니다.
+Data Lake Storage Gen1에 대한 액세스 권한을 부여했으면 보조 Azure Storage 계정과 동일한 방식으로 HDInsight의 ML Services 클러스터에서 스토리지를 사용할 수 있습니다. 유일한 차이점은 다음과 같이 **wasb://** 접두사가 **adl://** 로 변경된다는 것입니다.
 
 
     # Point to the ADL Storage (e.g. ADLtest)
@@ -143,7 +143,7 @@ Data Lake Storage에 대한 액세스 권한을 부여했으면 보조 Azure Sto
     # Specify the input file in HDFS to analyze
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-다음 명령은 RevoShare 디렉터리로 Data Lake Storage 계정을 구성하고 이전 예제의 샘플 .csv 파일을 추가하는 데 사용합니다.
+다음 명령은 RevoShare 디렉터리로 Data Lake Storage Gen1 계정을 구성하고 이전 예제의 샘플 .csv 파일을 추가하는 데 사용합니다.
 
 
     hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user

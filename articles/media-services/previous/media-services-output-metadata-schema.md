@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ec4b03629b56c09973c1ecc5c55930c33c24990b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cdcdcff8a5c016cfd3074a950ad6060e55b8b0fe
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997578"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312585"
 ---
 # <a name="output-metadata"></a>출력 메타데이터
 ## <a name="overview"></a>개요
@@ -29,7 +29,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 
 메타데이터 파일을 검사하려는 경우 **SAS** 로케이터를 만들어 로컬 컴퓨터에 파일을 다운로드할 수 있습니다.  
 
-이 문서에서는 출력 메타데이터(&lt;source_file_name&gt;_manifest.xml)의 기초가 되는 XML 스키마의 요소 및 형식에 대해 설명합니다. 입력 자산에 대한 메타데이터가 포함된 파일에 대한 자세한 내용은 [입력 메타데이터](media-services-input-metadata-schema.md)를 참조하세요.  
+이 문서에서는 출력 메타데이터(&lt;source_file_name&gt;_manifest.xml)의 기초가 되는 XML 스키마의 요소 및 형식에 대해 설명합니다. 입력 자산에 대한 메타데이터가 포함된 파일에 대한 자세한 내용은 입력 메타데이터를 참조하세요.  
 
 스키마 코드 및 XML 예제는 이 문서의 끝에 있습니다.  
 
@@ -39,10 +39,10 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 ### <a name="child-elements"></a>자식 요소
 | Name | 설명 |
 | --- | --- |
-| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |AssetFiles 콜렉션의 일부인 [AssetFile 요소](media-services-output-metadata-schema.md)입니다. |
+| **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |AssetFiles 컬렉션의 일부인 AssetFile 요소입니다. |
 
 ## <a name="AssetFile "></a> AssetFile 요소
-[XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
+[XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
 | Name | Type | 설명 |
@@ -54,24 +54,24 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 ### <a name="child-elements"></a>자식 요소
 | Name | 설명 |
 | --- | --- |
-| **Sources** |이 AssetFile을 생성하기 위해 처리된 입력/원본 미디어 파일의 컬렉션입니다. 자세한 내용은 [Source 요소](media-services-output-metadata-schema.md)를 참조하세요. |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 자세한 내용은 [VideoTracks 요소](media-services-output-metadata-schema.md)를 참조하세요. |
-| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 오디오 트랙의 컬렉션입니다. 자세한 내용은 [AudioTracks 요소](media-services-output-metadata-schema.md)를 참조하세요. |
+| **Sources** |이 AssetFile을 생성하기 위해 처리된 입력/원본 미디어 파일의 컬렉션입니다. 자세한 내용은 Source 요소를 참조하세요. |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 자세한 내용은 VideoTracks 요소를 참조하세요. |
+| **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. 이 요소는 이러한 모든 오디오 트랙의 컬렉션입니다. 자세한 내용은 AudioTracks 요소를 참조하세요. |
 
 ## <a name="Sources "></a> Sources 요소
 이 AssetFile을 생성하기 위해 처리된 입력/원본 미디어 파일의 컬렉션입니다.  
 
-[XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
+[XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="child-elements"></a>자식 요소
 | Name | 설명 |
 | --- | --- |
-| **원본**<br/><br/> minOccurs="1" maxOccurs="unbounded" |이 자산을 생성할 때 사용되는 입력/원본 파일입니다. 자세한 내용은 [Source 요소](media-services-output-metadata-schema.md)를 참조하세요. |
+| **원본**<br/><br/> minOccurs="1" maxOccurs="unbounded" |이 자산을 생성할 때 사용되는 입력/원본 파일입니다. 자세한 내용은 Source 요소를 참조하세요. |
 
 ## <a name="Source "></a> Source 요소
 이 자산을 생성할 때 사용되는 입력/원본 파일입니다.  
 
-[XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
+[XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
 | Name | Type | 설명 |
@@ -81,17 +81,17 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 ## <a name="VideoTracks "></a> VideoTracks 요소
 각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. **VideoTracks** 요소는 모든 비디오 트랙의 컬렉션을 나타냅니다.  
 
-[XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
+[XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="child-elements"></a>자식 요소
 | Name | 설명 |
 | --- | --- |
-| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |부모 AssetFile의 특정 비디오 트랙입니다. 자세한 내용은 [VideoTrack 요소](media-services-output-metadata-schema.md#VideoTrack)를 참조하세요. |
+| **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |부모 AssetFile의 특정 비디오 트랙입니다. 자세한 내용은 VideoTrack 요소를 참조하세요. |
 
 ## <a name="VideoTrack"></a> VideoTrack 요소
 부모 AssetFile의 특정 비디오 트랙입니다.  
 
-[XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
+[XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
 | Name | Type | 설명 |
@@ -113,17 +113,17 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 ## <a name="AudioTracks "></a> AudioTracks 요소
 각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 오디오 트랙이 포함될 수 있습니다. **AudioTracks** 요소는 모든 오디오 트랙의 컬렉션을 나타냅니다.  
 
-[XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
+[XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="child-elements"></a>자식 요소
 | Name | 설명 |
 | --- | --- |
-| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |부모 AssetFile의 특정 오디오 트랙입니다. 자세한 내용은 [AudioTrack 요소](media-services-output-metadata-schema.md)를 참조하세요. |
+| **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |부모 AssetFile의 특정 오디오 트랙입니다. 자세한 내용은 AudioTrack 요소를 참조하세요. |
 
 ## <a name="AudioTrack "></a> AudioTrack 요소
 부모 AssetFile의 특정 오디오 트랙입니다.  
 
-[XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
+[XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
 | Name | Type | 설명 |
@@ -139,12 +139,12 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 ### <a name="child-elements"></a>자식 요소
 | Name | 설명 |
 | --- | --- |
-| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |음량 측정 결과 매개 변수입니다. 자세한 내용은 [LoudnessMeteringResultParameters 요소](media-services-output-metadata-schema.md)를 참조하세요. |
+| **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |음량 측정 결과 매개 변수입니다. 자세한 내용은 LoudnessMeteringResultParameters 요소를 참조하세요. |
 
 ## <a name="LoudnessMeteringResultParameters "></a> LoudnessMeteringResultParameters 요소
 음량 측정 결과 매개 변수입니다.  
 
-[XML 예제](media-services-output-metadata-schema.md#xml)에서 XML 예제를 찾을 수 있습니다.  
+[XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
 | Name | Type | 설명 |

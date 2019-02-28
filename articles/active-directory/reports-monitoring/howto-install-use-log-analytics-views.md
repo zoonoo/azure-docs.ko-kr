@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에 대한 Log Analytics 보기를 설치하고 사용하는 방법(미리 보기) | Microsoft Docs
-description: Azure Active Directory에 대한 Log Analytics 보기를 설치하고 사용하는 방법(미리 보기)을 알아봅니다.
+title: Azure Active Directory용 Log Analytics 보기(미리 보기)를 설치하고 사용하는 방법 | Microsoft Docs
+description: Azure Active Directory용 Log Analytics 보기(미리 보기)를 설치하고 사용하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -17,14 +17,14 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de2aa262dff54f2b8e535aa646e9a8cac7719567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7220fc6b239d20e9f1fc81e7d18b4d7ca6f0ded5
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165266"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453633"
 ---
-# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory에 대한 Log Analytics 보기 설치 및 사용
+# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory용 Log Analytics 보기 설치 및 사용
 
 Azure Active Directory Log Analytics 보기를 통해 Azure AD 테넌트의 Azure AD 활동 로그를 분석하고 검색할 수 있습니다. Azure AD 활동 로그에는 포함되는 항목은 다음과 같습니다.
 
@@ -41,13 +41,13 @@ Log Analytics 보기를 사용하려면 다음이 필요합니다.
 
 ## <a name="install-the-log-analytics-views"></a>Log Analytics 보기 설치
 
-1. Log Analytics 작업 영역으로 이동합니다. 이렇게 하려면 먼저 [Azure Portal](https://portal.azure.com)로 이동하고, **모든 서비스**를 선택합니다. 텍스트 상자에서 **Log Analytics**를입력하고, **Log Analytics**를 선택합니다. 활동 로그를 라우팅한 작업 영역을 필수 구성 요소의 일부로 선택합니다.
+1. Log Analytics 작업 영역으로 이동합니다. 이렇게 하려면 먼저 [Azure Portal](https://portal.azure.com)로 이동하고, **모든 서비스**를 선택합니다. 텍스트 상자에 **Log Analytics**를 입력하고 **Log Analytics 작업 영역**을 선택합니다. 활동 로그를 라우팅한 작업 영역을 필수 구성 요소의 일부로 선택합니다.
 2. **뷰 디자이너**를 선택하고, **가져오기**를 선택한 다음, **파일 선택**을 선택하여 로컬 컴퓨터에서 보기를 가져옵니다.
 3. 필수 조건에서 다운로드한 보기를 선택하고, **저장**을 선택하여 가져오기를 저장합니다. **Azure AD 계정 프로비전 이벤트** 보기 및 **로그인 이벤트** 보기에 대해 이 작업을 수행합니다.
 
 ## <a name="use-the-views"></a>보기 사용
 
-1. Log Analytics 작업 영역으로 이동합니다. 이렇게 하려면 먼저 [Azure Portal](https://portal.azure.com)로 이동하고, **모든 서비스**를 선택합니다. 텍스트 상자에서 **Log Analytics**를입력하고, **Log Analytics**를 선택합니다. 활동 로그를 라우팅한 작업 영역을 필수 구성 요소의 일부로 선택합니다.
+1. Log Analytics 작업 영역으로 이동합니다. 이렇게 하려면 먼저 [Azure Portal](https://portal.azure.com)로 이동하고, **모든 서비스**를 선택합니다. 텍스트 상자에 **Log Analytics**를 입력하고 **Log Analytics 작업 영역**을 선택합니다. 활동 로그를 라우팅한 작업 영역을 필수 구성 요소의 일부로 선택합니다.
 
 2. 작업 영역에 있으면 **작업 영역 요약**을 선택합니다. 다음 세 가지 보기가 표시됩니다.
 
@@ -73,5 +73,5 @@ Log Analytics 보기를 사용하려면 다음이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Log Analytics에서 활동 로그를 분석하는 방법](howto-analyze-activity-logs-log-analytics.md)
-* [Azure Portal에서 Log Analytics 시작](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)
+* [Azure Monitor 로그를 사용하여 활동 로그를 분석하는 방법](howto-analyze-activity-logs-log-analytics.md)
+* [Azure Portal에서 Azure Monitor 로그 시작](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)

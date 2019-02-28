@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d3a44b01dff81242f935c7737bd170fe744536
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 54511ac4dfdc05ec1880695b1ae2360f0b5e8162
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246877"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328370"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -106,12 +106,12 @@ IaaS에 대해 설명하고 있지만, 일반적으로 Windows, Linux 및 DBMS �
 
 
 ## <a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>RDBMS 배포를 위한 VM의 저장소 구조
-이 챕터를 수행하려면 [배포 가이드][deployment-guide]의 [이][deployment-guide-3] 챕터에서 설명하는 내용을 이해해야 합니다. 이 챕터를 참조하기 전에 다양한 VM 시리즈와 그 차이점 및 Azure Standard Storage와 [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)의 차이점에 대해 이해하고 알고 있어야 합니다.
+이 챕터를 수행하려면 [배포 가이드][deployment-guide]의 [이][deployment-guide-3] 챕터에서 설명하는 내용을 이해해야 합니다. 이 챕터를 읽기 전에 다양한 VM 시리즈와 그 차이점 및 Standard Storage와 Premium Storage의 차이점에 대해 이해하고 알고 있어야 합니다. 자세한
 
 Azure VM의 Azure Storage와 관련하여 다음 문서를 숙지하고 있어야 합니다.
 
-- [Azure Windows VM용 디스크 저장소 정보](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds)
-- [Azure Linux VM용 디스크 저장소 정보](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds)
+- [Azure Windows VM을 위한 관리 디스크 소개](../../windows/managed-disks-overview.md)
+- [Azure Linux VM을 위한 관리 디스크 소개](../../linux/managed-disks-overview.md)
 
 기본 구성에서는 일반적으로 운영 체제, DBMS 및 최종 SAP 이진 파일이 데이터베이스 파일과 분리된 배포 구조를 사용하는 것이 좋습니다. 따라서 Azure Virtual Machines에서 실행되는 SAP 시스템에 운영 체제, 데이터베이스 관리 시스템 실행 파일 및 SAP 실행 파일과 함께 기본 VHD(또는 디스크)를 설치하는 것이 좋습니다. DBMS 데이터 및 로그 파일은 Azure Storage(Standard 또는 Premium Storage)에서 별도의 디스크에 저장되며 원래 Azure 운영 체제 이미지 VM에 논리 디스크로 연결됩니다. 특히 Linux 배포에는 다양한 권장 사항이 문서화될 수 있습니다. 특히 SAP HANA와 관련하여 문서화됩니다.
 
@@ -134,10 +134,8 @@ Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당
 > [!NOTE]
 > Azure의 고유한 [단일 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)로부터 이점을 얻으려면 연결된 모든 디스크가 기본 VHD를 포함하여 Azure Premium Storage 유형이어야 합니다.
 
-
 > [!NOTE]
 > Azure 데이터 센터 근처에 공동 배치된 타사 데이터 센터에 있는 스토리지 하드웨어에서 SAP 데이터베이스의 기본 데이터베이스 파일(데이터 및 로그 파일)을 호스트할 수는 없습니다. SAP 워크로드의 경우에는 기본 Azure 서비스로 표시되는 스토리지에서만 SAP 데이터베이스의 데이터 및 트랜잭션 로그 파일을 호스트할 수 있습니다.
-> 
 
 데이터베이스 파일 및 로그/다시 실행 파일의 배치와 사용되는 Azure Storage 유형은 IOPS, 대기 시간 및 처리량 요구 사항에 따라 정의되어야 합니다. IOPS가 충분하려면 여러 디스크를 활용하거나 더 큰 Premium Storage 디스크를 사용해야 할 수도 있습니다. 여러 디스크를 사용하는 경우 데이터 파일 또는 로그/다시 실행 파일이 포함된 디스크 전체에 소프트웨어 스트라이프를 빌드해야 합니다. 이러한 경우 기본 Premium Storage 디스크의 IOPS 및 디스크 처리량 SLA 또는 Azure Standard Storage 디스크의 달성 가능한 최대 IOPS가 결과 스트라이프 세트에 누적됩니다.
 

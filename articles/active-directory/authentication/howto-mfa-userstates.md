@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbfffa94c76de2c7c4e9f4f2e67c9744e52f22c7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39659df99951850ced07be14f81348ae9c1c1be5
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194192"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428605"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>사용자에 대해 2단계 인증을 요구하는 방법
 
@@ -96,7 +96,7 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 > 먼저 **Connect-MsolService**를 사용하여 연결해야 합니다.
 
 
-PowerShell을 사용하는 방법은 사용자를 대량으로 사용하도록 설정해야 할 때 적합한 옵션입니다. 사용자 목록을 통해 반복하여 이 사용자들을 사용하도록 설정하는 PowerShell 스크립트를 만듭니다.
+ 이 예제 PowerShell 스크립트는 개별 사용자에 대해 MFA를 사용하도록 설정합니다.
 
         Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
@@ -105,7 +105,7 @@ PowerShell을 사용하는 방법은 사용자를 대량으로 사용하도록 �
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-다음은 스크립트 예제입니다.
+PowerShell은 사용자를 대량 설정해야 할 때 적합한 옵션입니다. 예를 들어 다음 스크립트는 사용자 목록을 반복하고 해당 계정에서 MFA를 사용하도록 설정합니다.
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
@@ -117,11 +117,11 @@ PowerShell을 사용하는 방법은 사용자를 대량으로 사용하도록 �
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
     
-MFA를 비활성화하려면 이 스크립트를 사용합니다.
+MFA를 사용하지 않으려면 다음 스크립트를 사용합니다.
 
     Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
     
-또는 다음으로 단축할 수도 있습니다.
+다음과 같이 축약할 수도 있습니다.
 
     Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 50feca90d375d6afd3b04afe019ad9f9025f19dc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53712749"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308576"
 ---
 # <a name="variables-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 변수 섹션
 변수 섹션에서 템플릿을 통해 사용할 수 있는 값을 생성합니다. 변수를 정의할 필요는 없지만 종종 변수를 통해 복잡한 식을 줄이면 템플릿이 단순화됩니다.
@@ -58,9 +58,7 @@ ms.locfileid: "53712749"
             {
                 "name": "<name-of-array-property>",
                 "count": <number-of-iterations>,
-                "input": {
-                    <properties-to-repeat>
-                }
+                "input": <object-or-value-to-repeat>
             }
         ]
     },
@@ -68,9 +66,7 @@ ms.locfileid: "53712749"
         {
             "name": "<variable-array-name>",
             "count": <number-of-iterations>,
-            "input": {
-                <properties-to-repeat>
-            }
+            "input": <object-or-value-to-repeat>
         }
     ]
 }
@@ -117,38 +113,45 @@ ms.locfileid: "53712749"
 
 ## <a name="use-copy-element-in-variable-definition"></a>변수 정의에서 copy 요소 사용
 
-**copy** 구문을 사용하여 여러 요소의 배열이 포함된 변수를 만들 수 있습니다. 요소 수에 대한 개수를 제공합니다. 각 요소에는 **input** 개체 내의 속성이 포함됩니다. 변수 내에 copy를 사용하거나 변수를 만들 수 있습니다. 변수를 정의하고 해당 변수 내에서 **copy**를 사용할 경우 배열 속성이 있는 개체를 만듭니다. 최상위 수준에서 **copy**를 사용하고 이 요소 내에서 하나 이상의 변수를 정의할 경우 하나 이상의 배열을 만듭니다. 다음 예제에서는 두 가지 방법을 모두 보여 줍니다.
+변수의 여러 인스턴스를 만들려면 변수 섹션에서 `copy` 속성을 사용합니다. `input` 속성의 값에서 생성된 요소 배열을 만듭니다. 변수 내부 또는 변수 섹션의 최상위 수준에서 `copy` 속성을 사용할 수 있습니다. 변수 반복 내부에 `copyIndex`를 사용하는 경우 반복의 이름을 제공해야 합니다.
+
+다음 예제에서는 copy를 사용하는 방법을 보여줍니다.
 
 ```json
 "variables": {
-    "disk-array-on-object": {
-        "copy": [
-            {
-                "name": "disks",
-                "count": 3,
-                "input": {
-                    "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
-                    "diskSizeGB": "1",
-                    "diskIndex": "[copyIndex('disks')]"
-                }
-            }
-        ]
-    },
+  "disk-array-on-object": {
     "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
+      {
+        "name": "disks",
+        "count": 3,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('disks')]"
         }
+      }
     ]
+  },
+  "copy": [
+    {
+      "name": "disks-top-level-array",
+      "count": 3,
+      "input": {
+        "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+        "diskSizeGB": "1",
+        "diskIndex": "[copyIndex('disks-top-level-array')]"
+      }
+    },
+    {
+      "name": "top-level-string-array",
+      "count": 5,
+      "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+    }
+  ]
 },
 ```
 
-**disk-array-on-object** 변수는 **disks** 배열이 있는 다음 개체를 포함합니다.
+copy 식이 평가된 후 **disk-array-on-object** 변수는 **disks**라는 배열이 있는 다음 개체를 포함합니다.
 
 ```json
 {
@@ -194,34 +197,19 @@ ms.locfileid: "53712749"
 ]
 ```
 
-복사를 사용하여 변수를 만들 때 개체를 둘 이상 지정할 수도 있습니다. 다음 예제에서는 두 개의 배열을 변수로 정의합니다. 하나는 **disks-top-level-array**이며 5개의 요소가 있습니다. 다른 하나는 **a-different-array**이며 3개의 요소가 있습니다.
+**top-level-string-array** 변수는 다음 배열을 포함합니다.
 
 ```json
-"variables": {
-    "copy": [
-        {
-            "name": "disks-top-level-array",
-            "count": 5,
-            "input": {
-                "name": "[concat('oneDataDisk', copyIndex('disks-top-level-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('disks-top-level-array')]"
-            }
-        },
-        {
-            "name": "a-different-array",
-            "count": 3,
-            "input": {
-                "name": "[concat('twoDataDisk', copyIndex('a-different-array', 1))]",
-                "diskSizeGB": "1",
-                "diskIndex": "[copyIndex('a-different-array')]"
-            }
-        }
-    ]
-},
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
-이 방법은 매개 변수 값을 사용하고 템플릿 값이 올바른 형식인지 확인해야 하는 경우 적합합니다. 다음 예제에서는 보안 규칙 정의에 사용할 매개 변수 값의 형식을 지정합니다.
+copy 사용은 매개 변수 값을 가져오고 리소스 값으로 매핑해야 하는 경우에 잘 작동합니다. 다음 예제에서는 보안 규칙 정의에 사용할 매개 변수 값의 형식을 지정합니다.
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 36889fc6cb8dbec77136dc8cea08416e51837243
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: bb88bf7ddaa93336c812b1ddc9794dad8daa64b7
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564836"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330582"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Azure Premium Storage로 마이그레이션(관리되지 않는 디스크)
 
@@ -32,7 +32,7 @@ Azure Premium Storage는 I/O 사용량이 많은 작업을 실행하는 가상 �
 VM을 다른 플랫폼에서 Azure Premium Storage로 마이그레이션할 수도 있고 기존 Azure VM을 표준 스토리지에서 Premium Storage로 마이그레이션할 수도 있습니다. 이 가이드에서는 두 시나리오의 단계를 다룹니다. 시나리오에 따라 관련 섹션에 지정된 단계를 따릅니다.
 
 > [!NOTE]
-> Premium Storage: [Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../../virtual-machines/windows/premium-storage.md)에서 Premium Storage의 기능 개요와 가격을 확인할 수 있습니다. 애플리케이션이 최고 성능을 낼 수 있도록 높은 IOPS가 필요한 모든 가상 머신 디스크를 Azure Premium Storage로 마이그레이션하는 것이 좋습니다. 디스크에 높은 IOPS가 필요하지 않은 경우, 가상 머신 디스크 데이터를 SSD가 아닌 하드 디스크 드라이브(HDD)에 저자하는 Standard Storage를 사용하여 비용을 절약할 수 있습니다.
+> 프리미엄 SSD의 기능 개요 및 가격 책정은 [IaaS VM의 디스크 유형 선택](../../virtual-machines/windows/disks-types.md#premium-ssd)에서 확인할 수 있습니다. 애플리케이션이 최고 성능을 낼 수 있도록 높은 IOPS가 필요한 모든 가상 머신 디스크를 Azure Premium Storage로 마이그레이션하는 것이 좋습니다. 디스크에 높은 IOPS가 필요하지 않은 경우, 가상 머신 디스크 데이터를 SSD가 아닌 하드 디스크 드라이브(HDD)에 저자하는 Standard Storage를 사용하여 비용을 절약할 수 있습니다.
 >
 
 전체 마이그레이션 프로세스를 완료하기 위해서는 이 가이드에 제공된 단계 전과 후에 추가 작업이 필요할 수 있습니다. 이러한 작업의 예로는 가상 네트워크 또는 엔드포인트를 구성하거나 애플리케이션 자체 내에서 코드를 변경하는 것이 포함되며 이러한 작업은 애플리케이션에서 약간의 가동 중지 시간이 필요할 수 있습니다. 이러한 작업은 각 애플리케이션에 대해 고유하며 Premium Storage로 가능한 한 원활하게 완전히 전환하기 위해서는 이 가이드에 제공된 단계에 따라 완료해야 합니다.
@@ -69,7 +69,7 @@ Premium Storage 계정에는 [Azure Storage 확장성 및 성능 목표](storage
 |:--- |:--- |
 | 디스크 용량: 35TB<br />스냅숏 용량: 10TB |인바운드+아웃바운드에 대해 초당 최대 50기가비트 |
 
-프리미엄 스토리지 사양에 대한 자세한 내용은 [Premium Storage를 사용하는 경우 확장성 및 성능 목표](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)를 참조하세요.
+Premium Storage 사양에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md#premium-storage-account-scale-limits)를 참조하세요.
 
 #### <a name="disk-caching-policy"></a>디스크 캐싱 정책
 기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 *읽기 / 쓰기* 및 모든 프리미엄 데이터 디스크에 대한 *읽기 전용*입니다. 애플리케이션의 IO에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 애플리케이션 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다. [Azure Portal](https://portal.azure.com) 또는 *Set-AzureDataDisk* cmdlet의 *-HostCaching* 매개 변수를 사용하여 기존 데이터 디스크에 대한 캐시 설정을 업데이트할 수 있습니다.
@@ -748,7 +748,7 @@ Update-AzureVM  -VM $vm
 2. VM에 로그인하고 현재 볼륨의 데이터를 해당 볼륨에 매핑되는 새 디스크로 복사합니다. 새 디스크에 매핑해야 하는 모든 현재 볼륨에 대해 이 작업을 수행합니다.
 3. 다음으로, 새 디스크로 전환하도록 애플리케이션 설정을 변경하고 이전 볼륨을 분리합니다.
 
-디스크 성능 향상을 위해 애플리케이션을 튜닝하는 방법은 [애플리케이션 성능 최적화](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance)를 참조하세요.
+디스크 성능 향상을 위해 애플리케이션을 튜닝하는 방법은 [고성능을 위한 디자인](../../virtual-machines/windows/premium-storage-performance.md) 문서의 애플리케이션 성능 최적화를 참조하세요.
 
 ### <a name="application-migrations"></a>애플리케이션 마이그레이션
 데이터베이스 및 기타 복잡한 애플리케이션에는 애플리케이션 공급자가 마이그레이션에 대해 정의한 특별한 단계가 필요할 수 있습니다. 각각의 애플리케이션 설명서를 참조하세요. 예: 일반적으로 백업 및 복원을 통해 데이터베이스를 마이그레이션할 수 있습니다.
@@ -765,7 +765,7 @@ Azure Storage 및 Azure Virtual Machines에 대한 자세한 내용을 보려면
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../../virtual-machines/windows/premium-storage.md)
+* [IaaS VM의 디스크 유형 선택](../../virtual-machines/windows/disks-types.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

@@ -1,21 +1,19 @@
 ---
-title: Raspberry Pi-클라우드(C) - Raspberry Pi를 Azure IoT Hub에 연결 | Microsoft Docs
-description: 이 자습서에서는 Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Raspberry Pi을 설정하고 Raspberry Pi용 Azure IoT Hub에 연결하는 방법을 알아봅니다.
+title: C를 사용하여 Azure IoT Hub에 Raspberry Pi 연결 | Microsoft Docs
+description: Azure 클라우드 플랫폼으로 데이터를 보내기 위해 Raspberry Pi를 설정하고 Raspberry Pi용 Azure IoT Hub에 연결하는 방법을 알아봅니다.
 author: rangv
-manager: ''
-keywords: azure iot raspberry pi, raspberry pi iot hub, raspberry pi에서 클라우드로 데이터 전송, raspberry pi-클라우드
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
-ms.date: 04/11/2018
+ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: c8b254656dcd94fd846336e9c9de3ca823691904
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1e96029b75c8168189dacdc420117e82387228d9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053503"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56327251"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi를 Azure IoT Hub에 연결(C)
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 95d8825b8359b0ba8649c4c4e145ef488a486b21
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c6763580a6693020c497c500342ff3ae4dc840d4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001926"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339231"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -126,7 +126,15 @@ __Azure Storage__를 사용하는 경우 다음 URI 체계 중 하나를 사용�
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: 기본이 아닌 스토리지 계정과 통신할 때 사용됩니다. 예를 들어 추가 저장소 계정이 있거나 공개적으로 액세스할 수 있는 저장소 계정에 저장된 데이터에 액세스하는 경우입니다.
 
-__Data Lake Storage__를 사용하는 경우 다음 URI 체계 중 하나를 사용합니다.
+__Azure Data Lake Storage Gen2__를 사용하는 경우 다음 URI 체계 중 하나를 사용합니다.
+
+* `abfs:///`: 암호화되지 않은 통신을 사용하여 기본 스토리지에 액세스합니다.
+
+* `abfss:///`: 암호화된 통신을 사용하여 기본 스토리지에 액세스합니다.  abfss 체계는 HDInsight 버전 3.6 이상에서만 지원됩니다.
+
+* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: 기본이 아닌 스토리지 계정과 통신할 때 사용됩니다. 예를 들어 추가 저장소 계정이 있거나 공개적으로 액세스할 수 있는 저장소 계정에 저장된 데이터에 액세스하는 경우입니다.
+
+__Azure Data Lake Storage Gen1__을 사용하는 경우 다음 URI 체계 중 하나를 사용합니다.
 
 * `adl:///`: 클러스터의 기본 Data Lake Storage에 액세스합니다.
 

@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7919a84ffe948c9b6a8f68fc1372f1976c09bc79
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864284"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312194"
 ---
 # <a name="describe-images-with-human-readable-language"></a>사람이 읽을 수 있는 언어를 사용하여 이미지를 설명합니다.
 
-Computer Vision의 알고리즘은 이미지의 콘텐츠를 분석합니다. 이 분석은 완전한 문장의, 사람이 읽을 수 있는 언어로 표시되는 ‘설명’의 토대가 됩니다. 설명은 이미지에서 찾은 내용을 요약합니다. Computer Vision의 알고리즘은 이미지에서 식별된 시각적 기능에 따라 다양한 설명을 생성합니다. 설명이 각각 평가되고 신뢰도 점수가 생성됩니다. 그런 다음, 가장 높은 신뢰도 점수부터 가장 낮은 점수 순으로 정렬된 목록이 반환됩니다.
+Computer Vision은 이미지를 분석하고 콘텐츠를 설명하는, 사람이 읽을 수 있는 문장을 생성할 수 있습니다. 알고리즘은 여러 시각적 기능을 기준으로 여러 설명을 실제로 반환하며, 각 설명에 신뢰도 점수가 제공됩니다. 최종 출력은 가장 높은 신뢰도부터 가장 낮은 신뢰도 순으로 정렬된 설명 목록입니다.
 
 ## <a name="image-description-example"></a>이미지 설명 예제
 

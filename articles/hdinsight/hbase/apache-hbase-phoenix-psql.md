@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 04a923a8bc022aefb667489702c0e74493df94a8
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5faea45a55d69cece56137d70862d80dfe335971
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652764"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342459"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>psql을 사용하여 Apache Phoenix로 데이터 대량 로드
 
@@ -115,7 +115,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
     org.apache.phoenix.mapreduce.CsvBulkLoadTool --table Customers --input /inputFolderBulkLoad/customers.csv –zookeeper ZookeeperQuorum:2181:/hbase-unsecure
     ```
 
-8. ADLS에서 MapReduce를 사용하려면 `hbase-site.xml`의 `hbase.rootdir` 값에 해당하는 ADLS 루트 디렉터리를 찾습니다. 다음 명령에서 ADLS 루트 디렉터리는 `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`입니다. 이 명령에서 ADLS 입력 및 출력 폴더를 매개 변수로 지정합니다.
+8. Azure Data Lake Storage에서 MapReduce를 사용하려면 Data Lake Storage 루트 디렉터리(`hbase-site.xml`의 `hbase.rootdir` 값)를 찾습니다. 다음 명령에서 Data Lake Storage 루트 디렉터리는 `adl://hdinsightconf1.azuredatalakestore.net:443/hbase1`입니다. 이 명령에서 다음과 같이 Data Lake Storage 입력 및 출력 폴더를 매개 변수로 지정합니다.
 
     ```bash
     cd /usr/hdp/current/phoenix-client
@@ -127,7 +127,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
 
 ## <a name="recommendations"></a>권장 사항
 
-* 입력 및 출력 폴더 둘 다에 대해 동일한 저장소 미디어(WASB 또는 ADLS)를 사용합니다. WASB에서 ADLS로 데이터를 전송하려면 `distcp` 명령을 사용할 수 있습니다.
+* 입력 및 출력 폴더에 동일한 스토리지 미디어(Azure Storage(WASB) 또는 Azure Data Lake Storage(ADL))를 사용합니다. 데이터를 Azure Storage에서 Data Lake Storage로 전송하려면 `distcp` 명령을 사용합니다.
 
     ```bash
     hadoop distcp wasb://@.blob.core.windows.net/example/data/gutenberg adl://.azuredatalakestore.net:443/myfolder

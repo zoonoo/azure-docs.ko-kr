@@ -10,16 +10,16 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: a040991ca4b3a08dec90f4fc6944b006ebea2135
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 5f132dce2a0a868de8607581935325d48e1520a1
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487849"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456761"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행
 
-이 항목에서는 Azure Machine Learning에서 현재 Python 스크립트를 지원하는 데 기본이 되는 디자인 원칙을 설명합니다. 다음을 비롯하여 제공되는 기본 기능도 요약되어 있습니다.
+이 항목에서는 Azure Machine Learning Studio에서 현재 Python 스크립트를 지원하는 데 기본이 되는 디자인 원칙을 설명합니다. 다음을 비롯하여 제공되는 기본 기능도 요약되어 있습니다.
 
 - 기본 사용 시나리오 실행
 - 웹 서비스에서 실험 점수 매기기
@@ -61,11 +61,11 @@ Azure Machine Learning Studio에서 Python의 기본 인터페이스는 그림 1
 Azure ML Studio의 [Python 스크립트 실행][execute-python-script] 모듈에서는 R의 동일 모듈인 [R 스크립트 실행][execute-r-script] 모듈과 마찬가지로 최대 세 개의 입력을 허용하고 최대 두 개의 출력을 생성합니다(다음 섹션에서 설명함). 실행할 Python 코드는 `azureml_main`이라는 특별하게 명명된 진입점 함수로 매개 변수 상자에 입력됩니다. 다음은 이 모듈을 구현하는 데 사용하는 핵심 디자인 원칙입니다.
 
 1. *Python 사용자에게 자연스러워야 합니다.* 대부분의 Python 사용자는 코드를 모듈 내의 함수로 고려합니다. 따라서 최상위 모듈에 실행 가능 문을 많이 포함하는 경우는 거의 없습니다. 따라서 스크립트 상자도 일련의 문장이 아니라 특별하게 명명된 Python 함수를 사용합니다. 함수에 노출된 개체는 [Pandas](http://pandas.pydata.org/) 데이터 프레임 및 [NumPy](http://www.numpy.org/) 배열과 같은 표준 Python 라이브러리입니다.
-2. *로컬 및 클라우드 실행 간의 충실도가 높아야 합니다.* Python 코드를 실행하는 데 사용하는 백 엔드는 널리 사용되는 플랫폼 간 과학 Python 배포인 [Anaconda](https://store.continuum.io/cshop/anaconda/)를 기반으로 합니다. 가장 일반적인 Python 패키지가 거의 200개 포함되어 있습니다. 따라서 데이터 과학자는 자신의 로컬 Azure Machine Learning 호환 Anaconda 환경에서 코드를 디버그하고 한정할 수 있습니다. 그런 후에 [IPython](http://ipython.org/) Notebook 또는 [Visual Studio용 Python 도구](https://aka.ms/ptvs)와 같은 기존 개발 환경을 사용하여 코드를 Azure ML 실험의 일부분으로 실행할 수 있습니다. `azureml_main` 진입점은 바닐라 Python 함수이며 Azure ML 관련 코드 또는 SDK가 설치되어 있지 않아도 ****작성할 수 있습니다.
-3. *다른 Azure Machine Learning 모듈로 원활하게 구성할 수 있어야 합니다.* [Python 스크립트 실행][execute-python-script] 모듈이 입력 및 출력으로 표준 Azure Machine Learning 데이터 세트를 허용합니다. 기본 프레임워크는 Azure ML 및 Python 런타임을 효율적이며 투명한 방식으로 연결합니다. 따라서 Python을 기존 Azure ML 워크플로(R 및 SQLite를 호출하는 워크플로 포함)와 함께 사용할 수 있습니다. 이를 통해 데이터 과학자는 다음과 같은 워크플로를 작성할 수 있습니다.
+2. *로컬 및 클라우드 실행 간의 충실도가 높아야 합니다.* Python 코드를 실행하는 데 사용하는 백 엔드는 널리 사용되는 플랫폼 간 과학 Python 배포인 [Anaconda](https://store.continuum.io/cshop/anaconda/)를 기반으로 합니다. 가장 일반적인 Python 패키지가 거의 200개 포함되어 있습니다. 따라서 데이터 과학자는 자신의 로컬 Azure Machine Learning Studio 호환 Anaconda 환경에서 코드를 디버그하고 한정할 수 있습니다. 그런 후에 [IPython](http://ipython.org/) Notebook 또는 [Visual Studio용 Python 도구](https://aka.ms/ptvs)와 같은 기존 개발 환경을 사용하여 코드를 Azure ML 실험의 일부분으로 실행할 수 있습니다. `azureml_main` 진입점은 바닐라 Python 함수이며 Azure ML 관련 코드 또는 SDK가 설치되어 있지 않아도 ****작성할 수 있습니다.
+3. ‘다른 Azure Machine Learning Studio 모듈로 원활하게 구성할 수 있어야 합니다.’ [Python 스크립트 실행][execute-python-script] 모듈은 입력 및 출력으로 표준 Azure Machine Learning Studio 데이터 세트를 허용합니다. 기본 프레임워크는 Azure ML 및 Python 런타임을 효율적이며 투명한 방식으로 연결합니다. 따라서 Python을 기존 Azure ML 워크플로(R 및 SQLite를 호출하는 워크플로 포함)와 함께 사용할 수 있습니다. 이를 통해 데이터 과학자는 다음과 같은 워크플로를 작성할 수 있습니다.
    * 데이터 전처리 및 정리에 Python 및 Pandas를 사용하는 워크플로
    * SQL 변환으로 데이터를 공급해 여러 데이터 세트를 연결하여 기능을 생성하는 워크플로
-   * Azure Machine Learning의 알고리즘을 사용하여 모델 학습을 수행하는 워크플로 
+   * Azure Machine Learning Studio의 알고리즘을 사용하여 모델 학습을 수행하는 워크플로 
    * R을 사용하여 결과 평가 및 사후 처리.
 
 
@@ -149,7 +149,7 @@ zip 파일을 데이터 세트로 Azure Machine Learning Studio에 업로드합�
 
 ## <a name="working-with-visualizations"></a>시각화 작업
 
-브라우저에서 시각화할 수 있는 MatplotLib를 사용하여 만든 그림은 [Python 스크립트 실행][execute-python-script]을 통해 반환할 수 있습니다. 그러나 R을 사용할 때 그림은 현상태 그대로 이미지로 자동 리디렉션되므로, Azure Machine Learning으로 다시 반환하려는 경우 명시적으로 모든 그림을 PNG 파일로 저장해야 합니다. 
+브라우저에서 시각화할 수 있는 MatplotLib를 사용하여 만든 그림은 [Python 스크립트 실행][execute-python-script]을 통해 반환할 수 있습니다. 그러나 R을 사용할 때 플롯은 현 상태를 유지하며 이미지로 자동 리디렉션되지 않으므로, Azure Machine Learning Studio로 다시 반환하려는 경우 명시적으로 모든 플롯을 PNG 파일에 저장해야 합니다. 
 
 MatplotLib에서 이미지를 생성하려면 다음 절차를 완료해야 합니다.
 
@@ -172,12 +172,12 @@ Pandas에서 scatter_matrix 함수를 사용하여 산점도 행렬을 생성하
 
 그림 9. Python 코드에서 생성된 그림 시각화.
 
-여러 수치를 서로 다른 이미지에 저장하여 반환하고, Azure Machine Learning 런타임 시 모든 이미지를 선택한 다음, 시각화를 위해 연결할 수 있습니다.
+여러 수치를 서로 다른 이미지에 저장하여 반환하고, Azure Machine Learning Studio 런타임 시 모든 이미지를 선택한 다음, 시각화를 위해 연결할 수 있습니다.
 
 
 ## <a name="advanced-examples"></a>고급 예제
 
-Azure Machine Learning에서 설치되는 Anaconda 환경에는 NumPy, SciPy, Scikits-Learn 등의 일반 패키지가 포함되어 있습니다. 이러한 패키지는 기계 학습 파이프라인의 여러 데이터 처리 작업에 효율적으로 사용할 수 있습니다. 예를 들어 다음 실험과 스크립트에서는 데이터 세트의 기능 중요도 점수를 계산하기 위한 Scikits-Learn의 앙상블 학습자 사용에 대해 설명합니다. 점수는 다른 ML 모델에 공급하기 전에 감독 모드 기능 선택을 수행하는 데 사용할 수 있습니다.
+Azure Machine Learning Studio에 설치된 Anaconda 환경에는 NumPy, SciPy, Scikits-Learn 등의 일반 패키지가 포함되어 있습니다. 이러한 패키지는 기계 학습 파이프라인의 여러 데이터 처리 작업에 효율적으로 사용할 수 있습니다. 예를 들어 다음 실험과 스크립트에서는 데이터 세트의 기능 중요도 점수를 계산하기 위한 Scikits-Learn의 앙상블 학습자 사용에 대해 설명합니다. 점수는 다른 ML 모델에 공급하기 전에 감독 모드 기능 선택을 수행하는 데 사용할 수 있습니다.
 
 중요도 점수를 계산한 다음 이 점수에 따라 기능의 순서를 지정하는 데 사용되는 Python 함수는 다음과 같습니다.
 
@@ -185,7 +185,7 @@ Azure Machine Learning에서 설치되는 Anaconda 환경에는 NumPy, SciPy, Sc
 
 그림 10. 점수별로 기능의 순위를 지정하는 기능.
  
-다음 실험에서는 Azure Machine Learning의 “Pima Indian Diabetes” 데이터 세트에 있는 기능의 중요도 점수를 계산하여 반환합니다.
+다음 실험에서는 Azure Machine Learning Studio의 “Pima Indian Diabetes” 데이터 세트에 있는 기능의 중요도 점수를 계산하여 반환합니다.
 
 ![image12](./media/execute-python-scripts/figure9a.png)
 ![image13](./media/execute-python-scripts/figure9b.png)    
@@ -197,11 +197,11 @@ Azure Machine Learning에서 설치되는 Anaconda 환경에는 NumPy, SciPy, Sc
 
 1. *샌드박스 실행.* 현재 Python 런타임은 샌드박스로 작동하므로, 지속적인 방식으로 네트워크나 로컬 파일 시스템에 액세스할 수 없습니다. 모듈이 완료되면 로컬에 저장된 모든 파일이 격리되어 삭제됩니다. Python 코드는 현재 디렉터리와 하위 디렉터리를 제외하고, 코드가 실행되는 컴퓨터에 있는 대부분의 디렉터리에 액세스할 수 없습니다.
 2. *정교한 개발 및 디버깅 지원이 부족합니다.* 현재 Python 모듈에서는 Intellisense와 디버깅 같은 IDE 기능을 지원하지 않습니다. 또한 모듈이 런타임에서 실패하는 경우 전체 Python 스택 추적을 사용할 수 있습니다. 그러나 스택 추적은 모듈의 출력 로그에서 확인해야 합니다. 현재로서는 IPython과 같은 환경에서 Python 스크립트를 개발하고 디버그한 다음 모듈에 코드를 가져오는 것이 좋습니다.
-3. *단일 데이터 프레임 출력.* Python 진입점은 단일 데이터 프레임을 출력으로 반환할 수만 있습니다. 현재로서는 학습된 모델과 같은 임의의 Python 개체를 Azure Machine Learning 런타임에 직접 반환할 수 없습니다. 동일한 제한 사항이 있는 [R 스크립트 실행][execute-r-script]과 마찬가지로, 대부분의 경우 개체를 바이트 배열로 만든 다음 데이터 프레임 내부에서 반환할 수 있습니다.
+3. *단일 데이터 프레임 출력.* Python 진입점은 단일 데이터 프레임을 출력으로 반환할 수만 있습니다. 현재로서는 학습된 모델과 같은 임의의 Python 개체를 Azure Machine Learning Studio 런타임에 직접 반환할 수 없습니다. 동일한 제한 사항이 있는 [R 스크립트 실행][execute-r-script]과 마찬가지로, 대부분의 경우 개체를 바이트 배열로 만든 다음 데이터 프레임 내부에서 반환할 수 있습니다.
 4. *Python 설치를 사용자 지정할 수 없음*. 현재 사용자 지정 Python 모듈을 추가하는 유일한 방법은 이전에 설명한 zip 파일 메커니즘을 통한 것입니다. 이 방법은 작은 모듈의 경우 가능하지만, 모듈이 크거나(특히 네이티브 DLL이 있는 모듈) 모듈 수가 많은 경우 번거로울 수 있습니다. 
 
 ## <a name="conclusions"></a>결론
-데이터 과학자가 [Python 스크립트 실행][execute-python-script] 모듈을 사용하여 Azure Machine Learning의 클라우드 호스팅 기계 학습 워크플로에 기존 Python 코드를 통합하고 웹 서비스의 일부로 원활하게 운영할 수 있습니다. Python 스크립트 모듈은 Azure Machine Learning의 다른 모듈과 자연스럽게 통합됩니다. 이 모듈은 데이터 탐색, 전처리, 기능 추출에서 결과 평가 및 후처리에 이르기까지 폭넓은 작업에 사용할 수 있습니다. 실행에 사용되는 백 엔드 런타임은 충분히 테스트되어 널리 사용되는 Python 배포인 Anaconda를 기반으로 합니다. 이 백 엔드를 사용하면 기존 코드 자산을 클라우드에 간편하게 등록할 수 있습니다.
+데이터 과학자가 [Python 스크립트 실행][execute-python-script] 모듈을 사용하여 Azure Machine Learning Studio의 클라우드 호스팅 기계 학습 워크플로에 기존 Python 코드를 통합하고 웹 서비스의 일부로 원활하게 운영할 수 있습니다. Python 스크립트 모듈은 Azure Machine Learning Studio의 다른 모듈과 자연스럽게 통합됩니다. 이 모듈은 데이터 탐색, 전처리, 기능 추출에서 결과 평가 및 후처리에 이르기까지 폭넓은 작업에 사용할 수 있습니다. 실행에 사용되는 백 엔드 런타임은 충분히 테스트되어 널리 사용되는 Python 배포인 Anaconda를 기반으로 합니다. 이 백 엔드를 사용하면 기존 코드 자산을 클라우드에 간편하게 등록할 수 있습니다.
 
 [Python 스크립트 실행][execute-python-script] 모듈에 추가 기능(예: Python의 모듈을 학습하고 운영화하는 기능 및 Azure Machine Learning Studio에서의 코드 개발 및 디버깅 지원 향상)을 제공할 것으로 기대합니다.
 

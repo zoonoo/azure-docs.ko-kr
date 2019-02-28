@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodc18
 ms.date: 12/18/2017
-ms.openlocfilehash: 2db14056b6b5ccf16c8009c21bfcff00954a7802
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 78daf4534334d56c962d97e7a9aac8a7910db34c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242900"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453599"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 기계 학습 기본 사항
 
@@ -33,7 +33,7 @@ ms.locfileid: "56242900"
 
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>초보자 및 고급 사용자용 알고리즘에 대한 자세한 도움말
 
-* 다양한 유형의 기계 학습 알고리즘, 사용 방법 및 솔루션에 적합한 알고리즘을 선택하는 방법에 대한 자세한 논의는 [Microsoft Azure Machine Learning에서 알고리즘을 선택하는 방법](algorithm-choice.md)을 참조하세요.
+* 다양한 유형의 기계 학습 알고리즘, 사용 방법 및 솔루션에 적합한 알고리즘을 선택하는 방법에 대한 자세한 논의는 [Microsoft Azure Machine Learning Studio에서 알고리즘을 선택하는 방법](algorithm-choice.md)을 참조하세요.
 * Machine Learning Studio에서 사용할 수 있는 모든 기계 학습 알고리즘의 범주별 목록은 Machine Learning Studio Algorithm 및 모듈 도움말에서 [초기화 모델][initialize-model]을 참조하세요.
 * Machine Learning Studio의 전체 알고리즘 및 모듈에 대한 알파벳 순서 목록은 Machine Learning Studio 알고리즘 및 모듈 도움말에서 [Machine Learning Studio 모듈의 A-Z 목록][a-z-list]을 참조하세요.
 * Azure AI 갤러리 및 이 갤러리에서 사용할 수 있는 여러 커뮤니티 생성 리소스에 대한 개요는 [Azure AI 갤러리에서 리소스 공유 및 검색](gallery-how-to-use-contribute-publish.md)을 참조하세요.

@@ -3,27 +3,27 @@ title: 연결 문자열 가져오기 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 클라이언트가 Azure Event Hubs에 연결하는 데 사용할 수 있는 연결 문자열을 가져오기 위한 지침을 제공합니다.
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: ee4bd5d2acf1a029486f83ee721b9e1f72347958
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/19/2019
+ms.author: spelluru
+ms.openlocfilehash: edd197fb6d578df064c67a422767e3e70a0c8142
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238150"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445103"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Event Hubs 연결 문자열 가져오기
 
-Event Hubs를 사용하려면 Event Hubs 네임스페이스를 만들어야 합니다. 네임스페이스는 여러 Event Hubs/Kafka 토픽을 저장할 수 있는 범위 지정 컨테이너로 사용됩니다. 이 네임스페이스는 고유한 [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)을 제공합니다. 네임스페이스가 만들어지면 Event Hubs와 통신하는 데 필요한 연결 문자열을 가져올 수 있습니다.
+Event Hubs를 사용하려면 Event Hubs 네임스페이스를 만들어야 합니다. 네임스페이스는 여러 이벤트 허브 또는 Kafka 토픽에 대한 범위 지정 컨테이너입니다. 이 네임스페이스는 고유한 [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)을 제공합니다. 네임스페이스가 만들어지면 Event Hubs와 통신하는 데 필요한 연결 문자열을 가져올 수 있습니다.
 
 Azure Event Hubs에 대한 연결 문자열에 포함되는 구성 요소는 다음과 같습니다.
 
-* FQDN = 만든 EventHubs 네임스페이스의 FQDN(여기에는 EventHubs 네임스페이스 이름 뒤에 servicebus.windows.net이 포함됨)
+* FQDN = 만든 EventHubs 네임스페이스의 FQDN(EventHubs 네임스페이스 이름 뒤에 servicebus.windows.net을 추가해서 생성됨)
 * SharedAccessKeyName = 애플리케이션의 SAS 키에 대해 선택한 이름
 * SharedAccessKey = 키에 대해 생성된 값
 
@@ -37,30 +37,29 @@ Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>
 이 문서에서는 연결 문자열을 가져오는 다양한 방법을 안내합니다.
 
 ## <a name="get-connection-string-from-the-portal"></a>포털에서 연결 문자열 가져오기
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
+2. 왼쪽 탐색 메뉴에서 **모든 서비스**를 선택합니다. 
+3. **Analytics** 섹션에서 **Event Hubs**를 선택합니다. 
+4. 이벤트 허브 목록에서 해당 이벤트 허브를 선택합니다.
+6. **Event Hubs 네임스페이스** 페이지의 왼쪽 메뉴에서 **공유 액세스 정책**을 선택합니다.
 
-Event Hubs 네임스페이스가 있으면 아래와 같이 포털의 개요 섹션에서 연결 문자열을 제공할 수 있습니다.
+    ![공유 액세스 정책 메뉴 항목](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+7. 정책 목록에서 **공유 액세스 정책**을 선택합니다. 기본 정책의 이름은 **RootManageSharedAccessPolicy**입니다. 적절한 권한(읽기, 쓰기)으로 정책을 추가하고 해당 정책을 사용할 수 있습니다. 
 
-![Event Hubs 연결 문자열](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+    ![Event Hubs 공유 액세스 정책](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
+8. **연결 문자열 기본 키** 필드 옆에 있는 **복사** 단추를 선택합니다. 
 
-개요 섹션에서 연결 문자열 링크를 클릭하면 아래 그림과 같이 SAS 정책 탭이 열립니다.
-
-![Event Hubs SAS 정책](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
-
-새 SAS 정책을 추가하여 연결 문자열을 가져오거나 이미 만들어진 기본 정책을 사용할 수 있습니다. 정책이 열리면 아래 그림과 같이 연결 문자열을 가져옵니다.
-
-![Event Hubs에서 연결 문자열 가져오기](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
+    ![Event Hubs - 연결 문자열 가져오기](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## <a name="getting-the-connection-string-with-azure-powershell"></a>Azure PowerShell을 사용하여 연결 문자열 가져오기
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Get-AzEventHubNamespaceKey를 사용하여 아래와 같이 특정 정책/규칙 이름에 대한 연결 문자열을 가져올 수 있습니다.
+[Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey)를 사용하여 아래와 같은 특정 정책/규칙 이름에 대한 연결 문자열을 가져올 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
 ```
-
-자세한 내용은 [Azure Event Hubs PowerShell 모듈](https://docs.microsoft.com/powershell/module/az.eventhub/get-azeventhubkey)을 참조하세요.
 
 ## <a name="getting-the-connection-string-with-azure-cli"></a>Azure CLI를 사용하여 연결 문자열 가져오기
 다음을 사용하여 네임스페이스에 대한 연결 문자열을 가져올 수 있습니다.
@@ -69,7 +68,7 @@ Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummyname
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
-자세한 내용은 [Event Hubs용 Azure CLI](https://docs.microsoft.com/cli/azure/eventhubs)를 참조하세요.
+Event Hubs에 대한 Azure CLI 명령과 관련된 자세한 내용은 [Event Hubs용 Azure CLI](/cli/azure/eventhubs)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

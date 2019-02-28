@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 921dfc12a7353725d3f9e05d7aa3245ec8ba6084
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 43094839c9da9b00c97d1dffd53f98a3acd119d5
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186001"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417145"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 계산 노드에 대한 VM 크기 선택
 
@@ -44,14 +44,16 @@ Virtual Machine 구성의 Batch 풀은 다음을 *제외한* 모든 VM 크기([L
 | B 시리즈 | 모두 |
 | DC 시리즈 | 모두 |
 | 익스트림 메모리 최적화 | 모두 |
-| Hb 시리즈<sup>1</sup> | 모두 |
-| Hc 시리즈<sup>1</sup> | 모두 |
+| Hb-series<sup>1,2</sup> | 모두 |
+| Hc-series<sup>1,2</sup> | 모두 |
 | Lsv2 시리즈 | 모두 |
-| NDv2 시리즈<sup>1</sup> | 모두 |
-| NVv2 시리즈 | 모두 |
+| NDv2-series<sup>1,2</sup> | 모두 |
+| NVv2 시리즈<sup>1</sup> | 모두 |
 | SAP HANA | 모두 |
 
-<sup>1</sup> 사용자 구독 모드의 Batch 계정에서 사용할 수 있습니다. 사용자 구독 모드 Batch 계정에 코어 할당량이 설정되어 있어야 합니다. 자세한 내용은 [사용자 구독 모드에 대한 구성](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)을 참조하세요.
+
+<sup>1</sup> 지원할 계획입니다.  
+<sup>2</sup> 사용자 구독 모드의 배치 계정에서 사용할 수 있습니다. 사용자 구독 모드 배치 계정에 코어 할당량이 설정되어 있어야 합니다. 자세한 내용은 [사용자 구독 모드에 대한 구성](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode)을 참조하세요.
 
 다음 VM 시리즈는 낮은 우선 순위 노드에서만 지원됩니다.
 

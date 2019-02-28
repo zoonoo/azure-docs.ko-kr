@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4f92860ac128bdb6e4e2e059592745285779688d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001995"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270371"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -42,7 +42,7 @@ Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [�
 
 Azure Monitor로 수집한 로그 데이터는 수집된 데이터를 신속하게 검색, 통합 및 분석하는 [쿼리](log-query/log-query-overview.md)로 분석할 수 있습니다.  Azure Portal에서 [Log Analytics](log-query/portals.md)를 사용하여 쿼리를 만들고 테스트한 다음, 이러한 도구를 사용하여 데이터를 직접 분석하거나 [시각화](visualizations.md) 또는 [경고 규칙](platform/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
 
-Azure Monitor는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 같은 고급 기능도 포함하는 [Data Explorer 쿼리 언어](/azure/kusto/query/) 버전을 사용합니다. [여러 강좌](log-query/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.  [SQL](log-query/sql-cheatsheet.md) 및 [Splunk](log-query/splunk-cheatsheet.md)에 이미 익숙한 사용자에게는 특정 지침이 제공됩니다.
+Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/azure/kusto/query/)의 한 버전을 사용합니다. Kusto 쿼리 언어는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 등의 고급 기능도 포함합니다. [여러 강좌](log-query/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.  [SQL](log-query/sql-cheatsheet.md) 및 [Splunk](log-query/splunk-cheatsheet.md)에 이미 익숙한 사용자에게는 특정 지침이 제공됩니다.
 
 ![로그](media/overview/logs.png)
 

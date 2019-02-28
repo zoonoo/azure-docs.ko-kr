@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 79dbaf98f953a9cb72a7fa7cf9facc2b17fad504
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 02/18/2019
+ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410067"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408802"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성
 
@@ -97,7 +97,8 @@ SQL Managed Instance가 개인 Virtual Network에 배치되므로 SQL Server Man
 4. **구매**를 선택하여 네트워크에서 Azure VM을 배포합니다.
 5. **알림** 아이콘을 선택하여 배포 상태를 확인합니다.
 
-Azure 가상 머신이 생성되기 전에는 진행하지 마세요. 
+> [!IMPORTANT]
+> 사후 생성 스크립트가 SQL Server Management Studio를 설치할 시간을 제공하기 위해 가상 머신이 생성된 후 약 15분이 경과할 때까지 계속 진행하지 마세요.
 
 ## <a name="connect-to-virtual-machine"></a>가상 머신에 연결
 

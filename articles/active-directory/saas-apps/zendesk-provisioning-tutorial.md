@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e56cc5a893c5a88a5b64466d6feceb20ccd8cdc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167850"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445545"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝에 대한 Zendesk 구성
 
@@ -118,7 +118,8 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
     *   **도메인** 필드에 Zendesk 테넌트의 하위 도메인을 채웁니다.
     예제: 테넌트 URL이 https://my-tenant.zendesk.com인 계정의 하위 도메인은 **my-tenant**입니다.
 
-6. Zendesk 계정의 **비밀 토큰**은 **관리자 > API > 설정**에 있습니다. 
+6. Zendesk 계정의 **비밀 토큰**은 **관리자 > API > 설정**에 있습니다.
+   **토큰 액세스**가 **사용**으로 설정되었는지 확인합니다.
 
     ![Zendesk 프로비전](./media/zendesk-provisioning-tutorial/ZenDesk4.png) ![Zendesk 프로비전](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
 

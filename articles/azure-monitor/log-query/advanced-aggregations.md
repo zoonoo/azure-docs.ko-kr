@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 5e2152397a4a965e6d62f8fafc2a59bf318b4a5e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 37eb8ca3c25268dd7923087439a8fbf0fd1f168b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005423"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269912"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 고급 집계
 
@@ -181,7 +181,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Monitor 로그 데이터에 [데이터 탐색기 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
+Azure Monitor 로그 데이터에 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하는 방법에 대한 다른 단원을 참조하세요.
 
 - [문자열 작업](string-operations.md)
 - [날짜 및 시간 작업](datetime-operations.md)

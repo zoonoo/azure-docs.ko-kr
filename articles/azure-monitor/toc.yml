@@ -420,8 +420,6 @@ items:
         href: platform/collect-azure-metrics-logs.md
       - name: Azure Storage에서 진단 또는 로그 데이터
         href: platform/azure-storage-iis-table.md
-      - name: Azure PaaS 리소스
-        href: platform/collect-azurepass-posh.md
       - name: 사용자 지정 데이터 원본 상관 관계 만들기
         href: app/custom-data-correlation.md
     - name: 사용자 지정 데이터 수집
@@ -448,10 +446,10 @@ items:
         href: platform/archive-diagnostic-logs.md
       - name: 진단 로그 저장
         href: platform/diagnostic-logs-stream-log-store.md
+      - name: Azure 리소스 데이터를 이벤트 허브로 라우팅
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: 활동 로그를 Event Hubs로 스트림
         href: platform/activity-logs-stream-event-hubs.md
-      - name: 로그 및 메트릭을 이벤트 허브로 라우팅
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: 진단 로그를 이벤트 허브로 라우팅
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: 애플리케이션 데이터를 Log Analytics로 라우팅
@@ -636,8 +634,9 @@ items:
   - name: 데이터 가상화
     items:
     - name: 뷰
-      href: platform/view-designer.md
       items:
+      - name: 뷰 디자이너
+        href: platform/view-designer.md
       - name: 타일 참조
         href: platform/view-designer-tiles.md
       - name: 시각화 요소 참조
@@ -1031,9 +1030,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 519c8213c715995fea89475e81f8c63f41190d65
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7ca33f101a86f08ce8249bd43975d6ed2aab6141
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455401"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888171"

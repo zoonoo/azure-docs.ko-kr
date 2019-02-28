@@ -1,6 +1,6 @@
 ---
-title: Azure의 RBAC 문제 해결 | Microsoft Docs
-description: Azure RBAC(역할 기반 액세스 제어) 관련 문제를 해결합니다.
+title: Azure 리소스에 대한 RBAC 문제 해결 | Microsoft Docs
+description: Azure 리소스에 대한 RBAC(역할 기반 액세스 제어) 문제를 해결합니다.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e204beea5bdf72c2ec5ebcf661d3c983a2e0e6b4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411240"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342476"
 ---
-# <a name="troubleshoot-rbac-in-azure"></a>Azure의 RBAC 문제 해결
+# <a name="troubleshoot-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC 문제 해결
 
-이 문서에서는 RBAC(역할 기반 액세스 제어)에 대한 일반적인 질문에 대해 답변을 제공합니다. 따라서 Azure Portal에서 역할을 사용할 때 예상되는 상황을 이해하고 액세스 문제를 해결하는 데 도움이 될 수 있습니다.
+이 문서에서는 Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)와 관련된 일반적인 질문에 대답합니다. Azure Portal의 역할을 사용할 때 예상되는 동작을 이해하고 액세스 문제를 해결하는 데 도움이 될 것입니다.
 
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC 역할 할당 관련 문제
 
@@ -119,6 +119,6 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 판독기는 **플랫폼 기능** 탭을 클릭한 다음, **모든 설정**을 클릭하여 함수 앱(웹앱과 유사)에 관련된 일부 설정을 볼 수 있지만 이러한 설정을 수정할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [RBAC 및 Azure Portal을 사용하여 액세스 관리](role-assignments-portal.md)
-* [RBAC 변경에 대한 활동 로그 보기](change-history-report.md)
+* [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-portal.md)
+* [Azure 리소스에 대한 RBAC 변경 내용의 활동 로그 보기](change-history-report.md)
 

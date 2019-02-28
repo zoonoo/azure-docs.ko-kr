@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: 121f9ff602907e64bba0c98342e38477109e9294
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c9e143a4127807bfffa879103fca42d2d27e71
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993669"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268331"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL-Azure Monitor 로그 쿼리 참고 자료 
 
-아래 표는 SQL에 익숙한 사용자가 Azure Monitor에서 로그 쿼리를 작성하기 위한 데이터 탐색기 쿼리 언어를 알아보는 데 도움이 됩니다. Azure Monitor 로그 쿼리에서 일반적인 시나리오 및 동등한 시나리오를 해결하기 위한 T-SQL 명령을 살펴봅니다.
+아래 표는 SQL에 익숙한 사용자가 Azure Monitor에서 로그 쿼리를 작성하기 위한 Kusto 쿼리 언어를 알아보는 데 도움이 됩니다. Azure Monitor 로그 쿼리에서 일반적인 시나리오 및 동등한 시나리오를 해결하기 위한 T-SQL 명령을 살펴봅니다.
 
 ## <a name="sql-to-azure-monitor"></a>SQL-Azure Monitor
 

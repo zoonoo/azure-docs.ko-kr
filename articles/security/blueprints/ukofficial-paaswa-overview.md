@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b69b16cec08c5d29d4812258f694f2d078a9ff35
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700981"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301795"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 보안 및 규정 준수 청사진: UK OFFICIAL 워크로드 준수 PaaS 웹 애플리케이션 호스팅
 
@@ -29,10 +29,10 @@ Azure Blueprint는 승인 또는 규정 준수 요구 사항이 있는 시나리
 
 아키텍처에서는 Azure [PaaS(Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) 구성 요소를 사용하여 고객이 소프트웨어 라이선스를 구입하고 기본 애플리케이션 인프라와 미들웨어 또는 개발 도구 및 기타 리소스를 관리하는 비용과 복잡성을 방지할 수 있는 환경을 제공합니다. 고객은 비즈니스 가치를 제공하는 데 집중하여 개발한 애플리케이션과 서비스를 관리하는 한편, Microsoft Azure는 가상 머신, 저장소 및 네트워킹과 같은 다른 Azure 리소스를 관리하여 인프라 관리에 대한 [책임 분담](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility)을 Azure 플랫폼에 더 많이 배치합니다. [Azure App Services](https://azure.microsoft.com/services/app-service/)는 자동 크기 조정과 고가용성을 제공하고, Windows 및 Linux를 지원하며, GitHub, Azure DevOps 또는 모든 Git 리포지토리에서 자동화된 배포를 기본 서비스로 지원할 수 있도록 합니다. 개발자는 App Services를 사용하여 인프라 관리 오버헤드 없이 비즈니스 가치를 제공하는 데 집중할 수 있습니다. 개발 가능한 새로운 Java, PHP, Node.js, Python, HTML 또는 C# 웹 애플리케이션을 구축하거나 기존의 클라우드 또는 온-프레미스 웹 애플리케이션을 Azure App Services로 마이그레이션할 수도 있습니다(성능 확인을 위한 철저한 실사와 테스트가 필요함).
 
-이 청사진은 공용 및 백오피스 사용자를 위한 보안 기반 [PaaS(Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) 웹 기반 인터페이스를 프로비전하는 데 집중하고 있습니다. 이 청사진 설계 시나리오에서는 공용 사용자가 중요한 데이터를 안전하게 제출, 열람 및 관리할 수 있는 Azure 호스팅 웹 기반 서비스를 사용하는 것이 좋습니다. 또한 백오피스 또는 정부 운영자가 제출된 공용 사용자의 중요한 데이터를 안전하게 처리할 수 있습니다. 이 시나리오에 포함될 수 있는 사용 사례는 다음과 같습니다.
+이 청사진은 공용 및 백오피스 사용자를 위한 보안 기반 [PaaS(Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) 웹 기반 인터페이스를 프로비저닝하는 데 집중하고 있습니다. 이 청사진 설계 시나리오에서는 공용 사용자가 중요한 데이터를 안전하게 제출, 열람 및 관리할 수 있는 Azure 호스팅 웹 기반 서비스를 사용하는 것이 좋습니다. 또한 백오피스 또는 정부 운영자가 제출된 공용 사용자의 중요한 데이터를 안전하게 처리할 수 있습니다. 이 시나리오에 포함될 수 있는 사용 사례는 다음과 같습니다.
 
 - 소득 신고서를 제출하는 사용자 및 제출된 신고서를 처리하는 정부 운영자,
-- 웹 기반 애플리케이션을 통해 서비스를 요청하는 사용자 및 서비스를 유효성 검사하고 확인하고 제공하는 백오피스 사용자 또는
+- 웹 기반 애플리케이션을 통해 서비스를 요청하는 사용자 및 서비스의 유효성을 검사하고 제공하는 백오피스 사용자 또는
 - 정부 기관 서비스에 관한 공용 도메인 지원 정보를 찾고 확인하는 사용자
 
 청사진에서는 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 템플릿과 Azure CLI(명령줄 인터페이스) 스크립트를 사용하여 영국 NCSC(National Cyber Security Centre)의 14개 [클라우드 보안 원칙](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) 및 CIS(Center for Internet Security)의 [중요 보안 제어](https://www.cisecurity.org/critical-controls.cfm)에 맞는 환경을 배포합니다. NCSC는 고객이 서비스의 보안 속성을 평가하고 고객과 공급자 간의 책임 분담을 이해하는 데 도움을 주기 위해 해당 클라우드 보안 원칙을 사용하도록 권장하고 있습니다. Microsoft는 이러한 각 원칙에 대한 정보를 제공하여 책임 분담을 더 잘 이해할 수 있도록 했습니다. 이 아키텍처와 해당 Azure Resource Manager 템플릿은 Microsoft 백서 [Microsoft Azure를 사용하여 영국 클라우드용 14개의 클라우드 보안 컨트롤](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1)에서 지원됩니다. 이 아키텍처는 NCSC에서 검토되었으며 영국 NCSC 14개 클라우드 보안 원칙과 부합하므로 공공 부문 조직이 Microsoft Azure 클라우드에서 전 세계 또는 영국에서 클라우드 기반 서비스를 사용하여 규정 준수 의무를 빠르게 충족할 수 있습니다. 이 템플릿은 워크로드에 대한 인프라를 배포합니다. 애플리케이션 코드 및 지원되는 비즈니스 계층과 데이터 계층 소프트웨어는 고객이 설치하고 구성해야 합니다. 자세한 배포 지침은 [여기](https://aka.ms/ukofficial-paaswa-repo/)에 있습니다.
@@ -182,7 +182,7 @@ Azure Storage 보안에 대한 자세한 내용은 [보안 가이드](https://do
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장성 있는 APM(Application Performance Management) 서비스입니다. 라이브 웹 애플리케이션을 모니터링하는 데 사용되어 성능 이상을 자동으로 감지하고, 성능을 분석하며, 문제를 진단하고, 사용자가 애플리케이션과 상호 작용하는 방식을 이해합니다. Application Insight는 .NET, Node.js 및 J2EE를 포함하여 온-프레미스 또는 클라우드에서 호스팅되는 플랫폼에 배포할 수 있습니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장성 있는 APM(Application Performance Management) 서비스입니다. 라이브 웹 애플리케이션을 모니터링하는 데 사용되어 성능 이상을 자동으로 감지하고, 성능을 분석하며, 문제를 진단하고, 사용자가 애플리케이션과 상호 작용하는 방식을 이해합니다. Application Insight는 .NET, Node.js 및 Java EE를 포함하여 온-프레미스 또는 클라우드에서 호스팅되는 플랫폼에 배포할 수 있습니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다.
 
 #### <a name="application-insights-in-this-blueprint"></a>이 청사진의 Application Insights
 

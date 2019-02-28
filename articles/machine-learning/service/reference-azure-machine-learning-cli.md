@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 65936348dcb40c6ceb71ebf735da8bb2120af654
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c860aca538fcb2fbcff65aebecf062c4c428c84c
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694519"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415790"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스용 CLI 확장 사용
 
@@ -107,15 +107,13 @@ az extension remove -n azure-cli-ml
     az ml project attach --experiment-name myhistory
     ```
 
-* 실험 실행을 시작합니다. 이 명령을 사용할 때는 실행 구성이 포함된 `.runconfig` 파일의 이름을 지정합니다. 컴퓨팅 대상은 실행 구성을 사용하여 모델에 대한 학습 환경을 만듭니다. 이 예제에서는 `./aml_config/myrunconfig.runconfig` 파일에서 실행 구성이 로드됩니다.
+* 실험 실행을 시작합니다. 이 명령을 사용할 때는 실행 구성이 포함된 runconfig 파일의 이름을 지정합니다. 컴퓨팅 대상은 실행 구성을 사용하여 모델에 대한 학습 환경을 만듭니다. 이 예제에서는 `./aml_config/myrunconfig.runconfig` 파일에서 실행 구성이 로드됩니다.
 
     ```azurecli-interactive
     az ml run submit -c myrunconfig train.py
     ```
 
-    `az ml project attach` 명령을 사용하여 프로젝트를 연결할 때 `docker.runconfig` 및 `local.runconfig`라는 기본 `.runconfig` 파일이 생성됩니다. 모델 학습에 사용하기 전에 이러한 파일을 수정해야 할 수 있습니다. 
-
-    [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) 클래스를 사용하여 프로그래밍 방식으로 실행 구성을 만들 수도 있습니다. 만든 후에는 `save()` 메서드를 사용하여 `.runconfig` 파일을 만들 수 있습니다.
+    runconfig 파일에 대한 자세한 내용은 [RunConfig](#runconfig) 섹션을 참조하세요.
 
 * 제출된 실험 목록을 확인합니다.
 
@@ -144,3 +142,133 @@ az extension remove -n azure-cli-ml
   ```azurecli-interactive
   az ml service create aci -n myaciservice --image-id myimage:1
   ```
+
+## <a id="runconfig"></a> Runconfig 파일
+
+실행 구성은 모델 학습용 학습 환경을 구성하는 데 사용됩니다. 이 구성은 SDK를 사용하여 메모리에서 만들거나, runconfig 파일에서 로드할 수 있습니다.
+
+runconfig 파일은 학습 환경의 구성을 설명하는 텍스트 문서입니다. 예를 들어 학습 스크립트의 이름과 모델 학습에 필요한 conda 종속성이 포함된 파일을 나열합니다.
+
+`az ml project attach` 명령을 사용하여 프로젝트를 연결하면 Azure Machine Learning CLI에서 `docker.runconfig` 및 `local.runconfig`라는 두 개의 기본 `.runconfig` 파일을 만듭니다. 
+
+[RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) 클래스를 사용하여 실행 구성을 만드는 코드가 있는 경우 `save()` 메서드를 사용하여 `.runconfig` 파일에 유지할 수 있습니다.
+
+다음은 `.runconfig` 파일 내용의 예입니다.
+
+```text
+# The script to run.
+script: train.py
+# The arguments to the script file.
+arguments: []
+# The name of the compute target to use for this run.
+target: local
+# Framework to execute inside. Allowed values are "Python" ,  "PySpark", "CNTK",  "TensorFlow", and "PyTorch".
+framework: PySpark
+# Communicator for the given framework. Allowed values are "None" ,  "ParameterServer", "OpenMpi", and "IntelMpi".
+communicator: None
+# Automatically prepare the run environment as part of the run itself.
+autoPrepareEnvironment: true
+# Maximum allowed duration for the run.
+maxRunDurationSeconds:
+# Number of nodes to use for running job.
+nodeCount: 1
+# Environment details.
+environment:
+# Environment variables set for the run.
+  environmentVariables:
+    EXAMPLE_ENV_VAR: EXAMPLE_VALUE
+# Python details
+  python:
+# user_managed_dependencies=True indicates that the environmentwill be user managed. False indicates that AzureML willmanage the user environment.
+    userManagedDependencies: false
+# The python interpreter path
+    interpreterPath: python
+# Path to the conda dependencies file to use for this run. If a project
+# contains multiple programs with different sets of dependencies, it may be
+# convenient to manage those environments with separate files.
+    condaDependenciesFile: aml_config/conda_dependencies.yml
+# Docker details
+  docker:
+# Set True to perform this run inside a Docker container.
+    enabled: true
+# Base image used for Docker-based runs.
+    baseImage: mcr.microsoft.com/azureml/base:0.2.1
+# Set False if necessary to work around shared volume bugs.
+    sharedVolumes: true
+# Run with NVidia Docker extension to support GPUs.
+    gpuSupport: false
+# Extra arguments to the Docker run command.
+    arguments: []
+# Image registry that contains the base image.
+    baseImageRegistry:
+# DNS name or IP address of azure container registry(ACR)
+      address:
+# The username for ACR
+      username:
+# The password for ACR
+      password:
+# Spark details
+  spark:
+# List of spark repositories.
+    repositories:
+    - https://mmlspark.azureedge.net/maven
+    packages:
+    - group: com.microsoft.ml.spark
+      artifact: mmlspark_2.11
+      version: '0.12'
+    precachePackages: true
+# Databricks details
+  databricks:
+# List of maven libraries.
+    mavenLibraries: []
+# List of PyPi libraries
+    pypiLibraries: []
+# List of RCran libraries
+    rcranLibraries: []
+# List of JAR libraries
+    jarLibraries: []
+# List of Egg libraries
+    eggLibraries: []
+# History details.
+history:
+# Enable history tracking -- this allows status, logs, metrics, and outputs
+# to be collected for a run.
+  outputCollection: true
+# whether to take snapshots for history.
+  snapshotProject: true
+# Spark configuration details.
+spark:
+  configuration:
+    spark.app.name: Azure ML Experiment
+    spark.yarn.maxAppAttempts: 1
+# HDI details.
+hdi:
+# Yarn deploy mode. Options are cluster and client.
+  yarnDeployMode: cluster
+# Tensorflow details.
+tensorflow:
+# The number of worker tasks.
+  workerCount: 1
+# The number of parameter server tasks.
+  parameterServerCount: 1
+# Mpi details.
+mpi:
+# When using MPI, number of processes per node.
+  processCountPerNode: 1
+# data reference configuration details
+dataReferences: {}
+# Project share datastore reference.
+sourceDirectoryDataStore:
+# AmlCompute details.
+amlcompute:
+# VM size of the Cluster to be created.Allowed values are Azure vm sizes. The list of vm sizes is available in 'https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs
+  vmSize:
+# VM priority of the Cluster to be created.Allowed values are "dedicated" , "lowpriority".
+  vmPriority:
+# A bool that indicates if the cluster has to be retained after job completion.
+  retainCluster: false
+# Name of the cluster to be created. If not specified, runId will be used as cluster name.
+  name:
+# Maximum number of nodes in the AmlCompute cluster to be created. Minimum number of nodes will always be set to 0.
+  clusterMaxNodeCount: 1
+```

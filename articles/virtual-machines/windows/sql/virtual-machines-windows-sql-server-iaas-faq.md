@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 53c22222682e2a017f55cbd5af89671edb3eddaf
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767341"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456659"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -87,6 +87,9 @@ ms.locfileid: "55767341"
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
    예. 처음에 종량제 갤러리 이미지로 시작한 경우 두 라이선스 모델 간에 쉽게 이동할 수 있습니다. 그러나 처음에 BYOL 이미지로 시작한 경우에는 라이선스를 종량제로 전환할 수 없습니다. 자세한 내용은 [SQL Server VM의 라이선스 모델을 변경하는 방법](virtual-machines-windows-sql-ahb.md)을 참조하세요.
+
+   > [!Note]
+   > 현재 이 기능은 공용 클라우드 고객만 사용할 수 있습니다.
 
 1. **새 SQL VM을 만들 때 BYOL 이미지와 SQL VM RP 중 무엇을 사용해야 하나요?**
 

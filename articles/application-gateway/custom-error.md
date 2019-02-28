@@ -2,17 +2,17 @@
 title: Azure Application Gateway 사용자 지정 오류 페이지 만들기
 description: 이 문서는 Application Gateway 사용자 지정 오류 페이지를 작성하는 방법을 보여 줍니다.
 services: application-gateway
-author: amitsriva
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 2/14/2019
 ms.author: victorh
-ms.openlocfilehash: 2f76347105743538e9fc1d7588ecb949f2675696
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071026"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301607"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Application Gateway 사용자 지정 오류 페이지 만들기
 
@@ -29,11 +29,12 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 
 사용자 지정 오류 페이지는 전역 수준 및 수신기 수준에서 정의할 수 있습니다.
 
-- **전역 수준** - 오류 페이지는 해당 응용 프로그램 게이트웨이에 배치된 모든 웹 응용 프로그램의 트래픽에 적용됩니다.
+- **전역 수준** - 오류 페이지는 해당 애플리케이션 게이트웨이에 배치된 모든 웹 애플리케이션의 트래픽에 적용됩니다.
 - **수신기 수준** - 해당 수신기에서 수신된 트래픽에 오류 페이지가 적용됩니다.
 - **모두** - 수신기 수준에서 정의된 사용자 지정 오류 페이지가 전역 수준에서 하나의 세트를 대체합니다.
 
 사용자 지정 오류 페이지를 작성하려면 다음이 있어야 합니다.
+
 - HTTP 응답 상태 코드.
 - 오류 페이지의 해당 위치. 
 - 위치에 대해 공개적으로 액세스 가능한 Azure Storage Blob.
@@ -59,5 +60,19 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 4. 지정된 오류 상태 코드에 대해 공개적으로 액세스 가능한 BLOB URL을 지정하고 저장**을 클릭하세요**. Application Gateway가 이제 사용자 지정 오류 페이지로 구성됩니다.
 
    ![Application Gateway 오류 코드](media/custom-error/ag-error-codes.png)
+
+## <a name="azure-powershell-configuration"></a>Azure PowerShell 구성
+
+Azure PowerShell을 사용하여 사용자 지정 오류 페이지를 구성할 수 있습니다. 예를 들어, 글로벌 사용자 지정 오류 페이지:
+
+`$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+또는 수신기 수준 오류 페이지:
+
+`$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+자세한 내용은 [Add-AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) 및 [Add-AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
+
 Application Gateway 진단에 대한 자세한 내용은 [백엔드 건강, 진단 로그 및 Application Gateway에 대한 메트릭](application-gateway-diagnostics.md)을 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: Azure의 사용자 지정 역할 | Microsoft Docs
-description: Azure에서 리소스에 대해 세분화된 액세스를 관리하기 위해 Azure RBAC(역할 기반 액세스 제어)를 사용하여 사용자 지정 역할을 정의하는 방법을 알아봅니다.
+title: Azure 리소스에 대한 사용자 지정 역할 | Microsoft Docs
+description: Azure 리소스에 대한 세분화된 액세스 관리를 위해 RBAC(역할 기반 액세스 제어)를 사용하여 사용자 지정 역할을 만드는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d2e3dc989a44de0c7c091dfbe1254a0e204faae
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697135"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339331"
 ---
-# <a name="custom-roles-in-azure"></a>Azure의 사용자 지정 역할
+# <a name="custom-roles-for-azure-resources"></a>Azure 리소스에 대한 사용자 지정 역할
 
-[기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우, 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 구독, 리소스 그룹 및 리소스 범위에서 사용자 지정 역할을 사용자, 그룹 및 서비스 주체에 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Azure Active Directory) 디렉터리에 저장되며 구독에서 공유할 수 있습니다. 각 디렉터리는 최대 2000개의 사용자 지정 역할을 가질 수 있습니다. Azure PowerShell, Azure CLI 또는 REST API를 사용하여 사용자 지정 역할을 만들 수 있습니다.
+[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들면 됩니다. 기본 제공 역할과 마찬가지로 구독, 리소스 그룹 및 리소스 범위에서 사용자 지정 역할을 사용자, 그룹 및 서비스 주체에 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Azure Active Directory) 디렉터리에 저장되며 구독에서 공유할 수 있습니다. 각 디렉터리는 최대 2000개의 사용자 지정 역할을 가질 수 있습니다. Azure PowerShell, Azure CLI 또는 REST API를 사용하여 사용자 지정 역할을 만들 수 있습니다.
 
 ## <a name="custom-role-example"></a>사용자 지정 역할 예제
 
@@ -107,7 +107,7 @@ ms.locfileid: "55697135"
 | 사용자 지정 역할 보기 | `Microsoft.Authorization/ roleDefinition/read` | 범위에서 이 작업이 부여된 사용자는 해당 범위에서 할당에 사용할 수 있는 사용자 지정 역할을 볼 수 있습니다. 모든 기본 제공 역할을 통해 사용자 지정 역할을 할당할 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure PowerShell을 사용하여 사용자 지정 역할 만들기](custom-roles-powershell.md)
-- [Azure CLI를 사용하여 사용자 지정 역할 만들기](custom-roles-cli.md)
-- [역할 정의 이해](role-definitions.md)
-- [Azure의 RBAC 문제 해결](troubleshooting.md)
+- [Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](custom-roles-powershell.md)
+- [Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](custom-roles-cli.md)
+- [Azure 리소스에 대한 역할 정의 이해](role-definitions.md)
+- [Azure 리소스에 대한 RBAC 문제 해결](troubleshooting.md)

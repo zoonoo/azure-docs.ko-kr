@@ -3,17 +3,16 @@ title: 크로스-프레미스 Azure 연결에 대한 VPN 디바이스 정보 | M
 description: 이 문서에서는 S2S VPN Gateway 크로스-프레미스 연결에 대한 VPN 디바이스 및 IPsec 매개 변수에 대해 설명합니다. 구성 지침과 샘플에 대한 링크를 제공합니다.
 services: vpn-gateway
 author: yushwang
-manager: rossort
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/20/2019
 ms.author: yushwang
-ms.openlocfilehash: 3e3dff18bde1c02c3746aa200376b02e1fba9e05
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7024849c796d7cef226fef1b20b0a6604f1344ba
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765367"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56454303"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보
 
@@ -48,7 +47,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | Barracuda Networks, Inc. |Barracuda NextGen 방화벽 X 시리즈 |Barracuda Firewall 6.5 |[구성 가이드](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |호환되지 않음 |
 | Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[구성 가이드](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |호환되지 않음 |
 | Check Point |Security Gateway |R80.10 |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| 시스코              |ASA       |8.3<br>8.4+(IKEv2*) |지원됨 |[구성 가이드*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
+| 시스코              |ASA       |8.3<br>8.4+(IKEv2*) |지원됨 |[구성 가이드*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | 시스코 |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |지원됨 |지원됨 |
 | 시스코 |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |지원됨 |지원됨 |
 | 시스코 |Meraki |해당 없음 |호환되지 않음 |호환되지 않음 |
@@ -66,7 +65,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | Palo Alto Networks |PAN-OS를 실행하는 모든 디바이스 |PAN-OS<br>정책 기반: 6.1.5 이상<br>경로 기반: 7.1.4 |[구성 가이드](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[구성 가이드](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | ShareTech | 차세대 UTM(NU 시리즈) | 9.0.1.3 | 호환되지 않음 | [구성 가이드](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ 시리즈, NSA 시리즈<br>SuperMassive 시리즈<br>E-클래스 NSA 시리즈 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |호환되지 않음 |[구성 가이드](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
-| Sophos | XG 차세대 방화벽 | XG v17 | | [구성 가이드](https://community.sophos.com/kb/127546) |
+| Sophos | XG 차세대 방화벽 | XG v17 | | [구성 가이드](https://community.sophos.com/kb/127546)<br><br>[구성 가이드 - 다중 SA](https://community.sophos.com/kb/en-us/133154) |
 | Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [IKEv2/IPsec을 통한 BGP](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[IKEv2/IPsec을 통한 VTI](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |모두 |Fireware XTM<br> 정책 기반: v11.11.x<br>경로 기반: v11.12.x |[구성 가이드](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[구성 가이드](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 

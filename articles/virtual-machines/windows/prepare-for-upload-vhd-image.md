@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 74132c436670247f3eb84859216274d3e1363d07
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b5e3e84ce8f8b4b364b2fa69dda0b0091db25b6d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338705"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329782"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 온-프레미스에서 Microsoft Azure로 Windows VM(가상 머신)을 업로드하려면 먼저 VHD(가상 하드 디스크) 또는 VHDX를 준비해야 합니다. Azure는 VHD 파일 형식이고 크기가 고정된 디스크를 갖춘 **1세대 VM만** 지원합니다. VHD에 허용되는 최대 크기는 1,023GB입니다. 1세대 VM을 VHDX 파일 시스템에서 VHD로, 동적 확장 디스크에서 고정 크기로 변환할 수 있습니다. 하지만 VM의 세대는 변경할 수 없습니다. 자세한 내용은 [Hyper-V에 1 또는 2세대 가상 컴퓨터를 만들어야 합니까?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
@@ -406,6 +406,10 @@ Windows 기반 컴퓨터에 설치된 모든 역할 또는 애플리케이션이
 5. **확인**을 클릭합니다.
 6. Sysprep가 완료되면 VM을 종료합니다. VM을 종료할 때 **다시 시작**을 사용해서는 안 됩니다.
 7. 이제 VHD를 업로드할 수 있습니다. 일반화된 디스크에서 VM을 만드는 방법에 대한 자세한 내용은 [일반화된 VHD를 업로드하고 Azure에서 새 VM 만들기](sa-upload-generalized.md)를 참조하세요.
+
+
+>[!NOTE]
+> 사용자 지정 unattend.xml은 지원되지 않습니다. additionalUnattendContent 속성을 지원하지만, Azure 프로비저닝 에이전트가 사용하는 unattend.xml에 [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 옵션을 추가하기 위한 제한된 지원만 제공됩니다. 예:  [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet)를 사용하여 FirstLogonCommands 및 LogonCommands를 추가할 수 있습니다. [additionalUnattendContent FirstLogonCommands 예제](https://github.com/Azure/azure-quickstart-templates/issues/1407)를 참조하세요.
 
 
 ## <a name="complete-recommended-configurations"></a>권장된 구성 완료

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 06651b06ae84934c16e9f1ac9f604abda8b65615
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c13ba8ab42d949e5752bfefd9b792b14a5a5ce59
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648626"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56408206"
 ---
-## <a name="open-cli-shell"></a>열기 CLI 셸
+## <a name="cli-shell"></a>CLI 셸
 
 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)을 사용하여 CLI 명령을 실행하는 것이 좋습니다. **Cloud Shell**은 이 문서의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 계정에서 사용할 수 있도록 공용 Azure 도구가 Cloud Shell에 사전 설치 및 구성되어 있습니다. 작업 방식에 가장 적합한 셸 환경을 유연하게 선택할 수 있습니다. Linux 사용자는 Bash 환경을 선택할 수 있으며, Windows 사용자는 PowerShell을 선택할 수 있습니다.
 
@@ -31,7 +31,7 @@ CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 
 
 여러 Media Services CLI 명령을 사용하면 파일 이름으로 매개 변수를 전달할 수 있습니다. **Cloud Shell**을 사용하는 경우 파일을 클라우드 드라이브에 업로드할 수 있습니다(Bash 또는 PowerShell 사용). 
 
-![파일 업로드]
+![Upload files]
 
 로컬 CLI 또는 **Cloud Shell**을 사용하는 경우 사용 중인 OS 또는 Cloud Shell(Bash 또는 PowerShell)에 따라 파일 경로를 지정해야 합니다. 다음은 몇 가지 예입니다.
 

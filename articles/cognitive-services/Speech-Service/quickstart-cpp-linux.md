@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 9e1844320786fe8a2a856b06b3a8093ca49568eb
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 7cc6153681a05944ea83b756a0439ff0c8922f91
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446361"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959530"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Linux 기반 C++에서 음성 인식
 
@@ -31,7 +31,7 @@ ms.locfileid: "56446361"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Cognitive Services 음성 SDK의 현재 버전은 `1.3.0`입니다.
+Cognitive Services 음성 SDK의 현재 버전은 `1.3.1`입니다.
 
 Linux용 Speech SDK는 64비트 및 32비트 애플리케이션을 빌드하는 데 사용할 수 있습니다. 필요한 라이브러리 및 헤더 파일은 https://aka.ms/csspeech/linuxbinary에서 tar 파일로 다운로드할 수 있습니다.
 

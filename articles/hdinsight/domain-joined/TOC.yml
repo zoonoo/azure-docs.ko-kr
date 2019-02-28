@@ -47,12 +47,12 @@ items:
   - name: Azure VNet의 Apache HBase 클러스터 복제
     href: ../hbase/apache-hbase-replication.md
     maintainContext: true
-- name: Log Analytics를 사용한 모니터링
+- name: Azure Monitor 로그를 사용한 모니터링
   items:
-  - name: Azure Log Analytics 사용
+  - name: Azure Monitor 로그 사용
     href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
     maintainContext: true
-  - name: Log Analytics로 쿼리 사용
+  - name: Azure Monitor 로그에서 쿼리 사용
     href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
     maintainContext: true
   - name: 클러스터 성능 모니터링
@@ -103,9 +103,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 98324ce4510b40d21013198efd48f4dcb04a9c18
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: a7e4c066ed79d71a60f01ccba6d7608fefdd3440
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56325826"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886335"

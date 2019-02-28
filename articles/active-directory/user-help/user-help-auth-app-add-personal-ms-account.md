@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba77f79ad4625319a9b6e3eae46bf8470f43607
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 67cb3d049cc2d2f26be6d62270e677a5cbcd39cc
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203780"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455044"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>개인 Microsoft 계정 추가
 표준 2단계 인증 프로세스 및 암호 없는 휴대폰 로그인 방법에 모두 사용하도록 Microsoft Authenticator 앱에 Outlook.com 또는 Xbox LIVE와 같은 개인 Microsoft 계정을 추가합니다.
@@ -35,9 +35,9 @@ ms.locfileid: "56203780"
 >[!Note]
 >개인 Microsoft 계정에 암호 없는 휴대폰 로그인만 사용하려면 2단계 인증을 켤 필요가 없습니다. 그러나 계정 보안을 강화하기 위해 2단계 인증을 켜는 것이 좋습니다.
 
-### <a name="turn-on-two-factor-verification"></a>2단계 인증 켜기
+### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
 
-1. PC에서는 [보안 기본 사항](https://account.microsoft.com/security) 페이지로 이동하고 개인 Microsoft 계정을 사용하여 로그인합니다. 예: alain@outlook.com
+1. 컴퓨터에서 [보안 기본 사항](https://account.microsoft.com/security) 페이지로 이동한 다음, 개인 Microsoft 계정을 사용하여 로그인합니다. 예: alain@outlook.com
 
 2. **보안 기본 사항** 페이지 아래쪽에서 **추가 보안 옵션** 링크를 선택합니다.
 

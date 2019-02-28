@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90616544b1fddb8b6def04c30202035bec04d599
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236008"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416788"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>사전 및 사후 스크립트 관리(미리 보기)
 
@@ -22,7 +22,7 @@ ms.locfileid: "56236008"
 
 ## <a name="runbook-requirements"></a>Runbook 요구 사항
 
-Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Automation 계정으로 가져와서 게시해야 합니다. 이 프로세스에 대한 자세한 내용은 [Runbook 게시](automation-creating-importing-runbook.md#publishing-a-runbook)를 참조하세요.
+Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Automation 계정으로 가져와서 게시해야 합니다. 이 프로세스에 대한 자세한 내용은 [Runbook 게시](manage-runbooks.md#publish-a-runbook)를 참조하세요.
 
 ## <a name="using-a-prepost-script"></a>사전/사후 스크립트 사용
 
@@ -52,7 +52,19 @@ Runbook을 사전 또는 사후 스크립트로 사용하려면 Runbook을 Autom
 
 ## <a name="passing-parameters"></a>매개 변수 전달
 
-사전 및 사후 스크립트가 구성되면 Runbook 예약과 같은 매개 변수를 전달할 수 있습니다. 매개 변수는 업데이트 배포를 만들 때 정의됩니다. 사전 및 사후 스크립트의 매개 변수 형식은 `String`여야 합니다. 다른 개체 형식이 필요한 경우 `[System.Convert]`를 사용하여 다른 형식으로 캐스팅하거나 자체 논리를 사용하여 처리할 수 있습니다.
+사전 및 사후 스크립트가 구성되면 Runbook 예약과 같은 매개 변수를 전달할 수 있습니다. 매개 변수는 업데이트 배포를 만들 때 정의됩니다. 사전 및 사후 스크립트는 다음 유형을 지원합니다.
+
+* [char]
+* [byte]
+* [int]
+* [long]
+* [decimal]
+* [single]
+* [double]
+* [DateTime]
+* [string]
+
+다른 개체 형식이 필요한 경우 Runbook에서 사용자 고유의 논리를 사용하여 다른 형식으로 캐스트할 수 있습니다.
 
 표준 Runbook 매개 변수 외에도 추가 매개 변수가 제공됩니다. 이 매개 변수는 **SoftwareUpdateConfigurationRunContext**입니다. 이 매개 변수는 JSON 문자열이며, 사전 또는 사후 스크립트에 매개 변수가 정의되면 업데이트 배포에서 자동으로 전달됩니다. 이 매개 변수에는 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration)에서 반환되는 정보의 하위 집합인 업데이트 배포에 대한 정보가 포함되어 있습니다. 다음 표에서는 변수에 제공되는 속성을 보여줍니다.
 

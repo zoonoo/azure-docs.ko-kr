@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57c4f0595fdea3d266a56d125d6d86cba8b4f651
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 01cc85f7eba2aefd08192c4e3f4e5151e7645238
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195535"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56269113"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
 이 문서에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 문서는 특정 영역을 심층 분석하고 이 개념을 다른 문서에서처럼 간단히 설명합니다.
@@ -171,7 +171,7 @@ Azure AD Connect 외부에서 AD FS를 관리하거나 타사 페더레이션 �
 ![타사 페더레이션 구성](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>기존 배포에 새 디렉터리 추가
-활성화된 ConsistencyGuid 기능으로 Azure AD Connect를 배포한 후에 이제 다른 디렉터리를 배포에 추가하려고 한다고 가정합니다. 디렉터리를 추가하려고 하는 경우 Azure AD Connect 마법사에서 디렉터리의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 애플리케이션에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 기존 애플리케이션에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
+활성화된 ConsistencyGuid 기능으로 Azure AD Connect를 배포한 후에 이제 다른 디렉터리를 배포에 추가하려고 한다고 가정합니다. 디렉터리를 추가하려고 하는 경우 Azure AD Connect 마법사에서 디렉터리의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 애플리케이션에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 특성이 기존 애플리케이션에서 사용되지 않는다고 확신하는 경우 위에서 설명한 대로 **/SkipLdapSearchcontact**를 지정한 Azure AD Connect 마법사를 다시 시작하여 오류를 무시할 수 있습니다. 자세한 내용은 고객 지원팀에 문의하세요.
 
 ![기존 배포에 새 디렉터리 추가](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

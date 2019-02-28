@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 006d47d397bab0869ae8a75d6c17d239e71608c3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382756"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310578"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델을 사용하여 Azure로 Windows Server 또는 클라이언트 백업
 이 문서는 Resource Manager 배포 모델을 사용하여 Azure Backup이 포함된 Azure에 Windows 서버(또는 Windows 클라이언트) 파일 및 폴더를 백업하는 방법을 설명합니다.
@@ -72,7 +72,7 @@ Recovery Services 자격 증명 모음은 시간이 경과되면서 만든 모�
 
     ![Recovery Services 자격 증명 모음 목록에서 새 자격 증명 모음 선택](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    자격 증명 모음을 선택하면 Recovery Services 자격 증명 모음 블레이드가 좁아지고 **개요** 블레이드(*맨 위에 자격 증명 모음 이름이 있음*) 및 자격 증명 모음 세부 정보 블레이드가 열립니다.
+    자격 증명 모음을 선택하면 Recovery Services 자격 증명 모음 블레이드가 좁아지고 **개요** 블레이드(‘맨 위에 자격 증명 모음 이름이 있음’) 및 자격 증명 모음 세부 정보 블레이드가 열립니다.
 
     ![새 자격 증명 모음의 저장소 구성 보기](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 

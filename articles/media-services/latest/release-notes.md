@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8e2af866dcea3bd8ece29811b2cc8ccd4318ee54
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242809"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343998"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -38,11 +38,13 @@ ms.locfileid: "56242809"
 
 이제 Media Services v3가 Azure 국가별 클라우드에서 지원됩니다. 아직은 일부 클라우드에서 일부 기능을 사용할 수 없습니다. 자세한 내용은 [Azure Media Services v3가 있는 클라우드 및 지역](azure-clouds-regions.md)을 참조하세요.
 
+Media Services에 대한 Azure Event Grid 스키마에 [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) 이벤트가 추가되었습니다.
+
 ## <a name="january-2019"></a>2019년 1월
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard 및 MPI 파일 
 
-Media Encoder Standard로 인코딩하여 MP4 파일을 생성하는 경우 새 .mpi 파일이 생성되고 출력 자산에 추가됩니다. 이 MPI 파일은 동적 패키징 및 스트리밍 시나리오의 성능을 향상하기 위해 사용합니다.
+Media Encoder Standard로 인코딩하여 MP4 파일을 생성하는 경우 새 .mpi 파일이 생성되고 출력 자산에 추가됩니다. 이 MPI 파일은 [동적 패키징](dynamic-packaging-overview.md) 및 스트리밍 시나리오의 성능을 향상하기 위해 사용합니다.
 
 MPI 파일을 수정 또는 제거하거나 해당 파일의 존재 여부에 따른 종속성을 서비스에서 사용하지 않아야 합니다.
 

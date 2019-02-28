@@ -4,18 +4,18 @@ description: Azure Portal을 사용하여 IoT Edge 디바이스에 모듈 배포
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8b7327796cf29c8c234c0a750c90e0689f508f7e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969406"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430117"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
@@ -51,6 +51,7 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
    * **IoT Edge 모듈** - 기본 옵션입니다.
    * **Azure Stream Analytics 모듈** - Azure Stream Analytics 워크로드에서 생성된 모듈만 해당합니다.
+   * **Azure Machine Learning 모듈** - Azure Machine Learning 작업 영역에서 생성된 모델 이미지만 해당합니다.
 
 1. **IoT Edge 모듈**을 선택합니다.
 
@@ -82,6 +83,29 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 ## <a name="view-modules-on-your-device"></a>디바이스에서 모듈 보기
 
 디바이스에 모듈을 배포하면 포털의 **디바이스 세부 정보** 페이지에서 모두 볼 수 있습니다. 이 페이지에서는 배포 상태 및 종료 코드와 같은 유용한 정보뿐만 아니라 배포된 각 모듈의 이름을 표시합니다.
+
+## <a name="deploy-modules-from-azure-marketplace"></a>Azure Marketplace에서 모듈 배포
+
+Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules)을 포함하여 Azure에서 실행되도록 인증되고 최적화된 광범위한 엔터프라이즈 애플리케이션 및 솔루션을 검색할 수 있는 온라인 애플리케이션 및 서비스 마켓플레이스입니다. Azure Portal의 **리소스 만들기**에서도 Azure Marketplace에 액세스할 수 있습니다.
+
+Azure Marketplace 또는 Azure Portal에서 IoT Edge 모듈을 설치할 수 있습니다.
+
+1. 모듈을 찾고 배포 프로세스를 시작합니다.
+
+   * Azure Portal: 모듈을 찾고 **만들기**를 선택합니다.
+
+   * Azure Marketplace:
+
+     1. 모듈을 찾고 **지금 가져오기**를 선택합니다.
+     1. **계속**을 선택하여 공급자의 사용 약관 및 개인정보처리방침을 확인합니다.
+
+1. 대상 디바이스가 연결된 구독 및 IoT Hub를 선택합니다.
+
+1. **디바이스에 배포**를 선택합니다.
+
+1. 디바이스 이름을 입력하거나 **디바이스 찾기**를 선택하여 허브에 등록된 디바이스 중에서 찾습니다.
+
+1. 원하는 경우 다른 모듈 추가를 포함하여 배포 매니페스트를 구성하는 표준 프로세스를 계속하려면 **만들기**를 선택합니다. 이미지 URI, 만들기 옵션 및 desired 속성과 같은 새 모듈에 대한 세부 정보가 미리 정의되어 있지만 변경할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

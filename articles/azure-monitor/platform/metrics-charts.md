@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 594ebb6a3c82c9b9dd3ee03a8083abf052d20f49
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991330"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56310940"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기
 
@@ -100,20 +100,6 @@ Azure Monitor 메트릭 탐색기는 Microsoft Azure Portal의 구성 요소이�
    > [!NOTE]
    > 동일한 차원에서 필터링 및 분할을 둘 다 사용하여 시나리오와 관련 없는 세그먼트를 숨기고 차트를 더 쉽게 읽을 수 있습니다.
 
-### <a name="new-alert-rule"></a>새 경고 규칙
-
-또한 설정한 조건을 사용하여 메트릭을 메트릭 기반 경고 규칙의 기본 논리에 대한 기준으로 시각화할 수도 있습니다. 
-
-**새로운 경고 규칙**을 클릭하는 경우
-
-![새로운 경고 규칙 단추가 빨간색으로 강조 표시됨](./media/metrics-charts/015.png)
-
-사용자 지정 경고 규칙을 보다 쉽게 생성할 수 있도록 차트의 기본 메트릭 크기가 미리 채워진 경고 규칙 만들기 창으로 이동됩니다.
-
-![경고 규칙 만들기](./media/metrics-charts/016.png)
-
-메트릭 경고를 설정하는 방법을 자세히 알아보려면 이 [문서](alerts-metric.md)를 확인하세요.
-
 ## <a name="lock-boundaries-of-chart-y-axis"></a>차트 Y축의 경계 잠그기
 
 차트에 더 큰 값의 변경이 더 작게 표시되면 Y축의 범위를 잠그는 것이 중요해집니다. 
@@ -138,6 +124,20 @@ Y축 범위를 제어하려면 “...” 차트 메뉴를 사용하고 **차트 
 차트를 구성한 후에 차트의 오른쪽의 위 모서리에서 **차트 작업** 메뉴를 클릭하고 **대시보드에 고정**을 클릭합니다.
 
 ![메트릭 이미지](./media/metrics-charts/00013.png)
+
+## <a name="create-alert-rules"></a>경고 규칙 만들기
+
+설정한 조건을 사용하여 메트릭을 메트릭 기반 경고 규칙의 토대로 시각화할 수 있습니다. 새 경고 규칙에는 사용자 차트의 대상 리소스, 메트릭, 분할 및 필터 차원이 포함됩니다. 나중에 경고 규칙 생성 창에서 이러한 설정을 수정할 수 있습니다.
+
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>새 경고 규칙을 만들려면 **새 경고 규칙**을 클릭합니다.
+
+![새로운 경고 규칙 단추가 빨간색으로 강조 표시됨](./media/metrics-charts/015.png)
+
+사용자 지정 경고 규칙을 보다 쉽게 생성할 수 있도록 차트의 기본 메트릭 크기가 미리 채워진 경고 규칙 만들기 창으로 이동됩니다.
+
+![경고 규칙 만들기](./media/metrics-charts/016.png)
+
+메트릭 경고를 설정하는 방법을 자세히 알아보려면 이 [문서](alerts-metric.md)를 확인하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

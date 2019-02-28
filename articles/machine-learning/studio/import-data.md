@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 2f401290a4a9150d27685c06c2d4cd9dc2f06f0d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 64a90f0586d5b5010e6b67b59f497317f03f62eb
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730291"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455095"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>다양한 데이터 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져오기
 
@@ -78,6 +78,29 @@ Studio에서는 ***데이터 테이블***이라는 내부 데이터 형식을 �
 필요한 경우 다른 변환 모듈을 사용하여 데이터 테이블 형식을 다시 CSV, TSV, ARFF 또는 SVMLight 형식으로 변환할 수 있습니다.
 모듈 팔레트의 **데이터 형식 변환** 섹션에서 이러한 함수를 수행하는 모듈을 찾습니다.
 
+## <a name="data-capacities"></a>데이터 용량
+
+Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대 10GB 숫자 데이터의 데이터 세트를 지원합니다. 모듈에서 둘 이상의 입력을 사용하는 경우에는 모든 입력 크기의 합계 값이 10GB입니다. Hive 또는 Azure SQL Database 쿼리를 사용하여 더 큰 데이터 세트를 샘플링하거나, 데이터를 가져오기 전에 Learning by Counts 전처리를 사용할 수 있습니다.  
+
+다음 데이터 형식은 기능 정규화 중에 확장할 수 있으며 10GB 미만으로 제한됩니다.
+
+* 스파스
+* 범주
+* 문자열
+* 이진 데이터
+
+다음 모듈은 10GB 미만의 데이터 세트로 제한됩니다.
+
+* Recommender 모듈
+* SMOTE(Synthetic Minority Oversampling Technique) 모듈
+* 스크립팅 모듈: R, Python, SQL
+* 출력 데이터 크기가 입력 데이터 크기보다 클 수 있는 모듈(예: Join 또는 Feature Hashing)
+* Cross-validation, Tune Model Hyperparameters, Ordinal Regression 및 One-vs-All Multiclass(반복 횟수가 매우 많은 경우)
+
+몇 GB보다 큰 데이터 세트의 경우 로컬 파일에서 직접 업로드하지 않고 Azure Storage 또는 Azure SQL Database에 데이터를 업로드하거나 Azure HDInsight를 사용합니다.
+
+[이미지 가져오기](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) 모듈 참조에서 이미지 데이터에 대한 정보를 확인할 수 있습니다.
+
 ## <a name="import-from-a-local-file"></a>로컬 파일에서 가져오기
 
 Studio에서 학습 데이터로 사용하도록 하드 드라이브의 데이터 파일을 업로드할 수 있습니다. 데이터 파일을 가져올 때 작업 영역의 실험에 사용할 수 있도록 데이터 세트 모듈을 만들 수 있습니다.
@@ -131,14 +154,14 @@ Studio 실험에서 온라인 데이터 원본에 액세스하려면 [데이터 
 > 자세한 내용은 [Azure Blob Storage: 핫 및 쿨 스토리지 계층](../../storage/blobs/storage-blob-storage-tiers.md)을 참조하세요.
 
 ### <a name="supported-online-data-sources"></a>지원되는 온라인 데이터 원본
-Azure Machine Learning **데이터 가져오기** 모듈은 다음과 같은 데이터 원본을 지원합니다.
+Azure Machine Learning Studio **데이터 가져오기** 모듈은 다음과 같은 데이터 원본을 지원합니다.
 
 | 데이터 원본 | 설명 | 매개 변수 |
 | --- | --- | --- |
 | HTTP를 통한 웹 URL |HTTP를 사용하는 어떤 웹 URL에서도 데이터를 쉼표로 구분된 값(CSV), 탭으로 구분된 값(TSV), 특성-관계 파일 형식(ARFF) 및 지원 벡터 컴퓨터(SVM-light) 형식으로 읽습니다. |<b>URL</b>: 사이트 URL과 파일 이름을 포함한 파일의 전체 이름을 확장명과 함께 지정합니다. <br/><br/><b>데이터 형식</b>: 지원되는 데이터 형식(CSV, TSV, ARFF 또는 SVM-light) 중 하나를 지정합니다. 데이터에 머리글 행이 있는 경우 해당 행을 사용하여 열 이름을 할당합니다. |
 | Hadoop/HDFS |Hadoop의 분산 저장소에서 데이터를 읽습니다. SQL과 유사한 쿼리 언어인 HiveQL을 사용하여 원하는 데이터를 지정합니다. 또한 HiveQL을 사용하여 Studio에 데이터를 추가하기 전에 데이터를 집계하고 데이터 필터링을 수행할 수 있습니다. |<b>Hive 데이터베이스 쿼리</b>: 데이터 생성에 사용되는 Hive 쿼리를 지정합니다.<br/><br/><b>HCatalog 서버 URI</b>: *&lt;클러스터 이름&gt;.azurehdinsight.net* 형식을 사용하여 클러스터 이름을 지정합니다.<br/><br/><b>Hadoop 사용자 계정 이름</b>: 클러스터 프로비전에 사용되는 Hadoop 사용자 계정 이름을 지정합니다.<br/><br/><b>Hadoop 사용자 계정 암호</b>: 클러스터를 프로비전할 때 사용되는 자격 증명을 지정합니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 만들기](../../hdinsight/hdinsight-provision-clusters.md)를 참조하세요.<br/><br/><b>출력 데이터 위치</b>: 데이터를 Hadoop 분산 파일 시스템(HDFS) 또는 Azure 중 어디에 저장할지 지정합니다. <br/><ul>출력 데이터를 HDFS에 저장하는 경우 HDFS 서버 URI를 지정합니다. (HHDInsight 클러스터 이름을 TTPS:// 접두사 없이 사용해야 합니다.) <br/><br/>Azure에 출력 데이터를 저장하는 경우 Azure Storage 계정 이름, Storage 액세스 키 및 Storage 컨테이너 이름을 지정해야 합니다.</ul> |
 | SQL 데이터베이스 |Azure 가상 머신에서 실행되는 SQL Server 데이터베이스 또는 Azure SQL 데이터베이스에 저장된 데이터를 읽습니다. |<b>데이터베이스 서버 이름</b>: 데이터베이스가 실행되는 서버의 이름을 지정합니다.<br/><ul>Azure SQL Database인 경우 생성된 서비스 이름을 입력합니다. 일반적인 양식은 *&lt;generated_identifier&gt;.database.windows.net*입니다. <br/><br/>Azure Virtual Machines에서 호스트되는 SQL Server인 경우 *tcp:&lt;Virtual Machine DNS 이름&gt;, 1433*을 입력합니다.</ul><br/><b>데이터베이스 이름</b>: 서버의 데이터베이스 이름을 지정합니다. <br/><br/><b>서버 사용자 계정 이름</b>: 데이터베이스에 대한 액세스 권한이 있는 계정의 사용자 이름을 지정합니다. <br/><br/><b>서버 사용자 계정 암호</b>: 사용자 계정의 암호를 지정합니다.<br/><br/><b>데이터베이스 쿼리</b>: 읽을 데이터를 설명하는 SQL 문을 입력합니다. |
-| 온-프레미스 SQL 데이터베이스 |온-프레미스 SQL 데이터베이스에 저장된 데이터를 읽습니다. |<b>데이터 게이트웨이</b>: SQL Server 데이터베이스에 액세스할 수 있는 컴퓨터에 설치된 데이터 관리 게이트웨이의 이름을 지정합니다. 게이트웨이 설정에 대한 자세한 내용은 [온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure Machine Learning을 통해 고급 분석 수행](use-data-from-an-on-premises-sql-server.md)을 참조하세요.<br/><br/><b>데이터베이스 서버 이름</b>: 데이터베이스가 실행되는 서버의 이름을 지정합니다.<br/><br/><b>데이터베이스 이름</b>: 서버의 데이터베이스 이름을 지정합니다. <br/><br/><b>서버 사용자 계정 이름</b>: 데이터베이스에 대한 액세스 권한이 있는 계정의 사용자 이름을 지정합니다. <br/><br/><b>사용자 이름 및 암호</b>: <b>값 입력</b>을 클릭하여 데이터베이스 자격 증명을 입력합니다. 온-프레미스 SQL Server가 구성된 방식에 따라 Windows 통합 인증 또는 SQL Server 인증을 사용할 수 있습니다.<br/><br/><b>데이터베이스 쿼리</b>: 읽을 데이터를 설명하는 SQL 문을 입력합니다. |
+| 온-프레미스 SQL 데이터베이스 |온-프레미스 SQL 데이터베이스에 저장된 데이터를 읽습니다. |<b>데이터 게이트웨이</b>: SQL Server 데이터베이스에 액세스할 수 있는 컴퓨터에 설치된 데이터 관리 게이트웨이의 이름을 지정합니다. 게이트웨이 설정에 대한 자세한 내용은 [온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure Machine Learning Studio를 통해 고급 분석 수행](use-data-from-an-on-premises-sql-server.md)을 참조하세요.<br/><br/><b>데이터베이스 서버 이름</b>: 데이터베이스가 실행되는 서버의 이름을 지정합니다.<br/><br/><b>데이터베이스 이름</b>: 서버의 데이터베이스 이름을 지정합니다. <br/><br/><b>서버 사용자 계정 이름</b>: 데이터베이스에 대한 액세스 권한이 있는 계정의 사용자 이름을 지정합니다. <br/><br/><b>사용자 이름 및 암호</b>: <b>값 입력</b>을 클릭하여 데이터베이스 자격 증명을 입력합니다. 온-프레미스 SQL Server가 구성된 방식에 따라 Windows 통합 인증 또는 SQL Server 인증을 사용할 수 있습니다.<br/><br/><b>데이터베이스 쿼리</b>: 읽을 데이터를 설명하는 SQL 문을 입력합니다. |
 | Azure 테이블 |Azure Storage의 Table service에서 데이터를 읽습니다.<br/><br/>대량의 데이터를 가끔 읽는 경우 Azure 테이블 서비스를 사용해 보세요. 이는 유연하고, 비관계형(NoSQL)이고, 확장성이 매우 뛰어나고, 저렴하고, 가용성이 높은 저장소 솔루션을 제공합니다. |**데이터 가져오기**의 옵션은 공용 정보에 액세스하는지 로그인 자격 증명이 필요한 개인 저장소 계정에 액세스하는지에 따라 달라집니다. 이는 각각 자체의 매개 변수 집합을 가지고 있는 "PublicOrSAS" 또는 "Account"의 값을 가질 수 있는 <b>인증 유형</b>에 의해 결정됩니다. <br/><br/><b>공용 또는 SAS(공유 액세스 서명) URI</b>: 매개 변수는 다음과 같습니다.<br/><br/><ul><b>테이블 URI</b>: 테이블에 대한 공용 또는 SAS URL을 지정합니다.<br/><br/><b>속성 이름에 대해 검색할 행 지정</b>: 지정된 행 수를 검색하려면 값이 <i>TopN</i>이고 테이블의 모든 행을 가려오려면 값이 <i>ScanAll</i>입니다. <br/><br/>데이터가 같은 유형이고 예측이 가능한 경우 *TopN*을 선택하고 N에 해당하는 숫자를 입력하는 것이 좋습니다. 테이블이 큰 경우 이렇게 하면 읽기 시간이 단축될 수 있습니다.<br/><br/>데이터가 테이블의 깊이와 위치에 따라 달라지는 속성 집합으로 구조화되어 있는 경우 *ScanAll* 옵션을 선택하여 모든 행을 검색합니다. 이렇게 하면 결과로 얻는 속성과 메타데이터 변환의 무결성이 확보됩니다.<br/><br/></ul><b>개인 스토리지 계정</b>: 매개 변수는 다음과 같습니다. <br/><br/><ul><b>계정 이름</b>: 읽을 테이블을 포함하는 계정의 이름을 지정합니다.<br/><br/><b>계정 키</b>: 계정과 연결된 스토리지 키를 지정합니다.<br/><br/><b>테이블 이름</b>: 읽을 데이터를 포함하는 테이블의 이름을 지정합니다.<br/><br/><b>속성 이름에 대해 검색할 행</b>: 지정된 행 수를 검색하려면 값이 <i>TopN</i>이고 테이블의 모든 행을 가려오려면 값이 <i>ScanAll</i>입니다.<br/><br/>데이터가 같은 유형이고 예측이 가능한 경우 *TopN*을 선택하고 N에 해당하는 숫자를 입력하는 것이 좋습니다. 테이블이 큰 경우 이렇게 하면 읽기 시간이 단축될 수 있습니다.<br/><br/>데이터가 테이블의 깊이와 위치에 따라 달라지는 속성 집합으로 구조화되어 있는 경우 *ScanAll* 옵션을 선택하여 모든 행을 검색합니다. 이렇게 하면 결과로 얻는 속성과 메타데이터 변환의 무결성이 확보됩니다.<br/><br/> |
 | Azure Blob Storage |Azure Storage의 Blob service에 저장된 이미지, 구조화되지 않은 텍스트 또는 이진 데이터 등의 데이터를 읽습니다.<br/><br/>또한 Blob service를 사용하여 데이터를 공용으로 표시하거나 애플리케이션 데이터를 개인적으로 저장할 수 있습니다. HTTP 또는 HTTPS 연결을 사용하여 어디서나 데이터에 액세스할 수 있습니다. |**데이터 가져오기** 모듈의 옵션은 공용 정보에 액세스하는지 로그인 자격 증명이 필요한 개인 저장소 계정에 액세스하는지에 따라 달라집니다. 이것은 <b>인증 유형</b>에 따라 결정되며 "PublicOrSAS" 또는 "Account" 중 하나의 값을 가질 수 있습니다.<br/><br/><b>공용 또는 SAS(공유 액세스 서명) URI</b>: 매개 변수는 다음과 같습니다.<br/><br/><ul><b>URI</b>: Storage Blob에 대한 공용 또는 SAS URL을 지정합니다.<br/><br/><b>파일 형식</b>: Blob service의 데이터 형식을 지정합니다. 지원되는 형식은 CSV, TSV 및 ARFF입니다.<br/><br/></ul><b>개인 스토리지 계정</b>: 매개 변수는 다음과 같습니다. <br/><br/><ul><b>계정 이름</b>: 읽으려는 Blob을 포함하는 계정의 이름을 지정합니다.<br/><br/><b>계정 키</b>: 계정과 연결된 스토리지 키를 지정합니다.<br/><br/><b>컨테이너, 디렉터리 또는 Blob 경로</b>: 읽을 데이터를 포함하는 Blob의 이름을 지정합니다.<br/><br/><b>Blob 파일 형식</b>: Blob service의 데이터 형식을 지정합니다. 지원되는 데이터 형식은 CSV, TSV, ARFF, 지정된 인코딩의 CSV 및 Excel입니다. <br/><br/><ul>형식이 CSV 또는 TSV인 경우 파일에 머리글 행이 포함되는지 여부를 나타내야 합니다.<br/><br/>Excel 옵션을 사용하여 Excel 통합 문서에서 데이터를 읽을 수 있습니다. <i>Excel 데이터 형식</i> 옵션에서는 데이터가 Excel 워크시트 범위에 있는지 아니면 Excel 테이블에 있는지 여하를 나타냅니다. <i>Excel 시트 또는 포함된 테이블</i> 옵션에서는 읽을 시트 또는 테이블의 이름을 지정합니다.</ul><br/> |
 | 데이터 피드 공급자 |지원되는 피드 공급자에서 데이터를 읽습니다. 현재 ODP(Open Data Protocol) 형식만 지원됩니다. |<b>데이터 콘텐츠 형식</b>: OData 형식을 지정합니다.<br/><br/><b>원본 URL</b>: 데이터 피드에 대한 전체 URL을 지정합니다. <br/>예를 들어 다음 URL은 Northwind 샘플 데이터베이스에서 읽습니다. http://services.odata.org/northwind/northwind.svc/ |

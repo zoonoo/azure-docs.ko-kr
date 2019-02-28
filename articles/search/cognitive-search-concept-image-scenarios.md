@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9e4b9d8cf3300f977824f95aeb14a614d8897abd
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312615"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56430270"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>인식 검색 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
 
@@ -34,7 +34,7 @@ ms.locfileid: "53312615"
 
 | 구성 매개 변수 | 설명 |
 |--------------------|-------------|
-| imageAction   | 포함된 이미지 또는 이미지 파일이 있을 때 아무 작업도 수행하지 않아야 하는 경우 "없음"으로 설정합니다. <br/>정규화된 이미지의 배열을 문서 해독의 일부로 생성하려 "generateNormalizedImages"로 설정합니다. 이러한 이미지는 *normalized_images* 필드에 노출됩니다. <br/>기본값은 "없음"입니다. 이 구성은 "dataToExtract"가 "contentAndMetadata"로 설정된 경우 Blob 데이터 원본에만 관련됩니다. |
+| imageAction   | 포함된 이미지 또는 이미지 파일이 있을 때 아무 작업도 수행하지 않아야 하는 경우 "없음"으로 설정합니다. <br/>정규화된 이미지의 배열을 문서 해독의 일부로 생성하려 "generateNormalizedImages"로 설정합니다.<br/>정규화된 이미지 배열을 생성하려면 “generateNormalizedImagePerPage”로 설정합니다. 여기서 데이터 원본에 있는 PDF의 경우 각 페이지가 하나의 출력 이미지로 렌더링됩니다.  기능은 비 PDF 파일 형식에 대한 “generateNormalizedImages”와 동일합니다.<br/>“none”이 아닌 옵션의 경우 이미지가 *normalized_images* 필드에 공개됩니다. <br/>기본값은 "없음"입니다. 이 구성은 "dataToExtract"가 "contentAndMetadata"로 설정된 경우 Blob 데이터 원본에만 관련됩니다. |
 |  normalizedImageMaxWidth | 정규화된 이미지의 최대 너비(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다.|
 |  normalizedImageMaxHeight | 정규화된 이미지의 최대 높이(픽셀 단위)가 생성되었습니다. 기본값은 2000입니다.|
 
@@ -62,7 +62,7 @@ ms.locfileid: "53312615"
 }
 ```
 
-*imageAction*을 "generateNormalizedImages"로 설정한 경우 새 *normalized_images* 필드에는 이미지의 배열이 포함됩니다. 각 이미지는 다음 멤버가 포함된 복합 형식입니다.
+*imageAction*을 “none” 이외의 값으로 설정한 경우 새 *normalized_images* 필드에는 이미지 배열이 포함됩니다. 각 이미지는 다음 멤버가 포함된 복합 형식입니다.
 
 | 이미지 멤버       | 설명                             |
 |--------------------|-----------------------------------------|

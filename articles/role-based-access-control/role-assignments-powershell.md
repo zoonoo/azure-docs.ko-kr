@@ -1,6 +1,6 @@
 ---
-title: RBAC 및 Azure PowerShell을 사용하여 액세스 관리 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 Azure PowerShell을 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
+title: RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 액세스 관리 | Microsoft Docs
+description: RBAC(역할 기반 액세스 제어) 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자, 그룹 및 애플리케이션의 액세스를 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4e4a920c47dc7f75dc4b6714f101d6cbda715a3a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84fd4262d3b64b369d6307a6a875e8a459324aaa
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106174"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343777"
 ---
-# <a name="manage-access-using-rbac-and-azure-powershell"></a>RBAC 및 Azure PowerShell을 사용하여 액세스 관리
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 액세스 관리
 
-[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 이 문서에서는 RBAC 및 Azure PowerShell을 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 설명합니다.
+[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 문서에서는 RBAC 및 Azure PowerShell을 사용하여 사용자, 그룹 및 애플리케이션의 액세스 권한을 관리하는 방법을 설명합니다.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -326,6 +326,6 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: RBAC 및 Azure PowerShell을 사용하여 그룹에 액세스 권한 부여](tutorial-role-assignments-group-powershell.md)
-- [자습서: Azure PowerShell을 사용하여 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
+- [자습서: RBAC 및 Azure PowerShell을 사용하여 그룹에 Azure 리소스에 대한 액세스 권한 부여](tutorial-role-assignments-group-powershell.md)
+- [자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
 - [Azure PowerShell을 사용하여 리소스 관리](../azure-resource-manager/powershell-azure-resource-manager.md)

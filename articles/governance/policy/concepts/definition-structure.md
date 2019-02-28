@@ -4,17 +4,17 @@ description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: aa334f88d04bb30ce01fe12fecb3aac3c9cd572d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237420"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447789"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -80,7 +80,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 대부분 **mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 수동으로 지정할 수 있습니다. 정책 정의에 **mode** 값이 포함되지 않으면 기본적으로 Azure PowerShell에서는 `all`로 설정되고 Azure CLI에서는 `null`로 설정됩니다. `null` 모드는 이전 버전과의 호환성을 지원하기 위해 `indexed`를 사용하는 것과 같습니다.
 
-`indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroup` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요.
+`indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroups` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -215,7 +215,9 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -227,7 +229,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 **like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다.
 값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
 
-**match** 및 **notMatch** 조건을 사용하는 경우 숫자 하나를 일치시키려면 `#`를, 문자 하나를 일치시키려면 `?`를, 모든 문자를 일치시키려면 `.`를, 실제 문자와 일치시키려면 다른 문자를 입력합니다. 예를 들어 [여러 이름 패턴 허용](../samples/allow-multiple-name-patterns.md)을 참조하세요.
+**match** 및 **notMatch** 조건을 사용하는 경우 숫자 하나를 일치시키려면 `#`를, 문자 하나를 일치시키려면 `?`를, 모든 문자를 일치시키려면 `.`를, 실제 문자와 일치시키려면 다른 문자를 입력합니다.
+**match** 및 **notMatch**는 대/소문자를 구분합니다. 대/소문자를 구분하지 않는 대안은 **matchInsensitively** 및 **notMatchInsensitively**에서 확인할 수 있습니다. 예를 들어 [여러 이름 패턴 허용](../samples/allow-multiple-name-patterns.md)을 참조하세요.
 
 ### <a name="fields"></a>필드
 
@@ -245,15 +248,41 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `identity.type`
   - 리소스에서 사용 가능한 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md) 형식을 반환합니다.
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - 이 대괄호 구문은 하이픈, 마침표, 공백 등의 문장 부호가 있는 태그 이름을 지원합니다.
   - 여기서 **\<tagName\>** 은 조건의 유효성을 검사하기 위한 태그 이름입니다.
-  - 예: `tags.CostCenter` 여기서 **CostCenter**는 태그의 이름입니다.
-- `tags[<tagName>]`
-  - 이 대괄호 구문은 마침표가 있는 태그 이름을 지원합니다.
-  - 여기서 **\<tagName\>** 은 조건의 유효성을 검사하기 위한 태그 이름입니다.
-  - 예: `tags[Acct.CostCenter]` 여기서 **Acct.CostCenter**는 태그의 이름입니다.
-
+  - 예: `tags['Acct.CostCenter']`. 여기서 **Acct.CostCenter**는 태그 이름입니다.
+- `tags['''<tagName>''']`
+  - 이 대괄호 구문은 이중 아포스트로피로 이스케이프 처리하여 아포스트로피가 있는 태그 이름을 지원합니다.
+  - 여기서 **‘\<tagName\>’** 은 조건의 유효성을 검사할 태그 이름입니다.
+  - 예: `tags['''My.Apostrophe.Tag''']`. 여기서 **‘\<tagName\>’** 은 태그 이름입니다.
 - 속성 별칭 - 목록은 [별칭](#aliases)을 참조하세요.
+
+> [!NOTE]
+> `tags.<tagName>`, `tags[tagName]` 및 `tags[tag.with.dots]`도 여전히 허용되는 태그 필드 선언 방법입니다.
+> 그러나 기본 식은 위에 나열된 식입니다.
+
+#### <a name="use-tags-with-parameters"></a>매개 변수와 함께 태그 사용
+
+매개 변수 값을 태그 필드에 전달할 수 있습니다. 매개 변수를 태그 필드에 전달하면 정책 할당 중에 정책 정의의 유연성이 증가합니다.
+
+다음 예제에서 `concat`는 이름이 **tagName** 매개 변수의 값인 태그에 대한 태그 필드 조회를 만드는 데 사용됩니다. 해당 태그가 없는 경우 **append** 효과를 사용하여 `resourcegroup()` 조회 함수를 통해 감사된 리소스 부모 리소스 그룹에 설정된 동일한 이름의 태그 값을 사용하는 태그를 추가합니다.
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
 
 ### <a name="value"></a>값
 
@@ -341,7 +370,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ### <a name="policy-functions"></a>정책 함수
 
-다음 배포 및 리소스 함수를 제외하고 모든 [Resource Manager 템플릿 함수](../../../azure-resource-manager/resource-group-template-functions.md)를 정책 규칙 내에서 사용할 수 있습니다.
+정책 규칙 내에서 다음 함수를 제외한 모든 [Resource Manager 템플릿 함수](../../../azure-resource-manager/resource-group-template-functions.md)를 사용할 수 있습니다.
 
 - copyIndex()
 - deployment()
@@ -353,7 +382,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 `field` 함수도 정책 규칙에 사용할 수 있습니다. `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
 
-#### <a name="policy-function-examples"></a>정책 함수 예제
+#### <a name="policy-function-example"></a>정책 함수 예제
 
 이 정책 규칙 예제에서는 `resourceGroup` 리소스 함수를 `concat` 배열 및 개체 함수와 함께 사용하여 **name** 속성을 가져오고 리소스 이름을 리소스 그룹 이름으로 시작하도록 하는 `like` 조건을 작성합니다.
 
@@ -367,24 +396,6 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-이 정책 규칙 예제에서는 `resourceGroup` 리소스 함수를 사용하여 리소스 그룹에서 **CostCenter** 태그의 **tags** 속성 배열 값을 가져오고 **CostCenter** 태그를 새 리소스에 추가합니다.
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```

@@ -1,6 +1,6 @@
 ---
-title: Data Factory를 사용하여 Azure Data Lake Storage Gen2 미리 보기 간에 데이터 복사(미리 보기) | Microsoft Docs
-description: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 미리 보기 간에 데이터를 복사하는 방법에 대해 알아봅니다.
+title: Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사 | Microsoft Docs
+description: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터를 복사하는 방법을 알아봅니다.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -8,18 +8,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e8bc85a309a8c6755f1efae1ca702720cf01477
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7a01b4baa9dafba4f0193c7a73dc1ae44214f501
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662316"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311584"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 미리 보기 간에 데이터 복사(미리 보기)
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2 간에 데이터 복사
 
-Azure Data Lake Storage Gen2 미리 보기는 [Azure Blob 스토리지](../storage/blobs/storage-blobs-introduction.md)에 구축된 빅 데이터 분석 전용의 기능 세트입니다. 이를 사용하면 파일 시스템 및 개체 저장소 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다.
+Azure Data Lake Storage Gen2는 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)를 기반으로 하는 빅 데이터 분석 전용의 기능 세트입니다. 이를 사용하면 파일 시스템 및 개체 저장소 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다.
 
 이 아티클에서는 Azure Data Factory의 복사 작업을 사용하여 ata Lake Storage Gen2 간에 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
