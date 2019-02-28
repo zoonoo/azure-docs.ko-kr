@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.openlocfilehash: 7798af5d667bcf70ba562bb7198f9af570f3005a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 57ed02463555ce9e958aedd9c2b317f7a167567b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044419"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985889"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,7 +36,6 @@ Table Storage 또는 Azure Cosmos DB Table API를 사용하여 웹 애플리케�
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Common Library for .NET(미리 보기)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - 프로덕션 환경에서 지원되는 필수 미리 보기 패키지입니다. 
 * [Microsoft Azure CosmosDB Table Library for.NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - 이 라이브러리는 현재 .NET 표준에만 제공되고, .NET Core에는 제공되지 않습니다.
-* [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure 저장소 계정](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -77,14 +76,11 @@ Azure 클라우드 서비스, 웹앱, 바탕화면 및 모바일 애플리케이
 
 * [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 이 패키지는 Azure Table Storage 계정 또는 Azure Cosmos DB 테이블 API 계정에서 데이터 리소스에 대한 프로그래밍 방식의 액세스를 제공합니다. 이 라이브러리는 현재 .NET 표준에만 제공되고, .NET Core에는 제공되지 않습니다.
 
-* [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): 이 패키지는 애플리케이션을 실행하는 위치와 관계없이 구성 파일에서 연결 문자열을 구문 분석하기 위한 클래스를 제공합니다.
-
 NuGet 패키지를 가져오려면 다음 단계를 수행합니다.
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 2. 온라인에서 "Microsoft.Azure.Storage.Common"을 검색하고, 9.0.0.1 이하 버전을 선택하고, **설치**를 선택하여 .NET용 Azure Storage 공통 라이브러리(미리 보기)와 해당 종속성을 설치합니다. 미리 보기 패키지이므로 **시험판 포함** 상자를 선택합니다.
 3. 온라인에서 "Microsoft.Azure.CosmosDB.Table"을 검색하고 **설치**를 선택하여 Microsoft Azure CosmosDB 테이블 라이브러리를 설치합니다.
-4. 온라인에서 "WindowsAzure.ConfigurationManager"를 검색하고 **설치**를 선택하여 Microsoft Azure Configuration Manager 라이브러리를 설치합니다.
 
 > [!NOTE]
 > Storage Common Library for .NET의 ODataLib 종속성은 WCF Data Services가 아니라 NuGet에서 사용 가능한 ODataLib 패키지에 의해 확인됩니다. ODataLib 라이브러리는 직접 다운로드하거나 NuGet을 통해 코드 프로젝트에서 참조할 수 있습니다. Storage 클라이언트 라이브러리에서 사용되는 특정 ODataLib 패키지는 [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) 및 [Spatial](https://nuget.org/packages/System.Spatial/)입니다. 이러한 라이브러리는 Azure Table Storage 클래스에서 사용하는 동안 Storage 공통 라이브러리를 통한 프로그래밍의 필수 종속성입니다.
@@ -172,7 +168,7 @@ using Microsoft.Azure.CosmosDB.Table; // Namespace for Table storage types
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 ```
 
-이제 데이터를 읽어 오고 테이블 저장소에 데이터를 기록하는 코드를 작성할 준비가 되었습니다.
+이제 데이터를 읽어 오고 Table Storage에 데이터를 기록하는 코드를 작성할 준비가 되었습니다.
 
 ## <a name="create-a-table"></a>테이블 만들기
 이 예제에서는 테이블이 없는 경우 만드는 방법을 보여 줍니다.
@@ -562,7 +558,7 @@ do
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
+이제 Table Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 스토리지 작업에 대해 알아보세요.
 
 * [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [.NET에서 Azure Table Storage 시작](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
@@ -571,7 +567,7 @@ do
 * [REST API 참조](https://msdn.microsoft.com/library/azure/dd179355)
 *  [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
-* [.NET을 사용하여 Azure Blob 저장소를 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md) 하여 구조화되지 않은 데이터를 저장합니다.
+* 특히 다음 섹션에서 Azure File Storage를 Azure 가상 시스템에 탑재하려면 이 파일이 필요합니다.
 * [.NET(C#)을 사용하여 SQL Database에 연결](../sql-database/sql-database-develop-dotnet-simple.md)하여 관계형 데이터를 저장합니다.
 
 [Download and install the Azure SDK for .NET]: /develop/net/

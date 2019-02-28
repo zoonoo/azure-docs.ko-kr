@@ -1,5 +1,5 @@
 ---
-title: 작업 영역 만들기
+title: Machine Learning Studio 작업 영역 만들기
 titleSuffix: Azure Machine Learning Studio
 description: Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
 services: machine-learning
@@ -10,24 +10,23 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 16c67c217c8ef33a360fd479a45317d6c42af494
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bcd5b377f00ad43ff727c581471aad3ac651bdbb
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486320"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270104"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Azure Machine Learning Studio 작업 영역 만들기 및 공유
 
 Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
 
+## <a name="create-a-studio-workspace"></a>Studio 작업 영역 만들기
 
-
-### <a name="to-create-a-workspace"></a>작업 영역을 만들려면
 1.  [Azure 포털](https://portal.azure.com/)
 
     > [!NOTE]
-    > 로그인하여 작업 영역을 만들려면 Azure 구독 관리자여야 합니다. 
+    > 로그인하여 Studio 작업 영역을 만들려면 Azure 구독 관리자여야 합니다. 
     >
     > 
 
@@ -40,9 +39,13 @@ Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 
     - *작업 영역 이름*은 공백으로 끝나지 않고 최대 260자로 구성할 수 있습니다. 이름에는 다음과 같은 문자를 포함하지 않아야 합니다. `< > * % & : \ ? + /`
     - 사용자가 선택하거나 만든 *웹 서비스 계획*은 사용자가 선택한 연결된 *가격 책정 계층*과 함께, 이 작업 영역에서 웹 서비스를 배포하는 경우 사용됩니다.
 
-    ![새 작업 영역 만들기](./media/create-workspace/create-new-workspace.png)
+    ![새 Studio 작업 영역 만들기](./media/create-workspace/create-new-workspace.png)
 
 5. **만들기**를 클릭합니다.
+
+> [!NOTE]
+> Machine Learning Studio는 워크플로를 실행할 때 사용자가 제공한 Azure Storage 계정을 사용하여 중간 데이터를 저장합니다. 작업 영역을 만든 후 스토리지 계정을 삭제하거나 액세스 키를 변경하는 경우 해당 작업 영역의 작동이 중지되고 작업 영역의 모든 실험이 실패합니다.
+스토리지 계정을 실수로 삭제한 경우 삭제한 스토리지 계정과 동일한 지역에 동일한 이름으로 스토리지 계정을 다시 만들고 액세스 키를 다시 동기화합니다. 저장소 계정 액세스 키를 변경한 경우에는, Azure Portal을 사용하여 작업 영역에서 액세스 키를 다시 동기화합니다.
 
 작업 영역이 배포되면 Machine Learning Studio에서 열 수 있습니다.
 
@@ -56,12 +59,12 @@ Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 
 
     ![실험 열기](./media/create-workspace/my-experiments.png)
 
-작업 영역을 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning 작업 영역 관리](manage-workspace.md)를 참조하세요.
-작업 영역을 만드는 데 문제가 있으면 [문제 해결 가이드: Machine Learning 작업 영역 만들기 및 연결](troubleshooting-creating-ml-workspace.md)을 참조하세요.
+Studio 작업 영역을 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio 작업 영역 관리](manage-workspace.md)를 참조하세요.
+작업 영역을 만드는 데 문제가 있으면 [문제 해결 가이드: Machine Learning Studio 작업 영역 만들기 및 연결](troubleshooting-creating-ml-workspace.md)을 참조하세요.
 
 
-## <a name="sharing-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 공유
-Machine Learning 작업 영역이 만들어진 후에는 사용자를 작업 영역에 초대하고 작업 영역과 모든 실험, 데이터 세트, Notebook 등에 대한 액세스를 공유할 수 있습니다. 이 두 역할 중 하나에 사용자를 추가할 수 있습니다.
+## <a name="share-an-azure-machine-learning-studio-workspace"></a>Azure Machine Learning Studio 작업 영역 공유
+Machine Learning Studio 작업 영역이 만들어진 후에는 사용자를 작업 영역에 초대하고 작업 영역과 모든 실험, 데이터 세트, Notebook 등에 대한 액세스를 공유할 수 있습니다. 이 두 역할 중 하나에 사용자를 추가할 수 있습니다.
 
 * **사용자** - 작업 영역 사용자는 작업 영역에서 실험, 데이터 세트 등을 만들기, 열기, 수정 및 삭제할 수 있습니다.
 * **소유자** - 소유자는 사용자가 수행할 수 있는 작업 외에도 작업 영역에 사용자를 초대 및 제거할 수 있습니다.
@@ -71,7 +74,7 @@ Machine Learning 작업 영역이 만들어진 후에는 사용자를 작업 영
 > 
 > 
 
-### <a name="to-share-a-workspace"></a>작업 영역을 공유하려면
+### <a name="to-share-a-studio-workspace"></a>Studio 작업 영역을 공유하려면 다음을 수행합니다.
 
 1. [https://studio.azureml.net/Home](https://studio.azureml.net/Home)의 Machine Learning Studio에 로그인합니다.
 

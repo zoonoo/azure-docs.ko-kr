@@ -1,37 +1,35 @@
 ---
 title: Azure Portal에서 Azure Search 인덱스 만들기 - Azure Search
-description: 기본 제공 포털 인덱스 디자이너를 사용하여 Azure Search에 대한 인덱스를 만드는 방법에 대해 알아봅니다.
+description: 기본 제공 포털 인덱스 디자이너를 사용하여 Azure Search에 대한 인덱스를 만드는 방법을 알아봅니다.
 manager: cgronlun
 author: heidisteen
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 02/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4bba8b41418dadad1b241d60ab0b7aeee4c046d7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6a2bac71c37cc750eb24e3492ecdcdf0b2333cce
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316712"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338838"
 ---
-# <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Search 인덱스를 만드는 방법
+# <a name="create-an-azure-search-index-in-the-portal"></a>포털에서 Azure Search 인덱스 만들기
 
 Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되는 [검색 인덱스](search-what-is-an-index.md)를 만드는 데 유용한 기본 제공 인덱스 디자이너를 포털에 포함합니다. 이 도구는 스키마 생성에 사용됩니다. 정의를 저장하면 빈 인덱스가 Azure Search에서 완전히 표현됩니다. 검색 가능한 데이터로 로드하는 방식은 사용자가 정합니다.
 
 인덱스 디자이너는 인덱스를 만들기 위한 유일한 방법입니다. 프로그래밍 방식으로 [.NET](search-create-index-dotnet.md) 또는 [REST](search-create-index-rest-api.md) API를 사용하여 인덱스를 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
-
-이 문서에서는 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) 및 [Azure Search 서비스](search-create-service-portal.md)를 사용하는 것으로 가정합니다.
-
-## <a name="open-index-designer-and-name-an-index"></a>인덱스 디자이너를 열고 인덱스 이름 지정
+## <a name="start-index-designer"></a>인덱스 디자이너 시작
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 서비스 대시보드를 엽니다. 표시줄에서 **모든 서비스**를 클릭하면 현재 구독에서 기존 "검색 서비스"를 검색할 수 있습니다. 
 
-2.  페이지 맨 위에 있는 명령 모음에서 **인덱스 추가** 단추를 클릭합니다.
+2. 페이지 맨 위에 있는 명령 모음에서 **인덱스 추가** 링크를 클릭합니다.
+
+   ![명령 모음의 인덱스 추가 링크](media/search-create-index-portal/add-index.png "명령 모음의 인덱스 추가 링크")
 
 3. Azure Search 인덱스를 명명합니다. 인덱스 이름은 인덱싱 및 쿼리 작업에서 참조됩니다. 인덱스 이름은 인덱스로의 연결 및 Azure Search REST API에서 HTTP 요청을 보내는 데 사용된 엔드포인트 URL의 일부가 됩니다.
 
@@ -39,39 +37,31 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
    * 소문자, 숫자 또는 대시(“-”)만 사용합니다.
    * 이름은 60자로 제한합니다.
 
-## <a name="define-the-fields-of-your-index"></a>인덱스의 필드 정의
+## <a name="add-fields"></a>필드 추가
 
 인덱스 컴퍼지션은 인덱스에서 검색 가능한 데이터를 정의하는 *필드 컬렉션*을 포함합니다. 필드 컬렉션은 모두 개별적으로 업로드하는 문서 구조를 지정합니다. 필드 컬렉션에는 필드가 사용되는 방식을 결정하는 인덱스 특성과 함께 이름 및 형식이 지정된 필수 및 옵션 필드가 포함됩니다.
 
-1. **인덱스 추가** 블레이드에서 **필드 >** 를 클릭하여 필드 정의 블레이드를 엽니다. 
+1. 업로드할 문서를 완전히 지정하는 필드를 추가하고 각 필드의 [데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)을 설정합니다. 예를 들어 문서가 *hotel-id*, *hotel-name*, *address*, *city* 및 *region*으로 구성된 경우 인덱스에 각 항목의 해당 필드를 만듭니다. 특성 설정에 대한 도움말은 [아래 섹션의 디자인 지침](#design)을 참조하세요.
 
-2. Edm.String 형식으로 생성된 *키* 필드를 허용합니다. 기본적으로 필드 이름은 *id*로 지정되지만 문자열이 [명명 규칙](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)을 충족하기만 하면 이름을 변경할 수 있습니다. 키 필드는 모든 Azure Search 인덱스에 필수이며 문자열이어야 합니다.
+2. Edm.String 형식의 *key* 필드를 지정합니다. 이 필드의 값은 각 문서를 고유하게 식별해야 합니다. 기본적으로 필드 이름은 *id*로 지정되지만 문자열이 [명명 규칙](https://docs.microsoft.com/rest/api/searchservice/Naming-rules)을 충족하기만 하면 이름을 변경할 수 있습니다. 예를 들어 필드 컬렉션에 *hotel-id*가 포함된 경우 해당 필드를 키로 선택합니다. 키 필드는 모든 Azure Search 인덱스에 필수이며 문자열이어야 합니다.
 
-3. 업로드할 문서를 완전히 지정하는 필드를 추가합니다. 문서는 *id*, *호텔 이름*, *주소*, *도시* 및 *지역*으로 구성되며 인덱스에서 각 항목에 해당 필드를 만듭니다. 특성 설정에 대한 도움말은 [아래 섹션의 디자인 지침](#design)을 검토하세요.
+3. 각 필드의 특성을 설정합니다. 인덱스 디자이너는 데이터 형식에 유효하지 않은 모든 특성을 제외하지만 포함할 특성을 제안하지는 않습니다. 특성의 용도를 파악하려면 다음 섹션의 지침을 참조하세요.
 
-4. 필요에 따라 필터 식에 내부적으로 사용되는 필드를 추가합니다. 검색 작업에서 필드를 제외하도록 필드의 특성을 설정할 수 있습니다.
+    Azure Search API 설명서에는 간단한 *호텔* 인덱스를 제공하는 코드 예제가 들어 있습니다. 아래 스크린샷에서는 인덱스 정의 중에 지정된 프랑스어 분석기를 포함한 인덱스 정의를 확인할 수 있으며, 포털에서 연습으로 다시 만들 수 있습니다.
 
-5. 완료되면 **확인**을 클릭하여 인덱스를 저장하고 만듭니다.
+    ![Hotels 데모 인덱스](media/search-create-index-portal/field-definitions.png "Hotels 데모 인덱스")
 
-## <a name="tips-for-adding-fields"></a>필드 추가를 위한 팁
-
-포털에서 인덱스를 만들 경우 키보드를 많이 사용해야 합니다. 이 워크플로에 따라 단계를 최소화합니다.
-
-1. 먼저, 이름을 입력하고 데이터 형식을 설정하여 필드 목록을 작성합니다.
-
-2. 다음으로, 각 특성의 맨 위에 있는 확인란을 사용하여 모든 필드에 대한 설정을 일괄적으로 사용한 후 필요하지 않은 일부 필드의 확인란은 선택적으로 해제합니다. 예를 들어 문자열 필드는 일반적으로 검색할 수 있습니다. 이와 같이 **조회 가능** 및 **검색 가능**을 클릭하여 검색 결과에서 필드 값을 반환할 수 있을 뿐만 아니라 해당 필드에서 전체 텍스트 검색을 허용할 수 있습니다. 
+4. 완료되면 **만들기**를 클릭하여 인덱스를 저장하고 만듭니다.
 
 <a name="design"></a>
 
-## <a name="design-guidance-for-setting-attributes"></a>특성 설정을 위한 디자인 지침
+## <a name="set-attributes"></a>특성 설정
 
 언제든지 새 필드를 추가할 수 있지만 기존 필드 정의는 인덱스 수명 동안 잠겨 있습니다. 이러한 이유로 개발자는 일반적으로 포털을 사용하여 간단한 인덱스를 만들거나 아이디어를 테스트하거나 포털 페이지를 사용하여 설정을 조회합니다. 인덱스를 쉽게 다시 작성할 수 있도록 코드 기반 접근 방식을 따르는 경우 인덱스 대한 빈번한 반복 디자인이 보다 효율적입니다.
 
-인덱스를 저장하기 전에 분석기 및 확인기를 필드와 연결합니다. 각 탭 페이지를 클릭하여 언어 분석기 및 확인기를 인덱스 정의에 추가해야 합니다.
+인덱스를 저장하기 전에 분석기 및 확인기를 필드와 연결합니다. 만드는 동안 인덱스 정의에 언어 분석기 또는 제안기를 추가해야 합니다.
 
-문자열 필드는 보통 **검색 가능** 및 **조회 가능**으로 표시됩니다.
-
-검색 결과 범위를 좁히는 데 사용되는 필드는 **정렬 가능**, **필터링 가능** 및 **패싯 가능**이 있습니다.
+문자열 필드는 보통 **검색 가능** 및 **조회 가능**으로 표시됩니다. 검색 결과 범위를 좁히는 데 사용되는 필드는 **정렬 가능**, **필터링 가능** 및 **패싯 가능**이 있습니다.
 
 필드 특성에 따라 필드가 사용되는 방식(즉, 전체 텍스트 검색, 패싯 탐색, 정렬 작업 등)이 결정됩니다. 아래 표에서 각 특성에 대해 설명합니다.
 
@@ -84,19 +74,11 @@ Azure Search는 프로토타입이나 Azure Search 서비스에서 호스트되�
 |**key**|인덱스 내의 문서에 대한 고유 식별자입니다. 정확히 하나의 필드를 키 필드로 선택해야 하며 해당 필드의 형식은 `Edm.String`이어야 합니다.|  
 |**조회 가능**|검색 결과에서 필드를 반환할 수 있는지 여부를 결정합니다. *이익률* 등의 필드를 필터, 정렬 또는 점수 매기기 메커니즘으로 사용하며 최종 사용자에게는 필드를 표시하지 않으려는 경우 이 기능을 사용하면 유용합니다.  `true` for `key` 로 설정해야 합니다.|  
 
-## <a name="create-the-hotels-index-used-in-example-api-sections"></a>예제 API 섹션에 사용된 호텔 인덱스 만들기
-
-Azure Search API 설명서에는 간단한 *호텔* 인덱스를 제공하는 코드 예제가 들어 있습니다. 아래 스크린샷에서는 인덱스 정의 중에 지정된 프랑스어 분석기를 포함한 인덱스 정의를 확인할 수 있으며 이것은 포털에서 연습으로 다시 만들 수 있습니다.
-
-![](./media/search-create-index-portal/field-definitions.png)
-
-![](./media/search-create-index-portal/set-analyzer.png)
-
 ## <a name="next-steps"></a>다음 단계
 
 Azure Search 인덱스를 만든 후에는 다음 단계로 이동할 수 있습니다. [검색 가능한 데이터를 인덱스에 업로드](search-what-is-data-import.md).
 
-또는 인덱스를 보다 자세히 살펴볼 수도 있습니다. 필드 컬렉션 외에도 인덱스는 분석기, 확인기, 점수 매기기 프로필 및 CORS 설정도 지정합니다. 포털은 필드, 분석기 및 확인기와 같은 가장 일반적인 요소를 정의하기 위한 탭 페이지를 제공합니다. 다른 요소를 만들거나 수정하려면 REST API 또는 .NET SDK를 만들면 됩니다.
+또는 [인덱스를 보다 자세히 살펴볼](search-what-is-an-index.md) 수도 있습니다. 필드 컬렉션 외에도 인덱스는 분석기, 확인기, 점수 매기기 프로필 및 CORS 설정도 지정합니다. 포털은 필드, 분석기 및 확인기와 같은 가장 일반적인 요소를 정의하기 위한 탭 페이지를 제공합니다. 다른 요소를 만들거나 수정하려면 REST API 또는 .NET SDK를 만들면 됩니다.
 
 ## <a name="see-also"></a>참고 항목
 

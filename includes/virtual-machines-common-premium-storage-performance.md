@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 40e0230e6a8e03aa53a24f2497fcd016909c0ada
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e2dc82ee49b240fe562f02b38c4991c644c010d3
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55757577"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56334057"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 디자인
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
 이 문서는 Azure Premium Storage를 사용하여 고성능 애플리케이션을 빌드하기 위한 지침을 제공합니다. 애플리케이션에서 사용되는 기술에 적용 가능한 성능 모범 사례가 결합된 이 문서에 제공된 지침을 사용할 수 있습니다. 지침을 설명하기 위해 이 문서 전체에서 한 예로 Premium Storage에서 실행되는 SQL Server를 사용했습니다.
 
@@ -35,7 +35,7 @@ Premium Storage에서 실행되는 작업은 성능이 매우 중요하므로 �
 > 경우에 따라 디스크 성능 문제로 보이는 것은 실제로 네트워크 병목 현상입니다. 이러한 상황에서 [네트워크 성능](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md)을 최적화해야 합니다.
 > VM에서 가속화된 네트워킹을 지원하는 경우 VM이 활성화되어 있는지 확인해야 합니다. 활성화되어 있지 않으면 [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 및 [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) 모두에 이미 배포된 VM에서 활성화할 수 있습니다.
 
-시작하기 전에 Premium Storage를 처음 사용하는 경우 먼저 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../articles/virtual-machines/windows/premium-storage.md) 및 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) 문서를 읽어 보세요.
+시작하기 전에 Premium Storage를 처음 사용하는 경우 먼저 [IaaS VM에 대한 Azure 디스크 유형 선택](../articles/storage/common/storage-scalability-targets.md) 및 ](../articles/virtual-machines/windows/disks-types.md)Azure Storage 확장성 및 성능 목표[ 문서를 읽어 보세요.
 
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -45,45 +45,37 @@ Premium Storage에서 실행되는 작업은 성능이 매우 중요하므로 �
 
 ## <a name="iops"></a>IOPS
 
-IOPS는 애플리케이션에서 스토리지 디스크에 1초 동안 보내는 요청 수입니다. 입력/출력 작업은 읽기나 쓰기, 순차 또는 임의가 될 수 있습니다. 온라인 소매 웹 사이트와 같은 OLTP 애플리케이션은 많은 동시 사용자 요청을 즉시 처리해야 합니다. 사용자 요청은 애플리케이션에서 신속하게 처리해야 할 삽입 및 업데이트 집약적 데이터베이스 트랜잭션입니다. 따라서 OLTP 애플리케이션에는 매우 높은 IOPS가 필요합니다. 이러한 애플리케이션에서는 수백만 개의 작고 임의의 IO 요청을 처리합니다. 이러한 애플리케이션을 사용하는 경우 IOPS에 대해 최적화하기 위해 애플리케이션 인프라를 설계해야 합니다. 이후 섹션 *애플리케이션 성능 최적화*에서 높은 IOPS를 얻기 위해는 고려해야 하는 모든 요소를 자세히 설명합니다.
+IOPS, 즉 초당 입/출력 작업은 애플리케이션에서 스토리지 디스크에 1초 동안 보내는 요청 수입니다. 입력/출력 작업은 읽기나 쓰기, 순차 또는 임의가 될 수 있습니다. 온라인 소매 웹 사이트와 같은 OLTP(온라인 트랜잭션 처리) 애플리케이션은 많은 동시 사용자 요청을 즉시 처리해야 합니다. 사용자 요청은 애플리케이션에서 신속하게 처리해야 할 삽입 및 업데이트 집약적 데이터베이스 트랜잭션입니다. 따라서 OLTP 애플리케이션에는 매우 높은 IOPS가 필요합니다. 이러한 애플리케이션에서는 수백만 개의 작고 임의의 IO 요청을 처리합니다. 이러한 애플리케이션을 사용하는 경우 IOPS에 대해 최적화하기 위해 애플리케이션 인프라를 설계해야 합니다. 이후 섹션 *애플리케이션 성능 최적화*에서 높은 IOPS를 얻기 위해는 고려해야 하는 모든 요소를 자세히 설명합니다.
 
 높은 확장성의 VM에 Premium Storage에 디스크를 연결하는 경우 Azure는 디스크 사양에 따라 보장된 IOPS 수에 대해 프로비전합니다. 예를 들어 P50 디스크는 7500IOPS를 프로비전합니다. 각 높은 확장성의 VM 크기에는 유지할 수 있는 특정 IOPS 제한이 있습니다. 예를 들어 표준 GS5 VM에는 80,000 IOPS 제한이 있습니다.
 
 ## <a name="throughput"></a>처리량
 
-처리량 또는 대역폭은 애플리케이션이 지정된 간격의 스토리지 디스크에 보내는 데이터의 양입니다. 애플리케이션이 대량 IO 단위 크기를 사용하여 입력/출력 작업을 수행하는 경우 높은 처리량이 필요합니다. 데이터 웨어하우스 애플리케이션은 한 번에 많은 양의 데이터에 액세스하고 일반적으로 대량 작업을 수행하는 스캔 집약적인 작업을 실행하는 경향이 있습니다. 즉, 이러한 애플리케이션에는 더 높은 처리량이 필요합니다. 이러한 애플리케이션을 사용하는 경우 처리량에 대해 최적화하기 위해 해당 인프라를 설계해야 합니다. 다음 섹션에서 이를 달성하기 위해 조정해야 하는 요인을 자세히 설명합니다.
+처리량 또는 대역폭은 애플리케이션이 지정된 간격의 스토리지 디스크에 보내는 데이터의 양입니다. 애플리케이션이 대규모 IO 단위 크기를 사용하여 입/출력 작업을 수행하는 경우 높은 처리량이 필요합니다. 데이터 웨어하우스 애플리케이션은 한 번에 많은 양의 데이터에 액세스하고 일반적으로 대량 작업을 수행하는 스캔 집약적인 작업을 실행하는 경향이 있습니다. 즉, 이러한 애플리케이션에는 더 높은 처리량이 필요합니다. 해당 애플리케이션을 사용하는 경우 처리량에 대해 최적화하기 위해 해당 인프라를 설계해야 합니다. 다음 섹션에서 이를 달성하기 위해 조정해야 하는 요인을 자세히 설명합니다.
 
-Premium Storage 디스크를 높은 확장성의 VM에 연결하는 경우 Azure는 해당 디스크 사양에 따라 처리량을 프로비전합니다. 예를 들어 P50 디스크는 초당 250MB 디스크 처리량을 프로비전합니다. 높은 확장성의 VM 크기마다 유지할 수 있는 특정 처리량 제한이 있습니다. 예를 들어 표준 GS5 VM에는 초당 2,000MB의 최대 처리량이 있습니다. 
+Premium Storage 디스크를 대규모 VM에 연결하는 경우 Azure는 해당 디스크 사양에 따라 처리량을 프로비전합니다. 예를 들어 P50 디스크는 초당 250MB 디스크 처리량을 프로비전합니다. 대규모 VM 크기마다 유지할 수 있는 특정 처리량 한도가 있습니다. 예를 들어 표준 GS5 VM에는 초당 2,000MB의 최대 처리량이 있습니다.
 
-아래 수식에 표시된 것처럼 처리량과 IOPS 간에 관계가 있습니다.
+아래 수식에 표시된 것처럼 처리량과 IOPS 간에는 관계가 있습니다.
 
-![](media/premium-storage-performance/image1.png)
+![IOPS 및 처리량의 관계](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
 
 따라서 애플리케이션에 필요한 최적의 처리량 및 IOPS 값을 결정하는 것이 중요합니다. 하나를 최적화하려고 할 때 다른 하나도 영향을 받습니다. 이후 섹션 *애플리케이션 성능 최적화*에서 IOPS 및 처리량 최적화에 대한 자세한 정보에 대해 설명합니다.
 
 ## <a name="latency"></a>대기 시간
 
-대기 시간은 애플리케이션이 단일 요청을 수신하고 이를 스토리지 디스크에 보내고 클라이언트에 응답을 보내는데 걸리는 시간입니다. 이는 IOPS 및 처리량 외에도 애플리케이션의 성능에 대한 중요한 측정입니다. Premium Storage 디스크의 대기 시간은 요청에 대한 정보를 검색하고 응용 프로그램에게 다시 전달하는데 걸리는 시간입니다. Premium Storage는 일관된 낮은 대기 시간을 제공합니다. Premium Storage 디스크에 읽기 전용 호스트 캐싱을 사용하는 경우 훨씬 더 낮은 읽기 대기 시간을 얻을 수 있습니다. *애플리케이션 성능 최적화*의 이후 섹션에서 디스크 캐싱에 대해 자세히 설명합니다.
+대기 시간은 애플리케이션이 단일 요청을 수신하고 이를 스토리지 디스크에 보내고 클라이언트에 응답을 보내는데 걸리는 시간입니다. 이는 IOPS 및 처리량 외에도 애플리케이션의 성능에 대한 중요한 측정입니다. Premium Storage 디스크의 대기 시간은 요청에 대한 정보를 검색하고 응용 프로그램에게 다시 전달하는데 걸리는 시간입니다. Premium Storage는 일관된 낮은 대기 시간을 제공합니다. 프리미엄 디스크는 대부분의 IO 작업에 대한 한 자릿수 밀리초 대기 시간을 제공하도록 설계되었습니다. Premium Storage 디스크에 읽기 전용 호스트 캐싱을 사용하는 경우 훨씬 더 낮은 읽기 대기 시간을 얻을 수 있습니다. *애플리케이션 성능 최적화*의 이후 섹션에서 디스크 캐싱에 대해 자세히 설명합니다.
 
-높은 IOPS 및 처리량을 얻기 위해 애플리케이션을 최적화하는 경우 애플리케이션의 대기 시간에 영향을 줍니다. 애플리케이션 성능 튜닝 후 예기치 않은 대기 시간 동작을 방지하도록 항상 애플리케이션의 대기 시간을 평가합니다.
+더 높은 IOPS 및 처리량을 얻기 위해 애플리케이션을 최적화하는 경우 애플리케이션의 대기 시간에 영향을 줍니다. 애플리케이션 성능 튜닝 후 항상 애플리케이션의 대기 시간을 평가하여 예기치 않은 높은 대기 시간 동작을 방지합니다.
 
-Managed Disks에서 제어 평면 작업을 수행하면 디스크가 한 스토리지 위치에서 다른 스토리지 위치로 이동할 수 있습니다. 이는 완료하는 데 몇 시간(일반적으로 디스크의 데이터 양에 따라 24시간 미만)이 걸릴 수 있는 데이터의 백그라운드 복사를 통해 오케스트레이션됩니다. 이 기간 동안 일부 읽기가 원래 위치로 리디렉션될 수 있어 완료하는 데 더 오래 걸릴 수 있으므로 애플리케이션의 읽기 대기 시간이 일반적인 읽기 대기 시간보다 길어질 수 있습니다. 이 기간 동안 쓰기 대기 시간에는 영향이 없습니다.  
+# <a name="performance-application-checklist-for-disks"></a>디스크에 대한 성능 애플리케이션 검사 목록
 
-1.  [스토리지 형식 업데이트](../articles/virtual-machines/windows/convert-disk-storage.md)
-2.  [한 VM에서 다른 VM으로 디스크 분리 및 연결](../articles/virtual-machines/windows/attach-disk-ps.md)
-3.  [VHD에서 관리 디스크 만들기](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
-4.  [스냅숏에서 관리 디스크 만들기](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
-5.  [비관리 디스크에서 관리 디스크로 변환](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
+Azure Premium Storage에서 실행되는 고성능 애플리케이션을 설계하는 첫 번째 단계는 애플리케이션의 성능 요구 사항을 파악하는 것입니다. 성능 요구 사항을 수집한 후에 최적의 성능을 얻을 수 있도록 애플리케이션을 최적화할 수 있습니다.
 
-## <a name="gather-application-performance-requirements"></a>애플리케이션 성능 요구 사항 수집
+이전 섹션에서는 일반적인 성과 지표, IOPS, 처리량 및 대기 시간을 설명했습니다. 원하는 사용자 환경을 제공하기 위해 어떤 성과 지표가 애플리케이션에 중요한지 식별해야 합니다. 예를 들어 초당 수백만 개의 트랜잭션을 처리하는 OLTP 애플리케이션에는 높은 IOPS가 가장 중요합니다. 반면 초당 많은 양의 데이터를 처리하는 데이터 웨어하우스 애플리케이션에는 높은 처리량이 중요합니다. 라이브 비디오 스트리밍 웹 사이트와 같은 실시간 애플리케이션에는 매우 짧은 대기 시간이 중요합니다.
 
-Azure Premium Storage에서 실행되는 고성능 애플리케이션을 설계하는 첫 번째 단계는 애플리케이션의 성능 요구 사항을 이해하는 것입니다. 성능 요구 사항을 수집한 후에 최적의 성능을 얻을 수 있도록 애플리케이션을 최적화할 수 있습니다.
+다음으로 해당 수명 주기 동안 애플리케이션의 최대 성능 요구 사항을 측정합니다. 시작으로 아래 샘플 검사 목록을 사용합니다. 일반, 최고 및 작업 시간 외 워크로드 기간 중의 최대 성능 요구 사항을 기록합니다. 모든 작업 수준에 대한 요구 사항을 파악하여 애플리케이션의 전반적인 성능 요구 사항을 확인할 수 있습니다. 예를 들어 전자 상거래 웹 사이트의 일반 작업은 1년 중 대부분 동안 제공하는 트랜잭션이 됩니다. 웹 사이트의 최대 작업은 축제 시즌 또는 특별 판매 이벤트 동안 제공하는 트랜잭션이 됩니다. 최대 작업은 일반적으로 제한된 기간에 대해 숙련되지만 애플리케이션이 두 번 이상 해당 일반 작업을 확장해야 할 수 있습니다. 50 백분위수, 90 백분위수 및 99 백분위수 요구 사항을 알아봅니다. 이렇게 하면 성능 요구 사항에서 모든 이상값을 필터링하고 올바른 값에 대한 최적화에 노력을 집중할 수 있습니다.
 
-이전 섹션에서 일반적인 성과 지표, IOPS, 처리량 및 대기 시간을 설명했습니다. 원하는 사용자 환경을 제공하기 위해 어떤 성과 지표가 애플리케이션에 중요한지 식별해야 합니다. 예를 들어 초당 수백만 개의 트랜잭션을 처리하는 OLTP 애플리케이션에는 높은 IOPS가 가장 중요합니다. 반면 초당 많은 양의 데이터를 처리하는 데이터 웨어하우스 애플리케이션에는 높은 처리량이 중요합니다. 라이브 비디오 스트리밍 웹 사이트와 같은 실시간 애플리케이션에는 매우 짧은 대기 시간이 중요합니다.
-
-다음으로 해당 수명 주기 동안 애플리케이션의 최대 성능 요구 사항을 측정합니다. 시작으로 아래 샘플 검사 목록을 사용합니다. 일반, 최고 및 작업 시간 외 작업 기간 동안 최대 성능 요구 사항을 기록합니다. 모든 작업 수준에 대한 요구 사항을 파악하여 애플리케이션의 전반적인 성능 요구 사항을 확인할 수 있습니다. 예를 들어 전자 상거래 웹 사이트의 일반 작업은 1년 중 대부분 동안 제공하는 트랜잭션이 됩니다. 웹 사이트의 최대 작업은 축제 시즌 또는 특별 판매 이벤트 동안 제공하는 트랜잭션이 됩니다. 최대 작업은 일반적으로 제한된 기간에 대해 숙련되지만 애플리케이션이 두 번 이상 해당 일반 작업을 확장해야 할 수 있습니다. 50 백분위수, 90 백분위수 및 99 백분위수 요구 사항에 알아봅니다. 이렇게 하면 성능 요구 사항에서 모든 이상값을 필터링하고 올바른 값에 대한 최적화에 노력을 집중할 수 있습니다.
-
-### <a name="application-performance-requirements-checklist"></a>애플리케이션 성능 요구 사항 검사 목록
+## <a name="application-performance-requirements-checklist"></a>애플리케이션 성능 요구 사항 검사 목록
 
 | **성능 요구 사항** | **50 백분위수** | **90 백분위수** | **99 백분위수** |
 | --- | --- | --- | --- |
@@ -106,9 +98,7 @@ Azure Premium Storage에서 실행되는 고성능 애플리케이션을 설계�
 > [!NOTE]
 > 애플리케이션의 예상된 향후 성장에 따라 이러한 숫자를 확장하는 것이 좋습니다. 나중에 성능 향상을 위한 인프라를 변경하기가 더 어려울 수 있으므로 사전 확장을 계획하는 것이 좋습니다.
 
-기존 애플리케이션이 있고 Premium Storage로 이동하려는 경우 먼저 기존 애플리케이션에 대해 위의 검사 목록을 빌드합니다. 그런 다음, Premium Storage에 있는 애플리케이션의 프로토타입을 빌드하고 이 문서의 이후 섹션의 *애플리케이션 성능 최적화* 에 설명된 지침에 따라 애플리케이션을 설계합니다. 다음 섹션에서는 성능 측정값을 수집하는데 사용할 수 있는 도구를 설명합니다.
-
-프로토타입에 대한 기존 애플리케이션과 비슷한 검사 목록을 만듭니다. 벤치마킹 도구를 사용하여 작업을 시뮬레이션하고 프로토타입 애플리케이션의 성능을 측정할 수 있습니다. 자세한 내용은 [벤치마킹](#benchmarking) 의 섹션을 참조하세요. 이렇게 하여 Premium Storage가 애플리케이션 성능 요구 사항에 일치하거나 능가할 수 있는지 여부를 결정할 수 있습니다. 그런 다음, 프로덕션 애플리케이션에 대해 동일한 지침을 구현할 수 있습니다.
+기존 애플리케이션이 있고 Premium Storage로 이동하려는 경우 먼저 기존 애플리케이션에 대해 위의 검사 목록을 빌드합니다. 그런 다음, Premium Storage에 있는 애플리케이션의 프로토타입을 빌드하고 이 문서의 이후 섹션의 *애플리케이션 성능 최적화* 에 설명된 지침에 따라 애플리케이션을 설계합니다. 다음 문서에서는 성능 측정값을 수집하는데 사용할 수 있는 도구를 설명합니다.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>애플리케이션 성능 요구 사항을 측정하기 위한 카운터
 
@@ -129,13 +119,15 @@ PerfMon 카운터는 프로세서, 메모리, 각 논리 디스크 및 서버의
 
 [iostat](https://linux.die.net/man/1/iostat) 및 [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx)에 대해 자세히 알아봅니다.
 
-## <a name="optimizing-application-performance"></a>애플리케이션 성능 최적화
+
+
+## <a name="optimize-application-performance"></a>애플리케이션 성능 최적화
 
 Premium Storage에서 실행 중인 애플리케이션의 성능에 영향을 주는 주요 요인은 IO 요청의 특성, VM 크기, 디스크 크기, 디스크 수, 디스크 캐싱, 멀티 스레드 및 큐 크기입니다. 이러한 요소 중 일부는 시스템에서 제공하는 노브를 사용하여 제어할 수 있습니다. 대부분의 애플리케이션은 IO 크기 및 큐 크기를 직접 변경할 수 있는 옵션을 제공하지 못할 수도 있습니다. 예를 들어 SQL Server를 사용하는 경우 IO 크기 및 큐 길이를 선택할 수 없습니다. SQL Server에서는 최적의 성능을 얻기 위해 최적의 IO 크기 및 큐 크기 값을 선택합니다. 성능 요구 사항에 맞게 적절한 리소스를 프로비전할 수 있도록 두 요소 형식이 애플리케이션 성능에 미치는 영향을 이해하는 것이 중요합니다.
 
 이 섹션 전체에서 애플리케이션 성능을 최적화하기 위해 필요한 정도를 식별하도록 만든 애플리케이션 요구 사항 검사 목록을 참조하세요. 그에 따라 이 섹션에서 조정할 요인을 확인할 수 있습니다. 각 요인이 애플리케이션 성능에 미치는 영향을 감시하려면 애플리케이션 설치에서 벤치마킹 도구를 실행합니다. Windows 및 Linux VM에서 일반적인 벤치마킹 도구를 실행하는 단계에 대한 문서의 마지막에 있는 [벤치마킹](#Benchmarking) 섹션을 참조하세요.
 
-### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>한 눈에 IOPS, 처리량 및 대기 시간 최적화
+### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>한눈에 IOPS, 처리량 및 대기 시간 최적화
 
 다음 표에서 성능 요소 및 IOPS, 처리량 및 대기 시간을 최적화하는 데 필요한 단계를 요약합니다. 이 요약에 이어지는 섹션에서는 각 요인을 더 자세히 설명합니다.
 
@@ -190,7 +182,7 @@ IO 크기를 변경할 수 있는 애플리케이션을 사용하는 경우 다�
 
 애플리케이션 성능에 미치는 IO 크기의 영향을 감시하려면 VM 및 디스크에서 벤치마킹 도구를 실행할 수 있습니다. 여러 테스트 실행을 만들고 각 실행에 대한 다른 IO 크기를 사용하여 어떤 영향이 있는지 확인합니다. 자세한 내용은 이 문서의 마지막 부분에 있는 [벤치마킹](#Benchmarking) 섹션을 참조하세요.
 
-## <a name="high-scale-vm-sizes"></a>높은 확장성의 VM 크기
+## <a name="high-scale-vm-sizes"></a>대규모 VM 크기
 
 애플리케이션 설계를 시작할 때 실행할 첫 번째 작업 중 하나는 애플리케이션을 호스팅할 VM을 선택하는 것입니다. Premium Storage는 높은 계산 능력 및 높은 로컬 디스크 I/O 성능이 필요한 애플리케이션을 실행할 수 있는 높은 확장성의 VM 크기와 함께 제공됩니다. 이러한 VM은 로컬 디스크에 대한 빠른 프로세서, 더 높은 메모리-코어 비율 및 SSD(반도체 드라이브)를 제공합니다. Premium Storage를 지원하는 높은 확장성의 VM의 예는 DS, DSv2 및 GS 시리즈 VM입니다.
 
@@ -298,6 +290,46 @@ Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 �
 1. 로그 파일을 호스트하는 Premium Storage 디스크에 “None” 캐시를 구성합니다.  
    a.  로그 파일은 주로 많은 쓰기 작업을 가집니다. 따라서 ReadOnly 캐시에서 유용하지 않습니다.
 
+### <a name="optimize-performance-on-linux-vms"></a>Linux VM의 성능 최적화
+
+캐시가 **ReadOnly** 또는 **None**으로 설정된 모든 프리미엄 SSD 또는 울트라 디스크의 경우 파일 시스템을 탑재할 때 “barrier(장벽)”를 사용하지 않도록 설정해야 합니다. Premium Storage 디스크에 쓰기는 이러한 캐시 설정에 대해 지속되기 때문에 이 시나리오에는 barrier(장벽)가 필요하지 않습니다. 쓰기 요청이 성공적으로 완료되면 데이터는 영구 저장소에 작성됩니다. “barrier(장벽)”를 사용하지 않도록 설정하려면 다음 방법 중 하나를 사용합니다. 파일 시스템에 대해 하나를 선택합니다.
+  
+* **reiserFS**에 대해 barrier를 사용하지 않도록 설정하려면 `barrier=none` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier=flush`를 사용합니다.)
+* **ext3/ext4**에 대해 barrier를 사용하지 않도록 설정하려면 `barrier=0` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier=1`를 사용합니다.)
+* **XFS**에 대해 barrier를 사용하지 않도록 설정하려면 `nobarrier` 탑재 옵션을 사용합니다. (barrier를 사용하도록 설정하려면 `barrier`를 사용합니다.)
+* **ReadWrite**으로 캐시가 설정된 Premium Storage 디스크의 경우 쓰기 지속성을 위해 barrier를 사용하도록 설정합니다.
+* 볼륨 레이블의 경우 VM을 다시 시작한 후 유지하려면 디스크에 UUID(Universally Unique Identifier) 참조로 /etc/fstab을 업데이트해야 합니다. 자세한 내용은 [관리 디스크를 Linux VM에 추가](../articles/virtual-machines/linux/add-disk.md)를 참조하세요.
+
+다음 Linux 배포판은 프리미엄 SSD에 대해 유효성이 검사되었습니다. 프리미엄 SSD를 사용하여 성능 및 안정성을 개선하려면 이러한 버전 이상으로 VM을 업그레이드하는 것이 좋습니다. 
+
+버전 중 일부는 Azure용 최신 LIS(Linux 통합 서비스) v4.0이 필요합니다. 배포판을 다운로드하여 설치하려면 다음 표에 나와 있는 링크를 따라가세요. 유효성 검사가 완료됨에 따라 목록에 이미지가 추가됩니다. 유효성 검사 시 이미지마다 성능이 다른 것으로 나타납니다. 성능은 워크로드 특성 및 이미지 설정에 따라 달라집니다. 다른 종류의 워크로드에 대해 서로 다른 이미지가 조정됩니다.
+
+| 배포 | 버전 | 지원되는 커널 | 세부 정보 |
+| --- | --- | --- | --- |
+| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
+| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
+| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
+| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
+| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 필요](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 권장](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
+| RHEL(Red Hat Enterprise Linux) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
+| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 또는 RHCK |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+
+## <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS용 LIS 드라이버
+
+OpenLogic CentOS VM을 실행하는 경우 다음 명령을 실행하여 최신 드라이버를 설치합니다.
+
+```
+sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum install microsoft-hyper-v
+```
+
+새 드라이버를 활성화하려면 VM을 다시 시작합니다.
+
 ## <a name="disk-striping"></a>디스크 스트라이프
 
 높은 확장성의 VM이 여러 Premium Storage 영구 디스크와 연결되어 있는 경우 디스크는 해당 IOP, 대역폭 및 스토리지 용량을 집계하도록 함께 스트라이프될 수 있습니다.
@@ -363,249 +395,11 @@ SQL Server에 [병렬 처리의 정도](https://technet.microsoft.com/library/ms
 
 Azure Premium Storage는 선택한 VM 크기 및 디스크 크기에 따라 지정된 IOPS 수 및 처리량을 프로비전합니다. 애플리케이션이 VM 또는 디스크가 처리할 수 있는 한도를 초과하여 IOPS 또는 처리량을 구동하려 할 때 Premium Storage는 이를 제한합니다. 이는 애플리케이션에서 성능 저하의 형태로 나타납니다. 이는 더 높은 대기 시간, 더 낮은 처리량 또는 더 낮은 IOPS를 의미할 수 있습니다. Premium Storage가 제한하지 않는 경우 애플리케이션은 리소스가 달성할 수 있는 한도를 초과하여 완전히 실패할 수 있습니다. 따라서 제한으로 인한 성능 문제를 방지하려면 항상 애플리케이션에 대한 충분한 리소스를 프로비전합니다. 위의 VM 크기 및 디스크 크기 섹션에서 설명한 것을 고려합니다. 벤치마킹은 애플리케이션을 호스팅하는데 필요한 리소스를 찾는데 가장 적합합니다.
 
-## <a name="benchmarking"></a>벤치마킹
-
-벤치마킹은 애플리케이션에서 다양한 작업을 시뮬레이션하고 각 작업에 대한 애플리케이션 성능을 측정하는 과정입니다. 이전 섹션에서 설명한 단계를 사용하여 애플리케이션 성능 요구 사항을 수집했습니다. 애플리케이션을 호스팅하는 VM에서 벤치마킹 도구를 실행하여 Premium Storage를 통해 애플리케이션이 얻을 수 있는 성능 수준을 확인할 수 있습니다. 이 섹션에서는 Azure Premium Storage 디스크로 프로비전된 Standard DS14 VM 벤치마킹의 예를 제공합니다.
-
-Windows 및 Linux용으로 각각 일반 벤치마킹 도구 Iometer 및 FIO를 사용했습니다. 이러한 도구는 작업과 같은 프로덕션을 시뮬레이션하는 여러 스레드를 생성하고 시스템 성능을 측정합니다. 도구를 사용하여 일반적으로 애플리케이션에 대해 변경할 수 없는 블록 크기 및 큐 크기와 같은 매개 변수를 구성할 수도 있습니다. 애플리케이션 작업의 다양한 유형에 대해 프리미엄 디스크로 프로비전된 높은 확장성의 VM에 최대 성능을 구동하도록 유연성을 제공합니다. 각 벤치마킹 도구에 대한 자세한 내용은 [Iometer](http://www.iometer.org/) 및 [FIO](http://freecode.com/projects/fio)를 방문하세요.
-
-아래 예제를 수행하려면 Standard DS14 VM을 만들고 VM에 11개의 Premium Storage 디스크를 연결합니다. 11개의 디스크는 “None”으로 호스트 캐싱을 사용하여 10개의 디스크를 구성하고 NoCacheWrites라는 볼륨으로 스트라이프합니다. 나머지 디스크에 “ReadOnly”로 호스트 캐싱을 구성하고 이 디스크를 사용하여 CacheReads라는 볼륨을 만듭니다. 이 설치를 사용하여 Standard DS14 VM에서 최대 읽기 및 쓰기 성능을 확인할 수 있습니다. 프리미엄 디스크가 있는 DS14 VM을 만드는 방법에 대한 자세한 단계는 [가상 컴퓨터 데이터 디스크에 대한 Premium Storage 계정 만들기 및 사용](../articles/virtual-machines/windows/premium-storage.md)을 참조하세요.
-
-*캐시 준비 중*  
- ReadOnly 호스트 캐싱을 사용한 디스크는 디스크 제한보다 더 높은 IOPS를 부여할 수 있습니다. 호스트 캐시에서 이 최대 읽기 성능을 얻으려면 먼저 이 디스크의 캐시를 준비해야 합니다. 이렇게 하면 벤치마킹 도구에서 CacheReads 볼륨을 구동하는 읽기 IO는 실제로 디스크가 아닌 캐시에 도달합니다. 캐시는 단일 캐시가 사용된 디스크에서 추가 IOPS 결과에 도달합니다.
-
-> **중요:**  
->  VM을 다시 부팅할 때마다 벤치마킹을 실행하기 전에 캐시를 준비해야 합니다.
-
-#### <a name="iometer"></a>Iometer
-
-[Iometer 도구를 다운로드](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) 합니다.
-
-*테스트 파일*  
- Iometer는 벤치마킹 테스트를 실행할 볼륨에 저장된 테스트 파일을 사용합니다. IOPS 디스크 및 처리량을 측정하도록 이 테스트 파일에 읽기 및 쓰기를 구동합니다. Iometer는 이 테스트 파일을 제공받지 않은 경우 만듭니다. CacheReads 및 NoCacheWrites 볼륨에 iobw.tst라는 200GB 테스트 파일을 만듭니다.
-
-*액세스 사양*  
-요청 IO 크기, % 읽기/쓰기, % 임의/순차 사양은 Iometer의 “액세스 사양” 탭을 사용하여 구성됩니다. 아래에 설명된 각 시나리오에 대한 액세스 사양을 만듭니다. 액세스 사양을 만들고 RandomWrites\_8K, RandomReads\_8K와 같은 적절한 이름으로 “저장”합니다. 테스트 시나리오를 실행할 때 해당 사양을 선택합니다.
-
-최대 쓰기 IOPS 시나리오에 대한 액세스 사양의 예는 아래와 같습니다.  
-    ![](media/premium-storage-performance/image8.png)
-
-*최대 IOPS 테스트 사양*  
- 최대 IOP를 보여주기 위해 작은 요청 크기를 사용합니다. 8K 요청 크기를 사용하고 임의 쓰기 및 읽기에 대한 사양을 만듭니다.
-
-| 액세스 사양 | 요청 크기 | 임의 % | 읽기 % |
-| --- | --- | --- | --- |
-| RandomWrites\_8K |8K |100 |0 |
-| RandomReads\_8K |8K |100 |100 |
-
-*최대 처리량 테스트 사양*  
- 최대 처리량을 보여주기 위해 더 큰 요청 크기를 사용합니다. 64K 요청 크기를 사용하여 임의 쓰기 및 읽기에 대한 사양을 만듭니다.
-
-| 액세스 사양 | 요청 크기 | 임의 % | 읽기 % |
-| --- | --- | --- | --- |
-| RandomWrites\_64K |64K |100 |0 |
-| RandomReads\_64K |64K |100 |100 |
-
-*Iometer 테스트 실행*  
- 아래 단계를 수행하여 캐시를 준비합니다.
-
-1. 아래에 표시된 값으로 두 액세스 사양을 만듭니다.
-
-   | Name | 요청 크기 | 임의 % | 읽기 % |
-   | --- | --- | --- | --- |
-   | RandomWrites\_1MB |1MB |100 |0 |
-   | RandomReads\_1MB |1MB |100 |100 |
-1. 다음 매개 변수로 캐시 디스크 초기화를 위한 Iometer 테스트를 실행합니다. 대상 볼륨에 대해 3개의 작업자 스레드 및 128의 큐 크기를 사용합니다. 테스트의 “실행 시간” 기간을 “테스트 설정” 탭에서 2hrs로 설정합니다.
-
-   | 시나리오 | 대상 볼륨 | Name | 기간 |
-   | --- | --- | --- | --- |
-   | 디스크 캐시 초기화 |CacheReads |RandomWrites\_1MB |2hrs |
-1. 다음 매개 변수로 캐시 디스크 준비를 위한 Iometer 테스트를 실행합니다. 대상 볼륨에 대해 3개의 작업자 스레드 및 128의 큐 크기를 사용합니다. 테스트의 “실행 시간” 기간을 “테스트 설정” 탭에서 2hrs로 설정합니다.
-
-   | 시나리오 | 대상 볼륨 | Name | 기간 |
-   | --- | --- | --- | --- |
-   | 캐시 디스크 준비 |CacheReads |RandomReads\_1MB |2hrs |
-
-캐시 디스크를 준비한 후 아래에 나열된 테스트 시나리오를 계속합니다. Iometer 테스트를 실행하려면 **각** 대상 볼륨에 대해 최소 세 개의 작업자 스레드를 사용합니다. 각 작업자 스레드의 경우 해당 테스트 시나리오를 실행하도록 아래 표에 표시된 것처럼 대상 볼륨을 선택하고 큐 크기를 설정하고 저장된 테스트 사양 중 하나를 선택합니다. 또한 표는 이러한 테스트를 실행할 때 IOPS 및 처리량에 대한 예상된 결과를 보여 줍니다. 모든 시나리오의 경우 8KB의 작은 IO 크기 및 128의 높은 큐 크기가 사용됩니다.
-
-| 테스트 시나리오 | 대상 볼륨 | Name | 결과 |
-| --- | --- | --- | --- |
-| 최대 읽기 IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS  |
-| 최대 쓰기 IOPS |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
-| 최대 결합된 IOPS |CacheReads |RandomWrites\_8K |100,000 IOPS |
-| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
-| 최대 읽기 MB/초 |CacheReads |RandomWrites\_64K |524MB/초 |
-| 최대 쓰기 MB/초 |NoCacheWrites |RandomReads\_64K |524MB/초 |
-| 결합된 MB/초 |CacheReads |RandomWrites\_64K |1000MB/초 |
-| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
-
-아래는 결합된 IOPS 및 처리량 시나리오에 대한 Iometer 테스트 결과의 스크린샷입니다.
-
-*읽기 및 쓰기 최대 IOPS를 결합*  
-![](media/premium-storage-performance/image9.png)
-
-*읽기 및 쓰기 최대 처리량을 결합*  
-![](media/premium-storage-performance/image10.png)
-
-### <a name="fio"></a>FIO
-
-FIO는 Linux VM의 벤치마크 저장소에 널리 사용되는 도구입니다. 다른 IO 크기, 순차 또는 임의 읽기 및 쓰기를 선택하는 유연성을 가집니다. 지정된 I/O 작업을 수행하는 작업자 스레드 또는 프로세스를 생성합니다. 각 작업자 스레드가 작업 파일을 사용하여 수행해야 하는 I/O 작업의 유형을 지정할 수 있습니다. 아래 예에 나와 있는 시나리오 당 하나의 작업 파일을 만들었습니다. Premium Storage에서 실행되는 다른 작업을 벤치마크하도록 이러한 작업 파일의 사양을 변경할 수 있습니다. 예제에서 **Ubuntu**를 실행하는 Standard DS 14 VM을 사용하고 있습니다. [벤치마킹 섹션](#Benchmarking) 의 시작 부분에서 설명한 동일한 설치를 사용하고 벤치마킹 테스트를 실행하기 전에 캐시를 준비합니다.
-
-시작하기 전에 [FIO를 다운로드](https://github.com/axboe/fio) 하고 가상 머신에 설치합니다.
-
-Ubuntu에 대해 다음 명령을 실행합니다.
-
-```
-apt-get install fio
-```
-
-디스크에서 쓰기 작업 구동에 대해 4개의 작업자 스레드를 읽기 작업 구동에 대해 4개의 작업자 스레드를 사용합니다. 쓰기 작업자는 “None”으로 설정된 캐시와 10개의 디스크가 있는 “nocache” 볼륨의 트래픽으로 구동됩니다. 쓰기 작업자는 “ReadOnly”로 설정된 캐시와 1개의 디스크가 있는 “readcache” 볼륨의 트래픽으로 구동됩니다.
-
-*최대 쓰기 IOPS*  
- 최대 쓰기 IOPS를 얻으려면 다음 사양을 가진 작업 파일을 만듭니다. “fiowrite.ini”로 이름을 지정합니다.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-```
-
-이전 섹션에서 설명한 설계 지침을 따라 핵심 사항을 기록해 둡니다. 이러한 사양은 최대 IOPS 구동에 필수적입니다.  
-
-* 256의 높은 큐 크기.  
-* 8KB의 작은 블록 크기.  
-* 임의 쓰기를 수행하는 다중 스레드.
-
-다음 명령을 실행하여 30초 동안 FIO 테스트를 시작합니다.  
-
-```
-sudo fio --runtime 30 fiowrite.ini
-```
-
-테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 쓰기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 50,000 IOPS의 해당 최대 쓰기 IOPS 제한을 제공합니다.  
-    ![](media/premium-storage-performance/image11.png)
-
-*최대 읽기 IOPS*  
- 최대 읽기 IOPS를 얻으려면 다음 사양을 가진 작업 파일을 만듭니다. "fioread.ini"로 이름을 지정합니다.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=256
-ioengine=libaio
-bs=8k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-```
-
-이전 섹션에서 설명한 설계 지침을 따라 핵심 사항을 기록해 둡니다. 이러한 사양은 최대 IOPS 구동에 필수적입니다.
-
-* 256의 높은 큐 크기.  
-* 8KB의 작은 블록 크기.  
-* 임의 쓰기를 수행하는 다중 스레드.
-
-다음 명령을 실행하여 30초 동안 FIO 테스트를 시작합니다.
-
-```
-sudo fio --runtime 30 fioread.ini
-```
-
-테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 읽기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 64,000 읽기 IOPS보다 많이 제공합니다. 이는 디스크와 캐시 성능의 조합입니다.  
-    ![](media/premium-storage-performance/image12.png)
-
-*최대 읽기 및 쓰기 IOPS*  
- 결합된 최대 읽기 및 쓰기 IOPS를 얻으려면 다음과 같은 사양의 작업 파일을 만듭니다. "fioreadwrite.ini"로 이름을 지정합니다.
-
-```ini
-[global]
-size=30g
-direct=1
-iodepth=128
-ioengine=libaio
-bs=4k
-
-[reader1]
-rw=randread
-directory=/mnt/readcache
-[reader2]
-rw=randread
-directory=/mnt/readcache
-[reader3]
-rw=randread
-directory=/mnt/readcache
-[reader4]
-rw=randread
-directory=/mnt/readcache
-
-[writer1]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer2]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer3]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-[writer4]
-rw=randwrite
-directory=/mnt/nocache
-rate_iops=12500
-```
-
-이전 섹션에서 설명한 설계 지침을 따라 핵심 사항을 기록해 둡니다. 이러한 사양은 최대 IOPS 구동에 필수적입니다.
-
-* 128의 높은 큐 크기  
-* 4KB의 작은 블록 크기  
-* 임의 읽기 및 쓰기를 수행하는 다중 스레드
-
-다음 명령을 실행하여 30초 동안 FIO 테스트를 시작합니다.
-
-```
-sudo fio --runtime 30 fioreadwrite.ini
-```
-
-테스트가 실행되는 동안 VM 및 프리미엄 디스크가 제공하는 결합된 읽기 및 쓰기 IOPS 수를 볼 수 있습니다. 아래 예제처럼 DS14 VM은 결합된 읽기 및 쓰기 IOPS를 100,000 보다 많이 제공합니다. 이는 디스크와 캐시 성능의 조합입니다.  
-    ![](media/premium-storage-performance/image13.png)
-
-*결합된 최대 처리량*  
- 결합된 최대 읽기 및 쓰기 처리량을 얻으려면 읽기 및 쓰기를 수행하는 다중 스레드로 더 큰 블록 크기 및 큰 큐 크기를 사용합니다. 64KB의 블록 크기와 128의 큐 크기를 사용할 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-Azure Premium Storage에 대한 자세한 정보
+사용 가능한 디스크 유형에 대해 자세히 알아봅니다.
 
-* [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 스토리지](../articles/virtual-machines/windows/premium-storage.md)  
+* [디스크 유형 선택](../articles/virtual-machines/windows/disks-types.md)  
 
 SQL Server 사용자의 경우 SQL Server에 대한 성능 모범 사례의 문서를 읽으세요.
 

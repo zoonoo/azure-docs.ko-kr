@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 120f88e6bb8b2c6a1408ef98eadfcbb520b5cdb3
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332662"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415904"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 성능 지침
 
@@ -40,11 +40,11 @@ ms.locfileid: "54332662"
 
 | 영역 | 최적화 |
 | --- | --- |
-| [VM 크기](#vm-size-guidance) |SQL Enterprise Edition [DS3_v2](../sizes-general.md) 이상<br/><br/>SQL Standard 및 Web Edition [DS2_v2](../sizes-general.md) 이상 |
-| [Storage](#storage-guidance) |[Premium Storage](../premium-storage.md)를 사용합니다. 표준 저장소는 개발/테스트에만 권장됩니다.<br/><br/>동일한 지역에 SQL Server VM 및 [저장소 계정](../../../storage/common/storage-create-storage-account.md)을 유지합니다.<br/><br/>저장소 계정의 Azure [지역 중복 저장소](../../../storage/common/storage-redundancy.md) (지역에서 복제)를 사용하지 않도록 설정합니다. |
-| [디스크](#disks-guidance) |최소 2개의 [P30 디스크](../premium-storage.md#scalability-and-performance-targets)를 사용합니다(로그 파일용 1개, TempDB를 포함하는 데이터 파일용 1개).<br/><br/>데이터베이스 저장소나 로깅을 위해 운영 체제 또는 임시 디스크를 사용하지 않습니다.<br/><br/>데이터 파일 및 TempDB 데이터 파일을 호스트하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/>로그 파일을 호스트하는 디스크에서는 캐싱을 사용하도록 설정하지 마세요.<br/><br/>중요: Azure VM 디스크에 대한 캐시 설정을 변경하는 경우 SQL Server 서비스를 중지합니다.<br/><br/>IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/>문서화된 할당 크기로 포맷합니다. |
-| [I/O](#io-guidance) |데이터베이스 페이지 압축을 사용하도록 설정합니다.<br/><br/>데이터 파일에 대해 즉시 파일 초기화를 사용하도록 설정합니다.<br/><br/>데이터베이스에서 자동 확장을 제한합니다.<br/><br/>데이터베이스에서 자동 축소를 사용하지 않도록 설정합니다.<br/><br/>시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다.<br/><br/>SQL Server 오류 로그 및 추적 파일 디렉터리를 데이터 디스크로 이동합니다.<br/><br/>기본 백업 및 데이터베이스 파일 위치를 설정합니다.<br/><br/>잠긴 페이지를 사용하도록 설정합니다.<br/><br/>SQL Server 성능 픽스를 적용합니다. |
-| [기능별](#feature-specific-guidance) |Azure File Storage 일반적으로 사용 가능(영문) |
+| [VM 크기](#vm-size-guidance) | SQL Enterprise Edition - [DS3_v2](../sizes-general.md) 이상<br/><br/> SQL Standard 및 Web Edition - [DS2_v2](../sizes-general.md) 이상 |
+| [Storage](#storage-guidance) | - [프리미엄 SSD](../disks-types.md)를 사용합니다. 표준 저장소는 개발/테스트에만 권장됩니다.<br/><br/> - [스토리지 계정](../../../storage/common/storage-create-storage-account.md)과 SQL Server VM을 동일한 Azure 지역에 유지합니다.<br/><br/> * 스토리지 계정에서 Azure [GRS](../../../storage/common/storage-redundancy.md)(지역 복제)를 사용하지 않도록 설정합니다. |
+| [디스크](#disks-guidance) | - 최소 2개의 [P30 디스크](../disks-types.md#premium-ssd)를 사용합니다(로그 파일용 1개, TempDB를 포함한 데이터 파일용 1개). ~50,000 IOPS가 필요한 워크로드의 경우 울트라 SSD를 고려해 보세요. <br/><br/> - 운영 체제 또는 임시 디스크를 데이터베이스 저장 또는 로깅에 사용하지 마세요.<br/><br/> - 데이터 파일 및 TempDB 데이터 파일을 호스팅하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/> - 로그 파일을 호스팅하는 디스크에서 캐싱을 사용하지 마세요.  **중요**: Azure VM 디스크에 대한 캐시 설정을 변경하는 경우 SQL Server 서비스를 중지합니다.<br/><br/> - IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/> - 문서화된 할당 크기로 포맷합니다. <br/><br/> - TempDB는 중요 업무를 위한 SQL Server 워크로드용 로컬 SSD에 배치합니다(올바른 VM 크기를 선택한 후). |
+| [I/O](#io-guidance) |- 데이터베이스 페이지 압축을 사용하도록 설정합니다.<br/><br/> - 데이터 파일에 즉시 파일 초기화를 사용하도록 설정합니다.<br/><br/> - 데이터베이스의 자동 확장을 제한합니다.<br/><br/> - 데이터베이스의 자동 축소를 해제합니다.<br/><br/> - 시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다.<br/><br/> - SQL Server 오류 로그 및 추적 파일 디렉터리를 데이터 디스크로 이동합니다.<br/><br/> - 기본 백업 및 데이터베이스 파일 위치를 설정합니다.<br/><br/> - 잠긴 페이지를 사용하도록 설정합니다.<br/><br/> - SQL Server 성능 픽스를 적용합니다. |
+| [기능별](#feature-specific-guidance) | - Blob 스토리지에 직접 백업합니다. |
 
 이러한 최적화를 수행하는 *방법* 및 *이유*에 대한 자세한 내용은 다음 섹션에 나와 있는 세부 정보 및 지침을 참조하세요.
 
@@ -59,10 +59,10 @@ ms.locfileid: "54332662"
 
 ## <a name="storage-guidance"></a>저장소 지침
 
-DS 시리즈(DSv2 시리즈 및 GS 시리즈와 함께) VM은 [Premium Storage](../premium-storage.md)를 지원합니다. Premium Storage는 모든 프로덕션 워크로드에 권장됩니다.
+DS 시리즈(DSv2 시리즈 및 GS 시리즈와 함께) VM은 [프리미엄 SSD](../disks-types.md)를 지원합니다. 프리미엄 SSD는 모든 프로덕션 워크로드에 권장됩니다.
 
 > [!WARNING]
-> Standard Storage는 대기 시간 및 대역폭이 다양하므로 개발/테스트 워크로드에만 권장됩니다. 새 표준 SSD 저장소를 포함합니다. 프로덕션 워크로드에는 Premium Storage를 사용해야 합니다.
+> 표준 HDD 및 SSD는 대기 시간 및 대역폭이 다양하므로 개발/테스트 워크로드에만 권장됩니다. 프로덕션 워크로드에는 프리미엄 SSD를 사용해야 합니다.
 
 또한 전송 지연을 줄이기 위해 SQL Server 가상 머신과 동일한 데이터 센터에서 Azure 저장소 계정을 만드는 것이 좋습니다. 저장소 계정을 만들 때 여러 디스크 간에 일관된 쓰기 순서가 보장되지 않기 때문에 지역에서 복제를 사용하지 않도록 설정합니다. 대신 두 Azure 데이터 센터 간에 SQL Server 재해 복구 기술을 구성하는 것이 좋습니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
@@ -86,16 +86,19 @@ Azure VM의 디스크 유형에는 크게 세 가지가 있습니다.
 
 File Storage용 도구 지원 사용자 데이터베이스 파일 또는 사용자 트랜잭션 로그 파일은 **D**: 드라이브에 저장하지 않도록 합니다.
 
-D 시리즈, Dv2 시리즈 및 G 시리즈 VM의 경우 이러한 VM의 임시 드라이브는 SSD를 기반으로 합니다. 워크로드에 TempDB가 과도하게 사용될 경우(예: 임시 개체 또는 복잡한 조인) **D** 드라이브에 TempDB를 저장하면 TempDB 처리량은 더 높아지고 TempDB 대기 시간은 줄어들 수 있습니다. 예제 시나리오는 다음 블로그 게시물에서 TempDB 토론을 참조하세요. [Azure VM의 SQL Server에 대한 스토리지 구성 지침](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
+D 시리즈, Dv2 시리즈 및 G 시리즈 VM의 경우 이러한 VM의 임시 드라이브는 SSD를 기반으로 합니다. 워크로드에 TempDB가 과도하게 사용될 경우(예: 임시 개체 또는 복잡한 조인) **D** 드라이브에 TempDB를 저장하면 TempDB 처리량은 더 높아지고 TempDB 대기 시간은 줄어들 수 있습니다. 예제 시나리오는 다음 블로그 게시물에서 TempDB 토론을 참조하세요. [Azure VM의 SQL Server에 대한 스토리지 구성 지침](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm).
 
-Premium Storage를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈)의 경우 읽기 캐싱을 사용하도록 설정된 Premium Storage를 지원하는 디스크에 TempDB를 저장하는 것이 좋습니다. 이 권장 사항에 대한 한 가지 예외가 있습니다. TempDB가 주로 쓰기에 사용되는 경우 이러한 컴퓨터 크기에서 SSD 기반이기도 한, 로컬 **D** 드라이브에 TempDB를 저장하면 더 높은 성능을 실현할 수 있습니다.
+프리미엄 SSD를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈)의 경우 읽기 캐싱이 사용되는 프리미엄 SSD를 지원하는 디스크에 TempDB를 저장하는 것이 좋습니다.
+
+이 권장 사항에는 다음과 같은 한 가지 예외가 있습니다. _TempDB가 주로 쓰기에 사용되는 경우 로컬 **D** 드라이브에 TempDB를 저장하면 더 높은 성능을 얻을 수 있으며, 이 정도 머신 크기에서는 SSD를 사용하기도 합니다._
 
 ### <a name="data-disks"></a>데이터 디스크
 
-* **데이터 및 로그 파일에 데이터 디스크 사용**: 디스크 스트라이프를 사용하지 않는 경우 Premium Storage [P30 디스크](../premium-storage.md#scalability-and-performance-targets) 2개를 사용합니다(로그 파일용 1개, 데이터 및 TempDB 파일용 1개). 각 Premium Storage 디스크는 [디스크에 Premium Storage 사용](../premium-storage.md) 문서에 설명된 대로 해당 크기에 따라 여러 IOPs 및 대역폭(MB/s)을 제공합니다. 저장소 공간과 같은 디스크 스트라이프 기술을 사용하는 경우 로그 파일 및 데이터 파일에 대한 다른 두 개의 풀을 소유함으로써 최적의 성능을 얻습니다. 그러나 SQL Server FCI(장애 조치 클러스터 인스턴스)를 사용하려는 경우 하나의 풀을 구성해야 합니다.
+* **데이터 및 로그 파일에 데이터 디스크 사용**: 디스크 스트라이프를 사용하지 않는 경우 프리미엄 SSD P30 디스크 2개(로그 파일용 1개, 데이터 및 TempDB 파일용 1개)를 사용합니다. 각 프리미엄 SSD는 [디스크 유형 선택](../disks-types.md) 문서에 설명된 대로 해당 크기에 따라 여러 IOP 및 대역폭(MB/초)을 제공합니다. 저장소 공간과 같은 디스크 스트라이프 기술을 사용하는 경우 로그 파일 및 데이터 파일에 대한 다른 두 개의 풀을 소유함으로써 최적의 성능을 얻습니다. 그러나 SQL Server FCI(장애 조치 클러스터 인스턴스)를 사용하려는 경우 하나의 풀을 구성해야 합니다.
 
    > [!TIP]
-   > 다양한 디스크 및 워크로드 구성의 테스트 결과는 다음 블로그 게시물을 참조하세요. [Azure VM의 SQL Server에 대한 스토리지 구성 지침](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
+   > - 다양한 디스크 및 워크로드 구성의 테스트 결과는 다음 블로그 게시물을 참조하세요. [Azure VM의 SQL Server에 대한 스토리지 구성 지침](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
+   > - ~50,000 IOPS가 필요한 중요 업무용 고성능 SQL Server의 경우 -P30 디스크 10개를 울트라 SSD로 바꾸는 방안을 고려해 보세요. 자세한 내용은 블로그 게시물 [울트라 SSD를 사용하는 중요 업무용 고성능](https://azure.microsoft.com/blog/mission-critical-performance-with-ultra-ssd-for-sql-server-on-azure-vm/)을 참조하세요.
 
    > [!NOTE]
    > 포털에서 SQL Server VM을 프로비전하는 경우 저장소 구성을 편집하는 옵션이 있습니다. 구성에 따라 Azure에서는 하나 이상의 디스크를 구성합니다. 여러 디스크를 제거하여 단일 저장소 풀로 결합합니다. 이 구성에서는 데이터 및 로그 파일이 함께 배치됩니다. 자세한 내용은 [SQL Server VM에 대한 저장소 구성](virtual-machines-windows-sql-server-storage-configuration.md)을 참조하세요.
@@ -122,7 +125,7 @@ Premium Storage를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈
 
   * 예상되는 부하에 따라 저장소 풀에 연결되는 디스크 수를 결정합니다. VM 크기가 다르면 연결된 데이터 디스크 수도 다를 수 있다는 점에 유의하세요. 자세한 내용은 [Virtual Machines의 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
-  * Premium Storage를 사용하지 않는 경우(개발/테스트 시나리오) 해당 [VM 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 로 지원되는 최대 수의 데이터 디스크를 추가하고 디스크 스트라이프를 사용하는 것이 좋습니다.
+  * 프리미엄 SSD를 사용하지 않는 경우(개발/테스트 시나리오) 해당 [VM 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 지원하는 최대 개수의 데이터 디스크를 추가하고 디스크 스트라이프를 사용하는 것이 좋습니다.
 
 * **캐싱 정책**: 스토리지 구성에 따라 캐싱 정책에 대한 다음 권장 사항을 확인합니다.
 
@@ -130,9 +133,9 @@ Premium Storage를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈
 
   * 단일 저장소 풀에서 디스크 스트라이프를 사용하는 경우 대부분의 워크로드에서 읽기 캐싱의 이점이 있습니다. 로그 및 데이터 파일에 대한 별도 저장소 풀이 있는 경우 데이터 파일에 대한 저장소 풀에만 읽기 캐싱을 활성화합니다. 쓰기 워크로드가 대량으로 있는 경우 캐싱을 사용하지 않을 때 성능이 향상될 수 있습니다. 이는 테스트를 통해서만 확인할 수 있습니다.
 
-  * 이전 권장 사항은 Premium Storage 디스크에 적용됩니다. Premium Storage를 사용하지 않는 경우 모든 데이터 디스크에서 모든 캐싱을 사용하도록 설정하지 마세요.
+  * 이전 권장 사항은 프리미엄 SSD에 적용됩니다. 프리미엄 SSD를 사용하지 않는 경우 데이터 디스크에서 캐싱을 사용하도록 설정하지 마세요.
 
-  * 디스크 캐싱 구성에 대한 지침은 다음 문서를 참조하세요. 클래식(ASM) 배포 모델의 경우 다음을 참조하세요. [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) 및 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager 배포 모델의 경우 다음을 참조하세요. [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) 및 [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+  * 디스크 캐싱 구성에 대한 지침은 다음 문서를 참조하세요. 클래식(ASM) 배포 모델의 경우 다음을 참조하세요. [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) 및 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager 배포 모델의 경우 다음을 참조하세요. [Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) 및 [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1)
 
      > [!WARNING]
      > 데이터베이스 손상 가능성을 방지하려면 Azure VM 디스크의 캐시 설정을 변경할 때 SQL Server 서비스를 중지합니다.
@@ -144,9 +147,10 @@ Premium Storage를 지원하는 VM(DS 시리즈, DSv2 시리즈 및 GS 시리즈
   > [!WARNING]
   > 이러한 작업 중에 SQL Server 서비스를 중지하지 못하면 데이터베이스가 손상될 수 있습니다.
 
+
 ## <a name="io-guidance"></a>I/O 지침
 
-* Premium Storage를 사용하여 최상의 결과를 얻으려면 애플리케이션과 요청을 병렬 처리합니다. Premium Storage는 IO 큐 크기가 1보다 큰 시나리오에 대해 설계되었기 때문에 스토리지를 많이 사용하더라도 단일 스레드 직렬 요청에 대한 성능 이점이 거의 없거나 전혀 없습니다. 예를 들어 이는 SQLIO와 같은 성능 분석 도구의 단일 스레드 테스트 결과에 영향을 줄 수 있습니다.
+* 프리미엄 SSD를 사용하여 최상의 결과를 얻으려면 애플리케이션과 요청을 병렬 처리합니다. 프리미엄 SSD는 IO 큐 크기가 1보다 큰 시나리오에 맞게 설계되었기 때문에 스토리지를 많이 사용하더라도 단일 스레드 직렬 요청에 대한 성능 이점이 거의 없거나 전혀 없습니다. 예를 들어 이는 SQLIO와 같은 성능 분석 도구의 단일 스레드 테스트 결과에 영향을 줄 수 있습니다.
 
 * [데이터베이스 페이지 압축](https://msdn.microsoft.com/library/cc280449.aspx)을 사용하면 I/O가 많은 작업의 성능이 향상될 수 있습니다. 그러나 데이터 압축은 데이터베이스 서버의 CPU 사용량을 늘릴 수 있습니다.
 

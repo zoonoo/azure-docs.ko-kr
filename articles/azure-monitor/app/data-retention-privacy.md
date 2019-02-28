@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094532"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300264"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 저장소
 
@@ -41,7 +41,7 @@ Application Insights 서비스는 원격 분석 데이터를 저장하고 분석
 
 예를 들어 데이터베이스 또는 외부 도구에 Application Insights 서비스에서 내보낸 데이터가 있을 수 있습니다. 서비스에서 가져와야 하는 특수 키를 사용하여 각 도구를 제공합니다. 필요한 경우 키를 해지할 수 있습니다. 
 
-Application Insights SDK는 다음과 같은 애플리케이션 형식에 사용할 수 있습니다. 고유한 J2EE 또는 ASP.NET 서버 또는 Azure에서 호스팅된 웹 서비스, 웹 클라이언트 즉, 웹 페이지에서 실행되는 코드, 데스크톱 앱 및 서비스, Windows Phone, iOS 및 Android 같은 디바이스 앱. 모두 동일한 서비스에 원격 분석을 보냅니다.
+Application Insights SDK는 사용자 고유의 Java EE 또는 ASP.NET 서버나 Azure에 호스트된 웹 서비스, 웹 클라이언트(즉, 웹 페이지에서 실행되는 코드), 데스크톱 앱 및 서비스, Windows Phone, iOS, Android 등의 디바이스 앱과 같은 다양한 애플리케이션 유형에 사용할 수 있습니다. 모두 동일한 서비스에 원격 분석을 보냅니다.
 
 ## <a name="what-data-does-it-collect"></a>어떤 데이터를 수집하나요?
 ### <a name="how-is-the-data-is-collected"></a>데이터는 어떻게 수집되나요?
@@ -51,7 +51,7 @@ Application Insights SDK는 다음과 같은 애플리케이션 형식에 사용
   
   * 각 SDK에는 다양한 [모듈](../../azure-monitor/app/configuration-with-applicationinsights-config.md)이 있으며 이는 서로 다른 기술을 사용하여 다른 형식의 원격 분석 데이터를 수집합니다.
   * 개발 시 SDK를 설치하면 표준 모듈 외에도 API를 사용하여 사용자 고유의 원격 분석을 보낼 수 있습니다. 이 사용자 지정 원격 분석은 전송하려는 데이터를 포함할 수 있습니다.
-* 또한 일부 웹 서버에는 앱과 함께 실행하고 CPU, 메모리 및 네트워크 선점에 대한 원격 분석을 보내는 에이전트가 있습니다. 예를 들어 Azure VM, Docker 호스트 및 [J2EE 서버](../../azure-monitor/app/java-agent.md) 에는 이러한 에이전트가 있을 수 있습니다.
+* 또한 일부 웹 서버에는 앱과 함께 실행하고 CPU, 메모리 및 네트워크 선점에 대한 원격 분석을 보내는 에이전트가 있습니다. 예를 들어 Azure VM, Docker 호스트 및 [Java EE 서버](../../azure-monitor/app/java-agent.md)에는 이러한 에이전트가 있을 수 있습니다.
 * [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 는 정기적으로 웹앱에 요청을 전송하는 Microsoft에서 실행되는 프로세스입니다. 결과는 Application Insights 서비스에 전송됩니다.
 
 ### <a name="what-kinds-of-data-are-collected"></a>어떤 종류의 데이터를 수집하나요?

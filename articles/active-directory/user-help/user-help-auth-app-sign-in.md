@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 120e0f3c7e6af22210ba04565b86b8098851b26d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3974d1de2bd90049541dcc249f18346c9e48fd3d
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186899"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456030"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정에 로그인
 2단계 인증을 사용하는 경우 Microsoft Authenticator 앱으로 계정에 쉽게 로그인할 수 있습니다. 2단계 인증을 사용하면 특히 중요한 정보를 볼 때 보다 안전하게 계정에 액세스할 수 있습니다. 암호를 잊어버리거나 암호가 노출될 수 있으므로 2단계 인증은 다른 사람이 침입하기 어렵게 만들어서 계정을 보호하는 추가 보안 단계입니다.
@@ -62,9 +62,9 @@ Microsoft Authenticator 앱을 사용하려면 다음을 수행해야 합니다.
 
     사용자 이름을 입력하면 2자리 숫자를 보여주고 Microsoft Authenticator 앱을 통해 로그인하라는 **로그인 승인** 화면이 나타납니다. 이 로그인 방법을 사용하지 않으려면 **암호를 대신 사용**하도록 선택하고, 암호를 사용하여 로그인합니다.
 
-    ![PC의 로그인 승인 상자](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
+    ![컴퓨터의 로그인 승인 상자](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
 
-2. 디바이스에서 알림 또는 Microsoft Authenticator 앱을 연 다음, PC의 **로그인 승인** 화면에 표시되는 숫자와 일치하는 숫자를 탭합니다.
+2. 디바이스에서 알림 또는 Microsoft Authenticator 앱을 연 다음, 컴퓨터의 **로그인 승인** 화면에 표시되는 숫자와 일치하는 숫자를 탭합니다.
 
     ![디바이스의 로그인 승인 상자](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in-numbers.png)
 
@@ -113,7 +113,7 @@ Outlook.com, Xbox, Skype 등의 개인 Microsoft 계정에 휴대폰 로그인�
 |**휴대폰을 분실하거나 휴대하지 않은 경우 계정에 액세스하려면 어떻게 해야 하나요?**| 언제든지 로그인 페이지에서 [암호를 대신 사용]을 선택하여 암호를 사용하도록 전환할 수 있습니다. 그러나 2단계 인증을 사용하더라도 여전히 두 번째 방법을 사용하여 신분을 증명해야 합니다.<br><br>**중요**<br>계정에 두 가지 이상의 최신 인증 방법을 연결하는 것이 좋습니다.<br><br>[보안 설정](https://account.live.com/proofs/manage) 페이지에서 개인 계정의 인증 방법을 관리할 수 있습니다. 회사 또는 학교 계정이면 관리자가 보안 정보를 설정한 경우 조직의 [추가 보안 인증](https://aka.ms/MFASetup) 페이지 또는 **계정 보안 유지** 페이지로 이동하면 됩니다. 보안 정보에 대한 자세한 내용은 [보안 정보 관리](security-info-manage-settings.md)를 참조하세요.<br><br>인증 방법을 관리할 수 없으면 관리자에게 문의해야 합니다.|
 |**이 기능을 중지하고 다시 암호를 사용하려면 어떻게 해야 하나요?**|개인 계정의 경우 로그인하는 동안 **암호를 대신 사용** 링크를 선택합니다. 가장 최근에 사용한 방법이 저장되어 다음에 로그인할 때 기본값으로 제공됩니다. 다시 휴대폰 로그인을 사용하려면 로그인하는 동안 **앱을 대신 사용** 링크를 선택합니다.<br><br>회사 또는 학교 계정의 경우 추가 보안 확인 페이지로 이동하고(예: https://aka.ms/MFASetup) Microsoft Authenticator 앱을 제거해야 합니다.|
 |**휴대폰 로그인에 회사 또는 학교 계정을 둘 이상 사용할 수 없는 이유는 무엇인가요?**| 한 휴대폰은 하나의 회사 또는 학교 계정에 등록되어야 합니다. 다른 회사 또는 학교 계정에서 휴대폰 로그인을 사용하려면 먼저 **설정** 페이지를 통해 기존 디바이스의 등록을 취소해야 합니다.|
-|**휴대폰을 사용하여 내 PC에 로그인할 수 있나요?**| PC의 경우 Windows 10에서 Windows Hello를 사용하여 로그인하는 것이 좋습니다. Windows Hello는 얼굴, 지문 또는 PIN을 사용하여 로그인할 수 있습니다.|
+|**휴대폰을 사용하여 내 컴퓨터에 로그인할 수 있나요?**| 컴퓨터에서 Windows 10의 Windows Hello를 사용하여 로그인하는 것이 좋습니다. Windows Hello는 얼굴, 지문 또는 PIN을 사용하여 로그인할 수 있습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 - 앱에 대한 일반적인 질문이 더 있는 경우 [Microsoft Authenticator FAQ](user-help-auth-app-faq.md)를 참조하세요.

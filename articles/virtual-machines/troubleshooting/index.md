@@ -5,20 +5,15 @@ title: Azure Virtual Machines 설명서 문제 해결 | Microsoft Docs
 services: virtual-machines
 author: genlin
 manager: jeconnoc
-ms.assetid: ''
+ms.assetid: null
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: 493c8053af1648e415fc774dd0031e18554e0458
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877433"
 ---
+
 # <a name="troubleshooting-azure-virtual-machines"></a>Azure 가상 머신 문제 해결
 
 - 할당 오류
@@ -53,13 +48,13 @@ ms.locfileid: "52877433"
     - [Windows VM](serial-console-windows.md)
         - [CMD 및 PowerShell 명령](serial-console-cmd-ps-commands.md)
 - [저장소 리소스 삭제 시 오류](storage-resource-deletion-errors.md      )
-- [VHD가 연결된 VM이 예기치 않게 다시 부팅됨](unexpected-reboots-attached-vhds.md)
+- [VHD가 연결된 VM이 예기치 않게 다시 부팅되는 경우](unexpected-reboots-attached-vhds.md)
 - [Windows 정품 인증 문제](troubleshoot-activation-problems.md)
-- [응용 프로그램 액세스 문제](troubleshoot-app-connection.md)
+- [애플리케이션 액세스 문제](troubleshoot-app-connection.md)
 - 배포 문제 해결
     - [Linux](troubleshoot-deploy-vm-linux.md)
     - [Windows](troubleshoot-deploy-vm-windows.md)
-- [장치 이름이 변경됨](troubleshoot-device-names-problems.md)
+- [디바이스 이름이 변경됨](troubleshoot-device-names-problems.md)
 - VM 복구 액세스
     -  Windows
         - [PowerShell](troubleshoot-recovery-disks-windows.md)

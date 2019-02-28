@@ -1,5 +1,5 @@
 ---
-title: REST API를 사용하여 Azure Stream Analytics에 대한 CI/CD 구현
+title: REST API를 사용하여 IoT Edge의 Azure Stream Analytics에 대한 CI/CD 구현
 description: REST API를 사용하여 Azure Stream Analytics에 대한 지속적인 통합 및 배포 파이프라인을 구현하는 방법에 알아봅니다.
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: f22a4c4d0159efa2ac42d15ff6afdadc2d6755d0
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 40beb620e037061b189762a51e3c29d0fd251b27
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215051"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268502"
 ---
-# <a name="implement-cicd-for-stream-analytics-using-apis"></a>API를 사용하여 Stream Analytics에 대한 CI/CD 구현
+# <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>API를 사용하여 IoT Edge의 Stream Analytics에 대한 CI/CD 구현
 
 REST API를 사용하여 Azure Stream Analytics 작업에 대한 지속적인 통합 및 배포를 사용할 수 있습니다. 이 문서에서는 API를 사용하는 예제 및 사용하는 방법을 제공합니다. REST API는 Azure Cloud Shell에서 지원되지 않습니다.
 

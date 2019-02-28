@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: b0eae86a4927f716c974086411e1098f2e9a190d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6702bfabd27b56ce473fe8eb14aadc9dc6e8e7c9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498032"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338872"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -142,7 +142,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 �
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-이 예제에서 `hdfs` 명령은 기본 클러스터 저장소를 투명하게 사용합니다. 일부 작업의 경우 URI를 지정해야 할 수도 있습니다. 예를 들어 Data Lake Storage에 대해 `adl:///example/jars`를 또는 Azure Storage에 대해 `wasb:///example/jars`를 지정합니다.
+이 예제에서 `hdfs` 명령은 기본 클러스터 저장소를 투명하게 사용합니다. 일부 작업의 경우 URI를 지정해야 할 수도 있습니다. 예를 들어 Azure Data Lake Storage Gen1은 `adl:///example/jars`, Data Lake Storage Gen2는 `abfs:///example/jars`, Azure Storage는 `wasb:///example/jars`입니다.
 
 ### <a name="bPS7"></a>STDOUT 및 STDERR에 정보 쓰기
 

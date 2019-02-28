@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: 41a826304af338814666e80dfaf584021809dbb0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880049"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313363"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음으로 Backup 자격 증명 모음 업그레이드
 
@@ -98,13 +98,13 @@ Azure 자격 증명을 입력하면 Azure에서는 환경이 다음과 같은 �
 ![빠른 시작 블레이드의 도움말 링크](./media/backup-azure-upgrade-backup-to-recovery-services/quick-start-w-help-links.png)
 
 ## <a name="post-upgrade-steps"></a>업그레이드 후 단계
-Recovery Services 자격 증명 모음은 백업 정책에서 표준 시간대 정보를 지정하도록 지원합니다. 자격 증명 모음이 성공적으로 업그레이드되면 자격 증명 모음 설정 메뉴에서 Backup 정책으로 이동하고 자격 증명 모음에 구성된 각 정책에 대한 표준 시간대 정보를 업데이트합니다. 이 화면에서는 정책을 만든 경우 사용되는 로컬 표준 시간대당 지정된 백업 일정 시간을 표시합니다. 
+Recovery Services 자격 증명 모음은 백업 정책에서 표준 시간대 정보를 지정하도록 지원합니다. 자격 증명 모음이 성공적으로 업그레이드되면 자격 증명 모음 설정 메뉴에서 Backup 정책으로 이동하고 자격 증명 모음에 구성된 각 정책에 대한 표준 시간대 정보를 업데이트합니다. 이 화면에서는 정책을 만든 경우 사용되는 로컬 표준 시간대당 지정된 백업 일정 시간을 표시합니다.
 
 ## <a name="enhanced-security"></a>향상된 보안
 
-Recovery Services 자격 증명 모음에 Backup 자격 증명 모음을 업그레이드할 때 해당 자격 증명 모음에 대한 보안 설정은 자동으로 켜집니다. 보안 설정이 켜지면 백업 삭제 또는 암호 변경과 같은 특정 작업에는 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN이 필요합니다. 향상된 보안에 대한 자세한 내용은 [하이브리드 백업을 보호하는 보안 기능](backup-azure-security-feature.md) 문서를 참조하세요. 
+Recovery Services 자격 증명 모음에 Backup 자격 증명 모음을 업그레이드할 때 해당 자격 증명 모음에 대한 보안 설정은 자동으로 켜집니다. 보안 설정이 켜지면 백업 삭제 또는 암호 변경과 같은 특정 작업에는 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN이 필요합니다. 향상된 보안에 대한 자세한 내용은 [하이브리드 백업을 보호하는 보안 기능](backup-azure-security-feature.md) 문서를 참조하세요.
 
-향상된 보안이 사용 설정된 경우 볼트에서 복구 지점 데이터가 삭제되고 최대 14일 후까지 데이터가 유지됩니다. 고객에게 이 보안 데이터의 저장에 대한 비용이 청구됩니다. 보안 이터 보존은 Azure Backup 에이전트, Azure Backup Server 및 System Center Data Protection Manager에 대해 가져온 복구 지점에 적용됩니다. 
+향상된 보안이 사용 설정된 경우 볼트에서 복구 지점 데이터가 삭제되고 최대 14일 후까지 데이터가 유지됩니다. 고객에게 이 보안 데이터의 저장에 대한 비용이 청구됩니다. 보안 이터 보존은 Azure Backup 에이전트, Azure Backup Server 및 System Center Data Protection Manager에 대해 가져온 복구 지점에 적용됩니다.
 
 ## <a name="gather-data-on-your-vault"></a>자격 증명 모음에서 데이터 수집
 
@@ -112,38 +112,38 @@ Recovery Services 자격 증명 모음으로 업그레이드하면 Azure Backup(
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-**업그레이드 계획이 진행 중인 백업에 영향을 주나요?**</br>
+### <a name="does-the-upgrade-plan-affect-my-ongoing-backups"></a>업그레이드 계획이 진행 중인 백업에 영향을 주나요?
  아니요. 진행 중인 백업은 업그레이드 전후에도 중단되지 않고 계속됩니다.
 
-**자격 증명 모음을 곧 업그레이드할 계획이 없다면 어떻게 되나요?**</br>
+### <a name="if-i-dont-plan-on-upgrading-soon-what-happens-to-my-vaults"></a>자격 증명 모음을 가까운 시일 안에 업그레이드할 계획이 없다면 어떻게 되나요?
 새로운 기능이 모두 Recovery Services 자격 증명 모음에만 적용되기 때문에 자격 증명 모음을 업그레이드하는 것이 좋습니다. 2017년 9월 1일부터 Microsoft는 백업 자격 증명 모음을 Recovery Services 자격 증명 모음으로 자동 업그레이드하기 시작합니다. 2017년 11월 30일 이후에는 PowerShell을 사용하여 더 이상 Backup 자격 증명 모음을 만들 수 없습니다. 자격 증명 모음은 이 기간 중 언제든지 자동으로 업그레이드될 수 있습니다. 자격 증명 모음을 가능한 한 빨리 업그레이드하는 것이 좋습니다.
 
-**이 업그레이드로 기존 도구는 어떻게 되나요?**</br>
-도구를 Resource Manager 배포 모델로 업데이트합니다. Recovery Services 자격 증명 모음은 Resource Manager 배포 모델에서 사용하기 위해 만들었습니다. Resource Manager 배포 모델을 계획하고 자격 증명 모음의 차이점을 고려하는 것이 중요합니다. 
+### <a name="what-does-this-upgrade-mean-for-my-existing-tooling"></a>이 업그레이드로 기존 도구는 어떻게 되나요?
+도구를 Resource Manager 배포 모델로 업데이트합니다. Recovery Services 자격 증명 모음은 Resource Manager 배포 모델에서 사용하기 위해 만들었습니다. Resource Manager 배포 모델을 계획하고 자격 증명 모음의 차이점을 고려하는 것이 중요합니다.
 
-**업그레이드하는 동안 작동 중단 시간이 많이 발생하나요?**</br>
+### <a name="during-the-upgrade-is-there-much-downtime"></a>업그레이드하는 동안 작동 중단 시간이 많이 발생하나요?
 업그레이드하는 리소스의 수에 따라 달라집니다. 소규모 배포(보호된 인스턴스가 수십 개)의 경우 전체 업그레이드는 20분이 걸리지 않습니다. 대규모 배포의 경우에 최대 1시간이 걸립니다.
 
-**업그레이드한 후에 롤백할 수 있나요?**</br>
+### <a name="can-i-roll-back-after-upgrading"></a>업그레이드한 후에 롤백할 수 있나요?
  아니요. 리소스를 성공적으로 업그레이드한 후에는 롤백이 지원되지 않습니다.
 
-**내 구독 또는 리소스에서 업그레이드가 가능한지 확인할 수 있나요?**</br>
+### <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-upgrade"></a>내 구독 또는 리소스에서 업그레이드가 가능한지 확인할 수 있나요?
 예. 업그레이드의 첫 번째 단계는 리소스를 업그레이드할 수 있는지 유효성을 검사합니다. 필수 구성 요소의 유효성 검사 작업이 실패하는 경우, 업그레이드를 완료할 수 없는 모든 원인에 대한 모든 메시지가 나타납니다.
 
-**CSP 기반 Backup 자격 증명 모음을 업그레이드할 수 있나요?**</br>
+### <a name="can-i-upgrade-my-csp-based-backup-vault"></a>CSP 기반 백업 자격 증명 모음을 업그레이드할 수 있나요?
  아니요. CSP 기반 백업 자격 증명 모음을 현재 업그레이드할 수 없습니다. 다음 릴리스에서 CSP 기반 Backup 자격 증명 모음을 업그레이드하는 지원을 추가할 예정입니다.
 
-**클래식 자격 증명 모음을 업그레이드한 이후를 볼 수 있나요?**</br>
+### <a name="can-i-view-my-classic-vault-post-upgrade"></a>클래식 자격 증명 모음을 업그레이드한 이후를 볼 수 있나요?
  아니요. 클래식 자격 증명을 업그레이드한 이후를 보거나 관리할 수 없습니다. 자격 증명 모음에 있는 모든 관리 작업에 새 Azure Portal을 사용할 수만 있습니다.
 
-**내 업그레이드에 실패했지만 업데이트가 필요한 에이전트를 보유한 컴퓨터가 더 이상 존재하지 않습니다. 이러한 경우 어떻게 해야 하나요?**</br>
+### <a name="my-upgrade-failed-but-the-machine-that-held-the-agent-requiring-updating-doesnt-exist-anymore-what-do-i-do-in-such-a-case"></a>내 업그레이드에 실패했지만 업데이트가 필요한 에이전트를 보유한 머신이 더 이상 존재하지 않습니다. 이러한 경우 어떻게 해야 하나요?
 장기 보존을 위해 이 컴퓨터의 백업 저장소를 사용해야 하는 경우 자격 증명 모음을 업그레이드할 수 없습니다. 이후 릴리스에서 이러한 자격 증명 모음을 업그레이드하는 지원을 추가할 예정입니다.
 더 이상 이 컴퓨터의 백업을 저장하지 않아도 되는 경우 자격 증명 모음에서 이 컴퓨터의 등록을 취소하고 업그레이드를 다시 시도하세요.
 
-**업그레이드 이후에 리소스에 대한 작업 정보를 볼 수 없는 이유는 무엇인가요?**</br>
+### <a name="why-cant-i-see-the-jobs-information-for-my-resources-after-upgrade"></a>업그레이드 이후에 리소스에 대한 작업 정보를 볼 수 없는 이유는 무엇인가요?
 백업(MARS 에이전트 및 IaaS)에 대한 모니터링은 Recovery Services 자격 증명 모음으로 백업 자격 증명 모음을 업그레이드할 때 얻을 수 있는 새로운 기능입니다. 모니터링 정보는 서비스와 동기화되는 데 최대 12시간이 걸립니다.
 
-**문제를 보고하려면 어떻게 해야 하나요?**</br>
+### <a name="how-do-i-report-an-issue"></a>문제를 보고하려면 어떻게 해야 하나요?
 자격 증명 모음 업그레이드가 일부 실패하면 오류에 나열된 OperationId를 적어둡니다. Microsoft 지원은 문제를 해결하기 위해 사전 예방적으로 작동합니다. 지원에 문의하거나 구독 ID, 자격 증명 모음 이름 및 OperationId를 적은 이메일을 rsvaultupgrade@service.microsoft.com으로 보내주세요. 최대한 빨리 문제를 해결하려고 합니다. Microsoft에서 분명히 지시하지 않은 경우 작업을 다시 시도하지 마세요.
 
 

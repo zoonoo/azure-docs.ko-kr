@@ -4,14 +4,14 @@ description: Azure Migrate에 대한 질문과 대답 해결
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1e60ee5060f5f292ed6d03cf0680d9801a0c04f4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746322"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56416193"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -117,6 +117,10 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 수집기 어플라이언스에서 수집한 데이터는 마이그레이션 프로젝트를 만들면서 사용자가 지정한 Azure 위치에 저장됩니다. 데이터는 Microsoft 구독에 안전하게 저장되며, 사용자가 Azure Migrate 프로젝트를 삭제하는 경우 삭제됩니다.
 
 종속성 시각화의 경우 VM에 에이전트를 설치하면 종속성 에이전트에서 수집된 데이터는 사용자의 구독에서 만든 Log Analytics 작업 영역 내 미국에 저장됩니다. 구독에서 Log Analytics 작업 영역을 삭제하면 이 데이터가 삭제됩니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+
+### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>연속 프로파일링의 경우 Azure Migrate에 의해 업로드되는 데이터 볼륨은 무엇인가요?
+
+Azure Migrate로 전송되는 데이터 볼륨은 여러 매개 변수에 따라 달라집니다. 수치로 표현한다면, 10개의 머신(각각 디스크 1개와 NIC 1개가 있음)이 있는 프로젝트는 하루에 약 50MB를 보냅니다. 이는 근사값이며, NIC 및 디스크의 데이터 요소 수에 따라 변경됩니다(머신, NIC 또는 디스크 수가 증가할 경우 전송되는 데이터는 비선형임). 
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>데이터는 미사용 및 전송 중에 암호화되나요?
 

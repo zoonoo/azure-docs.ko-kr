@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 2e35afe996ec80411d2e0e339fd4d49adecd1239
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857943"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56445120"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
 
@@ -47,19 +47,19 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 
 ## <a name="linux"></a>Linux
 
+Speech SDK는 현재 Ubuntu 16.04 및 18.04 배포를 지원합니다.
 네이티브 애플리케이션의 경우 Speech SDK 라이브러리 `libMicrosoft.CognitiveServices.Speech.core.so`를 전달해야 합니다.
 애플리케이션과 일치하는 버전(x86, x64)을 선택해야 합니다. Linux 버전에 따라 다음 종속성을 포함해야 할 수도 있습니다.
 
 * GNU C 라이브러리의 공유 라이브러리(POSIX Threads Programming 라이브러리, `libpthreads` 포함)
 * OpenSSL 라이브러리(`libssl.so.1.0.0`)
-* cURL 라이브러리(`libcurl.so.4`)
 * ALSA 애플리케이션의 공유 라이브러리(`libasound.so.2`)
 
-예를 들어, Ubuntu 16.04 또는 18.04에서는 기본적으로 GNU C 라이브러리가 설치되어 있어야 합니다. 마지막 세 가지는 다음 명령을 사용하여 설치할 수 있습니다.
+Ubuntu에는 GNU C 라이브러리가 기본적으로 이미 설치되어 있습니다. 마지막 세 가지는 다음 명령을 사용하여 설치할 수 있습니다.
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2 wget
 ```
 
 ## <a name="next-steps"></a>다음 단계
