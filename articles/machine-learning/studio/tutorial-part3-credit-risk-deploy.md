@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6e3f0613e89ef7d6e9b44e519226a793940d41f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56006761"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823793"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>자습서 3: 신용 위험 모델 배포 - Azure Machine Learning Studio
 
-이 자습서에서는 예측 분석 솔루션을 개발하는 과정을 자세히 살펴보겠습니다. Machine Learning Studio에서 간단한 모델을 개발합니다.  그 후 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이렇게 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제3부**입니다.
+이 자습서에서는 예측 분석 솔루션을 개발하는 과정을 자세히 살펴보겠습니다. Machine Learning Studio에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이렇게 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제3부**입니다.
 
 신용대출 지원 시 애플리케이션에서 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
-신용 위험 평가는 복잡한 문제이지만, 이 연습에서는 약간 단순화하여 살펴보겠습니다. Microsoft Azure Machine Learning을 사용하여 예측 분석 솔루션을 만들 수 있는 방법의 예로 신용 위험 평가를 사용할 것입니다. 이 솔루션에 Azure Machine Learning Studio 및 Machine Learning 웹 서비스를 사용할 것입니다. 
+신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Microsoft Azure Machine Learning Studio를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Azure Machine Learning Studio 및 Machine Learning 웹 서비스가 사용됩니다. 
 
-이 3부로 구성된 자습서에서는 공개적으로 사용 가능한 신용 위험 데이터부터 시작합니다.  그 후 예측 모델을 개발하고 학습합니다.  마지막으로 모델을 웹 서비스로 배포합니다.
+이 3부로 구성된 자습서에서는 공개적으로 사용 가능한 신용 위험 데이터부터 시작합니다.  그런 다음, 예측 모델을 개발하고 학습합니다.  마지막으로 모델을 웹 서비스로 배포합니다.
 
 [이 자습서의 제1부](tutorial-part1-credit-risk.md)에서는 Machine Learning Studio 작업 영역을 만들고, 데이터를 업로드하고, 실험을 만들었습니다.
 
@@ -234,7 +234,7 @@ Machine Learning 웹 서비스 포털에서만 새 웹 서비스를 테스트할
 
 이러한 웹앱 템플릿은 웹 서비스의 입력 데이터 및 예상 결과를 알고 있는 사용자 지정 웹앱을 구축할 수 있습니다. 따라서 웹 서비스 및 데이터에 액세스하도록 하기만 하면 나머지 작업은 템플릿이 수행합니다.
 
-웹앱 템플릿 사용에 대한 자세한 내용은 [웹앱 템플릿을 사용한 Azure Machine Learning 웹 서비스 사용](consume-web-service-with-web-app-template.md)을 참조하세요.
+웹앱 템플릿 사용에 대한 자세한 내용은 [웹앱 템플릿을 사용한 Azure Machine Learning 웹 서비스 사용](/azure/machine-learning/studio/consume-web-services)을 참조하세요.
 
 
 

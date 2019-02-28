@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 7371808db8d40948f501b051692172fd6a84e2ac
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1390a3be20dd1fc66bb04939f9ce41139db3cb2e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270218"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873273"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합
 
@@ -66,15 +66,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 Azure PowerShell 또는 Azure CLI 명령을 실행합니다.  
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli-interactive
     echo "Enter your email address that is associated with your Azure subscription):" &&
     read upn &&
     az ad user show --upn-or-object-id $upn --query "objectId" &&
-    ```
+    ```   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     ```azurepowershell-interactive
-    $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
+    $upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
     (Get-AzADUser -UserPrincipalName $upn).Id
     ```
+    또는
+    ```azurepowershell-interactive
+    $displayName = Read-Host -Prompt "Enter your user display name (i.e. John Dole, see the upper right corner of the Azure portal)"
+    (Get-AzADUser -DisplayName $displayName).Id
+    ```
+    ---
 2. 개체 ID를 기록해 둡니다. 자습서의 뒷부분에서 필요합니다.
 
 키 자격 증명 모음을 만들려면:
@@ -187,12 +195,9 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json `
-    -TemplateParameterFile azuredeploy.parameters.json
+    -TemplateFile "$HOME/azuredeploy.json" `
+    -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
 ```
-
-> [!NOTE]
-> Cloud shell에서 Azure PowerShell 사용과 관련된 파일 IO 문제가 있습니다.  오류 메시지는 *cmdlet에 대한 동적 매개 변수를 검색할 수 없습니다. 'Azure:/azuredeploy.json' 경로는 존재하지 않으므로 찾을 수 없습니다.* 입니다.  임시 해결 방법은 `New-AzResourceGroupDeploy` 명령에 **-TemplateFile** 및 **TemplateParameterFile** 스위치를 포함하지 않는 것입니다. 이 명령은 파일 이름을 입력하라는 메시지를 표시합니다.
 
 템플릿을 배포할 때 키 자격 증명 모음과 동일한 리소스 그룹을 사용합니다. 그러면 리소스 그룹을 쉽게 정리할 수 있습니다. 리소스 그룹을 두 개가 아닌 하나만 삭제하면 됩니다.
 

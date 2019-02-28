@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 446c5393b654c7743371e4097517d16ba71da630
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270303"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867017"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>자습서: 연결된 Azure Resource Manager 템플릿 만들기
 
@@ -297,7 +297,7 @@ echo "Linked template URI with SAS token: $templateURI"
 1. 열려 있지 않은 경우 Visual Studio Code에서 azuredeploy.json을 엽니다.
 2. 가상 머신 리소스 정의를 확장하고, 다음 스크린샷에 표시된 대로 **dependsOn**을 업데이트합니다.
 
-    ![종속성을 구성하는 Azure Resource Manager 연결된 템플릿 ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
+    ![종속성을 구성하는 Azure Resource Manager 연결된 템플릿](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
     *linkedTemplate*은 배포 리소스의 이름입니다.  
 3. 이전 스크린샷과 같이 **properties/diagnosticsProfile/bootDiagnostics/storageUri**를 업데이트합니다.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19039a6a1337c2ddc7494805b18f564466d4f1f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 85e773d74231b0b0847dad41a071be499724e2d4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168734"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872933"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>자습서: InstaVR Viewer와 Azure Active Directory 통합
 
@@ -136,11 +136,11 @@ InstaVR Viewer에서 Azure AD Single Sign-on을 구성하려면 다음 단계를
 
 2. **사용자 아이콘**을 클릭하고 **계정**을 선택합니다.
 
-    ![InstaVR Viewer 구성 ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
+    ![InstaVR Viewer 구성](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
 3. **SAML 인증**까지 아래로 스크롤하고 다음 단계를 수행합니다.
 
-    ![InstaVR Viewer 구성 ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
+    ![InstaVR Viewer 구성](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
     a. **SSO URL** 텍스트 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
@@ -175,7 +175,7 @@ InstaVR Viewer에서 Azure AD Single Sign-on을 구성하려면 다음 단계를
     b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -215,22 +215,22 @@ InstaVR Viewer에서 Azure AD Single Sign-on을 구성하려면 다음 단계를
 
 2. 왼쪽 탐색 패널에서 **패키지**를 선택하고 **웹 패키지 만들기**를 선택합니다.
 
-    ![InstaVR Viewer 구성 ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
+    ![InstaVR Viewer 구성](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
 
 3. **다운로드**를 선택합니다.
 
-    ![InstaVR Viewer 구성 ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
+    ![InstaVR Viewer 구성](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
 4. 로그인하기 위해 Azure AD에 리디렉션된 후에 **호스팅된 페이지 열기**를 선택합니다.
 
-    ![InstaVR Viewer 구성 ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
+    ![InstaVR Viewer 구성](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
 5. Azure AD 자격 증명을 입력하여 SSO를 통해 Azure AD에 성공적으로 로그인합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

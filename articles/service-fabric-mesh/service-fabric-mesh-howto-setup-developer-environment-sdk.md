@@ -3,18 +3,18 @@ title: Service Fabric Mesh 앱을 빌드하기 위한 Windows 개발 환경 설�
 description: Service Fabric Mesh 응용 프로그램을 만들고 Azure Service Fabric Mesh에 배포할 수 있도록 Windows 개발 환경을 설정합니다.
 services: service-fabric-mesh
 keywords: ''
-author: tylermsft
-ms.author: twhitney
+author: dkkapur
+ms.author: dekapur
 ms.date: 12/12/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: jeconnoc
-ms.openlocfilehash: a2c00d5373bd4e19a6e6057c6eddc758857860da
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+manager: chakdan
+ms.openlocfilehash: 6aba4b9d2958dbb8dd43d2242debc3b1b19f63ce
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556767"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804487"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Service Fabric Mesh 앱을 빌드하기 위한 Windows 개발 환경 설정
 

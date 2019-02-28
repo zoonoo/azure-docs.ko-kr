@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 1534b2a85067867800c147c86ee7d82374de8794
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ea13ae5bc649ae3a803fb8446fa009fac94874a8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866198"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673567"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>빠른 시작: Java용 Bing Entity Search SDK를 사용하여 검색 요청 보내기
 
@@ -145,10 +145,11 @@ Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Enti
             }
         }
     }
+    ```
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+> [단일 페이지 웹앱 빌드](../tutorial-bing-entities-search-single-page-app.md)
 
-* [What is the Bing Entity Search API?](../overview.md )
+* [Bing Entity Search API란?](../overview.md )

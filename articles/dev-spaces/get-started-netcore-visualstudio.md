@@ -12,12 +12,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 08903bcb15c69e3bc9a2b5435785d4a1ee8edb5c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f345ff2e64670536771a639a7619c6e1d4d2d82d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659051"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823946"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Azure Dev Spaces에서 .NET Core 및 Visual Studio를 사용하여 시작
 
@@ -52,13 +52,6 @@ ms.locfileid: "55659051"
 1. RBAC(역할 기반 액세스 제어)에 대해 원하는 설정을 선택합니다. Azure Dev Spaces는 RBAC를 사용하거나 사용하지 않도록 설정한 클러스터를 지원합니다.
 
     ![RBAC 설정](media/common/k8s-RBAC.PNG)
-
-1. Http 애플리케이션 라우팅을 사용하도록 설정합니다.
-
-   ![Http 애플리케이션 라우팅 사용](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-    > [!Note]
-    > 기존 클러스터에서 [Http 응용 프로그램 라우팅](/azure/aks/http-application-routing)을 사용하도록 설정하려면 `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing` 명령을 사용합니다.
 
 1. **검토 + 만들기**를 선택한 후 완료되면 **만들기**를 선택합니다.
 

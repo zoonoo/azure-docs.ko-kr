@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/30/2018
 ms.author: alzam
-ms.openlocfilehash: f13c31b0c7a85ea4e24f73bdc1fee9c96e51ab35
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0d49e65ccfd13637a2e7313a5ec3a48b2ce900ca
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417206"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727454"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell을 사용하여 VNet-VNet VPN Gateway 연결 구성
 
@@ -144,7 +144,7 @@ Remove-AzResourceGroup -Name TestRG2
 ```
  
  
- ## <a name="script-explanation"></a>스크립트 설명
+## <a name="script-explanation"></a>스크립트 설명
 
 이 스크립트는 다음 명령을 사용하여 배포합니다. 테이블에 있는 각 항목은 명령에 해당하는 문서에 연결됩니다.
 

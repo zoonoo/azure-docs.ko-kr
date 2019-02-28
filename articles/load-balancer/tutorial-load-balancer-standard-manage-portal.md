@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/18
+ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: c22f69764447ffd4f8b67e9162fd8b45b40b175b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7caddde5c7695d0c572dc139b52cd0743e39d778
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230036"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672002"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 인터넷 트래픽 부하를 VM에 분산
 
@@ -49,8 +49,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 이름                   | *myLoadBalancer*                                   |
-    | type          | 공용                                        |
+    | Name                   | *myLoadBalancer*                                   |
+    | Type          | 공용                                        |
     | SKU           | Standard                          |
     | 공용 IP 주소 | **새로 만들기**를 선택하고, 텍스트 상자에 *myPublicIP*를 입력합니다. 공용 IP 주소에 대한 표준 SKU는 기본적으로 선택됩니다. **가용성 영역**에 **영역 중복**을 선택합니다. |
     | 구독               | 구독을 선택합니다.    |
@@ -68,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. Azure Portal의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
     |설정|값|
     |---|---|
-    |이름|*myVNet*을 입력합니다.|
+    |Name|*myVNet*을 입력합니다.|
     |구독| 구독을 선택합니다.|
     |리소스 그룹| **기존 항목 사용**을 선택한 다음, *myResourceGroupSLB*를 선택합니다.|
     |서브넷 이름| *myBackendSubnet*을 입력합니다.|

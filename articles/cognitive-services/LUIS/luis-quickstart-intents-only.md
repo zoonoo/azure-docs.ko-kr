@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: b4ac0ccb249bac7149014861056c10f9093d6759
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878166"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593916"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>자습서: 사용자 의도를 확인하는 LUIS 앱 빌드
 
@@ -165,9 +165,13 @@ LUIS 포털로 돌아가서 사용자 발언이 구직과 관련된 것인지 �
     |엔지니어링 업무에 이력서를 제출합니다.|
     |여기의 내 이력서는 탬파 게시물 234123에 대한 이력서입니다.|
 
-    [![ApplyForJob 의도에 대한 새 발화 입력 스크린샷](media/luis-quickstart-intents-only/utterance-applyforjob.png "ApplyForJob 의도에 대한 새 발화 입력 스크린샷")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+<!--
 
-    LUIS는 현재 의도가 정확한지 확신하지 못하므로 레이블의 의도에 빨간색 밑줄이 있습니다. 앱 학습에서 LUIS에게 발화가 정확한 의도임을 알립니다. 
+    [![Screenshot of entering new utterances for ApplyForJob intent](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot of entering new utterances for ApplyForJob intent")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+
+    The labeled intent is outlined in red because LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
+
+-->
 
 ## <a name="train-again"></a>다시 학습
 

@@ -10,12 +10,12 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: f3dbe8c62cb1fcc0585b5abccc51a620ea713543
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8d305e051bd6708977926e3a4de47c15a784c7b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664770"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818819"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 다중 서비스 개발
 
@@ -76,7 +76,7 @@ ms.locfileid: "55664770"
 *webfrontend*에는 *mywebapi*에 대한 HTTP 호출을 출력하는 특수 코드가 포함되어 있지 않지만 출력 창에 HTTP 추적 메시지가 표시되는 것을 눈치채셨을 것입니다.
 ```
 // The request from your browser
-webfrontend.<id>.<region>.aksapp.io --hyh-> webfrontend:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io --hyh-> webfrontend:
    GET /api?_=1544485357627 HTTP/1.1
 
 // *webfrontend* reaching out to *mywebapi*
@@ -89,7 +89,7 @@ webfrontend <-1b1-- mywebapi:
    Hello from mywebapi
 
 // Response from *webfrontend* to your browser
-webfrontend.<id>.<region>.aksapp.io <-hyh-- webfrontend:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io <-hyh-- webfrontend:
    HTTP/1.1 200 OK
    Hello from webfrontend and Hello from mywebapi
 ```
