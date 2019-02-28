@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 8b890630d352619da86c3017426e24f55ef016d9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d08ebc7c1e52022ec918020387264c464d1cd967
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307173"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883422"
 ---
 # <a name="create-a-xamarinios-app"></a>Xamarin.iOS 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -72,7 +72,7 @@ ms.locfileid: "38307173"
 
 ## <a name="next-steps"></a>다음 단계
 * [앱에 오프라인 동기화 추가](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [앱에 인증 추가 ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [앱에 인증 추가](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Xamarin.Android 앱에 푸시 알림 추가](app-service-mobile-xamarin-ios-get-started-push.md)
 * [Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md)
 

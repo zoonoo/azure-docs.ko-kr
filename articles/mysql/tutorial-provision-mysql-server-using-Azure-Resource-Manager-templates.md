@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: fa8091011575822907915b67cf48bffaf5e7e728
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657079"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880702"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전
 
@@ -29,6 +29,8 @@ Azure Resource Manager는 기본 REST API를 활용하여 규모에 맞게 배�
 > * 샘플 데이터 로드
 > * 쿼리 데이터
 > * 데이터 업데이트
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="create-an-azure-database-for-mysql-server-with-vnet-service-endpoint-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 VNet 서비스 엔드포인트에서 Azure Database for MySQL 서버 만들기
 

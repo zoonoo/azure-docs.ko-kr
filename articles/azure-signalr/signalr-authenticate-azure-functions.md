@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: b66d4c9fb3bce03248f5696d5a7b2b7b62b7ffd3
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 0ed30b9ad38db71798edd75ee133a08670fd33fe
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746380"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890201"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure SignalR Service 인증
 
@@ -304,7 +304,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 1. VS Code에서 **SignalRInfo/function.json**을 엽니다.
 
-1. *SignalRConnectionInfo* 바인딩의 *userId* 속성에 [바인딩 식](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns)(`{headers.x-ms-client-principal-name}`)을 삽입합니다. 이렇게 하면 값이 인증된 사용자의 사용자 이름으로 설정됩니다. 특성은 이제 다음과 같습니다.
+1. *SignalRConnectionInfo* 바인딩의 *userId* 속성에 [바인딩 식](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings)(`{headers.x-ms-client-principal-name}`)을 삽입합니다. 이렇게 하면 값이 인증된 사용자의 사용자 이름으로 설정됩니다. 특성은 이제 다음과 같습니다.
 
     ```json
     {

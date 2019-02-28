@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230835"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882640"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
 
@@ -177,7 +177,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 4. **새 백엔드 리소스 추가**를 클릭하여 각 가상 머신(*myVM2* 및 *myVM3*)을 부하 분산 장치의 백엔드 풀에 추가합니다.
 5. **추가**를 클릭합니다.
 
-    ![백 엔드 주소 풀에 추가 ](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
+    ![백 엔드 주소 풀에 추가](./media/load-balancer-standard-public-availability-zones-portal/add-backend-pool.png)
 
 3. 부하 분산 장치 백 엔드 풀 설정에 **myVM1**, **myVM2** 및 **myVM3** 등의 세 VM이 모두 표시되는지 확인합니다.
 
