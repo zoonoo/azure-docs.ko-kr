@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b8ce62533af1cf8f921a8a8eafb8e781821c2604
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4428bf710df5eae3b06c8abd38eb85d6128a574d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233815"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959428"
 documentType: LandingData
 title: Machine Learning Studio 설명서
 metadata:
@@ -18,21 +18,10 @@ metadata:
   ms.author: jmartens
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.date: 01/24/2019
+  ms.date: 02/24/2019
 abstract:
   description: Azure Machine Learning Studio는 데이터에 대한 예측 분석 솔루션을 빌드, 테스트 및 배포하는 데 사용되는 공동 끌어서 놓기 도구입니다. 자습서, 비디오 및 예제 모델에서 Studio를 사용하여 기계 학습 모델을 빌드하고 배포하는 방법을 보여 줍니다.
 sections:
-- title: 5분 빠른 시작
-  items:
-  - type: paragraph
-    text: Machine Learning Studio를 사용하기 시작하는 방법에 대해 알아봅니다.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="create-experiment">첫 번째 Studio 실험 만들기</a>
-    - html: <a href="algorithm-choice">최상의 알고리즘 선택</a>
-    - html: <a href="deploy-consume-web-service-guide">모델을 웹 서비스로 배포</a>
-    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">"초급자를 위한 데이터 과학" 읽기</a>
 - title: 단계별 자습서
   items:
   - type: paragraph
@@ -40,8 +29,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-part1-credit-risk">예측 솔루션 만들기 및 배포</a>
-    - html: <a href="azure-ml-customer-churn-scenario">고객 이탈 예</a>
+    - html: <a href="create-experiment">첫 번째 Studio 실험 만들기</a>
+    - html: <a href="tutorial-part1-credit-risk">신용 위험에 대한 예측 솔루션 만들기 및 배포</a>
 - title: 참고 자료
   items:
   - type: list

@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6b15db6bc4e5d868080cb2949e34b62fd8033854
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: eec0d8284163811354edd14b2b1b6b3ea8e12af4
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726179"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960125"
 documentType: LandingData
-title: Azure Lab Services 미리 보기 및 Azure DevTest Labs 설명서
+title: Azure Lab Services 및 Azure DevTest Labs 설명서
 metadata:
   title: Azure Lab Services 설명서 - 자습서, API 참조 | Microsoft Docs
   description: Azure Lab Services를 사용하여 클라우드에 팀 또는 학생들을 위한 개발, 테스트, 해커톤(hackathon) 또는 클래스룸 랩을 빠르게 설정하는 방법을 알아봅니다. Azure 자습서, 샘플 등에서는 랩을 만들고, 관리하고, 보호하는 방법을 보여 줍니다.

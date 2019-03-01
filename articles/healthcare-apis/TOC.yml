@@ -1,0 +1,56 @@
+items:
+- name: FHIR용 Azure API
+  href: index.yml
+- name: 개요
+  items:
+  - name: Azure API for FHIR 정보
+    href: overview.md
+  - name: FHIR Server for Azure 정보
+    href: overview-open-source-server.md
+- name: 빠른 시작
+  items:
+  - name: Azure API for FHIR 배포 - 포털
+    href: fhir-paas-portal-quickstart.md
+  - name: Azure API for FHIR 배포 - PowerShell
+    href: fhir-paas-powershell-quickstart.md
+  - name: Azure API for FHIR 배포 - CLI
+    href: fhir-paas-cli-quickstart.md
+  - name: FHIR Server for Azure 배포 - 포털
+    href: fhir-oss-portal-quickstart.md
+  - name: FHIR Server for Azure 배포 - PowerShell
+    href: fhir-oss-powershell-quickstart.md
+  - name: FHIR Server for Azure 배포 - CLI
+    href: fhir-oss-cli-quickstart.md
+  expanded: true
+- name: 자습서
+  items:
+  - name: Postman에서 FHIR API에 액세스
+    href: access-fhir-postman-tutorial.md
+  expanded: false
+- name: 방법 가이드
+  items:
+  - name: 리소스 애플리케이션 등록
+    href: register-resource-azure-ad-client-app.md
+  - name: 기밀 클라이언트 애플리케이션 등록
+    href: register-confidential-azure-ad-client-app.md
+  - name: 공용 클라이언트 애플리케이션 등록
+    href: register-public-azure-ad-client-app.md
+  - name: 서비스 클라이언트 애플리케이션 등록
+    href: register-service-azure-ad-client-app.md
+  - name: Azure API for FHIR의 토큰 가져오기 - CLI
+    href: get-healthcare-apis-access-token-cli.md
+  - name: ID 개체 ID 찾기
+    href: find-identity-object-ids.md
+  expanded: false
+- name: 리소스
+  items:
+  - name: FAQ
+    href: fhir-faq.md
+  - name: 지원되는 기능
+    href: fhir-features-supported.md
+ms.openlocfilehash: 60d0d4b8368a64b9ef66608de6824cec9876b8be
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958119"

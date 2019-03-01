@@ -2,7 +2,7 @@
 ## [에이전트 모니터링](../monitoring/index.md)
 
 # 시작하기
-## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [Azure Monitor 로그](../log-analytics/log-analytics-get-started.md)
 ## [Automation](/azure/automation/)
 ## [Backup](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
@@ -11,7 +11,7 @@
 # 방법
 
 ## 분석
-### [Log Analytics](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## 자동화
 ### [Azure Automation 개요](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
