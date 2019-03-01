@@ -70,10 +70,10 @@ ms.topic: overview
 이 문제를 해결하기 위해 수행할 수 있는 두 가지 옵션이 있습니다.
 
 1. 루트 관리 그룹에서 모든 역할 및 정책 할당 제거
-    1. 서비스는 루트 관리 그룹에서 모든 정책 및 역할 할당을 제거한 후 다음 야간 주기에 모든 구독을 계층 구조에 다시 채웁니다.  이 프로세스는 모든 테넌트 구독에 액세스 권한이 우연히 지정되거나 정책이 할당되지 않도록 합니다.
-    1. 서비스에 영향을 주지 않고 이 프로세스를 수행하는 가장 좋은 방법은 루트 관리 그룹에서 한 수준 아래에 역할 또는 정책 할당을 적용하는 것입니다. 그런 다음, 루트 범위에서 모든 할당을 제거할 수 있습니다.
+   1. 서비스는 루트 관리 그룹에서 모든 정책 및 역할 할당을 제거한 후 다음 야간 주기에 모든 구독을 계층 구조에 다시 채웁니다.  이 프로세스는 모든 테넌트 구독에 액세스 권한이 우연히 지정되거나 정책이 할당되지 않도록 합니다.
+   1. 서비스에 영향을 주지 않고 이 프로세스를 수행하는 가장 좋은 방법은 루트 관리 그룹에서 한 수준 아래에 역할 또는 정책 할당을 적용하는 것입니다. 그런 다음, 루트 범위에서 모든 할당을 제거할 수 있습니다.
 1. API를 직접 호출하여 다시 채우기 프로세스 시작
-    1. 디렉터리의 모든 고객은 *TenantBackfillStatusRequest* 또는 *StartTenantBackfillRequest* API를 호출할 수 있습니다. 호출된 StartTenantBackfillRequest API는 모든 구독을 계층 구조로 이동하는 초기 설정 프로세스를 시작합니다. 이 프로세스는 또한 모든 새 구독을 루트 관리 그룹의 자식으로 적용하기 시작합니다. 이 프로세스는 루트 수준에서 할당을 변경하지 않고 수행될 수 있습니다. API를 호출하면 루트의 정책 또는 액세스 할당이 모든 구독에 적용될 수 있어도 괜찮습니다.
+   1. 디렉터리의 모든 고객은 *TenantBackfillStatusRequest* 또는 *StartTenantBackfillRequest* API를 호출할 수 있습니다. 호출된 StartTenantBackfillRequest API는 모든 구독을 계층 구조로 이동하는 초기 설정 프로세스를 시작합니다. 이 프로세스는 또한 모든 새 구독을 루트 관리 그룹의 자식으로 적용하기 시작합니다. 이 프로세스는 루트 수준에서 할당을 변경하지 않고 수행될 수 있습니다. API를 호출하면 루트의 정책 또는 액세스 할당이 모든 구독에 적용될 수 있어도 괜찮습니다.
 
 이 다시 채우기 프로세스에 대한 질문이 있는 경우 managementgroups@microsoft.com에 문의하세요.  
   
@@ -116,6 +116,6 @@ Azure Portal 외부에서 관리 그룹의 쿼리를 살펴보면 관리 그룹�
 
 - [관리 그룹을 만들어 Azure 리소스 구성](create.md)
 - [관리 그룹을 변경, 삭제 또는 관리하는 방법](manage.md)
-- [Azure PowerShell 리소스 모듈에서 관리 그룹 검토](https://aka.ms/mgPSdocs)
-- [REST API에서 관리 그룹 검토](https://aka.ms/mgAPIdocs)
-- [Azure CLI에서 관리 그룹 검토](https://aka.ms/mgclidoc)
+- [Azure PowerShell 리소스 모듈에서 관리 그룹 검토](/powershell/module/az.resources#resources)
+- [REST API에서 관리 그룹 검토](/rest/api/resources/managementgroups)
+- [Azure CLI에서 관리 그룹 검토](/cli/azure/account/management-group)
