@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165028"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194013"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -44,7 +44,9 @@ MySQL 버전 5.6, 5.7 및 8.0 호스팅 서버에 대해 사용할 수 있습니
 4. MySQL Server 인스턴스의 연결 세부 정보를 제공 합니다.
 
    * 에 대 한 **MySQL 호스팅 서버 이름**, 정규화 된 도메인 이름 (FQDN) 또는 유효한 IPv4 주소를 제공 합니다. 짧은 VM 이름을 사용 하지 마세요.
-   * 기본 MySQL 인스턴스를이 제공 되지 않습니다 지정 해야 합니다 **의 호스팅 서버의 크기 (GB)** 합니다. 데이터베이스 서버의 용량에 가까운 크기를 입력 합니다.
+   - 기본 관리자 **사용자 이름** Bitnami MySQL Azure Stack marketplace에서 사용할 수 있는 이미지에 대 한 됩니다 *루트*입니다. 
+   - 루트 알 수 없는 경우 **암호**를 참조 합니다 [Bitnami 설명서](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) 되도록 하는 방법을 알아보려면. 
+   - 기본 MySQL 인스턴스를이 제공 되지 않습니다 지정 해야 합니다 **의 호스팅 서버의 크기 (GB)** 합니다. 데이터베이스 서버의 용량에 가까운 크기를 입력 합니다.
    * 에 대 한 기본 설정을 유지 **구독**합니다.
    * 에 대 한 **리소스 그룹**새 대시보드를 만들거나 기존 그룹을 사용 합니다.
 

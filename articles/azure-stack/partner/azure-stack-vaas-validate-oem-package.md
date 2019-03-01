@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 02/19/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: f5b884ddda292b1c523a5364d34753ccb3a5bbdf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594052"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194445"
 ---
 # <a name="validate-oem-packages"></a>OEM 패키지 유효성 검사
 
@@ -91,6 +91,9 @@ ms.locfileid: "56594052"
 ## <a name="apply-monthly-update"></a>월별 업데이트를 적용 합니다.
 
 [!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+
+> [!NOTE]
+> 월별 업데이트를 적용 한 후에 테스트-azurestack의 경우 업데이트가 제대로 적용 되었는지 고 정상 상태인 것을 확인 하려면를 실행 하는 것이 좋습니다. AzureStack 테스트에 실패 하면 Microsoft에 문제를 보고 합니다. 문제가 해결 될 때까지 테스트 통과 진행 하지 마세요. 이 테스트 Azure Stack 명령을 실행 하는 방법에 대 한 정보를 찾을 수 있습니다 [문서](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)합니다.
 
 ## <a name="create-a-package-validation-workflow"></a>패키지 유효성 검사 워크플로 만들기
 

@@ -4,17 +4,18 @@ description: Azure Stack 저장소 개발 도구를 사용 하 여 시작 하기
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/05/2018
+ms.date: 02/27/2019
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: aa044ba9a7fcb66b5314144dd77bdd3435488218
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.lastreviewed: 02/27/2019
+ms.openlocfilehash: 45bd47d0a55f447cc6222bb24de8eafcf37e263b
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877608"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010653"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 저장소 개발 도구를 사용 하 여 시작
 
@@ -24,65 +25,65 @@ Microsoft Azure Stack에는 blob, 테이블 및 큐 저장소를 포함 하는 �
 
 Azure Stack 저장소 개발 도구를 사용 하 여 시작 하려면이 문서를 지침으로 사용 합니다. 해당 Azure storage 자습서에서 샘플 코드와 자세한 정보를 찾을 수 있습니다.
 
-> [!NOTE]
+> [!NOTE]  
 > Azure Stack 저장소와 각 플랫폼에 대 한 특정 요구 사항을 비롯 한 Azure storage의 차이점 알려져 있습니다. 예를 들어 특정 클라이언트 라이브러리 및 Azure Stack에 대 한 특정 끝점 접미사 요구 됩니다. 자세한 내용은 참조 하세요. [Azure Stack 저장소: 차이점 및 고려 사항](azure-stack-acs-differences.md)합니다.
 
 ## <a name="azure-client-libraries"></a>Azure 클라이언트 라이브러리
 
-Azure Stack 저장소에 대 한 지원 되는 REST API 버전 2017-04-17, 2016-05-31, 2015 년 12 월 11, 2015-07-08, 2015-04-05 1802 업데이트 또는 최신 버전 및 이전 버전 2015-04-05 됩니다. Azure Stack 끝점에 최신 버전의 Azure storage REST API를 사용 하 여 완벽 한 패리티를 사용할 필요가 없습니다. 스토리지 클라이언트 라이브러리의 경우 REST API와 호환되는 버전을 알아야 합니다.
+저장소 클라이언트 라이브러리에 대 한 REST API와 호환 되는 버전을 알고 있어야 합니다. 코드에서 Azure Stack 끝점을 지정 해야 합니다.
 
-### <a name="1802-update-or-newer-versions"></a>1802 업데이트 또는 최신 버전
+### <a name="1811-update-or-newer-versions"></a>1811 업데이트 또는 최신 버전
+
+| 클라이언트 라이브러리 | Azure Stack 지원 되는 버전 | 링크 | 엔드포인트 사양 |
+|----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| .NET | 9.2.0 | Nuget 패키지:<br>https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0 | app.config 파일 |
+| 자바 | 7.0.0 | Maven 패키지:<br>https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/7.0.0<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0 | 연결 문자열 설정 |
+| Node.js | 2.8.3 | NPM 링크:<br>https://www.npmjs.com/package/azure-storage<br>(실행: `npm install azure-storage@2.8.3`)<br> <br>Github 릴리스:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3 | 서비스 인스턴스 선언 |
+| C++ | 5.2.0 | Nuget 패키지:<br>https://www.nuget.org/packages/Microsoft.Azure.Storage.CPP.v140/5.2.0<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0 | 연결 문자열 설정 |
+| PHP | 1.2.0 | GitHub 릴리스:<br>일반: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common<br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob<br>큐:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue<br>테이블: https://github.com/Azure/azure-storage-php/releases/tag/v1.1.0-table<br> <br>작성기를 통해 설치 (자세한 내용은 [아래 세부 정보를 보려면](#install-php-client-via-composer---current).) | 연결 문자열 설정 |
+| Python | 1.1.0 | GitHub 릴리스:<br>일반적인:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-common<br>Blob:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob<br>큐:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-queue | 서비스 인스턴스 선언 |
+| Ruby | 1.0.1 | RubyGems 패키지:<br>일반적인:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Queue: https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>테이블: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>GitHub 릴리스:<br>일반: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>Queue: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>테이블: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | 연결 문자열 설정 |
+
+#### <a name="install-php-client-via-composer---current"></a>작성기를 통해 PHP 클라이언트 설치 - 현재
+
+작성기를 통해 설치 합니다. (예를 들어 blob 소요).
+
+1. 이라는 파일을 만듭니다 **composer.json** 다음 코드를 사용 하 여 프로젝트의 루트에:
+
+    ```json
+    {
+      "require": {
+      "Microsoft/azure-storage-blob":"1.2.0"
+      }
+    }
+    ```
+
+2. 다운로드 [composer.phar](http://getcomposer.org/composer.phar) 프로젝트 루트에 있습니다.
+3. `php composer.phar install`을 실행합니다.
+
+### <a name="previous-versions-1802-to-1809-update"></a>이전 버전 (1802에 1809 업데이트)
 
 | 클라이언트 라이브러리 | Azure Stack 지원 되는 버전 | 링크 | 엔드포인트 사양 |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 8.7.0 | Nuget 패키지:<br>https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0 | app.config 파일 |
 | 자바 | 6.1.0 | Maven 패키지:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0 | 연결 문자열 설정 |
-| Node.js | 2.7.0 | NPM 링크:<br>https://www.npmjs.com/package/azure-storage<br>(실행: `npm install azure-storage@2.7.0`)<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | 서비스 인스턴스 선언 |
+| Node.js | 2.7.0 | NPM 링크:<br>https://www.npmjs.com/package/azure-storage<br>(실행: `npm install azure-storage@2.7.0`)<br> <br>Github 릴리스:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | 서비스 인스턴스 선언 |
 | C++ | 3.1.0 | Nuget 패키지:<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | 연결 문자열 설정 |
-| PHP | 1.0.0 | GitHub 릴리스:<br>일반: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>큐:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>테이블: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>작성기를 통해 설치 (자세한 내용은 [아래 세부 정보를 보려면](#install-php-client-via-composer---current).) | 연결 문자열 설정 |
+| PHP | 1.0.0 | GitHub 릴리스:<br>일반: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>큐:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>테이블: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>작성기를 통해 설치 (아래 세부 정보 참조).) | 연결 문자열 설정 |
 | Python | 1.0.0 | GitHub 릴리스:<br>일반적인:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>Blob:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>큐:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | 서비스 인스턴스 선언 |
 | Ruby | 1.0.1 | RubyGems 패키지:<br>일반적인:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Queue: https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>테이블: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>GitHub 릴리스:<br>일반: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>Queue: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>테이블: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | 연결 문자열 설정 |
 
-#### <a name="install-php-client-via-composer---current"></a>작성기를 통해 PHP 클라이언트 설치 - 현재
+#### <a name="install-php-client-via-composer---previous"></a>이전-작성기를 통해 PHP 클라이언트를 설치 합니다.
 
 작성기를 통해 설치하려면: (Blob을 예로 사용).
 
 1. 이라는 파일을 만듭니다 **composer.json** 다음 코드를 사용 하 여 프로젝트의 루트에:
 
-  ```php
+  ```json
     {
       "require": {
       "Microsoft/azure-storage-blob":"1.0.0"
       }
-    }
-  ```
-
-2. 다운로드 [composer.phar](http://getcomposer.org/composer.phar) 프로젝트 루트에 있습니다.
-3. `php composer.phar install`을 실행합니다.
-
-### <a name="previous-versions"></a>이전 버전
-
-|클라이언트 라이브러리|Azure Stack 지원 되는 버전|링크|엔드포인트 사양|
-|---------|---------|---------|---------|
-|.NET     |6.2.0|Nuget 패키지:<br>[https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0](https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0)<br><br>GitHub 릴리스:<br>[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|app.config 파일|
-|자바|4.1.0|Maven 패키지:<br>[http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0)<br><br>GitHub 릴리스:<br> [https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0](https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0)|연결 문자열 설정|
-|Node.js     |1.1.0|NPM 링크:<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(run: `npm install azure-storage@1.1.0)`<br><br>GitHub 릴리스:<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|서비스 인스턴스 선언||C++|2.4.0|Nuget 패키지:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub 릴리스:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|연결 문자열 설정|
-|C++|2.4.0|Nuget 패키지:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub 릴리스:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|연결 문자열 설정|
-|PHP|0.15.0|GitHub 릴리스:<br>[https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0](https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0)<br><br>작성기를 통해 설치(아래 세부 정보 참조)|연결 문자열 설정|
-|Python     |0.30.0|PIP 패키지:<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(Run: `pip install -v azure-storage==0.30.0)`<br><br>GitHub 릴리스:<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|서비스 인스턴스 선언|
-|Ruby|0.12.1<br>미리 보기|RubyGems 패키지:<br> [https://rubygems.org/gems/azure-storage/versions/0.12.1.preview](https://rubygems.org/gems/azure-storage/versions/0.12.1.preview)<br><br>GitHub 릴리스:<br> [https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1](https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1)|연결 문자열 설정|
-
-#### <a name="install-php-client-via-composer---previous"></a>이전-작성기를 통해 PHP 클라이언트를 설치 합니다.
-
-작성기를 통해 설치:
-
-1. 이라는 파일을 만듭니다 **composer.json** 다음 코드를 사용 하 여 프로젝트의 루트에:
-
-  ```php
-    {
-          "require":{
-          "Microsoft/azure-storage":"0.15.0"
-          }
     }
   ```
 
@@ -101,7 +102,7 @@ Azure Stack 저장소에 대 한 지원 되는 REST API 버전 2017-04-17, 2016-
 
 Azure Stack에 대 한 끝점 접미사는 app.config 파일에 지정 됩니다.
 
-```
+```xml
 <add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
@@ -111,7 +112,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 Azure Stack에 대 한 끝점 접미사는 연결 문자열의 설정에 지정 됩니다.
 
-```
+```java
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
@@ -123,7 +124,7 @@ public static final String storageConnectionString =
 
 Azure Stack에 대 한 끝점 접미사는 인스턴스를 선언에 지정 됩니다.
 
-```
+```nodejs
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
@@ -132,7 +133,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 Azure Stack에 대 한 끝점 접미사는 연결 문자열의 설정에 지정 됩니다.
 
-```
+```cpp
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
 AccountName=your_storage_account;
 AccountKey=your_storage_account_key;
@@ -143,7 +144,7 @@ EndpointSuffix=local.azurestack.external"));
 
 Azure Stack에 대 한 끝점 접미사는 연결 문자열의 설정에 지정 됩니다.
 
-```
+```php
 $connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
 QueueEndpoint=http:// <storage account name>.queue.local.azurestack.external/;
 TableEndpoint=http:// <storage account name>.table.local.azurestack.external/;
@@ -154,7 +155,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 Azure Stack에 대 한 끝점 접미사는 인스턴스를 선언에 지정 됩니다.
 
-```
+```python
 block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
@@ -164,7 +165,7 @@ endpoint_suffix='local.azurestack.external')
 
 Azure Stack에 대 한 끝점 접미사는 연결 문자열의 설정에 지정 됩니다.
 
-```
+```ruby
 set
 AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;
 AccountName=myaccount;

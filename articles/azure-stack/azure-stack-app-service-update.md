@@ -11,28 +11,28 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a017e1c70658953e1c08cd92a7e1e5184fee0bb5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c993322bdf4266939eab854e217cae6e90326d29
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447398"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991566"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Azure Stack의 Azure App Service를 업데이트 합니다.
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!IMPORTANT]  
-> 1809 업데이트 적용 또는 나중에 Azure Stack 통합 시스템 또는 Azure 앱 서비스 1.4를 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다. 리소스 공급자를 업데이트 하기 전에 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 대 한 자세한 릴리스 정보를 검토 합니다.
+> Azure Stack 통합 시스템 1901 업데이트를 적용 하거나 Azure 앱 서비스 1.5를 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다.
 
 이 문서의 지침에 따라 업그레이드할 수 있습니다 합니다 [App Service 리소스 공급자](azure-stack-app-service-overview.md) 인터넷에 연결 된 Azure Stack 환경에 배포 합니다.
 
 > [!IMPORTANT]  
-> 업그레이드를 실행 하기 전에 이미 완료 되었는지 확인 합니다 [Azure Stack 리소스 공급자에서 Azure App Service 배포](azure-stack-app-service-deploy.md)
+> 업그레이드를 실행 하기 전에 이미 완료 되었는지 확인 합니다 [Azure Stack 리소스 공급자에서 Azure App Service의 배포](azure-stack-app-service-deploy.md) 읽었다고 하 고는 [릴리스](azure-stack-app-service-release-notes-update-five.md) 와 함께 제공 되는 1.5 릴리스는 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 알아봅니다.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>App Service 리소스 공급자 설치 관리자를 실행 합니다.
 

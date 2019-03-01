@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737487"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990538"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack에서 App Service를 사용 하 여 시작 하기 전에
 
@@ -30,7 +30,7 @@ ms.locfileid: "56737487"
 Azure App Service on Azure Stack을 배포 하기 전에이 문서의 필수 구성 요소 단계를 완료 해야 합니다.
 
 > [!IMPORTANT]
-> Azure Stack 통합 시스템 1809 업데이트를 적용 하거나 Azure 앱 서비스 1.4를 배포 하기 전에 최신 Azure Stack 개발 키트 ASDK ()를 배포 합니다.
+> Azure Stack 통합 시스템 1901 업데이트를 적용 하거나 Azure 앱 서비스 1.5를 배포 하기 전에 최신 Azure Stack 개발 키트 ASDK ()를 배포 합니다.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>설치 관리자 및 도우미 스크립트 다운로드
 
@@ -49,15 +49,7 @@ Azure App Service on Azure Stack을 배포 하기 전에이 문서의 필수 구
 
 ## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Marketplace에서 사용자 지정 스크립트 확장을 구성 합니다.
 
-Azure App Service on Azure Stack 사용자 지정 스크립트 확장 v1.9.0이 필요합니다.  확장명은 이어야 [Marketplace에서 신디케이티드](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) Azure Stack에 배포 또는 Azure App Service의 업그레이드를 시작 하기 전에
-
-## <a name="high-availability"></a>고가용성
-
-Azure Stack 1802 업데이트에는 장애 도메인에 대 한 지원이 추가 되었습니다. Azure Stack에서 Azure App Service의 새로운 배포 장애 도메인 분산 및 내결함성을 제공 합니다.
-
-1802 업데이트 전에 배포 된 Azure Stack에서 Azure App Service의 기존 배포에 대 한 참조를 [App Service 리소스 공급자는 장애 도메인 간에 균형 다시 맞추기](azure-stack-app-service-fault-domain-update.md) 문서.
-
-또한 필요한 파일 서버 및 고가용성 구성의 SQL Server 인스턴스를 배포 합니다.
+Azure App Service on Azure Stack 사용자 지정 스크립트 확장 v1.9.1이 필요합니다.  확장명은 이어야 [Marketplace에서 신디케이티드](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) Azure Stack에 배포 또는 Azure App Service의 업그레이드를 시작 하기 전에
 
 ## <a name="get-certificates"></a>인증서 가져오기
 

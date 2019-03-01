@@ -12,23 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 332722a1774eea41ab3566051da138f2383fef98
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 9d941c36499f851f20c41fa6dd01faf14e4192ba
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447670"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992773"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Azure Stack에서 Azure App Service의 오프 라인 업데이트
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!IMPORTANT]
-> 1809 업데이트 적용 또는 나중에 Azure Stack 통합 시스템 또는 Azure 앱 서비스 1.4를 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다. 리소스 공급자를 업데이트 하기 전에 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 대 한 자세한 릴리스 정보를 검토 합니다.
+> 1901 업데이트 적용 또는 나중에 Azure Stack 통합 시스템 또는 Azure 앱 서비스 1.5를 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다. 
 
 이 문서의 지침에 따라 업그레이드할 수 있습니다 합니다 [App Service 리소스 공급자](azure-stack-app-service-overview.md) 는 Azure Stack 환경에 배포 합니다.
 
@@ -36,9 +35,7 @@ ms.locfileid: "56447670"
 * Active Directory Federation Services (AD FS)로 보호 됩니다.
 
 > [!IMPORTANT]
-> 업그레이드를 실행 하기 전에 이미 완료 되었는지 확인 합니다 [Azure Stack 리소스 공급자에서 Azure App Service 배포](azure-stack-app-service-deploy-offline.md)
->
->
+> 업그레이드를 실행 하기 전에 이미 완료 되었는지 확인 합니다 [Azure Stack 리소스 공급자에서 Azure App Service의 배포](azure-stack-app-service-deploy-offline.md) 읽었다고 및 합니다 [릴리스](azure-stack-app-service-release-notes-update-five.md)와 함께 제공 되는 새로운 기능, 수정 및 배포에 영향을 줄 수 있는 알려진된 문제에 대해 자세히 알아보려면 1.5 릴리스 합니다.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>App Service 리소스 공급자 설치 관리자를 실행 합니다.
 
@@ -101,7 +98,7 @@ Azure Stack 환경에서 App Service 리소스 공급자를 업그레이드 하�
 
    1. 클릭 합니다 **Connect** 단추 옆에 **Azure Stack 구독** 상자입니다.
         * Azure Active Directory (Azure AD)를 사용 하는 경우 Azure AD 관리자 계정 및 Azure Stack을 배포할 때 제공한 암호를 입력 합니다. 클릭 **로그인**합니다.
-        * Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예를 들어 _cloudadmin@azurestack.local_합니다. 암호를 입력 하 고 클릭 **로그인**합니다.
+        * Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예를 들어 _cloudadmin@azurestack.local_입니다. 암호를 입력 하 고 클릭 **로그인**합니다.
    2. 에 **Azure Stack 구독** 상자를 선택 합니다 **공급자 구독 기본**.
    3. 에 **Azure Stack 위치** 상자에서 배포 하는 지역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure Stack 개발 키트를 배포 합니다.
    4. 기존 App Service 배포 감지 되 면 다음 리소스 그룹 및 저장소 계정은 채울 되며 회색으로 표시 합니다.
