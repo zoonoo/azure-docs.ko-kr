@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 197e79c2674d314c178444cc1f0d685503425031
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdc1be0c0274977fe14ef704fbb74fa955ad7e11
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986944"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242414"
 ---
 # <a name="enable-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack에서 Kubernetes 대시보드를 사용 하도록 설정 
 
@@ -107,7 +107,6 @@ Kubernetes는 기본 관리 작업에 사용할 수 있는 웹 대시보드를 �
 3. 파일 위치를 적어 둡니다. 위치를 사용 하 여 스크립트를 업데이트 하 고 PowerShell 프롬프트를 사용 하 여 엽니다. 업데이트 된 스크립트를 실행 합니다.  
 
     ```PowerShell   
-    Import  /etc/kubernetes/certs/ca.crt -CertStoreLocation cert:\LocalMachine\Root 
     Import-Certificate -Filepath "ca.crt" -CertStoreLocation cert:\LocalMachine\Root 
     $pfxpwd = Get-Credential -UserName 'Enter password below' -Message 'Enter password below' 
     Import-PfxCertificate -Filepath "client.pfx" -CertStoreLocation cert:\CurrentUser\My -Password $pfxpwd.Password 
@@ -121,9 +120,11 @@ Kubernetes는 기본 관리 작업에 사용할 수 있는 웹 대시보드를 �
 3.  클라이언트 인증서를 선택 합니다.
 4.  토큰을 입력 합니다. 
 5. 마스터 노드에서 bash 명령줄에 다시 연결 하 고 권한을 부여 `kubernetes-dashboard`합니다. 다음 명령 실행:
-    ```Bash   
+
+    ```Bash  
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
+
     스크립트는 제공 `kubernetes-dashboard` 클라우드 관리자 권한이 있습니다. 자세한 내용은 [클러스터에 대 한 RBAC 지원](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)합니다.
 
 대시보드를 사용할 수 있습니다. Kubernetes 대시보드에 대 한 자세한 내용은 참조 하세요. [Kubernetes 웹 UI 대시보드](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 

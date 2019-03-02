@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 89e75afd3b9001f7a0b8a027744ef71c8bb69690
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 1f51aee41937c531a987482a6a367970305e6594
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299567"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218025"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack 용 PowerShell 설치
 
@@ -106,8 +106,8 @@ Azure Stack에 필요 합니다 **2018-03-01-하이브리드** Azure Stack 1808 
     ```
 
     > [!Note]  
-    > Azure Stack 모듈 버전 1.7.0는 주요 변경 내용입니다. Azure Stack에서 마이그레이션하도록 1.6.0 하세요 합니다 [마이그레이션 가이드](https://aka.ms/azspshmigration170)합니다.
-
+    > Azure Stack 모듈 1.7.0 버전이 중요 변경 릴리스입니다. Azure Stack에서 마이그레이션하도록 1.6.0 하세요 합니다 [마이그레이션 가이드](https://aka.ms/azspshmigration170)합니다.
+    > AzureRm 모듈 버전 2.4.0 Remove-azurermstorageaccount cmdlet에 대 한 주요 변경 내용 포함 되어 있습니다. 이 cmdlet에-Force prameter 확인 하지 않고 저장소 계정을 제거 지정 되어야 합니다.
 - Azure Stack 1811:
 
     ```PowerShell
@@ -216,6 +216,12 @@ Get-Module -Name "Azs*" -ListAvailable
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    ```
+
+    > [!NOTE]  
+    >인터넷 연결 없이 컴퓨터에서 원격 분석 데이터 수집을 사용 하지 않도록 설정 하는 다음 cmdlet을 실행 하는 것이 좋습니다. 원격 분석 데이터 수집을 사용 하지 않도록 설정 하지 않고는 cmldets의 성능 저하를 발생할 수 있습니다. 이 인터넷에 연결 되지 않은 컴퓨터에만 적용 됩니다.
+    ```PowerShell
+    Disable-AzureRmDataCollection
     ```
 
 ### <a name="enable-additional-storage-features"></a>추가 저장소 기능을 사용 하도록 설정
