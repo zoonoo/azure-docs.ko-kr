@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2105919e0c21ef57ae2cd19450110df384252e97
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 43d28cde7e4287b5394087000b5e730a94748713
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730939"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010636"
 documentType: LandingData
 title: Bing Autosuggest 설명서
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Bing Autosuggest 설명서 - 자습서, 빠른 시작, API 참조 | Microsoft Docs
   description: Bing Autosuggest API를 사용하여 부분 쿼리에 따라 제안된 쿼리를 가져오는 방법을 알아봅니다. 자습서에서는 서비스를 사용하는 앱을 빌드하는 방법을 보여줍니다.
   services: cognitive-services
-  author: v-jaswel
-  manager: kamrani
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jaswel
+  ms.date: 02/20/2019
+  ms.author: aahi
 abstract:
-  description: Bing Autosuggest API를 통해 부분 검색 쿼리 용어를 Bing에 전송하고 다른 사용자가 검색한 제안된 쿼리 목록을 다시 가져올 수 있습니다.  예를 들어 사용자가 해당 검색 용어의 각 문자를 입력하면 이 API를 호출하고 제안된 쿼리 문자열로 검색 상자의 드롭다운 목록을 채웁니다. 빠른 시작, 자습서 및 샘플에서 Autosuggest API를 사용하는 방법을 알아봅니다.
+  description: Bing Autosuggest API를 통해 부분 검색 쿼리 용어를 Bing에 전송하고 다른 사용자가 검색한 제안된 쿼리 목록을 다시 가져올 수 있습니다.  예를 들어 사용자가 해당 검색 용어의 각 문자를 입력하면 이 API를 호출하고 제안된 내용으로 검색 상자의 드롭다운 목록을 채울 수 있습니다. 빠른 시작, 자습서 및 샘플에서 Autosuggest API를 사용하는 방법을 알아봅니다.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-autosuggest/overview
+      html: <p>Bing Autosuggest API에 대한 자세한 내용</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Bing Autosuggest API란?
+    - href: /azure/cognitive-services/bing-autosuggest/concepts/get-suggestions
+      html: <p>실시간으로 검색 제안을 가져오는 방법 알아보기</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Bing Autosuggest API에서 제안 가져오기
+    - href: /azure/cognitive-services/bing-autosuggest/language-support
+      html: <p>API에서 지원되는 언어에 대해 알아봅니다.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: 지원되는 언어
 - title: 5분 빠른 시작
   items:
   - type: paragraph
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: Bing Autosuggest API를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
   - type: paragraph
-    text: <a href="tutorials/autosuggest.md">단일 페이지 웹앱</a> &#124; <a href="tutorials/autosuggest-source.md">소스 코드</a>
+    text: <a href="tutorials/autosuggest.md">단일 페이지 웹앱</a>
 - title: 참고 자료
   items:
   - type: list

@@ -293,14 +293,14 @@ items:
     items:
     - name: 논리 앱 모니터링
       href: logic-apps-monitor-your-logic-apps.md
-    - name: Log Analytics를 사용하여 논리 앱 모니터링
+    - name: Azure Monitor 로그를 사용하여 논리 앱 모니터링
       href: logic-apps-monitor-your-logic-apps-oms.md
-    - name: Log Analytics를 사용하여 B2B 메시지 모니터링
+    - name: Azure Monitor 로그를 사용하여 B2B 메시지 모니터링
       href: logic-apps-monitor-b2b-message.md
       items:
-      - name: Log Analytics를 사용하여 B2B 메시지 추적
+      - name: Azure Monitor 로그를 사용하여 B2B 메시지 추적
         href: logic-apps-track-b2b-messages-omsportal.md
-      - name: Log Analytics를 사용하여 B2B 메시지에 대해 쿼리 만들기
+      - name: Azure Monitor 로그를 사용하여 B2B 메시지에서 쿼리 만들기
         href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
   - name: 예제, 시나리오 및 연습
     href: logic-apps-examples-and-scenarios.md
@@ -375,9 +375,9 @@ items:
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
-ms.openlocfilehash: a0f802723c1c2c74dfb0599ace922ac61e1c2a64
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ceb5c51c3cd189da408ce23f0b03babb73f462ef
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243929"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194234"

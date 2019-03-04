@@ -7,21 +7,35 @@ items:
     href: billing-understand-your-bill.md
   - name: EA 요금 청구 이해
     href: billing-understand-your-bill-ea.md
-  - name: 청구서 및 사용량 데이터 가져오기
-    href: billing-download-azure-invoice-daily-usage-date.md
+  - name: 요금 청구 방식 - Microsoft 고객 계약만
+    href: billing-mca-understand-your-bill.md
+  - name: Microsoft Azure 청구서 보기 및 다운로드
+    href: billing-download-azure-invoice.md
+  - name: Microsoft Azure사용량 및 요금 보기 및 다운로드
+    href: billing-download-azure-daily-usage.md
+  - name: Microsoft 고객 계약에 대한 세금 문서 보기 및 다운로드
+    href: billing-mca-download-tax-document.md
   - name: 타사 서비스 요금
     href: billing-understand-your-azure-marketplace-charges.md
   - name: 사용 약관 설명함
     href: billing-understand-your-usage.md
+  - name: 사용 약관 설명함 - Microsoft 고객 계약만
+    href: billing-mca-understand-your-usage.md
   - name: 청구서 약관 설명함
     href: billing-understand-your-invoice.md
+  - name: 청구서 약관 설명함 - Microsoft 고객 계약만
+    href: billing-mca-understand-your-invoice.md
+  - name: Microsoft 고객 계약에 대한 청구 계정
+    href: billing-mca-overview.md
   expanded: true
 - name: 비용 관리
   items:
   - name: 예기치 않은 비용 방지
     href: billing-getting-started.md
-  - name: EA 가격 보기
+  - name: 조직의 가격 책정 보기 및 다운로드
     href: billing-ea-pricing.md
+  - name: 가격표 약관 설명함 - Microsoft 고객 계약만
+    href: billing-mca-understand-pricesheet.md
   - name: 리소스 태그 사용
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: 비용 분석 시작
@@ -30,6 +44,8 @@ items:
     href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
   - name: 최적화 권장 사항
     href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Microsoft 고객 계약에 대한 크레딧 추적
+    href: billing-mca-check-azure-credits-balance.md
   - name: 가격 계산
     href: https://azure.microsoft.com/pricing/calculator/
   - name: 지출 한도 이해
@@ -90,12 +106,20 @@ items:
     href: billing-manage-access.md
   - name: Azure의 EA 역할
     href: billing-understand-ea-roles.md
+  - name: Azure에서 Microsoft 고객 계약 역할
+    href: billing-understand-mca-roles.md
   - name: 파트너 ID 연결
     href: billing-partner-admin-link-started.md
   - name: 청구 계정 보기
     href: billing-view-all-accounts.md
+  - name: 청구서 섹션으로 비용 구성
+    href: billing-mca-section-invoice.md
+  - name: Microsoft 고객 계약의 EA 작업
+    href: billing-mca-enterprise-operations.md
   - name: 미지불액 해결
     href: billing-azure-subscription-past-due-balance.md
+  - name: Microsoft 고객 계약에 대한 청구 계정 설정
+    href: billing-mca-setup-account.md
   - name: Office 365 계정을 사용하여 등록
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Azure 계정으로 Office 365 등록
@@ -106,6 +130,8 @@ items:
     href: billing-subscription-become-disable.md
   - name: 소유권 이전
     href: billing-subscription-transfer.md
+  - name: 소유권 요청 - Microsoft 고객 계약
+    href: billing-mca-request-billing-ownership.md
   - name: 구독 취소
     href: billing-how-to-cancel-azure-subscription.md
   - name: 신용 카드 변경
@@ -122,6 +148,8 @@ items:
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: 추가 구독 만들기
     href: billing-create-subscription.md
+  - name: 추가 구독 만들기 - Microsoft 고객 계약
+    href: billing-mca-create-subscription.md
   - name: 프로그래밍 방식으로 엔터프라이즈 구독 만들기
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: 구독 정보 내보내기
@@ -190,9 +218,9 @@ items:
     items:
     - name: Enterprise Reporting REST API
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 156f9f2ebb293855d541c779c7a2e3ba83cffc07
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 5d56504730be60d872c9d1345850925a645c664e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447704"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241649"

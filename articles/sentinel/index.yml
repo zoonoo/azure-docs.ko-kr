@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 5f1d6005dd94bc700682e749f08c47356fcdc829
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56993336"
+documentType: LandingData
+title: Azure Sentinel Preview 설명서
+metadata:
+  title: Azure Sentinel Preview 설명서 - 자습서, 빠른 시작 | Microsoft Doc
+  meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
+  services: sentinel
+  author: cmcclister
+  manager: carolz
+  ms.service: sentinel
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/28/19
+  ms.author: cmcclister
+abstract:
+  description: Azure Sentinel Preview는 클라우드 규모의 기업 전체에 대해 인텔리전트 보안 분석을 제공하는 클라우드 네이티브 SIEM입니다. 중요한 사항에 집중할 수 있는 무제한 클라우드 속도 및 규모를 사용하세요. 모든 클라우드 또는 온-프레미스 자산, Office 365, Azure 리소스 및 기타 클라우드에서 쉽게 데이터를 수집하세요. Microsoft 보안 분석 전문가로부터 기본 제공된 기계 학습을 사용하여 실질적으로 위협을 검색하세요. 기본 제공 오케스트레이션 및 자동화 플레이북을 사용하여 위협 대응을 자동화하세요.
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: Azure Sentinel에 데이터를 등록하고 데이터 및 잠재적 위협을 표시하는 방법에 대해 알아봅니다.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/deploy.svg
+      text: Azure Sentinel 등록
+      href: /azure/sentinel/quickstart-onboard
+    - image:
+        src: media/index/get-started.svg
+      text: Azure Sentinel 시작
+      href: /azure/sentinel/quickstart-get-visibility
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: 보안 정책을 정의하고,악의적인 작업으로부터 리소스를 보호하고,보안 알림 및 인시던트에 대응하는 방법을 알아봅니다.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sentinel/tutorial-detect-threats">Azure Sentinel을 사용하여 위협 검색</a>
+    - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">자동화된 위협 대응 설정</a>
+- title: Microsoft Learn을 통해 기술 쌓기
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure의 보안 소개
+      href: https://docs.microsoft.com/learn/azure
+      image:
+        src: media/index/tutorial.svg
+        href: https://docs.microsoft.com/learn/azure
+  - type: paragraph
+    text: <a href="/learn/browse/?term=security">더 많은 대화형 학습 보기...</a>
+- title: 참고 자료
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - html: <a href="https://azure.microsoft.com/updates/?product=sentinel">서비스 업데이트</a>

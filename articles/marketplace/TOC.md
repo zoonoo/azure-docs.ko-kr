@@ -14,6 +14,7 @@
 #### [잠재 고객 관리](./lead-management-for-cloud-marketplace.md)
 #### [Azure Marketplace에서 거래](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 #### [전용 제품](./private-offers.md)
+#### [표준 계약](./standard-contract.md)
 
 ### [제품 형식별 게시 가이드](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
@@ -30,13 +31,16 @@
 #### [제안 목록 모범 사례](./gtm-offer-listing-best-practices.md)
 #### [추천 받기](./gtm-how-to-get-featured.md)
 #### [Marketplace 콘텐츠 유효성 검사](./marketplace-criteria-content-validation.md)
+#### [클라우드 솔루션 공급자](./cloud-solution-providers.md)
 
 ### [마켓플레이스 혜택](./gtm-your-marketplace-benefits.md)
 #### [Microsoft를 통한 비즈니스 홍보](./gtm-promote-your-business.md)
 #### [기본 설정 솔루션](./preferred-solutions.md) 
+#### [통합된 솔루션](./integrated-solutions.md)
 
 ### [Azure Marketplace 및 AppSource 지원](./support-azure-marketplace.md)
 #### [Marketplace FAQ](./marketplace-faq-publisher-guide.md)
+#### [지리적 가용성 및 통화](./marketplace-geo-availability-currencies.md)
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
