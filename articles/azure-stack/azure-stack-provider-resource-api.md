@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 47ba057091f0660bf1449f062edfacde710d2f1a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 48002ecb3186218d2cf86e38b43b8e35ae39d240
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428180"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338385"
 ---
 # <a name="provider-resource-usage-api"></a>공급자 리소스 사용 API
+
 용어 *공급자* 모든 위임 된 공급자 및 서비스 관리자에 적용 됩니다. Azure Stack 운영자 및 위임 된 공급자 공급자 사용량 API를 사용 하 여 직접 테 넌 트의 사용량을 볼 수 있습니다. 예를 들어 다이어그램에 표시 된 것과 같이 P0 수 P1의에서 사용량 정보를 가져오는 API 공급자 호출 하 고 P1 및 P2의 직접 사용 수 P3 및 P4 사용량 정보에 대 한 합니다.
 
 ![공급자 계층 구조 개념적 모델](media/azure-stack-provider-resource-api/image1.png)

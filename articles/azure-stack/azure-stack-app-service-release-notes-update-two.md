@@ -16,12 +16,12 @@ ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 0fa938b02b24bd79017bede5346b882e6587bd5d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8126397dfb3b02778413ab6ee696a8138c792c15
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766927"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342567"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service에서 Azure Stack 업데이트 2 릴리스 정보
 
@@ -56,7 +56,7 @@ Azure Stack 업데이트 2의 azure App Service는 다음과 같은 향상 된 �
 - 안정성 및 오류 일반적인 문제를 쉽게 진단 사용 메시지를 개선 하기 위해 핵심 서비스를 업데이트 합니다.
 
 - **다음 응용 프로그램 프레임 워크 및 도구에 대 한 업데이트**:
-  - Added .Net Framework 4.7.1
+  - 추가.NET Framework 4.7.1
   - 추가 **Node.JS** 버전:
     - NodeJS 6.12.3
     - NodeJS 8.9.4
@@ -84,15 +84,15 @@ Azure Stack 업데이트 2의 azure App Service는 다음과 같은 향상 된 �
 - 작업자는 기존 가상 네트워크에 App Service 배포 되 고 파일 서버 에서만 사용 가능 개인 네트워크의 경우 파일 서버에 연결할 수 없습니다.
 
 기존 가상 네트워크와 파일 서버에 연결할 내부 IP 주소에 배포 하기로 선택한 경우 아웃 바운드 보안 규칙을 추가 하 있습니다 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 해야 합니다. 이렇게 하려면 관리 포털에서 WorkersNsg 이동한 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
- * 원본: 모두
- * 원본 포트 범위: *
- * 대상: IP 주소
- * 대상 IP 주소 범위: 파일 서버에 대 한 Ip의 범위
- * 대상 포트 범위: 445
- * 프로토콜: TCP
- * 작업: 허용
- * 우선 순위: 700
- * 이름: Outbound_Allow_SMB445
+* 원본: 모두
+* 원본 포트 범위: *
+* 대상: IP 주소
+* 대상 IP 주소 범위: 파일 서버에 대 한 Ip의 범위
+* 대상 포트 범위: 445
+* 프로토콜: TCP
+* 작업: 허용
+* 우선 순위: 700
+* 이름: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack을 운영 하는 클라우드 관리자에 대 한 알려진된 문제
 

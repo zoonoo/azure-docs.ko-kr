@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: c16f218903557a6d3a10f3ef201587d2885fffa9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b8df87e5d5091219b9b44a6b957250e254c97fec
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239114"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341815"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack에서 azure Monitor
 
@@ -27,7 +27,7 @@ ms.locfileid: "55239114"
 
 이 문서에서는 Azure Stack에서 Azure Monitor 서비스의 개요를 제공 합니다. Azure Monitor의 작업 및 Azure Stack에서 Azure Monitor를 사용 하는 방법에 대 한 추가 정보에 설명 합니다. 
 
-에 대 한 개요 및 Azure Monitor 시작, 전역 Azure 문서를 참조 하는 방법 [Azure Monitor 시작](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)합니다.
+에 대 한 개요 및 Azure Monitor 시작, 전역 Azure 문서를 참조 하는 방법 [Azure Stack에서 Azure Monitor 시작](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)합니다.
 
 ![Azure Stack 모니터 블레이드](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
@@ -36,7 +36,7 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
 > [!Note]  
 메트릭 및 진단 로그는 Azure Stack 개발 키트에 대해 사용할 수 없는 경우
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Azure Stack에서 Azure Monitor에 대 한 필수 구성 요소
 
 등록 된 **Microsoft.insights** 구독의 제안 리소스 공급자 설정에 대 한 리소스 공급자입니다. 리소스 공급자를 구독에 연결 된 제품에서 사용할 수 있는지 확인할 수 있습니다.
 
@@ -46,13 +46,13 @@ Azure Monitor는 Azure 리소스를 모니터링하는 단일 원본이 되는 �
 4. 선택 **리소스 공급자** 아래에서 **설정 합니다.** 
 5. 찾을 **Microsoft.Insights** 목록에서 상태 인지 확인 하 고 **Registered.** 합니다.
 
-## <a name="overview"></a>개요
+## <a name="overview-of-azure-monitor-on-azure-stack"></a>Azure Stack에서 Azure Monitor 개요
 
 Azure에서 Azure Monitor와 같은 Azure Stack에서 Azure Monitor 대부분의 서비스에 대 한 기본 수준의 인프라 메트릭과 로그 제공합니다.
 
-## <a name="azure-monitor-sources-compute-subset"></a>Azure monitor 원본의: 하위 집합을 계산
+## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor 소스: 하위 집합을 계산
 
-![Azure monitor 원본-compute 하위 집합](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Stack에서 azure Monitor 원본-compute 하위 집합](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 합니다 **Microsoft.Compute** Azure Stack에서 리소스 공급자를 포함 합니다.
  - Virtual Machines 
@@ -86,7 +86,7 @@ Azure Stack 인프라에서 볼 수 있듯이 계산 리소스에 대 한 자세
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure monitor 원본의: 기타 등등
 
-![Azure monitor 소스-기타 등등](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Stack 소스-기타 등등 azure 모니터](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>리소스-메트릭 및 진단 로그
 
