@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5174bb696b456a66cfc0666ac5c475437e441d82
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d4f530e38b6fd69d814765f4133201dd12a87f22
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848855"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668585"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>자습서: Azure에서 실행되는 Service Fabric 클러스터를 제거
 
@@ -34,7 +34,7 @@ ms.locfileid: "54848855"
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * 템플릿을 사용하여 Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
+> * 템플릿을 사용하여 Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
 > * [클러스터 규모 확장 또는 규모 감축](service-fabric-tutorial-scale-cluster.md)
 > * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 > * 클러스터 삭제
@@ -45,7 +45,7 @@ ms.locfileid: "54848855"
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
-* Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 또는 [Linux 클러스터](service-fabric-tutorial-create-vnet-and-linux-cluster.md) 만들기
+* Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>또한 Service Fabric 클러스터를 포함하는 리소스 그룹 삭제
 클러스터 및 클러스터에서 사용하는 모든 리소스를 삭제하는 가장 간단한 방법은 리소스 그룹을 삭제하는 것입니다.
@@ -115,5 +115,5 @@ az resource delete --name "<name of the Resource>" --resource-type "Microsoft.Se
 
 이제 이 자습서를 완료했으니 다음을 시도하세요.
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)를 사용하여 Service Fabric 클러스터를 검사 및 관리하는 방법을 알아봅니다.
-* [Windows 운영 체제를 패치](service-fabric-patch-orchestration-application.md)하거나 클러스터 노드의 [Linux 운영 체제를 패치](service-fabric-patch-orchestration-application-linux.md)하는 방법을 알아봅니다.
-* [Windows 클러스터](service-fabric-diagnostics-event-aggregation-wad.md) 또는 [Linux 클러스터](service-fabric-diagnostics-event-aggregation-lad.md)에 대한 이벤트를 집계하거나 수집하고, [Log Analytics를 설정](service-fabric-diagnostics-oms-setup.md)하여 클러스터 이벤트를 모니터링하는 방법을 알아봅니다.
+* 클러스터 노드의 [Windows 운영 체제를 패치](service-fabric-patch-orchestration-application.md)하는 방법을 알아보세요.
+* [Windows 클러스터](service-fabric-diagnostics-event-aggregation-wad.md)에 대한 이벤트를 집계하거나 수집하고, [Log Analytics를 설정](service-fabric-diagnostics-oms-setup.md)하여 클러스터 이벤트를 모니터링하는 방법을 알아보세요.

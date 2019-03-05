@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8d7bd808540ac697bde073201e88f49ace8b527a
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 917243ccaf4ef3759e02bb92cad6f9ef04514e4a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308675"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650515"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -112,11 +112,11 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 ### <a name="set-nodejs-runtime"></a>Node.js 런타임 설정
 
-노드 런타임을 8.11.1로 설정합니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)를 실행합니다.
+노드 런타임을 10.14.1로 설정합니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)를 실행합니다.
 
 ```azurecli-interactive
 # Bash and Powershell
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=10.14.1
 ```
 
 새로 만든 웹앱으로 이동합니다. `<app_name>`을 고유한 앱 이름으로 바꿉니다.
@@ -149,13 +149,13 @@ Node.js 샘플 코드는 Azure App Service 웹앱에서 실행 중입니다.
 
 텍스트 편집기를 사용하여 Node.js 앱에서 `index.js` 파일을 열고 `response.end`에 대한 호출에서 텍스트를 약간 변경합니다.
 
-```nodejs
+```javascript
 response.end("Hello Azure!");
 ```
 
 로컬 터미널 창에서 애플리케이션의 루트 디렉터리로 이동하고, 업데이트된 프로젝트에 대한 새 ZIP 파일을 만듭니다.
 
-```
+```azurecli-interactive
 # Bash
 zip -r myUpdatedAppFiles.zip .
 

@@ -1,5 +1,5 @@
 ---
-title: Linux에서 .NET Core 앱 만들기 - Azure App Service | Microsoft Docs
+title: Linux에서 ASP.NET Core 앱 만들기 - Azure App Service | Microsoft Docs
 description: 몇 분 안에 Linux의 App Service에 첫 번째 .NET Core Hello World 앱을 배포합니다.
 keywords: azure app service, 웹앱, dotnet, core, linux, oss
 services: app-service
@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 047ed6026412cac7fc7c51135e1837a20decd910
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: af22473e0c9b56210b720ee5d122d96566689158
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633933"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889718"
 ---
-# <a name="create-a-net-core-app-in-app-service-on-linux"></a>Linux의 App Service에서 .NET Core 앱 만들기
+# <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Linux의 App Service에서 ASP.NET Core 앱 만들기
 
 > [!NOTE]
 > 이 문서에서는 Linux의 App Service에 앱을 배포합니다. _Windows_의 App Service에 배포하려면 [Azure에서 ASP.NET Core 앱 만들기](../app-service-web-get-started-dotnet.md)를 참조하세요.

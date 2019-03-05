@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: sharadag
-ms.openlocfilehash: 1e4571edb15bf1a06948e720e51c672f890d68b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0dccdd38f4b945df3702178e7351db58687bf82
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959525"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883899"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Front Door에 대한 Azure Resource Manager 배포 모델 템플릿
 
@@ -39,5 +39,5 @@ ms.locfileid: "46959525"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
-- [Front Door 작동 원리](front-door-routing-architecture.md)에 대해 알아봅니다.
+- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
+- [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

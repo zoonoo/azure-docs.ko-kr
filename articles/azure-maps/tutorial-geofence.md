@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55dc0fa31398bcc04d9793c8cffc9258dc29e4c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244456"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670896"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Azure Maps를 사용하여 지오펜스 설정
 
@@ -60,7 +60,7 @@ Postman 앱을 열고, 다음 단계에 따라 Azure Maps, 데이터 업로드 A
    
     ![키 값 매개 변수 Postman](./media/tutorial-geofence/postman-key-vals.png)
 
-4. **본문**을 클릭한 다음, 원시 입력 형식을 선택하고, 드롭다운 목록에서 JSON을 입력 형식으로 선택합니다. 다음 JSON을 업로드할 데이터로 제공합니다.
+4. **본문**을 클릭하고 원시 입력 형식을 선택한 다음, 드롭다운 목록에서 JSON을 입력 형식으로 선택합니다. 다음 JSON을 업로드할 데이터로 제공합니다.
 
    ```JSON
    {
@@ -148,7 +148,7 @@ Postman 앱을 열고, 다음 단계에 따라 Azure Maps, 데이터 업로드 A
    }
    ```
 
-5. 보내기를 클릭하고 응답 헤더를 검토합니다. 위치 헤더에는 나중에 사용할 데이터에 액세스하거나 다운로드하기 위한 URI가 포함되어 있습니다. 업로드된 데이터에 대한 고유한 `udId`도 포함되어 있습니다.
+5. 보내기를 클릭하고 응답 헤더를 검토합니다. 위치 헤더에는 나중에 사용할 수 있도록 데이터를 다운로드하거나 액세스하기 위한 URI가 포함되어 있습니다. 업로드된 데이터에 대한 고유한 `udId`도 포함되어 있습니다.
 
   ```HTTP
   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -165,7 +165,7 @@ Postman 앱을 열고, 다음 단계에 따라 Azure Maps, 데이터 업로드 A
 
   ![Logic Apps 만들기](./media/tutorial-geofence/logic-app.png)
 
-2. HTTP 요청 트리거를 선택한 다음, Outlook 커넥터에서 작업으로 "이메일 보내기"를 선택합니다.
+2. HTTP 요청 트리거를 선택한 다음, outlook 커넥터에서 작업으로 "이메일 보내기"를 선택합니다.
   
   ![Logic Apps 스키마](./media/tutorial-geofence/logic-app-schema.png)
 

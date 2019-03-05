@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bd7072ce8212366bf3d8a0a9e0a30000debea2ea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fbca620fca1aeb53acc9bd70561e783b49ff1a60
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434617"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822356"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Automation을 사용하여 Windows 업데이트 관리
 
@@ -66,7 +66,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ![업데이트 관리 솔루션 사용 창](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-솔루션을 사용하도록 설정하는 데 몇 분이 걸릴 수 있습니다. 이 시간 동안에는 브라우저 창을 닫으면 안됩니다. 솔루션이 사용되도록 설정되면 VM의 누락된 업데이트에 대한 정보가 Log Analytics로 이동됩니다. 이 데이터를 분석에 사용할 수 있게 되는 데 30분에서 6시간까지 걸릴 수 있습니다.
+솔루션을 사용하도록 설정하는 데 몇 분이 걸릴 수 있습니다. 이 시간 동안에는 브라우저 창을 닫으면 안됩니다. 솔루션이 사용되도록 설정되면 VM의 누락된 업데이트에 대한 정보가 Azure Monitor 로그로 이동됩니다. 이 데이터를 분석에 사용할 수 있게 되는 데 30분에서 6시간까지 걸릴 수 있습니다.
 
 ## <a name="view-update-assessment"></a>업데이트 평가 보기
 
@@ -137,13 +137,13 @@ VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**�
 
 * **업데이트할 그룹(미리 보기)**: 구독, 리소스 그룹, 위치 및 태그의 조합을 기반으로 쿼리를 정의하여 배포에 포함할 Azure VM의 동적 그룹을 빌드합니다. 자세한 내용은 [동적 그룹](automation-update-management.md#using-dynamic-groups)을 참조하세요.
 
-* **업데이트할 머신**: 저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다. Log Analytics에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Log Analytics의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요.
+* **업데이트할 머신**: 저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다. Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요.
 
 * **업데이트 분류**: 배포에 포함되는 업데이트 배포 소프트웨어의 종류를 선택합니다. 이 자습서에서는 모든 종류가 선택된 상태로 둡니다.
 
   분류 형식은 다음과 같습니다.
 
-   |OS  |type  |
+   |OS  |Type  |
    |---------|---------|
    | Windows     | 중요 업데이트</br>보안 업데이트</br>업데이트 롤업</br>기능 팩</br>서비스 팩</br>정의 업데이트</br>도구</br>업데이트        |
    |Linux     | 중요 업데이트 및 보안 업데이트</br>다른 업데이트       |

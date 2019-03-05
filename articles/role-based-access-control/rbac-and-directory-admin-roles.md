@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 00b96b5bfa88a6c1c31d3415027ce1d4eda11e6b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c53b9f13c365a5ace227f792f5b0c80ae8fac6ff
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339093"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807357"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할
 
@@ -48,11 +48,15 @@ Azure의 역할을 보다 정확하게 이해하려면 역사를 살펴보는 �
 | 서비스 관리자 | Azure 구독당 1개 | <ul><li>[Azure Portal](https://portal.azure.com)에서 서비스 관리</li><li>사용자를 공동 관리자 역할에 할당</li></ul> | 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다.<br>서비스 관리자는 구독 범위에서 소유자 역할이 할당된 사용자와 동일한 액세스 권한을 갖습니다.<br>서비스 관리자는 Azure Portal에 대해 모든 권한을 갖습니다. |
 | 공동 관리자 | 구독당 200 | <ul><li>서비스 관리자와 동일한 액세스 권한을 갖지만, Azure 디렉터리에 대한 구독의 연결을 변경할 수 없습니다.</li><li>사용자를 공동 관리자 역할에 할당할 수 있지만, 서비스 관리자를 변경할 수 없습니다.</li></ul> | 공동 관리자는 구독 범위에서 소유자 역할이 할당된 사용자와 동일한 액세스 권한을 갖습니다. |
 
-Azure Portal에서 구독 속성을 보면 누구에게 계정 관리자 및 서비스 관리자 역할이 할당되었는지 확인할 수 있습니다.
+Azure Portal에서 **클래식 관리자** 탭을 사용하여 공동 관리자를 관리하거나 서비스 관리자를 볼 수 있습니다.
 
-![Azure Portal의 계정 관리자 및 서비스 관리자](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
+![Azure Portal의 Azure 클래식 구독 관리자](./media/rbac-and-directory-admin-roles/classic-administrators.png)
 
-클래식 구독 관리자를 추가 또는 변경하는 방법은 Azure 청구 설명서의 [Azure 구독 관리자 추가 또는 변경](../billing/billing-add-change-azure-subscription-administrator.md)을 참조하세요.
+Azure Portal에서 구독의 속성 블레이드에서 서비스 관리자를 보거나 변경하거나 계정 관리자를 볼 수 있습니다.
+
+![Azure Portal의 계정 관리자 및 서비스 관리자](./media/rbac-and-directory-admin-roles/account-admin.png)
+
+자세한 내용은 [Azure 클래식 구독 관리자](classic-administrators.md)를 참조하세요.
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Azure 계정 및 Azure 구독
 
@@ -81,9 +85,11 @@ Azure Portal에서 RBAC를 사용하는 역할 할당은 **액세스 제어(IAM)
 
 ![Azure Portal의 액세스 제어(IAM) 블레이드](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
-**역할** 옵션을 클릭하면 기본 제공 역할 및 사용자 지정 역할 목록이 표시됩니다.
+**역할** 탭을 클릭하면 기본 제공 역할 및 사용자 지정 역할 목록이 표시됩니다.
 
 ![Azure Portal의 기본 제공 역할](./media/rbac-and-directory-admin-roles/roles-list.png)
+
+자세한 내용은 [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](role-assignments-portal.md)를 참조하세요.
 
 ## <a name="azure-ad-administrator-roles"></a>Azure AD 관리자 역할
 
@@ -95,9 +101,7 @@ Azure AD 관리자 역할은 사용자 만들기 또는 편집, 다른 사용자
 | [사용자 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>사용자 및 그룹과 관련된 모든 것을 만들고 관리</li><li>지원 티켓 관리</li><li>서비스 상태 모니터링</li><li>사용자, 기술 지원팀 관리자 및 다른 사용자 관리자의 암호 변경</li></ul> |  |
 | [대금 청구 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>구매</li><li>구독 관리</li><li>지원 티켓 관리</li><li>서비스 상태 모니터링</li></ul> |  |
 
-Azure AD 관리자 역할의 전체 목록은 [Azure Active Directory에서 관리자 역할 사용 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
-
-Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 관리자 역할 목록을 볼 수 있습니다.
+Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 관리자 역할 목록을 볼 수 있습니다. Azure AD 관리자 역할의 전체 목록은 [Azure Active Directory에서 관리자 역할 사용 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
 ![Azure Portal의 Azure AD 관리자 역할](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
@@ -124,4 +128,4 @@ Azure Portal의 **역할 및 관리자** 블레이드에서 Azure AD 관리자 �
 
 - [Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?](overview.md)
 - [Azure Active Directory의 관리자 역할 사용 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
-- [Azure 구독 관리자 추가 또는 변경](../billing/billing-add-change-azure-subscription-administrator.md)
+- [Azure 클래식 구독 관리자](classic-administrators.md)

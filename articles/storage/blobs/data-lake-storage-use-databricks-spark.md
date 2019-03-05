@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452611"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585436"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>자습서: Spark를 사용하여 Azure Databricks로 Data Lake Storage Gen2 데이터에 액세스
 
@@ -146,6 +146,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    * `tenant-id`는 구독에서 가져온 것입니다.
 
    * `storage-account-name`은 Azure Data Lake Storage Gen2 스토리지 계정의 이름입니다.
+
+    > [!NOTE]
+    > 프로덕션 설정에서 Azure Databricks에서 인증 키를 저장하는 것이 좋습니다. 그런 다음, 인증 키 대신 코드 블록에 조회 키를 추가합니다. 이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서에서 이 방법에 대한 예제를 살펴보세요.
 
 19. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 

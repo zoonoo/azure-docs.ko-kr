@@ -1,24 +1,26 @@
 ---
-title: Azure Log Analytics를 사용한 컨테이너 인스턴스 로깅
-description: Azure Log Analytics로 컨테이너 출력(STDOUT 및 STDERR)을 전송하는 방법을 알아봅니다.
+title: Azure Monitor 로그를 사용하여 컨테이너 인스턴스 로깅
+description: Azure Monitor 로그로 컨테이너 출력(STDOUT 및 STDERR)을 전송하는 방법을 알아봅니다.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337889"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879716"
 ---
-# <a name="container-instance-logging-with-azure-log-analytics"></a>Azure Log Analytics를 사용한 컨테이너 인스턴스 로깅
+# <a name="container-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 컨테이너 인스턴스 로깅
 
-Log Analytics 작업 영역은 Azure 리소스뿐만 아니라 온-프레미스 리소스 및 다른 클라우드의 리소스에서도 로그 데이터를 저장 및 쿼리할 수 있는 중앙 집중식 위치를 제공합니다. Azure Container Instances는 Log Analytics로 데이터를 전송할 수 있는 기능을 기본 제공합니다.
+Log Analytics 작업 영역은 Azure 리소스뿐만 아니라 온-프레미스 리소스 및 다른 클라우드의 리소스에서도 로그 데이터를 저장 및 쿼리할 수 있는 중앙 집중식 위치를 제공합니다. Azure Container Instances는 Azure Monitor 로그로 데이터를 전송할 수 있는 기능을 기본 제공합니다.
 
-Log Analytics로 컨테이너 인스턴스 데이터를 전송하려면 Azure CLI(또는 Cloud Shell) 및 YAML 파일을 사용하여 컨테이너 그룹을 만들어야 합니다. 다음 섹션에서는 로깅을 사용할 수 있는 컨테이너 그룹과 쿼리 로그를 만드는 방법을 설명합니다.
+Azure Monitor 로그로 컨테이너 인스턴스 데이터를 전송하려면 Azure CLI(또는 Cloud Shell) 및 YAML 파일을 사용하여 컨테이너 그룹을 만들어야 합니다. 다음 섹션에서는 로깅을 사용할 수 있는 컨테이너 그룹과 쿼리 로그를 만드는 방법을 설명합니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -42,7 +44,7 @@ Log Analytics 작업 영역 ID 및 기본 키를 가져오려면:
 
 ## <a name="create-container-group"></a>컨테이너 그룹 만들기
 
-Log Analytics 작업 영역 ID와 기본 키를 알고 있으므로 로깅을 사용할 수 있는 컨테이너 그룹을 만들 수 있습니다.
+Log Analytics 작업 영역 ID와 기본 키를 알고 있으므로 로깅을 사용하도록 설정된 컨테이너 그룹을 만들 수 있습니다.
 
 다음 예제에서는 단일 [fluentd][fluentd] 컨테이너를 사용하여 컨테이너 그룹을 만드는 두 가지 방법인 Azure CLI 및 YAML 템플릿 포함 Azure CLI를 보여 줍니다. Fluentd 컨테이너는 기본 구성에서 여러 줄의 출력을 생성합니다. 이 출력은 Log Analytics 작업 영역으로 전송되므로 로그를 보고 쿼리하는 방법을 보여주기에 효과적입니다.
 
@@ -96,7 +98,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 명령 실행 즉시 Azure에서 배포 세부 정보가 포함된 응답이 수신되어야 합니다.
 
-## <a name="view-logs-in-log-analytics"></a>Log Analytics에서 로그 보기
+## <a name="view-logs-in-azure-monitor-logs"></a>Azure Monitor 로그에서 로그 보기
 
 컨테이너 그룹을 배포한 후 첫 번째 로그 항목이 Azure Portal에 표시되기 까지 몇 분(최대 10분)이 걸릴 수 있습니다. 컨테이너 그룹 로그를 보려면 Log Analytics 작업 영역을 연 후 다음을 수행합니다.
 
@@ -109,7 +111,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 ## <a name="query-container-logs"></a>쿼리 컨테이너 로그
 
-Log Analytics에는 약 수천 줄의 로그 출력에서 정보를 가져오기 위한 광범위한 [쿼리 언어][query_lang]가 포함되어 있습니다.
+Azure Monitor 로그에는 약 수천 줄의 로그 출력에서 정보를 가져오기 위한 광범위한 [쿼리 언어][query_lang]가 포함되어 있습니다.
 
 Azure Container Instances 로깅 에이전트는 Log Analytics 작업 영역의 `ContainerInstanceLog_CL` 테이블로 항목을 전송합니다. 쿼리의 기본 구조는 원본 테이블(`ContainerInstanceLog_CL`)이며 그 뒤에 파이프 문자(`|`)로 구분된 일련의 연산자가 있습니다. 여러 연산자를 묶어 결과를 구체화하고 고급 기능을 수행할 수 있습니다.
 
@@ -130,11 +132,11 @@ ContainerInstanceLog_CL
 
 ## <a name="next-steps"></a>다음 단계
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-Azure Log Analytics에서 로그를 쿼리하고 경고를 구성하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+Azure Monitor 로그에서 로그를 쿼리하고 경고를 구성하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Log Analytics의 로그 검색 이해](../log-analytics/log-analytics-log-search.md)
+* [Azure Monitor 로그의 로그 검색 이해](../log-analytics/log-analytics-log-search.md)
 * [Azure Monitor의 통합 경고](../azure-monitor/platform/alerts-overview.md)
 
 

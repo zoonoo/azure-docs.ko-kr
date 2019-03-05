@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2d86c0c4838fb2ae9d839e64a067824019133d8b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024436"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872882"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>자습서: 읽기 액세스 중복 저장소 액세스 오류 시뮬레이션
 
@@ -75,7 +75,7 @@ Fiddler ScriptEditor가 시작되고 **SampleRules.js** 파일을 표시합니�
 
 ### <a name="interrupting-the-application"></a>애플리케이션 중단
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7](#tab/dotnet-python-java-v7)
 
 IDE 또는 셸에서 애플리케이션을 실행합니다.
 
@@ -83,7 +83,7 @@ IDE 또는 셸에서 애플리케이션을 실행합니다.
 
 ![시나리오 앱](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 IDE 또는 셸에서 애플리케이션을 실행합니다.
 
@@ -113,7 +113,7 @@ Fiddler로 이동하여 **규칙** -> **규칙 사용자 지정...** 을 선택�
          }
 ```
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7](#tab/dotnet-python-java-v7)
 
 애플리케이션을 다시 시작하려면 **아무 키**를 누릅니다.
 
@@ -123,7 +123,7 @@ Fiddler로 이동하여 **규칙** -> **규칙 사용자 지정...** 을 선택�
 
 ![사용자 지정된 규칙 붙여넣기](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 오류가 도입되었으므로 **G**를 입력하여 오류를 테스트합니다.
 
@@ -133,7 +133,7 @@ Fiddler로 이동하여 **규칙** -> **규칙 사용자 지정...** 을 선택�
 
 ### <a name="simulate-primary-endpoint-restoration"></a>기본 엔드포인트 복원 시뮬레이션
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7](#tab/dotnet-python-java-v7)
 
 이전 단계에서의 Fiddler 사용자 지정 규칙 집합으로, 기본 엔드포인트에 대한 요청이 실패합니다.
 
@@ -153,7 +153,7 @@ Fiddler로 이동하여 **규칙**, **규칙 사용자 지정...** 을 선택합
 
 ![애플리케이션 다시 시작](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 이전 단계에서의 Fiddler 사용자 지정 규칙 집합으로, 기본 엔드포인트에 대한 요청이 실패합니다.
 
@@ -173,11 +173,11 @@ Fiddler로 이동하여 **규칙**, **규칙 사용자 지정...** 을 선택합
 
 ### <a name="start-and-pause-the-application"></a>애플리케이션 시작 및 일시 중지
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7](#tab/dotnet-python-java-v7)
 
 IDE 또는 셸에서 애플리케이션을 실행합니다. 애플리케이션이 기본 엔드포인트에서 읽기를 시작하면 콘솔 창에서 **아무 키**나 눌러 애플리케이션을 일시 중지합니다.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 샘플을 제어할 수 있으므로 오류를 테스트하기 위해 중단할 필요가 없습니다.
 
@@ -210,13 +210,13 @@ nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 
 `<destination_ip>`을 저장소 계정 IP 주소로, `<gateway_ip>`를 로컬 호스트 IP 주소로 바꿉니다.
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7](#tab/dotnet-python-java-v7)
 
 애플리케이션을 다시 시작하려면 **아무 키**를 누릅니다.
 
 애플리케이션이 다시 실행되기 시작하면 기본 엔드포인트에 대한 요청이 실패하기 시작합니다. 애플리케이션이 기본 엔드포인트로 다시 연결을 5회 시도합니다. 5회의 실패 임계값 후에는 보조 읽기 전용 엔드포인트에서 이미지를 요청합니다. 애플리케이션이 보조 엔드포인트에서 이미지를 20회 성공적으로 검색하면 애플리케이션이 기본 엔드포인트에 연결을 시도합니다. 그래도 기본 엔드포인트에 연결할 수 없는 경우 애플리케이션은 보조 엔드포인트에서 읽기를 다시 시작합니다. 이 패턴은 이전 자습서에서 설명한 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴입니다.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 오류가 도입되었으므로 **G**를 입력하여 오류를 테스트합니다. 기본 파이프라인이 아니라 보조 파이프라인을 사용 중임을 사용자에게 알려줍니다.
 
@@ -236,14 +236,14 @@ nslookup STORAGEACCOUNTNAME.blob.core.windows.net
 
 `route delete <destination_ip>`
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python 및 Java v7](#tab/dotnet-python-java-v7)
 
 애플리케이션을 다시 시작하려면 **아무 키**를 누릅니다. 애플리케이션은 999 읽기에 도달할 때까지 기본 엔드포인트에서 읽기를 계속합니다.
 
 ![애플리케이션 다시 시작](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 **G**를 입력하여 다운로드를 테스트합니다. 애플리케이션은 다시 기본 파이프라인을 사용 중임을 보고합니다.
 

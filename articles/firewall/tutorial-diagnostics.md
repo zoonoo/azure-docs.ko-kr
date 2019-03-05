@@ -7,18 +7,20 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426170"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958986"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>자습서: Azure Firewall 로그 모니터링
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>자습서: Azure Firewall 로그 및 메트릭 모니터링
 
 방화벽 로그를 사용하여 Azure Firewall을 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다. 메트릭을 사용하여 포털에서 성능 카운터를 볼 수 있습니다. 
 
-이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. 로그를 [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), 저장소 및 Event Hubs로 보내 Log Analytics 또는 Excel 및 Power BI 같은 다른 도구에서 분석합니다.
+이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. 로그를 [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md), 스토리지 및 Event Hubs로 보내고 Azure Monitor 로그 또는 Excel 및 Power BI와 같은 다른 도구에서 분석합니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -48,7 +50,7 @@ ms.locfileid: "52426170"
 
 3. 데이터 수집을 시작하려면 **진단 켜기**를 클릭합니다.
 4. **진단 설정** 페이지에서는 진단 로그에 대한 설정을 제공합니다. 
-5. 이 예제에서 Log Analytics는 로그를 저장하므로 이름에 **방화벽 로그 분석**을 입력합니다.
+5. 이 예제에서 Azure Monitor 로그가 로그를 저장하므로 이름에 **방화벽 로그 분석**을 입력합니다.
 6. **Log Analytics에 보내기**를 클릭하여 작업 영역을 구성합니다. 또한 이벤트 허브 및 저장소 계정을 사용하여 진단 로그를 저장할 수도 있습니다.
 7. **Log Analytics** 아래에서 **구성**을 클릭합니다.
 8. Log Analytics 작업 영역 페이지에서 **새 작업 영역 만들기**를 클릭합니다.
@@ -56,7 +58,7 @@ ms.locfileid: "52426170"
 10. 구독을 선택하고, 기존 방화벽 리소스 그룹(**Test-FW-RG**)을 사용하고, 위치에 대해 **미국 동부**를 선택하고, **무료** 가격 책정 계층을 선택합니다.
 11. **확인**을 클릭합니다.
    ![구성 프로세스 시작][1] OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.  
-12. **로그** 아래에서 **AzureFirewallApplicationRule** 및 **AzureFirewallNetworkRule**을 클릭하여 응용 프로그램 및 네트워크 규칙에 대한 로그를 수집합니다.
+12. **로그** 아래에서 **AzureFirewallApplicationRule** 및 **AzureFirewallNetworkRule**을 클릭하여 애플리케이션 및 네트워크 규칙에 대한 로그를 수집합니다.
    ![진단 설정 저장][2]
 13. **저장**을 클릭합니다.
 
@@ -89,14 +91,14 @@ ms.locfileid: "52426170"
 
 다음 방법 중 하나를 사용하여 활동 로그 데이터를 확인하고 분석할 수 있습니다.
 
-* **Azure 도구** - Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-resource-manager/resource-group-audit.md) 문서에 자세히 나와 있습니다.
-* **Power BI** - [Power BI](https://powerbi.microsoft.com/pricing) 계정이 아직 없는 경우 무료로 사용해볼 수 있습니다. [Power BI용 Azure Activity Logs 콘텐츠 팩](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 미리 구성된 대시보드를 그대로 사용하거나 사용자 지정하여 데이터를 분석할 수 있습니다.
+* **Azure 도구**: Azure PowerShell, Azure CLI, Azure REST API 또는 Azure Portal을 통해 활동 로그에서 정보를 검색합니다. 각 방법에 대한 단계별 지침은 [Resource Manager의 활동 작업](../azure-resource-manager/resource-group-audit.md) 문서에 자세히 나와 있습니다.
+* **Power BI**: [Power BI](https://powerbi.microsoft.com/pricing) 계정이 아직 없는 경우 평가판으로 사용해볼 수 있습니다. [Power BI용 Azure Activity Logs 콘텐츠 팩](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 미리 구성된 대시보드를 그대로 사용하거나 사용자 지정하여 데이터를 분석할 수 있습니다.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>네트워크 및 애플리케이션 규칙 로그 보기 및 분석
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)는 카운터 및 이벤트 로그 파일을 수집합니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
+[Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md)는 카운터 및 이벤트 로그 파일을 수집합니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
 
-Azure Firewall Log Analytics 샘플 쿼리는 [Azure Firewall Log Analytics 샘플](log-analytics-samples.md)을 참조하세요.
+Azure Firewall 로그 분석 샘플 쿼리는 [Azure Firewall 로그 분석 샘플](log-analytics-samples.md)을 참조하세요.
 
 저장소 계정에 연결하고 액세스 및 성능 로그에 대한 JSON 로그 항목을 검색할 수도 있습니다. JSON 파일을 다운로드한 후 CSV로 변환하여 Excel, Power BI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
 
@@ -108,10 +110,10 @@ Azure Firewall Log Analytics 샘플 쿼리는 [Azure Firewall Log Analytics 샘�
 
 ## <a name="next-steps"></a>다음 단계
 
-로그를 수집하도록 방화벽을 구성했으므로 데이터를 보려면 Log Anaytics를 탐색할 수 있습니다.
+로그를 수집하도록 방화벽을 구성했으므로 Azure Monitor 로그를 탐색하여 데이터를 볼 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics의 네트워킹 모니터링 솔루션](../azure-monitor/insights/azure-networking-analytics.md)
+> [Azure Monitor 로그의 네트워킹 모니터링 솔루션](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

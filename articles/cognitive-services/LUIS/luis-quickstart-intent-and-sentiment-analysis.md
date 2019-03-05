@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 9493e8b5d5e02f1408423334ceaa5c5c47ae6668
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1805d54e66187a97bf598734801f0d94895e7490
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867752"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880358"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>자습서:  발언의 감정 가져오기
 
@@ -90,7 +90,7 @@ ms.locfileid: "55867752"
     |Mark Mathews는 하버드에서 판매 권유에 박차를 가했습니다.|
     |Walter Williams는 스탠포드에서 훌륭한 프레젠테이션을 했습니다.|
 
-    [ ![EmployeeFeedback 의도에서 예제 발언이 포함된 LUIS 앱의 스크린샷](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
+    [![EmployeeFeedback 의도에서 예제 발화가 포함된 LUIS 앱의 스크린샷](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>None 의도에 예제 발언 추가 
 

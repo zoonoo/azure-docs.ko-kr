@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 5ebd8875f14eef9a5febaf5356f0d2fadb0828bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 012d77227e7c0283b565361dda32cb77e12fc62b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869639"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867272"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>자습서: 발언에서 올바른 형식의 데이터 구하기
 이 자습서에서는 **정규식** 엔터티를 사용하여 발언에서 일관된 형식의 데이터를 추출하는 앱을 만듭니다.
@@ -82,7 +82,7 @@ ms.locfileid: "55869639"
     |hrf-546234의 작성자는?|
     |hrf-456234의 제목은?|
 
-    [ ![새 발화가 강조 표시된 의도 페이지의 스크린샷](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
+    [![새 발화가 강조 표시된 의도 페이지의 스크린샷](./media/luis-quickstart-intents-regex-entity/findform-intent.png)](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 

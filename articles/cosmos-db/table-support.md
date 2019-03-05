@@ -8,12 +8,12 @@ ms.date: 11/15/2017
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: b105cf6c220534927a16be83ca5db8801c88f6c0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 31072be9ae73791e6458b0aee4490ac90df44d94
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035596"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957966"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB Table API 및 Azure Table storage로 개발하기
 
@@ -24,16 +24,21 @@ Azure Cosmos DB 테이블 API와 Azure Table storage는 동일한 테이블 데�
 ## <a name="developing-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB Table API를 사용하여 개발
 
 현재 [Azure Cosmos DB Table API](table-introduction.md)에는 개발에 사용할 수 있는 네 개의 SDK가 있습니다. 
-- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK. 이 라이브러리는 공용 [Microsoft Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage)와 동일한 클래스 및 메서드 서명을 갖추고 있지만 Table API를 사용하여 Azure Cosmos DB 계정에 연결할 수 있습니다. `Microsoft.Azure.CosmosDB.Table` 라이브러리는 현재 .NET 표준에만 제공되고, .NET Core에는 제공되지 않습니다.
-- [Python SDK](table-sdk-python.md). 새 Azure Cosmos DB Python SDK는 Python에서 Azure Table Storage를 지원하는 유일한 SDK입니다. 이 SDK는 Azure Table Storage 및 Azure Cosmos DB Table API 모두와 연결됩니다.
-- [Java SDK](table-sdk-java.md). 이 Azure Storage SDK에는 Table API를 사용하여 Azure Cosmos DB 계정에 연결할 수 있는 기능이 있습니다.
-- [Node.js SDK](table-sdk-nodejs.md). 이 Azure Storage SDK에는 Table API를 사용하여 Azure Cosmos DB 계정에 연결할 수 있는 기능이 있습니다.
+
+* [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table): .NET SDK. 이 라이브러리는 .NET 표준을 대상으로 하며 공용 [Microsoft Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage)와 동일한 클래스 및 메서드 서명을 갖추고 있지만 Table API를 사용하여 Azure Cosmos DB 계정에 연결할 수 있습니다. 또는 이 SDK의 이전 버전을 .NET Framework에서만 작동하는 [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/)로 사용할 수 있습니다.
+
+* [Python SDK](table-sdk-python.md): 새 Azure Cosmos DB Python SDK는 Python에서 Azure Table Storage를 지원하는 유일한 SDK입니다. 이 SDK는 Azure Table Storage 및 Azure Cosmos DB Table API 모두와 연결됩니다.
+
+* [Java SDK](table-sdk-java.md): 이 Azure Storage SDK에는 Table API를 사용하여 Azure Cosmos DB 계정에 연결할 수 있는 기능이 있습니다.
+
+* [Node.js SDK](table-sdk-nodejs.md): 이 Azure Storage SDK에는 Table API를 사용하여 Azure Cosmos DB 계정에 연결할 수 있는 기능이 있습니다.
+
 
 Table API를 사용하여 작업하는 방법에 관한 추가 정보는 [FAQ: Table API를 사용하여 개발](faq.md#table) 문서에서 제공됩니다.
 
-## <a name="developing-with-azure-table-storage"></a>Azure Table 저장소를 사용하여 개발
+## <a name="developing-with-azure-table-storage"></a>Azure Table Storage를 사용하여 개발
 
-Azure Table 저장소에는 개발에 사용할 수 있는 다음과 같은 SDK가 있습니다.
+Azure Table Storage에는 개발에 사용할 수 있는 다음과 같은 SDK가 있습니다.
 
 - [WindowsAzure.Storage .NET SDK](https://www.nuget.org/packages/WindowsAzure.Storage/). 이 라이브러리를 통해 저장소 Table 서비스를 사용할 수 있습니다.
 - [Python SDK](table-sdk-python.md). Python용 Azure Cosmos DB Table SDK도 저장소 Table 서비스를 지원합니다.

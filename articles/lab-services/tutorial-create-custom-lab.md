@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 0530dbac88fcfbfb05ab29d1c5934a468f263034
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096639"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804963"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>자습서: Azure DevTest Labs를 사용하여 랩 설정
 이 자습서에서는 Azure Portal을 사용하여 랩을 만듭니다. 랩 관리자는 조직에 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다. 랩 사용자(예: 개발자 및 테스터)는 랩에서 VM을 클레임하고 연결하여 사용합니다. 
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. VM이 만들어지면 **클레임할 수 있는 가상 머신** 목록에 표시됩니다. 
 
     > [!NOTE] 
-    > Linux VM을 랩에 추가할 때 VM에 대한 SSH 및 RDP 액세스를 활성화할 수 있습니다. VM을 만드는 동안 액세스를 활성화하지 않을 경우 VM과 연결된 네트워크 보안 그룹에 규칙을 수동으로 추가하여 SSH 및 RDP에 대한 포트를 열 수 있습니다.
+    > **고급 설정** 페이지에서 VM에 대한 공용, 사설 또는 공유 IP 주소를 구성할 수 있습니다. **공유 IP**를 사용하는 경우 Azure DevTest Labs에서는 자동으로 Windows VM에 RDP 및 Linux VM에 SSH를 사용하도록 설정합니다. **공용 IP** 주소를 통해 VM을 만드는 경우 RDP 및 SSH는 DevTest Labs에서 변경 없이 사용하도록 설정됩니다.  
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>사용자를 Lab User에 추가
 

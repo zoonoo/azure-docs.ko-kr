@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 88e55573e88a45d7733e12c3bb8751763a0ef901
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113365"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650906"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -199,6 +199,15 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 | - | - | - |
 | A | `@` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
+
+> [!NOTE]
+> 권장되는 [CNAME 레코드](#map-a-cname-record) 대신 A 레코드를 사용하여 하위 도메인을 추가하려면(예: `www.contoso.com`) A 레코드와 TXT 레코드는 다음 표와 같이 표시되어야 합니다.
+>
+> | 레코드 형식 | 호스트 | 값 |
+> | - | - | - |
+> | A | `www` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
+> | TXT | `www` | `<app_name>.azurewebsites.net` |
+>
 
 레코드를 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니다.
 

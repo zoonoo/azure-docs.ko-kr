@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/04/2019
+ms.date: 02/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ceff87cd3075d517ee1c0027e19dbf423e44f5c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f36e13ccf91c983c54897dcff7e1c02689fb055c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108758"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592658"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway를 사용하여 데이터 전송(미리 보기)
 
@@ -133,6 +133,7 @@ Data Box 에지에 연결된 Linux 클라이언트에서 다음 단계를 수행
 > 미리 보기 릴리스에 적용되는 주의 사항은 다음과 같습니다.
 > - 공유에 파일이 만들어지면 파일 이름 바꾸기가 지원되지 않습니다. 
 > - 공유에서 파일을 삭제하더라도 저장소 계정의 항목은 삭제되지 않습니다.
+> - `rsync`를 사용하여 데이터를 복사하는 경우 `rsync -a` 옵션이 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

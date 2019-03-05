@@ -12,53 +12,30 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: dfbd8425048ddc5c96349bfd6a7462dcd32dc1d9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a72d6b180db35f3e0f0e0527e8ae0f544a585b25
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727759"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822972"
 ---
-# <a name="create-your-first-function-with-java-and-maven-preview"></a>Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기(미리 보기)
+# <a name="create-your-first-function-with-java-and-maven"></a>Java 및 Maven을 사용하여 첫 번째 함수 만들기
 
-> [!NOTE] 
-> Azure Functions용 Java는 현재 미리 보기로 제공되고 있습니다.
-
-이 빠른 시작에서는 Maven을 사용하여 [서버리스](https://azure.microsoft.com/solutions/serverless/) 함수 프로젝트를 만들어 로컬로 테스트하고 Azure에 배포하는 과정을 안내합니다. 완료되면 Java 함수 코드가 클라우드에서 실행되고 HTTP 요청에서 트리거될 수 있습니다.
-
-![cURL로 명령줄에서 Hello World 함수 액세스](media/functions-create-java-maven/hello-azure.png)
+이 문서에서는 Maven 명령줄 도구를 사용하여 Java 함수를 만들어 Azure Functions에 게시하는 방법을 안내합니다. 완료되면 함수 코드가 Azure의 [사용 플랜](functions-scale.md#consumption-plan)에서 실행되고 HTTP 요청을 사용하여 트리거될 수 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-Java 통해 함수 앱을 개발하려면 다음을 설치해야 합니다.
 
--  [Java Developer Kit](https://www.azul.com/downloads/zulu/) 버전 8
--  [Apache Maven](https://maven.apache.org) 버전 3.0 이상
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
+Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 
-> [!IMPORTANT] 
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/) 버전 8
+- [Apache Maven](https://maven.apache.org) 버전 3.0 이상
+- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure Functions Core Tools](functions-run-local.md#v2)(**.NET Core 2.x SDK** 필요).
+
+> [!IMPORTANT]
 > 이 퀵 스타트를 완료하려면 JAVA_HOME 환경 변수를 JDK 설치 위치로 설정해야 합니다.
-
-## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
-
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools)는 Azure Functions의 작성, 실행 및 디버그를 위한 로컬 개발 환경을 제공합니다. 
-
-설치하려면 Azure Functions 핵심 도구 프로젝트의 [설치](https://github.com/azure/azure-functions-core-tools#installing) 섹션으로 이동하여 해당 운영 체제에 대한 지침을 찾아보세요.
-
-다음과 같은 요구 사항을 설치한 후 [Node.js](https://nodejs.org/)에 포함된 [npm](https://www.npmjs.com/)을 사용하여 수동으로 설치할 수도 있습니다.
-
--  [.NET Core](https://www.microsoft.com/net/core) 최신 버전
--  [Node.js](https://nodejs.org/download/) 버전 8.6 이상
-
-npm 기반 설치를 계속 진행하려면 다음을 실행합니다.
-
-```
-npm install -g azure-functions-core-tools
-```
-
-> [!NOTE]
-> Azure Functions Core Tools 버전 2.0 설치에 문제가 있으면 [버전 2.x 런타임](/azure/azure-functions/functions-run-local)을 참조하세요.
 
 ## <a name="generate-a-new-functions-project"></a>새 Functions 프로젝트 생성
 

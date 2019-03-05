@@ -1,10 +1,10 @@
 ---
-title: 자습서 - Service Fabric Mesh에 대한 다중 서비스 애플리케이션 만들기, 디버그, 배포 및 모니터링 | Microsoft Docs
+title: 자습서 - Service Fabric Mesh에 대한 다중 서비스 응용 프로그램 만들기, 디버그, 배포 및 모니터링 | Microsoft Docs
 description: 이 자습서에서는 백 엔드 웹 서비스와 통신하고, 로컬로 디버그하고, Azure에 게시하는 ASP.NET Core 웹 사이트로 구성된 다중 서비스 Azure Service Fabric Mesh 애플리케이션을 만듭니다.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/18/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb68c7aacb4c62237fc4cd75ec430997b0145454
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888752"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805429"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>자습서: 다중 서비스 Service Fabric Mesh 앱 만들기, 디버그, 배포 및 업그레이드
 
@@ -28,7 +28,7 @@ ms.locfileid: "52888752"
 
 작업이 완료되면 앱 수명 주기 관리의 대부분 단계를 수행하고 Service Fabric Mesh 앱에서 서비스 간 호출을 보여 주는 앱을 빌드하게 됩니다.
 
-할 일 애플리케이션을 수동으로 만들지 않으려면 완성된 애플리케이션에 대한 [소스 코드를 다운로드](https://github.com/azure-samples/service-fabric-mesh)하고 [로컬로 애플리케이션을 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)하도록 건너뛸 수 있습니다.
+할 일 응용 프로그램을 수동으로 만들지 않으려면 완성된 응용 프로그램에 대한 [소스 코드를 다운로드](https://github.com/azure-samples/service-fabric-mesh)하고 [로컬로 응용 프로그램을 디버그](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)하도록 건너뛸 수 있습니다.
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
@@ -389,7 +389,7 @@ service.yaml 파일에서 `environmentVariables:` 아래에 다음 변수를 추
 ![WebFrontEnd 프로젝트의 Service.yaml](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-serviceyaml-envvars.png)
 
 
-이제 백 엔드 웹 서비스와 함께 Service Fabric Mesh 애플리케이션의 이미지를 로컬 클러스터에 빌드하고 배포할 준비가 되었습니다.
+이제 백 엔드 웹 서비스와 함께 Service Fabric Mesh 응용 프로그램의 이미지를 로컬 클러스터에 빌드하고 배포할 준비가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

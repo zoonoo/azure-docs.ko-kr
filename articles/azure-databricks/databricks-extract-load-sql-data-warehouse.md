@@ -7,13 +7,14 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 01/24/2019
-ms.openlocfilehash: b48ac9cf8eff001e62f54e41b5f76a9d006bc5ba
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.workload: Active
+ms.date: 02/15/2019
+ms.openlocfilehash: 6ec32a40cea4f95d9225134cfb36d4930245d1c5
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328931"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750602"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -21,14 +22,19 @@ ms.locfileid: "56328931"
 
 이 자습서의 단계에서는 Azure Databricks용 SQL Data Warehouse 커넥터를 사용하여 Azure Databricks로 데이터를 전송합니다. 그러면 이 커넥터는 Azure Blob Storage를 Azure Databricks 클러스터와 Azure SQL Data Warehouse 간에 전송되는 데이터의 임시 스토리지로 사용합니다.
 
+다음 그림에서는 애플리케이션 흐름을 보여줍니다.
+
+![Azure Databricks를 Data Lake Store 및 SQL Data Warehouse와 함께 사용](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks를 Data Lake Store 및 SQL Data Warehouse와 함께 사용")
+
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Azure Databricks 서비스 만들기
 > * Azure Databricks에 Spark 클러스터 만들기
-> * 파일 시스템을 만들고 데이터를 Azure Data Lake Storage Gen2에 업로드합니다.
+> * Data Lake Storage Gen2 계정에서 파일 시스템을 만듭니다.
+> * Azure Data Lake Storage Gen2 계정에 샘플 데이터를 업로드합니다.
 > * 서비스 주체를 만듭니다.
-> * Data Lake Store에서 데이터를 추출합니다.
+> * Azure Data Lake Storage Gen2 계정에서 데이터를 추출합니다.
 > * Azure Databricks에서 데이터 변환
 > * Azure SQL Data Warehouse에 데이터를 로드합니다.
 
@@ -42,11 +48,40 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 * Azure SQL Data Warehouse에 대한 데이터베이스 마스터 키를 만듭니다. [데이터베이스 마스터 키 만들기](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)를 참조하세요.
 
-* Azure Data Lake Storage Gen2 계정을 만듭니다. [Azure Data Lake Storage Gen2 계정 만들기](../storage/blobs/data-lake-storage-quickstart-create-account.md)를 참조하세요.
-
 * Azure Blob Storage 계정을 만들고, 그 안에 컨테이너를 만듭니다. 또한 저장소 계정에 액세스하는 데 사용되는 액세스 키를 검색합니다. [빠른 시작: Azure Blob 스토리지 계정 만들기](../storage/blobs/storage-quickstart-blobs-portal.md)의 지침을 따르세요.
 
+* Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다. [Azure Data Lake Storage Gen2 계정 만들기](../storage/blobs/data-lake-storage-quickstart-create-account.md)를 참조하세요.
+
+*  서비스 주체를 만듭니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+
+   해당 문서의 단계를 수행할 때 해야 하는 두어 가지 항목이 있습니다.
+
+   * 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에 있는 단계를 수행할 때 **스토리지 Blob 데이터 기여자** 역할을 서비스 주체에 할당해야 합니다.
+
+     > [!IMPORTANT]
+     > 역할을 Data Lake Storage Gen2 스토리지 계정의 범위에 할당해야 합니다. 역할은 부모 리소스 그룹 또는 구독에 할당할 수 있지만, 이러한 역할 할당이 스토리지 계정에 전파될 때까지 권한 관련 오류가 발생합니다.
+
+   * 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 단계를 수행하는 경우 테넌트 ID, 애플리케이션 ID 및 인증 키 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
+
 * [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
+## <a name="gather-the-information-that-you-need"></a>필요한 정보 수집
+
+이 자습서의 필수 조건을 완료했는지 확인합니다.
+
+   시작하기 전에 다음 정보 항목이 있어야 합니다.
+
+   :heavy_check_mark:  데이터베이스 이름, 데이터베이스 서버 이름, 사용자 이름 및 Azure SQL Data Warehouse의 암호
+
+   :heavy_check_mark:  Blob Storage 계정에 대한 액세스 키
+
+   :heavy_check_mark:  Azure Data Lake Storage Gen2 스토리지 계정의 이름
+
+   :heavy_check_mark:  구독의 테넌트 ID
+
+   :heavy_check_mark:  Azure AD(Azure Active Directory)에 등록된 앱의 애플리케이션 ID
+
+   :heavy_check_mark:  Azure AD에 등록된 앱의 인증 키
 
 ## <a name="create-an-azure-databricks-service"></a>Azure Databricks 서비스 만들기
 
@@ -94,40 +129,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     * **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 Notebook을 클러스터에 연결하고 Spark 작업을 실행할 수 있습니다.
 
-## <a name="create-a-file-system-and-upload-sample-data"></a>파일 시스템 만들기 및 샘플 데이터 업로드
+## <a name="create-a-file-system-in-the-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 계정에서 파일 시스템 만들기
 
-먼저 Data Lake Storage Gen2 계정에서 파일 시스템을 만듭니다. 그런 다음, Data Lake Store에 샘플 데이터 파일을 업로드할 수 있습니다. 이 파일은 Azure Databricks의 뒷부분에서 변환을 수행하는 데 사용됩니다.
-
-1. [small_radio_json.json](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 샘플 데이터 파일을 로컬 파일 시스템에 다운로드합니다.
-
-2. [Azure Portal](https://portal.azure.com/)에서 이 자습서의 필수 구성 요소로 만든 Data Lake Storage Gen2 계정으로 이동합니다.
-
-3. 스토리지 계정의 **개요** 페이지에서 **탐색기에서 열기**를 선택합니다.
-
-   ![Storage 탐색기 열기](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer.png "Storage 탐색기 열기")
-
-4. **Azure Storage 탐색기 열기**를 선택하여 스토리지 탐색기를 엽니다.
-
-   ![Storage 탐색기 열기 두 번째 프롬프트](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer-2.png "Storage 탐색기 열기 두 번째 프롬프트")
-
-   Storage 탐색기가 열립니다. 이 항목의 지침을 사용하여 파일 시스템을 만들고 샘플 데이터를 업로드할 수 있습니다. [빠른 시작: Azure Storage 탐색기를 사용하여 Azure Data Lake Storage Gen2 계정에서 데이터 관리](../storage/blobs/data-lake-storage-explorer.md)
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>서비스 주체 만들기
-
-이 토픽의 지침에 따라 서비스 주체를 만듭니다. [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
-
-해당 문서의 단계를 수행할 때 해야 하는 몇 가지 사항이 있습니다.
-
-:heavy_check_mark: 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에서 단계를 수행하는 경우 해당 애플리케이션을 **Blob Storage 기여자 역할**에 할당해야 합니다.
-
-:heavy_check_mark: 문서의 [로그인을 위한 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션에서 단계를 수행하는 경우 테넌트 ID, 애플리케이션 ID 및 인증 키 값을 텍스트 파일에 붙여넣습니다. 곧 이 값들이 필요합니다.
-먼저 Azure Databricks 작업 영역에서 노트북을 만든 다음, 코드 조각을 실행하여 스토리지 계정에서 파일 시스템을 만듭니다.
-
-## <a name="extract-data-from-the-data-lake-store"></a>Data Lake Store에서 데이터 추출
-
-이 섹션에서는 Azure Databricks 작업 영역에서 Notebook을 만든 다음, Data Lake Store에서 Azure Databricks로 데이터를 추출하는 코드 조각을 실행합니다.
+이 섹션에서는 Azure Databricks 작업 영역에서 Notebook을 만든 다음, 코드 조각을 실행하여 스토리지 계정을 구성합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 본인이 만든 Azure Databricks 서비스로 이동한 다음, **작업 영역 시작**을 선택합니다.
 
@@ -149,13 +153,40 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
    spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. 이 코드 블록에서 이 코드 블록의 `application-id`, `authentication-id` 및 `tenant-id` 자리 표시자 값을 스토리지 계정 구성을 보관하기의 단계를 완료했을 때 수집한 값으로 바꿉니다. `storage-account-name` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+6. 이 코드 블록에서 `application-id`, `authentication-id`, `tenant-id` 및 `storage-account-name` 자리 표시자 값을 이 자습서의 필수 조건을 수행하는 동안 수집한 값으로 바꿉니다. `file-system-name` 자리 표시자 값을 파일 시스템에 제공하려는 이름으로 바꿉니다.
+
+   * `application-id` 및 `authentication-id`는 서비스 주체 만들기의 일환으로 활성 디렉터리에 등록한 앱에서 가져온 것입니다.
+
+   * `tenant-id`는 구독에서 가져온 것입니다.
+
+   * `storage-account-name`은 Azure Data Lake Storage Gen2 스토리지 계정의 이름입니다.
 
 7. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 
-8. 이제 Azure Databricks에서 샘플 json 파일을 데이터 프레임으로 로드할 수 있습니다. 다음 코드를 새 셀에 붙여넣습니다. 대괄호 안에 표시된 자리 표시자를 사용자 고유의 값으로 바꿉니다.
+## <a name="ingest-sample-data-into-the-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 계정에 샘플 데이터 수집
+
+이 섹션을 시작하기 전에 다음 필수 구성 요소를 완료해야 합니다.
+
+노트북 셀에 다음 코드를 입력합니다.
+
+    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+
+셀에서 **Shift+Enter**를 눌러 코드를 실행합니다.
+
+이제 이 아래에 있는 새 셀에서 다음 코드를 입력하고 괄호에 나타나는 값을 이전에 사용한 동일한 값으로 바꿉니다.
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
+
+셀에서 **Shift+Enter**를 눌러 코드를 실행합니다.
+
+## <a name="extract-data-from-the-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 계정에서 데이터 추출
+
+1. 이제 Azure Databricks에서 샘플 json 파일을 데이터 프레임으로 로드할 수 있습니다. 다음 코드를 새 셀에 붙여넣습니다. 대괄호 안에 표시된 자리 표시자를 사용자 고유의 값으로 바꿉니다.
 
    ```scala
    val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
@@ -165,9 +196,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    * `storage-account-name` 자리 표시자를 스토리지 계정 이름으로 바꿉니다.
 
-9. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
+2. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 
-10. 데이터 프레임의 콘텐츠를 보려면 다음 코드를 실행합니다.
+3. 데이터 프레임의 콘텐츠를 보려면 다음 코드를 실행합니다.
 
     ```scala
     df.show()
@@ -300,8 +331,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    val dwPass = "<password>"
    val dwJdbcPort =  "1433"
    val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
-   val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
-   val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
+   val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
+   val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
    ```
 
 5. 다음 코드 조각을 실행하여 변환된 데이터 프레임 **renamedColumnsDF**를 SQL 데이터 웨어하우스에 테이블로 로드합니다. 이 코드 조각은 SQL 데이터베이스에 **SampleTable**이라는 테이블을 만듭니다.

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure AD B2B 게스트 사용자에 다단계 인증 적용'
+title: '자습서: B2B의 다단계 인증 - Azure Active Directory | Microsoft Docs'
 description: Azure AD B2B를 사용하여 외부 사용자 및 파트너 조직과 공동 작업할 경우 MFA(다단계 인증)를 요구하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d25b6fa5101f8a19e30d68cb5ce58125b4e30f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 70f6718c13534e7f43b183400a1ccf25c3f8d1e1
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178518"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669014"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>자습서: B2B 게스트 사용자에 다단계 인증 적용
 

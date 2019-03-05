@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 36e0ca360cfbdfc77ce0a1768222f43f8864537c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: fd6ecb6cb45aef399a137c9eac2c8c6f845b610b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267262"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872491"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning 서비스란?
 
@@ -32,7 +32,7 @@ Machine Learning을 통한 예측은 좀 더 똑똑한 앱 및 디바이스를 �
 
 Azure Machine Learning Service는 기계 학습 모델의 데이터 준비, 교육, 테스트, 배포, 관리 및 추적에 사용할 수 있는 클라우드 기반 환경을 제공합니다.
 
-[ ![Azure Machine Learning Service 워크플로](./media/overview-what-is-azure-ml/aml.png) ] (./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Azure Machine Learning Service 워크플로](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning Service는 오픈 소스 기술을 완벽하게 지원합니다. 따라서 Machine Learning 구성 요소와 함께 수많은 오픈 소스 Python 패키지를 사용할 수 있습니다. PyTorch, TensorFlow 및 scikit-learn을 그 예로 들 수 있습니다.
 다양한 도구에 대한 지원을 통해 손쉽게 데이터를 대화식으로 탐색 및 준비하고 모델을 개발 및 테스트할 수 있습니다. [Jupyter Notebook](http://jupyter.org) 또는 [Visual Studio Code용 Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) 확장을 그 예로 들 수 있습니다.
@@ -70,7 +70,7 @@ Azure Machine Learning Service를 사용하기 시작하려면 [다음 단계](#
 
 ## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>Azure Machine Learning Service는 Machine Learning Studio와 어떻게 다른가?
 
-Azure Machine Learning Studio는 코드 작성 없이 기계 학습 솔루션을 빌드, 테스트, 배포할 수 있는 끌어서 놓기 방식의 공동 작업 영역입니다. 미리 빌드되고 미리 구성된 Machine Learning 알고리즘과 데이터 처리 모듈을 사용합니다. 
+[Azure Machine Learning Studio](../studio/what-is-ml-studio.md)는 코드 작성 없이 기계 학습 솔루션을 빌드, 테스트, 배포할 수 있는 끌어서 놓기 방식의 공동 작업 영역입니다. 미리 빌드되고 미리 구성된 Machine Learning 알고리즘과 데이터 처리 모듈을 사용합니다.
 
 기계 학습 모델을 쉽고 빠르게 실험 하고 솔루션에 기본 제공 기계 학습 알고리즘으로 충분한 경우 Machine Learning Studio를 사용합니다.
 

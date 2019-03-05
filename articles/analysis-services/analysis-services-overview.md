@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 114dac10592213d3b2fdfff909913039b3dba344
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 53ce82a6e1180d4493e2d4014bf6e26e9bde2466
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429437"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731398"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -203,7 +203,7 @@ Visual Studio 2017을 사용하는 경우 Microsoft Analysis Services Projects�
 
 ### <a name="powershell"></a>PowerShell
 
-서버 리소스 만들기, 서버 작업 일시 중단/다시 시작 또는 서비스 수준(계층) 변경과 같은 서버 관리 작업에서는 AzureRM(Azure Resource Manager) cmdlet을 사용합니다. 역할 멤버 추가/제거, 처리 또는 TMSL 스크립트 실행과 같은 기타 데이터베이스 관리 작업에서는 SqlServer 모듈에 포함된 cmdlet을 사용합니다. 자세한 내용은 [PowerShell을 사용하여 Azure Analysis Services 관리](analysis-services-powershell.md)를 참조하세요.
+서버 리소스 만들기, 서버 작업 일시 중단/다시 시작 또는 서비스 수준(계층) 변경과 같은 서버 관리 작업에서는 Azure PowerShell cmdlet을 사용합니다. 역할 멤버 추가/제거, 처리 또는 TMSL 스크립트 실행과 같은 기타 데이터베이스 관리 작업에서는 SqlServer 모듈에 포함된 cmdlet을 사용합니다. 자세한 내용은 [PowerShell을 사용하여 Azure Analysis Services 관리](analysis-services-powershell.md)를 참조하세요.
 
 ### <a name="object-model-and-scripting"></a>개체 모델 및 스크립팅
 

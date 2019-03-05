@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b4c484f3dd118a19291741b071432b09894e836c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092614"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593304"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Linux 가상 머신 모니터링
 
@@ -65,7 +65,7 @@ VM 보안 구성을 확인하려면 먼저 Security Center 데이터 수집을 �
 
 1. Security Center 대시보드에서 **보안 정책**을 클릭하고 구독을 선택합니다.
 2. **보안 정책** 블레이드에서 **보안 정책**을 선택합니다. 
-3. ** 보안 정책 - 보안 정책 ** 블레이드에서 구독에 적용하려는 정책 항목을 켜거나 끕니다.
+3. **보안 정책 - 보안 정책** 블레이드에서 구독에 적용하려는 정책 항목을 켜거나 끕니다.
 4. 설정 선택을 마쳤으면 블레이드 위쪽에서 **저장**을 선택합니다. 
 
 ![고유 정책](./media/tutorial-azure-security/unique-policy.png)
@@ -106,7 +106,7 @@ Azure Security Center가 구성 데이터로 채워지기 시작하면 설정한
 
 Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 경고를 표시합니다. 보안 경고 기능은 각 VM, Azure 네트워킹 로그 및 연결된 파트너 솔루션에서 수집된 데이터를 집계하여 Azure 리소스에 대한 보안 위협을 검색합니다. Security Center 위협 검색 기능에 대한 자세한 내용은 [Azure Security Center 검색 기능](../../security-center/security-center-detection-capabilities.md)을 참조하세요.
 
-보안 경고 기능을 사용하려면 Azure Security Center 가격 책정 계층을 *체험*에서 *표준*으로 높여야 합니다. 이 상위 가격 책정 계층으로 전환하면 60일 **평가판**을 사용할 수 있습니다. 
+보안 경고 기능을 사용하려면 Azure Security Center 가격 책정 계층을 *체험*에서 *표준*으로 높여야 합니다. 이 상위 가격 책정 계층으로 전환하면 **평가판**을 사용할 수 있습니다. 
 
 가격 책정 계층을 변경하려면:  
 

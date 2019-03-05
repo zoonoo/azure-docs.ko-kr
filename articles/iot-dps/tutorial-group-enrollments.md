@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8e926c3ff7c3d7abc9467291e9b1de77781f664e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184970"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805056"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Java 디바이스 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 
@@ -32,7 +32,7 @@ ms.locfileid: "53184970"
 
 1. 컴퓨터에 `git`이 설치되어 있고 명령 창에서 액세스할 수 있는 환경 변수에 추가되었는지 확인합니다. 설치할 `git` 도구의 최신 버전은 [Software Freedom Conservancy의 Git 클라이언트 도구](https://git-scm.com/download/)를 참조하세요. 여기에는 로컬 Git 리포지토리와 상호 작용하는 데 사용할 수 있는 명령줄 앱인 **Git Bash**가 포함됩니다. 
 
-1. 다음을 [인증서 개요](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)를 사용하여 테스트 인증서를 만듭니다.
+1. 다음 [인증서 개요](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)를 사용하여 테스트 인증서를 만듭니다.
 
     > [!NOTE]
     > 이 단계를 수행하려면 원본에서 빌드 및 설치하거나 [이](https://sourceforge.net/projects/openssl/)와 같은 [타사](https://wiki.openssl.org/index.php/Binaries)에서 다운로드 및 설치할 수 있는 [OpenSSL](https://www.openssl.org/)이 필요합니다. 이미 _루트_, _중간_ 및 _디바이스_ 인증서를 만든 경우 이 단계를 건너뛸 수 있습니다.
@@ -46,7 +46,7 @@ ms.locfileid: "53184970"
 
         1. **인증서 추가** 아래에서 다음 정보를 입력합니다.
             - 고유한 인증서 이름을 입력합니다.
-            - 방금 만든 **_RootCA.pem_** 파일을 선택합니다.
+            - 자신이 만든 **_RootCA.pem_** 파일을 선택합니다.
             - 완료되면 **저장** 단추를 클릭합니다.
 
            ![인증서 추가](./media/tutorial-group-enrollments/add-certificate.png)
@@ -68,7 +68,7 @@ ms.locfileid: "53184970"
 ## <a name="create-a-device-enrollment-entry"></a>디바이스 등록 항목 만들기
 
 1. 명령 프롬프트를 엽니다. Java SDK 코드 샘플용 GitHub 리포지토리를 복제합니다.
-    
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
@@ -77,11 +77,11 @@ ms.locfileid: "53184970"
 
     1. 다음과 같이 포털에서 프로비전 서비스에 대한 `[Provisioning Connection String]`을 추가합니다.
 
-        1. [Azure Portal](https://portal.azure.com)에서 프로비전 서비스로 이동합니다. 
+        1. [Azure Portal](https://portal.azure.com)에서 프로비전 서비스로 이동합니다.
 
-        1. **공유 액세스 정책**을 열고 *EnrollmentWrite* 권한이 있는 정책을 선택합니다.
-    
-        1. **기본 키 연결 문자열**을 복사합니다. 
+        1. **공유 액세스 정책**을 열고, *EnrollmentWrite* 권한이 있는 정책을 선택합니다.
+
+        1. **기본 키 연결 문자열**을 복사합니다.
 
             ![포털에서 프로비전 연결 문자열 가져오기](./media/tutorial-group-enrollments/provisioning-string.png)  
 
@@ -91,7 +91,9 @@ ms.locfileid: "53184970"
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. 텍스트 편집기에서 **_RootCA.pem_** 파일을 엽니다. 아래와 같이 **PUBLIC_KEY_CERTIFICATE_STRING** 매개 변수에 **루트 인증서**의 값을 할당합니다.
+    1. 텍스트 편집기에서 중간 서명 인증서 파일을 엽니다. `PUBLIC_KEY_CERTIFICATE_STRING` 값을 중간 서명 인증서의 값으로 업데이트합니다.
+
+        Bash 셸을 사용하여 디바이스 인증서를 생성한 경우 *./certs/azure-iot-test-only.intermediate.cert.pem*에 중간 인증서 키가 포함됩니다. PowerShell을 사용하여 인증서가 생성된 경우 *./Intermediate1.pem*이 중간 인증서 파일이 됩니다.
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -108,7 +110,7 @@ ms.locfileid: "53184970"
                 "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
                 "-----END CERTIFICATE-----\n";
         ```
- 
+
     1. [Azure Portal](https://portal.azure.com)에서 프로비전 서비스와 연결된 IoT Hub로 이동합니다. 허브에 대한 **개요** 탭을 열고 **호스트 이름**을 복사합니다. *IOTHUB_HOST_NAME* 매개 변수에 이 **호스트 이름**을 할당합니다.
 
         ```java
@@ -123,7 +125,7 @@ ms.locfileid: "53184970"
         provisioningServiceClient.deleteEnrollmentGroup(enrollmentGroupId);
         ```
 
-    1. _ServiceEnrollmentGroupSample.java_ 파일을 저장합니다. 
+    1. _ServiceEnrollmentGroupSample.java_ 파일을 저장합니다.
 
 1. 명령 창을 열고 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** 폴더로 이동합니다.
 
@@ -144,12 +146,11 @@ ms.locfileid: "53184970"
 
     ![성공적인 등록](./media/tutorial-group-enrollments/enrollment.png) 
 
-1. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭합니다. **등록 그룹** 탭 아래에 자동 생성된 *그룹 이름*이 있는 X.509 디바이스 그룹이 표시됩니다. 
-
+1. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭합니다. **등록 그룹** 탭 아래에 자동 생성된 *그룹 이름*이 있는 X.509 디바이스 그룹이 표시됩니다.
 
 ## <a name="simulate-the-device"></a>디바이스 시뮬레이션
 
-1. Device Provisioning Service 요약 블레이드에서 **개요**를 선택하고, _ID 범위_ 및 _Provisioning Service Global Endpoint_(프로비전 서비스 전역 엔드포인트)를 참고합니다.
+1. Device Provisioning Service 요약 블레이드에서 **개요**를 선택하고, _ID 범위_ 및 _프로비전 서비스 글로벌 엔드포인트_를 기록해 둡니다.
 
     ![서비스 정보](./media/tutorial-group-enrollments/extract-dps-endpoints.png)
 
@@ -159,36 +160,79 @@ ms.locfileid: "53184970"
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. 다음과 같은 방식으로 등록 그룹 정보를 입력합니다.
+1. 앞에서 설명한 대로 _ID 범위_ 및 _프로비저닝 서비스 글로벌 엔드포인트_를 포함하도록 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java`를 편집합니다.
 
-    - 앞에서 설명한 대로 _ID 범위_ 및 _Provisioning Service Global Endpoint_ (프로비전 서비스 전역 엔드포인트)를 포함하도록 `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` 를 편집합니다. **_{deviceName}-public.pem_** 파일을 열고 이 값을 _클라이언트 인증서_ 로 포함합니다. **_{deviceName}-all.pem_** 파일을 열고 _-----BEGIN PRIVATE KEY-----_ 의 텍스트를 _-----END PRIVATE KEY-----_ 로 복사합니다.  이를 _클라이언트 인증서 개인 키_로 사용합니다.
+    ```java
+    private static final String idScope = "[Your ID scope here]";
+    private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+    private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+    private static final int MAX_TIME_TO_WAIT_FOR_REGISTRATION = 10000; // in milli seconds
+    private static final String leafPublicPem = "<Your Public PEM Certificate here>";
+    private static final String leafPrivateKey = "<Your Private PEM Key here>";
+    ```
 
-        ```java
-        private static final String idScope = "[Your ID scope here]";
-        private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-        private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
-        private static final String leafPublicPem = "<Your Public PEM Certificate here>";
-        private static final String leafPrivateKey = "<Your Private PEM Key here>";
-        ```
+1. `leafPublicPem` 및 `leafPrivateKey` 변수를 공용 및 개인 디바이스 인증서로 업데이트합니다.
 
-        - 다음 형식을 사용하여 인증서와 키를 포함합니다.
-            
-            ```java
-            private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "-----END CERTIFICATE-----\n";
-            private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXX\n" +
-                "-----END PRIVATE KEY-----\n";
-            ```
+    PowerShell을 사용하여 디바이스 인증서를 생성한 경우 mydevice* 파일에 디바이스에 대한 공개 키, 개인 키 및 PFX가 포함됩니다.
 
-1. 샘플을 빌드합니다. 대상 폴더로 이동하고 만든 jar 파일을 실행합니다.
+    Bash 셸을 사용하여 디바이스 인증서를 생성한 경우 ./certs/new-device.cert.pem에 공개 키가 포함됩니다. 디바이스의 개인 키는 ./private/new-device.key.pem 파일에 있게 됩니다.
+
+    공개 키 파일을 열고 `leafPublicPem` 변수를 해당 값으로 업데이트합니다. _-----BEGIN PRIVATE KEY-----_ 부터 _-----END PRIVATE KEY-----_ 까지 텍스트를 복사합니다.
+
+    ```java
+    private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+    ```
+
+    개인 키 파일을 열고 `leafPrivatePem` 변수를 해당 값으로 업데이트합니다. _-----BEGIN RSA PRIVATE KEY-----_ 부터 _-----END RSA PRIVATE KEY-----_ 까지 텍스트를 복사합니다.
+
+    ```java
+    private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END RSA PRIVATE KEY-----\n";
+    ```
+
+1. 중간 인증서에 대한 새 변수를 `leafPrivateKey` 바로 아래에 추가합니다. 이 새 변수 `intermediateKey`의 이름을 지정합니다. 중간 서명 인증서의 값으로 지정합니다.
+
+    Bash 셸을 사용하여 디바이스 인증서를 생성한 경우 *./certs/azure-iot-test-only.intermediate.cert.pem*에 중간 인증서 키가 포함됩니다. PowerShell을 사용하여 인증서가 생성된 경우 *./Intermediate1.pem*이 중간 인증서 파일이 됩니다.
+
+    ```java
+    private static final String intermediateKey = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+    ```
+
+1. `main` 함수에서 `securityProviderX509`를 초기화하기 전에 `intermediateKey`를 `signerCertificates` 컬렉션에 추가합니다.
+
+    ```java
+    public static void main(String[] args) throws Exception
+    {
+        ...
+
+        try
+        {
+            ProvisioningStatus provisioningStatus = new ProvisioningStatus();
+
+            // Add intermediate certificate as part of the certificate key chain.
+            signerCertificates.add(intermediateKey);
+
+            SecurityProvider securityProviderX509 = new SecurityProviderX509Cert(leafPublicPem, leafPrivateKey, signerCertificates);
+    ```
+
+1. 변경 내용을 저장하고 샘플을 빌드합니다. 대상 폴더로 이동하고 만든 jar 파일을 실행합니다.
 
     ```cmd/sh
     mvn clean install
@@ -198,7 +242,7 @@ ms.locfileid: "53184970"
 
     ![성공적인 등록](./media/tutorial-group-enrollments/registration.png)
 
-1. 포털에서 프로비전 서비스에 연결된 IoT 허브로 이동하여 **디바이스 탐색기** 블레이드를 엽니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비전되면 디바이스 ID가 **Device Explorer** 블레이드에 표시되고 *상태*가 **사용**으로 표시됩니다. 샘플 디바이스 응용 프로그램을 실행하기 전에 블레이드를 이미 열어 놓은 경우 화면 상단의 **새로 고침** 단추를 클릭해야 합니다. 
+1. 포털에서 프로비전 서비스에 연결된 IoT 허브로 이동하여 **디바이스 탐색기** 블레이드를 엽니다. 시뮬레이션된 X.509 디바이스가 허브에 성공적으로 프로비전되면 디바이스 ID가 **Device Explorer** 블레이드에 표시되고 *상태*가 **사용**으로 표시됩니다. 샘플 장치 애플리케이션을 실행하기 전에 블레이드를 이미 열어 놓은 경우 화면 상단의 **새로 고침** 단추를 클릭해야 합니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/tutorial-group-enrollments/hub-registration.png) 
 

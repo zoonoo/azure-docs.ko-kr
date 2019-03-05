@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 2439244edcc1b7026a2cc8a62a946188e279f15f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245833"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889480"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>자습서: Text Analytics Cognitive Service와 Power BI 통합
 
@@ -94,7 +94,7 @@ Text Analytics 서비스의 [핵심 구 API](//westus.dev.cognitive.microsoft.co
 | | |
 | - | - |
 | `id`  | 요청 내에서 이 문서의 고유 식별자. 응답에도 이 필드가 포함됩니다. 이런 방식으로 두 개 이상의 문서를 처리하는 경우 추출된 핵심 문구를 원본 문서와 쉽게 연결할 수 있습니다. 이 자습서에서는 요청당 하나의 문서만 처리하므로 `id` 값을 각 요청에 동일하게 하드 코드할 수 있습니다.|
-| `text`  | 처리할 텍스트입니다. 이 필드의 값은 [이전 섹션](#PreparingData)에서 만든 `Merged` 열에서 가져오며, 결합된 제목 줄과 주석 텍스트를 포함합니다. Key Phrases API에서는 이 데이터가 약 5,000자 이하여야 합니다.|
+| `text`  | 처리할 텍스트입니다. 이 필드의 값은 [이전 섹션](#PreparingData)에서 만든 `Merged` 열에서 가져오며, 결합된 제목 줄과 주석 텍스트를 포함합니다. 핵심 구 API에서는 이 데이터가 약 5,120자 이하여야 합니다.|
 | `language` | 문서가 작성되는 자연어에 대한 코드입니다. 샘플 데이터의 모든 메시지는 영어로 작성되므로 이 필드의 `en` 값을 하드 코드할 수 있습니다.|
 
 ## <a name="create-a-custom-function"></a>사용자 지정 함수 만들기

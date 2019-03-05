@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/19/2018
+ms.date: 02/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: d35e7cfbf55d0dc53214bbb7b1153c3270c611c2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7b2b5c7201fe45fb52eb333b9e32b4996e00df9b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471325"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822926"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
@@ -152,7 +152,6 @@ VPN Gateway에 대한 자주 묻는 질문은 [VPN Gateway FAQ](vpn-gateway-vpn-
 
 ## <a name="next-steps"></a>다음 단계
 
-- VPN Gateway 구성을 계획합니다. [VPN Gateway 계획 및 설계](vpn-gateway-plan-design.md)를 참조하세요.
 - 자세한 내용은 [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
 - [구독 및 서비스 한도](../azure-subscription-service-limits.md#networking-limits)를 참조하세요.
 - Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.

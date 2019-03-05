@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 빠른 시작(Node.js)에서 디바이스 제어 | Microsoft Docs
-description: 이 빠른 시작에서 두 개의 샘플 Node.js 애플리케이션을 실행합니다. 하나의 애플리케이션은 허브에 연결된 디바이스를 원격으로 제어할 수 있는 백 엔드 애플리케이션입니다. 또 다른 애플리케이션은 원격으로 제어할 수 있는 허브에 연결된 디바이스를 시뮬레이션 합니다.
+description: 이 빠른 시작에서 두 개의 샘플 Node.js 애플리케이션을 실행합니다. 하나의 애플리케이션은 허브에 연결된 장치를 원격으로 제어할 수 있는 백 엔드 애플리케이션입니다. 또 다른 애플리케이션은 원격으로 제어할 수 있는 허브에 연결된 장치를 시뮬레이션 합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,16 +8,16 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/19/2018
+ms.date: 02/22/2019
 ms.author: dobett
-ms.openlocfilehash: 73eae5f024c6dc707e5fa7c0a55d88672271e313
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 97491ca483ec402a491e5f20b2527b93df810d64
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515780"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674109"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>빠른 시작: IoT 허브(Node.js)에 연결된 디바이스 제어
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(Node.js)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -25,9 +25,9 @@ IoT Hub는 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이
 
 빠른 시작은 두 가지 미리 작성된 Node.js 애플리케이션을 사용합니다.
 
-* 백 엔드 애플리케이션에서 호출된 직접 메소드에 응답하는 시뮬레이션된 디바이스 애플리케이션입니다. 직접 메서드 호출을 수신하기 위해 이 애플리케이션을 IoT 허브의 디바이스별 엔드포인트에 연결합니다.
+* 백 엔드 애플리케이션에서 호출된 직접 메소드에 응답하는 시뮬레이션된 장치 애플리케이션입니다. 직접 메서드 호출을 수신하기 위해 이 애플리케이션을 IoT 허브의 장치별 엔드포인트에 연결합니다.
 
-* 시뮬레이션된 디바이스에서 직접 메서드를 호출하는 백 엔드 애플리케이션입니다. 디바이스에서 직접 메서드를 호출하려면 이 응용 프로그램을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
+* 시뮬레이션된 장치에서 직접 메서드를 호출하는 백 엔드 애플리케이션입니다. 장치에서 직접 메서드를 호출하려면 이 애플리케이션을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -49,21 +49,21 @@ node --version
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-이전 [빠른 시작: 원격 분석을 디바이스에서 IoT 허브로 전송](quickstart-send-telemetry-node.md)을 완료한 경우 이 단계를 건너뛸 수 있습니다.
+이전 [빠른 시작: 디바이스에서 IoT 허브로 원격 분석 보내기](quickstart-send-telemetry-node.md)를 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>디바이스 등록
 
-이전 [빠른 시작: 원격 분석을 디바이스에서 IoT 허브로 전송](quickstart-send-telemetry-node.md)을 완료한 경우 이 단계를 건너뛸 수 있습니다.
+이전 [빠른 시작: 디바이스에서 IoT 허브로 원격 분석 보내기](quickstart-send-telemetry-node.md)를 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
 연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
-1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 디바이스 ID를 만듭니다. 
+1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 디바이스 ID를 만듭니다.
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyNodeDevice** : 등록된 장치에 지정된 이름입니다. 표시된 것처럼 MyNodeDevice를 사용하세요. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **MyNodeDevice**: 등록 중인 디바이스의 이름입니다. 표시된 것처럼 **MyNodeDevice**를 사용하세요. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 애플리케이션 예제에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -73,7 +73,7 @@ node --version
 
 2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
 
-    **YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
+    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -90,7 +90,7 @@ node --version
 
 3. 또한 백 엔드 애플리케이션을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
 
-    **YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
+    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub show-connection-string \
@@ -105,28 +105,28 @@ node --version
 
 ## <a name="listen-for-direct-method-calls"></a>직접 메서드 호출 수신 대기
 
-시뮬레이션된 디바이스 애플리케이션은 IoT 허브의 디바이스별 엔드포인트에 연결하고, 시뮬레이션된 원격 분석을 전송하고, 허브에서 직접 메서드 호출을 수신 대기합니다. 이 빠른 시작에서 허브의 직접 메서드 호출은 디바이스에 원격 분석을 보내는 간격을 변경하도록 지시합니다. 시뮬레이션된 디바이스는 직접 메서드를 실행한 후 승인을 다시 허브로 보냅니다.
+시뮬레이션된 장치 애플리케이션은 IoT 허브의 장치별 엔드포인트에 연결하고, 시뮬레이션된 원격 분석을 전송하고, 허브에서 직접 메서드 호출을 수신 대기합니다. 이 빠른 시작에서 허브의 직접 메서드 호출은 디바이스에 원격 분석을 보내는 간격을 변경하도록 지시합니다. 시뮬레이션된 디바이스는 직접 메서드를 실행한 후 승인을 다시 허브로 보냅니다.
 
 1. 로컬 터미널 창에서 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device-2** 폴더로 이동합니다.
 
 2. 원하는 텍스트 편집기에서 **SimulatedDevice.js** 파일을 엽니다.
 
-    `connectionString` 변수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.js** 파일에 저장합니다.
+    `connectionString` 변수의 값을 이전에 적어둔 디바이스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.js** 파일에 저장합니다.
 
-3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 실행합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 애플리케이션을 실행합니다.
 
     ```cmd/sh
     npm install
     node SimulatedDevice.js
     ```
 
-    다음 스크린샷에서는 시뮬레이션된 디바이스 응용 프로그램에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여줍니다.
+    다음 스크린샷에서는 시뮬레이션된 장치 애플리케이션에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
 
     ![시뮬레이션된 디바이스 실행](./media/quickstart-control-device-node/SimulatedDevice-1.png)
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
-백 엔드 애플리케이션은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 애플리케이션은 IoT 허브를 통해 디바이스에 직접 메서드 호출을 하고 승인을 수신 대기합니다. IoT Hub 백 엔드 애플리케이션은 일반적으로 클라우드에서 실행됩니다.
+백 엔드 애플리케이션은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 애플리케이션은 IoT 허브를 통해 장치에 직접 메서드 호출을 하고 승인을 수신 대기합니다. IoT Hub 백 엔드 애플리케이션은 일반적으로 클라우드에서 실행됩니다.
 
 1. 또 다른 로컬 터미널 창에서 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\back-end-application** 폴더로 이동합니다.
 
@@ -141,11 +141,11 @@ node --version
     node BackEndApplication.js
     ```
 
-    다음 스크린샷에서는 애플리케이션에서 디바이스에 직접 메서드를 호출하고 승인을 받을 때의 출력을 보여 줍니다.
+    다음 스크린샷에서는 애플리케이션에서 장치에 직접 메서드를 호출하고 승인을 받을 때의 출력을 보여 줍니다.
 
     ![백 엔드 애플리케이션 실행](./media/quickstart-control-device-node/BackEndApplication.png)
 
-    백 엔드 애플리케이션을 실행한 후 시뮬레이션된 디바이스를 실행하는 콘솔 창에 메시지가 표시되고 메시지를 보내는 속도가 변경됩니다.
+    백 엔드 애플리케이션을 실행한 후 시뮬레이션된 장치를 실행하는 콘솔 창에 메시지가 표시되고 메시지를 보내는 속도가 변경됩니다.
 
     ![시뮬레이션된 클라이언트에서 변경](./media/quickstart-control-device-node/SimulatedDevice-2.png)
 

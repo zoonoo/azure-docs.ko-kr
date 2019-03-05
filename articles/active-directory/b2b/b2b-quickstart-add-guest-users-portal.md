@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure Portal에서 게스트 사용자 추가'
+title: '빠른 시작: Azure Portal에서 게스트 사용자 추가 - Azure Active Directory'
 description: 이 빠른 시작을 사용하여 Azure AD 관리자가 Azure Portal에서 B2B 게스트 사용자를 추가하는 방법을 알아보고 B2B 초대 워크플로를 살펴봅니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8916711ab7d5278f34a3d4ad101a0aabb883f84c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182700"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669978"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 디렉터리에 게스트 사용자 추가
 

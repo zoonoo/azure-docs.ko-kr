@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed94b7571acb0ced124644dafc59d805d5112e8a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 10b74b85235cc47375f6289b52371bc588105ad9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268569"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890099"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure AD Graph API에 액세스
 
@@ -43,13 +43,17 @@ ms.locfileid: "56268569"
 
 ## <a name="connect-to-azure-ad"></a>Azure에 연결
 
-Azure AD에 연결하여 VM을 그룹에 할당하고 그룹 멤버 자격을 검색할 수 있는 권한을 VM에 부여해야 합니다.
+Azure AD에 연결하여 VM을 그룹에 할당하고 그룹 멤버 자격을 검색할 수 있는 권한을 VM에 부여해야 합니다. 여러 테넌트가 있으면 Connect-AzureAD cmdlet을 직접 사용하거나 TenantId 매개 변수와 함께 사용할 수 있습니다.
 
 ```powershell
 Connect-AzureAD
 ```
+또는
+```powershell
+Connect-AzureAD -TenantId "Object Id of the tenant"
+```
 
-## <a name="add-your-vm-identity-to-a-group-in-azure-ad"></a>Azure AD의 그룹에 VM ID를 추가
+## <a name="add-your-vm-identity-to-a-group-in-azure-ad"></a>Azure AD에서 그룹에 VM ID 추가
 
 Windows VM에서 시스템 할당 관리 ID를 사용하도록 설정한 경우 Azure AD에서 서비스 주체를 만들었습니다.  이제 그룹에 VM을 추가해야 합니다.  다음 예제에서는 Azure AD에서 새 그룹을 만들고 해당 그룹에 VM의 서비스 주체를 추가합니다.
 
@@ -79,7 +83,13 @@ Azure AD Graph:
    ```powershell
    Connect-AzureAD
    ```
+   특정 Azure Active Directory에 연결하려면 다음과 같이 _TenantId_ 매개 변수를 사용합니다.
 
+   ```PowerShell
+   Connect-AzureAD -TenantId "Object Id of the tenant"
+   ```
+
+   
 2. 다음 PowerShell 명령을 실행하여 VM ID를 나타내는 서비스 주체에 ``Directory.Read.All`` 애플리케이션 사용 권한을 할당합니다.
 
    ```powershell

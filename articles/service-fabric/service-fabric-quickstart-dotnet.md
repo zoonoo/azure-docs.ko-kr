@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 3b7b70a5ac0c74cc920df823d1f9ae1152f86bff
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561198"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736586"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 .NET Reliable Services 애플리케이션 배포
 
@@ -55,10 +55,10 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 
 런타임, SDK, Visual Studio 도구 및 Docker를 설치한 후에 Docker를 실행하고 5노드 로컬 개발 클러스터를 만듭니다.
 
-> [!IMPORTANT]
-> Docker는 클러스터를 빌드하기 전에 실행**해야** 합니다.
+> [!Note]
+> 클러스터를 만들 때 Docker 실행하는 이유는 컨테이너 기능이 설정된 상태로 클러스터가 만들어지기 때문입니다. Docker가 실행 중이 아니면 컨테이너 기능을 사용하도록 클러스터를 다시 만들어야 합니다.
+> 이 특별한 빠른 시작에는 불필요하지만 클러스터를 만들 때 Docker를 실행하도록 하는 지침이 모범 사례로 포함됩니다.
 > 터미널 창을 열고 오류가 발생하는지를 확인하는 `docker ps`를 실행하여 Docker가 실행되는지 테스트합니다. 응답이 오류를 나타내지 않는 경우 Docker가 실행되고 클러스터를 빌드할 준비가 되었습니다.
-
 
 1. 관리자 권한으로 새롭게 상승된 PowerShell 창을 엽니다.
 2. 다음 PowerShell 명령을 실행하여 개발 클러스터를 만듭니다.

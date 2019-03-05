@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: df0f1570b4f876cbfb542a5571c8bec7e80e6895
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857728"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729222"
 ---
 # <a name="what-is-translator-text-api"></a>Translator Text API란?
 
@@ -34,14 +34,6 @@ Translator Text API에서 제공하는 음성 번역도 [Microsoft Speech Servic
 
 Microsoft Translator는 번역, 음차, 언어 감지 및 사전에 다국어 지원을 제공합니다. [언어 지원](language-support.md)에서 전체 목록을 참조하거나 [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages)를 사용하여 목록에 프로그래매틱 방식으로 액세스하세요.  
 
-## <a name="language-customization"></a>언어 사용자 지정
-
-핵심 Microsoft Translator 서비스의 확장인 Custom Translator는 Translator Text API와 함께 사용하여 신경망 번역 시스템을 사용자 지정하고 특정 용어 및 스타일에 맞게 번역을 향상시킬 수 있습니다.
-
-Custom Translator를 사용하면 고유한 비즈니스 및 업계에서 사용되는 용어를 처리하는 번역 시스템을 구축할 수 있습니다. 사용자 지정 번역 시스템은 범주 매개 변수를 사용하여 일반 Microsoft Translator Text API를 통해 여러 유형의 장치에서 기존 애플리케이션, 워크플로 및 웹 사이트에 쉽게 통합됩니다.
-
-[언어 사용자 지정](customization.md)에 대한 자세한 정보
-
 ## <a name="microsoft-translator-neural-machine-translation"></a>Microsoft Translator 신경망 기계 번역
 
 NMT(신경망 기계 번역)는 고품질 AI 기반 기계 번역에 대한 새로운 표준으로, 2010년 중반에 안정적인 품질 수준에 도달한 레거시 SMT(통계 기계 번역) 기술을 대체합니다.
@@ -52,18 +44,16 @@ NMT 모델은 API의 핵심이며, 최종 사용자에게는 보이지 않습니
 
 [NMT 작동 방법](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)에 대해 자세히 알아보기
 
+## <a name="language-customization"></a>언어 사용자 지정
+
+핵심 Microsoft Translator 서비스의 확장인 Custom Translator는 Translator Text API와 함께 사용하여 신경망 번역 시스템을 사용자 지정하고 특정 용어 및 스타일에 맞게 번역을 향상시킬 수 있습니다.
+
+Custom Translator를 사용하면 고유한 비즈니스 및 업계에서 사용되는 용어를 처리하는 번역 시스템을 구축할 수 있습니다. 사용자 지정 번역 시스템은 범주 매개 변수를 사용하여 일반 Microsoft Translator Text API를 통해 여러 유형의 장치에서 기존 애플리케이션, 워크플로 및 웹 사이트에 쉽게 통합됩니다.
+
+[언어 사용자 지정](customization.md)에 대한 자세한 정보
+
 ## <a name="next-steps"></a>다음 단계
 
-- [가격 정보](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)를 참조합니다.
-
 - 액세스 키를 [등록](translator-text-how-to-signup.md)합니다.
-
-- [빠른 시작](quickstarts/csharp.md)에서 C#으로 작성된 REST API를 연습할 수 있습니다. 최소한의 코드를 사용하여 텍스트를 한 언어에서 다른 언어로 번역하는 방법을 알아봅니다.
-
-- [API 참조 설명서](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)는 API에 대한 기술 설명서를 제공합니다.
-
-## <a name="see-also"></a>참고 항목
-
-- [Cognitive Services 설명서 페이지](https://docs.microsoft.com/azure/#pivot=products&panel=ai)
-- [Cognitive Services 제품 페이지](https://azure.microsoft.com/services/cognitive-services/)
-- [솔루션 및 가격 책정 정보](https://www.microsoft.com/en-us/translator/default.aspx)
+- [API 참조](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)는 API에 대한 기술 설명서를 제공합니다.
+- [가격 정보](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

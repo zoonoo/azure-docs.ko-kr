@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 2af94deaedbafdfa638f5deb3150f1e7f711a238
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093528"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750007"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>자습서: SMB를 통해 Azure Data Box에 데이터 복사
 
@@ -90,7 +90,11 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 
     **복사하려는 파일에 대한 폴더는 항상 공유 아래에 만든 다음 이 폴더에 파일을 복사합니다**. 블록 Blob 및 페이지 Blob 공유 아래에 만들어진 폴더는 데이터가 Blob으로 업로드되는 컨테이너를 나타냅니다. 스토리지 계정의 *root* 폴더에 파일을 직접 복사할 수 없습니다.
     
-     
+Linux 클라이언트를 사용하는 경우 다음 명령을 사용하여 SMB 공유를 탑재합니다. 아래에서 "vers" 매개 변수는 Linux 호스트에서 지원하는 SMB 버전입니다. 아래 명령에서 적절한 버전을 삽입합니다. Data Box에서 지원하는 SMB 버전은 [Linux 클라이언트에 지원되는 파일 시스템](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients)을 참조하세요. 
+
+    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    
+
 
 ## <a name="copy-data-to-data-box"></a>Data Box에 데이터 복사
 

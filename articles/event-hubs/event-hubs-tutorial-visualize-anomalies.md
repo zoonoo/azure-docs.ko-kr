@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.openlocfilehash: 5f9af39616e45983a7ec592f33c3f2ffd34ea34f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/26/2019
+ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233407"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888664"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
 
@@ -324,6 +324,8 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
 
     ![대시보드 타일의 제목 및 부제목을 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
+    > [!IMPORTANT]
+    > 샘플 애플리케이션을 실행하고 데이터를 이벤트 허브로 스트리밍하면, 이 타일의 숫자가 빠르게(1초마다) 변경됩니다. 이것은 Stream Analytics 쿼리가 실제로 **매초마다** 값을 업데이트하기 때문입니다. 지난 수분간의 합계를 보려면 쿼리를 3분간의 연속 창으로 업데이트합니다. 
 11. 다른 시각화를 추가합니다. 처음 몇 단계를 다시 반복합니다.
 
    * **타일 추가**를 클릭합니다.

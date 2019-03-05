@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 488b97074d74650ecf5602d25e2a90a1998e5585
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8f8bdb4d601e35cf489c1c4c1db3574fb8c8f18f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883877"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730788"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>자습서: Time Series Insights를 사용하여 Azure Digital Twins 공간의 이벤트 시각화 및 분석
 
@@ -90,13 +90,13 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
       - UdfCustom
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     - type: EventHub
       eventTypes:
       - DeviceMessage
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     ```
 
 1. `Primary_connection_string_for_your_event_hub` 자리 표시자를 이벤트 허브의 **연결 문자열--기본 키** 값으로 바꿉니다. 이 연결 문자열의 형식이 다음과 같은지 확인합니다.
@@ -111,7 +111,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. `Name_of_your_Event_Hubs_namespace` 자리 표시자를 Event Hubs 네임스페이스의 이름으로 바꿉니다.
+1. `Name_of_your_Event_Hub` 자리 표시자를 Event Hub의 이름으로 바꿉니다.
 
     > [!IMPORTANT]
     > 따옴표를 제외한 모든 값을 입력합니다. YAML 파일의 콜론 뒤에 공백이 하나 이상 있어야 합니다. [이 도구](https://onlineyamltools.com/validate-yaml)와 같은 온라인 YAML 유효성 검사기를 사용하여 YAML 파일 콘텐츠의 유효성을 검사할 수도 있습니다.

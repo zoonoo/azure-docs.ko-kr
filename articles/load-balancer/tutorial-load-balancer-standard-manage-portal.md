@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 7caddde5c7695d0c572dc139b52cd0743e39d778
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fa40f4f666444209f70d3f49b7947450af01ec36
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672002"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983289"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 인터넷 트래픽 부하를 VM에 분산
 
@@ -45,21 +45,22 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 섹션에서는 가상 머신의 부하를 분산하는 데 도움이 되는 공용 부하 분산 장치를 만듭니다. 표준 부하 분산 장치는 표준 공용 IP 주소만 지원합니다. 표준 부하 분산 장치를 만들 때 표준 부하 분산 장치의 프런트 엔드(기본 이름은 *LoadBalancerFrontend*)로 구성된 새 표준 공용 IP 주소도 만들어야 합니다. 
 
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다.
-2. **부하 분산 장치 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
-    
+2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **리뷰 + 만들기**를 선택합니다.
+
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
+    | 구독               | 구독을 선택합니다.    |    
+    | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupSLB*를 입력합니다.|
     | Name                   | *myLoadBalancer*                                   |
-    | Type          | 공용                                        |
-    | SKU           | Standard                          |
-    | 공용 IP 주소 | **새로 만들기**를 선택하고, 텍스트 상자에 *myPublicIP*를 입력합니다. 공용 IP 주소에 대한 표준 SKU는 기본적으로 선택됩니다. **가용성 영역**에 **영역 중복**을 선택합니다. |
-    | 구독               | 구독을 선택합니다.    |
-    |리소스 그룹 | **새로 만들기**를 선택한 다음, *myResourceGroupSLB*를 입력합니다.    |
-    | 위치           | **유럽 서부**를 선택합니다.                          |
-    
+    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | Type          | **공용**을 선택합니다.                                        |
+    | SKU           | **표준**을 선택합니다.                          |
+    | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
+    | 공용 IP 주소 이름              | 텍스트 상자에 *myPublicIP*를 입력합니다.   |
+    |가용성 영역| **영역 중복**을 선택합니다.    |
+3. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다.   
 
-![부하 분산 장치 만들기](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-   
+  
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
 이 섹션에서는 가상 네트워크를 만들고, 부하 분산 장치의 백 엔드 풀에 사용되는 가상 머신 3개를 만든 다음, 부하 분산 장치를 테스트하기 위한 IIS를 가상 머신에 설치합니다.

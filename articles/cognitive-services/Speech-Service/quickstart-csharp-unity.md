@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 8e31717f9fd232a7c256b65d044a97396af8f960
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448615"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878016"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>빠른 시작: Unity용 Speech SDK(베타)를 사용하여 음성 인식
 
@@ -74,7 +74,7 @@ Unity에 익숙하지 않은 경우 애플리케이션 개발을 시작하기 �
 
 완료되면 UI가 다음 스크린샷과 비슷하게 표시됩니다.
 
-[ ![Unity 편집기의 빠른 시작 사용자 인터페이스에 대한 스크린샷](media/sdk/qs-csharp-unity-02-ui-inline.png) ](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
+[![Unity 편집기의 빠른 시작 사용자 인터페이스의 스크린샷](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
 
 ## <a name="add-the-sample-code"></a>샘플 코드 추가
 
@@ -111,7 +111,7 @@ Unity에 익숙하지 않은 경우 애플리케이션 개발을 시작하기 �
 
 * 앱이 시작되면 단추를 클릭하고 컴퓨터의 마이크에 영어 구 또는 문장을 말합니다. 음성은 음성 서비스로 전송되어 텍스트로 변환되고 창에 표시됩니다.
 
-  [ ![Unity 게임 창에서 실행되는 빠른 시작의 스크린샷](media/sdk/qs-csharp-unity-03-output-inline.png) ](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
+  [![Unity 게임 창에서 실행되는 빠른 시작의 스크린샷](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 
 * [콘솔 창](https://docs.unity3d.com/Manual/Console.html)에서 디버그 메시지를 확인합니다.
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/29/2018
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: f6a2f89828dbc13ca716ccb40bb05234b7e31464
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 01e35ed32be8b28f291cc2be69a8b2d71c3acab2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418809"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806654"
 ---
 # <a name="what-is-azure-databricks"></a>Azure Databricks란?
 
@@ -23,21 +23,25 @@ Azure Databricks는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화
 
 ![Azure Databricks란? ](./media/what-is-azure-databricks/azure-databricks-overview.png "Azure Databricks란?")
 
+Azure Databricks는 빠르고 쉬운 공동 작업 Apache Spark 기반 분석 서비스입니다. 빅 데이터 파이프라인의 경우 데이터(원시 또는 구조적 데이터)는 Azure Data Factory를 통해 일괄 처리로 수집되거나 Kafka, 이벤트 허브 또는 IoT Hub를 사용하여 거의 실시간으로 스트리밍됩니다. 이 데이터는 Azure Blob Storage 또는 Azure Data Lake Storage에서 장기 저장을 위한 데이터 레이크에 배치됩니다. 분석 워크플로의 일부로, Azure Databricks를 사용하여 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml), [Azure SQL Data Warehouse](../sql-data-warehouse/index.md) 등의 여러 데이터 원본에서 데이터를 읽고 Spark를 사용하여 혁신적인 인사이트로 바꿀 수 있습니다.
+
+![Databricks 파이프라인](./media/what-is-azure-databricks/databricks-pipeline.png)
+
 ## <a name="apache-spark-based-analytics-platform"></a>Apache Spark 기반 분석 플랫폼
 
 Azure Databricks는 완전한 오픈 소스 Apache Spark 클러스터 기술 및 기능으로 구성됩니다. Azure Databricks의 Spark는 다음 구성 요소가 포함되어 있습니다.
 
 ![Azure Databricks의 Apache Spark](./media/what-is-azure-databricks/apache-spark-ecosystem-databricks.png "Azure Databricks의 Apache Spark")
 
-* **Spark SQL 및 DataFrames**: Spark SQL는 구조화된 데이터로 작업하기 위한 Spark 모듈입니다. DataFrame은 명명된 열로 구성된 데이터의 분산된 컬렉션입니다. 관계형 데이터베이스의 테이블이나 R/Python의 데이터 프레임과 개념적으로 동일합니다.
+* **Spark SQL 및 DataFrames**: Spark SQL는 정형 데이터로 작업하기 위한 Spark 모듈입니다. DataFrame은 명명된 열로 구성된 데이터의 분산된 컬렉션입니다. 관계형 데이터베이스의 테이블이나 R/Python의 데이터 프레임과 개념적으로 동일합니다.
 
-* **스트리밍**: 분석 및 대화형 응용 프로그램을 위한 실시간 데이터 처리 및 분석입니다. HDFS, Flume 및 Kafka와 통합합니다.
+* **스트리밍**: 분석 및 대화형 애플리케이션을 위한 실시간 데이터 처리 및 분석입니다. HDFS, Flume 및 Kafka와 통합합니다.
 
 * **MLib**: 분류, 재발, 클러스터링, 공동 작업 필터링, 차원 감소, 기본 최적화 기본 요소 등 일반적인 학습 알고리즘 및 유틸리티로 구성된 Machine Learning 라이브러리입니다.
 
 * **GraphX**: 인지 분석에서 데이터 탐색에 이르는 광범위한 사용 사례에 대한 그래프 및 그래프 계산입니다.
 
-* **Spark 핵심 API**: R, SQL, Python, Scala 및 Java에 대한 지원을 포함합니다.
+* **Spark Core API**: R, SQL, Python, Scala 및 Java에 대한 지원을 포함합니다.
 
 ## <a name="apache-spark-in-azure-databricks"></a>Azure Databricks의 Apache Spark
 
@@ -84,7 +88,7 @@ Azure Databricks는 Azure Active Directory 통합, 역할 기반 제어 및 데�
 
 ## <a name="integration-with-azure-services"></a>Azure 서비스와의 통합
 
-Azure Databricks는 Azure 데이터베이스 및 저장소(SQL Data Warehouse, Cosmos DB, Data Lake Store 및 Blob Storage)와 밀접하게 통합됩니다. 
+Azure Databricks는 Azure 데이터베이스 및 저장소와 긴밀히 통합됩니다. SQL Data Warehouse, Cosmos DB, Data Lake Store 및 Blob Storage입니다. 
 
 ## <a name="integration-with-power-bi"></a>Power BI와 통합
 Power BI와의 풍부한 통합을 통해 Azure Databricks는 유용한 정보를 빠르고 쉽게 찾아 공유할 수 있습니다. JDBC/ODBC 클러스터 엔드포인트를 통해 Tableau 소프트웨어와 같은 다른 BI 도구도 사용할 수 있습니다.

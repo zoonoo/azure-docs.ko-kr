@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 549ef0d073a740edf700c54d02a0d9ef247db0b7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245090"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886793"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>예제: Text Analytics를 사용하여 언어를 감지하는 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "56245090"
 
 id, text 형식의 JSON 문서가 있어야 합니다.
 
-문서 크기는 문서당 5,000자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 언어 감지를 위해 제출할 수 있는 콘텐츠의 예제는 다음과 같습니다.
+문서 크기는 문서당 5,120자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 언어 감지를 위해 제출할 수 있는 콘텐츠의 예제는 다음과 같습니다.
 
    ```
     {

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 1395c79b9c39d7376f39446eac6da8ee80b2ef18
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 97d1cf2817ebfbf2eb1a6ba5a4d20d457b6369c6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232671"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961740"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 표준 부하 분산 장치 만들기
 
@@ -40,21 +40,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 섹션에서는 가상 머신의 부하를 분산하는 데 도움이 되는 공용 부하 분산 장치를 만듭니다. 표준 부하 분산 장치는 표준 공용 IP 주소만 지원합니다. 표준 부하 분산 장치를 만들 때 표준 부하 분산 장치의 프런트 엔드(기본 이름은 *LoadBalancerFrontend*)로 구성된 새 표준 공용 IP 주소도 만들어야 합니다. 
 
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다.
-2. **부하 분산 장치 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
+2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **리뷰 + 만들기**를 선택합니다.
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 이름                   | *myLoadBalancer*                                   |
-    | type          | 공용                                        |
-    | SKU           | Standard                          |
-    | 공용 IP 주소 | **새로 만들기**를 선택하고, 텍스트 상자에 *myPublicIP*를 입력합니다. 공용 IP 주소에 대한 표준 SKU는 기본적으로 선택됩니다. **가용성 영역**에 **영역 중복**을 선택합니다. |
-    | 구독               | 구독을 선택합니다.    |
-    |리소스 그룹 | **새로 만들기**를 선택한 다음, *myResourceGroupSLB*를 입력합니다.    |
-    | 위치           | **유럽 서부**를 선택합니다.                          |
-    
-
-![부하 분산 장치 만들기](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-
+    | 구독               | 구독을 선택합니다.    |    
+    | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupSLB*를 입력합니다.|
+    | Name                   | *myLoadBalancer*                                   |
+    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | Type          | **공용**을 선택합니다.                                        |
+    | SKU           | **표준**을 선택합니다.                          |
+    | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
+    | 공용 IP 주소 이름              | 텍스트 상자에 *myPublicIP*를 입력합니다.   |
+    |가용성 영역| **영역 중복**을 선택합니다.    |
+3. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다.   
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
@@ -84,7 +83,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         2. **네트워크 보안 그룹 만들기** 페이지에서 **이름**으로 *myNetworkSecurityGroup*을 입력한 다음, **확인**을 선택합니다.
 5. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
 6. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
-7. 1-6단계를 사용하여 가용성 집합은 *myAvailibilityset*이고, 가상 네트워크는 *myVnet*이고, 서브넷은 *myBackendSubnet*이고, 네트워크 보안 그룹은 *myNetworkSecurityGroup*인 *VM2*라고 하는 두 번째 VM을 만듭니다. 
+7. 1-6단계를 사용하여 가상 네트워크가 *myVnet*이고, 서브넷은 *myBackendSubnet*이고, 네트워크 보안 그룹은 **myNetworkSecurityGroup*인 *VM2*라고 하는 두 번째 VM을 만듭니다. 
 
 ### <a name="create-nsg-rule"></a>NSG 규칙 만들기
 

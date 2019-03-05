@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: add284a3a001d5bc2e756f9ad4a2a3b9550b212c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242134"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887423"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>예제: Text Analytics를 사용하여 감정을 감지하는 방법
 
@@ -39,7 +39,7 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 id, text, language 형식의 JSON 문서가 있어야 합니다.
 
-문서 크기는 문서당 5,000자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 감정 분석을 위해 제출할 수 있는 콘텐츠의 예제는 다음과 같습니다.
+문서 크기는 문서당 5,120자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 감정 분석을 위해 제출할 수 있는 콘텐츠의 예제는 다음과 같습니다.
 
 ```
     {

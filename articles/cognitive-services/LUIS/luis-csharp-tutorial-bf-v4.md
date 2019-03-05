@@ -5,18 +5,18 @@ description: C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cjgronlund
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 98c65b7adfe35c1ca80846ff7619dad69c5ba266
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 028c06924e41606ba1d4e0b15fe26f2b7270db3c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219229"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960304"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>자습서: Bot Framework 4.x 및 Azure 웹앱 봇을 사용하는 C#의 LUIS 봇
 C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할 수 있습니다. 이 봇은 HomeAutomation 앱을 사용하여 봇 솔루션을 구현합니다. 봇은 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-js) v4 및 Azure [웹앱 봇](https://docs.microsoft.com/azure/bot-service/)을 사용하여 빌드되었습니다.
@@ -66,7 +66,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할
     
 5. **만들기**를 선택합니다. 이렇게 하면 봇 서비스가 만들어지고 Azure에 배포됩니다. 이 프로세스의 일환으로 `luis-csharp-bot-XXXX`라는 LUIS 앱이 만들어집니다. 이 이름은 이전 섹션의 봇 및 앱 이름을 기반으로 합니다.
 
-    [ ![웹앱 봇 만들기](./media/bfv4-csharp/create-web-app-service.png) ](./media/bfv4-csharp/create-web-app-service.png#lightbox)
+    [![웹앱 봇 만들기](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
 6. 이 브라우저 탭을 열어 둡니다. LUIS 포털의 모든 단계에서 새 브라우저 탭을 엽니다. 새 봇 서비스가 배포되면 다음 섹션으로 계속 진행하세요.
 
@@ -106,7 +106,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할
 
 3. **봇 소스 코드 다운로드**를 선택합니다. 
 
-    [ ![기본 봇용 웹앱 봇 소스 코드 다운로드](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![기본 봇용 웹앱 봇 소스 코드 다운로드](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 4. 소스 코드가 압축되어 있으면 메시지에서 해당 코드를 다운로드할 수 있는 링크가 제공됩니다. 이 링크를 선택합니다. 
 
@@ -205,7 +205,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할
 
 2. 봇 에뮬레이터에서 프로젝트의 루트에 있는 *.bot 파일을 선택합니다. 이 `.bot` 파일에는 메시지에 대한 봇의 URL 엔드포인트가 포함됩니다.
 
-    [ ![봇 에뮬레이터 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
+    [![봇 에뮬레이터 v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
 3. **[웹앱 봇 다운로드](#download-the-web-app-bot)** 섹션 1 단계의 Azure 봇 서비스 [애플리케이션 설정]에서 복사한 봇 비밀을 입력합니다. 이렇게 하면 에뮬레이터에서 `.bot` 파일의 암호화된 필드에 액세스할 수 있습니다.
 
@@ -213,7 +213,7 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드할
 
 4. 봇 에뮬레이터에서 `Hello`를 입력하고 기본 봇에 대한 적절한 응답을 가져옵니다.
 
-    [ ![에뮬레이터의 기본 봇 응답](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+    [![에뮬레이터의 기본 봇 응답](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
 ## <a name="modify-bot-code"></a>봇 코드 수정 
 

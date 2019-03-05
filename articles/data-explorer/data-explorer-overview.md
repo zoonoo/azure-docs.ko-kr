@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ebce27f3558661aca9e1bd6e7130c96c396d33ee
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb173981e3f06c923fa7357eb64777493bd17b8c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257125"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958272"
 ---
 # <a name="what-is-azure-data-explorer"></a>Azure 데이터 탐색기란?
 
-Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. 최신 소프트웨어에서 생성되는 많은 데이터 스트림을 처리할 수 있으므로 데이터를 수집, 저장 및 분석할 수 있습니다. Azure Data Explorer는 웹 사이트, 애플리케이션, IoT 디바이스 등과 같은 데이터 원본의 다양한 대규모 데이터를 분석하는 데 적합합니다. 이 데이터는 진단, 모니터링, 보고, 기계 학습 및 추가 분석 기능에 사용됩니다. Azure 데이터 탐색기를 사용하면 이 데이터를 쉽게 수집할 수 있고 데이터에 대한 복잡한 임시 쿼리를 몇 초 안에 수행할 수 있습니다.
+Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. 최신 소프트웨어에서 생성되는 많은 데이터 스트림을 처리할 수 있으므로 데이터를 수집, 저장 및 분석할 수 있습니다. Azure 데이터 탐색기는 웹 사이트, 애플리케이션, IoT 장치 등과 같은 데이터 원본의 다양한 대규모 데이터를 분석하는 데 적합합니다. 이 데이터는 진단, 모니터링, 보고, 기계 학습 및 추가 분석 기능에 사용됩니다. Azure 데이터 탐색기를 사용하면 이 데이터를 쉽게 수집할 수 있고 데이터에 대한 복잡한 임시 쿼리를 몇 초 안에 수행할 수 있습니다.
 
 ## <a name="what-makes-azure-data-explorer-unique"></a>Azure 데이터 탐색기의 특성은 무엇인가요?
 
@@ -45,11 +45,11 @@ Azure 데이터 탐색기는 Event Hub 같은 일반 서비스에 대한 커넥�
 
 Azure 데이터 탐색기의 작업은 일반적으로 다음 패턴을 따릅니다.
 
-1. **데이터베이스 만들기:** ‘클러스터’를 만들고 해당 클러스터에서 하나 이상의 ‘데이터베이스’를 만듭니다. [빠른 시작: Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기](create-cluster-database-portal.md)
+1. **데이터베이스 만들기:** ‘클러스터’를 만들고 해당 클러스터에서 하나 이상의 ‘데이터베이스’를 만듭니다. [빠른 시작: Azure Data Explorer 클러스터 및 데이터베이스 만들기](create-cluster-database-portal.md)
 
-1. **데이터 수집:** 쿼리를 실행할 수 있도록 데이터를 데이터베이스 테이블에 로드합니다. [빠른 시작: 이벤트 허브에서 Azure 데이터 탐색기로 데이터 수집](ingest-data-event-hub.md)
+1. **데이터 수집:** 쿼리를 실행할 수 있도록 데이터를 데이터베이스 테이블에 로드합니다. [빠른 시작: 이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
 
-1. **데이터베이스 쿼리:** 웹 응용 프로그램을 사용하여 쿼리 및 결과를 실행, 검토 및 공유합니다. Azure Portal에서 사용하거나 독립 실행형 애플리케이션으로 사용할 수 있습니다. 또한 쿼리를 프로그래밍 방식으로(SDK 사용) 또는 REST API 엔드포인트로 보낼 수 있습니다. [빠른 시작: Azure 데이터 탐색기에서 데이터 쿼리](web-query-data.md)
+1. **데이터베이스 쿼리:** 웹 애플리케이션을 사용하여 쿼리를 실행하고 결과를 검토 및 공유합니다. Azure Portal에서 사용하거나 독립 실행형 애플리케이션으로 사용할 수 있습니다. 또한 쿼리를 프로그래밍 방식으로(SDK 사용) 또는 REST API 엔드포인트로 보낼 수 있습니다. [빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)
 
 ## <a name="query-experience"></a>쿼리 환경
 
@@ -57,7 +57,7 @@ Azure 데이터 탐색기의 쿼리는 데이터나 메타데이터를 수정하
 
 Azure 데이터 탐색기는 대용량의 구조적, 반구조적(JSON 같은 중첩 형식) 및 비구조적(자유 텍스트) 데이터를 동일하게 처리합니다. 이를 통해 특정 텍스트 용어를 검색하고, 특정 이벤트를 찾고, 구조적 데이터에서 메트릭 스타일 계산을 수행할 수 있습니다. Azure 데이터 탐색기는 런타임에 자유 형식 텍스트 필드에서 값을 추출하여 비구조적 텍스트 로그 및 구조적 숫자와 차원으로 이루어진 환경을 연결합니다. 빠른 텍스트 인덱싱, 열 저장소 및 시계열 작업을 결합하여 데이터 탐색을 단순화합니다.
 
-Azure 데이터 탐색기 기능은 [Log Analytics](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/) 및 [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/)을 포함하여 강력한 쿼리 언어로 빌드된 다른 서비스에 의해 확장됩니다.
+Azure Data Explorer 기능은 [Azure Monitor 로그](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/) 및 [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/)을 비롯한 강력한 쿼리 언어를 기반으로 빌드된 다른 서비스에 의해 확장됩니다.
 
 ## <a name="feedback"></a>사용자 의견
 
@@ -71,8 +71,8 @@ Azure 데이터 탐색기 및 해당 쿼리 언어에 대한 사용자 의견을
 
 ## <a name="next-steps"></a>다음 단계
 
-[빠른 시작: Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기](create-cluster-database-portal.md)
+[빠른 시작: Azure Data Explorer 클러스터 및 데이터베이스 만들기](create-cluster-database-portal.md)
 
-[빠른 시작: 이벤트 허브에서 Azure 데이터 탐색기로 데이터 수집](ingest-data-event-hub.md)
+[빠른 시작: 이벤트 허브에서 Azure Data Explorer로 데이터 수집](ingest-data-event-hub.md)
 
-[빠른 시작: Azure 데이터 탐색기에서 데이터 쿼리](web-query-data.md)
+[빠른 시작: Azure Data Explorer에서 데이터 쿼리](web-query-data.md)

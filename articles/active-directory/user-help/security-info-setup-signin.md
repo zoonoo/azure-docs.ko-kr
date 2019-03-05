@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bb1ec22d4113c7b9cecbc428bf70ac91d9a7e75
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457910"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587891"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>로그인 페이지 프롬프트에서 보안 정보(미리 보기) 설정
 회사 또는 학교 계정에 로그인하는 즉시 보안 정보를 설정하라는 메시지가 표시되면 다음 단계를 수행할 수 있습니다.

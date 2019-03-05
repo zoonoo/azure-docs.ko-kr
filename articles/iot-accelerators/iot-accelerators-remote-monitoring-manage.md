@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 869f6d2391632c77e01e4383c1457f88b9171c8b
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448077"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651195"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스 구성
 
@@ -34,9 +34,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-## <a name="add-a-simulated-device"></a>시뮬레이트된 장치 추가
+## <a name="add-a-simulated-device"></a>시뮬레이트된 디바이스 추가
 
-솔루션의 **장치** 페이지로 이동한 다음, **+새 장치**를 클릭합니다.
+솔루션의 **Device Explorer** 페이지로 이동한 다음, **+새 디바이스**를 클릭합니다.
 
 [![시뮬레이션된 디바이스 프로비전](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
@@ -44,9 +44,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [![시뮬레이션된 엔진 장치 프로비전](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-expanded.png#lightbox)
 
-## <a name="test-the-simulated-device"></a>시뮬레이트된 장치 테스트
+## <a name="test-the-simulated-device"></a>시뮬레이트된 디바이스 테스트
 
-시뮬레이션된 엔진 장치가 원격 분석 데이터 및 보고 속성 값을 보내는지 테스트하려면 **장치** 페이지의 장치 목록에서 해당 항목을 선택합니다. 엔진에 대한 실시간 정보가 **장치 세부 정보** 패널에 표시됩니다.
+시뮬레이션된 엔진 디바이스가 원격 분석 데이터 및 보고 속성 값을 보내는지 테스트하려면 **Device Explorer** 페이지의 디바이스 목록에서 해당 항목을 선택합니다. 엔진에 대한 실시간 정보가 **디바이스 세부 정보** 패널에 표시됩니다.
 
 [![시뮬레이션된 새 엔진 장치 보기](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
@@ -58,9 +58,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 자세한 진단 정보를 보려면 **장치 세부 정보** 패널에서 아래로 스크롤하여 **진단** 섹션을 살펴보세요.
 
-## <a name="reconfigure-a-device"></a>장치 다시 구성
+## <a name="reconfigure-a-device"></a>디바이스 다시 구성
 
-엔진의 구성 속성을 업데이트할 수 있는지 테스트하려면 **장치** 페이지의 장치 목록에서 해당 항목을 선택합니다. 그런 다음, **작업**을 클릭하고 **속성**을 선택합니다. 작업 패널에 선택한 장치에 대해 업데이트 가능한 속성 값이 표시됩니다.
+엔진의 구성 속성을 업데이트할 수 있는지 테스트하려면 **Device Explorer** 페이지의 디바이스 목록에서 해당 항목을 선택합니다. 그런 다음, **작업**을 클릭하고 **속성**을 선택합니다. 작업 패널에 선택한 장치에 대해 업데이트 가능한 속성 값이 표시됩니다.
 
 [![디바이스 다시 구성](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -83,7 +83,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 * Smart Vehicle 팀은 트럭 및 프로토타입 장치를 관리합니다.
 * Smart Building 팀은 냉각기, 엘리베이터 및 엔진을 관리합니다.
 
-모든 장치를 표시하려면 **장치** 페이지로 이동하고 **모든 장치** 필터를 선택합니다.
+모든 디바이스를 표시하려면 **Device Explorer** 페이지로 이동하고 **모든 디바이스** 필터를 선택합니다.
 
 [![모든 디바이스 표시](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-expanded.png#lightbox)
 
@@ -103,7 +103,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="create-filters"></a>필터 생성
 
-이제 태그 값을 사용하여 필터를 만들 수 있습니다. **디바이스** 페이지에서 **디바이스 그룹 관리**를 클릭합니다.
+이제 태그 값을 사용하여 필터를 만들 수 있습니다. **Device Explorer** 페이지에서 **디바이스 그룹 관리**를 클릭합니다.
 
 [![디바이스 그룹 관리](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 

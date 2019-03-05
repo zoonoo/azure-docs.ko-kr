@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 17ec7723044cec391ebe390bbcfba3aa6f2f29ca
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 61219fc4e1fc329708a7e58ee6a293e4e25cca31
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446854"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887814"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Azure VM에 SQL Server 데이터베이스 백업 
 
@@ -52,8 +52,7 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 - FCI 미러 데이터베이스, 데이터베이스 스냅숏 및 데이터베이스에 대한 백업 및 복원 작업은 지원되지 않습니다.
 - 많은 수의 파일이 있는 데이터베이스는 보호할 수 없습니다. 지원되는 최대 파일 수는 결정적이지 않습니다. 파일 수에 따라 달라질 뿐만 아니라 파일의 경로 길이에 따라서도 달라집니다. 
 
-지원되는/지원되지 않는 시나리오에 대한 자세한 내용은 [FAQ 섹션](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq)을 참조하세요.
-
+[질문과 대답](faq-backup-sql-server.md)에서 SQL Server 데이터베이스 백업에 대한 자세한 내용을 검토하세요.
 ## <a name="scenario-support"></a>시나리오 지원
 
 **지원** | **세부 정보**
@@ -69,9 +68,9 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 SQL Server 데이터베이스를 백업하기 전에 다음 조건을 확인하십시오.
 
 1. SQL Server 인스턴스를 호스팅하는 VM과 동일한 지역이나 로캘에서 Recovery Services 자격 증명 모음을 식별하거나 [만듭니다](backup-azure-sql-database.md#create-a-recovery-services-vault).
-2. SQL 데이터베이스를 백업하는 데 필요한 [VM 권한을 확인](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms)합니다.
+2. SQL 데이터베이스를 백업하는 데 필요한 [VM 권한을 확인](#fix-sql-sysadmin-permissions)합니다.
 3. VM에 [네트워크 연결](backup-azure-sql-database.md#establish-network-connectivity)이 있는지 확인합니다.
-4. SQL Server 데이터베이스의 이름이 Azure Backup [명명 지침](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup)에 따라 지정되었는지 확인합니다.
+4. SQL Server 데이터베이스의 이름이 Azure Backup [명명 지침](backup-azure-sql-database.md)에 따라 지정되었는지 확인합니다.
 5. 데이터베이스에 사용할 수 있는 다른 백업 솔루션이 없는지 확인합니다. 이 시나리오를 설정하기 전에 다른 모든 SQL Server 백업을 사용하지 않도록 설정합니다. 충돌 없이 VM에서 실행되는 SQL Server 데이터베이스에 대한 Azure Backup과 함께 Azure VM에 대한 Azure Backup을 사용하도록 설정할 수 있습니다.
 
 
@@ -197,7 +196,7 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
     - 기본 정책 **HourlyLogBackup**을 선택합니다.
     - 이전에 SQL용으로 만든 기존 백업 정책을 선택합니다.
-    - RPO(복구 지점 목표) 및 보존 범위를 기반으로 [새 정책을 정의](backup-azure-sql-database.md#define-a-backup-policy)합니다.
+    - RPO(복구 지점 목표) 및 보존 범위를 기반으로 [새 정책을 정의](backup-azure-sql-database.md#configure-a-backup-policy)합니다.
     - 미리 보기 동안에는 기존 백업 정책을 편집할 수 없습니다.
     
 9. **백업 메뉴**에서 **백업 사용**을 선택합니다.
@@ -326,7 +325,7 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
     ![배포 성공 메시지](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-또는 **AUTOPROTECT** 열의 해당 드롭다운에서 **ON** 옵션을 선택하여 전체 인스턴스 또는 Always On 가용성 그룹에 대한 [자동 보호](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm)를 설정할 수 있습니다. [자동 보호](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) 기능은 모든 기존 데이터베이스에 보호를 사용하도록 설정할 뿐 아니라 나중에 해당 인스턴스 또는 가용성 그룹에 추가되는 새 데이터베이스도 자동으로 보호합니다.  
+또는 **AUTOPROTECT** 열의 해당 드롭다운에서 **ON** 옵션을 선택하여 전체 인스턴스 또는 Always On 가용성 그룹에 대한 [자동 보호](backup-azure-sql-database.md#enable-auto-protection)를 설정할 수 있습니다. [자동 보호](backup-azure-sql-database.md#enable-auto-protection) 기능은 모든 기존 데이터베이스에 보호를 사용하도록 설정할 뿐 아니라 나중에 해당 인스턴스 또는 가용성 그룹에 추가되는 새 데이터베이스도 자동으로 보호합니다.  
 
    ![Always On 가용성 그룹에 자동 보호를 사용하도록 설정](./media/backup-azure-sql-database/enable-auto-protection.png)
 

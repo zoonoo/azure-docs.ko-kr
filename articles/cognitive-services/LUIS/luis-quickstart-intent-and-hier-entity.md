@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: dea623684454d4b14a370251df10599eb03bbb34
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c17a74c81d9c9d2ac3f585ab17f0b7d2acc628f6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856923"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873927"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>자습서: 발언에서 컨텍스트 관련 데이터 추출
 
@@ -74,7 +74,7 @@ ms.locfileid: "55856923"
     |Steve Standish를 샌디에이고에서 벨뷰로 이동 |
     |Tanner Thompson을 캔자스 시티에서 시카고로 이동|
 
-    [ ![MoveEmployee 의도에 새 발언이 있는 LUIS의 스크린샷](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![MoveEmployee 의도에 새 발화가 있는 LUIS의 스크린샷](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
 ## <a name="create-a-location-entity"></a>위치 엔터티 만들기
 LUIS는 발언의 원래 위치와 대상 위치에 레이블을 지정하여 위치를 이해해야 합니다. 토큰(원시) 보기의 발언을 살펴보아야 하는 경우 **엔터티 보기**라는 레이블이 붙은 발언 위에 있는 표시줄에서 토글을 선택합니다. 스위치를 토글하면 컨트롤에 **토큰 보기**라는 레이블이 지정됩니다.
@@ -91,7 +91,7 @@ move John W. Smith leaving Seattle headed to Dallas
 
 1. `move John W. Smith leaving Seattle headed to Dallas` 발화에서 `Seattle`이라는 단어를 선택합니다. 텍스트 상자가 맨 위에 있는 드롭다운 메뉴가 표시됩니다. 텍스트 상자에서 `Location`이라는 엔터티 이름을 입력한 다음, 드롭다운 메뉴에서 **새 엔터티 만들기**를 선택합니다. 
 
-    [![의도 페이지에서 새 엔터티 만들기의 스크린샷](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "의도 페이지에서 새 엔터티 만들기의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
+    [![의도 페이지에서 새 엔터티 만들기의 스크린샷](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "의도 페이지에서 새 엔터티 만들기의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. 팝업 창에서 자식 엔터티로 `Origin` 및 `Destination`이 있는 **계층적** 엔터티 형식을 선택합니다. **완료**를 선택합니다.
 
@@ -99,7 +99,7 @@ move John W. Smith leaving Seattle headed to Dallas
 
 1. LUIS에서 용어가 원본, 대상 또는 둘 다인지 인식하지 못하므로 `Seattle`에 대한 레이블은 `Location`으로 표시됩니다. `Seattle`을 선택하고, **위치**를 선택한 다음, 오른쪽 메뉴에 따라 `Origin`을 선택합니다.
 
-    [![위치 엔터티 자식을 변경하는 엔터티 레이블 지정 팝업 대화 상자의 스크린샷](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "위치 엔터티 자식을 변경하는 엔터티 레이블 지정 팝업 대화 상자의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
+    [![위치 엔터티 자식을 변경하는 엔터티 레이블 지정 팝업 대화 상자의 스크린샷](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "위치 엔터티 자식을 변경하는 엔터티 레이블 지정 팝업 대화 상자의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. 나머지 발언의 다른 위치에 레이블을 지정합니다. 모든 위치가 표시되면 발언이 패턴처럼 보이기 시작합니다. 
 

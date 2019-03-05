@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433682"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816945"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>환경 변경 문제 해결
 
@@ -62,12 +62,14 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 이 에이전트는 VM과 통신하고 설치된 소프트웨어에 대한 정보를 얻는 데 사용됩니다.
 
 솔루션을 사용하도록 설정하는 데 최대 15분이 걸릴 수 있습니다. 이 시간 동안에는 브라우저 창을 닫으면 안됩니다.
-솔루션을 사용하도록 설정되면 설치된 소프트웨어에 대한 정보 및 VM에 대한 변경 내용이 Log Analytics로 이동합니다.
+솔루션을 사용하도록 설정한 후 설치된 소프트웨어에 대한 정보 및 VM에 대한 변경 내용이 Azure Monitor 로그로 이동합니다.
 이 데이터를 분석에 사용할 수 있게 되는 데 30분에서 6시간까지 걸릴 수 있습니다.
 
-## <a name="using-change-tracking-in-log-analytics"></a>Log Analytics에서 변경 내용 추적 사용
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-변경 내용 추적에서 Log Analytics로 보내는 로그 데이터를 생성합니다.
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Azure Monitor 로그에서 변경 내용 추적 사용
+
+변경 내용 추적에서 Azure Monitor 로그로 보내는 로그 데이터를 생성합니다.
 쿼리를 실행하여 로그를 검색하려면 **변경 내용 추적** 창 맨 위의 **Log Analytics**를 선택합니다.
 변경 내용 추적 데이터는 **ConfigurationChange** 형식 아래에 저장됩니다.
 다음 샘플 Log Analytics 쿼리는 중지된 모든 Windows 서비스를 반환합니다.
@@ -77,7 +79,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 자세한 내용은 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
+Azure Monitor 로그에서 로그 파일을 실행하고 검색하는 방법에 대한 자세한 내용은 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
 
 ## <a name="configure-change-tracking"></a>변경 내용 추적 구성
 

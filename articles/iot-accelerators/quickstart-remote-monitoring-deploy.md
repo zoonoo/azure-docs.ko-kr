@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 60876cb95e6efe4fbde55bd8a224eab658b10d66
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608360"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749990"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>빠른 시작: 클라우드 기반 원격 모니터링 솔루션 사용해보기
 
@@ -45,7 +45,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 솔루션 가속기를 배포하는 데 사용하려는 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 이 빠른 시작에서는 **미국 동부**를 사용합니다.
 **Visual Studio Enterprise**를 선택할 수 있지만 그러려면 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
 
-배포를 시작하려면 **솔루션 만들기**를 클릭합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
+배포를 시작하려면 **만들기**를 클릭합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
 
 ![원격 모니터링 솔루션 세부 정보](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -57,7 +57,7 @@ Azure 구독에 배포가 완료되면 솔루션 타일에 녹색 확인 표시 
 
 ![새 솔루션 선택](./media/quickstart-remote-monitoring-deploy/choosenew.png)
 
-표시되는 패널에서 원격 모니터링 솔루션 가속기에 대한 정보를 볼 수 있습니다. **솔루션 대시보드**를 선택하여 원격 모니터링 솔루션 가속기를 봅니다.
+표시되는 패널에서 원격 모니터링 솔루션 가속기에 대한 정보를 볼 수 있습니다. **솔루션 가속기로 이동**을 선택하여 원격 모니터링 솔루션 가속기를 봅니다.
 
 ![솔루션 패널](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 
@@ -134,6 +134,9 @@ Contoso 운영자는 솔루션 대시보드에서 디바이스를 모니터링 �
 솔루션 가속기가 더 이상 필요하지 않은 경우 이를 선택한 다음, **솔루션 삭제**를 클릭하여 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
 
 ![솔루션 삭제](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+
+
+![솔루션 삭제](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)
 
 ## <a name="next-steps"></a>다음 단계
 

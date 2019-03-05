@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e83991f553d00af11cfc275137f8e73ebab2098c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882640"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56982796"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal에서 Standard Load Balancer를 통한 가용성 영역 간 부하 분산
 
@@ -50,16 +50,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 표준 부하 분산 장치는 표준 공용 IP 주소만 지원합니다. 부하 분산 장치를 만드는 동안 새 공용 IP를 만들면 자동으로 Standard SKU 버전으로 구성되며 영역 중복이 됩니다.
 
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다.
-2. **부하 분산 장치 만들기** 페이지에서 부하 분산 장치에 다음 값을 입력합니다.
-    - *myLoadBalancer* - 부하 분산 장치의 이름입니다.
-    - **공용** - 부하 분산 장치의 유형입니다.
-     - *myPublicIP* - 만드는 새 공용 IP 주소입니다. 이를 위해 **공용 IP 주소 선택**, **새로 만들기**를 차례로 클릭합니다. 이름에 *myPublicIP*를 입력합니다. SKU는 기본적으로 Standard이며 **가용성 영역**에 **영역 중복**을 선택합니다. 
-    - *myResourceGroupLBAZ* - 새로 만드는 리소스 그룹의 이름입니다.
-    - **westeurope** - 위치로 입력합니다.
-3. **만들기**를 클릭하여 부하 분산 장치를 만듭니다.
-   
-    ![부하 분산 장치 만들기](./media/load-balancer-standard-public-availability-zones-portal/1a-load-balancer.png)
+2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **리뷰 + 만들기**를 선택합니다.
 
+    | 설정                 | 값                                              |
+    | ---                     | ---                                                |
+    | 구독               | 구독을 선택합니다.    |    
+    | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLBAZ*를 입력합니다.|
+    | Name                   | *myLoadBalancer*                                   |
+    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | Type          | **공용**을 선택합니다.                                        |
+    | SKU           | **표준**을 선택합니다.                          |
+    | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
+    | 공용 IP 주소 이름              | 텍스트 상자에 *myPublicIP*를 입력합니다.   |
+    |가용성 영역| **영역 중복**을 선택합니다.    |
+   
 
 ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 

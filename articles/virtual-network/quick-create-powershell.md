@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: ade8329e6e42fae9f3232617488a6d4a69f8ef1f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 57c3b5099c24151794b27f4aeec7845495a4630a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437388"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670423"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>빠른 시작: PowerShell을 사용하여 가상 네트워크 만들기
 
@@ -29,9 +29,9 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-대신 PowerShell을 로컬에 설치하고 사용하려는 경우 이 빠른 시작을 진행하려면 AzureRM PowerShell 모듈 버전 5.4.1 이상을 사용해야 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 및 업그레이드 정보는 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
+대신 PowerShell을 로컬에 설치하고 사용하려는 경우 이 빠른 시작을 진행하려면 Azure PowerShell 모듈 버전 1.0.0 이상을 사용해야 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 설치 및 업그레이드 정보는 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
-마지막으로, PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`도 실행해야 합니다. 해당 명령은 Azure와 연결을 만듭니다.
+마지막으로, PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`도 실행해야 합니다. 해당 명령은 Azure와 연결을 만듭니다.
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>리소스 그룹 및 가상 네트워크 만들기
 
@@ -39,18 +39,18 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 ### <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
-가상 네트워크를 만들려면 먼저 가상 네트워크를 호스트할 리소스 그룹을 만들어야 합니다. [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+가상 네트워크를 만들려면 먼저 가상 네트워크를 호스트할 리소스 그룹을 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
 
-[New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myVirtualNetwork*라는 기본 가상 네트워크를 만듭니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *EastUS* 위치에 *myVirtualNetwork*라는 기본 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzureRmVirtualNetwork `
+$virtualNetwork = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork `
@@ -59,10 +59,10 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>서브넷 추가
 
-Azure는 가상 네트워크 내의 서브넷에 리소스를 배포하므로 서브넷을 만들어야 합니다. [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)를 사용하여 *default*라는 서브넷 구성을 만듭니다.
+Azure는 가상 네트워크 내의 서브넷에 리소스를 배포하므로 서브넷을 만들어야 합니다. [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)를 사용하여 *default*라는 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name default `
   -AddressPrefix 10.0.0.0/24 `
   -VirtualNetwork $virtualNetwork
@@ -70,10 +70,10 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>가상 네트워크에 서브넷 연결
 
-[Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork)를 사용하여 가상 네트워크에 서브넷 구성을 쓸 수 있습니다. 다음 명령은 서브넷을 만듭니다.
+[Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)를 사용하여 가상 네트워크에 서브넷 구성을 쓸 수 있습니다. 다음 명령은 서브넷을 만듭니다.
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzureRmVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetwork
 ```
 
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
@@ -82,10 +82,10 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 
 ### <a name="create-the-first-vm"></a>첫 번째 VM 만들기
 
-[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)을 사용하여 첫 번째 VM을 만듭니다. 다음 명령을 실행하면 자격 증명을 묻는 메시지가 표시됩니다. VM의 사용자 이름 및 암호를 입력합니다.
+[New-AzVM](/powershell/module/az.compute/new-azvm)을 사용하여 첫 번째 VM을 만듭니다. 다음 명령을 실행하면 자격 증명을 묻는 메시지가 표시됩니다. VM의 사용자 이름 및 암호를 입력합니다.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Location "East US" `
     -VirtualNetworkName "myVirtualNetwork" `
@@ -101,7 +101,7 @@ Azure가 백그라운드에서 VM을 만들기 시작하면 다음과 같은 메
 ```powershell
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
 --     ----            -------------   -----         -----------     --------             -------
-1      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmVM
+1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
 ### <a name="create-the-second-vm"></a>두 번째 VM 만들기
@@ -109,7 +109,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 다음 명령을 사용하여 두 번째 VM을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -VirtualNetworkName "myVirtualNetwork" `
   -SubnetName "default" `
@@ -123,10 +123,10 @@ New-AzureRmVm `
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 
-[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress)를 사용하여 VM의 공용 IP 주소를 반환합니다. 다음 예제에서는 *myVm1* VM의 공용 IP 주소를 반환합니다.
+[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 VM의 공용 IP 주소를 반환합니다. 다음 예제에서는 *myVm1* VM의 공용 IP 주소를 반환합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -Name myVm1 `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress
@@ -135,7 +135,7 @@ Get-AzureRmPublicIpAddress `
 로컬 컴퓨터에서 명령 프롬프트를 엽니다. `mstsc` 명령을 실행합니다. `<publicIpAddress>`를 마지막 단계에서 반환된 공용 IP 주소로 바꿉니다.
 
 > [!NOTE]
-> 로컬 컴퓨터의 PowerShell 프롬프트에서 이러한 명령을 실행했으며 AzureRM PowerShell 모듈 버전 5.4.1 이상을 사용 중이면 해당 인터페이스에서 계속 진행할 수 있습니다.
+> 로컬 컴퓨터의 PowerShell 프롬프트에서 이러한 명령을 실행했으며 Az PowerShell 모듈 버전 1.0 이상을 사용 중이면 해당 인터페이스에서 계속 진행할 수 있습니다.
 
 ```cmd
 mstsc /v:<publicIpAddress>
@@ -165,7 +165,7 @@ mstsc /v:<publicIpAddress>
     ```powershell
     PS C:\Users\myVm1> ping myVm2
 
-    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudap
+    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net
     Request timed out.
     Request timed out.
     Request timed out.
@@ -214,10 +214,10 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-가상 네트워크 및 VM 작업을 마쳤으면 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)을 사용하여 리소스 그룹과 리소스 그룹에 포함된 모든 리소스를 제거합니다.
+가상 네트워크 및 VM 작업을 마쳤으면 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)을 사용하여 리소스 그룹과 리소스 그룹에 포함된 모든 리소스를 제거합니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -9,15 +9,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 02/22/2019
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 20891b0d73783c9b68a42ecfed130e377b6f8eab
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c387a7c10b962cfd27a7563c00ce58f58e97b9d5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729815"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671831"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>자습서: 디바이스 펌웨어 업데이트 프로세스 구현
 
@@ -94,7 +94,8 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ```
 
-Windows 명령 프롬프트 또는 Powershell 프롬프트에서 이러한 명령을 실행할 때 JSON 문자열을 인용하는 방법에 대한 정보는 [azure-iot-cli-extension 팁](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
+> [!TIP]
+> Windows 명령 프롬프트 또는 Powershell 프롬프트에서 이러한 명령을 실행할 때 JSON 문자열을 인용하는 방법에 대한 정보는 [azure-iot-cli-extension 팁](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
 )을 참조하세요.
 
 ## <a name="start-the-firmware-update"></a>펌웨어 업데이트 시작
@@ -205,7 +206,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 연결된 디바이스에서 펌웨어 업데이트 프로세스를 구현하는 방법을 알아보았습니다. 다음 자습서를 진행하여 Azure IoT Hub 포털 도구와 Azure CLI 명령을 사용하여 디바이스 연결을 테스트하는 방법을 알아봅니다.
+이 자습서에서는 연결된 디바이스에서 펌웨어 업데이트 프로세스를 구현하는 방법을 알아보았습니다. 다음 자습서로 넘어가서 Azure IoT Hub 포털 도구와 Azure CLI 명령을 사용하여 디바이스 연결을 테스트하는 방법에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
 [시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트](tutorial-connectivity.md)

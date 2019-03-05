@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 3b09af19bd25ea3c64375869cd7db7f2b65923f6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a7dd8cd349703fc9009695e570b66c3a3e626d15
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423770"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593185"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob Storage에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -232,7 +232,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="create-azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스 만들기
 이 단계에서는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다.
 
-1. **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더에 다음 내용이 포함된 **AzureSQLDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. 파일을 저장하기 전에 server database name **, &lt;user id&gt; 및 &lt;password&gt;** 를 Azure SQL 서버 이름, 데이터베이스 이름, 사용자 ID 및 암호로 바꿉니다. 
+1. **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더에 다음 내용이 포함된 **AzureSQLDatabaseLinkedService.json**이라는 JSON 파일을 만듭니다. 파일을 저장하기 전에 **&lt;server&gt; &lt;database name **, &lt;user id&gt; 및 &lt;password&gt;** 를 Azure SQL 서버 이름, 데이터베이스 이름, 사용자 ID 및 암호로 바꿉니다. 
 
     ```json
     {
@@ -661,10 +661,10 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 
     
 ## <a name="next-steps"></a>다음 단계
-Azure에서 Spark 클러스터를 사용하여 데이터를 변환하는 방법을 알아보려면 다음 자습서로 진행하세요.
+다음 자습서로 넘어가서 해당 LastModifiedDate를 기준으로 새로운 파일과 변경된 파일을 복사하는 방법에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
->[클라우드에서 Spark 클러스터를 사용하여 데이터 변환](tutorial-transform-data-spark-powershell.md)
+>[lastmodifieddate별로 새 파일 복사](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 
 

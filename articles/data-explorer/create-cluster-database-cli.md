@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: CLI를 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기'
-description: 이 빠른 시작에서 Azure CLI를 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법을 알아봅니다.
+description: Azure CLI를 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법 알아보기
 services: data-explorer
 author: radennis
 ms.author: radennis
@@ -8,14 +8,14 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 2/4/2019
-ms.openlocfilehash: 9e0ae547df34594674dc03702310a1537717a4ed
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 357f0efcf7300545d10113c92702d9fed4aad049
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881119"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958025"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-using-cli"></a>CLI를 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>CLI를 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
 이 빠른 시작에서는 Azure CLI를 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법을 설명합니다.
 
@@ -25,11 +25,11 @@ ms.locfileid: "55881119"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-로컬에서 Azure CLI를 설치하여 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+로컬에서 Azure CLI를 설치하여 사용하려는 경우 이 빠른 시작을 진행하려면 Azure CLI 버전 2.0.4 이상이 필요합니다. `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="configure-the-cli-parameters"></a>CLI 매개 변수 구성
 
-Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필요하지 않습니다. CLI를 로컬로 실행하는 경우 다음 단계를 수행하여 Azure에 로그인하고 현재 구독을 설정합니다.
+Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필요하지 않습니다. 로컬에서 CLI를 실행하는 경우 다음 단계에 따라 Azure에 로그인하고 현재 구독을 설정합니다.
 
 1. 다음 명령을 실행하여 Azure에 로그인합니다.
 
@@ -65,7 +65,7 @@ Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필요하
     az kusto cluster show --name azureclitest --resource-group testrg
     ```
 
-결과에 값이 "Succeeded"인 "provisioningState"가 있으면 클러스터가 성공적으로 만들어진 것입니다.
+결과에 값이 `Succeeded`인 `provisioningState`가 있으면 클러스터가 성공적으로 만들어진 것입니다.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Azure Data Explorer 클러스터에 데이터베이스 만들기
 
@@ -77,13 +77,13 @@ Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필요하
 
    |**설정** | **제안 값** | **필드 설명**|
    |---|---|---|
-   | cluster-name | *azureclitest* | 데이터베이스가 만들어질 클러스터의 이름입니다.|
-   | 이름 | *clidatabase* | 원하는 데이터베이스 이름입니다.|
+   | cluster-name | *azureclitest* | 데이터베이스가 만들어지는 클러스터의 이름입니다.|
+   | 이름 | *clidatabase* | 데이터베이스의 이름입니다.|
    | resource-group | *testrg* | 클러스터가 만들어질 리소스 그룹 이름입니다. |
-   | soft-delete-period | *3650:00:00:00* | 쿼리에 사용할 수 있도록 데이터를 유지해야 하는 시간입니다. |
-   | hot-cache-period | *3650:00:00:00* | 데이터를 캐시에 유지해야 하는 시간입니다. |
+   | soft-delete-period | *3650:00:00:00* | 데이터를 쿼리할 수 있도록 유지되는 시간입니다. |
+   | hot-cache-period | *3650:00:00:00* | 데이터가 캐시에 유지되는 시간입니다. |
 
-2. 다음 명령을 실행하여 만든 데이터베이스를 봅니다.
+2. 다음 명령을 실행하여 직접 만든 데이터베이스를 살펴봅니다.
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest
@@ -94,7 +94,7 @@ Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필요하
 ## <a name="clean-up-resources"></a>리소스 정리
 
 * 다른 빠른 시작 및 자습서를 진행하려는 경우 만든 리소스를 그대로 둡니다.
-* 리소스를 정리하려면 클러스터를 삭제합니다. 클러스터를 삭제하면 해당 클러스터에 있는 모든 데이터베이스도 함께 삭제됩니다. 아래 명령을 사용하여 클러스터를 삭제합니다.
+* 리소스를 정리하려면 클러스터를 삭제합니다. 클러스터를 삭제하면 해당 클러스터에 있는 모든 데이터베이스도 함께 삭제됩니다. 다음 명령을 사용하여 클러스터를 삭제합니다.
 
     ```azurecli-interactive
     az kusto cluster delete --name azureclitest --resource-group testrg

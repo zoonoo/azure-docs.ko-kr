@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: 9d00819143d9a8fc38bfc09844d55f088e732b46
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1b5f05f3cddea986230327165399b0fe530e361b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453029"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588078"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>빠른 시작: Azure Databricks를 사용하여 Azure Data Lake Storage Gen2의 데이터 분석
 
@@ -124,6 +124,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     > 이 코드 블록은 OAuth를 사용하여 Data Lake Gen2 엔드포인트에 직접 액세스하지만 Data Lake Storage Gen2 계정에 Databricks 작업 영역을 연결하는 다른 방법이 있습니다. 예를 들어 OAuth를 사용하여 파일 시스템을 탑재하거나 공유 키로 직접 액세스를 사용할 수 있습니다. <br>이러한 방법의 예제를 보려면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서를 참조하세요.
 
 5. 이 코드 블록에서 `storage-account-name`, `application-id`, `authentication-id` 및 `tenant-id` 자리 표시자 값을 서비스 주체를 만들 때 수집한 값으로 바꿉니다. `file-system-name` 자리 표시자 값을 파일 시스템에 제공하려는 이름으로 설정합니다.
+
+    > [!NOTE]
+    > 프로덕션 설정에서 Azure Databricks에서 인증 키를 저장하는 것이 좋습니다. 그런 다음, 인증 키 대신 코드 블록에 조회 키를 추가합니다. 이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서에서 이 방법에 대한 예제를 살펴보세요.
 
 6. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 

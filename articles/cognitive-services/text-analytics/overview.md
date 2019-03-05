@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7623f98b9fd6c4bad8a41050e39b6e0e8650dccc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242932"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889289"
 ---
 # <a name="what-is-text-analytics"></a>Text Analytics란?
 
@@ -64,11 +64,11 @@ ms.locfileid: "56242932"
 
 ## <a name="data-limits"></a>데이터 제한
 
-모든 Text Analytics API 엔드포인트는 원시 텍스트 데이터를 수락합니다. 현재 제한은 각 문서에 대해 5,000자입니다. 더 큰 문서를 분석해야 할 경우 좀 더 작은 청크로 분리할 수 있습니다. 여전히 더 높은 한도가 필요하면 [저희에게 문의](https://azure.microsoft.com/overview/sales-number/)하세요. 그러면 해결해 드릴 수 있습니다.
+모든 Text Analytics API 엔드포인트는 원시 텍스트 데이터를 수락합니다. 현재 제한은 각 문서에 대해 5,120자입니다. 더 큰 문서를 분석해야 할 경우 더 작은 청크로 분리하면 됩니다. 여전히 더 높은 한도가 필요하면 [저희에게 문의](https://azure.microsoft.com/overview/sales-number/)하세요. 그러면 해결해 드릴 수 있습니다.
 
 | 제한 | 값 |
 |------------------------|---------------|
-| 단일 문서의 최대 크기 | [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements)로 측정해서 5,000자입니다. |
+| 단일 문서의 최대 크기 | [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements)로 측정해서 5,120자입니다. |
 | 전체 요청의 최대 크기 | 1MB |
 | 요청의 최대 문서 수 | 1,000개 문서 |
 
@@ -80,7 +80,7 @@ Text Analytics API는 텍스트 표현 및 문자 수 계산에 유니코드 인
 
 ## <a name="next-steps"></a>다음 단계
 
-먼저 [대화형 데모](https://azure.microsoft.com/services/cognitive-services/text-analytics/)를 사용해봅니다. 텍스트 입력(최대 5,000자)을 붙여 넣어 언어를 감지(최대 120개)하거나, 감정 점수를 계산하거나, 핵심 구를 추출할 수 있습니다. 등록은 필요하지 않습니다.
+먼저 [대화형 데모](https://azure.microsoft.com/services/cognitive-services/text-analytics/)를 사용해봅니다. 텍스트 입력(최대 5,120자)을 붙여 넣어 언어를 감지(최대 120개)하거나, 감정 점수를 계산하거나, 핵심 구를 추출할 수 있습니다. 등록은 필요하지 않습니다.
 
 API를 직접 호출할 준비가 되면 다음을 수행합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 공동 작업에서 PowerShell을 사용하여 게스트 사용자 추가 빠른 시작 | Microsoft Docs
+title: PowerShell을 사용하여 게스트 사용자 추가 빠른 시작 - Azure Active Directory | Microsoft Docs
 description: 이 빠른 시작에서는 PowerShell을 사용하여 외부 Azure AD B2B 공동 작업 사용자에게 초대를 보내는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb34fa0552eaa8f0d567ff85843e4b7df3fa967
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8417e2118de01d00e8b0450374a9b10bff40221f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205378"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675146"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>빠른 시작: PowerShell을 사용하여 게스트 사용자 추가
 

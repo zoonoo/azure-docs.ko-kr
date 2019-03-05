@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: fc1505526ddff33c68b6d7a4030338dd7d712598
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b6876bf8210d47729ad8e765ccffe709a0fccacc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994475"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958697"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>자습서: 키/값 데이터를 저장하는 Java 애플리케이션을 사용하여 Azure Cosmos DB의 Cassandra API 계정 만들기
 
@@ -43,7 +43,7 @@ ms.locfileid: "55994475"
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
-2.  **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB**를 선택합니다. 
+2. **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB**를 선택합니다. 
 
 3. **새 계정** 창에서 새 Azure Cosmos 계정에 대한 설정을 입력합니다. 
 
@@ -52,12 +52,12 @@ ms.locfileid: "55994475"
    |ID   |   고유한 이름을 입력합니다.    | 이 Azure Cosmos 계정을 식별하는 고유한 이름을 입력합니다. <br/><br/>접점을 만들기 위해 제공하는 ID에 cassandra.cosmosdb.azure.com이 추가되므로 식별할 수 있는 고유한 ID를 사용해야 합니다.         |
    |API    |  Cassandra   |  API는 만들 계정의 형식을 결정합니다. <br/> 이 문서에서는 CQL(Cassandra 쿼리 언어) 구문을 사용하여 쿼리할 수 있는 넓은 열 데이터베이스를 만들므로 **Cassandra**를 선택합니다.  |
    |구독    |  사용자의 구독        |  이 Azure Cosmos 계정에 사용하려는 Azure 구독을 선택합니다.        |
-   |리소스 그룹   | 이름 입력    |   **새로 만들기**를 선택한 다음, 계정에 대한 새 리소스 그룹 이름을 입력합니다. 간단히 하기 위해 ID와 동일한 이름을 사용할 수 있습니다.    |
+   |리소스 그룹   | 이름 입력    |  **새로 만들기**를 선택한 다음, 계정에 대한 새 리소스 그룹 이름을 입력합니다. 간단히 하기 위해 ID와 동일한 이름을 사용할 수 있습니다.    |
    |위치    |  사용자와 가장 가까운 지역 선택    |  Azure Cosmos 계정을 호스팅할 지리적 위치를 선택합니다. 데이터에 가장 빨리 액세스할 수 있도록 사용자와 가장 가까운 위치를 사용합니다.    |
 
    ![포털을 사용하여 계정 만들기](./media/create-cassandra-api-account-java/create-account.png)
 
-4.  **만들기**를 선택합니다. <br/>계정 생성에는 몇 분 정도가 소요됩니다. 리소스가 만들어지면 포털의 오른쪽에 **배포 성공** 알림이 표시됩니다.
+4. **만들기**를 선택합니다. <br/>계정 생성에는 몇 분 정도가 소요됩니다. 리소스가 만들어지면 포털의 오른쪽에 **배포 성공** 알림이 표시됩니다.
 
 ## <a name="get-the-connection-details-of-your-account"></a>계정의 연결 세부 정보 가져오기  
 

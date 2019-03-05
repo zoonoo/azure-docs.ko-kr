@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1962cef85c5e663de640f296a6e8e9efd5a1f4d6
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 513df9f68fdd54b5dc90e57bd8389688c46bf615
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310358"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804249"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>빠른 시작: Python SDK를 사용하여 Azure Machine Learning 시작
 
@@ -60,16 +60,18 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 SDK를 설치하기 전에, 격리된 Python 환경을 만드는 것이 좋습니다. 이 문서에서 [Miniconda](https://docs.conda.io/en/latest/miniconda.html)를 사용한다해도 설치된 전체 [Anaconda](https://www.anaconda.com/) 또는 [Python virtualenv](https://virtualenv.pypa.io/en/stable/)를 사용할 수도 있습니다.
 
+이 빠른 시작의 지침에서는 빠른 시작 및 자습서 Notebook을 실행하는 데 필요한 모든 패키지를 설치합니다.  다른 샘플 Notebook에서는 추가 구성 요소를 설치해야 할 수도 있습니다.  이러한 구성 요소에 대한 자세한 내용은 [Python용 Azure Machine Learning SDK 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install)를 참조하세요.
+
 ### <a name="install-miniconda"></a>Miniconda 설치
 
-[Miniconda를 다운로드하여 설치합니다](https://docs.conda.io/en/latest/miniconda.html). 설치하려면 Python 3.7 이상 버전을 선택합니다. Python 2.x 버전을 선택하지 마세요.  
+[Miniconda를 다운로드하여 설치합니다](https://docs.conda.io/en/latest/miniconda.html). Python 3.7 버전을 선택하여 설치합니다. Python 2.x 버전을 선택하지 마세요.  
 
 ### <a name="create-an-isolated-python-environment"></a>격리된 Python 환경 만들기
 
-1. 명령줄 창을 연 다음, *myenv*라는 새로운 conda 환경을 만들고 Python 3.6을 설치합니다. Azure Machine Learning SDK는 Python 3.5.2 이상에서 작동하지만, 자동화된 기계 학습 구성 요소는 Python 3.7에서 완벽하게 작동하지 않습니다.
+1. 명령줄 창을 연 다음, *myenv*라는 새로운 conda 환경을 만들고 Python 3.6.5를 설치합니다. Azure Machine Learning SDK는 Python 3.5.2 이상에서 작동하지만, 자동화된 기계 학습 구성 요소는 Python 3.7에서 완벽하게 작동하지 않습니다.  구성 요소 및 패키지를 다운로드하는 동안에 환경을 만드는 데 몇 분 정도 걸립니다.
 
     ```shell
-    conda create -n myenv -y Python=3.6
+    conda create -n myenv python=3.6.5
     ```
 
 1. 환경을 활성화합니다.
@@ -78,18 +80,24 @@ SDK를 설치하기 전에, 격리된 Python 환경을 만드는 것이 좋습�
     conda activate myenv
     ```
 
+1. 환경별 ipython 커널을 활성화합니다.
+
+    ```shell
+    conda install notebook ipykernel
+    ```
+
+    그런 다음, 커널을 만듭니다.
+
+    ```shell
+    ipython kernel install --user
+    ```
+
 ### <a name="install-the-sdk"></a>SDK 설치
 
 1. 활성화된 conda 환경에서 Jupyter Notebook 기능을 사용하여 Machine Learning SDK의 핵심 구성 요소를 설치합니다.  머신 구성에 따라 설치를 완료하는 데 몇 분이 걸립니다.
 
   ```shell
     pip install --upgrade azureml-sdk[notebooks]
-    ```
-
-1. conda 환경에 Jupyter Notebook 서버를 설치합니다.
-
-  ```shell
-    conda install -y nb_conda
     ```
 
 1. 이 환경을 Azure Machine Learning 자습서에 사용하려면 다음 패키지를 설치합니다.

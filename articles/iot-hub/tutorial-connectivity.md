@@ -6,15 +6,15 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745812"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674520"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 디바이스를 사용하여 IoT Hub와 연결 테스트
 
@@ -122,7 +122,7 @@ node SimulatedDevice-1.js "{your device connection string}"
 
 디바이스에서 IoT Hub 디바이스 SDK 중 하나를 사용하는 경우 SDK 라이브러리 코드에서 허브를 인증하는 데 사용되는 SAS 토큰을 생성합니다. SAS 토큰은 허브 이름, 디바이스 이름 및 디바이스 키로부터 생성됩니다.
 
-클라우드 프로토콜 게이트웨이 또는 사용자 지정 인증 체계의 일부와 같은 몇 가지 시나리오에서는 SAS 토큰을 직접 생성해야 할 수도 있습니다. SAS 생성 코드 문제를 해결하려면 테스트 중에 알려진 유효한 SAS 토큰을 생성하는 것이 유용합니다.
+클라우드 프로토콜 게이트웨이 또는 사용자 지정 인증 체계의 일부와 같은 몇 가지 시나리오에서는 SAS 토큰을 직접 생성해야 할 수도 있습니다. SAS 생성 코드 문제를 해결하려면 테스트 중에 사용할 알려진 SAS 토큰을 생성하는 것이 유용합니다.
 
 > [!NOTE]
 > SimulatedDevice-2.js 샘플에는 SDK를 포함 및 포함하지 않고 SAS 토큰을 생성하는 예가 포함되어 있습니다.
@@ -133,7 +133,7 @@ CLI를 사용하여 알려진 유효한 SAS 토큰을 생성하려면 다음 명
 az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubName}
 ```
 
-생성된 SAS 토큰의 전체 텍스트를 적어 둡니다. SAS 토큰은 다음과 같습니다. `'SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
+생성된 SAS 토큰의 전체 텍스트를 적어 둡니다. SAS 토큰은 다음과 같습니다. `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
 개발 컴퓨터의 터미널 창에서 다운로드한 Node.js 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Tutorials\ConnectivityTests\simulated-device** 폴더로 이동합니다.
 
@@ -189,13 +189,9 @@ node SimulatedDevice-3.js "{your device connection string}"
 
 ![시뮬레이션된 디바이스에서 메시지 보내기](media/tutorial-connectivity/sim-3-sending.png)
 
-포털에서 **메트릭**을 사용하여 원격 분석 메시지가 IoT 허브에 도달하는지 확인할 수 있습니다.
+포털에서 **메트릭**을 사용하여 원격 분석 메시지가 IoT Hub에 도달하는지 확인할 수 있습니다. **리소스** 드롭다운에서 IoT 허브를 선택하고, **전송된 원격 분석 메시지 수**를 메트릭으로 선택하고, 시간 범위를 **지난 시간**으로 설정합니다. 차트에 시뮬레이션된 디바이스에서 보낸 메시지의 집계 수가 표시됩니다.
 
-![IoT Hub 메트릭으로 이동](media/tutorial-connectivity/metrics-portal.png)
-
-**리소스** 드롭다운에서 IoT 허브를 선택하고, **전송된 원격 분석 메시지 수**를 메트릭으로 선택하고, 시간 범위를 **지난 시간**으로 설정합니다. 차트에 시뮬레이션된 디바이스에서 보낸 메시지의 집계 수가 표시됩니다.
-
-![IoT Hub 메트릭 표시](media/tutorial-connectivity/metrics-active.png)
+![IoT Hub 메트릭 표시](media/tutorial-connectivity/metrics-portal.png)
 
 시뮬레이션된 디바이스를 시작한 후에 메트릭을 사용할 수 있게 하는 데 몇 분 정도 걸립니다.
 

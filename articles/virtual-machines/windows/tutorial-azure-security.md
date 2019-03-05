@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebb1a3fba95ed5794b3737d75c4ec182163a32fb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4c54383df74d9cfd7941dc52d26856bc8da51457
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984429"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594715"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Windows 가상 머신 모니터링
 
@@ -65,7 +65,7 @@ VM 보안 구성을 확인하려면 먼저 Security Center 데이터 수집을 �
 
 1. Security Center 대시보드에서 **보안 정책**을 클릭하고 구독을 선택합니다.
 2. **보안 정책** 블레이드에서 **보안 정책**을 선택합니다. 
-3. ** 보안 정책 - 보안 정책 ** 블레이드에서 구독에 적용하려는 정책 항목을 켜거나 끕니다.
+3. **보안 정책 - 보안 정책** 블레이드에서 구독에 적용하려는 정책 항목을 켜거나 끕니다.
 4. 설정 선택을 마쳤으면 블레이드 위쪽에서 **저장**을 선택합니다. 
 
 

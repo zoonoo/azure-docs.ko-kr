@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175730"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958187"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -63,7 +63,7 @@ ms.locfileid: "56175730"
 
 ![가상 네트워크 피어링 전송](./media/virtual-networks-peering-overview/figure04.png)
 
-게이트웨이 전송은 다른 지역에서 만든 가상 네트워크 간의 피어링 관계에서 지원되지 않습니다. 게이트웨이 전송이 작동하려면 피어링 관계의 두 가상 네트워크가 동일한 지역에 있어야 합니다. 다양한 배포 모델(Resource Manager 및 클래식)을 통해 만든 가상 네트워크 간에 게이트웨이 전송은 게이트웨이가 가상 네트워크(Resource Manager)에 있는 경우에만 지원됩니다. 전송을 위한 게이트웨이 사용에 관해 자세히 알아보려면 [가상 네트워크 피어링에서 전송을 위한 VPN 게이트웨이 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+게이트웨이 전송은 다른 지역에서 만든 가상 네트워크 간의 피어링 관계에서 지원되지 않습니다. 게이트웨이 전송이 작동하려면 피어링 관계의 두 가상 네트워크가 동일한 지역에 있어야 합니다. 다양한 배포 모델(Resource Manager 및 클래식)을 통해 만든 가상 네트워크 간의 게이트웨이 전송은 게이트웨이(VPN 또는 ExpressRoute)가 가상 네트워크(Resource Manager)에 있는 경우에만 지원됩니다. 전송을 위한 게이트웨이 사용에 관해 자세히 알아보려면 [가상 네트워크 피어링에서 전송을 위한 VPN 게이트웨이 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 단일 Azure ExpressRoute 연결을 공유하는 가상 네트워크가 피어링된 경우 둘 사이의 트래픽은 피어링 관계(즉, Azure 백본 네트워크)를 거치게 됩니다. 로컬 게이트웨이 각각에서 가상 네트워크를 사용하여 온-프레미스 회로에 연결할 수 있습니다. 또는 공유 게이트웨이를 사용하고 온-프레미스 연결에 대한 전송을 구성할 수 있습니다.
 
@@ -77,8 +77,7 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
 
 ## <a name="requirements-and-constraints"></a>요구 사항 및 제약 조건
 
-가상 네트워크가 전역적으로 피어링될 때 다음 제약 조건이 적용됩니다.
-- 가상 네트워크는 Azure Government 클라우드를 제외한 모든 Azure 공용 클라우드 지역 및 Azure 중국 클라우드 지역에 있을 수 있습니다.
+가상 네트워크가 글로벌 피어링될 때만 다음 제약 조건이 적용됩니다.
 - 하나의 가상 네트워크의 리소스는 전역적으로 피어링된 가상 네트워크에 있는 Azure 내부 부하 분산 장치의 프런트 엔드 IP 주소와 통신할 수 없습니다. 함께 통신하는 부하 분산 장치 및 리소스는 동일한 지역에 있어야 합니다.
 - 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용할 수 없습니다. 원격 게이트웨이를 사용하거나 게이트웨이 전송을 허용하려면 피어링된 가상 네트워크가 동일한 지역에 있어야 합니다.
 

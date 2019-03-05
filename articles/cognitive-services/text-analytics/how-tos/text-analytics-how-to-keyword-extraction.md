@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a427910c598ce7a93dd1b74fb4297d9825ba14ca
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245612"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887389"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>예제: Text Analytics를 사용하여 핵심 구를 추출하는 방법
 
@@ -33,7 +33,7 @@ ms.locfileid: "56245612"
 
 id, text, language 형식의 JSON 문서가 있어야 합니다.
 
-문서 크기는 문서당 5,000자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 다음 예제는 핵심 구 추출에 제출할 수 있는 콘텐츠에 대한 설명입니다.
+문서 크기는 문서당 5,120자 미만이어야 하며, 컬렉션당 최대 1,000개의 항목(ID)을 포함할 수 있습니다. 컬렉션은 요청 본문에 제출됩니다. 다음 예제는 핵심 구 추출에 제출할 수 있는 콘텐츠에 대한 설명입니다.
 
 ```json
     {

@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.openlocfilehash: 449d721683bd59646506db57d78b9535aa7d614d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6509db136524d90db11b83acb701bda71c541060
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100188"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882623"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
 
@@ -109,15 +109,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 웹 브라우저에서 [Twitter 애플리케이션 관리](https://apps.twitter.com/)로 이동하고 **새 앱 만들기**를 선택합니다.
 
-    ![Twitter 응용 프로그램 만들기](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Twitter 응용 프로그램 만들기")
+    ![Twitter 애플리케이션 만들기](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Twitter 애플리케이션 만들기")
 
-2. **응용 프로그램 만들기** 페이지에서 새 앱에 대한 세부 정보를 제공한 다음, **Twitter 응용 프로그램 만들기**를 선택합니다.
+2. **애플리케이션 만들기** 페이지에서 새 앱에 대한 세부 정보를 제공한 다음, **Twitter 애플리케이션 만들기**를 선택합니다.
 
-    ![Twitter 응용 프로그램 세부 정보](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Twitter 응용 프로그램 세부 정보")
+    ![Twitter 애플리케이션 세부 정보](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Twitter 애플리케이션 세부 정보")
 
 3. 애플리케이션 페이지에서 **키 및 액세스 토큰** 탭을 선택하고, **소비자 키** 및 **소비자 비밀**에 대한 값을 복사합니다. 또한 **내 액세스 토큰 만들기**를 선택하여 액세스 토큰을 생성합니다. **액세스 토큰** 및 **액세스 토큰 비밀**에 대한 값을 복사합니다.
 
-    ![Twitter 응용 프로그램 세부 정보](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Twitter 응용 프로그램 세부 정보")
+    ![Twitter 애플리케이션 세부 정보](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Twitter 애플리케이션 세부 정보")
 
 Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한 값은 자습서의 뒷부분에서 필요합니다.
 
@@ -596,4 +596,4 @@ streamingDataFrame.writeStream.outputMode("append").format("console").option("tr
 Azure Databricks를 사용하여 기계 학습 작업을 수행하는 방법에 대해 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[Azure Databricks를 사용한 기계 학습](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)
+>[Azure Databricks를 사용한 Machine Learning](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)

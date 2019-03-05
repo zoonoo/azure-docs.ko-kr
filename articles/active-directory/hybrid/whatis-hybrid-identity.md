@@ -13,14 +13,14 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190469"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881807"
 ---
-# <a name="what-is-hybrid-identity"></a>하이브리드 ID란? 
+# <a name="what-is-hybrid-identity"></a>하이브리드 ID란?
 
 오늘날의 비즈니스와 기업에서는 온-프레미스와 클라우드 애플리케이션이 점점 더 많이 혼합되고 있습니다.  사용자는 온-프레미스 및 클라우드 모두에서 이러한 애플리케이션에 액세스해야 합니다. 이 요구 사항은 도전적인 시나리오가 되었습니다. 
 
@@ -30,7 +30,7 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능에 
 
 - **[PHS(암호 해시 동기화)](whatis-phs.md)**  
 - **[PTA(통과 인증)](how-to-connect-pta.md)**  
-- **[페더레이션](whatis-fed.md)** 
+- **[페더레이션(AD FS)](whatis-fed.md)** 
 
 또한 이러한 인증 방법은 [Single Sign-On](how-to-connect-sso.md) 기능도 제공합니다.  Single Sign-On은 회사 네트워크에 연결된 회사 디바이스에 있을 때 사용자를 자동으로 서명합니다.
 
@@ -47,7 +47,7 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능에 
 |사용자가 자신의 온-프레미스 암호를 사용하여 로그인하고 클라우드 서비스에 액세스할 수 있도록 합니다.|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
 |회사 자격 증명을 사용하여 Single Sign-On을 구현합니다.|![권장](./media/whatis-hybrid-identity/ic195031.png)| ![권장](./media/whatis-hybrid-identity/ic195031.png) |![권장](./media/whatis-hybrid-identity/ic195031.png)|  
 |클라우드에 암호 해시가 저장되지 않도록 합니다.| |![권장](./media/whatis-hybrid-identity/ic195031.png)|![권장](./media/whatis-hybrid-identity/ic195031.png)| 
-|클라우드 다단계 인증 솔루션을 사용하도록 설정합니다.| |![권장](./media/whatis-hybrid-identity/ic195031.png)|![권장](./media/whatis-hybrid-identity/ic195031.png)| 
+|클라우드 기반 다단계 인증 솔루션을 사용하도록 설정합니다.|![권장](./media/whatis-hybrid-identity/ic195031.png)|![권장](./media/whatis-hybrid-identity/ic195031.png)|![권장](./media/whatis-hybrid-identity/ic195031.png)| 
 |온-프레미스 Multi-Factor Authentication 솔루션을 사용합니다.| | |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
 |사용자에 대한 스마트 카드 인증을 지원합니다.<sup>4</sup>| | |![권장](./media/whatis-hybrid-identity/ic195031.png)| 
 |Office 포털 및 Windows 10 바탕 화면에 암호 만료 알림을 표시합니다.| | |![권장](./media/whatis-hybrid-identity/ic195031.png)| 

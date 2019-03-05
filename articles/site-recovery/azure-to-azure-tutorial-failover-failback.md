@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ab920094561b9143945793ddd4ea3da877a7ae90
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 46dae28fd6c9eaa3d5e03f5f06c5e92449653679
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340538"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737725"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 조치(Failover) 및 장애 복구
 
@@ -48,7 +48,7 @@ ms.locfileid: "56340538"
    * **가장 최근에 처리됨**: 이 옵션은 Site Recovery 서비스에서 처리한 최근 복구 지점으로 가상 머신을 되돌립니다.
    * **사용자 지정**: 특정 복구 지점으로 장애 조치(failover)하려면 이 옵션을 사용합니다. 이 옵션은 테스트 장애 조치(failover)를 수행하는 데 유용합니다.
 
-3. 장애 조치를 트리거하기 전에 Site Recovery에서 원본 가상 머신을 종료하려고 시도하는 경우 **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다**를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다.
+3. 장애 조치를 트리거하기 전에 Site Recovery에서 원본 가상 머신을 종료하려고 시도하는 경우 **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다**를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. Site Recovery는 장애 조치 후 원본을 정리하지 않습니다.
 
 4. **작업** 페이지에서 장애 조치(failover) 진행 상황을 확인합니다.
 

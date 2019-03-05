@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 5d9819d60e21c80b882db1d12b0318599fa54095
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/2/2018
+ms.openlocfilehash: 7b724219750154c5ec1410af64175bc70f5cbd6c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729747"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805818"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>빠른 시작: Event Hub에서 Azure Data Explorer로 데이터 수집
 
@@ -103,11 +103,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
     ![테스트 데이터베이스 선택](media/ingest-data-event-hub/select-test-database.png)
 
-1. **데이터 수집**, **데이터 연결 추가**를 차례로 선택합니다.
-
-    ![데이터 수집](media/ingest-data-event-hub/data-ingestion-create.png)
-
-1. 다음 정보로 양식을 작성하고 **만들기**를 선택합니다.
+1. **데이터 수집** 및 **데이터 연결 추가**를 선택합니다. 그런 다음, 다음 정보로 양식을 작성합니다. 작업을 마쳤으면 **만들기**를 선택합니다.
 
     ![이벤트 허브 연결](media/ingest-data-event-hub/event-hub-connection.png)
 

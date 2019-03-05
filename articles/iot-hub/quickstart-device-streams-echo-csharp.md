@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: edd3912b3674f3a80a81fd47ed490479f663852c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7b3a8ac0500652b8c4250b4bc3b4f5514b62c4aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830827"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816941"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 애플리케이션과 통신(미리 보기)
 
@@ -39,8 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 dotnet --version
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에서 샘플 C# 다운로드하고 ZIP 보관 파일을 추출합니다.
-
+https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에서 샘플 C# 다운로드하고 ZIP 보관 파일을 추출합니다. 디바이스 및 서비스 쪽 모두에서 필요합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -86,18 +85,17 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
     다음과 같이 표시되는 반환 값을 기록해 둡니다.
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
-    
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>디바이스 스트림을 통해 디바이스와 서비스 간의 통신
 
 ### <a name="run-the-service-side-application"></a>서비스 쪽 애플리케이션 실행
 
-압축을 푼 프로젝트 폴더에서 `device-streams-echo/service`로 이동합니다. 다음 정보가 필요합니다.
+압축을 푼 프로젝트 폴더에서 `iot-hub/Quickstarts/device-streams-echo/service`로 이동합니다. 다음 정보가 필요합니다.
 
 | 매개 변수 이름 | 매개 변수 값 |
 |----------------|-----------------|
-| `ServiceConnectionString` | IoT Hub의 서비스 연결 문자열입니다. |
-| `DeviceId` | 이전에 만든 디바이스의 식별자입니다. |
+| `ServiceConnectionString` | IoT Hub의 서비스 연결 문자열을 입력합니다. |
+| `DeviceId` | 예를 들어 MyDevice 같이 앞에서 만든 디바이스의 ID를 입력합니다. |
 
 다음과 같이 코드를 컴파일하고 실행합니다.
 
@@ -109,19 +107,22 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $ServiceConnectionString MyDevice
+dotnet run "<ServiceConnectionString>" "<MyDevice>"
 
 # In Windows
-dotnet run %ServiceConnectionString% MyDevice
+dotnet run <ServiceConnectionString> <MyDevice>
 ```
+
+> [!NOTE]
+> 디바이스 쪽 애플리케이션에서 시간 내에 응답하지 않는 경우 시간 초과가 발생합니다.
 
 ### <a name="run-the-device-side-application"></a>디바이스 쪽 애플리케이션 실행
 
-압축을 푼 프로젝트 폴더에서 `device-streams-echo/device` 디렉터리로 이동합니다. 다음 정보가 필요합니다.
+압축을 푼 프로젝트 폴더에서 `iot-hub/Quickstarts/device-streams-echo/device` 디렉터리로 이동합니다. 다음 정보가 필요합니다.
 
 | 매개 변수 이름 | 매개 변수 값 |
 |----------------|-----------------|
-| `DeviceConnectionString` | 이전에 만든 디바이스의 연결 문자열입니다. |
+| `DeviceConnectionString` | IoT Hub의 디바이스 연결 문자열을 입력합니다. |
 
 다음과 같이 코드를 컴파일하고 실행합니다.
 
@@ -133,28 +134,23 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $DeviceConnectionString
+dotnet run "<DeviceConnectionString>"
 
 # In Windows
-dotnet run %DeviceConnectionString%
+dotnet run <DeviceConnectionString>
 ```
 
 마지막 단계의 끝에서 서비스 쪽 프로그램은 디바이스에 대한 스트림을 시작하고 설정되면 스트림을 통해 문자열 버퍼를 서비스로 보냅니다. 이 샘플에서 서비스 쪽 프로그램은 디바이스에 동일한 데이터를 간단히 다시 에코하여 두 애플리케이션 간의 성공적인 양방향 통신을 보여줍니다. 아래 그림을 참조하세요.
 
 디바이스 쪽의 콘솔 출력: ![대체 텍스트](./media/quickstart-device-streams-echo-csharp/device-console-output.png "디바이스 쪽의 콘솔 출력")
 
-
 서비스 쪽의 콘솔 출력: ![대체 텍스트](./media/quickstart-device-streams-echo-csharp/service-console-output.png "서비스 쪽의 콘솔 출력")
 
-
-
 스트림을 통해 전송되는 트래픽은 직접 전송되는 것이 아니라 IoT Hub를 통해 터널링됩니다. [이러한 혜택](./iot-hub-device-streams-overview.md#benefits)을 제공합니다.
-
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
 
 ## <a name="next-steps"></a>다음 단계
 

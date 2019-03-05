@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 04/12/2018
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: b8d48f221dc54a3cd96bf2dbec08e40a047b7940
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 225e62cedfea79875d56a50b4b04bdf0ad4c7892
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440001"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872032"
 ---
 # <a name="use-azure-cli-to-create-and-verify-availability-of-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Azure CLI를 사용하여 Azure DevTest Labs의 랩에서 가상 머신을 만들고 사용 가능성 확인
 
@@ -48,7 +48,7 @@ az group delete --name myResourceGroup
 | 명령 | 메모 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az lab vm create ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | 랩에서 VM(가상 머신)을 만듭니다. |
+| [az lab vm create](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-create) | 랩에서 VM(가상 머신)을 만듭니다. |
 | [az lab vm show](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-show) | 랩에서 VM의 상태를 표시합니다. |
 
 ## <a name="next-steps"></a>다음 단계

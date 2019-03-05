@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 4173c0b26b2d176549d3a89cc6fdfa928b6cca5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0e104f4cbdef7edc5c109781509e3924400e5ba4
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963847"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959734"
 ---
 # <a name="import-and-publish-your-first-api"></a>첫 번째 API 가져오기 및 게시 
 
@@ -39,7 +39,7 @@ ms.locfileid: "52963847"
 ## <a name="prerequisites"></a>필수 조건
 
 + [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
-+ [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)  빠른 시작을 완료합니다.
++ 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,7 +48,7 @@ ms.locfileid: "52963847"
 이 섹션에서는 OpenAPI 사양 백 엔드 API를 가져오고 게시하는 방법을 보여 줍니다.
  
 1. **API Management**에서 **API**를 선택합니다.
-2. 목록에서 **OpenAPI 사양**을 선택합니다.
+2. 목록에서 **OpenAPI 사양**을 선택하고 팝업에서 **전체**를 클릭합니다.
 
     ![API 만들기](./media/api-management-get-started/create-api.png)
 
@@ -65,7 +65,8 @@ ms.locfileid: "52963847"
     | **URL 구성표**            | *HTTPS*                                            | API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     | **API URL 접미사**        | *conference*                                       | 접미사는 API Management 서비스의 기준 URL에 추가됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
     | **제품**              | *무제한*                                        | 제품은 하나 이상의 API와 연결됩니다. 다양한 API를 제품에 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. <br/>API를 제품(이 예제에서는 *Unlimited*)에 연결하여 API를 게시합니다. 이 새 API를 제품에 추가하려면 제품 이름을 입력합니다(나중에 **설정** 페이지에서 입력 가능). 이 단계는 여러 제품에 API 추가를 여러 번 반복할 수 있습니다.<br/>개발자는 API에 액세스하려면 먼저 제품을 구독해야 합니다. 구독할 경우 해당 제품의 모든 API에 적절한 구독 키를 받게 됩니다. <br/> APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 모든 제품을 구독한 상태가 됩니다.<br/> 기본적으로 각 API Management 인스턴스는 두 개의 샘플 제품과 함께 제공됩니다. **Starter** 및 **Unlimited**입니다. |
-    | API 버전 관리         |                                                    | 버전 관리에 대한 자세한 내용은 [여러 버전의 API 게시](api-management-get-started-publish-versions.md)를 참조하세요.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+    | **태그**                  |                                                    | API 구성을 위한 태그입니다. 검색, 그룹화 또는 필터링에 태그를 사용할 수 있습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+    | **API 버전 관리**     |                                                    | 버전 관리에 대한 자세한 내용은 [여러 버전의 API 게시](api-management-get-started-publish-versions.md)를 참조하세요.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
     >[!NOTE]
     > API를 게시하려면 API를 제품과 연결해야 합니다. **설정 페이지**에서 연결할 수 있습니다.

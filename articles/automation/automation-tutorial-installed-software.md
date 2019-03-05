@@ -11,12 +11,12 @@ ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ffa14e3fb3fd41d6a30e1cf30713b26d7ecd255a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2cce925f4b3e1acc6c93019615b81983a5c95f6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436016"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815895"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure 및 비Azure 컴퓨터에 설치된 소프트웨어 검색
 
@@ -58,8 +58,10 @@ Log Analytics 작업 영역 및 Automation 계정을 선택하고 **사용**을 
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역은 기능 및 서비스(예: 인벤토리)에서 생성된 데이터를 수집하는 데 사용됩니다.
 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 솔루션을 사용하도록 설정하는 데 최대 15분이 걸릴 수 있습니다. 이 시간 동안에는 브라우저 창을 닫으면 안됩니다.
-솔루션을 사용하도록 설정되면 설치된 소프트웨어에 대한 정보 및 VM에 대한 변경 내용이 Log Analytics로 이동합니다.
+솔루션을 사용하도록 설정한 후 설치된 소프트웨어에 대한 정보 및 VM에 대한 변경 내용이 Azure Monitor 로그로 이동합니다.
 이 데이터를 분석에 사용할 수 있게 되는 데 30분에서 6시간까지 걸릴 수 있습니다.
 
 ## <a name="onboard-a-vm"></a>VM 등록
@@ -101,7 +103,7 @@ Automation 계정 내에서 **구성 관리** 아래의 **인벤토리**를 선�
 
 ## <a name="search-inventory-logs-for-installed-software"></a>설치된 소프트웨어에 대한 인벤토리 로그 검색
 
-인벤토리는 Log Analytics로 보내는 로그 데이터를 생성합니다. 쿼리를 실행하여 로그를 검색하려면 **인벤토리** 창 위쪽에서 **Log Analytics**를 선택합니다.
+인벤토리에서 Azure Monitor 로그로 보내는 로그 데이터를 생성합니다. 쿼리를 실행하여 로그를 검색하려면 **인벤토리** 창 위쪽에서 **Log Analytics**를 선택합니다.
 
 인벤토리 데이터는 **ConfigurationData** 형식 아래에 저장됩니다.
 다음 샘플 Log Analytics 쿼리는 게시자가 "Microsoft Corporation"인 인벤토리 결과를 반환합니다.
@@ -113,11 +115,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 자세한 내용은 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
+Azure Monitor 로그에서 로그 파일을 실행하고 검색하는 방법에 대한 자세한 내용은 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
 
 ### <a name="single-machine-inventory"></a>단일 컴퓨터 인벤토리
 
-단일 컴퓨터에 대한 소프트웨어 인벤토리를 보려면 Azure VM 리소스 페이지에서 인벤토리에 액세스하거나 Log Analytics를 사용하여 해당 컴퓨터로 필터링할 수 있습니다.
+단일 머신에 대한 소프트웨어 인벤토리를 보려면 Azure VM 리소스 페이지에서 인벤토리에 액세스하거나 Azure Monitor 로그를 사용하여 해당 머신으로 필터링할 수 있습니다.
 다음 Log Analytics 쿼리 예제에서는 ContosoVM이라는 컴퓨터의 소프트웨어 목록을 반환합니다.
 
 ```loganalytics

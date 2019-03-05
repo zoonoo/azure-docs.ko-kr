@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337564"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960652"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3란?
 
@@ -88,7 +88,7 @@ Media Services v3 콘텐츠는 다음 구조에 따라 구성됩니다(목차에
 | 빠른 시작 | 신규 고객이 Media Services를 빠르게 사용해 볼 수 있는 기본적인 1일차 지침을 보여줍니다.|
 | 자습서 | 일부 주요 Media Services 작업에 대한 시나리오 기반 프로시저를 보여줍니다.|
 | 샘플 | 코드 샘플에 연결됩니다. |
-| 개념 | Media Services v3 기능에 대한 자세한 설명 및 다이어그램이 포함되어 있습니다. 이 항목에는 개발을 시작하기 전에 검토해야 하는 기본 개념이 설명되어 있습니다.<br/><br/>* 클라우드 업로드 및 스토리지<br/>* 인코딩<br/>* 미디어 분석<br/>* 패키징, 배달, 보호<br/>* 라이브 스트리밍<br/>* 연속 모니터링<br/>* 플레이어 클라이언트<br/><br/>기타 작업 |
+| 개념 | [Media Services v3 컨셉 및 기능](concepts-overview.md)에 대한 자세한 설명이 포함되어 있습니다. 이 항목에는 개발을 시작하기 전에 검토해야 하는 기본 개념이 설명되어 있습니다.<br/><br/>* 클라우드 업로드 및 스토리지<br/>* 인코딩<br/>* 미디어 분석<br/>* 패키징, 배달, 보호<br/>* 라이브 스트리밍<br/>* 모니터링<br/>* 플레이어 클라이언트<br/><br/>기타 작업 |
 | 방법 가이드 | 작업을 완료하는 방법을 설명합니다.|
 
 ## <a name="next-steps"></a>다음 단계

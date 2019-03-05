@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: 53d8df7e2366cfbf2f62e79fc99c8ef2f9b48ba1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ea82bdca23d8b34898261eb60fd908d281451fd0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830814"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825303"
 ---
 이 섹션에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT Hub를 만드는 방법에 대해 설명합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "54830814"
 
    **구독**: IoT 허브에 사용할 구독을 선택합니다.
 
-   **리소스 그룹**: 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. 새 리소스 그룹을 만들려면 **새로 만들기**를 클릭하고 사용하려는 이름을 입력합니다. 기존 리소스 그룹을 사용하려면 **기존 항목 사용**을 클릭하고 드롭다운 목록에서 리소스 그룹을 선택합니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../articles/azure-resource-manager/resource-group-portal.md)를 참조하세요.
+   **리소스 그룹**: 새 리소스 그룹을 만들거나 기존 그룹을 사용할 수 있습니다. 새 리소스 그룹을 만들려면 **새로 만들기**를 클릭하고 사용하려는 이름을 입력합니다. 기존 리소스 그룹을 사용하려면 **기존 항목 사용**을 클릭하고 드롭다운 목록에서 리소스 그룹을 선택합니다. 자세한 내용은 [Azure Resource Manager 리소스 그룹 관리](../articles/azure-resource-manager/manage-resource-groups-portal.md)를 참조하세요.
 
    **지역**: 허브를 배치할 지역입니다. 지원되는 지역을 선택해야 합니다(예: 미국 중부 또는 미국 중부 EUAP).
 

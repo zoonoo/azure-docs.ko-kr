@@ -1,41 +1,45 @@
 ---
-title: '빠른 시작: Windows용 Azure 파일 공유 만들기 및 사용 | Microsoft Docs'
-description: Windows용 Azure 파일 공유를 만들고 사용하려면 이 빠른 시작을 사용합니다.
+title: Azure 빠른 시작 - Windows VM에서 Azure Files 공유 만들기 및 사용 | Microsoft Docs
+description: 이 빠른 시작에서는 Azure Portal에서 Azure Files 공유를 설정하고 Windows 가상 머신에 연결합니다. 파일 공유에 연결하고 파일 공유에 파일을 업로드합니다. 그런 다음, 파일 공유의 스냅숏을 만들고, 파일 공유에서 파일을 수정하고, 파일 공유의 이전 스냅숏을 복원합니다.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 141a8c9d63d3f0fd615ec0648b15c669f28f7118
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.author: rogarana
+ms.subservice: files
+ms.openlocfilehash: 12dea044dab2aafad1d7597214d159011b5ab536
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663998"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652470"
 ---
-# <a name="quickstart-create-and-use-an-azure-file-share-for-windows"></a>빠른 시작: Windows용 Azure 파일 공유 만들기 및 사용
-이 문서에서는 Azure 파일 공유를 만들고 사용하기 위한 기본 단계를 설명합니다. 이 빠른 시작에서는 서비스의 작동 원리를 확인할 수 있도록 Azure 파일 공유를 신속하게 설정하는 것에 중점을 둡니다. 고유한 환경에서 Azure 파일 공유를 만들고 사용하기 위한 자세한 지침이 필요한 경우 [Windows로 Azure 파일 공유 사용](storage-how-to-use-files-windows.md)를 참조하세요.
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>빠른 시작: Windows 가상 머신에서 Azure Files 공유 만들기 및 관리
+
+이 문서에서는 Azure Files 공유를 만들고 사용하기 위한 기본 단계를 설명합니다. 이 빠른 시작에서는 서비스의 작동 원리를 확인할 수 있도록 Azure Files 공유를 신속하게 설정하는 것에 중점을 둡니다. 고유한 환경에서 Azure 파일 공유를 만들고 사용하기 위한 자세한 지침이 필요한 경우 [Windows로 Azure 파일 공유 사용](storage-how-to-use-files-windows.md)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
+
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="prepare-your-environment"></a>환경 준비
-Azure 파일 공유를 만들기 전에 이 빠른 시작을 위한 다음 항목을 설정해야 합니다.
+
+이 빠른 시작에서는 다음 항목을 설정합니다.
 
 - Azure 스토리지 계정 및 파일 공유
 - Windows Server 2016 Datacenter VM
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만들어야 합니다. 저장소 계정은 Azure 파일 공유 또는 Blob나 큐와 같은 다른 저장소 리소스를 배포할 수 있는 저장소의 공유 풀입니다. 저장소 계정에 포함될 수 있는 공유 수에는 제한이 없습니다. 공유에 저장할 수 있는 파일 수에는 제한이 없으며, 저장소 계정의 최대 용량까지 저장할 수 있습니다.
+Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만들어야 합니다. 범용 v2 스토리지 계정은 모든 Azure Storage 서비스(BLOB, 파일, 큐, 테이블)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 스토리지 계정을 만들지만 모든 유형의 스토리지 계정을 만드는 단계는 비슷합니다. 저장소 계정에 포함될 수 있는 공유 수에는 제한이 없습니다. 공유에 저장할 수 있는 파일 수에는 제한이 없으며, 저장소 계정의 최대 용량까지 저장할 수 있습니다.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
+
 이제 파일 공유를 만듭니다.
 
 1. Azure 스토리지 계정 배포가 완료되면 **리소스로 이동**을 선택합니다.
@@ -58,6 +62,7 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 지금까지 Azure에서 Azure 스토리지 계정과, 파일이 하나 있는 파일 공유를 만들었습니다. 이제 이 빠른 시작에서 온-프레미스 서버를 나타내는 Windows Server 2016 Datacenter가 있는 Azure VM을 만들겠습니다.
 
 ### <a name="deploy-a-vm"></a>VM 배포
+
 1. 이제 포털 왼쪽의 메뉴를 확장하고 Azure Portal 왼쪽 위 모서리에 있는 **리소스 만들기**를 선택합니다.
 1. **Azure Marketplace** 리소스 목록 위에 있는 검색 상자에서 **Windows Server 2016 Datacenter**를 검색하고 선택한 다음, **만들기**를 선택합니다.
 1. **기본** 탭의 **프로젝트 세부 정보**에서 이 빠른 시작용으로 만든 리소스 그룹을 선택합니다.
@@ -112,6 +117,7 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
       ![Azure Files 연결 창의 UNC 경로](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
 ## <a name="create-a-share-snapshot"></a>공유 스냅숏 만들기
+
 이제 드라이브를 매핑했으므로 스냅숏을 만들 수 있습니다.
 
 1. 포털에서 파일 공유로 이동하고 **스냅숏 만들기**를 선택합니다.
@@ -132,7 +138,7 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 
 ## <a name="restore-from-a-snapshot"></a>스냅숏에서 복원
 
-1. 포털에서 *qsTestFile*을 선택하고 > **복원** 단추를 선택합니다.
+1. 파일 공유 스냅숏 블레이드에서 *qsTestFile*을 마우스 오른쪽 단추로 클릭하고 **복원** 단추를 선택합니다.
 1. **원본 파일 덮어쓰기**를 선택합니다.
 
    ![다운로드 및 복원 단추](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -147,6 +153,7 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
    ![삭제 단추](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Windows에서 공유 스냅숏 사용
+
 온-프레미스 VSS 스냅숏과 마찬가지로 이전 버전 탭을 사용하여 탑재된 Azure 파일 공유의 스냅숏을 볼 수 있습니다.
 
 1. 파일 탐색기에서 탑재된 공유를 찾습니다.

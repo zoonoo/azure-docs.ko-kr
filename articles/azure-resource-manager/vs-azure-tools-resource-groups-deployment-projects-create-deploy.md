@@ -11,22 +11,20 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493481"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649682"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
 Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프로젝트를 만들 수 있습니다. 예를 들어 앱에 대한 웹 호스트, 웹 사이트 및 데이터베이스를 정의하고 코드와 함께 해당 인프라를 배포할 수 있습니다. Visual Studio는 일반 시나리오를 배포하기 위한 다양한 서로 다른 시작 템플릿을 제공합니다. 이 문서에서는 웹앱 및 SQL Database를 배포합니다.  
 
 이 문서에서는 [Azure 개발 및 ASP.NET 워크로드가 설치된 Visual Studio 2017](/dotnet/azure/dotnet-tools) 사용 방법을 보여줍니다. Visual Studio 2015 업데이트 2 및 Microsoft Azure SDK for .NET 2.9 또는 Azure SDK 2.9와 함께 Visual Studio 2013을 사용하는 경우 환경은 대부분 동일합니다.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Azure 리소스 그룹 프로젝트 만들기
 
@@ -148,7 +146,9 @@ Visual Studio는 또한 템플릿을 편집하는 경우 사용 가능한 속성
 5. **배포** 단추를 선택하여 Azure에 프로젝트를 배포합니다. Visual Studio 인스턴스의 외부에서 PowerShell 콘솔이 열립니다. 메시지가 표시되면 PowerShell 콘솔에 SQL Server 관리자 암호를 입력합니다. **PowerShell 콘솔은 다른 항목 뒤에 숨겨지거나 작업 표시줄에서 최소화될 수 있습니다.** 이 콘솔을 찾아서 암호를 제공합니다.
    
    > [!NOTE]
-   > Visual Studio에서는 Azure PowerShell cmdlet을 설치하도록 요청할 수 있습니다. 리소스 그룹을 성공적으로 배포하려면 Azure PowerShell cmdlet이 필요합니다. 메시지가 표시되면 설치합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/install-az-ps)을 참조하세요.
+   > Visual Studio에서는 Azure PowerShell cmdlet을 설치하도록 요청할 수 있습니다. 메시지가 표시되면 설치합니다. 리소스 그룹을 성공적으로 배포하려면 Azure PowerShell 모듈이 필요합니다. 프로젝트의 PowerShell 스크립트는 새 [Azure PowerShell Az 모듈](/powershell/azure/new-azureps-module-az)에서 작동하지 않습니다. 
+   >
+   > 자세한 내용은 [Azure PowerShell 모듈 설치 및 구성](/powershell/azure/azurerm/install-azurerm-ps)을 참조하세요.
    > 
    > 
 6. 배포는 몇 분 정도가 걸릴 수 있습니다. **출력** 창에 배포의 상태가 표시됩니다. 배포가 완료되면 마지막 메시지는 다음과 유사한 내용으로 성공적인 배포를 나타냅니다.

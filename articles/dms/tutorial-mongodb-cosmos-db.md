@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/11/2018
-ms.openlocfilehash: b4f8d2bdbce20fc7a932280edc26cb3ddfbe6471
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 5fd3200ab787a26b11feb121b5db125e4a79365c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247608"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960388"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB의 API for MongoDB로 마이그레이션
 Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이터베이스를 MongoDB 온-프레미스 또는 클라우드 인스턴스에서 Azure Cosmos DB의 API for MongoDB로 마이그레이션할 수 있습니다.
@@ -100,7 +100,7 @@ Azure Database Migration Service를 사용하여 오프라인(1회)으로 데이
 ## <a name="specify-source-details"></a>원본 세부 정보 지정
 1. **원본 세부 정보** 화면에서 원본 MongoDB 서버에 대한 연결 세부 정보를 지정합니다.
     
-   또한 마이그레이션하려는 컬렉션 데이터를 덤프한 위치에서 연결 문자열 모드를 사용하고 블로그 저장소 파일 컨테이너의 위치를 제공할 수 있습니다.
+   또한 마이그레이션하려는 컬렉션 데이터를 덤프한 위치에서 연결 문자열 모드를 사용하고 Blob 저장소 파일 컨테이너의 위치를 제공할 수 있습니다.
 
    > [!NOTE]
    > Azure Database Migration Service는 bson 문서나 json 문서를 Azure Cosmos DB의 API for MongoDB 컬렉션으로 마이그레이션할 수도 있습니다.

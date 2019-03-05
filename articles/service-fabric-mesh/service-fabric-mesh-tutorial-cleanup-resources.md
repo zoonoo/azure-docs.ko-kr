@@ -3,8 +3,8 @@ title: 자습서 - Azure Service Fabric Mesh 리소스 정리 | Microsoft Docs
 description: 더 이상 사용하지 않는 리소스 요금이 부과되지 않도록 Azure Service Fabric Mesh 리소스를 제거하는 방법을 알아봅니다.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/18/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fb7a444c54a57e7f2c38d941eb99f2fea7eebcef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a60c42310f0698b8290e7ba6195eeed44fe0b95e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993360"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815793"
 ---
 # <a name="tutorial-remove-azure-resources"></a>자습서: Azure 리소스 제거
 
@@ -44,7 +44,7 @@ ms.locfileid: "46993360"
 
 이 자습서를 시작하기 전에:
 
-* 할 일 앱을 배포하지 않은 경우 [Service Fabric Mesh 웹 애플리케이션 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)의 지침을 따르세요.
+* 할 일 앱을 배포하지 않은 경우 [Service Fabric Mesh 웹 응용 프로그램 게시](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)의 지침을 따르세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -62,7 +62,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-또는 [포털에서](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources) **sfmeshTutorial1RG** 리소스 그룹을 삭제해도 됩니다. 
+또는 [포털에서](../azure-resource-manager/manage-resource-groups-portal.md#delete-resource-groups) **sfmeshTutorial1RG** 리소스 그룹을 삭제해도 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

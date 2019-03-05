@@ -1,6 +1,6 @@
 ---
 title: HDInsight 기반의 Apache Kafka 소개 - Azure
-description: HDInsight의 Apache Kafka에 대해 알아보세요. 이것이 무엇인지, 무엇을 하는지, 어디서 예제와 시작 정보를 찾는지에 대해 설명합니다.
+description: HDInsight의 Apache Kafka에 대해 알아봅니다. 무엇인지, 무엇을 하는지, 어디서 예제와 시작 정보를 찾는지에 대해 설명합니다.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 587279d247b945b787051721d256f00a090d56db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4d054542d600f2569170f40b8f6c053e005fc8af
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313965"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889191"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka란?
 
-[Apache Kafka](https://kafka.apache.org)는 실시간 스트리밍 데이터 파이프라인과 응용 프로그램을 만드는 데 사용할 수 있는 오픈 소스 분산형 스트리밍 플랫폼입니다. 또한 Kafka는 명명된 데이터 스트림을 게시하고 구독할 수 있는 메시지 대기열과 비슷한 메시지 브로커 기능을 제공합니다. 
+[Apache Kafka](https://kafka.apache.org)는 실시간 스트리밍 데이터 파이프라인과 애플리케이션을 만드는 데 사용할 수 있는 오픈 소스 분산형 스트리밍 플랫폼입니다. 또한 Kafka는 명명된 데이터 스트림을 게시하고 구독할 수 있는 메시지 대기열과 비슷한 메시지 브로커 기능을 제공합니다. 
 
 다음은 HDInsight의 Kafka가 갖는 고유한 특성입니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "52313965"
 
     자세한 내용은 [HDInsight에서 Apache Kafka의 고가용성](apache-kafka-high-availability.md)을 참조하세요.
 
-* Azure Log Analytics를 사용하여 HDInsight에서 Kafka를 모니터링할 수 있습니다. Log Analytics는 디스크 및 NIC 메트릭, Kafka의 JMX 메트릭 같은 가상 머신 수준 정보를 표시합니다.
+* Azure Monitor 로그를 사용하여 HDInsight에서 Kafka를 모니터링할 수 있습니다. Azure Monitor 로그는 디스크 및 NIC 메트릭, Kafka의 JMX 메트릭과 같은 가상 머신 수준 정보를 표시합니다.
 
     자세한 내용은 [HDInsight에서 Apache Kafka에 대한 로그 분석](apache-kafka-log-analytics-operations-management.md)을 참조하세요.
 
@@ -64,11 +64,11 @@ Kafka는 **토픽**에 레코드(데이터)를 저장합니다. **생산자**에
 
     MirrorMaker 사용에 대한 내용은 [HDInsight에서 Apache Kafka를 사용하여 Apache Kafka 항목 복제](apache-kafka-mirroring.md)를 참조하세요.
 
-* **게시-구독 메시지 패턴**: Kafka는 Kafka 토픽에 레코드를 게시하기 위한 생산자 API를 제공합니다. 소비자 API는 토픽을 구독할 때 사용됩니다.
+* **게시-구독 메시지 패턴**: Kafka는 Kafka 토픽에 레코드를 게시하는 생산자 API를 제공합니다. 소비자 API는 토픽을 구독할 때 사용됩니다.
 
     자세한 내용은 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.
 
-* **스트림 처리**: Kafka는 종종 실시간 스트리밍 처리를 위해 Apache Storm 또는 Apache Spark와 함께 사용됩니다. Kafka 0.10.0.0(HDInsight 버전 3.5 및 3.6)은 Storm이나 Spark를 요구하지 않고 스트리밍 솔루션을 빌드할 수 있는 스트리밍 API를 도입했습니다.
+* **스트림 처리**: Kafka는 실시간 스트리밍 처리를 위해 Apache Storm 또는 Spark와 함께 사용되는 경우가 많습니다. Kafka 0.10.0.0(HDInsight 버전 3.5 및 3.6)은 Storm이나 Spark를 요구하지 않고 스트리밍 솔루션을 빌드할 수 있는 스트리밍 API를 도입했습니다.
 
     자세한 내용은 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.
 
@@ -76,15 +76,15 @@ Kafka는 **토픽**에 레코드(데이터)를 저장합니다. **생산자**에
 
     자세한 내용은 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.
 
-* **순차적 전달**: 레코드는 각 파티션 내에서 수신된 순서대로 스트림에 저장됩니다. 파티션마다 소비자 프로세스를 하나씩 연결하여 레코드가 순서대로 처리되도록 보장할 수 있습니다.
+* **순차적 전달**: 각 파티션 내에서 레코드는 수신된 순서로 스트림에 저장됩니다. 파티션마다 소비자 프로세스를 하나씩 연결하여 레코드가 순서대로 처리되도록 보장할 수 있습니다.
 
     자세한 내용은 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.
 
 ## <a name="use-cases"></a>사용 사례
 
-* **메시징**: Kafka는 게시-구독 메시지 패턴을 지원하므로 종종 메시지 브로커로 사용됩니다.
+* **메시징**: Kafka는 게시-구독 메시지 패턴을 지원하기 때문에 메시지 브로커로 자주 사용됩니다.
 
-* **활동 추적**: Kafka는 순서대로 레코드 로그를 기록하므로 활동을 추적하고 다시 만드는 데 사용할 수 있습니다. 예를 들어 웹 사이트 또는 애플리케이션에서의 사용자 작업이 여기에 해당합니다.
+* **활동 추적**: Kafka는 순서대로 레코드 로그를 기록하기 때문에 활동을 추적하고 다시 만드는 데 사용할 수 있습니다. 예를 들어 웹 사이트 또는 애플리케이션에서의 사용자 작업이 여기에 해당합니다.
 
 * **집계**: 스트림 처리를 사용하여 결합할 서로 다른 스트림의 정보를 한데 모으고 중앙에서 이 정보를 운영 데이터로 집중적으로 처리할 수 있습니다.
 

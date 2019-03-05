@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 359606c6dfe75d9910565cffa555b1e52d29267d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e02c99edcc1774510f9d10a5d19f49c4fc0530a9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448605"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594086"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Speech SDK를 사용하여 오디오 입력 디바이스를 선택하는 방법 
+# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Speech SDK를 사용하여 오디오 입력 디바이스 선택
 
 Speech SDK 버전 1.3.0에는 오디오 입력을 선택하는 API가 도입되었습니다. 이 문서에서는 시스템에 연결된 오디오 디바이스의 ID를 가져오는 방법에 대해 설명합니다.
 그러면 `AudioConfig` 개체를 통해 오디오 디바이스를 구성하여 Speech SDK에서 이러한 ID를 사용할 수 있습니다.
@@ -367,3 +367,13 @@ iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 
 ```
 
 음성 지원 앱에 Bluetooth 헤드셋을 사용할 수 있도록 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [GitHub에서 샘플 살펴보기](https://aka.ms/csspeech/samples)
+
+## <a name="see-also"></a>참고 항목
+
+- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [언어 모델 사용자 지정](how-to-customize-language-model.md)

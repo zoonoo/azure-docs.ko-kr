@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c5bf56482534a55d24d8ca043e36c39cec99b1f0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: be1249969fc50f5305dc5844f2578f8a24a6a220
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267532"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817952"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기
 
@@ -122,22 +122,10 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
     ![Azure Portal - Cloud Shell 파일 업로드](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. 자습서의 앞부분에서 저장한 템플릿을 선택합니다. 기본 이름은 **azuredeploy.json**입니다.  이름이 같은 파일이 있는 경우 알림 없이 기존 파일을 덮어씁니다.
-5. Cloud shell에서 다음 명령을 실행하여 파일이 성공적으로 업로드되었는지 확인합니다. 
 
-    ```bash
-    ls
-    ```
+    필요에 따라 **ls $HOME** 명령 및 **cat $HOME/azuredeploy.json** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다. 
 
-    ![Azure Portal - Cloud Shell 파일 나열](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-list-file.png)
-
-    스크린샷에 표시된 파일 이름은 azuredeploy.json입니다.
-
-6. Cloud shell에서 다음 명령을 실행하여 JSON 파일의 콘텐츠를 확인합니다.
-
-    ```bash
-    cat azuredeploy.json
-    ```
-7. Cloud shell에서 다음 PowerShell 명령을 실행합니다. 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. [필수 조건](#prerequisites)을 참조하세요.
+5. Cloud shell에서 다음 PowerShell 명령을 실행합니다. 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. [필수 조건](#prerequisites)을 참조하세요.
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -146,17 +134,14 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json
+        -TemplateFile "$HOME/azuredeploy.json"
     ```
-
-    > [!NOTE]
-    > Cloud shell에서 Azure PowerShell 사용과 관련된 파일 IO 문제가 있습니다.  오류 메시지는 *cmdlet에 대한 동적 매개 변수를 검색할 수 없습니다. 'Azure:/azuredeploy.json' 경로는 존재하지 않으므로 찾을 수 없습니다.* 입니다.  임시 해결 방법은 `New-AzResourceGroupDeploy` 명령에 **-TemplateFile** 스위치를 포함하지 않는 것입니다. 이 명령은 파일 이름을 입력하라는 메시지를 표시합니다.
 
 8. 다음 PowerShell 명령을 실행하여 새로 만든 가상 머신을 나열합니다.
 

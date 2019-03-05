@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 9da2f8fa345ad3447d7c3344772458c451cf427e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867242"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732707"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>자습서: 단순 엔터티 및 구 목록을 사용하여 이름 추출
 
@@ -233,7 +233,9 @@ Azure-Samples GitHub 리포지토리에서 [jobs-phrase-list.csv](https://github
 
     [![새 구 목록 만들기 대화 상자 팝업의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "새 구 목록 만들기 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    구 목록에 더 많은 단어를 추가하려면 **관련 값**을 검토하고 관련된 내용을 추가합니다. 
+    구 목록에 더 많은 단어를 추가하려면 **권장**을 선택한 다음, 새 **관련 값**을 검토하고 관련된 내용을 추가합니다. 
+
+    이러한 값은 작업에 대해 동의어로 처리되므로 **서로 교환 가능한 값**을 선택해야 합니다. 교환 가능하고 교환 불가능한 [구 목록 개념](luis-concept-feature.md#how-to-use-phrase-lists)에 대해 자세히 알아보세요.
 
 1. **저장**을 선택하여 구 목록을 활성화합니다.
 

@@ -14,21 +14,16 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/12/2019
 ms.author: aschhab
-ms.openlocfilehash: 632ef45d4db5de03369e0abb8b16590911bdffdb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7543fb6aed2e63a998dae2b0a855a70197a282ac
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233305"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587211"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Azure Portal을 사용하여 Service Bus 네임스페이스 만들기
 
-네임스페이스는 모든 메시징 구성 요소에 대한 영역 컨테이너입니다. 여러 큐 및 토픽은 단일 네임스페이스 내에 있을 수 있으며 네임스페이스는 종종 애플리케이션 컨테이너로 사용됩니다. 두 가지 방법으로 Service Bus 네임스페이스를 만들 수 있습니다.
-
-1. Azure Portal(이 문서)
-2. [Resource Manager 템플릿][create-namespace-using-arm]
-
-## <a name="create-a-namespace-in-the-azure-portal"></a>Azure Portal에서 네임스페이스 만들기
+네임스페이스는 모든 메시징 구성 요소에 대한 영역 컨테이너입니다. 여러 큐 및 토픽은 단일 네임스페이스 내에 있을 수 있으며 네임스페이스는 종종 애플리케이션 컨테이너로 사용됩니다. 이 문서에서는 Azure Portal에서 네임스페이스를 만들기 위한 지침을 제공합니다. 
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 

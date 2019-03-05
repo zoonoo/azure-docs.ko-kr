@@ -15,16 +15,17 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 619f77b6b50a005b4b5cc688bdbf32d1ce3dce26
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2ef38e34403a9c04eac5132c66682a045a589cf8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810817"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733064"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>자습서: Service Fabric에서 Java 웹 API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 애플리케이션 만들기
 
-이 자습서는 시리즈의 1부입니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 Voting 애플리케이션이 생깁니다. 이 자습서 시리즈는 작업 중인 Linux 또는 Mac OSX 개발자 컴퓨터가 있어야 합니다. 수동으로 투표 애플리케이션을 만들지 않으려면 완성된 애플리케이션에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-java-quickstart)하고 [투표 샘플 애플리케이션을 설명](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)하기 위해 바로 건너뛸 수 있습니다.
+이 자습서는 시리즈의 1부입니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 Voting 애플리케이션이 생깁니다. 이 자습서 시리즈는 작업 중인 Linux 또는 Mac OSX 개발자 컴퓨터가 있어야 합니다. 수동으로 투표 애플리케이션을 만들지 않으려면 완성된 애플리케이션에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-java-quickstart)하고 [투표 샘플 애플리케이션을 설명](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)하기 위해 바로 건너뛸 수 있습니다. 또한 [Java Reliable Services를 위한 빠른 시작](service-fabric-quickstart-java-reliable-services.md)을 따르는 것이 좋습니다.
+
 
 ![로컬 Voting 앱](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
@@ -53,7 +54,7 @@ ms.locfileid: "55810817"
 
 ## <a name="create-the-front-end-java-stateless-service"></a>프런트 엔드 Java 상태 비저장 서비스 만들기
 
-먼저 Voting 애플리케이션의 웹 프런트 엔드를 만듭니다. Java 상태 비저장 서비스는 AngularJS에서 전원을 공급하는 웹 UI를 호스팅하는 경량 HTTP 서버를 준비합니다. 사용자의 요청은 이 상태 비저장 서비스에서 처리되며 투표를 저장하기 위해 상태 저장 서비스에 원격 프로시저 호출로서 전송됩니다. 
+먼저 Voting 애플리케이션의 웹 프런트 엔드를 만듭니다. AngularJS 제공 웹 UI는 경량 HTTP 서버를 실행하는 Java 상태 비저장 서비스에 요청을 보냅니다. 이 서비스는 각 요청을 처리하고 투표를 저장하는 상태 저장 서비스에 원격 프로시저 호출을 보냅니다. 
 
 1. Eclipse를 시작합니다.
 
@@ -85,7 +86,7 @@ ms.locfileid: "55810817"
 
 ### <a name="add-html-and-javascript-to-the-votingweb-service"></a>HTML 및 Javascript를 VotingWeb 서비스에 추가
 
-상태 비저장 서비스에서 렌더링할 수 있는 UI를 추가하려면 HTML 파일을 *VotingApplication/VotingWebPkg/Code*에 추가합니다. 이 HTML 파일은 상태 비저장 Java 서비스에 포함된 경량 HTTP 서버에서 렌더링합니다.
+상태 비저장 서비스로 렌더링할 수 있는 UI를 추가하려면 HTML 파일을 추가합니다. 이 HTML 파일은 상태 비저장 Java 서비스에 포함된 경량 HTTP 서버에서 렌더링합니다.
 
 1. *VotingApplication* 디렉터리를 확장해 *VotingApplication/VotingWebPkg/Code* 디렉터리에 이르게 합니다.
 
@@ -209,7 +210,7 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 
 **VotingWeb** 하위 프로젝트에서 *VotingWeb/src/statelessservice/VotingWeb.java* 파일을 엽니다. **VotingWeb** 서비스는 상태 비저장 서비스에 대한 게이트웨이이며 프런트 엔드 API에 대한 통신 수신기 설정을 책임집니다.
 
-해당 파일에서 **createServiceInstanceListeners** 메서드의 내용을 다음으로 바꾸고 변경 내용을 저장합니다.
+해당 파일에서 기존 **createServiceInstanceListeners** 메서드를 다음으로 바꾸고 변경 내용을 저장합니다.
 
 ```java
 @Override
@@ -387,7 +388,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 
 ### <a name="configure-the-listening-port"></a>수신 대기 포트 구성
 
-VotingWeb 서비스 프런트 엔드 서비스를 만들면 Service Fabric에서는 수신할 서비스에 대한 포트를 선택합니다.  VotingWeb 서비스는 이 애플리케이션에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다. 패키지 탐색기에서 *VotingApplication/VotingWebPkg/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **엔드포인트** 리소스를 찾고, **포트** 값을 8080 또는 다른 포트로 변경합니다. 애플리케이션을 로컬로 배포하고 실행하려면 애플리케이션 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다. **ServiceManifest** 요소 내에서 다음 코드 조각을 붙여넣습니다(예: ```<DataPackage>``` 요소 바로 아래).
+VotingWeb 서비스 프런트 엔드 서비스를 만들면 Service Fabric에서는 수신할 서비스에 대한 포트를 선택합니다.  VotingWeb 서비스는 이 애플리케이션에 대한 프런트 엔드로 작동하고 외부 트래픽을 허용하므로 이 서비스를 고정된 잘 알려진 포트에 바인딩하겠습니다. 패키지 탐색기에서 *VotingApplication/VotingWebPkg/ServiceManifest.xml*을 엽니다.  **리소스** 섹션에서 **엔드포인트** 리소스를 찾아 **포트** 값을 8080으로 변경합니다(자습서 전체에서 이 포트를 계속 사용). 애플리케이션을 로컬로 배포하고 실행하려면 애플리케이션 수신 대기 포트가 열려 있고 컴퓨터에서 사용할 수 있어야 합니다. **ServiceManifest** 요소 내에서 다음 코드 조각을 붙여넣습니다(예: ```<DataPackage>``` 요소 바로 아래).
 
 ```xml
 <Resources>
@@ -547,9 +548,11 @@ class VotingDataService extends StatefulService implements VotingRPC {
 }
 ```
 
+프런트 엔드 상태 비저장 서비스 및 백 엔드 서비스에 대한 기본 구성을 만듭니다.
+
 ## <a name="create-the-communication-interface-to-your-application"></a>애플리케이션의 통신 인터페이스 만들기
 
-프런트 엔드 상태 비저장 서비스 및 백 엔드 서비스에 대한 기본 구성을 만듭니다. 다음 단계에서는 두 개의 서비스를 연결합니다. 프런트 엔드 및 백 엔드 서비스 모두 Voting 애플리케이션의 작업을 정의하는 VotingRPC라는 인터페이스를 사용합니다. 이 인터페이스는 두 서비스 간의 원격 프로시저 호출(RPC)을 사용할 수 있도록 프런트 엔드 및 백 엔드 서비스에 의해 구현됩니다. Eclipse는 Gradle 하위 프로젝트를 추가하는 것을 지원하지 않으므로 이 인터페이스를 포함하는 패키지를 수동으로 추가해야 합니다.
+ 다음 단계에서는 프런트 엔드 상태 비저장 서비스 및 백 엔드 서비스를 연결합니다. 두 서비스 모두 Voting 애플리케이션의 작업을 정의하는 VotingRPC라는 인터페이스를 사용합니다. 이 인터페이스는 두 서비스 간의 원격 프로시저 호출(RPC)을 사용할 수 있도록 프런트 엔드 및 백 엔드 서비스에 의해 구현됩니다. 안타깝게도 Eclipse는 Gradle 하위 프로젝트를 추가하는 것을 지원하지 않으므로 이 인터페이스를 포함하는 패키지를 수동으로 추가해야 합니다.
 
 1. 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새로 만들기 -> 폴더**를 클릭합니다. 폴더의 이름을 **VotingRPC/src/rpcmethods**로 지정합니다.
 
@@ -576,7 +579,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
     }
     ``` 
 
-4. *Voting/VotingRPC* 디렉터리에 *build.gradle*이라는 파일을 만들고 파일 내부에 다음을 붙여넣습니다. 이 Gradle 파일은 다른 서비스에서 가져온 jar 파일을 빌드하고 만드는 데 사용됩니다. 
+4. *Voting/VotingRPC* 디렉터리에 *build.gradle*이라는 빈 파일을 만들고 파일 내부에 다음을 붙여넣습니다. 이 Gradle 파일은 다른 서비스에서 가져온 jar 파일을 빌드하고 만드는 데 사용됩니다. 
 
     ```gradle
     apply plugin: 'java'
@@ -896,12 +899,14 @@ class VotingDataService extends StatefulService implements VotingRPC {
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
     ``` 
+    [OS X 설치 가이드](service-fabric-get-started-mac.md)에서 자세한 지침을 확인하세요.
 
     Linux 컴퓨터에서 실행하는 경우 다음 명령을 사용하여 로컬 클러스터를 시작합니다. 
 
     ```bash 
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
+    [Linux 설치 가이드](service-fabric-get-started-linux.md)에서 자세한 지침을 확인하세요.
 
 4. Eclipse용 패키지 탐색기에서 **Voting** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric -&gt; 애플리케이션 게시...** 를 클릭 
 5. **애플리케이션 게시** 창의 드롭다운 메뉴에서 **Local.json**을 선택하고 **게시**를 클릭합니다.

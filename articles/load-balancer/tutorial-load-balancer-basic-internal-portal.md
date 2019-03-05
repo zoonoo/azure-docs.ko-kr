@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232620"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983186"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>자습서: Azure Portal에서 기본 부하 분산 장치로 내부 트래픽 부하 분산
 
@@ -87,20 +87,23 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 포털의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다.
    
-1. **부하 분산 장치 만들기** 창에서 다음 값을 입력하거나 선택합니다.
+2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **리뷰 + 만들기**를 선택합니다.
+
+    | 설정                 | 값                                              |
+    | ---                     | ---                                                |
+    | 구독               | 구독을 선택합니다.    |    
+    | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLB*를 입력합니다.|
+    | Name                   | *myLoadBalancer*                                   |
+    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | Type          | **공용**을 선택합니다.                                        |
+    | SKU           | **기본**을 선택합니다.                          |
+    | 가상 네트워크           | *MyVNet*을 선택합니다.                          |    
+| 공용 IP 주소 | **새로 만들기**를 선택합니다. |
+    | 공용 IP 주소 할당              | **고정**을 선택합니다.   |
+    | 개인 IP 주소|가상 네트워크 및 서브넷의 주소 공간에 있는 주소를 입력합니다(예: *10.3.0.7*).  |
+
+3. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다. 
    
-   - **이름**: *MyLoadBalancer*를 입력합니다.
-   - **형식**: **내부**를 선택합니다. 
-   - **SKU**: **기본**을 선택합니다.
-   - **가상 네트워크**: **가상 네트워크 선택**을 선택한 다음, **MyVNet**을 선택합니다.
-   - **서브넷**: **서브넷 선택**을 선택한 다음, **MyBackendSubnet**을 선택합니다.
-   - **IP 주소 할당**: 선택되어 있지 않은 경우 **정적**을 선택합니다.
-   - **개인 IP 주소**: 가상 네트워크 및 서브넷의 주소 공간에 있는 주소를 입력합니다(예: *10.3.0.7*).
-   - **ResourceGroup**: **기존 항목 선택**을 드롭다운하고 **MyResourceGroupLB**를 선택합니다. 
-   
-1. **만들기**를 선택합니다.
-   
-![부하 분산 장치 만들기](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
 
 ## <a name="create-basic-load-balancer-resources"></a>기본 부하 분산 장치 리소스 만들기
 

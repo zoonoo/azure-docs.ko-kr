@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d28a88efc1a9f980d74737936bb960ba13573fa3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606251"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675095"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>자습서: 원격 모니터링 솔루션 가속기를 사용하여 에지에서 이상 감지
 
@@ -55,12 +55,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 원격 모니터링 솔루션 가속기에 IoT Edge 디바이스를 추가하는 방법은 다음 두 단계로 진행됩니다. 이 섹션에서는 다음을 사용하는 방법을 보여 줍니다.
 
-* 원격 모니터링 웹 UI의 **디바이스** 페이지에서 IoT Edge 디바이스를 추가합니다.
+* 원격 모니터링 웹 UI의 **Device Explorer** 페이지에서 IoT Edge 디바이스를 추가합니다.
 * Linux VM(가상 머신)에 IoT Edge 런타임을 설치합니다.
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>솔루션에 IoT Edge 디바이스 추가
 
-IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려면 웹 UI의 **디바이스** 페이지로 이동한 후 **+새 디바이스**를 클릭합니다.
+IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려면 웹 UI의 **Device Explorer** 페이지로 이동하고 **+새 디바이스**를 클릭합니다.
 
 **새 디바이스** 패널에서 **IoT Edge 디바이스**를 선택하고 디바이스 ID로 **oil-pump**를 입력합니다. 다른 설정의 경우 기본값을 그대로 둡니다. 그런 다음 **적용**을 클릭합니다.
 
@@ -68,13 +68,13 @@ IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려
 
 디바이스 연결 문자열을 기록해 둡니다. 이 문자열은 이 자습서의 다음 섹션에서 필요합니다.
 
-원격 모니터링 솔루션 가속기에서 IoT Hub에 디바이스를 등록하면 웹 UI의 **디바이스**에 표시됩니다.
+원격 모니터링 솔루션 가속기에서 IoT Hub에 디바이스를 등록하면 웹 UI의 **Device Explorer**에 표시됩니다.
 
 [![새 IoT Edge 디바이스](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
 솔루션에서 IoT Edge 디바이스를 보다 쉽게 관리하도록 하려면 디바이스 그룹을 만들고 IoT Edge 디바이스를 추가합니다.
 
-1. **디바이스** 페이지의 목록에서 **oil-pump** 디바이스를 선택하고 **작업**을 클릭합니다.
+1. **Device Explorer** 페이지의 목록에서 **oil-pump** 디바이스를 선택한 다음, **작업**을 클릭합니다.
 
 1. 다음 설정을 사용하여 디바이스에 **IsEdge** 태그를 추가하는 작업을 만듭니다.
 
@@ -90,7 +90,7 @@ IoT Edge 디바이스를 원격 모니터링 솔루션 가속기에 추가하려
 
 1. **적용**을 클릭하고 **닫기**를 클릭합니다.
 
-1. **디바이스** 페이지에서 **디바이스 그룹 관리**를 클릭합니다.
+1. **Device Explorer** 페이지에서 **디바이스 그룹 관리**를 클릭합니다.
 
 1. **새 디바이스 그룹 만들기**를 클릭합니다. 다음 설정을 사용하여 새 디바이스 그룹을 만듭니다.
 
@@ -300,7 +300,7 @@ Edge 모듈로 패키징하기 전에 포털에서 Stream Analytics 작업을 �
 
 원격 모니터링 웹 UI에서 오일 펌프 디바이스의 온도 원격 분석을 볼 수 있습니다.
 
-1. **디바이스** 페이지로 이동한 후 오일 펌프 디바이스를 선택합니다.
+1. **Device Explorer** 페이지로 이동한 후 오일 펌프 디바이스를 선택합니다.
 1. **디바이스 세부 정보** 패널의 **원격 분석** 섹션에서 **온도**를 클릭합니다.
 
     [![원격 분석 보기](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)

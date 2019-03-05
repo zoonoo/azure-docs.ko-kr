@@ -8,24 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 02/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 3043067f326f782c51be38382070ae0db0e90f4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d14b9c88b447583eedc8b50f4f9acf80ae4e3c75
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314187"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889633"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Python용 Azure Cognitive Services Computer Vision SDK
 
-Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다. Computer Vision 알고리즘은 관심 있는 시각적 기능에 따라 이미지의 콘텐츠를 다양한 방식으로 분석합니다. 예를 들어 Computer Vision에서 이미지에 성인용 또는 선정적인 콘텐츠가 포함되어 있는지 확인하거나 이미지에 있는 얼굴을 모두 찾거나 필기 또는 인쇄된 텍스트를 가져올 수 있습니다. Computer Vision은 JPEG 및 PNG와 같은 인기 있는 이미지 형식을 사용합니다. 
+Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다. Computer Vision 알고리즘은 관심 있는 시각적 기능에 따라 이미지의 콘텐츠를 다양한 방식으로 분석합니다. 
 
-애플리케이션에서 Computer Vision을 사용하여 다음을 수행할 수 있습니다.
+* [이미지 분석](#analyze-an-image)
+* [주체 도메인 목록 가져오기](#get-subject-domain-list)
+* [도메인 기준 이미지 분석](#analyze-an-image-by-domain)
+* [이미지의 텍스트 설명 가져오기](#get-text-description-of-an-image)
+* [이미지에서 필기한 텍스트 가져오기](#get-text-from-image)
+* [썸네일 생성](#generate-thumbnail)
 
-- 인사이트를 위한 이미지 분석
-- 이미지에서 텍스트 추출
-- 미리 보기 생성
+이 서비스에 대한 자세한 내용은 [Computer Vision이란?][computervision_docs]을 참조하세요.
 
 자세한 설명서를 찾으시나요?
 
@@ -34,11 +37,21 @@ Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독 - [체험 계정 만들기][azure_sub]
-* Azure [Computer Vision 리소스][computervision_resource]
 * [Python 3.6+][python]
+* 평가판 [Computer Vision 키][computervision_resource] 및 연결된 지역. 이러한 값은 [ComputerVisionAPI][ref_computervisionclient] 클라이언트 개체의 인스턴스를 만들 때 필요합니다. 이 값을 구하려면 다음 방법 중 하나를 사용합니다. 
 
-Computer Vision API 계정이 필요한 경우 다음 [Azure CLI][azure_cli] 명령을 사용하여 만들 수 있습니다.
+### <a name="if-you-dont-have-an-azure-subscription"></a>Azure 구독이 없는 경우
+
+**시도** 환경에서 7일 동안 유효한 평가판 키를 만듭니다. 키가 만들어지면 키와 지역 이름을 복사해 둡니다. 이 값은 [클라이언트를 만들 때](#create-client) 필요합니다.
+
+키를 만든 후에는 다음을 유지합니다.
+
+* 키 값: `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 형식의 32자 문자열 
+* 키 지역: 엔드포인트 URL인 https://**westcentralus**.api.cognitive.microsoft.com의 하위 도메인
+
+### <a name="if-you-have-an-azure-subscription"></a>Azure 구독이 있는 경우
+
+Computer Vision API 계정이 필요한 경우 구독에서 해당 계정을 만드는 가장 쉬운 방법은 다음 [Azure CLI][azure_cli] 명령을 사용하는 것입니다. 리소스 그룹 이름(예: "my-cogserv-group")을 선택하고 Computer Vision 리소스 이름(예: "my-computer-vision-resource")을 선택해야 합니다. 
 
 ```Bash
 RES_REGION=westeurope 
@@ -54,18 +67,20 @@ az cognitiveservices account create \
     --yes
 ```
 
-## <a name="installation"></a>설치
+<!--
+## Installation
 
-[가상 환경][venv] 내에서 선택적으로 [pip][pip]를 통해 Azure Cognitive Services Computer Vision SDK를 설치합니다.
+Install the Azure Cognitive Services Computer Vision SDK with [pip][pip], optionally within a [virtual environment][venv].
 
-### <a name="configure-a-virtual-environment-optional"></a>가상 환경 구성(선택 사항)
+### Configure a virtual environment (optional)
 
-필수는 아니지만, [가상 환경][virtualenv]을 사용하는 경우 기본 시스템 및 Azure SDK 환경을 서로 격리할 수 있습니다. 다음 명령을 실행하여 구성한 다음, `cogsrv-vision-env`와 같은 [venv][venv]로 가상 환경을 입력합니다.
+Although not required, you can keep your base system and Azure SDK environments isolated from one another if you use a [virtual environment][virtualenv]. Execute the following commands to configure and then enter a virtual environment with [venv][venv], such as `cogsrv-vision-env`:
 
 ```Bash
 python3 -m venv cogsrv-vision-env
 source cogsrv-vision-env/bin/activate
 ```
+-->
 
 ### <a name="install-the-sdk"></a>SDK 설치
 
@@ -81,9 +96,20 @@ Computer Vision 리소스를 만들면 클라이언트 개체를 인스턴스화
 
 [ComputerVisionAPI][ref_computervisionclient] 클라이언트 개체의 인스턴스를 만들 때 이러한 값을 사용합니다. 
 
-### <a name="get-credentials"></a>자격 증명 가져오기
+<!--
 
-아래 [Azure CLI][cloud_shell] 코드 조각을 사용하여 Computer Vision 계정 **지역** 및 해당 **키** 중 하나로 두 환경 변수를 채웁니다. (이러한 값은 [Azure Portal][azure_portal]에서 찾을 수 있습니다.) 조각은 Bash 셸에 대해 서식이 지정됩니다.
+For example, use the Bash terminal to set the environment variables:
+
+```Bash
+ACCOUNT_REGION=<resourcegroup-name>
+ACCT_NAME=<computervision-account-name>
+```
+
+### For Azure subscription usrs, get credentials for key and region
+
+If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+
+Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -101,44 +127,25 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
+-->
 
 ### <a name="create-client"></a>클라이언트 만들기
 
-`ACCOUNT_REGION` 및 `ACCOUNT_KEY` 환경 변수를 채우면 [ComputerVisionAPI][ref_computervisionclient] 클라이언트 개체를 만들 수 있습니다.
+[ComputerVisionAPI][ref_computervisionclient] 클라이언트 개체를 만듭니다. 다음 코드 예제에서 지역과 키 값을 사용자의 값으로 변경합니다.
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-import os
-region = os.environ['ACCOUNT_REGION']
-key = os.environ['ACCOUNT_KEY']
+region = "westcentralus"
+key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 credentials = CognitiveServicesCredentials(key)
 client = ComputerVisionAPI(region, credentials)
 ```
 
-## <a name="usage"></a>사용 현황
-
-[ComputerVisionAPI][ref_computervisionclient] 클라이언트 개체를 초기화하면 다음을 수행할 수 있습니다.
-
-* 이미지 분석: 얼굴, 색, 태그와 같은 특정 기능에 대한 이미지를 분석할 수 있습니다.   
-* 썸네일 생성: 원본 이미지의 썸네일로 사용할 사용자 지정 JPEG 이미지를 만듭니다.
-* 이미지의 설명 가져오기: 해당 주체 도메인을 기준으로 이미지의 설명을 가져옵니다. 
-
-이 서비스에 대한 자세한 내용은 [Computer Vision이란?][computervision_docs]을 참조하세요.
-
-## <a name="examples"></a>예
-
-다음 섹션에서는 다음을 비롯한 가장 일반적인 Computer Vision 작업 몇 가지에 대한 여러 코드 조각을 제공합니다.
-
-* [이미지 분석](#analyze-an-image)
-* [주체 도메인 목록 가져오기](#get-subject-domain-list)
-* [도메인 기준 이미지 분석](#analyze-an-image-by-domain)
-* [이미지의 텍스트 설명 가져오기](#get-text-description-of-an-image)
-* [이미지에서 필기한 텍스트 가져오기](#get-text-from-image)
-* [썸네일 생성](#generate-thumbnail)
+[ComputerVisionAPI][ref_computervisionclient] 클라이언트 개체가 있어야 다음 작업을 사용할 수 있습니다.
 
 ### <a name="analyze-an-image"></a>이미지 분석
 
@@ -169,8 +176,13 @@ for x in models.models_property:
 [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]으로 주체 도메인 기준으로 이미지를 분석할 수 있습니다. 올바른 도메인 이름을 사용하려면 [지원되는 주체 도메인의 목록](#get-subject-domain-list)을 가져옵니다.  
 
 ```Python
+# type of prediction
 domain = "landmarks"
-url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
+
+# Public domain image of Eiffel tower
+url = "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg"
+
+# English language response
 language = "en"
 
 analysis = client.analyze_image_by_domain(domain, url, language)
@@ -202,6 +214,10 @@ for caption in analysis.captions:
 이미지에서 필기 또는 인쇄된 텍스트를 가져올 수 있습니다. 이를 위해서는 SDK에 대한 두 호출인 [`recognize_text`][ref_computervisionclient_recognize_text] 및 [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]가 필요합니다. recognize_text에 대한 호출은 비동기적입니다. get_text_operation_result 호출의 결과에서 텍스트 데이터를 추출하기 전에 첫 번째 호출이 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes]로 완료되었는지 확인해야 합니다. 결과에는 텍스트뿐만 아니라 텍스트에 대한 경계 상자 좌표가 포함됩니다. 
 
 ```Python
+# import models
+from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
+from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
 raw = True
@@ -231,10 +247,19 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]로 이미지의 썸네일(JPG)을 생성할 수 있습니다. 썸네일이 원래 이미지와 동일한 비율일 필요는 없습니다. 
 
-이 예제에서는 [Pillow][pypi_pillow] 패키지를 사용하여 새 썸네일 이미지를 로컬로 저장합니다.
+이 예제를 사용하려면 **Pillow**를 설치합니다.
+
+```bash
+pip install Pillow
+``` 
+
+Pillow가 설치되면 다음 코드 예제에서 패키지를 사용하여 썸네일 이미지를 생성합니다.
 
 ```Python
+# Pillow package
 from PIL import Image
+
+# IO package to create local image
 import io
 
 width = 50
@@ -281,17 +306,16 @@ except HTTPFailure as e:
 
 [ComputerVisionAPI][ref_computervisionclient] 클라이언트를 사용하는 동안 서비스에서 적용되는 [속도 제한][computervision_request_units] 또는 네트워크 중단과 같은 다른 일시적인 문제가 발생할 수도 있습니다. 이러한 유형의 오류를 처리하는 방법에 대한 내용은 클라우드 디자인 패턴 가이드의 [다시 시도 패턴][azure_pattern_retry] 및 관련 [회로 차단기 패턴][azure_pattern_circuit_breaker]을 참조하세요.
 
-## <a name="next-steps"></a>다음 단계
-
 ### <a name="more-sample-code"></a>추가 샘플 코드
 
 여러 Computer Vision Python SDK 샘플을 SDK의 GitHub 리포지토리에서 확인할 수 있습니다. 이러한 샘플에는 Computer Vision을 사용하는 동안 흔히 발생하는 추가 시나리오에 대한 예제 코드가 들어 있습니다.
 
 * [recognize_text][recognize-text]
 
-### <a name="additional-documentation"></a>추가 설명서
+## <a name="next-steps"></a>다음 단계
 
-Computer Vision 서비스에 대한 더 광범위한 설명서는 docs.microsoft.com에 있는 [Azure Computer Vision 설명서][computervision_docs]를 참조하세요.
+> [!div class="nextstepaction"]
+> [이미지에 콘텐츠 태그 적용](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/

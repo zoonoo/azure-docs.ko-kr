@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2c0eb50e962af5b67ef9c01588df42f74dd44368
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: de83cc80d64fb1862f1fdec32b704d0948ef9fc8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100298"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820521"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Microsoft Flow, Logic Apps, Functions 및 WebJobs란?
 
@@ -62,7 +62,7 @@ Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durab
 | 개발 | 코드 중심(명령적) | 디자이너 중심(선언적) |
 | 연결 | [12가지의 기본 제공 바인딩 형식 정보](functions-triggers-bindings.md#supported-bindings), 사용자 지정 바인딩에 대한 코드 작성 | [대규모의 커넥터 컬렉션](../connectors/apis-list.md), [B2B 시나리오용 엔터프라이즈 통합 팩](../logic-apps/logic-apps-enterprise-integration-overview.md), [사용자 지정 커넥터 빌드](../logic-apps/custom-connector-overview.md) |
 | 작업 | 각 작업은 Azure 함수입니다. 작업 함수에 대한 코드 작성 |[즉시 사용 가능한 작업의 대규모 컬렉션](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| 모니터링 | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| 모니터링 | [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Azure Monitor 로그](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | 관리 | [REST API](durable/durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure Portal](../logic-apps/quickstart-create-first-logic-app-workflow.md), [REST API](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | 실행 컨텍스트 | [로컬로](functions-runtime-overview.md) 또는 클라우드에서 실행 가능 | 클라우드에서만 실행|
 

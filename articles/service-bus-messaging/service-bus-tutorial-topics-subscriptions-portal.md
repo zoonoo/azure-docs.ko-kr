@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001637"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886437"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>자습서: Azure Portal 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -45,49 +45,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
 
 [토픽에 대한 각 구독](service-bus-messaging-overview.md#topics)은 각 메시지의 복사본을 받을 수 있습니다. 토픽은 완전히 프로토콜이며, 의미상 Service Bus 큐와 호환됩니다. Service Bus 토픽은 메시지 속성을 설정하거나 수정하는 선택적 동작과 함께 필터 조건이 포함된 다양한 선택 규칙을 지원합니다. 규칙이 일치할 때마다 메시지를 생성합니다. 규칙, 필터 및 작업에 대해 자세히 알아보려면 이 [링크](topic-filters.md)를 따르세요.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-먼저 [Azure Portal][Azure portal]로 이동하고 Azure 구독을 사용하여 로그인합니다. 첫 번째 단계는 **메시징** 유형의 Service Bus 네임스페이스를 만드는 것입니다.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-## <a name="create-a-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
 
-Service Bus 메시징 네임스페이스는 [정규화된 도메인 이름][]으로 참조되는 고유한 범위 지정 컨테이너를 제공하며, 하나 이상의 큐, 토픽 및 구독을 만듭니다. 다음 예제에서는 새 또는 기존 [리소스 그룹](/azure/azure-resource-manager/resource-group-portal)에 Service Bus 메시징 네임스페이스를 만듭니다.
-
-1. 포털의 왼쪽 탐색 창에서 **+ 리소스 만들기**, **엔터프라이즈 통합** 및 **Service Bus**를 차례로 클릭합니다.
-2. **네임스페이스 만들기** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
-3. 네임스페이스 이름을 사용할 수 있는지 확인한 후 가격 책정 계층(표준 또는 프리미엄)을 선택합니다.
-4. **구독** 필드에서 네임스페이스를 만들 Azure 구독을 선택합니다.
-5. **리소스 그룹** 필드에서 네임스페이스가 있는 기존 리소스 그룹을 선택하거나 새로 만듭니다.      
-6. **위치**에서 네임스페이스가 호스트되어야 하는 국가 또는 지역을 선택합니다.
-7. **만들기**를 클릭합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
-
-  ![namespace](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>관리 자격 증명 얻기
-
-새 네임 스페이스를 만들면 네임스페이스의 모든 측면에 대한 모든 권한을 부여하는 기본 및 보조 키의 연결된 쌍을 포함한 초기 SAS(공유 액세스 서명) 규칙이 자동으로 생성됩니다. 초기 규칙을 복사하려면 다음 단계를 수행합니다.
-
-1. **모든 리소스**를 클릭한 다음 새로 만든 네임스페이스 이름을 클릭합니다.
-2. 네임스페이스 창에서 **공유 액세스 정책**을 클릭합니다.
-3. **공유 액세스 정책** 화면에서 **RootManageSharedAccessKey**를 클릭합니다.
-4. **정책: RootManageSharedAccessKey** 창에서 **기본 연결 문자열** 옆에 있는 **복사** 단추를 클릭하여 나중에 사용할 수 있도록 해당 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
-
-    ![connection-string][connection-string]
-5. 이전 단계를 반복하여 나중에 사용할 수 있도록 **기본 키** 값을 복사하여 임시 위치에 붙여넣습니다.
-
-## <a name="create-a-topic-and-subscriptions"></a>토픽 및 구독 만들기
-
-Service Bus 토픽을 만들려면 해당 토픽을 만들 네임스페이스를 지정합니다. 다음 예제에서는 포털에서 토픽을 만드는 방법을 보여 줍니다.
-
-1. 포털의 왼쪽 탐색 창에서 **Service Bus**(**Service Bus**가 표시되지 않으면 **모든 서비스** 클릭)를 클릭합니다.
-2. 토픽을 만들 네임스페이스를 클릭합니다.
-3. 네임스페이스 창에서 **토픽**을 클릭한 다음, **토픽** 창에서 **+ 토픽**을 클릭합니다.
-4. **토픽 이름**을 입력하고 다른 값은 기본값으로 유지합니다.
-5. 창 아래에서 **만들기**를 클릭합니다.
-6. 토픽 이름을 적어 둡니다.
-7. 방금 만든 토픽을 선택합니다.
-8. **+ 구독**을 클릭하고, 구독 이름으로 **S1**을 입력하고, 다른 모든 값은 기본값으로 유지합니다.
-9. 이전 단계를 두 번 더 반복하여 **S2** 및 **S3**이라는 구독을 만듭니다.
 
 ## <a name="create-filter-rules-on-subscriptions"></a>구독에 대한 필터 규칙 만들기
 
@@ -105,7 +67,7 @@ Service Bus 토픽을 만들려면 해당 토픽을 만들 네임스페이스를
 
 2. 다음 샘플 폴더로 이동합니다. `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`
 
-3. 이 자습서의 [관리 자격 증명 얻기](#obtain-the-management-credentials) 섹션에서 메모장에 복사한 연결 문자열을 가져옵니다. 또한 이전 섹션에서 만든 토픽의 이름도 필요합니다.
+3. 이 자습서의 관리 자격 증명 얻기 섹션에서 메모장에 복사한 연결 문자열을 가져옵니다. 또한 이전 섹션에서 만든 토픽의 이름도 필요합니다.
 
 4. 명령 프롬프트에서 다음 명령을 입력합니다.
 
@@ -451,7 +413,7 @@ Service Bus의 게시/구독 기능을 사용하는 방법에 대해 자세히 �
 > [PowerShell 및 토픽/구독을 사용하여 재고 업데이트](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[정규화된 도메인 이름]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
 [connection-string]: ./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png

@@ -5,34 +5,21 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 06/29/2018
+ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 7ed298fc8f13685c4872c4c54ba1e447debea79f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 17f27ac36ed5c0f348495b5364ef37e3f1632243
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702639"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588695"
 ---
-[여기][namespace-how-to]와 같이 Service Bus 네임스페이스를 만들었는지 확인합니다.
+## <a name="create-a-queue-in-the-azure-portal"></a>Azure Portal에서 큐 만들기
+4. **Service Bus 네임스페이스** 페이지의 왼쪽 탐색 메뉴에서 **큐**를 선택합니다.
+5. **큐** 페이지의 도구 모음에서 **+ 큐**를 선택합니다.
+5. 큐 **이름**을 입력하고 다른 값은 기본값으로 유지합니다.
+6. 이제 **만들기**를 선택합니다.
+ 
+    ![큐 -> + 큐 -> 이름 입력 -> 만들기](./media/service-bus-create-queue-portal/create-queue3.png)
 
-1. [Azure Portal][azure-portal]에 로그인합니다.
-2. 포털의 왼쪽 탐색 창에서 **Service Bus**(**Service Bus**가 표시되지 않으면 **모든 서비스** 클릭)를 클릭합니다.
-3. 큐를 만들려는 네임스페이스를 클릭합니다. 이 경우 **sbnstest1**입니다.
-   
-    ![큐 만들기][createqueue1]
-4. 네임스페이스 창에서 **큐**를 클릭한 다음 **큐** 창에서 **+ 큐**를 클릭합니다.
-   
-    ![큐 선택][createqueue2]
-5. **큐 이름**을 입력하고 다른 값을 기본값으로 유지합니다.
-   
-    ![새로 만들기 선택][createqueue3]
-6. 창 아래에서 **만들기**를 클릭합니다.
-
-[createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
-[createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
-[createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
-
-[namespace-how-to]: ../articles/service-bus-messaging/service-bus-create-namespace-portal.md
-[azure-portal]: https://portal.azure.com
