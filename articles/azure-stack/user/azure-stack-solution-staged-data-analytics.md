@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: be7bf4596989cf8dfd154e0a366f93650546224b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0261dff10e553ecbd39d394eb19e7ad3dd76f0a2
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247360"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340969"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 준비 된 데이터 분석 솔루션 만들기 
 
@@ -138,7 +138,7 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
     | 구독 | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. |
     | **리소스 그룹** |  |  |
     | myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |  |
-    | OS |  Windows | 서버 없는 호스팅은 현재 Windows에서 실행될 때만 가능합니다. |
+    | OS | Windows | 서버 없는 호스팅은 현재 Windows에서 실행될 때만 가능합니다. |
     | **호스팅 계획** |  |  |
     | 소비 계획 | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. 소비 계획 기본적으로 리소스 함수를 통해 필요에 따라 동적으로 추가 됩니다. 이 서버 리스 호스팅에 대 한 요금만 함수 실행 시간입니다. |  |
     | 위치 | 가장 가까운 지역 | 함수 액세스 또는 다른 서비스에 가까운 영역을 선택 합니다. |
