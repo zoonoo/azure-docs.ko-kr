@@ -67,6 +67,7 @@ items:
 - name: 개념
   items:
   - name: 기술 자료
+    displayName: metadata, pair
     href: Concepts/knowledge-base.md
   - name: 기술 자료의 개발 수명 주기
     href: Concepts/development-lifecycle-knowledge-base.md
@@ -77,6 +78,7 @@ items:
     displayName: DefaultAnswer, Default answer
     href: Concepts/confidence-score.md
   - name: 지원되는 데이터 원본
+    displayName: metadata, pair
     href: Concepts/data-sources-supported.md
 - name: 방법 가이드
   items:
@@ -89,6 +91,7 @@ items:
     - name: 기술 자료 마이그레이션
       href: Tutorials/migrate-knowledge-base.md
     - name: 기술 자료 편집
+      displayName: metadata, pair
       href: How-To/edit-knowledge-base.md
     - name: 기술 자료에 대한 공동 작업
       href: How-To/collaborate-knowledge-base.md
@@ -97,6 +100,7 @@ items:
     - name: 기술 자료 테스트
       href: How-To/test-knowledge-base.md
     - name: 활성 학습을 사용하여 기술 자료 개선
+      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject
       href: How-to/improve-knowledge-base.md
   - name: 기술 자료 사용
     items:
@@ -186,9 +190,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: 블로그
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: d2843221ae4aae151e423e96b6633b69fc7a706d
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 59c69b3436eecd6b3c915ede313eb854ff6af121
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652504"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306649"

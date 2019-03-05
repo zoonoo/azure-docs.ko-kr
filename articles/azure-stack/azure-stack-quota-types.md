@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4499424ef25e7d2ba32b691cce6d5d3d1face0d0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877948"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308468"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack에서 할당량 유형
 
@@ -44,7 +44,7 @@ ms.locfileid: "56877948"
 
 | **항목** | **기본값** | **설명** |
 | --- | --- | --- |
-| 최대 용량 (GB) |2048 |이 위치에 구독에서 사용할 수 있는 총 저장소 용량입니다. |
+| 최대 용량 (GB) |2048 |총 저장소 용량 (blob 및 모든 assiociated 스냅숏, 테이블, 큐 등)이이 위치에서 구독을 사용할 수 있습니다. |
 | 저장소 계정의 총 수 |20 |이 위치에서 구독을 만들 수 있는 저장소 계정의 최대 수입니다. |
 
 > [!NOTE]  
