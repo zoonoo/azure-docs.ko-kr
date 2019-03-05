@@ -11,16 +11,16 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f6c1af2051d946b29e2022c90d0ad9820b4d283
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1d483d14a08f589fc8d014a13a47008b9fb59690
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823504"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984954"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>자습서: 회귀 모델링을 위한 데이터 준비
 
-이 자습서에서는 Azure Machine Learning Data Prep SDK를 사용하여 회귀 모델링을 위해 데이터를 준비하는 방법을 배웁니다. 다양한 변환을 실행하여 두 개의 서로 다른 NYC 택시 데이터 세트를 필터링하고 결합합니다.
+이 자습서에서는 [Python용 Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)를 사용하여 회귀 모델링을 위해 데이터를 준비하는 방법을 배웁니다. 다양한 변환을 실행하여 두 개의 서로 다른 NYC 택시 데이터 세트를 필터링하고 결합합니다.
 
 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다. 이 자습서 시리즈를 마치면 데이터 기능에 대해 모델을 학습하여 택시 운행 비용을 예측할 수 있습니다. 이러한 기능으로는 날짜 및 시간, 승객 수, 위치 선택이 포함됩니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "56823504"
 
 ### <a name="azure"></a>Azure Notebooks 사용: 클라우드의 무료 Jupyter Notebook
 
-Azure Notebooks로 시작하는 것이 쉽습니다! [Python용 Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)는 [Azure Notebooks](https://notebooks.azure.com/)에 이미 설치 및 구성되어 있습니다. 설치 및 향후 업데이트를 Azure 서비스를 통해 자동으로 관리합니다.
+Azure Notebooks로 시작하는 것이 쉽습니다! Azure Machine Learning Data Prep SDK는 [Azure Notebooks](https://notebooks.azure.com/)에 이미 설치 및 구성되어 있습니다. 설치 및 향후 업데이트를 Azure 서비스를 통해 자동으로 관리합니다.
 
 아래 단계를 완료한 후에는 **시작** 프로젝트의 **tutorials/regression-part1-data-prep.ipynb** Notebook을 실행합니다.
 

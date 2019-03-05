@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 7035035823e00fb0c12de3f4eeae11d8b3e1d54d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016926"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984767"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory에서 Databricks Notebook 작업으로 Databricks Notebook 실행
 
@@ -109,7 +109,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에  [체험 계정](https
 
     1.  **액세스 토큰**에 대해 Azure Databricks 작업 공간에서 생성합니다. 단계는 [여기](https://docs.databricks.com/api/latest/authentication.html#generate-token)서 찾을 수 있습니다.
 
-    1.  **클러스터 버전**에 대해 **4.0**을 선택(Apache Spark 2.3.0, Scala 2.11에서)
+    1.  **클러스터 버전**에 대해 **4.2**(Apache Spark 2.3.1, Scala 2.11에서)를 선택합니다.
 
     1.  **클러스터 노드 유형**에 대해 이 자습서의 **범용(HDD)** 범주 아래에서 **표준\_D3\_v2**를 선택합니다. 
     

@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04631431c03f6fdd378bfa99edb9b67f8d6a0cad
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cf47e3b48f1047af88a19c59459c19c078f71a63
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193920"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984478"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
@@ -42,19 +42,21 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
     ![Batch 계정 만들기][account_portal]
 
-    a. **계정 이름**: 선택한 이름은 계정을 만든 Azure 지역 내에서 고유해야 합니다(아래 **위치** 참조). 계정 이름은 소문자 또는 숫자만 포함할 수 있으며 길이는 3-24자여야 합니다.
+    a. **구독**: Batch 계정을 만들 구독입니다. 하나의 구독만 보유하는 경우 기본적으로 선택됩니다.
 
-    b. **구독**: Batch 계정을 만들 구독입니다. 하나의 구독만 보유하는 경우 기본적으로 선택됩니다.
+    b. **리소스 그룹**: 새 Batch 계정에 대한 기존 리소스 그룹을 선택하거나 필요에 따라 새 리소스 그룹을 만듭니다.
 
-    다. **리소스 그룹**: 새 Batch 계정에 대한 기존 리소스 그룹을 선택하거나 필요에 따라 새 리소스 그룹을 만듭니다.
+    다. **계정 이름**: 선택한 이름은 계정을 만든 Azure 지역 내에서 고유해야 합니다(아래 **위치** 참조). 계정 이름은 소문자 또는 숫자만 포함할 수 있으며 길이는 3-24자여야 합니다.
 
     d. **위치**: Batch 계정을 만들 Azure 지역입니다. 구독 및 리소스 그룹에서 지원하는 지역만 옵션으로 표시됩니다.
 
-    e. **스토리지 계정**(선택 사항): Batch 계정과 연결하는 Azure Storage 계정입니다. 대부분의 Batch 계정에 사용하는 것이 좋습니다. Batch의 저장소 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요. 포털에서 기존 저장소 계정을 선택하거나 필요에 따라 새 저장소 계정을 만듭니다.
+    e. **스토리지 계정**: Batch 계정과 연결하는 Azure Storage 계정(선택 사항)입니다. 최상의 성능을 위해 범용 v2 스토리지 계정이 권장됩니다. Batch의 모든 스토리지 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요. 포털에서 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다.
 
       ![저장소 계정 만들기][storage_account]
 
-    f. **풀 할당 모드**: 대부분의 시나리오의 경우 기본 **Batch 서비스**를 수락합니다.
+    f. **풀 할당 모드**: **고급** 설정 탭에서 풀 할당 모드를 **Batch 서비스** 또는 **사용자 구독**으로 지정할 수 있습니다. 대부분의 시나리오의 경우 기본 **Batch 서비스**를 수락합니다.
+
+      ![Batch 풀 할당 모드][pool_allocation]
 
 1. **만들기**를 선택하여 계정을 만듭니다.
 
@@ -115,7 +117,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 ### <a name="configure-subscription-quotas"></a>구독 할당량 구성
 
-코어 할당량은 사용자 구독 배치 계정에 기본적으로 설정되지 않습니다. 일반적인 Batch 코어 할당량은 사용자 구독 모드의 계정에 적용되지 않으므로 코어 할당량을 수동으로 설정해야 합니다.
+코어 할당량은 사용자 구독 배치 계정에 기본적으로 설정되지 않습니다. 표준 Batch 코어 할당량은 사용자 구독 모드의 계정에 적용되지 않으므로 코어 할당량을 수동으로 설정해야 합니다.
 
 1. [Azure Portal][azure_portal]에서 사용자 구독 모드 배치 계정을 선택하여 해당 설정과 속성을 표시합니다.
 
@@ -142,8 +144,8 @@ Azure Portal을 사용하는 것 외에도 다음을 포함하는 도구로 Batc
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch.png
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch-account-portal.png
+[pool_allocation]: ./media/batch-account-create-portal/batch-pool-allocation.png
 [account_keys]: ./media/batch-account-create-portal/batch-account-keys.png
-[account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png

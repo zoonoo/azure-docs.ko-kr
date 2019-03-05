@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 76e55c643378e689f12d485100a81ccefa4196f4
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229815"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985991"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>자습서: Azure Portal에서 표준 Load Balancer를 사용하여 가용성 영역 내부의 VM 부하 분산
 
@@ -48,18 +48,22 @@ ms.locfileid: "54229815"
 표준 Load Balancer는 표준 공용 IP 주소만 지원합니다. 부하 분산 장치를 만드는 동안 새 공용 IP를 만들면 자동으로 Standard SKU 버전으로 구성됩니다. 또한 자동으로 영역 중복이 됩니다.
 
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다.
-2. **부하 분산 장치 만들기** 페이지에서 부하 분산 장치에 다음 값을 입력합니다.
-    - **myLoadBalancer** - 부하 분산 장치의 이름
-    - **공용** - 부하 분산 장치의 유형
-      - **myPublicIPZonal** - 새로 만드는 공용 IP 주소 **공용 IP 주소 선택**을 선택합니다. 그런 다음, **새로 만들기**를 선택합니다. 이름에 **myPublicIP**를 입력합니다. SKU는 기본적으로 표준입니다. **가용성 영역**에 **영역 1**을 선택합니다.
-    - **myResourceGroupZLB** - 새로 만드는 리소스 그룹의 이름
-    - **westeurope** - 위치
-3. **만들기**를 선택하여 부하 분산 장치를 만듭니다.
-   
-    ![Azure Portal을 사용하여 영역 표준 Load Balancer 인스턴스 만들기](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
+2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **리뷰 + 만들기**를 선택합니다.
 
+    | 설정                 | 값                                              |
+    | ---                     | ---                                                |
+    | 구독               | 구독을 선택합니다.    |    
+    | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupZLB*를 입력합니다.|
+    | Name                   | *myLoadBalancer*                                   |
+    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | Type          | **공용**을 선택합니다.                                        |
+    | SKU           | **표준**을 선택합니다.                          |
+    | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
+    | 공용 IP 주소 이름              | 텍스트 상자에 *myPublicIP*를 입력합니다.   |
+    |가용성 영역| **1**을 선택합니다.    |
+3. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다.   
 
-## <a name="create-backend-servers"></a>백 엔드 서버 만들기
+ ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
 이 섹션에서는 가상 네트워크를 만듭니다. 또한 부하 분산 장치의 백 엔드 풀에 추가하도록 지역의 동일한 영역(즉, 영역 1)에 두 개의 가상 머신을 만듭니다. 그런 다음, 영역 중복 부하 분산 장치 테스트를 돕기 위해 가상 머신에 IIS를 설치합니다. 하나의 VM이 실패하면 동일한 영역에 있는 VM의 상태 프로브가 실패합니다. 트래픽은 동일한 영역 내의 다른 VM에 의해 처리되도록 계속합니다.
 

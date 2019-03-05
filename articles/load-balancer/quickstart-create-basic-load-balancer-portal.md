@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231974"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986331"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 공용 기본 부하 분산 장치 만들기
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 기본 Load Balancer 만들기
 
 부하를 분산시키면 들어오는 요청을 VM(가상 머신)에 분산하여 높은 수준의 가용성과 크기 조정이 제공됩니다. Azure Portal을 사용하여 부하 분산 장치를 만들고 VM 간의 트래픽 부하를 분산할 수 있습니다. 이 빠른 시작에서는 기본 가격 계층에서 부하 분산 장치, 백 엔드 서버 및 네트워크 리소스를 만들고 구성하는 방법을 보여 줍니다.
 
@@ -32,23 +32,25 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-basic-load-balancer"></a>기본 부하 분산 장치 만들기
 
-먼저 포털을 사용하여 공용 기본 부하 분산 장치를 만듭니다. 만드는 이름과 공용 IP 주소는 자동으로 부하 분산 장치의 프런트 엔드로 구성됩니다.
+먼저 포털을 사용하여 공용 기본 Load Balancer를 만듭니다. 만드는 이름과 공용 IP 주소는 자동으로 부하 분산 장치의 프런트 엔드로 구성됩니다.
 
-1. 포털의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다.
-   
-1. **부하 분산 장치 만들기** 창에서 다음 값을 입력하거나 선택합니다.
-   
-   - **이름**: *MyLoadBalancer*를 입력합니다.
-   - **형식**: **공용**을 선택합니다. 
-   - **SKU**: **기본**을 선택합니다.
-   - **공용 IP 주소:** **새로 만들기**를 선택합니다. 
-     - **공용 IP 주소** 필드: *MyPublicIP*를 입력합니다.
-     - **공용 IP 주소 구성** > **할당**: **동적**을 선택합니다.
-   - **ResourceGroup**: **새로 만들기**를 선택한 다음, *MyResourceGroupLB*를 입력하고, **확인**을 선택합니다. 
-   
-1. **만들기**를 선택합니다.
-   
-![부하 분산 장치 만들기](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다.
+2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **리뷰 + 만들기**를 선택합니다.
+
+    | 설정                 | 값                                              |
+    | ---                     | ---                                                |
+    | 구독               | 구독을 선택합니다.    |    
+    | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLB*를 입력합니다.|
+    | Name                   | *myLoadBalancer*                                   |
+    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | Type          | **공용**을 선택합니다.                                        |
+    | SKU           | **기본**을 선택합니다.                          |
+    | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
+    | 공용 IP 주소 이름              | *MyPublicIP*   |
+    | 할당| 공용|
+
+3. **리뷰 + 만들기** 탭에서 **만들기**를 클릭합니다.   
+
 
 ## <a name="create-back-end-servers"></a>백 엔드 서버 만들기
 
