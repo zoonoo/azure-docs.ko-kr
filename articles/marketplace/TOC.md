@@ -99,12 +99,12 @@
 #### [제품 삭제](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
 
 ### 시험 사용
-#### [시험 사용이란?](./cloud-partner-portal-orig/what-is-test-drive.md)
-#### [Azure Resource Manager 시험 사용](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-#### [호스팅된 시험 사용](./cloud-partner-portal-orig/hosted-test-drive.md)
-#### [논리 앱 시험 사용](./cloud-partner-portal-orig/logic-app-test-drive.md)
-#### [시험 사용에 대한 변환 예제](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-#### [마케팅 및 모범 사례](./cloud-partner-portal-orig/marketing-and-best-practices.md)
+#### [시험 사용이란?](./cloud-partner-portal/test-drive/what-is-test-drive.md)
+#### [Azure Resource Manager 시험 사용](./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md)
+#### [호스팅된 시험 사용](./cloud-partner-portal/test-drive/hosted-test-drive.md)
+#### [논리 앱 시험 사용](./cloud-partner-portal/test-drive/logic-app-test-drive.md)
+#### [시험 사용에 대한 변환 예제](./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md)
+#### [마케팅 및 모범 사례](./cloud-partner-portal/test-drive/marketing-and-best-practices.md)
 
 ### [Azure 애플리케이션 제품](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [필수 구성 요소](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)

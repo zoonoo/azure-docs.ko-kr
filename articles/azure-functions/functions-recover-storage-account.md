@@ -75,14 +75,14 @@ Azure Portal에서 저장소 계정을 검색하여 계정이 아직 있는지 �
 
 ## <a name="storage-account-inaccessible"></a>저장소 계정에 액세스할 수 없음
 
-함수 앱은 저장소 계정에 액세스할 수 있어야 합니다. Functions의 저장소 계정 액세스를 차단하는 일반적인 문제는 다음과 같습니다.
+Function App은 저장소 계정에 액세스할 수 있어야 합니다. Functions의 저장소 계정 액세스를 차단하는 일반적인 문제는 다음과 같습니다.
 
-* 저장소 계정에서 전송/수신하는 트래픽을 허용하는 올바른 네트워크 규칙을 포함하지 않고 앱 서비스 환경에 배포된 함수 앱
+* 저장소 계정에서 전송/수신하는 트래픽을 허용하는 올바른 네트워크 규칙을 포함하지 않고 앱 서비스 환경에 배포된 Function App
 * 저장소 계정 방화벽이 사용하도록 설정되었는데 Functions에서 전송/수신하는 트래픽을 허용하도록 구성되지 않음 [이 문서에서 저장소 계정 방화벽 구성에 대해 자세히 살펴보세요.](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
 ## <a name="daily-execution-quota-full"></a>일일 실행 할당량 포화 상태
 
-매일 실행 할당량을 구성한 경우 함수 앱이 일시적으로 비활성화되고 포털 컨트롤은 대부분 사용할 수 없게 됩니다. 
+매일 실행 할당량을 구성한 경우 Function App이 일시적으로 비활성화되고 포털 컨트롤은 대부분 사용할 수 없게 됩니다. 
 
 * 확인하려면 포털에서 플랫폼 기능 열기 > 함수 앱 설정을 확인하세요. 할당량을 초과한 경우 다음 메시지가 표시됩니다.
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
@@ -90,14 +90,14 @@ Azure Portal에서 저장소 계정을 검색하여 계정이 아직 있는지 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 함수 앱이 다시 작동하므로 빠른 시작과 개발자 참조를 확인하여 작업을 다시 진행하세요.
+이제 Function App이 다시 작동하므로 빠른 시작과 개발자 참조를 확인하여 작업을 다시 진행하세요.
 
 * [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)  
-   Azure Functions 빠른 시작을 사용하여 바로 첫 번째 함수를 만듭니다. 
+  Azure Functions 빠른 시작을 사용하여 바로 첫 번째 함수를 만듭니다. 
 * [Azure Functions 개발자 참조](functions-reference.md)  
-   Azure Functions 런타임, 함수 코딩, 트리거 및 바인딩 정의에 대한 참조에 대해 더욱 기술적인 정보를 제공합니다.
+  Azure Functions 런타임, 함수 코딩, 트리거 및 바인딩 정의에 대한 참조에 대해 더욱 기술적인 정보를 제공합니다.
 * [Azure Functions 테스트](functions-test-a-function.md)  
-   함수를 테스트하는 다양한 도구와 기법을 설명합니다.
+  함수를 테스트하는 다양한 도구와 기법을 설명합니다.
 * [Azure Functions 크기 조정 방법](functions-scale.md)  
   소비 호스팅 요금제, 올바른 요금제 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 요금제에 대해 설명합니다. 
 * [Azure App Service에 대해 자세히 알아보기](../app-service/overview.md)  

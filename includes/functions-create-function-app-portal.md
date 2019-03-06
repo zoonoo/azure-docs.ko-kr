@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/25/2018
 ms.locfileid: "47185018"
 ---
-1. Azure Portal의 왼쪽 위 모서리에 있는 **새로 만들기** 단추를 선택한 다음, **계산** > **함수 앱**을 차례로 선택합니다.
+1. Azure Portal의 왼쪽 위 모서리에 있는 **새로 만들기** 단추를 선택한 다음, **계산** > **Function App**을 차례로 선택합니다.
 
     ![Azure Portal에서 함수 앱 만들기](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -44,4 +44,4 @@ ms.locfileid: "47185018"
 5. **리소스로 이동**을 선택하여 함수 앱을 봅니다.
 
 > [!TIP]
-> 포털에서 앱 함수를 찾는 데 문제가 있는 경우 [Azure Portal에서 즐겨찾기에 함수 앱을 추가](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite)합니다.
+> 포털에서 함수 앱을 찾는 데 문제가 있는 경우 [Azure Portal에서 즐겨찾기에 Function App을 추가](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite)합니다.

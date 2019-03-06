@@ -101,7 +101,7 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 * 미국, 유럽 또는 동남 아시아에 있습니다. 새 Application Insights 리소스를 만들 때 위치를 선택할 수 있습니다. 
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>내 앱을 미국, 유럽 또는 동남 아시아에서 호스트해야 한다는 뜻인가요?
-*  아니요. 애플리케이션은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
+* 아니요. 애플리케이션은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
 
 ## <a name="how-secure-is-my-data"></a>내 데이터는 어느 정도 안전한가요?
 Application Insights는 Azure 서비스입니다. 보안 정책은 [Azure 보안, 개인 정보 보호 및 규정 준수 백서](https://go.microsoft.com/fwlink/?linkid=392408)에 설명되어 있습니다.
@@ -198,7 +198,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 |플랫폼/언어 | 지원 | 추가 정보 |
 | --- | --- | --- |
 | Azure App Services  | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요.  |
-| Azure 함수 앱 | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요. |
+| Azure Function App | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요. |
 |.NET | 지원됨, 구성이 버전에 따라 다릅니다. | .NET 4.7 이전 버전에 대한 자세한 구성 정보는 [이러한 지침](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 참조하세요.  |
 |상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 [OS 구성](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 구성](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 사용하여 TLS 1.2를 지원합니다.
 |Node.js |  지원됨, v10.5.0에서 구성이 필요할 수 있습니다. | 애플리케이션 특정 구성에 대해 [공식 Node.js TLS/SSL 설명서](https://nodejs.org/api/tls.html)를 사용합니다. |
@@ -208,7 +208,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 | Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면 |
 | Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원됨, 하지만 기본적으로 활성화되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 | Windows Server 2008 SP2 | TLS 1.2에 대한 지원에는 업데이트가 필요합니다. | Windows Server 2008 SP2에서 [TLS 1.2에 대한 지원을 추가하는 업데이트](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)를 참조하세요. |
-|Windows Vista |  지원되지 않습니다. | 해당 없음
+|Windows Vista | 지원되지 않습니다. | 해당 없음
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Linux 배포에서 실행 중인 OpenSSL 버전을 확인합니다.
 
