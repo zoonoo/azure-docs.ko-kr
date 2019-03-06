@@ -141,7 +141,7 @@ Contoso가 마이그레이션을 실행하는 방법은 다음과 같습니다.
 > * **3단계: 백 엔드 마이크로서비스 배포**: 백 엔드 마이크로서비스에서 활용할 나머지 인프라를 배포합니다.
 > * **4단계: 프런트 엔드 인프라 배포**: 애완 동물 휴대폰, Cosmos DB 및 Vision API에 대한 Blob 스토리지를 포함하여 프런트 엔드 인프라를 배포합니다.
 > * **5단계: 백 엔드 마이그레이션**: AKS에 마이크로서비스를 배포하며 실행하고, 백 엔드를 마이그레이션합니다.
-> * **6단계: 프런트 엔드 게시**: Azure App Service에 SmartHotel360 앱 및 애완 동물 서비스에 의해 호출되는 함수 앱을 게시합니다.
+> * **6단계: 프런트 엔드 게시**: Azure App Service에 SmartHotel360 앱 및 애완 동물 서비스에 의해 호출되는 Function App을 게시합니다.
 
 
 
@@ -446,7 +446,7 @@ Contoso 관리자는 Azure Portal을 사용하여 웹앱을 프로비전합니�
 
 ### <a name="provision-the-azure-function-app"></a>Azure 함수 앱 프로비전
 
-Contoso 관리자는 Azure Portal에서 함수 앱을 프로비전합니다.
+Contoso 관리자는 Azure Portal에서 Function App을 프로비전합니다.
 
 1. **함수 앱**을 선택합니다.
 
@@ -469,7 +469,7 @@ Contoso 관리자는 프런트 엔드 사이트용으로 서로 다른 두 프�
     ![프런트 엔드 프로젝트](./media/contoso-migration-rebuild/function-app1.png)
 
 2. [SmartHotel360 front-end](https://github.com/Microsoft/SmartHotel360-public-web.git) Git 리포지토리를 새 프로젝트로 가져옵니다.
-3. 함수 앱용으로는 다른 Azure DevOps 프로젝트(SmartHotelPetChecker)를 만들고 [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) Git 리포지토리를 이 프로젝트로 가져옵니다.
+3. Function App용으로는 다른 Azure DevOps 프로젝트(SmartHotelPetChecker)를 만들고 [PetChecker](https://github.com/Microsoft/SmartHotel360-PetCheckerFunction ) Git 리포지토리를 이 프로젝트로 가져옵니다.
 
 ### <a name="configure-the-web-app"></a>웹앱 구성
 
@@ -579,7 +579,7 @@ Contoso 관리자는 프런트 엔드 사이트용으로 서로 다른 두 프�
 18. 팀이 **prod** 슬롯을 검사해 웹앱이 **https://smarthotelcontoso.azurewebsites.net/** 의 프로덕션 환경에 있는지 확인합니다.
 
 
-### <a name="deploy-the-petchecker-function-app"></a>PetChecker 함수 앱 배포
+### <a name="deploy-the-petchecker-function-app"></a>PetChecker Function App 배포
 
 Contoso 관리자는 다음과 같이 앱을 배포합니다.
 

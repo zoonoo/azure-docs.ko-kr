@@ -390,7 +390,7 @@ C# 함수에서 NuGet 패키지를 사용하려면 *function.proj* 파일을 함
 </Project>
 ```
 
-사용자 지정 NuGet 피드를 사용하려면 함수 앱 루트의 *Nuget.Config* 파일에서 피드를 지정합니다. 자세한 내용은 참조 [NuGet 동작 구성](/nuget/consume-packages/configuring-nuget-behavior)을 참조하세요.
+사용자 지정 NuGet 피드를 사용하려면 Function App 루트의 *Nuget.Config* 파일에서 피드를 지정합니다. 자세한 내용은 참조 [NuGet 동작 구성](/nuget/consume-packages/configuring-nuget-behavior)을 참조하세요.
 
 ### <a name="using-a-extensionscsproj-file"></a>extensions.csproj 파일 사용
 

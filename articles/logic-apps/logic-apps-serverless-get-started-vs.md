@@ -112,7 +112,7 @@ Visual Studio에서 Logic Apps 디자이너를 사용하여 논리 앱을 열기
 
 ## <a name="create-azure-functions-project"></a>Azure Functions 프로젝트 만들기
 
-JavaScript, Python, F#, PowerShell, Batch 또는 Bash를 사용하여 Functions 프로젝트 및 함수를 만들려면 [Azure Functions Core Tools](../azure-functions/functions-run-local.md) 문서의 단계를 따릅니다. 솔루션 내부에서 C#으로 Azure 함수를 개발하려면 [ .NET 클래스 라이브러리를 함수 앱으로 게시](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/) 문서의 단계에 따라 C# 클래스 라이브러리를 사용할 수 있습니다.
+JavaScript, Python, F#, PowerShell, Batch 또는 Bash를 사용하여 Functions 프로젝트 및 함수를 만들려면 [Azure Functions Core Tools](../azure-functions/functions-run-local.md) 문서의 단계를 따릅니다. 솔루션 내부에서 C#으로 Azure 함수를 개발하려면 [ .NET 클래스 라이브러리를 Function App으로 게시](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/) 문서의 단계에 따라 C# 클래스 라이브러리를 사용할 수 있습니다.
 
 ## <a name="deploy-functions-from-visual-studio"></a>Visual Studio에서 함수 배포
 

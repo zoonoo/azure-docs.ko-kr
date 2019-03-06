@@ -16,12 +16,12 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 1bfdaef4523a714aed0f1b7bbdb5a600f7775ffb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5934d075378df9f04130b79eb43131d71eaa25af
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244813"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449464"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL 리소스 공급자 1.1.30.0 릴리스 정보
 

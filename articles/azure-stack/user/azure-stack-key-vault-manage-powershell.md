@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 4ec662cd60e2ca8e5db76a3fda4c68df6f3164e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5c43215ce1800ac162c8b5d19ba4d4c987a3bac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893685"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445809"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>PowerShell을 사용 하 여 Azure Stack에서 Key Vault 관리
 
@@ -33,7 +33,7 @@ PowerShell을 사용 하 여 Azure Stack의 주요 자격 증명 모음을 관�
 * 사용자 또는 자격 증명 모음에서 작업을 호출 응용 프로그램에 권한을 부여 합니다.
 
 >[!NOTE]
->이 문서에 Key Vault PowerShell cmdlet 설명 된 Azure PowerShell SDK에 제공 됩니다.
+>이 문서에 설명 된 Key Vault PowerShell cmdlet은 Azure PowerShell SDK에 제공 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

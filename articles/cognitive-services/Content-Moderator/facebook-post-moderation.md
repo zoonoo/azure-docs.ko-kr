@@ -56,7 +56,7 @@ ms.locfileid: "55878068"
 [Azure 관리 포털](https://portal.azure.com/)에 로그인하여 Azure Functions를 만듭니다. 다음 단계를 수행하세요.
 
 1. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) 페이지에 표시된 대로 Azure 함수 앱을 만듭니다.
-2. 새로 만든 함수 앱을 엽니다.
+2. 새로 만든 Function App을 엽니다.
 3. 앱 내에서 **플랫폼 기능 -&gt; 애플리케이션 설정**으로 이동합니다.
 4. 다음 [애플리케이션 설정](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings)을 정의합니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "55878068"
 | cm:Region | Content Moderator 지역 이름(공백 없이) 위의 참고를 참조하세요. |
 | cm:ImageWorkflow | 이미지에서 실행할 워크플로의 이름 |
 | cm:TextWorkflow | 텍스트에서 실행할 워크플로의 이름 |
-| cm:CallbackEndpoint | 이 가이드의 뒷부분에서 만드는 CMListener 함수 앱에 대한 Url |
+| cm:CallbackEndpoint | 이 가이드의 뒷부분에서 만드는 CMListener Function App에 대한 Url |
 | fb:VerificationToken | Facebook 피드 이벤트에 구독하는 데도 사용되는 비밀 토큰 |
 | fb:PageAccessToken | Facebook 그래프 API 액세스 토큰은 만료되지 않으며 사용자를 대신하여 함수 게시 숨기기/삭제를 허용합니다. |
 
@@ -104,7 +104,7 @@ ms.locfileid: "55878068"
     3. 새 앱을 추가합니다.
     4. **웹후크 -> 시작**을 선택합니다.
     5. **페이지 -> 이 항목 구독**을 선택합니다.
-    6. 콜백 URL로 **FBListener Url** 및 **함수 앱 설정** 아래에서 구성한 **토큰 확인**을 제공합니다.
+    6. 콜백 URL로 **FBListener Url** 및 **Function App 설정** 아래에서 구성한 **토큰 확인**을 제공합니다.
     7. 구독한 후 피드 아래로 스크롤하고 **구독**을 선택합니다.
 
 2. Facebook 페이지를 만듭니다.

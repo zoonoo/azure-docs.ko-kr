@@ -13,7 +13,7 @@ ms.locfileid: "51572409"
 ---
 ## <a name="append-other-apis"></a>다른 API 추가
 
-API는 OpenAPI 사양, SOAP API, Azure App Service의 API Apps 기능, Azure 함수 앱, Azure Logic Apps 및 Azure Service Fabric을 포함하여 다양한 서비스에서 공개되는 API로 구성할 수 있습니다.
+API는 OpenAPI 사양, SOAP API, Azure App Service의 API Apps 기능, Azure Function App, Azure Logic Apps 및 Azure Service Fabric을 포함하여 다양한 서비스에서 공개되는 API로 구성할 수 있습니다.
 
 ![API 가져오기](./media/api-management-append-apis/import.png)
 

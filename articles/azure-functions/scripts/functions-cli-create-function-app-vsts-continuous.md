@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Azure DevOps로부터 배포되는 함수 만들기 | Microsoft Docs
-description: 함수 앱 만들기 및 Azure DevOps의 함수 코드 배포
+description: Function App 만들기 및 Azure DevOps의 함수 코드 배포
 services: functions
 keywords: ''
 author: ggailey777

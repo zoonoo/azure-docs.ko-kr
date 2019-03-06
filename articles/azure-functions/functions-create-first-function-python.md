@@ -57,7 +57,7 @@ py -3.6 -m venv .env
 
 ## <a name="create-a-local-functions-project"></a>로컬 Functions 프로젝트 만들기
 
-이제 로컬 Functions 프로젝트를 만들 수 있습니다. 이 디렉터리는 Azure의 함수 앱에 해당합니다. 동일한 로컬 및 호스팅 구성을 공유하는 함수를 여러 개 포함할 수 있습니다.
+이제 로컬 Functions 프로젝트를 만들 수 있습니다. 이 디렉터리는 Azure의 Function App에 해당합니다. 동일한 로컬 및 호스팅 구성을 공유하는 함수를 여러 개 포함할 수 있습니다.
 
 터미널 창 또는 명령 프롬프트에서 다음 명령을 실행합니다.
 
@@ -171,7 +171,7 @@ Http Functions:
 
 ![test](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-이제 함수 앱 및 Azure에 게시하기 위해 필요한 기타 리소스를 만들 준비가 되었습니다.
+이제 Function App 및 Azure에 게시하기 위해 필요한 기타 리소스를 만들 준비가 되었습니다.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -199,7 +199,7 @@ Your serverless Linux function app 'myfunctionapp' has been successfully created
 To active this function app, publish your app content using Azure Functions Core Tools or the Azure portal.
 ```
 
-이제 Azure에서 함수 앱에 로컬 함수 프로젝트를 게시할 준비가 되었습니다.
+이제 Azure에서 Function App에 로컬 함수 프로젝트를 게시할 준비가 되었습니다.
 
 ## <a name="deploy-the-function-app-project-to-azure"></a>함수 앱 프로젝트를 Azure에 배포
 

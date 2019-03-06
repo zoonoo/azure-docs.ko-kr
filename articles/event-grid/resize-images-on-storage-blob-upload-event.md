@@ -221,11 +221,11 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 서비스**를 선택한 다음, **함수 앱**을 선택합니다. 
 
-    ![Azure Portal의 함수 앱 찾아보기](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+    ![Azure Portal의 Function App 찾아보기](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
 
 2. 함수 앱을 확장하고, **썸네일** 함수를 선택하고, **Event Grid 구독 추가**를 선택합니다.
 
-    ![Azure Portal의 함수 앱 찾아보기](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    ![Azure Portal의 Function App 찾아보기](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
 
 3. 표에 지정된 대로 이벤트 구독 설정을 사용합니다.
     

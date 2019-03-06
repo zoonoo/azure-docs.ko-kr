@@ -148,11 +148,11 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | **Application Insights** | 꺼짐 | [Application Insights](../azure-monitor/app/app-insights-overview.md)를 통해 애플리케이션 모니터링을 사용하도록 설정하지만, 이 자습서에서는 **해제** 설정을 선택합니다. | 
    |||| 
 
-   배포 후 함수 앱이 자동으로 열리지 않으면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 앱을 찾습니다. Azure 주 메뉴에서 **함수 앱**을 선택하고 해당 함수 앱을 선택합니다. 
+   배포 후 함수 앱이 자동으로 열리지 않으면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 앱을 찾습니다. Azure 주 메뉴에서 **Function App**을 선택하고 해당 함수 앱을 선택합니다. 
 
    ![함수 앱 선택](./media/tutorial-process-email-attachments-workflow/select-function-app.png)
 
-   Azure 메뉴에 **함수 앱**이 표시되지 않으면 **모든 서비스**로 대신 이동합니다. 검색 상자에서 **함수 앱**을 찾아 선택합니다. 자세한 내용은 [함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조하세요.
+   Azure 메뉴에 **Function App**이 표시되지 않으면 **모든 서비스**로 대신 이동합니다. 검색 상자에서 **Function App**을 찾아 선택합니다. 자세한 내용은 [함수 만들기](../azure-functions/functions-create-first-azure-function.md)를 참조하세요.
 
    그렇지 않으면 Azure에서 다음과 같이 함수 앱을 자동으로 엽니다.
 

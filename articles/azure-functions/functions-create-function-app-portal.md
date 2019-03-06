@@ -21,7 +21,7 @@ ms.locfileid: "54900769"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Azure Portal에서 함수 앱 만들기
 
-Azure Function 앱에서는 Azure App Service 인프라를 사용합니다. 이 항목에서는 Azure Portal에서 함수 앱을 만드는 방법을 보여 줍니다. 함수 앱은 개별 함수의 실행을 호스팅하는 컨테이너입니다. App Service 호스팅 계획에서 함수 앱을 만들면 함수 앱에서는 모든 기능 및 App Service를 사용하여 App Service의 모든 기능을 사용할 수 있습니다.
+Azure Function App에서는 Azure App Service 인프라를 사용합니다. 이 항목에서는 Azure Portal에서 함수 앱을 만드는 방법을 보여 줍니다. 함수 앱은 개별 함수의 실행을 호스팅하는 컨테이너입니다. App Service 호스팅 계획에서 함수 앱을 만들면 함수 앱에서는 모든 기능 및 App Service를 사용하여 App Service의 모든 기능을 사용할 수 있습니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 

@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: f81a781bf3d1232c0af519b81f38c1d27fa6b2df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ed149398a1244ad0cb09c3e0fe128973c6caa00d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818394"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408006"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>자습서: 항상 사용 가능한 SQL database를 제공 합니다.
 
@@ -44,7 +44,7 @@ Azure Stack 운영자로 SQL Server 데이터베이스를 호스트 서버 Vm을
 > 다음의 모든 요소가 Azure Stack 빠른 시작 템플릿을 사용할 필요 합니다.
 
 - [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) marketplace 이미지입니다.
-- SQL Server 2016 SP1 또는 SP2 (Enterprise, Standard 또는 Developer) Windows Server 2016 서버 이미지에 있습니다. 이 자습서에서는 합니다 [Windows Server 2016에서 SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.sqlserver2016sp2enterprisewindowsserver2016) marketplace 이미지입니다.
+- SQL Server 2016 SP1 또는 SP2 (Enterprise, Standard 또는 Developer) Windows Server 2016 서버 이미지에 있습니다. 이 자습서에서는 합니다 [Windows Server 2016에서 SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) marketplace 이미지입니다.
 - [SQL Server IaaS 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) 1.2.30 버전 이상. 모든 Windows 버전에 대 한 SQL Server Marketplace 항목에 필요한 필수 구성 요소를 설치 하는 SQL IaaS 확장 합니다. SQL 관련 설정을 SQL virtual machines에서 구성할 수 있습니다. 확장 Marketplace 로컬에 설치 되어 있지 않으면, SQL의 프로 비전 하지 못합니다.
 - [Windows 용 사용자 지정 스크립트 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) 1.9.1 버전 이상. 사용자 지정 스크립트 확장은 자동으로 배포 후 VM 사용자 지정 작업을 시작 하려면 사용할 수 있는 도구입니다.
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) 2.76.0.0 버전 이상. DSC는 배포 및 소프트웨어 서비스에 대 한 구성 데이터를 관리 하 고, 이러한 서비스가 실행 되는 환경 관리를 사용 하도록 설정 하는 Windows PowerShell의 관리 플랫폼입니다.

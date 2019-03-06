@@ -96,9 +96,9 @@ Azure Event Grid 구성 가능한 속성은 다음과 같습니다.
 * **EventGridPublishRetryCount** - [선택 사항] Event Grid 항목에 게시가 실패하는 경우 다시 시도 횟수입니다.
 * **EventGridPublishRetryInterval** -[선택 사항] *hh:mm:ss* 형식의 Event Grid 게시 다시 시도 간격입니다. 지정하지 않으면 기본 다시 시도 간격은 5분입니다.
 
-`host.json` 파일이 구성되면 Durable Functions 프로젝트에서 수명 주기 이벤트를 Event Grid 토픽에 보내기 시작합니다. 이는 함수 앱에서 실행하고 로컬로 실행할 때 작동합니다.
+`host.json` 파일이 구성되면 Durable Functions 프로젝트에서 수명 주기 이벤트를 Event Grid 토픽에 보내기 시작합니다. 이는 Function App에서 실행하고 로컬로 실행할 때 작동합니다.
 
-함수 앱 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
+Function App 및 `local.setting.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
 
 ```json
 {
@@ -115,7 +115,7 @@ Azure Event Grid 구성 가능한 속성은 다음과 같습니다.
 
 ## <a name="create-functions-that-listen-for-events"></a>이벤트를 수신 대기하는 함수 만들기
 
-함수 앱을 만듭니다. Event Grid 토픽과 동일한 지역에서 찾는 것이 가장 좋습니다.
+Function App을 만듭니다. Event Grid 토픽과 동일한 지역에서 찾는 것이 가장 좋습니다.
 
 ### <a name="create-an-event-grid-trigger-function"></a>Event Grid 트리거 함수 만들기
 

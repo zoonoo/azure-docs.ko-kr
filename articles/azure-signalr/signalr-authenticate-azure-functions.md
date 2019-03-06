@@ -320,7 +320,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
 
 ### <a name="deploy-function-app"></a>함수 앱 배포
 
-1. VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Azure Functions: 함수 앱에 배포**를 선택합니다.
+1. VS Code 명령 팔레트를 열고(`Ctrl-Shift-P`, macOS: `Cmd-Shift-P`), **Azure Functions: Function App에 배포**를 선택합니다.
 
 1. 메시지가 표시되면 다음 정보를 제공합니다.
 

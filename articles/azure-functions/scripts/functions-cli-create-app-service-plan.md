@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - App Service 계획에서 함수 앱 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - App Service 계획에서 함수 앱 만들기
+title: Azure CLI 스크립트 샘플 - App Service 계획에서 Function App 만들기 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - App Service 계획에서 Function App 만들기
 services: functions
 documentationcenter: functions
 author: ggailey777
@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46946111"
 ---
-# <a name="create-a-function-app-in-an-app-service-plan"></a>App Service 계획에서 함수 앱 만들기
+# <a name="create-a-function-app-in-an-app-service-plan"></a>App Service 계획에서 Function App 만들기
 
 이 Azure Functions 샘플 스크립트는 함수의 컨테이너인 함수 앱을 만듭니다. 생성된 함수 앱은 전용 App Service 계획을 사용하는데, 이는 서버 리소스가 항상 켜져 있음을 의미합니다.
 

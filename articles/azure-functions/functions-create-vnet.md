@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2019
 ms.locfileid: "54198374"
 ---
-# <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 함수 앱 통합
+# <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 Function App 통합
 이 단계별 자습서는 Azure Functions를 사용하여 Azure VNET에서 리소스에 연결하는 방법을 보여줍니다. 
 
 이 자습서에서는 인터넷 액세스가 안 되는 사설 VNET의 VM에 wordpress 사이트를 배포하려고 합니다. 그런 다음, 인터넷과 VNET 모두에 대한 액세스로 함수를 배포합니다. 이 함수를 사용하여 VNET 내에 배포된 wordpress 사이트에서 리소스에 액세스합니다.
@@ -61,13 +61,13 @@ VNET 내에서 배포할 수 있는 가장 저렴한 리소스 중 하나이므�
 
 이제 가상 네트워크 내에 wordpress 사이트가 완전하게 배포되었으며, 이 사이트는 공용 인터넷에서 액세스할 수 없습니다.
 
-## <a name="create-a-dedicated-function-app"></a>전용 함수 앱 만들기
+## <a name="create-a-dedicated-function-app"></a>전용 Function App 만들기
 
-다음 단계는 표준 이상의 App Service 계획 내에 함수 앱을 만드는 것입니다. 단, 사용 계획 함수 앱에서는 VNET 통합을 지원하지 않습니다.
+다음 단계는 표준 이상의 App Service 계획 내에 Function App을 만드는 것입니다. 단, 사용 계획 함수 앱에서는 VNET 통합을 지원하지 않습니다.
 
 1. Azure Portal로 이동
 2. "리소스 만들기" 블레이드를 열어 새 리소스 추가
-3. “서버리스 함수 앱” 선택
+3. “서버리스 Function App” 선택
 4. 사용자의 모든 기본 정보를 만들기 블레이드에 입력합니다. 단 한 가지 예외가 있습니다.
     1. 표준 이상의 App Service 계획 수준이 필요합니다.
 
@@ -78,11 +78,11 @@ VNET 내에서 배포할 수 있는 가장 저렴한 리소스 중 하나이므�
     <img src="./media/functions-create-vnet/Create-Function-App.png" width="300">
 
 
-## <a name="connect-your-function-app-to-your-vnet"></a>함수 앱을 VNET에 연결
+## <a name="connect-your-function-app-to-your-vnet"></a>Function App을 VNET에 연결
 
 이제 VNET 내에 여러 파일을 호스팅하는 wordpress 사이트가 있으며, 이제 함수 앱을 이 VNET에 연결해야 합니다.
 
-1.  포털에서 이전 단계의 함수 앱에 대해 **플랫폼 기능**을 선택한 다음, **네트워킹**을 선택합니다.
+1.  포털에서 이전 단계의 Function App에 대해 **플랫폼 기능**을 선택한 다음, **네트워킹**을 선택합니다.
 1.  VNet 통합에서 **구성하려면 클릭**을 선택합니다.
 
     <img src="./media/functions-create-vnet/Networking-1.png" width="450">
@@ -97,9 +97,9 @@ VNET 내에서 배포할 수 있는 가장 저렴한 리소스 중 하나이므�
 
 ## <a name="create-a-function-that-accesses-a-resource-in-your-vnet"></a>VNET의 리소스에 액세스하는 함수 만들기
 
-이제 함수 앱은 wordpress 사이트를 통해 VNET에 액세스할 수 있습니다. 그래서 이 함수를 사용하여 해당 파일에 액세스하고 사용자에게 다시 제공해 보려고 합니다. 이 예에서는 wordpress 사이트를 API로 사용하고 함수 프록시를 호출 함수로 사용하겠습니다. 둘 다 설정하여 시각화하기 쉽기 때문입니다. VNET 내에서 배포된 다른 API는 물론, VNET 내에 배포된 해당 API를 호출하는 코드로 다른 함수도 쉽게 사용할 수 있습니다. VNET 내에 배포된 SQL Server는 완벽한 예입니다.
+이제 Function App은 wordpress 사이트를 통해 VNET에 액세스할 수 있습니다. 그래서 이 함수를 사용하여 해당 파일에 액세스하고 사용자에게 다시 제공해 보려고 합니다. 이 예에서는 wordpress 사이트를 API로 사용하고 함수 프록시를 호출 함수로 사용하겠습니다. 둘 다 설정하여 시각화하기 쉽기 때문입니다. VNET 내에서 배포된 다른 API는 물론, VNET 내에 배포된 해당 API를 호출하는 코드로 다른 함수도 쉽게 사용할 수 있습니다. VNET 내에 배포된 SQL Server는 완벽한 예입니다.
 
-1. 포털에서 이전 단계의 함수 앱을 엽니다.
+1. 포털에서 이전 단계의 Function App을 엽니다.
 1. **프록시** > **+** 를 선택하여 프록시를 만듭니다.
 
     <img src="./media/functions-create-vnet/New-Proxy.png" width="250">
@@ -111,7 +111,7 @@ VNET 내에서 배포할 수 있는 가장 저렴한 리소스 중 하나이므�
 
 이제 새 브라우저 탭에 붙여넣어 백엔드 URL에 바로 방문하려는 경우 페이지에 시간 제한이 적용됩니다. wordpress 사이트가 인터넷이 아닌 사용자의 VNET에만 연결되어 있으므로 예상할 수 있는 상황입니다. 브라우저에 프록시 URL을 붙여넣으면 VNET 내의 Wordpress 사이트에서 가져온 아름다운 식물 사진이 보입니다. 
 
-사용자의 함수 앱이 인터넷과 VNET에 모두 연결되었습니다. 프록시는 공용 인터넷을 통해 요청을 받은 다음, 단순한 HTTP 프록시로서 이 요청을 가상 네트워크에 전달합니다. 그런 다음, 프록시는 공용 인터넷을 통해 이 응답을 다시 사용자에게 중계해 줍니다. 
+사용자의 Function App이 인터넷과 VNET에 모두 연결되었습니다. 프록시는 공용 인터넷을 통해 요청을 받은 다음, 단순한 HTTP 프록시로서 이 요청을 가상 네트워크에 전달합니다. 그런 다음, 프록시는 공용 인터넷을 통해 이 응답을 다시 사용자에게 중계해 줍니다. 
 
 <img src="./media/functions-create-vnet/Plant.png" width="900">
 

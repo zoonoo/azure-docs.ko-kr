@@ -6,29 +6,19 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
-ms.openlocfilehash: 86a7f98f8232d4fb3e915efee6d9b53f1fae6e7e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 65e5a678b4619897930873e77208005e14c054d2
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737708"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410284"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
-Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
-
-다음 표에서 두 가지 id 선택 항목 간의 차이점을 보여 줍니다.
-
-||인터넷에서 연결이 끊어진|인터넷에 연결|
-|---------|---------|---------|
-|결제|용량 이어야 합니다.<br> EA (기업 계약)만|용량 또는 지불으로-사용<br>EA 또는 CSP (클라우드 솔루션 공급자)|
-|ID|AD FS 여야 합니다.|Azure AD 또는 AD FS|
-|Marketplace |지원됨<br>BYOL 라이선싱|지원됨<br>BYOL 라이선싱|
-|등록|필수, 이동식 미디어에 필요<br> 와 별도 연결 된 장치입니다.|자동|
-|패치 및 업데이트|필수, 이동식 미디어에 필요<br> 와 별도 연결 된 장치입니다.|업데이트 패키지를 직접 다운로드할 수 있습니다.<br> 인터넷에서 Azure Stack에.|
+Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. 연결 된 시나리오에서는 Azure를 선택할 수 있습니다 AD 또는 AD FS 합니다. 연결이 끊긴된 시나리오에서 AD FS만 지원 됩니다.
 
 > [!IMPORTANT]
 > 전체 Azure Stack 솔루션 다시 배포 하지 않고 id 공급자를 전환할 수 없습니다.
@@ -43,7 +33,7 @@ AD FS를 사용 하 여 배포 id를 기존 Active Directory 포리스트를 Azu
 
 기존 AD FS 계정 보안 토큰 서비스 (STS) Azure Stack AD FS (리소스 STS)에 대 한 클레임을 전송 하는 경우 Azure Stack automation 기존 AD FS에 대 한 메타 데이터 끝점을 사용 하 여 클레임 공급자 트러스트를 만듭니다.
 
-기존 AD FS에서 신뢰 당사자 트러스트를 구성 합니다. 이 단계는 자동화를 통해 수행 되지 않습니다 및 연산자로 구성 해야 합니다. Azure Stack 메타 데이터 끝점 된다 AzureStackStampDeploymentInfo.JSON 파일 또는 권한 있는 끝점을 통해 명령을 실행 하 여 `Get-AzureStackInfo`입니다.
+기존 AD FS에서 신뢰 당사자 트러스트를 구성 합니다. 이 단계는 자동화를 통해 수행 되지 않습니다 및 연산자로 구성 해야 합니다. 패턴을 사용 하 여 AD FS에 대 한 Azure Stack VIP 끝점을 만들 수 있습니다 `https://adfs.<Region>.<ExternalFQDN>/`합니다.
 
 신뢰 당사자 트러스트 구성 해야 Microsoft에서 제공 하는 클레임 변환 규칙을 구성할 수 있습니다.
 

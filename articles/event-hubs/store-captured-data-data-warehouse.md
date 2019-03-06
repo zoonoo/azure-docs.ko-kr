@@ -146,7 +146,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
    ![구독 만들기](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
 ## <a name="generate-sample-data"></a>샘플 데이터 생성  
-이제 Event Hub, SQL 데이터 웨어하우스, Azure 함수 앱 및 Event Grid 구독이 설정되었습니다. WindTurbineDataGenerator.exe를 실행하여 소스 코드에서 이벤트 허브의 연결 문자열과 이름을 업데이트한 후에 Event Hub로의 데이터 스트림을 생성할 수 있습니다. 
+이제 Event Hub, SQL 데이터 웨어하우스, Azure Function App 및 Event Grid 구독이 설정되었습니다. WindTurbineDataGenerator.exe를 실행하여 소스 코드에서 이벤트 허브의 연결 문자열과 이름을 업데이트한 후에 Event Hub로의 데이터 스트림을 생성할 수 있습니다. 
 
 1. Portal에서 이벤트 허브 네임스페이스를 선택합니다. **연결 문자열**을 선택합니다.
 

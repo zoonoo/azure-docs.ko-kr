@@ -147,7 +147,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 * **responseOverrides**: 클라이언트 응답으로 변환을 정의하는 개체입니다. [responseOverrides 개체 정의]를 참조하세요.
 
 > [!NOTE] 
-> Azure Functions 프록시의 *route* 속성은 함수 앱 호스트 구성의 *routePrefix* 속성을 유지하지 않습니다. `/api` 같은 접두사를 포함하려는 경우 *route* 속성에 포함해야 합니다.
+> Azure Functions 프록시의 *route* 속성은 Function App 호스트 구성의 *routePrefix* 속성을 유지하지 않습니다. `/api` 같은 접두사를 포함하려는 경우 *route* 속성에 포함해야 합니다.
 
 ### <a name="disableProxies"></a> 개별 프록시 사용 안 함
 

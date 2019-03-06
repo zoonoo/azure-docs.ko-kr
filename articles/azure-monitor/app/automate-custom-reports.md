@@ -78,15 +78,15 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Application Insights 예약된 다이제스트 보고서
 
-1. Azure Portal에서 **리소스 만들기** > **Compute** > **함수 앱**을 선택합니다.
+1. Azure Portal에서 **리소스 만들기** > **Compute** > **Function App**을 선택합니다.
 
-   ![Azure 리소스 함수 앱 만들기 스크린샷](./media/automate-custom-reports/function-app-01.png)
+   ![Azure Resource Function App 만들기 스크린샷](./media/automate-custom-reports/function-app-01.png)
 
-2. 앱에 대한 적절한 정보를 입력하고 _만들기_를 선택합니다. (Application Insights를 사용하여 새 함수 앱을 모니터링하려는 경우에만 Application Insights _On_이 필요합니다.)
+2. 앱에 대한 적절한 정보를 입력하고 _만들기_를 선택합니다. (Application Insights를 사용하여 새 Function App을 모니터링하려는 경우에만 Application Insights _On_이 필요합니다.)
 
-   ![Azure 리소스 함수 앱 설정 만들기 스크린샷](./media/automate-custom-reports/function-app-02.png)
+   ![Azure Resource Function App 설정 만들기 스크린샷](./media/automate-custom-reports/function-app-02.png)
 
-3. 새 함수 앱에서 배포를 완료하면 **리소스로 이동**을 선택합니다.
+3. 새 Function App에서 배포를 완료하면 **리소스로 이동**을 선택합니다.
 
 4. **새 함수**를 선택합니다.
 
@@ -123,9 +123,9 @@ availabilityResults
 
 10. **SendGridAPI 키 앱 설정** 아래에서 **SendGridAPI**에 대한 새로 만든 앱 설정을 선택합니다.
 
-     ![함수 앱 실행 스크린샷](./media/automate-custom-reports/function-app-010.png)
+     ![Function App 실행 스크린샷](./media/automate-custom-reports/function-app-010.png)
 
-11. 함수 앱을 실행하고 테스트합니다.
+11. Function App을 실행하고 테스트합니다.
 
      ![테스트 스크린샷](./media/automate-custom-reports/function-app-11.png)
 
@@ -153,7 +153,7 @@ availabilityResults
 
    ![모든 권한 스크린샷](./media/automate-custom-reports/function-app-16.png)
 
-5. 전체 키를 복사합니다. 이 값은 SendGridAPI에 대한 값으로 함수 앱 설정에서 필요한 값입니다.
+5. 전체 키를 복사합니다. 이 값은 SendGridAPI에 대한 값으로 Function App 설정에서 필요한 값입니다.
 
    ![API 키 복사 스크린샷](./media/automate-custom-reports/function-app-17.png)
 

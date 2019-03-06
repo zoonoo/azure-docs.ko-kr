@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 898fb12c4e38804cca71be6ef08b078f92633e32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9300e60902b9234af01a64173eefcfb1bc033c61
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240156"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410199"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI 인증서의 유효성 검사
 
@@ -83,7 +83,11 @@ ms.locfileid: "55240156"
     ```
     
     > [!Note]  
-    > AD FS 및 그래프는 id 시스템으로 AD FS를 사용 하는 경우 필요 합니다.
+    > AD FS 및 그래프는 id 시스템으로 AD FS를 사용 하는 경우 필요 합니다. 예: 
+    >
+    > ```PowerShell  
+    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > ```
     
      - 이전 단계에서 만든 적절 한 디렉터리에서 사용자 인증서를 배치 합니다. 예:   
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`

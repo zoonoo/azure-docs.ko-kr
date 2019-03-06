@@ -79,7 +79,7 @@ Azure Portal에 기본 제공된 함수 편집기를 사용하면 코드와 *fun
 
 ## <a name="functions-runtime-versioning"></a>Functions 런타임 버전 관리
 
-`FUNCTIONS_EXTENSION_VERSION` 앱 설정을 사용하여 Functions 런타임의 버전을 구성할 수 있습니다. 예를 들어 “~2”는 함수 앱이 주 버전으로 2.x를 사용한다는 것을 나타냅니다. 함수 앱은 부 버전이 새로 릴리스될 때마다 업그레이드됩니다. 정확한 함수 앱 버전을 확인하는 방법을 비롯한 자세한 내용을 보려면 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
+`FUNCTIONS_EXTENSION_VERSION` 앱 설정을 사용하여 Functions 런타임의 버전을 구성할 수 있습니다. 예를 들어 “~2”는 Function App이 주 버전으로 2.x를 사용한다는 것을 나타냅니다. Function App은 부 버전이 새로 릴리스될 때마다 업그레이드됩니다. 정확한 함수 앱 버전을 확인하는 방법을 비롯한 자세한 내용을 보려면 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
 
 ## <a name="repositories"></a>리포지토리
 Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리에 저장됩니다.

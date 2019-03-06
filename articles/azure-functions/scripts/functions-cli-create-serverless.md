@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - 서버를 사용하지 않고 실행하기 위한 함수 앱 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 서버를 사용하지 않고 실행하기 위한 함수 앱 만들기
+title: Azure CLI 스크립트 샘플 - 서버를 사용하지 않고 실행하기 위한 Function App 만들기 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - 서버를 사용하지 않고 실행하기 위한 Function App 만들기
 services: functions
 documentationcenter: functions
 author: ggailey777

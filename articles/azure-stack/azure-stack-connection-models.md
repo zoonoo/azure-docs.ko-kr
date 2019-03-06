@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 9760e6b9cdcd6f03f4377277f3426189b1fe0a61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/21/2019
+ms.openlocfilehash: f58d4e4f8b0e095fe64489fb42f78ef82c5af359
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182020"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407819"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack 통합 시스템 연결 모델
 이해 해야 하는 Azure Stack 통합 시스템 구매에 관심이 있다면 [여러 데이터 센터 통합 고려 사항](azure-stack-datacenter-integration.md) 시스템 데이터 센터에 들어가는지는 방법을 확인 하려면 Azure Stack 배포에 대 한 합니다. 또한 하이브리드 클라우드 환경에 Azure Stack에서는 통합 하는 방법을 결정 해야 합니다. 이 문서에서는 이러한 주요 의사 결정 및 Azure 연결을 id 저장소를 포함 하 여 청구 모델 의사 결정의 개요를 제공 합니다.
@@ -38,12 +38,14 @@ ms.locfileid: "56182020"
 
 
 |옵션|Azure에 연결|Azure에서 연결 끊김|
-|-----|-----|-----|
+|-----|:-----:|:-----:|
 |Azure AD|![지원됨](media/azure-stack-connection-models/check.png)| |
 |AD FS|![지원됨](media/azure-stack-connection-models/check.png)|![지원됨](media/azure-stack-connection-models/check.png)|
 |사용량 기반 요금 청구|![지원됨](media/azure-stack-connection-models/check.png)| |
 |용량 기반 청구|![지원됨](media/azure-stack-connection-models/check.png)|![지원됨](media/azure-stack-connection-models/check.png)|
-|Azure Stack에 직접 업데이트 패키지 다운로드|![지원됨](media/azure-stack-connection-models/check.png)|  |
+|라이선스| 기업 계약 또는 클라우드 솔루션 공급자 | 기업 계약 |
+|패치 및 업데이트|Azure Stack에 인터넷에서 직접 업데이트 패키지를 다운로드할 수 있습니다. |  필수<br><br>또한 이동식 미디어에 필요<br> 와 별도 연결 된 장치 |
+| 등록 | 자동 | 필수<br><br>또한 이동식 미디어에 필요<br> 와 별도 연결 된 장치 |
 
 Azure Stack 배포에 사용할 Azure 연결 모델에서 결정 한, 다음 청구 방법과 id 저장소에 대 한 추가, 연결 종속 결정을 수행 합니다. 
 

@@ -161,11 +161,11 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
-### <a name="azure-function-apps"></a>Azure 함수 앱
+### <a name="azure-function-apps"></a>Azure Function App
 
-Azure Function 앱(v2)의 경우 환경 변수를 사용하여 API 키로 채널 보안을 수행할 수 있습니다. 
+Azure Function App(v2)의 경우 환경 변수를 사용하여 API 키로 채널 보안을 수행할 수 있습니다. 
 
-Application Insights 리소스 내에서 API 키를 만들고 함수 앱에 대한 **애플리케이션 설정**으로 이동합니다. **새 설정 추가**를 선택하고 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY`의 이름 및 API 키에 해당하는 값을 입력합니다.
+Application Insights 리소스 내에서 API 키를 만들고 Function App에 대한 **애플리케이션 설정**으로 이동합니다. **새 설정 추가**를 선택하고 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY`의 이름 및 API 키에 해당하는 값을 입력합니다.
 
 ### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core(Application Insights ASP.NET Core SDK 2.3.0 베타 이상 필요)
 

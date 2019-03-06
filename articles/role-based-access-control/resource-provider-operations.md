@@ -5469,8 +5469,8 @@ ms.locfileid: "56343156"
 > | 액션(Action) | microsoft.web/sites/hostnamebindings/read | Web Apps 호스트 이름 바인딩을 가져옵니다. |
 > | 액션(Action) | microsoft.web/sites/hostnamebindings/write | Web Apps 호스트 이름 바인딩을 업데이트합니다. |
 > | 조치 | microsoft.web/sites/hostruntime/functions/keys/read | Web Apps Hostruntime 함수 키를 가져옵니다. |
-> | 조치 | Microsoft.Web/sites/hostruntime/host/_master/read | 관리 작업에 대한 함수 앱의 마스터 키를 가져옵니다. |
-> | 액션(Action) | Microsoft.Web/sites/hostruntime/host/action | 트리거 동기화, 함수 추가, 함수 호출, 함수 삭제 등과 같은 함수 앱 런타임 작업을 수행합니다. |
+> | 조치 | Microsoft.Web/sites/hostruntime/host/_master/read | 관리 작업에 대한 Function App의 마스터 키를 가져옵니다. |
+> | 액션(Action) | Microsoft.Web/sites/hostruntime/host/action | 트리거 동기화, 함수 추가, 함수 호출, 함수 삭제 등과 같은 Function App 런타임 작업을 수행합니다. |
 > | 조치 | microsoft.web/sites/hostruntime/host/read | Web Apps Hostruntime 호스트를 가져옵니다. |
 > | 조치 | microsoft.web/sites/hybridconnection/delete | Web Apps 하이브리드 연결을 삭제합니다. |
 > | 액션(Action) | microsoft.web/sites/hybridconnection/read | Web Apps 하이브리드 연결을 가져옵니다. |
