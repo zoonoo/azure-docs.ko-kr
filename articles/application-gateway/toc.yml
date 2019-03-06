@@ -166,13 +166,13 @@ items:
       href: application-gateway-create-probe-ps.md
   - name: 문제 해결
     items:
-    - name: 애플리케이션 게이트웨이 문제 해결 - ASE(App Service Environment)가 있는 ILB(내부 Load Balancer)
+    - name: App Service Environment에서 ILB
       href: create-gateway-internal-load-balancer-app-service-environment.md
-    - name: App Service로 애플리케이션 게이트웨이 문제 해결 - App Service의 URL로 리디렉션
+    - name: App Service의 URL로 리디렉션
       href: troubleshoot-app-service-redirection-app-service-url.md
-    - name: Azure Application Gateway에서 세션 선호도 문제 해결
+    - name: 세션 선호도 문제
       href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
-    - name: 잘못된 게이트웨이(502) 오류 문제 해결
+    - name: 잘못된 게이트웨이(502) 오류
       href: application-gateway-troubleshooting-502.md
     - name: 진단
       href: application-gateway-diagnostics.md
@@ -212,9 +212,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 스택 오버플로
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 7fd344a06dcd29c53d313a59c484101b1d0b2c8f
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7fe790e7b75e3cf6bead50635b7be690b1b7eeb7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985668"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309046"

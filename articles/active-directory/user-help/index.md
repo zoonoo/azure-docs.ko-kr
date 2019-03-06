@@ -51,10 +51,9 @@ ms.collection: M365-identity-device-management
                         <p>
                         <a href="/azure/active-directory/user-help/myprofile-portal-overview">개요</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-security-info-overview">보안 정보 관리</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-recent-activity-page">최근 로그인 작업 보기</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-organizations-page">조직 관리</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">연결된 디바이스 관리</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">개인 정보 관련 정보 보기</a><br/>                       
+                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">개인 정보 관련 정보 보기</a>
                         </p>
                     </div>
                 </div>

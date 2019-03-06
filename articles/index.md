@@ -1314,7 +1314,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                         <li>
                                             <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT 기본 사항</p>
+                                                <p>Azure IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3929,12 +3929,12 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iothub.svg" alt="" />
+                                                        <img src="media/index/question-mark-grey.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT 기본 사항</h3>
-                                                    <p>장치 연결 시작</p>
+                                                    <h3>Azure IoT의 새로운 기능</h3>
+                                                    <p>나에게 맞는 서비스에 대해 알아보려면 여기에서 시작하세요.</p>
                                                 </div>
                                             </div>
                                         </div>

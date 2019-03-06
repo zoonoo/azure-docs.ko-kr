@@ -199,7 +199,9 @@
 ##### [연락처 탭](./cloud-partner-portal/saas-app/cpp-contacts-tab.md)
 #### [제품 게시](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 #### [기존 제품 업데이트](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
-#### [SaaS API](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+#### [SaaS 처리 API](./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md)
+##### [SaaS V1 API](./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md) 
+##### [SaaS V2 API](./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md) 
 
 ### [가상 머신 제품](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 #### [필수 구성 요소](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)

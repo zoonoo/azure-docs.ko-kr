@@ -1,30 +1,12 @@
 items:
-- name: Azure IoT 기본 사항
-  href: index.yml
+- name: Azure 사물 인터넷
+  href: index.md
 - name: 개요
   items:
   - name: 소개
     href: iot-introduction.md
   - name: Azure IoT 서비스 및 기술
     href: iot-services-and-technologies.md
-- name: Services
-  items:
-  - name: IoT Hub
-    href: /azure/iot-hub
-  - name: IoT Hub Device Provisioning Service
-    href: /azure/iot-dps
-  - name: IoT 솔루션 가속기
-    href: /azure/iot-suite
-  - name: IoT Central
-    href: /azure/iot-central
-  - name: IoT Edge
-    href: /azure/iot-edge
-  - name: Azure Digital Twins
-    href: /azure/digital-twins
-  - name: Azure Maps
-    href: /azure/azure-maps
-  - name: Time Series Insights
-    href: /azure/time-series-insights
 - name: 보안
   items:
   - name: 보안 아키텍처
@@ -35,15 +17,9 @@ items:
     href: iot-security-deployment.md
   - name: 처음부터 보안을 고려
     href: iot-security-ground-up.md
-- name: SDK
-  items:
-  - name: 서비스 SDK
-    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-  - name: IoT 디바이스 SDK
-    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: 82b04e5f6db3142180b1a10264342862793740eb
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: dc5c08ea2a3376b4213e83495ff1dce697338d82
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287169"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336719"

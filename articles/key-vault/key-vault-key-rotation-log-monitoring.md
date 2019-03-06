@@ -269,7 +269,7 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
 
 다음으로, [Azure 함수를 만들어](../azure-functions/functions-create-first-azure-function.md) 저장소 계정 내에서 Key Vault 로그를 폴링하고 새 이벤트를 선택합니다. 그러면 일정에 따라 트리거되는 함수가 됩니다.
 
-Azure 함수를 만들려면 **리소스 만들기**를 선택하고 마켓플레이스에서 _함수 앱_을 검색한 다음, **만들기**를 클릭합니다. 만들기 중에 기존 호스팅 계획을 사용하거나 새 계획을 만들 수 있습니다. 동적 호스팅을 선택할 수도 있습니다. 함수 호스팅 옵션에 대한 자세한 내용은 [Azure Functions 크기 조정 방법](../azure-functions/functions-scale.md)에서 찾을 수 있습니다.
+Azure 함수를 만들려면 **리소스 만들기**를 선택하고 마켓플레이스에서 _Function App_을 검색한 다음, **만들기**를 클릭합니다. 만들기 중에 기존 호스팅 계획을 사용하거나 새 계획을 만들 수 있습니다. 동적 호스팅을 선택할 수도 있습니다. 함수 호스팅 옵션에 대한 자세한 내용은 [Azure Functions 크기 조정 방법](../azure-functions/functions-scale.md)에서 찾을 수 있습니다.
 
 Azure 함수를 만들었으면 해당 함수로 이동하여 타이머 함수 및 C\#을 선택합니다. 그런 다음 **이 함수 만들기**를 클릭합니다.
 

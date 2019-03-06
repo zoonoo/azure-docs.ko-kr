@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7c7279f1895764c2a3ed73e824d44c2eed68240c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 299ea79a7a344a57bf302aae049ba87234427343
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244584"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442786"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 지역 분산 앱 솔루션 만들기
 
@@ -533,7 +533,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 #### <a name="test-https"></a>HTTPS 테스트
 
-다양 한 브라우저에서 https://<your.custom.domain>to 이동 ap를 제공 하는 웹을 확인 합니다.
+다양 한 브라우저 https://<your.custom.domain>to로 웹 앱은 제공 했는지 확인 합니다.
 
 ![대체 텍스트](media/azure-stack-solution-geo-distributed/image42.png)
 
