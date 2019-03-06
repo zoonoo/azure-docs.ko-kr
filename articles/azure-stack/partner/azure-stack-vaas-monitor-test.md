@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8784acc0180be1c3e0ac277b7c2a21d422ebccd0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: d4854bd623bb11d50a712be3a5aea07db24c2951
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341054"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432246"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>모니터링 및 VaaS 포털에서 테스트를 관리 합니다.
 
@@ -77,7 +77,7 @@ Azure Stack 솔루션에 대 한 테스트를 예약, 후 (VaaS) 서비스로 �
 | 에이전트 이름 | 테스트를 실행 하는 에이전트의 이름입니다. |
 | 총작업 수 | 테스트 중에 시도 하는 작업의 총 수입니다. |
 | 전달 된 작업 | 테스트 하는 동안 성공한 작업의 수입니다. |
-|  실패 한 작업 | 테스트 하는 동안 실패 한 작업의 수입니다. |
+|  작업 실패 | 테스트 하는 동안 실패 한 작업의 수입니다. |
 
 ### <a name="actions"></a>작업
 

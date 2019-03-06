@@ -16,15 +16,15 @@ ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 9157acc7517aea56f087a3dbff0fe7114f8b4c87
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c69b124f84e87e8f0b937dfa275378c376894f9b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55958808"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447203"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack Development Kit 아키텍처
-Azure Stack 개발 키트 (ASDK)에 단일 호스트 컴퓨터에서 실행 하는 Azure Stack의 단일 노드 배포입니다. Edge 라우팅 compontents Azure Stack에 대 한 NAT 및 VPN 기능을 제공 하기 위해 호스트 컴퓨터에 설치 됩니다. Azure Stack 인프라 역할 물리적 호스트 컴퓨터의 Hyper-v 계층에서 실행 됩니다.
+Azure Stack 개발 키트 (ASDK)에 단일 호스트 컴퓨터에서 실행 하는 Azure Stack의 단일 노드 배포입니다. Edge 라우팅 구성 요소는 Azure Stack에 대 한 NAT 및 VPN 기능을 제공 하기 위해 호스트 컴퓨터에 설치 됩니다. Azure Stack 인프라 역할 물리적 호스트 컴퓨터의 Hyper-v 계층에서 실행 됩니다.
 
 
 ## <a name="virtual-machine-roles"></a>가상 컴퓨터 역할

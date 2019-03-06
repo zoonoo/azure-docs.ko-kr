@@ -16,16 +16,16 @@ ms.date: 02/12/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 40b26429cf4e7f218c2b5a276ae936f60bd6abe4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163226"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453238"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Azure Active Directory에서 새 Azure Stack 테넌트 계정 추가
 
-이후에 [Azure Stack 개발 키트 배포](azure-stack-run-powershell-script.md), 테 넌 트 포털을 탐색 하 고 본인의 제품 및 계획을 테스트할 수 있도록 테 넌 트 사용자 계정이 필요 합니다. 테 넌 트 계정을 만들 수 있습니다 [Azure portal을 사용 하 여](#create-an-azure-stack-tenant-account-using-the-azure-portal) 하거나 [PowerShell을 사용 하 여](#create-an-azure-stack-tenant-account-using-powershell)입니다.
+이후에 [Azure Stack 개발 키트 배포](azure-stack-run-powershell-script.md), 테 넌 트 포털을 탐색 하 고 본인의 제품 및 계획을 테스트할 수 있도록 테 넌 트 사용자 계정이 필요 합니다. 테 넌 트 계정을 만들면 [Azure portal을 사용 하 여](#create-an-azure-stack-tenant-account-using-the-azure-portal) 또는 PowerShell을 사용 하 여 합니다.
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Stack 테넌트 계정 만들기
 

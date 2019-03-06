@@ -11,12 +11,12 @@ ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: bd1994aca3dbbc23977b01d3511f87b5ec08b96d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41609a75efec6c15d894b61867fb9d3ae727dc8c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251863"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440559"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack의 진단 도구
 
@@ -163,7 +163,7 @@ if($s)
     -   ACS 로그에 수집 되는 *저장소* 하 고 *ACS* 역할.
 
 > [!NOTE]
-> 로그를 사용 하 여 플 러 딩 오지 되도록 저장소 공간의 효율적인 사용률을 확인 하는 데 필수적 이므로 수집 된 로그의 크기 및 보존 기간 제한이 적용 됩니다. 그러나 문제를 진단 하는 경우 로그는 이러한 제한으로 인해 더 이상 존재 하지 않을 경우에 따라 필요 합니다. 따라서 **좋습니다** (Azure에서 저장소 계정, 추가 온-프레미스 저장소 장치 등)는 외부 저장소 공간에 로그 오프 로드는 8 ~ 12 시간 마다 유지 1 ~ 3 개월에 대 한 따라 및 프로그램 요구 사항입니다. 또한이 저장소 위치 암호화 되었는지 확인 합니다.
+> 로그를 사용 하 여 플 러 딩 오지 되도록 저장소 공간의 효율적인 사용률을 확인 하는 데 필수적 이므로 수집 된 로그의 크기 및 보존 기간 제한이 적용 됩니다. 그러나 문제를 진단 하는 경우 로그는 이러한 제한으로 인해 더 이상 존재 하지 않을 경우에 따라 필요 합니다. 따라서 **좋습니다** 8 ~ 12 시간 마다는 외부 저장소 공간 (azure에서 온-프레미스 저장소 장치 등 추가 저장소 계정)에 로그를 오프 로드 하는 유지 1 ~ 3 개월에 따라 프로그램 요구 사항입니다. 또한이 저장소 위치 암호화 되었는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Microsoft Azure Stack 문제 해결](azure-stack-troubleshooting.md)
