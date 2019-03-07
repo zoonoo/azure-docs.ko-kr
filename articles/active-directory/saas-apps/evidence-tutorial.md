@@ -130,9 +130,9 @@ Evidence.com에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 1. 별도 웹 브라우저 창에서 Evidence.com 테넌트에 관리자 권한으로 로그인하고 **관리자** 탭으로 이동합니다.
 
-2.  **Agency Single Sign On**
+2. **Agency Single Sign On**
 
-3.  **SAML 기반 Single Sign On**
+3. **SAML 기반 Single Sign On**
 
 4. Azure Portal에 표시된 **Azure AD 식별자**, **로그인 URL** 및 **로그아웃 URL** 값을 Evidence.com의 해당 필드에 복사합니다.
 
