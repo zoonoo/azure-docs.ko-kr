@@ -33,7 +33,7 @@ ms.locfileid: "55172377"
 
 호스팅 모델을 이해하기 위해 한 가지 예를 살펴보겠습니다. *ServiceType* 'MyServiceType'이 있는 *ApplicationType* 'MyAppType'이 있다고 가정합니다. 'MyServiceType'은 *CodePackage* 'MyCodePackage'가 있는 *ServicePackage* 'MyServicePackage'에서 제공됩니다. 'MyCodePackage'는 실행될 때 *ServiceType* 'MyServiceType'을 등록합니다.
 
-3개의 노드 클러스터가 있고, 'MyAppType' 형식의 *애플리케이션***fabric:/App1**을 만든다고 가정합니다. 이 애플리케이션 **fabric:/App1** 내에서 'MyServiceType' 형식의 **fabric:/App1/ServiceA** 서비스를 만듭니다. 이 서비스에는 두 개의 파티션(예: **P1** 및 **P2**) 및 파티션당 세 개의 복제본이 있습니다. 다음 다이어그램은 이 애플리케이션이 노드에 배포된 상태 보기를 보여 줍니다.
+3개의 노드 클러스터가 있고, 'MyAppType' 형식의 *애플리케이션* **fabric:/App1**을 만든다고 가정합니다. 이 애플리케이션 **fabric:/App1** 내에서 'MyServiceType' 형식의 **fabric:/App1/ServiceA** 서비스를 만듭니다. 이 서비스에는 두 개의 파티션(예: **P1** 및 **P2**) 및 파티션당 세 개의 복제본이 있습니다. 다음 다이어그램은 이 애플리케이션이 노드에 배포된 상태 보기를 보여 줍니다.
 
 
 ![배포된 애플리케이션의 노드 보기 다이어그램][node-view-one]

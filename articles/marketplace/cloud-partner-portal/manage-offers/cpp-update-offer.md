@@ -1,6 +1,6 @@
 ---
 title: 마켓플레이스 제품 업데이트 - Azure Marketplace | Microsoft Docs
-description: Cloud 파트너 포털을 사용하여 Azure 및 AppSource Marketplace에서 제품 업데이트
+description: Cloud 파트너 포털을 이용하여 Azure 및 AppSource Marketplace에서 제품 업데이트
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: v-miclar
@@ -23,7 +23,7 @@ ms.locfileid: "54355245"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품 업데이트
 
-제품이 게시된 후 제품에 적용할 수 있는 다양한 종류의 업데이트가 있습니다.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)을 통해 다음을 비롯한 제품의 특성을 올바르게 수정할 수 있습니다.
+제품이 게시된 후 제품에 다양한 종류의 업데이트를 적용할 수 있습니다.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)을 통해 다음을 비롯한 제품의 특성을 적절하게 수정할 수 있습니다.
 
 -  기존 SKU에 새 VM(가상 머신) 이미지 또는 패키지 버전 추가
 -  SKU가 제공되는 지역 변경
@@ -35,7 +35,7 @@ ms.locfileid: "54355245"
 
 ## <a name="unpermitted-changes-to-an-offersku"></a>제품/SKU에 대해 허용되지 않는 변경
 
-마켓플레이스에 게시되고 나면 수정할 수 없는 제품 또는 SKU의 몇 가지 특성이 있습니다.  해당 필드는 포털의 **편집기** 탭에서 사용할 수 없습니다. 예:  
+마켓플레이스에 게시되고 나면 수정할 수 없는 제품 또는 SKU의 몇 가지 특성이 있습니다.  해당 필드는 포털의 **편집기** 탭에서 비활성화됩니다. 다음 특성을 예로 들 수 있습니다.  
 
 - 제품 ID 및 게시자 ID
 - SKU ID 
@@ -46,7 +46,7 @@ ms.locfileid: "54355245"
 
 ## <a name="common-update-operations"></a>일반적인 업데이트 작업
 
-다음 섹션에서는 일부 업데이트 작업을 수행하는 방법을 설명합니다.  일부 제품 유형에 대해서는 이러한 작업을 사용할 수 없습니다.  이러한 작업을 시작하려면 Cloud 파트너 포털에 로그인해야 합니다.
+다음 섹션에서는 일부 업데이트 작업을 수행하는 방법을 설명합니다.  일부 제품 유형에는 이러한 작업을 수행할 수 없습니다.  이러한 작업을 시작하려면 Cloud 파트너 포털에 로그인해야 합니다.
 
 
 ### <a name="update-offer-contacts"></a>제품 연락처 업데이트
@@ -62,7 +62,7 @@ ms.locfileid: "54355245"
 
 시간이 지남에 따라 더 많은 지역에서 제품/SKU를 사용할 수 있도록 하고 싶을 수 있습니다.
 또는 특정 지역에서 제품/SKU 지원을 중지하고 싶을 수도 있습니다.
-이러한 변경 내용을 구현하려면 다음 단계를 수행합니다.
+이러한 변경 내용을 적용하려면 다음 단계를 수행합니다.
 
 1. **모든 제품** 페이지에서 업데이트할 제품을 찾습니다.
 
@@ -70,7 +70,7 @@ Azure Marketplace 제품의 경우
 
 2. **SKU** 탭을 선택합니다.  수정할 SKU를 선택합니다.
 3. **국가/지역 가용성** 필드 아래에서 **국가 선택** 단추를 클릭합니다.
-4. 지역 가용성 대화 상자에서 이 SKU의 지역을 추가하거나 제거합니다.
+4. 지역 가용성 대화 상자에서 해당하는 SKU의 지역을 추가하거나 제거합니다.
 
 AppSource 제품의 경우
 
@@ -82,7 +82,7 @@ AppSource 제품의 경우
 
 5. **게시**를 클릭하여 게시 프로세스를 시작합니다. 
 
-새 지역에서 SKU를 사용할 수 있게 되면 **가격 데이터 내보내기** 기능을 통해 특정 지역의 가격 책정을 지정할 수 있습니다. 이전에 사용할 수 있었던 지역을 다시 추가하는 경우 가격 책정 변경이 허용되지 않으므로 가격을 업데이트할 수 없습니다.
+새 지역에서 SKU를 사용할 수 있게 되면 **가격 데이터 내보내기** 기능을 통해 특정 지역의 가격 책정을 지정할 수 있습니다. 이전에 지원되었던 지역을 다시 추가하는 경우 가격 책정 변경이 허용되지 않으므로 가격을 업데이트할 수 없습니다.
 
 
 ### <a name="add-a-new-sku"></a>새 SKU 추가 

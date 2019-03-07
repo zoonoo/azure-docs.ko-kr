@@ -128,8 +128,7 @@ T&E Express에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![Configure Single Sign-On](./media/tyeexpress-tutorial/tutorial_general_400.png)
 
-1. 
-  **T&E Express** 측에 Single Sign-On을 구성하려면 관리자 자격 증명을 사용하여 SAML Single Sign-On 없이 T&amp;amp;E express 애플리케이션에 로그인합니다.
+1. **T&E Express** 측에 Single Sign-On을 구성하려면 관리자 자격 증명을 사용하여 SAML Single Sign-On 없이 T&amp;amp;E express 애플리케이션에 로그인합니다.
 
 1. **관리** 탭 아래에서 **SAML 도메인**을 클릭하여 SAML 설정 페이지를 엽니다.
 
