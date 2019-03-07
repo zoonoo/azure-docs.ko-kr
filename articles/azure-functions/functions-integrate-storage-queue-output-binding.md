@@ -67,7 +67,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 ## <a name="add-code-that-uses-the-output-binding"></a>출력 바인딩을 사용하는 코드 추가
 
-이 섹션에서는 출력 큐에 메시지를 작성 하는 코드를 추가합니다. 메시지에는 쿼리 문자열에서 HTTP 트리거로 전달되는 값이 포함됩니다. 예를 들어 쿼리 문자열이 `name=Azure`를 포함할 경우 큐 메시지는 ‘함수에 전달된 이름: Azure’가 됩니다.*
+이 섹션에서는 출력 큐에 메시지를 작성 하는 코드를 추가합니다. 메시지에는 쿼리 문자열에서 HTTP 트리거로 전달되는 값이 포함됩니다. 예를 들어 쿼리 문자열이 `name=Azure`를 포함할 경우 큐 메시지는 ‘함수에 전달된 이름: Azure’가 됩니다. 
 
 1. 편집기에서 함수 코드를 표시할 함수를 선택합니다.
 
@@ -122,7 +122,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 이미 저장소 탐색기를 설치하고 이 빠른 시작에 사용하는 저장소 계정에 연결한 경우 이 섹션을 건너뜁니다.
 
-2. [Microsoft Azure Storage Explorer](https://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 선택하고 **스토리지 계정 이름 및 키 사용**을 선택하고 **다음**을 선택합니다.
+2. 를 호출했다면 큐 메시지는 ‘함수에 전달된 이름[Microsoft Azure Storage Explorer](https://storageexplorer.com/) 도구를 실행하고 왼쪽의 연결 아이콘을 선택하고 **스토리지 계정 이름 및 키 사용**을 선택하고 **다음**을 선택합니다.
 
     ![Storage 계정 탐색기 도구 실행.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -150,7 +150,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 1. **큐** 노드를 확장한 다음 이름이 **outqueue**인 큐를 선택합니다. 
 
-   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 *Azure*로 함수를 호출했다면 큐 메시지는 ‘함수에 전달된 이름: Azure’입니다.*
+   이 큐에는 HTTP 트리거 함수를 실행했을 때 만들어진 큐 출력 바인딩 메시지가 포함되어 있습니다. 기본 `name` 값 *Azure*로 함수를 호출했다면 큐 메시지는 ‘함수에 전달된 이름: Azure’입니다. 
 
     ![저장소 탐색기에 표시되는 큐 메시지](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
