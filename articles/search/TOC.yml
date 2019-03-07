@@ -76,6 +76,8 @@ items:
       href: search-limits-quotas-capacity.md
     - name: 파티션 및 복제본 할당
       href: search-capacity-planning.md
+    - name: 배포 전략 및 모범 사례
+      href: search-performance-optimization.md
   - name: 보안
     items:
     - name: 보안 개요
@@ -228,8 +230,6 @@ items:
       href: search-manage.md
     - name: PowerShell 관리
       href: search-manage-powershell.md
-    - name: 성능 및 최적화
-      href: search-performance-optimization.md
   - name: 모니터링
     items:
     - name: 작업 모니터링 및 로깅
@@ -309,9 +309,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 10f61a434d509ab5dc6255ecf326a49a95380e97
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: ca754d1244a207fc4c18122e5624af218e6ef04f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213877"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404844"

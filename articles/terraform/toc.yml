@@ -40,6 +40,22 @@ items:
       href: terraform-create-vm-scaleset-network-disks-hcl.md
     - name: Packer 사용자 지정 이미지에서 VM 확장 집합 프로비전
       href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: 네트워크
+    items:
+    - name: 허브 및 스포크 토폴로지
+      items:
+      - name: 1. 허브 및 스포크 토폴로지 만들기
+        href: terraform-hub-spoke-introduction.md
+      - name: 2. 온-프레미스 가상 네트워크 만들기
+        href: terraform-hub-spoke-on-prem.md
+      - name: 3. 허브 가상 네트워크 만들기
+        href: terraform-hub-spoke-hub-network.md
+      - name: 4. 허브 가상 네트워크 어플라이언스 만들기
+        href: terraform-hub-spoke-hub-nva.md
+      - name: 5. 스포크 네트워크 만들기
+        href: terraform-hub-spoke-spoke-network.md
+      - name: 6. 네트워크 토폴로지 연결 유효성 검사
+        href: terraform-hub-spoke-validation.md
   - name: 도구
     items:
     - name: Terraform Visual Studio Code 확장 설치
@@ -72,9 +88,9 @@ items:
     href: https://azure.microsoft.com/solutions/devops/terraform/
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 352b6bcf9bbce9e38ba2b048d1b8997896870f24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f37cb15bccf0fe07ace24d3277015a69b9881091
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750242"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404827"

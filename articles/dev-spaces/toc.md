@@ -25,6 +25,9 @@
 #### [2 - 다중 서비스 개발](multi-service-nodejs.md)
 #### [3 - 팀 개발](team-development-nodejs.md)
 
+## 개념
+### [Dev Spaces의 작동 원리](how-dev-spaces-works.md)
+
 ## 방법
 ### [Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기](how-to/create-cluster-cloud-shell.md)
 ### [Azure Dev 공간 공유](how-to/share-dev-spaces.md)

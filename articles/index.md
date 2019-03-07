@@ -292,7 +292,7 @@ Azure DevOps Projects </a>
                                                 <h3>Microsoft Learn을 통해 기술 쌓기</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/learn/modules/tour-azure-services-and-features/">
+                                                        <a class="barLink" href="/learn/modules/tour-azure-portal/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
 Azure 서비스 및 기능 둘러보기 </a>
                                                     </li>
@@ -1021,6 +1021,21 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/migrate/migrate-overview">
                                                 <img src="media/index/azure-migrate.svg" alt="" />
                                                 <p>Azure Migrate</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Mixed Reality</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/digital-twins/">
+                                                <img src="media/index/digital_twin.svg" alt="" />
+                                                <p>Azure Digital Twins</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/spatial-anchors/">
+                                                <img src="https://azure.microsoft.com/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                                <p>Azure Spatial Anchors</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2475,7 +2490,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/databox-family/" data-linktype="absolute-path">
+                                <a href="/azure/databox-family/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2494,7 +2509,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/en-us/azure/avere-vfxt/" data-linktype="absolute-path">
+                                <a href="/azure/avere-vfxt/" data-linktype="absolute-path">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5788,6 +5803,49 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure 중국 21Vianet</h3>
                                                     <p>중국에서 정부에 의해 규정된 정책 및 데이터 처리 규정을 준수하여 애플리케이션 빌드 및 호스트</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#mixed">Mixed Reality</a>
+                        <ul id="mixed" class="cardsA">
+                            <li>
+                                <a href="/azure/digital-twins/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/digital_twin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Digital Twins</h3>
+                                                    <p>차세대 IoT 공간 인텔리전스 솔루션 빌드</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/spatial-anchors/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://azure.microsoft.com/patterns/styles/glyphs-icons/hololens.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Spatial Anchors</h3>
+                                                    <p>다중 사용자 공간 인식 혼합 현실 경험 만들기</p>
                                                 </div>
                                             </div>
                                         </div>
