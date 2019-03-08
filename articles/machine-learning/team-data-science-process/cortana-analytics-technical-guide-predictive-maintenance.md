@@ -215,7 +215,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
 2.  [Power BI 온라인](http://www.powerbi.com)
    
    * 내 작업 영역의 왼쪽 패널에 있는 데이터 세트 섹션에는 ***데이터 세트*** 이름이 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**로 표시되어야 합니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다. 데이터 세트 **flightsbyhour**는 SQL 쿼리의 특성상 다른 두 데이터 세트로 동시에 표시되지 않을 수 있습니다. 그러나 한 시간 후에 표시됩니다.
-   *  ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
+   * ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.
 3. 데이터가 Power BI로 흐르게 한 후 스트리밍 데이터의 시각화를 시작할 수 있습니다. 다음은 고정된 몇 가지 실행 부하 과다 경로 시각화를 사용한 예제 대시보드입니다. 적절한 데이터 세트에 따라 다른 대시보드 타일을 만들 수 있습니다. 데이터 생성기의 실행 시간에 따라 시각화에 대한 숫자가 달라질 수 있습니다.
 
     ![대시보드 보기](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
