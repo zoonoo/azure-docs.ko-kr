@@ -83,7 +83,7 @@ Site Recovery를 사용하여 지역 간 또는 동일한 지역 내에서 Azure
 ### <a name="step-2-choose-your-protection-goals"></a>2단계: 보호 목표 선택 
 
 1. 구성 서버를 설치하려는 VM에서 [Azure Portal](https://portal.azure.com)을 엽니다.
-2. **Recovery Services 자격 증명 모음** > **설정** > **Site Recovery** > **1단계: 인프라 준비**** > 보호 목표**를 클릭합니다.
+2. **Recovery Services 자격 증명 모음** > **설정** > **Site Recovery** > **1단계: 인프라 준비** > **보호 목표**를 클릭합니다.
 
    ![보호 목표 창으로 이동][2]
 
