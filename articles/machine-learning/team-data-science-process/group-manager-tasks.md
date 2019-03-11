@@ -286,7 +286,7 @@ GitRepos\GroupCommon\GroupProjectTemplate 디렉터리에서 다음 명령을 �
 
 ![23](./media/group-manager-tasks/push-to-group-server-showed-up-2.PNG)
 
- 마지막으로, **GitRepos\GroupCommon\GroupUtilities** 디렉터리로 변경하고 동일한 git bash 명령 집합을 실행합니다.
+마지막으로, **GitRepos\GroupCommon\GroupUtilities** 디렉터리로 변경하고 동일한 git bash 명령 집합을 실행합니다.
 
     git status
     git add .
