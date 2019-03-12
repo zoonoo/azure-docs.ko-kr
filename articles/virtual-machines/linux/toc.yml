@@ -124,8 +124,6 @@ items:
     href: monitor.md
   - name: Backup 및 복구
     href: backup-recovery.md
-  - name: 고성능 컴퓨팅
-    href: high-performance-computing.md
   - name: 배포 고려 사항
     items:
     - name: 인프라 지침
@@ -398,7 +396,7 @@ items:
       - name: Linux의 MS SQL
         href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: 고성능 컴퓨팅(HPC)
-      href: https://docs.microsoft.com/powershell/high-performance-computing/overview
+      href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
     - name: IBM Db2 pureScale
       items:
       - name: 아키텍처
@@ -407,49 +405,52 @@ items:
         href: deploy-ibm-db2-purescale-azure.md
   - name: 저장소 관리
     items:
-    - name: 디스크 FAQ
-      href: faq-for-disks.md
     - name: 디스크 추가
       items:
       - name: Azure CLI
         href: add-disk.md
       - name: Azure portal
         href: attach-disk-portal.md
-    - name: 디스크 벤치마크
-      href: disks-benchmarks.md
     - name: 디스크 분리
       href: detach-disk.md
+    - name: 템플릿을 사용하여 디스크 배포
+      href: using-managed-disks-template-deployments.md
     - name: 디스크 크기 조정
       href: expand-disks.md
     - name: 디스크 스냅숏
       href: snapshot-copy-managed-disk.md
     - name: 관리되지 않는 디스크 백업
       href: incremental-snapshots.md
-    - name: Managed Disks로 변환
-      href: convert-unmanaged-to-managed-disks.md
-    - name: 디스크를 표준 또는 프리미엄으로 변환
-      href: convert-disk-storage.md
+    - name: 마이그레이션 및 변환
+      items:
+      - name: Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Managed Disks로 변환
+        href: convert-unmanaged-to-managed-disks.md
+      - name: 디스크를 표준 또는 프리미엄으로 변환
+        href: convert-disk-storage.md
     - name: VM에 파일 복사
       href: copy-files-to-linux-vm-using-scp.md
-    - name: Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
-      href: migrate-to-premium-storage-using-azure-site-recovery.md
-    - name: 연결되지 않은 디스크 찾기
-      href: find-unattached-disks.md
-    - name: File Storage 사용
-      href: mount-azure-file-storage-on-linux-using-smb.md
-    - name: 템플릿을 사용하여 디스크 배포
-      href: using-managed-disks-template-deployments.md
-    - name: 쓰기 가속기 사용
-      href: how-to-enable-write-accelerator.md
-    - name: 울트라 SSD 사용
-      href: disks-enable-ultra-ssd.md
-    - name: 성능 최적화
-      href: optimization.md
+    - name: 성능
       items:
+      - name: 쓰기 가속기 사용
+        href: how-to-enable-write-accelerator.md
+      - name: 울트라 SSD 사용
+        href: disks-enable-ultra-ssd.md
+      - name: 디스크 벤치마크
+        href: disks-benchmarks.md
+      - name: 성능 최적화
+        href: optimization.md
       - name: 소프트웨어 RAID 구성
         href: configure-raid.md
       - name: LVM 구성
         href: configure-lvm.md
+    - name: 연결되지 않은 디스크 찾기
+      href: find-unattached-disks.md
+    - name: File Storage 사용
+      href: mount-azure-file-storage-on-linux-using-smb.md
+    - name: 디스크 FAQ
+      href: faq-for-disks.md
   - name: 네트워킹 관리
     items:
     - name: 가상 네트워크 만들기
@@ -559,9 +560,9 @@ items:
     href: faq.md
 - name: 문제 해결
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 776adc5310db7c4a7762409a53c57e896cc95360
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ade43488288949aa22942c8df2d6900e4522615a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438292"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732016"

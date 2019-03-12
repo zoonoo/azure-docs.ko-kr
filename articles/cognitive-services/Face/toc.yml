@@ -48,9 +48,9 @@ items:
       href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: 방법 가이드
   items:
-  - name: 이미지에서 얼굴 감지
+  - name: 얼굴 감지
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: 이미지에서 얼굴 식별
+  - name: 얼굴 인식
     href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
   - name: 얼굴 추가
     href: Face-API-How-to-Topics/how-to-add-faces.md
@@ -108,9 +108,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: 릴리스 정보
     href: ReleaseNotes.md
-ms.openlocfilehash: 33ff9081f09c844cb5a7520db1e25c84abe51153
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: ecba696054854c1b624471a6923d91cbef3c81ea
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769711"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588689"

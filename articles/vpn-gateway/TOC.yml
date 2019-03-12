@@ -45,90 +45,106 @@ items:
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
 - name: 방법 가이드
   items:
-  - name: 사이트 간 연결 구성
+  - name: VPN 게이트웨이 만들기 및 관리
     items:
-    - name: Azure portal
-      href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-create-site-to-site-rm-powershell.md
-    - name: Azure CLI
-      href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
-  - name: VPN 디바이스 구성 스크립트 다운로드
-    href: vpn-gateway-download-vpndevicescript.md
-  - name: 지점 및 사이트 간 연결 구성 - 네이티브 Azure 인증서 인증
-    items:
-    - name: P2S VPN 구성
+    - name: 경로 기반 VPN Gateway 만들기
       items:
       - name: Azure portal
-        href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+        href: create-routebased-vpn-gateway-portal.md
       - name: Azure PowerShell
-        href: vpn-gateway-howto-point-to-site-rm-ps.md
-    - name: P2S 인증서 및 클라이언트
+        href: create-routebased-vpn-gateway-powershell.md
+      - name: Azure CLI
+        href: create-routebased-vpn-gateway-cli.md
+    - name: VPN Gateway 연결 확인
+      href: vpn-gateway-verify-connection-resource-manager.md
+    - name: VPN Gateway 다시 설정
+      href: vpn-gateway-resetgw-classic.md
+    - name: VPN Gateway 삭제
       items:
-      - name: 자체 서명된 인증서 생성
-        items:
-        - name: Azure PowerShell
-          href: vpn-gateway-certificates-point-to-site.md
-        - name: Makecert
-          href: vpn-gateway-certificates-point-to-site-makecert.md
-        - name: Linux
-          href: vpn-gateway-certificates-point-to-site-linux.md
-    - name: 클라이언트 인증서 설치
-      href: point-to-site-how-to-vpn-client-install-azure-cert.md
-    - name: VPN 클라이언트 구성 파일 생성 및 설치
-      href: point-to-site-vpn-client-configuration-azure-cert.md
-  - name: 지점 및 사이트 간 연결 구성 - RADIUS 인증
-    items:
-    - name: P2S VPN 구성
-      items:
+      - name: Azure portal
+        href: vpn-gateway-delete-vnet-gateway-portal.md
       - name: Azure PowerShell
-        href: point-to-site-how-to-radius-ps.md
-    - name: VPN 클라이언트 구성 파일 생성 및 설치
-      href: point-to-site-vpn-client-configuration-radius.md
-    - name: NPS 서버와 P2S VPN RADIUS 인증 통합
-      href: vpn-gateway-radiuis-mfa-nsp.md
-  - name: OpenVPN 구성
+        href: vpn-gateway-delete-vnet-gateway-powershell.md
+    - name: 레거시 게이트웨이 SKU 관리
+      href: vpn-gateway-about-skus-legacy.md
+  - name: 사이트 간 연결
     items:
-    - name: 지점 및 사이트 간 연결을 위한 OpenVPN 구성
-      href: vpn-gateway-howto-openvpn.md
-    - name: OpenVPN 클라이언트 구성
-      href: vpn-gateway-howto-openvpn-clients.md
-  - name: VNet 간 연결 구성
-    items:
-    - name: Azure portal
-      href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-vnet-vnet-rm-ps.md
-    - name: Azure CLI
-      href: vpn-gateway-howto-vnet-vnet-cli.md
-  - name: 배포 모델 간 VNet-VNet 연결 구성
-    items:
-    - name: Azure portal
-      href: vpn-gateway-connect-different-deployment-models-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-connect-different-deployment-models-powershell.md
-  - name: 사이트 간 및 ExpressRoute 공존 연결 구성
-    items:
-    - name: Azure PowerShell
-      href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-  - name: 여러 사이트 간 연결 구성
-    items:
-    - name: Azure portal
+    - name: S2S 연결 구성
+      items:
+      - name: Azure portal
+        href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+      - name: Azure PowerShell
+        href: vpn-gateway-create-site-to-site-rm-powershell.md
+      - name: Azure CLI
+        href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
+    - name: 여러 사이트 간 연결 구성
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
-  - name: 여러 정책 기반 VPN 디바이스 연결
-    items:
-    - name: Azure PowerShell
+    - name: 여러 정책 기반 VPN 디바이스에 연결
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
-  - name: 연결에서 IPsec/IKE 정책 구성
+    - name: 사이트 간 및 ExpressRoute 공존 연결
+      href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+  - name: VNet 간 연결
     items:
-    - name: Azure PowerShell
-      href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-  - name: 항상 사용 가능한 활성-활성 연결 구성
+    - name: VNet 간 연결 구성
+      items:
+      - name: Azure portal
+        href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
+      - name: Azure PowerShell
+        href: vpn-gateway-vnet-vnet-rm-ps.md
+      - name: Azure CLI
+        href: vpn-gateway-howto-vnet-vnet-cli.md
+    - name: 배포 모델 간 VNet-VNet 연결 구성
+      items:
+      - name: Azure portal
+        href: vpn-gateway-connect-different-deployment-models-portal.md
+      - name: Azure PowerShell
+        href: vpn-gateway-connect-different-deployment-models-powershell.md
+  - name: 지점 및 사이트 간 연결
     items:
-    - name: Azure PowerShell
-      href: vpn-gateway-activeactive-rm-powershell.md
+    - name: Azure 인증서 인증
+      items:
+      - name: P2S VPN 구성
+        items:
+        - name: Azure portal
+          href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-howto-point-to-site-rm-ps.md
+      - name: P2S 인증서 및 클라이언트 구성
+        items:
+        - name: 자체 서명된 인증서 생성
+          items:
+          - name: Azure PowerShell
+            href: vpn-gateway-certificates-point-to-site.md
+          - name: Makecert
+            href: vpn-gateway-certificates-point-to-site-makecert.md
+          - name: Linux
+            href: vpn-gateway-certificates-point-to-site-linux.md
+      - name: 클라이언트 인증서 설치
+        href: point-to-site-how-to-vpn-client-install-azure-cert.md
+      - name: VPN 클라이언트 구성 파일 생성 및 설치
+        href: point-to-site-vpn-client-configuration-azure-cert.md
+    - name: RADIUS 인증
+      items:
+      - name: P2S VPN 구성
+        href: point-to-site-how-to-radius-ps.md
+      - name: VPN 클라이언트 구성 파일 생성 및 설치
+        href: point-to-site-vpn-client-configuration-radius.md
+      - name: NPS 서버와 P2S VPN RADIUS 인증 통합
+        href: vpn-gateway-radiuis-mfa-nsp.md
+    - name: OpenVPN
+      items:
+      - name: 지점 및 사이트 간 연결을 위한 OpenVPN 구성
+        href: vpn-gateway-howto-openvpn.md
+      - name: OpenVPN 클라이언트 구성
+        href: vpn-gateway-howto-openvpn-clients.md
+    - name: P2S용 공용 CA 게이트웨이 인증서로 전환
+      href: vpn-gateway-point-to-site-gateway-public-ca.md
   - name: Azure 가용성 영역에서 영역 중복 VNet 게이트웨이 만들기
     href: create-zone-redundant-vnet-gateway.md
+  - name: 연결에서 IPsec/IKE 정책 구성
+    href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+  - name: 활성-활성 연결 구성
+    href: vpn-gateway-activeactive-rm-powershell.md
   - name: 라우팅, BGP 및 VNet 피어링
     items:
     - name: VPN Gateway에 BGP 구성
@@ -145,7 +161,7 @@ items:
         href: vpn-gateway-about-forced-tunneling.md
     - name: VNet 피어링을 위한 게이트웨이 전송 구성
       href: vpn-gateway-peering-gateway-transit.md
-  - name: 로컬 네트워크 게이트웨이 설정 수정
+  - name: 로컬 네트워크 게이트웨이 수정
     items:
     - name: Azure portal
       href: vpn-gateway-modify-local-network-gateway-portal.md
@@ -153,34 +169,14 @@ items:
       href: vpn-gateway-modify-local-network-gateway.md
     - name: Azure CLI
       href: vpn-gateway-modify-local-network-gateway-cli.md
-  - name: 경로 기반 VPN Gateway 만들기
-    items:
-    - name: Azure portal
-      href: create-routebased-vpn-gateway-portal.md
-    - name: Azure PowerShell
-      href: create-routebased-vpn-gateway-powershell.md
-    - name: Azure CLI
-      href: create-routebased-vpn-gateway-cli.md
-  - name: VPN Gateway 연결 확인
-    href: vpn-gateway-verify-connection-resource-manager.md
-  - name: VPN Gateway 다시 설정
-    href: vpn-gateway-resetgw-classic.md
-  - name: VPN Gateway 삭제
-    items:
-    - name: Azure portal
-      href: vpn-gateway-delete-vnet-gateway-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-delete-vnet-gateway-powershell.md
-  - name: 게이트웨이 SKU(기존)
-    href: vpn-gateway-about-skus-legacy.md
   - name: VPN 디바이스 구성
     items:
     - name: 개요 및 Azure 구성
       href: vpn-gateway-3rdparty-device-config-overview.md
+    - name: VPN 디바이스 구성 스크립트 다운로드
+      href: vpn-gateway-download-vpndevicescript.md
     - name: '샘플: Cisco ASA 디바이스(IKEv2/BGP 아님)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
-  - name: P2S용 공용 CA 게이트웨이 인증서로 전환
-    href: vpn-gateway-point-to-site-gateway-public-ca.md
   - name: 문제 해결
     href: vpn-gateway-troubleshoot.md
     items:
@@ -252,9 +248,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway
-ms.openlocfilehash: af9469c41660e8f5d98e93a8bfea9af977396d04
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 84c6a8972109e8512e66a5fa6283125534b2e2e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817561"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781292"

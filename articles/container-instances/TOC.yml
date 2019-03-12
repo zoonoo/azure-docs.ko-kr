@@ -7,11 +7,11 @@ items:
     href: container-instances-overview.md
 - name: 빠른 시작
   items:
-  - name: 컨테이너 만들기 - CLI
+  - name: 컨테이너 인스턴스 배포 - CLI
     href: container-instances-quickstart.md
-  - name: 컨테이너 만들기 - 포털
+  - name: 컨테이너 인스턴스 배포 - 포털
     href: container-instances-quickstart-portal.md
-  - name: 컨테이너 만들기 - PowerShell
+  - name: 컨테이너 인스턴스 배포 - PowerShell
     href: container-instances-quickstart-powershell.md
   expanded: true
 - name: 자습서
@@ -30,12 +30,14 @@ items:
     href: container-instances-samples-rm.md
 - name: 개념
   items:
-  - name: 할당량 및 국가별 제한
-    href: container-instances-quotas.md
-  - name: 오케스트레이터와의 관계
-    href: container-instances-orchestrator-relationship.md
   - name: 컨테이너 그룹
     href: container-instances-container-groups.md
+  - name: 할당량 및 제한
+    href: container-instances-quotas.md
+  - name: 지역 가용성
+    href: container-instances-region-availability.md
+  - name: 오케스트레이터와의 관계
+    href: container-instances-orchestrator-relationship.md
 - name: 방법 가이드
   items:
   - name: 배포
@@ -44,48 +46,50 @@ items:
       href: container-instances-multi-container-yaml.md
     - name: 다중 컨테이너 그룹 - Resource Manager
       href: container-instances-multi-container-group.md
-    - name: 가상 네트워크 배포(미리 보기)
+    - name: 가상 네트워크에 배포(미리 보기)
       href: container-instances-vnet.md
-    - name: GPU 리소스를 사용하여 배포(미리 보기)
-      href: container-instances-gpu.md
     - name: Azure Container Registry에서 배포
       href: container-instances-using-azure-container-registry.md
+  - name: 컨테이너 시나리오
+    items:
+    - name: 일회성 작업에 대한 다시 시작 정책 설정
+      href: container-instances-restart-policy.md
     - name: 환경 변수 설정(env)
       href: container-instances-environment-variables.md
-    - name: 활동성 프로브 구성
-      href: container-instances-liveness-probe.md
-  - name: 관리
-    items:
-    - name: 실행 중인 컨테이너 업데이트
-      href: container-instances-update.md
     - name: 명령 실행(exec)
       href: container-instances-exec.md
-    - name: CPU 및 메모리 사용량 모니터링
-      href: container-instances-monitor.md
-    - name: Azure Monitor 로그를 사용하여 로깅
-      href: container-instances-log-analytics.md
-  - name: 워크로드 실행
-    items:
-    - name: 다시 시작 정책으로 작업 실행
-      href: container-instances-restart-policy.md
-    - name: ACI에서 Jenkins 빌드 에이전트
+    - name: Jenkins 빌드 작업 실행
       href: container-instances-jenkins.md
     - name: 관리 ID 사용(미리 보기)
       href: container-instances-managed-identity.md
-  - name: 데이터 볼륨 구성
+    - name: GPU 리소스 사용(미리 보기)
+      href: container-instances-gpu.md
+  - name: 데이터 볼륨 탑재
     items:
-    - name: Azure 파일
+    - name: Azure 파일 공유
       href: container-instances-volume-azure-files.md
-    - name: emptyDir
-      href: container-instances-volume-emptydir.md
-    - name: gitRepo
-      href: container-instances-volume-gitrepo.md
-    - name: secret
+    - name: Secret
       href: container-instances-volume-secret.md
-  - name: 문제 해결
+    - name: 빈 디렉터리
+      href: container-instances-volume-emptydir.md
+    - name: 복제된 Git 리포지토리
+      href: container-instances-volume-gitrepo.md
+  - name: 실행 중인 컨테이너 관리
     items:
+    - name: 활동성 프로브 구성
+      href: container-instances-liveness-probe.md
+    - name: 실행 중인 컨테이너 업데이트
+      href: container-instances-update.md
+  - name: 모니터링 및 로깅
+    items:
+    - name: CPU 및 메모리 사용량 모니터링
+      href: container-instances-monitor.md
     - name: 컨테이너 로그 및 이벤트 가져오기
       href: container-instances-get-logs.md
+    - name: Azure Log Analytics로 로깅
+      href: container-instances-log-analytics.md
+  - name: 문제 해결
+    items:
     - name: 일반적인 문제 해결
       href: container-instances-troubleshooting.md
 - name: 참고 자료
@@ -119,12 +123,12 @@ items:
   - name: 제품 사용자 의견 제공
     href: https://feedback.azure.com/forums/602224-azure-container-instances
   - name: 스택 오버플로
-    href: http://stackoverflow.com/questions/tagged/azure-container-instances
+    href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 062c4f2b196ab587577ef4703f79af2f7259c776
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fcee083f7d98aba1856cf204f5c2d559d1b5925b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871709"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731204"

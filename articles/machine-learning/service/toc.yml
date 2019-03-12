@@ -53,8 +53,16 @@ items:
     href: concept-accelerate-with-fpgas.md
   - name: 기계 학습 파이프라인
     href: concept-ml-pipelines.md
-  - name: 엔터프라이즈 보안
-    href: concept-enterprise-security.md
+  - name: 보안
+    items:
+    - name: 엔터프라이즈 보안 개요
+      displayName: authorization authentication encryption
+      href: concept-enterprise-security.md
+    - name: 가상 네트워크 사용
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: SSL로 웹 서비스 보호
+      href: how-to-secure-web-service.md
 - name: 방법 가이드
   items:
   - name: 작업 영역 관리
@@ -113,6 +121,8 @@ items:
     - name: 원격 계산 대상 사용
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
+    - name: 자동 학습 예측 모델
+      href: how-to-auto-train-forecast.md
   - name: ONNX 모델
     href: how-to-build-deploy-onnx.md
   - name: 모델 배포
@@ -139,13 +149,6 @@ items:
       href: how-to-enable-data-collection.md
     - name: Application Insights로 모니터링
       href: how-to-enable-app-insights.md
-  - name: 보안
-    items:
-    - name: 가상 네트워크 사용
-      displayName: vnet
-      href: how-to-enable-virtual-network.md
-    - name: SSL로 웹 서비스 보호
-      href: how-to-secure-web-service.md
   - name: 첫 번째 파이프라인 만들기
     href: how-to-create-your-first-pipeline.md
   - name: 로깅 사용
@@ -189,9 +192,9 @@ items:
     href: support-for-aml-services.md
   - name: ML 제품 비교
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 5d7cdcec4e0b855f509539a1fc79015793efc404
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 19a26ea88ba8c8e820e838a7c96a802180129dd7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192134"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766269"

@@ -63,47 +63,49 @@ items:
       href: how-to-search-for-address.md
     - name: 정적 맵에서 사용자 지정 데이터 렌더링
       href: how-to-render-custom-data.md
-  - name: JavaScript 지도 만들기
+  - name: 웹 SDK를 사용하여 개발
     items:
-    - name: 지도 컨트롤 사용
-      href: how-to-use-map-control.md
-    - name: 맵 만들기
-      href: map-create.md
-    - name: 맵 스타일 선택
-      href: choose-map-style.md
-    - name: 맵 컨트롤 추가
-      href: map-add-controls.md
-    - name: 기호 계층 추가
-      href: map-add-pin.md
-    - name: 팝업 추가
-      href: map-add-popup.md
-    - name: 거품형 계층 추가
-      href: map-add-bubble-layer.md
-    - name: 도형 추가
-      href: map-add-shape.md
-    - name: 열 지도 계층 추가
-      href: map-add-heat-map-layer.md
-    - name: 이미지 계층 추가
-      href: map-add-image-layer.md
-    - name: 타일 계층 추가
-      href: map-add-tile-layer.md
-    - name: HTML 마커 추가
-      href: map-add-custom-html.md
-    - name: Services
+    - name: 지도 컨트롤
+      items:
+      - name: 지도 컨트롤 사용
+        href: how-to-use-map-control.md
+      - name: 맵 만들기
+        href: map-create.md
+      - name: 맵 스타일 선택
+        href: choose-map-style.md
+      - name: 맵에 컨트롤 추가
+        href: map-add-controls.md
+      - name: 기호 계층 추가
+        href: map-add-pin.md
+      - name: 팝업 추가
+        href: map-add-popup.md
+      - name: 거품형 계층 추가
+        href: map-add-bubble-layer.md
+      - name: 셰이프 추가
+        href: map-add-shape.md
+      - name: 열 지도 계층 추가
+        href: map-add-heat-map-layer.md
+      - name: 이미지 오버레이
+        href: map-add-image-layer.md
+      - name: 타일 레이어 추가
+        href: map-add-tile-layer.md
+      - name: HTML 마커
+        href: map-add-custom-html.md
+      - name: 트래픽 표시
+        href: map-show-traffic.md
+      - name: 마우스 이벤트와 상호 작용
+        href: map-events.md
+      - name: 앱에 액세스할 수 있게 만들기
+        href: map-accessibility.md
+    - name: 서비스 모듈
       items:
       - name: 검색 결과 표시
         href: map-search-location.md
       - name: 좌표에서 정보 가져오기
         href: map-get-information-from-coordinate.md
-      - name: A에서 B까지 방향 표시
+      - name: A에서 B로의 방향 표시
         href: map-route.md
-    - name: 트래픽 표시
-      href: map-show-traffic.md
-    - name: 마우스 이벤트와 상호 작용
-      href: map-events.md
-    - name: 액세스할 수 있는 맵 애플리케이션
-      href: map-accessibility.md
-  - name: Android 맵 만들기
+  - name: Android SDK를 사용하여 개발
     items:
     - name: Android 맵 컨트롤을 사용하는 방법
       href: how-to-use-android-map-control-library.md
@@ -150,7 +152,7 @@ items:
 - name: 리소스
   items:
   - name: Azure Maps 사용 약관
-    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
   - name: 가격
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: 요금 계산기
@@ -197,9 +199,9 @@ items:
       href: /azure/iot-edge
     - name: IoT 디바이스 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: b0584c77ed7d8b3ed6c6962d02b75e061a97bf14
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2d974c96dd953c7a2727bcd5b1bcc3b60ad807a0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336736"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569232"
