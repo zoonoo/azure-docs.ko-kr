@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0f1eac5b8052d1b96576699d12fc2c6ccd5a5724
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: b358609526c61b5acab83c02bdedd8cc06721425
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960805"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536488"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 서비스 정책
 
@@ -52,10 +52,11 @@ Microsoft는 매월 주기로 소프트웨어 업데이트 패키지를 해제 �
 현재 버전을 확인 하는 방법에 대 한 계획 및 업데이트를 관리 하는 방법에 대 한 설명서 [관리 업데이트 개요](azure-stack-updates.md)합니다.
 
 를 다운로드 하는 방법을 비롯 한 특정 업데이트에 대 한 정보 업데이트에 대 한 릴리스 정보를 참조 하세요.
-- [Azure Stack 1901 업데이트](azure-stack-update-1901.md) (참조를 [빌드 중요 한 점은](azure-stack-update-1901.md#build-reference).)
+
+- [Azure Stack 1902 업데이트](azure-stack-update-1902.md)
+- [Azure Stack 1901 업데이트](azure-stack-update-1901.md)
 - [Azure Stack 1811 업데이트](azure-stack-update-1811.md)
 - [Azure Stack 1809 업데이트](azure-stack-update-1809.md)
-- [Azure Stack 1808 업데이트](azure-stack-update-1808.md)
 
 ## <a name="hotfixes"></a>핫픽스
 
