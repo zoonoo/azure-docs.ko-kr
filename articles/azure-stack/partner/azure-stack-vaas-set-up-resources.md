@@ -15,39 +15,37 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef46df4d5162a08d9dc4d8674cf5867f863ce332
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: ad97381d983446dfcc32dd1ba82af587a500b9da
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342482"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762146"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>자습서: 서비스 유효성 검사에 대 한 리소스 설정
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-솔루션을 만드는 해야 합니다. 서비스 (VaaS) 솔루션으로 유효성 검사를 특정 하드웨어 자재 명세서 자료를 사용 하 여 Azure Stack 솔루션을 나타냅니다. 하드웨어가 Azure Stack을 실행된을 지원할 수 있는지 확인 하려면 솔루션을 사용 합니다. 이 자습서에 따라 솔루션을 사용 하 여 서비스를 사용 하기 위해 준비 합니다.
+유효성 검사 (VaaS) 서비스로 유효성 검사 및 Azure Stack 솔루션 시장에서 지 원하는 데 사용 되는 Azure 서비스입니다. 솔루션의 유효성을 검사 하는 서비스를 사용 하기 전에이 문서를 따릅니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * VaaS를 사용 하 여 Azure AD를 설정 하 여 준비 인스턴스 (Azure AD).
+> * VaaS 하 여 Azure AD (Active Directory)를 설정 하 여 사용 하도록 준비 합니다.
 > * 저장소 계정을 만듭니다.
 
 ## <a name="configure-an-azure-ad-tenant"></a>Azure AD 테 넌 트를 구성 합니다.
 
-Azure AD 테 넌 트를 인증 하 고 VaaS 등록 필요 합니다. 테 넌 트의 역할 기반 액세스 제어 (RBAC) 기능 VaaS를 사용할 수 있는 파트너 조직의 사용자를 관리 하는 파트너에 의해 사용 됩니다.
-
-등록 조직 Azure AD directory (Azure Stack에 사용 되는 Azure AD 테 넌 트 디렉터리 아님)를 테 넌 트 및 사용자 계정에 관리에 대 한 정책을 설정 합니다. 자세한 내용은 [Azure AD 디렉터리 관리](https://docs.microsoft.com/azure/active-directory/active-directory-administer)를 참조하세요.
+Azure AD 테 넌 트 조직에 등록 하 고 VaaS 사용 하 여 사용자를 인증에 사용 됩니다. 파트너 테 넌 트의 역할 기반 액세스 제어 (RBAC) 기능을 사용 하 여 VaaS를 사용할 수 있는 파트너 조직의 사용자를 관리 하는 합니다. 자세한 내용은 [Azure Active Directory란?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)을 참조하세요.
 
 ### <a name="create-a-tenant"></a>테넌트 만들기
 
-특별히 사용 하기 위해 테 넌 트를 사용 하 여 만들기 VaaS 설명이 포함 된 이름으로 예를 들어 `ContosoVaaS@onmicrosoft.com`합니다.
+VaaS 서비스에 액세스 하기 위해 조직에서 사용할 테 넌 트를 만듭니다. 예를 들어, 설명이 포함 된 이름을 사용 하 여 `ContosoVaaS@onmicrosoft.com`입니다.
 
 1. Azure AD 테 넌 트 만들기 합니다 [Azure portal](https://portal.azure.com), 또는 기존 테 넌 트를 사용 하 여 합니다. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
 2. 테 넌 트에 조직의 구성원을 추가 합니다. 이러한 사용자는 보거나 테스트를 예약 하려면 서비스를 사용 해야 합니다. 등록을 완료 하면 사용자의 액세스 수준을 정의 합니다.
- 
+
     다음 역할 중 하나를 할당 하 여 VaaS에서 작업을 실행 하려면 테 넌 트의 사용자 권한을 부여 합니다.
 
     | 역할 이름 | 설명 |
@@ -63,7 +61,7 @@ Azure AD 테 넌 트를 인증 하 고 VaaS 등록 필요 합니다. 테 넌 트
     3. 선택 **엔터프라이즈 응용 프로그램** > **Azure Stack 유효성 검사 서비스** 응용 프로그램입니다.
     4. **사용자 및 그룹**을 선택합니다. 합니다 **Azure Stack 유효성 검사 서비스-사용자 및 그룹** 블레이드에서 응용 프로그램을 사용할 수 있는 권한 가진 사용자를 나열 합니다.
     5. 선택 **+ 사용자 추가** 테 넌 트에서 사용자를 추가 하 고 역할을 할당 합니다.
-   
+
     VaaS 리소스 및 조직 내의 여러 그룹 간에 작업을 격리 하려는 경우에 여러 Azure AD 테 넌 트 디렉터리를 만들 수 있습니다.
 
 ### <a name="register-your-tenant"></a>테 넌 트를 등록 합니다.
@@ -102,10 +100,7 @@ Azure Storage 계정에 Azure Stack 환경에 없는 Azure 공용 클라우드�
 
 3. 아래 **리소스 그룹**를 선택 **새로 만들기**합니다. 새 리소스 그룹의 이름을 입력 합니다.
 
-4. 저장소 계정의 이름을 입력합니다. 선택한 이름 이어야 합니다.
-    - Azure에서 고유
-    - 3 ~ 24 자 사이
-    - 숫자 및 소문자만 포함
+4. 검토 합니다 [명명 규칙](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage) Azure Storage 계정에 대 한 합니다. 저장소 계정의 이름을 입력합니다.
 
 5. 선택 된 **미국 서 부** 저장소 계정의 지역입니다.
 
@@ -119,7 +114,7 @@ Azure Storage 계정에 Azure Stack 환경에 없는 Azure 공용 클라우드�
     - 합니다 **복제 필드** 로 설정 된 **로컬 중복 저장소 (LRS)** 기본적으로 합니다.
     - **액세스 계층**은 기본적으로 **핫**으로 설정됩니다.
 
-7. **검토 + 만들기**를 클릭하여 저장소 계정 설정을 검토하고 계정을 만듭니다.
+7. **검토 + 만들기**를 선택하여 저장소 계정 설정을 검토하고 계정을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

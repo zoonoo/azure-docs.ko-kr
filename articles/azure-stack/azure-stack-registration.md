@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2ed9598ecfb45323505e8527cfb3ab9fe7d8b58e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405201"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764730"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -483,11 +483,18 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 ## <a name="registration-failures"></a>등록 오류
 
-Azure Stack 사용자의 등록을 시도 하는 동안 아래 오류 중 하나가 나타날 수 있습니다.
+Azure Stack 사용자의 등록을 시도 하는 동안 아래 오류 중 하나가 표시 될 수 있습니다.
 1. $HostName에 대 한 필수 하드웨어 정보를 검색할 수 없습니다. 물리적 호스트 및 연결을 확인 한 다음 다시 등록을 실행 하려고 합니다.
+
 2. 하드웨어 정보 가져오기-하세요 물리적 호스트 및 연결을 확인 하 고 등록을 다시 실행 하려고 $hostName에 연결할 수 없습니다.
 
-원인: 이 일반적으로 정품 인증을 시도 하는 호스트에서 하드웨어 세부 Bios UUID와 CPU를 가져오려고 것 이므로 실제 호스트에 연결할 수 없기 때문에 수 없습니다.
+> 원인:이 이므로 일반적으로 정품 인증을 시도 하는 호스트에서 하드웨어 세부 Bios UUID와 CPU를 가져오려고 시도 하 고 실제 호스트에 연결할 수 없기 때문에 수 없습니다.
+
+Marketplace 관리 액세스를 시도할 때 제품을 게시 하는 동안 오류가 발생 합니다. 
+> 원인: 일반적으로 이런 Azure Stack 등록 리소스에 액세스할 수 없는 경우. 이 한 가지 일반적인 이유는 Azure 구독을 디렉터리 테 넌 트 변경 될 때 다시 설정 등록 됩니다. 구독 디렉터리 테 넌 트를 변경한 경우에 Azure Stack marketplace 또는 보고서 사용을 액세스할 수 없습니다. 이 문제를 해결 하려면 다시 등록 해야 합니다.
+
+여전히 marketplace 관리를 등록 및 연결이 끊긴된 프로세스를 사용 하 여 스탬프를 이미 등록 한 경우에 Azure Stack에 활성화를 요청 합니다. 
+> 원인: 연결이 끊어진된 환경에 대 한 알려진된 문제입니다. 수행 하 여 등록 상태를 확인할 수 있습니다 [이 단계](azure-stack-registration.md#verify-azure-stack-registration)합니다. Marketplace 관리를 사용 하기 위해 사용 해야 합니다 [오프 라인 도구](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
