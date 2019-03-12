@@ -1,6 +1,6 @@
 ---
-title: Azure Stack에서 Kubernetes 대시보드를 사용 하도록 설정 | Microsoft Docs
-description: Azure Stack에서 Kubernetes 대시보드를 사용 하도록 설정 하는 방법 알아보기
+title: Azure Stack에서 Kubernetes 대시보드 액세스 | Microsoft Docs
+description: Azure Stack에서 Kubernetes 대시보드에 액세스 하는 방법 알아보기
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,24 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: cdc1be0c0274977fe14ef704fbb74fa955ad7e11
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 243fb01a5c8112afaf310f616b93c2667ac6f19d
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242414"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729860"
 ---
-# <a name="enable-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack에서 Kubernetes 대시보드를 사용 하도록 설정 
+# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack의 Kubernetes 대시보드에 액세스 
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트* 
 > [!Note]   
 > Azure Stack에서 Kubernetes 미리 보기입니다. Azure Stack 연결이 끊긴된 시나리오는 미리 보기에서 현재 지원 되지 않습니다. 
 
-Kubernetes는 기본 관리 작업에 사용할 수 있는 웹 대시보드를 포함 합니다. 이 대시보드를 사용하면 애플리케이션의 기본 상태와 메트릭을 보고 서비스를 작성 및 배포하며 기존 애플리케이션을 편집할 수 있습니다. 이 문서에서는 Azure Stack에서 Kubernetes 대시보드를 사용 하도록 설정 하는 방법을 보여 줍니다.
+Kubernetes는 기본 관리 작업에 사용할 수 있는 웹 대시보드를 포함 합니다. 이 대시보드를 사용하면 애플리케이션의 기본 상태와 메트릭을 보고 서비스를 작성 및 배포하며 기존 애플리케이션을 편집할 수 있습니다. 이 문서에서는 Azure Stack에서 Kubernetes 대시보드를 설정 하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites-for-kubernetes-dashboard"></a>Kubernetes 대시보드에 대 한 필수 구성 요소
 

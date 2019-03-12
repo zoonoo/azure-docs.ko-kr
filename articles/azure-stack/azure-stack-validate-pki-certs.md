@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 9300e60902b9234af01a64173eefcfb1bc033c61
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1e5154f4f6c77e9a024ced58f3b75a0111a614c3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410199"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769382"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI 인증서의 유효성 검사
 
@@ -75,7 +75,7 @@ ms.locfileid: "57410199"
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     
     $destination = 'c:\certificates'
     
@@ -86,7 +86,7 @@ ms.locfileid: "57410199"
     > AD FS 및 그래프는 id 시스템으로 AD FS를 사용 하는 경우 필요 합니다. 예: 
     >
     > ```PowerShell  
-    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     > ```
     
      - 이전 단계에서 만든 적절 한 디렉터리에서 사용자 인증서를 배치 합니다. 예:   
@@ -254,17 +254,17 @@ SQL/MySQL 또는 App Services 배포 계획 된 경우 준비 하 고 플랫폼�
 
 | 디렉터리 | 인증서 |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\< 지역 >\< externalFQDN > |
-| ACSQueue  |  wildcard_queue\< 지역 >\< externalFQDN > |
-| ACSTable  |  wildcard_table\< 지역 >\< externalFQDN > |
-| 관리 확장 호스트  |  wildcard_adminhosting\< 지역 >\< externalFQDN > |
-| 관리 포털  |  adminportal\< 지역 >\< externalFQDN > |
-| ARM 관리  |  adminmanagement\< 지역 >\< externalFQDN > |
-| ARM 공용  |  관리\< 지역 >\< externalFQDN > |
-| KeyVault  |  wildcard_vault\< 지역 >\< externalFQDN > |
-| KeyVaultInternal  |  wildcard_adminvault\< 지역 >\< externalFQDN > |
-| 공용 확장 호스트  |  wildcard_hosting\< 지역 >\< externalFQDN > |
-| 공용 포털  |  포털\< 지역 > _\< externalFQDN > |
+| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
+| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
+| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
+| 관리 확장 호스트  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
+| 관리 포털  |  adminportal_\<region>_\<externalFQDN> |
+| ARM 관리  |  adminmanagement_\<region>_\<externalFQDN> |
+| ARM 공용  |  management_\<region>_\<externalFQDN> |
+| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault_\<region>_\<externalFQDN> |
+| 공용 확장 호스트  |  wildcard_hosting_\<region>_\<externalFQDN> |
+| 공용 포털  |  portal_\<region>_\<externalFQDN> |
 
 ## <a name="using-validated-certificates"></a>유효성이 검사 된 인증서를 사용 하 여
 

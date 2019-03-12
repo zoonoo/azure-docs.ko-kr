@@ -5,17 +5,17 @@ services: azure-stack
 author: mattbriggs
 manager: femila
 ms.service: azure-stack
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: c54f1f8ed8447c69dbfa924469d854ebdd97407f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 67465a64f38ce4767b384cf5395179c0dbcb99fe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252203"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769902"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Azure Stack 네트워킹 소개
 
@@ -43,4 +43,4 @@ Azure Stack 다양을 함께 또는 별도로 사용할 수 있는 네트워킹 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Stack 네트워킹에 대 한 고려 사항](azure-stack-network-differences.md)
+* [Azure Stack 네트워킹 고려 사항](azure-stack-network-differences.md)

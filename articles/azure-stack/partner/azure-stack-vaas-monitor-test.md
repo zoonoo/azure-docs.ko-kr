@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d4854bd623bb11d50a712be3a5aea07db24c2951
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9b64631b274423edda35189a942e2f142ae591f1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432246"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761177"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>모니터링 및 VaaS 포털에서 테스트를 관리 합니다.
 
@@ -40,7 +40,7 @@ Azure Stack 솔루션에 대 한 테스트를 예약, 후 (VaaS) 서비스로 �
 
 ## <a name="change-workflow-parameters"></a>워크플로 매개 변수를 변경 합니다.
 
-각 워크플로 유형에 편집할 수 있습니다 합니다 [매개 변수를 테스트](azure-stack-vaas-parameters.md#test-parameters) 워크플로 만드는 동안 지정 합니다.
+편집할 수 있습니다 합니다 [매개 변수를 테스트](azure-stack-vaas-parameters.md#test-parameters) 워크플로의 모든 형식에 대 한 워크플로 만드는 동안 지정 합니다.
 
 1. 테스트 요약 페이지에서 선택 합니다 **편집** 단추입니다.
 
@@ -81,7 +81,7 @@ Azure Stack 솔루션에 대 한 테스트를 예약, 후 (VaaS) 서비스로 �
 
 ### <a name="actions"></a>작업
 
-상황에 맞는 메뉴를 클릭할 때 수행할 수 있는 사용 가능한 작업을 나열 하는 각 테스트 인스턴스에 **[...]**  테스트 인스턴스 테이블에 있습니다.
+상황에 맞는 메뉴를 선택 하면 수행할 수 있는 사용 가능한 작업을 나열 하는 각 테스트 인스턴스에 **[...]**  테스트 인스턴스 테이블에 있습니다.
 
 #### <a name="view-information-about-the-test-definition"></a>테스트 정의 대 한 정보 보기
 
@@ -118,7 +118,7 @@ Azure Stack 솔루션에 대 한 테스트를 예약, 후 (VaaS) 서비스로 �
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>완료 된 테스트 인스턴스에 대 한 로그를 다운로드 합니다.
 
-선택 **로그를 다운로드할** 다운로드 하려면 상황에 맞는 메뉴에서을 `.zip` 테스트 실행 하는 동안 로그 출력의 파일입니다. 이 작업은 예 중 상태를 사용 하 여 테스트를 완료 하는 테스트에만 사용 가능 `Cancelled`, `Failed`, `Aborted`, 또는 `Succeeded`합니다.
+선택 **로그를 다운로드할** 다운로드 하려면 상황에 맞는 메뉴에서을 `.zip` 테스트 실행 하는 동안 로그 출력의 파일입니다. 이 작업은 완료, 즉, 상태를 사용 하 여 테스트 하는 테스트에만 사용 가능 `Cancelled`, `Failed`를 `Aborted`, 또는 `Succeeded`합니다.
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>테스트 인스턴스를 다시 예약 하거나 테스트를 예약 합니다.
 

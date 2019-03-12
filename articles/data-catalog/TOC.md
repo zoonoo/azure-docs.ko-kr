@@ -40,5 +40,5 @@
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [릴리스 정보](../active-directory/fundamentals/whats-new.md)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-catalog)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-data-catalog)
 ## [용어](data-catalog-terminology.md)

@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: f2101c685ff7b3820f826da1d2e1d52b687d26c6
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 776648fd5bab2dd4ef51ff4c26936f38d9987e94
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446634"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769815"
 ---
 # <a name="configure-deployment-sources"></a>배포 원본 구성
 
@@ -104,7 +104,7 @@ Azure Stack에서 app Service는 여러 소스 제어 공급자 로부터 주문
 ![OneDrive 응용 프로그램-웹 플랫폼 추가][12]
 8. 추가 된 **Microsoft Graph 권한** - **위임 된 권한**
     - **Files.ReadWrite.AppFolder**
-    - **User.Read**  
+    - **사용자입니다. 읽기**  
       ![OneDrive 응용 프로그램 - Graph 권한][13]
 9. **저장**을 클릭합니다.
 10.  새 브라우저 탭 또는 창에서 Azure Stack 관리 포털에 로그인 (https://adminportal.local.azurestack.external) 서비스 관리자로 합니다.

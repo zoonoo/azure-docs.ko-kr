@@ -10,26 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c7bf766dc0f73b37fc7de537537c7a885a50c30a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 09b8556a83dec286ce8d67fa5fd6d27e027325bf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339575"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769219"
 ---
 # <a name="deploy-the-local-agent"></a>로컬 에이전트를 배포 합니다.
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-로컬 에이전트 서비스 (VaaS) 유효성 검사를 사용 하 여 하드웨어를 확인 하는 방법에 알아봅니다. 로컬 에이전트는 유효성 검사 테스트를 실행 하기 전에 유효성이 검사 되는 Azure Stack 솔루션에 배포 되어야 합니다.
+로컬 에이전트 서비스 (VaaS)으로 유효성 검사를 사용 하 여 유효성 검사 테스트를 실행 하는 방법에 알아봅니다. 유효성 검사 테스트를 실행 하기 전에 로컬 에이전트를 배포 해야 합니다.
 
 > [!Note]  
-> 로컬 에이전트가 실행 되는 컴퓨터 인터넷에 아웃 바운드 액세스를 손실 하지 않도록 확인 해야 합니다. 이 컴퓨터는 VaaS 테 넌 트를 대신 하 여 사용 하도록 권한을 부여한 사용자에만 액세스할 수 있어야 합니다.
+> 로컬 에이전트가 실행 되는 컴퓨터 인터넷에 아웃 바운드 액세스를 손실 하지 않도록 해야 합니다. 이 컴퓨터 VaaS 테 넌 트를 대신 하 여 사용할 권한이 있는 사용자만 액세스할 수 있어야 합니다.
 
 로컬 에이전트를 배포 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "57339575"
 
 ## <a name="download-and-start-the-local-agent"></a>다운로드 하 고 로컬 에이전트를 시작 합니다.
 
-Azure Stack 시스템의 모든 Azure Stack 끝점에 대 한 액세스 권한이 있는 포함 되지 않은 데이터 센터에서 필수 구성 요소를 충족 하는 컴퓨터에 에이전트를 다운로드 합니다.
+데이터 센터에서 필수 구성 요소를 충족 하 고 모든 Azure Stack 끝점에 대 한 액세스 권한이 있는 컴퓨터에 에이전트를 다운로드 합니다. 이 컴퓨터는 Azure Stack 시스템의 일부가 아니어야 또는 Azure Stack 클라우드에 호스트 합니다.
 
 ### <a name="machine-prerequisites"></a>컴퓨터 필수 조건
 
@@ -51,8 +51,6 @@ Azure Stack 시스템의 모든 Azure Stack 끝점에 대 한 액세스 권한�
 - 최소 8 코어 프로세서
 - 최소 200GB 디스크 공간
 - 인터넷에 대 한 안정적인 네트워크 연결
-
-Azure Stack은 테스트 대상 시스템. 컴퓨터는 Azure Stack의 일부가 아니어야 또는 Azure Stack 클라우드에 호스트 합니다.
 
 ### <a name="download-and-install-the-agent"></a>에이전트 다운로드 및 설치
 

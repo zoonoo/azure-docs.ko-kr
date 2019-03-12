@@ -44,6 +44,8 @@ items:
     href: how-application-gateway-works.md
   - name: 애플리케이션 게이트웨이 구성 요소
     href: application-gateway-components.md
+  - name: 구성 개요
+    href: configuration-overview.md
   - name: SSL
     items:
     - name: SSL 정책 개요
@@ -78,12 +80,14 @@ items:
   items:
   - name: 웹 트래픽 관리
     items:
-    - name: Azure PowerShell
+    - name: Azure portal
       href: tutorial-manage-web-traffic-powershell.md
     - name: Template
       href: create-vmss-template.md
   - name: 내부 부하 분산 장치 구성
     items:
+    - name: Azure portal
+      href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
       href: application-gateway-ilb-arm.md
   - name: SSL 종료 구성
@@ -212,9 +216,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 스택 오버플로
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 7fe790e7b75e3cf6bead50635b7be690b1b7eeb7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 57ae904b8bc65ef9b249b055d8f1abb3b25c4752
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309046"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729975"
