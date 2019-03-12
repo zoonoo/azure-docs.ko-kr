@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 12/20/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6126bacf50d47029c29772b35f6dc1d552d47029
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: ca22f29597cb452d6d33338b8ba0367c9377f6fb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592641"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772520"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Azure Stack에 대 한 서비스와 유효성 검사는 무엇입니까?
 
@@ -65,7 +65,7 @@ Microsoft은 정기적으로 새로운 기능이 Azure Stack에서 사용할 수
 |----|------------|
 | [새 솔루션 유효성 검사](azure-stack-vaas-validate-solution-new.md) | 클라우드 시뮬레이션 엔진<br>SDK Operational Suite를 계산 합니다.<br>디스크 식별 테스트<br>KeyVault 확장 SDK에 대 한 운영 Suite<br>KeyVault SDK 운영 도구 모음<br>네트워크 SDK 운영 도구 모음<br>저장소 계정 SDK Operational Suite<br> |
 | [OEM 패키지 유효성 검사](azure-stack-vaas-validate-oem-package.md) | OEM 확장 패키지 확인<br>클라우드 시뮬레이션 엔진 |
-| [월별 업데이트 유효성 검사](azure-stack-vaas-validate-microsoft-updates.md) | 월별 azurestack의 경우 업데이트 확인<br>클라우드 시뮬레이션 엔진<br> |
+| [월별 업데이트 유효성 검사](azure-stack-vaas-validate-microsoft-updates.md) | 월별 Azure Stack 업데이트 확인<br>클라우드 시뮬레이션 엔진<br> |
 
 ## <a name="next-steps"></a>다음 단계
 

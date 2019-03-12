@@ -6,11 +6,11 @@ ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 4d99d5a5b79ed451b7954bb109bd6c7270dd8089
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f49ec65a205fa6e4807d3cac5f55b3915d62a260
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57343081"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57786365"
 ---
-[Azure Portal](https://portal.azure.com/)에서 스토리지 계정으로 이동합니다. 아래 **설정을**를 선택 **공유 액세스 서명**합니다.
+[Azure Portal](https://portal.azure.com/)에서 저장소 계정으로 이동합니다. 아래 **설정을**를 선택 **공유 액세스 서명**합니다.

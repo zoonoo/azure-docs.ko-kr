@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 14e587276deab9656c3be04c96182942767ae0f2
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0e14e7eb20e87f5555fa6b494c0d09ccde08d2dd
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986025"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731643"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 업데이트
 
@@ -87,7 +87,7 @@ Azure Stack에는 핫픽스를 정기적으로 해제합니다. 설치 해야 �
 
     이 업데이트를 설치 하는 동안 Azure Stack 사용자 포털을 사용할 수 없는 경우 확장 호스트를 구성 하는 동안 확장 호스트의 구성에는 최대 5 시간까지 걸릴 수 있습니다. 이 시간 동안 업데이트 상태를 확인하거나, [Azure Stack 관리자 PowerShell 또는 권한 있는 엔드포인트](azure-stack-monitor-update.md)를 사용하여 실패한 업데이트 설치를 다시 시작할 수 있습니다.
 
-- Azure Stack에서 System Center Operations Manager (SCOM)을 관리 되는 경우에 1811 적용 하기 전에 10.0.3.11 버전으로 Microsoft Azure Stack 용 관리 팩을 업데이트 해야 합니다.
+- Azure Stack에서 System Center Operations Manager (SCOM)을 관리 되는 경우에 1811 적용 하기 전에 1.0.3.11 버전으로 Microsoft Azure Stack 용 관리 팩을 업데이트 해야 합니다.
 
 ## <a name="new-features"></a>새로운 기능
 

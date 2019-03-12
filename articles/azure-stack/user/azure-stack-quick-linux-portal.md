@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ef2d59393902194af3e257ce0fd5bf403b293af1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d9a17bdad0bfa4965d36fbe2a2cf3a7890060e98
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245426"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772571"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>빠른 시작: Azure Stack 포털을 사용 하 여 Linux 서버 가상 머신 만들기
 
@@ -43,7 +43,7 @@ Azure Stack 포털을 사용 하 여 Ubuntu Server 16.04 LTS 가상 컴퓨터를
 
    Azure Stack 개발 키트 (ASDK)를 사용 하는 경우 SSH 클라이언트에 대 한 액세스가 없을 수 있습니다. 클라이언트에 필요한 경우에 SSH 클라이언트를 포함 하는 여러 개의 패키지가 있습니다. 예를 들어, PuTTY SSH 클라이언트 및 SSH 키 생성기 (puttygen.exe)를 포함 합니다. 사용 가능한 패키지에 대 한 자세한 내용은 다음 Azure 문서를 읽어보세요. [Azure에서 Windows 사용 하 여 사용 하 여 SSH 키 방법](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)합니다.
 
-   이 빠른 시작에서는 SSH 키를 생성 하 고 Linux server 가상 머신에 연결할 PuTTY를 사용 합니다. PuTTY 다운로드 및 설치로 이동 [ http://www.putty.org/ ](http://www.putty.org)합니다.
+   이 빠른 시작에서는 SSH 키를 생성 하 고 Linux server 가상 머신에 연결할 PuTTY를 사용 합니다. PuTTY 다운로드 및 설치로 이동 [ https://www.putty.org/ ](http://www.putty.org)합니다.
 
 ## <a name="create-an-ssh-key-pair"></a>SSH 키 쌍 만들기
 

@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d675eb55e7ecda1dcf79859e85821c4e86ccbdd
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 7f9a4ce4f1e16f69a1d8998e24c1bfe955d17d92
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338521"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767110"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>PowerShell 사용 하 여 Azure Stack 유효성 검사 자동화
 
@@ -29,13 +29,13 @@ ms.locfileid: "57338521"
 > [!NOTE]  
 > Automation만 테스트 통과 워크플로에 대해 제공 됩니다. 패키지 유효성 검사 및 솔루션 유효성 검사 워크플로 VaaS 포털을 통해 에서만 지원 됩니다.
 
-이 자습서에서는 스크립트를 작성 하는 방법을 알아봅니다입니다.
+이 스크립트를 사용할 수 있습니다.
 
 > [!div class="checklist"]
 > * 필수 구성 요소 설치
 > * 설치 하 고 로컬 에이전트를 시작 합니다.
-> * 테스트, 통합, 기능, 안정성 등의 범주를 시작합니다.
-> * 보고서 테스트 결과
+> * 예: 테스트 범주를 시작 *통합*, *기능적*, *안정성*
+> * 테스트 결과 보고
 
 ## <a name="launch-the-test-pass-workflow"></a>테스트 통과 워크플로 시작
 

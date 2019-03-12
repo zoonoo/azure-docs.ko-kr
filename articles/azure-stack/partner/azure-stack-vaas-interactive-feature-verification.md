@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 20a48e67a24763af7bcce9e8831e2a1d1846d094
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d3db8ea8639f73f3522ddaa358195e7c9ef2f9a9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594307"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766005"
 ---
 # <a name="interactive-feature-verification-testing"></a>대화형 기능 확인 테스트  
 
@@ -35,13 +35,13 @@ ms.locfileid: "56594307"
 
 ## <a name="overview-of-interactive-testing"></a>대화형 테스트 개요
 
-디스크 교체에 대 한 테스트는 일반적인 시나리오입니다. 이 예제에서는 테스트에는 7 단계:
+디스크 교체에 대 한 테스트는 일반적인 시나리오입니다. 이 예제에서는 테스트에는 5 단계:
 
-1. 새 **테스트 통과** 워크플로
-1. 선택 된 **디스크 식별 테스트**
-1. 메시지가 표시 되 면 수동 단계를 완료 합니다.
-1. 시나리오의 결과 확인
-1. Microsoft 테스트 결과 보내기
+1. 새 **테스트 통과** 워크플로.
+2. 선택 된 **식별 테스트 디스크**합니다.
+3. 메시지가 표시 되 면 수동 단계를 완료 합니다.
+4. 시나리오의 결과 확인 합니다.
+5. Microsoft 테스트 결과를 보냅니다.
 
 ## <a name="create-a-new-test-pass"></a>새 테스트 패스를 만들기
 

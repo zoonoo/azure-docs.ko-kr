@@ -85,6 +85,6 @@
 ## [가격](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-analytics)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)

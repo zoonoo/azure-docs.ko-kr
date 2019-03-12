@@ -15,12 +15,12 @@ ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 00fb888f201f4bb8d211050b288516021d837dc5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9f835382cbfe56c1601267ae994a94b56c0c3692
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888774"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727045"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 사용량 API의에서 질문과 대답
 
@@ -197,15 +197,15 @@ ms.locfileid: "56888774"
 **단위**: GB\*월      
 **참고**: 실제 디스크의 크기를 프리미엄 관리 디스크 
 
-**측정기 ID**: 75d4b707-1027-4403-9986-6ec7c05579c8  
+**측정기 ID**: 108fa95b-be0d-4cd9-96e8-5b0d59505df1  
 **미터 이름**: ActualStandardSnapshotSize   
 **단위**: GB\*월   
 **참고**: 관리 되는 표준 스냅숏 디스크의 실제 크기입니다.  
 
-**측정기 ID**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**측정기 ID**: 578ae51d-4ef9-42f9-85ae-42b52d3d83ac   
 **미터 이름**: ActualPremiumSnapshotSize   
 **단위**: GB\*월   
-**참고**: 관리 되는 프리미엄 디스크에 실제 크기입니다.   
+**참고**: 관리 되는 프리미엄 스냅숏 디스크의 실제 크기입니다.   
 
 **측정기 ID**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **미터 이름**: S4   
@@ -285,7 +285,11 @@ ms.locfileid: "56888774"
 **측정기 ID**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **미터 이름**: ActualPremiumSnapshotSize   
 **단위**: 바이트\*시간   
-**참고**: 실제 디스크의 크기를 관리 되는 premium (사용 되지 않음) 
+**참고**: 실제 디스크의 크기를 관리 되는 프리미엄 스냅숏 (사용 되지 않음) 
+
+**측정기 ID**: 75d4b707-1027-4403-9986-6ec7c05579c8 **미터 이름**: ActualStandardSnapshotSize **Unit**: GB\*달 **메모**: 실제 디스크의 크기를 관리 되는 표준 스냅숏 (사용 되지 않음)  
+
+**측정기 ID**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e **미터 이름**: ActualPremiumSnapshotSize **Unit**: GB\*달 **메모**: 실제 디스크의 크기를 관리 되는 프리미엄 스냅숏 (사용 되지 않음)  
 
 ### <a name="sql-rp"></a>Sql RP
   

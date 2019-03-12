@@ -1,5 +1,5 @@
 ---
-title: Azure Stackk을 Kubernetes 배포 문제 해결 | Microsoft Docs
+title: Azure Stack에 Kubernetes 배포 문제 해결 | Microsoft Docs
 description: Azure Stack에 Kubernetes 배포 문제를 해결 하는 방법을 알아봅니다.
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: mabrigg
+ms.author: mabvrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5436b562b4f9054e0e00e3cc6abb1724797437db
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752299"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729639"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack에 Kubernetes 배포 문제 해결
 
@@ -87,7 +86,7 @@ ms.locfileid: "55752299"
 Kubernetes 클러스터를 지 원하는 Vm에서 로그를 수집할 수 있습니다. 또한 배포 로그를 검토할 수 있습니다. 를 사용 하 고 배포와 관련 된 Azure Stack에서 로그를 가져오려면 해야 하는 Azure Stack의 버전을 확인 하 여 Azure Stack 관리자에 게 문의 해야 합니다.
 
 1. 검토 합니다 [배포 상태](#review-deployment-status) 하 고 [로그를 검색할](#get-logs-from-a-vm) Kubernetes 클러스터의 마스터 노드를 통해.
-2. Azure Stack의 최신 버전을 사용 하는 확인 해야 합니다. 사용 중인 버전 잘 모르는 경우 Azure Stack 관리자에 게 문의 합니다. Kubernetes 클러스터 marketplace 시간 0.3.0 Azure Stack 버전 1808 이상이 필요합니다.
+2. Azure Stack의 최신 버전을 사용 하는 확인 해야 합니다. 사용 중인 버전 잘 모르는 경우 Azure Stack 관리자에 게 문의 합니다.
 3.  VM 생성 파일을 검토 합니다. 다음과 같은 문제를 미쳤을 수 있습니다.:  
     - 공개 키 잘못 되었을 수 있습니다. 사용자가 만든 키를 검토 합니다.  
     - VM 만드는 내부 오류가 트리거될가 있습니다 또는 생성 오류를 발생 합니다. 다양 한 요인에는 Azure Stack 구독에 대 한 용량 제한은 포함 하 여 오류를 발생할 수 있습니다.
@@ -148,21 +147,26 @@ Bash 해야 Azure Stack을 관리 하는 데 사용할 수 있는 컴퓨터에�
 3. 동일한 세션에서 환경에 맞게 업데이트 하는 매개 변수를 사용 하 여 다음 명령을 실행 합니다.
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
     ```
 
 4. 매개 변수를 검토 하 고 사용자 환경에 따라 값을 설정 합니다.
     | 매개 변수           | 설명                                                                                                      | 예                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i, --identity-file | RSA 개인 키 파일 Kubernetes 마스터 VM에 연결 합니다. 키는로 시작 해야 합니다. `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
-    | -h, --host          | 공용 IP 또는 Kubernetes 클러스터 마스터 VM의 정규화 된 도메인 이름 (FQDN). VM 이름은 시작 `k8s-master-`합니다.                       | IP: 192.168.102.37<br><br>FQDN: k8s 12345.local.cloudapp.azurestack.external      |
+    | -d, --vmd-host       | 공용 IP 또는 FQDN을 dvm이을 합니다. VM 이름은 시작 `vmd-`합니다.                                                       | IP: 192.168.102.38<br><br>DNS: vmd dnsk8 frog.local.cloudapp.azurestack.external |
+    | -f, --force | 개인 키를 업로드 하기 전에 표시 되지 않습니다. | |
+    | -i, --identity-file | RSA 개인 키 파일 Kubernetes 마스터 VM에 연결 합니다. 키는 시작 해야 합니다. <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
+    | -h, --help  | 명령 사용법에 대 한 인쇄 `getkuberneteslogs.sh` 스크립트입니다. | |
+    | -m, --master-host          | 공용 IP 또는 Kubernetes 클러스터 마스터 VM의 정규화 된 도메인 이름 (FQDN). VM 이름은 시작 `k8s-master-`합니다.                       | IP: 192.168.102.37<br><br>FQDN: k8s 12345.local.cloudapp.azurestack.external      |
     | -u, --user          | Kubernetes 클러스터 마스터 VM의 사용자 이름입니다. 마켓플레이스 항목을 구성할 때이 이름을 설정 합니다.                                                                    | azureuser                                                                     |
-    | -d, --vmdhost       | 공용 IP 또는 FQDN을 dvm이을 합니다. VM 이름은 시작 `vmd-`합니다.                                                       | IP: 192.168.102.38<br><br>DNS: vmd dnsk8 frog.local.cloudapp.azurestack.external |
+
+
+
 
    매개 변수 값에 추가 하면 것 다음 코드와 같이 보일 수 있습니다.
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
      ```
 
     실행을 성공적으로 로그를 만듭니다.
