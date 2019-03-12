@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: fe5e998b919a3e2a876ef943424bd7161b71b5d4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 261efda18b7cecc6370743c604622a8884ff8364
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241207"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732306"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -151,6 +151,8 @@ Azure CLI 및 컴퓨터에 설치 된 기타 종속 된 라이브러리의 버�
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
 
+ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. Intregrated 시스템을 사용 하 여이 작업을 수행 해야 합니다.
+
 Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 추가 합니다.
 
 1. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
@@ -203,7 +205,14 @@ Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 �
     set ADAL_PYTHON_SSL_NO_VERIFY=1
     ```
 
-    환경의 이름을 지정 하 여 등록 합니다. 후 환경의 이름을 지정 합니다 `-n` 전환 합니다. 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다.
+2. 사용자 환경에 등록 합니다. 실행 하는 경우 다음 매개 변수를 사용 하 여 `az cloud register`입니다.
+    | 값 | 예 | 설명 |
+    | --- | --- | --- |
+    | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
+    | 리소스 관리자 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
+    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. Intregrated 시스템, 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
@@ -263,6 +272,8 @@ az group create -n MyResourceGroup -l local
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
 
+ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. Intregrated 시스템을 사용 하 여이 작업을 수행 해야 합니다.
+
 1. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 명령 프롬프트 또는 PowerShell 프롬프트를 열고 다음 명령을 입력 합니다.
 
     ```PowerShell  
@@ -313,7 +324,14 @@ az group create -n MyResourceGroup -l local
     set ADAL_PYTHON_SSL_NO_VERIFY=1
     ```
 
-    환경의 이름을 지정 하 여 등록 합니다. 후 환경의 이름을 지정 합니다 `-n` 전환 합니다. 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다.
+2. 사용자 환경에 등록 합니다. 실행 하는 경우 다음 매개 변수를 사용 하 여 `az cloud register`입니다.
+    | 값 | 예 | 설명 |
+    | --- | --- | --- |
+    | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
+    | 리소스 관리자 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
+    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. Intregrated 시스템, 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
@@ -336,26 +354,26 @@ az group create -n MyResourceGroup -l local
 
 1. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)합니다. 
 
-  - 으로 로그인을 *사용자*: 
+  - 으로 로그인을 *사용자*:
 
     Username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령, 또는 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우 후자를 수행 해야 합니다.
 
     ```azurecli
     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
-    ``
+    ```
 
     > [!NOTE]
-    > If your user account has multi-factor authentication enabled, you can use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
+    > 사용자 계정에 multi-factor authentication 사용 하는 경우 사용할 수 있습니다 합니다 `az login` 제공 하지 않고 명령을 `-u` 매개 변수입니다. URL 및 인증을 사용 해야 하는 코드를 제공이 명령을 실행 합니다.
 
-  - Sign in as a *service principal*: 
+  - 으로 로그인을 *서비스 주체*: 
     
-    Prepare the .pem file to be used for service principal login.
+    서비스 보안 주체 로그인에 사용 되는.pem 파일을 준비 합니다.
 
-    On the client machine where the principal was created, export the service principal certificate as a pfx with the private key located at `cert:\CurrentUser\My`; the cert name has the same name as the principal.
+    보안 주체가 생성 된 위치를 클라이언트 컴퓨터에서 서비스 주체 인증서에 개인 키를 사용 하 여 pfx 있는 내보내기 `cert:\CurrentUser\My`, 이름을 주 서버는 같은 이름을 가진 인증서입니다.
 
-    Convert the pfx to pem (use the OpenSSL utility).
+    Pfx에서 pem (사용 하 여 OpenSSL 유틸리티를) 변환 합니다.
 
-    Sign in to the CLI:
+    CLI에 로그인 합니다.
   
     ```azurecli  
     az login --service-principal \
@@ -383,6 +401,8 @@ az group create -n MyResourceGroup -l local
 이 섹션에서는 안내 CLI 설정으로 id 관리 서비스를 사용 하 여 Azure AD를 사용 하는 Linux 컴퓨터에서 CLI를 사용 하는 경우.
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
+
+ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. Intregrated 시스템을 사용 하 여이 작업을 수행 해야 합니다.
 
 기존 Python 인증서를 추가 하 여 Azure Stack CA 루트 인증서를 신뢰 합니다.
 
@@ -419,11 +439,18 @@ az group create -n MyResourceGroup -l local
    set ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-2. 환경의 이름을 지정 하 여 등록 합니다. 후 환경의 이름을 지정 합니다 `-n` 전환 합니다. 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다.
+2. 사용자 환경에 등록 합니다. 실행 하는 경우 다음 매개 변수를 사용 하 여 `az cloud register`입니다.
+    | 값 | 예 | 설명 |
+    | --- | --- | --- |
+    | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
+    | 리소스 관리자 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
+    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. Intregrated 시스템, 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 
-      ```azurecli  
-      az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
-      ```
+    ```azurecli  
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    ```
 
 3. 활성 상태의 환경을 설정 합니다. 
 
@@ -485,6 +512,8 @@ az group create -n MyResourceGroup -l local
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
 
+ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. Intregrated 시스템을 사용 하 여이 작업을 수행 해야 합니다.
+
 기존 Python 인증서를 추가 하 여 Azure Stack CA 루트 인증서를 신뢰 합니다.
 
 1. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. Pip 및를 해야 합니다 [모듈을 설치](#install-python-on-linux)합니다. Bash 프롬프트에서 다음 Python 명령에 사용할 수 있습니다.
@@ -520,11 +549,18 @@ az group create -n MyResourceGroup -l local
    set ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-2. 환경의 이름을 지정 하 여 등록 합니다. 후 환경의 이름을 지정 합니다 `-n` 전환 합니다. 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다.
+2. 사용자 환경에 등록 합니다. 실행 하는 경우 다음 매개 변수를 사용 하 여 `az cloud register`입니다.
+    | 값 | 예 | 설명 |
+    | --- | --- | --- |
+    | 환경 이름 | AzureStackUser | 사용 하 여 `AzureStackUser` 사용자 환경에 대 한 합니다. 연산자 인 경우 지정 `AzureStackAdmin`합니다. |
+    | 리소스 관리자 끝점 | https://management.local.azurestack.external | 합니다 **ResourceManagerUrl** 에 Azure Stack 개발 키트 ASDK ()는: `https://management.local.azurestack.external/` 합니다 **ResourceManagerUrl** 통합된 시스템의: `https://management.<region>.<fqdn>/` 에 필요한 메타 데이터를 검색 합니다. `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` 통합된 시스템 끝점에 대 한 질문을 사용 하는 경우 귀하가 클라우드 운영자에 게 문의 합니다. |
+    | 저장소 끝점 | local.azurestack.external | `local.azurestack.external` ASDK입니다. Intregrated 시스템, 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | Keyvalut 접미사 | .vault.local.azurestack.external | `.vault.local.azurestack.external` ASDK입니다. 통합된 시스템에 대 한 시스템에 대 한 끝점을 사용 해야 합니다.  |
+    | VM 이미지 별칭 문서 끝점 | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 가상 머신 이미지 별칭을 포함 하는 문서의 URI입니다. 자세한 내용은 [# # # 가상 머신 별칭 끝점 설정](#set-up-the-virtual-machine-aliases-endpoint)합니다. |
 
-      ```azurecli  
-      az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
-      ```
+    ```azurecli  
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    ```
 
 3. 활성 상태의 환경을 설정 합니다. 
 
@@ -547,12 +583,12 @@ az group create -n MyResourceGroup -l local
 
   *  로 **사용자** 장치 코드를 사용 하 여 웹 브라우저를 사용 하 여:  
 
-    ```azurecli  
+  ```azurecli  
     az login --use-device-code
-    ```
+  ```
 
-    > [!NOTE]  
-    >URL 및 인증을 사용 해야 하는 코드를 제공 명령을 실행 합니다.
+  > [!NOTE]  
+  >URL 및 인증을 사용 해야 하는 코드를 제공 명령을 실행 합니다.
 
   * 서비스 주체로:
         
@@ -577,9 +613,9 @@ az group create -n MyResourceGroup -l local
 모든 항목을 사용 하 여 CLI를 사용 하 여 Azure Stack에서 리소스 만들기를 설정 합니다. 예를 들어, 응용 프로그램에 대 한 리소스 그룹을 만들고 가상 머신 추가 수 있습니다. 다음 명령을 사용 하 여 "myresourcegroup 이라는" 이름의 리소스 그룹을 만듭니다.
 
 ```azurecli
-az group create \
-  -n MyResourceGroup -l local
+  az group create -n MyResourceGroup -l local
 ```
+
 리소스 그룹 만들기를 완료 하는 경우 이전 명령은 새로 만든된 리소스의 다음 속성을 출력 합니다.
 
 ![리소스 그룹에는 출력 만들기](media/azure-stack-connect-cli/image1.png)

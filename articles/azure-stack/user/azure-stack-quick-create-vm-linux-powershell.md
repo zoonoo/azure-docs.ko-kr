@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: fd7dd06692e20eb0e7cc02af8d2f36c4dad8b597
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e6afea414ed632dead97a4b9adc7c623e48bd7ef
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251931"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766702"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure Stack에서 PowerShell을 사용 하 여 Linux 서버 가상 머신 만들기
 
@@ -390,7 +390,7 @@ New-AzureRmVM `
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-설치 하는 SSH 사용 하 여 클라이언트 시스템에서 다음 명령을 사용 하 여 가상 머신에 연결 합니다. Windows에서 작업할 경우 사용할 수 있습니다 [Putty](http://www.putty.org/) 연결을 만듭니다.
+설치 하는 SSH 사용 하 여 클라이언트 시스템에서 다음 명령을 사용 하 여 가상 머신에 연결 합니다. Windows에서 작업할 경우 사용할 수 있습니다 [Putty](https://www.putty.org/) 연결을 만듭니다.
 
 ```
 ssh <Public IP Address>

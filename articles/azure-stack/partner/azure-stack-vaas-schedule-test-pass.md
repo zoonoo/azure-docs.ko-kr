@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: How to
-ms.date: 03/04/2019
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 4cd94a0d5891c2d34e152dad87d21cbb45a2ec39
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3fb5c3deeddb6f3ee381ca45df76feebf3405b21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336872"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766576"
 ---
 # <a name="scheduling-a-test"></a>테스트를 예약합니다.
 
@@ -53,7 +53,7 @@ Azure Stack 솔루션에 대 한 유효성 검사 서비스 (VaaS) 포털에서 
 
 ![대체 텍스트](media/vaas_test_pass_parameters.png)
 
-솔루션에 대 한 워크플로 정의 합니다. 워크플로는 솔루션을 테스트 하는 데 사용 되는 프로세스 단계에 있습니다.
+워크플로 내에서 모든 테스트에 적용 되는 매개 변수를 제공 합니다.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
@@ -63,18 +63,19 @@ Azure Stack 솔루션에 대 한 유효성 검사 서비스 (VaaS) 포털에서 
 
 ## <a name="select-tests-to-run"></a>실행할 테스트 선택
 
-워크플로에서 실행 하려는 테스트를 선택 합니다.
+선택한 테스트 워크플로가 만들어지면 예약 됩니다.
 
 1. 워크플로에서 실행 하려면 테스트를 선택 합니다.
 
     모든 테스트에 대 한 일반 매개 변수 (즉, 매개 변수는 이전 섹션에서 제공)를 재정의 하려는 경우에 선택 합니다 **편집** 새 값을 지정 하려면 다음을 링크 합니다.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
 1. 선택 **다음** 워크플로 검토 합니다.
 
 ## <a name="review-and-submit"></a>검토 및 제출
 
-검토 하 고, 생성 및 다음 워크플로 예약 합니다.
+워크플로 만들기를 완료 합니다.
 
 1. 표시 되는 정보를 검토 합니다.
 

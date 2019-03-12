@@ -45,7 +45,7 @@
 
 # 방법 가이드
 ## 계획
-### [웹 응용 프로그램 아키텍처](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
+### [웹 애플리케이션 아키텍처](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [VM 아키텍처](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [온-프레미스 네트워크에 연결](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
 ### [마이크로 서비스 패턴/시나리오](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-and-scenarios)
@@ -95,7 +95,7 @@
 ## SDK
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 ### [Java](https://docs.microsoft.com/java/api/)
-### [Node.JS](http://azure.github.io/azure-sdk-for-node/)
+### [Node.JS](https://azure.github.io/azure-sdk-for-node/)
 ### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)

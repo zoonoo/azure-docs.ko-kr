@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a24ba9c0f19ce0a040671e4515dc2e7d2468fb5c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985583"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532153"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Azure Stack에 Kubernetes 배포
 
@@ -53,7 +53,7 @@ ms.locfileid: "56985583"
 
 Azure에서 서비스 주체를 설정 합니다. 서비스 주체는 Azure Stack 리소스에 응용 프로그램 액세스를 제공합니다.
 
-1. 전역에 로그인 [Azure portal](http://portal.azure.com)합니다.
+1. 전역에 로그인 [Azure portal](https://portal.azure.com)합니다.
 
 1. Azure Stack 인스턴스와 연결 된 Azure AD 테 넌 트를 사용 하 여 서명 되었는지 확인 합니다. Azure 도구 모음에서 필터 아이콘을 클릭 하 여 로그인을 전환할 수 있습니다.
 

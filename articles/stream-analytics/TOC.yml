@@ -61,8 +61,6 @@ items:
     href: stream-analytics-parsing-json.md
   - name: 시간 처리 고려 사항
     href: stream-analytics-time-handling.md
-  - name: 이벤트 순서 고려 사항
-    href: stream-analytics-out-of-order-and-late-events.md
   - name: 검사점 및 재생
     href: stream-analytics-concepts-checkpoint-replay.md
   - name: 오류 정책
@@ -437,9 +435,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: 백서 - 실시간 이벤트 처리
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 0ee4cb08d5a7ce2f7a29f3e36daf837055b4628d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 24c475fcbe1bda825693ee04f9381922c46633ad
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408363"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539244"

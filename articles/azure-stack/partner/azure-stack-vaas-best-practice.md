@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 유효성 검사 모범 사례입니다. | Microsoft Docs
-description: 이 문서에서는 서비스와 유효성 검사에 대 한 모범 사례에 있습니다.
+description: 이 문서에서는 서비스와 유효성 검사에 대 한 모범 사례를 설명합니다.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b61c4a22d0c5343d41e35f2bbd66829b2b9e8d48
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 30b7a5327a709fb35c3c3360f4bb0246e9a5f75f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336975"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771228"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>서비스 유효성 검사에 대 한 모범 사례
 
@@ -46,7 +46,7 @@ SKU는 동일한 하드웨어에 대 한 워크플로 실행 하는 경우 동�
 
 ### <a name="naming-convention-for-vaas-workflows"></a>VaaS 워크플로에 대 한 명명 규칙
 
-모든 VaaS 워크플로 실행에 대 한 일관 된 명명 규칙을 사용 합니다. 예를 들어, 구문을 워크플로 빌드 속성 아래에서 다음과 같이 이름을:
+모든 VaaS 워크플로 실행에 대 한 일관 된 명명 규칙을 사용 합니다. 예를 들어, 아래 빌드 속성에서 워크플로 이름을 다음과 같이 작성:
 
 |빌드 번호 (주) | Date | 솔루션 크기 | 워크플로 이름
 |---|---|---| ---|

@@ -15,12 +15,12 @@ ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 0261dff10e553ecbd39d394eb19e7ad3dd76f0a2
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1115e11d6bf830afad3746eb41d6368cb89bdbf3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340969"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534381"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 준비 된 데이터 분석 솔루션 만들기 
 
@@ -54,7 +54,7 @@ ms.locfileid: "57340969"
 
 -   Azure 구독. (만듭니다는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
--   [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)를 다운로드하고 설치합니다.
+-   [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)를 다운로드하고 설치합니다.
 
 -   사용자 고유의 데이터 함수에서 처리를 제공 해야 합니다. 데이터 생성 및 Azure Stack 저장소 blob 컨테이너에 업로드할 수 있어야 합니다.
 

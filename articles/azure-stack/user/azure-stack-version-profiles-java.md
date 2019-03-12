@@ -16,12 +16,12 @@ ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c7a6330f8e0197092f4c581f46c3cc6e68dba247
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246367"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540264"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Azure Stack에서 Java를 사용 하 여 API 버전 프로필 사용
 
@@ -64,7 +64,7 @@ Java SDK를 설치 하려면 다음 단계를 사용 합니다.
 
 1.  Git을 설치 하는 공식 지침을 따릅니다. 자세한 내용은 [시작-Git 설치](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)합니다.
 
-2.  공식 지침에 따라 설치 합니다 [Java SDK](http://zulu.org/download/) 하 고 [Maven](https://maven.apache.org/)합니다. 올바른 버전은 버전 8 Java Developer Kit입니다. 올바른 Apache Maven은 버전 3.0 이상. 빠른 시작을 완료 하려면 JAVA_HOME 환경 변수가 Java Development Kit의 설치 위치에 설정 되어야 합니다. 자세한 내용은 [Java 및 Maven을 사용 하 여 첫 번째 함수 만들기](../../azure-functions/functions-create-first-java-maven.md)합니다.
+2.  공식 지침에 따라 설치 합니다 [Java SDK](https://zulu.org/download/) 하 고 [Maven](https://maven.apache.org/)합니다. 올바른 버전은 버전 8 Java Developer Kit입니다. 올바른 Apache Maven은 버전 3.0 이상. 빠른 시작을 완료 하려면 JAVA_HOME 환경 변수가 Java Development Kit의 설치 위치에 설정 되어야 합니다. 자세한 내용은 [Java 및 Maven을 사용 하 여 첫 번째 함수 만들기](../../azure-functions/functions-create-first-java-maven.md)합니다.
 
 3.  올바른 종속성 패키지를 설치 하려면 Java 응용 프로그램에서 Pom.xml 파일을 엽니다. 다음 코드와 같이 종속성을 추가 합니다.
 

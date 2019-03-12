@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bb0eac4f7de11c2b80412319227a00d5dbe6d8c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b3fbd91ddf06d4515ee55d24ba9330d0af6dc124
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243405"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540321"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>빠른 시작: Azure Stack에서 Azure CLI를 사용 하 여 Linux 서버 가상 머신 만들기
 
@@ -82,7 +82,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="use-ssh-to-connect-to-the-virtual-machine"></a>SSH를 사용 하 여 가상 머신에 연결
 
-설치 하는 SSH 사용 하 여 클라이언트 컴퓨터에서 가상 머신에 연결 합니다. 사용 하 여 Windows 클라이언트에서 작업할 때는 [Putty](http://www.putty.org/) 연결을 만듭니다. 가상 컴퓨터에 연결 하려면 다음 명령을 사용 합니다.
+설치 하는 SSH 사용 하 여 클라이언트 컴퓨터에서 가상 머신에 연결 합니다. 사용 하 여 Windows 클라이언트에서 작업할 때는 [Putty](https://www.putty.org/) 연결을 만듭니다. 가상 컴퓨터에 연결 하려면 다음 명령을 사용 합니다.
 
 ```bash
 ssh <publicIpAddress>

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a05021255c6226329f1d7a3f0e7fa8c9be756646
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752665"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546724"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 하이브리드 클라우드 연결 구성
 
@@ -119,7 +119,7 @@ Azure Stack 운영자 해야 App Service 배포, 계획 및 제품은 테 넌 �
 
 Azure에서 vNet을 만들려면:
 
-1. 브라우저를 사용 하 여에 연결 하는 [Azure portal](http://portal.azure.com/) 및 Azure 계정으로 로그인 합니다.
+1. 브라우저를 사용 하 여에 연결 하는 [Azure portal](https://portal.azure.com/) 및 Azure 계정으로 로그인 합니다.
 2. 선택 **리소스 만들기**합니다. 에 **marketplace 검색** 필드에 입력 `virtual network`'. 찾을 **가상 네트워크** 을 선택 하 고 결과 목록에서 **Virtual Network**합니다.
 3. **배포 모델 선택** 목록에서 선택 **Resource Manager**를 선택한 후 **만들기**합니다.
 4. 온 **가상 네트워크 만들기**, VNet 설정을 구성 합니다. 필수 필드 이름은 빨간색 별표가 붙습니다.  유효한 값을 입력 하면 별표 녹색 확인 표시로 변경 합니다.
@@ -132,7 +132,7 @@ Azure Stack에서 vNet을 만들려면:
 
 가상 네트워크 게이트웨이에 연결 하기 전에 게이트웨이 서브넷에 연결 하려는 가상 네트워크에 대 한 만들기 해야 합니다. 게이트웨이 서비스는 게이트웨이 서브넷에 지정 된 IP 주소를 사용 합니다.
 
-에 [Azure portal](http://portal.azure.com/), 가상 네트워크 게이트웨이 만들려는 Resource Manager 가상 네트워크로 이동 합니다.
+에 [Azure portal](https://portal.azure.com/), 가상 네트워크 게이트웨이 만들려는 Resource Manager 가상 네트워크로 이동 합니다.
 
 1. 열려는 vNet을 선택 합니다 **가상 네트워크** 페이지입니다.
 2.  **설정을**를 선택 **서브넷**합니다.

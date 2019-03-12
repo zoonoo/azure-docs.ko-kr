@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822836"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763370"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Storage 탐색기는 Azure Stack 구독 또는 저장소 계정에 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "55822836"
 > [!NOTE]  
 > Azure Stack storage 간에 데이터를 이동할 수 있는 여러 도구가 있습니다. 자세한 내용은 [데이터 전송 Azure Stack 저장소에 대 한 도구](azure-stack-storage-transfer.md)합니다.
 
-Storage 탐색기를 아직 설치 하지 않은 경우 [storage 탐색기 다운로드](http://www.storageexplorer.com/) 하 고 설치 합니다.
+Storage 탐색기를 아직 설치 하지 않은 경우 [storage 탐색기 다운로드](https://www.storageexplorer.com/) 하 고 설치 합니다.
 
 Azure Stack 구독에 저장소 계정에 연결한 후 사용할 수 있습니다 합니다 [Azure storage 탐색기 문서](../../vs-azure-tools-storage-manage-with-storage-explorer.md) Azure Stack 데이터와 함께 작동 하도록 합니다. 
 
