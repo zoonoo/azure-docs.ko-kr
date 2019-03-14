@@ -274,19 +274,14 @@ items:
         href: iot-hub-configure-file-upload-powershell.md
       - name: Azure CLI 사용
         href: iot-hub-configure-file-upload-cli.md
-    - name: 진단 및 모니터링
+    - name: Azure Monitor의 메트릭
+      href: iot-hub-metrics.md
+    - name: 진단 로그 설정
       href: iot-hub-monitor-resource-health.md
-      items:
-      - name: 진단 설정으로 마이그레이션
-        href: iot-hub-migrate-to-diagnostics-settings.md
-      - name: 작업 모니터링
-        href: iot-hub-operations-monitoring.md
     - name: X.509 인증서를 사용하여 허브 보호
       href: iot-hub-security-x509-get-started.md
     - name: IoT Hub 업그레이드
       href: iot-hub-upgrade.md
-    - name: 사용 현황 메트릭
-      href: iot-hub-metrics.md
     - name: 메시지 추적 사용
       href: iot-hub-distributed-tracing.md
     - name: IP 필터링 구성
@@ -378,6 +373,12 @@ items:
     href: https://docs.microsoft.com/rest/api/iothub/certificates
   - name: Resource Manager 템플릿
     href: /azure/templates/microsoft.devices/iothub-allversions
+  - name: 기능 및 API 사용 중지
+    items:
+    - name: 작업 모니터링
+      href: iot-hub-operations-monitoring.md
+    - name: 진단 설정으로 마이그레이션
+      href: iot-hub-migrate-to-diagnostics-settings.md
 - name: 관련 항목
   items:
   - name: 솔루션
@@ -444,9 +445,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: cdeb8f013ee8a0dff212d5fc9facc199ed81828e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3bde9a6b9abcb5b99224ae9397756fe410cc0708
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530882"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791871"

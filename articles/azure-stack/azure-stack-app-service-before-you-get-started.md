@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: e39904378edd9583cd7802d0a75f2f365a35d2b6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990538"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791956"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack에서 App Service를 사용 하 여 시작 하기 전에
 
@@ -147,11 +147,11 @@ Id에 대 한 인증서는 다음 형식과 일치 하는 주체를 포함 해�
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-
 ### <a name="validate-certificates"></a>인증서의 유효성 검사
-App service 리소스 공급자를 배포 하기 전에 수행 해야 합니다 [사용할 인증서의 유효성 검사](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) 에서 사용할 수 있는 Azure Stack 준비 상태 검사기 도구를 사용 하는 [PowerShell 갤러리](https://aka.ms/AzsReadinessChecker)합니다. Azure Stack 준비 검사 도구는 생성 된 PKI 인증서를 사용 하 여 app services 배포에 적합 한 인지를 확인 합니다. 
 
-모범 사례로, 필요한 중 하나를 사용 하 여 작업 하는 경우 [Azure Stack PKI 인증서](azure-stack-pki-certs.md), 시간을 충분히 테스트 하 고 필요한 경우 인증서를 다시 발급 해야 합니다. 
+App service 리소스 공급자를 배포 하기 전에 수행 해야 합니다 [사용할 인증서의 유효성 검사](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) 에서 사용할 수 있는 Azure Stack 준비 상태 검사기 도구를 사용 하는 [PowerShell 갤러리](https://aka.ms/AzsReadinessChecker)합니다. Azure Stack 준비 검사 도구는 생성 된 PKI 인증서를 사용 하 여 app services 배포에 적합 한 인지를 확인 합니다.
+
+모범 사례로, 필요한 중 하나를 사용 하 여 작업 하는 경우 [Azure Stack PKI 인증서](azure-stack-pki-certs.md), 시간을 충분히 테스트 하 고 필요한 경우 인증서를 다시 발급 해야 합니다.
 
 ## <a name="virtual-network"></a>가상 네트워크
 
@@ -170,6 +170,15 @@ Virtual Network - /16
 - PublishersSubnet /24
 - WorkersSubnet /21
 
+## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>필요한 파일 서버와 SQL Server에 대 한 라이선스 문제
+
+Azure Stack의 azure App Service에는 파일 서버 및 SQL 서버를 작동에 필요 합니다.  Azure Stack 배포 외부에 있는 기존 리소스를 사용 하거나 고객이 Azure Stack 기본 공급자 구독 내에서 리소스를 배포할 수 있습니다.
+
+해당 리소스 (Windows Server 라이선스 및 SQL Server 라이선스)에 대 한 라이선스는 다음에 따라 Azure Stack에서 Azure App Service 비용에 포함 된 Azure Stack 기본 공급자 구독 내에서 리소스를 배포 하려는 경우 제약 조건:
+
+- 인프라에 배포 합니다 **기본 공급자 구독**;
+- 인프라는 Azure Stack 리소스 공급자에서 Azure App Service에서 단독으로 사용 됩니다.  확인 하는 것이 수는 다른 워크 로드를 관리 (다른 리소스 공급자, 예를 들어 SQL RP) 또는 테 넌 트 (예를 들어 테 넌 트 응용 프로그램, 데이터베이스 필요),이 인프라를 사용 합니다.
+
 ## <a name="prepare-the-file-server"></a>파일 서버를 준비 합니다.
 
 Azure App Service는 파일 서버를 사용을 해야 합니다. 프로덕션 배포의 경우 항상 사용 가능 하 고 오류를 처리할 수 있는 파일 서버를 구성 합니다.
@@ -180,7 +189,7 @@ Azure Stack 개발 키트 배포에 사용할 수 있습니다 합니다 [Azure 
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>항상 사용 가능한 파일 서버 및 SQL Server에 대 한 빠른 시작 템플릿
 
-A [참조 아키텍처 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) 수 이제 파일 서버, SQL Server 배포 하는, 가상 네트워크에 인프라가 Active Directory를 지 원하는 항상 사용 가능한 배포를 지원 하도록 구성 Azure Stack의 azure App Service입니다.  
+A [참조 아키텍처 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) 수 이제 파일 서버, SQL Server 배포 하는, 가상 네트워크에 인프라가 Active Directory를 지 원하는 항상 사용 가능한 배포를 지원 하도록 구성 Azure Stack의 azure App Service입니다.
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>사용자 지정 파일 서버를 배포 하는 단계
 
@@ -303,12 +312,11 @@ Azure App Service on Azure Stack에 대 한 SQL Server 인스턴스를 모든 Ap
 App Service 설치 관리자는 SQL Server에 사용 하도록 설정 하는 데이터베이스 포함 하는지 확인 합니다. App Service 데이터베이스를 호스팅하는 SQL Server에서 데이터베이스 포함을 사용 하도록 설정 하려면 다음 SQL 명령을 실행 합니다.
 
 ```sql
-sp_configure 'contained database authentication', 1;  
-GO  
-RECONFIGURE;  
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
 GO
 ```
-
 
 >[!IMPORTANT]
 > 기존 가상 네트워크에 App Service를 배포 하려는 경우 SQL Server는 App Service 및 파일 서버에서 별도 서브넷에 배포 되어야 합니다.

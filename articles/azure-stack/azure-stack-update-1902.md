@@ -16,12 +16,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 9bad9b6fb285c27264c8c0567aebd4d4f2850582
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 66dfdf3a88a4bacdc118fed00d79f02b22da7869
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731358"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792466"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 업데이트
 
@@ -73,9 +73,34 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 <!-- ## Fixed issues -->
 
-## <a name="changes"></a>변경 내용
+## <a name="improvements"></a>향상 된 기능
 
 - 1902 빌드 계획, 제안, 할당량 및 추가 기능 계획을 만들기 위한 Azure Stack 관리자 포털에서 새로운 사용자 인터페이스를 소개 합니다. 스크린샷을 포함 한 자세한 내용은 참조 하세요. [계획, 제품 및 할당량 만들기](azure-stack-create-plan.md)합니다.
+
+<!--
+1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
+1399240 3322580: [PNU] Optimize the DSC resource execution on the Host  PNU
+1398846 Bug 3751038: ECEClient.psm1 should provide cmdlet to resume action plan instance    PNU
+1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
+1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
+-->
+- 오프 라인 수집에 대 한 더 쉽게 관리 뿐만 아니라 패키지 무결성 및 보안 향상을 위해 Microsoft는.zip 파일에.exe 및.bin 파일에서 업데이트 패키지 형식의 변경 되었습니다. 때때로 업데이트 준비 상태를 일으킬 수 있는 압축 풀기 프로세스의 추가 안정성을 추가 하는 새 형식입니다. 동일한 패키지 형식으로 OEM에서 패키지 업데이트에 적용 됩니다.
+- 환경을 개선 하기 위해 Azure Stack 연산자 AzureStack 테스트를 실행 하는 경우, 연산자 이제 사용할 수 있습니다 단순히, "테스트 AzureStack-그룹 UpdateReadiness"는 Include 문을 후 10 개의 추가 매개 변수를 전달 하는 대신 합니다.
+
+  ```powershell
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
+- 을 개선 하기 위해 전체적인 안정성과 가용성의 핵심 인프라 서비스에서 업데이트 프로세스 중 업데이트 작업 계획의 일환으로 네이티브 업데이트 리소스 공급자는 감지 하 고 필요에 따라 자동 전역 재구성을 호출 합니다. 전역 수정 "복구" 워크플로 다음과 같습니다.
+    - 최적이 아닌 상태가 되며 필요에 따라 복구 하려고 하는 인프라 가상 컴퓨터에 대 한 확인 
+    - 컨트롤 계획의 일환으로 SQL 서비스 문제에 대 한 확인 하 고 필요에 따라 복구 하려고 합니다.
+    - 네트워크 컨트롤러 (NC)의 일부로 소프트웨어 부하 분산 장치 (SLB) 서비스의 상태를 확인 하 고 필요에 따라 복구 하려고 합니다.
+    - 네트워크 컨트롤러 (NC) 서비스의 상태를 확인 하 고 필요에 따라 복구 하려고 합니다.
+    - 응급 복구 콘솔 서비스 (ERCS) service fabric 노드 상태를 확인 하 고 필요에 따라 복구
+    - XRP 서비스 패브릭 노드의 상태를 확인 하 고 필요에 따라 복구
+    - 일관 된 저장소 ACS (Azure) service fabric 노드 상태를 확인 하 고 필요에 따라 복구
+
+
 
 ## <a name="common-vulnerabilities-and-exposures"></a>일반적인 취약점 및 exposures
 

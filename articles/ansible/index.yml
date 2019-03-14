@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f7225fece81672e539858567039e1ff086d97c2c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: ca77662e7756d74f8f939e78af626b7f2da2a3c4
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197728"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792721"
 documentType: LandingData
 title: Azure의 Ansible 설명서
 metadata:
   title: Azure의 Ansible 설명서 - 자습서, 샘플, 참조 및 리소스
   description: Ansible을 사용하여 클라우드 프로비전, 구성 관리 및 애플리케이션 배포를 자동화하는 방법을 알아봅니다.
-  ms.service: ansible
+  ms.service: azure
   keywords: ansible, azure, devops, 자습서, 샘플, 참조
   author: tomarchermsft
   manager: jeconnoc
