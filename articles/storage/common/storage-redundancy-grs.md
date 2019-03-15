@@ -21,7 +21,7 @@ ms.locfileid: "55512111"
 ## <a name="read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소
 RA-GRS(읽기 액세스 지역 중복 저장소)는 저장소 계정의 가용성을 최대화합니다. RA-GRS는 두 지역의 지리적 복제와 더불어 보조 위치의 데이터에 대한 읽기 전용 액세스를 제공합니다.
 
-보조 지역에서 데이터에 대한 읽기 전용 액세스를 활성화하면 저장소 계정의 기본 엔드포인트는 물론 보조 엔드포인트에서 데이터를 사용할 수 있습니다. 보조 엔드포인트는 기본 엔드포인트와 유사하지만 접미사 `–secondary` 가 계정 이름에 추가됩니다. 예를 들어, Blob service에 대한 기본 엔드포인트가 `myaccount.blob.core.windows.net`인 경우, 보조 엔드포인트는 `myaccount-secondary.blob.core.windows.net`입니다. 저장소 계정에 대한 액세스 키는 기본 및 보조 엔드포인트에 대해 동일합니다.
+보조 지역에서 데이터에 대한 읽기 전용 액세스를 활성화하면 저장소 계정의 기본 엔드포인트는 물론 보조 엔드포인트에서 데이터를 사용할 수 있습니다.  보조 엔드포인트는 기본 엔드포인트와 유사하지만 접미사 `–secondary` 가 계정 이름에 추가됩니다.  예를 들어, Blob service에 대한 기본 엔드포인트가 `myaccount.blob.core.windows.net`인 경우, 보조 엔드포인트는 `myaccount-secondary.blob.core.windows.net`입니다.  저장소 계정에 대한 액세스 키는 기본 및 보조 엔드포인트에 대해 동일합니다.
 
 RA-GRS를 사용할 때 유의해야 할 몇 가지 고려 사항:
 
