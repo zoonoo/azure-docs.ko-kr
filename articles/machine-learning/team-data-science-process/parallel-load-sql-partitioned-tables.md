@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f1a5f54e520cdabd49e1ca69626e1c693bc1ee19
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 253f73cc58292778d88417b693c157fcbd7d92bd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470028"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853038"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Azure VM에서 SQL Server로 데이터를 빠르게 병렬로 가져오기 위한 테이블 빌드 및 최적화
 
@@ -95,7 +95,7 @@ ms.locfileid: "55470028"
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>각 파티션 테이블의 데이터를 대량으로 가져오기
 
-* BCP, BULK INSERT 또는 [SQL Server 마이그레이션 마법사](http://sqlazuremw.codeplex.com/)같은 기타 방법을 사용할 수 있습니다. 제공된 예에서는 BCP를 사용합니다.
+* BCP, BULK INSERT 또는 [SQL Server 마이그레이션 마법사](https://sqlazuremw.codeplex.com/)같은 기타 방법을 사용할 수 있습니다. 제공된 예에서는 BCP를 사용합니다.
 * 로깅 오버헤드를 최소화하기 위해 [데이터베이스를 변경](https://msdn.microsoft.com/library/bb522682.aspx)하여 트랜잭션 로깅 스키마를 BULK_LOGGED로 변경합니다. 아래는 그 예입니다.
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED

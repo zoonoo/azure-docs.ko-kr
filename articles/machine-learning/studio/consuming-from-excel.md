@@ -5,17 +5,17 @@ description: Azure Machine Learning Studio를 사용하면 코드를 작성할 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 1e8bb6deeb66b506e1342fceb725b1563b822dff
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: ef1d8f1a72c5936ff661636c4c51acf439a0a5ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453123"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855200"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Excel에서 Azure Machine Learning Studio 웹 서비스 사용
 
@@ -33,8 +33,8 @@ Excel 2013(이후 버전) 또는 Excel Online을 사용하는 경우 [Excel 추�
 **기존 웹 서비스**
 
 1. 웹 서비스의 **대시보드** 탭에는 **요청/응답** 서비스의 행이 있습니다. 이 서비스에 단일 출력이 있는 경우 해당 행에 **Excel 통합 문서 다운로드** 링크가 표시됩니다.
-   
-    ![](./media/consuming-from-excel/excellink.png)
+
+    ![Studio 웹 서비스 포털을 사용 하 여 Excel 통합 문서를 다운로드 합니다.](./media/consuming-from-excel/excellink.png)
 2. **Excel 통합 문서 다운로드**를 클릭합니다.
 
 **새 웹 서비스**
@@ -46,17 +46,17 @@ Excel 2013(이후 버전) 또는 Excel Online을 사용하는 경우 [Excel 추�
 
 1. 통합 문서를 엽니다.
 2. 보안 경고가 표시되면 **편집 사용** 단추를 클릭합니다.
-   
-    ![](./media/consuming-from-excel/enableeditting.png)
+
+    ![보호 된 뷰 보안 경고를 제거 하려면 편집을 사용 하도록 설정](./media/consuming-from-excel/enableeditting.png)
 3. 보안 경고가 표시됩니다. **콘텐츠 사용** 단추를 클릭하여 스프레드시트에서 매크로를 실행합니다.
-   
-    ![](./media/consuming-from-excel/enablecontent.png)
+
+    ![매크로 사용 하지 않도록 설정 하는 보안 경고를 해제 하는 콘텐츠 사용](./media/consuming-from-excel/enablecontent.png)
 4. 매크로가 활성화되면 테이블이 생성됩니다. 파란색 열은 RRS 웹 서비스의 입력 또는 **매개 변수**로 필요합니다. RRS 서비스의 출력인 **예측 값** 은 녹색입니다. 주어진 행의 모든 열이 채워지면 통합 문서에서 점수 매기기 API를 자동으로 호출하고 점수가 매겨진 결과를 표시합니다.
-   
-    ![](./media/consuming-from-excel/sampletable.png)
+
+    ![테이블 매개 변수 입력 및 결과 대 한 예측 값](./media/consuming-from-excel/sampletable.png)
 5. 둘 이상의 행에 대한 점수를 매기려면 두 번째 행을 데이터로 채웁니다. 그러면 예측 값이 생성됩니다. 여러 행을 한 번에 붙여 넣을 수도 있습니다.
 
-데이터를 시각화하는 예측 값을 사용하여 Excel 기능(그래프, 파워 맵, 조건부 서식 등) 중 하나를 사용할 수 있습니다.    
+데이터를 시각화하는 예측 값을 사용하여 Excel 기능(그래프, 파워 맵, 조건부 서식 등) 중 하나를 사용할 수 있습니다.
 
 ## <a name="sharing-your-workbook"></a>통합 문서 공유
 매크로를 작동하려면 API 키가 스프레드시트의 일부여야 합니다. 즉, 신뢰할 수 있는 엔터티/개인과만 통합 문서를 공유해야 합니다.

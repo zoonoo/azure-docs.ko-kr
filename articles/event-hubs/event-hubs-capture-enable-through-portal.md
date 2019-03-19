@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 2cfd984129097b598c08e53b3698dc32ed616cca
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9108c52529319288fba48dbad3c6f8aa6cb5f725
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810669"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850754"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정
 
@@ -47,8 +47,12 @@ Azure Data Lake Store에 데이터를 캡처하려면 Data Lake Store 계정 및
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Azure Data Lake Store 계정 및 폴더 만들기
 
-1. Data Lake Store 계정을 만들려면 [Azure Portal을 사용하여 Azure Data Lake Store 시작](../data-lake-store/data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
+> [!NOTE]
+> 현재 Event Hubs 캡처 기능은 지원만 Gen 1의 Azure Data Lake Store, Gen 2 없습니다. 
+
+1. 지침에 따라 Data Lake Store Gen 1 계정을 만들 [Azure portal을 사용 하 여 Azure Data Lake Store 시작](../data-lake-store/data-lake-store-get-started-portal.md)합니다.
 2. [Event Hubs에 사용 권한 할당](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) 섹션의 지침을 따라 Data Lake Store 계정에 데이터를 쓸 수 있도록 Event Hubs에서 데이터를 캡처하고 Event Hubs에 사용 권한을 할당하려는 Data Lake Store 계정 내에 폴더를 만듭니다.  
+
 
 ### <a name="create-an-event-hub"></a>이벤트 허브 만들기
 

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 14326714fc8258e184024edb83666d3ed0c3eee7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271402"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854259"
 ---
-# <a name="azure-data-factory-mapping-data-flow-unpivot-transformation"></a>Azure Data Factory Mapping Data Flow 피벗 해제 변환
+# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory를 피벗 해제 변환
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -51,3 +51,7 @@ ADF Mapping Data Flow의 피벗 해제는 단일 레코드에 있는 여러 열�
 ![피벗 해제 변환](media/data-flow//unpivot7.png "피벗 해제 옵션 5")
 
 피벗 해제된 최종 데이터 결과 집합은 이제 개별 행 값으로 피벗 해제된 열 합계를 보여 줍니다.
+
+## <a name="next-steps"></a>다음 단계
+
+사용 된 [피벗 변환](data-flow-pivot.md) 피벗 행을 열 수 있습니다.
