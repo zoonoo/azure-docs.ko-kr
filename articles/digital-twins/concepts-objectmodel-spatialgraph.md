@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: e7efe1a8632643e2a299b6c9a1b1407414deee4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436928"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542950"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
 
@@ -99,7 +99,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 [Swagger 사용 방법](how-to-use-swagger.md)에 대해 자세히 알아보세요.
 
-[OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code)를 사용하여 모든 API 호출을 인증해야 합니다. API는 [Microsoft REST API 지침 규칙](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md)을 따릅니다. 컬렉션을 반환하는 대부분의 API는 [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) 시스템 쿼리 옵션을 지원합니다.
+[OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code)를 사용하여 모든 API 호출을 인증해야 합니다. API는 [Microsoft REST API 지침 규칙](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md)을 따릅니다. 컬렉션을 반환하는 대부분의 API는 [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) 시스템 쿼리 옵션을 지원합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 7fdd2a96044acdae223243d751bfcffb7a99da78
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666877"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534262"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용한 일기 예보
 
@@ -36,7 +36,7 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 - Stream Analytics 작업을 만들고 해당 작업을 다음과 같이 구성합니다.
   - IoT Hub에서 온도 및 습도 데이터를 읽습니다.
   - 웹 서비스를 호출하여 강우 확률을 가져옵니다.
-  - Azure Blob 저장소에 결과를 저장합니다.
+  - Azure Blob Storage에 결과를 저장합니다.
 - Microsoft Azure Storage 탐색기를 사용하여 일기 예보를 살펴봅니다.
 
 ## <a name="what-you-need"></a>필요한 항목
@@ -66,7 +66,7 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
    > [!Note]
    > 컴퓨터에서 최신 버전의 Excel을 실행하더라도 **Excel 2010 또는 이전 통합 문서**를 다운로드해야 합니다.
 
-   ![REQUEST RESPONSE 끝점에 대한 Excel 다운로드](media/iot-hub-weather-forecast-machine-learning/5_download-endpoint-app-excel-for-request-response.png)
+   ![REQUEST RESPONSE 엔드포인트에 대한 Excel 다운로드](media/iot-hub-weather-forecast-machine-learning/5_download-endpoint-app-excel-for-request-response.png)
 
 1. Excel 통합 문서를 열고 **웹 서비스 URL** 및 **액세스 키**를 기록해 둡니다.
 
@@ -97,11 +97,11 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 1. **작업 토폴로지**에서 **입력**을 클릭합니다.
 1. **입력** 창에서 **추가**를 클릭하고 다음 정보를 입력합니다.
 
-   **입력 별칭**: 입력에 대한 고유 별칭입니다.
+   **입력 별칭**: 입력에 대 한 고유 별칭입니다.
 
    **원본**: **IoT Hub**를 선택합니다.
 
-   **소비자 그룹**: 만든 소비자 그룹을 선택합니다.
+   **소비자 그룹**: 만든 소비자 그룹을 선택 합니다.
 
    ![Azure에서 Stream Analytics 작업에 입력 추가](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
@@ -114,11 +114,11 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 
    **출력 별칭**: 출력에 대한 고유 별칭입니다.
 
-   **싱크**: **Blob Storage**를 선택합니다.
+   **싱크**: 선택 **Blob Storage**합니다.
 
-   **Storage 계정**: Blob 저장소의 Storage 계정입니다. 저장소 계정을 만들거나 기존 계정을 사용할 수 있습니다.
+   **스토리지 계정**: Blob storage에 대 한 저장소 계정입니다. 저장소 계정을 만들거나 기존 계정을 사용할 수 있습니다.
 
-   **컨테이너**: Blob이 저장되는 컨테이너입니다. 컨테이너를 만들거나 기존 컨테이너를 사용할 수 있습니다.
+   **컨테이너**: Blob 저장 된 컨테이너입니다. 컨테이너를 만들거나 기존 컨테이너를 사용할 수 있습니다.
 
    **이벤트 직렬화 형식**: **CSV**를 선택합니다.
 
@@ -131,15 +131,15 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 1. **작업 토폴로지**에서 **함수** > **추가**를 클릭합니다.
 1. 다음 정보를 입력합니다.
 
-   **별칭 함수**: `machinelearning`을(를) 입력합니다.
+   **함수 별칭**: [https://slack.botframework.com](`machinelearning`) 을 입력합니다.
 
-   **함수 유형**: **Azure ML**을 선택합니다.
+   **함수 유형**: 선택 **Azure ML**합니다.
 
-   **가져오기 옵션**: **다른 구독에서 가져오기**를 선택합니다.
+   **가져오기 옵션**: 선택 **다른 구독에서 가져오기**합니다.
 
-   **URL**: Excel 통합 문서에서 기록해 둔 웹 서비스 URL을 입력합니다.
+   **URL**: Excel 통합 문서에서 기록해 둔 웹 서비스 URL을 입력 합니다.
 
-   **키**: Excel 통합 문서에서 기록해 둔 액세스 키를 입력합니다.
+   **키**: Excel 통합 문서에서 기록해 둔 액세스 키를 입력 합니다.
 
    ![Azure에서 Stream Analytics 작업에 함수 추가](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
@@ -173,12 +173,12 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Microsoft Azure Storage 탐색기를 사용하여 일기 예보 보기
 
-클라이언트 애플리케이션을 실행하여 온도 및 습도 데이터를 수집하여 IoT Hub로 보냅니다. Stream Analytics 작업에서는 IoT Hub에서 받은 각 메시지에 대해 일기 예보 웹 서비스를 호출하여 강우 확률을 생성합니다. 그런 다음 Azure Blob 저장소에 결과를 저장합니다. Azure Storage 탐색기는 결과를 보는 데 사용할 수 있는 도구입니다.
+클라이언트 애플리케이션을 실행하여 온도 및 습도 데이터를 수집하여 IoT Hub로 보냅니다. Stream Analytics 작업에서는 IoT Hub에서 받은 각 메시지에 대해 일기 예보 웹 서비스를 호출하여 강우 확률을 생성합니다. 그런 다음 Azure Blob Storage에 결과를 저장합니다. Azure Storage 탐색기는 결과를 보는 데 사용할 수 있는 도구입니다.
 
-1. [Microsoft Azure Storage 탐색기를 다운로드하고 설치합니다](http://storageexplorer.com/).
+1. [Microsoft Azure Storage 탐색기를 다운로드하고 설치합니다](https://storageexplorer.com/).
 1. Azure Storage 탐색기를 엽니다.
 1. Azure 계정에 로그인합니다.
-1. 사용 중인 구독을 선택합니다.
+1. 구독을 선택합니다.
 1. 구독> **Storage 계정** > Storage 계정> **Blob 컨테이너**> 컨테이너를 차례로 클릭합니다.
 1. .csv 파일을 열어 결과를 확인합니다. 마지막 열은 강우 확률을 기록하고 있습니다.
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 13a1ed626e7741c90cf902c9ed01911985ca8424
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 5a0fc99052b18dc1fa837147aa914a473d27d832
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453446"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730015"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스에서 SSL 연결 구성
 PostgreSQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용해서 PostgreSQL 서비스에 클라이언트 애플리케이션을 연결하는 것을 선호합니다. 데이터베이스 서버와 클라이언트 애플리케이션 간 SSL 연결을 적용하면 서버와 애플리케이션 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.
@@ -50,65 +50,21 @@ Drupal 및 Django와 같은 데이터베이스 서비스용 PostgreSQL을 사용
 ### <a name="download-the-certificate-file-from-the-certificate-authority-ca"></a>CA(인증 기관)에서 인증서 파일 다운로드 
 PostgreSQL용 Azure 데이터베이스 서버와 함께 SSL을 통해 통신하는 데 필요한 인증서는 [여기](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt)에 있습니다. 인증서 파일을 로컬로 다운로드합니다.
 
-### <a name="download-and-install-openssl-on-your-machine"></a>컴퓨터에 OpenSSL 다운로드 및 설치 
-애플리케이션을 데이터베이스 서버에 안전하게 연결하기 위해 필요한 인증서 파일을 디코딩하려면 OpenSSL을 로컬 컴퓨터에 설치해야 합니다.
+### <a name="install-a-cert-decoder-on-your-machine"></a>인증서 디코더를 컴퓨터에 설치 
+사용할 수 있습니다 [OpenSSL](https://github.com/openssl/openssl) 데이터베이스 서버로 안전 하 게 연결할 응용 프로그램에 필요한 인증서 파일을 디코딩할 수 있습니다. OpenSSL을 설치 하는 방법에 알아보려면 참조를 [OpenSSL 설치 지침](https://github.com/openssl/openssl/blob/master/INSTALL)합니다. 
 
-#### <a name="for-linux-os-x-or-unix"></a>Linux, OS X 또는 Unix
-OpenSSL 라이브러리는 [OpenSSL Software Foundation](https://www.openssl.org)에서 직접 소스 코드로 제공됩니다. 다음 지침에서는 Linux PC에 OpenSSL을 설치하는 데 필요한 단계를 안내합니다. 이 문서에서는 Ubuntu 12.04 이상에서 작동하는 것으로 알려진 명령을 사용합니다.
-
-터미널 세션을 열고 OpenSSL을 다운로드합니다.
-```bash
-wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
-``` 
-다운로드한 패키지에서 파일 압축을 풉니다.
-```bash
-tar -xvzf openssl-1.1.0e.tar.gz
-```
-파일 압축을 푼 디렉터리를 입력합니다. 기본적으로 다음과 같아야 합니다.
-
-```bash
-cd openssl-1.1.0e
-```
-다음 명령을 실행하여 OpenSSL을 구성합니다. /usr/local/openssl과 다른 폴더의 파일을 원하면 다음을 적절하게 변경합니다.
-
-```bash
-./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl
-```
-이제 OpenSSL이 올바르게 구성되었으므로 인증서를 변환하기 위해 컴파일해야 합니다. 컴파일하려면 다음 명령을 실행합니다.
-
-```bash
-make
-```
-컴파일이 완료되면 다음 명령을 실행하여 OpenSSL을 실행 가능하도록 설치할 준비가 되었습니다.
-```bash
-make install
-```
-시스템에 OpenSSL이 성공적으로 설치되었는지 확인하려면 다음 명령을 실행하여 동일한 출력이 나타나는지 확인합니다.
-
-```bash
-/usr/local/openssl/bin/openssl version
-```
-성공적이라면 다음과 같은 메시지가 표시되어야 합니다.
-```bash
-OpenSSL 1.1.0e 7 Apr 2014
-```
-
-#### <a name="for-windows"></a>Windows의 경우
-다음 방법을 수행하면 Windows PC에서 OpenSSL을 설치할 수 있습니다.
-1. **(권장)** Window 10 이상에서 기본 제공되는 Windows용 Bash 기능을 사용하면 OpenSSL이 기본적으로 설치됩니다. Windows 10의 Windows용 Bash 기능을 사용하도록 설정하는 방법에 대한 지침은 [여기](https://msdn.microsoft.com/commandline/wsl/install_guide)에 나와 있습니다.
-2. 커뮤니티에서 제공되는 Win32/64 애플리케이션을 다운로드합니다. OpenSSL Software Foundation에서 특정 Windows 설치 관리자를 제공하거나 보증하지는 않지만 사용 가능한 설치 관리자의 목록은 [여기](https://wiki.openssl.org/index.php/Binaries)에서 확인할 수 있습니다.
 
 ### <a name="decode-your-certificate-file"></a>인증서 파일 디코딩
 다운로드한 루트 CA 파일은 암호화된 형식입니다. OpenSSL을 사용하여 인증서 파일을 디코딩합니다. 이렇게 하려면 다음 OpenSSL 명령을 실행합니다.
 
-```dos
+```
 openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ```
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>SSL 인증서 인증을 사용하여 PostgreSQL용 Azure 데이터베이스에 연결
-이제 인증서를 성공적으로 디코딩했으므로 SSL을 통해 데이터베이스 서버에 안전하게 연결할 수 있습니다. 서버 인증서 확인을 허용하려면 사용자의 홈 디렉터리에 있는 파일 ~/.postgresql/root.crt에 인증서를 배치해야 합니다. (Microsoft Windows에서 이 파일의 이름은 %APPDATA%\postgresql\root.crt입니다.) 다음은 PostgreSQL용 Azure 데이터베이스에 연결하기 위한 지침입니다.
+이제 인증서를 성공적으로 디코딩했으므로 SSL을 통해 데이터베이스 서버에 안전하게 연결할 수 있습니다. 서버 인증서 확인을 허용하려면 사용자의 홈 디렉터리에 있는 파일 ~/.postgresql/root.crt에 인증서를 배치해야 합니다. (Microsoft Windows에서 이 파일의 이름은 %APPDATA%\postgresql\root.crt입니다.) 
 
-#### <a name="using-psql-command-line-utility"></a>psql 명령줄 유틸리티 사용
+#### <a name="connect-using-psql"></a>Psql을 사용 하 여 연결
 다음 예제에서는 psql 명령줄 유틸리티를 사용하여 PostgreSQL 서버에 성공적으로 연결하는 방법을 보여 줍니다. 만든 `root.crt` 파일과 `sslmode=verify-ca` 또는 `sslmode=verify-full` 옵션을 사용합니다.
 
 PostgreSQL 명령줄 인터페이스를 사용하여 다음 명령을 실행합니다.
@@ -127,11 +83,6 @@ Type "help" for help.
 
 postgres=>
 ```
-
-#### <a name="using-pgadmin-gui-tool"></a>pgAdmin GUI 도구 사용
-SSL을 통해 안전하게 연결하도록 pgAdmin 4를 구성하려면 `SSL mode = Verify-CA` 또는 `SSL mode = Verify-Full`을 다음과 같이 설정해야 합니다.
-
-![pgAdmin - 연결 - SSL 모드 Require 스크린샷](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Database for PostgreSQL을 위한 연결 라이브러리](concepts-connection-libraries.md)에 따라 다양한 애플리케이션 연결 옵션 검토

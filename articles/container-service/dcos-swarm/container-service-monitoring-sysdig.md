@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 3b6781a6b87f9f11b341cf3cf2bcf6668b640c2b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 39cd5a3fe7db0c442608e7943e7cbd6e3198edfb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992189"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547795"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(사용되지 않음) Sysdig을 사용하여 Azure Container Service 클러스터 모니터링
 
@@ -23,7 +23,7 @@ ms.locfileid: "52992189"
 이 문서에서는 Azure 컨테이너 서비스 클러스터의 모든 노드에 Sysdig 에이전트를 배포하는 방법을 설명합니다. 이러한 구성을 위해서는 Sysdig 계정이 필요합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-Azure Container Service를 통해 구성된 클러스터를 [배포](container-service-deployment.md) 및 [연결](../container-service-connect.md)합니다. [Marathon UI](container-service-mesos-marathon-ui.md)를 탐색합니다. [http://app.sysdigcloud.com](http://app.sysdigcloud.com)으로 이동하여 Sysdig 클라우드 계정을 설정합니다. 
+Azure Container Service를 통해 구성된 클러스터를 [배포](container-service-deployment.md) 및 [연결](../container-service-connect.md)합니다. [Marathon UI](container-service-mesos-marathon-ui.md)를 탐색합니다. [https://app.sysdigcloud.com](https://app.sysdigcloud.com)으로 이동하여 Sysdig 클라우드 계정을 설정합니다. 
 
 ## <a name="sysdig"></a>Sysdig
 Sysdig은 클러스터 내에서 컨테이너를 모니터링할 수 있는 모니터링 서비스입니다. Sysdig은 문제 해결에 도움을 준다고 알려져 있을 뿐만 아니라 CPU, 네트워킹, 메모리 및 I/O에 대한 기본 모니터링 메트릭도 가지고 있습니다. Sysdig를 사용하면 어떤 컨테이너가 가장 많이 사용되고 기본적으로 가장 많은 메모리와 CPU를 사용하는지를 확인할 수 있습니다. 이 보기는 "개요" 섹션에 있으며 현재 베타 단계입니다. 

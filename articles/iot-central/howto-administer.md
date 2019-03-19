@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Central 애플리케이션 관리 | Microsoft Docs
-description: 관리자로서 Azure IoT Central 애플리케이션을 관리하는 방법을 알아봅니다.
+description: 관리자로 서 Azure IoT Central 응용 프로그램을 관리 하는 방법
 author: viv-liu
 ms.author: viviali
-ms.date: 04/16/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: feaedff2cb9f8eae30fd17c497b4a2f6de490b07
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 29ded279e2a76940049c257b954b1dae75f14836
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822598"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778606"
 ---
 # <a name="administer-your-iot-central-application"></a>IoT Central 애플리케이션 관리
 
@@ -44,11 +44,11 @@ IoT Central 애플리케이션을 만든 후 **관리** 섹션으로 이동할 �
 애플리케이션 이미지를 변경하려면 [이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드](howto-prepare-images.md)를 참조하세요.
 
 ### <a name="copy-an-application"></a>애플리케이션 복사
-모든 장치 인스턴스, 장치 데이터 기록 및 사용자 데이터를 제외한 모든 애플리케이션의 복사본을 만들 수 있습니다. 복사본은 요금이 청구되는 종량제 애플리케이션입니다. 이 방식으로는 평가판 애플리케이션을 만들 수 없습니다.
+모든 장치 인스턴스, 장치 데이터 기록 및 사용자 데이터를 제외한 모든 애플리케이션의 복사본을 만들 수 있습니다. 복사에 대 한 청구는 종 량 제 응용 프로그램을 됩니다. 이 방식으로는 평가판 애플리케이션을 만들 수 없습니다.
 
-**복사** 단추를 클릭합니다. 대화 상자에서 새 종량제 애플리케이션에 대한 세부 정보를 입력합니다. 그런 다음, **복사** 단추를 클릭하여 진행 여부를 확인합니다. [애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작에서 이 형식의 필드에 대해 자세히 알아보세요.
+선택 **복사**합니다. 대화 상자에서 새 종량제 애플리케이션에 대한 세부 정보를 입력합니다. 선택한 **복사** 진행할 것인지 확인 합니다. [애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작에서 이 형식의 필드에 대해 자세히 알아보세요.
 
-![애플리케이션 설정 페이지](media/howto-administer/appCopy2.png)
+![애플리케이션 설정 페이지](media/howto-administer/appcopy2.png)
 
 앱 복사 작업이 성공한 후, 표시되는 링크를 사용하여 애플리케이션을 복사하여 만든 새 애플리케이션으로 이동할 수 있습니다.
 
@@ -62,7 +62,7 @@ IoT Central 애플리케이션을 만든 후 **관리** 섹션으로 이동할 �
 > [!Note]
 > 애플리케이션을 삭제하려면 애플리케이션을 만들 때 선택한 Azure 구독의 리소스를 삭제할 수 있는 권한도 필요합니다. 자세한 내용은 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 참조하세요.
 
-IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단추를 사용합니다. 그러면 해당 애플리케이션과 연결된 모든 데이터가 영구적으로 삭제됩니다.
+IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단추를 사용합니다. 이렇게 영구적으로 해당 응용 프로그램과 연결 된 모든 데이터를 삭제 합니다.
 
 ## <a name="manage-users"></a>사용자 관리
 
@@ -95,7 +95,7 @@ IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단
 
 ## <a name="manage-roles"></a>역할 관리
 
-역할을 통해 조직 내에서 다양한 IoT Central 작업을 수행할 수 있는 사용자를 제어할 수 있습니다. 애플리케이션 사용자에게 세 가지 역할을 할당할 수 있습니다. 
+역할을 통해 조직 내에서 다양한 IoT Central 작업을 수행할 수 있는 사용자를 제어할 수 있습니다. 애플리케이션 사용자에게 세 가지 역할을 할당할 수 있습니다.
 
 ### <a name="administrator"></a>관리자
 
@@ -111,7 +111,6 @@ IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단
 
 **애플리케이션 운영자** 역할의 사용자는 디바이스 템플릿을 변경할 수 없으며 애플리케이션을 관리할 수 없습니다. 즉, 운영자는 디바이스를 추가 및 삭제하고, 디바이스 집합을 관리하고, 분석 및 작업을 실행할 수 있습니다. 운영자는 **애플리케이션 작성자** 및 **관리** 페이지에 액세스할 수 없습니다.
 
-
 ## <a name="view-your-bill"></a>청구서 보기
 
 청구서를 보려면 **관리** 섹션의 **청구** 페이지로 이동합니다. 새 탭에서 Azure 청구 페이지가 열리고, 여기서 각 Azure IoT Central 애플리케이션에 대한 청구서를 볼 수 있습니다.
@@ -124,32 +123,32 @@ IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단
 - **종량제** 애플리케이션은 처음 5개의 디바이스는 무료로 사용하며, 디바이스별로 요금이 청구됩니다.
 
 [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 가격 책정에 대해 자세히 알아보세요.
-    
+
 이 셀프 서비스 프로세스를 완료하려면 다음 단계를 수행합니다.
 
-1. **관리** 섹션의 **청구** 페이지로 이동합니다. 
+1. **관리** 섹션의 **청구** 페이지로 이동합니다.
 
     ![평가판 상태](media/howto-administer/freetrialbilling.png)
 
-1. **종량제로 변환**을 클릭합니다. 
+1. 선택 **종 량 제로 변환**합니다.
 
     ![평가판 변환](media/howto-administer/convert.png)
 
 1. 적절한 Azure Active Directory를 선택한 다음, 종량제 애플리케이션에 사용할 Azure 구독을 선택합니다.
 
-1. **변환**을 클릭하면 애플리케이션이 종량제 애플리케이션으로 변환되고 대금 청구가 시작됩니다.
+1. 선택한 후 **변환**, 응용 프로그램은 이제 종 량 제 응용 프로그램 및 요금이 청구를 시작 합니다.
 
 ## <a name="export-data"></a>데이터 내보내기
 
-**연속 데이터 내보내기**를 사용하도록 설정하여 측정, 디바이스 및 디바이스 템플릿 데이터를 Azure Blob 스토리지 계정에 내보낼 수 있습니다. 데이터를 내보내는 방법에 대해 자세히 알아보세요.
+**연속 데이터 내보내기**를 사용하도록 설정하여 측정, 디바이스 및 디바이스 템플릿 데이터를 Azure Blob 스토리지 계정에 내보낼 수 있습니다. [데이터를 내보내는](howto-export-data.md) 방법에 대해 자세히 알아보세요.
 
 ## <a name="manage-device-connection"></a>디바이스 연결 관리
 
-다음 키 및 인증서를 사용하여 애플리케이션에서 규모에 맞게 디바이스를 연결합니다. 디바이스 연결에 대해 자세히 알아보세요.
+다음 키 및 인증서를 사용하여 애플리케이션에서 규모에 맞게 디바이스를 연결합니다. [디바이스 연결](concepts-connectivity.md)에 대해 자세히 알아보세요.
 
 ## <a name="use-access-tokens"></a>액세스 토큰 사용
 
-개발자 도구에서 사용하기 위한 액세스 토큰을 생성합니다. 현재 한 가지 개발자 도구를 사용할 수 있습니다. 디바이스 메시지와 속성 및 설정의 변경 사항을 모니터링할 수 있는 IoT Central 탐색기입니다. IoT Central 탐색기에 대해 자세히 알아보세요. 
+개발자 도구에서 사용하기 위한 액세스 토큰을 생성합니다. 현재 한 개발자 도구 사용 가능한 장치 메시지 및 속성 및 설정의 변경 내용을 모니터링 하기 위해 IoT Central 탐색기 인 경우 [IoT Central 탐색기](howto-use-iotc-explorer.md)에 대해 자세히 알아보세요.
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>제어 평면 작업에 Azure SDK 사용
 

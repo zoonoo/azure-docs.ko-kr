@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 038d8c919e68e68f886525a6c78139496edef8e1
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 164448f2e96b796d21419e90a3965390f22d7d38
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893021"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762979"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Azure SQL Database 관리되는 인스턴스 데이터베이스에서 복제 구성
 
@@ -166,7 +166,7 @@ Azure SQL Database의 관리되는 인스턴스에서는 다음과 같은 기능
    GO
    ```
    
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 
 - [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
 - [Managed Instance란?](sql-database-managed-instance.md)

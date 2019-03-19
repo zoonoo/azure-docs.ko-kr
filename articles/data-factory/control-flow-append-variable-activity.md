@@ -3,21 +3,20 @@ title: Azure Data Factory의 변수 추가 작업 | Microsoft Docs
 description: Data Factory 파이프라인에 정의된 기존 배열 변수에 값을 추가하기 위해 변수 추가 작업을 설정하는 방법 알아보기
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: douglasl
-ms.openlocfilehash: e904075908fe7108c0566856b25fe03be0b7fd86
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: a5efe946000eb00e65d314ae53d7136761e2109d
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023810"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575157"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Azure Data Factory의 변수 추가 작업
 

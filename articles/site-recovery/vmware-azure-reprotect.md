@@ -1,18 +1,18 @@
 ---
 title: VMware VM 및 물리적 서버의 재해 복구 중에 Azure에서 온-프레미스 사이트로 VM 다시 보호 | Microsoft Docs
 description: VMware VM 및 물리적 서버의 재해 복구 중에 Azure로 장애 조치(failover) 후 Azure에서 온-프레미스 사이트로 장애 복구(failback)하는 방법을 알아봅니다.
-author: rajani-janaki-ram
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: rajanaki
-ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.date: 3/12/2019
+ms.author: mayg
+ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791883"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771820"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Azure로 장애 조치(failover) 후에 머신을 온-프레미스 사이트로 다시 보호 및 장애 복구(failback)
 
@@ -114,7 +114,6 @@ Azure에서 가상 머신을 부팅한 후 에이전트에서 구성 서버에 �
 
 ## <a name="common-issues"></a>일반적인 문제
 
-- 현재 Site Recovery는 VMFS 또는 vSAN 데이터 저장소로만 장애 복구를 지원합니다. NFS 데이터 저장소는 지원되지 않습니다. 이러한 제한 때문에 다시 보호 화면의 데이터 저장소 선택 입력이 NFS 데이터 저장소에 대해 비어 있거나 vSAN 데이터 저장소를 표시하지만 작업 중에 실패합니다. 장애 복구(failback)하려는 경우 온-프레미스에 VMFS 데이터 저장소를 만들어 장애 복구할 수 있습니다. 이러한 장애 복구에서는 전체 VMDK가 다운로드됩니다.
 - 읽기 전용 사용자 vCenter 검색을 수행하고 가상 머신을 보호하면 보호에 성공하고 장애 조치가 작동합니다. 다시 보호 중에는 데이터 저장소를 검색할 수 없기 때문에 장애 조치가 실패합니다. 증상은 다시 보호 중에 데이터 저장소가 나열되지 않는 것입니다. 이 문제를 해결하려면 vCenter 자격 증명을 권한이 있는 적절한 계정으로 업데이트한 다음, 작업을 다시 시도하면 됩니다. 
 - Linux 가상 컴퓨터를 장애 복구하고 온-프레미스에서 실행하면 네트워크 관리자 패키지가 컴퓨터에서 제거되었음을 알 수 있습니다. Azure에서 가상 머신을 복구할 때 네트워크 관리자 패키지가 제거되었기 때문에 이 기능이 제거됩니다.
 - Linux 가상 머신을 고정 IP 주소로 구성하고 Azure로 장애 조치하면 DHCP에서 IP 주소를 가져옵니다. 온-프레미스로 장애 조치하면 가상 머신에서 계속 DHCP를 사용하여 IP 주소를 가져옵니다. 컴퓨터에 수동으로 로그인한 다음, 필요한 경우 IP 주소를 고정 주소로 다시 설정합니다. Windows 가상 머신에서는 고정 IP 주소를 다시 얻을 수 있습니다.

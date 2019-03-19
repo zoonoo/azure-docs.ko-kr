@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729798"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452133"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -119,19 +119,13 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
    **ExpressRoute 모니터**: **지금 검색** 단추를 선택하여 이 Log Analytics 작업 영역에 연결된 Azure 구독의 가상 네트워크에 연결되어 있는 모든 ExpressRoute 개인 피어링을 검색합니다. 
 
-   >[!NOTE] 
-   > 이 솔루션은 현재, ExpressRoute 개인 피어링만 검색합니다. 
-
-   >[!NOTE] 
-   > 이 Log Analytics 작업 영역에 연결된 구독 관련 가상 네트워크에 연결되어 있는 개인 피어링만 검색됩니다. ExpressRoute가 이 작업 영역에 연결된 구독 외부의 가상 네트워크에 연결된 경우 해당 구독에 Log Analytics 작업 영역을 만듭니다. 네트워크 성능 모니터를 사용하여 해당 피어링을 모니터링합니다.
-
    ![ExpressRoute 모니터 보기](media/network-performance-monitor/npm-express-route.png)
 
-   검색이 완료되면 검색된 개인 피어링이 표에 나열됩니다. 
+   검색이 완료 되 면 검색 된 회로 및 피어 링을 테이블에 나열 됩니다. 
 
    ![네트워크 성능 모니터 구성 페이지](media/network-performance-monitor/npm-private-peerings.png)
     
-이러한 피어링에 대한 모니터링은 처음에는 사용할 수 없는 상태입니다. 모니터링하려는 각 피어링을 선택하고 오른쪽의 세부 정보 보기에서 모니터링을 구성합니다. 구성을 저장하려면 **저장**을 선택합니다. 자세히 알아보려면 ExpressRoute 모니터링 구성"을 참조하세요. 
+이러한 회로 및 피어 링에 대 한 모니터링은 처음에 사용할 수 없는 상태입니다. 모니터링 하려는 각 리소스를 선택 하 고 오른쪽에서 세부 정보 보기에서 모니터링을 구성 합니다. **저장** 을 선택하여 구성을 저장합니다. 자세히 알아보려면 ExpressRoute 모니터링 구성"을 참조하세요. 
 
 설치가 완료된 후 데이터를 채우는 데 30분~1시간이 소요됩니다. 이 솔루션이 네트워크에서 데이터를 집계하는 동안 네트워크 성능 모니터 **개요** 타일에 *솔루션에 추가 구성이 필요합니다.* 라는 메시지가 표시됩니다. 데이터가 수집되고 인덱싱되면 **개요** 타일이 변경되고, 네트워크 상태를 요약으로 알려줍니다. 그런 다음, Log Analytics 에이전트가 설치된 노드 및 환경에서 검색된 서브넷에 대한 모니터링을 편집할 수 있습니다.
 
@@ -269,7 +263,7 @@ Azure Portal을 통해 경고를 만드는 NPM 사용자인 경우:
 3. 작업 그룹을 사용하기로 선택하면 이전에 만든 작업 그룹을 선택해야 합니다. 작업 그룹을 만드는 방법은 [여기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)서 배울 수 있습니다. 
 4. 경고가 만들어지면 경고 관리를 사용하여 경고를 관리할 수 있습니다. 
 
-경고를 만들 때마다 NPM은 Azure Monitor에 쿼리 기반 로그 경고 규칙을 작성합니다. 이 쿼리는 기본적으로 5분마다 트리거됩니다. Azure Monitor에서는 처음 생성된 250개의 로그 경고 규칙에 대해서는 요금을 부과하지 않고 250개 로그 경고 규칙 제한을 초과하는 모든 경고 규칙에 대해 [Azure Monitor 가격 책정 페이지의 경고 가격](https://azure.microsoft.com/en-us/pricing/details/monitor/)에 따라 요금을 부과합니다.
+경고를 만들 때마다 NPM은 Azure Monitor에 쿼리 기반 로그 경고 규칙을 작성합니다. 트리거되는이 쿼리는 기본적으로 5 분 마다입니다. Azure Monitor에서는 처음 생성된 250개의 로그 경고 규칙에 대해서는 요금을 부과하지 않고 250개 로그 경고 규칙 제한을 초과하는 모든 경고 규칙에 대해 [Azure Monitor 가격 책정 페이지의 경고 가격](https://azure.microsoft.com/en-us/pricing/details/monitor/)에 따라 요금을 부과합니다.
 알림은 [Azure Monitor 가격 책정 페이지의 알림 가격](https://azure.microsoft.com/en-us/pricing/details/monitor/)에 따라 별도로 청구됩니다.
 
 

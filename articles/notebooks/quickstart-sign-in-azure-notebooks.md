@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: fb8c94b1-6d0a-4b77-8d14-ae6efcdd99f4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4c933145c54c47b5af083edd593ecb66b089f9c9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106314"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769151"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>빠른 시작: 로그인 및 사용자 ID 설정
 
@@ -51,6 +51,9 @@ ms.locfileid: "53106314"
 1. 성공적으로 로그인하면 Azure Notebooks가 사용자의 공개 프로필 페이지로 이동합니다. 이 페이지에서 **프로필 정보 편집**을 선택하여 나머지 정보를 입력할 수 있습니다(자세한 내용은 [프로필 및 사용자 ID](azure-notebooks-user-profile.md) 참조).
 
     ![Azure Notebooks 프로필 페이지의 초기 보기](media/accounts/profile-page-new.png)
+
+> [!NOTE]
+> "사용자 ID는 이미 사용" 메시지를 표시 하는 경우 다른 ID를 시도 모든 Azure Notebooks 계정에서 사용자 Id는 고유 하 고 Azure Notebooks Microsoft 브랜드 이름 등의 특정 사용자 Id를 예약 합니다.
 
 ## <a name="sign-out"></a>로그아웃
 

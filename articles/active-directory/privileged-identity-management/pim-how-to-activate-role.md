@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/21/2018
+ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0023ac374ef70593d0ab2d9589c99d0f37e19ff8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7fc0a22f4300a06b5c827973ffb2436d0b8cfb36
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189602"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542761"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할 활성화
 
@@ -71,25 +71,15 @@ Azure AD 디렉터리 역할을 담당해야 하는 경우 PIM에서 **내 역�
 
 1. **활성화**를 클릭합니다.
 
-    역할에 승인이 필요하지 않으면 활성화되고 활성 역할 목록에 추가됩니다. 역할을 즉시 사용하려면 다음 섹션의 단계를 따릅니다.
+    역할에 승인이 필요 하지 않은 경우는 **활성화 상태** 활성화 상태를 보여 주는 창이 나타납니다.
+
+    ![활성화 상태](./media/pim-how-to-activate-role/activation-status.png)
+
+    모든 단계 완료 되 면 클릭 합니다 **로그 아웃** Azure portal에서 로그 아웃 링크 합니다. 포털에 다시 로그인 할 경우 역할을 이제 사용할 수 있습니다.
 
     [역할을 활성화하는 데 승인이 필요](./azure-ad-pim-approval-workflow.md)한 경우 브라우저의 오른쪽 위 모서리에 요청이 승인 보류 중임을 알려주는 알림이 표시됩니다.
 
     ![보류 중인 요청 알림](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>활성화 즉시 역할 사용
-
-PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스하거나 특정 관리 워크로드 내에서 함수를 수행하려면 적어도 10분이 소요됩니다. 권한을 강제로 업데이트하려면 다음 단계의 설명대로 **애플리케이션 액세스** 페이지를 사용합니다.
-
-1. Azure AD Privileged Identity Management를 엽니다.
-
-1. **애플리케이션 액세스** 페이지를 클릭합니다.
-
-    ![PIM 애플리케이션 액세스](./media/pim-how-to-activate-role/pim-application-access.png)
-
-1. **Azure Active Directory** 링크를 클릭하여 **모든 사용자** 페이지에서 포털을 다시 엽니다.
-
-    이 링크를 클릭하면 현재 토큰이 무효화되고 업데이트된 권한이 포함된 새 토큰을 Azure Portal에서 확보하도록 강제 적용됩니다.
 
 ## <a name="view-the-status-of-your-requests"></a>요청 상태 보기
 
@@ -131,7 +121,7 @@ PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스�
 
 1. 취소하려는 역할에 대해 **취소** 단추를 클릭합니다.
 
-    [취소]를 클릭하면 해당 요청이 취소됩니다. 역할을 다시 활성화하려면 활성화 요청을 새로 제출해야 합니다.
+    취소 클릭 하면 요청이 취소 됩니다. 역할을 다시 활성화하려면 활성화 요청을 새로 제출해야 합니다.
 
    ![보류 중인 요청 취소](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
@@ -139,7 +129,7 @@ PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스�
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않음
 
-PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스하거나 특정 관리 워크로드 내에서 함수를 수행하려면 적어도 10분이 소요됩니다. 권한을 강제로 업데이트하려면 앞의 [활성화 즉시 역할 사용](#use-a-role-immediately-after-activation)의 설명대로 **애플리케이션 액세스** 페이지를 사용합니다.
+PIM에서 역할을 활성화하는 경우 원하는 관리 포털에 액세스하거나 특정 관리 워크로드 내에서 함수를 수행하려면 적어도 10분이 소요됩니다. 활성화 완료 되 면 Azure portal에서 로그 아웃 하 고 새로 활성화 된 역할을 사용 하려면 다시 로그인 합니다.
 
 추가 문제 해결 단계는 [관리자 권한 문제 해결](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx)을 참조하세요.
 

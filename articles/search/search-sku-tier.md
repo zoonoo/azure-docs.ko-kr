@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467444"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762928"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
@@ -32,30 +32,57 @@ Azure Search에서 서비스 수명 동안 수정되는 가격 책정 계층 또
 > 기능 패리티의 예외는 S3HD에서 사용할 수 없는 [인덱서](search-indexer-overview.md)입니다.
 >
 
-계층 내에서 성능 튜닝을 위해 [복제본 및 파티션 리소스를 조정](search-capacity-planning.md)할 수 있습니다. 계층별로 2개 또는 3개부터 시작한 후, 과도한 인덱싱 워크로드에 대해 컴퓨팅 성능을 일시적으로 늘릴 수 있습니다. 계층 내의 리소스 수준을 조정하면 유연성이 추가될 뿐만 아니라 분석도 약간 복잡해집니다. 더 높은 리소스/복제본을 포함하는 더 낮은 계층이 더 낮은 리소스를 포함하는 더 높은 계층보다 더 나은 가치 및 성능을 제공하는지 확인하기 위해 실험이 필요할 수도 있습니다. 용량을 조정하는 시기 및 이유에 대해 자세히 알아보려면 [성능 및 최적화 고려 사항](search-performance-optimization.md)을 참조하세요.
+하면 계층 내 [복제본 및 파티션 리소스 조정](search-capacity-planning.md) 규모를 늘리거나 합니다. 각각의 두으로 시작 하 고 과도 한 인덱싱 작업에 대 한 컴퓨팅 기능에 일시적으로 발생 시킬 수 없습니다. 계층 내의 리소스 수준을 조정하면 유연성이 추가될 뿐만 아니라 분석도 약간 복잡해집니다. 더 높은 리소스/복제본을 포함하는 더 낮은 계층이 더 낮은 리소스를 포함하는 더 높은 계층보다 더 나은 가치 및 성능을 제공하는지 확인하기 위해 실험이 필요할 수도 있습니다. 용량을 조정하는 시기 및 이유에 대해 자세히 알아보려면 [성능 및 최적화 고려 사항](search-performance-optimization.md)을 참조하세요.
 
-<!---
-The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
---->
+## <a name="tiers-for-azure-search"></a>Azure Search 계층
+
+다음 표에서 사용 가능한 계층을 보여 줍니다. 다른 소스 계층 정보를 포함 합니다 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 [서비스 및 데이터 제한](search-limits-quotas-capacity.md), 및 서비스를 프로 비전 할 때 포털 페이지입니다.
+
+|계층 | 용량 |
+|-----|-------------|
+|무료 | 다른 구독자와 공유 합니다. 비-확장 가능한 3 개의 인덱스 50mb의 저장소를 제한 합니다. |
+|Basic | 소규모 프로덕션 워크 로드 전용된 컴퓨팅 리소스를 지원 합니다. 2GB 파티션 하나를 생성 하 고 최대 3 개의 복제본입니다. |
+|표준 1 (S1) | S1 모든 수준에서 더 많은 저장소 및 처리 용량으로 전용된 컴퓨터를 설정 합니다. 파티션 크기는 25 파티션당 (서비스 당 최대 300GB 문서) (s1의 경우입니다. |
+|표준 2 (S2) | S1 비슷하지만 파티션 수가 100 GB / (서비스 당 최대 1.2TB 문서)를 사용 하 여 |
+|표준 3 (S3의 경우) | 파티션당 200gb (서비스 당 최대 2.4TB 문서). |
+|표준 3 고밀도 (S3 HD) | 고밀도는 *호스팅 모드* S3에 대 한 합니다. 기본 하드웨어는 많은 수의 다중 테 넌 트 시나리오를 위한 작은 인덱스를 위해 최적화 됩니다. S3 HD는 S3 되지만 하드웨어가 여러 작은 인덱스의 빠른 파일 읽기에 최적화 된 대로 동일한 단위당 요금이 있습니다.|
+
 
 ## <a name="how-billing-works"></a>청구 방법
 
-Azure Search에는 포털에서 검색 리소스를 만들 때 비용이 발생할 수 있는 네 가지 방법이 있습니다.
+Azure search에서 비용이 Aure 검색에서 발생 하는 방법은 세 가지가 있습니다 및 고정 및 변수 구성 요소가 있습니다. 이 섹션에서는 각 청구 구성 요소에서 다시 살펴봅니다.
 
-* 일반 인덱싱 및 쿼리 작업에 사용되는 복제본 및 파티션 추가. 각각에 대해 1개부터 시작한 후 하나 또는 2개씩 늘려가면서 용량을 추가하고, 추가 리소스 수준을 선택하고 비용을 지불할 수 있습니다. 
-* 인덱싱 중 데이터 송신 요금. Azure SQL Database 또는 Cosmos DB 데이터 원본에서 데이터를 끌어올 경우 해당 리소스의 청구서에 트랜잭션 요금이 표시됩니다.
-* [Cognitive Search](cognitive-search-concept-intro.md)의 경우에만 문서 해독 동안의 이미지 추출에 대해 문서에서 추출된 이미지 수에 따라 요금이 청구됩니다. 텍스트 추출은 현재 무료입니다.
-* [Cognitive Search](cognitive-search-concept-intro.md)의 경우에만 [기본 제공된 인식 기술](cognitive-search-predefined-skills.md)을 기준으로 하는 보강에 대해 Cognitive Services 리소스 요금이 청구됩니다. 보강에는 Cognitive Services를 사용하여 직접 작업을 수행한 경우와 동일한 요금이 청구됩니다.
+### <a name="1-core-service-costs-fixed-and-variable"></a>1. 핵심 서비스 비용 (고정 및 변수)
+
+서비스 자체에 대 한 최소 요금 청구는 첫 번째 검색 단위 (1 개 복제본 x 1 파티션) 및 서비스를이 구성 보다 적은 권한으로 실행할 수 없으므로이 크기는 서비스의 수명에 대 한 상수입니다. 
+
+다음 스크린 샷에서 당 단위 가격 책정이 표시 되어 Free, Basic 및 S1 (S2 및 S3은 표시 되지 않음). 월간 비용에 대해 표시 되는 값을 평균는 기본 서비스 또는 표준 서비스를 만든 경우 *가격-1* 하 고 *가격-2* 각각. 연속 된 각 계층의 큰 계산 능력과 저장소 용량 이므로 단가 각 계층에 대 한 이동 합니다.
+
+![당 단위 가격 책정](./media/search-sku-tier/per-unit-pricing.png "당 단위 가격 책정")
+
+추가 복제본 및 파티션의 초기 비용에 추가 된 기능입니다. 검색 서비스에 복제본 및 파티션 최소 구성으로 각 중 하나 이므로 필요 합니다. 최소, 추가한 하지 복제본과 파티션을 독립적으로 합니다. 예를 들어, 복제본 또는 파티션으로 추가할 수 있습니다. 
+
+추가 복제본 및 파티션의 따라 요금이 청구 되는 [수식을](#search-units)합니다. 비용 (double 비용 보다 더 많은 용량이 두 배로) 선형있지 않습니다. 수식 작동 하는 방법의 예제를 참조 하세요. ["복제본 및 파티션의 할당 하는 방법"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+
+### <a name="2-data-egress-charges-during-indexing"></a>2. 인덱싱 중 데이터 송신 요금이 발생 합니다.
+
+Azure SQL Database 또는 Cosmos DB 데이터 원본에서 데이터를 끌어올 경우 해당 리소스의 청구서에 트랜잭션 요금이 표시됩니다. 이러한 요금은 Azure Search 미터 없지만 해당 요금이 청구서에 표시 됩니다 인덱서를 Azure SQL Database 또는 Azure Cosmos DB에서 데이터를 사용 하는 경우 여기 언급 됩니다.
+
+### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI 보강 Cognitive Services를 사용 하 여 인덱싱
+
+[Cognitive Search](cognitive-search-concept-intro.md)의 경우에만 문서 해독 동안의 이미지 추출에 대해 문서에서 추출된 이미지 수에 따라 요금이 청구됩니다. 텍스트 추출은 현재 무료입니다. 에 따라 다른 원칙이 [기본 제공 인식 기술](cognitive-search-predefined-skills.md) Cognitive Services 리소스에 대해 요금이 청구 됩니다. 보강에는 Cognitive Services를 사용하여 직접 작업을 수행한 경우와 동일한 요금이 청구됩니다.
 
 [Cognitive Search](cognitive-search-concept-intro.md) 또는 [Azure Search 인덱서](search-indexer-overview.md)를 사용하지 않는 경우 일반 인덱싱 및 쿼리 워크로드에 사용되는 복제본 및 파티션에 대해서만 비용이 청구됩니다.
 
-### <a name="billing-for-general-purpose-indexing-and-queries"></a>범용 인덱싱 및 쿼리에 대한 요금 청구
+<a name="search-units"></a>
+
+### <a name="billing-based-on-search-units"></a>검색 단위 기준으로 청구
 
 Azure Search 작업에서 이해할 가장 중요한 청구 개념은 SU(*검색 단위*)입니다. Azure Search은 인덱싱 및 쿼리를 위해 복제본과 파티션 둘 다에 의존하므로 하나를 기준으로만 청구하는 것은 적절하지 않습니다. 대신, 청구는 둘 다의 복합을 기준으로 합니다. 
 
 SU는 서비스에서 사용하는 *복제본* 및 *파티션*을 곱한 것입니다(**`(R X P = SU)`**).
 
-모든 서비스는 최소값으로 1SU(복제본 1개 x 파티션 1개)에서 시작합니다. 모든 서비스의 최댓값은 36SU이며 6개 파티션 x 6개 복제본, 3개 파티션 x 12개 복제본 등 여러 가지 방법으로 구현할 수 있습니다. 총 용량보다 덜 사용하는 것이 일반적입니다. 예를 들어, 복제본 3개 , 파티션 3개 서비스에는 9SU가 청구됩니다. 
+모든 서비스는 최소값으로 1SU(복제본 1개 x 파티션 1개)에서 시작합니다. 모든 서비스의 최댓값은 36SU이며 6개 파티션 x 6개 복제본, 3개 파티션 x 12개 복제본 등 여러 가지 방법으로 구현할 수 있습니다. 총 용량보다 덜 사용하는 것이 일반적입니다. 예를 들어, 복제본 3개 , 파티션 3개 서비스에는 9SU가 청구됩니다. 검토할 수 있습니다 [이 차트](search-capacity-planning.md#chart) 유효한 조합 한눈에 볼 수 있습니다.
 
 청구 요금은 **SU당 매시간**이며 각 계층의 요금은 점점 더 높아집니다. 더 높은 계층은 더 크고 더 빠른 파티션을 제공하므로 해당 계층의 전체적인 시간별 요금이 높아지는 결과를 가져옵니다. 각 계층에 대한 요금은 [가격 정보](https://azure.microsoft.com/pricing/details/search/)에서 확인할 수 있습니다. 
 

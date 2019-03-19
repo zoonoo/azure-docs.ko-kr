@@ -3,20 +3,20 @@ title: Azure Data Factory에서 데이터 팩터리 복사 또는 복제 | Micro
 description: Azure Data Factory에서 데이터 팩터리를 복사 또는 복제하는 방법 알아보기
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: douglasl
-ms.openlocfilehash: c62581447cd395bd48a787fa7dc89659d5172486
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192742"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575616"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Azure Data Factory에서 데이터 팩터리 복사 또는 복제
 
@@ -35,6 +35,8 @@ ms.locfileid: "54192742"
 1. Azure Portal의 Data Factory UI를 사용하여 데이터 팩터리의 전체 페이로드를 매개 변수 파일과 함께 Resource Manager 템플릿으로 내보내면 팩터리를 복제할 때 변경하려는 값을 변경할 수 있습니다.
 
 1. 필수 요소로, Azure Portal에서 대상 데이터 팩터리를 만들어야 합니다.
+
+1. 원본 팩터리의 SelfHosted IntegrationRuntime 경우 대상 공장에서 동일한 이름을 가진 미리 해야 합니다. 다른 팩터리 간의 SelfHosted IRs를 공유 하려는 경우에 게시 된 패턴을 사용할 수 있습니다 [여기](author-visually.md#best-practices-for-git-integration)합니다.
 
 1. GIT 모드에서는 포털에서 게시할 때마다 팩터리의 Resource Manager 템플릿이 리포지토리의 adf_publish 분기에 있는 GIT에 저장됩니다.
 

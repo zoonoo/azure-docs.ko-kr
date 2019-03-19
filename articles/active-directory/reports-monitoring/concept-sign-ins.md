@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f47de0544d6d708d3c8b104be4edada86c11551
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190367"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549020"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -149,23 +149,13 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ## <a name="download-sign-in-activities"></a>로그인 활동 다운로드
 
-Azure Portal 외부에서 작업하려는 경우 [로그인 데이터를 다운로드](quickstart-download-sign-in-report.md)할 수 있습니다. **다운로드**를 클릭하면 가장 최근의 5K 레코드의 CSV 파일을 만듭니다.  다운로드 단추 외에도 Azure Portal은 [데이터를 다운로드하는 스크립트를 생성](tutorial-signin-logs-download-script.md)하는 옵션을 제공합니다.  
+Azure Portal 외부에서 작업하려는 경우 [로그인 데이터를 다운로드](quickstart-download-sign-in-report.md)할 수 있습니다. 클릭 **다운로드** 최신 250,000 레코드의 CSV 또는 JSCON 파일을 만드는 옵션을 제공 합니다.  
 
 ![다운로드](./media/concept-sign-ins/71.png "다운로드")
-
-더 많은 유연성이 필요한 경우 스크립트 솔루션을 사용할 수 있습니다. **스크립트**를 클릭하면 설정한 모든 필터가 포함된 PowerShell 스크립트를 만듭니다. **관리자 모드**에서 이 스크립트를 다운로드하고 실행하여 CSV 파일을 생성합니다. 
 
 > [!IMPORTANT]
 > 다운로드할 수 있는 레코드의 수는 [Azure Active Directory 보고서 보존 정책](reference-reports-data-retention.md)에 의해 제한됩니다.  
 
-### <a name="running-the-script-on-a-windows-10-machine"></a>Windows 10 컴퓨터에서 스크립트 실행
-
-스크립트를 **Windows 10** 컴퓨터에서 실행하려면 먼저 몇 가지 추가적인 단계를 수행해야 합니다. 
-
-1. [Az 모듈](/powershell/azure/install-az-ps)을 설치합니다.
-2. PowerShell 프롬프트를 열고 **Import-Module Az** 명령을 실행하여 모듈을 가져옵니다.
-3. **Set-ExecutionPolicy unrestricted**를 실행하고 **모두 예**를 선택합니다. 
-4. 관리자 모드에서 다운로드한 PowerShell 스크립트를 실행하여 CSV 파일을 생성합니다.
 
 ## <a name="sign-ins-data-shortcuts"></a>로그인 데이터 바로 가기
 

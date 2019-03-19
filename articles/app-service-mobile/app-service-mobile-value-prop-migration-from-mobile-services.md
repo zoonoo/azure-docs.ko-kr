@@ -11,15 +11,15 @@ ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
-ms.translationtype: HT
+ms.openlocfilehash: 8a0bf1c39977d1659d398fce7c4bb3ae0024c88a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29460415"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771143"
 ---
 # <a name="getting-started"></a>Mobile Services를 사용하고 있습니다. App Service가 어떤 도움을 주나요?
 ## <a name="overview"></a>개요
@@ -39,7 +39,7 @@ ms.locfileid: "29460415"
 
 * 웹 작업을 통해 연속 실행되는 백 엔드 논리 추가
 * 백 엔드 코드가 항상 실행되도록 유지
-* 사용자 지정 CName을 사용하여 모바일 백 엔드 끝점에 친숙하고 안정적인 이름 제공
+* 사용자 지정 CName을 사용하여 모바일 백 엔드 엔드포인트에 친숙하고 안정적인 이름 제공
 * Traffic Manager를 사용하여 앱 지역 크기 조정
 * 원하는 모든 라이브러리 및 패키지를 포함합니다.
 * (.NET의 경우) MVC를 포함하여 ASP.NET의 모든 기능을 사용합니다.
