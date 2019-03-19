@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
-ms.openlocfilehash: 7577a05302dcf23cc68666685c1537c0eb31f831
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115575"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246137"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure에서 사용 가능한 보안 서비스 및 기술
 
@@ -34,7 +34,7 @@ ms.locfileid: "56115575"
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](../security-center/security-center-intro.md)| 하이브리드 클라우드 워크로드에서 보안 관리 및 고급 위협 방지를 제공하는 클라우드 워크로드 보호 솔루션입니다.|
 |[Azure Key Vault](../key-vault/key-vault-overview.md)| 암호, 연결 문자열 및 앱 작동을 유지하는 데 필요한 기타 정보에 대한 보안 비밀 저장소입니다. |
-|[Log Analytics](../log-analytics/log-analytics-overview.md)|원격 분석 및 기타 데이터를 수집하고, 쿼리 언어 및 분석 엔진을 제공하여 앱 및 리소스에 대한 Operational Insights를 전달하는 모니터링 서비스입니다. 단독으로 사용하거나 Security Center와 같은 다른 서비스와 함께 사용할 수 있습니다. |
+|[Azure Monitor 로그](../log-analytics/log-analytics-overview.md)|원격 분석 및 기타 데이터를 수집하고, 쿼리 언어 및 분석 엔진을 제공하여 앱 및 리소스에 대한 Operational Insights를 전달하는 모니터링 서비스입니다. 단독으로 사용하거나 Security Center와 같은 다른 서비스와 함께 사용할 수 있습니다. |
 |[Azure Dev/Test Labs](../devtest-lab/devtest-lab-overview.md)|개발자와 테스터가 낭비를 최소화하고 비용을 제어하면서 Azure에서 빠르게 환경을 만들 수 있도록 돕는 서비스입니다.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](azure-security-disk-encryption-overview.md)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->

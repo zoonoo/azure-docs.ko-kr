@@ -12,22 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b94136f063f9d4793ce4c8a03c17454df920af26
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 1da3b71cbb809c92ba3228676f8a47235829b499
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117557"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309539"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 [경고](../../azure-monitor/app/alerts.md)의 구성을 자동화할 수 있습니다.
 
 또한 [webhook를 설정하여 경고에 대한 응답을 자동화](../../azure-monitor/platform/alerts-webhooks.md)할 수 있습니다.
 
 > [!NOTE]
 > 리소스와 경고를 동시에 만들려면 [Azure Resource Manager 템플릿을 사용](powershell.md)하는 것이 좋습니다.
->
->
 
 ## <a name="one-time-setup"></a>일 회 설정
 아직 Azure 구독에서 PowerShell을 사용한 적이 없을 경우:
@@ -42,15 +43,15 @@ Azure PowerShell을 시작하고 [구독에 연결](/powershell/azure/overview)�
 
 ```PowerShell
 
-    Add-AzureRmAccount
+    Add-AzAccount
 ```
 
 
 ## <a name="get-alerts"></a>경고 받기
-    Get-AzureRmAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+    Get-AzAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
 ## <a name="add-alert"></a>경고 추가
-    Add-AzureRmMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
+    Add-AzMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
      -MetricName "{METRIC NAME}" `
@@ -69,7 +70,7 @@ HTTP 요청에 대한 서버의 응답이 5분 이상 평균 1초보다 느린 �
 
 GUID는 구독 ID입니다(애플리케이션의 계측 키 아님).
 
-    Add-AzureRmMetricAlertRule -Name "slow responses" `
+    Add-AzMetricAlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
@@ -83,7 +84,7 @@ GUID는 구독 ID입니다(애플리케이션의 계측 키 아님).
 ## <a name="example-2"></a>예 2
 [TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)을 사용하여 "salesPerHour"라는 메트릭을 보고하는 애플리케이션이 있습니다. 24시간 이상 평균 "salesPerHour"가 100 미만으로 떨어지는 경우 동료에게 전자 메일을 보냅니다.
 
-    Add-AzureRmMetricAlertRule -Name "poor sales" `
+    Add-AzMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `

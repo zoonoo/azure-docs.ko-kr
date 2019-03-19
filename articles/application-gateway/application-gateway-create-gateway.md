@@ -9,18 +9,18 @@ editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 862d587442b4d3b752092810c33a197ba15a6b51
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 60ea054f6a3305e523e0843690bf58f7998cf0bb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994084"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783214"
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>PowerShell을 사용하여 애플리케이션 게이트웨이 만들기, 시작 또는 삭제 
 
@@ -44,7 +44,7 @@ Azure Application Gateway는 계층 7 부하 분산 장치입니다. 클라우�
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>애플리케이션 게이트웨이를 만드는 데 필요한 것은 무엇입니까?
 
-`New-AzureApplicationGateway` 명령을 사용하여 응용 프로그램 게이트웨이를 만드는 경우, 이 시점에 설정된 구성은 없으며 새로 만든 리소스는 XML 또는 구성 개체를 사용하여 구성됩니다.
+`New-AzureApplicationGateway` 명령을 사용하여 애플리케이션 게이트웨이를 만드는 경우, 이 시점에 설정된 구성은 없으며 새로 만든 리소스는 XML 또는 구성 개체를 사용하여 구성됩니다.
 
 값은 다음과 같습니다.
 
@@ -344,7 +344,7 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>3단계
-`Set-AzureApplicationGatewayConfig`를 사용하여 구성 개체를 응용 프로그램 게이트웨이 리소스에 커밋합니다.
+`Set-AzureApplicationGatewayConfig`를 사용하여 구성 개체를 애플리케이션 게이트웨이 리소스에 커밋합니다.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig

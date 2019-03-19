@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e44b6a8232bcd0bc72c4faa0f7116d42cec79111
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 67f2af94f32d5439585ad4d727fd2b1bd80fc41b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172419"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431706"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금
 
@@ -72,9 +72,9 @@ ms.locfileid: "56172419"
 
 ![Azure Portal에서 Azure AD 스마트 잠금 정책 사용자 지정](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smartlockout-feature-is-working-or-not"></a>Smartlockout 기능이 작동하는지 확인하는 방법
+## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>스마트 잠금 기능 작동 하는지 확인 하는 방법
 
-Smartlockout 임계값이 트리거되면 계정이 잠겨 있는 동안 다음 메시지가 나타납니다.
+스마트 잠금 임계값 트리거되면 계정이 잠겨 있는 동안 다음 메시지가 나타납니다.
 
 **권한 없는 사용을 방지하기 위해 계정이 일시적으로 잠겨 있습니다. 나중에 다시 시도하세요. 문제가 계속 발생하면 관리자에게 문의하세요.**
 

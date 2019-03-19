@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: db13064c93381f87f82959ed3386abfc0a8e4593
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: c989e53113557219e13dd730ac43621d3824baac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238665"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434762"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 임시 테이블
 이 문서에서는 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다. 이 문서의 정보를 사용하여 코드를 모듈화할 수 있으므로 코드의 재사용 가능성 및 유지 관리 용이성이 개선됩니다.
@@ -193,7 +193,7 @@ FROM    t1
 GO
 ```
 
-이 단계에서 발생하는 유일한 작업은 DDL 문으로 임시 테이블인 #stats_ddl을 생성하는 저장 프로시저를 만드는 것입니다.  이 저장 프로시저는 세션 내에서 두 번 이상 실행하는 경우 실패하지 않도록 #stats_ddl(이미 있는 경우)을 삭제합니다.  그러나 저장 프로시저 끝에는 `DROP TABLE` 이 없으므로 저장 프로시저가 완료되면 저장 프로시저 외부에서 읽을 수 있도록 만든 테이블이 그대로 남아 있습니다.  다른 SQL Server 데이터베이스와 달리, SQL Data Warehouse에서 임시 테이블을 만든 프로시저의 외부에서 임시 테이블을 사용할 수 있습니다.  세션 내의 **어디에서나** SQL Data Warehouse 임시 테이블을 사용할 수 있습니다. 다음 예제와 같이 모듈식 및 관리 가능 코드가 더 많아질 수 있습니다.
+이 단계에서 발생 하는 유일한 작업은 #stats_ddl DDL 문으로 임시 테이블을 생성 하는 저장된 프로시저를 만드는 것입니다.  이 저장 프로시저는 세션 내에서 두 번 이상 실행하는 경우 실패하지 않도록 #stats_ddl(이미 있는 경우)을 삭제합니다.  그러나 저장 프로시저 끝에는 `DROP TABLE` 이 없으므로 저장 프로시저가 완료되면 저장 프로시저 외부에서 읽을 수 있도록 만든 테이블이 그대로 남아 있습니다.  다른 SQL Server 데이터베이스와 달리, SQL Data Warehouse에서 임시 테이블을 만든 프로시저의 외부에서 임시 테이블을 사용할 수 있습니다.  세션 내의 **어디에서나** SQL Data Warehouse 임시 테이블을 사용할 수 있습니다. 다음 예제와 같이 모듈식 및 관리 가능 코드가 더 많아질 수 있습니다.
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;

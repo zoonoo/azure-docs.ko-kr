@@ -1,94 +1,91 @@
 ---
-title: Azure File Sync에 대한 오프라인 수집을 위해 Data Box 및 기타 메서드를 사용합니다.
-description: 호환되는 대량 마이그레이션 동기화 지원을 사용하도록 설정하기 위한 프로세스 및 모범 사례입니다.
+title: 데이터를 Azure Data Box 및 기타 메서드를 사용 하 여 Azure File Sync로 마이그레이션
+description: Azure File Sync와 호환 되는 방식으로 데이터를 대량으로 마이그레이션하십시오.
 services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: fauhse
-ms.component: files
-ms.openlocfilehash: a184e0563d1ad26671c38cabe07f42d97cbe2885
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.subservice: files
+ms.openlocfilehash: 3b286bbe2c246345bf6acd84a4fc0c400451c706
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56212669"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445350"
 ---
-# <a name="migrate-to-azure-file-sync"></a>Azure 파일 동기화로 마이그레이션
-Azure File Sync로 전환하기 위해 다음과 같은 몇 가지 옵션을 사용할 수 있습니다.
+# <a name="migrate-bulk-data-to-azure-file-sync"></a>Azure File Sync로 대량 데이터 마이그레이션
+두 가지 방법으로 Azure File Sync에 대량 데이터를 마이그레이션할 수 있습니다.
 
-### <a name="uploading-files-via-azure-file-sync"></a>Azure File Sync를 통해 파일 업로드
-가장 간단한 옵션은 파일을 로컬로 Windows Server 2012 R2 이상으로 이동하고 Azure File Sync 에이전트를 설치하는 것입니다. 동기화가 구성되면 서버에서 파일이 업로드됩니다. 현재, 모든 고객에게서 약 2일 간격으로 1TB의 평균 업로드 속도가 확인되고 있습니다.
-서버가 데이터 센터에서 잘 작동하도록 하는 [대역폭 조절 일정](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter)을 고려합니다.
+* **Azure File Sync를 사용 하 여 파일을 업로드 합니다.** 이것이 가장 간단한 방법입니다. 로컬 Windows Server 2012 R2 이상으로 파일을 이동 하 고 Azure File Sync 에이전트를 설치 합니다. 동기화를 설정한 후 서버에서 파일 업로드 됩니다. (고객 현재 환경에 대 한 일 마다 1tib의 평균 업로드 속도.) 서버에 사용 하지 않는 대역폭의 너무 많은 데이터 센터에 대 한 하도록 설정 하려는 [대역폭 제한 일정](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter)합니다.
+* **오프 라인 파일을 전송 합니다.** 충분 한 대역폭에 없는 합당 한 시간에에서 Azure에 파일을 업로드할 수 없습니다 수 있습니다. 과제는 파일의 전체 집합의 초기 동기화 합니다. 이 문제를 해결 하기 위해 사용 하 여 오프 라인 대량 마이그레이션 도구와 같은 합니다 [Azure Data Box 제품군](https://azure.microsoft.com/services/storage/databox)합니다. 
 
-### <a name="offline-bulk-transfer"></a>오프라인 대량 전송
-업로드하는 것이 확실히 가장 간단한 옵션이지만, 사용 가능한 대역폭이 적절한 시간 내에 Azure로 파일을 동기화하도록 허용하지 않는 경우에는 이 옵션을 사용할 수 없습니다. 여기서 극복해야 할 과제는 전체 파일 세트의 초기 동기화입니다. 나중에 Azure File Sync는 네임스페이스에서 수행된 변경 내용만 이동하므로 일반적으로 훨씬 더 적은 대역폭을 사용합니다.
-이러한 초기 업로드 문제를 극복하기 위해 Azure [Data Box 제품군](https://azure.microsoft.com/services/storage/databox)과 같은 오프라인 대량 마이그레이션 도구를 사용할 수 있습니다. 다음 문서는 Azure File Sync 호환 방식으로 오프라인 마이그레이션을 활용하기 위해 수행해야 하는 프로세스를 중점적으로 설명합니다. 또한 동기화를 사용하도록 설정한 경우 파일 충돌을 방지하고 파일 및 폴더 ACL과 타임스탬프를 유지하는 데 도움이 되는 모범 사례를 설명합니다.
+이 문서에서는 Azure File Sync와 호환 되는 방식으로 오프 라인 파일을 마이그레이션하는 방법을 설명 합니다. 파일 충돌을 방지 하 고 동기화를 사용 하도록 설정한 후에 파일 및 폴더 액세스 제어 목록 (Acl) 타임 스탬프를 유지 하기 위해 다음이 지침을 따릅니다.
 
-### <a name="online-migration-tools"></a>온라인 마이그레이션 도구
-아래에서 설명하는 프로세스가 Data Box에만 해당하는 것은 아니며, 오프라인 마이그레이션 도구(예: Data Box) 또는 온라인 도구(예: AzCopy, Robocopy) 또는 타사 도구와 서비스에도 적용됩니다. 초기 업로드가 과제를 극복하는 방법에 관계없이, 아래에 설명된 단계에 따라 동기화 호환 방식으로 이러한 도구를 활용하는 것도 중요합니다.
+## <a name="online-migration-tools"></a>온라인 마이그레이션 도구
+Data Box 뿐만 아니라 다른 오프 라인 마이그레이션 도구에 대 한이 문서에서 설명 하는 프로세스입니다. 또한 AzCopy, Robocopy 또는 파트너 도구 및 서비스와 같은 온라인 도구에 대 한 작동합니다. 하지만 초기 해결 챌린지를 업로드, Azure File Sync와 호환 되는 방식으로 이러한 도구를 사용 하려면이 문서의 단계를 수행 합니다.
 
 
-## <a name="offline-data-transfer-benefits"></a>오프라인 데이터 전송의 이점
-Data Box를 사용할 경우 오프라인 마이그레이션의 주요 이점은 다음과 같습니다.
+## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>도구를 사용 하 여 오프 라인으로 데이터를 전송 하는 이점
+오프 라인 마이그레이션에 대 한 데이터 상자 처럼 전송 도구를 사용 하는 주요 이점은 다음과 같습니다.
 
-- Data Box와 같은 오프라인 대량 전송 프로세스를 통해 파일을 Azure로 마이그레이션할 때는 네트워크를 통해 서버의 모든 파일을 업로드할 필요가 없습니다. 대형 네임스페이스의 경우 이로 인해 네트워크 대역폭 및 시간 측면에서 비용을 상당히 절감할 수 있습니다.
-- Azure File Sync를 사용할 경우 사용하는 전송 모드에 관계없이(Data Box, Azure Import 등) 라이브 서버는 사용자가 Azure로 데이터를 이동한 이후에 변경된 파일만 업로드합니다.
-- Azure File Sync는 오프라인 대량 마이그레이션 제품이 ACL을 전송하지 않더라도 파일과 폴더 ACL 역시 동기화되게 합니다.
-- Azure Data Box 및 Azure File Sync를 사용할 때는 가동 중지 시간이 제로가 됩니다. Data Box를 사용하여 Azure로 데이터를 전송하면 파일 충실도를 유지하면서 네트워크 대역폭을 효율적으로 사용할 수 있습니다. 또한 Data Box가 전송된 이후에 변경된 파일만 업로드하여 네임스페이스를 최신 상태로 유지합니다.
+- 네트워크를 통해 모든 파일을 업로드할 필요가 없습니다. 큰 네임 스페이스의 경우이 도구 상당한 네트워크 대역폭 및 시간을 절약할 수 있습니다.
+- Azure File Sync를 사용 하는 경우 (Data Box, Azure Import/Export 서비스 및 등)를 사용 하는 전송 도구에 관계 없이, 라이브 서버에서 Azure로 데이터를 이동 후에 변경 된 파일만 업로드 합니다.
+- Azure File Sync는 오프 라인 대량 마이그레이션 도구는 Acl을 전송 하지 않습니다 하는 경우에 파일 및 폴더 Acl을 동기화 합니다.
+- Data Box 및 Azure File Sync에는 가동 중지 시간 없이 필요합니다. Data Box를 사용 하 여 Azure로 데이터를 전송할 때 네트워크 대역폭을 효율적으로 사용 하 고 파일 충실도 유지 합니다. 또한 네임 스페이스 최신 상태로 유지 Azure에 데이터를 이동 후에 변경 된 파일만 업로드 하 여 합니다.
 
-## <a name="plan-your-offline-data-transfer"></a>오프라인 데이터 전송 계획
-시작하기 전에 다음 정보를 검토하세요.
+## <a name="prerequisites-for-the-offline-data-transfer"></a>오프 라인 데이터 전송에 대 한 필수 구성 요소
+시작 하기 전에 오프 라인 데이터 전송:
 
-- Azure File Sync를 통한 동기화를 사용하도록 설정하기 전에 하나 또는 여러 Azure 파일 공유에 대한 대량 마이그레이션을 완료합니다.
-- 대량 마이그레이션을 위해 Data Box를 사용하려는 경우 [Data Box의 배포 필수 구성 요소](../../databox/data-box-deploy-ordered.md#prerequisites)를 검토합니다.
-- 최종 Azure File Sync 토폴로지 계획 [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
-- 동기화하려는 파일 공유를 포함할 Azure Storage 계정을 선택합니다. 동일한 스토리지 계정의 임시 스테이징 공유 위치로 대량 마이그레이션이 실행되도록 합니다. 대량 마이그레이션은 동일한 스토리지 계정에 있는 최종 및 스테이징 공유 위치로만 수행할 수 있습니다.
-- 대량 마이그레이션은 서버 위치와의 새 동기화 관계를 만들 때만 사용할 수 있습니다. 기존 동기화 관계로는 대량 마이그레이션을 사용하도록 설정할 수 없습니다.
+- Azure File Sync를 사용 하 여 동기화를 활성화 하기 전에 하나 이상의 Azure 파일 공유에 대량 데이터를 마이그레이션하세요.
+- 대량 마이그레이션에 대 한 Data Box를 사용 하려는 경우 검토 합니다 [Data Box에 대 한 배포 필수 구성 요소](../../databox/data-box-deploy-ordered.md#prerequisites)합니다.
+- 최종 Azure File Sync 토폴로지를 계획 합니다. 자세한 내용은 [Azure File Sync 배포 계획](storage-sync-files-planning.md)합니다.
+- Azure Storage 계정 또는 파일 공유와 동기화 하려는 포함 하는 계정을 선택 합니다. 동일한 저장소 계정 또는 계정에 있는 임시 준비 공유에 대량 데이터를 마이그레이션하세요. 최종 공유만 및 동일한 저장소 계정에 있는 스테이징 공유를 사용할 수 있습니다.
+- 서버 위치를 사용 하 여 새 동기화 관계를 만듭니다. 데이터를 대량으로 마이그레이션하려면 기존 동기화 관계를 사용할 수 없습니다.
 
-## <a name="offline-data-transfer-process"></a>오프라인 데이터 전송 프로세스
-이 섹션에서는 Azure Data Box와 같은 대량 마이그레이션 도구와 호환되는 방식으로 Azure File Sync를 설정하는 프로세스를 설명합니다.
+## <a name="process-for-offline-data-transfer"></a>오프 라인 데이터 전송에 대 한 프로세스
+Azure Data Box와 같은 대량 마이그레이션 도구와 호환 되는 방식으로 Azure File Sync를 설정 하는 방법을 다음과 같습니다.
 
-![또한 다음 단락에서 자세히 설명하는 프로세스 단계 시각화](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
+![Azure File Sync를 설정 하는 방법을 보여 주는 다이어그램](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
 | 단계 | 세부 정보 |
 |---|---------------------------------------------------------------------------------------|
-| ![프로세스 단계 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Data Box를 주문](../../databox/data-box-deploy-ordered.md)합니다. [Data Box 제품군 내에는 사용자의 요구에 맞는 여러 제품](https://azure.microsoft.com/services/storage/databox/data)이 있습니다. Data Box를 수신하고 Data Box [설명서에 따라 데이터를 복사](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box)합니다. 데이터가 Data Box의 UNC 경로 `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>`으로 복사되는지 확인합니다. 여기서 `ShareName`은 스테이징 공유의 이름입니다. Data Box를 Azure로 다시 보냅니다. |
-| ![프로세스 단계 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | 임시 스테이징 공유로 지정한 Azure 파일 공유에 파일이 표시될 때까지 기다립니다. **이러한 공유에 대한 동기화는 사용하지 않도록 설정합니다.** |
-| ![프로세스 단계 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Data Box가 만든 각 파일 공유에 대해 비어 있는 새 공유를 만듭니다. 이 새로운 공유가 Data Box 공유와 동일한 스토리지 계정에 있는지 확인합니다. [Azure 파일 공유를 만드는 방법](storage-how-to-create-file-share.md) |
-| ![프로세스 단계 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | 스토리지 동기화 서비스에서 [동기화 그룹을 만들고](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) 빈 공유를 클라우드 엔드포인트로 참조합니다. 모든 Data Box 파일 공유에 대해 이 단계를 반복합니다. [Azure File Sync 배포](storage-sync-files-deployment-guide.md) 가이드를 검토하고 Azure File Sync를 설정하는 데 필요한 단계를 수행합니다. |
-| ![프로세스 단계 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [라이브 서버 디렉터리를 서버 엔드포인트로 추가](storage-sync-files-deployment-guide.md#create-a-server-endpoint)합니다. 이 프로세스에서 파일을 Azure로 이미 이동했음을 지정하고 스테이징 공유를 참조합니다. 클라우드 계층화를 필요에 따라 사용하거나 사용하지 않도록 설정할 수 있습니다. 라이브 서버에서 서버 엔드포인트를 만드는 동안 스테이징 공유를 참조해야 합니다. 새 서버 엔드포인트 블레이드에서 "오프라인 데이터 전송"(아래 이미지 참조)을 사용하도록 설정하고 클라우드 엔드포인트와 동일한 스토리지 계정에 있어야 하는 스테이징 공유를 참조합니다. 사용 가능한 공유 목록은 스토리지 계정 및 아직 동기화하지 않은 공유에 따라 필터링됩니다. |
+| ![1단계](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Data Box를 주문](../../databox/data-box-deploy-ordered.md)합니다. Data Box 제품군 제품 [여러 제품](https://azure.microsoft.com/services/storage/databox/data) 요구 사항에 맞게 합니다. 데이터 상자에를 받게 되 면에 따라 해당 [데이터를 복사 하는 설명서](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) 이 UNC 경로로 Data Box에서: *\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>*. 이때 *ShareName* 준비 공유의 이름입니다. Data Box를 Azure로 다시 보냅니다. |
+| ![2단계](media/storage-sync-files-offline-data-transfer/bullet_2.png) | 임시 준비 공유로 선택한 Azure 파일 공유에 파일이 표시 될 때까지 기다립니다. *이러한 공유에 동기화를 사용 하지 마십시오.* |
+| ![3단계](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Data Box를 생성 하는 각 파일 공유에 대 한 새 빈 공유를 만듭니다. 이 새 공유 데이터 상자 공유와 동일한 저장소 계정에 있어야 합니다. [Azure 파일 공유를 만드는 방법](storage-how-to-create-file-share.md) |
+| ![4단계:](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [동기화 그룹을 만드는](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) 저장소 동기화 서비스에서. 클라우드 끝점으로 빈 공유 참조입니다. 모든 Data Box 파일 공유에 대해 이 단계를 반복합니다. [Azure File Sync 설정](storage-sync-files-deployment-guide.md)합니다. |
+| ![5단계](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [라이브 서버 디렉터리를 서버 엔드포인트로 추가](storage-sync-files-deployment-guide.md#create-a-server-endpoint)합니다. 프로세스에서 파일을 Azure로 이동 하는 지정 하 고 스테이징 공유 참조입니다. 클라우드 계층화가 필요에 따라 사용 하지 않도록 설정 하거나 설정할 수 있습니다. 라이브 서버에서 서버 엔드포인트를 만드는 동안 준비 공유를 참조 합니다. 에 **서버 끝점 추가** 블레이드 아래에서 **오프 라인으로 데이터 전송**를 선택 **사용**를 선택한 다음 클라우드로 동일한 저장소 계정에 있어야 하는 준비 공유 끝점입니다. 여기에서 사용 가능한 공유 목록은 저장소 계정 및 공유를 이미 동기화 되지으로 필터링 됩니다. |
 
-![새 서버 엔드포인트를 만드는 동안 오프라인 데이터 전송을 사용하도록 설정하기 위한 Azure Portal 사용자 인터페이스 시각화](media/storage-sync-files-offline-data-transfer/data-box-integration-2-600.png)
+![새 서버 엔드포인트를 만드는 동안 오프 라인 데이터 전송을 활성화 하는 방법을 보여 주는 Azure portal 사용자 인터페이스 스크린샷](media/storage-sync-files-offline-data-transfer/data-box-integration-2-600.png)
 
 ## <a name="syncing-the-share"></a>공유 동기화
-서버 엔드포인트를 만들면 동기화가 시작됩니다. 동기화 기능은 서버에 있는 각 파일이 Data Box가 파일을 보관한 스테이징 공유에도 존재하는지를 확인합니다. 해당 위치에 존재할 경우 동기화 기능은 서버에서 파일을 업로드하지 않고 스테이징 공유에서 파일을 복사합니다. 파일이 스테이징 공유에 없거나, 로컬 서버에서 최신 버전을 사용할 수 있는 경우 동기화 기능은 로컬 서버에서 파일을 업로드합니다.
+서버 끝점을 만든 후 동기화가 시작 됩니다. 동기화 프로세스 서버에 있는 각 파일 스테이징 공유 Data Box 파일을 보관 하는 위치에 있는지 여부를 결정 합니다. 파일이 존재 하는 있는 경우 동기화 프로세스 서버에서 업로드 하는 것이 아니라 준비 공유에서 파일을 복사 합니다. 준비 공유에 파일이 없는 경우 또는 최신 버전을 로컬 서버의 사용 가능한 경우 동기화 프로세스는 로컬 서버에서 파일을 업로드 합니다.
 
 > [!IMPORTANT]
-> 서버 엔드포인트를 만드는 동안에만 대량 마이그레이션 모드를 사용하도록 설정할 수 있습니다. 일단 서버 엔드포인트가 설정되면, 이미 동기화 중인 서버의 대량 마이그레이션 데이터를 네임스페이스에 통합할 방법이 현재는 없습니다.
+> 서버 엔드포인트를 만드는 동안에 대량 마이그레이션 모드를 사용할 수 있습니다. 서버 끝점을 설정한 후에 네임 스페이스에 이미 동기화 서버에서 데이터 대량 마이그레이션를 통합할 수는 없습니다.
 
 ## <a name="acls-and-timestamps-on-files-and-folders"></a>파일 및 폴더에 대한 ACL 및 타임스탬프
-Azure File Sync는 사용된 대량 마이그레이션 도구가 초기에는 ACL을 전송하지 않았더라도 파일 및 폴더 ACL이 라이브 서버에서 동기화되도록 합니다. 즉, 스테이징 공유에 파일 및 폴더에 대한 ACL이 없는 것은 정상적인 것입니다. 새 서버 엔드포인트를 만들 때 오프라인 데이터 마이그레이션 기능을 사용하도록 설정하면 ACL은 해당 시간에 서버의 모든 파일에 대해 동기화됩니다. create- 및 modified- 타임스탬프의 경우도 마찬가지입니다.
+Azure File Sync 파일 및 폴더 Acl 했던 대량 마이그레이션 도구 Acl를 처음에 전송 하지 않은 경우에 라이브 서버에서 동기화 된 것을 확인 합니다. 이 인해 준비 공유 파일 및 폴더에 대 한 모든 Acl을 포함할 필요가 없습니다. 새 서버 끝점을 만들 때 오프 라인 데이터 마이그레이션 기능을 사용 하면 모든 Acl은 파일 서버의 동기화 됩니다. 새로 생성 되 고 수정 된 타임 스탬프가 동기화도 됩니다.
 
 ## <a name="shape-of-the-namespace"></a>네임스페이스의 모양
-네임스페이스의 모양은 동기화를 사용하도록 설정했을 때 서버에 있는 항목에 따라 결정됩니다. Data Box "-snapshot" 및 -migration 이후에 로컬 서버에서 파일을 삭제하면 이러한 파일은 라이브 상태가 되지 않고 네임스페이스를 동기화합니다. 스테이징 공유에는 계속 존재하지만 복사되지 않습니다. 동기화할 경우 라이브 서버에 따라 네임스페이스가 유지되므로 바람직한 동작입니다. Data Box "snapshot"은 라이브 네임스페이스 모양을 규정하지 않으며 효율적인 파일 복사를 위한 스테이징 기반일 뿐입니다.
+동기화를 사용 하면 서버의 내용을 네임 스페이스의 셰이프를 결정 합니다. Data Box 스냅숏 및 마이그레이션이 완료 된 후 로컬 서버에서 파일이 삭제 되는 경우 이러한 파일은 라이브, 동기화 네임 스페이스로 이동 하지 않습니다. 준비 공유에 유지 하지만 복사 되지 않습니다. 동기화에서는 라이브 서버에 따라 네임 스페이스를 유지 하므로 이것이 필요 합니다. Data Box *스냅숏* 효율적으로 파일 복사에 대 한 스테이징 처음부터 방금 됩니다. 라이브 네임 스페이스의 셰이프에 대 한 인증 기관 아닙니다.
 
-## <a name="finishing-bulk-migration-and-clean-up"></a>대량 마이그레이션 및 정리 완료
-다음 스크린샷은 Azure Portal의 서버 엔드포인트 속성 블레이드를 보여 줍니다. 오프라인 데이터 전송 섹션에서 프로세스의 상태를 확인할 수 있습니다. "In Progress" 또는 "Completed" 상태가 표시됩니다.
+## <a name="cleaning-up-after-bulk-migration"></a>대량 마이그레이션 후 정리 
+서버에 네임 스페이스의 초기 동기화 완료 되 면 Data Box 대량 마이그레이션 파일 스테이징 파일 공유를 사용 합니다. 에 **서버 끝점 속성** 블레이드에서 Azure portal에서에 **오프 라인으로 데이터 전송** 섹션에서 변경 된 상태 **진행** 를 **완료 됨** . 
 
-서버가 전체 네임스페이스의 초기 동기화를 완료하면 Data Box 대량 마이그레이션 파일이 있는 스테이징 파일 공유를 더 이상 사용하지 않게 됩니다. 오프라인 데이터 전송에 대한 서버 엔드포인트 속성에서 상태가 "Completed"로 변경되는 것을 확인합니다. 지금은 비용 절감을 위해 스테이징 공유를 정리할 수 있습니다.
+![오프 라인 데이터 전송에 대 한 상태 및 사용 안 함 컨트롤 위치한 서버 끝점 속성 블레이드의 스크린 샷](media/storage-sync-files-offline-data-transfer/data-box-integration-3-444.png)
 
-1. 상태가 "Completed"인 경우 서버 엔드포인트 속성에서 "오프라인 데이터 전송 사용 안 함"을 누릅니다.
-2. 비용 절감을 위해 스테이징 공유를 삭제하는 것이 좋습니다. 스테이징 공유에는 파일 및 폴더 ACL을 포함할 가능성이 없으며 사용이 제한적입니다. "특정 시점" 백업을 위해서는 [Azure 파일 공유를 동기화하는 실제 스냅숏](storage-snapshots-files.md)을 만드는 것이 좋습니다. 일정에 따라 [Azure Backup을 사용하여 스냅숏을 생성]( ../../backup/backup-azure-files.md)할 수 있습니다.
+이제 비용 절감을 위해 준비 공유 정리할 수 있습니다.
 
-![오프라인 데이터 전송의 상태 및 사용 안 함 컨트롤이 있는 서버 엔드포인트 속성의 Azure Portal 사용자 인터페이스 시각화](media/storage-sync-files-offline-data-transfer/data-box-integration-3-444.png)
+1. 에 **서버 끝점 속성** 블레이드에서 상태가 **완료 됨**를 선택 **오프 라인 데이터 전송을 사용 하지 않도록 설정**합니다.
+2. 비용 절감을 위해 준비 공유를 삭제 하는 것이 좋습니다. 준비 공유 파일 및 폴더의 Acl을 포함 하지 않습니다 아마도 하므로 매우 유용 하지 않습니다. 백업 시점 목적으로 만들 실제 [동기화 할 Azure 파일 공유의 스냅숏을](storage-snapshots-files.md)합니다. 할 수 있습니다 [스냅숏을 Azure Backup 설정]( ../../backup/backup-azure-files.md) 일정에 따라 합니다.
 
-상태가 "Completed"일 때만 이 모드를 사용하지 않도록 설정해야 하며, 그렇지 않은 경우 구성 오류로 인해 중단할 수 있습니다. 합법적인 배포 중간에 이 모드를 사용하지 않도록 설정하면 스테이징 공유를 여전히 사용할 수 있더라도 서버에서 파일이 업로드되기 시작합니다.
+상태가 있는 경우에 오프 라인 데이터 전송 모드를 사용 하지 않도록 설정 **Completed** 또는 잘못 된 구성으로 인해 취소 하려는 경우. 배포 중 모드를 사용 하지 않으면 파일 스테이징 공유가 여전히 사용할 수 있는 경우에 서버에서 업로드 하기 시작 합니다.
 
 > [!IMPORTANT]
-> 오프라인 데이터 전송을 사용하지 않도록 설정한 후에는 대량 마이그레이션의 스테이징 공유를 여전히 사용할 수 있더라도 다시 사용하도록 설정할 수 없습니다.
+> 오프 라인 데이터 전송 모드를 비활성화 하면 사용할 수 없습니다 것 마찬가지로 대량 마이그레이션에서 스테이징 공유를 여전히 사용할 수 있는 경우에 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
+- [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md)
 - [Azure 파일 동기화 배포](storage-sync-files-deployment-guide.md)

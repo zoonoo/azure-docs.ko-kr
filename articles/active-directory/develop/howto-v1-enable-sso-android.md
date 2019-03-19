@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e27ecc73c19b92f8dcf77849c2f91a5eb57ac8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168043"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442174"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>방법: ADAL을 사용하여 Android에서 앱 간 SSO 사용
 
@@ -119,7 +119,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>2단계: URL 구성표를 사용하여 새 리디렉션 URI 설정
 
-올바른 애플리케이션이 반환된 자격 증명 토큰을 받는지 확인하려면 Android 운영 체제에서 확인할 수 있는 방식으로 애플리케이션에 다시 호출하는지 확인해야 합니다. Android 운영 체제는 Google Play 스토어에서 인증서의 해시를 사용합니다. 불량 응용 프로그램에서 인증서의 이 해시를 스푸핑할 수 없습니다. 브로커 애플리케이션의 URI와 함께 Microsoft는 토큰이 올바른 애플리케이션에 반환되는지 확인합니다. 고유한 리디렉션 URI는 응용 프로그램에 등록돼야 합니다.
+적절 한 응용 프로그램에 반환 된 수신 하는지 확인 하기 위해 자격 증명 토큰에 있는 되도록 응용 프로그램으로 다시 호출 Android 운영 체제에서 확인할 수 있도록에서 해야 합니다. Android 운영 체제는 Google Play 스토어에서 인증서의 해시를 사용합니다. 불량 응용 프로그램에서 인증서의 이 해시를 스푸핑할 수 없습니다. 브로커 애플리케이션의 URI와 함께 Microsoft는 토큰이 올바른 애플리케이션에 반환되는지 확인합니다. 고유한 리디렉션 URI는 응용 프로그램에 등록돼야 합니다.
 
 리디렉션 URI는 다음의 적절한 형식이어야 합니다.
 

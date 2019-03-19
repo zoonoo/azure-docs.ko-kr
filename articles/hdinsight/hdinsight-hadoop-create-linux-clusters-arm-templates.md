@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: cd02930394fd4cd09808a808765e54ff9ea6b4ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819810"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434304"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "55819810"
 * Azure PowerShell 및/또는 Azure 클래식 CLI
 
 ### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
-Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 애플리케이션에 대해 다음 리소스를 쉽게 만들 수 있습니다.
+Resource Manager 템플릿을 쉽게 조정 된 단일 작업에서 응용 프로그램에 대 한 다음 리소스를 만듭니다.
 * HDInsight 클러스터 및 해당 종속 리소스(예: 기본 스토리지 계정)
 * 기타 리소스(예: [Apache Sqoop](https://sqoop.apache.org/)을 사용하는 Azure SQL Database)
 
@@ -47,11 +47,7 @@ Resource Manager 템플릿에 대한 자세한 내용은 다음 문서와 예제
 
 ## <a name="generate-templates"></a>템플릿 생성
 
-Resource Manager를 사용하면 여러 다른 도구를 사용하여 구독의 기존 리소스에서 Resource Manager 템플릿을 내보낼 수 있습니다. 생성된 템플릿을 사용하여 템플릿 구문에 대해 알아보거나 필요에 따라 솔루션 재배포를 자동화할 수 있습니다.
-
-- Azure Portal: [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](../azure-resource-manager/resource-manager-export-template.md)를 참조하세요.
-- Azure PowerShell: [PowerShell을 사용하여 Azure Resource Manager 템플릿 내보내기](../azure-resource-manager/resource-manager-export-template-powershell.md)를 참조하세요.
-- Azure 클래식 CLI [Azure 클래식 CLI를 사용하여 Azure Resource Manager 템플릿 내보내기](../azure-resource-manager/resource-manager-export-template-cli.md)를 참조하세요.
+Resource Manager를 사용하면 여러 다른 도구를 사용하여 구독의 기존 리소스에서 Resource Manager 템플릿을 내보낼 수 있습니다. 생성된 템플릿을 사용하여 템플릿 구문에 대해 알아보거나 필요에 따라 솔루션 재배포를 자동화할 수 있습니다. 자세한 내용은 [템플릿 내보내기](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)합니다.
 
 ## <a name="deploy-using-the-portal"></a>Portal을 사용하여 배포
 

@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75570cb289af7c7b718414974e5770f692233758
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210869"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444293"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>애플리케이션 프록시 에이전트 커넥터를 설치할 때 문제 발생
 
@@ -64,7 +64,7 @@ Microsoft AAD 애플리케이션 프록시 커넥터는 아웃바운드 연결�
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>관리자가 커넥터를 설치했는지 확인합니다.
 
-**목표:** 커넥터를 설치하려고 하는 사용자가 올바른 자격 증명을 가진 관리자인지 확인합니다. 현재 설치가 성공하려면 사용자가 애플리케이션 관리자 또는 글로벌 관리자여야 합니다.
+**목표:** 커넥터를 설치하려고 하는 사용자가 올바른 자격 증명을 가진 관리자인지 확인합니다. 현재 응용 프로그램 관리자 또는 전역 관리자 설치에 성공 하려면 사용자 여야 합니다.
 
 **자격 증명이 올바른지 확인하려면:**
 

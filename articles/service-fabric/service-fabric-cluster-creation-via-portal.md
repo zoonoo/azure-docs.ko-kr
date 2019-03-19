@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: 71448125d7308ca28e7241fd4019aadba430214e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 80a4014cb371f3c37c01fa1cf2d20041caf17184
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106140"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448224"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -90,7 +90,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 **Service Fabric 클러스터 만들기** 블레이드는 다음 4단계를 포함합니다.
 
 ### <a name="1-basics"></a>1. 기본 사항
-![새 리소스 그룹 만들기 스크린샷][CreateRG]
+![새 리소스 그룹을 만드는 스크린샷.][CreateRG]
 
 기본 사항 블레이드에서는 클러스터에 대한 기본 세부 정보를 제공해야 합니다.
 
@@ -130,7 +130,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 > 
 
 ### <a name="3-security"></a>3. 보안
-![Azure 포털의 보안 구성 스크린샷][BasicSecurityConfigs]
+![Azure portal에서 보안 구성의 스크린샷입니다.][BasicSecurityConfigs]
 
 보안 테스트 클러스터를 설정하기 쉽도록 **기본** 옵션이 제공됩니다. 이미 인증서가 있고 [키 자격 증명 모음](/azure/key-vault/)에 업로드한 경우(키 자격 증명 모음을 배포에 사용하도록 설정함) **사용자 지정** 옵션을 사용합니다.
 
@@ -191,7 +191,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 Powershell 또는 CLI를 사용하여 클러스터에 대한 관리 작업을 수행하려면 클러스터에 연결하여 [클러스터에 연결](service-fabric-connect-to-secure-cluster.md)에서 자세한 방법을 확인해야 합니다.
 
 ## <a name="view-your-cluster-status"></a>클러스터 상태 보기
-![대시보드의 클러스터 세부 정보 스크린샷][ClusterDashboard]
+![대시보드의 클러스터 세부 정보 스크린샷입니다.][ClusterDashboard]
 
 클러스터를 만들면 포털에서 클러스터를 검사할 수 있습니다.
 

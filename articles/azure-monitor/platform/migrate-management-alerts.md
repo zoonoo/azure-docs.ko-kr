@@ -8,35 +8,34 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 55d0269aaa330f928a9d037eec6a3445825a5ed3
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470344"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307193"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>관리 이벤트에 대한 Azure 경고를 활동 로그 경고로 마이그레이션
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
 > 관리 이벤트에 대한 경고는 10월 1일 이후로 해제됩니다. 아래의 지침을 사용하여 이러한 경고가 있는지 파악하고 마이그레이션하세요(있는 경우).
->
-> 
 
 ## <a name="what-is-changing"></a>변경 사항
 
 Azure Monitor(이전의 Azure Insights)에서는 관리 이벤트를 트리거하고 웹후크 URL 또는 이메일 주소에 대한 알림을 생성하는 경고를 만드는 기능을 제공했습니다. 다음 방법 중 하나로 이러한 경고를 만들었을 수 있습니다.
 * 특정 리소스 종류에 대한 Azure Portal에서 [모니터링] -> [경고] -> [경고 추가] 선택(여기서 "에 대한 경고"가 "이벤트"로 설정됨)
-* Add-AzureRmLogAlertRule PowerShell cmdlet 실행
+* 추가 AzLogAlertRule PowerShell cmdlet을 실행 하 여
 * odata.type = "ManagementEventRuleCondition" 및 dataSource.odata.type = "RuleManagementEventDataSource"가 포함된 [경고 REST API](https://docs.microsoft.com/rest/api/monitor/alertrules) 직접 사용
  
 다음 PowerShell 스크립트에서는 구독에 포함된 관리 이벤트에 대한 모든 경고 목록과 각 경고에 설정된 조건 집합을 반환합니다.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 $alerts = $null
-foreach ($rg in Get-AzureRmResourceGroup ) {
-  $alerts += Get-AzureRmAlertRule -ResourceGroup $rg.ResourceGroupName
+foreach ($rg in Get-AzResourceGroup ) {
+  $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
 }
 foreach ($alert in $alerts) {
   if($alert.Properties.Condition.DataSource.GetType().Name.Equals("RuleManagementEventDataSource")) {

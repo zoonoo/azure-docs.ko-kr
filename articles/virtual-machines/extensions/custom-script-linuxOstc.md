@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: b88d850b708a10d0e0fdff2f54b68cb9b39988f5
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
-ms.translationtype: HT
+ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140152"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437108"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 1 사용
 
@@ -119,17 +119,17 @@ ms.locfileid: "42140152"
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.OSTCExtensions | string |
-| 형식 | CustomScriptForLinux | string |
+| publisher | Microsoft.OSTCExtensions | 문자열 |
+| 형식 | CustomScriptForLinux | 문자열 |
 | typeHandlerVersion | 1.5 | int |
 | fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute(예) | python MyPythonScript.py \<my-param1\> | string |
+| commandToExecute(예) | python MyPythonScript.py \<my-param1\> | 문자열 |
 | enableInternalDNSCheck | true | 부울 |
-| storageAccountName(예) | examplestorageacct | string |
-| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| storageAccountName(예) | examplestorageacct | 문자열 |
+| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
 
@@ -305,7 +305,7 @@ az vm extension set
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-개별 실행을 찾아야 합니다. 다음과 같은 모양입니다.
+개별 실행을 찾아야, 다음과 같은 모양이 됩니다.
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

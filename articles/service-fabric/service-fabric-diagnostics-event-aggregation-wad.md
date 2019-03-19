@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: afc833775894a01e8061401fe7601267f09edded
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187439"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243247"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure 진단을 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "55187439"
 
 Azure 서비스 패브릭 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 애플리케이션 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
 
-로그를 업로드 및 수집하는 방법 중 하나는 MAD(Microsoft Azure 진단) 확장을 사용하는 것입니다. 이 확장을 사용하면 Azure Storage에 로그를 업로드하고 Azure Application Insights 또는 Event Hubs에 로그를 보낼 수 있습니다. 또한 외부 프로세스를 사용하여 저장소의 이벤트를 읽고 분석 플랫폼 제품(예: [Log Analytics](../log-analytics/log-analytics-service-fabric.md) 또는 기타 로그 구문 분석 솔루션)에 배치할 수 있습니다.
+로그를 업로드 및 수집하는 방법 중 하나는 MAD(Microsoft Azure 진단) 확장을 사용하는 것입니다. 이 확장을 사용하면 Azure Storage에 로그를 업로드하고 Azure Application Insights 또는 Event Hubs에 로그를 보낼 수 있습니다. 이벤트 저장소에서 읽고와 같은 분석 플랫폼 제품에 배치할 외부 프로세스를 사용할 수도 있습니다 [Azure Monitor 로그](../log-analytics/log-analytics-service-fabric.md) 또는 다른 로그 구문 분석 솔루션입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 다음 도구가 사용됩니다.
@@ -57,10 +57,12 @@ Service Fabric은 몇 가지 [기본 로깅 채널](service-fabric-diagnostics-e
 
 ![클러스터 템플릿](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Azure Storage에서 이벤트를 집계하므로 Log Analytics 포털에서 인사이트를 수집하고 쿼리하도록 [Log Analytics를 설정](service-fabric-diagnostics-oms-setup.md)합니다.
+Azure Storage에 이벤트를 집계 하므로 했으므로 [Azure Monitor 로그 설정](service-fabric-diagnostics-oms-setup.md) 통찰력을 얻고 azure에서 쿼리할 모니터 로그 포털
 
 >[!NOTE]
 >현재 테이블로 전송되는 이벤트를 필터링하거나 영구 제거할 방법은 없습니다. 테이블에서 이벤트를 제거하는 프로세스를 구현하지 않으면 테이블이 계속 커집니다(기본 제한은 50GB). 제한을 변경하는 방법에 대한 지침은 [이 문서의 아래에 자세히 설명](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota)되어 있습니다. 또한 [Watchdog 샘플](https://github.com/Azure-Samples/service-fabric-watchdog-service)에서 실행되는 데이터 그루밍 서비스의 예제가 있고, 30일 또는 90일 넘어서 로그를 저장해야 하는 적절한 이유가 없다면 직접 작성하는 것이 좋습니다.
+
+
 
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Azure Resource Manager를 통해 진단 확장 배포
 
@@ -292,15 +294,57 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 
 ## <a name="send-logs-to-application-insights"></a>Application Insights에 로그 보내기
 
-WAD 구성의 일부로 모니터링 및 진단 데이터를 AI(Application Insights)에 보낼 수 있습니다. 이벤트 분석 및 시각화에 AI를 사용하도록 결정할 경우 "WadCfg"의 일부로 [AI 싱크를 설정하는 방법](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)을 읽어 보세요.
+### <a name="configuring-application-insights-with-wad"></a>WAD로 Application Insights 구성
+
+>[!NOTE]
+>이는 해당 시점의 Windows 클러스터에만 적용됩니다.
+
+두 가지 기본 WAD에서 데이터를 Application Insights 싱크를 WAD 구성으로 Azure portal 또는 Azure Resource Manager 템플릿을 통해 추가 하 여 수행 되는 Azure Application Insights로 보내도록 합니다.
+
+#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Azure Portal에서 클러스터를 만들 때 Application Insights 계측 키 추가
+
+![AIKey 추가](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
+
+클러스터를 만들 때 진단이 "설정"으로 설정되면 Application Insights 계측 키를 입력할 수 있는 선택 필드가 나타납니다. 여기에 Application Insights 키를 붙여 넣으면 클러스터를 배포하는 데 사용되는 Resource Manager 템플릿에서 Application Insights 싱크가 자동으로 구성됩니다.
+
+#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Resource Manager 템플릿에 Application Insights 싱크 추가
+
+Resource Manager 템플릿의 "WadCfg"에서 다음 두 가지 변경 사항을 포함하여 "Sink"를 추가합니다.
+
+1. `DiagnosticMonitorConfiguration` 선언이 완료된 직후에 싱크 구성을 추가합니다.
+
+    ```json
+    "SinksConfig": {
+        "Sink": [
+            {
+                "name": "applicationInsights",
+                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
+            }
+        ]
+    }
+
+    ```
+
+2. `WadCfg`의 `DiagnosticMonitorConfiguration`에 다음 줄을 추가하여(`EtwProviders` 선언 직전) `DiagnosticMonitorConfiguration`에 Sink를 포함합니다.
+
+    ```json
+    "sinks": "applicationInsights"
+    ```
+
+위의 두 코드 조각에서 "applicationInsights"라는 이름은 싱크를 설명하는 데 사용되었습니다. 이는 요구 사항은 아니며 싱크의 이름이 "sinks"에 포함되어 있는 한 이름을 임의의 문자열로 설정할 수 있습니다.
+
+현재 클러스터의 로그는 Application Insights의 로그 뷰어에 **추적**으로 표시됩니다. 대부분의 플랫폼에서 발생 추적은 "정보" 수준 이므로 수도 있습니다 "경고" 또는 "오류가 발생 했습니다." 유형의 로그만 보내도록 싱크 구성을 변경 이 작업은 [이 문서](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)에서 설명한 것처럼 싱크에 "채널"을 추가하여 수행할 수 있습니다.
+
+>[!NOTE]
+>포털 또는 Resource Manager 템플릿에서 잘못된 Application Insights 키를 사용하는 경우 수동으로 키를 변경하고 클러스터를 업데이트/재배포해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 진단을 제대로 구성하면 저장소 테이블에서 ETW 및 EventSource 로그의 데이터를 확인할 수 있습니다. Log Analytics 또는 Kibana를 사용하거나 Resource Manager 템플릿에서 직접 구성되지 않은 기타 데이터 분석 및 시각화 플랫폼을 사용하도록 선택할 경우 선택한 플랫폼이 이러한 저장소 테이블에서 데이터를 읽도록 설정해야 합니다. Log Analytics에 대해 이 작업을 수행하는 방법은 비교적 간단하고 [이벤트 및 로그 분석](service-fabric-diagnostics-event-analysis-oms.md)에 설명되어 있습니다. Application Insights는 진단 확장 구성의 일부로 구성될 수 있으므로 이런 의미에서 약간 특별한 경우입니다. 따라서 AI를 사용하도록 선택할 경우 [관련 문서](service-fabric-diagnostics-event-analysis-appinsights.md)를 참조하세요.
+Azure 진단을 제대로 구성하면 저장소 테이블에서 ETW 및 EventSource 로그의 데이터를 확인할 수 있습니다. Azure Monitor 로그 또는 Kibana를 사용 하거나 다른 데이터 분석 및 시각화 플랫폼 Resource Manager 템플릿에서 직접 구성 되지 않은 사용 하려는 경우에 이러한 저장소 테이블에서 데이터 읽기를 원하는 플랫폼을 설정 해야 합니다. 비교적 간단 하 고 방법은 Azure Monitor 로그에 대 한 사용자에 게 이렇게 [이벤트 및 로그 분석](service-fabric-diagnostics-event-analysis-oms.md)합니다. Application Insights는 진단 확장 구성의 일부로 구성될 수 있으므로 이런 의미에서 약간 특별한 경우입니다. 따라서 AI를 사용하도록 선택할 경우 [관련 문서](service-fabric-diagnostics-event-analysis-appinsights.md)를 참조하세요.
 
 >[!NOTE]
 >현재 테이블로 전송되는 이벤트를 필터링하거나 영구 제거할 방법은 없습니다. 테이블에서 이벤트를 제거하는 프로세스를 구현하지 않으면 테이블이 계속 커집니다. 현재 [Watchdog 샘플](https://github.com/Azure-Samples/service-fabric-watchdog-service)에서 실행되는 데이터 그루밍 서비스의 예제가 있고, 30일 또는 90일 넘어서 로그를 저장해야 하는 적절한 이유가 없다면 직접 작성하는 것이 좋습니다.
 
 * [진단 확장을 사용하여 성능 카운터 또는 로그를 수집하는 방법 알아보기](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Application Insights를 사용하여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Log Analytics를 사용하여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-oms.md)
+* [이벤트 분석 및 Azure Monitor 로그를 사용 하 여 시각화](service-fabric-diagnostics-event-analysis-oms.md)

@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 02/15/2019
 ms.author: saudas
-ms.openlocfilehash: 37a9712749a1575f81086d28ad461a665bef36d9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: aafc6c5a240a1dd3e3c75dd33da26bde918b2288
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313452"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403212"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -31,7 +31,7 @@ AKS에서 지원하는 Kubernetes의 4개 부 버전은 다음과 같습니다.
 
 새로운 부 버전이 릴리스되면 지원되는 가장 오래된 부 버전 및 패치 릴리스는 사용 중지됩니다. 새로운 부 버전이 릴리스되어 이전 버전이 사용 중지되기 15일 전에 [Azure 업데이트 채널][azure-update-channel]을 통해 공지가 제공됩니다. 위의 예제에서는 *1.12.x*가 릴리스되면 *1.8.g* + *1.8.h* 버전이 사용 중지됩니다.
 
-포털에서 또는 Azure CLI를 사용하여 배포하는 AKS 클러스터는 항상 n-1 부 버전 및 최신 패치로 설정됩니다. 예를 들어 AKS에서 *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9f*를 지원하는 경우 새 클러스터의 기본 버전은 *1.10.b*가 됩니다.
+포털에서 또는 Azure CLI를 사용하여 배포하는 AKS 클러스터는 항상 n-1 부 버전 및 최신 패치로 설정됩니다. 예를 들어 AKS에서 *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9f*, 새 클러스터에 대 한 기본 버전은 *1.11.b*합니다.
 
 ## <a name="list-currently-supported-versions"></a>현재 지원되는 버전 목록
 

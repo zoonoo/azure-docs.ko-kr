@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: c60983dbbe72515fd8f0f4860e169ce1ba69ed45
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311719"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407088"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스 또는 속성의 여러 인스턴스 배포
 
-이 문서에서는 Azure Resource Manager 템플릿을 반복하여 리소스의 여러 인스턴스를 만드는 방법을 보여 줍니다. 리소스 배포 여부를 지정해야 하는 경우, [조건 요소](resource-manager-templates-resources.md#condition)를 참조하세요.
+이 문서에서는 Azure Resource Manager 템플릿을 반복하여 리소스의 여러 인스턴스를 만드는 방법을 보여 줍니다. 리소스 배포 여부를 지정해야 하는 경우, [조건 요소](resource-group-authoring-templates.md#condition)를 참조하세요.
 
 자습서의 경우 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)를 참조하세요.
 
@@ -272,6 +272,8 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 
 변수의 여러 인스턴스를 만들려면 변수 섹션에서 `copy` 속성을 사용합니다. `input` 속성의 값에서 생성된 요소 배열을 만듭니다. 변수 내부 또는 변수 섹션의 최상위 수준에서 `copy` 속성을 사용할 수 있습니다. 변수 반복 내부에 `copyIndex`를 사용하는 경우 반복의 이름을 제공해야 합니다.
 
+문자열 값의 배열을 만드는 간단한 예제를 보려면 [copy 배열 템플릿을](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json)합니다.
+
 다음 예제에서는 동적으로 생성된 요소로 배열 변수를 만드는 여러 가지 방법을 보여 줍니다. 변수 내부에 copy를 사용하여 개체 및 문자열의 배열을 만드는 방법을 보여 줍니다. 또한 최상위 수준에서 copy를 사용하여 개체, 문자열 및 정수의 배열을 만드는 방법을 보여 줍니다.
 
 ```json
@@ -344,6 +346,50 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
     }
   }
 }
+```
+
+생성 되는 변수의 형식이 입력된 개체에 따라 달라 집니다. 예를 들어, 명명 된 변수의 **최상위-level-개체-배열** 앞의 예제를 반환 합니다.
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+및 명명 된 변수의 **최상위-level-문자열-배열** 반환 합니다.
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>루프의 리소스에 따라 달라짐

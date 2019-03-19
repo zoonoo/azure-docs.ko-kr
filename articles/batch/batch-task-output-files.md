@@ -10,15 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 11/14/2018
+ms.date: 03/05/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0be7ae9658259b327014c5678777c963e6cb5
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.openlocfilehash: 1d2d53213af34377d23c9ea140bab15822fc1b2e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302819"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444772"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지
 
@@ -36,9 +36,6 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 - 가상 컴퓨터 구성으로 만든 풀에서 Batch 태스크 및 작업 관리자 태스크의 출력을 유지하려고 합니다.
 - Azure Storage 컨테이너에 임의의 이름으로 출력을 유지하려고 합니다.
 - [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)(영문)에 따라 명명된 Azure Storage 컨테이너에 출력을 유지하려고 합니다. 
-
-> [!NOTE]
-> Batch 서비스 API는 클라우드 서비스 구성으로 만든 풀에서 실행되는 태스크의 데이터를 유지하도록 지원하지 않습니다. 클라우드 서비스 구성을 실행하는 풀에서 태스크 출력을 유지하는 방법에 대한 자세한 내용은 [.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지](batch-task-output-file-conventions.md)를 참조하세요.
 
 위에서 나열한 시나리오와 다른 시나리오이면 다른 방법을 고려해야 할 수도 있습니다. 예를 들어 Batch 서비스 API는 현재 태스크가 실행되는 동안 Azure Storage에 대한 스트리밍 출력을 지원하지 않습니다. 출력을 스트리밍하려면 .NET에서 사용할 수 있는 Batch 파일 규칙 라이브러리를 사용하는 것이 좋습니다. 다른 언어의 경우 사용자 고유의 자체 솔루션을 구현해야 합니다. 태스크 출력을 유지하기 위한 다른 옵션에 대한 자세한 내용은 [Azure Storage에 작업 및 태스크 출력 유지](batch-task-output.md)를 참조하세요.
 

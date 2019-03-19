@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: cb964451d25bb381ee9cca84628852a61e4be9b6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: dc4a982dde62f62eb8f2d91a61fd70ba79fa13d5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090910"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539980"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Apache Kafka용 Azure Event Hubs에서 Apache Flink 사용
 이 자습서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Apache Flink를 Kafka 지원 이벤트 허브에 연결하는 방법을 보여 줍니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
@@ -41,7 +41,7 @@ Apache Kafka를 사용하는 주요 이점 중 하나는 연결할 수 있는 �
 * [JDK(Java Development Kit) 1.7+](https://aka.ms/azure-jdks)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
     * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
-* Maven 이진 보관 파일을 [다운로드](http://maven.apache.org/download.cgi)하여 [설치](http://maven.apache.org/install.html)합니다.
+* Maven 이진 보관 파일을 [다운로드](https://maven.apache.org/download.cgi)하여 [설치](https://maven.apache.org/install.html)합니다.
     * Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다.
 * [Git](https://www.git-scm.com/downloads)
     * Ubuntu에서 `sudo apt-get install git`를 실행하여 Git를 실행할 수 있습니다.
@@ -137,7 +137,7 @@ Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 �
 - [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
 - [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
 - [Kafka 사용 Event Hubs 만드는 방법](event-hubs-create-kafka-enabled.md)
-- [Kafka 응용 프로그램에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Kafka 애플리케이션에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 - [Kafka 지원 이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Kafka 지원 이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [Kafka 지원 이벤트 허브에 Kafka Connect 통합](event-hubs-kafka-connect-tutorial.md)

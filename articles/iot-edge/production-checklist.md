@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652623"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433453"
 ---
-# <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>프로덕션에 IoT Edge 솔루션 배포 준비
+# <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
 IoT Edge 솔루션을 개발에서 프로덕션으로 전환할 준비가 되었으면 지속적인 성능 유지가 가능하도록 구성되었는지 확인합니다.
 
-이 문서에 제공된 정보의 중요도가 모두 같지는 않습니다. 우선 순위를 정하는 데 도움이 되도록 각 섹션의 시작 부분에 작업을 두 섹션으로 나누는 목록이 나와 있습니다. **중요** 섹션은 프로덕션으로 전환하기 전에 완료해야 하는 작업이고, **유용함** 섹션은 알아 두면 도움이 되는 작업입니다.
+이 문서에서 다루는 정보의 중요도가 모두 같지는 않습니다. 우선 순위를 정하는 데 도움이 되도록 각 섹션의 시작 부분에 작업이 두 가지 범주로 구분되어 나열되어 있습니다. **중요**에 해당하는 작업은 프로덕션으로 전환하기 전에 완료해야 하며, **유용함**에 해당하는 작업은 참조용으로 알아두면 좋습니다.
 
 ## <a name="device-configuration"></a>디바이스 구성
 
@@ -28,7 +28,7 @@ IoT Edge 디바이스는 Raspberry Pi부터 노트북, 서버에서 실행되는
 
 * **중요**
     * 프로덕션 인증서 설치
-    * 디바이스 관리 계획 있음
+    * 디바이스 관리 계획 준비
     * Moby를 컨테이너 엔진으로 사용
 
 * **유용함**
@@ -36,15 +36,15 @@ IoT Edge 디바이스는 Raspberry Pi부터 노트북, 서버에서 실행되는
 
 ### <a name="install-production-certificates"></a>프로덕션 인증서 설치
 
-프로덕션의 모든 IoT Edge 디바이스에 디바이스 CA(인증 기관) 인증서가 설치되어 있어야 합니다. 그런 다음, 해당 CA 인증서가 config.yaml 파일에서 IoT Edge 런타임으로 선언됩니다. 개발 및 테스트를 쉽게 수행하기 위해, config.yaml 파일에서 선언된 인증서가 없는 경우 IoT Edge 런타임에서 임시 인증서를 만듭니다. 그러나 이러한 임시 인증서는 3개월 후에 만료되며 프로덕션 시나리오에 안전하지 않습니다. 
+프로덕션 단계의 모든 IoT Edge 디바이스에 디바이스 CA(인증 기관) 인증서가 설치되어 있어야 합니다. 설치된 CA 인증서는 config.yaml 파일에서 IoT Edge 런타임으로 선언됩니다. 개발 및 테스트를 쉽게 수행하기 위해, config.yaml 파일에서 선언된 인증서가 없는 경우 IoT Edge 런타임에서 임시 인증서를 만듭니다. 그러나 이러한 임시 인증서는 3개월 후에 만료되어 프로덕션 시나리오가 원활하게 진행될 수 없습니다. 
 
 디바이스 CA 인증서의 역할을 이해하려면 [Azure IoT Edge에서 인증서를 사용하는 방법](iot-edge-certs.md)을 참조하세요.
 
-IoT Edge 디바이스에 인증서를 설치하고 config.yaml 파일에서 해당 인증서를 참조하는 방법에 대한 자세한 내용은 [투명한 게이트웨이로 작동하도록 IoT Edge 디바이스 구성](how-to-create-transparent-gateway.md)을 참조하세요. 인증서를 구성하는 단계는 디바이스가 게이트웨이로 사용되는지 여부에 관계없이 동일합니다. 이 문서에서는 테스트 전용으로 샘플 인증서를 생성하는 스크립트를 제공합니다. 프로덕션에서는 이러한 샘플 인증서를 사용하지 마세요. 
+IoT Edge 디바이스에 인증서를 설치하고 config.yaml 파일에서 해당 인증서를 참조하는 방법에 대한 자세한 내용은 [투명한 게이트웨이로 작동하도록 IoT Edge 디바이스 구성](how-to-create-transparent-gateway.md)을 참조하세요. 인증서를 구성하는 단계는 디바이스가 게이트웨이로 사용되는지 여부에 관계없이 동일합니다. 이 문서에서는 테스트 전용으로 샘플 인증서를 생성하는 스크립트를 다룹니다. 프로덕션에서는 이러한 샘플 인증서를 사용하지 마세요. 
 
-### <a name="have-a-device-management-plan"></a>디바이스 관리 계획 있음
+### <a name="have-a-device-management-plan"></a>디바이스 관리 계획 준비
 
-디바이스를 프로덕션에 배치하기 전에 향후 업데이트를 관리할 방법을 알고 있어야 합니다. IoT Edge 디바이스의 경우 업데이트할 구성 요소 목록에 다음이 포함될 수 있습니다.
+디바이스를 프로덕션으로 전환하기 전에 향후 업데이트를 관리할 방법을 준비해 두어야 합니다. IoT Edge 디바이스의 경우 업데이트할 구성 요소 목록에 다음이 포함될 수 있습니다.
 
 * 디바이스 펌웨어
 * 운영 체제 라이브러리
@@ -52,11 +52,11 @@ IoT Edge 디바이스에 인증서를 설치하고 config.yaml 파일에서 해�
 * IoT Edge 디먼
 * CA 인증서
 
-IoT Edge 디먼을 업데이트하는 단계는 [IoT Edge 런타임 업데이트](how-to-update-iot-edge.md)를 참조하세요. IoT Edge 디먼을 업데이트하는 현재 방법은 IoT Edge 디바이스에 대한 물리적 또는 SSH 액세스가 필요합니다. 업데이트할 디바이스가 많을 경우 업데이트 단계를 스크립트에 추가하거나 Ansible 등의 자동화 도구를 사용하여 대규모 업데이트를 수행하는 것이 좋습니다.
+IoT Edge 디먼을 업데이트하는 단계는 [IoT Edge 런타임 업데이트](how-to-update-iot-edge.md)를 참조하세요. 현재는 IoT Edge 디바이스에 물리적으로 또는 SSH를 통해 액세스해야만 IoT Edge 디먼을 업데이트할 수 있습니다. 업데이트할 디바이스가 많을 경우 업데이트 단계를 스크립트에 추가하거나 Ansible 등의 자동화 도구를 사용하여 대규모 업데이트를 수행하는 것이 좋습니다.
 
 ### <a name="use-moby-as-the-container-engine"></a>Moby를 컨테이너 엔진으로 사용
 
-모든 IoT Edge 디바이스에 대한 필수 조건으로, 디바이스에 컨테이너 엔진이 있어야 합니다. 프로덕션에서는 Moby 엔진만 지원됩니다. Docker 등의 다른 컨테이너 엔진도 IoT Edge에서 작동하므로 이러한 엔진을 개발용으로 사용해도 됩니다. Moby 엔진은 Azure IoT Edge와 함께 사용할 때 재배포할 수 있으며, Microsoft에서 이 엔진에 대한 서비스를 제공합니다. IoT Edge 디바이스에서 다른 컨테이너 엔진을 사용하는 것은 지원되지 않습니다.
+모든 IoT Edge 디바이스에 대한 필수 조건으로, 디바이스에 컨테이너 엔진이 있어야 합니다. 프로덕션 단계에서는 Moby 엔진만 지원됩니다. Docker 등 IoT Edge와 호환되는 다른 컨테이너 엔진은 개발 단계에서 사용할 수 있습니다. Moby 엔진은 Azure IoT Edge와 함께 사용할 때 재배포할 수 있으며, Microsoft에서 이 엔진에 대한 서비스를 제공합니다. IoT Edge 디바이스에서 다른 컨테이너 엔진을 사용하는 것은 지원되지 않습니다.
 
 ### <a name="choose-upstream-protocol"></a>업스트림 프로토콜 선택
 
@@ -76,11 +76,11 @@ IoT Edge 디바이스가 연결된 다음, 향후 배포에서 두 런타임 모
 ## <a name="deployment"></a>배포
 
 * **유용함**
-    * 업스트림 프로토콜과 일치
+    * 업스트림 프로토콜의 일관성 유지
     * Edge 허브에서 사용하는 메모리 공간 축소
     * 모듈 이미지의 디버그 버전 사용 안 함
 
-### <a name="be-consistent-with-upstream-protocol"></a>업스트림 프로토콜과 일치
+### <a name="be-consistent-with-upstream-protocol"></a>업스트림 프로토콜의 일관성 유지
 
 IoT Edge 디바이스에서 기본 AMQP가 아닌 다른 프로토콜을 사용하도록 Edge 에이전트를 구성한 경우 모든 후속 배포에서 동일한 프로토콜을 선언해야 합니다. 예를 들어 IoT Edge 디바이스가 AMQP 포트를 차단하는 프록시 서버 뒤에 있는 경우 AMQPWS(WebSocket을 통한 AMQP)를 통해 연결하도록 디바이스를 구성했을 수 있습니다. 디바이스에 모듈을 배포할 때 Edge 에이전트 및 Edge 허브에 대해 동일한 APQPWS 프로토콜을 구성하지 않으면 기본 AMQP가 설정을 재정의하여 다시 연결할 수 없게 됩니다. 
 
@@ -90,9 +90,9 @@ Edge 에이전트 및 Edge 허브 모듈에 대한 UpstreamProtocol 환경 변�
 
 ### <a name="reduce-memory-space-used-by-edge-hub"></a>Edge 허브에서 사용하는 메모리 공간 축소
 
-사용 가능한 메모리가 제한된 제한 디바이스를 배포하는 경우 더 간소화된 용량으로 실행되고 디스크 공간을 덜 사용하도록 Edge 허브를 구성할 수 있습니다. 이러한 구성은 Edge 허브의 성능을 제한하지만, 사용자 솔루션에 적합한 올바른 균형을 찾으세요. 
+사용 가능한 메모리가 제한된 디바이스를 배포하는 경우, 실행되는 메모리 사용량을 줄이고 디스크 공간을 덜 사용하도록 Edge 허브를 구성할 수 있습니다. 그러나 이러한 구성은 Edge 허브의 성능을 제한하므로, 사용자 솔루션에 적합하게 균형을 맞추세요. 
 
-#### <a name="dont-optimize-for-performance-on-constrained-devices"></a>제한 디바이스에서 성능에 최적화하지 않음
+#### <a name="dont-optimize-for-performance-on-constrained-devices"></a>리소스가 제한된 디바이스에서 성능에 최적화하지 않음
 
 Edge 허브는 기본적으로 성능에 최적화되어 있으므로 큰 메모리 청크를 할당하려고 합니다. 이 구성으로 인해 Raspberry Pi와 같은 작은 디바이스에서 안정성 문제가 발생할 수 있습니다. 리소스가 제한된 디바이스를 배포하는 경우 Edge 허브에서 **OptimizeForPerformance** 환경 변수를 **false**로 설정하는 것이 좋습니다. 
 
@@ -100,7 +100,7 @@ Edge 허브는 기본적으로 성능에 최적화되어 있으므로 큰 메모
 
 #### <a name="disable-unused-protocols"></a>사용하지 않는 프로토콜 비활성화
 
-Edge 허브의 성능을 최적화하고 메모리 사용량을 줄이는 또 다른 방법은 솔루션에서 사용하지 않는 프로토콜의 프로토콜 헤드를 끄는 것입니다. 
+Edge 허브의 성능을 최적화하고 메모리 사용량을 줄이는 또 다른 방법은 솔루션에서 사용하지 않는 프로토콜의 헤드를 끄는 것입니다. 
 
 프로토콜 헤드는 배포 매니페스트에서 Edge 허브 모듈에 대한 부울 환경 변수를 설정하여 구성합니다. 세 가지 변수는 다음과 같습니다.
 
@@ -186,7 +186,7 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 ### <a name="set-up-logs-and-diagnostics"></a>로그 및 진단 설정
 
-Linux에서 IoT Edge 디먼은 journald를 기본 로깅 드라이버로 사용합니다. 명령줄 도구 `journalctl`을 사용하여 디먼 로그를 쿼리할 수 있습니다. Windows에서 IoT Edge 디먼은 PowerShell 진단을 사용합니다. `Get-WinEvent`를 사용하여 디먼 로그를 쿼리합니다. IoT Edge 모듈은 로깅에 JSON 드라이버를 사용하며, 이것이 Docker 기본값입니다.  
+Linux에서 IoT Edge 디먼 로깅 드라이버 기본값으로 저널을 사용 합니다. 명령줄 도구 `journalctl`을 사용하여 디먼 로그를 쿼리할 수 있습니다. Windows에서 IoT Edge 디먼은 PowerShell 진단을 사용합니다. `Get-WinEvent`를 사용하여 디먼 로그를 쿼리합니다. IoT Edge 모듈은 로깅에 JSON 드라이버를 사용하며, 이것이 Docker 기본값입니다.  
 
 IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에 액세스하여 로그를 검색하고 문제를 해결할 수 있습니다. 배포 시나리오에서는 해당 옵션이 없을 수 있습니다. 프로덕션에서 사용자 디바이스에 대한 정보를 수집하는 방법을 고려해 보세요. 한 가지 옵션은 다른 모듈에서 정보를 수집하여 클라우드로 보내는 로깅 모듈을 사용하는 것입니다. 로깅 모듈의 한 가지 예는 [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics)이며, 사용자가 직접 로깅 모듈을 설계할 수도 있습니다. 
 
@@ -194,7 +194,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 * Docker 디먼 자체에서 모든 docker 로그 파일의 크기를 구체적으로 제한할 수 있습니다. Linux의 경우 `/etc/docker/daemon.json`에서 디먼을 구성합니다. Windows의 경우 `C:\ProgramData\docker\confige\daemon.json`에서 구성합니다. 
 * 각 컨테이너에 맞게 로그 파일 크기를 조정하려는 경우 각 모듈의 CreateOptions에서 조정할 수 있습니다. 
-* Docker의 기본 로깅 드라이버로 journald를 설정하여 로그를 자동으로 관리하도록 Docker를 구성합니다. 
+* Docker에 대 한 기본 로깅 드라이버로 저널을 설정 하 여 로그를 자동으로 관리 하도록 Docker를 구성 합니다. 
 * Docker용 logrotate 도구를 설치하여 사용자 디바이스에서 이전 로그를 정기적으로 제거합니다. 다음 파일 사양을 사용합니다. 
 
    ```

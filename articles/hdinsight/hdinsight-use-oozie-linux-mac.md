@@ -8,17 +8,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 02/15/2019
-ms.openlocfilehash: b77f87ef922d2f759fd8d72505effa3d8e96c403
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: dfbf9a3a9b800fec5df4cf527ddd4ec8e3f55b37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339432"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853242"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 Linux 기반 Azure HDInsight에서 워크플로 정의 및 실행
-
-[!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
 Azure HDInsight에서 Apache Hadoop과 함께 Apache Oozie를 사용하는 방법을 알아봅니다. Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다. Oozie는 Hadoop 스택과 통합되며 다음 작업을 지원합니다.
 
@@ -35,10 +33,19 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* **일반 HDInsight 클러스터**: [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* **HDInsight에서 Hadoop 클러스터를**입니다. 참조 [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)합니다.
 
-> [!IMPORTANT]  
-> 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
+* **SSH 클라이언트** 참조 [SSH를 사용 하 여 HDInsight (Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)합니다.
+
+* **Azure SQL Database**합니다.  참조 [Azure portal에서 Azure SQL database 만들기](../sql-database/sql-database-get-started.md)합니다.  이 문서에서는 라는 데이터베이스 `oozietest`합니다.
+
+* **저장소 구성에 대 한 변경 되었을 수 있습니다.**  참조 [저장소 구성](#storage-configuration) 저장소 계정 종류를 사용 하는 경우 `BlobStorage`합니다.
+
+## <a name="storage-configuration"></a>Storage 구성
+조치가 필요한 경우 사용 된 저장소 계정의 종류입니다 `Storage (general purpose v1)` 또는 `StorageV2 (general purpose v2)`합니다.  문서의 프로세스는 출력에 적어도 `/mapreducestaging`합니다.  기본 hadoop 구성이 포함 됩니다 `/mapreducestaging` 에 `fs.azure.page.blob.dir` 에서 구성 변수 `core-site.xml` 서비스용 `HDFS`합니다.  이 구성에는 저장소 계정 종류에 대 한 지원 되지 않는 페이지 blob를 디렉터리에 출력 하면 `BlobStorage`합니다.  사용 하도록 `BlobStorage` 이 문서에 대 한 제거 `/mapreducestaging` 에서 `fs.azure.page.blob.dir` 구성 변수입니다.  구성에서 액세스할 수 합니다 [Ambari UI](hdinsight-hadoop-manage-ambari.md)합니다.  그렇지 않으면 오류 메시지가 표시 됩니다. `Page blob is not supported for this account type.`
+
+> [!NOTE]  
+> 이 문서에 사용 되는 저장소 계정에 [보안 전송](../storage/common/storage-require-secure-transfer.md) 사용 하도록 설정 되므로 `wasbs` 대신 `wasb` 문서 전체에서 사용 됩니다.
 
 ## <a name="example-workflow"></a>예제 워크플로
 
@@ -46,7 +53,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 ![워크플로 다이어그램][img-workflow-diagram]
 
-1. Hive 동작은 HiveQL을 실행하여 HDInsight에 포함된 **hivesampletable** 에서 레코드를 추출합니다. 데이터의 각 행은 특정 모바일 디바이스에서의 방문을 설명합니다. 레코드 형식은 다음 텍스트와 유사하게 표시됩니다.
+1. 레코드를 추출 하는 HiveQL 스크립트를 실행 하는 Hive 작업을 `hivesampletable` HDInsight를 사용 하 여 포함 된 합니다. 데이터의 각 행은 특정 모바일 디바이스에서의 방문을 설명합니다. 레코드 형식은 다음 텍스트와 유사하게 표시됩니다.
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
@@ -63,15 +70,13 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 ## <a name="create-the-working-directory"></a>작업 디렉터리 만들기
 
-Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예에서는 **wasb:///tutorials/useoozie**를 사용합니다. 이 디렉터리를 만들려면 다음 단계를 완료합니다.
+Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예에서는 `wasbs:///tutorials/useoozie`를 사용합니다. 이 디렉터리를 만들려면 다음 단계를 완료합니다.
 
-1. SSH를 사용하여 HDInsight 클러스터에 연결합니다.
+1. 바꾸려면 아래 코드를 편집할 `sshuser` SSH를 사용 하 여 사용자를 클러스터에 대 한 이름을 바꾸고 `clustername` 클러스터의 이름입니다.  다음에서 HDInsight 클러스터에 연결 하기 위한 코드를 입력 [SSH를 사용 하 여](hdinsight-hadoop-linux-use-ssh-unix.md)입니다.  
 
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
-
-    `sshuser`를 클러스터의 SSH 사용자 이름으로 바꿉니다. `clustername`을 클러스터의 이름으로 바꿉니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. 디렉터리를 만들려면 다음 명령을 사용합니다.
 
@@ -79,16 +84,14 @@ Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리�
     hdfs dfs -mkdir -p /tutorials/useoozie/data
     ```
 
-    > [!NOTE]
-    > `-p` 매개 변수는 경로의 모든 디렉터리가 만들어지도록 합니다. **data** 디렉터리는 **useooziewf.hql** 스크립트에서 사용하는 데이터를 저장하는 데 사용됩니다.
+    > [!NOTE]  
+    > `-p` 매개 변수는 경로의 모든 디렉터리가 만들어지도록 합니다. 합니다 `data` 디렉터리에 사용 되는 데이터를 포함할 수 있습니다는 `useooziewf.hql` 스크립트입니다.
 
-3. Oozie가 사용자 계정을 가장할 수 있도록 다음 명령을 사용합니다.
+3. 바꾸려면 아래 코드를 편집 `username` 을 SSH 사용자 이름입니다.  Oozie가 사용자 계정을 가장할 수 있도록 다음 명령을 사용합니다.
 
     ```bash
     sudo adduser username users
     ```
-
-    `username`을 SSH 사용자 이름으로 바꿉니다.
 
     > [!NOTE]  
     > 사용자가 이미 `users` 그룹의 구성원이라는 오류는 무시해도 됩니다.
@@ -98,11 +101,11 @@ Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리�
 이 워크플로에서는 Sqoop를 사용하여 SQL Database로 데이터를 내보내므로 SQL Database와 상호 작용하는 데 사용되는 JDBC 드라이버의 복사본을 제공해야 합니다. JDBC 드라이버를 작업 디렉터리로 복사하려면 SSH 세션에서 다음 명령을 사용합니다.
 
 ```bash
-hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
+hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozie/
 ```
 
-> [!NOTE]  
-> 파일이 이미 있다는 메시지가 표시될 수 있습니다.
+> [!IMPORTANT]  
+> 에 있는 실제 JDBC 드라이버 확인 `/usr/share/java/`합니다.
 
 워크플로에서 MapReduce 애플리케이션이 포함된 jar 등의 다른 리소스를 사용하는 경우 이러한 리소스도 추가해야 합니다.
 
@@ -127,15 +130,15 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
     스크립트에서 사용되는 두 가지 변수는 다음과 같습니다.
 
-    * `${hiveTableName}`: 만들려는 테이블의 이름을 포함합니다.
+   * `${hiveTableName}`: 만들려는 테이블의 이름을 포함합니다.
 
-    * `${hiveDataFolder}`: 테이블의 데이터 파일을 저장할 위치를 포함합니다.
+   * `${hiveDataFolder}`: 테이블의 데이터 파일을 저장할 위치를 포함합니다.
 
-    워크플로 정의 파일(이 자습서의 경우 workflow.xml)은 런타임 시 이러한 값을 이 HiveQL 스크립트에 전달합니다.
+     워크플로 정의 파일(이 자습서의 경우 workflow.xml)은 런타임 시 이러한 값을 이 HiveQL 스크립트에 전달합니다.
 
-4. 편집기를 종료하려면 Ctrl+X를 누릅니다. 파일 선택할지 묻는 메시지가 나타나면 `Y`를 선택하고 파일 이름으로 `useooziewf.hql`을 입력한 후 **Enter** 키를 누릅니다.
+4. 파일을 저장하려면 Ctrl+X를 선택하고 `Y`를 입력한 후 **Enter** 키를 누릅니다.  
 
-5. 다음 명령을 사용하여 `useooziewf.hql`을 `wasb:///tutorials/useoozie/useooziewf.hql`로 복사합니다.
+5. 다음 명령을 사용 하 여 복사할 `useooziewf.hql` 에 `wasbs:///tutorials/useoozie/useooziewf.hql`:
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -196,7 +199,7 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
             <arg>1</arg>
             <arg>--input-fields-terminated-by</arg>
             <arg>"\t"</arg>
-            <archive>sqljdbc41.jar</archive>
+            <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
             </sqoop>
         <ok to="end"/>
         <error to="fail"/>
@@ -216,9 +219,9 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
 
      워크플로에 `${jobTracker}` 등의 여러 항목이 있습니다. 이러한 항목을 작업 정의에 사용한 값으로 바꿉니다. 이 문서의 뒷부분에서 작업 정의를 만들 예정입니다.
 
-     Sqoop 섹션의 `<archive>sqljdbc4.jar</archive>` 항목도 있습니다. 이 항목은 이 동작을 실행할 때 이 보관 파일을 Sqoop에 사용할 수 있게 설정하도록 Oozie에 지시합니다.
+     Sqoop 섹션의 `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` 항목도 있습니다. 이 항목은 이 동작을 실행할 때 이 보관 파일을 Sqoop에 사용할 수 있게 설정하도록 Oozie에 지시합니다.
 
-3. 파일을 저장하려면 Ctrl+X를 선택하고 `Y`를 입력한 후 **Enter** 키를 누릅니다. 
+3. 파일을 저장하려면 Ctrl+X를 선택하고 `Y`를 입력한 후 **Enter** 키를 누릅니다.  
 
 4. 다음 명령을 사용하여 `workflow.xml` 파일을 `/tutorials/useoozie/workflow.xml`에 복사합니다.
 
@@ -226,15 +229,10 @@ Oozie 워크플로 정의는 XML 프로세스 정의 언어인 hPDL(Hadoop 프�
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
     ```
 
-## <a name="create-the-database"></a>데이터베이스 만들기
-
-SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-database-get-started.md) 문서의 단계를 따릅니다. 데이터베이스를 만들 때 데이터베이스 이름으로 `oozietest`를 사용합니다. 또한 데이터베이스 서버의 이름을 적어둡니다.
-
-### <a name="create-the-table"></a>테이블 만들기
+## <a name="create-a-table"></a>테이블 만들기
 
 > [!NOTE]  
 > 여러 가지 방법으로 SQL Database에 연결하여 테이블을 생성할 수 있습니다. 다음 단계는 HDInsight 클러스터의 [FreeTDS](http://www.freetds.org/) 를 사용합니다.
-
 
 1. 다음 명령을 사용하여 HDInsight 클러스터에 FreeTDS를 설치합니다.
 
@@ -242,10 +240,10 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. FreeTDS가 설치되면 다음 명령을 사용하여 이전에 생성한 SQL Database 서버에 연결합니다.
+2. 바꾸려면 아래 코드를 편집 `<serverName>` 을 Azure SQL 서버 이름 및 `<sqlLogin>` Azure SQL server 로그인을 사용 합니다.  필수 구성 요소가 SQL database에 연결할 명령을 입력 합니다.  프롬프트에서 암호를 입력 합니다.
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
     ```
 
     다음 텍스트와 비슷한 출력이 제공됩니다.
@@ -267,7 +265,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
     GO
     ```
 
-    `GO` 문을 입력하면 이전 문이 평가됩니다. 이러한 문은 워크플로에서 사용되는 **mobiledata**라는 테이블을 만듭니다.
+    `GO` 문을 입력하면 이전 문이 평가됩니다. 이러한 문은 라는 테이블을 만듭니다 `mobiledata`, 워크플로에서 사용 되는 합니다.
 
     테이블이 생성되었는지 확인하려면 다음 명령을 사용합니다.
 
@@ -279,9 +277,9 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
     다음 텍스트와 같은 출력이 표시됩니다.
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        oozietest       dbo     mobiledata      BASE TABLE
+        oozietest       dbo             mobiledata      BASE TABLE
 
-4. tsql 유틸리티를 종료하려면 `1>` 프롬프트에 `exit`를 입력합니다.
+4. 입력 하 여 tsql 유틸리티를 종료 `exit` 에 `1>` 프롬프트.
 
 ## <a name="create-the-job-definition"></a>작업 정의 만들기
 
@@ -297,21 +295,23 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
     ```xml
     <name>fs.defaultFS</name>
-    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
     > [!NOTE]  
-    > HDInsight 클러스터에서 Azure Storage를 기본 스토리지로 사용하면 `<value>` 요소의 내용은 `wasb://`로 시작합니다. Azure Data Lake Storage Gen1을 대신 사용하는 경우 `adl://`로 시작합니다. Azure Data Lake Storage Gen2를 사용하는 경우 `abfs://`로 시작합니다.
+    > HDInsight 클러스터에서 Azure Storage를 기본 스토리지로 사용하면 `<value>` 요소의 내용은 `wasbs://`로 시작합니다. Azure Data Lake Storage Gen1을 대신 사용하는 경우 `adl://`로 시작합니다. Azure Data Lake Storage Gen2를 사용하는 경우 `abfs://`로 시작합니다.
 
     다음 단계에서 사용되므로 `<value>` 요소의 내용을 저장합니다.
 
-2. Oozie 작업 정의 구성을 만들려면 다음 명령을 사용합니다.
+2. 아래 xml 다음과 같이 편집 합니다.
 
-    ```bash
-    nano job.xml
-    ```
-
-3. nano 편집기가 열리면 파일 내용으로 다음 XML을 사용합니다.
+    |자리 표시자 값| 대체 값|
+    |---|---|
+    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| 1 단계에서 받은 값입니다.|
+    |관리자| HDInsight 클러스터 되지 않은 경우 관리자의 로그인 이름|
+    |serverName| Azure SQL database 서버 이름입니다.|
+    |sqlLogin| Azure SQL database 서버 로그인 합니다.|
+    |sqlPassword| Azure SQL database 서버 로그인 암호입니다.|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -319,7 +319,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
         <property>
         <name>nameNode</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
         </property>
 
         <property>
@@ -339,7 +339,7 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
         <property>
         <name>hiveScript</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
         </property>
 
         <property>
@@ -349,12 +349,12 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
         <property>
         <name>hiveDataFolder</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
         </property>
 
         <property>
         <name>sqlDatabaseConnectionString</name>
-        <value>"jdbc:sqlserver://serverName.database.windows.net;user=adminLogin;password=adminPassword;database=oozietest"</value>
+        <value>"jdbc:sqlserver://serverName.database.windows.net;user=sqlLogin;password=sqlPassword;database=oozietest"</value>
         </property>
 
         <property>
@@ -364,28 +364,25 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
         <property>
         <name>user.name</name>
-        <value>YourName</value>
+        <value>admin</value>
         </property>
 
         <property>
         <name>oozie.wf.application.path</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
     </configuration>
     ```
 
-   * `wasb://mycontainer@mystorageaccount.blob.core.windows.net`의 모든 인스턴스를 기본 저장소에 대해 이전에 받은 값으로 바꿉니다.
+    이 파일의 정보는 대부분 workflow.xml 또는 ooziewf.hql 파일에서 사용되는 값(예: `${nameNode}`)을 채우는 데 사용됩니다.  `wasbs` 경로인 경우 전체 경로를 사용해야 합니다. `wasbs:///`만으로 줄이지 마세요. `oozie.wf.application.path` 항목은 workflow.xml 파일을 찾을 위치를 정의합니다. 이 파일에는 이 작업에서 실행된 워크플로가 포함되어 있습니다.
 
-     > [!WARNING]  
-     > `wasb` 경로인 경우 전체 경로를 사용해야 합니다. `wasb:///`만으로 줄이지 마세요.
+3. Oozie 작업 정의 구성을 만들려면 다음 명령을 사용합니다.
 
-   * `YourName`을 HDInsight 클러스터의 로그인 이름으로 바꿉니다.
-   * `serverName`, `adminLogin` 및 `adminPassword`를 SQL Database의 정보로 바꿉니다.
+    ```bash
+    nano job.xml
+    ```
 
-     이 파일의 정보는 대부분 workflow.xml 또는 ooziewf.hql 파일에서 사용되는 값(예: `${nameNode}`)을 채우는 데 사용됩니다.
-
-     > [!NOTE]  
-     > `oozie.wf.application.path` 항목은 workflow.xml 파일을 찾을 위치를 정의합니다. 이 파일에는 이 작업에서 실행된 워크플로가 포함되어 있습니다.
+4. Nano 편집기가 열리면 파일 내용으로 편집 된 XML을 붙여 넣습니다.
 
 5. 파일을 저장하려면 Ctrl+X를 선택하고 `Y`를 입력한 후 **Enter** 키를 누릅니다.
 
@@ -395,7 +392,6 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
 > [!IMPORTANT]  
 > Oozie 명령을 사용할 때는 HDInsight 헤드 노드에 대한 FQDN을 사용해야 합니다. 이 FQDN은 클러스터에서만 액세스할 수 있으며, 클러스터가 Azure Virtual Network에 있는 경우에는 같은 네트워크에 있는 다른 컴퓨터에서 액세스할 수 있습니다.
-
 
 1. Oozie 서비스의 URL을 가져오려면 다음 명령을 사용합니다.
 
@@ -412,13 +408,12 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
     `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` 부분은 Oozie 명령에서 사용할 URL입니다.
 
-2. URL에 대한 환경 변수를 만들려면 다음을 사용합니다. 모든 명령에 이렇게 입력할 필요는 없습니다.
+2. 이전에 받은 것으로 URL을 대체 하도록 코드를 편집 합니다. URL에 대한 환경 변수를 만들려면 다음을 사용합니다. 모든 명령에 이렇게 입력할 필요는 없습니다.
 
     ```bash
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
-    URL을 이전에 받은 URL로 바꿉니다.
 3. 작업을 제출하려면 다음을 사용합니다.
 
     ```bash
@@ -429,14 +424,11 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
     명령이 완료되면 작업의 ID(예: `0000005-150622124850154-oozie-oozi-W`)가 반환됩니다. 이 ID는 작업을 관리하는 데 사용됩니다.
 
-4. 작업 상태를 확인하려면 다음 명령을 사용합니다.
+4. 바꾸려면 아래 코드를 편집 `<JOBID>` 이전 단계에서 반환 된 id입니다.  작업 상태를 확인하려면 다음 명령을 사용합니다.
 
     ```bash
     oozie job -info <JOBID>
     ```
-
-    > [!NOTE]  
-    > `<JOBID>`를 이전 단계에서 반환된 ID로 바꿉니다.
 
     이 명령은 다음 텍스트와 유사한 정보를 반환합니다.
 
@@ -457,21 +449,18 @@ SQL Database를 만들려면 [SQL Database 만들기](../sql-database/sql-databa
 
     이 작업의 상태는 `PREP`입니다. 이 상태는 작업이 만들어졌지만 시작되지 않았음을 나타냅니다.
 
-5. 작업을 시작하려면 다음 명령을 사용합니다.
+5. 바꾸려면 아래 코드를 편집 `<JOBID>` 이전에 반환 된 id입니다.  작업을 시작하려면 다음 명령을 사용합니다.
 
     ```bash
     oozie job -start JOBID
     ```
 
-    > [!NOTE]  
-    > `<JOBID>`를 이전에 반환된 ID로 바꿉니다.
+    이 명령 후에 상태를 확인하면 실행 중 상태가 표시되고 작업 내 동작에 대한 정보를 반환합니다.  작업을 완료 하려면 몇 분 정도 걸립니다.
 
-    이 명령 후에 상태를 확인하면 실행 중 상태가 표시되고 작업 내 동작에 대한 정보를 반환합니다.
-
-6. 작업이 성공적으로 완료되면 다음 명령을 사용하여 데이터가 생성되고 SQL Database 테이블로 내보내졌음을 확인할 수 있습니다.
+6. 바꾸려면 아래 코드를 편집 `<serverName>` 을 Azure SQL 서버 이름 및 `<sqlLogin>` Azure SQL server 로그인을 사용 합니다.  작업이 성공적으로 완료 되 면 데이터 생성 되어 다음 명령을 사용 하 여 SQL database 테이블로 내보내졌음을 확인할 수 있습니다.  프롬프트에서 암호를 입력 합니다.
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
     ```
 
     `1>` 프롬프트에 다음 쿼리를 입력합니다.
@@ -524,7 +513,7 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
 
 1. HDInsight 클러스터에 대한 SSH 터널을 만듭니다. 자세한 내용은 [HDInsight와 SSH 터널링 사용](hdinsight-linux-ambari-ssh-tunnel.md)을 참조하세요.
 
-2. 터널을 만든 후 웹 브라우저에서 Ambari 웹 UI를 엽니다. Ambari 사이트의 URI는 `https://CLUSTERNAME.azurehdinsight.net`입니다. `CLUSTERNAME`을 Linux 기반 HDInsight 클러스터의 이름으로 바꿉니다.
+2. 터널을 만든 후 URI를 사용 하 여 웹 브라우저에서 Ambari 웹 UI를 열고 `http://headnodehost:8080`합니다.
 
 3. 페이지의 왼쪽부터 **Oozie** > **빠른 링크** > **Oozie 웹 UI**를 선택합니다.
 
@@ -593,9 +582,9 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. `job.xml` 파일을 수정하려면 다음 명령을 사용합니다.
+4. 수정 하는 `job.xml` 앞에서 만든 파일에 다음 명령을 사용 합니다.
 
-    ```
+    ```bash
     nano job.xml
     ```
 
@@ -608,23 +597,23 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
         ```xml
         <property>
             <name>workflowPath</name>
-            <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+            <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
         ```
 
-       `wasb://mycontainer@mystorageaccount.blob.core.windows` 텍스트를 job.xml 파일의 다른 항목에 사용된 값으로 바꿉니다.
+       `wasbs://mycontainer@mystorageaccount.blob.core.windows` 텍스트를 job.xml 파일의 다른 항목에 사용된 값으로 바꿉니다.
 
    * 코디네이터에 대한 시작, 종료 및 빈도를 정의하려면 다음 XML을 추가하세요.
 
         ```xml
         <property>
             <name>coordStart</name>
-            <value>2017-05-10T12:00Z</value>
+            <value>2018-05-10T12:00Z</value>
         </property>
 
         <property>
             <name>coordEnd</name>
-            <value>2017-05-12T12:00Z</value>
+            <value>2018-05-12T12:00Z</value>
         </property>
 
         <property>
@@ -638,17 +627,15 @@ Oozie 웹 UI에 액세스하려면 다음 단계를 완료하세요.
         </property>
         ```
 
-       이러한 값은 시작 시간을 2017년 5월 10일 오후 12시로 설정하고, 종료 시간을 2017년 5월 12일로 설정합니다. 이 작업을 실행하는 간격은 매일로 설정됩니다. 빈도는 분 단위이므로 24시간 x 60분 = 1,440분입니다. 마지막으로, 표준 시간대는 UTC로 설정됩니다.
+       이러한 값에는 2018 년 5 월 10 일 오후 12 시에 시작 시간과 종료 시간 2018 년 5 월 12 일을 설정 합니다. 이 작업을 실행하는 간격은 매일로 설정됩니다. 빈도는 분 단위이므로 24시간 x 60분 = 1,440분입니다. 마지막으로, 표준 시간대는 UTC로 설정됩니다.
 
 5. 파일을 저장하려면 Ctrl+X를 선택하고 `Y`를 입력한 후 **Enter** 키를 누릅니다.
 
-6. 작업을 실행하려면 다음 명령을 사용합니다.
+6. 제출 하 고 작업을 시작 하려면 다음 명령을 사용 합니다.
 
-    ```
+    ```bash
     oozie job -config job.xml -run
     ```
-
-    이 명령은 작업을 제출하고 시작합니다.
 
 7. Oozie 웹 UI를 방문하여 **코디네이터 작업** 탭을 선택하면 다음 그림과 유사한 정보가 표시됩니다.
 
@@ -683,11 +670,11 @@ Oozie UI를 사용하여 Oozie 로그를 볼 수 있습니다. Oozie UI에는 �
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**원인**: **job.xml** 파일에 사용된 Azure Blob Storage 주소에 스토리지 컨테이너 또는 스토리지 계정 이름이 포함되어 있지 않습니다. Blob Storage 주소 형식은 `wasb://containername@storageaccountname.blob.core.windows.net`이어야 합니다.
+**원인**: **job.xml** 파일에 사용된 Azure Blob Storage 주소에 스토리지 컨테이너 또는 스토리지 계정 이름이 포함되어 있지 않습니다. Blob Storage 주소 형식은 `wasbs://containername@storageaccountname.blob.core.windows.net`이어야 합니다.
 
 **해결 방법**: 해당 작업이 사용하는 Blob Storage 주소를 변경합니다.
 
-### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie에서 &lt;USER>를 가장할 수 없음
+### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002: Oozie를 가장할 수 없습니다 &lt;사용자&gt;
 
 **증상**: 작업 상태가 **일시 중단됨**으로 변경되었습니다. 작업에 대한 세부 정보에 `RunHiveScript` 상태가 **START_MANUAL**로 표시됩니다. 동작을 선택하면 다음 오류 메시지가 표시됩니다.
 
@@ -714,16 +701,16 @@ Oozie UI를 사용하여 Oozie 로그를 볼 수 있습니다. Oozie UI에는 �
 
 예를 들어 이 문서의 작업에는 다음 단계를 사용합니다.
 
-1. `sqljdbc4.1.jar` 파일을 **/tutorials/useoozie** 디렉터리에 복사합니다.
+1. `mssql-jdbc-7.0.0.jre8.jar` 파일을 **/tutorials/useoozie** 디렉터리에 복사합니다.
 
     ```bash
-    hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
+    hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc-7.0.0.jre8.jar /tutorials/useoozie/mssql-jdbc-7.0.0.jre8.jar
     ```
 
 2. `workflow.xml`을 수정하여 `</sqoop>` 위의 새 줄에 다음 XML을 추가합니다.
 
     ```xml
-    <archive>sqljdbc41.jar</archive>
+    <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
     ```
 
 ## <a name="next-steps"></a>다음 단계

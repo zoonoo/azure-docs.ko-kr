@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: aeffe172fd422f18e2828c5274e9a2ed13cc546a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 6612d801804cdd1e092b50977230f24b378e64ba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103363"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407139"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 송신 트래픽에 고정 공용 IP 주소 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "55103363"
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작[Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.46 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure cli 버전 2.0.59 또는 나중에 설치 하 고 구성한 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="egress-traffic-overview"></a>송신 트래픽 개요
 
@@ -36,7 +36,7 @@ AKS 클러스터의 아웃바운드 트래픽은 [Azure Load Balancer 규칙][ou
 
 AKS에서 사용할 고정 공용 IP 주소를 만들 때는 **노드** 리소스 그룹에서 IP 주소 리소스를 만들어야 합니다. [az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster*의 노드 리소스 그룹을 가져옵니다.
 
-```azurecli
+```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -44,7 +44,7 @@ MC_myResourceGroup_myAKSCluster_eastus
 
 이제 [az network public ip create][az-network-public-ip-create] 명령을 사용하여 고정 공용 IP 주소를 만듭니다. 이전 명령에서 가져온 노드 리소스 그룹 이름을 지정한 다음 IP 주소 리소스의 이름을 *myAKSPublicIP*와 같이 지정합니다.
 
-```azurecli
+```azurecli-interactive
 az network public-ip create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --name myAKSPublicIP \
@@ -67,7 +67,7 @@ az network public-ip create \
 
 나중에 [az network public-ip list][az-network-public-ip-list] 명령을 사용하여 공용 IP 주소를 가져올 수 있습니다. 노드 리소스 그룹의 이름을 지정한 후에 다음 예제와 같이 *ipAddress*를 쿼리합니다.
 
-```azurecli
+```azurecli-interactive
 $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
 
 40.121.183.52
@@ -104,7 +104,7 @@ kubectl apply -f egress-service.yaml
 기본 *Debian* Pod를 시작하여 해당 Pod에 연결합니다.
 
 ```console
-kubectl run -it --rm aks-ip --image=debian
+kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
 ```
 
 컨테이너 내에서 웹 사이트에 액세스하려면 `apt-get`을 사용하여 컨테이너에 `curl`을 설치합니다.
@@ -118,7 +118,7 @@ apt-get update && apt-get install curl -y
 ```console
 $ curl -s checkip.dyndns.org
 
-<html><head><title>Current IP Check</title></head><body>Current IP Address: 23.101.128.81</body></html>
+<html><head><title>Current IP Check</title></head><body>Current IP Address: 40.121.183.52</body></html>
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e81e842e059e09f24627138ba9fbf6510a603efe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d225ece7b8a8841d17f20bc27de3aa640fa7d37b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353297"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436428"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>지속성 함수의 타이머(Azure Functions)
 
@@ -132,7 +132,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> 코드가 완료될 때까지 기다리지 않는 경우 `CancellationTokenSource`를 사용하여 지속성 타이머를 취소하거나(C#) 반환된 `TimerTask`에 대해 `cancel()`를 호출합니다(JavaScript). 지속성 작업 프레임워크에서는 처리 중인 모든 작업이 완료되거나 취소될 때까지 오케스트레이션 상태가 "완료됨"으로 변경되지 않습니다.
+> 코드가 완료될 때까지 기다리지 않는 경우 `CancellationTokenSource`를 사용하여 지속성 타이머를 취소하거나(C#) 반환된 `TimerTask`에 대해 `cancel()`를 호출합니다(JavaScript). 지 속성 작업 프레임 워크에는 오케스트레이션의 상태를 "완료" 처리 중인 모든 작업이 완료 되거나 취소 될 때까지 변경 되지 않습니다.
 
 이 메커니즘은 실제로 진행 중인 작업 함수 실행을 종료하지 않습니다. 대신 단순히 오케스트레이터 함수를 사용하여 결과를 무시하고 계속 진행할 수 있습니다. 함수 앱에서 소비 계획을 사용하는 경우 중단된 작업 함수에서 사용되는 시간과 메모리에 대해 요금이 계속 청구됩니다. 기본적으로 소비 계획에서 실행되는 함수의 시간 제한은 5분입니다. 이 제한을 초과하면 모든 실행을 중지하고 런어웨이 청구 상황을 방지하기 위해 Azure Functions 호스트가 재활용됩니다. [함수 시간 제한은 구성 가능](../functions-host-json.md#functiontimeout)합니다.
 

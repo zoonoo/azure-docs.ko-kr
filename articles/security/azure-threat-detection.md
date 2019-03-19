@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 32e705c5c338d9bd7c16514b2dc2ab081a9caf6a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115558"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245257"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 지능형 위협 탐지
 
-Azure는 Azure AD(Azure Active Directory), Azure Log Analytics 및 Azure Security Center와 같은 서비스를 통해 지능형 위협 탐지 기능을 기본적으로 제공하고 있습니다. 이 보안 서비스 및 기능 모음을 사용하면 Azure 배포에서 발생하는 상황을 간단하고 빠르게 파악할 수 있습니다.
+Azure Active Directory (Azure AD), Azure Monitor 로그 및 Azure Security Center와 같은 서비스를 통해 고급 위협 검색 기능에 기본 제공 azure 제품입니다. 이 보안 서비스 및 기능 모음을 사용하면 Azure 배포에서 발생하는 상황을 간단하고 빠르게 파악할 수 있습니다.
 
 Azure는 앱 배포의 요구 사항에 맞게 보안을 구성하고 사용자 지정할 수 있는 다양한 옵션을 제공합니다. 이 문서에서는 이러한 요구 사항을 충족하는 방법에 대해 설명합니다.
 
@@ -75,17 +75,17 @@ PIM은 다음과 같이 도움을 줍니다.
 
 -   권한 있는 역할의 액세스에 대한 알림을 받을 수 있습니다.
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. Log Analytics는 클라우드 기반 서비스로 구현되므로 인프라 서비스에 대한 최소한의 투자로 빠르게 실행할 수 있습니다. 새로운 보안 기능을 자동으로 제공하므로 지속적인 유지 관리 및 업그레이드 비용이 절감됩니다.
+[Azure Monitor 로그](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 는 Microsoft 클라우드 기반 IT 관리 솔루션을 보호할 온-프레미스 및 클라우드 인프라 및 관리할 수 있도록 합니다. Azure Monitor 로그를 클라우드 기반 서비스로 구현 되므로 있습니다 해당 실행 신속 하 게 인프라 서비스에 대 한 최소한의 투자로. 새로운 보안 기능을 자동으로 제공하므로 지속적인 유지 관리 및 업그레이드 비용이 절감됩니다.
 
-Log Analytics는 자체적으로 중요 서비스를 제공하는 것 외에도 [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/)와 같은 System Center 구성 요소와 통합되어 기존의 보안 관리 투자를 클라우드로 확장할 수 있습니다. System Center 및 Log Analytics는 함께 작동하여 완전한 하이브리드 관리 환경을 제공할 수 있습니다.
+자체 Azure Monitor의 중요 한 서비스를 제공 하는 것 외에도 로그와 통합할 수 있습니다 System Center 구성 요소와 같은 [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/)하 여 기존 관리 투자를 확장 합니다 클라우드입니다. System Center 및 Azure Monitor 로그는 전체 하이브리드 관리 환경을 제공 하려면 함께 작업할 수 있습니다.
 
 ### <a name="holistic-security-and-compliance-posture"></a>전체적인 보안 및 규정 준수 상태
 
-[Log Analytics 보안 및 감사 대시보드](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)는 주의가 필요한 주목할 만한 문제에 대한 기본 제공되는 검색 쿼리를 통해 조직의 IT 보안 상태에 대한 포괄적인 보기를 제공합니다. 보안 및 감사 대시보드는 Log Analytics의 보안과 관련된 모든 정보를 볼 수 있는 홈 화면입니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며 지난 24시간, 7일, 기타 사용자 지정 기간 동안 발생한 모든 이벤트를 확인할 수도 있습니다.
+[Log Analytics 보안 및 감사 대시보드](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)는 주의가 필요한 주목할 만한 문제에 대한 기본 제공되는 검색 쿼리를 통해 조직의 IT 보안 상태에 대한 포괄적인 보기를 제공합니다. 보안 및 감사 대시보드는 Azure Monitor 로그의 보안과 관련 된 모든 항목에 대 한 홈 화면입니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며 지난 24시간, 7일, 기타 사용자 지정 기간 동안 발생한 모든 이벤트를 확인할 수도 있습니다.
 
-Log Analytics를 사용하면 소프트웨어 업데이트 평가, 맬웨어 방지 평가 및 구성 기준을 포함하여 IT 운영 컨텍스트 내에서 모든 환경의 전반적인 보안 상태를 빠르고 쉽게 이해할 수 있습니다. 또한 보안 로그 데이터에 쉽게 액세스하여 보안 및 규정 준수 감사 프로세스를 간소화할 수 있습니다.
+Azure Monitor는 이해할 수 있도록 돕는 쉽고 빠르게 모든 소프트웨어 업데이트 평가, 맬웨어 방지 평가 및 구성 기준을 비롯 한 IT 작업의 컨텍스트 내에서 모든 환경의 전반적인 보안 상태를 기록 합니다. 또한 보안 로그 데이터에 쉽게 액세스하여 보안 및 규정 준수 감사 프로세스를 간소화할 수 있습니다.
 
 ![Log Analytics 보안 및 감사 대시보드](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
@@ -102,25 +102,25 @@ Log Analytics 보안 및 감사 대시보드는 네 가지 주요 범주로 구�
 -   **일반적 보안 쿼리**: 환경을 모니터링하는 데 사용할 수 있는 가장 일반적인 보안 쿼리의 목록을 제공합니다. 쿼리를 선택하면 검색 창이 열리고 해당 쿼리에 대한 결과가 표시됩니다.
 
 ### <a name="insight-and-analytics"></a>인사이트 및 분석
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)의 핵심은 Azure에서 호스트되는 리포지토리입니다.
+중심이 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 는 Azure에서 호스트 되는 리포지토리입니다.
 
 ![인사이트 및 분석 다이어그램](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 데이터 원본을 구성하고 구독에 솔루션을 추가하여 연결된 원본에서 리포지토리로 데이터를 수집합니다.
 
-![Log Analytics 대시보드 ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Azure Monitor 로그 대시보드](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 데이터 원본 및 솔루션은 각각 고유한 속성 집합을 가진 서로 다른 레코드 유형을 만들지만 리포지토리에 대한 쿼리에서 여전히 함께 분석할 수 있습니다. 동일한 도구 및 메서드를 사용하여 다양한 원본에서 수집된 다양한 데이터로 작업할 수 있습니다.
 
 
-Log Analytics와의 상호 작용은 대부분 모든 브라우저에서 실행되고 수집된 데이터를 분석 및 조작하는 구성 설정 및 여러 도구에 대한 액세스를 제공하는 Azure Portal을 통해 이루어집니다. 포털에서 다음을 수행할 수 있습니다.
+Azure Monitor 로그와의 상호 작용의 대부분 모든 브라우저에서 실행 되 고 수집 된 데이터 구성 설정에 대 한 액세스를 사용 하 여 및 여러 도구를 분석 하 고 역할을 제공 하는 Azure portal을 통해 이루어집니다. 포털에서 다음을 수행할 수 있습니다.
 * [로그 검색](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches)에서는 쿼리를 구성하여 수집된 데이터를 분석합니다.
 * [대시보드](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards)에서는 가장 중요한 검색의 그래픽 보기를 사용하여 사용자 지정할 수 있습니다.
 * [솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)에서는 추가 기능 및 분석 도구를 제공합니다.
 
 ![분석 도구](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-솔루션은 Log Analytics에 기능을 추가합니다. 주로 클라우드에서 실행되며 Log Analytics 리포지토리에 수집된 데이터의 분석을 제공합니다. 또한 솔루션에서는 수집할 새 레코드 유형을 정의하여 로그 검색을 사용하거나 솔루션이 Log Analytics 대시보드에 제공하는 추가 사용자 인터페이스를 사용하여 분석할 수 있습니다.
+Azure Monitor 로그에 기능을 추가 하는 솔루션입니다. 주로 클라우드에서 실행 하며 log analytics 리포지토리에 수집 된 데이터의 분석 기능을 제공 합니다. 솔루션 수집 될 로그 검색 또는 솔루션은 log analytics 대시보드를 제공 하는 추가 사용자 인터페이스를 사용 하 여 분석할 수 있는 새 레코드 유형을 정의할 수 있습니다.
 
 보안 및 감사 대시보드는 이러한 솔루션 유형의 한 예입니다.
 

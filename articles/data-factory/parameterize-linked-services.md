@@ -3,20 +3,20 @@ title: Azure Data Factory의 연결된 서비스 매개 변수화 | Microsoft Do
 description: Azure Data Factory에서 연결된 서비스를 매개 변수화하고 런타임에 동적 값을 전달하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/18/2018
-ms.author: douglasl
-ms.openlocfilehash: af06be520b10184c1e96bdb27d0b8b648cde84a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 0239c53f98fba201b6d70e1e2212eea36134e30d
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018456"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574630"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스 매개 변수화
 

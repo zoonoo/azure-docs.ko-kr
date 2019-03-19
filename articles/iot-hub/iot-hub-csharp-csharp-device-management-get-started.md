@@ -1,20 +1,20 @@
 ---
 title: Azure IoT Hub 디바이스 관리 시작(.NET/.NET) | Microsoft Docs
 description: Azure IoT Hub 디바이스 관리를 사용하여 원격 디바이스 재부팅을 시작하는 방법입니다. .NET용 Azure IoT 디바이스 SDK를 사용하여 직접 메서드를 포함한 시뮬레이트된 디바이스 앱을 구현하며 .NET용 Azure IoT service SDK를 사용하여 직접 메서드를 호출하는 서비스 앱을 구현합니다.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
-ms.author: dobett
-ms.openlocfilehash: 00eda1dc5ad0e455c451fda17cc915ae6c633696
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: 7e7d6fad4268200e5410eb3d3ba3c1e2df06e967
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515148"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008613"
 ---
 # <a name="get-started-with-device-management-netnet"></a>디바이스 관리 시작(.NET/.NET)
 
@@ -30,9 +30,9 @@ ms.locfileid: "51515148"
 
 이 자습서를 마치면 다음과 같은 두 개의 .NET 콘솔 앱이 생깁니다.
 
-* **SimulateManagedDevice** - 이전에 만든 장치 ID로 IoT Hub에 연결하며 재부팅 직접 메서드를 수신하고 물리적 재부팅을 시뮬레이션하며 마지막 재부팅 시간을 보고합니다.
+* **SimulateManagedDevice** - 이전에 만든 디바이스 ID로 IoT Hub에 연결하며 재부팅 직접 메서드를 수신하고 물리적 재부팅을 시뮬레이션하며 마지막 재부팅 시간을 보고합니다.
 
-* **TriggerReboot** - 시뮬레이션된 장치 앱에서 직접 메서드를 호출하고 응답을 표시하며 업데이트된 reported 속성을 표시합니다.
+* **TriggerReboot** - 시뮬레이션된 디바이스 앱에서 직접 메서드를 호출하고 응답을 표시하며 업데이트된 reported 속성을 표시합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "51515148"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>IoT 허브에 대한 연결 문자열 검색
+### <a name="retrieve-connection-string-for-iot-hub"></a>IoT Hub에 대한 연결 문자열 검색
 
 [!INCLUDE [iot-hub-find-include-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -229,7 +229,7 @@ ms.locfileid: "51515148"
 
 1. .NET 디바이스 앱 **SimulateManagedDevice**를 실행하려면 **SimulateManagedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭하고, **디버그**를 선택한 다음, **새 인스턴스 시작**을 선택합니다. IoT 허브의 메서드 호출에 대한 수신이 시작됩니다. 
 
-2. 이제 디바이스가 연결되어 메서드 호출을 기다리고 있으므로 .NET **TriggerReboot** 앱을 실행하여 시뮬레이션된 디바이스 앱에서 다시 부팅 메서드를 호출합니다. 이를 수행하려면 **TriggerReboot** 프로젝트를 마우스 오른쪽 단추로 클릭하고, **디버그**를 선택한 다음, **새 인스턴스 시작**을 선택합니다. 그러면 **SimulatedManagedDevice** 콘솔 및 장치의 보고된 속성에 "다시 부팅 중!"이라고 표시되며, 여기에는 **TriggerReboot** 콘솔에 기록된 마지막 다시 부팅 시간이 포함됩니다.
+2. 이제 디바이스가 연결되어 메서드 호출을 기다리고 있으므로 .NET **TriggerReboot** 앱을 실행하여 시뮬레이션된 디바이스 앱에서 다시 부팅 메서드를 호출합니다. 이를 수행하려면 **TriggerReboot** 프로젝트를 마우스 오른쪽 단추로 클릭하고, **디버그**를 선택한 다음, **새 인스턴스 시작**을 선택합니다. 그러면 **SimulatedManagedDevice** 콘솔 및 디바이스의 보고된 속성에 "다시 부팅 중!"이라고 표시되며, 여기에는 **TriggerReboot** 콘솔에 기록된 마지막 다시 부팅 시간이 포함됩니다.
    
     ![서비스 및 디바이스 앱 실행](./media/iot-hub-csharp-csharp-device-management-get-started/combinedrun.png)
 

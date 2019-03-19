@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1f9ea2fd1e9a346046c55db451bc333373896db5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118091"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439686"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 이해
 이 문서를 통해 Azure Security Center에서 사용할 수 있는 다양한 유형의 보안 경고 및 관련된 정보를 이해할 수 있습니다. 경고 및 인시던트를 관리하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.
@@ -96,7 +96,7 @@ Security Center는 고급 분석을 사용하여 가상 머신 이벤트 로그�
 * **모든 파일 섀도 복사본이 삭제됨**: 이 경고는 섀도 복사본이 삭제되었음을 나타냅니다.
 * **의심스러운 파일 정리 명령**: 이 경고는 손상 이후 자체 정리 작업을 수행하는 데 사용되는 systeminfo 명령의 조합을 나타냅니다.  *systeminfo.exe*는 합법적인 Windows 도구이나 여기에서 발생한 방식으로 두 번 연속 실행한 다음 삭제 명령을 수행하는 것은 드문 경우입니다.
 * **의심스러운 계정 만들기**: 이 경고는 기본 제공되는 기존 관리자 권한 계정과 매우 유사한 계정이 생성되었음을 나타냅니다. 이 기술은 공격자가 검색되지 않고 불량 계정을 만드는 데 사용할 수 있습니다.
-* **의심스러운 볼륨 섀도 복사본 작업**: 이 경고는 리소스에 대한 섀도 복사본 삭제 작업을 나타냅니다. VSC(볼륨 섀도 복사본)는 데이터 스냅숏을 저장하는 중요한 아티팩트입니다. 이런 활동은 랜섬웨어와 관련되지만 합법적일 수도 있습니다.
+* **의심스러운 볼륨 섀도 복사본 작업**: 이 경고는 리소스에 대한 섀도 복사본 삭제 작업을 나타냅니다. VSC(볼륨 섀도 복사본)는 데이터 스냅숏을 저장하는 중요한 아티팩트입니다. 이 작업 랜 섬 웨어에 연결 되지만 합법적 일 수도 있습니다.
 * **Windows 레지스트리 지속성 메서드**: 이 경고는 Windows 레지스트리에 실행 파일을 유지하려는 시도를 나타냅니다. 맬웨어는 부팅 시 존속하기 위해 이러한 기술을 종종 사용합니다.
 * **의심스러운 새 방화벽 규칙**: 이 경고는 *netsh.exe*를 통해 의심스러운 위치에 있는 실행 파일에서 보내는 트래픽을 허용하도록 새 방화벽 규칙이 추가되었음을 나타냅니다.
 * **의심스러운 XCOPY 실행**: 이 경고는 일련의 XCOPY 실행을 나타내며 머신 중 하나가 손상되어 맬웨어를 전파하는 데 사용되었다는 신호일 수 있습니다.

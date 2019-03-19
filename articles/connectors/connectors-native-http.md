@@ -11,12 +11,12 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1c30f77c061ec25c88186caee3f60e65f3afb3de
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232871"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442208"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 HTTP 또는 HTTPS 엔드포인트 호출
 
@@ -46,7 +46,7 @@ Azure Logic Apps 및 HTTP(Hypertext Transfer Protocol) 커넥터를 사용하여
 
    ![HTTP 트리거 선택](./media/connectors-native-http/select-http-trigger.png)
 
-1. 대상 엔드포인트에 대한 호출에 포함하려는 [HTTP 트리거의 매개 변수 및 값](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)을 제공합니다. 트리거에서 대상 엔드포인트를 검사하려는 빈도에 대한 되풀이를 설정합니다.
+1. 대상 엔드포인트에 대한 호출에 포함하려는 [HTTP 트리거의 매개 변수 및 값](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)을 제공합니다. 대상 끝점을 확인 하도록 되풀이 트리거 빈도 대 한을 설정 합니다.
 
    ![HTTP 트리거 매개 변수 입력](./media/connectors-native-http/http-trigger-parameters.png)
 
@@ -77,7 +77,7 @@ Azure Logic Apps 및 HTTP(Hypertext Transfer Protocol) 커넥터를 사용하여
 
 1. 완료되면 논리 앱을 저장해야 합니다. 디자이너 도구 모음에서 **저장**을 선택합니다. 
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 인증을 설정하려면 작업 또는 트리거 내에서 **고급 옵션 표시**를 선택합니다. HTTP 트리거 및 작업에 사용 가능한 인증 유형에 대한 자세한 내용은 [트리거 및 작업 형식 참조](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication)를 참조하세요.
 

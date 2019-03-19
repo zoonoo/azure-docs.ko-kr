@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ceb9c7b18de5262a38fc724aad9605e82a615a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238422"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450569"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>자습서: AWS(Amazon Web Services)와 여러 Azure Active Directory 계정 통합
 
@@ -215,7 +215,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
   
     d. **다음: 사용 권한**을 클릭합니다.
 
-9. **권한 정책 연결** 대화 상자에서 조직에 따라 적절한 정책을 연결합니다. **다음: 검토**를 클릭합니다.  
+9. **권한 정책 연결** 대화 상자에서 조직에 따라 적절한 정책을 연결하세요. **다음: 검토**를 클릭합니다.  
 
     ![Single Sign-On 정책 구성][33]
 

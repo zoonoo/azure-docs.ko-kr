@@ -6,17 +6,17 @@ documentationcenter: na
 author: craigshoemaker
 manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 4536048db4abc25decf1dbf02c75833c570e41af
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 5762e934d7735dd9617cefc1f56105823d74312f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118210"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782193"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
@@ -1716,7 +1716,7 @@ public class DocsFromRouteSqlQuery {
 |**name**     || 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** |**DatabaseName** |문서를 포함하는 데이터베이스입니다.        |
 |**collectionName** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
-|**id**    | **Id** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](functions-triggers-bindings.md#binding-expressions-and-patterns)을 지원합니다. **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
+|**id**    | **Id** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
 |**sqlQuery**  |**SqlQuery**  | 여러 문서를 검색하는 데 사용되는 Azure Cosmos DB SQL 쿼리입니다. 이 속성은 런타임 바인딩을 지원합니다(예: `SELECT * FROM c where c.departmentId = {departmentId}`). **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
 |**partitionKey**|**PartitionKey**|조회를 위한 파티션 키 값을 지정합니다. 바인딩 매개 변수가 포함될 수 있습니다.|
@@ -2317,7 +2317,7 @@ public String cosmosDbQueryById(
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
-| 바인딩 | 참고 자료 |
+| 바인딩 | 참조 |
 |---|---|
 | CosmosDB | [CosmosDB 오류 코드](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
@@ -2342,7 +2342,7 @@ public String cosmosDbQueryById(
 }
 ```  
 
-|자산  |기본값 | 설명 |
+|자산  |Default | 설명 |
 |---------|---------|---------| 
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
 |프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.| 

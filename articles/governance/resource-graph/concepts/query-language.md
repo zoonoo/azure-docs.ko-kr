@@ -1,6 +1,6 @@
 ---
 title: 쿼리 언어 이해
-description: Azure Resource Graph에서 사용하는 Kusto 쿼리 언어의 작동 방식을 설명합니다.
+description: 사용 가능한 Kusto 연산자 및 Azure 리소스 그래프를 사용 하 여 사용 가능한 함수를 설명 합니다.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cc792d27890b5d994b62784eaa511df990f9b5ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 618445c5b792317d4de4b668e7ea1a186707007c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339977"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317920"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 

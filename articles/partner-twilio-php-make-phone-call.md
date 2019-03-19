@@ -14,15 +14,15 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 6d31cd66138bd20cf09b3dc569d0ac83addaaa95
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 03b74f5a931e1cfbf09433af76c250607b7fc80c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426777"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444449"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Azure의 PHP 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법
-다음 예제는 Azure에 호스트된 PHP 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 보여 줍니다. 다음 스크린샷에 표시된 것처럼 애플리케이션에서 사용자에게 전화 통화 값을 묻습니다.
+다음 예제는 Azure에 호스트된 PHP 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 보여 줍니다. 다음 스크린샷에 표시 된 것 처럼 응용 프로그램에서 전화 통화 값에 대 한 사용자를 묻습니다.
 
 ![Twilio 및 PHP를 사용하는 Azure 통화 양식][twilio_php]
 
@@ -118,7 +118,7 @@ echo "URI resource: " . $call->uri . "<br />";
 
 Twilio에 대한 추가 정보는 [https://www.twilio.com/docs][twilio_docs]를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 * [PHP에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법](partner-twilio-php-how-to-use-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console

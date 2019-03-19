@@ -2,18 +2,18 @@
 title: 'ExpressRoute 회로 만들기 및 수정 - PowerShell: Azure | Microsoft Docs'
 description: ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제합니다.
 services: expressroute
-author: ganesr
+author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ff86c87690f5dd4a919929f0deef4af739cbe4d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 2b32c97f636cc6b918a883ea3e2a2b540890084f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105005"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409872"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정
 > [!div class="op_single_selector"]
@@ -31,37 +31,23 @@ ms.locfileid: "53105005"
 시작하기 전에, 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="create"></a>ExpressRoute 회로 만들기 및 프로비전
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인하고 구독을 선택합니다.
-구성을 시작하려면, Azure 계정에 로그인합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
-Azure CloudShell을 사용하는 경우 자동으로 연결되므로 Connect-AzureRmAccount를 실행할 필요가 없습니다.
-
-```azurepowershell
-Connect-AzureRmAccount
-```
-
-계정에 대한 구독을 확인합니다.
-
-```azurepowershell-interactive
-Get-AzureRmSubscription
-```
-
-ExpressRoute 회로를 만들려는 구독을 선택합니다.
-
-```azurepowershell-interactive
-Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
-```
+[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. 지원되는 공급자, 위치 및 대역폭 목록을 가져옵니다.
 ExpressRoute 회로를 만들기 전에 지원되는 연결 공급자, 위치 및 대역폭 옵션 목록이 필요합니다.
 
-PowerShell cmdlet **Get-AzureRmExpressRouteServiceProvider**는 이후 단계에서 사용할 이 정보를 반환합니다.
+PowerShell cmdlet **Get AzExpressRouteServiceProvider** 이후 단계에서 사용 하 여이 정보를 반환 합니다.
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteServiceProvider
+Get-AzExpressRouteServiceProvider
 ```
 
 연결 공급자가 여기에 나열되었는지 확인합니다. 나중에 회로를 만들 때 필요한 다음 정보를 적어 둡니다.
@@ -70,20 +56,19 @@ Get-AzureRmExpressRouteServiceProvider
 * PeeringLocations
 * BandwidthsOffered
 
-이제 ExpressRoute 회로를 만들 준비가 되었습니다.   
+이제 ExpressRoute 회로를 만들 준비가 되었습니다.
 
 ### <a name="3-create-an-expressroute-circuit"></a>3. ExpressRoute 회로 만들기
 아직 리소스 그룹이 없는 경우 ExpressRoute 회로를 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 수행할 수 있습니다.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
+New-AzResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
-
 
 아래 예제에서는 Equinix 실리콘밸리를 통해 200Mbps ExpressRoute 회로를 만드는 방법을 보여 줍니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다. 다음 예제를 사용하여 새 서비스 키를 요청합니다.
 
 ```azurepowershell-interactive
-New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
+New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
 ```
 
 올바른 SKU 계층과 SKU 제품군을 지정하는지 확인합니다.
@@ -99,15 +84,15 @@ New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 응답에 서비스 키가 포함됩니다. 다음 명령을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
 
 ```azurepowershell-interactive
-get-help New-AzureRmExpressRouteCircuit -detailed
+get-help New-AzExpressRouteCircuit -detailed
 ```
 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. 모든 ExpressRoute 회로 나열
-만들어 놓은 모든 ExpressRoute 회로 목록을 가져오려면 **Get-AzureRmExpressRouteCircuit** 명령을 실행합니다.
+사용자가 만든 모든 ExpressRoute 회로 목록을 가져오려면 실행 합니다 **Get AzExpressRouteCircuit** 명령:
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
 응답은 다음 예제와 유사합니다.
@@ -134,10 +119,10 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
     ServiceKey                        : **************************************
     Peerings                          : []
 
-`Get-AzureRmExpressRouteCircuit` cmdlet을 사용하여 이 정보를 언제든지 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다. 서비스 키는 *ServiceKey* 필드에 나열됩니다.
+`Get-AzExpressRouteCircuit` cmdlet을 사용하여 이 정보를 언제든지 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다. 서비스 키는 *ServiceKey* 필드에 나열됩니다.
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit
+Get-AzExpressRouteCircuit
 ```
 
 
@@ -166,12 +151,6 @@ Get-AzureRmExpressRouteCircuit
     Peerings                         : []
 
 
-다음 명령을 실행하여 모든 매개 변수에 대한 자세한 설명을 볼 수 있습니다.
-
-```azurepowershell-interactive
-get-help Get-AzureRmExpressRouteCircuit -detailed
-```
-
 ### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. 프로비전을 위해 연결 공급자에 서비스 키 보내기
 *ServiceProviderProvisioningState* 는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공합니다. 상태는 Microsoft 측의 상태를 제공합니다. 회로 프로비전 상태에 대한 자세한 내용은 [워크플로](expressroute-workflows.md#expressroute-circuit-provisioning-states)를 참조하세요.
 
@@ -196,7 +175,7 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 회로 키의 상태를 확인하면 공급자가 회로를 사용하도록 설정한 시점을 알 수 있습니다. 회로가 구성된 후에는 *ServiceProviderProvisioningState*가 아래 예에서처럼 *Provisioned*로 표시됩니다.
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
 
@@ -236,10 +215,10 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 그 다음 가상 네트워크를 ExpressRoute 회로에 연결합니다. Resource Manager 배포 모델을 작업하는 경우에는 [ExpressRoute 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md) 문서를 사용할 수 있습니다.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>ExpressRoute 회로의 상태 가져오기
-**Get-AzureRmExpressRouteCircuit** cmdlet을 사용하여 언제든지 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
+사용 하 여 언제 든 지가이 정보를 검색할 수 있습니다 합니다 **Get AzExpressRouteCircuit** cmdlet. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다.
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit
+Get-AzExpressRouteCircuit
 ```
 
 
@@ -271,7 +250,7 @@ Get-AzureRmExpressRouteCircuit
 리소스 그룹 이름 및 회로 이름을 매개 변수 형태로 호출에 전달하면 특정 ExpressRoute 회로에 대한 정보를 가져올 수 있습니다.
 
 ```azurepowershell-interactive
-Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
 
@@ -322,12 +301,12 @@ get-help get-azurededicatedcircuit -detailed
 다음 PowerShell 코드 조각을 사용하여 기존 회로에 대해 ExpressRoute 프리미엄 추가 기능을 활성화할 수 있습니다.
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.Sku.Tier = "Premium"
 $ckt.sku.Name = "Premium_MeteredData"
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 이제 ExpressRoute Premium 추가 기능을 사용할 수 있게 됩니다. 명령이 성공적으로 실행되는 즉시 Premium 추가 기능에 대한 대금 청구가 시작됩니다.
@@ -347,12 +326,12 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 다음 PowerShell cmdlet을 사용하여 기존 회로에 대해 ExpressRoute 프리미엄 추가 기능을 사용하지 않도록 설정할 수 있습니다.
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.Sku.Tier = "Standard"
 $ckt.sku.Name = "Standard_MeteredData"
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="to-update-the-expressroute-circuit-bandwidth"></a>ExpressRoute 회로 대역폭을 업데이트하려면
@@ -367,11 +346,11 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 필요한 크기를 선택하면, 다음 명령을 사용하여 회로 크기를 조정합니다.
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.ServiceProviderProperties.BandwidthInMbps = 1000
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 
@@ -381,12 +360,12 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 다음 PowerShell 코드 조각을 사용하여 ExpressRoute 회로의 SKU를 변경할 수 있습니다.
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 $ckt.Sku.Family = "UnlimitedData"
 $ckt.sku.Name = "Premium_UnlimitedData"
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>클래식 및 리소스 관리자 환경에 대한 액세스를 제어하려면
@@ -402,7 +381,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 다음 명령을 실행하여 ExpressRoute 회로를 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
+Remove-AzExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 ```
 
 ## <a name="next-steps"></a>다음 단계

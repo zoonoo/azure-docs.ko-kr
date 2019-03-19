@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0b1e784d4ca92f0da0e37d4afc1efcf09282cb4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162869"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445758"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 On-Behalf-Of 흐름
 
@@ -69,7 +69,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
 | `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
 | `client_id` | 필수 | [애플리케이션 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) 또는 새 [앱 등록(미리 보기) 포털](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)이 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
@@ -101,7 +101,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 인증서를 사용한 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
 | `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
 | `client_id` | 필수 | [애플리케이션 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) 또는 새 [앱 등록(미리 보기) 포털](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)이 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
@@ -193,7 +193,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>중간 계층 애플리케이션에 대한 동의 얻기
 
-애플리케이션의 대상 사용자에 따라, OBO 흐름을 성공적으로 유지하기 위해 다른 전략을 고려할 수 있습니다. 모든 경우에서 궁극적인 목표는 적절한 동의를 얻는 것입니다. 그러나 그 방법은 애플리케이션이 지원하는 사용자에 따라 다릅니다. 
+응용 프로그램에 대 한 대상에 따라 성공적으로 OBO 흐름 되었는지 되도록 하기 위해 다른 전략을 고려할 수 있습니다. 모든 경우에서 궁극적인 목표는 적절한 동의를 얻는 것입니다. 그러나 그 방법은 애플리케이션이 지원하는 사용자에 따라 다릅니다. 
 
 ### <a name="consent-for-azure-ad-only-applications"></a>Azure AD 전용 애플리케이션에 대한 동의
 

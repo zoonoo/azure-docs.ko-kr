@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: bb2d57d3e119fd83d1a984fc31f29a5d93e957d1
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 80c35d8417fefa2873cbef9886f56ccfa3920624
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745948"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409468"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB에서 예약된 용량을 활용해 비용 최적화
 
@@ -52,10 +52,10 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
    |필드  |설명  |
    |---------|---------|
-   |Name   |    예약의 이름입니다. 이 필드는 자동으로 `CosmosDB_Reservation_<timeStamp>`로 채워집니다. 예약을 만드는 동안 다른 이름을 제공할 수 있습니다. 또는 예약이 만들어진 후 이름을 바꿀 수 있습니다.      |
+   |이름   |    예약의 이름입니다. 이 필드는 자동으로 `CosmosDB_Reservation_<timeStamp>`로 채워집니다. 예약을 만드는 동안 다른 이름을 제공할 수 있습니다. 또는 예약이 만들어진 후 이름을 바꿀 수 있습니다.      |
    |구독  |   Azure Cosmos DB 예약 용량에 대한 요금을 지불하는 데 사용되는 구독입니다. 선택한 구독에 대한 지불 방법은 선불 비용을 청구하는 데 사용됩니다. 구독 유형은 다음 항목 중 하나여야 합니다. <br/><br/>  기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P): Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과분에 대한 요금으로 청구됩니다. <br/><br/> 종량제(제안 번호: MS-AZR-0003P 또는 MS-AZR-0023P): 종량제 구독에 대한 요금은 구독 시 선택한 신용 카드 또는 청구서 지불 방법으로 청구됩니다.    |
    |범위   |   얼마나 많은 구독이 예약과 연결된 청구 혜택을 사용할 수 있는지 제어하는 옵션입니다. 또한 예약이 특정 구독에 적용되는 방식을 제어합니다.   <br/><br/>  **단일 구독**을 선택하면 예약 할인이 선택한 구독의 Azure Cosmos DB 인스턴스에 적용됩니다. <br/><br/>  **공유**를 선택하면 예약 할인이 청구 컨텍스트 내의 모든 구독에서 실행되는 Azure Cosmos DB 인스턴스에 적용됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.  <br/><br/> 예약 용량을 구입한 후 예약 범위를 변경할 수 있습니다.  |
-   |예약 용량 유형   |  요청 단위로 프로비전된 처리량입니다.|
+   |예약 용량 유형   |  요청 단위로 프로비전된 처리량입니다. 단일 지역 모두 설정-에 대 한 프로 비전된 된 처리량에 대 한 예약을 구입할 수 있습니다도 여러 지역 쓰기를 기록 합니다.|
    |예약 용량 단위  |      예약하려는 처리량의 크기입니다. 하위 지역별로 모든 Cosmos DB 리소스(예: 데이터베이스 또는 컨테이너)에 필요한 처리량을 확인하여 이 값을 계산할 수 있습니다. 그런 다음, 이 값을 Cosmos DB 데이터베이스에 연결할 하위 지역 수로 곱합니다.  <br/><br/> 예:  지역마다 100만 RU/초 용량이 필요한 5개의 하위 지역이 있는 경우 구매할 예약 용량으로 500만 RU/초를 선택합니다.    |
    |용어  |   1년 또는 3년입니다.   |
 
@@ -68,6 +68,10 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 예약이 구입되면 예약 조건과 일치하는 기존 Azure Cosmos DB 리소스에 즉시 적용됩니다. 기존 Azure Cosmos DB 리소스가 없으면 배포 시 예약 조건과 일치하는 새 Cosmos DB 인스턴스에 예약이 적용됩니다. 예약 기간은 두 경우 모두 구매하는 즉시 시작됩니다. 
 
 예약이 만료되는 경우 Azure Cosmos DB 인스턴스는 계속 실행되지만 일반 종량제 요금으로 청구됩니다.
+
+## <a name="cancellation-and-exchanges"></a>취소 및 교환
+
+바로 예약된 된 용량을 식별 하는 도움말을 참조 하세요 [Azure Cosmos DB에 예약 할인은 적용 하는 방법을 이해](../billing/billing-understand-cosmosdb-reservation-charges.md)합니다. 이벤트, 취소 또는 Azure Cosmos DB 예약을 교환 하 고, Azure Cosmos DB 팀에 문의 하세요 해야 `AskCosmosDB@microsoft.com`합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

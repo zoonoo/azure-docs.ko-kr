@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: chris-lauren
 ms.author: clauren
-ms.date: 09/24/2018
+ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7f24e242168fc969d0f0d920dce0e6d9562a295
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241847"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403693"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 모델 관리, 배포 및 모니터링
 
 이 문서에서는 Azure Machine Learning Service를 통해 모델을 배포, 관리 및 모니터링하여 지속적으로 개선하는 방법을 알아볼 수 있습니다. Azure Machine Learning을 사용하여 학습한 모델을 로컬 머신 또는 다른 원본에서 배포할 수 있습니다. 
 
-다음 다이어그램은 전체 배포 워크플로를 보여 줍니다. [ ![Azure Machine Learning에 대한 배포 워크플로](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+다음 다이어그램은 전체 배포 워크플로를 보여 줍니다. [![Azure Machine Learning에 대 한 배포 워크플로](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 배포 워크플로에는 다음 단계가 포함됩니다.
 1. Azure Machine Learning Service 작업 영역에서 호스팅되는 레지스트리에 **모델 등록**
@@ -33,7 +33,7 @@ ms.locfileid: "55241847"
 
 각 단계는 독립적으로 또는 단일 배포 명령의 일환으로 수행할 수 있습니다. 또한 이 그래픽에서 보여 주듯이 배포를 **CI/CD 워크플로**에 통합할 수 있습니다.
 
-[ !['Azure Machine Learning CI/CD(지속적인 통합/지속적인 배포) 주기'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[![' Azure Machine Learning 지속적인 통합/지속적인 배포 (CI/CD) 주기 '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>1단계: 모델 등록
 
@@ -73,7 +73,7 @@ Azure Machine Learning은 가장 인기 있는 프레임워크를 지원하지�
 
 또한 웹 서비스 배포도 검색할 수 있습니다. 예를 들어 특정 모델 또는 이미지의 모든 배포를 검색할 수 있습니다.
 
-[ ![추론 대상](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![추론 대상](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 클라우드의 다음 배포 대상에 이미지를 배포할 수 있습니다.
 
@@ -105,6 +105,6 @@ Azure Machine Learning은 가장 인기 있는 프레임워크를 지원하지�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스를 사용하여 [모델을 배포할 수 있는 방법과 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다.
+Azure Machine Learning 서비스를 사용하여 [모델을 배포할 수 있는 방법과 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다. 배포의 예제를 참조 하세요. [자습서: Azure Container Instances에서 이미지 분류 모델을 배포할](tutorial-deploy-models-with-aml.md)합니다.
 
 [웹 서비스로 배포된 모델을 사용](how-to-consume-web-service.md)하는 클라이언트 애플리케이션과 서비스를 만드는 방법을 알아봅니다.

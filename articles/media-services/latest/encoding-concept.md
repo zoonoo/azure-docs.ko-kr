@@ -9,19 +9,29 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/27/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 52e7fdf6de25300d4f78ee9822aca4ad83f646e9
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408428"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243622"
 ---
 # <a name="encoding-with-media-services"></a>Media Services를 사용하여 인코딩
 
-Azure Media Services를 사용하면 고품질 디지털 미디어 파일을 다양한 브라우저와 디바이스에서 재생할 수 있는 형식으로 인코딩할 수 있습니다. 예를 들어 콘텐츠를 Apple의 HLS 또는 MPEG DASH 형식으로 스트림할 수 있습니다. 이 항목에서는 Media Services v3을 사용하여 콘텐츠를 인코딩하는 방법에 대한 지침을 제공합니다.
+Azure Media Services를 사용 하면 다양 한 브라우저 및 장치에서 콘텐츠를 재생할 수 있도록 고품질 디지털 미디어 파일을 적응 비트 전송률 MP4 파일로 인코딩할 수 있습니다. Media Services 인코딩 작업을 성공적으로 만들고 출력 자산을 적응 비트 전송률 mp4 및 스트리밍 구성 파일의 집합입니다. 구성 파일에는.ism,.ismc,.mpi, 및 기타 파일을 수정 하면 안을 포함 됩니다. 인코딩 작업이 완료 되 면 있습니다 활용할 수 있습니다 [동적 패키징](dynamic-packaging-overview.md) 스트리밍을 시작 하 고 있습니다.
+
+출력에 비디오를 확인 하려면 재생에 대 한 클라이언트에서 사용할 자산을 생성 해야는 **스트리밍 로케이터** 스트리밍 Url 작성 및 합니다. 그런 다음 매니페스트에 지정된 된 형식에 따라 클라이언트 스트림을 받을 선택 된 프로토콜입니다.
+
+다음 다이어그램은 동적 패키징 워크플로 사용 하 여 주문형 스트리밍 보여줍니다.
+
+![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+
+이 항목에서는 Media Services v3을 사용하여 콘텐츠를 인코딩하는 방법에 대한 지침을 제공합니다.
+
+## <a name="transforms-and-jobs"></a>변환 및 작업
 
 Media Services v3을 사용하여 인코딩하려면 [변환](https://docs.microsoft.com/rest/api/media/transforms) 및 [작업](https://docs.microsoft.com/rest/api/media/jobs)을 만들어야 합니다. 변환은 인코딩 설정 및 출력에 대한 방법을 정의하며 작업은 방법의 인스턴스입니다. 자세한 내용은 [Transform 및 Job](transforms-jobs-concept.md)을 참조하세요.
 
@@ -60,9 +70,11 @@ Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위�
 
 ## <a name="scaling-encoding-in-v3"></a>v3에서 인코딩 크기 조정
 
-현재 고객이 Azure Portal 또는 Media Services v2 API를 사용하여 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)에 설명된 대로 RU를 설정해야 합니다. 
+미디어 처리 크기를 조정 하려면 참조 [CLI 사용 하 여 Scale](media-reserved-units-cli-how-to.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Transforms 및 Jobs](transforms-jobs-concept.md)
+* [기본 제공 사전 설정을 사용 하는 HTTPS URL에서 인코딩](job-input-from-http-how-to.md)
+* [기본 제공 사전 설정을 사용 하 여 로컬 파일 인코딩](job-input-from-local-file-how-to.md)
+* [특정 시나리오 또는 장치 요구 사항을 대상으로 사전 설정 사용자 지정 빌드](customize-encoder-presets-how-to.md)
 * [Media Services를 사용하여 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)

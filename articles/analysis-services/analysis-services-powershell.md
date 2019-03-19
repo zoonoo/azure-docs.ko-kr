@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9e7683883963db2cf1911405225fcdbf289de2bb
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 177d74a54e4ab4de698cbb63091656cc8b584e2b
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187541"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010687"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>PowerShell을 사용하여 Azure Analysis Services 관리
 
@@ -21,27 +21,29 @@ ms.locfileid: "54187541"
 
 서버 만들기 또는 삭제, 서버 작업 일시 중단 또는 다시 시작 또는 서비스 수준(계층) 변경과 같은 서버 관리 작업은 Azure Resource Manager(리소스) 및 Analysis Services(서버) cmdlet을 사용합니다. 역할 멤버 추가 또는 제거, 처리 또는 분할과 같은 기타 데이터베이스 관리 작업에서는 SQL Server Analysis Services와 동일한 SqlServer 모듈에 포함된 cmdlet을 사용합니다.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="permissions"></a>권한
 
 대부분의 PowerShell 작업에는 관리하는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 예약된 PowerShell 작업은 무인 작업입니다. 스케줄러를 실행하는 계정 또는 서비스 주체에게는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 
 
-AzureRm cmdlet을 사용하여 서버를 운영하려면 사용자의 계정 또는 스케줄러를 실행하는 계정이 [Azure 역할 기반 Access Control(RBAC)](../role-based-access-control/overview.md)의 리소스에 대한 소유자 역할에도 속해야 합니다. 
+Azure PowerShell cmdlet을 사용 하 여 서버 작업 계정 또는 스케줄러를 실행 하는 계정에도 속해야 합니다 리소스에 대 한 소유자 역할과 [azure 역할 기반 Access Control (RBAC)](../role-based-access-control/overview.md)합니다. 
 
 ## <a name="resource-management-operations"></a>리소스 관리 작업 
 
-모듈 - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
+Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
 |Cmdlet|설명| 
 |------------|-----------------| 
-|[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|서버 인스턴스에 대한 세부 정보를 가져옵니다.|  
-|[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|서버 인스턴스를 만듭니다.|   
-|[New-AzureRmAnalysisServicesFirewallConfig](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallconfig)|새 Analysis Services 방화벽 구성을 만듭니다.|   
-|[New-AzureRmAnalysisServicesFirewallRule](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallrule)|새 Analysis Services 방화벽 규칙을 만듭니다.|   
-|[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|서버 인스턴스를 제거합니다.|  
-|[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|서버 인스턴스를 다시 시작합니다.|  
-|[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|서버 인스턴스를 일시 중단합니다.| 
-|[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|서버 인스턴스를 수정합니다.|   
-|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|서버 인스턴스의 존재 여부를 테스트합니다.| 
+|[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|서버 인스턴스에 대한 세부 정보를 가져옵니다.|  
+|[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|서버 인스턴스를 만듭니다.|   
+|[New-AzAnalysisServicesFirewallConfig](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallconfig)|새 Analysis Services 방화벽 구성을 만듭니다.|   
+|[New-AzAnalysisServicesFirewallRule](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallrule)|새 Analysis Services 방화벽 규칙을 만듭니다.|   
+|[Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/remove-azanalysisservicesserver)|서버 인스턴스를 제거합니다.|  
+|[Resume-AzAnalysisServicesServer](/powershell/module/az.analysisservices/resume-azanalysisservicesserver)|서버 인스턴스를 다시 시작합니다.|  
+|[Suspend-AzAnalysisServicesServer](/powershell/module/az.analysisservices/suspend-azanalysisservicesserver)|서버 인스턴스를 일시 중단합니다.| 
+|[Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver)|서버 인스턴스를 수정합니다.|   
+|[Test-AzAnalysisServicesServer](/powershell/module/az.analysisservices/test-azanalysisservicesserver)|서버 인스턴스의 존재 여부를 테스트합니다.| 
 
 ## <a name="server-management-operations"></a>서버 관리 작업
 
@@ -49,10 +51,10 @@ AzureRm cmdlet을 사용하여 서버를 운영하려면 사용자의 계정 또
 
 |Cmdlet|설명| 
 |------------|-----------------| 
-|[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Azure Analysis Services 서버 cmdlet 요청에 사용할 인증된 계정을 추가합니다.| 
-|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|현재 로그인된 환경에서 Add-AzureAnalysisServicesAccount 명령에 지정된 Analysis Services 서버 인스턴스로부터 로그를 내보냅니다.|  
-|[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|현재 로그인된 환경에서 Add-AzureAnalysisServicesAccount 명령에 지정된 Analysis Services 서버 인스턴스를 다시 시작합니다.|  
-|[Sync-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Add-AzureAnalysisServicesAccount 명령에서 지정한 대로 Analysis Services 서버의 지정된 인스턴스에서 지정된 데이터베이스를 현재 로그인한 환경의 모든 쿼리 확장 인스턴스에 대해 동기화합니다.|  
+|[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Azure Analysis Services 서버 cmdlet 요청에 사용할 인증된 계정을 추가합니다.| 
+|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|현재 로그온 한 환경에서 추가 AzAnalysisServicesAccount 명령에 지정 된 대로 Analysis Services 서버 인스턴스에서 로그 내보내기|  
+|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|현재 로그인 환경의; Analysis Services 서버 인스턴스를 다시 시작 추가 AzAnalysisServicesAccount 명령에 지정 합니다.|  
+|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|지정 된 현재 로그온 한 환경에서 추가 AzAnalysisServicesAccount 명령에 지정 된 대로 있는 모든 쿼리 스케일 아웃 인스턴스에 Analysis Services 서버 인스턴스에서 지정된 된 데이터베이스를 동기화합니다.|  
 
 ## <a name="database-operations"></a>데이터베이스 작업
 

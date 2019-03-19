@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: a5c08536614476de38c7bfde524a12163162bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339263"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405524"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -37,7 +37,7 @@ ms.locfileid: "56339263"
 | AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows의 프로비전 및 할당 문제](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) 및 [할당 문제 해결](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | 동시 작업이 완료될 때까지 기다립니다. | |
 | AuthorizationFailed | 계정 또는 서비스 주체가 배포를 완료하는 데 충분한 권한이 없습니다. 계정이 속한 역할 및 배포 범위에 대한 액세스 권한을 확인합니다.<br><br>필수 리소스 공급자가 등록되지 않은 경우 이 오류가 표시될 수 있습니다. | [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)<br><br>[등록 오류 해결](resource-manager-register-provider-errors.md) |
-| BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-manager-templates-resources.md#location) |
+| BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-group-authoring-templates.md#resource-location) |
 | 충돌 | 리소스의 현재 상태에서 허용되지 않는 작업을 요청하고 있습니다. 예를 들어 디스크 크기 조정은 VM을 만들거나 VM의 할당을 취소할 때만 허용됩니다. | |
 | DeploymentActive | 이 리소스 그룹에 대한 동시 배포가 완료될 때까지 기다립니다. | |
 | DeploymentFailed | DeploymentFailed 오류는 해결하는 데 필요한 세부 정보를 제공하지 않는 일반 오류입니다. 자세한 정보를 제공하는 오류 코드에 대해서는 오류 세부 정보를 살펴봅니다. | [오류 코드 찾기](#find-error-code) |
@@ -58,7 +58,7 @@ ms.locfileid: "56339263"
 | InvalidTemplateCircularDependency | 불필요한 종속성을 제거합니다. | [순환 종속성 해결](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | 계정이 배포하는 리소스 그룹과 동일한 테넌트에 속하는지 확인합니다. | |
 | LinkedInvalidPropertyId | 리소스에 대한 리소스 ID가 올바르게 해석되지 않습니다. 구독 ID, 리소스 그룹 이름, 리소스 종류, 부모 리소스 이름(필요한 경우) 및 리소스 이름을 포함하여 리소스 ID에 필요한 모든 값을 제공했는지 확인합니다. | |
-| LocationRequired | 리소스에 대한 위치를 제공합니다. | [위치 설정](resource-manager-templates-resources.md#location) |
+| LocationRequired | 리소스에 대한 위치를 제공합니다. | [위치 설정](resource-group-authoring-templates.md#resource-location) |
 | MismatchingResourceSegments | 중첩되는 리소스의 이름 및 형식에 세그먼트 수가 올바른지 확인하십시오. | [리소스 세그먼트 해결](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | 리소스 공급자 등록 상태 및 지원되는 위치를 확인합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 리소스 공급자에 구독을 등록합니다. | [등록 오류 해결](resource-manager-register-provider-errors.md) |

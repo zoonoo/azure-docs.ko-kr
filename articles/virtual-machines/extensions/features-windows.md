@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c07f01acb95523171f0297f7e2fd531713f1facf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980470"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550159"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -34,7 +34,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automatio
 각각 특정 사용 사례가 있는 몇 가지 다른 Azure VM 확장을 사용할 수 있습니다. 일부 사례:
 
 - Windows용 DSC 확장을 사용하여 VM에 PowerShell의 필요한 상태 구성을 적용합니다. 자세한 내용은 [Azure 필요한 상태 구성 확장](dsc-overview.md)을 참조하세요.
-- Microsoft Monitoring Agent VM 확장을 사용하여 VM의 모니터링을 구성합니다. 자세한 내용은 [Log Analytics에 Azure VM 연결](../../log-analytics/log-analytics-azure-vm-extension.md)을 참조하세요.
+- Microsoft Monitoring Agent VM 확장을 사용하여 VM의 모니터링을 구성합니다. 자세한 내용은 [Azure Monitor 로그로 Azure Vm 연결](../../log-analytics/log-analytics-azure-vm-extension.md)합니다.
 - Chef를 사용하여 Azure VM을 구성합니다. 자세한 내용은 [Chef를 사용하여 Azure VM 배포 자동화](../windows/chef-automation.md)를 참조하세요.
 - Datadog 확장으로 Azure 인프라의 모니터링을 구성합니다. 자세한 내용은 [Datadog 블로그](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)를 참조하세요.
 
@@ -366,7 +366,7 @@ AutoUpgradeMinorVersion     : True
 
 ### <a name="view-extension-status"></a>확장 상태 보기
 
-VM 확장이 VM에 대해 실행된 후에 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용하여 확장 상태를 반환합니다. *하위 상태[0]* 에서는 확장 프로비전이 성공했음을 보여줍니다. 즉, VM에 배포에 성공했지만 VM 내에서 확장의 실행에 실패했습니다. *하위 상태[1]*
+VM 확장을 VM에 대해 실행 된 후 사용 하 여 [Get AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 확장 상태를 반환 합니다. *하위 상태[0]* 에서는 확장 프로비전이 성공했음을 보여줍니다. 즉, VM에 배포에 성공했지만 VM 내에서 확장의 실행에 실패했습니다. *하위 상태[1]*
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

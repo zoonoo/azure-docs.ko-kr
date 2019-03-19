@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: fd301967800f67d95c12f1689981b2dfd8eb2d80
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452766"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243774"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 저장소 옵션
 
@@ -121,6 +121,8 @@ spec:
 
 ## <a name="next-steps"></a>다음 단계
 
+관련된 모범 사례를 참조 하세요 [저장소 및 백업 AKS에 대 한 유용한][operator-best-practices-storage]합니다.
+
 Azure Disks 또는 Azure Files를 사용하는 동적 및 정적 볼륨을 만드는 방법을 알아보려면 다음 방법 문서를 참조하세요.
 
 - [Azure Disks를 사용하여 정적 볼륨 만들기][aks-static-disks]
@@ -148,3 +150,4 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-storage]: operator-best-practices-storage.md

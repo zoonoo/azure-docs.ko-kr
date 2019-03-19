@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f3c50a272ef5cc0d4980cb4a623ac043d764dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f1ce786b748fedd1ec4c722b28bc11c28672c2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190911"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443405"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
@@ -79,7 +79,7 @@ ms.locfileid: "56190911"
 |50027|다음과 같은 이유로 JWT 토큰이 잘못되었습니다.<ul><li>nonce 클레임 또는 sub 클레임이 포함되지 않았습니다.</li><li>주체 식별자가 일치하지 않습니다.</li><li>idToken 클레임에 중복된 클레임이 있습니다.</li><li>예기치 않은 발급자입니다.</li><li>예기치 않은 대상 그룹입니다.</li><li>유효한 시간 범위 내에 있지 않습니다. </li><li>토큰 형식이 잘못되었습니다.</li><li>발급자의 외부 ID 토큰에서 서명을 확인하지 못했습니다.</li></ul>애플리케이션 소유자에게 문의하세요.|
 |50029|URI가 잘못되었습니다. 도메인 이름에 잘못된 문자가 있습니다. 테넌트 관리자에게 문의하세요.|
 |50034|사용자가 디렉터리에 없습니다. 테넌트 관리자에게 문의하세요.|
-|50042|쌍으로 된 식별자를 생성하는 데 필요한 솔트가 보안 주체에 없습니다. 테넌트 관리자에게 문의하세요.|
+|50042|쌍별 식별자를 생성 하는 데 필요한 솔트 원칙에 없습니다. 테넌트 관리자에게 문의하세요.|
 |50048|주체가 클라이언트 어설션의 발급자 클레임과 일치하지 않습니다. 테넌트 관리자에게 문의하세요.|
 |50050|요청 형식이 잘못되었습니다. 애플리케이션 소유자에게 문의하세요.|
 |50053|잘못된 사용자 ID 또는 암호로 로그인을 너무 많이 시도하여 계정이 잠겨 있습니다.|
@@ -129,7 +129,7 @@ ms.locfileid: "56190911"
 |50180|Windows 통합 인증이 필요합니다. Seamless SSO에 대한 테넌트를 사용하도록 설정합니다.|
 |51001|도메인 힌트에 온-프레미스 보안 식별자와 온-프레미스 UPN이 없습니다.|
 |51004|사용자 계정이 디렉터리에 없습니다.|
-|51006|Windows 통합 인증이 필요합니다. 사용자가 wia 클레임이 누락된 세션 토큰을 사용하여 로그인했습니다. 사용자에게 다시 로그인하도록 요청하세요.|
+|51006|Windows 통합 인증이 필요합니다. 사용자 클레임을 통해 누락 된 세션 토큰을 사용 하 여 로그인 합니다. 사용자에게 다시 로그인하도록 요청하세요.|
 |52004|사용자가 LinkedIn 리소스에 대한 액세스 동의를 제공하지 않았습니다. |
 |53000|조건부 액세스 정책에는 준수 디바이스가 필요하고 디바이스는 규정을 준수하지 않습니다. 사용자가 Intune과 같이 승인된 MDM 공급자에 자신의 디바이스를 등록해야 합니다.|
 |53001|조건부 액세스 정책에 도메인 가입 디바이스가 필요하며 디바이스가 도메인에 가입되어 있지 않습니다. 사용자가 도메인 가입 디바이스를 사용하도록 합니다.|
@@ -138,7 +138,7 @@ ms.locfileid: "56190911"
 |53004|사용자는 이 콘텐츠에 액세스하기 전에 다단계 인증 등록 프로세스를 완료해야 합니다. 사용자가 다단계 인증을 등록해야 합니다.|
 |65001|Y 애플리케이션에 대한 액세스 권한이 X 애플리케이션에 없거나 권한이 취소되었습니다. 또는 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. 또는 사용자 또는 관리자가 ID X로 애플리케이션을 사용하는 데 동의하지 않았습니다. 앱: Y, 리소스: Z를 대신하여 테넌트 관리자에게 권한 부여 요청을 보내세요.|
 |65004|사용자가 응용 프로그램에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
-|65005|애플리케이션에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 애플리케이션이 없거나, 클라이언트 애플리케이션에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 애플리케이션에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 애플리케이션을 구성했을 수 있습니다. 아래 링크를 사용하여 SAML에 대한 해결 방법을 시도해 보세요. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|65005|애플리케이션에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 애플리케이션이 없거나, 클라이언트 애플리케이션에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 애플리케이션에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 애플리케이션을 구성했을 수 있습니다. 아래 링크를 사용하여 SAML에 대한 해결 방법을 시도해 보세요. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|다음과 같은 이유로 권한 부여가 잘못되었습니다.<ul><li>요청된 SAML 2.0 어설션에 잘못된 주체 확인 메서드가 있습니다.</li><li>응용 프로그램 OnBehalfOf 흐름은 V2에서 지원하지 않습니다.</li><li>기본 새로 고침 토큰이 세션 키로 서명되지 않았습니다.</li><li>외부 새로 고침 토큰이 잘못되었습니다.</li><li>다른 테넌트에 대한 액세스 권한이 부여되었습니다.</li></ul>|
 |70001|X라는 애플리케이션이 Y라는 테넌트에 없습니다. 테넌트의 관리자가 X 식별자가 있는 애플리케이션을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 이 오류가 발생할 수 있습니다. 애플리케이션에 대한 식별자 값을 잘못 구성했거나 잘못된 테넌트에 인증 요청을 보냈을 수 있습니다.|
 |70002|애플리케이션에서 잘못된 클라이언트 자격 증명을 반환했습니다. 애플리케이션 소유자에게 문의하세요.|

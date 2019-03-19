@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6cc55ec2e3be3510b9547025db17bcbee97e10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765384"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441392"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>인벤토리 수집을 사용하여 Azure 가상 컴퓨터 관리
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 1. Azure Portal의 왼쪽 창에서 **가상 머신**를 선택합니다.
 2. 가상 머신 목록에서 가상 머신을 선택합니다.
 3. **작업** 아래의 **리소스** 메뉴에서 **인벤토리**를 선택합니다.
-4. Log Analytics 작업 영역을 선택하여 데이터 로그를 저장합니다.
+4. 데이터 로그를 저장 하기 위한 Log Analytics 작업 영역을 선택 합니다.
     해당 영역에 대해 사용할 수 있는 작업 영역이 없는 경우 기본 작업 영역 및 자동화 계정을 만들라는 메시지가 표시됩니다.
 5. 컴퓨터 온보딩을 시작하려면 **활성화**를 선택합니다.
 
@@ -91,7 +91,9 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ## <a name="manage-machine-groups"></a>머신 그룹 관리
 
-인벤토리를 사용하면 Log Analytics에서 머신 그룹을 만들고 볼 수 있습니다. 머신 그룹은 Log Analytics에서 쿼리에 의해 정의된 머신의 컬렉션입니다.
+인벤토리 만들기 및 Azure Monitor 로그에서 컴퓨터 그룹을 볼 수 있습니다. 컴퓨터 그룹은 Azure Monitor 로그에서 쿼리로 정의 하는 컴퓨터의 컬렉션입니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 머신 그룹을 보려면 인벤토리 페이지에서 **머신 그룹** 탭을 선택합니다.
 
@@ -103,7 +105,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 **+ 복제** 단추를 클릭하여 머신 그룹을 복제합니다. 여기에서 그룹에 새 이름을 제공하고 해당 그룹에 대한 별칭을 제공해야 합니다. 이번에는 정의를 변경할 수 있습니다. 쿼리를 변경한 후에는 **쿼리 유효성 검사**를 눌러 선택할 머신을 미리 봅니다. 해당 그룹에 만족하면 **만들기**를 클릭하여 머신 그룹을 만듭니다.
 
-새 머신 그룹을 만들려면 **+ 머신 그룹 만들기**를 선택합니다. 이 단추를 누르면 새 그룹을 정의할 수 있는 **머신 그룹 만들기 페이지**가 열립니다. **만들기**를 클릭하여 그룹을 만듭니다.
+새 컴퓨터 그룹을 만들려는 경우 선택할 **컴퓨터 그룹 만들기 +** 합니다. 이 단추를 누르면 새 그룹을 정의할 수 있는 **머신 그룹 만들기 페이지**가 열립니다. **만들기**를 클릭하여 그룹을 만듭니다.
 
 ![새 머신 그룹 만들기](./media/automation-vm-inventory/create-new-group.png)
 
@@ -116,7 +118,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 3. 목록에서 분리할 가상 머신을 선택합니다. 가상 머신은 **OMS 연결** 열의 **이 작업 영역** 옆에 녹색 확인 표시가 있습니다.
 
    >[!NOTE]
-   >OMS를 이제 Log Analytics라고 합니다.
+   >OMS는 이제 Azure Monitor 로그 라고 합니다.
    
 4. 다음 페이지 맨 위에서 **연결 끊기**를 선택합니다.
 5. 확인 창에서 **예**를 선택합니다.
