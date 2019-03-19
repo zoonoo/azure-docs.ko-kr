@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 68c5d6e68562d4027c102e1bde42c775648e58c4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: f919e9a7cca210fa5920bcc6bed05a9a41fba8bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124846"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192387"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Azure Logic Apps에서 종단 간 워크플로를 모니터링하는 사용자 지정 추적 스키마 만들기
 
@@ -56,7 +56,7 @@ ms.locfileid: "43124846"
 }
 ```
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | --- | --- | --- |
 | sourceType |   | 실행 원본의 유형입니다. 허용되는 값은**Microsoft.Logic/workflows** 및 **custom**입니다. 필수 사항입니다. |
 | 원본 |   | 소스 형식이 **Microsoft.Logic/workflows**이면 소스 정보는 이 스키마를 따라야 합니다. 소스 형식이 **custom**이면 스키마는 JToken입니다. 필수 사항입니다. |
@@ -84,4 +84,4 @@ ms.locfileid: "43124846"
 ## <a name="next-steps"></a>다음 단계
 
 * [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md)에 대해 자세히 알아봅니다.
-* [Log Analytics에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)에 대해 알아봅니다.
+* 에 대 한 자세한 [Azure Monitor 로그에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

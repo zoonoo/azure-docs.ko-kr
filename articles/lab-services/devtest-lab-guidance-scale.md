@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244882"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431201"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Azure DevTest Labs 인프라 강화
 엔터프라이즈급으로 DevTest Labs를 구현하기 전에 몇 가지 중요한 사항을 결정해야 합니다. 높은 수준에서 이러한 결정 사항을 파악하는 조직은 향후에도 적절한 디자인 관련 결정을 내릴 수 있습니다. 하지만 이러한 결정 사항으로 인해 조직의 개념 증명 시작이 지연되어서는 안 됩니다. 초기 강화 계획에 포함되는 세 가지 주요 영역은 다음과 같습니다.
@@ -46,7 +46,7 @@ ms.locfileid: "56244882"
 대기업에서는 구독 하나를 사용하는 방식을 효율적으로 관리할 수 없는 경우가 많습니다. 그러나 구독 수를 제한하는 경우에는 다음과 같은 이점이 제공됩니다.
 
 - **예측** - 기업의 구독 비용을 예측할 수 있습니다.  구독이 하나이면 모든 리소스가 단일 풀에 포함되므로 예산을 책정하기가 훨씬 쉬워집니다. 이 방식에서는 청구 주기의 특정 시점에 비용 제어 조치를 취할 시기를 더 간단하게 결정할 수 있습니다.
-- **관리 효율성** - 여러 구독을 업데이트하는 것이 아니라 구독 하나에서만 모든 업데이트를 수행하면 되므로 VM, 아티팩트, 수식, 네트워크 구성, 권한, 정책 등을 더 쉽게 관리할 수 있습니다.
+- **관리 효율성** Vm 아티팩트, 수식, 네트워크 구성, 사용 권한, 정책, 등은 때문 쉽습니다. 모든 업데이트는 많은 구독에서 업데이트할 대조적으로 하나의 구독에만 필요 합니다.
 - **네트워킹** - 온-프레미스 연결 기능이 필요한 기업의 경우 구독이 하나이면 네트워킹 작업이 훨씬 간소화됩니다. 추가 구독이 있으면 여러 구독에서 가상 네트워크를 연결해야 하는데(허브-스포크 모델), 그러려면 추가 구성과 관리를 수행해야 하며 IP 주소 공간도 추가로 필요합니다.
 - **팀 공동 작업** - 모든 작업자가 같은 구독에서 작업을 하므로 공동 작업을 더 쉽게 수행할 수 있습니다. 예를 들어 동료에게 VM을 다시 할당하거나 팀 리소스를 공유하는 등의 작업이 간소화됩니다.
 
