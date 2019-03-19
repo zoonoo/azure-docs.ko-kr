@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: bcfb227b8ced6b17fe23c1a60468de24f1835ba0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: d848fdd23f459d7e95e85fe38f2272f4d67c32be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979958"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120791"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 
@@ -45,17 +45,17 @@ ms.locfileid: "55979958"
 
 1. [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet을 사용하여 VM의 할당을 취소합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`에서 `myVM`이라는 VM의 할당을 취소합니다. 
 
-  ```azurepowershell-interactive
-  $rgName = "myResourceGroup"
-  $vmName = "myVM"
-  Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
-  ```
+   ```azurepowershell-interactive
+   $rgName = "myResourceGroup"
+   $vmName = "myVM"
+   Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
+   ```
 
 2. [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk) cmdlet을 사용하여 VM을 관리 디스크로 변환합니다. 다음 프로세스는 OS 디스크 및 데이터 디스크를 포함하여 이전 VM을 변환하고 Virtual Machine을 시작합니다.
 
-  ```azurepowershell-interactive
-  ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
-  ```
+   ```azurepowershell-interactive
+   ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
+   ```
 
 
 
@@ -65,33 +65,33 @@ ms.locfileid: "55979958"
 
 1. [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) cmdlet을 사용하여 가용성 집합을 변환합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 가용성 집합 `myAvailabilitySet`을 업데이트합니다.
 
-  ```azurepowershell-interactive
-  $rgName = 'myResourceGroup'
-  $avSetName = 'myAvailabilitySet'
+   ```azurepowershell-interactive
+   $rgName = 'myResourceGroup'
+   $avSetName = 'myAvailabilitySet'
 
-  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
-  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
-  ```
+   $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+   Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
+   ```
 
-  가용성 집합이 있는 지역에 관리되는 장애 도메인은 2개뿐이고 관리되지 않는 장애 도메인은 3개인 경우 이 명령은 "지정된 장애 도메인 수 3은 1~2 범위에 있어야 합니다."와 유사한 오류를 표시합니다. 오류를 해결하려면 다음과 같이 장애 도메인을 2로 업데이트하고 `Sku`를 `Aligned`로 업데이트합니다.
+   가용성 집합이 있는 지역에 관리되는 장애 도메인은 2개뿐이고 관리되지 않는 장애 도메인은 3개인 경우 이 명령은 "지정된 장애 도메인 수 3은 1~2 범위에 있어야 합니다."와 유사한 오류를 표시합니다. 오류를 해결하려면 다음과 같이 장애 도메인을 2로 업데이트하고 `Sku`를 `Aligned`로 업데이트합니다.
 
-  ```azurepowershell-interactive
-  $avSet.PlatformFaultDomainCount = 2
-  Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
-  ```
+   ```azurepowershell-interactive
+   $avSet.PlatformFaultDomainCount = 2
+   Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
+   ```
 
 2. 가용성 집합의 VM을 할당 취소하고 변환합니다. 다음 스크립트는 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) cmdlet을 사용하여 각 VM의 할당을 취소하고, [ConvertTo-AzVMManagedDisk](https://docs.microsoft.com/powershell/module/az.compute/convertto-azvmmanageddisk)를 사용하여 변환하고, 변환 프로세스의 일부로 각 VM을 자동으로 다시 시작합니다.
 
-  ```azurepowershell-interactive
-  $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
+   ```azurepowershell-interactive
+   $avSet = Get-AzAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
-  foreach($vmInfo in $avSet.VirtualMachinesReferences)
-  {
+   foreach($vmInfo in $avSet.VirtualMachinesReferences)
+   {
      $vm = Get-AzVM -ResourceGroupName $rgName | Where-Object {$_.Id -eq $vmInfo.id}
      Stop-AzVM -ResourceGroupName $rgName -Name $vm.Name -Force
      ConvertTo-AzVMManagedDisk -ResourceGroupName $rgName -VMName $vm.Name
-  }
-  ```
+   }
+   ```
 
 
 ## <a name="troubleshooting"></a>문제 해결

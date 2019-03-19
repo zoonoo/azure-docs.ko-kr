@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106844"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531743"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>데이터 처리 및 사용자 정의 함수
 
@@ -40,7 +40,7 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 
 ### <a name="matchers"></a>검사기
 
-검사기는 들어오는 센서 원격 분석을 기반으로 수행할 작업을 평가하는 조건 집합을 정의합니다. 일치를 판별하기 위한 조건에는 센서의 속성, 센서의 상위 디바이스, 센서의 상위 공간이 포함될 수 있습니다. 조건은 이 예제에 설명된 대로 [JSON 경로](http://jsonpath.com/)에 대한 비교로 표현됩니다.
+검사기는 들어오는 센서 원격 분석을 기반으로 수행할 작업을 평가하는 조건 집합을 정의합니다. 일치를 판별하기 위한 조건에는 센서의 속성, 센서의 상위 디바이스, 센서의 상위 공간이 포함될 수 있습니다. 조건은 이 예제에 설명된 대로 [JSON 경로](https://jsonpath.com/)에 대한 비교로 표현됩니다.
 
 - **온도** 데이터 형식의 모든 센서는 이스케이프된 문자열 값 `\"Temperature\"`로 표현됩니다.
 - 포트에 `01`이 있습니다.

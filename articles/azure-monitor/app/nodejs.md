@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/01/2017
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119801"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013301"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -28,8 +28,6 @@ ms.locfileid: "54119801"
 Node.js SDK는 들어오고 나가는 HTTP 요청, 예외 및 여러 시스템 메트릭을 자동으로 모니터링할 수 있습니다. 0.20 버전부터 SDK는 MongoDB, MySQL 및 Redis와 같은 몇 가지 일반적인 타사 패키지를 모니터링할 수 있습니다. 들어오는 HTTP 요청과 관련된 모든 이벤트는 좀 더 빠른 문제 해결을 위해 상호 관계가 지정됩니다.
 
 TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측면을 수동으로 계측하고 모니터링 할 수 있습니다. TelemetryClient API는 이 문서의 뒷부분에 더 자세히 설명합니다.
-
-![예제 성능 모니터링 차트](./media/nodejs/10-perf.png)
 
 ## <a name="get-started"></a>시작하기
 
@@ -49,11 +47,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 1. [Azure Portal][portal]에 로그인합니다.
 2. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다. 리소스에는 원격 분석 데이터를 수신하기 위한 엔드포인트, 이 데이터 저장소, 저장된 보고서 및 대시보드, 규칙 및 경고 구성이 포함됩니다.
 
-  ![Application Insights 리소스 만들기](./media/nodejs/03-new_appinsights_resource.png)
-
 3. 리소스 만들기 페이지의 **애플리케이션 유형** 상자에서 **Node.js Application**을 선택합니다. 앱 유형에 따라 생성되는 기본 대시보드 및 보고서가 결정됩니다. (모든 Application Insights 리소스는 모든 언어 및 플랫폼에서 데이터를 수집할 수 있습니다.)
-
-  ![새 Application Insights 리소스 양식](./media/nodejs/04-create_appinsights_resource.png)
 
 ### <a name="sdk"></a> Node.js SDK 설정
 
@@ -61,29 +55,29 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 1. Azure Portal에서 리소스의 계측 키(*ikey*라고도 함)를 복사합니다. Application Insights는 ikey를 사용하여 Azure 리소스에 데이터를 매핑합니다. SDK가 ikey를 사용하려면 먼저 환경 변수 또는 코드에 ikey를 지정해야 합니다.  
 
-  ![계측 키 복사](./media/nodejs/05-appinsights_ikey_portal.png)
+   ![계측 키 복사](./media/nodejs/instrumentation-key-001.png)
 
 2. package.json을 통해 Node.js SDK 라이브러리를 앱의 종속성에 추가합니다. 앱의 루트 폴더에서 다음을 실행합니다.
 
-  ```bash
-  npm install applicationinsights --save
-  ```
+   ```bash
+   npm install applicationinsights --save
+   ```
 
 3. 코드에서 라이브러리를 명시적으로 로드합니다. SDK는 여러 다른 라이브러리에 계측 값을 삽입합니다. 따라서 최대한 신속하게, 심지어 다른 `require` 문보다도 먼저 라이브러리를 로드합니다. 
 
-  첫 번째 .js 파일의 맨 위에 다음 코드를 추가합니다. `setup` 메서드는 기본적으로 모든 추적 항목에 사용할 ikey(따라서 Azure 리소스까지)를 구성합니다.
+   첫 번째 .js 파일의 맨 위에 다음 코드를 추가합니다. `setup` 메서드는 기본적으로 모든 추적 항목에 사용할 ikey(따라서 Azure 리소스까지)를 구성합니다.
 
-  ```javascript
-  const appInsights = require("applicationinsights");
-  appInsights.setup("<instrumentation_key>");
-  appInsights.start();
-  ```
+   ```javascript
+   const appInsights = require("applicationinsights");
+   appInsights.setup("<instrumentation_key>");
+   appInsights.start();
+   ```
    
-  ikey를 `setup()` 또는 `new appInsights.TelemetryClient()`에 수동으로 전달하는 대신 APPINSIGHTS\_INSTRUMENTATIONKEY 환경 변수를 통해 제공할 수도 있습니다. 이렇게 하면 ikey가 커밋된 소스 코드의 영향을 받지 않으며 다른 환경에 다른 ikey를 지정할 수 있습니다.
+   ikey를 `setup()` 또는 `new appInsights.TelemetryClient()`에 수동으로 전달하는 대신 APPINSIGHTS\_INSTRUMENTATIONKEY 환경 변수를 통해 제공할 수도 있습니다. 이렇게 하면 ikey가 커밋된 소스 코드의 영향을 받지 않으며 다른 환경에 다른 ikey를 지정할 수 있습니다.
 
-  추가 구성 옵션의 경우 다음 섹션을 참조하세요.
+   추가 구성 옵션의 경우 다음 섹션을 참조하세요.
 
-  `appInsights.defaultClient.config.disableAppInsights = true`를 설정하면 원격 분석을 전송하지 않고 SDK를 사용해 볼 수 있습니다.
+   `appInsights.defaultClient.config.disableAppInsights = true`를 설정하면 원격 분석을 전송하지 않고 SDK를 사용해 볼 수 있습니다.
 
 ### <a name="monitor"></a> 앱 모니터링
 
@@ -91,15 +85,13 @@ SDK는 Node.js 런타임 및 일부 일반적인 타사 모듈에 대한 원격 
 
 그런 다음, [Azure Portal][portal]에서 이전에 만든 Application Insights 리소스로 이동합니다. **타임라인 개요**에서 먼저 몇 가지 데이터 요소를 찾습니다. 더 자세한 데이터를 보려면 차트에서 다른 구성 요소를 선택합니다.
 
-![첫 번째 데이터 요소](./media/nodejs/12-first-perf.png)
-
 앱에 대해 검색된 토폴로지를 보려면 **애플리케이션 맵** 단추를 선택합니다. 자세한 내용을 보려면 맵에서 구성 요소를 선택합니다.
 
-![간단한 앱 맵](./media/nodejs/06-appinsights_appmap.png)
+![간단한 앱 맵](./media/nodejs/application-map-002.png)
 
 앱에 대해 자세히 알아보고 문제를 해결하려면 **조사** 섹션에서 사용 가능한 다른 보기를 선택합니다.
 
-![조사 섹션](./media/nodejs/07-appinsights_investigate_blades.png)
+![조사 섹션](./media/nodejs/007-investigate-pane.png)
 
 #### <a name="no-data"></a>데이터가 없나요?
 

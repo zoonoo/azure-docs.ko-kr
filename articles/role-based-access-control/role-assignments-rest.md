@@ -1,5 +1,5 @@
 ---
-title: RBAC 및 REST API를 사용하여 Azure 리소스 액세스 관리 | Microsoft Docs
+title: RBAC 및 REST API-Azure 사용 하 여 Azure 리소스에 대 한 액세스 관리 | Microsoft Docs
 description: RBAC(역할 기반 액세스 제어) 및 REST API를 사용하여 Azure 리소스에 대한 사용자, 그룹 및 애플리케이션의 액세스를 관리하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: a66969504dee5ba526cdccbbb39471ef5af971c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338413"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439335"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>RBAC 및 REST API를 사용하여 Azure 리소스에 대한 액세스 관리
 

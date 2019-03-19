@@ -5,8 +5,6 @@ services: traffic-manager
 documentationcenter: ''
 author: liumichelle
 manager: dkays
-editor: ''
-ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: a6f7a690cac5718216636d3191f348c71bcfb5d6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734354"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099021"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
 
@@ -70,26 +68,26 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 1. Azure Portal에서 **리소스 만들기** > **네트워킹** > **Traffic Manager 프로필** > **만들기**를 클릭합니다.
 2. 다음 기본 정보를 입력하세요.
 
-  * **이름**: Traffic Manager 프로필에 DNS 접두사 이름을 지정합니다.
-  * **라우팅 방법**: 트래픽 라우팅 메서드 정책을 선택합니다. 메서드에 대한 자세한 내용은 [Traffic Manager 트래픽 라우팅 메서드 정보](traffic-manager-routing-methods.md)를 참조하세요.
-  * **구독**: 프로필을 포함하는 구독을 선택합니다.
-  * **리소스 그룹**: 프로필 포함하는 리소스 그룹을 선택합니다. 새 리소스 그룹이나 기존 리소스 그룹을 선택할 수 있습니다.
-  * **리소스 그룹 위치**: Traffic Manager 서비스는 글로벌이며 위치에 묶여 있지 않습니다. 그러나 Traffic Manager 프로필과 연결된 메타데이터가 있는 그룹의 지역을 지정해야 합니다. 이 위치는 프로필의 런타임 가용성에 영향을 주지 않습니다.
+   * **이름**: Traffic Manager 프로필에 DNS 접두사 이름을 지정합니다.
+   * **라우팅 방법**: 트래픽 라우팅 메서드 정책을 선택합니다. 메서드에 대한 자세한 내용은 [Traffic Manager 트래픽 라우팅 메서드 정보](traffic-manager-routing-methods.md)를 참조하세요.
+   * **구독**: 프로필을 포함하는 구독을 선택합니다.
+   * **리소스 그룹**: 프로필 포함하는 리소스 그룹을 선택합니다. 새 리소스 그룹이나 기존 리소스 그룹을 선택할 수 있습니다.
+   * **리소스 그룹 위치**: Traffic Manager 서비스는 글로벌이며 위치에 묶여 있지 않습니다. 그러나 Traffic Manager 프로필과 연결된 메타데이터가 있는 그룹의 지역을 지정해야 합니다. 이 위치는 프로필의 런타임 가용성에 영향을 주지 않습니다.
 
 3. Traffic Manager 프로필을 생성하려면 **만들기**를 클릭합니다.
 
-  !["Traffic Manager 만들기" 블레이드](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
+   !["Traffic Manager 만들기" 블레이드](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### <a name="step-2-create-the-application-gateways"></a>2단계: 애플리케이션 게이트웨이 만들기
 
 1. Azure Portal의 왼쪽 창에서 **리소스 만들기** > **네트워킹** > **Application Gateway**를 클릭합니다.
 2. Application Gateway에 대한 기본 정보를 입력합니다.
 
-  * **이름**: 애플리케이션 게이트웨이의 이름입니다.
-  * **SKU 크기**: 애플리케이션 게이트웨이의 크기이며 소형, 중형 및 대형을 사용 가능합니다.
-  * **인스턴트 개수**: 인스턴스의 수이며 2에서 10사이의 값입니다.
-  * **리소스 그룹**: 애플리케이션 게이트웨이를 보유하는 리소스 그룹입니다. 기존 리소스 그룹이나 새 리소스 그룹을 선택할 수 있습니다.
-  * **위치**: 애플리케이션 게이트웨이의 지역이며 리소스 그룹과 동일한 위치입니다. 위치는 가상 네트워크와 공용 IP가 게이트웨이와 동일한 위치에 있어야 하므로 중요합니다.
+   * **이름**: 애플리케이션 게이트웨이의 이름입니다.
+   * **SKU 크기**: 애플리케이션 게이트웨이의 크기이며 소형, 중형 및 대형을 사용 가능합니다.
+   * **인스턴트 개수**: 인스턴스의 수이며 2에서 10사이의 값입니다.
+   * **리소스 그룹**: 애플리케이션 게이트웨이를 보유하는 리소스 그룹입니다. 기존 리소스 그룹이나 새 리소스 그룹을 선택할 수 있습니다.
+   * **위치**: 애플리케이션 게이트웨이의 지역이며 리소스 그룹과 동일한 위치입니다. 위치는 가상 네트워크와 공용 IP가 게이트웨이와 동일한 위치에 있어야 하므로 중요합니다.
 3. **확인**을 클릭합니다.
 4. Application Gateway에 대한 가상 네트워크, 서브넷, 프런트 엔드 IP 및 수신기 구성을 정의합니다. 이 시나리오에서 프런트 엔드 IP 주소는 **공용**이며 따라서 나중에 Traffic Manager 프로필에 엔드포인트로 추가할 수 있습니다.
 5. 다음 옵션 중 하나를 사용하여 수신기를 구성합니다.
@@ -106,11 +104,11 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 2. **설정**에서 **백 엔드 풀**을 선택한 다음 **추가**를 선택하여 웹 계층 백 엔드 풀과 연결하려는 VM을 추가합니다.
 3. 백 엔드 풀의 이름과 풀에 있는 컴퓨터의 모든 IP 주소를 입력합니다. 이 시나리오에서는 가상 머신에 있는 두 개의 백 엔드 서버 풀을 연결합니다.
 
-  ![Application Gateway “백 엔드 풀 추가”](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+   ![Application Gateway “백 엔드 풀 추가”](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Application Gateway의 **설정**에서 **규칙**을 선택한 다음, **경로 기반** 단추를 클릭하여 새 규칙을 추가합니다.
 
-  ![Application Gateway 규칙 "경로 기반" 단추](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
+   ![Application Gateway 규칙 "경로 기반" 단추](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
 5. 다음 정보를 제공하여 규칙을 구성하세요.
 
@@ -140,13 +138,13 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 1. Traffic Manager 프로필을 엽니다. 이렇게 하려면 리소스 그룹을 확인하거나 **모든 리소스**에서 Traffic Manager 프로필의 이름을 검색합니다.
 2. 왼쪽 창에서 **엔드포인트**를 선택한 다음 **추가**를 클릭하여 엔드포인트를 추가합니다.
 
-  ![Traffic Manager 엔드포인트 "추가" 단추](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
+   ![Traffic Manager 엔드포인트 "추가" 단추](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
 3. 다음 정보를 입력하여 엔드포인트를 만드세요.
 
-  * **유형**: 부하 분산 엔드포인트의 유형을 선택합니다. 이 시나리오에서는 이전에 구성된 Application Gateway 인스턴스에 연결 중이기 때문에 **Azure 엔드포인트**를 선택합니다.
-  * **이름**: 엔드포인트의 이름을 입력합니다.
-  * **대상 리소스 종류**: **공용 IP 주소**를 선택한 다음, **대상 리소스**에서 앞서 구성한 애플리케이션 게이트웨이의 공용 IP를 선택합니다.
+   * **유형**: 부하 분산 엔드포인트의 유형을 선택합니다. 이 시나리오에서는 이전에 구성된 Application Gateway 인스턴스에 연결 중이기 때문에 **Azure 엔드포인트**를 선택합니다.
+   * **이름**: 엔드포인트의 이름을 입력합니다.
+   * **대상 리소스 종류**: **공용 IP 주소**를 선택한 다음, **대상 리소스**에서 앞서 구성한 애플리케이션 게이트웨이의 공용 IP를 선택합니다.
 
    ![Traffic Manager “엔드포인트 추가”](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
@@ -173,7 +171,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 1. 리소스 그룹에서 이전 단계에서 만든 부하 분산 장치를 찾습니다.
 2. **설정**에서 **백 엔드 풀**과 **추가**를 차례로 클릭하여 새 백 엔드 풀을 추가합니다.
 
-  ![부하 분산 장치 “백 엔드 풀 추가”](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+   ![부하 분산 장치 “백 엔드 풀 추가”](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
 3. 백 엔드 풀의 이름을 입력합니다.
 4. 개별 컴퓨터 또는 가용성 집합을 백 엔드 풀에 추가합니다.
@@ -182,7 +180,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
 1. 부하 분산 장치의 **설정**에서 **프로브**와 **추가**를 차례로 선택합니다.
 
- ![부하 분산 장치 “프로브 추가”](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+   ![부하 분산 장치 “프로브 추가”](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. 프로브의 이름을 입력합니다.
 3. 프로브에 대한 **프로토콜**을 선택합니다. 데이터베이스의 경우 HTTP 프로브가 아닌 TCP 프로브를 사용하려고 할 수 있습니다. 부하 분산 장치 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브 이해](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요.

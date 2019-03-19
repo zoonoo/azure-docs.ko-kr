@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 722a40dca0a64407a407ecad6d990d1651b0e998
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415734"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176177"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -56,7 +56,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 
 ## <a name="create-and-authorize-a-managed-identity"></a>관리 ID 만들기 및 권한 부여
 
-**사용자 할당 관리 ID**는 도메인 서비스 작업을 단순화하고 보호하는 데 사용됩니다. HDInsight 도메인 서비스 기여자 역할을 관리 ID에 할당하면 도메인 서비스 작업을 읽고, 만들고, 수정하고, 삭제할 수 있습니다. OU 및 서비스 주체 만들기 같은 특정 도메인 서비스 작업은 HDInsight Enterprise Security Package에 필요합니다. 관리 ID는 모든 구독에서 만들 수 있습니다. 자세한 내용은 [Azure 리소스에 대한 ID 관리](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+**사용자 할당 관리 ID**는 도메인 서비스 작업을 단순화하고 보호하는 데 사용됩니다. HDInsight 도메인 서비스 기여자 역할을 관리 ID에 할당하면 도메인 서비스 작업을 읽고, 만들고, 수정하고, 삭제할 수 있습니다. OU 및 서비스 주체 만들기 같은 특정 도메인 서비스 작업은 HDInsight Enterprise Security Package에 필요합니다. 관리 ID는 모든 구독에서 만들 수 있습니다. 자세한 내용은 identities 일반적 관리, 참조 [Azure 리소스에 대 한 id 관리](../../active-directory/managed-identities-azure-resources/overview.md)합니다. Azure HDInsight에서 관리 되는 identities 작업에 대 한 자세한 내용은 참조 하세요. [Azure HDInsight에서 id 관리](../hdinsight-managed-identities.md)합니다.
 
 ESP 클러스터를 설정하려면 사용자 할당 관리 ID를 만들어야 합니다(아직 없는 경우). 작업 지침은 [Azure Portal을 사용하여 사용자 할당 관리 ID를 생성, 나열, 삭제 또는 할당](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)을 참조하세요. 다음으로, Azure AD-DS 액세스 제어의 관리 ID에 **HDInsight 도메인 서비스 기여자** 역할을 할당합니다(이 역할을 할당하려면 AAD-DS 관리자 권한이 필요).
 

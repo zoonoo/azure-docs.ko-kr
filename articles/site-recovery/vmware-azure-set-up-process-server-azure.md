@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 099576b1a4c5c28aab7672aaeb9274bc0beb96bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842325"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105644"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>장애 복구를 위해 Azure에서 프로세스 서버 설정
 
@@ -33,7 +33,7 @@ ms.locfileid: "52842325"
 3. **프로세스 서버 추가** 페이지에서 Azure의 프로세스 서버를 배포하도록 선택합니다.
 4. 장애 조치에 사용되는 구독, 리소스 그룹, 장애 조치에 사용되는 Azure 지역 및 Azure VM이 위치한 가상 네트워크를 비롯한 Azure 설정을 지정합니다. 여러 Azure 네트워크를 사용하는 경우 각각에 프로세스 서버가 필요합니다.
 
-  ![프로세스 서버 갤러리 항목 추가](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![프로세스 서버 갤러리 항목 추가](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
 4. **서버 이름**, **사용자 이름** 및 **암호**에서 프로세스 서버의 이름과 서버에 관리자 권한이 할당된 자격 증명을 지정합니다.
 5. 서버 VM 디스크에 사용할 저장소 계정, 프로세스 서버 VM이 위치한 서브넷 및 VM이 시작될 때 할당된 서버 IP 주소를 지정합니다.

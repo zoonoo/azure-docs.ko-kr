@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 25fdce2381cc6dd65559a2450a42de5389589863
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 7c4bd326c597b8e989dfc7aac5239ddb2d38376a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195943"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884774"
 ---
 # <a name="saas-application-storefront-details-tab"></a>SaaS 애플리케이션 상점 세부 정부 탭
 
@@ -37,7 +37,7 @@ ms.locfileid: "53195943"
 |  **제품 필드**   |  **설명**  |
 |  ---------------   |  ---------------  |
 |      제품 요약              |        제품 가치 제안의 요약입니다. 제품 검색 페이지에 표시됩니다. 최대 100자여야 합니다.           |
-|      제품 설명              |      애플리케이션 세부 정보 페이지에 표시되는 설명입니다. 허용되는 최댓값은 1300자입니다. 기본 HTML 태그를 사용하여 콘텐츠에 서식을 지정할 수 있습니다. 예를 들면 &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt; 및 &lt;li&gt;와 같습니다. 서식이 지정된 설명의 모양을 확인하려면 온라인 실시간 HTML 도구(예: [http://htmledit.squarefree.com](http://htmledit.squarefree.com) )를 사용하세요.             |
+|      제품 설명              |      애플리케이션 세부 정보 페이지에 표시되는 설명입니다. 허용되는 최댓값은 1300자입니다. 기본 HTML 태그를 사용하여 콘텐츠에 서식을 지정할 수 있습니다. 예를 들면 &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt; 및 &lt;li&gt;와 같습니다. 서식이 지정된 설명의 모양을 확인하려면 온라인 실시간 HTML 도구(예: [http://htmledit.squarefree.com](https://htmledit.squarefree.com) )를 사용하세요.             |
 |          산업          |        제품에 가장 부합되는 산업을 선택합니다. 앱이 여러 산업에 관련되는 경우 최대 두 개를 선택할 수 있습니다.           |
 |          권장 범주(최대 3개)         |        제품에 가장 부합되는 범주를 선택합니다. 최대 세 개의 범주를 선택할 수 있습니다.           |
 |           앱 버전         |        애플리케이션의 버전 번호를 입력합니다.           |

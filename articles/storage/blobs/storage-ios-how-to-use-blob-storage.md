@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1ab799ef7eb9d7c591e76ab9180d4e3f4ba6ba59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811667"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007269"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Azure 파일 공유를 만들고 헤드 노드에 탑재하는 세부 단계는 Windows에서 Azure File Storage 시작을 참조하세요.
 
@@ -124,7 +124,7 @@ Azure Storage의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예�
 }
 ```
 
-[Microsoft Azure Storage Explorer](http://storageexplorer.com) 를 확인하고 해당 *newcontainer* 가 스토리지 계정에 대한 컨테이너 목록에 있는지 확인하여 이 작업을 확인할 수 있습니다.
+[Microsoft Azure Storage Explorer](https://storageexplorer.com) 를 확인하고 해당 *newcontainer* 가 스토리지 계정에 대한 컨테이너 목록에 있는지 확인하여 이 작업을 확인할 수 있습니다.
 
 ## <a name="set-container-permissions"></a>컨테이너 사용 권한 설정
 기본적으로 컨테이너의 사용 권한은 **개인** 액세스용으로 구성됩니다. 그러나 컨테이너는 컨테이너 액세스에 대한 몇 가지 다른 옵션을 제공합니다.
@@ -203,7 +203,7 @@ Blob 서비스 개념 섹션에서 설명한 것처럼 Blob Storage는 블록 Bl
 }
 ```
 
-[Microsoft Azure Storage Explorer](http://storageexplorer.com)를 확인하고 컨테이너 *containerpublic*이 Blob *sampleblob*을 포함하는지 확인하여 이 작업을 확인할 수 있습니다. 이 샘플에서는 공용 컨테이너를 사용했으므로 Blob URI로 이동하여 이 애플리케이션 작업을 확인할 수도 있습니다.
+[Microsoft Azure Storage Explorer](https://storageexplorer.com)를 확인하고 컨테이너 *containerpublic*이 Blob *sampleblob*을 포함하는지 확인하여 이 작업을 확인할 수 있습니다. 이 샘플에서는 공용 컨테이너를 사용했으므로 Blob URI로 이동하여 이 애플리케이션 작업을 확인할 수도 있습니다.
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -378,10 +378,10 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 지금까지 iOS에서 Blob Storage를 사용하는 방법을 살펴보았으므로 다음 링크를 따라 이동하여 iOS 라이브러리 및 Storage 서비스에 대한 자세한 내용을 확인하세요.
 
 * [iOS용 Azure Storage 클라이언트 라이브러리](https://github.com/azure/azure-storage-ios)
-* [Azure Storage iOS 참조 설명서](http://azure.github.io/azure-storage-ios/)
+* [Azure Storage iOS 참조 설명서](https://azure.github.io/azure-storage-ios/)
 * [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage)
 
-이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 또는 [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요.
+이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 또는 [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요.
 Azure Storage에 대한 기능 제안 사항이 있는 경우 [Azure Storage 피드백](https://feedback.azure.com/forums/217298-storage/)에 게시해 주세요.
 

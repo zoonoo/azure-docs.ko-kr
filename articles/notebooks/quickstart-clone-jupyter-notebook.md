@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 6f36879828f5927cbb5477b32cdb6b4832010d4c
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
-ms.translationtype: HT
+ms.openlocfilehash: cfce5765cda1e3a1dfb7eb073719191b13b0696e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413135"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089202"
 ---
 # <a name="quickstart-clone-a-notebook"></a>빠른 시작: Notebook 복제
 
@@ -40,13 +40,13 @@ ms.locfileid: "53413135"
 
 1. 나타나는 **GitHub 리포지토리 업로드**에서 다음 세부 정보를 입력하거나 설정하고 **가져오기**를 선택합니다.
 
-    - **GitHub 리포지토리**: Microsoft/cognitive-services-notebooks(이 이름은 [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)의 Azure Cognitive Services에 대한 Jupyter 노트를 복제함)
-    - **재귀적으로 복제**:(선택 취소)
-    - **프로젝트 이름**: Cognitive Services 클론
-    - **프로젝트 ID**: cognitive-services-clone
-    - **공용**:(선택 취소)
+   - **GitHub 리포지토리**: Microsoft/cognitive-services-notebooks(이 이름은 [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)의 Azure Cognitive Services에 대한 Jupyter 노트를 복제함)
+   - **재귀적으로 복제**:(선택 취소)
+   - **프로젝트 이름**: Cognitive Services 클론
+   - **프로젝트 ID**: cognitive-services-clone
+   - **공용**:(선택 취소)
 
-    ![리포지토리 정보를 수집하기 위한 GitHub 리포지토리 업로드 팝업](media/quickstarts/upload-github-repo-popup.png)
+     ![리포지토리 정보를 수집하기 위한 GitHub 리포지토리 업로드 팝업](media/quickstarts/upload-github-repo-popup.png)
 
 1. 프로세스가 완료될 때까지 참고 기다리세요. 리포지토리를 복제하는 데 몇 분 정도 걸릴 수 있습니다.
 

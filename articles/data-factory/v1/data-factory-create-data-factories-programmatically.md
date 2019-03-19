@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d05661c131d981538dada988131c39d4fd956ee9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 8f333b626fa51fa60f80350547ee53f346d6cc3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016741"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436770"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Azure Data Factory .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
 > [!NOTE]
@@ -31,6 +31,9 @@ ms.locfileid: "54016741"
 > 이 문서는 모든 데이터 팩터리 .NET API를 다루지 않습니다. 데이터 팩터리용 .NET API에 대한 포괄적인 설명서는 [데이터 팩터리 .NET API 참조](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Visual Studio 2012, 2013 또는 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
 * Azure PowerShell. [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell을 사용하여 Azure Active Directory 애플리케이션을 만듭니다.
@@ -42,17 +45,17 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 2. 다음 명령을 실행하고 Azure 포털에 로그인하는 데 사용할 사용자 이름 및 암호를 입력합니다.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. 다음 명령을 실행하여 이 계정의 모든 구독을 확인합니다.
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 4. 다음 명령을 실행하여 사용하려는 구독을 선택합니다. **&lt;NameOfAzureSubscription**&gt;을 Azure 구독의 이름으로 바꿉니다.
 
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
    > [!IMPORTANT]
@@ -61,7 +64,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 5. PowerShell에서 다음 명령을 실행하여 **ADFTutorialResourceGroup** 이라는 Azure 리소스 그룹을 만듭니다.
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
     리소스 그룹이 이미 있다면 업데이트(Y)할지 또는 유지(N)할지를 지정합니다.
@@ -70,7 +73,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 6. Azure Active Directory 애플리케이션을 만듭니다.
 
     ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
+    $azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
     다음과 같은 오류가 발생하면 다른 URL을 지정하고 명령을 다시 실행합니다.
@@ -81,12 +84,12 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 7. AD 서비스 주체를 만듭니다.
 
     ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. **데이터 팩터리 참가자** 역할에 서비스 주체를 추가합니다.
 
     ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. 애플리케이션 ID를 가져옵니다.
 
@@ -175,7 +178,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     ```
 
    > [!IMPORTANT]
-   > **resourceGroupName** 값을 Azure 리소스 그룹의 이름으로 바꿉니다. [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet을 사용하여 리소스 그룹을 만들 수 있습니다.
+   > **resourceGroupName** 값을 Azure 리소스 그룹의 이름으로 바꿉니다. [New-AzureResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet을 사용하여 리소스 그룹을 만들 수 있습니다.
    >
    > 데이터 팩터리 이름(dataFactoryName)을 고유한 이름으로 업데이트합니다. 데이터 팩터리 이름은 전역적으로 고유해야 합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.
 7. **데이터 팩터리**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
@@ -219,7 +222,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     ```
 9. **입력 및 출력 데이터 세트**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
-    입력 Blob의 **FolderPath**는 **adftutorial/** 로 설정됩니다. 여기서 **adftutorial**은 Blob 저장소에 있는 컨테이너의 이름입니다. Azure Blob 저장소에 이 컨테이너가 없는 경우 이름이 **adftutorial**인 컨테이너를 만들고 텍스트 파일을 컨테이너로 업로드합니다.
+    합니다 **FolderPath** 입력된 blob로 설정 됩니다 **adftutorial /** 여기서 **adftutorial** blob storage에 컨테이너의 이름입니다. 이 컨테이너에 Azure blob 저장소에 없는 경우이 이름을 가진 컨테이너를 만듭니다: **adftutorial** 텍스트 파일을 컨테이너에 업로드 하 고 있습니다.
 
     출력 Blob의 FolderPath는 **adftutorial/apifactoryoutput/{Slice}** 로 설정됩니다. 여기서 **Slice**는 **SliceStart**(각 조각의 시작 날짜-시간) 값을 기반으로 동적으로 계산됩니다.
 
@@ -446,7 +449,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 
 15. 솔루션 탐색기에서 솔루션 탐색기에서 **DataFactoryAPITestApp** 프로젝트를 확장하고 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
 15. 콘솔 애플리케이션을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
-16. Azure Blob 저장소의 adftutorial 컨테이너에 하나 이상의 파일이 있는지 확인합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 Emp.txt 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
+16. 이 시작 자습서에서는 Microsoft Azure File Storage 사용에 대한 기본 사항을 설명합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 Emp.txt 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
     ```
     John, Doe

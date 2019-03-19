@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/19/2018
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338ae760aae90131a7353f990e1014aa714faa0f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8ab3570cb7e3e8b09425bf4c05f7f5725fd21d4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177906"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845157"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 
@@ -42,12 +42,12 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
 ## <a name="when-to-use-access-reviews"></a>언제 액세스 검토를 사용하나요?
 
-- **권한 있는 역할에 사용자가 너무 많은 경우:** 관리 액세스 권한이 있는 사용자 수, 글로벌 관리자의 수, 관리 작업을 수행하도록 할당된 후 제거되지 않은 초대된 게스트 또는 파트너가 있는지 여부를 확인하는 것이 좋습니다. [Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 환경에서 글로벌 관리자와 같은 [Azure AD 디렉터리 역할](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 또는 사용자 액세스 관리자와 같은 [Azure 리소스 역할](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)의 역할 할당 사용자를 다시 인증할 수 있습니다.
+- **권한 있는 역할에 사용자가 너무 많은 경우:** 관리 액세스는 사용자 수를 확인 하는 것이 좋습니다가 얼마나 많은 하는 전역 관리자에 게 게스트 또는 파트너는 관리 작업을 위해 할당 한 후 제거 되지 않은 모든 경우 및 초대 합니다. [Azure AD PIM(Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 환경에서 글로벌 관리자와 같은 [Azure AD 디렉터리 역할](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) 또는 사용자 액세스 관리자와 같은 [Azure 리소스 역할](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)의 역할 할당 사용자를 다시 인증할 수 있습니다.
 - **자동화를 사용할 수 없는 경우:** 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 만들 수 있습니다. 하지만, HR 데이터가 Azure AD에 없거나 사용자가 그룹을 떠난 뒤에도 대체자를 교육시키기 위해 액세스 권한이 필요한 경우 어찌하나요? 해당 그룹에서 검토를 만들어서 계속 액세스 권한이 필요한 사용자가 계속 액세스할 수 있도록 합니다.
 - **새로운 목적을 위해 그룹이 사용되는 경우:** Azure AD에 동기화될 그룹이 있거나 판매 팀 그룹의 모든 사용자에 대해 애플리케이션 Salesforce를 사용하도록 설정하려는 경우 그룹이 다른 위험 콘텐츠에 사용되기 전에 그룹 소유자에게 다른 그룹 멤버 자격을 검토하도록 요청하는 것이 유용합니다.
 - **비즈니스 중요 데이터 액세스:** 특정 리소스의 경우 IT 외부 사용자에게 정기적으로 로그오프하도록 요청하고 감사 목적을 위해 액세스가 필요한 이유에 대한 근거를 제공해야 할 수 있습니다.
 - **정책의 예외 목록을 유지 관리하려면:** 이상적인 환경에서 모든 사용자는 조직의 리소스에 대한 액세스를 보호하는 액세스 정책을 따릅니다. 그러나 경우에 따라 예외가 있는 비즈니스 사례가 있습니다. IT 관리자로서, 이 작업을 관리하고, 정책 예외 감시를 방지하며, 이러한 예외를 정기적으로 검토했음에 대한 증명을 감사자에게 제공할 수 있습니다.
-- **그룹 소유자에게 해당 그룹에 게스트가 여전히 필요한지 확인하도록 요청합니다:** 초대된 게스트가 아닌 일부 온-프레미스 IAM을 사용하여 직원 액세스를 자동화할 수 있습니다. 그룹이 게스트에게 비즈니스상 중요한 콘텐츠에 대한 액세스 권한을 부여한 경우 게스트에게 액세스에 대한 합법적인 비즈니스 요구가 여전히 있는지를 확인할 책임은 그룹 소유자에게 있습니다.
+- **그룹 소유자에게 해당 그룹에 게스트가 여전히 필요한지 확인하도록 요청합니다:** 대 한 직원 액세스 하지 초대 된 게스트 하지만 IAM, 온-프레미스의 일부를 사용 하 여 자동화할 수 있습니다. 그룹이 게스트에게 비즈니스상 중요한 콘텐츠에 대한 액세스 권한을 부여한 경우 게스트에게 액세스에 대한 합법적인 비즈니스 요구가 여전히 있는지를 확인할 책임은 그룹 소유자에게 있습니다.
 - **검토를 주기적으로 반복되도록 함:** 주간, 월별, 분기별 또는 연간과 같이 설정된 빈도에 따라 사용자의 액세스 검토 반복을 설정할 수 있으며, 검토자는 각 검토 시작 시 알림을 받게 됩니다. 검토자는 친숙한 인터페이스를 사용하거나 스마트 권장 사항을 활용하여 액세스를 승인하거나 거부할 수 있습니다.
 
 ## <a name="where-do-you-create-reviews"></a>검토는 어디에서 만드나요?
@@ -58,8 +58,8 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 | --- | --- | --- | --- |
 | 보안 그룹 멤버</br>사무실 그룹 멤버 | 지정된 검토자</br>그룹 소유자</br>자체 검토 | Azure AD 액세스 검토</br>Azure AD 그룹 | 액세스 패널 |
 | 연결된 앱에 할당됨 | 지정된 검토자</br>자체 검토 | Azure AD 액세스 검토</br>Azure AD 엔터프라이즈 앱(미리 보기) | 액세스 패널 |
-| Azure AD 디렉터리 역할 | 지정된 검토자</br>자체 검토 | Azure AD PIM | Azure portal |
-| Azure 리소스 역할 | 지정된 검토자</br>자체 검토 | Azure AD PIM | Azure portal |
+| Azure AD 디렉터리 역할 | 지정된 검토자</br>자체 검토 | Azure AD PIM | Azure Portal |
+| Azure 리소스 역할 | 지정된 검토자</br>자체 검토 | Azure AD PIM | Azure Portal |
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -84,27 +84,29 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
 액세스 검토를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. 액세스 검토를 사용할 [Azure Portal](https://portal.azure.com)에 글로벌 관리자 또는 사용자 계정 관리자로 로그인합니다.
+1. 전역 관리자 또는 사용자 관리자에 로그인 하는 [Azure portal](https://portal.azure.com) 액세스를 사용 하려는 검토 합니다.
 
 1. **모든 서비스**를 클릭하고 액세스 검토 서비스를 찾습니다.
 
-    ![모든 서비스 - 액세스 검토](./media/access-reviews-overview/all-services-access-reviews.png)
-
 1. **액세스 검토**를 클릭합니다.
 
-    ![액세스 검토 등록](./media/access-reviews-overview/onboard-button.png)
+    ![모든 서비스 - 액세스 검토](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. 탐색 목록에서 **등록**을 클릭하여 **액세스 검토 등록** 페이지를 엽니다.
 
+    ![액세스 검토 등록](./media/access-reviews-overview/onboard-button.png)
+
+1. **만들기**를 클릭하여 현재 디렉터리에서 액세스 검토를 사용하도록 설정합니다.
+
     ![액세스 검토 등록](./media/access-reviews-overview/onboard-access-reviews.png)
 
-1. **만들기**를 클릭하여 현재 디렉터리에서 액세스 검토를 사용하도록 설정합니다. 다음 번에 액세스 검토를 시작할 때 해당 옵션을 사용할 수 있습니다.
+    다음에 대 한 액세스를 먼저 검토, 액세스 검토 옵션을 사용 하도록 설정 합니다.
 
     ![액세스 검토를 사용하도록 설정](./media/access-reviews-overview/access-reviews-enabled.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [그룹의 멤버 또는 애플리케이션에 액세스에 대한 액세스 검토 만들기](create-access-review.md)
+- [그룹 또는 응용 프로그램의 액세스 검토 만들기](create-access-review.md)
 - [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
-- [Azure AD 액세스 검토를 사용하여 액세스 검토 수행](perform-access-review.md)
-- [Azure AD에서 애플리케이션에 대한 액세스 권한이 있는 그룹 멤버 또는 사용자의 액세스 검토 완료](complete-access-review.md)
+- [그룹 또는 응용 프로그램에 대 한 액세스를 검토 합니다.](perform-access-review.md)
+- [그룹 또는 응용 프로그램의 액세스 검토를 완료 합니다.](complete-access-review.md)

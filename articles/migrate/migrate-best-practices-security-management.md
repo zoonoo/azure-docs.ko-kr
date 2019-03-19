@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0bd19492c844e217dc520ae0c189ca467bb7ac0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700080"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011093"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Azure로 마이그레이션된 워크로드 보안 유지 및 관리 모범 사례
 
@@ -267,7 +267,7 @@ Azure는 고급 보안 옵션을 제공하는 다양한 다른 보안 기능을 
 
 - 태그 지정 및 태그 제한 사항에 대해 [알아봅니다](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
 - 태그 지정을 설정하고 리소스 그룹에서 해당 리소스에 태그를 적용하는 PowerShell 및 CLI 예제를 [검토합니다](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell).
-- Azure 태그 지정 모범 사례에 대해 [읽어봅니다](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/).
+- Azure 태그 지정 모범 사례에 대해 [읽어봅니다](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/).
 
 
 ## <a name="best-practice-implement-blueprints"></a>모범 사례: 청사진 구현
@@ -588,7 +588,7 @@ Azure 리소스는 상당히 많은 수의 로깅 메트릭 및 원격 분석 �
 
 - 기본적으로 대부분의 리소스 유형에서는 진단 로깅을 사용하도록 설정하지 않습니다.
 - 리소스에 대해 진단 로깅을 사용하도록 설정하여 로깅 데이터를 쿼리하고 해당 데이터를 기준으로 경고 및 플레이북을 빌드할 수 있습니다.
-- 진단 로깅을 사용하도록 설정하면 각 리소스에는 특정 범주 세트가 구성됩니다. 하나 이상의 로깅 범주와 로그 데이터의 위치를 선택합니다. 스토리지 계정, 이벤트 허브 또는 Log Analytics로 로그를 전송할 수 있습니다. 
+- 진단 로깅을 사용하도록 설정하면 각 리소스에는 특정 범주 세트가 구성됩니다. 하나 이상의 로깅 범주와 로그 데이터의 위치를 선택합니다. 저장소 계정에 이벤트 허브 또는 Azure Monitor 로그로 로그를 보낼 수 있습니다. 
 
 
 ![진단 로깅](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -679,7 +679,7 @@ Azure Portal은 웹 기반 통합 콘솔로, 간단한 웹앱에서 복잡한 �
 Azure Automation에는 변경 내용 추적 솔루션에 있습니다.
 
 - 이 솔루션은 Windows 및 Linux 소프트웨어 및 파일, Windows 레지스트리 키, Windows 서비스 및 Linux 디먼의 변경 내용을 추적합니다.
-- 모니터링되는 서버의 변경 내용은 처리를 위해 클라우드의 Log Analytics 서비스로 전송됩니다.
+- 모니터링 되는 서버에 변경 내용 처리를 위해 클라우드의 Azure Monitor 서비스에 전송 됩니다.
 - 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다.
 - 변경 추적 대시보드에서 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
 

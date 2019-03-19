@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 115c6726ed150b9a76685bd5a558d547d215958f
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 1098c5c2f42b242b3ba2f68ec7480de90dd7c22e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587738"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766651"
 ---
 # <a name="configure-export-policy-for-a-volume"></a>볼륨에 대한 내보내기 정책 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "56587738"
         * IPv4 주소(예: `10.1.12.24`) 
         * 비트 수로 표현된 서브넷 마스크가 있는 IPv4 주소(예: `10.1.12.10/4`)
 
-    * **Access**  
+    * **액세스 권한**  
         다음 액세스 유형 중 하나를 선택합니다.  
         * 액세스 권한 없음 
         * 읽기 및 쓰기
@@ -49,7 +49,7 @@ ms.locfileid: "56587738"
         내보내기 정책에 사용할 프로토콜을 지정합니다.   
         현재 Azure NetApp Files는 NFSv3만 지원합니다.
 
-    ![내보내기 정책](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
+    ![정책 내보내기](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
 
 ## <a name="next-steps"></a>다음 단계 

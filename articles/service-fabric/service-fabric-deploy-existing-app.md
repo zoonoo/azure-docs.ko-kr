@@ -3,7 +3,7 @@ title: Azure Service Fabric에 기존 실행 파일 배포 | Microsoft Docs
 description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: mfussell
-ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 5831a21225b80e613f713a516d2f000f8b33f096
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168416"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853157"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
 기존 실행 파일을 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)로 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [애플리케이션 패키지를 수동으로 만들도록](#manually) 선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 템플릿에 의해 애플리케이션 패키지 구조 및 매니페스트 파일이 생성됩니다.
@@ -73,7 +73,7 @@ Yeoman은 설치 및 제거 스크립트와 함께 해당 애플리케이션과 
 -->
 
 ### <a name="create-the-package-directory-structure"></a>패키지 디렉터리 구조 만들기
-이전 섹션에서 "애플리케이션 패키지 파일 구조"에 설명된 대로 디렉터리 구조를 만들어서 시작할 수 있습니다.
+에 설명 된 대로 디렉터리 구조를 만들어서 시작할 수 있습니다 [Azure Service Fabric 응용 프로그램을 패키징할](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)합니다.
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>애플리케이션의 코드 및 구성 파일 추가
 디렉터리 구조를 만든 후에 애플리케이션의 코드 및 구성 파일을 코드 및 구성 디렉터리 아래에 추가할 수 있습니다. 코드 또는 구성 디렉터리 아래에 하위 디렉터리 또는 추가 디렉터리를 만들 수도 있습니다.
@@ -96,7 +96,7 @@ Service Fabric은 애플리케이션 루트 디렉터리의 내용에 대한 `xc
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ServiceManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true"/>
    </ServiceTypes>
@@ -207,7 +207,7 @@ WorkingFolder는 애플리케이션 또는 초기화 스크립트에서 상대 �
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="NodeApp" ServiceManifestVersion="1.0.0.0" />
    </ServiceManifestImport>

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c622b95572a078d3f5a3e4791f959fd264eddc3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4b72ec628e048560fbfb9da63123bbb7461811b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074287"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱의 사용자 또는 그룹 할당 제거
 Azure AD(Azure Active Directory)에서 엔터프라이즈 애플리케이션 중 하나에 대해 할당된 액세스의 사용자 또는 그룹을 제거하는 것은 쉽습니다. 엔터프라이즈 앱을 관리하려면 적절한 권한이 있어야 하고 해당 디렉터리에 대한 전역 관리자여야 합니다.
@@ -51,7 +51,7 @@ Azure AD(Azure Active Directory)에서 엔터프라이즈 애플리케이션 중
     > Azure AD 모듈을 설치해야 합니다(`Install-Module -Name AzureAD` 명령 사용). NuGet 모듈 또는 새로운 Azure Active Directory V2 PowerShell 모듈을 설치하라는 메시지가 표시되면 Y를 입력하고 Enter 키를 누릅니다.
 
 2. `Connect-AzureAD`를 실행하고 전역 관리자 사용자 계정으로 로그인합니다.
-3. 다음 스크립트를 사용하여 애플리케이션에 사용자 및 역할을 할당합니다.
+3. 다음 스크립트를 사용 하 여 응용 프로그램에서 사용자 및 역할을 제거 합니다.
 
     ```powershell
     # Store the proper parameters
@@ -67,7 +67,7 @@ Azure AD(Azure Active Directory)에서 엔터프라이즈 애플리케이션 중
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ``` 
-## <a name="next-steps"></a>다음 단계
+   ## <a name="next-steps"></a>다음 단계
 
 - [내 그룹 모두 보기](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [엔터프라이즈 앱에 사용자 또는 그룹 할당](assign-user-or-group-access-portal.md)

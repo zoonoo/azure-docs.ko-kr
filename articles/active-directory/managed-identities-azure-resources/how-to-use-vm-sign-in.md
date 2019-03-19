@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761843aad24dc89131079eb59954bd17883e595d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2dfbb618bafd9ae3cbb0c691e63a243ab2c2c31e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178399"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996546"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>로그인을 위해 Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하는 방법 
 
@@ -87,7 +87,7 @@ Azure AD를 지원하고 Azure 리소스의 관리 ID 및 해당하는 리소스
 다음과 같은 응답은 Azure 리소스의 VM 관리 ID가 올바르게 구성되지 않았음을 나타낼 수 있습니다.
 
 - PowerShell: *Invoke-WebRequest : 원격 서버에 연결할 수 없습니다.*
-- CLI: *MSI: 'HTTPConnectionPool(host='localhost', port=50342) 오류를 표시하여 'http://localhost:50342/oauth2/token'에서 토큰을 검색하지 못했습니다.* 
+- CLI: *MSI: 토큰을 검색 하지 못했습니다 `http://localhost:50342/oauth2/token` 오류가 발생 하 여 ' HTTPConnectionPool (호스트 = 'localhost', 포트에서 50342 =)* 
 
 이러한 오류 중 하나를 수신하면 [Azure Portal](https://portal.azure.com)에서 Azure VM에 반환됩니다.
 

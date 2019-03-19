@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: d7b78519f1e81fed1f74b6f3a2fd2720cd28cce4
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: 703a8ee989a4655768e09440ed250ade6c000050
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842953"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114975"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>웹 서버 또는 프로젝트 설정
 
@@ -38,7 +38,7 @@ ms.locfileid: "48842953"
 
 ## <a name="create-your-project"></a>프로젝트 만들기
 
-> ### <a name="option-1-node-other-web-servers"></a>옵션 1: Node/기타 웹 서버
+> ### <a name="option-1-node-other-web-servers"></a>옵션 1: 노드 / 기타 웹 서버
 > [Node.js](https://nodejs.org/en/download/)를 설치했는지 확인한 후 아래 단계를 따릅니다.
 > - 애플리케이션을 호스트할 폴더를 만듭니다.
 
@@ -46,33 +46,33 @@ ms.locfileid: "48842953"
 
 > ### <a name="option-2-visual-studio"></a>옵션 2: Visual Studio
 > Visual Studio를 사용하며 새 프로젝트를 만드는 경우 아래 단계에 따라 새 Visual Studio 솔루션을 만드세요.
-> 1.    Visual Studio: **파일 > 새로 만들기 > 프로젝트**
-> 2.    **Visual C#\Web**에서 **ASP.NET 웹 응용 프로그램(.NET Framework)** 을 선택합니다.
+> 1.    Visual Studio에서  **파일 > 새로 만들기 > 프로젝트**
+> 2.    **Visual C#\Web**에서 **ASP.NET 웹 애플리케이션(.NET Framework)** 을 선택합니다.
 > 3.    애플리케이션 이름을 입력하고 **확인**을 선택합니다.
-> 4.    **새 ASP.NET 웹 응용 프로그램**에서 **비어 있음**을 선택합니다.
+> 4.    **새 ASP.NET 웹 애플리케이션**에서 **비어 있음**을 선택합니다.
 
 
 ## <a name="create-your-single-page-applications-ui"></a>단일 페이지 애플리케이션의 UI 만들기
-1.  JavaScript SPA에 대한 `index.html` 파일을 만듭니다. Visual Studio를 사용하는 경우 프로젝트(프로젝트 루트 폴더)를 마우스 오른쪽 단추로 클릭하고 **추가 > 새 항목 > HTML 페이지**를 선택하고 이름을 index.html로 지정합니다.
+1. JavaScript SPA에 대한 `index.html` 파일을 만듭니다. Visual Studio를 사용 하는 경우 프로젝트 (프로젝트 루트 폴더)를 선택, 마우스 오른쪽 단추로 클릭 하 고 선택: **추가 > 새 항목 > HTML 페이지** index.html 이라는 이름을 지정 합니다.
 
-2.  페이지에 다음 코드를 추가합니다.
-```html
-<!DOCTYPE html>
-<html>
-<head>
-        <title>Quickstart for MSAL JS</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-        <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-</head>
-<body>
-        <h2>Welcome to MSAL.js Quickstart</h2><br/>
-        <h4 id="WelcomeMessage"></h4>
-        <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
-        <pre id="json"></pre>
-        <script>
-            //JS code
-        </script>
-</body>
-</html>
-```
+2. 페이지에 다음 코드를 추가합니다.
+   ```html
+   <!DOCTYPE html>
+   <html>
+   <head>
+       <title>Quickstart for MSAL JS</title>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
+       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+   </head>
+   <body>
+       <h2>Welcome to MSAL.js Quickstart</h2><br/>
+       <h4 id="WelcomeMessage"></h4>
+       <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
+       <pre id="json"></pre>
+       <script>
+           //JS code
+       </script>
+   </body>
+   </html>
+   ```

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 81096eeb1edcd6681bdc887d267ee477d78a8578
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6a27f23b5a0eba04ea3fa73a2f59364f9101c069
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852169"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 10월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 10월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.
@@ -57,7 +57,7 @@ Azure SQL Data Warehouse ADR(가속 데이터베이스 복구)이 공개 미리 
 
 ## <a name="bug-fixes"></a>버그 수정
 
-| 제목 | 설명 |
+| 직함 | 설명 |
 |:---|:---|
 | **DW2000 등의 데이터 웨어하우스에 있는 소규모 리소스 클래스에서 Parquet에 대한 CETAS 오류** | 이 픽스는 Create External Table As to Parquet 코드 경로에서 null 참조를 올바르게 식별합니다. |
 |**일부 CTAS 작업에서 ID 열 값이 손실될 수 있음** | 다른 테이블로 CTAS 할 때 ID 열 값이 유지되지 않을 수 있습니다. [https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/) 블로그에서 보고되었습니다. |
@@ -81,7 +81,7 @@ SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse �
 [고객 자문 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [고객 성공 사례]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow 포럼]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

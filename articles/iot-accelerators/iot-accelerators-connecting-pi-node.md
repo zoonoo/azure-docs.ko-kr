@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: af269085550f71323c8098b4cdf3c88ec8035dfe
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 20d50ac4ac4a1919077ebe67bb529e2dc5abf187
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563306"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109749"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스 연결(Node.js)
 
@@ -163,158 +163,158 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
 
 1. 다음 도우미 함수를 추가하여 원격 분석 값을 임의로 지정하는 데 사용합니다.
 
-    ```javascript
-    function generateRandomIncrement() {
-        return ((Math.random() * 2) - 1);
-    }
-    ```
+     ```javascript
+     function generateRandomIncrement() {
+         return ((Math.random() * 2) - 1);
+     }
+     ```
 
 1. 다음 제네릭 함수를 추가하여 솔루션에서 직접 메서드 호출을 처리합니다. 함수는 호출된 직접 메서드에 대한 정보를 표시하지만, 이 샘플에서는 어떤 방식으로도 디바이스를 수정하지 않습니다. 솔루션은 직접 메서드를 사용하여 디바이스에서 작동합니다.
 
-    ```javascript
-    function onDirectMethod(request, response) {
-      // Implement logic asynchronously here.
-      console.log('Simulated ' + request.methodName);
+     ```javascript
+     function onDirectMethod(request, response) {
+       // Implement logic asynchronously here.
+       console.log('Simulated ' + request.methodName);
 
-      // Complete the response
-      response.send(200, request.methodName + ' was called on the device', function (err) {
-        if (err) console.error('Error sending method response :\n' + err.toString());
-        else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
-      });
-    }
-    ```
+       // Complete the response
+       response.send(200, request.methodName + ' was called on the device', function (err) {
+         if (err) console.error('Error sending method response :\n' + err.toString());
+         else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+       });
+     }
+     ```
 
 1. 다음 함수를 추가하여 솔루션에서 **FirmwareUpdate** 직접 메서드 호출을 처리합니다. 함수는 직접 메서드 페이로드에 전달된 매개 변수를 확인한 다음, 펌웨어 업데이트 시뮬레이션을 비동기적으로 실행합니다.
 
-    ```javascript
-    function onFirmwareUpdate(request, response) {
-      // Get the requested firmware version from the JSON request body
-      var firmwareVersion = request.payload.Firmware;
-      var firmwareUri = request.payload.FirmwareUri;
+     ```javascript
+     function onFirmwareUpdate(request, response) {
+       // Get the requested firmware version from the JSON request body
+       var firmwareVersion = request.payload.Firmware;
+       var firmwareUri = request.payload.FirmwareUri;
       
-      // Ensure we got a firmware values
-      if (!firmwareVersion || !firmwareUri) {
-        response.send(400, 'Missing firmware value', function(err) {
-          if (err) console.error('Error sending method response :\n' + err.toString());
-          else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
-        });
-      } else {
-        // Respond the cloud app for the device method
-        response.send(200, 'Firmware update started.', function(err) {
-          if (err) console.error('Error sending method response :\n' + err.toString());
-          else {
-            console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+       // Ensure we got a firmware values
+       if (!firmwareVersion || !firmwareUri) {
+         response.send(400, 'Missing firmware value', function(err) {
+           if (err) console.error('Error sending method response :\n' + err.toString());
+           else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
+         });
+       } else {
+         // Respond the cloud app for the device method
+         response.send(200, 'Firmware update started.', function(err) {
+           if (err) console.error('Error sending method response :\n' + err.toString());
+           else {
+             console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
 
-            // Run the simulated firmware update flow
-            runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
-          }
-        });
-      }
-    }
-    ```
+             // Run the simulated firmware update flow
+             runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
+           }
+         });
+       }
+     }
+     ```
 
 1. 다음 함수를 추가하여 진행 상태를 솔루션에 다시 보고하는 장기 실행 펌웨어 업데이트 흐름을 시뮬레이션합니다.
 
-    ```javascript
-    // Simulated firmwareUpdate flow
-    function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
-      console.log('Simulating firmware update flow...');
-      console.log('> Firmware version passed: ' + firmwareVersion);
-      console.log('> Firmware URI passed: ' + firmwareUri);
-      async.waterfall([
-        function (callback) {
-          console.log("Image downloading from " + firmwareUri);
-          var patch = {
-            FirmwareUpdateStatus: 'Downloading image..'
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(10000, callback);
-        },
-        function (callback) {
-          console.log("Downloaded, applying firmware " + firmwareVersion);
-          deviceOnline = false;
-          var patch = {
-            FirmwareUpdateStatus: 'Applying firmware..',
-            Online: false
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(8000, callback);
-        },
-        function (callback) {
-          console.log("Rebooting");
-          var patch = {
-            FirmwareUpdateStatus: 'Rebooting..'
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(10000, callback);
-        },
-        function (callback) {
-          console.log("Firmware updated to " + firmwareVersion);
-          deviceOnline = true;
-          var patch = {
-            FirmwareUpdateStatus: 'Firmware updated',
-            Online: true,
-            Firmware: firmwareVersion
-          };
-          reportUpdateThroughTwin(patch, callback);
-          callback(null);
-        }
-      ], function(err) {
-        if (err) {
-          console.error('Error in simulated firmware update flow: ' + err.message);
-        } else {
-          console.log("Completed simulated firmware update flow");
-        }
-      });
+     ```javascript
+     // Simulated firmwareUpdate flow
+     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
+       console.log('Simulating firmware update flow...');
+       console.log('> Firmware version passed: ' + firmwareVersion);
+       console.log('> Firmware URI passed: ' + firmwareUri);
+       async.waterfall([
+         function (callback) {
+           console.log("Image downloading from " + firmwareUri);
+           var patch = {
+             FirmwareUpdateStatus: 'Downloading image..'
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(10000, callback);
+         },
+         function (callback) {
+           console.log("Downloaded, applying firmware " + firmwareVersion);
+           deviceOnline = false;
+           var patch = {
+             FirmwareUpdateStatus: 'Applying firmware..',
+             Online: false
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(8000, callback);
+         },
+         function (callback) {
+           console.log("Rebooting");
+           var patch = {
+             FirmwareUpdateStatus: 'Rebooting..'
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(10000, callback);
+         },
+         function (callback) {
+           console.log("Firmware updated to " + firmwareVersion);
+           deviceOnline = true;
+           var patch = {
+             FirmwareUpdateStatus: 'Firmware updated',
+             Online: true,
+             Firmware: firmwareVersion
+           };
+           reportUpdateThroughTwin(patch, callback);
+           callback(null);
+         }
+       ], function(err) {
+         if (err) {
+           console.error('Error in simulated firmware update flow: ' + err.message);
+         } else {
+           console.log("Completed simulated firmware update flow");
+         }
+       });
 
-      // Helper function to update the twin reported properties.
-      function reportUpdateThroughTwin(patch, callback) {
-        console.log("Sending...");
-        console.log(JSON.stringify(patch, null, 2));
-        client.getTwin(function(err, twin) {
-          if (!err) {
-            twin.properties.reported.update(patch, function(err) {
-              if (err) callback(err);
-            });      
-          } else {
-            if (err) callback(err);
-          }
-        });
-      }
+       // Helper function to update the twin reported properties.
+       function reportUpdateThroughTwin(patch, callback) {
+         console.log("Sending...");
+         console.log(JSON.stringify(patch, null, 2));
+         client.getTwin(function(err, twin) {
+           if (!err) {
+             twin.properties.reported.update(patch, function(err) {
+               if (err) callback(err);
+             });      
+           } else {
+             if (err) callback(err);
+           }
+         });
+       }
 
-      function sleep(milliseconds, callback) {
-        console.log("Simulate a delay (milleseconds): " + milliseconds);
-        setTimeout(function () {
-          callback(null);
-        }, milliseconds);
-      }
-    }
-    ```
+       function sleep(milliseconds, callback) {
+         console.log("Simulate a delay (milleseconds): " + milliseconds);
+         setTimeout(function () {
+           callback(null);
+         }, milliseconds);
+       }
+     }
+     ```
 
 1. 다음 코드를 추가하여 솔루션에 원격 분석 데이터를 보냅니다. 클라이언트 앱은 메시지 스키마를 식별하기 위해 메시지에 속성을 추가합니다.
 
-    ```javascript
-    function sendTelemetry(data, schema) {
-      if (deviceOnline) {
-        var d = new Date();
-        var payload = JSON.stringify(data);
-        var message = new Message(payload);
-        message.properties.add('iothub-creation-time-utc', d.toISOString());
-        message.properties.add('iothub-message-schema', schema);
+     ```javascript
+     function sendTelemetry(data, schema) {
+       if (deviceOnline) {
+         var d = new Date();
+         var payload = JSON.stringify(data);
+         var message = new Message(payload);
+         message.properties.add('iothub-creation-time-utc', d.toISOString());
+         message.properties.add('iothub-message-schema', schema);
 
-        console.log('Sending device message data:\n' + payload);
-        client.sendEvent(message, printErrorFor('send event'));
-      } else {
-        console.log('Offline, not sending telemetry');
-      }
-    }
-    ```
+         console.log('Sending device message data:\n' + payload);
+         client.sendEvent(message, printErrorFor('send event'));
+       } else {
+         console.log('Offline, not sending telemetry');
+       }
+     }
+     ```
 
 1. 다음 코드를 추가하여 클라이언트 인스턴스를 만듭니다.
 
-    ```javascript
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
+     ```javascript
+     var client = Client.fromConnectionString(connectionString, Protocol);
+     ```
 
 1. 다음 코드를 추가하여:
 
@@ -324,8 +324,8 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
     * 직접 메서드에 대한 처리기를 등록합니다. 샘플은 펌웨어 업데이트 직접 메서드에 대한 별도 처리기를 사용합니다.
     * 원격 분석 보내기를 시작합니다.
 
-    ```javascript
-    client.open(function (err) {
+      ```javascript
+      client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);
       } else {
@@ -381,15 +381,15 @@ Raspberry Pi에 `ssh` 연결을 사용하여 다음 단계를 완료합니다.
           client.close(printErrorFor('client.close'));
         });
       }
-    });
-    ```
+      });
+      ```
 
 1. **remote_monitoring.js** 파일에 변경 내용을 저장합니다.
 
 1. 샘플 애플리케이션을 시작하려면 Raspberry Pi의 명령 프롬프트에서 다음 명령을 실행합니다.
 
-    ```sh
-    node remote_monitoring.js
-    ```
+     ```sh
+     node remote_monitoring.js
+     ```
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

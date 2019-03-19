@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 997727acd1bbaf17577160bb996aad7e21d49c86
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 2a425e607ea7dac394ab90a3fed4d4026056bbc1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118581"
 ---
 <a name="get-customer-leads"></a>리드 가져오기
 ==================
@@ -39,13 +39,13 @@ ms.locfileid: "48807540"
 
 <!-- -->
 
-2.  고객이 “지금 설치하기”를 선택하여 정보 공유에 동의합니다. 이 고객은 **초기 관심**을 나타내는 잠재 고객에 해당하며, 제품 구매에 관심을 표시한 고객 관련 정보가 공유됩니다. 해당 잠재 고객은 고객 유입 경로에서 최상위에 해당하는 고객입니다.
+1. 고객이 “지금 설치하기”를 선택하여 정보 공유에 동의합니다. 이 고객은 **초기 관심**을 나타내는 잠재 고객에 해당하며, 제품 구매에 관심을 표시한 고객 관련 정보가 공유됩니다. 해당 잠재 고객은 고객 유입 경로에서 최상위에 해당하는 고객입니다.
 
-    ![지금 설치하기 옵션](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
+   ![지금 설치하기 옵션](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
-3.  고객이 [Azure Portal](https://portal.azure.com/)에서 “구매”를 선택하여 제품을 구매합니다. 그러면 이 고객은 **활성** 잠재 고객이 되며, 제품 배포를 시작한 고객 관련 정보가 공유됩니다.
+1. 고객이 [Azure Portal](https://portal.azure.com/)에서 “구매”를 선택하여 제품을 구매합니다. 그러면 이 고객은 **활성** 잠재 고객이 되며, 제품 배포를 시작한 고객 관련 정보가 공유됩니다.
 
-    ![구매 옵션](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
+   ![구매 옵션](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
 
 
 ### <a name="appsource"></a>AppSource
@@ -72,7 +72,7 @@ ms.locfileid: "48807540"
 
 잠재 고객 확보 기회의 형식은 **확보 기회**-**작업** |  **제품**입니다.
 
-**확보 기회**: "AzureMarketplace", "AzurePortal", "TestDrive" 및 "AppSource(SPZA)"
+**원본**: "AzureMarketplace", "AzurePortal", "테스트" 및 "AppSource (SPZA)"
 
 **작업**:
 - "INS" -- 설치. 고객이 제품을 구매할 때 Azure Marketplace 또는 AppSource에서 이 작업이 수행됩니다.
@@ -83,19 +83,19 @@ ms.locfileid: "48807540"
 
 **제품**
 
-특정 게시자와 제품에 할당되는 고유한 식별자의 예로는 checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress, and docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a 등이 있습니다.
+다음 예제에서는 게시자 및 특정 제품에 할당 된 고유 식별자를 표시 합니다: checkpoint.check-지점-r77-10sg-byol, bitnami.openedxcypress, 및 docusign.3701c77e-1cfa-4c 56 91e6 3ed0b622145a 합니다.
 
 
 ### <a name="customer-info"></a>고객 정보
 
 다음 예제의 필드에는 잠재 고객에 포함된 고객 정보가 나와 있습니다.
 - FirstName: John
-- LastName: Smith
+- 성: Smith
 - Email: jsmith\@microsoft.com
-- Phone: 1234567890
-- Country: US
-- Company: Microsoft
-- Title: CTO
+- 전화: 1234567890
+- 국가: US
+- 회사: Microsoft
+- 제목: CTO
 
 >[!Note]
 >위 예제의 모든 데이터가 각 잠재 고객에 대해 항상 제공되는 것은 아닙니다.

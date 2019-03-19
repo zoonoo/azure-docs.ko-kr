@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 329125d39c0da403ff078182af2eee74bcd9c84d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271443"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861913"
 ---
-# <a name="azure-data-factory-mapping-data-flow-window-transformation"></a>Azure Data Factory Mapping Data Flow 창 변환
+# <a name="azure-data-factory-window-transformation"></a>Azure Data Factory 창 변환
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -46,3 +46,6 @@ Over 절의 다른 부분은 ```Order By```를 설정하는 것입니다. 이렇
 
 식 작성기를 통해 ADF Data Flow 식 언어에서 사용할 수 있는 집계 및 분석 함수의 전체 목록은 https://aka.ms/dataflowexpressions에 나열되어 있습니다.
 
+## <a name="next-steps"></a>다음 단계
+
+단순 group by 집계를 찾으려는 경우 사용 된 [집계 변환](data-flow-aggregate.md)

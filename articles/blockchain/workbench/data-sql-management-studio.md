@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 32606f988152b061fa1923c409207b2a650e64ba
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: a5554f1fe0a14799a100aefc975a110d3a9a6311
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332458"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088726"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>SQL Server Management Studio에 Azure Blockchain Workbench 데이터 사용
 
@@ -38,9 +38,9 @@ Microsoft SQL Server Management Studio는 Azure Blockchain Workbench의 SQL DB�
 
     ![SQL 자격 증명 입력](./media/data-sql-management-studio/sql-creds.png)
 
- 4. SQL Server Management Studio는 Azure Blockchain Workbench 데이터베이스의 데이터베이스, 데이터베이스 보기 및 저장된 프로시저 목록을 표시합니다.
+   1. SQL Server Management Studio는 Azure Blockchain Workbench 데이터베이스의 데이터베이스, 데이터베이스 보기 및 저장된 프로시저 목록을 표시합니다.
 
-    ![데이터베이스 목록](./media/data-sql-management-studio/db-list.png)
+      ![데이터베이스 목록](./media/data-sql-management-studio/db-list.png)
 
 5. 데이터베이스 보기와 연결된 데이터를 보려면 다음 단계를 사용하여 자동으로 select 문을 생성하면 됩니다.
 6. 개체 탐색기에서 아무 데이터베이스 보기를 마우스 오른쪽 단추로 클릭합니다.

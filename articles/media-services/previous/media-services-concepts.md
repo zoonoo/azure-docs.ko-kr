@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 413e005762ab557e0605f9b4e79a6fe5b45448b7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 79de09631b33f838c1a2f12fdc58b2648548004b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993914"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998419"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services 개념 
 
@@ -177,7 +177,7 @@ StreamingEndpoint는 추가 배포를 위해 콘텐츠를 클라이언트 플레
 스트리밍 끝점이 실행 상태에 있을 때만 청구됩니다.
 
 ### <a name="asset-delivery-policy"></a>자산 배달 정책
-Media Services 콘텐츠 배달 워크플로의 단계 중 하나는 스트리밍하려는 [자산에 대한 배달 정책 ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)을 구성하는 것입니다. 자산 배달 정책은 어떤 스트리밍 프로토콜(예: MPEG DASH, HLS, 부드러운 스트리밍 또는 모두)로 사용자의 자산을 동적으로 패키지할 지와 같은 사용자가 원하는 자산 배달 방법과 사용자의 자산을 동적으로 암호화할 지 여부 및 방법(봉투 또는 일반 암호화)를 Media Services에 알려줍니다.
+Media Services 콘텐츠 배달 워크플로의 단계 중 하나를 구성 하 고 [자산 배달 정책을](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)스트리밍할 수 하려는 합니다. 자산 배달 정책은 어떤 스트리밍 프로토콜(예: MPEG DASH, HLS, 부드러운 스트리밍 또는 모두)로 사용자의 자산을 동적으로 패키지할 지와 같은 사용자가 원하는 자산 배달 방법과 사용자의 자산을 동적으로 암호화할 지 여부 및 방법(봉투 또는 일반 암호화)를 Media Services에 알려줍니다.
 
 저장소에서 암호화된 자산이 있는 경우 자산을 스트리밍하기 전에 스트리밍 서버에서 저장소 암호화를 제거하고 지정된 배달 정책을 사용하여 콘텐츠를 스트리밍합니다. 예를 들어 AES(Advanced Encryption Standard) 암호화 키로 암호화된 자산을 배달하려면 정책 유형을 DynamicEnvelopeEncryption으로 설정합니다. 저장소 암호화를 제거하고 암호화 되지 않은 자산을 스트리밍하려면, 정책 유형을 NoDynamicEncryption로 설정하세요.
 

@@ -10,15 +10,15 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/09/2018
+ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 17df4415166c71f49c6b2534289b2c1f79cb6174
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117254"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -43,9 +43,6 @@ App Service 계획에서는 계층 간에 크기 조정하여 서로 다른 양�
 
 소비 계획을 사용하는 경우 Azure Functions 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가되고 제거됩니다. 이 서버를 사용하지 않는 계획은 자동으로 규모를 조정하며, 함수를 실행하는 경우에만 계산 리소스에 대한 요금이 청구됩니다. 소비 계획에서 구성 가능한 시간 후 함수 실행 시간이 초과됩니다.
 
-> [!NOTE]
-> 소비 계획에서 함수에 대한 기본 시간 제한은 5분입니다. [host.json](functions-host-json.md#functiontimeout) 프로젝트 파일에서 `functionTimeout` 속성을 변경하여 함수 앱에서 이 값을 최대 10분으로 늘릴 수 있습니다.
-
 청구는 실행 횟수, 실행 시간 및 사용된 메모리를 기반으로 하며, 함수 앱 내의 모든 함수에 대해 집계됩니다. 자세한 내용은 [Azure Functions 가격 책정 페이지]를 참조하세요.
 
 소비 계획은 기본 호스팅 계획이며 다음과 같은 이점을 제공합니다.
@@ -62,7 +59,7 @@ App Service 계획에서는 계층 간에 크기 조정하여 서로 다른 양�
 * 이미 다른 App Service 인스턴스를 실행하고 있는 기존의 활용도가 낮은 VM이 있습니다.
 * 함수 앱을 계속해서 또는 거의 끊임없이 실행합니다. 이 경우 App Service 계획은 좀 더 비용 효율적이 될 수 있습니다.
 * 소비 계획에서 제공하는 것보다 많은 CPU 또는 메모리 옵션이 필요합니다.
-* 사용자 코드는 소비 계획에서 허용되는 최대 실행 시간(최대 10분)보다 오래 실행해야 합니다.
+* 코드가 보다 오래 실행 해야 합니다 [허용 된 최대 실행 시간](#timeout) 소비 계획에서.
 * App Service 환경에 대한 지원, VNET/VPN 연결 및 더 큰 VM 크기와 같이 App Service 계획에서만 사용할 수 있는 기능이 필요합니다.
 * Linux에서 함수 앱을 실행하거나 함수를 실행할 사용자 지정 이미지를 제공하려고 합니다.
 
@@ -70,13 +67,15 @@ VM은 실행 횟수, 실행 시간 및 사용된 메모리에서 비용을 분�
 
 App Service 계획을 사용하면 더 많은 VM 인스턴스를 추가하여 수동으로 확장하거나 자동 조정을 사용하도록 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)을 참조하세요. 다른 App Service 계획을 선택하여 확장할 수도 있습니다. 자세한 내용은 [Azure에서 앱 확장](../app-service/web-sites-scale.md)을 참조하세요. 
 
-App Service 계획에서 JavaScript 함수를 실행 중인 경우 vCPU 수가 더 작은 계획을 선택해야 합니다. 자세한 내용은 [단일 코어 App Service 계획 선택](functions-reference-node.md#considerations-for-javascript-functions)을 참조하세요.  
+App Service 계획에서 JavaScript 함수를 실행 중인 경우 vCPU 수가 더 작은 계획을 선택해야 합니다. 자세한 내용은 [단일 코어 App Service 계획 선택](functions-reference-node.md#choose-single-vcpu-app-service-plans)합니다.  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
-<a name="always-on"></a>
-### <a name="always-on"></a>Always On
+
+### <a name="always-on"></a> Always On
 
 App Service 계획에서 실행하는 경우 함수 앱이 올바르게 실행되도록 **Always On** 설정을 사용해야 합니다. App Service 계획에서 함수 런타임은 비활성화되고 몇 분 후 유휴 상태가 되므로 HTTP 트리거만 함수를 “다시 시작”합니다. Always On은 App Service 계획에서만 사용할 수 있습니다. 소비 계획에서 플랫폼은 함수 앱을 자동으로 활성화합니다.
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="what-is-my-hosting-plan"></a>내 호스팅 계획이란?
 
@@ -125,7 +124,8 @@ Azure Functions는 *크기 조정 컨트롤러*라는 구성 요소를 사용하
 크기 조정은 다양한 요인에 따라 다르고, 선택한 트리거 및 언어에 따라 달라질 수 있습니다. 그러나 현재 시스템에서 크기 조정의 몇 가지 측면은 다음과 같습니다.
 
 * 단일 함수 앱은 최대 200개의 인스턴스로만 강화됩니다. 단일 인스턴스는 동시에 둘 이상의 메시지 또는 요청을 처리할 수 있지만 동시 실행 수를 제한하지 않습니다.
-* 새 인스턴스는 10초마다 한 번만 할당됩니다.
+* HTTP 트리거에 대 한 새 인스턴스만 할당할 1 초 마다 한 번만 합니다.
+* HTTP가 아닌 트리거의 경우 새 인스턴스만 할당할 30 초 마다 한 번만 합니다.
 
 다른 트리거에는 아래에 문서화된 대로 다른 규모 조정 제한이 있을 수도 있습니다.
 

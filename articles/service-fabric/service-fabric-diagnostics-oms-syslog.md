@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 25452d3d65518511c47087d1cb712d0a512416fc
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297670"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245559"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Syslog의 Service Fabric Linux 클러스터 이벤트
 
 Service Fabric은 사용자에게 클러스터의 중요한 작업에 대해 알리기 위해 플랫폼 이벤트 세트를 공개합니다. 공개되는 이벤트의 전체 목록은 [여기](service-fabric-diagnostics-event-generation-operational.md)서 확인할 수 있습니다. 이러한 이벤트를 사용할 수 있는 다양한 방법이 있습니다. 이 문서에서는 이러한 이벤트를 Syslog에 쓰도록 Service Fabric을 구성하는 방법을 설명합니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="introduction"></a>소개
 
@@ -93,8 +95,8 @@ SyslogConsumer를 사용하려면 클러스터를 업그레이드해야 합니�
     }
 ```
 
-## <a name="log-analytics-integration"></a>Log Analytics 통합
-Log Analytics 같은 모니터링 도구에서 이러한 Syslog 이벤트를 읽을 수 있습니다. 다음 [지침](../azure-monitor/learn/quick-create-workspace.md)을 사용하는 Azure Marketplace를 통해 Log Analytics 작업 영역을 만들 수 있습니다. 또한 이 데이터를 수집하여 작업 영역으로 전송하려면 클러스터에 Log Analytics 에이전트를 추가해야 합니다. 성능 카운터를 수집하기 위해 사용되는 에이전트와 동일한 에이전트입니다. 
+## <a name="azure-monitor-logs-integration"></a>Azure Monitor 로그 통합
+Azure Monitor 로그와 같은 모니터링 도구에서 이러한 Syslog 이벤트를 읽을 수 있습니다. 다음 [지침](../azure-monitor/learn/quick-create-workspace.md)을 사용하는 Azure Marketplace를 통해 Log Analytics 작업 영역을 만들 수 있습니다. 또한 이 데이터를 수집하여 작업 영역으로 전송하려면 클러스터에 Log Analytics 에이전트를 추가해야 합니다. 성능 카운터를 수집하기 위해 사용되는 에이전트와 동일한 에이전트입니다. 
 
 1. `Advanced Settings` 블레이드로 이동합니다.
 
@@ -120,6 +122,6 @@ Log Analytics 같은 모니터링 도구에서 이러한 Syslog 이벤트를 읽
 
 ## <a name="next-steps"></a>다음 단계
 * 노드에 [Log Analytics 에이전트를 배포](service-fabric-diagnostics-oms-agent.md)하여 성능 카운터를 수집하고 컨테이너에 대한 docker 통계 및 로그를 수집합니다.
-* Log Analytics의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능 알아보기
-* [뷰 디자이너를 사용하여 Log Analytics에서 사용자 지정 보기 만들기](../log-analytics/log-analytics-view-designer.md)
-* [Log Analytics를 Syslog와 통합](../log-analytics/log-analytics-data-sources-syslog.md)하는 방법에 대한 참조 자료입니다.
+* 알아보기 합니다 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) Azure Monitor 로그의 일부로 제공 하는 기능
+* [뷰 디자이너를 사용 하 여 Azure Monitor 로그에서 사용자 지정 뷰 만들기](../log-analytics/log-analytics-view-designer.md)
+* 하는 방법에 대 한 참조 [Syslog와 통합을 기록 하는 Azure Monitor](../log-analytics/log-analytics-data-sources-syslog.md)합니다.

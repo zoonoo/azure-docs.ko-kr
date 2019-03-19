@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8db11759ce501929e5cfd7b721c5e9dc80f9e01a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473190"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843711"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Azure에서 Hive를 사용하여 HDInsight Hadoop 데이터 과학 연습 
 
@@ -36,7 +36,7 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>HDInsight Hadoop와 함께 Hive를 사용하여 광고 클릭 예측
 
-[1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용](hive-criteo-walkthrough.md) 연습에서는 공개적으로 사용할 수 있는 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 클릭 데이터 세트를 사용하여 팁 지불 여부와 예상하는 금액 범위를 예측합니다. 시나리오는 샘플 데이터를 저장, 탐색, 기능 엔지니어링 및 다운하기 위해 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)와 함께 Hive를 사용하여 구현됩니다. Azure Machine Learning을 사용하여 광고에 대한 사용자 클릭 여부를 예측하는 이진 분류 모델을 빌드, 학습 및 점수 매깁니다. 연습은 이러한 모델 중 하나를 웹 서비스로 게시하는 방법을 보여 주는 것으로 마칩니다.
+[1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용](hive-criteo-walkthrough.md) 연습에서는 공개적으로 사용할 수 있는 [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) 클릭 데이터 세트를 사용하여 팁 지불 여부와 예상하는 금액 범위를 예측합니다. 시나리오는 샘플 데이터를 저장, 탐색, 기능 엔지니어링 및 다운하기 위해 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)와 함께 Hive를 사용하여 구현됩니다. Azure Machine Learning을 사용하여 광고에 대한 사용자 클릭 여부를 예측하는 이진 분류 모델을 빌드, 학습 및 점수 매깁니다. 연습은 이러한 모델 중 하나를 웹 서비스로 게시하는 방법을 보여 주는 것으로 마칩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

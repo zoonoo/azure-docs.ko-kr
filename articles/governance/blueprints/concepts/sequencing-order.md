@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: bd12aabf0ca8f82261e6b3c677d7306ee46c4171
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: b3adec799da582dc30ecd716a530ca6032f5c2e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308620"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990578"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure Blueprint의 배포 순서 이해
 
@@ -112,8 +112,8 @@ JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기](lifecycle.md)에 대해 알아보기
-- [정적 및 동적 매개 변수](parameters.md) 사용 방법 이해
-- [청사진 리소스 잠금](resource-locking.md)을 사용하는 방법 확인
-- [기존 할당을 업데이트](../how-to/update-existing-assignments.md)하는 방법 알아보기
-- [일반 문제 해결 방법](../troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결
+- 에 대 한 자세한 합니다 [수명 주기 blueprint](lifecycle.md)합니다.
+- 사용 하는 방법 이해 [정적 및 동적 매개 변수](parameters.md)합니다.
+- 확인 하는 방법을 알아봅니다 이용 [리소스 잠금 blueprint](resource-locking.md)합니다.
+- 설명 하는 방법 [기존 할당을 업데이트할](../how-to/update-existing-assignments.md)합니다.
+- 사용 하 여 청사진의 할당 하는 동안 문제를 해결 [일반 문제 해결](../troubleshoot/general.md)합니다.

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5d52653d68c6ebfca7e35a134da263eee99fd3e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 0c87aca6c480d9ebc4add7943a341fe94d640a4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657080"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001302"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Azure에서 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치
 
@@ -41,7 +41,7 @@ ms.locfileid: "34657080"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -153,7 +153,7 @@ ms.locfileid: "34657080"
 
 설치를 시작하기 전에 먼저 다음 문서를 검토하세요.
 
-* [아키텍처 가이드: Windows 장애 조치(Failover) 클러스터에서 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링][sap-high-availability-guide-wsfc-shared-disk]
+* [아키텍처 가이드: 클러스터 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 Windows 장애 조치(Failover) 클러스터에 클러스터링][sap-high-availability-guide-wsfc-shared-disk]
 
 * [Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS 인스턴스를 위한 SAP HA용 Azure 인프라 준비][sap-high-availability-infrastructure-wsfc-shared-disk]
 
@@ -183,35 +183,35 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
 
 ### <a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>클러스터형 SAP ASCS/SCS 인스턴스의 가상 호스트 이름 만들기
 
-1.  Windows DNS 관리자에서 ASCS/SCS 인스턴스의 가상 호스트 이름에 대한 DNS 항목을 만듭니다.
+1. Windows DNS 관리자에서 ASCS/SCS 인스턴스의 가상 호스트 이름에 대한 DNS 항목을 만듭니다.
 
-  > [!IMPORTANT]
-  > ASCS/SCS 인스턴스의 가상 호스트 이름에 할당하는 IP 주소는 Azure Load Balancer에 할당한 IP 주소(\<SID\>-lb-ascs)와 동일해야 합니다.  
-  >
-  >
+   > [!IMPORTANT]
+   > ASCS/SCS 인스턴스의 가상 호스트 이름에 할당하는 IP 주소는 Azure Load Balancer에 할당한 IP 주소(\<SID\>-lb-ascs)와 동일해야 합니다.  
+   >
+   >
 
-  가상 SAP ASCS/SCS 호스트 이름의 IP 주소(pr1-ascs-sap)는 Azure Load Balancer의 IP 주소(pr1-lb-ascs)와 같습니다.
+   가상 SAP ASCS/SCS 호스트 이름의 IP 주소(pr1-ascs-sap)는 Azure Load Balancer의 IP 주소(pr1-lb-ascs)와 같습니다.
 
-  ![그림 1: SAP ASCS/SCS 클러스터 가상 이름 및 TCP/IP 주소에 대한 DNS 항목 정의][sap-ha-guide-figure-3046]
+   ![그림 1: SAP ASCS/SCS 클러스터 가상 이름 및 TCP/IP 주소에 대한 DNS 항목 정의][sap-ha-guide-figure-3046]
 
-  _**그림 1:** SAP ASCS/SCS 클러스터 가상 이름 및 TCP/IP 주소에 대한 DNS 항목 정의_
+   _**그림 1:** SAP ASCS/SCS 클러스터 가상 이름 및 TCP/IP 주소에 대한 DNS 항목 정의_
 
-2.  가상 호스트 이름에 할당된 IP 주소를 정의하려면 **DNS 관리자** > **도메인**을 선택합니다.
+2. 가상 호스트 이름에 할당된 IP 주소를 정의하려면 **DNS 관리자** > **도메인**을 선택합니다.
 
-  ![그림 2: SAP ASCS/SCS 클러스터 구성을 위한 새 가상 이름 및 TCP/IP 주소][sap-ha-guide-figure-3047]
+   ![그림 2: SAP ASCS/SCS 클러스터 구성을 위한 새 가상 이름 및 TCP/IP 주소][sap-ha-guide-figure-3047]
 
-  _**그림 2:** SAP ASCS/SCS 클러스터 구성을 위한 새 가상 이름 및 TCP/IP 주소_
+   _**그림 2:** SAP ASCS/SCS 클러스터 구성을 위한 새 가상 이름 및 TCP/IP 주소_
 
 ### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> SAP 첫 번째 클러스터 노드 설치
 
-1.  클러스터 노드 A(예: pr1-ascs-0*host)에서 첫 번째 클러스터 노드 옵션을 실행합니다.
-2.  Azure 내부 부하 분산 장치에 대한 기본 포트를 유지하려면 다음을 선택합니다.
+1. 클러스터 노드 A(예: pr1-ascs-0*host)에서 첫 번째 클러스터 노드 옵션을 실행합니다.
+2. Azure 내부 부하 분산 장치에 대한 기본 포트를 유지하려면 다음을 선택합니다.
 
-  * **ABAP 시스템**: **ASCS** 인스턴스 번호 **00**
-  * **Java 시스템**: **SCS** 인스턴스 번호 **01**
-  * **ABAP+Java 시스템**: **ASCS** 인스턴스 번호 **00** 및 **SCS** 인스턴스 번호 **01**
+   * **ABAP 시스템**: **ASCS** 인스턴스 번호 **00**
+   * **Java 시스템**: **SCS** 인스턴스 번호 **01**
+   * **ABAP+Java 시스템**: **ASCS** 인스턴스 번호 **00** 및 **SCS** 인스턴스 번호 **01**
 
-  ABAP ASCS 인스턴스에 00이 아닌 인스턴스 번호를 Java SCS 인스턴스에 01이 아닌 인스턴스 번호를 사용하려면 먼저 Azure 내부 부하 분산 장치의 기본 부하 분산 규칙을 변경합니다. 자세한 내용은 [Azure 내부 부하 분산 장치에 대한 ASCS/SCS 기본 부하 분산 규칙 변경][sap-ha-guide-8.9]을 참조하세요.
+   ABAP ASCS 인스턴스에 00이 아닌 인스턴스 번호를 Java SCS 인스턴스에 01이 아닌 인스턴스 번호를 사용하려면 먼저 Azure 내부 부하 분산 장치의 기본 부하 분산 규칙을 변경합니다. 자세한 내용은 [Azure 내부 부하 분산 장치에 대한 ASCS/SCS 기본 부하 분산 규칙 변경][sap-ha-guide-8.9]을 참조하세요.
 
 다음 몇 가지 작업은 표준 SAP 설치 설명서에서 설명되지 않습니다.
 
@@ -226,20 +226,20 @@ Azure에서 다양한 DBMS 서비스가 클러스터형 SAP ASCS/SCS 구성과 �
 
 ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
-1.  SAP ASCS/SCS 인스턴스에 프로필에 이 프로필 매개 변수를 추가합니다.
+1. SAP ASCS/SCS 인스턴스에 프로필에 이 프로필 매개 변수를 추가합니다.
 
-  ```
-  enque/encni/set_so_keepalive = true
-  ```
-  이 예제에서 경로는 다음과 같습니다.
+   ```
+   enque/encni/set_so_keepalive = true
+   ```
+   이 예제에서 경로는 다음과 같습니다.
 
-  `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_ASCS00_pr1-ascs-sap`
+   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_ASCS00_pr1-ascs-sap`
 
-  예: SAP SCS 인스턴스 프로필 및 해당 경로
+   예: SAP SCS 인스턴스 프로필 및 해당 경로
 
-  `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
+   `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
 
-2.  변경 내용을 적용하려면 SAP ASCS/SCS 인스턴스를 다시 시작합니다.
+2. 변경 내용을 적용하려면 SAP ASCS/SCS 인스턴스를 다시 시작합니다.
 
 ### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> 프로브 포트 추가
 
@@ -249,97 +249,97 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
 프로브 포트를 추가하려면:
 
-1.  다음 PowerShell 명령을 실행하여 현재 **ProbePort** 값을 확인합니다.
+1. 다음 PowerShell 명령을 실행하여 현재 **ProbePort** 값을 확인합니다.
 
-  ```PowerShell
-  $SAPSID = "PR1"     # SAP <SID>
+   ```PowerShell
+   $SAPSID = "PR1"     # SAP <SID>
 
-  $SAPNetworkIPClusterName = "SAP $SAPSID IP"
-  Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
-  ```
+   $SAPNetworkIPClusterName = "SAP $SAPSID IP"
+   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
+   ```
 
    이 명령은 클러스터 구성의 가상 머신 중 하나에서 실행합니다.
 
-2.  프로브 포트를 정의합니다. 프로브 포트 기본값은 0입니다. 예제에서는 62000 프로브 포트를 사용합니다.
+2. 프로브 포트를 정의합니다. 프로브 포트 기본값은 0입니다. 예제에서는 62000 프로브 포트를 사용합니다.
 
-  ![그림 3: 기본적으로 0인 클러스터 구성 프로브 포트][sap-ha-guide-figure-3048]
+   ![그림 3: 기본적으로 0인 클러스터 구성 프로브 포트][sap-ha-guide-figure-3048]
 
-  _**그림 3:** 기본 클러스터 구성 프로브 포트는 0_
+   _**그림 3:** 기본 클러스터 구성 프로브 포트는 0_
 
-  포트 번호는 SAP Azure Resource Manager 템플릿에서 정의됩니다. PowerShell에서 포트 번호를 할당할 수 있습니다.
+   포트 번호는 SAP Azure Resource Manager 템플릿에서 정의됩니다. PowerShell에서 포트 번호를 할당할 수 있습니다.
 
-  SAP \<SID\> IP 클러스터 리소스에 대한 새 ProbePort 값을 설정하려면 다음 PowerShell 스크립트를 실행하여 해당 환경의 PowerShell 변수를 업데이트합니다.
+   SAP \<SID\> IP 클러스터 리소스에 대한 새 ProbePort 값을 설정하려면 다음 PowerShell 스크립트를 실행하여 해당 환경의 PowerShell 변수를 업데이트합니다.
 
-  ```PowerShell
-  $SAPSID = "PR1"      # SAP <SID>
-  $ProbePort = 62000   # ProbePort of the Azure internal load balancer
+   ```PowerShell
+   $SAPSID = "PR1"      # SAP <SID>
+   $ProbePort = 62000   # ProbePort of the Azure internal load balancer
 
-  Clear-Host
-  $SAPClusterRoleName = "SAP $SAPSID"
-  $SAPIPresourceName = "SAP $SAPSID IP"
-  $SAPIPResourceClusterParameters =  Get-ClusterResource $SAPIPresourceName | Get-ClusterParameter
-  $IPAddress = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Address" }).Value
-  $NetworkName = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Network" }).Value
-  $SubnetMask = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "SubnetMask" }).Value
-  $OverrideAddressMatch = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "OverrideAddressMatch" }).Value
-  $EnableDhcp = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "EnableDhcp" }).Value
-  $OldProbePort = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "ProbePort" }).Value
+   Clear-Host
+   $SAPClusterRoleName = "SAP $SAPSID"
+   $SAPIPresourceName = "SAP $SAPSID IP"
+   $SAPIPResourceClusterParameters =  Get-ClusterResource $SAPIPresourceName | Get-ClusterParameter
+   $IPAddress = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Address" }).Value
+   $NetworkName = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "Network" }).Value
+   $SubnetMask = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "SubnetMask" }).Value
+   $OverrideAddressMatch = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "OverrideAddressMatch" }).Value
+   $EnableDhcp = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "EnableDhcp" }).Value
+   $OldProbePort = ($SAPIPResourceClusterParameters | Where-Object {$_.Name -eq "ProbePort" }).Value
 
-  $var = Get-ClusterResource | Where-Object {  $_.name -eq $SAPIPresourceName  }
+   $var = Get-ClusterResource | Where-Object {  $_.name -eq $SAPIPresourceName  }
 
-  Write-Host "Current configuration parameters for SAP IP cluster resource '$SAPIPresourceName' are:" -ForegroundColor Cyan
-  Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
+   Write-Host "Current configuration parameters for SAP IP cluster resource '$SAPIPresourceName' are:" -ForegroundColor Cyan
+   Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
 
-  Write-Host
-  Write-Host "Current probe port property of the SAP cluster resource '$SAPIPresourceName' is '$OldProbePort'." -ForegroundColor Cyan
-  Write-Host
-  Write-Host "Setting the new probe port property of the SAP cluster resource '$SAPIPresourceName' to '$ProbePort' ..." -ForegroundColor Cyan
-  Write-Host
+   Write-Host
+   Write-Host "Current probe port property of the SAP cluster resource '$SAPIPresourceName' is '$OldProbePort'." -ForegroundColor Cyan
+   Write-Host
+   Write-Host "Setting the new probe port property of the SAP cluster resource '$SAPIPresourceName' to '$ProbePort' ..." -ForegroundColor Cyan
+   Write-Host
 
-  $var | Set-ClusterParameter -Multiple @{"Address"=$IPAddress;"ProbePort"=$ProbePort;"Subnetmask"=$SubnetMask;"Network"=$NetworkName;"OverrideAddressMatch"=$OverrideAddressMatch;"EnableDhcp"=$EnableDhcp}
+   $var | Set-ClusterParameter -Multiple @{"Address"=$IPAddress;"ProbePort"=$ProbePort;"Subnetmask"=$SubnetMask;"Network"=$NetworkName;"OverrideAddressMatch"=$OverrideAddressMatch;"EnableDhcp"=$EnableDhcp}
 
-  Write-Host
+   Write-Host
 
-  $ActivateChanges = Read-Host "Do you want to take restart SAP cluster role '$SAPClusterRoleName', to activate the changes (yes/no)?"
+   $ActivateChanges = Read-Host "Do you want to take restart SAP cluster role '$SAPClusterRoleName', to activate the changes (yes/no)?"
 
-  if($ActivateChanges -eq "yes"){
-  Write-Host
-  Write-Host "Activating changes..." -ForegroundColor Cyan
+   if($ActivateChanges -eq "yes"){
+   Write-Host
+   Write-Host "Activating changes..." -ForegroundColor Cyan
 
-  Write-Host
-  write-host "Taking SAP cluster IP resource '$SAPIPresourceName' offline ..." -ForegroundColor Cyan
-  Stop-ClusterResource -Name $SAPIPresourceName
-  sleep 5
+   Write-Host
+   write-host "Taking SAP cluster IP resource '$SAPIPresourceName' offline ..." -ForegroundColor Cyan
+   Stop-ClusterResource -Name $SAPIPresourceName
+   sleep 5
 
-  Write-Host "Starting SAP cluster role '$SAPClusterRoleName' ..." -ForegroundColor Cyan
-  Start-ClusterGroup -Name $SAPClusterRoleName
+   Write-Host "Starting SAP cluster role '$SAPClusterRoleName' ..." -ForegroundColor Cyan
+   Start-ClusterGroup -Name $SAPClusterRoleName
 
-  Write-Host "New ProbePort parameter is active." -ForegroundColor Green
-  Write-Host
+   Write-Host "New ProbePort parameter is active." -ForegroundColor Green
+   Write-Host
 
-  Write-Host "New configuration parameters for SAP IP cluster resource '$SAPIPresourceName':" -ForegroundColor Cyan
-  Write-Host
-  Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
-  }else
-  {
-  Write-Host "Changes are not activated."
-  }
-  ```
+   Write-Host "New configuration parameters for SAP IP cluster resource '$SAPIPresourceName':" -ForegroundColor Cyan
+   Write-Host
+   Get-ClusterResource -Name $SAPIPresourceName | Get-ClusterParameter
+   }else
+   {
+   Write-Host "Changes are not activated."
+   }
+   ```
 
-  SAP \<SID\> 클러스터 역할을 온라인으로 전환한 후에 **ProbePort**가 새 값으로 설정되었는지 확인합니다.
+   SAP \<SID\> 클러스터 역할을 온라인으로 전환한 후에 **ProbePort**가 새 값으로 설정되었는지 확인합니다.
 
-  ```PowerShell
-  $SAPSID = "PR1"     # SAP <SID>
+   ```PowerShell
+   $SAPSID = "PR1"     # SAP <SID>
 
-  $SAPNetworkIPClusterName = "SAP $SAPSID IP"
-  Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
+   $SAPNetworkIPClusterName = "SAP $SAPSID IP"
+   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
 
-  ```
-  스크립트가 실행된 후 변경 내용을 활성화하도록 SAP 클러스터 그룹을 다시 시작할 것인지 묻는 메시지가 나타납니다.
+   ```
+   스크립트가 실행된 후 변경 내용을 활성화하도록 SAP 클러스터 그룹을 다시 시작할 것인지 묻는 메시지가 나타납니다.
 
-  ![그림 4: 새 값을 설정한 후 클러스터 포트 검색][sap-ha-guide-figure-3049]
+   ![그림 4: 새 값을 설정한 후 클러스터 포트 검색][sap-ha-guide-figure-3049]
 
-  _**그림 4:** 새 값을 설정한 후 클러스터 포트 검색_
+   _**그림 4:** 새 값을 설정한 후 클러스터 포트 검색_
 
 ### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Windows 방화벽 프로브 포트 열기
 
@@ -369,11 +369,11 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
 _**그림 5:** SAP ERS 인스턴스의 서비스 형식을 지연된 자동으로 변경_
 
-## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> SAP 기본 응용 프로그램 서버 설치
+## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> SAP 기본 애플리케이션 서버 설치
 
 PAS(기본 애플리케이션 서버)를 호스트하도록 지정한 가상 머신에 PAS 인스턴스 \<SID\>-di-0를 설치합니다. Azure와는 관련이 없습니다. DataKeeper 관련 설정과는 관련이 없습니다.
 
-## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> SAP 추가 응용 프로그램 서버 설치
+## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> SAP 추가 애플리케이션 서버 설치
 
 SAP 애플리케이션 서버 인스턴스를 호스트하도록 지정한 모든 가상 머신에 SAP AAS(추가 애플리케이션 서버)를 설치합니다. 예를 들어 \<SID\>-di-1에서 \<SID\>-di-&lt;n&gt;까지의 가상 머신에 설치할 수 있습니다.
 
@@ -389,9 +389,9 @@ SAP 애플리케이션 서버 인스턴스를 호스트하도록 지정한 모�
 
 SAP PR1 클러스터 그룹이 클러스터 노드 A(예: pr1-ascs-0)에서 실행되고 있습니다. SAP PR1 클러스터 그룹에 속한 S 공유 디스크 드라이브를 클러스터 노드 A에 할당합니다. ASCS/SCS 인스턴스도 S 공유 디스크 드라이브를 사용합니다. 
 
-![그림 6: 장애 조치 클러스터 관리자 - 클러스터 노드 A에서 실행 중인 SAP \<SID\> 클러스터 그룹][sap-ha-guide-figure-5000]
+![그림 6: 장애 조치(Failover) 클러스터 관리자: SAP \<SID\> 클러스터 그룹이 클러스터 노드 A에서 실행 되 고][sap-ha-guide-figure-5000]
 
-_**그림 6:** 장애 조치 클러스터 관리자 - 클러스터 노드 A에서 실행 중인 SAP \<SID\> 클러스터 그룹_
+_**그림 6:** 장애 조치(Failover) 클러스터 관리자: SAP \<SID\> 클러스터 그룹이 클러스터 노드 A에서 실행 되 고_
 
 SIOS DataKeeper 관리 및 구성 도구에서 공유 디스크 데이터가 클러스터 노드 A의 S 원본 볼륨 드라이브에서 클러스터 노드 B의 S 대상 볼륨 드라이브로 동기식으로 복제되는 것을 확인할 수 있습니다(예: pr1-ascs-0 [10.0.0.40]에서 pr1-ascs-1 [10.0.0.41]로 복제됨).
 
@@ -401,29 +401,29 @@ _**그림 7:** SIOS DataKeeper에서 클러스터 노드 A로부터 클러스터
 
 ### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> 노드 A에서 노드 B로 장애 조치
 
-1.  이러한 옵션 중 하나를 선택하여 클러스터 노드 A에서 클러스터 노드 B로 SAP \<SID\> 클러스터 그룹의 장애 조치를 시작합니다.
-  - 장애 조치(failover) 클러스터 관리자  
-  - 장애 조치 클러스터 PowerShell
+1. 이러한 옵션 중 하나를 선택하여 클러스터 노드 A에서 클러스터 노드 B로 SAP \<SID\> 클러스터 그룹의 장애 조치를 시작합니다.
+   - 장애 조치(failover) 클러스터 관리자  
+   - 장애 조치 클러스터 PowerShell
 
-  ```PowerShell
-  $SAPSID = "PR1"     # SAP <SID>
+   ```PowerShell
+   $SAPSID = "PR1"     # SAP <SID>
 
-  $SAPClusterGroup = "SAP $SAPSID"
-  Move-ClusterGroup -Name $SAPClusterGroup
+   $SAPClusterGroup = "SAP $SAPSID"
+   Move-ClusterGroup -Name $SAPClusterGroup
 
-  ```
-2.  Windows 게스트 운영 체제 내에서 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(Failover)가 시작됩니다.  
-3.  Azure Portal에서 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(Failover)가 시작됩니다.  
-4.  Azure PowerShell을 사용하여 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(Failover)가 시작됩니다.
+   ```
+2. Windows 게스트 운영 체제 내에서 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(Failover)가 시작됩니다.  
+3. Azure Portal에서 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(Failover)가 시작됩니다.  
+4. Azure PowerShell을 사용하여 클러스터 노드 A를 다시 시작합니다. 이렇게 하면 노드 A에서 노드 B로의 SAP \<SID\> 클러스터 그룹의 자동 장애 조치(Failover)가 시작됩니다.
 
-  장애 조치 후 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B(예: pr1-ascs-1에서 실행 중)에서 실행되고 있습니다.
+   장애 조치 후 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B(예: pr1-ascs-1에서 실행 중)에서 실행되고 있습니다.
 
-  ![그림 8: 장애 조치 클러스터 관리자: 클러스터 노드 B에서 실행 중인 SAP \<SID\> 클러스터 그룹][sap-ha-guide-figure-5002]
+   ![그림 8: 장애 조치 클러스터 관리자에서 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B에서 실행 되 고][sap-ha-guide-figure-5002]
 
-  _**그림 8**: 장애 조치 클러스터 관리자: 클러스터 노드 B에서 실행 중인 SAP \<SID\> 클러스터 그룹_
+   _**그림 8**: 장애 조치 클러스터 관리자에서 SAP \<SID\> 클러스터 그룹이 클러스터 노드 B에서 실행 되 고_
 
-  이제 공유 디스크가 클러스터 노드 B에 탑재됩니다. SIOS DataKeeper에서 데이터를 클러스터 노드 B의 S 소스 볼륨 드라이브에서 클러스터 노드 A의 S 대상 볼륨 드라이브로 복제합니다(예: pr1-ascs-1 [10.0.0.41]에서 pr1-ascs-0 [10.0.0.40]으로 복제).
+   이제 공유 디스크가 클러스터 노드 B에 탑재됩니다. SIOS DataKeeper에서 데이터를 클러스터 노드 B의 S 소스 볼륨 드라이브에서 클러스터 노드 A의 S 대상 볼륨 드라이브로 복제합니다(예: pr1-ascs-1 [10.0.0.41]에서 pr1-ascs-0 [10.0.0.40]으로 복제).
 
-  ![그림 9: SIOS DataKeeper에서 클러스터 노드 B로부터 클러스터 노드 A에 로컬 볼륨 복제][sap-ha-guide-figure-5003]
+   ![그림 9: SIOS DataKeeper에서 클러스터 노드 B로부터 클러스터 노드 A에 로컬 볼륨 복제][sap-ha-guide-figure-5003]
 
-  _**그림 9:** SIOS DataKeeper에서 클러스터 노드 B로부터 클러스터 노드 A에 로컬 볼륨 복제_
+   _**그림 9:** SIOS DataKeeper에서 클러스터 노드 B로부터 클러스터 노드 A에 로컬 볼륨 복제_

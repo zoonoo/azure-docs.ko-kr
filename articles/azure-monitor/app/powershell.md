@@ -12,17 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4b633f3294faf11c8ef9d4a4077254c3df5353cf
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: ea4bc61dec59308b2c2311e8300e44aae78fc041
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264856"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313517"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 만들기
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 이 문서에서는 Azure Resource Management를 사용하여 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 리소스의 생성 및 업데이트를 자동화하는 방법을 보여줍니다. 예를 들어 빌드 프로세스의 일부로 이 작업을 수행할 수 있습니다. 기본 Application Insights 리소스와 함께 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 만들고, [경고](../../azure-monitor/app/alerts.md)를 설정하고, [가격 책정 계층](pricing.md)을 설정하고, 기타 Azure 리소스를 만들 수 있습니다.
 
-이러한 리소스를 만드는 데 핵심 사항은 [Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)용 JSON 템플릿입니다. 간단히 말하면 절차는 다음과 같습니다. 기존 리소스의 JSON 정의를 다운로드하고, 이름과 같은 특정 값을 매개 변수화한 다음 새 리소스를 만들려고 할 때마다 템플릿을 실행합니다. 여러 리소스를 함께 패키지하여 모두 한꺼번에 만들 수 있습니다(예: 가용성 테스트, 경고 및 연속 내보내기에 대한 저장소를 포함하는 앱 모니터). 일부 매개 변수화에 있는 약간의 미묘한 사항은 여기서 설명합니다.
+이러한 리소스를 만드는 데 핵심 사항은 [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md)용 JSON 템플릿입니다. 간단히 말하면 절차는 다음과 같습니다. 기존 리소스의 JSON 정의를 다운로드하고, 이름과 같은 특정 값을 매개 변수화한 다음 새 리소스를 만들려고 할 때마다 템플릿을 실행합니다. 여러 리소스를 함께 패키지하여 모두 한꺼번에 만들 수 있습니다(예: 가용성 테스트, 경고 및 연속 내보내기에 대한 저장소를 포함하는 앱 모니터). 일부 매개 변수화에 있는 약간의 미묘한 사항은 여기서 설명합니다.
 
 ## <a name="one-time-setup"></a>일 회 설정
 아직 Azure 구독에서 PowerShell을 사용한 적이 없을 경우:
@@ -154,12 +157,12 @@ ms.locfileid: "54264856"
 ## <a name="create-application-insights-resources"></a>Application Insights 리소스 만들기
 1. PowerShell에서 Azure에 로그인합니다.
    
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 2. 다음과 같은 명령을 실행합니다.
    
     ```PS
    
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
 
@@ -175,8 +178,8 @@ ms.locfileid: "54264856"
 애플리케이션 리소스를 만든 후 계측 키가 필요할 수 있습니다. 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
+    $details = Get-AzResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```
 
@@ -189,7 +192,7 @@ ms.locfileid: "54264856"
 위의 템플릿을 사용하여 엔터프라이즈 가격 계획이 있는 앱 리소스를 만들려면
 
 ```PS
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -priceCode 2 `
                -appName myNewApp

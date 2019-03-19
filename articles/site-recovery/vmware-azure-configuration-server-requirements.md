@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 26ea184055f1496babf4f98f5d103b9af9c77ac0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 92eef714f651ef0ce4e58fcfbb8fad75a38c55c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973454"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121335"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위한 구성 서버 요구 사항
 
@@ -75,11 +75,12 @@ MYSQL | MySQL을 설치해야 합니다. 수동으로 설치할 수도 있고 Si
 
 **구성 요소** | **요구 사항** 
 --- | ---
-**CPU** | **메모리** | **캐시 디스크** | **데이터 변경률** | **복제된 컴퓨터**
---- | --- | --- | --- | ---
-vCPU 8대<br/><br/> 2개 소켓 * 4코어 \@ 2.5GHz | 16GB | 300GB | 500GB 이하 | 머신 100대 미만
-vCPU 12대<br/><br/> 2개 소켓 * 6코어 \@ 2.5GHz | 18GB | 600GB | 500GB-1TB | 컴퓨터 100-150대
-vCPU 16대<br/><br/> 2개 소켓 * 8코어 \@ 2.5GHz | 32GB | 1TB | 1-2TB | 머신 150-200대
+
+| **CPU** | **메모리** | **캐시 디스크** | **데이터 변경률** | **복제된 컴퓨터** |
+| --- | --- | --- | --- | --- |
+| vCPU 8대<br/><br/> 2개 소켓 * 4코어 \@ 2.5GHz | 16GB | 300GB | 500GB 이하 | 머신 100대 미만 |
+| vCPU 12대<br/><br/> 2개 소켓 * 6코어 \@ 2.5GHz | 18GB | 600GB | 500GB-1TB | 컴퓨터 100-150대 |
+| vCPU 16대<br/><br/> 2개 소켓 * 8코어 \@ 2.5GHz | 32GB | 1TB | 1-2TB | 머신 150-200대 | 
 
 
 

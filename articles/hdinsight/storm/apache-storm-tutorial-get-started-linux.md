@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8981f6a2b2d42627530fb8bf820ff8373e8f50b0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 5c0fe0921446dde12771bacf096f806701b90444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118002"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>storm-starter 예제를 사용하여 HDInsight의 Apache Storm 시작
 
@@ -124,26 +124,26 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
     이 페이지에서는 다음 정보를 제공합니다.
 
-    * **토폴로지 통계** - 기간으로 구성된 토폴로지 성능에 대한 기본 정보입니다.
+   * **토폴로지 통계** - 기간으로 구성된 토폴로지 성능에 대한 기본 정보입니다.
 
-        > [!NOTE]  
-        > 특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.
+       > [!NOTE]  
+       > 특정 기간을 선택하면 페이지의 다른 섹션에 표시되는 정보에 대한 기간이 변경됩니다.
 
-    * **Spout** - 각 Spout에서 반환된 마지막 오류를 포함하여 Spout에 대한 기본 정보입니다.
+   * **Spout** - 각 Spout에서 반환된 마지막 오류를 포함하여 Spout에 대한 기본 정보입니다.
 
-    * **Bolt** - Bolt에 대한 기본 정보입니다.
+   * **Bolt** - Bolt에 대한 기본 정보입니다.
 
-    * **토폴로지 구성** - 토폴로지 구성에 대한 자세한 정보입니다.
+   * **토폴로지 구성** - 토폴로지 구성에 대한 자세한 정보입니다.
 
-    이 페이지에서는 토폴로지에 대해 수행할 수 있는 작업도 제공합니다.
+     이 페이지에서는 토폴로지에 대해 수행할 수 있는 작업도 제공합니다.
 
-    * **활성화** - 비활성화된 토폴로지 처리를 다시 시작합니다.
+   * **활성화** - 비활성화된 토폴로지 처리를 다시 시작합니다.
 
-    * **비활성화** - 실행 중인 토폴로지를 일시 중지합니다.
+   * **비활성화** - 실행 중인 토폴로지를 일시 중지합니다.
 
-    * **균형 다시 맞추기** - 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 균형을 다시 맞추면 병렬 처리가 조정되어 클러스터에서 증가/감소한 노드 수가 보정됩니다. 자세한 내용은 [Apache Storm 토폴로지의 병렬 처리 이해](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
+   * **균형 다시 맞추기** - 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 균형을 다시 맞추면 병렬 처리가 조정되어 클러스터에서 증가/감소한 노드 수가 보정됩니다. 자세한 내용은 [Apache Storm 토폴로지의 병렬 처리 이해](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
 
-    * **중단** - 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
+   * **중단** - 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
 
 3. 이 페이지의 **Spouts** 또는 **Bolts** 섹션에서 항목을 선택합니다. 선택한 구성 요소에 대한 정보가 표시됩니다.
 

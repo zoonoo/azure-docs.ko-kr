@@ -2,7 +2,7 @@
 title: 질문과 대답 - Azure 전용 HSM | Microsoft Docs
 description: Azure 전용 HSM의 다양한 주제를 다루는 질문과 대답
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -10,15 +10,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: concepts
-ms.date: 12/11/2018
+ms.topic: conceptual
+ms.date: 3/11/2019
 ms.author: barclayn
-ms.openlocfilehash: 5ea98f96fe10337e905270cf5da4847d825d6eb4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107806"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846891"
 ---
 # <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -78,7 +78,7 @@ Gemalto에서 제공한 HSM 클라이언트 도구/SDK/소프트웨어를 사용
 
 ### <a name="q-can-i-encrypt-data-used-by-other-azure-services-using-keys-stored-in-dedicated-hsm"></a>Q: 전용 HSM에 저장된 키를 사용하여 다른 Azure 서비스에서 사용하는 데이터를 암호화할 수 있나요?
 
- 아니요. Azure Dedicated HSM은 가상 네트워크 내에서만 액세스할 수 있습니다.
+번호 Azure Dedicated HSM은 가상 네트워크 내에서만 액세스할 수 있습니다.
 
 ### <a name="q-can-i-import-keys-from-an-existing-on-premises-hsm-to-dedicated-hsm"></a>Q: 기존 온-프레미스 HSM에서 전용 HSM으로 키를 가져올 수 있나요?
 
@@ -103,7 +103,7 @@ PKCS#11, Java(JCA/JCE), Microsoft CAPI 및 CNG, OpenSSL
 
 ### <a name="q-can-i-importmigrate-keys-from-luna-56-hsms-to-azure-dedicated-hsms"></a>Q: Luna 5/6 HSM에서 Azure 전용 HSM으로 키를 가져오거나 마이그레이션할 수 있나요?
 
-예. Gemalto 마이그레이션 가이드를 참조하세요. 
+예 Gemalto 마이그레이션 가이드를 참조하세요. 
 
 ## <a name="using-your-hsm"></a>HSM 사용
 
@@ -124,13 +124,13 @@ Azure Dedicated HSM은 마이그레이션 시나리오에 가장 적합합니다
 
 ### <a name="q-can-dedicated-hsm-be-used-with-office-365-customer-key-azure-information-protection-azure-data-lake-store-disk-encryption-azure-storage-encryption-azure-sql-tde"></a>Q: 전용 HSM은 Office 365 고객 키, Azure Information Protection, Azure Data Lake Store, Disk Encryption, Azure Storage 암호화, Azure SQL TDE에서 사용할 수 있나요?
 
- 아니요. Dedicated HSM은 고객의 사설 IP 주소 공간에 직접 프로비전되어 다른 Azure 또는 Microsoft 서비스에서 액세스할 수 없습니다.
+번호 Dedicated HSM은 고객의 사설 IP 주소 공간에 직접 프로비전되어 다른 Azure 또는 Microsoft 서비스에서 액세스할 수 없습니다.
 
 ## <a name="administration-access-and-control"></a>관리, 액세스 및 제어
 
 ### <a name="q-does-the-customer-get-full-exclusive-control-over-the-hsms-with-dedicated-hsms"></a>Q: 고객이 전용 HSM을 통해 HSM을 독점적으로 완벽하게 제어하나요?
 
-예. 각 HSM 어플라이언스는 단일 고객만 전적으로 사용하며, 일단 프로비전되고 관리자 암호가 변경되면 아무도 관리 제어 권한을 갖지 못합니다.
+예 각 HSM 어플라이언스는 단일 고객만 전적으로 사용하며, 일단 프로비전되고 관리자 암호가 변경되면 아무도 관리 제어 권한을 갖지 못합니다.
 
 ### <a name="q-what-level-of-access-does-microsoft-have-to-my-hsm"></a>Q: Microsoft에서 내 HSM에 부여하는 액세스 권한 수준은 어떻게 되나요?
 
@@ -138,7 +138,7 @@ Microsoft에는 HSM에 대한 관리 또는 암호화 제어 권한이 없습니
 
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>Q: Microsoft 또는 Microsoft의 모든 사용자가 전용 HSM의 키에 액세스할 수 있나요?
 
- 아니요. Microsoft에는 고객에게 할당된 Dedicated HSM에 저장된 키에 대한 액세스 권한이 없습니다.
+번호 Microsoft에는 고객에게 할당된 Dedicated HSM에 저장된 키에 대한 액세스 권한이 없습니다.
 
 ### <a name="q-can-i-upgrade-softwarefirmware-on-hsms-allocated-to-me"></a>Q: 내게 할당된 HSM의 소프트웨어/펌웨어를 업그레이드할 수 있나요?
 
@@ -158,25 +158,25 @@ Gemalto HSM 클라이언트 소프트웨어를 사용하여 HSM 및 파티션을
 
 ### <a name="q-can-i-get-full-access-log-of-all-hsm-operations-from-dedicated-hsm"></a>Q: 전용 HSM에서 모든 HSM 작업에 대한 전체 액세스 로그를 가져올 수 있나요?
 
-예. 로그는 HSM 어플라이언스에서 syslog 서버로 보낼 수 있습니다.
+예 로그는 HSM 어플라이언스에서 syslog 서버로 보낼 수 있습니다.
 
 ## <a name="high-availability"></a>고가용성
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>Q: 동일한 지역에서 또는 여러 지역에서 고가용성을 구성할 수 있나요?
 
-예. 고가용성 구성 및 설정은 Gemalto에서 제공하는 HSM 클라이언트 소프트웨어에서 수행됩니다. 동일한 지역 또는 지역 간에 있는 동일하거나 다른 VNET의 HSM 또는 사이트 간 VPN이나 지점 간 VPN을 사용하여 VNET에 연결된 온-프레미스 HSM은 동일한 고가용성 구성에 추가할 수 있습니다.
+예 고가용성 구성 및 설정은 Gemalto에서 제공하는 HSM 클라이언트 소프트웨어에서 수행됩니다. 사이트-사이트를 사용 하 여 VNET에 연결 된 동일한 VNET 또는 다른 Vnet을 동일한 지역에 지역 또는 온-프레미스 Hsm에서 Hsm 또는 지점 간 VPN을 동일한 고가용성 구성에 추가할 수 있습니다.
 
-### <a name="can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Q: Azure Dedicated HSM을 사용하여 온-프레미스 네트워크의 HSM을 고가용성 그룹에 추가할 수 있나요?
+### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Q: Q: Azure Dedicated HSM을 사용하여 온-프레미스 네트워크의 HSM을 고가용성 그룹에 추가할 수 있나요?
 
-예. SafeNet Luna Network HSM 7에 대한 HA(고가용성) 요구 사항을 충족해야 합니다.
+예 SafeNet Luna Network HSM 7에 대한 HA(고가용성) 요구 사항을 충족해야 합니다.
 
-### <a name="can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Q: Azure Dedicated HSM을 사용하여 온-프레미스 네트워크의 Luna 5/6 HSM을 고가용성 그룹에 추가할 수 있나요?
+### <a name="q-can-i-add-luna-56-hsms-from-on-premises-networks-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Q: Q: Azure Dedicated HSM을 사용하여 온-프레미스 네트워크의 Luna 5/6 HSM을 고가용성 그룹에 추가할 수 있나요?
 
- 아니요.
+번호
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>Q: 단일 애플리케이션에서 동일한 고가용성 구성에 추가할 수 있는 HSM의 수는 어떻게 되나요?
 
-16.
+16\.
 
 ## <a name="support"></a>지원
 
@@ -240,13 +240,13 @@ Dedicated HSM 서비스는 SafeNet Network HSM 7 어플라이언스를 프로비
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>Q: 전용 HSM은 FIPS 140-2 수준 3으로 검증되었나요?
 
-예. Dedicated HSM 서비스는 FIPS 140-2 수준 3 검증 HSM을 사용하는 SafeNet Network HSM 7 어플라이언스를 프로비전합니다.
+예 Dedicated HSM 서비스는 FIPS 140-2 수준 3 검증 HSM을 사용하는 SafeNet Network HSM 7 어플라이언스를 프로비전합니다.
 
 ### <a name="q-what-do-i-need-to-do-to-make-sure-i-operate-dedicated-hsm-in-fips-140-2-level-3-validated-mode"></a>Q: FIPS 140-2 수준 3 검증 모드에서 전용 HSM을 작동하려면 어떻게 해야 하나요?
 
 Dedicated HSM 서비스는 SafeNet Luna Network HSM 7 어플라이언스를 프로비전합니다. 이러한 어플라이언스는 FIPS 140-2 수준 3 검증 HSM을 사용합니다. 배포된 기본 구성, 운영 체제 및 펌웨어도 FIPS에서 검증됩니다. FIPS 140-2 수준 3 규정 준수를 위해 어떠한 조치도 취할 필요가 없습니다.
 
-### <a name="how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>Q: 고객이 HSM을 프로비전 해제할 때 모든 키 자료가 초기화되도록 하려면 어떻게 해야 하나요?
+### <a name="q-how-does-a-customer-ensure-that-when-an-hsm-is-deprovisioned-all-the-key-material-is-wiped-out"></a>Q: Q: 고객이 HSM을 프로비전 해제할 때 모든 키 자료가 초기화되도록 하려면 어떻게 해야 하나요?
 
 프로비전 해제를 요청하기 전에 고객이 Gemalto에서 제공한 HSM 클라이언트 도구를 사용하여 HSM을 초기화해야 합니다.
 

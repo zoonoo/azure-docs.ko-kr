@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343863"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012014"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>RBAC를 사용하여 Azure 리소스에 대한 외부 사용자의 액세스 관리
 
 RBAC(역할 기반 액세스 제어)를 사용하면 환경의 특정 리소스에 액세스해야 하지만 전체 인프라 또는 청구 관련 범위에 액세스하지 않아도 되는 외부 공동 작업자, 공급업체 또는 프리랜서와 협력하는 대기업 및 SMB의 보안을 더 효율적으로 관리할 수 있습니다. RBAC를 통해 관리자 계정에서 관리하는 Azure 구독을 소유하는 유연성(구독 수준에서 서비스 관리자 역할)을 제공하고 동일한 구독이지만 관리 권한 없이 작업하도록 여러 사용자를 초대할 수 있습니다.
 
 > [!NOTE]
-> Office 365 관리 센터에서 프로비전된 Office 365 구독 또는 Azure Active Directory 라이선스(예: Azure Active Directory에 액세스)는 RBAC를 사용할 자격이 없습니다.
+> Office 365 관리 센터에서 프로비전된 Office 365 구독 또는 Azure Active Directory 라이선스(예: Microsoft 365 관리 센터 RBAC를 사용할 자격이 없습니다에서 Azure Active Directory에 대 한 액세스) 프로 비전 합니다.
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>구독 범위에서 RBAC 역할 할당
 

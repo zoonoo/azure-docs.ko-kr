@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 862846c8ec544cf082d45cea650269b6518a016f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790812"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003541"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스 수동 설치
 
@@ -65,36 +65,38 @@ ms.locfileid: "53790812"
 
 1. 보호하려는 서버의 로컬 폴더(예: C:\Temp)에 설치 관리자를 복사합니다. 
 
-  ```
-  cd C:\Temp
-  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-  cd C:\Temp\Extracted.
-  ```
+   ```
+   cd C:\Temp
+   ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+   cd C:\Temp\Extracted.
+   ```
 2. 다음과 같이 설치합니다.
 
-  ```
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
-  ```
+   ```
+   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+   ```
 
 3. 구성 서버에 에이전트를 등록합니다.
 
-  ```
-  cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-  ```
+   ```
+   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+   ```
 
 #### <a name="installation-settings"></a>설치 설정
+
 **설정** | **세부 정보**
 --- | ---
-사용 현황 | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
+사용 현황 | UnifiedAgent.exe /Role <MS\|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 설정 로그 | %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log에 있습니다.
 /Role | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 /InstallLocation| 선택적 매개 변수. Mobility 서비스 설치 위치(모든 폴더)를 지정합니다.
 /Platform | 필수. Mobility Service가 설치되는 플랫폼을 지정합니다. VMware VM/물리적 서버에 **VMware**, Azure VM에 **Azure**입니다. 
-/Silent| 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
+/Silent| (선택 사항) 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
 
 #### <a name="registration-settings"></a>등록 설정
+
 **설정** | **세부 정보**
 --- | ---
 사용 현황 | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
@@ -106,33 +108,35 @@ ms.locfileid: "53790812"
 ### <a name="on-a-linux-machine"></a>Linux 머신
 
 1. 보호하려는 서버의 로컬 폴더(예: /tmp)에 설치 관리자를 복사합니다. 터미널에서 다음 명령을 실행합니다.
-  ```
-  cd /tmp ;
+   ```
+   cd /tmp ;
 
-  tar -xvzf Microsoft-ASR_UA*release.tar.gz
-  ```
+   tar -xvzf Microsoft-ASR_UA*release.tar.gz
+   ```
 2. 다음과 같이 설치합니다.
 
-  ```
-  sudo ./install -d <Install Location> -r MS -v VmWare -q
-  ```
+   ```
+   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   ```
 3. 설치가 완료되면 Mobility Service를 구성 서버에 등록해야 합니다. 다음 명령을 실행하여 Mobility Service를 구성 서버에 등록합니다.
 
-  ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
-  ```
+   ```
+   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+   ```
 
 
 #### <a name="installation-settings"></a>설치 설정
+
 **설정** | **세부 정보**
 --- | ---
-사용 현황 | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
+사용 현황 | . / 설치-d <Install Location> -r < MS\|MT >-v VmWare-q
 -r | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
-일시 중지되고 | 선택적 매개 변수. Mobility 서비스 설치 위치(/usr/local/ASR)를 지정합니다.
+-d | 선택적 매개 변수. Mobility 서비스 설치 위치(/usr/local/ASR)를 지정합니다.
 -v | 필수. Mobility Service가 설치되는 플랫폼을 지정합니다. VMware VM/물리적 서버에 **VMware**, Azure VM에 **Azure**입니다. 
--q | 선택 사항입니다. 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
+-q | (선택 사항) 자동 모드에서의 설치 관리자 실행 여부를 지정합니다.
 
 #### <a name="registration-settings"></a>등록 설정
+
 **설정** | **세부 정보**
 --- | ---
 사용 현황 | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
@@ -140,5 +144,6 @@ ms.locfileid: "53790812"
 -P |  필수. 암호가 저장되는 파일의 전체 파일 경로입니다. 유효한 폴더 사용
 
 ## <a name="next-steps"></a>다음 단계
+
 - [VMware VM에 대한 재해 복구 설정](vmware-azure-tutorial.md)
 - [물리적 서버에 대한 재해 복구 설정](physical-azure-disaster-recovery.md)

@@ -1,20 +1,20 @@
 ---
 title: Azure IoT Hub 모듈 ID 및 모듈 쌍 시작(Node.js) | Microsoft Docs
 description: Node.js용 IoT SDK를 사용하여 모듈 ID를 만들고 모듈 쌍을 업데이트하는 방법을 알아봅니다.
-author: chrissie926
-manager: ''
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.author: menchi
-ms.openlocfilehash: ae798ecf2ba5f53cdfdef45b74677615d2e0a06d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 80132a2d15333308766b62e89262133b1f05b394
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888726"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Node.js 백 엔드 및 Node.js 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
@@ -43,7 +43,7 @@ ms.locfileid: "54447006"
 
 1. 코드를 저장할 디렉터리를 만듭니다.
 2. 이 디렉터리 내부에서 먼저  **npm init -y** 를 실행하여 기본값으로 빈 package.json을 만듭니다. 코드의 프로젝트 파일입니다.
-3.  **npm install -Sazure-iothub@modules-preview**를 실행하여  **node_modules** 하위 디렉터리에 서비스 SDK를 설치합니다.
+3. 실행 **npm 설치-S azure iot hub\@모듈-미리 보기** 서비스 SDK를 설치 하려면 내부를 **node_modules** 하위 디렉터리입니다.
 
     > [!NOTE]
     > 하위 디렉터리 이름 node_modules는 ‘module’이라는 단어를 사용하여 “노드 라이브러리”를 나타냅니다. 여기서 이 용어는 IoT Hub 모듈과 아무 관계도 없습니다.
@@ -107,7 +107,7 @@ ms.locfileid: "54447006"
 
 이 앱은 ID가 **myFirstDevice**인 디바이스 ID와 ID가 **myFirstModule**인 모듈 ID를 **myFirstDevice** 디바이스 아래에 만듭니다. ID 레지스트리에 해당 모듈 ID가 이미 있는 경우 코드는 기존 모듈 정보만 검색합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 이 키를 시뮬레이션된 모듈 앱에서 사용하여 IoT Hub에 연결합니다.
 
-5. node add.js를 사용하여 실행합니다. 그러면 디바이스 ID에 대한 연결 문자열과 모듈 ID에 대한 다른 연결 문자열이 제공됩니다.
+1. node add.js를 사용하여 실행합니다. 그러면 디바이스 ID에 대한 연결 문자열과 모듈 ID에 대한 다른 연결 문자열이 제공됩니다.
 
     > [!NOTE]
     > IoT Hub ID 레지스트리는 디바이스 및 모듈 ID만 저장하여 IoT Hub에 보안 액세스를 사용합니다. ID 레지스트리는 보안 자격 증명으로 사용할 디바이스 ID 및 키를 저장합니다. 또한 ID 레지스트리는 각 디바이스에 대한 액세스를 사용하지 않도록 설정하는 데 사용할 수 있는 해당 디바이스에 대한 enabled/disabled 플래그를 저장합니다. 애플리케이션이 다른 장치별 메타데이터를 저장해야 할 경우 애플리케이션별 저장소를 사용해야 합니다. 모듈 ID에 대한 enabled/disabled 플래그는 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
@@ -120,7 +120,7 @@ ms.locfileid: "54447006"
 
     ![Azure Portal 모듈 세부 정보][15]
 
-2. 위 단계에서 수행한 것과 마찬가지로 디바이스 코드에 대한 디렉터리를 만들고 NPM을 사용하여 초기화한 다음, 디바이스 SDK를 설치합니다(**npm install -S azure-iot-device-amqp@modules-preview**).
+2. 위의 단계에서 수행한 있습니다 비슷하게, 장치 코드에 대 한 디렉터리를 만듭니다 및 NPM을 사용 하 여 초기화 하 고 장치 SDK를 설치 하려면 (**npm 설치-S azure-iot-장치-amqp\@모듈-preview**).
 
     > [!NOTE]
     > npm install 명령의 속도가 느린 것처럼 보일 수도 있습니다. 이 명령은 패키지 리포지토리에서 많은 코드를 끌어오고 있으므로 잠시 기다려 주세요.
@@ -203,7 +203,7 @@ ms.locfileid: "54447006"
 [15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md

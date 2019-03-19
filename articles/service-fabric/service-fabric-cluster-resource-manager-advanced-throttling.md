@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 4c86655b650464f1debadab35fdd82611d17ad81
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: b1824fc5f93bafb26650d28277054869a3659099
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092343"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731755"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Service Fabric Cluster Resource Manager 제한
 클러스터 Resource Manager를 올바르게 구성한 경우에도 클러스터가 중단될 수 있습니다. 예를 들어 동시 노드 및 장애 도메인 오류가 있을 수 있습니다. 업그레이드 중에 이러한 문제가 발생하면 어떻게 하나요? Cluster Resource Manager는 항상 모든 항목을 수정하려고 시도하며 클러스터의 리소스를 사용하여 클러스터를 다시 구성하고 문제를 해결하려고 합니다. 제한은 클러스터가 리소스를 사용하여 안정화(노드 다시 작동, 네트워크 파티션 정상화, 수정된 비트 배포)할 수 있도록 방어벽을 제공하는 데 도움이 됩니다.

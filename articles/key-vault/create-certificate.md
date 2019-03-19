@@ -3,7 +3,7 @@ title: 인증서 생성 방법
 description: Key Vault에서 인증서를 생성하는 방법입니다.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 3258683b950b537dd106323fe95105289034f727
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995533"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
 
@@ -35,7 +35,7 @@ ms.locfileid: "56114861"
 1. 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.
 2. Key Vault는 애플리케이션 CSR(Certificate Signing Request)에 반환됨
 3. 애플리케이션에서 CSR을 선택한 CA에 전달합니다.
-4. 선택한 CA가 X509 인증서로 응답합니다.
+4. X509를 사용 하 여 응답 선택한 CA 인증서입니다.
 5. 애플리케이션이 CA에서 X509 인증서를 병합해 인증서 만들기를 완료합니다.
 
 -   **알려진 발급자 공급 기업을 통해 인증서 만들기:** 이 방법을 사용하려면 발급자 개체를 만드는 일회성 작업을 수행해야 합니다. 키 자격 증명 모음에서 발급자 개체를 만든 후에 해당 이름을 KV 인증서 정책에서 참조할 수 있습니다. KV 인증서 같은 인증서 만들기를 요청하면 자격 증명 모음에서 키 쌍을 만들고 x509 인증서를 가져오기 위해 참조된 발급자 개체의 정보를 사용하여 발급자 공급자 서비스와 통신합니다. x509 인증서는 인증서 발급자 서비스에서 검색되며, KV 인증서 생성을 완료하기 위해 키 쌍과 병합됩니다.  
@@ -94,6 +94,6 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
 
  권한 부여: 인증서/만들기 권한이 필요합니다.
 
- ## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
  - [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)
  - [인증서 생성 모니터링 및 관리](create-certificate-scenarios.md)

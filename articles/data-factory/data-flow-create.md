@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: b706e229bed48c821d5ca772450df320fd7e0b7f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: bb6ae9f97d681625218118b8adca116de1c0fb21
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271395"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728236"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Azure Data Factory Data Flow 만들기
 
@@ -34,7 +34,12 @@ Azure Blob Storage 계정 정보를 입력하라는 메시지가 표시됩니다
 
 [이 샘플에 사용되는 데이터는 여기서 확인할 수 있습니다](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). 샘플을 실행할 수 있도록 샘플 데이터를 다운로드하고 Azure Blob Storage 계정에 파일을 저장합니다.
 
+## <a name="create-new-data-flow"></a>새 데이터 흐름 만들기
+
 ADF UI의 리소스 만들기 “더하기” 단추를 사용하여 데이터 흐름 만들기
 
 ![데이터 흐름 옵션](media/data-flow/newresource.png "새 리소스")
 
+## <a name="next-steps"></a>다음 단계
+
+데이터 변환을 사용 하 여 빌드할를 [소스 변환](data-flow-source.md)합니다.

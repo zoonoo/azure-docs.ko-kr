@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 15cdc78559a8f299e2bf0f357bbb7c0664881712
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343292"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116897"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
 
@@ -38,9 +38,9 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 SSH(Secure Shell)에 대한 자세한 내용은 [SSH를 사용하여 HDInsight(Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 1. SSH를 사용하여 HDInsight 클러스터에 연결합니다.  
- ```bash
-ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
- ```
+   ```bash
+   ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
+   ```
 
 2. Kerberos 인증에 성공했는지 확인하려면 `klist` 명령을 사용합니다. 그렇지 않은 경우 `kinit`를 사용하여 Kerberos 인증을 시작합니다.
 
@@ -54,23 +54,25 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
 ## <a name="define-the-workflow"></a>워크플로 정의
 Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 작성되었습니다. hPDL은 XML 프로세스 정의 언어입니다. 다음 단계를 사용하여 워크플로를 정의합니다.
 
-1.  도메인 사용자의 작업 영역을 설정합니다.
- ```bash
-hdfs dfs -mkdir /user/<DomainUser>
-cd /home/<DomainUserPath>
-cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
-tar -xvf oozie-examples.tar.gz
-hdfs dfs -put examples /user/<DomainUser>/
- ```
-`DomainUser`를 도메인 사용자 이름으로 바꿉니다. `DomainUserPath`를 도메인 사용자의 홈 디렉터리 경로로 바꿉니다. `ClusterVersion`을 클러스터 HDP(Hortonworks Data Platform) 버전으로 바꿉니다.
+1. 도메인 사용자의 작업 영역을 설정합니다.
+   ```bash
+   hdfs dfs -mkdir /user/<DomainUser>
+   cd /home/<DomainUserPath>
+   cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
+   tar -xvf oozie-examples.tar.gz
+   hdfs dfs -put examples /user/<DomainUser>/
+   ```
+   `DomainUser`를 도메인 사용자 이름으로 바꿉니다. 
+   `DomainUserPath`를 도메인 사용자의 홈 디렉터리 경로로 바꿉니다. 
+   `ClusterVersion`을 클러스터 HDP(Hortonworks Data Platform) 버전으로 바꿉니다.
 
-2.  다음 문을 사용하여 새 파일을 만들고 편집합니다.
- ```bash
-nano workflow.xml
- ```
+2. 다음 문을 사용하여 새 파일을 만들고 편집합니다.
+   ```bash
+   nano workflow.xml
+   ```
 
 3. nano 편집기가 열리면 파일 내용으로 다음 XML을 입력합니다.
- ```xml
+   ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <workflow-app xmlns="uri:oozie:workflow:0.4" name="map-reduce-wf">
        <credentials>
@@ -165,25 +167,25 @@ nano workflow.xml
        </kill>
        <end name="end" />
     </workflow-app>
- ```
+   ```
 4. `clustername`을 클러스터의 이름으로 바꿉니다. 
 
 5. 파일을 저장하려면 Ctrl + X를 선택합니다. [https://slack.botframework.com](`Y`) 을 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
 
     워크플로는 두 부분으로 구분됩니다.
-    *   **자격 증명 섹션.** 이 섹션에서는 Oozie 작업을 인증하는 데 사용되는 자격 증명을 사용합니다.
+   * **자격 증명 섹션.** 이 섹션에서는 Oozie 작업을 인증하는 데 사용되는 자격 증명을 사용합니다.
 
-       이 예제에서는 Hive 작업에 대한 인증이 사용됩니다. 자세한 내용은 [작업 인증](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html)을 참조하세요.
+     이 예제에서는 Hive 작업에 대한 인증이 사용됩니다. 자세한 내용은 [작업 인증](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html)을 참조하세요.
 
-       자격 증명 서비스를 사용하면 Oozie 작업이 Hadoop 서비스에 액세스하기 위해 사용자를 가장할 수 있습니다.
+     자격 증명 서비스를 사용하면 Oozie 작업이 Hadoop 서비스에 액세스하기 위해 사용자를 가장할 수 있습니다.
 
-    *   **작업 섹션.** 이 섹션에서는 map-reduce, Hive 서버 2 및 Hive 서버 1의 세 가지 작업이 있습니다.
+   * **작업 섹션.** 이 섹션에서는 map-reduce, Hive 서버 2 및 Hive 서버 1의 세 가지 작업이 있습니다.
 
-      - map-reduce 작업은 집계된 단어 수를 출력하는 map-reduce에 대한 Oozie 패키지의 예제를 실행합니다.
+     - map-reduce 작업은 집계된 단어 수를 출력하는 map-reduce에 대한 Oozie 패키지의 예제를 실행합니다.
 
-       - Hive 서버 2 및 Hive 서버 1 작업은 HDInsight와 함께 제공되는 샘플 Hive 테이블에 대한 쿼리를 실행합니다.
+     - Hive 서버 2 및 Hive 서버 1 작업은 HDInsight와 함께 제공되는 샘플 Hive 테이블에 대한 쿼리를 실행합니다.
 
-        Hive 작업은 action 요소에서 `cred` 키워드를 사용하여 인증을 위해 자격 증명 섹션에 정의된 자격 증명을 사용합니다.
+     Hive 작업은 action 요소에서 `cred` 키워드를 사용하여 인증을 위해 자격 증명 섹션에 정의된 자격 증명을 사용합니다.
 
 6. 다음 명령을 사용하여 `workflow.xml` 파일을 `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`에 복사합니다.
      ```bash

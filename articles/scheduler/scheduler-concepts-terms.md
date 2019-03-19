@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: HT
+ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334230"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887054"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler에서 개념, 용어 및 엔터티
 
@@ -70,20 +70,20 @@ Azure Scheduler는 여러 작업 유형을 지원합니다.
 
 * 작업 타이머가 발생할 때 실행할 동작
 * 선택 사항: 작업 실행 시간
-* 선택 사항: 작업 반복 시기 및 빈도
-* 선택 사항: 기본 동작 실패 시 실행할 오류 동작
+* 선택 사항: 시간과 작업을 반복 하는 빈도
+* 선택 사항: 기본 작업이 실패 하는 경우 실행 되는 오류 작업
 
 작업에는 작업의 예약된 다음 실행 시간 등의 시스템 제공 데이터도 포함됩니다. 작업 코드 정의는 다음과 같은 요소를 가진 JSON(JavaScript Object Notation) 형식의 개체입니다.
 
 | 요소 | 필수 | 설명 | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | 아니요 | [ISO 8601 형식](http://en.wikipedia.org/wiki/ISO_8601)의 표준 시간대 오프셋을 사용하는 작업의 시작 시간 | 
-| [**action**](#action) | yes | 기본 동작의 세부 정보로, **errorAction** 개체를 포함할 수 있습니다. | 
-| [**errorAction**](#error-action) | 아니요 | 기본 동작이 실패하는 경우 실행되는 보조 동작에 대한 세부 정보 |
-| [**recurrence**](#recurrence) | 아니요 | 되풀이 작업에 대한 빈도 및 간격 등의 세부 정보 | 
-| [**retryPolicy**](#retry-policy) | 아니요 | 동작을 다시 시도하는 빈도에 대한 세부 정보 | 
-| [**state**](#state) | yes | 작업의 현재 상태에 대한 세부 정보 |
-| [**status**](#status) | yes | 서비스에 의해 제어되는 작업의 현재 상태에 대한 세부 정보 |
+| [**startTime**](#start-time) | 아닙니다. | [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)의 표준 시간대 오프셋을 사용하는 작업의 시작 시간 | 
+| [**action**](#action) | 예 | 기본 동작의 세부 정보로, **errorAction** 개체를 포함할 수 있습니다. | 
+| [**errorAction**](#error-action) | 아닙니다. | 기본 동작이 실패하는 경우 실행되는 보조 동작에 대한 세부 정보 |
+| [**recurrence**](#recurrence) | 아닙니다. | 되풀이 작업에 대한 빈도 및 간격 등의 세부 정보 | 
+| [**retryPolicy**](#retry-policy) | 아닙니다. | 동작을 다시 시도하는 빈도에 대한 세부 정보 | 
+| [**state**](#state) | 예 | 작업의 현재 상태에 대한 세부 정보 |
+| [**status**](#status) | 예 | 서비스에 의해 제어되는 작업의 현재 상태에 대한 세부 정보 |
 ||||
 
 다음은 이후 섹션에서 설명하는 전체 요소 세부 정보가 포함된 HTTP 동작에 대한 포괄적인 작업 정의를 보여 주는 예제입니다. 
@@ -137,7 +137,7 @@ Azure Scheduler는 여러 작업 유형을 지원합니다.
 
 ## <a name="starttime"></a>startTime
 
-**startTime** 개체에서 [ISO 8601 형식](http://en.wikipedia.org/wiki/ISO_8601)으로 시작 시간 및 표준 시간대 오프셋을 지정할 수 있습니다.
+**startTime** 개체에서 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)으로 시작 시간 및 표준 시간대 오프셋을 지정할 수 있습니다.
 
 <a name="action"></a>
 
@@ -239,18 +239,18 @@ SAS(공유 액세스 서명) 토큰에 대한 자세한 내용은 [공유 액세
 },
 ```
 
-| 자산 | 필수 | 값 | 설명 | 
+| 자산 | 필수 | Value | 설명 | 
 |----------|----------|-------|-------------| 
 | **frequency** | **recurrence**가 사용된 경우, 예 | "Minute", "Hour", "Day", "Week", "Month", "Year" | 발생 간격 간의 시간 단위 | 
-| **interval** | 아니요 | 1에서 1000(포함) 사이 | **frequency**에 따른 각 발생 간의 시간 단위 수를 결정하는 양의 정수 | 
-| **schedule** | 아니요 | 다름 | 더 복잡한 일정 및 고급 일정에 대한 세부 정보입니다. **hours**, **minutes**, **weekDays**, **months** 및 **monthDays**를 참조하세요. | 
-| **hours** | 아니요 | 1 - 24 | 작업 실행 시기에 대한 시간 표식이 포함된 배열 | 
-| **minutes** | 아니요 | 1 - 24 | 작업 실행 시기에 대한 분 표식이 포함된 배열 | 
-| **months** | 아니요 | 1 - 12 | 작업 실행 시기에 대한 월 표식이 포함된 배열 | 
-| **monthDays** | 아니요 | 다름 | 작업 실행 시기에 대한 날짜 표식이 포함된 배열 | 
-| **weekDays** | 아니요 | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | 작업 실행 시기에 대한 요일 표식이 포함된 배열 | 
-| **count** | 아니요 | <*none*> | 되풀이 횟수입니다. 기본값은 무한 반복입니다. **count** 및 **endTime**을 둘 다 사용할 수 없지만 먼저 완료되는 규칙이 적용됩니다. | 
-| **endTime** | 아니요 | <*none*> | 되풀이를 중지할 날짜 및 시간입니다. 기본값은 무한 반복입니다. **count** 및 **endTime**을 둘 다 사용할 수 없지만 먼저 완료되는 규칙이 적용됩니다. | 
+| **interval** | 아닙니다. | 1에서 1000(포함) 사이 | **frequency**에 따른 각 발생 간의 시간 단위 수를 결정하는 양의 정수 | 
+| **schedule** | 아닙니다. | 다름 | 더 복잡한 일정 및 고급 일정에 대한 세부 정보입니다. **hours**, **minutes**, **weekDays**, **months** 및 **monthDays**를 참조하세요. | 
+| **hours** | 아닙니다. | 1 - 24 | 작업 실행 시기에 대한 시간 표식이 포함된 배열 | 
+| **minutes** | 아닙니다. | 1 - 24 | 작업 실행 시기에 대한 분 표식이 포함된 배열 | 
+| **months** | 아닙니다. | 1 - 12 | 작업 실행 시기에 대한 월 표식이 포함된 배열 | 
+| **monthDays** | 아닙니다. | 다름 | 작업 실행 시기에 대한 날짜 표식이 포함된 배열 | 
+| **weekDays** | 아닙니다. | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | 작업 실행 시기에 대한 요일 표식이 포함된 배열 | 
+| **count** | 아닙니다. | <*none*> | 되풀이 횟수입니다. 기본값은 무한 반복입니다. **count** 및 **endTime**을 둘 다 사용할 수 없지만 먼저 완료되는 규칙이 적용됩니다. | 
+| **endTime** | 아닙니다. | <*none*> | 되풀이를 중지할 날짜 및 시간입니다. 기본값은 무한 반복입니다. **count** 및 **endTime**을 둘 다 사용할 수 없지만 먼저 완료되는 규칙이 적용됩니다. | 
 ||||
 
 이러한 요소에 대한 자세한 내용은 [복잡한 일정 및 고급 되풀이 빌드](../scheduler/scheduler-advanced-complexity.md)를 참조하세요.
@@ -269,11 +269,11 @@ Scheduler 작업이 실패할 경우 Scheduler에서 동작을 재시도할지 �
 },
 ```
 
-| 자산 | 필수 | 값 | 설명 | 
+| 자산 | 필수 | Value | 설명 | 
 |----------|----------|-------|-------------| 
-| **retryType** | yes | **Fixed**, **None** | 재시도 정책을 지정할지(**fixed**) 또는 지정하지 않을지(**none**) 결정합니다. | 
-| **retryInterval** | 아니요 | PT30S | 재시도 사이의 간격 및 빈도를 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)으로 지정합니다. 최솟값은 15초이고 최댓값은 18개월입니다. | 
-| **retryCount** | 아니요 | 4 | 재시도 횟수입니다. 최댓값은 20입니다. | 
+| **retryType** | 예 | **Fixed**, **None** | 재시도 정책을 지정할지(**fixed**) 또는 지정하지 않을지(**none**) 결정합니다. | 
+| **retryInterval** | 아닙니다. | PT30S | 재시도 사이의 간격 및 빈도를 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)으로 지정합니다. 최솟값은 15초이고 최댓값은 18개월입니다. | 
+| **retryCount** | 아닙니다. | 4 | 재시도 횟수입니다. 최댓값은 20입니다. | 
 ||||
 
 자세한 내용은 [고가용성 및 안정성](../scheduler/scheduler-high-availability-reliability.md)을 참조하세요.

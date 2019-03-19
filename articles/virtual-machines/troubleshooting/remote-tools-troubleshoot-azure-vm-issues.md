@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 6f55491ba7d422b19b3ee9db8b9ee804b920e422
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 2126ed2624d735d88d52ddc1ee97bfb970cc8a74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119771"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>원격 도구를 사용하여 Azure VM 문제 해결
 
@@ -172,14 +172,14 @@ ARM VM의 경우 포털에서 실행 명령을 사용하여 EnableRemotePS 스�
 
 * VNET 또는 배포 외부
 
-    * 클래식 VM의 경우 다음 명령을 실행합니다.
+  * 클래식 VM의 경우 다음 명령을 실행합니다.
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-    * ARM VM의 경우 먼저 공용 IP 주소에 DNS 이름을 추가합니다. 자세한 단계는 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](../windows/portal-create-fqdn.md)를 참조하세요. 다음 명령을 실행합니다.
+  * ARM VM의 경우 먼저 공용 IP 주소에 DNS 이름을 추가합니다. 자세한 단계는 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](../windows/portal-create-fqdn.md)를 참조하세요. 다음 명령을 실행합니다.
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck

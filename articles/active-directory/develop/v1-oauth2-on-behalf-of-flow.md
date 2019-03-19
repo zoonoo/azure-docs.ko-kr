@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5d724583dd4682fb6c0b01e8ec11196936289b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211906"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116268"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하는 서비스 간 호출
 
@@ -63,12 +63,12 @@ On-Behalf-Of 흐름을 구성하는 단계는 다음과 같습니다. ![OAuth 2.
     1. 애플리케이션 형식에 따라 로그온 URL 또는 리디렉션 URL을 기본 URL로 설정합니다.
     1. **만들기**를 선택하여 애플리케이션을 만듭니다.
 1. Azure Portal을 종료하기 전에 클라이언트 비밀을 생성합니다.
-    1. Azure Portal에서 애플리케이션 및 **설정**을 차례로 선택합니다.
-    1. 설정 메뉴에서 **키**를 선택하고 1년 또는 2년 기간 키를 사용하여 키를 추가합니다.
-    1. 이 페이지를 저장하면 Azure Portal에 키 값이 표시됩니다. 키 값을 복사하여 안전한 곳에 저장합니다.
+   1. Azure Portal에서 애플리케이션 및 **설정**을 차례로 선택합니다.
+   1. 설정 메뉴에서 **키**를 선택하고 1년 또는 2년 기간 키를 사용하여 키를 추가합니다.
+   1. 이 페이지를 저장하면 Azure Portal에 키 값이 표시됩니다. 키 값을 복사하여 안전한 곳에 저장합니다.
 
-    > [!IMPORTANT]
-    > 구현에서 애플리케이션 설정을 구성하려면 키가 필요합니다. 이 키 값은 다시 표시되지 않으며 어떤 방법으로도 검색할 수 없습니다. Azure Portal에 표시되자마자 이 키 값을 기록합니다.
+      > [!IMPORTANT]
+      > 구현에서 애플리케이션 설정을 구성하려면 키가 필요합니다. 이 키 값은 다시 표시되지 않으며 어떤 방법으로도 검색할 수 없습니다. Azure Portal에 표시되자마자 이 키 값을 기록합니다.
 
 ### <a name="register-the-client-application"></a>클라이언트 애플리케이션 등록
 
@@ -114,9 +114,9 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 | 어설션 |필수 | 요청에 사용된 액세스 토큰 값입니다. |
 | client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
 | client_secret |필수 | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
-| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
+| 리소스 |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
 | requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
-| scope |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
+| 범위 |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
 
 #### <a name="example"></a>예
 
@@ -149,9 +149,9 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
 | client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
 | client_assertion |필수 | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명하는 JSON Web Token입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
-| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
+| 리소스 |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
 | requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
-| scope |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
+| 범위 |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
 
 이러한 매개 변수는 `client_secret parameter`가 `client_assertion_type` 및 `client_assertion` 두 매개 변수로 대체되는 경우를 제외하고 공유된 비밀을 통한 요청과 거의 동일합니다.
 
@@ -183,10 +183,10 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | 매개 변수 | 설명 |
 | --- | --- |
 | token_type |토큰 유형 값을 나타냅니다. Azure AD는 **전달자**유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
-| scope |토큰에 부여된 액세스 범위입니다. |
+| 범위 |토큰에 부여된 액세스 범위입니다. |
 | expires_in |액세스 토큰이 유효한 기간(초)입니다. |
 | expires_on |액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다. |
-| resource |수신 서비스(보안 리소스)의 앱 ID URI입니다. |
+| 리소스 |수신 서비스(보안 리소스)의 앱 ID URI입니다. |
 | access_token |요청된 액세스 토큰입니다. 호출 서비스는 이 토큰을 사용하여 수신 서비스에 인증할 수 있습니다. |
 | id_token |요청된 ID 토큰입니다. 호출 서비스는 이 토큰을 사용하여 사용자 ID를 확인하고 사용자와 함께 세션을 시작할 수 있습니다. |
 | refresh_token |요청된 액세스 토큰에 대한 새로 고침 토큰입니다. 호출 서비스는 이 토큰을 사용하여 현재 액세스 토큰이 만료된 후 다른 액세스 토큰을 요청할 수 있습니다. |
@@ -258,7 +258,7 @@ SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포�
 | 어설션 |필수 | 요청에 사용된 액세스 토큰 값입니다.|
 | client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
 | client_secret |필수 | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
-| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. SAML 토큰의 대상이 될 리소스입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
+| 리소스 |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. SAML 토큰의 대상이 될 리소스입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
 | requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
 | requested_token_type | 필수 | 요청된 토큰의 형식을 지정합니다. 값은 액세스된 리소스의 요구 사항에 따라 **urn:ietf:params:oauth:token-type:saml2** 또는 **urn:ietf:params:oauth:token-type:saml1**입니다. |
 
@@ -274,10 +274,10 @@ SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포�
 | 매개 변수 | 설명 |
 | --- | --- |
 | token_type |토큰 유형 값을 나타냅니다. Azure AD는 **전달자**유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
-| scope |토큰에 부여된 액세스 범위입니다. |
+| 범위 |토큰에 부여된 액세스 범위입니다. |
 | expires_in |액세스 토큰이 유효한 기간(초)입니다. |
 | expires_on |액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다. |
-| resource |수신 서비스(보안 리소스)의 앱 ID URI입니다. |
+| 리소스 |수신 서비스(보안 리소스)의 앱 ID URI입니다. |
 | access_token |SAML 어설션을 반환하는 매개 변수입니다. |
 | refresh_token |토큰 새로 고침. 호출 서비스는 이 토큰을 사용하여 현재 SAML 어설션이 만료된 후 다른 액세스 토큰을 요청할 수 있습니다. |
 

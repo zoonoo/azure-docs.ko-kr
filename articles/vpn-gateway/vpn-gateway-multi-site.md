@@ -1,5 +1,5 @@
 ---
-title: 'VPN Gateway 및 PowerShell을 사용하여 가상 네트워크를 여러 사이트에 연결: 클래식 | Microsoft Docs'
+title: 가상 네트워크 VPN Gateway 및 PowerShell을 사용 하 여 여러 사이트에 연결 합니다. 클래식 | Microsoft Docs
 description: VPN Gateway를 사용하여 여러 로컬 온-프레미스 사이트를 클래식 가상 네트워크에 연결합니다.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 768f06c9d007e716f89ca61ccd9f8a2ccd575efd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
-ms.translationtype: HT
+ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160871"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994019"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>기존 VPN Gateway 연결이 있는 VNet에 사이트 간 연결 추가(클래식)
 
@@ -75,8 +75,8 @@ ms.locfileid: "52160871"
 2. 새 게이트웨이를 구성하고 VPN 터널을 만듭니다. 지침에 대해서는 [SKU와 VPN 유형 지정](vpn-gateway-howto-site-to-site-classic-portal.md#sku)을 참조하세요. 라우팅 유형을 '동적'으로 지정해야 합니다.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>사이트 간 가상 네트워크 사이트가 없는 경우:
-1. [사이트 간 VPN 연결을 사용하여 Virtual Network 만들기](vpn-gateway-site-to-site-create.md)를 참조하여 사이트 간 가상 네트워크를 만듭니다.  
-2. [VPN Gateway 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하여 동적 라우팅 게이트웨이를 구성하십시오. 사용 중인 게이트웨이 유형에 맞는 **동적 라우팅** 을 선택해야 합니다.
+1. 이러한 지침을 사용 하 여 사이트 간 가상 네트워크를 만듭니다. [사이트 간 VPN 연결으로 가상 네트워크 만들기](vpn-gateway-site-to-site-create.md)합니다.  
+2. 이러한 지침을 사용 하 여 동적 라우팅 게이트웨이 구성 합니다. [VPN Gateway 구성](vpn-gateway-configure-vpn-gateway-mp.md)합니다. 사용 중인 게이트웨이 유형에 맞는 **동적 라우팅** 을 선택해야 합니다.
 
 ## <a name="export"></a>2. 네트워크 구성 파일을 내보내기
 다음 명령을 실행하여 Azure 네트워크 구성 파일을 내보냅니다. 필요한 경우 다른 위치로 내보낼 파일의 위치를 변경할 수 있습니다.
@@ -88,7 +88,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="3-open-the-network-configuration-file"></a>3. 네트워크 구성 파일 열기
 마지막 단계에서 다운로드한 네트워크 구성 파일을 엽니다. 원하는 xml 편집기를 사용합니다. 파일은 다음과 유사하게 나타납니다.
 
-        <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <LocalNetworkSites>
               <LocalNetworkSite name="Site1">

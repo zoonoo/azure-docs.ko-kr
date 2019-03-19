@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d9855f107f9888fbfbcb10a3df849e78c87c0605
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123405"
 ---
 # <a name="optimize-sql-server-performance"></a>SQL Server 성능 최적화
 
@@ -104,20 +104,20 @@ Azure Stack virtual machine에서 세 가지 기본 디스크 유형에
 
 - **디스크 스트라이프:** 더 많은 처리량에 대 한 추가 데이터 디스크를 추가할 수 있으며 디스크 스트라이프를 사용할 수 있습니다. 데이터 및 TempDB 파일 및 로그 파일에 대해 필요한 IOPS 및 대역폭 수를 분석 해야 하는 데이터 디스크 수를 결정 합니다. 가상 머신 시리즈 제품군을 기반으로 하며 가상 머신 크기를 기반으로 하지 데이터 디스크당 IOPS 한도 알 수 있습니다. 그러나 네트워크 대역폭 제한, 가상 머신 크기에 기반한 합니다. 테이블을 참조 하세요 [Azure Stack에서 가상 머신 크기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) 자세한 세부 정보에 대 한 합니다. 다음 지침을 사용하세요.
 
-    - Windows Server 2012 이상에서는 사용할 [저장소 공간](https://technet.microsoft.com/library/hh831739.aspx) 다음 지침을 사용 하 여:
+  - Windows Server 2012 이상에서는 사용할 [저장소 공간](https://technet.microsoft.com/library/hh831739.aspx) 다음 지침을 사용 하 여:
 
-        1.  온라인 트랜잭션 처리 (OLTP) 워크 로드 및 256KB (262,144 바이트) 데이터 웨어하우징 워크 로드에 대 한 파티션 잘못 맞춤으로 인해 성능 저하를 방지 하기에 대해 64KB (65,536 바이트)로 인터리빙 (스트라이프 크기)를 설정 합니다. 이는 PowerShell로 설정되어야 합니다.
+    1. 온라인 트랜잭션 처리 (OLTP) 워크 로드 및 256KB (262,144 바이트) 데이터 웨어하우징 워크 로드에 대 한 파티션 잘못 맞춤으로 인해 성능 저하를 방지 하기에 대해 64KB (65,536 바이트)로 인터리빙 (스트라이프 크기)를 설정 합니다. 이는 PowerShell로 설정되어야 합니다.
 
-        2.  열 수를 실제 디스크 수로 설정합니다. 8 개 이상의 디스크 (서버 관리자 UI 아님)를 구성 하는 경우 PowerShell을 사용 합니다.
+    2. 열 수를 실제 디스크 수로 설정합니다. 8 개 이상의 디스크 (서버 관리자 UI 아님)를 구성 하는 경우 PowerShell을 사용 합니다.
 
-            예를 들어, 다음 PowerShell 인터리빙 크기가 64KB 이며 2 열 수가 설정 된 새 저장소 풀을 만듭니다.
+       예를 들어, 다음 PowerShell 인터리빙 크기가 64KB 이며 2 열 수가 설정 된 새 저장소 풀을 만듭니다.
 
-          ```PowerShell  
-          $PoolCount = Get-PhysicalDisk -CanPool $True
-          $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+       ```PowerShell  
+       $PoolCount = Get-PhysicalDisk -CanPool $True
+       $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
-          New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
-          ```
+       New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
+       ```
 
 - 예상되는 부하에 따라 저장소 풀에 연결되는 디스크 수를 결정합니다. 연결 된 데이터 디스크를 다른 가상 머신 크기의 다른 숫자를 허용 하는 것에 유의 합니다. 자세한 내용은 [Azure Stack에서 지원 되는 가상 머신 크기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes)합니다.
 - 지 원하는 데이터 디스크의 최대 수를 추가 하는 것이 좋습니다 데이터 디스크에 대 한 최대 가능한 IOPS를 얻으려면 하 [가상 머신 크기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) 하 고 디스크 스트라이프를 사용 합니다.

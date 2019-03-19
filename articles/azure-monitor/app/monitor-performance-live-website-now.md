@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f7d7b7f470f43d8a7a1cd94b4b1ce79503f0dfca
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085816"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Application Insights 상태 모니터를 사용한 런타임 시 웹앱 계측
 
@@ -27,7 +27,7 @@ ms.locfileid: "56301029"
 
 - 앱을 Azure App Services에 배포하는 경우 [이러한 지침](azure-web-apps.md)을 따릅니다.
 - 앱을 Azure VM에 배포하는 경우 Azure 제어판에서 Application Insights 모니터링을 켤 수 있습니다.
-- [라이브 Java EE 웹앱](java-live.md) 및 [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)를 계측하는 방법을 설명하는 별도의 문서도 있습니다.
+- (계측 하는 방법에 대 한 별도 문서 밖에도 [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 
 
 ![실패한 요청, 서버 응답 시간 및 서버 요청에 대한 정보를 포함하는 App Insights 개요 그래프 스크린샷](./media/monitor-performance-live-website-now/overview-graphs.png)
@@ -48,10 +48,10 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 �
 | [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |예 |
 | [종속성 진단](../../azure-monitor/app/asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
 | [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |예 |예 |
-| [사용자 지정 원격 분석에 대 한 API][api] |예 |아니요 |
-| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |예 |아니요 |
-| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |예 |아니요 |
-| 코드를 다시 빌드해야 함 |예 | 아니요 |
+| [사용자 지정 원격 분석에 대 한 API][api] |예 |아닙니다. |
+| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |예 |아닙니다. |
+| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |예 |아닙니다. |
+| 코드를 다시 빌드해야 함 |예 | 아닙니다. |
 
 
 
@@ -98,14 +98,14 @@ Application Insights를 코드에 추가하지 않고 다시 게시하려는 경
 - applicationInsights.config 파일이 대상 앱 디렉터리에 있으며 ikey를 포함하는지 확인합니다.
 
 - 데이터 누락이 의심되면 [Analytics](../log-query/get-started-portal.md)에서 간단한 쿼리를 실행하여 현재 원격 분석을 보내는 모든 클라우드 역할을 나열합니다.
-```Kusto
-union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-```
+  ```Kusto
+  union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+  ```
 
 - Application Insights에 연결되었는지 확인해야 할 경우 명령 창에서 [Sysinternals 핸들](https://docs.microsoft.com/sysinternals/downloads/handle)을 실행하여 IIS에서 applicationinsights.dll을 로드했는지 확인할 수 있습니다.
-```cmd
-handle.exe /p w3wp.exe
-```
+  ```cmd
+  handle.exe /p w3wp.exe
+  ```
 
 
 ### <a name="cant-connect-no-telemetry"></a>연결할 수 없나요? 원격 분석이 없나요?

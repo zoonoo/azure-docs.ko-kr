@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 7f864c90b8279f315fc0dbe96f41bfd03be7cebc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 8c9fba14bd3f7d3b55a245f8e647f0eae1f8ef83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118428"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
 
@@ -111,11 +111,11 @@ App Services **앱 설정** 창으로 이동하여 다음 설정을 확인합니
     ![앱 인사이트 변경 및 저장][change-and-save-appinsights]
 
 1. App Services의 **앱 설정** 탭으로 돌아가서 다음 값이 설정되어 있는지 확인합니다.
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Application Insights에 대한 적절한 계측 키로 바꿉니다.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET 
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
+   * **APPINSIGHTS_INSTRUMENTATIONKEY**: Application Insights에 대한 적절한 계측 키로 바꿉니다.
+   * **APPINSIGHTS_PORTALINFO**: ASP.NET 
+   * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-    ![Profiler의 앱 설정][app-settings-for-profiler]
+     ![Profiler의 앱 설정][app-settings-for-profiler]
 
 1. 필요에 따라 **확장**을 선택한 다음 확장 버전을 점검하고 업데이트를 사용할 수 있는지 확인합니다.
 

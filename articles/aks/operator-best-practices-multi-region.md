@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 9958f5f0f1435af231c1426a249c745f4a2352c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816614"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098630"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
@@ -21,11 +21,11 @@ AKS(Azure Kubernetes Services)에서 클러스터를 관리할 때 애플리케�
 이 모범 사례 문서에서는 AKS에서 비즈니스 연속성 및 재해 복구를 계획하는 데 도움이 되는 고려 사항을 집중적으로 다룹니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-* 여러 Azure 지역에서 AKS 클러스터 계획 작성
-* Azure Traffic Manager를 사용하여 여러 클러스터에 트래픽 라우팅
-* 컨테이너 이미지 레지스트리에 지역 복제 사용
-* 여러 클러스터에서 애플리케이션 상태 계획 작성
-* 여러 Azure 지역의 스토리지 복제
+> * 여러 Azure 지역에서 AKS 클러스터 계획 작성
+> * Azure Traffic Manager를 사용하여 여러 클러스터에 트래픽 라우팅
+> * 컨테이너 이미지 레지스트리에 지역 복제 사용
+> * 여러 클러스터에서 애플리케이션 상태 계획 작성
+> * 여러 Azure 지역의 스토리지 복제
 
 ## <a name="plan-for-multi-region-deployment"></a>다중 지역 배포 계획 작성
 
@@ -62,7 +62,7 @@ Traffic Manager는 DNS 조회를 수행하여 사용자에게 가장 적합한 �
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>Azure Front Door를 사용한 레이어 7 애플리케이션 라우팅
 
-Azure Traffic Manager는 DNS(레이어 3)를 사용하여 트래픽을 셰이핑합니다. [Azure Front Door(미리 보기)](https://docs.microsoft.com/azure/frontdoor/front-door-overview)는 HTTP/HTTPS(레이어 7) 라우팅 옵션을 제공합니다. Front Door의 추가 기능으로는 SSL 종료, 사용자 지정 도메인, 웹 애플리케이션 방화벽, URL 재작성 및 세션 선호도가 포함됩니다.
+Azure Traffic Manager는 DNS(레이어 3)를 사용하여 트래픽을 셰이핑합니다. [(현재 미리 보기)는에서 azure 프런트 도어](https://docs.microsoft.com/azure/frontdoor/front-door-overview) HTTP/HTTPS (계층 7) 라우팅 옵션을 제공 합니다. Front Door의 추가 기능으로는 SSL 종료, 사용자 지정 도메인, 웹 애플리케이션 방화벽, URL 재작성 및 세션 선호도가 포함됩니다.
 
 애플리케이션 트래픽 요구 사항을 검토하여 어떤 솔루션이 가장 적합한지 알아보세요.
 

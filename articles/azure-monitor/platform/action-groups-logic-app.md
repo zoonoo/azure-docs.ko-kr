@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121131"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
@@ -275,19 +275,19 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 - 9-10단계는 동일합니다.
 - 11-14 단계의 경우 다음 프로세스를 사용합니다.
 
-   1. **+** **새 단계**를 선택한 다음, **조건 추가**를 선택합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다. 버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("2.0").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다. 
-       - `schemaId == AzureMonitorMetricAlert`
-       - `version == "2.0"`
+  1. **+** **새 단계**를 선택한 다음, **조건 추가**를 선택합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다. 버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("2.0").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다. 
+     - `schemaId == AzureMonitorMetricAlert`
+     - `version == "2.0"`
        
        ![“메트릭 경고 페이로드 조건”](media/action-groups-logic-app/metric-alert-payload-condition.png "메트릭 경고 페이로드 조건")
 
-   1. **if true** 조건에서 **For each** 루프 및 Microsoft Teams 작업을 추가합니다. HTML과 동적 콘텐츠의 조합을 사용하여 메시지를 정의합니다.
+  1. **if true** 조건에서 **For each** 루프 및 Microsoft Teams 작업을 추가합니다. HTML과 동적 콘텐츠의 조합을 사용하여 메시지를 정의합니다.
 
-       ![“메트릭 경고 true 조건 게시 작업”](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "메트릭 경고 true 조건 게시 작업")
+      ![“메트릭 경고 true 조건 게시 작업”](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "메트릭 경고 true 조건 게시 작업")
 
-   1. **If false** 조건에서는 메트릭 경고가 논리 앱의 예상과 일치하지 않는다고 통신하는 Microsoft Teams 작업을 정의합니다. JSON 페이로드를 포함합니다. `json()` 식에서 `triggerBody` 동적 콘텐츠를 참조하는 방법을 확인합니다.
+  1. **If false** 조건에서는 메트릭 경고가 논리 앱의 예상과 일치하지 않는다고 통신하는 Microsoft Teams 작업을 정의합니다. JSON 페이로드를 포함합니다. `json()` 식에서 `triggerBody` 동적 콘텐츠를 참조하는 방법을 확인합니다.
 
-       ![“메트릭 경고 false 조건 게시 작업”](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "메트릭 경고 false 조건 게시 작업")
+      ![“메트릭 경고 false 조건 게시 작업”](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "메트릭 경고 false 조건 게시 작업")
 
 - 15단계는 동일합니다. 지침을 따라 논리 앱을 저장하고 작업 그룹을 업데이트합니다.
 

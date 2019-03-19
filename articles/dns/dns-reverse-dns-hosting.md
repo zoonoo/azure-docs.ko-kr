@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: 2d576a0d51eb723efdd1652898c2c019ee7475a8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: cb2f04c692d4b5f385a89ba6a3071c20ef1bdf21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118258"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Azure DNS에서 역방향 DNS 조회 영역 호스트
 
@@ -131,7 +131,7 @@ DNS 역방향 조회 영역을 만들었으므로 해당 영역이 부모 영역
 1. **도메인 이름**에는 IP를 사용하는 리소스의 FQDN(정규화된 도메인 이름)을 입력합니다.
 1. 창의 맨 아래에서 **확인**을 선택하여 DNS 레코드를 만듭니다.
 
- ![입력란이 채워진 "레코드 집합 추가" 창](./media/dns-reverse-dns-hosting/figure5.png)
+   ![입력란이 채워진 "레코드 집합 추가" 창](./media/dns-reverse-dns-hosting/figure5.png)
 
 다음 예제에서는 PowerShell이나 Azure CLI를 사용하여 이 작업을 완료하는 방법을 보여줍니다.
 
@@ -269,6 +269,6 @@ Azure DNS에서 ISP 할당 IP 블록에 대해 역방향 DNS 조회 영역을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-역방향 DNS에 대한 자세한 내용은 [Wikipedia에서 역방향 DNS 조회](http://en.wikipedia.org/wiki/Reverse_DNS_lookup)를 참조하세요.
+역방향 DNS에 대한 자세한 내용은 [Wikipedia에서 역방향 DNS 조회](https://en.wikipedia.org/wiki/Reverse_DNS_lookup)를 참조하세요.
 <br>
 [Azure 서비스에 대한 역방향 DNS 레코드를 관리](dns-reverse-dns-for-azure-services.md)하는 방법을 알아봅니다.

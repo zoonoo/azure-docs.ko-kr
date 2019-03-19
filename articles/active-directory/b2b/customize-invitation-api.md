@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 공동 작업 API 및 사용자 지정 | Microsoft Docs
+title: B2B 공동 작업 API 및 사용자 지정-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B 공동 작업은 비즈니스 파트너가 선택적으로 회사 애플리케이션에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a475c9032d2c4062b506c1e6ebcadd1901c946b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177430"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111313"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 공동 작업 API 및 사용자 지정
 
@@ -44,7 +44,7 @@ ms.locfileid: "56177430"
     "sendInvitationMessage": true
     ```
 
-  사용자 지정할 수 있는 받는 사람에게 보내려는 메시지를 지정합니다.
+   사용자 지정할 수 있는 받는 사람에게 보내려는 메시지를 지정합니다.
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
@@ -58,7 +58,7 @@ ms.locfileid: "56177430"
     "sendInvitationMessage": false
     ```
 
-  이 경우 전자 메일 템플릿, IM 또는 선택한 기타 배포 방법에 포함할 수 있는 API에서 상환 URL을 다시 얻을 수 있습니다.
+   이 경우 전자 메일 템플릿, IM 또는 선택한 기타 배포 방법에 포함할 수 있는 API에서 상환 URL을 다시 얻을 수 있습니다.
 
 6. 마지막으로 관리자는 사용자를 구성원으로 초대하도록 선택할 수 있습니다.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 5c4d16ff85972bc4b608e6ce2006912fb27d49d2
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: a3c0e94e213b861714bfc5f38e20e4d9a1de3a19
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895434"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107919"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>그룹 종속성 매핑을 사용하여 그룹 구체화
 
@@ -21,9 +21,10 @@ ms.locfileid: "55895434"
 > [!NOTE]
 > 종속성을 시각화하려는 그룹에는 10개 이하의 컴퓨터만 포함되어 있어야 합니다. 그룹에 10개 이상의 컴퓨터가 있는 경우에는 작은 그룹으로 분할하여 종속성 시각화 기능을 활용하는 것이 좋습니다.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prepare-for-dependency-visualization"></a>종속성 시각화 준비
-Azure Migrate는 Log Analytics의 서비스 맵 솔루션을 활용하여 컴퓨터의 종속성 시각화 기능을 사용하도록 설정합니다.
+Azure Migrate는 컴퓨터의 종속성 시각화를 사용 하도록 설정 하려면 Azure Monitor 로그에서 서비스 맵 솔루션을 활용 합니다.
 
 > [!NOTE]
 > Azure Government에서는 종속성 시각화 기능을 사용할 수 없습니다.
@@ -93,18 +94,18 @@ Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 
 1. Azure Migrate 프로젝트의 **관리** 아래에서  **그룹**을 클릭하고 그룹을 선택합니다.
 2. 그룹 페이지에서  **종속성 보기**를 클릭하여 그룹 종속성 맵을 엽니다.
 3. 그룹의 종속성 맵은 다음과 같은 세부 정보를 보여 줍니다.
-    - 그룹에 속한 모든 컴퓨터와 주고받는 인바운드(클라이언트) 및 아웃바운드(서버) TCP 연결
-        - MMA 및 종속성 에이전트가 설치되지 않은 종속 컴퓨터는 포트 번호별로 그룹화됩니다.
-        - MMA 및 종속성 에이전트가 설치된 종속 컴퓨터는 별도의 상자로 표시됩니다.
-    - 컴퓨터 내부에서 실행 중인 프로세스. 각 컴퓨터 상자를 확장하여 프로세스를 볼 수 있습니다.
-    - 각 컴퓨터의 정규화된 도메인 이름, 운영 체제, MAC 주소 등과 같은 속성. 각 시스템 상자를 클릭하여 이러한 세부 정보를 볼 수 있습니다.
+   - 그룹에 속한 모든 컴퓨터와 주고받는 인바운드(클라이언트) 및 아웃바운드(서버) TCP 연결
+       - MMA 및 종속성 에이전트가 설치되지 않은 종속 컴퓨터는 포트 번호별로 그룹화됩니다.
+       - MMA 및 종속성 에이전트가 설치된 종속 컴퓨터는 별도의 상자로 표시됩니다.
+   - 컴퓨터 내부에서 실행 중인 프로세스. 각 컴퓨터 상자를 확장하여 프로세스를 볼 수 있습니다.
+   - 각 컴퓨터의 정규화된 도메인 이름, 운영 체제, MAC 주소 등과 같은 속성. 각 시스템 상자를 클릭하여 이러한 세부 정보를 볼 수 있습니다.
 
      ![그룹 종속성 보기](./media/how-to-create-group-dependencies/view-group-dependencies.png)
 
 3. 더 세부적인 종속성을 보려면 시간 범위를 클릭하여 수정합니다. 범위는 기본적으로 1시간입니다. 시간 범위를 수정하거나 시작 및 종료 날짜와 기간을 지정할 수 있습니다.
 
-    > [!NOTE]
-      현재 종속성 시각화 UI에서는 1시간보다 긴 시간 범위를 선택할 수 없습니다. 더 긴 기간의 [종속성 데이터를 쿼리](https://docs.microsoft.com/azure/migrate/how-to-create-a-group)하려면 Log Analytics를 사용합니다.
+   > [!NOTE]
+   >    현재 종속성 시각화 UI에서는 1시간보다 긴 시간 범위를 선택할 수 없습니다. 로그를 사용 하 여 Azure Monitor [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) 더 긴 기간 동안.
 
 4. 종속 컴퓨터와 각 컴퓨터 내에서 실행 중인 프로세스를 확인하고 그룹에서 추가하거나 제거할 컴퓨터를 식별합니다.
 5. <Ctrl> 키를 누른 채로 클릭하여 맵에서 그룹에 추가하거나 제거할 컴퓨터를 선택합니다.
@@ -117,19 +118,19 @@ Operations Manager 2012 R2 이상에서 모니터링하는 머신의 경우 MMA 
 
 그룹 종속성 맵에 표시되는 특정 컴퓨터의 종속성을 확인하려면 [컴퓨터 종속성 맵핑을 설정합니다](how-to-create-group-machine-dependencies.md).
 
-## <a name="query-dependency-data-from-log-analytics"></a>Log Analytics에서 종속성 데이터 쿼리
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Azure Monitor 로그에서 종속성 데이터를 쿼리 합니다.
 
-서비스 맵에서 캡처한 종속성 데이터는 Azure Migrate 프로젝트와 연결된 Log Analytics 작업 영역에서 쿼리하는 데 사용할 수 있습니다. Log Analytics에서 쿼리할 서비스 맵 데이터 테이블에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). 
+서비스 맵을 통해 캡처된 종속성 데이터가 Azure Migrate 프로젝트와 연결 된 Log Analytics 작업 영역에서 쿼리에 사용할 수 있습니다. [자세한](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) Azure Monitor에서 쿼리를 서비스 맵 데이터 테이블에 대 한 로그입니다. 
 
-Log Analytics 쿼리를 실행하려면:
+Kusto 쿼리를 실행 합니다.
 
 1. 에이전트를 설치한 후 포털로 이동하고 **개요**를 클릭합니다.
 2. **개요**에서 프로젝트의 **필수** 섹션으로 이동하고 **OMS 작업 영역** 옆에 제공된 작업 영역 이름을 클릭합니다.
 3. Log Analytics 작업 영역 페이지에서 **일반** > **로그**를 클릭합니다.
-4. Log Analytics를 사용하여 종속성 데이터를 수집하는 쿼리를 작성합니다. 종속성 데이터를 수집하는 샘플 쿼리는 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)에서 사용할 수 있습니다.
+4. Azure Monitor 로그를 사용 하 여 종속성 데이터를 수집 하도록 쿼리를 작성 합니다. 종속성 데이터를 수집하는 샘플 쿼리는 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)에서 사용할 수 있습니다.
 5. [실행]을 클릭하여 쿼리를 실행합니다. 
 
-Log Analytics 쿼리를 작성하는 방법을 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal). 
+[자세한](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) Kusto 쿼리를 작성 하는 방법에 대 한 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

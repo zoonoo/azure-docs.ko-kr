@@ -2,16 +2,14 @@
 author: genlin
 ms.service: virtual-network
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 02/27/2019
 ms.author: genli
-ms.openlocfilehash: 5c1caf87f32ddd827b85263ee634d3e15d821124
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 63853ee34d99516b139b0356f609f41637ac2b39
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52271337"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56963384"
 ---
-가상 네트워크의 IaaS VM(가상 머신) 및 PaaS 역할 인스턴스는 연결된 서브넷에 따라 지정한 범위의 개인 IP 주소를 자동으로 수신합니다. 해당 주소는 VM 및 역할 인스턴스가 서비스 해제될 때까지 유지됩니다. PowerShell, Azure CLI 또는 Azure 포털에서 중지하여 VM 또는 역할 인스턴스를 서비스 해제합니다. 이러한 경우 VM 또는 역할 인스턴스가 다시 시작되면 Azure 인프라에서 사용 가능한 IP 주소를 수신하며, 이전 IP 주소와 다를 수도 있습니다. 게스트 운영 체제에서 VM 또는 역할 인스턴스를 종료하는 경우 보유한 IP 주소가 유지됩니다.  
-
-VM이 DNS를 실행하거나 도메인 컨트롤러가 되는 경우와 같이 VM 또는 역할 인스턴스에 고정 IP 주소를 지정하려는 경우가 있습니다. 이렇게 하려면 고정 개인 IP 주소를 설정합니다.
+가상 머신 (VM) 자동으로 할당 됩니다 개인 IP 주소 범위에서 지정 하는에 배포 된 서브넷을 기반으로 합니다. 주소는 VM이 삭제 될 때까지 VM에서 유지 됩니다. Azure에서 VM을 만들 서브넷에서 다음 사용 가능한 개인 IP 주소를 동적으로 할당 합니다. VM에 할당 된 서브넷에서 특정 IP 주소를 하려는 경우 고정 IP 주소를 할당 합니다.
 

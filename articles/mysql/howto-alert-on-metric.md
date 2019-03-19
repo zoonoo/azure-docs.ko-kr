@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: 1287df97f10033472c9717309688cf89887a66ed
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 387877efea4df30685fcf443a4d114c4feb66401
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54242967"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098273"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Azure Portal을 사용하여 Azure Database for MySQL의 메트릭에 대한 경고를 설정합니다. 
 
@@ -60,21 +60,21 @@ ms.locfileid: "54242967"
 
 10. **이메일/SMS/푸시/음성** 작업 유형을 구성합니다.
     
-   "이메일 Azure Resource Manager 역할"을 선택하여 알림을 받을 구독 소유자, 참가자 및 읽기 권한자를 선택합니다.
+    "이메일 Azure Resource Manager 역할"을 선택하여 알림을 받을 구독 소유자, 참가자 및 읽기 권한자를 선택합니다.
    
-   필요에 따라 경고가 발생했을 때 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
+    필요에 따라 경고가 발생했을 때 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
 
-   완료되면 **확인**을 선택합니다.
+    완료되면 **확인**을 선택합니다.
 
-   ![작업 그룹](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![작업 그룹](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. 경고 규칙 이름, 설명 및 심각도를 지정합니다.
 
-   ![작업 그룹](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![작업 그룹](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. **경고 규칙 만들기**를 선택하여 경고를 만듭니다.
 
-   앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
+    앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
 ## <a name="manage-your-alerts"></a>경고 관리
 경고를 만든 후 해당 경고를 선택하고 다음 작업을 수행할 수 있습니다.

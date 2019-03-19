@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8fd7145be5f82a90acced0f02e35f6c8880dbcad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211209"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120400"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cisco Spark 구성
 
@@ -113,28 +113,28 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
     *   6단계에서 설명한 대로 **비밀 토큰** 필드에 비밀 토큰을 채웁니다.
 
 1. Cisco Spark 계정의 **테넌트 ID** 와 **비밀 토큰**은 관리자 계정으로 [Cisco Spark 개발자 사이트](https://developer.webex.com/)에 로그인하면 찾을 수 있습니다. 로그인한 후에
-    * [시작 페이지](https://developer.webex.com/getting-started.html)로 이동합니다.
-    * [인증 섹션](https://developer.webex.com/getting-started.html#authentication)
-    ![Cisco Spark 인증 토큰](./media/cisco-spark-provisioning-tutorial/SecretToken.png)까지 아래로 스크롤합니다.
-    * 상자에 있는 영숫자 문자열이 **비밀 토큰**입니다. 이 토큰을 클립보드에 복사합니다.
-    * [Get My Own Details page](https://developer.webex.com/endpoint-people-me-get.html)(내 세부 정보 가져오기 페이지)로 이동합니다.
-        * Test Mode(테스트 모드)가 ON(켜짐)인지 확인합니다.
-        * Authorization(인증) 필드에 "Bearer"를 입력하고 그 뒤에 공백을 입력한 다음, 비밀 토큰을 붙여넣습니다. ![Cisco Spark 인증 토큰](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
-        * 실행을 클릭합니다.
-    * 오른쪽의 응답 텍스트에 **테넌트 ID**가 "orgId":로 표시됩니다.
+   * [시작 페이지](https://developer.webex.com/getting-started.html)로 이동합니다.
+   * [인증 섹션](https://developer.webex.com/getting-started.html#authentication)
+     ![Cisco Spark 인증 토큰](./media/cisco-spark-provisioning-tutorial/SecretToken.png)까지 아래로 스크롤합니다.
+   * 상자에 있는 영숫자 문자열이 **비밀 토큰**입니다. 이 토큰을 클립보드에 복사합니다.
+   * [Get My Own Details page](https://developer.webex.com/endpoint-people-me-get.html)(내 세부 정보 가져오기 페이지)로 이동합니다.
+       * Test Mode(테스트 모드)가 ON(켜짐)인지 확인합니다.
+       * Authorization(인증) 필드에 "Bearer"를 입력하고 그 뒤에 공백을 입력한 다음, 비밀 토큰을 붙여넣습니다. ![Cisco Spark 인증 토큰](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
+       * 실행을 클릭합니다.
+   * 오른쪽의 응답 텍스트에 **테넌트 ID**가 "orgId":로 표시됩니다.
 
-    ```json
-    {
-        "id": "(...)",
-        "emails": [
-            "admin.user@contoso.com"
-        ],
-        "displayName": "John Smith",
-        "nickName": "John",
-        "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        (...)
-    }
-    ```
+     ```json
+     {
+       "id": "(...)",
+       "emails": [
+           "admin.user@contoso.com"
+       ],
+       "displayName": "John Smith",
+       "nickName": "John",
+       "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+       (...)
+     }
+     ```
 
 1. 5단계에 표시된 필드를 채우면 **연결 테스트**를 클릭하여 Azure AD가 Cisco Spark에 연결할 수 있는지 확인합니다. 연결이 실패하면 Cisco Spark 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
 

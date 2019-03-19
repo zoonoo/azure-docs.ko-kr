@@ -16,17 +16,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: eb5d731fbef22c70aaf970bf64aa90361e47a542
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 413e449f005d288f66da0257f5b800733e58eb94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194201"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011282"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
 이 문서에서는 SAP CAL(SAP 클라우드 어플라이언스 라이브러리) 3.0을 통해 Azure에서 SQL Server 및 Windows OS와 함께 실행되는 SAP IDES 시스템을 배포하는 방법을 설명합니다. 스크린샷은 단계별 프로세스를 보여 줍니다. 다른 솔루션을 배포하려면 동일한 단계를 수행합니다.
 
-SAP CAL을 시작하려면 [SAP 클라우드 어플라이언스 라이브러리](https://cal.sap.com/) 웹 사이트로 이동합니다. SAP에는 새로운 [SAP 클라우드 어플라이언스 라이브러리 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)에 대한 블로그가 있습니다. 
+SAP CAL을 시작하려면 [SAP 클라우드 어플라이언스 라이브러리](https://cal.sap.com/) 웹 사이트로 이동합니다. SAP에는 새로운 [SAP 클라우드 어플라이언스 라이브러리 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience)에 대한 블로그가 있습니다. 
 
 > [!NOTE]
 > 2017년 5월 29일 기준으로 SAP CAL을 배포하는 데 덜 선호되는 클래식 배포 모델 외에도 Azure Resource Manager 배포 모델을 사용할 수 있습니다. 새 리소스 관리자 배포 모델을 사용하고 클래식 배포 모델을 무시하는 것이 좋습니다.
@@ -46,8 +46,8 @@ SAP CAL에 로그인한 후 첫 번째 페이지는 일반적으로 **솔루션*
     
     다. Azure 구독에 배포하도록 SAP CAL 권한을 부여 합니다.
 
-    > [!NOTE]
-    다음 단계에서는 리소스 관리자 배포를 위한 SAP CAL 계정을 만드는 방법을 보여 줍니다. 클래식 배포 모델에 연결된 SAP CAL 계정이 이미 있는 경우 다음 단계를 따라 새 SAP CAL 계정을 *만들어야* 합니다. 새 SAP CAL 계정을 리소스 관리자 모델에 배포해야 합니다.
+   > [!NOTE]
+   >  다음 단계에서는 리소스 관리자 배포를 위한 SAP CAL 계정을 만드는 방법을 보여 줍니다. 클래식 배포 모델에 연결된 SAP CAL 계정이 이미 있는 경우 다음 단계를 따라 새 SAP CAL 계정을 *만들어야* 합니다. 새 SAP CAL 계정을 리소스 관리자 모델에 배포해야 합니다.
 
 1. 새 SAP CAL 계정을 만들기 위해 **계정** 페이지는 Azure에 대한 두 가지 선택 항목을 표시합니다. 
 
@@ -91,7 +91,7 @@ SAP CAL에 로그인한 후 첫 번째 페이지는 일반적으로 **솔루션*
 - Azure 구독에 SAP 시스템을 배포합니다.
 
 > [!NOTE]
-Windows 및 SQL Server를 기반으로 SAP IDE 솔루션을 배포하려면 먼저 SAP CAL 구독에 등록해야 합니다. 그렇지 않은 경우 솔루션은 개표 페이지에 **잠금**으로 표시될 수 있습니다.
+> Windows 및 SQL Server를 기반으로 SAP IDE 솔루션을 배포하려면 먼저 SAP CAL 구독에 등록해야 합니다. 그렇지 않은 경우 솔루션은 개표 페이지에 **잠금**으로 표시될 수 있습니다.
 
 ### <a name="deploy-a-solution"></a>솔루션 배포
 1. SAP CAL 계정을 설정한 후 **Windows 및 SQL Server의 SAP IDE 솔루션** 솔루션을 선택합니다. **인스턴스 만들기**를 클릭하고 사용 및 약관을 확인합니다. 

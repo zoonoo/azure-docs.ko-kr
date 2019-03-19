@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 243fb01a5c8112afaf310f616b93c2667ac6f19d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: d6428fe17dabd4eb6c0d68a56e3b44cdf3b3f8b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729860"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085306"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack의 Kubernetes 대시보드에 액세스 
 
@@ -114,11 +114,11 @@ Kubernetes는 기본 관리 작업에 사용할 수 있는 웹 대시보드를 �
 
 ## <a name="open-the-kubernetes-dashboard"></a>Kubernetes 대시보드 열기 
 
-1.  웹 브라우저에서 팝업 차단을 사용 하지 않도록 설정 합니다.
+1. 웹 브라우저에서 팝업 차단을 사용 하지 않도록 설정 합니다.
 
-2.  URL로 브라우저가 명령을 실행할 때 표시 되는 지점 `kubectl cluster-info`합니다. 예: https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy 
-3.  클라이언트 인증서를 선택 합니다.
-4.  토큰을 입력 합니다. 
+2. URL로 브라우저가 명령을 실행할 때 표시 되는 지점 `kubectl cluster-info`합니다. 예: https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy 
+3. 클라이언트 인증서를 선택 합니다.
+4. 토큰을 입력 합니다. 
 5. 마스터 노드에서 bash 명령줄에 다시 연결 하 고 권한을 부여 `kubernetes-dashboard`합니다. 다음 명령 실행:
 
     ```Bash  

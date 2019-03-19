@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbac6fe421864f9479c9a4ee7eecde97c13f6052
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0200aa917894f4b7f1a45a9d3bd15b128aaf27a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200533"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124187"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 동의 프레임워크
 
@@ -58,14 +58,14 @@ OAuth 2.0 권한 부여에서 동의 프레임워크를 사용하는 방법에 �
 
     **앱의 위임된 권한에 동의하려면**
 
-    1. 애플리케이션의 **설정** 페이지로 이동합니다.
-    1. **필요한 권한**을 선택합니다.
-    1. **권한 부여** 단추를 클릭합니다.
+   1. 애플리케이션의 **설정** 페이지로 이동합니다.
+   1. **필요한 권한**을 선택합니다.
+   1. **권한 부여** 단추를 클릭합니다.
 
-    ![명시적 관리자 동의를 위한 권한 부여](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![명시적 관리자 동의를 위한 권한 부여](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-  > [!IMPORTANT]
-  > **권한 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 응용 프로그램)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 애플리케이션이 실패합니다.
+   > [!IMPORTANT]
+   > **권한 부여** 단추를 사용하는 명시적 동의 부여는 현재 ADAL.js를 사용하는 SPA(단일 페이지 응용 프로그램)에 필요합니다. 그렇지 않고 액세스 토큰을 요청하는 경우 애플리케이션이 실패합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

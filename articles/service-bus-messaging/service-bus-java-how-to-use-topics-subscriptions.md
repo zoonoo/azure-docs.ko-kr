@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: aschhab
-ms.openlocfilehash: cd2d5812d1b61e1d8fcc00fbc824be8ceac696de
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: a8b9c4c6cf9671e114da6ef9fc1f2ad0a730fb61
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849960"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872622"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Java에서 Service Bus 토픽 및 구독을 사용하는 방법
 
@@ -46,46 +46,9 @@ Service Bus 토픽 및 구독은 *게시/구독* 메시징 통신 모델을 지�
 
 Service Bus 토픽 및 구독을 사용하면 다수의 사용자와 애플리케이션에 대해 다수의 메시지를 처리하도록 확장할 수 있습니다.
 
-## <a name="create-a-service-bus-namespace"></a>Service Bus 네임스페이스 만들기
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Service Bus 메시징 네임스페이스는 [정규화된 도메인 이름](https://wikipedia.org/wiki/Fully_qualified_domain_name)으로 참조되는 고유한 범위 지정 컨테이너를 제공하며, 하나 이상의 큐, 토픽 및 구독을 만듭니다. 다음 예제에서는 새 또는 기존 [리소스 그룹](/azure/azure-resource-manager/resource-group-portal)에 Service Bus 메시징 네임스페이스를 만듭니다.
-
-1. 포털의 왼쪽 탐색 창에서 **+ 리소스 만들기**, **엔터프라이즈 통합** 및 **Service Bus**를 차례로 클릭합니다.
-2. **네임스페이스 만들기** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
-3. 네임스페이스 이름을 사용할 수 있는지 확인한 후 가격 책정 계층(표준 또는 프리미엄)을 선택합니다.
-4. **구독** 필드에서 네임스페이스를 만들 Azure 구독을 선택합니다.
-5. **리소스 그룹** 필드에서 네임스페이스가 있는 기존 리소스 그룹을 선택하거나 새로 만듭니다.      
-6. **위치**에서 네임스페이스가 호스트되어야 하는 국가 또는 지역을 선택합니다.
-7. **만들기**를 클릭합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
-
-  ![namespace](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>관리 자격 증명 얻기
-
-새 네임 스페이스를 만들면 네임스페이스의 모든 측면에 대한 모든 권한을 부여하는 기본 및 보조 키의 연결된 쌍을 포함한 초기 SAS(공유 액세스 서명) 규칙이 자동으로 생성됩니다. 초기 규칙을 복사하려면 다음 단계를 수행합니다.
-
-1. **모든 리소스**를 클릭한 다음 새로 만든 네임스페이스 이름을 클릭합니다.
-2. 네임스페이스 창에서 **공유 액세스 정책**을 클릭합니다.
-3. **공유 액세스 정책** 화면에서 **RootManageSharedAccessKey**를 클릭합니다.
-4. **정책: RootManageSharedAccessKey** 창에서 **기본 연결 문자열** 옆에 있는 **복사** 단추를 클릭하여 나중에 사용할 수 있도록 해당 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
-
-    ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
-5. 이전 단계를 반복하여 나중에 사용할 수 있도록 **기본 키** 값을 복사하여 임시 위치에 붙여넣습니다.
-
-## <a name="create-a-topic"></a>토픽 만들기 
-Service Bus 토픽을 만들려면 해당 토픽을 만들 네임스페이스를 지정합니다. 다음 예제에서는 포털에서 토픽을 만드는 방법을 보여 줍니다.
-
-1. 포털의 왼쪽 탐색 창에서 **Service Bus**(**Service Bus**가 표시되지 않으면 **모든 서비스** 클릭)를 클릭합니다.
-2. 토픽을 만들 네임스페이스를 클릭합니다.
-3. 네임스페이스 창에서 **토픽**을 클릭한 다음, **토픽** 창에서 **+ 토픽**을 클릭합니다.
-4. 토픽 **이름**으로 **BasicTopic**을 입력하고 다른 값은 기본값으로 유지합니다.
-5. 창 아래에서 **만들기**를 클릭합니다.
-
-
-## <a name="create-subscriptions-for-the-topic"></a>토픽에 대한 구독 만들기
-1. 만든 **토픽**을 선택합니다.
-2. **+구독**을 클릭하고, 구독 이름으로 **Subscription1**을 입력하고, 다른 모든 값은 기본값으로 유지합니다.
-3. 이전 단계를 두 번 더 반복하여 **Subscription2** 및 **Subscription3**라는 구독을 만듭니다.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
@@ -509,7 +472,7 @@ Message sending: Id = 9
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Service Bus 큐, 토픽 및 구독][Service Bus queues, topics, and subscriptions]을 참조하세요.
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter

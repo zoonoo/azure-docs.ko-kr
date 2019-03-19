@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4c39f47169071ceb9430f419a144e11f425d65b0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240729"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456094"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>blob 및 큐에 대한 액세스를 위해 애플리케이션에서 Azure Active Directory를 사용하여 인증(미리 보기)
 
@@ -39,11 +39,11 @@ Azure AD를 사용하여 저장소 리소스에 대한 액세스 권한을 부�
 
 Azure Storage 애플리케이션을 등록하려면 [Azure Active Directory와 애플리케이션 통합](../../active-directory/active-directory-integrating-applications.md)에서 [애플리케이션 추가](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) 섹션의 단계를 따릅니다. 애플리케이션을 네이티브 애플리케이션으로 등록하는 경우 **리디렉션 URI**에 유효한 URI를 지정할 수 있습니다. 값이 실제 엔드포인트일 필요는 없습니다.
 
-![Azure AD에서 저장소 애플리케이션을 등록하는 방법을 보여주는 스크린샷](./media/storage-auth-aad-app/app-registration.png)
+![Azure AD를 사용 하 여 storage 응용 프로그램을 등록 하는 방법을 보여 주는 스크린샷](./media/storage-auth-aad-app/app-registration.png)
 
 애플리케이션을 등록한 후에 **설정** 아래에 애플리케이션 ID(또는 클라이언트 ID)가 표시됩니다.
 
-![클라이언트 ID를 보여주는 스크린샷](./media/storage-auth-aad-app/app-registration-client-id.png)
+![클라이언트 ID를 보여 주는 스크린샷](./media/storage-auth-aad-app/app-registration-client-id.png)
 
 Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정보는 [Azure Active Directory와 애플리케이션 통합](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요. 
 
@@ -57,14 +57,14 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 4. **필요한 사용 권한** 블레이드에서 **추가** 단추를 클릭합니다.
 5. **API 선택** 아래에서 "Azure Storage"를 검색하고, 결과 목록에서 **Azure Storage**를 선택합니다.
 
-    ![저장소에 대한 사용 권한을 보여주는 스크린샷](media/storage-auth-aad-app/registered-app-permissions-1.png)
+    ![저장소에 대 한 표시 권한을 스크린 샷](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
 6. **사용 권한 선택** 아래의 **Azure Storage 액세스** 옆에 있는 확인란을 선택하고, **선택**을 클릭합니다.
 7. **Done**을 클릭합니다.
 
 이제 **필수 권한** 창은 Azure AD 애플리케이션에 Azure Active Directory 및 Azure Storage 모두에 대한 액세스 권한이 있음을 보여줍니다. Azure AD에 앱을 처음 등록할 때 자동으로 Azure AD에 대한 사용 권한이 부여됩니다.
 
-![앱 사용 권한을 등록하는 방법을 보여주는 스크린샷](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![스크린샷 앱 사용 권한 등록](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 코드 예제: 블록 Blob 만들기
 
@@ -101,7 +101,7 @@ Azure Storage 리소스 ID를 사용하여 Azure Storage에 대한 요청을 인
 2. **속성**을 클릭합니다.
 3. **디렉터리 ID**에 제공된 GUID 값을 복사합니다. 이 값은 테넌트 ID라고도 합니다.
 
-![테넌트 ID를 복사하는 방법을 보여주는 스크린샷](./media/storage-auth-aad-app/aad-tenant-id.png)
+![테 넌 트 ID를 복사 하는 방법을 보여 주는 스크린샷](./media/storage-auth-aad-app/aad-tenant-id.png)
 
 ### <a name="add-references-and-using-statements"></a>참조 추가 및 명령문 사용  
 

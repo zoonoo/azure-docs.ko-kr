@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6d2ae1d1846506424aa14cca0f597c8888eb903d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341031"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649172"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기 
 
@@ -36,7 +36,7 @@ ms.locfileid: "56341031"
 
 역할 기반 액세스 제어와 달리 관리 잠금을 사용하여 모든 사용자와 역할에 걸쳐 제한을 적용합니다. 사용자 및 역할에 대한 권한 설정에 대해 알아보려면 [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
-리소스 관리자 잠금은 `https://management.azure.com`에 전송된 작업으로 구성되는 관리 수준에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어 SQL Database에 대한 읽기 전용 잠금을 사용하면 데이터베이스를 삭제하거나 수정하지 못하지만, 데이터베이스에서 데이터를 만들기, 업데이트 또는 삭제하지 못합니다. 이러한 작업이 `https://management.azure.com`로 전송되지 않기 때문에 데이터 전송이 허용됩니다.
+리소스 관리자 잠금은 `https://management.azure.com`에 전송된 작업으로 구성되는 관리 수준에서 발생된 작업에만 적용됩니다. 잠금은 리소스 자체 기능을 수행하는 방법을 제한하지 않습니다. 리소스 변경은 제한되지만 리소스 작업은 제한되지 않습니다. 예를 들어 SQL Database에서 ReadOnly 잠금을 삭제 하거나 데이터베이스를 수정 하면 있지만 하지 만들기, 업데이트 또는 삭제 하는 중 데이터베이스의에서 데이터에서 못하게 합니다. 이러한 작업에 전송 되지 때문에 데이터 전송이 허용 됩니다 `https://management.azure.com`합니다.
 
 **ReadOnly** 를 적용하면 읽기 작업처럼 보이는 일부 작업에 실제로 추가 작업이 필요하기 때문에 예기치 않은 결과가 발생할 수 있습니다. 예를 들어 저장소 계정에 **ReadOnly** 잠금을 설정하면 모든 사용자가 키를 나열하지 않도록 방지합니다. 반환되는 키를 쓰기 작업에 사용할 수 있기 때문에 목록 키 작업은 POST 요청을 통해 처리됩니다. 또 다른 예로 App Service 리소스에 **ReadOnly** 잠금을 설정하면 해당 상호 작용이 쓰기 액세스를 필요로 하기 때문에 Visual Studio 서버 탐색기가 리소스에 대한 파일을 표시하지 않도록 방지합니다.
 
@@ -47,6 +47,19 @@ ms.locfileid: "56341031"
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Template
+
+Resource Manager 템플릿을 사용 하 여 잠금을 배포를 이름 및 범위에 따라 잠금 유형에 대해 서로 다른 값을 사용 합니다.
+
+잠금을 적용 하는 경우를 **리소스**, 다음 형식을 사용 합니다.
+
+* name - `{resourceName}/Microsoft.Authorization/{lockName}`
+* type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
+
+잠금을 적용 하는 경우를 **리소스 그룹** 또는 **구독**, 다음 형식을 사용 합니다.
+
+* name - `{lockName}`
+* type - `Microsoft.Authorization/locks`
+
 다음 예제에서는 웹 사이트에 App Service 계획, 웹 사이트 및 잠금을 만드는 템플릿을 보여 줍니다. 잠금의 리소스 종류는 잠그려는 리소스의 리소스 종류로, **입니다**. 잠금의 이름은 리소스 이름을 **/Microsoft.Authorization/** 과 연결하여 만들어집니다.
 
 ```json
@@ -104,19 +117,7 @@ ms.locfileid: "56341031"
 }
 ```
 
-PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name sitegroup -Location southcentralus
-New-AzResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
-```
-
-Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
-
-```azurecli
-az group create --name sitegroup --location southcentralus
-az group deployment create --resource-group sitegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json --parameters hostingPlanName=plan0103
-```
+리소스 그룹에 대 한 잠금을 설정 하는 예제를 보려면 [리소스 그룹을 만들고 잠근](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)합니다.
 
 ## <a name="powershell"></a>PowerShell
 [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) 명령을 사용하여 Azure PowerShell을 통해 배포된 리소스를 잠급니다.
@@ -206,7 +207,7 @@ az lock delete --ids $lockid
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. lock-name은 원하는 잠금 이름입니다. api-version에는 **2015-01-01**을 사용합니다.
+범위는 구독, 리소스 그룹 또는 리소스일 수 있습니다. lock-name은 원하는 잠금 이름입니다. Api 버전을 사용 하 여 **2016-09-01**합니다.
 
 요청에서 잠금에 대한 속성을 지정하는 JSON 개체를 포함합니다.
 
@@ -219,7 +220,6 @@ az lock delete --ids $lockid
 
 ## <a name="next-steps"></a>다음 단계
 * 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
-* 리소스가 존재하는 리소스 그룹을 변경하려면 [새 리소스 그룹으로 리소스 이동](resource-group-move-resources.md)
 * 사용자 지정된 정책을 사용하여 구독을 통해 제한 사항 및 규칙을 적용할 수 있습니다. 자세한 내용은 [Azure Policy란?](../governance/policy/overview.md)을 참조하세요.
 * 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance)를 참조하세요.
 

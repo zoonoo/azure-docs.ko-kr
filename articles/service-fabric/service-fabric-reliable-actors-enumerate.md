@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: d5d6ac87db18815aa945d6964338626365b08e64
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 300ab4f73fdae0224d2de5e1e1dea6cc6cfa7438
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207270"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864374"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 열거
 Reliable Actors 서비스를 사용하면 클라이언트가 서비스가 호스트하는 행위자에 대한 메타데이터를 열거할 수 있습니다. 행위자 서비스는 분할된 상태 저장 서비스이므로 열거는 파티션에 따라 수행됩니다. 각 파티션에는 많은 행위자가 포함될 수 있으므로 이 열거는 일련의 페이징된 결과로 반환됩니다. 페이지는 모든 페이지를 읽을 때까지 반복됩니다. 다음 예제에서는 행위자 서비스의 한 파티션에 있는 모든 활성 행위자의 목록을 만드는 방법을 보여줍니다.
@@ -72,7 +72,7 @@ while (continuationToken != null);
 * [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java 샘플 코드](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java 샘플 코드](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

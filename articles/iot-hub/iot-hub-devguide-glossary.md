@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub 용어집 | Microsoft Docs
 description: 개발자 가이드 - Azure IoT Hub와 관련된 일반적인 용어집
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: dobett
-ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ac7043d2967fcf3f083c09622c39f4649f04f6e7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817389"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551673"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -97,7 +97,7 @@ IoT Hub에 사용자 지정 [엔드포인트](iot-hub-devguide-endpoints.md)를 
 연결된 디바이스에서 [IoT Hub](#iot-hub)로 전송되는 메시지를 참조하세요. 이러한 메시지는 [데이터 요소](#data-point-message) 또는 [대화형](#interactive-message) 메시지일 수 있습니다. 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
 
 ## <a name="device"></a>디바이스
-IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하거나 다른 디바이스를 제어할 수 있는 소규모의 독립 실행형 컴퓨팅 디바이스입니다. 예를 들어 디바이스는 환경 모니터링 디바이스이거나 온실에서 급수 및 통풍 시스템을 위한 컨트롤러일 수 있습니다. [디바이스 카탈로그](https://catalog.azureiotsuite.com/)는 [IoT Hub](#iot-hub)에서 작동이 인증된 하드웨어 디바이스 목록을 제공합니다.
+IoT의 컨텍스트에서 일반적으로 디바이스는 데이터를 수집하거나 다른 디바이스를 제어할 수 있는 소규모의 독립 실행형 컴퓨팅 디바이스입니다. 예를 들어 디바이스는 환경 모니터링 디바이스이거나 온실에서 급수 및 통풍 시스템을 위한 컨트롤러일 수 있습니다. [디바이스 카탈로그](https://catalog.azureiotsolutions.com/)는 [IoT Hub](#iot-hub)에서 작동이 인증된 하드웨어 디바이스 목록을 제공합니다.
 
 ## <a name="device-app"></a>디바이스 앱
 디바이스 앱은 [디바이스](#device)에서 실행되며 [IoT Hub](#iot-hub)와의 통신을 처리합니다. 일반적으로 디바이스 앱을 구현할 때 [Azure IoT 디바이스 SDK](#azure-iot-device-sdks) 중 하나를 사용합니다. 대부분의 IoT 자습서에서는 편의를 위해 [시뮬레이트된 디바이스](#simulated-device)를 사용합니다.
@@ -191,7 +191,7 @@ Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함�
 디바이스 쌍과 유사하게 모듈 쌍은 모듈의 상태 정보(메타데이터, 구성 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 IoT 허브의 디바이스 ID에서 프로비전하는 각 모듈 ID에 대해 모듈 쌍을 유지합니다. 모듈 쌍을 통해 모듈 및 솔루션 백 엔드 간의 모듈 조건 및 구성을 동기화할 수 있습니다. 모듈 쌍을 쿼리하여 특정 모듈을 찾고 장기 실행 중인 작업의 상태를 쿼리할 수 있습니다.
 
 ## <a name="mqtt"></a>MQTT
-[MQTT](http://mqtt.org/)는 [IoT Hub](#iot-hub)에서 디바이스와 통신을 위해 지원하는 메시징 프로토콜 중 하나입니다. IoT Hub에서 지원하는 메시징 프로토콜에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
+[MQTT](https://mqtt.org/)는 [IoT Hub](#iot-hub)에서 디바이스와 통신을 위해 지원하는 메시징 프로토콜 중 하나입니다. IoT Hub에서 지원하는 메시징 프로토콜에 대한 자세한 내용은 [IoT Hub를 통해 메시지 보내고 받기](iot-hub-devguide-messaging.md)를 참조하세요.
 
 ## <a name="operations-monitoring"></a>작업 모니터링
 IoT Hub [작업 모니터링](iot-hub-operations-monitoring.md)을 사용하면 실시간으로 IoT Hub에 대한 작업의 상태를 모니터링할 수 있습니다. [IoT Hub](#iot-hub)는 몇 가지 작업 범주에 걸쳐 이벤트를 추적합니다. 하나 이상의 범주에서 IoT Hub의 엔드포인트로 처리할 이벤트를 보내도록 선택할 수 있습니다. 데이터에 오류가 있는지 모니터링하거나 데이터 패턴을 기반으로 좀 더 복잡한 처리를 설정할 수 있습니다.

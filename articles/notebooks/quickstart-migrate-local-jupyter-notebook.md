@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3bd7f895e3cc30c4c5a0496977d65d68c220931f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f63851359a19455ab0f46f66a801a679ee2c3bfe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084505"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079693"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>빠른 시작: 로컬 Jupyter Notebook 마이그레이션
 
@@ -30,9 +30,9 @@ ms.locfileid: "53084505"
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Azure Notebooks에서 프로젝트 만들기
 
-1. [Azure Notebooks](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요).
+1. [Azure Notebooks](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
 
-1. 공개 프로필 페이지에서 페이지의 맨 위에 있는 **내 프로젝트**를 선택합니다.
+1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트**를 선택합니다.
 
     ![브라우저 창 맨 위에 있는 내 프로젝트 링크](media/quickstarts/my-projects-link.png)
 
@@ -50,13 +50,13 @@ ms.locfileid: "53084505"
 
    (마찬가지로 Notebook이 GitHub 리포지토리에 있으면 [빠른 시작: Notebook 복제](quickstart-clone-jupyter-notebook.md)의 단계를 대신 수행합니다.)
 
-    - **컴퓨터에서**를 사용하는 경우 *.ipynb* 파일을 팝업으로 끌어서 놓거나 **파일 선택**을 선택한 다음, 가져오려는 파일을 찾아서 선택합니다. 그런 다음, **Upload**(업로드)를 선택합니다. 업로드된 파일의 이름은 로컬 파일과 똑같은 이름으로 지정됩니다. (*.ipynb_checkpoints* 폴더의 콘텐츠를 업로드할 필요가 없습니다.)
+   - **컴퓨터에서**를 사용하는 경우 *.ipynb* 파일을 팝업으로 끌어서 놓거나 **파일 선택**을 선택한 다음, 가져오려는 파일을 찾아서 선택합니다. 그런 다음, **Upload**(업로드)를 선택합니다. 업로드된 파일의 이름은 로컬 파일과 똑같은 이름으로 지정됩니다. (*.ipynb_checkpoints* 폴더의 콘텐츠를 업로드할 필요가 없습니다.)
 
-    ![컴퓨터에서 업로드 팝업](media/quickstarts/upload-from-computer-popup.png)
+     ![컴퓨터에서 업로드 팝업](media/quickstarts/upload-from-computer-popup.png)
 
-    - **URL에서**를 사용하는 경우 **파일 URL** 필드에 원본 주소를 입력하고 **파일 이름**에 프로젝트의 Notebook에 할당할 파일 이름을 입력합니다. 그런 다음, **Upload**(업로드)를 선택합니다. 별도의 URL을 사용하는 파일이 여러 개 있는 경우 **+ 파일 추가** 명령을 사용하여 입력한 첫 번째 URL을 검사합니다. 그러면 다른 파일에 대한 새 필드가 팝업에 제공됩니다.
+   - **URL에서**를 사용하는 경우 **파일 URL** 필드에 원본 주소를 입력하고 **파일 이름**에 프로젝트의 Notebook에 할당할 파일 이름을 입력합니다. 그런 다음, **Upload**(업로드)를 선택합니다. 별도의 URL을 사용하는 파일이 여러 개 있는 경우 **+ 파일 추가** 명령을 사용하여 입력한 첫 번째 URL을 검사합니다. 그러면 다른 파일에 대한 새 필드가 팝업에 제공됩니다.
 
-    ![URL 팝업에서 업로드](media/quickstarts/upload-from-url-popup.png)
+     ![URL 팝업에서 업로드](media/quickstarts/upload-from-url-popup.png)
 
 1. 새로 업로드된 Notebook을 열고 실행하여 콘텐츠 및 작업을 확인합니다. 여기까지 마쳤으면 **파일** > **중지 및 닫기**를 선택하여 Notebook을 닫습니다.
 
@@ -67,4 +67,4 @@ ms.locfileid: "53084505"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 수행하기 위해 Jupyter Notebook 실행 만들기](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀를 위해 Jupyter 노트 실행 만들기](tutorial-create-run-jupyter-notebook.md)

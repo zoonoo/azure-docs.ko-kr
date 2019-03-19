@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 1f5eb085239ac985aa3355b1e91dac9639827339
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 8c1b5cc8a9f1c1246bd1973539e3bd00b340a657
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155085"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890953"
 ---
 # <a name="contoso-migration-overview"></a>Contoso 마이그레이션: 개요
 
@@ -39,7 +39,7 @@ Azure는 포괄적인 클라우드 서비스 집합에 대한 액세스를 제�
 **다시 호스트** | “리프트 앤 시프트” 마이그레이션이라고도 합니다. 이 옵션을 사용하면 코드 변경이 필요하지 않으므로 기존 앱을 Azure로 빠르게 마이그레이션할 수 있습니다. 각 앱이 현재 상태대로 마이그레이션되므로 코드 변경과 관련된 위험이나 비용 없이 클라우드의 혜택을 얻게 됩니다. | 앱을 빠르게 클라우드로 이동해야 하는 경우.<br/><br/> 앱을 수정하지 않고 이동하려는 경우.<br/><br/> 마이그레이션 후 [Azure IaaS](https://azure.microsoft.com/overview/what-is-iaas/) 확장성을 활용할 수 있도록 앱 아키텍처가 구성된 경우.<br/><br/> 앱이 비즈니스에 중요하지만 앱 기능을 즉시 변경할 필요가 없는 경우.
 **리팩터링** | “다시 패키지”라고도 하는 리팩터링은 [Azure PaaS](https://azure.microsoft.com/overview/what-is-paas/)에 연결하여 클라우드 제공을 사용할 수 있도록 하려면 앱에 대한 최소한의 변경이 필요합니다.<br/><br/> 예를 들어, 기존 앱을 Azure App Service 또는 AKS(Azure Kubernetes Service)로 마이그레이션할 수 있습니다.<br/><br/> 또는 관계형 및 비관계형 데이터베이스를 Azure SQL Database Managed Instance, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Cosmos DB 등의 옵션으로 리팩터링할 수도 있습니다. | 앱을 Azure에서 작동하도록 쉽게 다시 패키지할 수 있는 경우.<br/><br/> Azure에서 제공하는 혁신적인 DevOps 방법을 적용하려는 경우 또는 워크로드에 대한 컨테이너 전략을 사용하여 DevOps를 고려하는 경우.<br/><br/> 리팩터링의 경우, 기존 코드 베이스의 이식성과 사용 가능한 개발 기술을 고려해야 합니다.
 **아키텍처 변경** | 마이그레이션 재설계는 앱 기능과 코드베이스를 수정하고 확장하여 클라우드 확장성을 위한 앱 아키텍처를 최적화하는 데 집중합니다.<br/><br/> 예를 들어, 모놀리식 애플리케이션을 함께 작동하고 쉽게 확장되는 마이크로 서비스 그룹으로 나눌 수 있습니다.<br/><br/> 또는 관계형 및 비관계형 데이터베이스를 완전히 관리되는 DBaaS 솔루션(예: Azure SQL Database Managed Instance, Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure Cosmos DB)으로 재설계할 수 있습니다. | 새 기능을 통합하거나 클라우드 플랫폼에서 효율적으로 작동하도록 앱을 전반적으로 수정해야 하는 경우.<br/><br/> 기존 애플리케이션 투자를 사용하고, 확장성 요구 사항을 충족하고, 혁신적인 Azure DevOps 방법을 적용하고, 가상 머신 사용을 최소화하려는 경우.
-**다시 빌드** | 다시 빌드는 Azure 클라우드 기술을 사용하여 처음부터 앱을 다시 빌드하는 방식으로 작업을 수행합니다.<br/><br/> 예를 들어 Azure Functions, Azure AI, Azure SQL Database Managed Instance, Azure Cosmos DB 등의 [클라우드 원시](http://azure.com/cloudnative) 기술을 사용하여 개발 가능한 앱을 빌드할 수 있습니다. | 신속한 개발을 원하며, 기존 앱의 기능과 수명이 제한적인 경우.<br/><br/> 비즈니스 혁신(Azure에서 제공하는 DevOps 사례 포함)을 신속하게 처리하고, 클라우드 원시 기술을 사용하여 새 애플리케이션을 빌드하고, AI, 블록체인 및 IoT의 향상된 기능을 활용할 준비가 된 경우
+**다시 빌드** | 다시 빌드는 Azure 클라우드 기술을 사용하여 처음부터 앱을 다시 빌드하는 방식으로 작업을 수행합니다.<br/><br/> 예를 들어 Azure Functions, Azure AI, Azure SQL Database Managed Instance, Azure Cosmos DB 등의 [클라우드 원시](https://azure.com/cloudnative) 기술을 사용하여 개발 가능한 앱을 빌드할 수 있습니다. | 신속한 개발을 원하며, 기존 앱의 기능과 수명이 제한적인 경우.<br/><br/> 비즈니스 혁신(Azure에서 제공하는 DevOps 사례 포함)을 신속하게 처리하고, 클라우드 원시 기술을 사용하여 새 애플리케이션을 빌드하고, AI, 블록체인 및 IoT의 향상된 기능을 활용할 준비가 된 경우
 
 ## <a name="migration-articles"></a>마이그레이션 문서
 
@@ -54,8 +54,8 @@ Azure는 포괄적인 클라우드 서비스 집합에 대한 액세스를 제�
 [문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso에서 마이그레이션을 위해 온-프레미스 인프라와 Azure 인프라를 준비합니다. 이 시리즈의 모든 마이그레이션 관련 문서에서 동일한 인프라가 사용됩니다. | 사용 가능
 [문서 3: Azure로 마이그레이션하기 위한 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 SmartHotel360 앱의 평가를 실행합니다. Contoso에서 Azure Migrate 서비스를 사용하여 앱 VM을 평가하고, Database Migration Assistant를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
 [문서 4: Azure VM 및 SQL Database Managed Instance에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 온-프레미스 SmartHotel360 앱을 Azure로 리프트 앤 시프트 방식으로 마이그레이션합니다. Contoso에서 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션합니다. | 사용 가능   
-[문서 5: Azure VM에서 앱 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능한 [문서 5: Azure VM에서 앱 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
-[문서 6: Azure VM 및 SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso가 SmartHotel360 앱을 마이그레이션합니다. Contoso에서 Site Recovery를 사용하여 앱 VM을 마이그레이션하고, Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹으로 보호되는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능한 [문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 방식으로 마이그레이션합니다. | 사용 가능
+[문서 5: Azure VM에서 앱 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel360 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
+[문서 6: Azure VM 및 SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso가 SmartHotel360 앱을 마이그레이션합니다. Contoso에서 Site Recovery를 사용하여 앱 VM을 마이그레이션하고, Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹으로 보호되는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능한 [문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) 
 [문서 8: Azure VM 및 Azure Database for MySQL에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso에서 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고, MySQL Workbench를 사용하여 앱 데이터베이스를 Azure Database for MySQL로 마이그레이션합니다. | 사용 가능
 [문서 9: Azure 웹앱 및 Azure SQL Database에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso에서 SmartHotel360 앱을 Azure Web App으로 마이그레이션하고, Database Migration Assistant를 사용하여 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션합니다. | 사용 가능    
 [문서 10: Azure 웹앱 및 Azure Database for MySQL에서 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso에서 지속적인 업데이트를 위해 GitHub와 통합된 Azure Traffic Manager를 사용하여 Linux osTicket 앱을 여러 Azure 지역의 Azure 웹앱으로 마이그레이션합니다. Contoso에서 앱 데이터베이스를 Azure Database for MySQL 인스턴스로 마이그레이션합니다. | 사용 가능

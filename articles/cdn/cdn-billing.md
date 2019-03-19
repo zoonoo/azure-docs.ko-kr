@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: magattus
 ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309284"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735803"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
 
@@ -32,7 +32,7 @@ ms.locfileid: "53309284"
 
 - 영역 2: 아시아 태평양(일본 포함)
 
-- 영역 3: 남미
+- 영역 3: 남아메리카
 
 - 영역 4: 오스트레일리아 및 뉴질랜드
 
@@ -53,7 +53,7 @@ CDN에서 종료되는 모든 HTTP(S) 요청은 청구 가능 이벤트로, 모�
 ## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Azure CDN 사용과 관련된 기타 Azure 비용으로 어떤 것이 있나요?
 Azure CDN을 사용하면 개체의 원본으로 사용되는 서비스에 대한 사용 요금이 발생합니다. 이러한 비용은 일반적으로 전체 CDN 사용 비용의 일부입니다.
 
-콘텐츠 원본으로 Azure Blob 저장소를 사용하는 경우 다음과 같은 캐시 채우기에 대한 저장소 비용도 발생합니다.
+콘텐츠 원본으로 Azure Blob Storage를 사용하는 경우 다음과 같은 캐시 채우기에 대한 스토리지 비용도 발생합니다.
 
 - 사용된 실제 GB: 원본 개체의 실제 스토리지입니다.
 

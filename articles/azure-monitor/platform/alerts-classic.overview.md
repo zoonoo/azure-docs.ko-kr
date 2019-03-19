@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 596b7eb53d82f8eee7da439314994fd0951c7e64
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993029"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
@@ -80,10 +80,10 @@ Azure Monitor에서 *작업 그룹*이라는 재사용 가능한 알림 그룹�
 - 추가 자동화 작업을 시작할 수 있게 webhook를 호출합니다.
 
 Webhook는 다음 예시 항목을 사용하여 자동화 및 조치를 활성화합니다.
-    - Azure Automation Runbook
-    - Azure Function
-    - Azure Logic App
-    - 타사 서비스
+- Azure Automation Runbook
+- Azure Function
+- Azure Logic App
+- 타사 서비스
 
 ## <a name="next-steps"></a>다음 단계
 다음을 사용하여 경고 규칙에 대한 정보를 확인하고 구성할 수 있습니다.

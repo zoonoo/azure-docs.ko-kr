@@ -10,26 +10,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/22/2018
-ms.author: cephalin
+ms.date: 03/10/2019
+ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: a92440e97f47f0778eb73b81b239b45476d4e733
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551118"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884390"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](deploy-local-git.md) 및 [FTP/S 배포](deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이들은 Azure Active Directory 자격 증명과 동일하지 않습니다.
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](deploy-local-git.md) 및 [FTP/S 배포](deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이러한 자격 증명에 Azure Active Directory 자격 증명과 동일 않습니다.
 
-* **사용자 수준 자격 증명** - 전체 Azure 계정에 대한 자격 증명 집합입니다. 모든 구독에서 Azure 계정에 액세스할 수 있는 권한이 있는 모든 앱의 App Service에 배포하는 데 사용할 수 있습니다. 포털 GUI(예: 앱 [리소스 페이지](../azure-resource-manager/resource-group-portal.md#manage-resources)의 **개요** 및 **속성**)에 표시되는 기본 집합입니다. RBAC(역할 기반 액세스 제어) 또는 공동 관리자 권한을 통해 사용자에게 앱 액세스 권한이 부여되면 해당 사용자는 액세스가 취소될 때까지 자신의 사용자 수준 자격 증명을 사용할 수 있습니다. 이러한 자격 증명을 다른 Azure 사용자와 공유하지 마세요.
+* **사용자 수준 자격 증명** - 전체 Azure 계정에 대한 자격 증명 집합입니다. 모든 구독에서 Azure 계정에 액세스할 수 있는 권한이 있는 모든 앱의 App Service에 배포하는 데 사용할 수 있습니다. 포털 GUI(예: 앱 [리소스 페이지](../azure-resource-manager/manage-resources-portal.md#manage-resources)의 **개요** 및 **속성**)에 표시되는 기본 집합입니다. RBAC(역할 기반 액세스 제어) 또는 공동 관리자 권한을 통해 사용자에게 앱 액세스 권한이 부여되면 해당 사용자는 액세스가 취소될 때까지 자신의 사용자 수준 자격 증명을 사용할 수 있습니다. 이러한 자격 증명을 다른 Azure 사용자와 공유하지 마세요.
 
 * **앱 수준 자격 증명** - 각 앱마다 하나씩의 자격 증명 집합입니다. 해당 앱에만 배포하는 데 사용할 수 있습니다. 각 앱의 자격 증명은 앱 생성 시 자동으로 생성됩니다. 수동으로 구성할 수 없지만, 언제든지 다시 설정할 수 있습니다. 사용자에게 (RBAC를 통해) 앱 수준 자격 증명에 대한 액세스 권한을 부여하려면 해당 사용자가 앱에서 기여자이거나 그보다 높아야 합니다. 읽기 권한자는 게시할 수 없으므로 자격 증명에 액세스할 수 없습니다.
 
 ## <a name="userscope"></a>사용자 수준 자격 증명 설정 및 다시 설정
 
-모든 앱의 [리소스 페이지](../azure-resource-manager/resource-group-portal.md#manage-resources)에서 사용자 수준 자격 증명을 구성할 수 있습니다. 이러한 자격 증명을 구성하는 앱에 관계 없이 Azure 계정의 모든 앱과 모든 구독에 적용됩니다. 
+모든 앱의 [리소스 페이지](../azure-resource-manager/manage-resources-portal.md#manage-resources)에서 사용자 수준 자격 증명을 구성할 수 있습니다. 이러한 자격 증명을 구성하는 앱에 관계 없이 Azure 계정의 모든 앱과 모든 구독에 적용됩니다. 
 
 사용자 수준 자격 증명을 구성하려면
 
@@ -53,6 +53,12 @@ ms.locfileid: "53551118"
 > Azure에서는 사용자 수준 배포 암호가 표시되지 않습니다. 암호를 잊은 경우 이 섹션의 단계에 따라 자격 증명을 다시 설정할 수 있습니다.
 >
 >  
+
+## <a name="use-user-level-credentials-with-ftpftps"></a>FTP/FTPS를 사용 하 여 사용자 수준 자격 증명을 사용 합니다.
+
+다음 형식으로 사용자 이름을 requirers 사용자 수준 자격 증명을 사용 하 여 FTP/FTPS 끝점 인증: `<app-name>\<user-name>`
+
+사용자 수준 자격 증명은 사용자와 특정 리소스 하지에 연결 된, 이후 사용자 이름 적합 한 앱 끝점으로의 로그인 작업을이 형식 이어야 합니다.
 
 ## <a name="appscope"></a>앱 수준 자격 증명 정보 가져오기 및 다시 설정
 앱 수준 자격 증명을 가져오려면

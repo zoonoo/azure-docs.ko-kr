@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 38a01b4f81b76ba90a5fda4909d0e65e6307057e
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408717"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569028"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Mapping Data Flow 원본 변환
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-원본 변환은 데이터를 데이터 흐름에 가져오는 데 사용하려는 데이터 원본을 구성합니다. 둘 이상의 원본 변환을 단일 Data Flow에서 수행할 수 있습니다. 항상 먼저 원본으로 Data Flow를 디자인합니다.
+원본 변환은 데이터를 데이터 흐름에 가져오는 데 사용하려는 데이터 원본을 구성합니다. 둘 이상의 원본 변환을 단일 Data Flow에서 수행할 수 있습니다. 항상 원본 변환으로 데이터 흐름 디자인을 시작 합니다.
 
 > [!NOTE]
-> 모든 Data Flow에는 하나 이상의 원본 변환이 필요합니다. 데이터 변환을 완료하는 데 필요한 만큼 추가 소스를 추가합니다. 조인 또는 결합 변환을 사용하여 이러한 원본을 함께 조인할 수 있습니다.
+> 모든 Data Flow에는 하나 이상의 원본 변환이 필요합니다. 데이터 변환을 완료하는 데 필요한 만큼 추가 소스를 추가합니다. 조인 또는 결합 변환을 사용하여 이러한 원본을 함께 조인할 수 있습니다. 디버그 세션에서 데이터 흐름을 디버깅 하는 경우 샘플링 설정 또는 디버그 소스 제한을 사용 하 여 원본에서 데이터를 읽을 수 됩니다. 그러나 데이터 흐름 파이프라인 작업에서 데이터 흐름을 실행할 때까지 데이터 싱크로 기록 됩니다. 
 
 ![원본 변환 옵션](media/data-flow/source.png "원본")
 
-각 Data Flow 원본 변환은 쓰거나 읽을 데이터의 모양과 위치를 정의하는 정확히 하나의 Data Factory 데이터 세트에 연결되어야 합니다. 원본에 와일드카드와 파일 목록을 사용하면 한 번에 둘 이상의 파일을 사용할 수 있습니다.
+각 데이터 흐름 소스 변환 정확히 하나의 Data Factory 데이터 집합을 사용 하 여 연결 되어야 합니다. 데이터 집합에서 읽기 또는 쓰기에 데이터의 위치와 모양을 정의 합니다. 한 번에 둘 이상의 파일을 사용 하 여 작업에 와일드 카드와 파일 목록 원본에서 사용할 수 있습니다 파일 원본을 사용 하는 경우.
 
 ## <a name="data-flow-staging-areas"></a>Data Flow 스테이징 영역
 
@@ -43,7 +43,7 @@ Data Flow는 모두 Azure에 있는 "스테이징" 데이터 세트에 작동합
 원본 데이터의 수신 버전이 정의된 스키마와 일치하지 않으면 Data Flow의 실행이 실패합니다.
 
 ### <a name="sampling"></a>샘플링
-원본의 행의 수를 제한하려면 샘플링을 사용합니다.  이 방법은 테스트 및 디버깅 목적으로 원본 데이터의 샘플만 필요한 경우에 유용합니다.
+원본의 행의 수를 제한하려면 샘플링을 사용합니다.  테스트 또는 디버깅을 위해 원본에서 데이터를 샘플링 하는 경우에 유용 합니다.
 
 ## <a name="define-schema"></a>스키마 정의
 
@@ -53,7 +53,7 @@ Data Flow는 모두 Azure에 있는 "스테이징" 데이터 세트에 작동합
 
 ![원본 변환](media/data-flow/source003.png "데이터 형식")
 
-강력한 형식의 원본의 경우 다음을 수정할 수 있습니다. 
+강력한 형식의 원본에 대 한 후속 선택 변환의 데이터 형식을 수정할 수 있습니다. 
 
 ### <a name="optimize"></a>최적화
 
@@ -74,7 +74,7 @@ SQL DB 원본의 데이터 분할은 옵션이지만 대규모 쿼리에 유용�
 ## <a name="source-file-management"></a>원본 파일 관리
 ![새 원본 설정](media/data-flow/source2.png "새 설정")
 
-* 원본 폴더에서 패턴과 일치하는 파일 시리지를 선택하기 위한 와일드카드 경로. 데이터 세트 정의에 설정한 파일은 모든 재정의됩니다.
+* 원본 폴더에서 패턴과 일치하는 파일 시리지를 선택하기 위한 와일드카드 경로. 이 데이터 집합 정의에서 설정 된 모든 파일을 덮어씁니다.
 * 파일 목록. 파일 세트와 동일합니다. 처리할 상대 경로 파일 목록을 사용하여 만든 텍스트 파일을 가리킵니다.
 * 파일 이름을 저장할 열은 데이터의 열에 원본 파일의 이름을 저장합니다. 파일 이름 문자열을 저장하려면 여기에 새 이름을 입력합니다.
 * 완료 후(Data Flow가 실행된 후에 원본 파일에 대해 아무 작업도 수행하지 않도록 선택할 수 있음) 원본 파일을 삭제하거나 원본 파일을 이동합니다. 이동 경로는 상대 경로입니다.

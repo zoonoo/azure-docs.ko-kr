@@ -18,12 +18,12 @@ ms.date: 07/24/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f93b9d6fb6e79ce348dc9bed64452536d5132f7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a52f0521caa86cfeaa4417a90ea6c7bc51fce0d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163639"
 ---
 # <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 정책 마이그레이션이란? 
 
@@ -84,7 +84,7 @@ Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 �
 
 Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치에서 모든 정책을 관리할 수 있습니다. 조건부 액세스 구현 방식이 크게 변경되었으므로 클래식 정책을 마이그레이션하기 전에 기본 개념을 숙지해야 합니다.
 
-다음을 참조하세요.
+참조:
 
 - [Azure Active Directory 조건부 액세스란?](../active-directory-conditional-access-azure-portal.md)에서 기본 개념과 용어에 대해 알아봅니다.
 

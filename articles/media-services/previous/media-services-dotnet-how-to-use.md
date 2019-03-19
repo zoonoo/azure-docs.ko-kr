@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 36350f8f359c6ad5cc5637ce0ce38838698cd68b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7da57c01b6717b505ea09fa9e6197bab4d4976fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177447"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873828"
 ---
 # <a name="media-services-development-with-net"></a>.NET을 사용한 Media Services 개발 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "56177447"
 2. 솔루션을 빌드하십시오.
 3. **NuGet**을 사용하여 **Azure Media Services .NET SDK Extensions**(**windowsazure.mediaservices.extensions**)를 설치한 후 추가합니다. 이 패키지를 설치하면 **Media Services .NET SDK** 도 설치되고 다른 모든 필수 종속성이 추가됩니다.
    
-    최신 버전의 NuGet이 설치 되어있는지 확인하십시오. 자세한 내용 및 설치 지침은 [NuGet](http://nuget.codeplex.com/)을 참조하세요.
+    최신 버전의 NuGet이 설치 되어있는지 확인하십시오. 자세한 내용 및 설치 지침은 [NuGet](https://nuget.codeplex.com/)을 참조하세요.
 
     1. 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "56177447"
     3. 온라인 갤러리에서 Azure Media Services 확장을 검색하여 **Azure Media Services .NET SDK 확장**(**windowsazure.mediaservices.extensions**)을 선택한 다음 **설치**단추를 클릭합니다.
    
     4. 프로젝트가 수정되고 Media Services .NET SDK 확장, Media Services .NET SDK 및 기타 종속 어셈블리에 대한 참조가 추가됩니다.
-4. 클리너 개발 환경의 수준을 올릴 NuGet 패키지 복원을 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [NuGet 패키지 복원"](http://docs.nuget.org/consume/package-restore)을 참조하세요.
+4. 클리너 개발 환경의 수준을 올릴 NuGet 패키지 복원을 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [NuGet 패키지 복원"](https://docs.nuget.org/consume/package-restore)을 참조하세요.
 5. **System.Configuration** 어셈블리에 참조를 추가합니다. 이 어셈블리는 구성 파일(예: App.config)에 액세스하는 데 사용되는 System.Configuration.**ConfigurationManager** 클래스를 포함합니다.
    
     1. 참조 관리 대화 상자를 사용하여 참조를 추가하려면 솔루션 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭합니다. **추가**를 클릭한 다음 **참조...** 를 클릭합니다.

@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477219"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850046"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스 - 1TB 데이터 세트에서 Azure HDInsight Hadoop 클러스터 사용
 
-이 연습에서는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 팀 데이터 과학 프로세스(Team Data Science Process)를 사용하여 공개적으로 사용 가능한 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 세트 중 하나에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링하는 방법을 설명합니다. 본 문서에서는 Azure Machine Learning을 사용하여 이 데이터에 대한 이진 분류 모델을 빌드합니다. 또한 이러한 모델 중 하나를 웹 서비스로 게시하는 방법을 보여줍니다.
+이 연습에서는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 팀 데이터 과학 프로세스(Team Data Science Process)를 사용하여 공개적으로 사용 가능한 [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 세트 중 하나에서 데이터를 저장, 탐색, 기능 설계, 다운 샘플링하는 방법을 설명합니다. 본 문서에서는 Azure Machine Learning을 사용하여 이 데이터에 대한 이진 분류 모델을 빌드합니다. 또한 이러한 모델 중 하나를 웹 서비스로 게시하는 방법을 보여줍니다.
 
 이 연습에서 IPython 노트북을 사용하여 작업을 수행할 수도 있습니다. 이 방법을 사용하려면 [Hive ODBC 연결을 사용하여 Criteo 연습](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) 항목을 참조해야 합니다.
 
 ## <a name="dataset"></a>데이터 세트 설명
-Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레코드로 구성된 약 370GB의 gzip 압축된 TSV 파일(압축 해제 시 약 1.3TB)입니다. [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/)에서 사용할 수 있는 24일간의 클릭 데이터를 가져옵니다. 데이터 과학자의 편의를 위해 실험에 사용할 수 있는 데이터의 압축을 해제해 두었습니다.
+Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레코드로 구성된 약 370GB의 gzip 압축된 TSV 파일(압축 해제 시 약 1.3TB)입니다. [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/)에서 사용할 수 있는 24일간의 클릭 데이터를 가져옵니다. 데이터 과학자의 편의를 위해 실험에 사용할 수 있는 데이터의 압축을 해제해 두었습니다.
 
 이 데이터 세트의 각 레코드에는 40개의 열이 있습니다.
 
@@ -68,7 +68,7 @@ Criteo 데이터는 클릭 예측 데이터 세트로, 43억 개가 넘는 레�
 3. [Azure Machine Learning Studio 작업 영역 만들기](../studio/create-workspace.md): 이 Azure Machine Learning 작업 영역은 초기 데이터를 살펴보고 HDInsight 클러스터에 샘플링을 다운로드한 후 기계 학습 모델을 빌드하는 데 사용됩니다.
 
 ## <a name="getdata"></a>공용 원본에서 데이터 가져오기 및 사용
-링크를 클릭하고 사용 약관에 동의한 후 이름을 제공하여 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 세트에 액세스할 수 있습니다. 다음과 같은 스냅숏이 나타납니다.
+링크를 클릭하고 사용 약관에 동의한 후 이름을 제공하여 [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) 데이터 세트에 액세스할 수 있습니다. 다음과 같은 스냅숏이 나타납니다.
 
 ![Criteo 조건 동의](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
@@ -306,7 +306,7 @@ Hive의 LATERAL VIEW - explode 조합은 일반 목록 대신 SQL과 유사한 �
         19011825
         Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-Col15에 1,900만 개의 고유 값이 있습니다. "one-hot 인코딩"과 같은 네이티브 기술을 사용하여 이러한 고차원 범주 변수를 인코딩할 수는 없습니다. 따라서 여기에서는 이 문제를 효과적으로 해결하는 [통계로 알아보기](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx)라는 강력한 기술을 설명하고 알아봅니다.
+Col15에 1,900만 개의 고유 값이 있습니다. "one-hot 인코딩"과 같은 네이티브 기술을 사용하여 이러한 고차원 범주 변수를 인코딩할 수는 없습니다. 따라서 여기에서는 이 문제를 효과적으로 해결하는 [통계로 알아보기](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx)라는 강력한 기술을 설명하고 알아봅니다.
 
 마지막으로 일부 다른 범주 열에 대한 고유 값의 수도 알아봅니다. [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql)의 내용은 다음과 같습니다.
 
@@ -406,10 +406,10 @@ Col20을 제외하고 다른 모든 열에도 많은 고유 값이 있습니다.
 Azure Machine Learning을 계속 진행하기 전에 마지막 중요한 구성 요소는 통계(Count) 테이블과 관련됩니다. 다음 하위 섹션에서 통계 테이블에 대해 자세히 설명합니다.
 
 ## <a name="count"></a> count 테이블에 대한 간략한 설명
-확인한 바와 같이, 몇몇 범주 변수는 차원이 매우 높습니다. 이 연습에서는 이러한 변수를 효율적이고 강력한 방식으로 인코딩하는 [통계로 알아보기](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx)라는 강력한 기술을 설명합니다. 이 기술에 대한 자세한 내용은 제공된 링크에서 확인할 수 있습니다.
+확인한 바와 같이, 몇몇 범주 변수는 차원이 매우 높습니다. 이 연습에서는 이러한 변수를 효율적이고 강력한 방식으로 인코딩하는 [통계로 알아보기](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx)라는 강력한 기술을 설명합니다. 이 기술에 대한 자세한 내용은 제공된 링크에서 확인할 수 있습니다.
 
 [!NOTE]
->이 연습에서는 통계 테이블을 사용하여 고차원 범주 기능의 압축된 표현을 생성하는 데 중점을 둡니다. 이 기술 외에도 범주 기능을 인코딩하는 여러 기술이 있습니다. 다른 기술에 대한 자세한 내용은 [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) 및 [기능 해싱](http://en.wikipedia.org/wiki/Feature_hashing)을 참조하세요.
+>이 연습에서는 통계 테이블을 사용하여 고차원 범주 기능의 압축된 표현을 생성하는 데 중점을 둡니다. 이 기술 외에도 범주 기능을 인코딩하는 여러 기술이 있습니다. 다른 기술에 대한 자세한 내용은 [one-hot-encoding](https://en.wikipedia.org/wiki/One-hot) 및 [기능 해싱](https://en.wikipedia.org/wiki/Feature_hashing)을 참조하세요.
 >
 
 통계 데이터에 대한 통계 테이블을 작성하려면 raw/count 폴더의 데이터를 사용합니다. 모델링 섹션에서는 처음부터 범주 기능에 이러한 통계 테이블을 작성하는 방법 또는 미리 작성된 통계 테이블을 사용하여 탐색하는 방법을 사용자에게 보여줍니다. 다음에서 "미리 작성된 통계 테이블"을 참조한다는 것은 Microsoft에서 제공한 통계 테이블을 사용하는 것을 의미합니다. 이러한 테이블에 액세스하는 방법에 대한 자세한 지침은 다음 섹션에 제공됩니다.
@@ -417,8 +417,8 @@ Azure Machine Learning을 계속 진행하기 전에 마지막 중요한 구성 
 ## <a name="aml"></a> Azure 기계 학습에서 모델 빌드
 Azure Machine Learning의 모델 빌드 프로세스는 다음 단계를 따릅니다.
 
-1. [Hive 테이블에서 Azure 기계 학습으로 데이터 가져오기](#step1)
-2. [실험 만들기: 데이터 정리 및 count 테이블로 기능화](#step2)
+1. [Hive 테이블에서 Azure Machine Learning으로 데이터 가져오기](#step1)
+2. [실험 만들기: 데이터 정리 및 count 테이블을 사용 하 여 기능을 확인](#step2)
 3. [모델 빌드, 학습 및 점수 매기기](#step3)
 4. [모델 평가](#step4)
 5. [모델을 웹 서비스로 게시](#step5)
@@ -452,7 +452,7 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Import Data** 모양�
 
 기계 학습 실험에서 사용하기 위해 저장된 데이터 세트를 선택하려면 다음 그림에 표시된 **검색** 상자를 사용하여 데이터 세트를 찾습니다. 그런 다음, 데이터 세트의 이름을 부분적으로 입력하여 데이터 세트에 액세스하고 주 패널로 끌어옵니다. 주 패널에 끌어다 놓으면 기계 학습 모델링에 사용하도록 선택됩니다.
 
-![주 패널로 데이터 세트 끌기](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![주 패널로 데이터 집합을 끌어 옵니다.](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > 학습 및 테스트 데이터 세트 모두에 대해 이를 수행합니다. 또한 데이터베이스 이름 및 이 목적으로 지정한 테이블 이름을 사용해야 합니다. 그림에서 사용한 값은 오직 예제용입니다.\*\*

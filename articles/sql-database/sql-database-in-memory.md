@@ -12,22 +12,28 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 235d6174153e32b40885811350d967af5b98ecc4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c873587a640bb36e9fa43e314bf789a207956ae0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478366"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854843"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
-Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션의 성능을 향상시키고, 데이터베이스의 비용을 크게 줄일 수 있습니다. Azure SQL Database에서 메모리 내 기술을 사용하여 다양한 워크로드를 통해 성능 향상을 얻을 수 있습니다.
+Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션의 성능을 향상시키고, 데이터베이스의 비용을 크게 줄일 수 있습니다. 
+
+## <a name="when-to-use-in-memory-technologies"></a>메모리 내 기술을 사용 하는 경우
+
+Azure SQL Database에서 메모리 내 기술을 사용하여 다양한 워크로드를 통해 성능 향상을 얻을 수 있습니다.
 
 - **트랜잭션**(OLTP(온라인 트랜잭션 처리)) 여기서 대부분의 요청은 작은 데이터 세트를 읽거나 업데이트합니다(예: CRUD 작업).
 - **분석**(OLAP(온라인 분석 처리)) 여기서 대부분의 쿼리는 기존 테이블에 데이터를 로드 및 추가하거나(따라서 대량 로드라고도 함) 테이블에서 데이터를 삭제하는 특정 수의 쿼리를 사용하여 보고 목적을 위해 복잡한 계산을 갖습니다. 
 - **혼합**(HTAP(하이브리드 트랜잭션/분석 처리)) 여기서 두 OLTP 및 OLAP 쿼리는 동일한 데이터 세트에서 실행됩니다.
 
-메모리 내 기술은 메모리로 처리되어야 하는 데이터를 유지하고, 쿼리의 네이티브 컴파일 또는 기본 하드웨어에서 사용할 수 있는 일괄 처리 및 SIMD 지침과 같은 고급 처리를 사용하여 이러한 워크로드의 성능을 향상시킬 수 있습니다.
+메모리 내 기술은 메모리로 처리되어야 하는 데이터를 유지하고, 쿼리의 네이티브 컴파일 또는 기본 하드웨어에서 사용할 수 있는 일괄 처리 및 SIMD 지침과 같은 고급 처리를 사용하여 이러한 워크로드의 성능을 향상시킬 수 있습니다. 
+
+## <a name="overview"></a>개요
 
 Azure SQL Database에는 다음과 같은 메모리 내 기술이 있습니다.
 - *[메모리 내 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* 는 초당 트랜잭션의 수를 증가시키고 트랜잭션 처리에 대한 대기 시간을 감소시킵니다. 메모리 내 OLTP를 활용하는 시나리오는 거래와 게임, 이벤트 또는 IoT 디바이스의 데이터 수집, 캐싱, 데이터 부하 및 임시 테이블과 테이블 변수 시나리오와 같은 처리량 많은 트랜잭션을 처리하는 경우입니다.
@@ -88,7 +94,7 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 기술에 대한 자세한 비디오:
 
 - [Azure SQL Database의 메모리 내 OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)(성능 이점에 대한 데모 및 이 결과를 사용자 스스로 재현하는 단계 포함)
-- [메모리 내 OLTP 비디오: 기능 정의 및 사용 시기/방법](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [메모리 내 OLTP 비디오: 기능 정의 및 사용 시기/방법](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 
 지정된 데이터베이스가 메모리 내 OLTP를 지원하는지 여부를 프로그래밍 방식으로 이해할 수 있습니다. 다음 Transact-SQL 쿼리를 실행할 수 있습니다.
 ```
@@ -150,7 +156,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 기술에 대한 자세한 비디오:
 
-- [Columnstore 인덱스: Ignite 2016의 메모리 내 분석 비디오](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Columnstore 인덱스: Ignite 2016의 메모리 내 분석 비디오](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>columnstore 인덱스의 데이터 크기 및 저장소
 

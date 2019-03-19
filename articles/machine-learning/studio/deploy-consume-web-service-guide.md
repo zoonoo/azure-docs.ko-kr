@@ -5,17 +5,17 @@ description: Azure Machine Learning Studio를 사용하여 기계 학습 워크�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: a1ddf6aae9fdd661e30719fafb6000fb6559df20
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 592bf638cf0be26182dfdb28ac5a0c8345a7a250
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429030"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116710"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio 웹 서비스: 배포 및 사용
 
@@ -37,7 +37,7 @@ Studio 포털 및 Microsoft Azure Machine Learning 웹 서비스 포털에서 �
 * 웹 서비스 배포의 특정 예제는 다음을 참조하세요.
 
   * [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)
-  * [여러 지역에 웹 서비스를 배포하는 방법](how-to-deploy-to-multiple-regions.md)
+  * [여러 지역에 웹 서비스를 배포하는 방법](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>웹 서비스 리소스 공급자 API(Azure Resource Manager API) 사용
 
@@ -49,7 +49,7 @@ Studio 포털 및 Microsoft Azure Machine Learning 웹 서비스 포털에서 �
 
 웹 서비스용 Azure Machine Learning Studio 리소스 공급자를 사용하면 PowerShell cmdlet을 통해 웹 서비스를 배포하고 관리할 수 있습니다.
 
-cmdlet을 사용하려면 먼저 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../../azure-resource-manager/powershell-azure-resource-manager.md)을 참조하세요.
+cmdlet을 사용하려면 먼저 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet을 사용하여 PowerShell 환경 내에서 Azure 계정에 로그인해야 합니다. Resource Manager를 기준으로 하는 PowerShell 명령을 호출하는 방법에 익숙하지 않은 경우 [Azure Resource Manager로 Azure PowerShell 사용](../../azure-resource-manager/manage-resources-powershell.md)을 참조하세요.
 
 예측 실험을 내보내려면 이 [샘플 코드](https://github.com/ritwik20/AzureML-WebServices)를 사용합니다. 코드에서 .exe 파일을 만든 후 다음을 입력할 수 있습니다.
 

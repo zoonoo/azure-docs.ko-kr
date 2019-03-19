@@ -3,7 +3,7 @@ title: cloud-init와 함께 사용하기 위해 Azure VM 준비 | Microsoft Docs
 description: cloud-init를 사용하여 배포를 위해 기존 Azure VM 이미지를 준비하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: danis
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/29/2017
-ms.author: rclaus
-ms.openlocfilehash: ff5c76ca0a164d09e45488cb7abf7f2c2ee50a95
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.date: 02/27/2019
+ms.author: danis
+ms.openlocfilehash: da539a5bebc1613115f89a7b47c513ce486b5e3a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064613"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337314"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>cloud-init와 함께 사용하기 위해 기존 Linux Azure VM 이미지 준비
 이 문서는 기존 Azure 가상 머신을 사용하고 다시 배포하고 cloud-init를 사용할 수 있도록 준비하는 방법을 보여 줍니다. 결과 이미지는 새 가상 머신이나 가상 머신 확장 집합을 배포하는 데 사용할 수 있습니다. 그런 다음 가상 머신 또는 가상 머신 확장 집합은 배포 시 cloud-init에 의해 더 사용자 지정될 수 있습니다.  Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
@@ -27,13 +27,13 @@ ms.locfileid: "37064613"
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 지원되는 버전의 Linux 운영 체제를 실행하는 실행 중인 Azure 가상 머신이 이미 있다고 가정합니다. 필요에 맞도록 컴퓨터를 이미 구성했고, 모든 필수 모듈을 설치했고, 모든 필수 업데이트를 처리했으며 요구 사항을 충족하는지 테스트했습니다. 
 
-## <a name="preparing-rhel-74--centos-74"></a>RHEL 7.4 / CentOS 7.4 준비
+## <a name="preparing-rhel-76--centos-76"></a>준비 7.6 RHEL / CentOS 7.6
 Linux VM으로 SSH하고 cloud-init를 설치하기 위해 다음 명령을 실행해야 합니다.
 
 ```bash
-sudo yum install -y cloud-init gdisk
-sudo yum check-update cloud-init -y
-sudo yum install cloud-init -y
+sudo yum makecache fast
+sudo yum install -y gdisk cloud-utils-growpart
+sudo yum install - y cloud-init 
 ```
 
 `/etc/cloud/cloud.cfg`의 `cloud_init_modules` 섹션을 업데이트하여 다음 모듈을 포함합니다.
@@ -65,34 +65,19 @@ sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+cp /lib/systemd/system/waagent.service /etc/systemd/system/waagent.service
+sed -i 's/After=network-online.target/WantedBy=cloud-init.service\\nAfter=network.service systemd-networkd-wait-online.service/g' /etc/systemd/system/waagent.service
+systemctl daemon-reload
+cloud-init clean
 ```
 다음 줄로 선택한 편집기를 사용하여 새 파일 `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg`를 만들어 Azure Linux 에이전트에 대한 데이터 원본으로 Azure만을 허용합니다.
 
 ```bash
-# This configuration file is provided by the WALinuxAgent package.
+# Azure Data Source config
 datasource_list: [ Azure ]
-```
-
-미해결 호스트 이름 등록 버그를 해결하기 위해 구성을 추가합니다.
-```bash
-cat > /etc/cloud/hostnamectl-wrapper.sh <<\EOF
-#!/bin/bash -e
-if [[ -n $1 ]]; then
-  hostnamectl set-hostname $1
-else
-  hostname
-fi
-EOF
-
-chmod 0755 /etc/cloud/hostnamectl-wrapper.sh
-
-cat > /etc/cloud/cloud.cfg.d/90-hostnamectl-workaround-azure.cfg <<EOF
-# local fix to ensure hostname is registered
 datasource:
-  Azure:
-    hostname_bounce:
-      hostname_command: /etc/cloud/hostnamectl-wrapper.sh
-EOF
+   Azure:
+     agent_command: [systemctl, start, waagent, --no-block]
 ```
 
 스왑 파일이 구성된 기존 Azure 이미지가 있고 cloud-init를 사용하는 새 이미지의 스왑 파일 구성을 변경하려는 경우 기존 스왑 파일을 제거해야 합니다.
@@ -125,8 +110,7 @@ rm /mnt/resource/swapfile
 다음 세 가지 명령은 특수화된 새 원본 이미지가 되도록 사용자 지정하는 VM이 이전에 cloud-init로 프로비전된 경우에만 사용됩니다.  이미지가 Azure Linux 에이전트를 사용하여 구성된 경우 이를 실행할 필요가 없습니다.
 
 ```bash
-sudo rm -rf /var/lib/cloud/instances/* 
-sudo rm -rf /var/log/cloud-init*
+sudo cloud-init clean --logs
 sudo waagent -deprovision+user -force
 ```
 
@@ -153,4 +137,4 @@ az image create --resource-group myResourceGroup --name myCloudInitImage --sourc
 - [VM에 추가 Linux 사용자 추가](cloudinit-add-user.md)
 - [패키지 관리자를 실행하여 첫 번째 부팅 시 기존 패키지 업데이트](cloudinit-update-vm.md)
 - [VM 로컬 호스트 이름 변경](cloudinit-update-vm-hostname.md) 
-- [응용 프로그램 패키지 설치, 구성 파일 업데이트 및 키 삽입](tutorial-automate-vm-deployment.md)
+- [애플리케이션 패키지 설치, 구성 파일 업데이트 및 키 삽입](tutorial-automate-vm-deployment.md)

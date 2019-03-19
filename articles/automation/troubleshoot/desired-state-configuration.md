@@ -9,18 +9,38 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 997f332e14fd1accf32d8cc3f51557fe005acab5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: a34dea7e1eb53531db55dc62df8fbad8541f7a35
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421648"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586803"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성) 문제 해결
 
 이 문서에는 DSC(Desired State Configuration)에 관한 문제를 해결하는 방법에 대한 정보가 제공됩니다.
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성)으로 작업하는 경우 일반적인 오류 문제
+
+### <a name="unsupported-characters"></a>시나리오: 특수 문자를 사용 하 여 구성 포털에서 삭제할 수 없습니다.
+
+#### <a name="issue"></a>문제
+
+포털에서 DSC 구성을 삭제 하려고 시도할 때, 다음 오류가 표시:
+
+```
+An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
+```
+
+#### <a name="cause"></a>원인
+
+확인할 계획 된 임시 문제입니다.
+
+#### <a name="resolution"></a>해결 방법
+
+* 구성을 삭제 하려면 "제거-AzAutomationDscConfiguration" Az Cmdlet을 사용 합니다.
+* 이 cmdlet에 대 한 설명서가 아직 업데이트 되지 않았습니다.  그때 까지는 AzureRM 모듈에 대 한 설명서를 참조 하십시오.
+  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
 
 ### <a name="failed-not-found"></a>시나리오: 노드가 "찾을 수 없음" 오류로 실패한 상태임
 

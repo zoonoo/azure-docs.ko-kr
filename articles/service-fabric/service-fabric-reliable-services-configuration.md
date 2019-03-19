@@ -7,19 +7,19 @@ author: sumukhs
 manager: timlt
 editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: ee8010fbbadc011e04d6d43599d671a1f926bb5f
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: c131cf96f11dcddfb0de87ccf47f2d2c8a99617d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850805"
 ---
 # <a name="configure-stateful-reliable-services"></a>상태 저장 Reliable Services 구성
 Reliable Services에는 두 가지 구성 설정 집합이 있습니다. 한 집합은 클러스터의 모든 Reliable Services에 대해 전역인 반면 다른 집합은 특정 Reliable Services에 한정됩니다.
@@ -28,7 +28,7 @@ Reliable Services에는 두 가지 구성 설정 집합이 있습니다. 한 집
 전역 Reliable Service 구성은 KtlLogger 섹션 아래 클러스터에 대한 클러스터 매니페스트에 지정됩니다. 공유 로그 위치 및 크기와 로거에 사용되는 전역 메모리 한도를 구성할 수 있습니다. 클러스터 매니페스트는 클러스터의 모든 노드 및 서비스에 적용할 설정 및 구성을 포함하는 단일 XML 파일입니다. 이 파일을 일반적으로 ClusterManifest.xml이라고 합니다. Get-ServiceFabricClusterManifest powershell 명령을 사용하여 클러스터에 대한 클러스터 매니페스트를 확인할 수 있습니다.
 
 ### <a name="configuration-names"></a>구성 이름
-| Name | 단위 | 기본값 | 설명 |
+| 이름 | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |킬로바이트 |8388608 |로거 쓰기 버퍼 메모리 풀에 대해 커널 모드에서 할당되는 최소 KB 수입니다. 이 메모리 풀은 디스크에 쓰기 전에 상태 정보를 캐시하는 데 사용됩니다. |
 | WriteBufferMemoryPoolMaximumInKB |킬로바이트 |제한 없음 |로거 쓰기 버퍼 메모리 풀이 증가할 수 있는 최대 크기입니다. |
@@ -36,7 +36,7 @@ Reliable Services에는 두 가지 구성 설정 집합이 있습니다. 한 집
 | SharedLogPath |정규화된 경로 이름 |"" |서비스별 구성에서 SharedLogPath를 지정하지 않은 클러스터에 있는 모든 노드에서 모든 Reliable Services가 공유 로그 파일을 사용하는 정규화된 경로 이름을 지정합니다. 그러나 SharedLogPath가 지정된 경우 SharedLogId도 지정해야 합니다. |
 | SharedLogSizeInMB |메가바이트 |8192 |공유 로그에 대해 정적으로 할당할 디스크 공간(MB) 수를 지정합니다. 값은 2048 이상이어야 합니다. |
 
-Azure ARM 또는 온-프레미스 JSON 템플릿에서 아래 예제는 상태 저장 서비스에 대한 모든 신뢰할 수 있는 컬렉션 백업을 만드는 공유 트랜잭션 로그를 변경하는 방법을 보여 줍니다.
+Azure ARM 또는 온-프레미스 JSON 템플릿에서 아래 예제에는 상태 저장 서비스에 대 한 모든 신뢰할 수 있는 컬렉션 백업을 만드는 공유 트랜잭션 로그를 변경 하는 방법을 보여 줍니다.
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -69,7 +69,7 @@ SharedLogSizeInMB는 모든 노드에서 기본 공유 로그를 위해 미리 �
 ## <a name="service-specific-configuration"></a>서비스별 구성
 구성 패키지(구성) 또는 서비스 구현(코드)을 사용하여 상태 저장 신뢰할 수 있는 서비스의 기본 구성을 수정할 수 있습니다.
 
-* **구성** - 구성 패키지를 통한 구성은 응용 프로그램의 각 서비스에 대한 Microsoft Visual Studio 패키지 루트의 Config 폴더에 생성된 Settings.xml 파일을 변경하여 수행됩니다.
+* **구성** - 구성 패키지를 통한 구성은 애플리케이션의 각 서비스에 대한 Microsoft Visual Studio 패키지 루트의 Config 폴더에 생성된 Settings.xml 파일을 변경하여 수행됩니다.
 * **코드** - 코드를 통한 구성은 적절한 옵션 집합을 가진 ReliableStateManagerConfiguration 개체를 사용하는 ReliableStateManager를 만들어 수행됩니다.
 
 기본적으로 Azure 서비스 패브릭 런타임은 settings.xml 파일에서 미리 정의된 섹션 이름을 찾아서 기본 런타임 구성 요소를 만드는 동안 해당 구성 값을 사용합니다.
@@ -109,10 +109,10 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>구성 이름
-| Name | 단위 | 기본값 | 설명 |
+| 이름 | 단위 | 기본값 | 설명 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |초 |0.015 |작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다. |
-| ReplicatorEndpoint |해당 없음 |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 엔드포인트를 참조해야 합니다. 서비스 매니페스트에서 엔드포인트 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
+| ReplicatorEndpoint |N/A |기본값 없음--필수 매개 변수 |주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 엔드포인트를 참조해야 합니다. 서비스 매니페스트에서 엔드포인트 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md) 를 참조하세요. |
 | MaxPrimaryReplicationQueueSize |작업의 수 |8192 |기본 큐의 최대 작업 수. 작업은 주 복제자가 모든 보조 복제자로부터 승인을 받은 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
 | MaxSecondaryReplicationQueueSize |작업의 수 |16384 |보조 큐의 최대 작업 수. 작업은 지속성을 통해 상태를 항상 사용 가능하도록 설정한 후 해제됩니다. 이 값은 64보다 크고 2의 제곱이어야 합니다. |
 | CheckpointThresholdInMB |MB |50 |상태가 검사점이 된 후의 로그 파일 공간 크기 |
@@ -161,7 +161,7 @@ class MyStatefulService : StatefulService
 ### <a name="sample-configuration-file"></a>샘플 구성 파일
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Section Name="ReplicatorConfig">
       <Parameter Name="ReplicatorEndpoint" Value="ReplicatorEndpoint" />
       <Parameter Name="BatchAcknowledgementInterval" Value="0.05"/>
@@ -191,6 +191,6 @@ MaxRecordSizeInKB 설정은 복제자가 로그 파일에 쓸 수 있는 레코�
 SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며 서비스가 노드에 대한 기본 공유 로그에서 별도의 공유 로그를 사용하도록 합니다. 최상의 효율성을 위해 최대한 많은 서비스가 동일한 공유 로그를 지정해야 합니다. 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 헤드 이동 경합이 감소합니다. 이 값은 드문 경우에만 변경되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
+* [Visual Studio에서 서비스 패브릭 애플리케이션 디버깅](service-fabric-debugging-your-application.md)
 * [신뢰할 수 있는 서비스에 대한 개발자 참조](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 

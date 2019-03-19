@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: bbbce45b7c321fd4934374c76f2a4421b125d46f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994700"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>동적 DNS를 사용하여 자체 DNS 서버에 호스트 이름 등록
 
@@ -63,7 +63,7 @@ fi
 
 보안 DDNS 업데이트를 수행하는 데 `nsupdate` 명령도 사용할 수 있습니다. 예를 들어 Bind DNS 서버를 사용하는 경우 공개-개인 키 쌍이 [생성](http://linux.yyz.us/nsupdate/)됩니다. 요청된 서명을 확인할 수 있도록 DNS 서버는 키의 공개 부분으로 [구성](http://linux.yyz.us/dns/ddns-server.html) 됩니다. `nsupdate`에 키 쌍을 제공하려면 `-k` 옵션을 사용하여 DDNS 업데이트 요청이 서명되게 합니다.
 
-Windows DNS 서버를 사용하는 경우 Kerberos 인증은 `nsupdate`의 `-g` 매개 변수와 함께 사용할 수 있습니다(Windows 버전의 `nsupdate`에서 사용할 수 없음). Kerberos를 사용하려면 `kinit`을 사용하여 자격 증명을 로드합니다. 예를 들어 [keytab 파일](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html))에서 자격 증명을 로드한 다음, `nsupdate -g`은 캐시에서 자격 증명을 선택할 수 있습니다.
+Windows DNS 서버를 사용하는 경우 Kerberos 인증은 `nsupdate`의 `-g` 매개 변수와 함께 사용할 수 있습니다(Windows 버전의 `nsupdate`에서 사용할 수 없음). Kerberos를 사용하려면 `kinit`을 사용하여 자격 증명을 로드합니다. 예를 들어 [keytab 파일](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html))에서 자격 증명을 로드한 다음, `nsupdate -g`은 캐시에서 자격 증명을 선택할 수 있습니다.
 
 필요한 경우 DNS 검색 접미사를 VM에 추가할 수 있습니다. DNS 접미사는 */etc/resolv.conf* 파일에 지정됩니다. 대부분의 Linux 배포판은 자동으로 이 파일의 콘텐츠를 관리하므로 일반적으로 편집할 수 없습니다. 그러나 DHCP 클라이언트의 `supersede` 명령을 사용하여 접미사를 재정의할 수 있습니다. 접미사를 재정의하려면 */etc/dhcp/dhclient.conf* 파일에 다음 줄을 추가합니다.
 

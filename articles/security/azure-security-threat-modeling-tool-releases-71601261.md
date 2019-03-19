@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jegeib
-ms.openlocfilehash: 55c781d0c6284de1382c9d3e614621c40963194b
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: c96b924294286be57de90dae7e6534b5ed9306ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302960"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874575"
 ---
 # <a name="threat-modeling-tool-update-release-71601261---1292019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.60126.1 - 2019/1/29
 
 2019년 1월 29일에 릴리스된 Microsoft Threat Modeling Tool 버전 7.1.60126.1에는 다음 변경 내용이 포함되어 있습니다.
 
-- .NET의 최소 필수 버전이 [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262)로 높아졌습니다.
+- .NET의 최소 필수 버전 늘어났습니다 [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262)합니다.
 - .NET 종속성으로 인해 Windows의 최소 필수 버전이 [Windows 10 1주년 업데이트](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97)로 높아졌습니다.
 - 도구의 옵션 메뉴에 모델 유효성 검사 토글 기능이 추가되었습니다.
 - 위협 속성의 몇 가지 링크가 업데이트되었습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "55302960"
 - 지원되는 운영 체제
   - [Microsoft Windows 10 1주년 업데이트](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) 이상
 - 필요한 .NET 버전
-  - [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) 이상
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) 이상
 - 추가 요구 사항
   - 도구와 템플릿에 대한 업데이트를 받으려면 인터넷 연결이 필요합니다.
 

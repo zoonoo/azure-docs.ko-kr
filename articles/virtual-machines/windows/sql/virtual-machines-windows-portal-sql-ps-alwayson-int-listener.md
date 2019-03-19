@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: b412d2b054fc8703c7524479359a3670782fd646
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 1b15a3966c6e408fb17655b112c1ec900bd86c5f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980894"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999798"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 이 문서에서는 다음을 수행하는 방법을 보여 줍니다.
@@ -48,7 +48,7 @@ ms.locfileid: "55980894"
 
 PowerShell 모듈이 5.4.1 이상인지 확인합니다.
 
-[Azure PowerShell 모듈 설치](http://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요.
+[Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요.
 
 ## <a name="configure-the-windows-firewall"></a>Windows 방화벽 구성
 

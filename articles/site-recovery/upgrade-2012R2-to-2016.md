@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
-ms.openlocfilehash: e7644128a3f0e0ea531933286e95b15149fdebd3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: b67290f72f762331a6d699fb79aef0c0d7f9fb65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853276"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Azure Site Recovery로 구성한 Windows Server 2012 R2 호스트, SCVMM 2012 R2를 Windows Server 2016 및 SCVMM 2016으로 업그레이드
 
@@ -50,8 +50,8 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
     - 클러스터에 추가한 새 SCVMM이 이전과 동일한 이름을 갖는지 확인합니다. 
 
 - 양쪽에서 SCVMM으로 관리하는 두 사이트 간에 복제를 수행하는 경우 주 항목을 업그레이드하기 전에 먼저 복구 항목을 업그레이드해야 합니다.
-> [!WARNING]
-> SCVMM 2012 R2를 업그레이드하는 동안 분산 키 관리에서 **Active Directory에 암호화 키를 저장**하도록 선택합니다. 서비스 계정 및 분산 키 관리의 설정을 신중히 선택합니다. 사용자의 선택에 따라, 업그레이드 후에 템플릿의 암호와 같은 암호화된 데이터를 사용할 수 없게 되어 Azure Site Recovery를 통한 복제에 영향을 미칠 수 있습니다.
+  > [!WARNING]
+  > SCVMM 2012 R2를 업그레이드하는 동안 분산 키 관리에서 **Active Directory에 암호화 키를 저장**하도록 선택합니다. 서비스 계정 및 분산 키 관리의 설정을 신중히 선택합니다. 사용자의 선택에 따라, 업그레이드 후에 템플릿의 암호와 같은 암호화된 데이터를 사용할 수 없게 되어 Azure Site Recovery를 통한 복제에 영향을 미칠 수 있습니다.
 
 > [!IMPORTANT]
 > 자세한 SCVMM 설명서에서 [필수 구성 요소](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#requirements-and-limitations)를 참조하세요.
@@ -79,8 +79,8 @@ Windows Server 2012 R2 호스트를 업그레이드하기 전에 SCVMM 2012 R2�
 
 4. [VMM 2016 설치합니다](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016).
 5. SCVMM을 시작하고 **패브릭** 탭에서 각 호스트의 상태를 검사합니다. 최신 상태를 가져오려면 **새로 고침**을 클릭합니다. 상태는 “주의 필요”로 표시되어야 합니다. 
-17. SCVMM에 최신 [Microsoft Azure Site Recovery Provider](http://aka.ms/downloaddra)를 설치합니다.
-16. 클러스터의 각 호스트에 최신 [MARS(Microsoft Azure Recovery Service) 에이전트](http://aka.ms/latestmarsagent)를 설치합니다. 새로 고쳐 SCVMM이 호스트를 성공적으로 쿼리할 수 있는지 확인합니다.
+17. SCVMM에 최신 [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra)를 설치합니다.
+16. 클러스터의 각 호스트에 최신 [MARS(Microsoft Azure Recovery Service) 에이전트](https://aka.ms/latestmarsagent)를 설치합니다. 새로 고쳐 SCVMM이 호스트를 성공적으로 쿼리할 수 있는지 확인합니다.
 
 **Windows Server 2012 R2 호스트를 Windows Server 2016으로 업그레이드**
 
@@ -97,8 +97,8 @@ Windows Server 2012 R2 호스트를 업그레이드하기 전에 SCVMM 2012 R2�
 1.  제어판 -> 프로그램 -> 프로그램 및 기능 ->Microsoft Azure Site Recovery로 이동하여 ASR 공급자를 제거하고 제거를 클릭합니다.
 2. 실행할 업그레이드 모드에 따라 [여기](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#upgrade-a-standalone-vmm-server)에 언급된 단계를 수행합니다.
 3. SCVMM 콘솔을 시작하고 **패브릭** 탭에서 각 호스트의 상태를 검사합니다. 최신 상태를 가져오려면 **새로 고침**을 클릭합니다. 상태는 “주의 필요”로 표시되어야 합니다.
-4. SCVMM에 최신 [Microsoft Azure Site Recovery Provider](http://aka.ms/downloaddra)를 설치합니다.
-5. 클러스터의 각 호스트에 최신 [MARS(Microsoft Azure Recovery Service) 에이전트](http://aka.ms/latestmarsagent)를 업데이트합니다. 새로 고쳐 SC VMM이 호스트를 성공적으로 쿼리할 수 있는지 확인합니다.
+4. SCVMM에 최신 [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra)를 설치합니다.
+5. 클러스터의 각 호스트에 최신 [MARS(Microsoft Azure Recovery Service) 에이전트](https://aka.ms/latestmarsagent)를 업데이트합니다. 새로 고쳐 SC VMM이 호스트를 성공적으로 쿼리할 수 있는지 확인합니다.
 
 
 **Windows Server 2012 R2 호스트를 Windows Server 2016으로 업그레이드**

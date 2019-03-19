@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 35367a9ebc9ff09f40defd444f6ceb8ff54efe07
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: fab886de55cc524390093f7e7913c79f7af3fe78
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430287"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858147"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -307,12 +307,8 @@ gpg –-clear-sign <runbook name>
 
 이제 서명된 Runbook을 Azure Automation에 업로드할 수 있고 일반 Runbook처럼 실행할 수 있습니다.
 
-## <a name="troubleshoot"></a>문제 해결
-
-Runbook이 성공적으로 완료되지 않으면 [Runbook 실행 실패](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)에 대한 문제 해결 가이드를 검토하세요.
-
 ## <a name="next-steps"></a>다음 단계
 
 * Runbook을 시작하는 데 사용할 수 있는 여러 가지 방법에 대해 자세히 알아보려면 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 * 텍스트 편집기를 사용하여 Azure Automation에서 PowerShell Runbook을 작업하기 위한 여러 가지 방법을 알아보려면 [Azure Automation에서 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
-
+* Runbook이 성공적으로 완료되지 않으면 [Runbook 실행 실패](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)에 대한 문제 해결 가이드를 검토하세요.

@@ -15,12 +15,12 @@ ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 1115e11d6bf830afad3746eb41d6368cb89bdbf3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c3ea877e3271dcb5bea527d661e12827eb64fa0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534381"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997408"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 준비 된 데이터 분석 솔루션 만들기 
 
@@ -110,7 +110,7 @@ Azure functions 및 저장소 솔루션에는 데이터 볼륨 및 처리 요구
 
 6.  계정 블레이드에서 아래 합니다 **BLOB SERVICE** 을 선택 **컨테이너**합니다.
 
-7.  블레이드의 맨 위에 있는 선택 **+ 컨테이너.** 선택한 **컨테이너**합니다.
+7.  블레이드의 맨 위에 있는 선택 **+ 컨테이너입니다.** 선택한 **컨테이너**합니다.
 
     ![대체 텍스트](media/azure-stack-solution-staged-data-analytics/image2.png)
 
@@ -132,17 +132,17 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
 4.  이미지 아래의 표에 지정 된 설정을 사용 하 여 함수 앱을 만듭니다.
 
-    | 설정 | 제안 값 | 설명 |
+    | 설정 | 제안된 값 | 설명 |
     | ---- | ---- | ---- |
     | 앱 이름 | 전역적으로 고유한 이름 | 새 함수 앱을 식별하는 이름입니다. 유효한 문자는 `a` - `z`하십시오 `0``-9`, 및 `-`합니다. |
-    | 구독 | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. |
+    | 구독 | 구독 | 이 새 함수 앱이 만들어질 구독입니다. |
     | **리소스 그룹** |  |  |
     | myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |  |
     | OS | Windows | 서버 없는 호스팅은 현재 Windows에서 실행될 때만 가능합니다. |
     | **호스팅 계획** |  |  |
     | 소비 계획 | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. 소비 계획 기본적으로 리소스 함수를 통해 필요에 따라 동적으로 추가 됩니다. 이 서버 리스 호스팅에 대 한 요금만 함수 실행 시간입니다. |  |
     | 위치 | 가장 가까운 지역 | 함수 액세스 또는 다른 서비스에 가까운 영역을 선택 합니다. |
-    | **Storage 계정** |  |  |
+    | **저장소 계정** |  |  |
     | \<위에서 만든 저장소 계정 > | 함수 앱에 사용된 새 저장소 계정의 이름. 저장소 계정 이름은 길이가 3 ~ 24 자 사이 여야 합니다. 이름은 숫자와 소문자만 사용할 수 있습니다. 기존 계정을 사용할 수도 있습니다. |  |
 
     **예제:**
@@ -175,25 +175,25 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Blob Storage 트리거 함수 만들기
 
-1.  함수 앱을 확장 하 고 선택 합니다 **+** 옆에 단추 **함수**합니다.
+1. 함수 앱을 확장 하 고 선택 합니다 **+** 옆에 단추 **함수**합니다.
 
-2.  검색 필드에 입력 `blob` 한 다음에 대 한 원하는 언어를 선택 합니다 **Blob 트리거** 템플릿.
+2. 검색 필드에 입력 `blob` 한 다음에 대 한 원하는 언어를 선택 합니다 **Blob 트리거** 템플릿.
 
-  ![Blob Storage 트리거 템플릿을 선택합니다.](media/azure-stack-solution-staged-data-analytics/image10.png)
+   ![Blob Storage 트리거 템플릿을 선택합니다.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
-3.  아래 표에 지정 된 대로 설정을 사용 합니다.
+3. 아래 표에 지정 된 대로 설정을 사용 합니다.
 
-    | 설정 | 제안 값 | 설명 |
-    | ------- | ------- | ------- |
-    | 이름 | 함수 앱에서 고유 | 이 Blob 트리거 함수의 이름입니다. |
-    | path | \<위의 저장소 위치의 경로 > | 모니터링되는 Blob Storage의 위치입니다. Blob의 파일 이름 바인딩의 이름 매개 변수로 전달 됩니다. |
-    | 스토리지 계정 연결 | 함수 앱 연결 | 함수 앱에서 이미 사용 중인 저장소 계정 연결을 사용 하거나 새로 만들 수 있습니다. |
+   | 설정 | 제안된 값 | 설명 |
+   | ------- | ------- | ------- |
+   | 이름 | 함수 앱에서 고유 | 이 Blob 트리거 함수의 이름입니다. |
+   | 경로 | \<위의 저장소 위치의 경로 > | 모니터링되는 Blob Storage의 위치입니다. Blob의 파일 이름 바인딩의 이름 매개 변수로 전달 됩니다. |
+   | 스토리지 계정 연결 | 함수 앱 연결 | 함수 앱에서 이미 사용 중인 저장소 계정 연결을 사용 하거나 새로 만들 수 있습니다. |
 
-    **예제:**
+   **예제:**
 
-    ![Blob Storage 트리거 함수 만들기.](media/azure-stack-solution-staged-data-analytics/image11.png)
+   ![Blob Storage 트리거 함수 만들기.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
-4.  **만들기**를 선택하여 함수를 만듭니다.
+4. **만들기**를 선택하여 함수를 만듭니다.
 
 ### <a name="test-the-function"></a>함수 테스트
 
@@ -243,31 +243,31 @@ Blob 및 큐를 포함 하는 Azure Stack 저장소 계정을 만듭니다.
 
 2.  아래 표에 지정 된 대로 설정을 사용 합니다.
 
-    | 설정 | 제안 값 | 설명 |
+    | 설정 | 제안된 값 | 설명 |
     | ------- | ------- | ------- |
     | 이름 | 함수 앱에서 고유 | 큐 트리거 함수의 이름입니다. |
-    | path | \<위의 저장소 위치의 경로 > | 모니터링 되는 저장소 위치입니다. 큐의 파일 이름 바인딩의 이름 매개 변수로 전달 됩니다. |
+    | 경로 | \<위의 저장소 위치의 경로 > | 모니터링 되는 저장소 위치입니다. 큐의 파일 이름 바인딩의 이름 매개 변수로 전달 됩니다. |
     | 스토리지 계정 연결 | 함수 앱 연결 | 함수 앱에서 이미 사용 중인 저장소 계정 연결을 사용 하거나 새로 만들 수 있습니다. |
 
 3.  **만들기**를 선택하여 함수를 만듭니다.
 
 ## <a name="test-the-queue-triggered-function"></a>테스트는 큐 트리거 함수
 
-1.  Azure Stack 포털에서 함수로 이동 합니다. 확장을 **로그** 페이지의 맨 아래에 있는 로그 스트리밍이 일시 중지 되지 않았는지 확인 합니다.
+1. Azure Stack 포털에서 함수로 이동 합니다. 확장을 **로그** 페이지의 맨 아래에 있는 로그 스트리밍이 일시 중지 되지 않았는지 확인 합니다.
 
-2.  Storage 탐색기를 열고이 섹션의 앞부분에서 만든 저장소 계정에 연결 합니다.
+2. Storage 탐색기를 열고이 섹션의 앞부분에서 만든 저장소 계정에 연결 합니다.
 
-3.  저장소 계정을 확장 **Blob 컨테이너**, blob 이전에 만든 및 합니다. 선택 **업로드할** 차례로 **파일을 업로드 합니다.**
+3. 저장소 계정을 확장 **Blob 컨테이너**, blob 이전에 만든 및 합니다. 선택 **업로드할** 차례로 **파일을 업로드 합니다.**
 
-    ![Blob 컨테이너에 파일 업로드.](media/azure-stack-solution-staged-data-analytics/image12.png)
+   ![Blob 컨테이너에 파일 업로드.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  업로드 파일 대화 상자에서 파일 필드를 선택 합니다. 이미지 파일과 같은 로컬 컴퓨터에는 파일을 찾아 선택 하 고 선택 **엽니다** 차례로 **업로드**합니다.
+4. 업로드 파일 대화 상자에서 파일 필드를 선택 합니다. 이미지 파일과 같은 로컬 컴퓨터에는 파일을 찾아 선택 하 고 선택 **엽니다** 차례로 **업로드**합니다.
 
-5.  함수 로그로 돌아가서 blob를 읽었는지 확인 합니다.
+5. 함수 로그로 돌아가서 blob를 읽었는지 확인 합니다.
 
-  **예제:**
+   **예제:**
 
-    ![로그에서 메시지 보기.](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![로그에서 메시지 보기.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>준수 데이터를 안전 하 게 저장 및 액세스
 

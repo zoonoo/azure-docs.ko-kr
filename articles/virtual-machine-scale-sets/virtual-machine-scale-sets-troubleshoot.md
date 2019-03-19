@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: e4b1153e46625f88c717fd9b7a5336ffe4ca7f6a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739552"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005307"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets를 사용하여 자동 크기 조정 문제 해결
 **문제** – 가상 머신 확장 집합을 사용하여 Azure Resource Manager에 자동 크기 조정 인프라를 만들었습니다. 예를 들어 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale과 같은 템플릿을 배포했습니다. 정의된 크기 조정 규칙이 있으며, VM에 적용되는 로드의 양에 관계없이 크기가 자동으로 조정되지 않는 점을 제외하고는 원활하게 작동합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "50739552"
     Azure Resource Explorer는 Azure Resource Manager 리소스의 상태를 보여 주는 필수적인 문제 해결 도구입니다. 구독을 클릭하고 문제를 해결하려는 리소스 그룹을 살펴봅니다. Compute 리소스 공급자 아래에서, 만든 가상 머신 확장 집합을 살펴보고 배포 상태를 보여 주는 인스턴스 보기를 확인합니다. 또한 가상 머신 확장 집합에서 VM 인스턴스 보기를 확인합니다. 그런 다음 Microsoft.Insights 리소스 공급자로 이동하여 자동 크기 조정 규칙이 적절한지 확인합니다.
 * 진단 확장이 작동 중이고 성능 데이터를 내보내고 있나요?
   
-    **업데이트:** 더 이상 진단 확장을 설치하지 않아도 되는 호스트 기반 메트릭 파이프라인을 사용하도록 Azure 자동 크기 조정 기능이 향상되었습니다. 새 파이프라인을 사용하여 자동 크기 조정 애플리케이션을 만들 경우 다음 단락의 내용은 더 이상 적용되지 않습니다. 호스트 파이프라인을 사용하도록 변환된 Azure 템플릿의 예제는 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale에서 사용할 수 있습니다. 
+    **업데이트:** 더 이상 진단 확장을 설치 해야 하는 호스트 기반 메트릭 파이프라인을 사용 하도록 azure 자동 크기 조정 향상 되었습니다. 새 파이프라인을 사용하여 자동 크기 조정 애플리케이션을 만들 경우 다음 단락의 내용은 더 이상 적용되지 않습니다. 호스트 파이프라인을 사용하도록 변환된 Azure 템플릿의 예제는 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale에서 사용할 수 있습니다. 
   
     자동 크기 조정을 위한 호스트 기반 메트릭을 사용하는 것이 좋은 이유는 다음과 같습니다.
   
@@ -72,14 +72,14 @@ ms.locfileid: "50739552"
     
     ![Cloud Explorer][explorer]
     
-   각 VM의 데이터가 저장되는 여러 테이블이 표시됩니다. 예를 들어 Linux 및 CPU 메트릭에서 가장 최근 행을 살펴봅니다. Visual Studio 클라우드 탐색기는 쿼리를 실행할 수 있도록 쿼리 언어를 지원합니다. 예를 들어, "Timestamp gt datetime'2016-02-02T21:20:00Z"에 대한 쿼리를 실행하여 가장 최근에 발생한 이벤트를 확인할 수 있습니다. 표준 시간대는 UTC에 해당합니다. 확인한 데이터가 설정한 크기 조정 규칙과 일치하나요? 아래 예제에서는 컴퓨터 20에 대한 CPU가 지난 5분 동안 100%로 증가하기 시작했습니다.
+    각 VM의 데이터가 저장되는 여러 테이블이 표시됩니다. 예를 들어 Linux 및 CPU 메트릭에서 가장 최근 행을 살펴봅니다. Visual Studio 클라우드 탐색기는 쿼리를 실행할 수 있도록 쿼리 언어를 지원합니다. 예를 들어, "Timestamp gt datetime'2016-02-02T21:20:00Z"에 대한 쿼리를 실행하여 가장 최근에 발생한 이벤트를 확인할 수 있습니다. 표준 시간대는 UTC에 해당합니다. 확인한 데이터가 설정한 크기 조정 규칙과 일치하나요? 아래 예제에서는 컴퓨터 20에 대한 CPU가 지난 5분 동안 100%로 증가하기 시작했습니다.
     
     ![저장소 테이블][tables]
     
     데이터가 없는 경우 VM에서 실행 중인 진단 확장에 문제가 있음을 의미합니다. 데이터가 있는 경우에는 크기 조정 규칙 또는 Insights 서비스에 문제가 있음을 의미합니다. [Azure 상태](https://azure.microsoft.com/status/)를 확인합니다.
     
     이러한 단계를 수행한 후에도 자동 크기 조정 문제가 여전히 있는 경우, 다음 리소스를 확인할 수 있습니다. 
-    * [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) 또는 [스택 오버플로](http://stackoverflow.com/questions/tagged/azure)에 대한 포럼 읽기 
+    * [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) 또는 [스택 오버플로](https://stackoverflow.com/questions/tagged/azure)에 대한 포럼 읽기 
     * 지원 호출을 기록합니다. 템플릿 및 성능 데이터 보기를 공유하도록 준비합니다.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

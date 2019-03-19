@@ -13,17 +13,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: 639faef9d95a6ff3ba307290add3bee73904fee0
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 4d4e68d99585522e773e71430b4e4f37ad7b1580
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52271310"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124405"
 ---
-Azure Site Recovery에는 다음과 같은 제한이 적용됩니다.
+Azure Site Recovery에는 다음 제한이 적용 됩니다.
 
 | 제한 식별자 | 기본 제한 |
-| --- | --- | --- | --- |
+| --- | --- |
 | 구독당 자격 증명 모음 수 |500 |     
 | Azure 자격 증명 모음당 서버 수 |250 |
 | Azure 자격 증명 모음당 보호 그룹 수 |제한 없음 |

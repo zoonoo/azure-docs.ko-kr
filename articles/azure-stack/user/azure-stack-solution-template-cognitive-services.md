@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 1ccbe8b268725cf3d0747486a20e0597d023662e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8080355bebf00c9f37c28ae8ed54bba092f8dc17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890606"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099936"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Azure Stack에 Azure Cognitive Services 배포
 
@@ -67,12 +67,12 @@ Cognitive Services 컨테이너에 대 한 자세한 내용은로 이동 [Azure 
 
 Face, LUIS, 또는 텍스트 인식 컨테이너를 각각 미리 보기에 Azure에서 Cognitive Service 리소스를 만듭니다. Cognitive 서비스 컨테이너를 인스턴스화하는 리소스의 구독 키 및 끝점 URL을 사용 하도록 해야 합니다.
 
-1.  Azure Portal에서 Azure 리소스를 만듭니다. 얼굴 컨테이너를 미리 보려면 하려는 경우 해당 글꼴 리소스를 Azure portal에서 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure Portal에서 Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)를 참조하세요.
+1. Azure Portal에서 Azure 리소스를 만듭니다. 얼굴 컨테이너를 미리 보려면 하려는 경우 해당 글꼴 리소스를 Azure portal에서 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure Portal에서 Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)를 참조하세요.
 
-    >  [!Note]  
-    >  얼굴 또는 Computer Vision 리소스 F0 가격 책정 계층을 사용 해야 합니다.
+   > [!Note]
+   >  얼굴 또는 Computer Vision 리소스 F0 가격 책정 계층을 사용 해야 합니다.
 
-2.  Azure 리소스에 대한 엔드포인트 URL 및 구독 키를 가져옵니다. Azure 리소스를 만든 후 미리 보기에 대 한 해당 얼굴, LUIS, 또는 텍스트 인식 컨테이너를 인스턴스화하는 리소스의 구독 키 및 끝점 URL을 사용 해야 합니다.
+2. Azure 리소스에 대한 엔드포인트 URL 및 구독 키를 가져옵니다. Azure 리소스를 만든 후 미리 보기에 대 한 해당 얼굴, LUIS, 또는 텍스트 인식 컨테이너를 인스턴스화하는 리소스의 구독 키 및 끝점 URL을 사용 해야 합니다.
 
 ## <a name="create-a-kubernetes-secret"></a>Kubernetes 비밀 만들기 
 

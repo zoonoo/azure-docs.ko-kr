@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9f759eb815e8d0d03d4cdd7fe4ed603ff39d34f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1b578c0187f7b804b6261fec9d299f83d7dc1832
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015147"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>방법: Azure Active Directory Identity Protection에서 위험 정책 구성(새로 고침)
 
@@ -31,6 +31,8 @@ Azure AD는 잠재적으로 손상된 ID를 나타내는 위험 이벤트를 탐
 
 - 로그인 위험 정책을 사용하면 사용자의 로그인 중에 탐지된 실시간 위험 이벤트에 대한 응답을 구성할 수 있습니다. 
 - 사용자 위험 정책을 사용하면 시간에 경과에 따라 사용자에 대해 탐지된 모든 활성 사용자 위험에 대한 응답을 구성할 수 있습니다.  
+
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>로그인 위험 정책이란?

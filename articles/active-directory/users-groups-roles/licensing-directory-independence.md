@@ -15,12 +15,12 @@ ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 443aef1a7396dc637b656a805b758a62bcfac41d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 45f48b6d8ef29d14606f18d4ccee77bd742a670a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194294"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176001"
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>여러 Azure Active Directory 테넌트 간의 상호 작용 방식 이해
 
@@ -47,7 +47,7 @@ Azure AD(Azure Active Directory)의 각 테넌트는 완전히 독립된 리소�
 Azure Portal에서 Azure AD 테넌트를 추가하려면 Azure AD 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인하고 왼쪽에서 **새로 만들기**를 선택합니다.
 
 > [!NOTE]
-> 다른 Azure 리소스와 달리 테넌트는 Azure 구독의 자식 리소스가 아닙니다. Azure 구독이 취소되거나 만료되는 경우 Azure PowerShell, Azure Graph API 또는 Office 365 관리 센터를 사용하여 테넌트 데이터에 계속 액세스할 수 있습니다. [다른 구독을 테넌트와 연결](../fundamentals/active-directory-how-subscriptions-associated-directory.md)할 수도 있습니다.
+> 다른 Azure 리소스와 달리 테넌트는 Azure 구독의 자식 리소스가 아닙니다. Azure 구독 취소 되거나 만료 된 경우에 Azure PowerShell, Azure Graph API 또는 Microsoft 365 관리 센터를 사용 하 여 테 넌 트 데이터를 액세스할 수 있습니다. [다른 구독을 테넌트와 연결](../fundamentals/active-directory-how-subscriptions-associated-directory.md)할 수도 있습니다.
 >
 
 ## <a name="next-steps"></a>다음 단계

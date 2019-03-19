@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: e91f36c9d6f0cb3195e6903d55cd676f1e9ccf5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 7d4e95d066e191e1d5b6d083ede65843dbe73f31
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626553"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010075"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>연결된 팩터리 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정
 
@@ -81,7 +81,7 @@ ms.locfileid: "34626553"
 
 * [연결된 팩터리 솔루션 가속기 연습][lnk-rm-walkthrough]
 * [연결된 팩터리에 대한 게이트웨이 배포][lnk-connect-cf]
-* [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
+* [Azureiotsolutions.com 사이트에 대 한 권한][lnk-permissions]
 * [연결된 팩터리 FAQ](iot-accelerators-faq-cf.md)
 * [FAQ][lnk-faq]
 

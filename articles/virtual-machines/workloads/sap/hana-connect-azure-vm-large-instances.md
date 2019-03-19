@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9116dd8a27b268b656f688083032a127177d2d51
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 2628cafada47b2602b195c44d4b6f2e6b16012ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754563"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092772"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Azure VM을 HANA 큰 인스턴스에 연결
 
@@ -85,7 +85,7 @@ HANA 대규모 인스턴스를 배포하는 데 필요한 IP 주소 범위에 �
 
 - **가상 네트워크 주소 공간**: **가상 네트워크 주소 공간**은 Azure 가상 네트워크에서 사용자가 자신의 주소 공간 매개 변수에 할당하는 IP 주소 범위입니다. 이 네트워크는 SAP HANA 대규모 인스턴스 환경과 연결됩니다.
 
- 이 주소 공간 매개 변수는 다중 선 값으로 하는 것이 좋습니다. 이는 Azure VM 서브넷 범위와 Azure 게이트웨이 서브넷 범위로 구성되어야 합니다. 이 서브넷 범위는 이전 그래픽에서 볼 수 있었습니다. 이는 온-프레미스나 서버 IP 풀 또는 ER-P2P 주소 범위와 겹쳐서는 안 됩니다. 
+  이 주소 공간 매개 변수는 다중 선 값으로 하는 것이 좋습니다. 이는 Azure VM 서브넷 범위와 Azure 게이트웨이 서브넷 범위로 구성되어야 합니다. 이 서브넷 범위는 이전 그래픽에서 볼 수 있었습니다. 이는 온-프레미스나 서버 IP 풀 또는 ER-P2P 주소 범위와 겹쳐서는 안 됩니다. 
  
 이러한 IP 주소 범위는 어떻게 가져오나요? 
 
@@ -108,7 +108,7 @@ HANA 대규모 인스턴스를 배포하는 데 필요한 IP 주소 범위에 �
   
 - **서버 IP 풀 주소 범위:** 이 IP 주소 범위는 개별 IP 주소를 HANA 대규모 인스턴스 서버에 할당하는 데 사용됩니다. 권장되는 서브넷 크기는 /24 CIDR 블록입니다. 필요한 경우 64개 IP 주소만큼 더 작은 수도 있습니다. 이 범위에서 처음 30개 IP 주소는 Microsoft에서 사용하도록 예약됩니다. 범위의 크기를 선택할 때 이러한 사실을 고려해야 합니다. 이 범위는 온-프레미스 또는 기타 Azure IP 주소와 겹치면 안 됩니다. 이 IP 주소 범위는 어떻게 가져오나요? 회사 네트워크 팀 또는 서비스 공급자는 네트워크 내에서 현재 사용되지 않는 IP 주소 범위를 제공해야 합니다. 
 
- **이 범위는 초기 배포를 요청할 때 Microsoft에 제출해야 하는 IP 주소 범위입니다.**
+  **이 범위는 초기 배포를 요청할 때 Microsoft에 제출해야 하는 IP 주소 범위입니다.**
  
 앞서 설명한 IP 주소 범위를 정의하고 계획해야 합니다. 그러나 모든 IP 주소 범위를 Microsoft에 전송할 필요는 없습니다. Microsoft에 이름을 지정해야 하는 IP 주소 범위는 다음과 같습니다.
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995410"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012229"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 문자열 작업
 
 
 > [!NOTE]
-> 이 자습서를 완료하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 및 [Azure Monitor 로그 쿼리 시작](get-started-queries.md)을 완료해야 합니다.
+> 완료 해야 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md) 하 고 [Azure Monitor 로그 쿼리를 사용 하 여 시작](get-started-queries.md) 이 자습서를 완료 하기 전에 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -53,30 +53,30 @@ print @"C:\backslash\not\escaped\with @ prefix"
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |같음                              |예           |`"aBc" == "aBc"`
 `!=`           |같지 않음                          |예           |`"abc" != "ABC"`
-`=~`           |같음                              |아니요            |`"abc" =~ "ABC"`
-`!~`           |같지 않음                          |아니요            |`"aBc" !~ "xyz"`
-`has`          |오른쪽이 왼쪽의 전체 항임 |아니요|`"North America" has "america"`
-`!has`         |오른쪽이 왼쪽의 전체 항이 아님       |아니요            |`"North America" !has "amer"` 
+`=~`           |같음                              |아닙니다.            |`"abc" =~ "ABC"`
+`!~`           |같지 않음                          |아닙니다.            |`"aBc" !~ "xyz"`
+`has`          |오른쪽이 왼쪽의 전체 항임 |아닙니다.|`"North America" has "america"`
+`!has`         |오른쪽이 왼쪽의 전체 항이 아님       |아닙니다.            |`"North America" !has "amer"` 
 `has_cs`       |오른쪽이 왼쪽의 전체 항임 |예|`"North America" has_cs "America"`
 `!has_cs`      |오른쪽이 왼쪽의 전체 항이 아님       |예            |`"North America" !has_cs "amer"` 
-`hasprefix`    |오른쪽이 왼쪽의 항 접두사임         |아니요            |`"North America" hasprefix "ame"`
-`!hasprefix`   |오른쪽이 왼쪽의 항 접두사가 아님     |아니요            |`"North America" !hasprefix "mer"` 
+`hasprefix`    |오른쪽이 왼쪽의 항 접두사임         |아닙니다.            |`"North America" hasprefix "ame"`
+`!hasprefix`   |오른쪽이 왼쪽의 항 접두사가 아님     |아닙니다.            |`"North America" !hasprefix "mer"` 
 `hasprefix_cs`    |오른쪽이 왼쪽의 항 접두사임         |예            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |오른쪽이 왼쪽의 항 접두사가 아님     |예            |`"North America" !hasprefix_cs "CA"` 
-`hassuffix`    |오른쪽이 왼쪽의 항 접미사임         |아니요            |`"North America" hassuffix "ica"`
-`!hassuffix`   |오른쪽이 왼쪽의 항 접미사가 아님     |아니요            |`"North America" !hassuffix "americ"
+`hassuffix`    |오른쪽이 왼쪽의 항 접미사임         |아닙니다.            |`"North America" hassuffix "ica"`
+`!hassuffix`   |오른쪽이 왼쪽의 항 접미사가 아님     |아닙니다.            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |오른쪽이 왼쪽의 항 접미사임         |예            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |오른쪽이 왼쪽의 항 접미사가 아님     |예            |`"North America" !hassuffix_cs "icA"
-`contains`     |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |아니요            |`"FabriKam" contains "BRik"`
-`!contains`    |오른쪽이 왼쪽에 발생하지 않음           |아니요            |`"Fabrikam" !contains "xyz"`
+`!hassuffix_cs`   |오른쪽이 왼쪽의 항 접미사가 아님     |예            |`"North America" !hassuffix_cs "icA"`
+`contains`     |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |아닙니다.            |`"FabriKam" contains "BRik"`
+`!contains`    |오른쪽이 왼쪽에 발생하지 않음           |아닙니다.            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |예           |`"FabriKam" contains_cs "Kam"`
 `!contains_cs`  |오른쪽이 왼쪽에 발생하지 않음           |예           |`"Fabrikam" !contains_cs "Kam"`
-`startswith`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|아니요            |`"Fabrikam" startswith "fab"`
-`!startswith`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|아니요        |`"Fabrikam" !startswith "kam"`
+`startswith`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|아닙니다.            |`"Fabrikam" startswith "fab"`
+`!startswith`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|아닙니다.        |`"Fabrikam" !startswith "kam"`
 `startswith_cs`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|예            |`"Fabrikam" startswith_cs "Fab"`
 `!startswith_cs`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|예        |`"Fabrikam" !startswith_cs "fab"`
-`endswith`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|아니요             |`"Fabrikam" endswith "Kam"`
-`!endswith`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|아니요         |`"Fabrikam" !endswith "brik"`
+`endswith`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|아닙니다.             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|아닙니다.         |`"Fabrikam" !endswith "brik"`
 `endswith_cs`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|예             |`"Fabrikam" endswith "Kam"`
 `!endswith_cs`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|예         |`"Fabrikam" !endswith "brik"`
 `matches regex`|왼쪽에 오른쪽의 일치 항목이 포함됨        |예           |`"Fabrikam" matches regex "b.*k"`
@@ -259,6 +259,7 @@ SecurityEvent
 ```
 
 결과는 다음과 같을 수 있습니다.
+
 작업                                        |대체됨
 ------------------------------------------------|----------------------------------------------------------
 4663 - 개체에 액세스하려고 했습니다.  |활동 ID 4663: 개체에 액세스하려고 했습니다.

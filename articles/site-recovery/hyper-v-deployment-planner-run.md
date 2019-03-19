@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 776523bb001848e6ecc153f670a96e3143e2ac0d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006337"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
 
@@ -34,6 +34,7 @@ ms.locfileid: "55815078"
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
+
 | 매개 변수 이름 | 설명 |
 |---|---|
 | -Operation | GetVMList |
@@ -83,6 +84,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList -Directory "E:\Hyper-V_ProfiledDat
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
+
 | 매개 변수 이름 | 설명 |
 |---|---|
 | -Operation | StartProfiling |
@@ -164,6 +166,7 @@ Azure Site Recovery는 iSCSI 및 통과 디스크가 있는 VM을 지원하지 �
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
+
 | 매개 변수 이름 | 설명 |
 |---|---|
 | -Operation | GenerateReport |
@@ -271,6 +274,7 @@ Azure Site Recovery에서 복제 중에 온-프레미스 환경에서 Azure로 �
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
+
  매개 변수 이름 | 설명 |
 |---|---|
 | -Operation | GetThroughput |

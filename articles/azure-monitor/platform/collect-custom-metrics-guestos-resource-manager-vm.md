@@ -4,18 +4,20 @@ description: Windows 가상 머신용 Resource Manager 템플릿을 사용하여
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1eaf73e1d8b3c60ea32fa7d4aaf51a212d24a18c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 63b134ab9bfdac3617c845da7a14ee6b9234c84d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894601"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782023"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Windows 가상 머신용 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여 가상 머신, 클라우드 서비스 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 [여러 다른 위치](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)에 원격 분석을 보낼 수 있습니다.
 
@@ -29,7 +31,7 @@ Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../.
 
 - 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다.
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
+- [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor를 데이터 싱크로 설정
@@ -237,17 +239,17 @@ Azure에서 MSI 확장에 시스템 ID를 할당하도록 VM 리소스에 **iden
 Resource Manager 템플릿을 배포하기 위해 Azure PowerShell을 활용합니다.
 
 1. PowerShell을 시작합니다.
-1. `Login-AzureRmAccount`를 사용하여 Azure에 로그인합니다.
-1. `Get-AzureRmSubscription`을 사용하여 구독 목록을 가져옵니다.
+1. `Login-AzAccount`를 사용하여 Azure에 로그인합니다.
+1. `Get-AzSubscription`을 사용하여 구독 목록을 가져옵니다.
 1. 다음에 가상 머신을 만들고/업데이트하는 데 사용하는 구독을 설정합니다.
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>"
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. 배포되는 VM에 대한 새 리소스 그룹을 만들려면 다음 명령을 실행합니다.
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
+    New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
    > [사용자 지정 메트릭을 사용하도록 설정된 Azure 지역을 사용](metrics-custom-overview.md)해야 합니다.
@@ -257,7 +259,7 @@ Resource Manager 템플릿을 배포하기 위해 Azure PowerShell을 활용합�
    > 기존 VM을 업데이트하려면 다음 명령의 끝에 *-Mode Incremental*을 추가하기만 하면 됩니다.
 
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
+   New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
 1. 배포에 성공한 후 VM은 Azure Monitor에 메트릭을 내보내는 Azure Portal에 있어야 합니다.

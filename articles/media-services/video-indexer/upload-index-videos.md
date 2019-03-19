@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: e7f39b6298dd950147fea7ac21969c53e1b58e2e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414747"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877873"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -26,15 +26,17 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 
 이 문서에서는 [비디오 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API를 사용하여 URL에 따라 비디오를 업로드하고 인덱싱하는 방법을 보여 줍니다. 이 문서의 코드 샘플에는 바이트 배열을 업로드하는 방법을 보여 주는 주석 처리된 코드가 포함되어 있습니다. <br/>또한 이 문서에서는 API의 프로세스 및 출력을 변경하기 위해 API에 설정할 수 있는 몇 가지 매개 변수에 대해서도 설명합니다.
 
-비디오가 업로드되면 Video Indexer가 필요에 따라 비디오를 인코딩합니다(이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결](connect-to-azure.md)되는 Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
+비디오가 업로드되면 Video Indexer가 필요에 따라 비디오를 인코딩합니다(이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. Video Indexer 계정으로 유료 옵션을 사용 하 여 만든 [Azure 구독 및 Azure Media Services 계정에 연결 된](connect-to-azure.md)합니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
 
 ## <a name="uploading-considerations"></a>업로드 고려 사항
 
 - URL을 기반으로 하여 비디오를 업로드하는 경우(기본 설정) TLS 1.2 이상을 사용하여 엔드포인트를 보호해야 합니다.
-- URL 옵션을 사용하면 업로드 크기가 25GB로 제한됩니다.
+- URL 옵션을 사용 하 여 업로드 크기는 30GB로 제한
+- 대부분의 브라우저에서 URL 길이 2,000 자로 제한 됩니다.
 - 바이트 배열 옵션을 사용하면 업로드 크기가 2GB로 제한됩니다.
 - 바이트 배열 옵션은 30분 후 시간 초과됩니다.
 - `videoURL` 매개 변수에 제공된 URL은 인코딩해야 합니다.
+- URL에서 인덱싱와 동일한 제한 사항이 Media Services 자산 인덱싱
 
 > [!Tip]
 > 이전 .NET Framework는 기본적으로 TLS 1.2로 설정되지 않으므로 .NET Framework 버전 4.6.2 이상을 사용하는 것이 좋습니다.
@@ -56,22 +58,22 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 인덱싱 상태 변경 
     - 속성    
     
-        |Name|설명|
+        |이름|설명|
         |---|---|
         |id|비디오 ID|
         |state|비디오 상태|  
     - 예제: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - 비디오에서 식별된 사용자
-    - properties
+  - properties
     
-        |Name|설명|
-        |---|---|
-        |id| 비디오 ID|
-        |faceId|비디오 인덱스에 표시되는 얼굴 ID|
-        |knownPersonId|얼굴 모델 내에서 고유한 사람 ID|
-        |personName|사람의 이름|
+      |이름|설명|
+      |---|---|
+      |id| 비디오 ID|
+      |faceId|비디오 인덱스에 표시되는 얼굴 ID|
+      |knownPersonId|얼굴 모델 내에서 고유한 사람 ID|
+      |personName|사람의 이름|
         
-     - 예제: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - 예제: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>메모
 

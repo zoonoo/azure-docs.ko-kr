@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 03340dc8f3be2465f20756dc9799b9c1e4293521
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: a862c920f1e070ab1bbb8af2546bc3d4350347b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417128"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889950"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -128,7 +128,7 @@ REST API는 요청 본문이 다음과 같은 구조의 JSON 문서가 될 것�
 
 ### <a name="binary-data"></a>이진 데이터
 
-모델이 이미지와 같이 이진 데이터를 허용하는 경우 원시 HTTP 요청을 수락하도록 배포에 사용되는 `score.py` 파일을 수정해야 합니다. 이진 데이터를 허용하고 POST 요청에 대해 반전된 바이트를 반환하는 `score.py`의 예제는 다음과 같습니다. GET 요청의 경우 응답 본문의 전체 URL을 반환합니다.
+모델이 이미지와 같이 이진 데이터를 허용하는 경우 원시 HTTP 요청을 수락하도록 배포에 사용되는 `score.py` 파일을 수정해야 합니다. 예로 `score.py` 이진 데이터를 받아들이는:
 
 ```python 
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -142,14 +142,16 @@ def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))
     if request.method == 'GET':
+        # For this example, just return the URL for GETs
         respBody = str.encode(request.full_path)
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
         reqBody = request.get_data(False)
-        respBody = bytearray(reqBody)
-        respBody.reverse()
-        respBody = bytes(respBody)
-        return AMLResponse(respBody, 200)
+        # For a real world solution, you would load the data from reqBody 
+        # and send to the model. Then return the response.
+        
+        # For demonstration purposes, this example just returns the posted data as the response.
+        return AMLResponse(reqBody, 200)
     else:
         return AMLResponse("bad request", 500)
 ```

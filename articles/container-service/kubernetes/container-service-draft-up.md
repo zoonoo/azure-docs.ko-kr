@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 36e765d439d616ec165a2b53d2044586e73cde76
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 48afb867a5455ffea10f8a74b1fff2c2b7f361ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849757"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(사용되지 않음) Azure Container Service 및 Azure Container Registry에서 Draft를 사용하여 애플리케이션 빌드 및 Kubernetes에 배포
 
@@ -31,7 +31,7 @@ ms.locfileid: "55809217"
 ## <a name="create-an-azure-container-registry"></a>Azure Container Registry 만들기
 [새 Azure Container Registry를 쉽게 만들](../../container-registry/container-registry-get-started-azure-cli.md) 수 있으며, 그 단계는 다음과 같습니다.
 
-1. ACS에서 ACR 레지스트리와 Kubernetes 클러스터를 관리하기 위한 Azure 리소스 그룹을 만듭니다.
+1. ACR 레지스트리 및 ACS에서 Kubernetes 클러스터를 관리 하는 Azure 리소스 그룹을 만듭니다.
       ```azurecli
       az group create --name draft --location eastus
       ```
@@ -106,11 +106,11 @@ waiting for AAD role to propagate.done
 1. https://github.com/Azure/draft/releases에서 환경에 맞는 Draft를 다운로드하고 명령을 사용할 수 있도록 PATH에 설치합니다.
 2. https://github.com/kubernetes/helm/releases에서 환경에 맞는 Helm을 다운로드하고 [명령을 사용할 수 있도록 PATH에 설치합니다](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Draft를 구성하여 레지스트리를 사용하고 만든 각 Helm 차트에 대한 하위 도메인을 만듭니다. Draft을 구성하려면 다음이 필요합니다.
-  - Azure Container Registry 이름(이 예제에서는 `draftacsdemo`)
-  - 레지스트리 키 또는 암호(`az acr credential show -n <registry name> --output tsv --query "passwords[0].value"` 명령 사용)
+   - Azure Container Registry 이름(이 예제에서는 `draftacsdemo`)
+   - 레지스트리 키 또는 암호(`az acr credential show -n <registry name> --output tsv --query "passwords[0].value"` 명령 사용)
 
-  `draft init`를 호출하면 구성 프로세스에서 위의 값을 묻는 메시지를 표시합니다. 레지스트리 URL의 URL 형식은 레지스트리 이름(이 예제에서는 `draftacsdemo`)과 `.azurecr.io`입니다. 사용자 이름은 그 자체로 레지스트리 이름입니다. 프로세스를 처음 실행하면 다음과 같은 화면이 표시됩니다.
- ```bash
+   `draft init`를 호출하면 구성 프로세스에서 위의 값을 묻는 메시지를 표시합니다. 레지스트리 URL의 URL 형식은 레지스트리 이름(이 예제에서는 `draftacsdemo`)과 `.azurecr.io`입니다. 사용자 이름은 그 자체로 레지스트리 이름입니다. 프로세스를 처음 실행하면 다음과 같은 화면이 표시됩니다.
+   ```bash
     $ draft init
     Creating /home/ralph/.draft 
     Creating /home/ralph/.draft/plugins 
@@ -132,7 +132,7 @@ waiting for AAD role to propagate.done
     3. Enter your password: 
     Draft has been installed into your Kubernetes Cluster.
     Happy Sailing!
-```
+   ```
 
 이제 애플리케이션을 배포할 준비가 되었습니다.
 
@@ -169,7 +169,7 @@ Connecting to your app...SUCCESS...Connect to your app on localhost:46143
 Starting log streaming...
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 == Spark has ignited ...
 >> Listening on 0.0.0.0:4567
 ```
@@ -224,7 +224,7 @@ Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 애플리케
     ```
 
 2. 도메인에 대한 DNS 영역을 만듭니다.
-[az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) 명령을 사용하여 DNS 컨트롤을 도메인에 대한 Azure DNS에 위임할 이름 서버를 가져옵니다.
+   [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) 명령을 사용하여 DNS 컨트롤을 도메인에 대한 Azure DNS에 위임할 이름 서버를 가져옵니다.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -247,12 +247,12 @@ Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 애플리케
     ```
 3. 제공된 DNS 서버를 배포 도메인의 도메인 공급자에 추가합니다. 이렇게 하면 Azure DNS를 사용하여 원하는 대로 도메인을 다시 지정할 수 있습니다. 이 작업을 수행하는 방법은 도메인 공급자에 따라 다릅니다. 알아야 할 몇 가지 세부 정보가 [도메인 이름 서버를 Azure DNS로 위임](../../dns/dns-delegate-domain-azure-dns.md)에 나와 있습니다. 
 4. 도메인이 Azure DNS에 위임된 후 이전 섹션의 2단계에 있는 `ingress` IP에 매핑되는 배포 도메인에 대한 A 레코드 집합 항목을 만듭니다.
-  ```azurecli
-  az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
-  ```
-출력은 다음과 같습니다.
-  ```json
-  {
+   ```azurecli
+   az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
+   ```
+   출력은 다음과 같습니다.
+   ```json
+   {
     "arecords": [
       {
         "ipv4Address": "13.64.108.240"
@@ -265,23 +265,23 @@ Draft는 자체에서 만든 각 Helm 차트, 즉 작업 중인 각 애플리케
     "resourceGroup": "squillace.io",
     "ttl": 3600,
     "type": "Microsoft.Network/dnszones/A"
-  }
-  ```
+   }
+   ```
 5. **draft**를 다시 설치합니다.
 
    1. `helm delete --purge draft`를 입력하여 클러스터에서 **draftd**를 제거합니다. 
    2. 동일한 `draft-init` 명령을 사용하되 `--ingress-enabled` 옵션을 포함하여 **draft**를 다시 설치합니다.
-    ```bash
-    draft init --ingress-enabled
-    ```
-   위에서 처음에 수행했던 것처럼 메시지에 응답합니다. 하지만 Azure DNS로 구성한 전체 도메인 경로 사용에 대한 질문에 추가로 응답해야 합니다.
+      ```bash
+      draft init --ingress-enabled
+      ```
+      위에서 처음에 수행했던 것처럼 메시지에 응답합니다. 하지만 Azure DNS로 구성한 전체 도메인 경로 사용에 대한 질문에 추가로 응답해야 합니다.
 
 6. 송신(예: draft.example.com)에 대한 최상위 도메인(draft.squillace.io)을 입력합니다.
 7. 이번에 `draft up`을 호출하면 `<appname>.draft.<domain>.<top-level-domain>` 형식의 URL에서 애플리케이션(또는 `curl`)을 볼 수 있습니다. 이 예제의 경우 `http://handy-labradoodle.draft.squillace.io`입니다. 
-```bash
-curl -s http://handy-labradoodle.draft.squillace.io
-Hello World, I'm Java!
-```
+   ```bash
+   curl -s http://handy-labradoodle.draft.squillace.io
+   Hello World, I'm Java!
+   ```
 
 
 ## <a name="next-steps"></a>다음 단계

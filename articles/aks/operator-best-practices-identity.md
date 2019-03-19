@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 478034d1c9f99f40a4827515433357c76235e9ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 7d846f28e78959b6962add51070f04857f6463d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430528"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852818"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
 
@@ -64,7 +64,7 @@ rules:
   verbs: ["*"]
 ```
 
-다음 YAML 매니페스트와 같이 Azure AD 사용자 *developer1@contoso.com*을 RoleBinding에 바인딩하는 RoleBinding이 만들어집니다.
+RoleBinding가 Azure AD 사용자에 바인딩하는 생성 됩니다 *developer1\@contoso.com* RoleBinding, 다음 YAML 매니페스트에 표시 된 것 처럼 하려면:
 
 ```yaml
 ind: RoleBinding
@@ -82,7 +82,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-*developer1@contoso.com*이 AKS 클러스터에서 인증되면 *finance-app* 네임스페이스의 리소스에 대한 전체 권한이 할당됩니다. 이 방식으로 리소스에 대한 액세스를 논리적으로 분리하고 제어합니다. 이전 섹션에 설명된 대로 Kubernetes RBAC는 Azure AD 통합과 함께 사용해야 합니다.
+때 *developer1\@contoso.com* 가 인증 AKS 클러스터에 대 한 리소스에 대 한 모든 권한을 갖습니다 합니다 *재무 앱* 네임 스페이스입니다. 이 방식으로 리소스에 대한 액세스를 논리적으로 분리하고 제어합니다. 이전 섹션에 설명된 대로 Kubernetes RBAC는 Azure AD 통합과 함께 사용해야 합니다.
 
 ## <a name="use-pod-identities"></a>Pod ID 사용
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 1d7f58780819202eb02e3a48b4b5e0ac108a0432
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447466"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993956"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -62,8 +62,9 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 | **지원 플랜** | Azure Government Pro-Direct 지원 | MS-AZR-USGOV-0042P |
 | **지원 플랜** | Azure Government 개발자 지원 | MS-AZR-USGOV-0043P |
 
-종량제, MSDN 및 Visual Studio 제품 분류가 있는 고객의 경우 2018년 10월 2일부터 Cost Management에서 데이터를 사용할 수 있습니다.
+종량제, MSDN 및 Visual Studio 제품 분류가 있는 고객의 경우 2018년 10월 2일부터 Cost Management에서 데이터를 사용할 수 있습니다. 2018 년 10 월 02 하기 전에 구독에 대 한 데이터에 액세스 하려면 사용할 수 있습니다 합니다 [Azure 계정 센터](https://account.azure.com/subscriptions) CSV 파일의 세부 정보 사용 현황을 다운로드 하거나 사용할 수 있습니다 합니다 [사용량 세부 정보 API](/rest/api/consumption/usagedetails)합니다.
 
+## <a name="determine-your-offer-type"></a>제안 유형을 결정 합니다.
 구독 데이터가 표시되지 않고 구독이 지원되는 제품에 해당하는지 확인하려는 경우 구독이 지원되는지 확인할 수 있습니다. Azure 구독이 지원되는지 확인하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다. 그런 다음, 왼쪽 메뉴 창에서 **모든 서비스**를 선택합니다. 서비스 목록에서 **구독**을 선택합니다. 구독 목록 메뉴에서 확인할 구독을 클릭합니다. 구독이 개요 탭에 표시되며, **제품** 및 **제품 ID**를 확인할 수 있습니다. 다음 이미지에 예가 나와 있습니다.
 
 ![제품 및 제품 ID가 표시된 구독 개요 탭의 예](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -94,7 +95,7 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 
 ## <a name="rated-usage-data-refresh-schedule"></a>평가된 사용량 데이터 새로 고침 일정
 
-비용 및 사용량 데이터는 Azure Portal의 비용 관리 + 청구와 [지원 API](https://aka.ms/costmgmt/docs)에서 확인할 수 있습니다. 비용을 검토할 때 다음 사항에 유의하세요.
+비용 및 사용량 데이터는 Azure Portal의 비용 관리 + 청구와 [지원 API](index.yml)에서 확인할 수 있습니다. 비용을 검토할 때 다음 사항에 유의하세요.
 
 - 현재 청구 기간의 예상 요금은 하루에 6번 업데이트됩니다.
 - 현재 청구 기간의 예상 요금은 사용량이 증가함에 따라 변경될 수 있습니다.

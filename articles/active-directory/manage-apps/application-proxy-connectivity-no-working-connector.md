@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6004feaa4b720b1745fbbbeaab1cddb0a46a7498
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 96608853d2eec3cf90f1425992d755cbe6c2e8dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170621"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437907"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 작동하는 커넥터 그룹 없음
 
@@ -32,7 +32,7 @@ ms.locfileid: "56170621"
 
 -   그룹에 커넥터가 없는 경우 다음을 수행할 수 있습니다.
 
-    -   오른쪽 온-프레미스 서버에 새로운 커넥터를 다운로드하여 이 그룹에 할당합니다.
+    -   프레미스 서버의 오른쪽에 있는 새 커넥터를 다운로드 하 고이 그룹에 할당
 
     -   활성 커넥터를 그룹으로 이동합니다.
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 2f6fad0ecca09ff9210b5961301fea3446a88f11
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 43d19e5c69733689be184f06b853fa4e488dd51e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213166"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871726"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>데이터 serialization이 애플리케이션 업그레이드에 미치는 영향
-[롤링 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)에서는 한번에 하나의 업그레이드 도메인에서 노드의 하위 집합에 업그레이드가 적용됩니다. 이 과정에서 일부 업그레이드 도메인은 애플리케이션의 최신 버전에, 일부 업그레이드 도메인은 애플리케이션의 이전 버전에 적용됩니다. 롤아웃 동안 최신 버전의 애플리케이션에서 이전 버전의 데이터를 읽을 수 있고 이전 버전의 애플리케이션에서 최신 버전의 데이터를 읽을 수 있어야 합니다. 데이터 서식이 최신 버전과 이전 버전에서 호환되지 않으면 업그레이드가 실패하거나 데이터가 손실되거나 손상될 수도 있습니다. 이 문서에서는 데이터 서식을 구성하는 요소에 대해 설명하며 데이터가 상위 버전 및 하위 버전과 호환되도록 하는 모범 사례를 제공합니다.
+[롤링 애플리케이션 업그레이드](service-fabric-application-upgrade.md)에서는 한번에 하나의 업그레이드 도메인에서 노드의 하위 집합에 업그레이드가 적용됩니다. 이 과정에서 일부 업그레이드 도메인은 애플리케이션의 최신 버전에, 일부 업그레이드 도메인은 애플리케이션의 이전 버전에 적용됩니다. 롤아웃 동안 최신 버전의 애플리케이션에서 이전 버전의 데이터를 읽을 수 있고 이전 버전의 애플리케이션에서 최신 버전의 데이터를 읽을 수 있어야 합니다. 데이터 서식이 최신 버전과 이전 버전에서 호환되지 않으면 업그레이드가 실패하거나 데이터가 손실되거나 손상될 수도 있습니다. 이 문서에서는 데이터 서식을 구성하는 요소에 대해 설명하며 데이터가 상위 버전 및 하위 버전과 호환되도록 하는 모범 사례를 제공합니다.
 
 ## <a name="what-makes-up-your-data-format"></a>데이터 형식을 구성하는 요소
-Azure 서비스 패브릭에서 유지 및 복제되는 데이터는 C# 클래스에서 제공됩니다. [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)을 사용하는 응용 프로그램의 경우 데이터는 신뢰할 수 있는 사전 및 큐의 개체입니다. [Reliable Actors](service-fabric-reliable-actors-introduction.md)를 사용하는 응용 프로그램의 경우 행위자에 대한 백업 상태입니다. 이러한 C# 클래스를 유지 및 복제하려면 직렬화해야 합니다. 따라서 직렬화된 필드 및 속성을 통해 데이터 형식과 직렬화 방법을 정의합니다. 예를 들어 `IReliableDictionary<int, MyClass>`에서 데이터는 직렬화된 `int` 및 직렬화된 `MyClass`입니다.
+Azure 서비스 패브릭에서 유지 및 복제되는 데이터는 C# 클래스에서 제공됩니다. [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)을 사용하는 애플리케이션의 경우 데이터는 신뢰할 수 있는 사전 및 큐의 개체입니다. [Reliable Actors](service-fabric-reliable-actors-introduction.md)를 사용하는 애플리케이션의 경우 행위자에 대한 백업 상태입니다. 이러한 C# 클래스를 유지 및 복제하려면 직렬화해야 합니다. 따라서 직렬화된 필드 및 속성을 통해 데이터 형식과 직렬화 방법을 정의합니다. 예를 들어 `IReliableDictionary<int, MyClass>`에서 데이터는 직렬화된 `int` 및 직렬화된 `MyClass`입니다.
 
 ### <a name="code-changes-that-result-in-a-data-format-change"></a>데이터 형식 변경이 발생하는 코드 변경
 데이터 형식은 C# 클래스에 의해 결정되기 때문에 클래스를 변경하면 데이터 형식이 변경될 수 있습니다. 롤링 업그레이드에서 데이터 서식 변경을 처리할 수 있도록 주의를 기울여야 합니다. 다음은 데이터 형식이 변경될 수 있는 예입니다.
@@ -54,13 +54,13 @@ Azure 서비스 패브릭에서 유지 및 복제되는 데이터는 C# 클래�
 데이터 계약은 데이터 호환성을 보장하기 위해 권장되는 솔루션입니다. 데이터 계약에는 필드의 추가, 제거 및 변경에 대해 잘 정의된 버전 관리 규칙이 있습니다. 또한 알 수 없는 필드를 처리하는 기능, serialization 및 역직렬화 프로세스에 연결하는 기능 및 클래스 상속을 처리하는 기능을 지원합니다. 자세한 내용은 [데이터 계약 사용](https://msdn.microsoft.com/library/ms733127.aspx)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Visual Studio를 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial.md) 에서는 Visual Studio를 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
+[Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
-[Powershell을 사용하여 응용 프로그램 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 에서는 PowerShell을 사용하여 응용 프로그램 업그레이드를 진행하는 방법을 안내합니다.
+[Powershell을 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
-[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 응용 프로그램 업그레이드 방법을 제어합니다.
+[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
 
-[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 응용 프로그램을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
+[고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 애플리케이션을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
 
-[응용 프로그램 업그레이드 문제 해결 ](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 응용 프로그램 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
+[애플리케이션 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 애플리케이션 업그레이드 중 발생하는 일반적인 문제를 해결합니다.
 

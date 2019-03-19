@@ -9,17 +9,17 @@ editor: spelluru
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 3ff0d0db554fe514fdd6be6383b6d1a19f1c39ec
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451462"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848680"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu를 사용하여 Notification Hubs 시작
 
@@ -132,8 +132,8 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 5. 그런 다음 Azure Notification Hubs 라이브러리를 추가합니다. 앱의 `Build.Gradle` 파일에서 종속성 섹션에 다음 줄을 추가합니다.
 
     ```javascript
-    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
     종속성 섹션 뒤에 다음 리포지토리를 추가합니다.
@@ -141,7 +141,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
     ```javascript
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -161,7 +161,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6. [Baidu 푸시 Android SDK](http://push.baidu.com/doc/android/api)를 다운로드하고 압축을 풉니다. libs 폴더에 `pushservice-x.y.z jar` 파일을 복사합니다. 그런 다음, Android 애플리케이션의 `src/main/jniLibs`(새 폴더 만들기) 폴더에 `.so` 파일을 복사합니다.
+6. [Baidu 푸시 Android SDK](https://push.baidu.com/doc/android/api)를 다운로드하고 압축을 풉니다. libs 폴더에 `pushservice-x.y.z jar` 파일을 복사합니다. 그런 다음, Android 애플리케이션의 `src/main/jniLibs`(새 폴더 만들기) 폴더에 `.so` 파일을 복사합니다.
 
     ![Azure Notification Hubs - Baidu SDK Libs](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -497,7 +497,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-    이 명령은 [Microsoft.Azure.Notification Hubs NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용하는 Azure Notification Hubs SDK에 대한 참조를 추가합니다.
+    이 명령은 [Microsoft.Azure.Notification Hubs NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 사용하는 Azure Notification Hubs SDK에 대한 참조를 추가합니다.
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -537,6 +537,6 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Baidu 푸시 Android SDK]: http://push.baidu.com/sdk/push_client_sdk_for_android
+[Baidu 푸시 Android SDK]: https://push.baidu.com/sdk/push_client_sdk_for_android
 [Azure Portal]: https://portal.azure.com/
-[Baidu 포털]: http://www.baidu.com/
+[Baidu 포털]: https://www.baidu.com/

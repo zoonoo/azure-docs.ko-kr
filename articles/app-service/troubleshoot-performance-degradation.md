@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052158"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884225"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 앱 성능 문제 해결
 이 문서에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)의 느린 앱 성능 문제를 해결하는 데 도움을 줍니다.
@@ -68,7 +68,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 
 ![앱 성능 모니터링](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 * [Azure App Service에서 앱 모니터링](web-sites-monitor.md)
 * [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
@@ -162,7 +162,7 @@ Azure App Service에서 성능과 처리량의 증가를 위해 사용자가 실
 수동 또는 자동으로 크기를 조정할 수 있습니다.
 
 #### <a name="use-autoheal"></a>AutoHeal를 사용
-AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. Azure Portal 내에서 직접 앱을 재시작할 수도 있지만, AutoHeal은 자동으로 재시작을 수행하게 해줍니다. 앱의 루트 web.config에 일부 트리거를 추가하기만 하면 됩니다. 이 설정은 사용자의 애플리케이션이 .Net 앱이 아니라도 같은 방식으로 작동됩니다.
+AutoHeal은 사용자가 선택한 설정(예: 구성 변경, 요청, 메모리 기반 제한 또는 요청을 실행하는데 필요한 시간)에 따라 앱에 대한 작업자 프로세스를 재활용 합니다. 대부분의 경우에는 프로세스를 재활용하는 방법이 문제를 해결하는 가장 빠른 방법입니다. Azure Portal 내에서 직접 앱을 재시작할 수도 있지만, AutoHeal은 자동으로 재시작을 수행하게 해줍니다. 앱의 루트 web.config에 일부 트리거를 추가하기만 하면 됩니다. 이러한 설정은 없으면 응용 프로그램이.NET 앱을 동일한 방식으로 작동 됩니다.
 
 자세한 내용은 [Auto-Healing Azure Websites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)를 참조하세요.
 

@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/19/2019
 ms.author: ramamill
-ms.openlocfilehash: 6319ef908b5b040bf61285451448c08bb3960fe2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: d8b009d47a7fd0057c71ff3fc120a4443fc262d7
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215013"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593661"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
 
@@ -50,7 +50,7 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 복제하려는 머신에 활성 바이러스 백신 소프트웨어가 실행 중이면 바이러스 백신 작업에서 Mobility 서비스 설치 폴더를 제외해야 합니다(*C:\ProgramData\ASR\agent*). 이렇게 하면 복제가 예상대로 작동합니다.
 
-## <a name="update-the-mobility-service"></a>Mobility 서비스 업데이트
+## <a name="update-mobility-service-from-azure-portal"></a>Azure portal에서 모바일 서비스 업데이트
 
 1. 시작에 앞서, 보호되는 머신에서 Mobility 서비스를 업데이트하기 전에 배포의 일부인 구성 서버, 확장 프로세스 서버 및 마스터 대상 서버를 업데이트했는지 확인하세요.
 2. 포털에서 자격 증명 모음 > **복제된 항목**을 엽니다.
@@ -64,6 +64,14 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 5. 선택한 머신 각각에 대한 Mobility Service 업데이트 작업이 시작됩니다.
 
+## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Windows 서버에서 powershell 스크립트를 통해 모바일 서비스 업데이트
+
+Power shell cmdlet 통해 서버에 모바일 서비스를 업그레이드 하는 스크립트 사용
+
+```azurepowershell
+Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
+```
+
 ## <a name="update-the-account-used-for-push-installation-of-the-mobility-service"></a>모바일 서비스의 푸시 설치에 사용되는 계정 업데이트
 
 Site Recovery를 배포하여 Mobility 서비스의 푸시 설치를 사용하도록 설정한 경우, 복제가 머신에 대해 사용하도록 설정되었을 때 Site Recovery 프로세스 서버가 머신에 액세스하여 서비스를 설치하는 데 사용하는 계정을 지정했습니다. 이 계정에 대한 자격 증명을 업데이트하려면 [이 지침](vmware-azure-manage-configuration-server.md)에 따릅니다.
@@ -75,7 +83,7 @@ Site Recovery를 배포하여 Mobility 서비스의 푸시 설치를 사용하�
 UI 또는 명령 프롬프트에서 제거합니다.
 
 - **UI에서**: 머신의 제어판에서 **프로그램**을 선택합니다. **Microsoft Azure Site Recovery Mobility 서비스/마스터 대상 서버** > **제거**를 선택합니다.
-- **명령 프롬프트에서**: 머신에서 명령 프롬프트 창을 관리자로 엽니다. 다음 명령 실행: 
+- **명령 프롬프트에서**: 머신에서 명령 프롬프트 창을 관리자로 엽니다. 다음 명령을 실행합니다. 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```
@@ -83,7 +91,7 @@ UI 또는 명령 프롬프트에서 제거합니다.
 ## <a name="on-a-linux-machine"></a>Linux 머신
 1. Linux 머신에서 **루트** 사용자로 로그인합니다.
 2. 터미널에서 /user/local/ASR로 이동합니다.
-3. 다음 명령 실행:
+3. 다음 명령을 실행합니다.
 
     ```
     uninstall.sh -Y

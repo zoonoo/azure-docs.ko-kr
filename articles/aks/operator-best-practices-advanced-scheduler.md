@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016881"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175984"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -39,10 +39,10 @@ Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실
 Pod를 AKS 클러스터에 배포하는 경우 Kubernetes는 toleration이 taint에 맞춰 조정되는 노드에서만 Pod를 예약합니다. 예를 들어 GPU 지원이 있는 노드의 AKS 클러스터에 노드 풀이 있다고 가정합니다. 이름(예: *gpu*)을 정의한 후 예약의 값을 정의합니다. 이 값을 *NoSchedule*로 설정하면 Kubernetes 스케줄러는 Pod가 적절한 toleration을 정의하지 않는 경우 노드에서 Pod를 예약할 수 없습니다.
 
 ```console
-kubectl taint node aks-nodepool1 gpu:NoSchedule
+kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Taint가 노드에 적용되면 노드에서 예약을 허용하는 Pod 사양에 toleration을 정의합니다. 다음 예제는 `key: gpu` 및 `effect: NoSchedule`를 정의하여 이전 단계에서 노드에 적용된 taint를 허용합니다.
+Taint가 노드에 적용되면 노드에서 예약을 허용하는 Pod 사양에 toleration을 정의합니다. 다음 예제는 `sku: gpu` 및 `effect: NoSchedule`를 정의하여 이전 단계에서 노드에 적용된 taint를 허용합니다.
 
 ```yaml
 kind: Pod
@@ -61,9 +61,9 @@ spec:
       cpu: 4.0
       memory: 16Gi
   tolerations:
-  - key: "gpu"
+  - key: "sku"
     operator: "Equal"
-    value: "value"
+    value: "gpu"
     effect: "NoSchedule"
 ```
 
@@ -151,7 +151,7 @@ spec:
 
 Kubernetes 스케줄러가 워크로드를 논리적으로 격리하는 한 가지 마지막 접근 방식은 Pod 간 선호도 또는 선호도 방지를 사용하는 것입니다. 설정은 기존 일치하는 Pod가 있는 노드에서 Pod가 예약’되지 않도록’ 정의하거나 Pod가 예약’되도록’ 정의합니다. 기본적으로 Kubernetes 스케줄러는 전체 노드의 복제본 세트에서 여러 Pod를 예약하려고 시도합니다. 이 동작에 관한 보다 구체적인 규칙을 정의할 수 있습니다.
 
-좋은 예는 Azure Cache for Redis를 사용하는 웹 애플리케이션입니다. Pod 선호도 방지 규칙을 사용하여 Kubernetes 스케줄러가 전체 노드에 복제본을 배포하도록 요청할 수 있습니다. 그런 다음, 선호도 규칙을 사용하여 각 웹앱 구성 요소가 해당 캐시와 동일한 호스트에서 예약되도록 할 수 있습니다. 전체 노드에 대한 Pod 배포는 다음 예제와 같이 표시됩니다.
+좋은 예는 Azure Cache for Redis를 사용하는 웹 애플리케이션입니다. Pod 선호도 방지 규칙을 사용하여 Kubernetes 스케줄러가 전체 노드에 복제본을 배포하도록 요청할 수 있습니다. 그런 다음 각 웹 앱 구성 요소는 해당 캐시와 동일한 호스트에 예약 되어 있는지 확인 하려면 선호도 규칙을 사용할 수 있습니다. 전체 노드에 대한 Pod 배포는 다음 예제와 같이 표시됩니다.
 
 | **노드 1** | **노드 2** | **노드 3** |
 |------------|------------|------------|

@@ -16,12 +16,12 @@ ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: c7a6330f8e0197092f4c581f46c3cc6e68dba247
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: eef9e45d71dd5a8c29112f74deaf8342dc0d1406
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540264"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101502"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Azure Stack에서 Java를 사용 하 여 API 버전 프로필 사용
 
@@ -62,11 +62,11 @@ Java SDK는 Azure Stack Resource Manager에 대 한 빌드 및 인프라를 관�
 
 Java SDK를 설치 하려면 다음 단계를 사용 합니다.
 
-1.  Git을 설치 하는 공식 지침을 따릅니다. 자세한 내용은 [시작-Git 설치](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)합니다.
+1. Git을 설치 하는 공식 지침을 따릅니다. 자세한 내용은 [시작-Git 설치](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)합니다.
 
-2.  공식 지침에 따라 설치 합니다 [Java SDK](https://zulu.org/download/) 하 고 [Maven](https://maven.apache.org/)합니다. 올바른 버전은 버전 8 Java Developer Kit입니다. 올바른 Apache Maven은 버전 3.0 이상. 빠른 시작을 완료 하려면 JAVA_HOME 환경 변수가 Java Development Kit의 설치 위치에 설정 되어야 합니다. 자세한 내용은 [Java 및 Maven을 사용 하 여 첫 번째 함수 만들기](../../azure-functions/functions-create-first-java-maven.md)합니다.
+2. 공식 지침에 따라 설치 합니다 [Java SDK](https://zulu.org/download/) 하 고 [Maven](https://maven.apache.org/)합니다. 올바른 버전은 버전 8 Java Developer Kit입니다. 올바른 Apache Maven은 버전 3.0 이상. 빠른 시작을 완료 하려면 JAVA_HOME 환경 변수가 Java Development Kit의 설치 위치에 설정 되어야 합니다. 자세한 내용은 [Java 및 Maven을 사용 하 여 첫 번째 함수 만들기](../../azure-functions/functions-create-first-java-maven.md)합니다.
 
-3.  올바른 종속성 패키지를 설치 하려면 Java 응용 프로그램에서 Pom.xml 파일을 엽니다. 다음 코드와 같이 종속성을 추가 합니다.
+3. 올바른 종속성 패키지를 설치 하려면 Java 응용 프로그램에서 Pom.xml 파일을 엽니다. 다음 코드와 같이 종속성을 추가 합니다.
 
    ```xml  
    <dependency>
@@ -76,17 +76,17 @@ Java SDK를 설치 하려면 다음 단계를 사용 합니다.
    </dependency>
    ```
 
-4.  패키지를 설치 해야 하는 사용 하려는 프로필 버전에 따라 달라 집니다. 프로필 버전에 대 한 패키지 이름은 다음과 같습니다.
+4. 패키지를 설치 해야 하는 사용 하려는 프로필 버전에 따라 달라 집니다. 프로필 버전에 대 한 패키지 이름은 다음과 같습니다.
     
    - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
    - **com.microsoft.azure**
-      - **latest**
+     - **latest**
 
-5.  사용할 수 없는 경우 구독을 만들고 나중에 사용할 구독 ID를 저장 합니다. 구독을 만드는 방법에 지침은 [Azure Stack에서 제품에 구독을 만들려면](../azure-stack-subscribe-plan-provision-vm.md)합니다.
+5. 사용할 수 없는 경우 구독을 만들고 나중에 사용할 구독 ID를 저장 합니다. 구독을 만드는 방법에 지침은 [Azure Stack에서 제품에 구독을 만들려면](../azure-stack-subscribe-plan-provision-vm.md)합니다.
 
-6.  서비스 주체를 만들고 클라이언트 ID 및 클라이언트 암호를 저장 합니다. Azure Stack에 대 한 서비스 주체를 만드는 방법에 지침은 [Azure Stack에 대 한 응용 프로그램 액세스할](../azure-stack-create-service-principals.md)합니다. 클라이언트 ID 라고도 응용 프로그램 ID 서비스 주체를 만들 때 note 합니다.
+6. 서비스 주체를 만들고 클라이언트 ID 및 클라이언트 암호를 저장 합니다. Azure Stack에 대 한 서비스 주체를 만드는 방법에 지침은 [Azure Stack에 대 한 응용 프로그램 액세스할](../azure-stack-create-service-principals.md)합니다. 클라이언트 ID 라고도 응용 프로그램 ID 서비스 주체를 만들 때 note 합니다.
 
-7.  구독에서 서비스 주체에 참가자/소유자 역할이 있는지 확인 합니다. 서비스 주체에 역할을 할당 하는 방법에 지침은 [Azure Stack에 대 한 응용 프로그램 액세스할](../azure-stack-create-service-principals.md)합니다.
+7. 구독에서 서비스 주체에 참가자/소유자 역할이 있는지 확인 합니다. 서비스 주체에 역할을 할당 하는 방법에 지침은 [Azure Stack에 대 한 응용 프로그램 액세스할](../azure-stack-create-service-principals.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -98,7 +98,7 @@ Azure Stack을 사용 하 여 Azure Java SDK를 사용 하려면 다음 값을 �
 | 클라이언트 ID                 | AZURE_CLIENT_ID             | 주 응용 프로그램 ID 저장이 문서의 이전 섹션에서 서비스 주체를 만들 때 서비스입니다.                                                                                              |
 | 구독 ID           | AZURE_SUBSCRIPTION_ID      | 합니다 [ <span class="underline">구독 ID</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) 제품을 액세스 하는 방법에 Azure Stack에서.                |
 | 클라이언트 암호             | AZURE_CLIENT_SECRET        | 서비스 주체 응용 프로그램 서비스 주체를 만들 때 암호 저장 합니다.                                                                                                                                   |
-| Resource Manager 끝점 | ARM_ENDPOINT              | 참조 [ <span class="underline">Azure Stack 리소스 관리자 끝점</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)합니다. |
+| Resource Manager 끝점 | ARM_ENDPOINT              | 참조 [ <span class="underline">Azure Stack Resource Manager 끝점</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)합니다. |
 | 위치                  | RESOURCE_LOCATION    | Azure Stack에 대 한 로컬                                                                                                                                                                                                |
 
 Azure Stack에 대 한 테 넌 트 ID를 찾으려면 지침을 따릅니다 하세요 [여기](../azure-stack-csp-ref-operations.md)합니다. 환경 변수를 설정 하려면 다음을 수행 합니다.
@@ -119,7 +119,23 @@ Unix 기반 시스템에서 다음 명령을 사용할 수 있습니다.
 Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
-### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack resource manager 끝점
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
+
+ASDK를 사용 하는 경우에 원격 컴퓨터에 CA 루트 인증서를 신뢰 해야 합니다. 통합된 시스템을 사용 하 여이 작업을 수행 해야 합니다.
+
+#### <a name="windows"></a>Windows
+
+1. 바탕 화면에 Azure Stack 자체 서명 된 인증서 내보내기
+
+1. Cmd 셸에서 %JAVA_HOME%\bin을 디렉터리 변경
+
+1. 이 cmd를 실행 합니다.
+
+```shell
+      .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
+```
+
+### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack Resource Manager 끝점
 
 Microsoft Azure 리소스 관리자는 관리자가 배포, 관리 및 Azure 리소스를 모니터링할 수 있도록 관리 합니다. Azure Resource Manager 그룹으로 대신 개별적으로 단일 작업에서 이러한 작업을 처리할 수 있습니다.
 
@@ -162,10 +178,10 @@ API 및 Azure Stack 프로필에 대 한 자세한 내용은 참조는 [API의 �
 
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
-                    .withDefaultSubscriptionId(subscriptionId);
+                    .withDefaultSubscriptionID(subscriptionID);
 Azure azureStack = Azure.configure()
                     .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
-                    .authenticate(credentials, credentials.defaultSubscriptionId());
+                    .authenticate(credentials, credentials.defaultSubscriptionID());
 ```
 
 이 옵션을 사용 하면 API 프로필 종속성을 사용 하 여 Azure Stack에 성공적으로 응용 프로그램을 배포할 수 있습니다.
@@ -181,8 +197,8 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("resourceManagerEndpointUrl", armEndpoint);
                     put("galleryEndpointUrl", settings.get("galleryEndpoint"));
                     put("activeDirectoryEndpointUrl", settings.get("login_endpoint"));
-                    put("activeDirectoryResourceId", settings.get("audience"));
-                    put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
+                    put("activeDirectoryResourceID", settings.get("audience"));
+                    put("activeDirectoryGraphResourceID", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
                     put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
@@ -226,33 +242,33 @@ HttpResponse response = httpClient.execute(getRequest);
 
 ### <a name="sample-unit-test-project"></a>샘플 단위 테스트 프로젝트 
 
-1.  다음 명령을 사용 하 여 리포지토리를 복제 합니다.
+1. 다음 명령을 사용 하 여 리포지토리를 복제 합니다.
     
-    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
+   `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
-2.  Azure 서비스 주체 만들기 및 구독에 액세스 하는 역할을 할당 합니다. 서비스 주체를 만드는 방법에 지침은 [인증서를 사용 하 여 서비스 주체를 만들려면 Azure PowerShell을 사용 하 여](../azure-stack-create-service-principals.md)입니다.
+2. Azure 서비스 주체 만들기 및 구독에 액세스 하는 역할을 할당 합니다. 서비스 주체를 만드는 방법에 지침은 [인증서를 사용 하 여 서비스 주체를 만들려면 Azure PowerShell을 사용 하 여](../azure-stack-create-service-principals.md)입니다.
 
-3.  다음 필수 환경 변수 값을 검색 합니다.
+3. 다음 필수 환경 변수 값을 검색 합니다.
     
-    -  AZURE_TENANT_ID
-    -  AZURE_CLIENT_ID
-    -  AZURE_CLIENT_SECRET
-    -  AZURE_SUBSCRIPTION_ID
-    -  ARM_ENDPOINT
-    -  RESOURCE_LOCATION
+   -  AZURE_TENANT_ID
+   -  AZURE_CLIENT_ID
+   -  AZURE_CLIENT_SECRET
+   -  AZURE_SUBSCRIPTION_ID
+   -  ARM_ENDPOINT
+   -  RESOURCE_LOCATION
 
-4.  명령 프롬프트를 사용 하 여 만든 서비스 주체에서를 검색 한 정보를 사용 하 여 다음 환경 변수를 설정 합니다.
+4. 명령 프롬프트를 사용 하 여 만든 서비스 주체에서를 검색 한 정보를 사용 하 여 다음 환경 변수를 설정 합니다.
     
-    - AZURE_TENANT_ID 내보내기 = {테 넌 트 id}
-    - AZURE_CLIENT_ID 내보내기 = {client id}
-    - AZURE_CLIENT_SECRET 내보내기 = {클라이언트 암호}
-    - AZURE_SUBSCRIPTION_ID 내보내기 = {구독 id}
-    - ARM_ENDPOINT 내보내기 = {에 Azure Stack Resource manager URL}
-    - RESOURCE_LOCATION 내보내기 = {location Azure Stack의}
+   - AZURE_TENANT_ID 내보내기 = {테 넌 트 ID}
+   - AZURE_CLIENT_ID 내보내기 = {client ID}
+   - AZURE_CLIENT_SECRET 내보내기 = {클라이언트 암호}
+   - AZURE_SUBSCRIPTION_ID 내보내기 = {구독 ID}
+   - ARM_ENDPOINT 내보내기 = {Azure Stack Resource Manager URL}
+   - RESOURCE_LOCATION 내보내기 = {location Azure Stack의}
 
    Windows를 사용 하 여 **설정할** of **내보내기**합니다.
 
-5.  사용 된 `getactivedirectorysettings` 끝점 정보를 설정 하려면 HTTP 클라이언트를 사용 하 여 arm 메타 데이터 끝점을 검색 하는 코드입니다.
+5. 사용 된 `getactivedirectorysettings` 끝점 정보를 설정 하려면 HTTP 클라이언트를 사용 하 여 arm 메타 데이터 끝점을 검색 하는 코드입니다.
 
    ```java
    public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
@@ -274,7 +290,7 @@ HttpResponse response = httpClient.execute(getRequest);
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-6.  Pom.xml 파일에 Azure Stack에 대 한 2018-03-01-하이브리드 프로필을 사용 하려면 다음 종속성을 추가 합니다. 이 종속성이이 프로필과 연결 된 계산, 네트워킹, 저장소, KeyVault 및 App Services 리소스 공급자에 대 한 모듈을 설치 합니다.
+6. Pom.xml 파일에 Azure Stack에 대 한 2018-03-01-하이브리드 프로필을 사용 하려면 다음 종속성을 추가 합니다. 이 종속성이이 프로필과 연결 된 계산, 네트워킹, 저장소, KeyVault 및 App Services 리소스 공급자에 대 한 모듈을 설치 합니다.
       
    ```xml
    <dependency>
@@ -284,7 +300,7 @@ HttpResponse response = httpClient.execute(getRequest);
    </dependency>
    ```
 
-8.  환경 변수를 설정 하려면 열려 있는 명령 프롬프트에서 다음 줄을 입력 합니다.
+8. 환경 변수를 설정 하려면 열려 있는 명령 프롬프트에서 다음 줄을 입력 합니다.
     
    ```shell
    mvn clean compile exec:java

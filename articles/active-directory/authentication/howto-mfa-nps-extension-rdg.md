@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d7fc01e0869462928e28c01e51c91ae93fa5a8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e540eeecf49f8fb00df4a03de95c5063da360229
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171947"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124051"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -124,7 +124,7 @@ NPS 확장 구성의 일환으로 Azure AD 테넌트에 대한 관리자 자격 
 1. **속성**을 선택합니다.
 1. [속성] 블레이드에서 아래와 같이 디렉터리 ID 옆에 있는 **복사** 아이콘을 클릭하여 클립보드에 해당 ID를 복사합니다.
 
- ![properties](./media/howto-mfa-nps-extension-rdg/image1.png)
+   ![properties](./media/howto-mfa-nps-extension-rdg/image1.png)
 
 ### <a name="install-the-nps-extension"></a>NPS 확장 설치
 
@@ -139,11 +139,11 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 1. NPS 서버에서 **NpsExtnForAzureMfaInstaller.exe**를 두 번 클릭합니다. 메시지가 표시되면 **실행**을 클릭합니다.
 1. Azure MFA용 NPS 확장 설치 대화 상자에서 소프트웨어 사용 조건을 검토하고, **사용 약관에 동의함**을 선택한 다음, **설치**를 클릭합니다.
 
-  ![Azure MFA 설치](./media/howto-mfa-nps-extension-rdg/image2.png)
+   ![Azure MFA 설치](./media/howto-mfa-nps-extension-rdg/image2.png)
 
 1. Azure MFA용 NPS 확장 설치 대화 상자에서 **닫기**를 클릭합니다.
 
-  ![Azure MFA용 NPS 확장](./media/howto-mfa-nps-extension-rdg/image3.png)
+   ![Azure MFA용 NPS 확장](./media/howto-mfa-nps-extension-rdg/image3.png)
 
 ### <a name="configure-certificates-for-use-with-the-nps-extension-using-a-powershell-script"></a>PowerShell 스크립트를 사용하여 NPS 확장에서 사용할 인증서 구성
 
@@ -165,19 +165,19 @@ NPS(네트워크 정책 및 액세스 서비스) 역할이 설치된 서버에 N
 1. PowerShell 프롬프트에서 `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`를 입력하고 **Enter** 키를 누릅니다.
 1. `.\AzureMfaNpsExtnConfigSetup.ps1`을 입력하고 **ENTER** 키를 누릅니다. 스크립트에서 Azure Active Directory PowerShell 모듈이 설치되어 있는지 확인합니다. 설치되어 있지 않으면 스크립트에서 해당 모듈을 설치합니다.
 
-  ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
+   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
 1. 스크립트에서 PowerShell 모듈 설치를 확인한 후에 Azure Active Directory PowerShell 모듈 대화 상자를 표시합니다. 대화 상자에서 Azure AD 관리자 자격 증명 및 암호를 입력하고 **로그인**을 클릭합니다.
 
-  ![Powershell 계정 열기](./media/howto-mfa-nps-extension-rdg/image5.png)
+   ![Powershell 계정 열기](./media/howto-mfa-nps-extension-rdg/image5.png)
 
 1. 메시지가 표시되면 앞에서 복사한 테넌트 ID를 클립보드에 붙여넣고 **Enter** 키를 누릅니다.
 
-  ![테넌트 ID 입력](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![테넌트 ID 입력](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. 스크립트에서 자체 서명된 인증서를 만들고 다른 구성 변경 작업을 수행합니다. 출력은 아래에 표시된 이미지와 같아야 합니다.
 
-  ![자체 서명된 인증서](./media/howto-mfa-nps-extension-rdg/image7.png)
+   ![자체 서명된 인증서](./media/howto-mfa-nps-extension-rdg/image7.png)
 
 ## <a name="configure-nps-components-on-remote-desktop-gateway"></a>원격 데스크톱 게이트웨이에서 NPS 구성 요소 구성
 
@@ -192,26 +192,26 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 1. RD 게이트웨이 서버에서 **서버 관리자**를 엽니다.
 1. 메뉴에서 **도구**를 클릭하고 **원격 데스크톱 서비스**를 가리킨 다음 **원격 데스크톱 게이트웨이 관리자**를 클릭합니다.
 
-  ![원격 데스크톱 서비스](./media/howto-mfa-nps-extension-rdg/image8.png)
+   ![원격 데스크톱 서비스](./media/howto-mfa-nps-extension-rdg/image8.png)
 
 1. [RD 게이트웨이 관리자]에서 **\[서버 이름\](로컬)** 을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
-  ![서버 이름](./media/howto-mfa-nps-extension-rdg/image9.png)
+   ![서버 이름](./media/howto-mfa-nps-extension-rdg/image9.png)
 
 1. 속성 대화 상자에서 **RD CAP 저장소** 탭을 선택합니다.
 1. [RD CAP 저장소] 탭에서 **NPS를 실행하는 중앙 서버**를 선택합니다. 
 1. **NPS를 실행하는 서버의 이름 또는 IP 주소 입력** 필드에서 NPS 확장을 설치한 서버의 IP 주소 또는 서버 이름을 입력합니다.
 
-  ![이름 또는 IP 주소 입력](./media/howto-mfa-nps-extension-rdg/image10.png)
+   ![이름 또는 IP 주소 입력](./media/howto-mfa-nps-extension-rdg/image10.png)
   
 1. **추가**를 클릭합니다.
 1. **공유 비밀** 대화 상자에서 공유 비밀을 입력한 다음 **확인**을 클릭합니다. 이 공유 비밀을 기록하여 안전하게 저장해 둡니다.
 
- >[!NOTE]
- >공유 비밀은 RADIUS 서버와 클라이언트 간의 신뢰 관계를 설정하는 데 사용됩니다. 길고 복잡한 비밀을 만드세요.
- >
+   >[!NOTE]
+   >공유 비밀은 RADIUS 서버와 클라이언트 간의 신뢰 관계를 설정하는 데 사용됩니다. 길고 복잡한 비밀을 만드세요.
+   >
 
- ![공유 비밀](./media/howto-mfa-nps-extension-rdg/image11.png)
+   ![공유 비밀](./media/howto-mfa-nps-extension-rdg/image11.png)
 
 1. **확인**을 클릭하여 대화 상자를 닫습니다.
 
@@ -222,23 +222,23 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 1. RD 게이트웨이 서버에서 서버 관리자를 엽니다. 메뉴에서 **도구**를 클릭한 다음 **네트워크 정책 서버**를 클릭합니다. 
 1. **NPS(로컬)** 콘솔에서 **RADIUS 클라이언트 및 서버**를 펼치고 **원격 RADIUS 서버**를 선택합니다.
 
- ![원격 RADIUS 서버](./media/howto-mfa-nps-extension-rdg/image12.png)
+   ![원격 RADIUS 서버](./media/howto-mfa-nps-extension-rdg/image12.png)
 
 1. 세부 정보 창에서 **TS 게이트웨이 서버 그룹**을 두 번 클릭합니다.
 
- >[!NOTE]
- >이 RADIUS 서버 그룹은 NPS 정책에 대한 중앙 서버를 구성할 때 만들어졌습니다. 그룹에 하나 이상의 서버가 있는 경우 RD 게이트웨이에서는 RADIUS 메시지를 이러한 서버 또는 서버 그룹으로 전달합니다.
- >
+   >[!NOTE]
+   >이 RADIUS 서버 그룹은 NPS 정책에 대한 중앙 서버를 구성할 때 만들어졌습니다. 그룹에 하나 이상의 서버가 있는 경우 RD 게이트웨이에서는 RADIUS 메시지를 이러한 서버 또는 서버 그룹으로 전달합니다.
+   >
 
 1. **TS 게이트웨이 서버 그룹 속성** 대화 상자에서 RD CAP를 저장하도록 구성된 NPS 서버의 IP 주소 또는 이름을 선택한 다음 **편집**을 클릭합니다. 
 
- ![TS 게이트웨이 서버 그룹](./media/howto-mfa-nps-extension-rdg/image13.png)
+   ![TS 게이트웨이 서버 그룹](./media/howto-mfa-nps-extension-rdg/image13.png)
 
 1. **RADIUS 서버 편집** 대화 상자에서 **부하 분산** 탭을 선택합니다.
 1. **부하 분산** 탭의 **응답 없이 다음 시간(초)이 경과되면 요청이 손실된 것으로 간주** 필드에서 3인 기본값을 30초에서 60초 사이의 값으로 변경합니다.
 1. **서버가 사용 불가능 상태로 표시된 경우 요청 사이의 시간(초)** 필드에서 30초인 기본값을 이전 단계에서 지정한 값보다 크거나 같은 값으로 변경합니다.
 
- ![Radius 서버 편집](./media/howto-mfa-nps-extension-rdg/image14.png)
+   ![Radius 서버 편집](./media/howto-mfa-nps-extension-rdg/image14.png)
 
 1. **확인**을 두 번 클릭하여 대화 상자를 닫습니다.
 
@@ -251,7 +251,7 @@ RD CAP(원격 데스크톱 연결 권한 부여 정책)는 원격 데스크톱 �
 1. **TS 게이트웨이 권한 부여 정책 속성** 대화 상자에서 **설정** 탭을 클릭합니다.
 1. **설정** 탭의 [연결 요청 전달]에서 **인증**을 클릭합니다. RADIUS 클라이언트에서 인증 요청을 전달하도록 구성됩니다.
 
- ![인증 설정](./media/howto-mfa-nps-extension-rdg/image15.png)
+   ![인증 설정](./media/howto-mfa-nps-extension-rdg/image15.png)
 
 1. **취소**를 클릭합니다.
 
@@ -268,7 +268,7 @@ NPS 확장이 설치된 NPS 서버에서는 원격 데스크톱 게이트웨이�
 1. [네트워크 정책 서버] 콘솔에서 **NPS(로컬)** 를 마우스 오른쪽 단추로 클릭한 다음 **Active Directory에 서버 등록**을 클릭합니다.
 1. **확인**을 두 번 클릭합니다.
 
- ![AD에 서버 등록](./media/howto-mfa-nps-extension-rdg/image16.png)
+   ![AD에 서버 등록](./media/howto-mfa-nps-extension-rdg/image16.png)
 
 1. 다음 절차를 위해 콘솔을 열어 둡니다.
 
@@ -278,12 +278,12 @@ NPS 확장이 설치된 NPS 서버에서는 원격 데스크톱 게이트웨이�
 
 1. NPS 확장이 설치된 NPS 서버의 **NPS(로컬)** 콘솔에서 **RADIUS 클라이언트**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 클릭합니다.
 
- ![새 RADIUS 클라이언트](./media/howto-mfa-nps-extension-rdg/image17.png)
+   ![새 RADIUS 클라이언트](./media/howto-mfa-nps-extension-rdg/image17.png)
 
 1. **새 RADIUS 클라이언트** 대화 상자에서 _게이트웨이_와 같은 친숙한 이름과 원격 데스크톱 게이트웨이 서버의 IP 주소 또는 DNS 이름을 제공합니다. 
 1. **공유 비밀** 및 **공유 비밀 확인** 필드에서 이전에 사용한 것과 동일한 비밀을 입력합니다.
 
- ![이름 및 주소](./media/howto-mfa-nps-extension-rdg/image18.png)
+   ![이름 및 주소](./media/howto-mfa-nps-extension-rdg/image18.png)
 
 1. **확인**을 클릭하여 새 RADIUS 클라이언트 대화 상자를 닫습니다.
 
@@ -294,28 +294,28 @@ Azure MFA 확장이 있는 NPS 서버는 CAP(연결 권한 부여 정책)에 지
 1. NPS 서버에서 NPS(로컬) 콘솔을 열고 **정책**을 펼쳐서 **네트워크 정책**을 클릭합니다.
 1. **다른 액세스 서버 연결**을 마우스 오른쪽 단추로 클릭하고 **중복된 정책**을 클릭합니다.
 
- ![중복된 정책](./media/howto-mfa-nps-extension-rdg/image19.png)
+   ![중복된 정책](./media/howto-mfa-nps-extension-rdg/image19.png)
 
 1. **Copy of Connections to other access servers(다른 액세스 서버 연결 복사본)** 를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
- ![네트워크 속성](./media/howto-mfa-nps-extension-rdg/image20.png)
+   ![네트워크 속성](./media/howto-mfa-nps-extension-rdg/image20.png)
 
 1. **다른 액세스 서버 연결 복사본** 대화 상자의 **정책 이름**에서 적합한 이름(예: _RDG_CAP_)을 입력합니다. **정책 사용**을 선택하고 **액세스 허용**을 선택합니다. 필요에 따라 **네트워크 액세스 서버 형식**에서 **원격 데스크톱 게이트웨이**를 선택하거나 **지정되지 않음**으로 그대로 둘 수 있습니다.
 
- ![연결 복사본](./media/howto-mfa-nps-extension-rdg/image21.png)
+   ![연결 복사본](./media/howto-mfa-nps-extension-rdg/image21.png)
 
 1. **제약 조건** 탭을 클릭하고 **인증 방법을 협상하지 않고 클라이언트가 연결할 수 있음**을 선택합니다.
 
- ![클라이언트 연결 허용](./media/howto-mfa-nps-extension-rdg/image22.png)
+   ![클라이언트 연결 허용](./media/howto-mfa-nps-extension-rdg/image22.png)
 
 1. 필요에 따라 **조건** 탭을 클릭하고 특정 Windows 그룹의 멤버 자격과 같이 연결 권한을 부여받기 위해 충족해야 하는 조건을 추가합니다.
 
- ![조건](./media/howto-mfa-nps-extension-rdg/image23.png)
+   ![조건](./media/howto-mfa-nps-extension-rdg/image23.png)
 
 1. **확인**을 클릭합니다. 해당 도움말 항목을 볼 것인지 묻는 메시지가 표시되면 **아니요**를 클릭합니다.
 1. 새 정책이 목록의 맨 위에 있는지, 정책을 사용하도록 설정되었는지 및 액세스 권한을 부여하는지를 확인합니다.
 
- ![네트워크 정책](./media/howto-mfa-nps-extension-rdg/image24.png)
+   ![네트워크 정책](./media/howto-mfa-nps-extension-rdg/image24.png)
 
 ## <a name="verify-configuration"></a>구성 확인
 

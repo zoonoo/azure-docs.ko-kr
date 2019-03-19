@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d8059ac4965ce5582b899ebc0d765e00ae9deb35
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 5c215c125237d72875155f15002fca6c4bee53b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077737"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
@@ -31,7 +31,8 @@ Azure IoT Edge는 컨테이너로 구현되므로 모듈을 시작할 컨테이�
 
 <br>
 <center>
-![컨테이너 런타임인 Moby](./media/support/only-moby-for-production.png)
+
+![컨테이너 런타임을 모 비](./media/support/only-moby-for-production.png)
 </center>
 
 ## <a name="operating-systems"></a>운영 체제
@@ -40,25 +41,28 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
     * 자동화된 테스트에서 이 운영 체제를 사용하고
     * 해당 운영 체제에 대한 설치 패키지를 제공합니다.
 * 계층 2 시스템은 Azure IoT Edge와 호환 가능하다고 간주할 수 있고 상대적으로 쉽게 사용할 수 있습니다. 이는 다음을 의미합니다.
-    * Microsoft에서는 해당 플랫폼에 대한 임시 테스트를 완료하고 해당 플랫폼에서 성공적으로 Azure IoT Edge를 실행하는 파트너를 인식하고 있습니다.
+    * Microsoft은 플랫폼에서 임시 테스트를 수행한 또는 플랫폼에서 Azure IoT Edge를 성공적으로 실행 하는 파트너의 인식
     * 다른 플랫폼에 대한 설치 패키지는 다음 플랫폼에서 작동할 수 있습니다.
     
 호스트 OS 제품군은 항상 모듈의 컨테이너 내부에서 사용되는 게스트 OS 제품군과 일치해야 합니다. 즉, Linux에서는 Linux 컨테이너만 사용하고 Windows에서는 Windows 컨테이너만 사용할 수 있습니다. Windows를 사용하는 경우 프로세스 격리 컨테이너만 지원되고 hyper-v 격리 컨테이너는 지원되지 않습니다.  
 
 <br>
 <center>
-![호스트 OS가 게스트 OS와 일치함](./media/support/edge-on-device.png)
+
+![호스트 OS와 게스트 OS 일치](./media/support/edge-on-device.png)
 </center>
 
 ### <a name="tier-1"></a>계층 1
 일반 공급
+
 | 운영 체제 | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
-| Raspbian-stretch | 아니요 | 예|
+| Raspbian-stretch | 아니요 | 예.|
 | Ubuntu Server 16.04 | 예 | 아니요 |
 | Ubuntu Server 18.04 | 예 | 아니요 |
 
 공개 미리 보기
+
 | 운영 체제 | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core 빌드 17763 | 예 | 아니요 |
@@ -73,10 +77,10 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 | ---------------- | ----- | ----- |
 | CentOS 7.5 | 예 | 예 |
 | Debian 8 | 예 | 예 |
-| Debian 9 | 예 | 예 |
+| Debian 9 | 예 | 예. |
 | RHEL 7.5 | 예 | 예 |
 | Ubuntu 18.04 | 예 | 예 |
-| Ubuntu 16.04 | 예 | 예 |
+| Ubuntu 16.04 | 예. | 예 |
 | Wind River 8 | 예 | 아니요 |
 | Yocto | 예 | 아니요 |
 
@@ -86,7 +90,8 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 
 <br>
 <center>
-![VM의 Azure IoT Edge](./media/support/edge-on-vm.png)
+
+![VM에서 azure IoT Edge](./media/support/edge-on-vm.png)
 </center>
 
 ## <a name="minimum-system-requirements"></a>최소 시스템 요구 사항

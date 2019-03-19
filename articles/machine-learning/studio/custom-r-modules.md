@@ -5,17 +5,17 @@ description: 이 토픽에서는 Azure Machine Learning Studio에서 사용자 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 43691988e3f4f253c642702ad19272a5267c14cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457033"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120383"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio에 사용할 사용자 지정 R 모듈 정의
 
@@ -123,7 +123,7 @@ Module 요소의 문자 제한에 대한 규칙:
 * **Description** 요소의 내용은 128자를 초과할 수 없습니다.
 * **Owner** 요소의 내용은 32자를 초과할 수 없습니다.
 
-모듈의 결과는 결정적이거나 비결정적일 수 있습니다.** 기본적으로 모든 모듈은 결정적인 것으로 간주됩니다. 즉, 변경되지 않는 입력 매개 변수 및 데이터 집합이 주어진 경우 모듈은 실행될 때마다 같은 결과를 반환합니다. 이 동작에 따라 Azure Machine Learning Studio는 매개 변수 또는 입력 데이터가 변경된 경우에만 결정적으로 표시된 모듈을 다시 실행합니다. 캐시된 결과 반환은 훨씬 더 빠른 실험의 실행도 제공합니다.
+모듈의 결과는 결정적이거나 비결정적일 수 있습니다.** 기본적으로 모든 모듈은 결정적인 것으로 간주됩니다. 즉, 입력된 매개 변수 및 데이터 집합을 변경 되지 않는 들어 모듈이 반환 되어야 동일한 결과 주어진 경우는 함수에 실행 될 때. 이 동작에 따라 Azure Machine Learning Studio는 매개 변수 또는 입력 데이터가 변경된 경우에만 결정적으로 표시된 모듈을 다시 실행합니다. 캐시된 결과 반환은 훨씬 더 빠른 실험의 실행도 제공합니다.
 
 현재 날짜 또는 시간을 반환하는 RAND 또는 함수와 같은 비결정적인 함수도 있습니다. 모듈이 비결정적 함수를 사용하는 경우 옵션 **isDeterministic** 특성을 **FALSE**로 설정하여 모듈을 비결정적으로 지정할 수 있습니다. 이는 모듈이 모듈 입력 및 매개 변수가 변경되지 않은 경우에도 실험이 실행될 때마다 다시 실행되는 것을 보장합니다. 
 

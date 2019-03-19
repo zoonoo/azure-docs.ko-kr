@@ -1,5 +1,5 @@
 ---
-title: 'VNet: 클래식: Azure Portal 사이의 연결 만들기 | Microsoft Docs'
+title: 'Vnet 간 연결을 만듭니다: 클래식: Azure Portal | Microsoft Docs'
 description: PowerShell 및 Azure Portal을 사용하여 Azure 가상 네트워크를 함께 연결합니다.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: d9766afefa793baf66ea5218843f06031b1b364c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: 6924d4eca52bfab8c90e7787bb8849b47df064db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601059"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112265"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
 
@@ -54,9 +54,9 @@ VPN 게이트웨이를 사용하여 클래식 배포 모델에서 가상 네트�
 
 * **지역 간 지리적 중복 및 지리적 상태**
 
-  * 인터넷 연결 끝점으로 이동하지 않고도 보안 연결을 통해 지역에서 복제 또는 동기화를 직접 설정할 수 있습니다.
+  * 인터넷 연결 엔드포인트로 이동하지 않고도 보안 연결을 통해 지역에서 복제 또는 동기화를 직접 설정할 수 있습니다.
   * Azure 부하 분산 장치 및 Microsoft 또는 타사 클러스터링 기술을 사용하여 여러 Azure 지역 간의 지리적 중복을 통해 워크로드의 가용성을 높게 설정할 수 있습니다. 이러한 작업의 한 가지 주요 예는 여러 Azure 지역에 분산된 가용성 그룹을 사용하여 SQL AlwaysOn을 설정하는 것입니다.
-* **분리 경계가 뚜렷한 지역별 다중 계층 응용 프로그램**
+* **분리 경계가 뚜렷한 지역별 다중 계층 애플리케이션**
 
   * 같은 지역 내에서 뚜렷한 경계를 적용해 여러 VNet이 함께 연결된 다중 계층 애플리케이션을 설정하고 계층 간 통신을 보호할 수 있습니다.
 * **Azure의 구독 간/조직 간 통신**
@@ -99,7 +99,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 **TestVNet1에 대한 값**
 
 이름: TestVNet1<br>
-주소 공간: 10.11.0.0/16, 10.12.0.0/16(선택 사항)<br>
+주소 공간 10.11.0.0/16, 10.12.0.0/16 (선택 사항)<br>
 서브넷 이름: 기본값<br>
 서브넷 주소 범위: 10.11.0.1/24<br>
 리소스 그룹: ClassicRG<br>
@@ -109,7 +109,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 **TestVNet4에 대한 값**
 
 이름: TestVNet4<br>
-주소 공간: 10.41.0.0/16, 10.42.0.0/16(선택 사항)<br>
+주소 공간 10.41.0.0/16, 10.42.0.0/16 (선택 사항)<br>
 서브넷 이름: 기본값<br>
 서브넷 주소 범위: 10.41.0.1/24<br>
 리소스 그룹: ClassicRG<br>
@@ -186,7 +186,7 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 1. Azure Portal에서 가상 네트워크를 찾습니다.
 2. 클릭하여 VNet **개요** 페이지를 엽니다. 페이지의 **VPN 연결**에서 가상 네트워크 게이트웨이의 IP 주소를 볼 수 있습니다.
 
-  ![공용 IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/publicIP.png)
+   ![공용 IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/publicIP.png)
 3. IP 주소를 복사합니다. 다음 섹션에서 사용하게 됩니다.
 4. TestVNet4에 대해 이들 단계를 반복합니다.
 
@@ -195,22 +195,22 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 1. Azure Portal에서 가상 네트워크를 찾습니다.
 2. VNet **개요** 페이지에서 로컬 사이트를 클릭합니다.
 
-  ![생성된 로컬 사이트](./media/vpn-gateway-howto-vnet-vnet-portal-classic/local.png)
+   ![생성된 로컬 사이트](./media/vpn-gateway-howto-vnet-vnet-portal-classic/local.png)
 3. **사이트 간 VPN 연결** 페이지에서 수정할 로컬 사이트의 이름을 클릭합니다.
 
-  ![로컬 사이트 열기](./media/vpn-gateway-howto-vnet-vnet-portal-classic/openlocal.png)
+   ![로컬 사이트 열기](./media/vpn-gateway-howto-vnet-vnet-portal-classic/openlocal.png)
 4. 수정할 **로컬 사이트**를 클릭합니다.
 
-  ![사이트 수정](./media/vpn-gateway-howto-vnet-vnet-portal-classic/connections.png)
+   ![사이트 수정](./media/vpn-gateway-howto-vnet-vnet-portal-classic/connections.png)
 5. **VPN 게이트웨이 IP 주소**를 업데이트하고 **확인**을 클릭하여 설정을 저장합니다.
 
-  ![게이트웨이 IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/gwupdate.png)
+   ![게이트웨이 IP](./media/vpn-gateway-howto-vnet-vnet-portal-classic/gwupdate.png)
 6. 다른 페이지를 닫습니다.
 7. TestVNet4에 대해 이들 단계를 반복합니다.
 
 ## <a name="getvalues"></a>7단계 - 네트워크 구성 파일에서 값 검색
 
-Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 PowerShell에 사용한 전체 이름이 아닙니다. 예를 들어 포털에 **TestVNet1**이라는 이름으로 표시되는 VNet은 네트워크 구성 파일에서 훨씬 더 긴 이름이 있을 수 있습니다. 해당 이름은 **Group ClassicRG TestVNet1**과 같은 모양일 수 있습니다. 연결을 만드는 경우 네트워크 구성 파일에 있는 값을 사용하는 것이 중요합니다.
+Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 PowerShell에 사용한 전체 이름이 아닙니다. 예를 들어 포털에 **TestVNet1**이라는 이름으로 표시되는 VNet은 네트워크 구성 파일에서 훨씬 더 긴 이름이 있을 수 있습니다. 이름은 다음과 같이 표시될 수 있습니다. **ClassicRG TestVNet1 그룹**합니다. 연결을 만드는 경우 네트워크 구성 파일에 있는 값을 사용하는 것이 중요합니다.
 
 다음 단계에서는 연결에 필요한 값을 확보하기 위해 Azure 계정에 연결하고 네트워크 구성 파일을 다운로드하여 살펴봅니다.
 
@@ -218,32 +218,32 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
 
 2. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzureRmAccount
+   ```
 
-  계정에 대한 구독을 확인합니다.
+   계정에 대한 구독을 확인합니다.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 
-  둘 이상의 구독이 있는 경우 사용할 구독을 선택합니다.
+   둘 이상의 구독이 있는 경우 사용할 구독을 선택합니다.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
-  다음 cmdlet을 사용하여 클래식 배포 모델용 PowerShell에 Azure 구독을 추가합니다.
+   다음 cmdlet을 사용하여 클래식 배포 모델용 PowerShell에 Azure 구독을 추가합니다.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 3. 네트워크 구성 파일을 내보내고 및 살펴봅니다. 컴퓨터에 디렉터리를 만들고 디렉터리에 네트워크 구성 파일을 내보냅니다. 이 예제에서는 네트워크 구성 파일을 **C:\AzureNet**으로 내보냅니다.
 
-  ```powershell
-  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-  ```
+   ```powershell
+   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+   ```
 4. 텍스트 편집기에서 파일을 열고 VNet과 사이트의 이름을 확인합니다. 연결을 만들 때 사용한 이름을 볼 수 있습니다.<br>VNet 이름은 **VirtualNetworkSite name =** 으로 나열됩니다.<br>사이트 이름은 **LocalNetworkSiteRef name =** 으로 나열됩니다.
 
 ## <a name="createconnections"></a>8단계 - VPN 게이트웨이 연결 만들기
@@ -254,31 +254,31 @@ Azure Portal에서 클래식 VNet을 만드는 경우 볼 수 있는 이름은 P
 
 1. TestVNet1 대 TestVNet4 연결을 만듭니다.
 
-  ```powershell
-  Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet1' `
-  -LocalNetworkSiteName '17BE5E2C_VNet4Local' -SharedKey A1b2C3D4
-  ```
+   ```powershell
+   Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet1' `
+   -LocalNetworkSiteName '17BE5E2C_VNet4Local' -SharedKey A1b2C3D4
+   ```
 2. TestVNet4 대 TestVNet1 연결을 만듭니다.
 
-  ```powershell
-  Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet4' `
-  -LocalNetworkSiteName 'F7F7BFC7_VNet1Local' -SharedKey A1b2C3D4
-  ```
+   ```powershell
+   Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet4' `
+   -LocalNetworkSiteName 'F7F7BFC7_VNet1Local' -SharedKey A1b2C3D4
+   ```
 3. 연결이 초기화될 때까지 기다립니다. 게이트웨이가 초기화된 후에는 상태가 ‘성공’입니다.
 
-  ```
-  Error          :
-  HttpStatusCode : OK
-  Id             :
-  Status         : Successful
-  RequestId      :
-  StatusCode     : OK
-  ```
+   ```
+   Error          :
+   HttpStatusCode : OK
+   Id             :
+   Status         : Successful
+   RequestId      :
+   StatusCode     : OK
+   ```
 
 ## <a name="faq"></a>클래식 VNet에 대한 VNet-VNet 고려 사항
 * 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독에 있을 수도 있습니다.
 * 가상 네트워크는 같은 Azure 지역(위치)에 있을 수도 있고 다른 Azure 지역(위치)에 있을 수도 있습니다.
-* 클라우드 서비스 또는 부하 분산 끝점은 연결되어 있더라도 여러 가상 네트워크에 분산될 수 없습니다.
+* 클라우드 서비스 또는 부하 분산 엔드포인트는 연결되어 있더라도 여러 가상 네트워크에 분산될 수 없습니다.
 * 여러 가상 네트워크를 연결할 때 VPN 디바이스는 필요하지 않습니다.
 * VNet 간 연결은 Azure Virtual Network 연결을 지원합니다. 그러나 가상 네트워크에 배포되지 않은 가상 머신 또는 클라우드 서비스 연결은 지원하지 않습니다.
 * VNet-VNet을 위해서는 동적 라우팅 게이트웨이가 필요합니다. Azure 정적 라우팅 게이트웨이는 지원되지 않습니다.

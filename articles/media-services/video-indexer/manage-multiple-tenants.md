@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 02/10/2019
 ms.author: ikbarmen
-ms.openlocfilehash: 3b6daa60e8c8945d49170a00da5bd3ffb57b48ac
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e98cf44db01de1f99836e247066ba01006eac97b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000117"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733302"
 ---
 # <a name="manage-multiple-tenants"></a>여러 테넌트 관리
 
@@ -56,7 +56,7 @@ ms.locfileid: "56000117"
 
 [비디오를 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)할 때 테넌트당 다른 파티션 특성을 지정할 수 있습니다. 이렇게 하면 [검색 API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Search-videos?)에서 격리가 가능합니다. 검색 API에서 파티션 특성을 지정하면 지정된 파티션의 결과만 표시됩니다. 
 
- ### <a name="considerations"></a>고려 사항
+### <a name="considerations"></a>고려 사항
 
 * 테넌트 간에 콘텐츠 및 사용자 지정 모델을 공유할 수 있습니다.
 * 한 테넌트가 다른 테넌트의 성능에 영향을 줍니다.

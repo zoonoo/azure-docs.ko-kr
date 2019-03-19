@@ -8,44 +8,44 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 33234c03a3e691a95e61f825a0351cf481431294
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: e0513bc18f1cf14beb4c1becfc1835235a5ddc96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731397"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092228"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 내보내기 작업 만들기
 REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 내보내기 작업을 만드는 단계는 다음과 같습니다.
 
--   내보낼 blob 선택
+- 내보낼 blob 선택
 
--   배송 위치 가져오기
+- 배송 위치 가져오기
 
--   내보내기 작업 만들기
+- 내보내기 작업 만들기
 
--   지원되는 운송업체 서비스를 통해 Microsoft에 빈 드라이브 배송
+- 지원되는 운송업체 서비스를 통해 Microsoft에 빈 드라이브 배송
 
--   패키지 정보를 사용하여 내보내기 작업 업데이트
+- 패키지 정보를 사용하여 내보내기 작업 업데이트
 
--   Microsoft에서 드라이브 다시 받기
+- Microsoft에서 드라이브 다시 받기
 
- Import/Export 서비스에 대한 개요 및 [Azure Portal](https://portal.azure.com/)을 사용하여 가져오기 및 내보내기 작업을 만들고 관리하는 방법을 보여 주는 자습서는 [Microsoft Azure Import/Export 서비스를 사용하여 데이터를 Blob Storage로 전송](storage-import-export-service.md)을 참조하세요.
+  Import/Export 서비스에 대한 개요 및 [Azure Portal](https://portal.azure.com/)을 사용하여 가져오기 및 내보내기 작업을 만들고 관리하는 방법을 보여 주는 자습서는 [Microsoft Azure Import/Export 서비스를 사용하여 데이터를 Blob Storage로 전송](storage-import-export-service.md)을 참조하세요.
 
 ## <a name="selecting-blobs-to-export"></a>내보낼 blob 선택
  내보내기 작업을 만들려면 저장소 계정에서 내보낼 blob 목록을 제공해야 합니다. 다음과 같은 방법으로 내보낼 blob을 선택할 수 있습니다.
 
--   상대 blob 경로를 사용하여 단일 blob 및 해당 스냅숏을 모두 선택할 수 있습니다.
+- 상대 blob 경로를 사용하여 단일 blob 및 해당 스냅숏을 모두 선택할 수 있습니다.
 
--   상대 blob 경로를 사용하여 단일 blob을 선택하고 해당 스냅숏은 제외할 수 있습니다.
+- 상대 blob 경로를 사용하여 단일 blob을 선택하고 해당 스냅숏은 제외할 수 있습니다.
 
--   상대 blob 경로 및 스냅숏 시간을 사용하여 단일 스냅숏을 선택할 수 있습니다.
+- 상대 blob 경로 및 스냅숏 시간을 사용하여 단일 스냅숏을 선택할 수 있습니다.
 
--   blob 접두사를 사용하여 지정된 접두사를 갖는 모든 blob 및 스냅숏을 선택할 수 있습니다.
+- blob 접두사를 사용하여 지정된 접두사를 갖는 모든 blob 및 스냅숏을 선택할 수 있습니다.
 
--   저장소 계정의 모든 blob 및 스냅숏을 내보낼 수 있습니다.
+- 저장소 계정의 모든 blob 및 스냅숏을 내보낼 수 있습니다.
 
- 내보낼 blob을 지정하는 방법에 대한 자세한 내용은 [작업 배치](/rest/api/storageimportexport/jobs) 연산을 참조하세요.
+  내보낼 blob을 지정하는 방법에 대한 자세한 내용은 [작업 배치](/rest/api/storageimportexport/jobs) 연산을 참조하세요.
 
 ## <a name="obtaining-your-shipping-location"></a>배송 위치 가져오기
 내보내기 작업을 만들기 전에 [위치 가져오기](https://portal.azure.com) 또는 [위치 나열](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) 연산을 호출하여 배송 위치 이름 및 주소를 가져와야 합니다. `List Locations`는 위치 목록과 해당 우편 발송 주소 목록을 반환합니다. 반환된 목록에서 위치를 선택하고 해당 주소로 하드 드라이브 배송할 수 있습니다. `Get Location` 연산을 사용하여 특정 위치에 대한 배송 주소를 직접 얻을 수도 있습니다.

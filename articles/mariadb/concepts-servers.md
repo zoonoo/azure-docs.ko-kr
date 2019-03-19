@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: c2497fef359d4a519c6d4927dfc0c38ee3d80d88
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: f61f8740c9514f6276afb2ee84bcdccdc54c0710
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544569"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997906"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 서버 개념
 이 문서에서는 Azure Database for MariaDB 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
@@ -36,6 +36,7 @@ Azure Database for MariaDB 서버 내에서 하나 이상의 데이터베이스�
 ## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버를 보호하는 방법
 
 다음과 같은 요소가 데이터베이스에 안전하게 액세스할 수 있도록 도와줍니다.
+
 |||
 | :--| :--|
 | **인증 및 권한 부여** | Azure Database for MariaDB 서버는 네이티브 MySQL 인증을 지원합니다. 서버의 관리자 로그인을 사용하여 서버에 연결하고 인증을 받을 수 있습니다. |

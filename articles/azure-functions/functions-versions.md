@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885190"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088420"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
- Azure Functions 런타임 주 버전에는 1.x 및 2.x의 두 가지가 있습니다. 새로운 기능이 추가되고 개선이 적용되고 있는 현재 버전은 2.x이지만 두 가지 모두 프로덕션 시나리오에서 지원됩니다.  여기에서는 두 버전의 차이점, 각 버전을 만드는 방법, 1.x에서 2.x로 업그레이드하는 방법에 대해 자세히 설명합니다.
+ Azure Functions 런타임의 두 주요 버전이 있습니다. 1.x 및 2.x입니다. 새로운 기능이 추가되고 개선이 적용되고 있는 현재 버전은 2.x이지만 두 가지 모두 프로덕션 시나리오에서 지원됩니다.  여기에서는 두 버전의 차이점, 각 버전을 만드는 방법, 1.x에서 2.x로 업그레이드하는 방법에 대해 자세히 설명합니다.
 
 > [!NOTE]
 > 이 문서에서는 클라우드 서비스 Azure Functions를 참조합니다. 온-프레미스에서 Azure Functions를 실행할 수 있는 미리 보기 제품에 대한 자세한 내용은 [Azure Functions 런타임 개요](functions-runtime-overview.md)를 참조하세요.
@@ -29,7 +29,7 @@ ms.locfileid: "48885190"
 
 비교해보면 버전 1.x 런타임은 Azure Portal 또는 Windows 컴퓨터의 개발 및 호스팅만 지원합니다.
 
-## <a name="languages"></a>언어
+## <a name="languages"></a>Languages
 
 버전 2.x 런타임은 새 언어 확장성 모델을 사용합니다. 버전 2.x에서는 함수 앱의 모든 함수가 동일한 언어를 공유해야 합니다. 함수 앱의 함수 언어는 앱을 만들 때 선택합니다.
 
@@ -49,7 +49,7 @@ Azure Functions 1.x 실험 언어는 새 모델을 사용하도록 업데이트�
 
 ### <a name="changes-in-triggers-and-bindings"></a>트리거 및 바인딩의 변경 내용
 
-버전 2.x를 사용하려면 앱의 함수에 사용되는 특정 트리거 및 바인딩의 확장을 설치해야 합니다. 유일한 예외는 확장이 필요 없는 이 HTTP 및 타이머 트리거입니다.  자세한 내용은 [바인딩 확장 등록 및 설치](./functions-triggers-bindings.md#register-binding-extensions)를 참조하세요.
+버전 2.x를 사용하려면 앱의 함수에 사용되는 특정 트리거 및 바인딩의 확장을 설치해야 합니다. 유일한 예외는 확장이 필요 없는 이 HTTP 및 타이머 트리거입니다.  자세한 내용은 [바인딩 확장 등록 및 설치](./functions-bindings-register.md)를 참조하세요.
 
 버전 간에 `function.json` 또는 함수의 특성도 일부 변경되었습니다. 예를 들어, 이벤트 허브 `path` 속성은 이제 `eventHubName`입니다. 각 바인딩의 설명서에 대한 링크는 [기존 바인딩 테이블](#bindings)을 참조하세요.
 
@@ -65,9 +65,9 @@ Azure Functions 1.x 실험 언어는 새 모델을 사용하도록 업데이트�
 
 * 호스트 구성 파일(host.json)은 비워 두거나 문자열 `"version": "2.0"`을 포함해야 합니다.
 
-* 모니터링을 향상시키기 위해 [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) 설정을 사용하는 포털의 WebJobs 대시보드가 [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsightsinstrumentationkey) 설정을 사용하는 Azure Application Insights로 바뀌었습니다. 자세한 내용은 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
+* 모니터링을 향상시키기 위해 [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) 설정을 사용하는 포털의 WebJobs 대시보드가 [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) 설정을 사용하는 Azure Application Insights로 바뀌었습니다. 자세한 내용은 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.
 
-* 함수 앱의 모든 함수가 동일한 언어를 공유해야 합니다. 함수 앱을 만들 때 앱의 런타임 스택을 선택해야 합니다. 런타임 스택은 애플리케이션 설정의 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) 값으로 지정됩니다. 이 요구 사항은 공간 효율성 및 시작 시간을 개선하기 위해 추가되었습니다. 로컬로 개발하는 경우 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 이 설정을 포함해야 합니다.
+* 함수 앱의 모든 함수가 동일한 언어를 공유해야 합니다. 함수 앱을 만들 때 앱의 런타임 스택을 선택해야 합니다. 런타임 스택은 애플리케이션 설정의 [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) 값으로 지정됩니다. 이 요구 사항은 공간 효율성 및 시작 시간을 개선하기 위해 추가되었습니다. 로컬로 개발하는 경우 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 이 설정을 포함해야 합니다.
 
 * App Service 계획의 함수에 대한 기본 시간 제한은 30분으로 변경되었습니다. host.json에서 [functionTimeout](functions-host-json.md#functiontimeout) 설정을 사용하여 수동으로 제한 시간을 다시 무제한으로 변경할 수 있습니다.
 
@@ -95,7 +95,7 @@ Visual Studio에서 프로젝트를 만들 때 런타임 버전을 선택합니�
 ##### <a name="version-2x"></a>버전 2.x
 
 ```xml
-<TargetFramework>netstandard2.0</TargetFramework>
+<TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
@@ -109,7 +109,7 @@ Visual Studio Code 개발의 경우 설치된 도구의 버전과 일치하도�
 
 ### <a name="changing-version-of-apps-in-azure"></a>Azure에서 앱 버전 변경
 
-Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functionsextensionversion) 애플리케이션 설정에 따라 결정됩니다. `~2` 값은 버전 2.x 런타임을 대상으로 하고 `~1`은 버전 1.x 런타임을 대상으로 합니다. 이 설정을 임의로 변경하지 않도록 합니다. 함수의 다른 앱 설정 및 코드도 변경해야 할 수 있기 때문입니다. 함수 앱을 다른 런타임 버전으로 마이그레이션하기 위한 권장 방법에 대한 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
+Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) 애플리케이션 설정에 따라 결정됩니다. `~2` 값은 버전 2.x 런타임을 대상으로 하고 `~1`은 버전 1.x 런타임을 대상으로 합니다. 이 설정을 임의로 변경하지 않도록 합니다. 함수의 다른 앱 설정 및 코드도 변경해야 할 수 있기 때문입니다. 함수 앱을 다른 런타임 버전으로 마이그레이션하기 위한 권장 방법에 대한 자세한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
 
 ## <a name="bindings"></a>바인딩
 
@@ -121,11 +121,13 @@ Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTI
 
 * 사용 중인 바인딩만 런타임에 알려지고 로드되는 가벼운 실행 환경.
 
-HTTP 및 타이머 트리거를 제외하고 모든 바인딩은 명시적으로 함수 앱 프로젝트에 추가하거나 포털에 등록해야 합니다. 자세한 내용은 [바인딩 확장 등록](functions-triggers-bindings.md#register-binding-extensions)을 참조하세요.
+HTTP 및 타이머 트리거를 제외하고 모든 바인딩은 명시적으로 함수 앱 프로젝트에 추가하거나 포털에 등록해야 합니다. 자세한 내용은 [바인딩 확장 등록](./functions-bindings-expressions-patterns.md)을 참조하세요.
 
 다음 표에는 각 런타임 버전에서 지원되는 바인딩이 나와 있습니다.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

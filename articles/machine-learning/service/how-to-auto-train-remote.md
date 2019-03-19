@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 95c495bf3a8ad7b82c42d4071899d045cb49f27b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 4784ca08366d833d02372393e0e12f0fefe8c5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247547"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112452"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -80,8 +80,8 @@ DSVM 이름에는 다음과 같은 제한이 있습니다.
 
 > [!NOTE]
 >
-> 다음 코드에서는 `RemoteCompute` 대상 클래스를 사용하여 기존 VM을 컴퓨팅 대상으로 연결합니다.
-> `DsvmCompute` 클래스는 이 디자인 패턴에 따라 이후 릴리스에서 중단될 예정입니다.
+> 다음 코드에서는 합니다 [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) 대상 계산 대상으로 하는 기존 VM을 연결 하는 클래스입니다.
+> 합니다 [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) 클래스는이 디자인 패턴을 위해 이후 릴리스에서 중단 될 예정입니다.
 
 다음 코드를 실행하여 기존 Linux DSVM에서 컴퓨팅 대상을 만듭니다.
 
@@ -107,7 +107,7 @@ compute_target.wait_for_completion(show_output=True)
 
 액세스를 제공하려면 다음을 수행해야 합니다.
 + `get_data()` 함수가 포함된 get_data.py 파일 만들기 
-* 해당 파일을 절대 경로로 액세스할 수 있는 디렉터리에 배치 
++ 해당 파일을 절대 경로로 액세스할 수 있는 디렉터리에 배치 
 
 Blob Storage 또는 get_data.py 파일의 로컬 디스크에서 데이터를 읽도록 코드를 캡슐화할 수 있습니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
 

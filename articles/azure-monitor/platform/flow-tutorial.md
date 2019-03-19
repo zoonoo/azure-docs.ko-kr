@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: f38d9b40143391be34ce5f72627720e2f5119dc6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993778"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123150"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Monitor 로그 프로세스 자동화
 [Microsoft Flow](https://ms.flow.microsoft.com)를 사용하면 다양한 서비스에 수백 가지 작업을 통해 자동화된 워크플로를 만들 수 있습니다. 한 작업의 출력을 서로 다른 서비스 간의 통합을 만들 수 있는 다른 작업에 대한 입력으로 사용할 수 있습니다.  Microsoft Flow에 대한 Azure Log Analytics 커넥터를 사용하면 Azure Monitor에서 Log Analytics 작업 영역에서 로그 쿼리로 검색한 데이터를 포함하는 워크플로를 빌드할 수 있습니다.
@@ -48,13 +48,13 @@ ms.locfileid: "55993778"
 
 1. 구독 ID, 리소스 그룹 및 작업 영역 이름을 포함한 작업 영역에 대한 세부 정보를 지정합니다.
 2. 다음 로그 쿼리를 **쿼리** 창에 추가합니다.  이는 예제 쿼리일 뿐, 데이터를 반환하는 다른 항목으로 바꿀 수 있습니다.
-```
+   ```
     Event
     | where EventLevelName == "Error" 
     | where TimeGenerated > ago(1day)
     | summarize count() by Computer
     | sort by Computer
-```
+   ```
 
 2. **차트 형식**에 **HTML 테이블**을 선택합니다.<br><br>![Log Analytics 작업](media/flow-tutorial/flow03.png)
 

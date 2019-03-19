@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817345"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541930"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Data Factory는 현재 Amazon Redshift에서 [지원되는 싱크 데이터 저�
 > Amazon Redshift에서 많은 양의 데이터를 복사할 때 최상의 성능을 위해 Amazon S3(Amazon Simple Storage Service)를 통해 기본 제공 Redshift **UNLOAD**를 사용하는 것이 좋습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-* 온-프레미스 데이터 저장소로 데이터를 이동하는 경우 온-프레미스 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치합니다. 온-프레미스 컴퓨터 IP 주소를 사용하여 게이트웨이에 대한 액세스 권한을 Amazon Redshift에 부여합니다. 자세한 지침은 [클러스터에 대한 액세스 권한 부여](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)를 참조하세요.
+* 온-프레미스 데이터 저장소로 데이터를 이동하는 경우 온-프레미스 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치합니다. 온-프레미스 컴퓨터 IP 주소를 사용하여 게이트웨이에 대한 액세스 권한을 Amazon Redshift에 부여합니다. 자세한 지침은 [클러스터에 대한 액세스 권한 부여](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)를 참조하세요.
 * Azure 데이터 저장소로 데이터를 이동하려면 [Microsoft Azure 데이터 센터에서 사용되는 컴퓨팅 IP 주소 및 SQL 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.
 
 ## <a name="getting-started"></a>시작
@@ -88,7 +88,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | **query** | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
-| **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아니요 |
+| **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아닙니다. |
 | **s3LinkedServiceName** | 중간 저장소로 사용할 Amazon S3입니다. 연결된 서비스는 **AwsAccessKey** 형식의 Azure Data Factory 이름을 사용하여 지정됩니다. | **redshiftUnloadSettings** 속성을 사용할 때 필요합니다. |
 | **bucketName** | 중간 데이터를 저장하는 데 사용할 Amazon S3 버킷을 나타냅니다. 이 속성을 제공하지 않으면 복사 작업에서 자동으로 버킷을 생성합니다. | **redshiftUnloadSettings** 속성을 사용할 때 필요합니다. |
 
@@ -100,7 +100,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사
 
-Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) 명령은 Amazon S3에서 하나 이상의 파일에 대한 쿼리 결과를 언로드합니다. 이 명령은 Redshift에서 큰 데이터 세트를 복사하기 위해 Amazon에서 권장하는 방법입니다.
+Amazon Redshift [ **UNLOAD** ](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) 명령은 Amazon S3에서 하나 이상의 파일에 대한 쿼리 결과를 언로드합니다. 이 명령은 Redshift에서 큰 데이터 세트를 복사하기 위해 Amazon에서 권장하는 방법입니다.
 
 **예제: Amazon Redshift에서 Azure SQL Data Warehouse로 데이터 복사**
 
@@ -171,7 +171,7 @@ Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_U
 }
 ```
 
-비디오: Linux에서 Azure File Storage 사용
+**비디오: Linux에서 Azure File Storage 사용**
 
 ```json
 {

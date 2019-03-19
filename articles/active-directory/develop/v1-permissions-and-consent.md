@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7b2de1ae56e554013d9a5c574bb231164b80f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9ee58c2a3bed7544ff68e7d6ec756c35bee1d05b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207299"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103165"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
 
@@ -102,11 +102,11 @@ Azure AD의 애플리케이션이 필요한 리소스 또는 API에 액세스하
 - 리소스는 `Read` 및 `ReadWrite` 권한을 명시적으로 따로 정의해야 합니다.
 - 리소스는 `Admin` 권한 같은 사용자 경계 간의 데이터에 액세스를 허용하는 권한을 표시해야 합니다.
 - 리소스는 다음의 경우 `Subject.Permission[.Modifier]` 명명 패턴을 따라야 합니다.
-    - `Subject`는 사용할 수 있는 데이터의 형식에 해당합니다.
-    - `Permission`은 사용자가 해당 데이터에 대해 취할 수 있는 작업에 해당합니다.
-    - `Modifier`는 다른 권한의 특수화를 설명하기 위해 필요에 따라 사용됩니다.
+  - `Subject`는 사용할 수 있는 데이터의 형식에 해당합니다.
+  - `Permission`은 사용자가 해당 데이터에 대해 취할 수 있는 작업에 해당합니다.
+  - `Modifier`는 다른 권한의 특수화를 설명하기 위해 필요에 따라 사용됩니다.
     
     예: 
-    * Mail.Read - 사용자가 메일을 읽도록 허용합니다.
-    * Mail.ReadWrite - 사용자가 메일을 읽거나 쓰도록 허용합니다.
-    * Mail.ReadWrite.All - 관리자 또는 사용자가 조직의 모든 메일에 액세스하도록 허용합니다.
+  - Mail.Read - 사용자가 메일을 읽도록 허용합니다.
+  - Mail.ReadWrite - 사용자가 메일을 읽거나 쓰도록 허용합니다.
+  - Mail.ReadWrite.All - 관리자 또는 사용자가 조직의 모든 메일에 액세스하도록 허용합니다.

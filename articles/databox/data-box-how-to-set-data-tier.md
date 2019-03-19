@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 91cabd6601ca8d0c0eabfdb5726d4bd6b37492a6
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216085"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118377"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Azure Data Box를 사용하여 적절한 Azure Storage Blob 계층으로 데이터 전송
 
@@ -109,8 +109,8 @@ Data Box의 데이터가 기본 계층에 업로드된 후 기본 계층이 아�
     >> }
     PS C:\WINDOWS\system32>
     ```
-> [!TIP]
-> 수집 시 데이터를 보관하려면 기본 계정 계층을 핫으로 설정합니다. 기본 계층이 콜드인데 데이터를 보관으로 즉시 이동하는 경우에는 30일 조기 삭제 페널티가 적용됩니다.
+   > [!TIP]
+   > 수집 시 데이터를 보관하려면 기본 계정 계층을 핫으로 설정합니다. 기본 계층이 콜드인데 데이터를 보관으로 즉시 이동하는 경우에는 30일 조기 삭제 페널티가 적용됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

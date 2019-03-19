@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82396d3a2eadd0257bbe65f36a78cf4e7731ec16
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: cda0b1c0774ed33bf550e0edf329cc22a2807be3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009354"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Azure 인프라 VM 다시 시작을 활용하여 SAP 시스템의 고가용성 확보
 
@@ -42,7 +42,7 @@ ms.locfileid: "34657556"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -211,7 +211,7 @@ ms.locfileid: "34657556"
 
 > 이 섹션은 다음에 적용됩니다.
 >
-> ![ Windows][Logo_Windows] Windows 및 ![Linux][Logo_Linux] Linux
+> ![Windows][Logo_Windows] Windows 및 ![Linux][Logo_Linux] Linux
 >
 
 Linux에서 WSFC(Windows Server 장애 조치(failover) 클러스터링) 또는 Pacemaker와 같은 기능을 사용하지 않기로 결정한 경우(현재 SLES[SUSE Linux Enterprise Server] 12 이상에서만 지원) Azure VM 다시 시작이 사용됩니다. 이 기능은 Azure 물리적 서버 인프라 및 전반적인 기본 Azure 플랫폼의 계획되었거나 계획되지 않은 가동 중지 시간에서 SAP 시스템을 보호합니다.
@@ -225,7 +225,7 @@ Linux에서 WSFC(Windows Server 장애 조치(failover) 클러스터링) 또는 
 
 단일 Azure Storage 계정에 모든 VM을 배치하는 대신 각 VM에 대한 전용 스토리지 계정을 사용할 수 있습니다. 여러 독립 Azure Storage 계정을 사용하여 전반적인 VM 및 SAP 애플리케이션 가용성을 증가시킵니다.
 
-Azure Managed Disks는 연결된 가상 머신의 장애 도메인에 자동으로 배치됩니다. 가용성 집합에 가상 머신 두 대를 배치하고 관리 디스크를 사용하는 경우 플랫폼에서 각기 다른 장애 도메인으로 관리 디스크를 분산시키는 작업도 수행합니다. 프리미엄 저장소 계정을 사용하려는 경우에는 관리 디스크를 사용하는 것이 좋습니다.
+Azure Managed Disks는 연결된 가상 머신의 장애 도메인에 자동으로 배치됩니다. 가용성 집합에 가상 머신 두 대를 배치하고 관리 디스크를 사용하는 경우 플랫폼에서 각기 다른 장애 도메인으로 관리 디스크를 분산시키는 작업도 수행합니다. Premium Storage 계정을 사용하려는 경우에는 관리 디스크를 사용하는 것이 좋습니다.
 
 Azure 인프라 고가용성 및 저장소 계정을 사용하는 SAP NetWeaver 시스템의 샘플 아키텍처는 다음과 같을 수 있습니다.
 
@@ -278,7 +278,7 @@ VM 하나에 단일 SAP 애플리케이션 서버 인스턴스가 있는 일반�
 
   SAP 인스턴스의 Autostart에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-  * [Unix 서버 시작/중지에 따른 SAP 시작 또는 중지](http://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
+  * [Unix 서버 시작/중지에 따른 SAP 시작 또는 중지](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
   * [SAP NetWeaver 관리 에이전트 시작 및 중지](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
   * [HANA 데이터베이스의 자동 시작을 사용하도록 설정하는 방법](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
 

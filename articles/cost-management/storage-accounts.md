@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f03193253bd8d8a7530d65a552a07d3901887cf5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100857"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104304"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Cloudyn을 위한 저장소 계정 구성
 
@@ -39,13 +39,13 @@ Cloudyn에 사용할 Azure Storage를 구성하는 과정은 간단합니다. �
 2. **모든 서비스**를 선택하고 **저장소 계정**을 선택한 후 사용하려는 저장소 계정으로 스크롤한 다음, 해당 계정을 선택합니다.
 3. 저장소 계정 페이지의 **설정** 아래에서 **액세스 키**를 클릭합니다.
 4. **저장소 계정 이름** 및 **연결 문자열**을 key1 아래에 복사합니다.  
-![스토리지 계정 이름 및 연결 문자열 복사](./media/storage-accounts/azure-storage-access-keys.png)  
+   ![스토리지 계정 이름 및 연결 문자열 복사](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Azure Portal에서 Cloudyn 포털을 열거나 https://azure.cloudyn.com으로 이동하여 로그인합니다.
 6. 톱니 기호를 클릭한 다음 **보고서 저장소 관리**를 선택합니다.
 7. **새로 추가 +** 를 클릭하고 Microsoft Azure가 선택되어 있는지 확인합니다. Azure Storage 계정 이름을 **이름** 영역에 붙여 넣습니다. **연결 문자열**을 해당 영역에 붙여 넣습니다. 컨테이너 이름을 입력한 다음 **저장**을 클릭합니다.  
-![새 보고서 스토리지 추가 상자에서 Azure Storage 계정 이름 및 연결 문자열 붙여넣기](./media/storage-accounts/azure-cloudyn-storage.png)
+   ![새 보고서 스토리지 추가 상자에서 Azure Storage 계정 이름 및 연결 문자열 붙여넣기](./media/storage-accounts/azure-cloudyn-storage.png)
 
-  새 Azure 보고서 저장소 항목이 저장소 계정 목록에 나타납니다.  
+   새 Azure 보고서 저장소 항목이 저장소 계정 목록에 나타납니다.  
     ![목록의 새 Azure 보고서 스토리지 항목](./media/storage-accounts/azure-storage-entry.png)
 
 
@@ -67,8 +67,8 @@ Cloudyn 역할 또는 사용자에게 버킷에 대한 PutObject 권한을 제�
 4. **JSON** 탭을 클릭합니다.
 5. 다음 정책을 사용하여 S3 버킷에 보고서를 저장할 수 있습니다. 다음 정책 예제를 복사한 후 **JSON** 탭에 붙여 넣습니다. &lt;bucketname&gt;을 버킷 이름으로 바꿉니다.
 
-  ```json
-{
+   ```json
+   {
     "Version": "2012-10-17",
     "Statement": [
       {
@@ -82,8 +82,8 @@ Cloudyn 역할 또는 사용자에게 버킷에 대한 PutObject 권한을 제�
         ]
       }
     ]
-}
-```
+   }
+   ```
 
 6. **정책 검토**를 클릭합니다.  
     ![예제 정보를 표시하는 AWS JSON 정책](./media/storage-accounts/aws-policy.png)  
@@ -122,11 +122,11 @@ Cloudyn 역할 또는 사용자에게 버킷에 대한 PutObject 권한을 제�
 2. **사용 권한** 탭을 선택하고 **버킷 정책**을 클릭합니다.
 3. 다음 정책 샘플을 복사한 후 붙여 넣습니다. &lt;버킷\_이름&gt; 및 &lt;Cloudyn\_원칙&gt;을 버킷의 ARN으로 바꿉니다. Cloudyn에서 사용하는 역할 또는 사용자의 ARN을 대체합니다.
 
-  ```
-{
-  "Id": "Policy1485775646248",
-  "Version": "2012-10-17",
-  "Statement": [
+   ```
+   {
+   "Id": "Policy1485775646248",
+   "Version": "2012-10-17",
+   "Statement": [
     {
       "Sid": "SaveReport2S3",
       "Action": [
@@ -140,9 +140,9 @@ Cloudyn 역할 또는 사용자에게 버킷에 대한 PutObject 권한을 제�
         ]
       }
     }
-  ]
-}
-```
+   ]
+   }
+   ```
 
 4. 버킷 정책 편집기에서 **저장**을 클릭합니다.
 

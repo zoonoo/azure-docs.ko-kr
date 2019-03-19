@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 6ac37c3a53b0cc71bdab85fb86e0e85d998867aa
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.openlocfilehash: 0b6baec08470754c04aaa0bea2a3e6defe7fd91f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117866"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>특정 위치에서 Azure 지역에 연결할 때의 상대적 대기 시간 보기
 
@@ -119,8 +119,8 @@ Get-AzureRmNetworkWatcherReachabilityReport `
   -EndTime "2017-12-15"
 ```
 
->[!NOTE]
-단일 위치를 지정할 때와 달리, 위치를 지정하지 않거나, 여러 위치("미국 서부 2", "미국 서부")를 지정하는 경우 명령을 실행할 때 인터넷 서비스 공급자를 지정해야 합니다. 
+> [!NOTE]
+> 단일 위치를 지정할 때와 달리, 위치를 지정하지 않거나, 여러 위치("미국 서부 2", "미국 서부")를 지정하는 경우 명령을 실행할 때 인터넷 서비스 공급자를 지정해야 합니다. 
 
 ## <a name="view-available"></a>사용 가능한 국가, 시/도, 구/군/시 및 공급자 보기
 
@@ -138,7 +138,7 @@ Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWa
 Get-AzureRmNetworkWatcherReachabilityProvidersList `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
-  -City seattle `
+  -City Seattle `
   -Country "United States" `
   -State washington
 ```

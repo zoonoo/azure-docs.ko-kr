@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 555c8b0b4046fd20583597ae4f0215a815806b8e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860410"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008661"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>일반적인 질문: Azure 간 복제
 
@@ -26,6 +26,7 @@ ms.locfileid: "55860410"
 1.  **[다중 VM 일관성](#multi-vm-consistency)** 
 1.  **[복구 계획](#recovery-plan)** 
 1.  **[다시 보호 및 장애 복구(failback)](#reprotection-and-failback)** 
+2.  **[Capacity](#capacity)**
 1.  **[보안](#security)** 
 
 
@@ -35,7 +36,7 @@ ms.locfileid: "55860410"
 [Azure Site Recovery 가격](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) 세부 정보를 검토하세요.
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Azure Site Recovery의 무료 계층은 어떻게 작동하나요?
 Azure Site Recovery로 보호되는 모든 인스턴스는 처음 31일 동안 무료로 보호됩니다. 32일째 되는 날부터 인스턴스 보호에 대해 위 요금으로 청구됩니다.
-###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>처음 31일 동안 다른 Azure 요금이 발생하나요?
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>처음 31일 동안 다른 Azure 요금이 발생하나요?
 예, Azure Site Recovery는 보호된 인스턴스에 대해 처음 31일 동안 무료로 사용할 수 있지만 Azure Storage, 스토리지 트랜잭션 및 데이터 전송에 대해서는 요금이 발생할 수 있습니다. 복구된 가상 머신도 Azure Compute 요금이 발생할 수 있습니다. 가격 책정에 대한 자세한 내용은 [여기](https://azure.microsoft.com/pricing/details/site-recovery)를 참조하세요.
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Azure VM에서 Site Recovery를 구성하기 위한 모범 사례는 무엇입니까?
@@ -59,7 +60,7 @@ Azure Site Recovery로 보호되는 모든 인스턴스는 처음 31일 동안 �
 
 ### <a name="can-i-exclude-disks"></a>디스크를 제외할 수 있나요?
 
-예, PowerShell을 사용하여 보호 시 디스크를 제외할 수 있습니다. 자세한 내용은 [PowerShell 지침](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)을 참조하세요.
+예, PowerShell을 사용하여 보호 시 디스크를 제외할 수 있습니다. 자세한 내용은 참조 하세요. [문서](azure-to-azure-exclude-disks.md)
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
 Azure VM을 다른 Azure 지역에 복제할 때는 복제가 계속 진행됩니다. 자세한 내용은 [Azure 간 복제 아키텍처](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process)를 참조하세요.
@@ -105,7 +106,7 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다.
 애플리케이션 일치 복구 지점은 메모리와 프로세스의 모든 데이터를 캡처하므로 애플리케이션을 수신 거부하기 위해 Windows에 VSS 같은 프레임워크가 필요합니다. 워크로드가 이미 바쁘게 진행되고 있는 상태에서 이 작업이 매우 자주 수행될 경우 성능이 저하될 수 있습니다. 일반적으로 데이터베이스 이외 워크로드의 경우 앱 일치 복구 지점에 낮은 빈도를 사용하지 않는 것이 좋고, 데이터베이스 워크로드에도 1시간이면 충분합니다. 
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>애플리케이션 일치 복구 지점 생성의 최소 빈도는 어느 정도인가요?
-Site Recovery는 최소 1시간의 빈도로 애플리케이션 일치 복구 지점을 생성할 수 있습니다.
+Site Recovery는 1 시간 동안에서 최소 빈도 사용 하 여 프로그램 응용 프로그램 일치 복구 지점을 만듭니다 수 있습니다.
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>복구 지점은 어떻게 생성 및 저장되나요?
 Site Recovery에서 복구 지점을 생성하는 방법을 이해하기 위해 복구 지점 보존 창은 24시간, 앱 일치 빈도 스냅숏은 1시간인 복제 정책을 예로 들어 살펴 보겠습니다.
@@ -117,7 +118,7 @@ Site Recovery는 5분 마다 크래시 일치 복구 지점을 만듭니다. 사
 1. 마지막 1시간 내에는 5분 빈도 간격으로 만든 복구 지점이 있습니다.
 2. 마지막 1시간 이전에는 Site Recovery는 1개의 복구 지점만 유지합니다.
 
-  ![생성된 복구 지점 목록](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![생성된 복구 지점 목록](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
 
 ### <a name="how-far-back-can-i-recover"></a>복구할 수 있는 가장 오랜 복구 지점은 어떻게 되나요?
@@ -220,7 +221,12 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>장애 복구(failback)하는 데 시간이 얼마나 걸리나요?
 다시 보호 후 장애 복구에 대한 시간은 일반적으로 주 지역에서 보조 지역으로 장애 조치(failover)를 수행하는 시간과 비슷합니다. 
 
-## <a name="a-namesecuritysecurity"></a><a name="security">보안
+## <a name="capacity"></a>용량
+### <a name="does-site-recovery-work-with-reserved-instance"></a>예약 인스턴스를 사용 하 여 Site Recovery가 작동 하나요?
+예를 구입할 수 있습니다 [이더라도 인스턴스가](https://azure.microsoft.com/pricing/reserved-vm-instances/) DR 지역 및 ASR 장애 조치 작업에서는 사용 하 여 해당 합니다. </br> 추가 구성은 고객 으로부터 필요 하지 않습니다.
+
+
+## <a name="security"></a>보안
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>복제 데이터가 Site Recovery 서비스로 전송되나요?
 아니요, Site Recovery는 복제된 데이터를 가로채지 않으며 가상 머신에서 실행되는 항목에 대한 정보가 없습니다. 복제 오케스트레이션 및 장애 조치(failover)에 필요한 메타데이터만 Site Recovery 서비스로 전송됩니다.  
 Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 및 FedRAMP JAB 평가를 수행하는 중입니다.

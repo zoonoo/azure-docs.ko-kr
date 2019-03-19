@@ -3,7 +3,7 @@ title: SQL Server FCI - Azure Virtual Machines | Microsoft Docs
 description: 이 문서에서는 Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스를 만드는 방법을 설명합니다.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328555"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842756"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -74,12 +74,12 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 - [Windows 클러스터 기술](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server 장애 조치(Failover) 클러스터 인스턴스](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
-중요한 한 가지 차이점은 Azure IaaS VM 게스트 장애 조치(failover) 클러스터에서는 서버(클러스터 노드)당 단일 NIC 및 단일 서브넷이 권장된다는 것입니다. Azure 네트워킹에는 Azure IaaS VM 게스트 클러스터에서 추가 NIC 및 서브넷을 불필요하게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결 가능하다는 경고를 표시하지만, Azure IaaS VM 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시해도 됩니다. 
+하나의 중요 한 차이점은 권장 되는 Azure IaaS VM 게스트 장애 조치 클러스터에서 단일 NIC 서버 (클러스터 노드) 및 단일 서브넷입니다. Azure 네트워킹에는 Azure IaaS VM 게스트 클러스터에서 추가 NIC 및 서브넷을 불필요하게 만드는 물리적 중복성이 있습니다. 클러스터 유효성 검사 보고서는 노드가 단일 네트워크에서만 연결 가능하다는 경고를 표시하지만, Azure IaaS VM 게스트 장애 조치(failover) 클러스터에서는 이 경고를 무시해도 됩니다. 
 
 또한 다음 기술에 대한 기본적인 지식이 있어야 합니다.
 
 - [Windows Server 2016의 저장소 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
-- [Azure 리소스 그룹](../../../azure-resource-manager/resource-group-portal.md)
+- [Azure 리소스 그룹](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > 이번에 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)은 Azure에서 SQL Server FCI에 대해 지원되지 않습니다. FCI에 참여하는 VM에서 확장을 제거하는 것이 좋습니다. 이 확장은 자동화된 Backup 및 패칭 같은 기능 및 SQL용 일부 포털 기능을 지원합니다. 이 기능은 에이전트를 제거한 후 SQL VM에 대해 작동하지 않습니다.
@@ -101,7 +101,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
 ## <a name="step-1-create-virtual-machines"></a>1단계: 가상 머신 만들기
 
-1. 사용자의 구독으로 [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. 사용자의 구독으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. [Azure 가용성 집합을 만듭니다](../tutorial-availability-sets.md).
 
@@ -491,7 +491,7 @@ Azure Virtual Machines의 Windows Server 2016 및 이전 버전에서는 다음�
 - 클러스터형 MSDTC 리소스는 공유 저장소를 사용하도록 구성할 수 없습니다. Windows Server 2016에서 MSDTC 리소스를 만드는 경우 공유 저장소가 있더라도 사용 가능한 공유 저장소가 표시되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
 - 기본 Load Balancer는 RPC 포트를 처리하지 않습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 
 [원격 데스크톱(Azure)을 사용하여 S2D 설치](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

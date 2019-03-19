@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd05913a982d88a1e4fe4ff72bca0387e280e230
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211634"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838394"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>ID 동기화 및 중복 특성 복원력
 중복 특성 복원력은 Microsoft의 동기화 도구 중 하나를 실행하는 경우 **UserPrincipalName** 및 **ProxyAddress**의 충돌로 발생하는 마찰을 제거하는 Azure Active Directory의 기능입니다.
@@ -40,7 +40,7 @@ ms.locfileid: "56211634"
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>중복 특성 복원력으로 동작
 중복 특성으로 개체 프로비전 또는 업데이트에 완전히 실패하는 대신 Azure Active Directory는 고유성 제약 조건을 위반하는 중복 특성을 “격리합니다”. 이 특성이 UserPrincipalName과 같은 프로비전에 필요한 경우 서비스는 자리 표시자 값을 할당합니다. 이러한 임시 값의 형식은  
-“***<OriginalPrefix>+<4DigitNumber>@<InitialTenantDomain>.onmicrosoft.com***”.  
+“***<OriginalPrefix>+<4DigitNumber>\@<InitialTenantDomain>.onmicrosoft.com***”.  
 **ProxyAddress**와 같은 특성이 필요하지 않은 경우 Azure Active Directory는 단순히 충돌 특성을 격리하고 개체 생성 또는 업데이트를 진행합니다.
 
 특성을 격리 시 충돌에 대한 정보는 이전 동작에 사용된 동일한 오류 보고서 전자 메일에 전송됩니다. 그러나 격리가 발생할 때 이 정보는 오류 보고서에 한 번만 표시되며 이후 메일에 계속해서 기록되지 않습니다. 또한 이 개체에 대한 내보내기가 성공했으므로 동기화 클라이언트는 오류를 기록하지 않고 후속 동기화 주기 시 만들기 / 업데이트 작업을 시도하지 않습니다.
@@ -134,7 +134,7 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 ## <a name="resolving-conflicts"></a>충돌 해결
 이러한 오류에 대한 문제 해결 전략 및 해결 방법은 중복 특성 오류가 이전에 처리된 방식과 다르지 않습니다. 유일한 차이점은 타이머 작업은 서비스쪽 테넌트를 통해 스윕하여 충돌이 해결되면 적절한 개체에 문제의 특성을 자동으로 추가한다는 점입니다.
 
-[Office 365에서 디렉터리 동기화를 방해하는 중복되거나 잘못된 특성](https://support.microsoft.com/kb/2647098) 문서에서는 다양한 문제 해결 및 해결 전략에 대해 개략적으로 설명합니다.
+다양한 문제 해결 및 해결 전략에 대해 개략적으로 설명합니다. [Office 365에서 디렉터리 동기화를 방해하는 중복되거나 잘못된 특성](https://support.microsoft.com/kb/2647098) 문서에서는
 
 ## <a name="known-issues"></a>알려진 문제
 이러한 알려진 문제로 인해 데이터 손실 또는 서비스 저하가 발생하지 않습니다. 그 중 일부는 심미적이며 다른 것은 충돌 특성을 격리하는 대신 표준 “*사전 복원력*” 중복 특성 오류를 throw하고 다른 것은 추가 수동 수정이 필요한 특정 오류를 발생시킵니다.
@@ -144,9 +144,9 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 1. 특정 특성 구성이 있는 개체는 격리되는 중복 특성과 달리 내보내기 오류가 계속 수신됩니다.  
    예: 
    
-    a. 새로운 사용자가 **Joe@contoso.com**의 UPN과 ProxyAddress **smtp:Joe@contoso.com**로 AD에서 만들어집니다.
+    a. 새 사용자의 UPN 사용 하 여 AD에 만들어집니다 **Joe\@contoso.com** 및 ProxyAddress **smtp:Joe\@contoso.com**
    
-    b. 이 개체의 속성이 ProxyAddress가 **SMTP:Joe@contoso.com**인 기존 그룹과 충돌합니다.
+    b. 이 개체의 속성이 ProxyAddress가 기존 그룹을 사용 하 여 충돌 **SMTP:Joe\@contoso.com**합니다.
    
     다. 내보낼 때 충돌 특성이 격리되는 대신 **ProxyAddress 충돌** 오류가 발생합니다. 복구 기능이 활성화되기 전에 수행되므로 각 후속 동기화 주기 시 작업이 다시 시도됩니다.
 2. 두 그룹이 동일한 SMTP 주소로 온-프레미스가 생성되는 경우 하나는 첫 번째 시도에서 표준 중복 **ProxyAddress** 오류로 프로비전하지 못합니다. 그러나 다음 동기화 주기 시 중복 값은 제대로 격리됩니다.
@@ -156,13 +156,13 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 1. UPN 충돌 집합에서 두 개체에 대한 자세한 오류 메시지는 같습니다. 이는 실제로 하나에만 변경된 데이터가 있는 경우 둘 모두 해당 UPN을 변경 / 격리했음을 나타냅니다.
 2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 예: 
    
-    a. **사용자 A**는 먼저 **UPN = User@contoso.com**과 동기화합니다.
+    a. **사용자 A** 사용 하 여 먼저 동기화 **UPN = User\@contoso.com**합니다.
    
-    b. **사용자 B**는 **UPN = User@contoso.com**과 동기화하려고 시도합니다.
+    b. **사용자 B** 와 동기화 하려고 **UPN = User\@contoso.com**합니다.
    
-    다. **사용자 B**의 UPN은 **User1234@contoso.onmicrosoft.com**로 변경되며 **User@contoso.com**이 **DirSyncProvisioningErrors**에 추가됩니다.
+    다. **사용자 B 사의** UPN으로 변경 됩니다 **User1234\@contoso.onmicrosoft.com** 하 고 **사용자\@contoso.com** 에 추가 됩니다 **DirSyncProvisioningErrors** .
    
-    d. **사용자 B**에 대한 오류 메시지는 **사용자 A**가 이미 **User@contoso.com**을 UPN으로 가지고 있음을 나타내야 하지만 **사용자 B** 고유의 displayName을 보여 줍니다.
+    d. 에 대 한 오류 메시지 **사용자 B** 나타나야 합니다 **사용자는** 이미 **사용자\@contoso.com** UPN을 하지만 있듯이 **사용자 B** 고유의 displayName 합니다.
 
 **ID 동기화 오류 보고서**:
 

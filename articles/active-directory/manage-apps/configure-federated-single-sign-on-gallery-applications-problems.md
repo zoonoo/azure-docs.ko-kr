@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5295f2d341ce104ae51776af5c4477304b1dacb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 31e9746c0739a2ddd6267428f428e977151077b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187239"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099783"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성할 때 발생하는 문제
 
@@ -42,35 +42,35 @@ ms.locfileid: "56187239"
 
 애플리케이션에 대해 미리 구성된 패턴을 알려면:
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다. 7단계로 이동합니다. 이미 Azure AD의 애플리케이션 구성 블레이드에 있는 경우.
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다. 7단계로 이동합니다. 이미 Azure AD의 애플리케이션 구성 블레이드에 있는 경우.
 
-2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
+4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
+5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
-6.  Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
+6. Single Sign-On을 구성하려는 애플리케이션을 선택합니다.
 
-7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
+7. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-8.  **모드** 드롭다운에서 **SAML 기반 로그온**을 선택합니다.
+8. **모드** 드롭다운에서 **SAML 기반 로그온**을 선택합니다.
 
-9.  **도메인 및 URL 섹션** 아래의 **식별자** 또는 **회신 URL** 텍스트 상자로 이동합니다.
+9. **도메인 및 URL 섹션** 아래의 **식별자** 또는 **회신 URL** 텍스트 상자로 이동합니다.
 
 10. 애플리케이션에 대해 지원되는 패턴을 아는 방법은 세 가지가 있습니다.
 
-   * 텍스트 상자에서 지원되는 패턴이 자리 표시자로 표시됩니다. *예:* <https://contoso.com>.
+    * 텍스트 상자에서 지원되는 패턴이 자리 표시자로 표시됩니다. *예:* <https://contoso.com>.
 
-   * 패턴이 지원되지 않으면 텍스트 상자에 값을 입력하려 할 때 빨간색 느낌표가 표시됩니다. 빨간색 느낌표 위에 마우스를 놓으면 지원되는 패턴이 표시됩니다.
+    * 패턴이 지원되지 않으면 텍스트 상자에 값을 입력하려 할 때 빨간색 느낌표가 표시됩니다. 빨간색 느낌표 위에 마우스를 놓으면 지원되는 패턴이 표시됩니다.
 
-   * 애플리케이션의 자습서에서 지원되는 패턴에 대한 정보를 볼 수도 있습니다. **Azure AD Single Sign-On 구성** 섹션 아래. **도메인 및 URL** 섹션 아래의 값 구성 단계로 이동합니다.
+    * 애플리케이션의 자습서에서 지원되는 패턴에 대한 정보를 볼 수도 있습니다. **Azure AD Single Sign-On 구성** 섹션 아래. **도메인 및 URL** 섹션 아래의 값 구성 단계로 이동합니다.
 
-값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음을 수행할 수 있습니다.
+값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음을 수행할 수 있음:
 
 -   애플리케이션 공급업체의 도움을 받아 Azure AD에 미리 구성된 패턴과 일치하는 값을 얻습니다.
 
@@ -86,23 +86,23 @@ Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션
 
 Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 
-1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
+1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다.
 
-2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
-4.  Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
+4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
-5.  **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
+5. **모든 애플리케이션**을 클릭하여 모든 애플리케이션의 목록을 봅니다.
 
    * 여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
-6.  Single Sign-On을 구성한 애플리케이션을 선택합니다.
+6. Single Sign-On을 구성한 애플리케이션을 선택합니다.
 
-7.  애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
+7. 애플리케이션이 로드되면 애플리케이션의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
-8.  **SAML 서명 인증서** 섹션으로 이동한 다음 **다운로드** 열 값을 클릭합니다. Single Sign-On을 구성해야 할 애플리케이션에 따라 메타데이터 XML이나 인증서를 다운로드하는 옵션이 표시됩니다.
+8. **SAML 서명 인증서** 섹션으로 이동한 다음 **다운로드** 열 값을 클릭합니다. Single Sign-On을 구성해야 할 애플리케이션에 따라 메타데이터 XML이나 인증서를 다운로드하는 옵션이 표시됩니다.
 
 Azure AD에서는 메타데이터를 가져오는 URL을 제공하지 않습니다. 메타데이터는 XML 파일로만 검색할 수 있습니다.
 

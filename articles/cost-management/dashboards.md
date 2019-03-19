@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: f232ee89993998eb25ecce73e9c2ac8e08f3198b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7ea7cbf4526528eb481b6125b006d0c29d86deb2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094114"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001068"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>대시보드를 사용하여 주요 비용 메트릭 보기
 
@@ -24,7 +24,7 @@ Cloudyn의 대시보드에서는 개요 수준의 보고서를 확인할 수 있
 이러한 차이는 엔터티 액세스 수준에 의해 결정됩니다.
 
 - 재무 담당자
-- 응용 프로그램 또는 프로젝트 소유자
+- 애플리케이션 또는 프로젝트 소유자
 - DevOps 엔지니어
 - 경영진
 

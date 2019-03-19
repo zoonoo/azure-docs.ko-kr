@@ -8,19 +8,19 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084745"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Azure Portal에서 Chef 클라이언트 설치
 Azure Portal에서 Linux 또는 Windows 머신에 직접 Chef 클라이언트 확장을 추가할 수 있습니다. 이 문서에서는 새 Linux 가상 머신을 사용하여 해당 프로세스를 안내합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
 - **Chef**: 활성 Chef 계정이 없는 경우 [호스트된 Chef의 평가판](https://manage.chef.io/signup)에 등록합니다. 이 문서의 지침을 따르려면 Chef 계정에서 다음 값이 필요합니다.
   - organization_validation 키
@@ -30,7 +30,7 @@ Azure Portal에서 Linux 또는 Windows 머신에 직접 Chef 클라이언트 �
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>새 Linux 가상 머신에 Chef 확장 설치
 이 섹션에서는 먼저 Azure Portal을 사용하여 Linux 컴퓨터를 만듭니다. 프로세스 중 새 가상 머신에 Chef 확장을 설치하는 방법도 알게 됩니다.
 
-1. [Azure Portal](http://portal.azure.com)로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 
 1. 왼쪽 메뉴에서 **가상 머신** 옵션을 선택합니다. **가상 머신** 옵션이 없는 경우 **모든 서비스**를 선택한 다음, **가상 머신**을 선택합니다.
 
@@ -52,31 +52,31 @@ Azure Portal에서 Linux 또는 Windows 머신에 직접 Chef 클라이언트 �
 
 1. **기본** 탭에서 다음 값을 지정한 다음, **확인**을 선택합니다.
 
-    - **이름** - 새 가상 머신의 이름을 입력합니다.
-    - **VM 디스크 유형** - 저장소 디스크 유형에 대해 **SSD** 또는 **HDD**를 지정합니다. Azure의 가상 머신 디스크 유형에 대한 자세한 내용은 [디스크 유형 선택](../virtual-machines/windows/disks-types.md) 문서를 참조하세요.
-    - **사용자 이름** - 가상 머신에서 관리자 권한이 부여된 사용자 이름을 입력합니다.
-    - **인증 형식** - **암호**를 선택합니다. **SSH 공개 키**를 선택하고, SSH 공개 키 값을 제공할 수도 있습니다. 이 데모의 목적을 위해(및 스크린샷에서) **암호**가 선택됩니다.
-    - **암호** 및 **암호 확인** - 사용자에 대한 암호를 입력합니다.
-    - **Azure Active Directory로 로그인** - **사용 안 함**을 선택합니다.
-    - **구독** - 둘 이상의 구독이 있는 경우 원하는 Azure 구독을 선택합니다.
-    - **리소스 그룹** - 리소스 그룹의 이름을 입력합니다.
-    - **위치** - **미국 동부**를 선택합니다.
+   - **이름** - 새 가상 머신의 이름을 입력합니다.
+   - **VM 디스크 유형** - 저장소 디스크 유형에 대해 **SSD** 또는 **HDD**를 지정합니다. Azure의 가상 머신 디스크 유형에 대한 자세한 내용은 [디스크 유형 선택](../virtual-machines/windows/disks-types.md) 문서를 참조하세요.
+   - **사용자 이름** - 가상 머신에서 관리자 권한이 부여된 사용자 이름을 입력합니다.
+   - **인증 형식** - **암호**를 선택합니다. **SSH 공개 키**를 선택하고, SSH 공개 키 값을 제공할 수도 있습니다. 이 데모의 목적을 위해(및 스크린샷에서) **암호**가 선택됩니다.
+   - **암호** 및 **암호 확인** - 사용자에 대한 암호를 입력합니다.
+   - **Azure Active Directory로 로그인** - **사용 안 함**을 선택합니다.
+   - **구독** - 둘 이상의 구독이 있는 경우 원하는 Azure 구독을 선택합니다.
+   - **리소스 그룹** - 리소스 그룹의 이름을 입력합니다.
+   - **위치** - **미국 동부**를 선택합니다.
 
-    ![가상 머신 생성용 기본 탭](./media/chef-extension-portal/add-vm-basics.png)
+     ![가상 머신 생성용 기본 탭](./media/chef-extension-portal/add-vm-basics.png)
 
 1. **크기 선택** 탭에서 가상 머신의 크기를 선택한 다음, **선택**을 선택합니다.
 
 1. **설정** 탭에서 대부분의 값은 이전 탭에서 선택한 값을 기반으로 채워집니다. **확장**을 섡택합니다.
 
-    ![설정 탭을 통해 확장이 가상 머신에 추가됩니다.](./media/chef-extension-portal/add-vm-select-extensions.png)
+     ![설정 탭을 통해 확장이 가상 머신에 추가됩니다.](./media/chef-extension-portal/add-vm-select-extensions.png)
 
 1. **확장** 탭에서 **확장 추가**를 선택합니다.
 
-    ![확장 추가를 선택하여 가상 머신에 확장을 추가합니다.](./media/chef-extension-portal/add-vm-add-extension.png)
+     ![확장 추가를 선택하여 가상 머신에 확장을 추가합니다.](./media/chef-extension-portal/add-vm-add-extension.png)
 
 1. **새 리소스** 탭에서 **Linux Chef 확장(1.2.3)** 을 선택합니다.
 
-    ![Chef에는 Linux 및 Windows 가상 머신에 대한 확장이 있습니다.](./media/chef-extension-portal/select-linux-chef-extension.png)
+     ![Chef에는 Linux 및 Windows 가상 머신에 대한 확장이 있습니다.](./media/chef-extension-portal/select-linux-chef-extension.png)
 
 1. **Linux Chef 확장** 탭에서 **만들기**를 선택합니다.
 
@@ -94,7 +94,7 @@ Azure Portal에서 Linux 또는 Windows 머신에 직접 Chef 클라이언트 �
     - **암호화된 Databag 비밀** - 이 컴퓨터에 액세스 권한이 있어야 하는 암호화된 Databag에 대한 비밀을 포함하는 파일을 선택합니다. 비워 둘 수 있습니다.
     - **Chef 서버 SSL 인증서** - Chef 서버에 할당된 SSL 인증서를 선택합니다. 비워 둘 수 있습니다.
 
-    ![Linux 가상 머신에 Chef 서버 설치](./media/chef-extension-portal/install-extension.png)
+      ![Linux 가상 머신에 Chef 서버 설치](./media/chef-extension-portal/install-extension.png)
 
 1. **확장** 탭으로 돌아오면 **확인**을 선택합니다.
 

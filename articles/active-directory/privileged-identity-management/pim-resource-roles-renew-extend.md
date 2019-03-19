@@ -16,12 +16,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cec018eec6e298e27329c03964dccf5809c1791
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190639"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004237"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>PIM에서 Azure 리소스 역할 할당 확장 또는 갱신
 
@@ -49,7 +49,7 @@ PIM은 만료되기 14일 전 및 하루 전에 관리자 및 역할 만료의 �
 
 할당 종료 날짜-시간이 14일 이내이면 **연장** 단추가 사용자 인터페이스에서 활성 링크가 됩니다. 다음 예제에서는 현재 날짜가 3월 27일이라고 가정합니다.
 
-!["연장" 단추](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
+![단추를 확장 합니다.](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
 
 이 역할 할당의 연장을 요청하려면 **연장**을 선택하여 요청 양식을 엽니다.
 
@@ -64,11 +64,11 @@ PIM은 만료되기 14일 전 및 하루 전에 관리자 및 역할 만료의 �
 
 잠시 후 리소스 관리자는 연장 요청을 검토하도록 요청하는 메일 알림을 받게 됩니다. 연장 요청이 이미 제출된 경우에는 Azure Portal 위쪽에 오류를 설명하는 알림 메시지가 표시됩니다.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
+![알림 오류를 설명 합니다.](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
 
 왼쪽 창의 **보류 중인 요청** 탭에서 요청 상태를 보거나 취소할 수 있습니다.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
+![보류 중인 요청](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
 
 ### <a name="admin-approve"></a>관리자 승인
 
@@ -80,7 +80,7 @@ PIM은 만료되기 14일 전 및 하루 전에 관리자 및 역할 만료의 �
 
 관리자가 **승인** 또는 **거부**를 선택하면 요청의 세부 정보가 감사 로그에 대한 근거를 제공하는 필드와 함께 표시됩니다.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
+![역할 할당 요청 승인](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
 역할 할당 연장에 대한 요청을 승인할 때 리소스 관리자는 새로운 시작 날짜 및 종료 날짜 및 할당 유형을 선택할 수 있습니다. 관리자가 특정 작업을 완료하도록 제한된 액세스를 제공하려는 경우 할당 유형 변경이 필요할 수 있습니다(예: 하루). 이 예제에서는 관리자가 **적격**에서 **활성**으로 할당을 변경할 수 있습니다. 즉, 활성화를 요구하지 않고도 요청자에게 액세스 권한을 제공할 수 있습니다.
 
@@ -100,7 +100,7 @@ PIM은 만료되기 14일 전 및 하루 전에 관리자 및 역할 만료의 �
 
 리소스에 더 이상 액세스할 수 없는 멤버는 최대 30일까지 만료된 할당 내역에 액세스할 수 있습니다. 이렇게 하려면 왼쪽 창에서 **내 역할**로 이동하고 Azure 리소스 역할 섹션에서 **만료된 역할** 탭을 선택합니다.
 
-![“만료된 역할” 탭](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
+![만료 된 역할 탭](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
 표시되는 역할 목록의 기본값은 **적격 역할**입니다. 드롭다운 메뉴를 사용하여 적격 및 활성 할당 역할을 전환합니다.
 

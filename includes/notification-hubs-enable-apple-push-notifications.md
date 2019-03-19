@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264040"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125074"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>인증서 서명 요청 파일 생성
 
@@ -47,17 +47,17 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 애플리케이션을 등�
 
 2. 새 앱에 다음과 같은 세 개의 필드를 업데이트한 다음 **Continue**를 클릭합니다.
 
-    * **Name**: **App ID Description** 섹션의 **Name** 필드에서 앱에 대한 설명이 포함된 이름을 입력합니다.
-    * **번들 식별자**: **명시적 앱 ID** 섹션에 [앱 배포 가이드](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **번들 식별자**를 입력합니다. 사용하는 *Organization Identifier* 및 *Product Name*은 XCode 프로젝트를 만들 때 사용하는 조직 식별자 및 제품 이름과 일치해야 합니다. 다음 스크린샷에서는 조직 식별자로 *NotificationHubs*가 사용되고 제품 이름으로 *GetStarted*가 사용되었습니다. 이 값이 XCode 프로젝트에서 사용하는 값과 일치하면 XCode에서 올바른 게시 프로필을 사용할 수 있습니다.
-    * **Push Notifications**: **App Services** 섹션에서 **Push Notifications** 옵션을 선택합니다.
+   * **이름**: 앱에 대 한 설명이 포함 된 이름을 입력 합니다 **이름을** 필드를 **앱 ID 설명** 섹션입니다.
+   * **번들 식별자**: 아래는 **명시적 앱 ID** 섹션에서 입력을 **번들 식별자** 형태로 `<Organization Identifier>.<Product Name>` 에 설명 된 대로 [앱 배포 가이드](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)합니다. 사용하는 *Organization Identifier* 및 *Product Name*은 XCode 프로젝트를 만들 때 사용하는 조직 식별자 및 제품 이름과 일치해야 합니다. 다음 스크린샷에서는 조직 식별자로 *NotificationHubs*가 사용되고 제품 이름으로 *GetStarted*가 사용되었습니다. 이 값이 XCode 프로젝트에서 사용하는 값과 일치하면 XCode에서 올바른 게시 프로필을 사용할 수 있습니다.
+   * **푸시 알림**: 확인 합니다 **푸시 알림** 옵션을 **App Services** 섹션입니다.
 
-    ![새 앱 ID를 등록하는 양식](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+     ![새 앱 ID를 등록하는 양식](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    이 작업은 앱 ID를 생성하고 사용자에게 정보 확인을 요청합니다. **등록** 을 클릭하여 새 앱 ID를 확인합니다.
+     이 작업은 앱 ID를 생성하고 사용자에게 정보 확인을 요청합니다. **등록** 을 클릭하여 새 앱 ID를 확인합니다.
 
-    **등록**을 클릭하면 다음 이미지처럼 **등록 완료** 화면이 표시됩니다. **Done**을 클릭합니다.
+     **등록**을 클릭하면 다음 이미지처럼 **등록 완료** 화면이 표시됩니다. **Done**을 클릭합니다.
 
-    ![자격을 보여 주는 앱 ID 등록 완료](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+     ![자격을 보여 주는 앱 ID 등록 완료](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 3. 개발자 센터의 앱 ID에서 이전에 만든 앱 ID를 찾아 해당 행을 클릭합니다.
 

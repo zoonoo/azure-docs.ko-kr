@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4739308d301291bf88e8ae547ba85f9648339c4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118462"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 마이그레이션: Azure로의 마이그레이션을 위한 온-프레미스 워크로드 평가
 
@@ -90,7 +90,7 @@ Contoso는 마이그레이션 평가를 위해 Microsoft 도구를 사용합니�
 --- | --- | ---
 [데이터 Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso는 Data Migration Assistant를 사용하여 Azure의 데이터베이스 기능에 영향을 줄 수 있는 호환성 문제를 평가하고 검색합니다. Data Migration Assistant는 SQL 원본과 대상 간의 기능 패리티를 평가하고, 성능과 안정성을 향상시킬 수 있습니다. | Data Migration Assistant는 평가판으로 다운로드할 수 있는 도구입니다.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso는 Azure Migrate 서비스를 사용하여 VMware VM을 평가합니다. Azure Migrate는 머신의 마이그레이션 적합성을 평가하고, Azure에서 실행하기 위한 크기 조정 및 예상 비용을 제공합니다.  | Azure Migrate는 2018년 5월 현재 평가판 서비스입니다.
-[서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate는 서비스 맵을 사용하여 회사에서 마이그레이션하려는 머신 간의 종속성을 보여 줍니다. | 서비스 맵은 Azure Log Analytics에 포함되어 있습니다. 현재 Contoso는 요금을 부담하지 않고 180일 동안 서비스 맵을 사용할 수 있습니다.
+[서비스 맵](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate는 서비스 맵을 사용하여 회사에서 마이그레이션하려는 머신 간의 종속성을 보여 줍니다. | 서비스 맵은 Azure Monitor 로그의 일부입니다. 현재 Contoso는 요금을 부담하지 않고 180일 동안 서비스 맵을 사용할 수 있습니다.
 
 이 시나리오에서 Contoso는 Data Migration Assistant를 다운로드하고 실행하여 여행 앱에 사용할 온-프레미스 SQL Server 데이터베이스를 평가합니다. Contoso는 Azure Migrate와 종속성 매핑을 사용하여 앱 VM을 평가한 후에 Azure로 마이그레이션합니다.
 
@@ -159,15 +159,15 @@ Contoso에서 평가를 수행하는 방법은 다음과 같습니다.
 
     ![Data Migration Assistant - 원본 선택](./media/contoso-migration-assessment/dma-assessment-1.png)
 
-    > [!NOTE]
-      Data Migration Assistant는 현재 Azure SQL Database Managed Instance로의 마이그레이션에 대한 평가를 지원하지 않습니다. 이 문제를 해결하기 위해 Contoso는 Azure VM의 SQL Server를 가상의 평가 대상으로 사용합니다.
+   > [!NOTE]
+   >    Data Migration Assistant는 현재 Azure SQL Database Managed Instance로의 마이그레이션에 대한 평가를 지원하지 않습니다. 이 문제를 해결하기 위해 Contoso는 Azure VM의 SQL Server를 가상의 평가 대상으로 사용합니다.
 
 3. Contoso는 **대상 버전 선택**에서 SQL Server 2017을 대상 버전으로 선택합니다. SQL Database Managed Instance에서 사용하는 버전이므로 Contoso는 이 버전을 선택해야 합니다.
 4. Contoso는 호환성 및 새로운 기능에 대한 정보를 찾는 데 도움이 되는 보고서를 선택합니다.
-    - **호환성 문제**는 마이그레이션을 중단시킬 수 있거나 마이그레이션하기 전에 약간의 조정이 필요한 변경 내용에 대해 알려줍니다. 이 보고서는 현재 사용 중이지만 더 이상 사용되지 않는 기능에 대해서도 Contoso에 계속 알려줍니다. 문제는 호환성 수준에 따라 구성됩니다.
-    - **새 권장 기능**은 마이그레이션 후 데이터베이스에 사용할 수 있는 대상 SQL Server 플랫폼의 새 기능에 대해 알려줍니다. 새로운 기능 권장 사항은 **성능**, **보안**, 및 **저장소** 머리글로 구성됩니다.
+   - **호환성 문제**는 마이그레이션을 중단시킬 수 있거나 마이그레이션하기 전에 약간의 조정이 필요한 변경 내용에 대해 알려줍니다. 이 보고서는 현재 사용 중이지만 더 이상 사용되지 않는 기능에 대해서도 Contoso에 계속 알려줍니다. 문제는 호환성 수준에 따라 구성됩니다.
+   - **새 권장 기능**은 마이그레이션 후 데이터베이스에 사용할 수 있는 대상 SQL Server 플랫폼의 새 기능에 대해 알려줍니다. 새로운 기능 권장 사항은 **성능**, **보안**, 및 **저장소** 머리글로 구성됩니다.
 
-    ![Data Migration Assistant - 호환성 문제 및 새로운 기능](./media/contoso-migration-assessment/dma-assessment-2.png)
+     ![Data Migration Assistant - 호환성 문제 및 새로운 기능](./media/contoso-migration-assessment/dma-assessment-2.png)
 
 2. Contoso는 **서버에 연결**에서 데이터베이스를 실행하는 VM의 이름과 이 데이터베이스에 액세스하기 위한 자격 증명을 입력합니다. Contoso는 VM에서 SQL Server에 액세스할 수 있도록 **서버 인증서 신뢰**를 선택합니다. 그런 다음, Contoso는 **연결**을 선택합니다.
 
@@ -186,13 +186,13 @@ Contoso에서 평가를 수행하는 방법은 다음과 같습니다.
 
 1. Contoso는 **호환성 문제** 보고서에서 각 호환성 수준에서 문제가 있는지 확인합니다. 호환성 수준은 다음과 같이 SQL Server 버전에 매핑됩니다.
 
-    - 100: SQL Server 2008/Azure SQL Database
-    - 110: SQL Server 2012/Azure SQL Database
-    - 120: SQL Server 2014/Azure SQL Database
-    - 130: SQL Server 2016/Azure SQL Database
-    - 140: SQL Server 2017/Azure SQL Database
+   - 100: SQL Server 2008/Azure SQL Database
+   - 110: SQL Server 2012/Azure SQL Database
+   - 120: SQL Server 2014/Azure SQL Database
+   - 130: SQL Server 2016/Azure SQL Database
+   - 140: SQL Server 2017/Azure SQL Database
 
-    ![Data Migration Assistant - 호환성 문제 보고서](./media/contoso-migration-assessment/dma-assessment-5.png)
+     ![Data Migration Assistant - 호환성 문제 보고서](./media/contoso-migration-assessment/dma-assessment-5.png)
 
 2. Contoso는 **기능 권장 사항** 보고서에서 마이그레이션 후 평가에서 권장하는 성능, 보안 및 저장소 기능을 확인합니다. 메모리 내 OLTP 및 columnstore 인덱스, Stretch Database, Always Encrypted, 동적 데이터 마스킹, 투명한 데이터 암호화를 포함하여 다양한 기능이 권장됩니다.
 
@@ -403,14 +403,14 @@ Contoso는 각 VM에서 설치를 실행합니다.
 
     `sudo -i`
 3. Contoso는 MMA를 설치합니다.
-    - Contoso는 명령에 작업 영역 ID와 키를 입력합니다.
-    - 명령은 64비트용입니다.
-    - 작업 영역 ID 및 기본 키는 Azure Portal의 Log Analytics 작업 영역에 있습니다. **설정**, **연결된 원본** 탭을 차례로 선택합니다.
-    - 다음 명령을 실행하여 Log Analytics 에이전트를 다운로드하고, 체크섬의 유효성을 검사하고, 에이전트를 설치/등록합니다.
+   - Contoso는 명령에 작업 영역 ID와 키를 입력합니다.
+   - 명령은 64비트용입니다.
+   - 작업 영역 ID 및 기본 키는 Azure Portal의 Log Analytics 작업 영역에 있습니다. **설정**, **연결된 원본** 탭을 차례로 선택합니다.
+   - 다음 명령을 실행하여 Log Analytics 에이전트를 다운로드하고, 체크섬의 유효성을 검사하고, 에이전트를 설치/등록합니다.
 
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
-    ```
+     ```
+     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
+     ```
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>Linux VM에 Dependency Agent 설치
 

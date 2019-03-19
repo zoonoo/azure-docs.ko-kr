@@ -5,17 +5,16 @@ description: Azure Machine Learning 스튜디오에서 애플리케이션 수명
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 10/27/2016
-ms.openlocfilehash: 26e469076e16f57300cf3e385620a723ddf51a4c
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 102d06f6d4a51f7edc1fc269180f8fb3e5b0626c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121471"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오에서 애플리케이션 수명 주기 관리
 Azure Machine Learning 스튜디오는 Machine Learning 실험을 개발하기 위한 도구로, Azure 클라우드 플랫폼에서 작동합니다. 단일 플랫폼으로 병합된 Visual Studio IDE 및 확장 가능한 서비스와 같습니다. 다양한 자산 버전 관리에서 자동화된 실행 및 배포에 이르는 표준 ALM(애플리케이션 수명 주기 관리) 사례를 Azure Machine Learning 스튜디오에 통합할 수 있습니다. 이 문서는 몇 가지 옵션과 접근 방법에 대해 다룹니다.
@@ -42,7 +41,7 @@ Azure Machine Learning Studio 학습 실험의 실행 모델에서 실험 편집
 JSON 파일이 실험 그래프를 텍스트로 표현하지만 작업 영역에서 데이터 세트 또는 학습된 모델과 같은 자산에 대한 참조를 포함할 수 있습니다. 직렬화된 자산 버전은 포함되지 않습니다. JSON 문서를 작업 영역에 다시 가져오려는 경우 참조된 자산은 실험에서 참조된 것과 동일한 자산 ID로 이미 존재해야 합니다. 그렇지 않으면 가져온 실험에 액세스할 수 없습니다.
 
 ## <a name="versioning-trained-model"></a>학습된 모델 버전 관리
-Azure Machine Learning에서 학습된 모델은 iLearner 파일(`.iLearner`)이라는 형식으로 직렬화되고 작업 영역과 연결된 Azure Blob Storage 계정에 저장됩니다. 재학습 API를 통해 iLearner 파일의 사본을 얻을 수 있습니다. [이 문서](retrain-models-programmatically.md)에서는 재학습 API의 작동 방법을 설명합니다. 대략적인 단계는 다음과 같습니다.
+Azure Machine Learning Studio에서 학습 된 모델은 iLearner 파일 이라는 형식으로 serialize 됩니다 (`.iLearner`), 작업 영역과 연결 된 Azure Blob 저장소 계정에 저장 됩니다. 재학습 API를 통해 iLearner 파일의 사본을 얻을 수 있습니다. [이 문서](/azure/machine-learning/studio/retrain-machine-learning-model)에서는 재학습 API의 작동 방법을 설명합니다. 대략적인 단계는 다음과 같습니다.
 
 1. 학습 실험을 설정합니다.
 2. 모델 학습 모듈 또는 [모델 하이퍼 매개 변수 조정] 또는 [R 모델 만들기]와 같은 학습된 모델을 생성하는 모듈에 웹 서비스 출력 포트를 추가합니다.
@@ -57,7 +56,7 @@ Azure Machine Learning에서 학습된 모델은 iLearner 파일(`.iLearner`)이
 그러면 저장된 iLearner 파일은 배포된 웹 서비스를 통해 점수 매기기에 사용될 수 있습니다.
 
 ## <a name="versioning-web-service"></a>웹 서비스 버전 관리
-Azure Machine Learning 실험에서 두 종류의 웹 서비스를 배포할 수 있습니다. 클래식 웹 서비스는 작업 영역뿐만 아니라 실험과도 밀접하게 연결되어 있습니다. 새 웹 서비스는 Azure Resource Manager 프레임워크를 활용하고 더 이상 원래 실험 또는 작업 영역과 연결되지 않습니다.
+두 종류의 웹 서비스는 Azure Machine Learning Studio에서 실험을 배포할 수 있습니다. 클래식 웹 서비스는 작업 영역뿐만 아니라 실험과도 밀접하게 연결되어 있습니다. 새 웹 서비스는 Azure Resource Manager 프레임워크를 활용하고 더 이상 원래 실험 또는 작업 영역과 연결되지 않습니다.
 
 ### <a name="classic-web-service"></a>클래식 웹 서비스
 클래식 웹 서비스의 버전을 관리하려면 웹 서비스 엔드포인트 구문을 활용할 수 있습니다. 일반적인 흐름은 다음과 같습니다.
@@ -79,7 +78,7 @@ Azure Machine Learning 실험에서 두 종류의 웹 서비스를 배포할 수
 내보낸 WSD 파일이 있고 버전을 제어한 다음 다른 Azure 하위 지역의 다른 웹 서비스 계획에서 WSD를 새 웹 서비스로 배포할 수 있습니다. 적절한 저장소 계정 구성뿐만 아니라 새 웹 서비스 계획 ID를 제공해야 합니다. 다른 iLearner 파일에서 패치하려면 WSD 파일을 수정하고 학습된 모델의 위치 참조를 업데이트하고 새 웹 서비스로 배포할 수 있습니다.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>실험 실행 및 배포 자동화
-ALM의 중요한 부분은 애플리케이션의 실행 및 배포 프로세스를 자동화할 수 있다는 것입니다. 이 작업은 Azure Machine Learning에서 [PowerShell 모듈](https://aka.ms/amlps)을 사용하여 수행할 수 있습니다. [Azure Machine Learning Studio PowerShell 모듈](https://aka.ms/amlps)을 사용하여 표준 ALM 자동 실행/배포 프로세스에 관련된 종단 간 단계의 예는 다음과 같습니다. 각 단계는 해당 단계를 수행하는 데 사용할 수 있는 하나 이상의 PowerShell commandlet에 연결됩니다.
+ALM의 중요한 부분은 애플리케이션의 실행 및 배포 프로세스를 자동화할 수 있다는 것입니다. Azure Machine Learning Studio에서 수행할 수 있습니다 사용 하 여 합니다 [PowerShell 모듈](https://aka.ms/amlps)합니다. [Azure Machine Learning Studio PowerShell 모듈](https://aka.ms/amlps)을 사용하여 표준 ALM 자동 실행/배포 프로세스에 관련된 종단 간 단계의 예는 다음과 같습니다. 각 단계는 해당 단계를 수행하는 데 사용할 수 있는 하나 이상의 PowerShell commandlet에 연결됩니다.
 
 1. [데이터 세트를 업로드](https://github.com/hning86/azuremlps#upload-amldataset)합니다.
 2. [작업 영역](https://github.com/hning86/azuremlps#copy-amlexperiment) 또는 [갤러리](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery)에서 작업 영역에 학습 실험을 복사하거나 로컬 디스크에서 [내보낸](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 실험을 [가져옵니다](https://github.com/hning86/azuremlps#import-amlexperimentgraph).

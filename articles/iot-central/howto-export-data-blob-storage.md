@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: ae1e71170952a2f05e371de68b519eba522e3298
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 43fda73b1bd410c3e754316bb8bf8c7e1c744e58
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005335"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Azure Blob Storage에 데이터 내보내기
 
@@ -32,9 +32,9 @@ ms.locfileid: "53318440"
 ## <a name="export-to-azure-blob-storage"></a>Azure Blob Storage에 내보내기
 
 측정값, 디바이스 및 디바이스 템플릿 데이터가 1분에 1번 스토리지 계정으로 내보내지며, 각 파일에는 마지막으로 내보낸 이후의 일괄 변경 사항이 포함되어 있습니다. 내보낸 데이터는 [Apache Avro](https://avro.apache.org/docs/current/index.html) 형식이며, 3개의 폴더로 내보내집니다. 스토리지 계정의 기본 경로는 다음과 같습니다.
-    - 메시지: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - 디바이스: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - 디바이스 템플릿: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- 메시지: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- 디바이스: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- 디바이스 템플릿: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ### <a name="measurements"></a>측정값
 

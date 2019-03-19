@@ -5,17 +5,16 @@ description: PowerShell을 사용하여 Azure Machine Learning Studio 작업 영
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 01/25/2019
-ms.openlocfilehash: b6080e6e81b6cedce4d08cf20e082c87e5cecade
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: bd3a82f326cdf7f51e8842e45333ff2bd647c260
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489821"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092755"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 PowerShell 모듈
 
@@ -58,7 +57,7 @@ PowerShell 클래식 사용을 시작하려면 GitHub에서 [릴리스 패키지
 ## <a name="support-table"></a> PowerShell 지원 표
 
  **Studio 작업 영역** | **Az** |  **AzureRM** | **PowerShell 클래식** |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | 작업 영역 만들기/삭제 | [Resource Manager 템플릿](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Resource Manager 템플릿](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | 작업 영역 사용자 관리 |  |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
 | 약정 플랜 관리 | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | [New-AzureRmMlCommitmentPlan](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/new-azurermmlcommitmentplan) |

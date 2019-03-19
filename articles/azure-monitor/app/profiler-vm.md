@@ -12,14 +12,16 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 01d57a10189f9281736e628a83465c96d282af70
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b72966ebc73953e6a89ca1bb2fd4f7ce15f70fee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111381"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Application Insights Profiler를 사용하여 Azure Virtual Machine 또는 가상 머신 확장 집합에서 실행되는 웹앱 프로파일링
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 또한 다음과 같은 서비스에서 Azure Application Insights Profiler를 배포할 수도 있습니다.
 * [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
@@ -30,42 +32,42 @@ ms.locfileid: "55860153"
 이 문서에서는 Azure VM(Virtual Machine) 또는 Azure Virtual Machine Scale Set에서 실행되는 Application Insights Profiler를 가져오는 방법을 보여 줍니다. Profiler는 VM용 Azure 진단 확장과 함께 설치됩니다. Profiler를 실행하도록 확장을 구성하고 애플리케이션에 Application Insights SDK를 빌드합니다.
 
 1. Application Insights SDK를 [ASP.NET 애플리케이션](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) 또는 일반 [.NET 애플리케이션](windows-services.md?toc=/azure/azure-monitor/toc.json)에 추가합니다.  
-  요청에 대한 프로필을 보려면 Application Insights에 요청 원격 분석을 전송해야 합니다.
+   요청에 대한 프로필을 보려면 Application Insights에 요청 원격 분석을 전송해야 합니다.
 
 1. VM에 Azure 진단 확장을 설치합니다. 전체 Resource Manager 템플릿 예제를 보려면 다음을 참조하세요.  
-    * [가상 머신](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
-    * [가상 머신 확장 집합](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
+   * [가상 머신](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
+   * [가상 머신 확장 집합](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
     
-    중요한 부분은 WadCfg에서 ApplicationInsightsProfilerSink입니다. Profiler가 iKey에 데이터를 보내도록 Azure 진단을 구성하려면 이 섹션에 다른 싱크를 추가합니다.
+     중요한 부분은 WadCfg에서 ApplicationInsightsProfilerSink입니다. Profiler가 iKey에 데이터를 보내도록 Azure 진단을 구성하려면 이 섹션에 다른 싱크를 추가합니다.
     
-    ```json
-      "SinksConfig": {
-        "Sink": [
-          {
-            "name": "ApplicationInsightsSink",
-            "ApplicationInsights": "85f73556-b1ba-46de-9534-606e08c6120f"
-          },
-          {
-            "name": "MyApplicationInsightsProfilerSink",
-            "ApplicationInsightsProfiler": "85f73556-b1ba-46de-9534-606e08c6120f"
-          }
-        ]
-      },
-    ```
+     ```json
+     "SinksConfig": {
+       "Sink": [
+         {
+           "name": "ApplicationInsightsSink",
+           "ApplicationInsights": "85f73556-b1ba-46de-9534-606e08c6120f"
+         },
+         {
+           "name": "MyApplicationInsightsProfilerSink",
+           "ApplicationInsightsProfiler": "85f73556-b1ba-46de-9534-606e08c6120f"
+         }
+       ]
+     },
+     ```
 
 1. 수정된 환경 배포 정의를 배포합니다.  
 
    수정 사항을 적용하면 일반적으로 PowerShell cmdlet 또는 Visual Studio를 통한 전체 템플릿 배포 또는 클라우드 서비스 기반 게시가 진행됩니다.  
 
-   Azure 진단 확장명만 수정하는 기존 가상 머신에 대한 대안으로 다음과 같은 PowerShell 명령을 사용할 수 있습니다. 앞에서 언급한 ProfilerSink를 Get-AzureRmVMDiagnosticsExtension 명령에 의해 반환된 구성에 추가한 다음, 업데이트된 구성을 Set-AzureRmVMDiagnosticsExtension 명령에 전달합니다.
+   Azure 진단 확장명만 수정하는 기존 가상 머신에 대한 대안으로 다음과 같은 PowerShell 명령을 사용할 수 있습니다. 앞에서 언급 한 ProfilerSink Get AzVMDiagnosticsExtension 명령에 의해 반환 되는 구성에 추가한 후 업데이트 된 구성 집합 AzVMDiagnosticsExtension 명령에 전달 합니다.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
     # After you export the currently deployed Diagnostics config to a file, edit it to include the ApplicationInsightsProfiler sink.
-    (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM").PublicSettings | Out-File -Verbose $ConfigFilePath
-    # Set-AzureRmVMDiagnosticsExtension might require the -StorageAccountName argument
+    (Get-AzVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM").PublicSettings | Out-File -Verbose $ConfigFilePath
+    # Set-AzVMDiagnosticsExtension might require the -StorageAccountName argument
     # If your original diagnostics configuration had the storageAccountName property in the protectedSettings section (which is not downloadable), be sure to pass the same original value you had in this cmdlet call.
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
+    Set-AzVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
 1. 원하는 애플리케이션이 [IIS](https://www.microsoft.com/web/downloads/platform.aspx)를 통해 실행 중인 경우라면 `IIS Http Tracing` Windows 기능을 활성화합니다.

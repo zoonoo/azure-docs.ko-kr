@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: eaaad0d7351c398c9b2cc013f40d62461a2dd3f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845533"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -36,7 +36,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 - 모든 비 Windows 10 또는 Windows Server 2016 디바이스
 - 모든 비 Windows 디바이스 
 
---- 
+---
 
 **Q: 클라이언트의 디바이스 등록 상태를 어떻게 알 수 있나요?**
 
@@ -89,6 +89,12 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 ---
 
+**Q: Azure AD에서 Windows 10 장치 등록 FIPS 모드에서 Tpm을 지원 하나요?**
+
+**A:** 아니요, 현재 하이브리드 Azure AD 가입, Azure AD 조인 및 Azure AD 등록-모든 장치 상태에 대 한 Windows 10 장치 등록 지원 하지 않습니다 Tpm FIPS 모드에서. 성공적으로 가입 또는 Azure AD에 등록 하려면 FIPS 모드 설정을 해제 해야 해당 장치에서 Tpm 해야
+
+---
+
 **Q: Azure Portal에서 사용하지 않도록 설정한 디바이스에서 여전히 리소스에 액세스할 수 있는 이유는 무엇인가요?**
 
 **A:** 해지가 적용되는 데 최대 1시간이 소요될 수 있습니다.
@@ -111,7 +117,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 **Q: Azure AD에서 삭제 또는 비활성화된 Azure AD 조인 디바이스에 사용자가 로그인할 수 있나요?**
 
-**A:** 예. Windows에는 이전에 로그인한 사용자가 네트워크 연결 없이도 신속하게 데스크톱에 액세스할 수 있게 해주는 캐시된 사용자 이름 및 암호 기능이 있습니다. 
+**A:** 예 Windows에는 이전에 로그인한 사용자가 네트워크 연결 없이도 신속하게 데스크톱에 액세스할 수 있게 해주는 캐시된 사용자 이름 및 암호 기능이 있습니다. 
 
 Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디바이스에서 그 사실을 알지 못합니다. 따라서 이전에 로그인한 사용자는 캐시된 사용자 이름 및 암호를 사용하여 데스크톱에 계속 액세스할 수 있습니다. 그러나 디바이스가 삭제 또는 비활성화되면 사용자는 디바이스 기반 조건부 액세스에 의해 보호되는 리소스에 액세스할 수 없습니다. 
 
@@ -231,7 +237,13 @@ Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디�
 
 **Q: Windows 10 하이브리드 Azure AD 조인 디바이스는 클라우드 리소스에 액세스하기 위해 도메인 컨트롤러에 대한 가시선이 필요한가요?**
 
-**A:**  아니요. Windows 10 하이브리드 Azure AD 조인이 완료되고 사용자가 한 번 이상 로그인한 후, 디바이스는 클라우드 리소스에 액세스하기 위해 도메인 컨트롤러에 대한 가시선이 필요하지 않습니다. Windows 10은 암호가 변경된 경우 외에는 인터넷 연결이 가능한 곳이면 어디서든 Azure AD 애플리케이션에 단일 로그인을 사용할 수 있습니다. 암호가 회사 네트워크 외부에서 변경된 경우에는(예를 들어, Azure AD SSPR을 사용하여) 사용자에게 도메인 컨트롤러에 대한 가시선이 있어야 새 암호를 사용하여 디바이스에 로그인할 수 있습니다. 그렇지 않은 경우 Azure AD에 의해 무효화되고 단일 로그인을 방지하는 이전 암호를 사용해서만 로그인할 수 있습니다. 단, 이 문제는 비즈니스용 Windows Hello를 사용하는 경우 발생하지 않습니다. 비즈니스용 Windows Hello에 로그인하는 사용자는 암호가 변경된 후에 해당 도메인 컨트롤러에 대한 가시선이 없는 경우라도 계속해서 Azure AD 애플리케이션에 단일 로그인을 사용할 수 있습니다. 
+**A:** 일반적으로 아니요, 사용자의 암호가 변경 된 경우를 제외 하 고 있습니다. Windows 10 하이브리드 Azure AD 조인이 완료되고 사용자가 한 번 이상 로그인한 후, 디바이스는 클라우드 리소스에 액세스하기 위해 도메인 컨트롤러에 대한 가시선이 필요하지 않습니다. Windows 10은 암호가 변경된 경우 외에는 인터넷 연결이 가능한 곳이면 어디서든 Azure AD 애플리케이션에 단일 로그인을 사용할 수 있습니다. 로 로그인 합니다. Windows Hello 비즈니스에 대 한 계속 단일 사용자 로그인 Azure AD 응용 프로그램 암호 변경 후에 시야가 도메인 컨트롤러에 없는 경우에 합니다. 
+
+---
+
+**Q: 회사 네트워크 외부의 장치를 가입 사용자가 암호를 변경 하 고 해당 Windows 10 하이브리드 Azure AD에 로그인 하려고 하는 경우 어떻게 되나요?**
+
+**A:** 암호는 회사 네트워크 외부 (예를 들어, Azure AD SSPR을 사용)가 변경 되 면 새 암호를 사용 하 여 사용자 로그온이 실패 합니다. 하이브리드 Azure AD 가입 장치에 대 한 온-프레미스 Active Directory는 기본 기관. 장치에 시야 도메인 컨트롤러를 찾을 수 없는 경우 새 암호를 유효성을 검사할 수 아닙니다. 사용자가 도메인 컨트롤러 (통해 VPN 또는 회사 네트워크에 있는 것 중 하나)를 사용 하 여 연결 해야 하는, 새 암호를 사용 하 여 장치에 로그인 할 되기 전에 합니다. 이 고, 그렇지만 로그인 할 수 이전 암호가 Windows의 캐시 된 로그온 기능 때문입니다. 그러나 이전 암호 토큰 요청 동안 Azure AD에서 무효화 되기 따라서에 단일 로그인을 차단 및 모든 장치 기반 조건부 액세스 정책이 실패 합니다. 사용 하는 경우 Windows Hello 비즈니스에 대 한이 문제가 발생 하지 않습니다. 
 
 ---
 
