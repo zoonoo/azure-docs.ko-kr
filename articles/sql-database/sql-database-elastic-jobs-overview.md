@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8abb2e3ac4f62a3ea51cc686bbf23260fccc4077
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565244"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441375"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>규모가 확장된 클라우드 데이터베이스 관리
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Elastic Database 작업**은 **작업**이라고 하는 임시 및 예약된 관리 작업을 실행할 수 있도록 하는 고객 호스팅 Azure Cloud Services입니다. 작업을 통해 관리 작업을 수행하는 Transact-SQL 스크립트를 실행하여 Azure SQL 데이터베이스의 대규모 그룹을 쉽고 안정적으로 관리할 수 있습니다.
+**Elastic Database 작업** 는 임시 및 예약 된 관리 태스크의 이라고 하는 실행을 사용 하도록 설정 하는 고객 호스트 된 Azure 클라우드 서비스 **작업**합니다. 작업을 통해 관리 작업을 수행하는 Transact-SQL 스크립트를 실행하여 Azure SQL 데이터베이스의 대규모 그룹을 쉽고 안정적으로 관리할 수 있습니다.
 
 규모가 확장된 분할된 데이터베이스를 관리하기 위해 **Elastic Database 작업** 기능(미리 보기)을 사용하면 다음을 포함한 데이터베이스 그룹에 대해 Transact-SQL(T-SQL) 스크립트를 안정적으로 실행할 수 있습니다.
 
@@ -114,7 +114,7 @@ Azure SQL Database의 사용자 지정 그룹을 정의하고 작업 실행을 �
 
 ## <a name="components-and-pricing"></a>구성 요소 및 가격
 
-다음 구성 요소는 함께 작동하여 관리 작업의 임시 실행을 지원하는 Azure 클라우드 서비스를 구성합니다. 구성 요소는 구독에 포함되어 설치 도중 자동으로 설치 및 구성됩니다. 서비스는 모두 동일하게 자동으로 생성된 이름을 가지므로 식별할 수 있습니다. 각 이름은 고유하며, 접두사 "edj"에 이어 임의로 생성된 문자 21개로 구성됩니다.
+다음 구성 요소가 함께 작동 하 임시 관리 작업 실행 수 있도록 Azure 클라우드 서비스를 만듭니다. 구성 요소는 구독에 포함되어 설치 도중 자동으로 설치 및 구성됩니다. 서비스는 모두 동일하게 자동으로 생성된 이름을 가지므로 식별할 수 있습니다. 각 이름은 고유하며, 접두사 "edj"에 이어 임의로 생성된 문자 21개로 구성됩니다.
 
 - Azure 클라우드 서비스
 

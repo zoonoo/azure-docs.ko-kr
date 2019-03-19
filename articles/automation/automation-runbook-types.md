@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 940a5839fe2c2eea11d9570d3dca48cd514e21af
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417247"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454904"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -22,10 +22,10 @@ Azure Automation는 여러 가지 유형의 Runbook을 지원합니다. 아래 �
 
 | Type | 설명 |
 |:--- |:--- |
-| [그래픽](#graphical-runbooks) |Windows PowerShell을 기반으로 하며 Azure 포털의 그래픽 편집기로 완전하게 생성 및 편집됩니다. |
-| [그래픽 PowerShell 워크플로](#graphical-runbooks) |Windows PowerShell 워크플로를 기반으로 하며 Azure 포털의 그래픽 편집기로 완전하게 생성 및 편집됩니다. |
+| [그래픽](#graphical-runbooks)|Windows PowerShell을 기반으로 하며 Azure 포털의 그래픽 편집기로 완전하게 생성 및 편집됩니다. |
+| [그래픽 PowerShell 워크플로](#graphical-runbooks)|Windows PowerShell 워크플로를 기반으로 하며 Azure 포털의 그래픽 편집기로 완전하게 생성 및 편집됩니다. |
 | [PowerShell](#powershell-runbooks) |Windows PowerShell 스크립트를 기반으로 하는 텍스트 Runbook |
-| [PowerShell 워크플로](#powershell-workflow-runbooks) |Windows PowerShell 워크플로를 기반으로 하는 텍스트 Runbook |
+| [PowerShell 워크플로](#powershell-workflow-runbooks)|Windows PowerShell 워크플로를 기반으로 하는 텍스트 Runbook |
 | [Python](#python-runbooks) |Python을 기반으로 하는 텍스트 Runbook입니다. |
 
 ## <a name="graphical-runbooks"></a>그래픽 Runbook
@@ -45,6 +45,7 @@ Azure Automation는 여러 가지 유형의 Runbook을 지원합니다. 아래 �
 * Azure 포털 외부에서 Runbook을 편집할 수 없습니다.
 * 복잡한 논리를 실행하기 위해 PowerShell 코드를 포함하는 코드 작업이 필요할 수 있습니다.
 * 그래픽 워크플로에 의해 만들어진 PowerShell 코드를 보거나 직접 편집할 수 없습니다. 코드 작업에서 만든 코드를 볼 수 있습니다.
+* Linux Hybrid Runbook Worker에서 실행할 수 없습니다.
 
 ## <a name="powershell-runbooks"></a>PowerShell Runbook
 
@@ -54,6 +55,7 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다.  Azure 포�
 
 * PowerShell 워크플로의 부가적인 복잡성 없이 PowerShell 코드로 모든 복잡한 로직을 구현합니다.
 * Runbook은 실행 전에 컴파일이 필요 없기 때문에 PowerShell 워크플로 Runbook보다 빨리 시작됩니다.
+* Azure에서 또는 Linux와 Windows Hybrid Runbook Worker에서 실행할 수 있습니다.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -88,6 +90,7 @@ PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-
 * Runbook은 [역직렬화된 개체](automation-powershell-workflow.md#code-changes)와 같은 PowerShell 워크플로의 부가적인 복잡성을 다루어야 합니다.
 * Runbook은 실행 전에 컴파일이 필요하기 때문에 PowerShell Runbook보다 시작 시간이 깁니다.
 * PowerShell Runbook은 새 작업을 만드는 Start-AzureAutomationRunbook cmdlet을 사용해야만 자식 Runbook으로 포함할 수 있습니다.
+* Linux Hybrid Runbook Worker에서 실행할 수 없습니다.
 
 ## <a name="python-runbooks"></a>Python Runbook
 
@@ -96,6 +99,7 @@ Python Runbook은 Python 2에서 컴파일됩니다.  Azure Portal의 텍스트 
 ### <a name="advantages"></a>장점
 
 * 유용한 Python 라이브러리를 활용할 수 있습니다.
+* Azure에서 또는 모두 Linux Hybrid Runbook Worker에서 실행할 수 있습니다. Windows Hybrid Runbook Worker를 사용 하 여 지 [python2.7](https://www.python.org/downloads/release/latest/python2) 설치 합니다.
 
 ### <a name="limitations"></a>제한 사항
 

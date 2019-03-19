@@ -1,9 +1,9 @@
 ---
-title: Log Analytics로 Azure Service Fabric에서 컨테이너 모니터링 | Microsoft Docs
-description: Azure Service Fabric 클러스터에서 실행 중인 컨테이너를 모니터링하려면 Log Analytics를 사용하십시오.
+title: Azure Monitor 로그를 사용 하 여 Azure Service Fabric에서 컨테이너 모니터링 | Microsoft Docs
+description: Azure Monitor 로그를 사용 하 여 Azure Service Fabric 클러스터에서 실행 중인 컨테이너를 모니터링 합니다.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,27 +12,29 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/1/2017
-ms.author: dekapur
-ms.openlocfilehash: d5fd55ec93ce07e30e4c6f123f9be8492581053c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: d5840db718191c9b67a8b28a2efccd55146ae510
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972255"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246936"
 ---
-# <a name="monitor-containers-with-log-analytics"></a>Log Analytics를 사용하여 컨테이너 모니터링
+# <a name="monitor-containers-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 컨테이너 모니터링
  
-이 문서에서는 컨테이너 이벤트를 보기 위해 Azure Log Analytics 컨테이너 모니터링 솔루션을 설정하는 데 필요한 단계를 다룹니다. 클러스터가 컨테이너 이벤트를 수집하도록 설정하려면 이 [단계별 자습서](service-fabric-tutorial-monitoring-wincontainers.md)를 참조하세요. 
+이 문서에서는 컨테이너 이벤트를 보려면 Azure Monitor 로그 컨테이너 모니터링 솔루션을 설정 하는 데 필요한 단계를 다룹니다. 클러스터가 컨테이너 이벤트를 수집하도록 설정하려면 이 [단계별 자습서](service-fabric-tutorial-monitoring-wincontainers.md)를 참조하세요. 
 
 [!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="set-up-the-container-monitoring-solution"></a>컨테이너 모니터링 솔루션 설정
 
 > [!NOTE]
-> 클러스터에 Log Analytics를 설정하고 노드에 Log Analytics 에이전트를 배포해야 합니다. 그렇지 않으면 [Log Analytics 설정](service-fabric-diagnostics-oms-setup.md) 및 [Log Analytics 에이전트를 클러스터에 추가](service-fabric-diagnostics-oms-agent.md)의 단계를 먼저 수행합니다.
+> Azure Monitor 로그 클러스터에 대 한 설정 뿐만 아니라 Log Analytics 에이전트를 노드에 배포 해야 합니다. 단계를 수행 하지 않으면 하는 경우 [Azure Monitor 로그 설정](service-fabric-diagnostics-oms-setup.md) 하 고 [Log Analytics 에이전트를 클러스터에 추가](service-fabric-diagnostics-oms-agent.md) 첫 번째입니다.
 
-1. 클러스터가 Log Analytics 및 Log Analytics 에이전트로 설정되었으면 컨테이너를 배포합니다. 다음 단계로 이동하기 전에 컨테이너가 배포될 때까지 기다립니다.
+1. 클러스터 로그 Azure Monitor 및 Log Analytics 에이전트를 사용 하 여 설정 되 면 컨테이너를 배포 합니다. 다음 단계로 이동하기 전에 컨테이너가 배포될 때까지 기다립니다.
 
 2. Azure Marketplace에서 *컨테이너 모니터링 솔루션*을 검색하고 모니터링 + 관리 범주 아래에 나타나는 **컨테이너 모니터링 솔루션** 리소스를 클릭합니다.
 
@@ -42,7 +44,7 @@ ms.locfileid: "52972255"
 
     ![기본 Log Analytics 대시보드](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
-에이전트를 사용하면 Log Analytics에서 쿼리하거나 성능 지표를 시각화하는 데 사용할 수 있는 몇 가지 컨테이너별 로그를 수집할 수 있습니다. 수집되는 로그 형식은 다음과 같습니다.
+에이전트는 Azure Monitor 로그에서 쿼리하거나 성능 지표를 시각화 하는 데 수 있는 몇 가지 컨테이너별 로그를 수집할 수 있도록 합니다. 수집되는 로그 형식은 다음과 같습니다.
 
 * ContainerInventory: 컨테이너 위치, 이름 및 이미지에 대한 정보를 표시합니다.
 * ContainerImageInventory: ID 또는 크기를 포함하여 배포된 이미지에 대한 정보를 표시합니다.
@@ -53,7 +55,7 @@ ms.locfileid: "52972255"
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics 컨테이너 솔루션](../azure-monitor/insights/containers.md)에 대해 자세히 알아봅니다.
+* 에 대해 자세히 알아보세요 [Azure Monitor 로그 컨테이너 솔루션](../azure-monitor/insights/containers.md)합니다.
 * Service Fabric - [Service Fabric 및 컨테이너](service-fabric-containers-overview.md)에서 컨테이너 오케스트레이션에 대해 자세히 알아보세요.
-* Log Analytics의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능 알아보기
-* 검색 및 진단에 도움이 되는 [자동 경고](../log-analytics/log-analytics-alerts.md) 규칙을 설정하도록 Log Analytics를 구성합니다.
+* 알아보기 합니다 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) Azure Monitor 로그의 일부로 제공 하는 기능
+* Azure Monitor 로그 설정 구성 [자동 경고](../log-analytics/log-analytics-alerts.md) 감지 및 진단에 도움이 되는 규칙

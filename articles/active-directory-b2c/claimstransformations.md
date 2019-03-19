@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 403e126795a877be018cf4f4eb42581dee080e9c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 59524a9a08b16100598b7713cb0507646245d90b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163163"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445826"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -33,7 +33,7 @@ ms.locfileid: "55163163"
 </ClaimsTransformations>
 ```
 
-**ClaimsTransformation** 요소에는 다음과 같은 특성이 포함됩니다.
+합니다 **ClaimsTransformation** 요소에는 다음 특성을 포함 합니다.
 
 | 특성 |필수 | 설명 |
 | --------- |-------- | ----------- |

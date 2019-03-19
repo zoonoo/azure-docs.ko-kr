@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: de2cfbf2b4119daf965c95d8973b8528799c9502
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 42da285fbb55df43959506996bcde9cf547c2a22
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454632"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439268"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로
 
@@ -70,7 +70,7 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 
 또한 모든 파일에 다음 메타데이터를 설정할 수 있습니다.
 
-* **UploadMethod:** Windows Azure Import/Export 서비스
+* **UploadMethod:** Microsoft Azure Import/Export 서비스
 * **DataSetName:** SampleData
 * **CreationDate:** 2013/10/1
 
@@ -112,7 +112,7 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-더 많은 데이터를 추가해야 하는 경우 Initialdataset과 동일한 형식의 다른 데이터 세트 파일을 만듭니다.
+더 많은 데이터를 추가 해야 하는 경우 다른 데이터 집합 파일 (초기 데이터 집합으로 동일한 형식)을 만듭니다.
 
 **두 번째 세션의 경우:**
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2018
+ms.date: 02/27/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dad650ac1cc7ab8822925a4a9759b68ee0d0088
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b4015f99e9281285c530c6ae40dbda4e97846af8
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186003"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311052"
 ---
 # <a name="how-to-set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>방법: Azure Active Directory 조건부 액세스를 위한 SharePoint Online 및 Exchange Online 설정 
 
@@ -77,7 +77,7 @@ Exchange Online에 대한 조건부 액세스 정책을 설정할 때 다음을 
 
 Exchange Active Sync는 최신 인증을 지원하지만 조건부 액세스 시나리오에 대한 지원과 관련된 몇 가지 제한 사항이 있습니다.
 
-- 디바이스 플랫폼 조건만을 구성할 수 있습니다.  
+- 선택 하는 경우 **Exchange Active Sync 클라이언트** 정책에서 다른 조건을 구성할 수 없습니다.  
 
     ![디바이스 플랫폼](./media/conditional-access-for-exo-and-spo/05.png)
 
@@ -93,7 +93,7 @@ Exchange ActiveSync에서 Exchange Online에 대한 액세스를 효과적으로
 
     ![조건부 액세스](./media/conditional-access-for-exo-and-spo/04.png)
 
-    b. **클라이언트 앱**으로 **Exchange Active Sync**를 선택한 다음 **지원되는 플랫폼에만 정책 적용**을 선택합니다.  
+    b. 선택 **Exchange Active Sync** 으로 **클라이언트 앱**합니다.  
 
     ![디바이스 플랫폼](./media/conditional-access-for-exo-and-spo/03.png)
 
