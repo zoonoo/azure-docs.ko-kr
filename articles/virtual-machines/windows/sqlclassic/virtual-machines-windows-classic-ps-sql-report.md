@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820116"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445639"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
 > [!IMPORTANT] 
@@ -124,7 +124,7 @@ VM이 프로비전되었을 때 자체 서명된 인증서가 VM에 만들어졌
       
        예를 들어 다음 이미지에서 VM 이름은 **ssrsnativecloud**이고 사용자 이름은 **testuser**입니다.
       
-       ![로그인에 VM 이름 포함](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![로그인에 vm 이름이 포함 되어 있습니다.](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Mmc.exe를 실행합니다. 자세한 내용은 [방법: MMC 스냅인을 사용하여 인증서 보기](https://msdn.microsoft.com/library/ms788967.aspx)를 참조하세요.
    3. 콘솔 애플리케이션 **파일** 메뉴에서 **인증서** 스냅인을 추가하고 메시지가 표시되면 **컴퓨터 계정**을 선택한 후 **다음**을 클릭합니다.
    4. 관리할 **로컬 컴퓨터**를 선택한 후 **마침**을 클릭합니다.
@@ -160,7 +160,7 @@ Windows PowerShell 스크립트를 사용하여 보고서 서버를 구성하려
    
     예를 들어 다음 이미지에서 VM 이름은 **ssrsnativecloud**이고 사용자 이름은 **testuser**입니다.
    
-    ![로그인에 VM 이름 포함](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![로그인에 vm 이름이 포함 되어 있습니다.](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. VM에서 관리자 권한으로 **Windows PowerShell ISE** 를 엽니다. PowerShell ISE는 Windows Server 2012에 기본적으로 설치되어 있습니다. 스크립트를 ISE에 붙여넣고 스크립트를 수정한 다음 스크립트를 실행할 수 있도록 표준 Windows PowerShell 창 대신 ISE를 사용하는 것이 좋습니다.
 3. Windows PowerShell ISE에서 **보기** 메뉴를 클릭한 다음 **스크립트 창 표시**를 클릭합니다.
 4. 다음 스크립트를 복사하고 Windows PowerShell ISE 스크립트 창으로 스크립트를 붙여넣습니다.
@@ -294,7 +294,7 @@ Windows PowerShell을 사용하여 보고서 서버를 구성하려면 다음 �
    
     예를 들어 다음 이미지에서 VM 이름은 **ssrsnativecloud**이고 사용자 이름은 **testuser**입니다.
    
-    ![로그인에 VM 이름 포함](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![로그인에 vm 이름이 포함 되어 있습니다.](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. VM에서 관리자 권한으로 **Windows PowerShell ISE** 를 엽니다. PowerShell ISE는 Windows Server 2012에 기본적으로 설치되어 있습니다. 스크립트를 ISE에 붙여넣고 스크립트를 수정한 다음 스크립트를 실행할 수 있도록 표준 Windows PowerShell 창 대신 ISE를 사용하는 것이 좋습니다.
 3. 스크립트를 실행하도록 설정하려면 다음 Windows PowerShell 명령을 실행합니다.
    

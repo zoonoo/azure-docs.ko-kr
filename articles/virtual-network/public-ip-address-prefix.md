@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 5496be93a5241621cd4dc5e873e4386f8ed6c992
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700743"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195220"
 ---
 # <a name="public-ip-address-prefix"></a>공용 IP 주소 접두사
 
 공용 IP 주소 접두사는 Azure의 공용 엔드포인트에 대해 예약된 IP 주소 범위입니다. Azure는 사용자가 지정한 수에 기반하여 인접한 주소 범위를 사용자의 구독에 할당합니다. 공용 주소에 대해 잘 모르는 경우 [공용 IP 주소](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)를 참조하세요.
 
-공용 IP 주소는 각 Azure 지역의 주소 풀에서 할당됩니다. Azure에서 각 지역에 사용하는 범위 목록을 [다운로드](https://www.microsoft.com/download/details.aspx?id=41653)할 수 있습니다. 예를 들어 40.121.0.0/16은 Azure에서 미국 동부 지역에 사용되는 100개가 넘는 범위 중 하나입니다. 범위에는 사용 가능한 주소(40.121.0.1 - 40.121.255.254)가 포함됩니다.
+공용 IP 주소는 각 Azure 지역의 주소 풀에서 할당됩니다. Azure에서 각 지역에 사용하는 범위 목록을 [다운로드](https://www.microsoft.com/download/details.aspx?id=56519)할 수 있습니다. 예를 들어 40.121.0.0/16은 Azure에서 미국 동부 지역에 사용되는 100개가 넘는 범위 중 하나입니다. 범위에는 사용 가능한 주소(40.121.0.1 - 40.121.255.254)가 포함됩니다.
 
 이름을 지정하고 접두사에 포함시킬 주소의 수를 지정하여 Azure 지역 및 구독에 공용 IP 주소 접두사를 만듭니다. 예를 들어 공용 IP 주소 접두사 /28을 만들면 Azure에서 범위 중 하나에서 16개의 주소가 할당됩니다. 범위를 만들 때까지는 Azure에서 할당될 범위를 알 수 없지만 주소는 연속적입니다. 공용 IP 주소 접두사에는 요금이 부과됩니다. 자세한 내용은 [공용 IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses)을 참조하세요.
 

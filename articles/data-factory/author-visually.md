@@ -3,21 +3,21 @@ title: Azure Data Factory의 시각적 작성 | Microsoft Docs
 description: Azure Data Factory에서 시각적 작성을 사용하는 방법에 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
+author: sharonlo101
 ms.author: shlo
-ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.reviewer: ''
+manager: craigg
+ms.openlocfilehash: 77eb109b8826bcb6136e91ac610235f74551cecb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853089"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory에서 시각적 작성
 Azure Data Factory UX(사용자 인터페이스 환경)을 사용하면 코드를 작성할 필요 없이 데이터 팩터리에 대한 리소스를 시각적으로 작성하고 배포할 수 있습니다. 파이프라인 캔버스에 작업을 끌어다 놓고, 테스트 실행을 수행하고, 반복적으로 디버그하고, 파이프라인 실행을 배포 및 모니터링할 수 있습니다. 시각적 작성을 수행하기 위해 UX를 사용하는 두 가지 방법이 있습니다.
@@ -31,7 +31,7 @@ Data Factory 서비스를 통한 시각적 작성은 Git 통합 기능을 사용
 - Data Factory 서비스는 사용자의 변경 사항을 위한 JSON 엔터티를 저장하는 리포지토리를 포함하지 않습니다.
 - Data Factory 서비스는 공동 작업 또는 버전 제어에 최적화되지 않습니다.
 
-![Data Factory 서비스 구성 ](media/author-visually/configure-data-factory.png)
+![Data Factory 서비스 구성](media/author-visually/configure-data-factory.png)
 
 UX **제작 캔버스**를 사용하여 Data Factory 서비스를 통해 직접 작성하는 경우 **모두 게시** 모드만 사용할 수 있습니다. 변경한 내용은 Data Factory 서비스에 직접 게시됩니다.
 
@@ -204,7 +204,7 @@ Azure Data Factory에서  **시작하기**  페이지로 이동합니다. 코�
 | **설정**                                              | **설명**                                                                                                                                                                                                                                                                                                                                                                                                                   | **값**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
 | **리포지토리 유형**                                      | Azure Repos 코드 리포지토리의 유형입니다.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
-| **GitHub 계정**                                       | 사용자 GitHub 계정 이름. 이 이름은 https://github.com/{account 이름}/{리포지토리 이름}에서 찾을 수 있습니다. 이 페이지로 이동하면 GitHub 계정에 GitHub OAuth 자격 증명을 입력하라는 메시지가 표시됩니다.                                                                                                                                                                                                                                               |                    |
+| **GitHub 계정**                                       | 사용자 GitHub 계정 이름. Https에서이 이름을 찾을 수 있습니다:\//github.com/{account 이름} / {리포지토리 이름}. 이 페이지로 이동하면 GitHub 계정에 GitHub OAuth 자격 증명을 입력하라는 메시지가 표시됩니다.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | GitHub 코드 리포지토리 이름입니다. GitHub 계정은 소스 코드를 관리하기 위한 Git 리포지토리를 포함합니다. 새 리포지토리를 만들거나 계정에 이미 있는 기존 리포지토리를 사용할 수 있습니다.                                                                                                                                                                                                                              |                    |
 | **공동 작업 분기**                                 | 게시에 사용되는 GitHub 공동 작업 분기입니다. 기본값은 master입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다.                                                                                                                                                                                                                                                               |                    |
 | **루트 폴더**                                          | GitHub 공동 작업 분기의 루트 폴더입니다.                                                                                                                                                                                                                                                                                                                                                                             |                    |
@@ -221,7 +221,7 @@ Azure Data Factory UX  **제작 캔버스**에서 사용자의 데이터 팩터
 
 데이터 팩터리를 사용해서 두 가지 방법으로 GitHub Enterprise 리포지토리를 구성할 수 있습니다.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>구성 방법 1(Enterprise 리포지토리): 시작 페이지
+#### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>구성 방법 1(Enterprise 리포지토리): 시작 페이지
 
 Azure Data Factory에서  **시작하기**  페이지로 이동합니다. 코드  **리포지토리 구성**을 선택합니다.
 
@@ -238,7 +238,7 @@ Azure Data Factory에서  **시작하기**  페이지로 이동합니다. 코�
 | **리포지토리 유형**                                      | Azure Repos 코드 리포지토리의 유형입니다.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **GitHub Enterprise 사용**                                | GitHub Enterprise를 선택하기 위한 확인란                                                                                                                                                                                                                                                                                                                                                                                              |                    |
 | **GitHub Enterprise URL**                                | GitHub Enterprise 루트 URL입니다. 예: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
-| **GitHub 계정**                                       | 사용자 GitHub 계정 이름. 이 이름은 https://github.com/{account 이름}/{리포지토리 이름}에서 찾을 수 있습니다. 이 페이지로 이동하면 GitHub 계정에 GitHub OAuth 자격 증명을 입력하라는 메시지가 표시됩니다.                                                                                                                                                                                                                                               |                    |
+| **GitHub 계정**                                       | 사용자 GitHub 계정 이름. Https에서이 이름을 찾을 수 있습니다:\//github.com/{account 이름} / {리포지토리 이름}. 이 페이지로 이동하면 GitHub 계정에 GitHub OAuth 자격 증명을 입력하라는 메시지가 표시됩니다.                                                                                                                                                                                                                                               |                    |
 | **RepositoryName**                                       | GitHub 코드 리포지토리 이름입니다. GitHub 계정은 소스 코드를 관리하기 위한 Git 리포지토리를 포함합니다. 새 리포지토리를 만들거나 계정에 이미 있는 기존 리포지토리를 사용할 수 있습니다.                                                                                                                                                                                                                              |                    |
 | **공동 작업 분기**                                 | 게시에 사용되는 GitHub 공동 작업 분기입니다. 기본값은 master입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다.                                                                                                                                                                                                                                                               |                    |
 | **루트 폴더**                                          | GitHub 공동 작업 분기의 루트 폴더입니다.                                                                                                                                                                                                                                                                                                                                                                             |                    |

@@ -5,27 +5,25 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/5/2019
+ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: bc1176ea97d1c2d4fc17487c0589fb4235163b46
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446514"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544044"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>자동 크기 조정 및 영역 중복 Application Gateway(공개 미리 보기)
 
 Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 v2 SKU에서 성능을 향상하고 자동 크기 조정, 영역 중복, 정적 VIP 지원 등의 중요한 새 기능을 지원하는 공개 미리 보기로 제공됩니다. 일반 공급 SKU의 기존 기능은 새 v2 SKU에서 계속 지원되며, 알려진 제한 사항 섹션에 몇 가지 예외가 나열되어 있습니다. 새 v2 SKU에는 다음과 같은 향상된 기능이 포함되어 있습니다.
 
-- **자동 크기 조정**: 자동 크기 조정 SKU의 Application Gateway 또는 WAF 배포는 트래픽 부하 패턴의 변화에 따라 강화하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 따라서 SKU가 진정한 탄력성을 제공합니다. 새 SKU에서 Application Gateway는 고정 용량(자동 크기 조정이 해제됨) 및 자동 크기 조정이 설정된 모드에서 모두 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드는 응용 프로그램 트래픽이 자주 변하는 응용 프로그램에 유용합니다.
+- **자동 크기 조정**: 자동 크기 조정 SKU의 Application Gateway 또는 WAF 배포는 트래픽 부하 패턴의 변화에 따라 강화하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 true 탄력성을 제공합니다. 새 SKU에서 Application Gateway는 고정 용량(자동 크기 조정이 해제됨) 및 자동 크기 조정이 설정된 모드에서 모두 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드는 애플리케이션 트래픽이 자주 변하는 애플리케이션에 유용합니다.
 
-   > [!NOTE]
-   > 현재 WAF SKU에는 자동 크기 조정을 사용할 수 없습니다. 자동 크기 조정 모드 대신 고정 용량 모드를 사용하여 WAF를 구성합니다.
 - **영역 중복**: Application Gateway 또는 WAF 배포 하나가 여러 가용성 영역을 포함할 수 있으므로 Traffic Manager를 사용하여 각 영역에 별도의 Application Gateway 인스턴스를 프로비전하고 작동할 필요가 없습니다. Application Gateway 인스턴스가 배포되는 단일 영역 또는 여러 영역을 선택할 수 있기 때문에 영역 장애 복원력이 보장됩니다. 애플리케이션에 대한 백 엔드 풀을 가용성 영역 전반에 유사하게 배포할 수 있습니다.
 - **성능 향상**: 자동 크기 조정 SKU는 일반 공급 SKU보다 최대 5배 높은 SSL 오프로드 성능을 제공합니다.
 - **신속한 배포 및 업데이트 시간**: 자동 크기 조정 SKU는 일반적으로 제공되는 SKU보다 빠른 배포 및 업데이트 시간을 제공합니다.
-- **정적 VIP**: Application Gateway VIP는 이제 정적 VIP 유형만 독점적으로 지원합니다. 따라서 재시작 후에도 애플리케이션 게이트웨이와 연결된 VIP가 변하지 않습니다.
+- **정적 VIP**: Application Gateway VIP는 이제 정적 VIP 유형만 독점적으로 지원합니다. 이렇게 하면 응용 프로그램 게이트웨이에 연결 된 VIP를 다시 시작 후에 변경 되지 않는지 합니다.
 
 > [!IMPORTANT]
 > 자동 크기 조정 및 영역 중복 애플리케이션 게이트웨이 SKU는 현재 공개 미리 보기로 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -38,7 +36,7 @@ Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 v2 SKU에�
 
 ## <a name="pricing"></a>가격
 
-미리 보기 중에는 무료입니다. Application Gateway가 아닌 리소스(예: Key Vault, 가상 머신 등)에 대한 요금은 청구됩니다.
+미리 보기 중에 무료입니다. Application gateway의 경우 Key Vault, virtual machines 처럼 이외의 리소스에 대 한 청구 되며, 등.
 
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 
@@ -52,7 +50,6 @@ Application Gateway 및 WAF(웹 응용 프로그램 방화벽)는 새 v2 SKU에�
 |결제|현재는 요금이 청구되지 않습니다.|
 |FIPS 모드, WebSocket|현재는 지원되지 않습니다.|
 |ILB 전용 모드|현재는 지원되지 않습니다. 공용 및 ILB 모드가 함께 지원됩니다.|
-|웹 애플리케이션 방화벽 자동 크기 조정|WAF는 자동 크기 조정 모드를 지원하지 않습니다. 고정 용량 모드가 지원됩니다.|
 |Netwatcher 통합|공개 미리 보기에서는 지원되지 않습니다.|
 
 ## <a name="next-steps"></a>다음 단계

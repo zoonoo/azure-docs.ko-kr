@@ -3,7 +3,7 @@ title: Azure VM을 부팅할 때 파일 시스템 확인 중 | Microsoft Docs
 description: 부팅 시 VM이 파일 시스템 확인 중을 표시하는 문제를 해결하는 방법 알아보기 | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 91285fd3bf42158068040833146377cb6c48e4e8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 51a97443f6b9ba2a37fa2db708b8520a9c450000
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412490"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776447"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 "파일 시스템 확인 중"을 표시합니다.
 
 이 문서에서는 Microsoft Azure에서 Windows VM(가상 머신)을 부팅할 때 발생할 수 있는 "파일 시스템 확인 중" 오류에 대해 설명합니다.
 
 > [!NOTE] 
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용을 설명하고 있으며, 새로운 배포에 대해 클래식 배포 모델 대신 이 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용을 설명하고 있으며, 새로운 배포에 대해 클래식 배포 모델 대신 이 모델을 사용하는 것이 좋습니다.
 
 ## <a name="symptom"></a>증상 
 

@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a72df28fbaed89076976f567774bd5fdb15bc2f9
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229492"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763609"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>관리 솔루션에 Azure Automation 리소스 추가(미리 보기)
 > [!NOTE]
@@ -281,7 +281,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 | 데이터 형식 | 설명 | 예 | 결과 값 |
 |:--|:--|:--|:--|
-| string   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
+| 문자열   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
 | numeric  | 작은따옴표가 있는 숫자 값| "64" | 64 |
 | 부울  | 따옴표로 묶은 **true** 또는 **false**.  이 값은 소문자여야 합니다. | "true" | true |
 | Datetime | 직렬화된 날짜 값.<br>PowerShell에서 ConvertTo-Json cmdlet을 사용하여 특정 날짜에 대해 이 값을 생성할 수 있습니다.<br>예: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |

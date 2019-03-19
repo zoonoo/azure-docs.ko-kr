@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: cafda8a48f9160c80edb02c3452035f912958bc7
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: fdca47877d4cb2192eef0a26448cd21e8afe4b77
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098224"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217940"
 ---
 # <a name="publish-azure-application-offer"></a>Azure 애플리케이션 제품 게시
 
@@ -52,6 +52,8 @@ Cloud 파트너 포털의 제품 **상태** 탭에서 게시 프로세스를 모
 
 게시 프로세스가 완료되면 제품이 [Microsoft Azure Marketplace 애플리케이션 범주](https://azuremarketplace.microsoft.com/marketplace/apps/)에 나열됩니다.
 
+>[!Note]
+>클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인를 출시 되었습니다.  참조 하세요 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다.
 
 ## <a name="errors-and-review-feedback"></a>오류 및 검토 피드백
 

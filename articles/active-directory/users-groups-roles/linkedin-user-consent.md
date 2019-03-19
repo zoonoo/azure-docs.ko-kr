@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e96c7da9ac53927ed48003370f40f5861f48d3d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 71eeed62c6de2a3771909e8489ca816930993435
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204777"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442225"
 ---
 # <a name="linkedin-integration-data-sharing-and-consent"></a>LinkedIn 통합 데이터 공유 및 동의
 
@@ -76,7 +76,7 @@ Microsoft 및 LinkedIn 계정을 연결하면 Microsoft에서 LinkedIn에 다음
 
 연락처를 제외하고 Microsoft에서 액세스되는 데이터는 LinkedIn에서 영구적으로 저장되지 않습니다. 사용자가 제거할 때까지 Microsoft 연락처는 LinkedIn에 저장됩니다. [LinkedIn에서 가져온 연락처 삭제](https://www.linkedin.com/help/linkedin/answer/43377)에 대해 자세히 알아봅니다.
 
-LinkedIn에서 개인 데이터를 사용하는 자세한 내용은 [LinkedIn 개인 정보 취급 방침](https://www.linkedin.com/legal/privacy-policy)을 참조하세요. LinkedIn 서비스, 데이터 전송 및 저장소의 경우 데이터는 유럽 연합과 미국 간에 이동하고, 개인 정보는 [유럽 연합 데이터 전송](https://www.linkedin.com/help/linkedin/answer/62533)에 설명된 대로 보호됩니다.
+LinkedIn에서 개인 데이터를 사용하는 자세한 내용은 [LinkedIn 개인 정보 취급 방침](https://www.linkedin.com/legal/privacy-policy)을 참조하세요. LinkedIn 서비스, 데이터 전송 및 저장소에 대 한 데이터를 이동는 유럽 연합에서 미국 및 뒤로, 및에 설명 된 대로 사용자의 개인 정보 보호가 [유럽 연합 데이터 전송](https://www.linkedin.com/help/linkedin/answer/62533)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

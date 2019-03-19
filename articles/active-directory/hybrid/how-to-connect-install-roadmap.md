@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1285a9262221dbd8e46d07e384697ddea853f9fc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163056"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193157"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
 
@@ -46,10 +46,10 @@ ms.locfileid: "56163056"
 |Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](./how-to-connect-install-express.md)|
 |사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](./how-to-connect-install-custom.md)|
 |DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](./how-to-dirsync-upgrade-get-started.md)|
-|설치 후 | [설치 확인 및 라이선스 할당 ](how-to-connect-post-installation.md)|
+|설치 후 | [설치를 확인 하 고 라이선스 할당](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Azure AD Connect 설치에 대해 자세히 알아봅니다.
-또한 [운영](how-to-connect-sync-operations.md) 문제를 준비하려 합니다. [재해](how-to-connect-sync-operations.md#disaster-recovery)가 발생하는 경우 쉽게 장애 조치(failover)가 가능하도록 대기 서버가 있는 것이 좋습니다. 자주 구성을 변경하는 경우 [준비 모드](how-to-connect-sync-operations.md#staging-mode) 서버에 대해 준비해야 합니다.
+또한 [운영](how-to-connect-sync-operations.md) 문제를 준비하려 합니다. [재해](how-to-connect-sync-staging-server.md#disaster-recovery)가 발생하는 경우 쉽게 장애 조치(failover)가 가능하도록 대기 서버가 있는 것이 좋습니다. 자주 구성을 변경하는 경우 [준비 모드](how-to-connect-sync-staging-server.md) 서버에 대해 준비해야 합니다.
 
 |항목 |링크|  
 | --- | --- |

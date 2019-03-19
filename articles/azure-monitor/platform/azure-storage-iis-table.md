@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 0bb464d1d49438213d2b9a4e937170a075a206f5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 9f5948887262ae190547c96aa09318a19f64812e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192402"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306632"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Log Analytics에서 이벤트에 대해 IIS와 Azure Table Storage에 Azure Blob Storage 사용
 
@@ -82,7 +82,7 @@ Azure 진단을 사용하는 경우:
 ### <a name="to-enable-diagnostics"></a>진단을 사용하도록 설정하려면
 Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPeriod를 변경하려면 [4단계: 진단 구성 파일 만들기 및 확장 설치](../../cloud-services/cloud-services-dotnet-diagnostics.md)에 설명된 것처럼 XML 구성 파일(diagnostics.wadcfg)을 사용하여 Azure Diagnostics를 구성합니다.
 
-다음 예제 구성 파일은 응용 프로그램 및 시스템 로그에서 모든 이벤트 및 IIS 로그를 수집합니다.
+다음 예제 구성 파일은 애플리케이션 및 시스템 로그에서 모든 이벤트 및 IIS 로그를 수집합니다.
 
 ```
     <?xml version="1.0" encoding="utf-8" ?>
@@ -146,7 +146,10 @@ Log Analytics가 수집할 다른 저장소 계정과 데이터 형식에 대해
 >
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>PowerShell을 사용하여 이벤트 로그 및 IIS 로그 컬렉션에 대한 Azure 진단을 가상 컴퓨터에서 사용하도록 설정
-[Azure 진단을 인덱싱하도록 Log Analytics 구성](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) 단계를 사용하여 PowerShell을 통해 Table Storage에 기록된 Azure 진단을 읽을 수 있습니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[Azure 진단을 인덱싱하도록 Log Analytics 구성](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-collect-azure-diagnostics-from-storage) 단계를 사용하여 PowerShell을 통해 Table Storage에 기록된 Azure 진단을 읽을 수 있습니다.
 
 Azure PowerShell을 사용하여 Azure Storage에 기록된 이벤트를 보다 정확하게 지정할 수 있습니다.
 자세한 내용은 [Azure Virtual Machines에서 진단 사용](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)을 참조하세요.
@@ -177,7 +180,7 @@ Azure PowerShell을 사용하여 Azure Storage에 기록된 이벤트를 보다 
 
     #Construct Azure diagnostics private config
 
-    $wad_storage_account_key = (Get-AzureStorageKey $wad_storage_account_name).Primary
+    $wad_storage_account_key = (Get-AzStorageKey $wad_storage_account_name).Primary
     $wad_private_config = [string]::Format("{{""storageAccountName"":""{0}"",""storageAccountKey"":""{1}""}}",$wad_storage_account_name,$wad_storage_account_key)
 
     #Enable Diagnostics Extension for Virtual Machine

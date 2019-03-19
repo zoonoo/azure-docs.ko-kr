@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001997"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310185"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Azure 리소스에서 로그 데이터 수집 및 소비
 
@@ -23,7 +23,7 @@ ms.locfileid: "56001997"
 * **테넌트 로그** - Azure Active Directory 로그 등, Azure 구독 밖에 존재하는 테넌트 수준 서비스로부터 오는 로그입니다.
 * **리소스 로그** - 네트워크 보안 그룹, 저장소 계정 등, Azure 구독 내에 리소스를 배포하는 Azure 서비스로부터 오는 로그입니다.
 
-    ![리소스 진단 로그와 다른 로그 유형 비교 ](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![리소스 진단 로그와 다른 로그 유형 비교](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 이러한 로그의 내용은 Azure 서비스와 리소스 유형에 따라 달라집니다. 예를 들어 네트워크 보안 그룹 규칙 카운터와 Key Vault 감사는 두 가지 진단 로그 유형입니다.
 
@@ -113,12 +113,14 @@ ms.locfileid: "56001997"
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>PowerShell을 통한 리소스 진단 로그 컬렉션 활성화
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure PowerShell에서 리소스 진단 로그 컬렉션을 활성화하려면 다음 명령을 사용합니다.
 
 저장소 계정에서 진단 로그의 저장소를 활성화하려면 다음 명령을 사용합니다.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 저장소 계정 ID는 로그를 보낼 저장소 계정에 대한 리소스 ID입니다.
@@ -126,7 +128,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [y
 이벤트 허브로의 진단 로그 스트리밍을 활성화하려면 다음 명령을 사용합니다.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 서비스 버스 규칙 ID는 `{Service Bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다.
@@ -134,13 +136,13 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [y
 진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 다음 명령을 사용합니다.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 다음 명령을 사용하여 Log Analytics 작업 공간의 리소스 ID를 가져올 수 있습니다.
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.

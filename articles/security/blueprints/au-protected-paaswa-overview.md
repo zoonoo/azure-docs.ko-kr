@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 8fd3725a5f3cd45da261aca17bf0f89a3e5a5aa0
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: c17f16ce796c9f296facd69c18de4effc7ff5258
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055186"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440984"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure 보안 및 규정 준수 청사진 - Australia PROTECTED용 PaaS 웹 애플리케이션
 
@@ -59,7 +59,7 @@ ASD 규정 준수를 구현하려면 정보 보안 등록 평가자가 시스템
 - Azure Security Center
 - Azure SQL Database
 - Azure Storage
-- Azure Log Analytics
+- Azure Monitor 로그
 - Azure Virtual Network
     - (1) /16 Network
     - (4) /24 네트워크
@@ -114,7 +114,7 @@ App Service Environment는 단일 고객의 애플리케이션만 실행하도�
 각 네트워크 보안 그룹에는 솔루션이 안전하고 올바르게 작동할 수 있도록 특정 포트 및 프로토콜이 열려 있습니다. 또한 각 네트워크 보안 그룹에 대해 다음과 같은 구성을 사용합니다.
 
   - [진단 로그 및 이벤트](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)는 저장소 계정에 사용되고 저장됩니다.
-  - Azure Log Analytics는 [네트워크 보안 그룹의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)에 연결됩니다.
+  - Azure Monitor 로그에 연결 되는 [네트워크 보안 그룹 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **서브넷**: 각 서브넷이 해당 네트워크 보안 그룹에 연결됩니다.
 
@@ -127,7 +127,7 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 
 이 아키텍처는 고객 소유의 네트워크에서 전송되는 Protected 데이터에 IPSEC가 구성된 VPN Gateway를 사용하는 인터넷 또는 ExpressRoute를 사용합니다.
 
-또한 Azure 관리 포털을 통한 Azure에 대한 모든 트랜잭션은 TLS v1.2를 사용하는 HTTPS를 통해 발생합니다.
+또한 Azure 관리 포털을 통해 Azure에 대 한 모든 트랜잭션을 TLS v1.2를 활용 하 여 HTTPS를 통해 발생 합니다.
 
 ### <a name="data-at-rest"></a>미사용 데이터
 이 아키텍처는 암호화, 데이터베이스 감사 및 다른 방법을 통해 미사용 데이터를 보호합니다.
@@ -189,9 +189,9 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 - **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
 - **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그를 포함합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Storage 로그, Key Vault 감사 로그 및 Application Gateway 액세스 및 방화벽 로그가 포함됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure 저장소 계정에 기록됩니다. 보존은 조직 특정 보존 요구 사항에 맞게 최대 730일까지 사용자가 구성할 수 있습니다.
 
-**Log Analytics**: 이러한 로그는 처리, 저장, 대시보드 보고를 위해 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)에 통합됩니다. 수집이 완료되면 데이터는 각 데이터 형식에 대해 별도 테이블로 구성되어 원본에 관계 없이 모든 데이터가 함께 분석되도록 합니다. 또한 Azure Security Center는 Log Analytics와 통합하여 고객이 Log Analytics 쿼리를 사용하여 보안 이벤트 데이터에 액세스하고 다른 서비스의 데이터와 결합하게 할 수 있습니다.
+**Azure Monitor 로그**: 이러한 로그에 통합 됩니다 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 처리, 저장 및 대시보드를 보고 합니다. 수집이 완료되면 데이터는 각 데이터 형식에 대해 별도 테이블로 구성되어 원본에 관계 없이 모든 데이터가 함께 분석되도록 합니다. 또한 Azure Security Center는 Kusto 쿼리를 사용 하 여 보안 이벤트 데이터를 액세스 하 고 다른 서비스의 데이터와 결합 하 여 고객은 Azure Monitor 로그와 통합 됩니다.
 
-다음 Log Analytics [관리 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)은 이 아키텍처의 일부로 포함됩니다.
+다음 Azure [모니터링 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) 이 아키텍처의 일부로 포함 됩니다.
 -   [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 확인 솔루션은 일정한 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.
 - [SQL 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): SQL 상태 확인 솔루션은 일정한 간격으로 서버 환경의 위험과 상태를 평가하고, 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 고객에게 제공합니다.
 - [에이전트 상태](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): 에이전트 상태 솔루션은 배포되는 에이전트 수와 해당 지리적 분포, 응답이 없는 에이전트 수 및 운영 데이터를 제출하는 에이전트 수를 보고합니다.

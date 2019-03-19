@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417638"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216937"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스 관리
 
@@ -152,7 +152,7 @@ SQL Database에서 기본적으로 저장소 하위 시스템에 있는 데이�
 |**특성**|**Always Encrypted**|**투명한 데이터 암호화**|
 |---|---|---|
 |**암호화 범위**|종단간|미사용 데이터|
-|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아니요|예, 암호화는 미사용 데이터를 위한 것이므로|
+|**데이터베이스 서버는 중요 데이터에 액세스 가능**|아닙니다.|예, 암호화는 미사용 데이터를 위한 것이므로|
 |**허용되는 T-SQL 작업**|같음 비교|모든 T-SQL 노출 영역을 사용할 수 있음|
 |**기능을 사용하려면 앱 변경이 필요함**|최소|아주 미미함|
 |**암호화 세분성**|열 수준|데이터베이스 수준|
@@ -261,9 +261,9 @@ Azure Portal은 개요 창에서 데이터베이스를 선택하고 차트를 �
 
 ![쿼리](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-log-analytics"></a>Log Analytics에서 Azure SQL 분석(미리 보기)
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure Monitor 로그에서 azure SQL 분석 (미리 보기)
 
-[Azure Log Analytics](../azure-monitor/insights/azure-sql.md)를 사용하면 주요 Azure SQL Azure 성능 메트릭을 수집하고 시각화할 수 있으며, 작업 영역당 최대 150,000개 SQL Database 및 5,000개 SQL 탄력적 풀을 지원합니다. 그것을 사용하여 알림을 모니터링하고 받을 수 있습니다. 여러 Azure 구독 및 탄력적 풀에서 SQL Database 및 탄력적 풀 메트릭을 모니터링할 수 있으며 애플리케이션 스택의 각 레이어에서 문제를 식별하는 데 사용할 수 있습니다.
+[Azure Monitor 로그](../azure-monitor/insights/azure-sql.md) 150,000 SQL Database 및 5,000 SQL 탄력적 풀 작업 영역당 최대 지원 수집 하 고 주요 Azure SQL Azure 성능 메트릭을 시각화할 수 있습니다. 그것을 사용하여 알림을 모니터링하고 받을 수 있습니다. 여러 Azure 구독 및 탄력적 풀에서 SQL Database 및 탄력적 풀 메트릭을 모니터링할 수 있으며 애플리케이션 스택의 각 레이어에서 문제를 식별하는 데 사용할 수 있습니다.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>성능 문제를 발견했습니다. SQL Database 문제 해결 방법은 SQL Server와는 어떻게 다른가요?
 

@@ -10,15 +10,15 @@ ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818042"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776311"
 ---
 # <a name="what-is-azure-relay"></a>Azure 릴레이란?
 Azure Relay 서비스를 사용하면 회사 네트워크에서 실행되는 서비스를 공용 클라우드에 안전하게 공개할 수 있습니다. 방화벽에서 포트를 열거나 회사 네트워크 인프라를 강제로 변경하지 않고도 이 작업을 수행할 수 있습니다. 
@@ -82,7 +82,7 @@ WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이
 5. 게이트웨이에서 연결 요청을 게이트웨이 저장소에 언급된 올바른 게이트웨이로 전달합니다. 
 6. 게이트웨이에서 송신 클라이언트에 가장 가까운 게이트웨이 노드에 대한 임시 채널을 만들도록 요구하는 요청을 수신 클라이언트에 보냅니다. 
 7. 수신 클라이언트는 송신 클라이언트에서 가장 가까운 게이트웨이에 대한 임시 채널을 만듭니다. 이제 게이트웨이를 통해 클라이언트 간의 연결이 수립되었으므로 클라이언트가 서로 메시지를 교환할 수 있습니다. 
-8. 게이트웨이는 메시지를 수신 대기 클라이언트에서 송신 클라이언트로 전달합니다. 
+8. 게이트웨이 전송 클라이언트에 수신 대기 하는 클라이언트에서 모든 메시지를 전달합니다. 
 9. 게이트웨이는 메시지를 송신 클라이언트에서 수신 대기 클라이언트로 전달합니다.  
 
 ## <a name="next-steps"></a>다음 단계

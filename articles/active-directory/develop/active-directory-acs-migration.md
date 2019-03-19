@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8667db4ed4777614a8c99c823b833ff673c1e98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ed2164fc122621a4ba2aeb4bb0797db02b10a4bf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211770"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449141"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -148,12 +148,12 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 
 ### <a name="sharepoint-customers"></a>SharePoint 고객
 
-SharePoint 2013, 2016 및 SharePoint Online 고객은 오래 전부터 클라우드, 온-프레미스 그리고 하이브리드 시나리오에서 ACS를 인증에 사용해 왔습니다. 일부 SharePoint 기능 및 사용 사례는 ACS 사용 중지의 영향을 받을 것이고, 일부는 그렇지 않습니다. 아래 표에는 ACS를 활용하는 가장 인기 있는 SharePoint의 일부 기능에 대한 마이그레이션 지침이 요약되어 있습니다.
+SharePoint 2013, 2016 및 SharePoint Online 고객이 클라우드, 온-프레미스 및 하이브리드 시나리오에서에서 인증을 위해 ACS를 오래 사용 했습니다. 일부 SharePoint 기능 및 사용 사례는 ACS 사용 중지의 영향을 받을 것이고, 일부는 그렇지 않습니다. 아래 표에는 ACS를 활용하는 가장 인기 있는 SharePoint의 일부 기능에 대한 마이그레이션 지침이 요약되어 있습니다.
 
 | 기능 | 지침 |
 | ------- | -------- |
 | Azure AD에서 사용자 인증 | 이전에는 Azure AD가 인증을 위해 SharePoint에서 요구하는 SAML 1.1 토큰을 지원하지 않았으며, SharePoint를 Azure AD 토큰 형식과 호환되도록 만들기 위해 ACS 토큰을 중간자로 사용했습니다. 이제, [온-프레미스 앱에서 Azure AD 앱 갤러리 SharePoint를 사용하여 SharePoint를 Azure AD에 직접 연결](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial)할 수 있습니다. |
-| [SharePoint 온-프레미스에서 앱 인증 및 서버 간 인증](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. | 
+| [앱 인증 및 온-프레미스 sharepoint에서 서버-투-서버 인증](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. | 
 | [SharePoint 추가 기능에 대한 낮은 신뢰 권한 부여(호스팅된 공급자 및 호스팅된 SharePoint)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
 | [SharePoint 클라우드 하이브리드 검색](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. |
 
@@ -286,7 +286,7 @@ Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 ACS와 동일한 많은 기능을 지원하는 클라우드 ID 서비스이고 PingFederate는 더 큰 유연성을 제공하는 유사한 온-프레미스 ID 제품입니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 acs와 동일한 기능을 많이 지 원하는 클라우드 id 서비스 및 PingFederate는 더 많은 유연성을 제공 하는 프레미스 id 제품에서 매우 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요. |
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 
@@ -348,7 +348,7 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs)은 [Access Control 고객을 위한 대략적인 마이그레이션 지침](https://auth0.com/acs)에 따라 만들어진 유동 클라우드 ID 서비스이며 ACS가 지원하는 거의 모든 기능을 지원합니다. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 ACS와 동일한 많은 기능을 지원하는 클라우드 ID 서비스이고 PingFederate는 더 큰 유연성을 제공하는 유사한 온-프레미스 ID 제품입니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping ID](https://www.pingidentity.com)는 ACS와 유사한 두 가지 솔루션을 제공합니다. PingOne은 acs와 동일한 기능을 많이 지 원하는 클라우드 id 서비스 및 PingFederate는 더 많은 유연성을 제공 하는 프레미스 id 제품에서 매우 유사 합니다. 이러한 제품의 사용에 대한 자세한 내용은 [Ping의 ACS 사용 중지 지침](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html)을 참조하세요. |
 
 Ping ID와 Auth0으로 작업하는 목적은 모든 Access Control 고객이 앱 및 서비스를 Access Control에서 이전하는 데 필요한 작업 양을 최소화하는 마이그레이션 경로를 갖도록 하는 것입니다.
 

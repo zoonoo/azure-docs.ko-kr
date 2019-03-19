@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: eaf18cf7d7a5f150d3400e133bf0703bb03e7b8f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: cba9a334ae014351b1156f34325e9f134b1592a9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845980"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439200"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>장애 조치(failover) 후 공용 IP 주소 설정
 
@@ -44,7 +44,7 @@ Azure Resource Manager에서 공용 IP 주소는 자체 속성이 있는 리소�
 Azure Traffic Manager에서는 엔드포인트 간의 DNS 수준 라우팅이 가능하며, DR 시나리오에서는 [RTO를 단축](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations)할 수 있습니다. 
 
 다음 항목에서 Traffic Manager를 사용하는 장애 조치(failover) 시나리오에 대해 자세히 알아보세요.
-1. Traffic Manager를 사용한 [온-프레미스에서 Azure로의 장애 조치(failover)](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) 
+1. [온-프레미스와 Azure 장애 조치](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) Traffic Manager를 사용 하 여 
 2. Traffic Manager를 사용한 [Azure 간의 장애 조치(failover)](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) 
 
 설정 방법은 다음과 같습니다.

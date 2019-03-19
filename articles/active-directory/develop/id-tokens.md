@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92472d276b3f03e5a3855587de4ca8a045bfec2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 687b25ea5d792edf2f582c9929a0ae5f0c2426db
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234428"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442076"
 ---
 # <a name="id-tokens"></a>ID 토큰
 

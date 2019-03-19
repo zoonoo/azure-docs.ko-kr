@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 8f4b39141a9509990525769833e2cd193419752c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469375"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309318"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Log Analytics로 Azure 진단 로그 스트리밍
 
@@ -65,10 +65,13 @@ Azure Log Analytics는 Azure 리소스에서 생성된 원시 로그 데이터�
 몇 분 후 새 설정이 이 리소스에 대한 설정 목록에 표시되고, 새 이벤트 데이터가 생성되는 즉시 진단 로그가 해당 작업 영역에 스트리밍됩니다. 이벤트를 내보낸 시간과 Log Analytics에 이벤트가 나타난 시간 사이에는 최대 15분의 차이가 있을 수 있습니다.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell Cmdlet을 통해
-[Azure PowerShell Cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md)을 통해 스트리밍을 사용하도록 설정하려면 다음 매개 변수와 함께 `Set-AzureRmDiagnosticSetting` cmdlet을 사용하면 됩니다.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[Azure PowerShell Cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md)을 통해 스트리밍을 사용하도록 설정하려면 다음 매개 변수와 함께 `Set-AzDiagnosticSetting` cmdlet을 사용하면 됩니다.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
 ```
 
 workspaceID 속성은 Log Analytics에 표시되는 작업 영역 ID/키가 아니라 작업 영역의 전체 Azure 리소스 ID를 사용합니다.

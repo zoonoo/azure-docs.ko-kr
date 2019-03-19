@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 514242eb759a2349d96b38ebe54bb98cf0e83423
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468821"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454955"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning의 고급 분석 시나리오
 이 문서에서는 [TDSP(팀 데이터 과학 프로세스)](overview.md)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. TDSP는 지능형 애플리케이션 개발을 위해 팀원들이 공동으로 작업하기 위한 체계적인 방법을 제공합니다. 여기에 제시된 시나리오는 Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 데이터 처리 워크플로에서 사용 가능한 옵션을 보여 줍니다.
@@ -146,7 +146,7 @@ ms.locfileid: "55468821"
 1. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
 1. 업로드 데이터 세트로 단순 Azure Machine Learning 실험 흐름 시작
 
-## <a name="largedbtodb"></a>시나리오 \#6: 온-프레미스의 SQL Server 데이터베이스의 큰 데이터 세트, Azure Virtual Machine의 SQL Server를 대상으로 함
+## <a name="largedbtodb"></a>시나리오 \#6: Azure Virtual Machine에서 SQL Server를 대상으로 온-프레미스 SQL Server에 대 한 데이터베이스의 큰 데이터 집합
 ![Azure의 SQL DB보다 큰 SQL DB 온-프레미스][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>추가 Azure 리소스: Azure Virtual Machine(SQL Server / IPython Notebook 서버)
@@ -154,7 +154,7 @@ ms.locfileid: "55468821"
 1. 데이터 내보내기 메서드 중 하나를 사용하여 SQL Server에서 덤프 파일로 데이터를 내보냅니다.
    
    > [!NOTE]
-   > 온-프레미스 데이터베이스에서 모든 데이터를 이동하기로 결정한 경우, (빠른)메서드로 대체하여 전체 데이터베이스를 Azure의 SQL Server 인스턴스로 이동합니다. 데이터를 내보내고, 데이터베이스를 만들고 대상 데이터베이스로 데이터를 로드/가져오기하는 단계를 건너뛰고 대체 메서드를 따릅니다.
+   > Azure에서 SQL Server 인스턴스로 전체 데이터베이스를 이동 하는 대체 (빠른) 메서드로 온-프레미스 데이터베이스에서 모든 데이터를 이동 하기로 했습니다. 데이터를 내보내고, 데이터베이스를 만들고 대상 데이터베이스로 데이터를 로드/가져오기하는 단계를 건너뛰고 대체 메서드를 따릅니다.
    > 
    > 
 1. Azure 저장소 컨테이너로 덤프 파일을 업로드합니다.

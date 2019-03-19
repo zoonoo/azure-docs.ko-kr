@@ -4,7 +4,7 @@ description: " Azure IaaS로 작업을 마이그레이션하면 설계를 다시
 services: security
 documentationcenter: na
 author: barclayn
-manager: barbkess
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341219"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409757"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 
@@ -39,7 +39,7 @@ ms.locfileid: "56341219"
 VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정하고 VM에 액세스할 수 있게 하는 것입니다.
 
 **모범 사례**: VM 액세스 제어   
-**세부 정보**: [Azure 정책](../governance/policy/overview.md)을 사용하여 조직의 리소스에 대한 규칙을 설정하고 사용자 지정된 정책을 만듭니다. [리소스 그룹](../azure-resource-manager/resource-group-overview.md)과 같은 리소스에 이러한 정책을 적용합니다. 리소스 그룹에 속한 VM에서 해당 정책을 상속합니다.
+**세부 정보**: [Azure 정책](../azure-policy/azure-policy-introduction.md)을 사용하여 조직의 리소스에 대한 규칙을 설정하고 사용자 지정된 정책을 만듭니다. [리소스 그룹](../azure-resource-manager/resource-group-overview.md)과 같은 리소스에 이러한 정책을 적용합니다. 리소스 그룹에 속한 VM에서 해당 정책을 상속합니다.
 
 조직에 구독이 많으면 구독에 대한 액세스, 정책 및 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](../azure-resource-manager/management-groups-overview.md)은 구독 상위 수준의 범위를 제공합니다. 관리 그룹(컨테이너)에 구독을 구성하고 거버넌스 조건을 해당 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 그룹에 적용되는 조건을 자동으로 상속합니다. 관리 그룹은 어떤 형식의 구독을 사용하든 관계 없이 대규모의 엔터프라이즈급 관리를 제공합니다.
 
@@ -128,7 +128,7 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 
 Security Center는 위협을 적극적으로 모니터링할 수 있으며 잠재적 위협은 보안 경고에 표시됩니다. 상호 관련된 위협은 보안 인시던트라고 하는 단일 보기로 집계됩니다.
 
-Security Center에서는 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)에 데이터를 저장합니다. Log Analytics에서는 애플리케이션 및 리소스의 작업에 대한 인사이트를 제공하는 쿼리 언어 및 분석 엔진을 제공합니다. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
+Security Center에서 데이터를 저장 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)합니다. Azure Monitor 로그는 응용 프로그램 및 리소스의 작업에 대 한 정보를 제공 하는 쿼리 언어 및 분석 엔진을 제공 합니다. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
 
 VM에 대해 강력한 보안을 적용하지 않는 조직은 권한이 없는 사용자가 보안 컨트롤을 억제하는 잠재적인 시도를 알지 못하는 상태가 됩니다.
 
@@ -153,10 +153,10 @@ Azure Disk Encryption을 사용하는 모범 사례는 다음과 같습니다.
 **세부 정보**: Azure Disk Encryption은 암호화 키를 생성하고 키 자격 증명 모음에 작성합니다. Key Vault에서 암호화 키를 관리하려면 Azure AD 인증이 필요합니다. 이를 위해 Azure AD 애플리케이션을 만듭니다. 인증을 위해 클라이언트 비밀 기반 인증 또는 [클라이언트 인증서 기반 Azure AD 인증](../active-directory/active-directory-certificate-based-authentication-get-started.md)을 사용할 수 있습니다.
 
 **모범 사례**: 암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키) 사용 KEK를 키 자격 증명 모음에 추가합니다.   
-**세부 정보**: [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet을 사용하여 키 자격 증명 모음에 키 암호화 키를 만듭니다. 또한 키를 관리하기 위해 온-프레미스 HSM(하드웨어 보안 모듈)에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../key-vault/key-vault-hsm-protected-keys.md)를 참조하세요. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 온-프레미스 키 관리 HSM에서 이 키의 에스크로 복사본을 유지하면 키를 실수로 삭제하는 경우에 추가적인 보호를 제공합니다.
+**세부 정보**: 사용 된 [추가 AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) key vault에 키 암호화 키를 만드는 cmdlet입니다. 또한 키를 관리하기 위해 온-프레미스 HSM(하드웨어 보안 모듈)에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../key-vault/key-vault-hsm-protected-keys.md)를 참조하세요. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 온-프레미스 키 관리 HSM에서 이 키의 에스크로 복사본을 유지하면 키를 실수로 삭제하는 경우에 추가적인 보호를 제공합니다.
 
 **모범 사례**: 디스크가 암호화되기 전에 먼저 [스냅숏](../virtual-machines/windows/snapshot-copy-managed-disk.md) 및/또는 백업 수행 백업은 암호화 중에 예상치 않은 오류가 발생하는 경우 복구 옵션을 제공합니다.   
-**세부 정보**: 암호화가 수행되기 전에 관리 디스크가 있는 VM은 백업해야 합니다. 백업이 완료되면 **Set-AzureRmVMDiskEncryptionExtension** cmdlet을 사용하여 *-skipVmBackup* 매개 변수를 지정함으로써 관리 디스크를 암호화할 수 있습니다. 암호화된 VM을 백업하고 복원하는 방법에 대한 자세한 내용은 [Azure Backup](../backup/backup-azure-vms-encryption.md) 문서를 참조하세요.
+**세부 정보**: 암호화가 수행되기 전에 관리 디스크가 있는 VM은 백업해야 합니다. 백업 설정 되 면 사용할 수는 **집합 AzVMDiskEncryptionExtension** 지정 하 여 관리 되는 디스크를 암호화 하는 cmdlet를 *-skipVmBackup* 매개 변수입니다. 암호화된 VM을 백업하고 복원하는 방법에 대한 자세한 내용은 [Azure Backup](../backup/backup-azure-vms-encryption.md) 문서를 참조하세요.
 
 **모범 사례**: 암호화 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서는 키 자격 증명 모음과 VM을 동일한 지역에 배치해야 함   
 **세부 정보**: 암호화할 VM과 동일한 지역에 있는 키 자격 증명 모음을 만들고 사용합니다.

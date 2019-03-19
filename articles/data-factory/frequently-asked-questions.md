@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: cdd5c7592ebbc092c8e7be01a0fdd16e9c78aeaf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024096"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240799"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  
@@ -174,6 +174,33 @@ Azure Data Factory에 대한 최신 정보를 얻으려면 다음 사이트로 �
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>활동 출력의 Null 값을 정상적으로 처리하려면 어떻게 해야 합니까? 
 식에서 `@coalesce` 구문을 사용하여 Null 값을 정상적으로 처리할 수 있습니다. 
+
+## <a name="mapping-data-flows"></a>매핑 데이터 흐름
+
+### <a name="which-adf-version-do-i-use-to-create-data-flows"></a>데이터 흐름 만들기를 ADF 버전 사용 합니까?
+ADF V2 버전을 사용 하 여 데이터 흐름을 만들려면
+  
+### <a name="i-was-a-previous-private-preview-customer-using-data-flows-and-i-used-the-adf-v2-wdata-flows-preview-version"></a>데이터 흐름을 사용 하 여 이전 비공개 미리 보기 고객 되었으며 ADF V2 w/데이터 흐름 미리 보기 버전 사용
+이 버전은 이제 사용 되지 않습니다. ADF V2를 사용 하 여 데이터 흐름에 대 한
+  
+### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-data-flows"></a>무엇이 데이터 흐름에서 제한 된 공개 미리 보기에 비공개 미리 보기에서 변경 되었습니까?
+사용자 고유의 Databricks 클러스터를 더 이상. ADF는 클러스터 만들기 및 중지를 관리 합니다. Blob 데이터 집합 및 ADLS 데이터 집합은 구분 된 텍스트 및 Parquet 데이터 집합으로 구분 됩니다. 이러한 파일을 저장할 ADLS 및 Blob 저장소를 계속 사용할 수 있습니다. 이러한 저장소 엔진에 대 한 적절 한 연결 된 서비스를 사용 합니다.
+
+### <a name="can-i-migrate-my-private-preview-factories-to-adf-v2"></a>ADF V2를 내 비공개 미리 보기 팩터리를 마이그레이션할 수 있나요?
+
+[예, 다음 지침에 따라](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)
+
+### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-do-you-need"></a>데이터 흐름 논리 내 문제를 해결 하는 데 도움이 필요, 필요한?
+
+Microsoft 도움말 이나 데이터 흐름 문제 해결을 제공 하는 경우 "DSL 코드 계획을"를 입력 하세요. 이렇게 하려면 다음 단계를 수행하세요.
+
+* 데이터 흐름 디자이너에서 오른쪽 위 모서리에서 "코드"를 클릭 합니다. 데이터 흐름에 대 한 JSON 코드를 편집 가능 보기가 표시 됩니다.
+* 코드 보기에서 오른쪽 위 모서리에 있는 "계획"을 클릭 합니다. 계획 설정/해제는 JSON에서 읽기 전용으로 서식이 지정 된 DSL 스크립트 계획으로 전환 됩니다.
+* 복사이 스크립트를 붙여 넣습니다. 또는 텍스트 파일에 저장 합니다.
+
+### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>80 다른 데이터 집합 형식을 사용 하 여 ADF에 데이터를 액세스 하려면 어떻게 해야 합니까?
+
+데이터 흐름 현재 허용 Azure SQL DB, Azure SQL DW, Blob 또는 ADLS, 구분 된 텍스트 파일 및 Parquet 파일 Blob 또는 ADLS에서 기본적으로 원본 및 싱크 합니다. 다른 커넥터에서 단계 데이터 복사 작업을 사용 하 고 준비 된 후 데이터를 변환 하는 데이터 흐름 작업을 실행 합니다. 예를 들어 파이프라인에는 먼저 Blob에 복사 및 다음 데이터 흐름 작업을 사용 됩니다 데이터 집합 원본에서 해당 데이터를 변환할.
 
 ## <a name="next-steps"></a>다음 단계
 데이터 팩터리를 만드는 단계별 지침은 다음 자습서를 참조하세요.

@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6b1e1c103c37874365f7e8d0b893985c9a6469c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b113dd3e354e778d2cf16182665afff5440d2e5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171080"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408533"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>디바이스의 하이브리드 Azure AD 조인 제어
 
@@ -82,7 +82,7 @@ GPO를 설정하려면:
 8.  마우스 오른쪽 단추로 **도메인 가입 컴퓨터를 디바이스로 등록**을 클릭한 다음, **편집**을 선택합니다.
 
     > [!NOTE] 
-    > 이 그룹 정책 템플릿 이름은 이전 버전의 그룹 정책 관리 콘솔에서 변경되었습니다. 이전 버전의 콘솔을 사용하는 경우 **컴퓨터 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **작업 영역 조인** > **클라이언트 컴퓨터와 작업 영역 자동 조인**으로 이동합니다. 
+    > 이 그룹 정책 템플릿 이름은 이전 버전의 그룹 정책 관리 콘솔에서 변경되었습니다. 콘솔의 이전 버전을 사용 하는 경우 이동할 **컴퓨터 구성** > **정책** > **관리 템플릿**  >  **Windows 구성 요소** > **Device Registration** > **등록 도메인 가입 컴퓨터를 장치로**합니다. 
 
 9.  다음 설정 중 하나를 선택한 다음, **적용**을 선택합니다.
 
@@ -99,16 +99,16 @@ GPO를 설정하려면:
 
 클라이언트 설정을 구성하려면:
 
-1.  **Configuration Manager**를 열고 **Cloud Services**로 이동동합니다.
+1.  오픈 **Configuration Manager**를 선택 **관리**,으로 이동한 다음 **클라이언트 설정을**합니다.
 
-2.  **디바이스 설정** 아래에서 **Azure Active Directory를 사용하여 새 Windows 10 도메인 조인된 디바이스를 자동으로 등록**에 대해 다음 설정 중 하나를 선택합니다.
+2.  에 대 한 속성을 엽니다 **기본 클라이언트 설정** 선택한 **Cloud Services**합니다.
+
+3.  **디바이스 설정** 아래에서 **Azure Active Directory를 사용하여 새 Windows 10 도메인 조인된 디바이스를 자동으로 등록**에 대해 다음 설정 중 하나를 선택합니다.
 
     - **아니요**: 자동 디바이스 등록 방지
     - **예**: 자동 디바이스 등록 사용
 
-
-3.  **확인**을 선택합니다.
-    
+4.  **확인**을 선택합니다.
 
 사용자가 선택한 위치에 이 클라이언트 설정을 연결해야 합니다. 예를 들어, 조직의 모든 Windows 최신 디바이스에 대해 이 클라이언트 설정을 구성하려면 클라이언트 설정을 해당 도메인에 연결합니다. 제어되는 배포를 수행하려면 클라이언트 설정을 조직 구성 단위 또는 보안 그룹에 속하는 도메인 가입 Windows 최신 디바이스로 구성할 수 있습니다.
 

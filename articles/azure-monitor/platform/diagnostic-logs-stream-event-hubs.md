@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 1ef779e64995c6996538b68b892cb45f11788067
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477467"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314081"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>이벤트 허브로 Azure 진단 로그 스트림
 Portal에서 기본 제공되는 "Event Hubs로 내보내기" 옵션을 사용하거나 Azure PowerShell cmdlet 또는 Azure CLI를 통해 진단 설정에서 이벤트 허브 권한 부여 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](diagnostic-logs-overview.md)** 를 거의 실시간으로 애플리케이션에 스트리밍할 수 있습니다.
@@ -83,10 +83,12 @@ Portal에서 기본 제공되는 "Event Hubs로 내보내기" 옵션을 사용�
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell Cmdlet을 통해
 
-[Azure PowerShell Cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md)을 통해 스트리밍을 사용하도록 설정하려면 다음 매개 변수와 함께 `Set-AzureRmDiagnosticSetting` cmdlet을 사용하면 됩니다.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[Azure PowerShell Cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md)을 통해 스트리밍을 사용하도록 설정하려면 다음 매개 변수와 함께 `Set-AzDiagnosticSetting` cmdlet을 사용하면 됩니다.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
 이벤트 허브 권한 부여 규칙 ID는 `{Event Hub namespace resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. 예를 들면 `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`입니다. 현재는 PowerShell을 사용하여 특정 이벤트 허브 이름을 선택할 수 없습니다.

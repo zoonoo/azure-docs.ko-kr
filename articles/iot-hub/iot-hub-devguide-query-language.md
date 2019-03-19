@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: rezas
-ms.openlocfilehash: 0cb3bc63f9c3d63c68edba0b4162970e18fca76d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312704"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730599"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>디바이스 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -34,12 +34,12 @@ IoT Hub는 [디바이스 쌍](iot-hub-devguide-device-twins.md) 및 [작업](iot
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
     "status": "enabled",
-    "statusUpdateTime": "0001-01-01T00:00:00",    
-    "connectionState": "Disconnected",    
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "Disconnected",
     "lastActivityTime": "0001-01-01T00:00:00",
     "cloudToDeviceMessageCount": 0,
-    "authenticationType": "sas",    
-    "x509Thumbprint": {    
+    "authenticationType": "sas",
+    "x509Thumbprint": {
         "primaryThumbprint": null,
         "secondaryThumbprint": null
     },
@@ -174,8 +174,8 @@ SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 이 쿼리는 검색 상태와 함께 모든 모듈 쌍을 반환하지만, 지정된 하위 집합의 디바이스에서만 반환합니다.
 
 ```sql
-SELECT * FROM devices.modules 
-  WHERE properties.reported.status = 'scanning' 
+SELECT * FROM devices.modules
+  WHERE properties.reported.status = 'scanning'
   AND deviceId IN ['device1', 'device2']
 ```
 

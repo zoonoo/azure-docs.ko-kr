@@ -9,49 +9,37 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a2f243b1a8b891419de7e3ca949e7591f55879
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211362"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337688"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory에서 유럽 고객에 대한 ID 데이터 스토리지
 Azure AD(Azure Active Directory)를 통해 사용자 ID를 관리하고 인텔리전스 기반 액세스 정책을 만들어 조직의 리소스를 보호할 수 있습니다. ID 데이터는 서비스를 구독할 때 조직에서 제공한 주소에 기반된 위치에 저장됩니다. 예를 들어 Office 365 또는 Azure를 구독하는 경우입니다. ID 데이터를 저장하는 위치에 대한 특정 정보는 Microsoft 보안 센터의 [데이터를 어디에 배치하나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
 
-대부분의 Azure AD 관련 유럽 ID 데이터가 유럽 데이터 센터에 보관되는 반면 미국 데이터 센터에 저장된 데이터에는 일반적으로 다섯 개의 사용자 관련 특성이 있습니다. 이러한 특성은 GivenName, Surname, userPrincipalName, Domain 및 PasswordHash입니다. 누군가가 PasswordHash 값을 Azure AD와 동기화할 수 없도록 중지하는 온-프레미스 페더레이션된 인증 방법을 사용하는 경우 PasswordHash 특성은 예외일 수 있으며 미국에 저장되지 않습니다. 또한 정상 Azure AD 작업에 필요한 몇 가지 서비스 관련 운영 데이터가 있습니다. 이 데이터는 미국에 저장되고 개인 데이터를 포함하지 않습니다.
+대부분의 Azure AD 관련 유럽 id 데이터는 유럽 데이터 센터에 유지, 보통에 필요한 몇 가지 작업, 서비스 관련 데이터는 미국에 저장 되 고 개인 데이터를 포함 하지 않습니다는 Azure AD 작업 합니다.
 
 ## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>유럽 데이터 센터 외부에 저장된 유럽 고객의 데이터
 
 유럽 기반 주소를 사용하는 조직의 경우 대부분의 Azure AD 관련 유럽 ID 데이터는 유럽 데이터 센터에 유지됩니다. 유럽 데이터 센터에 저장되고 미국 데이터 센터에도 복제되는 Azure AD 데이터에는 다음이 포함됩니다.
-
-- **ID 관련 특성**
-
-    다음 ID 관련 특성은 미국에 복제됩니다.
-
-    - GivenName
-    - Surname
-    - userPrincipalName
-    - 도메인
-    - PasswordHash
-    - SourceAnchor
-    - AccountEnabled
-    - PasswordPolicies
-    - StrongAuthenticationRequirement
-    - ApplicationPassword
-    - PUID
 
 - **Microsoft Azure MFA(Azure Multi-Factor Authentication) 및 Azure AD SSPR(셀프 서비스 암호 재설정)**
     
     MFA는 모든 유휴 사용자 데이터를 유럽 데이터 센터에 저장합니다. 그러나 다음을 비롯한 일부 MFA 서비스 관련 데이터는 미국에 저장됩니다.
     
     - MFA 또는 SSPR을 사용 중인 경우 2단계 인증 및 관련된 개인 데이터는 미국에 저장될 수 있습니다.
+
         - 전화 통화 또는 SMS를 사용하는 모든 2단계 인증은 미국 이동 통신 사업자에 의해 완료될 수 있습니다.
+    
         - Microsoft Authenticator 앱을 사용하는 푸시 알림에는 유럽 외부에 있을 수 있는 제조업체 알림 서비스(Apple 또는 Google)의 알림이 필요합니다.
+    
         - OATH 코드는 미국에서 항상 유효성이 검사됩니다. 
+    
     - 일부 MFA 및 SSPR 로그는 인증 유형에 관계 없이 30일 동안 미국에 저장됩니다.
 
 - **Microsoft Azure AD B2C(Azure Active Directory B2C)**
@@ -75,7 +63,11 @@ Azure AD(Azure Active Directory)를 통해 사용자 ID를 관리하고 인텔�
 ## <a name="next-steps"></a>다음 단계
 위에서 설명한 특징 및 기능에 대한 자세한 내용은 다음과 같은 문서를 참조하세요.
 - [Multi-Factor Authentication이란?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+
 - [Azure AD 셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
+
 - [Azure Active Directory B2C란?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+
 - [Azure AD B2B 공동 작업이란?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+
 - [Azure AD(Active Directory) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)

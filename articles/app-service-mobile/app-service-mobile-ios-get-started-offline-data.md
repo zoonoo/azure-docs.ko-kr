@@ -1,6 +1,6 @@
 ---
 title: iOS 모바일 앱으로 오프라인 동기화 사용 | Microsoft Docs
-description: Azure App Service Mobile Apps를 사용하여 iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
+description: Azure App Service Mobile Apps를 사용하여 iOS 애플리케이션에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
 documentationcenter: ios
 author: conceptdev
 manager: crdun
@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956877"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435136"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>iOS 모바일 앱으로 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -101,7 +101,7 @@ Mobile Apps의 오프라인 데이터 동기화 기능을 사용하면 네트워
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via the MSSyncContextDelegate
+              // server conflicts, etc. via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
               // We will discard our changes and keep the server's copy for simplicity
@@ -159,7 +159,7 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
 ![MS_TableOperations 테이블 특성][defining-core-data-tableoperations-entity]
 
-| 특성 | type |
+| 특성 | Type |
 | --- | --- |
 | id | 정수 64 |
 | itemId | 문자열 |
@@ -172,7 +172,7 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
  ![MS_TableOperationErrors 테이블 특성][defining-core-data-tableoperationerrors-entity]
 
-| 특성 | type |
+| 특성 | Type |
 | --- | --- |
 | id |문자열 |
 | operationId |정수 64 |
@@ -183,7 +183,7 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
  ![][defining-core-data-tableconfig-entity]
 
-| 특성 | type |
+| 특성 | Type |
 | --- | --- |
 | id |문자열 |
 | key |문자열 |
@@ -195,7 +195,7 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
 **TodoItem**
 
-| 특성 | type | 참고 |
+| 특성 | Type | 참고 |
 | --- | --- | --- |
 | id | 문자열, 필수로 표시 |원격 저장소의 기본 키 |
 | complete | BOOLEAN | 할 일 항목 필드 |

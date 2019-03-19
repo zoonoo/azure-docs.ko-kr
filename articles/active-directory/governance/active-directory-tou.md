@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 02/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163770"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443456"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 사용 약관을 시작하는 방법을 설명합니다.
@@ -315,7 +315,7 @@ Chrome을 사용하는 경우 [Windows 10 계정 확장](https://chrome.google.c
 
 대부분의 조직에는 직원이 조직의 사용 약관 및 개인정보처리방침에 동의하는 프로세스가 마련되어 있습니다. 그러나 SharePoint 또는 Teams를 통해 추가될 경우 Azure AD B2B 게스트에게 동일한 동의를 어떻게 적용할 수 있나요? 조건부 액세스 및 사용 약관을 사용하면 B2B 게스트 사용자에게 직접 정책을 적용할 수 있습니다. 초대 사용 흐름 중에 사용자에게 사용 약관이 표시됩니다. 이 지원은 현재 미리 보기로 제공되고 있습니다.
 
-사용 약관은 사용자에게 Azure AD의 게스트 계정이 있는 경우에만 표시됩니다. 현재 SharePoint Online에는 사용자에게 게스트 계정이 없어도 사용할 수 있는 문서 또는 폴더를 공유하는 [임시 외부 공유 수신자 환경](/sharepoint/what-s-new-in-sharing-in-targeted-release)이 있습니다. 이 경우 사용 약관이 표시되지 않습니다.
+사용 약관은 사용자에게 Azure AD의 게스트 계정이 있는 경우에만 표시됩니다. SharePoint Online 현재에 [임시 외부 공유 받은 사람 환경](/sharepoint/what-s-new-in-sharing-in-targeted-release) 문서 또는 사용자에 게 게스트 계정이 필요 하지 않은 폴더를 공유 합니다. 이 경우 사용 약관이 표시되지 않습니다.
 
 ![모든 게스트 사용자](./media/active-directory-tou/b2b-guests.png)
 

@@ -4,7 +4,7 @@ description: Service Fabric 클러스터와 애플리케이션을 모니터링�
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 5e3cfad70dd0cc0c53f6971c9ddce44f0ca25ecd
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: d90daaf18e5161053e00671b7667d05ec8e5db76
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104427"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242924"
 ---
 # <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
 
@@ -33,13 +33,13 @@ ms.locfileid: "55104427"
 
 Service Fabric의 목표 중 하나는 애플리케이션을 하드웨어 오류에 대해 복원력 있게 만드는 것입니다. 이 목표는 플랫폼의 시스템 서비스가 인프라 문제를 감지하고 워크로드를 클러스터의 다른 노드로 빠르게 장애 조치(failover)할 수 있기 때문에 실현이 가능합니다. 그러나 시스템 서비스 자체에 문제가 있다면 어떻게 될까요? 또는 작업을 배포 또는 이동할 때 서비스 배치 규칙에 위배되면 어떻게 될까요? Service Fabric은 Service Fabric 플랫폼이 애플리케이션, 서비스, 컨테이너 및 노드와 상호 작용하는 방법을 사용자에게 알리도록 이러한 문제 및 기타 문제에 대한 진단을 제공합니다.
 
-Windows 클러스터의 경우 [진단 에이전트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) 및 [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup)를 사용하여 클러스터 모니터링을 설정하는 것이 좋습니다.
+Windows 클러스터에 대 한 것이 좋습니다 설정 하는 사용 하 여 클러스터 모니터링 [진단 에이전트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) 하 고 [Azure Monitor 로그](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup)합니다.
 
-Linux 클러스터의 경우 Log Analytics는 또한 Azure 플랫폼 및 인프라 모니터링에 대해 권장되는 도구입니다. Linux 플랫폼 진단은 [Syslog의 Service Fabric Linux 클러스터 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog)에서 설명한 것처럼 다른 구성이 필요합니다.
+Linux 클러스터에 대 한 Azure Monitor 로그는 또한 Azure 플랫폼 및 인프라 모니터링에 대 한 권장 되는 도구입니다. Linux 플랫폼 진단은 [Syslog의 Service Fabric Linux 클러스터 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog)에서 설명한 것처럼 다른 구성이 필요합니다.
 
 ## <a name="infrastructure-monitoring"></a>인프라 모니터링
 
-[Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent)는 클러스터 수준 이벤트를 모니터링하는 데 권장됩니다. 이전 링크에서 설명한 대로 작업 영역으로 Log Analytics 에이전트를 구성하면 CPU 사용률과 같은 성능 메트릭, 프로세스 수준 CPU 사용률과 같은 .NET 성능 카운터, 신뢰할 수 있는 서비스의 # 예외와 같은 Service Fabric 성능 카운터 및 CPU 사용률과 같은 카운터 메트릭을 수집할 수 있습니다.  Log Analytics에서 사용할 수 있도록 stdout 또는 stderr에 대한 컨테이너 로그를 작성해야 합니다.
+[Azure Monitor 로그](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) 클러스터 수준 이벤트를 모니터링 하기 위한 것이 좋습니다. 이전 링크에서 설명한 대로 작업 영역으로 Log Analytics 에이전트를 구성하면 CPU 사용률과 같은 성능 메트릭, 프로세스 수준 CPU 사용률과 같은 .NET 성능 카운터, 신뢰할 수 있는 서비스의 # 예외와 같은 Service Fabric 성능 카운터 및 CPU 사용률과 같은 카운터 메트릭을 수집할 수 있습니다.  Azure Monitor 로그에서 사용할 수 있도록 컨테이너 로그 stdout stderr에 작성 해야 합니다.
 
 ## <a name="watchdogs"></a>Watchdog
 
@@ -50,7 +50,7 @@ Linux 클러스터의 경우 Log Analytics는 또한 Azure 플랫폼 및 인프�
 * 애플리케이션 계측 시작: [애플리케이션 수준 이벤트 및 로그 생성](service-fabric-diagnostics-event-generation-app.md)
 * [Service Fabric에서 ASP.NET Core 애플리케이션 모니터링 및 진단](service-fabric-tutorial-monitoring-aspnet.md)에서 애플리케이션용 Application Insights를 설정하는 단계를 진행합니다.
 * Service Fabric이 제공하는 플랫폼 및 이벤트 모니터링에 대해 자세히 알아봅니다. [플랫폼 수준 이벤트 및 로그 생성](service-fabric-diagnostics-event-generation-infra.md)
-* Service Fabric을 사용하여 Log Analytics 통합 구성: [클러스터에 대해 Log Analytics 설정](service-fabric-diagnostics-oms-setup.md)
-* 컨테이너를 모니터링하기 위해 Log Analytics를 설정하는 방법을 알아봅니다. [Azure Service Fabric의 Windows 컨테이너에 대한 모니터링 및 진단](service-fabric-tutorial-monitoring-wincontainers.md)
+* Service Fabric을 사용 하 여 Azure Monitor 로그 통합을 구성 합니다. [클러스터에 대 한 Azure Monitor 로그 설정](service-fabric-diagnostics-oms-setup.md)
+* 컨테이너를 모니터링 하는 것에 대 한 Azure Monitor 로그를 설정 하는 방법에 알아봅니다. [Azure Service Fabric의 Windows 컨테이너에 대한 모니터링 및 진단](service-fabric-tutorial-monitoring-wincontainers.md)
 * [일반적인 시나리오 진단](service-fabric-diagnostics-common-scenarios.md)에서 Service Fabric을 사용하여 예제 진단 문제 및 솔루션을 참조하세요.
 * Azure 리소스에 대한 일반적인 모니터링 권장 사항을 알아봅니다. [모범 사례 - 모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)

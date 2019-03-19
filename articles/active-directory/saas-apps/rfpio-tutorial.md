@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3af5c3d5d92dea804221b2285d4fa5b9cedae665
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c6b8109c8d3834f932ba492eddb8d6332acc1707
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168093"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>자습서: RFPIO와 Azure Active Directory 통합
 
@@ -234,7 +234,7 @@ RFPIO의 경우 프로비전은 수동 작업입니다.
 
     a. **Enter one email per line**(줄당 하나의 메일 입력) 필드에 **메일 주소**를 입력합니다.
 
-    b. 요구 사항에 따라 **역할**을 선택합니다.
+    b. 선택 하십시오 **역할** 요구 사항에 따라 합니다.
 
     다. **멤버 추가**를 클릭합니다.
         

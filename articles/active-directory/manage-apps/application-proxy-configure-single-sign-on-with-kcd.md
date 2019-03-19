@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19ea76f28995dfa7f7dd5a6f280f8319f5b4ca26
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b82f32477efb2e45eb95651dd21ccd2ae3095e7c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180764"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431312"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>애플리케이션 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
 
@@ -30,15 +30,15 @@ Windows 통합 인증으로 보안되는 애플리케이션 프록시를 통해 
 Active Directory에 애플리케이션 프록시 커넥터 사용 권한을 부여하여 사용자를 가장함으로써 IWA(Windows 통합 인증)를 사용하여 애플리케이션에 SSO(Single Sign On)를 사용하게 할 수 있습니다. 커넥터는 이 사용 권한을 사용하여 사용자 대신 토큰을 주고받습니다.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>KCD를 사용하는 Single Sign-On 작동 방식
-사용자가 IWA를 사용하는 온-프레미스 애플리케이션에 액세스를 시도할 때 이 다이어그램이 흐름을 설명합니다.
+사용자가 IWA를 사용 하는 온-프레미스 응용 프로그램에 액세스 하려고 할 때이 다이어그램이 흐름을 설명 합니다.
 
 ![Microsoft AAD 인증 흐름 다이어그램](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. 사용자가 애플리케이션 프록시를 통해 온-프레미스 애플리케이션에 액세스하기 위한 URL을 입력합니다.
+1. 사용자가 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 액세스할 URL을 입력 합니다.
 2. 애플리케이션 프록시는 사전 인증을 위해 Azure AD 인증 서비스에 요청을 리디렉션합니다. 이 시점에서 Azure AD는 다단계 인증 등, 모든 적용 가능한 인증 및 권한 부여 정책을 적용합니다. 사용자가 확인되면 Azure AD에서 토큰을 만들어서 사용자에게 보냅니다.
 3. 사용자는 토큰을 애플리케이션 프록시로 전달합니다.
 4. 애플리케이션 프록시는 토큰의 유효성을 검사하고 토큰에서 UPN(사용자 사용자 이름)을 검색한 다음, 요청, UPN 및 SPN(서비스 사용자 이름)을 이중 인증된 보안 채널을 통해 커넥터에 전송합니다.
-5. 그러면 커넥터에서 온-프레미스 AD와 함께 KCD(Kerberos 제한 위임) 협상을 수행하여 사용자를 가장하여 Kerberos 토큰을 애플리케이션에 가져오게 합니다.
+5. 커넥터는 온-프레미스 AD에서 응용 프로그램에 Kerberos 토큰을 가져올 사용자를 가장을 사용 하 여 Kerberos 제한 위임 (KCD) 협상을 수행 합니다.
 6. Active Directory는 애플리케이션에 대한 Kerberos 토큰을 커넥터로 보냅니다.
 7. 그러면 커넥터에서 AD에서 받은 Kerberos 토큰을 사용하여 원래 요청을 애플리케이션 서버에 보냅니다.
 8. 애플리케이션은 응답을 커넥터로 보냅니다. 그러면 해당 응답이 애플리케이션 프록시 서비스를 거쳐 마지막으로 사용자에게 반환됩니다.
@@ -118,7 +118,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 * 내부적으로 여러 도메인(joe@us.contoso.com, joe@eu.contoso.com)과 클라우드에서 단일 도메인(joe@contoso.com)이 있습니다.
 * 내부적으로 라우팅이 가능하지 않은 도메인 이름(joe@contoso.usa)과 클라우드에서 법적 도메인이 있습니다.
 * 내부적으로 도메인 이름을 사용하지 마십시오(joe).
-* 온-프레미스 및 클라우드에서 다른 별칭을 사용합니다. 예제: joe-johns@contoso.com 및 joej@contoso.com  
+* 온-프레미스와 클라우드에서 서로 다른 별칭을 사용 합니다. 예제: joe-johns@contoso.com 및 joej@contoso.com  
 
 애플리케이션 프록시를 사용하여 Kerberos 티켓을 얻기 위해 어떤 ID를 사용할지 선택할 수 있습니다. 이 설정은 애플리케이션별입니다. 이러한 옵션 중 일부는 전자 메일 주소 형식을 받아들이지 않는 시스템에 적합한 반면 다른 것들은 대체 로그인을 위해 설계되었습니다.
 

@@ -4,15 +4,15 @@ description: AKS(Azure Kubernetes Service)에서 클러스터에 대한 Azure Ac
 services: container-service
 author: iainfoulds
 ms.service: container-service
-ms.topic: get-started-article
-ms.date: 09/26/2018
+ms.topic: conceptual
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: b8cbeacda98aec639724f30fe3a7e94346f05ba4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308757"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778555"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -24,7 +24,7 @@ Azure API와 상호 작용하기 위해 AKS 클러스터에는 [Azure AD(Active 
 
 Azure AD 서비스 주체를 만들려면 Azure AD 테넌트에 애플리케이션을 등록하고 구독의 역할에 해당 애플리케이션을 할당할 수 있는 사용 권한이 있어야 합니다. 필요한 사용 권한이 없으면 필요한 사용 권한을 할당하거나 AKS 클러스터로 사용하기 위한 서비스 주체를 미리 만들도록 Azure AD 또는 구독 관리자에 요청해야 합니다.
 
-또한 Azure CLI 버전 2.0.46 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure cli 버전 2.0.59 또는 나중에 설치 하 고 구성한 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>자동으로 서비스 주체 만들기 및 사용
 
@@ -33,7 +33,7 @@ Azure Portal에서 또는 [az aks create][az-aks-create] 명령을 사용하여 
 다음 Azure CLI 예제에서는 서비스 주체가 지정되지 않았습니다. 이 시나리오에서 Azure CLI는 AKS 클러스터에 대한 서비스 주체를 만듭니다. 작업을 성공적으로 완료하려면 Azure 계정에는 서비스 주체를 만드는 적절한 권한이 있어야 합니다.
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup
 ```
 
 ## <a name="manually-create-a-service-principal"></a>수동으로 서비스 주체 만들기
@@ -49,8 +49,8 @@ az ad sp create-for-rbac --skip-assignment
 ```json
 {
   "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
-  "displayName": "azure-cli-2018-09-25-21-10-19",
-  "name": "http://azure-cli-2018-09-25-21-10-19",
+  "displayName": "azure-cli-2019-03-04-21-35-28",
+  "name": "http://azure-cli-2019-03-04-21-35-28",
   "password": "e763725a-5eee-40e8-a466-dc88d980f415",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
@@ -77,9 +77,9 @@ Azure Portal을 사용하여 AKS 클러스터를 배포하는 경우 **Kubernete
 
 ## <a name="delegate-access-to-other-azure-resources"></a>다른 Azure 리소스에 대한 액세스 권한 위임
 
-AKS 클러스터에 대한 서비스 주체를 사용하여 다른 리소스에 액세스할 수 있습니다. 예를 들어, 고급 네트워킹을 사용하여 기존 가상 네트워크에 연결하거나 ACR(Azure Container Registry)에 연결하려면 서비스 주체에 액세스 권한을 위임해야 합니다.
+AKS 클러스터에 대한 서비스 주체를 사용하여 다른 리소스에 액세스할 수 있습니다. 예를 들어, 기존 Azure 가상 네트워크 서브넷에 AKS 클러스터를 배포 하거나 Azure 컨테이너 레지스트리 (ACR)에 연결 하려는 경우 서비스 주체에 해당 리소스에 대 한 액세스를 위임 해야 합니다.
 
-권한을 위임하려면 [az role assignment create][az-role-assignment-create] 명령을 사용하여 역할 할당을 만듭니다. `appId`를 리소스 그룹 또는 가상 네트워크 리소스와 같은 특정 범위에 할당합니다. 그러면, 역할은 다음 예제에 표시된 것처럼 서비스 주체가 리소스에 대해 가진 사용 권한을 정의합니다.
+사용 권한을 위임할을 사용 하 여 역할 할당을 만듭니다는 [az 역할 할당 만들기] [ az-role-assignment-create] 명령입니다. 할당 된 `appId` 리소스 그룹 또는 가상 네트워크 리소스와 같은 특정 범위에 있습니다. 그러면, 역할은 다음 예제에 표시된 것처럼 서비스 주체가 리소스에 대해 가진 사용 권한을 정의합니다.
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -123,6 +123,7 @@ Virtual Kubelet을 사용하여 AKS와 통합하고 AKS 클러스터와 별도�
 AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 유의하세요.
 
 - Kubernetes에 대한 서비스 주체는 클러스터 구성의 일부입니다. 그러나 클러스터를 배포하는 데에는 이 ID를 사용하지 마세요.
+- 기본적으로 서비스 주체 자격 증명은 1 년 동안 유효 합니다. 할 수 있습니다 [업데이트 또는 서비스 주체 자격 증명 회전] [ update-credentials] 언제 든 지 합니다.
 - 모든 서비스 주체는 Azure AD 애플리케이션과 연결됩니다. Kubernetes 클러스터에 대한 서비스 주체는 유효한 모든 Azure AD 애플리케이션 이름(예: *https://www.contoso.org/example*)과 연결할 수 있습니다. 애플리케이션에 대한 URL은 실제 엔드포인트일 필요가 없습니다.
 - 서비스 주체 **클라이언트 ID**를 지정할 때 `appId` 값을 사용합니다.
 - Kubernetes 클러스터의 마스터 및 노드 VM에서 서비스 주체 자격 증명은 `/etc/kubernetes/azure.json` 파일에 저장됩니다.
@@ -136,7 +137,9 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Active Directory 서비스 주체에 대한 자세한 내용은 [애플리케이션 및 서비스 주체 개체][service-principal]를 참조하세요.
+Azure Active Directory 서비스 주체에 대 한 자세한 내용은 참조 하세요. [응용 프로그램 및 서비스 주체 개체][service-principal]합니다.
+
+자격 증명을 업데이트 하는 방법에 대 한 자세한 내용은 [업데이트 하거나 AKS에서 서비스 주체 자격 증명 회전][update-credentials]합니다.
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
@@ -154,3 +157,4 @@ Azure Active Directory 서비스 주체에 대한 자세한 내용은 [애플리
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
+[update-credentials]: update-credentials.md
