@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 17/07/2018
+ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 432dcf4608d23f269c5005b86d2c58b7f70b3068
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262586"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007587"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
 
@@ -77,7 +77,7 @@ Azure 커넥터는 SAP LaMa 3.0 SP05부터 제공됩니다. SAP LaMa 3.0용 최�
 1. Azure Active Directory 블레이드 열기
 1. 앱 등록을 클릭합니다.
 1. 추가를 클릭합니다.
-1. 이름을 입력하고 애플리케이션 유형 "웹앱/API"를 선택한 다음, 로그온 URL(예: http://localhost))을 입력하고 만들기를 클릭합니다.
+1. 이름을 입력 하 고, 응용 프로그램 유형 "Web app/API"를 선택, 로그온 URL을 입력 (예를 들어 `http://localhost`) 만들기를 클릭 하 고
 1. 로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 새 앱을 선택하고 설정 탭에서 키를 클릭합니다.
 1. 새 키의 설명을 입력하고 “무기한”을 선택한 다음, 저장을 클릭합니다.
@@ -237,7 +237,7 @@ SAP SWPM(Software Provisioning Manager)을 시작하기 전에 ASCS의 가상 �
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![ Windows][Logo_Windows]  Windows
+![Windows][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -277,7 +277,7 @@ SAP SWPM(Software Provisioning Manager)을 시작하기 전에 애플리케이�
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![ Windows][Logo_Windows]  Windows
+![Windows][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>

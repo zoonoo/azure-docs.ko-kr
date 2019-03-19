@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: 26090067923c468b7102ac5b7bb78b9d7b7960bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 981a753ab33d511bffe9c1ec3f42fe4f3accd946
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995615"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892509"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure 미디어 검색으로 동작 검색
 ## <a name="overview"></a>개요
@@ -39,7 +39,7 @@ ms.locfileid: "55995615"
 ### <a name="parameters"></a>매개 변수
 다음 매개 변수를 사용할 수 있습니다.
 
-| Name | 옵션 | 설명 | 기본값 |
+| 이름 | 옵션 | 설명 | 기본값 |
 | --- | --- | --- | --- |
 | sensitivityLevel |문자열:'low', 'medium', 'high' |동작이 보고되는 민감도 수준을 설정합니다. 가양성 수를 조정하려면 이 값을 조정합니다. |'medium' |
 | frameSamplingValue |양의 정수 |알고리즘이 실행되는 빈도를 설정합니다. 1은 프레임마다, 2는 두 개의 프레임마다 등을 의미합니다. |1 |
@@ -386,5 +386,5 @@ namespace VideoMotionDetection
 
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
-[Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 미디어 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

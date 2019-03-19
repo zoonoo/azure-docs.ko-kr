@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 15d85d30f73a9880a6a68a62ab208bb0bdbf5402
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 84b1cfd54f5ff9e6a29c975622847e3ae6304bf8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788041"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107154"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -33,7 +33,7 @@ Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리�
 
 **서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
-Hyper-V(Virtual Machine Manager 없이 실행 중) | Windows Server 2016(서버 코어 설치 포함), Windows Server 2012 R2 최신 업데이트 | Windows Server 2016을 실행 중인 호스트에 있는 VM의 경우에는 대체 위치로의 복구가 지원되지 않습니다.<br/><br/> Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요. 
+Hyper-V(Virtual Machine Manager 없이 실행 중) | Windows Server 2016(서버 코어 설치 포함), Windows Server 2012 R2 최신 업데이트 | Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요. 
 Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Virtual Machine Manager를 사용하는 경우 Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리되어야 합니다.<br/><br/>
 
 
@@ -62,12 +62,12 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirem
 호스트 네트워크: NIC 팀 | 예 | 예
 호스트 네트워크: VLAN | 예 | 예
 호스트 네트워크: IPv4 | 예 | 예
-호스트 네트워크: IPv6 | 아니요 | 아니요
-게스트 VM 네트워크: NIC 팀 | 아니요 | 아니요
+호스트 네트워크: IPv6 | 아닙니다. | 아닙니다.
+게스트 VM 네트워크: NIC 팀 | 아닙니다. | 아닙니다.
 게스트 VM 네트워크: IPv4 | 예 | 예
-게스트 VM 네트워크: IPv6 | 아니요 | 예
+게스트 VM 네트워크: IPv6 | 아닙니다. | 예
 게스트 VM 네트워크: 고정 IP(Windows) | 예 | 예
-게스트 VM 네트워크: 고정 IP(Linux) | 아니요 | 아니요
+게스트 VM 네트워크: 고정 IP(Linux) | 아닙니다. | 아닙니다.
 게스트 VM 네트워크: 다중 NIC | 예 | 예
 
 
@@ -85,13 +85,13 @@ Azure Traffic Manager | 예 | 예
 IPv4 | 예 | 예
 원본 IP 주소 유지 | 예 | 예
 Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 없음) | 예 | 예
-가속 네트워킹 | 아니요 | 아니요
+가속 네트워킹 | 아닙니다. | 아닙니다.
 
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 저장소
 
 **Storage** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
---- | --- | --- | ---
+--- | --- | --- 
 NFS | 해당 없음 | 해당 없음
 SMB 3.0 | yes | 예
 SAN(ISCSI) | 예 | 예
@@ -105,10 +105,10 @@ VMDK | 해당 없음 | 해당 없음
 VHD/VHDX | 예 | 예
 2세대 VM | 예 | 예
 EFI/UEFI| 예 | 예
-공유 클러스터 디스크 | 아니요 | 아니요
-암호화된 디스크 | 아니요 | 아니요
+공유 클러스터 디스크 | 아닙니다. | 아닙니다.
+암호화된 디스크 | 아닙니다. | 아닙니다.
 NFS | 해당 없음 | 해당 없음
-SMB 3.0 | 아니요 | 아니요
+SMB 3.0 | 아닙니다. | 아닙니다.
 RDM | 해당 없음 | 해당 없음
 디스크 1TB 이상 | 예, 최대 4,095GB | 예, 최대 4,095GB
 디스크: 4K 논리/실제 섹터 | 지원되지 않음: 1세대/2세대 | 지원되지 않음: 1세대/2세대
@@ -116,7 +116,7 @@ RDM | 해당 없음 | 해당 없음
 논리 볼륨 관리(LVM)입니다. LVM은 데이터 디스크에서만 지원됩니다. Azure는 단일 OS 디스크만 제공합니다. | 예 | 예
 스트라이프 디스크 포함 볼륨 1TB 이상 | 예 | 예
 저장소 공간 | 예 | 예
-디스크 핫 추가/제거 | 아니요 | 아니요
+디스크 핫 추가/제거 | 아닙니다. | 아닙니다.
 디스크 제외 | 예 | 예
 다중 경로(MPIO) | 예 | 예
 
@@ -127,13 +127,13 @@ RDM | 해당 없음 | 해당 없음
 로컬 중복 저장소 | 예 | 예
 지역 중복 저장소 | 예 | 예
 읽기 액세스 지역 중복 저장소 | 예 | 예
-쿨 저장소 | 아니요 | 아니요
-핫 저장소| 아니요 | 아니요
-블록 Blob | 아니요 | 아니요
+쿨 저장소 | 아닙니다. | 아닙니다.
+핫 저장소| 아닙니다. | 아닙니다.
+블록 Blob | 아닙니다. | 아닙니다.
 미사용 암호화(SSE)| 예 | 예
 Premium Storage | 예 | 예
-Import/Export 서비스 | 아니요 | 아니요
-대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니요 | 아니요
+Import/Export 서비스 | 아닙니다. | 아닙니다.
+대상 스토리지/캐시 스토리지(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아닙니다. | 아닙니다.
 
 
 ## <a name="azure-compute-features"></a>Azure 계산 기능
@@ -168,8 +168,8 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 
 **작업** |  **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
-리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요 | 아니요
+리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아닙니다. | 아닙니다.
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아닙니다. | 아닙니다.
 
 > [!NOTE]
 > 온-프레미스에서 Azure로 Hyper-VM(SCVMM을 사용하거나 사용하지 않고 관리)을 복제할 때 하나의 특정 환경(해당하는 경우 Hyper-V 사이트 또는 SCVMM)에서 하나의 AD 테넌트에만 복제할 수 있습니다.
@@ -180,7 +180,7 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 배포가 이 문서에 나와 있는 설정과 호환되도록 하려면 최신 공급자 및 에이전트 버전을 실행 중인지 확인합니다.
 
 **Name** | **설명** | **세부 정보**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Azure Site Recovery 공급자 | 온-프레미스 서버와 Azure 간 통신 조정 <br/><br/> Hyper-V(Virtual Machine Manager 있음): Virtual Machine Manager 서버에 설치됨<br/><br/> Hyper-V(Virtual Machine Manager 없음): Hyper-V 호스트에 설치됨| 최신 버전: 5.1.2700.1(Azure Portal에서 제공됨)<br/><br/> [최신 기능 및 수정](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure Recovery Services 에이전트 | Hyper-V VM과 Azure 간 복제 조정<br/><br/> 온-프레미스 Hyper-V 서버에 설치됨(Virtual Machine Manager 있음/없음) | 포털에서 사용할 수 있는 최신 에이전트
 

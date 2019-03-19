@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: b94d6bd9cc129d80f3ece82c13df375abecafd26
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075615"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "55493435"
 >
 >
 
-Azure VM에 배포된 MABS는 Azure의 VM을 백업할 수 있지만 백업 작업을 사용하려면 동일한 도메인에 있어야 합니다. Azure VM을 지원하는 프로세스는 VM의 온-프레미스 백업과 동일하지만 Azure에 MABS를 배포하는 경우 몇 가지 제한 사항이 있습니다. 제한 사항에 대한 자세한 내용은 [Azure 가상 머신으로서의 DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)을 참조하세요.
+Azure VM에 배포된 MABS는 Azure의 VM을 백업할 수 있지만 백업 작업을 사용하려면 동일한 도메인에 있어야 합니다. Azure VM을 백업 하는 프로세스를 온-프레미스 Vm을 백업 동일, 몇 가지 제한 사항이 있지만 Azure에서 MABS를 배포 합니다. 제한 사항에 대한 자세한 내용은 [Azure 가상 머신으로서의 DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)을 참조하세요.
 
 > [!NOTE]
 > Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md) 모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
@@ -231,16 +231,16 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
 
 2. 표시 창에서 보호 에이전트를 업데이트할 클라이언트 컴퓨터를 선택합니다.
 
-  > [!NOTE]
-  > **에이전트 업데이트** 열에는 각 보호된 컴퓨터에 보호 에이전트 업데이트를 사용할 수 있는 시기가 표시됩니다. **작업** 창에서 **업데이트** 작업은 보호된 컴퓨터가 선택되고 업데이트가 사용 가능한 경우에만 사용할 수 있습니다.
-  >
-  >
+   > [!NOTE]
+   > **에이전트 업데이트** 열에는 각 보호된 컴퓨터에 보호 에이전트 업데이트를 사용할 수 있는 시기가 표시됩니다. **작업** 창에서 **업데이트** 작업은 보호된 컴퓨터가 선택되고 업데이트가 사용 가능한 경우에만 사용할 수 있습니다.
+   >
+   >
 
 3. 선택된 컴퓨터에 업데이트된 보호 에이전트를 설치하려면 **작업** 창에서 **업데이트**를 선택합니다.
 
 4. 네트워크에 연결되지 않은 클라이언트 컴퓨터의 경우 컴퓨터가 네트워크에 연결될 때까지 **에이전트 상태** 열에는 **업데이트 보류 중** 상태가 표시됩니다.
 
-  클라이언트 컴퓨터가 네트워크에 연결된 후 클라이언트 컴퓨터에 대한 **에이전트 업데이트** 열에는 **업데이트 중** 상태가 표시됩니다.
+   클라이언트 컴퓨터가 네트워크에 연결된 후 클라이언트 컴퓨터에 대한 **에이전트 업데이트** 열에는 **업데이트 중** 상태가 표시됩니다.
 
 ## <a name="move-mabs-to-a-new-server"></a>MABS를 새 서버로 이동
 
@@ -262,10 +262,11 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
 9. SQL에서 DPMDB 복원
 10. 새 서버의 관리 명령줄에서 Microsoft Azure Backup 설치 위치 및 bin 폴더로 cd
 
-경로 예: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
-Azure Backup, DPMSYNC -SYNC 실행
+    경로 예: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
 
-10) DPMSYNC -SYNC 실행 이전 것을 옮기는 대신 DPM Storage 풀에 새 디스크를 추가했다면 DPMSYNC -Reallocatereplica 실행
+11. Azure backup을 실행 하는 DPMSYNC-SYNC
+
+    DPMSYNC-Reallocatereplica를 실행 한 다음 이전 것을 옮기는 대신 DPM 저장소 풀에 새 디스크를 추가한 경우
 
 ## <a name="network-connectivity"></a>네트워크 연결
 Azure Backup 서버가 Azure Backup 서비스에 연결되어야 제품이 제대로 작동합니다. 컴퓨터가 Azure에 연결되어 있는지 여부를 확인하려면 Azure Backup 서버 PowerShell 콘솔에서 ```Get-DPMCloudConnection``` cmdlet을 사용합니다. cmdlet의 출력이 TRUE인 경우 연결되어 있고 그렇지 않으면 연결되지 않은 것입니다.
@@ -306,33 +307,33 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>MABS V2에서 V3으로 업그레이드
 
 > [!NOTE]
-
+> 
 > MABS V2는 MABS V3 설치를 위한 필수 구성 요소는 아닙니다. 그러나 MABS V2에서만 MABS V3으로 업그레이드할 수 있습니다.
 
 다음 단계를 사용하여 MABS를 업그레이드합니다.
 
 1. MABS V2에서 MABS V3으로 업그레이드하려면 필요한 경우 OS를 Windows Server 2016 또는 Windows Server 2019로 업그레이드합니다.
 
-2.  서버를 업그레이드합니다. 단계는 [설치](#install-and-upgrade-azure-backup-server)와 비슷합니다. 그러나 SQL 설정의 경우 SQL 인스턴스를 SQL 2017로 업그레이드하거나 SQL 서버 2017의 사용자 고유 인스턴스를 사용하는 옵션이 있습니다.
+2. 서버를 업그레이드합니다. 단계는 [설치](#install-and-upgrade-azure-backup-server)와 비슷합니다. 그러나 SQL 설정의 경우 SQL 인스턴스를 SQL 2017로 업그레이드하거나 SQL 서버 2017의 사용자 고유 인스턴스를 사용하는 옵션이 있습니다.
 
-  > [!NOTE]
+   > [!NOTE]
+   > 
+   > SQL 인스턴스를 업그레이드하는 동안 종료하지 마십시오. 종료하면 SQL reporting 인스턴스가 제거되므로 MABS 다시 업그레이드 시도가 실패합니다.
 
-  > SQL 인스턴스를 업그레이드하는 동안 종료하지 마십시오. 종료하면 SQL reporting 인스턴스가 제거되므로 MABS 다시 업그레이드 시도가 실패합니다.
+   유의해야 할 중요한 사항:
 
-  유의해야 할 중요한 사항:
-
-  > [!IMPORTANT]
-
-  >  SQL 2017 업그레이드의 일환으로 SQL 암호화 키를 백업하고 보고 서비스를 제거합니다. SQL 서버 업그레이드 후 보고 서비스(14.0.6827.4788)가 설치되고 암호화 키가 복원됩니다.
-
- > SQL 2017을 수동으로 구성하는 경우 설치 지침 아래의 *SQL 2017을 사용하여 SSRS 구성*을 참조하세요.
+   > [!IMPORTANT]
+   > 
+   >  SQL 2017 업그레이드의 일환으로 SQL 암호화 키를 백업하고 보고 서비스를 제거합니다. SQL 서버 업그레이드 후 보고 서비스(14.0.6827.4788)가 설치되고 암호화 키가 복원됩니다.
+   > 
+   > SQL 2017을 수동으로 구성하는 경우 설치 지침 아래의 *SQL 2017을 사용하여 SSRS 구성*을 참조하세요.
 
 3. 보호된 서버에서 보호 에이전트를 업데이트합니다.
 4. 프로덕션 서버를 다시 시작하지 않아도 백업을 계속해야 합니다.
 5. 이제 데이터 보호를 시작할 수 있습니다. 보호하는 동안 Modern Backup Storage로 업그레이드하는 경우 백업을 저장하려는 볼륨을 선택하고, 프로비전된 공간이 부족한지 확인할 수도 있습니다. [자세히 알아보기](backup-mabs-add-storage.md).
 
 > [!NOTE]
-
+> 
 > MABS V1에서 V2로 업그레이드하는 경우 OS가 Windows Server 2016 또는 Windows Server 2012 R2인지 확인합니다. System Center 2016 Data Protection Manager Modern Backup Storage와 같은 새로운 기능을 활용하려면 Windows Server 2016에 Backup Server V2를 설치해야 합니다. Backup Server V2로 업그레이드하거나 이 버전을 설치하기 전에 MABS에 적용 가능한 [설치 필수 구성 요소](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)를 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결

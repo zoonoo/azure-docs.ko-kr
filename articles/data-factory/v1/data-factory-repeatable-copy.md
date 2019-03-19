@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa08e6da6b87de5878f099709563fb90e8669e77
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: b15dcd9ae5f2f1668db3925b659625497eca491f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079761"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Azure Data Factory에서 반복 가능한 복사
 
@@ -133,7 +133,7 @@ ID    Product        Quantity    ModifiedDate
     )
     ```
 
-2. 복사 작업에서 다음과 같이 사용합니다.
+1. 복사 작업에서 다음과 같이 사용합니다.
    
     ```json
     "sink":  

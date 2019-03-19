@@ -3,20 +3,20 @@ title: Azure Database for MySQL로의 온라인 마이그레이션과 관련된 
 description: Azure Database for MySQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항에 대해 알아봅니다.
 services: database-migration
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: e2b82c8a7bcdc1982ed4489e9422a4a0efd64f3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721651"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58175102"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Azure DB for MySQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 
@@ -80,7 +80,7 @@ LOB(Large Object) 열은 크기가 커질 수 있는 열입니다. MySQL의 경�
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **해결 방법**: 32KB보다 큰 LOB 개체가 있는 경우 [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)으로 엔지니어링 팀에 문의하세요. 
+    **해결 방법**: 32KB 보다 큰 LOB 개체에 있는 경우 엔지니어링 팀에 문의 [Azure 데이터베이스 마이그레이션을 요청](mailto:AskAzureDatabaseMigrations@service.microsoft.com)합니다. 
 
 ## <a name="other-limitations"></a>기타 제한 사항
 - 암호 문자열의 시작과 끝에 여는 중괄호 및 닫는 중괄호 {  }가 있는 암호 문자열은 지원되지 않습니다. 이 제한 사항은 원본 MySQL 및 대상 Azure Database for MySQL에 모두 적용됩니다.

@@ -3,20 +3,20 @@ title: Azure Database Migration Service 사용에 대한 FAQ | Microsoft Docs
 description: Azure Database Migration Service를 사용하여 데이터베이스 마이그레이션을 수행하는 데 대한 질문과 대답을 알아봅니다.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: a3b32fcb7d776bd127db55ba06cfc526574e839b
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 3da3a8dbe337f649fe7d0516b49c03a2f01d7eea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790879"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180588"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Azure Database Migration Service 사용에 대한 FAQ
 이 문서에는 Azure Database Migration Service 사용에 대한 일반적인 질문이 관련된 답변과 함께 나열되어 있습니다.

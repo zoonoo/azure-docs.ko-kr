@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456710"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884242"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 모듈 개발 및 디버그
 
@@ -154,7 +154,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
 
 1. 개발 언어의 요구 사항에 따라 디버그할 환경을 준비하고, 모듈에서 중단점을 설정하고, 사용할 디버그 구성을 선택합니다.
    - **C#**
-     - Visual Studio Code 통합 터미널에서 디렉터리를 ‘***&lt;모듈 이름&gt;***’ 폴더로 변경한 후 다음 명령을 실행하여 .NET Core 애플리케이션을 빌드합니다.
+     - Visual Studio Code 통합 터미널에서 다음 디렉터리로 이동 합니다 ***&lt;모듈 이름을&gt;*** 폴더 및.NET Core 응용 프로그램을 빌드하려면 다음 명령을 실행 합니다.
 
        ```cmd
        dotnet build
@@ -165,7 +165,7 @@ C#, Node.js 또는 Java에서 개발하는 모듈은 기본 모듈 코드에서 
      - **보기 > 디버그**를 선택하여 Visual Studio Code 디버그 보기로 이동합니다. 드롭다운에서 디버그 구성 **‘&lt;모듈 이름&gt;’ 로컬 디버그(.NET Core)** 를 선택합니다.
 
         > [!NOTE]
-        > .NET Core `TargetFramework`이 `launch.json`의 프로그램 경로와 일관성이 없는 경우 .csproj 파일의 `TargetFramework`과 일치하도록 `launch.json`의 프로그램 경로를 수동으로 업데이트하면 Visual Studio Code에서 이 프로그램을 시작할 수 있습니다.
+        > 경우에.NET Core `TargetFramework` 의 프로그램 경로와 일치 하지 않습니다 `launch.json`에서 프로그램 경로 수동으로 업데이트 해야 `launch.json` 일치 하는 `TargetFramework` Visual Studio Code는 성공적으로 시작할 수이 있도록.csproj 파일에서 프로그램입니다.
 
    - **Node.JS**
      - Visual Studio Code 통합 터미널에서 디렉터리를 ‘***&lt;모듈 이름&gt;***’ 폴더로 변경한 후 다음 명령을 실행하여 Node 패키지를 설치합니다.

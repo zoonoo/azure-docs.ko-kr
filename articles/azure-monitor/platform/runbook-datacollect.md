@@ -7,20 +7,23 @@ author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: monitoring
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 75ed69d749e23f39c03afb09f70a18cc1aed600b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102587"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Automation Runbook을 사용하여 Log Analytics에서 데이터 수집
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 에이전트의 [데이터 원본](../../azure-monitor/platform/agent-data-sources.md)을 비롯한 다양한 원본에서 Log Analytics으로 대량의 데이터를 수집할 수 있고 [Azure에서 수집된 데이터](../../azure-monitor/platform/collect-azure-metrics-logs.md)도 가져올 수 있습니다. 이러한 표준 원본을 통해 액세스할 수 없는 데이터를 수집해야 하는 경우도 있습니다. 이러한 경우 [HTTP 데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md)를 사용하여 REST API 클라이언트에서 Log Analytics로 데이터를 쓸 수 있습니다. 이 데이터 수집을 수행하는 일반적인 방법은 Azure Automation에서 Runbook을 사용하는 것입니다.
 
 이 자습서는 Azure Automation에서 Runbook을 만들고 Log Analytics에 데이터를 쓰도록 예약하는 프로세스를 안내합니다.
@@ -63,9 +66,9 @@ Runbook에서 [모듈](../../automation/automation-integration-modules.md)을 �
 | 자산 | 작업 영역 ID 값 | 작업 영역 키 값 |
 |:--|:--|:--|
 | 이름 | WorkspaceId | WorkspaceKey |
-| type | 문자열 | 문자열 |
+| Type | 문자열 | 문자열 |
 | 값 | Log Analytics 작업 영역의 작업 영역 ID를 붙여 넣습니다. | Log Analytics 작업 영역의 기본 또는 보조 키와 함께 붙여 넣습니다. |
-| 암호화 | 아니요 | 예 |
+| 암호화 | 아닙니다. | 예 |
 
 ## <a name="3-create-runbook"></a>3. runbook 만들기
 
@@ -92,7 +95,7 @@ Azure Automation은 포털에 Runbook을 편집하고 테스트할 수 있는 �
     # Code copied from the runbook AzureAutomationTutorial.
     $connectionName = "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -109,7 +112,7 @@ Azure Automation은 포털에 Runbook을 편집하고 테스트할 수 있는 �
     $logType = "AutomationJob"
     
     # Get the jobs from the past hour.
-    $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+    $jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
     
     if ($jobs -ne $null) {
         # Convert the job data to json
@@ -128,13 +131,13 @@ Azure Automation에는 Runbook을 게시하기 전에 [runbook을 테스트](../
 
 ![Runbook 테스트](media/runbook-datacollect/test-runbook.png)
 
-6. **저장**을 클릭하여 Runbook을 저장합니다.
+1. **저장**을 클릭하여 Runbook을 저장합니다.
 1. **테스트 창**을 클릭하여 Runbook을 테스트 환경에서 엽니다.
-3. Runbook에 매개 변수가 있으므로 해당 값을 입력하라는 메시지가 나타납니다. 작업 정보를 수집하려는 리소스 그룹 및 Automation 계정의 이름을 입력합니다.
-4. **시작**을 클릭하여 Runbook을 시작합니다.
-3. Runbook은 **대기** 상태로 시작한 후 **실행 중** 상태가 됩니다.
-3. Runbook은 수집된 작업을 포함하는 자세한 출력을 JSON 형식으로 표시합니다. 작업이 목록에 없으면 마지막 시간에 Automation 계정에서 만들어진 작업이 없는 것일 수 있습니다. Automation 계정에서 Runbook을 시작한 다음 테스트를 다시 수행합니다.
-4. Log Analytics에 대한 POST 명령 출력에 오류가 표시되지 않는지 확인합니다. 다음과 유사한 메시지가 표시됩니다.
+1. Runbook에 매개 변수가 있으므로 해당 값을 입력하라는 메시지가 나타납니다. 작업 정보를 수집하려는 리소스 그룹 및 Automation 계정의 이름을 입력합니다.
+1. **시작**을 클릭하여 Runbook을 시작합니다.
+1. Runbook은 **대기** 상태로 시작한 후 **실행 중** 상태가 됩니다.
+1. Runbook은 수집된 작업을 포함하는 자세한 출력을 JSON 형식으로 표시합니다. 작업이 목록에 없으면 마지막 시간에 Automation 계정에서 만들어진 작업이 없는 것일 수 있습니다. Automation 계정에서 Runbook을 시작한 다음 테스트를 다시 수행합니다.
+1. Log Analytics에 대한 POST 명령 출력에 오류가 표시되지 않는지 확인합니다. 다음과 유사한 메시지가 표시됩니다.
 
     ![POST 출력](media/runbook-datacollect/post-output.png)
 
@@ -182,13 +185,13 @@ Runbook이 올바르게 작동하는지 확인한 후에는 프로덕션 환경�
 | Starts | 현재 시간보다 적어도 5분 이후의 아무 시간이나 선택합니다. |
 | 되풀이 | Recurring |
 | Recur every | 1시간 |
-| Set expiration | 아니요 |
+| Set expiration | 아닙니다. |
 
 일정을 만든 후에는 이 일정에 따라 Runbook이 시작될 때마다 사용되는 매개 변수 값을 설정해야 합니다.
 
-6. **매개 변수 및 실행 설정 구성**을 클릭합니다.
-7. **ResourceGroupName** 및 **AutomationAccountName**에 대한 값을 입력합니다.
-8. **확인**을 클릭합니다.
+1. **매개 변수 및 실행 설정 구성**을 클릭합니다.
+1. **ResourceGroupName** 및 **AutomationAccountName**에 대한 값을 입력합니다.
+1. **확인**을 클릭합니다.
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Runbook이 일정에 맞게 시작되는지 확인
 Runbook이 시작될 때마다 [작업이 만들어지고](../../automation/automation-runbook-execution.md) 모든 출력이 로깅됩니다. 실제로는 Runbook이 수집하는 작업과 같습니다. 일정 시작 시간이 경과된 후 Runbook에 대한 작업을 확인하여 Runbook이 예상대로 시작되었는지 확인할 수 있습니다.

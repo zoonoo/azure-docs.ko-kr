@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e5528cdfc2efa2d5c257732c8b6b6df117421839
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250030"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004066"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 PyTorch 모델 학습
 
-Azure Machine Learning에서는 PyTorch를 사용한 DNN(심층 신경망) 학습을 위해 `Estimator`의 사용자 지정 `PyTorch` 클래스를 제공합니다. Azure SDK의 `PyTorch` Estimator를 사용하면 Azure Compute의 단일 노드 및 분산 실행 둘 다에 대해 PyTorch 학습 작업을 쉽게 제출할 수 있습니다.
+PyTorch를 사용 하 여 심층 신경망 (DNN) 교육에 대 한 Azure Machine Learning은 사용자 지정 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) 의 클래스는 `Estimator`합니다. Azure SDK의 `PyTorch` Estimator를 사용하면 Azure Compute의 단일 노드 및 분산 실행 둘 다에 대해 PyTorch 학습 작업을 쉽게 제출할 수 있습니다.
 
 ## <a name="single-node-training"></a>단일 노드 학습
 `PyTorch` Estimator를 사용하는 학습은 [기본 `Estimator`](how-to-train-ml-models.md)를 사용하는 방식과 비슷하므로 먼저 방법 문서를 확인하고 이 문서에서 소개하는 개념을 이해해야 합니다.
@@ -42,6 +42,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 여기서는 PyTorch 생성자에 대해 다음 매개 변수를 지정합니다.
+
 매개 변수 | 설명
 --|--
 `source_directory` |  학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 컴퓨터에서 원격 컴퓨터로 복사됩니다.
@@ -82,6 +83,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 이 코드는 PyTorch 생성자에 다음과 같은 새 매개 변수를 표시합니다.
+
 매개 변수 | 설명 | 기본값
 --|--|--
 `node_count` |  학습 작업에 사용할 노드의 수입니다. | `1`

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: 584fca3df4fee24a4f1c7b93d5371c48be059f7b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a6d8326afa3bcf13234ab072a2cd2909a864738b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002859"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>PowerShell을 사용하여 Azure VM에 Always On 가용성 그룹 구성
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "51257938"
 시작하기 전에 이제 Azure Resource Manager 모델에서 이 작업을 완료할 수 있는지 확인하는 것이 좋습니다. 새 배포에는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. [Azure Virtual Machines의 SQL Server Always On 가용성 그룹](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다.
+> 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다. Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다.
 
 Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL Server 시스템의 비용을 절감하도록 도와줍니다. 이 자습서에서는 Azure 환경 내에서 종단 간에 SQL Server Always On을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다. 자습서 마지막에서 Azure의 SQL Server Always On 솔루션은 다음 요소로 구성됩니다.
 
@@ -83,7 +83,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
 
     명령이 나중에 성공적으로 실행되려면 다음에 주의해야 합니다.
 
-   * **$storageAccountName** 및 **$dcServiceName** 변수는 인터넷에서 각각 클라우드 저장소 계정 및 클라우드 서버를 식별하는 데 사용되므로 고유해야 합니다.
+   * **$storageAccountName** 및 **$dcServiceName** 변수는 인터넷에서 각각 클라우드 스토리지 계정 및 클라우드 서버를 식별하는 데 사용되므로 고유해야 합니다.
    * **$affinityGroupName** 및 **$virtualNetworkName** 변수에 지정하는 이름은 나중에 사용하게 될 가상 네트워크 구성 문서에서 구성됩니다.
    * **$sqlImageName** 은 SQL Server 2012 Service Pack 1 Enterprise Edition을 포함하는 VM 이미지의 업데이트된 이름을 지정합니다.
    * 간단히 하기 위해 이 자습서에서는 전체적으로 **Contoso!000**을 동일한 암호로 사용합니다.
@@ -103,7 +103,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
 
     구성 파일은 다음 XML 문서를 포함합니다. 간단히 말해 **ContosoAG**라는 선호도 그룹에 **ContosoNET**이라는 가상 네트워크를 지정합니다. 주소 공간은 **10.10.0.0/16**이고 서브넷 두 개 즉, **10.10.1.0/24** 및**10.10.2.0/24**있으며, 각각 프런트 서브넷 및 백 서브넷입니다. 프런트 서브넷은 Microsoft SharePoint와 같은 클라이언트 애플리케이션을 배치하는 곳입니다. 백 서브넷은 SQL Server VM을 배치할 곳입니다. **$affinityGroupName** 및 **$virtualNetworkName** 변수를 앞에서 변경할 경우 아래의 해당하는 이름도 함께 변경해야 합니다.
 
-        <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <Dns />
             <VirtualNetworkSites>
@@ -239,7 +239,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    위에서 지정한 GUID는 컴퓨터 개체 유형의 GUID입니다. 장애 조치(Failover) 클러스터에서 Active Directory 개체를 만들기 위해 **CORP\Install** 계정에는 **모든 속성 읽기** 및 **컴퓨터 개체 만들기** 권한이 필요합니다. **모든 속성 읽기** 권한은 이미 CORP\Install에 기본적으로 부여되어 있으므로 명시적으로 부여하지 않아도 됩니다. 장애 조치(Failover) 클러스터를 만드는 데 필요한 권한에 대한 자세한 내용은 [장애 조치 클러스터 단계별 가이드: Active Directory의 계정 구성](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)을 참조하세요.
+    위에서 지정한 GUID는 컴퓨터 개체 유형의 GUID입니다. 장애 조치(Failover) 클러스터에서 Active Directory 개체를 만들기 위해 **CORP\Install** 계정에는 **모든 속성 읽기** 및 **컴퓨터 개체 만들기** 권한이 필요합니다. **모든 속성 읽기** 권한은 이미 CORP\Install에 기본적으로 부여되어 있으므로 명시적으로 부여하지 않아도 됩니다. 장애 조치 클러스터를 만드는 데 필요한 사용 권한에 대 한 자세한 내용은 참조 하세요. [장애 조치 클러스터 단계별 가이드: Active Directory에서 계정 구성](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)합니다.
 
     Active Directory 및 사용자 개체 구성을 완료하면 2개의 SQL Server VM이 생성되고 이 도메인에 연결됩니다.
 
@@ -353,7 +353,7 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
    * **New-AzureVMConfig**는 도메인 컨트롤러 서버와 동일한 가용성 집합 이름을 사용하며 가상 머신 갤러리의 SQL Server 2012 서비스 팩 1 Enterprise Edition 이미지를 사용합니다. 또한 운영 체제 디스크를 읽기 캐싱 전용(쓰기 캐싱 없음)으로 설정합니다. VM에 연결한 별도의 데이터 디스크에 데이터베이스 파일을 마이그레이션하고 읽기 또는 쓰기 캐싱 없이 구성하는 것이 좋습니다. 그러나 운영 체제 디스크에서는 읽기 캐싱을 제거할 수 없으므로 운영 체제 디스크에서 쓰기 캐싱을 제거하는 것이 차선책입니다.
    * **Add-AzureProvisioningConfig**는 VM을 사용자가 만든 Active Directory 도메인에 가입시킵니다.
    * **Set-AzureSubnet**은 백 서브넷에 VM을 배치합니다.
-   * **Add-AzureEndpoint**는 클라이언트 응용 프로그램이 인터넷의 SQL Server 서비스 인스턴스에 액세스할 수 있도록 액세스 엔드포인트를 추가합니다. ContosoSQL1 및 ContosoSQL2에 다른 포트가 제공됩니다.
+   * **Add-AzureEndpoint**는 클라이언트 애플리케이션이 인터넷의 SQL Server 서비스 인스턴스에 액세스할 수 있도록 액세스 엔드포인트를 추가합니다. ContosoSQL1 및 ContosoSQL2에 다른 포트가 제공됩니다.
    * **New-AzureVM** 은 ContosoQuorum과 동일한 클라우드 서비스에 새 SQL Server VM을 만듭니다. VM을 동일한 가용성 집합에 포함하려면 동일한 클라우드 서비스에 VM을 배치해야 해야 합니다.
 4. 각 VM이 완전히 프로비전되고 각 VM이 작업 디렉터리에 원격 데스크톱 파일을 다운로드할 때까지 기다립니다. `for` 루프가 3개의 새 VM을 순환하고 각 VM에 대해 최상위 중괄호 안의 명령을 실행합니다.
 
@@ -380,15 +380,15 @@ Azure Virtual Machines(VM)는 데이터베이스 관리자가 고가용성 SQL S
 ## <a name="initialize-the-failover-cluster-vms"></a>장애 조치(Failover) 클러스터 VM 초기화
 이 섹션에서는 장애 조치(Failover) 클러스터 및 SQL Server 설치에 사용할 3개의 서버를 수정해야 합니다. 구체적으로 살펴보면 다음과 같습니다.
 
-* 모든 서버: **장애 조치(Failover) 클러스터링** 기능을 설치해야 합니다.
-* 모든 서버: **CORP\Install**을 컴퓨터 **관리자**로 추가해야 합니다.
-* ContosoSQL1 및 ContosoSQL2만 해당: 기본 데이터베이스에서 **CORP\Install**을 **sysadmin** 역할로 추가해야 합니다.
-* ContosoSQL1 및 ContosoSQL2만 해당: **NT AUTHORITY\System**을 다음 권한이 있는 로그인으로 추가해야 합니다.
+* 모든 서버: 설치 해야 합니다 **장애 조치 클러스터링** 기능입니다.
+* 모든 서버: 추가할 **CORP\Install** 컴퓨터로 **관리자**합니다.
+* ContosoSQL1 및 contososql2만 해당: 추가 해야 **CORP\Install** 으로 **sysadmin** 기본 데이터베이스의 역할입니다.
+* ContosoSQL1 및 contososql2만 해당: 추가할 **NT AUTHORITY\System** 다음 권한이 있는 로그인으로:
 
   * 가용성 그룹 변경
   * SQL 연결
   * 서버 상태 보기
-* ContosoSQL1 및 ContosoSQL2만 해당: **TCP** 프로토콜은 이미 SQL Server VM에서 사용하도록 설정되었습니다. 그래도 SQL Server의 원격 액세스를 위해 방화벽을 열어야 합니다.
+* ContosoSQL1 및 contososql2만 해당: 합니다 **TCP** 프로토콜은 이미 SQL Server VM에서 사용 하도록 설정 됩니다. 그래도 SQL Server의 원격 액세스를 위해 방화벽을 열어야 합니다.
 
 이제 시작할 준비가 되었습니다. **ContosoQuorum**부터 다음 단계를 수행합니다.
 

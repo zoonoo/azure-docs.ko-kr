@@ -11,28 +11,26 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: c83342e5eb0e6c1f45daa54ea3c4f3c602ff7a39
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: f2d2ded849af5054935b6bec8f74e021078b7641
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878615"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860427"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
-SDK를 사용하여 Azure Machine Learning Services는 학습된 모델을 배포할 수 있는 몇 가지 방법을 제공합니다. 이 문서에서는 모델을 Azure 클라우드에서 또는 IoT Edge 디바이스에 웹 서비스로 배포하는 방법을 알아봅니다.
-
-> [!IMPORTANT]
-> 모델을 웹 서비스로서 배포할 때 현재, CORS(크로스-원본 자원 공유)는 지원되지 않습니다.
+Azure Machine Learning SDK에는 학습 된 모델을 배포할 수 있습니다 하는 여러 방법을 제공 합니다. 이 문서에서는 모델을 Azure 클라우드에서 또는 IoT Edge 디바이스에 웹 서비스로 배포하는 방법을 알아봅니다.
 
 모델은 다음과 같은 계산 대상에 배포할 수 있습니다.
 
 | 계산 대상 | 배포 유형 | 설명 |
 | ----- | ----- | ----- |
-| [ACI(Azure Container Instances)](#aci) | 웹 서비스 | 빠르게 배포합니다. 개발 또는 테스트에 적합합니다. |
-| [AKS(Azure Kubernetes Service)](#aks) | 웹 서비스 | 확장성이 뛰어난 프로덕션 배포에 적합합니다. 자동 크기 조정 및 빠른 응답 시간을 제공합니다. |
-| [Azure IoT Edge](#iotedge) | IoT 모듈 | IoT 디바이스에서 모델을 배포합니다. 디바이스에서 추론이 발생합니다. |
-| [FPGA(Field-programmable Gate Array)](#fpga) | 웹 서비스 | 실시간 추론 시 대기 시간이 매우 짧습니다. |
+| [AKS(Azure Kubernetes Service)](#aks) | 실시간 유추 | 확장성이 뛰어난 프로덕션 배포에 적합합니다. 자동 크기 조정 및 빠른 응답 시간을 제공합니다. |
+| [Azure ML 계산](#azuremlcompute) | 일괄 처리 유추 | 서버 리스 계산에서 일괄 처리 예측을 실행 합니다. 일반 및 낮은 우선 순위 Vm 지원합니다. |
+| [ACI(Azure Container Instances)](#aci) | 테스트 | 개발 또는 테스트에 적합합니다. **프로덕션 워크 로드에 적합 하지 않습니다.** |
+| [Azure IoT Edge](#iotedge) | (미리 보기) IoT 모듈 | IoT 디바이스에서 모델을 배포합니다. 디바이스에서 추론이 발생합니다. |
+| [FPGA(Field-programmable Gate Array)](#fpga) | (미리 보기) 웹 서비스 | 실시간 추론 시 대기 시간이 매우 짧습니다. |
 
 모델을 배포하는 프로세스는 모든 컴퓨팅 대상에서 유사합니다.
 
@@ -41,6 +39,8 @@ SDK를 사용하여 Azure Machine Learning Services는 학습된 모델을 배�
 1. 컴퓨팅 대상에 이미지를 배포합니다.
 1. 배포 테스트
 
+다음 비디오는 Azure Container Instances에 배포 하는 방법을 보여 줍니다.
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Kwk3]
 
 
@@ -48,32 +48,34 @@ SDK를 사용하여 Azure Machine Learning Services는 학습된 모델을 배�
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
+- Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 - Azure Machine Learning 서비스 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [Azure Machine Learning 빠른 시작을 통한 시작](quickstart-get-started.md)을 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아봅니다.
 
 - 학습된 모델. 학습된 모델이 없는 경우 [모델 학습](tutorial-train-models-with-aml.md) 자습서의 단계를 사용하여 학습을 하고 Azure Machine Learning 서비스에 등록합니다.
 
     > [!NOTE]
-    > Azure Machine Learning 서비스는 Python 3에 로드할 수 있는 모든 일반 모델에 작동할 수 있지만 이 문서의 예제에서는 pickle 형식으로 저장된 모델을 사용합니다.
+    > Azure Machine Learning 서비스 수 Python 3에서 로드할 수 있는 모든 일반 모델을 사용 하는 동안이 문서의 예제에서는 Python pickle 형식으로 저장 된 모델을 사용 하 여 보여 줍니다.
     > 
     > ONNX 모델을 사용하는 방법에 대한 자세한 내용은 [ONNX 및 Azure Machine Learning](how-to-build-deploy-onnx.md) 문서를 참조하세요.
 
 ## <a id="registermodel"></a> 학습된 모델 등록
 
-모델 레지스트리는 학습된 모델을 Azure 클라우드에서 저장 및 구성하는 방법입니다. 모델은 Azure Machine Learning 서비스 작업 영역에 등록됩니다. Azure Machine Learning 또는 다른 서비스를 사용하여 모델을 학습할 수 있습니다. 파일에서 모델을 등록하려면 다음 코드를 사용합니다.
+모델 레지스트리는 학습된 모델을 Azure 클라우드에서 저장 및 구성하는 방법입니다. 모델은 Azure Machine Learning 서비스 작업 영역에 등록됩니다. Azure Machine Learning 또는 다른 서비스를 사용하여 모델을 학습할 수 있습니다. 다음 코드 파일에서 모델을 등록, 이름, 태그 및 설명을 설정 하는 방법을 보여 줍니다.
 
 ```python
 from azureml.core.model import Model
 
-model = Model.register(model_path = "model.pkl",
-                       model_name = "Mymodel",
+model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
+                       model_name = "sklearn_mnist",
                        tags = {"key": "0.1"},
                        description = "test",
                        workspace = ws)
 ```
 
 **예상 시간**: 약 10초
+
+모델을 등록 하는 예제를 보려면 [이미지 분류자를 학습](tutorial-train-models-with-aml.md)합니다.
 
 자세한 내용은 [Model 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)에 대한 참조 설명서를 참조하세요.
 
@@ -91,9 +93,7 @@ from azureml.core.image import ContainerImage
 # Image configuration
 image_config = ContainerImage.image_configuration(execution_script = "score.py",
                                                  runtime = "python",
-                                                 conda_file = "myenv.yml",
-                                                 description = "Image with ridge regression model",
-                                                 tags = {"data": "diabetes", "type": "regression"}
+                                                 conda_file = "myenv.yml"}
                                                  )
 ```
 
@@ -107,15 +107,19 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
 | `runtime` | 이미지는 Python을 사용함을 나타냅니다. 다른 옵션은 `spark-py`로, Apache Spark와 함께 Python을 사용합니다. |
 | `conda_file` | conda 환경 파일을 제공하는 데 사용됩니다. 이 파일은 배포된 모델에 대한 conda 환경을 정의합니다. 이 파일을 만드는 방법에 대한 자세한 내용은 [환경 파일(myenv.yml) 만들기](tutorial-deploy-models-with-aml.md#create-environment-file)를 참조하세요. |
 
+이미지 구성 프로그램을 만드는 예제를 참조 하세요 [이미지 분류자를 배포](tutorial-deploy-models-with-aml.md)합니다.
+
 자세한 내용은 [ContainerImage 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)에 대한 참조 설명서를 참조하세요.
 
 ### <a id="script"></a> 실행 스크립트
 
-실행 스크립트는 배포된 이미지에 제출된 데이터를 수신한 후 모델에 전달합니다. 그런 후 모델이 반환한 응답을 수락한 후 클라이언트에 반환합니다. 이 스크립트는 모델마다 다르므로, 모델이 예상하고 반환하는 데이터를 이해해야 합니다. 스크립트는 일반적으로 모델을 로드하고 실행하는 2가지 함수를 포함합니다.
+실행 스크립트는 배포된 이미지에 제출된 데이터를 수신한 후 모델에 전달합니다. 그런 후 모델이 반환한 응답을 수락한 후 클라이언트에 반환합니다. **이 스크립트는 해당 모델**; 모델을 사용 하 고 반환 하는 데이터를 이해 해야 합니다. 이미지 분류 모델을 사용 하는 예제 스크립트를 참조 하세요 [이미지 분류자를 배포](tutorial-deploy-models-with-aml.md)합니다.
 
-* `init()`: 일반적으로 이 함수는 모델을 전역 개체에 로드합니다. 이 함수는 Docker 컨테이너를 시작할 때 한 번만 실행됩니다. 
+스크립트를 로드 하 고 모델을 실행 하는 두 함수를 포함 되어 있습니다.
 
-* `run(input_data)`: 이 함수는 모델을 사용하여 입력 데이터를 기반으로 값을 예측합니다. 실행에 대한 입력 및 출력은 일반적으로 serialization 및 deserialization용으로 JSON을 사용합니다. 원시 이진 데이터를 사용할 수도 있습니다. 모델에 보내기 전에 또는 클라이언트에 반환하기 전에 데이터를 변환할 수 있습니다. 
+* `init()`: 일반적으로 이 함수는 모델을 전역 개체에 로드합니다. 이 함수는 Docker 컨테이너를 시작할 때 한 번만 실행됩니다.
+
+* `run(input_data)`: 이 함수는 모델을 사용하여 입력 데이터를 기반으로 값을 예측합니다. 실행에 대한 입력 및 출력은 일반적으로 serialization 및 deserialization용으로 JSON을 사용합니다. 원시 이진 데이터를 사용할 수도 있습니다. 모델에 보내기 전에 또는 클라이언트에 반환하기 전에 데이터를 변환할 수 있습니다.
 
 #### <a name="working-with-json-data"></a>JSON 데이터 작업
 
@@ -209,23 +213,20 @@ image = ContainerImage.create(name = "myimage",
 
 배포를 가져오는 프로세스는 배포하는 컴퓨팅 대상에 따라 약간 다릅니다. 다음 섹션의 정보를 참조하여 배포 방법을 알아보세요.
 
-* [Azure Container Instances](#aci)
-* [Azure Kubernetes Services](#aks)
-* [Project Brainwave(Field-programmable Gate Array)](#fpga)
-* [Azure IoT Edge 디바이스](#iotedge)
+| 계산 대상 | 배포 유형 | 설명 |
+| ----- | ----- | ----- |
+| [AKS(Azure Kubernetes Service)](#aks) | 웹 서비스 (실시간 유추)| 확장성이 뛰어난 프로덕션 배포에 적합합니다. 자동 크기 조정 및 빠른 응답 시간을 제공합니다. |
+| [Azure ML 계산](#azuremlcompute) | 웹 서비스 (일괄 처리 유추)| 서버 리스 계산에서 일괄 처리 예측을 실행 합니다. 일반 및 낮은 우선 순위 Vm 지원합니다. |
+| [ACI(Azure Container Instances)](#aci) | 웹 서비스 (개발/테스트)| 개발 또는 테스트에 적합합니다. **프로덕션 워크 로드에 적합 하지 않습니다.** |
+| [Azure IoT Edge](#iotedge) | (미리 보기) IoT 모듈 | IoT 디바이스에서 모델을 배포합니다. 디바이스에서 추론이 발생합니다. |
+| [FPGA(Field-programmable Gate Array)](#fpga) | (미리 보기) 웹 서비스 | 실시간 추론 시 대기 시간이 매우 짧습니다. |
 
-> [!NOTE]
-> **웹 서비스로 배포**할 경우 사용할 수 있는 세 가지 배포 메서드는 다음과 같습니다.
->
-> | 방법 | 메모 |
-> | ----- | ----- |
-> | [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) | 이 메서드를 사용하기 전에 모델을 등록하고 이미지를 만들어야 합니다. |
-> | [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) | 이 메서드를 사용하면 모델을 등록하거나 이미지를 만들 필요가 없습니다. 그러나 모델 또는 이미지 이름, 연결된 태그 및 설명을 을 제어할 수 없습니다. |
-> | [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) | 이 메서드를 사용하면 이미지를 만들 필요가 없습니다. 하지만 만드는 이미지의 이름을 제어할 수 없습니다. |
->
-> 이 문서의 예제에서는 `deploy_from_image`를 사용합니다.
+> [!IMPORTANT]
+> 모델을 웹 서비스로서 배포할 때 현재, CORS(크로스-원본 자원 공유)는 지원되지 않습니다.
 
-### <a id="aci"></a> Azure Container Instances에 배포
+이 예제에서는 사용 섹션 [deploy_from_image](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), 모델 및 이미지 배포를 수행 하기 전에 등록 해야 합니다. 다른 배포 방법에 대 한 자세한 내용은 참조 하세요. [배포할](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) 하 고 [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-)합니다.
+
+### <a id="aci"></a> Azure Container Instances (DEVTEST)에 배포
 
 다음 조건 중 하나 이상에 해당하는 경우 Azure Container Instances를 사용하여 모델을 웹 서비스로 배포합니다.
 
@@ -234,7 +235,7 @@ image = ContainerImage.create(name = "myimage",
 
 Azure Container Instances에 배포하려면 다음 단계를 사용합니다.
 
-1. 배포 구성을 정의합니다. 다음 예제에서는 하나의 CPU 코어 및 1GB의 메모리를 사용하는 구성을 정의합니다.
+1. 배포 구성을 정의합니다. 이 구성 모델의 요구 사항에 따라 달라 집니다. 다음 예제에서는 하나의 CPU 코어 및 1GB의 메모리를 사용하는 구성을 정의합니다.
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=configAci)]
 
@@ -242,15 +243,18 @@ Azure Container Instances에 배포하려면 다음 단계를 사용합니다.
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
 
-    **예상 시간**: 약 3분입니다.
+    **예상 시간**: 약 5 분입니다.
 
 자세한 내용은 [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) 및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) 클래스에 대한 참조 설명서를 참조하세요.
 
-### <a id="aks"></a> Azure Kubernetes Service에 배포
+### <a id="aks"></a> Azure Kubernetes Service (프로덕션)에 배포
 
 모델을 확장성이 뛰어난 프로덕션 웹 서비스로 배포하려면 AKS(Azure Kubernetes Service)를 사용합니다. 기존 AKS 클러스터를 사용하거나 Azure Machine Learning SDK, CLI 또는 Azure Portal을 사용하여 새로운 클러스터를 만들 수 있습니다.
 
-AKS 클러스터 만들기는 작업 영역에 대한 일회성 프로세스입니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 클러스터를 삭제하면, 다음에 배포할 때 새 클러스터를 만들어야 합니다.
+AKS 클러스터 만들기는 작업 영역에 대한 일회성 프로세스입니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 
+
+> [!IMPORTANT]
+> 클러스터를 삭제하면, 다음에 배포할 때 새 클러스터를 만들어야 합니다.
 
 Azure Kubernetes Service는 다음과 같은 기능을 제공합니다.
 
@@ -258,6 +262,44 @@ Azure Kubernetes Service는 다음과 같은 기능을 제공합니다.
 * 로깅
 * 모델 데이터 수집
 * 웹 서비스에 대한 빠른 응답 시간
+* TLS 종료
+* Authentication
+
+#### <a name="autoscaling"></a>자동 확장
+
+자동 크기 조정을 설정 하 여 제어할 수 있습니다 `autoscale_target_utilization`, `autoscale_min_replicas`, 및 `autoscale_max_replicas` 는 AKS에 대 한 웹 서비스입니다. 다음 예제에서는 자동 크기 조정을 사용 하는 방법에 설명 합니다.
+
+```python
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+                                                autoscale_target_utilization=30,
+                                                autoscale_min_replicas=1,
+                                                autoscale_max_replicas=4)
+```
+
+의사 결정을 확장 하거나 축소할 현재 컨테이너 복제본 사용률을 기반으로 합니다. (요청을 처리) 된 복제본의 수로 나눈 총 복제본 수는 현재 사용률입니다. 이 번호는 대상 사용률을 초과 하면 더 많은 복제본이 생성 됩니다. 낮은 경우 복제본 감소 됩니다. 기본적으로 대상 사용률은 70%입니다.
+
+복제본을 추가 하는 결정 수행 되며 (약 1 초)을 신속 하 게 구현 됩니다. 복제본 시간도 길어 (약 1 분)을 제거 하려면 결정 합니다. 이 동작은 새 요청이 도착 처리할 수 있도록 하는 경우 잠시 주위 유휴 복제본을 유지 합니다.
+
+다음 코드를 사용 하 여 필요한 복제본을 계산할 수 있습니다.
+
+```python
+from math import ceil
+# target requests per second
+targetRps = 20
+# time to process the request (in seconds)
+reqTime = 10
+# Maximum requests per container
+maxReqPerContainer = 1
+# target_utilization. 70% in this example
+targetUtilization = .7
+
+concurrentRequests = targetRps * reqTime / targetUtilization
+
+# Number of container replicas
+replicas = ceil(concurrentRequests / maxReqPerContainer)
+```
+
+설정에 대 한 자세한 내용은 `autoscale_target_utilization`, `autoscale_max_replicas`, 및 `autoscale_min_replicas`를 참조 합니다 [AksWebservice.deploy_configuration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) 참조 합니다.
 
 #### <a name="create-a-new-cluster"></a>새 클러스터 만들기
 
@@ -289,7 +331,7 @@ print(aks_target.provisioning_errors)
 
 #### <a name="use-an-existing-cluster"></a>기존 클러스터 사용
 
-AKS 클러스터가 Azure 구독에 이미 있으며 해당 버전이 1.11.*인 경우 이미지를 배포하는 데 사용할 수 있습니다. 다음 코드는 작업 영역에 기존 클러스터를 연결하는 방법을 설명합니다.
+Azure 구독에서 AKS 클러스터를 이미 있는 경우 버전 1.11. # # 및 12 개 이상의 가상 Cpu에 이미지를 배포 하려면 사용할 수 있습니다. 다음 코드는 기존 AKS 1.11에 연결 하는 방법에 설명 합니다. # # 작업 영역에 클러스터:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -307,6 +349,11 @@ aks_target.wait_for_completion(True)
 ```
 
 **예상 시간**: 약 3분입니다.
+
+Azure Machine Learning SDK 외부에서 AKS 클러스터를 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+
+* [AKS 클러스터 만들기](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [AKS 클러스터 (포털) 만들기](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>이미지 배포
 
@@ -333,6 +380,13 @@ print(service.state)
 
 자세한 내용은 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) 클래스에 대한 참조 설명서를 참조하세요.
 
+### <a id="azuremlcompute"></a> Azure ML Compute를 사용 하 여 유추
+
+Azure ML 계산 대상 생성 및 Azure Machine Learning 서비스에 의해 관리 됩니다. Azure ML 파이프라인에서 일괄 처리 예측을 위해 사용할 수 있습니다.
+
+연습은 사용 하 여 Azure ML Compute batch 유추 읽기를 [일괄 처리 예측을 실행 하는 방법을](how-to-run-batch-predictions.md) 문서.
+
+
 ### <a id="fpga"></a> FPGA(Field-programmable Gate Array)에서 배포
 
 Project Brainwave를 사용하여 실시간 추론 요청에 대해 매우 짧은 대기 시간을 얻을 수 있습니다. Project Brainwave는 Azure 클라우드의 FPGA(Field-programmable gate arrays)에 배포된 DNN(심층 신경망)을 가속화합니다. 일반적으로 사용되는 DNN은 전달 학습을 위한 보조 기능으로 사용하거나 자신의 데이터로 학습된 가중치로 사용자 지정할 수 있습니다.
@@ -341,9 +395,14 @@ Project Brainwave를 사용하여 모델을 배포하는 방법에 대한 연습
 
 ### <a id="iotedge"></a> Azure IoT Edge에 배포
 
-Azure IoT Edge 디바이스는 Azure IoT Edge 런타임을 실행하는 Linux 또는 Windows 기반 디바이스입니다. 이러한 디바이스에 Machine Learning 모델을 IoT Edge 모듈로 배포할 수 있습니다. IoT Edge 디바이스에 모델을 배포하면 처리를 위해 클라우드로 데이터를 전송하는 대신 디바이스에서 직접 모델을 사용할 수 있습니다. 응답 시간은 더 빨라지고 데이터 전송은 더 적어집니다.
+Azure IoT Edge 디바이스는 Azure IoT Edge 런타임을 실행하는 Linux 또는 Windows 기반 디바이스입니다. Azure IoT Hub를 사용 하 여, 기계 학습 모델 이러한 장치에 IoT Edge 모듈로 배포할 수 있습니다. IoT Edge 디바이스에 모델을 배포하면 처리를 위해 클라우드로 데이터를 전송하는 대신 디바이스에서 직접 모델을 사용할 수 있습니다. 응답 시간은 더 빨라지고 데이터 전송은 더 적어집니다.
 
 Azure IoT Edge 모듈은 컨테이너 레지스트리에서 디바이스에 배포됩니다. 모델에서 이미지를 만드는 경우 작업 영역에 대한 컨테이너 레지스트리에 저장됩니다.
+
+> [!IMPORTANT]
+> 이 섹션의 정보는 Azure IoT Hub 및 Azure IoT Edge 모듈을 사용 하 여 친숙 한 이미 있다고 가정 합니다. 이 섹션의 정보 중 일부는 Azure Machine Learning 서비스를 하는 동안 edge 장치에 배포 하는 프로세스의 대부분 Azure IoT 서비스에서 발생 합니다.
+>
+> Azure IoT를 사용 하 여 잘 모르는 경우 [Azure IoT 기본 사항](https://docs.microsoft.com/azure/iot-fundamentals/) 하 고 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) 기본 정보에 대 한 합니다. 특정 작업에 자세히 알아보려면 다음이 섹션의 다른 링크 사용
 
 #### <a name="set-up-your-environment"></a>환경 설정
 
@@ -353,36 +412,11 @@ Azure IoT Edge 모듈은 컨테이너 레지스트리에서 디바이스에 배�
 
 * 학습된 모델. 모델 학습에 관한 예제는 [Azure Machine Learning을 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 문서를 참조하세요. 미리 학습된 모델은 [Azure IoT Edge GitHub 리포지토리에 대한 AI 도구 키트](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)에서 사용할 수 있습니다.
 
-#### <a name="prepare-the-iot-device"></a>IoT 디바이스 준비
-[이 스크립트](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister)를 사용하여 IoT Hub를 만들고 디바이스를 등록하거나 기존 디바이스를 다시 사용해야 합니다.
+#### <a id="getcontainer"></a> 컨테이너 레지스트리 자격 증명 가져오기
 
-``` bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
-sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
-```
-
-결과 연결 문자열을 "cs":"{copy this string}" 다음에 저장합니다.
-
-[이 스크립트](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge)를 UbuntuX64 IoT Edge 노드 또는 DSVM에 다운로드하여 디바이스를 초기화합니다.
-
-```bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge
-sudo chmod +x installIoTEdge
-sudo ./installIoTEdge
-```
-
-IoT Edge 노드가 IoT Hub의 연결 문자열을 수신할 준비가 되었습니다. ```device_connection_string:``` 줄을 찾고 위의 연결 문자열을 붙여넣은 후 큰따옴표로 묶습니다.
-
-[빠른 시작: Linux x64 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md) 문서에 따라 디바이스를 등록하고 IoT 런타임을 단계별로 설치하는 방법을 알아볼 수 있습니다.
-
-
-#### <a name="get-the-container-registry-credentials"></a>컨테이너 레지스트리 자격 증명 가져오기
 디바이스에 IoT Edge 모듈을 배포하려면 Azure IoT에 Azure Machine Learning 서비스가 Docker 이미지를 저장하는 컨테이너 레지스트리에 대한 자격 증명이 필요합니다.
 
-다음 두 가지 방법으로 필요한 컨테이너 레지스트리 자격 증명을 쉽게 검색할 수 있습니다.
+두 가지 방법으로 자격 증명을 가져올 수 있습니다.
 
 + **Azure Portal에서**:
 
@@ -423,24 +457,21 @@ IoT Edge 노드가 IoT Hub의 연결 문자열을 수신할 준비가 되었습�
 
      이러한 자격 증명은 개인 컨테이너 레지스트리에 있는 이미지에 대한 IoT Edge 디바이스 액세스를 제공하는 데 필요합니다.
 
+#### <a name="prepare-the-iot-device"></a>IoT 디바이스 준비
+
+Azure IoT Hub를 사용 하 여 장치를 등록 하 고 장치에서 IoT Edge 런타임을 설치 합니다. 이 프로세스를 사용 하 여 잘 모르는 경우 [빠른 시작: Linux x64 장치에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md)합니다.
+
+장치를 등록 하는 다른 방법은 다음과 같습니다.
+
+* [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
 #### <a name="deploy-the-model-to-the-device"></a>디바이스에 모델 배포
 
-[이 스크립트](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel)를 실행하고 위 단계의 컨테이너 레지스트리 이름, 사용자 이름, 암호, 이미지 위치 URL, 원하는 배포 이름, IoT Hub 이름 및 만든 디바이스 ID를 제공하여 모델을 쉽게 배포할 수 있습니다. 다음 단계에 따라 VM에서 이 작업을 수행할 수 있습니다. 
+장치로 모델을 배포 하려면에서 수집한 레지스트리 정보를 사용 합니다 [컨테이너 레지스트리 자격 증명을 가져올](#getcontainer) 섹션 모듈 배포를 사용 하 여 IoT Edge 모듈에 대 한 단계입니다. 예를 들어, [Azure portal에서 Azure IoT Edge 배포 모듈](../../iot-edge/how-to-deploy-modules-portal.md)를 구성 해야 합니다는 __레지스트리 설정을__ 장치에 대 한 합니다. 사용 합니다 __로그인 서버__, __username__, 및 __암호__ 작업 영역 컨테이너 레지스트리에 대 한 합니다.
 
-```bash 
-wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel
-sudo chmod +x deploymodel
-sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationURL> <DeploymentID> <IoTHubname> <DeviceID>
-```
-
-또는 [Azure Portal에서 Azure IoT Edge 모듈 배포](../../iot-edge/how-to-deploy-modules-portal.md) 문서의 단계에 따라 디바이스에 이미지를 배포할 수 있습니다. 디바이스의 __레지스트리 설정__을 구성하는 경우 작업 영역 컨테이너 레지스트리에 대해 __login server__, __username__ 및 __password__를 사용합니다.
-
-> [!NOTE]
-> Azure IoT에 익숙하지 않은 경우 다음 문서에서 서비스 시작 정보를 참조하세요:
->
-> * [빠른 시작: Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md)
-> * [빠른 시작: Windows 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart.md)
-
+사용 하 여 배포할 수도 있습니다 [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) 하 고 [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode)합니다.
 
 ## <a name="testing-web-service-deployments"></a>웹 서비스 배포 테스트
 

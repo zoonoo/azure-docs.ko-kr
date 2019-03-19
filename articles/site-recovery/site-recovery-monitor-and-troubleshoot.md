@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098477"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Site Recovery 모니터링 및 문제 해결
 
@@ -84,7 +84,7 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
 **인프라 보기**에는 복제에 관련된 인프라 구성 요소 복제와 서버 및 Azure 서비스 간의 연결 상태가 표시됩니다.
 
 - 녹색 선은 연결이 정상 상태임을 나타냅니다.
-- 확인된 오류 아이콘이 있는 빨간색 선은 연결에 영향을 미치는 하나 이상의 오류 증상이 있음을 나타냅니다.
+- 겹쳐진된 오류 아이콘이 있는 빨간색 선은 해당 연결에 영향을 하나 이상의 오류 증상이 있는지 여부를 나타냅니다.
 -  오류 아이콘 위를 마우스 포인터로 가리키면 오류 및 영향을 받는 엔터티의 수가 표시됩니다. 영향을 받는 엔터티의 필터링된 목록에 대한 아이콘을 클릭합니다.
 
     ![Site Recovery 인프라 보기(자격 증명 모음)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
@@ -97,12 +97,12 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
 
     **시나리오** | **State**  | **보기 사용 가능 여부**
     --- |--- | ---
-    **온-프레미스 사이트 간 복제** | 모든 상태 | 아니요 
+    **온-프레미스 사이트 간 복제** | 모든 상태 | 아닙니다. 
     **Azure 지역 간 Azure VM 복제**  | 복제가 사용되도록 설정됨/초기 복제 진행 중 | 예
-    **Azure 지역 간 Azure VM 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요   
+    **Azure 지역 간 Azure VM 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아닙니다.   
     **Azure로 VMware 복제** | 복제가 사용되도록 설정됨/초기 복제 진행 중 | 예     
-    **Azure로 VMware 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요      
-    **Azure로 Hyper-V 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요
+    **Azure로 VMware 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아닙니다.      
+    **Azure로 Hyper-V 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아닙니다.
 
 - 단일 복제 컴퓨터에 대해 인프라 보기를 보려면 자격 증명 모음 메뉴에서 **복제된 항목**을 클릭하고 서버를 선택합니다.  
 
@@ -149,19 +149,19 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
     ![Site Recovery 복제된 항목 보기](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. **복제된 항목** 페이지에서 정보를 보고 필터링할 수 있습니다. 맨 위에 있는 작업 메뉴에서 특정 컴퓨터에 대해 테스트 장애 조치(Failover) 실행 또는 특정 오류 보기 등의 작업을 수행할 수 있습니다.
-3.  **열**을 클릭하여 추가 열을 표시합니다. 예를 들어 RPO, 대상 구성 문제 및 복제 오류를 표시할 수 있습니다.
+3. **열**을 클릭하여 추가 열을 표시합니다. 예를 들어 RPO, 대상 구성 문제 및 복제 오류를 표시할 수 있습니다.
 4. **필터**를 클릭하여 복제 상태 또는 특정 복제 정책과 같은 특정 매개 변수를 기준으로 하는 정보를 볼 수 있습니다.
 5. 컴퓨터를 마우스 오른쪽 단추로 클릭하여 테스트 장애 조치(Failover)와 같은 작업을 시작하거나 연결된 특정 오류 세부 정보를 볼 수 있습니다.
 6. 컴퓨터를 클릭하여 자세한 내용을 드릴합니다. 세부 정보는 다음과 같습니다.
-      - **복제 정보**: 머신의 현재 상태입니다.
-      - **RPO**(복구 지점 목표): 가상 머신에 대한 현재 RPO 및 RPO가 마지막으로 컴퓨팅된 시간입니다.
-      - **복구 지점**: 머신에 대해 사용 가능한 최신 복구 지점입니다.
-      - **장애 조치(Failover) 준비**: 머신에 대해 테스트 장애 조치(Failover)가 실행되었는지 여부, 머신(모바일 서비스를 실행 중인 머신)에서 실행 중인 에이전트 버전, 구성 문제를 나타냅니다.
-      - **오류**: 현재 머신에서 관찰되는 복제 오류 증상과 가능한 원인/작업 목록입니다.
-      - **이벤트**: 머신에 영향을 주는 최근 이벤트가 시간순으로 나열된 목록입니다. 이벤트는 컴퓨터에 영향을 미친 문제에 대한 기록이지만, 오류 세부 정보는 현재 관찰 가능한 오류 증상을 보여 줍니다.
-      - **인프라 보기**: 머신이 Azure로 복제되는 시나리오의 인프라 상태를 보여줍니다.
+   - **복제 정보**: 머신의 현재 상태입니다.
+   - **RPO**(복구 지점 목표): 가상 머신에 대한 현재 RPO 및 RPO가 마지막으로 컴퓨팅된 시간입니다.
+   - **복구 지점**: 머신에 대해 사용 가능한 최신 복구 지점입니다.
+   - **장애 조치(Failover) 준비**: 머신에 대해 테스트 장애 조치(Failover)가 실행되었는지 여부, 머신(모바일 서비스를 실행 중인 머신)에서 실행 중인 에이전트 버전, 구성 문제를 나타냅니다.
+   - **오류**: 현재 머신에서 관찰되는 복제 오류 증상과 가능한 원인/작업 목록입니다.
+   - **이벤트**: 머신에 영향을 주는 최근 이벤트가 시간순으로 나열된 목록입니다. 이벤트는 컴퓨터에 영향을 미친 문제에 대한 기록이지만, 오류 세부 정보는 현재 관찰 가능한 오류 증상을 보여 줍니다.
+   - **인프라 보기**: 머신이 Azure로 복제되는 시나리오의 인프라 상태를 보여줍니다.
 
-    ![Site Recovery 복제된 항목 세부 정보/개요](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Site Recovery 복제된 항목 세부 정보/개요](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 
 ### <a name="common-questions"></a>일반적인 질문
@@ -191,7 +191,7 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
 다음과 같이 구독합니다.
 
 자격 증명 모음 > **모니터링 및 보고서** 섹션에서 **Site Recovery 이벤트**를 클릭합니다.
-2. **이메일 알림**을 클릭합니다.
-3. **이메일 알림**에서 알림을 켜고 보낼 사람을 지정합니다. 모든 구독 관리자와 선택적으로 특정 이메일 주소로 알림을 보낼 수 있습니다.
+1. **이메일 알림**을 클릭합니다.
+1. **이메일 알림**에서 알림을 켜고 보낼 사람을 지정합니다. 모든 구독 관리자와 선택적으로 특정 이메일 주소로 알림을 보낼 수 있습니다.
 
     ![전자 메일 알림](./media/site-recovery-monitor-and-troubleshoot/email.png)

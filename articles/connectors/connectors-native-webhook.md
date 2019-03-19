@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: 7b1886321ca4afd4b4710bd9fddf16d2d5eb224b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182118"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>웹후크 및 Azure Logic Apps를 사용하여 이벤트 기반 워크플로 또는 작업 만들기
 
@@ -29,9 +29,9 @@ ms.locfileid: "43126590"
 
 ## <a name="use-the-webhook-trigger"></a>웹후크 트리거 사용
 
-[*트리거*](connectors-overview.md)는 논리 앱에서 워크플로를 시작하는 이벤트입니다. 웹후크 트리거는 이벤트 기반이며 새 항목에 대한 폴링에 의존하지 않습니다. [요청 트리거](connectors-native-reqres.md)와 마찬가지로, 논리 앱은 이벤트가 발생하는 인스턴트를 발생시킵니다. 웹후크 트리거는 *콜백 URL*을 서비스에 등록하고 해당 URL을 사용해서 필요에 따라 논리 앱을 발생시킵니다.
+[*트리거*](connectors-overview.md)는 논리 앱에서 워크플로를 시작하는 이벤트입니다. 웹 후크 트리거는 이벤트를 기반으로 하는 새 항목에 대 한 폴링에 종속 되지 않습니다. 웹 후크 트리거를 통해 논리 앱을 저장 하는 경우 또는 사용 안 함 상태에서 논리 앱을 변경 하면 웹 후크 트리거 *구독* 지정한 서비스에 등록 하 여 끝점을 *콜백URL* 해당 서비스 또는 끝점을 사용 하 여 합니다. 트리거는 다음 필요에 따라 논리 앱을 실행 하는 URL을 사용 합니다. 같은 합니다 [요청 트리거](connectors-native-reqres.md), 예상한 이벤트가 발생 하면 즉시 논리 앱에서 발생 합니다. 트리거가 *구독 취소* 에서 논리 앱을 설정 하는 사용 하지 않도록 설정 하도록이 변경한 경우 또는 트리거를 제거 하 고 논리 앱을 저장 합니다.
 
-논리 앱 디자이너에서 HTTP 트리거를 설정하는 방법을 보여 주는 예제는 다음과 같습니다. 이러한 단계에서는 [Logic Apps에서 사용되는 웹후크 구독 및 구독 취소 패턴](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)을 따라 API를 이미 배포했거나 액세스하고 있다고 가정합니다. 구독 호출은 논리 앱이 새 웹후크와 함께 저장되거나 사용 안 함 상태에서 사용 상태로 전환될 때마다 수행됩니다. 구독 취소 호출은 논리 앱 웹후크 트리거가 제거 또는 저장되거나 사용 상태에서 사용 안 함 상태로 전환될 때 수행됩니다.
+논리 앱 디자이너에서 HTTP 트리거를 설정하는 방법을 보여 주는 예제는 다음과 같습니다. 이러한 단계에서는 [Logic Apps에서 사용되는 웹후크 구독 및 구독 취소 패턴](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)을 따라 API를 이미 배포했거나 액세스하고 있다고 가정합니다. 
 
 **웹후크 트리거를 사용하려면**
 
@@ -48,9 +48,15 @@ ms.locfileid: "43126590"
 
 ## <a name="use-the-webhook-action"></a>웹후크 동작 사용
 
-[*동작*](connectors-overview.md)은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. 웹후크 동작은 서비스에 *콜백 URL* 을 등록하고, 다시 시작하기 전에 URL이 호출될 때까지 대기합니다. ["승인 전자 메일 보내기"](connectors-create-api-office365-outlook.md) 는 이 패턴을 따르는 커넥터의 예입니다. 이 패턴을 웹후크 동작을 통해 서비스로 확장할 수 있습니다. 
+[ *동작* ](connectors-overview.md) 는 정의 된 작업 및 논리 앱 워크플로 통해 실행 합니다. 논리 앱 웹 후크 작업, 해당 작업을 실행 하는 경우 *구독* 지정한 서비스에 등록 하 여 끝점을 *콜백 URL* 해당 서비스 또는 끝점을 사용 하 여 합니다. 웹 후크 동작을 한 다음 해당 서비스가 실행 되는 논리 앱 다시 시작 하기 전에 URL을 호출 될 때까지 대기 합니다. 논리 앱 서비스 또는 이러한 경우에는 끝점에서 구독 취소: 
 
-논리 앱 디자이너에서 웹후크 동작을 설정하는 방법을 보여 주는 예제는 다음과 같습니다. 이러한 단계에서는 [Logic Apps에서 사용되는 웹후크 구독 및 구독 취소 패턴](../logic-apps/logic-apps-create-api-app.md#webhook-actions)을 따라 API를 이미 배포했거나 액세스하고 있다고 가정합니다. 논리 앱이 웹후크 동작을 실행할 때 구독 호출이 수행됩니다. 응답을 기다리는 동안 또는 논리 앱 실행이 시간 초과되기 전에 실행이 취소될 때 구독 취소 호출이 수행됩니다.
+* 웹 후크 동작을 성공적으로 완료 되 면
+* 논리 앱 실행 응답을 기다리는 동안 취소 되 면
+* 앱 제한 논리 전에
+
+예를 들어 합니다 [ **승인 전자 메일 보내기** ](connectors-create-api-office365-outlook.md) 작업은이 패턴을 따르는 웹 후크 동작의 예입니다. 이 패턴을 웹후크 동작을 통해 서비스로 확장할 수 있습니다. 
+
+논리 앱 디자이너에서 웹후크 동작을 설정하는 방법을 보여 주는 예제는 다음과 같습니다. 이러한 단계에서는 [Logic Apps에서 사용되는 웹후크 구독 및 구독 취소 패턴](../logic-apps/logic-apps-create-api-app.md#webhook-actions)을 따라 API를 이미 배포했거나 액세스하고 있다고 가정합니다. 
 
 **웹후크 동작을 추가하려면**
 

@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8254766568c54748ee3646dd627a102ffc86e743
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9011a7b49aa4085c7ea05e0b320eba834b8da73d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004190"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치
 Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. Azure AD Connect로 설치된 기본 SQL Server 2012 Express LocalDB를 사용하거나 사용자 고유의 전체 버전 SQL을 사용할 수 있습니다. 이전에 Azure AD Connect를 설치할 때 ADSync라는 새 데이터베이스가 항상 만들어졌습니다. Azure AD Connect 버전 1.1.613.0(이상)을 사용하면 기존 ADSync 데이터베이스에 연결하여 Azure AD Connect를 설치하는 옵션도 있습니다.
@@ -62,34 +62,34 @@ Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이�
 3.  새 명령 프롬프트 또는 PowerShell 세션을 시작합니다. <drive>\program files\Microsoft Azure AD Connect로 이동합니다. .\AzureADConnect.exe /useexistingdatabase 명령을 실행하여 Azure AD Connect 마법사를 “기존 데이터베이스 사용” 설치 모드로 시작합니다.
 
 > [!NOTE]
-> 데이터베이스에 이전 Azure AD Connect 설치의 데이터가 이미 포함된 경우에만 스위치 **/UseExistingDatabase**를 사용합니다. 예를 들어 로컬 데이터베이스에서 전체 SQL Server 데이터베이스로 이동하거나 Azure AD Connect 서버가 다시 빌드되어 Azure AD Connect의 이전 설치에서 ADSync 데이터베이스의 SQL 백업을 복원한 경우입니다. 빈 데이터베이스를 만들고 설치에 사용하는 경우 이 단계를 건너뜁니다.
+> 데이터베이스에 이전 Azure AD Connect 설치의 데이터가 이미 포함된 경우에만 스위치 **/UseExistingDatabase**를 사용합니다. 예를 들어 로컬 데이터베이스에서 전체 SQL Server 데이터베이스로 이동하거나 Azure AD Connect 서버가 다시 빌드되어 Azure AD Connect의 이전 설치에서 ADSync 데이터베이스의 SQL 백업을 복원한 경우입니다. 데이터베이스 비어 있으면 즉, 해당 하지 않습니다 이전 Azure AD Connect 설치에서 모든 데이터가이 단계를 건너뜁니다.
 
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
-4.  Azure AD Connect 시작 화면이 표시됩니다. 사용 조건 및 개인 정보 취급 방침에 동의하면 **계속**을 클릭합니다.
-![시작](./media/how-to-connect-install-existing-database/db3.png)
-5.  **필수 구성 요소 설치** 화면에서 **기존 SQL Server 사용** 옵션을 사용할 수 있습니다. ADSync 데이터베이스를 호스팅하는 SQL Server의 이름을 지정합니다. ADSync 데이터베이스를 호스팅하는 데 사용되는 SQL 엔진 인스턴스가 SQL Server에 있는 기본 인스턴스가 아닌 경우 SQL 엔진 인스턴스 이름을 지정해야 합니다. 또한 SQL 검색을 사용하지 않는 경우 SQL 엔진 인스턴스 포트 번호를 지정해야 합니다. 예:          
-![시작](./media/how-to-connect-install-existing-database/db4.png)           
+1. Azure AD Connect 시작 화면이 표시됩니다. 사용 조건 및 개인 정보 취급 방침에 동의하면 **계속**을 클릭합니다.
+   ![시작](./media/how-to-connect-install-existing-database/db3.png)
+1. **필수 구성 요소 설치** 화면에서 **기존 SQL Server 사용** 옵션을 사용할 수 있습니다. ADSync 데이터베이스를 호스팅하는 SQL Server의 이름을 지정합니다. ADSync 데이터베이스를 호스팅하는 데 사용되는 SQL 엔진 인스턴스가 SQL Server에 있는 기본 인스턴스가 아닌 경우 SQL 엔진 인스턴스 이름을 지정해야 합니다. 또한 SQL 검색을 사용하지 않는 경우 SQL 엔진 인스턴스 포트 번호를 지정해야 합니다. 예:          
+   ![시작](./media/how-to-connect-install-existing-database/db4.png)           
 
-6.  **Azure AD에 연결** 화면에서 Azure AD 디렉터리의 전역 관리자의 자격 증명을 제공해야 합니다. 기본 onmicrosoft.com 도메인의 계정을 사용하는 것이 좋습니다. 이 계정은 Azure AD에서 서비스 계정을 만드는 데에만 사용되며 마법사를 완료한 후에는 사용되지 않습니다.
-![연결](./media/how-to-connect-install-existing-database/db5.png)
+1. **Azure AD에 연결** 화면에서 Azure AD 디렉터리의 전역 관리자의 자격 증명을 제공해야 합니다. 기본 onmicrosoft.com 도메인의 계정을 사용하는 것이 좋습니다. 이 계정은 Azure AD에서 서비스 계정을 만드는 데에만 사용되며 마법사를 완료한 후에는 사용되지 않습니다.
+   ![연결](./media/how-to-connect-install-existing-database/db5.png)
  
-7.  **디렉터리 연결** 화면에서 디렉터리 동기화에 대해 구성된 기존 AD 포리스트가 옆에 빨간색 십자가 아이콘과 함께 나열됩니다. 온-프레미스 AD 포리스트에서 변경 내용을 동기화하려면 AD DS 계정이 필요합니다. 자격 증명이 암호화되고 이전 Azure AD Connect 서버에서만 해독할 수 있으므로 Azure AD Connect 마법사는 ADSync 데이터베이스에 저장된 AD DS 계정의 자격 증명을 검색하는 데 사용할 수 없습니다. **자격 증명 변경**을 클릭하여 AD 포리스트에 대한 AD DS 계정을 지정합니다.
-![Directories](./media/how-to-connect-install-existing-database/db6.png)
- 
- 
-8.  팝업 대화 상자에서 (i) 엔터프라이즈 관리자 자격 증명을 제공하고 Azure AD Connect에서 AD DS 계정을 만들도록 하거나 (ii) 직접 AD DS 계정을 만들고 Azure AD Connect에 해당 자격 증명을 제공할 수 있습니다. 옵션을 선택하고 필요한 자격 증명을 제공한 후 **확인**을 클릭하여 팝업 대화 상자를 닫습니다.
-![시작](./media/how-to-connect-install-existing-database/db7.png)
+1. **디렉터리 연결** 화면에서 디렉터리 동기화에 대해 구성된 기존 AD 포리스트가 옆에 빨간색 십자가 아이콘과 함께 나열됩니다. 온-프레미스 AD 포리스트에서 변경 내용을 동기화하려면 AD DS 계정이 필요합니다. 자격 증명이 암호화되고 이전 Azure AD Connect 서버에서만 해독할 수 있으므로 Azure AD Connect 마법사는 ADSync 데이터베이스에 저장된 AD DS 계정의 자격 증명을 검색하는 데 사용할 수 없습니다. **자격 증명 변경**을 클릭하여 AD 포리스트에 대한 AD DS 계정을 지정합니다.
+   ![Directories](./media/how-to-connect-install-existing-database/db6.png)
  
  
-9.  자격 증명이 제공되면 빨간색 십자가 아이콘이 녹색 체크 표시 아이콘으로 바뀝니다. **다음**을 클릭합니다.
-![시작](./media/how-to-connect-install-existing-database/db8.png)
+1. 팝업 대화 상자에서 (i) 엔터프라이즈 관리자 자격 증명을 제공하고 Azure AD Connect에서 AD DS 계정을 만들도록 하거나 (ii) 직접 AD DS 계정을 만들고 Azure AD Connect에 해당 자격 증명을 제공할 수 있습니다. 옵션을 선택하고 필요한 자격 증명을 제공한 후 **확인**을 클릭하여 팝업 대화 상자를 닫습니다.
+   ![시작](./media/how-to-connect-install-existing-database/db7.png)
  
  
-10. **구성 준비** 화면에서 **설치**를 클릭합니다.
-![시작](./media/how-to-connect-install-existing-database/db9.png)
+1. 자격 증명이 제공되면 빨간색 십자가 아이콘이 녹색 체크 표시 아이콘으로 바뀝니다. **다음**을 클릭합니다.
+   ![시작](./media/how-to-connect-install-existing-database/db8.png)
  
  
-11. 설치가 완료되면 Azure AD Connect 서버가 자동으로 준비 모드에 사용할 수 있게 설정됩니다. 준비 모드를 해제하기 전에 예기치 않은 변경 내용에 대한 서버 구성 및 보류 중인 내보내기를 검토하는 것이 좋습니다. 
+1. **구성 준비** 화면에서 **설치**를 클릭합니다.
+   ![시작](./media/how-to-connect-install-existing-database/db9.png)
+ 
+ 
+1. 설치가 완료되면 Azure AD Connect 서버가 자동으로 준비 모드에 사용할 수 있게 설정됩니다. 준비 모드를 해제하기 전에 예기치 않은 변경 내용에 대한 서버 구성 및 보류 중인 내보내기를 검토하는 것이 좋습니다. 
 
 ## <a name="post-installation-tasks"></a>설치 후 작업
 Azure AD Connect 1.2.65.0 미만 버전으로 데이터베이스 백업을 복원하는 경우 준비 서버가 자동으로 **구성하지 않음**을 로그인 방법으로 선택합니다. 암호 해시 동기화 및 비밀번호 쓰기 저장 기본 설정이 복원되는 동안 활성 동기화 서버에 적용되는 다른 정책과 일치하도록 로그인 방법을 변경해야 합니다.  이 단계를 완료하지 않으면 이 서버가 활성화될 때 사용자가 로그인하지 못할 수 있습니다.  
@@ -102,6 +102,7 @@ Azure AD Connect 1.2.65.0 미만 버전으로 데이터베이스 백업을 복�
 |AD FS로 페더레이션|Azure 인증은 활성 동기화 서버에 대해 구성된 AD FS 정책을 계속 사용합니다.  Azure AD Connect를 사용하여 AD FS 팜을 관리하는 경우 필요에 따라 대기 서버를 활성 동기화 인스턴스로 만들기 위한 준비 과정에서 로그인 방법을 AD FS 페더레이션으로 변경할 수 있습니다.   활성 동기화 서버에서 디바이스 옵션이 사용되는 경우 "디바이스 옵션 구성" 작업을 실행하여 이 서버에서 해당 옵션을 구성합니다.|
 |통과 인증 및 데스크톱 Single Sign-On|활성 동기화 서버의 구성과 일치하도록 로그인 방법을 업데이트합니다.  서버를 주 서버로 승격하기 전에 이 작업을 수행하지 않으면 백업 로그인 옵션으로 암호 해시 동기화를 사용하지 않을 경우 원활한 Single Sign-On과 함께 통과 인증이 해제되고 테넌트가 잠깁니다. 뿐만 아니라 준비 모드에서 통과 인증을 사용하도록 설정하면 새 인증 에이전트가 설치 및 등록되고 로그인 요청을 수락하는 고가용성 에이전트로 실행됩니다.|
 |PingFederate을 사용한 페더레이션|Azure 인증은 활성 동기화 서버에 대해 구성된 PingFederate 정책을 계속 사용합니다.  필요에 따라 대기 서버를 활성 동기화 인스턴스로 만들기 위한 준비 과정에서 로그인 방법을 PingFederate로 변경할 수 있습니다.  이 단계는 PingFederate를 사용하여 추가 도메인을 페더레이션해야 할 때까지 지연될 수 있습니다.|
+
 ## <a name="next-steps"></a>다음 단계
 
 - Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 할당](how-to-connect-post-installation.md)할 수 있습니다.

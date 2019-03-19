@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412406"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004037"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>종속성, 예외 포착 및 Java 웹앱에서의 메서드 실행 시간 모니터링
 
@@ -73,7 +73,6 @@ xml 파일의 내용을 설정합니다. 다음 예제를 편집하여 원하는
                reportCaughtExceptions="true"
                reportExecutionTime="true"
                />
-
            <!-- Report on the particular signature
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
@@ -90,12 +89,26 @@ xml 파일의 내용을 설정합니다. 다음 예제를 편집하여 원하는
 
 기본적으로 `reportExecutionTime`은 true이고 `reportCaughtExceptions`는 false입니다.
 
-### <a name="spring-boot-agent-additional-config"></a>Spring Boot 에이전트 추가 구성
+## <a name="additional-config-spring-boot"></a>추가 구성 (Spring Boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
+다음을 수행 하는 Azure App Services에 대 한:
+
+* 설정 &gt; 애플리케이션 설정 선택
+* 앱 설정 아래에서 새로운 키 값 쌍을 추가합니다.
+
+키: `JAVA_OPTS` 값: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+
+Java 에이전트의 최신 버전에 대 한 확인이 릴리스에 [여기](https://github.com/Microsoft/ApplicationInsights-Java/releases
+)합니다. 
+
+에이전트는 d: / home/site/wwwroot에서 종료 되도록 프로젝트에 리소스로 패키지 해야/디렉터리입니다. 으로 이동 하 여 에이전트는 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다 **개발 도구** > **고급 도구** > **디버그 콘솔**사이트 디렉터리의 내용을 검사 하 고 있습니다.    
+
+* 설정을 저장 하 고 앱을 다시 시작 합니다. (이러한 단계에만 적용 Windows에서 실행 중인 앱 서비스입니다.)
+
 > [!NOTE]
-> AI-Agent.xml 및 에이전트 jar 파일은 동일한 폴더에 있어야 합니다. 종종 프로젝트의 `/resources` 폴더에 함께 배치됩니다. 
+> AI-Agent.xml 및 에이전트 jar 파일은 동일한 폴더에 있어야 합니다. 종종 프로젝트의 `/resources` 폴더에 함께 배치됩니다.  
 
 ### <a name="spring-rest-template"></a>Spring Rest 템플릿
 

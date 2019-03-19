@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 11/09/2017
 ms.author: mandia
 ms.custom: include file
-ms.openlocfilehash: 7fa6930acf4d19b3939bb8a5b0306d216346c2b3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 2697a7d14141682ee8208d8cbe954e6e1679e3b5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755985"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553901"
 ---
-| RESOURCE | FREE(PREVIEW) | DEVELOPER | BASIC | 표준 | PREMIUM |
+| 리소스 | Free(Preview) | Developer | Basic | 표준 | Premium |
 | --- | --- | --- | --- | --- | --- |
-| 확장 |해당 없음 |해당 없음 |예, Basic 단위 1개씩 확장 |예, Standard 단위 1개씩 확장 |예, Premium 단위 1개씩 확장 |
-| 크기 조정 제한 |해당 없음 |해당 없음 |최대 단위 8개 |최대 단위 8개 |최대 단위 8개 |
-| 장치당 EAI 브리지 |해당 없음 |25 |25 |125 |500 |
-| 단위당 EDI 계약 |해당 없음 |10 |50 |250 |1000 |
-| 장치당 하이브리드 연결 수 |5 |5 |10 |50 |100 |
-| 단위당 하이브리드 연결 데이터 전송(GB) |5 |5 |50 |250 |500 |
-| 단위당 BizTalk 어댑터 서비스를 사용하는 연결 수 |해당 없음 |1 |2 |5 |25 |
-| 보관 |해당 없음 |사용 가능 |해당 없음 |해당 없음 |사용 가능 |
-| 고가용성 |해당 없음 |해당 없음 |사용 가능 |사용 가능 |사용 가능 |
+| 확장 |N/A |N/A |1 Basic 장치씩 확장함 |1 표준 장치씩 확장함 |1 프리미엄 장치씩 확장함 |
+| 확장 제한 |N/A |N/A |최대 단위 8개 |최대 단위 8개 |최대 단위 8개 |
+| 장치당 EAI 브리지 |N/A |25 |25 |125 |500 |
+| 단위당 EDI 계약 |N/A |10 |50 |250 |1,000 |
+| 장치당 하이브리드 연결 |5 |5 |10 |50 |100 |
+| 단위당 하이브리드 연결 데이터 전송 (Gb) |5 |5 |50 |250 |500 |
+| 단위당 BizTalk 어댑터 서비스를 사용 하는 연결 수 |N/A |1 |2 |5 |25 |
+| 보관 |N/A |사용 가능 |N/A |N/A |사용 가능 |
+| 고가용성 |N/A |N/A |사용 가능 |사용 가능 |사용 가능 |
 

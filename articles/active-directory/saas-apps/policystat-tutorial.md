@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43ddf56e4c72e7e59778fc43a808b9800bc3b9b3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 602dd0fd4050a3b4336c560bbd82b32f3903b93c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187716"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850199"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>자습서: PolicyStat과 Azure Active Directory 통합
 
@@ -176,7 +176,7 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     다. **Last Name Attribute**(성 특성) 텍스트 상자에 사용자의 **성**을 **Simon**으로 입력합니다.
 
-    d. **Email Attribute**(메일 특성) 텍스트 상자에 사용자의 **메일 주소**를 **BrittaSimon@contoso.com**으로 입력합니다.
+    d. 에 **전자 메일 특성** 텍스트 상자에 입력 **emailaddress** 사용자의 **BrittaSimon\@contoso.com**합니다.
 
     e. **변경 내용 저장**을 클릭합니다.
 

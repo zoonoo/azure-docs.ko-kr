@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 76239f80076cbe0f86d6e091a29b008a5a5d06c1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116646"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871065"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.
@@ -38,7 +38,7 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
 관리 그룹에 구독을 구성하고 거버넌스 정책을 관리 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 정책을 자동으로 상속합니다. 관리 그룹은 Security Center에 등록할 필요가 없지만 루트 관리 그룹이 생성되도록 적어도 하나의 관리 그룹을 만드는 것이 좋습니다. 그룹이 만들어진 후 Azure AD 테넌트 아래의 모든 하위 구독이 연결됩니다. PowerShell에 대한 지침 및 추가 정보는 [리소스 및 조직 관리를 위한 관리 그룹 만들기](../azure-resource-manager/management-groups-create.md)를 참조하세요.
 
  
-1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스** > **관리 그룹**을 선택합니다.
 3. 주 페이지에서 **새 관리 그룹**을 선택합니다. 
 
@@ -51,7 +51,7 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
 5.  **저장**을 선택합니다.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Azure Portal에서 관리 그룹 보기
-1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 관리 그룹을 보려면 Azure 주 메뉴 아래에서 **모든 서비스**를 선택합니다.
 3. **일반** 아래에서 **관리 그룹**을 선택합니다.
 
@@ -77,7 +77,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
    - 스위치를 예로 설정하면 Azure RBAC의 루트 범위(/)에서 사용자 액세스 관리자 역할이 할당됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 할당할 수 있는 권한이 부여됩니다. 이 스위치는 Azure AD에서 글로벌 관리자 역할이 할당된 사용자만 사용할 수 있습니다.
 
-  - 스위치를 아니요로 설정하면 Azure RBAC의 사용자 액세스 관리자 역할이 사용자 계정에서 제거됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 더 이상 할당할 수 없습니다. 액세스 권한이 부여된 Azure 구독 및 관리 그룹만 살펴보고 관리할 수 있습니다.
+   - 스위치를 아니요로 설정하면 Azure RBAC의 사용자 액세스 관리자 역할이 사용자 계정에서 제거됩니다. 그러면 이 Azure AD 디렉터리와 연결된 모든 Azure 구독 및 관리 그룹의 역할을 더 이상 할당할 수 없습니다. 액세스 권한이 부여된 Azure 구독 및 관리 그룹만 살펴보고 관리할 수 있습니다.
 
 4. **Save**를 클릭하여 설정을 저장합니다.
 
@@ -108,15 +108,15 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>PowerShell을 사용하여 사용자에게 RBAC 역할 할당: 
-1. [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)을 설치합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
 2. 다음 명령을 실행합니다. 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. 메시지가 표시되면 전역 관리자 자격 증명으로 로그인합니다. 
@@ -128,12 +128,12 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
-    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    New-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. 역할을 제거하려면 다음 명령을 사용합니다. 
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
+    Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
 ### <a name="open-or-refresh-security-center"></a>Security Center 열기 또는 새로 고치기
@@ -141,12 +141,17 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. Security Center에서 보려는 모든 구독을 구독 선택기에서 선택해야 합니다.
-    ![구독 선택기 스크린샷](./media/security-center-management-groups/subscription-selector.png)
+
+    ![구독 선택기 스크린 샷](./media/security-center-management-groups/subscription-selector.png)
+
 1. Azure 주 메뉴 아래에서 **모든 서비스**를 선택한 다음, **Security Center**를 선택합니다.
-2. **개요**에 구독 적용 범위 차트가 있습니다. 
-    ![구독 적용 범위 차트 스크린샷](./media/security-center-management-groups/security-center-subscription-coverage.png)
+2. **개요**에 구독 적용 범위 차트가 있습니다.
+
+    ![구독 검사 차트 스크린 샷](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. **적용 범위**를 클릭하여 적용되는 구독 목록을 봅니다. 
-    ![구독 적용 범위 목록 스크린샷](./media/security-center-management-groups/security-center-coverage.png)
+
+    ![구독 검사 목록 스크린샷](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>상승된 액세스 제거 
 RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액세스 관리자 역할에서 스스로를 제거해야 합니다.
@@ -176,8 +181,8 @@ RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액
 
 4. 범위에 모든 구독을 추가할 때까지 1-3단계를 반복합니다.
 
- > [!NOTE]
- > 관리 그룹은 구독 및 자식 관리 그룹 모두를 포함할 수 있습니다. 사용자에게 부모 관리 그룹에 대한 RBAC 역할을 할당하면 액세스는 자식 관리 그룹의 구독에서 상속됩니다. 부모 관리 그룹에서 설정된 정책도 자식에서 상속됩니다. 
+   > [!NOTE]
+   > 관리 그룹은 구독 및 자식 관리 그룹 모두를 포함할 수 있습니다. 사용자에게 부모 관리 그룹에 대한 RBAC 역할을 할당하면 액세스는 자식 관리 그룹의 구독에서 상속됩니다. 부모 관리 그룹에서 설정된 정책도 자식에서 상속됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Security Center에 대한 테넌트 수준 가시성을 얻는 방법을 배웠습니다. Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.

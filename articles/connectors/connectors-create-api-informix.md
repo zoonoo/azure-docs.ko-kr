@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: d0008c19ed96f731f7b57c5d8aa41cd9f128bc20
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165903"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Informix 커넥터 시작
 Informix용 Microsoft 커넥터는 Logic Apps를 IBM Informix 데이터베이스에 저장된 리소스에 연결합니다. Informix 커넥터는 TCP/IP 네트워크를 통해 원격 Informix 서버 컴퓨터와 통신하는 Microsoft 클라이언트를 포함합니다. Azure 가상화에서 실행되는 Windows용 IBM Informix와 같은 클라우드 데이터베이스, 온-프레미스 데이터 게이트웨이를 사용하는 온-프레미스 데이터베이스를 포함합니다. IBM Informix 플랫폼 및 버전의 [지원되는](connectors-create-api-informix.md#supported-informix-platforms-and-versions) 목록을 참조하세요(이 항목에서).
@@ -47,7 +47,7 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱 만들기](../logic-a
 ## <a name="list-tables"></a>테이블 나열
 작업에 대한 논리 앱 만들기는 Microsoft Azure 포털을 통해 수행되는 여러 단계들로 구성됩니다.
 
-논리 앱 내에서 Informix 데이터베이스에 테이블을 나열하는 작업을 추가할 수 있습니다. 이 작업은 커넥터가 `CALL SYSIBM.SQLTABLES`와(과) 같은 Informix 스키마 문을 처리하도록 지시합니다.
+논리 앱 내에서 테이블을 나열 하는 Informix 데이터베이스에서 작업을 추가할 수 있습니다. 이 작업에는 커넥터와 같은 Informix 스키마 문을 처리를 지시 `CALL SYSIBM.SQLTABLES`합니다.
 
 ### <a name="create-a-logic-app"></a>논리 앱 만들기
 1. **Azure 시작 보드**에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
@@ -154,7 +154,7 @@ Informix 테이블의 모든 행을 가져오는 논리 앱 작업을 만들 수
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
 
 ## <a name="add-one-row-using-insert"></a>INSERT를 사용하여 단일 행 추가
-Informix 테이블에서 한 행을 추가하는 논리 앱 작업을 만들 수 있습니다. 이 작업은 커넥터가 `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`와(과) 같은 Informix INSERT 문을 처리하도록 지시합니다.
+Informix 테이블에서 한 행을 추가 하는 논리 앱 작업을 만들 수 있습니다. 이 작업에는 같은 Informix INSERT 문을 처리 하는 데 커넥터 지시 `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`합니다.
 
 ### <a name="create-a-logic-app"></a>논리 앱 만들기
 1. **Azure 시작 보드**에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
@@ -181,7 +181,7 @@ Informix 테이블에서 한 행을 추가하는 논리 앱 작업을 만들 수
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
 ## <a name="fetch-one-row-using-select"></a>SELECT를 사용하여 단일 행 가져오기
-Informix 테이블에서 한 행을 가져오는 논리 앱 작업을 만들 수 있습니다. 이 작업은 커넥터가 `SELECT FROM AREA WHERE AREAID = '99999'`와(과) 같은 Informix SELECT WHERE 문을 처리하도록 지시합니다.
+Informix 테이블에서 한 행을 인출 하는 논리 앱 작업을 만들 수 있습니다. 이 그러면 커넥터와 같은 Informix SELECT WHERE 문을 처리 하도록 지시 `SELECT FROM AREA WHERE AREAID = '99999'`합니다.
 
 ### <a name="create-a-logic-app"></a>논리 앱 만들기
 1. **Azure 시작 보드**에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
@@ -209,7 +209,7 @@ Informix 테이블에서 한 행을 가져오는 논리 앱 작업을 만들 수
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
 
 ## <a name="change-one-row-using-update"></a>UPDATE를 사용하여 단일 행 변경
-Informix 테이블에서 한 행을 변경하는 논리 앱 작업을 만들 수 있습니다. 이 작업은 커넥터가 `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`와(과) 같은 Informix UPDATE 문을 처리하도록 지시합니다.
+Informix 테이블에서 하나의 행을 변경 하는 논리 앱 작업을 만들 수 있습니다. 이 그러면 커넥터와 같은 Informix UPDATE 문을 처리를 지시 `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`합니다.
 
 ### <a name="create-a-logic-app"></a>논리 앱 만들기
 1. **Azure 시작 보드**에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.
@@ -236,7 +236,7 @@ Informix 테이블에서 한 행을 변경하는 논리 앱 작업을 만들 수
     ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
 
 ## <a name="remove-one-row-using-delete"></a>DELETE를 사용하여 단일 행 삭제
-Informix 테이블에서 한 행을 제거하는 논리 앱 작업을 만들 수 있습니다. 이 작업은 커넥터가 `DELETE FROM AREA WHERE AREAID = '99999'`와(과) 같은 Informix DELETE 문을 처리하도록 지시합니다.
+Informix 테이블에서 하나의 행을 제거 하는 논리 앱 작업을 만들 수 있습니다. 이 작업에는 같은 Informix DELETE 문을 처리 하는 데 커넥터 지시 `DELETE FROM AREA WHERE AREAID = '99999'`합니다.
 
 ### <a name="create-a-logic-app"></a>논리 앱 만들기
 1. **Azure 시작 보드**에서 **+**(더하기 기호), **웹 + 모바일**, **논리 앱**을 차례로 선택합니다.

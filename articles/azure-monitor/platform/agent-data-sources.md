@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ad4270700712311d8bea2e2014701a99e44c735f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e4550dde533044260c120b17c4f72758f90e8bff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102115"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure Monitor의 에이전트 데이터 원본
 Azure Monitor가 에이전트에서 수집하는 데이터는 구성한 데이터 원본에 의해 정의됩니다.  에이전트의 데이터는 레코드 세트를 사용하여 [로그 데이터](data-collection.md)로 저장됩니다.  각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.
@@ -30,14 +30,14 @@ Azure Monitor가 에이전트에서 수집하는 데이터는 구성한 데이�
 
 
 | 데이터 원본 | 플랫폼 | Microsoft Monitoring Agent | Operations Manager 에이전트 | Azure 저장소 | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| [사용자 지정 로그](data-sources-custom-logs.md) |  Windows |&#8226; |  | |  |  | 도착 시 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| [사용자 지정 로그](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | 도착 시 |
 | [사용자 지정 로그](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | 도착 시 |
-| [IIS 로그](data-sources-iis-logs.md) |  Windows |&#8226; |&#8226; |&#8226; |  |  |로그 파일 롤오버 설정에 따라 다름 |
-| [성능 카운터](data-sources-performance-counters.md) |  Windows |&#8226; |&#8226; |  |  |  |예약된 대로, 최소 10초 |
+| [IIS 로그](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |로그 파일 롤오버 설정에 따라 다름 |
+| [성능 카운터](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |예약된 대로, 최소 10초 |
 | [성능 카운터](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |예약된 대로, 최소 10초 |
 | [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |Azure Storage: 10분, 에이전트: 도착 시 |
-| [Windows 이벤트 로그](data-sources-windows-events.md) | Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | 도착 시 |
+| [Windows 이벤트 로그](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | 도착 시 |
 
 
 ## <a name="configuring-data-sources"></a>데이터 원본 구성

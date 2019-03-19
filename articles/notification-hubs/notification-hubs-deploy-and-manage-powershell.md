@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 5d873b18db8ac52c40736a629ff78e3282365730
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 4dbbaeea736dd46478ad9992201ea28bd7bfc2ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473982"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855506"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell을 사용하여 Notification Hubs 배포 및 관리
 
@@ -154,9 +154,9 @@ else
 
 - [Service Bus PowerShell 스크립트](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-[구매 옵션]: http://azure.microsoft.com/pricing/purchase-options/
-[구성원 제안]: http://azure.microsoft.com/pricing/member-offers/
-[평가판]: http://azure.microsoft.com/pricing/free-trial/
+[구매 옵션]: https://azure.microsoft.com/pricing/purchase-options/
+[구성원 제안]: https://azure.microsoft.com/pricing/member-offers/
+[평가판]: https://azure.microsoft.com/pricing/free-trial/
 [Azure PowerShell 설치 및 구성]: /powershell/azureps-cmdlets-docs
 [Notification Hubs용 .NET API]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace

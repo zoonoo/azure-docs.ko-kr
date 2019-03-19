@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d08b1f3889136fadee68b3aa95d879b0495bddb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fce7653770d0fb3134f266137e167125b9161865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198417"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097596"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>자습서: Yonyx Interactive Guides와 Azure Active Directory 통합
 
@@ -174,8 +174,8 @@ Yonyx Interactive Guides에서 Azure AD Single Sign-On을 구성하고 테스트
 
 이 섹션에 작업 항목이 없습니다. 아직 사용자가 없는 경우 Yonyx Interactive Guides에 액세스하는 동안 새 사용자가 만들어집니다.
 
->[!NOTE]
->사용자를 수동으로 만들어야 하는 경우 <mailto:support@yonyx.com>을 통해 Yonyx Interactive Guides 지원 팀에 문의해야 합니다. 
+> [!NOTE]
+> 사용자를 수동으로 만들어야 하는 경우 <mailto:support@yonyx.com>을 통해 Yonyx Interactive Guides 지원 팀에 문의해야 합니다. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

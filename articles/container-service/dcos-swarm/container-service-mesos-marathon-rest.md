@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 157d70b628ca3583cb8134ec1cccc185c6ff4c8d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 567890f3beec1eff30effeec0ce23284c5fee141
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52991727"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109293"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(사용되지 않음) Marathon REST API를 통해 DC/OS 컨테이너 관리
 
@@ -83,7 +83,7 @@ curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-typ
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-이제 응용 프로그램에 대해 Marathon을 쿼리하면 이 새 응용 프로그램이 출력에 나타납니다.
+이제 애플리케이션에 대해 Marathon을 쿼리하면 이 새 애플리케이션이 출력에 나타납니다.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -123,15 +123,13 @@ Marathon API를 사용하여 애플리케이션 배포의 규모를 확장 또�
 터널링된 연결에서 애플리케이션의 규모를 확장하려면 다음 명령을 실행합니다.
 
 > [!NOTE]
-> URI은 http://localhost/marathon/v2/apps/이고 그 다음에 크기를 조정할 응용 프로그램의 ID가 표시됩니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
-> 
-> 
+> URI은 http://localhost/marathon/v2/apps/이고 그 다음에 크기를 조정할 애플리케이션의 ID가 표시됩니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-마지막으로, 응용 프로그램에 대해 Marathon 엔드포인트를 쿼리합니다. 이제 세 가지 Nginx 컨테이너가 표시됩니다.
+마지막으로, 애플리케이션에 대해 Marathon 엔드포인트를 쿼리합니다. 이제 세 가지 Nginx 컨테이너가 표시됩니다.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -182,15 +180,13 @@ Marathon API를 사용하여 애플리케이션 배포의 규모를 확장 또�
 애플리케이션의 규모를 확장하려면 다음 명령을 실행합니다.
 
 > [!NOTE]
-> URI은 http://localhost/marathon/v2/apps/이고 그 다음에 크기를 조정할 응용 프로그램의 ID가 표시됩니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
-> 
-> 
+> URI은 http://localhost/marathon/v2/apps/이고 그 다음에 크기를 조정할 애플리케이션의 ID가 표시됩니다. 여기에 제공된 Nginx 샘플을 사용하는 경우 URI는 http://localhost/marathon/v2/apps/nginx입니다.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* [Mesos HTTP 엔드포인트에 대해 자세히 알아보기](http://mesos.apache.org/documentation/latest/endpoints/)
+* [Mesos HTTP 엔드포인트에 대해 자세히 알아보기](https://mesos.apache.org/documentation/latest/endpoints/)
 * [Marathon REST API에 대해 자세히 알아보기](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

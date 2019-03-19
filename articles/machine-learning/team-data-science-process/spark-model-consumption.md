@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9edd243c47c7c0eeeff3b875fccede01806862a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d89886e7cc5fe47013902b281c490b79a07e7641
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888113"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
 
@@ -190,9 +190,9 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 ### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>기능 변환: 범주 기능을 점수 매기기 모델에 입력하기 위해 인덱싱 및 인코딩
 이 섹션에서는 `StringIndexer`를 사용하여 범주 데이터를 인덱싱하고 `OneHotEncoder` 입력을 가진 기능을 모델로 인코딩하는 방법을 보여 줍니다.
 
-[StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) 는 레이블의 문자열 열을 레이블 인덱스의 열로 인코딩합니다. 인덱스는 레이블 빈도 순으로 정렬됩니다. 
+[StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) 는 레이블의 문자열 열을 레이블 인덱스의 열로 인코딩합니다. 인덱스는 레이블 빈도 순으로 정렬됩니다. 
 
-[OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) 는 레이블 인덱스의 열을 단 하나의 값을 가진 이진 벡터의 열에 매핑합니다. 이 인코딩을 사용하여 로지스틱 회귀 등과 같은 연속 값을 가진 기능을 예상하는 알고리즘을 범주 기능에 적용할 수 있습니다.
+[OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) 는 레이블 인덱스의 열을 단 하나의 값을 가진 이진 벡터의 열에 매핑합니다. 이 인코딩을 사용하여 로지스틱 회귀 등과 같은 연속 값을 가진 기능을 예상하는 알고리즘을 범주 기능에 적용할 수 있습니다.
 
     #INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
@@ -257,7 +257,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 위의 셀을 실행하는 데 걸린 시간: 5.37초
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>모델에 입력하기 위해 기능 배열을 사용하여 RDD 개체 만들기
-이 섹션은 범주 텍스트 데이터를 RDD 개체로 인덱싱하고 이 개체를 사용하여 MLlib 로지스틱 회귀 및 트리 기반 모델을 학습하고 시험할 수 있도록 원 핫 인코딩하는 방법을 보여 주는 코드를 포함하고 있습니다. 인덱싱된 데이터는 [RDD(Resilient Distributed Dataset)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) 개체에 저장됩니다. 이들은 Spark의 기본 추상화입니다. RDD 개체는 Spark와 함께 병렬로 작업을 수행할 수 있으며 변경할 수 없고 분할된 요소 컬렉션입니다.
+이 섹션은 범주 텍스트 데이터를 RDD 개체로 인덱싱하고 이 개체를 사용하여 MLlib 로지스틱 회귀 및 트리 기반 모델을 학습하고 시험할 수 있도록 원 핫 인코딩하는 방법을 보여 주는 코드를 포함하고 있습니다. 인덱싱된 데이터는 [RDD(Resilient Distributed Dataset)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) 개체에 저장됩니다. 이들은 Spark의 기본 추상화입니다. RDD 개체는 Spark와 함께 병렬로 작업을 수행할 수 있으며 변경할 수 없고 분할된 요소 컬렉션입니다.
 
 또한 광범위한 기계 학습 모델을 학습하기 위한 인기 있는 알고리즘인 SGD(Stochastic Gradient Descent)와 함께 선형 회귀에 사용하기 위해 MLlib에서 제공하는 `StandardScalar` 를 사용하여 데이터를 규모 조정하는 방법을 보여 주는 코드를 포함하고 있습니다. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) 는 기능을 단위 분산으로 규모 조정하기 위해 사용됩니다. 데이터 정규화라고도 하는 기능 규모 조정은 목적 함수에서 폭 넓게 분배된 값을 가진 기능에 과도한 가중치를 부여하지 않도록 합니다. 
 
@@ -397,9 +397,9 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 ## <a name="score-classification-and-regression-random-forest-models"></a>분류 및 회귀 임의 포리스트 모델 점수 매기기
 이 섹션의 코드는 Azure Blob Storage에 저장된 분류 및 회귀 임의 포리스트 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 Blob Storage에 다시 저장하는 방법을 보여 줍니다.
 
-[임의 포리스트](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) 는 결정 트리의 결합체입니다.  즉, 과잉 맞춤의 위험을 줄이기 위해 많은 결정 트리를 결합합니다. 임의 포리스트는 범주 기능을 처리하고 다중 클래스 분류 설정으로 확장하고 기능 규모 조정을 요구하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 임의 포리스트는 분류 및 회귀를 위해 매우 성공적인 기계 학습 모델 중 하나입니다.
+[임의 포리스트](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) 는 결정 트리의 결합체입니다.  즉, 과잉 맞춤의 위험을 줄이기 위해 많은 결정 트리를 결합합니다. 임의 포리스트는 범주 기능을 처리하고 다중 클래스 분류 설정으로 확장하고 기능 규모 조정을 요구하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 임의 포리스트는 분류 및 회귀를 위해 매우 성공적인 기계 학습 모델 중 하나입니다.
 
-[spark.mllib](http://spark.apache.org/mllib/) 는 연속 기능과 범주 기능을 둘 다 사용하여 이진 및 다중 클래스 분류와 회귀에 대해 임의 포리스트를 지원합니다. 
+[spark.mllib](https://spark.apache.org/mllib/) 는 연속 기능과 범주 기능을 둘 다 사용하여 이진 및 다중 클래스 분류와 회귀에 대해 임의 포리스트를 지원합니다. 
 
     # SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -445,7 +445,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 
 **spark.mllib** 는 연속 기능과 범주 기능을 둘 다 사용하여 이진 분류 및 회귀에 대해 GBT를 지원합니다. 
 
-[그라데이션 향상 트리](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT)는 결정 트리의 결합체입니다. GBT는 기능 손실을 최소화하기 위해 결정 트리를 반복적으로 학습합니다. GBT는 범주 기능을 처리하고 기능 규모 결정을 요구하지 않으며 비선형 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
+[그라데이션 향상 트리](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT)는 결정 트리의 결합체입니다. GBT는 기능 손실을 최소화하기 위해 결정 트리를 반복적으로 학습합니다. GBT는 범주 기능을 처리하고 기능 규모 결정을 요구하지 않으며 비선형 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 

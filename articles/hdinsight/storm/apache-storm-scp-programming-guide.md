@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 1ad9661d85c7ec91f361cdc4d126e0a91e376b66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332101"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853293"
 ---
 # <a name="scp-programming-guide"></a>SCP 프로그래밍 가이드
 SCP는 안정적이며 일관성 있는 실시간 고성능 데이터 처리 애플리케이션을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 OSS 커뮤니티에서 디자인한 스트림 처리 시스템인 [Apache Storm](https://storm.incubator.apache.org/)을 기반으로 구축되었습니다. Nathan Marz가 디자인한 Storm은 Twitter에서 오픈 소스 방식으로 제공되며, 매우 안정적인 분산 방식 조정과 상태 관리를 수행하는 데 사용할 수 있는 또 다른 Apache 프로젝트인 [Apache ZooKeeper](https://zookeeper.apache.org/)를 활용합니다. 
@@ -32,7 +32,7 @@ Storm에서는 애플리케이션 토폴로지에 따라 계산 그래프가 정
 
 SCP는 최상의 노력, 최소한 한 번 및 정확히 한 번 방식의 데이터 처리를 지원합니다. 분산된 스트리밍 처리 애플리케이션에서 네트워크 중단, 머신 오류 또는 사용자 코드 오류 등과 같은 데이터 처리 중 다양한 오류가 발생할 수 있습니다. 최소한 한 번 방식의 처리는 오류 발생 시 동일한 데이터를 자동으로 재생하여 모든 데이터를 한 번 이상 처리되도록 합니다. 최소한 한 번 방식의 처리는 간단하고 안정적이며 대부분의 애플리케이션에 적합합니다. 그러나 애플리케이션에서 정확한 계산을 수행해야 하는 경우에는 애플리케이션 토폴로지에서 같은 데이터가 재생될 가능성이 있으므로 최소한 한 번 방식의 처리로는 부족합니다. 이러한 경우에는 데이터가 여러 번 재생 및 처리되어도 올바른 결과를 계산하는 정확히 한 번 방식의 처리 방식을 사용해야 합니다.
 
-.NET 개발자는 SCP를 통해 JVM(Java Virtual Machine)에서 Storm을 백그라운드에서 활용하면서 실시간 데이터 프로세스 애플리케이션을 개발할 수 있습니다. .NET과 JVM은 TCP 로컬 소켓을 통해 통신합니다. 기본적으로 각 Spout/Bolt는 .NET/Java 프로세스 쌍이며 사용자 논리는 .NET 프로세스에서 플러그 인으로 실행됩니다.
+.NET 개발자는 SCP를 통해 JVM(Java Virtual Machine)에서 Storm을 백그라운드에서 활용하면서 실시간 데이터 프로세스 애플리케이션을 개발할 수 있습니다. .NET과 JVM은 TCP 로컬 소켓을 통해 통신합니다. 기본적으로 각 Spout/Bolt는.NET/Java 프로세스 쌍 이며 사용자 논리 플러그 인으로.NET 프로세스에서 실행 되는 위치
 
 SCP를 기반으로 데이터 처리 애플리케이션을 빌드하려면 몇 가지 단계를 수행해야 합니다.
 
@@ -71,7 +71,7 @@ ISCPSpout는 비트랜잭션 Spout용 인터페이스입니다.
 
 `NextTuple()`가 호출되면 C\# 사용자 코드가 하나 이상의 튜플을 내보낼 수 있습니다. 내보낼 튜플이 없으면 아무 항목도 내보내지 않고 이 메서드가 반환되어야 합니다. `NextTuple()`, `Ack()` 및 `Fail()`은 모두 C\# 프로세스 내 단일 스레드의 조밀한 루프에서 호출됩니다. 내보낼 튜플이 없으면 CPU를 너무 많이 낭비하지 않도록 10밀리초 등의 짧은 시간 동안 NextTuple을 유휴 상태로 유지하는 것이 좋습니다.
 
-`Ack()` 및 `Fail()`은 사양 파일에서 승인 메커니즘이 사용하도록 설정되어 있어야 호출됩니다. `seqId`는 승인되거나 실패한 튜플을 식별하는 데 사용됩니다. 따라서 비트랜잭션 토폴로지에서 승인이 사용하도록 설정되어 있으면 Spout에서 다음의 내보내기 함수를 사용해야 합니다.
+`Ack()` 및 `Fail()`은 사양 파일에서 승인 메커니즘이 사용하도록 설정되어 있어야 호출됩니다. `seqId` 승인 되었거나 실패 한 튜플을 식별 하는 데 사용 됩니다. 따라서 비트랜잭션 토폴로지에서 승인이 사용하도록 설정되어 있으면 Spout에서 다음의 내보내기 함수를 사용해야 합니다.
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -431,7 +431,7 @@ SCP.NET Context 개체에는 두 개의 메서드가 추가되었습니다. 이�
 존재하지 않는 스트림으로 내보내기를 수행하는 경우 런타임 예외가 발생합니다.
 
 ### <a name="fields-grouping"></a>필드 그룹화
-Strom의 기본 제공 필드 그룹화는 SCP.NET에서 제대로 작동하지 않습니다. Java 프록시 쪽에서는 모든 필드 데이터 형식은 실제로 byte[]이고 필드 그룹화는 byte[] 개체 해시 코드를 사용하여 그룹화를 수행합니다. byte[] 개체 해시 코드는 메모리에서 이 개체의 주소입니다. 따라서 같은 콘텐츠를 공유하지만 주소는 다른 두 byte[] 개체의 경우 그룹화가 올바르게 적용되지 않습니다.
+Storm의 기본 제공 필드 그룹화는 SCP.NET에서 제대로 작동 하지 않습니다. Java 프록시 쪽에서는 모든 필드 데이터 형식은 실제로 byte[]이고 필드 그룹화는 byte[] 개체 해시 코드를 사용하여 그룹화를 수행합니다. byte[] 개체 해시 코드는 메모리에서 이 개체의 주소입니다. 따라서 같은 콘텐츠를 공유하지만 주소는 다른 두 byte[] 개체의 경우 그룹화가 올바르게 적용되지 않습니다.
 
 SCP.NET에는 사용자 지정된 그룹화 메서드가 추가되었습니다. 이 메서드는 byte[]의 콘텐츠를 사용하여 그룹화를 수행합니다. **SPEC** 파일의 구문은 다음과 같습니다.
 
@@ -450,7 +450,7 @@ SCP.NET에는 사용자 지정된 그룹화 메서드가 추가되었습니다. 
 3. [0,1]은 0부터 시작하는 필드 ID의 해시 집합을 의미합니다.
 
 ### <a name="hybrid-topology"></a>하이브리드 토폴로지
-원시 Storm은 Java로 작성됩니다. SCP.Net은 고객이 비즈니스 논리를 처리하도록 C\# 개발자가 C\# 코드를 작성할 수 있도록 향상되었습니다. 그러나 C\# Spout/Bolt뿐 아니라 Java Spout/Bolt도 포함하는 하이브리드 토폴로지도 지원됩니다.
+원시 Storm은 Java로 작성됩니다. SCP.NET C 수 있도록 향상 되었습니다\# 개발자가 C를 쓸\# 고객이 비즈니스 논리를 처리 하는 코드입니다. 그러나 C\# Spout/Bolt뿐 아니라 Java Spout/Bolt도 포함하는 하이브리드 토폴로지도 지원됩니다.
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>사양 파일에서 Java Spout/Bolt 지정
 사양 파일에서 "scp-spout" 및 "scp-bolt"를 사용하여 Java Spout 및 Bolt를 지정할 수도 있습니다. 해당 예제는 다음과 같습니다.
@@ -562,7 +562,7 @@ SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java S
 
 ## <a name="scp-programming-examples"></a>SCP 프로그래밍 예제
 ### <a name="helloworld"></a>HelloWorld
-**HelloWorld**는 SCP.Net의 사용법을 확인할 수 있는 간단한 예제입니다. 여기에는 **generator**라는 Spout와 **splitter** 및 **counter**라는 Bolt 2개가 포함된 비트랜잭션 토폴로지가 사용됩니다. **generator** Spout는 문장을 임의로 생성하여 **splitter**로 내보냅니다. **splitter** Bolt는 이러한 문장을 단어로 분할한 다음 **counter** Bolt로 단어를 내보냅니다. "counter" Bolt는 사전을 사용하여 각 단어가 나오는 횟수를 기록합니다.
+**HelloWorld** 은 SCP.NET의 사용법을 확인할 수를 표시 하는 간단한 예제입니다. 여기에는 **generator**라는 Spout와 **splitter** 및 **counter**라는 Bolt 2개가 포함된 비트랜잭션 토폴로지가 사용됩니다. **generator** Spout는 문장을 임의로 생성하여 **splitter**로 내보냅니다. **splitter** Bolt는 이러한 문장을 단어로 분할한 다음 **counter** Bolt로 단어를 내보냅니다. "counter" Bolt는 사전을 사용하여 각 단어가 나오는 횟수를 기록합니다.
 
 이 예제에는 **HelloWorld.spec** 및 **HelloWorld\_EnableAck.spec**의 두 가지 사양 파일이 있습니다. C\# 코드는 Java 쪽에서 pluginConf를 가져와 승인이 사용되는지 여부를 확인할 수 있습니다.
 
@@ -573,7 +573,7 @@ SCP 구성 요소는 Java 쪽과 C\# 쪽을 포함합니다. 네이티브 Java S
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-승인이 사용되는 경우 Spout에서 사전을 사용하여 승인되지 않은 튜플을 캐시합니다. Fail()을 호출하면 오류가 발생한 튜플이 재생됩니다.
+Spout ack를 사용 하는 경우 사전 승인 되지 않은 튜플을 캐시에 사용 됩니다. Fail()을 호출하면 오류가 발생한 튜플이 재생됩니다.
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

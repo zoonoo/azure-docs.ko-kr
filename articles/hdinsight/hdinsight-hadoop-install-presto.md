@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 60ff63a049f225886d69c1a89a2930671e533d78
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 6fdeab56523d05232dd4e6a720de0be9866a4801
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910916"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084830"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Hadoop 기반 HDInsight 클러스터에 Presto 설치 및 사용
 
@@ -42,11 +42,11 @@ HDInsight는 또한 Apache Hadoop 클러스터에 대한 Starburst Presto 애플
 
 1. [Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)의 단계를 수행하여 클러스터 프로비전을 시작합니다. **사용자 지정** 클러스터 만들기 흐름을 사용하여 클러스터를 만들어야 합니다. 클러스터에서 충족해야 하는 요구 사항은 다음과 같습니다.
 
-    * HDInsight 버전 3.6을 사용하는 Hadoop 클러스터여야 합니다.
+   * HDInsight 버전 3.6을 사용하는 Hadoop 클러스터여야 합니다.
 
-    * 데이터 저장소로 Azure Storage를 사용해야 합니다. 스토리지 옵션으로 Azure Data Lake Storage를 사용하는 클러스터에서는 Presto를 아직 사용할 수 없습니다.
+   * 데이터 저장소로 Azure Storage를 사용해야 합니다. 스토리지 옵션으로 Azure Data Lake Storage를 사용하는 클러스터에서는 Presto를 아직 사용할 수 없습니다.
 
-    ![HDInsight, 사용자 지정(크기, 설정, 앱)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+     ![HDInsight, 사용자 지정(크기, 설정, 앱)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. **고급 설정** 영역에서 **스크립트 동작**을 선택합니다. 다음 정보를 제공합니다. 또한 스크립트 유형에 대해 **Presto 설치** 옵션을 선택할 수도 있습니다.
    
@@ -162,7 +162,6 @@ Airpal을 에지 노드에 설치하려면 다음 단계를 수행합니다.
     `sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json`
 
 5. 새 인스턴스가 준비될 때까지 기다립니다. Presto 코디네이터 주소를 확인합니다.
-
 
     `sudo slider registry --name presto1 --getexp presto`
 

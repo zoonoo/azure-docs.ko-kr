@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 67d86ca7ed79f431bf762d4a3679e18a7b4bc373
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990226"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188359"
 ---
-# <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
 
 > [!NOTE]
 > 2018년 5월 12일부터 라이브 채널은 RTP/MPEG-2 전송 스트림 수집 프로토콜을 더 이상 지원하지 않습니다. RTP/MPEG-2에서 RTMP 또는 조각난 MP4(부드러운 스트리밍) 수집 프로토콜로 마이그레이션하세요.
@@ -45,7 +45,7 @@ Azure Media Services에서 *채널*은 라이브 스트리밍 콘텐츠를 처�
 > [!NOTE]
 > 이 문서에서는 라이브 인코딩을 수행할 수 있는 채널의 특성에 대해 설명합니다. 라이브 인코딩을 수행할 수 있는 채널 작업에 대한 자세한 내용은 [Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
 >
->권장되는 온-프레미스 인코더에 대한 자세한 내용은 [권장 온-프레미스 인코더](media-services-recommended-encoders.md)를 참조하세요.
+>에 대 한 자세한 내용은 프레미스 인코더에서 권장 [프레미스 인코더에서 권장](media-services-recommended-encoders.md)합니다.
 
 다음 다이어그램은 다중 비트 전송률 RTMP 또는 조각화된 MP4(부드러운 스트리밍) 스트림을 출력하기 위해 온-프레미스 라이브 인코더를 사용하는 라이브 스트리밍 워크플로를 나타냅니다.
 
@@ -146,7 +146,7 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 
 채널을 만들 때 미리 보기 URL을 가져올 수 있습니다. 사용자가 URL을 가져오기 위해 채널이 **실행 중** 상태일 필요는 없습니다. 채널이 데이터를 수집하기 시작한 후에 스트림을 미리 볼 수 있습니다.
 
-현재 미리 보기 스트림은 지정된 입력 형식에 관계없이 조각화된 MP4(부드러운 스트리밍) 형식으로만 제공될 수 있습니다. [부드러운 스트리밍 상태 모니터링](http://playready.directtaps.net/smoothstreaming/) 플레이어를 사용하여 부드러운 스트림을 테스트할 수 있습니다. Azure Portal에 호스팅된 플레이어를 사용하여 스트림을 볼 수도 있습니다.
+현재 미리 보기 스트림은 지정된 입력 형식에 관계없이 조각화된 MP4(부드러운 스트리밍) 형식으로만 제공될 수 있습니다. [부드러운 스트리밍 상태 모니터링](https://playready.directtaps.net/smoothstreaming/) 플레이어를 사용하여 부드러운 스트림을 테스트할 수 있습니다. Azure Portal에 호스팅된 플레이어를 사용하여 스트림을 볼 수도 있습니다.
 
 #### <a name="allowed-ip-addresses"></a>허용된 IP 주소
 엔드포인트를 미리 보려면 연결이 허용된 IP 주소를 정의할 수 있습니다. 지정된 IP 주소가 없는 경우 모든 IP 주소가 허용됩니다. 허용된 IP 주소를 다음 중 하나로 지정할 수 있습니다.
@@ -185,11 +185,11 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 다음 테이블에서는 채널 상태가 청구 모드에 매핑되는 방식을 보여 줍니다.
 
 | 채널 상태 | 포털 UI 표시기 | 청구 여부 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **시작 중** |**시작 중** |없음(일시적인 상태) |
 | **실행 중** |**준비**(실행 중인 프로그램이 없음)<p><p>또는<p>**스트리밍**(실행 중인 프로그램이 하나 이상임) |예 |
 | **중지 중** |**중지 중** |없음(일시적인 상태) |
-| **중지** |**중지** |아니요 |
+| **중지** |**중지** |아닙니다. |
 
 ## <a id="cc_and_ads"></a>선택 자막 및 광고 삽입
 다음 테이블에서는 선택 자막 및 광고 삽입의 지원되는 표준을 설명합니다.

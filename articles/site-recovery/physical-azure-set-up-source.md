@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: e9bf06ba058078fc5012410bdd75ef90ff6c93d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976803"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899012"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Azure에 물리적 서버를 재해 복구하기 위해 구성 서버 설정
 
@@ -22,7 +22,7 @@ ms.locfileid: "53976803"
 ## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 사용자가 다음 항목을 이미 가지고 있다고 가정합니다.
-- [Azure Portal](http://portal.azure.com "Azure Portal")의 Recovery Services 자격 증명 모음
+- [Azure Portal](https://portal.azure.com "Azure Portal")의 Recovery Services 자격 증명 모음
 - 구성 서버를 설치할 물리적 컴퓨터
 - 구성 서버를 설치하는 컴퓨터에서 TLS 1.0을 사용하지 않도록 설정 한 경우 TLs 1.2를 사용하도록 설정하고 .NET Framework 버전 4.6 이상이 컴퓨터에 설치되어 있는지(강력한 암호화를 사용하지 않도록 설정하여) 확인합니다. [자세히 알아보기](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
@@ -47,7 +47,7 @@ ms.locfileid: "53976803"
 
 1. **원본 준비**에서 구성 서버가 없는 경우 **+구성 서버**를 클릭하여 하나를 추가합니다.
 
-  ![원본 설정](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![원본 설정](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. **서버 추가** 블레이드에서 **구성 서버**가 **서버 형식**에 표시되는지 확인합니다.
 4. Site Recovery 통합 설치 프로그램 설치 파일을 다운로드합니다.
 5. 자격 증명 모음 등록 키를 다운로드합니다. 통합 설치 프로그램을 실행하는 경우 등록 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.

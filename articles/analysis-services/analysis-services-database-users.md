@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: d7ba922d66bf97dbd8173b0d5466a7e55a41f6b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189799"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993185"
 ---
 # <a name="manage-database-roles-and-users"></a>데이터베이스 역할 및 사용자 관리
 
@@ -71,6 +71,7 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 2. **역할 만들기**에서 역할 이름 및 설명을 입력합니다.
 
 3. 사용 권한을 선택합니다.
+
    |사용 권한|설명|  
    |----------------|-----------------|  
    |**모든 권한(관리자)**|멤버는 모델 스키마, 프로세스를 수정할 수 있으며 모든 데이터를 쿼리할 수 있습니다.| 

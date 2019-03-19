@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 7fead05e7404e042d923631f4ba745553085943a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098113"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench 배포
 
@@ -108,20 +108,20 @@ Azure Blockchain Workbench를 사용하려면 Azure AD 구성 및 애플리케�
 
     *기존 항목 사용* 옵션을 사용하면 Ethereum PoA(인증 증명) 블록체인 네트워크를 지정할 수 있습니다. 끝점에는 다음과 같은 요구 사항이 적용됩니다.
 
-    * 끝점은 Ethereum PoA(인증 증명) 블록체인 네트워크여야 합니다.
-    * 끝점은 네트워크를 통해 공개적으로 액세스할 수 있어야 합니다.
-    * PoA 블록체인 네트워크는 가스 가격이 0으로 설정되도록 구성되어야 합니다.
+   * 끝점은 Ethereum PoA(인증 증명) 블록체인 네트워크여야 합니다.
+   * 끝점은 네트워크를 통해 공개적으로 액세스할 수 있어야 합니다.
+   * PoA 블록체인 네트워크는 가스 가격이 0으로 설정되도록 구성되어야 합니다.
 
-    > [!NOTE]
-    > Blockchain Workbench 계정에는 자금이 지원되지 않습니다. 자금이 필요한 경우 트랜잭션은 실패합니다.
+     > [!NOTE]
+     > Blockchain Workbench 계정에는 자금이 지원되지 않습니다. 자금이 필요한 경우 트랜잭션은 실패합니다.
 
-    ![기존 블록체인 네트워크에 대한 고급 설정](media/deploy/advanced-blockchain-settings-existing.png)
+     ![기존 블록체인 네트워크에 대한 고급 설정](media/deploy/advanced-blockchain-settings-existing.png)
 
-    | 설정 | 설명  |
-    |---------|--------------|
-    | Ethereum RPC 끝점 | 기존 PoA 블록체인 네트워크의 RPC 끝점을 제공합니다. 엔드포인트는 https:// 또는 http://로 시작되고 포트 번호로 끝납니다. 예를 들어 `http<s>://<network-url>:<port>` |
-    | Azure Active Directory 설정 | **나중에 추가**를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 다시 배포하는 경우 *지금 추가*하도록 선택합니다. |
-    | VM 선택 | 블록체인 네트워크에 대한 기본 VM 크기를 선택합니다. |
+     | 설정 | 설명  |
+     |---------|--------------|
+     | Ethereum RPC 끝점 | 기존 PoA 블록체인 네트워크의 RPC 끝점을 제공합니다. 엔드포인트는 https:// 또는 http://로 시작되고 포트 번호로 끝납니다. 예를 들어 `http<s>://<network-url>:<port>` |
+     | Azure Active Directory 설정 | **나중에 추가**를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 다시 배포하는 경우 *지금 추가*하도록 선택합니다. |
+     | VM 선택 | 블록체인 네트워크에 대한 기본 VM 크기를 선택합니다. |
 
 9. **확인**을 선택하여 고급 설정을 완료합니다.
 
@@ -223,18 +223,18 @@ Blockchain Workbench 배포에는 Azure AD 애플리케이션의 등록이 필�
 
     ``` json
     "appRoles": [
-         {
-           "allowedMemberTypes": [
-             "User",
-             "Application"
-           ],
-           "displayName": "Administrator",
-           "id": "<A unique GUID>",
-           "isEnabled": true,
-           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
-           "value": "Administrator"
-         }
-       ],
+         {
+           "allowedMemberTypes": [
+             "User",
+             "Application"
+           ],
+           "displayName": "Administrator",
+           "id": "<A unique GUID>",
+           "isEnabled": true,
+           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
+           "value": "Administrator"
+         }
+       ],
     ```
 
     > [!IMPORTANT]

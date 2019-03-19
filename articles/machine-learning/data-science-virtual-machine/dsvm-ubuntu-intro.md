@@ -16,25 +16,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: bbd73035993d3a981744eb5377fe0bf2c9d55b63
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268858"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884679"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
 Linux용 데이터 과학 Virtual Machine은 Azure에서 딥 러닝을 포함한 가상 학습을 쉽게 시작할 수 있도록 하는 Ubuntu 기반 가상 머신 이미지입니다. 심층 학습 도구에는 다음이 포함됩니다.
 
-  * [Caffe](http://caffe.berkeleyvision.org/): 속도, 표현도 및 모듈화를 위해 구축된 심층 학습 프레임워크
+  * [Caffe](https://caffe.berkeleyvision.org/): 속도, 표현도 및 모듈화를 위해 구축된 심층 학습 프레임워크
   * [Caffe2](https://github.com/caffe2/caffe2): Caffe의 플랫폼 간 버전
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Microsoft Research의 심화 학습 소프트웨어 도구 키트
   * [H2O](https://www.h2o.ai/): 오픈 소스 빅 데이터 플랫폼 및 그래픽 사용자 인터페이스
   * [Keras](https://keras.io/): Python의 TensorFlow, Microsoft Cognitive Toolkit 및 Theano용 고급 신경망 네트워크 API
-  * [MXNet](http://mxnet.io/): 많은 언어 바인딩을 사용하는 유연하고 효율적인 심층 학습 라이브러리
+  * [MXNet](https://mxnet.io/): 많은 언어 바인딩을 사용하는 유연하고 효율적인 심층 학습 라이브러리
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): 일반적인 심층 학습 작업을 단순화하는 그래픽 시스템
-  * [PyTorch](http://pytorch.org/): 동적 네트워크를 지원하는 고급 Python 라이브러리
+  * [PyTorch](https://pytorch.org/): 동적 네트워크를 지원하는 고급 Python 라이브러리
   * [TensorFlow](https://www.tensorflow.org/): Google의 컴퓨터 인텔리전스를 위한 오픈 소스 라이브러리
   * [Theano](http://deeplearning.net/software/theano/): 다차원 배열과 관련된 수학 식을 정의하고, 최적화하고, 효율적으로 계산하기 위한 Python 라이브러리
   * [Torch](http://torch.ch/): 기계 학습 알고리즘을 광범위하게 지원하는 공학용 계산 프레임워크
@@ -120,7 +120,7 @@ Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는
 
 ### <a name="ssh"></a>SSH
 
-VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다. 3단계의 **기본 사항** 섹션에서 만든 계정 자격 증명을 텍스트 셸 인터페이스용으로 사용합니다. Windows에서는 [Putty](http://www.putty.org)와 같은 SSH 클라이언트 도구를 다운로드할 수 있습니다. 그래픽 데스크톱(X Windows 시스템)을 사용하려는 경우 Putty에서 X11 전달을 사용하거나 X2Go 클라이언트를 설치할 수 있습니다.
+VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다. 3단계의 **기본 사항** 섹션에서 만든 계정 자격 증명을 텍스트 셸 인터페이스용으로 사용합니다. Windows에서는 [Putty](https://www.putty.org)와 같은 SSH 클라이언트 도구를 다운로드할 수 있습니다. 그래픽 데스크톱(X Windows 시스템)을 사용하려는 경우 Putty에서 X11 전달을 사용하거나 X2Go 클라이언트를 설치할 수 있습니다.
 
 > [!NOTE]
 > 테스트 결과 X2Go 클라이언트의 성능이 X11 전달보다 더 우수했습니다. 그래픽 데스크톱 인터페이스에서는 X2Go 클라이언트를 사용하는 것이 좋습니다.
@@ -130,7 +130,7 @@ VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다.
 ### <a name="x2go"></a>X2Go
 Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연결을 사용할 수 있습니다. Linux VM 그래픽 데스크톱에 연결하려면 클라이언트에서 다음 절차를 완료합니다.
 
-1. 사용 중인 클라이언트 플랫폼용 X2Go 클라이언트를 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 다운로드하여 설치합니다.    
+1. 사용 중인 클라이언트 플랫폼용 X2Go 클라이언트를 [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 다운로드하여 설치합니다.    
 1. X2Go 클라이언트를 실행하고 **새 세션**을 선택합니다. 여러 탭이 있는 구성 창이 열립니다. 다음 구성 매개 변수를 입력합니다.
    * **세션 탭**:
      * **호스트**: Linux Data Science VM의 호스트 이름 또는 IP 주소
@@ -205,7 +205,7 @@ R은 가장 많이 사용되는 데이터 분석 및 Machine Learning 언어 중
 
 R 콘솔을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이렇게 하면 대화형 환경으로 이동됩니다. R 프로그램을 개발하려면 일반적으로 Emacs, vi 등의 편집기를 사용한 다음 R 내에서 스크립트를 실행합니다. RStudio를 통해 R 프로그램을 개발하기 위한 전체 그래픽 IDE 환경을 사용할 수 있습니다.
 
-또한 원하는 경우 [상위 20개 R 패키지](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) 를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
+또한 원하는 경우 [상위 20개 R 패키지](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) 를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
 
 ### <a name="python"></a>Python
 Anaconda Python은 Python 2.7 및 3.5 환경과 함께 설치됩니다. 2.7 환경을 _루트_라고 하며, 3.5 환경을 _py35_라고 합니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. 
@@ -271,12 +271,12 @@ Microsoft R Server에서 Spark 컨텍스트를 실행하기 전에 로컬 단일
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-필요하지 않을 때 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```을 실행하여 서비스와 관련된 Hadoop을 중지할 수 있습니다. 원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 및 테스트하는 방법을 보여주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공되고 사용할 수 있습니다. 
+Hadoop을 중지할 수 있습니다 실행 하 여 필요 하지 않을 때 서비스 관련 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` 개발 및 원격 Spark 컨텍스트 (DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 테스트 하는 방법을 보여주는 샘플은 제공 되 고 사용 가능한는 `/dsvm/samples/MRS` 디렉터리입니다. 
 
 ### <a name="ides-and-editors"></a>IDE 및 편집기
 여러 코드 편집기 중에서 선택할 수 있습니다. vi/VIM, Emacs, PyCharm, RStudio 및 IntelliJ를 포함합니다. IntelliJ, RStudio 및 PyCharm은 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 애플리케이션 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
 
-**VIM** 및 **Emacs**는 텍스트 기반 편집기입니다. Emacs의 경우 Emacs 편집기 내에서 R 작업을 쉽게 수행할 수 있도록 해주는 ESS(Emacs Speaks Statistics)라는 추가 기능 패키지가 설치되어 있습니다. 자세한 내용은 [ESS](http://ess.r-project.org/)를 참조하세요.
+**VIM** 및 **Emacs**는 텍스트 기반 편집기입니다. Emacs의 경우 Emacs 편집기 내에서 R 작업을 쉽게 수행할 수 있도록 해주는 ESS(Emacs Speaks Statistics)라는 추가 기능 패키지가 설치되어 있습니다. 자세한 내용은 [ESS](https://ess.r-project.org/)를 참조하세요.
 
 **LaTex** 는 texlive 패키지를 통해 Emacs 추가 기능 [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) 패키지와 함께 설치되며 Emacs 내에서의 LaTex 문서 작성을 단순화합니다.  
 

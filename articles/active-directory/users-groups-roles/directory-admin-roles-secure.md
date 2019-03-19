@@ -14,18 +14,18 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2d58ea2a7b25648dbecfefb882f71137096bff7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a01bd205ad26169ab0a21345a2246eb12dca6645
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170007"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180894"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
 현대 조직에서 대부분 또는 모든 비즈니스 자산의 보안은 IT 시스템을 운영하고 관리하는 권한 있는 계정의 무결성에 따라 달라집니다. 사이버 공격자를 포함한 악의적인 행위자는 종종 권한 있는 액세스의 관리자 계정 및 기타 요소를 대상으로 하여 자격 증명 도난 공격을 통해 중요한 데이터 및 시스템에 신속하게 액세스하려고 합니다. 클라우드 서비스의 경우 예방 및 대응은 클라우드 서비스 공급자와 고객의 공동 책임입니다. 엔드포인트와 클라우드에 대한 최신 위협에 대한 자세한 내용은 [Microsoft 보안 인텔리전스 보고서](https://www.microsoft.com/security/operations/security-intelligence-report)를 참조하세요. 이 문서는 현재 계획과 여기서 설명하는 지침 사이의 차이를 제거하기 위한 로드맵을 개발하는 데 도움이 될 수 있습니다.
 
-> [!NOTE] 
+> [!NOTE]
 > Microsoft는 최고 수준의 신뢰, 투명도, 표준 적합성 및 규정 준수를 위해 노력하고 있습니다. Microsoft 글로벌 인시던트 대응 팀이 클라우드 서비스에 대한 공격의 영향을 완화하는 방법과 Microsoft 비즈니스 제품 및 클라우드 서비스에 보안을 기본 제공하는 방법은 [Microsoft 보안 센터 - 보안](https://www.microsoft.com/trustcenter/security) 및 [Microsoft 보안 센터 - 준수](https://www.microsoft.com/trustcenter/compliance)에서 자세히 알아보세요.
 
 <!--## Risk management, incident response, and recovery preparation
@@ -101,7 +101,7 @@ Azure AD Privileged Identity Management가 설정되면 다음을 수행합니�
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>권한이 높은 역할이 있는 계정 식별 및 분류 
 
-Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자에 속한 사용자를 확인합니다. 테넌트에 Azure AD PIM이 없으면 [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)를 사용할 수 있습니다. 일반적인 역할인 전역 관리자 역할부터 시작합니다. Office 365 포털, Azure Portal에서, 아니면 Microsoft PowerShell용 Azure AD 모듈을 사용하여 이 관리자 역할이 할당되었는지 여부에 관계없이 이 역할이 할당된 사용자는 조직에서 구독한 모든 클라우드 서비스에서 동일한 권한을 갖습니다. 
+Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자에 속한 사용자를 확인합니다. 테넌트에 Azure AD PIM이 없으면 [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)를 사용할 수 있습니다. 이 역할은 제네릭 전역 관리자 역할을 시작 합니다:이 관리자 역할이 할당 된 사용자는 조직에서 구독, Microsoft 365에서이 역할에 할당 된 여부에 관계 없이 모든 클라우드 서비스에서 동일한 권한을 가진 Azure 포털 또는 Microsoft PowerShell 용 Azure AD 모듈을 사용 하 여 관리 센터. 
 
 이러한 역할에 더 이상 필요하지 않은 계정을 모두 제거합니다. 그런 다음, 관리자 역할에 할당된 나머지 계정을 분류합니다.
 
@@ -138,7 +138,7 @@ BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 �
 
 * 관리 역할과 관리할 수 있는 서비스가 있는 사용자를 식별합니다.
 * Azure AD PIM을 사용하여 Azure AD에 대한 관리자 액세스 권한(1단계에 나열된 역할 외의 추가 역할 포함)이 있는 조직의 사용자를 확인합니다.
-* Azure AD에 정의된 역할 외에도, Office 365에는 조직의 사용자에게 할당할 수 있는 일단의 관리자 역할이 제공됩니다. 각 관리자 역할은 일반적인 비즈니스 기능에 매핑되며, 조직의 사용자에게 Office 365 관리 센터에서 특정 작업을 수행할 수 있는 권한을 부여합니다. Office 관리 센터를 사용하여 Azure AD에서 관리되지 않는 역할을 포함하여 Office 365에 대한 관리자 액세스 권한이 있는 조직의 사용자를 확인합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) 및 [Office 365에 대한 보안 모범 사례](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3)를 참조하세요.
+* Azure AD에 정의된 역할 외에도, Office 365에는 조직의 사용자에게 할당할 수 있는 일단의 관리자 역할이 제공됩니다. 각 관리자 역할 일반적인 비즈니스 기능에 매핑하고 특정 작업을 수행 하 여 조직 권한에서 사용자를 제공 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com)합니다. Microsoft 365 관리 센터를 사용 하 여 조직의 어떤 사용자가 Office 365, Azure AD에서 관리 되지 않는 역할을 포함 하 여 관리자 액세스 권한이 확인 합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) 및 [Office 365에 대한 보안 모범 사례](https://support.office.com/article/Security-best-practices-for-Office-365-9295e396-e53d-49b9-ae9b-0b5828cdedc3)를 참조하세요.
 * Azure, Intune 또는 Dynamics 365와 같이 조직에서 사용하는 다른 서비스에서 인벤토리를 수행합니다.
 * 관리자 계정(사용자의 일상적인 계정뿐만 아니라 관리 용도로 사용되는 계정)에 연결된 작업 이메일 주소가 있고 Azure MFA에 등록되었거나 온-프레미스에서 MFA를 사용하는지 확인합니다.
 * 사용자에게 관리 액세스 권한에 대한 비즈니스상의 사유를 요청합니다.
@@ -168,9 +168,7 @@ Azure AD에서는 계정이 손상된 경우 당한 영향을 미칠 수 있는 
 
 설정되는 MFA는 다음과 같습니다.
 
-* 조직의 임원에 대한 계정과 같이 [많이 노출되는 계정에 대한 MFA](../authentication/multi-factor-authentication-security-best-practices.md) 
-* 연결된 다른 SaaS 앱에 대한 [개별 사용자와 연결된 모든 관리자 계정에 대한 MFA](../authentication/howto-mfa-userstates.md) 
-* Exchange Online 및 Office 포털에서 관리되는 역할의 관리자를 포함하여 Microsoft SaaS 앱의 모든 관리자에 대한 MFA
+* [조건부 액세스 정책을 사용 하 여 MFA](../authentication/howto-mfa-getstarted.md) 조직의 모든 사용자에 대 한 합니다.
 
 비즈니스용 Windows Hello를 사용하는 경우 Windows Hello 로그인 환경을 사용하여 MFA 요구 사항을 충족할 수 있습니다. 자세한 내용은 [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport)를 참조하세요. 
 
@@ -186,10 +184,9 @@ Azure AD Identity Protection은 조직의 ID에 영향을 주는 잠재적 취�
 
 [보안 및 규정 준수에 대한 계획](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57)은 Office 365 고객이 Office 365를 구성하고 다른 EMS 기능을 활용하는 방법에 대해 간략히 설명합니다. 그런 다음, [Office 365에서 데이터 및 서비스에 대한 액세스를 보호하는 방법](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e)의 3~6단계 및 [Office 365에서 보안 및 규정 준수를 모니터링하는 방법](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6) 가이드를 검토합니다.
 
-
 #### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Office 365 활동 모니터링 구성(Office365를 사용하는 경우)
 
-조직의 사용자가 Office 365 서비스를 사용하는 방법을 모니터링하여 관리 계정이 있는 사용자와 해당 포털에 로그인하지 않으므로 Office 365 액세스 권한이 필요하지 않은 사용자를 확인할 수 있습니다. 자세한 내용은 [Office 365 관리 센터의 작업 보고서](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263)를 참조하세요.
+조직의 사용자가 Office 365 서비스를 사용하는 방법을 모니터링하여 관리 계정이 있는 사용자와 해당 포털에 로그인하지 않으므로 Office 365 액세스 권한이 필요하지 않은 사용자를 확인할 수 있습니다. 자세한 내용은 [Microsoft 365 관리 센터의 활동 보고서](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263)합니다.
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>인시던트/비상 대응 계획 소유자 설정
 

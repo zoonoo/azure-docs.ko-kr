@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs 삭제된 알림 진단
+title: Azure Notification Hubs-진단 삭제 된 알림
 description: Azure Notification Hubs의 삭제된 알림과 관련된 일반적인 문제를 진단하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: Mobile
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 9dd6a66ea416ad61682b8e33c6163db3ac345d92
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: c0fd7dec31a2c4054c59db3bae52cdb15ba01eed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447720"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884424"
 ---
-# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Notification Hubs에서 삭제된 알림 진단
+# <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure Notification Hubs-진단 삭제 된 알림
 
 Azure Notification Hubs 고객이 가장 자주 하는 질문 중 하나는 애플리케이션에서 보낸 알림이 클라이언트 장치에 나타나지 않는 문제를 해결하는 방법입니다. 고객은 알림이 삭제되는 위치와 이유 그리고 문제 해결 방법을 알고 싶어합니다. 이 문서에서는 알림이 삭제되거나 디바이스에서 알림을 받지 못하는 이유를 알아봅니다. 근본 원인을 분석하고 확인하는 방법을 알아봅니다.
 
@@ -246,10 +246,7 @@ The Token obtained from the Token Provider is wrong
 
 * **프로그래밍 방식 액세스**
 
-프로그래밍 방식 액세스에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-* [프로그래밍 방식 원격 분석 액세스]  
-* [API 샘플을 통한 원격 분석 액세스]
+프로그래밍 방식 액세스에 대 한 자세한 내용은 참조 하세요. [프로그래밍 방식 원격 분석 액세스]
 
 > [!NOTE]
 > API를 통해 등록 및 원격 분석 액세스 내보내기 및 가져오기 같은 여러 원격 분석 관련 기능은 표준 서비스 계층에서만 사용할 수 있습니다. 무료 또는 기본 서비스 계층에서 이러한 기능을 사용하려고 시도하면 SDK를 사용하는 경우에는 예외 메시지가 표시되고 REST API에서 직접 이 기능을 사용하는 경우에는 HTTP 403(사용할 수 없음) 오류가 표시됩니다.
@@ -274,12 +271,11 @@ The Token obtained from the Token Provider is wrong
 [Templates]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs 개요]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [FCM 메시지 정보]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus 탐색기]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [Service Bus 탐색기 코드]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[알림 허브에 대한 디바이스 등록 보기]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[심층 조사: Visual Studio 2013 업데이트 2 RC 및 Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Visual Studio 2013 업데이트 3 및 Azure SDK 2.4 릴리스 발표]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[알림 허브에 대한 디바이스 등록 보기]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[심층 조사: Visual Studio 2013 업데이트 2 RC 및 Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Visual Studio 2013 업데이트 3 및 Azure SDK 2.4 릴리스 발표]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[프로그래밍 방식 원격 분석 액세스]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[API 샘플을 통한 원격 분석 액세스]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[프로그래밍 방식 원격 분석 액세스]: https://msdn.microsoft.com/library/azure/dn458823.aspx

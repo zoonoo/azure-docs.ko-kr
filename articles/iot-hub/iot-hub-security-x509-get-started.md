@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub의 X.509 보안을 위한 자습서 | Microsoft Docs
 description: 시뮬레이션된 환경에서 Azure IoT Hub의 X.509 기반 보안을 시작합니다.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: dobett
-ms.openlocfilehash: b190390840a765953a2125348c3c9188f6bf7d37
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 80d3d3cf5f386c5f21e1e8fed1071a12c10235cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091616"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
 
@@ -65,7 +65,7 @@ IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인증서�
 
 10. 인증서 업로드가 완료되면 **확인**을 클릭합니다. **인증서** 블레이드에서 인증서의 **상태**가 **_확인됨_** 으로 변경됩니다. 자동으로 업데이트되지 않으면 **새로 고침**을 클릭하십시오.
 
-   ![인증서 업로드 확인](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
+    ![인증서 업로드 확인](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
 
 <a id="createdevice"></a>

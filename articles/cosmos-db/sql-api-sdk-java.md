@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: ebb6fe9f583c2658f187d3cca1185f1525fb1bf5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c2b0c52ca78f2b9c4273280aa9da16a5ef1bbc00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003252"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -43,12 +43,23 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="a-name210213"></a><a name="2.1.0"/>2.1.3
+* 해시 V2에 대 한 PartitionKey의 버그가 수정 되었습니다.
+
+### <a name="a-name210212"></a><a name="2.1.0"/>2.1.2
+* 복합 인덱스에 대 한 지원이 추가 되었습니다.
+* 새로 고침을 강제로 전역 종단점 관리자에 대 한 버그가 수정 되었습니다.
+* 직접 모드에서 사전 조건 사용 하 여 업 서 트 버그가 수정 되었습니다.
+
+### <a name="a-name210211"></a><a name="2.1.0"/>2.1.1
+* 게이트웨이 주소 캐시에 대 한 버그가 수정 되었습니다.
+
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * 직접 모드에 대한 다중 지역 쓰기 지원이 추가되었습니다.
 * 프록시에서 ServiceUnavailable 예외로 throw된 IOExceptions 처리에 대한 지원이 추가되었습니다.
 * 엔드포인트 검색 다시 시도 정책에서 버그가 수정되었습니다.
 * Null 포인터 예외가 BaseDatabaseAccountConfigurationProvider에서 throw되지 않도록 하는 버그가 수정되었습니다.
-* 쿼리 반복기가 null을 반환하지 않도록 하는 버그가 수정되었습니다.
+* 확인 QueryIterator null을 반환 하지 않는 버그가 수정 되었습니다.
 * 큰 PartitionKey가 허용되도록 하는 버그가 수정되었습니다.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -212,7 +223,10 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| 2.1.1 |2018년 11월 21일 |--- |
+| [2.1.3](#2.1.3) |2018 년 3 월 13 일 |--- |
+| [2.1.2](#2.1.2) |2018 년 3 월 9 일 |--- |
+| [2.1.1](#2.1.1) |2018 년 12 월 13 일 |--- |
+| [2.1.0](#2.1.0) |2018 년 11 월 20 일 |--- |
 | [2.0.0](#2.0.0) |2018년 9월 21일 |--- |
 | [1.16.4](#1.16.4) |2018년 9월 10일 |--- |
 | [1.16.3](#1.16.3) |2018년 9월 9일 |--- |

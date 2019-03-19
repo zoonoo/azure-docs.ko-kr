@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54457116"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56751484"
 ---
 > [!div class="op_single_selector"]
 > * [Windows에서 C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -58,9 +58,9 @@ ms.locfileid: "54457116"
 
 솔루션 가속기에 연결하는 디바이스는 유효한 자격 증명을 사용하여 IoT Hub에 자신을 식별할 수 있어야 합니다. 솔루션에 디바이스를 추가할 때 자격 증명이 포함된 디바이스 연결 문자열을 저장할 기회가 있습니다. 이 자습서의 뒷부분에서는 클라이언트 애플리케이션에 장치 연결 문자열을 포함시킵니다.
 
-원격 모니터링 솔루션에 디바이스를 추가하려면 솔루션의 **디바이스** 페이지에서 다음 단계를 완료합니다.
+장치를 원격 모니터링 솔루션에 추가 하려면 다음 단계를 완료 합니다 **Device Explorer** 솔루션의 페이지:
 
-1. **+ 새 디바이스**를 선택한 다음, **디바이스 유형**으로 **물리적**을 선택합니다.
+1. 선택할 **+ 새 장치**를 선택한 후 **실제** 으로 **장치 유형**:
 
     ![실제 디바이스 추가](media/iot-suite-selector-connecting/devicesprovision.png)
 

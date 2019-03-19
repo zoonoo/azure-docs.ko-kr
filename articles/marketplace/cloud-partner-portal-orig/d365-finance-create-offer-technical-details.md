@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cb8e5074d0cd99f5c7cb2130e6f9181eb5382015
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 5aa118815146287d00a3bb8ee7d5fce57a6ad9ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807570"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120298"
 ---
 <a name="how-to-fill-out-the-technical-info-form"></a>기술 정보 양식 작성 방법
 ===========================================
 
-1.  **응용 프로그램 종류 선택** 섹션에서 확장 패키지 파일(.app) 및 확장에 종속성이 있는 모든 확장 패키지 파일을 업로드합니다.
+1.  **애플리케이션 종류 선택** 섹션에서 확장 패키지 파일(.app) 및 확장에 종속성이 있는 모든 확장 패키지 파일을 업로드합니다.
 
     ![애플리케이션 패키지 정보](./media/d365-financials/image015.png)
 
@@ -36,9 +36,9 @@ ms.locfileid: "48807570"
 
 -   **앱 테스트 자동화** - 필수 - 확장의 자동화된 테스트를 위해 만들어야 하는 VS 코딩된 테스트 패키지입니다.
 
-2.  **확장에 대한 추가 정보** 섹션에서 확장에 대한 추가 정보를 업로드합니다. 이 정보는 유효성 검사 중에 사용됩니다.
+1. **확장에 대한 추가 정보** 섹션에서 확장에 대한 추가 정보를 업로드합니다. 이 정보는 유효성 검사 중에 사용됩니다.
 
-    ![앱 확장 양식에 대한 추가 정보](./media/d365-financials/image016.png)
+   ![앱 확장 양식에 대한 추가 정보](./media/d365-financials/image016.png)
 
 
 -   **제품 설명서 URL** - 필수 - 확장 설명서의 URL입니다.

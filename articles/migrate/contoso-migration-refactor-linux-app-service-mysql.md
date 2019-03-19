@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 60bd3aef20e39a9f451f54164ef3fb8ef682bc3e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 4ff3f129838a43bd7684dc10e1653dab969e9c1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809692"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087009"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso 마이그레이션: Azure App Service, Traffic Manager 및 Azure MySQL을 사용하여 Contoso Linux 서비스 데스크 앱을 여러 지역에 리팩터링
 
@@ -109,7 +109,7 @@ Contoso는 다음과 같이 마이그레이션 프로세스를 완료합니다.
 **서비스** | **설명** | **비용**
 --- | --- | ---
 [Azure App Service](https://azure.microsoft.com/services/app-service/) | 이 서비스는 웹 사이트에 대해 Azure PaaS 서비스를 사용하여 애플리케이션을 실행하고 규모를 조정합니다.  | 인스턴스의 크기와 필요한 기능에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/windows/).
-[Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | DNS를 사용하여 사용자를 Azure 또는 외부 웹 사이트 및 서비스로 보내는 부하 분산 장치입니다. | 수신한 DNS 쿼리의 수와 모니터링되는 엔드포인트 수에 따라 가격이 책정됩니다. | [자세히 알아보기](https://azure.microsoft.com/pricing/details/traffic-manager/).
+[Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | DNS를 사용하여 사용자를 Azure 또는 외부 웹 사이트 및 서비스로 보내는 부하 분산 장치입니다. | 수신한 DNS 쿼리의 수와 모니터링되는 엔드포인트 수에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/traffic-manager/).
 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) | 데이터베이스는 오픈 소스 MySQL 서버 엔진을 기반으로 합니다. 완전히 관리되는 엔터프라이즈용 커뮤니티 MySQL 데이터베이스를 앱 개발 및 배포용 서비스로 제공합니다. | 계산, 저장소 및 백업 요구 사항에 따라 가격이 책정됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/mysql/).
 
  

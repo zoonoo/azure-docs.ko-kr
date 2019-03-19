@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: a46f2b4ed1bb3fc5fff65a627bd3d808ed85ffce
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 4e32d2357636cb488d3a58b78b025860da3f74c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967285"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091361"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure용 CentOS 기반 가상 머신 준비
 
@@ -301,11 +301,11 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 10. **VMware VirtualBox 또는 KVM**에서 이미지를 빌드하는 경우: Hyper-V 드라이버가 initramfs에 포함되어 있는지 확인합니다.
 
-   `/etc/dracut.conf`를 편집하고 콘텐츠를 추가합니다.
+    `/etc/dracut.conf`를 편집하고 콘텐츠를 추가합니다.
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-   initramfs를 다시 빌드합니다.
+    initramfs를 다시 빌드합니다.
 
         # sudo dracut -f -v
 
@@ -316,7 +316,7 @@ Azure용으로 CentOS 7 가상 컴퓨터를 준비하는 작업은 CentOS 6과 �
 
 12. OS 디스크에 스왑 공간을 만들지 마십시오.
 
-   Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) `/etc/waagent.conf` 에서 다음 매개 변수를 적절하게 수정합니다.
+    Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) `/etc/waagent.conf` 에서 다음 매개 변수를 적절하게 수정합니다.
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448486"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847130"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>게시 포털에서 애플리케이션 설정
 
@@ -27,16 +27,16 @@ ms.locfileid: "54448486"
 
 ## <a name="login-and-create-a-new-offer"></a>로그인 및 새 제품 만들기
 
-1. [클라우드 파트너 포털](http://cloudpartner.azure.com/)에 로그인합니다.
+1. [클라우드 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 2. 왼쪽 탐색 모음에서 “+ 새 제품”을 클릭하고 “Dynamics 365 for Customer Engagement”를 선택합니다.
 
 ![새 제품 선택](./media/CRMScreenShot14.png)
 
-3. 새 제품 “편집기” 보기가 자동으로 열리고 작성을 시작할 준비가 완료되었습니다.
+1. 새 제품 “편집기” 보기가 자동으로 열리고 작성을 시작할 준비가 완료되었습니다.
 
 ![새 제품 화면](./media/CRMScreenShot15.png)
 
-4. 작성해야 할 “양식”은 “편집기” 보기 내의 왼쪽에 표시됩니다. 각 “양식”은 작성해야 할 필드 집합으로 구성됩니다. 필수 필드에는 빨간색 별표(\*)가 표시됩니다.
+1. 작성해야 할 “양식”은 “편집기” 보기 내의 왼쪽에 표시됩니다. 각 “양식”은 작성해야 할 필드 집합으로 구성됩니다. 필수 필드에는 빨간색 별표(\*)가 표시됩니다.
 
 Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기본 양식이 있습니다.
 
@@ -84,11 +84,11 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 * 패키지의 파일 이름: CRM AppSource 패키지인 zip 파일을 만들 때 위 단계에서 만든 파일 이름입니다. 위의 예제에서는 “Microsoft\_ SamplePackage.zip”입니다.
 * 패키지 위치의 URL: 위에서 지정한 패키지 파일 이름을 포함하는 Azure Storage 계정의 URL입니다. 위 섹션의 9단계에서 만든 URL입니다.
-* 패키지 파일에 둘 이상의 CRM 패키지가 있는 경우: 여러 패키지가 포함된 여러 CRM 버전을 지원하는 경우**에만** 예를 선택합니다. 대부분 파트너의 경우 “아니요”가 됩니다. [예]를 선택하는 경우 솔루션의 각 버전에 대한 AppSource 패키지를 만들어야 합니다. _참고: 여러 **zip** 파일이 있는지 묻는 것이 아닙니다. 여러 solution.zip 파일이 있지만 버전이 하나뿐이라면 “아니요”를 선택해야 합니다. 패키징 도구가 이러한 파일을 자동으로 결합합니다.’
+* 패키지 파일에 둘 이상의 CRM 패키지가 있는 경우: 여러 패키지가 포함된 여러 CRM 버전을 지원하는 경우**에만** 예를 선택합니다. 대부분 파트너의 경우 “아니요”가 됩니다. [예]를 선택하는 경우 솔루션의 각 버전에 대한 AppSource 패키지를 만들어야 합니다. _참고: 여러 **zip** 파일이 있는지 묻는 것이 아닙니다. 여러 solution.zip 파일이 있지만 버전이 하나뿐이라면 “아니요”를 선택해야 합니다. 패키징 도구가 이러한 파일을 자동으로 결합합니다.’_
 
 ### <a name="crm-package-availability"></a>CRM 패키지 가용성
 
-이 섹션에서는 패키지를 사용할 수 있는 CRM의 패키지 지역을 선택합니다. 어떤 지역에서 어떤 국가를 제공하는지에 대한 자세한 내용은 [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/) 링크를 참조하세요.
+이 섹션에서는 패키지를 사용할 수 있는 CRM의 패키지 지역을 선택합니다. 어떤 지역에서 어떤 국가를 제공하는지에 대한 자세한 내용은 [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/) 링크를 참조하세요.
 
 참고: 독일 “자치 및 미국 정부 클라우드” 자치에 배포하려면 인증 중에 특수 권한 및 유효성 검사가 필요합니다.
 

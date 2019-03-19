@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080170"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 생성 및 구성
 
@@ -44,20 +44,20 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
 3. 애플리케이션 게이트웨이에 대해 다음 값을 입력합니다.
 
-    - *myAppGateway* - 애플리케이션 게이트웨이의 이름
-    - *myResourceGroupAG* - 새 리소스 그룹의 이름
+   - *myAppGateway* - 애플리케이션 게이트웨이의 이름
+   - *myResourceGroupAG* - 새 리소스 그룹의 이름
 
-    ![새 애플리케이션 게이트웨이 만들기](./media/create-multiple-sites-portal/application-gateway-create.png)
+     ![새 애플리케이션 게이트웨이 만들기](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 5. **가상 네트워크 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
 
-    - *myVNet* - 가상 네트워크 이름
-    - *10.0.0.0/16* - 가상 네트워크 주소 공간
-    - *myAGSubnet* - 서브넷 이름
-    - *10.0.0.0/24* - 서브넷 주소 공간
+   - *myVNet* - 가상 네트워크 이름
+   - *10.0.0.0/16* - 가상 네트워크 주소 공간
+   - *myAGSubnet* - 서브넷 이름
+   - *10.0.0.0/24* - 서브넷 주소 공간
 
-    ![가상 네트워크 만들기](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+     ![가상 네트워크 만들기](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
 6. **확인**을 클릭하여 가상 네트워크 및 서브넷을 만듭니다.
 7. **공용 IP 주소 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 공용 IP 주소의 이름을 입력합니다. 이 예제에서 공용 IP 주소의 이름은 *myAGPublicIPAddress*입니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
@@ -94,6 +94,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="install-iis"></a>IIS 설치
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. 대화형 셸을 열고 **PowerShell**로 설정되어 있는지 확인합니다.
 
     ![사용자 지정 확장 설치](./media/create-multiple-sites-portal/application-gateway-extension.png)
@@ -102,7 +104,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -113,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
       -Settings $publicSettings
     ```
 
-3. 두 번째 가상 머신을 만들고, 방금 완료한 단계를 사용하여 IIS를 설치합니다. Set-AzureRmVMExtension에서 VMName의 값과 이름에 *fabrikamVM*의 이름을 입력합니다.
+3. 두 번째 가상 머신을 만들고, 방금 완료한 단계를 사용하여 IIS를 설치합니다. 이름을 입력 *fabrikamVM* 집합 AzVMExtension에서 VMName의 값과 이름에 대 한 합니다.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>가상 머신으로 백 엔드 풀 만들기
 
@@ -132,8 +134,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **수신기**를 클릭한 후 **다중 사이트**를 클릭합니다.
 2. 수신기에 대해 다음 값을 입력합니다.
     
-    - *contosoListener* - 수신기의 이름
-    - *www.contoso.com* - 이 호스트 이름 예를 사용자의 도메인 이름으로 바꿉니다.
+   - *contosoListener* - 수신기의 이름
+   - *www.contoso.com* - 이 호스트 이름 예를 사용자의 도메인 이름으로 바꿉니다.
 
 3. **확인**을 클릭합니다.
 4. *fabrikamListener* 이름을 사용하여 두 번째 수신기를 만들고 두 번째 도메인 이름을 사용합니다. 이 예제에서는 *www.fabrikam.com*이 사용됩니다.

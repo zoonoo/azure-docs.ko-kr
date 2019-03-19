@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549020"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183750"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -230,7 +230,7 @@ Azure AD 외에도 Azure Portal에서는 로그인 데이터에 대한 추가 �
 
 ## <a name="office-365-activity-logs"></a>Office 365 활동 로그
 
-[Office 365 관리 센터](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)에서 Office 365 활동 로그를 확인할 수 있습니다. Office 365 활동 로그와 Azure AD 활동 로그는 여러 디렉터리 리소스를 공유하지만 Office 365 관리 센터에서만 Office 365 활동 로그를 전체적으로 확인할 수 있습니다. 
+Office 365 활동 로그에서 볼 수 있습니다 합니다 [Microsoft 365 관리 센터](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center)합니다. 경우에 Microsoft 365 관리 센터를만 Office 365 활동 로그의 전체 보기를 제공 Office 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유 합니다. 
 
 [Office 365 관리 API](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)를 사용하여 프로그래밍 방식으로 Office 365 활동 로그에 액세스할 수도 있습니다.
 

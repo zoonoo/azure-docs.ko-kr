@@ -11,15 +11,19 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: cf32f3998e254e8f4a9c347980718dbc8d0b13c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 8f34b3ed91e4b470fdfa7c2ffad401e7890abe1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461647"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886459"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>읽기 전용 복제본을 사용하여 읽기 전용 쿼리 작업의 부하 분산(미리 보기)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
 
 **읽기 확장**을 사용하면 읽기 전용 복제본 하나의 용량을 사용하여 Azure SQL Database 읽기 전용 작업의 부하를 분산할 수 있습니다.
 
@@ -29,14 +33,14 @@ ms.locfileid: "55461647"
 
 이러한 복제본은 일반 데이터베이스 연결에서 사용되는 읽기/쓰기 복제본과 동일한 계산 크기로 프로비전됩니다. **읽기 확장** 기능을 사용하면 읽기/쓰기 복제본을 공유하는 대신 읽기 전용 복제본 중 하나의 용량을 사용하여 SQL Database 읽기 전용 작업의 부하를 분산할 수 있습니다. 이러한 방식으로 읽기 전용 워크로드는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 기능은 분석과 같은 논리적으로 구분된 읽기 전용 워크로드를 포함하는 애플리케이션을 위한 것이므로 추가 비용 없이 이 추가 용량을 사용하여 성능 혜택을 활용할 수 있습니다.
 
-특정 데이터베이스에서 읽기 확장 기능을 사용하려면, 데이터베이스를 만들 때 또는 나중에 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 또는 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet을 호출하는 PowerShell을 사용하거나 [데이터베이스 - 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) 방법을 사용하는 Azure Resource Manager REST API를 통해 해당 구성을 변경하여 명시적으로 사용하도록 설정해야 합니다.
+특정 데이터베이스를 사용 하 여 읽기 확장 기능을 사용 하려면 명시적으로 활성화 해야 데이터베이스를 만들 때 또는 나중에 PowerShell을 사용 하 여 호출 하 여 해당 구성을 변경 하 여 합니다 [집합 AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) 또는 합니다 [새로 만들기-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet 또는 사용 하 여 Azure Resource Manager REST API를 통해 합니다 [데이터베이스-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) 메서드.
 
 데이터베이스에 대해 읽기 확장을 사용하도록 설정하면, 애플리케이션의 연결 문자열에 구성된 `ApplicationIntent` 속성에 따라 해당 데이터베이스에 연결하는 애플리케이션이 해당 데이터베이스의 읽기-쓰기 복제본 또는 읽기 전용 복제본으로 전달됩니다. `ApplicationIntent` 속성에 대한 자세한 내용은 [애플리케이션 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조하세요.
 
 읽기 스케일 아웃을 사용할 수 없거나 지원되지 않는 서비스 계층에서 ReadScale 속성을 설정한 경우 모든 연결은 `ApplicationIntent` 속성과 독립적으로 읽기/쓰기 복제본으로 이동됩니다.
 
 > [!NOTE]
-> 미리 보기 동안에는 쿼리 데이터 저장소 및 확장 이벤트가 읽기 전용 복제본에서 지원되지 않습니다.
+> 쿼리 데이터 저장소 및 확장 이벤트가 읽기 전용 복제본에서 지원 되지 않습니다.
 
 ## <a name="data-consistency"></a>데이터 일관성
 
@@ -82,24 +86,24 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 Azure PowerShell에서 읽기 확장을 관리하려면 2016년 12월 Azure PowerShell 릴리스 이상이 필요합니다. 최신 PowerShell 버전은 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)을 참조하세요.
 
-Azure PowerShell에서 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) cmdlet을 호출하고 `-ReadScale` 매개 변수에 대해 원하는 값(`Enabled` 또는 `Disabled`)을 전달하여 읽기 확장을 사용하거나 사용하지 않도록 설정합니다. 또는 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet을 사용하여 읽기 확장을 사용하도록 설정된 새 데이터베이스를 만들 수 있습니다.
+호출 하 여 Azure PowerShell에서 읽기 확장을 사용 하지 않도록 설정 하거나 사용 합니다 [집합 AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet 원하는 값 전달 `Enabled` 또는 `Disabled` -에 대 한는 `-ReadScale` 매개 변수입니다. 사용할 수 있습니다 합니다 [새로 만들기-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet을 사용 하 여 새 데이터베이스를 만든 다음 읽기 확장 사용 하도록 설정 합니다.
 
 예를 들어 기존 데이터베이스에 대해 읽기 확장을 사용하도록 설정하려면 다음을 수행합니다(꺾쇠 괄호 안의 항목을 사용자 환경에 맞는 값으로 바꾸고 꺾쇠 괄호는 삭제함).
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
 ```
 
 기존 데이터베이스에 대해 읽기 확장을 사용하지 않도록 설정하려면 다음을 수행합니다(꺾쇠 괄호 안의 항목을 사용자 환경에 맞는 값으로 바꾸고 꺾쇠 괄호는 삭제함).
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
 ```
 
 읽기 확장을 사용하지 않도록 설정된 새 데이터베이스를 만들려면 다음을 수행합니다(꺾쇠 괄호 안의 항목을 사용자 환경에 맞는 값으로 바꾸고 꺾쇠 괄호는 삭제함).
 
 ```powershell
-New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
+New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
 ### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST API: 읽기 확장 사용 및 사용 안 함
@@ -125,9 +129,9 @@ Body:
 읽기 확장을 사용하여 지역 복제된(예: 장애 조치(failover) 그룹의 구성원으로) 데이터베이스에 대한 읽기 전용 워크로드의 부하를 분산하는 경우, 주 데이터베이스와 지역 복제된 보조 데이터베이스 둘 다에서 읽기 확장이 사용하도록 설정되었는지 확인합니다. 이렇게 하면 장애 조치(failover) 후에 애플리케이션이 새로운 주 데이터베이스에 연결할 때 동일한 부하 분산이 적용됩니다. 읽기 확장을 사용할 수 있는 지역 복제된 보조 데이터베이스에 연결하는 경우, `ApplicationIntent=ReadOnly`가 있는 세션은 주 데이터베이스에서 연결을 라우팅하는 것과 동일한 방식으로 복제본 중 하나로 라우팅됩니다.  `ApplicationIntent=ReadOnly`가 없는 세션은 역시 읽기 전용인 지역 복제된 보조 데이터베이스의 주 복제본으로 라우팅됩니다. 지역 복제된 보조 데이터베이스에는 주 데이터베이스와 다른 끝점이 있으므로 지금까지 보조 데이터베이스에 액세스하기 위해 `ApplicationIntent=ReadOnly`를 설정할 필요는 없었습니다. 이전 버전과의 호환성을 보장하기 위해 `sys.geo_replication_links` DMV에 `secondary_allow_connections=2`(모든 클라이언트 연결이 허용됨)가 표시됩니다.
 
 > [!NOTE]
-> 미리 보기 기간에는 보조 데이터베이스의 로컬 복제본 간에 라운드 로빈 또는 기타 부하 분산 라우팅이 지원되지 않습니다.
+> 보조 데이터베이스의 로컬 복제본 간의 라우팅 또는 기타 라운드 로빈 부하 분산 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- PowerShell을 사용하여 읽기 확장을 설정하는 방법에 대한 자세한 내용은 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 또는 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet을 참조하세요.
+- PowerShell을 사용 하 여 읽기 확장을 설정 하는 방법에 대 한 정보를 참조 하세요. 합니다 [집합 AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) 또는 [새로 만들기-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
 - REST API를 사용하여 읽기 확장을 설정하는 방법에 대한 내용은 [데이터베이스 - 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)를 참조하세요.

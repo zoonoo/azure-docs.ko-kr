@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/18/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: bb9e5ba960251f728e14106ab1c586e1d3ef373f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 33f1ccf3f1c7bc657cc66efe7c5025356c954ad6
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538649"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187764"
 ---
 # <a name="asdk-release-notes"></a>ASDK 릴리스 정보
 
@@ -30,9 +30,11 @@ ms.locfileid: "57538649"
 
 ## <a name="build-11902069"></a>1.1902.0.69 빌드
 
-### <a name="changes"></a>변경 내용
+### <a name="new-features"></a>새로운 기능
 
 - 1902 빌드 계획, 제안, 할당량 및 추가 기능 계획을 만들기 위한 Azure Stack 관리자 포털에서 새로운 사용자 인터페이스를 소개 합니다. 스크린샷을 포함 한 자세한 내용은 참조 하세요. [계획, 제품 및 할당량 만들기](../azure-stack-create-plan.md)합니다.
+
+- 기타 변경 내용 및이 릴리스에서 향상 된 기능 목록은 참조 하세요 [이 섹션에서는](../azure-stack-update-1902.md#improvements) Azure Stack에서 릴리스 정보입니다.
 
 <!-- ### New features
 
@@ -42,6 +44,20 @@ ms.locfileid: "57538649"
 
 - For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
 - Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
+
+### <a name="known-issues"></a>알려진 문제
+
+- 문제는 1450 바이트를 초과를 내부 부하 분산 장치 (ILB) 패킷을 확인 되었습니다. 문제는 1901 기준으로 호스트에 옮겨졌습니다는 역할을 트래버스하는 VXLAN 캡슐화 패킷을 수용 하기 위해 너무 부족 호스트에서 MTU 설정 되었기 때문입니다. 가지 표출이 문제는 살펴본 두 개 이상 발생할 수 있는 시나리오가 있습니다.
+
+  - SQL 쿼리 뒤에 부하 분산 장치 ILB (내부), 이며 660 바이트를 초과 하는 SQL Always On입니다.
+  - Kubernetes 배포에는 여러 마스터를 사용 하도록 설정 하려고 하면 실패 합니다.  
+
+  동일한 가상 네트워크에 있지만 서로 다른 서브넷에 VM 및 ILB 간의 통신 해야 하는 경우 문제가 발생 합니다. ASDK 호스트에서 관리자 권한 명령 프롬프트에서 다음 명령을 실행 하 여이 문제를 해결할 수 있습니다.
+
+  ```shell
+  netsh interface ipv4 set sub "hostnic" mtu=1660
+  netsh interface ipv4 set sub "management" mtu=1660
+  ```
 
 ## <a name="build-11901095"></a>1.1901.0.95 빌드
 

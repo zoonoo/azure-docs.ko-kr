@@ -8,16 +8,18 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098581"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118632"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
-이 문서에서는 ExpressRoute를 모니터링하도록 네트워크 성능 모니터 확장을 구성하는 방법에 대해 설명합니다. NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레미스 위치(지점 등) 간의 연결을 모니터링하는 클라우드 기반 네트워크 모니터링 솔루션입니다. NPM은 Log Analytics의 일부입니다. NPM은 개인 피어링 또는 Microsoft 피어링을 사용하도록 구성된 ExpressRoute 회로에 대한 네트워크 성능을 모니터링할 수 있는 ExpressRoute 확장을 제공합니다. ExpressRoute에 대한 NPM을 구성하면 네트워크 문제를 감지하여 파악하고 제거할 수 있습니다. 이 서비스는 Azure Government 클라우드에서 사용할 수도 있습니다.
+이 문서에서는 ExpressRoute를 모니터링하도록 네트워크 성능 모니터 확장을 구성하는 방법에 대해 설명합니다. NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레미스 위치(지점 등) 간의 연결을 모니터링하는 클라우드 기반 네트워크 모니터링 솔루션입니다. NPM은 Azure Monitor 로그의 일부입니다. NPM은 개인 피어링 또는 Microsoft 피어링을 사용하도록 구성된 ExpressRoute 회로에 대한 네트워크 성능을 모니터링할 수 있는 ExpressRoute 확장을 제공합니다. ExpressRoute에 대한 NPM을 구성하면 네트워크 문제를 감지하여 파악하고 제거할 수 있습니다. 이 서비스는 Azure Government 클라우드에서 사용할 수도 있습니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 다음을 수행할 수 있습니다.
 
@@ -58,19 +60,19 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. 주 **네트워크 성능 모니터** 페이지 아래쪽에서 **만들기**를 클릭하여 **네트워크 성능 모니터 - 새 솔루션 만들기** 페이지를 엽니다. **Log Analytics 작업 영역 - 작업 영역 선택**을 클릭하여 작업 영역 페이지를 엽니다. **+ 새 작업 영역 만들기**를 클릭하여 작업 영역 페이지를 엽니다.
-3. **Log Analytics 작업 영역** 페이지에서 **새로 만들기**를 선택한 다음, 다음 설정을 구성합니다.
+3. 에 **Log Analytics 작업 영역** 페이지에서 **새로 만들기**, 다음 설정을 구성 합니다.
 
-  * Log Analytics 작업 영역 - 작업 영역의 이름을 입력합니다.
-  * 구독 - 여러 구독이 있는 경우 새 작업 영역에 연결할 구독을 선택합니다.
-  * 리소스 그룹 - 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다.
-  * 위치 - 이 위치는 에이전트 연결 로그에 사용되는 저장소 계정의 위치를 지정하는 데 사용됩니다.
-  * 가격 책정 계층 - 가격 책정 계층을 선택합니다.
+   * Log Analytics 작업 영역 - 작업 영역의 이름을 입력합니다.
+   * 구독 - 여러 구독이 있는 경우 새 작업 영역에 연결할 구독을 선택합니다.
+   * 리소스 그룹 - 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다.
+   * 위치 - 이 위치는 에이전트 연결 로그에 사용되는 저장소 계정의 위치를 지정하는 데 사용됩니다.
+   * 가격 책정 계층 - 가격 책정 계층을 선택합니다.
   
-    >[!NOTE]
-    >ExpressRoute 회로는 전 세계 어디에나 있을 수 있습니다. 작업 영역과 동일한 지역에 있을 필요가 없습니다.
-    >
+     >[!NOTE]
+     >ExpressRoute 회로는 전 세계 어디에나 있을 수 있습니다. 작업 영역과 동일한 지역에 있을 필요가 없습니다.
+     >
   
-    ![작업 영역](./media/how-to-npm/4.png)<br><br>
+     ![작업 영역](./media/how-to-npm/4.png)<br><br>
 4. **확인**을 클릭하여 설정 템플릿을 저장 및 배포합니다. 템플릿의 유효성이 확인되면 **만들기**를 클릭하여 작업 영역을 배포합니다.
 5. 작업 영역이 배포된 후 만든 **NetworkMonitoring(name)** 리소스로 이동합니다. 설정이 유효한지 확인한 후 **솔루션에 추가 구성이 필요합니다.** 를 클릭합니다.
 
@@ -84,7 +86,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 2. 이제 **작업 영역 ID** 및 **기본 키**를 메모장에 복사합니다.
 3. **TCP 프로토콜을 사용하여 모니터링할 Log Analytics 에이전트 구성** 섹션에서 Powershell 스크립트를 다운로드합니다. PowerShell 스크립트는 TCP 트랜잭션에 대한 관련 방화벽 포트를 여는 데 도움이 됩니다.
 
-  ![PowerShell 스크립트](./media/how-to-npm/7.png)
+   ![PowerShell 스크립트](./media/how-to-npm/7.png)
 
 ### <a name="installagent"></a>2.2: 각 모니터링 서버에 모니터링 에이전트 설치(모니터링하려는 각 VNET)
 
@@ -98,20 +100,20 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 2. **Welcome** 페이지에서 **다음**을 클릭합니다.
 3. **사용 조건** 페이지에서 라이선스를 읽고 **동의함**을 클릭합니다.
 4. **대상 폴더** 페이지에서 기본 설치 폴더를 변경 또는 유지하고 **다음**을 클릭합니다.
-5. **에이전트 설치 옵션** 페이지에서 Azure Log Analytics 또는 Operations Manager에 에이전트를 연결하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음**을 클릭합니다.
+5. 에 **에이전트 설치 옵션** 페이지에서 Azure Monitor 로그 또는 Operations Manager 에이전트를 연결 하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음**을 클릭합니다.
 
-  * **Azure Log Analytics**에 연결하려는 경우 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID**와 **작업 영역 키**(기본 키)를 붙여넣습니다. 그런 후 **다음**을 클릭합니다.
+   * **Azure Log Analytics**에 연결하려는 경우 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID**와 **작업 영역 키**(기본 키)를 붙여넣습니다. 그런 후 **다음**을 클릭합니다.
 
-    ![ID 및 키](./media/how-to-npm/8.png)
-  * **Operations Manager**에 연결할 경우 **관리 그룹 구성** 페이지에서 **관리 그룹 이름**, **관리 서버** 및 **관리 서버 포트**를 입력합니다. 그런 후 **다음**을 클릭합니다.
+     ![ID 및 키](./media/how-to-npm/8.png)
+   * **Operations Manager**에 연결할 경우 **관리 그룹 구성** 페이지에서 **관리 그룹 이름**, **관리 서버** 및 **관리 서버 포트**를 입력합니다. 그런 후 **다음**을 클릭합니다.
 
-    ![Operations Manager](./media/how-to-npm/9.png)
-  * **에이전트 작업 계정** 페이지에서 **로컬 시스템** 계정 또는 **도메인 또는 로컬 컴퓨터 계정**을 선택합니다. 그런 후 **다음**을 클릭합니다.
+     ![Operations Manager](./media/how-to-npm/9.png)
+   * **에이전트 작업 계정** 페이지에서 **로컬 시스템** 계정 또는 **도메인 또는 로컬 컴퓨터 계정**을 선택합니다. 그런 후 **다음**을 클릭합니다.
 
-    ![계좌](./media/how-to-npm/10.png)
+     ![계좌](./media/how-to-npm/10.png)
 6. **설치 준비** 페이지에서 선택 항목을 검토한 다음 **설치**를 클릭합니다.
 7. **구성 완료** 페이지에서 **마침**을 클릭합니다.
-8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토하고 에이전트가 Azure Log Analytics에 연결되었는지 확인할 수 있습니다. 연결되면 에이전트에: **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.
+8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토 하 고 Azure Monitor 로그에 에이전트 연결 되어 있는지 확인 수 있습니다. 연결되면 에이전트에: **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.
 
 9. 모니터링해야 하는 각 VNET에 대해 이 프로시저를 반복합니다.
 
@@ -126,7 +128,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 3. **프록시 설정** 탭을 클릭합니다.
 4. **프록시 서버 사용**을 선택하고 필요한 경우 URL 및 포트 번호를 입력합니다. 프록시 서버에 인증이 필요한 경우 프록시 서버에 액세스 하려면 사용자 이름과 암호를 입력합니다.
 
-  ![proxy](./media/how-to-npm/11.png)
+   ![proxy](./media/how-to-npm/11.png)
 
 ### <a name="verifyagent"></a>2.4: 에이전트 연결 확인
 
@@ -135,9 +137,9 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 1. 모니터링 에이전트가 있는 서버에서 **제어판**을 엽니다.
 2. **Microsoft Monitoring Agent**를 엽니다.
 3. **Azure Log Analytics** 탭을 클릭합니다.
-4. **상태** 열에는 Log Analytics에 성공적으로 연결된 에이전트가 표시됩니다.
+4. 에 **상태** 열 표시 Azure Monitor 로그에는 에이전트가 성공적으로 연결 합니다.
 
-  ![status](./media/how-to-npm/12.png)
+   ![status](./media/how-to-npm/12.png)
 
 ### <a name="firewall"></a>2.5: 모니터링 에이전트 서버에서 방화벽 포트 열기
 
@@ -170,16 +172,16 @@ NSG에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-networ
 
 1. **모든 리소스** 페이지로 이동하여 네트워크 성능 모니터 개요 타일로 이동한 다음, 허용 목록에 포함된 NPM 작업 영역을 클릭합니다.
 
-  ![npm 작업 영역](./media/how-to-npm/npm.png)
+   ![npm 작업 영역](./media/how-to-npm/npm.png)
 2. **네트워크 성능 모니터** 개요 타일을 클릭하여 대시보드를 불러옵니다. 대시보드의 ExpressRoute 페이지에는 ExpressRoute가 '구성되지 않은 상태'로 표시됩니다. **기능 설치**를 클릭하여 네트워크 성능 모니터 구성 페이지를 엽니다.
 
-  ![기능 설치](./media/how-to-npm/npm2.png)
+   ![기능 설치](./media/how-to-npm/npm2.png)
 3. 구성 페이지에서 왼쪽 패널에 있는 'ExpressRoute 피어링' 탭으로 이동합니다. 다음으로, **지금 검색**을 클릭합니다.
 
-  ![검색](./media/how-to-npm/13.png)
+   ![검색](./media/how-to-npm/13.png)
 4. 검색이 완료되면 다음 항목이 포함된 목록이 표시됩니다.
-  * 이 구독과 연결된 ExpressRoute 회로에서 모든 Microsoft 피어링 연결
-  * 이 구독과 연결된 VNet에 연결된 모든 개인 피어링 연결
+   * 이 구독과 연결된 ExpressRoute 회로에서 모든 Microsoft 피어링 연결
+   * 이 구독과 연결된 VNet에 연결된 모든 개인 피어링 연결
             
 ## <a name="configmonitor"></a>5단계: 모니터 구성
 

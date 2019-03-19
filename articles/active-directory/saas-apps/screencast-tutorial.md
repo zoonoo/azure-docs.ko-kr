@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 941a02ef9ab3d623d34c8dc6996040f6d9e44859
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>자습서: Screencast-O-Matic과 Azure Active Directory 통합
 
@@ -133,17 +133,17 @@ Screencast-O-Matic에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 9. **Setup Access Page**(액세스 설정 페이지)에서 다음 단계를 수행합니다.
 
-    * **Access URL**(액세스 URL) 섹션 아래에 지정된 텍스트 상자에서 인스턴스 이름을 입력합니다.
+   * **Access URL**(액세스 URL) 섹션 아래에 지정된 텍스트 상자에서 인스턴스 이름을 입력합니다.
 
-    ![Access](./media/screencast-tutorial/tutorial_screencast_access.png)
+     ![Access](./media/screencast-tutorial/tutorial_screencast_access.png)
 
-    * **SAML User Restriction (optional)**(SAML 사용자 제한(선택 사항)) 섹션 아래에서 **Require Domain User**(도메인 사용자 필요)를 선택합니다.
+   * **SAML User Restriction (optional)**(SAML 사용자 제한(선택 사항)) 섹션 아래에서 **Require Domain User**(도메인 사용자 필요)를 선택합니다.
 
-    * Azure Portal에서 다운로드한 메타데이터를 업로드하기 위해 **Upload IDP Metadata XML File**(IDP 메타데이터 XML 파일 업로드) 아래에서 **Choose File**(파일 선택)을 클릭합니다.
+   * Azure Portal에서 다운로드한 메타데이터를 업로드하기 위해 **Upload IDP Metadata XML File**(IDP 메타데이터 XML 파일 업로드) 아래에서 **Choose File**(파일 선택)을 클릭합니다.
 
-    * **확인**을 클릭합니다. 
+   * **확인**을 클릭합니다. 
 
-    ![Access](./media/screencast-tutorial/tutorial_screencast_save.png)
+     ![Access](./media/screencast-tutorial/tutorial_screencast_save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

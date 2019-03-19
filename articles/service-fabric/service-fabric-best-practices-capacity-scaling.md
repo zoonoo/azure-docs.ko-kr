@@ -4,7 +4,7 @@ description: Service Fabric 클러스터 및 애플리케이션 계획 및 크�
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 425154958e4c60902b56f320f714a011b9095830
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446820"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997356"
 ---
 # <a name="capacity-planning-and-scaling"></a>용량 계획 및 크기 조정
 
@@ -40,7 +40,7 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트하�
 
 ## <a name="vertical-scaling-considerations"></a>수직 크기 조정 관련 고려 사항
 
-Azure Service Fabric에서 노드 형식의 [크기를 수직으로 조정](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms)하려면 여러 단계를 수행하고 다양한 사항을 고려해야 합니다. 예: 
+Azure Service Fabric에서 노드 형식의 [크기를 수직으로 조정](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)하려면 여러 단계를 수행하고 다양한 사항을 고려해야 합니다. 예: 
 * 크기 조정 전에 클러스터가 정상 상태여야 합니다. 그렇지 않은 경우에는 크기를 조정하면 클러스터가 더 불안정해집니다.
 * 상태 저장 서비스를 호스트하는 모든 Service Fabric 클러스터 NodeType의 경우에는 **내구성 수준이 Silver 이상**이어야 합니다.
 
@@ -159,6 +159,13 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
+
+> [!NOTE]
+> 크기를 조정할 때 Service Fabric Explorer에서 비정상 상태로 표시 제거 된 노드/v M 인스턴스가 중단 클러스터에 표시 됩니다. 이 동작의 설명에 대 한 참조 [Service Fabric Explorer에서 볼 수 있는 동작](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer)합니다.
+> 
+> 다음을 수행할 수 있습니다.
+> * 호출 [Remove-servicefabricnodestate cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) 적절 한 노드 이름과 함께 합니다.
+> * 배포할 [service fabric 자동 크기 조정 도우미 응용 프로그램](https://github.com/Azure/service-fabric-autoscale-helper/) 노드 아래로 확장을 보장 하는 클러스터에서 Service Fabric Explorer에서 제거 됩니다.
 
 ## <a name="reliability-levels"></a>안정성 수준
 

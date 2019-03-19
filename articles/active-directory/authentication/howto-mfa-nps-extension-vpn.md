@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe77602d138224c848cc915bbba5a7084c29650
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c22b035b325582cf4a12ff10a9abbedb8837229b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117883"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -30,20 +30,20 @@ Azure용 NPS(네트워크 정책 서비스) 확장을 사용하면 조직에서 
 
 * 네트워크 요청을 관리 및 제어하여 다음을 지정할 수 있는 중앙 위치를 할당합니다.
 
-    * 연결할 수 있는 사용자 
+  * 연결할 수 있는 사용자 
     
-    * 1일에 허용되는 연결 횟수 
+  * 1일에 허용되는 연결 횟수 
     
-    * 연결 기간
+  * 연결 기간
     
-    * 클라이언트가 연결에 사용해야 하는 보안 수준
+  * 클라이언트가 연결에 사용해야 하는 보안 수준
 
     각 VPN 또는 원격 데스크톱 게이트웨이 서버에 대해 정책을 지정하지 않고, 이러한 항목이 중앙 위치에 있을 때 지정합니다. RADIUS 프로토콜은 중앙 집중식 AAA(인증, 권한 부여 및 계정 관리)를 제공하는 데 사용됩니다. 
 
 * 디바이스가 허용되거나 제한되지 않는지 또는 네트워크 리소스에 대한 액세스가 제한되는지 여부를 결정하는 NAP(네트워크 액세스 보호) 클라이언트 상태 정책을 설정하고 적용합니다.
 
 * 802.1x 지원 무선 액세스 지점 및 이더넷 스위치에 액세스하기 위한 인증 및 권한 부여를 적용할 수 있는 방법을 제공합니다.   
-자세한 내용은 [네트워크 정책 서버](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)를 참조하세요. 
+  자세한 내용은 [네트워크 정책 서버](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)를 참조하세요. 
 
 보안을 강화하고 높은 수준의 규정 준수를 제공하기 위해 조직에서는 NPS를 Azure Multi-Factor Authentication과 통합하여 사용자가 2단계 인증을 통해 VPN 서버의 가상 포트에 연결하도록 할 수 있습니다. 사용자가 액세스 권한을 부여받으려면 자신이 제어할 수 있는 기타 정보와 함께 사용자 이름 및 암호 조합을 제공해야 합니다. 이 정보는 신뢰할 수 있어야 하고 복제하기 어려워야 합니다. 휴대폰 번호, 유선 전화 번호 또는 모바일 장치의 애플리케이션이 여기에 포함될 수 있습니다.
 

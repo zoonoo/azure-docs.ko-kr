@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: 79125e1244170a507e4e209c17b339b2b13a0542
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/13/2019
+ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087621"
+ms.locfileid: "58188104"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 클러스터의 지역 재해 복구
 
@@ -267,5 +267,10 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
     액세스 제어 기능을 사용하는 경우 리소스(노트북, 클러스터, 작업, 테이블)에 대한 액세스 제어를 수동으로 다시 적용합니다.
 
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Azure 에코 시스템에 대 한 재해 복구
+
+다른 Azure 서비스를 사용 하는 경우에 너무 해당 서비스에 대 한 재해 복구 모범 사례를 구현 해야 합니다. 예를 들어 외부 Hive metastore 인스턴스를 사용 하려는 경우에 대 한 재해 복구 고려해 야 [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md)하십시오 [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), 및/또는 [Azure Database for MySQL ](../mysql/concepts-business-continuity.md). 재해 복구에 대 한 일반적인 정보를 참조 하세요 [Azure 응용 프로그램에 대 한 재해 복구](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)합니다.
+
 ## <a name="next-steps"></a>다음 단계
+
 자세한 내용은 [Azure Databricks 설명서](https://docs.azuredatabricks.net/user-guide/index.html)를 참조하세요.

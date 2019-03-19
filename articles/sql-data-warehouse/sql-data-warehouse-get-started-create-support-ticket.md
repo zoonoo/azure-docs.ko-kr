@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4761a50905f28c215a47d579b931ab5db9d7e424
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b3ffc9794967f44708d8330d4dc5d5de11b794d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079182"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>SQL Data Warehouse에 대한 지원 티켓을 만드는 방법
 SQL Data Warehouse에 문제가 발생한 경우 엔지니어링 지원 팀이 도움을 드릴 수 있도록 지원 티켓을 만드세요.
@@ -35,8 +35,8 @@ SQL Data Warehouse에 문제가 발생한 경우 엔지니어링 지원 팀이 �
      
      프리미어 지원 계획이 있는 경우 [Microsoft 프리미어 온라인 포털][Microsoft Premier online portal]에서 SQL Data Warehouse 관련 문제를 보고할 수도 있습니다.  범위, 응답 시간, 가격 책정 등을 포함한 다양한 지원 계획에 대한 자세한 정보는 [Azure 지원 계획][Azure support plan]을 참조하세요.  Azure 지원에 대한 질문과 대답은 [Azure 지원 FAQ][Azure support FAQs]를 참조하세요.  
         
-    ![기본 블레이드](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
-    ![기본 블레이드1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
+     ![기본 블레이드](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
+     ![기본 블레이드1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
 4. **문제** 블레이드에 정보를 입력합니다.
     ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
@@ -46,7 +46,7 @@ SQL Data Warehouse에 문제가 발생한 경우 엔지니어링 지원 팀이 �
    > 
    
 5. **연락처 정보**를 입력합니다.
-![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
+   ![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
 
     
 6. **만들기** 를 클릭하여 지원 요청을 제출합니다.

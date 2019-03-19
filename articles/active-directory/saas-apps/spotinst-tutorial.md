@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 679284783ac93662c1c96e813f9f028fffb434f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f0bffdf439a192fb10fe695fbfa18e8c7abf8077
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173660"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>자습서: Spotinst와 Azure Active Directory 통합
 
@@ -221,7 +221,7 @@ Spotinst에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     * **전체 이름** 텍스트 상자에 **BrittaSimon**과 같은 사용자의 전체 이름을 입력합니다.
 
-    * **이메일** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 이메일 주소를 입력합니다.
+    * 에 **전자 메일** 텍스트 상자과 같은 사용자의 전자 메일 주소를 입력 **brittasimon\@contoso.com**합니다.
 
     * **조직 역할, 계정 역할 및 계정**에 대해 조직별 세부 정보를 선택합니다.
 

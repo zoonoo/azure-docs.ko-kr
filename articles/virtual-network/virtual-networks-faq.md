@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188614"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -52,7 +52,7 @@ VNet을 다음에 사용합니다.
 * 네트워크 구성 파일(netcfg - 클래식 VNet 전용) [네트워크 구성 파일을 사용하여 VNet 구성](virtual-networks-using-network-configuration-file.md) 문서를 참조하세요.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>VNet 내에서 사용할 수 있는 주소 범위는 무엇입니까?
-[RFC 1918](http://tools.ietf.org/html/rfc1918)에 정의되어 있는 모든 IP 주소 범위를 사용할 수 있습니다. 예를 들어 10.0.0.0/16을 사용할 수 있습니다. 다음 주소 범위는 추가할 수 없습니다.
+[RFC 1918](https://tools.ietf.org/html/rfc1918)에 정의되어 있는 모든 IP 주소 범위를 사용할 수 있습니다. 예를 들어 10.0.0.0/16을 사용할 수 있습니다. 다음 주소 범위는 추가할 수 없습니다.
 * 224.0.0.0/4(멀티캐스트)
 * 255.255.255.255/32(브로드캐스트)
 * 127.0.0.0/8(루프백)
@@ -221,7 +221,7 @@ VNet은 서로 격리되고 Azure 인프라에서 호스팅되는 다른 서비�
 ### <a name="is-there-tooling-support-for-vnets"></a>VNet에 대한 도구 지원이 있습니까?
 예. 사용에 대한 자세한 정보:
 - [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) 및 [클래식](virtual-networks-create-vnet-classic-pportal.md) 배포 모델을 통해 VNet을 배포하는 Azure Portal.
-- [리소스 관리자](/powershell/module/azurerm.network) 및 [클래식](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) 배포 모델을 통해 배포된 VNet을 관리하는 PowerShell.
+- [리소스 관리자](/powershell/module/az.network) 및 [클래식](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) 배포 모델을 통해 배포된 VNet을 관리하는 PowerShell.
 - [Resource Manager](/cli/azure/network/vnet) 및 [클래식](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) 배포 모델을 통해 배포된 VNet을 배포하고 관리하는 Azure CLI(명령줄 인터페이스).  
 
 ## <a name="vnet-peering"></a>VNet 피어링
@@ -231,6 +231,26 @@ VNet 피어링(또는 가상 네트워크 피어링)을 통해 가상 네트워�
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>다른 지역의 VNet에 피어로 연결할 수 있나요?
 예. 글로벌 VNet 피어링을 사용하면 다른 지역의 VNet에 피어로 연결할 수 있습니다. 글로벌 VNet 피어링은 모든 Azure 공용 지역 및 중국 클라우드 지역에서 사용할 수 있습니다. Azure 공용 지역에서 국가별 클라우드 지역으로 전역적으로 피어링할 수 없습니다. 글로벌 피어링은 현재 국가별 클라우드에서 제공되지 않습니다.
+
+### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>글로벌 VNet 피어 링 및 부하 분산 장치 관련 된 제약 조건 이란?
+두 가상 네트워크가 다른 지역 (글로벌 VNet 피어 링)에 있는 경우에 기본 Load Balancer를 사용 하는 리소스에 연결할 수 없습니다. 표준 Load Balancer를 사용 하는 리소스에 연결할 수 있습니다.
+다음 리소스는 글로벌 VNet 피어 링에서 통신할 수 없어 해당 의미는 기본 부하 분산 장치를 사용 합니다.
+- 기본 부하 분산 장치 뒤의 Vm
+- 기본 부하 분산 장치를 사용 하 여 VM Scale Sets 
+- Redis Cache 
+- Application Gateway (v1) SKU
+- Service Fabric
+- SQL Always on
+- SQL MI
+- API 관리
+- ADDS
+- Logic Apps
+- HD Insight
+-   Azure Batch
+- AKS
+- App Service 환경
+
+VNet 대 VNet을 통해 VNet 게이트웨이 또는 ExpressRoute를 통해 이러한 리소스에 연결할 수 있습니다.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>내 가상 네트워크가 다른 Azure Active Directory 테넌트의 구독에 속한 경우 VNet 피어링을 사용할 수 있나요?
 예. 현재 구독이 다른 Azure Active Directory 테넌트에 속한 경우 로컬 또는 글로벌 VNet 피어링을 설정할 수 없습니다. PowerShell 또는 CLI에서는 피어링을 설정할 수 있습니다. 포털은 아직 지원되지 않습니다.
@@ -265,7 +285,7 @@ VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태�
 ## <a name="virtual-network-tap"></a>가상 네트워크 TAP
 
 ### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>가상 네트워크 TAP을 사용할 수 있는 Azure 지역은 어디인가요?
-개발자 미리 보기 동안 기능은 미국 중서부 지역에서 사용할 수 있습니다. 모니터링된 네트워크 인터페이스, 가상 네트워크 TAP 리소스 및 수집기 또는 분석 솔루션은 동일한 지역에 배포되어야 합니다.
+가상 네트워크 탭 미리 보기는 모든 Azure 지역에서 사용할 수 있습니다. 모니터링된 네트워크 인터페이스, 가상 네트워크 TAP 리소스 및 수집기 또는 분석 솔루션은 동일한 지역에 배포되어야 합니다.
 
 ### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>Virtual Network TAP은 미러링된 패킷에서 모든 필터링 기능을 지원하나요?
 필터링 기능은 가상 네트워크 TAP 미리 보기에서 지원되지 않습니다. TAP 구성이 네트워크 인터페이스에 추가되는 경우 네트워크 인터페이스에서 모든 송수신 트래픽의 전체 복사본은 TAP 대상으로 스트리밍됩니다.
@@ -278,7 +298,7 @@ VNet 피어링 연결은 한 VNet 연결이 삭제되면 *연결 끊김* 상태�
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>네트워크 인터페이스에서 가상 네트워크 TAP 구성을 사용하도록 설정하는 경우 프로덕션 트래픽에 대한 성능 고려 사항이 있나요?
 
-가상 네트워크 TAP은 개발자 미리 보기 상태에 있습니다. 미리 보기 중에는 서비스 수준 계약이 없습니다. 프로덕션 워크 로드에 기능을 사용할 수 없습니다. TAP 구성을 통해 가상 머신 네트워크 인터페이스를 사용하도록 설정하는 경우 Azure 호스트에서 프로덕션 트래픽을 보내기 위해 가상 머신에 할당된 동일한 리소스는 미러링 함수를 수행하고 미러링된 패킷을 보내는 데 사용됩니다. 올바른 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 크기를 선택하여 가상 머신이 프로덕션 트래픽 및 미러링된 트래픽을 보내기 위해 충분한 리소스를 사용할 수 있는지 확인합니다.
+가상 네트워크 탭 미리 보기입니다. 미리 보기 중에는 서비스 수준 계약이 없습니다. 프로덕션 워크 로드에 기능을 사용할 수 없습니다. TAP 구성을 통해 가상 머신 네트워크 인터페이스를 사용하도록 설정하는 경우 Azure 호스트에서 프로덕션 트래픽을 보내기 위해 가상 머신에 할당된 동일한 리소스는 미러링 함수를 수행하고 미러링된 패킷을 보내는 데 사용됩니다. 올바른 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 크기를 선택하여 가상 머신이 프로덕션 트래픽 및 미러링된 트래픽을 보내기 위해 충분한 리소스를 사용할 수 있는지 확인합니다.
 
 ### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>[Linux](create-vm-accelerated-networking-cli.md) 또는 [Windows](create-vm-accelerated-networking-powershell.md)에 대해 가속화된 네트워킹은 가상 네트워크 TAP에서 지원되나요?
 
@@ -350,7 +370,7 @@ Azure 서비스 계정 삭제는 독립적인 작업이며, 네트워크 쪽에�
 가상 네트워크 서비스 엔드포인트를 사용하도록 설정한 경우 가상 네트워크 서브넷에 있는 리소스의 원본 IP 주소가 Azure 서비스로의 트래픽에 대해 공용 IPV4 주소 사용에서 Azure 가상 네트워크의 개인 IP 주소로 전환됩니다. 이로 인해 Azure 서비스에서 이전에 공용 IPV4 주소로 설정된 특정 IP 방화벽이 실패할 수 있습니다. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>서비스 엔드포인트가 항상 우선 적용되나요?
-서비스 엔드포인트는 BGP 경로보다 우선 적용되는 시스템 경로를 추가하고 서비스 엔드포인트 트래픽에 대해 최적의 라우팅을 제공합니다. 서비스 엔드포인트는 가상 네트워크의 서비스 트래픽을 직접 Microsoft Azure 백본 네트워크의 서비스로 항상 이동합니다. Azure에서 경로를 선택하는 방법에 대한 자세한 내용은 [Azure 가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)을 참조하세요.
+서비스 엔드포인트는 BGP 경로보다 우선 적용되는 시스템 경로를 추가하고 서비스 엔드포인트 트래픽에 대해 최적의 라우팅을 제공합니다. 서비스 엔드포인트는 가상 네트워크의 서비스 트래픽을 직접 Microsoft Azure 백본 네트워크의 서비스로 항상 이동합니다. Azure에서 경로 선택 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure 가상 네트워크 트래픽 라우팅을](virtual-networks-udr-overview.md)합니다.
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>서브넷의 NSG는 서비스 엔드포인트에서 어떻게 작동하나요?
 Azure 서비스에 연결하려면 NSG에서 아웃바운드 연결을 허용해야 합니다. NSG가 모든 인터넷 아웃바운드 트래픽에 대해 열려 있는 경우 서비스 엔드포인트 트래픽이 작동합니다. 서비스 태그만 사용하여 아웃바운드 트래픽을 서비스 IP로 제한할 수도 있습니다.  

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 610b140fd6049842b993c17fd53bebf799f83f5c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453147"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006488"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>심층 학습 및 AI 프레임워크
 [데이터 과학 Virtual Machine](https://aka.ms/dsvm)(DSVM) 및 [심층 학습 VM](https://aka.ms/dsvm/deeplearning)은 예측 분석 및 이미지, 언어 이해 등의 인식 기능을 갖춘 인공 지능(AI) 애플리케이션을 빌드하는 데 유용한 여러 심층 학습 프레임워크를 지원합니다.
@@ -218,8 +218,7 @@ X2Go를 사용하여 VM에 로그인합니다. 터미널에서 서비스를 시�
 | DSVM에 구성/설치 방법  | PyTorch는 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition)에 설치됩니다.  |
 | 샘플에 대한 링크      | 샘플 Jupyter 노트북이 포함되며 /dsvm/samples/pytorch에도 샘플이 있습니다.      |
 | DSVM의 관련 도구      | Torch      |
-| 사용/실행 방법 |
-* 터미널에서: 올바른 환경을 활성화한 다음, Python을 실행합니다. <br/> * Jupyter에서: [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)에 연결한 다음, 샘플에 대한 PyTorch 디렉터리를 엽니다.  |
+| 사용/실행 방법 |* 터미널에서: 올바른 환경을 활성화한 다음, Python을 실행합니다. <br/> * Jupyter에서: [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)에 연결한 다음, 샘플에 대한 PyTorch 디렉터리를 엽니다.  |
 
 ## <a name="mxnet-model-server"></a>MXNet 모델 서버
 

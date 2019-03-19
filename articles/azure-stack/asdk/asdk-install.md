@@ -16,12 +16,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a58f5a3794d352fa8671321f5a30d74d2598df75
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 509dafb02d456e3f612e1de8a5bc1cf4b010a05a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977731"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113859"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Azure Stack 개발 키트 ASDK ()를 설치 합니다.
 한 후 [ASDK 호스트 컴퓨터를 준비 하 고](asdk-prepare-host.md)는 ASDK이 문서의 다음 단계를 사용 하 여 CloudBuilder.vhdx 이미지로 배포할 수 있습니다.
@@ -44,8 +44,8 @@ ms.locfileid: "55977731"
   
    인터넷에 연결 된 Azure AD의 전체 이름을 사용 해야 Azure 구독 id 공급자를 선택 하면 디렉터리 테 넌 트의 형태로 *domainname*. onmicrosoft.com 또는 Azure AD에 사용자 지정 도메인 이름 및 글로벌 확인 지정된 된 디렉터리에 대 한 관리자 자격 증명입니다.<br><br>배포 후 Azure Active Directory 전역 관리자 권한이 필요 하지 않습니다. 그러나 일부 작업에는 전역 관리자 자격 증명을 필요할 수 있습니다. 예를 들어, 리소스 공급자 설치 관리자 스크립트 또는 권한 부여 요청을 새로운 기능. 일시적으로 계정의 전역 관리자 권한이 다시 설정 하거나의 소유자가 별도 전역 관리자 계정을 사용 합니다 *공급자 구독을 기본*입니다.<br><br>AD FS를 id 공급자로 사용 하는 경우에 기본 스탬프 디렉터리 서비스 사용 됩니다. 로그인 하는 데 기본 계정은 azurestackadmin@azurestack.local, 암호를 사용 하 여 설치의 일부로 제공 된 것 이며 합니다.
 
-  > [!NOTE]
-  > 최상의 결과 id 공급자로 Adfs를 사용 하 여 연결이 끊긴된 Azure Stack 환경을 사용 하려는 경우에 것이 좋습니다 ASDK 인터넷에 연결 하는 동안 설치 합니다. 이런 방식으로 배포 시에 개발 키트 설치에 포함 된 Windows Server 2016 평가판을 활성화할 수 있습니다.
+   > [!NOTE]
+   > 최상의 결과 id 공급자로 Adfs를 사용 하 여 연결이 끊긴된 Azure Stack 환경을 사용 하려는 경우에 것이 좋습니다 ASDK 인터넷에 연결 하는 동안 설치 합니다. 이런 방식으로 배포 시에 개발 키트 설치에 포함 된 Windows Server 2016 평가판을 활성화할 수 있습니다.
 
 4. 개발 키트에 대 한를 클릭 한 다음 네트워크 어댑터를 선택 **다음**합니다.
 

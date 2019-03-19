@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b94c5f712469183d64704307316f8bbdaa3d5a11
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751636"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997696"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL Database 애플리케이션 성능을 개선하기 위해 일괄 처리를 사용하는 방법
 
@@ -94,7 +94,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 트랜잭션이 양쪽 예제에 실제로 사용되고 있습니다. 첫 번째 예제에서 각각의 개별 호출은 암시적 트랜잭션입니다. 두 번째 예제에서 명시적 트랜잭션이 모든 호출을 래핑합니다. [미리 쓰기 트랜잭션 로그](https://msdn.microsoft.com/library/ms186259.aspx)에 대한 설명서에 따라, 로그 레코드는 트랜잭션이 커밋할 때 디스크에 플러시됩니다. 따라서 트랜잭션에 더 많은 호출을 포함시켜서, 트랜잭션 로그에 대한 쓰기를 트랜잭션이 커밋될 때까지 지연시킬 수 있습니다. 사실상, 서버의 트랜잭션 로그에 대한 쓰기에 일괄 처리를 사용하는 것입니다.
 
-다음 테이블은 임시 테스팅 결과를 보여줍니다. 테스트는 동일한 순차적 삽입을 트랜잭션을 포함한 상태와 그렇지 않은 상태로 수행하였습니다. 보다 다양한 견해를 위해, 첫 번째 테스트는 랩톱에서 Microsoft Azure의 데이터베이스에 대해 원격으로 실행했습니다. 두 번째 테스트는 동일한 Microsoft Azure 데이터 센터(미국 서부) 내에 상주하는 클라우드 서비스 및 데이터베이스에서 실행했습니다. 다음 테이블은 트랜잭션 유 무 상태에서 순차적인 삽입의 소요 시간(밀리초)를 보여줍니다.
+다음 표에서 몇 가지 임시 테스트 결과 보여 줍니다. 테스트는 동일한 순차적 삽입을 트랜잭션을 포함한 상태와 그렇지 않은 상태로 수행하였습니다. 보다 다양한 견해를 위해, 첫 번째 테스트는 랩톱에서 Microsoft Azure의 데이터베이스에 대해 원격으로 실행했습니다. 두 번째 테스트는 동일한 Microsoft Azure 데이터 센터(미국 서부) 내에 상주하는 클라우드 서비스 및 데이터베이스에서 실행했습니다. 다음 테이블은 트랜잭션 유 무 상태에서 순차적인 삽입의 소요 시간(밀리초)를 보여줍니다.
 
 **온-프레미스에서 Azure**:
 
@@ -168,7 +168,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-이전 예제에서 **SqlCommand** 개체는 테이블 반환 매개 변수 **@TestTvp**의 행을 삽입합니다. 이전에 만든 **DataTable** 개체는 **SqlCommand.Parameters.Add** 메서드로 이 매개 변수에 할당됩니다. 삽입을 하나의 호출로 일괄 처리하면 순차적인 삽입의 성능을 상당히 향상시킵니다.
+이전 예에서 합니다 **SqlCommand** 개체를 테이블 반환 매개 변수에서 행을 삽입  **\@TestTvp**합니다. 이전에 만든 **DataTable** 개체는 **SqlCommand.Parameters.Add** 메서드로 이 매개 변수에 할당됩니다. 삽입을 하나의 호출로 일괄 처리하면 순차적인 삽입의 성능을 상당히 향상시킵니다.
 
 이전 예제를 더욱 향상시키려면 텍스트 기반 명령 대신 저장 프로시저를 사용합니다. 다음 Transact-SQL 명령은 **SimpleTestTableType** 테이블 반환 매개 변수를 받아들이는 저장 프로시저를 만듭니다.
 
@@ -192,7 +192,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 대부분의 경우 테이블 반환 매개 변수는 다른 일괄 처리 기법과 동등하거나 그 보다 뛰어난 성능을 갖습니다. 테이블 반환 매개 변수는 다른 옵션에 비해 융통성이 많기 때문에 더 좋을 수 있습니다. 예를 들어 SQL 대량 복사와 같은 다른 기법은 새 행의 삽입만을 허용합니다. 하지만 테이블 반환 매개 변수를 사용하면 저장 프로시저의 논리를 사용하여 업데이트되는 행과 삽입되는 행을 결정할 수 있습니다. 지정된 행이 삽입될지, 업데이트될지 또는 삭제될지를 나타내는 “작업” 열을 포함하도록 테이블 형식이 수정될 수도 있습니다.
 
-다음 테이블은 테이블 반환 매개 변수 사용에 대한 임시 테스트 결과를 밀리초 단위로 보여줍니다.
+다음 표에서 시간 (밀리초)에서 테이블 반환 매개 변수 사용에 대 한 임시 테스트 결과 보여 줍니다.
 
 | 작업 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
 | --- | --- | --- |
@@ -232,7 +232,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 테이블 반환 매개 변수보다 대량 복사를 선호하는 경우도 있습니다. [테이블 반환 매개 변수](https://msdn.microsoft.com/library/bb510489.aspx) 문서에서 테이블 반환 매개 변수와 BULK INSERT 작업의 비교 테이블을 참고하세요.
 
-다음 임시 테스트 결과는 **SqlBulkCopy** 를 통한 일괄 처리 성능을 밀리초 단위로 보여줍니다.
+다음 임시 테스트 결과 사용 하 여 일괄 처리의 성능을 보여 줍니다 **SqlBulkCopy** 밀리초에서입니다.
 
 | 작업 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
 | --- | --- | --- |
@@ -277,7 +277,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 이 예제는 기본적인 개념을 보여주기 위한 것입니다. 보다 현실적인 시나리오는 필요한 엔터티를 이어서 쿼리 문자열과 명령 매개 변수를 동시에 구성합니다. 쿼리 매개 변수는 총 2100개로 제한되기 때문에, 이러한 방식으로 처리되는 행의 총 수가 제한됩니다.
 
-다음 임시 테스트 결과는 이런 형식으로 된 Insert 문의 성능을 밀리초 단위로 보여줍니다.
+다음 임시 테스트 결과는 밀리초 단위로 insert 문은 이러한 유형의 성능을 보여 줍니다.
 
 | 작업 | 테이블 반환 매개 변수(밀리초) | 단일 문 INSERT(밀리초) |
 | --- | --- | --- |
@@ -298,7 +298,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 ### <a name="entity-framework"></a>Entity Framework
 
-Entity Framework는 현재 일괄 처리를 지원하지 않습니다. 커뮤니티의 다른 개발자들은 **SaveChanges** 메서드 오버라이드와 같은 차선책을 설명하려는 시도를 했습니다. 하지만 솔루션이 대체적으로 복잡하고 애플리케이션 및 데이터 모델에 맞게 사용자 지정됩니다. Entity Framework CodePlex 프로젝트에는 기능 요청에 관한 토론 페이지가 있습니다. 토론 페이지를 보려면 [Design Meeting Notes – August 2, 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012)(디자인 모임 메모 - 2012년 8월 2일)를 참조하세요.
+Entity Framework는 현재 일괄 처리를 지원하지 않습니다. 커뮤니티의 다른 개발자들은 **SaveChanges** 메서드 오버라이드와 같은 차선책을 설명하려는 시도를 했습니다. 하지만 솔루션이 대체적으로 복잡하고 애플리케이션 및 데이터 모델에 맞게 사용자 지정됩니다. Entity Framework CodePlex 프로젝트에는 기능 요청에 관한 토론 페이지가 있습니다. 토론 페이지를 보려면 [Design Meeting Notes – August 2, 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012)(디자인 모임 메모 - 2012년 8월 2일)를 참조하세요.
 
 ### <a name="xml"></a>XML
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 3a295a5c8a202b2f3186e696bb281002090fcad4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024572"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112605"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure의 IP 주소 유형 및 할당 방법
 다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 사용할 수 있는 IP 주소는 공용 및 개인의 두 종류가 있습니다.
@@ -90,9 +90,9 @@ Azure [애플리케이션 게이트웨이](../application-gateway/application-ga
 | 리소스 | 동적 | 공용 | 여러 IP 주소 |
 | --- | --- | --- | --- |
 | 클라우드 서비스 |예 |예 |예 |
-| IaaS VM 또는 PaaS 역할 인스턴스 |예 |아니요 |아니요 |
-| VPN 게이트웨이 |예 |아니요 |아니요 |
-| 애플리케이션 게이트웨이 |예 |아니요 |아니요 |
+| IaaS VM 또는 PaaS 역할 인스턴스 |예 |아니오 |아닙니다. |
+| VPN 게이트웨이 |예 |아니오 |아닙니다. |
+| 애플리케이션 게이트웨이 |예 |아니오 |아닙니다. |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
 개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 클라우드 서비스 또는 [가상 네트워크](virtual-networks-overview.md)(VNet) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
@@ -140,7 +140,7 @@ VM을 만들 때 개인 IP 주소에 대한 호스트 이름 매핑이 Azure 관
 | 리소스 | 동적 | 공용 | 여러 IP 주소 |
 | --- | --- | --- | --- |
 | VM(*독립 실행형* 클라우드 서비스 또는 VNet에서) |예 |예 |예 |
-| PaaS 역할 인스턴스(*독립 실행형* 클라우드 서비스 또는 VNet에서) |예 |아니요 |아니요 |
+| PaaS 역할 인스턴스(*독립 실행형* 클라우드 서비스 또는 VNet에서) |예 |아니오 |아닙니다. |
 | 내부 부하 분산 장치 프런트 엔드 |예 |예 |예 |
 | 애플리케이션 게이트웨이 프런트 엔드 |예 |예 |예 |
 
@@ -165,13 +165,13 @@ Azure에서 [네트워킹에 대한 제한](../azure-subscription-service-limits
 |  | 리소스 | 클래식 | 리소스 관리자 |
 | --- | --- | --- | --- |
 | **공용 IP 주소** |***VM*** |ILPIP(동적 전용)로 참조 |공용 IP(동적 또는 정적)로 참조 |
-|  ||IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 연결 | |
-|  |***인터넷 연결 부하 분산 장치*** |VIP(동적) 또는 예약된 IP(정적)로 참조 |공용 IP(동적 또는 정적)로 참조 | |
-|  ||클라우드 서비스에 할당 |부하 분산 장치의 프런트 엔드 구성에 연결 | |
+|  ||IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 연결 |
+|  |***인터넷 연결 부하 분산 장치*** |VIP(동적) 또는 예약된 IP(정적)로 참조 |공용 IP(동적 또는 정적)로 참조 |
+|  ||클라우드 서비스에 할당 |부하 분산 장치의 프런트 엔드 구성에 연결 |
 |  | | | |
 | **개인 IP 주소** |***VM*** |DIP로 참조 |개인 IP 주소로 참조 |
-|  ||IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 할당 | |
-|  |***ILB(내부 부하 분산 장치)*** |ILB(동적 또는 정적)에 할당 |ILB의 프런트 엔드 구성(동적 또는 정적)에 할당 | |
+|  ||IaaS VM 또는 PaaS 역할 인스턴스에 할당 |VM의 NIC에 할당 |
+|  |***ILB(내부 부하 분산 장치)*** |ILB(동적 또는 정적)에 할당 |ILB의 프런트 엔드 구성(동적 또는 정적)에 할당 |
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Portal을 사용하여 [고정 개인 IP 주소를 사용하는 VM 배포](virtual-networks-static-private-ip-classic-pportal.md)

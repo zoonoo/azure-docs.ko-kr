@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: afd6ded48bc330032b77be4bc8cd186a6f71ee5f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105130"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099004"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Azure Security Center의 시스템 업데이트 적용
 Azure Security Center는 매일 Windows 및 Linux VM(가상 머신)과 컴퓨터에서 누락된 운영 체제 업데이트를 모니터링합니다. Security Center는 Windows 컴퓨터에 구성된 서비스에 따라 Windows 업데이트 또는 WSUS(Windows Server Update Services)에서 사용 가능한 보안 및 중요 업데이트의 목록을 검색합니다. 보안 센터는 또한 Linux 시스템에서 최신 업데이트를 확인합니다. VM 또는 컴퓨터에 누락된 시스템 업데이트가 있으면 Security Center는 시스템 업데이트를 적용하는 것이 좋다는 메시지를 표시합니다.
@@ -43,7 +43,7 @@ Azure Security Center는 매일 Windows 및 Linux VM(가상 머신)과 컴퓨터
     - VM과 컴퓨터 전체에서 누락된 중요 업데이트의 총 수
     - VM과 컴퓨터 전체에서 누락된 보안 업데이트의 총 수
 
-  대시보드 아래쪽에는 VM과 컴퓨터 전체에서 누락된 모든 업데이트와 누락된 업데이트의 심각도가 나열됩니다.  이 목록에는 다음과 같은 정보가 포함됩니다.
+   대시보드 아래쪽에는 VM과 컴퓨터 전체에서 누락된 모든 업데이트와 누락된 업데이트의 심각도가 나열됩니다.  이 목록에는 다음과 같은 정보가 포함됩니다.
 
     - 이름: 누락된 업데이트의 이름입니다.
     - VM 및 컴퓨터 수: 이 업데이트가 누락된 VM 및 컴퓨터의 총 수입니다.
@@ -63,13 +63,13 @@ Azure Security Center는 매일 Windows 및 Linux VM(가상 머신)과 컴퓨터
 
    ![누락된 보안 업데이트][3]
 
-4. 위쪽 리본에서 **검색** 아이콘을 선택합니다.  업데이트가 누락된 컴퓨터가 표시되도록 필터링된 Log Analytics 검색 쿼리가 열립니다.
+4. 위쪽 리본에서 **검색** 아이콘을 선택합니다.  Azure Monitor 로그 검색 쿼리를 필터링 된 업데이트가 누락 된 컴퓨터에 열립니다.
 
-   ![Log Analytics 검색][4]
+   ![Azure Monitor의 로그 검색][4]
 
 5. 목록에서 컴퓨터를 선택하면 자세한 내용을 확인할 수 있습니다. 해당 컴퓨터와 관련된 정보만 표시되도록 필터링된 다른 검색 결과가 열립니다.
 
-    ![Log Analytics 검색][5]
+    ![Azure Monitor의 로그 검색][5]
 
 ## <a name="reboot-after-system-updates"></a>시스템 업데이트 후 다시 부팅
 1. **권장 사항** 블레이드로 돌아갑니다. 시스템 업데이트를 적용한 후 **시스템 업데이트 후 다시 부팅**이라는 새 항목이 생성되었습니다. 이 항목을 통해 시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅해야 한다는 것을 알 수 있습니다.

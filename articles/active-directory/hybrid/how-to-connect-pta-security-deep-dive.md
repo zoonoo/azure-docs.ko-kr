@@ -15,12 +15,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e1d3058600bca6630c3efcbb860b7f8eeeaf57
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176835"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096863"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
 
@@ -195,8 +195,8 @@ Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer �
 3. 업데이트 프로그램은 Microsoft에서 MSI를 서명했는지 확인합니다.
 4. 업데이트 프로그램은 MSI를 실행합니다. 이때 다음과 같은 단계가 수행됩니다.
 
- > [!NOTE]
- > 업데이트 프로그램은 [로컬 시스템](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) 권한으로 실행됩니다.
+   > [!NOTE]
+   > 업데이트 프로그램은 [로컬 시스템](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) 권한으로 실행됩니다.
 
     - 인증 에이전트 서비스를 중지합니다.
     - 서버에 새 인증 에이전트 버전을 설치합니다.

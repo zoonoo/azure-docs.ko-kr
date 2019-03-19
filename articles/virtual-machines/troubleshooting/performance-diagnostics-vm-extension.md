@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 415cf34a8b19400091807005e1e9943aa025f244
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980026"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002740"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
 
@@ -89,7 +89,7 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 
 Windows 가상 머신에서 확장을 설치하려면 다음 지침을 따릅니다.
 
-1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 이 확장을 설치하려는 가상 컴퓨터를 선택합니다.
 
     ![가상 머신을 강조 표시한 Azure Portal의 스크린샷](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -112,7 +112,7 @@ Windows 가상 머신에서 확장을 설치하려면 다음 지침을 따릅니
 ## <a name="remove-the-extension"></a>확장 제거
 가상 머신에서 확장을 제거하려면 다음 단계를 따릅니다.
 
-1. [Azure Portal](http://portal.azure.com)에 로그인하고, 이 확장을 제거하려는 가상 머신을 선택한 다음 **확장** 블레이드를 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 이 확장을 제거하려는 가상 머신을 선택한 다음 **확장** 블레이드를 선택합니다. 
 2. 목록에서 성능 진단 확장 항목에 대해 (**...**)를 클릭하고 **제거**를 선택합니다.
 
     ![제거를 강조 표시한 확장 블레이드 스크린샷](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
@@ -125,7 +125,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 가상 머신 확장을 �
 
 ```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {

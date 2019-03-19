@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 16d85510efb055d7d564ffadb9fff2b200771bc6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079471"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 > [!div class="op_single_selector"]
@@ -54,13 +54,13 @@ ms.locfileid: "53438832"
 
 1. ExpressRoute 회로 및 Azure 개인 피어링이 성공적으로 구성되었는지 확인합니다. [ExpressRoute 회로 만들기](expressroute-howto-circuit-arm.md) 및 [라우팅 구성](expressroute-howto-routing-arm.md)의 지침을 따릅니다. ExpressRoute 회로가 다음 이미지와 같이 표시됩니다.
 
-  ![ExpressRoute 회로 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
+   ![ExpressRoute 회로 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
 2. 이제 연결 프로비전을 시작하여 가상 네트워크 게이트웨이를 ExpressRoute 회로에 연결할 수 있습니다. **연결** > **추가**를 클릭하여 **연결 추가** 페이지를 연 다음 값을 구성합니다.
 
-  ![연결 추가 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
+   ![연결 추가 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
 3. 연결이 성공적으로 구성되면 연결 개체가 연결에 대한 정보를 표시합니다.
 
-  ![연결 개체 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
+   ![연결 개체 스크린샷](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
 ## <a name="connect-a-vnet-to-a-circuit---different-subscription"></a>회로에 VNet 연결 - 다른 구독
 
@@ -95,10 +95,10 @@ ms.locfileid: "53438832"
 
 1. ExpressRoute 페이지에서 **권한 부여**를 클릭한 다음, 권한 부여에 대한 **이름**을 입력하고 **저장**을 클릭합니다.
 
-  ![권한 부여](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+   ![권한 부여](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. 구성이 저장되면 **리소스 ID** 및 **권한 부여 키**를 복사합니다.
 
-  ![인증 키](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
+   ![인증 키](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
 **연결 권한 부여를 삭제하려면**
 
@@ -112,18 +112,18 @@ ms.locfileid: "53438832"
 
 1. **+새로 만들기** 단추를 클릭합니다.
 
-  ![새로 만들기 클릭](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
+   ![새로 만들기 클릭](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 2. Marketplace에서 **“연결”** 을 검색하고 선택한 후 **만들기**를 클릭합니다.
 
-  ![연결 검색](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
+   ![연결 검색](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 3. **연결 유형**이 "ExpressRoute"로 설정되어 있는지 확인합니다.
 4. 세부 정보를 입력한 다음, 기본 사항 페이지에서 **확인**을 클릭합니다.
 
-  ![기본 페이지](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+   ![기본 페이지](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. **설정** 페이지에서 **가상 네트워크 게이트웨이**를 선택하고 **권한 부여 사용** 확인란을 선택합니다.
 6. **권한 부여 키** 및 **피어 회로 URI**를 입력한 후 연결 이름을 지정합니다. **확인**을 클릭합니다.
 
-  ![설정 페이지](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+   ![설정 페이지](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. **요약** 페이지에서 정보를 검토하고 **확인**을 클릭합니다.
 
 **연결 권한 부여를 해제하려면**

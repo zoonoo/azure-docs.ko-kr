@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 1be635826edbb60d50b06cc7c529e32b6280390b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9d0c8c01ae0d87c944922dece74e13f00879b02f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010255"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 디바이스의 안전한 설치 및 작동
 ![경고 아이콘](./media/storsimple-safety/IC740879.png)
@@ -145,7 +145,7 @@ ms.locfileid: "51249390"
 
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
-배터리를 선적하거나 항공편으로 운송하는 경우 [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)의 IATA 리튬 배터리 지침 문서를 따르세요.
+배터리를 선적하거나 항공편으로 운송하는 경우 [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)의 IATA 리튬 배터리 지침 문서를 따르세요.
 
 이 보안 공지를 검토한 후 다음 단계에서는 디바이스를 개봉하고 랙 및 케이블을 연결합니다.
 

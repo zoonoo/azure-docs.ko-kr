@@ -17,12 +17,12 @@ ms.author: negoe
 ms.reviewer: negoe,andret,saeeda,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a487c233e7bb71f05c6f2181d9c822ca508a583c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4feaf97de7b833514113af6c91b3745be0503eff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192951"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115843"
 ---
 # <a name="national-clouds"></a>국가별 클라우드
 
@@ -44,10 +44,10 @@ ms.locfileid: "56192951"
 
 | 국가별 클라우드 | Azure AD 포털 엔드포인트
 | --- | --- |
-| 미국 정부의 Azure AD |https://portal.azure.us
-|Azure AD Germany |https://portal.microsoftazure.de
-|21Vianet으로 운영되는 Azure AD China |https://portal.azure.cn
-|Azure AD(글로벌 서비스)|https://portal.azure.com 
+| 미국 정부의 Azure AD |`https://portal.azure.us`
+|Azure AD Germany |`https://portal.microsoftazure.de`
+|21Vianet으로 운영되는 Azure AD China |`https://portal.azure.cn`
+|Azure AD(글로벌 서비스)|`https://portal.azure.com` 
 
 ## <a name="azure-ad-authentication-endpoints"></a>Azure AD 인증 엔드포인트
 
@@ -78,8 +78,8 @@ ms.locfileid: "56192951"
 
 
 
->[!IMPORTANT]
-글로벌 서비스의 특정 지역에서 제공되는 특정 서비스와 기능이 모든 국가별 클라우드에서 제공되지는 않을 수도 있습니다. 사용 가능한 서비스를 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)을 참조하세요.
+> [!IMPORTANT]
+> 글로벌 서비스의 특정 지역에서 제공되는 특정 서비스와 기능이 모든 국가별 클라우드에서 제공되지는 않을 수도 있습니다. 사용 가능한 서비스를 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

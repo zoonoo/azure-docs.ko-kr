@@ -1,6 +1,6 @@
 ---
-title: Azure 빠른 시작 템플릿을 사용하여 SQL Server VM에서 WSFC, 수신기 만들기 및 Always On 가용성 그룹에 대해 ILB 구성
-description: Azure 빠른 시작 템플릿을 사용하면 템플릿을 통해 클러스터를 만들고, SQL VM을 클러스터에 연결하고, 수신기를 만들고, ILB를 구성하여 Azure에서 SQL Server VM에 대한 가용성 그룹을 만드는 프로세스를 간소화할 수 있습니다.
+title: Azure 빠른 시작 템플릿을 사용 하 여 Azure VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성
+description: Windows 장애 조치 클러스터를 클러스터에 SQL Server Vm 조인, 수신기를 만들고 Azure에서 내부 부하 분산 장치를 구성 하려면 Azure 빠른 시작 템플릿을 사용 합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/04/2018
+ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 093fa1414ec624f66bc7cb4559fa8c0535834c10
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 4b4527bfaacc592c13552e362de0cba620314cd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981930"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122049"
 ---
-# <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Azure 빠른 시작 템플릿을 사용하여 SQL Server VM에서 WSFC, 수신기 만들기 및 Always On 가용성 그룹에 대해 ILB 구성
+# <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure 빠른 시작 템플릿을 사용 하 여 Azure VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성
 이 문서에서는 Azure 빠른 시작 템플릿을 사용하여 Azure에서 SQL Server Virtual Machines에 대한 Always On 가용성 그룹 구성의 배포를 부분적으로 자동화하는 방법을 설명합니다. 이 프로세스에서 사용되는 두 개의 Azure 빠른 시작 템플릿이 있습니다. 
 
    | Template | 설명 |
@@ -38,7 +38,14 @@ ms.locfileid: "55981930"
 빠른 시작 템플릿을 사용하여 Always On 가용성 그룹의 설정을 자동화하려면 다음과 같은 필수 조건이 이미 있어야 합니다. 
 - [Azure 구독](https://azure.microsoft.com/free/).
 - 도메인 컨트롤러를 포함하는 리소스 그룹 
-- [SQL VM 리소스 공급자에 등록](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider)되었으며, 동일한 가용성 집합 또는 가용성 영역에서 [SQL Server 2016 이상의 Enterprise Edition을 실행하는 Azure의 도메인 가입 VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 하나 이상  
+- [SQL VM 리소스 공급자에 등록](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider)되었으며, 동일한 가용성 집합 또는 가용성 영역에서 [SQL Server 2016 이상의 Enterprise Edition을 실행하는 Azure의 도메인 가입 VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 하나 이상  
+- (모든 엔터티에서 사용 되지 않음)는 두 사용 가능한 IP 주소, 내부 Load Balancer 및 가용성 그룹과 동일한 서브넷 내에서 가용성 그룹 수신기에 대 한 합니다. 기존 load balancer를 사용 하는 경우 사용 가능한 IP 주소가 하나만 필요 합니다.  
+
+## <a name="permissions"></a>권한
+Azure 빠른 시작 템플릿을 사용 하 여 Always On 가용성 그룹을 구성 하는 데 필요한 권한은 다음 같습니다. 
+
+- 기존 도메인 사용자 계정 도메인의 컴퓨터 개체 만들기 ' 권한이 있는 합니다.  예를 들어 도메인 관리자 계정에는 일반적으로 충분한 권한이 있습니다(예: account@domain.com). 또한 이 계정은 클러스터를 만들 각 VM의 로컬 관리자 그룹에 속해 있어야 합니다.
+- SQL Server 서비스를 제어 하는 도메인 사용자 계정입니다. 
 
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>1단계 - 빠른 시작 템플릿을 사용하여 WSFC를 만들고 SQL Server VM을 클러스터에 연결 
@@ -69,18 +76,18 @@ SQL Server VM이 SQL VM 새 리소스 공급자에 등록되고 나면 SQL Serve
 1. 사용 약관에 동의하는 경우 **위에 명시된 사용 약관에 동의함** 옆에 있는 확인란을 선택하고 **구매**를 선택하여 빠른 시작 템플릿 배포를 완료합니다. 
 1. 배포를 모니터링하려면 상단 탐색 배너의 **알림** 벨 아이콘에서 배포를 선택하거나 Azure Portal의 **리소스 그룹**으로 이동하여 **설정** 필드에서 **배포**를 선택하고 ‘Microsoft.Template’ 배포를 선택합니다. 
 
-  >[!NOTE]
-  > 템플릿 배포 중에 제공한 자격 증명은 배포 기간에만 저장됩니다. 배포가 완료되면 해당 암호가 제거되며, 클러스터에 SQL Server VM을 더 추가해야 하는 경우 암호를 다시 입력하라는 메시지가 표시됩니다. 
+   >[!NOTE]
+   > 템플릿 배포 중에 제공한 자격 증명은 배포 기간에만 저장됩니다. 배포가 완료되면 해당 암호가 제거되며, 클러스터에 SQL Server VM을 더 추가해야 하는 경우 암호를 다시 입력하라는 메시지가 표시됩니다. 
 
 
 ## <a name="step-2---manually-create-the-availability-group"></a>2단계 - 수동으로 가용성 그룹 만들기 
-[PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017), [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) 또는 [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017)을 사용하여 일반적인 방법으로 가용성 그룹을 수동으로 만듭니다. 
+평소와 같이, 하나를 사용 하 여 가용성 그룹을 수동으로 만들 [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio)를 [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell), 또는 [TRANSACT-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql)합니다. 
 
   >[!IMPORTANT]
   > 지금 수신기를 만들지는 **마세요**. 이 작업은 4단계의 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 통해 자동으로 수행됩니다. 
 
 ## <a name="step-3---manually-create-the-internal-load-balancer-ilb"></a>3단계 - 수동으로 ILB(내부 Load Balancer) 만들기
-Always On AG(가용성 그룹) 수신기에는 ILB(내부 Azure Load Balancer)가 필요합니다. ILB는 AG 수신기에 대해 “부동” IP 주소를 제공하므로 더 빠른 장애 조치(failover) 및 재연결이 가능합니다. 가용성 그룹의 SQL Server VM이 동일한 가용성 집합의 일부인 경우 기본 Load Balancer를 사용할 수 있습니다. 그렇지 않으면 표준 Load Balancer를 사용해야 합니다.  **ILB는 SQL Server VM 인스턴스와 동일한 VNet에 있어야 합니다.** ILB만 만들면 되고, 나머지 구성(예: 백 엔드 풀, 상태 프로브 및 부하 분산 규칙)은 4단계의 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 통해 처리됩니다. 
+Always On 가용성 그룹 (AG) 수신기는 내부 Azure 부하 분산 장치 (ILB) 필요합니다. ILB는 AG 수신기에 대해 “부동” IP 주소를 제공하므로 더 빠른 장애 조치(failover) 및 재연결이 가능합니다. 가용성 그룹의 SQL Server VM이 동일한 가용성 집합의 일부인 경우 기본 Load Balancer를 사용할 수 있습니다. 그렇지 않으면 표준 Load Balancer를 사용해야 합니다.  **ILB는 SQL Server VM 인스턴스와 동일한 VNet에 있어야 합니다.** ILB만 만들면 되고, 나머지 구성(예: 백 엔드 풀, 상태 프로브 및 부하 분산 규칙)은 4단계의 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 통해 처리됩니다. 
 
 1. Azure 포털에서 SQL Server 가상 머신을 포함하는 리소스 그룹을 엽니다. 
 2. 리소스 그룹에서 **추가**를 클릭합니다.
@@ -104,7 +111,7 @@ Always On AG(가용성 그룹) 수신기에는 ILB(내부 Azure Load Balancer)�
 6. **만들기**를 선택합니다. 
 
 
-  >[!NOTE]
+  >[!IMPORTANT]
   > 각 SQL Server VM에 대한 공용 IP 리소스에 표준 Load Balancer와 호환되는 표준 SKU가 있어야 합니다. VM 공용 IP 리소스의 SKU를 확인하려면 **리소스 그룹**으로 이동하여 원하는 SQL Server VM에 대한 **공용 IP 주소** 리소스를 선택하고 **개요** 창의 **SKU** 아래에서 값을 찾습니다. 
 
 ## <a name="step-4---create-the-ag-listener-and-configure-the-ilb-with-the-quickstart-template"></a>4단계 - AG 수신기를 만들고 빠른 시작 템플릿을 사용하여 ILB 구성
@@ -143,8 +150,8 @@ ILB를 구성하고 AG 수신기를 만들려면 다음을 수행합니다.
 1. 사용 약관에 동의하는 경우 **위에 명시된 사용 약관에 동의함** 옆에 있는 확인란을 선택하고 **구매**를 선택하여 빠른 시작 템플릿 배포를 완료합니다. 
 1. 배포를 모니터링하려면 상단 탐색 배너의 **알림** 벨 아이콘에서 배포를 선택하거나 Azure Portal의 **리소스 그룹**으로 이동하여 **설정** 필드에서 **배포**를 선택하고 ‘Microsoft.Template’ 배포를 선택합니다. 
 
-  >[!NOTE]
-  >배포에 실패하는 경우 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 다시 배포하기 전에 PowerShell을 사용하여 [새로 만든 수신기를 수동으로 제거](#remove-availability-group-listener)해야 합니다. 
+   >[!NOTE]
+   >배포에 실패하는 경우 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 다시 배포하기 전에 PowerShell을 사용하여 [새로 만든 수신기를 수동으로 제거](#remove-availability-group-listener)해야 합니다. 
 
 ## <a name="remove-availability-group-listener"></a>가용성 그룹 수신기 제거
 템플릿을 통해 구성된 가용성 그룹 수신기를 나중에 제거해야 하는 경우 SQL VM 리소스 공급자를 이용해야 합니다. 수신기가 SQL VM 리소스 공급자를 통해 등록되었으므로 SQL Server Management Studio를 통해 수신기를 삭제하는 것만으로는 충분하지 않습니다. 실제로 PowerShell을 사용하여 SQL VM 리소스 공급자를 통해 삭제해야 합니다. 이렇게 하면 SQL VM 리소스 공급자에서 AG 수신기 메타데이터가 제거되고 가용성 그룹에서 수신기가 물리적으로 삭제됩니다. 
@@ -176,17 +183,17 @@ AG 수신기 Azure 빠른 시작 템플릿에 사용된 선택한 가용성 그�
 
  계정이 있는지 확인합니다. 계정이 있는 경우 두 번째 상황일 수 있습니다. 이 오류를 해결하려면 다음을 수행합니다.
 
- 1. 도메인 컨트롤러에서 **서버 관리자**의 **도구** 옵션을 통해 **Active Directory 사용자 및 컴퓨터** 창을 엽니다. 
- 2. 왼쪽 창에서 **사용자**를 선택하여 계정으로 이동합니다.
- 3. 원하는 계정을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
- 4. **계정** 탭을 선택하고 **사용자 로그온 이름**이 비어 있는지 확인합니다. 비어 있으면 이것이 오류의 원인입니다. 
+1. 도메인 컨트롤러에서 **서버 관리자**의 **도구** 옵션을 통해 **Active Directory 사용자 및 컴퓨터** 창을 엽니다. 
+2. 왼쪽 창에서 **사용자**를 선택하여 계정으로 이동합니다.
+3. 원하는 계정을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+4. **계정** 탭을 선택하고 **사용자 로그온 이름**이 비어 있는지 확인합니다. 비어 있으면 이것이 오류의 원인입니다. 
 
-     ![비어 있는 사용자 계정은 UPN 누락을 나타냅니다.](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
+    ![비어 있는 사용자 계정은 UPN 누락을 나타냅니다.](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
- 5. 사용자 이름과 일치하도록 **사용자 로그온 이름**을 입력하고 드롭다운에서 적절한 도메인을 선택합니다. 
- 6. **적용**을 선택하여 변경 내용을 저장한 다음, **확인**을 선택하여 대화 상자를 닫습니다. 
+5. 사용자 이름과 일치하도록 **사용자 로그온 이름**을 입력하고 드롭다운에서 적절한 도메인을 선택합니다. 
+6. **적용**을 선택하여 변경 내용을 저장한 다음, **확인**을 선택하여 대화 상자를 닫습니다. 
 
- 이러한 변경 작업을 완료한 후 Azure 빠른 시작 템플릿을 다시 배포해 보세요. 
+   이러한 변경 작업을 완료한 후 Azure 빠른 시작 템플릿을 다시 배포해 보세요. 
 
 
 

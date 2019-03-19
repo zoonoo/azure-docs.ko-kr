@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 130ca849b39336637f53b32043874b5d037a8f0d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 09b652b236e1fbe68d93298f0f8793854e411aad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342926"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095673"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 스트리밍으로 C# 사용
 
@@ -161,13 +161,13 @@ namespace reducer
 
 5. .exe 파일을 업로드하려면 다음 방법 중 하나를 사용합니다.
 
-    * __Azure Storage 계정__을 사용하는 경우 업로드 아이콘을 클릭한 다음 **bin\debug** 폴더로 이동하여 **mapper** 프로젝트를 검색합니다. 마지막으로 **mapper.exe** 파일을 선택한 다음 **확인**을 클릭합니다.
+   * __Azure Storage 계정__을 사용하는 경우 업로드 아이콘을 클릭한 다음 **bin\debug** 폴더로 이동하여 **mapper** 프로젝트를 검색합니다. 마지막으로 **mapper.exe** 파일을 선택한 다음 **확인**을 클릭합니다.
 
-        ![업로드 아이콘](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
+       ![업로드 아이콘](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * __Azure Data Lake Storage__를 사용하는 경우 마우스 오른쪽 버튼으로 파일 목록의 빈 영역을 클릭한 다음, __업로드__를 선택합니다. 마지막으로 **mapper.exe** 파일을 선택한 다음 **열기**를 클릭합니다.
+   * __Azure Data Lake Storage__를 사용하는 경우 마우스 오른쪽 버튼으로 파일 목록의 빈 영역을 클릭한 다음, __업로드__를 선택합니다. 마지막으로 **mapper.exe** 파일을 선택한 다음 **열기**를 클릭합니다.
 
-    __mapper.exe__ 업로드가 완료되면 __reducer.exe__ 파일의 업로드 프로세스를 반복합니다.
+     __mapper.exe__ 업로드가 완료되면 __reducer.exe__ 파일의 업로드 프로세스를 반복합니다.
 
 ## <a name="run-a-job-using-an-ssh-session"></a>작업 실행: SSH 세션 사용
 
@@ -175,32 +175,32 @@ namespace reducer
 
 2. 다음 명령 중 하나를 사용하여 MapReduce 작업을 시작합니다.
 
-    * 기본 스토리지로 __Data Lake Storage Gen2__를 사용하는 경우:
+   * 기본 스토리지로 __Data Lake Storage Gen2__를 사용하는 경우:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files abfs:///mapper.exe,abfs:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
 
-    * 기본 스토리지로 __Data Lake Storage Gen1__을 사용하는 경우:
+   * 기본 스토리지로 __Data Lake Storage Gen1__을 사용하는 경우:
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
     
-    * 기본 스토리지로 __Azure Storage__를 사용하는 경우
+   * 기본 스토리지로 __Azure Storage__를 사용하는 경우
 
-        ```bash
-        yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
-        ```
+       ```bash
+       yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
+       ```
 
-    다음 목록은 각 매개 변수가 하는 기능에 대한 설명입니다.
+     다음 목록은 각 매개 변수가 하는 기능에 대한 설명입니다.
 
-    * `hadoop-streaming.jar`: 스트리밍 MapReduce 기능이 포함된 jar 파일입니다.
-    * `-files`: 이 작업에 `mapper.exe` 및 `reducer.exe` 파일을 추가합니다. 각 파일 앞의 `abfs:///`, `adl:///` 및 `wasb:///`는 클러스터의 기본 스토리지 루트 경로입니다.
-    * `-mapper`: mapper를 구현하는 파일을 지정합니다.
-    * `-reducer`: reducer를 구현하는 파일을 지정합니다.
-    * `-input`: 입력 데이터입니다.
-    * `-output`: 출력 디렉터리입니다.
+   * `hadoop-streaming.jar`: 스트리밍 MapReduce 기능이 포함된 jar 파일입니다.
+   * `-files`: 이 작업에 `mapper.exe` 및 `reducer.exe` 파일을 추가합니다. 각 파일 앞의 `abfs:///`, `adl:///` 및 `wasb:///`는 클러스터의 기본 스토리지 루트 경로입니다.
+   * `-mapper`: mapper를 구현하는 파일을 지정합니다.
+   * `-reducer`: reducer를 구현하는 파일을 지정합니다.
+   * `-input`: 입력 데이터입니다.
+   * `-output`: 출력 디렉터리입니다.
 
 3. MapReduce 작업이 완료되면 다음을 사용하여 결과를 확인합니다.
 

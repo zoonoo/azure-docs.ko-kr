@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f20cd877e4cc53490016d251c5bdb343ab0cb4b0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: acec53a99fd6d809dc01ce12b02987d66579b0c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118292"
 ---
 # <a name="manage-role-based-access-control"></a>역할 기반 Access Control 관리
 
@@ -41,8 +41,8 @@ Azure Stack의 사용자는 구독, 리소스 그룹 또는 서비스의 각 인
 
 ## <a name="set-access-permissions-for-a-universal-group"></a>유니버설 그룹에 대 한 액세스 권한을 설정합니다 
 
-> [!Note]  
-Active Directory 적용할 페더레이션 서비스 (AD FS).
+> [!Note]
+> Active Directory 적용할 페더레이션 서비스 (AD FS).
 
 1. 관리하려는 리소스에 대한 소유자 권한이 있는 계정으로 로그인합니다.
 2. 리소스에 대 한 블레이드에서 다음을 클릭 합니다 **액세스** 아이콘 ![](media/azure-stack-manage-permissions/image1.png)합니다.
