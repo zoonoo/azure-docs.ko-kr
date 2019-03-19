@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 4c58d053412b8f90b6423454fcda814e8cf6da75
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: dbee223e6c8e878d017026531dd06301fe6aaf84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093874"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>한 Azure 지역에서 다른 지역으로 복제를 위한 지원 매트릭스
 
@@ -33,7 +33,7 @@ ms.locfileid: "56329016"
 ## <a name="resource-support"></a>리소스 지원
 
 **리소스 작업** | **세부 정보**
---- | --- | ---
+--- | --- 
 **리소스 그룹 간 자격 증명 모음 이동** | 지원되지 않음
 **리소스 그룹 간에 계산/저장소/네트워크 리소스 이동** | 지원되지 않습니다.<br/><br/> VM 복제 후 VM 또는 저장소/네트워크와 같은 관련 구성 요소를 이동하는 경우 VM에 대한 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
 **재해 복구를 위해 한 구독에서 다른 구독으로 Azure VM 복제** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
@@ -79,10 +79,11 @@ Azure Government    | 미국 버지니아 주 정부, 미국 아이오와 주 �
 
 Site Recovery는 이 섹션에 나열된 운영 체제를 실행하는 Azure VM의 복제를 지원합니다.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 **운영 체제** | **세부 정보**
 --- | ---
+Windows Server 2019 |
 Windows Server 2016  | Server Core, 데스크톱 경험이 있는 Server
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -194,7 +195,7 @@ Managed Disk - Premium | Azure Site Recovery가 지원되는 Azure 지역에서 
 Windows OS용 ADE(Azure Disk Encryption) | [Azure AD 앱을 사용한 암호화](https://aka.ms/ade-aad-app)를 사용할 수 있도록 설정된 VM은 지원됩니다. |
 Linux OS용 ADE(Azure Disk Encryption) | 지원되지 않음 |
 디스크 핫 추가/제거 | 지원되지 않음 | VM에서 데이터 디스크를 추가하거나 제거하는 경우 해당 VM에 대해 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
-디스크 제외 | [PowerShell을 통해 지원됨](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell?branch=pr-en-us-66458#replicate-azure-virtual-machine) |  임시 디스크는 기본적으로 제외됩니다.
+디스크 제외 | [PowerShell을 통해 지원됨](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   임시 디스크는 기본적으로 제외됩니다.
 직접 저장소 공간  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 스케일 아웃 파일 서버  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 LRS | 지원됨 |
@@ -203,7 +204,7 @@ RA-GRS | 지원됨 |
 ZRS | 지원되지 않음 |
 콜드 및 핫 저장소 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 저장소에서 지원되지 않습니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 ['신뢰할 수 있는 Microsoft 서비스를 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)해야 합니다.
-범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아니요 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
+범용 V2 저장소 계정(핫 및 쿨 계층 모두) | 아닙니다. | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 
 >[!IMPORTANT]
 > [Linux](../virtual-machines/linux/disk-scalability-targets.md) 또는 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 가상 머신에 대한 VM 디스크 확장성 및 성능 목표를 확인하여 성능 문제를 피해야 합니다. 기본 설정을 따르는 경우 Site Recovery가 원본 구성에 따라 필요한 디스크 및 저장소 계정을 만듭니다. 사용자 고유의 설정을 사용자 지정하고 선택하는 경우 소스 VM의 디스크 확장성 및 성능 목표를 준수하는지 확인합니다.

@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e0942f028752b1e3db89802ee889eac7157815d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 194f422c1567103e41f3b39f8510931b1f4762b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205616"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105185"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10GB 제한에서 복구하는 방법
 Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. Azure AD connect로 설치된 기본 SQL Server 2012 Express LocalDB를 사용하거나 사용자 고유의 전체 SQL을 사용할 수 있습니다. SQL Server Express는 10GB 크기 제한을 적용합니다. LocalDB를 사용하고 이 제한에 도달하는 경우 Azure AD Connect 동기화 서비스는 더 이상 제대로 시작하거나 동기화할 수 없습니다. 이 문서에서는 복구 단계를 제공합니다.
@@ -81,13 +81,13 @@ Azure AD Connect에 대해 만든 데이터베이스의 이름은 **ADSync**입�
 ### <a name="delete-run-history-data"></a>실행 기록 데이터 삭제
 기본적으로 Azure AD Connect는 7일 동안 실행 기록 데이터를 유지합니다. 이 단계에서는 실행 기록 데이터를 삭제하여 Azure AD Connect 동기화 서비스가 동기화를 다시 시작할 수 있도록 DB 공간을 확보합니다.
 
-1.  시작 → 동기화 서비스로 이동하여 **Synchronization Service Manager**를 시작합니다.
+1. 시작 → 동기화 서비스로 이동하여 **Synchronization Service Manager**를 시작합니다.
 
-2.  **Operations** 탭으로 이동합니다.
+2. **Operations** 탭으로 이동합니다.
 
-3.  **Actions** 아래에서 **Clear Runs**를 선택합니다.
+3. **Actions** 아래에서 **Clear Runs**를 선택합니다.
 
-4.  **Clear all runs** 또는 **Clear runs before… <date>** 옵션 중에서 선택할 수 있습니다. 2일보다 오래된 실행 기록 데이터를 삭제하여 시작하는 것이 좋습니다. DB 크기 문제가 계속되면 **Clear all runs** 옵션을 선택합니다.
+4. **Clear all runs** 또는 **Clear runs before… <date>** 옵션 중에서 선택할 수 있습니다. 2일보다 오래된 실행 기록 데이터를 삭제하여 시작하는 것이 좋습니다. DB 크기 문제가 계속되면 **Clear all runs** 옵션을 선택합니다.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>실행 기록 데이터에 대한 보존 기간 단축
 이 단계는 여러 동기화 주기 후 10GB 제한 문제의 발생 가능성을 줄이는 것입니다.

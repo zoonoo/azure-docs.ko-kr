@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 6645463f2172a6f201f4d2f840e03d1797367752
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013306"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure Monitor를 사용하여 데이터 팩터리 경고 및 모니터링
 클라우드 애플리케이션은 이동하는 부분이 많아 복잡합니다. 모니터링은 애플리케이션을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 애플리케이션에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 사용하면 애플리케이션 성능 또는 유지 관리 편의성을 향상시키거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화할 수 있습니다.
@@ -40,11 +40,11 @@ Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만
 ### <a name="diagnostic-settings"></a>진단 설정
 진단 설정을 사용하여 비계산 리소스에 대한 진단 로그를 구성합니다. 리소스 제어에 대한 진단 설정은 다음과 같습니다.
 
-* 진단 로그를 보낼 위치(스토리지 계정, Event Hubs 또는 Log Analytics).
+* (저장소 계정, Event Hubs 또는 Azure Monitor 로그) 진단 로그를 보낼 위치입니다.
 * 보낼 로그 범주.
 * 각 로그 범주를 스토리지 계정에 보존해야 하는 기간.
 * 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
-* 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예: Event Hubs 또는 Log Analytics 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
+* 보존 정책이 설정 되었지만 저장소 계정에 로그를 저장 되지 않음 (예:만 Event Hubs 또는 Azure Monitor 로그 옵션을 선택)을 하는 경우 보존 정책은 효과가 없습니다.
 * 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>REST API를 통해 진단 로그를 사용하도록 설정
@@ -59,7 +59,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **헤더**
 * `{api-version}`을 `2016-09-01`로 바꿉니다.
-* `{resource-id}`를 진단 설정을 편집하려는 리소스에 대한 리소스 ID로 바꿉니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-portal.md)를 참조하세요.
+* `{resource-id}`를 진단 설정을 편집하려는 리소스에 대한 리소스 ID로 바꿉니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/manage-resource-groups-portal.md)를 참조하세요.
 * `Content-Type` 헤더를 `application/json`으로 설정합니다.
 * 권한 부여 헤더를 Azure Active Directory에서 가져온 JSON 웹 토큰으로 설정합니다. 자세한 내용은 [요청 인증](../active-directory/develop/authentication-scenarios.md)을 참조하세요.
 
@@ -277,7 +277,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 수준 4는 항상 활동 실행 로그에 대한 경우입니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| 실시간 | 문자열 | 시간 간격에 속한 이벤트 시간(UTC 형식)입니다. | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| 실시간 | 문자열 | 시간을 UTC 형식으로 이벤트의 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| 문자열| 활동 실행 ID입니다. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| 문자열| 파이프라인 실행 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |ResourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -288,7 +288,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |activityName| 문자열 | 작업의 이름 | `MyActivity` |
 |start| 문자열 | 시간 간격에 속한 활동 실행의 시작 시간(UTC 형식)입니다. | `2017-06-26T20:55:29.5007959Z`|
 |end| 문자열 | 시간 간격에 속한 활동 실행의 종료 시간(UTC 형식)입니다. 활동이 아직 종료되지 않은 경우(활동 시작에 대한 진단 로그) 기본값(`1601-01-01T00:00:00Z`)이 설정됩니다.  | `2017-06-26T20:55:29.5007959Z` |
-
 
 ### <a name="pipeline-run-logs-attributes"></a>파이프라인 실행 로그 특성
 
@@ -324,7 +323,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 수준 4는 활동 실행 로그에 대한 경우입니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| 실시간 | 문자열 | 시간 간격에 속한 이벤트 시간(UTC 형식)입니다. | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| 실시간 | 문자열 | 시간을 UTC 형식으로 이벤트의 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| 문자열| 파이프라인 실행 ID입니다. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |ResourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |카테고리| 문자열 | 진단 로그의 범주입니다. 이 속성을 "PipelineRuns"로 설정합니다. | `PipelineRuns` |
@@ -334,7 +333,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| 문자열 | 시간 간격에 속한 활동 실행의 시작 시간(UTC 형식)입니다. | `2017-06-26T20:55:29.5007959Z`|
 |end| 문자열 | 시간 간격에 속한 활동 실행의 종료 시간(UTC 형식)입니다. 활동이 아직 종료되지 않은 경우(활동 시작에 대한 진단 로그) 기본값(`1601-01-01T00:00:00Z`)이 설정됩니다.  | `2017-06-26T20:55:29.5007959Z` |
 |status| 문자열 | 파이프라인 실행의 최종 상태(Succeeded 또는 Failed )입니다. | `Succeeded`|
-
 
 ### <a name="trigger-run-logs-attributes"></a>트리거 실행 로그 특성
 
@@ -369,7 +367,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |문자열 | 진단 로그 수준입니다. 활동 실행 로그에 대해 수준 4로 설정합니다. | `4`  |
 | CorrelationId |문자열 | 종단 간 특정 요청을 추적하는 고유 ID입니다. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| 실시간 | 문자열 | 시간 간격에 속한 이벤트 시간(UTC 형식)입니다. | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| 실시간 | 문자열 | 시간을 UTC 형식으로 이벤트의 시간 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| 문자열| 트리거 실행 ID입니다. | `08587023010602533858661257311` |
 |ResourceId| 문자열 | 데이터 팩터리 리소스에 대한 연결된 리소스 ID입니다. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |카테고리| 문자열 | 진단 로그의 범주입니다. 이 속성을 "PipelineRuns"로 설정합니다. | `PipelineRuns` |
@@ -389,12 +387,12 @@ ADFV2에서 내보내는 메트릭은 다음과 같습니다.
 
 | **메트릭**           | **메트릭 표시 이름**         | **단위** | **집계 유형** | **설명**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | 성공한 파이프라인 실행 메트릭 | 개수    | 합계                | 1분 기간 내에 성공한 총 파이프라인 실행 수입니다. |
-| PipelineFailedRuns   | 실패한 파이프라인 실행 메트릭    | 개수    | 합계                | 1분 기간 내에 실패한 총 파이프라인 실행 수입니다.    |
-| ActivitySucceededRuns | 성공한 활동 실행 메트릭 | 개수    | 합계                | 1분 기간 내에 성공한 총 활동 실행 수입니다.  |
-| ActivityFailedRuns   | 실패한 활동 실행 메트릭    | 개수    | 합계                | 1분 기간 내에 실패한 총 활동 실행 수입니다.     |
-| TriggerSucceededRuns | 성공한 트리거 실행 메트릭  | 개수    | 합계                | 1분 기간 내에 성공한 총 트리거 실행 수입니다.   |
-| TriggerFailedRuns    | 실패한 트리거 실행 메트릭     | 개수    | 합계                | 1분 기간 내에 실패한 총 트리거 실행 수입니다.      |
+| PipelineSucceededRun | 성공한 파이프라인 실행 메트릭 | 카운트    | 합계                | 1분 기간 내에 성공한 총 파이프라인 실행 수입니다. |
+| PipelineFailedRuns   | 실패한 파이프라인 실행 메트릭    | 카운트    | 합계                | 1분 기간 내에 실패한 총 파이프라인 실행 수입니다.    |
+| ActivitySucceededRuns | 성공한 활동 실행 메트릭 | 카운트    | 합계                | 1분 기간 내에 성공한 총 활동 실행 수입니다.  |
+| ActivityFailedRuns   | 실패한 활동 실행 메트릭    | 카운트    | 합계                | 1분 기간 내에 실패한 총 활동 실행 수입니다.     |
+| TriggerSucceededRuns | 성공한 트리거 실행 메트릭  | 카운트    | 합계                | 1분 기간 내에 성공한 총 트리거 실행 수입니다.   |
+| TriggerFailedRuns    | 실패한 트리거 실행 메트릭     | 카운트    | 합계                | 1분 기간 내에 실패한 총 트리거 실행 수입니다.      |
 
 메트릭에 액세스하려면 다음 문서의 지침을 참조하세요. https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
 

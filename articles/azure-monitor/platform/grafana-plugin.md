@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730903"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002283"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
 이제 [Azure Monitor 데이터 원본 플러그 인](https://grafana.com/plugins/grafana-azure-monitor-datasource)을 사용하여 [Grafana](https://grafana.com/)에서 Azure 서비스 및 애플리케이션을 모니터링할 수 있습니다. 플러그 인은 다양한 로그 및 메트릭을 포함하여 Azure Monitor에서 수집된 애플리케이션 성능 데이터를 수집합니다. 그런 다음 Grafana 대시보드에 이 데이터를 표시할 수 있습니다.
@@ -26,7 +26,8 @@ Grafana 서버를 설정하고 Azure Monitor에서 메트릭 및 로그에 대�
 ## <a name="set-up-a-grafana-server"></a>Grafana 서버 설정
 
 ### <a name="set-up-grafana-locally"></a>Grafana를 로컬로 설정
-Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다운로드하여 설치](https://grafana.com/grafana/download)합니다. 플러그 인의 Log Analytics 통합을 사용하려면 Grafana 버전 5.3 이상을 설치합니다.
+Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다운로드하여 설치](https://grafana.com/grafana/download)합니다. 플러그 인의 Azure Monitor 통합을 사용 하려면 버전 5.3 이상이 Grafana를 설치 합니다.
+
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Azure Marketplace를 통해 Azure에서 Grafana 설정
 1. Azure Marketplace로 이동하여 Grafana Labs에서 Grafana를 선택합니다.
 
@@ -70,15 +71,15 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
     Log Analytics API에는 읽기 권한자 역할의 사용 권한을 포함하며 여기에 추가하는 [Log Analytics Reader 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader)이 필요합니다.
 
 4. 사용하려는 API에 연결 세부 정보를 제공합니다. 전부 또는 일부에만 연결할 수 있습니다. 
-    * Azure Monitor(메트릭 수집용) 및 Azure Log Analytics(로그 데이터용) 모두에 연결하는 경우 **Azure Monitor API와 동일한 세부 사항**을 선택하여 동일한 자격 증명을 재사용할 수 있습니다.
+    * 연결 하는 경우 메트릭 및 Azure Monitor의 로그를 동일한 자격 증명을 선택 하 여 재사용할 수 있습니다 **Azure Monitor API에 따라 동일한 세부 정보**합니다.
     * 플러그 인을 구성하는 동안 플러그 인을 모니터링할 Azure 클라우드(공용, Azure 미국 정부, Azure 독일 또는 Azure 중국)를 지정할 수 있습니다.
     * Application Insights를 사용하는 경우 Application Insights API 및 애플리케이션 ID를 포함하여 Application Insights 기반 메트릭을 수집할 수도 있습니다. 자세한 내용은 [API 키 및 애플리케이션 ID 가져오기](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 참조하세요.
 
         > [!NOTE]
         > 일부 데이터 원본 필드의 이름은 관련 Azure 설정과 다릅니다.
-        >     * 테넌트 ID는 Azure Directory ID입니다.
-        >     * 클라이언트 ID는 Azure Active Directory 애플리케이션 ID입니다.
-        >     * 클라이언트 비밀은 Azure Active Directory 애플리케이션 키 값입니다.
+        > * 테넌트 ID는 Azure Directory ID입니다.
+        > * 클라이언트 ID는 Azure Active Directory 애플리케이션 ID입니다.
+        > * 클라이언트 비밀은 Azure Active Directory 애플리케이션 키 값입니다.
 
 5. Application Insights를 사용하는 경우 Application Insights API 및 애플리케이션 ID를 포함하여 Application Insights 기반 메트릭을 수집할 수도 있습니다. 자세한 내용은 [API 키 및 애플리케이션 ID 가져오기](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 참조하세요.
 
@@ -95,16 +96,16 @@ Grafana 서버를 로컬로 설정하려면 [로컬 환경에서 Grafana를 다�
     ![Grafana 새 그래프](./media/grafana-plugin/grafana-new-graph-dark.png)
 
 4. 구성한 경우 Azure Monitor 데이터 원본을 선택합니다.
-    * Azure Monitor 메트릭 수집 - 서비스 드롭다운에서 **Azure Monitor**를 선택합니다. 선택 목록이 표시되면 이 차트에서 모니터링할 리소스 및 메트릭을 선택할 수 있습니다. VM에서 메트릭을 수집하려면 네임스페이스 **Microsoft.Compute/VirtualMachines**를 사용합니다. VM 및 메트릭을 선택하고 나면 대시보드에서 해당 데이터 보기를 시작할 수 있습니다.
-    ![Azure Monitor를 위한 Grafana 그래프 구성](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * Azure Log Analytics 데이터 수집 - 서비스 드롭다운에서 **Azure Log Analytics**를 선택합니다. 쿼리할 작업 영역을 선택하고 쿼리 텍스트를 설정합니다. 이미 가지고 있던 Log Analytics 쿼리를 여기로 복사하거나 새로 만들 수 있습니다. 쿼리에 입력할 때 IntelliSense가 표시되어 자동 완성 옵션을 제안합니다. 시각화 유형인 **시계열** **테이블**을 선택하고 쿼리를 실행합니다.
+   * Azure Monitor 메트릭 수집 - 서비스 드롭다운에서 **Azure Monitor**를 선택합니다. 선택 목록이 표시되면 이 차트에서 모니터링할 리소스 및 메트릭을 선택할 수 있습니다. VM에서 메트릭을 수집하려면 네임스페이스 **Microsoft.Compute/VirtualMachines**를 사용합니다. VM 및 메트릭을 선택하고 나면 대시보드에서 해당 데이터 보기를 시작할 수 있습니다.
+     ![Azure Monitor를 위한 Grafana 그래프 구성](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
+   * Azure Monitor 수집 데이터를 기록-선택 **Azure Log Analytics** 서비스 드롭다운에서 합니다. 쿼리할 작업 영역을 선택하고 쿼리 텍스트를 설정합니다. 이미 했거나 새로 만들 로그 쿼리 여기 복사할 수 있습니다. 쿼리에 입력할 때 IntelliSense가 표시되어 자동 완성 옵션을 제안합니다. 시각화 유형인 **시계열** **테이블**을 선택하고 쿼리를 실행합니다.
     
-    > [!NOTE]
-    >
-    > 플러그 인을 사용하여 제공된 기본 쿼리는 "$__timeFilter() 및 $__interval의 매크로 두 개를 사용합니다. 
-    > 차트의 일부를 확대하는 경우 이러한 매크로를 통해 Grafana는 시간 범위 및 시간 세분화를 동적으로 계산할 수 있습니다. 이러한 매크로 제거하고 *TimeGenerated > ago(1h)* 같은 표준 시간 필터를 사용할 수 있습니다. 단, 그래프는 확대/축소 기능을 지원하지 않습니다.
+     > [!NOTE]
+     >
+     > 플러그 인을 사용하여 제공된 기본 쿼리는 "$__timeFilter() 및 $__interval의 매크로 두 개를 사용합니다. 
+     > 차트의 일부를 확대하는 경우 이러한 매크로를 통해 Grafana는 시간 범위 및 시간 세분화를 동적으로 계산할 수 있습니다. 이러한 매크로 제거하고 *TimeGenerated > ago(1h)* 같은 표준 시간 필터를 사용할 수 있습니다. 단, 그래프는 확대/축소 기능을 지원하지 않습니다.
     
-    ![Azure Log Analytics를 위한 Grafana 그래프 구성](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
+     ![Azure Log Analytics를 위한 Grafana 그래프 구성](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. 다음은 두 개의 차트가 있는 간단한 대시보드입니다. 왼쪽 차트에는 두 VM의 CPU 백분율이 표시됩니다. 오른쪽 차트에는 트랜잭션 API 유형별로 분류된 Azure Storage 계정의 트랜잭션이 표시됩니다.
     ![두 Grafana 차트 예제](media/grafana-plugin/grafana6.png)

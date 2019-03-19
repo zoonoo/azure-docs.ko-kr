@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ae9f4d1ebcb84748b665579104f63dab3ee6f076
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901919"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>클라우드 데이터베이스의 분산 트랜잭션
 
@@ -126,13 +126,17 @@ Azure App Services의 경우에는 현재 게스트 OS 업그레이드가 지원
 
 ## <a name="transactions-across-multiple-servers"></a>여러 서버 간의 트랜잭션
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
+
 Elastic Database 트랜잭션은 Azure SQL Database의 여러 SQL Database 서버에 걸쳐 지원됩니다. 트랜잭션이 여러 SQL Database 서버에 걸쳐 진행될 때는 먼저 해당 트랜잭션에 참여하는 서버 간의 상호 통신 관계가 설정되어야 합니다. 통신 관계가 설정된 후에는 두 서버 중 하나의 모든 데이터베이스가 다른 서버 데이터베이스와의 탄력적인 트랜잭션에 참여할 수 있습니다. SQL Database 서버 3개 이상에 걸쳐 트랜잭션이 진행될 때는 SQL Database 쌍에 대해 통신 관계가 설정되어야 합니다.
 
 다음 PowerShell cmdlet을 사용하여 탄력적인 데이터베이스 트랜잭션에 대한 서버 간 통신 관계를 관리할 수 있습니다.
 
-* **New-AzureRmSqlServerCommunicationLink**: Azure SQL Database에서 두 SQL Database 서버 간에 새 통신 관계를 만들려면 이 cmdlet을 사용합니다. 관계는 대칭적입니다. 즉, 두 서버 모두 상대 서버와의 트랜잭션을 시작할 수 있습니다.
-* **Get-AzureRmSqlServerCommunicationLink**: 기존 통신 관계와 해당 속성을 검색하려면 이 cmdlet을 사용합니다.
-* **Remove-AzureRmSqlServerCommunicationLink**: 기존 통신 관계와 해당 속성을 제거하려면 이 cmdlet을 사용합니다. 
+* **New-AzSqlServerCommunicationLink**: Azure SQL Database에서 두 SQL Database 서버 간에 새 통신 관계를 만들려면 이 cmdlet을 사용합니다. 관계는 대칭적입니다. 즉, 두 서버 모두 상대 서버와의 트랜잭션을 시작할 수 있습니다.
+* **Get-AzSqlServerCommunicationLink**: 기존 통신 관계와 해당 속성을 검색하려면 이 cmdlet을 사용합니다.
+* **Remove-AzSqlServerCommunicationLink**: 기존 통신 관계와 해당 속성을 제거하려면 이 cmdlet을 사용합니다. 
 
 ## <a name="monitoring-transaction-status"></a>트랜잭션 상태 모니터링
 

@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: b960e0f670b66ea1759da441e7b1cf53151de7f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.openlocfilehash: 7a8556edd793cbde47c14d2b79792dbe42f8e44b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993608"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894294"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 
@@ -32,30 +32,30 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 서비스 계층을 선택하는 작업은 주로 비즈니스 연속성, 저장소 및 성능 요구 사항에 따라 다릅니다.
 
-||Basic|Standard|Premium|
-| :-- | --: |--:| --:| --:|
+||Basic|표준|Premium|
+| :-- | --: |--:| --:|
 |대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션|
 |작동 시간 SLA|99.99%|99.99%|99.99%|
 |Backup 보존|7 일|35일|35일|
 |CPU|낮음|낮음, 보통, 높음|보통, 높음|
 |IO 처리량(근사치) |DTU당 2.5 IOPS| DTU당 2.5 IOPS | DTU당 48 IOPS|
 |IO 대기 시간(근사치)|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
-|Columnstore 인덱싱 |해당 없음|S3 이상|지원됨|
-|메모리 내 OLTP|해당 없음|해당 없음|지원됨|
+|Columnstore 인덱싱 |N/A|S3 이상|지원됨|
+|메모리 내 OLTP|N/A|N/A|지원됨|
 |||||
 
 > [!NOTE]
-> Azure를 탐구하기 위해 Azure 체험 계정과 연결된 기본 서비스 계층에서 무료 Azure SQL 데이터베이스를 얻을 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
+> Azure를 살펴보기 위한 Azure 체험 계정와 함께에서 기본 서비스 계층에서 무료 Azure SQL 데이터베이스를 가져올 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
 
 ## <a name="single-database-dtu-and-storage-limits"></a>단일 데이터베이스 DTU 및 저장소 제한
 
 계산 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-purchase-models.md#dtu-based-purchasing-model)을 참조하세요.
 
-||Basic|Standard|Premium|
-| :-- | --: | --: | --: | --: |
+||Basic|표준|Premium|
+| :-- | --: | --: | --: |
 | 최대 저장소 크기 | 2GB | 1TB | 4 TB  |
 | 최대 DTU | 5 | 3000 | 4000 | 
-||||||
+|||||
 
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
@@ -63,16 +63,16 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>탄력적 풀 eDTU, 저장소 및 풀링된 데이터베이스 제한
 
 | | **Basic** | **Standard** | **Premium** |
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | 데이터베이스당 최대 저장소 크기  | 2GB | 1TB | 1TB |
 | 풀당 최대 저장소 크기 | 156GB | 4 TB | 4 TB |
 | 데이터베이스당 최대 eDTU | 5 | 3000 | 4000 |
 | 풀당 최대 eDTU | 1600 | 3000 | 4000 |
 | 풀당 최대 데이터베이스 수 | 500  | 500 | 100 |
-||||||
+|||||
 
 > [!IMPORTANT]
-> 현재 다음을 제외한 모든 지역에서 프리미엄 계층의 스토리지는 1TB를 초과하여 사용할 수 있습니다. 미국 중서부, 중국 동부, US DoD 중부, 독일 중부, US DoD 동부, US Gov 남서부, 미국 아이오와 주 정부, 독일 북동부, 중국 북부. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+> 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 저장소 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 

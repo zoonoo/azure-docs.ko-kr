@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: HT
+ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27928239"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885053"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용하여 데이터 변환 시작
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>.NET SDK를 사용 하 여 데이터 변환 시작 하려면
 
 ## <a name="overview"></a>개요
 
@@ -29,10 +29,10 @@ ms.locfileid: "27928239"
 
 두 가지 방법으로 데이터 변환 작업을 시작할 수 있습니다.
 
- - .NET SDK 사용
- - Azure Automation Runbook 사용
+- .NET SDK 사용
+- Azure Automation Runbook 사용
  
- 이 문서에서는 샘플 .NET 콘솔 애플리케이션을 만들어 데이터 변환 작업을 시작하고 완료하기 위해 추적하는 방법을 자세히 설명합니다. 자동화를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용을 보려면 [Azure Automation Runbook을 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-job-using-automation.md)로 이동합니다.
+  이 문서에서는 샘플 .NET 콘솔 애플리케이션을 만들어 데이터 변환 작업을 시작하고 완료하기 위해 추적하는 방법을 자세히 설명합니다. 자동화를 통해 데이터 변환을 시작하는 방법에 대한 자세한 내용을 보려면 [Azure Automation Runbook을 사용하여 데이터 변환 작업 트리거](storsimple-data-manager-job-using-automation.md)로 이동합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -80,16 +80,16 @@ ms.locfileid: "27928239"
 
         ![프로젝트 2 만들기](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.  이제 만든 프로젝트에서 [dlls 폴더](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 **참조**로 나타난 모든 DLL을 추가합니다. dll 파일을 추가하려면 다음 단계를 수행합니다.
+4. 이제 만든 프로젝트에서 [dlls 폴더](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)에서 **참조**로 나타난 모든 DLL을 추가합니다. dll 파일을 추가하려면 다음 단계를 수행합니다.
 
-    1. Visual Studio에서 **보기 > 솔루션 탐색기**로 이동합니다.
-    2. 데이터 변환 앱 프로젝트의 왼쪽에 있는 화살표를 클릭합니다. **참조**를 클릭하고 **참조 추가**를 마우스 오른쪽 단추로 선택합니다.
+   1. Visual Studio에서 **보기 > 솔루션 탐색기**로 이동합니다.
+   2. 데이터 변환 앱 프로젝트의 왼쪽에 있는 화살표를 클릭합니다. **참조**를 클릭하고 **참조 추가**를 마우스 오른쪽 단추로 선택합니다.
     
-        ![dll 1 추가](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
+       ![dll 1 추가](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
 
-    3. 패키지 폴더의 위치로 이동하고 모든 DLL을 선택한 다음 **추가**를 클릭한 다음 **확인**을 클릭합니다.
+   3. 패키지 폴더의 위치로 이동하고 모든 DLL을 선택한 다음 **추가**를 클릭한 다음 **확인**을 클릭합니다.
 
-        ![dll 2 추가](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
+       ![dll 2 추가](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
 5. 다음 **using** 문을 프로젝트의 원본 파일(Program.cs)에 추가합니다.
 
@@ -196,9 +196,9 @@ ms.locfileid: "27928239"
     Console.Read();
 
     ```
- 다음은 .NET을 사용하여 작업을 트리거하는 데 사용되는 전체 코드 샘플의 스크린샷입니다.
+    다음은 .NET을 사용하여 작업을 트리거하는 데 사용되는 전체 코드 샘플의 스크린샷입니다.
 
- ![.NET 작업을 트리거하는 전체 코드 조각](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
+    ![.NET 작업을 트리거하는 전체 코드 조각](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
 ## <a name="next-steps"></a>다음 단계
 

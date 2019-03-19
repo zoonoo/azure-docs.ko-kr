@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5588d2bd6cf2098d8744479c2bf2d308c9bf8f0d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b275f23209979e1a8068ecd99465f7b52392bc6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460449"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082911"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>SQL Data Warehouse 권장 사항
 
@@ -63,4 +63,3 @@ Advisor는 테이블 액세스 빈도, 평균으로 반환되는 행 및 데이�
 
 > [!IMPORTANT]
 > 복제된 테이블 권장 사항은 전체 증명으로, 데이터 이동 작업을 고려하지 않습니다. Microsoft에서는 추론을 바탕으로 이를 추가하려고 노력하지만 그 사이에 사용자는 권장 사항을 적용한 후 항상 워크로드의 유효성을 검사해야 합니다. 워크로드가 이전으로 되돌아가게 하는 복제된 테이블 권장 사항을 발견하는 경우 sqldwadvisor@service.microsoft.com에 문의하세요. 복제된 테이블에 대한 자세한 내용은 다음 [설명서](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table)를 참조하세요.
->

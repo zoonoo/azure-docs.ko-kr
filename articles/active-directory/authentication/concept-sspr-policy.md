@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fed31d07f4bbe9fc47ce0d2c31f45fed288c4c4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901147"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -36,20 +36,22 @@ ms.locfileid: "56218026"
   * 대금 청구 관리자
   * 파트너 계층1 지원
   * 파트너 계층2 지원
-  * Exchange 서비스 관리자
-  * Lync 서비스 관리자
-  * 사용자 계정 관리자
+  * Exchange 관리자
+  * 비즈니스용 Skype 관리자
+  * 사용자 관리자
   * 디렉터리 작성자
   * 전역 관리자 또는 회사 관리자
-  * SharePoint 서비스 관리자
+  * SharePoint 관리자
   * 규정 준수 관리자
   * 애플리케이션 관리자
   * 보안 관리자
   * 권한 있는 역할 관리자
-  * Microsoft Intune 서비스 관리자
+  * Intune 관리자
   * 애플리케이션 프록시 서비스 관리자
-  * CRM 서비스 관리자
+  * Dynamics 365 관리자
   * Power BI 서비스 관리자
+  * 인증 관리자
+  * 인증 관리자 권한이 있는
 
 * 평가판 구독에서 30일이 경과한 경우 또는
 * contoso.com 같은 베니티 도메인이 있는 경우 또는
@@ -75,13 +77,13 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>클라우드 사용자 계정에만 적용되는 암호 정책
 
-다음 표에서는 Azure AD에서 생성 및 관리되는 사용자 계정에 적용할 수 있는 사용 가능 암호 정책 설정에 대해 설명합니다.
+다음 표에서 생성 및 Azure AD에서 관리 되는 사용자 계정에 적용 되는 암호 정책 설정을 설명 합니다.
 
 | 자산 | 요구 사항 |
 | --- | --- |
-| 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 강력한 암호만: 점 문자 "."를 포함할 수 없습니다. 바로 앞에 "\@\" 기호"가 옵니다.</li></ul> |
-| 암호 제한 |<ul><li>최소 8자, 최대 16자</li><li>강력한 암호만: 다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
+| 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
+| 허용되지 않는 문자 |<ul><li>유니코드 문자</li><li>공백</li><li> 점 문자를 포함할 수 없습니다 "." 바로 앞에 "\@ \" 기호"입니다.</li></ul> |
+| 암호 제한 |<ul><li>최소 8자, 최대 16자</li><li>다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
 | 암호 만료 기간 |<ul><li>기본값: **90**일.</li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
 | 암호 만료 알림 |<ul><li>기본값: **14**일(암호 만료 이전).</li><li>값은 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
 | 암호 만료 |<ul><li>기본값: **false**일(사용 가능한 암호 만료임을 나타냄)</li><li>`Set-MsolUser` cmdlet을 사용하여 개별 사용자 계정에 대한 값을 구성할 수 있습니다.</li></ul> |
@@ -108,7 +110,7 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 1. 회사 관리자 자격 증명을 사용하여 Windows PowerShell에 연결합니다.
 1. 다음 중 하나의 명령을 실행합니다.
 
-   * 사용자의 암호가 만료되지 않도록 설정되어 있는지 확인하려면 해당 사용자의 UPN(예: *aprilr@contoso.onmicrosoft.com*) 또는 사용자 ID를 사용하여 `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}` cmdlet을 실행합니다.
+   * 사용자의 암호가 만료 되지 않도록 설정 하는 경우를 확인 하려면 다음 cmdlet을 UPN을 사용 하 여 실행 합니다 (예를 들어 *aprilr\@contoso.onmicrosoft.com*) 하거나 확인 하려는 사용자의 사용자 ID: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * 모든 사용자에 대한 **암호 사용 기간 제한 없음** 설정을 보려면 `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}` cmdlet을 실행합니다.
 
 ### <a name="set-a-password-to-expire"></a>암호가 만료되도록 설정

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0078c260e09ec9fd31ecf2124bc4bf7ad7f92b0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 534c0463cd8aee9fccfa183586b946032dada722
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094561"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>방법: 비활성화된 Access Control Service 네임스페이스 다시 활성화
 
@@ -102,7 +102,7 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
     | **문제 유형** | `ACS to SAS Migration` |
     | **제목** | 문제 설명 |
 
-  ![새 기술 지원 요청](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![새 기술 지원 요청](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 

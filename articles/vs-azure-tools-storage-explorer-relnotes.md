@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088046"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
@@ -27,13 +27,115 @@ ms.locfileid: "54190020"
 
 [Microsoft Azure Storage 탐색기](./vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다.
 
+## <a name="version-170"></a>1.7.0 버전
+3/5/2019
+
+### <a name="download-azure-storage-explorer-170"></a>Azure Storage 탐색기 1.7.0 다운로드
+- [Windows 용 azure Storage 탐색기 1.7.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac 용 azure Storage 탐색기 1.7.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux 용 azure Storage 탐색기 1.7.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>새로 만들기
+
+* 이제 소유자 및 그룹을 소유 하는 ADLS Gen2 컨테이너, 파일 또는 폴더에 대 한 액세스를 관리 하는 경우 변경할 수 있습니다.
+* Windows, 제품 내에서 Storage 탐색기 업데이트는 이제는 증분 설치입니다. 빠른 업데이트 환경에서 이렇게 해야 합니다. 을 새로 설치 하려는 경우 다운로드할 수 있습니다는 [installer](https://azure.microsoft.com/en-us/features/storage-explorer/) 직접 다음 수동으로 설치 하십시오. #1089
+
+### <a name="preview-features"></a>미리 보기 기능
+
+* 장치 코드 흐름 로그인 미리 보기를 출시 되었습니다. 기능을 사용 하려면 "사용 하 여 장치 코드 흐름 로그인" → "Preview"로 이동 합니다. 모든 사용자를 로그인의 보다 신뢰할 수 있는 형태를 증명할 수 있습니다 하는 대로이 기능을 사용해 볼 빈 로그인 windows 문제 했던가 사용 하는 것이 좋습니다. #938
+* AzCopy를 사용 하 여 통합 하는 storage 탐색기는 현재 미리 보기를 사용할 수 있습니다. 기능을 사용 하려면 "Preview" → "사용 하 여 AzCopy에 대 한 향상 된 Blob 업로드 및 다운로드"로 이동 합니다. AzCopy를 사용 하 여 완료 하는 blob 전송 속도 더 빨라집니다 및 성능이 향상 됩니다.
+
+### <a name="fixes"></a>수정 프로그램
+
+* 이제 AzCopy 사용 하는 경우로 업로드 하려는 blob 유형을 선택할 수 있습니다. #1111
+* 이전에 ADLS Gen2 저장소 계정에 대 한 정적 웹 사이트를 사용할 수 있어 다음 이름 및 키를 사용 하 여 연결을 하는 경우 Storage 탐색기가 감지 않습니다 계층적 네임 스페이스를 사용 하도록 설정 된 합니다. 이 문제가 해결되었습니다. #1081
+* Blob 편집기에서 중 남은 일 수 보존 또는 상태별으로 정렬 중단 되었습니다. 이 문제가 해결되었습니다. #1106
+* 1.5.0, 후 Storage 탐색기 이상 기다리는 서버 쪽 복사본을 바꾸거나 복사 하는 동안 성공 보고 하기 전에 완료에 붙여 넣습니다. 이 문제가 해결되었습니다. #976
+* 실험적 AzCopy 기능을 사용 하는 경우 "명령을 클립보드로 복사"를 클릭 한 후 복사 명령을 하지 않은 경우가 많았고 자체적으로 실행 가능 합니다. 이제 전송을 수동으로 실행 하는 데 필요한 모든 명령은 복사 됩니다. #1079
+* 이전에 ADLS Gen2 blob 프록시 뒤에 있는 경우에 액세스할 수 없습니다. Storage SDK를 사용한 새로운 네트워킹 라이브러리의 버그 때문 이었습니다. 1.7.0이이 문제를 완화 하기 위해 내용이 있지만 일부 사용자는 문제를 확인 하려면 계속 될 수 있습니다. 전체 수정은 향후 업데이트에서 출시 됩니다. #1090
+* 1.7.0 저장에서에서 파일 대화 상자 올바로 기억 됩니다 마지막 위치에 파일을 저장 합니다. #16
+* 속성 창에서 저장소 계정 SKU 계층 된 계정의 종류로 표시 됩니다. 이 문제가 해결되었습니다. #654
+* 경우에 따라 수 없습니다 blob의 임대를 중단 하는 blob의 이름을 잘못 입력 하는 경우에 합니다. 이 문제가 해결되었습니다. #1070
+
+### <a name="known-issues"></a>알려진 문제
+
+* RBAC를 사용 하는 경우 Storage 탐색기에 저장소 리소스에 액세스 하기 위해 일부 관리 계층 권한이 필요 합니다. 참조 된 [문제 해결 가이드](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) 자세한 정보에 대 한 합니다.
+* 프록시 뒤에 있을 때는 ADLS Gen2 Blob에 액세스 하는 동안 실패할 수 있습니다.
+* Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 #537을 참조하세요.
+* Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 #537을 참조하세요.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 이 문제에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기에 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
+   * 파일 공유
+   * 액세스 계층
+   * 일시 삭제
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>이전 릴리스
+
+* [1.6.2 버전](#version-162)
+* [버전 1.6.1](#version-161)
+* [버전 1.6.0](#version-160)
+* [버전 1.5.0](#version-150)
+* [버전 1.4.4](#version-144)
+* [버전 1.4.3](#version-143)
+* [버전 1.4.2](#version-142)
+* [버전 1.4.1](#version-141)
+* [버전 1.3.0](#version-130)
+* [버전 1.2.0](#version-120)
+* [버전 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [버전 0.9.6](#version-096)
+* [버전 0.9.5](#version-095)
+* [버전 0.9.4 및 0.9.3](#version-094-and-093)
+* [버전 0.9.2](#version-092)
+* [버전 0.9.1 및 0.9.0](#version-091-and-090)
+* [버전 0.8.16](#version-0816)
+* [버전 0.8.14](#version-0814)
+* [버전 0.8.13](#version-0813)
+* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
+* [버전 0.8.9 및 0.8.8](#version-089-and-088)
+* [버전 0.8.7](#version-087)
+* [버전 0.8.6](#version-086)
+* [버전 0.8.5](#version-085)
+* [버전 0.8.4](#version-084)
+* [버전 0.8.3](#version-083)
+* [버전 0.8.2](#version-082)
+* [버전 0.8.0](#version-080)
+* [버전 0.7.20160509.0](#version-07201605090)
+* [버전 0.7.20160325.0](#version-07201603250)
+* [버전 0.7.20160129.1](#version-07201601291)
+* [버전 0.7.20160105.0](#version-07201601050)
+* [버전 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-162"></a>버전 1.6.2
 1/9/2019
-
-### <a name="download-azure-storage-explorer-162"></a>Azure Storage 탐색기 1.6.2 다운로드
-- [Windows용 Azure Storage 탐색기 1.6.2](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac용 Azure Storage 탐색기 1.6.2](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux용 Azure Storage 탐색기 1.6.2](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>핫픽스
 * 1.6.1에서 사용자가 아닌 ObjectId에 따라 ADLS Gen2 ACL에 추가된 엔터티는 항상 그룹으로 추가되었습니다. 이제, 그룹만 그룹으로 추가되고, 엔터프라이즈 애플리케이션 및 서비스 주체와 같은 엔터티는 사용자로 추가됩니다. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
@@ -56,12 +158,12 @@ ms.locfileid: "54190020"
 
 * 이제 Storage 탐색기를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage 탐색기가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
 * Storage 탐색기는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage 탐색기가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage 탐색기는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage 탐색기를 사용하여 다음 작업을 수행할 수 있습니다.
-    * 컨테이너 만들기 및 삭제
-    * 컨테이너 속성 및 사용 권한 관리(왼쪽)
-    * 컨테이너 내 데이터 보기 및 탐색
-    * 새 폴더 만들기
-    * 파일 및 폴더 업로드, 다운로드, 이름 바꾸기 및 삭제
-    * 파일 및 폴더 속성과 사용 권한 관리(오른쪽)
+  * 컨테이너 만들기 및 삭제
+  * 컨테이너 속성 및 사용 권한 관리(왼쪽)
+  * 컨테이너 내 데이터 보기 및 탐색
+  * 새 폴더 만들기
+  * 파일 및 폴더 업로드, 다운로드, 이름 바꾸기 및 삭제
+  * 파일 및 폴더 속성과 사용 권한 관리(오른쪽)
     
     일시 삭제, 스냅숏 등의 기타 일반적인 Blob 기능은 현재 사용할 수 없습니다. 권한 관리는 로그인한 경우에만 사용할 수 있습니다. 또한 ADLS Gen2 Storage 계정에서 작업하는 경우 Storage 탐색기는 모든 업로드 및 다운로드에 AzCopy를 사용하고, 사용 가능한 경우 모든 작업에 기본적으로 이름 및 키 자격 증명을 사용합니다.
 * 강력한 사용자 의견이 제공된 후에는 임대 차단을 한 번 더 사용하여 여러 Blob의 임대를 한꺼번에 차단할 수 있습니다.
@@ -104,42 +206,6 @@ ms.locfileid: "54190020"
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="previous-releases"></a>이전 릴리스
-
-* [버전 1.6.1](#version-161)
-* [버전 1.6.0](#version-160)
-* [버전 1.5.0](#version-150)
-* [버전 1.4.4](#version-144)
-* [버전 1.4.3](#version-143)
-* [버전 1.4.2](#version-142)
-* [버전 1.4.1](#version-141)
-* [버전 1.3.0](#version-130)
-* [버전 1.2.0](#version-120)
-* [버전 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [버전 0.9.6](#version-096)
-* [버전 0.9.5](#version-095)
-* [버전 0.9.4 및 0.9.3](#version-094-and-093)
-* [버전 0.9.2](#version-092)
-* [버전 0.9.1 및 0.9.0](#version-091-and-090)
-* [버전 0.8.16](#version-0816)
-* [버전 0.8.14](#version-0814)
-* [버전 0.8.13](#version-0813)
-* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
-* [버전 0.8.9 및 0.8.8](#version-089-and-088)
-* [버전 0.8.7](#version-087)
-* [버전 0.8.6](#version-086)
-* [버전 0.8.5](#version-085)
-* [버전 0.8.4](#version-084)
-* [버전 0.8.3](#version-083)
-* [버전 0.8.2](#version-082)
-* [버전 0.8.0](#version-080)
-* [버전 0.7.20160509.0](#version-07201605090)
-* [버전 0.7.20160325.0](#version-07201603250)
-* [버전 0.7.20160129.1](#version-07201601291)
-* [버전 0.7.20160105.0](#version-07201601050)
-* [버전 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-161"></a>버전 1.6.1
 12/18/2018
 
@@ -161,12 +227,12 @@ ms.locfileid: "54190020"
 
 * 이제 Storage 탐색기를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage 탐색기가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
 * Storage 탐색기는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage 탐색기가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage 탐색기는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage 탐색기를 사용하여 다음 작업을 수행할 수 있습니다.
-    * 컨테이너 만들기 및 삭제
-    * 컨테이너 속성 및 사용 권한 관리(왼쪽)
-    * 컨테이너 내 데이터 보기 및 탐색
-    * 새 폴더 만들기
-    * 파일 및 폴더 업로드, 다운로드, 이름 바꾸기 및 삭제
-    * 파일 및 폴더 속성과 사용 권한 관리(오른쪽)
+  * 컨테이너 만들기 및 삭제
+  * 컨테이너 속성 및 사용 권한 관리(왼쪽)
+  * 컨테이너 내 데이터 보기 및 탐색
+  * 새 폴더 만들기
+  * 파일 및 폴더 업로드, 다운로드, 이름 바꾸기 및 삭제
+  * 파일 및 폴더 속성과 사용 권한 관리(오른쪽)
     
     일시 삭제, 스냅숏 등의 기타 일반적인 Blob 기능은 현재 사용할 수 없습니다. 권한 관리는 로그인한 경우에만 사용할 수 있습니다. 또한 ADLS Gen2 Storage 계정에서 작업하는 경우 Storage 탐색기는 모든 업로드 및 다운로드에 AzCopy를 사용하고, 사용 가능한 경우 모든 작업에 기본적으로 이름 및 키 자격 증명을 사용합니다.
 * 강력한 사용자 의견이 제공된 후에는 임대 차단을 한 번 더 사용하여 여러 Blob의 임대를 한꺼번에 차단할 수 있습니다.
@@ -216,12 +282,12 @@ ms.locfileid: "54190020"
 
 * 이제 Storage 탐색기를 사용하여 [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409)를 통해 Blob 데이터에 액세스할 수 있습니다. 로그인했으며 Storage 탐색기가 사용자의 Storage 계정용 키를 검색할 수 없으면 데이터와 상호 작용하면서 인증 작업에 OAuth 토큰이 사용됩니다.
 * Storage 탐색기는 이제 ADLS Gen2 Storage 계정을 지원합니다. Storage 탐색기가 Storage 계정에 대해 계층적 네임스페이스가 사용하도록 설정되어 있음을 감지하면 Storage 계정 이름 옆에 "(ADLS Gen2 미리 보기)"가 표시됩니다. Storage 탐색기는 사용자가 로그인될 때 또는 Storage 계정에 이름과 키를 첨부한 경우 계층 구조 네임스페이스가 사용하도록 설정되는지 여부를 검색할 수 있습니다. ADLS Gen2 Storage 계정의 경우 Storage 탐색기를 사용하여 다음 작업을 수행할 수 있습니다.
-    * 컨테이너 만들기 및 삭제
-    * 컨테이너 속성 및 사용 권한 관리(왼쪽)
-    * 컨테이너 내 데이터 보기 및 탐색
-    * 새 폴더 만들기
-    * 파일 및 폴더 업로드, 다운로드, 이름 바꾸기 및 삭제
-    * 파일 및 폴더 속성과 사용 권한 관리(오른쪽)
+  * 컨테이너 만들기 및 삭제
+  * 컨테이너 속성 및 사용 권한 관리(왼쪽)
+  * 컨테이너 내 데이터 보기 및 탐색
+  * 새 폴더 만들기
+  * 파일 및 폴더 업로드, 다운로드, 이름 바꾸기 및 삭제
+  * 파일 및 폴더 속성과 사용 권한 관리(오른쪽)
     
     일시 삭제, 스냅숏 등의 기타 일반적인 Blob 기능은 현재 사용할 수 없습니다. 권한 관리는 로그인한 경우에만 사용할 수 있습니다. 또한 ADLS Gen2 Storage 계정에서 작업하는 경우 Storage 탐색기는 모든 업로드 및 다운로드에 AzCopy를 사용하고, 사용 가능한 경우 모든 작업에 기본적으로 이름 및 키 자격 증명을 사용합니다.
 * 강력한 사용자 의견이 제공된 후에는 임대 차단을 한 번 더 사용하여 여러 Blob의 임대를 한꺼번에 차단할 수 있습니다.

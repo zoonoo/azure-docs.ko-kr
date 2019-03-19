@@ -5,24 +5,24 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 2/28/2018
 ms.author: mayg
-ms.openlocfilehash: fccc7379794b4b75ff53e517eddd95ff0f7db0e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 99c7309e22d8ebe61a0a85b38c92bd3027977848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223785"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013118"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>VNet의 네트워크 매핑 및 IP 주소 설정
 
-이 문서에서는 서로 다른 Azure 지역에 있는 Azure VNet(가상 네트워크)의 두 인스턴스를 매핑하는 방법과 네트워크 간에 IP 주소를 설정하는 방법을 설명합니다. 네트워크 매핑을 사용하면 원본 VM의 VNet으로 매핑되는 VNet의 대상 Azure 지역에 복제 VM이 만들어집니다.
+이 문서에서는 서로 다른 Azure 지역에 있는 Azure VNet(가상 네트워크)의 두 인스턴스를 매핑하는 방법과 네트워크 간에 IP 주소를 설정하는 방법을 설명합니다. 네트워크 매핑 복제 시 원본 네트워크에 따라 대상 네트워크 선택에 대 한 기본 동작을 제공 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 네트워크를 매핑하려면 원본 및 대상 Azure 지역에 [Azure VNet](../virtual-network/virtual-networks-overview.md)이 있어야 합니다. 
 
-## <a name="set-up-network-mapping"></a>네트워크 매핑 설정
+## <a name="set-up-network-mapping-manually-optional"></a>네트워크 매핑을 수동으로 (선택 사항) 설정
 
 다음과 같이 네트워크를 매핑합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "55223785"
 
 3. **네트워크 매핑 추가**에서 원본 및 대상 위치를 선택합니다. 이 예제에서는 원본 VM이 동아시아 지역에서 실행되고 동남 아시아 지역에 복제됩니다.
 
-    ![원본 및 대상 선택 ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![원본 및 대상 선택](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 3. 이제 반대쪽 디렉터리에 네트워크 매핑을 만듭니다. 이 예제에서는 원본이 동남 아시아이고 대상이 동아시아입니다.
 
     ![네트워크 매핑 추가 창 - 대상 네트워크의 원본 및 대상 위치 선택](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
@@ -44,8 +44,13 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 
 - 선택하는 대상에 따라 Site Recovery가 자동으로 원본 지역에서 대상 지역으로 그리고 대상 지역에서 원본 지역으로 네트워크 매핑을 만듭니다.
 - 기본적으로 Site Recovery는 원본 네트워크와 동일한 대상 지역에 네트워크를 만듭니다. Site Recovery는 원본 네트워크의 이름에 **-asr**을 접두사로 추가합니다. 대상 네트워크를 사용자 지정할 수 있습니다.
-- 네트워크 매핑이 이미 수행된 경우 복제를 사용하도록 설정할 때 대상 가상 네트워크를 변경할 수 없습니다. 대상 가상 네트워크를 변경하려면 기존 네트워크 매핑을 수정해야 합니다.
-- 지역 A에서 지역 B로 네트워크 매핑을 수정하는 경우 지역 B에서 지역 A로도 네트워크 매핑을 수정해야 합니다.
+- 원본 네트워크에 대 한 네트워크 매핑이 이미 수행, 매핑된 대상 네트워크는 항상 기본 시 더 많은 vm 복제를 사용 하도록 설정 됩니다. 드롭다운 목록에서 사용 가능한 다른 옵션을 선택 하 여 대상 가상 네트워크를 변경할 수 있습니다. 
+- 새 복제에 대 한 기본 대상 가상 네트워크를 변경 하려면 기존 네트워크 매핑을 수정 해야 합니다.
+- 지역 B에는 지역 간에 네트워크 매핑을 수정, 확인 하려는 경우 먼저 삭제 네트워크 매핑을 지역 B에서에서를 지역 A로 역방향 매핑 삭제 후 지역 B에는 지역 간에 네트워크 매핑을 수정 하 고 관련 역방향 매핑을 만듭니다.
+
+>[!NOTE]
+>* 새 VM 복제에 대 한 기본값을 변경만 네트워크 매핑을 수정 합니다. 기존 복제의 대상 가상 네트워크 선택 영향을 주지 않습니다. 
+>* 기존 복제에 대 한 대상 네트워크를 수정 하려는 경우 Compute 및 네트워크 설정 복제 된 항목의 이동 합니다.
 
 ## <a name="specify-a-subnet"></a>서브넷 지정
 
@@ -71,6 +76,7 @@ Azure VM에 대한 재해 복구를 구성하기 전에 네트워크 매핑을 �
 **원본 및 대상 서브넷** | **세부 정보**
 --- | ---
 동일한 주소 공간 | 원본 VM NIC의 IP 주소는 대상 VM NIC IP 주소로 설정됩니다.<br/><br/> 해당 주소를 사용할 수 없는 경우 그 다음으로 사용 가능한 IP 주소가 대상으로 설정됩니다.
+
 다른 주소 공간<br/><br/> 대상 서브넷에서 그 다음으로 사용 가능한 IP 주소가 대상 VM NIC 주소로 설정됩니다.
 
 

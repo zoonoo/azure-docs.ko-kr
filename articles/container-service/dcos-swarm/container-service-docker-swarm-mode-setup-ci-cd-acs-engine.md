@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: a2ecc2b0b8bfcf65d2ba566b8524a0c37c89ab78
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980553"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079097"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(사용되지 않음) Azure DevOps를 사용하여 ACS Engine 및 Docker Swarm Mode를 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
 
@@ -163,21 +163,21 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 Docker Swarm 클러스터�
 
    ![Azure DevOps - 명령줄 작업 추가](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. bash 스크립트를 사용하여 docker-compose.yml 파일에 나오는 모든 *RegistryURL*을 RegistryURL 변수로 바꾸는 명령줄 작업입니다. 
+   1. bash 스크립트를 사용하여 docker-compose.yml 파일에 나오는 모든 *RegistryURL*을 RegistryURL 변수로 바꾸는 명령줄 작업입니다. 
     
-          ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![Azure DevOps - 레지스트리 URL을 사용하여 작성 파일 업데이트](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+       ![Azure DevOps - 레지스트리 URL을 사용하여 작성 파일 업데이트](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. bash 스크립트를 사용하여 docker-compose.yml 파일에 나오는 모든 *AgentURL*을 AgentURL 변수로 바꾸는 명령줄 작업입니다.
+   2. bash 스크립트를 사용하여 docker-compose.yml 파일에 나오는 모든 *AgentURL*을 AgentURL 변수로 바꾸는 명령줄 작업입니다.
   
-          ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. 릴리스에서 사용할 수 있도록 빌드 아티팩트인 업데이트된 작성 파일을 삭제하는 작업입니다. 자세한 내용은 다음과 같은 화면을 참조하세요.
+      1. 릴리스에서 사용할 수 있도록 빌드 아티팩트인 업데이트된 작성 파일을 삭제하는 작업입니다. 자세한 내용은 다음과 같은 화면을 참조하세요.
 
-         ![Azure DevOps - 아티팩트 게시](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+      ![Azure DevOps - 아티팩트 게시](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-         ![Azure DevOps - 작성 파일 게시](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+      ![Azure DevOps - 작성 파일 게시](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. **저장 및 큐에 넣기**를 클릭하여 빌드 파이프라인을 테스트합니다.
 
@@ -187,7 +187,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 Docker Swarm 클러스터�
 
 6. **빌드**가 올바른 경우 다음 화면이 표시되어야 합니다.
 
-  ![Azure DevOps - 빌드 성공](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+   ![Azure DevOps - 빌드 성공](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
 ## <a name="step-3-create-the-release-pipeline"></a>3단계: 릴리스 파이프라인 만들기
 
@@ -235,14 +235,14 @@ Azure DevOps를 사용하면 [환경에서 릴리스를 관리](https://www.visu
 
     마스터에서 실행되는 명령은 Docker CLI 및 Docker 작성 CLI를 사용하여 다음 작업을 수행합니다.
 
-    - Azure Container Registry에 로그인(**변수** 탭에 정의된 세 개의 빌드 변수 사용)
-    - Swarm 엔드포인트를 사용하는 **DOCKER_HOST** 변수 정의(:2375)
-    - 이전 안전한 복사 작업에서 만들어지고 docker-compose.yml 파일을 포함하는 *배포* 폴더 탐색 
-    - 새 이미지를 가져오고 컨테이너를 만드는 `docker stack deploy` 명령을 실행합니다.
+   - Azure Container Registry에 로그인(**변수** 탭에 정의된 세 개의 빌드 변수 사용)
+   - Swarm 엔드포인트를 사용하는 **DOCKER_HOST** 변수 정의(:2375)
+   - 이전 안전한 복사 작업에서 만들어지고 docker-compose.yml 파일을 포함하는 *배포* 폴더 탐색 
+   - 새 이미지를 가져오고 컨테이너를 만드는 `docker stack deploy` 명령을 실행합니다.
 
-    >[!IMPORTANT]
-    > 이전 화면에 표시된 대로 **STDERR에 실패** 확인란을 취소된 상태로 둡니다. 이 설정을 사용하면 `docker-compose`이 표준 오류 출력에서 “컨테이너가 중지 또는 삭제됩니다.”와 같은 여러 진단 메시지를 인쇄하기 때문에 릴리스 프로세스를 완료할 수 있습니다. 확인란을 선택하면 모든 작업이 정상적으로 작동하는 경우에도 Azure DevOps는 릴리스 중에 오류가 발생했다고 보고합니다.
-    >
+     >[!IMPORTANT]
+     > 이전 화면에 표시된 대로 **STDERR에 실패** 확인란을 취소된 상태로 둡니다. 이 설정을 사용하면 `docker-compose`이 표준 오류 출력에서 “컨테이너가 중지 또는 삭제됩니다.”와 같은 여러 진단 메시지를 인쇄하기 때문에 릴리스 프로세스를 완료할 수 있습니다. 확인란을 선택하면 모든 작업이 정상적으로 작동하는 경우에도 Azure DevOps는 릴리스 중에 오류가 발생했다고 보고합니다.
+     >
 3. 이 새 릴리스 파이프라인을 저장합니다.
 
 ## <a name="step-4-test-the-cicd-pipeline"></a>4단계: CI/CD 파이프라인 테스트

@@ -4,16 +4,16 @@ description: REST API를 사용하여 Azure 리소스에 대한 사용자 지정
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ed810726a0709c80034412eba437c05e76f65758
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c7ec3ba960929250f2d23d09b9a5ab06e3f6cd38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460382"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095418"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기
 
@@ -78,13 +78,13 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
     ``` 
 
 1. 명령 프롬프트 창에서 메트릭 데이터를 게시합니다. 
-    - **azureRegion**. 메트릭을 내보내는 리소스의 배포 지역과 일치해야 합니다. 
-    - **resourceID**.  메트릭을 추적 중인 Azure 리소스의 리소스 ID입니다.  
-    - **AccessToken**. 이전에 확보한 토큰을 붙여넣습니다.
+   - **azureRegion**. 메트릭을 내보내는 리소스의 배포 지역과 일치해야 합니다. 
+   - **resourceID**.  메트릭을 추적 중인 Azure 리소스의 리소스 ID입니다.  
+   - **AccessToken**. 이전에 확보한 토큰을 붙여넣습니다.
 
-    ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-    ```
+     ```Shell 
+     curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     ```
 1. JSON 파일의 타임스탬프 및 값을 변경합니다. 
 1. 이전 두 단계를 몇 번 반복하여 몇 분간의 데이터를 저장합니다.
 

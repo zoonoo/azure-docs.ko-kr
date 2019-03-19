@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 018281406bb810f6357ad00948060cedae57fc6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234105"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003803"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -41,6 +41,8 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 이 문서에서는 사용자가 [Azure Active Directory의 디바이스 관리 소개](../device-management-introduction.md)를 잘 알고 있다고 가정합니다.
 
+>[!NOTE]
+>  최소는 하이브리드 Azure AD 가입 Windows 10은 Windows Server 2008 R2에 대 한 기능 도메인 및 포리스트 기능 수준이 필요 합니다. 낮은 버전에서 사용자를 받지 기본 새로 고침 토큰을 LSA 문제로 인해 Windows 로그온 하는 동안 
 
 ## <a name="plan-your-implementation"></a>구현 계획
 
@@ -92,7 +94,7 @@ Windows 데스크톱 운영 체제를 실행하는 디바이스의 경우 지원
 
 환경이 둘 이상의 Azure AD 테넌트에 ID 데이터를 동기화한 단일 포리스트로 구성된 경우 하이브리드 Azure AD 조인을 사용할 수 없습니다.
 
-시스템 준비 도구(Sysprep)를 사용하는 경우 하이브리드 Azure AD 조인에 대해 구성되지 않은 Windows 설치에서 이미지를 만들어야 합니다.
+시스템 준비 도구 (Sysprep)에 의존 하는 경우 설치 된 Windows 10 1803에서에서 만든 있는지 이미지를 확인 하거나 이전 구성 되지 않은 하이브리드 Azure AD 조인에 대 한 합니다.
 
 VM(Virtual Machine) 스냅숏을 사용하여 추가 VM을 만드는 경우 하이브리드 Azure AD 조인에 대해 구성되지 않은 VM 스냅숏을 사용해야 합니다.
 
@@ -116,6 +118,7 @@ Windows 10 도메인 조인 디바이스에서 이미 [Azure AD를 테넌트에 
  - 디바이스가 하이브리드 Azure AD에 조인되면 기존의 Azure AD 등록됨 상태가 자동으로 제거됩니다. 
  - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001 레지스트리 키를 추가하여 도메인 조인 디바이스가 Azure AD에 등록되지 않도록 방지할 수 있습니다.
 
+하이브리드 Azure AD 조인에 대 한 FIPS 호환 tpm은 지원 되지 않습니다. FIPS 규격 장치의 경우, 하이브리드 Azure AD 조인을 사용 하 여 계속 진행 하기 전에 해제 해야 합니다. Microsoft은 TPM 제조업체에 따라 달라 집니다 이므로 Tpm에 대 한 FIPS 모드를 해제 하는 것에 대 한 모든 도구를 제공 하지 않습니다. OEM의 하드웨어가 지원에 문의 하세요.
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>디바이스의 하이브리드 Azure AD 조인을 제어하는 방법 검토
 

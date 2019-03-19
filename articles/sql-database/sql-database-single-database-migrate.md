@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: f033a93c0e4fc2648e151572bee25db5463e32e3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 2feece21644f8b79b4e5fc74331944cdddbdee4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56101415"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996425"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 
@@ -114,7 +114,7 @@ SQL Database로 마이그레이션하기 위한 몇 가지 팁과 차이점
 - [SQL Server 2008 R2에서 사용이 중단된 데이터베이스 엔진 기능](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [SQL Server 2005에서 사용이 중단된 데이터베이스 엔진 기능](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-인터넷을 검색하여 이러한 리소스를 사용하는 동시에 [MSDN SQL Server 커뮤니티 포럼](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) 또는 [StackOverflow](http://stackoverflow.com/)도 활용하세요.
+인터넷을 검색하여 이러한 리소스를 사용하는 동시에 [MSDN SQL Server 커뮤니티 포럼](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) 또는 [StackOverflow](https://stackoverflow.com/)도 활용하세요.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance를 사용하면 적어도 호환성 문제 없이 기존 SQL Server 인스턴스 및 해당 데이터베이스를 마이그레이션할 수 있습니다. [Managed Instance란?](sql-database-managed-instance.md)을 참조하세요.

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 74cd56f5a8bfe8717927c13e6bf30eb27b43fbc9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: b18ae44a140d77c24d8b5741bc09740767d1344f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075955"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Azure Portal에서 Time Series Insights 환경 만들기
 이 문서에서는 Azure Portal을 사용하여 새로운 Time Series Insights 환경을 만드는 방법을 설명합니다.
@@ -26,15 +26,15 @@ Time Series Insights를 사용하여 Azure IoT Hub 및 Event Hubs로 이동하�
 ## <a name="steps-to-create-the-environment"></a>환경을 만드는 단계
 다음 단계에 따라 환경을 만듭니다.
 
-1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2.  **+새로 만들기** 단추를 선택합니다.
+2. **+새로 만들기** 단추를 선택합니다.
 
-3.  **사물 인터넷** 범주를 선택하고 **Time Series Insights**를 선택합니다.
+3. **사물 인터넷** 범주를 선택하고 **Time Series Insights**를 선택합니다.
 
    ![Time Series Insights 환경 만들기](media/time-series-insights-get-started/1-new-tsi.png)
 
-4.  **Time Series Insights** 페이지에서 **만들기**를 선택합니다.
+4. **Time Series Insights** 페이지에서 **만들기**를 선택합니다.
 
 5. 필수 매개 변수를 입력합니다. 다음 표에서는 각 매개 변수에 대해 설명합니다.
    

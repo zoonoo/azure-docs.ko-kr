@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9d77952a96bff6cc2d50ecbd4bde7e499f20de6d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 41b039c6598334d49b9ddb0608d7ad2ae045b223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901273"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 침입 검색 수행
 
@@ -39,7 +39,7 @@ ms.locfileid: "50420035"
 
 ### <a name="install-suricata"></a>Suricata 설치
 
-설치의 다른 모든 메서드는 http://suricata.readthedocs.io/en/latest/install.html을 방문하세요.
+설치의 다른 모든 메서드는 https://suricata.readthedocs.io/en/latest/install.html을 방문하세요.
 
 1. VM의 명령줄 터미널에서 다음 명령을 실행합니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "50420035"
 규칙 집합을 다운로드하고 디렉터리에 복사합니다.
 
 ```
-wget http://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
+wget https://rules.emergingthreats.net/open/suricata/emerging.rules.tar.gz
 tar zxf emerging.rules.tar.gz
 sudo cp -r rules /etc/suricata/
 ```

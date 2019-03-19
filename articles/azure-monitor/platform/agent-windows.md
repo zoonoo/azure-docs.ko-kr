@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d4204d4937b8eca2dcb3f656659f185f30c8bddf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: af5d8e4146b7cf7b0b9c474b25b3ad48c9cb3902
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755040"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890035"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
@@ -32,6 +32,10 @@ Log Analytics를 사용하여 로컬 데이터 센터 또는 기타 클라우드
 * Azure Automation DSC(Desired State Configuration). 환경에 이미 배포된 Windows 컴퓨터용 스크립트를 사용하여 Azure Automation에서 DSC 사용.  
 * PowerShell 스크립트.
 * Azure Stack에서 Windows 온-프레미스를 실행하는 가상 머신의 Resource Manager 템플릿.  
+
+>[!NOTE]
+>Azure Security Center (ASC) Microsoft Monitoring Agent (Log Analytics Windows 에이전트 라고도 함)에 따라 달라 집니다 및는 설치 하 고 해당 배포의 일부로 Log Analytics 작업 영역에 보고 하도록 구성 합니다. ASC는 구독의 모든 Vm에 Log Analytics Windows 에이전트의 자동 설치를 사용 하도록 설정 하 고 특정 작업 영역에 보고 하도록 구성 하는 자동 프로 비전 옵션을 포함 합니다. 이 옵션에 대 한 자세한 내용은 참조 하세요. [Log Analytics 에이전트의 자동 프로 비전 사용](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-log-analytics-agent-)합니다.
+>
 
 지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](log-analytics-agent.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-agent.md#network-firewall-requirements)을 검토합니다.
 

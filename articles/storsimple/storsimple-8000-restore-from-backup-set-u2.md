@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496485"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082809"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>백업 세트에서 StorSimple 볼륨 복원
 
@@ -110,9 +110,9 @@ ms.locfileid: "55496485"
    3. 드롭다운 목록에서 선택하려는 백업에 대 한 볼륨 또는 백업 정책을 선택합니다.
    4. **적용**을 클릭하여 이 쿼리를 실행합니다.
 
-    선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
+      선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
    
-    ![Backup 세트 목록](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![Backup 세트 목록](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
 3. 백업 세트를 확장하여 연결된 볼륨을 봅니다. 이 볼륨은 복원하려면 호스트와 디바이스에서 오프라인 상태여야 합니다. 디바이스의 **볼륨** 블레이드에서 볼륨에 액세스한 다음, [볼륨을 오프라인 상태로 전환](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline)의 단계에 따라 오프라인 상태로 전환합니다.
    
@@ -127,9 +127,9 @@ ms.locfileid: "55496485"
    
     ![확인 페이지](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  **복원**을 클릭합니다. 그러면 **작업** 페이지에 액세스하여 볼 수 있는 복원 작업이 시작됩니다.
+7. **복원**을 클릭합니다. 그러면 **작업** 페이지에 액세스하여 볼 수 있는 복원 작업이 시작됩니다.
 
-    ![확인 페이지](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![확인 페이지](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. 복원이 완료되면 볼륨의 콘텐츠가 백업의 볼륨으로 바뀌는 것을 확인합니다.
 

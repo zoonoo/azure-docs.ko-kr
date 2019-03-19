@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7afa64ebedb38b4514bbd155bf8f29268d420d18
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: aa46fbce9d11a8fd380a5ee1990c0e7924079a9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745761"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078689"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Azure Virtual Machine 이미지의 유효성을 사전 검사하는 자체 테스트 클라이언트 만들기
 
@@ -297,8 +297,8 @@ https://isvapp.azurewebsites.net/selftest-vm
     - **저장**을 선택하여 키를 생성합니다.
     - **값** 아래에서 키를 복사합니다.
 
-     >[!Important]
-     >**키** 양식이 종료되면 키 값을 볼 수 없습니다.
+      >[!Important]
+      >**키** 양식이 종료되면 키 값을 볼 수 없습니다.
 
     ![키 값 양식](./media/stclient-create-key.png)
 
@@ -306,7 +306,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 
 다음 프로그램 중 하나를 사용하여 OAuth REST API를 사용하는 토큰을 만들고 가져올 수 있습니다.
 
-- postman
+- Postman
 - Linux의 cURL
 - C&#35;
 - PowerShell

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 13ed2caa5ae547747707c368246ea23486dbed72
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469569"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103335"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>배치 풀에서 Azure 파일 공유 사용
 
@@ -66,16 +66,16 @@ net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\
 
 1. 풀 구성에서 시작 작업을 사용하여 `cmdkey` 명령줄 유틸리티를 실행합니다. 이렇게 하면 각 Windows 노드에서 자격 증명이 유지됩니다. 시작 작업 명령줄은 다음과 유사합니다.
 
-  ```
-  cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
+   ```
+   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
-  ```
+   ```
 
 2. `net use`를 사용하여 각 작업의 일부로 각 노드에 공유를 탑재합니다. 예를 들어, 다음 작업 명령줄은 파일 공유를 *S:* 드라이브로 탑재합니다. 이다음에 공유를 참조하는 명령 또는 스크립트가 옵니다. 캐시된 자격 증명은 `net use` 호출에서 사용됩니다. 이 단계에서는 풀의 시작 작업에서 사용한 작업에 대해 동일한 사용자 ID를 사용하고 있다고 가정합니다. 이 가정은 일부 시나리오에 적합하지 않습니다.
 
-  ```
-  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
-  ```
+   ```
+   cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
+   ```
 
 ### <a name="c-example"></a>C# 예제
 다음 C# 예제는 시작 작업을 사용하여 Windows 풀에서 자격 증명을 유지하는 방법을 보여 줍니다. 저장소 파일 서비스 이름 및 저장소 자격 증명은 정의된 상수로 전달됩니다. 여기서 시작 작업은 풀 범위가 있는 표준(비관리자) 자동 사용자 계정으로 실행됩니다.

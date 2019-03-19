@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 69523a76406cc32212a064ec222f0276d03eb1fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096673"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898519"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인
 Eclipse는 가장 널리 사용되는 Java 개발자를 위한 IDE(통합 개발 환경) 중 하나입니다. 이 문서에서는 Azure Service Fabric 작업을 수행하기 위해 Eclipse 개발 환경을 설정하는 방법에 대해 설명합니다. Service Fabric 플러그 인을 설치하고 Service Fabric 애플리케이션을 만들며 Service Fabric 애플리케이션을 Eclipse의 로컬 또는 원격 Service Fabric 클러스터에 배포하는 방법을 알아봅니다. 
@@ -37,11 +37,11 @@ Eclipse에서 Service Fabric 플러그 인을 설치할 수 있습니다. 플러
 
 [Eclipse 사이트](https://www.eclipse.org)에서 Eclipse Neon 이상을 설치합니다.  또한 Buildship의 버전 2.2.1 이상을 설치합니다(Service Fabric 플러그 인은 이전 버전의 Buildship과 호환되지 않음).
 -   설치된 구성 요소의 버전을 확인하려면 Eclipse에서 **도움말** > **Eclipse 정보** > **설치 세부 정보**로 이동합니다.
--   Buildship을 업데이트하려면 [Eclipse Buildship: Gradle용 Eclipse 플러그 인][buildship-update]을 참조하세요.
+-   Buildship을 업데이트하려면 [Eclipse Buildship: Gradle용 Eclipse 플러그 인][buildship-update]의 지침을 사용하여 Buildship을 업데이트할 수 있습니다.
 -   Eclipse에 대한 업데이트를 확인하고 설치하려면 **도움말** > **업데이트 확인**으로 이동합니다.
 
 Service Fabric 플러그 인을 설치하고, Eclipse에서 **도움말** > **새 소프트웨어 설치**로 이동합니다.
-1. **작업 대상** 상자에서 **http://dl.microsoft.com/eclipse**을 입력합니다.
+1. **작업 대상** 상자에서 **https://dl.microsoft.com/eclipse**을 입력합니다.
 2. **추가**를 클릭합니다.
 
    ![Eclipse용 Service Fabric 플러그 인][sf-eclipse-plugin-install]
@@ -54,7 +54,7 @@ Service Fabric 플러그 인이 이미 설치된 경우 최신 버전을 설치�
 3. Service Fabric 플러그 인을 업데이트한 후 Gradle 프로젝트를 새로 고칩니다.  마우스 오른쪽 단추로 **build.gradle**을 클릭한 다음, **새로 고침**을 선택합니다.
 
 > [!NOTE]
-> Service Fabric 플러그 인 설치 또는 업데이트가 느려지는 경우 Eclipse 설정 때문일 수 있습니다. Eclipse는 Eclipse 인스턴스에 등록되어 있는 사이트를 업데이트하는 모든 변경 내용에 대한 메타데이터를 수집합니다. Service Fabric 플러그 인 업데이트를 확인하고 설치하는 프로세스 의 속도를 촉진하려면 **사용 가능한 소프트웨어 사이트**로 이동합니다. Service Fabric 플러그 인 위치(http://dl.microsoft.com/eclipse/azure/servicefabric))를 가리키는 확인란을 제외하고 모든 사이트에 대한 확인란의 선택을 취소합니다.
+> Service Fabric 플러그 인 설치 또는 업데이트가 느려지는 경우 Eclipse 설정 때문일 수 있습니다. Eclipse는 Eclipse 인스턴스에 등록되어 있는 사이트를 업데이트하는 모든 변경 내용에 대한 메타데이터를 수집합니다. Service Fabric 플러그 인 업데이트를 확인하고 설치하는 프로세스 의 속도를 촉진하려면 **사용 가능한 소프트웨어 사이트**로 이동합니다. Service Fabric 플러그 인 위치(https://dl.microsoft.com/eclipse/azure/servicefabric))를 가리키는 확인란을 제외하고 모든 사이트에 대한 확인란의 선택을 취소합니다.
 
 > [!NOTE]
 >Eclipse가 Mac에서 예상대로 작동하지 않는 경우 또는 슈퍼 사용자로 실행해야 하는 경우 **ECLIPSE_INSTALLATION_PATH** 폴더로 이동하고 **Eclipse.app/Contents/MacOS** 하위 폴더를 탐색합니다. `./eclipse`를 실행하여 Eclipse를 시작합니다.
@@ -141,8 +141,8 @@ Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라
    - `ClientKey` 필드는 클라이언트 또는 클러스터 인증서의 개인 키를 포함하고 있는 로컬 머신의 PEM 형식 .pem 또는 .key 파일을 가리켜야 합니다.
    - `ClientCert` 필드는 클라이언트 또는 클러스터 인증서의 인증서 데이터를 포함하고 있는 로컬 머신의 PEM 형식 .pem 또는 .crt 파일을 가리켜야 합니다. 
 
-    ```bash
-    {
+     ```bash
+     {
          "ClusterConnectionParameters":
          {
             "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
@@ -150,8 +150,8 @@ Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라
             "ClientKey": "[path_to_your_pem_file_on_local_machine]",
             "ClientCert": "[path_to_your_pem_file_on_local_machine]"
          }
-    }
-    ```
+     }
+     ```
 
 2. Service Fabric 애플리케이션을 마우스 오른쪽 단추로 클릭하고 **Service Fabric**을 선택합니다.
 3. 팝업 메뉴에서 **애플리케이션 게시...** 를 클릭합니다.
@@ -159,8 +159,8 @@ Service Fabric 애플리케이션을 빌드한 후에는 다음 단계에 따라
 
     ![Publish Dialog Cloud](./media/service-fabric-get-started-eclipse/cloudjson.png)
 
-4.  콘솔 창에서 게시 작업의 진행률을 확인할 수 있습니다.
-5.  애플리케이션이 실행되고 있는지 확인하려면 브라우저 창의 Azure 클러스터에서 Service Fabric Explorer를 엽니다. 위의 예에서는 `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`입니다. **응용 프로그램** 노드를 확장하고 응용 프로그램이 실행 중인지 확인합니다. 
+4. 콘솔 창에서 게시 작업의 진행률을 확인할 수 있습니다.
+5. 애플리케이션이 실행되고 있는지 확인하려면 브라우저 창의 Azure 클러스터에서 Service Fabric Explorer를 엽니다. 위의 예에서는 `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`입니다. **응용 프로그램** 노드를 확장하고 응용 프로그램이 실행 중인지 확인합니다. 
 
 
 보안 Linux 클러스터에서, 응용 프로그램에 Reliable Services 서비스가 포함되는 경우 서비스에서 Service Fabric 런타임 API를 호출하는 데 사용할 수 있는 인증서도 구성해야 합니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.

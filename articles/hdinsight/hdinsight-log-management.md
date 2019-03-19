@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: c1618d3402b37e91b3cf17365d6ccbf1285f4847
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434888"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993783"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight 클러스터에 대한 로그 관리
 
@@ -77,7 +77,7 @@ HDInsight 클러스터에서 실행 중인 워크로드 유형을 이해하여 �
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Ambari UI를 사용하여 클러스터 구성 설정 보기
 
-Apache Ambari는 웹 UI 및 REST API를 제공하므로 HDInsight 클러스터의 관리, 구성 및 모니터링이 간단합니다. Ambari는 Linux 기반 HDInsight 클러스터에 포함되어 있습니다. Azure Portal HDInsight 페이지에서 **클러스터 대시보드** 창을 선택하여 **클러스터 대시보드** 링크 페이지를 엽니다.  다음으로 **HDInsight 클러스터 대시보드** 창을 선택하여 Ambari UI를 엽니다.  클러스터 로그인 자격 증명을 입력하라는 메시지가 나타납니다.
+Apache Ambari는 웹 UI 및 REST API를 제공하므로 HDInsight 클러스터의 관리, 구성 및 모니터링이 간단합니다. Ambari는 Linux 기반 HDInsight 클러스터에 포함되어 있습니다. 선택 합니다 **클러스터 대시보드** 창을 열려면 Azure portal HDInsight 페이지의**클러스터 대시보드** 링크 페이지.  다음으로 **HDInsight 클러스터 대시보드** 창을 선택하여 Ambari UI를 엽니다.  클러스터 로그인 자격 증명을 입력하라는 메시지가 나타납니다.
 
 서비스 보기 목록을 열려면 HDInsight의 Azure Portal 페이지에서 **Ambari 보기** 창을 선택합니다.  이 목록은 설치된 라이브러리에 따라 달라집니다.  예를 들어 YARN 큐 관리자, Hive 보기 및 Tez 보기가 표시될 수 있습니다.  아무 서비스 링크를 선택하여 구성 및 서비스 정보를 살펴봅니다.  Ambari UI **스택 및 버전** 페이지는 클러스터 서비스의 구성 및 서비스 버전 기록에 대한 정보를 제공합니다. Ambari UI에서 이 섹션으로 이동하려면 **관리자** 메뉴를 선택한 다음 **스택 및 버전**을 선택합니다.  **버전** 탭을 선택하여 서비스 버전 정보를 봅니다.
 
@@ -111,13 +111,13 @@ HDInsight에서 생성하는 핵심 로그 파일 외에도 YARN을 비롯한 �
 
 ### <a name="hdinsight-logs-generated-by-yarn"></a>YARN에서 생성한 HDInsight 로그
 
-YARN은 작업자 노드의 모든 컨테이너에서 로그를 집계한 후 작업자 노드당 하나의 집계된 로그 파일로 저장합니다. 해당 로그는 응용 프로그램이 완료된 후 기본 파일 시스템에 저장됩니다. 응용 프로그램은 수백 수천 개의 컨테이너를 사용할 수 있지만 단일 작업자 노드에서 실행되는 모든 컨테이너에 대한 로그는 항상 단일 파일로 집계됩니다. 응용 프로그램에서 사용하는 작업자 노드당 하나의 로그만 있습니다. 로그 집계는 HDInsight 클러스터 버전 3.0 이상에서 기본적으로 사용됩니다. 집계된 로그는 클러스터에 대한 기본 저장소에 있습니다.
+YARN은 작업자 노드의 모든 컨테이너에서 로그를 집계한 후 작업자 노드당 하나의 집계된 로그 파일로 저장합니다. 해당 로그는 애플리케이션이 완료된 후 기본 파일 시스템에 저장됩니다. 애플리케이션은 수백 수천 개의 컨테이너를 사용할 수 있지만 단일 작업자 노드에서 실행되는 모든 컨테이너에 대한 로그는 항상 단일 파일로 집계됩니다. 애플리케이션에서 사용하는 작업자 노드당 하나의 로그만 있습니다. 로그 집계는 HDInsight 클러스터 버전 3.0 이상에서 기본적으로 사용됩니다. 집계된 로그는 클러스터에 대한 기본 저장소에 있습니다.
 
 ```
     /app-logs/<user>/logs/<applicationId>
 ```
 
-집계된 로그는 컨테이너별로 인덱싱된 이진 형식인 TFile로 작성되므로 직접 읽을 수 없습니다. 관심 있는 응용 프로그램 또는 컨테이너에 대한 이러한 로그를 일반 텍스트로 보려면 YARN ResourceManager 로그 또는 CLI 도구를 사용합니다.
+집계된 로그는 컨테이너별로 인덱싱된 이진 형식인 TFile로 작성되므로 직접 읽을 수 없습니다. 관심 있는 애플리케이션 또는 컨테이너에 대한 이러한 로그를 일반 텍스트로 보려면 YARN ResourceManager 로그 또는 CLI 도구를 사용합니다.
 
 #### <a name="yarn-cli-tools"></a>YARN CLI 도구
 

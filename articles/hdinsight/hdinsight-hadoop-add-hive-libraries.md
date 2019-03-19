@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 4eb4db9a4057d072f348de48bee2f746f77cbb84
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 6001d291581dc317da89cadbf3891e334362062b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715344"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897591"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight 클러스터를 만들 때 사용자 지정 Apache Hive 라이브러리 추가
 
@@ -51,7 +51,7 @@ HDInsight에 [Apache Hive](https://hive.apache.org/) 라이브러리를 미리 �
 
 * 만드는 동안 jar 파일의 라이브러리를 포함하는 저장소 계정을 HDInsight 클러스터에 **연결해야** 합니다. 기본 저장소 계정이거나 __선택적 구성__을 통해 추가된 계정이어야 합니다.
 
-* 컨테이너에 대한 WASB 경로를 스크립트 작업에 대한 매개 변수로 지정해야 합니다. 예를 들어 jar이 **mystorage** 저장소 계정의 **libs** 컨테이너에 저장되는 경우 매개 변수는 **wasb://libs@mystorage.blob.core.windows.net/** 입니다.
+* 컨테이너에 대한 WASB 경로를 스크립트 작업에 대한 매개 변수로 지정해야 합니다. 예를 들어 jar 라는 컨테이너에 저장 됩니다 **libs** 라는 저장소 계정의 **mystorage**에 매개 변수가 **wasb://libs\@ mystorage.blob.core.windows.net/** 합니다.
 
   > [!NOTE]  
   > 이 문서에서는 사용자가 이미 저장소 계정과 BLOB 컨테이너를 만들고 거기에 파일을 업로드했다고 가정합니다.
@@ -79,7 +79,7 @@ HDInsight에 [Apache Hive](https://hive.apache.org/) 라이브러리를 미리 �
 
    * **ZOOKEEPER**: 이 항목을 비워둡니다.
 
-   * **PARAMETERS**: jar을 포함하는 컨테이너 및 스토리지 계정에 WASB 주소를 입력합니다. 예를 들어 **wasb://libs@mystorage.blob.core.windows.net/** 입니다.
+   * **PARAMETERS**: jar을 포함하는 컨테이너 및 스토리지 계정에 WASB 주소를 입력합니다. 예를 들어 **wasb://libs\@mystorage.blob.core.windows.net/** 합니다.
 
 3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: de50c18fa8e2bebcb584fcd5763f0428637df484
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: e49b521f625dee8c48c448065096ed027cf6c9b2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455792"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090035"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB의 SQL 언어 참조 
 
@@ -218,11 +218,11 @@ FROM <from_specification>
   
 조인 평가는 참여하는 집합의 컨텍스트 범위에 따라 다릅니다.  
   
--  컨테이너 집합 A와 컨테이너 범위 집합 B을 조인하면 집합 A와 집합 B에 있는 모든 요소의 교차곱을 만듭니다.
+- 컨테이너 집합 A와 컨테이너 범위 집합 B을 조인하면 집합 A와 집합 B에 있는 모든 요소의 교차곱을 만듭니다.
   
--   집합 A와 문서 범위 집합 B를 조인하면 집합 A의 각 문서에 대해 문서 범위 집합 B를 평가하여 얻는 모든 집합의 합집합을 만듭니다.  
+- 집합 A와 문서 범위 집합 B를 조인하면 집합 A의 각 문서에 대해 문서 범위 집합 B를 평가하여 얻는 모든 집합의 합집합을 만듭니다.  
   
- 현재 릴리스의 쿼리 프로세서에서는 컨테이너 범위가 지정된 식 하나만 지원합니다.  
+  현재 릴리스의 쿼리 프로세서에서는 컨테이너 범위가 지정된 식 하나만 지원합니다.  
   
 ### <a name="examples-of-joins"></a>조인 예제  
   
@@ -321,17 +321,17 @@ WHERE <filter_condition>
   
  **인수**  
   
--   `<filter_condition>`  
+- `<filter_condition>`  
   
-     반환할 문서에 대해 충족하는 조건을 지정합니다.  
+   반환할 문서에 대해 충족하는 조건을 지정합니다.  
   
--   `<scalar_expression>`  
+- `<scalar_expression>`  
   
-     계산할 값을 나타내는 식입니다. 자세한 내용은 [스칼라 식](#bk_scalar_expressions) 섹션을 참조하세요.  
+   계산할 값을 나타내는 식입니다. 자세한 내용은 [스칼라 식](#bk_scalar_expressions) 섹션을 참조하세요.  
   
- **주의**  
+  **주의**  
   
- 문서를 반환하려면 필터 조건으로 지정된 식을 true로 평가해야 합니다. true 부울 값만 조건을 충족하고, 다른 값(undefined, null, false, 숫자, 배열 또는 개체)은 조건을 충족하지 않습니다.  
+  문서를 반환하려면 필터 조건으로 지정된 식을 true로 평가해야 합니다. true 부울 값만 조건을 충족하고, 다른 값(undefined, null, false, 숫자, 배열 또는 개체)은 조건을 충족하지 않습니다.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY 절  
  쿼리에서 반환되는 결과의 정렬 순서를 지정합니다. 예를 들어 [ORDER BY 절 예제](how-to-sql-query.md#OrderByClause)를 참조하세요.
@@ -347,29 +347,29 @@ ORDER BY <sort_specification>
   
  **인수**  
   
--   `<sort_specification>`  
+- `<sort_specification>`  
   
-     쿼리 결과 집합을 정렬할 속성이나 식을 지정합니다. 정렬 열은 이름 또는 열 별칭으로 지정할 수 있습니다.  
+   쿼리 결과 집합을 정렬할 속성이나 식을 지정합니다. 정렬 열은 이름 또는 열 별칭으로 지정할 수 있습니다.  
   
-     여러 정렬 열을 지정할 수 있습니다. 열 이름은 고유해야 합니다. ORDER BY 절의 정렬 열 순서는 정렬되는 결과 집합의 구성을 정의합니다. 즉 결과 집합이 첫 번째 속성으로 정렬된 다음 정렬된 해당 목록이 두 번째 속성으로 정렬되는 등등입니다.  
+   여러 정렬 열을 지정할 수 있습니다. 열 이름은 고유해야 합니다. ORDER BY 절의 정렬 열 순서는 정렬되는 결과 집합의 구성을 정의합니다. 즉 결과 집합이 첫 번째 속성으로 정렬된 다음 정렬된 해당 목록이 두 번째 속성으로 정렬되는 등등입니다.  
   
-     ORDER BY 절에서 참조되는 열 이름은 선택 목록의 열 이름 또는 FROM 절에 지정된 테이블에 정의된 열 이름과 정확히 일치해야 합니다.  
+   ORDER BY 절에서 참조되는 열 이름은 선택 목록의 열 이름 또는 FROM 절에 지정된 테이블에 정의된 열 이름과 정확히 일치해야 합니다.  
   
--   `<sort_expression>`  
+- `<sort_expression>`  
   
-     쿼리 결과 집합을 정렬할 단일 속성 또는 식을 지정합니다.  
+   쿼리 결과 집합을 정렬할 단일 속성 또는 식을 지정합니다.  
   
--   `<scalar_expression>`  
+- `<scalar_expression>`  
   
-     자세한 내용은 [스칼라 식](#bk_scalar_expressions) 섹션을 참조하세요.  
+   자세한 내용은 [스칼라 식](#bk_scalar_expressions) 섹션을 참조하세요.  
   
--   `ASC | DESC`  
+- `ASC | DESC`  
   
-     지정된 열의 값을 오름차순 또는 내림차순으로 정렬하도록 지정합니다. ASC는 가장 낮은 값에서 가장 높은 값으로 정렬합니다. DESC는 가장 높은 값에서 가장 낮은 값으로 정렬합니다. ASC가 기본 정렬 순서입니다. 널 값은 가능한 가장 낮은 값으로 처리됩니다.  
+   지정된 열의 값을 오름차순 또는 내림차순으로 정렬하도록 지정합니다. ASC는 가장 낮은 값에서 가장 높은 값으로 정렬합니다. DESC는 가장 높은 값에서 가장 낮은 값으로 정렬합니다. ASC가 기본 정렬 순서입니다. 널 값은 가능한 가장 낮은 값으로 처리됩니다.  
   
- **주의**  
+  **주의**  
   
- 쿼리 문법은 속성 기준으로 여러 가지 순서를 지원하지만, Cosmos DB 쿼리 런타임은 단일 속성에 대해서만 정렬을 지원하며, 계산된 속성이 아니라 속성 이름에 대해서만 정렬을 지원합니다. 또한 정렬하기 위해서는 인덱싱 정책에 속성에 대한 범위 인덱스와 지정된 유형이 최대 정밀도로 포함되어야 합니다. 자세한 내용은 인덱싱 정책 설명서를 참조하세요.  
+  쿼리 문법은 속성 기준으로 여러 가지 순서를 지원하지만, Cosmos DB 쿼리 런타임은 단일 속성에 대해서만 정렬을 지원하며, 계산된 속성이 아니라 속성 이름에 대해서만 정렬을 지원합니다. 또한 정렬하기 위해서는 인덱싱 정책에 속성에 대한 범위 인덱스와 지정된 유형이 최대 정밀도로 포함되어야 합니다. 자세한 내용은 인덱싱 정책 설명서를 참조하세요.  
   
 ##  <a name="bk_scalar_expressions"></a> 스칼라 식  
  스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 간단한 식은 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출일 수 있으며, 연산자를 사용하여 복잡한 식으로 결합될 수 있습니다. 예를 들어 [스칼라 식 예제](how-to-sql-query.md#scalar-expressions)를 참조하세요.
@@ -407,62 +407,62 @@ ORDER BY <sort_specification>
   
  **인수**  
   
--   `<constant>`  
+- `<constant>`  
   
-     상수 값을 나타냅니다. 자세한 내용은 [상수](#bk_constants) 섹션을 참조하세요.  
+   상수 값을 나타냅니다. 자세한 내용은 [상수](#bk_constants) 섹션을 참조하세요.  
   
--   `input_alias`  
+- `input_alias`  
   
-     `FROM` 절에 도입된 `input_alias`에서 정의된 값을 나타냅니다.  
-    이 값은 **undefined**가 되지 않도록 보장되며, 입력에 있는 **undefined** 값은 건너뜁니다.  
+   `FROM` 절에 도입된 `input_alias`에서 정의된 값을 나타냅니다.  
+  이 값은 **undefined**가 되지 않도록 보장되며, 입력에 있는 **undefined** 값은 건너뜁니다.  
   
--   `<scalar_expression>.property_name`  
+- `<scalar_expression>.property_name`  
   
-     개체의 속성 값을 나타냅니다. 속성이 존재하지 않거나 개체가 아닌 값에서 참조되면 식이 **undefined** 값으로 평가됩니다.  
+   개체의 속성 값을 나타냅니다. 속성이 존재하지 않거나 개체가 아닌 값에서 참조되면 식이 **undefined** 값으로 평가됩니다.  
   
--   `<scalar_expression>'['"property_name"|array_index']'`  
+- `<scalar_expression>'['"property_name"|array_index']'`  
   
-     개체/배열의 `property_name` 이름이 있는 속성 또는 `array_index` 인덱스가 있는 배열 요소의 값을 나타냅니다. 속성/배열 인덱스가 존재하지 않거나 속성/배열이 아닌 값에서 참조되면 식이 undefined 값으로 평가됩니다.  
+   개체/배열의 `property_name` 이름이 있는 속성 또는 `array_index` 인덱스가 있는 배열 요소의 값을 나타냅니다. 속성/배열 인덱스가 존재하지 않거나 속성/배열이 아닌 값에서 참조되면 식이 undefined 값으로 평가됩니다.  
   
--   `unary_operator <scalar_expression>`  
+- `unary_operator <scalar_expression>`  
   
-     단일 값에 적용되는 연산자를 나타냅니다. 자세한 내용은 [연산자](#bk_operators) 섹션을 참조하세요.  
+   단일 값에 적용되는 연산자를 나타냅니다. 자세한 내용은 [연산자](#bk_operators) 섹션을 참조하세요.  
   
--   `<scalar_expression> binary_operator <scalar_expression>`  
+- `<scalar_expression> binary_operator <scalar_expression>`  
   
-     두 값에 적용되는 연산자를 나타냅니다. 자세한 내용은 [연산자](#bk_operators) 섹션을 참조하세요.  
+   두 값에 적용되는 연산자를 나타냅니다. 자세한 내용은 [연산자](#bk_operators) 섹션을 참조하세요.  
   
--   `<scalar_function_expression>`  
+- `<scalar_function_expression>`  
   
-     함수 호출의 결과로 정의되는 값을 나타냅니다.  
+   함수 호출의 결과로 정의되는 값을 나타냅니다.  
   
--   `udf_scalar_function`  
+- `udf_scalar_function`  
   
-     사용자 정의 스칼라 함수의 이름입니다.  
+   사용자 정의 스칼라 함수의 이름입니다.  
   
--   `builtin_scalar_function`  
+- `builtin_scalar_function`  
   
-     기본 제공 스칼라 함수의 이름입니다.  
+   기본 제공 스칼라 함수의 이름입니다.  
   
--   `<create_object_expression>`  
+- `<create_object_expression>`  
   
-     지정된 속성 및 해당 값이 포함된 새 개체를 만들어서 얻는 값을 나타냅니다.  
+   지정된 속성 및 해당 값이 포함된 새 개체를 만들어서 얻는 값을 나타냅니다.  
   
--   `<create_array_expression>`  
+- `<create_array_expression>`  
   
-     요소로 지정된 값이 포함된 새 배열을 만들어서 얻는 값을 나타냅니다.  
+   요소로 지정된 값이 포함된 새 배열을 만들어서 얻는 값을 나타냅니다.  
   
--   `parameter_name`  
+- `parameter_name`  
   
-     지정된 매개 변수 이름의 값을 나타냅니다. 매개 변수 이름에는 첫 번째 문자로 \@가 하나 있어야 합니다.  
+   지정된 매개 변수 이름의 값을 나타냅니다. 매개 변수 이름에는 첫 번째 문자로 \@가 하나 있어야 합니다.  
   
- **주의**  
+  **주의**  
   
- 기본 제공 또는 사용자 정의 스칼라 함수를 호출할 때 모든 인수가 정의되어야 합니다. 인수 중 하나라도 정의되지 않으면 함수가 호출되지 않고 결과가 정의되지 않습니다.  
+  기본 제공 또는 사용자 정의 스칼라 함수를 호출할 때 모든 인수가 정의되어야 합니다. 인수 중 하나라도 정의되지 않으면 함수가 호출되지 않고 결과가 정의되지 않습니다.  
   
- 개체를 만들 때 정의되지 않은 값이 할당된 속성은 건너뛰고 만든 개체에 포함되지 않습니다.  
+  개체를 만들 때 정의되지 않은 값이 할당된 속성은 건너뛰고 만든 개체에 포함되지 않습니다.  
   
- 배열을 만들 때 **undefined** 값이 할당된 요소 값은 건너뛰고 만든 개체에 포함되지 않습니다. 이렇게 하면 건너뛴 인덱스가 만드는 배열에 포함되지 않는 방식으로 다음에 정의된 요소가 해당 위치로 이동합니다.  
+  배열을 만들 때 **undefined** 값이 할당된 요소 값은 건너뛰고 만든 개체에 포함되지 않습니다. 이렇게 하면 건너뛴 인덱스가 만드는 배열에 포함되지 않는 방식으로 다음에 정의된 요소가 해당 위치로 이동합니다.  
   
 ##  <a name="bk_operators"></a> 연산자  
  이 섹션에서는 지원되는 연산자에 대해 설명합니다. 각 연산자는 정확히 하나의 범주에 할당할 수 있습니다.  
@@ -498,9 +498,11 @@ ORDER BY <sort_specification>
 |**String**|**&#124;&#124;**|연결 - 두 인수의 연결을 반환합니다.|  
   
  **삼항 연산자:**  
-  
-|삼항 연산자|?|첫 번째 인수가 **true**로 평가되면 두 번째 인수를 반환하고, 그렇지 않으면 세 번째 인수를 반환합니다.|  
+
+|**Name**|**연산자**|**세부 정보**| 
 |-|-|-|  
+|삼항 연산자|?|첫 번째 인수가 **true**로 평가되면 두 번째 인수를 반환하고, 그렇지 않으면 세 번째 인수를 반환합니다.|  
+
   
  **비교 연산자의 값 순서 지정**  
   
@@ -614,7 +616,7 @@ ORDER BY <sort_specification>
   
   문자열 리터럴은 연속적인 0이상의 유니코드 문자 또는 이스케이프 시퀀스로 표현되는 유니코드 문자열입니다. 문자열 리터럴은 작은따옴표(아포스트로피: ') 또는 큰따옴표(따옴표: ")로 묶어야 합니다.  
   
- 허용되는 이스케이프 시퀀스는 다음과 같습니다.  
+  허용되는 이스케이프 시퀀스는 다음과 같습니다.  
   
 |**이스케이프 시퀀스**|**설명**|**유니코드 문자**|  
 |-|-|-|  
@@ -634,17 +636,17 @@ ORDER BY <sort_specification>
   
  인덱스 조회에 대해 고려되는 필터는 다음과 같습니다.  
   
--   문서 경로 식 및 상수와 함께 같음 연산자(=)를 사용합니다.  
+- 문서 경로 식 및 상수와 함께 같음 연산자(=)를 사용합니다.  
   
--   문서 경로 식 및 상수와 함께 범위 연산자(<, \<=, >, >=)를 사용합니다.  
+- 문서 경로 식 및 상수와 함께 범위 연산자(<, \<=, >, >=)를 사용합니다.  
   
--   문서 경로 식은 참조되는 데이터베이스 컨테이너에서 문서의 상수 경로를 식별하는 모든 식을 나타냅니다.  
+- 문서 경로 식은 참조되는 데이터베이스 컨테이너에서 문서의 상수 경로를 식별하는 모든 식을 나타냅니다.  
   
- **문서 경로 식**  
+  **문서 경로 식**  
   
- 문서 경로 식은 데이터베이스 컨테이너 문서에서 제공하는 문서를 통해 속성 또는 배열 인덱서의 경로를 평가하는 식입니다. 이 경로는 필터에서 직접 참조되는 값의 위치를 데이터베이스 컨테이너의 문서 내에서 식별하는 데 사용될 수 있습니다.  
+  문서 경로 식은 데이터베이스 컨테이너 문서에서 제공하는 문서를 통해 속성 또는 배열 인덱서의 경로를 평가하는 식입니다. 이 경로는 필터에서 직접 참조되는 값의 위치를 데이터베이스 컨테이너의 문서 내에서 식별하는 데 사용될 수 있습니다.  
   
- 문서 경로 식으로 간주되는 식의 조건은 다음과 같습니다.  
+  문서 경로 식으로 간주되는 식의 조건은 다음과 같습니다.  
   
 1.  컨테이너 루트를 직접 참조합니다.  
   
@@ -707,17 +709,17 @@ ABS (<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 세 개의 다른 숫자에 ABS 함수를 사용한 결과를 보여 줍니다.  
+  다음 예제에서는 세 개의 다른 숫자에 ABS 함수를 사용한 결과를 보여 줍니다.  
   
 ```  
 SELECT ABS(-1), ABS(0), ABS(1)  
@@ -740,17 +742,17 @@ ACOS(<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 -1의 ACOS를 반환합니다.  
+  다음 예제에서는 -1의 ACOS를 반환합니다.  
   
 ```  
 SELECT ACOS(-1)  
@@ -773,17 +775,17 @@ ASIN(<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 -1의 ASIN을 반환합니다.  
+  다음 예제에서는 -1의 ASIN을 반환합니다.  
   
 ```  
 SELECT ASIN(-1)  
@@ -806,17 +808,17 @@ ATAN(<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 지정된 값의 ATAN을 반환합니다.  
+  다음 예제에서는 지정된 값의 ATAN을 반환합니다.  
   
 ```  
 SELECT ATAN(-45.01)  
@@ -839,17 +841,17 @@ ATN2(<numeric_expression>, <numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 지정된 x 및 y 구성 요소에 대한 ATN2를 계산합니다.  
+  다음 예제에서는 지정된 x 및 y 구성 요소에 대한 ATN2를 계산합니다.  
   
 ```  
 SELECT ATN2(35.175643, 129.44)  
@@ -872,17 +874,17 @@ CEILING (<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 CEILING 함수를 사용하여 양수, 음수 및 0 값을 보여 줍니다.  
+  다음 예제에서는 CEILING 함수를 사용하여 양수, 음수 및 0 값을 보여 줍니다.  
   
 ```  
 SELECT CEILING(123.45), CEILING(-123.45), CEILING(0.0)  
@@ -905,17 +907,17 @@ COS(<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 지정된 각도의 COS를 계산합니다.  
+  다음 예제에서는 지정된 각도의 COS를 계산합니다.  
   
 ```  
 SELECT COS(14.78)  
@@ -938,17 +940,17 @@ COT(<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 지정된 각도의 COT를 계산합니다.  
+  다음 예제에서는 지정된 각도의 COT를 계산합니다.  
   
 ```  
 SELECT COT(124.1332)  
@@ -971,17 +973,17 @@ DEGREES (<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 PI/2 라디안 각도의 각도 수를 반환합니다.  
+  다음 예제에서는 PI/2 라디안 각도의 각도 수를 반환합니다.  
   
 ```  
 SELECT DEGREES(PI()/2)  
@@ -1004,17 +1006,17 @@ FLOOR (<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 FLOOR 함수를 사용하여 양수, 음수 및 0 값을 보여 줍니다.  
+  다음 예제에서는 FLOOR 함수를 사용하여 양수, 음수 및 0 값을 보여 줍니다.  
   
 ```  
 SELECT FLOOR(123.45), FLOOR(-123.45), FLOOR(0.0)  
@@ -1037,25 +1039,25 @@ EXP (<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **주의**  
+  **주의**  
   
- **e**(2.718281…) 상수는 자연 로그의 밑입니다.  
+  **e**(2.718281…) 상수는 자연 로그의 밑입니다.  
   
- 숫자의 지수는 **e** 상수를 거듭제곱하는 횟수입니다. 예를 들어 EXP(1.0) = e^1.0 = 2.71828182845905이며, EXP(10) = e^10 = 22026.4657948067입니다.  
+  숫자의 지수는 **e** 상수를 거듭제곱하는 횟수입니다. 예를 들어 EXP(1.0) = e^1.0 = 2.71828182845905이며, EXP(10) = e^10 = 22026.4657948067입니다.  
   
- 숫자의 자연 로그의 지수는 숫자 자체, 즉 EXP (LOG (n)) = n입니다. 그리고 숫자의 지수의 자연 로그도 숫자 자체, 즉 LOG (EXP (n)) = n입니다.  
+  숫자의 자연 로그의 지수는 숫자 자체, 즉 EXP (LOG (n)) = n입니다. 그리고 숫자의 지수의 자연 로그도 숫자 자체, 즉 LOG (EXP (n)) = n입니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 변수를 선언하고 지정된 변수 (10)의 지수 값을 반환합니다.  
+  다음 예제에서는 변수를 선언하고 지정된 변수 (10)의 지수 값을 반환합니다.  
   
 ```  
 SELECT EXP(10)  
@@ -1090,29 +1092,29 @@ LOG (<numeric_expression> [, <base>])
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
--   `base`  
+- `base`  
   
-     로그의 밑을 설정하는 선택적 숫자 인수입니다.  
+   로그의 밑을 설정하는 선택적 숫자 인수입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **설명**  
+  **설명**  
   
- LOG()는 기본적으로 자연 로그를 반환합니다. 선택적인 base 매개 변수를 사용하여 로그의 밑을 다른 값으로 변경할 수 있습니다.  
+  LOG()는 기본적으로 자연 로그를 반환합니다. 선택적인 base 매개 변수를 사용하여 로그의 밑을 다른 값으로 변경할 수 있습니다.  
   
- 자연 로그는 **e**를 밑으로 하는 로그입니다. 여기서 **e**는 대략 2.718281828과 같은 무리 상수입니다.  
+  자연 로그는 **e**를 밑으로 하는 로그입니다. 여기서 **e**는 대략 2.718281828과 같은 무리 상수입니다.  
   
- 그리고 숫자의 지수의 자연 로그도 숫자 자체, 즉 LOG( EXP( n ) ) = n입니다. 그리고 숫자의 자연 로그의 지수도 숫자 자체, 즉 EXP( LOG( n ) ) = n입니다.  
+  그리고 숫자의 지수의 자연 로그도 숫자 자체, 즉 LOG( EXP( n ) ) = n입니다. 그리고 숫자의 자연 로그의 지수도 숫자 자체, 즉 EXP( LOG( n ) ) = n입니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 변수를 선언하고 지정된 변수 (10)의 로그 값을 반환합니다.  
+  다음 예제에서는 변수를 선언하고 지정된 변수 (10)의 로그 값을 반환합니다.  
   
 ```  
 SELECT LOG(10)  
@@ -1147,21 +1149,21 @@ LOG10 (<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **주의**  
+  **주의**  
   
- LOG10과 POWER 함수는 서로 역의 관계가 있습니다. 예를 들어 10 ^ LOG10(n) = n입니다.  
+  LOG10과 POWER 함수는 서로 역의 관계가 있습니다. 예를 들어 10 ^ LOG10(n) = n입니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 변수를 선언하고 지정된 변수 (100)의 LOG10 값을 반환합니다.  
+  다음 예제에서는 변수를 선언하고 지정된 변수 (100)의 LOG10 값을 반환합니다.  
   
 ```  
 SELECT LOG10(100)  
@@ -1184,17 +1186,17 @@ PI ()
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 PI의 값을 반환합니다.  
+  다음 예제에서는 PI의 값을 반환합니다.  
   
 ```  
 SELECT PI()  
@@ -1217,21 +1219,21 @@ POWER (<numeric_expression>, <y>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
--   `y`  
+- `y`  
   
-     `numeric_expression`이 거듭제곱되는 지수입니다.  
+   `numeric_expression`이 거듭제곱되는 지수입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 숫자를 3의 지수로 거듭제곱합니다(숫자의 3제곱).  
+  다음 예제에서는 숫자를 3의 지수로 거듭제곱합니다(숫자의 3제곱).  
   
 ```  
 SELECT POWER(2, 3), POWER(2.5, 3)  
@@ -1254,17 +1256,17 @@ RADIANS (<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 몇 개의 각도를 입력으로 사용하여 해당 라디안 값을 반환합니다.  
+  다음 예제에서는 몇 개의 각도를 입력으로 사용하여 해당 라디안 값을 반환합니다.  
   
 ```  
 SELECT RADIANS(-45.01), RADIANS(-181.01), RADIANS(0), RADIANS(0.1472738), RADIANS(197.1099392)  
@@ -1293,17 +1295,17 @@ ROUND(<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 첨부된 양수와 음수를 가장 가까운 정수로 반올림합니다.  
+  다음 예제에서는 첨부된 양수와 음수를 가장 가까운 정수로 반올림합니다.  
   
 ```  
 SELECT ROUND(2.4), ROUND(2.6), ROUND(2.5), ROUND(-2.4), ROUND(-2.6)  
@@ -1326,17 +1328,17 @@ SIGN(<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 -2에서 2까지의 숫자의 SIGN 값을 반환합니다.  
+  다음 예제에서는 -2에서 2까지의 숫자의 SIGN 값을 반환합니다.  
   
 ```  
 SELECT SIGN(-2), SIGN(-1), SIGN(0), SIGN(1), SIGN(2)  
@@ -1359,17 +1361,17 @@ SIN(<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 지정된 각도의 SIN을 계산합니다.  
+  다음 예제에서는 지정된 각도의 SIN을 계산합니다.  
   
 ```  
 SELECT SIN(45.175643)  
@@ -1392,17 +1394,17 @@ SQRT(<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 숫자 1-3의 제곱근을 반환합니다.  
+  다음 예제에서는 숫자 1-3의 제곱근을 반환합니다.  
   
 ```  
 SELECT SQRT(1), SQRT(2.0), SQRT(3)  
@@ -1425,17 +1427,17 @@ SQUARE(<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 1에서 3까지의 숫자의 제곱을 반환합니다.  
+  다음 예제에서는 1에서 3까지의 숫자의 제곱을 반환합니다.  
   
 ```  
 SELECT SQUARE(1), SQUARE(2.0), SQUARE(3)  
@@ -1458,17 +1460,17 @@ TAN (<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 PI()/2의 탄젠트를 계산합니다.  
+  다음 예제에서는 PI()/2의 탄젠트를 계산합니다.  
   
 ```  
 SELECT TAN(PI()/2);  
@@ -1491,17 +1493,17 @@ TRUNC(<numeric_expression>)
   
  **인수**  
   
--   `numeric_expression`  
+- `numeric_expression`  
   
-     숫자 식입니다.  
+   숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 첨부된 양수와 음수를 가장 가까운 정수 값으로 자릅니다.  
+  다음 예제에서는 첨부된 양수와 음수를 가장 가까운 정수 값으로 자릅니다.  
   
 ```  
 SELECT TRUNC(2.4), TRUNC(2.6), TRUNC(2.5), TRUNC(-2.4), TRUNC(-2.6)  
@@ -1533,17 +1535,17 @@ IS_ARRAY(<expression>)
   
  **인수**  
   
--   `expression`  
+- `expression`  
   
-     유효한 식입니다.  
+   유효한 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 IS_ARRAY 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
+  다음 예제에서는 IS_ARRAY 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
 ```  
 SELECT   
@@ -1573,17 +1575,17 @@ IS_BOOL(<expression>)
   
  **인수**  
   
--   `expression`  
+- `expression`  
   
-     유효한 식입니다.  
+   유효한 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 IS_BOOL 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
+  다음 예제에서는 IS_BOOL 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
 ```  
 SELECT   
@@ -1613,17 +1615,17 @@ IS_DEFINED(<expression>)
   
  **인수**  
   
--   `expression`  
+- `expression`  
   
-     유효한 식입니다.  
+   유효한 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 지정된 JSON 문서 내에 속성이 있는지 여부를 확인합니다. "a"가 있으므로 첫 번째 함수는 true를 반환하지만, "b"가 없으므로 두 번째 함수는 false를 반환합니다.  
+  다음 예제에서는 지정된 JSON 문서 내에 속성이 있는지 여부를 확인합니다. "a"가 있으므로 첫 번째 함수는 true를 반환하지만, "b"가 없으므로 두 번째 함수는 false를 반환합니다.  
   
 ```  
 SELECT IS_DEFINED({ "a" : 5 }.a), IS_DEFINED({ "a" : 5 }.b)  
@@ -1649,17 +1651,17 @@ IS_NULL(<expression>)
   
  **인수**  
   
--   `expression`  
+- `expression`  
   
-     유효한 식입니다.  
+   유효한 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 IS_NULL 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
+  다음 예제에서는 IS_NULL 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
 ```  
 SELECT   
@@ -1689,17 +1691,17 @@ IS_NUMBER(<expression>)
   
  **인수**  
   
--   `expression`  
+- `expression`  
   
-     유효한 식입니다.  
+   유효한 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 IS_NULL 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
+  다음 예제에서는 IS_NULL 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
 ```  
 SELECT   
@@ -1729,17 +1731,17 @@ IS_OBJECT(<expression>)
   
  **인수**  
   
--   `expression`  
+- `expression`  
   
-     유효한 식입니다.  
+   유효한 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 IS_OBJECT 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
+  다음 예제에서는 IS_OBJECT 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
 ```  
 SELECT   
@@ -1769,17 +1771,17 @@ IS_PRIMITIVE(<expression>)
   
  **인수**  
   
--   `expression`  
+- `expression`  
   
-     유효한 식입니다.  
+   유효한 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 IS_PRIMITIVE 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
+  다음 예제에서는 IS_PRIMITIVE 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
 ```  
 SELECT   
@@ -1809,17 +1811,17 @@ IS_STRING(<expression>)
   
  **인수**  
   
--   `expression`  
+- `expression`  
   
-     유효한 식입니다.  
+   유효한 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 IS_STRING 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
+  다음 예제에서는 IS_STRING 함수를 사용하여 JSON 부울, number, string, null, object, array 및 undefined 형식의 개체를 확인합니다.  
   
 ```  
 SELECT   
@@ -1847,8 +1849,10 @@ SELECT
 |[INDEX_OF](#bk_index_of)|[왼쪽](#bk_left)|[LENGTH](#bk_length)|  
 |[낮은](#bk_lower)|[LTRIM](#bk_ltrim)|[바꾸기](#bk_replace)|  
 |[복제](#bk_replicate)|[역방향](#bk_reverse)|[오른쪽](#bk_right)|  
-|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[하위 문자열](#bk_substring)|  
-|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[위](#bk_upper)||| 
+|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
+|[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
+|[StringToObject](#bk_stringtoobject)|[하위 문자열](#bk_substring)|[ToString](#bk_tostring)|
+|[TRIM](#bk_trim)|[위](#bk_upper)||
   
 ####  <a name="bk_concat"></a> CONCAT  
  둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다.  
@@ -1861,17 +1865,17 @@ CONCAT(<str_expr>, <str_expr> [, <str_expr>])
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 지정된 값의 연결된 문자열을 반환합니다.  
+  다음 예제에서는 지정된 값의 연결된 문자열을 반환합니다.  
   
 ```  
 SELECT CONCAT("abc", "def")  
@@ -1894,17 +1898,17 @@ CONTAINS(<str_expr>, <str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 "abc"에 "ab"와 "d"가 포함되어 있는지 확인합니다.  
+  다음 예제에서는 "abc"에 "ab"와 "d"가 포함되어 있는지 확인합니다.  
   
 ```  
 SELECT CONTAINS("abc", "ab"), CONTAINS("abc", "d")  
@@ -1927,17 +1931,17 @@ ENDSWITH(<str_expr>, <str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 "abc"가 "b"와 "bc"로 끝나는지 여부를 나타내는 부울 값을 반환합니다.  
+  다음 예제에서는 "abc"가 "b"와 "bc"로 끝나는지 여부를 나타내는 부울 값을 반환합니다.  
   
 ```  
 SELECT ENDSWITH("abc", "b"), ENDSWITH("abc", "bc")  
@@ -1960,17 +1964,17 @@ INDEX_OF(<str_expr>, <str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 "abc" 안에 다양한 부분 문자열의 인덱스를 반환합니다.  
+  다음 예제에서는 "abc" 안에 다양한 부분 문자열의 인덱스를 반환합니다.  
   
 ```  
 SELECT INDEX_OF("abc", "ab"), INDEX_OF("abc", "b"), INDEX_OF("abc", "c")  
@@ -1993,21 +1997,21 @@ LEFT(<str_expr>, <num_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
--   `num_expr`  
+- `num_expr`  
   
-     유효한 숫자 식입니다.  
+   유효한 숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 다양한 길이 값에 대해 "abc"의 왼쪽 부분을 반환합니다.  
+  다음 예제에서는 다양한 길이 값에 대해 "abc"의 왼쪽 부분을 반환합니다.  
   
 ```  
 SELECT LEFT("abc", 1), LEFT("abc", 2)  
@@ -2030,17 +2034,17 @@ LENGTH(<str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 문자열의 길이를 반환합니다.  
+  다음 예제에서는 문자열의 길이를 반환합니다.  
   
 ```  
 SELECT LENGTH("abc")  
@@ -2063,17 +2067,17 @@ LOWER(<str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 쿼리에서 LOWER를 사용하는 방법을 보여 줍니다.  
+  다음 예제에서는 쿼리에서 LOWER를 사용하는 방법을 보여 줍니다.  
   
 ```  
 SELECT LOWER("Abc")  
@@ -2097,17 +2101,17 @@ LTRIM(<str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 LTRIM을 쿼리 내에서 사용하는 방법을 보여 줍니다.  
+  다음 예제에서는 LTRIM을 쿼리 내에서 사용하는 방법을 보여 줍니다.  
   
 ```  
 SELECT LTRIM("  abc"), LTRIM("abc"), LTRIM("abc   ")  
@@ -2130,17 +2134,17 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 쿼리에서 REPLACE를 사용하는 방법을 보여 줍니다.  
+  다음 예제에서는 쿼리에서 REPLACE를 사용하는 방법을 보여 줍니다.  
   
 ```  
 SELECT REPLACE("This is a Test", "Test", "desk")  
@@ -2163,24 +2167,24 @@ REPLICATE(<str_expr>, <num_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
--   `num_expr`  
+- `num_expr`  
   
-     유효한 숫자 식입니다. num_expr이 음수이거나 무한 값이면 결과가 정의되지 않습니다.
+   유효한 숫자 식입니다. num_expr이 음수이거나 무한 값이면 결과가 정의되지 않습니다.
 
   > [!NOTE]
   > 결과의 최대 길이는 10,000자입니다((length(str_expr) * num_expr) <= 10,000).
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 쿼리에서 REPLICATE를 사용하는 방법을 보여 줍니다.  
+  다음 예제에서는 쿼리에서 REPLICATE를 사용하는 방법을 보여 줍니다.  
   
 ```  
 SELECT REPLICATE("a", 3)  
@@ -2203,17 +2207,17 @@ REVERSE(<str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 쿼리에서 REVERSE를 사용하는 방법을 보여 줍니다.  
+  다음 예제에서는 쿼리에서 REVERSE를 사용하는 방법을 보여 줍니다.  
   
 ```  
 SELECT REVERSE("Abc")  
@@ -2236,21 +2240,21 @@ RIGHT(<str_expr>, <num_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
--   `num_expr`  
+- `num_expr`  
   
-     유효한 숫자 식입니다.  
+   유효한 숫자 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 다양한 길이 값에 대해 "abc"의 오른쪽 부분을 반환합니다.  
+  다음 예제에서는 다양한 길이 값에 대해 "abc"의 오른쪽 부분을 반환합니다.  
   
 ```  
 SELECT RIGHT("abc", 1), RIGHT("abc", 2)  
@@ -2273,17 +2277,17 @@ RTRIM(<str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 쿼리 내에서 RTRIM을 사용하는 방법을 보여 줍니다.  
+  다음 예제에서는 쿼리 내에서 RTRIM을 사용하는 방법을 보여 줍니다.  
   
 ```  
 SELECT RTRIM("  abc"), RTRIM("abc"), RTRIM("abc   ")  
@@ -2306,17 +2310,17 @@ STARTSWITH(<str_expr>, <str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 "abc" 문자열이 "b"와 "a"로 시작하는지 확인합니다.  
+  다음 예제에서는 "abc" 문자열이 "b"와 "a"로 시작하는지 확인합니다.  
   
 ```  
 SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")  
@@ -2327,7 +2331,225 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 ```  
 [{"$1": false, "$2": true}]  
 ```  
+
+  ####  <a name="bk_stringtoarray"></a> StringToArray  
+ 배열로 변환 하는 식을 반환 합니다. 식을 변환할 수 없는 경우 undefined를 반환 합니다.  
   
+ **구문**  
+  
+```  
+StringToArray(<expr>)  
+```  
+  
+ **인수**  
+  
+- `expr`  
+  
+   유효한 JSON 배열 식이입니다. 유효 하려면 큰따옴표를 사용 하 여 문자열 값을 써야 하는 참고 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)
+  
+  **반환 형식**  
+  
+  배열 식을 반환 하거나 정의 되지 않았습니다.  
+  
+  **예**  
+  
+  다음 예제에서는 StringToArray 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
+  
+```  
+SELECT 
+StringToArray('[]'), 
+StringToArray("[1,2,3]"),
+StringToArray("[\"str\",2,3]"),
+IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
+IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
+StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
+StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
+StringToArray(false), 
+StringToArray(undefined),
+StringToArray(NaN), 
+StringToArray("[")
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
+```  
+
+####  <a name="bk_stringtoboolean"></a> StringToBoolean  
+ 부울으로 변환 하는 식을 반환 합니다. 식을 변환할 수 없는 경우 undefined를 반환 합니다.  
+  
+ **구문**  
+  
+```  
+StringToBoolean(<expr>)  
+```  
+  
+ **인수**  
+  
+- `expr`  
+  
+   유효한 식입니다.  
+  
+  **반환 형식**  
+  
+  부울 식을 반환 하거나 정의 되지 않았습니다.  
+  
+  **예**  
+  
+  다음 예제에서는 StringToBoolean 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
+  
+```  
+SELECT 
+StringToBoolean("true"), 
+StringToBoolean("    false"),
+IS_BOOL(StringToBoolean("false")), 
+StringToBoolean("null"),
+StringToBoolean(undefined),
+StringToBoolean(NaN), 
+StringToBoolean(false), 
+StringToBoolean(true), 
+StringToBoolean("TRUE"),
+StringToBoolean("False")
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{"$1": true, "$2": false, "$3": true}]
+```  
+
+####  <a name="bk_stringtonull"></a> StringToNull  
+ Null로 변환 하는 식을 반환 합니다. 식을 변환할 수 없는 경우 undefined를 반환 합니다.  
+  
+ **구문**  
+  
+```  
+StringToNull(<expr>)  
+```  
+  
+ **인수**  
+  
+- `expr`  
+  
+   유효한 식입니다.  
+  
+  **반환 형식**  
+  
+  정의 되지 않은 또는 null 식을 반환 합니다.  
+  
+  **예**  
+  
+  다음 예제에서는 StringToNull 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
+  
+```  
+SELECT 
+StringToNull("null"), 
+StringToNull("  null "),
+IS_NULL(StringToNull("null")), 
+StringToNull("true"), 
+StringToNull(false), 
+StringToNull(undefined),
+StringToNull(NaN), 
+StringToNull("NULL"),
+StringToNull("Null")
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{"$1": null, "$2": null, "$3": true}]
+```  
+
+####  <a name="bk_stringtonumber"></a> StringToNumber  
+ 숫자로 변환 하는 식을 반환 합니다. 식을 변환할 수 없는 경우 undefined를 반환 합니다.  
+  
+ **구문**  
+  
+```  
+StringToNumber(<expr>)  
+```  
+  
+ **인수**  
+  
+- `expr`  
+  
+   유효한 JSON 숫자 식이입니다. Json에서 숫자는 정수 또는 부동 소수점 있어야 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)  
+  
+  **반환 형식**  
+  
+  정의 되지 않은 또는 숫자 식을 반환 합니다.  
+  
+  **예**  
+  
+  다음 예제에서는 StringToNumber 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
+  
+```  
+SELECT 
+StringToNumber("1.000000"), 
+StringToNumber("3.14"),
+IS_NUMBER(StringToNumber("   60   ")), 
+StringToNumber("0xF"),
+StringToNumber("-1.79769e+308"),
+IS_STRING(StringToNumber("2")),
+StringToNumber(undefined),
+StringToNumber("99     54"), 
+StringToNumber("false"), 
+StringToNumber(false),
+StringToNumber(" "),
+StringToNumber(NaN)
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+```  
+
+####  <a name="bk_stringtoobject"></a> StringToObject  
+ 개체로 변환 하는 식을 반환 합니다. 식을 변환할 수 없는 경우 undefined를 반환 합니다.  
+  
+ **구문**  
+  
+```  
+StringToObject(<expr>)  
+```  
+  
+ **인수**  
+  
+- `expr`  
+  
+   유효한 JSON 개체 식이입니다. 유효 하려면 큰따옴표를 사용 하 여 문자열 값을 써야 하는 참고 합니다. JSON 형식에 대 한 자세한 내용은 참조 하세요. [json.org](https://json.org/)  
+  
+  **반환 형식**  
+  
+  개체 식을 반환 하거나 정의 되지 않았습니다.  
+  
+  **예**  
+  
+  다음 예제에서는 StringToObject 서로 다른 형식에서 작동 하는 방법을 보여 줍니다. 
+  
+```  
+SELECT 
+StringToObject("{}"), 
+StringToObject('{"a":[1,2,3]}'),
+StringToObject("{'a':[1,2,3]}"),
+StringToObject("{a:[1,2,3]}"),
+IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
+IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
+IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
+StringToObject(false), 
+StringToObject(undefined),
+StringToObject(NaN), 
+StringToObject("{")
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+```  
+
 ####  <a name="bk_substring"></a> SUBSTRING  
  지정한 문자 0 기준 위치에서 시작하여 지정한 길이 또는 문자열의 끝까지에 이르는 문자열 식의 일부를 반환합니다.  
   
@@ -2339,21 +2561,21 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
--   `num_expr`  
+- `num_expr`  
   
-     시작 및 끝 문자를 나타내는 유효한 숫자 식입니다.    
+   시작 및 끝 문자를 나타내는 유효한 숫자 식입니다.    
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 1에서 시작하여 길이가 1인 "abc"의 부분 문자열을 반환합니다.  
+  다음 예제에서는 1에서 시작하여 길이가 1인 "abc"의 부분 문자열을 반환합니다.  
   
 ```  
 SELECT SUBSTRING("abc", 1, 1)  
@@ -2375,17 +2597,17 @@ ToString(<expr>)
   
  **인수**  
   
--   `expr`  
+- `expr`  
   
-     유효한 스칼라 식입니다.  
+   유효한 스칼라 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 다른 형식에서 ToString이 동작하는 방법을 보여줍니다.   
+  다음 예제에서는 다른 형식에서 ToString이 동작하는 방법을 보여줍니다.   
   
 ```  
 SELECT ToString(1.0000), ToString("Hello World"), ToString(NaN), ToString(Infinity),
@@ -2450,17 +2672,17 @@ TRIM(<str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 쿼리 내에서 TRIM을 사용하는 방법을 보여 줍니다.  
+  다음 예제에서는 쿼리 내에서 TRIM을 사용하는 방법을 보여 줍니다.  
   
 ```  
 SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
@@ -2482,17 +2704,17 @@ UPPER(<str_expr>)
   
  **인수**  
   
--   `str_expr`  
+- `str_expr`  
   
-     유효한 문자열 식입니다.  
+   유효한 문자열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 문자열 식을 반환합니다.  
+  문자열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 쿼리에서 UPPER를 사용하는 방법을 보여 줍니다.  
+  다음 예제에서는 쿼리에서 UPPER를 사용하는 방법을 보여 줍니다.  
   
 ```  
 SELECT UPPER("Abc")  
@@ -2523,17 +2745,17 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
   
  **인수**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     유효한 배열 식입니다.  
+   유효한 배열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 배열 식을 반환합니다.  
+  배열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 두 배열을 연결하는 방법을 보여 줍니다.  
+  다음 예제에서는 두 배열을 연결하는 방법을 보여 줍니다.  
   
 ```  
 SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])  
@@ -2556,25 +2778,25 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
  **인수**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     유효한 배열 식입니다.  
+   유효한 배열 식입니다.  
   
--   `expr`  
+- `expr`  
   
-     유효한 식입니다.  
+   유효한 식입니다.  
 
--   `bool_expr`  
+- `bool_expr`  
   
-     부울 식입니다. 'true'로 설정되고 지정된 검색 값이 개체인 경우 명령은 부분 일치(검색 개체가 개체 중 하나의 하위 집합임)를 확인합니다. 'false'로 설정되면 명령은 배열 내의 모든 개체에 대해 전체 일치를 확인합니다. 지정하지 않으면 기본값 false입니다. 
+   부울 식입니다. 'true'로 설정되고 지정된 검색 값이 개체인 경우 명령은 부분 일치(검색 개체가 개체 중 하나의 하위 집합임)를 확인합니다. 'false'로 설정되면 명령은 배열 내의 모든 개체에 대해 전체 일치를 확인합니다. 지정하지 않으면 기본값 false입니다. 
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 값을 반환합니다.  
+  부울 값을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 ARRAY_CONTAINS를 사용하여 배열의 멤버 자격을 확인하는 방법을 보여 줍니다.  
+  다음 예제에서는 ARRAY_CONTAINS를 사용하여 배열의 멤버 자격을 확인하는 방법을 보여 줍니다.  
   
 ```  
 SELECT   
@@ -2618,17 +2840,17 @@ ARRAY_LENGTH(<arr_expr>)
   
  **인수**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     유효한 배열 식입니다.  
+   유효한 배열 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 숫자 식을 반환합니다.  
+  숫자 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 ARRAY_LENGTH를 사용하여 배열의 길이를 가져오는 방법을 보여 줍니다.  
+  다음 예제에서는 ARRAY_LENGTH를 사용하여 배열의 길이를 가져오는 방법을 보여 줍니다.  
   
 ```  
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"])  
@@ -2651,25 +2873,25 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
  **인수**  
   
--   `arr_expr`  
+- `arr_expr`  
   
-     유효한 배열 식입니다.  
+   유효한 배열 식입니다.  
   
--   `num_expr`  
+- `num_expr`  
   
-     배열을 시작할 0 기반 숫자 인덱스 배열의 마지막 요소에 관련된 시작 인덱스를 지정하는 데 음수 값을 사용할 수 있습니다. 즉, -1은 배열의 마지막 요소를 참조합니다.  
+   배열을 시작할 0 기반 숫자 인덱스 배열의 마지막 요소에 관련된 시작 인덱스를 지정하는 데 음수 값을 사용할 수 있습니다. 즉, -1은 배열의 마지막 요소를 참조합니다.  
 
--   `num_expr`  
+- `num_expr`  
 
-     결과 배열에 있는 요소의 최대 수입니다.    
+   결과 배열에 있는 요소의 최대 수입니다.    
 
- **반환 형식**  
+  **반환 형식**  
   
- 배열 식을 반환합니다.  
+  배열 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 ARRAY_SLICE를 사용하여 배열의 다른 조각을 가져오는 방법을 보여줍니다.  
+  다음 예제에서는 ARRAY_SLICE를 사용하여 배열의 다른 조각을 가져오는 방법을 보여줍니다.  
   
 ```  
 SELECT   
@@ -2700,10 +2922,10 @@ SELECT
 ###  <a name="bk_spatial_functions"></a> 공간 함수  
  다음 스칼라 함수는 공간 개체 입력 값에 대한 연산을 수행하고, 숫자 또는 부울 값을 반환합니다.  
   
-||||  
-|-|-|-|  
-|[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|  
-|[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)|||  
+|||||
+|-|-|-|-|
+|[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|
+|[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)||||
   
 ####  <a name="bk_st_distance"></a> ST_DISTANCE  
  두 GeoJSON Point, Polygon 또는 LineString 식 사이의 거리를 반환합니다.  
@@ -2716,17 +2938,17 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
  **인수**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     유효한 GeoJSON Point, Polygon 또는 LineString 개체 식입니다.  
+   유효한 GeoJSON Point, Polygon 또는 LineString 개체 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 거리가 포함된 숫자 식을 반환합니다. 기본 참조 시스템의 경우 미터 단위로 표현됩니다.  
+  거리가 포함된 숫자 식을 반환합니다. 기본 참조 시스템의 경우 미터 단위로 표현됩니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 ST_DISTANCE 기본 제공 함수를 사용하여 지정된 위치에서 30Km 이내에 있는 모든 패밀리 문서를 반환하는 방법을 보여 줍니다. .  
+  다음 예제에서는 ST_DISTANCE 기본 제공 함수를 사용하여 지정된 위치에서 30Km 이내에 있는 모든 패밀리 문서를 반환하는 방법을 보여 줍니다. .  
   
 ```  
 SELECT f.id   
@@ -2753,21 +2975,21 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
  **인수**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     유효한 GeoJSON Point, Polygon 또는 LineString 개체 식입니다.  
+   유효한 GeoJSON Point, Polygon 또는 LineString 개체 식입니다.  
  
--   `spatial_expr`  
+- `spatial_expr`  
   
-     유효한 GeoJSON Point, Polygon 또는 LineString 개체 식입니다.  
+   유효한 GeoJSON Point, Polygon 또는 LineString 개체 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 값을 반환합니다.  
+  부울 값을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 ST_WITHIN을 사용하여 다각형 내의 모든 패밀리 문서를 찾는 방법을 보여 줍니다.  
+  다음 예제에서는 ST_WITHIN을 사용하여 다각형 내의 모든 패밀리 문서를 찾는 방법을 보여 줍니다.  
   
 ```  
 SELECT f.id   
@@ -2795,21 +3017,21 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
  **인수**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     유효한 GeoJSON Point, Polygon 또는 LineString 개체 식입니다.  
+   유효한 GeoJSON Point, Polygon 또는 LineString 개체 식입니다.  
  
--   `spatial_expr`  
+- `spatial_expr`  
   
-     유효한 GeoJSON Point, Polygon 또는 LineString 개체 식입니다.  
+   유효한 GeoJSON Point, Polygon 또는 LineString 개체 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 값을 반환합니다.  
+  부울 값을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 지정된 다각형과 교차하는 모든 영역을 찾는 방법을 보여줍니다.  
+  다음 예제에서는 지정된 다각형과 교차하는 모든 영역을 찾는 방법을 보여줍니다.  
   
 ```  
 SELECT a.id   
@@ -2837,21 +3059,21 @@ ST_ISVALID(<spatial_expr>)
   
  **인수**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     유효한 GeoJSON Point, Polygon 또는 LineString 식입니다.  
+   유효한 GeoJSON Point, Polygon 또는 LineString 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 부울 식을 반환합니다.  
+  부울 식을 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 ST_VALID를 사용하여 꼭짓점이 유효한지 확인하는 방법을 보여 줍니다.  
+  다음 예제에서는 ST_VALID를 사용하여 꼭짓점이 유효한지 확인하는 방법을 보여 줍니다.  
   
- 예를 들어 유효 범위[-90, 90]에 없는 위도 값이 이 꼭짓점에 있으므로 쿼리에서 false를 반환합니다.  
+  예를 들어 유효 범위[-90, 90]에 없는 위도 값이 이 꼭짓점에 있으므로 쿼리에서 false를 반환합니다.  
   
- 다각형의 경우 GeoJSON 사양에서는 닫힌 도형을 만들기 위해 제공된 마지막 좌표 쌍이 첫 번째 것과 같아야 합니다. 다각형 내의 점을 시계 반대 방향 순서로 지정해야 합니다. 시계 방향 순서로 지정된 다각형은 내부 영역의 반전을 나타냅니다.  
+  다각형의 경우 GeoJSON 사양에서는 닫힌 도형을 만들기 위해 제공된 마지막 좌표 쌍이 첫 번째 것과 같아야 합니다. 다각형 내의 점을 시계 반대 방향 순서로 지정해야 합니다. 시계 방향 순서로 지정된 다각형은 내부 영역의 반전을 나타냅니다.  
   
 ```  
 SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })  
@@ -2874,17 +3096,17 @@ ST_ISVALID(<spatial_expr>)
   
  **인수**  
   
--   `spatial_expr`  
+- `spatial_expr`  
   
-     유효한 GeoJSON 꼭짓점 또는 다각형 식입니다.  
+   유효한 GeoJSON 꼭짓점 또는 다각형 식입니다.  
   
- **반환 형식**  
+  **반환 형식**  
   
- 지정된 GeoJSON 점 또는 다각형 식이 유효한 경우 부울 값을 포함하는 JSON 값을 반환하고, 잘못된 경우 추가로 그 이유를 문자열 값으로 반환합니다.  
+  지정된 GeoJSON 점 또는 다각형 식이 유효한 경우 부울 값을 포함하는 JSON 값을 반환하고, 잘못된 경우 추가로 그 이유를 문자열 값으로 반환합니다.  
   
- **예**  
+  **예**  
   
- 다음 예제에서는 ST_ISVALIDDETAILED를 사용하여 세부 정보로 유효성을 검사하는 방법을 보여 줍니다.  
+  다음 예제에서는 ST_ISVALIDDETAILED를 사용하여 세부 정보로 유효성을 검사하는 방법을 보여 줍니다.  
   
 ```  
 SELECT ST_ISVALIDDETAILED({   

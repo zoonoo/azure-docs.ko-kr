@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: ed149398a1244ad0cb09c3e0fe128973c6caa00d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b61bf4f05f52b9d28ee09bb6c0de30544396e815
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091599"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>자습서: 항상 사용 가능한 SQL database를 제공 합니다.
 
@@ -65,7 +65,7 @@ Azure Stack marketplace에 항목을 추가 하는 방법에 대 한 자세한 �
 - Vm의 SQL 및 파일 공유 감시를 포함 하는 하나의 가용성 집합  
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 선택 **\+** **리소스 만들기** > **Custom**를 차례로 **템플릿 배포**.
 
@@ -156,7 +156,7 @@ SQL AlwaysOn 가용성 그룹 생성, 구성 및 Azure Stack SQL 호스팅 서�
 > SQL Server 기능 (Microsoft.SQLAdapter 서비스)을 제공 하는 구독을 사용 하 여 테 넌 트 사용자로 Azure Stack 사용자 포털에서 이러한 단계를 실행 합니다.
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. 선택 **\+** **리소스 만들기** > **데이터 \+ Storage**를 차례로 **SQL Database**합니다.<br><br>이름, 데이터 정렬, 최대 크기 및 구독, 리소스 그룹 및 위치는 배포에 사용할를 포함 하 여 필요한 데이터베이스 속성 정보를 제공 합니다. 
 

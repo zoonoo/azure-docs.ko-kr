@@ -6,15 +6,15 @@ keywords: secrets
 author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: 06d8519836129a557ec69d59d15eb12129e8099b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 36d0b49f1b9fb1ca5d13283146d134137a5cb028
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900644"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Service Fabric Mesh 애플리케이션 비밀 관리
 Service Fabric Mesh에서는 비밀을 Azure 리소스로 지원합니다. Service Fabric Mesh 비밀은 스토리지 연결 문자열, 암호, 안전하게 저장하고 전송되어야 하는 기타 값 등 중요한 텍스트 정보일 수 있습니다. 이 문서에서는 Service Fabric 보안 스토리지 서비스를 사용하여 비밀을 배포하고 유지 관리하는 방법을 보여줍니다.
@@ -24,20 +24,20 @@ Mesh 애플리케이션 비밀은 다음으로 이루어져 있습니다.
 * 하나 이상의 **비밀/값** 리소스는 **비밀** 리소스 컨테이너에 저장됩니다. 각 **비밀/값** 리소스는 버전 번호로 구분됩니다. **비밀/값** 리소스의 버전을 수정할 수 없고 새 버전을 추가할 수는 있습니다.
 
 비밀을 관리하는 작업은 다음 단계로 구성됩니다.
-1. inlinedValue 종류와 SecretsStoreRef contentType 정의를 사용하여 Azure 리소스 모델 YAML 또는 JSON 파일에서 Mesh **비밀** 리소스를 선언합니다.
-2. (1단계의) **비밀** 리소스에 저장될 Azure 리소스 모델 YAML 또는 JSON 파일의 Mesh **비밀/값** 리소스를 선언합니다.
+1. 메시를 선언 **비밀** SecretsStoreRef contentType 정의와 inlinedValue 종류를 사용 하 여 Azure 리소스 모델 YAML 또는 JSON 파일에는 리소스입니다.
+2. 메시를 선언 **비밀/값** 에 저장 되는 Azure 리소스 모델 YAML 또는 JSON 파일에 리소스를 **비밀** (1 단계)에서 리소스입니다.
 3. Mesh 비밀 값을 참조하도록 Mesh 애플리케이션을 수정합니다.
 4. 비밀 값을 사용하도록 Mesh 애플리케이션을 배포하거나 롤링 업그레이드합니다.
 5. 보안 스토리지 서비스 수명 주기 관리에 대해 Azure "az" CLI 명령을 사용합니다.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Mesh 비밀 리소스를 선언합니다.
-inlinedValue 종류와 SecretsStoreRef contentType 정의를 사용하여 Azure 리소스 모델 JSON 또는 YAML 파일에서 Mesh 비밀 리소스를 선언합니다. Mesh 비밀 리소스는 보안 스토리지 서비스 제공 비밀을 지원합니다. 
+메시 비밀 리소스는 Azure 리소스 모델 JSON 또는 YAML 파일 SecretsStoreRef contentType 정의와 inlinedValue 종류를 사용 하 여 선언 됩니다. Mesh 비밀 리소스는 보안 스토리지 서비스 제공 비밀을 지원합니다. 
 >
 JSON 파일에서 Mesh 비밀 리소스를 선언하는 방법의 예제는 다음과 같습니다.
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -103,7 +103,7 @@ JSON 파일에서 Mesh 비밀/값 리소스를 선언하는 방법의 예제는 
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -215,9 +215,9 @@ az mesh secret show --Resource-group <myResourceGroup> --secret-name <mySecret>
 
 - Mesh 애플리케이션에서 참조하는 동안 비밀을 삭제할 수 없습니다.
 - 비밀 리소스를 삭제하면 모든 비밀/리소스 버전을 삭제합니다.
-```azurecli-interactive
-az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
-```
+  ```azurecli-interactive
+  az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
+  ```
 
 ### <a name="list-secrets-in-subscription"></a>구독에서 비밀 나열
 ```azurecli-interactive

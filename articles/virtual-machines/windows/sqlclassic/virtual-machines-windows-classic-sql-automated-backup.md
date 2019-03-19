@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3aba118354c51285d714bb127e6f5984f8a50057
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096302"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server의 자동화된 백업(클래식)
 > [!div class="op_single_selector"]
@@ -73,7 +73,8 @@ ms.locfileid: "54329755"
 | **보존 기간** |1-30일(30일) |백업 보존 기간(일 수)입니다. |
 | **Storage 계정** |Azure 저장소 계정(지정된 VM에 대해 만든 저장소 계정) |Cloud Shell은 Azure File Storage를 활용하여 세션 간에 파일을 유지합니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 컴퓨터 이름이 포함됩니다. |
 | **암호화** |사용/사용 안 함(사용 안 함) |암호화 사용 여부를 설정합니다. 암호화 기능을 사용하면 백업을 복원하는 데 사용되는 인증서가 동일한 명명 규칙을 사용하여 동일한 자동 백업 컨테이너에 지정한 저장소 계정에 배치됩니다. 암호가 변경되면 해당 암호를 사용하여 새 인증서가 생성되지만 이전 인증서도 이전 백업의 복원을 위해 유지됩니다. |
-| **암호** |암호 텍스트(없음) |암호화 키의 암호입니다. 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. | **시스템 데이터베이스 Backup** | 사용/사용 안 함(사용 안 함) | Master, Model 및 MSDB의 전체 백업 |
+| **암호** |암호 텍스트(없음) |암호화 키의 암호입니다. 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. |
+| **시스템 데이터베이스 Backup** | 사용/사용 안 함(사용 안 함) | Master, Model 및 MSDB의 전체 백업 |
 | **백업 일정 구성** | 수동/자동(자동) | 로그 증가에 따라 전체 및 로그 백업을 자동으로 수행하려면 **자동**을 선택합니다. 전체 및 로그 백업 일정을 지정하려면 **수동**을 선택합니다. |
 
 ## <a name="configuration-with-powershell"></a>PowerShell을 사용하여 구성

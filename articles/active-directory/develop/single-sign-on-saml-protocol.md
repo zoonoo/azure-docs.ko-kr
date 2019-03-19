@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a46bc954d137ad610310d83d3ad7f54370b9177b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012767"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 
@@ -170,7 +170,7 @@ Azure AD는 `Issuer` 요소를 `https://login.microsoftonline.com/<TenantIDGUID>
 
 `Status` 요소가 로그온의 성공 여부를 전달합니다. 여기에는 요청 상태를 나타내는 코드 또는 중첩된 코드 집합이 포함된 `StatusCode` 요소가 있습니다. 또한 로그온 프로세스 중에 생성된 사용자 지정 오류 메시지를 포함하는 `StatusMessage` 요소도 포함됩니다.
 
-<!-- TODO: Add a authentication protocol error reference -->
+<!-- TODO: Add an authentication protocol error reference -->
 
 실패한 로그온 시도에 대한 SAML 응답은 다음 샘플과 같습니다.
 

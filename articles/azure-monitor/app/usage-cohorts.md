@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 810ccae08b540c417a0e7dfecb6ad5a8b110cd7b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045538"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108528"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 
@@ -105,16 +105,16 @@ ms.locfileid: "54045538"
     ![빈 사용자 코호트](./media/usage-cohorts/001.png)
 
     여기에는 다음 3개의 섹션이 있습니다.
-    * Markdown 텍스트 섹션: 여기서 팀의 다른 사용자를 위해 코호트를 좀 더 자세히 설명합니다.
+   * Markdown 텍스트 섹션: 여기서 팀의 다른 사용자를 위해 코호트를 좀 더 자세히 설명합니다.
 
-    * 매개 변수 섹션: 여기서 **Activities**와 같은 자체 매개 변수와 앞의 두 예제에 나오는 다른 드롭다운 상자를 만듭니다.
+   * 매개 변수 섹션: 여기서 **Activities**와 같은 자체 매개 변수와 앞의 두 예제에 나오는 다른 드롭다운 상자를 만듭니다.
 
-    * 쿼리 섹션: 여기서 분석 쿼리를 사용하여 코호트를 정의합니다.
+   * 쿼리 섹션: 여기서 분석 쿼리를 사용하여 코호트를 정의합니다.
 
-    쿼리 섹션에서 [분석 쿼리를 작성](/azure/kusto/query)합니다. 쿼리는 정의하려는 코호트를 설명하는 특정 행 집합을 선택합니다. 그러면 코호트 도구는 “| summarize by user_Id” 절을 쿼리에 암시적으로 추가합니다. 이 데이터는 테이블의 쿼리 아래에서 미리 볼 수 있으므로 쿼리가 올바른 결과를 반환하도록 할 수 있습니다.
+     쿼리 섹션에서 [분석 쿼리를 작성](/azure/kusto/query)합니다. 쿼리는 정의하려는 코호트를 설명하는 특정 행 집합을 선택합니다. 그러면 코호트 도구는 “| summarize by user_Id” 절을 쿼리에 암시적으로 추가합니다. 이 데이터는 테이블의 쿼리 아래에서 미리 볼 수 있으므로 쿼리가 올바른 결과를 반환하도록 할 수 있습니다.
 
-    > [!NOTE]
-    > 이 쿼리가 보이지 않으면 섹션을 더 길게 늘리고 쿼리를 표시합니다. 이 섹션 맨 처음에 나오는 애니메이션 .gif는 크기 조정 동작을 보여 줍니다.
+     > [!NOTE]
+     > 이 쿼리가 보이지 않으면 섹션을 더 길게 늘리고 쿼리를 표시합니다. 이 섹션 맨 처음에 나오는 애니메이션 .gif는 크기 조정 동작을 보여 줍니다.
 
 2. 다음 텍스트를 복사하여 쿼리 편집기에 붙여넣습니다.
 

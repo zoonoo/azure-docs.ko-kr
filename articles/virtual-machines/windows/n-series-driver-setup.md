@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f86e2a5ac65274ecdb806c1cd894c89f1ca2efae
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 756a836ff276804e9c85675c1acd5cb18aaa1258
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008405"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치 
 
@@ -69,6 +69,6 @@ RDMA 네트워크는 [Microsoft MPI](https://docs.microsoft.com/message-passing-
 
 ## <a name="next-steps"></a>다음 단계
 
-* NVIDIA Tesla GPU에 대한 GPU 가속 애플리케이션을 빌드하는 개발자는 최신 [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)을 다운로드하여 설치할 수도 있습니다. 자세한 내용은 [CUDA 설치 가이드](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi)를 참조하세요.
+* NVIDIA Tesla GPU에 대한 GPU 가속 애플리케이션을 빌드하는 개발자는 최신 [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)을 다운로드하여 설치할 수도 있습니다. 자세한 내용은 [CUDA 설치 가이드](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi)를 참조하세요.
 
 

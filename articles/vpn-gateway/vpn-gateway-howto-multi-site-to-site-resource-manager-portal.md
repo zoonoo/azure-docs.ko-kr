@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a814834be3225764c3b6f237bd515ca087f975a7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873124"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998840"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
 
@@ -52,7 +52,7 @@ ms.locfileid: "52873124"
 * VPN 디바이스에 대한 외부 연결 공용 IP 주소가 있습니다. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
 
 ## <a name="part1"></a>1부 - 연결 구성
-1. 브라우저에서 [Azure Portal](http://portal.azure.com) 로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com) 로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
 2. **모든 리소스**를 클릭하고 리소스 목록에서 **가상 네트워크 게이트웨이**를 찾아 클릭합니다.
 3. **가상 네트워크 게이트웨이** 페이지에서 **연결**을 클릭합니다.
    

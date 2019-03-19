@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103075"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544565"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
@@ -48,7 +48,7 @@ IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레
 
 -   **아키텍처 다이어그램**. 청사진 및 사용 사례 예제 시나리오에 사용되는 참조 아키텍처를 보여 줍니다.
 
--   [IaaS 확장](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   이 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레이션하는 방법과, 클라우드 기반 서비스 및 솔루션을 안전하기 관리하기 위한 Privileged Access Workstation을 구현하는 방법을 보여줍니다. 
+-   [IaaS 확장](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) 이 솔루션에서는 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레이션하도록 하 고 안전 하 게 클라우드 기반 서비스 및 솔루션을 관리 하는 권한 있는 액세스 워크스테이션을 구현 하는 방법을 보여 줍니다. 
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
@@ -78,7 +78,7 @@ IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레
 
 -   기본 역할 할당: [소유자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
--   사용자 지정 역할 할당: 해당 없음
+-   사용자 지정 역할 할당: N/A
 
 -   범위: 구독
 
@@ -89,18 +89,18 @@ IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레
 
 -   기본 제공 역할 할당: [SQL DB 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [SQL Server 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
--   사용자 지정 역할 할당: 해당 없음
+-   사용자 지정 역할 할당: N/A
 
 -   범위: ResourceGroup
 
- ### <a name="data-scientist"></a>데이터 과학자
+### <a name="data-scientist"></a>데이터 과학자
 
 
 데이터 과학자는 Azure Machine Learning Studio를 운영합니다. 데이터를 가져오고, 내보내고, 관리하고, 보고서를 실행할 수 있습니다. 데이터 과학자는 환자 데이터에 액세스할 수 있지만 관리자 권한은 없습니다.
 
 -   기본 제공 역할 할당: [Storage 계정 기여자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
--   사용자 지정 역할 할당: 해당 없음
+-   사용자 지정 역할 할당: N/A
 
 -   범위: ResourceGroup
 
@@ -130,7 +130,7 @@ CMIO는 의료 조직의 정보학/기술과 의료 전문가 간의 격차를 �
 
 -   기본 제공 역할 할당: [판독기](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
--   사용자 지정 역할 할당: 해당 없음
+-   사용자 지정 역할 할당: N/A
 
 -   범위: 구독
 
@@ -272,7 +272,7 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 
 **2. Key Vault**에 요청한 토큰과 연결된 비밀을 요청합니다.
 
-**3. Azure 역할에서 요청의 유효성을 검사하고 액세스 요청에 대한 권한을 Key Vault에 부여합니다.
+**3. Azure 역할** 요청 유효성 검사 및 Key Vault에 대 한 액세스 요청을 인증 합니다.
 
 **4. Key Vault**에서 비밀(이 경우 SQL DB 연결 문자열)을 반환합니다.
 
@@ -361,8 +361,8 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 ### <a name="azure-alerts"></a>Azure Alerts
 - Alerts는 Azure 서비스를 모니터링하는 방법을 제공하며, 데이터에 대한 조건을 구성할 수 있도록 합니다. 또한 경고 조건이 모니터링 데이터와 일치할 때 알림을 제공합니다.
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview)는 관리 서비스의 컬렉션입니다.
+### <a name="azure-monitor-logs"></a>Azure Monitor 로그
+[Azure Monitor 로그](/azure/operations-management-suite/operations-management-suite-overview) 는 컬렉션 관리 서비스입니다.
 
 -   Security Center에 대한 작업 영역을 사용할 수 있습니다.
 

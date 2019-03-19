@@ -9,19 +9,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8ae55028bbc44a9383be6723f9bc6d39787cca45
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767306"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898876"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 다양한 유형의 출력을 설명합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용하여 추가 비즈니스 분석 및 데이터의 데이터 웨어하우징을 수행할 수 있습니다.
 
 Stream Analytics 쿼리를 디자인할 때 [INTO 절](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics)을 사용하여 출력의 이름을 참조하세요. 작업당 단일 출력 또는 쿼리에서 여러 INTO 절을 제공하여 필요한 경우 스트리밍 작업당 여러 출력을 사용할 수 있습니다.
 
-Stream Analytics 작업 출력을 만들고, 편집하고 테스트하기 위해 [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) 및 [Visual Studio](stream-analytics-quick-create-vs.md)를 사용할 수 있습니다.
+이전에 출력 하 만들기, 편집 및 Stream Analytics 작업을 테스트 하려면, 사용할 수는 [Azure portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job)를 [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet)를 [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), 및 [Visual Studio](stream-analytics-quick-create-vs.md)합니다.
 
 일부 출력 형식은 처리량을 최적화하기 위해 [분할](#partitioning) 및 다양한 [출력 일괄 처리 크기](#output-batch-size)를 지원합니다.
 
@@ -56,7 +56,7 @@ Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet
 | 형식 | JSON 직렬화에만 적용됩니다. 구분된 줄은 출력이 각 JSON 개체를 새 줄로 구분된 형식이 되도록 지정합니다. 배열은 출력의 형식을 JSON 개체의 배열로 지정합니다. 이 배열은 작업이 중지되거나 Stream Analytics가 다음 시간 범위로 이동되었을 때만 닫힙니다. 일반적으로 줄로 구분된 JSON을 사용하는 것이 좋습니다. 이 경우 출력 파일에 쓰는 동안 특수한 처리가 필요하지 않기 때문입니다.|
 
 ### <a name="renew-data-lake-store-authorization"></a>Data Lake Store 권한 부여 갱신
-작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에는 Data Lake Store 계정을 다시 인증해야 합니다. 재인증을 하지 않으면 작업은 출력 결과를 생성하지 않고 재 권한 부여에 대한 필요성을 나타내는 오류가 작업 로그에 표시됩니다. 현재 Data Lake 저장소 출력을 포함하는 모든 작업에 대해 90일 마다 인증 토큰을 수동으로 새로 고쳐야 하는 제한 사항이 있습니다.
+작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에는 Data Lake Store 계정을 다시 인증해야 합니다. 재인증을 하지 않으면 작업은 출력 결과를 생성하지 않고 재 권한 부여에 대한 필요성을 나타내는 오류가 작업 로그에 표시됩니다. 현재 Data Lake 저장소 출력을 포함하는 모든 작업에 대해 90일 마다 인증 토큰을 수동으로 새로 고쳐야 하는 제한 사항이 있습니다. 그러나 하 여이 제한을 해결할 수 있습니다 [identities (미리 보기) 관리를 사용 하 여 인증](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls)합니다.
 
 권한 부여를 갱신하기 위해 작업을 **중지**하고 Data Lake Store 출력으로 이동하여 **권한 갱신** 링크를 클릭하면 **권한 부여 리디렉션 중...** 을 나타내는 페이지가 잠깐 나타납니다. 페이지가 자동으로 닫히고 성공하면 **권한 부여를 성공적으로 갱신했습니다**가 표시됩니다. 페이지의 맨 아래에서 **저장**을 클릭해야 하고 데이터 손실을 방지하도록 **마지막으로 중지된 시간**에서 작업을 다시 시작하여 진행할 수 있습니다.
 
@@ -169,7 +169,7 @@ Azure Stream Analytics는 출력 스키마가 변경되면 런타임 시 동적�
 다음 표는 POWER BI 데이터 세트 및 테이블이 존재하지 않는 경우 [Stream Analytics 데이터 형식](https://msdn.microsoft.com/library/azure/dn835065.aspx)에서 Power BI [EDM(엔터티 데이터 모델) 형식](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/)으로의 데이터 형식 변환을 보여 줍니다.
 
 Stream Analytics에서 | Power BI로
------|-----|------------
+-----|-----
 bigint | Int64
 nvarchar(max) | 문자열
 Datetime | DateTime
@@ -186,7 +186,7 @@ Stream Analytics는 출력의 첫 번째 이벤트 집합을 기반으로 데이
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | 문자열 | 문자열 | Double
 Double | Double | 문자열 | 문자열 | Double
-문자열 | 문자열 | 문자열 | 문자열 |  | 문자열 |
+문자열 | 문자열 | 문자열 | 문자열 | 문자열 
 DateTime | 문자열 | 문자열 |  DateTime | 문자열
 
 
@@ -261,6 +261,7 @@ Stream Analytics의 Azure Cosmos DB 출력은 현재 Azure 중국(21Vianet) 및 
 > 다른 Azure Cosmos DB API는 아직 지원되지 않습니다. Azure Stream Analytics를 다른 API로 만든 Azure Cosmos DB 계정에 지정한 경우 데이터는 올바르게 저장되지 않을 수도 있습니다.
 
 다음 표에서는 Azure Cosmos DB 출력을 만드는 속성에 대해 설명합니다.
+
 | 속성 이름 | description |
 | --- | --- |
 | 출력 별칭 | Stream Analytics 쿼리에서 이 출력을 참조할 별칭입니다. |
@@ -302,12 +303,12 @@ Azure Stream Analytics는 Azure 함수에서 413(http 요청 엔터티가 너무
 | Azure SQL Database | 예 | 쿼리의 PARTITION BY 절에 기반합니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. SQL Azure Database에 데이터를 로드할 때 쓰기 처리량 성능을 높이는 방법에 대한 자세한 내용은 [Azure SQL Database에 Azure Stream Analytics 출력](stream-analytics-sql-output-perf.md)을 참조하세요. |
 | Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요. | 예 | 경로 패턴의 사용자 이벤트 필드에서 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. 단일 사용자 지정 이벤트 특성 {fieldname} 또는 {datetime:\<specifier>}로 Blob 출력을 분할할 수 있습니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure Event Hub | 예 | 예 | 파티션 맞춤에 따라 달라집니다.<br /> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 동일하게 맞춰질 때 작성기의 수는 출력 이벤트 허브 파티션의 수와 동일합니다. 각 작성기는 이벤트 허브의 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)를 사용하여 특정 파티션에 이벤트를 전송합니다. <br /> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 맞춰지지 않는 경우 작성기의 수는 이전 단계의 파티션 수와 동일합니다. 각 작성기는 EventHubClient [SendBatchAsync 클래스](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)를 사용하여 모든 출력 파티션에 이벤트를 전송합니다. |
-| Power BI | 아니요 | 없음 | 사용할 수 없습니다. |
+| Power BI | 아닙니다. | 없음 | 사용할 수 없습니다. |
 | Azure Table Storage | 예 | 모든 출력 열입니다.  | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure Service Bus 항목 | 예 | 자동으로 선택됩니다. 파티션 수는 [Service Bus SKU 및 크기](../service-bus-messaging/service-bus-partitioning.md)에 따라 달라집니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.| 출력 항목의 파티션 수와 동일합니다.  |
 | Azure Service Bus 큐 | 예 | 자동으로 선택됩니다. 파티션 수는 [Service Bus SKU 및 크기](../service-bus-messaging/service-bus-partitioning.md)에 따라 달라집니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.| 출력 큐의 파티션 수와 동일합니다. |
 | Azure Cosmos DB | 예 | 컬렉션 이름 패턴에서 {partition} 토큰을 사용합니다. {partition} 값은 쿼리의 PARTITION BY 절에 기반합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
-| Azure 기능 | 아니요 | 없음 | 사용할 수 없습니다. |
+| Azure 기능 | 아닙니다. | 없음 | 사용할 수 없습니다. |
 
 출력 어댑터가 분할되지 않은 경우 한 입력 파티션에 데이터가 없으면 지연 도착 시간까지 지연될 수 있습니다.  이 경우 출력이 단일 작성기에 병합되어 파이프라인에서 병목 현상이 발생할 수 있습니다. 지연 도착 정책에 대한 자세한 내용은 [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)을 참조하세요.
 
@@ -331,7 +332,7 @@ Azure Stream Analytics는 변수 크기 일괄 처리를 사용하여 이벤트�
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-
+> 
 > [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

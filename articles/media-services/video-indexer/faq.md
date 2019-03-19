@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002360"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892662"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -100,7 +100,7 @@ Azure Media Service의 SLA가 Video Indexer에 적용되며, [SLA](https://azure
 
 ### <a name="what-access-does-microsoft-have-to-my-video-or-audio-files-that-have-been-indexed-andor-stored-by-video-indexer-and-the-metadata-and-insights-that-were-extracted"></a>Video Indexer를 통해 인덱싱 및 저장된 내 비디오 및 오디오 파일과 추출된 메타데이터 및 인사이트에 대해 Microsoft는 어떤 액세스 권한을 가지나요?
 
-[Azure OST](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)(온라인 서비스 사용 약관)에 따라, 사용자가 콘텐츠를 완전히 소유하며 Microsoft는 OST 및 Microsoft 개인정보처리방침에 의거해서만 사용자 콘텐츠와 Video Indexer가 콘텐츠에서 추출하는 메타데이터 및 인사이트에 액세스합니다.
+[Azure OST](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)(온라인 서비스 사용 약관)에 따라, 사용자가 콘텐츠를 완전히 소유하며 Microsoft는 OST 및 Microsoft 개인정보처리방침에 의거해서만 사용자 콘텐츠와 Video Indexer가 콘텐츠에서 추출하는 메타데이터 및 인사이트에 액세스합니다.
 
 ### <a name="are-the-custom-models-that-i-build-in-my-video-indexer-account-available-to-other-accounts"></a>내 Video Indexer 계정에 빌드한 사용자 지정 모델을 다른 계정에서 사용할 수 있나요?
 
@@ -158,6 +158,10 @@ Video Indexer API는 권한 부여 API 및 작업 API를 포함합니다. 권한
 
 Video Indexer는 인덱싱하는 콘텐츠 입력 기간을 기반으로 하는 간단한 종량제 가격 책정 모델을 사용합니다. 추가 요금은 인코딩, 스트리밍, 스토리지, 네트워크 사용량 및 미디어 예약 단위에 대해 적용될 수 있습니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) 페이지를 참조하세요.
 
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Video Indexer를 사용 하 여에 대 한 청구 하는 경우
+
+인덱싱할 비디오를 보낼 때 사용자는 분석 비디오, 오디오 분석 또는 둘 다를 인덱싱 정의 합니다. 이 결정 됩니다 Sku 요금이 청구 됩니다. 있으면 중요 수준 오류를 처리 하는 동안 오류 코드를 응답으로 반환 됩니다. 이러한 경우 요금이 청구 되지 않습니다.  코드의 버그로 인해 오류가 발생할 수 있습니다 또는 내부 종속성 서비스에에서 오류가 발생 했습니다. 오류 잘못 된 id 또는 insight 추출 같은 심각한 예외로 간주 되지 않습니다 하 고 응답이 반환 됩니다. 어떤 경우 든 (오류가 아닌 코드) 유효한 응답이 반환 됩니다 하는 경우 청구 발생 합니다.
+ 
 ### <a name="does-video-indexer-offer-a-free-trial"></a>Video Indexer는 평가판을 제공하나요?
 
 예, Video Indexer는 전체 서비스 및 API 기능을 포함하는 평가판을 제공합니다. 웹 기반 인터페이스 사용자의 경우 600분, API 사용자의 경우 2,400분의 비디오 할당량이 있습니다. 
