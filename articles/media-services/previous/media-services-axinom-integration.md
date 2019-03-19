@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: ae9a8873be3fbd3cead23e27e80931f78ea57eb4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6714beae690e23c686fc08b88e93044ae3901c89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839494"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 제공 
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.locfileid: "55992541"
 > 
 
 ## <a name="overview"></a>개요
-Azure Media Services(AMS)에 Google Widevine 동적 보호가 추가되었습니다(자세한 내용은 [Mingfei의 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) 참조). 또한 Azure Media Player(AMP)에도 Widevine 지원이 추가되었습니다(자세한 내용은 [AMP 문서](http://amp.azure.net/libs/amp/latest/docs/) 참조). 이는 MSE 및 EME가 포함된 현대식 브라우저에 대한 다중 원시 DRM(PlayReady 및 Widevine)를 가진 CENC로 보호되는 DASH 콘텐츠 합리화의 주요 성과입니다.
+Azure Media Services(AMS)에 Google Widevine 동적 보호가 추가되었습니다(자세한 내용은 [Mingfei의 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) 참조). 또한 Azure Media Player(AMP)에도 Widevine 지원이 추가되었습니다(자세한 내용은 [AMP 문서](https://amp.azure.net/libs/amp/latest/docs/) 참조). 이는 MSE 및 EME가 포함된 현대식 브라우저에 대한 다중 원시 DRM(PlayReady 및 Widevine)를 가진 CENC로 보호되는 DASH 콘텐츠 합리화의 주요 성과입니다.
 
-Media Services .NET SDK 버전 3.5.2부터는 Media Services를 사용하여 Widevine 라이선스 템플릿을 구성하고 Widevine 라이선스를 얻을 수 있습니다. 또한 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. 파트너([Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/))를 사용하여 Widevine 라이선스를 배달할 수 있습니다.
+Media Services .NET SDK 버전 3.5.2부터는 Media Services를 사용하여 Widevine 라이선스 템플릿을 구성하고 Widevine 라이선스를 얻을 수 있습니다. 또한 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. 파트너([Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/))를 사용하여 Widevine 라이선스를 배달할 수 있습니다.
 
 이 문서에서는 Axinom에서 관리하는 Widevine 라이선스 서버를 통합하고 테스트하는 방법을 설명합니다. 구체적으로 다음 사항을 다룹니다.  
 
@@ -44,7 +44,7 @@ Media Services .NET SDK 버전 3.5.2부터는 Media Services를 사용하여 Wid
 ![대시 및 CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Content Protection
-동적 보호 및 키 배달 정책을 구성하려면 Mingfei의 블로그 [Media Services를 사용하여 Widevine 패키징 구성](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)을 참조하세요.
+동적 보호 및 키 배달 정책을 구성하려면 Mingfei의 블로그 [Media Services를 사용하여 Widevine 패키징 구성](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)을 참조하세요.
 
 다음 두 가지가 모두 있는 DASH 스트리밍용 다중 DRM으로 동적 CENC 보호를 구성할 수 있습니다.
 
@@ -64,7 +64,7 @@ Axinom 제공한 Widevine 라이선스 서버에는 JWT 토큰 인증이 필요�
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
-AMP 코드의 나머지 부분은 AMP 문서 [여기](http://amp.azure.net/libs/amp/latest/docs/)에서와 같이 표준 AMP API입니다.
+AMP 코드의 나머지 부분은 AMP 문서 [여기](https://amp.azure.net/libs/amp/latest/docs/)에서와 같이 표준 AMP API입니다.
 
 사용자 지정 인증 헤더를 설정하기 위한 위의 javascript는 AMP의 공식적인 장기적 방식이 출시되기 전의 단기적인 방식입니다.
 
@@ -130,7 +130,7 @@ John Sheehan의 [JWT NuGet 패키지](https://www.nuget.org/packages/JWT) 는 �
 
 Axinom Widevine 라이선스 서버
 
-    <add key="ax:laurl" value="http://drm-widevine-licensing.axtest.net/AcquireLicense" />
+    <add key="ax:laurl" value="https://drm-widevine-licensing.axtest.net/AcquireLicense" />
     <add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
     <add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
     <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
@@ -160,7 +160,7 @@ JWT 토큰을 생성하기 위한 코드에서 키 ID가 필요하다는 것을 
         objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
         objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
         objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
-        objXmlNamespaceManager.AddNamespace("xsi",  "http://www.w3.org/2001/XMLSchema-instance");
+        objXmlNamespaceManager.AddNamespace("xsi",  "https://www.w3.org/2001/XMLSchema-instance");
         objXmlNamespaceManager.PushScope();
 
         XPathNodeIterator objXPathNodeIterator;

@@ -9,18 +9,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2017
+ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: 685ce54f75b20879230163f216246746b4a36922
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756372"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834053"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Application Insights 프로세스 자동화
 
-서비스가 제대로 작동하는지 확인하기 위해 원격 분석 데이터에 대해 같은 쿼리를 반복적으로 실행하고 있나요? 추세와 비정상을 찾기 위해 이러한 쿼리를 자동화하고 여기에 관련된 고유한 워크플로를 빌드하기를 원하나요? Microsoft Flow용 Azure Application Insights 커넥터(미리 보기)가 이러한 용도에 적합한 도구입니다.
+서비스가 제대로 작동하는지 확인하기 위해 원격 분석 데이터에 대해 같은 쿼리를 반복적으로 실행하고 있나요? 추세와 비정상을 찾기 위해 이러한 쿼리를 자동화하고 여기에 관련된 고유한 워크플로를 빌드하기를 원하나요? Microsoft Flow 용 Azure Application Insights 커넥터를 사용 하는 적합 한 도구를 이러한 용도입니다.
 
 이 통합 덕분에 이제 코드 한 줄 작성하지 않고도 수많은 프로세스를 자동화할 수 있습니다. Application Insights 작업을 사용하여 흐름을 만들고 나면 이 흐름에서 Application Insights Analytics 쿼리가 자동으로 실행됩니다. 
 
@@ -34,38 +34,45 @@ ms.locfileid: "53756372"
 
 ### <a name="step-1-create-a-flow"></a>1단계: 흐름 만들기
 1. [Microsoft Flow](https://flow.microsoft.com)에 로그인한 다음 **My Flows**(내 흐름)를 선택합니다.
-2. **빈 곳에서 흐름 만들기**를 클릭합니다.
+2. 클릭 **새로 만들기** 한 다음 **빈 페이지에서 만들기**합니다.
+
+    ![비어 있는 상태에서 새 흐름 만들기](./media/automate-with-flow/1createflow.png)
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>2단계: 흐름에 대한 트리거 만들기
-1. **일정**을 선택한 다음, **일정 - 되풀이**를 선택합니다.
-1. **빈도** 상자에서 **일**을 선택하고 **간격** 상자에 **1**을 입력합니다.
+1. 빌드 기능에 탭을 선택 **일정**를 선택한 후 **일정-되풀이**합니다.
 
-    ![Microsoft Flow 트리거 대화 상자](./media/automate-with-flow/flow1.png)
+    ![선택 빌드 아래에서 예약](./media/automate-with-flow/2schedule.png)
+
+1. 에를 **간격** 상자에 입력 합니다 **1**, 및를 **빈도** 상자에서 **일**합니다.
+2. 클릭 **새 단계**
+
+    ![사용 빈도 및 간격을 입력 하 여 되풀이 일정 설정](./media/automate-with-flow/3schedulerecurrence.png)
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>3단계: Application Insights 작업 추가
-1. **새 단계**를 클릭한 다음 **작업 추가**를 클릭합니다.
 1. **Azure Application Insights**를 검색합니다.
-1. **Azure Application Insights – Analytics 쿼리 시각화 미리 보기**를 클릭합니다.
-
-    ![Analytics 쿼리 실행 창](./media/automate-with-flow/flow2.png)
+2. 클릭 **Azure Application Insights-분석 시각화 쿼리**합니다.
+ 
+    ![작업을 선택 합니다. Azure Application Insights 시각화 분석 쿼리](./media/automate-with-flow/4visualize.png)
 
 ### <a name="step-4-connect-to-an-application-insights-resource"></a>4단계: Application Insights 리소스에 연결
 
 이 단계를 완료하려면 리소스의 애플리케이션 ID 및 API 키가 필요합니다. 다음 다이어그램에 표시된 것처럼 Azure Portal에서 리소스의 응용 프로그램 ID 및 API 키를 검색할 수 있습니다.
 
-![Azure Portal의 애플리케이션 ID](./media/automate-with-flow/appid.png) 
+![Azure Portal의 애플리케이션 ID](./media/automate-with-flow/5apiaccess.png)
+
+![Azure portal에서 API 키](./media/automate-with-flow/6apikey.png)
 
 - 애플리케이션 ID 및 API 키와 함께 연결의 이름을 제공합니다.
 
-    ![Microsoft Flow 연결 창](./media/automate-with-flow/flow3.png)
+    ![Microsoft Flow 연결 창](./media/automate-with-flow/7connection.png)
 
 ### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>5단계: Analytics 쿼리 및 차트 종류 지정
 이 예제 쿼리에서는 어제 중에 실패한 요청을 선택하여 작업의 일부로 발생한 예외와 상관 관계를 지정합니다. Analytics에서는 operation_Id 식별자를 기반으로 하여 상관 관계를 지정합니다. 그런 다음 쿼리는 autocluster 알고리즘을 사용하여 결과를 세그먼트화합니다. 
 
 사용자 고유의 쿼리를 만드는 경우 이러한 쿼리를 흐름에 추가하기 전에 먼저 Analytics에서 제대로 작동하는지 확인합니다.
 
-- 다음 Analytics 쿼리를 추가하고 HTML 테이블 차트 종류를 선택합니다. 
+- 다음 Analytics 쿼리를 추가 하 고 HTML 테이블 차트 종류를 선택 합니다. 선택한 **새 단계**합니다.
 
     ```
     requests
@@ -78,15 +85,14 @@ ms.locfileid: "53756372"
     | evaluate autocluster()
     ```
     
-    ![Analytics 쿼리 구성 창](./media/automate-with-flow/flow4.png)
+    ![Analytics 쿼리 구성 창](./media/automate-with-flow/8query.png)
 
 ### <a name="step-6-configure-the-flow-to-send-email"></a>6단계: 이메일을 보내도록 흐름 구성
 
-1. **새 단계**를 클릭한 다음 **작업 추가**를 클릭합니다.
 1. **Office 365 Outlook**을 검색합니다.
-1. **Office 365 Outlook - 이메일 보내기**를 클릭합니다.
+2. **Office 365 Outlook - 이메일 보내기**를 클릭합니다.
 
-    ![Office 365 Outlook 선택 창](./media/automate-with-flow/flow2b.png)
+    ![Office 365 Outlook 선택 창](./media/automate-with-flow/9outlookaction.png)
 
 1. **메일 보내기** 창에서 다음을 수행합니다.
 
@@ -98,7 +104,7 @@ ms.locfileid: "53756372"
 
    d. **고급 옵션 표시**를 클릭합니다.
 
-    ![Office 365 Outlook 구성](./media/automate-with-flow/flow5.png)
+    ![Office 365 Outlook 구성](./media/automate-with-flow/10sendemailbody.png)
 
 1. 동적 콘텐츠 메뉴에서 다음을 수행합니다.
 
@@ -108,12 +114,12 @@ ms.locfileid: "53756372"
     
     다. **HTML임** 상자에서 **예**를 선택합니다.
 
-    ![Office 365 메일 구성 창](./media/automate-with-flow/flow7.png)
+    ![Office 365 메일 구성 창](./media/automate-with-flow/11emailattachment.png)
 
 ### <a name="step-7-save-and-test-your-flow"></a>7단계: 흐름 저장 및 테스트
-- **흐름 이름** 상자에 흐름 이름을 추가하고 **흐름 만들기**를 클릭합니다.
+- 에 **흐름 이름** 상자에서 흐름 이름을 추가 하 고 클릭 **저장**합니다.
 
-    ![흐름 만들기 창](./media/automate-with-flow/flow8.png)
+    ![흐름 이름 지정 및 저장](./media/automate-with-flow/12nameflow.png)
 
 트리거가 이 작업을 실행하도록 기다리거나 [요청 시 트리거를 실행](https://flow.microsoft.com/blog/run-now-and-six-more-services/)하여 흐름을 즉시 실행할 수 있습니다.
 

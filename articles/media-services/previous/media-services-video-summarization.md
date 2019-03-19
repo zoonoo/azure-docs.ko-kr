@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 30c342ca31b33d910406bf74d90d49979e5c46bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004811"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838099"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기  
 ## <a name="overview"></a>개요
@@ -37,10 +37,10 @@ ms.locfileid: "56004811"
 Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 수 있는 작업의 몇 가지 예는 다음과 같습니다.
 
 ### <a name="original-video"></a>원본 비디오
-[원본 비디오](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
+[원본 비디오](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
 ### <a name="video-thumbnail-result"></a>비디오 미리 보기 결과
-[비디오 미리 보기 결과](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[비디오 미리 보기 결과](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="task-configuration-preset"></a>작업 구성(기본 설정)
 **Azure 미디어 비디오 미리 보기**로 비디오 미리 보기 작업을 만들 때에는 구성 기본 설정을 지정해야 합니다. 위의 미리 보기 샘플은 다음 기본 JSON 구성을 사용하여 만들어졌습니다.
@@ -62,7 +62,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 다음 표에서는 **maxMotionThumbnailInSecs** 가 사용되지 않은 경우의 기본 지속 시간을 설명합니다.
 
 |  |  |  |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | 비디오 지속 시간 |d < 3분 |3분 < d < 15분 |
 | 미리 보기 지속 시간 |15초(장면 2~3개) |30초(장면 3~5개) |
 
@@ -276,7 +276,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 ```
 
 ### <a name="video-thumbnail-output"></a>비디오 미리 보기 출력
-[비디오 미리 보기 출력](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[비디오 미리 보기 출력](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -287,5 +287,5 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 ## <a name="related-links"></a>관련 링크
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
-[Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 미디어 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

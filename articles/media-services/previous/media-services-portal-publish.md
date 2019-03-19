@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 0f70bb91ccb0cb403d9292c2e3f069a8a9d2da41
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 1f7e108b4410ba62060dd4411e4b28b896e93d58
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993863"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834424"
 ---
-# <a name="publish-content-in-the-azure-portal-legacy"></a>Azure Portal에서 콘텐츠 게시(레거시)
+# <a name="publish-content-in-the-azure-portal"></a>Azure Portal에서 콘텐츠 게시  
 > [!div class="op_single_selector"]
 > * [포털](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -89,7 +89,7 @@ Azure Portal의 콘텐츠 플레이어에서 비디오를 테스트할 수 있�
 다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
 * 비디오가 게시된 것을 확인합니다.
-* Azure Portal 미디어 플레이어가 기본 스트리밍 엔드포인트에서 재생됩니다. 기본이 아닌 스트리밍 엔드포인트에서 재생하려면 URL 복사를 선택하여 복사한 후 다른 플레이어에 붙여넣습니다. 예를 들어 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)에서 비디오를 테스트할 수 있습니다.
+* Azure Portal 미디어 플레이어가 기본 스트리밍 엔드포인트에서 재생됩니다. 기본이 아닌 스트리밍 엔드포인트에서 재생하려면 URL 복사를 선택하여 복사한 후 다른 플레이어에 붙여넣습니다. 예를 들어 [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html)에서 비디오를 테스트할 수 있습니다.
 * 스트리밍을 하고 있는 스트리밍 엔드포인트가 실행 중이어야 합니다.  
 
 ## <a name="provide-feedback"></a>피드백 제공

@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 22cf9b66ecf7bbbe8ef226635e84f0aaf9d26b17
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0d7ca397cf45c4a67a914a8105deb9043adf46e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835283"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple의 Azure Media Services 계정에 파일 업로드  
 
@@ -47,7 +47,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. 자산에
 
 ## <a name="see-also"></a>참고 항목
 
-[.NET SDK를 사용하여 데이터 관리자에서 작업 트리거](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[데이터 관리자에서 작업 트리거를.NET SDK를 사용 합니다.](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

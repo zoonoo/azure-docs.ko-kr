@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: e90dd052f6a4af83d2dd794dd405a4700da75bde
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 67876532496aa0a295bf32692534b16d38599492
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656341"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839511"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -28,7 +28,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 - 카메라(또는 노트북과 같은 다른 디바이스)의 신호를 Media Services로 전송되는 기여 피드로 변환하는 라이브 비디오 인코더. 기여 피드에는 SCTE-35 마커와 같은 광고 관련 신호가 포함될 수 있습니다.<br/>권장 라이브 스트리밍 인코더 목록은 [라이브 스트리밍 인코더](recommended-on-premises-live-encoders.md)를 참조하세요. 또한 이 블로그를 확인하세요. [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT)
 - Media Services의 구성 요소. 이러한 구성 요소를 사용하여 라이브 이벤트를 수집, 미리 보기, 패키지화, 기록, 암호화할 수 있으며 고객 또는 CDN(추가 배포를 위해)에 브로드캐스트할 수 있습니다.
 
-Media Services를 사용하면 기여 피드에서 서비스로 전송하는 라이브 스트림을 미리 보고 [MPEG DASH, HLS 및 부드러운 스트리밍 형식](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)으로 브로드캐스트할 수 있는 **동적 패키징**을 활용할 수 있습니다. 뷰어는 HLS, DASH 또는 부드러운 스트리밍이 호환되는 플레이어를 사용해 라이브 스트림을 재생할 수 있습니다. 웹 또는 모바일 애플리케이션에서 [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 이러한 프로토콜 중 하나로 스트림을 전달할 수 있습니다.
+Media Services를 사용하면 기여 피드에서 서비스로 전송하는 라이브 스트림을 미리 보고 [MPEG DASH, HLS 및 부드러운 스트리밍 형식](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)으로 브로드캐스트할 수 있는 **동적 패키징**을 활용할 수 있습니다. 뷰어는 HLS, DASH 또는 부드러운 스트리밍이 호환되는 플레이어를 사용해 라이브 스트림을 재생할 수 있습니다. 웹 또는 모바일 애플리케이션에서 [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 이러한 프로토콜 중 하나로 스트림을 전달할 수 있습니다.
 
 Media Services를 사용하면 AES-128(Advanced Encryption Standard) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 **동적 암호화**된 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에 AES 키 및 DRM 라이선스를 전달하는 서비스를 제공합니다. Media Services로 콘텐츠를 암호화하는 방법에 대한 자세한 내용은 [콘텐츠 보호 개요](content-protection-overview.md)를 참조하세요.
 
@@ -42,6 +42,7 @@ Media Services v3에서 라이브 스트리밍 워크플로를 이해하려면 �
 
 - [스트리밍 엔드포인트](streaming-endpoint-concept.md)
 - [라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)
+- [스트리밍 로케이터](streaming-locators-concept.md)
 
 ## <a name="live-streaming-workflow"></a>라이브 스트리밍 워크플로
 

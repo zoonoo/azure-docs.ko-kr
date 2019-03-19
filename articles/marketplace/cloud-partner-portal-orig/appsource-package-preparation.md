@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0b24c5d2f174c9a656e81d0c85e12b589d7d7799
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837036"
 ---
 # <a name="appsource-package-preparation"></a>AppSource 패키지 준비
 
@@ -39,8 +39,8 @@ Package Deployer용 패키지는 AppSource 패키지의 한 부분입니다.
 
 Package Deployer용 패키지를 만들려면 [https://msdn.microsoft.com/library/dn688182.aspx](https://msdn.microsoft.com/library/dn688182.aspx) 페이지의 지침을 따르세요. 완성된 패키지는 다음 자산으로 구성됩니다.
 
-1. 패키지 폴더: 모든 솔루션, 구성 데이터, 플랫 파일 및 패키지용 콘텐츠를 포함합니다. _참고: 이 문서 뒷부분의 예제에서는 패키지 폴더 이름이 “PkgFolder”라고 가정합니다._
-2. dll: 패키지의 사용자 지정 코드를 포함하는 어셈블리입니다. _참고: 이 문서 뒷부분의 예제에서는 이 파일의 이름이 “MicrosoftSample.dll”이라고 가정합니다._
+1. 패키지 폴더: 모든 솔루션, 구성 데이터, 플랫 파일 및 패키지용 콘텐츠를 포함합니다. _참고: 다음 예제에서 가정 패키지 폴더 "PkgFolder" 라고 합니다._
+2. dll: 어셈블리는 패키지에 대 한 사용자 지정 코드를 포함합니다. _참고: 이 파일은 "MicrosoftSample.dll." 라고 가정은 다음에 나오는 예제_
 
 이제 "**Content_Types.xml**" 파일을 만들어야 합니다. 이 파일에는 패키지에 포함된 모든 자산 확장명이 나열됩니다. 해당 파일의 예제 코드는 다음과 같습니다.
 
@@ -71,11 +71,11 @@ package.zip을 만드는 단계는 다음과 같습니다.
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-2. 폴더의 모든 항목을 선택하고 마우스 오른쪽 단추를 클릭한 다음 보내기 -> 압축(ZIP) 폴더를 선택합니다.
+1. 폴더의 모든 항목을 선택하고 마우스 오른쪽 단추를 클릭한 다음 보내기 -> 압축(ZIP) 폴더를 선택합니다.
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-3. 이름을 package.zip으로 변경합니다.
+1. 이름을 package.zip으로 변경합니다.
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
@@ -97,7 +97,7 @@ input.xml의 예제 코드는 다음과 같습니다. 정의는 아래 표를 �
         <StartDate>01/01/2016</StartDate>
         <EndDate>01/01/2021</EndDate>
         <SupportedCountries>US,CA</SupportedCountries>
-        <LearnMoreLink>http://www.microsoft.com</LearnMoreLink>
+        <LearnMoreLink>https://www.microsoft.com</LearnMoreLink>
         <Locales>
         <PackageLocale Code="1033" IsDefault="true">
         <Logo>logo32x32.png</Logo>
@@ -117,13 +117,13 @@ input.xml의 예제 코드는 다음과 같습니다. 정의는 아래 표를 �
 |SolutionAnchorName |솔루션 자산의 표시 이름과 설명에 사용되는 Package Deployer의 솔루션 zip 파일 이름입니다.|
 | StartDate| 솔루션 패키지를 제공할 날짜입니다. MM/DD/YYYY 형식입니다.|
 |EndDate|솔루션 패키지 제공을 중지할 날짜입니다. MM/DD/YYYY 형식입니다. |
-|SupportedCountries |이 패키지를 표시할 국가의 쉼표로 구분된 목록입니다. 모든 현재 국가 코드의 목록을 확인하려면 온라인 서비스에 문의하세요. 현재 목록에 포함된 국가 코드는 AE,AL,AM,AO,AR,AT,AU,AZ,BA,BB,BD,BE,BG,BH,BM,BN,BO,BR,BY,CA,CH,CI,CL,CM,CO,CR,CV,CW,CY,CZ,DE,DK,DO,DZ,EC,EE,EG,ES,FI,FR,GB,GE,GH,GR,GT,HK,HN,HR,HU,ID,IE,IL,IN,IQ,IS,IT,JM,JO,JP,KE,KG,KN,KR,KW,KY,KZ,LB,LK,LT,LU,LV,LY,MA,MC,MD,ME,MK,MN,MO,MT,MU,MX,MY,NG,NI,NL,NO,NZ,OM,PA,PE,PH,PK,PL,PR,PS,PT,PY,QA,RO,RS,RU,RW,SA,SE,SG,SI,SK,SN,SV,TH,TM,TN,TR,TT,TW,UA,US,UY,UZ,VE,VI,VN,ZA,ZW입니다. |
+|SupportedCountries |이 패키지를 표시할 국가의 쉼표로 구분된 목록입니다. 모든 현재 국가 코드의 목록을 확인하려면 온라인 서비스에 문의하세요. 동시에이 문서가 작성 목록이 했습니다. AE, AL, AM, AO, 아르헨티나, AT "," 오스트레일리아, AZ "," BA "," BB "," BD, 수, BG, BH, BM, BN, BO, BY, CA, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, 수행, DZ, EC, EE, 브라질, 예를 들어, ES, FI, FR, GB, GE, GH, GR, GT, HK HN, HR, HU, ID, IE, IL, IN, IQ, 인 것, JM, JO, JP, KE, KG, KN, 한국, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, 월, MT, MU, MX, MY, NG, NI, NL, 아니요, NZ OM, PA, PE, PH PK, PL, PR, PS, PT, PY, QA, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, 미국, UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | 이 패키지의 추가 정보 페이지 URL입니다. |
 |Locales|기본 설정 솔루션 UX에서 지원할 각 UX 언어에 대해 이 노드 인스턴스를 하나씩 생성합니다. 이 노드에는 각 언어의 로캘, 로고 및 용어를 설명하는 하위 요소가 포함됩니다.|
-|Locales: PackageLocale.Code|이 노드의 언어 LCID입니다. 예를 들어 영어(미국)의 경우 LCID는 1033입니다.|
-|Locales: PackageLocale.IsDefault|기본 언어를 나타냅니다. 고객이 선택한 UX 언어가 제공되지 않는 경우 대체 언어로 사용됩니다.|
-|Locales: Logo|이 패키지에 사용할 로고입니다. 아이콘 크기는 32x32입니다. 허용되는 형식은 PNG와 JPG입니다.|
-|Locales:Terms: PackageTerm.File|사용 조건이 포함된 HTML 문서의 파일 이름입니다.|
+|로캘: PackageLocale.Code|이 노드의 언어 LCID입니다. 예제: 영어 (미국)가 1033|
+|로캘: PackageLocale.IsDefault|기본 언어를 나타냅니다. 고객이 선택한 UX 언어가 제공되지 않는 경우 대체 언어로 사용됩니다.|
+|로캘: 로고|이 패키지에 사용할 로고입니다. 아이콘 크기는 32x32입니다. 허용되는 형식은 PNG와 JPG입니다.|
+|로캘: 조건: PackageTerm.File|사용 조건이 포함된 HTML 문서의 파일 이름입니다.|
 
 로고가 표시되는 위치는 다음과 같습니다.
 

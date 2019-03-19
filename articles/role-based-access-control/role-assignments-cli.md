@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 8e75a6344e517fb0343343f557cb7211f49cfed8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838321"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>RBAC 및 Azure CLI를 사용하여 Azure 리소스에 대한 액세스 관리
 
@@ -89,9 +89,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role"></a>역할의 작업 나열
+## <a name="list-a-role-definition"></a>역할 정의 나열
 
-역할 정의의 작업을 나열하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다.
+역할 정의 나열 하려면 사용 하 여 [az 역할 정의 목록](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
@@ -104,6 +104,7 @@ az role definition list --name "Contributor"
 ```
 
 ```Output
+[
   {
     "additionalProperties": {},
     "assignableScopes": [
@@ -134,7 +135,9 @@ az role definition list --name "Contributor"
 ]
 ```
 
-다음 예제에서는 목록에서 *Contributor* 역할의 *actions* 및 *notActions*를 나열합니다.
+### <a name="list-actions-of-a-role"></a>역할의 작업 나열
+
+다음 예에서는 나열 합니다 *작업* 하 고 *notActions* 의 *참가자* 역할:
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -153,7 +156,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-다음 예제에서는 *Virtual Machine Contributor* 역할의 작업을 나열합니다.
+다음 예제에서는 방금의 작업을 나열 합니다 *Virtual Machine 참여자* 역할:
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
@@ -191,7 +194,7 @@ az role assignment list --assignee <assignee>
 
 기본적으로 구독 범위의 할당만 표시됩니다. 리소스 또는 그룹 범위의 할당을 보려면 `--all`을 사용합니다.
 
-다음 예제에서는 *patlong@contoso.com* 사용자에게 직접 할당된 역할 할당을 나열합니다.
+다음 예제에서는 직접 할당 된 역할 할당을 나열 합니다 *patlong\@contoso.com* 사용자:
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -249,7 +252,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-다음 예제에서는 *pharma-sales-projectforecast* 리소스 그룹 범위에서 *patlong@contoso.com* 사용자에게 *Virtual Machine Contributor* 역할을 부여합니다.
+다음 예제에서는 합니다 *Virtual Machine Contributor* 역할을 *patlong\@contoso.com* 사용자에 게는 *제약-sales-projectforecast* 리소스 그룹 범위:
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -297,7 +300,7 @@ RBAC에서 액세스 권한을 제거하려면 [az role assignment delete](/cli/
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-다음 예제에서는 *pharma-sales-projectforecast* 리소스 그룹의 사용자 *patlong@contoso.com*에서 *Virtual Machine Contributor* 역할 할당을 제거합니다.
+다음 예제에서는 제거는 *Virtual Machine 참여자* 에서 역할 할당을 *patlong\@contoso.com* 에서 사용자를 *제약 sales projectforecast* 리소스 그룹:
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast

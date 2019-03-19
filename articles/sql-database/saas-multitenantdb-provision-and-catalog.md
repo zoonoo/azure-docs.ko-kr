@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562898"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835784"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>분할 다중 테넌트 Azure SQL Database를 사용하여 SaaS 애플리케이션에 새 테넌트를 프로비전하고 카탈로그로 만들기
 
@@ -237,7 +237,7 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 - 테넌트 이름이 테넌트 테이블에 저장됩니다.
 - 데이터베이스 이름은 분할 관리 테이블에 저장됩니다.
 
-1. SSMS(SQL Server Management Studio)에서 로그인: **developer**, 암호: **P@ssword1**을 사용하여 **catalog-mt.\<USER\>.database.windows.net**에서 테넌트 서버에 연결합니다.
+1. SQL Server 관리 Studio (SSMS)에서 테 넌 트 서버에 연결할 **catalog-mt\<사용자\>. database.windows.net**, 로그인 = **개발자**, 및 암호 = **P\@ssword1**
 
     ![SSMS 연결 대화 상자](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

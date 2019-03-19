@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5b49db8d7e8360837dc209e98123eeccd5542769
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875494"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837748"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 질문과 대답
 
@@ -32,7 +32,7 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>비디오 처리에 권장하는 방법은 무엇입니까?
 
-비디오를 가리키는 HTTP(s) URL을 사용하여 작업을 제출하는 것이 좋습니다. 자세한 내용은 [HTTP(s) 수집](job-input-from-http-how-to.md)을 참조하세요. 비디오를 처리하기 위해 입력 비디오를 사용하여 자산을 만들 필요가 없습니다.
+[Transforms](https://docs.microsoft.com/rest/api/media/transforms)는 비디오 인코딩 또는 분석에 대한 일반적인 작업을 구성하는 데 사용할 수 있습니다. 각 **변환**은 비디오 또는 오디오 파일을 처리하는 작업의 작성법 또는 워크플로를 설명합니다. A [작업](https://docs.microsoft.com/rest/api/media/jobs) 적용 하려면 Media Services에 대 한 실제 요청입니다 합니다 **변환** 주어진된 입력된 비디오 또는 오디오 콘텐츠를 합니다. 변환을 만든 후에는 Media Services API 또는 게시된 SDK를 사용하여 작업을 제출할 수 있습니다. 자세한 내용은 [Transform 및 Jobs](transforms-jobs-concept.md)를 참조하세요.
 
 ### <a name="how-does-pagination-work"></a>페이지 매김은 어떻게 작동하나요?
 
@@ -45,6 +45,29 @@ Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분�
 Media Services v3 라이브 인코딩은 아직 라이브 스트리밍 도중에 비디오 또는 이미지 슬레이트를 삽입하는 기능을 지원하지 않습니다. 
 
 [라이브 온-프레미스 인코더](recommended-on-premises-live-encoders.md)를 사용하여 원본 비디오를 바꿀 수 있습니다. Telestream Wirecast, Switcher Studio(iOS), OBS Studio(무료 앱) 등 여러 앱에서 원본을 바꾸는 기능을 제공합니다.
+
+## <a name="content-protection"></a>콘텐츠 보호
+
+### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>라이선스 또는 키를 요청하는 데 사용하기 전에 JWT 토큰을 가져올 수 있는 방법과 위치는 어떻게 되나요?
+
+1. 프로덕션 환경의 경우 HTTPS 요청 시 JWT 토큰을 발급하는 STS(보안 토큰 서비스)(웹 서비스)가 있어야 합니다. 테스트를 위해 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)에 정의된 **GetTokenAsync** 메서드에 표시된 코드를 사용할 수 있습니다.
+2. 사용자가 인증되면 플레이어에서 이러한 토큰에 대해 STS에 요청하고 토큰의 값으로 할당해야 합니다. [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)를 사용할 수 있습니다.
+
+* 대칭 및 비대칭 키를 사용하여 STS를 실행하는 예제는 [https://aka.ms/jwt](https://aka.ms/jwt)를 참조하세요. 
+* 이러한 JWT 토큰을 사용하는 Azure Media Player를 기반으로 하는 플레이어의 예제는 [https://aka.ms/amtest](https://aka.ms/amtest)를 참조하세요("player_settings" 링크를 펼쳐 토큰 입력을 확인함).
+
+### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>AES 암호화를 사용하여 비디오를 스트림할 수 있도록 요청에 권한을 부여하려면 어떻게 할까요?
+
+올바른 방법은 다음과 같이 STS(보안 토큰 서비스)를 활용하는 것입니다.
+
+STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미엄 사용자", "기본 사용자", "평가판 사용자")을 추가합니다. JWT에서 서로 다른 클레임을 사용하면 사용자가 각각의 콘텐츠를 볼 수 있습니다. 물론 ContentKeyPolicyRestriction에는 서로 다른 콘텐츠/자산에 해당하는 RequiredClaims가 있습니다.
+
+구성 하는 데 사용 하 여 Azure Media Services Api 라이선스/키 배달 및 자산 암호화 (에서처럼 [이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+
+자세한 내용은 다음을 참조하세요.
+
+- [콘텐츠 보호 개요](content-protection-overview.md)
+- [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](design-multi-drm-system-with-access-control.md)
 
 ## <a name="media-services-v2-vs-v3"></a>Media Services v2와 v3 비교 
 
@@ -64,5 +87,4 @@ Media Services를 Storage SDK 종속성과 분리하기 위해 AssetFiles가 AMS
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [Media Services v3 개요](media-services-overview.md)
+[Media Services v3 개요](media-services-overview.md)

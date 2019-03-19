@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 0140cb4fd1721e1d13840fe27db223c0ebec7d8a
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301896"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841109"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics 에이전트를 사용하여 로그 데이터 수집
 
@@ -83,6 +83,7 @@ Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송
 |\*.blob.core.windows.net |포트 443 |아웃바운드|예 |  
 |* .azure-automation.net |포트 443 |아웃바운드|예 |  
 
+Azure Government에 대 한 필요한 방화벽 정보를 참조 하세요 [Azure Government 관리](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)합니다. 
 
 Azure Automation Hybrid Runbook Worker를 사용하여 사용자 환경에서 Runbook을 사용하기 위해 Automation 서비스에 연결하고 등록하려면 [Hybrid Runbook Worker에 대한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명된 URL 및 포트 번호에 대한 액세스 권한이 있어야 합니다. 
 
