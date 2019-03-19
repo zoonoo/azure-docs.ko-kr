@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 90b6798f7b7ab3acc552135c73bb1e491e4a0111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191431"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835523"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -143,7 +143,7 @@ Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있�
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Cloud Services에 대해 WAD 로깅을 활성화하려면 어떻게 할까요?
 다음 옵션을 통해 WAD(Windows Azure 진단) 로깅을 활성화할 수 있습니다.
 1. [Visual Studio에서 활성화](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [.Net 코드를 통해 활성화](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+2. [.NET 코드를 통해 사용 하도록 설정](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Powershell을 통해 활성화](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
 Cloud Services의 현재 WAD 설정을 가져오기 위해 [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd를 사용하거나 "Cloud Services --> 확장" 블레이드에서 포털을 통해 볼 수 있습니다.

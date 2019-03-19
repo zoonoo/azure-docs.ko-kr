@@ -1,10 +1,21 @@
+---
+ms.service: azure
+ms.topic: conceptual
+ms.date: 03/08/2019
+ms.openlocfilehash: 2b1fc99fe179187c6431d9a999628db76885e553
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789676"
+---
 # <a name="legal-notices"></a>법적 고지 사항
 
 Microsoft 및 모든 참가자는 사용자에게 [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode) 아래에서 이 리포지토리의 Microsoft 설명서 및 기타 콘텐츠에 대한 라이선스를 부여하고 [MIT 라이선스](https://opensource.org/licenses/MIT) 아래에서 리포지토리의 모든 코드에 대한 라이선스를 부여합니다.
 
 설명서에서 참조되는 Microsoft, Windows, Microsoft Azure 및/또는 기타 Microsoft 제품 및 서비스는 미국 및/또는 다른 국가에서 Microsoft의 상표 또는 등록된 상표일 수 있습니다.
 이 프로젝트에 대한 라이선스는 사용자가 Microsoft 이름, 로고 또는 상표를 사용할 권한을 부여하지 않습니다.
-Microsoft의 일반 상표 지침은 [https://go.microsoft.com/fwlink/?LinkID=254653](httpss://go.microsoft.com/fwlink/?LinkID=254653)을 참조하세요.
+Microsoft의 일반 상표 지침은 [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653)을 참조하세요.
 
 개인정보처리방침은 [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/) 참조
 

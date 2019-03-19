@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301471"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853014"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -93,7 +93,8 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* 이 컴퓨터에서 .NET 권장 설정 이외의 기본 연결 제한 중 일부가 발생했습니다. 지원 서비스에 문의하여 테넌트의 이 제한을 변경하기 전에, 기본 설정으로 테스트를 실행하는 것이 좋습니다.
+
+\* 권장 설정.NET 이외의 기본 연결 제한 중 일부를 발생 시키는 데 사용자 지정 설정을 사용 하는이 컴퓨터. 지원 서비스에 문의하여 테넌트의 이 제한을 변경하기 전에, 기본 설정으로 테스트를 실행하는 것이 좋습니다.
  
 >[!NOTE]
 >4, 8, 16개 코어 컴퓨터 간에 최대 TPS는 크게 차이가 없습니다. 주요 차이점은 예상 대기 시간입니다.  
