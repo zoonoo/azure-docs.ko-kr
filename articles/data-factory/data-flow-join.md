@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 517afe21fbf9241e2b2423525e9caee12a5603f6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271435"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726875"
 ---
-# <a name="azure-data-factory-data-flow-join-transformation"></a>Azure Data Factory Data Flow 조인 변환
+# <a name="mapping-data-flow-join-transformation"></a>데이터 흐름 조인 변환 매핑
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,11 +24,11 @@ ms.locfileid: "56271435"
 
 ## <a name="join-types"></a>조인 유형
 
-조인 변환을 위해서는 조인 유형을 선택해야 합니다.
+조인 유형을 선택 하는 것은 조인 변환에 대 한 필수입니다.
 
 ### <a name="inner-join"></a>내부 조인
 
-내부 조인은 양쪽 테이블의 열 조건과 일치하는 행만 통과합니다.
+내부 조인은 양쪽 테이블의 열 조건과 일치 하는 행만 전달 합니다.
 
 ### <a name="left-outer"></a>왼쪽 우선 외부
 
@@ -40,11 +40,11 @@ ms.locfileid: "56271435"
 
 ### <a name="full-outer"></a>완전 외부
 
-완전 외부는 다른 테이블에 없는 열에 NULL 값을 사용하여 양쪽에서 모든 열 및 행을 생성합니다.
+완전 외부 모든 열을 생성 하 고 다른 테이블의 열에 대해 NULL 값을 사용 하 여 양쪽에서 행 없음.
 
 ### <a name="cross-join"></a>크로스 조인
 
-식을 사용한 두 스트림의 특정 교차곱
+식을 사용 하 여 두 스트림의 교차곱을 지정 합니다. 사용자 지정 조인 조건을 만들려면 다음과 같이 사용할 수 있습니다.
 
 ## <a name="specify-join-conditions"></a>조인 조건 지정
 
@@ -67,3 +67,7 @@ SSIS와 같은 도구의 병합 조인과 달리, ADF Data Flow의 조인은 필
 ![셀프 조인](media/data-flow/selfjoin.png "셀프 조인")
 
 위의 다이어그램에서 선택 변환은 맨 위에 있습니다. 전반적으로 원래 스트림의 별칭을 “OrigSourceBatting”으로 지정합니다. 아래 강조 표시된 조인 변환에서 이 선택 스트림 별칭 지정을 오른쪽 조인으로 사용하여 내부 조인의 왼쪽 및 오른쪽에서 동일한 키를 참조할 수 있음을 확인할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+데이터를 조인한 후 할 수 있습니다 [새 열을 만듭니다](data-flow-derived-column.md) 하 고 [대상 데이터 저장소로 데이터를 싱크](data-flow-sink.md)합니다.

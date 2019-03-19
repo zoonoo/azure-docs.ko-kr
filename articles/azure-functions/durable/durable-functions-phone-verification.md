@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 827990e03ca1bbb4bfd2ca9cf8bf0a9ceccfb51b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 136b819f6bbbc1b546b66f54e771dbec8c71202c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719390"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548152"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
@@ -118,7 +118,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 
 오케스트레이터 함수는 제공된 전화 번호를 받는 즉시 임의로 생성된 4자리 확인 코드&mdash;(예: *2168*)가 있는 SMS 메시지를 보냅니다. 그런 다음 이 함수는 90초 동안 응답을 기다립니다.
 
-코드를 사용하여 회신하려면 다른 함수 내에서 [`RaiseEventAsync`(.NET) 또는 `raiseEvent`(JavaScript)](durable-functions-instance-management.md#sending-events-to-instances)를 사용하거나 위의 202 응답에서 참조된 **sendEventUrl** HTTP POST 웹후크를 호출하여 `{eventName}`을 `SmsChallengeResponse` 이벤트 이름으로 바꾸면 됩니다.
+코드를 사용하여 회신하려면 다른 함수 내에서 [`RaiseEventAsync`(.NET) 또는 `raiseEvent`(JavaScript)](durable-functions-instance-management.md)를 사용하거나 위의 202 응답에서 참조된 **sendEventUrl** HTTP POST 웹후크를 호출하여 `{eventName}`을 `SmsChallengeResponse` 이벤트 이름으로 바꾸면 됩니다.
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}

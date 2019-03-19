@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 8959c1d773a7e4ea79c7a7531c2bba578f2801e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 60520f5a72fd7e27d4ea64ac76511a00a727426e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158485"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552013"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>MQTT 서버에 메시지 보내기
 
 IoT(사물 인터넷) 시스템은 종종 간헐적이거나, 품질이 낮거나, 속도가 느린 인터넷 연결을 처리합니다. MQTT는 이러한 과제를 고려하여 개발된 M2M(컴퓨터 간) 연결 프로토콜입니다. 
 
-여기에 사용되는 MQTT 클라이언트 라이브러리는 여러 전송 수단을 통해 MQTT를 사용하기 위한 API를 제공하는 [Eclipse Paho](http://www.eclipse.org/paho/) 프로젝트의 일부입니다.
+여기에 사용되는 MQTT 클라이언트 라이브러리는 여러 전송 수단을 통해 MQTT를 사용하기 위한 API를 제공하는 [Eclipse Paho](https://www.eclipse.org/paho/) 프로젝트의 일부입니다.
 
 ## <a name="what-you-learn"></a>학습 내용
 
@@ -77,7 +77,7 @@ VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다
 
 문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 채널을 사용하여 문의하세요.
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>참고 항목

@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: concept
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb136391610035911af3614f88f5ea823f86922d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 6d6da0ac5ab204bbfe70ea15e80650dd9b9e6364
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456332"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442880"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure Monitor의 Azure AD 활동 로그(미리 보기)
 
@@ -34,6 +34,8 @@ ms.locfileid: "56456332"
 * Azure AD 활동 로그를 Azure Monitor 로그에 보내 연결된 데이터에 대한 다양한 시각화, 모니터링 및 경고를 사용합니다.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="supported-reports"></a>지원되는 보고서
 
@@ -120,7 +122,7 @@ Azure Monitor 로그 관리와 관련된 비용을 검토하려면 [Azure Monito
 
 -----
 
-**Q: 관리자가 진단 설정의 보존 기간을 변경하면 어떻게 되나요?**
+**Q: 관리자가 진단 설정의 보존 기간을 변경 하는 경우 어떻게 되나요?**
 
 **A**: 변경 이후에 수집되는 로그에는 새 보존 정책이 적용됩니다. 정책 변경 이전에 수집된 로그에는 아무런 변화가 없습니다.
 

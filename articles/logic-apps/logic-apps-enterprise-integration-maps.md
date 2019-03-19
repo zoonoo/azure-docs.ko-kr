@@ -11,16 +11,16 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: da5b099a5574d34c3676819c930f3e89610cf4ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767438"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455805"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 맵을 사용하여 XML 변환
 
-Azure Logic Apps에서 엔터프라이즈 통합 시나리오의 형식 간에 XML 데이터를 전송하기 위해 논리 앱을 맵, 구체적으로 말하면, XLST(Extensible Stylesheet Language Transformation) 맵을 사용할 수 있습니다. 맵은 XML 문서의 데이터를 다른 형식으로 변환하는 방법을 설명하는 XML 문서입니다. 
+Azure Logic Apps에서 엔터프라이즈 통합 시나리오에 대 한 형식 사이 XML 데이터를 전송 하려면 논리 앱 맵 또는 보다 구체적으로 확장할 수 있는 스타일 시트의 Language Transformations (XSLT) 매핑합니다 사용할 수 있습니다. 맵은 XML 문서의 데이터를 다른 형식으로 변환하는 방법을 설명하는 XML 문서입니다. 
 
 예를 들어, YYYMMDD 날짜 형식을 사용하는 고객에게서 정기적으로 B2B 주문 또는 송장을 받는 경우를 가정해 보겠습니다. 그러나 조직은 MMDDYYY 날짜 형식을 사용합니다. 고객 작업 데이터베이스에서 주문 또는 송장 세부 정보를 저장하기 전에 YYYMMDD 날짜 형식을 MMDDYYY 형식으로 변환하는 맵을 정의하여 사용할 수 있습니다.
 

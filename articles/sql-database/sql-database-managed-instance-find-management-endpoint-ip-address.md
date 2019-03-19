@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 83eea565a12ee5201c42b543cdbdad72ddc28ca9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 542db0200229b4fea4ac67ad19c468f2b9dc67d1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345796"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772782"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>관리 엔드포인트 IP 주소 확인
 
@@ -29,7 +29,7 @@ Managed Instance 호스트를 `mi-demo.xxxxxx.database.windows.net`으로 가정
 
 ![내부 호스트 이름 확인](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
 
-이제 `.vnet.` 세그먼트를 제거하고 강조된 이름에 대해 다른 `nslookup`을 수행합니다. 이 명령을 실행한 결과로 공용 IP 주소를 얻게 됩니다.
+이제 `.vnet.` 세그먼트를 제거하고 강조된 이름에 대해 다른 `nslookup`을 수행합니다. 이 명령을 실행 하면 공용 IP 주소를 봅니다.
 
 ![공용 IP 주소 확인](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pbutlerm
-ms.openlocfilehash: f13d49fde7f0e40f6dcb026fcb20cb11c028c64b
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: fd51a9f70d60219a9429ff66d6f1d404391f6fb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100892"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446712"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure 및 AppSource Marketplace 제품
 
@@ -41,7 +41,7 @@ ms.locfileid: "56100892"
 
 ## <a name="test-drive"></a>시험 사용
 
-*시험 사용*은 고객에게 설정된 각 제품에 대해 “구입 전 시험 사용” 데모 옵션을 제공하는 마켓플레이스 기능입니다.  시험 사용 기능은 제품 유형의 다음 하위 세트로 제한됩니다. [Azure 애플리케이션](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance 및 Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [SaaS 애플리케이션](./saas-app/cpp-saas-offer.md) 및 [가상 머신](./virtual-machine/cpp-virtual-machine-offer.md).  이 기능을 사용하려면 게시자가 해당 제품에 맞게 사용자 지정된 시험 사용 템플릿을 만들어야 합니다.  자세한 내용은 [시험 사용](../cloud-partner-portal-orig/what-is-test-drive.md) 섹션을 참조하세요.
+*시험 사용*은 고객에게 설정된 각 제품에 대해 “구입 전 시험 사용” 데모 옵션을 제공하는 마켓플레이스 기능입니다.  시험 사용 기능은 제품 유형의 다음 하위 세트로 제한됩니다. [Azure 애플리케이션](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance 및 Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [SaaS 애플리케이션](./saas-app/cpp-saas-offer.md) 및 [가상 머신](./virtual-machine/cpp-virtual-machine-offer.md).  이 기능을 사용하려면 게시자가 해당 제품에 맞게 사용자 지정된 시험 사용 템플릿을 만들어야 합니다.  자세한 내용은 [시험 사용](./test-drive/what-is-test-drive.md) 섹션을 참조하세요.
 
 [시험 사용 필터](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive)를 적용하여 시험 사용 데모가 있는 기존 마켓플레이스 제품을 찾아볼 수 있습니다. 
 

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424322"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544991"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
 
@@ -142,7 +142,7 @@ Log Analytics Contributor 역할은 모든 모니터링 데이터를 읽고 모�
 |Microsoft.Compute/virtualMachines/extensions/*|클래식 가상 머신 확장을 만들고 관리합니다.|
 |Microsoft.Insights/alertRules/*|경고 규칙 읽기/쓰기/삭제|
 |Microsoft.Insights/diagnosticSettings/*|진단 설정 읽기/쓰기/삭제|
-|Microsoft.OperationalInsights/*|Log Analytics를 관리합니다.|
+|Microsoft.OperationalInsights/*|Azure Monitor 로그를 관리 합니다.|
 |Microsoft.OperationsManagement/*|작업 영역에서 솔루션을 관리합니다.|
 |Microsoft.Resources/deployments/*|리소스 그룹 배포를 만들고 관리합니다.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|리소스 그룹 배포를 만들고 관리합니다.|
@@ -156,8 +156,8 @@ Log Analytics Reader는 모든 Azure 리소스에 대한 Azure 진단의 구성 
 |**actions**  |**설명**  |
 |---------|---------|
 |*/read|암호를 제외한 모든 유형의 리소스를 읽습니다.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Log Analytics에서 쿼리를 관리합니다.|
-|Microsoft.OperationalInsights/workspaces/search/action|Log Analytics 데이터를 검색합니다.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Azure Monitor 로그에서 쿼리를 관리 합니다.|
+|Microsoft.OperationalInsights/workspaces/search/action|Azure Monitor 로그 데이터를 검색 합니다.|
 |Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
 |**조치 없음**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|공유 액세스 키를 읽을 수 없습니다.|
@@ -180,11 +180,11 @@ Monitoring Contributor는 모든 모니터링 데이터를 읽고 모니터링 �
 |Microsoft.Insights/Metrics/*|리소스에 대한 메트릭을 읽습니다.|
 |Microsoft.Insights/Register/Action|Microsoft Insights 공급자 등록|
 |Microsoft.Insights/webtests/*|Application Insights 웹 테스트를 관리합니다.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Log Analytics 솔루션 팩을 관리합니다.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Log Analytics 저장 검색을 관리합니다.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Azure Monitor 로그 솔루션 팩을 관리 합니다.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Azure Monitor 저장 되는 로그 검색을 관리 합니다.|
 |Microsoft.OperationalInsights/workspaces/search/action|Log Analytics 작업 영역 검색|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|Log Analytics 작업 영역에 대한 키 나열|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Log Analytics 저장소 정보 구성을 관리합니다.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Azure Monitor 로그 저장소 정보 구성을 관리 합니다.|
 |Microsoft.Support/*|지원 티켓을 만들고 관리합니다.|
 |Microsoft.WorkloadMonitor/workloads/*|워크로드를 관리합니다.|
 

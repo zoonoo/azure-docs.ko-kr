@@ -14,18 +14,18 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 194898f658c08a3a5a9d8c1d601ea53c817e7649
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 605669a740663040ab7a167bf266fe1940123afc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076818"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551877"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Azure Event Hubs와 Apache Spark 통합
 
-Azure Event Hubs는 [Apache Spark](https://spark.apache.org/)와 원활하게 통합되어 분산 스트리밍 응용 프로그램을 구축할 수 있습니다. 이 통합은 [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark 스트리밍](http://spark.apache.org/docs/latest/streaming-programming-guide.html) 및 [구조적 스트리밍](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 지원합니다. Apache Spark용 Event Hubs 커넥터는 [GitHub](https://github.com/Azure/azure-event-hubs-spark)에서 제공됩니다. 이 라이브러리는 [Maven 중앙 리포지토리](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C)의 Maven 프로젝트에서도 제공됩니다.
+Azure Event Hubs는 [Apache Spark](https://spark.apache.org/)와 원활하게 통합되어 분산 스트리밍 애플리케이션을 구축할 수 있습니다. 이 통합은 [Spark Core](https://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark 스트리밍](https://spark.apache.org/docs/latest/streaming-programming-guide.html) 및 [구조적 스트리밍](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 지원합니다. Apache Spark용 Event Hubs 커넥터는 [GitHub](https://github.com/Azure/azure-event-hubs-spark)에서 제공됩니다. 이 라이브러리는 [Maven 중앙 리포지토리](https://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C)의 Maven 프로젝트에서도 제공됩니다.
 
-이 문서에서는 [Azure Databricks](https://azure.microsoft.com/services/databricks/)에서 지속적인 응용 프로그램을 만드는 방법을 설명합니다. 이 문서에서는 Azure Databricks를 사용하지만, Spark 클러스터는 [HDInsight](../hdinsight/spark/apache-spark-overview.md)에서도 사용할 수 있습니다.
+이 문서에서는 [Azure Databricks](https://azure.microsoft.com/services/databricks/)에서 지속적인 애플리케이션을 만드는 방법을 설명합니다. 이 문서에서는 Azure Databricks를 사용하지만, Spark 클러스터는 [HDInsight](../hdinsight/spark/apache-spark-overview.md)에서도 사용할 수 있습니다.
 
 이 문서의 다음 예제에는 두 개의 Scala 노트북이 사용됩니다. 하나는 이벤트 허브의 스트리밍 이벤트용이고, 다른 하나는 이벤트를 이벤트 허브로 다시 보내기 위한 것입니다.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 58a51fd90eb0b89048eca7c95272523ffd10c24a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 33f5cd6e1d2989a9ca5c26bbcf947bd6eade3831
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982325"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774203"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
@@ -25,23 +25,23 @@ IoT Edge 디바이스는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다
 1. IoT Edge 런타임을 디바이스에 설치합니다. 
 2. 디바이스의 Docker 디먼과 IoT Edge 디먼이 프록시 서버를 사용하도록 구성합니다.
 3. 디바이스의 config.yaml 파일에서 edgeAgent 속성을 구성합니다.
-4. 배포 매니페스트에서 IoT Edge 런타임 및 기타 IoT Edge 모듈용 환경 변수를 설정합니다. 
+4. 배포 매니페스트에서 IoT Edge 런타임 및 기타 IoT Edge 모듈용 환경 변수를 설정합니다.
 
 ## <a name="know-your-proxy-url"></a>프록시 URL 파악
 
-디바이스에서 Docker 디먼 및 IoT Edge를 모두 구성하려면 해당 프록시 URL을 알아야 합니다. 
+디바이스에서 Docker 디먼 및 IoT Edge를 모두 구성하려면 해당 프록시 URL을 알아야 합니다.
 
-프록시 URL은 다음 형식을 사용합니다. **프로토콜**://**proxy_host**:**proxy_port** 
+프록시 URL은 다음 형식을 사용합니다. **프로토콜**://**proxy_host**:**proxy_port**
 
 * **프로토콜**은 HTTP 또는 HTTPS입니다. Docker 디먼은 컨테이너 레지스트리 설정에 따라 프로토콜 중 하나를 사용할 수 있지만, IoT Edge 디먼 및 런타임 컨테이너는 항상 HTTPS를 사용해야 합니다.
 
-* **proxy_host**는 프록시 서버의 주소입니다. 프록시 서버에서 인증이 필요한 경우 **사용자**:**암호**@**proxy_host** 형식에서 proxy_host의 일부로 자격 증명을 제공할 수 있습니다. 
+* **proxy_host**는 프록시 서버의 주소입니다. 프록시 서버에서 인증이 필요한 경우 **사용자**:**암호**\@**proxy_host** 형식에서 proxy_host의 일부로 자격 증명을 제공할 수 있습니다.
 
-* **proxy_port**는 프록시가 네트워크 트래픽에 응답하는 네트워크 포트입니다. 
+* **proxy_port**는 프록시가 네트워크 트래픽에 응답하는 네트워크 포트입니다.
 
 ## <a name="install-the-runtime"></a>런타임 설치
 
-Linux 디바이스에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동하도록 패키지 관리자를 구성합니다. 예를 들어 [http-proxy를 사용하도록 apt-get을 설정](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy)합니다. 패키지 관리자를 구성하면 일반적으로 [Linux에서 Azure IoT Edge 런타임 설치(ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) 또는 [Linux에서 Azure IoT Edge 런타임 설치(x64)](how-to-install-iot-edge-linux.md)의 지침을 따릅니다. 
+Linux 디바이스에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동하도록 패키지 관리자를 구성합니다. 예를 들어 [http-proxy를 사용하도록 apt-get을 설정](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy)합니다. 패키지 관리자를 구성하면 일반적으로 [Linux에서 Azure IoT Edge 런타임 설치(ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) 또는 [Linux에서 Azure IoT Edge 런타임 설치(x64)](how-to-install-iot-edge-linux.md)의 지침을 따릅니다.
 
 Windows 디바이스에 IoT Edge 런타임을 설치하는 경우 프록시 서버를 통해 설치 관리자 스크립트 파일을 다운로드한 다음, 설치 중에 다시 프록시 서버를 통해 필요한 구성 요소를 다운로드해야 합니다. Windows 설정에서 프록시 정보를 구성하거나 설치 스크립트에 직접 프록시 정보를 포함할 수 있습니다. 다음 PowerShell 스크립트는 `-proxy` 인수를 사용하여 Windows를 설치하는 예제입니다
 
@@ -72,7 +72,7 @@ IoT Edge 디바이스에서 실행되는 Docker 및 IoT Edge 디먼이 프록시
 
 사용 중인 Docker 버전에 적용되는 문서를 선택하세요. 
 
-* [Docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+* [Linux 용 docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
 * [Windows용 Docker](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
 
 ### <a name="iot-edge-daemon"></a>IoT Edge 디먼
@@ -112,7 +112,7 @@ sudo systemctl restart iotedge
 systemctl show --property=Environment iotedge
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 관리자 권한으로 PowerShell 창을 연 후에 다음 명령을 실행해 새 환경 변수를 사용하여 레지스트리를 편집합니다. **\<proxy url>** 은 실제 프록시 서버 주소와 포트로 바꾸세요. 
 

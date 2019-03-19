@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 9b53a26f5163eae17198302fc26c079185cb7bd8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: af9b34d90098409135020fa8a45ecd0253f25b22
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355220"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454547"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품 만들기
 
@@ -55,7 +55,7 @@ Cloud 파트너 포털의 필수 용도 중 하나는 게시자가 제품을 만
 |      --------       |   -------                                                            |
 | **제품 설정**  | 제품 및 게시자 ID 정보를 수집합니다.                    |
 | **SKU**            | 제품의 각 SKU(Stock Keeping Unit) 버전에 대한 기술 및 비즈니스 특성을 정의합니다. |
-| **시험 사용**      | 이 선택적 기능을 지원하는 유형의 경우 제품에 대한 데모를 정의합니다.  자세한 내용은 [시험 사용이란?](../../cloud-partner-portal-orig/what-is-test-drive.md)을 참조하세요.  |
+| **시험 사용**      | 이 선택적 기능을 지원하는 유형의 경우 제품에 대한 데모를 정의합니다.  자세한 내용은 [시험 사용이란?](../test-drive/what-is-test-drive.md)을 참조하세요.  |
 | **마켓플레이스** 또는 **상점** | 마켓플레이스에 제품을 나열하는 데 사용되는 텍스트 문자열, 문서 및 이미지를 수집합니다. |
 | **지원**         | 고객, 엔지니어링 및 온라인 지원을 위한 연락처 정보를 수집합니다.  |
 |  |  |

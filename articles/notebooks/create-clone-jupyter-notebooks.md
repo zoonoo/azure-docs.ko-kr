@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: b99197f44961bdfa23050e9481e290e6c3d24845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844061"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759088"
 ---
 # <a name="create-and-clone-projects"></a>프로젝트 만들기 및 복제
 
@@ -49,7 +49,7 @@ Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 �
 
 **공유** 명령을 사용하고 **포함** 탭을 선택하면 "Notebook 시작" 배지를 만드는 HTML 코드 또는 Markdown을 복사할 수 있습니다.
 
-![Notebook 배지 시작 ](https://notebooks.azure.com/launch.png)
+![Notebook 배지 시작](https://notebooks.azure.com/launch.png)
 
 Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 적절한 사용자 이름과 리포지토리 이름으로 바꾸면 GitHub에서 직접 복제하는 링크를 만들 수 있습니다.
 
@@ -67,10 +67,26 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 
 | 필드 | 설명 |
 | --- | --- |
-| 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. 예: "Ny Notebook Project". |
-| 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다. 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있으며 길이는 30자로 제한됩니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
+| 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. 예를 들어 "My Notebook Project"입니다. |
+| 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다(형식은 `https://notebooks.azure.com/<user_id>/projects/<project_id>`). 문자, 숫자 및 하이픈만 사용할 수 있습니다, 30 자로 제한 됩니다 및 될 수 없습니다.이 ID는 [프로젝트 ID가 예약](#reserved-project-ids)합니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
 | 공용 | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 비공개 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
 | README를 사용하여 이 프로젝트를 초기화 | 이 옵션을 설정하면 프로젝트에 기본 *README.md* 파일이 생성됩니다. 원한다면 *README.md* 파일에 프로젝트에 대한 설명서를 제공할 수 있습니다. |
+
+### <a name="reserved-project-ids"></a>예약 된 프로젝트 Id
+
+프로젝트 Id와 다음 예약 된 단어를 단독으로 사용할 수 없습니다. 그러나 이러한 예약어 수 더 프로젝트 Id의 일부로 사용 합니다.
+
+| | | | | | |
+| --- | --- | --- | --- | --- | --- |
+| about | 계정 | 관리 | api | 블로그 | 클래스 룸 |
+| 콘텐츠 | dashboard | 탐색 | faq | help | html |
+| home | 수입 | 도서관 | 관리 | 신규 | notebook |
+| notebooks | pdf | 미리 보기 | 가격 책정 | 프로필 | 검색 |
+| status | support | test | | | |
+
+프로젝트 ID로 이러한 단어 중 하나를 사용 하려는 경우는 **새 프로젝트 만들기** 하 고 **프로젝트 설정을** "라이브러리 id에는 예약 된 식별자입니다." 팝업이 표시
+
+Ad 차단 소프트웨어 "보급 합니다."와 같은 특정 키워드의 사용을 차단할 수 프로젝트 ID를 프로젝트의 URL의 일부로 이기 때문에 이러한 경우에 사용 하 여 서로 다른 단어로 프로젝트 id
 
 ## <a name="import-a-project-from-github"></a>GitHub에서 프로젝트 가져오기
 
@@ -81,7 +97,7 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 | GitHub 리포지토리 | github.com의 원본 리포지토리 이름입니다. 예를 들어 [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)에서 Azure Cognitive Services에 대한 Jupyter Notebook을 복제하려면 "Microsoft/cognitive-services-notebooks"를 입력합니다.  |
 | 재귀적으로 복제 | GitHub 리포지토리는 여러 자식 리포지토리를 포함할 수 있습니다. 부모 리포지토리와 자식을 모두 복제하려면 이 옵션을 설정합니다. 한 리포지토리가 여러 자식을 가질 수 있으므로 꼭 필요한 경우 외에는 이 옵션을 선택하지 마세요. |
 | 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. |
-| 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다. 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있습니다. |
+| 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다(형식은 `https://notebooks.azure.com/<user_id>/projects/<project_id>`). 문자, 숫자 및 하이픈만 사용할 수 있습니다, 30 자로 제한 됩니다 및 될 수 없습니다.이 ID는 [프로젝트 ID가 예약](#reserved-project-ids)합니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
 | 공용 | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 비공개 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
 
 GitHub에서 리포지토리를 가져오면 해당 기록도 함께 가져옵니다. 터미널에서 표준 Git 명령을 사용하여 새로운 변경 내용을 커밋하고, GitHub에서 변경 내용을 끌어오는 등의 작업을 할 수 있습니다.

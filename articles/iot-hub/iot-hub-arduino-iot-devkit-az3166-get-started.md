@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 2f480fd4d5d7d6261776660f1a7eab587320c849
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: e35e669c4abc4815b932e09d369af28e42617e8c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052516"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535698"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -88,10 +88,10 @@ IoT 프로젝트는 인터넷 연결을 사용합니다. 다음 지침을 사용
 
 ![Wi-Fi 이름 및 IP 주소](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ip.jpg)
 
-> [!NOTE] 
-> 사진에 표시된 IP 주소는 DevKit 화면에 할당되고 표시되는 실제 IP 주소와 일치하지 않을 수 있습니다. Wi-Fi가 DHCP를 사용하여 동적으로 IP를 할당하므로 이는 일반적입니다.
+> [!NOTE]
+> 작업 하는 IoT DevKit 용 2.4ghz 네트워크를 해야 합니다. IoT DevKit의 WiFi 모듈 5ghz 네트워크와 호환 되지 않습니다. 자세한 내용은 [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#wi-fi-configuration)를 참조하세요.
 
-Wi-Fi를 구성한 후 디바이스가 분리되는 경우에도 자격 증명은 해당 연결에 대해 디바이스에서 유지됩니다. 예를 들어 집에서 Wi-Fi에 대해 DevKit를 구성한 다음 DevKit를 사무실에 가져간 경우 AP 모드를 다시 구성하여("AP 모드로 전환" 섹션의 단계에서 시작) DevKit를 사무실 Wi-Fi에 연결해야 합니다. 
+Wi-Fi를 구성한 후 디바이스가 분리되는 경우에도 자격 증명은 해당 연결에 대해 디바이스에서 유지됩니다. 예를 들어 집에서 Wi-Fi에 대해 DevKit를 구성한 다음 DevKit를 사무실에 가져간 경우 AP 모드를 다시 구성하여("AP 모드로 전환" 섹션의 단계에서 시작) DevKit를 사무실 Wi-Fi에 연결해야 합니다.
 
 ## <a name="start-using-the-devkit"></a>DevKit를 사용하여 시작
 
@@ -175,9 +175,9 @@ DevKit에서 개발하려면 Visual Studio Code용 [Azure IoT Tools](https://aka
 
 ### <a name="install-st-link-drivers"></a>ST-Link 드라이버 설치
 
-[ST-Link/V2](http://www.st.com/en/development-tools/st-link-v2.html)는 IoT DevKit가 개발 머신과 통신하는 데 사용하는 USB 인터페이스입니다. 해당 OS의 단계에 따라 머신이 디바이스에 액세스할 수 있도록 허용합니다.
+[ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html)는 IoT DevKit가 개발 머신과 통신하는 데 사용하는 USB 인터페이스입니다. 설치 flash를 사용 하도록 설정 하려면 Windows에서 컴파일된 deivce 코드를 DevKit를 해야 합니다. 해당 OS의 단계에 따라 머신이 디바이스에 액세스할 수 있도록 허용합니다.
 
-* **Windows**: [STMicroelectronics 웹 사이트](http://www.st.com/en/development-tools/stsw-link009.html)에서 USB 드라이버를 다운로드하여 설치합니다.
+* **Windows**: [STMicroelectronics 웹 사이트](https://www.st.com/en/development-tools/stsw-link009.html)에서 USB 드라이버를 다운로드하여 설치합니다.
 * **macOS**: macOS는 드라이버가 필요 없습니다.
 * **Ubuntu**: 터미널에서 다음을 실행하고 로그아웃했다가 다시 로그인하여 그룹 변경 내용을 적용합니다.
     ```bash

@@ -3,20 +3,20 @@ title: Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데�
 description: Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행함으로써 데이터를 변환하는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: b498e09e53f8b0844470bf3948a664d8ad4337b7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022227"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576432"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,19 +71,19 @@ Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introd
 | 자산          | 설명                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
 | 이름              | 작업의 이름                     | 예      |
-| description       | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니요       |
+| description       | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아닙니다.       |
 | 형식              | Hadoop 스트리밍 작업의 경우 작업 유형은 HDInsightStreaming입니다. | 예      |
 | linkedServiceName | Data Factory에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | mapper            | mapper 실행 파일의 이름을 지정합니다. | 예      |
 | reducer           | reducer 실행 파일의 이름을 지정합니다. | 예      |
-| combiner          | combiner 실행 파일의 이름을 지정합니다. | 아니요       |
-| fileLinkedService | 실행할 Mapper, Combiner 및 Reducer 프로그램을 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아니요       |
+| combiner          | combiner 실행 파일의 이름을 지정합니다. | 아닙니다.       |
+| fileLinkedService | 실행할 Mapper, Combiner 및 Reducer 프로그램을 저장하는 데 사용되는 Azure Storage 연결된 서비스에 대한 참조입니다. 이 연결된 서비스를 지정하지 않으면 HDInsight 연결된 서비스에 정의된 Azure Storage 연결된 서비스가 사용됩니다. | 아닙니다.       |
 | filePath          | fileLinkedService에서 참조하는 Azure Storage에 저장된 Mapper, Combiner 및 Reducer 프로그램의 경로 배열을 제공합니다. 경로는 대/소문자를 구분합니다. | 예      |
 | input             | Mapper에 대한 입력 파일의 WASB 경로를 지정합니다. | 예      |
 | output            | Reducer에 대한 출력 파일의 WASB 경로를 지정합니다. | 예      |
-| getDebugInfo      | scriptLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값은 다음과 같습니다. 없음, 항상 또는 실패. 기본값: 없음. | 아니요       |
-| arguments         | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아니요       |
-| defines           | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아니요       | 
+| getDebugInfo      | scriptLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 로그 파일을 언제 복사할지 지정합니다. 허용되는 값은 다음과 같습니다. 없음, 항상 또는 실패. 기본값: 없음. | 아닙니다.       |
+| arguments         | Hadoop 작업에 대한 인수 배열을 지정합니다. 인수는 각 작업에 대한 명령줄 인수로 전달됩니다. | 아닙니다.       |
+| defines           | Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정합니다. | 아닙니다.       | 
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 

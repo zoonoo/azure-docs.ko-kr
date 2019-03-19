@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432448"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767042"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Automation 상태 구성 시작하기
 
@@ -157,7 +157,6 @@ Azure Automation 상태 구성을 사용하여 Azure VM(클래식 및 Resource M
    ![등록 블레이드의 스크린샷](./media/automation-dsc-getting-started/RegisterVM.png)
 
    지정한 노드 구성이 **구성 모드 빈도**에서 지정된 간격으로 VM에 적용되고 VM은 **새로 고침 빈도**에서 지정된 간격으로 노드 구성에 대한 업데이트를 확인합니다. 이러한 값을 사용하는 방법에 대한 자세한 내용은 [로컬 구성 관리자 구성](https://msdn.microsoft.com/PowerShell/DSC/metaConfig)을 참조하세요.
-1. **Azure VM 추가** 블레이드에서 **만들기**를 클릭합니다.
 
 Azure는 VM 온보딩 프로세스를 시작합니다. 완료되면 Automation 계정에서 **상태 구성(DSC)** 페이지의 **노드** 탭에 VM이 표시됩니다.
 

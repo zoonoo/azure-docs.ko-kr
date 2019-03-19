@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f221b815b6800f635c07525fdbd332ac508786
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 65bc0c0ee1ccc1e1f3da5e364582534dfbc0d425
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171539"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530708"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory) 보고서를 통해 사용자 환경의 작동 
  
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
-* **보안 관리자**, **보안 읽기 권한자** 또는 **글로벌 관리자** 역할의 사용자
+* 사용자에 게는 **보안 관리자**를 **보안 읽기 권한자**를 **보고서를 읽는** 또는 **전역 관리자** 역할
 * 또한 모든 사용자(비관리자)는 감사 활동 자체를 볼 수 있습니다.
 
 ## <a name="audit-logs"></a>감사 로그
@@ -53,38 +53,93 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 감사 로그에는 다음 항목을 보여 주는 기본 목록 보기가 있습니다.
 
 - 발생 날짜와 시간
-- 활동의 초기자/행위자(*누가*) 
-- 활동(*무엇*) 
+- 검색 된 항목을 기록 하는 서비스
+- 범주 및 작업의 이름 (*무엇입니까*) 
+- (성공 또는 실패) 활동의 상태
 - 대상
+- 작업의 초기자/행위자(누가)
 
-![감사 로그](./media/concept-audit-logs/18.png "감사 로그")
+![감사 로그](./media/concept-audit-logs/listview.png "감사 로그")
 
 도구 모음에서 **열**을 클릭하여 목록 보기를 사용자 지정할 수 있습니다.
 
-![감사 로그](./media/concept-audit-logs/19.png "감사 로그")
+![감사 로그](./media/concept-audit-logs/columns.png "감사 로그")
 
 그러면 추가 필드를 표시하거나 이미 표시된 필드를 제거할 수 있습니다.
 
-![감사 로그](./media/concept-audit-logs/21.png "감사 로그")
+![감사 로그](./media/concept-audit-logs/columnselect.png "감사 로그")
 
 자세한 정보를 가져오려면 목록 보기에서 항목을 선택합니다.
 
-![감사 로그](./media/concept-audit-logs/22.png "감사 로그")
+![감사 로그](./media/concept-audit-logs/details.png "감사 로그")
 
 
 ## <a name="filtering-audit-logs"></a>감사 로그 필터링
 
 다음 필드에서 감사 데이터를 필터링할 수 있습니다.
 
-- 날짜 범위
-- 초기자(작업자)
+- 서비스
 - Category
-- 활동 리소스 종류
 - 작업
+- 상태
+- 대상
+- 초기자(작업자)
+- 날짜 범위
 
-![감사 로그](./media/concept-audit-logs/23.png "감사 로그")
+![감사 로그](./media/concept-audit-logs/filter.png "감사 로그")
 
-**날짜 범위** 필터를 사용하면 반환되는 데이터의 시간 범위를 정의할 수 있습니다.  
+합니다 **서비스** 필터를 사용 하면 다음과 같은 서비스의 드롭다운에서 선택할 수 있습니다.
+
+- 모두
+- 액세스 검토
+- 계정 프로비전 
+- SSO 응용 프로그램
+- 인증 방법
+- B2C
+- 조건부 액세스
+- 핵심 디렉터리
+- 권한 관리
+- ID 보호
+- 사용자 초대
+- PIM
+- 셀프 서비스 그룹 관리
+- Passord 셀프 서비스 관리
+- 사용 약관
+
+합니다 **범주** 필터를 사용 하면 다음 필터 중 하나를 선택할 수 있습니다.
+
+- 모두
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- 권한 부여
+- 연락처
+- 디바이스
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- 기타
+- 정책
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+합니다 **활동** 필터 기반으로 할 범주와 활동 리소스 유형 선택. 보려는 특정 활동을 선택하거나 모두 선택할 수 있습니다. 
+
+Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta(여기서 $tenantdomain = 도메인 이름)를 사용하여 모든 감사 작업 목록을 가져오거나 [감사 보고서 이벤트](reference-audit-activities.md) 문서를 참조할 수 있습니다.
+
+합니다 **상태** 필터 필터링 할 수는 감사 작업의 상태를 기반으로 합니다. 상태는 다음 중 하나일 수 있습니다.
+
+- 모두
+- 성공
+- 실패
+
+합니다 **대상** 필터를 사용 하면 이름 또는 사용자 계정 이름 (UPN)을 특정 대상에 대 한 검색할 수 있습니다. 대상 이름 및 UPN 대/소문자 구분 됩니다. 
+
+합니다 **실행자** 필터를 사용 하면 행위자의 이름 또는 범용 계정 이름 (UPN)를 정의할 수 있습니다. 이름 및 UPN 대/소문자 구분 됩니다.
+
+합니다 **날짜 범위** 필터링 하면 반환된 된 데이터에 대 한 시간 범위를 정의 합니다.  
 가능한 값은 다음과 같습니다.
 
 - 1개월
@@ -94,41 +149,9 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 
 사용자 지정 시간 범위를 선택하면 시작 시간과 종료 시간을 구성할 수 있습니다.
 
-**초기자** 필터를 사용하면 작업자 이름이나 UPN(사용자 계정 이름)을 정의할 수 있습니다.
+필터링 된 데이터를 최대 250,000 레코드를 선택 하 여 다운로드할 수도 있습니다는 **다운로드** 단추입니다. CSV 또는 JSON 형식으로 로그를 다운로드할 수 있습니다. 다운로드할 수 있는 레코드의 수는 [Azure Active Directory 보고서 보존 정책](reference-reports-data-retention.md)에 의해 제한됩니다.
 
-**범주** 필터를 사용하면 다음 필터 중 하나를 선택할 수 있습니다.
-
-- 모두
-- 핵심 범주
-- 핵심 디렉터리
-- 셀프 서비스 암호 관리
-- 셀프 서비스 그룹 관리
-- 계정 프로비전 - 자동화된 암호 롤오버
-- 사용자 초대
-- MIM 서비스
-- ID 보호
-- B2C
-
-**활동 리소스 종류** 필터를 사용하면 다음 필터 중 하나를 선택할 수 있습니다.
-
-- 모두 
-- 그룹
-- 디렉터리
-- 사용자
-- 애플리케이션
-- 정책
-- 디바이스
-- 기타
-
-**그룹**을 **활동 리소스 종류**로 선택하면 다음과 같은 **원본**도 제공할 수 있는 추가 필터 범주가 생깁니다.
-
-- Azure AD
-- O365
-
-
-**활동** 필터는 사용자가 선택한 범주와 활동 리소스 종류를 기반으로 합니다. 보려는 특정 활동을 선택하거나 모두 선택할 수 있습니다. 
-
-Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta(여기서 $tenantdomain = 도메인 이름)를 사용하여 모든 감사 작업 목록을 가져오거나 [감사 보고서 이벤트](reference-audit-activities.md) 문서를 참조할 수 있습니다.
+![감사 로그](./media/concept-audit-logs/download.png "감사 로그")
 
 ## <a name="audit-logs-shortcuts"></a>감사 로그 바로 가기
 
@@ -157,9 +180,13 @@ Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?
 
 - 어떤 라이선스가 그룹 또는 사용자에 할당되었나요?
 
-사용자 및 그룹과 관련된 감사 데이터를 검토하려면 **사용자 및 그룹**의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에는 미리 선택된 **활동 리소스 종류**로 **사용자 및 그룹**이 있습니다.
+사용자에 게 관련 된 감사 데이터를 검토 하려는 경우에 아래에 있는 필터링 된 보기를 찾을 수 있습니다 **감사 로그** 에 **활동** 섹션을 **사용자** 탭 합니다. 이 진입점에 **UserManagement** 으로 미리 선택 된 범주입니다.
 
-![감사 로그](./media/concept-audit-logs/93.png "감사 로그")
+![감사 로그](./media/concept-audit-logs/users.png "감사 로그")
+
+그룹에 관련 된 감사 데이터를 검토 하려는 경우에 아래에 있는 필터링 된 보기를 찾을 수 있습니다 **감사 로그** 에 **활동** 섹션을 **그룹** 탭. 이 진입점에 **GroupManagement** 으로 미리 선택 된 범주입니다.
+
+![감사 로그](./media/concept-audit-logs/groups.png "감사 로그")
 
 ### <a name="enterprise-applications-audit-logs"></a>Enterprise 애플리케이션 감사 로그
 
@@ -171,13 +198,9 @@ Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?
 * 애플리케이션의 이름이 변경되었나요?
 * 누가 애플리케이션에 동의했나요?
 
-애플리케이션과 관련된 감사 데이터를 검토하려면 **Enterprise 애플리케이션** 블레이드의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에는 **활동 리소스 종류**로 미리 선택된 **엔터프라이즈 애플리케이션**이 있습니다.
+애플리케이션과 관련된 감사 데이터를 검토하려면 **Enterprise 애플리케이션** 블레이드의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에 **엔터프라이즈 응용 프로그램** 으로 미리 선택 된 된 **응용 프로그램 유형을**합니다.
 
-![감사 로그](./media/concept-audit-logs/134.png "감사 로그")
-
-**그룹** 또는 **사용자**로 이 보기를 필터링할 수 있습니다.
-
-![감사 로그](./media/concept-audit-logs/25.png "감사 로그")
+![감사 로그](./media/concept-audit-logs/enterpriseapplications.png "감사 로그")
 
 ## <a name="office-365-activity-logs"></a>Office 365 활동 로그
 

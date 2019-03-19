@@ -3,7 +3,7 @@ title: Azure VM 시작이 Windows 업데이트에서 중단되는 경우 | Micro
 description: Azure VM 시작이 Windows 업데이트에서 중단되는 경우 문제 해결 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 7c516781f7d0c80dc7185585a29278820ab9a46e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063663"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777569"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 시작이 Windows 업데이트에서 중단되는 경우
 
@@ -27,7 +27,7 @@ ms.locfileid: "54063663"
 > [!NOTE] 
 > Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다. 클래식 배포 모델을 사용하는 대신 새 배포에 이 모델을 사용하는 것이 좋습니다.
 
- ## <a name="symptom"></a>증상
+## <a name="symptom"></a>증상
 
  Windows VM이 시작되지 않습니다. [부트 진단](../troubleshooting/boot-diagnostics.md) 창의 스크린샷을 확인하면 업데이트 프로세스에서 시작이 중단되는 것을 알 수 있습니다. 다음은 수신할 수 있는 메시지의 예입니다.
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 62ecf3b1983853629f6bc5fd594231188aa67bcd
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: 4c61d68a948cbc5638dab30713871d1aaf822f03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391609"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529255"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "44391609"
 
 * **Azure Data Lake Storage Gen1 계정**. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
-* **[cURL](http://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake Storage Gen1 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
+* **[cURL](https://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake Storage Gen1 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증하려면 어떻게 해야 하나요?
 Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있습니다.
@@ -44,7 +44,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
 
 
 ## <a name="create-folders"></a>폴더 만들기
-이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
+이 작업은 [여기](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
 다음 cURL 명령을 사용합니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
 
@@ -57,7 +57,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
     {"boolean":true}
 
 ## <a name="list-folders"></a>폴더 나열
-이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
+이 작업은 [여기](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
 다음 cURL 명령을 사용합니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
 
@@ -85,7 +85,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
     }
 
 ## <a name="upload-data"></a>데이터 업로드
-이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
+이 작업은 [여기](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
 다음 cURL 명령을 사용합니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
 
@@ -107,7 +107,7 @@ Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있
     ...
 
 ## <a name="read-data"></a>데이터 읽기
-이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
+이 작업은 [여기](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
 Data Lake Storage Gen1 계정에서 데이터를 읽는 작업은 2단계 프로세스입니다.
 
@@ -131,7 +131,7 @@ Data Lake Storage Gen1 계정에서 데이터를 읽는 작업은 2단계 프로
     Hello, Data Lake Store user!
 
 ## <a name="rename-a-file"></a>파일 이름 바꾸기
-이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
+이 작업은 [여기](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
 파일의 이름을 바꾸려면 다음 cURL 명령을 사용합니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
 
@@ -145,7 +145,7 @@ Data Lake Storage Gen1 계정에서 데이터를 읽는 작업은 2단계 프로
     {"boolean":true}
 
 ## <a name="delete-a-file"></a>파일 삭제
-이 작업은 [여기](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
+이 작업은 [여기](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory)에 정의된 WebHDFS REST API 호출을 기반으로 합니다.
 
 파일을 삭제하려면 다음 cURL 명령을 사용합니다. **\<yourstorename>** 을 Data Lake Storage Gen1 계정 이름으로 바꿉니다.
 
@@ -163,5 +163,5 @@ Data Lake Storage Gen1 계정에서 데이터를 읽는 작업은 2단계 프로
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen1 REST API 참조](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)
 

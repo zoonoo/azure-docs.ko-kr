@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
-ms.openlocfilehash: 140d663524696f19844fea8906b181f468b7d157
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: ba0e1386d67e920f1805d244f9042044bb462ec9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647011"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551996"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>애플리케이션 차트용 Helm 리포지토리로 Azure Container Registry 사용
 
@@ -59,7 +59,7 @@ az acr helm repo add
 
 ## <a name="add-a-chart-to-the-repository"></a>리포지토리에 차트 추가
 
-이 문서에서는 공용 Helm *stable* 리포지토리에서 기존 Helm 차트를 가져옵니다. *stable* 리포지토리는 일반적인 응용 프로그램 차트를 포함하는 큐레이팅된 공용 리포지토리입니다. 패키지 유지 관리자는 Docker Hub에서 일반 컨테이너 이미지용으로 공용 레지스트리를 제공하는 것과 같은 방식으로 *stable* 리포지토리에 차트를 제출할 수 있습니다. 공용 *stable* 리포지토리에서 다운로드한 차트는 개인 Azure Container Registry 리포지토리로 푸시할 수 있습니다. 대부분의 시나리오에서는 개발하는 애플리케이션용으로 차트를 직접 작성하여 업로드합니다. Helm 차트를 직접 작성하는 방법에 대한 자세한 내용은 [Helm 차트 개발][develop-helm-charts]을 참조하세요.
+이 문서에서는 공용 Helm *stable* 리포지토리에서 기존 Helm 차트를 가져옵니다. *stable* 리포지토리는 일반적인 애플리케이션 차트를 포함하는 큐레이팅된 공용 리포지토리입니다. 패키지 유지 관리자는 Docker Hub에서 일반 컨테이너 이미지용으로 공용 레지스트리를 제공하는 것과 같은 방식으로 *stable* 리포지토리에 차트를 제출할 수 있습니다. 공용 *stable* 리포지토리에서 다운로드한 차트는 개인 Azure Container Registry 리포지토리로 푸시할 수 있습니다. 대부분의 시나리오에서는 개발하는 애플리케이션용으로 차트를 직접 작성하여 업로드합니다. Helm 차트를 직접 작성하는 방법에 대한 자세한 내용은 [Helm 차트 개발][develop-helm-charts]을 참조하세요.
 
 먼저 *~/acr-helm*에 디렉터리를 만든 다음 기존 *stable/wordpress* 차트를 다운로드합니다.
 
@@ -137,7 +137,7 @@ $ helm inspect myacrhelm/wordpress
 appVersion: 4.9.8
 description: Web publishing platform for building blogs and websites.
 engine: gotpl
-home: http://www.wordpress.com/
+home: https://www.wordpress.com/
 icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
 keywords:
 - wordpress

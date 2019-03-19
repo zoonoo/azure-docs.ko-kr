@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: c21ee4d1d69145a442ad0af05da830548cded237
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.openlocfilehash: bb33427712533e669ecf41f48474c02313e2a411
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748055"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568896"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Linux VM 디바이스 이름 변경 문제 해결
 
@@ -30,7 +30,7 @@ Microsoft Azure에서 Linux VM을 실행하는 경우 다음과 같은 문제가
 
 - VM에서 다시 시작한 후 부팅에 실패합니다.
 - 데이터 디스크가 분리되었다가 다시 연결되는 경우 디스크 디바이스 이름이 변경됩니다.
-- 디바이스 이름이 변경되었으므로 디바이스 이름을 사용하여 디스크를 참조하는 응용 프로그램 또는 스크립트가 실패합니다.
+- 장치 이름이 변경되었으므로 장치 이름을 사용하여 디스크를 참조하는 애플리케이션 또는 스크립트가 실패합니다.
 
 ## <a name="cause"></a>원인
 
@@ -63,11 +63,11 @@ Azure Linux 에이전트는 VM에 설치될 때 Udev 규칙을 사용하여 /dev
         ├── lun1 -> ../../../sdd
         ├── lun1-part1 -> ../../../sdd1
         ├── lun1-part2 -> ../../../sdd2
-        └── lun1-part3 -> ../../../sdd3                                    
-                                 
+        └── lun1-part3 -> ../../../sdd3
+
 Linux 게스트 계정의 LUN 정보는 `lsscsi` 또는 유사한 도구를 사용하여 검색합니다.
 
-       $ sudo lsscsi
+      $ sudo lsscsi
 
       [1:0:0:0] cd/dvd Msft Virtual CD/ROM 1.0 /dev/sr0
 
@@ -81,32 +81,32 @@ Linux 게스트 계정의 LUN 정보는 `lsscsi` 또는 유사한 도구를 사�
 
 게스트 LUN 정보는 Azure Storage에서 파티션 데이터를 포함하는 VHD를 찾기 위해 Azure 구독 메타데이터와 함께 사용됩니다. 예를 들어 다음 `az` CLI를 사용할 수 있습니다.
 
-    $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks                                        
-    [                                                                                                                                                                  
-    {                                                                                                                                                                  
-    "caching": "None",                                                                                                                                              
-      "createOption": "empty",                                                                                                                                         
-    "diskSizeGb": 1023,                                                                                                                                             
-      "image": null,                                                                                                                                                   
-    "lun": 0,                                                                                                                                                        
-    "managedDisk": null,                                                                                                                                             
-    "name": "testVM-20170619-114353",                                                                                                                    
-    "vhd": {                                                                                                                                                          
-      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"                                                       
-    }                                                                                                                                                              
-    },                                                                                                                                                                
-    {                                                                                                                                                                   
-    "caching": "None",                                                                                                                                               
-    "createOption": "empty",                                                                                                                                         
-    "diskSizeGb": 512,                                                                                                                                              
-    "image": null,                                                                                                                                                   
-    "lun": 1,                                                                                                                                                        
-    "managedDisk": null,                                                                                                                                             
-    "name": "testVM-20170619-121516",                                                                                                                    
-    "vhd": {                                                                                                                                                           
-      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"                                                       
-      }                                                                                                                                                            
-      }                                                                                                                                                             
+    $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
+    [
+      {
+        "caching": "None",
+          "createOption": "empty",
+        "diskSizeGb": 1023,
+          "image": null,
+        "lun": 0,
+        "managedDisk": null,
+        "name": "testVM-20170619-114353",
+        "vhd": {
+          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
+        }
+      },
+      {
+        "caching": "None",
+        "createOption": "empty",
+        "diskSizeGb": 512,
+        "image": null,
+        "lun": 1,
+        "managedDisk": null,
+        "name": "testVM-20170619-121516",
+        "vhd": {
+          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
+        }
+      }
     ]
 
 ### <a name="discover-filesystem-uuids-by-using-blkid"></a>blkid를 사용하여 파일 시스템 UUID 검색
@@ -130,9 +130,9 @@ Azure Linux 에이전트 Udev 규칙은 /dev/disk/azure 경로 아래에 기호 
     lrwxrwxrwx 1 root root  9 Jun  2 23:17 root -> ../../sda
     lrwxrwxrwx 1 root root 10 Jun  2 23:17 root-part1 -> ../../sda1
 
-응용 프로그램은 링크를 사용하여 부팅 디스크 디바이스 및 리소스(임시) 디스크를 식별할 수 있습니다. Azure에서 애플리케이션은 /dev/disk/azure/root-part1 또는 /dev/disk/azure-resource-part1 경로를 조회하여 이러한 파티션을 검색해야 합니다.
+애플리케이션은 링크를 사용하여 부팅 디스크 장치 및 리소스(임시) 디스크를 식별할 수 있습니다. Azure에서 애플리케이션은 /dev/disk/azure/root-part1 또는 /dev/disk/azure-resource-part1 경로를 조회하여 이러한 파티션을 검색해야 합니다.
 
-`blkid` 목록의 추가 파티션이 데이터 디스크에 상주합니다. 응용 프로그램에서 이러한 파티션에 대한 UUID를 유지 관리하고 경로를 사용하여 런타임 시 디바이스 이름을 검색합니다.
+`blkid` 목록의 추가 파티션이 데이터 디스크에 상주합니다. 애플리케이션에서 이러한 파티션에 대한 UUID를 유지 관리하고 경로를 사용하여 런타임 시 장치 이름을 검색합니다.
 
     $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
@@ -150,8 +150,8 @@ Azure Linux 에이전트 Udev 규칙은 /dev/disk/azure 경로 아래에 기호 
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [Ubuntu: UUID 사용](https://help.ubuntu.com/community/UsingUUID)
+- [Ubuntu의 경우: UUID를 사용 하 여](https://help.ubuntu.com/community/UsingUUID)
 - [Red Hat: 영구 이름 지정](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html)
-- [Linux: UUID에서 수행할 수 있는 작업](https://www.linux.com/news/what-uuids-can-do-you)
+- [Linux: Uuid를 수행할 수 있는 작업](https://www.linux.com/news/what-uuids-can-do-you)
 - [Udev: 최신 Linux 시스템에서 장치 관리 소개](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

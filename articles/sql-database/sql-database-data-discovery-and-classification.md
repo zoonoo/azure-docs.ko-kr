@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892884"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448767"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database 데이터 검색 및 분류
 
@@ -31,7 +31,7 @@ ms.locfileid: "55892884"
 데이터 검색 및 분류는 고급 SQL 보안 기능용 통합 패키지인 [ADS](sql-database-advanced-data-security.md)(Advanced Data Security) 제품에 포함되어 있습니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 문서는 Azure SQL Database에만 관련됩니다. SQL Server(온-프레미스)의 경우 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조하세요.
+> 이 문서는 Azure SQL Database에만 관련됩니다. SQL Server (온-프레미스)를 참조 하세요 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)합니다.
 
 ## <a id="subheading-1"></a>데이터 검색 및 분류란?
 
@@ -144,7 +144,7 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 - [삭제](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - 지정된 열의 민감도 레이블을 삭제합니다.
 - [가져오기](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 지정된 열의 민감도 레이블을 가져옵니다.
 - [데이터베이스별 최신 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - 지정된 데이터베이스의 최신 민감도 레이블을 가져옵니다.
-- [데이터베이스별 권장 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - 지정된 데이터베이스의 최신 민감도 레이블을 가져옵니다.
+- [데이터베이스에서 권장 되는 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -지정된 된 데이터베이스의 권장 되는 민감도 레이블을 가져옵니다.
 
 ## <a id="subheading-5"></a>다음 단계
 

@@ -1,22 +1,21 @@
 ---
-title: Azure Dev Spaces의 비즈니스 연속성 및 재해 복구 | Microsoft Docs
+title: Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
-ms.topic: article
+ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시는, 서비스 메시 라우팅, kubectl, k8s '
 manager: jeconnoc
-ms.openlocfilehash: 877d49a49333d70ac7660900e49e7c588f52756c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451566"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775648"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
 
@@ -93,7 +92,7 @@ Visual Studio를 사용 중이라면 다음 단계를 수행하여 기존 프로
 
 ## <a name="access-a-service-on-a-backup-cluster"></a>백업 클러스터에서 서비스 액세스
 
-공용 DNS 이름을 사용하도록 서비스를 구성한 경우 백업 클러스터에서 서비스를 실행하면 서비스의 URL이 달라집니다. 공용 DNS 이름은 항상 `<space name>.s.<service name>.<cluster GUID>.<region>.aksapp.io` 형식입니다. 다른 클러스터로 전환하면 클러스터 GUID가 변경되며 지역도 변경될 수 있습니다.
+공용 DNS 이름을 사용하도록 서비스를 구성한 경우 백업 클러스터에서 서비스를 실행하면 서비스의 URL이 달라집니다. 공용 DNS 이름은 항상 `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io` 형식입니다. 다른 클러스터로 전환하면 클러스터 GUID가 변경되며 지역도 변경될 수 있습니다.
 
 `azds up`를 실행하면 Dev Spaces에 올바른 URL이 항상 표시됩니다. Visual Studio 출력 창의 **Azure Dev Spaces** 아래에도 올바른 URL이 표시됩니다.
 
@@ -102,7 +101,7 @@ Visual Studio를 사용 중이라면 다음 단계를 수행하여 기존 프로
 $ azds list-uris
 Uri                                                     Status
 ------------------------------------------------------  ---------
-http://mywebapi.d05afe7e006a4fddb73c.eastus.aksapp.io/  Available
+http://default.mywebapi.d05afe7e006a4fddb73c.eus.azds.io/  Available
 ```
 
 서비스에 액세스할 때는 이 URL을 사용합니다.

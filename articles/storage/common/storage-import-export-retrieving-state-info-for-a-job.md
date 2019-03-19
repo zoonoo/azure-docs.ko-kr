@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e40d8e7c05213e99fc2ef65f5dc05f17ba0d185e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890538"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437245"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Import/Export 작업에 대한 상태 정보 검색
 [작업 가져오기](/rest/api/storageimportexport/jobs)(Get Job) 작업을 호출하여 가져오기 및 내보내기 작업에 대한 정보를 검색할 수 있습니다. 반환되는 정보는 다음과 같습니다.
@@ -45,7 +45,7 @@ ms.locfileid: "55890538"
 |`Completed`|고객에게 모든 드라이브를 반송한 후에 작업이 오류 없이 완료되면 작업은 `Completed` 상태로 설정됩니다. 작업은 `Completed` 상태에서 90일이 경과하면 자동으로 삭제됩니다.|
 |`Closed`|고객에게 모든 드라이브를 반송한 후 작업 처리 중에 오류가 발생하면 작업이 `Closed` 상태로 설정됩니다. 작업은 `Closed` 상태에서 90일이 경과하면 자동으로 삭제됩니다.|
 
-작업은 특정 상태에서만 취소할 수 있습니다. 취소된 작업은 데이터 복사 단계를 건너뛰지만 취소되지 않은 작업과 동일한 상태 전환을 수행합니다.
+작업은 특정 상태에서만 취소할 수 있습니다. 취소 된 작업에 데이터 복사 단계를 건너뜁니다 있지만 그렇지 않은 경우 취소 되지 않았습니다 하는 작업으로 동일한 상태 전환을 따릅니다.
 
 다음 표에서는 각 작업 상태에서 발생할 수 있는 오류와 오류 발생시 작업에 미치는 영향을 설명합니다.
 

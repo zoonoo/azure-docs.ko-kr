@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: b49df76bc5b9c4d5f469e702b65ffd5762e49a39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035929"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455839"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
 DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다. 
@@ -53,7 +53,7 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 클러스터를 만드는 데 포털을 사용하지 않거나 기존 클러스터를 업데이트하는 경우 템플릿에서 DNS 서비스를 활성화해야 합니다.
 
 - 새 클러스터를 배포하기 위해 [샘플 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)을 사용하거나 사용자 고유의 Resource Manager 템플릿을 만들 수 있습니다. 
-- 기존 클러스터를 업데이트하기 위해 포털에서 클러스터의 리소스 그룹으로 이동하고 **Automation 스크립트**를 클릭하여 클러스터의 현재 상태를 반영하는 템플릿 및 그룹의 다른 리소스를 사용하여 작업할 수 있습니다. 자세히 알아보려면 [리소스 그룹에서 템플릿 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group)를 참조하세요.
+- 기존 클러스터를 업데이트하기 위해 포털에서 클러스터의 리소스 그룹으로 이동하고 **Automation 스크립트**를 클릭하여 클러스터의 현재 상태를 반영하는 템플릿 및 그룹의 다른 리소스를 사용하여 작업할 수 있습니다. 자세히 알아보려면 [리소스 그룹에서 템플릿 내보내기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template)를 참조하세요.
 
 템플릿을 가져온 후 다음 단계에 따라 DNS 서비스를 활성화할 수 있습니다.
 

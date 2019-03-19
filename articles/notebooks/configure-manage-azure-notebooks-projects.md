@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: b4d40f011b9a9e69953496fbdb0dc63ffc8a5027
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904372"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774560"
 ---
 # <a name="manage-and-configure-projects"></a>프로젝트 관리 및 구성
 
@@ -59,6 +59,17 @@ DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 
 
 새 DSVM 인스턴스를 만들려면 [Ubuntu Data Science VM 만들기](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)의 지침을 따르세요. DSVM을 Azure Notebooks의 드롭다운 목록에 표시하려면 **Linux(Ubuntu)용 Data Science Virtual Machine** 이미지를 사용합니다.  다른 이유로 Windows 또는 CentOS 이미지를 사용해야 하는 경우 **직접 컴퓨팅** 옵션을 사용하여 DSVM에 수동으로 연결할 수 있습니다.
 
+> [!IMPORTANT]
+> 직접 계산 또는 데이터 과학 가상 머신을 사용 하는 경우에 실행 하 여 notebook 완전히 독립적인 이어야 합니다. 현재 Azure Notebooks만 복사 합니다 *.ipynb* VM에 파일 프로젝트에서 다른 파일을 복사 하지 않습니다 하지만 합니다. 따라서 notebook을 다른 Vm에서 실행 중인 다른 프로젝트 파일을 찾는 데 실패 합니다.
+>
+> 두 가지 방법으로이 문제를 해결할 수 있습니다.
+>
+> 1. 프로젝트 파일을 VM에 수동으로 복사 합니다.
+>
+> 2. 설치 notebook 내 파일 포함 기본 노트북을 먼저 실행 합니다. 설치 notebook 셀 파일 내용에 포함 된 각 파일에 대 한 코드 셀을 만듭니다. 그런 다음 각 셀의 맨 위에 있는 명령을 삽입 하 여 `%%writefile <filename>`여기서 `<filename>` 내용을 받도록 파일의 이름입니다. Notebook을 실행 하면 VM에서 이러한 모든 파일을 만듭니다. 예를 들어 참조를 [Microsoft 애완 동물 탐지기 데모에서 setup.ipynb 파일](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
+>
+>     ![사용 하는 % % 코드 셀을 맨 앞에 writefile 명령](media/setup-notebook-writefile-command.png)
+
 ## <a name="edit-project-metadata"></a>프로젝트 메타데이터 편집
 
 프로젝트 대시보드에서 **프로젝트 설정**를 선택하고, 다음 표에 설명된 것처럼 프로젝트의 메타데이터를 포함하고 있는 **정보** 탭을 선택합니다. 언제든지 프로젝트 메타데이터를 변경할 수 있습니다.
@@ -66,7 +77,7 @@ DSVM 인스턴스를 선택하는 경우 Azure Notebooks에서 VM을 만들 때 
 | 설정 | 설명 |
 | --- | --- |
 | 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. "Hello World in Python"을 예로 들 수 있습니다. |
-| 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다(형식은 `https://notebooks.azure.com/<user_id>/projects/<project_id>`). 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있으며 길이는 30자로 제한됩니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 하이픈으로 바뀝니다. 예를 들어 "My Project Name"은 "my-project-name"으로 바뀝니다. |
+| 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다. 문자, 숫자 및 하이픈만 사용할 수 있습니다, 30 자로 제한 됩니다 및 될 수 없습니다.이 ID는 [프로젝트 ID가 예약](create-clone-jupyter-notebooks.md#reserved-project-ids)합니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
 | 공용 프로젝트 | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 비공개 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
 | 복제본 숨기기 | 이 옵션을 설정하면 다른 사용자가 이 프로젝트에 대해 만들어진 복제본 목록을 볼 수 없습니다. 복제본 숨기기는 강의에 Notebook을 사용하는 경우처럼 같은 조직에 속하지 않은 여러 사람이 공유하는 프로젝트에 유용합니다. |
 

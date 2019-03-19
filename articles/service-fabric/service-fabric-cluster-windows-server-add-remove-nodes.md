@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 69680331bdad0faa36cb3df6117baf8b358da132
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e9b87c19977fe35132d80729810c3a0547c486fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251022"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446115"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server가 실행되는 독립 실행형 서비스 패브릭 클러스터에 노드 추가 또는 제거 | Microsoft Azure
 [Windows Server 컴퓨터에 독립 실행형 Service Fabric 클러스터를 만든](service-fabric-cluster-creation-for-windows-server.md) 후 비즈니스 요구는 변경될 수 있으며 클러스터에 노드를 추가 또는 제거해야 할 수 있습니다. 이 문서에서는 이 목표를 달성하는 자세한 단계를 제공합니다. 노드 추가/제거 기능은 로컬 개발 클러스터에서 지원되지 않습니다.
@@ -38,7 +38,7 @@ ms.locfileid: "51251022"
     ```
     스크립트가 실행을 완료하면 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet을 실행하여 새 노드가 추가됐는지 확인할 수 있습니다.
 
-7. 클러스터의 서로 다른 노드 간에 일관성을 보장하려면 구성 업그레이드를 시작해야 합니다. [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps)을 실행하여 최신 구성 파일을 가져오고 새로 추가된 노드를 "노드" 섹션에 추가합니다. 또한 동일한 구성으로 클러스터를 다시 배포해야 하는 경우에 사용할 수 있는 최신 클러스터 구성을 항상 갖는 것이 좋습니다.
+7. 클러스터의 서로 다른 노드 간에 일관성을 보장하려면 구성 업그레이드를 시작해야 합니다. [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps)을 실행하여 최신 구성 파일을 가져오고 새로 추가된 노드를 "노드" 섹션에 추가합니다. 또한 항상 동일한 구성 사용 하 여 클러스터를 다시 배포 해야 하는 경우 사용할 수 있는 최신 클러스터 구성으로는 것이 좋습니다.
 
     ```
         {

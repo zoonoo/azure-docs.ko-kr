@@ -3,20 +3,20 @@ title: Azure Data Factory에서 Spark 작업을 사용하여 데이터 변환 | 
 description: Spark 작업을 사용하여 Azure Data Factory 파이프라인에서 Spark 프로그램을 실행함으로써 데이터를 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2018
-ms.author: douglasl
-ms.openlocfilehash: a25505a976be9d9ae38f562591d86ca9b56b8859
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025615"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576203"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory에서 Spark 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -63,32 +63,32 @@ Spark 작업의 샘플 JSON 정의는 다음과 같습니다.
 | 자산              | 설명                              | 필수 |
 | --------------------- | ---------------------------------------- | -------- |
 | 이름                  | 파이프라인의 작업 이름입니다.    | 예      |
-| description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
+| description           | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아닙니다.       |
 | 형식                  | Spark 작업의 경우 작업 유형은 HDInsightSpark입니다. | 예      |
 | linkedServiceName     | Spark 프로그램이 실행되는 HDInsight Spark 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | 예      |
-| SparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Azure Storage 연결된 서비스입니다.  이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 저장소가 사용됩니다. 이 속성의 값은 Azure Storage 연결된 서비스만 될 수 있습니다. | 아니요       |
+| SparkJobLinkedService | Spark 작업 파일, 종속성 및 로그를 보유하는 Azure Storage 연결된 서비스입니다.  이 속성에 대한 값을 지정하지 않으면 HDInsight 클러스터와 연결된 저장소가 사용됩니다. 이 속성의 값은 Azure Storage 연결된 서비스만 될 수 있습니다. | 아닙니다.       |
 | rootPath              | Spark 파일이 포함된 Azure Blob 컨테이너 및 폴더입니다. 파일 이름은 대/소문자를 구분합니다. 이 폴더의 구조에 대한 자세한 내용은 폴더 구조 섹션(다음 섹션)을 참조하세요. | 예      |
 | entryFilePath         | Spark 코드/패키지의 루트 폴더에 대한 상대 경로입니다. 항목 파일은 Python 파일이나 .jar 파일이어야 합니다. | 예      |
-| className             | 애플리케이션의 Java/Spark main 클래스      | 아니요       |
-| arguments             | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 아니요       |
-| proxyUser             | Spark 프로그램 실행을 가장하는 사용자 계정 | 아니요       |
-| sparkConfig           | Spark 구성 속성에 대한 값을 지정합니다. 이는 다음 항목에 나와 있습니다. [Spark 구성 - 애플리케이션 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties). | 아니요       |
-| getDebugInfo          | sparkJobLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 Spark 로그 파일을 언제 복사할지 지정합니다. 허용되는 값은 다음과 같습니다. 없음, 항상 또는 실패. 기본값: 없음. | 아니요       |
+| className             | 애플리케이션의 Java/Spark main 클래스      | 아닙니다.       |
+| arguments             | Spark 프로그램에 대한 명령줄 인수 목록입니다. | 아닙니다.       |
+| proxyUser             | Spark 프로그램 실행을 가장하는 사용자 계정 | 아닙니다.       |
+| sparkConfig           | Spark 구성 속성에 대한 값을 지정합니다. 이는 다음 항목에 나와 있습니다. [Spark 구성 - 애플리케이션 속성](https://spark.apache.org/docs/latest/configuration.html#available-properties). | 아닙니다.       |
+| getDebugInfo          | sparkJobLinkedService에 지정되었거나 HDInsight 클러스터에 사용된 Azure Storage에 Spark 로그 파일을 언제 복사할지 지정합니다. 허용되는 값은 다음과 같습니다. 없음, 항상 또는 실패. 기본값: 없음. | 아닙니다.       |
 
 ## <a name="folder-structure"></a>폴더 구조
 Spark 작업은 Pig/Hive 작업보다 확장성이 뛰어납니다. Spark 작업의 경우 jar 패키지(java CLASSPATH에 배치), python 파일(PYTHONPATH에 배치) 및 기타 파일과 같은 여러 종속성을 제공할 수 있습니다.
 
 HDInsight 연결된 서비스에서 참조하는 Azure Blob Storage에 다음 폴더 구조를 만듭니다. 그런 다음 종속 파일을 **entryFilePath**로 표시되는 루트 폴더의 해당 하위 폴더에 업로드합니다. 예를 들어 python 파일을 루트 폴더의 pyFiles 하위 폴더에, jar 파일을 jars 하위 폴더에 업로드합니다. 런타임 시, Data Factory 서비스는 Azure Blob Storage에서 다음 폴더 구조를 필요로 합니다.     
 
-| path                  | 설명                              | 필수 | type   |
+| path                  | 설명                              | 필수 | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.`(root)            | 저장소 연결된 서비스에서 Spark 작업의 루트 경로 | 예      | 폴더 |
 | &lt;사용자 정의 &gt; | Spark 작업의 엔트리 파일을 가리키는 경로 | 예      | 파일   |
-| ./jars                | 이 폴더 아래 모든 파일이 업로드되고 클러스터의 java classpath에 배치됨 | 아니요       | 폴더 |
-| ./pyFiles             | 이 폴더 아래 모든 파일이 업로드되고 클러스터의 PYTHONPATH에 배치됨 | 아니요       | 폴더 |
-| ./files               | 이 폴더 아래 모든 파일이 업로드되고 실행기 작업 디렉터리에 배치됨 | 아니요       | 폴더 |
-| ./archives            | 이 폴더 아래 모든 파일이 압축 해제됨 | 아니요       | 폴더 |
-| ./logs                | Spark 클러스터의 로그를 포함하는 폴더입니다. | 아니요       | 폴더 |
+| ./jars                | 이 폴더 아래 모든 파일이 업로드되고 클러스터의 java classpath에 배치됨 | 아닙니다.       | 폴더 |
+| ./pyFiles             | 이 폴더 아래 모든 파일이 업로드되고 클러스터의 PYTHONPATH에 배치됨 | 아닙니다.       | 폴더 |
+| ./files               | 이 폴더 아래 모든 파일이 업로드되고 실행기 작업 디렉터리에 배치됨 | 아닙니다.       | 폴더 |
+| ./archives            | 이 폴더 아래 모든 파일이 압축 해제됨 | 아닙니다.       | 폴더 |
+| ./logs                | Spark 클러스터의 로그를 포함하는 폴더입니다. | 아닙니다.       | 폴더 |
 
 HDInsight 연결된 서비스에서 참조하는 Azure Blob Storage에 두 개의 Spark 작업 파일이 포함된 스토리지에 대한 예는 다음과 같습니다.
 

@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
-ms.translationtype: HT
+ms.openlocfilehash: ba332bb0f77dc198abdd76ccf024336788a77a33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385434"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435036"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive 쿼리를 최적화
 
 Azure HDInsight에는 Apache Hive 쿼리를 실행할 수 있는 여러 클러스터 유형과 기술이 있습니다. HDInsight 클러스터를 만들 때 워크로드 요구 사항에 맞게 성능을 최적화할 수 있도록 적절한 클러스터 유형을 선택해야 합니다. 
 
-예를 들어 임시 대화형 쿼리를 최적화하려면 **대화형 쿼리**를 선택합니다. 일괄 처리 프로세스로 사용되는 Hive 쿼리를 최적화하려면 Apache **Hadoop** 클러스터 유형을 선택합니다. **Spark** 및 **HBase** 클러스터 유형도 Hive 쿼리를 실행할 수 있습니다. 다양한 HDInsight 클러스터 유형에서 Hive 쿼리를 실행하는 방법에 자세한 내용은 [Azure HDInsight의 Apache Hive 및 HiveQL이란?](hadoop/hdinsight-use-hive.md)을 참조하세요.
+예를 들어 선택할 **대화형 쿼리** 클러스터 임시, 대화형 쿼리를 최적화 하는 유형입니다. 일괄 처리 프로세스로 사용되는 Hive 쿼리를 최적화하려면 Apache **Hadoop** 클러스터 유형을 선택합니다. **Spark** 및 **HBase** 클러스터 유형도 Hive 쿼리를 실행할 수 있습니다. 다양한 HDInsight 클러스터 유형에서 Hive 쿼리를 실행하는 방법에 자세한 내용은 [Azure HDInsight의 Apache Hive 및 HiveQL이란?](hadoop/hdinsight-use-hive.md)을 참조하세요.
 
 Hadoop 클러스터 유형의 HDInsight 클러스터는 기본적으로 성능에 최적화되지 않습니다. 이 문서에서는 쿼리에 적용할 수 있는 가장 일반적인 Hive 성능 최적화 방법을 설명합니다.
 

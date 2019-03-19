@@ -7,28 +7,30 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 70343c0d66eb2a00ff2245b7e4876c2e94a96855
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314492"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775597"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Azure 포털에서 Azure Search에 대한 서비스 관리
 > [!div class="op_single_selector"]
-> * [포털](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [포털](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Search는 사용자 지정 앱에 풍부한 검색 환경을 구축하기 위해 사용되는 완전히 관리되는 클라우드 기반 검색 서비스입니다. 이 문서에서는 이미 프로비전된 검색 서비스를 위한 [Azure Portal](https://portal.azure.com)에서 수행할 수 있는 서비스 관리 작업에 대해 설명합니다. 서비스 관리는 의도적으로 간단하게 작성되었으며 다음 작업으로 제한됩니다.
 
-* 서비스에 대한 읽기 또는 쓰기 액세스에 사용되는 *api-key*에 대한 액세스를 관리합니다.
-* 파티션 및 복제본의 할당을 변경하여 서비스 용량을 조정합니다.
-* 서비스 계층의 최대 한계를 기준으로 리소스 사용을 모니터링합니다.
+> [!div class="checklist"]
+> * 서비스에 대한 읽기 또는 쓰기 액세스에 사용되는 *api-key*에 대한 액세스를 관리합니다.
+> * 파티션 및 복제본의 할당을 변경하여 서비스 용량을 조정합니다.
+> * 서비스 계층의 최대 한계를 기준으로 리소스 사용을 모니터링합니다.
 
 *업그레이드*가 관리 작업으로 나열되지 않습니다. 서비스가 프로비저닝될 때 자원이 할당되기 때문에 다른 계층으로 이동하려면 새 서비스가 필요합니다. 자세한 내용은 [Azure Search 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
@@ -58,7 +60,7 @@ Azure Search에서는 포털 또는 프로그래밍 방식 인터페이스를 �
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>리소스 사용 모니터링
-대시보드에서는 리소스 모니터링이 서비스 대시보드에 표시되는 정보 및 서비스를 쿼리하여 얻을 수 있는 몇 개의 메트릭으로 제한됩니다. 서비스 대시보드의 사용 섹션에서 파티션 리소스 수준이 애플리케이션에 적합한지 신속하게 확인할 수 있습니다.
+대시보드에서는 리소스 모니터링이 서비스 대시보드에 표시되는 정보 및 서비스를 쿼리하여 얻을 수 있는 몇 개의 메트릭으로 제한됩니다. 서비스 대시보드의 사용 섹션에서 파티션 리소스 수준이 애플리케이션에 적합한지 신속하게 확인할 수 있습니다. 캡처 및 기록된 된 이벤트를 유지 하려는 경우 Azure 모니터링 하는 등의 외부 리소스를 제공할 수 있습니다. 자세한 내용은 [Azure Search 모니터링](search-monitor-usage.md)합니다.
 
 Search Service REST API를 사용하여 프로그래밍 방식으로 문서 및 인덱스 수를 가져올 수 있습니다. 
 

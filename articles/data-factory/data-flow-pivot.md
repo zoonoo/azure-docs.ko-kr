@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 86404f4eb2eb2de4243c6bb725f4292e7b560d18
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 5548a62218aaac2e4da3853e8e5d43a584922bc0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271531"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569895"
 ---
 # <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Azure Data Factory Mapping Data Flow 피벗 변환
 
@@ -42,7 +42,7 @@ ADF Data Flow의 피벗을 하나 이상의 그룹화 열의 고유한 행 값�
 
 (선택 사항) 행 값에서 검색된 각각의 새 열 이름에 추가할 접두사, 중간 및 접미사를 사용한 이름 지정 패턴을 설정할 수 있습니다.
 
-예를 들어 “Sales”를 “Region”으로 피벗하는 경우 단순히 각 판매 값의 새 열 값(예: "25", "50", "1000" 등)을 얻게 됩니다. 그러나 접두사 값 "Sales"를 설정하는 경우 
+예를 들어 “Sales”를 “Region”으로 피벗하는 경우 단순히 각 판매 값의 새 열 값(예: "25", "50", "1000" 등)을 얻게 됩니다. 그러나 접두사 값 "Sales-"로 설정 하면 각 열 값에 추가 됩니다 "Sales-" 값의 시작.
 
 ![피벗 옵션](media/data-flow/pivot5.png "피벗 5")
 
@@ -56,4 +56,8 @@ ADF Data Flow 식 언어를 사용하여 식 작성기의 피벗 열 변환을 �
 
 ### <a name="how-to-rejoin-original-fields"></a>원본 필드를 다시 조인하는 방법
 > [!NOTE]
-> 피벗 변환은 집계, 그룹화 및 피벗 작업에 사용되는 열만 프로젝션합니다. 이전 흐름 단계의 다른 열을 포함하려는 경우 이전 단계의 새 분기를 사용하고 셀프 조인 패턴을 사용하여 흐름을 원래 메타데이터에 연결합니다.
+> 피벗 변환은 집계, 그룹화 및 피벗 작업에 사용되는 열만 프로젝션합니다. 흐름의 이전 단계에서 다른 열을 포함 하려는 경우 이전 단계에서 새 분기를 사용 하 고 자체 조인 패턴을 사용 하 여 원래 메타 데이터를 사용 하 여 흐름을 연결 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+시도 된 [피벗 해제 변환](data-flow-unpivot.md) 행 값으로 열 값을 설정 합니다. 
