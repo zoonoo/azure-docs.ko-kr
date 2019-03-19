@@ -325,6 +325,8 @@ items:
         href: sql-database-advisor.md
   - name: 데이터베이스 기능
     items:
+    - name: 개요
+      href: sql-database-features-index.yml
     - name: SQL 기능 비교
       href: sql-database-features.md
     - name: 다중 모델 기능
@@ -693,7 +695,7 @@ items:
   - name: MSDN 포럼
     href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
   - name: 스택 오버플로
-    href: http://stackoverflow.com/questions/tagged/sql-azure
+    href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: 서비스 업데이트
@@ -701,7 +703,7 @@ items:
   - name: 아키텍처 센터
     href: /azure/architecture/
   - name: 고객 사례
-    href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
   - name: 탄력적 작업(사용되지 않음)
     items:
     - name: 탄력적 작업(사용되지 않음)
@@ -716,9 +718,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 탄력적 작업 제거(사용되지 않음)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: fabc468e22f1df077e9350873d084bc7e26252b6
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 8c0124072f26716a25cc2fc098c2da0a29a6b15f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576449"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835506"

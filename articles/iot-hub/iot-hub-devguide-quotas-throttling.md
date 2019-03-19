@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub 할당량 및 제한 이해 | Microsoft 문서
 description: 개발자 가이드 - IoT Hub에 적용할 할당량 및 예상되는 제한 동작을 설명합니다.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: dobett
-ms.openlocfilehash: d75a2cef96eaafb606c66d469b0e27fed8bb3573
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466815"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791378"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -42,8 +42,8 @@ ms.locfileid: "55466815"
 | 클라우드-장치 받기<sup>1</sup> <br/> (디바이스에서 HTTPS를 사용하는 경우에만)| 16.67/초/단위(1000/분/단위) | 16.67/초/단위(1000/분/단위) | 833.33/초/단위(50000/분/단위) |
 | 파일 업로드 | 1.67 파일 업로드 알림/초/단위(100/분/단위) | 1.67 파일 업로드 알림/초/단위(100/분/단위) | 83.33 파일 업로드 알림/초/단위(5000/분/단위) |
 | 직접 메서드<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
-| 쌍(디바이스 및 모듈) 읽기<sup>1</sup> | 10/초 | 10/초 또는 1/초/단위 이상 | 50/초/단위 |
-| 쌍 업데이트(디바이스 및 모듈)<sup>1</sup> | 10/초 | 10/초 또는 1/초/단위 이상 | 50/초/단위 |
+| 쌍(디바이스 및 모듈) 읽기<sup>1</sup> | 100/초 | 100/초 또는 10/초/단위 이상 | 500/sec/unit |
+| 쌍 업데이트(디바이스 및 모듈)<sup>1</sup> | 50/sec | 50/초 또는 5/초/단위 이상 | 250/sec/unit |
 | 작업 연산<sup>1,3</sup> <br/> (만들기, 업데이트, 나열, 삭제) | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/초/단위(5000/분/단위) |
 | 작업 디바이스 연산<sup>1</sup> <br/> (쌍 업데이트, 직접 메서드 호출) | 10/초 | 10/초 또는 1/초/단위 이상 | 50/초/단위 |
 | 구성 및 에지 배포<sup>1</sup> <br/> (만들기, 업데이트, 나열, 삭제) | 0.33/초/단위(20/분/단위) | 0.33/초/단위(20/분/단위) | 0.33/초/단위(20/분/단위) |
@@ -52,7 +52,7 @@ ms.locfileid: "55466815"
 | 최대 디바이스 스트림 데이터 전송<sup>4</sup>(일별 집계 볼륨) | 300MB | 300MB | 300MB |
 
 
-<sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요. <br/><sup>2</sup>제한 미터 크기는 8KB입니다. <br/><sup>3</sup>한 번에 하나의 활성 디바이스 가져오기/내보내기 작업만 수행할 수 있습니다. <br/><sup>4</sup>IoT Hub 디바이스 스트림은 S1, S2, S3 및 F1 SKU에만 사용할 수 있습니다.
+<sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요. <br/><sup>2</sup>제한 미터 크기는 4KB입니다. <br/><sup>3</sup>한 번에 하나의 활성 디바이스 가져오기/내보내기 작업만 수행할 수 있습니다. <br/><sup>4</sup>IoT Hub 디바이스 스트림은 S1, S2, S3 및 F1 SKU에만 사용할 수 있습니다.
 
 *디바이스 연결* 제한은 IoT Hub에서 새 디바이스 연결을 설정할 수 있는 속도를 제어합니다. *디바이스 연결* 제한은 동시에 연결되는 디바이스의 최대 수를 제어하지 않습니다. *장치 연결* 속도 제한은 IoT Hub에 대해 프로비전되는 단위의 수에 따라 다릅니다.
 

@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6b8587313a4e98bfefa6489d9698052d312a6d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 274675c3b9f04877f5665efbcbf7951a5bbb0e27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194549"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833183"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
 
@@ -29,17 +29,17 @@ ms.locfileid: "56194549"
 
 ## <a name="getting-started"></a>시작 
 
-**Q: 현재 https://graph.windows.net/&lt;tenant-name&gt;/reports/ 엔드포인트 API를 사용하여 Azure AD 감사 및 통합 애플리케이션 사용 보고서를 프로그래밍 방식으로 보고 시스템에 끌어오고 있습니다. 어떤 방식으로 전환해야 하나요?**
+**Q: 현재 사용 된 `https://graph.windows.net/<tenant-name>/reports/` Api 끌어오기 Azure AD 감사 및 통합 된 응용 프로그램 사용을 프로그래밍 방식으로 보고 시스템에 보고 하는 끝점입니다. 어떤 방식으로 전환해야 하나요?**
 
 **A:** [API 참조](https://developer.microsoft.com/graph/)에서 [API를 사용하여 활동 보고서에 액세스하는 방법](concept-reporting-api.md)을 알아보세요. 이 엔드포인트에는 이전 API 엔드포인트에서 가져온 모든 데이터를 확인할 수 있는 두 개의 보고서(**감사** 및 **로그인**)가 있습니다. 이 새 엔드포인트에는 앱 사용, 디바이스 사용 및 사용자 로그인 정보를 가져오는 데 사용할 수 있는 Azure AD Premium 라이선스가 있는 로그인 보고서도 있습니다.
 
---- 
+---
 
-**Q: 현재 https://graph.windows.net/&lt;tenant-name&gt;/reports/ 엔드포인트 API를 사용하여 Azure AD 보안 보고서(유출된 자격 증명, 익명 IP 주소의 로그인 등 특정 유형의 감지)를 프로그래밍 방식으로 보고 시스템에 끌어오고 있습니다. 어떤 방식으로 전환해야 하나요?**
+**Q: 현재 사용 된 `https://graph.windows.net/<tenant-name>/reports/` 끝점 프로그래밍 방식으로 보고 시스템으로 Azure AD 보안 보고서 (특정 유형의 검색에 유출 된 자격 증명 또는 익명 IP 주소에서 로그인 등)를 풀 하는 Api입니다. 어떤 방식으로 전환해야 하나요?**
 
 **A:**  [ID 보호 위험 이벤트 API](../identity-protection/graph-get-started.md) 를 사용하여 Microsoft Graph를 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식은 고급 필터링, 필드 선택 등을 사용하여 데이터를 보다 유연하게 쿼리할 수 있도록 하고, 위험 이벤트를 SIEM 및 기타 데이터 수집 도구에 보다 쉽게 통합하기 위해 한 가지 형식으로 표준화합니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새로운 API는 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)를 사용합니다. 이것은 O365 또는 Azure AD와 같은 API에 대한 Microsoft 표준입니다. 따라서 필요한 작업이 현재 MS Graph 투자를 확장하거나 이러한 새 표준 플랫폼으로의 전환을 시작하도록 지원할 수 있습니다.
 
---- 
+---
 
 **Q: Premium 라이선스는 어떻게 받을 수 있나요?**
 
@@ -76,10 +76,10 @@ ms.locfileid: "56194549"
 | 보고서                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | 감사 로그             | 7 일        | 30일             | 30일             |
-| 로그인               | 해당 없음           | 30일             | 30일             |
+| 로그인               | N/A           | 30일             | 30일             |
 | Azure MFA 사용        | 30일       | 30일             | 30일             |
 
---- 
+---
 
 **Q: 내 작업을 완료한 후 얼마나 지나야 활동 데이터를 볼 수 있나요?**
 
@@ -89,7 +89,7 @@ ms.locfileid: "56194549"
 
 **Q: Azure Portal을 통해 Office 365 활동 로그 정보를 얻을 수 있나요?**
 
-**A:** Office 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유하더라도 Office 365 활동 로그를 전체 보기로 보려는 경우, Office 365 관리 센터로 이동하여 Office 365 활동 로그 정보를 얻을 수 있습니다.
+**A:** 경우에 Office 365 활동 및 Azure AD 활동 로그 공유 많은 디렉터리 리소스를 Office 365 활동 로그의 전체 뷰를 표시 하려는 경우 있습니다로 이동 해야 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com) Office 365 활동 로그를 가져오려면 정보입니다.
 
 ---
 
@@ -140,24 +140,27 @@ ms.locfileid: "56194549"
 **Q: 어떻게 시작하나요?**
 
 **A:** 시작하기:
-    * [Azure Portal](https://portal.azure.com)에서 로그인으로 이동합니다. 
-    * 문제를 해결할 로그인을 클릭합니다.
-    * **조건부 액세스** 탭으로 이동합니다. 여기서는 로그인에 영향을 미친 정책과 각 정책의 결과를 볼 수 있습니다. 
+
+* [Azure Portal](https://portal.azure.com)에서 로그인으로 이동합니다.
+* 문제를 해결할 로그인을 클릭합니다.
+* **조건부 액세스** 탭으로 이동합니다. 여기서는 로그인에 영향을 미친 정책과 각 정책의 결과를 볼 수 있습니다. 
     
 **Q: 조건부 액세스 상태에 가능한 모든 값에 대해 알고 싶어요.**
 
 **A:** 조건부 액세스 상태는 다음 값을 가질 수 있습니다.
-    * **적용되지 않음**: 범위 내 사용자 및 앱에 CA 정책이 없음을 의미합니다. 
-    * **성공**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되었음을 의미합니다. 
-    * **실패**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되지 않았음을 의미합니다. 
+
+* **적용되지 않음**: 범위 내 사용자 및 앱에 CA 정책이 없음을 의미합니다. 
+* **성공**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되었음을 의미합니다. 
+* **실패**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되지 않았음을 의미합니다. 
     
 **Q: 조건부 액세스 정책 결과에 가능한 모든 값에 대해 알고 싶어요.**
 
 **A:** 조건부 액세스 정책은 다음 결과를 가질 수 있습니다.
-    * **성공**: 정책이 충족되었습니다.
-    * **실패**: 정책이 충족되지 않았습니다.
-    * **적용되지 않음**: 정책 조건이 충족되지 않았기 때문일 수 있습니다.
-    * **사용 안 함**: 정책이 사용 안 함 상태이기 때문입니다. 
+
+* **성공**: 정책이 충족되었습니다.
+* **실패**: 정책이 충족되지 않았습니다.
+* **적용되지 않음**: 정책 조건이 충족되지 않았기 때문일 수 있습니다.
+* **사용 안 함**: 정책이 사용 안 함 상태이기 때문입니다. 
     
 **Q: 모든 로그인 보고서의 정책 이름이 CA 정책 이름과 일치하지 않습니다. 그 이유는 무엇일까요?**
 
