@@ -1,6 +1,6 @@
 ---
 title: Azure Blockchain Workbench 문제 해결
-description: Azure Blockchain Workbench 애플리케이션 문제를 해결하는 방법.
+description: Azure Blockchain Workbench 응용 프로그램 문제를 해결 하는 방법입니다.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 9f0f32bc1fb6b88dc85f09e13aebc60ff74ec723
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: b55c84773d99c325689fbc5182e75c7cb108d00a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890018"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench 문제 해결
 
@@ -24,7 +24,7 @@ ms.locfileid: "54329738"
 * Ethereum과 같은 블록체인 네트워크
 * Blockchain Workbench 마이크로 서비스
 * Application Insights
-* Azure 모니터링(Log Analytics)
+* Azure 모니터링 (Azure Monitor 로그)
 
 다음 단계를 확인하고 문제의 근본 원인을 확인하는 데 정보를 사용할 수 있습니다.
 
@@ -46,15 +46,15 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ```
 스크립트는 다음 매개 변수를 수락합니다.
 
-| 매개 변수  | 설명 | 필수 |
+| 매개 변수  | Description | 필수 |
 |---------|---------|----|
 | 구독 ID | 모든 리소스를 만들거나 찾는 SubscriptionID입니다. | 예 |
 | ResourceGroupName | Blockchain Workbench가 배포된 Azure 리소스 그룹의 이름입니다. | 예 |
 | OutputDirectory | 출력 ZIP 파일을 생성하는 경로입니다. 지정하지 않으면 기본값은 현재 디렉터리입니다. | 아니요 |
 | LookbackHours | 원격 분석을 끌어올 때 사용할 시간 수입니다. 기본값은 24시간입니다. 최댓값은 90시간입니다. | 아니요 |
-| OmsSubscriptionId | Log Analytics가 배포되는 구독 ID입니다. 블록체인 네트워크에 대한 Log Analytics가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다.| 아니요 |
-| OmsResourceGroup |Log Analytics가 배포되는 리소스 그룹입니다. 블록체인 네트워크에 대한 Log Analytics가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다.| 아니요 |
-| OmsWorkspaceName | Log Analytics 작업 영역 이름입니다. 블록체인 네트워크에 대한 Log Analytics가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다. | 아니요 |
+| OmsSubscriptionId | Azure Monitor의 로그는 구독 ID 배포 됩니다. 블록 체인 네트워크에 대 한 Azure Monitor 로그 Blockchain Workbench의 리소스 그룹 외부로 배포 되는 경우에이 매개 변수를 전달 합니다.| 아니요 |
+| OmsResourceGroup |Azure Monitor의 로그는 리소스 그룹 배포 됩니다. 블록 체인 네트워크에 대 한 Azure Monitor 로그 Blockchain Workbench의 리소스 그룹 외부로 배포 되는 경우에이 매개 변수를 전달 합니다.| 아니요 |
+| OmsWorkspaceName | Log Analytics 작업 영역 이름입니다. 블록 체인 네트워크에 대 한 Azure Monitor 로그 Blockchain Workbench의 리소스 그룹 외부로 배포 되는 경우에이 매개 변수를 전달 | 아니요 |
 
 ## <a name="what-is-collected"></a>수집되는 항목은?
 

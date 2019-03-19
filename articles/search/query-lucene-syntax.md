@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 59362b28390556f12cce8813635894c9f06b9a20
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007791"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107188"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure Search의 Lucene 쿼리 구문
 특수한 쿼리 형식을 위한 풍부한 [Lucene 쿼리 파서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 구문(예: 와일드카드, 유사 항목 검색, 근접 검색, 정규식)을 기준으로 Azure Search에 대한 쿼리를 작성할 수 있습니다. Lucene 쿼리 파서 구문의 상당 부분이 [Azure Search에서 그대로 구현](search-lucene-query-architecture.md)됩니다. 물론, Azure Search에서 `$filter` 식을 통해 생성되는 *범위 검색*과 같은 예외도 있습니다. 
@@ -41,20 +41,20 @@ ms.locfileid: "56007791"
 
 `searchMode=all` 매개 변수가 이 예제에 해당 합니다. 쿼리에서 연산자를 사용할 때마다 일반적으로 `searchMode=all`을 설정하여 *모든* 조건이 일치하는지 확인해야 합니다.
 
-```  
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full  
-```  
+```
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+```
 
  또는 다음과 같이 POST를 사용합니다.  
 
-```  
-POST /indexes/hotels/docs/search?api-version=2015-02-28  
-{  
-  "search": "category:budget AND \"recently renovated\"^3",  
-  "queryType": "full",  
-  "searchMode": "all"  
-}  
-```  
+```
+POST /indexes/hotels/docs/search?api-version=2015-02-28
+{
+  "search": "category:budget AND \"recently renovated\"^3",
+  "queryType": "full",
+  "searchMode": "all"
+}
+```
 
 추가 예제에 대해서는 [Azure Search에서 쿼리를 만들기 위한 Lucene 쿼리 구문 예제](search-query-lucene-examples.md)를 참조하세요. 쿼리 매개 변수의 전체 불확정을 지정하는 방법에 대한 자세한 내용은 [문서 검색 &#40;Azure Search 서비스 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)를 참조하세요.
 
@@ -65,13 +65,13 @@ POST /indexes/hotels/docs/search?api-version=2015-02-28
 ##  <a name="bkmk_fields"></a> 필드 범위 쿼리  
  `fieldname:searchterm` 구조를 지정하여 필드 지정 쿼리 작업을 정의할 수 있습니다. 여기서 필드는 단일 단어이고, 검색어도 선택적으로 부울 연산이 포함된 단일 단어 또는 구입니다. 몇 가지 예제는 다음과 같습니다.   
 
--   genre:jazz NOT history  
+- genre:jazz NOT history  
 
--   artists:("Miles Davis" "John Coltrane")
+- artists:("Miles Davis" "John Coltrane")
 
- 두 문자열이 단일 엔터티로 평가되길 원하는 경우(이 경우에 `artists` 필드에서 두 개의 다른 예술가 검색) 여러 문자열을 인용 부호로 묶어야 합니다.  
+  두 문자열이 단일 엔터티로 평가되길 원하는 경우(이 경우에 `artists` 필드에서 두 개의 다른 예술가 검색) 여러 문자열을 인용 부호로 묶어야 합니다.  
 
- `fieldname:searchterm`에 지정한 필드는 `searchable` 필드여야 합니다.  필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.  
+  `fieldname:searchterm`에 지정한 필드는 `searchable` 필드여야 합니다.  필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.  
 
 ##  <a name="bkmk_fuzzy"></a> 유사 항목 검색  
  유사 항목 검색은 용어에서 구조가 유사한 일치 항목을 찾습니다. [Lucene 문서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)에 따라 유사 항목 검색은 [다메라우-레펜슈타인(Damerau-Levenshtein) 거리](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)에 기반합니다.  
@@ -165,7 +165,7 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> 와일드카드 및 정규식 쿼리 점수 매기기
  Azure Search는 텍스트 쿼리에 빈도 기반 점수 매기기([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf))를 사용합니다. 그러나 용어 범위가 광범위할 수 있는 와일드카드 및 정규식 쿼리의 경우 순위 오류가 발생하여 더 드물게 나오는 용어가 검색되지 않도록 빈도 계수가 무시됩니다. 모든 일치 항목은 와일드카드 및 정규식에 대한 동일하게 처리됩니다.
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참조  
 
 + [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [필터 및 정렬을 위한 OData 식 구문](query-odata-filter-orderby-syntax.md)   

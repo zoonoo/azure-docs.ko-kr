@@ -11,15 +11,15 @@ ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 2972d04d1617b755bb6c2ff60d9922accdd09f2a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838411"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 노출 
 이 문서에서는 Microsoft Azure 및 Visual Studio로 하이브리드 클라우드 애플리케이션을 구축하는 방법을 보여줍니다. 여러 Azure 리소스를 사용하고 클라우드에서 실행하는 애플리케이션을 만들 수 있습니다.
@@ -43,8 +43,8 @@ ms.locfileid: "51614840"
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 - Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
-- [Visual Studio 2015 이상](http://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
-- Azure SDK for .NET [SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 설치합니다.
+- [Visual Studio 2015 이상](https://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
+- Azure SDK for .NET. [SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 설치합니다.
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>하이브리드 솔루션에 유용한 Azure 릴레이
 비즈니스 솔루션은 일반적으로 새로운 고유 비즈니스 요구 사항에 부합하도록 작성된 사용자 지정 코드와 이미 있는 솔루션 및 시스템에서 제공하는 기존 기능의 조합으로 구성됩니다.
@@ -85,7 +85,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
    ![새 프로젝트 대화 상자][11]
 4. **확인**을 클릭하여 **ProductsServer** 프로젝트를 만듭니다.
-5. Visual Studio용 NuGet 패키지 관리자를 이미 설치한 경우 다음 단계로 건너뜁니다. 그렇지 않으면 [NuGet][NuGet]을 방문하여 [NuGet 설치](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)를 클릭합니다. 나타나는 메시지에 따라 NuGet 패키지 관리자를 설치한 다음, Visual Studio를 다시 시작합니다.
+5. Visual Studio용 NuGet 패키지 관리자를 이미 설치한 경우 다음 단계로 건너뜁니다. 그렇지 않으면 [NuGet][NuGet]을 방문하여 [NuGet 설치](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)를 클릭합니다. 나타나는 메시지에 따라 NuGet 패키지 관리자를 설치한 다음, Visual Studio를 다시 시작합니다.
 6. 솔루션 탐색기에서 **ProductsServer** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
 7. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. **WindowsAzure.ServiceBus** 패키지를 선택합니다.
 8. **설치**를 클릭하고 사용 약관에 동의합니다.
@@ -185,7 +185,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
         }
     }
     ```
-12. 솔루션 탐색기에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. `<system.ServiceModel>` 요소의 아래이지만 `<system.ServiceModel>` 내에서 다음 XML 코드를 추가합니다. *yourServiceNamespace*를 네임스페이스의 이름으로 바꾸고, *yourKey*를 미리 포털에서 검색한 SAS 키로 바꿔야 합니다.
+12. 솔루션 탐색기에서 **App.config** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. 맨 아래에 `<system.ServiceModel>` 요소 (하지만 안에서 `<system.ServiceModel>`), 다음 XML 코드를 추가: *yourServiceNamespace*를 네임스페이스의 이름으로 바꾸고 *yourKey*를 앞에서 포털에서 검색한 SAS 키로 바꿔야 합니다.
 
     ```xml
     <system.serviceModel>
@@ -219,7 +219,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
-14. **Ctrl+Shift+B** 키를 누르거나 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하여 응용 프로그램을 빌드한 후 지금까지 진행한 작업의 정확도를 확인합니다.
+14. **Ctrl+Shift+B** 키를 누르거나 **빌드** 메뉴에서 **솔루션 빌드**를 클릭하여 애플리케이션을 빌드한 후 지금까지 진행한 작업의 정확도를 확인합니다.
 
 ## <a name="create-an-aspnet-application"></a>ASP.NET 애플리케이션 만들기
 
@@ -229,11 +229,11 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 1. 관리자 권한으로 Visual Studio 2013을 실행 중인지 확인합니다.
 2. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-3. **설치된 템플릿**에서 **Visual C#** 아래에 있는 **ASP.NET 웹 응용 프로그램(.NET Framework)** 을 클릭합니다. 프로젝트의 이름을 **ProductsPortal**로 지정합니다. 그런 후 **OK**를 클릭합니다.
+3. **설치된 템플릿**에서 **Visual C#** 아래에 있는 **ASP.NET 웹 애플리케이션(.NET Framework)** 을 클릭합니다. 프로젝트의 이름을 **ProductsPortal**로 지정합니다. 그런 후 **OK**를 클릭합니다.
 
    ![새 프로젝트 대화 상자][15]
 
-4. **새 ASP.NET 웹 응용 프로그램** 대화 상자의 **ASP.NET 템플릿** 목록에서 **MVC**를 클릭합니다.
+4. **새 ASP.NET 웹 애플리케이션** 대화 상자의 **ASP.NET 템플릿** 목록에서 **MVC**를 클릭합니다.
 
    ![ASP.NET 웹 애플리케이션 선택][16]
 
@@ -241,7 +241,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
     ![인증 지정][18]
 
-7. **새 ASP.NET 웹 응용 프로그램** 대화 상자로 돌아와서 **확인**을 클릭하여 MVC 앱을 만듭니다.
+7. **새 ASP.NET 웹 애플리케이션** 대화 상자로 돌아와서 **확인**을 클릭하여 MVC 앱을 만듭니다.
 8. 이제 새 웹앱에 대한 Azure 리소스를 구성해야 합니다. [이 문서의 Azure 섹션에 게시](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard)의 단계에 따릅니다. 그런 다음, 이 자습서로 돌아가 다음 단계를 진행합니다.
 10. 솔루션 탐색기에서 **모델**을 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 다음 **클래스**를 클릭합니다. **이름** 상자에서 이름을 **Product.cs**로 입력합니다. 그런 다음, **추가**를 클릭합니다.
 
@@ -286,7 +286,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
     }
     ```
 4. 솔루션 탐색기에서 Views\Shared 폴더를 확장하고 **_Layout.cshtml**을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
-5. **내 ASP.NET 응용 프로그램**과 일치하는 모든 항목을 **Northwind Traders 제품**으로 변경합니다.
+5. **내 ASP.NET 애플리케이션**과 일치하는 모든 항목을 **Northwind Traders 제품**으로 변경합니다.
 6. **홈**, **정보** 및 **연락처** 링크를 제거합니다. 다음 예제에서 강조 표시된 코드를 삭제합니다.
 
     ![생성된 목록 항목 삭제][41]
@@ -350,7 +350,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
    ![링크로 추가][24]
 
-6. 이제 Visual Studio 편집기에서 **HomeController.cs** 파일을 열고 네임스페이스 정의를 다음 코드로 바꿉니다. *yourServiceNamespace*를 서비스 네임스페이스의 이름으로 바꾸고 *yourKey*를 SAS 키로 바꿔야 합니다. 이렇게 하면 클라이언트에서 온-프레미스 서비스를 호출하여 호출 결과를 반환합니다.
+6. 이제 열을 **HomeController.cs** Visual Studio 편집기에서 파일 및 네임 스페이스 정의 다음 코드로 바꿉니다. *yourServiceNamespace*를 서비스 네임스페이스의 이름으로 바꾸고 *yourKey*를 SAS 키로 바꿔야 합니다. 이렇게 하면 클라이언트에서 온-프레미스 서비스를 호출하여 호출 결과를 반환합니다.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -422,14 +422,14 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 1. 솔루션 탐색기에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다. **게시** 페이지에서 **게시**를 클릭합니다.
 
-  > [!NOTE]
-  > 배포 후 **ProductsPortal** 웹 프로젝트가 자동으로 시작되면 브라우저 창에 오류 메시지가 표시될 수 있습니다. 예상된 동작이며 **ProductsServer** 애플리케이션이 아직 실행되지 않기 때문에 발생합니다.
->
->
+   > [!NOTE]
+   > 배포 후 **ProductsPortal** 웹 프로젝트가 자동으로 시작되면 브라우저 창에 오류 메시지가 표시될 수 있습니다. 예상된 동작이며 **ProductsServer** 애플리케이션이 아직 실행되지 않기 때문에 발생합니다.
+   >
+   >
 
 2. 다음 단계에서 URL이 필요하므로 배포된 웹앱의 URL을 복사합니다. 또한 Visual Studio의 Azure App Service 활동 창에서 이 URL을 가져올 수도 있습니다.
 
-  ![배포된 앱의 URL][9]
+   ![배포된 앱의 URL][9]
 
 3. 실행 중인 애플리케이션을 중지하려면 브라우저 창을 닫습니다.
 
@@ -448,12 +448,12 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-1. F5를 눌러 애플리케이션을 빌드 및 실행합니다. 다음 스크린샷에 표시된 대로 온-프레미스 서버(**ProductsServer** 콘솔 애플리케이션)가 먼저 시작된 다음, **ProductsPortal** 애플리케이션이 브라우저 창에서 시작되어야 합니다. 제품 재고는 제품 서비스 온-프레미스 시스템에서 검색된 데이터를 나열하고, 웹앱에서 해당 데이터를 표시합니다. URL을 확인하여 **ProductsPortal**이 클라우드에서 Azure 웹앱으로 실행 중인지 확인합니다.
+1. F5를 눌러 애플리케이션을 빌드 및 실행합니다. 온-프레미스 서버 (합니다 **ProductsServer** 콘솔 응용 프로그램) 먼저 시작 하면 **ProductsPortal** 다음 스크린샷에 표시 된 것 처럼 응용 프로그램이 브라우저 창에서 시작 됩니다: 다시, 제품 재고에 제품 서비스 온-프레미스 시스템에서 검색된 데이터가 나열되며 해당 데이터가 웹앱에 표시됩니다. URL을 확인하여 **ProductsPortal**이 클라우드에서 Azure 웹앱으로 실행 중인지 확인합니다.
 
    ![Azure에서 웹앱 실행][1]
 
    > [!IMPORTANT]
-   > **ProductsServer** 콘솔 응용 프로그램이 실행 중이어야 하며 **ProductsPortal** 응용 프로그램에 데이터를 제공할 수 있어야 합니다. 브라우저에 오류가 표시되면 **ProductsServer**가 다음 메시지를 로드하고 표시할 때까지 몇 초 기다립니다. 그런 다음 브라우저에서 **새로 고침**을 누릅니다.
+   > **ProductsServer** 콘솔 애플리케이션이 실행 중이어야 하며 **ProductsPortal** 애플리케이션에 데이터를 제공할 수 있어야 합니다. 브라우저에 오류가 표시되면 **ProductsServer**가 다음 메시지를 로드하고 표시할 때까지 몇 초 기다립니다. 그런 다음 브라우저에서 **새로 고침**을 누릅니다.
    >
    >
 
@@ -470,7 +470,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[NuGet]: http://nuget.org
+[NuGet]: https://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
 [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png

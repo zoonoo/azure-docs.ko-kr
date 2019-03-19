@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/14/2019
 ms.author: lagayhar
-ms.openlocfilehash: 7ad8b96efeef2a5bb5543ee08150376862abb27f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: ece8b4ac3946f543c13975e40b1025bb3cc222f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013262"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -33,18 +33,15 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
 * JRE 버전 1.7 또는 1.8
 * [Microsoft Azure](https://azure.microsoft.com/)구독.
 
-*이미 라이브 상태인 웹앱이 있는 경우 다른 절차에 따라 [웹 서버에서 런타임으로 SDK를 추가](java-live.md)할 수 있습니다. 해당 다른 절차는 코드를 다시 작성할 필요가 없지만 사용자 활동을 추적하는 코드를 작성하는 옵션이 없습니다.*
-
 Spring 프레임워크를 선호하는 경우 [Application Insights 가이드를 사용하도록 Spring Boot 이니셜라이저 앱을 구성](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)해 보세요.
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키 가져오기
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. Application Insights 리소스 만들기 Java 웹 애플리케이션에 대한 애플리케이션 종류를 설정합니다.
 
-    ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/java-get-started/02-create.png)
 3. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 이 키를 곧바로 붙여넣어야 합니다.
 
-    ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/java-get-started/03-key.png)
+    ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/java-get-started/instrumentation-key-001.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. 프로젝트에 Java용 Aplication Insights SDK 추가
 *프로젝트에 적합한 방법을 선택합니다.*
@@ -303,13 +300,13 @@ Struts 구성 파일에 이 항목 추가(일반적으로 struts.xml 또는 stru
 
 HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 몇 초 정도 기다린 다음 새로고침을 클릭합니다.)
 
-![샘플 데이터](./media/java-get-started/5-results.png)
+![개요 샘플 데이터 스크린샷](./media/java-get-started/overview-graphs.png)
 
 [메트릭에 대해 자세히 알아봅니다.][metrics]
 
 차트를 클릭하면 더 자세한 집계된 메트릭을 볼 수 있습니다.
 
-![](./media/java-get-started/6-barchart.png)
+![차트를 사용 하 여 application Insights 오류 창](./media/java-get-started/006-barcharts.png)
 
 > Application Insights는 MVC 애플리케이션에 대한 HTTP 요청 형식을 다음과 같이 가정합니다. `VERB controller/action` 예를들어, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` 및 `GET Home/Product/sdf96vws`은(는) `GET Home/Product`(으)로 그룹화됩니다. 이 그룹화를 통해 요청 수와 같은 의미 있는 집계 및 요청에 대한 평균 실행 시간을 사용할 수 있습니다.
 >
@@ -318,16 +315,12 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 ### <a name="instance-data"></a>인스턴스 데이터
 특정 요청 유형을 클릭하여 개별 인스턴스를 확인합니다.
 
-집계된 데이터, 평균, 개수, 합계로 저장 및 표시된 인스턴스 데이터와 HTTP 요청, 예외, 페이지 보기 또는 사용자 지정 이벤트의 개별 보고서 등 두 종류의 데이터가 Application Insights에 표시됩니다.
-
-요청 속성을 검토할 경우 요청 및 예외 사항 등 이와 관련된 원격 분석 이벤트를 볼 수 있습니다.
-
-![](./media/java-get-started/7-instance.png)
+![특정 샘플 보기로 드릴](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>분석: 강력한 쿼리 언어
 더 많은 데이터가 누적되면 쿼리를 실행하여 데이터를 집계하고 개별 인스턴스를 찾을 수 있습니다.  [분석](../../azure-monitor/app/analytics.md) 은 성능 및 사용 이해 및 진단 목적 모두에 강력한 도구입니다.
 
-![분석 예제](./media/java-get-started/025.png)
+![분석 예제](./media/java-get-started/0025.png)
 
 ## <a name="7-install-your-app-on-the-server"></a>7. 서버에 앱 설치
 이제 서버에 앱을 게시하고, 사람들이 사용하게 한 다음 포털에 표시되는 원격 분석을 확인합니다.
@@ -345,11 +338,25 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
     (이 구성 요소를 통해 성능 카운터를 사용할 수 있게 됩니다.)
 
+## <a name="azure-app-service-config-spring-boot"></a>Azure App Service 구성 (Spring Boot)
+
+Windows에서 실행 중인 spring Boot 앱에는 Azure App Service에서 실행 하려면 추가 구성이 필요 합니다. 수정할 **web.config** 다음 줄을 추가 합니다.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <handlers>
+            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
+        </handlers>
+        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
+        </httpPlatform>
+    </system.webServer>
+</configuration>
+```
 
 ## <a name="exceptions-and-request-failures"></a>예외 및 요청 실패
-처리되지 않은 예외는 자동으로 수집됩니다.
-
-![설정 열기, 오류](./media/java-get-started/21-exceptions.png)
+처리 되지 않은 예외를 자동으로 수집 됩니다.
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
@@ -368,9 +375,9 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 발신 SDK 구성은 [Ai-agent.xml](java-agent.md) 파일에서 정의됩니다.
 
 ## <a name="performance-counters"></a>성능 카운터
-**설정**, **서버**를 열고 다양한 성능 카운터를 확인합니다.
+오픈 **조사**를 **메트릭**성능 카운터의 범위를 참조 하세요.
 
-![](./media/java-get-started/11-perf-counters.png)
+![선택한 프로세스 전용 바이트를 사용 하 여 메트릭 창 스크린샷](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>성능 카운터 수집 사용자 지정
 성능 카운터의 표준 집합 수집을 사용하지 않으려면 ApplicationInsights.xml 파일의 루트 노드 아래에 다음 코드를 추가합니다.
@@ -420,10 +427,6 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 * counterName – 성능 카운터의 이름입니다.
 * instanceName – 성능 카운터 범주 인스턴스입니다. 또는 범주가 단일 인스턴스를 포함하는 경우 빈 문자열("")의 이름입니다. categoryName이 프로세스이며 수입하려는 성능 카운터는 앱이 실행 중인 현재 JVM 프로세스에서 오는 경우, `"__SELF__"`을(를) 지정합니다.
 
-성능 카운터에서가 [메트릭 탐색기][metrics]에서 사용자 지정 메트릭으로 보입니다.
-
-![](./media/java-get-started/12-custom-perfs.png)
-
 ### <a name="unix-performance-counters"></a>Unix 성능 카운터
 * [Application Insights 플러그 인과 함께 collectd를 설치](java-collectd.md) 하여 광범위한 시스템 및 네트워크 데이터를 얻을 수 있습니다.
 
@@ -467,22 +470,12 @@ Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레�
 * [이벤트 및 로그를 검색][diagnostic]하여 문제를 진단할 수 있습니다.
 
 ## <a name="availability-web-tests"></a>가용성 웹 테스트
-Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. [설정하려면][availability] 웹 테스트를 클릭합니다.
+Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다.
 
-![웹 테스트 클릭한 다음 웹 테스트 추가](./media/java-get-started/31-config-web-test.png)
+[가용성 웹 테스트를 설정 하는 방법을 자세히 알아봅니다.][availability]
 
-사이트가 다운되는 경우 응답 시간 차트는 물론 이메일 알림을 얻게 됩니다.
-
-![웹 테스트의 예](./media/java-get-started/appinsights-10webtestresult.png)
-
-[가용성 웹 테스트에 대한 자세히 알아봅니다.][availability]
-
-## <a name="questions-problems"></a>질문이 있으십니까? 문제가 있습니까?
+## <a name="questions-problems"></a>질문이 있으세요? 문제가 있습니까?
 [Java 문제 해결](java-troubleshoot.md)
-
-## <a name="video"></a>비디오
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>다음 단계
 * [종속성 호출 모니터링](java-agent.md)

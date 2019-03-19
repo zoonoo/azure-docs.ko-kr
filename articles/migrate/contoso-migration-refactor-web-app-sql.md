@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 271e18d370068e0445f183af0c694b19f0da22f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102757"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso 마이그레이션: Azure Web App 및 Azure SQL Database로 온-프레미스 앱 리팩터링
 
@@ -244,9 +244,9 @@ Contoso 관리자는 이제 DMA를 사용하여 SmartHotel360 데이터베이스
 
 Contoso는 애플리케이션에 대한 DevOps 인프라 및 파이프라인을 빌드해야 합니다.  이를 위해 Contoso 관리자는 새 DevOps 프로젝트를 만들고 코드를 가져온 다음 빌드 및 릴리스 파이프라인을 설정합니다.
 
-1.   Contoso Azure DevOps 계정에서 새 프로젝트(**ContosoSmartHotelRefactor**)를 만들고 버전 제어용 **Git**을 선택합니다.
+1. Contoso Azure DevOps 계정에서 새 프로젝트(**ContosoSmartHotelRefactor**)를 만들고 버전 제어용 **Git**을 선택합니다.
 
-    ![새 프로젝트](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
+   ![새 프로젝트](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
 2. 현재 해당 앱 코드를 포함하는 Git 리포지토리를 가져옵니다. [공용 리포지토리](https://github.com/Microsoft/SmartHotel360-internal-booking-apps)에 있으며 다운로드할 수 있습니다.
 
     ![앱 코드 다운로드](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
@@ -277,7 +277,7 @@ Contoso 관리자는 웹앱 및 데이터베이스가 모두 통신할 수 있�
 
     ![연결 문자열](media/contoso-migration-refactor-web-app-sql/strings3.png)
 
-5. 코드에 변경 사항이 있으면 관리자는 변경 내용을 커밋해야 합니다. Visual Studio에서 팀 탐색기를 사용하여 커밋 및 동기화합니다.
+5. 코드에 변경 사항이 있으면 관리자는 변경 내용을 커밋해야 합니다. 팀 탐색기를 사용 하 여 Visual Studio에서, 이러한 커밋하고 동기화 합니다.
 
 
 ## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>6단계: Azure DevOps에서 빌드 및 릴리스 파이프라인 설정
@@ -306,8 +306,8 @@ Contoso 관리자는 이제 빌드 및 릴리스 프로세스를 수행하도록
 
 6. **Drop** 폴더에 빌드 결과가 포함되어 있습니다.
 
-    - 두 zip 파일은 앱을 포함하는 패키지입니다.
-    - 이러한 파일은 Azure Web Apps에 배포하기 위한 릴리스 파이프라인에서 사용됩니다.
+   - 두 zip 파일은 앱을 포함하는 패키지입니다.
+   - 이러한 파일은 Azure Web Apps에 배포하기 위한 릴리스 파이프라인에서 사용됩니다.
 
      ![아티팩트](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -341,7 +341,7 @@ Contoso 관리자는 이제 빌드 및 릴리스 프로세스를 수행하도록
 
 16. 또한 연속 배포 트리거가 **사용**으로 설정되어야 합니다.
 
-   ![연속 배포 사용](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
+    ![연속 배포 사용](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
 17. 이제 단계 1개 작업, 1개 태스크로 돌아가서 **Azure App Service 배포**를 클릭합니다.
 

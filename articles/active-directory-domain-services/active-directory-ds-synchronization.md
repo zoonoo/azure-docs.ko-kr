@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: 23d30d3b881fbe5aab4e537073b2582eb01bfe7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: b5544be37015368173f3f8eb39288b7a97ae11c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183427"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085000"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에서 동기화
 다음 다이어그램에서는 Azure AD 도메인 서비스 관리되는 도메인에서 동기화가 작동하는 방식을 보여 줍니다.
@@ -70,8 +70,6 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 
 > [!NOTE]
 > **UPN 형식을 사용하여 관리되는 도메인에 로그인:** 관리되는 도메인의 일부 사용자 계정에 대해 SAMAccountName 특성이 자동으로 생성될 수 있습니다. 여러 사용자가 동일한 mailNickname 특성을 사용하거나 사용자의 UPN 접두사가 너무 긴 경우 이러한 사용자에 대한 SAMAccountName이 자동으로 생성될 수 있습니다. 따라서 SAMAccountName 형식(예: 'CONTOSO100\joeuser')은 도메인에 로그인하는 안정적인 방법이 아닐 수 있습니다. 자동 생성된 사용자의 SAMAccountName은 UPN 접두사와 다를 수 있습니다. 관리되는 도메인에 안정적으로 로그인하려면 UPN 형식(예: ‘joeuser@contoso100.com’)을 사용하세요.
->
->
 
 ### <a name="attribute-mapping-for-user-accounts"></a>사용자 계정에 대한 특성 매핑
 다음 표에서는 Azure AD 테넌트의 사용자 개체에 대한 특정 특성이 관리되는 도메인의 해당 특성에 동기화되는 방식을 보여 줍니다.
@@ -86,17 +84,17 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
 | jobTitle |title |
-| mail |mail |
+| 메일 |메일 |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName(자동 생성되는 경우도 있음) |
 | mobile |mobile |
-| objectId |msDS-AzureADObjectId |
+| objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | passwordPolicies |userAccountControl(DONT_EXPIRE_PASSWORD 비트를 설정하거나 지움) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | postalCode |postalCode |
 | preferredLanguage |preferredLanguage |
-| state |st |
+| 상태 |st |
 | streetAddress |streetAddress |
 | surname |sn |
 | telephoneNumber |telephoneNumber |
@@ -109,9 +107,9 @@ Azure AD Connect 동기화는 사용자 계정, 그룹 구성원 자격 및 자�
 |:--- |:--- |
 | displayName |displayName |
 | displayName |SAMAccountName(자동 생성되는 경우도 있음) |
-| mail |mail |
+| 메일 |메일 |
 | mailNickname |msDS-AzureADMailNickname |
-| objectId |msDS-AzureADObjectId |
+| objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
 
@@ -127,7 +125,7 @@ NTLM 및 Kerberos 호환 암호 해시는 Azure AD에서 항상 암호화된 방
 ## <a name="objects-that-are-not-synchronized-to-your-azure-ad-tenant-from-your-managed-domain"></a>관리되는 도메인에서 Azure AD 테넌트로 동기화되지 않는 개체
 이 문서의 이전 섹션에서 설명한 대로, 관리되는 도메인에서 Azure AD 테넌트로 다시 동기화되지는 않습니다. [관리되는 도메인에서 사용자 지정 OU(조직 구성 단위)를 만들](active-directory-ds-admin-guide-create-ou.md) 수 있습니다. 또한 이러한 사용자 지정 OU 내에서 다른 OU, 사용자, 그룹 또는 서비스 계정을 만들 수 있습니다. 사용자 지정 OU 내에서 만든 개체는 Azure AD 테넌트에 다시 동기화되지 않습니다. 이러한 개체는 관리되는 도메인 내에서만 사용할 수 있습니다. 따라서 Azure AD PowerShell cmdlet, Azure AD Graph API 또는 Azure AD 관리 UI를 사용하여 이러한 개체를 볼 수 없습니다.
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="related-content"></a>관련 내용
 * [기능 - Azure AD Domain Services](active-directory-ds-features.md)
 * [배포 시나리오 - Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Azure AD 도메인 서비스에 대한 네트워킹 고려 사항](active-directory-ds-networking.md)

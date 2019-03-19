@@ -3,23 +3,23 @@ title: Azure Security Center에서 파일 무결성 모니터링 | Microsoft Doc
 description: " Azure Security Center에서 파일 무결성 모니터링을 사용하도록 설정하는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
-editor: ''
+editor: monhaber
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
-ms.author: rkarlin
-ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.author: monhaber
+ms.openlocfilehash: f8bc10edcdc31dd2ae3995dcb8321a5523e1e51c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901589"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
@@ -36,15 +36,12 @@ Security Center의 파일 무결성 모니터링은 Windows 파일, Windows 레�
 Security Center에서는 모니터링할 엔터티를 권장하며 FIM을 쉽게 사용할 수 있습니다. 사용자 고유의 FIM 정책 또는 모니터링할 엔터티를 정의할 수도 있습니다. 이 연습에서는 방법을 보여 줍니다.
 
 > [!NOTE]
-> FIM(파일 무결성 모니터링) 기능은 Windows/Linux 컴퓨터 및 VM에서 작동하며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
-FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
->
->
+> FIM(파일 무결성 모니터링) 기능은 Windows/Linux 컴퓨터 및 VM에서 작동하며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
+
+FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용 해야는 **변경 내용 추적** 종류의 리소스 **솔루션**합니다. 데이터 수집 빈도 정보를 참조 하세요 [데이터 컬렉션 세부 정보 변경 내용 추적](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) Azure 변경 내용 추적에 대 한 합니다.
 
 > [!NOTE]
-> FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용하도록 설정하면 솔루션 형식의 **변경 내용 추적** 리소스 종류가 있습니다. **변경 내용 추적** 리소스를 제거하면 Security Center에서 파일 무결성 모니터링 기능을 사용하지 않도록 설정합니다.
->
->
+> 제거 하는 경우는 **변경 내용 추적** 리소스 있습니다 모니터링 Security Center에서 기능 파일 무결성도 해제 됩니다.
 
 ## <a name="which-files-should-i-monitor"></a>어떤 파일을 모니터링해야 할까요?
 모니터링할 파일을 선택할 때 시스템 및 애플리케이션에 중요한 파일을 고려해야 합니다. 계획 없이 변경할 것으로 예상되지 않는 파일을 선택합니다. 애플리케이션이나 운영 체제(예: 로그 파일 및 텍스트 파일)에서 자주 변경되는 파일을 선택하면 공격을 식별하기 어렵게 만드는 노이즈가 많이 발생합니다.
@@ -134,15 +131,15 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 
 1. **파일 무결성 모니터링 대시보드**로 돌아가서 **설정**을 선택합니다.
 
-  ![설정][11]
+   ![설정][11]
 
-  **작업 영역 구성**이 열리고 세 개의 탭 **Windows 레지스트리**, **Windows 파일** 및 **Linux 파일**이 표시됩니다. 각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. Security Center에서는 나열된 각 엔터티에 대해 FIM을 사용하거나(true) 사용하지 않도록(false) 설정되었는지를 식별합니다.  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
+   **작업 영역 구성**이 열리고 세 개의 탭 **Windows 레지스트리**, **Windows 파일** 및 **Linux 파일**이 표시됩니다. 각 탭에는 해당 범주에서 편집할 수 있는 엔터티가 나열됩니다. Security Center에서는 나열된 각 엔터티에 대해 FIM을 사용하거나(true) 사용하지 않도록(false) 설정되었는지를 식별합니다.  엔터티를 편집하면 FIM을 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
-  ![작업 영역 구성][12]
+   ![작업 영역 구성][12]
 
-2. identityprotection을 선택합니다. 이 예에서는 Windows 레지스트리에 속한 항목을 선택했습니다. **변경 내용 추적 편집**에 대한 편집이 열립니다.
+2. Id 보호를 선택 합니다. 이 예에서는 Windows 레지스트리에 속한 항목을 선택했습니다. **변경 내용 추적 편집**에 대한 편집이 열립니다.
 
-  ![변경 내용 추적 편집][13]
+   ![변경 내용 추적 편집][13]
 
 **변경 내용 추적 편집**에서 수행할 수 있는 작업은 다음과 같습니다.
 
@@ -155,11 +152,11 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 1. **파일 무결성 모니터링 대시보드**로 돌아가서 위쪽에 있는 **설정**을 선택합니다. **작업 영역 구성**이 열립니다.
 2. **작업 영역 구성** 아래에서 추가하려는 엔터티의 형식에 대한 탭(Windows 레지스트리, Windows 파일 또는 Linux 파일)을 선택합니다. 이 예에서는 **Linux 파일**을 선택했습니다.
 
-  ![모니터링할 새 항목 추가][14]
+   ![모니터링할 새 항목 추가][14]
 
 3. **추가**를 선택합니다. **변경 내용 추적에 추가**가 열립니다.
 
-  ![요청된 정보 입력][15]
+   ![요청된 정보 입력][15]
 
 4. **추가** 페이지에서 요청된 정보를 입력하고, **저장**을 선택합니다.
 
@@ -167,19 +164,19 @@ FIM을 사용하는 작업 영역에 대한 **파일 무결성 모니터링** �
 1. **파일 무결성 모니터링** 대시보드로 돌아갑니다.
 2. FIM이 현재 사용되는 작업 영역을 선택합니다. [사용] 단추 또는 [업그레이드 계획] 단추가 없으면 작업 영역을 FIM에 사용할 수 있습니다.
 
-  ![FIM이 사용되는 작업 영역 선택][16]
+   ![FIM이 사용되는 작업 영역 선택][16]
 
 3. [파일 무결성 모니터링] 아래에서 **설정**을 선택합니다.
 
-  ![설정 선택][17]
+   ![설정 선택][17]
 
 4. **작업 영역 구성** 아래에서 **사용**이 [참]으로 설정된 그룹을 선택합니다.
 
-  ![작업 영역 구성][18]
+   ![작업 영역 구성][18]
 
 5. **변경 내용 추적 편집** 창 아래에서 **사용**을 [거짓]으로 설정합니다.
 
-  ![[거짓]으로 설정된 [사용]][19]
+   ![[거짓]으로 설정된 [사용]][19]
 
 6. **저장**을 선택합니다.
 
@@ -198,7 +195,7 @@ FIM을 사용하지 않도록 설정할 수 있습니다. FIM은 Azure 변경 �
 2. 작업 영역을 선택합니다.
 3. **파일 무결성 모니터링** 아래에서 **사용 안 함**을 선택합니다.
 
-  ![FIM 사용 안 함][20]
+   ![FIM 사용 안 함][20]
 
 4. **제거**를 선택하여 사용하지 않도록 설정합니다.
 

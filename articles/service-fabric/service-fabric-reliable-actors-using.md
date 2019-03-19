@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 89161f3dad68c4b208f4badc548e2057c7ed58c1
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 5ab967cbd630447132300b22da5c5deb31fd50e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852368"
 ---
 # <a name="implement-service-level-features-in-your-actor-service"></a>행위자 서비스에서 서비스 수준 기능 구현
 
@@ -160,13 +160,13 @@ Remoting V2(인터페이스 호환 가능, V2_1이라고 함) 스택에는 V2 Re
 
 Remoting V2_1 스택을 사용하려면 다음과 같은 변경이 필요합니다.
 
- 1. 다음과 같은 어셈블리 특성을 행위자 인터페이스에 추가합니다.
+1. 다음과 같은 어셈블리 특성을 행위자 인터페이스에 추가합니다.
   
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
- 2. V2 스택을 사용하여 시작하려면 행위자 서비스 및 행위자 클라이언트 프로젝트를 빌드하고 업그레이드합니다.
+2. V2 스택을 사용하여 시작하려면 행위자 서비스 및 행위자 클라이언트 프로젝트를 빌드하고 업그레이드합니다.
 
 ### <a name="actor-service-upgrade-to-remoting-v2-interface-compatible-stack-without-affecting-service-availability"></a>서비스 가용성에 영향을 주지 않고 Remoting V2(인터페이스 호환 가능) 스택으로 행위자 서비스 업그레이드
 
@@ -174,12 +174,12 @@ Remoting V2_1 스택을 사용하려면 다음과 같은 변경이 필요합니�
 
 1. 다음과 같은 어셈블리 특성을 행위자 인터페이스에 추가합니다. 이 특성은 행위자 서비스, V1(기존) 및 V2_1 수신기에 대한 2개의 수신기를 시작합니다. 이와 같이 변경하여 행위자 서비스를 업그레이드합니다.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
 
 2. 이전 업그레이드를 완료한 후에 행위자 클라이언트를 업그레이드합니다.
-이 단계에서는 행위자 프록시가 Remoting V2_1 스택을 사용하는지 확인합니다.
+   이 단계에서는 행위자 프록시가 Remoting V2_1 스택을 사용하는지 확인합니다.
 
 3. 이 단계는 선택 사항입니다. V1 수신기를 제거하려면 이전 특성을 변경합니다.
 
@@ -193,13 +193,13 @@ Remoting V2_1 스택을 사용하려면 다음과 같은 변경이 필요합니�
 
 Remoting V2 스택을 사용하려면 다음과 같은 변경이 필요합니다.
 
- 1. 다음과 같은 어셈블리 특성을 행위자 인터페이스에 추가합니다.
+1. 다음과 같은 어셈블리 특성을 행위자 인터페이스에 추가합니다.
 
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
- 2. V2 스택을 사용하여 시작하려면 행위자 서비스 및 행위자 클라이언트 프로젝트를 빌드하고 업그레이드합니다.
+2. V2 스택을 사용하여 시작하려면 행위자 서비스 및 행위자 클라이언트 프로젝트를 빌드하고 업그레이드합니다.
 
 ### <a name="upgrade-the-actor-service-to-the-remoting-v2-stack-without-affecting-service-availability"></a>서비스 가용성에 영향을 주지 않고 Remoting V2 스택으로 행위자 서비스 업그레이드
 
@@ -207,12 +207,12 @@ Remoting V2 스택을 사용하려면 다음과 같은 변경이 필요합니다
 
 1. 다음과 같은 어셈블리 특성을 행위자 인터페이스에 추가합니다. 이 특성은 행위자 서비스, V1(기존) 및 V2 수신기에 대한 2개의 수신기를 시작합니다. 이와 같이 변경하여 행위자 서비스를 업그레이드합니다.
 
-  ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
-  ```
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
 
 2. 이전 업그레이드를 완료한 후에 행위자 클라이언트를 업그레이드합니다.
-이 단계에서는 행위자 프록시가 Remoting V2 스택을 사용하는지 확인합니다.
+   이 단계에서는 행위자 프록시가 Remoting V2 스택을 사용하는지 확인합니다.
 
 3. 이 단계는 선택 사항입니다. V1 수신기를 제거하려면 이전 특성을 변경합니다.
 
@@ -226,7 +226,7 @@ Remoting V2 스택을 사용하려면 다음과 같은 변경이 필요합니다
 * [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [.NET 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java 샘플 코드](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java 샘플 코드](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

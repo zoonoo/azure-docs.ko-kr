@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417094"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081256"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -57,6 +57,7 @@ ms.locfileid: "56417094"
 * App Service Certificate - [App Service Certificate 제한 사항](#app-service-certificate-limitations)을 참조하세요.
 * Automation - Runbook이 Automation 계정과 동일한 리소스 그룹에 있어야 합니다.
 * Azure Active Directory B2C
+* Azure Cache for Redis - 가상 네트워크를 사용하여 Azure Cache for Redis 인스턴스를 구성하는 경우 다른 구독으로 인스턴스를 이동할 수 없습니다. [가상 네트워크 제한 사항](#virtual-networks-limitations)을 참조하십시오.
 * Azure Cosmos DB
 * Azure Data Explorer
 * Azure Database for MariaDB
@@ -64,6 +65,7 @@ ms.locfileid: "56417094"
 * Azure Database for PostgreSQL
 * Azure DevOps - 타사 확장을 구매한 Azure DevOps 조직은 [구매를 취소](https://go.microsoft.com/fwlink/?linkid=871160)해야 구독 간에 계정을 이동할 수 있습니다.
 * Azure Maps
+* Azure Monitor 로그
 * Azure Relay
 * Azure Stack - 등록
 * Batch
@@ -89,10 +91,9 @@ ms.locfileid: "56417094"
 * IoT Hub
 * Key Vault - 디스크 암호화에 사용되는 Key Vault를 동일한 구독의 리소스 그룹으로 또는 구독 간에 이동할 수 없습니다.
 * Load Balancer - 기본 SKU Load Balancer는 이동할 수 있습니다. 표준 SKU 부하 분산 장치는 이동할 수 없습니다.
-* Log Analytics
 * Logic Apps
 * 기계 학습 - Machine Learning Studio 웹 서비스는 동일한 구독의 리소스 그룹으로 이동할 수 있지만 다른 구독으로 이동할 수는 없습니다. 다른 Machine Learning 리소스는 구독 간에 이동할 수 있습니다.
-* Managed Disks - [Virtual Machines 제한 사항](#virtual-machines-limitations)에서 제약 조건 참조
+* Managed Disks-관리 디스크가 가용성 영역에서 다른 구독으로 이동할 수 없습니다
 * 관리 ID - 사용자 할당
 * Media Services
 * Monitor - 새 구독으로 이동해도 [구독 할당량](../azure-subscription-service-limits.md#monitor-limits)을 초과하지 않는지 확인합니다.
@@ -103,7 +104,6 @@ ms.locfileid: "56417094"
 * Power BI - Power BI Embedded 및 Power BI Workspace Collection 모두
 * 공용 IP - 기본 SKU 공용 IP는 이동할 수 있습니다. 표준 SKU 공용 IP는 이동할 수 없습니다.
 * Recovery Services 자격 증명 모음 - [미리 보기](#recovery-services-limitations)에 등록합니다.
-* Azure Cache for Redis - 가상 네트워크를 사용하여 Azure Cache for Redis 인스턴스를 구성하는 경우 다른 구독으로 인스턴스를 이동할 수 없습니다. [가상 네트워크 제한 사항](#virtual-networks-limitations)을 참조하십시오.
 * Scheduler
 * Search - 서로 다른 지역의 여러 Search 리소스를 하나의 작업으로 모두 이동할 수는 없습니다. 대신 별도 작업으로 이동합니다.
 * Service Bus
@@ -116,7 +116,7 @@ ms.locfileid: "56417094"
 * SQL Database 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure SQL Data Warehouse 데이터베이스에 적용됩니다.
 * Time Series Insights
 * Traffic Manager
-* 가상 머신 - Managed Disks가 있는 VM의 경우 [가상 머신 제한 사항](#virtual-machines-limitations) 참조
+* 가상 컴퓨터- [Virtual Machines 제한 사항](#virtual-machines-limitations)
 * Virtual Machines(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
 * Virtual Networks - [Virtual Networks 제한 사항](#virtual-networks-limitations) 참조
@@ -133,6 +133,7 @@ ms.locfileid: "56417094"
 * Azure Databricks
 * Azure Firewall
 * Azure Migrate
+* Azure NetApp Files
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
 * 클래식 애플리케이션
 * Container Instances
@@ -145,7 +146,6 @@ ms.locfileid: "56417094"
 * Lab Services - 동일한 구독에서 새 리소스 그룹으로 이동은 가능하지만, 구독 간 이동은 가능하지 않습니다.
 * Managed Applications
 * Microsoft Genomics
-* NetApp
 * Azure의 SAP HANA
 * 보안
 * Site Recovery
@@ -166,13 +166,12 @@ ms.locfileid: "56417094"
 
 ### <a name="virtual-machines-limitations"></a>Virtual Machines 제한 사항
 
-2018년 9월 24일부터 Managed Disks를 이동할 수 있습니다. 이 지원은 Managed Disks가 있는 가상 머신, 관리되는 이미지, 관리되는 스냅숏이 있는 가상 머신, Managed Disks를 사용하는 가상 머신이 있는 가용성 세트를 이동할 수 있음을 의미합니다.
+Managed disks를 사용 하는 가상 컴퓨터를 사용 하 여 관리 되는 디스크, 관리 되는 이미지, 관리 되는 스냅숏 및 가용성 집합을 사용 하 여 가상 컴퓨터를 이동할 수 있습니다. 가용성 영역에서 관리 디스크를 다른 구독으로 이동할 수 없습니다.
 
 다음 시나리오는 아직 지원되지 않습니다.
 
 * Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독에서 새 리소스 그룹으로 이동할 수 있지만 구독 간에는 이동할 수 없습니다.
-* 가용성 영역의 Managed Disks는 다른 구독으로 이동할 수 없습니다.
-* 표준 SKU 부하 분산 장치 또는 표준 SKU 공용 IP를 사용하는 Virtual Machine Scale Sets는 이동할 수 없습니다.
+* 표준 SKU 부하 분산 장치 또는 표준 SKU 공용 IP를 사용 하 여 Virtual Machine Scale Sets는 이동할 수 없습니다.
 * 연결된 계획이 있는 Marketplace 리소스에서 만든 가상 머신은 리소스 그룹 또는 구독 간에 이동할 수 없습니다. 현재 구독의 가상 머신을 프로비전 해제하고 새 구독에 다시 배포합니다.
 
 Azure Backup으로 구성한 가상 머신을 이동하려면 다음 해결 방법을 사용합니다.
@@ -190,6 +189,8 @@ Azure Backup으로 구성한 가상 머신을 이동하려면 다음 해결 방�
 ### <a name="virtual-networks-limitations"></a>Virtual Networks 제한 사항
 
 가상 네트워크를 이동할 때는 해당 종속 리소스도 함께 이동해야 합니다. VPN Gateway의 경우 IP 주소, 가상 네트워크 게이트웨이 및 모든 관련된 연결 리소스를 이동해야 합니다. 로컬 네트워크 게이트웨이는 다른 리소스 그룹에 있을 수 있습니다.
+
+네트워크 인터페이스 카드를 사용 하 여 가상 컴퓨터를 이동 하려면 모든 종속 리소스를 이동 해야 합니다. 네트워크 인터페이스 카드에 대 한 가상 네트워크, 가상 네트워크 및 VPN gateway에 대 한 다른 모든 네트워크 인터페이스 카드를 이동 해야 합니다.
 
 피어링된 가상 네트워크를 이동하려면 먼저 가상 네트워크 피어링을 사용하지 않도록 설정해야 합니다. 사용하지 않도록 설정되면 가상 네트워크를 이동할 수 있습니다. 이동 후에는 가상 네트워크 피어링을 사용하도록 다시 설정합니다.
 
@@ -254,58 +255,58 @@ App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 �
 
 1. 원본 구독이 구독 간 이동에 참여할 수 있는지 확인합니다. 다음 작업을 사용합니다.
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      요청 본문에 다음을 포함합니다.
 
-  ```json
-  {
+   ```json
+   {
     "role": "source"
-  }
-  ```
+   }
+   ```
 
      유효성 검사 작업에 대한 응답은 다음 형식입니다.
 
-  ```json
-  {
+   ```json
+   {
     "status": "{status}",
     "reasons": [
       "reason1",
       "reason2"
     ]
-  }
-  ```
+   }
+   ```
 
 2. 대상 구독이 구독 간 이동에 참여할 수 있는지 확인합니다. 다음 작업을 사용합니다.
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      요청 본문에 다음을 포함합니다.
 
-  ```json
-  {
+   ```json
+   {
     "role": "target"
-  }
-  ```
+   }
+   ```
 
      응답이 원본 구독 유효성 검사와 동일한 형식입니다.
 3. 두 구독이 유효성 검사를 통과하면 다음 작업으로 한 구독에서 다른 구독으로 모든 클래식 리소스를 이동합니다.
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+   ```
 
     요청 본문에 다음을 포함합니다.
 
-  ```json
-  {
+   ```json
+   {
     "target": "/subscriptions/{target-subscription-id}"
-  }
-  ```
+   }
+   ```
 
 이 작업은 몇 분 정도 실행될 수 있습니다.
 
@@ -344,52 +345,52 @@ HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스
 
 1. 원본 및 대상 구독은 동일한 [Azure Active Directory 테넌트](../active-directory/develop/quickstart-create-new-tenant.md) 내에 있어야 합니다. 두 구독이 모두 동일한 테넌트 ID를 갖는지 확인하려면 Azure PowerShell 또는 Azure CLI를 사용합니다.
 
-  Azure PowerShell의 경우 다음을 사용합니다.
+   Azure PowerShell의 경우 다음을 사용합니다.
 
-  ```azurepowershell-interactive
-  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
+   ```azurepowershell-interactive
+   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
+   ```
 
-  Azure CLI의 경우 
+   Azure CLI의 경우 
 
-  ```azurecli-interactive
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+   ```azurecli-interactive
+   az account show --subscription <your-source-subscription> --query tenantId
+   az account show --subscription <your-destination-subscription> --query tenantId
+   ```
 
-  원본 및 대상 구독에 대한 테넌트 ID가 다른 경우 다음 메서드를 사용하여 테넌트 ID를 조정합니다.
+   원본 및 대상 구독에 대한 테넌트 ID가 다른 경우 다음 메서드를 사용하여 테넌트 ID를 조정합니다.
 
-  * [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)
-  * [Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)
+   * [Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 오류가 표시될 수 있습니다.
 
-  PowerShell의 경우 다음 명령을 사용하여 등록 상태를 가져옵니다.
+   PowerShell의 경우 다음 명령을 사용하여 등록 상태를 가져옵니다.
 
-  ```azurepowershell-interactive
-  Set-AzContext -Subscription <destination-subscription-name-or-id>
-  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -Subscription <destination-subscription-name-or-id>
+   Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+   ```
 
-  리소스 공급자를 등록하려면 다음을 사용합니다.
+   리소스 공급자를 등록하려면 다음을 사용합니다.
 
-  ```azurepowershell-interactive
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+   ```
 
-  Azure CLI의 경우 다음 명령을 사용하여 등록 상태를 가져옵니다.
+   Azure CLI의 경우 다음 명령을 사용하여 등록 상태를 가져옵니다.
 
-  ```azurecli-interactive
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+   ```azurecli-interactive
+   az account set -s <destination-subscription-name-or-id>
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+   ```
 
-  리소스 공급자를 등록하려면 다음을 사용합니다.
+   리소스 공급자를 등록하려면 다음을 사용합니다.
 
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Batch
-  ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.Batch
+   ```
 
 1. 리소스를 이동시키는 계정에는 적어도 다음과 같은 권한이 있어야 합니다.
 
@@ -513,7 +514,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 ## <a name="next-steps"></a>다음 단계
 
-* 구독을 관리하기 위한 PowerShell cmdlet에 대한 자세한 내용은 [Resource Manager에서 Azure PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
-* 구독을 관리하기 위한 Azure CLI 명령에 대한 자세한 내용은 [Resource Manager에서 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
+* 리소스를 관리 하기 위한 PowerShell cmdlet에 대 한 자세한 내용은 참조 하세요 [Azure PowerShell를 사용 하 여 Resource Manager를 사용한](manage-resources-powershell.md)합니다.
+* 리소스를 관리 하는 것에 대 한 Azure CLI 명령에 대 한 자세한 내용은 참조 하세요 [Resource Manager를 사용한 Azure CLI를 사용 하 여](manage-resources-cli.md)입니다.
 * 구독을 관리하기 위한 포털 기능에 대한 자세한 내용은 [Azure 포털을 사용하여 리소스 관리](resource-group-portal.md)를 참조하세요.
 * 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.

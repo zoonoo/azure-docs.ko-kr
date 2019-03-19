@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 3c69cb076b3b23cd5149e05f1b6ee9ae1ba170a6
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 9154add96084142ca1f93ad61c6418e3b487fb83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430202"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090919"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅숏 관리
 
@@ -77,9 +77,9 @@ Azure NetApp Files를 사용하여 볼륨에 대한 주문형 스냅숏을 만�
     * **서브넷**  
         볼륨에 사용할 서브넷을 지정합니다.  
         지정하는 서브넷은 Azure NetApp Files 서비스에 위임되어야 합니다. 서브넷 필드 아래에서 **새로 만들기**를 선택하여 새 서브넷을 만들 수 있습니다.  
-<!--
+   <!--
     ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
--->
+   -->
 
 5. **확인**을 클릭합니다.   
     스냅숏이 복원된 새 볼륨은 볼륨 블레이드에 표시됩니다.

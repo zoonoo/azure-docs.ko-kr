@@ -3,7 +3,7 @@ title: SQL Server 가용성 그룹 - Azure Virtual Machines - 필수 구성 요�
 description: 이 자습서에서는 Azure VM에서 SQL Server Always On 가용성 그룹을 만들기 위한 필수 구성 요소를 구성하는 방법을 보여 줍니다.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: ff2031bd4c4fdc3d3ed8447a08ef29f0f89ea1d8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818025"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995161"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines에 Always On 가용성 그룹을 만들기 위한 필수 구성 요소 완료
 
@@ -42,7 +42,7 @@ ms.locfileid: "55818025"
 Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) 또는 [Visual Studio 구독자 혜택을 활성화](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits)할 수 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **+** 를 클릭하여 포털에서 새 개체를 만듭니다.
 
    ![새 개체](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -54,7 +54,7 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://sign
 5. **만들기**를 클릭합니다.
 6. **리소스 그룹 이름** 아래에 리소스 그룹의 이름을 입력합니다. 예를 들어 **sql-ha-rg**를 입력합니다.
 7. 여러 Azure 구독이 있는 경우 해당 구독이 가용성 그룹을 만들려는 Azure 구독인지 확인합니다.
-8. 위치를 선택합니다. 위치는 가용성 그룹을 만들려는 Azure 지역입니다. 이 문서는 하나는 Azure 위치에 모든 리소스를 빌드합니다.
+8. 위치를 선택하세요. 위치는 가용성 그룹을 만들려는 Azure 지역입니다. 이 문서는 하나는 Azure 위치에 모든 리소스를 빌드합니다.
 9. **대시보드에 고정**이 선택되어 있는지 확인합니다. 이 선택적 설정은 Azure 포털 대시보드에 리소스 그룹에 대한 바로 가기를 배치합니다.
 
    ![리소스 그룹](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
@@ -83,13 +83,13 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://sign
 
    | **필드** | 값 |
    | --- | --- |
-   | **Name** |autoHAVNET |
+   | **이름** |autoHAVNET |
    | **주소 공간** |10.33.0.0/24 |
-   | **서브넷 이름** |관리자 |
+   | **서브넷 이름** |행정 구역 |
    | **서브넷 주소 범위** |10.33.0.0/29 |
    | **구독** |사용하려는 구독을 지정합니다. 하나의 구독만 있는 경우 **구독**은 비어 있습니다. |
    | **리소스 그룹** |**기존 항목 사용**을 선택하고 리소스 그룹의 이름을 선택합니다. |
-   | **위치**: |Azure 위치를 지정합니다. |
+   | **위치** |Azure 위치를 지정합니다. |
 
    주소 공간 및 서브넷 주소 범위는 표와 다를 수 있습니다. 구독에 따라 포털은 사용 가능한 주소 공간 및 해당 서브넷 주소 범위를 제안합니다. 사용할 수 있는 주소 공간이 충분하지 않으면 다른 구독을 사용하세요.
 
@@ -123,7 +123,7 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://sign
 
 | **필드** | 값 |
 | --- | --- |
-| **Name** |**autoHAVNET** |
+| **이름** |**autoHAVNET** |
 | **주소 공간** |이 값은 구독에서 사용 가능한 주소 공간에 따라 달라집니다. 일반적인 값은 10.0.0.0/16입니다. |
 | **서브넷 이름** |**admin** |
 | **서브넷 주소 범위** |이 값은 구독에서 사용 가능한 주소 범위에 따라 달라집니다. 일반적인 값은 10.0.0.0/24입니다. |
@@ -131,7 +131,7 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://sign
 | **서브넷 주소 범위** |이 값은 구독에서 사용 가능한 주소 범위에 따라 달라집니다. 일반적인 값은 10.0.1.0/24입니다. |
 | **구독** |사용하려는 구독을 지정합니다. |
 | **리소스 그룹** |**SQL-HA-RG** |
-| **위치**: |리소스 그룹에 대해 선택한 위치와 같은 위치를 지정합니다. |
+| **위치** |리소스 그룹에 대해 선택한 위치와 같은 위치를 지정합니다. |
 
 ## <a name="create-availability-sets"></a>가용성 집합 만들기
 
@@ -145,7 +145,7 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://sign
 
 | **필드** | 도메인 컨트롤러 가용성 집합 | SQL Server 가용성 집합 |
 | --- | --- | --- |
-| **Name** |adavailabilityset |sqlavailabilityset |
+| **이름** |adavailabilityset |sqlavailabilityset |
 | **리소스 그룹** |SQL-HA-RG |SQL-HA-RG |
 | **장애 도메인** |3 |3 |
 | **업데이트 도메인** |5 |3 |
@@ -176,21 +176,21 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://sign
 
 | **필드** | 값 |
 | --- | --- |
-| **Name** |최초 도메인 컨트롤러 *ad-primary-dc*</br>두 번째 도메인 컨트롤러 *ad-secondary-dc* |
+| **이름** |최초 도메인 컨트롤러 *ad-primary-dc*</br>두 번째 도메인 컨트롤러 *ad-secondary-dc* |
 | **VM 디스크 유형** |SSD |
 | **사용자 이름** |DomainAdmin |
 | **암호** |Contoso!0000 |
 | **구독** |*구독* |
 | **리소스 그룹** |SQL-HA-RG |
-| **위치**: |*사용자의 위치* |
+| **위치** |*사용자의 위치* |
 | **크기** |DS1_V2 |
-| **Storage** | **관리되는 디스크 사용** - **Yes** |
+| **저장소** | **관리되는 디스크 사용** - **Yes** |
 | **가상 네트워크** |autoHAVNET |
 | **서브넷** |관리자 |
 | **공용 IP 주소** |*VM과 같은 이름* |
 | **네트워크 보안 그룹** |*VM과 같은 이름* |
 | **가용성 집합** |adavailabilityset </br>**장애 도메인**:2 </br>**업데이트 도메인**: 2|
-| **진단** |사용 |
+| **진단** |사용하도록 설정됨 |
 | **진단 저장소 계정** |*자동으로 생성됨* |
 
    >[!IMPORTANT]
@@ -235,7 +235,7 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://sign
     | **배포 구성** |**새 포리스트 추가**<br/> **루트 도메인 이름** = corp.contoso.com |
     | **도메인 컨트롤러 옵션** |**암호** = Contoso!0000<br/>**암호 확인** = Contoso!0000 |
 14. **다음**을 클릭하여 마법사의 다른 페이지를 진행합니다. **필수 구성 요소 확인** 페이지에서 다음 메시지가 표시되는지 확인합니다. **모든 필수 구성 요소 검사를 마쳤습니다**. 해당하는 모든 경고 메시지를 검토할 수 있지만 설치를 계속할 수 있습니다.
-15. **Install**을 클릭합니다. **ad-primary-dc** 가상 머신이 자동으로 다시 부팅됩니다.
+15. **설치**를 클릭합니다. **ad-primary-dc** 가상 머신이 자동으로 다시 부팅됩니다.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>주 도메인 컨트롤러의 IP 주소를 메모합니다.
 
@@ -292,14 +292,14 @@ DNS에 대한 주 도메인 컨트롤러를 사용합니다. 주 도메인 컨�
 15. 노란색 경고 표시줄에서 **자세히** 링크를 클릭합니다.
 16. **모든 서버 작업 세부 정보** 대화 상자의 **작업** 열에서 **이 서버를 도메인 컨트롤러로 승격**을 클릭합니다.
 17. **배포 구성** 아래에서 **기존 도메인에 도메인 컨트롤러 추가**를 선택합니다.
-   ![배포 구성](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
+    ![배포 구성](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. **선택**을 클릭합니다.
 19. 관리자 계정(**CORP.CONTOSO.COM\domainadmin**) 및 암호(**Contoso!0000**)를 사용하여 연결합니다.
 20. **포리스트에서 도메인 선택**에서 해당 도메인을 클릭하고 **확인**을 클릭합니다.
 21. **도메인 컨트롤러 옵션**에서 기본값을 사용하고 DSRM 암호를 설정합니다.
 
-   >[!NOTE]
-   >**DNS 옵션** 페이지에서 이 DNS 서버에 대한 위임을 만들 수 없다고 경고할 수 있습니다. 비-프로덕션 환경에서 이 경고를 무시할 수 있습니다.
+    >[!NOTE]
+    >**DNS 옵션** 페이지에서 이 DNS 서버에 대한 위임을 만들 수 없다고 경고할 수 있습니다. 비-프로덕션 환경에서 이 경고를 무시할 수 있습니다.
 22. 대화 상자가 **필수 구성 요소** 확인에 도달할 때까지 **다음**을 클릭합니다. **설치**를 클릭합니다.
 
 서버가 구성 변경 내용을 완료한 후 서버를 다시 시작합니다.
@@ -308,7 +308,7 @@ DNS에 대한 주 도메인 컨트롤러를 사용합니다. 주 도메인 컨�
 
 Azure Portal의 가상 네트워크에서 보조 도메인 컨트롤러의 IP 주소를 포함하도록 DNS 서버를 변경합니다. 이 설정은 DNS 서비스 중복성을 허용합니다.
 
-### <a name=DomainAccounts></a> 도메인 계정 구성
+### <a name="DomainAccounts"></a> 도메인 계정 구성
 
 다음 단계에서는 Active Directory 계정을 구성합니다. 다음 표에서 이러한 계정을 보여줍니다.
 
@@ -371,7 +371,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 | 가상 머신 구성 **기본 사항** |**이름** = cluster-fsw<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |**이름** = sqlserver-0<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |**이름** = sqlserver-1<br/>**사용자 이름** = DomainAdmin<br/>**암호** = Contoso!0000<br/>**구독** = 사용자 구독<br/>**리소스 그룹** = SQL-HA-RG<br/>**위치** = 해당 Azure 위치 |
 | 가상 머신 구성 **크기** |**SIZE** = DS1\_V2(1개 vCPU, 3.5GB) |**SIZE** = DS2\_V2(2개 vCPU, 7GB)</br>이 크기는 SSD 저장소를 지원해야 합니다(프리미엄 디스크 지원. )) |**SIZE** = DS2\_V2(2개 vCPU, 7GB) |
 | 가상 머신 구성 **설정** |**저장소**: Managed Disks를 사용합니다.<br/>**가상 네트워크** = autoHAVNET<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소**: 자동으로 생성됩니다.<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |**저장소**: Managed Disks를 사용합니다.<br/>**가상 네트워크** = autoHAVNET<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소**: 자동으로 생성됩니다.<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |**저장소**: Managed Disks를 사용합니다.<br/>**가상 네트워크** = autoHAVNET<br/>**서브넷** = sqlsubnet(10.1.1.0/24)<br/>**공용 IP 주소**: 자동으로 생성됩니다.<br/>**네트워크 보안 그룹** = 없음<br/>**진단 모니터링** = 사용<br/>**진단 Storage 계정** = 자동으로 생성된 Storage계정 사용<br/>**가용성 집합** = sqlAvailabilitySet<br/> |
-| 가상 머신 구성 **SQL Server 설정** |해당 없음 |**SQL 연결** = 개인(Virtual Network 내)<br/>**포트** = 1433<br/>**SQL 인증** = 사용 안 함<br/>**Storage 구성** = 일반<br/>**자동화된 패치** = 일요일 2시<br/>**자동화된 백업** = 사용 안 함</br>**Azure Key Vault 통합** = 사용 안 함 |**SQL 연결** = 개인(Virtual Network 내)<br/>**포트** = 1433<br/>**SQL 인증** = 사용 안 함<br/>**Storage 구성** = 일반<br/>**자동화된 패치** = 일요일 2시<br/>**자동화된 백업** = 사용 안 함</br>**Azure Key Vault 통합** = 사용 안 함 |
+| 가상 머신 구성 **SQL Server 설정** |적용할 수 없음 |**SQL 연결** = 개인(Virtual Network 내)<br/>**포트** = 1433<br/>**SQL 인증** = 사용 안 함<br/>**Storage 구성** = 일반<br/>**자동화된 패치** = 일요일 2시<br/>**자동화된 백업** = 사용 안 함</br>**Azure Key Vault 통합** = 사용 안 함 |**SQL 연결** = 개인(Virtual Network 내)<br/>**포트** = 1433<br/>**SQL 인증** = 사용 안 함<br/>**Storage 구성** = 일반<br/>**자동화된 패치** = 일요일 2시<br/>**자동화된 백업** = 사용 안 함</br>**Azure Key Vault 통합** = 사용 안 함 |
 
 <br/>
 
@@ -464,7 +464,7 @@ SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으�
 다른 SQL Server VM에서도 이 단계를 반복합니다.
 
   >[!NOTE]
-  > 실제로 장애 조치(failover) 클러스터에 SQL Server VM을 가입하는 단계와 함께 이 단계를 Azure 빠른 시작 템플릿으로 자동화할 수 있습니다. 자세한 내용은 [Azure 빠른 시작 템플릿을 사용하여 SQL Server VM에서 WSFC, 수신기 만들기 및 Always On 가용성 그룹에 대해 ILB 구성](virtual-machines-windows-sql-availability-group-quickstart-template.md)을 참조하세요.
+  > 실제로 장애 조치 클러스터에 SQL Server Vm을 가입와 함께이 단계를 사용 하 여 이제 자동화할 수 있습니다 [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) 하 고 [Azure 빠른 시작 템플릿](virtual-machines-windows-sql-availability-group-quickstart-template.md)합니다.
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> 각 SQL Server VM에서 방화벽 구성
@@ -487,7 +487,7 @@ SQL Server 가용성 그룹의 경우 각 SQL Server VM은 도메인 계정으�
 1. 첫 번째 SQL Server **시작** 화면에서 **고급 보안이 포함된 Windows 방화벽**을 시작합니다.
 2. 왼쪽 창에서 **인바운드 규칙**을 선택합니다. 오른쪽 창에서 **새 규칙**을 클릭합니다.
 3. **규칙 유형**에 **포트**를 선택합니다.
-4. 포트에 대해 **TCP**를 지정하고 적절한 포트 번호를 입력합니다. 다음 예제를 참조하세요.
+4. 포트에 대해 **TCP**를 지정하고 적절한 포트 번호를 입력합니다. 다음 예제를 참조하십시오.
 
    ![SQL 방화벽](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 

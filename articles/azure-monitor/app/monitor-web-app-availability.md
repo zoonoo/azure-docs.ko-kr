@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9b04ca359a0c71a04e762452fa33345201f37e84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124323"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>웹 사이트의 가용성 및 응답성 모니터링
 웹앱 또는 웹 사이트를 서버에 배포한 후에 가용성 및 응답성을 모니터링하도록 테스트를 설정할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 애플리케이션에 웹 요청을 보냅니다. 애플리케이션이 응답하지 않거나 느리게 응답하는 경우 사용자에게 경고할 수 있습니다.
@@ -71,7 +71,7 @@ ms.locfileid: "54857151"
 
 * **경고 위치 임계값**: 최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 사이의 최적 관계는 **경고 위치 임계값** = **테스트 위치 수** - 2이고, 최소 테스트 위치 수는 5입니다.
 
-## <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
+## <a name="multi-step-web-tests"></a>다단계 웹 테스트
 URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 예를 들어 판매 웹 사이트를 모니터링하는 경우 장바구니에 항목을 제대로 추가할 수 있는지 테스트할 수 있습니다.
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Visual Studio Enterprise를 사용하여 웹 세션을 기록합니다.
 
     ![Visual Studio Enterprise 버전에서 웹 성능 및 부하 테스트 템플릿으로 프로젝트를 만듭니다.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *웹 성능 및 부하 테스트 템플릿이 보이지 않으십니까?* - Visual Studio Enterprise를 닫습니다. **Visual Studio 설치 관리자**를 열고 Visual Studio Enterprise 설치를 수정합니다. **개별 구성 요소** 아래에서 **웹 성능 및 부하 테스트 도구**를 선택합니다.
+   * *웹 성능 및 부하 테스트 템플릿이 보이지 않으십니까?* - Visual Studio Enterprise를 닫습니다. **Visual Studio 설치 관리자**를 열고 Visual Studio Enterprise 설치를 수정합니다. **개별 구성 요소** 아래에서 **웹 성능 및 부하 테스트 도구**를 선택합니다.
 
 2. .webtest 파일을 열고 기록을 시작합니다.
 
@@ -287,7 +287,7 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 > 성능 테스트 결과를 살펴 보려면 [라이브 스트림](../../azure-monitor/app/live-stream.md) 및 [프로필](../../azure-monitor/app/profiler.md)을 사용합니다.
 >
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>자동화
 * [PowerShell 스크립트를 사용하여 가용성 테스트를 자동으로 설정](../../azure-monitor/app/powershell.md#add-an-availability-test)합니다.
 * 경고가 발생하면 호출되는 [웹후크](../../azure-monitor/platform/alerts-webhooks.md)를 설정합니다.
 
@@ -329,7 +329,8 @@ Y 위치에서 X 경고 규칙은 새 가용성 테스트를 만들 때 기본�
 
 * *HTTPS가 지원됩니까?*
 
-    TLS 1.1 및 TLS 1.2를 지원합니다.
+    TLS 1.1 및 TLS 1.2를 지원합니다. 현재 확인 하지 않는 것 HTTPS 인증서 오류에 대 한 합니다.  
+
 * *"웹 테스트" 및 "가용성 테스트" 간의 차이가 있나요?*
 
     두 용어는 같은 의미로 참조할 수 있습니다. 가용성 테스트는 다단계 웹 테스트 외에 단일 URL ping 테스트를 포함한 보다 일반적인 용어입니다.

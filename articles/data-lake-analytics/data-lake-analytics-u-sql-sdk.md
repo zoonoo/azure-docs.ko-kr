@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089967"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Azure Data Lake U-SQL SDK를 사용하여 U-SQL 실행 및 테스트
 
@@ -32,11 +32,11 @@ Data Lake U-SQL SDK에는 다음과 같은 종속성이 필요합니다.
 - [Microsoft .NET Framework 4.6 이상](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 및 Windows SDK 10.0.10240.0 이상(이 문서에서는 CppSDK로 지칭함). CppSDK는 다음 두 가지 방법으로 다운로드할 수 있습니다.
 
-    - [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou)을 설치합니다. 프로그램 파일 폴더 아래에 \Windows Kits\10 폴더가 생성됩니다(예: C:\Program Files (x86)\Windows Kits\10\). 또한 \Windows Kits\10\Lib 아래에서 Windows 10 SDK 버전을 찾습니다. 이들 폴더가 보이지 않으면 Visual Studio를 다시 설치하고 설치하는 동중 Windows 10 SDK를 선택해야 합니다. Visual Studio와 함께 설치된 경우에는 U-SQL 로컬 컴파일러가 해당 버전을 자동으로 찾습니다.
+  - [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou)을 설치합니다. 프로그램 파일 폴더 아래에 \Windows Kits\10 폴더가 생성됩니다(예: C:\Program Files (x86)\Windows Kits\10\). 또한 \Windows Kits\10\Lib 아래에서 Windows 10 SDK 버전을 찾습니다. 이들 폴더가 보이지 않으면 Visual Studio를 다시 설치하고 설치하는 동중 Windows 10 SDK를 선택해야 합니다. Visual Studio와 함께 설치된 경우에는 U-SQL 로컬 컴파일러가 해당 버전을 자동으로 찾습니다.
 
     ![Data Lake Tools for Visual Studio의 Windows 10 SDK 로컬 실행](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - [Visual Studio용 Data Lake 도구](https://aka.ms/adltoolsvs)를 설치합니다. 미리 패키지된 Visual C++ 및 Windows SDK 파일은 C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK에서 찾을 수 있습니다. 이 경우 U-SQL 로컬 컴파일러는 이러한 종속성을 자동으로 찾을 수 없습니다. 이에 대한 CppSDK 경로를 지정해야 합니다. 파일을 다른 위치로 복사하거나 그대로 사용할 수 있습니다.
+  - [Visual Studio용 Data Lake 도구](https://aka.ms/adltoolsvs)를 설치합니다. 미리 패키지된 Visual C++ 및 Windows SDK 파일은 C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK에서 찾을 수 있습니다. 이 경우 U-SQL 로컬 컴파일러는 이러한 종속성을 자동으로 찾을 수 없습니다. 이에 대한 CppSDK 경로를 지정해야 합니다. 파일을 다른 위치로 복사하거나 그대로 사용할 수 있습니다.
 
 ## <a name="understand-basic-concepts"></a>기본 개념 이해
 
@@ -139,15 +139,15 @@ U-SQL 로컬 실행을 위해서는 지정된 데이터 루트가 로컬 저장�
 
 |인수|기본값|설명|
 |--------|-------------|-----------|
-|-CodeBehind|False|스크립트에는 .cs 코드 숨김이 있습니다.|
+|-CodeBehind|거짓|스크립트에는 .cs 코드 숨김이 있습니다.|
 |-CppSDK| |CppSDK 디렉터리입니다.|
 |-DataRoot| DataRoot 환경 변수|로컬 실행을 위한 데이터 루트이며, 기본값은 'LOCALRUN_DATAROOT' 환경 변수입니다.|
 |-MessageOut| |콘솔의 메시지를 파일에 덤프합니다.|
 |-Parallel|1|지정된 병렬 처리로 계획을 실행합니다.|
 |-References| |';'(세미콜론)으로 구분된 코드 참조의 추가 참조 어셈블리 또는 데이터 파일의 경로 목록입니다.|
-|-UdoRedirect|False|Udo 어셈블리 리디렉션 구성을 생성합니다.|
-|-UseDatabase|master|코드 숨김 임시 어셈블리 등록에 사용할 데이터베이스입니다.|
-|-Verbose|False|런타임의 자세한 출력을 표시합니다.|
+|-UdoRedirect|거짓|Udo 어셈블리 리디렉션 구성을 생성합니다.|
+|-UseDatabase|마스터|코드 숨김 임시 어셈블리 등록에 사용할 데이터베이스입니다.|
+|-Verbose|거짓|런타임의 자세한 출력을 표시합니다.|
 |-WorkDir|현재 디렉터리|컴파일러 사용 및 출력을 위한 디렉터리입니다.|
 |-RunScopeCEP|0|사용할 ScopeCEP 모드입니다.|
 |-ScopeCEPTempPath|temp|데이터 스트리밍에 사용할 임시 경로입니다.|
@@ -223,7 +223,7 @@ U-SQL 스크립트를 컴파일하고 작업 디렉터리, 참조 어셈블리 �
 
 프로그래밍 인터페이스는 모두 LocalRunHelper.exe에 있습니다. 이 인터페이스를 사용하여 U-SQL SDK 및 C# 테스트 프레임워크의 기능을 통합하여 U-SQL 스크립트 로컬 테스트의 크기를 조정할 수 있습니다. 이 문서에서는 이러한 인터페이스를 사용하여 U-SQL 스크립트를 테스트하는 방법을 보여 주기 위해 표준 C# 단위 테스트 프로젝트를 사용합니다.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>1단계: C# 단위 테스트 프로젝트 및 구성 만들기
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>1단계: 만들기 C# 단위 테스트 프로젝트 및 구성
 
 - 파일 > 새로 만들기 > 프로젝트 > Visual C# > 테스트 > 단위 테스트 프로젝트를 통해 C# 단위 테스트 프로젝트를 만듭니다.
 - 프로젝트에 대한 참조로 LocalRunHelper.exe를 추가합니다. LocalRunHelper.exe는 Nuget 패키지의 \build\runtime\LocalRunHelper.exe에 있습니다.
@@ -332,39 +332,39 @@ LocalRunHelper.exe는 U-SQL 로컬 컴파일, 실행 등을 위한 프로그래�
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|매개 변수|type|설명|
+|매개 변수|형식|설명|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|출력 메시지의 경우 콘솔을 사용하도록 null로 설정|
 
-**속성**
+**Properties**
 
-|자산|type|설명|
+|자산|종류|설명|
 |--------|----|-----------|
-|AlgebraPath|string|대수 파일의 경로입니다(대수 파일은 컴파일 결과 중 하나임).|
-|CodeBehindReferences|string|스크립트에 추가 코드 숨김 참조가 있으면 경로를 ';'으로 구분합니다.|
-|CppSdkDir|string|CppSDK 디렉터리입니다.|
-|CurrentDir|string|현재 디렉터리입니다.|
-|DataRoot|string|데이터 루트 경로입니다.|
-|DebuggerMailPath|string|디버거 메일 슬롯에 대한 경로입니다.|
+|AlgebraPath|문자열|대수 파일의 경로입니다(대수 파일은 컴파일 결과 중 하나임).|
+|CodeBehindReferences|문자열|스크립트에 추가 코드 숨김 참조가 있으면 경로를 ';'으로 구분합니다.|
+|CppSdkDir|문자열|CppSDK 디렉터리입니다.|
+|CurrentDir|문자열|현재 디렉터리입니다.|
+|DataRoot|문자열|데이터 루트 경로입니다.|
+|DebuggerMailPath|문자열|디버거 메일 슬롯에 대한 경로입니다.|
 |GenerateUdoRedirect|bool|어셈블리 로딩 리디렉션 오버라이드 구성을 생성하려는 경우에 사용합니다.|
 |HasCodeBehind|bool|스크립트에는 코드 숨김이 있습니다.|
-|InputDir|string|입력 데이터에 대한 디렉터리입니다.|
-|MessagePath|string|메시지 덤프 파일 경로입니다.|
-|OutputDir|string|출력 데이터에 대한 디렉터리입니다.|
-|병렬 처리|int|대수 실행을 위한 병렬 처리입니다.|
-|ParentPid|int|종료할 서비스 모니터에 대한 상위 모니터 PID입니다. 무시하려면 0 또는 음수로 설정합니다.|
-|ResultPath|string|결과 덤프 파일 경로입니다.|
-|RuntimeDir|string|런타임 디렉터리입니다.|
-|ScriptPath|string|스크립트를 찾을 수 있는 위치입니다.|
+|InputDir|문자열|입력 데이터에 대한 디렉터리입니다.|
+|MessagePath|문자열|메시지 덤프 파일 경로입니다.|
+|OutputDir|문자열|출력 데이터에 대한 디렉터리입니다.|
+|병렬 처리|ssNoversion|대수 실행을 위한 병렬 처리입니다.|
+|ParentPid|ssNoversion|종료할 서비스 모니터에 대한 상위 모니터 PID입니다. 무시하려면 0 또는 음수로 설정합니다.|
+|ResultPath|문자열|결과 덤프 파일 경로입니다.|
+|RuntimeDir|문자열|런타임 디렉터리입니다.|
+|ScriptPath|문자열|스크립트를 찾을 수 있는 위치입니다.|
 |Shallow|bool|단순 컴파일이거나 그렇지 않습니다.|
-|TempDir|string|임시 디렉터리|
-|UseDataBase|string|코드 숨김 임시 어셈블리 등록에 사용할 데이터베이스를 지정합니다. 기본값은 master입니다.|
-|WorkDir|string|기본 설정 작업 디렉터리입니다.|
+|TempDir|문자열|임시 디렉터리|
+|UseDataBase|문자열|코드 숨김 임시 어셈블리 등록에 사용할 데이터베이스를 지정합니다. 기본값은 master입니다.|
+|WorkDir|문자열|기본 설정 작업 디렉터리입니다.|
 
 
 **메서드**
 
-|방법|설명|Return|매개 변수|
+|메서드|설명|Return|매개 변수|
 |------|-----------|------|---------|
 |public bool DoCompile()|U-SQL 스크립트를 컴파일합니다.|성공 시 True입니다.| |
 |public bool DoExec()|컴파일된 결과를 실행합니다.|성공 시 True입니다.| |
@@ -379,7 +379,7 @@ E_CSC_SYSTEM_INTERNAL: 내부 오류입니다. 파일 또는 어셈블리 'Scope
 
 다음 항목을 확인하세요.
 
-- X64 환경인지 확인합니다. 빌드 대상 플랫폼 및 테스트 환경은 x64여야 합니다. 위의 **1단계: C# 단위 테스트 프로젝트 및 구성 만들기**를 참조하세요.
+- X64 환경인지 확인합니다. 빌드 대상 플랫폼 및 테스트 환경은 x64을 가리킵니다 **1 단계: 만들기 C# 단위 테스트 프로젝트 및 구성** 위에 있습니다.
 - NugetPackage\build\runtime\ 아래의 모든 종속 파일을 프로젝트 작업 디렉터리로 복사했는지 확인합니다.
 
 

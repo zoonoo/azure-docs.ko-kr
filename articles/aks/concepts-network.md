@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176240"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175669"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -20,16 +20,16 @@ ms.locfileid: "56176240"
 
 이 문서에서는 AKS에서 네트워킹을 애플리케이션에 제공하는 핵심 개념을 소개합니다.
 
-- [서비스](#services)
+- [Services](#services)
 - [Azure 가상 네트워크](#azure-virtual-networks)
 - [수신 컨트롤러](#ingress-controllers)
-- 네트워크 정책
+- [네트워크 정책](#network-policies)
 
 ## <a name="kubernetes-basics"></a>Kubernetes 기본 사항
 
 애플리케이션에 액세스하거나 애플리케이션 구성 요소가 서로 통신할 수 있도록 Kubernetes에서 추상화 계층을 가상 네트워킹에 제공합니다. Kubernetes 노드는 가상 네트워크에 연결되고, Pod에 대한 인바운드 및 아웃바운드 연결을 제공할 수 있습니다. *kube-proxy* 구성 요소가 각 노드에서 실행되어 이러한 네트워크 기능을 제공합니다.
 
-Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포트에서 직접 액세스할 수 있도록 Pod를 논리적으로 그룹화합니다. 트래픽은 *부하 분산 장치*를 사용하여 분산시킬 수도 있습니다. 더 복잡한 애플리케이션 트래픽 라우팅은 *수신 컨트롤러*를 사용하여 수행할 수도 있습니다. Pod에 대한 네트워크 트래픽의 보안 및 필터링은 Kubernetes *네트워크 정책*을 사용하여 수행할 수 있습니다.
+Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포트에서 직접 액세스할 수 있도록 Pod를 논리적으로 그룹화합니다. 트래픽은 *부하 분산 장치*를 사용하여 분산시킬 수도 있습니다. 더 복잡한 애플리케이션 트래픽 라우팅은 *수신 컨트롤러*를 사용하여 수행할 수도 있습니다. Kubernetes를 사용 하 여 보안 및 pod에 대 한 네트워크 트래픽 필터링 불가능 *네트워크 정책을* (에서 AKS 미리 보기).
 
 또한 Azure 플랫폼은 AKS 클러스터에 대한 가상 네트워킹을 간소화하는 데에도 도움이 됩니다. Kubernetes 부하 분산 장치를 만들면 기본 Azure 부하 분산 장치 리소스가 만들어지고 구성됩니다. Pod에서 네트워크 포트를 열면 해당 Azure 네트워크 보안 그룹 규칙이 구성됩니다. HTTP 애플리케이션 라우팅의 경우 새 수신 경로가 구성될 때 Azure에서 *외부 DNS*를 구성할 수도 있습니다.
 
@@ -68,7 +68,7 @@ AKS에서는 다음 두 가지 네트워크 모델 중 하나를 사용하는 �
 
 *kubenet* 네트워킹 옵션은 AKS 클러스터 만들기에 대한 기본 구성입니다. *kubenet*을 사용하면 노드는 Azure Virtual Network 서브넷의 IP 주소를 얻습니다. Pod는 논리적으로 다른 주소 공간에서 Azure Virtual Network 노드 서브넷에 대한 IP 주소를 받습니다. 그런 후에 NAT(Network Address Translation)는 Pod가 Azure Virtual Network의 리소스에 연결할 수 있도록 구성됩니다. 트래픽의 원본 IP 주소는 노드의 기본 IP 주소로 NAT됩니다.
 
-노드는 [kubenet][kubenet] Kubernetes 플러그인을 사용합니다. Azure 플랫폼에서 가상 네트워크를 만들고 구성하거나 기존 가상 네트워크 서브넷에 AKS 클러스터를 배포하도록 선택할 수 있습니다. 다시 말해, Pod 및 라우팅 가능한 IP 주소를 수신하는 노드만 NAT를 사용하여 AKS 클러스터 외부의 다른 리소스와 통신합니다. 이 방법을 사용하면 네트워크 공간에서 Pod가 사용하도록 예약해야 하는 IP 주소의 수가 크게 줄어듭니다.
+노드는 [kubenet][kubenet] Kubernetes 플러그인을 사용합니다. Azure 플랫폼에서 가상 네트워크를 만들고 구성하거나 기존 가상 네트워크 서브넷에 AKS 클러스터를 배포하도록 선택할 수 있습니다. 마찬가지로 노드만 라우팅할 수 있는 IP 주소를 받고 pod NAT를 사용 하 여 AKS 클러스터 외부 다른 리소스와 통신할 수 있습니다. 이 방법을 사용하면 네트워크 공간에서 Pod가 사용하도록 예약해야 하는 IP 주소의 수가 크게 줄어듭니다.
 
 자세한 내용은 [AKS 클러스터에 대한 kubenet 네트워킹 구성][aks-configure-kubenet-networking]을 참조하세요.
 
@@ -102,21 +102,21 @@ AKS에서는 NGINX와 같은 도구를 사용하여 수신 리소스를 만들�
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹
 
-네트워크 보안 그룹은 AKS 노드와 같은 VM의 트래픽을 필터링합니다. LoadBalancer와 같은 Service를 만들 때 Azure 플랫폼은 필요한 모든 네트워크 보안 그룹 규칙을 자동으로 구성합니다. AKS 클러스터의 Pod에 대한 트래픽을 필터링하는 네트워크 보안 그룹 규칙은 수동으로 구성하지 않습니다. Kubernetes Service 매니페스트의 일부로 필요한 포트 및 전달을 정의하고, Azure 플랫폼에서 적절한 규칙을 만들거나 업데이트하도록 합니다. 다음 섹션인 pod에 자동으로 트래픽 필터 규칙 적용에 설명된 것처럼 네트워크 정책을 사용할 수 있습니다.
-
-SSH와 같은 트래픽에 대한 기본 네트워크 보안 그룹 규칙이 있습니다. 이러한 기본 규칙은 클러스터를 관리하고 액세스 문제를 해결하기 위한 것입니다. 이러한 기본 규칙이 삭제되면 AKS 관리와 관련된 문제가 발생할 수 있으며 SLO(서비스 수준 목표)를 위반할 수 있습니다.
+네트워크 보안 그룹은 AKS 노드와 같은 VM의 트래픽을 필터링합니다. LoadBalancer와 같은 Service를 만들 때 Azure 플랫폼은 필요한 모든 네트워크 보안 그룹 규칙을 자동으로 구성합니다. AKS 클러스터의 Pod에 대한 트래픽을 필터링하는 네트워크 보안 그룹 규칙은 수동으로 구성하지 않습니다. Kubernetes Service 매니페스트의 일부로 필요한 포트 및 전달을 정의하고, Azure 플랫폼에서 적절한 규칙을 만들거나 업데이트하도록 합니다. 이용할 수 있습니다 네트워크 정책, 다음 섹션에 설명 된 대로를 pod에 트래픽 필터 규칙을 자동으로 적용 합니다.
 
 ## <a name="network-policies"></a>네트워크 정책
 
 기본적으로 AKS 클러스터의 모든 pod는 트래픽을 제한 없이 송수신할 수 있습니다. 보안 향상을 위해 트래픽의 흐름을 제어하는 규칙을 정의할 수도 있습니다. 보통 백 엔드 애플리케이션은 필요한 프런트 엔드 서비스에만 제공되고, 데이터베이스 구성 요소는 연결된 애플리케이션 계층에서만 액세스할 수 있습니다.
 
-네트워크 정책은 사용자가 pod 간 트래픽 흐름을 제어할 수 있는 Kubernetes 기능입니다. 할당된 레이블, 네임스페이스 또는 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 보안 그룹은 pod가 아닌 AKS 노드에 더 적합합니다. 네트워크 정책을 통해 트래픽 흐름을 제어하기 위한 더 적합한 클라우드 네이티브 방법을 사용할 수 있습니다. Pod는 AKS 클러스터에서 동적으로 생성되므로 필요한 네트워크 정책을 자동으로 적용할 수 있습니다.
+네트워크 정책에는에서 현재 미리 보기는 pod 간에 트래픽 흐름을 제어할 수 있습니다 AKS Kubernetes 기능입니다. 할당된 레이블, 네임스페이스 또는 트래픽 포트와 같은 설정에 따라 트래픽을 허용하거나 거부하도록 선택할 수 있습니다. 네트워크 보안 그룹은 pod가 아닌 AKS 노드에 더 적합합니다. 네트워크 정책을 통해 트래픽 흐름을 제어하기 위한 더 적합한 클라우드 네이티브 방법을 사용할 수 있습니다. Pod는 AKS 클러스터에서 동적으로 생성되므로 필요한 네트워크 정책을 자동으로 적용할 수 있습니다.
 
 자세한 내용은 [AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호][use-network-policies]를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 AKS 네트워킹을 시작하려면 [kubenet][aks-configure-kubenet-networking]이나 [Azure CNI][aks-configure-advanced-networking]를 사용하여 자체 IP 주소 범위로 AKS 클러스터를 만들고 구성합니다.
+
+관련된 모범 사례를 참조 하세요 [네트워크 연결 및 AKS에서 보안에 대 한 유용한][operator-best-practices-network]합니다.
 
 Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -148,3 +148,4 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
 [use-network-policies]: use-network-policies.md
+[operator-best-practices-network]: operator-best-practices-network.md

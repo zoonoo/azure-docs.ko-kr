@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4f72738d0ca9b8c6dc170892a985d821923a4405
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894022"
 ---
 # <a name="filters-and-dynamic-manifests"></a>필터 및 동적 매니페스트
 
@@ -34,7 +34,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 ## <a name="overview"></a>개요
 스트리밍 라이브 이벤트 또는 주문형 비디오 등의 콘텐츠를 고객에게 전달할 경우 다양한 네트워크 조건의 다양한 디바이스에 고품질 비디오를 제공하는 것이 목표입니다. 이 목표를 위해 다음을 수행합니다.
 
-* 사용자의 스트림을 다중 비트 전송률([가변 품질](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) 비디오 스트림으로 인코딩(품질 및 네트워크 상태를 관리) 
+* 사용자의 스트림을 다중 비트 전송률([가변 품질](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) 비디오 스트림으로 인코딩(품질 및 네트워크 상태를 관리) 
 * Media Services [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징(여러 디바이스의 스트리밍 관리 가능) Media Services서 다음과 같은 적응 비트 전송률 스트리밍 기술 제공을 지원합니다. HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 
 
 ### <a name="manifest-files"></a>매니페스트 파일
@@ -195,7 +195,7 @@ Media Services 2.17 버전부터 자산에 대한 필터를 정의할 수 있습
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [고객에 콘텐츠 배달 개요](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png

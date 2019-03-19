@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 2051a14532f00f24be0c8cb0ca03a7b2b4078a45
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905157"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 Net# 인공신경망 사양 언어에 대한 가이드
 
@@ -56,7 +56,7 @@ Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 �
 
 ## <a name="supported-customizations"></a>지원되는 사용자 지정
 
-Azure Machine Learning Studio에서 만드는 신경망 모델의 아키텍처는 Net#을 사용하여 광범위하게 사용자 지정할 수 있습니다. 다음을 수행할 수 있습니다.
+Azure Machine Learning Studio에서 만드는 신경망 모델의 아키텍처는 Net#을 사용하여 광범위하게 사용자 지정할 수 있습니다. 다음을 수행할 수 있음:
 
 + 숨겨진 계층을 만들고 각 계층의 노드 수를 제어합니다.
 + 계층이 서로 연결되는 방법을 지정합니다.
@@ -216,17 +216,16 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 + **UpperPad** 및 **LowerPad**: (선택 사항) 사용할 안쪽 여백 크기를 더 구체적으로 제어합니다. **중요:** 위의 **Padding** 속성이 정의되지 ***않은*** 경우에만 이러한 특성을 정의할 수 있습니다. 값은 길이가 번들 인자 수인 정수 값 튜플이어야 합니다. 이러한 특성을 지정하면 "더미" 노드가 입력 계층에 있는 각 차원의 아래쪽 및 위쪽 끝에 추가됩니다. 각 차원의 아래쪽 및 위쪽 끝에 추가되는 노드 수는 각각 **LowerPad**[i] 및 **UpperPad**[i]를 통해 결정됩니다.
 
     커널이 "실제" 노드에만 해당하고 "더미" 노드에 해당하지 않도록 하려면 다음 조건을 충족해야 합니다.
-      - **LowerPad**의 각 구성 요소는 `KernelShape[d]/2`보다 작아야 합니다.
-      - **UpperPad**의 각 구성 요소는 `KernelShape[d]/2`보다 크지 않아야 합니다.
-      - 이러한 특성의 기본값은 모든 구성 요소가 0과 같은 튜플입니다.
+  - **LowerPad**의 각 구성 요소는 `KernelShape[d]/2`보다 작아야 합니다.
+  - **UpperPad**의 각 구성 요소는 `KernelShape[d]/2`보다 크지 않아야 합니다.
+  - 이러한 특성의 기본값은 모든 구성 요소가 0과 같은 튜플입니다.
 
     **Padding** = true로 설정하면 최대한 많은 안쪽 여백을 사용하여 "실제" 입력 내 커널의 "중심"을 유지할 수 있습니다. 이 경우 출력 크기를 계산하는 수식이 약간 변경됩니다. 일반적으로 출력 크기 *D*는 `D = (I - K) / S + 1`로 계산됩니다. 여기서 `I`는 입력 크기, `K`는 커널 크기, `S`는 진행 속도, `/`는 정수 나누기(0으로 반올림)입니다. UpperPad = [1, 1]로 설정한 경우 입력 크기 `I`는 사실상 29이므로 `D = (29 - 5) / 2 + 1 = 13`입니다. 그러나 **Padding** = true인 경우 기본적으로 `I`는 `K - 1`만큼 증가합니다. 따라서 `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`입니다. **UpperPad** 및 **LowerPad** 값을 지정하면 **Padding** = true로 설정한 경우보다 안쪽 여백을 훨씬 구체적으로 제어할 수 있습니다.
 
 나선형 네트워크 및 해당 애플리케이션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-+ [http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
-+ [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)
++ [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
++ [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## <a name="pooling-bundles"></a>풀링 번들
 
@@ -252,13 +251,13 @@ hidden P1 [5, 12, 12]
 
 풀링 계층에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-+ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf)(섹션 3.4)
-+ [http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
-+ [http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
++ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf)(섹션 3.4)
++ [https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
++ [https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
 ## <a name="response-normalization-bundles"></a>응답 정규화 번들
 
-**응답 정규화**는 Geoffrey Hinton 외 연구자가 [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 논문에서 처음 도입한 로컬 정규화 체계입니다.
+**응답 정규화**는 Geoffrey Hinton 외 연구자가 [ImageNet Classification with Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 논문에서 처음 도입한 로컬 정규화 체계입니다.
 
 응답 정규화는 신경망에서 일반화를 지원하는 데 사용됩니다. 신경 하나가 매우 높은 활성화 수준에서 실행되면 로컬 응답 정규화 계층에서는 주위 신경의 활성화 수준을 억제합니다. 이 작업에는 매개 변수 3개(`α`, `β` 및 `k`)와 나선형 구조(또는 환경 셰이프)를 사용합니다. 대상 계층 **y**의 모든 신경은 원본 계층의 신경 **x**에 해당합니다. **y**의 활성화 수준은 다음 공식으로 제공됩니다. 여기서 `f`는 신경의 활성화 수준이고 `Nx`는 나선형 구조를 통해 정의된 대로 **x**의 환경에 신경이 포함된 집합 또는 커널입니다.
 
@@ -461,6 +460,6 @@ output Digit [10] from Hid3 all;
 + 총 노드 수는 계층의 선언된 차원인 [50, 5, 5]를 사용하여 `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`와 같이 계산할 수 있습니다.
 + `Sharing[d]`가 `d == 0`에 대해서만 False이므로 커널 수는 `MapCount * NodeCount\[0] = 10 * 5 = 50`입니다.
 
-## <a name="acknowledgements"></a>감사의 말
+## <a name="acknowledgements"></a>승인
 
-신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, Machine Learning) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 애플리케이션에 사용됩니다. 자세한 내용은 [Azure Machine Learning Studio의 신경망 - Net# 소개](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)를 참조하세요.
+신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, Machine Learning) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 애플리케이션에 사용됩니다. 자세한 내용은 [Azure Machine Learning Studio의 신경망 - Net# 소개](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)를 참조하세요.

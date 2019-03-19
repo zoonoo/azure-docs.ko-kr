@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: bce00300e62b3ea04331530bbda2c16f0ddd2ab3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 840445b2c1a28d294027c7fbfda9e6bf6e431f14
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990706"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure Stack의 storage 계정 관리
 
@@ -37,7 +37,7 @@ ms.locfileid: "57759375"
 
 기본적으로 처음 10 개의 계정이 표시 됩니다. 자세히 인출 하도록 선택할 수 있습니다를 클릭 하 여는 **로드** 목록의 맨 아래에 링크 합니다.
 
-또는
+OR
 
 수를 특정 저장소 계정에 관심이 있다면 **필터링 하 고 관련 계정 인출** 만 합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "57759375"
 **계정에 대 한 필터링 합니다.**
 
 1. 선택 **필터** 창의 맨 위에 있는 합니다.
-2. 필터 창에서 해당 지정할 수 있습니다 **계정 이름**, * * 구독 ID로, 또는 **상태** 표시할 저장소 계정 목록을 세밀 하 게 합니다. 적절 하 게 사용 합니다.
+2. 필터 창에서 해당 지정할 수 있습니다 **계정 이름**를 **구독 ID**, 또는 **상태** 표시할 저장소 계정 목록을 세밀 하 게 합니다. 적절 하 게 사용 합니다.
 3. **업데이트**를 선택합니다. 목록에 따라 새로 고쳐야 합니다.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)

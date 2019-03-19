@@ -1,7 +1,7 @@
 ---
 title: Linux에서 Java Enterprise 지원 - Azure App Service | Microsoft Docs
 description: Linux 기반의 Azure App Service와 Wildfly를 사용하여 Java Enterprise 앱을 배포하는 방법을 안내하는 개발자 가이드입니다.
-keywords: azure app service, web app, linux, oss, java, wildfly, enterprise
+keywords: azure 앱 서비스, 웹 앱, linux, oss, java, wildfly, enterprise, java ee을 jee, javaee
 services: app-service
 author: rloutlaw
 manager: angerobe
@@ -13,16 +13,19 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 408141650a11a81f0c6000c6e7927af8333e2afe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 98e00eb382962d2364adda93b1a5b24fdef832eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101774"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java Enterprise 가이드
 
-Linux 기반의 Azure App Service는 Java 개발자가 JEE(Java Enterprise) 애플리케이션을 빌드하고, 완벽하게 관리되는 Linux 기반 서비스에 배포하고, 규모를 조정할 수 있게 도와줍니다.  기본 Java Enterprise 런타임 환경은 오픈 소스 [Wildfly](https://wildfly.org/) 애플리케이션 서버입니다.
+> [!NOTE] 
+> App Service Linux에서 Java Enterprise Edition은 현재 미리 보기 중입니다. 이 스택이 **되지** 프로덕션 지향 작업에 대 한 것이 좋습니다. 참조 하십시오 합니다 [Java 개발자 가이드](app-service-linux-java.md) 우리의 Java SE 및 Tomcat 스택에 대 한 자세한 내용은 합니다.
+
+Linux의 azure App Service에 Java 개발자가 빌드 및 배포를 완전히 관리 되는 Linux 기반 서비스에 Java Enterprise (Java EE) 응용 프로그램을 확장할 수 있습니다.  기본 Java Enterprise 런타임 환경은 오픈 소스 [Wildfly](https://wildfly.org/) 애플리케이션 서버입니다.
 
 이 가이드에서는 Linux용 App Service를 사용하는 Java Enterprise 개발자를 위해 핵심 개념 및 지침을 제공합니다. Linux용 Azure App Service를 사용하여 Java 애플리케이션을 배포해본 경험이 없다면 [Java 빠른 시작](quickstart-java.md)을 먼저 완료해야 합니다. Java Enterprise에 국한되지 않는 Linux용 App Service 사용에 대한 질문의 답은 [Java 개발자 가이드](app-service-linux-java.md) 및 [App Service Linux FAQ](app-service-linux-faq.md)에서 찾을 수 있습니다.
 
@@ -41,7 +44,7 @@ Linux 기반의 App Service에서 실행 중인 WildFly 애플리케이션 서�
 - 메시징 공급자 구성
 - Wildfly 서버 구성에 다른 모듈 및 종속성을 추가합니다.
 
- Wildfly는 작동되어 실행되지만 애플리케이션은 시작되기 전에 스크립트가 실행됩니다. 스크립트는 `/opt/jboss/wildfly/bin/jboss-cli.sh`에서 호출된 [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)를 사용하여 서버를 시작한 후 필요한 구성 또는 변경 사항을 사용하여 애플리케이션 서버를 구성해야 합니다. 
+  Wildfly는 작동되어 실행되지만 애플리케이션은 시작되기 전에 스크립트가 실행됩니다. 스크립트는 `/opt/jboss/wildfly/bin/jboss-cli.sh`에서 호출된 [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)를 사용하여 서버를 시작한 후 필요한 구성 또는 변경 사항을 사용하여 애플리케이션 서버를 구성해야 합니다. 
 
 Wildfly를 구성하는 데 CLI의 대화형 모드를 사용하지 마십시오. 대신 다음과 같은 `--file` 명령을 사용하여 JBoss CLI에 명령 스크립트를 제공할 수 있습니다.
 

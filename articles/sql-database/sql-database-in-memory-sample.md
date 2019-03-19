@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: b36db929d1ed6487f0da72bea5415d6ca4223b92
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756049"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005731"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
 
@@ -25,7 +25,7 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 
 이 문서에는 Azure SQL Database의 columnstore 인덱스뿐만 아니라 메모리 내 OLTP의 사용을 보여 주는 두 개의 샘플이 표시됩니다.
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 - [메모리 내 OLTP 개요 및 사용 시나리오](https://msdn.microsoft.com/library/mt774593.aspx)(고객 사례 연구 및 시작 정보에 대한 참조 포함)
 - [메모리 내 OLTP에 대한 설명서](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Columnstore 인덱스 가이드](https://msdn.microsoft.com/library/gg492088.aspx)
@@ -180,21 +180,21 @@ ostress.exe용 이전 T-SQL 스크립트의 *_ondisk* 버전을 만들려면 *_i
 
 VM 또는 선택한 호스트에서 RML(Replay Markup Language) 유틸리티를 설치합니다. 유틸리티는 ostress.exe를 포함합니다.
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 - [메모리 내 OLTP에 대한 샘플 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx)의 ostress.exe 설명
 - [메모리 내 OLTP에 대한 샘플 데이터베이스](https://msdn.microsoft.com/library/mt465764.aspx)
-- [ostress.exe 설치에 대한 블로그](https://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
+- [ostress.exe 설치에 대한 블로그](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx)
 
 
 
 <!--
 dn511655.aspx is for SQL 2014,
 [Extensions to AdventureWorks to Demonstrate In-Memory OLTP]
-(http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
+(https://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
 
 whereas for SQL 2016+
 [Sample Database for In-Memory OLTP]
-(http://msdn.microsoft.com/library/mt465764.aspx)
+(https://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
 
@@ -244,9 +244,9 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 
 1. 이전 실행으로 삽입된 모든 데이터를 삭제하도록 SSMS에서 다음 명령을 실행하여 데이터베이스를 다시 설정합니다.
-```sql
-EXECUTE Demo.usp_DemoReset;
-```
+   ```sql
+   EXECUTE Demo.usp_DemoReset;
+   ```
 
 2. ostress.exe 명령줄을 편집하여 모든 *_inmem*을 *_ondisk*로 대체합니다.
 
@@ -277,13 +277,13 @@ OLTP 워크로드의 실시간 분석의 경우 비클러스터형 columnstore �
 
 
 1. Azure Portal을 사용하여 샘플에서 새로운 AdventureWorksLT 데이터베이스를 만듭니다.
- - 정확한 이름을 사용합니다.
- - Premium 서비스 계층을 선택합니다.
+   - 정확한 이름을 사용합니다.
+   - Premium 서비스 계층을 선택합니다.
 
 2. [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql)을 클립보드에 복사합니다.
- - T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
- - 스크립트는 차원 테이블과 두 개의 팩트 테이블을 만듭니다. 팩트 테이블은 각각 350만 개의 행으로 채워집니다.
- - 스크립트는 완료하는 데 15분 정도 걸릴 수 있습니다.
+   - T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
+   - 스크립트는 차원 테이블과 두 개의 팩트 테이블을 만듭니다. 팩트 테이블은 각각 350만 개의 행으로 채워집니다.
+   - 스크립트는 완료하는 데 15분 정도 걸릴 수 있습니다.
 
 3. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. 다음과 같이 **CREATE INDEX** 문의 **COLUMNSTORE** 키워드가 중요합니다.<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 

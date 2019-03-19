@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/19/2018
-ms.openlocfilehash: 05dfece2a2e69c5cdb3f08b51424720a1c2898db
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561943"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849876"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure Automation을 사용하여 Azure SQL 데이터베이스 관리
 
@@ -33,11 +33,11 @@ Azure Automation에 의해 자동으로 실행되도록 클라우드 관리 작�
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Azure Automation을 통해 Azure SQL 데이터베이스 관리 향상
 
-Azure SQL Database는 [Azure PowerShell 도구](/powershell/azure/overview)에서 사용할 수 있는 [Azure SQL Database PowerShell cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql)를 이용하여 Azure Automation에서 관리할 수 있습니다. Azure Automation에서는 이러한 Azure SQL Database PowerShell cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 SQL DB 관리 작업을 모두 수행할 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
+Azure SQL Database는 [Azure PowerShell 도구](/powershell/azure/overview)에서 사용할 수 있는 [Azure SQL Database PowerShell cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql)를 이용하여 Azure Automation에서 관리할 수 있습니다. Azure Automation에서는 이러한 Azure SQL Database PowerShell cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 SQL DB 관리 작업을 모두 수행할 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
 
 또한 Azure Automation에서 PowerShell을 통해 SQL 명령을 실행하여 SQL 서버와 직접 통신할 수 있습니다.
 
-[Azure Automation Runbook 갤러리](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/)에는 Azure SQL 데이터베이스, 다른 Azure 서비스 및 타사 시스템의 관리 자동화를 시작할 수 있는 다양한 제품 팀 및 커뮤니티 Runbook이 포함되어 있습니다. Runbook 갤러리에는 다음이 포함됩니다.
+[Azure Automation Runbook 갤러리](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/)에는 Azure SQL 데이터베이스, 다른 Azure 서비스 및 타사 시스템의 관리 자동화를 시작할 수 있는 다양한 제품 팀 및 커뮤니티 Runbook이 포함되어 있습니다. Runbook 갤러리에는 다음이 포함됩니다.
 
 - [SQL Server 데이터베이스에 대해 SQL 쿼리를 실행 합니다.](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 - [일정에 따라 Azure SQL Database를 세로로(위쪽 또는 아래쪽) 조정합니다.](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
@@ -50,4 +50,4 @@ Azure Automation의 기본 사항과 Azure Automation을 사용하여 SQL 데이
 
 - [Azure Automation 개요](../automation/automation-intro.md)
 - [내 첫 번째 runbook](../automation/automation-first-runbook-graphical.md)
-- [Azure Automation: 클라우드의 SQL 에이전트](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
+- [Azure Automation: 클라우드의 SQL 에이전트](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 

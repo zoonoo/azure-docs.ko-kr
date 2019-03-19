@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 54d98c02ee9e5202c09e333843f8c16955f4e2d4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: bf7391ea83adf852be0f989a82e89d7f316f2f85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090545"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 
@@ -196,7 +196,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
     >콘텐츠를 호스팅하는 사이트에서 CORS를 사용할 수 있고 CORS 요청을 테스트할 수 있는지 확인하려면 [test-cors.org](https://test-cors.org/) 웹 사이트로 이동합니다. 
 
 * 제공된 콘텐츠는 **HTTPS**를 통해 보호됩니다.
-* 모든 링크, CSS 콘텐츠 및 이미지에 대해 *절대 URL*(예: *https://yourdomain/content*)을 사용합니다.
+* 사용 중인 *절대 URL*와 같은 `https://yourdomain/content`, 모든 링크, CSS 콘텐츠 및 이미지에 대 한 합니다.
 
 ## <a name="step-5-configure-your-content-definition"></a>5단계: 콘텐츠 정의 구성
 `ContentDefinition`을 구성하려면 다음을 수행합니다.

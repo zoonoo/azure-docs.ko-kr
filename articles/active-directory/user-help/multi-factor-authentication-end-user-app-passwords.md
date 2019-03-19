@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에서 앱 암호를 관리하는 방법 | Microsoft Docs
-description: 이 페이지는 사용자가 앱 암호란 무엇이며 2단계 인증과 관련해서 암호가 어떤 용도로 사용되는지를 이해하는 데 도움이 됩니다.
+title: 앱 암호-Azure Active Directory를 관리 하는 방법 | Microsoft Docs
+description: 앱 암호 및 무엇 인지 알아봅니다 2 단계 인증 관련 하 여 사용 합니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,13 +12,14 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdcd078714d8311cf59471492187314183de28b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187307"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177401"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>2단계 인증을 위한 앱 암호 관리
 
@@ -88,7 +89,7 @@ MyApps 포털을 통해 앱 암호를 만들고 삭제할 수 있습니다.
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. https://portal.office.com으로 이동하고 **Office 365 포털** 페이지의 오른쪽 위에 있는 **설정** 아이콘을 선택한 다음, **추가 보안 확인**을 확장합니다.
+2. 로 이동 [ https://portal.office.com ](https://portal.office.com)를 선택 합니다 **설정** 의 오른쪽 위에 있는 아이콘을 **Office 365 포털** 페이지를 차례로 확장 한 다음 **추가 보안 확인**합니다.
 
     ![확장된 추가 보안 확인 영역을 보여 주는 Office 포털](media/security-info/security-info-o365password.png)
 
@@ -104,7 +105,7 @@ MyApps 포털을 통해 앱 암호를 만들고 삭제할 수 있습니다.
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. https://portal.office.com으로 이동하고 **Office 365 포털** 페이지의 오른쪽 위에 있는 **설정** 아이콘을 선택한 다음, **추가 보안 확인**을 선택합니다.
+2. 로 이동 [ https://portal.office.com ](https://portal.office.com)를 선택 합니다 **설정** 의 오른쪽 위에 있는 아이콘을 **Office 365 포털** 페이지를 선택한 **추가 보안 확인**합니다.
 
 3. **앱 암호 만들기 및 관리**라는 텍스트를 선택하여 **앱 암호** 페이지를 엽니다.
 

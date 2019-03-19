@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245836"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891089"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
@@ -36,7 +36,7 @@ Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있�
 
 * **Azure 구독**. 아직 없을 경우 [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free/)를 참조하세요.
 * [**Linux 데이터 과학 VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). 이 VM 프로비전에 대한 자세한 내용은 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md)을 참조하세요.
-* [X2Go](http://wiki.x2go.org/doku.php) . **X2Go 클라이언트**설치 및 구성에 대한 자세한 내용은 [X2Go 클라이언트 설치 및 구성](linux-dsvm-intro.md#installing-and-configuring-x2go-client)을 참조하세요.
+* [X2Go](https://wiki.x2go.org/doku.php) . **X2Go 클라이언트**설치 및 구성에 대한 자세한 내용은 [X2Go 클라이언트 설치 및 구성](linux-dsvm-intro.md#installing-and-configuring-x2go-client)을 참조하세요.
 * 더 부드러운 스크롤 경험을 원할 경우 VMS FireFox 브라우저의 about:config에서 gfx.xrender.enabled 플래그를 전환합니다. [여기에서 자세한 내용을 알아보세요](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). *mousewheel.enable_pixel_scrolling*을 False로 전환해 보세요. [여기의 지침을 참조하세요.](https://support.mozilla.org/en-US/questions/981140)
 * **AzureML 계정**. 아직 없을 경우 [AzureML 홈 페이지](https://studio.azureml.net/)에서 새 계정을 등록합니다. 시작할 수 있도록 무료 사용 계층을 제공합니다.
 
@@ -52,7 +52,7 @@ Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있�
 
 데이터를 다운로드하려면 터미널 창을 열고 다음 명령을 실행합니다.
 
-    wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
 다운로드한 파일은 머리글 행이 없으므로 머리글이 있는 다른 파일을 만듭니다. 다음 명령을 실행하여 적합한 머리글이 있는 파일을 만듭니다.
 
@@ -263,7 +263,7 @@ XGBoost는 python 또는 명령줄에서 호출할 수도 있습니다.
 Python을 사용하여 개발하는 경우를 위해 Anaconda Python 배포 2.7 및 3.5가 DSVM에 설치되었습니다.
 
 > [!NOTE]
-> Anaconda 배포에는 다른 버전 및/또는 패키지가 설치된 Python용 사용자 지정 환경을 만드는 데 사용할 수 있는 [Conda](http://conda.pydata.org/docs/index.html)가 포함되어 있습니다.
+> Anaconda 배포에는 다른 버전 및/또는 패키지가 설치된 Python용 사용자 지정 환경을 만드는 데 사용할 수 있는 [Conda](https://conda.pydata.org/docs/index.html)가 포함되어 있습니다.
 >
 >
 
@@ -318,21 +318,19 @@ DSVM에서 Anaconda 배포에는 Jupyter 노트북, Python R을 공유하는 플
 
 > [!NOTE]
 > 현재 커널의 Jupyter Notebook에서 (`pip` 명령을 통해) Python 패키지 관리자를 사용하려면 다음과 같이 코드 셀에 다음 명령을 사용합니다.
-  ```python
-   import sys
-   ! {sys.executable} -m pip install numpy -y
-  ```
->
->
-
+>   ```python
+>    import sys
+>    ! {sys.executable} -m pip install numpy -y
+>   ```
+> 
+> 
+> 
 > [!NOTE]
 > 현재 커널의 Jupyter Notebook에서 (`conda` 명령을 통해) Conda 설치 관리자를 사용하려면 다음과 같이 코드 셀에 다음 명령을 사용합니다.
-  ```python
-   import sys
-   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-  ```
->
->
+>   ```python
+>    import sys
+>    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+>   ```
 
 몇 가지 샘플 노트북이 VM에 이미 설치되어 있습니다.
 
@@ -515,7 +513,7 @@ PostgreSQL용 대화형 터미널인 psql을 기본 제공 postgres 사용자로
 
 *3d* 가 자주 발생하는 대부분의 메일은 명백하게 스팸이므로 메일을 분류하는 예측 모델을 빌드하기 위한 유용한 기능이 될 수 있습니다.
 
-PostgreSQL 데이터베이스에 저장된 데이터를 사용하여 기계 학습을 수행하려는 경우 [MADlib](http://madlib.incubator.apache.org/)를 사용하는 것이 좋습니다.
+PostgreSQL 데이터베이스에 저장된 데이터를 사용하여 기계 학습을 수행하려는 경우 [MADlib](https://madlib.incubator.apache.org/)를 사용하는 것이 좋습니다.
 
 ## <a name="sql-server-data-warehouse"></a>SQL Server 데이터 웨어하우스
 Azure SQL Data Warehouse는 거대한 양의 관계형 및 비관계형 데이터를 처리할 수 있는 클라우드 기반 규모 확장 데이터베이스입니다. 자세한 내용은 [Azure SQL Data Warehouse란?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

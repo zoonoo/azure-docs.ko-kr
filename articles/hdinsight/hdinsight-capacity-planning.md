@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: b35c5073f2b19523010528800c2a989d5de5b448
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716143"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848016"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -44,7 +44,7 @@ Azure Storage 계정 또는 Azure Data Lake Storage에 해당하는 기본 스�
 
 데이터를 포함하는 스토리지 계정 또는 Data Lake Storage가 이미 있으며 이 스토리지를 클러스터의 기본 스토리지로 사용하려면 같은 위치에 클러스터를 배포해야 합니다.
 
-### <a name="storage-size"></a>저장소 크기
+### <a name="storage-size"></a>스토리지 크기
 
 HDInsight 클러스터를 배포한 후에 추가 Azure Storage 계정을 연결하거나 다른 Data Lake Storage에 액세스할 수 있습니다. 모든 저장소 계정은 클러스터와 동일한 위치에 있어야 합니다. Data Lake Storage는 다른 위치에 있을 수 있으며 이 경우 데이터 읽기/쓰기 대기 시간이 발생할 수 있습니다.
 
@@ -52,7 +52,7 @@ Azure Storage에는 일부 [용량 제한](../azure-subscription-service-limits.
 
 클러스터는 다른 저장소 계정 조합에 액세스할 수 있습니다. 일반적인 예제:
 
-* 데이터 양이 단일 Blob Storage 컨테이너의 저장소 용량을 초과하기 쉬운 경우
+* 데이터 양이 단일 Blob Storage 컨테이너의 스토리지 용량을 초과하기 쉬운 경우
 * Blob 컨테이너에 대한 액세스 속도가 임계값을 초과하여 제한이 발생하는 경우
 * 데이터를 만들려고 하는 데 이미 클러스터에서 사용할 수 있는 Blob 컨테이너를 업로드한 경우
 * 보안상의 이유나 관리 간소화를 위해 저장소의 다른 부분을 격리하려고 하는 경우
@@ -109,11 +109,11 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 1. 페이지 맨 아래 왼쪽에서 **도움말 및 지원**을 클릭합니다.
 1. **새 지원 요청**을 클릭합니다.
 1. **새 지원 요청** 페이지의 **기본 사항** 탭에서 다음 옵션을 선택합니다.
-    - **문제 유형**: **서비스 및 구독 제한(할당량)**
-    - **구독**: 수정하려는 구독
-    - **할당량 유형**: **HDInsight**
+   - **문제 유형**: **서비스 및 구독 제한(할당량)**
+   - **구독**: 수정하려는 구독
+   - **할당량 유형**: **HDInsight**
     
-    ![HDInsight 코어 할당량을 늘리는 지원 요청 만들기](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+     ![HDInsight 코어 할당량을 늘리는 지원 요청 만들기](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. **다음**을 클릭합니다.
 1. **세부 정보** 페이지에서 문제에 대한 설명을 입력하고, 해당 문제의 심각도를 선택하고, 기본 연락 방법을 선택합니다.
@@ -125,7 +125,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 [지원 서비스에 문의하여 할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)할 수 있습니다.
 
-그러나 몇 가지 고정된 할당량 제한이 있습니다. 예를 들어 단일 Azure 구독에는 코어가 10,000개까지 있을 수 있습니다. 이러한 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager)을 참조하세요.
+그러나 몇 가지 고정된 할당량 제한이 있습니다. 예를 들어 단일 Azure 구독에는 코어가 10,000개까지 있을 수 있습니다. 이러한 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](https://docs.microsoft.com/azure/azure-subscription-service-limits)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

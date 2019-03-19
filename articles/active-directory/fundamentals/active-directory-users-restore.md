@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a810ae13d9cfb68d11293ba883c52858aa4a2deb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b98cc0141954a079b848bd9639b081499819b8ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877006"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Azure Active Directory를 사용하여 최근에 삭제된 사용자를 복원하거나 제거
 사용자를 삭제하면 30일 동안 계정이 일시 중단된 상태로 유지됩니다. 30일이라는 기간 동안 사용자는 모든 속성과 함께 계정을 복원할 수 있습니다. 30일이라는 기간이 지나면 사용자가 자동으로 영구적으로 삭제됩니다.
@@ -28,16 +28,16 @@ Azure Portal에서 Azure AD(Azure Active Directory)를 사용하여 복원 가�
 >[!Important]
 >사용자나 Microsoft 고객 지원에서는 영구적으로 삭제된 사용자를 복원할 수 없습니다.
 
-## <a name="required-permissions"></a>필요한 사용 권한
+## <a name="required-permissions"></a>필요한 권한
 사용자를 복원하거나 영구적으로 삭제하려면 다음 역할 중 하나가 있어야 합니다.
 
-- 회사 관리자
+- 전역 관리자
 
 - 파트너 계층1 지원
 
 - 파트너 계층2 지원
 
-- 사용자 계정 관리자
+- 사용자 관리자
 
 ## <a name="view-your-restorable-users"></a>복원 가능한 사용자 보기
 30일 이내에 삭제된 모든 사용자를 볼 수 있습니다. 이러한 사용자를 복원할 수 있습니다.

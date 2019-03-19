@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 57a8a89c73e2be51e54130d9c37194a7513a47d8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 28deb9b7ba15744b9bd3d273d02db4398d2b2ef3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562517"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896945"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>테넌트별 애플리케이션 SaaS 패턴을 사용하여 새 테넌트 프로비전/카탈로그 작업
 
@@ -99,7 +99,7 @@ Azure Resource Manager 템플릿은 애플리케이션을 배포 및 구성하�
 이제 만든 리소스를 살펴봅니다.
 
 1. [Azure 포털](https://portal.azure.com/)을 열어서 리소스 그룹으로 이동합니다.  **wingtip-sa-catalog-\<user\>** 리소스 그룹을 열고 카탈로그 서버 및 데이터베이스를 메모합니다.
-1. 포털에서 데이터베이스를 열고 왼쪽 메뉴에서 *데이터 탐색기*를 선택합니다.  로그인 명령을 클릭한 다음, Password = **P@ssword1**을 입력합니다.
+1. 포털에서 데이터베이스를 열고 왼쪽 메뉴에서 *데이터 탐색기*를 선택합니다.  로그인 명령을 클릭 하 고 암호 입력 = **P\@ssword1**합니다.
 
 
 1. *tenantcatalog* 데이터베이스의 스키마로 이동합니다.  

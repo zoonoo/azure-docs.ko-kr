@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: b5e3e84ce8f8b4b364b2fa69dda0b0091db25b6d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329782"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093806"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 온-프레미스에서 Microsoft Azure로 Windows VM(가상 머신)을 업로드하려면 먼저 VHD(가상 하드 디스크) 또는 VHDX를 준비해야 합니다. Azure는 VHD 파일 형식이고 크기가 고정된 디스크를 갖춘 **1세대 VM만** 지원합니다. VHD에 허용되는 최대 크기는 1,023GB입니다. 1세대 VM을 VHDX 파일 시스템에서 VHD로, 동적 확장 디스크에서 고정 크기로 변환할 수 있습니다. 하지만 VM의 세대는 변경할 수 없습니다. 자세한 내용은 [Hyper-V에 1 또는 2세대 가상 컴퓨터를 만들어야 합니까?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
@@ -320,14 +320,14 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 
 9. 다음 AD 정책을 확인하여 다음의 필수 액세스 계정을 제거하지 않는지 검토해야 합니다.
 
-    - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Access this compute from the network
+   - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Access this compute from the network
 
-    다음 그룹이 이 정책에 나열되어야 합니다.
+     다음 그룹이 이 정책에 나열되어야 합니다.
 
-    - 관리자
-    - 백업 운영자
-    - 모든 사람
-    - 사용자
+   - 관리자
+   - 백업 운영자
+   - 모든 사람
+   - 사용자
 
 10. VM을 다시 시작하여 Windows가 여전히 정상 상태인지와 RDP 연결을 사용하여 연결할 수 있는지 확인합니다. 이 시점에서 사용자 로컬 Hyper-V에서 VM을 만들고, VM이 완벽히 시작되고 있는지 확인한 다음, RDP가 연결 가능한 상태인지 여부를 테스트할 수 있습니다.
 
@@ -338,7 +338,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 ### <a name="install-windows-updates"></a>Windows 업데이트 설치
 이상적인 구성은 **최신 컴퓨터의 패치 수준을 갖추는 것**입니다. 가능하지 않은 경우 다음 업데이트가 설치되어 있는지 확인합니다.
 
-| 구성 요소               | 이진         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 버전 1607, Windows Server 2016 버전 1607 | Windows 10 버전 1703    | Windows 10 1709, Windows Server 2016 버전 1709 | Windows 10 1803, Windows Server 2016 버전 1803 |
+| 구성 요소               | 이진         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 버전 1607 Windows Server 2016 버전 1607 | Windows 10 버전 1703    | Windows 10 1709, Windows Server 2016 버전 1709 | Windows 10 1803 Windows Server 2016 버전 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Storage                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
@@ -409,23 +409,19 @@ Windows 기반 컴퓨터에 설치된 모든 역할 또는 애플리케이션이
 
 
 >[!NOTE]
-> 사용자 지정 unattend.xml은 지원되지 않습니다. additionalUnattendContent 속성을 지원하지만, Azure 프로비저닝 에이전트가 사용하는 unattend.xml에 [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 옵션을 추가하기 위한 제한된 지원만 제공됩니다. 예:  [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet)를 사용하여 FirstLogonCommands 및 LogonCommands를 추가할 수 있습니다. [additionalUnattendContent FirstLogonCommands 예제](https://github.com/Azure/azure-quickstart-templates/issues/1407)를 참조하세요.
+> 사용자 지정 unattend.xml은 지원되지 않습니다. additionalUnattendContent 속성을 지원하지만, Azure 프로비저닝 에이전트가 사용하는 unattend.xml에 [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 옵션을 추가하기 위한 제한된 지원만 제공됩니다. 예를 들어  [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet)를 사용하여 FirstLogonCommands 및 LogonCommands를 추가할 수 있습니다. [additionalUnattendContent FirstLogonCommands 예제](https://github.com/Azure/azure-quickstart-templates/issues/1407)를 참조하세요.
 
 
 ## <a name="complete-recommended-configurations"></a>권장된 구성 완료
 다음 설정은 VHD 업로드에 영향을 주지 않습니다. 단, 반드시 구성하는 것이 좋습니다.
 
-* [Azure VM 에이전트](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 설치합니다. 그런 다음 VM 확장을 사용하도록 설정할 수 있습니다. VM 확장은 암호 재설정, RDP 구성 등 VM에서 사용하려는 대부분의 중요 기능을 구현합니다. 자세한 내용은 다음을 참조하세요.
+* [Azure VM 에이전트](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 설치합니다. 그런 다음 VM 확장을 사용하도록 설정할 수 있습니다. VM 확장은 암호 재설정, RDP 구성 등 VM에서 사용하려는 대부분의 중요 기능을 구현합니다. 자세한 내용은 [Azure Virtual Machine 에이전트 개요](../extensions/agent-windows.md)합니다.
+* Azure에서 VM을 만든 후에 성능 향상을 위해 “임시 드라이브” 볼륨에 페이지 파일을 배치하는 것이 좋습니다. 이 작업은 다음과 같이 준비할 수 있습니다.
 
-    - [VM 에이전트 및 확장 - 1부](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
-    - [VM 에이전트 및 확장 - 2부](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-
-*  Azure에서 VM을 만든 후에 성능 향상을 위해 “임시 드라이브” 볼륨에 페이지 파일을 배치하는 것이 좋습니다. 이 작업은 다음과 같이 준비할 수 있습니다.
-
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
-    ```
-VM에 연결된 데이터 디스크가 있는 경우 Temporal 드라이브 볼륨의 드라이브 문자는 일반적으로 “D”입니다. 이 지정은 사용 가능한 드라이브 수 및 사용자가 지정한 설정에 따라 달라질 수 있습니다.
+   ```PowerShell
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+   ```
+  VM에 연결된 데이터 디스크가 있는 경우 Temporal 드라이브 볼륨의 드라이브 문자는 일반적으로 “D”입니다. 이 지정은 사용 가능한 드라이브 수 및 사용자가 지정한 설정에 따라 달라질 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](upload-generalized-managed.md)

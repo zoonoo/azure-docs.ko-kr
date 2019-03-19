@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: ff7513f197b3035b88748e2e73c38789d9010d9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9eb2e8ddde13783eabf3d82173e6a2fa75ec2b06
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082673"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack에서 권한 있는 끝점을 사용 하 여
 
@@ -60,56 +60,56 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
 
 2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 확정 된 가상 컴퓨터에서 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
  
-    - 통합 시스템:
-      ```PowerShell
-        $cred = Get-Credential
+   - 통합 시스템:
+     ```PowerShell
+       $cred = Get-Credential
 
-        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```
-      `ComputerName` 매개 변수는 PEP를 호스팅하는 가상 컴퓨터 중 하나의 DNS 이름 또는 IP 주소 수 있습니다. 
-    - ASDK 실행 하는 경우:
+       Enter-PSSession -ComputerName <IP_address_of_ERCS> `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ```
+     `ComputerName` 매개 변수는 PEP를 호스팅하는 가상 컴퓨터 중 하나의 DNS 이름 또는 IP 주소 수 있습니다. 
+   - ASDK 실행 하는 경우:
      
-      ```PowerShell
-        $cred = Get-Credential
+     ```PowerShell
+       $cred = Get-Credential
 
-        Enter-PSSession -ComputerName azs-ercs01 `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ``` 
-   메시지가 표시 되 면 다음 자격 증명을 사용 합니다.
+       Enter-PSSession -ComputerName azs-ercs01 `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ``` 
+     메시지가 표시 되 면 다음 자격 증명을 사용 합니다.
 
-      - **사용자 이름**: 형식으로 CloudAdmin 계정 지정  **&lt; *Azure Stack 도메인*&gt;\cloudadmin**합니다. (ASDK, 사용자 이름은 **azurestack\cloudadmin**.)
-      - **암호**: AzureStackAdmin 도메인 관리자 계정에 설치 하는 동안 제공한 동일한 암호를 입력 합니다.
+     - **사용자 이름**: 형식으로 CloudAdmin 계정 지정  **&lt; *Azure Stack 도메인*&gt;\cloudadmin**합니다. (ASDK, 사용자 이름은 **azurestack\cloudadmin**.)
+     - **암호**: AzureStackAdmin 도메인 관리자 계정에 설치 하는 동안 제공한 동일한 암호를 입력 합니다.
 
-    > [!NOTE]
-    > ERCS 끝점에 연결할 수 없는 경우 두 단계를 이미 않았다면 연결할 ERCS VM의 IP 주소를 사용 하 여 다시 시도 하세요.
+     > [!NOTE]
+     > ERCS 끝점에 연결할 수 없는 경우 두 단계를 이미 않았다면 연결할 ERCS VM의 IP 주소를 사용 하 여 다시 시도 하세요.
 
-3.  에 연결한 후 프롬프트에 바뀝니다 **[*IP 주소 또는 ERCS VM 이름을*]: PS >** 또는 **[azs ercs01]: PS >** 환경에 따라 합니다. 여기에서 실행 `Get-Command` 사용 가능한 cmdlet 목록을 볼 수 있습니다.
+3. 에 연결한 후 프롬프트에 바뀝니다 **[*IP 주소 또는 ERCS VM 이름을*]: PS >** 또는 **[azs ercs01]: PS >** 환경에 따라 합니다. 여기에서 실행 `Get-Command` 사용 가능한 cmdlet 목록을 볼 수 있습니다.
 
-    통합된 시스템 환경 (예: 데이터 센터 통합과 관련 된 cmdlet)에 대해서만 이러한 cmdlet 중 많은 수는 있습니다. ASDK에서 다음 cmdlet 유효성이 검증 되었습니다.
+   통합된 시스템 환경 (예: 데이터 센터 통합과 관련 된 cmdlet)에 대해서만 이러한 cmdlet 중 많은 수는 있습니다. ASDK에서 다음 cmdlet 유효성이 검증 되었습니다.
 
-    - Clear-host
-    - Close-PrivilegedEndpoint
-    - Exit-PSSession
-    - Get-AzureStackLog
-    - Get-AzureStackStampInformation
-    - Get-Command
-    - Get-FormatData
-    - Get-Help
-    - Get-ThirdPartyNotices
-    - Measure-Object
-    - New-CloudAdminUser
-    - Out-default
-    - Remove-CloudAdminUser
-    - Select-Object
-    - Set-CloudAdminUserPassword
-    - Test-AzureStack
-    - Stop-AzureStack
-    - Get-ClusterLog
+   - Clear-host
+   - Close-PrivilegedEndpoint
+   - Exit-PSSession
+   - Get-AzureStackLog
+   - Get-AzureStackStampInformation
+   - Get-Command
+   - Get-FormatData
+   - Get-Help
+   - Get-ThirdPartyNotices
+   - Measure-Object
+   - New-CloudAdminUser
+   - Out-default
+   - Remove-CloudAdminUser
+   - Select-Object
+   - Set-CloudAdminUserPassword
+   - Test-AzureStack
+   - Stop-AzureStack
+   - Get-ClusterLog
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>권한 있는 끝점을 사용 하기 위한 팁 
 
-PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) 끝점입니다. 강력한 보안 계층을 제공 하는 동안 JEA 끝점을 스크립팅 또는 탭 완성 기능 등 기본 PowerShell 기능 중 일부를 줄입니다. 모든 유형의 스크립트 작업을 시도 하면 작업이 실패 하 고 오류 **ScriptsNotAllowed**합니다. 이는 정상적인 동작입니다.
+PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/powershell/jea/overview) 끝점입니다. 강력한 보안 계층을 제공 하는 동안 JEA 끝점을 스크립팅 또는 탭 완성 기능 등 기본 PowerShell 기능 중 일부를 줄입니다. 모든 유형의 스크립트 작업을 시도 하면 작업이 실패 하 고 오류 **ScriptsNotAllowed**합니다. 이는 예상된 동작입니다.
 
 따라서 예를 들어 특정된 cmdlet에 대 한 매개 변수 목록을 가져오려고 하면 다음 명령을 실행 합니다.
 
@@ -132,26 +132,26 @@ PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/po
 
 2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 확정 된 가상 컴퓨터에서 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
  
-    - 통합 시스템:
-      ```PowerShell
-        $cred = Get-Credential
-
-        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```
-      `ComputerName` 매개 변수는 PEP를 호스팅하는 가상 컴퓨터 중 하나의 DNS 이름 또는 IP 주소 수 있습니다. 
-    - ASDK 실행 하는 경우:
-     
-      ```PowerShell
+   - 통합 시스템:
+     ```PowerShell
        $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName azs-ercs01 `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ``` 
-   메시지가 표시 되 면 다음 자격 증명을 사용 합니다.
+       $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ```
+     `ComputerName` 매개 변수는 PEP를 호스팅하는 가상 컴퓨터 중 하나의 DNS 이름 또는 IP 주소 수 있습니다. 
+   - ASDK 실행 하는 경우:
+     
+     ```PowerShell
+      $cred = Get-Credential
 
-      - **사용자 이름**: 형식으로 CloudAdmin 계정 지정  **&lt; *Azure Stack 도메인*&gt;\cloudadmin**합니다. (ASDK, 사용자 이름은 **azurestack\cloudadmin**.)
-      - **암호**: AzureStackAdmin 도메인 관리자 계정에 설치 하는 동안 제공한 동일한 암호를 입력 합니다.
+      $session = New-PSSession -ComputerName azs-ercs01 `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ``` 
+     메시지가 표시 되 면 다음 자격 증명을 사용 합니다.
+
+     - **사용자 이름**: 형식으로 CloudAdmin 계정 지정  **&lt; *Azure Stack 도메인*&gt;\cloudadmin**합니다. (ASDK, 사용자 이름은 **azurestack\cloudadmin**.)
+     - **암호**: AzureStackAdmin 도메인 관리자 계정에 설치 하는 동안 제공한 동일한 암호를 입력 합니다.
 
 3. 로컬 컴퓨터에 PEP 세션 가져오기
     ```PowerShell 

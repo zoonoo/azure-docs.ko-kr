@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2804ebdbeb72bd35c7e63553184157066f9cfd32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177304"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117662"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Azure Active Directory에서 비 갤러리 애플리케이션에 대한 Single Sign-On 구성
 
@@ -29,8 +29,8 @@ Azure Active Directory 애플리케이션 갤러리는 [이 문서](what-is-sing
 
 - SAML 2.0 ID 공급자를 지원하는 애플리케이션의 셀프 서비스 통합(SP에서 시작 또는 IdP에서 시작)
 - [암호 기반 SSO](what-is-single-sign-on.md#password-based-sso)를 사용하는 HTML 기반 로그인 페이지가 있는 모든 웹 애플리케이션의 셀프 서비스 통합
-* 사용자 프로비전에 SCIM 프로토콜을 사용하는 애플리케이션의 셀프 서비스 연결([여기에 설명됨](use-scim-to-provision-users-and-groups.md))
-* [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](what-is-single-sign-on.md#linked-sso)에서 애플리케이션에 대한 링크를 추가하는 기능
+- 사용자 프로비전에 SCIM 프로토콜을 사용하는 애플리케이션의 셀프 서비스 연결([여기에 설명됨](use-scim-to-provision-users-and-groups.md))
+- [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](what-is-single-sign-on.md#linked-sso)에서 애플리케이션에 대한 링크를 추가하는 기능
 
 사용하지만 아직 Azure AD 애플리케이션 갤러리에 등록되지 않은 SaaS 애플리케이션 뿐만 아니라 조직이 클라우드 또는 온-프레미스에서 제어하는 서버에 배포된 타사 웹 애플리케이션을 포함할 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure AD를 설정하려면 기본 SAML 구성을 입력합니다. 필드 값을
 
   ![Litware 도메인 및 URL](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **로그온 URL(SP에서 시작된 경우에만 해당)** – 사용자가 이 애플리케이션에 로그인하는 위치입니다. 서비스 공급자 시작 Single Sign-On을 수행하도록 애플리케이션이 구성된 경우 사용자가 이 URL로 이동하면 서비스 공급자는 사용자를 인증하고 로그온하기 위해 Azure AD로 필요한 리디렉션을 수행합니다. 이 필드가 채워지면 Azure AD는 이 URL을 사용하여 Office 365 및 Azure AD 액세스 패널에서 애플리케이션을 시작합니다. 이 필드가 생략되면 해당 앱이 Office 365, Azure AD 액세스 패널 또는 Azure AD Single Sign-On URL(대시보드 탭에서 복사 가능)에서 시작할 경우 Azure AD는 ID 공급자에서 시작된 로그인을 대신 수행합니다.
+- **로그온 URL(SP에서 시작된 경우에만 해당)** – 사용자가 이 애플리케이션에 로그인하는 위치입니다. 서비스 공급자 시작 Single Sign-On을 수행하도록 애플리케이션이 구성된 경우 사용자가 이 URL로 이동하면 서비스 공급자는 사용자를 인증하고 로그온하기 위해 Azure AD로 필요한 리디렉션을 수행합니다. 이 필드가 채워지면 Azure AD는 이 URL을 사용하여 Office 365 및 Azure AD 액세스 패널에서 애플리케이션을 시작합니다. 이 필드가 생략 되 면 Azure AD id 공급자를 대신 수행 됩니다-Office 365, Azure AD 액세스 패널 또는 Azure AD single sign-on URL (대시보드 탭에서 복사할 수 있습니다)에서 앱을 실행 하는 경우 로그온 시작 합니다.
 - **식별자** - 구성될 Single Sign-On에 대해 애플리케이션을 고유하게 식별해야 합니다. 애플리케이션에서 보낸 AuthRequest(SAML 요청)에서 발급자 요소로 이 값을 찾을 수 있습니다. 또한 이 값은 애플리케이션에서 제공하는 모든 SAML 메타데이터 내에서 **엔터티 ID** 로 표시됩니다. 엔터티 ID 또는 대상 값에 대한 자세한 내용은 애플리케이션의 SAML 설명서를 확인합니다. 
 
     다음은 애플리케이션에서 Azure AD에 보낸 SAML 요청에 식별자 또는 발급자가 표시되는 방법의 예제입니다.

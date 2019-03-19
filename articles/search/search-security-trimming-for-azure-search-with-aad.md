@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f55b3b099cc22fda2bebf0dcb8d3e9c1a580f02
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099704"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102529"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터
 
@@ -22,13 +22,13 @@ ms.locfileid: "56099704"
 
 이 문서에서 다루는 작업은 다음과 같습니다.
 > [!div class="checklist"]
-- AAD 그룹 및 사용자 만들기
-- 만든 그룹과 사용자 연결
-- 새 그룹 캐시
-- 연결된 그룹을 사용하여 문서 인덱싱
-- 그룹 식별자 필터를 사용하여 검색 요청 실행
-
->[!NOTE]
+> - AAD 그룹 및 사용자 만들기
+> - 만든 그룹과 사용자 연결
+> - 새 그룹 캐시
+> - 연결된 그룹을 사용하여 문서 인덱싱
+> - 그룹 식별자 필터를 사용하여 검색 요청 실행
+> 
+> [!NOTE]
 > 이 문서의 샘플 코드 조각은 C#으로 작성되었습니다. 전체 소스 코드는 [GitHub](https://aka.ms/search-dotnet-howto)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -187,7 +187,7 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 이 연습에서는 AAD 로그인을 사용하여 Azure Search 결과의 문서를 필터링하고, 요청에서 제공한 필터와 일치하지 않는 문서 결과를 잘라내는 기술을 배웠습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure Search 필터를 사용하여 ID 기반 액세스 제어](search-security-trimming-for-azure-search.md)
 + [Azure Search의 필터](search-filters.md)

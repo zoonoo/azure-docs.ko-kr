@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 61c01e8ea3b4cbe7b5f7ab83ab35383d74df3105
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 888f9e04e048e3da4c9809ac4f8570f020030335
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234939"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855838"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Reliable Actors에 대한 진단 및 성능 모니터링
 Reliable Actors 런타임에서는 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트 및 [성능 카운터](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)를 내보냅니다. 이러한 정보는 런타임이 어떻게 작동하고 있는지 파악하여 문제를 해결하고 성능을 모니터링하는 데 도움이 됩니다.
@@ -27,7 +27,7 @@ Reliable Actors 런타임에서는 [EventSource](https://msdn.microsoft.com/libr
 ## <a name="eventsource-events"></a>EventSource 이벤트
 Reliable Actors 런타임의 EventSource 공급자 이름은 "Microsoft-ServiceFabric-Actors"입니다. 이 이벤트 원본의 이벤트는 행위자 애플리케이션이 [Visual Studio에서 디버깅](service-fabric-debugging-your-application.md)될 때 [진단 이벤트](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) 창에 표시됩니다.
 
-EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 기술의 예에는 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md), [의미 중심 로깅](https://msdn.microsoft.com/library/dn774980.aspx) 및 [Microsoft TraceEvent 라이브러리](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)가 있습니다.
+EventSource 이벤트를 수집하거나 보는 데 도움이 되는 도구 및 기술의 예에는 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md), [의미 중심 로깅](https://msdn.microsoft.com/library/dn774980.aspx) 및 [Microsoft TraceEvent 라이브러리](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent)가 있습니다.
 
 ### <a name="keywords"></a>키워드
 신뢰할 수 있는 행위자 EventSource에 속하는 모든 이벤트는 하나 이상의 키워드와 연결되어 있습니다. 이를 통해 수집된 이벤트를 필터링할 수 있습니다. 다음과 같은 키워드 비트가 정의되어 있습니다.

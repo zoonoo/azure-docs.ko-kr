@@ -6,15 +6,15 @@ keywords: 클립, 하위 클립, 인코딩, 미디어
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 772865f42dfef8734fb23022039f02910958af61
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992469"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842365"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Clipper를 사용하여 클립 만들기
 이 섹션에서는 Azure Media Clipper를 시작하는 기본 단계를 보여 줍니다. 이후 섹션에서는 Azure Media Clipper 구성 방법에 대한 세부 정보를 제공합니다.
@@ -100,7 +100,7 @@ var subclipper = new subclipper({
 - `height` {OPTIONAL, number}: 위젯의 전체 높이입니다. 최소 높이는 자산 창 없이 600px이고 자산 창을 포함하여 850px입니다.
 - `subclippingMode` (OPTIONAL, {'all', 'render', 'filter'}): 허용되는 서브클리핑 모드입니다. 기본값은 all입니다.
 - `filterAssetsTypes` (OPTIONAL, bool): filterAssetsTypes를 사용하여 [자산] 창에서 [필터] 드롭다운을 표시하거나 숨길 수 있습니다. 기본값은 true입니다.
-- `speedLevels` (OPTIONAL, array): speedLevels를 사용하여 비디오 플레이어에 대한 여러 가지 속도 수준을 설정할 수 있습니다. 자세한 내용은 [Azure Media Player 설명서](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions)를 참조하세요.
+- `speedLevels` (OPTIONAL, array): speedLevels를 사용하여 비디오 플레이어에 대한 여러 가지 속도 수준을 설정할 수 있습니다. 자세한 내용은 [Azure Media Player 설명서](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions)를 참조하세요.
 - `resetOnJobDone` (OPTIONAL, bool): resetOnJobDone을 사용하여 작업이 성공적으로 제출될 때 Clipper가 서브클리퍼를 초기 상태로 다시 설정할 수 있습니다.
 - `autoplayVideo` (OPTIONAL, bool): autoplayVideo를 사용하여 Clipper가 로드 시 비디오를 자동으로 재생할 수 있습니다. 기본값은 true입니다.
 - `language` {OPTIONAL, string}: language는 위젯의 언어를 설정합니다. 지정하지 않으면 위젯은 브라우저 언어를 기반으로 메시지를 지역화하려고 합니다. 브라우저에서 언어가 발견되지 않으면 위젯은 기본적으로 영어로 설정됩니다. 자세한 내용은 [지역화 구성](media-services-azure-media-clipper-localization.md) 섹션을 참조하세요.
@@ -108,7 +108,7 @@ var subclipper = new subclipper({
 - `extraLanguages` (OPTIONAL, JSON): extraLanguages 매개 변수는 기본 사전에 새 언어를 추가합니다. 자세한 내용은 [지역화 구성](media-services-azure-media-clipper-localization.md) 섹션을 참조하세요.
 
 ## <a name="typescript-definition"></a>TypeScript 정의
-Clipper에 대한 [TypeScript](https://www.typescriptlang.org/) 정의 파일은 [여기](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts)에서 찾을 수 있습니다.
+Clipper에 대한 [TypeScript](https://www.typescriptlang.org/) 정의 파일은 [여기](https://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts)에서 찾을 수 있습니다.
 
 ## <a name="azure-media-clipper-api"></a>Azure Media Clipper API
 이 섹션에서는 Clipper에서 제공되는 API 화면을 설명합니다.

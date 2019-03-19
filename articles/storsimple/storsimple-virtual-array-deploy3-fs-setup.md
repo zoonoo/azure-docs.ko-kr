@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881064"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -129,15 +129,15 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
     ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. 명령 모음에서 **구성**을 클릭합니다. 그러면 **구성** 블레이드가 열립니다. **구성** 블레이드에서 다음을 수행합니다.
    
-    1. 파일 서버 이름은 자동으로 채워집니다.
+   1. 파일 서버 이름은 자동으로 채워집니다.
     
-    2. 클라우드 저장소 암호화가 **사용**으로 설정되었는지 확인합니다. 이 클라우드로 전송된 모든 데이터를 암호화합니다. 
+   2. 클라우드 저장소 암호화가 **사용**으로 설정되었는지 확인합니다. 이 클라우드로 전송된 모든 데이터를 암호화합니다. 
     
-    3. 암호화를 위한 사용자 정의 키에 256비트 AES 키가 사용됩니다. 32개의 문자 키를 지정하고 확인을 위해 키를 다시 입력합니다. 나중에 참조할 수 있도록 키 관리 앱에서 키를 기록합니다.
+   3. 암호화를 위한 사용자 정의 키에 256비트 AES 키가 사용됩니다. 32개의 문자 키를 지정하고 확인을 위해 키를 다시 입력합니다. 나중에 참조할 수 있도록 키 관리 앱에서 키를 기록합니다.
     
-    4. **필수 설정 구성**을 클릭하여 디바이스와 함께 사용할 저장소 계정 자격 증명을 지정합니다. 구성된 저장소 계정 자격 증명이 없는 경우 **새로 추가**를 클릭합니다. **사용하는 저장소 계정이 블록 Blob을 지원하는지 확인합니다. 페이지 Blob은 지원되지 않습니다.** [블록 Blob 및 페이지 Blob에 대한](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 자세한 내용입니다.
+   4. **필수 설정 구성**을 클릭하여 디바이스와 함께 사용할 저장소 계정 자격 증명을 지정합니다. 구성된 저장소 계정 자격 증명이 없는 경우 **새로 추가**를 클릭합니다. **사용하는 저장소 계정이 블록 Blob을 지원하는지 확인합니다. 페이지 Blob은 지원되지 않습니다.** [블록 Blob 및 페이지 Blob에 대한](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 자세한 내용입니다.
    
-    ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![파일 서버 구성](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. **저장소 계정 자격 증명 추가** 블레이드에서 다음을 수행합니다. 
 
     1. 저장소 계정이 서비스와 동일한 구독에 있는 경우 현재 구독을 선택합니다. 서비스 구독 외부에서 기타 저장소 계정을 지정합니다. 
@@ -175,26 +175,26 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
    ![공유 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. 다음 공유 설정을 지정합니다.
 
-    1. 공유에 대한 고유 이름입니다. 이름은 3~127개의 문자를 포함하는 문자열이어야 합니다.
+   1. 공유에 대한 고유 이름입니다. 이름은 3~127개의 문자를 포함하는 문자열이어야 합니다.
     
-    2. 공유에 대한 선택적 **설명**입니다. 설명은 공유 소유자를 식별하는 데 도움이 됩니다.
+   2. 공유에 대한 선택적 **설명**입니다. 설명은 공유 소유자를 식별하는 데 도움이 됩니다.
     
-    3. 공유의 **유형**입니다. 유형에는 **계층화됨** 또는 **로컬로 고정**을 지정할 수 있으며 계층화됨이 기본값입니다. 로컬 보증, 낮은 대기 시간 및 높은 성능이 필요한 워크로드의 경우 **로컬로 고정** 공유를 선택합니다. 다른 모든 데이터에 대해서는 **계층화됨** 공유를 선택합니다.
-    로컬로 고정된 공유는 씩 프로비전되며, 공유의 기본 데이터가 디바이스에 로컬로 유지되고 클라우드로 유출되지 않습니다. 반면에 계층화된 공유는 씬 프로비전됩니다. 계층화된 공유를 만들 때 공간의 10%는 로컬 계층에 프로비전되고 공간의 90%는 클라우드에 프로비전됩니다. 예를 들어, 1TB 볼륨을 프로비전하는 경우 100GB는 로컬 공간에 상주하고 900GB는 데이터가 계층화될 때 클라우드에서 사용됩니다. 이것은 디바이스의 로컬 공간이 부족하면 계층화된 공유를 프로비전할 수 없다는 것을 의미합니다.
+   3. 공유의 **유형**입니다. 유형에는 **계층화됨** 또는 **로컬로 고정**을 지정할 수 있으며 계층화됨이 기본값입니다. 로컬 보증, 낮은 대기 시간 및 높은 성능이 필요한 워크로드의 경우 **로컬로 고정** 공유를 선택합니다. 다른 모든 데이터에 대해서는 **계층화됨** 공유를 선택합니다.
+      로컬로 고정된 공유는 씩 프로비전되며, 공유의 기본 데이터가 디바이스에 로컬로 유지되고 클라우드로 유출되지 않습니다. 반면에 계층화된 공유는 씬 프로비전됩니다. 계층화된 공유를 만들 때 공간의 10%는 로컬 계층에 프로비전되고 공간의 90%는 클라우드에 프로비전됩니다. 예를 들어, 1TB 볼륨을 프로비전하는 경우 100GB는 로컬 공간에 상주하고 900GB는 데이터가 계층화될 때 클라우드에서 사용됩니다. 이것은 디바이스의 로컬 공간이 부족하면 계층화된 공유를 프로비전할 수 없다는 것을 의미합니다.
    
-    4. **전체 기본 사용 권한 설정** 필드에서 공유에 액세스할 사용자 또는 그룹에 권한을 할당합니다. 사용자 또는 사용자 그룹의 이름을 *john@contoso.com* 형식으로 지정합니다. 이 공유에 액세스하는 관리자 권한은 사용자 그룹(단일 사용자 대신)을 사용하여 허용하는 것이 좋습니다. 여기에서 권한을 할당한 후에 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
+   4. **전체 기본 사용 권한 설정** 필드에서 공유에 액세스할 사용자 또는 그룹에 권한을 할당합니다. 사용자 또는 사용자 그룹의 이름을 지정 *john\@contoso.com* 형식입니다. 이 공유에 액세스하는 관리자 권한은 사용자 그룹(단일 사용자 대신)을 사용하여 허용하는 것이 좋습니다. 여기에서 권한을 할당한 후에 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
    
-    5. **추가**를 클릭하여 공유를 만듭니다. 
+   5. **추가**를 클릭하여 공유를 만듭니다. 
     
-        ![공유 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![공유 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-        공유 만들기가 진행 중이라는 알림이 표시됩니다.
+       공유 만들기가 진행 중이라는 알림이 표시됩니다.
    
-        ![공유 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![공유 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
-    지정된 설정으로 공유를 만든 후에 **공유** 블레이드가 업데이트되어 새 공유를 반영합니다. 기본적으로 공유에 대한 모니터링 및 백업을 사용하도록 설정됩니다.
+      지정된 설정으로 공유를 만든 후에 **공유** 블레이드가 업데이트되어 새 공유를 반영합니다. 기본적으로 공유에 대한 모니터링 및 백업을 사용하도록 설정됩니다.
    
-    ![공유 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![공유 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>4단계: 공유에 연결
 이전 단계에서 만든 하나 이상의 공유에 연결해야 합니다. StorSimple 가상 배열에 연결된 Windows Server 호스트에서 이러한 단계를 수행합니다.

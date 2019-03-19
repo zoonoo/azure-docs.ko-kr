@@ -13,16 +13,18 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: d9d26ced30f718f06d6d0ba9eb7c2a78682305ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024045"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102369"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [질문과 대답 - Data Factory](../frequently-asked-questions.md)를 참조하세요.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>일반적인 질문
 ### <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
@@ -57,17 +59,17 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 * **Azure Resource Manager 템플릿** 자세한 내용은 [자습서: Azure Resource Manager 템플릿을 사용하여 첫 번째 Azure Data Factory 빌드](data-factory-build-your-first-pipeline-using-arm.md)를 참조하세요.
 
 ### <a name="can-i-rename-a-data-factory"></a>Data Factory의 이름을 바꿀 수 있나요?
- 아니요. 다른 Azure 리소스와 마찬가지로 Azure 데이터 팩터리의 이름을 변경할 수 없습니다.
+번호 다른 Azure 리소스와 마찬가지로 Azure 데이터 팩터리의 이름을 변경할 수 없습니다.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>데이터 팩터리를 Azure 구독 간에 이동할 수 있나요?
-예. 다음 다이어그램과 같이 데이터 팩터리 블레이드의 **이동** 단추를 사용합니다.
+예 다음 다이어그램과 같이 데이터 팩터리 블레이드의 **이동** 단추를 사용합니다.
 
 ![데이터 팩터리 이동](media/data-factory-faq/move-data-factory.png)
 
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Data Factory에서 지원하는 컴퓨팅 환경은 무엇입니까?
 다음 표는 Data Factory 및 실행할 수 있는 작업에서 지원하는 컴퓨팅 환경 목록을 제공합니다.
 
-| Compute 환경 | 작업 |
+| Compute 환경 | 활동 |
 | --- | --- |
 | [주문형 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 또는 [사용자 고유의 HDInsight 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
@@ -76,7 +78,7 @@ Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습�
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[저장 프로시저](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Azure Data Factory를 SSIS(SQL Server Integration Services)와 비교하면 어떻게 다른가요? 
-MVP(Most Valued Professionals) 중 한 명인 Reza Rad가 제공한 [Azure Data Factory 및 SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) 프레젠테이션을 참조하세요. 데이터 팩터리의 최근 변경 내용 중 일부는 슬라이드 모음에 표시되지 않을 수 있습니다. 지속적으로 Azure Data Factory에 기능을 추가할 예정입니다. 지속적으로 Azure Data Factory에 기능을 추가할 예정입니다. 이러한 업데이트는 올해 후반기에 Microsoft의 데이터 통합 기술 비교 자료에 포함될 예정입니다.   
+MVP(Most Valued Professionals) 중 한 명인 Reza Rad가 제공한 [Azure Data Factory 및 SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) 프레젠테이션을 참조하세요. 데이터 팩터리의 최근 변경 내용 중 일부는 슬라이드 모음에 표시되지 않을 수 있습니다. 지속적으로 Azure Data Factory에 기능을 추가할 예정입니다. 지속적으로 Azure Data Factory에 기능을 추가할 예정입니다. 이러한 업데이트는 올해 후반기에 Microsoft의 데이터 통합 기술 비교 자료에 포함될 예정입니다.   
 
 ## <a name="activities---faq"></a>작업 - FAQ
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Data Factory 파이프라인에서 사용할 수 있는 다른 형식의 작업은 무엇인가요?
@@ -171,12 +173,12 @@ dataset4(데이터 팩터리 1의 파이프라인 2에 의해 생성)를 사용�
 
 * 모니터링 및 관리 앱을 사용하여 작업 창 또는 조각을 다시 실행합니다. 지침에 대해서는 [선택한 작업 창 다시 실행](data-factory-monitor-manage-app.md#perform-batch-actions)을 참조하세요.   
 * Azure 포털에서 조각의 **데이터 조각** 블레이드에 대해 명령 모음의 **실행**을 클릭합니다.
-* 조각의 상태를 **Waiting**으로 설정하여 **Set-AzureRmDataFactorySliceStatus** cmdlet을 실행합니다.   
+* 실행 **집합 AzDataFactorySliceStatus** 로 설정 된 상태를 사용 하 여 cmdlet **대기** 조각에 대 한 합니다.   
 
     ```PowerShell
-    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+    Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-cmdlet에 대한 자세한 내용은 [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status]를 참조하세요.
+  참조 [집합 AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] cmdlet에 대 한 세부 정보에 대 한 합니다.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>조각을 처리하는 데 얼마나 오래 걸렸나요?
 모니터링 및 관리 앱에서 작업 창 탐색기를 사용하여 데이터 조각을 처리하는 데 걸린 시간을 확인합니다. 자세한 내용은 [작업 창 탐색기](data-factory-monitor-manage-app.md#activity-window-explorer)를 참조하세요.
@@ -191,7 +193,7 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 6. **기간** 필드와 값이 표시됩니다. 이 값은 조각을 처리하는 데 소요된 시간입니다.   
 
 ### <a name="how-to-stop-a-running-slice"></a>실행 중인 조각을 중지하려면 어떻게 해야 하나요?
-파이프라인 실행을 중지해야 하는 경우 [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) cmdlet을 사용할 수 있습니다. 현재, 파이프라인을 일시 중단해도 진행 중인 조각 실행은 중지되지 않습니다. 진행 중인 실행이 완료되면 추가 조각이 선택되지 않습니다.
+파이프라인 실행을 중지 해야 하는 경우 사용할 수 있습니다 [Suspend AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet. 현재, 파이프라인을 일시 중단해도 진행 중인 조각 실행은 중지되지 않습니다. 진행 중인 실행이 완료되면 추가 조각이 선택되지 않습니다.
 
 모든 실행을 즉시 중지하려면 파이프라인을 삭제하고 다시 만들어야 합니다. 파이프라인을 삭제하도록 선택하는 경우 파이프라인에서 사용되는 테이블 및 연결된 서비스를 삭제할 필요는 없습니다.
 
@@ -199,11 +201,11 @@ Azure 포털에서 다음을 수행할 수도 있습니다.
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
-[azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus
+[adf-powershell-reference]: /powershell/module/az.datafactory/
+[azure-portal]: https://portal.azure.com
+[set-azure-datafactory-slice-status]: /powershell/module/az.datafactory/set-Azdatafactoryslicestatus
 
-[adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
-[hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
-[hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-[hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
+[adf-pricing-details]: https://go.microsoft.com/fwlink/?LinkId=517777
+[hdinsight-supported-regions]: https://azure.microsoft.com/pricing/details/hdinsight/
+[hdinsight-alternate-storage]: https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
+[hdinsight-alternate-storage-2]: https://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx

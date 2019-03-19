@@ -9,15 +9,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0f9e889a15933953af275460ba12906db6f3adec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 9c4ddb1375154fef3290008a7b981a4e9069ae94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075205"
 ---
 # <a name="set-up-and-run-analytics-jobs-using-azure-stream-analytics-api-for-net"></a>.NET용 Azure Stream Analytics API를 사용하여 분석 작업 설정 및 실행
-관리 .NET SDK에서 .NET용 Azure Stream Analytics API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 분석 작업에 대해 Blob 저장소 또는 이벤트 허브에서 데이터를 스트리밍할 수 있습니다.
+관리 .NET SDK에서 .NET용 Azure Stream Analytics API를 사용하여 분석 작업을 설정 및 실행하는 방법을 알아봅니다. 프로젝트를 설정하고, 입출력 소스를 만들고, 변환하고, 작업을 시작 및 중지합니다. 다른 Azure 스토리지 서비스와 마찬가지로, File Storage는 공유의 데이터에 액세스하기 위한 REST API를 제공합니다.
 
 [.NET용 Stream Analytics API에 대한 관리 참조 설명서](https://msdn.microsoft.com/library/azure/dn889315.aspx)를 참조하세요.
 
@@ -38,8 +38,8 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
    Add-AzureAccount
    # Select the Azure subscription you want to use to create the resource group
    Select-AzureSubscription -SubscriptionName <subscription name>
-       # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the    Register-AzureRMProvider cmdlet to register the provider namespace
-       #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+       # If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the    Register-AzProvider cmdlet to register the provider namespace
+       #Register-AzProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
    # Create an Azure resource group
    New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
    ```
@@ -49,7 +49,7 @@ Azure Stream Analytics은 완전히 관리되는 서비스로, 클라우드의 �
 ## <a name="set-up-a-project"></a>프로젝트 설정
 .NET용 Stream Analytics API를 사용하여 분석 작업을 만들려면 먼저 프로젝트를 설정합니다.
 
-1. Visual Studio C# .NET 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio C# .NET 콘솔 애플리케이션을 만듭니다.
 2. 패키지 관리자 콘솔에서 NuGet 패키지를 설치하려면 다음 명령을 실행합니다. 첫 번째는 Azure Stream Analytics 관리.NET SDK입니다. 두 번째는 인증에 사용되는 Azure Active Directory 클라이언트 인증입니다.
 
 ```powershell
@@ -57,7 +57,7 @@ Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 1.8.3
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 ```
 
-3. 다음 **appSettings** 섹션을 App.config 파일에 추가합니다.
+1. 다음 **appSettings** 섹션을 App.config 파일에 추가합니다.
 
    ```csharp
    <appSettings>
@@ -76,7 +76,7 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 
         Get-AzureAccount
 
-4. .csproj 파일에서 다음 참조를 추가합니다.
+1. .csproj 파일에서 다음 참조를 추가합니다.
 
    ```csharp
    <Reference Include="System.Configuration" />
@@ -95,7 +95,7 @@ using Microsoft.Azure.Management.StreamAnalytics.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-2. 인증 도우미 메서드를 추가합니다.
+1. 인증 도우미 메서드를 추가합니다.
 
    ```csharp
    private static async Task<string> GetAuthorizationHeader()
@@ -209,7 +209,7 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
    client.Inputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobInputCreateParameters);
    ```
 
-Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연결됩니다. 다른 작업에 대해 동일한 입력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
+File Storage를 사용하려면 Azure 스토리지 계정에 연결해야 합니다. 다른 작업에 대해 동일한 입력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
 
 ## <a name="test-a-stream-analytics-input-source"></a>Stream Analytics 입력 소스 테스트
 **TestConnection** 메서드는 Stream Analytics 작업이 입력 소스 및 입력 소스 유형에 특정한 다른 측면에도 연결할 수 있는지 여부를 테스트합니다. 예를 들어 이전 단계에서 만든 blob 입력 소스에서 메서드는 Storage 계정 이름 및 키 쌍을 사용하여 Storage 계정에 연결할 수 있는지를 확인하고 지정된 컨테이너가 존재하는지 점검합니다.

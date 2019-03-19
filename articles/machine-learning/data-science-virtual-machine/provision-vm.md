@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 8ee424412c9c54dadef7391084e3ab976da9ad7f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417451"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896265"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 
@@ -44,7 +44,7 @@ DSVM에는 다음과 같은 도구가 포함되어 있습니다.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) - 온라인 해시, allreduce, 축소, learning2search 및 활성/대화형 학습과 같은 기술을 지원하는 속성 기계 학습 시스템입니다.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/) - 빠르고 정확하게 부스트되는 트리 구현을 제공하는 도구입니다.
   * [Rattle](https://togaware.com/rattle/) - R에서 데이터 분석 및 기계 학습을 시작할 수 있는 도구이며, 자동 R 코드 생성 기능을 갖춘 GUI 기반 데이터 탐색 및 모델링이 포함되어 있습니다.
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) - Java 형식의 시각적인 데이터 마이닝 및 기계 학습 소프트웨어입니다.
+  * [Weka](https://www.cs.waikato.ac.nz/ml/weka/) - Java 형식의 시각적인 데이터 마이닝 및 기계 학습 소프트웨어입니다.
   * [Apache Drill](https://drill.apache.org/) - Apache Hadoop, NoSQL 및 클라우드 스토리지용의 스키마 없는 SQL 쿼리 엔진입니다. Power BI, Microsoft Excel 및 Tableau와 같은 표준 BI 도구에서 NoSQL 및 파일을 쿼리하기 위한 ODBC 및 JDBC 인터페이스를 지원합니다.
 * Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
 * Git(Git Bash 포함)에서 GitHub 및 Azure DevOps가 포함된 소스 코드 리포지토리를 사용하여 작업할 수 있습니다. Git은 Git Bash와 명령 프롬프트에서 모두 액세스할 수 있는 몇 가지 인기 있는 Linux 명령줄 유틸리티를 제공합니다. 예를 들어 awk, sed, perl, grep, find, wget 및 curl이 있습니다.
@@ -69,9 +69,9 @@ DSVM을 사용하면 분석 프로젝트가 바로 시작됩니다. R, Python, S
 * [Linux CentOS](linux-dsvm-intro.md) 이미지.
 * Data Science Virtual Machine의 [Windows Server 2012 버전](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm)입니다. 몇 가지 도구는 Windows Server 2016 버전에서만 사용할 수 있습니다. 그렇지 않은 경우 이 문서는 Windows Server 2012 버전에도 적용됩니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 구성 요소
 
-Microsoft Data Science Virtual Machine를 만들려면 Azure 구독이 있어야 합니다. [Azure 평가판](http://azure.com/free)을 참조하세요.
+Microsoft Data Science Virtual Machine를 만들려면 Azure 구독이 있어야 합니다. [Azure 평가판](https://azure.com/free)을 참조하세요.
 
 ## <a name="create-your-dsvm"></a>DSVM 만들기
 
@@ -229,4 +229,4 @@ Python SDK는 Microsoft Data Science Virtual Machine에 미리 설치되어 있�
 * 엔터프라이즈 규모의 데이터 분석을 지원하는 R에서 RevoScaleR 라이브러리를 사용하는 샘플을 보려면 파일 탐색기에서 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**로 이동합니다.  
 * [Data Science Virtual Machine으로 할 수 있는 10가지 작업](https://aka.ms/dsvmtenthings) 문서를 참조합니다.
 * [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
-* Azure에서 Azure Machine Learning 및 관련 데이터 서비스를 사용하는 기계 학습 및 데이터 분석 샘플을 보려면 [Azure AI Gallery](http://gallery.cortanaintelligence.com)를 방문합니다. 또한 가상 머신의 **시작** 메뉴 및 바탕 화면에는 이 갤러리에 대한 아이콘도 제공됩니다.
+* Azure에서 Azure Machine Learning 및 관련 데이터 서비스를 사용하는 기계 학습 및 데이터 분석 샘플을 보려면 [Azure AI Gallery](https://gallery.cortanaintelligence.com)를 방문합니다. 또한 가상 머신의 **시작** 메뉴 및 바탕 화면에는 이 갤러리에 대한 아이콘도 제공됩니다.

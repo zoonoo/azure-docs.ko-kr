@@ -11,22 +11,22 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097443"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure Portal을 사용하여 BizTalk Services 만들기
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
-
+> 
 > [!TIP]
 > Azure 포털에 로그인하려면 Azure 계정과 Azure 구독이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. [Azure 무료 평가판](https://go.microsoft.com/fwlink/p/?LinkID=239738)을 참조하세요.
 
@@ -143,8 +143,8 @@ Azure BizTalk 서비스가 만들어지면 BizTalk 서비스 이름이 포함된
 <br/>
 
 <ul>
-<li><strong>확장된 키 사용</strong>: Azure BizTalk Services는 최소한 서버 인증이 필요합니다.</li>
-<li><strong>일반 이름</strong>: Azure BizTalk 서비스 URL의 FQDN(정규화된 도메인 이름)을 입력합니다. 이 문서의 <a HREF="#CreateService">BizTalk 서비스 만들기</a>를 참조하세요.</li>
+<li><strong>확장 된 키 사용</strong>: Azure BizTalk Services는 최소한 서버 인증이 필요합니다.</li>
+<li><strong>일반 이름</strong>: Azure BizTalk 서비스 URL의 정규화 된 도메인 이름 (FQDN)을 입력 합니다. 이 문서의 <a HREF="#CreateService">BizTalk 서비스 만들기</a>를 참조하세요.</li>
 </ul>
 <br/>
 BizTalk 서비스를 만든 후 새 인증서나 다른 인증서를 추가할 수 있습니다.
@@ -165,12 +165,12 @@ Azure BizTalk 서비스를 만들면 **하이브리드 연결** 탭을 사용할
  하이브리드 연결을 만들고 관리하는 방법을 비롯한 자세한 내용은 [하이브리드 연결](integration-hybrid-connection-overview.md) 을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)도 익숙해질 수 있습니다. 애플리케이션에 BizTalk 서비스를 사용할 준비가 되었습니다. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동합니다.
+이제 BizTalk 서비스를 만들었으므로 숙지 다른 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)합니다. 애플리케이션에 BizTalk 서비스를 사용할 준비가 되었습니다. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
 
 ## <a name="see-also"></a>참고 항목
-* [BizTalk Services: Editions 차트](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services: 버전 차트](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: 상태 차트](biztalk-service-state-chart.md)<br/>
-* [BizTalk Services: Backup 및 복원](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: 백업 및 복원](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: 제한](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)<br/>
 * [Azure BizTalk Services SDK로 시작하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>

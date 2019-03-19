@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: e1a928711a596c159ac920f11c123b73b72d3aa2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e21223bf3c50a98e039d0f19c51116c4a3cfbcc0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313418"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875141"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱
 
@@ -43,9 +43,9 @@ ms.locfileid: "56313418"
 | quoteChar |문자열 값을 인용하는 데 사용하는 문자입니다. 인용 문자 안의 열 및 행 구분 기호는 문자열 값의 일부분으로 처리됩니다. 이 속성은 입력 데이터 세트와 출력 데이터 세트에 모두 적용됩니다.<br/><br/>한 테이블에 대해 escapeChar 및 quoteChar을 둘 다 지정할 수는 없습니다. |문자는 하나만 사용할 수 있습니다. 기본값은 없습니다. <br/><br/>예: 열 구분 기호로 쉼표(',')를 지정했는데 텍스트에서도 <Hello, world>와 같이 쉼표 문자를 포함하려는 경우에는 인용 문자로 "(큰따옴표)를 정의하고 원본에서 "Hello, world" 문자열을 사용하면 됩니다. |아니요 |
 | nullValue |null 값을 나타내는 데 사용되는 하나 이상의 문자입니다. |하나 이상의 문자입니다. **기본값**은 읽기의 경우 **"\N" 및 "NULL"** 이고, 쓰기의 경우 **"\N"** 입니다. |아니요 |
 | encodingName |인코딩 이름을 지정합니다. |유효한 인코딩 이름입니다. [Encoding.EncodingName 속성](https://msdn.microsoft.com/library/system.text.encoding.aspx)을 참조하세요. windows-1250 또는 shift_jis 등을 예로 들 수 있습니다. **기본값**은 **UTF-8**입니다. |아니요 |
-| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |True<br/><b>False(기본값)</b> |아니요 |
-| skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. SkipLineCount와 firstRowAsHeader를 둘 다 지정하면 해당하는 줄을 먼저 건너뛴 다음 입력 파일에서 머리글 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수  |아니요 |
-| treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지를 지정합니다. |**True(기본값)**<br/>False |아니요 |
+| firstRowAsHeader |첫 번째 행을 머리글로 간주할지를 지정합니다. 입력 데이터 세트의 경우 Data Factory는 첫 번째 행을 머리글로 읽습니다. 출력 데이터 세트의 경우에는 첫 번째 행을 머리글로 씁니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |참<br/><b>False(기본값)</b> |아니요 |
+| skipLineCount |입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. SkipLineCount와 firstRowAsHeader를 둘 다 지정하면 해당하는 줄을 먼저 건너뛴 다음 입력 파일에서 머리글 정보를 읽습니다. <br/><br/>샘플 시나리오의 경우 [`firstRowAsHeader` 및 `skipLineCount` 사용 시나리오](#scenarios-for-using-firstrowasheader-and-skiplinecount)를 참조하세요. |정수 |아니요 |
+| treatEmptyAsNull |입력 파일에서 데이터를 읽을 때 null 또는 빈 문자열을 null 값으로 처리할지를 지정합니다. |**True(기본값)**<br/>거짓 |아니요 |
 
 ### <a name="textformat-example"></a>TextFormat 예제
 
@@ -405,7 +405,7 @@ SQL Database에 다음 테이블이 있는 경우:
 
 ## <a name="parquet-format"></a>Parquet 형식
 
-Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
+Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰려면 `format` `type` 속성을 **ParquetFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예:
 
 ```json
 "format":
@@ -439,7 +439,7 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 
 | Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(Deserialize) | Parquet 원본 형식(Serialize) |
 |:--- |:--- |:--- |:--- |
-| BOOLEAN | BOOLEAN | 해당 없음 | 해당 없음 |
+| 부울 | 부울 | 해당 없음 | 해당 없음 |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -447,22 +447,22 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 | Int32 | Int32 | Int32 | Int32 |
 | UInt32 | Int64 | UInt32 | Int64 |
 | Int64 | Int64 | Int64 | Int64 |
-| UInt64 | Int64/이진 | UInt64 | Decimal |
-| Single | Float | 해당 없음 | 해당 없음 |
+| UInt64 | Int64/이진 | UInt64 | 10진수 |
+| 미혼 | Float | 해당 없음 | 해당 없음 |
 | Double | Double | 해당 없음 | 해당 없음 |
-| Decimal | 이진 | Decimal | Decimal |
+| 10진수 | 이진 | 10진수 | 10진수 |
 | 문자열 | 이진 | Utf8 | Utf8 |
-| DateTime | Int96 | 해당 없음 | 해당 없음 |
+| 날짜/시간 | Int96 | 해당 없음 | 해당 없음 |
 | TimeSpan | Int96 | 해당 없음 | 해당 없음 |
 | DateTimeOffset | Int96 | 해당 없음 | 해당 없음 |
 | ByteArray | 이진 | 해당 없음 | 해당 없음 |
-| Guid | 이진 | Utf8 | Utf8 |
-| Char | 이진 | Utf8 | Utf8 |
+| GUID | 이진 | Utf8 | Utf8 |
+| 문자 | 이진 | Utf8 | Utf8 |
 | CharArray | 지원되지 않음 | 해당 없음 | 해당 없음 |
 
 ## <a name="orc-format"></a>ORC 형식
 
-ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `format` `type` 속성을 **OrcFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
+ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `format` `type` 속성을 **OrcFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예:
 
 ```json
 "format":
@@ -489,29 +489,29 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 
 | Data Factory 중간 데이터 형식 | ORC 형식 |
 |:--- |:--- |
-| BOOLEAN | BOOLEAN |
+| 부울 | 부울 |
 | SByte | Byte |
 | Byte | 짧음 |
 | Int16 | 짧음 |
 | UInt16 | Int |
 | Int32 | Int |
-| UInt32 | long |
-| Int64 | long |
+| UInt32 | 길게 |
+| Int64 | 길게 |
 | UInt64 | 문자열 |
-| Single | Float |
+| 미혼 | Float |
 | Double | Double |
-| Decimal | Decimal |
+| 10진수 | 10진수 |
 | 문자열 | 문자열 |
-| DateTime | 타임 스탬프 |
-| DateTimeOffset | 타임 스탬프 |
-| TimeSpan | 타임 스탬프 |
+| 날짜/시간 | 타임스탬프 |
+| DateTimeOffset | 타임스탬프 |
+| TimeSpan | 타임스탬프 |
 | ByteArray | 이진 |
-| Guid | 문자열 |
-| Char | Char(1) |
+| GUID | 문자열 |
+| 문자 | Char(1) |
 
 ## <a name="avro-format"></a>AVRO 형식
 
-Avro 파일을 구문 분석하거나 데이터를 Avro 형식으로 쓰려면 `format` `type` 속성을 **AvroFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예제:
+Avro 파일을 구문 분석하거나 데이터를 Avro 형식으로 쓰려면 `format` `type` 속성을 **AvroFormat**으로 설정합니다. typeProperties 섹션 내의 Format 섹션에서는 속성을 지정할 필요가 없습니다. 예:
 
 ```json
 "format":
@@ -524,7 +524,7 @@ Hive 테이블에서 Avro 형식을 사용하려는 경우 [Apache Hive의 자�
 
 다음 사항에 유의하세요.
 
-* [복합 데이터 형식](http://avro.apache.org/docs/current/spec.html#schema_complex)은 지원되지 않습니다(레코드, 열거형, 배열, 매핑, 공용 구조체 및 고정).
+* [복합 데이터 형식](https://avro.apache.org/docs/current/spec.html#schema_complex)은 지원되지 않습니다(레코드, 열거형, 배열, 매핑, 공용 구조체 및 고정).
 
 ## <a name="compression-support"></a>압축 지원
 
@@ -573,6 +573,14 @@ Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터�
 
 > [!NOTE]
 > 현재 **AvroFormat**, **OrcFormat** 또는 **ParquetFormat**의 데이터에 대한 압축 설정은 지원되지 않습니다. 이러한 형식의 파일을 읽을 때에는 데이터 팩터리는 메타데이터에 있는 압축 코덱을 감지하여 사용합니다. 이러한 형식의 파일에 쓸 때에는 데이터 팩터리는 해당 형식에 대한 기본 압축 코덱을 선택합니다. 예를 들어 OrcFormat에 대해 ZLIB를 사용하고 ParquetFormat에 대해 SNAPPY를 사용합니다.
+
+## <a name="unsupported-file-types-and-compression-formats"></a>지원 되지 않는 파일 형식 및 압축 형식
+
+지원 되지 않는 파일을 변환 하 여 Azure Data Factory의 확장 기능을 사용할 수 있습니다. Azure Batch를 사용 하 여 Azure Functions 및 사용자 지정 태스크를 포함 하는 두 가지 옵션입니다.
+
+Azure 함수를 사용 하는 샘플을 볼 수 있습니다 [tar 파일의 압축을 풉니다](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)합니다. 자세한 내용은 [Azure Functions 활동](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)합니다.
+
+또한 사용자 지정 dotnet 작업을 사용 하 여이 기능을 빌드할 수 있습니다. 추가 정보가 [여기](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>다음 단계
 

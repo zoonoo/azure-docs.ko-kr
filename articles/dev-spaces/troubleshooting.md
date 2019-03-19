@@ -1,21 +1,20 @@
 ---
-title: 문제 해결 | Microsoft Docs
+title: 문제 해결
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 09/11/2018
-ms.topic: article
+ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 5be6f99067f1209fcd131dfc33c46995b2a537f8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시는, 서비스 메시 라우팅, kubectl, k8s '
+ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498304"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898085"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -146,8 +145,8 @@ Azure Dev Spaces용 VS Code 확장은 최신 버전이지만 Azure Dev Spaces CL
 
 최신 버전의 Azure Dev Spaces CLI를 다운로드한 후 설치합니다.
 
-* [Windows](http://aka.ms/get-azds-windows)
-* [Mac](http://aka.ms/get-azds-mac)
+* [Windows](https://aka.ms/get-azds-windows)
+* [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>오류 'azds'는 내부 또는 외부 명령, 실행 가능한 프로그램 또는 일괄 처리 파일로 인식되지 않습니다.
@@ -210,7 +209,7 @@ VS Code 디버거를 시작하면 때때로 이 오류가 발생할 수 있습�
 VS Code 디버거를 실행하면 오류를 보고합니다. `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>이유
-개발 컴퓨터에 C#용 VS Code 확장이 설치되어 있지 않습니다. C# 확장에는 .Net Core(CoreCLR)용 디버깅 지원이 포함되어 있습니다.
+개발 컴퓨터에 C#용 VS Code 확장이 설치되어 있지 않습니다. C# 확장 지원.NET Core (CoreCLR)에 대 한 디버깅을 포함 합니다.
 
 ### <a name="try"></a>다음을 시도해 보세요.
 [C#용 VS Code 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)을 설치합니다.

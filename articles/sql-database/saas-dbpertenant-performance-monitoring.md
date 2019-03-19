@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004647"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100431"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>멀티 테넌트 SaaS 앱에서 Azure SQL Database 및 풀의 성능 모니터링 및 관리
 
@@ -28,7 +28,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-
+> 
 > * 제공된 부하 생성기를 실행하여 테넌트 데이터베이스에 대한 사용량 시뮬레이션
 > * 부하 증가에 응답하여 테넌트 데이터베이스 모니터링
 > * 증가된 데이터베이스 부하에 응답하여 탄력적 풀 강화
@@ -57,7 +57,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 
 [Azure Portal](https://portal.azure.com)은 대부분의 리소스에 대한 기본 제공 모니터링 및 경고를 제공합니다. SQL Database의 경우 데이터베이스 및 풀에 대한 모니터링 및 경고가 가능합니다. 이 기본 제공 모니터링 및 경고는 리소스별로 다르므로 소수의 리소스에 사용하면 편리하지만 많은 리소스를 가지고 작업하는 경우 그리 편리하지 않을 수 있습니다.
 
-여러 리소스로 작업하는 대규모 시나리오의 경우 [Log Analytics](saas-dbpertenant-log-analytics.md)를 사용할 수 있습니다. 이것은 여러 서비스에서 원격 분석을 수집하고 쿼리 및 경고 설정에 사용할 수 있는 Log Analytics 작업 영역에서 수집된 원격 분석에 대한 분석을 제공하는 개별 Azure 서비스입니다.
+대규모 시나리오의 경우 많은 리소스를 사용 하 여 작업 하는 위치를 [Azure Monitor 로그](saas-dbpertenant-log-analytics.md) 사용할 수 있습니다. 내보낸된 진단 및 Log Analytics 작업 영역에서 수집 된 원격 분석을 통해 분석을 제공 하는 별도 Azure 서비스입니다. Azure Monitor 로그 많은 서비스에서 원격 분석을 수집 및 쿼리 및 경고를 설정 하는 데 사용 됩니다.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database Per Tenant 애플리케이션 스크립트 가져오기
 
@@ -83,10 +83,10 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 | 데모 | 시나리오 |
 |:--|:--|
-| 2 | 표준 강도 부하(약 40 DTU) 생성 |
+| 2 | 표준 강도 부하 (약 40 DTU) 생성 |
 | 3 | 데이터베이스별로 버스트가 더 길고 더 잦은 부하 생성|
-| 4 | 데이터베이스별로 DTU 버스트가 더 높은(약 80 DTU) 부하 생성|
-| 5 | 표준 부하에 더하여 단일 테넌트의 높은 부하 생성(약 95 DTU)|
+| 4 | DTU 버스트가 더 높은 (약 80 DTU) 데이터베이스당 부하 생성|
+| 5 | 표준 부하와 단일 테 넌 트 (약 95 DTU)에 대 한 높은 부하를 생성 합니다.|
 | 6 | 여러 풀에 걸쳐 불균형 부하 생성|
 
 부하 생성기는 *가상* CPU만의 부하를 모든 테넌트 데이터베이스에 적용합니다. 이 생성기는 각 테넌트 데이터베이스에 대해 작업을 시작하여 부하를 생성하는 저장 프로세서를 주기적으로 호출합니다. 부하 수준(eDTU 단위), 기간 및 간격은 모든 데이터베이스에 걸쳐 변화하여 예측 불가능한 테넌트 작업을 시뮬레이션합니다.
@@ -171,17 +171,17 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 1. **+ 새 풀**을 클릭하고 현재 서버에 풀을 만듭니다.
 1. **탄력적 풀** 템플릿에서 다음을 수행합니다.
 
-    1. **이름**을 *Pool2*로 설정합니다.
-    1. 가격 책정 계층을 **표준 풀**로 남겨 둡니다.
-    1. **구성 풀**을 클릭합니다.
-    1. **풀 eDTU**를 *50 eDTU*로 설정합니다.
-    1. **데이터베이스 추가**를 클릭하여 서버에서 *Pool2*에 추가할 수 있는 데이터베이스 목록을 확인합니다.
-    1. 데이터베이스 10개를 선택하여 새 풀로 이동하고 **선택**을 클릭합니다. 부하 생성기를 실행한 경우 서비스에서 성능 프로필에 기본 50 eDTU 크기보다 더 큰 풀이 필요한 것을 이미 알고 있으며 100 eDTU 설정으로 시작하도록 권장합니다.
+   1. **이름**을 *Pool2*로 설정합니다.
+   1. 가격 책정 계층을 **표준 풀**로 남겨 둡니다.
+   1. **구성 풀**을 클릭합니다.
+   1. **풀 eDTU**를 *50 eDTU*로 설정합니다.
+   1. **데이터베이스 추가**를 클릭하여 서버에서 *Pool2*에 추가할 수 있는 데이터베이스 목록을 확인합니다.
+   1. 데이터베이스 10개를 선택하여 새 풀로 이동하고 **선택**을 클릭합니다. 부하 생성기를 실행한 경우 서비스에서 성능 프로필에 기본 50 eDTU 크기보다 더 큰 풀이 필요한 것을 이미 알고 있으며 100 eDTU 설정으로 시작하도록 권장합니다.
 
-    ![권장 사항](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![권장 사항](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
-    1. 이 자습서에서는 기본값 50 eDTU를 유지하고 **선택**을 다시 클릭합니다.
-    1. **확인**을 클릭하여 새 풀을 만들고 선택한 데이터베이스를 이동합니다.
+   1. 이 자습서에서는 기본값 50 eDTU를 유지하고 **선택**을 다시 클릭합니다.
+   1. **확인**을 클릭하여 새 풀을 만들고 선택한 데이터베이스를 이동합니다.
 
 풀을 만들고 데이터베이스를 해당 풀로 이동하는 데 몇 분이 걸립니다. 이동 중인 데이터베이스는 열려 있는 모든 연결이 닫히는 시점인 마지막 순간까지 온라인이고 완전히 액세스할 수 있는 상태로 남아 있습니다. 몇 가지 다시 시도 논리가 있는 경우 클라이언트는 새 풀의 데이터베이스에 연결합니다.
 
@@ -196,7 +196,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 이 연습에서는 인기 있는 콘서트에 대한 티켓을 판매할 때 높은 부하를 경험하는 Contoso 콘서트 홀의 영향을 시뮬레이션합니다.
 
 1. **PowerShell ISE**에서 …\\*Demo-PerformanceMonitoringAndManagement.ps1* 스크립트를 엽니다.
-1. **$DemoScenario = 5를 설정하고, 표준 부하에 더하여 단일 테넌트에 대한 높은 부하(약 95 DTU)를 생성합니다.**
+1. 설정 **$DemoScenario = 5, 표준 부하 생성 및 단일 테 넌 트 (약 95 DTU)에서 높은 로드 합니다.**
 1. **$SingleTenantDatabaseName = contosoconcerthall** 설정
 1. **F5**를 사용하여 스크립트를 실행합니다.
 
@@ -247,4 +247,4 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 * [Wingtip Tickets SaaS 테넌트당 데이터베이스 애플리케이션 배포를 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [SQL 탄력적 풀](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
-* [Log Analytics](saas-dbpertenant-log-analytics.md) - Log Analytics 설정 및 사용 자습서
+* [Azure Monitor 로그](saas-dbpertenant-log-analytics.md) 설정-을 사용 하 여 Azure Monitor 로그 자습서

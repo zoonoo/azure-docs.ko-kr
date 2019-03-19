@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0fd2cd0250e3b3074e5632f30c8dbcc8db41e6e
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901885"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>본인 확인 질문을 사용하도록 보안 정보(미리 보기) 설정
 다음 단계에 따라 암호 재설정 방법을 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
@@ -31,20 +31,22 @@ ms.locfileid: "56455027"
 
 보안 질문을 사용하는 경우 다른 방법과 함께 사용하는 것이 좋습니다. 다른 사람이 본인 확인 질문에 대한 답변을 알고 있을 수도 있으므로 본인 확인 질문은 다른 방법보다 덜 안전할 수 있습니다.
 
->[!Note]
->보안 질문은 디렉터리에서 사용자 개체에 대해 비공개적으로 안전하게 저장되며 등록하는 동안 사용자만이 답변할 수 있습니다. 관리자는 사용자의 질문 또는 대답을 읽거나 수정할 수 없습니다.
-
->보안 질문 옵션이 보이지 않는 경우 사용자의 조직에서 인증에 보안 질문 사용을 허용하지 않았을 가능성이 있습니다. 이 경우 다른 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.
+> [!Note]
+> 보안 질문은 디렉터리에서 사용자 개체에 대해 비공개적으로 안전하게 저장되며 등록하는 동안 사용자만이 답변할 수 있습니다. 관리자는 사용자의 질문 또는 대답을 읽거나 수정할 수 없습니다.
+> 
+> 보안 질문 옵션이 보이지 않는 경우 사용자의 조직에서 인증에 보안 질문 사용을 허용하지 않았을 가능성이 있습니다. 이 경우 다른 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.
+> 
+> 관리자 계정 암호 재설정 방법으로 보안 질문을 사용 하는 허용 되지 않습니다. 관리자 수준 계정으로 로그인 하는 경우 이러한 옵션이 표시 되지 않습니다.
 
 ### <a name="to-set-up-your-security-questions"></a>본인 확인 질문을 설정하려면 다음을 수행합니다.
 
 1. 회사 또는 학교 계정에 로그인한 다음, https://myprofile.microsoft.com/ 페이지로 이동합니다.
 
-    ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile.png)
+    ![보안 정보 링크가 강조 표시된 내 프로필 페이지](media/security-info/securityinfo-myprofile-page.png)
 
-2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **방법 추가**를 선택합니다.
+2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
 
-    ![방법 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![방법 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. **방법 추가** 페이지의 드롭다운 목록에서 **본인 확인 질문**을 선택한 다음, **추가**를 선택합니다.
 

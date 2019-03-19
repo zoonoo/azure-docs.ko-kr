@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422055"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858170"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Storage 탐색기로 Azure Blob Storage 리소스 관리
 ## <a name="overview"></a>개요
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md)는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다.
-Blob 스토리지를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage 탐색기를 사용하여 Blob 컨테이너 및 Blob으로 작업하는 방법을 알아봅니다.
+Blob Storage를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage 탐색기를 사용하여 Blob 컨테이너 및 Blob으로 작업하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
 
 * [Storage 탐색기 다운로드 및 설치](https://www.storageexplorer.com)
-* [Azure 저장소 계정 또는 서비스에 연결](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+* [Azure storage 계정 또는 서비스에 연결](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Blob 컨테이너 만들기
 모든 blob은 단지 blob의 논리적 그룹화인 blob 컨테이너에 있어야 합니다. 한 계정에 포함될 수 있는 컨테이너 수에 제한이 없으며, 각 컨테이너에 저장될 수 있는 Blob 수에도 제한이 없습니다.
@@ -214,7 +214,7 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
 
 ## <a name="next-steps"></a>다음 단계
 * [최신 Storage 탐색기 릴리스 정보 및 비디오](https://www.storageexplorer.com)를 보세요.
-* [Azure blob, 테이블, 큐 및 파일을 사용하여 응용 프로그램을 작성](https://azure.microsoft.com/documentation/services/storage/)하는 방법 알아보기.
+* [Azure blob, 테이블, 큐 및 파일을 사용하여 애플리케이션을 작성](https://azure.microsoft.com/documentation/services/storage/)하는 방법 알아보기.
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png
 [1]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-create.png

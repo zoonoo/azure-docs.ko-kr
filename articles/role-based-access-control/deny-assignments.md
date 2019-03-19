@@ -11,24 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 53716fa343df25026dcc668ed8483673d934d1ad
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339127"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992104"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Azure 리소스에 대한 거부 할당 이해
 
-‘거부 할당’은 역할 할당과 마찬가지로 액세스를 거부하기 위해 특정 범위에서 사용자, 그룹 또는 서비스 주체에게 거부 작업 세트를 연결합니다. 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 이제 Azure의 일부 리소스 공급자에는 거부 할당이 포함되어 있습니다. 현재 거부 할당은 **읽기 전용**이며 Microsoft에서만 설정할 수 있습니다.
+‘거부 할당’은 역할 할당과 마찬가지로 액세스를 거부하기 위해 특정 범위에서 사용자, 그룹 또는 서비스 주체에게 거부 작업 세트를 연결합니다. 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 특정 Azure 리소스 작업을 사용자가 수행할 수 없도록 차단합니다. 이제 Azure의 일부 리소스 공급자에는 거부 할당이 포함되어 있습니다.
 
 일부 측면에서 거부 할당은 역할 할당과 다릅니다. 거부 할당은 보안 주체를 제외하고 자식 범위로의 상속을 차단할 수 있습니다. 거부 할당은 [클래식 구독 관리자](rbac-and-directory-admin-roles.md) 할당에도 적용됩니다.
 
 이 문서에서는 거부 할당을 정의하는 방법을 설명합니다.
+
+> [!NOTE]
+> 이때 사용자가 직접 추가할 수는 유일한 방법은 할당은 Azure Blueprint를 사용 하 여 거부 합니다. 자세한 내용은 [Azure 청사진 리소스 잠금 사용 하 여 새 리소스를 보호](../governance/blueprints/tutorials/protect-new-resources.md)합니다.
 
 ## <a name="deny-assignment-properties"></a>거부 할당 속성
 
@@ -44,12 +47,12 @@ ms.locfileid: "56339127"
 > | `Permissions.DataActions` | Actions 또는 DataActions 하나 이상 | 문자열[] | 거부 할당이 액세스를 차단하는 데이터 작업을 지정하는 문자열 배열입니다. |
 > | `Permissions.NotDataActions` | 아니요 | 문자열[] | 거부 할당에서 제외할 데이터 작업을 지정하는 문자열 배열입니다. |
 > | `Scope` | 아니요 | 문자열 | 거부 할당이 적용되는 범위를 지정하는 범위입니다. |
-> | `DoNotApplyToChildScopes` | 아니요 | BOOLEAN | 거부 할당이 하위 범위에 적용되는지 여부를 지정합니다. 기본값은 False입니다. |
-> | `Principals[i].Id` | 예 | 문자열[] | 거부 할당이 적용되는 Azure AD 보안 주체 개체 ID(사용자, 그룹, 서비스 주체 또는 관리 ID)의 배열입니다. 모든 보안 주체를 나타내려면 빈 GUID `00000000-0000-0000-0000-000000000000`으로 설정합니다. |
+> | `DoNotApplyToChildScopes` | 아니요 | 부울 | 거부 할당이 하위 범위에 적용되는지 여부를 지정합니다. 기본값은 False입니다. |
+> | `Principals[i].Id` | 예. | 문자열[] | 거부 할당이 적용되는 Azure AD 보안 주체 개체 ID(사용자, 그룹, 서비스 주체 또는 관리 ID)의 배열입니다. 모든 보안 주체를 나타내려면 빈 GUID `00000000-0000-0000-0000-000000000000`으로 설정합니다. |
 > | `Principals[i].Type` | 아니요 | 문자열[] | Principals[i].Id로 표시되는 개체 유형의 배열입니다. 모든 보안 주체를 나타내려면 `SystemDefined`로 설정합니다. |
 > | `ExcludePrincipals[i].Id` | 아니요 | 문자열[] | 거부 할당이 적용되지 않는 Azure AD 보안 주체 개체 ID(사용자, 그룹, 서비스 주체 또는 관리 ID)의 배열입니다. |
 > | `ExcludePrincipals[i].Type` | 아니요 | 문자열[] | ExcludePrincipals[i].Id로 표시되는 개체 유형의 배열입니다. |
-> | `IsSystemProtected` | 아니요 | BOOLEAN | 이 거부 할당이 Azure에서 생성되었으며 편집하거나 삭제할 수 없는지 여부를 지정합니다. 현재 모든 거부 할당은 시스템에서 보호됩니다. |
+> | `IsSystemProtected` | 아니요 | 부울 | 이 거부 할당이 Azure에서 생성되었으며 편집하거나 삭제할 수 없는지 여부를 지정합니다. 현재 모든 거부 할당은 시스템에서 보호됩니다. |
 
 ## <a name="system-defined-principal"></a>시스템 정의 보안 주체
 

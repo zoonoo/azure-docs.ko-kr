@@ -4,15 +4,15 @@ description: Azure Migrate의 Collector 어플라이언스 업그레이드에 �
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: f29556c8f2a5aa727ce80632eaccf5e1ed6d7c1a
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: d7a9a6cb8683116b9e0c432c2aede2b8df3ddc68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895631"
 ---
 # <a name="collector-update-release-history"></a>Collector 업데이트 릴리스 기록
 
@@ -22,7 +22,17 @@ Azure Migrate Collector는 Azure로 마이그레이션하기 전에 평가를 �
 
 ## <a name="continuous-discovery-upgrade-versions"></a>연속 검색: 업그레이드 버전
 
-연속 검색 어플라이언스용 업그레이드는 아직 제공되지 않습니다.
+### <a name="version-101012-released-on-03132019"></a>(03/13/2019에 릴리스됨) 1.0.10.12 버전
+
+문제에 대 한 수정 프로그램이 포함 되어 클라우드 어플라이언스에 Azure를 선택 합니다.
+
+업그레이드에 대 한 값을 해시 [1.0.10.12 패키지](https://aka.ms/migrate/col/upgrade_10_12)
+
+**알고리즘** | **해시 값**
+--- | ---
+MD5 | 27704154082344c058238000dff9ae44
+SHA1 | 41e9e2fb71a8dac14d64f91f0fd780e0d606785e
+SHA256 | c6e7504fcda46908b636bfe25b8c73f067e3465b748f77e50027e66f2727c2a9
 
 ## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>일회성 검색(현재 사용 중단): 이전 업그레이드 버전
 
@@ -71,7 +81,7 @@ OVA를 다시 다운로드하지 않고도 Collector를 최신 버전으로 업�
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    예제: **C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)**
+    예: **C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)**
 3. Collector 어플라이언스 VM에 zip 파일을 복사합니다.
 4. zip 파일을 마우스 오른쪽 단추로 클릭하고 **압축 풀기**를 선택합니다.
 5. **Setup.ps1**을 마우스 오른쪽 단추로 클릭  >  **PowerShell에서 실행**을 선택하고 설치 지침을 따릅니다.

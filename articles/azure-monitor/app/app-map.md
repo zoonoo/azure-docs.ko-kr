@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: f2bd1d863a7900b50712eb23c1088c6b271befa3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 777bf38fbc8a90335af79bbd0fb2ce74310bd991
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755898"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006804"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -42,13 +42,13 @@ ms.locfileid: "55755898"
 
 모든 구성 요소가 단일 Application Insights 리소스 내의 역할인 경우 이 검색 단계가 필요하지 않습니다. 이러한 애플리케이션에 대한 초기 로드 시에는 모든 구성 요소가 포함됩니다.
 
-![애플리케이션 맵 스크린샷](media/app-map/001.png)
+![애플리케이션 맵 스크린샷](media/app-map/app-map-001.png)
 
 수백 가지 구성 요소가 있는 복잡한 토폴로지를 시각화하는 것이 이 환경의 주요 목표 중 하나입니다.
 
 모든 구성 요소를 클릭하여 관련 정보를 확인하고, 해당 구성 요소에 대한 성능 및 실패 심사 환경으로 이동합니다.
 
-![플라이아웃](media/app-map/application-map-001.png)
+![플라이아웃](media/app-map/application-map-002.png)
 
 ### <a name="investigate-failures"></a>오류 조사
 
@@ -82,7 +82,7 @@ ms.locfileid: "55755898"
 
 ![Analytics 환경 스크린샷](media/app-map/analytics.png)
 
-### <a name="alerts"></a>경고
+### <a name="alerts"></a>알림
 
 경고가 트리거될 수 있는 활성 경고 및 기본 규칙을 보려면 **경고**를 선택합니다.
 
@@ -164,7 +164,7 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 });
 ```
 
-### <a name="java"></a>자바
+### <a name="java"></a>Java
 
 Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경우 application.properties 파일에서 애플리케이션에 대한 사용자 지정 이름을 설정하도록 변경하기만 하면 됩니다.
 

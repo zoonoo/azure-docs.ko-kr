@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: 8b1a4bbb100fc4db1323f530808a8d01bd8f30ce
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858880"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
 
@@ -30,7 +30,7 @@ ms.locfileid: "53582442"
 
 ## <a name="open-ftp-dashboard"></a>FTP 대시보드 열기
 
-[Azure Portal](https://portal.azure.com)에서 앱의 [리소스 페이지](../azure-resource-manager/resource-group-portal.md#manage-resources)를 엽니다.
+[Azure Portal](https://portal.azure.com)에서 앱의 [리소스 페이지](../azure-resource-manager/manage-resources-portal.md#manage-resources)를 엽니다.
 
 FTP 대시보드를 열려면 **배포 센터** > **FTP** > **대시보드**를 클릭합니다.
 
@@ -43,6 +43,14 @@ FTP 대시보드에서 **복사**를 클릭하여 FTPS 엔드포인트 및 앱 �
 ![FTP 정보 복사](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
 각 앱에 고유하기 때문에 사용자 앱에 배포하려면 **앱 자격 증명**을 사용하는 것이 좋습니다. 단, **사용자 자격 증명**을 클릭하는 경우 구독에서 모든 App Service 앱에 대한 FTP/S 로그인에 사용할 수 있는 사용자 수준의 자격 증명을 설정할 수 있습니다.
+
+> [!NOTE]
+> 다음 형식으로 사용자 이름을 requirers 사용자 수준 자격 증명을 사용 하 여 FTP/FTPS 끝점 인증: 
+>
+>`<app-name>\<user-name>`
+>
+> 사용자 수준 자격 증명은 사용자와 특정 리소스 하지에 연결 된, 이후 사용자 이름 적합 한 앱 끝점으로의 로그인 작업을이 형식 이어야 합니다.
+>
 
 ## <a name="deploy-files-to-azure"></a>Azure에 파일 배포
 
@@ -58,7 +66,6 @@ FTP 대시보드에서 **복사**를 클릭하여 FTPS 엔드포인트 및 앱 �
 > - web.config 생성([Node.js 예제](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps) 참조)
 > 
 > 로컬 컴퓨터에서 이러한 필요한 파일을 수동으로 생성한 후 앱과 함께 배포합니다.
->
 >
 
 ## <a name="enforce-ftps"></a>FTPS 적용

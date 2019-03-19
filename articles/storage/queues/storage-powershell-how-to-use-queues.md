@@ -4,16 +4,16 @@ description: PowerShell을 사용하여 Azure Queue Storage에서 작업을 수�
 services: storage
 author: roygara
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: dddd82cd80d853607b28db906d298d5c301ab9df
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 7f317c061c66a344731172f83e1c85dc5487379d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770706"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005193"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Queue Storage 작업 수행
 
@@ -122,7 +122,7 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-[Azure Storage 탐색기](http://storageexplorer.com)를 사용하는 경우 Azure 계정에 연결하여 스토리지 계정에서 큐를 확인하고, 큐에서 메시지를 보도록 하나로 드릴 다운할 수 있습니다. 
+[Azure Storage 탐색기](https://storageexplorer.com)를 사용하는 경우 Azure 계정에 연결하여 스토리지 계정에서 큐를 확인하고, 큐에서 메시지를 보도록 하나로 드릴 다운할 수 있습니다. 
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>큐에서 메시지를 읽은 다음, 삭제합니다.
 

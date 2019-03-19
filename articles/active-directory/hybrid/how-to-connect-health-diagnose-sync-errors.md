@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2924a45ae8851095944131b6fb1598775247f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885320"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>중복된 특성 동기화 오류 진단 및 수정
 
@@ -33,7 +33,7 @@ Azure AD에 대한 자세한 내용은 [ID 동기화 및 중복 특성 복원력
 
 ## <a name="problems"></a>문제
 ### <a name="a-common-scenario"></a>일반적인 시나리오
-**QuarantinedAttributeValueMustBeUnique** 및 **AttributeValueMustBeUnique** 동기화 오류가 발생하는 경우 일반적으로 Azure AD에서 **UserPrincipalName** 또는 **프록시 주소** 충돌이 발생합니다. 온-프레미스 쪽에서 충돌하는 원본 개체를 업데이트하여 동기화 오류를 해결할 수 있습니다. 동기화 오류는 그 다음 동기화 후에 해결됩니다. 예를 들어 이 이미지는 사용자 두 명의 **UserPrincipalName**이 충돌하는 것을 보여줍니다. 둘 다 **Joe.J@contoso.com**입니다. 충돌하는 개체는 Azure AD에서 격리됩니다.
+**QuarantinedAttributeValueMustBeUnique** 및 **AttributeValueMustBeUnique** 동기화 오류가 발생하는 경우 일반적으로 Azure AD에서 **UserPrincipalName** 또는 **프록시 주소** 충돌이 발생합니다. 온-프레미스 쪽에서 충돌하는 원본 개체를 업데이트하여 동기화 오류를 해결할 수 있습니다. 동기화 오류는 그 다음 동기화 후에 해결됩니다. 예를 들어 이 이미지는 사용자 두 명의 **UserPrincipalName**이 충돌하는 것을 보여줍니다. 둘 다 **Joe.J\@contoso.com**합니다. 충돌하는 개체는 Azure AD에서 격리됩니다.
 
 ![동기화 오류 진단 일반적인 시나리오](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -66,32 +66,34 @@ Azure Portal의 단계에 따라 동기화 오류 세부 정보 범위를 좁히
 
 Azure Portal에서 몇 가지 단계를 수행하여 수정 가능한 시나리오를 식별합니다.  
 1.  **상태 진단** 열을 확인합니다. 상태를 보면 Azure Active Directory에서 직접 동기화 오류를 수정할 수 있는지 알 수 있습니다. 즉, 오류 사례 범위를 좁히고 오류를 해결할 수 있는 문제 해결 흐름이 있습니다.
+
 | 상태 | 무엇을 의미하나요? |
 | ------------------ | -----------------|
 | 시작 안함 | 이 진단 프로세스를 방문하지 않았습니다. 진단 결과에 따라 포털에서 바로 동기화 오류를 해결하는 방법이 있습니다. |
 | 수동 수정 필요 | 이 오류는 포털에서 사용할 수 있는 수정 기준에 맞지 않습니다. 충돌하는 개체 형식이 사용자가 아니거나, 이미 진단 단계를 진행했지만 포털에서 사용할 수 있는 해결 방법이 없습니다. 후자에 속하는 경우 온-프레미스 쪽에서의 수정은 여전히 솔루션 중 하나입니다. [온-프레미스 수정에 대해 자세히 알아보세요](https://support.microsoft.com/help/2647098). | 
 | 동기화 보류 중 | 수정이 적용되었습니다. 그 다음 동기화 주기에서 오류가 수정될 때까지 포털이 대기 중입니다. |
+
   >[!IMPORTANT]
   > 진단 상태 열은 각 동기화 주기 후에 재설정됩니다. 
   >
 
-2.  오류 세부 정보 아래에서 **진단** 단추를 선택하세요. 그리고 몇 가지 질문에 답변하고 동기화 오류 세부 정보를 식별합니다. 질문에 답하여 분리된 개체 사례를 식별할 수 있습니다.
+1. 오류 세부 정보 아래에서 **진단** 단추를 선택하세요. 그리고 몇 가지 질문에 답변하고 동기화 오류 세부 정보를 식별합니다. 질문에 답하여 분리된 개체 사례를 식별할 수 있습니다.
 
-3.  진단 마지막에 **닫기** 단추가 표시되면 사용자의 답변에 따라 포털에서 사용할 수 있는 빠른 수정이 없습니다. 마지막 단계에 표시된 솔루션을 참조하세요. 여전히 온-프레미스에서 수정할 수 있습니다. **닫기** 단추를 선택하세요. 현재 동기화 오류 상태가 **수동 수정 필요**로 전환됩니다. 현재 동기화 주기가 끝날 때까지 상태가 유지됩니다.
+1. 진단 마지막에 **닫기** 단추가 표시되면 사용자의 답변에 따라 포털에서 사용할 수 있는 빠른 수정이 없습니다. 마지막 단계에 표시된 솔루션을 참조하세요. 여전히 온-프레미스에서 수정할 수 있습니다. **닫기** 단추를 선택하세요. 현재 동기화 오류 상태가 **수동 수정 필요**로 전환됩니다. 현재 동기화 주기가 끝날 때까지 상태가 유지됩니다.
 
-4.  분리된 개체 사례가 식별되면 포털에서 바로 중복된 특성 동기화 오류를 해결할 수 있습니다. 프로세스를 트리거하려면 **해결 적용** 단추를 클릭합니다. 현재 동기화 오류 상태가 **동기화 보류 중**으로 업데이트됩니다.
+1. 분리된 개체 사례가 식별되면 포털에서 바로 중복된 특성 동기화 오류를 해결할 수 있습니다. 프로세스를 트리거하려면 **해결 적용** 단추를 클릭합니다. 현재 동기화 오류 상태가 **동기화 보류 중**으로 업데이트됩니다.
 
-5.  그 다음 동기화 주기가 완료되면 목록에서 오류가 제거됩니다.
+1. 그 다음 동기화 주기가 완료되면 목록에서 오류가 제거됩니다.
 
 ## <a name="how-to-answer-the-diagnosis-questions"></a>진단 질문에 답변하는 방법 
 ### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>온-프레미스 Active Directory에 사용자가 있나요?
 
 이 질문의 목적은 온-프레미스 Active Directory에서 기존 사용자의 원본 개체를 식별하는 것입니다.  
-1.  Azure Active Directory에 제공된 **UserPrincipalName**이 포함된 개체가 있는지 확인합니다. 없으면 **아니요**를 선택합니다.
-2.  있으면 해당 개체가 여전히 동기화 범위 내에 있는지 확인합니다.  
-  - DN을 사용하여 Azure AD Connector 공간을 검색합니다.
-  - 개체 상태가 **추가 보류 중**이면 **아니요**를 선택합니다. Azure AD Connect가 개체를 올바른 AD 개체에 연결할 수 없습니다.
-  - 개체를 찾을 수 없는 경우 **예**를 선택합니다.
+1. Azure Active Directory에 제공된 **UserPrincipalName**이 포함된 개체가 있는지 확인합니다. 없으면 **아니요**를 선택합니다.
+2. 있으면 해당 개체가 여전히 동기화 범위 내에 있는지 확인합니다.  
+   - DN을 사용하여 Azure AD Connector 공간을 검색합니다.
+   - 개체 상태가 **추가 보류 중**이면 **아니요**를 선택합니다. Azure AD Connect가 개체를 올바른 AD 개체에 연결할 수 없습니다.
+   - 개체를 찾을 수 없는 경우 **예**를 선택합니다.
 
 이 예제에서 질문의 목적은 **Joe Jackson**이 여전히 온-프레미스 Active Directory에 있는지 확인하는 것입니다.
 **일반적인 시나리오**에서는 두 사용자 **Joe Johnson** 및 **Joe Jackson**이 온-프레미스 Active Directory에 있습니다. 격리된 개체는 두 명의 다른 사용자입니다.
@@ -104,11 +106,11 @@ Azure Portal에서 몇 가지 단계를 수행하여 수정 가능한 시나리�
 
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>두 계정이 동일한 사용자에게 속해 있나요?
 이 질문의 목적은 들어오는 충돌하는 사용자와 Azure AD의 기존 사용자 개체를 확인하여 둘 다 같은 사용자에게 속해 있는지 확인하는 것입니다.  
-1.  충돌하는 개체는 Azure Active Directory에 새로 동기화됩니다. 개체의 특성을 비교합니다.  
-  - 표시 이름
-  - 사용자 계정 이름
-  - 개체 ID
-2.  Azure AD가 개체 비교에 실패할 경우 제공된 **UserPrincipalNames**가 포함된 개체가 Active Directory에 있는지 확인합니다. 둘 다 있으면 **아니요**를 선택합니다.
+1. 충돌하는 개체는 Azure Active Directory에 새로 동기화됩니다. 개체의 특성을 비교합니다.  
+   - 표시 이름
+   - 사용자 계정 이름
+   - 개체 ID
+2. Azure AD가 개체 비교에 실패할 경우 제공된 **UserPrincipalNames**가 포함된 개체가 Active Directory에 있는지 확인합니다. 둘 다 있으면 **아니요**를 선택합니다.
 
 다음 예에서 두 개체는 동일한 사용자 **Joe Johnson**에게 속합니다.
 

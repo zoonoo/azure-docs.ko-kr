@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: c11b59f8ea432075b147a391de4b7bd3331e639e
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
-ms.translationtype: HT
+ms.openlocfilehash: ef24e356c9ac8424fc519a3b16af5d37a20e706f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2018
-ms.locfileid: "27704424"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999774"
 ---
 # <a name="how-to-use-the-azure-slave-plug-in-with-hudson-continuous-integration"></a>Hudson Continuous Integration과 함께 Azure 슬레이브 플러그인을 사용하는 방법
 Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 실행할 때 슬레이브 노드를 프로비전할 수 있습니다.
@@ -32,7 +32,7 @@ Hudson용 Azure 슬레이브 플러그인을 사용하면 분산된 빌드를 �
    
     사용 가능한 플러그인 목록을 스크롤할 경우 **기타** 탭의 **클러스터 관리 및 분산 빌드** 섹션에서 Azure 슬레이브 플러그인이 표시됩니다.
 5. **Azure Slave Plugin**에 대한 확인란을 선택합니다.
-6. **Install**을 클릭합니다.
+6. **설치**를 클릭합니다.
 7. Hudson을 다시 시작합니다.
 
 이제 플러그인이 설치되었으므로 다음으로 Azure 구독 프로필로 플러그인을 구성하고 슬레이브 노드에 대한 VM을 만드는 데 사용할 템플릿을 만들어야 합니다.
@@ -188,7 +188,7 @@ Java와 함께 Azure를 사용하는 방법에 대한 자세한 내용은 [Azure
 <!-- URL List -->
 
 [Azure Java 개발자 센터]: https://azure.microsoft.com/develop/java/
-[구독 프로필]: http://go.microsoft.com/fwlink/?LinkID=396395
+[구독 프로필]: https://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 

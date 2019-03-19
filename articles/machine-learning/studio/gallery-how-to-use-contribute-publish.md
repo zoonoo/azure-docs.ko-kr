@@ -1,30 +1,30 @@
 ---
-title: Azure AI 갤러리
+title: Azure AI Gallery
 titleSuffix: Azure Machine Learning Studio
 description: Azure AI 갤러리의 분석 리소스 등을 공유 및 검색합니다. 다른 사용자로부터 배우고 커뮤니티에 직접 제공합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 48bb9b24901cd07891f3d52bcd916f95bc2801f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885422"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
 
-**[Azure AI Gallery](http://gallery.azure.ai)**.
+**[Azure AI Gallery](https://gallery.azure.ai)**.
 갤러리에는 자체 분석 솔루션을 개발하는 데 사용할 수 있는 다양한 리소스가 있습니다.
 
 ## <a name="what-can-i-find-in-the-gallery"></a>갤러리에는 어떤 응용 프로그램이 있습니까?
 
-Azure AI Gallery는 Microsoft에서 참여한 다양한 리소스와 데이터 과학 커뮤니티의 멤버를 포함합니다. 내용은 다음과 같습니다.
+Azure AI Gallery는 Microsoft에서 참여한 다양한 리소스와 데이터 과학 커뮤니티의 멤버를 포함합니다. 이러한 개체는 다음과 같습니다.
 
 * **실험** - 이 Gallery에는 갤러리에는 Azure Machine Learning Studio에서 개발된 매우 다양한 실험이 들어 있습니다. 이러한 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
 * **자습서** - Machine Learning 기술 및 개념을 안내하거나 다양한 Machine Learning 문제를 해결하기 위한 고급 방법을 설명하는 다양한 자습서가 있습니다.
@@ -120,7 +120,7 @@ Studio 내에서 리소스를 다운로드하려면
 
 * 실험 이름
 * 요약 또는 설명
-* 태그들
+* 태그
 * 이미지
 * 표시 여부 설정(**공개** 또는 **비공개**)
 
@@ -199,6 +199,6 @@ Gallery에서 기계 학습 개념을 설명하는 **자습서**를 작성하거
 
 사용자가 주도하는 사용자를 위한 갤러리를 원합니다. 오른쪽에 있는 웃는 얼굴을 사용하여 갤러리가 마음에 드는지 아니면 싫어하는지 알려주세요.  
 
-![사용자 의견](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![피드백](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[갤러리로 이동 >>](http://gallery.azure.ai)**
+**[갤러리로 이동 >>](https://gallery.azure.ai)**

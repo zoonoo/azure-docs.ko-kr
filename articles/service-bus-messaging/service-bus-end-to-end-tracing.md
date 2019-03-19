@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2330e395244f33653af415b5db896fdc2aa2024d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852986"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107038"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 
@@ -213,7 +213,7 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 
 1. `IsEnabled(<OperationName>, string entity, null)`(예: `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`). 끝에 ‘Start’ 또는 ‘Stop’이 없습니다. 특정 작업이나 큐를 필터링하는 데 사용합니다. 콜백이 `false`를 반환하는 경우 작업에 대한 이벤트가 전송되지 않습니다.
 
-  * ‘Process’ 및 ‘ProcessSession’ 작업의 경우 `IsEnabled(<OperationName>, string entity, Activity activity)` 콜백도 수신됩니다. `activity.Id` 또는 태그 속성을 기준으로 이벤트를 필터링하는 데 사용합니다.
+   * ‘Process’ 및 ‘ProcessSession’ 작업의 경우 `IsEnabled(<OperationName>, string entity, Activity activity)` 콜백도 수신됩니다. `activity.Id` 또는 태그 속성을 기준으로 이벤트를 필터링하는 데 사용합니다.
   
 2. `IsEnabled(<OperationName>.Start)`(예: `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`). ‘Start’ 이벤트를 실행할지 여부를 확인합니다. 결과는 ‘Start’ 이벤트에만 영향을 주지만 추가 계측은 결과에 종속되지 않습니다.
 

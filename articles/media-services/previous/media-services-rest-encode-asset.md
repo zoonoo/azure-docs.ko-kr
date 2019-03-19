@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 608abd09227014513a0ad358d7a2c225b5ab2b97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005151"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863375"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Media Encoder Standard를 사용하여 자산을 인코딩하는 방법
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 >
 > Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 >
-> JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)으로 설정해야 합니다. Accept: application/json;odata=verbose.
+> JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)으로 설정해야 합니다. Accept: application/json;odata=verbose.
 >
 >
 
@@ -151,7 +151,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 * 작업에서 입력이 다른 작업의 출력인 작업이 하나 이상 있어야 합니다.
 
 ## <a name="use-odata-batch-processing"></a>OData 배치 처리 사용
-다음 예제에서는 OData 배치 처리를 사용하여 작업 및 태스크를 만드는 방법을 보여줍니다. Batch 처리에 대한 정보는 [Open Data Protocol(OData) Batch 처리](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)를 참조하세요.
+다음 예제에서는 OData 배치 처리를 사용하여 작업 및 태스크를 만드는 방법을 보여줍니다. Batch 처리에 대한 정보는 [Open Data Protocol(OData) Batch 처리](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)를 참조하세요.
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -279,5 +279,5 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 ## <a name="next-steps"></a>다음 단계
 자산을 인코드하는 작업을 만드는 방법을 알았으니 이제 [Media Services를 사용하여 작업 진행 상태를 확인하는 방법](media-services-rest-check-job-progress.md)을 살펴보겠습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 [미디어 프로세서 가져오기](media-services-rest-get-media-processor.md)

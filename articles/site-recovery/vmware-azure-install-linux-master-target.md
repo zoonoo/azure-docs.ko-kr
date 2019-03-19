@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217988"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099055"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -62,7 +62,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 다음 단계를 통해 Ubuntu 16.04.2 64비트 운영 체제를 설치합니다.
 
-1.   [다운로드 링크](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso)로 이동하고 가장 가까운 미러를 선택한 다음, Ubuntu 16.04.2 최소 64비트 ISO를 다운로드합니다.
+1.   로 이동 합니다 [다운로드 링크](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), 가장 가까운 미러를 선택 하 고 Ubuntu 16.04.2 최소 64 비트 ISO를 다운로드 합니다.
 DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스템을 시작합니다.
 
 1.  기본 설정 언어로 **영어**를 선택하고 **Enter** 키를 선택합니다.
@@ -168,15 +168,15 @@ Linux 가상 머신에 있는 각 SCSI 하드 디스크의 ID를 가져오려면
 
 5. **disk.EnableUUID**가 있는 행이 있는지 확인합니다.
 
-    - 값이 있고 **False**로 설정되어 있으면 **True**로 변경합니다. (이 값은 대/소문자를 구분하지 않습니다.)
+   - 값이 있고 **False**로 설정되어 있으면 **True**로 변경합니다. (이 값은 대/소문자를 구분하지 않습니다.)
 
-    - 값이 있고 **True**로 설정되어 있으면 **취소**를 선택합니다.
+   - 값이 있고 **True**로 설정되어 있으면 **취소**를 선택합니다.
 
-    - 값이 없으면 **행 추가**를 선택합니다.
+   - 값이 없으면 **행 추가**를 선택합니다.
 
-    - 이름 열에서 **disk.EnableUUID**를 추가하고 값을 **TRUE**로 설정합니다.
+   - 이름 열에서 **disk.EnableUUID**를 추가하고 값을 **TRUE**로 설정합니다.
 
-    ![disk.EnableUUID가 있는지 확인](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![disk.EnableUUID가 있는지 확인](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>커널 업그레이드 비활성화
 
@@ -279,7 +279,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     `echo <passphrase> >passphrase.txt`
 
-    예제: 
+    예: 
 
        `echo itUx70I47uxDuUVY >passphrase.txt`
     
@@ -287,11 +287,10 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 2. 구성 서버의 IP 주소를 적어둡니다. 다음 명령을 실행하여 마스터 대상 서버를 설치하고 이 서버를 구성 서버에 등록합니다.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 
-    예제: 
+    예: 
     
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
@@ -322,7 +321,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
-    예제: 
+    예: 
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt

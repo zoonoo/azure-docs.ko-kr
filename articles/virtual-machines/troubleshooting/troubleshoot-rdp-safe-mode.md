@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 8e108d88282894a7b1bf014146083008bedd483d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316984"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095044"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>VM이 안전 모드로 부팅되어 VM에 RDP로 연결할 수 없음
 
@@ -38,7 +38,7 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 안전 모드에서는 RDP 서비스를 사용할 수 없습니다. VM이 안전 모드로 부팅되면 핵심 시스템 프로그램 및 서비스만 로드됩니다. 이것은 "Safe Boot minimal" 및 "Safe Boot with connectivity"의 두 가지 안전 모드 버전에 적용됩니다.
 
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅숏을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅숏](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
@@ -47,7 +47,7 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
 ### <a name="use-serial-control"></a>직렬 콘솔 사용
 
 1. [직렬 콘솔에 연결하고 CMD 인스턴스를 엽니다](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). VM에서 직렬 콘솔을 사용하도록 설정되지 않은 경우 [오프라인으로 VM 복구](#repair-the-vm-offline)를 참조하세요.
+   ). VM에서 직렬 콘솔을 사용하도록 설정되지 않은 경우 [오프라인으로 VM 복구](#repair-the-vm-offline)를 참조하세요.
 2. 부팅 구성 데이터를 확인합니다.
 
         bcdedit /enum
@@ -55,12 +55,12 @@ VM이 안전 모드로 부팅하도록 구성되어 VM에 RDP로 또는 기타 �
     VM이 안전 모드로 부팅하도록 구성된 경우 **Windows 부팅 로더** 섹션 아래에 **safeboot**라는 추가 플래그가 보입니다. **safeboot** 플래그가 보이지 않으면 VM이 현재 안전 모드가 아닙니다. 이 문서는 고객의 시나리오에 적용되지 않습니다.
 
     **safeboot** 플래그는 다음 값으로 표시될 수 있습니다.
-    - 최소
-    - 네트워크
+   - 최소
+   - 네트워크
 
-    둘 중 어떤 모드에서도 RDP가 시작되지 않습니다. 따라서 픽스가 동일하게 유지됩니다.
+     둘 중 어떤 모드에서도 RDP가 시작되지 않습니다. 따라서 픽스가 동일하게 유지됩니다.
 
-    ![안전 모드 플래그에 대한 이미지](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
+     ![안전 모드 플래그에 대한 이미지](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
 3. VM이 일반 모드로 부팅하도록 **safemoade** 플래그를 삭제합니다.
 

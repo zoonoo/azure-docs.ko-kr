@@ -3,7 +3,7 @@ title: 인증, 요청 및 응답
 description: Key Vault 사용을 위해 AD에 인증
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 57f04a79396cd286ea87e6a8cc7b37f5459fa14c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 7ca486768cf56059328801b1b4b1036bb8aeece8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111529"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081783"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
 
@@ -31,17 +31,17 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 
  Azure Key Vault에 있는 개체를 사용하기 위한 예제 URL은 다음과 같습니다.  
 
--   Key Vault에서 TESTKEY라는 키를 만들려면 `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1` 사용  
+- Key Vault에서 TESTKEY라는 키를 만들려면 `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1` 사용  
 
--   Key Vault에서 IMPORTEDKEY라는 키를 가져오려면 `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1` 사용  
+- Key Vault에서 IMPORTEDKEY라는 키를 가져오려면 `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1` 사용  
 
--   Key Vault에서 MYSECRET이라는 비밀을 가져오려면 `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1` 사용  
+- Key Vault에서 MYSECRET이라는 비밀을 가져오려면 `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1` 사용  
 
--   Key Vault에서 TESTKEY라는 키를 사용하여 다이제스트에 서명하려면 `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1` 사용  
+- Key Vault에서 TESTKEY라는 키를 사용하여 다이제스트에 서명하려면 `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1` 사용  
 
- Key Vault에 대한 요청을 위한 기관은 항상 다음과 같습니다. `https://{keyvault-name}.vault.azure.net/`  
+  Key Vault에 대한 요청을 위한 기관은 항상 다음과 같습니다. `https://{keyvault-name}.vault.azure.net/`  
 
- 키는 항상 /keys 경로에 저장되며, 비밀은 항상 /secrets 경로에 저장됩니다.  
+  키는 항상 /keys 경로에 저장되며, 비밀은 항상 /secrets 경로에 저장됩니다.  
 
 ## <a name="api-version"></a>API 버전  
  Azure Key Vault 서비스는 일부 기능을 해당 클라이언트에서 사용할 수 있는 하위 수준 클라이언트와의 호환성을 제공하기 위해 프로토콜 버전 관리를 지원합니다. 클라이언트는 기본값이 없으므로 지원하는 프로토콜의 버전을 지정하려면 `api-version` 쿼리 문자열 매개 변수를 사용해야 합니다.  
@@ -64,17 +64,17 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 ## <a name="error-responses"></a>오류 응답  
  오류 처리는 HTTP 상태 코드를 사용합니다. 일반적인 결과는 다음과 같습니다.  
 
--   2xx – 성공: 일반 작업에 사용됩니다. 응답 본문은 예상된 결과를 포함합니다.  
+- 2xx – 성공: 일반 작업에 사용됩니다. 응답 본문은 예상된 결과를 포함합니다.  
 
--   3xx – 리디렉션: 조건부 GET을 충족하기 위해 304 “수정되지 않음”이 반환될 수 있습니다. 나중에 DNS 및 경로 변경을 나타내기 위해 다른 3xx 코드가 사용될 수 있습니다.  
+- 3xx – 리디렉션: 조건부 GET을 충족하기 위해 304 “수정되지 않음”이 반환될 수 있습니다. 나중에 DNS 및 경로 변경을 나타내기 위해 다른 3xx 코드가 사용될 수 있습니다.  
 
--   4xx – 클라이언트 오류: 잘못된 요청, 누락된 키, 구문 오류, 잘못된 매개 변수, 인증 오류 등에 사용됩니다. 응답 본문에는 자세한 오류 설명이 포함됩니다.  
+- 4xx – 클라이언트 오류: 잘못된 요청, 누락된 키, 구문 오류, 잘못된 매개 변수, 인증 오류 등에 사용됩니다. 응답 본문에는 자세한 오류 설명이 포함됩니다.  
 
--   5xx – 서버 오류: 내부 서버 오류에 사용됩니다. 응답 본문에는 요약된 오류 정보가 포함됩니다.  
+- 5xx – 서버 오류: 내부 서버 오류에 사용됩니다. 응답 본문에는 요약된 오류 정보가 포함됩니다.  
 
- 시스템은 프록시 또는 방화벽 뒤에서 작업하도록 고안되었습니다. 따라서 클라이언트는 다른 오류 코드를 받을 수도 있습니다.  
+  시스템은 프록시 또는 방화벽 뒤에서 작업하도록 고안되었습니다. 따라서 클라이언트는 다른 오류 코드를 받을 수도 있습니다.  
 
- 또한 Azure Key Vault는 문제가 발생하는 경우 응답 본문에 오류 정보를 반환합니다. 응답 본문은 JSON 형식이며 다음과 같은 형식을 사용합니다.  
+  또한 Azure Key Vault는 문제가 발생하는 경우 응답 본문에 오류 정보를 반환합니다. 응답 본문은 JSON 형식이며 다음과 같은 형식을 사용합니다.  
 
 ```  
 
@@ -91,8 +91,8 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 
 ```  
 
-## <a name="authentication"></a>Authentication  
- Azure Key Vault에 대한 모든 요청은 인증되어야 합니다. Azure Key Vault는 OAuth2를 사용하여 가져올 수 있는 Azure Active Directory 액세스 토큰을 지원합니다[[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
+## <a name="authentication"></a>인증  
+ Azure Key Vault에 대한 모든 요청은 인증되어야 합니다. Azure Key Vault는 OAuth2를 사용하여 가져올 수 있는 Azure Active Directory 액세스 토큰을 지원합니다[[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  애플리케이션 등록 및 Azure Key Vault 사용을 위한 인증에 대한 자세한 내용은 [Azure AD로 클라이언트 애플리케이션 등록](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad)을 참조하세요.
  
@@ -118,5 +118,5 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   리소스: 권한 부여 요청에서 사용하는 리소스의 이름입니다.  
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>관련 항목  
  [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)

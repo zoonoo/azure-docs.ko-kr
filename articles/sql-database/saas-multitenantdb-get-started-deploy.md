@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567386"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994914"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 응용 프로그램 배포 및 탐색
 
@@ -66,9 +66,9 @@ ms.locfileid: "55567386"
 ### <a name="steps"></a>단계
 
 1. 다음 파란색 **Azure에 배포** 단추를 클릭합니다.
-    - Wingtip Tickets SaaS 배포 템플릿이 포함된 Azure Portal이 열립니다.
+   - Wingtip Tickets SaaS 배포 템플릿이 포함된 Azure Portal이 열립니다.
 
-    [![Azure에 배포 단추.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Azure에 배포 단추.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. 배포에 필요한 매개 변수 값을 입력합니다.
 
@@ -125,9 +125,9 @@ Wingtip 앱에서 테넌트는 장소입니다. 장소는 콘서트 홀, 스포�
 중앙 **이벤트 허브** 웹 페이지는 특정 배포에 있는 테넌트의 링크 목록을 제공합니다. 다음 단계를 사용하여 **이벤트 허브** 웹 페이지 및 개별 웹앱을 경험합니다.
 
 1. 웹 브라우저에서 **이벤트 허브**를 엽니다.
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(&lt;user&gt;를 배포의 사용자 값으로 바꿉니다.)*
+   - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(&lt;user&gt;를 배포의 사용자 값으로 바꿉니다.)*
 
-    ![Events Hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![Events Hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. **이벤트 허브**에서 **Fabrikam Jazz Club**을 클릭합니다.
 
@@ -208,7 +208,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 이제 배포된 리소스 중 일부를 살펴봅니다.
 
-1. [Azure Portal](http://portal.azure.com)에서 리소스 그룹 목록으로 이동합니다. 애플리케이션을 배포할 때 만든 리소스 그룹을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹 목록으로 이동합니다. 애플리케이션을 배포할 때 만든 리소스 그룹을 엽니다.
 
    ![리소스 그룹](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -275,7 +275,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 -->
 
-[link-aka-ms-deploywtp-mtapp-52k]: http://aka.ms/deploywtp-mtapp
+[link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
@@ -286,7 +286,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 <!--  Image references.
 
-[image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
+[image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Azure에 배포 단추."

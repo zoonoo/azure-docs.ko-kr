@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: fb8cfd4767f6bb9afe1b5731d3b4db1c68a73056
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743054"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107130"
 ---
 # <a name="contact-microsoft-support"></a>Microsoft 지원에 문의
 
@@ -33,7 +33,7 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
 
 ## <a name="create-a-support-request"></a>지원 요청 만들기
 
-[지원 계획](https://azure.microsoft.com/support/plans/)에 따라 StorSimple 장치 관리자 서비스 요약 블레이드에서 직접 StorSimple 장치 문제에 대한 지원 티켓을 만들 수 있습니다. 지원 요청을 만들려면 다음 단계를 수행합니다.
+[지원 계획](https://azure.microsoft.com/support/plans/)에 따라 StorSimple 디바이스 관리자 서비스 요약 블레이드에서 직접 StorSimple 디바이스 문제에 대한 지원 티켓을 만들 수 있습니다. 지원 요청을 만들려면 다음 단계를 수행합니다.
 
 #### <a name="to-create-a-support-request"></a>지원 요청을 만들려면
 
@@ -63,14 +63,14 @@ StorSimple Device Manager는 서비스 요약 블레이드 내에서 **새로운
 
 4. **새 지원 요청** 블레이드에서 **3단계 연락처 정보**를 클릭합니다. **연락처 정보** 블레이드에서 다음 단계를 수행합니다.
 
-    1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
-    2. 연락처 정보에 이름, 전자 메일, 선택적 연락처, 국가를 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
-    3. **만들기**를 클릭합니다.
+   1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
+   2. 연락처 정보에 이름, 전자 메일, 선택적 연락처, 국가를 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
+   3. **만들기**를 클릭합니다.
    
-        ![새 포털을 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![새 포털을 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
-    Microsoft 기술 지원 서비스는 이 정보를 사용하여 사용자에게 추가 정보, 진단 및 솔루션을 알립니다.
-요청을 제출한 후에 지원 엔지니어가 요청을 계속 진행하기 위해 가능한 한 빨리 연락할 것입니다.
+      Microsoft 기술 지원 서비스는 이 정보를 사용하여 사용자에게 추가 정보, 진단 및 솔루션을 알립니다.
+      요청을 제출한 후에 지원 엔지니어가 요청을 계속 진행하기 위해 가능한 한 빨리 연락할 것입니다.
 
 ## <a name="manage-a-support-request"></a>지원 요청 관리
 
@@ -116,4 +116,4 @@ StorSimple 디바이스에서 발생할 수 있는 문제를 해결하려면 Mic
 
 ## <a name="next-steps"></a>다음 단계
 
-[StorSimple 8000 시리즈 장치와 관련된 문제를 진단하고 해결](storsimple-8000-troubleshoot-deployment.md)하는 방법 알아보기
+[StorSimple 8000 시리즈 디바이스와 관련된 문제를 진단하고 해결](storsimple-8000-troubleshoot-deployment.md)하는 방법 알아보기

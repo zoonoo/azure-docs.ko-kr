@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: cd50a957894c2c6c4944b0ba3768a00754abaa15
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: ca9e58dbae6952f7e432868c7ede7dc42741a87b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104253"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>System Center Configuration Manager를 사용하여 모바일 서비스 설치 자동화
 
@@ -24,7 +24,7 @@ ms.locfileid: "52835091"
 
 이 문서에서는 System Center Configuration Manager 2012 R2를 사용하여 배포 작업을 설명합니다. **9.9.4510.1** 버전 이상의 모바일 서비스를 사용하는 것으로 가정합니다.
 
-또는 [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md)를 사용하여 모바일 서비스 설치를 자동화할 수 있습니다.
+또는 사용 하 여 모바일 서비스 설치를 자동화할 수 있습니다 [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md)합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -162,25 +162,25 @@ IF NOT %ERRORLEVEL% EQU 0 (
 5. **이 패키지는 원본 파일을 포함합니다** 확인란을 선택합니다.
 6. **찾아보기**를 클릭하고 설치 관리자가 저장된 네트워크 공유를 선택합니다(\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
 
-  ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
+   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
 7. **만들려는 프로그램 유형 선택** 페이지에서 **표준 프로그램**을 선택하고 **다음**을 클릭합니다.
 
-  ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
 8. **이 표준 프로그램에 대한 정보 지정** 페이지에서 다음 입력을 제공하고 **다음**을 클릭합니다. (다른 입력은 해당 기본값을 사용할 수 있습니다.)
 
-  | **매개 변수 이름** | **값** |
-  |--|--|
-  | 이름 | Microsoft Azure Mobility Service(Windows) 설치 |
-  | 명령 줄 | install.bat |
-  | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
+   | **매개 변수 이름** | **Value** |
+   |--|--|
+   | 이름 | Microsoft Azure Mobility Service(Windows) 설치 |
+   | 명령줄 | install.bat |
+   | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
 
-  ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
+   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
 9. 다음 페이지에서 대상 운영 체제를 선택합니다. 모바일 서비스는 Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2에만 설치할 수 있습니다.
 
-  ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
+   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
 
 10. 마법사를 완료하려면 **다음**을 두 번 클릭합니다.
 
@@ -190,19 +190,19 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 ### <a name="deploy-the-package"></a>패키지 배포
 1. Configuration Manager 콘솔에서 패키지를 마우스 오른쪽 단추로 클릭하고 **콘텐츠 배포**를 선택합니다.
-  ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
+   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 2. 패키지를 복사할 위치에 **[배포 지점](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** 을 선택합니다.
 3. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
 4. 패키지 배포 작업이 완료되면 패키지를 마우스 오른쪽 단추로 클릭하고 **배포**를 선택합니다.
-  ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
+   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 5. 필수 구성 요소 섹션에서 만든 Widows Server 디바이스 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
 
-  ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
+   ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
 
 6. **콘텐츠 대상 지정** 페이지에서 **배포 지점**을 선택합니다.
 7. **이 소프트웨어를 배포하는 방법을 제어하는 설정 지정** 페이지에서 목적이 **필수**인지 확인합니다.
 
-  ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
+   ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
 8. **이 배포에 대한 일정 지정** 페이지에서 일정을 지정합니다. 자세한 내용은 [패키지 일정 예약](https://technet.microsoft.com/library/gg682178.aspx)을 참조하세요.
 9. **배포 지점** 페이지에서 데이터 센터 요구 사항에 따라 속성을 구성합니다. 그런 다음 마법사를 완료합니다.
@@ -387,24 +387,24 @@ cd /tmp
 5. **이 패키지는 원본 파일을 포함합니다** 확인란을 선택합니다.
 6. **찾아보기**를 클릭하고 설치 관리자가 저장된 네트워크 공유를 선택합니다(\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
 
-  ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
+   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
 
 7. **만들려는 프로그램 유형 선택** 페이지에서 **표준 프로그램**을 선택하고 **다음**을 클릭합니다.
 
-  ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
 8. **이 표준 프로그램에 대한 정보 지정** 페이지에서 다음 입력을 제공하고 **다음**을 클릭합니다. (다른 입력은 해당 기본값을 사용할 수 있습니다.)
 
-    | **매개 변수 이름** | **값** |
-  |--|--|
-  | 이름 | Microsoft Azure Mobility Service(Linux) 설치 |
-  | 명령 줄 | ./install_linux.sh |
-  | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
+    | **매개 변수 이름** | **Value** |
+   |--|--|
+   | 이름 | Microsoft Azure Mobility Service(Linux) 설치 |
+   | 명령 줄 | ./install_linux.sh |
+   | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
 
-  ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
+   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
 
 9. 다음 페이지에서 **모든 플랫폼에서 이 프로그램 실행**을 선택합니다.
-  ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2-linux.png)
+   ![패키지 및 프로그램 만들기 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2-linux.png)
 
 10. 마법사를 완료하려면 **다음**을 두 번 클릭합니다.
 
@@ -413,19 +413,19 @@ cd /tmp
 
 ### <a name="deploy-the-package"></a>패키지 배포
 1. Configuration Manager 콘솔에서 패키지를 마우스 오른쪽 단추로 클릭하고 **콘텐츠 배포**를 선택합니다.
-  ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
+   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 2. 패키지를 복사할 위치에 **[배포 지점](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** 을 선택합니다.
 3. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
 4. 패키지 배포 작업이 완료되면 패키지를 마우스 오른쪽 단추로 클릭하고 **배포**를 선택합니다.
-  ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
+   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 5. 전제 조건 섹션에서 만든 Linux Server 디바이스 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
 
-  ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
+   ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
 
 6. **콘텐츠 대상 지정** 페이지에서 **배포 지점**을 선택합니다.
 7. **이 소프트웨어를 배포하는 방법을 제어하는 설정 지정** 페이지에서 목적이 **필수**인지 확인합니다.
 
-  ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
+   ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
 8. **이 배포에 대한 일정 지정** 페이지에서 일정을 지정합니다. 자세한 내용은 [패키지 일정 예약](https://technet.microsoft.com/library/gg682178.aspx)을 참조하세요.
 9. **배포 지점** 페이지에서 데이터 센터 요구 사항에 따라 속성을 구성합니다. 그런 다음 마법사를 완료합니다.

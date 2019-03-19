@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810723"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107460"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup의 오프라인 백업 워크플로
 Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 저장소 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 "전체" 백업은 일반적으로 많은 양의 데이터를 전송하며 델타/증분만 전송하는 후속 백업에 비해 네트워크 대역폭을 더 많이 요구합니다. 오프라인 시드 프로세스를 통해 Azure Backup은 디스크를 사용하여 오프라인 백업 데이터를 Azure에 업로드할 수 있습니다.
@@ -73,7 +73,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 
     ![가져오기 화면](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-  입력에 대한 설명은 다음과 같습니다.
+   입력에 대한 설명은 다음과 같습니다.
 
     * **스테이징 위치**: 초기 백업 복사본을 쓸 임시 스토리지 위치입니다. 스테이징 위치는 네트워크 공유 또는 로컬 컴퓨터에 있을 수 있습니다. 복사 컴퓨터와 원본 컴퓨터가 서로 다르면 스테이징 위치의 전체 네트워크 경로를 지정하는 것이 좋습니다.
     * **Azure Resource Manager 스토리지 계정**: Azure 구독에 있는 Resource Manager 유형 스토리지 계정의 이름입니다.
@@ -81,7 +81,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
     * **Azure 구독 ID**: Azure Storage 계정이 만들어지는 Azure 구독의 ID입니다.
     * **Azure 가져오기 작업 이름**: Azure 가져오기 서비스 및 Azure Backup이 디스크에서 Azure로 보낸 데이터의 전송을 추적하는 고유한 이름입니다. 
   
-  화면에 입력을 제공하고 **다음**을 클릭합니다. 디스크를 준비하는 데 필요하므로 제공한 *준비 위치* 및 *Azure 가져오기 작업 이름*을 저장합니다.
+   화면에 입력을 제공하고 **다음**을 클릭합니다. 디스크를 준비하는 데 필요하므로 제공한 *준비 위치* 및 *Azure 가져오기 작업 이름*을 저장합니다.
 
 2. 메시지가 표시되면 Azure 구독에 로그인합니다. Azure Backup이 Azure Active Directory 애플리케이션을 만들고 Azure Import 서비스에 액세스하는 데 필요한 권한을 제공할 수 있도록 로그인해야 합니다.
 
@@ -106,14 +106,14 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 
 1. 디렉터리로 이동하고 SATA 드라이브가 연결된 다른 컴퓨터에 **AzureOfflineBackupDiskPrep** 디렉터리를 복사합니다. 연결된 SATA 드라이브가 있는 컴퓨터에서 다음을 확인합니다.
 
-    * 복사 컴퓨터는 **오프라인 백업 시작** 워크플로에 제공된 것과 같은 네트워크 경로를 사용하여 오프라인 시드 워크플로에 대해 제공된 스테이징 위치에 액세스할 수 있습니다.
-    * BitLocker가 복사 컴퓨터에서 활성화됩니다.
-    * Azure PowerShell 3.7.0이 설치되었습니다.
-    * 호환되는 최신 브라우저(Microsoft Edge 또는 Internet Explorer 11)가 설치되어 있고 JavaScript가 활성화되어 있습니다. 
-    * 복사 컴퓨터는 Azure Portal에 액세스할 수 있습니다. 필요한 경우 복사 컴퓨터는 원본 컴퓨터와 같을 수 있습니다.
+   * 복사 컴퓨터는 **오프라인 백업 시작** 워크플로에 제공된 것과 같은 네트워크 경로를 사용하여 오프라인 시드 워크플로에 대해 제공된 스테이징 위치에 액세스할 수 있습니다.
+   * BitLocker가 복사 컴퓨터에서 활성화됩니다.
+   * Azure PowerShell 3.7.0이 설치되었습니다.
+   * 호환되는 최신 브라우저(Microsoft Edge 또는 Internet Explorer 11)가 설치되어 있고 JavaScript가 활성화되어 있습니다. 
+   * 복사 컴퓨터는 Azure Portal에 액세스할 수 있습니다. 필요한 경우 복사 컴퓨터는 원본 컴퓨터와 같을 수 있습니다.
     
-    > [!IMPORTANT] 
-    > 원본 컴퓨터가 가상 머신인 경우 복사 컴퓨터는 원본 컴퓨터와 다른 물리적 서버 또는 클라이언트 컴퓨터여야 합니다.
+     > [!IMPORTANT] 
+     > 원본 컴퓨터가 가상 머신인 경우 복사 컴퓨터는 원본 컴퓨터와 다른 물리적 서버 또는 클라이언트 컴퓨터여야 합니다.
 
 2. *AzureOfflineBackupDiskPrep* 유틸리티 디렉터리를 현재 디렉터리로 하여 관리자 권한 명령 프롬프트를 복사 컴퓨터에서 열고 다음 명령을 실행합니다.
 
@@ -137,11 +137,11 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
     그런 다음, 도구가 디스크를 준비하고 백업 데이터 복사를 시작합니다. 제공된 디스크에 백업 데이터에 대한 충분한 공간이 없는 경우 도구에서 메시지를 표시할 때 추가 디스크에 연결해야 할 수 있습니다. <br/>
 
     도구가 성공적으로 실행되면 명령 프롬프트에 세 자기 정보가 제공됩니다.
-    1. 제공한 디스크 하나 이상이 Azure에 발송되도록 준비됩니다. 
-    2. 가져오기 작업이 만들어졌다는 확인 메시지가 나타납니다. 가져오기 작업에 사용자가 제공한 이름이 사용됩니다.
-    3. 이 도구는 Azure 데이터 센터의 발송 주소를 표시합니다.
+   1. 제공한 디스크 하나 이상이 Azure에 발송되도록 준비됩니다. 
+   2. 가져오기 작업이 만들어졌다는 확인 메시지가 나타납니다. 가져오기 작업에 사용자가 제공한 이름이 사용됩니다.
+   3. 이 도구는 Azure 데이터 센터의 발송 주소를 표시합니다.
 
-    ![Azure 디스크 준비 완료](./media/backup-azure-backup-import-export/console2.png)<br/>
+      ![Azure 디스크 준비 완료](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 6. 명령 실행이 끝나면 발송 정보를 업데이트할 수 있습니다.
 

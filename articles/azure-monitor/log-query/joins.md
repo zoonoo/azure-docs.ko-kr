@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 91ff85d8c32c0bcfa984cc690382d09765a068a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004658"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079114"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 조인
 
 > [!NOTE]
-> 이 단원을 완료하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 및 [Azure Monitor 로그 쿼리](get-started-queries.md)를 완료해야 합니다.
+> 완료 해야 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md) 하 고 [Azure Monitor 로그 쿼리](get-started-queries.md) 이 단원을 완료 하기 전에 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -101,7 +101,7 @@ _kind_ 인수를 사용하여 조인 유형을 지정합니다. 다음 표에 �
 
 - 각 테이블에 시간 필터를 사용하여 조인이 평가되어야 하는 레코드를 줄입니다.
 - 조인에 앞서 `where` 및 `project`를 사용하여 입력 테이블의 행 및 열 수를 줄입니다.
-* 한 테이블이 언제나 다른 테이블보다 더 작으면 해당 테이블을 조인의 좌변으로 사용합니다.
+- 한 테이블이 언제나 다른 테이블보다 더 작으면 해당 테이블을 조인의 좌변으로 사용합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

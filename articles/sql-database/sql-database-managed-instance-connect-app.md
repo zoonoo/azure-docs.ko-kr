@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 0d007096bdd231769e04b503d97889b121eae9c3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 9d47e3fb821e9ad64beecd62c274a33e7fa14041
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565499"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887326"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>애플리케이션을 Azure SQL Database Managed Instance에 연결
 
@@ -143,7 +143,7 @@ Managed Instance에 연결하려면 다음과 같은 버전 이상의 도구와 
 |JDBC 드라이버    | 6.4.0 |
 |Node.js 드라이버 | 2.1.1 |
 |OLEDB 드라이버   | 18.0.2.0 |
-|SSMS   | 17.8.1 [이상](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
+|SSMS   | 17.8.1 [이상](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 
 ## <a name="next-steps"></a>다음 단계
 

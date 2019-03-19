@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2018
+ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811208"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013905"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple 가상 배열 소개
 
@@ -40,7 +40,7 @@ Microsoft Azure StorSimple 가상 배열은 하이퍼바이저 및 Microsoft Azu
 | 기능 | StorSimple 가상 배열 |
 | --- | --- |
 | 설치 요구 사항 |가상화 인프라(Hyper-V 또는 VMware)  사용 |
-| 가용성 |단일 노드 |
+| 사용 가능 |단일 노드 |
 | 총 용량(클라우드 포함) |가상 배열당 사용 가능 용량 최대 64TB |
 | 로컬 용량 |가상 배열당 사용 가능 용량 390GB~6.4TB(500GB~8TB의 디스크 공간을 프로비전해야 함) |
 | 네이티브 프로토콜 |iSCSI 또는 SMB |
@@ -74,10 +74,10 @@ StorSimple은 애플리케이션을 수정하지 않고 사용자와 서버를 �
 
 지원되는 StorSimple 워크로드가 아래 표에 요약되어 있습니다.
 
-|시나리오     |워크로드     |지원됨      |제한               |
-|-------------|-------------|---------------|---------------------------|
-|원격 사무실/지사(ROBO)  |파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
-|클라우드 보관  |보관 파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
+|시나리오     |작업     |지원됨      |제한               | 적용 가능한 버전|
+|-------------|-------------|---------------|---------------------------|--------------------|
+|원격 사무실/지사(ROBO)  |파일 공유     |예.      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
+|클라우드 보관  |보관 파일 공유     |예.      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
 
 StorSimple 가상 배열은 자주 액세스되지 않는 데이터에 가장 적합합니다. 가상 배열에는 성능 향상을 위한 로컬 캐시가 있지만 사용자는 디바이스가 저장소의 가장 낮은 계층(클라우드)에서 파일을 서비스한다고 가정해야 합니다. 각 가상 배열은 약 100Mbps로 Azure 저장소에 쓰고 읽을 수 있습니다. 해당 링크는 디바이스에 들어오는 모든 요청 간에 공유되며 아래 다이어그램에 나와 있는 것처럼 병목 상태가 될 수 있습니다.
 
@@ -101,7 +101,7 @@ Azure Portal에서 실행되는 StorSimple Device Manager 서비스를 사용하
 ![클라우드 기반 저장소 관리](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>위치와 무관한 백업
-가상 배열을 사용하여, 클라우드 스냅숏은 위치와 무관한 지정 시간 볼륨 또는 공유 복사를 제공합니다. 클라우드 스냅숏은 기본적으로 사용하도록 설정되며 사용하지 않도록 설정할 수 없습니다. 모든 볼륨과 공유는 단일의 매일 백업 정책을 통해 같은 시간에 백업되며, 필요할 때면 언제든 추가로 임시 백업을 수행할 수 있습니다.
+가상 배열을 사용하여, 클라우드 스냅숏은 위치와 무관한 지정 시간 볼륨 또는 공유 복사를 제공합니다. 클라우드 스냅숏은 기본적으로 사용하도록 설정되며 사용하지 않도록 설정할 수 없습니다. 모든 볼륨과 공유는 하나의 매일 백업 정책을 통해 같은 시간에 백업 하 고 필요할 때마다 추가 임시 백업을 수행할 수 있습니다.
 
 ### <a name="data-protection-and-disaster-recovery"></a>데이터 보호 및 재해 복구
 가상 배열은 다음과 같은 데이터 보호 및 재해 복구 시나리오를 지원합니다.

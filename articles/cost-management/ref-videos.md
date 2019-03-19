@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 13d1548e9b9c721d44c8d5af99bfdcc691c4866d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f531bdb80be34cb3228042588ecd4c338b003ed0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100619"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173960"
 ---
 # <a name="cloudyn-walk-through-training-videos"></a>Cloudyn 연습 교육 비디오
 
 다음 동영상에서는 Cloudyn 사용을 시작하는 방법과 해당 기능을 사용하는 방법을 안내하는 데모를 제공합니다. Cloudyn은 Microsoft Azure, Amazon Web Services 및 Google Cloud Platform을 포함하는 다중 클라우드 비용 추적 및 최적화를 지원합니다.
 
-## <a name="overview-video"></a>개요 동영상
+## <a name="overview-video"></a>개요 비디오
 
 [Cloudyn 소개](https://youtu.be/NWIRny6Wpsk)
 

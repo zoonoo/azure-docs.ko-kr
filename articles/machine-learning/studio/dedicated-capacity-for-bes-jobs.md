@@ -1,21 +1,21 @@
 ---
-title: Machine Learning Studio 작업에 대한 Azure Batch 서비스
+title: Azure Batch 서비스 작업
 titleSuffix: Azure Machine Learning Studio
-description: Machine Learning 작업에 대한 Azure Batch 서비스 개요입니다. Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다.
+description: Machine Learning Studio 작업에 대 한 Azure Batch 서비스의 개요입니다. Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 55961895dde7cb2770f2180911a78f1e31c741e3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 24efa3caba3918a38c09b1c921c600b117dedbc1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697503"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871378"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Machine Learning Studio 작업에 대한 Azure Batch 서비스
 
@@ -111,4 +111,4 @@ Batch 풀 처리는 항상 청구 가능한 서비스이며, 이를 Resource Man
 
 | **Batch 풀 처리를 사용하는 경우**    | **클래식 일괄 처리를 사용하는 경우**  |
 |---|---|
-|많은 수의 작업을 실행해야 합니다.<br>또는<br/>자신의 작업이 즉시 실행된다는 것을 알아야 합니다.<br/>또는<br/>처리량을 보장해야 합니다. 예를 들어 지정된 시간 프레임 내에서 여러 작업을 실행해야 하며, 요구 사항에 맞게 컴퓨팅 리소스를 확장하려고 합니다.    | 몇 가지 작업만 실행하고 있습니다.<br/>and<br/> 작업을 즉시 실행할 필요가 없습니다. |
+|많은 수의 작업을 실행해야 합니다.<br>또는<br/>자신의 작업이 즉시 실행된다는 것을 알아야 합니다.<br/>또는<br/>처리량을 보장해야 합니다. 예를 들어 지정된 시간 프레임 내에서 여러 작업을 실행해야 하며, 요구 사항에 맞게 컴퓨팅 리소스를 확장하려고 합니다.    | 몇 가지 작업만 실행하고 있습니다.<br/>AND<br/> 작업을 즉시 실행할 필요가 없습니다. |

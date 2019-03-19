@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9b9a041f1e4269538488d17ee73a7ffdd138c8ab
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f6c8966582c0c5ae31818ce9d88b511cef811328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099562"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>빠른 시작: Azure Stack에서 PowerShell을 사용 하 여 Windows Server 가상 머신 만들기
 
@@ -32,8 +32,8 @@ Azure Stack PowerShell을 사용 하 여 Windows Server 2016 가상 컴퓨터를
 * IIS 웹 서버를 설치 하 고 기본 홈페이지를 봅니다.
 * 리소스를 정리 합니다.
 
->[!NOTE]
- VPN을 통해 연결 되어 있는 경우 Azure Stack Development Kit 또는 Windows 기반 외부 클라이언트에서이 문서에 설명 된 단계를 실행할 수 있습니다.
+> [!NOTE]
+>  VPN을 통해 연결 되어 있는 경우 Azure Stack Development Kit 또는 Windows 기반 외부 클라이언트에서이 문서에 설명 된 단계를 실행할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -214,7 +214,7 @@ New-AzureRmVM `
   -VM $VirtualMachine
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
+## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
 
 이전 단계에서 만든 가상 컴퓨터에 원격, 공용 IP 주소를 해야 합니다. 가상 머신의 공용 IP 주소를 가져오려면 다음 명령을 실행 합니다.
 

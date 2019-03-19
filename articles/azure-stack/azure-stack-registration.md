@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 2ed9598ecfb45323505e8527cfb3ab9fe7d8b58e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1f6edd871d6815dab93bf9e8d582b0cb1ba6c78f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764730"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109242"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -173,7 +173,7 @@ Run: Get-AzureStackStampInformation
    ```
    집합 AzsRegistration cmdlet에 대 한 자세한 내용은 참조 하세요. [등록 참조](#registration-reference)합니다.
 
-  프로세스는 10 ~ 15 분이 걸립니다. 메시지를 참조 하 여 명령이 완료 되 면 **"환경의 이제 등록 되 고 제공된 된 매개 변수를 사용 하 여 활성화 합니다."**
+   프로세스는 10 ~ 15 분이 걸립니다. 메시지를 참조 하 여 명령이 완료 되 면 **"환경의 이제 등록 되 고 제공된 된 매개 변수를 사용 하 여 활성화 합니다."**
 
 ## <a name="register-connected-with-capacity-billing"></a>용량 요금 청구를 사용 하 여 연결 된 등록
 
@@ -210,20 +210,20 @@ Run: Get-AzureStackStampInformation
 
 5. 관리자 권한으로 PowerShell ISE를 시작 하 고 이동 합니다 **등록** 폴더에는 **azurestack의 경우 도구-마스터** Azure Stack 도구를 다운로드 하는 경우 만든 디렉터리입니다. 가져오기의 **RegisterWithAzure.psm1** PowerShell을 사용 하 여 모듈:
 
-  ```PowerShell  
-  $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
-  $RegistrationName = "<unique-registration-name>"
-  Set-AzsRegistration `
+   ```PowerShell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
       -BillingModel Capacity `
       -RegistrationName $RegistrationName
-  ```
+   ```
    > [!Note]  
    > 사용 현황에 대 한 UsageReportingEnabled 매개 변수를 사용 하 여 보고를 비활성화할 수 있습니다 합니다 **집합 AzsRegistration** cmdlet 매개 변수를 false로 설정 합니다. 
    
-  집합 AzsRegistration cmdlet에 대 한 자세한 내용은 참조 하세요. [등록 참조](#registration-reference)합니다.
+   집합 AzsRegistration cmdlet에 대 한 자세한 내용은 참조 하세요. [등록 참조](#registration-reference)합니다.
 
 ## <a name="register-disconnected-with-capacity-billing"></a>용량 요금 청구를 사용 하 여 연결이 끊긴 등록
 

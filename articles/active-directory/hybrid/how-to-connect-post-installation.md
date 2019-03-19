@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 576d3d4b9c793c564410335ce35ddd4c40697e4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 291b3d506993cfea89be072684835c0d4efe75f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197405"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095452"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>다음 단계 및 Azure AD Connect 관리 방법
 이 문서의 운영 절차를 사용하여 조직 요구 사항 및 요건에 부합하도록 Azure Active Directory(Azure AD) Connect를 사용자 지정합니다.  
@@ -51,12 +51,16 @@ Azure Portal을 사용하여 동기화 상태를 확인합니다.
 4. 디렉토리 페이지의 맨 위에서 **디렉토리 통합**을 선택합니다.
 5. **로컬 활성 디렉토리로 통합** 아래에서 마지막 동기화 시간을 참고합니다.
 
-<center>![디렉터리 동기화 시간](./media/how-to-connect-post-installation/verify.png)</center>
+<center>
+
+![디렉터리 동기화 시간](./media/how-to-connect-post-installation/verify.png)</center>
 
 ## <a name="start-a-scheduled-synchronization-task"></a>예약된 동기화 작업 시작
 동기화 작업을 실행해야하는 경우, Azure AD Connect 마법사를 다시 실행하여 이를 수행할 수 있습니다.  Azure AD 자격 증명을 제공해야 합니다.  마법사에서 **동기화 옵션 사용자 지정** 작업을 선택하고 마법사를 통해 **다음**을 클릭합니다. 끝으로 **구성이 완료되자마자 동기화 프로세스를 시작**란이 선택되어 있는지 확인합니다.
 
-<center>![동기화 시작](./media/how-to-connect-post-installation/startsynch.png)</center>
+<center>
+
+![동기화 시작](./media/how-to-connect-post-installation/startsynch.png)</center>
 
 Azure AD Connect 동기화 Scheduler에 대한 자세한 내용은 [Azure AD Connect Scheduler](how-to-connect-sync-feature-scheduler.md)를 참조하세요.
 

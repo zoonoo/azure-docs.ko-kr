@@ -6,16 +6,18 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 1/11/2019
+ms.date: 3/13/2019
 ms.author: victorh
-ms.openlocfilehash: 040aeda10410cc164c3f68b6615ebfb12d45541e
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 96bd9e679e1766e87a0bb807204df744bb3cca95
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897710"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general"></a>일반
 
@@ -41,10 +43,10 @@ Application Gateway 수신기에 연결하는 클라이언트의 경우에만 HT
 
 기본적으로 HTTP/2 지원은 사용할 수 없습니다. 다음 Azure PowerShell 코드 조각 예제는 이를 사용하도록 설정하는 방법을 보여 줍니다.
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+```azurepowershell
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>현재 백 엔드 풀의 일부로 어떤 리소스가 지원되나요?
@@ -71,6 +73,10 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 
 공용 IP 주소를 엔드포인트로 사용하는 경우 공용 IP 주소 리소스 또는 포털의 Application Gateway 개요 페이지에서 이 정보를 확인할 수 있습니다. 내부 IP 주소는 개요 페이지에서 확인할 수 있습니다.
 
+### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>연결 유지 시간 제한 및 Application Gateway의 TCP 유휴 시간 제한 설정 이란?
+
+V1 SKU에서 연결 유지 시간 제한은 v2 SKU에서 연결 유지 시간 제한 120 초로 75 초 TCP 유휴 시간 제한 Application Gateway의 VIP 프런트 엔드에서 4 분 기본값입니다.
+
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Application Gateway의 수명 중에 IP 또는 DNS 이름이 변경되나요?
 
 Application Gateway를 중지한 후에 시작하면 VIP가 변경될 수 있습니다. Application Gateway와 연결된 DNS 이름은 게이트웨이 수명 중에 변경되지 않습니다. 그러므로 CNAME 별칭을 사용하고 해당 별칭이 Application Gateway의 DNS 주소를 가리키도록 설정하는 것이 좋습니다.
@@ -87,6 +93,8 @@ Application Gateway에서는 공용 IP 주소가 하나만 지원됩니다.
 
 Application Gateway는 인스턴스당 하나의 개인 IP 주소를 사용하고 개인 프런트엔드 IP 구성이 구성된 경우 또 다른 개인 IP 주소를 사용합니다. 또한 Azure에서는 내부 사용을 위해 각 서브넷에서 처음 4개 및 마지막 IP 주소를 예약합니다.
 예를 들어 Application Gateway가 인스턴스 3개로 설정되어 있으며 개인 프런트 엔드 IP는 없는 경우 서브넷 크기는 /29 이상이어야 합니다. 이 경우 Application Gateway는 IP 주소 3개를 사용합니다. 개인 프런트엔드 IP 구성에 세 개의 인스턴스 및 하나의 IP 주소가 있는 경우 네 개의 IP 주소가 필요하므로 /28 서브넷 크기 이상이 필요합니다.
+
+모범 사례로, 적어도/28을 사용 하 여 서브넷 크기입니다. 이렇게 하면 11 주소만 사용할 수 있습니다. 응용 프로그램 부하 10 개가 넘는 인스턴스를 요구 하는 경우/27 또는/26 고려해 야 서브넷 크기입니다.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>Q. 둘 이상의 Application Gateway 리소스를 단일 서브넷에 배포할 수 있나요?
 
@@ -126,7 +134,7 @@ NSG(네트워크 보안 그룹)는 Application Gateway 서브넷에서 지원되
 
 * Application Gateway v1 SKU의 경우 포트 65503-65534에서, v2 SKU의 경우에는 포트 65200-65535에서 들어오는 트래픽에 대한 예외를 적용해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 해당 게이트웨이 고객을 포함하여 외부 엔터티는 해당 엔드포인트에서 변경을 시작할 수 없습니다.
 
-* 아웃바운드 인터넷 연결은 차단할 수 없습니다.
+* 아웃바운드 인터넷 연결은 차단할 수 없습니다. NSG의 기본 아웃 바운드 규칙이 인터넷 연결을 이미 허용합니다. 기본 아웃 바운드 규칙을 제거 하지는 및 아웃 바운드 인터넷 연결을 거부 하는 다른 아웃 바운드 규칙을 만들지 않는 하는 것이 좋습니다.
 
 * AzureLoadBalancer 태그의 트래픽을 허용해야 합니다.
 
@@ -210,7 +218,7 @@ v2 SKU의 경우에는 여러 장애 도메인과 업데이트 도메인에 새 
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway는 연결 드레이닝을 지원하나요?
 
-예. 중지 없이 백 엔드 풀 내에서 멤버를 변경하도록 연결 드레이닝을 구성할 수 있습니다. 이렇게 하면 해당 연결이 닫히거나 구성 가능한 제한 시간이 만료될 때까지 기존 연결을 이전 목적지로 계속 보낼 수 있습니다. 연결 드레이닝은 현재 처리 중인 연결이 완료될 때까지만 대기합니다. Application Gateway는 애플리케이션 세션 상태를 인식하지 못합니다.
+예 중지 없이 백 엔드 풀 내에서 멤버를 변경하도록 연결 드레이닝을 구성할 수 있습니다. 이렇게 하면 해당 연결이 닫히거나 구성 가능한 제한 시간이 만료될 때까지 기존 연결을 이전 목적지로 계속 보낼 수 있습니다. 연결 드레이닝은 현재 처리 중인 연결이 완료될 때까지만 대기합니다. Application Gateway는 애플리케이션 세션 상태를 인식하지 못합니다.
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>중단 없이 인스턴스 크기를 중간에서 큼으로 변경할 수 있나요?
 
@@ -220,7 +228,7 @@ v2 SKU의 경우에는 여러 장애 도메인과 업데이트 도메인에 새 
 
 ### <a name="what-certificates-are-supported-on-application-gateway"></a>Application Gateway에서 어떤 인증서가 지원되나요?
 
-자체 서명된 인증서, CA 인증서 및 와일드카드 인증서가 지원됩니다. EV 인증서는 지원되지 않습니다.
+자체 서명 된 인증서, CA 인증서, EV 인증서 및 와일드 카드 인증서 지원 됩니다.
 
 ### <a name="what-are-the-current-cipher-suites-supported-by-application-gateway"></a>Application Gateway에서 지원되는 현재 암호 그룹은 무엇인가요?
 
@@ -328,7 +336,7 @@ WAF는 진단 로깅을 통해 모니터링되며 진단 로깅에 대한 자세
 
 ### <a name="does-waf-also-support-ddos-prevention"></a>WAF에서 DDoS 방지도 지원하나요?
 
-예. Application Gateway가 배포된 VNet에서 DDos 보호를 사용하도록 설정할 수 있습니다. 이렇게 하면 Azure DDos Protection 서비스를 사용하여 Application Gateway VIP도 보호됩니다.
+예 Application Gateway가 배포된 VNet에서 DDos 보호를 사용하도록 설정할 수 있습니다. 이렇게 하면 Azure DDos Protection 서비스를 사용하여 Application Gateway VIP도 보호됩니다.
 
 ## <a name="diagnostics-and-logging"></a>진단 및 로깅
 
@@ -342,7 +350,7 @@ Application Gateway에서는 3가지 로그를 사용할 수 있습니다. 이�
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>내 백 엔드 풀 멤버가 정상인지 어떻게 알 수 있나요?
 
-PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth`를 사용하거나 [Application Gateway 진단](application-gateway-diagnostics.md)을 방문하여 포털을 통해 상태를 확인할 수 있습니다.
+PowerShell cmdlet `Get-AzApplicationGatewayBackendHealth`를 사용하거나 [Application Gateway 진단](application-gateway-diagnostics.md)을 방문하여 포털을 통해 상태를 확인할 수 있습니다.
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>진단 로그에서 보존 정책은 무엇인가요?
 
@@ -350,7 +358,7 @@ PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth`를 사용하거�
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Application Gateway에 대한 감사 로그를 어떻게 얻나요?
 
-Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포털에서 감사 로그에 액세스하려면 Application Gateway의 메뉴 블레이드에서 **활동 로그**를 클릭합니다. 
+Application Gateway에 대해 감사 로그를 사용할 수 있습니다. 포털에서 클릭 **활동 로그** 감사 로그에 액세스 하려면 application gateway의 메뉴 블레이드에 있습니다. 
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Application Gateway로 경고를 설정할 수 있나요?
 

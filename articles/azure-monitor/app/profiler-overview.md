@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2a2c2667ae3180fd4f7b114ce6cef05ac7a1080c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859728"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850278"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링
 ## <a name="enable-application-insights-profiler-for-your-application"></a>애플리케이션에 대해 Application Insights Profiler 사용
@@ -30,6 +30,7 @@ Profiler는 다음과 같은 Azure 서비스에 배포된 .NET 애플리케이�
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines 및 Virtual Machine Scale Sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [**미리 보기** ASP.NET Core Azure Linux 웹 앱](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Profiler를 사용하도록 설정해도 추적이 표시되지 않으면 [문제 해결 가이드](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)를 확인하세요.
 
@@ -93,6 +94,10 @@ Microsoft 서비스 프로파일러는 샘플링 메서드와 계측의 조합�
 ### <a id="block"></a>차단된 시간
 
 **BLOCKED_TIME**은 코드가 다른 리소스를 사용할 수 있을 때까지 기다리고 있음을 나타냅니다. 예를 들어, 동기화 개체를 기다리거나, 스레드를 사용할 수 있거나 요청이 완료될 때까지 기다릴 수 있습니다.
+
+### <a name="unmanaged-async"></a>관리되지 않는 비동기
+
+.NET framework는 ETW 이벤트를 내보냅니다 및 스레드에서 비동기 호출을 추적할 수 있도록 스레드 간 작업 id를 전달 합니다. 비관리 코드 (네이티브 코드용) 및 비동기 코드의 일부 이전 스타일은 없으므로 이러한 이벤트와 동작 id 프로파일러는 스레드 및 스레드에서 실행 하는 함수는 알 수 없습니다. 호출 스택의 ' 관리 되지 않는 Async' 이라고 합니다. ETW 파일을 다운로드 하는 경우에 사용할 수 있습니다 [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) 벌어지는 상황에 대 한 자세한 정보를 가져오려고 합니다.
 
 ### <a id="cpu"></a>CPU 시간
 

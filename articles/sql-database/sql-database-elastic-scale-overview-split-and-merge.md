@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 1d350cae379c5ec790413775138225b60b9c5e32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901936"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
 
@@ -29,7 +29,7 @@ ms.locfileid: "55564938"
 
 ## <a name="download"></a>다운로드
 
-[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>문서화
 
@@ -136,7 +136,7 @@ ms.locfileid: "55564938"
 
 - **분할된 데이터베이스 맵**
 
- 요청 매개 변수의 다음 섹션에서는 분할된 데이터베이스 맵과 분할된 데이터베이스 맵을 호스트하는 데이터베이스에 대한 정보를 다룹니다. 특히, Azure SQL Database 서버의 이름과 shardmap을 호스트하는 데이터베이스의 이름, 분할된 데이터베이스 맵 데이터베이스에 연결하는 자격 증명, 마지막으로 분할된 데이터베이스 맵의 이름을 제공해야 합니다. 현재 작업은 단일 자격 증명 집합만 허용합니다. 이러한 자격 증명에는 분할된 데이터베이스 맵과 분할된 데이터베이스의 사용자 데이터를 변경할 수 있는 권한이 있어야 합니다.
+  요청 매개 변수의 다음 섹션에서는 분할된 데이터베이스 맵과 분할된 데이터베이스 맵을 호스트하는 데이터베이스에 대한 정보를 다룹니다. 특히, Azure SQL Database 서버의 이름과 shardmap을 호스트하는 데이터베이스의 이름, 분할된 데이터베이스 맵 데이터베이스에 연결하는 자격 증명, 마지막으로 분할된 데이터베이스 맵의 이름을 제공해야 합니다. 현재 작업은 단일 자격 증명 집합만 허용합니다. 이러한 자격 증명에는 분할된 데이터베이스 맵과 분할된 데이터베이스의 사용자 데이터를 변경할 수 있는 권한이 있어야 합니다.
 
 - **원본 범위(분할 및 병합)**
 
@@ -216,12 +216,16 @@ ms.locfileid: "55564938"
 
 ## <a name="deploy-diagnostics"></a>진단 배포 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원 하지만 Az.Sql 모듈에 대 한 모든 향후 개발 됩니다. 이러한 cmdlet에 대 한 참조 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)합니다. Az 모듈에는 AzureRm 모듈의 명령에 대 한 인수를 실질적으로 동일합니다.
+
 모니터링 및 진단 구성을 사용하여NuGet 패키지에서 제공 하는 웹 및 작업자 역할에 대한 진단 유틸리티를 사용하려면 Azure PowerShell을 사용하여 다음 명령을 실행 합니다.
 
 ```powershell
     $storage_name = "<YourAzureStorageAccount>"
     $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
+    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
     $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
     $service_name = "<YourCloudServiceName>"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"

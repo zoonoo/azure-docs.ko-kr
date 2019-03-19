@@ -14,14 +14,14 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e71e4ea56bfe467e03be59d6a855272baafc4235
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822734"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107732"
 ---
-# <a name="backup-and-restore"></a>Backup 및 복원
+# <a name="backup-and-restore"></a>Backup 및 Restore 메서드
 
 >[!IMPORTANT]
 >이 문서는 SAP HANA 관리 설명서 또는 SAP 노트를 대체하지 않습니다. reader가 특히 백업, 복원, 고가용성 및 재해 복구의 항목에서 SAP HANA 관리 및 작업을 이해하고 전문 지식을 가졌다고 가정하겠습니다. 이 문서에서는 SAP HANA Studio의 스크린샷이 표시됩니다. SAP 관리 도구 스크린의 콘텐츠, 구조 및 특성과 도구 자체는 릴리스할 SAP HANA 릴리스마다 변경될 수 있습니다.
@@ -47,7 +47,7 @@ Azure(큰 인스턴스)의 SAP HANA는 두 가지 백업 및 복원 옵션을 �
 
 - 인프라 백업 및 복원 기능 Azure(대규모 인스턴스)의 SAP HANA 기본 인프라가 제공하는 백업 및 복원 기능을 사용할 수도 있습니다. 이 옵션은 백업 및 빠른 복원에 대한 필요를 충족합니다. 이 섹션의 나머지 부분에서는 HANA 큰 인스턴스와 함께 제공되는 백업 및 복원 기능을 설명합니다. 이 섹션에서는 HANA 대규모 인스턴스가 제공하는 재해 복구 기능에 대한 백업 및 복원의 관계에 대해서도 설명합니다.
 
->   [!NOTE]
+> [!NOTE]
 >   HANA 큰 인스턴스의 기본 인프라에서 사용하는 스냅숏 기술은 SAP HANA 스냅숏에 대한 종속성을 갖습니다. 현재, SAP HANA 스냅숏은 SAP HANA 다중 테넌트 데이터베이스 컨테이너의 다중 테넌트와 함께 작동하지 않습니다. 테넌트가 하나만 배포되면 SAP HANA 스냅숏이 작동하여 이 메서드를 사용할 수 있습니다.
 
 ## <a name="using-storage-snapshots-of-sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)의 SAP HANA 저장소 스냅숏 사용
@@ -641,44 +641,44 @@ HANA Backup ID:
 
 1. HANA 인스턴스를 종료합니다.
 
- ![HANA 인스턴스를 종료합니다.](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
+   ![HANA 인스턴스를 종료합니다.](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
 1. 각 HANA 데이터베이스 노드에서 데이터 볼륨을 분리합니다. 데이터 볼륨이 운영 체제에 계속 탑재되는 경우 스냅숏 복원이 실패합니다.
- ![각 HANA 데이터베이스 노드에서 데이터 볼륨 분리](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
+   ![각 HANA 데이터베이스 노드에서 데이터 볼륨 분리](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
 1. Azure 지원 요청을 열어서 특정 스냅숏의 복원에 대한 지침을 포함합니다.
 
- - 복원 중: Azure Service Management의 SAP HANA에서 전화 회의에 참여하여 올바른 스토리지 스냅숏이 복원될 수 있도록 조정, 검증 및 확인을 수행할 것을 요청할 수 있습니다. 
+   - 복원 중: Azure Service Management의 SAP HANA에서 전화 회의에 참여하여 올바른 스토리지 스냅숏이 복원될 수 있도록 조정, 검증 및 확인을 수행할 것을 요청할 수 있습니다. 
 
- - 복원한 후에: Azure Service Management의 SAP HANA에서는 스토리지 스냅숏이 복원된 시기를 알려줍니다.
+   - 복원한 후에: Azure Service Management의 SAP HANA에서는 스토리지 스냅숏이 복원된 시기를 알려줍니다.
 
 1. 복원 프로세스가 완료되면 모든 데이터 볼륨을 다시 탑재합니다.
 
- ![모든 데이터 볼륨 다시 탑재](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
+   ![모든 데이터 볼륨 다시 탑재](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
 1. SAP HANA Studio를 통해 HANA DB에 다시 연결하는 경우 자동으로 표시되지 않으면 SAP HANA Studio 내에서 복구 옵션을 선택합니다. 다음 예제에서는 최신 HANA 스냅숏에 대한 복원을 보여 줍니다. 저장소 스냅숏에는 하나의 HANA 스냅숏이 포함됩니다. 가장 최근의 저장소 스냅숏으로 복원하는 경우 가장 최근의 HANA 스냅숏이어야 합니다. (이전 저장소 스냅숏으로 복원하는 경우 저장소 스냅숏이 만들어진 시간에 따라 HANA 스냅숏을 찾아야 합니다.)
 
- ![SAP HANA Studio 내에서 복구 옵션 선택](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
+   ![SAP HANA Studio 내에서 복구 옵션 선택](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
 1. **특정 데이터 백업이나 저장소 스냅숏으로 데이터베이스 복구**를 선택합니다.
 
- ![복구 유형 지정 창](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
+   ![복구 유형 지정 창](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
 1. **카탈로그 없이 백업 지정**을 선택합니다.
 
- ![백업 위치 지정 창](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
+   ![백업 위치 지정 창](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
 1. **대상 형식** 목록에서 **스냅숏**을 선택합니다.
 
- ![복구할 백업 지정 창](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
+   ![복구할 백업 지정 창](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
 1. **마침**을 선택하여 복구 프로세스를 시작합니다.
 
- ![“마침”을 선택하여 복구 프로세스를 시작](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
+    ![“마침”을 선택하여 복구 프로세스를 시작](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
 1. HANA 데이터베이스는 저장소 스냅숏이 포함된 HANA 스냅숏으로 복원되고 복구됩니다.
 
- ![HANA 데이터베이스는 HANA 스냅숏으로 복원되고 복구됩니다.](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
+    ![HANA 데이터베이스는 HANA 스냅숏으로 복원되고 복구됩니다.](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
 ### <a name="recover-to-the-most-recent-state"></a>가장 최근 상태로 복구
 
@@ -691,23 +691,23 @@ HANA Backup ID:
 
 1. **가장 최근 상태로 데이터베이스 복구**를 선택합니다.
 
- !["가장 최근 상태로 데이터베이스 복구"를 선택합니다.](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
+   !["가장 최근 상태로 데이터베이스 복구"를 선택합니다.](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
 1. 가장 최근인 HANA 로그 백업의 위치를 지정합니다. 위치에 HANA 스냅숏에서 가장 최근 상태까지 모든 HANA 트랜잭션 로그 백업이 포함되어야 합니다.
 
- ![가장 최근인 HANA 로그 백업의 위치를 지정합니다.](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
+   ![가장 최근인 HANA 로그 백업의 위치를 지정합니다.](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
 
 1. 데이터베이스를 복구하는 기본으로 백업을 선택합니다. 이 예제에서 스크린샷의 HANA 스냅숏은 저장소 스냅숏이 포함되었던 HANA 스냅숏입니다. 
 
- ![데이터베이스를 복구하는 기본으로 백업을 선택합니다.](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
+   ![데이터베이스를 복구하는 기본으로 백업을 선택합니다.](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
 1. 델타가 HANA 스냅숏 시간과 가장 최근의 상태 간에 존재하지 않는 경우 **델타 Backup 사용** 확인란의 선택을 취소합니다.
 
- ![델타가 존재하지 않는 경우 "델타 Backup 사용" 확인란의 선택을 취소합니다](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
+   ![델타가 존재하지 않는 경우 "델타 Backup 사용" 확인란의 선택을 취소합니다](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
 1. 요약 화면에서 **마침**을 선택하여 복원 절차를 시작합니다.
 
- ![요약 페이지에서 "마침"을 클릭합니다.](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
+   ![요약 페이지에서 "마침"을 클릭합니다.](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
 ### <a name="recover-to-another-point-in-time"></a>다른 지정 시점으로 복구
 저장소 스냅숏에 포함된 HANA 스냅숏과 HANA 스냅숏 지정 시점 복구보다 이후인 스냅숏 간의 지정 시점으로 복구하려면 다음 단계를 수행합니다.

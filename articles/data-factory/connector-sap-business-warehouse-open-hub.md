@@ -10,26 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 74061eb081fcc7c2c84707f2414a2edfbfde3289
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103913"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Open Hub를 통해 SAP BW(Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
-
-## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub 통합 
-
-[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service)를 사용하면 SAP BW에서 데이터를 효율적으로 추출할 수 있습니다. 다음 다이어그램에는 고객 SAP 시스템의 일반적인 흐름 중 하나가 나와 있습니다. 여기서 데이터는 SAP ECC -> PSA -> DSO -> Cube로 이동됩니다.
-
-SAP BW OHD(Open Hub 대상)에 따라 SAP 데이터가 릴레이되는 대상이 정의됩니다. DSO, InfoCube, MultiProvider, DataSource 등 SAP DTP(데이터 전송 프로세스)에서 지원되는 모든 개체를 Open Hub 데이터 원본으로 사용할 수 있습니다. 릴레이되는 데이터가 저장되는 Open Hub 대상 유형은 데이터베이스 테이블(로컬 또는 원격) 및 플랫 파일일 수 있습니다. 이 SAP BW Open Hub 커넥터를 사용하면 BW에서 OHD 로컬 테이블의 데이터를 복사할 수 있습니다. 다른 형식을 사용하는 경우에는 다른 커넥터를 통해 데이터베이스 또는 파일 시스템에 직접 연결할 수 있습니다.
-
-![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -37,10 +29,41 @@ Open Hub를 통해 SAP Business Warehouse에서 지원되는 모든 싱크 데�
 
 이 SAP Business Warehouse 커넥터는 구체적으로 다음 작업을 지원합니다.
 
-- SAP Business Warehouse **버전 7.30이상(2015년 이후 출시된 최신 SAP Support Package Stack에 포함되어 있음)**
+- SAP Business Warehouse **7.01 또는 (스택의 상위에 최신 SAP 지원 패키지 2015 년 이후에 출시) 버전**합니다.
 - Open Hub 대상 로컬 테이블(DSO, InfoCube, MultiProvider, DataSource 아래에 있을 수 있음)을 통해 데이터 복사
 - 기본 인증을 사용하여 데이터를 복사합니다.
 - 애플리케이션 서버에 연결
+
+## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub 통합 
+
+[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service)를 사용하면 SAP BW에서 데이터를 효율적으로 추출할 수 있습니다. 다음 다이어그램에는 고객 SAP 시스템의 일반적인 흐름 중 하나가 나와 있습니다. 여기서 데이터는 SAP ECC -> PSA -> DSO -> Cube로 이동됩니다.
+
+SAP BW OHD(Open Hub 대상)에 따라 SAP 데이터가 릴레이되는 대상이 정의됩니다. 예를 들어 DSO, InfoCube, DataSource 등 오픈 허브 데이터 원본으로 하 여 SAP 데이터 전송 프로세스 (DTP)를 지원 되는 모든 개체를 사용할 수 있습니다. 릴레이되는 데이터가 저장되는 Open Hub 대상 유형은 데이터베이스 테이블(로컬 또는 원격) 및 플랫 파일일 수 있습니다. 이 SAP BW Open Hub 커넥터를 사용하면 BW에서 OHD 로컬 테이블의 데이터를 복사할 수 있습니다. 다른 형식을 사용하는 경우에는 다른 커넥터를 통해 데이터베이스 또는 파일 시스템에 직접 연결할 수 있습니다.
+
+![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
+
+## <a name="delta-extraction-flow"></a>델타 추출 흐름
+
+ADF SAP BW Open Hub 커넥터는 두 가지 선택적 속성을 제공 합니다. `excludeLastRequest` 고 `baseRequestId` 오픈 허브에서 델타 로드를 처리 하려면 사용할 수 있는 합니다. 
+
+- **excludeLastRequestId**: 마지막 요청의 레코드를 제외할지 여부입니다. 기본값은 true입니다. 
+- **baseRequestId**: 델타 로드의 요청 ID입니다. 설정 되 면이 속성의 값 보다 큰 요청 Id 사용 하 여 데이터에만 검색 됩니다. 
+
+전반적으로 SAP InfoProviders에서 추출 Azure 데이터 팩터리 (ADF)를 2 단계로 이루어집니다. 
+
+1. **SAP BW 데이터 전송 프로세스 (DTP)** 이 단계는 SAP BW InfoProvider에서 SAP BW Open Hub 테이블에 데이터를 복사 
+
+1. **ADF 데이터 복사본** 이 단계에서는 오픈 허브 테이블 ADF 커넥터에서 읽기 
+
+![델타 추출 흐름](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
+
+첫 번째 단계에서는 DTP 실행 됩니다. 각 실행을 새 SAP 요청 ID를 만듭니다. 요청 ID 오픈 허브 테이블에 저장 됩니다 및 그런 다음는 데 ADF 커넥터에서 델타를 식별 합니다. 두 단계를 비동기적으로 실행: DTP를 SAP에 의해 트리거되는 및 ADF 데이터 복사를 ADF를 통해 트리거됩니다. 
+
+기본적으로 ADF는 읽지 않습니다 최신 델타 오픈 허브 테이블에서 ("마지막 요청 제외" 옵션은 true). 이로써 귀하를 ADF에서 데이터 (마지막 델타가 없음) 오픈 허브 테이블의 데이터를 사용 하 여 최신 100% 아닙니다. 반환 시이 절차를 통해 행이 없는 비동기 추출 때문일 잃기 합니다. ADF는 DTP는 여전히 동일한 테이블에 작성 하는 동안 오픈 허브 테이블을 읽는 경우에 작동. 
+
+일반적으로 마지막 실행 ADF에서 준비 데이터 저장소 (예: 위의 다이어그램에서 Azure Blob)에서 최대 복사 요청 ID를 저장 합니다. 따라서 동일한 요청에서 읽을 수 없습니다를 두 번째로 ADF 후속 실행에서 합니다. 한편 오픈 허브 테이블에서 데이터 자동으로 삭제 되지 않습니다.
+
+적절 한 델타에 대 한 처리 되지 동일한 오픈 허브 테이블 다른 Dtp Id 요청에 있습니다. 따라서 만들어서는 안 둘 이상의 DTP 각 오픈 허브 대상을 (OHD)에 대 한 합니다. 동일한 InfoProvider에서 전체 및 델타 추출, 필요한 경우 동일한 InfoProvider에 대 한 두 OHDs를 만들어야 합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -61,6 +84,10 @@ Open Hub를 통해 SAP Business Warehouse에서 지원되는 모든 싱크 데�
 
 ## <a name="getting-started"></a>시작
 
+> [!TIP]
+>
+> SAP BW 오픈 허브 커넥터를 사용 하 여 연습을 참조 하세요 [Azure Data Factory를 사용 하 여 SAP Business Warehouse (BW)에서 데이터를 로드](load-sap-bw-data.md)합니다.
+
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 SAP Business Warehouse Open Hub 커넥터와 관련된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
@@ -75,10 +102,10 @@ SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 �
 | 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
 | systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | 예 |
 | clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예 |
-| 언어 | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
-| userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
+| language | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
+| userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예. |
 | 암호 | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예. |
 
 **예제:**
 
@@ -189,7 +216,7 @@ SAP BW Open Hub에서 데이터를 복사할 때는 SAP BW 데이터 형식에�
 | F(부동) | Double |
 | D(날짜) | 문자열 |
 | T(시간) | 문자열 |
-| P(BCD 압축, 통화, 10진수, 수량) | Decimal |
+| P(BCD 압축, 통화, 10진수, 수량) | 10진수 |
 | N(숫자) | 문자열 |
 | X(이진 및 원시) | 문자열 |
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d90439e498e8812551d9e2994165f1714d3bdaab
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093338"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109310"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure Stream Analytics 및 Azure Machine Learning을 사용한 감정 분석 수행
 이 문서에서는 Azure Machine Learning을 통합하는 간단한 Azure Stream Analytics 작업을 신속하게 설정하는 방법을 설명합니다. Cortana Intelligence 갤러리의 Machine Learning 감정 분석 모델을 사용하여 실시간으로 스트리밍 텍스트 데이터를 분석하고 감정 점수를 확인합니다. Cortana Intelligence Suite를 사용하면 감정 분석 모델 빌드에 대한 걱정없이 이 작업을 수행할 수 있습니다.
@@ -131,34 +131,34 @@ ms.locfileid: "53093338"
 
 1. 작업이 만들어진 후에 작업 블레이드의 **작업 토폴로지** 아래에서 **입력** 옵션을 클릭합니다.    
 
-2. **입력** 블레이드에서 **스트림 입력 추가** >**Blob 저장소**를 클릭합니다.
+2. **입력** 블레이드에서 **스트림 입력 추가** >**Blob Storage**를 클릭합니다.
 
-3. 다음과 같은 값으로 **Blob 저장소** 블레이드를 채웁니다.
+3. 다음과 같은 값으로 **Blob Storage** 블레이드를 채웁니다.
 
    
    |필드  |값  |
    |---------|---------|
-   |**입력 별칭** | 이름 `datainput`을 사용하고 **구독에서 Blob 저장소 선택**을 선택합니다.       |
+   |**입력 별칭** | 이름 `datainput`을 사용하고 **구독에서 Blob Storage 선택**을 선택합니다.       |
    |**Storage 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |
 
    ![새 Stream Analytics 작업 입력에 대한 설정](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. **저장**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
 ### <a name="configure-the-job-output"></a>작업 출력 구성
 작업은 입력을 가져오는 동일한 Blob Storage에 결과를 보냅니다. 
 
 1. 작업 블레이드의 **작업 토폴로지** 아래에서 **출력** 옵션을 클릭합니다.  
 
-2. **출력** 블레이드에서 **추가** >**Blob 저장소**를 클릭한 다음, 별칭이 `datamloutput`인 출력을 추가합니다. 
+2. **출력** 블레이드에서 **추가** >**Blob Storage**를 클릭한 다음, 별칭이 `datamloutput`인 출력을 추가합니다. 
 
-3. 다음과 같은 값으로 **Blob 저장소** 블레이드를 채웁니다.
+3. 다음과 같은 값으로 **Blob Storage** 블레이드를 채웁니다.
 
    |필드  |값  |
    |---------|---------|
-   |**출력 별칭** | 이름 `datamloutput`을 사용하고 **구독에서 Blob 저장소 선택**을 선택합니다.       |
+   |**출력 별칭** | 이름 `datamloutput`을 사용하고 **구독에서 Blob Storage 선택**을 선택합니다.       |
    |**Storage 계정**  |  이전에 만든 저장소 계정을 선택합니다.  |
    |**컨테이너**  | 앞에서 만든 컨테이너를 선택합니다(`azuresamldemoblob`).        |
    |**이벤트 직렬화 형식**  |  **CSV**를 선택합니다.       |

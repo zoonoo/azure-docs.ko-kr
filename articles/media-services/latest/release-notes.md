@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343998"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877363"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -162,7 +162,7 @@ Media Services v3에 지원되는 언어: .NET Core, Java, Node.js, Ruby, Typesc
 
 CMAF를 지원하는 Apple HLS(iOS 11+) 및 MPEG-DASH 플레이어에 대해 CMAF 및 'cbcs' 암호화가 지원됩니다.
 
-### <a name="video-indexer"></a>비디오 인덱서
+### <a name="video-indexer"></a>Video Indexer
 
 Video Indexer GA 릴리스가 8월에 발표되었습니다. 현재 지원되는 기능에 대한 자세한 내용은 [Video Indexer란?](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)을 참조하세요. 
 
@@ -180,9 +180,9 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 
 ## <a name="may-2018---preview"></a>2018년 5월 - 미리 보기
 
-### <a name="net-sdk"></a>.Net SDK
+### <a name="net-sdk"></a>.NET SDK
 
-.Net SDK에는 다음과 같은 기능이 있습니다.
+.NET SDK의 다음 기능은 다음과 같습니다.
 
 * 미디어 콘텐츠를 인코딩하거나 분석할 수 있는 **Transform** 및 **Job**. 예를 들어 [스트림 파일](stream-files-tutorial-with-api.md) 및 [분석](analyze-videos-tutorial-with-api.md)을 참조하세요.
 * 최종 사용자 디바이스에 콘텐츠를 게시하고 스트리밍하는 **스트리밍 로케이터**.

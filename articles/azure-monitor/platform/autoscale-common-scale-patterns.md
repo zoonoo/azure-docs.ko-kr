@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 46d7520cce89d3f4204b9bf8f5da66506b1437fd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 8356a8c8c31a043197485b4913b4a67d7d719778
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475257"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997247"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>일반적인 자동 크기 조정 패턴 개요
 이 문서에서는 Azure에서 리소스의 크기를 조정하는 몇 가지 일반적인 패턴에 대해 설명합니다.
@@ -54,7 +54,7 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
 
 ## <a name="scale-based-on-custom-metric"></a>사용자 지정 메트릭 기준 크기 조정
 
-웹 프런트 엔드 및 백 엔드와 통신하는 API 계층이 있습니다.
+웹 프런트 엔드 및 백 엔드와 통신 하는 API 계층을 갖습니다.
 
 - 프런트 엔드의 사용자 지정 이벤트를 기준으로 API 계층을 확장하려고 합니다(예: 장바구니의 항목 수에 따라 체크 아웃 프로세스 크기 조정).
 

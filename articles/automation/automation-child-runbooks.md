@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f52c9731b0289563037cbf065f3e22d652b40e74
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 84f17b76f03c01d0b1441a50b9bcbddc1dfe2ef3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417434"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851316"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Automation의 자식 runbook
 
@@ -84,6 +84,9 @@ cmdlet으로 시작된 자식 runbook에서 작업은 부모 runbook의 별도 �
 다음 예제는 매개 변수로 자식 runbook를 시작한 다음 Start-AzureRmAutomationRunbook -wait 매개 변수를 사용하여 완료되기를 기다립니다. 완료되면 자식 runbook에서 해당 출력을 수집합니다. `Start-AzureRmAutomationRunbook`을 사용하려면 Azure 구독에 인증해야 합니다.
 
 ```azurepowershell-interactive
+# Ensures you do not inherit an AzureRMContext in your runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -101,7 +104,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRMContext $AzureContext `
     –Parameters $params –wait
 ```
 
@@ -116,7 +119,7 @@ Start-AzureRmAutomationRunbook `
 | 출력 |부모 runbook은 자식 runbook에서 출력을 직접 가져올 수 있습니다. |부모 Runbook은 자식 Runbook 작업에서 출력을 검색하거나 *또는* 자식 Runbook에서 출력을 직접 가져올 수 있습니다. |
 | 매개 변수 |자식 runbook 매개 변수 값은 별도로 지정되며 모든 데이터 형식을 사용할 수 있습니다. |자식 runbook 매개 변수 값은 단일 해시 테이블로 결합해야 합니다. 이 해시 테이블은 JSON 직렬화를 사용하는 단순, 배열 및 개체 데이터 형식만 포함할 수 있습니다. |
 | Automation 계정 |부모 runbook은 같은 자동화 계정에서 자식 runbook을 사용할 수 있습니다. |부모 runbook은 연결된 경우 동일한 Azure 구독 및 심지어 다른 구독의 자동화 계정에서 자식 runbook을 사용할 수 있습니다. |
-| 게시 |부모 runbook을 게시하기 전에 자식 runbook을 게시해야 합니다. |부모 runbook을 시작하기 전 언제든 자식 runbook을 게시해야 합니다. |
+| 게시 중 |부모 runbook을 게시하기 전에 자식 runbook을 게시해야 합니다. |부모 runbook을 시작하기 전 언제든 자식 runbook을 게시해야 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

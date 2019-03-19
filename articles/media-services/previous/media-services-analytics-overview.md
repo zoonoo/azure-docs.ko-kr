@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: c60fd90adda4c362b15fe2e324aa55a581c9e59a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0c090499ee6ae2aaaa14af18c3c38db28ecb2f3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003775"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884730"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services 플랫폼에서 미디어 분석 
 
@@ -94,7 +94,7 @@ Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하�
     }
 
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST
 요청:
 
     GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
@@ -126,7 +126,7 @@ Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하�
     }
 
 ## <a name="demos"></a>데모
-[Azure Media 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)를 참조하세요.
+[Azure Media 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)를 참조하세요.
 
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

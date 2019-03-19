@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: fd64376f68a177f12b2105ae0974eeeeefa94f4b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996157"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송
 
@@ -193,7 +193,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 이 코드는 로컬 파일의 경로, 새 컨테이너 또는 기존 컨테이너의 이름 및 새 Blob의 이름을 입력하라는 메시지를 표시합니다. `TransferManager.UploadAsync` 메서드에서 이 정보를 사용하여 업로드를 수행합니다.
 
-`F5` 키를 눌러 애플리케이션을 실행합니다. [Microsoft Azure Storage 탐색기](http://storageexplorer.com/)로 스토리지 계정을 확인하여 업로드를 수행했는지 확인할 수 있습니다.
+`F5` 키를 눌러 애플리케이션을 실행합니다. [Microsoft Azure Storage 탐색기](https://storageexplorer.com/)로 스토리지 계정을 확인하여 업로드를 수행했는지 확인할 수 있습니다.
 
 ## <a name="set-number-of-parallel-operations"></a>병렬 작업 수 설정
 데이터 이동 라이브러리에서 제공하는 가장 큰 특징은 병렬 작업의 수를 설정하여 데이터 전송 처리량을 높일 수 있다는 것입니다. 기본적으로 데이터 이동 라이브러리는 병렬 작업 수를 8 * 컴퓨터 코어 수로 설정합니다.

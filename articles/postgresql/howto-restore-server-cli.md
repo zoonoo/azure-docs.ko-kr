@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 357b22e4d4a6bf42ba165e49fc3cc01762268297
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 17f9acf6dcdc5a81c785bedc3649ee0258562b43
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994162"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL에서 서버를 백업 및 복원하는 방법
 
@@ -47,7 +47,7 @@ Azure Database for PostgreSQL 서버는 정기적으로 백업되어 복원 기�
 서버의 백업 보존 기간은 다음과 같이 변경할 수 있습니다.
 
 ```azurecli-interactive
-az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 앞의 예제는 mydemoserver의 백업 보존 기간을 10일로 변경합니다.
@@ -68,10 +68,11 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 `az postgres server restore` 명령에는 다음과 같은 매개 변수가 필요합니다.
-| 설정 | 제안 값 | 설명  |
+
+| 설정 | 제안된 값 | 설명  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  원본 서버가 있는 리소스 그룹입니다.  |
-| 이름 | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
+| name | mydemoserver-restored | 복원 명령에 의해 만들어진 새 서버의 이름입니다. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | 복원할 특정 시점을 선택합니다. 이 날짜 및 시간은 원본 서버의 백업 보존 기간 내에 있어야 합니다. ISO8601 날자 및 시간 형식을 사용합니다. 예를 들어 `2018-03-13T05:59:00-08:00`과 같이 현지 표준 시간대를 사용할 수 있습니다. UTC Zulu 형식을 사용할 수도 있습니다(예: `2018-03-13T13:59:00Z`). |
 | source-server | mydemoserver | 복원을 수행하려는 원본 서버의 이름 또는 ID입니다. |
 
@@ -107,12 +108,13 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 ```
 
 `az postgres server georestore` 명령에는 다음과 같은 매개 변수가 필요합니다.
-| 설정 | 제안 값 | 설명  |
+
+| 설정 | 제안된 값 | 설명  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 새 서버가 속하게 되는 리소스 그룹의 이름입니다.|
-|이름 | mydemoserver-georestored | 새 서버의 이름입니다. |
+|name | mydemoserver-georestored | 새 서버의 이름입니다. |
 |source-server | mydemoserver | 해당 지역 중복 백업이 사용되는 기존 서버의 이름입니다. |
-|location | eastus | 새 서버의 위치입니다. |
+|위치 | 미국 동부 | 새 서버의 위치입니다. |
 |sku-name| GP_Gen4_8 | 이 매개 변수는 가격 책정 계층, 계산 생성 및 새 서버의 vCore 수를 설정합니다. GP_Gen4_8은 vCore가 8개인 범용 4세대 서버로 매핑합니다.|
 
 

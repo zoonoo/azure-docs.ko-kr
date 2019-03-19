@@ -10,21 +10,21 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 3ad657fb695d88ffc75a37ee566ce59126906748
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108072"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
 
 Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확장이 NuGet 패키지 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)에서 제공됩니다. 이 확장을 함수 앱에 설치해야 합니다. 이 문서에서는 Azure Portal에서 Durable Functions를 개발할 수 있도록 이 패키지를 설치하는 방법을 보여줍니다.
 
->[!NOTE]
->
->* C#에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio 2017 개발](durable-functions-create-first-csharp.md)을 고려해야 합니다.
-* JavaScript에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio Code 개발](./quickstart-js-vscode.md)을 고려해야 합니다.
+> [!NOTE]
+> 
+> * C#에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio 2017 개발](durable-functions-create-first-csharp.md)을 고려해야 합니다.
+> * JavaScript에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio Code 개발](./quickstart-js-vscode.md)을 고려해야 합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 

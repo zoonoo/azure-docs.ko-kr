@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16763827c043d56ea9a3d461873dc78456cf678d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164927"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084084"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -76,11 +76,11 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 5. 새 앱에 대한 정보로 필수 필드를 작성합니다. 설정에 대해 다음 지침을 사용합니다.
    - **내부 URL**: 회사 네트워크에 있을 때 일반적으로 앱의 로그인 페이지로 안내하는 URL을 제공합니다. 이 시나리오의 경우 커넥터에서 PingAccess 프록시를 앱의 기본 페이지로 처리해야 합니다. `https://<host name of your PA server>:<port>` 형식을 사용합니다. 포트는 기본적으로 3000이지만 PingAccess에서 구성할 수 있습니다.
 
-    > [!WARNING]
-    > 이 형식의 SSO의 경우 내부 URL은 https를 사용해야 하고 http를 사용할 수 없습니다.
+     > [!WARNING]
+     > 이 형식의 SSO의 경우 내부 URL은 https를 사용해야 하고 http를 사용할 수 없습니다.
 
    - **사전 인증 방법**: Azure Active Directory
-   - **헤더에서 URL 변환**: 아니요
+   - **헤더에서 URL 변환**: 아닙니다.
 
    >[!NOTE]
    >첫 번째 애플리케이션인 경우 3000 포트를 사용하여 시작하고 PingAccess 구성을 변경하면 다시 돌아와서 이 설정을 업데이트합니다. 두 번째 이상의 앱인 경우 PingAccess에서 구성한 수신기와 일치해야 합니다. [PingAccess의 수신기](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html)에 대해 자세히 알아봅니다.
@@ -91,49 +91,49 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 9. 앱 관리 블레이드에서 **Single Sign-On**을 선택합니다.
 10. 드롭다운 메뉴에서 **헤더 기반 로그온**을 선택합니다. **저장**을 선택합니다.
 
-   >[!TIP]
-   >헤더 기반 Single Sign-On을 처음 사용하는 경우 PingAccess를 설치해야 합니다. Azure 구독이 PingAccess 설치와 자동으로 연결되도록 하려면 이 Single Sign-On 페이지의 링크를 사용하여 PingAccess를 다운로드합니다. 지금 다운로드 사이트를 열거나 나중에 이 페이지로 다시 돌아올 수 있습니다. 
+    >[!TIP]
+    >헤더 기반 Single Sign-On을 처음 사용하는 경우 PingAccess를 설치해야 합니다. Azure 구독이 PingAccess 설치와 자동으로 연결되도록 하려면 이 Single Sign-On 페이지의 링크를 사용하여 PingAccess를 다운로드합니다. 지금 다운로드 사이트를 열거나 나중에 이 페이지로 다시 돌아올 수 있습니다. 
 
-   ![헤더 기반 로그온 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
+    ![헤더 기반 로그온 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
 
 11. Enterprise 애플리케이션 블레이드를 닫거나 왼쪽으로 스크롤하여 Azure Active Directory 메뉴로 돌아갑니다.
 12. **앱 등록**을 선택합니다.
 
-   ![앱 등록 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
+    ![앱 등록 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
 
 13. 방금 추가한 앱을 선택한 다음 **회신 URL**을 선택합니다.
 
-   ![회신 URL 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
+    ![회신 URL 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
 
 14. 5단계에서 앱에 할당한 외부 URL이 회신 URL 목록에 있는지 확인합니다. 그렇지 않은 경우 지금 추가합니다.
 15. 앱 설정 블레이드에서 **필요한 권한**을 선택합니다.
 
-  ![필요한 권한 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+    ![필요한 권한 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
 16. **추가**를 선택합니다. API의 경우 **Windows Azure Active Directory**를 선택한 다음 **선택**을 선택합니다. 사용 권한의 경우 **모든 애플리케이션 읽기 및 작성**을 선택한 다음 **로그인 및 사용자 프로필 읽기**, **선택** 및 **완료**를 차례로 선택합니다.  
 
-  ![권한 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
+    ![권한 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
 17. 권한을 부여한 후 사용 권한 화면을 닫습니다. 
-![권한 부여](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
+    ![권한 부여](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
 
 ### <a name="collect-information-for-the-pingaccess-steps"></a>PingAccess 단계에 대한 정보 수집
 
 1. 앱 설정 블레이드에서 **속성**을 선택합니다. 
 
-  ![속성 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
+   ![속성 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
 
 2. **애플리케이션 ID** 값을 저장합니다. 이 값은 PingAccess를 구성할 때 클라이언트 ID에 대해 사용됩니다.
 3. 앱 설정 블레이드에서 **키**를 선택합니다.
 
-  ![키 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
+   ![키 선택](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
 
 4. 키 설명을 입력하고 드롭다운 메뉴에서 만료 날짜를 선택하여 키를 만듭니다.
 5. **저장**을 선택합니다. **값** 필드에 GUID가 나타납니다.
 
-  이 창을 닫은 후 이 값을 다시 볼 수 없으므로 지금 저장합니다.
+   이 창을 닫은 후 이 값을 다시 볼 수 없으므로 지금 저장합니다.
 
-  ![새 키 만들기](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
+   ![새 키 만들기](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
 
 6. 앱 등록 블레이드를 닫거나 왼쪽으로 스크롤하여 Azure Active Directory 메뉴로 돌아갑니다.
 7. **속성**을 선택합니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835319"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -72,8 +72,8 @@ ms.locfileid: "54383011"
 - 미국 중부
 - 미국 서부
 - 미국 서부 2
-- 서유럽
-- 북유럽
+- 유럽 서부
+- 유럽 북부
 - 브라질 남부
 - 영국 서부
 - 영국 남부
@@ -83,17 +83,19 @@ ms.locfileid: "54383011"
 - 인도 중부
 - 인도 남부
 - 일본 동부
+- US Gov 버지니아
 
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 - 캐나다 중부
 - 미국 중서부
 - 미국 동부
-- 서유럽
+- 유럽 서부
 - 영국 남부
 - 오스트레일리아 남동부
 - 동남아시아 
 - 인도 중부
 - 일본 동부
+- US Gov 버지니아
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>흐름 로그를 설정하려는 NSG가 작업 영역과 다른 지역에 있어도 되나요?
 
@@ -101,11 +103,11 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>단일 작업 영역 내에서 여러 NSG를 구성할 수 있나요?
 
-예.
+예
 
 ## <a name="can-i-use-an-existing-workspace"></a>기존 작업 영역을 사용해도 되나요?
 
-예. 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md)를 참조하세요.
+예 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대 한 자세한 내용은 참조 하세요. [새 로그 검색으로 업그레이드를 기록 하는 Azure Monitor](../log-analytics/log-analytics-log-search-upgrade.md)합니다.
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Azure Storage 계정과 Log Analytics 작업 영역이 서로 다른 구독에 있어도 되나요?
 
@@ -113,11 +115,17 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>원시 로그를 다른 구독에 저장할 수 있나요?
 
- 아니요. 흐름 로그에 NSG를 사용할 수 있는 저장소 계정에 원시 로그를 저장할 수 있습니다. 그러나 저장소 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
+번호 흐름 로그에 NSG를 사용할 수 있는 저장소 계정에 원시 로그를 저장할 수 있습니다. 그러나 저장소 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>“찾을 수 없음” 오류로 인해 트래픽 분석에 대해 NSG를 구성할 수 없으면 어떻게 하나요?
 
 지원되는 지역을 선택합니다. 지원되지 않는 영역을 선택할 경우 "찾을 수 없음" 오류가 표시됩니다. 지원되는 지역은 이 문서의 앞 부분에 나와 있습니다.
+
+## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>이유가 오류 "실패에 대 한 흐름 로그 설정을 업데이트... InternalServerError... " 미국 버지니아 주 정부에서 NSG를 사용 하도록 설정 하면 하는 경우?
+
+'Microsoft.Network' 리소스 공급자를 다시 등록 미국 버지니아 주 정부 구독에 있지 않은 버그 때문입니다. 팀이에 대 한 수정에 작동 합니다. 이 문제를 해결 해야 [수동으로 'Microsoft.Network' RP를 다시 등록](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors)합니다. 
+
+문제가 지속 되 면 지원에 문의 하세요. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>NSG 흐름 로그 페이지에 상태가 “로드 실패”로 표시되면 어떻게 하나요?
 

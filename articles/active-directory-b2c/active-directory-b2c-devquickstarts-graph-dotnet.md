@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d1f1ec45e1d4fc2fc6091a2f946caf6bc59441a9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: a516f99af05ba3f3bb7ab98d3def123a488e0d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075904"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -45,7 +45,7 @@ B2C 테넌트를 설정한 후에 [Azure Portal](https://portal.azure.com)을 �
 3. 왼쪽 탐색 창에서 **모든 서비스**를 선택하고 **앱 등록**을 클릭한 다음, **추가**를 클릭합니다.
 4. 프롬프트에 따라 새 애플리케이션을 만듭니다. 
     1. 애플리케이션 형식에 **Web App/API**를 입력합니다.    
-    2. 이 예제와 관련이 없는 **로그온 URL**(예: https://B2CGraphAPI) )을 입력합니다.  
+    2. 제공 **로그온 URL** (예: `https://B2CGraphAPI`) 이므로이 예제에서는 적합 합니다.  
 5. 이제 애플리케이션은 애플리케이션의 목록을 표시합니다. 이를 클릭하여 **애플리케이션 ID**(클라이언트 ID라고도 함)를 가져옵니다. 이후 섹션에서 필요하므로 복사합니다.
 6. 설정 메뉴에서 **키**를 클릭합니다.
 7. **암호** 섹션에서 키 설명을 입력하고 기간을 선택한 다음, **저장**을 클릭합니다. 이후 섹션에서 사용하기 위해 키 값(클라이언트 비밀이라고도 함)을 복사합니다.

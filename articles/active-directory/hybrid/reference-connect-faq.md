@@ -15,16 +15,33 @@ ms.date: 11/02/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 594fb736b8ec4b49cf1525047ff8a7ce5e5dc959
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194974"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840905"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
 ## <a name="general-installation"></a>일반 설치
+
+**Q: 내 Azure AD Connect 서버 보안 공격 노출 영역을 줄이기 위해을 강화할 수 있습니다 하는 방법**
+
+IT 환경의 중요 한이 구성 요소에 대 한 보안 공격 노출 영역을 줄이기 위해 Azure AD Connect 서버를 강화 하는 것이 좋습니다.  아래 권장 사항을 따르면 조직에 보안 위험이 줄어듭니다.
+
+* 도메인 가입된 서버에 Azure AD Connect를 배포 하 고 도메인 관리자 또는 다른 엄격 하 게 제어 하는 보안 그룹에 대 한 관리 액세스 제한
+
+자세한 내용은 다음을 참조하세요. 
+
+* [보안 관리자 그룹](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [기본 제공 관리자 계정 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [보안 향상 및 공격 노출 영역을 줄여 sustainment](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [Active Directory 공격 노출 영역 감소](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+
 **Q: Azure AD(Azure Active Directory) 글로벌 관리자가 2FA(2단계 인증)를 사용하도록 설정한 경우 설치가 작동하나요?**  
 이 시나리오는 2016년 2월 빌드부터 지원됩니다.
 
@@ -35,7 +52,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 이 시나리오는 2016년 2월 빌드부터 지원됩니다.
 
 **Q: Azure AD DS(Azure Active Directory Domain Services) 상태 에이전트는 서버 코어에서 작동하나요?**  
-예. 에이전트가 설치되면 다음 PowerShell cmdlet을 사용하여 등록 프로세스를 완료할 수 있습니다. 
+예 에이전트가 설치되면 다음 PowerShell cmdlet을 사용하여 등록 프로세스를 완료할 수 있습니다. 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -89,7 +106,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 
 ## <a name="environment"></a>Environment
 **Q: Azure AD Connect가 설치되면 서버 이름을 바꿀 수 있나요?**  
- 아니요. 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스 인스턴스에 연결할 수 없으므로 서비스를 시작할 수 없습니다.
+번호 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스 인스턴스에 연결할 수 없으므로 서비스를 시작할 수 없습니다.
 
 ## <a name="identity-data"></a>ID 데이터
 **Q: Azure AD의 userPrincipalName(UPN) 특성이 온-프레미스 UPN과 일치하지 않는 이유는 무엇인가요?**  
@@ -111,7 +128,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 이 사이트에서 설명하는 cmdlet을 제외하고 Azure AD Connect에 있는 다른 PowerShell cmdlet은 고객이 사용할 수 없습니다.
 
 **Q: Synchronization Service Manager의 "서버 내보내기/서버 가져오기" 옵션을 사용하여 서버 간에 구성을 이동할 수 있나요?**  
- 아니요. 이 옵션은 모든 구성 설정을 검색하는 것이 아니므로 사용하면 안됩니다. 그 대신 마법사를 사용하여 두 번째 서버에서 기본 구성을 만들고, 동기화 규칙 편집기를 사용하여 서버 간에 사용자 지정 규칙을 이동하도록 PowerShell 스크립트를 생성합니다. 자세한 내용은 [스윙 마이그레이션](how-to-upgrade-previous-version.md#swing-migration)을 참조하세요.
+번호 이 옵션은 모든 구성 설정을 검색하는 것이 아니므로 사용하면 안됩니다. 그 대신 마법사를 사용하여 두 번째 서버에서 기본 구성을 만들고, 동기화 규칙 편집기를 사용하여 서버 간에 사용자 지정 규칙을 이동하도록 PowerShell 스크립트를 생성합니다. 자세한 내용은 [스윙 마이그레이션](how-to-upgrade-previous-version.md#swing-migration)을 참조하세요.
 
 **Q: Azure 로그인 페이지에 대한 암호를 캐시할 수 있나요? 그리고 이 암호에 *autocomplete = "false"* 특성이 있는 암호 입력 요소가 포함되어 있으므로 이 캐싱을 방지할 수 있나요?**  
 현재 autocomplete 태그를 포함하여 **암호** 필드의 HTML 특성을 수정하는 기능은 지원되지 않습니다. 현재 **암호** 필드에 특성을 추가할 수 있는 사용자 지정 JavaScript를 허용하는 기능을 개발하고 있습니다.
@@ -120,7 +137,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 현재 autocomplete 태그를 포함하여 **암호** 입력 필드의 HTML 특성을 수정하는 기능은 지원되지 않습니다. 현재 **암호** 필드에 특성을 추가할 수 있는 사용자 지정 JavaScript를 허용하는 기능을 개발하고 있습니다.
 
 **Q: 동시 세션을 방지할 수 있는 방법이 있나요?**  
- 아니요.
+번호
 
 ## <a name="auto-upgrade"></a>자동 업그레이드
 

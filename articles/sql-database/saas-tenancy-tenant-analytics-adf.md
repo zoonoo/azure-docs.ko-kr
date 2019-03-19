@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7d4748ced196abdb4f3f0bcb70ad6fe254b24bf7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657591"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850295"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL Database, SQL Data Warehouse, Data Factory 및 Power BI를 사용한 SaaS 분석 탐색
 
@@ -94,7 +94,7 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 
 이제 배포한 Azure 리소스를 검토합니다.
 #### <a name="tenant-databases-and-analytics-store"></a>테넌트 데이터베이스 및 분석 저장소
-[SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 **tenants1-dpt-&lt;user&gt;** 및 **catalog-dpt-&lt;user&gt;** 서버에 연결합니다. &lt;user&gt;를 앱을 배포할 때 사용한 값으로 바꿉니다. 로그인 = *developer* 및 암호 = *P@ssword1*를 사용합니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
+[SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 **tenants1-dpt-&lt;user&gt;** 및 **catalog-dpt-&lt;user&gt;** 서버에 연결합니다. &lt;user&gt;를 앱을 배포할 때 사용한 값으로 바꿉니다. 로그인을 사용 하 여 = *개발자* 및 암호 = *P\@ssword1*합니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
 
 ![SSMS에서 SQL Database 서버에 연결](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -110,10 +110,10 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
-#### <a name="blob-storage"></a>Blob Storage
+#### <a name="blob-storage"></a>Blob 저장소
 1. [Azure Portal](https://ms.portal.azure.com)에서 애플리케이션을 배포하는 데 사용한 리소스 그룹으로 이동합니다. **wingtipstaging\<user\>** 이라는 저장소 계정이 추가되었는지 확인합니다.
 
-  ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
+   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
 1. **wingtipstaging\<user\>** 저장소 계정을 클릭하여 존재하는 개체를 탐색합니다.
 1. **Blob** 타일 클릭
@@ -195,7 +195,7 @@ SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 왼쪽 패널에서 **데이터베이스**를 선택하고 user name = *developer*, password = *P@ssword1*을 입력합니다. **Connect**를 클릭합니다.  
+5. 선택 **데이터베이스** 왼쪽된 창에서 다음 사용자 이름을 입력 = *개발자*에 암호를 입력 하 고 = *P\@ssword1*합니다. **연결**을 클릭합니다.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -249,7 +249,7 @@ Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 방법을 학습했습니다.
 
 > [!div class="checklist"]
 > * 테넌트 분석에 대한 스타 스키마로 채워진 SQL Data Warehouse를 배포합니다.

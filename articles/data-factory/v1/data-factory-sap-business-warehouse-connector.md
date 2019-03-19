@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e972ee64d60f0fc9703e766c3ab45c3057c32a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019880"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893257"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,13 +64,13 @@ SAP BW 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 �
 
 자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | string | 예
-systemNumber | SAP BW 시스템의 시스템 번호. | 문자열로 표현되는 두 자리 10진수. | 예
-clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID. | 문자열로 표현되는 세 자리 10진수. | 예
-사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | string | 예
-암호 | 사용자에 대한 암호입니다. | string | 예
-gatewayName | Data Factory 서비스가 온-프레미스 SAP BW 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | string | 예
-encryptedCredential | 암호화된 자격 증명 문자열. | string | 아니요
+서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 문자열 | 예
+systemNumber | SAP BW 시스템의 시스템 번호. | 문자열로 표현되는 두 자리 10진수. | 예.
+clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID. | 문자열로 표현되는 세 자리 10진수. | 예.
+사용자 이름 | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름 | 문자열 | 예
+암호 | 사용자에 대한 암호입니다. | 문자열 | 예
+gatewayName | Data Factory 서비스가 온-프레미스 SAP BW 인스턴스에 연결하는 데 사용해야 하는 게이트웨이의 이름. | 문자열 | 예
+encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | 아니요
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -289,29 +289,29 @@ frequency 및 interval 속성은 일정을 정의합니다. 이런 경우 SAP BW
 
 SAP BW의 데이터를 이동하는 경우 SAP BW 형식에서 .NET 형식으로 다음 매핑이 사용됩니다.
 
-ABAP 사전의 데이터 형식 | .Net 데이터 형식
+ABAP 사전의 데이터 형식 | .NET 데이터 형식
 -------------------------------- | --------------
-ACCP |  int
-CHAR | 문자열
-CLNT | 문자열
-CURR | 10진수
-CUKY | 문자열
-DEC | 10진수
+ACCP |  Int
+CHAR | String
+CLNT | String
+CURR | Decimal
+CUKY | String
+DEC | Decimal
 FLTP | Double
 INT1 | Byte
 INT2 | Int16
-INT4 | int
-LANG | 문자열
-LCHR | 문자열
+INT4 | Int
+LANG | String
+LCHR | String
 LRAW | Byte[]
 PREC | Int16
-QUAN | 10진수
+QUAN | Decimal
 RAW | Byte[]
 RAWSTRING | Byte[]
-STRING | 문자열
-단위 | 문자열
-DATS | 문자열
-NUMC | 문자열
+STRING | String
+단위 | String
+DATS | String
+NUMC | String
 TIMS | 문자열
 
 > [!NOTE]

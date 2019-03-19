@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039472"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002377"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
@@ -190,7 +190,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 > [!NOTE]
 > 명령줄을 통해 구성 서버를 설치할 수도 있습니다. [자세히 알아보기](physical-manage-configuration-server.md#install-from-the-command-line).
-
+> 
 > 포털에 계정 이름이 표시되는 데 15분 이상 걸릴 수 있습니다. 즉시 업데이트하려면 **구성 서버** > ***서버 이름*** > **서버 새로 고침**을 선택합니다.
 
 ## <a name="step-4-set-up-the-target-environment"></a>4단계: 대상 환경 설정
@@ -214,7 +214,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 4. **복구 지점 보존**에서 각 복구 지점이 보존되는 기간을 지정합니다. 복제된 VM은 지정된 기간 중 임의의 시점으로 복구될 수 있습니다.
 5. **앱 일치 스냅숏 빈도**에서 애플리케이션 일치 스냅숏이 만들어지는 빈도를 지정합니다.
 
-    - 앱 일치 스냅숏은 VM 내 앱 데이터의 지정 시간 스냅숏입니다.
+    - 앱 일치 스냅숏은 VM 내에서 앱 데이터의 시간에서 스냅숏입니다.
     - VSS(볼륨 섀도 복사본 서비스)는 스냅숏을 만들 때 VM의 앱이 일관된 상태가 되도록 합니다.
 6. **확인**을 선택하여 정책을 만듭니다.
 
@@ -249,9 +249,9 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 > [!NOTE]
 > VM에 대한 복제를 사용하도록 설정되면 Site Recovery에서 모바일 서비스를 설치합니다.
-
+> 
 > 변경 내용이 적용되어 포털에 표시되는 데 15분 이상 걸릴 수 있습니다.
-
+> 
 > 추가하는 VM을 모니터링하려면, **구성 서버** > **마지막 연락**에서 VM을 마지막으로 검색한 시간을 확인합니다. 예약된 검색을 기다리지 않고 VM을 추가하려면 구성 서버를 강조 표시하고(클릭하지 않음) **새로 고침**을 선택합니다.
 
 

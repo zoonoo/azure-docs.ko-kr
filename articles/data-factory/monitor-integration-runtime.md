@@ -3,21 +3,20 @@ title: Azure Data Factory의 통합 런타임 모니터링 | Microsoft Docs
 description: Azure Data Factory에서 다양한 유형의 통합 런타임을 모니터링하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
-ms.author: douglasl
-ms.openlocfilehash: 8c3883ae6dd2928fb6cc4f22510e7992daac7793
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015307"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576339"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링  
 **통합 런타임**은 서로 다른 네트워크 환경에서 다양한 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. Data Factory는 세 가지 유형의 통합 런타임을 제공합니다.
@@ -26,16 +25,18 @@ ms.locfileid: "54015307"
 - 자체 호스팅 통합 런타임
 - Azure SSIS 통합 런타임
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 IR(통합 런타임) 인스턴스의 상태를 가져 오려면 다음 PowerShell 명령을 실행합니다. 
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
 이 cmdlet은 여러 유형의 통합 런타임에 대해 서로 다른 정보를 반환합니다. 이 문서는 각 통합 런타임 유형의 속성 및 상태에 대해 설명합니다.  
 
 ## <a name="azure-integration-runtime"></a>Azure 통합 런타임
-Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으로 관리됩니다. 다음 테이블은 **Get-AzureRmDataFactoryV2IntegrationRuntime** 명령에 의해 반환되는 속성에 대한 설명을 제공합니다.
+Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으로 관리됩니다. 다음 표에에서 반환 된 속성에 대해 설명 합니다 **Get AzDataFactoryV2IntegrationRuntime** 명령:
 
 ### <a name="properties"></a>properties
 다음 테이블은 Azure 통합 런타임에 대해 cmdlet에서 반환하는 속성에 대한 설명을 제공합니다.
@@ -58,7 +59,7 @@ Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으
 | 오프라인 | Azure 통합 런타임이 내부 오류로 인해 오프라인 상태입니다. |
 
 ## <a name="self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임
-이 섹션은 Get-AzureRmDataFactoryV2IntegrationRuntime cmdlet에 의해 반환되는 속성에 대한 설명을 제공합니다. 
+이 섹션에서는 Get AzDataFactoryV2IntegrationRuntime cmdlet에서 반환 하는 속성에 대해 설명 합니다. 
 
 > [!NOTE] 
 > 반환된 속성 및 상태에는 전반적인 자체 호스팅 통합 런타임 및 런타임의 각 노드에 대한 정보가 포함됩니다.  
@@ -86,7 +87,7 @@ Azure 통합 런타임의 계산 리소스는 Azure에서 완전히 탄력적으
 
 노드 수를 늘려서 규모를 확장할 수 있습니다. 노드의 수를 늘리면 동시 작업 제한은 사용 가능한 모든 노드의 동시 작업 제한 값의 합계입니다.  예를 들어 하나의 노드를 사용하여 최대 12개의 동시 작업을 실행할 수 있는 경우 세 가지 유사한 노드를 추가하면 최대 48개(4x12)의 동시 작업을 실행할 수 있습니다. 각 노드의 기본 값을 포함하는 낮은 리소스 사용량이 표시되는 경우에만 동시 작업 제한을 늘리는 것이 좋습니다.
 
-Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성자 > 연결 > 통합 런타임 > 편집 > 노드 > 노드당 동시 작업 값 수정을 차례로 선택합니다. PowerShell [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) 명령을 사용할 수도 있습니다.
+Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성자 > 연결 > 통합 런타임 > 편집 > 노드 > 노드당 동시 작업 값 수정을 차례로 선택합니다. PowerShell을 사용할 수도 있습니다 [업데이트 Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) 명령입니다.
   
 ### <a name="status-per-node"></a>상태(노드당)
 다음 테이블은 자체 호스팅 통합 런타임 노드의 가능한 상태를 제공합니다.
@@ -111,10 +112,10 @@ Azure Portal에서 계산된 기본값을 재정의할 수 있습니다. 작성�
 | 오프라인 | 온라인 상태인 노드가 없습니다. |
 | 제한적 | 자체 호스팅 통합 런타임의 일부 노드가 정상 상태가 아닙니다. 이 상태는 일부 노드가 중단되었을 수 있다는 경고입니다. 이 상태는 디스패처/작업자 노드의 자격 증명 동기화 문제 때문일 수 있습니다. |
 
-**Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** cmdlet을 사용하여 세부적인 자체 호스팅 통합 런타임 속성 및 cmdlet이 실행되는 동안 스냅숏 값이 포함된 JSON 페이로드를 가져옵니다.
+사용 된 **Get AzDataFactoryV2IntegrationRuntimeMetric** cmdlet에서 자세한 내용을 포함 된 JSON 페이로드를 가져옵니다을 자체 호스팅 통합 런타임 속성, 및 cmdlet이 실행의 시간 동안 스냅숏 값입니다.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
+Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
 ```
 
 샘플 출력(자체 호스팅 통합 런타임과 연결된 노드가 두 개라고 가정):
@@ -174,7 +175,7 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(
 | VNetId | Azure-SSIS 통합 런타임이 조인할 가상 네트워크 리소스 ID. |
 | 서브넷 | Azure-SSIS 통합 런타임이 조인할 서브넷 이름. |
 | ID | Azure-SSIS 통합 런타임의 리소스 ID. |
-| type | Azure-SSIS 통합 런타임의 유형(관리되는/자체 호스팅). |
+| Type | Azure-SSIS 통합 런타임의 유형(관리되는/자체 호스팅). |
 | ResourceGroupName | 데이터 팩터리 및 Azure-SSIS 통합 런타임이 만들어진 Azure 리소스 그룹의 이름입니다. |
 | DataFactoryName | Azure Data Factory의 이름. |
 | 이름 | Azure-SSIS 통합 런타임의 이름. |
@@ -213,7 +214,7 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(
 다음 예제와 같은 스크립트를 사용하여 Azure-SSIS IR의 상태를 확인합니다.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
 ```
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 자세한 정보

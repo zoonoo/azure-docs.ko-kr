@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 332382282c2b55b52bb23f278a25868c09360619
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: d8640881e83084dac7f4725115f48dcf7d29e787
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729356"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007596"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>OpenBSD 디스크 이미지 만들기 및 Azure로 업로드
 이 문서에서는 OpenBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다. VHD를 업로드한 후에는 VHD를 사용자 고유의 이미지로 사용하여 Azure CLI를 통해 Azure에서 VM(가상 머신)을 만들 수 있습니다.
@@ -56,7 +56,7 @@ Hyper-V 지원을 추가한, OpenBSD 운영 체제 6.1을 설치한 VM에서 다
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. 기본적으로 `root` 사용자는 Azure의 가상 머신에서는 사용되지 않도록 설정됩니다. 사용자는 OpenBSD VM에서 `doas` 명령을 사용하여 상승된 권한으로 명령을 실행할 수 있습니다. Doas는 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [doas.conf](http://man.openbsd.org/doas.conf.5)를 참조하세요. 
+4. 기본적으로 `root` 사용자는 Azure의 가상 머신에서는 사용되지 않도록 설정됩니다. 사용자는 OpenBSD VM에서 `doas` 명령을 사용하여 상승된 권한으로 명령을 실행할 수 있습니다. Doas는 기본적으로 사용하도록 설정됩니다. 자세한 내용은 [doas.conf](https://man.openbsd.org/doas.conf.5)를 참조하세요. 
 
 5. 다음과 같이 Azure 에이전트에 대한 필수 구성 요소를 설치하고 구성합니다.
 
@@ -175,6 +175,6 @@ ssh azureuser@<ip address>
 
 
 ## <a name="next-steps"></a>다음 단계
-OpenBSD6.1의 Hyper-V 지원에 대한 자세한 내용은 [OpenBSD 6.1](https://www.openbsd.org/61.html) 및 [hyperv.4](http://man.openbsd.org/hyperv.4)를 참조하세요.
+OpenBSD6.1의 Hyper-V 지원에 대한 자세한 내용은 [OpenBSD 6.1](https://www.openbsd.org/61.html) 및 [hyperv.4](https://man.openbsd.org/hyperv.4)를 참조하세요.
 
 관리 디스크에서 VM을 만들려면 [az disk](/cli/azure/disk)를 참조하세요. 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a07ca553aee2a6267af5a33836e85b2a12d8ae3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182292"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842469"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>비갤러리 애플리케이션을 추가할 때 발생하는 문제
 
@@ -46,20 +46,20 @@ ms.locfileid: "56182292"
 
 다음 단계를 수행하여 포털 알림의 세부 정보를 확인할 수 있습니다.
 
-1.  Azure Portal의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭합니다.
+1. Azure Portal의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭합니다.
 
-2.  **오류** 상태(옆에 빨간색(!)이 있는)에서 알림을 선택합니다.
+2. **오류** 상태(옆에 빨간색(!)이 있는)에서 알림을 선택합니다.
 
    >[!NOTE]
    >**성공** 또는 **진행 중** 상태에서 알림을 클릭할 수 없습니다.
    >
    >
 
-4.  **알림 세부 정보**에서 정보를 사용하여 문제에 대한 자세한 내용을 이해합니다.
+4. **알림 세부 정보**에서 정보를 사용하여 문제에 대한 자세한 내용을 이해합니다.
 
-5.  여전히 도움이 필요한 경우 문제에 대한 도움을 얻도록 이 정보를 지원 엔지니어 또는 제품 그룹과 공유할 수도 있습니다.
+5. 여전히 도움이 필요한 경우 문제에 대한 도움을 얻도록 이 정보를 지원 엔지니어 또는 제품 그룹과 공유할 수도 있습니다.
 
-6.  **오류 복사** 텍스트 상자 오른쪽의 **복사 아이콘**을 클릭하여 지원 또는 제품 그룹 엔지니어와 공유하도록 모든 알림 세부 정보를 복사합니다.
+6. **오류 복사** 텍스트 상자 오른쪽의 **복사 아이콘**을 클릭하여 지원 또는 제품 그룹 엔지니어와 공유하도록 모든 알림 세부 정보를 복사합니다.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>지원 엔지니어에게 알림 세부 정보를 전송하여 도움을 얻는 방법
 
@@ -71,63 +71,63 @@ ms.locfileid: "56182292"
 
 ### <a name="essential-notification-items"></a>중요 알림 항목
 
--   **제목** - 알림의 설명이 포함된 제목
-   *  예제 - **애플리케이션 프록시 설정**
+- **제목** - 알림의 설명이 포함된 제목
+  *  예제 - **애플리케이션 프록시 설정**
 
--   **설명** – 작업의 결과로 발생한 문제에 대한 설명
+- **설명** – 작업의 결과로 발생한 문제에 대한 설명
 
-   *  예제 - **입력한 내부 url은 이미 다른 애플리케이션에서 사용 중입니다.**
+  *  예제 - **입력한 내부 url은 이미 다른 애플리케이션에서 사용 중입니다.**
 
--   **알림 ID** - 알림의 고유 ID
+- **알림 ID** - 알림의 고유 ID
 
-   *  예제 – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  *  예제 – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **클라이언트 요청 ID** -브라우저에서 만든 특정 요청 ID
+- **클라이언트 요청 ID** -브라우저에서 만든 특정 요청 ID
 
-   *  예제 – **302fd775-3329-4670-a9f3-bea37004f0bc**
+  *  예제 – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **타임스탬프 UTC** – 알림이 발생한 동안의 타임스탬프(UTC)
+- **타임스탬프 UTC** – 알림이 발생한 동안의 타임스탬프(UTC)
 
-   *  예제 – **2017-03-23T19:50:43.7583681Z**
+  *  예제 – **2017-03-23T19:50:43.7583681Z**
 
--   **내부 트랜잭션 ID** – 시스템에서 오류를 찾는 데 사용할 수 있는 내부 ID
+- **내부 트랜잭션 ID** – 시스템에서 오류를 찾는 데 사용할 수 있는 내부 ID
 
-   *  예제 – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  *  예제 – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – 작업을 수행한 사용자
+- **UPN** – 작업을 수행한 사용자
 
-   *  예제 – **tperkins@f128.info**
+  *  예 – **tperkins\@f128.info**
 
--   **테넌트 ID** – 작업을 수행한 사용자가 구성원인 테넌트의 고유 ID
+- **테넌트 ID** – 작업을 수행한 사용자가 구성원인 테넌트의 고유 ID
 
-   *  예제 – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  *  예제 – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **사용자 개체 ID** – 작업을 수행한 사용자의 고유 ID
+- **사용자 개체 ID** – 작업을 수행한 사용자의 고유 ID
 
- *  예제 – **17f84be4-51f8-483a-b533-383791227a99**
+  *  예제 – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>자세한 알림 항목
 
--   **표시 이름** – **(비어 있을 수 있음)** 오류에 대한 보다 자세한 표시 이름
+- **표시 이름** – **(비어 있을 수 있음)** 오류에 대한 보다 자세한 표시 이름
 
   *  예제 - **애플리케이션 프록시 설정**
 
--   **상태** - 알림의 특정 상태
+- **상태** - 알림의 특정 상태
 
-   *  예제 – **실패**
+  *  예제 – **실패**
 
--   **개체 ID** – **(비어 있을 수 있음)** 작업이 수행된 개체 ID
+- **개체 ID** – **(비어 있을 수 있음)** 작업이 수행된 개체 ID
 
-   *  예제 – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+  *  예제 – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **세부 정보** – 작업의 결과로 발생한 문제에 대한 자세한 설명
+- **세부 정보** – 작업의 결과로 발생한 문제에 대한 자세한 설명
 
-   *  예제 – **내부 url 'https://bing.com/'은 이미 사용 중이므로 유효하지 않습니다.**
+  *  예 – **내부 url `https://bing.com/` 이미 사용 중 이므로 잘못 되었습니다**
 
--   **오류 복사** - **오류 복사** 텍스트 상자 오른쪽의 **복사 아이콘**을 클릭하여 지원 또는 제품 그룹과 공유하도록 모든 알림 세부 정보 복사 
--   엔지니어
+- **오류 복사** - **오류 복사** 텍스트 상자 오른쪽의 **복사 아이콘**을 클릭하여 지원 또는 제품 그룹과 공유하도록 모든 알림 세부 정보 복사 
+- 엔지니어
 
-   *  예제 ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+  *  예제 ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 
 

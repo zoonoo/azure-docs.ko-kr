@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0af2628e1da24bd790e94306703aab797a0d56a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f166555e2f21ed38e78e659ec181c2d5d90d6bf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164773"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887003"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 이 문서에서는 Azure Active Directory (Azure AD)에서 관리 되지 않는 디렉터리의 DNS 도메인 이름을 인수할 두 가지 방법을 설명합니다. 셀프 서비스 사용자가 Microsoft AD를 사용하는 클라우드 서비스에 등록할 때, 전자 메일 도메인에 기반하여 관리되지 않는 Microsoft Azure AD 디렉토리에 추가됩니다. 셀프 서비스 또는 서비스에 대한 "바이럴" 등록에 대한 자세한 내용은 [Microsoft Azure Active Directory의 셀프 서비스 가입이란?](directory-self-service-signup.md)을 참조하세요.
@@ -44,11 +44,11 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
 
 4. Power BI 사용자 계정을 사용하여 [Office 365 관리자 센터](https://portal.office.com/admintakeover)에 로그인합니다. 관리되지 않는 테넌트에서 이미 확인된 도메인 이름의 **관리자 되기**에 관해 지시하는 메시지를 수신합니다. **예, 관리자가 되고 싶습니다**를 선택합니다.
   
-  ![관리자 되기에 대한 첫 번째 스크린샷](./media/domains-admin-takeover/become-admin-first.png)
+   ![관리자 되기에 대한 첫 번째 스크린샷](./media/domains-admin-takeover/become-admin-first.png)
   
 5. 도메인 이름 등록자에서 도메인 이름 **fourthcoffee.xyz**을 소유하고 있음을 증명하기 위해 TXT 레코드를 추가합니다. 이 예제에서는 GoDaddy.com입니다.
   
-  ![도메인 이름에 대한 TXT 레코드 추가](./media/domains-admin-takeover/become-admin-txt-record.png)
+   ![도메인 이름에 대한 TXT 레코드 추가](./media/domains-admin-takeover/become-admin-txt-record.png)
 
 도메인 이름 등록자에서 DNS TXT 레코드가 확인된 경우 Microsoft Azure AD 테넌트를 관리할 수 있습니다.
 
@@ -57,22 +57,22 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Microsoft Azure AD에서 관리되는 테넌트에 도메인 이름 추가하기
 
 1. [Office 365 관리 센터](https://portal.office.com/admintakeover)를 엽니다.
-2. **사용자** 탭을 선택하고, 사용자 지정 도메인 이름을 사용하지 않는 *user@fourthcoffeexyz.onmicrosoft.com*와 같은 이름으로 새 사용자 계정을 만듭니다. 
+2. 선택 **사용자가** 라는 이름의 새 사용자 계정을 만들고 탭 *사용자\@fourthcoffeexyz.onmicrosoft.com* 사용자 지정 도메인 이름을 사용 하지 않는 합니다. 
 3. 새 사용자 계정에 Microsoft Azure AD 테넌트에 대한 전역 관리자 권한이 있는지 확인합니다.
 4. Office 365 관리 센터에서 **도메인** 탭을 연 후, 도메인 이름을 선택하고 **제거**를 선택합니다. 
   
-  ![Office 365에서 도메인 이름 제거](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![Office 365에서 도메인 이름 제거](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. 제거된 도메인 이름을 참조하는 Office 365에 사용자 또는 그룹이 있다면 이러한 이름은 onmicrosoft.com 도메인으로 이름이 변경되어야 합니다. 도메인 이름을 강제로 삭제한다면, 모든 사용자는 자동적으로 이름이 변경되며, 이 예에서는 *user@fourthcoffeexyz.onmicrosoft.com*으로 변경됩니다.
+5. 제거된 도메인 이름을 참조하는 Office 365에 사용자 또는 그룹이 있다면 이러한 이름은 onmicrosoft.com 도메인으로 이름이 변경되어야 합니다. 도메인 이름을 삭제,이 예에서는 모든 사용자는 이름이 자동으로 강제로 *사용자\@fourthcoffeexyz.onmicrosoft.com*합니다.
   
 6. Microsoft Azure AD 테넌트에 대한 전역 관리자인 계정으로 [Microsoft Azure AD 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
   
 7. **사용자 지정 도메인 이름**을 선택하고 도메인 이름을 추가합니다. 도메인 이름의 소유권을 확인하려면 DNS TXT 레코드를 입력해야 합니다. 
   
-  ![Microsoft Azure AD에 추가하는 도메인](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![Microsoft Azure AD에 추가하는 도메인](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Office 365 테넌트에 할당된 라이선스를 가진 Power BI 또는 Azure Rights Management 서비스의 모든 사용자는 도메인 이름이 제거된 경우 해당 대시보드를 저장해야 합니다. 그들은 *user@fourthcoffee.xyz* 보다는 *user@fourthcoffeexyz.onmicrosoft.com*과 같은 사용자 이름을 사용하여 서명해야 합니다.
+> Office 365 테넌트에 할당된 라이선스를 가진 Power BI 또는 Azure Rights Management 서비스의 모든 사용자는 도메인 이름이 제거된 경우 해당 대시보드를 저장해야 합니다. 과 같은 사용자 이름을 사용 하 여 로그인 해야 할 *사용자\@fourthcoffeexyz.onmicrosoft.com* 대신 *사용자\@fourthcoffee.xyz*합니다.
 
 ## <a name="external-admin-takeover"></a>외부 관리자 인수
 
@@ -132,42 +132,42 @@ Cmdlet | 사용 현황
 ### <a name="powershell-example"></a>PowerShell 예제
 
 1. 셀프 서비스 제공 사항에 응답하는 데 사용된 자격 증명을 사용하여 Azure AD에 연결합니다.
-  ```
+   ```
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred
-  ```
+   ```
 2. 도메인 목록을 가져옵니다.
   
-  ```
+   ```
     Get-MsolDomain
-  ```
+   ```
 3. Get-MsolDomainVerificationDns cmdlet을 실행하여 챌린지를 만듭니다.
-  ```
+   ```
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
   
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
-  ```
+   ```
 
 4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예: 
-  ```
+   ```
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
-  ```
+   ```
 5. 공용 DNS 네임스페이스에서 이전 단계에서 복사한 값이 포함된 DNS txt 레코드를 만듭니다. 이 레코드의 이름은 부모 도메인의 이름이므로 Windows Server의 DNS 역할을 사용하여 이 리소스 레코드를 만드는 경우 레코드 이름은 비워두고 값을 텍스트 상자에 붙여넣기만 하세요.
 6. Confirm-MsolDomain cmdlet을 실행하여 챌린지를 확인합니다.
   
-  ```
+   ```
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
-  ```
+   ```
   
-  예: 
+   예: 
   
-  ```
+   ```
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
-  ```
+   ```
 
 챌린지가 성공하면 오류 없이 프롬프트로 돌아갑니다.
 

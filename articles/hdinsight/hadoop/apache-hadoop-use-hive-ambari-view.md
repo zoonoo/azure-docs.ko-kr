@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407850"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091310"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
 
@@ -73,7 +73,7 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
    * `DROP TABLE`: 테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.
 
    * `CREATE EXTERNAL TABLE`: Hive에서 새 “외부” 테이블을 만듭니다.
-   외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
+     외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
    * `ROW FORMAT`: 데이터의 형식을 지정하는 방법을 보여 줍니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
 
@@ -81,8 +81,8 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
    * `SELECT`: t4 열에 [ERROR] 값이 포함된 모든 행의 수를 선택합니다.
 
-    > [!IMPORTANT]  
-    > __데이터베이스__ 선택 영역을 __기본값__으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
+     > [!IMPORTANT]  
+     > __데이터베이스__ 선택 영역을 __기본값__으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
 
 5. 쿼리를 시작하려면 워크시트 아래에서 **실행** 단추를 사용합니다. 단추가 주황색으로 바뀌고 텍스트가 **중지**로 변경됩니다.
 

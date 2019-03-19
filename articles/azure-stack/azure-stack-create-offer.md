@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 42336205726823dd04e0412f29c3e7a23d134d39
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 59c69477e120facec1fbf132ce7017ca21aa8748
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763996"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092619"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Azure Stack에서 제안 만들기
 
@@ -48,18 +48,18 @@ ms.locfileid: "57763996"
 
 6. 선택 **만들기** 는 제품을 만듭니다.
 
-   ![검토 및 만들기](media/azure-stack-create-offer/review-offer.png)
+   ![검토 후 만들기](media/azure-stack-create-offer/review-offer.png)
 
 ### <a name="change-the-state-of-an-offer"></a>제품의 상태를 변경 합니다.
 
 제품을 만든 후 해당 상태를 변경할 수 있습니다. 제품을 만들어야 **공용** 사용자가 구독할 때 전체 보기를 볼 수 있습니다. 제공 될 수 있습니다.
 
-   - **공용**: 사용자에 게 표시 합니다.
-   - **개인**: 클라우드 관리자에만 표시 됩니다. 계획 또는 제품 초안을 작성 하는 동안이 설정은 유용 클라우드 관리자가 하려는 경우 또는 [사용자에 대 한 각 구독을 만드는](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)합니다.
-   - **서비스 해제**: 새로운 구독자에 게 닫힙니다. 클라우드 관리자에는 향후 구독을 차단할 수 있지만 현재 구독자가 영향을 받지 않은 문제를 서비스 해제할 수 있습니다.
+- **공용**: 사용자에 게 표시 합니다.
+- **개인**: 클라우드 관리자에만 표시 됩니다. 계획 또는 제품 초안을 작성 하는 동안이 설정은 유용 클라우드 관리자가 하려는 경우 또는 [사용자에 대 한 각 구독을 만드는](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)합니다.
+- **서비스 해제**: 새로운 구독자에 게 닫힙니다. 클라우드 관리자에는 향후 구독을 차단할 수 있지만 현재 구독자가 영향을 받지 않은 문제를 서비스 해제할 수 있습니다.
 
-   > [!TIP]  
-   > 제품에 대 한 변경 내용을 사용자에 게 즉시 표시 되지 않습니다. 변경 내용을 보려면, 로그 아웃 했다가 다시 로그온 사용자 포털에 새 제품을 확인 하려면 사용자가 해야 할 수 있습니다.
+  > [!TIP]  
+  > 제품에 대 한 변경 내용을 사용자에 게 즉시 표시 되지 않습니다. 변경 내용을 보려면, 로그 아웃 했다가 다시 로그온 사용자 포털에 새 제품을 확인 하려면 사용자가 해야 할 수 있습니다.
 
 두 가지 방법으로 제공 하는 서비스의 상태를 변경할 수 있습니다.
 

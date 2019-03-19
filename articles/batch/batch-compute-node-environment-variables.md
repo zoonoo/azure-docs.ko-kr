@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 02/07/2019
 ms.author: lahugh
-ms.openlocfilehash: 734c16111ab859b55d87525cdc8a644c8114f6d2
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874764"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 계산 노드 환경 변수
 
@@ -62,7 +62,6 @@ Batch에 환경 변수를 사용하는 방법에 대한 자세한 내용은 [태
 | AZ_BATCH_TASK_DIR               | 노드의 [태스크 디렉터리][files_dirs] 전체 경로입니다. 이 디렉터리에는 태스크에 대한 `stdout.txt` 및 `stderr.txt`, 그리고 AZ_BATCH_TASK_WORKING_DIR이 포함됩니다. | 모든 태스크입니다. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | 현재 태스크의 ID | 시작 태스크를 제외한 모든 태스크입니다. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | [다중 인스턴스 태스크][multi_instance]의 기본 태스크 및 모든 하위 태스크일 경우 동일한 디렉터리 경로입니다. 경로는 다중 인스턴스 태스크가 실행되며 해당 노드에서 실행 중인 태스크 명령에 읽기/쓰기 액세스 권한을 가진 모든 노드에 존재합니다([조정 명령][coord_cmd]과 [애플리케이션 명령][app_cmd] 둘 다). 다른 노드에서 실행되는 하위 태스크 또는 기본 태스크는 이 디렉터리에 대한 원격 액세스 권한이 없습니다(“공유” 네트워크 디렉터리가 아님). | 다중 인스턴스 기본 및 하위 태스크입니다. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
-| AZ_BATCH_TASK_SHARED_DIR        | 노드의 작업 간에 공유할 데이터를 저장하기 위한 공통 디렉터리입니다. | 모든 태스크입니다. | C:\user\tasks\shared |
 | AZ_BATCH_TASK_WORKING_DIR       | 노드의 [태스크 작업 디렉터리][files_dirs] 전체 경로입니다. 현재 실행 중인 태스크는 이 디렉터리에 대한 읽기/쓰기 액세스 권한이 있습니다. | 모든 태스크입니다. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | [다중 인스턴스 태스크][multi_instance]에 할당된 노드와 노드당 코어 수의 목록입니다. 노드 및 코어는 `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...` 형식으로 나열됩니다. 여기서 노드 수 뒤에 하나 이상의 노드 IP 주소와 각 노드의 코어 수가 옵니다. |  다중 인스턴스 기본 및 하위 태스크입니다. |`2 10.0.0.4 1 10.0.0.5 1` |
 

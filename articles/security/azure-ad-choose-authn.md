@@ -9,18 +9,18 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a05874e28c08087b6f82c3aa5a02e83d2629ffe5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 585a5878ce50a5c64c3eb90593de4ff8df5a09d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694689"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091276"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 
 이 문서는 조직에서 완전한 Azure AD(Azure Active Directory) 하이브리드 ID 솔루션을 구현하도록 지원하기 위한 일련의 문서 중 첫 번째 문서입니다. 이 솔루션은 [하이브리드 ID 디지털 변환 프레임워크](https://aka.ms/aadframework)로 간략하게 설명되었으며, 조직에서 강력하고 안전한 하이브리드 ID 솔루션을 구현하기 위해 중점을 둘 수 있는 비즈니스 결과 및 목표를 포함합니다. 
 
-프레임워크의 첫 번째 비즈니스 결과는 사용자가 클라우드 앱에 액세스할 때 조직이 인증 프로세스를 보호하기 위한 요구 사항을 자세히 설명합니다. 인증으로 보호된 비즈니스 결과에서 첫 번째 비즈니스 목표는 사용자가 온-프레미스 사용자 이름 및 암호를 사용하여 클라우드 앱에 로그인할 수 있도록 하는 기능입니다. 이 로그인 프로세스 및 사용자가 인증하는 방법은 클라우드에서 모든 작업이 가능하도록 만듭니다.
+프레임워크의 첫 번째 비즈니스 결과는 사용자가 클라우드 앱에 액세스할 때 조직이 인증 프로세스를 보호하기 위한 요구 사항을 자세히 설명합니다. 인증으로 보호된 비즈니스 결과에서 첫 번째 비즈니스 목표는 사용자가 온-프레미스 사용자 이름 및 암호를 사용하여 클라우드 앱에 로그인할 수 있도록 하는 기능입니다. 이 로그인 및 인증 프로세스 모든 클라우드에서 수 있습니다.
 
 올바른 인증 방법을 선택하는 것은 앱에서 클라우드로 이동하려는 조직이 첫 번째로 고려해야 할 사항입니다. 이 결정을 가볍게 여겨서는 안 되는 이유는 다음과 같습니다.
 
@@ -135,10 +135,10 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 * **고급 시나리오**. 페더레이션 인증 솔루션은 일반적으로 고객에게 Azure AD에서 기본적으로 지원되지 않는 인증 요구 사항이 있는 경우 필요합니다. 자세한 내용은 [올바른 로그인 옵션 선택](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/)을 참조하세요. 고려할 일반적인 요구 사항은 다음과 같습니다.
 
-    * 스마트 카드 또는 인증서를 요구하는 인증
-    * 온-프레미스 MFA 서버 또는 타사 다단계 인증 공급자
-    * 타사 인증 솔루션을 사용하는 인증. [Azure AD 페더레이션 호환성 목록](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility)을 참조하세요.
-    * user@domain.com 등의 UPN(사용자 계정 이름) 대신 DOMAIN\username과 같은 sAMAccountName을 요구하는 로그인
+  * 스마트 카드 또는 인증서를 요구하는 인증
+  * 온-프레미스 MFA 서버 또는 타사 다단계 인증 공급자
+  * 타사 인증 솔루션을 사용하는 인증. [Azure AD 페더레이션 호환성 목록](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility)을 참조하세요.
+  * user@domain.com 등의 UPN(사용자 계정 이름) 대신 DOMAIN\username과 같은 sAMAccountName을 요구하는 로그인
 
 * **비즈니스 연속성**. 페더레이션 시스템에는 일반적으로 부하 분산된 서버 배열(팜이라고도 함)이 필요합니다. 이 팜은 인증 요청에 대한 고가용성을 보장하기 위해 내부 네트워크와 경계 네트워크 토폴로지에 구성됩니다.
 
@@ -161,7 +161,7 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 
     ![Azure AD 하이브리드 ID와 암호 해시 동기화](media/azure-ad/azure-ad-authn-image2.png)
 
-* 통과 인증의 에이전트 요구 사항:
+* 중복성을 위해 두 명의 에이전트를 사용 하 여 통과 인증 에이전트 요구 사항:
 
     ![Azure AD 하이브리드 ID와 통과 인증](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -204,7 +204,7 @@ ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도
 
    * 이전에 암호 해시 동기화를 설정한 조직은 암호 해시 동기화를 사용하도록 인증 방법을 변경하여 몇 시간 만에 다시 온라인 상태가 되었습니다. Office 365를 통한 이메일 액세스를 사용하여 문제를 해결하고 다른 클라우드 기반 워크로드에 액세스할 수 있었습니다.
 
-   * 이전에 암호 해시 동기화를 사용하지 않은 조직은 통신 및 문제 해결을 위해 신뢰할 수 없는 외부 소비자 이메일 시스템에 의존해야 했습니다. 이 경우 다시 가동 및 실행되는 데 몇 주 이상 걸렸습니다.
+   * 조직은 암호 해시 동기화를 사용 하지 않도록 이전에 문제를 해결 하는 통신을 위해 신뢰할 수 없는 외부 소비자 이메일 시스템에 의존 해야 했습니다. 이러한 경우 사용자가 클라우드 기반 앱에 다시 로그인 하려면 수 전에 해당 온-프레미스 id 인프라를 복원 하 주가 걸렸습니다.
 
 3. **ID 보호**. Azure AD Premium P2가 있는 Azure AD Identity Protection은 클라우드에서 사용자를 보호하는 가장 좋은 방법 중 하나입니다. Microsoft는 악의적인 행위자가 판매하고 다크 웹에서 사용할 수 있도록 만드는 사용자 및 암호 목록에 대해 인터넷을 지속적으로 검사합니다. Azure AD는 이 정보를 사용하여 사용자 조직의 사용자 이름 및 암호가 훼손되었는지 확인할 수 있습니다. 따라서 사용하는 인증 방법이 페더레이션 인증이든 또는 통과 인증이든 관계없이 암호 해시 동기화를 사용하도록 설정하는 것이 매우 중요합니다. 유출된 자격 증명은 보고서로 제공되므로 사용자가 유출된 암호로 로그인하려고 할 때 이 정보를 사용하여 해당 사용자를 차단하거나 유출된 암호를 변경하도록 할 수 있습니다.
 

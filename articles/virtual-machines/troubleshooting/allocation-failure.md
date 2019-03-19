@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 10c5dc5614731b247b917b68307f6a2d11663461
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 1298e7d7ed9c3760ff5022b5b97e8444eb1bcad1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007054"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
 
@@ -25,7 +25,7 @@ VM(가상 머신)을 만들거나 중지된(할당이 취소된) VM을 재시작
 
 **오류 코드**: AllocationFailed 또는 ZonalAllocationFailed
 
-**오류 메시지**: “할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. http://aka.ms/allocation-guidance에서 할당 성공 가능성을 높이는 방법을 참조하세요."
+**오류 메시지**: “할당하지 못했습니다. 이 지역에 요청된 VM 크기에 대해 충분한 용량이 없습니다. `https://aka.ms/allocation-guidance`에서 할당 성공 가능성을 높이는 방법을 참조하세요."
 
 이 문서는 일부 일반적인 할당 오류의 이유를 설명하고 가능한 해결 방법을 제안합니다.
 
@@ -86,7 +86,7 @@ Azure 인프라가 확장되면서 최신 세대 가상 머신 유형을 지원�
 |레거시 VM 시리즈/크기|권장되는 신규 VM 시리즈/크기|자세한 정보|
 |----------------------|----------------------------|--------------------|
 |Av1 시리즈|[Av2 시리즈](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Dv1 또는 DSv1 시리즈(D1 - D5)|[Dv3 또는 DSv3 시리즈](../windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 또는 DSv1 시리즈(D1 - D5)|[Dv3 또는 DSv3 시리즈](../windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |Dv1 또는 DSv1 시리즈(D11 - D14)|[Ev3 또는 ESv3 시리즈](../windows/sizes-memory.md#ev3-series)|
 |D15v2 또는 DS15v2|대규모 VM 크기 활용하기 위해 Resource Manager 배포 모델을 사용하는 경우 D16v3/DS16v3 또는 D32v3/DS32v3으로 이동하는 것이 좋습니다. 이러한 항목은 최신 세대 하드웨어에서 실행되도록 설계되었습니다. VM 인스턴스가 단일 고객 전용 하드웨어로 격리되도록 Resource Manager 배포 모델을 사용하는 경우, 최신 세대 하드웨어에서 실행되도록 설계된 신규 격리형 VM 크기인 E64i_v3 또는 E64is_v3으로 이동하는 것이 좋습니다. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 

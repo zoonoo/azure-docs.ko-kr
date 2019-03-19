@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ba8d9fd54b8b29a3e58f170402a64f5899fec002
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004845"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880690"
 ---
 # <a name="develop-video-player-applications"></a>비디오 플레이어 애플리케이션 개발
 ## <a name="overview"></a>개요
@@ -33,7 +33,7 @@ Azure Media Services는 iOS 장치, Android 장치, Windows, Windows Phone, Xbox
 
 Microsoft Azure Media Services에서 컨텐츠를 DASH, 부드러운 스트리밍 및 HLS 스트리밍 형식으로 제공하여 재생할 수 있습니다. Azure Media Player는 이러한 다양한 형식을 고려하여 플랫폼/브라우저 기능에 따라 최상의 링크를 자동으로 재생합니다. Microsoft Azure Media Services에서 PlayReady 암호화 또는 AES 128 비트 봉투 암호화로 자산의 동적 암호화를 사용할 수 있습니다. 적절하게 구성된 경우 Azure Media Player를 사용하여 PlayReady의 및 AES 128 비트 암호화된 콘텐츠를 암호 해독할 수 있습니다. 
 
-자세한 내용은 다음을 참조하세요.
+추가 정보
 
 * [Azure Media Player](https://aka.ms/ampinfo)
 * [Azure Media Player 서비스 설명서](https://aka.ms/ampdocs) 
@@ -44,10 +44,10 @@ Microsoft Azure Media Services에서 컨텐츠를 DASH, 부드러운 스트리�
 ## <a name="other-tools-for-creating-player-applications"></a>플레이어 애플리케이션을 만들기 위한 다른 도구
 또한 다음 SDK 중 하나를 사용할 수도 있습니다.
 
-* [부드러운 스트리밍 클라이언트 SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+* [부드러운 스트리밍 클라이언트 SDK](https://www.iis.net/downloads/microsoft/smooth-streaming) 
 * [부드러운 스트리밍 Windows 스토어 앱](media-services-build-smooth-streaming-apps.md)
-* [Microsoft Media Platform: 플레이어 프레임워크](http://playerframework.codeplex.com/) 
-* [HTML5 플레이어 프레임워크 설명서](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
+* [Microsoft Media Platform: 플레이어 프레임워크](https://playerframework.codeplex.com/) 
+* [HTML5 플레이어 프레임워크 설명서](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [OSMF용 Microsoft 부드러운 스트리밍 플러그인](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스](https://aka.ms/sspk) 
 * [XBOX 비디오 애플리케이션 개발](https://xbox.create.msdn.com/) 
@@ -71,7 +71,7 @@ Azure Media Services는 Windows 미디어 플랫폼: 플레이어 프레임워�
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [DASH.js를 사용하여 HTML5 애플리케이션에 MPEG-DASH 적응 스트리밍 비디오 포함](media-services-embed-mpeg-dash-in-html5.md)
 
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)

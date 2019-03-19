@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013044"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -39,7 +39,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
  Azure EA 구독의 경우 예산을 보는 읽기 권한이 있어야 합니다. 예산을 만들고 관리하려면 기여자 사용 권한이 있어야 합니다. EA 구독 및 리소스 그룹에 대한 개별 예산을 만들 수 있습니다. 그러나 EA 청구 계정에 대한 예산을 만들 수 없습니다.
 
-다음 Azure 사용 권한은 사용자 및 그룹별 예산에 대한 구독에 따라 지원됩니다.
+다음 Azure 사용 권한 또는 범위는 사용자 및 그룹에서 예산에 대 한 구독 당 지원 됩니다. 범위에 대 한 자세한 내용은 참조 하세요. [이해 및 작업 범위를 사용 하 여](understand-work-scopes.md)입니다.
 
 - 소유자 – 구독에 대한 예산을 만들고, 수정하거나 삭제할 수 있습니다.
 - 기여자 및 Cost Management 기여자 – 자신의 예산을 만들거나, 수정하거나, 삭제할 수 있습니다. 다른 사용자가 만든 예산에 대한 예산 금액을 수정할 수 있습니다.
@@ -53,7 +53,9 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure Portal에서 예산 만들기
 
-월별, 분기별 또는 연간 기간에 대한 Azure 구독 예산을 만들 수 있습니다. Azure Portal의 탐색 콘텐츠는 사용자가 구독 또는 리소스 그룹에 대한 예산을 만드는지 여부를 결정합니다. 예를 들어 Azure Portal에서 **구독**으로 이동하고 &gt; 구독 &gt; **예산**을 선택합니다. 이 예제에서 사용자가 만드는 예산은 사용자가 선택한 구독에 대한 것입니다. 리소스 그룹에 대한 예산을 만들려면 **리소스 그룹**으로 이동하고 > 리소스 그룹 > **예산**을 선택합니다.
+월별, 분기별 또는 연간 기간에 대한 Azure 구독 예산을 만들 수 있습니다. Azure portal의 탐색 내용을 만든 예산에 대 한 구독 또는 관리 그룹에 있는지 여부를 결정 합니다.
+
+을 만들거나는 예산 범위를 확인 하려면 Azure portal 선택에서 원하는 범위를 엽니다 **예산을** 메뉴에서. 예를 들어, 이동할 **구독**, 목록에서 구독을 선택 하 고 선택한 **예산을** 메뉴에서. 사용 합니다 **범위** 필 다른 범위에서는 예산에는 관리 그룹으로 전환 합니다. 범위에 대 한 자세한 내용은 참조 하세요. [이해 및 작업 범위를 사용 하 여](understand-work-scopes.md)입니다.
 
 예산을 만들면 예산 대비 현재 지출을 간단하게 보여 줍니다.
 
@@ -85,10 +87,32 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ![다양한 속성을 변경하는 예산 편집 예제](./media/tutorial-acm-create-budgets/edit-budget.png)
 
+## <a name="trigger-an-action-group"></a>트리거 작업 그룹
+
+만들거나 구독 또는 리소스 그룹 범위에는 예산 범위를 편집할 때 작업 그룹을 호출 하도록 구성할 수 있습니다. 작업 그룹 예산 임계값이 충족 되 면 다양 한 다른 작업을 수행할 수 있습니다. 작업 그룹에 대 한 자세한 내용은 참조 하세요. [만들기 및 Azure portal에서 작업 그룹 관리](../azure-monitor/platform/action-groups.md)합니다. 예산 기반 자동화를 사용 하 여 작업 그룹에 대 한 자세한 내용은 참조 하세요. [예산 Azure를 사용 하 여 비용 관리](../billing/billing-cost-management-budget-scenario.md)합니다.
+
+을 만들거나 작업 그룹을 업데이트 하려면 클릭 **작업 그룹 관리** 만들거나는 예산 범위를 편집 하는 동안.
+
+![관리 작업 그룹을 표시 하는 예산 범위를 만드는 예제](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
+다음으로, 클릭 **작업 그룹 추가** 작업 그룹을 만듭니다.
+
+
+![추가 작업 그룹 상자의 이미지](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+
+그룹을 만든 작업 후, 예산 돌아가려면 상자를 닫습니다.
+
+개별 임계값을 충족 되 면 작업 그룹을 사용 하 여 예산을 구성 합니다. 서로 다른 임계값을 5 개까지 지원 됩니다.
+
+![경고 조건이 대 한 작업 그룹 선택을 보여 주는 예제](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+
+다음 예제에서는 50%, 75% 및 100%로 설정 하는 예산 임계값을 보여 줍니다. 각 트리거는 지정 된 작업 그룹 내에서 지정 된 동작으로 구성 됩니다.
+
+![다양 한 작업 그룹 및 동작의 유형을 구성 하는 경고 조건을 보여 주는 예제](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 방법을 학습했습니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 예산 만들기

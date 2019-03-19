@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: a030860bcef41d7276e1356553b984f55e27ae1e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 65fccada665743cf293b4ee4bb8f786a4c01c58a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164166"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093908"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>상태 저장 서비스에 대한 단위 테스트 만들기
 Service Fabric 상태 저장 서비스의 단위 테스트는 기본 애플리케이션 또는 도메인별 단위 테스트를 통해 찾지 못할 수 있는 몇 가지 일반적인 실수를 알아냅니다. 상태 저장 서비스에 대한 단위 테스트를 개발하는 경우 유의해야 할 몇 가지 특별한 고려 사항이 있습니다.
@@ -42,13 +42,13 @@ Service Fabric 상태 저장 서비스의 단위 테스트는 기본 애플리�
 테스트 정렬 부분의 일환으로, 모의 복제본 세트 및 상태 관리자가 만들어집니다. 그런 다음, 해당 복제본 세트는 각 복제본에 대한 테스트된 서비스의 인스턴스를 자체적으로 만듭니다. 또한 `OnChangeRole` 및 `RunAsync`와 같은 수명 주기 이벤트를 자체적으로 실행합니다. 모의 상태 관리자는 상태 관리자에 대해 모든 작업이 수행되었는지 확인하며, 실제 상태 관리자와 마찬가지로 실행 및 유지됩니다.
 
 1. 테스트할 서비스를 인스턴스화하는 서비스 팩터리 대리자를 만드세요. 이 대리자는 Service Fabric 서비스 또는 작업자에 대해 `Program.cs`에서 일반적으로 확인되는 서비스 팩터리 콜백과 비슷하거나 동일해야 합니다. 또한 다음 서명을 따라야 합니다.
-```csharp
-MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
-```
+   ```csharp
+   MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
+   ```
 2. `MockReliableStateManager` 클래스의 인스턴스를 만듭니다. 이 인스턴스는 상태 관리자와의 모든 상호 작용을 모의합니다.
 3. `MockStatefulServiceReplicaSet<TStatefulService>`의 인스턴스를 만듭니다. 여기서 `TStatefulService`는 테스트할 서비스의 유형입니다. 이를 위해 1단계에서 생성된 대리자와 2단계에서 인스턴스화된 상태 관리자가 필요합니다.
 4. 복제본을 복제본 세트에 추가합니다. 복제본의 역할(예: Primary, ActiveSecondary, IdleSecondary) 및 ID를 지정합니다.
-> 복제본 ID를 적어둡니다. 이 ID는 단위 테스트의 동작 및 어설션 부분 중에 사용될 수 있습니다.
+   > 복제본 ID를 적어둡니다. 이 ID는 단위 테스트의 동작 및 어설션 부분 중에 사용될 수 있습니다.
 
 ```csharp
 //service factory to instruct how to create the service instance

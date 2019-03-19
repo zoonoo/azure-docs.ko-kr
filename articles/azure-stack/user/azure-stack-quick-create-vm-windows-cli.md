@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d2e29e183ab898635f550290b6ebd6eddd42c4d2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 15dd878b7ff322ac8243b37649f16fed4e068af4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659204"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091718"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>빠른 시작: Azure Stack에서 Azure CLI를 사용 하 여 Windows Server 가상 머신 만들기
 
@@ -42,8 +42,8 @@ Azure CLI를 사용 하 여 Windows Server 2016 가상 컴퓨터를 만들 수 �
 
 리소스 그룹은 배포 하 고 Azure Stack 리소스를 관리할 수 있는 논리적 컨테이너입니다. Azure Stack 환경에서 실행 합니다 [az 그룹 만들기](/cli/azure/group#az-group-create) 리소스 그룹을 만드는 명령입니다.
 
->[!NOTE]
- 값은 코드 예제에서 모든 변수에 할당 됩니다. 그러나 하려는 경우 새 값을 할당할 수 있습니다.
+> [!NOTE]
+>  값은 코드 예제에서 모든 변수에 할당 됩니다. 그러나 하려는 경우 새 값을 할당할 수 있습니다.
 
 다음 예제에서는 로컬 위치에 myResourceGroup 이라는 리소스 그룹을 만듭니다.
 
@@ -78,7 +78,7 @@ VM을 만든 경우 합니다 **PublicIPAddress** 출력에서 매개 변수는 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>가상 머신에 연결
+## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
 
 다음 명령을 사용 하 여 가상 컴퓨터에 원격 데스크톱 연결을 만듭니다. 가상 컴퓨터의 IP 주소를 사용 하 여 "공용 IP 주소"를 대체 합니다. 메시지가 표시 되 면 사용자 이름 및 가상 컴퓨터에 사용한 암호를 입력 합니다.
 

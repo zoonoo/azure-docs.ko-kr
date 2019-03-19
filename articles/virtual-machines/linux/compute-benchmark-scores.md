@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
-ms.openlocfilehash: 1d7f11b7d9db87ebea5cb31b2918dba3fe8a56b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2a558f2cf91907e85bb8b14c7214a63afd1faca0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262355"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001403"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM에 대한 벤치마크 점수 계산
 다음 CoreMark 벤치마크 점수는 Ubuntu를 실행하는 Azure의 고성능 VM 라인업에 대한 계산 성능을 보여 줍니다. [Windows Vm](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
@@ -369,7 +369,7 @@ ms.locfileid: "51262355"
 | Standard_M128s | Intel(R) Xeon(R) CPU E7-8890 v3 \@ 2.50GHz | 128 | 4 | 2,064.3 | 1,275,445 | 19,510 | 1.53% | 42 |
 
 ## <a name="about-coremark"></a>CoreMark 정보
-Linux 숫자는 Ubuntu에서 [CoreMark](http://www.eembc.org/coremark/faq.php) 를 실행하여 계산됩니다. CoreMark는 가상 CPU의 수에 설정된 스레드 수와 PThread에 설정된 동시성 수로 구성 되었습니다. 대상 반복 횟수는 20초 이상(일반적으로 훨씬 더 김)의 런타임을 제공하기 위해 예상되는 성능에 따라 조정되었습니다. 최종 점수는 완료된 반복 횟수를 테스트를 실행하는 데 걸린 시간(초)으로 나누어 나타냅니다. 각 테스트는 각 VM에서 적어도 7번 실행되었습니다. 위에 표시된 테스트 실행 날짜 실행된 날짜에서 VM이 지원된 Azure 공용 지역의 여러 VM에 대한 테스트 실행 기본 A와 B(버스터블) 시리즈는 성능이 변수이므로 표시되지 않습니다. N 시리즈는 GPU 중심이고 Coremark는 GPU 성능을 측정하지 않으므로 표시되지 않습니다.
+Linux 숫자는 Ubuntu에서 [CoreMark](https://www.eembc.org/coremark/faq.php) 를 실행하여 계산됩니다. CoreMark는 가상 CPU의 수에 설정된 스레드 수와 PThread에 설정된 동시성 수로 구성 되었습니다. 대상 반복 횟수는 20초 이상(일반적으로 훨씬 더 김)의 런타임을 제공하기 위해 예상되는 성능에 따라 조정되었습니다. 최종 점수는 완료된 반복 횟수를 테스트를 실행하는 데 걸린 시간(초)으로 나누어 나타냅니다. 각 테스트는 각 VM에서 적어도 7번 실행되었습니다. 위에 표시된 테스트 실행 날짜 실행된 날짜에서 VM이 지원된 Azure 공용 지역의 여러 VM에 대한 테스트 실행 기본 A와 B(버스터블) 시리즈는 성능이 변수이므로 표시되지 않습니다. N 시리즈는 GPU 중심이고 Coremark는 GPU 성능을 측정하지 않으므로 표시되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 저장 용량, 디스크 세부 정보 및 VM 크기 선택시 추가적인 고려 사항에 관한 자세한 내용은 [가상 머신의 크기](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.

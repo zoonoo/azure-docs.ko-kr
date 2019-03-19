@@ -12,12 +12,12 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 02/04/2019
-ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a1902ae2bf663c432876a0f73e2bb17616023b8a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006920"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Ethereum 블록 체인 네트워크를 사용 하 여 Azure Stack에 배포
 
@@ -39,7 +39,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
 - Linux 2.0에 대 한 사용자 지정 스크립트
 - Windows용 사용자 지정 스크립트 확장
 
-블록 체인 시나리오에 대 한 자세한 내용은 참조 하세요. [Ethereum 작업 증명 컨소시엄 솔루션 템플릿](../../blockchain/templates/ethereum-deployment.md)합니다.
+블록 체인 시나리오에 대 한 자세한 내용은 참조 하세요. [Ethereum 권한 증명 컨소시엄 솔루션 템플릿](../../blockchain/templates/ethereum-poa-deployment.md)합니다.
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
 
@@ -82,10 +82,10 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
     CONSORTIUMMEMBERID | 컨소시엄 네트워크의 각 멤버와 연결 된 ID입니다.   | 이 ID는 네트워크에서 고유 해야 합니다. | 0
     NUMMININGNODES | 마이닝 노드 수입니다. | 2 월 15 일 까지의 합니다. | 2
     MNNODEVMSIZE | 마이닝 노드의 VM 크기입니다. | | Standard_A1
-    MNSTORAGEACCOUNTTYPE | 저장소 성능 마이닝 노드입니다. | | Standard_LRS
+    MNSTORAGEACCOUNTTYPE | 저장소 성능 마이닝 노드입니다. | | Standard-LRS
     NUMTXNODES | 트랜잭션 노드 수입니다. | 1 사이의 5입니다. | 1
     TXNODEVMSIZE | 트랜잭션 노드의 VM 크기입니다. | | Standard_A1
-    TXSTORAGEACCOUNTTYPE | 트랜잭션 노드의 저장소 성능입니다. | | Standard_LRS
+    TXSTORAGEACCOUNTTYPE | 트랜잭션 노드의 저장소 성능입니다. | | Standard-LRS
     BASEURL | 따라 템플릿을 가져오도록 기본 URL입니다. | 배포 템플릿을 사용자 지정 하려는 경우가 아니면 기본값을 사용 합니다. | 
 
 7. **확인**을 선택합니다.
@@ -97,7 +97,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
     ---------------|-------------|----------------|-------------
     구독 | 컨소시엄 네트워크를 배포하는 구독 | | 구독 사용
     리소스 그룹 | 컨소시엄 네트워크를 배포하는 리소스 그룹. | | EthereumResources
-    위치 | 리소스 그룹에 대한 Azure 지역입니다. | | local
+    위치 | 리소스 그룹에 대한 Azure 지역입니다. | | 로컬
 
 8. **만들기**를 선택합니다.
 
@@ -128,10 +128,10 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
     CONSORTIUMMEMBERID | 컨소시엄 네트워크의 각 멤버와 연결 된 ID입니다.   | 이 ID는 네트워크에서 고유 해야 합니다. | 0
     NUMMININGNODES | 마이닝 노드 수입니다. | 2 월 15 일 까지의 합니다. | 2
     MNNODEVMSIZE | 마이닝 노드의 VM 크기입니다. | | Standard_A1
-    MNSTORAGEACCOUNTTYPE | 저장소 성능 마이닝 노드입니다. | | Standard_LRS
+    MNSTORAGEACCOUNTTYPE | 저장소 성능 마이닝 노드입니다. | | Standard-LRS
     NUMTXNODES | 트랜잭션 노드 수입니다. | 1 사이의 5입니다. | 1
     TXNODEVMSIZE | 트랜잭션 노드의 VM 크기입니다. | | Standard_A1
-    TXSTORAGEACCOUNTTYPE | 트랜잭션 노드의 저장소 성능입니다. | | Standard_LRS
+    TXSTORAGEACCOUNTTYPE | 트랜잭션 노드의 저장소 성능입니다. | | Standard-LRS
     CONSORTIUMDATA | 다른 멤버의 배포에서 제공 되는 관련 컨소시엄 구성 데이터를 가리키는 URL입니다. 이 값은 리더의 배포 출력에서 찾을 수 있습니다. | |
     REMOTEMEMBERVNETADDRESSSPACE | 프로덕션에서는 리더의 NVA IP 주소입니다. 이 값은 리더의 배포 출력에서 찾을 수 있습니다. | | 
     REMOTEMEMBERNVAPUBLICIP | 프로덕션에서는 리더의 NVA IP 주소입니다. 이 값은 리더의 배포 출력에서 찾을 수 있습니다. | | 
@@ -145,7 +145,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
     ---------------|-------------|----------------|-------------
     구독 | 컨소시엄 네트워크를 배포하는 구독 | | 구독 사용
     리소스 그룹 | 컨소시엄 네트워크를 배포하는 리소스 그룹. | | MemberResources
-    위치 | 리소스 그룹에 대한 Azure 지역입니다. | | local
+    위치 | 리소스 그룹에 대한 Azure 지역입니다. | | 로컬
 
 8. **만들기**를 선택합니다.
 
@@ -183,7 +183,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
     CONNECTIONSHAREDKEY | 연결을 설정 하는 컨소시엄 네트워크의 멤버 간 미리 설정 된 암호입니다.  | |
     REMOTEMEMBERNVAPUBLICIP | 멤버의 NVA IP 주소입니다. 이 값은 멤버의 배포 출력에서 찾을 수 있습니다. | |
     MEMBERNVAPRIVATEIP | 리더의 개인 NVA IP 주소입니다. 이 값은 리더의 배포 출력에서 찾을 수 있습니다. | |
-    위치 | Azure Stack 환경과의 위치입니다. | | local
+    위치 | Azure Stack 환경과의 위치입니다. | | 로컬
     BASEURL | 템플릿에 대 한 기본 URL입니다. | 배포 템플릿을 사용자 지정 하려는 경우가 아니면 기본값을 사용 합니다. | 
 
 7. **확인**을 선택합니다.
@@ -195,7 +195,7 @@ Ethereum 솔루션 템플릿에 쉽고 빠르게 배포 하 고 한 지식이 �
     ---------------|-------------|----------------|-------------
     구독 | 리더의 구독입니다. | | 구독 사용
     리소스 그룹 | 리더의 리소스 그룹입니다. | | EthereumResources
-    위치 | 리소스 그룹에 대한 Azure 지역입니다. | | local
+    위치 | 리소스 그룹에 대한 Azure 지역입니다. | | 로컬
 
 8. **만들기**를 선택합니다.
 

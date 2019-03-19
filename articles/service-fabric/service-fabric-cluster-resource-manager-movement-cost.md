@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74b61967a796fca22ab86918235f1def27a22f91
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: a4431f1d2e9a63ee7797100cc1092244d9a8b880
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204926"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101519"
 ---
 # <a name="service-movement-cost"></a>서비스 이동 비용
 Service Fabric 클러스터 리소스 관리자에서 클러스터에 적용할 변경 내용을 결정할 때 고려할 요소는 이러한 변경에 소요되는 비용입니다. "비용"이라는 개념은 클러스터를 향상시킬 수 있는 정도와 절충됩니다. 분산, 조각 모음 및 기타 요구 사항을 위해 서비스를 이동할 때 비용이 고려됩니다. 목표는 최소 중단 또는 비용으로 요구 사항을 충족하는 것입니다. 
@@ -76,10 +76,11 @@ this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
 ## <a name="impact-of-move-cost"></a>이동 비용의 영향
-MoveCost에는 0, 낮음, 중간, 높음의 4개 수준이 있습니다. MoveCost는 0을 제외하고는 서로 상대적입니다. 이동 비용 0은 이동 비용이 무료임을 의미하며 솔루션 점수 계산에 포함되지 않습니다. 이동 비용을 높음으로 설정한다고 해서 복제본이 한 곳에 머무른다고 보장할 수는 *없습니다*.
+MoveCost에 4 개의 수준이 있습니다. 0, 낮음, 보통 및 높음입니다. MoveCost는 0을 제외하고는 서로 상대적입니다. 이동 비용 0은 이동 비용이 무료임을 의미하며 솔루션 점수 계산에 포함되지 않습니다. 이동 비용을 높음으로 설정한다고 해서 복제본이 한 곳에 머무른다고 보장할 수는 *없습니다*.
 
 <center>
-![이동할 복제본 선택 시의 요인으로 사용되는 이동 비용][Image1]
+
+![이동에 대 한 복제본 선택 시의 요인으로 이동 비용][Image1]
 </center>
 
 MoveCost를 사용하면 전체적으로 중단을 최소화며 가장 쉽게 적용할 수 있는 동시에 동등한 균형을 제공하는 솔루션을 찾을 수 있습니다. 서비스의 비용 개념은 다양한 요인을 기준으로 할 수 있습니다. 이동 비용 계산에서 가장 일반적으로 사용되는 요인은 다음과 같습니다.

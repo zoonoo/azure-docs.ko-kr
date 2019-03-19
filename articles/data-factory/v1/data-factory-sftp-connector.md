@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c29cf0604e651902474d85dbd6edd3208e6b5944
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 55a829f2ed32152d14ef637c8079f7af8c487bea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811300"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097647"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SFTP 서버에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,26 +50,26 @@ ms.locfileid: "55811300"
 다음 테이블은 FTP 연결 서비스에 특정한 JSON 요소에 대한 설명을 제공합니다.
 
 | 자산 | 설명 | 필수 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | 형식 | type 속성을 `Sftp`로 설정해야 합니다. |예 |
-| host | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
+| 호스트 | SFTP 서버의 이름 또는 IP 주소입니다. |예. |
 | 포트 |SFTP 서버가 수신하는 포트입니다. 기본값은 다음과 같습니다. 21 |아니요 |
-| authenticationType |인증 유형을 지정합니다. 허용되는 값은 다음과 같습니다. **Basic**, **SshPublicKey**. <br><br> 더 많은 속성 및 각 속성의 JSON 샘플은 [기본 인증 사용](#using-basic-authentication) 및 [SSH 공개 키 인증 사용](#using-ssh-public-key-authentication) 섹션을 참조하세요. |예 |
-| skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다. |  아니요. 기본값: false |
+| authenticationType |인증 유형을 지정합니다. 허용되는 값은 다음과 같습니다. **Basic**, **SshPublicKey**. <br><br> 더 많은 속성 및 각 속성의 JSON 샘플은 [기본 인증 사용](#using-basic-authentication) 및 [SSH 공개 키 인증 사용](#using-ssh-public-key-authentication) 섹션을 참조하세요. |예. |
+| skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다. | 번호 기본값: false |
 | hostKeyFingerprint | 호스트 키의 지문을 지정합니다. | `skipHostKeyValidation`이 false로 지정되면 필수입니다.  |
 | gatewayName |온-프레미스 SFTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에는 필수입니다. |
-| encryptedCredential | SFTP 서버 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 기본 인증(사용자 이름 + 암호) 또는 SshPublicKey 인증(사용자 이름 + 개인 키 경로 또는 콘텐츠)를 지정할 때 자정으로 생성됩니다. |  아니요. 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
+| encryptedCredential | SFTP 서버 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 기본 인증(사용자 이름 + 암호) 또는 SshPublicKey 인증(사용자 이름 + 개인 키 경로 또는 콘텐츠)를 지정할 때 자정으로 생성됩니다. | 번호 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
 
 ### <a name="using-basic-authentication"></a>기본 인증 사용
 
 기본 인증을 사용하려면 `authenticationType`을 `Basic`으로 설정하고, 마지막 섹션에서 소개한 SFTP 커넥터 일반 속성 외에 다음 속성을 지정합니다.
 
 | 자산 | 설명 | 필수 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | 사용자 이름 | SFTP 서버에 액세스하는 사용자. |예 |
-| 암호 | 사용자(사용자 이름) 암호. | 예 |
+| 암호 | 사용자(사용자 이름) 암호. | 예. |
 
-#### <a name="example-basic-authentication"></a>예제: 기본 인증
+#### <a name="example-basic-authentication"></a>예: 기본 인증
 ```json
 {
     "name": "SftpLinkedService",
@@ -89,7 +89,7 @@ ms.locfileid: "55811300"
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>예제: 암호화된 자격 증명으로 기본 인증
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>예: 암호화된 자격 증명으로 기본 인증
 
 ```JSON
 {
@@ -115,7 +115,7 @@ ms.locfileid: "55811300"
 SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`으로 설정하고, 마지막 섹션에서 소개한 SFTP 커넥터 일반 속성 외에 다음 속성을 지정합니다.
 
 | 자산 | 설명 | 필수 |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | 사용자 이름 |SFTP 서버에 액세스하는 사용자 |예 |
 | privateKeyPath | 게이트웨이에서 액세스할 수 있는 개인 키 파일의 절대 경로를 지정합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. <br><br> 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
 | privateKeyContent | 개인 키 콘텐츠의 직렬화된 문자열입니다. 복사 마법사는 개인 키 파일을 읽고 개인 키 콘텐츠를 자동으로 추출할 수 있습니다. 다른 도구/SDK를 사용하는 경우 privateKeyPath 속성을 대신 사용합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. |
@@ -124,7 +124,7 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 > [!NOTE]
 > SFTP 커넥터는 RSA/DSA OpenSSH 키를 지원합니다. 키 파일 콘텐츠는 "-----BEGIN [RSA/DSA] PRIVATE KEY-----"로 시작되어야 합니다. 개인 키 파일이 ppk 형식 파일인 경우 Putty 도구를 사용하여 .ppk를 OpenSSH 형식으로 변환합니다.
 
-#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>예제: 개인 키 filePath를 사용한 SshPublicKey 인증
+#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>예: 개인 키 filePath를 사용한 SshPublicKey 인증
 
 ```json
 {
@@ -145,7 +145,7 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>예제: 개인 키 콘텐츠를 사용한 SshPublicKey 인증
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>예: 개인 키 콘텐츠를 사용한 SshPublicKey 인증
 
 ```json
 {
@@ -177,8 +177,8 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 | fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다.<br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: `"fileFilter": "*.log"`<br/>예 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. 이 속성은 HDFS에는 지원되지 않습니다. |아니요 |
 | partitionedBy |동적 folderPath, 시계열 데이터에 대한 filename을 지정하는 데 partitionedBy를 사용할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수가 있는 folderPath입니다. |아니요 |
 | format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
-| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
-| useBinaryTransfer |이전 전송 모드를 사용할지 여부를 지정합니다. 이진 모드인 경우 true이고 ASCII인 경우 false입니다. 기본값: True 이 속성은 연결된 서비스 유형이 다음과 같은 경우에만 사용할 수 있습니다. FtpServer. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 유형은 다음과 같습니다. **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
+| useBinaryTransfer |이전 전송 모드를 사용할지 여부를 지정합니다. 이진 모드인 경우 true이고 ASCII인 경우 false입니다. 기본값: True입니다. 이 속성은 연결된 서비스 유형이 다음과 같은 경우에만 사용할 수 있습니다. FtpServer. |아니요 |
 
 > [!NOTE]
 > filename 및 fileFilter는 동시에 사용할 수 없습니다.

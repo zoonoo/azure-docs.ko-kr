@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3dda16450f5454b4fae6d18235b05b7bb29a8b91
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116038"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -75,14 +75,14 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight
 ## <a name="syntax-details"></a>구문 세부 정보
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 이름 |작업의 이름 |예 |
-| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
-| 형식 |HDinsightHive |예 |
+| name |작업의 이름 |예 |
+| 설명 |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
+| 형식 |HDinsightHive |예. |
 | inputs |Hive 활동에서 사용된 입력 |아니요 |
-| outputs |Hive 활동에서 생성된 출력 |예 |
+| 출력 |Hive 활동에서 생성된 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
 | script |Hive 스크립트 인라인 지정 |아니요 |
-| script path |Hive 스크립트를 Azure blob 저장소에 저장하고 파일에 대한 경로를 제공합니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
+| script path |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
 | defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니요 |
 
 ## <a name="example"></a>예
@@ -128,7 +128,7 @@ FROM HiveSampleIn Group by ProfileID
 데이터 팩터리 파이프라인에서 이 Hive 스크립트를 실행하려면 다음을 수행해야 합니다
 
 1. 연결된 서비스를 만들어 [자체적인 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 등록하거나 [주문형 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 구성합니다. 이 연결된 서비스를 "HDInsightLinkedService"라고 하겠습니다.
-2. [연결된 서비스](data-factory-azure-blob-connector.md)를 만들어 데이터를 호스팅하는 Azure Blob 저장소에 연결을 구성합니다. 이 연결된 서비스를 "StorageLinkedService"라고 합니다.
+2. [연결된 서비스](data-factory-azure-blob-connector.md)를 만들어 데이터를 호스팅하는 Azure Blob Storage에 연결을 구성합니다. 이 연결된 서비스를 "StorageLinkedService"라고 합니다.
 3. 입력 및 출력 데이터를 가르키는 [데이터 세트](data-factory-create-datasets.md)를 만듭니다. 입력 데이터 세트를 "HiveSampleIn"라고 하고 출력 데이터 세트를 "HiveSampleOut"라고 합니다.
 4. \#2단계에서 구성된 Azure Blob Storage에 Hive 쿼리를 파일로 복사합니다. 데이터를 호스팅하는 스토리지가 이 쿼리 파일을 호스트하는 스토리지와 다른 경우 서비스에 연결된 별도 Azure Storage를 만들고 작업에서 이를 참조합니다. **scriptPath**를 사용하여 hive 쿼리 파일에 대한 경로를 지정하고 **scriptLinkedService**를 사용하여 스크립트 파일을 포함하는 Azure 저장소를 지정합니다. 
    
@@ -242,7 +242,7 @@ FROM HiveSampleIn Group by ProfileID
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-## <a name="see-also"></a>참고 항목
+  ## <a name="see-also"></a>관련 항목
 * [Pig 작업](data-factory-pig-activity.md)
 * [MapReduce 작업](data-factory-map-reduce.md)
 * [Hadoop 스트리밍 작업](data-factory-hadoop-streaming-activity.md)

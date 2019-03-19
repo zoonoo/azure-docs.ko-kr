@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: bb2ebeedb1b34288a3d402ffdf4df80aa3be83cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 1102a8c80b0040c7044d64c674d956d339238623
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154078"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086652"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Red Hat Enterprise Linux 7 가상 컴퓨터를 관리되는 도메인에 가입
 이 문서에서는 Red Hat Enterprise Linux(RHEL) 7 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입하는 방법을 보여 줍니다.
@@ -86,12 +86,11 @@ sudo vi /etc/hosts
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE]
-     > **문제 해결:** *영역 검색*을 통해 관리되는 도메인을 찾을 수 없는 경우 다음을 수행합니다.
-     * 해당 도메인을 가상 머신에서 연결 가능한지 확인합니다(ping 시도).
-     * 또한 관리되는 도메인을 사용할 수 있는 동일한 가상 네트워크에 가상 머신을 확실히 배포했는지 확인합니다.
-     * 가상 네트워크가 관리되는 도메인의 도메인 컨트롤러를 가리키도록 DNS 서버 설정을 업데이트했는지 확인합니다.
-     >
+   > [!NOTE]
+   > **문제 해결:** *영역 검색*을 통해 관리되는 도메인을 찾을 수 없는 경우 다음을 수행합니다.
+   >   * 해당 도메인을 가상 머신에서 연결 가능한지 확인합니다(ping 시도).
+   >   * 또한 관리되는 도메인을 사용할 수 있는 동일한 가상 네트워크에 가상 머신을 확실히 배포했는지 확인합니다.
+   >   * 가상 네트워크가 관리되는 도메인의 도메인 컨트롤러를 가리키도록 DNS 서버 설정을 업데이트했는지 확인합니다.
 
 2. Kerberos를 초기화합니다. SSH 터미널에서 다음 명령을 입력합니다.
 
@@ -139,7 +138,7 @@ sudo vi /etc/hosts
 ## <a name="troubleshooting-domain-join"></a>도메인 가입 문제 해결
 [도메인 가입 문제 해결](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) 문서를 참조하세요.
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="related-content"></a>관련 내용
 * [Azure AD 도메인 서비스 - 시작 가이드](active-directory-ds-getting-started.md)
 * [Windows Server 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Linux를 실행하는 가상 머신에 로그온하는 방법](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

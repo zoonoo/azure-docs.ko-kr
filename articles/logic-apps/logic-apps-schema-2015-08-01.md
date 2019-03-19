@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: ec6f98ca0f0260a0d7bed16538f557931cd2e33e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 92f522c72f69218e55b1ee4cfff74511a30288b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080013"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904544"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2015년 8월 1일 미리 보기
 
@@ -352,7 +352,7 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
    },
    "outputs": {
       "headers": { },
-      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
    },
    "status": "Succeeded"
 } ]
@@ -369,7 +369,7 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
       },
       "outputs": {
          "headers": { },
-         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
       },
       "status": "Succeeded"
 } ]
@@ -384,7 +384,7 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
       "repeat": "@outputs('pingBing').repeatItems",
       "inputs": {
          "method": "POST",
-         "uri": "http://www.example.com",
+         "uri": "https://www.example.com",
          "body": "@repeatItem().outputs.body"
       }
    }
@@ -400,7 +400,7 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
       "foreach": "@outputs('pingBing')",
       "inputs": {
          "method": "POST",
-         "uri": "http://www.example.com",
+         "uri": "https://www.example.com",
          "body": "@item().outputs.body"
       }
    }
@@ -419,7 +419,7 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 
 ## <a name="call-child-workflows"></a>하위 워크플로 호출
 
-이전에는 하위 워크플로를 호출하려면 해당 워크플로로 이동하여 액세스 토큰을 가져온 후 해당 하위 워크플로를 호출하려는 논리 앱 정의에 토큰을 붙여넣어야 했습니다. 이 스키마를 사용할 경우 Logic Apps 엔진은 런타임에 하위 워크플로에 대한 SAS를 자동으로 생성합니다. 따라서 정의에 어떠한 비밀도 붙여넣을 필요가 없습니다. 다음은 예제입니다.
+이전에는 하위 워크플로를 호출하려면 해당 워크플로로 이동하여 액세스 토큰을 가져온 후 해당 하위 워크플로를 호출하려는 논리 앱 정의에 토큰을 붙여넣어야 했습니다. 이 스키마를 사용할 경우 Logic Apps 엔진은 런타임에 하위 워크플로에 대한 SAS를 자동으로 생성합니다. 따라서 정의에 어떠한 비밀도 붙여넣을 필요가 없습니다. 다음 예를 참조하세요.
 
 ``` json
 "myNestedWorkflow": {
@@ -461,4 +461,4 @@ Azure App Service에서 Web API를 호스트하는 경우 Web API는 디자이�
 
 ## <a name="enterprise-integration-apis"></a>엔터프라이즈 통합 API
 
-이 스키마는 AS2와 같은 엔터프라이즈 통합 API에 대한 관리 버전을 아직 지원하지 않습니다. 하지만 HTTP 작업을 통해 기존에 배포된 BizTalk API를 사용할 수 있습니다. 자세한 내용은 [통합 로드맵](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)의 "이미 배포된 API 앱 사용"을 참조하세요. 
+이 스키마는 AS2와 같은 엔터프라이즈 통합 API에 대한 관리 버전을 아직 지원하지 않습니다. 하지만 HTTP 작업을 통해 기존에 배포된 BizTalk API를 사용할 수 있습니다. 자세한 내용은 [통합 로드맵](https://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)의 "이미 배포된 API 앱 사용"을 참조하세요. 

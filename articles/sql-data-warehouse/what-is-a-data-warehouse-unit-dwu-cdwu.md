@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447823"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099106"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWU(데이터 웨어하우스 단위) 및 cDWU(계산 데이터 웨어하우스 단위)
 가격 및 성능을 최적화하기 위한 이상적인 데이터 웨어하우스 단위(DWU, cDWU) 수 선택에 대한 권장 사항 및 단위 수를 변경하는 방법 
@@ -68,7 +68,7 @@ WITH
 
 DWU 및 cDWU 모두 계산을 확장 또는 축소할 수 있고 데이터 웨어하우스를 사용할 필요가 없는 경우 계산을 일시 중지할 수 있습니다. 이러한 작업은 모두 주문형 작업입니다. Gen2는 계산 노드에서 로컬 디스크 기반 캐시를 사용하여 성능을 향상시킵니다. 시스템의 크기를 조정하거나 시스템을 일시 중지할 경우 캐시가 무효화되므로 최적의 성능을 얻으려면 캐시 준비 시간이 필요합니다.  
 
-데이터 웨어하우스 단위를 늘리면 계산 리소스가 선형적으로 증가됩니다. Gen2는 최상의 쿼리 성능과 최고의 확장성을 제공하지만 진입 가격이 높습니다. 지속적인 성능이 요구되는 비즈니스용으로 설계되었습니다. 이러한 시스템은 캐시를 최대한 이용합니다. 
+데이터 웨어하우스 단위를 늘리면 계산 리소스가 선형적으로 증가됩니다. Gen2 최상의 쿼리 성능과 최대 규모의 확장성을 제공합니다. 이러한 시스템은 캐시를 최대한 이용합니다.
 
 ### <a name="capacity-limits"></a>용량 제한
 각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../sql-database/sql-database-what-is-a-dtu.md) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](sql-data-warehouse-service-capacity-limits.md#workload-management)을 참조하세요.
@@ -124,10 +124,13 @@ DWU 또는 cDWU를 변경하려면
 3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
 
 ### <a name="powershell"></a>PowerShell
-DWU 또는 cDWU를 변경하려면 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet을 사용합니다. 다음 예제에서는 MyServer에서 호스트되는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Dwu 또는 Cdwu를 변경 하려면 사용 합니다 [집합 AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. 다음 예제에서는 MyServer에서 호스트되는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
 
 ```Powershell
-Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
 자세한 내용은 [SQL Data Warehouse용 PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)을 참조하세요.
@@ -183,7 +186,7 @@ FROM      sys.databases
 ;
 ```
 
-3. 다음 쿼리를 제출하여 작업 상태를 확인합니다.
+1. 다음 쿼리를 제출하여 작업 상태를 확인합니다.
 
 ```sql
 SELECT    *

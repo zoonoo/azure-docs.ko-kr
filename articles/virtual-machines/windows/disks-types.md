@@ -1,6 +1,6 @@
 ---
-title: Azure IaaS VM에 대한 디스크 유형 선택 - 관리 디스크
-description: 울트라 SSD, 프리미엄 SSD, 표준 SSD, 표준 HDD를 포함하여 가상 머신에 사용 가능한 Azure 디스크 유형을 알아봅니다.
+title: Azure IaaS Windows Vm-관리 디스크에 대 한 디스크 유형 선택
+description: Ultra Ssd, premium Ssd, 표준 Ssd 및 Hdd 표준를 포함 하 여 Windows virtual machines에 대 한 사용 가능한 Azure 디스크 유형에 대해 알아봅니다.
 services: virtual-machines-windows,storage
 author: roygara
 ms.author: rogarana
@@ -9,22 +9,19 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: f6fefcc0af3c901124e60591488c10a648a9478c
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 91318489e715fccd7c99b968c60509e4642afd5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427656"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975698"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
-스냅숏에 대한 자세한 내용은 [관리 디스크 개요](managed-disks-overview.md)에서 스냅숏 섹션을 참조하세요.
+Ultra Ssd를 사용 하 여 시작 하려는 경우 주제에 문서를 참조 하세요. [Azure ultra Ssd를 사용 하도록 설정 하면](disks-enable-ultra-ssd.md)합니다.
+
+[!INCLUDE [virtual-machines-managed-disks-types-ga](../../../includes/virtual-machines-managed-disks-types-ga.md)]
+
+스냅숏에 대한 자세한 내용은 [관리형 디스크 개요](managed-disks-overview.md)의 스냅숏 섹션을 참조하세요.
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-billing-and-fees.md)]
-
-## <a name="next-steps"></a>다음 단계
-
-Ultra SSD를 사용해 보려면 해당 주제와 관련된 방법 가이드를 참조하세요.
-
-> [!div class="nextstepaction"]
-> [Ultra SSD를 사용하도록 설정하고 사용하는 방법](disks-enable-ultra-ssd.md)

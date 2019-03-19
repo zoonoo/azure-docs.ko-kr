@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316ebb7774a0420087bf9ed5c099a91d78a96fb0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119745"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 앱 관리자 역할 위임
 
@@ -37,8 +37,8 @@ Azure Portal에서 애플리케이션 액세스 관리 기능을 부여하려면
 1. 테넌트의 전역 관리자 역할에 적합한 계정으로 [Azure AD 테넌트](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
 2. 충분한 권한이 있는 경우 [역할 및 관리자 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)를 엽니다.
 3. 다음 역할 중 하나를 열어 해당 멤버 할당을 확인합니다.
-  * **애플리케이션 관리자**
-  * **클라우드 애플리케이션 관리자**
+   * **애플리케이션 관리자**
+   * **클라우드 애플리케이션 관리자**
 4. 역할의 **멤버** 페이지에서 **멤버 추가**를 선택합니다.
 5. 역할에 추가할 멤버를 하나 이상 선택합니다. <!--Members can be users or groups.-->
 
@@ -50,8 +50,8 @@ Azure Portal에서 애플리케이션 액세스 관리 기능을 부여하려면
 
 1. 테넌트의 전역 관리자 역할에 적합한 계정으로 [Azure AD 테넌트](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
 2. 충분한 권한을 얻은 경우 다음 중 하나 또는 둘 다를 설정합니다.
-  * [테넌트의 사용자 설정 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)에서 **사용자가 애플리케이션을 등록할 수 있음**을 아니요로 설정합니다.
-  * [엔터프라이즈 애플리케이션의 사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)에서 **사용자는 애플리케이션이 사용자 대신 회사 데이터에 액세스하도록 동의할 수 있음**을 아니요로 설정합니다.
+   * [테넌트의 사용자 설정 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)에서 **사용자가 애플리케이션을 등록할 수 있음**을 아니요로 설정합니다.
+   * [엔터프라이즈 애플리케이션의 사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)에서 **사용자는 애플리케이션이 사용자 대신 회사 데이터에 액세스하도록 동의할 수 있음**을 아니요로 설정합니다.
 3. 그런 다음, 이 권한이 필요한 사용자를 필요에 따라 애플리케이션 개발자 역할의 멤버로 할당합니다.
 
 애플리케이션을 등록하는 사용자가 자동으로 애플리케이션의 첫 번째 소유자로 추가됩니다.

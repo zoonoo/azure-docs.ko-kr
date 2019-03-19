@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257976"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004103"
 ---
 # <a name="dependency-visualization"></a>종속성 시각화
 
@@ -24,9 +24,9 @@ ms.locfileid: "53257976"
 
 Azure Migrate의 종속성 시각화를 사용하면 마이그레이션 평가용으로 신뢰도가 높은 그룹을 만들 수 있습니다. 종속성 시각화를 통해 컴퓨터의 네트워크 종속성을 확인할 수 있으며, Azure로 함께 마이그레이션해야 하는 관련 컴퓨터를 파악할 수 있습니다. 이 기능은 애플리케이션의 일부분이어서 Azure로 함께 마이그레이션해야 하는 컴퓨터가 확실치 않은 시나리오에서 유용합니다.
 
-## <a name="how-does-it-work"></a>작동 원리
+## <a name="how-does-it-work"></a>어떻게 작동합니까?
 
-Azure Migrate는 종속성 시각화에 [Log Analytics](../log-analytics/log-analytics-overview.md)의 [서비스 맵](../operations-management-suite/operations-management-suite-service-map.md) 솔루션을 사용합니다.
+Azure Migrate 사용 합니다 [서비스 맵](../operations-management-suite/operations-management-suite-service-map.md) 에서 솔루션 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 종속성 시각화에 대 한 합니다.
 - 종속성 시각화를 활용하려면 신규 또는 기존 Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결해야 합니다.
 - 작업 영역은 마이그레이션 프로젝트를 만든 것과 같은 구독에서만 만들거나 연결할 수 있습니다.
 - 프로젝트에 Log Analytics 작업 영역을 연결하려면 프로젝트 **개요** 페이지의 **기본 정보** 섹션으로 이동한 다음 **구성 필요**를 클릭합니다.
@@ -34,8 +34,8 @@ Azure Migrate는 종속성 시각화에 [Log Analytics](../log-analytics/log-ana
     ![Log Analytics 작업 영역 연결](./media/concepts-dependency-visualization/associate-workspace.png)
 
 - 작업 영역을 연결하는 동안 새 작업 영역을 만들거나 기존 작업 영역을 연결하는 옵션이 제공됩니다.
-      - 새 작업 영역을 만들 때는 작업 영역의 이름을 지정해야 합니다. 그러면 마이그레이션 프로젝트와 같은 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에 해당하는 지역에서 작업 영역이 작성됩니다.
-      - 기존 작업 영역을 연결하는 경우 마이그레이션 프로젝트와 동일한 구독에서 사용 가능한 모든 작업 영역 중에서 선택할 수 있습니다. [서비스 맵이 지원](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions)되는 지역에서 만든 작업 영역만 나열됩니다. 작업 영역을 연결하려면 작업 영역에 대한 ‘읽기 권한자’ 액세스 권한이 있어야 합니다.
+  - 새 작업 영역을 만들 때는 작업 영역의 이름을 지정해야 합니다. 그러면 마이그레이션 프로젝트와 같은 [Azure 지리적 위치](https://azure.microsoft.com/global-infrastructure/geographies/)에 해당하는 지역에서 작업 영역이 작성됩니다.
+  - 기존 작업 영역을 연결하는 경우에는 마이그레이션 프로젝트와 동일한 구독에서 사용 가능한 모든 작업 영역을 선택할 수 있습니다. [서비스 맵이 지원](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions)되는 지역에서 만든 작업 영역만 나열됩니다. 작업 영역을 연결하려면 작업 영역에 대한 ‘읽기 권한자’ 액세스 권한이 있어야 합니다.
 
   > [!NOTE]
   > 작업 영역을 프로젝트에 연결한 후에는 나중에 변경할 수 없습니다.

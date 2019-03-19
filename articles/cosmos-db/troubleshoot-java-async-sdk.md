@@ -9,12 +9,12 @@ ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 86e5a0a0cf4c820efdcc65505d11e2fb0c198f0b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039846"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880078"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Azure Cosmos DB SQL API 계정에서 Java 비동기 SDK를 사용하는 경우 발생하는 문제 해결
 이 문서에서는 Azure Cosmos DB SQL API 계정으로 [Java 비동기 SDK](sql-api-sdk-async-java.md)를 사용할 때 일반적인 문제, 해결, 진단 단계 및 도구를 설명합니다.
@@ -150,6 +150,40 @@ createObservable
 ### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Azure Cosmos DB 에뮬레이터 연결 오류
 
 Azure Cosmos DB 에뮬레이터 HTTPS 인증서는 자체 서명입니다. SDK를 에뮬레이터와 함께 사용하려면 에뮬레이터 인증서를 Java TrustStore로 가져와야 합니다. 자세한 내용은 [Azure Cosmos DB 에뮬레이터 인증서 내보내기](local-emulator-export-ssl-certificates.md)를 참조하세요.
+
+### <a name="dependency-conflict-issues"></a>종속성 충돌 문제
+
+```console
+Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
+```
+
+위의 예외 RxJava lib (예: 1.2.2)의 이전 버전에 종속성이 있는 것을 제안 합니다. SDK RxJava 1.3.8 RxJava의 이전 버전에서 사용할 수 없는 Api에 의존 합니다. 
+
+RxJava 1.2.2에는 이러한 issuses 다른 종속성을 식별 하는 것에 대 한 해결 방법은 RxJava-1.2.2 종속 전이 제외 하 고 CosmosDB SDK 허용 최신 버전을 표시 합니다.
+
+RxJava 1.2.2 옆에 있는 프로젝트 pom.xml 파일에 다음 명령을 실행 하는 라이브러리는 식별:
+```bash
+mvn dependency:tree
+```
+자세한 내용은 참조는 [maven 종속성 트리 가이드](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)합니다.
+
+1.2.2 RxJava 식별 한 후은 pom 파일에 제외 RxJava 전이적 종속성 lib는 전이적 종속성은 다른 프로젝트의 종속성에 대 한 종속성을 수정할 수 있습니다.
+
+```xml
+<dependency>
+  <groupId>${groupid-of-lib-which-brings-in-rxjava1.2.2}</groupId>
+  <artifactId>${artifactId-of-lib-which-brings-in-rxjava1.2.2}</artifactId>
+  <version>${version-of-lib-which-brings-in-rxjava1.2.2}</version>
+  <exclusions>
+    <exclusion>
+      <groupId>io.reactivex</groupId>
+      <artifactId>rxjava</artifactId>
+    </exclusion>
+  </exclusions>
+</dependency>
+```
+
+자세한 내용은 참조는 [전이적 종속성 가이드 제외](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)합니다.
 
 
 ## <a name="enable-client-sice-logging"></a>클라이언트 SDK 로깅 사용

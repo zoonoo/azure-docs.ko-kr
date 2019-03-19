@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: d5c18521f39b1b57b5f94a54bb3131e05abba745
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556648"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109766"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>탐색기 미리 보기에서 데이터 시각화
 
@@ -141,7 +141,7 @@ Time Series Insights 미리 보기를 사용하는 경우 먼저 시간 범위�
 
 1. **날짜 범위 종료 및 시작 웹 컨트롤**: 이 웹 컨트롤을 사용하여 원하는 날짜 및 시간 범위를 쉽게 클릭하고 선택할 수 있습니다. 컨트롤을 사용하여 표준 시간대 간에 전환할 수도 있습니다. 변경한 후 현재 작업 영역에 적용하려면 **저장**을 선택합니다.
 
-  ![explorer-thirteen][13]
+   ![explorer-thirteen][13]
 
 ## <a name="time-series-insights-preview-navigation-panel"></a>Time Series Insights 미리 보기 탐색 패널
 
@@ -191,7 +191,7 @@ Time Series Insights 미리 보기 용어 편집기 패널은 다음 매개 변�
 
 **Where**: where 절을 사용하면 다음 표에 나열된 피연산자 세트를 사용하여 이벤트를 빠르게 필터링할 수 있습니다. 피연산자를 선택하여 검색을 수행하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트됩니다. 지원되는 연산자는 다음과 같습니다.
 
-| 작업(Operation) | 지원되는 형식   | 메모 |
+| 작업 | 지원되는 형식   | 메모 |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fab8ec5a6ca94d2f30ec47da390885339adf8b43
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 937346bf6927efe11e43b64b7c9a2111f00c0e0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192220"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890834"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 파일 동기화 프록시 및 방화벽 설정
 Azure 파일 동기화는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -43,7 +43,7 @@ Azure 파일 동기화 에이전트는 Azure에 대해 [ExpressRoute](../../expr
 
 Azure 파일 동기화는 Azure로 연결될 수 있는 모든 방식에 작동하며, 대역폭, 대기 시간과 같은 다양한 네트워크 특성에 맞게 자동으로 조정되고 미세 조정을 위한 관리 제어 기능을 제공합니다. 현재는 일부 기능을 사용할 수 없습니다. 특정 동작을 구성하려는 경우 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670)를 통해 알려주세요.
 
-## <a name="proxy"></a>Proxy
+## <a name="proxy"></a>프록시
 Azure 파일 동기화는 앱별 및 머신 차원의 프록시 설정을 지원합니다.
 
 **앱별 프록시 설정**을 통해 Azure 파일 동기화 트래픽에 대한 프록시를 적절하게 구성할 수 있습니다. 앱별 프록시 설정은 에이전트 버전 4.0.1.0 이상에서 지원되며 에이전트 설치 중 또는 Set-StorageSyncProxyConfiguration PowerShell cmdlet을 사용하여 구성될 수 있습니다.
@@ -59,28 +59,28 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 1. .NET 애플리케이션에 대한 프록시 설정을 구성합니다. 
 
-  - 다음 두 파일을 편집합니다.  
-    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
-    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+   - 다음 두 파일을 편집합니다.  
+     C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+     C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-  - <system.net> 섹션을 machine.config 파일(<system.serviceModel> 섹션 아래)에 추가합니다.  127.0.01:8888을 프록시 서버의 IP 주소와 포트로 변경합니다. 
-  ```
+   - <system.net> 섹션을 machine.config 파일(<system.serviceModel> 섹션 아래)에 추가합니다.  127.0.01:8888을 프록시 서버의 IP 주소와 포트로 변경합니다. 
+     ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
           <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
         </defaultProxy>
       </system.net>
-  ```
+     ```
 
 2. WinHTTP 프록시 설정을 지정합니다. 
 
-  - 관리자 권한 명령 프롬프트 또는 PowerShell에서 다음 명령을 실행하여 기존 프록시 설정을 확인합니다.   
+   - 관리자 권한 명령 프롬프트 또는 PowerShell에서 다음 명령을 실행하여 기존 프록시 설정을 확인합니다.   
 
-    netsh winhttp show proxy
+     netsh winhttp show proxy
 
-  - 관리자 권한 명령 프롬프트 또는 PowerShell에서 다음 명령을 실행하여 프록시 설정을 지정합니다(127.0.01:8888을 프록시 서버의 IP 주소와 포트로 변경).  
+   - 관리자 권한 명령 프롬프트 또는 PowerShell에서 다음 명령을 실행하여 프록시 설정을 지정합니다(127.0.01:8888을 프록시 서버의 IP 주소와 포트로 변경).  
 
-    netsh winhttp set proxy 127.0.0.1:8888
+     netsh winhttp set proxy 127.0.0.1:8888
 
 3. 관리자 권한 명령 프롬프트 또는 PowerShell에서 다음 명령을 실행하여 Storage 동기화 에이전트 서비스를 다시 시작합니다. 
 
@@ -93,14 +93,14 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 다음 표에서는 통신에 필요한 도메인에 대해 설명합니다.
 
-| 서비스 | 도메인 | 사용 현황 |
-|---------|----------------|------------------------------|
-| **Azure 리소스 관리자** | https://management.azure.com | 초기 서버 등록 호출을 포함하는 모든 사용자 호출(예: PowerShell)은 이 URL로 이동되거나 이 URL을 통해 이동됩니다. |
-| **Azure Active Directory** | https://login.windows.net | Azure Resource Manager 호출은 인증된 사용자가 수행해야 합니다. 성공하기 위해 이 URL이 사용자 인증에 사용됩니다. |
-| **Azure Active Directory** | https://graph.windows.net/ | Azure 파일 동기화 배포의 일부로, 구독의 Azure Active Directory에 서비스 주체가 만들어집니다. 이 URL이 해당 작업에 사용됩니다. 이 보안 주체는 Azure 파일 동기화 서비스에 대한 최소한의 권한 집합을 위임하는 데 사용됩니다. Azure 파일 동기화의 초기 설정을 수행하는 사용자는 구독 소유자 권한이 있는 인증된 사용자여야 합니다. |
-| **Azure Storage** | &ast;.core.windows.net | 서버는 파일을 다운로드할 때 저장소 계정의 Azure 파일 공유와 직접 소통하면서 데이터 이동을 보다 효율적으로 수행합니다. 서버에는 대상으로 지정된 파일 공유 액세스만 허용하는 SAS 키가 있습니다. |
-| **Azure 파일 동기화** | &ast;.one.microsoft.com | 초기 서버 등록 후 서버는 해당 지역에서 Azure 파일 동기화 서비스 인스턴스에 대한 지역별 URL을 수신합니다. 서버는 이 URL을 사용하여 동기화를 처리하는 인스턴스와 직접 효율적으로 통신할 수 있습니다. |
-| **Microsoft PKI** | https://www.microsoft.com/pki/mscorp<br>http://ocsp.msocsp.com | Azure 파일 동기화 에이전트가 설치되면 PKI URL을 사용하여 Azure 파일 동기화 서비스 및 Azure 파일 공유와 통신하는 데 필요한 중간 인증서를 다운로드합니다. OCSP URL은 인증서의 상태를 확인하는 데 사용됩니다. |
+| 서비스 | 공용 클라우드 끝점 | Azure Government 엔드포인트 | 사용 현황 |
+|---------|----------------|---------------|------------------------------|
+| **Azure 리소스 관리자** | https://management.azure.com | https://management.usgovcloudapi.net | 초기 서버 등록 호출을 포함하는 모든 사용자 호출(예: PowerShell)은 이 URL로 이동되거나 이 URL을 통해 이동됩니다. |
+| **Azure Active Directory** | https://login.windows.net | https://login.microsoftonline.us | Azure Resource Manager 호출은 인증된 사용자가 수행해야 합니다. 성공하기 위해 이 URL이 사용자 인증에 사용됩니다. |
+| **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Azure 파일 동기화 배포의 일부로, 구독의 Azure Active Directory에 서비스 주체가 만들어집니다. 이 URL이 해당 작업에 사용됩니다. 이 보안 주체는 Azure 파일 동기화 서비스에 대한 최소한의 권한 집합을 위임하는 데 사용됩니다. Azure 파일 동기화의 초기 설정을 수행하는 사용자는 구독 소유자 권한이 있는 인증된 사용자여야 합니다. |
+| **Azure Storage** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | 서버는 파일을 다운로드할 때 저장소 계정의 Azure 파일 공유와 직접 소통하면서 데이터 이동을 보다 효율적으로 수행합니다. 서버에는 대상으로 지정된 파일 공유 액세스만 허용하는 SAS 키가 있습니다. |
+| **Azure 파일 동기화** | &ast;.one.microsoft.com | &ast;.afs.azure.us | 초기 서버 등록 후 서버는 해당 지역에서 Azure 파일 동기화 서비스 인스턴스에 대한 지역별 URL을 수신합니다. 서버는 이 URL을 사용하여 동기화를 처리하는 인스턴스와 직접 효율적으로 통신할 수 있습니다. |
+| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | Azure 파일 동기화 에이전트가 설치되면 PKI URL을 사용하여 Azure 파일 동기화 서비스 및 Azure 파일 공유와 통신하는 데 필요한 중간 인증서를 다운로드합니다. OCSP URL은 인증서의 상태를 확인하는 데 사용됩니다. |
 
 > [!Important]
 > &ast;.one.microsoft.com에 대한 트래픽을 허용할 때 서버에서 동기화 서비스 이외의 위치로 트래픽이 전달될 수 있습니다. 하위 도메인에서 더 많은 Microsoft 서비스를 사용할 수 있습니다.
@@ -109,22 +109,24 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 
 BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 저장소) 저장소 계정에서 Azure 파일 공유를 지정했을 수도 있습니다. 이 경우 Azure 파일 공유는 지속적인 지역 정전 시 쌍을 이루는 지역에 장애 조치(failover)됩니다. Azure 파일 동기화는 동일한 지역 쌍을 저장소로 사용합니다. 따라서 GRS 저장소 계정을 사용하는 경우 서버가 Azure 파일 동기화의 쌍을 이루는 지역과 통신할 수 있도록 추가 URL을 설정해야 합니다. 아래 표에서는 이것을 "쌍을 이루는 지역"이라고 부릅니다. 마찬가지로 Traffic Manager 프로필 URL도 사용하도록 설정해야 합니다. 이렇게 하면 장애 조치 시 네트워크 트래픽을 쌍을 이루는 지역으로 원활하게 다시 라우팅할 수 있으며, 이것을 아래 표에서는 "검색 URL"이라고 부릅니다.
 
-| 지역 | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL |
-|--------|---------------------------------------|--------|---------------------------------------|
-| 오스트레일리아 동부 | https://kailani-aue.one.microsoft.com | 오스트레일리아 남동부 | https://kailani-aue.one.microsoft.com |
-| 오스트레일리아 남동부 | https://kailani-aus.one.microsoft.com | 오스트레일리아 동부 | https://tm-kailani-aus.one.microsoft.com |
-| 캐나다 중부 | https://kailani-cac.one.microsoft.com | 캐나다 동부 | https://tm-kailani-cac.one.microsoft.com |
-| 캐나다 동부 | https://kailani-cae.one.microsoft.com | 캐나다 중부 | https://tm-kailani.cae.one.microsoft.com |
-| 미국 중부 | https://kailani-cus.one.microsoft.com | 미국 동부 2 | https://tm-kailani-cus.one.microsoft.com |
-| 동아시아 | https://kailani11.one.microsoft.com | 동남아시아 | https://tm-kailani11.one.microsoft.com |
-| 미국 동부 | https://kailani1.one.microsoft.com | 미국 서부 | https://tm-kailani1.one.microsoft.com |
-| 미국 동부 2 | https://kailani-ess.one.microsoft.com | 미국 중부 | https://tm-kailani-ess.one.microsoft.com |
-| 북유럽 | https://kailani7.one.microsoft.com | 서유럽 | https://tm-kailani7.one.microsoft.com |
-| 동남아시아 | https://kailani10.one.microsoft.com | 동아시아 | https://tm-kailani10.one.microsoft.com |
-| 영국 남부 | https://kailani-uks.one.microsoft.com | 영국 서부 | https://tm-kailani-uks.one.microsoft.com |
-| 영국 서부 | https://kailani-ukw.one.microsoft.com | 영국 남부 | https://tm-kailani-ukw.one.microsoft.com |
-| 서유럽 | https://kailani6.one.microsoft.com | 북유럽 | https://tm-kailani6.one.microsoft.com |
-| 미국 서부 | https://kailani.one.microsoft.com | 미국 동부 | https://tm-kailani.one.microsoft.com |
+| 클라우드  | 영역 | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL |
+|--------|--------|----------------------|---------------|---------------|
+| 공용 |오스트레일리아 동부 | https://kailani-aue.one.microsoft.com | 오스트레일리아 남동부 | https://kailani-aue.one.microsoft.com |
+| 공용 |오스트레일리아 남동부 | https://kailani-aus.one.microsoft.com | 오스트레일리아 동부 | https://tm-kailani-aus.one.microsoft.com |
+| 공용 | 캐나다 중부 | https://kailani-cac.one.microsoft.com | 캐나다 동부 | https://tm-kailani-cac.one.microsoft.com |
+| 공용 | 캐나다 동부 | https://kailani-cae.one.microsoft.com | 캐나다 중부 | https://tm-kailani.cae.one.microsoft.com |
+| 공용 | 미국 중부 | https://kailani-cus.one.microsoft.com | 미국 동부 2 | https://tm-kailani-cus.one.microsoft.com |
+| 공용 | 아시아 동부 | https://kailani11.one.microsoft.com | 동남아시아 | https://tm-kailani11.one.microsoft.com |
+| 공용 | 미국 동부 | https://kailani1.one.microsoft.com | 미국 서부 | https://tm-kailani1.one.microsoft.com |
+| 공용 | 미국 동부 2 | https://kailani-ess.one.microsoft.com | 미국 중부 | https://tm-kailani-ess.one.microsoft.com |
+| 공용 | 유럽 북부 | https://kailani7.one.microsoft.com | 유럽 서부 | https://tm-kailani7.one.microsoft.com |
+| 공용 | 동남아시아 | https://kailani10.one.microsoft.com | 아시아 동부 | https://tm-kailani10.one.microsoft.com |
+| 공용 | 영국 남부 | https://kailani-uks.one.microsoft.com | 영국 서부 | https://tm-kailani-uks.one.microsoft.com |
+| 공용 | 영국 서부 | https://kailani-ukw.one.microsoft.com | 영국 남부 | https://tm-kailani-ukw.one.microsoft.com |
+| 공용 | 유럽 서부 | https://kailani6.one.microsoft.com | 유럽 북부 | https://tm-kailani6.one.microsoft.com |
+| 공용 | 미국 서부 | https://kailani.one.microsoft.com | 미국 동부 | https://tm-kailani.one.microsoft.com |
+| 정부 | US Gov 애리조나 | https://usgovarizona01.afs.azure.us | US Gov 텍사스 | https://tm-usgovarizona01.afs.azure.us |
+| 정부 | US Gov 텍사스 | https://usgovtexas01.afs.azure.us | US Gov 애리조나 | https://tm-usgovtexas01.afs.azure.us |
 
 - LRS(로컬 중복 저장소) 또는 ZRS(영역 중복 저장소) 저장소 계정을 사용하는 경우 "기본 엔드포인트 URL" 아래에 나열된 URL을 사용하도록 설정하기만 하면 됩니다.
 

@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: c28441b6fe25b3480a55b79682d5067b19e3023a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58051620"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
 Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다. 처음 시작 시 Cloud Shell은 세션 간에 파일을 유지하기 위해 새 또는 기존 파일 공유를 연결하도록 요구합니다.
@@ -48,7 +48,8 @@ Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 �
 연결된 Azure Storage 계정은 사용자가 마운트하는 Cloud Shell 컴퓨터와 동일한 지역에 있어야 합니다. 현재 영역을 찾으려면 Bash에서 `env`를 실행하여 `ACC_LOCATION` 변수를 찾을 수 있습니다. 파일 공유는 `$Home` 디렉터리를 유지하기 위해 만든 5GB 이미지를 수신합니다.
 
 Cloud Shell 컴퓨터는 아래 하위 지역에 위치합니다.
-|영역|지역|
+
+|영역|영역|
 |---|---|
 |아메리카|미국 동부, 미국 중남부, 미국 서부|
 |유럽|북유럽, 서유럽|

@@ -1,25 +1,18 @@
 ---
 title: Azure Application Gateway의 WebSocket 지원 | Microsoft Docs
 description: 이 페이지에서는 Application Gateway WebSocket 지원에 대한 개요를 제공합니다.
-documentationcenter: na
-services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 8968dac1-e9bc-4fa1-8415-96decacab83f
-ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: cc6e2480ea117a288ae94c9cd66be6a354d8230f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.service: application-gateway
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/18/2019
+ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993333"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168122"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Application Gateway의 WebSocket 지원 개요
 
@@ -29,7 +22,15 @@ Application Gateway는 모든 게이트웨이 크기에 WebSocket에 대한 네�
 
 80 또는 443 포트에서 표준 HTTP 수신기를 계속 사용하여 WebSocket 트래픽을 받을 수 있습니다. WebSocket 트래픽은 Application Gateway 규칙에 지정된 대로 적절한 백 엔드 풀을 사용하여 WebSocket 활성화된 백 엔드 서버로 지정됩니다. 백 엔드 서버는 [상태 프로브 개요](application-gateway-probe-overview.md) 섹션에서 설명한 대로 애플리케이션 게이트웨이 프로브에 응답해야 합니다. 애플리케이션 게이트웨이 상태 프로브는 HTTP/HTTPS 전용입니다. 각 백 엔드 서버는 WebSocket 트래픽을 서버로 라우팅하기 위해 애플리케이션 게이트웨이에 대한 HTTP 프로브에 응답해야 합니다.
 
-## <a name="listener-configuration-element"></a>수신기 구성 요소
+채팅, 대시보드 및 게임 앱 등 신속 하 고 실시간 통신을 활용 하는 앱에서 사용 됩니다.
+
+## <a name="how-does-websocket-work"></a>WebSocket는 어떻게 작동 하나요
+
+WebSocket 연결을 설정 하려면 특정 HTTP 기반 핸드셰이크를 클라이언트와 서버 간에 교환 됩니다. 성공 하면 응용 프로그램 계층 프로토콜은 "업그레이드" HTTP에서 websocket을 이전에 설정된 된 TCP 연결을 사용 하 여. HTTP는 완전히에 관여;이 발생 하면 데이터를 보낼 수 있습니다 또는 WebSocket 연결이 닫힐 때까지 두 끝점에서 WebSocket 프로토콜을 사용 하 여 수신 합니다. 
+
+![addcert](./media/application-gateway-websocket/websocket.png)
+
+### <a name="listener-configuration-element"></a>수신기 구성 요소
 
 기존 HTTP 수신기를 사용하여 WebSocket을 지원할 수 있습니다. 다음은 샘플 템플릿 파일에 있는 httpListeners 요소의 코드 조각입니다. WebSocket을 지원하고 WebSocket 트래픽을 보호하기 위해 HTTP 및 HTTPS 수신기가 모두 필요합니다. 마찬가지로 [포털](application-gateway-create-gateway-portal.md) 또는 [PowerShell](application-gateway-create-gateway-arm.md)을 사용하여 WebSocket 트래픽을 지원하기 위해 포트 80/443에 대한 수신기를 포함한 Application Gateway를 만들 수 있습니다.
 

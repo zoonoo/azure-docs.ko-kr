@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002118"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088675"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 
 **Azure 활동 로그**는 Azure에서 발생한 구독 수준 이벤트에 대한 정보를 제공하는 구독 로그입니다. 여기에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. 관리 범주에서 구독의 제어 평면 이벤트를 보고하므로, 이전에는 활동 로그의 명칭이 "감사 로그" 또는 "작업 로그"였습니다. 활동 로그를 통해 구독의 리소스에 대한 모든 쓰기 작업(PUT, POST, DELETE)에서 '무엇을, 누가, 언제'를 판단할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기(GET) 작업 또는 Classic/"RDFE" 모델을 사용하는 리소스에 대한 작업이 포함되지 않습니다.
 
-![활동 로그 및 다른 종류의 로그 ](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![활동 로그 및 다른 종류의 로그](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 그림 1: 활동 로그 및 다른 종류의 로그
 
@@ -37,7 +37,7 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 
 
 ## <a name="categories-in-the-activity-log"></a>활동 로그의 범주
-활동 로그에는 여러 데이터 범주가 포함됩니다. 이러한 범주의 스키마에 대한 전체 정보는 [이 문서를 참조하세요](../../azure-monitor/platform/activity-log-schema.md). 내용은 다음과 같습니다.
+활동 로그에는 여러 데이터 범주가 포함됩니다. 이러한 범주의 스키마에 대한 전체 정보는 [이 문서를 참조하세요](../../azure-monitor/platform/activity-log-schema.md). 이러한 개체는 다음과 같습니다.
 * **관리** - 이 범주에는 Resource Manager를 통해 수행한 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드가 포함되어 있습니다. 이 범주에 표시되는 이벤트의 유형의 예로는 "가상 머신 만들기", "네트워크 보안 그룹 삭제" 등이 있습니다. 사용자나 애플리케이션이 Resource Manager를 사용하여 취하는 모든 동작은 특정 리소스 종류에 대한 작업으로 모델링됩니다. 작업 유형이 쓰기, 삭제 또는 동작이면 해당 작업의 시작 및 성공이나 실패 레코드가 모두 관리 범주에 기록됩니다. 관리 범주에는 구독의 역할 기반 액세스 제어 변경 내용도 포함됩니다.
 * **서비스 상태** - 이 범주에는 Azure에서 발생한 모든 서비스 상태 관련 인시던트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "미국 동부의 SQL Azure가 가동 중지 상태입니다." 등이 있습니다. 서비스 상태 이벤트는 작업 필요, 복구 지원, 인시던트, 유지 관리, 정보 또는 보안의 5가지 중 하나이며 구독에 이벤트의 영향을 받는 리소스가 있는 경우에만 표시됩니다.
 * **리소스 상태** - 이 범주에는 Azure 리소스에 발생한 모든 리소스 상태 이벤트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예는 “가상 머신 상태가 사용 불가능으로 변경됨”입니다. 리소스 상태 이벤트는 상태 중 하나를 나타낼 수 있으며 값은 사용 가능, 사용 불가능, 저하됨, 알 수 없음 중 하나입니다. 또한 리소스 상태 이벤트는 플랫폼 시작 또는 사용자 시작으로 분류될 수 있습니다.
@@ -118,40 +118,42 @@ Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 
 
     ![포털에서 내보내기 단추](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
 3. 표시되는 블레이드에서 다음을 선택할 수 있습니다.  
-  * 이벤트를 내보내려는 지역
-  * 이벤트를 저장하려는 Storage 계정
-  * 저장소에서 이러한 이벤트를 유지하려는 기간(일). 0일로 설정하면 로그를 계속 유지합니다.
-  * 이러한 이벤트를 스트리밍하기 위해 Event Hub를 만들 Service Bus 네임스페이스입니다.
+   * 이벤트를 내보내려는 지역
+   * 이벤트를 저장하려는 Storage 계정
+   * 저장소에서 이러한 이벤트를 유지하려는 기간(일). 0일로 설정하면 로그를 계속 유지합니다.
+   * 이러한 이벤트를 스트리밍하기 위해 Event Hub를 만들 Service Bus 네임스페이스입니다.
 
      ![활동 로그 내보내기 블레이드](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
 4. **저장**을 클릭하여 이러한 설정을 저장합니다. 해당 설정이 구독에 즉시 적용됩니다.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Azure PowerShell Cmdlet을 사용하여 로그 프로필 구성
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 #### <a name="get-existing-log-profile"></a>기존 로그 프로필 가져오기
 
 ```
-Get-AzureRmLogProfile
+Get-AzLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>로그 프로필 추가
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
+Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
-| Name |예 |로그 프로필의 이름입니다. |
+| 이름 |예. |로그 프로필의 이름입니다. |
 | StorageAccountId |아니요 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
 | serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
 | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
-| RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
-| Category |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
+| RetentionInDays |예. |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
+| 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 #### <a name="remove-a-log-profile"></a>로그 프로필 제거
 ```
-Remove-AzureRmLogProfile -name my_log_profile
+Remove-AzLogProfile -name my_log_profile
 ```
 
 ### <a name="configure-log-profiles-using-the-azure-cli"></a>Azure CLI를 사용하여 로그 프로필 구성

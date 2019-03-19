@@ -8,22 +8,16 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: fa32aafa4f042351db7693ee684deafe9ed13fb0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.openlocfilehash: 79125e1244170a507e4e209c17b339b2b13a0542
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748326"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087621"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 클러스터의 지역 재해 복구
 
 이 문서에서는 Azure Databricks 클러스터에 유용한 재해 복구 아키텍처 및 이 디자인을 구현하는 단계를 설명합니다.
-
-## <a name="azure-databricks-overview"></a>Azure Databricks 개요
-
-Azure Databricks는 빠르고 쉬운 공동 작업 Apache Spark 기반 분석 서비스입니다. 빅 데이터 파이프라인의 경우 데이터(원시 또는 구조적 데이터)는 Azure Data Factory를 통해 일괄 처리로 수집되거나 Kafka, 이벤트 허브 또는 IoT Hub를 사용하여 거의 실시간으로 스트리밍됩니다. 이 데이터는 Azure Blob Storage 또는 Azure Data Lake Storage에서 장기 저장을 위한 데이터 레이크에 배치됩니다. 분석 워크플로의 일부로, Azure Databricks를 사용하여 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml), [Azure SQL Data Warehouse](../sql-data-warehouse/index.md) 등의 여러 데이터 원본에서 데이터를 읽고 Spark를 사용하여 혁신적인 인사이트로 바꿀 수 있습니다.
-
-![Databricks 파이프라인](media/howto-regional-disaster-recovery/databricks-pipeline.png)
 
 ## <a name="azure-databricks-architecture"></a>Azure Databricks 아키텍처
 
@@ -37,7 +31,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>지역 재해 복구 토폴로지를 만드는 방법
 
-이전 아키텍처 설명에서 보았듯이, Azure Databricks와 함께 Azure Storage, Azure Database, 기타 데이터 원본을 포함한 여러 구성 요소가 빅 데이터 파이프라인에 사용됩니다. Azure Databricks는 빅 데이터 파이프라인을 위한 *계산*입니다. 본질적으로 *임시적*입니다. 다시 말해서, Azure Storage에서 데이터를 계속 사용할 수 있더라도 계산이 필요 없을 때 불필요한 비용이 발생하지 않도록 *계산*(Azure Databricks 클러스터)이 종료될 수 있습니다. 작업의 대기 시간이 길어지지 않도록 *계산*(Azure Databricks) 및 저장소 소스가 같은 지역에 있어야 합니다.  
+이전 아키텍처 설명에 표시 된 대로 Azure Databricks를 사용 하 여 빅 데이터 파이프라인에 사용 되는 구성 요소는 여러 가지가 있습니다.  Azure Storage, Azure 데이터베이스 및 기타 데이터 원본입니다. Azure Databricks는 빅 데이터 파이프라인을 위한 *계산*입니다. 본질적으로 *임시적*입니다. 다시 말해서, Azure Storage에서 데이터를 계속 사용할 수 있더라도 계산이 필요 없을 때 불필요한 비용이 발생하지 않도록 *계산*(Azure Databricks 클러스터)이 종료될 수 있습니다. 작업의 대기 시간이 길어지지 않도록 *계산*(Azure Databricks) 및 저장소 소스가 같은 지역에 있어야 합니다.  
 
 고유한 지역 재해 복구 토폴로지를 만들려면 다음 요구 사항을 따릅니다.
 
@@ -251,9 +245,9 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
    현재는 라이브러리를 한 작업 영역에서 다른 작업 영역으로 직접 마이그레이션할 수 없습니다. 대신, 해당 라이브러리를 새 작업 영역에 수동으로 설치해야 합니다. [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) 조합을 사용하여 작업 영역 및 [라이브러리 CLI](https://github.com/databricks/databricks-cli#libraries-cli)에 사용자 지정 라이브러리를 업로드하는 과정을 자동화할 수 있습니다.
 
-8. **Azure Blob 저장소 및 Azure Data Lake Store 탑재 마이그레이션**
+8. **Azure Blob Storage 및 Azure Data Lake Store 탑재 마이그레이션**
 
-   노트북 기반 솔루션을 사용하여 모든 [Azure Blob 저장소](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Store(Gen 1)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) 탑재 지점을 수동으로 다시 탑재합니다. 저장소 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
+   노트북 기반 솔루션을 사용하여 모든 [Azure Blob Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Store(Gen 1)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html) 탑재 지점을 수동으로 다시 탑재합니다. 저장소 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
 
 9. **클러스터 init 스크립트 마이그레이션**
 
@@ -269,9 +263,9 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
 10. **액세스 제어를 수동으로 다시 구성 및 다시 적용**
 
-   프리미엄 계층(SKU)을 사용하도록 기존 주 작업 영역을 구성한 경우 [액세스 제어 기능](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control)을 사용할 가능성이 높습니다.
+    프리미엄 계층(SKU)을 사용하도록 기존 주 작업 영역을 구성한 경우 [액세스 제어 기능](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control)을 사용할 가능성이 높습니다.
 
-   액세스 제어 기능을 사용하는 경우 리소스(노트북, 클러스터, 작업, 테이블)에 대한 액세스 제어를 수동으로 다시 적용합니다.
+    액세스 제어 기능을 사용하는 경우 리소스(노트북, 클러스터, 작업, 테이블)에 대한 액세스 제어를 수동으로 다시 적용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Azure Databricks 설명서](https://docs.azuredatabricks.net/user-guide/index.html)를 참조하세요.

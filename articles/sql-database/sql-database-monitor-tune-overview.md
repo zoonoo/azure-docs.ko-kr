@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1f2dcb43878359d20d737cef6ceb492eb79b7f4c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ac87ce2198296b82ef5655d7d75443a0bd49df3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875154"
 ---
 # <a name="monitoring-and-performance-tuning"></a>모니터링 및 성능 튜닝
 
@@ -41,10 +41,10 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Azure 포털을 사용하여 데이터베이스 모니터링
 
-[Azure Portal](https://portal.azure.com/)에서 데이터베이스를 선택하고 **모니터링** 차트를 클릭하여 개별 데이터베이스의 사용률을 모니터링할 수 있습니다. 그러면 **메트릭** 창이 나타나며 **차트 편집** 단추를 클릭하면 이 창을 변경할 수 있습니다. 다음 메트릭을 추가합니다.
+에 [Azure portal](https://portal.azure.com/)를 클릭 하 여 데이터베이스를 선택 하는 개별 데이터베이스의 사용률을 모니터링할 수 있습니다는 **모니터링** 차트. 그러면 **메트릭** 창이 나타나며 **차트 편집** 단추를 클릭하면 이 창을 변경할 수 있습니다. 다음 메트릭을 추가합니다.
 
 - CPU 비율
-- DTU 비율
+- DTU 백분율
 - 데이터 IO 비율
 - 데이터베이스 크기 비율
 
@@ -80,7 +80,7 @@ Azure에서 SQL 데이터베이스의 성능 모니터링은 데이터베이스�
 - 다음 [동적 관리 뷰](sql-database-monitoring-with-dmvs.md)를 사용합니다.
 
   - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use)는 Azure SQL Database 데이터베이스에 대한 CPU, I/O 및 메모리 사용량을 반환합니다. 데이터베이스에 작업이 없는 경우에도 한 행은 15초 간격으로 존재합니다. 기록 데이터는 1시간 동안 유지됩니다.
-  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use)는 Azure SQL Database에 대한 CPU 사용량 및 저장소 데이터를 반환합니다. 데이터는 5분 미만 간격으로 수집되고 집계됩니다.
+  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use)는 Azure SQL Database에 대한 CPU 사용량 및 저장소 데이터를 반환합니다. 데이터는 5분 간격 이내로 수집 및 집계됩니다.
 
 > [!IMPORTANT]
 > 이러한 DMV를 사용하여 CPU 사용률 문제를 해결하는 T-SQL 쿼리 집합은 [CPU 성능 문제 식별](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)을 참조하세요.
@@ -102,10 +102,10 @@ PSP(매개 변수가 중요한 계획) 문제는 쿼리 최적화 프로그램�
 
 이러한 유형의 문제를 해결하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- 이 [smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/)(매개 변수 진단) 블로그 게시물
-- 이 [parameter sniffing problem and workarounds](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/)(매개 변수 검색 문제 및 해결 방법) 블로그 게시물
+- 이 [smell a parameter](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/)(매개 변수 진단) 블로그 게시물
+- 이 [parameter sniffing problem and workarounds](https://blogs.msdn.microsoft.com/turgays/20../../parameter-sniffing-problem-and-possible-workarounds/)(매개 변수 검색 문제 및 해결 방법) 블로그 게시물
 - 이렇게 [elephant and mouse parameter sniffing](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/)(코끼리 및 쥐 매개 변수 검색) 블로그 게시물
-- 이 [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)(동적 SQL 및 매개 변수가 있는 쿼리의 계획 품질) 블로그 게시물
+- 이 [dynamic sql versus plan quality for parameterized queries](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)(동적 SQL 및 매개 변수가 있는 쿼리의 계획 품질) 블로그 게시물
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>부적절한 매개 변수화로 인한 컴파일 활동 문제 해결
 
@@ -175,7 +175,7 @@ where t1.c1=@p1 and t2.c2='961C3970-0E54-4E8E-82B6-5545BE897F8F'
 
 CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인되면 대기 관련 성능 문제가 발생한 것입니다. 즉, CPU가 다른 리소스를 기다리느라 CPU 리소스가 효율적으로 사용되지 못하고 있습니다. 이 경우 그 다음으로 할 일은 CPU 리소스가 무엇을 기다리는지 확인하는 것입니다. 다음은 상위 대기 유형 범주를 표시하는 가장 일반적인 방법입니다.
 
-- [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)는 시간에 따른 쿼리당 대기 통계를 제공합니다. 쿼리 저장소에서 대기 유형은 대기 범주로 결합됩니다. 대기 범주와 대기 유형의 매핑은 [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table)에서 사용할 수 있습니다.
+- [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)는 시간에 따른 쿼리당 대기 통계를 제공합니다. 쿼리 저장소에서 대기 유형은 대기 범주로 결합됩니다. 대기 범주와 대기 유형의 매핑은 [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table)에서 사용할 수 있습니다.
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)는 작업 중에 실행된 스레드로 인해 발생한 모든 대기에 대한 정보를 반환합니다. 이 집계 보기를 사용하여 Azure SQL Database와 특정 쿼리 및 일괄 처리의 성능 문제를 진단할 수 있습니다.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql)는 일부 리소스에서 대기 중인 작업의 대기 큐에 대한 정보를 반환합니다.
 
@@ -189,7 +189,7 @@ CPU 사용량이 높은 실행 관련 성능 문제가 아닌 것으로 확인�
 이전 차트에 표시된 것처럼, 가장 일반적인 대기는 다음과 같습니다.
 
 - 잠금(차단)
-- I/O
+- 입력/출력
 - `tempdb` 관련 콘텐츠
 - 메모리 부여 대기
 

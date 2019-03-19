@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747597"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011136"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>Backup Exec에서 백업 대상으로 StorSimple 구성
 
@@ -94,6 +94,7 @@ StorSimple에 대한 자세한 내용은 [StorSimple 8000 시리즈: 하이브�
 |------------------------|---------------|-----------------|
 | 로컬 저장소 용량 | &lt; 10TiB\*  | &lt; 20TiB\*  |
 | 클라우드 저장소 용량 | &gt; 200TiB\* | &gt; 500TiB\* |
+
 \*저장소 크기는 중복 제거 또는 압축을 사용한다고 가정하지 않습니다.
 
 **기본 및 보조 백업의 StorSimple 용량**
@@ -206,16 +207,16 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 ### <a name="operating-system-best-practices"></a>운영 체제 모범 사례
 
--   NTFS 파일 시스템에 대한 Windows Server 암호화 및 중복 제거를 사용하지 않도록 설정합니다.
--   StorSimple 볼륨에 Windows Server 조각 모음을 사용하지 않도록 설정합니다.
--   StorSimple 볼륨에 Windows Server 인덱싱을 사용하지 않도록 설정합니다.
--   StorSimple 볼륨에서가 아니라 원본 호스트에서 바이러스 백신 검사를 실행합니다.
--   [작업 관리자]에서 기본 [Windows Server 유지 관리](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx)를 해제합니다. 다음 방법 중 하나로 이 작업을 수행합니다.
-   - [Windows 작업 Scheduler]에서 [유지 관리 구성 도구]를 해제합니다.
-   - Windows Sysinternals에서 [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx)을 다운로드합니다. PsExec을 다운로드한 후 관리자 권한으로 Azure PowerShell을 실행하고 다음을 입력합니다.
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- NTFS 파일 시스템에 대한 Windows Server 암호화 및 중복 제거를 사용하지 않도록 설정합니다.
+- StorSimple 볼륨에 Windows Server 조각 모음을 사용하지 않도록 설정합니다.
+- StorSimple 볼륨에 Windows Server 인덱싱을 사용하지 않도록 설정합니다.
+- StorSimple 볼륨에서가 아니라 원본 호스트에서 바이러스 백신 검사를 실행합니다.
+- [작업 관리자]에서 기본 [Windows Server 유지 관리](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx)를 해제합니다. 다음 방법 중 하나로 이 작업을 수행합니다.
+  - [Windows 작업 Scheduler]에서 [유지 관리 구성 도구]를 해제합니다.
+  - Windows Sysinternals에서 [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx)을 다운로드합니다. PsExec을 다운로드한 후 관리자 권한으로 Azure PowerShell을 실행하고 다음을 입력합니다.
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>StorSimple 모범 사례
 
@@ -259,6 +260,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 | 매년 전체 | 1  | 10 | 10 |
 | GFS 요구 사항 |   | 38 |   |
 | 추가 할당량  | 4  |   | 42개의 총 GFS 요구 사항  |
+
 \* GFS 승수는 백업 정책 요구 사항을 충족하기 위해 보호하고 유지해야 하는 복사본의 수입니다.
 
 ## <a name="set-up-backup-exec-storage"></a>Backup Exec 저장소 설정
@@ -308,11 +310,11 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
 다음은 GFS 회전 일정(4주, 매월 및 매년)의 예입니다.
 
-| 빈도/백업 유형 | 전체 | 증분(1-5일)  |   
+| 빈도/백업 유형 | 전체 검사 | 증분(1-5일)  |   
 |---|---|---|
 | 매주(1-4주) | 토요일 | 월요일-금요일 |
 | 매월  | 토요일  |   |
-| 매년 | 토요일  |   |   |
+| 매년 | 토요일  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Backup Exec 백업 작업에 StorSimple 볼륨 할당
@@ -373,19 +375,20 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 | 매월 전체 |StorSimple 디스크(장기) | 1 | 12 | 12 |
 | 매년 전체 |StorSimple 디스크(장기) | 1 | 1 | 1 |
 |GFS 볼륨 크기 요구 사항 |  |  |  | 18*|
+
 \* 총 용량에는 17TiB의 StorSimple 디스크 및 1TiB 로컬 RAID 볼륨이 포함됩니다.
 
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>GFS 예제 일정: GFS 회전 매주, 매월 및 매년 일정
 
-| 주 | 전체 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
+| 주 | 전체 검사 | 증분 1일차 | 증분 2일차 | 증분 3일차 | 증분 4일차 | 증분 5일차 |
 |---|---|---|---|---|---|---|
-| 1주차 | 로컬 RAID 볼륨  | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 |
-| 2주차 | StorSimple 2-4주 |   |   |   |   |   |
+| 1 주 | 로컬 RAID 볼륨  | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 | 로컬 RAID 볼륨 |
+| 2 주 | StorSimple 2-4주 |   |   |   |   |   |
 | 3주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 4주차 | StorSimple 2-4주 |   |   |   |   |   |
 | 매월 | StorSimple 매월 |   |   |   |   |   |
-| 매년 | StorSimple 매년  |   |   |   |   |   |   |
+| 매년 | StorSimple 매년  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>Backup Exec 보관/중복 제거 작업에 StorSimple 볼륨 할당
@@ -445,15 +448,15 @@ StorSimple 클라우드 스냅숏은 StorSimple 디바이스에 있는 데이터
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>클라우드 스냅숏을 시작하거나 삭제하려면
 
-1.  [Azure PowerShell 설치](/powershell/azure/overview)
+1. [Azure PowerShell 설치](/powershell/azure/overview)
 2. [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell 스크립트를 다운로드 및 설치합니다.
 3. 스크립트를 실행하는 서버에서 관리자 권한으로 PowerShell을 실행합니다. `-WhatIf $true`를 포함하는 스크립트를 실행하여 스크립트가 어떻게 변경되는지 확인합니다. 유효성 검사가 완료되면 `-WhatIf $false`를 전달합니다. 아래 명령을 실행합니다.
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  Backup Exec 작업 옵션의 전처리 및 후처리 명령을 편집하여 Backup Exec의 백업 작업에 스크립트를 추가합니다.
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Backup Exec 작업 옵션의 전처리 및 후처리 명령을 편집하여 Backup Exec의 백업 작업에 스크립트를 추가합니다.
 
-    ![Backup Exec 콘솔 - 백업 옵션, 전처리 및 후처리 명령 탭](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
+   ![Backup Exec 콘솔 - 백업 옵션, 전처리 및 후처리 명령 탭](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
 > 매일 백업 작업의 끝에서 StorSimple 클라우드 스냅숏 백업 정책을 후처리 스크립트로 실행하는 것이 좋습니다. RPO 및 RTO를 충족할 수 있도록 백업 애플리케이션 환경을 백업 및 복원하는 방법에 대한 자세한 내용은 백업 설계자에게 문의하세요.

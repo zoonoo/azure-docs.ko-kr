@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.lastreviewed: 01/11/2019
+ms.date: 03/18/2019
+ms.lastreviewed: 03/18/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: ea8669189b5fc8d797fc03f579ea52e7c11a7078
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a2f1321e5c6774c585353b9bd7602ecc1ccb8c5e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246962"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177503"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Azure Stack에 SQL Server 리소스 공급자 배포
 
@@ -47,7 +47,7 @@ Azure Stack SQL 리소스 공급자를 배포 하기 전에 준비에서 되어�
 
 - 데이터 센터 통합 필수 구성 요소가 충족 되는지 확인 합니다.
 
-    |필수 요소|참조|
+    |필수 구성 요소|참조|
     |-----|-----|
     |조건부 DNS 전달이 올바르게 설정 됩니다.|[Azure Stack 데이터 센터 통합-DNS](azure-stack-integrate-dns.md)|
     |리소스 공급자에 대 한 인바운드 포트가 열려 있습니다.|[Azure 데이터 센터 통합 스택-끝점 게시](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -89,13 +89,13 @@ SQL 리소스 공급자를 배포 하려면 엽니다는 **새** 관리자 권�
 | **AzCredential** | Azure Stack에 대 한 자격 증명을 서비스 관리자 계정입니다. Azure Stack 배포에 사용한 동일한 자격 증명을 사용 합니다. | _필수_ |
 | **VMLocalCredential** | SQL 리소스 공급자 VM의 로컬 관리자 계정의 자격 증명입니다. | _필수_ |
 | **PrivilegedEndpoint** | IP 주소 또는 권한 있는 끝점의 DNS 이름입니다. |  _필수_ |
-| **AzureEnvironment** | Azure Stack을 배포 하기 위한 사용 하는 서비스 관리자 계정의 Azure 환경입니다. Azure AD 배포에만 필요합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**, 중국 Azure Active Directory를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
+| **AzureEnvironment** | Azure Stack 배포에 사용 되는 서비스 관리자 계정의 Azure 환경입니다. Azure AD 배포에만 필요합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**, 중국 Azure Active Directory를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
 | **DependencyFilesLocalPath** | 통합된 시스템만을 위한 인증서.pfx 파일을이 디렉터리에 배치 되어야 합니다. 필요에 따라 하나의 Windows 업데이트 MSU이 패키지를 복사할 수 있습니다. | _선택적_ (_필수_ 통합 시스템용) |
 | **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호입니다. | _필수_ |
 | **MaxRetryCount** | 오류가 발생 하는 경우 각 작업을 다시 시도 하려는 횟수입니다.| 2 |
 | **RetryDuration** | 시간 (초)에서 재시도 사이의 시간 제한 간격입니다. | 120 |
-| **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아닙니다. |
-| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아닙니다. |
+| **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아니요 |
+| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아니요 |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>사용자 지정 스크립트를 사용 하 여 SQL 리소스 공급자 배포
 
@@ -105,10 +105,7 @@ Azure Stack 배포에 필요한 기본 계정 정보 및 암호를 변경 합니
 
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
-Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.5.0
+# Install the Azure and Azure Stack PowerShell modules as described in the prerequisites section above before running these commands.
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"

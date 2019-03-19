@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 8350524e51d8ced45586d085fe1b49274aa6db9d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269981"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009005"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 날짜/시간 값 사용
 
@@ -37,10 +37,10 @@ timespan은 10진수 다음에 시간 단위를 사용해서 표현됩니다.
 
 |축약형   | 시간 단위    |
 |:---|:---|
-|d           | 일          |
-|h           | 시간         |
-|m           | 분       |
-|s           | 초       |
+|일           | 일          |
+|시간           | 시간         |
+|분           | 분       |
+|초           | 초       |
 |ms          | 밀리초  |
 |microsecond | microsecond  |
 |tick        | 나노초   |
@@ -114,6 +114,7 @@ Event
 ```
 
 이 쿼리는 다음 테이블을 생성합니다.  
+
 |TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
@@ -152,7 +153,7 @@ Event
 
 ## <a name="related-functions"></a>관련 함수
 
-| Category | 함수 |
+| 범주 | 함수 |
 |:---|:---|
 | 데이터 형식 변환 | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
 | 값을 bin 크기로 반올림 | [bin](/azure/kusto/query/binfunction) |

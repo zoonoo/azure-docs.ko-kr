@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3933f10a777a1aa10a4e04f8901e7fd1af5c48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 778897e1a146abd0655d76ef157f64522681cb0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195637"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889678"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>REST API 호출을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -63,7 +63,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  인증 헤더의 다음 단계에서 시스템 할당 관리 ID로 VM을 만드는 데 사용할 전달자 액세스 토큰을 검색합니다.
+3. 인증 헤더의 다음 단계에서 시스템 할당 관리 ID로 VM을 만드는 데 사용할 전달자 액세스 토큰을 검색합니다.
 
    ```azurecli-interactive
    az account get-access-token
@@ -80,6 +80,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    ```
    
    **요청 헤더**
+   
    |요청 헤더  |설명  |
    |---------|---------|
    |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
@@ -168,6 +169,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    **요청 헤더**
+
    |요청 헤더  |설명  |
    |---------|---------|
    |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
@@ -239,6 +241,7 @@ Azure 리소스에 대한 관리 시스템 ID는 Azure Active Directory에서 �
    |---------|---------|
    |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        | 
+
    **요청 본문**
 
    ```JSON
@@ -314,7 +317,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  인증 헤더의 다음 단계에서 시스템 할당 관리 ID로 VM을 만드는 데 사용할 전달자 액세스 토큰을 검색합니다.
+3. 인증 헤더의 다음 단계에서 시스템 할당 관리 ID로 VM을 만드는 데 사용할 전달자 액세스 토큰을 검색합니다.
 
    ```azurecli-interactive
    az account get-access-token
@@ -507,11 +510,12 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
    **요청 헤더**
+
    |요청 헤더  |설명  |
    |---------|---------|
    |*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.
 
-    응답에서 `identity` 값으로 식별된 사용자 또는 시스템 할당 관리 ID가 VM에 할당되어 있는 경우에는 VM에서 사용자 할당 관리 ID를 추가하면서 시스템 할당 관리 ID를 유지하는 방법을 보여주는 5단계로 건너뜁니다.
+    모든 사용자 또는 시스템 할당 된 관리 되는 id에서 식별 한 대로 VM에 할당 해야 하는 경우는 `identity` 에 사용자 할당 관리 id를 추가 하는 동안 시스템에서 지정한 관리 되는 id를 유지 하는 방법을 보여 주는 5 단계로 건너뜁니다, 응답의 값 Vm입니다.
 
 4. VM에 할당된 사용자 할당 관리 ID가 없는 경우에는 다음 CURL 명령을 통해 Azure Resource Manager REST 엔드포인트를 호출하여 첫 번째 사용자 할당 관리 ID를 VM에 할당합니다.
 
@@ -675,6 +679,7 @@ VM의 사용자 할당 ID를 제거하려면 계정에 [가상 머신 기여자]
    ```
 
    **요청 헤더**
+
    |요청 헤더  |설명  |
    |---------|---------|
    |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273360"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112622"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서는 Azure App Service 가상 네트워크 통합 미리 보기 기능을 설명하고 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱에 해당 기능을 설정하는 방법을 보여줍니다. [Azure VNet(Virtual Network)][VNETOverview]을 사용하면 다양한 Azure 리소스를 인터넷이 아닌 라우팅 가능한 네트워크에 배치할 수 있습니다. 그러면 이러한 네트워크가 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. 
@@ -82,7 +82,7 @@ VNet 통합에서 지원하지 않는 다음 몇 가지 항목이 있습니다.
 * 172.16.0.0/12 - IP 주소 범위가 172.16.0.0 ~ 172.31.255.255입니다. 
 * 192.168.0.0/16 - IP 주소 범위가 192.168.0.0 ~ 192.168.255.255입니다.
 
-App Service VNet 통합에서 사용할 게이트웨이만 만드는 경우 인증서를 업로드할 필요가 없습니다. 게이트웨이를 만드는 데 30분이 걸릴 수 있습니다. 게이트웨이가 프로비전될 때까지는 VNet과 앱을 통합할 수 없습니다. 
+도 게이트웨이를 만드는 앱 서비스 VNet 통합을 사용 하 여 사용, 인증서를 업로드할 필요가 없습니다. 게이트웨이를 만드는 데 30분이 걸릴 수 있습니다. 게이트웨이가 프로비전될 때까지는 VNet과 앱을 통합할 수 없습니다. 
 
 ### <a name="configure-vnet-integration-with-your-app"></a>앱에서 VNet 통합 구성 ###
 
@@ -239,7 +239,7 @@ VNet 호스팅된 VM에서 온-프레미스 시스템에 연결할 수 있지만
 PowerShell을 사용하여 App Service를 Azure Virtual Network와 통합할 수 있습니다. 실행 준비 스크립트의 경우 [Azure App Service에서 Azure Virtual Network에 앱 연결](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)을 참조하세요.
 
 ## <a name="hybrid-connections-and-app-service-environments"></a>하이브리드 연결 및 App Service Environment
-VNet에 호스트되는 리소스에 액세스할 수 있도록 하는 기능은 3가지 입니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+VNet에 호스트되는 리소스에 액세스할 수 있도록 하는 기능은 3가지 입니다. 다음 창이 여기에 포함됩니다.
 
 * VNet 통합
 * 하이브리드 연결
@@ -277,19 +277,20 @@ VNet이 온-프레미스 네트워크에 이미 연결되어 있는 경우 VNet 
 * 새 VNet 통합 기능은 App Service Environment의 앱에서 작동하지 않습니다.
 * VNet은 통합된 앱을 사용하여 삭제할 수 없습니다.  
 * 경로 테이블과 글로벌 피어링은 새 VNet 통합에서 아직 사용할 수 없습니다.  
-* 각 App Service 계획 인스턴스마다 하나의 주소가 사용됩니다. 서브넷 크기는 할당 후에 변경할 수 없으므로 최대 규모 크기를 처리할 수 있는 서브넷을 사용합니다. 32개의 주소를 사용하는 /27은 20개의 인스턴스로 확장된 App Service 계획을 수용할 수 있는 권장 크기입니다.  새 VNet 통합 기능을 사용하여 서비스 엔드포인트 보안 리소스를 사용할 수 있습니다. 이렇게 하려면 VNet 통합에 사용되는 서브넷에서 서비스 엔드포인트를 사용하도록 설정합니다.
+* 각 App Service 계획 인스턴스마다 하나의 주소가 사용됩니다. 서브넷 크기는 할당 후에 변경할 수 없으므로 최대 규모 크기를 처리할 수 있는 서브넷을 사용합니다. 32개의 주소를 사용하는 /27은 20개의 인스턴스로 확장된 App Service 계획을 수용할 수 있는 권장 크기입니다.
+* 새 VNet 통합 기능을 사용하여 서비스 엔드포인트 보안 리소스를 사용할 수 있습니다. 이렇게 하려면 VNet 통합에 사용되는 서브넷에서 서비스 엔드포인트를 사용하도록 설정합니다.
 
 새 기능을 사용하려면,
 
 1. 포털에서 네트워킹 UI로 이동합니다. 앱에서 새로운 기능을 사용할 수 있는 경우 새 미리 보기 기능을 사용할 수 있는 기능이 표시됩니다.  
 
- ![새 미리 보기 VNet 통합 선택][6]
+   ![새 미리 보기 VNet 통합 선택][6]
 
 1. **VNet 추가(미리 보기)** 를 선택합니다.  
 
 1. 통합하려는 Resource Manager VNet을 선택한 다음, 새 서브넷을 만들거나 기존의 빈 서브넷을 선택합니다. 통합을 완료하는 데 1분 미만이 걸립니다. 통합하는 동안에 앱이 다시 시작됩니다.  통합이 완료되면 통합된 VNet에 대한 세부 정보와 위쪽에서 해당 기능이 미리 보기로 있음을 알려주는 배너가 표시됩니다.
 
- ![VNet 및 서브넷 선택][7]
+   ![VNet 및 서브넷 선택][7]
 
 앱에서 VNet이 구성된 DNS 서버를 사용하도록 설정하려면 앱에 대한 애플리케이션 설정을 만듭니다. 여기서 이름은 WEBSITE_DNS_SERVER이고, 값은 서버의 IP 주소입니다.  보조 DNS 서버가 있는 경우 이름이 WEBSITE_DNS_ALT_SERVER이고 값이 서버의 IP 주소인 다른 애플리케이션 설정을 만듭니다. 
 

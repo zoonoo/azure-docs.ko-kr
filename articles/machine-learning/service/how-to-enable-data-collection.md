@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 11/08/2018
+ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79a2c0c98cdee0532856a90ec4a7b98dda09cdb7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: a127a211157edb0b26d0495bc2ed05dd79323111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247377"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842637"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 
@@ -50,7 +50,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 체험 또는 유료 버전](http://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 바로 [Azure Machine Learning Service의 체험 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 - Azure Machine Learning 서비스 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아보세요.
 
@@ -136,15 +136,15 @@ Azure Machine Learning 서비스 또는 기타 도구를 통해 모듈을 배포
 
   1. **배포** -> **서비스 선택** -> **편집**으로 이동합니다.
 
-    [![편집 옵션](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+     [![편집 옵션](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. **고급 설정**에서 **모델 데이터 컬렉션 사용** 선택을 취소합니다. 
 
-    [![데이터 수집 선택 취소](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+     [![데이터 수집 선택 취소](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. **업데이트**를 선택하여 변경 내용을 적용합니다.
 
-* 옵션 2 - Python을 사용하여 데이터 수집을 사용하지 않도록 설정
++ 옵션 2 - Python을 사용하여 데이터 수집을 사용하지 않도록 설정
 
   ```python 
   ## replace <service_name> with the name of the web service
@@ -218,7 +218,7 @@ Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
 
     [![DB 테이블](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. 데이터 위치를 업데이트합니다. 다음은 예제입니다.
+1. 데이터 위치를 업데이트합니다. 다음 예를 참조하세요.
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

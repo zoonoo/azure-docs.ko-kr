@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096829"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록하는 방법 알아보기
 
@@ -26,7 +26,7 @@ ms.locfileid: "55565221"
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-
+> 
 > * 단일 새 테넌트를 프로비전합니다.
 > * 추가 테넌트의 일괄 처리를 프로비전합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "55565221"
 
 또한 카탈로그는 테넌트에 제공된 스키마 버전, 서비스 계획 또는 SLA와 같은 추가 테넌트 또는 데이터베이스 메타데이터를 저장할 수도 있습니다. 카탈로그는 애플리케이션 관리, 고객 지원 또는 DevOps를 사용할 수 있도록 하는 기타 정보를 저장할 수 있습니다. 
 
-SaaS 애플리케이션 이외에도 카탈로그는 데이터베이스 도구를 활성화할 수 있습니다. Wingtip Tickets SaaS Database per Tenant 샘플에서 카탈로그는 [임시 보고 자습서](saas-tenancy-cross-tenant-reporting.md)에서 설명하는 교차 테넌트 쿼리를 지원하는 데 사용됩니다. 데이터베이스 간 작업 관리는 [스키마 관리](saas-tenancy-schema-management.md) 및 [테넌트 분석](saas-tenancy-tenant-analytics.md) 자습서에서 살펴봅니다. 
+SaaS 애플리케이션 이외에도 카탈로그는 데이터베이스 도구를 활성화할 수 있습니다. Wingtip Tickets SaaS 데이터베이스 당 테 넌 트 샘플에서 카탈로그에 대해서는 테 넌 트 간 쿼리를 활성화 하는 데 사용 합니다 [임시 보고 자습서](saas-tenancy-cross-tenant-reporting.md)합니다. 데이터베이스 간 작업 관리는 [스키마 관리](saas-tenancy-schema-management.md) 및 [테넌트 분석](saas-tenancy-tenant-analytics.md) 자습서에서 살펴봅니다. 
 
 Wingtip Tickets SaaS 샘플에서 카탈로그는 [EDCL(Elastic Database 클라이언트 라이브러리)](sql-database-elastic-database-client-library.md)의 분할 관리 기능을 사용하여 구현됩니다. EDCL은 Java 및 .NET Framework에서 사용할 수 있습니다. EDCL을 통해 애플리케이션은 데이터베이스 기반 분할 맵을 만들고, 관리하고 사용할 수 있습니다. 
 
@@ -92,7 +92,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
 4. 스크립트 실행이 중단점에서 중지된 후 F11 키를 눌러 한 단계씩 코드를 실행합니다.
 
-   ![디버그](media/saas-dbpertenant-provision-and-catalog/debug.png)
+   ![디버깅하는 중](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 
@@ -167,7 +167,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-
+> 
 > * 단일 새 테넌트를 프로비전합니다.
 > * 추가 테넌트의 일괄 처리를 프로비전합니다.
 > * 테넌트 프로비전 및 카탈로그에 테넌트 등록의 세부 정보를 한 단계씩 알아봅니다.

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6e2fafa398b09d0822c4582e196345b812e6fc52
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
-ms.translationtype: HT
+ms.openlocfilehash: 93935aa36c53e1d5de1bba215826d0754ee83b8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392504"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902844"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>로컬에 원격 모니터링 솔루션 가속기 배포 - Visual Studio Code
 
@@ -25,16 +25,16 @@ ms.locfileid: "54392504"
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
-계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 참조 하세요 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)합니다.
 
 ### <a name="machine-setup"></a>머신 설치
 
 로컬 배포를 완료하기 위해 로컬 개발 컴퓨터에 설치되어 있어야 하는 도구는 다음과 같습니다.
 
 * [Git](https://git-scm.com/)
-* [.Net Core](https://dotnet.microsoft.com/download)
+* [.NET Core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VS Code의 C# 확장](https://code.visualstudio.com/docs/languages/csharp)
 * [Node.js v8](https://nodejs.org/) - 이 소프트웨어는 스크립트에서 Azure 리소스를 만드는 데 사용하는 PCS CLI에 대한 필수 구성 요소입니다. Node.js v10은 사용하지 마세요.
@@ -88,7 +88,7 @@ npm start
 * **webui\scripts\localhost** 폴더의 **nginx.conf** 파일을 **nginx\conf** 설치 디렉터리에 복사합니다.
 * **nginx**를 실행합니다.
 
-**nginx** 실행에 대한 자세한 내용은 [Windows용 nginx](http://nginx.org/en/docs/windows.html)를 참조하세요.
+**nginx** 실행에 대한 자세한 내용은 [Windows용 nginx](https://nginx.org/en/docs/windows.html)를 참조하세요.
 
 ### <a name="connect-to-the-dashboard"></a>대시보드에 연결
 

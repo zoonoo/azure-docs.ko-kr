@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331438"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096268"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(사용되지 않음) Azure DevOps Services를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
 
@@ -204,14 +204,14 @@ Azure DevOps Services를 사용하면 [환경에서 릴리스를 관리](https:/
 
     마스터에서 실행되는 명령은 Docker CLI 및 Docker 작성 CLI를 사용하여 다음 작업을 수행합니다.
 
-    - Azure 컨테이너 레지스트리에 로그인(**변수** 탭에 정의된 세 개의 빌드 변수 사용)
-    - Swarm 엔드포인트를 사용하는 **DOCKER_HOST** 변수 정의(:2375)
-    - 이전 안전한 복사 작업에서 만들어지고 docker-compose.yml 파일을 포함하는 *배포* 폴더 탐색 
-    - 새 이미지를 가져오고 서비스를 중지하며 제거하고 컨테이너를 만드는 `docker-compose` 명령을 실행합니다.
+   - Azure 컨테이너 레지스트리에 로그인(**변수** 탭에 정의된 세 개의 빌드 변수 사용)
+   - Swarm 엔드포인트를 사용하는 **DOCKER_HOST** 변수 정의(:2375)
+   - 이전 안전한 복사 작업에서 만들어지고 docker-compose.yml 파일을 포함하는 *배포* 폴더 탐색 
+   - 새 이미지를 가져오고 서비스를 중지하며 제거하고 컨테이너를 만드는 `docker-compose` 명령을 실행합니다.
 
-    >[!IMPORTANT]
-    > 이전 화면에 표시된 대로 **STDERR에 실패** 확인란을 해제된 채로 둡니다. `docker-compose`이 표준 오류 출력에서 컨테이너가 중지 또는 삭제됩니다와 같은 여러 진단 메시지를 인쇄하기 때문에 중요한 설정입니다. 확인란을 선택하면 모든 작업이 정상적으로 작동하는 경우에도 Azure DevOps Services는 릴리스 중에 오류가 발생했다고 보고합니다.
-    >
+     >[!IMPORTANT]
+     > 이전 화면에 표시된 대로 **STDERR에 실패** 확인란을 해제된 채로 둡니다. `docker-compose`이 표준 오류 출력에서 컨테이너가 중지 또는 삭제됩니다와 같은 여러 진단 메시지를 인쇄하기 때문에 중요한 설정입니다. 확인란을 선택하면 모든 작업이 정상적으로 작동하는 경우에도 Azure DevOps Services는 릴리스 중에 오류가 발생했다고 보고합니다.
+     >
 1. 이 새 릴리스 파이프라인을 저장합니다.
 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: dafafa8ff5d721034b3b10bdeb1a2fc09cd32835
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: fb637197139001c67a4cfa773f897e6701dc1e9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267583"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100652"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk-Azure Monitor 로그 쿼리
 
@@ -33,7 +33,7 @@ ms.locfileid: "56267583"
  | 배포 단위  | cluster |  cluster |  Azure Monitor를 사용하면 임의의 클러스터 간 쿼리를 수행할 수 있습니다. Splunk는 그렇지 않습니다. |
  | 데이터 캐시 |  버킷  |  캐싱 및 보존 정책 |  데이터에 대한 기간 및 캐싱 수준을 제어합니다. 이 설정은 쿼리 성능과 배포 비용에 직접적인 영향을 줍니다. |
  | 논리적 데이터 분할  |  index  |  데이터베이스  |  데이터를 논리적으로 분리할 수 있습니다. 두 구현 모두는 이러한 파티션에서 합집합(union)과 조인(join)을 허용합니다. |
- | 구조적 이벤트 메타데이터 | 해당 없음 | 테이블 |  Splunk에는 이벤트 메타데이터의 검색 언어에 대해 공개된 개념이 없습니다. Azure Monitor 로그에는 열이 있는 테이블에 대한 개념이 있습니다. 각 이벤트 인스턴스가 한 행에 매핑됩니다. |
+ | 구조적 이벤트 메타데이터 | N/A | 테이블 |  Splunk에는 이벤트 메타데이터의 검색 언어에 대해 공개된 개념이 없습니다. Azure Monitor 로그에는 열이 있는 테이블에 대한 개념이 있습니다. 각 이벤트 인스턴스가 한 행에 매핑됩니다. |
  | 데이터 레코드 | event | 행 |  용어 변경에만 해당 |
  | 데이터 레코드 특성 | 필드 |  열 |  Azure Monitor에서는 테이블 구조의 일부로 미리 정의됩니다. Splunk에서는 각 이벤트마다 자체의 필드 집합이 있습니다. |
  | 형식 | 데이터 형식 |  데이터 형식 |  Azure Monitor 데이터 형식은 열에 설정되므로 더 명시적입니다. 둘 다 JSON 지원을 포함하여 데이터 형식 및 거의 동등한 데이터 형식 집합을 동적으로 사용할 수 있습니다. |
@@ -163,7 +163,7 @@ Splunk의 조인에는 중요한 제한이 있습니다. 하위 쿼리에는 배
 
 | |  | |
 |:---|:---|:---|
-| Splunk | **join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias | join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
+| Splunk | **join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
 | Azure Monitor | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
 | | |
 

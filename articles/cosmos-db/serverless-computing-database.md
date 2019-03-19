@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: ff202c85f20adce173a375987a5f2250fda565b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123779"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
@@ -97,11 +97,11 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 1. 각각에 Azure Cosmos DB 트리거를 추가하여 여러 Azure Functions를 만들 수 있으며, 모두 쇼핑 카트 데이터의 동일한 변경 피드를 수신 대기합니다. 여러 함수가 동일한 변경 피드를 수신 대기하면 각 함수에 새 임대 컬렉션이 필요합니다. 임대 컬렉션에 대한 자세한 내용은 [변경 피드 프로세서 라이브러리 이해](change-feed-processor.md)를 참조하세요.
 2. 사용자 쇼핑 카트에 새 항목을 추가할 때마다 쇼핑 카트 컨테이너의 변경 피드를 통해 각 함수가 독립적으로 호출됩니다.
-    * 한 함수는 현재 바구니의 콘텐츠를 사용하여 사용자가 관심을 가질 수 있는 다른 항목의 표시를 변경할 수 있습니다.
-    * 다른 함수는 총 재고량을 업데이트할 수 있습니다.
-    * 또 다른 함수는 특정 제품에 대한 고객 정보를 마케팅 부서에 보낼 수 있고, 마케팅 부서는 해당 정보를 프로모션 메일러에게 보냅니다. 
+   * 한 함수는 현재 바구니의 콘텐츠를 사용하여 사용자가 관심을 가질 수 있는 다른 항목의 표시를 변경할 수 있습니다.
+   * 다른 함수는 총 재고량을 업데이트할 수 있습니다.
+   * 또 다른 함수는 특정 제품에 대한 고객 정보를 마케팅 부서에 보낼 수 있고, 마케팅 부서는 해당 정보를 프로모션 메일러에게 보냅니다. 
 
-    모든 부서에서 변경 피드를 수신 대기하여 Azure Cosmos DB 트리거를 만들고, 이 트리거로 인해 프로세스의 중요한 주문 처리 이벤트가 지연되지 않을 것을 확신할 수 있습니다.
+     모든 부서에서 변경 피드를 수신 대기하여 Azure Cosmos DB 트리거를 만들고, 이 트리거로 인해 프로세스의 중요한 주문 처리 이벤트가 지연되지 않을 것을 확신할 수 있습니다.
 
 이러한 모든 사용 사례에서는 함수가 앱 자체를 분리했기 때문에 항상 새로운 앱 인스턴스를 스핀업할 필요가 없습니다. 대신, Azure Functions는 개별 함수를 스핀업하여 필요에 따라 개별 프로세스를 완료합니다.
 

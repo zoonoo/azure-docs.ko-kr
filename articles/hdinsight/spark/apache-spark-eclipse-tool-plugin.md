@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 05df154db27dcf1b07506c6bf9c2a681408de61e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602752"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091820"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for Eclipse를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
@@ -141,12 +141,12 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
    a. 패키지 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **HDInsight에 Spark 애플리케이션 제출**을 선택합니다.        
    b. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 선택합니다.
       
-      * **클러스터 이름**의 경우 애플리케이션을 실행하려는 HDInsight Spark 클러스터를 선택합니다.
-      * Eclipse 프로젝트에서 아티팩트를 선택하거나 하드 디스크에서 아티팩트를 선택합니다. 기본값은 패키지 탐색기에서 마우스 오른쪽 단추로 클릭한 항목에 따라 달라집니다.
-      * **기본 클래스 이름** 드롭다운 목록에서 제출 마법사에는 프로젝트의 모든 개체 이름이 표시됩니다. 실행하려는 이름을 선택하거나 입력합니다. 하드 드라이브에서 아티팩트를 선택한 경우 주 클래스 이름을 수동으로 입력해야 합니다. 
-      * 이 예제의 애플리케이션 코드에는 명령줄 인수가 필요하지 않고 JAR 또는 파일을 참조하지 않으므로 나머지 텍스트 상자를 비워둘 수 있습니다.
+   * **클러스터 이름**의 경우 애플리케이션을 실행하려는 HDInsight Spark 클러스터를 선택합니다.
+   * Eclipse 프로젝트에서 아티팩트를 선택하거나 하드 디스크에서 아티팩트를 선택합니다. 기본값은 패키지 탐색기에서 마우스 오른쪽 단추로 클릭한 항목에 따라 달라집니다.
+   * **기본 클래스 이름** 드롭다운 목록에서 제출 마법사에는 프로젝트의 모든 개체 이름이 표시됩니다. 실행하려는 이름을 선택하거나 입력합니다. 하드 드라이브에서 아티팩트를 선택한 경우 주 클래스 이름을 수동으로 입력해야 합니다. 
+   * 이 예제의 애플리케이션 코드에는 명령줄 인수가 필요하지 않고 JAR 또는 파일을 참조하지 않으므로 나머지 텍스트 상자를 비워둘 수 있습니다.
         
-      ![Spark 제출 대화 상자](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
+     ![Spark 제출 대화 상자](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
 1. **Spark 제출** 탭에 진행 상태가 표시되기 시작합니다. **Spark 제출** 창에서 빨간색 단추를 선택하여 애플리케이션을 중지할 수 있습니다. 구형 아이콘(이미지에 파란색 상자로 표시됨)을 선택하여 특정 애플리케이션을 실행하는 로그를 볼 수도 있습니다.
       
    ![Spark 제출 창](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
@@ -184,7 +184,7 @@ HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양�
 1. Azure 탐색기에서 **HDInsight** 루트 노드를 확장하여 사용할 수 있는 HDInsight Spark 클러스터의 목록을 표시합니다.
 1. 클러스터 이름을 확장하여 클러스터에 대한 저장소 계정 및 기본 저장소 컨테이너를 표시합니다.
    
-   ![Storage 계정 및 기본 저장소 컨테이너](./media/apache-spark-eclipse-tool-plugin/view-explorer-5.png)
+   ![Storage 계정 및 기본 스토리지 컨테이너](./media/apache-spark-eclipse-tool-plugin/view-explorer-5.png)
 1. 클러스터와 연결된 저장소 컨테이너 이름을 선택합니다. 오른쪽 창에서 **HVACOut** 폴더를 두 번 클릭합니다. **파트-** 파일 중 하나를 열어 애플리케이션의 출력을 표시합니다.
 
 ### <a name="access-the-spark-history-server"></a>Spark 기록 서버 액세스
@@ -204,7 +204,7 @@ HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양�
 ## <a name="run-a-spark-scala-application-locally"></a>로컬로 Spark Scala 애플리케이션 실행
 Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 워크스테이션에서 Spark Scala 애플리케이션을 로컬로 실행할 수 있습니다. 일반적으로 이러한 애플리케이션은 저장소 컨테이너와 같은 클러스터 리소스에 액세스할 필요가 없으므로 로컬로 실행하고 테스트할 수 있습니다.
 
-### <a name="prerequisite"></a>필수 요소
+### <a name="prerequisite"></a>필수 구성 요소
 Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에서 설명한 예외가 발생할 수 있습니다. 이 예외는 Windows에 **WinUtils.exe**가 없기 때문에 발생합니다. 
 
 이 오류를 해결하려면 [실행 파일](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)을 **C:\WinUtils\bin** 등의 위치에 다운로드한 다음 환경 변수 **HADOOP_HOME**을 추가하고 변수 값을 **C\WinUtils**로 설정합니다.
@@ -238,7 +238,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 
 ![클러스터가 사용 중인 경우 Eclipse에 오류가 발생합니다.](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
-## <a name="feedback"></a>사용자 의견
+## <a name="feedback"></a>피드백
 의견이 있거나 이 도구를 사용할 때 다른 문제가 발생하는 경우 hdivstool@microsoft.com으로 메일을 보내 주시기 바랍니다.
 
 ## <a name="seealso"></a>참고 항목

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52b347aef240f2338aedff2c2a1a3cd53743dc27
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 5a25ba889ebde750937f88e447123263a82d5627
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114266"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896826"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -34,7 +34,7 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 현재 통합 보안 솔루션에는 다음이 포함됩니다.
 
 - 웹 애플리케이션 방화벽([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) 및 [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
-- 차세대 방화벽([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) 및 [Palo Alto Networks](https://www.paloaltonetworks.com/products))
+- 차세대 방화벽([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](https://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) 및 [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - 취약점 평가([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) 및 [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 ## <a name="how-security-solutions-are-integrated"></a>보안 솔루션을 통합하는 방법
 Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩니다. 또한 다음을 비롯한 다른 보안 데이터 원본에 연결할 수 있습니다.
 
-- Azure AD ID 보호
+- Azure AD Identity Protection
 - 온-프레미스 또는 기타 클라우드에서 실행되는 컴퓨터
 - CEF(공통 이벤트 형식)을 지원하는 보안 솔루션
 - Microsoft Advanced Threat Analytics
@@ -60,7 +60,7 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 
 3. Security Center 메뉴에서 **보안 솔루션**을 선택합니다.
 
-  ![Security Center 개요](./media/security-center-partner-integration/overview.png)
+   ![Security Center 개요](./media/security-center-partner-integration/overview.png)
 
 **보안 솔루션**에서 통합된 Azure 보안 솔루션의 상태에 대한 정보를 보고 기본 관리 작업을 수행할 수 있습니다. 또한 CEF(공통 이벤트 형식)에서 Azure Active Directory Identity Protection 알림 및 방화벽 로그와 같은 다른 형식의 보안 데이터 원본을 연결할 수 있습니다.
 
@@ -82,12 +82,12 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 >
 >
 
-2. 다음을 비롯한 추가 정보 및 옵션에 대해서는 **보기**를 참조하세요.
+1. 다음을 비롯한 추가 정보 및 옵션에 대해서는 **보기**를 참조하세요.
 
-  - **솔루션 콘솔**. 이 솔루션에 대한 관리 환경을 엽니다.
-  - **VM 연결**. 애플리케이션 연결 블레이드를 엽니다. 여기서 리소스를 파트너 솔루션에 연결할 수 있습니다.
-  - **솔루션 삭제**
-  - **구성**
+   - **솔루션 콘솔**. 이 솔루션에 대한 관리 환경을 엽니다.
+   - **VM 연결**. 애플리케이션 연결 블레이드를 엽니다. 여기서 리소스를 파트너 솔루션에 연결할 수 있습니다.
+   - **솔루션 삭제**
+   - **구성**
 
    ![파트너 솔루션 세부 정보](./media/security-center-partner-solutions/partner-solutions-detail.png)
 
@@ -220,7 +220,7 @@ Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라�
 
 | **쿼리 설명** | **쿼리** |
 |----|----|
-| All Alerts| index=main Microsoft.Security/locations/alerts|
+| 모든 경고| index=main Microsoft.Security/locations/alerts|
 | 이름별로 작업 횟수를 요약합니다.| operationName별 index=main sourcetype="amal:security" \| table operationName \| 통계치|
 | 경고 정보 얻기: 시간, 이름, 상태, ID 및 구독 | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 

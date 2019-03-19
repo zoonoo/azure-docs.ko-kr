@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: networking
+ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 0b15861f663c98d3b873f95a0ea6c485ada91fb6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 54050c4c20b6ebb35f198775448f51ee8cdc533b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421609"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117645"
 ---
 # <a name="check-resource-usage-against-limits"></a>제한에 대해 리소스 사용량 확인
 
@@ -34,25 +34,27 @@ ms.locfileid: "54421609"
 4. 사용량 정보를 보려는 구독의 이름을 선택합니다.
 5. **설정**에서 **사용량 + 할당량**을 선택합니다.
 6. 다음 옵션을 선택할 수 있습니다.
-    - **리소스 종류**: 모든 리소스 종류를 선택하거나 확인하려는 특정 유형의 리소스를 선택할 수 있습니다.
-    - **공급자**: 모든 리소스 공급자를 선택하거나 **계산**, **네트워크** 또는 **저장소**를 선택할 수 있습니다.
-    - **위치**: 모든 Azure 위치를 선택하거나 특정 위치를 선택할 수 있습니다.
-    - 모든 리소스 또는 하나 이상 배포되는 리소스만 표시하도록 선택할 수 있습니다.
+   - **리소스 종류**: 모든 리소스 종류를 선택하거나 확인하려는 특정 유형의 리소스를 선택할 수 있습니다.
+   - **공급자**: 모든 리소스 공급자를 선택하거나 **계산**, **네트워크** 또는 **저장소**를 선택할 수 있습니다.
+   - **위치**: 모든 Azure 위치를 선택하거나 특정 위치를 선택할 수 있습니다.
+   - 모든 리소스 또는 하나 이상 배포되는 리소스만 표시하도록 선택할 수 있습니다.
 
-    다음 그림의 예제에서는 미국 동부에 배포된 리소스가 하나 이상 있는 모든 네트워크 리소스를 보여 줍니다.
+     다음 그림의 예제에서는 미국 동부에 배포된 리소스가 하나 이상 있는 모든 네트워크 리소스를 보여 줍니다.
 
-        ![View usage data](./media/check-usage-against-limits/view-usage.png)
+       ![사용 현황 데이터 보기](./media/check-usage-against-limits/view-usage.png)
 
-    열 머리글을 선택하여 열을 정렬할 수 있습니다. 표시된 제한은 구독에 대한 제한입니다. 기본 제한을 늘려야 할 경우 **요청 증가**를 선택한 다음, 지원 요청을 완료하고 제출합니다. 모든 리소스에는 Azure [제한](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)에 나열된 최대 한도가 있습니다. 현재 제한이 이미 최대 수인 경우에는 제한을 늘릴 수 없습니다.
+     열 머리글을 선택하여 열을 정렬할 수 있습니다. 표시된 제한은 구독에 대한 제한입니다. 기본 제한을 늘려야 할 경우 **요청 증가**를 선택한 다음, 지원 요청을 완료하고 제출합니다. 모든 리소스에는 Azure [제한](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)에 나열된 최대 한도가 있습니다. 현재 제한이 이미 최대 수인 경우에는 제한을 늘릴 수 없습니다.
 
 ## <a name="powershell"></a>PowerShell
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 *AzureRM* PowerShell 모듈 버전 6.0.1 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable AzureRM`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure에 로그인해야 합니다.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0)를 사용하여 제한에 대한 사용량을 봅니다. 다음 예제에서는 미국 동부 위치에 배포된 리소스가 하나 이상 있는 리소스에 대한 사용량을 가져옵니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 해야 Azure PowerShell 모듈 버전 1.0.0 이상. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure에 로그인해야 합니다.
+
+사용 하 여 제한에 대해 사용량을 볼 [Get AzNetworkUsage](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkusage)합니다. 다음 예제에서는 미국 동부 위치에 배포된 리소스가 하나 이상 있는 리소스에 대한 사용량을 가져옵니다.
 
 ```azurepowershell-interactive
-Get-AzureRmNetworkUsage `
+Get-AzNetworkUsage `
   -Location eastus `
   | Where-Object {$_.CurrentValue -gt 0} `
   | Format-Table ResourceType, CurrentValue, Limit

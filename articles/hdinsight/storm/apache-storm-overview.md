@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3bae6d93ffe7ea028d3329dcc69c2f33bdf7aa2a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: b9c66216411f42e46cc7c7be486f6103db9c7208
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894600"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
@@ -48,7 +48,7 @@ HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
 실시간 분석 솔루션에 Apache Storm을 사용하는 회사 목록은 [Apache Storm을 사용하는 회사](https://storm.apache.org/documentation/Powered-By.html)(영문)를 참조하세요.
 
-Storm 사용을 시작하려면 [HDInsight에서 Apache Storm 시작][gettingstarted]을 참조하세요.
+Storm 사용 시작을 참조 하세요 [HDInsight의 Apache Storm을 사용 하 여 시작][gettingstarted]합니다.
 
 ## <a name="how-does-apache-storm-work"></a>Apache Storm의 작동 방식
 
@@ -86,7 +86,7 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
 
 * __Azure PowerShell 및 Azure 클래식 CLI__: PowerShell 및 클래식 CLI는 모두 HDInsight 및 다른 Azure 서비스를 사용하는 클라이언트 시스템에서 사용할 수 있는 명령줄 유틸리티를 제공합니다.
 
-* __Visual Studio 통합__: Azure Data Lake Tools for Visual Studio에는 SCP.Net Framework를 사용하여 C# Storm 토폴로지를 만드는 프로젝트 템플릿이 포함되어 있습니다. 또한 Data Lake 도구는 HDInsight의 Storm을 사용하여 솔루션을 배포, 모니터링 및 관리하는 도구를 제공합니다.
+* __Visual Studio 통합__: Azure Data Lake Tools for Visual Studio에는 만드는 프로젝트 템플릿이 포함 되어 C# 는 SCP.NET framework를 사용 하 여 토폴로지를 Storm. 또한 Data Lake 도구는 HDInsight의 Storm을 사용하여 솔루션을 배포, 모니터링 및 관리하는 도구를 제공합니다.
 
   자세한 내용은 [HDInsight Tools for Visual Studio를 사용하여 C# Storm 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
@@ -142,7 +142,7 @@ Apache Storm은 다양한 수준의 보장된 메시지 처리를 제공할 수 
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-입력 튜플을 읽고 튜플을 내보내지 않거나 하나 이상 내보낸 다음 실행 메서드 끝에서 입력 튜플을 즉시 승인하는 패턴은 매우 흔히 사용됩니다. Storm은 이 패턴을 자동화하는 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 인터페이스를 제공합니다.
+입력된 튜플을 읽고 0 개 이상의 튜플을 내보내는 다음 실행 메서드 끝에 즉시 입력된 튜플을 승인 패턴이 일반적입니다. Storm은 이 패턴을 자동화하는 [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 인터페이스를 제공합니다.
 
 ### <a name="joins"></a>조인
 

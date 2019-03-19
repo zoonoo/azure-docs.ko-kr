@@ -3,15 +3,15 @@ title: Avere vFXT 저장소 구성 - Azure
 description: Avere vFXT for Azure에 백 엔드 저장소 시스템을 추가하는 방법입니다.
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: procedural
+ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 13084ac21315d725df3f0913583fff3e64ee5c4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078817"
 ---
 # <a name="configure-storage"></a>저장소 구성
 
@@ -72,7 +72,7 @@ NAS 코어 파일러를 추가하는 단계는 다음과 같습니다.
 Azure Blob Storage를 vFXT 클러스터의 백 엔드 스토리지로 사용하려면 코어 파일러로 추가할 빈 컨테이너가 필요합니다.
 
 > [!TIP] 
-> Avere vFXT 클러스터를 만드는 동시에 Blob 컨테이너를 만들도록 선택하면 배포 템플릿 또는 스크립트가 스토리지 컨테이너를 만들어 코어 파일러로 정의한 다음 vFXT 클러스터 만들기의 일환으로 네임스페이스 접합을 만듭니다. 
+> Avere vFXT 클러스터를 만드는 동시에 Blob 컨테이너를 만들도록 선택하면 배포 템플릿 또는 스크립트가 스토리지 컨테이너를 만들어 코어 파일러로 정의한 다음 vFXT 클러스터 만들기의 일환으로 네임스페이스 접합을 만듭니다. 또한 템플릿은 클러스터의 가상 네트워크 내에서 저장소 서비스 끝점을 만듭니다. 
 
 Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다.
 
@@ -121,7 +121,7 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
    | 필드 | 값 |
    | --- | --- |
    | 자격 증명 이름 | 설명이 포함된 이름 |
-   | 서비스 유형 | (Azure Storage 액세스 키 선택) |
+   | 서비스 종류 | (Azure Storage 액세스 키 선택) |
    | 테넌트 | 저장소 계정 이름 |
    | 구독 | 구독 ID |
    | 저장소 액세스 키 | Azure 저장소 계정 키(이전 단계에서 복사됨) | 
@@ -149,7 +149,7 @@ Blob Storage를 클러스터에 추가하려면 다음 작업이 필요합니다
    * 필요에 따라 **암호화 유형**을 **없음**으로 설정합니다.  Azure Storage는 기본적으로 암호화되어 있습니다.
    * **파일러 추가**를 클릭합니다.
 
-  자세한 내용은 Avere 클러스터 구성 가이드의 [새 클라우드 코어 파일러 추가](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>)를 참조하세요. 
+   자세한 내용은 Avere 클러스터 구성 가이드의 [새 클라우드 코어 파일러 추가](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>)를 참조하세요. 
 
 페이지가 새로 고쳐지거나 페이지를 새로 고쳐 새 코어 파일러를 표시할 수 있습니다.
 

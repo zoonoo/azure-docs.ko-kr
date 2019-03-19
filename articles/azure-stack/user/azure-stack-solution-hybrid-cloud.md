@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 5f142192571bdd15a33575a425d75baf3e5caea2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 336a2a3fd98f7829694eb095ff2646d9d361afd3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243490"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097323"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 하이브리드 클라우드 솔루션 배포
 
@@ -65,7 +65,7 @@ ms.locfileid: "55243490"
   - Windows Server 2016 이미지
   - Microsoft SQL Server 이미지를 사용 하 여 Windows Server 2016
   - 적절 한 계획 및 제품은
- - 웹 응용 프로그램에 대 한 도메인 이름입니다. 도메인 이름이 없는 경우 InMotion, Bluehost, GoDaddy 등 도메인 공급자에서 구입할 수 있습니다.
+  - 웹 응용 프로그램에 대 한 도메인 이름입니다. 도메인 이름이 없는 경우 InMotion, Bluehost, GoDaddy 등 도메인 공급자에서 구입할 수 있습니다.
 - LetsEncrypt 같은 신뢰할 수 있는 인증서 기관에서 도메인에 대 한 SSL 인증서입니다.
 - SQL Server 데이터베이스와 통신 하 고 Application Insights를 지 원하는 웹 응용 프로그램입니다. 다운로드할 수 있습니다 합니다 [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) GitHub에서 샘플 앱입니다.
 - Azure 가상 네트워크와 Azure Stack 가상 네트워크 간 하이브리드 네트워크입니다. 자세한 지침은 [Azure 및 Azure Stack을 사용 하 여 하이브리드 클라우드 연결을 구성](azure-stack-solution-hybrid-connectivity.md)합니다.
@@ -94,19 +94,19 @@ ms.locfileid: "55243490"
 
 7. 아래 **설정 > 선택적 기능 구성**, 다음 설정을 구성 합니다.
 
-    - **Storage 계정**. 필요한 경우 새 계정을 만듭니다.
-    - **가상 네트워크**
+   - **Storage 계정**. 필요한 경우 새 계정을 만듭니다.
+   - **가상 네트워크**
 
-      > [!Important]  
-      > SQL Server VM에 VPN gateway와 동일한 가상 네트워크에 배포 해야 합니다.
+     > [!Important]  
+     > SQL Server VM에 VPN gateway와 동일한 가상 네트워크에 배포 해야 합니다.
 
-    - **공용 IP 주소**. 기본 설정을 사용할 수 있습니다.
-    - **네트워크 보안 그룹** (NSG). 새 NSG를 만듭니다.
-    - **확장 및 모니터링**합니다. 기본 설정을 유지합니다.
-    - **진단 저장소 계정이**입니다. 필요한 경우 새 계정을 만듭니다.
-    - 선택 **확인** 여 구성을 저장 합니다.
+   - **공용 IP 주소**. 기본 설정을 사용할 수 있습니다.
+   - **네트워크 보안 그룹** (NSG). 새 NSG를 만듭니다.
+   - **확장 및 모니터링**합니다. 기본 설정을 유지합니다.
+   - **진단 저장소 계정이**입니다. 필요한 경우 새 계정을 만듭니다.
+   - 선택 **확인** 여 구성을 저장 합니다.
 
-    ![선택적 기능 구성](media/azure-stack-solution-hybrid-cloud/image4.png)
+     ![옵션 기능 구성](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. 아래 **SQL Server 설정을**, 다음 설정을 구성 합니다.
    - 에 대 한 **SQL 연결**선택 하 여 **공용 (인터넷)** 합니다.
@@ -118,7 +118,7 @@ ms.locfileid: "55243490"
 
    - 나머지 설정에 대 한 기본값을 그대로 유지 합니다. **확인**을 선택합니다.
 
-    ![SQL Server 설정 구성](media/azure-stack-solution-hybrid-cloud/image5.png)
+     ![SQL Server 설정 구성](media/azure-stack-solution-hybrid-cloud/image5.png)
 
 9. 온 **요약**가상 머신 구성을 검토 하 고 선택한 **확인** 배포를 시작 합니다.
 
@@ -303,7 +303,7 @@ App Service environment에서 웹 앱을 만들 때 인스턴스 하나를 사�
 
 1. Azure에서 확장 하 고 선택한 사이트에 대 한 App Service 계획을 찾으실 **수평 확장 (App Service 계획)** 합니다.
 
-    ![확장](media/azure-stack-solution-hybrid-cloud/image16.png)
+    ![규모 확장](media/azure-stack-solution-hybrid-cloud/image16.png)
 
 2. 선택 **자동 크기 조정 사용**합니다.
 
@@ -328,7 +328,7 @@ App Service environment에서 웹 앱을 만들 때 인스턴스 하나를 사�
    - 설정 된 **임계값** 하 **50**합니다.
    - 설정 된 **기간** 하 **10**합니다.
 
-**작업**
+**동작**
 
 1. 아래 **작업이**를 선택 **늘릴 수**입니다.
 
@@ -362,7 +362,7 @@ App Service environment에서 웹 앱을 만들 때 인스턴스 하나를 사�
    - 설정 된 **임계값** 하 **30**합니다.
    - 설정 된 **기간** 하 **10**합니다.
 
-**작업**
+**동작**
 
 1. 아래 **작업이**를 선택 **기준으로 개수 줄이기**합니다.
 
@@ -391,7 +391,7 @@ Traffic Manager 프로필을 Azure에서 만들고 구성한 다음 클라우드
 
     ![Traffic Manager 프로필 만들기](media/azure-stack-solution-hybrid-cloud/image19.png)
 
- Traffic Manager 프로필의 전역 배포가 완료 되 면 아래에서 만든 리소스 그룹에 대 한 리소스 목록에 표시 됩니다.
+   Traffic Manager 프로필의 전역 배포가 완료 되 면 아래에서 만든 리소스 그룹에 대 한 리소스 목록에 표시 됩니다.
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager 엔드포인트 추가
 

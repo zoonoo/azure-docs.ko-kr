@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7609f3b0c04bdf74c87123f1125973219e6dda17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012689"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 애플리케이션을 배포하고 탐색합니다.
 
@@ -76,11 +76,11 @@ ms.locfileid: "55567216"
 
 1. 별도의 브라우저 탭에서 세 개의 각 테넌트에 대한 이벤트 페이지를 엽니다.
 
-    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
-    각 URL에서 &lt;user&gt;를 배포의 사용자 값으로 바꿉니다.
+     각 URL에서 &lt;user&gt;를 배포의 사용자 값으로 바꿉니다.
 
    ![이벤트](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
@@ -96,7 +96,7 @@ ms.locfileid: "55567216"
 
 배포된 리소스 중 일부를 살펴보겠습니다.
 
-1. [Azure Portal](http://portal.azure.com)에서 리소스 그룹 목록으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹 목록으로 이동합니다.
 2. 세 개의 테넌트 리소스 그룹이 표시됩니다.
 3. Fabrikam Jazz Club 배포의 리소스를 포함하는 **wingtip-sa-fabrikam-&lt;user&gt;** 리소스 그룹을 엽니다.  **fabrikamjazzclub-&lt;user&gt;** 서버에 **fabrikamjazzclub** 데이터베이스가 포함되어 있습니다.
 

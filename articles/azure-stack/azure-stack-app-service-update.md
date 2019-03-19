@@ -11,16 +11,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c993322bdf4266939eab854e217cae6e90326d29
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 1ea079373edc9b9f1dde6038f1e02e3d7036e052
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991566"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890494"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Azure Stack의 Azure App Service를 업데이트 합니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "56991566"
 
 Azure Stack에서 App Service의 배포를 업그레이드 하려면 다음이 단계를 수행 합니다.
 
-1. 다운로드는 [App Service 설치 관리자](https://aka.ms/appsvcupdate4installer)
+1. 다운로드는 [App Service 설치 관리자](https://aka.ms/appsvcupdate5installer)
 
 2. Appservice.exe 관리자 권한으로 실행
 
@@ -72,13 +72,13 @@ Azure Stack에서 App Service의 배포를 업그레이드 하려면 다음이 �
 
    1. 클릭 합니다 **Connect** 단추 옆에 **Azure Stack 구독** 상자입니다.
         * Azure Active Directory (Azure AD)를 사용 하는 경우 Azure AD 관리자 계정 및 Azure Stack을 배포할 때 제공한 암호를 입력 합니다. 클릭 **로그인**합니다.
-        * Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예를 들어 *cloudadmin@azurestack.local*입니다. 암호를 입력 하 고 클릭 **로그인**합니다.
+        * Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예를 들어 *cloudadmin\@azurestack.local*합니다. 암호를 입력 하 고 클릭 **로그인**합니다.
    2. 에 **Azure Stack 구독** 상자를 선택 합니다 **공급자 구독 기본**.
    3. 에 **Azure Stack 위치** 상자에서 배포 하는 지역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure Stack 개발 키트를 배포 합니다.
    4. 기존 App Service 배포 감지 되 면 다음 리소스 그룹 및 저장소 계정은 채울 되며 회색으로 표시 합니다.
    5. 클릭 **다음** 업그레이드 요약을 검토 합니다.
 
-    ![검색 하는 app Service 설치][3]
+      ![검색 하는 app Service 설치][3]
 
 8. 요약 페이지에서
    1. 선택 사항을 확인 합니다. 변경 하려면 사용 합니다 **이전** 이전 페이지를 방문 하는 단추입니다.
