@@ -5,17 +5,17 @@ description: Azure Machine Learning Studio에서 모델을 다시 학습하고 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 4f3ca01ae44900e4d0ce22b79db44d7bfa84e56d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456557"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822022"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>클래식 Studio 웹 서비스 학습 및 배포
 
@@ -23,7 +23,7 @@ ms.locfileid: "56456557"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 이미 다시 학습 실험과 예측 실험이 둘 다 있다고 가정합니다. 이 단계는 [기계 학습 모델 다시 학습 및 배포](retrain-models-programmatically.md)에서 설명합니다. 그러나 기계 학습 모델을 새로운 웹 서비스로 배포하는 대신, 예측 실험을 클래식 웹 서비스로 배포하겠습니다.
+이 문서에서는 이미 다시 학습 실험과 예측 실험이 둘 다 있다고 가정합니다. 이 단계는 [기계 학습 모델 다시 학습 및 배포](/azure/machine-learning/studio/retrain-machine-learning-model)에서 설명합니다. 그러나 기계 학습 모델을 새로운 웹 서비스로 배포하는 대신, 예측 실험을 클래식 웹 서비스로 배포하겠습니다.
      
 ## <a name="add-a-new-endpoint"></a>새 엔드포인트 추가
 
@@ -60,7 +60,7 @@ ms.locfileid: "56456557"
 1. [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) 샘플 코드를 실행합니다.
 1. AddEndpoint의 출력에서 *HelpLocation* 값을 찾아 URL을 복사합니다.
 
-   ![addEndpoint 샘플의 출력에 있는 HelpLocation.](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
+   ![addEndpoint 샘플의 출력에 있는 HelpLocation.](./media/retrain-classic/addEndpoint-output.png)
 1. 웹 서비스에 대한 도움말 링크를 제공하는 페이지로 이동하려면 브라우저에 URL을 붙여 넣습니다.
 1. **리소스 업데이트** 링크를 클릭하여 패치 도움말 페이지를 엽니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "56456557"
 
 PATCH 도움말 페이지에는 사용해야 하는 PATCH URL이 들어 있으며 호출하는 데 사용할 수 있는 샘플 코드가 제공됩니다.
 
-![패치 URL.](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
+![패치 URL.](./media/retrain-classic/ml-help-page-patch-url.png)
 
 ### <a name="update-the-endpoint"></a>엔드포인트 업데이트
 
@@ -147,5 +147,5 @@ PATCH 도움말 페이지에는 사용해야 하는 PATCH URL이 들어 있으�
 
 웹 서비스를 관리하거나 여러 실험 실행을 추적하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [웹 서비스 포털 검색](manage-new-webservice.md)
+* [웹 서비스 포털 살펴보기](manage-new-webservice.md)
 * [실험 반복 관리](manage-experiment-iterations.md)

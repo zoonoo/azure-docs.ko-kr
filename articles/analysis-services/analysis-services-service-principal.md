@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 47800ce467beb43c514e5e5474247d8c2029feff
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: d87fe608b92dd70cb2dee78c817e0055445b7c70
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188235"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732526"
 ---
 # <a name="automation-with-service-principals"></a>서비스 사용자를 사용한 자동화
 
@@ -45,7 +45,9 @@ UPN과 거의 동일하게 서비스 사용자 appID 및 암호 또는 인증서
 
 ### <a name="powershell"></a>PowerShell
 
-[AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) 모듈이 있는 리소스 관리 작업에 서비스 사용자를 사용하는 경우 `Login-AzureRmAccount` cmdlet을 사용합니다. [SQLServer](https://www.powershellgallery.com/packages/SqlServer) 모듈이 있는 서버 작업에 서비스 사용자를 사용하는 경우 `Add-AzureAnalysisServicesAccount` cmdlet을 사용합니다. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+리소스 관리 작업에 대 한 서비스 주체를 사용 하는 경우는 [Az.AnalysisServices](/powershell/module/az.analysisservices) 모듈을 사용 하 여 `Connect-AzAccount` cmdlet. [SQLServer](https://www.powershellgallery.com/packages/SqlServer) 모듈이 있는 서버 작업에 서비스 사용자를 사용하는 경우 `Add-AzAnalysisServicesAccount` cmdlet을 사용합니다. 
 
 다음 예제에서는 appID 및 암호가 모델 데이터베이스 새로 고침 작업을 수행하는 데 사용됩니다.
 
@@ -60,7 +62,7 @@ $PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
 
 $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
 
-Add-AzureAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "westcentralus.asazure.windows.net"
+Add-AzAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "westcentralus.asazure.windows.net"
 
 Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserver" -TableName "MyTable" -Database "MyDb" -RefreshType "Full"
 ```

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0a85c5e90be465b324248f961fd297b15c008d02
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 17753ba374475c19fee1a213654caf4a624088f8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075872"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669910"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
 
@@ -28,6 +28,7 @@ ms.locfileid: "53075872"
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -59,16 +60,16 @@ Azure PowerShell 모듈의 최신 프로덕션 버전이 있는지 확인합니�
 
 Azure Resource Manager용 PowerShell 모듈을 시작합니다.
 
-```powershell
-Connect-AzureRmAccount
+```azurepowershell-interactive
+Connect-AzAccount
 ```
 
 ### <a name="step-2-view-your-subscriptions"></a>2단계: 구독 보기
 
 사용 가능한 Azure 구독을 확인합니다.
 
-```powershell
-Get-AzureRmSubscription
+```azurepowershell-interactive
+Get-AzSubscription
 ```
 
 인증을 위한 메시지가 표시되면 자격 증명을 입력합니다.
@@ -77,16 +78,16 @@ Get-AzureRmSubscription
 
 부하 분산 장치를 배포하는 데 사용할 Azure 구독을 선택합니다.
 
-```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+```azurepowershell-interactive
+Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### <a name="step-4-choose-the-resource-group-for-the-load-balancer"></a>4단계: 부하 분산 장치에 대한 리소스 그룹 선택
 
 부하 분산 장치에 대한 새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뜁니다.
 
-```powershell
-New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+```azurepowershell-interactive
+New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
 Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 위치는 리소스 그룹의 모든 리소스에 대한 기본 위치로 사용됩니다. 부하 분산 장치 생성과 관련된 모든 명령에 항상 동일한 리소스 그룹을 사용하십시오.
@@ -97,14 +98,14 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 가상 네트워크의 서브넷을 만들어서 **$backendSubnet** 변수에 할당합니다.
 
-```powershell
-$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
+```azurepowershell-interactive
+$backendSubnet = New-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 ```
 
 가상 네트워크를 만듭니다.
 
-```powershell
-$vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
+```azurepowershell-interactive
+$vnet= New-AzVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 ```
 
 가상 네트워크가 생성됩니다. **LB-Subnet-BE** 서브넷이 **NRPVNet** 가상 네트워크에 추가됩니다. 이러한 값은 **$vnet** 변수에 할당됩니다.
@@ -117,8 +118,8 @@ $vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Locati
 
 서브넷 10.0.2.0/24에 대한 개인 IP 주소 10.0.2.5로 프런트 엔드 IP 풀을 만듭니다. 이 주소는 들어오는 네트워크 트래픽 엔드포인트입니다.
 
-```powershell
-$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
+```azurepowershell-interactive
+$frontendIP = New-AzLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 ```
 
 ### <a name="step-2-create-a-back-end-address-pool"></a>2단계: 백 엔드 주소 풀 만들기
@@ -126,7 +127,7 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -Private
 프런트 엔드 IP 풀에서 들어오는 트래픽을 수신할 백 엔드 주소 풀을 만듭니다.
 
 ```powershell
-$beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
+$beaddresspool= New-AzLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 ```
 
 ## <a name="create-the-configuration-rules-probe-and-load-balancer"></a>구성 규칙, 프로브 및 부하 분산 장치 만들기
@@ -142,22 +143,22 @@ $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backen
 * 상태 프로브 규칙: HealthProbe.aspx 경로의 상태 확인
 * 부하 분산 장치 규칙: 공용 포트 80의 들어오는 모든 트래픽을 백 엔드 주소 풀의 로컬 포트 80으로 부하 분산
 
-```powershell
-$inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
+```azurepowershell-interactive
+$inboundNATRule1= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
 
-$inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
+$inboundNATRule2= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
-$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+$healthProbe = New-AzLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+$lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
 ### <a name="step-2-create-the-load-balancer"></a>2단계: 부하 분산 장치 만들기
 
 부하 분산 장치를 만들고 개체 규칙(RDP, 부하 분산 장치 및 상태 프로브에 대한 인바운드 NAT)을 결합합니다.
 
-```powershell
-$NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
+```azurepowershell-interactive
+$NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 ```
 
 ## <a name="create-the-network-interfaces"></a>네트워크 인터페이스 만들기
@@ -168,24 +169,24 @@ $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Loc
 
 리소스 가상 네트워크 및 서브넷을 가져옵니다. 이 값은 네트워크 인터페이스를 만드는 데 사용됩니다.
 
-```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
+```azurepowershell-interactive
+$vnet = Get-AzVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 
-$backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
+$backendSubnet = Get-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
 ```
 
 첫 번째 네트워크 인터페이스를 **lb-nic1-be**라는 이름으로 만듭니다. 부하 분산 장치 백 엔드 풀에 인터페이스를 할당합니다. RDP에 대한 첫 번째 NAT 규칙을 다음 NIC와 연결합니다.
 
-```powershell
-$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
+```azurepowershell-interactive
+$backendnic1= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 ```
 
 ### <a name="step-2-create-the-second-network-interface"></a>2단계: 두 번째 네트워크 인터페이스 만들기
 
 두 번째 네트워크 인터페이스를 **lb-nic2-be**라는 이름으로 만듭니다. 두 번째 인터페이스를 첫 번째 인터페이스와 동일한 부하 분산 장치 백 엔드 풀에 할당합니다. 두 번째 NIC를 RDP의 두 번째 NAT 규칙에 연결합니다.
 
-```powershell
-$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
+```azurepowershell-interactive
+$backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
 구성을 검토합니다.
@@ -197,7 +198,7 @@ $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
     Name                 : lb-nic1-be
     ResourceGroupName    : NRP-RG
     Location             : westus
-    Id                   : /subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
+    Id                   : /subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
     Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
     ProvisioningState    : Succeeded
     Tags                 :
@@ -207,25 +208,25 @@ $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
                            "PrivateIpAddress": "10.0.2.6",
                            "PrivateIpAllocationMethod": "Static",
                            "Subnet": {
-                             "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
+                             "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
                            },
                            "PublicIpAddress": {
                              "Id": null
                            },
                            "LoadBalancerBackendAddressPools": [
                              {
-                               "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
+                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
                              }
                            ],
                            "LoadBalancerInboundNatRules": [
                              {
-                               "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
+                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
                              }
                            ],
                            "ProvisioningState": "Succeeded",
                            "Name": "ipconfig1",
                            "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
-                           "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
                          }
                        ]
     DnsSettings          : {
@@ -240,7 +241,7 @@ $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
 
 ### <a name="step-3-assign-the-nic-to-a-vm"></a>3단계: NIC를 VM에 할당
 
-`Add-AzureRmVMNetworkInterface`명령을 사용하여 NIC를 가상 머신에 할당합니다.
+`Add-AzVMNetworkInterface`명령을 사용하여 NIC를 가상 머신에 할당합니다.
 
 가상 컴퓨터를 만들고 NIC를 할당하는 단계별 지침은 [PowerShell을 사용하여 Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)를 참조하세요.
 
@@ -252,31 +253,31 @@ $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
 
 부하 분산 장치 리소스를 변수로 저장(아직 수행하지 않은 경우)합니다. **$lb**를 변수 이름으로 사용합니다. 스크립트의 특성 값에 대해 이전 단계에서 만든 부하 분산 장치 리소스의 이름을 사용합니다.
 
-```powershell
-$lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
+```azurepowershell-interactive
+$lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 ```
 
 ### <a name="step-2-store-the-back-end-configuration"></a>2단계: 백 엔드 구성 저장
 
 백 엔드 구성을 **$backend** 변수에 저장합니다.
 
-```powershell
-$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
+```azurepowershell-interactive
+$backend = Get-AzLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
 ```
 
 ### <a name="step-3-store-the-network-interface"></a>3단계: 네트워크 인터페이스 저장
 
 네트워크 인터페이스를 다른 변수에 저장합니다. 이 인터페이스는 "1단계, 네트워크 인터페이스 만들기"에서 만들었습니다. **$nic1**을 변수 이름으로 사용합니다. 이전 예제와 동일한 네트워크 인터페이스 이름을 사용합니다.
 
-```powershell
-$nic = Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
+```azurepowershell-interactive
+$nic = Get-AzNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 ```
 
 ### <a name="step-4-change-the-back-end-configuration"></a>4단계: 백 엔드 구성 변경
 
 네트워크 인터페이스에서 백 엔드 구성을 변경합니다.
 
-```powershell
+```azurepowershell-interactive
 $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 ```
 
@@ -284,8 +285,8 @@ $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 네트워크 인터페이스 개체를 저장합니다.
 
-```powershell
-Set-AzureRmNetworkInterface -NetworkInterface $nic
+```azurepowershell-interactive
+Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
 인터페이스가 백 엔드 풀에 추가된 후 네트워크 트래픽은 규칙에 따라 부하가 분산됩니다. 이 규칙은 “구성 규칙, 프로브 및 부하 분산 장치 만들기”에서 구성했습니다.
@@ -294,34 +295,34 @@ Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 ### <a name="step-1-assign-the-load-balancer-object-to-a-variable"></a>1단계: 부하 분산 장치 개체를 변수에 할당
 
-`Get-AzureRmLoadBalancer` 명령을 사용하여 부하 분산 장치 개체(이전 예제의)를 **$slb** 변수에 할당합니다.
+`Get-AzLoadBalancer` 명령을 사용하여 부하 분산 장치 개체(이전 예제의)를 **$slb** 변수에 할당합니다.
 
-```powershell
-$slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+```azurepowershell-interactive
+$slb = Get-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 ### <a name="step-2-add-a-nat-rule"></a>2단계: NAT 규칙 추가
 
 새 인바운드 NAT 규칙을 기존 부하 분산 장치에 추가합니다. 프런트 엔드 풀에는 포트 81을 사용하고 백 엔드 풀에는 포트 8181을 사용합니다.
 
-```powershell
-$slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+```azurepowershell-interactive
+$slb | Add-AzLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 ```
 
 ### <a name="step-3-save-the-configuration"></a>3단계: 구성 저장
 
 `Set-AzureLoadBalancer` 명령을 사용하여 새 구성을 저장합니다.
 
-```powershell
-$slb | Set-AzureRmLoadBalancer
+```azurepowershell-interactive
+$slb | Set-AzLoadBalancer
 ```
 
 ## <a name="remove-an-existing-load-balancer"></a>기존 부하 분산 장치 제거
 
-`Remove-AzureRmLoadBalancer` 명령을 사용하여 **NRP-RG** 리소스 그룹에서 **NRP-LB** 부하 분산 장치를 삭제합니다.
+`Remove-AzLoadBalancer` 명령을 사용하여 **NRP-RG** 리소스 그룹에서 **NRP-LB** 부하 분산 장치를 삭제합니다.
 
-```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+```azurepowershell-interactive
+Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]

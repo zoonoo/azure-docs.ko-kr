@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f37e1ed2c7dd720e4a77076c8587fdf540b29ca5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: d791148e6ee023239b0a6bf49c705c2da4eea9a2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713955"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881875"
 ---
 # <a name="service-fabric-programming-model-overview"></a>서비스 패브릭 프로그래밍 모델 개요
 Service Fabric은 서비스의 작성 및 관리를 위한 여러 방법을 제공합니다. 서비스는 플랫폼의 기능과 애플리케이션 프레임워크를 최대한 활용하기 위해 Service Fabric API를 사용할 수 있습니다. 서비스는 Service Fabric 클러스터에서 호스트되는 컨테이너에서 실행 중인 모든 언어 또는 코드로 작성된 컴파일된 실행 프로그램일 수도 있습니다.
 
 ## <a name="guest-executables"></a>게스트 실행 파일
-[게스트 실행 파일](service-fabric-guest-executables-introduction.md)은 응용 프로그램에서 서비스로 실행될 수 있는 임의의 기존 실행 파일(작성 언어는 관계없음)입니다. 게스트 실행 파일은 Service Fabric SDK API를 직접 호출하지 않습니다. 그러나 Service Fabric에서 노출하는 REST API를 호출하여 서비스 검색 가능성, 사용자 지정 상태 및 로드 보고와 같이 플랫폼에서 제공하는 기능을 계속 활용합니다. 또한 전체 애플리케이션 수명 주기 지원도 포함합니다.
+[게스트 실행 파일](service-fabric-guest-executables-introduction.md)은 애플리케이션에서 서비스로 실행될 수 있는 임의의 기존 실행 파일(작성 언어는 관계없음)입니다. 게스트 실행 파일은 Service Fabric SDK API를 직접 호출하지 않습니다. 그러나 Service Fabric에서 노출하는 REST API를 호출하여 서비스 검색 가능성, 사용자 지정 상태 및 로드 보고와 같이 플랫폼에서 제공하는 기능을 계속 활용합니다. 또한 전체 애플리케이션 수명 주기 지원도 포함합니다.
 
 첫 번째 [게스트 실행 파일 애플리케이션](service-fabric-deploy-existing-app.md)을 배포하여 게스트 실행 파일을 시작합니다.
 
@@ -46,7 +46,7 @@ Reliable Services는 서비스 패브릭 단독으로 상태를 저장할 수도
 ## <a name="aspnet-core"></a>ASP.NET Core
 ASP.NET Core는 웹앱, IoT 앱 및 모바일 백 엔드와 같은 최신 클라우드 기반의 인터넷 연결 애플리케이션을 빌드하기 위한 새로운 오픈 소스 겸 플랫폼 간 프레임워크입니다. Service Fabric은 ASP.NET Core와 통합되므로 신뢰할 수 있는 컬렉션 및 Service Fabric의 고급 오케스트레이션 기능을 활용하는 상태 비저장 및 상태 저장 ASP.NET Core 애플리케이션을 작성할 수 있습니다.
 
-[첫 번째 ASP.NET Core Service Fabric 응용 프로그램을 작성](service-fabric-tutorial-create-dotnet-app.md)하여 [Service Fabric의 ASP.NET Core에 대해 자세히 알아보세요](service-fabric-reliable-services-communication-aspnetcore.md).
+[첫 번째 ASP.NET Core Service Fabric 애플리케이션을 작성](service-fabric-tutorial-create-dotnet-app.md)하여 [Service Fabric의 ASP.NET Core에 대해 자세히 알아보세요](service-fabric-reliable-services-communication-aspnetcore.md).
 
 ## <a name="reliable-actors"></a>Reliable Actors
 Reliable Services의 최상위에 구축되는 Reliable Actor 프레임워크는 행위자 설계 패턴을 기준으로 가상 행위자 패턴을 구현하는 애플리케이션 프레임워크입니다. Reliable Actor 프레임워크는 행위자라고 하는 단일 스레드 실행을 통해 독립적인 계산 단위 및 상태를 사용합니다. Reliable Actor 프레임워크는 행위자와 사전 설정 상태 지속성 및 확장 구성에 대해 기본 포함된 통신을 제공합니다.
@@ -65,7 +65,7 @@ Reliable Actors 자체는 Reliable Services에 구축된 애플리케이션 프�
 
 [Reliable Actors 개요](service-fabric-reliable-actors-introduction.md)
 
-[Service Fabric 및 ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
+[Service Fabric 및 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 
 

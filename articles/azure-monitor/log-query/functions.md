@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 6c6bd31961022957ec1a09fef6058ad32476e1c7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 7eb5f090026b415e3c980116a9317594f4ca8115
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005100"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750772"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 함수 사용
 
@@ -32,11 +32,11 @@ ms.locfileid: "56005100"
 
 ## <a name="create-a-function"></a>함수 만들기
 
-**저장**을 클릭한 후 다음 표의 정보를 지정하여 Azure Portal에서 Log Analytics에 함수를 만듭니다.
+클릭 하 여 Azure portal에서 Log Analytics를 사용 하 여 함수를 만듭니다 **저장할** 후 다음 표의 정보를 제공 합니다.
 
 | 설정 | 설명 |
 |:---|:---|
-| Name           | **쿼리 탐색기**에 나타나는 쿼리의 표시 이름입니다. |
+| 이름           | **쿼리 탐색기**에 나타나는 쿼리의 표시 이름입니다. |
 | 다른 이름으로 저장        | 함수 |
 | 함수 별칭 | 다른 쿼리에서 함수를 사용하기 위한 약식 이름입니다. 공백을 포함할 수 없으며 고유해야 합니다. |
 | Category       | **쿼리 탐색기**에서 저장된 쿼리 및 함수를 구성하는 범주입니다. |

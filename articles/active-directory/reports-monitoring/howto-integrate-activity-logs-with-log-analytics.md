@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e9c1b2513f769b065883dc98b649a68d565ccc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 7d8259cdb61d2481805dd2e07c11b539e057215c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456489"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817068"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Azure Monitor 로그(미리 보기)와 Azure AD 로그 통합
 
@@ -37,6 +37,8 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
 이 문서에서는 Azure Monitor와 Azure AD(Azure Active Directory) 로그를 통합하는 방법을 알아봅니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="supported-reports"></a>지원되는 보고서
 

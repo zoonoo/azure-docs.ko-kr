@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269859"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871641"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리 시작
 
 
 > [!NOTE]
-> 이 자습서를 완료하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md)을 완료해야 합니다.
+> 완료 해야 [Azure Monitor Log Analytics를 사용 하 여 시작](get-started-portal.md) 이 자습서를 완료 하기 전에 합니다.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-이 자습서에서는 Azure Monitor 로그 쿼리를 작성하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
+이 자습서는 Azure Monitor 로그 쿼리를 작성 하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
 - 쿼리의 구조 이해
 - 쿼리 결과 정렬

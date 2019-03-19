@@ -8,18 +8,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 2adb23b63c3a8be56dc55293c7bb06534d9305c4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242110"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750585"
 ---
 # <a name="get-started-with-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics 시작
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-이 자습서에서는 Azure Portal에서 Azure Monitor Log Analytics를 사용하여 Azure Monitor 로그 쿼리를 작성하는 방법을 알아봅니다. 다음을 수행하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure portal에서 Azure Monitor Log Analytics를 사용 하 여 Azure Monitor 로그 쿼리를 작성 하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
 - 단순 쿼리 작성
 - 데이터의 스키마 이해
@@ -30,8 +30,8 @@ ms.locfileid: "56242110"
 - 쿼리 내보내기 및 공유
 
 
-## <a name="meet-log-analytics"></a>로그 분석 살펴보기
-Log Analytics는 Azure Monitor 로그 쿼리를 작성하고 실행하는 데 사용되는 웹 도구입니다. Azure Monitor 메뉴에서 **로그**를 클릭하여 Log Analytics를 엽니다. 비어 있는 새 쿼리로 시작합니다.
+## <a name="meet-log-analytics"></a>Log Analytics를 충족 합니다.
+Log Analytics는 웹 도구 작성 및 Azure Monitor 로그 쿼리를 실행 하는 데 사용 합니다. Azure Monitor 메뉴에서 **로그**를 클릭하여 Log Analytics를 엽니다. 비어 있는 새 쿼리로 시작합니다.
 
 ![홈 페이지](media/get-started-portal/homepage.png)
 
@@ -78,7 +78,7 @@ search in (Event) "error"
 Event
 ```
 
-Log Analytics는 다음을 기준으로 결과의 범위를 자동으로 정합니다.
+Log Analytics를 기준으로 결과 자동으로 범위:
 
 - 시간 범위:  기본적으로 쿼리는 지난 24시간으로 제한됩니다.
 - 결과 수: 결과는 최대 10,000개 레코드로 제한됩니다.
@@ -116,7 +116,7 @@ Log Analytics는 다음을 기준으로 결과의 범위를 자동으로 정합�
 
 
 ## <a name="select-a-time-range"></a>시간 범위 선택
-기본적으로 Log Analytics는 _지난 24시간_ 시간 범위를 적용합니다. 다른 범위를 사용하려면 시간 선택기를 통해 다른 값을 선택하고 **실행**을 클릭합니다. 미리 설정된 값 외에도 쿼리에 대한 절대 범위를 선택하는 _사용자 지정 시간 범위_ 옵션을 사용할 수 있습니다.
+기본적으로 Log Analytics를 적용 합니다 _지난 24 시간 동안_ 시간 범위입니다. 다른 범위를 사용하려면 시간 선택기를 통해 다른 값을 선택하고 **실행**을 클릭합니다. 미리 설정된 값 외에도 쿼리에 대한 절대 범위를 선택하는 _사용자 지정 시간 범위_ 옵션을 사용할 수 있습니다.
 
 ![시간 선택기](media/get-started-portal/time-picker.png)
 
@@ -178,7 +178,7 @@ Log Analytics 쿼리는 항상 선택한 작업 영역에 저장되고 해당 �
 ![쿼리 탐색기](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>링크로 내보내기 및 공유
-Log Analytics는 여러 내보내기 메서드를 지원합니다.
+Log Analytics에는 여러 내보내기 방법을 지원합니다.
 
 - Excel: 결과를 CSV 파일로 저장합니다.
 - Power BI: Power BI로 결과를 내보냅니다. 자세한 내용은 [Azure Monitor 로그 데이터를 Power BI로 가져오기](../../azure-monitor/platform/powerbi.md)를 참조하세요.

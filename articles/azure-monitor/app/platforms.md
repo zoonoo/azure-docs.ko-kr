@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 2a40249dc347b8ebac905c5e9b6557e6f00f238f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 5a7fbeafe74926c7d89ac76dc2964756b3582d61
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299448"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671151"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
 이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 의 구현입니다.
@@ -52,7 +52,6 @@ ms.locfileid: "56299448"
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)(App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
-* [Java EE - 이미 운영 중인 앱용](../../azure-monitor/app/java-live.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [안전 스택](https://safe-stack.github.io/docs/template-azure-ai/)

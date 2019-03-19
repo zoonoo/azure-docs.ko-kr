@@ -3,7 +3,7 @@ title: TLS 상호 인증 구성 - Azure App Service
 description: TLS에서 클라이언트 인증서 인증을 사용하도록 앱을 구성하는 방법을 알아봅니다.
 services: app-service
 documentationcenter: ''
-author: naziml
+author: cephalin
 manager: erikre
 editor: jimbe
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
@@ -12,54 +12,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
-ms.author: naziml
+ms.date: 02/22/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d441329bc3f279e95b2ee302db53d78f786c3470
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 5702362add6a50f2f4525afbd3649f083f34b6fc
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650400"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671967"
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대한 TLS 상호 인증을 구성하는 방법
-## <a name="overview"></a>개요
-다양한 유형의 인증을 사용하여 Azure App Service 앱에 대한 액세스를 제한할 수 있습니다. 이렇게 하는 한 가지 방법은 TLS/SSL을 통해 요청되면 클라이언트 인증서를 사용하여 인증하는 것입니다. 이 메커니즘을 TLS 상호 인증 또는 클라이언트 인증서 인증이라고 하며, 이 문서에서는 클라이언트 인증서 인증을 사용하도록 앱을 설정하는 방법을 자세히 설명합니다.
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대 한 TLS 상호 인증 구성
 
-> **참고:** HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 애플리케이션에 클라이언트 인증서가 필요한 경우 HTTP를 통한 애플리케이션 요청을 허용해서는 안 됩니다.
-> 
-> 
+다양한 유형의 인증을 사용하여 Azure App Service 앱에 대한 액세스를 제한할 수 있습니다. 작업을 수행 하는 한 가지 방법은 TLS/SSL을 통해 클라이언트 요청의 경우 클라이언트 인증서를 요청 하 고 인증서의 유효성을 검사 하는 경우 이 메커니즘은 TLS 상호 인증 또는 클라이언트 인증서 인증 이라고 합니다. 이 문서에는 클라이언트 인증서 인증을 사용 하도록 앱을 설정 하는 방법을 보여 줍니다.
 
-## <a name="configure-app-service-for-client-certificate-authentication"></a>클라이언트 인증서 인증에 대해 App Service 구성
-클라이언트 인증서를 요구하도록 앱을 설정하려면 앱에 대한 clientCertEnabled 사이트 설정을 추가하고 true로 설정합니다. 이 설정은 Azure Portal의 SSL 인증서 블레이드에서도 구성할 수 있습니다.
+> [!NOTE]
+> HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 응용 프로그램에 클라이언트 인증서가 필요한 경우 허용 하지 않아야 요청 응용 프로그램에 HTTP를 통해.
+>
 
-[ARMClient 도구](https://github.com/projectkudu/ARMClient) 를 사용하여 REST API 호출을 쉽게 만들 수 있습니다. 이 도구를 사용하여 로그인한 후, 다음 명령을 실행해야 합니다.
+## <a name="enable-client-certificates"></a>클라이언트 인증서를 사용 하도록 설정
 
-    ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
+을 설정 하려면 앱 클라이언트 인증서를 요구 하도록 설정 해야 합니다 `clientCertEnabled` 앱 설정 `true`합니다. 설정의 설정 하려면에서 다음 명령을 실행 합니다 [Cloud Shell](https://shell.azure.com)합니다.
 
-{}의 모든 항목을 앱에 대한 정보로 대체하고 다음과 같은 JSON 콘텐츠로 enableclientcert.json이라는 파일을 만듭니다.
+```azurecli-interactive
+az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
+```
 
-    {
-        "location": "My App Location",
-        "properties": {
-            "clientCertEnabled": true
-        }
-    }
+## <a name="access-client-certificate"></a>액세스 클라이언트 인증서
 
-앱이 있는 위치(예: 미국 중북부 또는 미국 서부 등)로 “location” 값을 변경해야 합니다.
+App Service에서 SSL 종료 요청의 프런트 엔드 부하 분산 장치에서 발생합니다. 요청을 사용 하 여 앱 코드를 전달할 때 [사용 하도록 설정 하는 클라이언트 인증서](#enable-client-certificates)를 삽입 하는 App Service는 `X-ARR-ClientCert` 클라이언트 인증서를 사용 하 여 요청 헤더입니다. App Service 앱에 전달 이외의이 클라이언트 인증서를 사용 하 여 아무 것도 수행 하지 않습니다. 앱 코드는 클라이언트 인증서의 유효성을 검사 하는 일을 담당 합니다.
 
-https://resources.azure.com을 사용하여 `clientCertEnabled` 속성을 `true`로 전환할 수도 있습니다.
+ASP.NET에 대 한 클라이언트 인증서가를 통해 사용할 수는 **HttpRequest.ClientCertificate** 속성입니다.
 
-> **참고:** Powershell에서 ARMClient를 실행하는 경우 역 틱(`)을 사용하여 JSON 파일에 대한 \@ 기호를 이스케이프해야 합니다.
-> 
-> 
+다른 응용 프로그램 스택 (Node.js, PHP 등)에 대 한 클라이언트 인증서에서 base64로 인코딩된 값을 통해 앱에서 사용할 수 있는를 `X-ARR-ClientCert` 요청 헤더입니다.
 
-## <a name="accessing-the-client-certificate-from-app-service"></a>App Service에서 클라이언트 인증서 액세스
-ASP.NET을 사용할 때 클라이언트 인증서 인증을 사용하도록 앱을 구성한 경우 **HttpRequest.ClientCertificate** 속성을 통해 인증서를 사용할 수 있습니다. 다른 애플리케이션 스택의 경우 "X-ARR-ClientCert" 요청 헤더의 base64로 인코딩된 값을 통해 앱에서 클라이언트 인증서를 사용할 수 있습니다. 애플리케이션은 이 값으로부터 인증서를 생성하고, 애플리케이션에서 인증 및 권한 부여 목적으로 사용할 수 있습니다.
+## <a name="aspnet-sample"></a>ASP.NET 샘플
 
-## <a name="special-considerations-for-certificate-validation"></a>인증서 유효성 검사에 대한 특별 고려 사항
-애플리케이션으로 전송된 클라이언트 인증서는 Azure App Service 플랫폼에서 유효성이 검사되지 않습니다. 이 인증서의 유효성을 검사하는 것은 앱의 책임입니다. 인증을 위해 인증서 속성의 유효성을 검사하는 샘플 ASP.NET 코드는 다음과 같습니다.
-
+```csharp
     using System;
     using System.Collections.Specialized;
     using System.Security.Cryptography.X509Certificates;
@@ -175,22 +164,53 @@ ASP.NET을 사용할 때 클라이언트 인증서 인증을 사용하도록 앱
                 // 4. Check thumprint of certificate
                 if (String.Compare(certificate.Thumbprint.Trim().ToUpper(), "30757A2E831977D8BD9C8496E4C99AB26CB9622B") != 0) return false;
 
-                // If you also want to test if the certificate chains to a Trusted Root Authority you can uncomment the code below
-                //
-                //X509Chain certChain = new X509Chain();
-                //certChain.Build(certificate);
-                //bool isValidCertChain = true;
-                //foreach (X509ChainElement chElement in certChain.ChainElements)
-                //{
-                //    if (!chElement.Certificate.Verify())
-                //    {
-                //        isValidCertChain = false;
-                //        break;
-                //    }
-                //}
-                //if (!isValidCertChain) return false;
-
                 return true;
             }
         }
     }
+```
+
+## <a name="nodejs-sample"></a>Node.js 샘플
+
+다음 Node.js 샘플 코드를 가져옵니다 합니다 `X-ARR-ClientCert` 사용 하 여 헤더 [노드 위조](https://github.com/digitalbazaar/forge) 인증서를 base64로 인코딩된 PEM 문자열로 변환 하 고 유효성을 검사 하려면:
+
+```javascript
+import { NextFunction, Request, Response } from 'express';
+import { pki, md, asn1 } from 'node-forge';
+
+export class AuthorizationHandler {
+    public static authorizeClientCertificate(req: Request, res: Response, next: NextFunction): void {
+        try {
+            // Get header
+            const header = req.get('X-ARR-ClientCert');
+            if (!header) throw new Error('UNAUTHORIZED');
+
+            // Convert from PEM to pki.CERT
+            const pem = `-----BEGIN CERTIFICATE-----${header}-----END CERTIFICATE-----`;
+            const incomingCert: pki.Certificate = pki.certificateFromPem(pem);
+
+            // Validate certificate thumbprint
+            const fingerPrint = md.sha1.create().update(asn1.toDer((pki as any).certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
+            if (fingerPrint.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            // Validate time validity
+            const currentDate = new Date();
+            if (currentDate < incomingCert.validity.notBefore || currentDate > incomingCert.validity.notAfter) throw new Error('UNAUTHORIZED');
+
+            // Validate issuer
+            if (incomingCert.issuer.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            // Validate subject
+            if (incomingCert.subject.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            next();
+        } catch (e) {
+            if (e instanceof Error && e.message === 'UNAUTHORIZED') {
+                res.status(401).send();
+            } else {
+                next(e);
+            }
+        }
+    }
+}
+```

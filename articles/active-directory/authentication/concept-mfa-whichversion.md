@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fb7785487fc79daca56e35ce0c6a19efd5b0605
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: edfc26355933db549b735c4baf9744744f46734c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195756"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870476"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>우리 조직에 적합한 Azure MFA 버전은 무엇입니까?
 
@@ -38,7 +38,7 @@ MFA(Multi-Factor Authentication)를 어디에 어떻게 배포할 것인지 결�
 | 앱 갤러리의 SaaS 앱 |● |  |
 | Azure AD 앱 프록시를 통해 웹 애플리케이션 게시됨 |● |  |
 | Azure AD 애플리케이션 프록시를 통해 IIS 애플리케이션 게시되지 않음 | |● |
-| VPN, RDG와 같은 원격 액세스 | ● | ● |
+| 예: VPN, RDG NPS 확장 또는 기존 NPS 서버를 사용 하 여 원격 액세스 | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>사용자는 어디에 있습니까
 

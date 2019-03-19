@@ -11,20 +11,20 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 02/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 5fd5d551290c113e9001328562fd99282548ce3c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7032fabd022b55bc8946a48568bbd799d4a0a5e9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464299"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731381"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 성능을 차트로 표시하는 방법
-VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확인하기 위한 여러 가지 KPI(핵심 성과 지표)를 대상으로 하는 성능 차트 집합을 포함하고 있습니다. 이러한 차트는 시간에 따른 리소스 사용률을 표시하므로 병목 상태 및 이상 현상을 식별하거나 각 머신을 나열하는 큐브 뷰로 전환하여 선택한 메트릭을 기반으로 리소스 사용률을 볼 수 있습니다. 성능을 다룰 때 고려해야 하는 여러 요소가 있지만, VM용 Azure Monitor는 프로세서, 메모리, 네트워크 어댑터 및 디스크를 통해 표시되는 운영 체제에 집중합니다. 성능은 상태 모니터링 기능을 보완하며 시스템 구성 요소 오류를 나타내는 문제를 공개하고, 효율성 향상을 위한 튜닝 및 최적화를 지원하고, 용량 계획을 지원하는 데 도움이 됩니다.  
+VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확인하기 위한 여러 가지 KPI(핵심 성과 지표)를 대상으로 하는 성능 차트 집합을 포함하고 있습니다. 이러한 차트는 시간에 따른 리소스 사용률을 표시하므로 병목 상태 및 이상 현상을 식별하거나 각 머신을 나열하는 큐브 뷰로 전환하여 선택한 메트릭을 기반으로 리소스 사용률을 볼 수 있습니다. 성능을 다룰 때 고려해 야 할 다양 한 요소 있기는 Vm 모니터 핵심 운영 체제 성능 표시기에 대 한 Azure Monitor 프로세서, 메모리, 네트워크 어댑터 및 디스크 사용률과 관련이 있습니다. 성능은 상태 모니터링 기능을 보완하며 시스템 구성 요소 오류를 나타내는 문제를 공개하고, 효율성 향상을 위한 튜닝 및 최적화를 지원하고, 용량 계획을 지원하는 데 도움이 됩니다.  
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Azure Monitor의 다중 VM 관점
-Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 배포된 모든 모니터링되는 다중 가상 머신 보기를 제공합니다.  Azure Monitor에서 액세스하려면 다음 단계를 수행합니다. 
+Azure Monitor에서 성능 기능 작업 그룹 환경에서 또는 구독에 배포 된 모든 모니터링 된 Vm의 보기를 제공 합니다. Azure Monitor에서 액세스하려면 다음 단계를 수행합니다. 
 
 1. Azure Portal에서 **모니터**를 선택합니다. 
 2. **솔루션** 섹션에서 **Virtual Machines(미리 보기)** 를 선택합니다.
@@ -32,7 +32,7 @@ Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 �
 
 ![VM 인사이트 성능 상위 N개 목록 보기](./media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-**상위 N개 차트** 탭에서 둘 이상의 Log Analytics 작업 영역이 경우 페이지 위쪽의 **작업 영역** 선택기에서 솔루션에서 사용할 수 있도록 설정된 작업 영역을 선택합니다. **그룹** 선택기에서 이 페이지의 차트 및 다른 페이지에 표시되는 결과를 더 자세히 필터링하는 데 사용할 수 있는 선택한 작업 영역과 관련된 컴퓨터의 구독, 리소스 그룹, [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md) 및 가상 머신 확장 집합을 반환합니다. 선택 항목은 성능 기능에만 적용되며 상태 또는 맵으로 전달되지 않습니다.  
+**상위 N개 차트** 탭에서 둘 이상의 Log Analytics 작업 영역이 경우 페이지 위쪽의 **작업 영역** 선택기에서 솔루션에서 사용할 수 있도록 설정된 작업 영역을 선택합니다. **그룹** 선택기에서 이 페이지의 차트 및 다른 페이지에 표시되는 결과를 더 자세히 필터링하는 데 사용할 수 있는 선택한 작업 영역과 관련된 컴퓨터의 구독, 리소스 그룹, [컴퓨터 그룹](../platform/computer-groups.md) 및 가상 머신 확장 집합을 반환합니다. 선택 항목은 성능 기능에만 적용되며 상태 또는 맵으로 전달되지 않습니다.  
 
 기본적으로 차트는 지난 24시간을 보여줍니다. **TimeRange** 선택기로 최대 30일의 과거 시간 범위를 쿼리하여 과거의 성능을 살펴볼 수 있습니다.   
 
@@ -44,7 +44,9 @@ Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 �
 * 바이트 전송 속도 - 전송된 평균 바이트 수가 가장 높은 상위 5개 머신을 보여줍니다. 
 * 바이트 수신 속도 - 수신한 평균 바이트 수가 가장 높은 상위 5개 머신을 보여줍니다. 
 
-5개 차트 중 아무 차트의 오른쪽 상단 모서리를 클릭하면 **상위 N개 목록** 보기가 열립니다.  여기서 해당 성능 메트릭의 리소스 사용률을 목록 보기의 개별 VM별로 확인하고 어떤 머신이 가장 높은지 볼 수 있습니다.  
+5 개의 차트 중 하나의 오른쪽 위 모서리에서 고정 아이콘을 클릭 선택한 차트를 마지막으로 본 마지막 Azure 대시보드에 고정 합니다.  대시보드에서 크기를 조정할 수 있으며 차트의 위치를 변경할 수 있습니다. 대시보드에서 차트를 선택 하는 Vm에 대 한 Azure Monitor로 리디렉션됩니다 고의 올바른 범위 및 보기를 로드 합니다.  
+
+5 개의 차트 중 하나에서 고정 아이콘의 왼쪽에 있는 아이콘을 클릭 하면 열립니다는 **Top N 목록** 보기.  여기서 해당 성능 메트릭의 리소스 사용률을 목록 보기의 개별 VM별로 확인하고 어떤 머신이 가장 높은지 볼 수 있습니다.  
 
 ![선택한 성능 메트릭에 대한 상위 N개 목록 보기](./media/vminsights-performance/vminsights-performance-topnlist-01.png)
 
@@ -59,7 +61,7 @@ Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 �
 다음 용량 사용률 차트가 제공됩니다.
 
 * CPU 사용률(%) - 기본적으로 평균 및 상위 95번째 백분위수를 표시 
-* 사용 가능한 메모리 - 기본적으로 평균, 상위 5번째 및 10번째 백분위수를 표시 
+* 사용 가능한 메모리-평균, 상위 5 일부 터 및 10 번째 백분위 수를 표시 하는 기본값 
 * 논리 디스크 공간 사용률(%) - 기본적으로 평균 및 95번째 백분위수를 표시 
 * 바이트 전송 속도 - 기본적으로 전송된 평균 바이트 수를 표시 
 * 바이트 수신 속도 - 기본적으로 수신된 평균 바이트 수를 표시
@@ -81,7 +83,7 @@ Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 �
 목록에서 가상 머신을 선택하면 페이지 오른쪽에 **속성** 패널이 열리는데, 여기서 **성능 세부 정보**를 선택할 수 있습니다.  Azure VM에서 VM 인사이트 성능에 직접 액세스할 때의 환경과 마찬가지로, **가상 머신 세부 정보** 페이지가 열리고 범위가 해당 VM으로 지정됩니다.  
 
 ## <a name="view-performance-directly-from-an-azure-vm"></a>Azure VM에서 직접 성능 보기
-가상 머신에서 직접 액세스하려면 다음을 수행합니다.
+에 가상 컴퓨터에서 직접 액세스 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 **Virtual Machines**를 선택합니다. 
 2. 목록에서 VM을 선택하고 **모니터링** 섹션에서 **인사이트(미리 보기)** 를 선택합니다.  
@@ -92,7 +94,7 @@ Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 �
 다음 용량 사용률 차트가 제공됩니다.
 
 * CPU 사용률(%) - 기본적으로 평균 및 상위 95번째 백분위수를 표시 
-* 사용 가능한 메모리 - 기본적으로 평균, 상위 5번째 및 10번째 백분위수를 표시 
+* 사용 가능한 메모리-평균, 상위 5 일부 터 및 10 번째 백분위 수를 표시 하는 기본값 
 * 논리 디스크 공간 사용률(%) - 기본적으로 평균 및 95번째 백분위수를 표시 
 * 논리 디스크 IOPS - 기본적으로 평균 및 95번째 백분위수를 표시
 * 논리 디스크 MB/초 - 기본적으로 평균 및 95번째 백분위수를 표시
@@ -100,14 +102,16 @@ Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 �
 * 바이트 전송 속도 - 기본적으로 전송된 평균 바이트 수를 표시 
 * 바이트 수신 속도 - 기본적으로 수신된 평균 바이트 수를 표시
 
+본 마지막 Azure 대시보드에 차트를 선택한 차트 pin 중 하나의 오른쪽 위 모서리에서 고정 아이콘을 클릭 합니다. 대시보드에서 크기를 조정할 수 있으며 차트의 위치를 변경할 수 있습니다. 대시보드에서 차트를 선택한 Vm에 대 한 Azure Monitor로 이동 하 고 VM에 대 한 성능 자세히 보기를 로드 합니다.  
+
 ![VM 보기에서 직접 VM 인사이트 성능 보기](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
-## <a name="alerts"></a>경고 
-VM에 대한 Azure Monitor의 일부로 사용하도록 설정된 성능 메트릭에는 미리 구성된 경고 규칙이 포함되어 있지 않습니다. Azure VM에서 감지된 성능 문제(예: 높은 CPU 사용률, 사용 가능한 메모리 부족, 디스크 I/O, 디스크 공간 부족 등)에 해당하는 [상태 경고](vminsights-health.md#alerts)가 있지만, 이러한 상태 경고는 VM용 Azure Monitor에 활성화된 것과 동일한 Log Analytics 작업 영역에 연결된 모든 VM에만 적용됩니다. 
+## <a name="alerts"></a>경고  
+VM에 대한 Azure Monitor의 일부로 사용하도록 설정된 성능 메트릭에는 미리 구성된 경고 규칙이 포함되어 있지 않습니다. 가지 [상태 경고](vminsights-health.md#alerts) 등 높은 CPU 사용률, 메모리 부족, 사용 가능한 디스크 공간을 등 Azure VM에서 검색 된 성능 문제에 해당 합니다.  그러나 이러한 상태 경고 Azure Monitor에 대 한 Vm에 대 한 사용 하도록 설정 하는 모든 Vm에만 적용 됩니다. 
 
-그러나 Log Analytics 작업 영역에서 가져온 성능 메트릭의 하위 집합만 수집하고 저장할 수 있습니다. 모니터링 전략에 가상 머신의 용량 또는 상태를 효과적으로 평가하기 위해 다른 성능 메트릭을 포함하는 분석 또는 경고가 필요하거나 고유한 경고 조건 또는 논리를 지정하기 위해 유연성이 필요한 경우 Log Analytics에서 [해당 성능 카운터의 컬렉션](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json)을 구성하고 [로그 경고](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json)를 정의할 수 있습니다. Log Analytics를 사용하여 다른 데이터 형식을 사용하여 복잡한 분석을 수행하고 장기 보존을 제공하여 추세 분석을 지원할 수 있는 반면 메트릭은 가볍고 실시간에 가까운 시나리오를 지원할 수 있습니다. [Azure 진단 에이전트](../../virtual-machines/windows/monitor.md)를 통해 수집되며 Azure Monitor 메트릭 저장소에 저장되어 낮은 대기 시간 및 저렴한 비용으로 경고를 만들 수 있습니다.
+그러나 Log Analytics 작업 영역에서 가져온 성능 메트릭의 하위 집합만 수집하고 저장할 수 있습니다. 모니터링 전략에 가상 머신의 용량 또는 상태를 효과적으로 평가하기 위해 다른 성능 메트릭을 포함하는 분석 또는 경고가 필요하거나 고유한 경고 조건 또는 논리를 지정하기 위해 유연성이 필요한 경우 Log Analytics에서 [해당 성능 카운터의 컬렉션](../platform/data-sources-performance-counters.md)을 구성하고 [로그 경고](../platform/alerts-log.md)를 정의할 수 있습니다. Log Analytics를 사용하여 다른 데이터 형식을 사용하여 복잡한 분석을 수행하고 장기 보존을 제공하여 추세 분석을 지원할 수 있는 반면 메트릭은 가볍고 실시간에 가까운 시나리오를 지원할 수 있습니다. [Azure 진단 에이전트](../../virtual-machines/windows/monitor.md)를 통해 수집되며 Azure Monitor 메트릭 저장소에 저장되어 낮은 대기 시간 및 저렴한 비용으로 경고를 만들 수 있습니다.
 
-이러한 추가 메트릭 및 경고 규칙의 컬렉션을 구성하기 전에 기본적인 차이점 및 기타 고려 사항을 자세히 이해하려면 [Azure Monitor를 사용하여 메트릭 및 로그의 컬렉션](../../azure-monitor/platform/data-collection.md?toc=/azure/azure-monitor/toc.json)의 개요를 검토하세요.  
+이러한 추가 메트릭 및 경고 규칙의 컬렉션을 구성하기 전에 기본적인 차이점 및 기타 고려 사항을 자세히 이해하려면 [Azure Monitor를 사용하여 메트릭 및 로그의 컬렉션](../platform/data-collection.md)의 개요를 검토하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 상태 기능을 사용하는 방법을 알아보려면 [VM용 Azure Monitor 상태 보기](vminsights-health.md)를 참조하고, 검색된 애플리케이션 종속성을 보려면 [VM 맵에 대한 Azure Monitor 보기](vminsights-maps.md)를 참조하세요. 

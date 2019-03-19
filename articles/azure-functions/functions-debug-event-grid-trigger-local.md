@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 7a3468d9a0d128bd51ae742189e60bb8e2af6c0e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50128983"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736501"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Azure Function Event Grid 트리거 로컬 디버깅
 
@@ -62,7 +62,7 @@ ngrok http -host-header=localhost 7071
 
 *ngrok*가 실행될 때 생성된 **HTTPS** URL을 복사합니다. 이 값은 Event Grid 이벤트 엔드포인트를 구성할 때 사용됩니다.
 
- ## <a name="add-a-storage-event"></a>저장소 이벤트 추가
+## <a name="add-a-storage-event"></a>저장소 이벤트 추가
 
 Azure Portal을 열고 저장소 계정으로 이동한 후 **이벤트** 옵션을 클릭합니다.
 
@@ -91,7 +91,7 @@ Azure Portal을 열고 저장소 계정으로 이동한 후 **이벤트** 옵션
 
 이제 로컬 함수에서 처리할 Event Grid 이벤트를 트리거하기 위해 저장소 계정에 파일을 업로드할 수 있습니다. 
 
-[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 열고 저장소 계정에 연결합니다. 
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 열고 스토리지 계정에 연결합니다. 
 
 - **BLOB 컨테이너** 확장 
 - 마우스 오른쪽 단추를 클릭하고 **BLOB 컨테이너 만들기** 선택

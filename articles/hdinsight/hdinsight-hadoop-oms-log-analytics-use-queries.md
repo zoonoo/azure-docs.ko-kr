@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics를 쿼리하여 Azure HDInsight 클러스터 모니터링
-description: Azure Log Analytics에서 쿼리를 실행하여 HDInsight 클러스터에서 실행되는 작업을 모니터링하는 방법을 알아봅니다.
+title: Azure HDInsight 클러스터를 모니터링 하려면 로그 쿼리 Azure 모니터링
+description: HDInsight 클러스터에서 실행 하는 작업을 모니터링 하려면 Azure Monitor 로그 쿼리를 실행 하는 방법을 알아봅니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,26 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
-ms.translationtype: HT
+ms.openlocfilehash: e1187867fc9da9a89f92d7b321c8703ee7a8a407
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386505"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889259"
 ---
-# <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics를 쿼리하여 HDInsight 클러스터 모니터링
+# <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>HDInsight 클러스터를 모니터링 하려면 로그 쿼리 Azure 모니터링
 
-Azure HDInsight 클러스터에서 Azure Log Analytics를 사용하는 방법에 대한 몇 가지 기본적인 시나리오를 살펴봅니다.
+Azure Monitor 로그를 사용 하 여 Azure HDInsight 클러스터를 모니터링 하는 방법에 몇 가지 기본 시나리오에 알아봅니다.
 
 * [HDInsight 클러스터 메트릭 분석](#analyze-hdinsight-cluster-metrics)
 * [특정 로그 메시지 검색](#search-for-specific-log-messages)
 * [이벤트 경고 만들기](#create-alerts-for-tracking-events)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure Log Analytics를 사용하도록 HDInsight 클러스터를 구성하고, HDInsight 클러스터와 관련된 Log Analytics 관리 솔루션이 작업 영역에 추가되어 있어야 합니다. 지침은 [HDInsight 클러스터에서 Azure Log Analytics 사용](hdinsight-hadoop-oms-log-analytics-tutorial.md)을 참조하세요.
+* 있어야 Azure Monitor 로그를 사용 하 여 HDInsight 클러스터를 구성 하 고 HDInsight 클러스터와 관련 Azure Monitor 로그 모니터링 작업 영역에 솔루션을 추가 합니다. 자세한 내용은 [HDInsight 클러스터와 함께 사용 하 여 Azure Monitor 로그](hdinsight-hadoop-oms-log-analytics-tutorial.md)합니다.
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>HDInsight 클러스터 메트릭 분석
 
@@ -34,7 +36,7 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 
 1. Azure Portal에서 HDInsight 클러스터에 연결된 Log Analytics 작업 영역을 엽니다.
 2. **로그 검색** 타일을 선택합니다.
-3. Azure Log Analytics를 사용하도록 구성된 모든 HDInsight 클러스터에 대해 모든 사용 가능한 메트릭을 검색하려면 검색 상자에 다음 쿼리를 입력한 다음, **실행**을 선택합니다.
+3. Azure Monitor 로그를 사용 하 여 선택한 후에 구성 된 모든 HDInsight 클러스터에 대 한 모든 사용 가능한 메트릭에 대 한 모든 메트릭을 검색 하려면 검색 상자에 다음 쿼리를 입력 **실행**합니다.
 
         search *
 
@@ -67,7 +69,7 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 
 1. Azure Portal에서 HDInsight 클러스터에 연결된 Log Analytics 작업 영역을 엽니다.
 2. **로그 검색** 타일을 선택합니다.
-3. Azure Log Analytics를 사용하도록 구성된 모든 HDInsight 클러스터의 모든 오류 메시지를 검색하려면 검색 상자에 다음 쿼리를 입력한 다음, **실행**을 선택합니다. 
+3. 다음 Azure Monitor 로그를 사용 하도록 구성 된 모든 HDInsight 클러스터에 대 한 모든 오류 메시지를 검색할 쿼리를 선택한 형식 **실행**합니다. 
 
          search "Error"
 
@@ -100,7 +102,7 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 
         metrics_resourcemanager_queue_root_default_CL | where AppsFailed_d > 0
 
-    쿼리는 HDInsight 클러스터에서 실행되는 실패한 응용 프로그램의 목록을 제공합니다.
+    쿼리는 HDInsight 클러스터에서 실행되는 실패한 애플리케이션의 목록을 제공합니다.
 
 4. 페이지 맨 위에서 **새 경고 규칙**을 선택합니다.
 
@@ -117,11 +119,11 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 3. 편집하거나 삭제하려는 경고를 선택합니다.
 4. 다음 옵션이 있습니다. **저장**, **취소**, **사용 안 함** 및 **삭제**.
 
-    ![HDInsight Log Analytics 경고 삭제 편집](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight Azure Monitor의 로그 경고 삭제 편집](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-자세한 내용은 [Log Analytics에서 경고 규칙 작업](../log-analytics/log-analytics-alerts-creating.md)을 참조하세요.
+자세한 내용은 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/platform/alerts-metric.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 
-* [Log Analytics 작업](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
-* [Log Analytics에서 경고 규칙 만들기](../log-analytics/log-analytics-alerts-creating.md)
+* [OMS Log Analytics: 뷰 디자이너](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [만들기, 보기 및 Azure Monitor를 사용 하 여 메트릭 경고 관리](../azure-monitor/platform/alerts-metric.md)

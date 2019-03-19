@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 99c4f838c3c4e4708c3e21ff9c7e63b69a507dbe
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 663864837e2847125d0925b9b82d8962e54290b3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746917"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726485"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 가상 머신 만들기 
 
 [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)을 통해 DevTest Labs에서 VM(가상 머신)을 만드는 경우 VM을 저장하기 전에 Azure Resource Manager 템플릿을 볼 수 있습니다. 그런 다음 템플릿을 기초로 사용해서 동일한 설정으로 더 많은 랩 VM을 만들 수 있습니다.
 
 이 문서는 여러 VM과 단일 VM Resource Manager 템플릿을 설명하고 VM을 만들 때 템플릿을 보고 저장하는 방법을 보여 줍니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="multi-vm-vs-single-vm-resource-manager-templates"></a>다중 VM 및 단일 VM Resource Manager 템플릿
 Resource Manager 템플릿을 사용하여 DevTest Labs에서 VM을 만드는 두 가지 방법은 Microsoft.DevTestLab/labs/virtualmachines 리소스를 프로비전하거나 Microsoft.Commpute/virtualmachines 리소스를 프로비전하는 것입니다. 각 방법은 서로 다른 시나리오에서 사용되며, 필요한 사용 권한도 다릅니다.
@@ -34,7 +36,7 @@ Resource Manager 템플릿을 사용하여 DevTest Labs에서 VM을 만드는 �
 
    ![DevTest Labs 가상 머신 목록에서 단일 항목으로 표시되는 VM 목록](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
-   이 형식의 Resource Manager 템플릿은 Azure PowerShell 명령 **New-AzureRmResourceGroupDeployment** 또는 Azure CLI 명령 **az group deployment create**를 통해 프로비전할 수 있습니다. 관리자 권한이 필요하므로 DevTest Labs 사용자 역할이 할당된 사용자는 배포를 수행할 수 없습니다. 
+   이 형식의 Resource Manager 템플릿은 Azure PowerShell 명령을 통해 프로 비전 할 수 **새로 만들기-AzResourceGroupDeployment** 또는 Azure CLI 명령을 통해 **az 그룹 배포 만들기**합니다. 관리자 권한이 필요하므로 DevTest Labs 사용자 역할이 할당된 사용자는 배포를 수행할 수 없습니다. 
 
 - Microsoft.Compute/virtualmachines 리소스 종류를 사용하는 Resource Manager 템플릿은 여러 VM을 DevTest Labs 가상 머신 목록의 단일 환경으로 프로비전할 수 있습니다.
 

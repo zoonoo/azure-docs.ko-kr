@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54aab6e9718b5a4a55cf2a3f9c472e9e02a53ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191081"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869550"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect 및 페더레이션
 Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active Directory Federation Services) 및 Azure AD와 페더레이션을 구성할 수 있습니다. 페더레이션 로그인에서, 사용자가 자신의 온-프레미스 암호로 Azure AD 기반 서비스에 로그인 하고 자신의 암호를 다시 입력하지 않고도 회사 네트워크에 로그인하도록 설정할 수 있습니다. AD FS와 페더레이션 옵션을 사용하여 AD FS의 새 설치를 배포하거나 Windows Server 2012 R2 팜에 기존 설치를 지정할 수 있습니다.
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory) Connect를 통해 온-프레미스 AD FS(Active
 | **Azure AD Connect를 사용하여 AD FS 설치** | |
 | [필수 구성 요소](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Azure AD Connect를 통한 성공적인 AD FS 설치의 필수 구성 요소를 참조하세요. |
 | [AD FS 팜 구성](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Azure AD Connect를 사용하여 새 AD FS 팜을 설치합니다. |
-| [대체 로그인 ID를 사용하여 Azure AD와 페더레이션](how-to-connect-fed-management.md#alternateid) | 대체 로그인 ID를 사용하여 페더레이션 구성  |
+| [대체 로그인 ID를 사용 하 여 Azure AD와 페더레이션](how-to-connect-fed-management.md#alternateid) | 대체 로그인 ID를 사용하여 페더레이션 구성  |
 | **AD FS 구성 수정** | |
 | [트러스트 복구](how-to-connect-fed-management.md#repairthetrust) |온-프레미스 AD FS와 Office 365/Azure 사이의 현재 트러스트를 복구합니다. |
 | [새 AD FS 서버 추가](how-to-connect-fed-management.md#addadfsserver) |초기 설치 후 추가적인 AD FS 서버를 통한 AD FS 팜을 확장합니다. |

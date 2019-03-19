@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7e680e3cd8a3d7056141814c5e7d4539b72073b4
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
-ms.translationtype: HT
+ms.openlocfilehash: a97afe64992db6b48558561ba958b513c8416494
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756959"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592828"
 ---
 # <a name="create-an-advanced-device-model"></a>고급 디바이스 모델 만들기
 
@@ -56,7 +56,7 @@ JSON 디바이스 정의 파일과 JavaScript 파일 집합을 사용하여 디�
 각 디바이스 정의 파일에는 다음 정보를 비롯하여 시뮬레이션된 디바이스 모델에 대한 세부 정보가 들어 있습니다.
 
 * 디바이스 모델 이름: string
-* 프로토콜: AMQP | MQTT | HTTP
+* 프로토콜: AMQP | MQTT | HTTP.
 * 초기 디바이스 상태
 * 디바이스 상태 새로 고침 빈도
 * 디바이스 상태를 새로 고치는 데 사용할 JavaScript 파일
@@ -165,7 +165,7 @@ IoT 디바이스는 다양한 프로토콜을 사용하여 연결할 수 있습�
 * BOOLEAN
 * 정수 
 * Double
-* Datetime
+* DateTime
 
 ### <a name="supported-methods"></a>지원되는 방식
 
@@ -516,4 +516,4 @@ function main(context, state) {
 
 ## <a name="next-steps"></a>다음 단계
 
-이 방법 가이드에서는 디바이스 시뮬레이션에 사용된 디바이스 모델 파일과 고급 디바이스 모델을 만드는 방법에 대해 알아보았습니다. 다음으로, [Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화](about-iot-accelerators.md) 방법에 대해 알아볼 수 있습니다.
+이 방법 가이드에서는 디바이스 시뮬레이션에 사용된 디바이스 모델 파일과 고급 디바이스 모델을 만드는 방법에 대해 알아보았습니다. 다음으로, [Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights) 방법에 대해 알아볼 수 있습니다.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5afc434ccd7a41c6fa1f4fec300941458c84889e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 25eb111871bbe3b18f59b0d6c123c72f3e55c859
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629575"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737113"
 ---
 # <a name="manage-server-administrators"></a>서버 관리자 관리
 
@@ -40,8 +40,10 @@ ms.locfileid: "53629575"
 
 ## <a name="powershell"></a>PowerShell
 
-새 서버를 만들 때 [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) cmdlet을 사용하여 Administrator 매개 변수를 지정합니다. <br>
-기존 서버에 대한 Administrator 매개 변수를 수정하려면 [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) cmdlet을 사용합니다.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+사용 하 여 [새로 만들기-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet을 새 서버를 만들 때 관리자 매개 변수를 지정 합니다. <br>
+사용 하 여 [집합 AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet는 기존 서버에 대 한 관리자 매개 변수를 수정 합니다.
 
 ## <a name="rest-api"></a>REST API
 

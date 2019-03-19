@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f795571de275453738d23e80885f4d9006ca3a20
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339331"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804453"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Azure 리소스에 대한 사용자 지정 역할
 
@@ -43,6 +43,7 @@ ms.locfileid: "56339331"
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Insights/diagnosticSettings/*",
@@ -65,16 +66,19 @@ ms.locfileid: "56339331"
 
 ## <a name="steps-to-create-a-custom-role"></a>사용자 지정 역할을 만드는 단계
 
+1. 사용자 지정 역할을 만드는 방법을 결정합니다
+
+    사용 하 여 사용자 지정 역할을 만들 수 있습니다 [Azure PowerShell](custom-roles-powershell.md)하십시오 [Azure CLI](custom-roles-cli.md), 또는 [REST API](custom-roles-rest.md)합니다.
+
 1. 필요한 권한 결정
 
-    사용자 지정 역할을 만드는 경우 권한을 정의하는 데 사용할 수 있는 리소스 공급자 작업을 알고 있어야 합니다. 작업 목록을 보려면 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 또는 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list) 명령을 사용할 수 있습니다.
-    사용자 지정 역할에 대한 권한을 지정하려면 [역할 정의](role-definitions.md)의 `Actions` 또는 `NotActions` 속성에 해당 작업을 추가합니다. 데이터 작업이 있는 경우 이러한 작업은 `DataActions` 또는 `NotDataActions` 속성에 추가합니다.
+    사용자 지정 역할을 만드는 경우 권한을 정의하는 데 사용할 수 있는 리소스 공급자 작업을 알고 있어야 합니다. 작업의 목록을 보려면 참조는 [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)합니다. 작업을 추가 합니다 `Actions` 또는 `NotActions` 의 속성을 [역할 정의](role-definitions.md). 에 추가 데이터 작업에 있는 경우는 `DataActions` 또는 `NotDataActions` 속성입니다.
 
-2. 사용자 지정 역할 만들기
+1. 사용자 지정 역할 만들기
 
-    Azure PowerShell 또는 Azure CLI를 사용하여 사용자 지정 역할을 만들 수 있습니다. 일반적으로 기존 기본 제공 역할로 시작한 다음, 필요에 따라 수정합니다. 그런 다음, [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) 또는 [az role definition create](/cli/azure/role/definition#az-role-definition-create) 명령을 사용하여 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 만들려면 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)와 같이 모든 `AssignableScopes`에 대한 `Microsoft.Authorization/roleDefinitions/write` 권한이 있어야 합니다.
+    일반적으로 기존 기본 제공 역할로 시작한 다음, 필요에 따라 수정합니다. 그런 다음, [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) 또는 [az role definition create](/cli/azure/role/definition#az-role-definition-create) 명령을 사용하여 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 만들려면 [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)와 같이 모든 `AssignableScopes`에 대한 `Microsoft.Authorization/roleDefinitions/write` 권한이 있어야 합니다.
 
-3. 사용자 지정 역할 테스트
+1. 사용자 지정 역할 테스트
 
     사용자 지정 역할이 있으면 해당 역할을 테스트하여 예상대로 작동하는지 확인해야 합니다. 나중에 조정해야 하는 경우 사용자 지정 역할을 업데이트할 수 있습니다.
 
@@ -91,9 +95,9 @@ ms.locfileid: "56339331"
 | `IsCustom` | 예 | 문자열 | 사용자 지정 역할인지 여부를 나타냅니다. 사용자 지정 역할인 경우 `true`로 설정합니다. |
 | `Description` | 예 | 문자열 | 사용자 지정 역할에 대한 설명입니다. 문자, 숫자, 공백 및 특수 문자를 포함할 수 있습니다. 최대 문자 수는 1,024자입니다. |
 | `Actions` | 예 | 문자열[] | 역할에서 수행할 수 있는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [Actions](role-definitions.md#actions)를 참조하세요. |
-| `NotActions` | 아니요 | 문자열[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
-| `DataActions` | 아니요 | 문자열[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [DataActions(미리 보기)](role-definitions.md#dataactions-preview)를 참조하세요. |
-| `NotDataActions` | 아니요 | 문자열[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotDataActions(미리 보기)](role-definitions.md#notdataactions-preview)를 참조하세요. |
+| `NotActions` | 아닙니다. | 문자열[] | 허용된 `Actions`에서 제외되는 관리 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotActions](role-definitions.md#notactions)를 참조하세요. |
+| `DataActions` | 아닙니다. | 문자열[] | 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [DataActions(미리 보기)](role-definitions.md#dataactions-preview)를 참조하세요. |
+| `NotDataActions` | 아닙니다. | 문자열[] | 허용된 `DataActions`에서 제외되는 데이터 작업을 지정하는 문자열 배열입니다. 자세한 내용은 [NotDataActions(미리 보기)](role-definitions.md#notdataactions-preview)를 참조하세요. |
 | `AssignableScopes` | 예 | 문자열[] | 할당에 사용할 수 있는 사용자 지정 역할에 대한 범위를 지정하는 문자열 배열입니다. 현재 루트 범위(`"/"`) 또는 관리 그룹 범위로 설정할 수 없습니다. 자세한 내용은 [AssignableScopes](role-definitions.md#assignablescopes) 및 [Azure 관리 그룹으로 리소스 구성](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment)을 참조하세요. |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>사용자 지정 역할을 생성, 삭제, 업데이트 또는 볼 수 있는 사용자

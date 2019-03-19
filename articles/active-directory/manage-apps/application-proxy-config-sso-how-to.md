@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: asteen
+ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7df7469a6975fa5e84b43487b524ca888718d7d2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5f9c4f2c618851b596cd8f2dfa1fd45820a05049
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162325"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791684"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 Single Sign-On을 구성하는 방법
 
@@ -43,11 +43,16 @@ SSO를 구성하려면 먼저 애플리케이션이 Azure Active Directory를 �
 
 -   **헤더 기반 로그온**: 헤더 기반 로그온은 파트너 관계를 통해 활성화되며 몇 가지 구성이 추가로 필요합니다. 인증에 헤더를 사용하는 애플리케이션에 대해 Single Sign-On을 구성하기 위한 파트너 관계 및 단계별 지침은 [Azure AD용 PingAccess 설명서](application-proxy-configure-single-sign-on-with-ping-access.md)를 참조하세요.
 
-이러한 각 옵션은 "엔터프라이즈 애플리케이션"에서 애플리케이션으로 이동하여 왼쪽 메뉴에서 **Single Sign-On** 페이지를 열면 찾을 수 있습니다. 애플리케이션이 이전 포털에서 작성된 경우 이러한 옵션이 모두 표시되지 않을 수도 있습니다.
+-   **SAML single sign on**: SAML single sign-on을 사용 하 여 Azure AD는 사용자의 Azure AD 계정을 사용 하 여 응용 프로그램에 인증 합니다. Azure AD는 연결 프로토콜을 통해 애플리케이션에 로그온 정보를 통신합니다. SAML 기반 Single Sign-On을 사용하면 SAML 클레임에서 정의하는 규칙에 따라 사용자를 특정 애플리케이션 역할에 매핑할 수 있습니다. SAML single sign-on 설정에 대 한 자세한 내용은 [응용 프로그램 프록시를 사용 하 여 single sign on SAML](application-proxy-configure-single-sign-on-on-premises-apps.md)합니다.
+
+이러한 각 옵션은 "엔터프라이즈 애플리케이션"에서 애플리케이션으로 이동하여 왼쪽 메뉴에서 **Single Sign-On** 페이지를 열면 찾을 수 있습니다. 응용 프로그램을 만든 경우 이전 포털에 나타나지 않을 수 있습니다 이러한 모든 옵션을 참고 합니다.
 
 이 페이지에는 추가 로그온 옵션인 연결된 로그온도 표시됩니다. 이 옵션은 애플리케이션 프록시에서도 지원됩니다. 그러나 이 옵션은 애플리케이션에 Single Sign-On을 추가하지 않습니다. 즉, 애플리케이션에 이미 Active Directory Federation Services와 같은 다른 서비스를 사용하여 Single Sign-On이 구현되어 있을 수 있습니다. 
 
 이 옵션을 사용하면 관리자가 애플리케이션에 액세스할 때 사용자에게 제일 먼저 표시되는 애플리케이션에 대한 링크를 만들 수 있습니다. 예를 들어 Active Directory Federation Services 2.0을 사용하여 사용자를 인증하도록 구성된 애플리케이션이 있는 경우, 관리자가 "연결된 로그온" 옵션을 사용하여 액세스 패널에 이에 대한 링크를 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[애플리케이션 프록시를 사용하여 앱에 Single Sign-On 제공](application-proxy-configure-single-sign-on-with-kcd.md)
+- [애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정](application-proxy-configure-single-sign-on-password-vaulting.md)
+- [애플리케이션 프록시를 사용하는 Single Sign-On에 대한 Kerberos 제한된 위임](application-proxy-configure-single-sign-on-with-kcd.md)
+- [애플리케이션 프록시를 사용하는 Single Sign-On에 대한 헤더 기반 인증](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [응용 프로그램 프록시를 사용 하 여 single sign on SAML](application-proxy-configure-single-sign-on-on-premises-apps.md)합니다.

@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ab50bd5a2b5b1b0e63060986d4336774be7875b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 920d6ee9b584e908885cf661d32aa700e655c3f8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245867"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816422"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 
-*Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 runbook을 시작할 수 있습니다. 이는 Azure Automation API를 사용하여 전체 솔루션을 구현하지 않아도 Azure DevOps Services, GitHub, Azure Log Analytics 또는 사용자 지정 애플리케이션과 같은 외부 서비스가 Runbook을 시작할 수 있게 해줍니다.  
+*Webhook*를 사용하면 단일 HTTP 요청을 통해 Azure Automation에서 특정 runbook을 시작할 수 있습니다. Azure DevOps Services, GitHub, Azure Monitor 로그 또는 Azure Automation API를 사용 하 여 전체 솔루션을 구현 하지 않고 runbook을 시작 하려면 사용자 지정 응용 프로그램 같은 외부 서비스가 있습니다.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)
@@ -29,7 +29,7 @@ ms.locfileid: "56245867"
 
 | 자산 | 설명 |
 |:--- |:--- |
-| Name |클라이언트에 노출되지 않으므로 원하는 webhook 이름을 지정할 수 있습니다. Azure Automation에서 Runbook을 식별하는 용도로만 사용됩니다. <br> 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
+| 이름 |클라이언트에 노출되지 않으므로 원하는 webhook 이름을 지정할 수 있습니다. Azure Automation에서 Runbook을 식별하는 용도로만 사용됩니다. <br> 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
 | URL |webhook의 URL은 클라이언트가 webhook에 연결된 runbook을 시작하기 위해 HTTP POST로 호출하는 고유한 주소입니다. webhook를 만들 때 자동으로 생성됩니다. 사용자 지정 URL을 지정할 수 없습니다. <br> <br> URL에는 타사 시스템이 추가 인증 없이 runbook을 호출할 수 있게 해주는 보안 토큰이 포함됩니다. 따라서 암호처럼 취급해야 합니다. 보안상의 이유로 이 URL은 Azure 포털에서 webhook가 생성될 때만 볼 수 있습니다. 이 URL을 나중에 사용할 수 있도록 안전한 위치에 기록해 둡니다. |
 | 만료 날짜 |각 webhook는 인증서처럼 만료 날짜가 있으며, 이 날짜가 되면 인증서를 더 이상 사용할 수 없습니다. webhook가 만료되지 않는 한 webhook를 생성한 후 이 만료 날짜를 수정할 수 있습니다. |
 | 사용 |webhook는 생성될 때 기본적으로 사용하도록 설정됩니다. 사용 안함으로 설정할 경우 어떤 클라이언트도 webhook를 사용할 수 없습니다. webhook를 만들 때 또는 만든 후 언제든지 **사용** 속성으로 설정할 수 있습니다. |

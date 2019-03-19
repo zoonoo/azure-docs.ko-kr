@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e9240949c589717303fe00205c5374b5e3a6a791
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007501"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585065"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure Automation의 Az 모듈 지원
 
@@ -31,7 +31,7 @@ Automation 계정으로 `Az` 모듈을 가져와도 Runbook이 사용하는 Powe
 * 모듈을 사용하는 다른 모듈을 PowerShell 세션으로 가져올 때
 
 > [!IMPORTANT]
-> Automation 계정의 Runbook이 Runbook에서 사용하는 PowerShell 세션으로 `Az` 또는 `AzureRM` 모듈 중 하나만 가져오도록 하는 것이 중요합니다. Runbook에서 `AzureRM`보다 먼저 `Az`를 가져오는 경우 Runbook이 완료되지만 [get_SerializationSettings 메서드를 참조하는 오류](/troubleshoot/runbooks.md#get-serializationsettings)가 작업 스트림에 표시되고 cmdlet이 제대로 실행되지 않았을 수 있습니다. `AzureRM`을 가져온 후 `Az`를 가져오면 Runbook은 완료되지만, `Az` 및 `AzureRM` 중 하나만 동일한 세션으로 가져오거나 동일한 Runbook에서 사용할 수 있다는 오류가 작업 스트림에 표시됩니다.
+> Automation 계정의 Runbook이 Runbook에서 사용하는 PowerShell 세션으로 `Az` 또는 `AzureRM` 모듈 중 하나만 가져오도록 하는 것이 중요합니다. Runbook에서 `AzureRM`보다 먼저 `Az`를 가져오는 경우 Runbook이 완료되지만 [get_SerializationSettings 메서드를 참조하는 오류](troubleshoot/runbooks.md#get-serializationsettings)가 작업 스트림에 표시되고 cmdlet이 제대로 실행되지 않았을 수 있습니다. `AzureRM`을 가져온 후 `Az`를 가져오면 Runbook은 완료되지만, `Az` 및 `AzureRM` 중 하나만 동일한 세션으로 가져오거나 동일한 Runbook에서 사용할 수 있다는 오류가 작업 스트림에 표시됩니다.
 
 ## <a name="migrating-to-az-modules"></a>Az 모듈로 마이그레이션
 

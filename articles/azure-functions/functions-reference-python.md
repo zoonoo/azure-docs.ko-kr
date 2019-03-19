@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.openlocfilehash: 8fa093d629eb7c655ea277b1d57f35193394f722
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304384"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730004"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -109,7 +109,7 @@ Python Functions 프로젝트의 폴더 구조는 다음과 같습니다.
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Functions 런타임에서 사용되는 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고, 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 Azure Functions Core Tools를 사용하여 [바인딩 확장을 등록](functions-triggers-bindings.md#local-development-azure-functions-core-tools)해야 합니다. 
+Functions 런타임에서 사용되는 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고, 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 Azure Functions Core Tools를 사용하여 [바인딩 확장을 등록](./functions-bindings-register.md#local-development-azure-functions-core-tools)해야 합니다. 
 
 Azure의 함수 앱에 Functions 프로젝트를 배포할 때 FunctionApp 폴더의 전체 내용을 패키지에 포함해야 하지만 폴더 자체는 포함하지 않습니다.
 

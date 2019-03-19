@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75fc79b582803150f2111efb848d113d52928263
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 3fccb50e3447eabc15cbef89ab7655b3f1d1f4ac
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544671"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876809"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
 관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 Azure Database for MariaDB 서버에 액세스할 수 있습니다. 
@@ -32,7 +32,7 @@ ms.locfileid: "53544671"
 
 4. 추가 주소 범위를 추가합니다. Azure Database for MariaDB 방화벽 규칙에서 단일 IP 주소 또는 주소 범위를 지정할 수 있습니다. 하나의 단일 IP 주소로 규칙을 제한하려는 경우 시작 IP 및 끝 IP 필드에 동일한 주소를 입력합니다. 방화벽을 열면 관리자, 사용자 및 응용 프로그램에서 유효한 자격 증명이 있는 MariaDB 서버의 데이터베이스에 액세스할 수 있습니다.
 
-   ![Azure Portal - 방화벽 규칙 ](./media/howto-manage-firewall-portal/4-specify-addresses.png)
+   ![Azure Portal - 방화벽 규칙](./media/howto-manage-firewall-portal/4-specify-addresses.png)
 
 5. 도구 모음에서 **저장**을 클릭하여 이 서버 수준 방화벽 규칙을 저장합니다. 방화벽 규칙에 대한 업데이트가 성공적으로 수행되었는지 확인될 때까지 기다립니다.
 

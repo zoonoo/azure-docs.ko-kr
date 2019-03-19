@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88ac97c36a9b09b795a3ea792df6711fc1275422
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 67db13c8a36977f2614ba7b0e263919bd0405bc7
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163010"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585596"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 흐름
 
@@ -85,6 +85,6 @@ Azure Portal에서는 새 [버전의 사용자 흐름](user-flow-versions.md)이
 
 ## <a name="next-steps"></a>다음 단계
 
-권장 사용자 흐름을 만들려면 [자습서: 사용자 흐름 만들기](tutorial-create-tenant.md)의 지침을 따릅니다.
+권장 사용자 흐름을 만들려면 [자습서: 사용자 흐름 만들기](tutorial-create-user-flows.md)의 지침을 따릅니다.
 
 

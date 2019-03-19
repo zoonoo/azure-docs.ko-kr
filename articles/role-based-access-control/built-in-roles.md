@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 01/25/2019
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: d730efe8b09f167aaba2a4aa8e33446d44171c53
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ce9ef687643de7ec9b289f74feea613fb9a1db7a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340853"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960619"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -68,6 +68,7 @@ ms.locfileid: "56340853"
 | [클래식 저장소 계정 키 운영자 서비스 역할](#classic-storage-account-key-operator-service-role) | 클래식 저장소 계정 키 운영자가 클래식 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
 | [Classic Virtual Machine 참가자](#classic-virtual-machine-contributor) | 클래식 가상 머신을 관리할 수 있지만 가상 머신이나 연결된 가상 네트워크 또는 저장소 계정에 액세스할 수는 없습니다. |
 | [Cognitive Services 기여자](#cognitive-services-contributor) | Cognitive Services의 키를 만들고, 읽고, 업데이트하고, 삭제 및 관리할 수 있습니다. |
+| [Cognitive Services 데이터 판독기 (미리 보기)](#cognitive-services-data-reader-preview) | Cognitive Services 데이터를 읽을 수 있습니다. |
 | [Cognitive Services 사용자](#cognitive-services-user) | Cognitive Services의 키를 읽고 나열할 수 있습니다. |
 | [Cosmos DB 계정 독자 역할](#cosmos-db-account-reader-role) | Azure Cosmos DB 계정 데이터를 읽을 수 있음. Azure Cosmos DB 계정 관리는 [DocumentDB 계정 참가자](#documentdb-account-contributor)를 참조하세요. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Cosmos DB 데이터베이스 또는 계정의 컨테이너에 대한 복원 요청을 제출할 수 있습니다. |
@@ -81,8 +82,8 @@ ms.locfileid: "56340853"
 | [DevTest Lab 사용자](#devtest-labs-user) | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. |
 | [DNS 영역 기여자](#dns-zone-contributor) | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 | [DocumentDB 계정 기여자](#documentdb-account-contributor) | Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. |
-| [EventGrid EventSubscription 기여자](#eventgrid-eventsubscription-contributor) | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
-| [EventGrid EventSubscription 읽기 권한자](#eventgrid-eventsubscription-reader) | EventGrid 이벤트 구독을 읽을 수 있습니다. |
+| [EventGrid EventSubscription contributor(미리 보기)](#eventgrid-eventsubscription-contributor-preview) | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
+| [EventGrid EventSubscription 읽기 권한자(미리 보기)](#eventgrid-eventsubscription-reader-preview) | EventGrid 이벤트 구독을 읽을 수 있습니다. |
 | [HDInsight 도메인 서비스 기여자](#hdinsight-domain-services-contributor) | HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, 수정하고, 삭제할 수 있음 |
 | [지능형 시스템 계정 기여자](#intelligent-systems-account-contributor) | 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [키 자격 증명 모음 기여자](#key-vault-contributor) | 키 자격 증명 모음을 관리할 수 있지만 액세스할 수는 없습니다. |
@@ -103,7 +104,7 @@ ms.locfileid: "56340853"
 | [네트워크 기여자](#network-contributor) | 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [NewRelic APM 계정 기여자](#new-relic-apm-account-contributor) | New Relic Application Performance Management 계정 및 애플리케이션을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [읽기 권한자 및 데이터 액세스](#reader-and-data-access) | 모든 것을 볼 수 있지만, 저장소 계정 또는 포함된 리소스를 삭제하거나 만들 수는 없습니다. 또한 저장소 계정 키에 액세스하여 저장소 계정에 포함된 모든 데이터를 읽고 쓸 수 있습니다. |
-| [Redis Cache 참가자](#redis-cache-contributor) | Azure Cache for Redis를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [Redis Cache 참가자](#redis-cache-contributor) | Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [리소스 정책 참가자(미리 보기)](#resource-policy-contributor-preview) | (미리 보기) 리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 EA의 백필된 사용자입니다. |
 | [Scheduler 작업 컬렉션 참가자](#scheduler-job-collections-contributor) | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. |
@@ -113,6 +114,9 @@ ms.locfileid: "56340853"
 | [Site Recovery 기여자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. |
 | [Site Recovery 운영자](#site-recovery-operator) | 장애 조치(failover) 및 장애 복구(failback)를 수행할 수 있지만 다른 Site Recovery 관리 작업은 수행할 수 없습니다. |
 | [Site Recovery 구독자](#site-recovery-reader) | Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 없습니다. |
+| [공간 앵커 계정 기여자](#spatial-anchors-account-contributor) | 계정에서 Spatial Anchors를 관리할 수 있지만 삭제할 수는 없습니다. |
+| [공간 앵커 계정 소유자](#spatial-anchors-account-owner) | 계정에서 Spatial Anchors를 관리할 수 있고 삭제도 할 수 있습니다. |
+| [공간 앵커 계정 판독기](#spatial-anchors-account-reader) | 계정에서 Spatial Anchors의 속성을 찾고 읽을 수 있습니다. |
 | [SQL DB 기여자](#sql-db-contributor) | SQL 데이터베이스를 관리할 수 있지만 액세스할 수는 없습니다. 또한 보안 관련 정책이나 부모 SQL 서버를 관리할 수 없습니다. |
 | [SQL 보안 관리자](#sql-security-manager) | SQL Server 및 데이터베이스의 보안과 관련된 정책을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [SQL Server 기여자](#sql-server-contributor) | SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다. |
@@ -121,7 +125,9 @@ ms.locfileid: "56340853"
 | [Storage Blob 데이터 참가자(미리 보기)](#storage-blob-data-contributor-preview) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. |
 | [Storage Blob 데이터 소유자(미리 보기)](#storage-blob-data-owner-preview) | POSIX 액세스 제어 할당을 포함하여 Azure Storage Blob 컨테이너 및 데이터에 대한 모든 액세스 권한을 허용합니다. |
 | [Storage Blob 데이터 판독기(미리 보기)](#storage-blob-data-reader-preview) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기 액세스 허용 |
-| [Storage 큐 데이터 기여자(미리 보기)](#storage-queue-data-contributor-preview) | Azure Storage 큐 및 큐 메시지에 대한 읽기, 쓰기 및 삭제 액세스 허용 |
+| [Storage 큐 데이터 기여자(미리 보기)](#storage-queue-data-contributor-preview) | Azure Storage 큐 및 큐 메시지에 대한 읽기, 쓰기 및 삭제 액세스를 허용합니다. |
+| [Storage 큐 데이터 메시지 처리기 (미리 보기)](#storage-queue-data-message-processor-preview) | Azure Storage 큐 메시지에 대한 미리 보기, 수신 및 삭제 권한 허용 |
+| [Storage 큐 데이터 메시지 보낸 사람 (미리 보기)](#storage-queue-data-message-sender-preview) | Azure Storage 큐 메시지 보내기 허용 |
 | [Storage 큐 데이터 판독기(미리 보기)](#storage-queue-data-reader-preview) | Azure Storage 큐 및 큐 메시지에 대한 읽기 액세스를 허용합니다. |
 | [지원 요청 참가자](#support-request-contributor) | 지원 요청을 만들고 관리할 수 있습니다. |
 | [Traffic Manager 기여자](#traffic-manager-contributor) | Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
@@ -934,6 +940,21 @@ ms.locfileid: "56340853"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
+## <a name="cognitive-services-data-reader-preview"></a>Cognitive Services 데이터 판독기(미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Cognitive Services 데이터를 읽을 수 있습니다. |
+> | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | **actions** |  |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.CognitiveServices/*/read |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
 ## <a name="cognitive-services-user"></a>Cognitive Services 사용자
 > [!div class="mx-tableFixed"]
 > | | |
@@ -943,11 +964,11 @@ ms.locfileid: "56340853"
 > | **actions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | 키를 나열합니다. |
-> | Microsoft.Insights/metricdefinitions/read | 메트릭 정의 읽기 |
-> | Microsoft.Insights/metrics/read | 메트릭 읽기 |
 > | Microsoft.Insights/alertRules/read | 클래식 메트릭 경고를 읽습니다. |
 > | Microsoft.Insights/diagnosticSettings/read | 리소스 진단 설정을 읽습니다. |
 > | Microsoft.Insights/logDefinitions/read | 로그 정의 읽기 |
+> | Microsoft.Insights/metricdefinitions/read | 메트릭 정의 읽기 |
+> | Microsoft.Insights/metrics/read | 메트릭 읽기 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/operations/read | 배포 작업을 가져오거나 나열합니다. |
 > | Microsoft.Resources/subscriptions/operationresults/read | 구독 작업 결과를 가져옵니다. |
@@ -957,7 +978,7 @@ ms.locfileid: "56340853"
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
-> | *없음* |  |
+> | Microsoft.CognitiveServices/* |  |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -1177,16 +1198,17 @@ ms.locfileid: "56340853"
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | 랩 정책을 평가합니다. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | 기존 가상 머신의 소유권을 가져옵니다. |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | 해당 시작/중지 일정이 있는 경우 이를 나열합니다. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 연결합니다. |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 NAT 규칙을 연결합니다. |
+> | Microsoft.DevTestLab/labs/virtualMachines/getRdpFileContents/action | 가상 머신에 대한 RDP 파일의 콘텐츠를 나타내는 문자열을 가져옵니다. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 nat 규칙을 조인합니다. 진행 되지 않습니다. |
 > | Microsoft.Network/networkInterfaces/*/read | 네트워크 인터페이스(예: 네트워크 인터페이스의 일부인 모든 부하 분산 장치)의 속성 읽기 |
-> | Microsoft.Network/networkInterfaces/join/action | 네트워크 인터페이스에 Virtual Machine을 연결합니다. |
+> | Microsoft.Network/networkInterfaces/join/action | 네트워크 인터페이스를 가상 컴퓨터를 조인합니다. 진행 되지 않습니다. |
 > | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | Microsoft.Network/networkInterfaces/write | 네트워크 인터페이스를 만들거나 기존 네트워크 인터페이스를 업데이트합니다.  |
 > | Microsoft.Network/publicIPAddresses/*/read | 공용 IP 주소의 속성 읽기 |
-> | Microsoft.Network/publicIPAddresses/join/action | 공용 IP 주소를 연결합니다. |
+> | Microsoft.Network/publicIPAddresses/join/action | 공용 ip 주소를 조인합니다. 진행 되지 않습니다. |
 > | Microsoft.Network/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 연결합니다. |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인합니다. 진행 되지 않습니다. |
 > | Microsoft.Resources/deployments/operations/read | 배포 작업을 가져오거나 나열합니다. |
 > | Microsoft.Resources/deployments/read | 배포를 가져오거나 나열합니다. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -1240,7 +1262,7 @@ ms.locfileid: "56340853"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
-## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 기여자
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription 기여자(미리 보기)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1263,7 +1285,7 @@ ms.locfileid: "56340853"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
-## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription 읽기 권한자
+## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription 읽기 권한자(미리 보기)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1481,6 +1503,7 @@ ms.locfileid: "56340853"
 > | **actions** |  |
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Solutions/applications/read | 애플리케이션 목록을 검색합니다. |
+> | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -1605,11 +1628,11 @@ ms.locfileid: "56340853"
 > | Microsoft.Insights/Register/Action | Microsoft Insights 공급자를 등록합니다. |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Application Insights 웹 테스트 읽기/쓰기/삭제 |
-> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Log Analytics 솔루션 팩 읽기/쓰기/삭제 |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Log Analytics의 저장된 검색 읽기/쓰기/삭제 |
+> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | 읽기/쓰기/삭제 log analytics 솔루션 팩 |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* | 읽기/쓰기/삭제 log analytics 저장 된 검색 합니다. |
 > | Microsoft.OperationalInsights/workspaces/search/action | 검색 쿼리를 실행합니다. |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | 작업 영역에 대한 공유 키를 검색합니다. 이러한 키는 Microsoft Operational Insights 에이전트를 작업 영역에 연결하는 데 사용됩니다. |
-> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Log Analytics 저장소 정보 구성 읽기/쓰기/삭제 |
+> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | 읽기/쓰기/삭제 log analytics 저장소 정보 구성 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
@@ -1716,11 +1739,11 @@ ms.locfileid: "56340853"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Azure Cache for Redis를 관리할 수 있지만 액세스할 수는 없습니다. |
+> | **설명** | Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
-> | Microsoft.Cache/redis/* | Azure Cache for Redis 만들기 및 관리 |
+> | Microsoft.Cache/redis/* | Redis 캐시 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
@@ -1808,7 +1831,7 @@ ms.locfileid: "56340853"
 > | Microsoft.Authorization/policySetDefinitions/* | 정책 집합 만들기 및 관리 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
-> | Microsoft.operationalInsights/workspaces/*/read | Log Analytics 데이터 보기 |
+> | Microsoft.operationalInsights/workspaces/*/read | Log analytics 데이터 보기 |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Security/*/read | 보안 구성 요소 및 정책 읽기 |
@@ -1863,7 +1886,7 @@ ms.locfileid: "56340853"
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
-> | Microsoft.operationalInsights/workspaces/*/read | Log Analytics 데이터 보기 |
+> | Microsoft.operationalInsights/workspaces/*/read | Log analytics 데이터 보기 |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Security/*/read | 보안 구성 요소 및 정책 읽기 |
@@ -2033,6 +2056,65 @@ ms.locfileid: "56340853"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
+## <a name="spatial-anchors-account-contributor"></a>Spatial Anchors 계정 참가자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 계정에서 Spatial Anchors를 관리할 수 있지만 삭제할 수는 없습니다. |
+> | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | **actions** |  |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | 공간 앵커 만들기 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 공간 앵커 주변 검색 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | 공간 앵커 속성 가져오기 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | 공간 앵커를 찾습니다 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 공간 앵커 Azure 서비스의 품질을 향상 시키기 위한 진단 데이터 제출 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | 공간 앵커 속성 업데이트 |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="spatial-anchors-account-owner"></a>Spatial Anchors 계정 소유자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 계정에서 Spatial Anchors를 관리할 수 있고 삭제도 할 수 있습니다. |
+> | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | **actions** |  |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | 공간 앵커 만들기 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | 공간 앵커를 삭제 합니다. |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 공간 앵커 주변 검색 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | 공간 앵커 속성 가져오기 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | 공간 앵커를 찾습니다 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 공간 앵커 Azure 서비스의 품질을 향상 시키기 위한 진단 데이터 제출 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | 공간 앵커 속성 업데이트 |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="spatial-anchors-account-reader"></a>Spatial Anchors 계정 판독기
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 계정에서 Spatial Anchors의 속성을 찾고 읽을 수 있습니다. |
+> | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | **actions** |  |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | 공간 앵커 주변 검색 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | 공간 앵커 속성 가져오기 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | 공간 앵커를 찾습니다 |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | 공간 앵커 Azure 서비스의 품질을 향상 시키기 위한 진단 데이터 제출 |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
 ## <a name="sql-db-contributor"></a>SQL DB 참가자
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2082,7 +2164,7 @@ ms.locfileid: "56340853"
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | Microsoft 권한 부여 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. 진행 되지 않습니다. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -2173,7 +2255,7 @@ ms.locfileid: "56340853"
 > | Microsoft.Authorization/*/read | 모든 권한 부여 읽기 |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Insights/diagnosticSettings/* | 진단 설정 관리 |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 저장소 계정 또는 SQL 데이터베이스 같은 리소스를 서브넷에 조인합니다. 진행 되지 않습니다. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
@@ -2267,6 +2349,37 @@ ms.locfileid: "56340853"
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | 메시지 삭제 결과 반환 |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 메시지 반환 |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | 메시지 작성 결과 반환 |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="storage-queue-data-message-processor-preview"></a>Storage 큐 데이터 메시지 처리기 (미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Storage 큐 메시지에 대한 미리 보기, 수신 및 삭제 권한 허용 |
+> | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | **actions** |  |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 메시지를 반환합니다. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | 메시지 처리 결과를 반환합니다. |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="storage-queue-data-message-sender-preview"></a>Storage 큐 데이터 메시지 보낸 사람 (미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Storage 큐 메시지 보내기 허용 |
+> | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | **actions** |  |
+> | *없음* |  |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | 메시지 추가 결과를 반환합니다. |
 > | **NotDataActions** |  |
 > | *없음* |  |
 
@@ -2374,20 +2487,20 @@ ms.locfileid: "56340853"
 > | Microsoft.Compute/virtualMachineScaleSets/* | 가상 머신 크기 집합 만들기 및 관리 |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
-> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | 애플리케이션 게이트웨이 백 엔드 주소 풀을 조인합니다. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 연결합니다. |
-> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | 부하 분산 장치 인바운드 NAT 풀을 연결합니다. |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 NAT 규칙을 연결합니다. |
-> | Microsoft.Network/loadBalancers/probes/join/action | 부하 분산 장치 프로브 사용을 허용합니다. 예를 들어 이 권한이 있으면 VM 확장 집합의 healthProbe 속성이 프로브를 참조할 수 있습니다. |
+> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | 응용 프로그램 게이트웨이 백 엔드 주소 풀을 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | 조인 하는 부하 분산 장치 인바운드 NAT 풀 합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 nat 규칙을 조인합니다. 진행 되지 않습니다. |
+> | Microsoft.Network/loadBalancers/probes/join/action | 부하 분산 장치 프로브 사용을 허용합니다. 예를 들어 이 권한이 있으면 VM 확장 집합의 healthProbe 속성이 프로브를 참조할 수 있습니다. 진행 되지 않습니다. |
 > | Microsoft.Network/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
 > | Microsoft.Network/locations/* | 네트워크 위치 만들기 및 관리 |
 > | Microsoft.Network/networkInterfaces/* | 네트워크 인터페이스 만들기 및 관리 |
-> | Microsoft.Network/networkSecurityGroups/join/action | 네트워크 보안 그룹을 연결합니다. |
+> | Microsoft.Network/networkSecurityGroups/join/action | 네트워크 보안 그룹을 조인합니다. 진행 되지 않습니다. |
 > | Microsoft.Network/networkSecurityGroups/read | 네트워크 보안 그룹 정의를 가져옵니다. |
-> | Microsoft.Network/publicIPAddresses/join/action | 공용 IP 주소를 연결합니다. |
+> | Microsoft.Network/publicIPAddresses/join/action | 공용 ip 주소를 조인합니다. 진행 되지 않습니다. |
 > | Microsoft.Network/publicIPAddresses/read | 공용 IP 주소 정의를 가져옵니다. |
 > | Microsoft.Network/virtualNetworks/read | 가상 네트워크 정의를 가져옵니다. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 연결합니다. |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | 가상 네트워크를 조인합니다. 진행 되지 않습니다. |
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | 백업 보호 의도 만들기 |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: d48a1a1c9e220690649bbf60e9909a38d575c156
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559079"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651962"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
 
@@ -70,7 +70,7 @@ spec:
 
 애플리케이션 코드에 자격 증명이 노출될 위험을 제한하려면 고정 또는 공유 자격 증명을 사용하지 않도록 합니다. 자격 증명 또는 키를 코드에 직접 포함하면 안 됩니다. 이러한 자격 증명이 노출되면 애플리케이션을 업데이트하고 다시 배포해야 합니다. 더 나은 방법은 pod에 고유한 ID를 부여하고 스스로 인증을 받는 방법을 제공하거나 디지털 자격 증명 모음에서 자격 증명을 자동으로 검색하는 것입니다.
 
-AKS에는 pod를 자동으로 인증하거나 디지털 자격 증명 모음에서 자격 증명 및 키를 요청하는 다음과 같은 두 가지 방법이 있습니다.
+다음 [관련된 AKS 오픈 소스 프로젝트] [ aks-associated-projects] 요청 자격 증명 및 디지털 자격 증명 모음의 키 또는 pod 자동으로 인증할 수 있습니다.
 
 * Azure 리소스에 대한 관리 ID 및
 * Azure Key Vault FlexVol 드라이버
@@ -83,7 +83,7 @@ Azure 리소스에 대해 관리 ID를 사용하면 pod가 스토리지, SQL과 
 
 관리 ID를 사용할 경우 애플리케이션 코드는 Azure Storage와 같은 서비스에 액세스하기 위해 자격 증명을 포함할 필요가 없습니다. 각 pod는 고유한 ID를 사용하여 인증을 받으므로 사용자는 액세스 권한을 감사 및 검토할 수 있습니다. 애플리케이션이 다른 Azure 서비스에 연결되면 관리 ID를 사용하여 자격 증명 재사용 및 노출 위험을 제한합니다.
 
-pod ID에 대한 자세한 내용은 [pod 관리 ID를 사용하도록 AKS 클러스터 구성][aad-pod-identity] 및 [코드에서 pod 관리 ID 할당 및 사용][aad-pod-identity]을 참조하세요.
+Pod id에 대 한 자세한 내용은 참조 하세요. [pod 관리 id 사용 하 여 AKS 클러스터를 구성 하 고 응용 프로그램을 사용 하 여][aad-pod-identity]
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>FlexVol에서 Azure Key Vault 사용
 
@@ -107,6 +107,7 @@ Key Vault를 사용하여 자격 증명, 스토리지 계정 키 또는 인증�
 [aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
+[aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md

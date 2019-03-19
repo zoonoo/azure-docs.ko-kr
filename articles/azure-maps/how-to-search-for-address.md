@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413552"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875789"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용하여 주소 찾기
 
@@ -37,7 +37,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 입력합니다.
 
-    ![유사 항목 검색 ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![유사 항목 검색](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | 매개 변수 | 제안 값 |
     |---------------|------------------------------------------------|
@@ -49,7 +49,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
 3. **Params**를 클릭하고 요청 URL에 쿼리 또는 경로 매개 변수로 사용할 다음 키 / 값 쌍을 입력합니다.
 
-    ![유사 항목 검색 ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![유사 항목 검색](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | 키 | 값 |
     |------------------|-------------------------|
@@ -75,7 +75,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
   
 6. 매개 변수에서 다음 키 / 값 쌍을 입력하고 **보내기**를 클릭합니다.
 
-    ![유사 항목 검색 ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![유사 항목 검색](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
     | 키 | 값 |
     |-----|------------|
@@ -89,7 +89,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 1. Postman에서 **새 요청** | **GET 요청**을 클릭하고 이름을 **주소 검색**으로 지정합니다.
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 입력한 다음 권한 부여 프로토콜이 있는 경우 해당 프로토콜을 선택합니다.
 
-    ![주소 검색 ](./media/how-to-search-for-address/address_search_url.png)
+    ![주소 검색](./media/how-to-search-for-address/address_search_url.png)
   
     | 매개 변수 | 제안 값 |
     |---------------|------------------------------------------------|
@@ -99,7 +99,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
 3. **Params**를 클릭하고 요청 URL에 쿼리 또는 경로 매개 변수로 사용할 다음 키 / 값 쌍을 입력합니다.
   
-    ![주소 검색 ](./media/how-to-search-for-address/address_search_params.png)
+    ![주소 검색](./media/how-to-search-for-address/address_search_params.png)
   
     | 키 | 값 |
     |------------------|-------------------------|
@@ -130,7 +130,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 입력합니다.
   
-    ![역 주소 검색 URL ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![역 주소 검색 URL](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | 매개 변수 | 제안 값 |
     |---------------|------------------------------------------------|
@@ -140,7 +140,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
   
 3. **Params**를 클릭하고 요청 URL에 쿼리 또는 경로 매개 변수로 사용할 다음 키 / 값 쌍을 입력합니다.
   
-    ![역 주소 검색 매개 변수 ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![역 주소 검색 매개 변수](./media/how-to-search-for-address/reverse_address_search_params.png)
   
     | 키 | 값 |
     |------------------|-------------------------|
@@ -190,7 +190,7 @@ Maps 검색 서비스는 개발자가 주소, 위치, 관심 지점, 비즈니�
 
 2. 작성기 탭에서 **GET** HTTP 메서드를 선택하고 API 엔드포인트에 대한 요청 URL을 입력합니다.
   
-    ![역 주소 교차로 검색 ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![역 주소 교차로 검색](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | 매개 변수 | 제안 값 |
     |---------------|------------------------------------------------|

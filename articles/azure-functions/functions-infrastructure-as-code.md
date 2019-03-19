@@ -7,17 +7,18 @@ author: ggailey777
 manager: jeconnoc
 keywords: Azure Functions, 함수, 서버 없는 아키텍처, 코드로서의 인프라, Azure Resource Manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
+ms.service: azure-functions
 ms.server: functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 488b3797c7e18855a60b84a77a05e4e0a5654475
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 9fc55e2b3ebb1e932a991e0da2c78a980abbc953
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023668"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792500"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 

@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: HT
+ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021628"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731194"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙 처리
 이 문서에서는 Azure Stream Analytics를 사용하여 Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙을 사용하는 경고 솔루션을 얻는 방법을 설명합니다.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>시나리오: 조정 가능한 규칙 임계값에 따른 경고
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>시나리오: 조정 가능한 규칙 임계값 기반 경고
 들어오는 스트리밍 이벤트가 특정 값에 도달했거나, 들어오는 스트리밍 이벤트를 기준으로 하는 집계 값이 특정 임계값을 초과할 경우 출력으로 경고를 생성해야 할 수 있습니다. 고정되고 미리 결정된 정적 임계값에 값을 비교하는 Stream Analytics 쿼리는 간단히 설정할 수 있습니다. 고정 임계값은 단순 숫자 비교(보다 큼, 보다 작음 및 같음)를 사용하여 스트리밍 쿼리 구문으로 하드 코드될 수 있습니다.
 
 어떤 경우에는 임계값이 변경될 때마다 쿼리 구문을 편집하지 않아도 되도록, 임계값을 구성하는 것이 더 쉬워야 할 수 있습니다. 각 종류의 디바이스에서 서로 다른 임계값을 갖는 같은 쿼리로 다양한 디바이스 또는 사용자를 처리해야 하는 경우도 있습니다. 
@@ -40,7 +40,7 @@ Stream Analytics 작업에 대한 참조 데이터 입력을 사용하여 경고
 예를 들어, **rules**라는 참조 데이터 입력과, **metrics**라는 스트리밍 데이터 입력이 있는 Stream Analytics 작업이 있다고 가정합니다. 
 
 ## <a name="reference-data"></a>참조 데이터
-이 예제에서 참조 데이터는 임계값 기반 규칙이 표시되는 방법을 보여줍니다. JSON 파일은 참조 데이터를 포함하고 Azure Blob 저장소에 저장되며, 해당 Blob 저장소 **rules**라는 참조 데이터 입력으로 사용됩니다. 스트리밍 작업을 중지하거나 시작하지 않고도, 시간이 지남에 따라 이 JSON 파일을 덮어쓰고 규칙 구성을 바꿀 수 있습니다.
+이 예제에서 참조 데이터는 임계값 기반 규칙이 표시되는 방법을 보여줍니다. JSON 파일은 참조 데이터를 포함하고 Azure Blob Storage에 저장되며, 해당 Blob Storage **rules**라는 참조 데이터 입력으로 사용됩니다. 스트리밍 작업을 중지하거나 시작하지 않고도, 시간이 지남에 따라 이 JSON 파일을 덮어쓰고 규칙 구성을 바꿀 수 있습니다.
 
 - 예제 규칙은 CPU가 `90`% 값을 초과할 때(평균보다 크거나 같음) 조정 가능한 경고를 나타내는 데 사용됩니다. `value` 필드는 필요에 따라 구성할 수 있습니다.
 - 규칙에는 나중에 `AVGGREATEROREQUAL`의 쿼리 구문에서 동적으로 해석되는 **연산자** 필드가 있습니다. 

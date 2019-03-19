@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 공동 작업 사용자를 역할에 추가 | Microsoft Docs
+title: 역할-Azure Active Directory에 B2B 공동 작업 사용자 추가 | Microsoft Docs
 description: Azure Active Directory의 역할에 게스트 사용자 추가
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df328228dea53f338c0b2c54422e6b343f96e43e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c51a0f1f8eb1999ced02bf3cf14ee81e4fca08e8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172236"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675197"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에서 파트너 조직의 사용자에게 권한 부여
 

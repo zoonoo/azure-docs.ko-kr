@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5543fd5ee2b86a57414a384df9d808e87b297a5e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253825"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983033"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Services에 BizTalk Server EDI 솔루션 마이그레이션: 기술 가이드
 
@@ -25,7 +25,7 @@ ms.locfileid: "51253825"
 
 검토자: Karthik Bharthy
 
-Microsoft Azure BizTalk Services를 사용하여 작성 – 2014년 2월 릴리스.
+사용 하 여 작성 합니다.  Microsoft Azure BizTalk Services – 2014 년 2 월 릴리스입니다.
 
 ## <a name="introduction"></a>소개
 EDI (전자 데이터 교환)은 기업간에 전자적으로 데이터를 교환하는 가장 널리 퍼진 방법 중 하나이며 기업간 또는 B2B 트랜잭션이라는 용어로도 사용됩니다. BizTalk Server는 BizTalk Sever가 처음 릴리스된 이래로 10년 넘게 EDI를 지원해 왔습니다. BizTalk Services를 사용하여 Microsoft는 Microsoft Azure Platform에서 EDI 솔루션을 계속지원합니다. B2B 트랜잭션은 대부분 조직 외부에 대한 것이며, 따라서 클라우드 플랫폼에서 구현된 경우 보다 쉽게 구현할 수 있습니다. Microsoft Azure는 BizTalk Services를 통해 이 기능을 제공합니다.
@@ -102,7 +102,7 @@ BizTalk Server 오케스트레이션 처리를 Microsoft Azure에 마이그레�
 
 * [*WCF 워크플로 서비스를 Service Bus 큐 및 항목과 통합하는 방법*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) Paolo salvatori 작성. 
 * 빌드 2011 컨퍼런스의 [*Windows Workflow Foundation 및 Azure로 앱을 빌드하기* 세션](https://go.microsoft.com/fwlink/p/?LinkId=237314).
-* MSDN의 [*Windows Workflow Foundation 개발자 센터*](https://go.microsoft.com/fwlink/p/?LinkId=237315).
+* [*Windows Workflow Foundation 개발자 센터*](https://docs.microsoft.com/previous-versions/dotnet/articles/ee342461(v=msdn.10))합니다.
 * MSDN의 [*WF4(Windows Workflow Foundation 4) 설명서*](https://msdn.microsoft.com/library/dd489441.aspx).
 
 ## <a name="other-considerations"></a>기타 고려 사항
@@ -114,7 +114,7 @@ BizTalk Server EDI 처리에는 "대체 계약"의 개념이 있습니다.  BizT
 ### <a name="routing-to-multiple-destinations"></a>여러 대상으로 라우팅
 현재 상태에서 BizTalk Services 브리지는 게시-구동 모델을 사용하여 여러 대상에 메시지 라우팅을 지원하지 않습니다. 대신 BizTalk Services 브리지에서 둘 이상의 엔드포인트에서 메시지를 수신하는 여러 구독을 가질 수 있는 Service Bus 토픽에 메시지를 라우팅할 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [Azure의 LOB 솔루션](https://azure.microsoft.com/solutions/lob-applications)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png

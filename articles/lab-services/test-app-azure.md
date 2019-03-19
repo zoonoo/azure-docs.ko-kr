@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814907"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730412"
 ---
 # <a name="test-your-app-in-azure"></a>Azure에서 앱 테스트 
 이 문서에서는 DevTest Lab을 사용하여 Azure에서 애플리케이션을 테스트하는 방법에 대한 단계를 제공합니다. 먼저 랩 내에서 파일 공유를 설정하고 로컬 개발 컴퓨터의 드라이브 및 랩 내의 VM으로 탑재합니다. 그러면 Visual Studio 2017을 사용하여 앱을 파일 공유에 배포하므로 랩의 VM에서 앱을 실행할 수 있습니다.  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건 
 1. Azure 구독이 아직 없는 경우에는 [Azure 구독을 만들고](https://azure.microsoft.com/free/) [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -56,7 +58,7 @@ ms.locfileid: "55814907"
 
     ![랩 VM 선택](media/test-app-in-azure/select-lab-vm.png)
 2. 도구 모음에서 **연결**을 선택하여 VM에 연결합니다. 
-3. **명령줄 도구** 섹션의 **Windows 설치** 링크를 사용하여 [Azure PowerShell을 설치](https://azure.microsoft.com/downloads/)합니다. Azure PowerShell을 설치하는 다른 방법은 [이 문서](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1)를 참조하세요.
+3. [Azure PowerShell 설치](/powershell/azure/install-az-ps)
 4. 파일 공유 탑재 섹션의 지침을 따릅니다. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Visual Studio에서 앱 게시

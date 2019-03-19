@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106958"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882691"
 ---
 # <a name="handling-review-feedback"></a>검토 피드백 처리
 
@@ -58,14 +58,14 @@ ms.locfileid: "56106958"
 
 1. **게시 단계** 양식의 **Microsoft 검토** 섹션에서 PR 링크를 클릭하여 브라우저를 시작하고 이 PR에 대한 **개요**(홈) 페이지로 이동합니다.  다음 이미지는 Contoso 샘플 앱 제품의 심각한 문제 홈페이지 예를 보여 줍니다.  이 페이지에는 Azure 앱에서 발견된 검토 문제에 대한 유용한 요약 정보가 포함되어 있습니다.  
 
-    [ ![끌어오기 요청 홈페이지](./media/pr-home-page-thumb.png) ](./media/pr-home-page.png)
+    [![끌어오기 요청 홈 페이지](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> 펼치려면 이미지를 클릭하세요.
     
 2. (선택 사항) 창의 오른쪽에 있는 **정책** 섹션에서 문제 메시지(이 예제에서는 **정책 유효성 검사 실패**)를 클릭하여 연관된 로그 파일을 비롯한 문제의 하위 수준 세부 정보를 조사합니다.  일반적으로 오류는 로그 파일의 맨 아래에 표시됩니다.
 
 3. 홈페이지의 왼쪽 메뉴에서 **파일**을 선택하여 이 제품의 기술 자산을 구성하는 목록 파일을 표시합니다.  Microsoft 검토자가 발견된 심각한 문제를 설명하는 주석을 추가해 두었을 것입니다.  다음 예제에서는 두 가지 문제가 발견되었습니다. 
 
-    [ ![끌어오기 요청 홈페이지](./media/pr-files-page-thumb.png) ](./media/pr-files-page.png)
+    [![끌어오기 요청 홈 페이지](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> 펼치려면 이미지를 클릭하세요.
 
 4. 왼쪽 트리에서 각 주석 노드를 클릭하여 주변 코드 컨텍스트의 주석으로 이동합니다.  팀 프로젝트의 소스 코드를 수정하여 주석에서 설명된 문제를 해결합니다.

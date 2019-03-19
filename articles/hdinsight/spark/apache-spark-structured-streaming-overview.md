@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 0c2fd29990e180283eb25949b806c4ceac58e2f7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 8c37093b5369d2390942bc00c1531248bc4424c8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653631"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869091"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark 구조적 스트리밍 개요
 
@@ -24,7 +24,7 @@ ms.locfileid: "53653631"
 
 구조적 스트리밍은 입력 데이터에 작업(예: 선택, 프로젝션, 집계, 창 작업 및 스트리밍 데이터 프레임과 참조 데이터 프레임의 조인)을 적용하는 장기 실행 쿼리를 만듭니다. 그런 다음, 사용자 지정 코드(예: SQL Database 또는 Power BI)를 사용하여 결과를 File Storage(Azure Storage Blob 또는 Data Lake Storage) 또는 데이터 저장소에 출력합니다. 또한 구조적 스트리밍은 로컬로 디버그하기 위해 콘솔에 출력을 제공하고, HDInsight에서 디버그하기 위해 생성된 데이터를 볼 수 있도록 메모리 내 테이블에 출력을 제공합니다. 
 
-![HDInsight 및 Spark 구조적 스트리밍을 통한 스트림 처리 ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![HDInsight 및 Spark 구조적 스트리밍을 통한 스트림 처리](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]  
 > Spark 구조적 스트리밍은 Spark 스트리밍(DStreams)을 대체합니다. 향후에는 구조적 스트리밍에 향상된 기능과 유지 관리 기능을 제공하는 한편, DStreams는 유지 관리 모드로만 유지될 것입니다. 현재 구조적 스트리밍은 즉시 지원되는 원본 및 싱크에 대한 DStreams처럼 완벽한 기능이 아니므로 요구 사항을 평가하여 적절한 Spark 스트림 처리 옵션을 선택해야 합니다. 
@@ -61,7 +61,7 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 
 ## <a name="components-of-a-spark-structured-streaming-application"></a>Spark 구조적 스트리밍 애플리케이션의 구성 요소
 
-간단한 예제 쿼리에서는 장기 시간 범위를 기준으로 온도 판독값을 요약할 수 있습니다. 이 경우 데이터는 Azure Storage의 JSON 파일에 저장됩니다(HDInsight 클러스터의 기본 저장소로 연결됨).
+간단한 예제 쿼리에서는 장기 시간 범위를 기준으로 온도 판독값을 요약할 수 있습니다. 이 경우 데이터는 Azure Storage의 JSON 파일에 저장됩니다(HDInsight 클러스터의 기본 스토리지로 연결됨).
 
     {"time":1469501107,"temp":"95"}
     {"time":1469501147,"temp":"95"}
