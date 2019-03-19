@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: b8a6d58ad79b591548542d69e69b71ec61af79af
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220128"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816907"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>리소스 관리자 템플릿과 Azure 포털로 리소스 배포
 
-이 문서에서는 [Azure Resource Manager](resource-group-overview.md)를 포함한 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 리소스를 배포하는 방법을 보여줍니다. 리소스 관리에 관한 자세한 내용은 [포털을 통한 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
+이 문서에서는 [Azure Resource Manager](resource-group-overview.md)를 포함한 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 리소스를 배포하는 방법을 보여줍니다. 리소스를 관리 하는 방법에 대 한 자세한 참조 [Azure portal을 사용 하 여 Azure 관리 리소스](manage-resources-portal.md)합니다.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
@@ -134,7 +134,7 @@ ms.locfileid: "47220128"
    ![저장된 템플릿 배포](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 감사 로그를 보려면 [Resource Manager로 작업 감사](resource-group-audit.md)를 참조하세요.
-* 배포 오류를 해결하려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
-* 배포 또는 리소스 그룹에서 템플릿을 검색하려면 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
-* 여러 지역에서 서비스를 안전하게 출시하려면 [Azure Deployment Manager](deployment-manager-overview.md)를 참조하세요.
+* 감사 로그를 보려면 [Resource Manager로 작업 감사](./resource-group-audit.md)를 참조하세요.
+* 배포 오류를 해결하려면 [배포 작업 보기](./resource-manager-deployment-operations.md)를 참조하세요.
+* 배포 또는 리소스 그룹에서 템플릿을 내보내려면 참조 [Azure Resource Manager 템플릿 내보내기](./manage-resource-groups-portal.md#export-resource-groups-to-templates)합니다.
+* 여러 지역에서 서비스를 안전하게 출시하려면 [Azure Deployment Manager](./deployment-manager-overview.md)를 참조하세요.

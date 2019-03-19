@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: 09514e37d1d40c489eda483980237d26e4a08730
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: ec97cf903a37465f98007750fc41edc0952ab3a6
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417925"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889599"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>빅 데이터 요구 사항을 위한 Azure Data Lake Storage Gen2 사용
 
@@ -70,9 +70,9 @@ Storage 탐색기 또는 AzCopy를 사용하여 파일 시스템을 만드는 �
 |---|--|---|
 |Storage 탐색기| 사용자 및 그룹에 역할 할당 | [Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
 |AzCopy| 사용자 및 그룹에 역할 할당 <br>**or**<br> SAS 토큰 사용| [Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[간편하게 Azure Storage 탐색기를 사용하여 Azure Storage에서 파일을 다운로드하는 SAS 만들기](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
-|Apache DistCp | 사용자 할당 관리 ID에 역할 할당 | [Data Lake Storage Gen2를 사용하여 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
+|Apache DistCp | 사용자 할당 관리 ID에 역할 할당 | [Data Lake Storage Gen2를 사용하여 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure 데이터 팩터리| 사용자 할당 관리형 ID에 역할 할당<br>**or**<br> 서비스 주체에 역할 할당<br>**or**<br> 스토리지 계정 키 사용 | [연결된 서비스 속성](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
-|Azure HDInsight| 사용자 할당 관리 ID에 역할 할당 | [Data Lake Storage Gen2를 사용하여 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
+|Azure HDInsight| 사용자 할당 관리 ID에 역할 할당 | [Data Lake Storage Gen2를 사용하여 HDInsight 클러스터 만들기](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
 |Azure Databricks| 서비스 주체에 역할 할당 | [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 특정 파일 및 폴더에 대한 액세스 권한을 부여하려면 다음 문서를 참조하세요.

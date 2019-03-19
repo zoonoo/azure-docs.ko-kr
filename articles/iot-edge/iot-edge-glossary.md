@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/15/2018
+ms.date: 02/15/2019
 ms.author: menchi
 ms.custom: seodec18
-ms.openlocfilehash: 4267a60911b02615e8482f8616f889ad2c1df02d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4d45ce16410292b2763d20686063f8a414c1f9a4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093910"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883099"
 ---
 # <a name="glossary-of-terms-for-azure-iot-edge"></a>Azure IoT Edge의 용어집
 이 문서에서는 IoT Edge 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -23,6 +23,4 @@ ms.locfileid: "53093910"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [IoT Hub 용어집](../iot-hub/iot-hub-devguide-glossary.md) 참조
-* IoT Edge [모듈 개발](iot-edge-modules.md)에 대해 알아보기
-* IoT Edge [배포](module-deployment-monitoring.md)에 대해 알아보기
+[IoT Hub 용어집](../iot-hub/iot-hub-devguide-glossary.md)

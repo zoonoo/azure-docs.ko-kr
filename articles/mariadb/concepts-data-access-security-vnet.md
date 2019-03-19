@@ -5,18 +5,15 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.openlocfilehash: 82b72b45f9577c83e2c6619220b26e26d696c4f1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: fdf2d3aeea32beba0b8e95c1816a80140d7cf6be
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540258"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958918"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
-
-> [!IMPORTANT]
-> VNet 서비스 엔드포인트 기능은 공개 미리 보기로 제공됩니다.
 
 *가상 네트워크 규칙*은 가상 네트워크의 특정 서브넷에서 보낸 통신을 Azure Database for MariaDB 서버에서 허용할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure Database for MariaDB 서버에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유에 대해 설명합니다.
 

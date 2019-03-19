@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f5e140e4f620362ca90a1e1cd06d23719cd2099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0c2ad7e5a707c20db2773324e8047eedaad1a48b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471609"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835036"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - MPP(Massively Parallel Processing) 아키텍처
 Azure SQL Data Warehouse가 고성능 및 확장성을 달성하도록 MPP(Massively Parallel Processing)와 Azure 저장소를 결합하는 방법을 알아봅니다. 
@@ -51,7 +51,7 @@ SQL Data Warehouse는 Azure 저장소를 사용하여 사용자 데이터를 안
 
 계산 노드는 계산 성능을 제공합니다. 분산은 처리를 위해 계산 노드로 매핑됩니다. 비용을 지불하는 계산 리소스가 많을수록 SQL Data Warehouse는 사용 가능한 계산 노드에 분산을 다시 매핑합니다. 계산 노드의 수는 1~60 사이이며 데이터 웨어하우스의 서비스 수준에 따라 결정됩니다.
 
-각 계산 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 시스템 뷰 목록은 [MPP 시스템 뷰](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7)를 참조하세요.
+각 계산 노드에는 시스템 뷰에 표시되는 노드 ID가 있습니다. 시스템 뷰에서 이름이 sys.pdw_nodes로 시작하는 node_id 열을 검색하여 Compute 노드 ID를 볼 수 있습니다. 시스템 뷰 목록은 [MPP 시스템 뷰](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7)를 참조하세요.
 
 ### <a name="data-movement-service"></a>데이터 이동 서비스
 DMS(데이터 이동 서비스)는 계산 노드 간의 데이터 이동을 조정하는 데이터 전송 기술입니다. 일부 쿼리는 병렬 쿼리가 정확한 결과를 반환하도록 하려면 데이터 이동이 필요합니다. 데이터 이동이 필요할 때 DMS는 올바른 데이터가 올바른 위치에 도달하도록 보장합니다. 
@@ -84,7 +84,7 @@ DMS(데이터 이동 서비스)는 계산 노드 간의 데이터 이동을 조�
 ## <a name="replicated-tables"></a>복제된 테이블
 복제된 테이블은 작은 테이블에 가장 빠른 쿼리 성능을 제공합니다.
 
-복제된 테이블은 각 계산 노드에 테이블의 전체 복사본을 캐시합니다. 결과적으로 테이블을 복제하면 조인 또는 집계 전에 계산 노드 간에 데이터를 전송하지 않아도 됩니다. 복제된 테이블은 작은 테이블에서 가장 잘 활용됩니다. 추가 저장소가 필요하며 데이터를 쓸 때 발생하는 추가 오버 헤드로 인해 큰 테이블에는 비실용적입니다.  
+복제된 테이블은 각 계산 노드에 테이블의 전체 복사본을 캐시합니다. 결과적으로 테이블을 복제하면 조인 또는 집계 전에 계산 노드 간에 데이터를 전송하지 않아도 됩니다. 복제된 테이블은 작은 테이블에서 가장 잘 활용됩니다. 추가 저장소가 필요 하며 대형 테이블을 불가능 하 게 하는 데이터를 쓸 때 발생 하는 추가 오버 헤드가 있습니다.  
 
 다음 다이어그램은 복제된 테이블을 보여줍니다. SQL Data Warehouse의 경우 복제된 테이블은 각 계산 노드의 첫 번째 분산에 캐시됩니다.  
 
@@ -124,9 +124,9 @@ SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 [SQL Data W
 [고객 자문 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN 포럼]: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse
-[Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow 포럼]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

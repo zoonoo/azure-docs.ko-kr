@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b8ca5fc5348818a7d0f1075557d4fe5c7e3bef44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807825"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834339"
 ---
 <a name="azure-marketplace-seo-publisher-guide"></a>Azure Marketplace SEO 게시자 가이드
 =======================================
 
 ### <a name="general-explanation-of-algorithm"></a>알고리즘에 대한 일반적인 설명
 
-Marketplace는 사이트의 검색 기능을 강화하기 위해 Azure Search를 활용합니다. 이 알고리즘은 용어 [TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)(용어 빈도/역 문서 빈도)를 기준으로 합니다. [표준](http://lucene.apache.org/core/) Lucene 분석기가 사용됩니다.
+Marketplace는 사이트의 검색 기능을 강화하기 위해 Azure Search를 활용합니다. 이 알고리즘은 용어 [TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)(용어 빈도/역 문서 빈도)를 기준으로 합니다. [표준](https://lucene.apache.org/core/) Lucene 분석기가 사용됩니다.
 
 일반적으로 모든 텍스트 필드, 범주 및 산업이 관련성의 가중치에 포함됩니다. 다른 앱과 달리 사용자 앱에서만 자주 사용되는 특수한 용어는 검색을 수행할 때 훨씬 더 높은 일치 점수를 생성합니다. 따라서 “Azure search”는 훨씬 더 전문적이지만 “VM”과 같은 용어를 포함하면 별로 이점이 없습니다.
 다음은 고려해야 할 가장 관련성이 높은 필드입니다.

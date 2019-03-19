@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5513948a6611e93833c7e70fa4e5667b3901a9f3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238491"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880226"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Azure 데이터 카탈로그 시작
 Azure Data Catalog는 기업 데이터 자산의 등록 시스템 및 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 자세한 개요는 [Azure Data Catalog란](data-catalog-what-is-data-catalog.md)을 참조하세요.
@@ -82,7 +82,7 @@ Azure Data Catalog 포털에 로그인할 수 있는 상황이 발생할 수 있
     ![Azure Data Catalog - 목록에서 카탈로그 보기](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 3. 만든 카탈로그를 클릭합니다. 포털에서 **Data Catalog** 블레이드가 표시됩니다.
    
-   ![Azure Data Catalog - 포털의 블레이드 ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+   ![Azure Data Catalog - 포털의 블레이드](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
 4. 데이터 카탈로그의 속성을 보고 업데이트할 수 있습니다. 예를 들어 **가격 책정 계층** 을 클릭하고 버전을 변경합니다.
    
     ![Azure Data Catalog - 가격 책정 계층](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
@@ -99,10 +99,10 @@ Adventure Works 샘플 데이터베이스를 설치하려면 다음을 수행합
 2. 컴퓨터에서 데이터베이스를 복원하려면 [SQL Server Management Studio를 사용하여 데이터베이스 Backup 복원](https://msdn.microsoft.com/library/ms177429.aspx)의 지침을 따르거나 다음 단계를 따릅니다.
    1. SQL Server Management Studio를 열고 SQL Server 데이터베이스 엔진에 연결합니다.
    2. **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **데이터베이스 복원**을 클릭합니다.
-   3. **데이터베이스 복원** 아래에서 **원본**에 대해 **장치** 옵션을 선택하고 **찾아보기**를 클릭합니다.
-   4. **백업 장치 선택** 아래에서 **추가**를 클릭합니다.
+   3. **데이터베이스 복원** 아래에서 **원본**에 대해 **디바이스** 옵션을 선택하고 **찾아보기**를 클릭합니다.
+   4. **백업 디바이스 선택** 아래에서 **추가**를 클릭합니다.
    5. **AdventureWorks2014.bak** 파일이 있는 폴더로 이동하여 파일을 선택하고 **확인**을 클릭하여 **Backup 파일 찾기** 대화 상자를 닫습니다.
-   6. **확인**을 클릭하여 **백업 장치 선택** 대화 상자를 닫습니다.    
+   6. **확인**을 클릭하여 **백업 디바이스 선택** 대화 상자를 닫습니다.    
    7. **확인**을 클릭하여 **데이터베이스 복원** 대화 상자를 닫습니다.
 
 이제 Azure Data Catalog를 사용하여 Adventure Works 샘플 데이터베이스의 데이터 자산을 등록할 수 있습니다.
@@ -114,7 +114,7 @@ Adventure Works 샘플 데이터베이스를 설치하려면 다음을 수행합
 1. [Azure Data Catalog 홈 페이지](http://azuredatacatalog.com) 로 이동하고 **데이터 게시**를 클릭합니다.
    
    ![Azure Data Catalog - 데이터 게시 단추](media/data-catalog-get-started/data-catalog-publish-data.png)
-2. **응용 프로그램 시작** 을 클릭하여 컴퓨터에서 등록 도구를 다운로드, 설치 및 실행합니다.
+2. **애플리케이션 시작** 을 클릭하여 컴퓨터에서 등록 도구를 다운로드, 설치 및 실행합니다.
    
    ![Azure Data Catalog - 시작 단추](media/data-catalog-get-started/data-catalog-launch-application.png)
 3. **시작 페이지**에서 **로그인**을 클릭하고 자격 증명을 입력합니다.     
@@ -144,7 +144,7 @@ Adventure Works 샘플 데이터베이스를 설치하려면 다음을 수행합
       ![Azure Data Catalog - 등록된 개체](media/data-catalog-get-started/data-catalog-registered-objects.png)
    9. 등록된 데이터 원본 개체를 보려면 **포털 보기**를 클릭합니다. Azure Data Catalog 포털의 그리드 보기에서 네 개의 테이블 및 데이터베이스가 모두 표시되는지 확인합니다.
       
-      ![Azure Data Catalog 포털에 있는 개체 ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Azure Data Catalog 포털에 있는 개체](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 이 연습에서는 Adventure Works 샘플 데이터베이스에서 개체를 등록했으므로 조직 전체의 사용자가 쉽게 검색할 수 있습니다. 다음 연습에서는 등록된 데이터 자산을 검색하는 방법을 배웁니다.
 
@@ -299,7 +299,7 @@ Azure Data Catalog는 주석에 대한 크라우드 소싱 접근 방식을 지�
    
     ![Azure Data Catalog - 액세스 요청](media/data-catalog-get-started/data-catalog-request-access.png)
 
-**연결 문자열 보기** 를 클릭하여 ADF.NET, ODBC 및 OLEDB 연결 문자열을 보고 응용 프로그램에서 사용하기 위해 클립보드로 복사합니다.
+**연결 문자열 보기** 를 클릭하여 ADF.NET, ODBC 및 OLEDB 연결 문자열을 보고 애플리케이션에서 사용하기 위해 클립보드로 복사합니다.
 
 ## <a name="manage-data-assets"></a>데이터 자산 관리
 이 단계에서는 데이터 자산에 대한 보안을 설정하는 방법을 표시합니다. 데이터 카탈로그는 사용자가 데이터 자체에 액세스할 권한을 주지 않습니다. 데이터 원본의 소유자가 데이터 액세스를 제어합니다.

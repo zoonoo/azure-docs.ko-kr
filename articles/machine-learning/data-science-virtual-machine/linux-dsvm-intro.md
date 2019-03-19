@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b5f2bee7ab0277b94da699be486594a602b94a29
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241704"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835750"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure에서 Linux CentOS 데이터 과학 Virtual Machine 프로비전
 
@@ -104,7 +104,7 @@ Linux 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 �
 프로비전은 약 10-20분 정도 소요됩니다. 프로비전의 상태는 Azure 포털에 표시됩니다.
 
 ## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>Linux 데이터 과학 Virtual Machine에 액세스하는 방법
-VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다. 3단계의 **기본 사항** 섹션에서 만든 계정 자격 증명을 텍스트 셸 인터페이스용으로 사용합니다. Windows에서는 [Putty](http://www.putty.org)와 같은 SSH 클라이언트 도구를 다운로드할 수 있습니다. 그래픽 데스크톱(X Windows 시스템)을 사용하려는 경우 Putty에서 X11 전달을 사용하거나 X2Go 클라이언트를 설치할 수 있습니다.
+VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다. 3단계의 **기본 사항** 섹션에서 만든 계정 자격 증명을 텍스트 셸 인터페이스용으로 사용합니다. Windows에서는 [Putty](https://www.putty.org)와 같은 SSH 클라이언트 도구를 다운로드할 수 있습니다. 그래픽 데스크톱(X Windows 시스템)을 사용하려는 경우 Putty에서 X11 전달을 사용하거나 X2Go 클라이언트를 설치할 수 있습니다.
 
 > [!NOTE]
 > 테스트 결과 X2Go 클라이언트의 성능이 X11 전달보다 훨씬 우수했습니다. 그래픽 데스크톱 인터페이스에서는 X2Go 클라이언트를 사용하는 것이 좋습니다.
@@ -114,7 +114,7 @@ VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다.
 ## <a name="installing-and-configuring-x2go-client"></a>X2Go 클라이언트 설치 및 구성
 Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연결을 사용할 수 있습니다. Linux VM 그래픽 데스크톱에 연결하려면 클라이언트에서 다음을 수행합니다.
 
-1. 사용 중인 클라이언트 플랫폼용 X2Go 클라이언트를 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 다운로드하여 설치합니다.    
+1. 사용 중인 클라이언트 플랫폼용 X2Go 클라이언트를 [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 다운로드하여 설치합니다.    
 1. X2Go 클라이언트를 실행하고 **새 세션**을 선택합니다. 여러 탭이 있는 구성 창이 열립니다. 다음 구성 매개 변수를 입력합니다.
    * **세션 탭**:
      * **호스트**: Linux Data Science VM의 호스트 이름 또는 IP 주소
@@ -132,7 +132,7 @@ R은 가장 많이 사용되는 데이터 분석 및 Machine Learning 언어 중
 
 R 콘솔을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이렇게 하면 대화형 환경으로 이동됩니다. R 프로그램을 개발하려면 일반적으로 Emacs, vi, gedit 등의 편집기를 사용한 다음 R 내에서 스크립트를 실행합니다. RStudio를 통해 R 프로그램을 개발하기 위한 전체 그래픽 IDE 환경을 사용할 수 있습니다.
 
-또한 원하는 경우 [상위 20개 R 패키지](http://www.kdnuggets.com/2015/06/top-20-r-packages.html)를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
+또한 원하는 경우 [상위 20개 R 패키지](https://www.kdnuggets.com/2015/06/top-20-r-packages.html)를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
 
 ### <a name="python"></a>Python
 Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7 및 3.5가 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. 기본 텍스트 편집기를 사용할 수 있습니다. 또한 Anaconda Python 배포에 번들로 포함된 Python IDE인 Spyder를 사용할 수도 있습니다. Spyder를 사용하려면 그래픽 데스크톱 또는 X11 전달이 필요합니다. 그래픽 데스크톱에 Spyder에 대한 바로 가기가 제공됩니다.
@@ -198,12 +198,12 @@ Microsoft R Server에서 Spark 컨텍스트를 실행하기 전에 로컬 단일
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-필요하지 않을 때 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```을 실행하여 서비스와 관련된 Hadoop을 중지할 수 있습니다. 원격 Spark 컨텍스트(DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 개발 및 테스트하는 방법을 보여주는 샘플은 `/dsvm/samples/MRS` 디렉터리에서 제공되고 사용할 수 있습니다. 
+Hadoop을 중지할 수 있습니다 실행 하 여 필요 하지 않을 때 서비스 관련 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` 개발 및 원격 Spark 컨텍스트 (DSVM의 독립 실행형 Spark 인스턴스)에서 MRS를 테스트 하는 방법을 보여주는 샘플은 제공 되 고 사용 가능한는 `/dsvm/samples/MRS` 디렉터리입니다. 
 
 ### <a name="ides-and-editors"></a>IDE 및 편집기
 여러 코드 편집기 중에서 선택할 수 있습니다. vi/VIM, Emacs, gEdit, PyCharm, RStudio, Eclipse 및 IntelliJ를 포함합니다. gEdit, Eclipse, IntelliJ, RStudio 및 PyCharm은 그래픽 편집기이며 그래픽 데스크톱에 로그인해야 사용할 수 있습니다. 이러한 편집기는 데스크톱 및 애플리케이션 바로 가기 메뉴를 사용하여 시작할 수 있습니다.
 
-**VIM** 및 **Emacs**는 텍스트 기반 편집기입니다. Emacs의 경우 Emacs 편집기 내에서 R 작업을 쉽게 수행할 수 있도록 해주는 ESS(Emacs Speaks Statistics)라는 추가 기능 패키지가 설치되어 있습니다. 자세한 내용은 [ESS](http://ess.r-project.org/)를 참조하세요.
+**VIM** 및 **Emacs**는 텍스트 기반 편집기입니다. Emacs의 경우 Emacs 편집기 내에서 R 작업을 쉽게 수행할 수 있도록 해주는 ESS(Emacs Speaks Statistics)라는 추가 기능 패키지가 설치되어 있습니다. 자세한 내용은 [ESS](https://ess.r-project.org/)를 참조하세요.
 
 **Eclipse** 는 다국어를 지원하는 확장형 오픈 소스 IDE입니다. Java 개발자 버전은 VM에 설치된 인스턴스입니다. 주요 언어에 사용할 수 있는 몇 가지 플러그 인을 설치하여 환경을 확장할 수 있습니다. 또한 **Eclipse용 Azure 도구 키트**라는 Eclipse에 플러그 인을 설치했습니다. Java와 같은 언어를 지원하는 Eclipse 개발 환경을 사용하여 Azure 애플리케이션을 만들고 개발, 테스트 및 배포할 수 있습니다. 또한 Java 환경 내에서 다른 Azure 서비스에 액세스할 수 있는 **Java용 Azure SDK** 도 있습니다. Eclipse용 Azure 도구 키트에 대한 자세한 내용은 [Eclipse용 Azure 도구 키트](../../azure-toolkit-for-eclipse.md)를 참조하세요.
 
@@ -377,5 +377,5 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 * [Linux 데이터 과학 Virtual Machine의 데이터 과학](linux-dsvm-walkthrough.md) 연습은 여기에 프로비전된 Linux 데이터 과학을 사용하여 여러 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여 줍니다. 
 * 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 머신 내의 셸에서 *dsvm-more-info* 를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
 * [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
-* [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com) 를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
+* [Cortana 분석 갤러리](https://gallery.cortanaanalytics.com) 를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
 

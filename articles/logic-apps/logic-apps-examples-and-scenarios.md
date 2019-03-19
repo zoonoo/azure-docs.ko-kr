@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
-ms.date: 01/31/18
-ms.openlocfilehash: 6249c45a1cd3a8acbb9770fc39da881d8da9057f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.date: 01/31/2018
+ms.openlocfilehash: 89e0294db3178cedd3b14aada0b505787b17c75e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230142"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671797"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
 
@@ -27,9 +27,9 @@ ms.locfileid: "50230142"
 
 모든 논리 앱은 하나의 [*트리거*](../logic-apps/logic-apps-overview.md#logic-app-concepts)로 시작하며 논리 앱 워크플로를 시작하고 트리거의 일부로 데이터를 전달합니다. 일부 커넥터는 다음과 같은 유형의 트리거를 제공합니다.
 
-* *폴링 트리거*: 서비스 엔드포인트에서 정기적으로 새 데이터를 확인합니다. 새 데이터가 존재하면 트리거는 해당 데이터를 입력으로 사용하여 새 워크플로 인스턴스를 만들고 실행합니다.
+* *폴링 트리거*: 새 데이터에 대 한 서비스 끝점을 정기적으로 확인 합니다. 새 데이터가 존재하면 트리거는 해당 데이터를 입력으로 사용하여 새 워크플로 인스턴스를 만들고 실행합니다.
 
-* *푸시 트리거*: 서비스 엔드포인트에서 데이터를 수신 대기하고 특정 이벤트가 발생할 때까지 대기합니다. 이벤트가 발생하면 트리거가 즉시 실행되어 사용 가능한 데이터를 입력으로 사용하는 새 워크플로 인스턴스를 만들고 실행합니다.
+* *트리거 푸시*: 서비스 끝점에서 데이터를 수신 대기 하 고 특정 이벤트가 발생할 때까지 기다립니다. 이벤트가 발생하면 트리거가 즉시 실행되어 사용 가능한 데이터를 입력으로 사용하는 새 워크플로 인스턴스를 만들고 실행합니다.
 
 다음은 많이 사용되는 트리거 예제입니다.
 
@@ -59,8 +59,8 @@ ms.locfileid: "50230142"
 * [워크플로 실행에 대해 장기 실행 작업 설정](../logic-apps/logic-apps-create-api-app.md)
 * [웹후크로 외부 이벤트 및 작업에 응답](../logic-apps/logic-apps-create-api-app.md)
 * [HTTP 요청에 대한 동기 응답을 포함하는 호출, 트리거 또는 중첩 워크플로](../logic-apps/logic-apps-http-endpoint.md)
-* [자습서: Logic Apps 및 Power BI로 몇 분 안에 AI 기반 소셜 대시보드 빌드](https://aka.ms/logicappsdemo)
-* [비디오: Twilio SMS 웹후크에 응답 및 텍스트 응답 보내기](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [자습서: Logic Apps 및 Power BI를 사용 하 여 몇 분 안에 AI 기반 소셜 대시보드 빌드](https://aka.ms/logicappsdemo)
+* [비디오: Twilio SMS 웹 후크에 응답 및 텍스트 응답 보내기](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>제어 흐름, 오류 처리 및 로깅 기능
 
@@ -70,7 +70,7 @@ ms.locfileid: "50230142"
 * [루프를 사용하여 배열 및 컬렉션의 항목을 처리하거나 단계를 반복](../logic-apps/logic-apps-control-flow-loops.md)
 * [범위와 함께 작업 그룹화](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [워크플로에서 작성자 오류 및 예외 처리](../logic-apps/logic-apps-exception-handling.md)
-* [사용 사례: 의료 회사에서 HL7 FHIR 워크플로에 대해 논리 앱 예외 처리를 사용하는 방법](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [사용 사례: 의료 회사에서 HL7 FHIR 워크플로에 대 한 처리 논리 앱 예외를 사용 하는 하는 방법](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [기존 논리 앱에 대한 모니터링, 로깅 및 경고 켜기](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [논리 앱을 만들 때 모니터링 및 진단 로깅 켜기](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
 
@@ -96,15 +96,15 @@ Azure Logic Apps [워크플로 정의 언어](https://aka.ms/logicappsdocs)의 �
 
 * [Azure 서버를 사용하지 않고 실시간 소셜 대시보드 만들기](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [논리 앱에서 Azure Functions 호출](../logic-apps/logic-apps-azure-functions.md)
-* [자습서: Azure Functions로 논리 앱 트리거](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
-* [자습서: Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
-* [자습서: Azure Logic Apps 및 Microsoft Cognitive Services와 통합하여 Twitter 게시물 감정을 분석하는 함수 만들기](../azure-functions/functions-twitter-email.md)
-* [자습서: Azure Logic Apps로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-* [블로그: 논리 앱에서 SOAP 엔드포인트 호출](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+* [자습서: Azure Functions를 사용 하 여 논리 앱 트리거](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [자습서: Azure Event Grid 및 Logic Apps를 사용 하 여 가상 머신 변경 모니터링](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [자습서: Twitter 게시물 감정을 분석 하는 Azure Logic Apps 및 Microsoft Cognitive Services와 통합 되는 함수 만들기](../azure-functions/functions-twitter-email.md)
+* [자습서: IoT 원격 모니터링 및에 IoT hub와 사서함을 연결 하는 Azure Logic Apps를 사용 하 여 알림](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [블로그: Logic apps에서 SOAP 끝점 호출](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>종단 간 시나리오
 
-* [백서: Azure 서비스(예: Logic Apps)와 종단 간 사례 관리 통합](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [백서: Logic Apps와 같은 Azure 서비스를 사용 하 여 종단 간 사례 관리 통합](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="customer-stories"></a>고객 사례
 

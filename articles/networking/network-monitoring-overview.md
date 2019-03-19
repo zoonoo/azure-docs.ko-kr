@@ -1,5 +1,5 @@
 ---
-title: Log Analytics의 네트워크 모니터링 | Microsoft Docs
+title: Azure Monitor에서 네트워크 모니터링에 대 한 로그 | Microsoft Docs
 description: 클라우드, 온-프레미스 및 하이브리드 환경에 걸친 네트워크를 관리하는, NPM을 비롯한 네트워크 모니터링 솔루션의 개요입니다.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 4107b292a606ea629e7de0c7be66621d699c5f42
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 617dbae67c71eac4bfc38de4e63c1ba05516ff61
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427389"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984053"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -51,9 +51,9 @@ NPM(네트워크 성능 모니터)은 애플리케이션에 대한 네트워크 
 
 자세한 내용은 다음 문서를 참조하세요.
 
-* [Log Analytics의 네트워크 성능 모니터 솔루션 구성](../azure-monitor/insights/network-performance-monitor.md) 
+* [Azure Monitor 로그에는 네트워크 성능 모니터 솔루션 구성](../azure-monitor/insights/network-performance-monitor.md) 
 * [사용 사례](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-*  제품 업데이트: [2017년 2월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [2017년 8월](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+*  제품 업데이트: [2017 년 2 월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [2017 년 8 월](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>ExpressRoute 모니터
 

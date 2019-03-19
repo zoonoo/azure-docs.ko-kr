@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 50c487e6bad2a009b4f719d44b129ba860432e28
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9b3641ddd9d27c0ffa18e62f317d7a8c8ecb6eb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207471"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834934"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>FabricClient를 사용하여 애플리케이션 배포 및 제거
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Visual Studio에서 *MyApplication*이라는 애플리케이션을 빌드하고 
 
 애플리케이션 패키지를 업로드하면 내부 Service Fabric 구성 요소에 의해 액세스할 수 있는 위치에 배치됩니다. Service Fabric은 애플리케이션 패키지를 등록하는 동안 애플리케이션 패키지를 확인합니다. 단, 로컬로 애플리케이션 패키지를 확인하려는 경우(예: 업로드하기 전에) [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) cmdlet을 사용합니다.
 
-[CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API는 응용 프로그램 패키지를 클러스터 이미지 저장소에 업로드합니다. 
+[CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API는 애플리케이션 패키지를 클러스터 이미지 저장소에 업로드합니다. 
 
 애플리케이션 패키지가 크거나 파일이 많은 경우 [압축](service-fabric-package-apps.md#compress-a-package)한 다음, PowerShell을 사용하여 이미지 저장소에 복사할 수 있습니다. 압축은 파일의 크기와 수를 줄입니다.
 
@@ -68,15 +68,15 @@ Visual Studio에서 *MyApplication*이라는 애플리케이션을 빌드하고 
 ## <a name="register-the-application-package"></a>애플리케이션 패키지 등록
 애플리케이션 매니페스트에 선언된 애플리케이션 형식과 버전은 애플리케이션 패키지를 등록할 때 사용할 수 있게 됩니다. 시스템은 이전 단계에서 업로드된 패키지를 읽고, 패키지를 확인하며, 처리된 패키지를 내부 시스템 위치에 복사합니다.  
 
-[ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API는 클러스터에 응용 프로그램 형식을 등록한 후 배포에 사용할 수 있도록 합니다.
+[ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API는 클러스터에 애플리케이션 형식을 등록한 후 배포에 사용할 수 있도록 합니다.
 
-[GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) API는 성공적으로 등록된 모든 응용 프로그램 형식에 대한 정보를 제공합니다. 이 API를 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
+[GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) API는 성공적으로 등록된 모든 애플리케이션 형식에 대한 정보를 제공합니다. 이 API를 사용하여 등록이 완료된 시기를 확인할 수 있습니다.
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>이미지 저장소에서 애플리케이션 패키지 제거
-애플리케이션이 성공적으로 등록된 후에는 애플리케이션 패키지를 제거하는 것이 좋습니다.  이미지 저장소에서 애플리케이션 패키지를 삭제하면 시스템 리소스가 해제됩니다.  사용되지 않는 애플리케이션 패키지를 그대로 두면 디스크 스토리지를 소비하고 애플리케이션 성능 문제로 이어집니다. [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) API를 사용하여 이미지 저장소에서 응용 프로그램 패키지를 사용합니다.
+애플리케이션이 성공적으로 등록된 후에는 애플리케이션 패키지를 제거하는 것이 좋습니다.  이미지 저장소에서 애플리케이션 패키지를 삭제하면 시스템 리소스가 해제됩니다.  사용되지 않는 애플리케이션 패키지를 그대로 두면 디스크 스토리지를 소비하고 애플리케이션 성능 문제로 이어집니다. [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage) API를 사용하여 이미지 저장소에서 애플리케이션 패키지를 사용합니다.
 
 ## <a name="create-an-application-instance"></a>애플리케이션 인스턴스 만들기
-[CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync) API를 사용하여 성공적으로 등록된 모든 응용 프로그램 형식에서 응용 프로그램을 인스턴스화할 수 있습니다. 각 애플리케이션의 이름은 반드시 *"fabric:"* 체계로 시작하고 각 애플리케이션 인스턴스에 대해 고유해야 합니다(클러스터 내). 대상 애플리케이션 형식의 애플리케이션 매니페스트에 정의된 모든 기본 서비스도 만들어집니다.
+[CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync) API를 사용하여 성공적으로 등록된 모든 애플리케이션 형식에서 애플리케이션을 인스턴스화할 수 있습니다. 각 애플리케이션의 이름은 반드시 *"fabric:"* 체계로 시작하고 각 애플리케이션 인스턴스에 대해 고유해야 합니다(클러스터 내). 대상 애플리케이션 형식의 애플리케이션 매니페스트에 정의된 모든 기본 서비스도 만들어집니다.
 
 등록된 애플리케이션 형식의 주어진 어떤 버전에 대해서도 여러 개의 애플리케이션 인스턴스를 만들 수 있습니다. 각 애플리케이션 인스턴스는 자체 작업 디렉터리 및 프로세스 집합과는 별도로 실행됩니다.
 
@@ -92,7 +92,7 @@ Visual Studio에서 *MyApplication*이라는 애플리케이션을 빌드하고 
 > 이 작업은 되돌릴 수 없으며 서비스 상태는 복구할 수 없습니다.
 
 ## <a name="remove-an-application-instance"></a>애플리케이션 인스턴스 제거
-애플리케이션 인스턴스가 더 이상 필요하지 않은 경우 [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) API를 사용하여 이름별로 영구적으로 제거할 수 있습니다. [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync)는 모든 서비스 상태를 영구적으로 제거하고 해당 응용 프로그램에 속한 모든 서비스를 자동으로 제거합니다.
+애플리케이션 인스턴스가 더 이상 필요하지 않은 경우 [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync) API를 사용하여 이름별로 영구적으로 제거할 수 있습니다. [DeleteApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.deleteapplicationasync)는 모든 서비스 상태를 영구적으로 제거하고 해당 애플리케이션에 속한 모든 서비스를 자동으로 제거합니다.
 
 > [!WARNING]
 > 이 작업은 되돌릴 수 없으며 애플리케이션 상태는 복구할 수 없습니다.
@@ -118,7 +118,7 @@ Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\Se
 ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 
 ```xml
-<ClusterManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ClusterManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
     [...]
 
@@ -132,20 +132,20 @@ ImageStoreConnectionString은 클러스터 매니페스트에 있습니다.
 이미지 저장소 및 이미지 저장소 연결 문자열에 대한 보충 정보는 [이미지 저장소 연결 문자열 이해](service-fabric-image-store-connection-string.md)를 참조하세요.
 
 ### <a name="deploy-large-application-package"></a>대형 애플리케이션 패키지 배포
-문제: 대형 애플리케이션 패키지(GB 단위)에 대한 [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) API 시간이 초과되었습니다.
+문제: [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) 는 대형 응용 프로그램 패키지 (gb)에 대 한 API 시간이 초과 됩니다.
 다음을 시도해 보세요.
 - [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) 메서드에 `timeout` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다. 기본적으로 시간 제한은 30분입니다.
 - 원본 컴퓨터와 클러스터 간의 네트워크 연결을 확인합니다. 연결 속도가 느린 경우 네트워크 연결 상태가 좋은 컴퓨터를 사용하는 것이 좋습니다.
 클라이언트 컴퓨터가 클러스터가 아닌 다른 지역에 있는 경우 해당 클러스터와 가깝거나 동일한 지역에 있는 클라이언트 컴퓨터를 사용하는 것이 좋습니다.
 - 외부 제한에 도달하고 있는지 확인합니다. 예를 들어 Azure 저장소를 사용하도록 이미지 저장소를 구성한 경우 업로드가 제한될 수 있습니다.
 
-문제: 패키지 업로드가 성공적으로 완료되었지만 [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API 시간이 초과되었습니다. 다음을 시도해 보세요.
+문제: 성공적으로 완료 하는 패키지를 업로드 합니다. 하지만 [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API 시간이 초과 됩니다. 다음을 시도해 보세요.
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package).
 압축하면 파일의 크기와 수가 줄어들므로 Service Fabric에서 수행해야 하는 트래픽과 작업량도 줄어듭니다. 업로드 작업이 느려질 수 있지만(특히 압축 시간이 포함되는 경우), 애플리케이션 유형을 더 빠르게 등록 및 등록 취소할 수 있습니다.
 - [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) API에 `timeout` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
 
 ### <a name="deploy-application-package-with-many-files"></a>많은 파일이 있는 애플리케이션 패키지 배포
-문제: 많은 파일(1,000개 단위)이 있는 애플리케이션 패키지에 대한 [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync)가 시간이 초과되었습니다.
+문제: [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) 많은 파일 (수천 대)를 사용 하 여 응용 프로그램 패키지의 시간이 초과 됩니다.
 다음을 시도해 보세요.
 - 이미지 저장소에 복사하기 전에 [패키지를 압축합니다](service-fabric-package-apps.md#compress-a-package). 압축하면 파일의 수가 줄어듭니다.
 - [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync)에 `timeout` 매개 변수를 사용하여 더 긴 시간 제한을 지정합니다.
@@ -332,13 +332,13 @@ static void Main(string[] args)
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
+[서비스 패브릭 애플리케이션 업그레이드](service-fabric-application-upgrade.md)
 
 [서비스 패브릭 상태 소개](service-fabric-health-introduction.md)
 
 [서비스 패브릭 서비스 진단 및 문제 해결](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[서비스 패브릭에서 응용 프로그램 모델링](service-fabric-application-model.md)
+[Service Fabric에서 애플리케이션 모델링](service-fabric-application-model.md)
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-package-apps.md

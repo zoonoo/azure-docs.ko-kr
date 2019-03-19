@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 0ac6dd63d125f436f3f3f8c1174cdcce27ac2161
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: f41c14f664df8db809ad4c29c57d37c1124a0ff3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237657"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818547"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure Cache for Redis를 모니터링하는 방법
 Azure Cache for Redis에서는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용하여 캐시 인스턴스를 모니터링하기 위한 몇 가지 옵션을 제공합니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 이러한 도구는 Azure Cache for Redis 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 애플리케이션 관리에 도움이 됩니다.
@@ -75,7 +75,7 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 ![Redis 진단](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->캐시 메트릭을 저장소에 보관하는 것 외에 [이벤트 허브에 파일을 스트리밍하거나 Log Analytics로 전송](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values)할 수도 있습니다.
+>캐시 메트릭을 저장소에 보관 하는 것 외에도 할 수도 있습니다 [이벤트 허브로 스트림 하거나 Azure Monitor 로그를 보낼](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values)합니다.
 >
 >
 

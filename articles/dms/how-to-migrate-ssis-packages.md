@@ -2,7 +2,7 @@
 title: Azure에 SQL Server Integration Services 패키지 마이그레이션 | Microsoft Docs
 description: Azure에 SQL Server Integration Services 패키지를 마이그레이션하는 방법을 알아봅니다.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/15/2018
-ms.openlocfilehash: 2fa37d31e984399c1b676cf6c6112617fac43fd9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 1113e203f92c2362d0a7a5da002179a8c3ebb793
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721940"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791837"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-azure"></a>Azure에 SQL Server Integration Services 패키지 마이그레이션
 SSIS(SQL Server Integration Services)를 사용하고 SQL Server에서 호스팅되는 SSISDB 원본에서 Azure SQL Database 서버 또는 Azure SQL Database Managed Instance에 의해 호스팅되는 대상 SSISDB에 SSIS 프로젝트/패키지를 마이그레이션하려는 경우 Integration Services 배포 마법사를 사용하여 다시 배포할 수 있습니다. SSMS(SQL Server Management Studio) 내에서 마법사를 시작할 수 있습니다.

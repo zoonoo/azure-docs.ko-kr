@@ -4,18 +4,18 @@ description: Avere vFXT for Azure를 배포하기 전에 수행할 계획에 대
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744659"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990988"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT 시스템 계획
 
-이 문서에서는 새 Avere vFXT for Azure 클러스터를 계획하여 요구 사항에 맞게 만든 클러스터가 배치되고 크기가 적절한지 확인하는 방법에 대해 설명합니다. 
+이 문서에 배치 되 고 요구 사항에 맞게 적절히 크기의 Azure 클러스터에 대 한 새 Avere vFXT를 계획 하는 방법을 설명 합니다. 
 
 Azure Marketplace로 이동하거나 VM을 만들기 전에 클러스터가 Azure의 다른 요소와 상호 작용하는 방법을 고려합니다. 클러스터 리소스가 사설 네트워크 및 서브넷에 배치될 위치를 계획하고 백 엔드 저장소의 위치를 결정합니다. 만든 클러스터 노드가 워크플로를 지원할 수 있을 만큼 강력한지 확인합니다. 
 
@@ -32,16 +32,22 @@ Avere vFXT 시스템의 네트워크 인프라를 계획하는 경우 다음 지
 * 모든 요소는 Avere vFXT 배포를 위해 만든 새 구독을 사용하여 관리해야 합니다. 이점은 다음과 같습니다. 
   * 더욱 간편한 비용 추적 - 리소스, 인프라 및 컴퓨팅 주기의 모든 비용을 구독 하나에서 확인하고 감사할 수 있습니다.
   * 더욱 쉬운 정리 - 프로젝트를 마친 후에는 전체 구독을 제거할 수 있습니다.
-  * 편리한 리소스 할당량 분할 - 고성능 컴퓨팅 워크플로에 사용되는 많은 클라이언트를 가동할 때 Avere vFXT 클라이언트와 클러스터를 단일 구독에 격리하여 리소스가 제한될 수 있는 상황에서 기타 중요 워크로드를 보호할 수 있습니다.
+  * 리소스의 편리한 분할 할당량-Avere vFXT 클라이언트 및 단일 구독에 클러스터를 분리 하 여 조정 가능한 리소스에서 다른 중요 한 워크 로드를 보호 합니다. 이 다 수의 고성능 컴퓨팅 워크플로에 대 한 클라이언트를 할 때 충돌을 피할 수 있습니다.
 
 * 클라이언트 계산 시스템을 vFXT 클러스터와 가까운 곳에 배치합니다. 백 엔드 저장소는 더 원격적일 수 있습니다.  
 
-* 편의상 vFXT 클러스터와 클러스터 컨트롤러 VM을 동일한 vnet(가상 네트워크) 및 동일한 리소스 그룹에 배치합니다. 또한 동일한 저장소 계정을 사용해야 합니다. 클러스터 컨트롤러는 클러스터를 만들며, 명령줄 클러스터 관리에도 사용할 수 있습니다.  
-
-  > [!NOTE] 
-  > 클러스터 만들기 템플릿을 통해 클러스터에 대한 새 리소스 그룹 및 새 스토리지 계정을 만들 수 있습니다. 기존 리소스 그룹을 지정할 수 있지만 비어 있어야 합니다.
+* VFXT 클러스터 및 클러스터 컨트롤러 VM의 동일한 리소스 그룹에서 동일한 가상 네트워크 (vnet)에 있어야 하 고 동일한 저장소 계정을 사용 합니다. 자동화 된 클러스터 만들기 템플릿 대부분의 경우에이 처리합니다.
 
 * IP 주소가 클라이언트 또는 계산 리소스와 충돌하지 않도록 클러스터는 자체 서브넷에 있어야 합니다. 
+
+* 클러스터 만들기 템플릿 대부분의 리소스 그룹, 가상 네트워크, 서브넷 및 저장소 계정을 포함 하 여 클러스터에 대해 필요한 인프라 리소스를 만들 수 있습니다. 이미 존재 하는 리소스를 사용 하려는 경우이 테이블의 요구 사항을 충족 하는지 있는지 확인 합니다. 
+
+  | 리소스 | 기존 항목 사용? | 요구 사항 |
+  |----------|-----------|----------|
+  | 리소스 그룹 | 예, 비어 있는 경우 | 비어 있어야 합니다.| 
+  | Storage 계정 | Blob 컨테이너 클러스터를 만든 후 기존에 연결 하는 경우 예 <br/>  클러스터를 만드는 동안 새 Blob 컨테이너를 만드는 경우 아니요 | 기존 Blob 컨테이너는 비어 있어야 합니다. <br/> &nbsp; |
+  | 가상 네트워크 | 예 | 새 Azure Blob 컨테이너를 만드는 경우 저장소 서비스 끝점을 포함 해야 합니다. | 
+  | 서브넷 | 예 |   |
 
 ## <a name="ip-address-requirements"></a>IP 주소 요구 사항 
 
@@ -62,22 +68,20 @@ Azure Blob Storage를 사용하는 경우 클러스터 vnet의 IP 주소도 필�
 
 클러스터와 다른 리소스 그룹에 네트워크 리소스와 Blob Storage(사용된 경우)를 배치할 수 있는 옵션이 있습니다.
 
-## <a name="vfxt-node-sizes"></a>vFXT 노드 크기 
+## <a name="vfxt-node-size"></a>vFXT 노드 크기
 
-클러스터 노드 역할을 하는 VM은 캐시의 요청 처리량 및 저장소 용량을 결정합니다. 메모리, 프로세서 및 로컬 저장소 특성이 서로 다른 두 가지 인스턴스 유형 중에서 선택할 수 있습니다. 
+클러스터 노드 역할을 하는 VM은 캐시의 요청 처리량 및 저장소 용량을 결정합니다. <!-- The instance type offered has been chosen for its memory, processor, and local storage characteristics. You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
 
 각 vFXT 노드는 동일합니다. 즉 3개 노드 클러스터를 만들면 동일한 유형과 크기의 VM 3개가 만들어집니다. 
 
 | 인스턴스 유형 | vCPU | 메모리  | 로컬 SSD 저장소  | 최대 데이터 디스크 수 | 캐시되지 않은 디스크 처리량 | NIC(개수) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D16s_v3 | 16  | 64GiB  | 128GiB  | 32 | 25,600IOPS <br/> 384MBps | 8,000MBps(8) |
 | Standard_E32s_v3 | 32  | 256GiB | 512GiB  | 32 | 51,200IOPS <br/> 768MBps | 16,000MBps(8)  |
 
-노드당 디스크 캐시의 크기를 구성할 수 있으며, 범위는 1,000-8,000GB입니다. 노드당 1TB는 Standard_D16s_v3 노드에 권장되는 캐시 크기이며, 노드당 4TB는 Standard_E32s_v3 노드에 권장됩니다.
+노드당 디스크 캐시의 크기를 구성할 수 있으며, 범위는 1,000-8,000GB입니다. 노드당 4TB Standard_E32s_v3 노드에 대 한 권장 되는 캐시 크기를입니다.
 
-이러한 VM에 대한 자세한 내용은 다음 Microsoft Azure 문서를 참조하세요.
+이러한 Vm에 대 한 자세한 내용은 Microsoft Azure 설명서를 참조 합니다.
 
-* [범용 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general)
 * [메모리 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## <a name="account-quota"></a>계정 할당량
@@ -120,7 +124,7 @@ Avere vFXT for Azure 클러스터는 개인 서브넷에 있으며 공용 IP 주
 
 클러스터 컨트롤러의 공용 IP 주소를 설정하는 경우에는 해당 주소를 점프 호스트로 사용하여 개인 서브넷 외부에서 Avere vFXT 클러스터에 연결할 수 있습니다. 그러나 컨트롤러에는 클러스터 노드 수정 권한이 있으므로 이와 같이 연결하면 보안상 다소 위험해집니다.  
 
-공용 IP 주소 사용 시의 보안을 개선하려면 네트워크 보안 그룹을 사용해 포트 22를 통한 인바운드 액세스만 허용합니다. 또는 액세스 범위를 IP 원본 주소 범위로 고정(클러스터 액세스에 사용하려는 머신의 연결만 허용)하여 시스템을 추가로 보호할 수 있습니다.
+공용 IP 주소를 사용 하 여 컨트롤러에 대 한 보안을 강화 하려면 배포 스크립트를 자동으로 포트 22에 인바운드 액세스를 제한 하는 네트워크 보안 그룹을 만듭니다. 액세스 범위를 IP 원본 주소 범위로 고정(클러스터 액세스에 사용하려는 컴퓨터의 연결만 허용)하면 시스템을 추가로 보호할 수 있습니다.
 
 클러스터를 만들 때 클러스터 컨트롤러에서 공용 IP 주소를 만들지 여부를 결정할 수 있습니다. 
 

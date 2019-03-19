@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263410"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738524"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevOps 지속적인 통합 및 배달 파이프라인에 Azure DevTest Labs 통합
 Azure DevOps에 설치된 *Azure DevTest Labs 작업* 확장을 사용하여 CI/CD 빌드 및 릴리스 파이프라인을 Azure DevTest Labs와 손쉽게 통합할 수 있습니다. 확장은 다음과 같은 세 가지 작업을 설치합니다. 
@@ -30,6 +30,8 @@ Azure DevOps에 설치된 *Azure DevTest Labs 작업* 확장을 사용하여 CI/
 이 프로세스를 통해 특정 테스트 작업에 “골든 이미지”를 신속하게 배포한 다음, 테스트가 완료되면 삭제하는 등의 작업이 쉬워집니다.
 
 이 문서에서는 VM을 만들어 배포하고, 사용자 지정 이미지를 만든 다음, VM을 삭제하는 방법을 하나의 완전한 파이프라인으로 보여 줍니다. 일반적으로 사용자 고유의 사용자 지정 빌드-테스트-배포 파이프라인에서는 개별적으로 각 태스크를 수행합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio Marketplace에서 확장을 설치해야 합니다.
@@ -57,20 +59,20 @@ CI/CD 파이프라인을 Azure DevTest Labs와 통합하기 전에 Visual Studio
    ```powershell
    Param( [string] $labVmId)
 
-   $labVmComputeId = (Get-AzureRmResource -Id $labVmId).Properties.ComputeId
+   $labVmComputeId = (Get-AzResource -Id $labVmId).Properties.ComputeId
 
    # Get lab VM resource group name
-   $labVmRgName = (Get-AzureRmResource -Id $labVmComputeId).ResourceGroupName
+   $labVmRgName = (Get-AzResource -Id $labVmComputeId).ResourceGroupName
 
    # Get the lab VM Name
-   $labVmName = (Get-AzureRmResource -Id $labVmId).Name
+   $labVmName = (Get-AzResource -Id $labVmId).Name
 
    # Get lab VM public IP address
-   $labVMIpAddress = (Get-AzureRmPublicIpAddress -ResourceGroupName $labVmRgName
+   $labVMIpAddress = (Get-AzPublicIpAddress -ResourceGroupName $labVmRgName
                    -Name $labVmName).IpAddress
 
    # Get lab VM FQDN
-   $labVMFqdn = (Get-AzureRmPublicIpAddress -ResourceGroupName $labVmRgName
+   $labVMFqdn = (Get-AzPublicIpAddress -ResourceGroupName $labVmRgName
               -Name $labVmName).DnsSettings.Fqdn
 
    # Set a variable labVmRgName to store the lab VM resource group name

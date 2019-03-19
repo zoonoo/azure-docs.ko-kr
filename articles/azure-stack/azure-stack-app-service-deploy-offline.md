@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: af3e7528e2312cef1832dc104e83384a91acf263
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: b6950e3445f2320f2e3a45f55726befd7077119a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835912"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS에서 보안이 유지 되는 연결이 끊긴된 Azure Stack 환경에는 App Service 리소스 공급자 추가
 
@@ -82,28 +82,28 @@ App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 �
     ![App Service 설치 관리자][3]
 
 7. 다음 페이지에서
-    1. 클릭 합니다 **Connect** 단추 옆에 **Azure Stack 구독** 상자입니다.
-        - 관리자 계정을 제공 합니다. 예: cloudadmin@azurestack.local 암호를 입력 하 고 클릭 **로그인**합니다.
-    2. 에 **Azure Stack 구독** 상자를 선택 합니다 **공급자 구독 기본**.
+   1. 클릭 합니다 **Connect** 단추 옆에 **Azure Stack 구독** 상자입니다.
+      - 관리자 계정을 제공 합니다. 예: cloudadmin@azurestack.local 암호를 입력 하 고 클릭 **로그인**합니다.
+   2. 에 **Azure Stack 구독** 상자를 선택 합니다 **공급자 구독 기본**.
     
-    > [!NOTE]
-    > App Service에 배포할 수 있습니다 합니다 **기본 공급자 구독**합니다.
-    >
+      > [!NOTE]
+      > App Service에 배포할 수 있습니다 합니다 **기본 공급자 구독**합니다.
+      >
     
-    3. 에 **Azure Stack 위치** 상자에서 배포 하는 지역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure Stack 개발 키트를 배포 합니다.
-    4. **다음**을 클릭합니다.
+   3. 에 **Azure Stack 위치** 상자에서 배포 하는 지역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure Stack 개발 키트를 배포 합니다.
+   4. **다음**을 클릭합니다.
 
-    ![App Service 설치 관리자][4]
+      ![App Service 설치 관리자][4]
 
 8. 이제 단계를 통해 구성 된 기존 가상 네트워크에 배포할 수 있는 옵션이 [여기](azure-stack-app-service-before-you-get-started.md#virtual-network), 또는 가상 네트워크와 연결 된 서브넷을 만들려면 App Service 설치 관리자를 허용 합니다.
-    1. 선택 **기본 설정 사용 하 여 VNet 만들기**에서 기본값을 적용 하 고 클릭 **다음**, 또는;
-    2. 선택 **기존 VNet 및 서브넷을 사용 하 여**입니다.
-        1. 선택 된 **리소스 그룹** ; 가상 네트워크를 포함 하는
-        2. 올바른 선택 **가상 네트워크** ;에 배포 하려는 이름
-        3. 올바른 **서브넷** 각 필수 역할 서브넷;에 대 한 값
-        4. **다음**을 누릅니다
+   1. 선택 **기본 설정 사용 하 여 VNet 만들기**에서 기본값을 적용 하 고 클릭 **다음**, 또는;
+   2. 선택 **기존 VNet 및 서브넷을 사용 하 여**입니다.
+       1. 선택 된 **리소스 그룹** ; 가상 네트워크를 포함 하는
+       2. 올바른 선택 **가상 네트워크** ;에 배포 하려는 이름
+       3. 올바른 **서브넷** 각 필수 역할 서브넷;에 대 한 값
+       4. **다음**을 누릅니다
 
-    ![App Service 설치 관리자][5]
+      ![App Service 설치 관리자][5]
 
 9. 파일 공유에 대 한 정보를 입력 한 다음 클릭 **다음**합니다. 파일 서버의 IP 주소나 정규화 된 도메인 이름, 파일 공유의 주소를 사용 해야 합니다. 예를 들어 \\\appservicefileserver.local.cloudapp.azurestack.external\websites, 또는 \\\10.0.0.1\websites 합니다.  도메인에 가입 되어 있는 파일 서버를 사용 하는 경우 예를 들어 myfileserverdomain\FileShareOwner 도메인을 포함 하 여 전체 사용자 이름을 제공 해야 합니다.
 
@@ -152,7 +152,7 @@ App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 �
     > ```
     > 참조 된 [Azure Stack 1.3에서 Azure App Service에 대 한 릴리스 정보](azure-stack-app-service-release-notes-update-three.md) 대 한 자세한 내용은 합니다.
    
-   ![App Service 설치 관리자][12]
+    ![App Service 설치 관리자][12]
 
 13. 역할 인스턴스 및 SKU 옵션을 검토 합니다. 기본값은 인스턴스 및 ASDK 배포에서 각 역할에 대 한 최소 SKU의 최소 수를 사용 하 여 채워집니다. 배포를 계획 하는 데 vCPU 및 메모리 요구 사항 요약이 제공 됩니다. 에 항목을 선택한 후, 클릭 **다음**합니다.
 
@@ -210,7 +210,7 @@ App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 �
     ![App Service 관리](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> 기존 가상 네트워크 및 파일 서버에 연결할 내부 IP 주소에 배포 하기로 선택한 경우 아웃 바운드 보안 규칙을 추가 하 있습니다 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 해야 합니다.  이렇게 하려면 관리 포털에서 WorkersNsg 이동한 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
+> 기존 가상 네트워크와 파일 서버에 연결할 내부 IP 주소에 배포 하기로 선택한 경우 아웃 바운드 보안 규칙을 추가 하 있습니다 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 해야 합니다.  이렇게 하려면 관리 포털에서 WorkersNsg 이동한 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
 > * 원본: 모두
 > * 원본 포트 범위: *
 > * 대상: IP 주소
@@ -253,7 +253,7 @@ App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 �
 
 1. Azure Stack 테 넌 트 포털에서 클릭 **+**, Azure Marketplace로 이동, Django 웹 사이트를 배포 및 성공적으로 완료 될 때까지 기다립니다. Django 웹 플랫폼에는 파일 시스템 기반 데이터베이스를 사용합니다. 이 SQL 또는 MySQL 등의 모든 추가 리소스 공급자에 필요 하지 않습니다.
 
-2. 또한 MySQL 리소스 공급자를 배포한 경우 Marketplace에서 WordPress 웹 사이트를 배포할 수 있습니다. 데이터베이스 매개 변수를 묻는 경우 사용자 이름으로 입력 *User1@Server1*, 사용자 이름 및 선택한 서버 이름을 사용 하 여 합니다.
+2. 또한 MySQL 리소스 공급자를 배포한 경우 Marketplace에서 WordPress 웹 사이트를 배포할 수 있습니다. 데이터베이스 매개 변수를 묻는 경우 사용자 이름으로 입력 *User1\@Server1*, 사용자 이름 및 선택한 서버 이름을 사용 하 여 합니다.
 
 3. 또한 SQL Server 리소스 공급자를 배포한 경우 Marketplace에서 DNN 웹 사이트를 배포할 수 있습니다. 데이터베이스 매개 변수를 묻는 경우 리소스 공급자에 연결 된 SQL Server를 실행 하는 컴퓨터에서 데이터베이스를 선택 합니다.
 

@@ -5,18 +5,15 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: 67cfa45d602b6bf9de27a0b559c58e28b79d1c84
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: e291cb46b5f8cb8722348bd8fcd6031ed29beb9a
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732824"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888315"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리하는 방법
-
-> [!IMPORTANT]
-> 읽기 복제본 기능은 공개 미리 보기로 있습니다.
 
 이 문서에서는 Azure CLI를 사용하여 Azure Database for MySQL 서비스의 마스터와 같은 Azure 지역 내에서 읽기 복제본을 만들고 관리하는 방법에 대해 알아봅니다.
 

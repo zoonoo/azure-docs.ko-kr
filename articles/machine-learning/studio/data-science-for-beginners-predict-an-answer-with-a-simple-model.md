@@ -5,17 +5,17 @@ description: 초급자를 위한 데이터 과학 비디오 4에는 가격을 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 6adcf59053186c961a115164baac1f0af631ff4a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: dfac085727ee86be018cfee1e15c3ee51b221763
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456847"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819874"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>단순 모델을 사용하여 답변 예측
 ## <a name="video-4-data-science-for-beginners-series"></a>비디오 4: 초급자를 위한 데이터 과학 시리즈
@@ -128,4 +128,4 @@ Microsoft Azure Machine Learning Studio의 “초급자를 위한 데이터 과�
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](what-is-machine-learning.md)
+* [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/preview/overview-what-is-azure-ml)

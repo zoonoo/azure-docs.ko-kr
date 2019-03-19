@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49a82e1452a4380920271f4fb4f7397208e32d78
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174455"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870944"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
 이 문서에서는 Azure AD(Azure Active Directory) Connect를 사용하여 AD FS(Active Directory Federation Services)를 관리 및 사용자 지정하는 방법을 설명합니다. 또한 AD FS 팜의 완벽한 구성을 위해 수행해야 할 수 있는 다른 일반적인 AD FS 작업을 포함합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "56174455"
 |:--- |:--- |
 | **AD FS 관리** | |
 | [트러스트 복구](#repairthetrust) |Office 365를 사용하여 페더레이션 트러스트를 복구하는 방법입니다. |
-| [대체 로그인 ID를 사용하여 Azure AD와 페더레이션](#alternateid) | 대체 로그인 ID를 사용하여 페더레이션 구성  |
+| [대체 로그인 ID를 사용 하 여 Azure AD와 페더레이션](#alternateid) | 대체 로그인 ID를 사용하여 페더레이션 구성  |
 | [AD FS 서버 추가](#addadfsserver) |추가 AD FS 서버를 사용하여 AD FS 팜을 확장하는 방법입니다. |
 | [AD FS 웹 애플리케이션 프록시 서버 추가](#addwapserver) |추가 WAP(웹 애플리케이션 프록시) 서버를 사용하여 AD FS 팜을 확장하는 방법입니다. |
 | [페더레이션된 도메인을 추가합니다.](#addfeddomain) |페더레이션된 도메인을 추가하는 방법입니다. |

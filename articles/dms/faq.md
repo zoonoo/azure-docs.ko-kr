@@ -2,7 +2,7 @@
 title: Azure Database Migration Service 사용에 대한 FAQ | Microsoft Docs
 description: Azure Database Migration Service를 사용하여 데이터베이스 마이그레이션을 수행하는 데 대한 질문과 대답을 알아봅니다.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: b8001729c85c8447ab22bafffe24a32524a0662a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: a3b32fcb7d776bd127db55ba06cfc526574e839b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714698"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790879"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Azure Database Migration Service 사용에 대한 FAQ
 이 문서에는 Azure Database Migration Service 사용에 대한 일반적인 질문이 관련된 답변과 함께 나열되어 있습니다.
@@ -28,7 +28,7 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 - 충돌 없는 마이그레이션에 대한 지속적인 투자
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>Q. Azure Database Migration Service에서 현재 지원되는 원본-대상 쌍은 무엇인가요?
-서비스는 현재 다양한 마이그레이션 시나리오를 지원합니다. 사용 가능한 각 마이그레이션 시나리오의 상태에 대한 전체 목록은 [Azure Database Migration Service에서 지원하는 마이그레이션 시나리오의 상태](https://docs.microsoft.com/azure/dms/resource-scenario-status) 문서를 참조하세요. 기타 마이그레이션 시나리오는 제한된 미리 보기로 제공되며 DMS 미리 보기 사이트를 통해 추천을 제출해야 합니다. 제한된 미리 보기 상태인 시나리오의 전체 목록을 보고 이러한 제안 중 하나에 참여하기 위해 등록하려면 [DMS 미리 보기 사이트](https://aka.ms/dms-preview/)를 참조하세요.
+서비스는 현재 다양한 마이그레이션 시나리오를 지원합니다. 사용 가능한 각 마이그레이션 시나리오의 상태에 대한 전체 목록은 [Azure Database Migration Service에서 지원하는 마이그레이션 시나리오의 상태](https://docs.microsoft.com/azure/dms/resource-scenario-status) 문서를 참조하세요. 기타 마이그레이션 시나리오는 제한된 미리 보기로 제공되며 DMS 미리 보기 사이트를 통해 추천을 제출해야 합니다. 제한 된 미리 보기로 제공 되며 이러한 제품 중 하나에 참여 하도록 등록 시나리오의 전체 목록에 대해서는 [DMS 미리 보기 사이트](https://aka.ms/dms-preview/)합니다.
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>Q. Azure Database Migration Service는 DMA(Database Migration Assistant)나 SSMA(SQL Server Migration Assistant)와 같은 다른 Microsoft 데이터베이스 마이그레이션 도구와 어떻게 비교되나요?
 Azure Database Migration Service는 데이터베이스를 Microsoft Azure로 대 규모 마이그레이션하기에 좋은 방법입니다. Azure Database Migration Service가 다른 Microsoft 데이터베이스 마이그레이션 도구와 어떻게 비교되는지에 대한 자세한 내용과 다양한 시나리오에서 이 서비스를 사용하는 데 대한 권장 사항은 블로그 게시물인 [Differentiating Microsoft’s Database Migration Tools and Services](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/)(Microsoft의 데이터베이스 마이그레이션 도구 및 서비스 차별화)를 참조하세요.
@@ -90,7 +90,7 @@ Azure VNET 설정 프로세스를 단계별로 안내하는 Microsoft 자습서�
 사용자가 명시적으로 Azure DMS(Database Migration Service)를 중지하거나 서비스가 24시간 동안 비활성 상태인 경우 서비스는 중지되거나 자동 일시 중지된 상태에 있게 됩니다. 각각의 경우에서 서비스는 사용할 수 없으며 중지된 상태에 있게 됩니다.  활성 마이그레이션을 다시 시작하려면 서비스를 다시 시작합니다.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>Q. Azure Database Migration Service에 대한 피드백은 어디에 남길 수 있나요?
-많은 의견 부탁드립니다. Azure Database Migration Service에 대한 피드백이나 아이디어는 [여기](https://feedback.azure.com/forums/906100-azure-database-migration-service)에서 사용자 의견을 통해 보내주세요.
+많은 의견 부탁드립니다. 모든 사용자 의견을 보내주세요 및 / 사용자 의견을 통해 Azure Database Migration Service에 대 한 아이디어 [여기](https://feedback.azure.com/forums/906100-azure-database-migration-service), 또는 팀에 문의 하 여 [Azure Database Migrations 요청](mailto:AskAzureDatabaseMigrations@service.microsoft.com)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Database Migration Service 및 국가별 가용성에 대한 개요는 [Azure Database Migration Service란?](dms-overview.md) 문서를 참조하세요. 

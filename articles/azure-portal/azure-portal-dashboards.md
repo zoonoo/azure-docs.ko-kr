@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: kfollis
-ms.openlocfilehash: 4a2dee4ad90fb269268ec7d3e86def58f2444e3a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884731"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818581"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Azure Portal에서 대시보드 만들기 및 공유
 여러 개의 대시보드를 만들고 Azure 구독에 액세스할 수 있는 다른 사용자와 공유할 수 있습니다.  이 문서에서는 대시보드 만들기, 편집, 게시 및 액세스 관리의 기본 사항을 알아봅니다.
@@ -93,6 +93,6 @@ Azure 구독을 보유하고 구독의 **소유자**, **참여자** 또는 **읽
 ![액세스 제어 관리](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 리소스를 관리하려면 [포털을 통한 Azure 리소스 관리](../azure-resource-manager/resource-group-portal.md)를 참조하세요.
+* 리소스를 관리 하려면 참조 [Azure portal을 사용 하 여 Azure 관리 리소스](../azure-resource-manager/manage-resources-portal.md)합니다.
 * 리소스를 배포하려면 [Resource Manager 템플릿 및 Azure Portal을 사용하여 리소스 배포](../azure-resource-manager/resource-group-template-deploy-portal.md)를 참조하세요.
 

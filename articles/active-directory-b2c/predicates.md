@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9bd015076cdbd70768b1359fac0cfc893d871513
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 360fd8e7ab0f7a85dbeed2bdbc7da379cbcfe91a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149597"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737028"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 
@@ -171,7 +171,7 @@ ms.locfileid: "55149597"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| MatchAtLeast | 아니요 | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. |
+| MatchAtLeast | 아닙니다. | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 요소가 포함됩니다.
 
@@ -350,7 +350,7 @@ ms.locfileid: "55149597"
 
 ![조건자 프로세스](./media/predicates/predicates-pass.png)
 
- ## <a name="configure-a-date-range"></a>날짜 범위 구성
+## <a name="configure-a-date-range"></a>날짜 범위 구성
 
 **Predicates** 및 **PredicateValidations** 요소를 사용하는 경우 `DateTimeDropdown`을 통해 **UserInputType**의 최소/최대 날짜 값을 제어할 수 있습니다. 이렇게 하려면 `IsDateRange` 메서드를 포함하여 **Predicate**를 만들고 최소/최대 매개 변수를 입력합니다.
 

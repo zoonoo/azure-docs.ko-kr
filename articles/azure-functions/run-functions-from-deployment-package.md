@@ -8,19 +8,19 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: a0e643397372e5b132119a7c23f251ecec876916
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346580"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990903"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>패키지에서 Azure Functions 실행
 
 > [!NOTE]
-> 이 문서에 설명된 기능은 Linux의 Functions에 사용할 수 없습니다.
+> 이 문서에 설명 된 기능은 linux에서 실행 되는 함수 앱에 사용할 수 있는 [App Service 계획](functions-scale.md#app-service-plan)합니다.
 
 Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 수 있습니다. 다른 옵션은 함수 앱의 `d:\home\site\wwwroot` 디렉터리에 파일을 배포하는 것입니다.
 
@@ -44,10 +44,13 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 | 값  | 설명  |
 |---------|---------|
-|**`<url>`**  | 실행하려는 특정 패키지 파일의 위치입니다. Blob 저장소를 사용하는 경우 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas)가 포함된 개인 컨테이너를 사용하여 Functions 런타임이 패키지에 액세스할 수 있게 해야 합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 Blob 저장소 계정에 패키지 파일을 업로드할 수 있습니다.         |
-| **`1`**  | 함수 앱의 `d:\home\data\SitePackages` 폴더의 패키지 파일에서 실행합니다. 이 옵션은 `packagename.txt`라는 파일이 포함된 폴더가 필요합니다. 이 파일에는 공백 없이 폴더에 패키지 파일 이름만 포함됩니다. |
+| **`1`**  | Windows에서 실행 되는 함수 앱에 대 한 것이 좋습니다. 함수 앱의 `d:\home\data\SitePackages` 폴더의 패키지 파일에서 실행합니다. 그렇지 않은 경우 [zip를 사용 하 여 배포 배포] (#integration와-zip-배포],이 옵션을 사용 하려면 라는 파일을 폴더 `packagename.txt`합니다. 이 파일에는 공백 없이 폴더에 패키지 파일 이름만 포함됩니다. |
+|**`<url>`**  | 실행하려는 특정 패키지 파일의 위치입니다. Blob Storage를 사용하는 경우 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas)가 포함된 개인 컨테이너를 사용하여 Functions 런타임이 패키지에 액세스할 수 있게 해야 합니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다.         |
 
-다음은 Azure Blob 저장소에 호스트된 .zip 파일에서 실행되도록 구성된 함수 앱을 보여줍니다.
+> [!CAUTION]
+> Windows에서 함수 앱을 실행 하는 경우 외부 URL 옵션을 콜드 시작 성능에 심각한 문제를 생성 합니다. 함수 앱에 Windows를 배포할 때 설정 해야 `WEBSITE_RUN_FROM_PACKAGE` 에 `1` zip 배포를 사용 하 여 게시 합니다.
+
+다음은 Azure Blob Storage에 호스트된 .zip 파일에서 실행되도록 구성된 함수 앱을 보여줍니다.
 
 ![WEBSITE_RUN_FROM_ZIP 앱 설정](./media/run-functions-from-deployment-package/run-from-zip-app-setting-portal.png)
 

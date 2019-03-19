@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: d4464f6188efb479f21a23bf936a8222061d9987
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: ec43b79109181457f8ef8e214e296969db5dcb26
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244140"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593406"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>내부 부하 분산 장치에 대해 고가용성 포트 구성
 
@@ -38,9 +38,9 @@ ms.locfileid: "54244140"
 
 ![고가용성 포트 예제 배포](./media/load-balancer-configure-ha-ports/haports.png)
 
-
-
 ## <a name="configure-high-availability-ports"></a>고가용성 포트 구성
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 고가용성 포트를 구성하려면 백 엔드 풀의 NVA를 사용하여 내부 부하 분산 장치를 설정합니다. 고가용성 포트를 사용하여 NVA 상태 및 부하 분산 장치 규칙을 검색하려면 해당 부하 분산 장치 상태 프로브 구성을 설정합니다. 일반적인 부하 분산 장치 관련 구성에 대해서는 [시작](load-balancer-get-started-ilb-arm-portal.md)을 참조하세요. 이 문서에서는 고가용성 포트 구성을 중점적으로 설명합니다.
 
@@ -51,7 +51,6 @@ ms.locfileid: "54244140"
 Azure Portal을 사용하여 고가용성 포트를 구성하려면 **HA 포트** 확인란을 선택합니다. 이 옵션을 선택하면 관련 포트 및 프로토콜 구성이 자동으로 채워집니다. 
 
 ![Azure Portal을 통해 고가용성 포트 구성](./media/load-balancer-configure-ha-ports/haports-portal.png)
-
 
 ### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Resource Manager 템플릿을 통해 고가용성 포트 부하 분산 규칙 구성
 
@@ -91,7 +90,7 @@ Load Balancer 리소스에서 Microsoft.Network/loadBalancers의 2017-08-01 API 
 PowerShell을 사용하여 내부 부하 분산 장치를 만드는 동안 다음 명령을 사용하여 고가용성 포트 부하 분산 장치 규칙을 만듭니다.
 
 ```powershell
-lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
+lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
 ### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Azure CLI를 사용하여 고가용성 포트 부하 분산 장치 규칙 구성

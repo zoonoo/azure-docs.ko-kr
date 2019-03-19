@@ -10,13 +10,13 @@ ms.reviewer: estfan, LADocs
 manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 10/16/2018
-ms.openlocfilehash: 04fb86f9b8f8be2c013f9bd7449dd5a4b2bcf90c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: 9b5452f112c6325dafd5edbe693b90ec2a94abc0
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854121"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990240"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -33,12 +33,12 @@ Azure Logic Apps를 사용하는 경우 클라우드에서 확장할 수 있는 
 
 ## <a name="fixed-pricing-model"></a>고정 가격 책정 모델
 
-[*통합 서비스 환경*(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 내에서 실행되는 새 논리 앱의 경우 기본 제공 작업 및 표준 ISE 레이블 지정 커넥터에 대한 고정된 월간 금액을 지불합니다. ISE는 Azure 가상 네트워크의 리소스에 액세스할 수 있는 격리된 논리 앱을 만들고 실행하는 방법을 제공합니다.  
+내에서 실행 되는 새 논리 앱에 대 한는 [ *통합 서비스 환경* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 기본 제공 작업 및 표준 커넥터에 대 한 고정된 된 월간 가격을 지불 합니다. ISE는 Azure 가상 네트워크의 리소스에 액세스할 수 있는 격리된 논리 앱을 만들고 실행하는 방법을 제공합니다. 
 
-ISE는 원하는 만큼 많은 연결을 포함하는 하나의 체험 엔터프라이즈 커넥터를 포함합니다. 추가 엔터프라이즈 커넥터에 대한 사용량은 기업 소비량 금액을 기준으로 요금이 청구됩니다. 
+ISE 기본 단위 용량을 가지 며 고정에 더 많은 처리량을 할 경우 수 있도록 [배율 단위를 더 추가](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), 생성 중 전이나 합니다. ISE는 원하는 만큼 많은 연결을 포함하는 하나의 체험 엔터프라이즈 커넥터를 포함합니다. 추가 엔터프라이즈 커넥터에 대한 사용량은 기업 소비량 금액을 기준으로 요금이 청구됩니다. 
 
 > [!NOTE]
-> 통합 서비스 환경은 *비공개 미리 보기* 상태입니다. 액세스를 요청하려면 [여기서 참여 요청을 작성](https://aka.ms/iseprivatepreview)하세요. 자세한 내용은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
+> ISE에는 [ *공개 미리 보기*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)합니다. 자세한 내용은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)을 참조하세요.
 
 <a name="triggers"></a>
 

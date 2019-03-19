@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7a3abd854ec5e492407d1fbdc8d170f2a27ba1bc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053622"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816728"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
@@ -48,50 +48,6 @@ Application Insights에는 들어오는 모든 데이터를 쿼리하기 위해 
 ![Application Insights 요청 세부 정보](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
 Application Insights 포털의 기능을 좀 더 자세히 살펴보려면 [Application Insights 포털 설명서](../azure-monitor/app/app-insights-dashboards.md)로 이동하세요.
-
-### <a name="configuring-application-insights-with-wad"></a>WAD로 Application Insights 구성
-
->[!NOTE]
->이는 해당 시점의 Windows 클러스터에만 적용됩니다.
-
-WAD에서 Azure Application Insights로 데이터를 전송하는 두 가지 기본적인 방법이 있습니다. 이 방법은 [이 문서](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)에 설명된 대로 Application Insights 싱크를 WAD 구성에 추가하여 이루어집니다.
-
-#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Azure Portal에서 클러스터를 만들 때 Application Insights 계측 키 추가
-
-![AIKey 추가](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
-
-클러스터를 만들 때 진단이 "설정"으로 설정되면 Application Insights 계측 키를 입력할 수 있는 선택 필드가 나타납니다. 여기에 Application Insights 키를 붙여 넣으면 클러스터를 배포하는 데 사용되는 Resource Manager 템플릿에서 Application Insights 싱크가 자동으로 구성됩니다.
-
-#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Resource Manager 템플릿에 Application Insights 싱크 추가
-
-Resource Manager 템플릿의 "WadCfg"에서 다음 두 가지 변경 사항을 포함하여 "Sink"를 추가합니다.
-
-1. `DiagnosticMonitorConfiguration` 선언이 완료된 직후에 싱크 구성을 추가합니다.
-
-    ```json
-    "SinksConfig": {
-        "Sink": [
-            {
-                "name": "applicationInsights",
-                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
-            }
-        ]
-    }
-
-    ```
-
-2. `WadCfg`의 `DiagnosticMonitorConfiguration`에 다음 줄을 추가하여(`EtwProviders` 선언 직전) `DiagnosticMonitorConfiguration`에 Sink를 포함합니다.
-
-    ```json
-    "sinks": "applicationInsights"
-    ```
-
-위의 두 코드 조각에서 "applicationInsights"라는 이름은 싱크를 설명하는 데 사용되었습니다. 이는 요구 사항은 아니며 싱크의 이름이 "sinks"에 포함되어 있는 한 이름을 임의의 문자열로 설정할 수 있습니다.
-
-현재 클러스터의 로그는 Application Insights의 로그 뷰어에 **추적**으로 표시됩니다. 플랫폼에서 발생하는 대부분의 추적은 "정보" 수준이므로 "위험" 또는 "오류" 유형의 로그만 보내도록 싱크 구성을 변경할 수도 있습니다. 이 작업은 [이 문서](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)에서 설명한 것처럼 싱크에 "채널"을 추가하여 수행할 수 있습니다.
-
->[!NOTE]
->포털 또는 Resource Manager 템플릿에서 잘못된 Application Insights 키를 사용하는 경우 수동으로 키를 변경하고 클러스터를 업데이트/재배포해야 합니다.
 
 ### <a name="configuring-application-insights-with-eventflow"></a>EventFlow로 Application Insights 구성
 

@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: dcc8b9fef75ba13b607d7fdda5bd55cc710165b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849210"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837017"
 ---
 <a name="private-skus-and-plans"></a>비공개 SKU 및 플랜
 ============
 
-비공개 SKU를 사용하면 SKU의 가용성을 특정 고객으로 제한할 수 있습니다. SKU가 비공개로 표시되는 경우 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](http://portal.azure.com)을 포함한 공용 카탈로그에서는 사용할 수 없습니다. Azure Portal에서 해당 SKU에 대한 액세스 권한이 있는 고객만 SKU를 볼 수 있습니다. 또한 비공개 제품에 대한 액세스 권한이 있다는 메시지가 표시됩니다.
+비공개 SKU를 사용하면 SKU의 가용성을 특정 고객으로 제한할 수 있습니다. SKU가 비공개로 표시되는 경우 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](https://portal.azure.com)을 포함한 공용 카탈로그에서는 사용할 수 없습니다. Azure Portal에서 해당 SKU에 대한 액세스 권한이 있는 고객만 SKU를 볼 수 있습니다. 또한 비공개 제품에 대한 액세스 권한이 있다는 메시지가 표시됩니다.
 
 >[!NOTE]
 >공개 SKU와의 충돌을 피하기 위해 비공개 SKU에는 새 고유 SKU/플랜 ID가 있어야 합니다.

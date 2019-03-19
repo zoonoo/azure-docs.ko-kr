@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 8f253d150a5073d2d19daf51c12180c9f7b3660b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411682"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734526"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -87,11 +87,13 @@ ms.locfileid: "54411682"
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell을 사용하기 전에 [최신 AzureRM 모듈을 설치하거나 업데이트합니다](https://github.com/Azure/azure-powershell/releases). 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-쿼리 복제본 수를 설정하려면 [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)를 사용합니다. 선택적 `-ReadonlyReplicaCount` 매개 변수를 지정합니다.
+PowerShell을 사용 하기 전에 [설치 하거나 최신 Azure PowerShell 모듈 업데이트](/powershell/azure/install-az-ps)합니다. 
 
-동기화를 실행하려면 [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance)를 사용합니다.
+쿼리 복제본 수를 설정 하려면 [집합 AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)합니다. 선택적 `-ReadonlyReplicaCount` 매개 변수를 지정합니다.
+
+사용 하 여 동기화를 실행 하려면 [동기화 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)합니다.
 
 ## <a name="connections"></a>연결
 

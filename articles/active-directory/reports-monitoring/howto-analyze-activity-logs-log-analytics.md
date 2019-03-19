@@ -17,18 +17,20 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: aca7f0dbe0906ea0e1572f4580d8937ebf3eee64
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454761"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823259"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Azure Monitor 로그(미리 보기)를 사용하여 Azure AD 활동 로그 분석
 
 [Azure AD 활동 로그를 Azure Monitor 로그에 통합](howto-integrate-activity-logs-with-log-analytics.md)하면 Azure Monitor 로그의 기능을 사용하여 사용자 환경에 대한 인사이트를 얻을 수 있습니다. [Azure AD 활동 로그에 대한 Log Analytics 보기](howto-install-use-log-analytics-views.md)를 설치하여 사용자 환경의 감사 및 로그인 이벤트에 대한 미리 빌드된 보고서에 액세스할 수도 있습니다.
 
 이 항목에서는 Log Analytics 작업 영역에서 Azure AD 활동 로그를 분석하는 방법을 알아봅니다. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>필수 조건 
 

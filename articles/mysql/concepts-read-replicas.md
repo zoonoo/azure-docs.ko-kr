@@ -5,23 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/30/2019
-ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: 6e33c7571dc735ce9984a0ce1b37275a6c4c7eca
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493051"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888474"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
 
-> [!IMPORTANT]
-> 읽기 복제본 기능은 공개 미리 보기로 있습니다.
-
 읽기 복제본 기능을 사용하면 동일한 Azure 지역 내에서 Azure Database for MySQL 서버(마스터)의 데이터를 최대 5개의 읽기 전용 서버(복제본)로 복제할 수 있습니다. 읽기 전용 복제본은 MySQL 엔진의 네이티브 이진 로그(binlog) 파일의 위치 기반 복제 기술을 사용하여 비동기식으로 업데이트됩니다. binlog 복제에 대한 자세히 알려면 [MySQL binlog 복제 개요](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)를 참조합니다.
 
-Azure Database for MySQL 서비스에서 만든 복제본은 일반/독립형 MySQL 서버와 같은 방식으로 관리할 수 있는 새로운 서버입니다. 각 읽기 복제본의 경우 vCore에서 프로비전된 컴퓨팅 및 프로비전된 스토리지에 대한 요금이 GB/월 단위로 청구됩니다. 
-
+Azure Database for MySQL 서비스에서 만든 복제본은 일반/독립형 MySQL 서버와 같은 방식으로 관리할 수 있는 새로운 서버입니다. 각 읽기 복제본의 경우 vCore에서 프로비전된 컴퓨팅 및 프로비전된 스토리지에 대한 요금이 GB/월 단위로 청구됩니다.
 
 MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설명서](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)를 참조하세요.
 
@@ -39,7 +35,7 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 ### <a name="master-server-restart"></a>마스터 서버 다시 시작
 
-이 미리 보기 기간 동안 기존 복제본이 없는 마스터에 대한 복제본을 만들 때 마스터가 먼저 다시 시작되어 자체적으로 복제를 위해 준비합니다. 이를 고려하고 사용량이 적은 기간 동안 이러한 작업을 수행합니다.
+기존 복제본이 없는 있는 마스터에 대 한 복제본을 만들 때 마스터 복제를 위한 준비를 먼저 다시 시작 됩니다. 이를 고려하고 사용량이 적은 기간 동안 이러한 작업을 수행합니다.
 
 ### <a name="stopping-replication"></a>복제 중지
 

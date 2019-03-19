@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094946"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738150"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Microsoft를 통한 비즈니스 홍보  
 Microsoft는 파트너(여러분)를 지원하고 Marketplace의 상점에서 여러분의 앱 또는 제품 판매를 간소화하고자 합니다. Marketplace 목록에 추가하면 Marketplace에서 프로그램 및 리소스에 액세스할 수 있습니다. 
@@ -40,4 +40,4 @@ MPN은 다음 항목에 대한 지침을 제공합니다.
 | 클라우드 플랫폼 역량 확보 | 역량을 확보하면 다른 Microsoft 파트너들 가운데 자신을 차별화하는 데 도움이 됩니다. 역량을 확보하면 시장에서 기술적인 전문성과 고객 성공을 시연하는 경우에도 도움이 됩니다. 역량은 공동 판매와 같은 많은 주요 파트너 프로그램의 전제 조건입니다.<ul> <li>클라우드 플랫폼 역량에 대한 자세한 내용은 [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency)에 있는 클라우드 플랫폼 역량 페이지를 방문하세요.</li> </ul> |  
 | 공동 판매 준비 완료 | 공동 판매 준비 프로그램을 사용하면 Microsoft 판매자 및 다른 파트너와 직접 공동으로 작업하면서 고객 창출 기회를 포착하고 계정 계획을 세울 수 있습니다. 여러분의 솔루션은 판매자 솔루션 카탈로그를 통해 Microsoft 판매자에게 표시됩니다. 여러분과 협력하고 우세한 Microsoft 판매자에게는 보상이 제공됩니다.<ul> <li>공동 판매 준비에 대한 자세한 내용은 [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business)에 있는 비즈니스 홍보 페이지를 방문하세요.</li> </ul> |  
 
----  
+---

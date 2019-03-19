@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf0eb7a0b9e38397034c03ef2b4310ed67c6e6dd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a7181c91424e1d905329eefd13f926d0b2700081
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980383"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864977"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Azure VM에서 관리되지 않는 VM 이미지를 만드는 방법
 
@@ -41,10 +41,10 @@ ms.locfileid: "55980383"
 > 
 > 
 
-`sudo waagent -deprovision+user`을 사용하여 Linux VM을 일반화한 다음 PowerShell을 사용하여 VM을 캡처할 수 있습니다. VM을 캡처하는 데 CLI를 사용하는 방법에 대한 정보는 [Azure CLI를 사용하여 Linux 가상 컴퓨터를 일반화하고 캡처하는 방법](../linux/capture-image.md)을 참조하세요.
+`sudo waagent -deprovision+user`을 사용하여 Linux VM을 일반화한 다음 PowerShell을 사용하여 VM을 캡처할 수 있습니다. CLI를 사용 하 여 VM을 캡처하는 방법에 대 한 내용은 [일반화 하 고 Azure CLI를 사용 하 여 Linux 가상 머신을 캡처하는 방법을](../linux/capture-image.md)합니다.
 
 
-1. Windows 가상 컴퓨터에 로그인
+1. Windows 가상 머신에 로그인
 2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\system32\sysprep**로 변경한 후 `sysprep.exe`를 실행합니다.
 3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
 4. **종료 옵션**에서 **종료**를 선택합니다.

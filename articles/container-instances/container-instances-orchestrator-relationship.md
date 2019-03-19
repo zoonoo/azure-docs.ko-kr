@@ -2,22 +2,22 @@
 title: Azure Container Instances 및 컨테이너 오케스트레이션
 description: Azure Container Instances가 컨테이너 오케스트레이터와 상호 작용하는 방법을 이해합니다
 services: container-instances
-author: seanmck
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845810"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838156"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances 및 컨테이너 오케스트레이터
 
-크기가 작고 응용 프로그램 방향이기 때문에 컨테이너는 신속한 배달 환경 및 마이크로 서비스 기반 아키텍처에 적합합니다. 많은 수의 컨테이너를 자동화하고 관리하는 방법 및 상호 작용하는 방법을 *오케스트레이션*이라고 합니다. 많이 사용되는 오케스트레이터에는 Kubernetes, DC/OS 및 Docker Swarm이 포함됩니다.
+크기가 작고 애플리케이션 방향이기 때문에 컨테이너는 신속한 배달 환경 및 마이크로 서비스 기반 아키텍처에 적합합니다. 많은 수의 컨테이너를 자동화하고 관리하는 방법 및 상호 작용하는 방법을 *오케스트레이션*이라고 합니다. 많이 사용되는 오케스트레이터에는 Kubernetes, DC/OS 및 Docker Swarm이 포함됩니다.
 
 Azure Container Instances는 오케스트레이션 플랫폼의 기본 일정 관리 기능 중 일부를 제공합니다. 또한 해당 플랫폼에서 제공하는 고급 서비스를 포함하지 않는 반면 Azure Container Instances는 이를 보완할 수 있습니다. 이 아티클에서는 Azure Container Instances에서 처리하는 범위 및 전체 컨테이너 오케스트레이터가 상호 작용할 수 있는 방법에 대해 설명합니다.
 

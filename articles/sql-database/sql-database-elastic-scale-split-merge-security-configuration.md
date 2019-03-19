@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a3ba80ce7b5abcb2f112880c4fef5ed3f067f691
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563221"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593321"
 ---
 # <a name="split-merge-security-configuration"></a>분할-병합 보안 구성
 
@@ -121,24 +121,29 @@ ms.locfileid: "55563221"
 기본 구성에서는 HTTPS 엔드포인트에 대한 모든 액세스가 허용됩니다. 이 설정을 추가로 제한할 수 있습니다.
 
 ### <a name="changing-the-configuration"></a>구성 변경
-**서비스 구성 파일**의 **<EndpointAcls>** 섹션에서 엔드포인트에 적용되는 액세스 제어 규칙 그룹을 구성합니다.
+그룹에 적용 되는 액세스 제어 규칙 및 끝점을 구성 합니다  **\<EndpointAcls >** 섹션를 **서비스 구성 파일**합니다.
 
-    <EndpointAcls>
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
-      <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
-    </EndpointAcls>
+```xml
+<EndpointAcls>
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
+    <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="AllowAll" />
+</EndpointAcls>
+```
 
-액세스 제어 그룹의 규칙은 서비스 구성 파일의 <AccessControl name=""> 섹션에서 구성합니다. 
+액세스 제어 그룹의 규칙에 구성 된는 \<AccessControl 이름 = "" > 서비스 구성 파일의 섹션입니다. 
 
 해당 형식에 대한 설명은 네트워크 Access Control 목록 설명서에 나와 있습니다.
 예를 들어 100.100.0.0~100.100.255.255 범위의 IP만 HTTPS 엔드포인트에 액세스하도록 허용하려는 경우의 규칙은 다음과 같습니다.
 
-    <AccessControl name="Retricted">
-      <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
-      <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
-    </AccessControl>
-    <EndpointAcls>
+```xml
+<AccessControl name="Retricted">
+    <Rule action="permit" description="Some" order="1" remoteSubnet="100.100.0.0/16"/>
+    <Rule action="deny" description="None" order="2" remoteSubnet="0.0.0.0/0" />
+</AccessControl>
+<EndpointAcls>
     <EndpointAcl role="SplitMergeWeb" endPoint="HttpsIn" accessControl="Restricted" />
+</EndpointAcls>
+```
 
 ## <a name="denial-of-service-prevention"></a>서비스 거부 방지
 서비스 거부 공격을 검색 및 방지할 수 있도록 지원하는 메커니즘이 두 가지 있습니다.
@@ -154,22 +159,29 @@ ms.locfileid: "55563221"
 ## <a name="restricting-number-of-concurrent-accesses"></a>동시 액세스 수 제한
 이 동작을 구성하는 설정은 다음과 같습니다.
 
-    <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
-    <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
+<Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
+```
 
 이 보호를 사용하도록 설정하려면 DynamicIpRestrictionDenyByConcurrentRequests를 true로 변경합니다.
 
 ## <a name="restricting-rate-of-access"></a>액세스 속도 제한
 이 동작을 구성하는 설정은 다음과 같습니다.
 
-    <Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
-    <Setting name="DynamicIpRestrictionMaxRequests" value="100" />
-    <Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```xml
+<Setting name="DynamicIpRestrictionDenyByRequestRate" value="true" />
+<Setting name="DynamicIpRestrictionMaxRequests" value="100" />
+<Setting name="DynamicIpRestrictionRequestIntervalInMilliseconds" value="2000" />
+```
 
 ## <a name="configuring-the-response-to-a-denied-request"></a>거부된 요청에 대한 응답 구성
 다음 설정은 거부된 요청에 대한 응답을 구성합니다.
 
-    <Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```xml
+<Setting name="DynamicIpRestrictionDenyAction" value="AbortRequest" />
+```
+
 기타 지원되는 값에 대해서는 IIS의 동적 IP 보안에 대한 설명서를 참조하세요.
 
 ## <a name="operations-for-configuring-service-certificates"></a>서비스 인증서 구성 작업
@@ -232,12 +244,16 @@ SSL 키 쌍이 포함된 기존 또는 생성된 .PFX 파일을 업로드합니�
 
 서비스 구성 파일에서 이러한 설정을 false로 변경하여 기능을 해제합니다.
 
-    <Setting name="SetupWebAppForClientCertificates" value="false" />
-    <Setting name="SetupWebserverForClientCertificates" value="false" />
+```xml
+<Setting name="SetupWebAppForClientCertificates" value="false" />
+<Setting name="SetupWebserverForClientCertificates" value="false" />
+```
 
 그런 다음 CA 인증서 설정의 SSL 인증서와 동일한 지문을 복사합니다.
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="create-a-self-signed-certification-authority"></a>자체 서명된 인증 기관 만들기
 다음 단계를 실행하여 인증 기관 역할을 할 자체 서명된 인증서를 만듭니다.
@@ -280,11 +296,15 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 ## <a name="update-ca-certificate-in-service-configuration-file"></a>서비스 구성 파일의 CA 인증서 업데이트
 클라우드 서비스에 업로드된 인증서의 지문으로 서비스 구성 파일의 다음 설정에 대한 지문 값을 업데이트합니다.
 
-    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 동일한 지문으로 다음 설정의 값을 업데이트합니다.
 
-    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```xml
+<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+```
 
 ## <a name="issue-client-certificates"></a>클라이언트 인증서 발급
 서비스에 액세스할 수 있는 권한이 부여된 각 개인은 단독 사용을 위해 발급된 클라이언트 인증서가 있어야 하며 자신의 개인 키를 보호하기 위해 강력한 암호를 선택해야 합니다. 
@@ -338,17 +358,23 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 * 표시되는 인증서 대화 상자에서 세부 정보 탭을 선택합니다.
 * 표시가 모두를 나타내는지 확인합니다.
 * 목록에서 지문이라는 필드를 선택합니다.
-* 지문 값을 복사합니다. ** 첫 번째 숫자 앞에 표시되지 않는 유니코드 문자를 삭제합니다.** 모든 공백을 삭제합니다.
+* 지문 값을 복사 합니다.
+  * 첫 번째 숫자 앞에 표시 되지 않는 유니코드 문자를 삭제 합니다.
+  * 모든 공백을 삭제합니다
 
 ## <a name="configure-allowed-clients-in-the-service-configuration-file"></a>서비스 구성 파일에서 허용된 클라이언트 구성
 서비스 구성 파일에서 다음 설정의 값을 서비스에 대한 액세스가 허용된 클라이언트 인증서의 지문 목록(쉼표로 구분)으로 업데이트합니다.
 
-    <Setting name="AllowedClientCertificateThumbprints" value="" />
+```xml
+<Setting name="AllowedClientCertificateThumbprints" value="" />
+```
 
 ## <a name="configure-client-certificate-revocation-check"></a>클라이언트 인증서 해지 확인 구성
 기본 설정은 인증 기관으로 클라이언트 인증서 해지 상태를 확인하지 않습니다. 확인을 설정하려면 클라이언트 인증서를 발급한 인증 기관에서 이러한 확인을 지원하는 경우 X509RevocationMode 열거에 정의된 값 중 하나로 다음 설정을 변경합니다.
 
-    <Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```xml
+<Setting name="ClientCertificateRevocationCheck" value="NoCheck" />
+```
 
 ## <a name="create-pfx-file-for-self-signed-encryption-certificates"></a>자체 서명된 암호화 인증서용 PFX 파일 만들기
 암호화 인증서에 대해 다음을 실행합니다.
@@ -381,7 +407,9 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 ## <a name="update-encryption-certificate-in-service-configuration-file"></a>서비스 구성 파일에서 암호화 인증서 업데이트
 클라우드 서비스에 업로드된 인증서의 지문으로 서비스 구성 파일의 다음 설정에 대한 지문 값을 업데이트합니다.
 
-    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```xml
+<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+```
 
 ## <a name="common-certificate-operations"></a>일반 인증서 작업
 * SSL 인증서 구성
@@ -452,7 +480,9 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 ## <a name="other-security-considerations"></a>기타 보안 고려 사항
 이 문서에 설명된 SSL 설정은 HTTPS 엔드포인트를 사용하는 경우 해당 클라이언트와 서비스 간의 통신을 암호화합니다. 데이터베이스 액세스에 대한 자격 증명 및 기타 잠재적으로 중요한 정보가 통신에 포함되므로 이러한 암호화가 중요합니다. 단, 서비스에서 Microsoft Azure 구독의 메타데이터 저장소에 대해 제공한 Microsoft Azure SQL 데이터베이스의 내부 테이블에 있는 자격 증명을 비롯하여 내부 상태를 유지합니다. 해당 데이터베이스는 서비스 구성 파일(.CSCFG 파일)에서 다음 설정의 일부로 정의됩니다. 
 
-    <Setting name="ElasticScaleMetadata" value="Server=…" />
+```xml
+<Setting name="ElasticScaleMetadata" value="Server=…" />
+```
 
 이 데이터베이스에 저장된 자격 증명은 암호화됩니다. 그러나 서비스 배포의 웹 역할과 작업자 역할 모두 최신 상태를 유지하고 저장된 자격 증명의 암호화 및 암호 해독에 사용되는 인증서와 메타데이터 데이터베이스에 액세스할 때 보안을 유지해야 합니다. 
 

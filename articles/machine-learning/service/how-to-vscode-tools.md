@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e6da35eeb98d4017baae6aa2c8e19fa3f9d5ac1b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 5e7e405bdb251bbebc5da81253eea2414b434cb8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752571"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838319"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code용 Azure Machine Learning 시작
 
@@ -26,7 +26,7 @@ Visual Studio Code의 Azure Machine Learning 확장을 사용하면 Azure Machin
 ## <a name="prerequisites"></a>필수 조건
 
 
-+ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
++ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 + Visual Studio Code를 설치해야 합니다. 데스크톱에서 실행되는 간단하지만 효율적인 소스 코드 편집기인 VS Code는 Python 등을 기본적으로 지원합니다.  [VS Code 설치 방법에 대해 알아보세요](https://code.visualstudio.com/docs/setup/setup-overview).
 

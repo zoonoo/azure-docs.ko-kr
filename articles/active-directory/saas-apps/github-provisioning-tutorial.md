@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac25473ecce86c2721eda9ede01b6d299c4b727b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179334"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888018"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 
@@ -33,11 +33,11 @@ ms.locfileid: "56179334"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 *   Azure Active Directory 테넌트
-*   [비즈니스 클라우드 플랜](https://help.github.com/articles/organization-billing-plans/#github-business-cloud) 이상을 사용하는 GitHub 테넌트 
-*   관리자 권한이 있는 GitHub의 사용자 계정 
+*   [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise)에서 만든 GitHub 조직. 여기에는 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)가 필요합니다.
+*   조직에 대 한 관리자 권한이 있는 GitHub의 사용자 계정
 
 > [!NOTE]
-> Azure AD 프로비전 통합은 [GitHub SCIM API](https://developer.github.com/v3/scim/)를 사용합니다. 이 기능은 비즈니스 플랜 이상에서 GitHub 팀에 제공됩니다.
+> Azure AD 프로 비전 통합에 의존 합니다 [GitHub SCIM API](https://developer.github.com/v3/scim/)를 사용할 수 있는 [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) 고객에 게를 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
 
 ## <a name="assigning-users-to-github"></a>GitHub에 사용자 할당
 

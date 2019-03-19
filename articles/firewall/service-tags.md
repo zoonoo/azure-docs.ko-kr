@@ -5,23 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/21/2019
+ms.date: 2/25/2019
 ms.author: victorh
-ms.openlocfilehash: 9ecc5d3779ac6632f4a5c05914cbb0e756c79e91
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 1d03d896de947fcc938619c52a3690962a0d2d6c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458220"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805623"
 ---
 # <a name="azure-firewall-service-tags"></a>Azure Firewall 서비스 태그
 
 서비스 태그는 보안 규칙 생성에 대한 복잡성을 최소화할 수 있는 IP 주소 접두사의 그룹을 나타냅니다. 고유한 서비스 태그를 직접 만들거나 태그 내에 포함된 IP 주소를 지정할 수 없습니다. Microsoft에서는 서비스 태그에서 압축한 주소 접두사를 관리하고 주소를 변경하는 대로 서비스 태그를 자동으로 업데이트합니다.
 
 Azure Firewall 서비스 태그는 네트워크 규칙 대상 필드에 사용할 수 있습니다. 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다.
-
-> [!NOTE]
-> 서비스 태그는 증분 방식으로 지역에 추가되고 있으며, 곧 모든 지역에서 제공될 예정입니다.
 
 ## <a name="supported-service-tags"></a>지원되는 서비스 태그
 

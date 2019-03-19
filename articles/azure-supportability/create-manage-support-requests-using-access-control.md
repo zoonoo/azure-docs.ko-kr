@@ -5,14 +5,14 @@ author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
-ms.service: microsoft-docs
+ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: c3557d54b9fb3fd0173eec1e327050ac7cc80fc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392904"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792483"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure 역할 기반 Access Control(RBAC)로 지원 요청을 만들고 관리하기 위한 액세스 권한 제어
 
@@ -20,7 +20,7 @@ ms.locfileid: "31392904"
 Azure Portal([portal.azure.com](https://portal.azure.com))에서 지원 요청 생성은 Azure의 RBAC 모델을 사용하여 지원 요청을 만들고 관리할 수 잇는 사용자를 정의합니다.
 특정 범위(구독, 리소스 그룹 또는 리소스일 수 있음)에서 사용자, 그룹 및 애플리케이션에 적절한 RBAC 역할을 할당하여 액세스 권한을 부여합니다.
 
-예를 들어 보겠습니다. 구독 범위에서 읽기 권한이 있는 리소스 그룹 소유자는 해당 리소스 그룹의 모든 리소스(예: 웹 사이트, 가상 머신 및 서브넷)를 관리할 수 있습니다.
+예를 들어를 보겠습니다. 리소스 그룹 소유자는 구독 범위에서 읽기 권한이 있는 웹 사이트, virtual machines 및 서브넷과 같은 리소스 그룹 아래에 있는 모든 리소스를 관리할 수 있습니다.
 하지만 가상 머신 리소스에 대해 지원 요청을 생성하려고 하는 경우 다음 오류가 발생합니다.
 
 ![구독 오류](./media/create-manage-support-requests-using-access-control/subscription-error.png)

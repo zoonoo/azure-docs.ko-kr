@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ff0589b87ae031db5bda96dc238359bf9cfb3b11
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.openlocfilehash: e5f400bb25fce58a4fb63ca1ad76ddf2b71fbd9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751602"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835421"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Azure에서 적절한 SQL Server 옵션 선택
 
@@ -75,15 +75,15 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 | | SQL Database 단일 데이터베이스 및 탄력적 풀 | SQL Database 관리되는 인스턴스 |SQL Server를 사용하는 Azure 가상 머신 |
 | --- | --- | --- |---|
 | **최적 용도:** |개발 및 마케팅에서 시간 제약 조건이 있고 안정적인 최신 SQL Server 기능을 사용하려는, 클라우드용으로 설계된 새 애플리케이션 | 최소한의 변경으로 클라우드로 마이그레이션되며 안정적인 최신 SQL Server 기능을 사용하려는 새 애플리케이션 또는 기존 온-프레미스 애플리케이션  | 변경 없이 또는 최소한의 변경으로 클라우드로 빠르게 마이그레이션해야 하는 기존 애플리케이션 온-프레미스 개발 및 테스팅 SQL Server 하드웨어를 구입하지 않는 빠른 개발 및 테스트 시나리오 |
-|  | 데이터베이스에 대한 기본 제공 고가용성, 재해 복구 및 업그레이드가 필요한 팀 | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일합니다. | SQL Server에 대한 고가용성, 재해 복구 및 패치를 구성, 미세 조정, 사용자 지정 및 관리할 수 있는 팀 자동화된 기능을 제공하는 일부 팀은 이를 크게 간소화합니다. | |
-|  | 기본 운영 체제 및 구성 설정을 관리하지 않으려는 팀입니다. | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일합니다. | 모든 관리 권한이 있는 사용자 지정 환경이 필요합니다. | |
+|  | 데이터베이스에 대한 기본 제공 고가용성, 재해 복구 및 업그레이드가 필요한 팀 | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일합니다. | SQL Server에 대한 고가용성, 재해 복구 및 패치를 구성, 미세 조정, 사용자 지정 및 관리할 수 있는 팀 자동화된 기능을 제공하는 일부 팀은 이를 크게 간소화합니다. |
+|  | 기본 운영 체제 및 구성 설정을 관리하지 않으려는 팀입니다. | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일합니다. | 모든 관리 권한이 있는 사용자 지정 환경이 필요합니다. |
 |  | 최대 100TB의 데이터베이스. | 최대 8TB. | 저장소의 최대 64TB를 사용하는 SQL Server 인스턴스 인스턴스는 필요한 만큼 많은 데이터베이스를 지원할 수 있습니다. |
 | **호환성** | 대부분의 온-프레미스 데이터베이스 수준 기능을 지원합니다. | 거의 모든 온-프레미스 인스턴스 수준 및 데이터베이스 수준 기능을 지원합니다. | 모든 온-프레미스 기능을 지원합니다. |
 | **리소스:** | 기본 인프라를 구성하고 관리하는 데 IT 리소스를 사용하지 않지만 애플리케이션 계층에 중점을 두려고 합니다. | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일합니다. | 구성 및 관리를 위한 일부 IT 리소스가 있습니다. 자동화된 기능을 제공하는 일부 팀은 이를 크게 간소화합니다. |
 | **총 소유 비용** | 하드웨어 비용을 제거하고 관리 비용을 절감합니다. | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일합니다. | 하드웨어 비용을 제거합니다. |
 | **비즈니스 연속성:** |Azure SQL Database는 [기본 제공된 내결함성 인프라 기능](sql-database-high-availability.md) 외에도 [자동화된 백업](sql-database-automated-backups.md), [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore), [지리적 복원](sql-database-recovery-using-backups.md#geo-restore), [활성 지역 복제](sql-database-active-geo-replication.md) 및 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md) 등의 기능을 제공하여 비즈니스 연속성을 향상시킵니다. 자세한 내용은 [SQL Database 비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요. | SQL Database 단일 데이터베이스 및 풀링된 데이터베이스와 동일하며, 사용자가 시작한 복사 전용 백업을 추가로 사용할 수 있습니다. | Azure VM의 SQL Server를 사용하면 데이터베이스의 특정 요구에 맞게 고가용성 및 재해 복구 솔루션을 설정할 수 있습니다. 따라서 시스템을 애플리케이션에 최적화할 수 있습니다. 필요한 경우 장애 조치(Failover)를 직접 테스트하고 실행할 수 있습니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요. |
 | **하이브리드 클라우드:** |온-프레미스 애플리케이션은 Azure SQL Database의 데이터에 액세스할 수 있습니다. | Azure ExpressRoute 또는 VPN Gateway를 사용하여 [기본 가상 네트워크 구현](sql-database-managed-instance-vnet-configuration.md) 및 온-프레미스 환경에 연결 | Azure VM의 SQL Server를 사용하면 애플리케이션을 일부는 클라우드에서, 일부는 온-프레미스에서 실행할 수 있습니다. 예를 들어 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)를 통해 클라우드로 온-프레미스 네트워크 및 Active Directory 도메인을 확장할 수 있습니다. 하이브리드 클라우드 솔루션에 대한 자세한 내용은 [클라우드로 온-프레미스 데이터 솔루션 확장](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud)을 참조하세요. |
-|  | [SQL Server 트랜잭션 복제](https://msdn.microsoft.com/library/mt589530.aspx) 를 구독자로 지원하여 데이터를 복제합니다. | 복제는 관리되는 인스턴스에 미리 보기 기능으로 지원됩니다. | [SQL Server 트랜잭션 복제](https://msdn.microsoft.com/library/mt589530.aspx), [Always On 가용성 그룹](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services 및 로그 전달을 완전히 지원하여 데이터를 복제합니다. 또한 기존의 SQL Server 백업은 완벽하게 지원됩니다. | |
+|  | [SQL Server 트랜잭션 복제](https://msdn.microsoft.com/library/mt589530.aspx) 를 구독자로 지원하여 데이터를 복제합니다. | 복제는 관리되는 인스턴스에 미리 보기 기능으로 지원됩니다. | [SQL Server 트랜잭션 복제](https://msdn.microsoft.com/library/mt589530.aspx), [Always On 가용성 그룹](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services 및 로그 전달을 완전히 지원하여 데이터를 복제합니다. 또한 기존의 SQL Server 백업은 완벽하게 지원됩니다. |
 |  | | |
 
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Azure SQL Database 또는 Azure VM의 SQL Server를 선택하는 경우 비즈니스 동기
@@ -91,7 +91,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 PaaS 또는 IaaS 중에서 SQL Database의 호스트를 결정할 때 영향을 줄 수 있는 여러 요인이 있습니다.
 
 - [비용](#cost) - PaaS 및 IaaS 옵션 둘 다 기본 인프라 및 라이선스를 고려하는 기본 가격을 포함합니다. 그러나 IaaS 옵션을 사용할 경우 데이터베이스를 관리하기 위한 시간과 리소스를 추가로 투자해야 하지만 PaaS에서는 이러한 관리 기능이 가격에 포함되어 있습니다. IaaS 옵션을 사용하면 사용하지 않을 때 리소스를 종료하여 비용을 절감할 수 있지만, PaaS 버전은 필요하지 않을 때 리소스를 삭제했다가 다시 만들지 않으면 항상 실행됩니다.
-- [관리](#administration) - PaaS 옵션은 데이터베이스를 관리하는 데 투자해야 하는 시간을 줄여줍니다. 그러나 워크로드의 성능을 향상할 수 있는 사용자 지정 관리 작업도 수행하지 못하게 됩니다.
+- [관리](#administration) - PaaS 옵션은 데이터베이스를 관리하는 데 투자해야 하는 시간을 줄여줍니다. 그러나 사용자 지정 관리 작업을 수행 하거나 실행할 수 있는 스크립트 범위도 제한 합니다. 예를 들어 CLR 단일 또는 풀링된 데이터베이스는 지원 되지 않습니다 하지만 관리 되는 인스턴스에서 지원 됩니다. 또한 paas에서 배포 옵션이 추적 플래그의 사용을 지원 합니다.
 - [서비스 수준 계약](#service-level-agreement-sla) - IaaS 및 PaaS 둘 다 높은 업계 표준 SLA를 제공합니다. PaaS 옵션은 99.99%의 SLA를 보장하지만, IaaS는 인프라에 대해 99.95%의 SLA를 보장합니다. 따라서 데이터베이스의 가용성을 보장하려면 추가 메커니즘을 구현해야 합니다. 극단적인 경우, PaaS와 일치하는 고가용성 솔루션을 구현하려는 경우 VM에서 추가 SQL Server를 만들고 AlwaysOn 가용성 그룹을 구성해야 할 수 있습니다. 이 경우 데이터베이스의 비용이 2배가 들 수 있습니다.
 - [Azure로 전환해야 할 때](#market) -Azure VM의 SQL Server는 작업 환경에 정확히 일치하므로 온-프레미스에서 Azure SQL VM으로 마이그레이션하는 것은 데이터베이스를 한 온-프레미스 서버에서 다른 온-프레미스 서버로 이동하는 것과는 다릅니다. 또한 관리되는 인스턴스를 사용하면 매우 쉽게 마이그레이션할 수 있지만, 관리되는 인스턴스로 마이그레이션하기 전에 몇 가지 변경 내용을 적용해야 할 수 있습니다.
 

@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c32662b446df10649617570c63ce534071ed7d27
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540319"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957524"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
@@ -48,7 +48,7 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 
     ![진단 로그의 상태 변경](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  저장소 계정, 이벤트 허브 또는 Azure Log Analytics와 같이 원하는 보관 대상을 설정합니다.
+5.  원하는 보관 대상을 설정합니다 예를 들어 저장소 계정, event hub 또는 Azure Monitor를 기록합니다.
 
 6.  새 진단 설정을 저장합니다.
 

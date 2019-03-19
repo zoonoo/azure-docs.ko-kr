@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4da387abe24318a29472c11dffa7aac67192408c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: a310851819f70d138a4980b1ab61891fb0b2c311
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297427"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959615"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 보안
 대부분의 기업에서는 현명한 의사 결정을 내리는 데 도움을 주는 비즈니스 insights에 대한 빅 데이터 분석을 활용합니다. 조직은 다양한 사용자 수가 증가하는 복잡하고 규제된 환경을 포함할 수 있습니다. 중요한 비즈니스 데이터가 개별 사용자에게 부여된 올바른 액세스 수준으로 더욱 안전하게 저장되도록 하는 것이 기업에게 필수적입니다. Azure Data Lake Storage Gen1은 이러한 보안 요구 사항에 부응하도록 설계되었습니다. 이 문서에서는 다음을 포함하는 Data Lake Storage Gen1의 보안 기능에 대해 알아봅니다.
 
-* 인증
+* Authentication
 * 권한 부여
 * 네트워크 격리
 * 데이터 보호
@@ -55,7 +55,7 @@ ms.locfileid: "46297427"
 | --- | --- | --- | --- |
 | 할당된 역할 없음 |없음 |ACL에 의해 제어 |사용자는 Azure Portal 또는 Azure PowerShell cmdlet을 사용하여 Data Lake Storage Gen1을 찾아볼 수 없습니다. 사용자는 명령줄 도구만 사용할 수 있습니다. |
 | 소유자 |모두 |모두 |소유자 역할은 superuser입니다. 이 역할은 모든 것을 관리할 수 있으며 데이터에 대한 완전한 액세스를 가집니다. |
-| 읽기 권한자 |읽기 전용 |ACL에 의해 제어 |리더 역할은 계정 관리와 관련된 모든 항목(예: 어떤 사용자가 어떤 역할에 할당되는지)을 볼 수 있습니다. 리더 역할은 항목을 변경할 수 없습니다. |
+| 판독기 |읽기 전용 |ACL에 의해 제어 |리더 역할은 계정 관리와 관련된 모든 항목(예: 어떤 사용자가 어떤 역할에 할당되는지)을 볼 수 있습니다. 리더 역할은 항목을 변경할 수 없습니다. |
 | 참가자 |역할 추가 및 제거를 제외한 모든 항목 |ACL에 의해 제어 |참여자 역할은 배포 및 경고 만들기 및 관리와 같은 계정의 일부 측면을 관리할 수 있습니다. 참여자 역할은 역할을 추가 또는 제거할 수 없습니다. |
 | 사용자 액세스 관리자 |역할 추가 및 제거 |ACL에 의해 제어 |사용자 액세스 관리자 역할은 계정에 대한 사용자 액세스를 관리할 수 있습니다. |
 
@@ -98,7 +98,7 @@ Data Lake Storage Gen1은 수명 주기 전체에 걸쳐 데이터를 보호합�
 활동 로그로 작업하는 방법에 대한 자세한 내용은 [리소스에 대한 작업을 감사하기 위해 활동 로그 보기](../azure-resource-manager/resource-group-audit.md)를 참조하세요.
 
 ### <a name="diagnostics-logs"></a>진단 로그
-Azure Portal에서 데이터 액세스 감사 및 진단 로깅을 사용하고 Azure Blob Storage 계정, Event Hub 또는 Log Analytics에 로그를 보낼 수 있습니다.
+데이터 액세스 감사 및 Azure portal에서 진단 로깅을 사용 하도록 설정 하 고 Azure Blob storage 계정, 이벤트 허브에 로그를 보낼 수 있습니다 하거나 Azure Monitor를 기록 합니다.
 
 ![진단 로그](./media/data-lake-store-security-overview/diagnostic-logs.png "진단 로그")
 

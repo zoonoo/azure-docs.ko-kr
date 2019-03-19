@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/27/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7a7fe9603716575c241ca78ebdc9b674888ca835
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 2a245a6e3d76a7df41b5ef28f9bac8a2c2122402
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452210"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985430"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
 
@@ -25,7 +25,7 @@ ms.locfileid: "54452210"
 > [!NOTE]
 > 2018년 12월 21일부터 Azure Search 기술과 [Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)할 수 있습니다. 이를 통해 Microsoft는 기술 실행 요금을 부과할 수 있습니다. 또한 문서 해독 단계의 일부인 이미지 추출에 대한 요금 청구가 이 날짜에서 시작됩니다. 문서의 텍스트 추출은 추가 비용 없이 계속 제공됩니다.
 >
-> [기본 제공 인지 기술](cognitive-search-predefined-skills.md)을 실행하면 작업을 직접 수행한 것과 동일한 요율로 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services)이 부과됩니다. 이미지를 추출하는 경우 현재 미리 보기 가격으로 제공되는 Azure Search 요금이 청구됩니다. 자세한 내용은 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400) 또는 [청구 작동 방식](search-sku-tier.md#how-billing-works)을 참조하세요.
+> [기본 제공 인지 기술](cognitive-search-predefined-skills.md)을 실행하면 직접 작업을 수행한 것과 동일한 요율로 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services)이 부과됩니다. 이미지 추출은 현재 미리 보기 가격으로 Azure Search 요금이 청구됩니다. 자세한 내용은 [Azure Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400) 또는 [청구 작동 방식](search-sku-tier.md#how-billing-works)을 참조하세요.
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -43,7 +43,8 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 | 범주    | 추출되어야 하는 범주 배열입니다.  가능한 범주 형식: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. 범주가 제공되지 않으면 모든 형식이 반환됩니다.|
 |defaultLanguageCode |  입력 텍스트의 언어 코드입니다. 다음 언어 `de, en, es, fr, it`가 지원됩니다.|
 |minimumPrecision | 사용되지 않습니다. 다음에 사용하도록 예약됩니다. |
-|includeTypelessEntities | 텍스트에 잘 알려진 엔터티가 포함되어 있지만 지원되는 범주 중 하나로 분류할 수 없는 경우 `"entities"` 복합 출력 필드의 일부로 반환됩니다. 기본값은 `false`입니다. |
+|includeTypelessEntities | 텍스트에 잘 알려진 엔터티가 포함되어 있지만 지원되는 범주 중 하나로 분류할 수 없는 경우 `"entities"` 복합 출력 필드의 일부로 반환됩니다. 
+이러한 값은 잘 알려져 있지만 현재 지원 되는 "범주"의 일환으로 분류 되지 않은 엔터티입니다. 예를 들어 "Windows 10"은 잘 알려진 엔터티 (제품) "제품"에 없지만 현재 지원 되는 범주입니다. 기본값은 `false`입니다. |
 
 
 ## <a name="skill-inputs"></a>기술 입력
@@ -67,7 +68,7 @@ _en_, _es_만 `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` 형식의 추출을
 | dateTimes  | 각 문자열이 DateTime(텍스트에 표시되는 대로) 값을 나타내는 경우 문자열 배열입니다. |
 | urls | 각 문자열이 URL을 나타내는 경우 문자열 배열입니다. |
 | emails | 각 문자열이 메일을 나타내는 경우 문자열 배열입니다. |
-| namedEntities | 다음 필드가 포함된 복합 형식의 배열입니다. <ul><li>카테고리</li> <li>값(실제 엔터티 이름)</li><li>오프셋(텍스트에 발견된 위치)</li><li>confidence(현재 사용하지 않음. -1 값으로 설정됨)</li></ul> |
+| namedEntities | 다음 필드가 포함된 복합 형식의 배열입니다. <ul><li>카테고리</li> <li>값 (실제 엔터티 이름)</li><li>오프셋(텍스트에 발견된 위치)</li><li>confidence(현재 사용하지 않음. -1 값으로 설정됨)</li></ul> |
 | 엔터티 | 다음 필드와 함께 텍스트에서 추출된 엔터티에 대한 풍부한 정보가 포함된 복합 형식의 배열입니다. <ul><li> name(실제 엔터티 이름. “정규화된” 형식을 나타냄)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl(엔터티에 대한 Wikipedia 페이지 링크)</li><li>bingId</li><li>type(인식된 엔터티의 범주)</li><li>subType(특정 범주에서만 사용 가능, 더 세부적인 엔터티 형식 보기를 제공함)</li><li> matches(포함된 복합 컬렉션)<ul><li>text(엔터티의 원시 텍스트)</li><li>offset(발견된 위치)</li><li>length(원시 엔터티 텍스트의 길이)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>샘플 정의

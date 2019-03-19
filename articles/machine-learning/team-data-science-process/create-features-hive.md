@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be95a75e7cdcaa11ef3e90093ef52c5615608eac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458026"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835019"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기
 이 문서에는 Hive 쿼리를 사용하여 Azure HDInsight Hadoop 클러스터에 저장된 데이터에 대한 기능을 만드는 방법을 보여 줍니다. 이러한 Hive 쿼리는 제공된 스크립트인 포함된 Hive UDF(사용자 정의 함수)를 사용합니다.
 
 기능을 만드는 데 필요한 작업은 메모리 집약적일 수 있습니다. 이 경우 Hive 쿼리의 성능이 더욱 중요해지며 특정 매개 변수를 조정하여 성능을 향상시킬 수 있습니다. 이러한 매개 변수를 조정하는 내용은 마지막 섹션에 설명되어 있습니다.
 
-또한 [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대해 제공되는 쿼리 예제가 [GitHub 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에도 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다. 마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해서도 설명합니다.
+또한 [NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대해 제공되는 쿼리 예제가 [GitHub 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에도 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다. 마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해서도 설명합니다.
 
 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계입니다.
 
@@ -130,7 +130,7 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
         and dropoff_latitude between 30 and 90
         limit 10;
 
-두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 이 Javascript에서 `toRad()` 함수는 단지 도에서 라디안으로 변환하는 *lat_or_lon*pi/180*일 뿐입니다. 여기서 *lat_or_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
+두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 이 javascript에서 함수 `toRad()` 죠 *lat_or_lon*pi/180 인 각도를 라디안으로 변환 하는 합니다. 여기서 *lat_or_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
 
 ![작업 영역 만들기](./media/create-features-hive/atan2new.png)
 
@@ -161,11 +161,11 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
    
     일반적으로 기본값은 다음과 같습니다.
     
-    - *mapred.min.split.size*: 0
-    - *mapred.max.split.size*: **Long.MAX** 
-    - *dfs.block.size*: 64MB
+   - *mapred.min.split.size*: 0
+   - *mapred.max.split.size*: **Long.MAX** 
+   - *dfs.block.size*: 64MB
 
-    보시는 것처럼 데이터 크기를 고려하려 이러한 매개 변수를 "설정"하면 사용되는 매퍼 수를 조정할 수 있습니다.
+     보시는 것처럼 데이터 크기를 고려하려 이러한 매개 변수를 "설정"하면 사용되는 매퍼 수를 조정할 수 있습니다.
 
 4. 아래에 Hive 성능을 최적화하는 **고급 옵션** 몇 가지가 추가로 설명되어 있습니다. 이러한 옵션을 사용하여 맵 및 감소 작업에 할당된 메모리를 설정할 수 있으며 성능 조정 시 유용하게 활용할 수 있습니다. 주의할 사항으로, *mapreduce.reduce.memory.mb* 가 Hadoop 클러스터에 있는 각 작업자 노드의 실제 메모리 크기보다 크면 안 됩니다.
    

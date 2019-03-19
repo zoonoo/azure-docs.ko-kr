@@ -2,16 +2,17 @@
 title: 렌더링 기능 - Azure Batch
 description: Azure Batch의 특정 렌더링 기능
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: a1408720a5387d044416ded377189e4539f782a7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543039"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791803"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 렌더링 기능
 
@@ -41,7 +42,7 @@ Windows 2016 이미지 및 CentOS 이미지가 있습니다.  [Azure Marketplace
 * [애플리케이션 패키지](https://docs.microsoft.com/azure/batch/batch-application-packages).
   * 하나 이상의 ZIP 파일을 사용하여 애플리케이션 파일을 패키지 처리하고, Azure Portal을 통해 업로드하고, 풀 구성에서 패키지를 지정합니다. 풀 VM이 생성되면 ZIP 파일이 다운로드되고 파일이 추출됩니다.
 * 리소스 파일.
-  * Azure blob 저장소에 애플리케이션 파일이 업로드되면, [풀 시작 태스크](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask)에서 파일 참조를 지정합니다. 풀 VM을 만들면 리소스 파일이 각 VM에 다운로드됩니다.
+  * Azure Blob Storage에 응용 프로그램 파일이 업로드되면, [풀 시작 태스크](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask)에서 파일 참조를 지정합니다. 풀 VM을 만들면 리소스 파일이 각 VM에 다운로드됩니다.
 
 ### <a name="pay-for-use-licensing-for-pre-installed-applications"></a>미리 설치된 애플리케이션에 대한 사용량 과금 라이선스
 

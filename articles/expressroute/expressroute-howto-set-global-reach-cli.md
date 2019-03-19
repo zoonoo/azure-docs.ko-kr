@@ -2,28 +2,23 @@
 title: 'ExpressRoute Global Reach 구성: Azure CLI | Microsoft Docs'
 description: 이 문서는 온-프레미스 네트워크 간의 사설 네트워크를 설정하고 Global Reach를 사용하도록 설정하기 위해 ExpressRoute 회로를 함께 연결하는 데 유용합니다.
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
-ms.author: cherylmc
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: be10489d731b9e01d148ce1ac7892cb6de956662
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659323"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817697"
 ---
-# <a name="configure-expressroute-global-reach-by-using-the-azure-cli-preview"></a>Azure CLI를 사용하여 ExpressRoute Global Reach 구성(미리 보기)
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 ExpressRoute 글로벌 환경 구성
 
 이 문서는 Azure CLI를 사용하여 Azure ExpressRoute Global Reach를 구성하는 데 도움이 됩니다. 자세한 내용은 [ExpressRoute Global Reach](expressroute-global-reach.md)를 참조하세요.
  
-## <a name="before-you-begin"></a>시작하기 전에
-
-> [!IMPORTANT]
-> 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 구성을 시작하기 전에 다음 요구 사항을 완료합니다.
 
 * 최신 버전의 Azure CLI를 설치합니다. [Azure CLI 설치](/cli/azure/install-azure-cli) 및 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조하세요.

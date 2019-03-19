@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038078"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983594"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 
@@ -215,6 +215,8 @@ SDK 릴리스 정보 및 구현된 클래스와 메서드에 대한 자세한 �
 
 ### <a name="indexing-policy"></a>인덱싱 정책
 인덱싱 경로, 종류, 모드 및 쿼리 실행에 어떻게 영향을 주는지에 대한 내용은 [인덱싱 정책 구성](index-policy.md)을 참조하세요. 기본적으로 인덱싱 정책은 같음 쿼리에는 유효하지만 범위 쿼리/order by 쿼리에는 유효하지 않은 문자열용 해시 인덱싱을 사용합니다. 문자열에 대해 범위 쿼리가 필요한 경우 모든 문자열에 대해 범위 인덱스 유형을 지정하는 것이 좋습니다. 
+
+기본적으로 Azure Cosmos DB 자동 인덱싱 모든 데이터에 적용 됩니다. 고성능을 위한 시나리오를 삽입, 이것은 각 삽입 작업에 대 한 RU 비용을 절감 하는 대로 경로 제외 하는 것이 좋습니다. 
 
 ## <a name="query-execution-metrics"></a>쿼리 실행 메트릭
 선택 사항인 `x-ms-documentdb-populatequerymetrics` 헤더(.NET SDK에서 `FeedOptions.PopulateQueryMetrics`)에 전달하여 쿼리 실행에 대한 자세한 메트릭을 얻을 수 있습니다. `x-ms-documentdb-query-metrics`에서 반환된 값은 쿼리 실행의 고급 문제 해결을 위한 다음 키-값 쌍을 포함합니다. 

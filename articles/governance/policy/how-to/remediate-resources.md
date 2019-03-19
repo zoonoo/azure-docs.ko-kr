@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 086ef9030451632ee4defa39a402e4d62c897f20
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342119"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816570"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -131,6 +131,8 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ## <a name="create-a-remediation-task"></a>수정 작업 만들기
 
+### <a name="create-a-remediation-task-through-portal"></a>포털을 통해 업데이트 관리 작업 만들기
+
 평가 중에는 **deployIfNotExists** 효과가 포함된 정책 할당이 비준수 리소스가 있는지를 확인합니다. 비준수 리소스가 있으면 **수정** 페이지에서 세부 정보가 제공됩니다. 비준수 리소스가 있는 정책 목록을 통해 **수정 작업**이 트리거됩니다. 이 옵션을 선택하면 **deployIfNotExists** 템플릿에서 배포가 작성됩니다.
 
 **수정 작업**을 만들려면 다음 작업을 수행합니다.
@@ -163,6 +165,32 @@ if ($roleDefinitionIds.Count -gt 0)
    ![수정 - 리소스 작업 상황에 맞는 메뉴](../media/remediate-resources/resource-task-context-menu.png)
 
 **수정 작업**을 통해 배포한 리소스는 정책 준수 페이지의 **배포된 리소스** 탭에 추가됩니다.
+
+### <a name="create-a-remediation-task-through-azure-cli"></a>Azure CLI를 통해 수정 작업 만들기
+
+만들려는 **재구성 작업** Azure cli를 사용 하 여는 `az policy remediation` 명령입니다. 바꿉니다 `{subscriptionId}` 구독 ID로 하 고 `{myAssignmentId}` 사용 하 여 프로그램 **deployIfNotExists** 정책 할당 id입니다.
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+다른 수정 명령 및 예제를 참조 하세요. 합니다 [az 정책 수정](/cli/azure/policy/remediation) 명령입니다.
+
+### <a name="create-a-remediation-task-through-azure-powershell"></a>Azure PowerShell을 통해 업데이트 관리 작업 만들기
+
+만들려는 **재구성 작업** Azure powershell을 사용 하 여는 `Start-AzPolicyRemediation` 명령입니다. 바꿉니다 `{subscriptionId}` 구독 ID로 하 고 `{myAssignmentId}` 사용 하 여 프로그램 **deployIfNotExists** 정책 할당 id입니다.
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+다른 업데이트 관리 cmdlet 및 예제를 참조 합니다 [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) 모듈입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

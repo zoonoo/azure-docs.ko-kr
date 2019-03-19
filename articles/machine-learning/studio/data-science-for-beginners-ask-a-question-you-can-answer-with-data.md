@@ -5,17 +5,17 @@ description: 초급자를 위한 데이터 과학 비디오 3에서 정확한 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/03/2018
-ms.openlocfilehash: 7134a22532622d7de25a23897f83dc453d8a4344
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: fcd79b94c1a32fa912f00df616787f8859005895
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454058"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820175"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
 ## <a name="video-3-data-science-for-beginners-series"></a>비디오 3: 초급자를 위한 데이터 과학 시리즈
@@ -93,4 +93,4 @@ Microsoft Azure Machine Learning Studio의 “초급자를 위한 데이터 과�
 
 ## <a name="next-steps"></a>다음 단계
 * [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
-* [Microsoft Azure의 Machine Learning 소개 보기](what-is-machine-learning.md)
+* [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/preview/overview-what-is-azure-ml)
