@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 0c962dc6d8aff63a3b7dd34133a40c7ff9feec4c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c4fcdc43e8c88bf307e4de5727df0641616d7b78
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540744"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448138"
 ---
 # <a name="best-practices-for-query-store"></a>쿼리 저장소의 모범 사례
 
@@ -28,7 +28,7 @@ ms.locfileid: "53540744"
 
 |**pg_qs.query_capture_mode** | **시나리오**|
 |---|---|
-|_모두_  |모든 쿼리 및 쿼리 실행 빈도와 기타 통계 측면에서 워크로드를 철저하게 분석합니다. 워크로드의 새 쿼리를 식별합니다. 사용자 또는 자동 매개 변수화 기회를 식별하기 위해 임시 쿼리가 사용되는지 검색합니다. _모두_는 리소스 사용 비용이 증가합니다. |
+|_모두_  |모든 쿼리 및 쿼리 실행 빈도와 기타 통계 측면에서 워크로드를 철저하게 분석합니다. 워크로드의 새 쿼리를 식별합니다. 임시 쿼리는 사용자나 자동 매개 변수화에 대 한 기회를 식별 하는 데 사용 되어 검색 합니다. _모두_는 리소스 사용 비용이 증가합니다. |
 |_상위_  |클라이언트에서 실행한 상위 쿼리에 집중합니다.
 |_없음_ |조사하려는 쿼리 집합 및 시간 범위를 이미 캡처했으며 다른 쿼리 때문에 발생할 수 있는 방해 요소를 제거하고 싶은 경우에 사용합니다. _없음_은 환경 테스트 및 벤치마킹에 적합합니다. _없음_을 사용하면 중요한 새 쿼리를 추적하고 최적화하는 기회를 놓칠 수 있으므로 주의해서 사용해야 합니다. 지나간 시간 범위의 데이터를 복구할 수 없습니다. |
 

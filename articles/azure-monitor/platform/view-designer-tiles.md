@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics의 뷰 디자이너 타일에 대한 참조 가이드 | Microsoft Docs
-description: Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역에 다양한 데이터 시각화를 표시하는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 타일 설정에 대한 참조 가이드입니다.
+title: Azure Monitor에서 뷰 디자이너 타일 참조 가이드 | Microsoft Docs
+description: Azure Monitor에서 뷰 디자이너를 사용 하면 Azure portal에 표시 되는 다양 한 데이터를 Log Analytics 작업 영역에 대해 시각화를 포함 하는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 타일 설정에 대한 참조 가이드입니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c380f0391c51628b0eb71723a0faf982a4399680
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817396"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887763"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Log Analytics의 뷰 디자이너 타일에 대한 참조 가이드
-Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역에 다양한 데이터 시각화를 나타내는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 타일 설정에 대한 참조 가이드입니다.
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Azure Monitor에서 뷰 디자이너 타일 참조 가이드
+Azure Monitor에서 뷰 디자이너를 사용 하면 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 되는 Azure 포털에서 다양 한 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 타일 설정에 대한 참조 가이드입니다.
 
 뷰 디자이너에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -49,7 +49,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 
 | 설정 | 설명 |
 |:--- |:--- |
-| Name |타일 맨 위에 표시되는 텍스트입니다. |
+| 이름 |타일 맨 위에 표시되는 텍스트입니다. |
 | 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
 | **타일** | |
 | 범례 |값 아래에 표시되는 텍스트입니다. |
@@ -67,7 +67,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 
 | 설정 | 설명 |
 |:--- |:--- |
-| Name |타일 맨 위에 표시되는 텍스트입니다. |
+| 이름 |타일 맨 위에 표시되는 텍스트입니다. |
 | 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
 | **첫 번째 타일** | |
 | 범례 |값 아래에 표시되는 텍스트입니다. |
@@ -88,7 +88,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 
 | 설정 | 설명 |
 |:--- |:--- |
-| Name |타일 맨 위에 표시되는 텍스트입니다. |
+| 이름 |타일 맨 위에 표시되는 텍스트입니다. |
 | 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
 | **도넛** | |
 | 쿼리 |도넛에 대해 실행되는 쿼리입니다. 첫 번째 속성은 텍스트 값이고, 두 번째 속성은 숫자 값이어야 합니다. 이 쿼리는 보통 *measure* 키워드를 사용하여 결과를 요약합니다. |
@@ -112,7 +112,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 
 | 설정 | 설명 |
 |:--- |:--- |
-| Name |타일 맨 위에 표시되는 텍스트입니다. |
+| 이름 |타일 맨 위에 표시되는 텍스트입니다. |
 | 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
 | **꺾은선형 차트** | |
 | 쿼리 |꺾은선형 차트에 대해 실행되는 쿼리입니다. 첫 번째 속성은 텍스트 값이고, 두 번째 속성은 숫자 값이어야 합니다. 이 쿼리는 보통 *measure* 키워드를 사용하여 결과를 요약합니다. 쿼리에서 *interval* 키워드를 사용하는 경우 X축에 이 시간 간격이 사용됩니다. 쿼리에서 *interval* 키워드를 사용하지 않는 경우 X축에 시간 간격이 사용됩니다. |
@@ -133,7 +133,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 
 | 설정 | 설명 |
 |:--- |:--- |
-| Name |타일 맨 위에 표시되는 텍스트입니다. |
+| 이름 |타일 맨 위에 표시되는 텍스트입니다. |
 | 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
 | **꺾은선형 차트** | |
 | 쿼리 |꺾은선형 차트에 대해 실행되는 쿼리입니다. 첫 번째 속성은 텍스트 값이고, 두 번째 속성은 숫자 값이어야 합니다. 이 쿼리는 보통 *measure* 키워드를 사용하여 결과를 요약합니다. 쿼리에서 *interval* 키워드를 사용하는 경우 X축에 이 시간 간격이 사용됩니다. 쿼리에서 *interval* 키워드를 사용하지 않는 경우 X축에 시간 간격이 사용됩니다. |
@@ -158,7 +158,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 
 | 설정 | 설명 |
 |:--- |:--- |
-| Name |타일 맨 위에 표시되는 텍스트입니다. |
+| 이름 |타일 맨 위에 표시되는 텍스트입니다. |
 | 설명 |타일 이름 아래에 표시되는 텍스트입니다. |
 | 첫 번째 차트 | |
 | 범례 |첫 번째 계열의 설명선 밑에 표시되는 텍스트입니다. |
@@ -177,5 +177,5 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 
 
 ## <a name="next-steps"></a>다음 단계
-* 타일에서 쿼리를 지원하는 [로그 검색](../../azure-monitor/log-query/log-query-overview.md)에 대한 자세한 정보
+* 에 대 한 자세한 [쿼리 로그](../log-query/log-query-overview.md) 타일에서의 쿼리를 지원 합니다.
 * 사용자 지정 보기에 [시각화 요소](view-designer-parts.md) 추가

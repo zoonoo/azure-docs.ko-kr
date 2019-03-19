@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301675"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438366"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 
@@ -116,7 +116,7 @@ Time Series Insights 미리 보기는 이러한 두 속성을 기준으로 하�
 
 Time Series Insights 종량제 환경을 만들 때는 Time Series Insights 환경과 데이터가 저장되는 Azure Storage 범용 V1 계정의 두 리소스를 만듭니다. 상호 운용성, 가격 및 성능 때문에 Azure Storage 범용 V1을 기본 리소스로 선택했습니다. 
 
-Time Series Insights는 Azure Storage 계정에 각 이벤트 복사본을 최대 2개 게시합니다. 초기 복사본은 항상 보존되므로 다른 서비스를 사용하여 효율적으로 쿼리할 수 있습니다. Spark, Hadoop 및 기타 친숙한 도구는 기본적인 파일 이름 필터링을 지원하므로 원시 Parquet 파일을 통해 시계열 ID 간에 쉽게 사용할 수 있습니다. Blob을 년 및 월별로 그룹화하면 사용자 지정 작업의 특정 시간 범위 내에 속하는 Blob을 나열할 때 유용합니다. 
+Time Series Insights는 Azure Storage 계정에 각 이벤트 복사본을 최대 2개 게시합니다. 초기 복사본은 다른 서비스를 사용 하 여 신속 하 게 쿼리할 수 있도록 항상 유지 됩니다. Spark, Hadoop 및 기타 친숙한 도구는 기본적인 파일 이름 필터링을 지원하므로 원시 Parquet 파일을 통해 시계열 ID 간에 쉽게 사용할 수 있습니다. Blob을 년 및 월별로 그룹화하면 사용자 지정 작업의 특정 시간 범위 내에 속하는 Blob을 나열할 때 유용합니다. 
 
 또한 Time Series Insights는 Parquet 파일을 다시 분할하여 Time Series Insights API에 맞게 최적화합니다. 가장 최근에 다시 분할된 파일도 저장됩니다.
 

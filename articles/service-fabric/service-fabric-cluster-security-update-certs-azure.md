@@ -4,7 +4,7 @@ description: Service Fabric 클러스터에서 새 인증서를 추가, 교체 �
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo-microsoft
-ms.openlocfilehash: aa5096b84f9bfe97784d6f80e4c203a1d8384404
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687421"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315278"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.
 
-Azure Service Fabrics SDK의 기본 인증서 로드 동작은 기본 구성 정의 또는 보조 구성 정의에 상관없이 정의된 인증서 중 향후 만료 날짜가 가장 먼 인증서를 배포하고 사용하는 것입니다. 이전 동작으로 되돌아가는 것은 권장되지 않는 고급 동작이므로 Fabric.Code 구성에서 "UseSecondaryIfNever" 설정 매개 변수 값을 false로 설정해야 합니다.
+Azure Service Fabrics SDK의 기본 인증서 로드 동작은 기본 구성 정의 또는 보조 구성 정의에 상관없이 정의된 인증서 중 향후 만료 날짜가 가장 먼 인증서를 배포하고 사용하는 것입니다. 클래식 동작으로 대체 아닌 권장 되는 고급 작업 및 Fabric.Code 구성 내에서 false로 설정 "UseSecondaryIfNewer" 매개 변수 값을 설정 해야 합니다.
 
 클러스터를 만드는 동안 클라이언트 인증서 외에도 인증서 보안을 구성할 때 Service Fabric을 사용하여 기본 인증서와 보조 인증서의 두 클러스터 인증서를 지정할 수 있습니다. 만드는 시점에서의 설정에 관한 자세한 내용은 [포털을 통해 Azure 클러스터 만들기](service-fabric-cluster-creation-via-portal.md) 또는 [Azure Resource Manager를 통해 Azure 클러스터 만들기](service-fabric-cluster-creation-via-arm.md)를 참조하세요. 만드는 시점에 클러스터 인증서를 하나만 지정하는 경우 해당 인증서가 기본 인증서로 사용됩니다. 클러스터를 만든 후 새 인증서를 보조 인증서로 추가할 수 있습니다.
 
@@ -114,7 +114,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
          }
     ``` 
 
-4. **모든** **Microsoft.Compute/virtualMachineScaleSets** 리소스 정의를 변경합니다. Microsoft.Compute/virtualMachineScaleSets 리소스 정의를 찾습니다. "virtualMachineProfile" 아래 "publisher": "Microsoft.Azure.ServiceFabric"으로 스크롤합니다.
+4. **모든** **Microsoft.Compute/virtualMachineScaleSets** 리소스 정의를 변경합니다. Microsoft.Compute/virtualMachineScaleSets 리소스 정의를 찾습니다. "게시자"로 스크롤하십시오. "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile".
 
     Service Fabric 게시자 설정에서 다음과 같이 나타납니다.
     
@@ -259,7 +259,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-application-certificates-to-the-cluster"></a>클러스터에 애플리케이션 인증서를 배포합니다.
+## <a name="deploying-client-certificates-to-the-cluster"></a>클러스터에 클라이언트 인증서를 배포 합니다.
 
 앞의 5단계에서 설명한 것과 같은 단계를 사용하여 Key Vault에서 인증서를 노드에 배포할 수 있습니다. 다른 매개 변수를 정의하여 사용하면 됩니다.
 

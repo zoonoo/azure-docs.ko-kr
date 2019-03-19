@@ -1,7 +1,7 @@
 ---
-title: TensorFlow를 사용하여 모델 학습
+title: TensorFlow & Keras를 사용 하 여 모델 학습
 titleSuffix: Azure Machine Learning service
-description: TensorFlow Estimator를 사용하여 TensorFlow 모델의 단일 노드 및 분산 학습을 실행하는 방법을 알아봅니다.
+description: Keras와 TensorFlow 추정을 사용 하 여 단일 노드 및 분산된 Keras와 TensorFlow 모델 학습을 실행 하는 방법 알아보기
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 02/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: c76a94695114888ca8946106528fe179ff81c811
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: b41098907f801f7dae839a470249834b02c8d519
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244728"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338555"
 ---
-# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>Azure Machine Learning Service를 사용하여 TensorFlow 모델 학습
+# <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스를 사용 하 여 Keras와 TensorFlow 모델 학습
 
-Azure Machine Learning에서는 TensorFlow를 사용한 DNN(심층 신경망) 학습을 위해 `Estimator`의 사용자 지정 `TensorFlow` 클래스를 제공합니다. Azure SDK의 `TensorFlow` Estimator([`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) 클래스와 통합되지 않음)를 사용하면 Azure Compute의 단일 노드 및 분산 실행 둘 다에 대해 TensorFlow 학습 작업을 쉽게 제출할 수 있습니다.
+Azure Machine Learning에서는 TensorFlow를 사용한 DNN(심층 신경망) 학습을 위해 `Estimator`의 사용자 지정 `TensorFlow` 클래스를 제공합니다. Azure SDK [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) 평가기 (수 부모의 필요가 합니다 [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) 클래스) 쉽게 Azure에서 단일 노드 및 분산 실행에 대 한 TensorFlow 교육 작업을 제출할 수 있습니다 계산 합니다.
 
 ## <a name="single-node-training"></a>단일 노드 학습
 `TensorFlow` Estimator를 사용하는 학습은 [기본 `Estimator`](how-to-train-ml-models.md)를 사용하는 방식과 비슷하므로 먼저 방법 문서를 확인하고 이 문서에서 소개하는 개념을 이해해야 합니다.
@@ -39,7 +39,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params=script_params,
                     compute_target=compute_target,
                     entry_script='train.py',
-                    conda_packages=['scikit-learn'],
+                    conda_packages=['scikit-learn'], # in case you need scikit-learn in train.py
                     use_gpu=True)
 ```
 
@@ -60,6 +60,21 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 ```Python
 run = exp.submit(tf_est)
 ```
+
+## <a name="keras-support"></a>Keras 지원
+[Keras](https://keras.io/) TensorFlow, CNTK, Theano 백 엔드를 지 원하는 수준의 인기 있는 DNN Python API가 있습니다. TensorFlow를 백 엔드로 사용 하는 경우 Keras 모델을 학습 하 고 TensFlow 평가기를 쉽게 사용할 수 있습니다. 추가할 Keras와 TensorFlow 평가기는 예는 다음과 같습니다.
+
+```Python
+from azureml.train.dnn import TensorFlow
+
+keras_est = TensorFlow(source_directory='./my-keras-proj',
+                       script_params=script_params,
+                       compute_target=compute_target,
+                       entry_script='keras_train.py',
+                       pip_packages=['keras'], # just add keras through pip
+                       use_gpu=True)
+```
+위의 TensorFlow 스 티 메이 터 생성자는 실행 환경에는 pip를 통해 Keras를 설치 하려면 Azure Machine Learning 서비스를 지시 합니다. 고 `keras_train.py` Keras 모델을 학습 하는 Keras API 가져올 수 있습니다. 전체 예제를 탐색 [Jupyter notebook이](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb)합니다.
 
 ## <a name="distributed-training"></a>분산 학습
 TensorFlow Estimator에서는 Azure VM의 여러 CPU 및 GPU 클러스터에서 광범위하게 모델을 학습시킬 수도 있습니다. API 호출만 몇 번 수행하면 분산 TensorFlow 학습을 쉽게 실행할 수 있습니다. 이러한 워크로드를 수행하는 데 필요한 모든 인프라와 오케스트레이션은 Azure Machine Learning이 백그라운드에서 관리합니다.
@@ -92,11 +107,11 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 --|--|--
 `node_count` | 학습 작업에 사용할 노드의 수입니다. | `1`
 `process_count_per_node` | 각 노드에서 실행할 프로세스(또는 “작업자”)의 수입니다.|`1`
-`distributed_backend` | Estimator가 MPI를 통해 제공하는 분산 학습 시작을 위한 백 엔드입니다. MPI(와 Horovod)를 사용하여 병렬 또는 분산 학습을 수행하려는 경우(예: `node_count`>1 또는 `process_count_per_node`>1이거나 둘 다 해당됨) `distributed_backend='mpi'`를 설정합니다. Azure Machine Learning에서 사용하는 MPI 구현은 [Open MPI](https://www.open-mpi.org/)입니다. | `None`
+`distributed_backend` | Estimator가 MPI를 통해 제공하는 분산 학습 시작을 위한 백 엔드입니다. 병렬 또는 분산 학습을 수행 하려는 경우 (예를 들어 `node_count`> 1 또는 `process_count_per_node`> 1 또는 둘 다) MPI (및 Horovod)를 사용 하 여 설정 `distributed_backend='mpi'`합니다. Azure Machine Learning에서 사용하는 MPI 구현은 [Open MPI](https://www.open-mpi.org/)입니다. | `None`
 
 위의 예제에서는 작업자 2명(노드당 작업자 1명)을 통해 분산 학습을 실행합니다.
 
-Horovod 및 해당 종속성은 자동으로 설치되므로 다음과 같이 학습 스크립트 `train.py`에 가져오기만 하면 됩니다.
+Horovod 및 해당 종속성을 설치할를 학습 스크립트에서 가져올 수 있도록 `train.py` 다음과 같습니다.
 
 ```Python
 import tensorflow as tf
@@ -150,7 +165,7 @@ TF_CONFIG='{
 }'
 ```
 
-TensorFlow의 고급 [`tf.estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator) API를 사용 중인 경우 TensorFlow는 이 `TF_CONFIG` 변수를 구문 분석하여 클러스터 사양을 자동으로 작성합니다. 
+TensorFlow의에 대 한 개략적 정보를 사용 하는 경우 [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow는이 구문 분석할 `TF_CONFIG` 변수와 빌드 클러스터 수에 대 한 사양입니다. 
 
 TensorFlow의 하위 수준 코어 API를 학습에 사용 중인 경우에는 학습 코드에서 `TF_CONFIG` 변수를 구문 분석하고 `tf.train.ClusterSpec`을 직접 작성해야 합니다. [이 예제](https://aka.ms/aml-notebook-tf-ps)에서는 다음과 같이 **학습 스크립트**에서 해당 작업을 수행합니다.
 
@@ -173,8 +188,7 @@ run = exp.submit(tf_est)
 
 ## <a name="examples"></a>예
 
-분산형 딥러닝에서 Notebook은 다음을 참조하세요.
-* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
+다양 한 탐색 [github 분산된 심층 학습에서 notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

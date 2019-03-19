@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b8844e6ca9effe78f8d98571af2ce59b4e0abee8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 01da5f0798316517869fcc94eed2a7428fffba7b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850703"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -40,7 +40,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 |----------|----------------------------|
 | 재해 복구 | [Azure 지역 중복 백업](sql-database-automated-backups.md) |
 | 읽기 크기 조정 | [읽기 전용 복제본을 사용하여 읽기 전용 쿼리 워크로드의 부하 분산(미리 보기)](sql-database-read-scale-out.md) |
-| ETL(OLTP 및 OLAP 간) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 또는 [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| ETL(OLTP 및 OLAP 간) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 또는 [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | 온-프레미스 SQL Server에서 Azure SQL Database로 마이그레이션 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -228,7 +228,7 @@ SQL 데이터 동기화 서비스에서는 Federation Root Database를 제한 �
 
 예상대로 SQL 데이터 동기화를 수행하나요? 활동을 모니터링하고 문제를 해결하려면 다음 문서를 참조하세요.
 
-- [Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
+- [Azure Monitor 로그를 사용 하 여 Azure SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
 - [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Azure SQL Database에 대한 자세한 정보

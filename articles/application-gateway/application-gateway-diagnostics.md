@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453304"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309131"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭
 
@@ -23,6 +23,8 @@ Azure Application Gateway를 사용하여 다음과 같은 방법으로 리소�
 * [로그](#diagnostic-logging): 로그를 사용하면 모니터링하기 위해 리소스에서 성능, 액세스 및 기타 데이터를 저장하거나 사용할 수 있습니다.
 
 * [메트릭](#metrics): 현재 Application Gateway는 성능 카운터를 보여주는 7개 메트릭을 제공합니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="back-end-health"></a>백 엔드 상태
 
@@ -47,10 +49,10 @@ NIC, IP 또는 FQDN과 관계 없이 백 엔드 풀의 각 멤버가 이 페이�
 
 ### <a name="view-back-end-health-through-powershell"></a>PowerShell을 통해 백 엔드 상태 보기
 
-다음 PowerShell 코드에서는 `Get-AzureRmApplicationGatewayBackendHealth` cmdlet을 사용하여 백 엔드 상태를 확인하는 방법을 보여 줍니다.
+다음 PowerShell 코드에서는 `Get-AzApplicationGatewayBackendHealth` cmdlet을 사용하여 백 엔드 상태를 확인하는 방법을 보여 줍니다.
 
 ```powershell
-Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
+Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
 ### <a name="view-back-end-health-through-azure-cli"></a>Azure CLI를 통해 백 엔드 상태 보기
@@ -121,7 +123,7 @@ Azure에서 다양한 유형의 로그를 사용하여 Application Gateway를 �
 3. 다음 PowerShell cmdlet을 사용하여 진단 로깅을 사용하도록 설정합니다.
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
     
 > [!TIP] 

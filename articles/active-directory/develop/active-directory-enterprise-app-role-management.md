@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 02/21/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7604fbe306e606e56c9dd0a2b09b4641257dbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203357"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990523"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발급된 역할 클레임 구성
 
@@ -157,6 +157,9 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
     | 특성 이름 | 특성 값 |
     | -------------- | ----------------|
     | 역할 이름  | user.assignedroles |
+
+    >[!NOTE]
+    >역할 클레임 값이 null 인 경우 다음 Azure AD는 보내지이 값이 토큰에 및 디자인에 따라 기본입니다.
 
     a. **편집** 단추를 클릭하여 **사용자 특성** 대화 상자를 엽니다.
 

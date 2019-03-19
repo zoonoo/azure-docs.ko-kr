@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608752"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009693"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
@@ -71,9 +71,9 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 
 예, 새로운 원격 모니터링을 동일한 지역에서 사용할 수 있습니다.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Azure Portal에서 리소스 그룹을 삭제하는 것과 azureiotsuite.com의 솔루션 가속기에서 삭제를 클릭하는 것의 차이는 무엇인가요?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Azure portal에서 리소스 그룹을 삭제 하면 azureiotsolutions.com의 솔루션 가속기에서 삭제를 클릭 사이의 차이 무엇입니까?
 
-* [azureiotsuite.com](https://www.azureiotsolutions.com/)에서 솔루션 가속기를 삭제하면 솔루션 가속기를 만들 때 배포된 모든 리소스가 삭제됩니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
+* 솔루션 가속기를 삭제 하는 경우 [azureiotsolutions.com](https://www.azureiotsolutions.com/), 솔루션 가속기를 만들 때 배포 된 모든 리소스를 삭제 합니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
 * [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹의 리소스만 삭제됩니다. 또한 솔루션 가속기와 연결된 Azure Active Directory 응용 프로그램을 삭제해야 합니다.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기에 대한 기존 투자를 계속 활용할 수 있나요?

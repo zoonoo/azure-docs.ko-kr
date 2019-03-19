@@ -1,19 +1,19 @@
 ---
 title: Azure IoT SDK 이해 | Microsoft Docs
 description: 개발자 가이드 - 디바이스 및 백 엔드 앱을 빌드하는데 사용할 수 있는 다양한 Azure IoT 디바이스 및 서비스 SDK에 대한 링크 정보입니다.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: dobett
-ms.openlocfilehash: 3bdb09de04ec5041d671f5af709a1a1e7133d141
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: fcb6f564c97632e4d62f7f052ec5ecc35a9e479a
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199513"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011248"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Azure IoT Hub SDK 이해 및 사용
 
@@ -37,7 +37,7 @@ IoT Hub를 사용하기 위한 SDK(소프트웨어 개발 키트)의 범주는 �
 
 SDK에 지원되는 플랫폼은 [Azure IoT SDK 플랫폼 지원](iot-hub-device-sdk-platform-support.md)에서 찾을 수 있습니다.
 
-특정 하드웨어 디바이스와 SDK 호환성에 대한 자세한 내용은 [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsuite.com/) 또는 개별 리포지토리를 참조하세요.
+특정 하드웨어 디바이스와 SDK 호환성에 대한 자세한 내용은 [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsolutions.com/) 또는 개별 리포지토리를 참조하세요.
 
 ## <a name="azure-iot-hub-device-sdks"></a>Azure IoT Hub 디바이스 SDK
 

@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell 스크립트: Azure Lab Services에서 허용되는 VM 크기 설정 | Microsoft Docs'
+title: 'PowerShell 스크립트: Azure Lab Services에서 허용 된 VM 크기 집합 | Microsoft Docs'
 description: 이 PowerShell 스크립트는 Azure Lab Services에서 허용되는 VM 크기를 설정합니다.
 services: lab-services
 author: spelluru
@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 559e74675a5d113584dca21979c20462c9cdf19c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 0c82e304d3e3d8df1206c7c05883399b74229af7
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054709"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192193"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>PowerShell을 사용하여 Azure Lab Services에서 허용되는 VM 크기 설정
 
 이 샘플 PowerShell 스크립트는 Azure Lab Services에서 허용되는 VM(가상 머신) 크기를 설정합니다.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 * **랩**. 스크립트를 사용하려면 기존 랩이 있어야 합니다. 
@@ -38,10 +40,10 @@ ms.locfileid: "44054709"
 
 | 명령 | 메모 |
 |---|---|
-| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | 지정된 매개 변수를 기반으로 리소스를 검색합니다. |
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | 리소스를 가져옵니다. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | 리소스를 수정합니다. |
-| [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | 리소스를 만듭니다. |
+| Find-AzResource | 지정된 매개 변수를 기반으로 리소스를 검색합니다. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | 리소스를 가져옵니다. |
+| [집합 AzResource](/powershell/module/az.resources/set-azresource) | 리소스를 수정합니다. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | 리소스를 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

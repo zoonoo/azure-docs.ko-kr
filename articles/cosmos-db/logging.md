@@ -7,20 +7,22 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4ba91bec752b16be0c172c65ff58241c852a61b9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 2a08097b42f395bd0009353635cabbd264c3c421
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811650"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992093"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB의 진단 로깅 
 
-하나 이상의 Azure Cosmos DB 데이터베이스를 사용하기 시작한 후에는 데이터베이스에 액세스하는 방법과 시기를 모니터링할 수 있습니다. 이 문서에서는 Azure 플랫폼에서 사용할 수 있는 로그의 개요를 제공합니다. 모니터링을 위해 진단 로깅을 사용하도록 설정하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 로그를 전송하는 방법, 로그를 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하는 방법 및 로그를 [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 내보내는 방법을 알아봅니다.
+하나 이상의 Azure Cosmos DB 데이터베이스를 사용하기 시작한 후에는 데이터베이스에 액세스하는 방법과 시기를 모니터링할 수 있습니다. 이 문서에서는 Azure 플랫폼에서 사용할 수 있는 로그의 개요를 제공합니다. 로그를 보내기 위해 모니터링 하는 것에 대 한 진단 로깅을 사용 하도록 설정 하는 방법에 알아봅니다 [Azure Storage](https://azure.microsoft.com/services/storage/), 로그를 스트림 하는 방법 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), 및 로그를 내보내는 방법 [Azure Monitor로그](https://azure.microsoft.com/services/log-analytics/).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="logs-available-in-azure"></a>Azure에서 사용할 수 있는 로그
 
-Azure Cosmos DB 계정 모니터링 방법을 논의하기 전에 로깅과 모니터링에 관한 몇 가지 사항을 확인해 보겠습니다. Azure 플랫폼에는 여러 로그 유형이 있습니다. 바로 [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure 메트릭](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), 이벤트, 하트비트 모니터링, 작업 로그 등입니다. 로그는 다양합니다. Azure Portal의 [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/)에서 전체 로그 목록을 확인할 수 있습니다. 
+Azure Cosmos DB 계정 모니터링 방법을 논의하기 전에 로깅과 모니터링에 관한 몇 가지 사항을 확인해 보겠습니다. Azure 플랫폼에는 여러 로그 유형이 있습니다. 바로 [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure 진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure 메트릭](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), 이벤트, 하트비트 모니터링, 작업 로그 등입니다. 로그는 다양합니다. 로그의 전체 목록을 볼 수 있습니다 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) Azure portal에서 합니다. 
 
 다음 이미지는 사용할 수 있는 각종 Azure 로그를 보여 줍니다.
 
@@ -51,7 +53,7 @@ Azure Activity Log는 Azure에서 발생하는 구독 수준 이벤트에 대한
 
 Azure 진단 로그는 리소스에서 내보내며, 해당 리소스의 작업에 대한 풍부하고 빈번한 데이터를 제공합니다. 이러한 로그의 내용은 리소스 유형에 따라 달라집니다. 리소스 수준 진단 로그도 게스트 OS 수준 진단 로그와 다릅니다. 게스트 OS 진단 로그는 가상 머신이나 다른 지원되는 리소스 유형 안에서 실행되는 에이전트가 수집합니다. 리소스 수준 진단 로그는 에이전트가 필요하지 않고 Azure 플랫폼 자체에서 리소스 관련 데이터를 캡처합니다. 게스트 OS 수준 진단 로그는 가상 머신에서 실행되는 운영 체제 및 애플리케이션에서 데이터를 캡처합니다.
 
-![Storage, Event Hubs 또는 Log Analytics에 대한 진단 로깅](./media/logging/azure-cosmos-db-logging-overview.png)
+![Storage, Event Hubs 또는 Azure Monitor 로그에 진단 로깅](./media/logging/azure-cosmos-db-logging-overview.png)
 
 ### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Azure Diagnostic Logs에 기록되는 내용
 
@@ -79,7 +81,7 @@ Azure Portal에서 진단 로그를 사용하도록 설정하려면 다음 단�
 
     * **스토리지 계정에 보관**: 이 옵션을 사용하려면 연결할 기존 저장소 계정이 필요합니다. 포털에서 새 저장소 계정을 만들려면 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하고 지침에 따라 Azure Resource Manager, 범용 계정을 만듭니다. 그런 다음, 포털의 이 페이지로 돌아가 저장소 계정을 선택합니다. 새로 만든 저장소 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
     * **이벤트 허브로의 스트림**: 이 옵션을 사용하려면 연결할 기존 Event Hubs 네임스페이스 및 이벤트 허브가 필요합니다. Event Hubs 네임스페이스를 만들려면 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
-    * **Log Analytics에 보내기**: 이 옵션을 사용하려면 기존 작업 영역을 사용하거나 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) 단계를 따라 새 Log Analytics 작업 영역을 만듭니다. Log Analytics에서 로그를 보는 방법에 대한 자세한 내용은 Log Analytics에서 로그 보기를 참조하세요.
+    * **Log Analytics에 보내기**: 이 옵션을 사용하려면 기존 작업 영역을 사용하거나 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) 단계를 따라 새 Log Analytics 작업 영역을 만듭니다. Azure Monitor 로그에서 로그를 보는 방법에 대 한 자세한 내용은 Azure Monitor 로그에서 로그 보기를 참조 하세요.
     * **DataPlaneRequests 로그**: 이 옵션을 선택하면 SQL, Graph, MongoDB, Cassandra 및 Table API 계정에 대해 기본 Azure Cosmos DB 배포 플랫폼으로부터 백 엔드 요청이 로깅됩니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
     * **MongoRequests 로깅**: Azure Cosmos DB의 API for MongoDB로 구성된 Cosmos 계정을 서비스하기 위해 Azure Cosmos DB 프런트 엔드에서 사용자가 시작한 요청을 기록하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
     * **메트릭 요청**: [Azure 메트릭](../azure-monitor/platform/metrics-supported.md)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
@@ -349,22 +351,22 @@ $blobs | Get-AzureStorageBlobContent `
 
 
 <a id="#view-in-loganalytics"></a>
-## <a name="view-logs-in-log-analytics"></a>Log Analytics에서 로그 보기
+## <a name="view-logs-in-azure-monitor-logs"></a>Azure Monitor 로그에서 로그 보기
 
-진단 로깅을 사용하도록 설정한 경우, **Log Analytics로 전송** 옵션을 선택하면 컨테이너의 진단 데이터가 2시간 이내에 Log Analytics로 전달됩니다. 로깅을 켠 직후에 Log Analytics를 보면 아무 데이터도 표시되지 않습니다. 2시간을 기다린 후 다시 시도하세요. 
+선택한 경우에 **Log Analytics에 보내기** 진단 진단 로깅을 설정할 때 옵션 컨테이너에서 데이터 2 시간 이내에 Azure Monitor 로그로 전달 됩니다. Azure Monitor 로그 보면 로깅을 설정한 후에 즉시 모든 데이터를 볼 수 없습니다. 2시간을 기다린 후 다시 시도하세요. 
 
-로그를 보기 전에 Log Analytics 작업 영역이 새로운 Log Analytics 쿼리 언어를 사용할 수 있도록 업그레이드되었는지 여부를 확인하는 것이 좋습니다. 확인하려면 [Azure Portal](https://portal.azure.com)을 열고 왼쪽 끝에서 **Log Analytics**를 선택한 후, 다음 그림과 같이 작업 영역 이름을 선택합니다. **Log Analytics 작업 영역** 페이지가 표시됩니다.
+로그를 보려면 먼저 확인 하 고 Log Analytics 작업 영역 업그레이드 한 경우에 새 Kusto 쿼리 언어를 사용 하려면를 참조 하세요. 확인 하려면 엽니다는 [Azure portal](https://portal.azure.com)를 선택 **Log Analytics 작업 영역** 끝에서 다음 그림과에서 같이 작업 영역 이름을 선택, 합니다. **Log Analytics 작업 영역** 페이지가 표시됩니다.
 
-![Azure Portal의 Log Analytics](./media/logging/azure-portal.png)
+![Azure portal에서 azure Monitor 로그](./media/logging/azure-portal.png)
 
 >[!NOTE]
 >OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.  
 
 **Log Analytics 작업 영역** 페이지에 다음 메시지가 표시되는 경우 작업 영역이 새 언어를 사용할 수 있도록 업그레이드되지 않은 것입니다. 새 쿼리 언어로 업그레이드하는 방법에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 작업 영역 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md)를 참조하세요. 
 
-![Log Analytics 업그레이드 메시지](./media/logging/upgrade-notification.png)
+![Azure Monitor 로그 메시지를 업그레이드합니다.](./media/logging/upgrade-notification.png)
 
-Log Analytics에서 진단 데이터를 보려면 다음 그림과 같이 왼쪽 메뉴에서 **로그 검색** 페이지 또는 페이지의 **관리** 영역을 엽니다.
+Azure Monitor 로그에서 진단 데이터를 보려는 엽니다는 **로그 검색** 왼쪽된 메뉴에서 페이지 또는 **관리** 다음 이미지와 같이 페이지의 영역:
 
 ![Azure Portal에서 로그 검색 옵션](./media/logging/log-analytics-open-log-search.png)
 
@@ -429,15 +431,15 @@ Log Analytics에서 진단 데이터를 보려면 다음 그림과 같이 왼쪽
     AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
     ```
 
-새 로그 검색 언어를 사용하는 방법에 대한 자세한 내용은 [Log Analytics에서 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md)를 참조하세요. 
+새 로그 검색 언어를 사용 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Monitor 로그의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md)합니다. 
 
 ## <a id="interpret"></a>로그 해석
 
-Azure Storage 및 Log Analytics에 저장된 진단 데이터는 유사한 스키마를 사용합니다. 
+Azure Storage 및 Azure Monitor 로그에 저장 된 진단 데이터는 유사한 스키마를 사용 합니다. 
 
 다음 표는 각 로그 항목의 내용에 대해 설명합니다.
 
-| Azure Storage 필드 또는 속성 | Log Analytics 속성 | 설명 |
+| Azure Storage 필드 또는 속성 | Azure Monitor 로그 속성 | 설명 |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | 작업이 발생한 날짜 및 시간(UTC)입니다. |
 | **resourceId** | **리소스** | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
@@ -446,7 +448,7 @@ Azure Storage 및 Log Analytics에 저장된 진단 데이터는 유사한 스�
 | **properties** | 해당 없음 | 이 필드의 내용은 다음 행에 설명되어 있습니다. |
 | **activityId** | **activityId_g** | 기록된 작업의 고유 GUID입니다. |
 | **userAgent** | **userAgent_s** | 요청을 수행하는 클라이언트 사용자 에이전트를 지정하는 문자열입니다. 형식은 {사용자 에이전트 이름}/{버전}입니다.|
-| **resourceType** | **ResourceType** | 액세스한 리소스 유형입니다. 이 값은 Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction 또는 Offer 같은 리소스 유형 중 하나일 수 있습니다. |
+| **requestResourceType** | **requestResourceType_s** | 액세스한 리소스 유형입니다. 이 값은 Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction 또는 Offer 같은 리소스 유형 중 하나일 수 있습니다. |
 | **statusCode** | **statusCode_s** | 작업의 응답 상태입니다. |
 | **requestResourceId** | **ResourceId** | 요청에 관련된 리소스 ID입니다. 값은 수행된 작업에 따라 databaseRid, collectionRid 또는 documentRid를 가리킬 수 있습니다.|
 | **clientIpAddress** | **clientIpAddress_s** | 클라이언트의 IP 주소입니다. |
@@ -464,4 +466,4 @@ Azure Storage 및 Log Analytics에 저장된 진단 데이터는 유사한 스�
    - [Azure Event Hubs 정의](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - [Azure Storage에서 메트릭 및 진단 로그 다운로드](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs)를 읽어보세요.
-- [Log Analytics의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md)를 읽어보세요.
+- 읽기 [Azure Monitor 로그의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md)합니다.

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f1f34796a98acb3ed4241edff57e506990479d1a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170197"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443269"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 디바이스 코드 흐름
 
@@ -32,7 +32,7 @@ ms.locfileid: "56170197"
 Azure AD는 [디바이스 코드 부여](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12)를 지원합니다. 이 코드를 사용하면 사용자가 스마트 TV, IoT 디바이스 또는 프린터와 같은 입력 제한된 디바이스에 로그인할 수 있습니다.  이 흐름을 활성화하기 위해, 해당 장비는 사용자가 로그인할 웹 페이지를 다른 장비의 브라우저에서 방문하도록 합니다.  사용자가 로그인하면 디바이스는 필요에 따라 액세스 토큰 및 새로 고침 토큰을 가져올 수 있습니다.  
 
 > [!Important] 
-> 이때 v2.0 엔드포인트는 Azure AD 테넌트의 디바이스 흐름만 지원하지만 개인 계정은 지원하지 않습니다.  이는 테넌트 엔드포인트 또는 조직 엔드포인트를 사용해야 함을 의미합니다.  
+> 이때 v2.0 엔드포인트는 Azure AD 테넌트의 디바이스 흐름만 지원하지만 개인 계정은 지원하지 않습니다.  즉, 테 넌 트를 설정 하는 끝점 또는 조직 끝점을 사용 해야 합니다.  
 >
 > Azure AD 테넌트에 초대된 개인 계정은 해당 디바이스 흐름 부여를 사용할 수 있지만, 테넌트의 컨텍스트에서만 사용할 수 있습니다.
 

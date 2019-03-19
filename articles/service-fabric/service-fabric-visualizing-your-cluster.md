@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: b97f2d3a015ebfd5f9c8771d3fc3edc1c074c839
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ba6a9a09945f0e822dfe02a74f2cdb8e21a1691c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203712"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674670"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
 
@@ -29,7 +29,7 @@ SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하�
 
 Service Fabric Explorer를 데스크톱 애플리케이션으로 다운로드하려면 다음 링크를 사용합니다.
 
--  Windows
+- Windows
   - https://aka.ms/sfx-windows
 
 - Linux
@@ -56,7 +56,7 @@ Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포�
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 연결
-Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인트(FQDN/IP) 및 HTTP 관리 엔드포인트 포트(기본적으로 19080)가 필요합니다. 예: https://mysfcluster.westus.cloudapp.azure.com:19080. "localhost에 연결" 확인란을 사용하여 워크스테이션에서 로컬 클러스터에 연결합니다.
+Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인트(FQDN/IP) 및 HTTP 관리 엔드포인트 포트(기본적으로 19080)가 필요합니다. 예를 들어 https\:/ / mysfcluster.westus.cloudapp.azure.com:19080 합니다. "localhost에 연결" 확인란을 사용하여 워크스테이션에서 로컬 클러스터에 연결합니다.
 
 ### <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 인증서 또는 AAD(Azure Active Directory)를 사용하여 서비스 패브릭 클라이언트에 대한 클라이언트 액세스를 제어할 수 있습니다.

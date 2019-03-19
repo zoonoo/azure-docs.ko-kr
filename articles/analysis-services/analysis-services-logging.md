@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428995"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010925"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
@@ -21,6 +21,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 ![Storage, Event Hubs 또는 Azure Monitor 로그에 진단 로깅](./media/analysis-services-logging/aas-logging-overview.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-logged"></a>다음이 로깅됩니다.
 
@@ -82,7 +83,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
     * **저장소 계정에 보관**. 이 옵션을 사용하려면 연결할 기존 저장소 계정이 필요합니다. [저장소 계정 만들기](../storage/common/storage-create-storage-account.md)를 참조하세요. 지침에 따라 리소스 관리자와 범용 계정을 만든 다음 포털에서 이 페이지로 돌아가 해당 저장소 계정을 선택합니다. 새로 만든 저장소 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
     * **이벤트 허브로 스트림**. 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. 자세한 내용은 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의 이 페이지로 돌아가 Event Hub 네임스페이스 및 정책 이름을 선택합니다.
-    * **Azure Monitor(Log Analytics 작업 영역)로 보내기**. 이 옵션을 사용하려면 기존 작업 영역을 사용하거나, 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md) 리소스를 사용합니다. 로그를 보는 방법에 대한 자세한 내용은 이 문서의 [Log Analytics 작업 영역에서 로그 보기](#view-logs-in-log-analytics)를 참조하세요.
+    * **Azure Monitor(Log Analytics 작업 영역)로 보내기**. 이 옵션을 사용하려면 기존 작업 영역을 사용하거나, 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-create-workspace.md) 리소스를 사용합니다. 로그를 보는 방법에 대한 자세한 내용은 이 문서의 [Log Analytics 작업 영역에서 로그 보기](#view-logs-in-log-analytics-workspace)를 참조하세요.
 
     * **엔진**. xEvents를 기록하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
     * **서비스**. 서비스 수준 이벤트를 기록하려면 이 옵션을 선택합니다. 저장소 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
@@ -103,7 +104,7 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 - 저장소 계정에서 진단 로그의 저장소를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
    저장소 계정 ID는 로그를 보낼 저장소 계정에 대한 리소스 ID입니다.
@@ -111,7 +112,7 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 - 이벤트 허브로의 진단 로그 스트리밍을 활성화하려면 다음 명령을 사용합니다.
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
    Azure Service Bus 규칙 ID는 다음 형식의 문자열입니다.
@@ -123,13 +124,13 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 - 진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 이 명령을 사용합니다.
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
 - 다음 명령을 사용하여 Log Analytics 작업 영역의 리소스 ID를 가져올 수 있습니다.
 
    ```powershell
-   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
 이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
@@ -187,7 +188,7 @@ window
 
 ## <a name="turn-on-logging-by-using-powershell"></a>PowerShell을 사용하여 로깅 켜기
 
-이 빠른 자습서에서는 Analysis Service 서버와 동일한 구독 및 리소스 그룹에서 저장소 계정을 만듭니다. 그러면 Set-AzureRmDiagnosticSetting을 사용하여 진단 로깅을 설정하고, 출력을 새 저장소 계정에 전송합니다.
+이 빠른 자습서에서는 Analysis Service 서버와 동일한 구독 및 리소스 그룹에서 저장소 계정을 만듭니다. 그런 다음 로깅, 새 저장소 계정에 출력을 보내는 진단을 켜려면 AzDiagnosticSetting 집합을 사용 합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음 리소스가 필요합니다.
@@ -199,7 +200,7 @@ window
 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 팝업 브라우저 창에 Azure 계정 사용자 이름 및 암호를 입력합니다. Azure PowerShell은 이 계정과 연관된 모든 구독을 가져와서 기본적으로 첫 번째 구독을 사용합니다.
@@ -207,13 +208,13 @@ Connect-AzureRmAccount
 구독이 여러 개인 경우 Azure Key Vault을 만드는 데 사용된 특정된 하나를 지정해야 합니다. 계정에 대한 구독을 보려면 다음을 입력합니다.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 그런 다음 로깅하려는 Azure Analysis Services 계정과 연결된 구독을 지정하려면 다음을 입력합니다.
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -228,7 +229,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 또한 Analysis Services 서버를 포함하는 것과 동일한 리소스 그룹을 사용합니다. 또한 `awsales_resgroup`, `awsaleslogs` 및 `West Central US`의 값을 고유한 값으로 바꿉니다.
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
+$sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
@@ -237,16 +238,16 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 계정 이름을 **account**라는 변수로 설정합니다. 여기서 ResourceName은 계정의 이름입니다.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
+$account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
 ### <a name="enable-logging"></a>로깅 사용
 
-로깅을 사용하려면 새 저장소 계정, 서버 계정 및 범주의 변수와 함께 Set-AzureRmDiagnosticSetting cmdlet을 사용합니다. 다음 명령을 실행하고 **-Enabled** 플래그를 **$true**로 설정합니다.
+로깅을 사용 하려면 새 저장소 계정, 서버 계정 및 범주에 대 한 변수와 함께 집합 AzDiagnosticSetting cmdlet을 사용 합니다. 다음 명령을 실행하고 **-Enabled** 플래그를 **$true**로 설정합니다.
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
 출력은 다음 예제와 비슷합니다.
@@ -293,7 +294,7 @@ Tags                        :
 이전 로그를 자동으로 삭제하도록 로그에 대한 보존 정책을 설정할 수도 있습니다. 예를 들어 **-RetentionEnabled** 플래그를 사용하는 보존 정책을 **$true**로 설정하고 **-RetentionInDays** 매개 변수를 **90**으로 설정합니다. 90일보다 오래된 로그는 자동으로 삭제됩니다.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories Engine`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -302,4 +303,4 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 [Azure 리소스 진단 로그](../azure-monitor/platform/diagnostic-logs-overview.md)에 대해 자세히 알아보기
 
-PowerShell 도움말은 [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting)을 참조하세요.
+참조 [집합 AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell 도움말에서입니다.

@@ -1,5 +1,5 @@
 ---
-title: Log Analytics를 사용하여 논리 앱 모니터링 - Azure Logic Apps | Microsoft Docs
+title: Azure Monitor 로그-Azure Logic Apps를 사용 하 여 논리 앱 모니터링 | Microsoft Docs
 description: Azure Log Analytics를 사용하여 논리 앱 문제 해결 및 진단에 대한 인사이트 및 디버깅 데이터 가져오기
 services: logic-apps
 ms.service: logic-apps
@@ -9,21 +9,23 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995635"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192465"
 ---
-# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Azure Log Analytics를 사용하여 논리 앱 모니터링
+# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 논리 앱 모니터링
 
-논리 앱을 모니터링하고 논리 앱에 대한 다양한 디버깅 세부 정보를 가져오려면 논리 앱을 만들 때 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 켭니다. Log Analytics는 Azure Portal에 Logic Apps 관리 솔루션을 설치할 때 논리 앱에 대한 진단 로깅 및 모니터링을 제공합니다. 이 솔루션은 상태, 실행 시간, 다시 제출 상태 및 상관 관계 ID와 같은 특정 세부 정보를 사용하여 논리 앱 실행에 대한 집계 정보를 제공합니다. 이 문서에서는 논리 앱 실행에 대한 런타임 이벤트 및 데이터를 볼 수 있도록 Log Analytics를 켜는 방법을 보여 줍니다.
+모니터링 하 고 논리 앱에 대 한 다양 한 디버깅 정보를 설정 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 논리 앱을 만들 때. Azure Monitor 로그는 진단 로깅 및 Azure portal에서 Logic Apps 관리 솔루션을 설치할 때 논리 앱에 대 한 모니터링을 제공 합니다. 이 솔루션은 상태, 실행 시간, 다시 제출 상태 및 상관 관계 ID와 같은 특정 세부 정보를 사용하여 논리 앱 실행에 대한 집계 정보를 제공합니다. 이 문서에서는 Azure Monitor 로그 런타임 이벤트를 확인 하 고 논리 앱에 대 한 데이터를 실행 하도록 설정 하는 방법을 보여 줍니다.
 
-기존 논리 앱에 대한 Azure Log Analytics를 켜려면 다음 단계에 따라 [진단 로깅을 켜서 논리 앱 런타임 데이터를 Log Analytics에 보냅니다](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+기존 논리 앱에 대 한 Azure Monitor 로그를 켜려면 다음이 단계를 수행 [Azure Monitor 로그로 논리 앱 런타임 데이터를 보내고 진단 로깅을 켜서](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)합니다.
 
 > [!NOTE]
 > 이 페이지에서는 [2019년 1월에 사용 중지](../azure-monitor/platform/oms-portal-transition.md)되고 대신 Azure Log Analytics로 해당 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 사용하여 이러한 작업을 수행하는 방법에 대한 단계를 설명했습니다. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -56,7 +58,7 @@ ms.locfileid: "52995635"
 
 ## <a name="install-logic-apps-management-solution"></a>Logic Apps 관리 솔루션 설치
 
-사용자의 논리 앱을 만들 때 이미 Log Analytics를 켰으면 이 단계를 건너뜁니다. Logic Apps 관리 솔루션이 이미 설치되어 있습니다.
+논리 앱을 만들 때 Azure Monitor 로그 이미 설정한 경우이 단계를 건너뜁니다. Logic Apps 관리 솔루션이 이미 설치되어 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. 검색 상자에서 "로그 분석"을 찾고 **Log Analytics**를 선택합니다.
 
@@ -149,9 +151,9 @@ ms.locfileid: "52995635"
 
      ![논리 앱 실행에 대한 작업 및 세부 정보 보기](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     Azure Log Analytics 페이지에서 쿼리를 업데이트하고 테이블의 결과를 볼 수 있습니다. 이 쿼리는 [Kusto 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)를 사용하여 서로 다른 결과를 보려는 경우 편집할 수 있습니다. 
+     Log analytics 페이지에서 쿼리를 업데이트 하 고 테이블의 결과 볼 수 있습니다. 이 쿼리는 [Kusto 쿼리 언어](https://aka.ms/LogAnalyticsLanguageReference)를 사용하여 서로 다른 결과를 보려는 경우 편집할 수 있습니다. 
 
-     ![Azure Log Analytics - 쿼리 뷰](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     ![log analytics-쿼리 뷰](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## <a name="next-steps"></a>다음 단계
 

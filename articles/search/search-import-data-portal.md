@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ee1b2a40dbcbd53a758ac71f30401778ef07e872
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229760"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960763"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Azure Search의 데이터 가져오기 마법사
 
@@ -77,7 +77,9 @@ Azure Search를 처음 사용하세요? [빠른 시작: 포털 도구를 사용�
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)([Cognitive Search](cognitive-search-concept-intro.md) 파이프라인에 대해 지원되지 않음)
 
-일반 데이터 세트는 필수 입력입니다. 단일 테이블, 데이터베이스 뷰 또는 동등한 데이터 구조에서만 가져올 수 있습니다. 마법사를 실행하기 전에 이 데이터 구조를 만들어야 합니다.
+일반 데이터 세트는 필수 입력입니다. 단일 테이블, 데이터베이스 뷰 또는 동등한 데이터 구조에서만 가져올 수 있습니다. 
+
+마법사를 실행 하기 전에이 데이터 구조를 만들어야 하 고 콘텐츠를 포함 해야 합니다. 실행 되지 않고 합니다 **데이터 가져오기** 빈 데이터 원본에 대해 마법사.
 
 |  선택 | 설명 |
 | ---------- | ----------- |
@@ -85,7 +87,7 @@ Azure Search를 처음 사용하세요? [빠른 시작: 포털 도구를 사용�
 | **샘플**| Azure Search는 Azure Search의 가져오기 및 쿼리 요청을 배우는 데 사용할 수 있는 무료 공용 Azure SQL Database를 포함합니다. [빠른 시작: 포털 도구를 사용하여 가져오기, 인덱싱 및 쿼리](search-get-started-portal.md)에서 연습 과정을 참조하세요. |
 | **Azure SQL Database** |읽기 권한이 포함된 데이터베이스 사용자에 대한 서비스 이름, 자격 증명 및 데이터베이스 이름은 페이지에 또는 ADO.NET 연결 문자열을 통해 지정될 수 있습니다. 연결 문자열 옵션을 선택하여 속성을 보거나 사용자 지정합니다. <br/><br/>행 집합을 제공하는 테이블 또는 보기는 페이지에 지정되어야 합니다. 연결에 성공한 후에 이 옵션이 나타나면 선택할 수 있는 드롭다운 목록을 제공합니다. |
 | **Azure VM에서 SQL Server** |정규화된 서비스 이름, 사용자 ID와 암호 및 데이터베이스를 연결 문자열로 지정합니다. 이 데이터 원본을 사용하려면 연결을 암호화하는 로컬 저장소에 미리 인증서를 설치해야 합니다. 자세한 내용은 [Azure Search에 SQL VM 연결](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)을 참조하세요. <br/><br/>행 집합을 제공하는 테이블 또는 보기는 페이지에 지정되어야 합니다. 연결에 성공한 후에 이 옵션이 나타나면 선택할 수 있는 드롭다운 목록을 제공합니다. |
-| **Azure Cosmos DB** |요구 사항은 계정, 데이터베이스 및 컬렉션을 포함합니다. 컬렉션의 모든 문서는 인덱스에 포함됩니다. 쿼리를 정의하여 집합을 평면화하거나 필터링하고 또는 후속 데이터 새로 고침 작업을 위해 변경된 문서를 감지할 수 있습니다. |
+| **Cosmos DB** |요구 사항은 계정, 데이터베이스 및 컬렉션을 포함합니다. 컬렉션의 모든 문서는 인덱스에 포함됩니다. 평면화 하거나 행 집합을 필터링 하는 쿼리를 정의할 수도 있고 쿼리를 비워 둡니다. 이 마법사에서 쿼리를 필요 하지 않습니다.|
 | **Azure Blob Storage** |요구 사항은 저장소 계정 및 컨테이너를 포함합니다. 필요에 따라 그룹화 목적으로 Blob 이름이 가상 명명 규칙을 따르는 경우 이름의 가상 디렉터리 부분을 컨테이너의 폴더로 지정할 수 있습니다. 자세한 내용은 [Blob Storage 인덱싱](search-howto-indexing-azure-blob-storage.md)을 참조하세요. |
 | **Azure Table Storage** |요구 사항은 저장소 계정 및 테이블 이름을 포함합니다. 필요에 따라 쿼리를 지정하여 테이블의 하위 집합을 검색할 수 있습니다. 자세한 내용은 [Table Storage 인덱싱](search-howto-indexing-azure-tables.md)을 참조하세요. |
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966078"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959581"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에 대한 진단 로그 액세스
 Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 설정하는 방법 및 계정에 대해 수집된 로그를 보는 방법을 알아봅니다.
@@ -46,7 +46,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
         
         * Azure Event Hub에 로그 데이터를 스트리밍하려면 **이벤트 허브로 스트리밍** 옵션을 선택합니다. 들어오는 로그를 실시간으로 분석하는 다운스트림 처리 파이프라인을 사용하는 경우 대개 이 옵션을 사용합니다. 이 옵션을 선택하는 경우 사용하려는 Azure 이벤트 허브에 대한 세부 정보를 제공해야 합니다.
 
-        * Azure Log Analytics 서비스를 사용하여 생성된 로그 데이터를 분석하려면 **Log Analytics으로 전송** 옵션을 선택합니다. 이 옵션을 선택하는 경우 로그 분석을 수행하는 데 사용하는 Log Analytics 작업 영역에 세부 정보를 제공해야 합니다. Log Analytics를 사용하는 자세한 내용은 [Log Analytics 로그 검색을 사용하여 수집한 데이터 보기 및 분석](../azure-monitor/learn/tutorial-viewdata.md)을 참조하세요.
+        * 옵션을 선택 **Log Analytics에 보내기** 생성 된 로그 데이터를 분석 하려면 Azure Monitor 서비스를 사용 하도록 합니다. 이 옵션을 선택하는 경우 로그 분석을 수행하는 데 사용하는 Log Analytics 작업 영역에 세부 정보를 제공해야 합니다. 참조 [뷰 또는 Azure Monitor의 로그 검색을 사용 하 여 수집 된 데이터를 분석](../azure-monitor/learn/tutorial-viewdata.md) Azure Monitor 사용에 대 한 로그입니다.
      
    * 감사 로그 또는 요청 로그를 가져올지, 혹은 둘 모두를 가져올지를 지정합니다.
    * 데이터를 유지해야 하는 일 수를 지정합니다. Azure Storage 계정을 사용하여 로그 데이터를 보관하는 경우에만 보존 기능이 적용됩니다.
@@ -113,7 +113,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
     }
 
 #### <a name="request-log-schema"></a>요청 로그 스키마
-| 이름 | type | 설명 |
+| 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 ID |
@@ -126,7 +126,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="request-log-properties-schema"></a>요청 로그 속성 스키마
-| 이름 | type | 설명 |
+| 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | HttpMethod |문자열 |작업에 사용된 HTTP 메서드 예를 들어 GET |
 | path |문자열 |작업이 수행된 경로 |
@@ -160,7 +160,7 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
     }
 
 #### <a name="audit-log-schema"></a>감사 로그 스키마
-| 이름 | type | 설명 |
+| 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | 실시간 |문자열 |로그의 타임스탬프(UTC) |
 | ResourceId |문자열 |작업이 수행되는 리소스의 ID |
@@ -173,12 +173,12 @@ Azure Data Lake Storage Gen1 계정에 대해 진단 로깅을 사용하도록 �
 | properties |JSON |자세한 내용은 다음을 참조하세요. |
 
 #### <a name="audit-log-properties-schema"></a>감사 로그 속성 스키마
-| 이름 | type | 설명 |
+| 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | StreamName |문자열 |작업이 수행된 경로 |
 
 ## <a name="samples-to-process-the-log-data"></a>로그 데이터를 처리하는 샘플
-Azure Data Lake Storage Gen1에서 Azure Log Analytics로 로그를 보낼 때(Log Analytics를 사용하는 방법에 대한 자세한 내용은 [Log Analytics 로그 검색을 사용하여 수집한 데이터 보기 및 분석](../azure-monitor/learn/tutorial-viewdata.md) 참조) 다음 쿼리는 시각적 개체 차트와 함께 사용자 표시 이름 목록, 이벤트 시간 및 이벤트 시간의 이벤트 개수를 포함하는 테이블을 반환합니다. 사용자 GUID 또는 기타 특성을 표시하도록 쉽게 수정할 수 있습니다.
+Azure Monitor 로그로 Azure Data Lake 저장소 Gen1에서 로그를 보낼 때 (참조 [뷰 또는 Azure Monitor의 로그 검색을 사용 하 여 수집 된 데이터를 분석](../azure-monitor/learn/tutorial-viewdata.md) Azure Monitor 사용에 대 한 로그), 다음 쿼리가 포함 된 테이블을 반환 합니다를 사용자 목록을 표시 이름, 이벤트의 시간 및 이벤트 수 시각적 차트와 함께 이벤트의 시간에 대 한 합니다. 사용자 GUID 또는 기타 특성을 표시하도록 쉽게 수정할 수 있습니다.
 
 ```
 search *

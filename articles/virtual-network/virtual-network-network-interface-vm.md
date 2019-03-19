@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: 3daea64d9c9c94b334a57b81c47dd298f7ae4d78
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a6371746d156fb0be2d45ac94c898652a3147a6b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658066"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887491"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>가상 머신에 네트워크 인터페이스 추가 또는 제거
 
@@ -30,11 +30,13 @@ Azure VM(가상 머신)을 만들 때 기존 네트워크 인터페이스를 추
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 이 문서에서 설명하는 모든 섹션의 단계를 수행하기 전에 다음 작업을 완료해야 합니다.
 
 - 아직 Azure 계정이 없으면 [평가판 계정](https://azure.microsoft.com/free)에 등록합니다.
 - 포털을 사용하는 경우 https://portal.azure.com을 열고 Azure 계정으로 로그인합니다.
-- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 5.2.0 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable AzureRM`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+- 이 문서의 작업을 완료하기 위해 PowerShell 명령을 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 이상. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 - 이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 자습서에는 Azure CLI 버전 2.0.26 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>새 VM에 기존 네트워크 인터페이스 추가
@@ -48,29 +50,30 @@ VM을 만들려면 먼저 [네트워크 인터페이스 만들기](virtual-netwo
 |도구|명령|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzVM](/powershell/module/az.compute/new-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>기존 VM에 네트워크 인터페이스 추가
 
 1. Azure 포털에 로그인합니다.
 2. 포털 맨 위에 있는 검색 상자에서 네트워크 인터페이스를 추가할 VM의 이름을 입력하거나 **모든 서비스**, **가상 머신**을 차례로 선택하여 VM을 찾습니다. VM을 찾은 후 선택합니다. 추가하려는 네트워크 인터페이스 수를 VM이 지원해야 합니다. 각 VM 크기가 지원하는 네트워크 인터페이스 수를 확인하려면 [Azure에서 Linux 가상 머신에 대한 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Azure에서 Windows 가상 머신에 대한 크기](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.  
-3. **설정**에서 **개요**를 선택합니다. **중지**를 선택하고 VM의 **상태**가 **중지됨(할당 취소됨)** 으로 바뀔 때까지 기다립니다. 
+3. **설정**에서 **개요**를 선택합니다. **중지**를 선택하고 VM의 **상태**가 **중지됨(할당 취소됨)** 으로 바뀔 때까지 기다립니다.
 4. **설정**에서 **네트워킹**을 선택합니다.
-5. **네트워크 인터페이스 연결**을 선택합니다. 현재 다른 VM에 연결되지 않은 네트워크 인터페이스 목록에서 연결할 네트워크 인터페이스를 선택합니다. 
+5. **네트워크 인터페이스 연결**을 선택합니다. 현재 다른 VM에 연결되지 않은 네트워크 인터페이스 목록에서 연결할 네트워크 인터페이스를 선택합니다.
 
-    >[!NOTE]
-    선택한 네트워크 인터페이스는 가속 네트워킹을 사용할 수 없고, IPv6 주소를 할당할 수 없으며, 현재 VM에 연결된 네트워크 인터페이스를 포함하는 가상 네트워크와 동일한 가상 네트워크에 있어야 합니다. 
+   >[!NOTE]
+   >선택한 네트워크 인터페이스는 가속 네트워킹을 사용할 수 없고, IPv6 주소를 할당할 수 없으며, 현재 VM에 연결된 네트워크 인터페이스를 포함하는 가상 네트워크와 동일한 가상 네트워크에 있어야 합니다.
 
-    기존 네트워크 인터페이스가 없는 경우 하나 만들어야 합니다. 이렇게 하려면 **네트워크 인터페이스 만들기**를 선택합니다. 네트워크 인터페이스를 만드는 방법에 대한 자세한 내용은 [네트워크 인터페이스 만들기](virtual-network-network-interface.md#create-a-network-interface)를 참조하세요. 네트워크 인터페이스를 가상 머신에 추가할 때 적용되는 제약 조건에 대한 자세한 내용은 [제약 조건](#constraints)을 참조하세요.
+   기존 네트워크 인터페이스가 없는 경우 하나 만들어야 합니다. 이렇게 하려면 **네트워크 인터페이스 만들기**를 선택합니다. 네트워크 인터페이스를 만드는 방법에 대한 자세한 내용은 [네트워크 인터페이스 만들기](virtual-network-network-interface.md#create-a-network-interface)를 참조하세요. 네트워크 인터페이스를 가상 머신에 추가할 때 적용되는 제약 조건에 대한 자세한 내용은 [제약 조건](#constraints)을 참조하세요.
 
 6. **확인**을 선택합니다.
 7. **설정**에서 **개요**를 선택한 다음, **시작**을 선택하여 가상 머신을 시작합니다.
 8. 여러 네트워크 인터페이스를 올바르게 사용하도록 VM 운영 체제를 구성합니다. 여러 네트워크 인터페이스에 대해 [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) 또는 [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics)를 구성하는 방법을 알아보세요.
 
+### <a name="commands"></a>명령
 |도구|명령|
 |---|---|
 |CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json)(참조) 또는 [세부 단계](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)(참조) 또는 [세부 단계](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|PowerShell|[추가 AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (참조) 또는 [세부 단계](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="view-network-interfaces-for-a-vm"></a>VM의 네트워크 인터페이스 보기
 
@@ -86,18 +89,18 @@ VM에 현재 연결된 네트워크 인터페이스를 보고 각 네트워크 �
 |도구|명령|
 |---|---|
 |CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[Get AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Get-AzVM](/powershell/module/az.compute/get-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-a-network-interface-from-a-vm"></a>VM에서 네트워크 인터페이스 제거
 
 1. Azure 포털에 로그인합니다.
 2. 포털 맨 위에 있는 검색 상자에서 네트워크 인터페이스를 제거(분리)할 VM의 이름을 검색하거나 **모든 서비스**, **가상 머신**을 차례로 선택하여 VM을 찾습니다. VM을 찾은 후 선택합니다.
-3. **설정**에서 **개요**를 선택한 다음, **중지**를 선택합니다. VM의 **상태**가 **중지됨(할당 취소됨)** 으로 바뀔 때까지 기다립니다. 
+3. **설정**에서 **개요**를 선택한 다음, **중지**를 선택합니다. VM의 **상태**가 **중지됨(할당 취소됨)** 으로 바뀔 때까지 기다립니다.
 4. **설정**에서 **네트워킹**을 선택합니다.
-5. **네트워크 인터페이스 분리**를 선택합니다. 현재 가상 머신에 연결된 네트워크 인터페이스 목록에서 분리할 네트워크 인터페이스를 선택합니다. 
+5. **네트워크 인터페이스 분리**를 선택합니다. 현재 가상 머신에 연결된 네트워크 인터페이스 목록에서 분리할 네트워크 인터페이스를 선택합니다.
 
-    >[!NOTE]
-    가상 머신에 항상 하나 이상의 네트워크 인터페이스가 연결되어 있어야 하므로 네트워크 인터페이스가 하나만 표시되는 경우 네트워크 인터페이스를 분리할 수 없습니다.
+   >[!NOTE]
+   >가상 머신에 항상 하나 이상의 네트워크 인터페이스가 연결되어 있어야 하므로 네트워크 인터페이스가 하나만 표시되는 경우 네트워크 인터페이스를 분리할 수 없습니다.
 6. **확인**을 선택합니다.
 
 ### <a name="commands"></a>명령
@@ -105,7 +108,7 @@ VM에 현재 연결된 네트워크 인터페이스를 보고 각 네트워크 �
 |도구|명령|
 |---|---|
 |CLI|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json)(참조) 또는 [세부 단계](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
-|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)(참조) 또는 [세부 단계](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
+|PowerShell|[제거-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (참조) 또는 [세부 단계](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="constraints"></a>제약 조건
 
@@ -123,14 +126,10 @@ VM에 현재 연결된 네트워크 인터페이스를 보고 각 네트워크 �
 - IPv6과 마찬가지로, VM을 만든 후 가속 네트워킹이 사용하도록 설정된 네트워크 인터페이스를 해당 VM에 연결할 수는 없습니다. 또한 가속 네트워킹을 이용하려면 VM 운영 체제 내에서 단계를 완료해야 합니다. 가속 네트워킹과 [Windows](create-vm-accelerated-networking-powershell.md) 또는 [Linux](create-vm-accelerated-networking-cli.md) 가상 머신에 가속 네트워킹을 사용하는 경우의 기타 제약 조건에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
-여러 네트워크 인터페이스 또는 IP 주소가 있는 VM을 만들려면 다음 문서를 참조하세요.
-
-### <a name="commands"></a>명령
+여러 네트워크 인터페이스 또는 IP 주소를 사용 하 여 VM을 만들려면 다음 문서를 참조 합니다.
 
 |Task|도구|
 |---|---|
 |여러 NIC를 사용하여 VM 만들기|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |여러 IPv4 주소가 있는 단일 NIC VM 만들기|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Azure Load Balancer 뒤에 개인 IPv6 주소가 있는 단일 NIC VM 만들기|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager 템플릿](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-
-

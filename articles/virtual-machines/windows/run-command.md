@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 86ccd35d14df529a22bd4cdcd50566e7dc0c1375
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: ecf19da59e91edd08953296d96ca68ca62f008e1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983716"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195356"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>명령 실행을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
@@ -85,7 +85,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 명령 실행을 나열하거나 명령의 세부 정보를 보여주는 것은 기본 제공 [판독기](../../role-based-access-control/built-in-roles.md#reader) 역할 이상이 가진 `Microsoft.Compute/locations/runCommands/read`의 사용 권한이 필요합니다.
 
-명령 실행은 [기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할 이상이 가진 `Microsoft.Compute/virtualMachines/runCommand/action`의 권한이 필요합니다.
+명령을 실행 하려면를 `Microsoft.Compute/virtualMachines/runCommand/action` 권한이 있는 [Virtual Machine 참여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할 이상 있고.
 
 명령 실행을 사용하려면 [기본 제공](../../role-based-access-control/built-in-roles.md) 역할 중 하나를 사용하거나 [사용자 지정](../../role-based-access-control/custom-roles.md) 역할을 만들 수 있습니다.
 

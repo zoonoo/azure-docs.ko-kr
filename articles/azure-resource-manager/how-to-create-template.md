@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: abfc7ce78e8676e9560621be1ec9a81717d958e5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: b198f860c10bd207a191057e21a8a159c5ebde26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994286"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403518"
 ---
 # <a name="create-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
 
@@ -38,15 +38,15 @@ Resource Manager 도구 확장 설치 자습서와 VS Code 사용 방법에 대�
 
 템플릿의 구성 요소를 검토하여 템플릿을 작성하는 방법에 대해 이해합니다. 템플릿에는 모든 섹션이 포함되지는 않습니다. 초점을 맞출 섹션은 다음과 같습니다.
 
-* 값을 보여주는 [매개 변수](resource-manager-templates-parameters.md) 섹션에서는 배포할 때 배포된 인프라를 사용자 지정할 수 있습니다. 
+* 값을 보여주는 [매개 변수](resource-group-authoring-templates.md#parameters) 섹션에서는 배포할 때 배포된 인프라를 사용자 지정할 수 있습니다. 
 
-* [변수](resource-manager-templates-variables.md) 섹션에서는 템플릿에서 사용된 값을 보여줍니다.
+* [변수](resource-group-authoring-templates.md#variables) 섹션에서는 템플릿에서 사용된 값을 보여줍니다.
 
 * [함수](resource-group-authoring-templates.md#functions) 섹션에서는 템플릿에 사용된 사용자 지정 템플릿 식을 보여줍니다.
 
-* [리소스](resource-manager-templates-resources.md) 섹션에서는 구독에 배포된 Azure 리소스를 보여줍니다.
+* [리소스](resource-group-authoring-templates.md#resources) 섹션에서는 구독에 배포된 Azure 리소스를 보여줍니다.
 
-* [출력](resource-manager-templates-outputs.md) 섹션에서는 배포가 완료된 후 반환되는 값을 보여줍니다.
+* [출력](resource-group-authoring-templates.md#outputs) 섹션에서는 배포가 완료된 후 반환되는 값을 보여줍니다.
 
 ## <a name="look-for-similar-templates"></a>유사한 템플릿 찾기
 
@@ -98,7 +98,7 @@ Resource Manager 도구 확장 설치 자습서와 VS Code 사용 방법에 대�
 }
 ```
 
-또한 매개 변수에서 태그를 동적으로 적용할 수 있습니다. 자세한 내용은 [템플릿 태그](resource-manager-templates-resources.md#tags)를 참조하세요.
+또한 매개 변수에서 태그를 동적으로 적용할 수 있습니다. 자세한 내용은 [템플릿 태그](resource-group-using-tags.md#templates)를 참조하세요.
 
 ## <a name="review-template-functions"></a>템플릿 함수 검토
 
@@ -176,7 +176,7 @@ Resource Manager 도구 확장 설치 자습서와 VS Code 사용 방법에 대�
 }
 ```
 
-자세한 내용은 [조건 요소](resource-manager-templates-resources.md#condition)를 참조하세요.
+자세한 내용은 [조건 요소](resource-group-authoring-templates.md#condition)를 참조하세요.
 
 ## <a name="review-dependencies"></a>종속성 검토
 

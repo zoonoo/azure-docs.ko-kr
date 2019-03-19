@@ -17,17 +17,17 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: a1cc8a9305103a30fc0ea0fc40c23a522e136d80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339026"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807187"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Azure Active Directory의 갱신된 ID 보호 기능 관련 FAQ 및 알려진 문제에 대해 설명합니다.
 
 
-## <a name="dismiss-user-risk"></a>사용자 위험 해제
+## <a name="dismiss-user-risk-known-issues"></a>사용자 위험 알려진 문제를 해제 합니다.
 
 클래식 ID 보호의 **사용자 위험 해제** 기능은 갱신된 ID 보호의 사용자 위험 기록에 포함된 행위자를 **Azure AD**로 설정합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "56339026"
 사용자 위험 해제 흐름에서 대기 시간을 일으키는 현재 알려진 문제가 있습니다. “사용자 위험 정책”이 있는 경우 “사용자 위험 해제”를 클릭하면 몇 분 이내에 해제된 사용자에게 정책 적용이 중지됩니다. 그러나 해제된 사용자의 “위험 상태”를 새로 고치는 UX에서 알려진 지연이 있습니다. 해결 방법으로, 브라우저 수준에서 페이지를 새로 고쳐 최신 사용자 “위험 상태”를 확인합니다.
 
 
-## <a name="risky-users-report"></a>위험한 사용자 보고서
+## <a name="risky-users-report-known-issues"></a>알려진된 문제를 보고 하는 위험한 사용자
 
 **사용자 이름** 필드에 대한 쿼리는 대/소문자를 구분하는 반면 **이름** 필드에 대한 쿼리는 대/소문자를 구분하지 않습니다.
 
@@ -45,14 +45,10 @@ ms.locfileid: "56339026"
 
 클래식 ID 보호의 **모든 이벤트 해제** 기능은 위험 이벤트의 상태를 **닫힘(해결됨)** 으로 설정합니다.
 
-위험한 로그인 보고서의 로그인 레코드 내에서 **위험한 사용자 보고서**를 클릭하여 위험한 사용자 보고서에 액세스하려고 하면 **문제가 발생했습니다. 다시 시도하세요.** 가 표시될 수 있습니다. 이 문제를 해결하려면 화면 맨 위의 **적용** 또는 **재설정**을 클릭합니다. 그러면 위험한 사용자 데이터가 입력됩니다.
 
-
-## <a name="risky-sign-ins-report"></a>위험한 로그인 보고서
+## <a name="risky-sign-ins-report-known-issues"></a>알려진 문제는 위험한 로그인 보고서
 
 위험 이벤트 **해결** 시에는 상태가 **사용자가 위험 기반 정책으로 구동되는 MFA를 통과함**으로 설정됩니다.
-
-**위험한 로그인** 보고서에서 **재설정**을 클릭해도 **위험 이벤트 유형**의 값은 지워지지 않습니다.
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답

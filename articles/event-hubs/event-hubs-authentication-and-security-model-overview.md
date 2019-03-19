@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 6f4abd9f826864914abee0b5d513d5b1c530d416
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 19b347423c28b4c615f90f325ead462b9d3e8e9e
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104155"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990037"
 ---
 # <a name="azure-event-hubs---authentication-and-security-model"></a>Azure Event Hubs - 인증 및 보안 모델
 
@@ -68,13 +68,13 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>토큰 생성
 
-SAS 키를 사용하여 토큰을 생성할 수 있습니다. 클라이언트당 하나의 토큰만 생성해야 합니다. 다음 메서드를 사용하여 토큰을 생성할 수 있습니다. 모든 토큰은 **EventHubSendKey** 키를 사용하여 생성됩니다. 각 토큰에는 고유한 URI가 할당됩니다.
+SAS 키를 사용하여 토큰을 생성할 수 있습니다. 클라이언트당 하나의 토큰만 생성해야 합니다. 다음 메서드를 사용하여 토큰을 생성할 수 있습니다. 모든 토큰은 **EventHubSendKey** 키를 사용하여 생성됩니다. 각 토큰에는 고유한 URI가 할당됩니다. 'Resource' 매개 변수 (이 경우 이벤트 허브) 서비스의 URI 끝점에 해당합니다.
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-이 메서드를 호출할 때 URI는 `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`로 지정해야 합니다. 모든 토큰에 대해 `PUBLISHER_NAME`는 제외하고 URI는 동일하며, 각 토큰에 대해서는 달라야 합니다. `PUBLISHER_NAME`은 해당 토큰을 수신하는 클라이언트의 ID를 나타내는 것이 좋습니다.
+이 메서드를 호출할 때 URI는 `https://<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`로 지정해야 합니다. 모든 토큰에 대해 `PUBLISHER_NAME`는 제외하고 URI는 동일하며, 각 토큰에 대해서는 달라야 합니다. `PUBLISHER_NAME`은 해당 토큰을 수신하는 클라이언트의 ID를 나타내는 것이 좋습니다.
 
 이 메서드는 다음 구조를 사용하여 토큰을 생성합니다.
 
@@ -100,13 +100,13 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 토큰이 공격자에 의해 도난당한 경우 공격자가 토큰을 도난당한 클라이언트로 가장할 수 있습니다. 클라이언트를 차단할 경우 해당 클라이언트는 다른 게시자를 사용하는 새 토큰을 수신할 때까지 사용할 수 없게 됩니다.
 
-## <a name="authentication-of-back-end-applications"></a>백 엔드 응용 프로그램의 인증
+## <a name="authentication-of-back-end-applications"></a>백 엔드 애플리케이션의 인증
 
-Event Hubs는 이 이벤트 허브 클라이언트에서 생성된 데이터를 사용하는 백 엔드 응용 프로그램을 인증하기 위해 Service Bus 항목에 사용된 모델과 유사한 보안 모델을 사용합니다. Event Hubs 소비자 그룹은 Service Bus 토픽에 대한 구독과 같습니다. 소비자 그룹 생성 요청에 이벤트 허브 또는 이벤트 허브가 속한 네임스페이스에 대한 관리 권한을 부여하는 토큰이 함께 지정된 경우 클라이언트는 소비자 그룹을 만들 수 있습니다. 수신 요청이 소비자 그룹, 이벤트 허브 또는 이벤트 허브가 속한 네임스페이스에서의 수신 권한을 부여하는 토큰과 함께 지정된 경우 클라이언트는 해당 소비자 그룹의 데이터를 사용할 수 있습니다.
+Event Hubs는 이 이벤트 허브 클라이언트에서 생성된 데이터를 사용하는 백 엔드 애플리케이션을 인증하기 위해 Service Bus 항목에 사용된 모델과 유사한 보안 모델을 사용합니다. Event Hubs 소비자 그룹은 Service Bus 토픽에 대한 구독과 같습니다. 소비자 그룹 생성 요청에 이벤트 허브 또는 이벤트 허브가 속한 네임스페이스에 대한 관리 권한을 부여하는 토큰이 함께 지정된 경우 클라이언트는 소비자 그룹을 만들 수 있습니다. 수신 요청이 소비자 그룹, 이벤트 허브 또는 이벤트 허브가 속한 네임스페이스에서의 수신 권한을 부여하는 토큰과 함께 지정된 경우 클라이언트는 해당 소비자 그룹의 데이터를 사용할 수 있습니다.
 
 Service Bus의 현재 버전은 개별 구독에 대한 SAS 규칙을 지원하지 않습니다. Event Hubs 소비자 그룹에 대해서도 마찬가지입니다. SAS 지원은 나중에 두 기능에 대해 추가됩니다.
 
-개별 소비자 그룹에 대한 SAS 인증이 없는 경우, 공용 키가 있는 모든 소비자 그룹을 보호하기 위해 SAS 키를 사용할 수 있습니다. 이 방식에서는 응용 프로그램이 이벤트 허브의 임의의 소비자 그룹에서 데이터를 사용할 수 있습니다.
+개별 소비자 그룹에 대한 SAS 인증이 없는 경우, 공용 키가 있는 모든 소비자 그룹을 보호하기 위해 SAS 키를 사용할 수 있습니다. 이 방식에서는 애플리케이션이 이벤트 허브의 임의의 소비자 그룹에서 데이터를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -114,9 +114,9 @@ Event Hubs에 대한 자세한 내용은 다음 항목을 방문하세요.
 
 * [Event Hubs 개요]
 * [공유 액세스 서명 개요]
-* [Event Hubs를 사용하는 샘플 응용 프로그램]
+* [Event Hubs를 사용하는 샘플 애플리케이션]
 
 [Event Hubs 개요]: event-hubs-what-is-event-hubs.md
-[Event Hubs를 사용하는 샘플 응용 프로그램]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Event Hubs를 사용하는 샘플 애플리케이션]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [공유 액세스 서명 개요]: ../service-bus-messaging/service-bus-sas.md
 

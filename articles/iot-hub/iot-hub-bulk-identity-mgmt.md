@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub 디바이스 ID 가져오기 및 내보내기 | Microsoft Docs
 description: Azure IoT 서비스 SDK를 사용하여 ID 레지스트리에 대한 대량 작업을 수행하고 디바이스 ID를 가져오기 및 내보내기를 수행하는 방법입니다. 가져오기 작업을 사용하여 대량으로 디바이스 ID를 생성, 업데이트 및 삭제할 수 있습니다.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: dobett
-ms.openlocfilehash: aedf2d0012f5af8ea2eb8e944f06b20c7f1a6bb8
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: 5ef34fb039d35ff714e249a6ac107e6ec615093e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42144070"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010993"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 디바이스 ID를 관리합니다.
 
@@ -247,7 +247,7 @@ JobProperties importJob =
 * 디바이스 인증 키의 대량 자동 다시 생성
 * 쌍으로 된 데이터의 대량 업데이트
 
-단일 **ImportDevicesAsync** 호출 내에서 이전 작업의 조합을 수행할 수 있습니다. 예를 들어 새 디바이스를 등록하는 동시에 기존 디바이스를 삭제 또는 업데이트할 수 있습니다. **ExportDevicesAsync** 메서드와 함께 사용하는 경우 모든 장치를 한 IoT Hub에서 다른 IoT Hub로 완전히 마이그레이션할 수 있습니다.
+단일 **ImportDevicesAsync** 호출 내에서 이전 작업의 조합을 수행할 수 있습니다. 예를 들어 새 디바이스를 등록하는 동시에 기존 디바이스를 삭제 또는 업데이트할 수 있습니다. **ExportDevicesAsync** 메서드와 함께 사용하는 경우 모든 디바이스를 한 IoT Hub에서 다른 IoT Hub로 완전히 마이그레이션할 수 있습니다.
 
 가져오기 파일에 쌍으로 된 메타데이터가 있는 경우 이 메타데이터는 쌍의 기존 메타데이터를 덮어씁니다. 가져오기 파일에 쌍 메타데이터가 포함되지 않은 경우 `lastUpdateTime` 메타데이터는 현재 시간을 사용하여 업데이트됩니다.
 
@@ -429,4 +429,4 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 IoT Hub Device Provisioning Service를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 
-* [Azure IoT Hub Device Provisioning 서비스](/azure/iot-dps)
+* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)

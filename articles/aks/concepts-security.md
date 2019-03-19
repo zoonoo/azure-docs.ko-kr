@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 66fc5c92410118f4e0042738d2107b272d68f9bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456506"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240340"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -28,13 +28,13 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 워크로드를 실행하
 
 ## <a name="master-security"></a>마스터 보안
 
-AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관리 서비스에 속합니다. AKS 클러스터마다 API 서버, 스케줄러 등을 제공하는 자체적인 단일 테넌트, 전용 Kubernetes 마스터가 있습니다. 이 마스터는 Microsoft에서 관리 및 유지됩니다.
+AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관리 서비스에 속합니다. AKS 클러스터마다 API 서버, 스케줄러 등을 제공하는 자체적인 단일 테넌트, 전용 Kubernetes 마스터가 있습니다. 이 마스터 관리 되 고 Microsoft에서 유지 관리 합니다.
 
 기본적으로 Kubernetes API 서버는 공용 IP 주소와 FQDN(정규화된 도메인 이름)을 사용합니다. Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory를 사용하여 API 서버에 대한 액세스를 제어할 수 있습니다. 자세한 내용은 [AKS와 Azure AD 통합][aks-aad]을 참조하세요.
 
 ## <a name="node-security"></a>노드 보안
 
-AKS 노드는 사용자가 관리하고 유지하는 Azure 가상 머신입니다. 노드는 Docker 컨테이너 런타임을 통해 최적화된 Ubuntu Linux 배포를 실행합니다. AKS 클러스터가 생성되거나 강화되면 노드는 최신 OS 보안 업데이트 및 구성을 사용하여 자동으로 배포됩니다.
+AKS 노드는 사용자가 관리하고 유지하는 Azure 가상 머신입니다. 노드 모 비 컨테이너 런타임을 사용 하 여 최적화 된 Ubuntu Linux 배포를 실행 합니다. AKS 클러스터가 생성되거나 강화되면 노드는 최신 OS 보안 업데이트 및 구성을 사용하여 자동으로 배포됩니다.
 
 Azure 플랫폼은 야간에 OS 보안 패치를 노드에 자동으로 적용합니다. OS 보안 업데이트에 호스트 다시 부팅이 필요한 경우에는 다시 부팅이 자동으로 수행되지 않습니다. 노드를 수동으로 다시 부팅하거나 일반적인 방법은 Kubernetes에 대한 오픈 소스 다시 부팅 디먼인 [Kured][kured]를 사용하는 것입니다. Kured는 [DaemonSet][aks-daemonsets]로 실행되며 각 노드에서 다시 부팅해야 함을 나타내는 파일이 있는지 모니터링합니다. 다시 부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
 
@@ -65,7 +65,7 @@ AKS 또는 다른 곳의 Kubernetes 환경은 현재 악의적인 다중 테넌�
 
 ### <a name="azure-network-security-groups"></a>Azure 네트워크 보안 그룹
 
-가상 네트워크에서 트래픽 흐름을 필터링하기 위해 Azure에 네트워크 보안 그룹 규칙이 사용됩니다. 이러한 규칙은 리소스에 대한 액세스가 허용되거나 거부되는 원본 및 대상 IP 범위, 포트 및 프로토콜을 정의합니다. 기본 규칙은 Kubernetes API 서버에 대한 TLS 트래픽과 노드에 대한 SSH 액세스를 허용하기 위해 생성됩니다. 부하 분산 장치, 포트 매핑 또는 수신 경로가 있는 서비스를 만들면 AKS에서 트래픽이 적절하게 흐르도록 네트워크 보안 그룹이 자동으로 수정됩니다.
+가상 네트워크에서 트래픽 흐름을 필터링하기 위해 Azure에 네트워크 보안 그룹 규칙이 사용됩니다. 이러한 규칙은 리소스에 대한 액세스가 허용되거나 거부되는 원본 및 대상 IP 범위, 포트 및 프로토콜을 정의합니다. Kubernetes API 서버에 TLS 트래픽을 허용 하도록 기본 규칙이 생성 됩니다. 부하 분산 장치, 포트 매핑 또는 수신 경로가 있는 서비스를 만들면 AKS에서 트래픽이 적절하게 흐르도록 네트워크 보안 그룹이 자동으로 수정됩니다.
 
 ## <a name="kubernetes-secrets"></a>Kubernetes 비밀
 
@@ -76,6 +76,8 @@ Kubernetes *비밀*은 액세스 자격 증명이나 키와 같은 Pod에 중요
 ## <a name="next-steps"></a>다음 단계
 
 AKS 클러스터의 보안을 유지하려면 [AKS 클러스터 업그레이드][aks-upgrade-cluster]를 참조하세요.
+
+관련된 모범 사례를 참조 하세요 [클러스터 보안 및 AKS에서 업그레이드에 대 한 유용한][operator-best-practices-cluster-security]합니다.
 
 Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -99,3 +101,4 @@ Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md

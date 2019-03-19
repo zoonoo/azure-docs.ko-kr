@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a662558deeeb09849a23a361aabea962eb633cd7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: dd62119b01465392a92c7e68231fed8027b04da2
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314672"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750534"
 ---
 # <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>검색 가능한 인덱스에 보강된 필드를 매핑하는 방법
 

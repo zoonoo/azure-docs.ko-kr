@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 0d9ee24e9ab104fb554033802507f78fcbf38fc3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: e3aae5f7936204a7fe4fbce4102fc2727088e025
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170932"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442034"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
@@ -140,7 +140,7 @@ Service Fabric 클러스터 매니페스트를 가져옵니다. 클러스터 매
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 사용자로 인한 오류 작업을 취소합니다.
 
-다음 API는 CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition을 사용하여 취소될 수 있는 오류 작업을 시작합니다. force가 false인 경우 지정된 사용자로 인한 작업이 정상적으로 중지되며 정리됩니다.  force가 true인 경우 명령이 중단되며, 일부 내부 상태가 남아 있을 수 있습니다.  force를 true로 지정하는 것은 주의해서 사용해야 합니다. force가 true로 설정된 이 API를 호출하는 것은 이 API가 force가 false로 먼저 설정된 동일한 테스트 명령에서 호출될 때까지 또는 테스트 명령에 이미 OperationState.RollingBack의 OperationState가 있는 한 허용되지 않습니다. 
+CancelOperation를 사용 하 여 취소 될 수도 있습니다는 오류 작업을 시작 하는 다음과 같은 Api\: StartDataLoss, StartQuorumLoss, StartPartitionRestart startnodetransition을 합니다. force가 false인 경우 지정된 사용자로 인한 작업이 정상적으로 중지되며 정리됩니다.  force가 true인 경우 명령이 중단되며, 일부 내부 상태가 남아 있을 수 있습니다.  force를 true로 지정하는 것은 주의해서 사용해야 합니다. force가 true로 설정된 이 API를 호출하는 것은 이 API가 force가 false로 먼저 설정된 동일한 테스트 명령에서 호출될 때까지 또는 테스트 명령에 이미 OperationState.RollingBack의 OperationState가 있는 한 허용되지 않습니다. 
 
 설명\: OperationState.RollingBack은 시스템이 명령 실행으로 인해 발생된 내부 시스템 상태를 정리함을 의미합니다.  테스트 명령이 데이터 손실을 발생시킨 경우 데이터를 복원하지 않습니다.  예를 들어 StartDataLoss를 호출한 다음, 이 API를 호출하는 경우 시스템은 명령 실행에서의 내부 상태만을 정리합니다. 명령이 데이터 손실을 충분히 진행시킨 경우 대상 파티션의 데이터를 복원하지 않습니다. 
 

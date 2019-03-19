@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ea46039583681bd89e254d153997e3a300041d4e
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
-ms.translationtype: HT
+ms.openlocfilehash: 40ba5814bce08037b9e4d0787defbab4d02e58df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341357"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546261"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Visual Studio 프로파일러를 사용하여 Azure Compute 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
 다양한 도구와 기법을 사용하여 클라우드 서비스의 성능을 테스트할 수 있습니다.
@@ -30,8 +30,8 @@ ms.locfileid: "37341357"
 
 이 문서에서는 에뮬레이터를 통해 로컬로 수행할 수 있는 CPU 샘플링 프로파일링 방법을 다룹니다. CPU 샘플링은 주입식이 아닌 프로파일링 방법입니다. 지정된 샘플링 간격마다 프로파일러가 호출 스택의 스냅숏을 만듭니다. 정해진 기간 동안 데이터가 수집되어 보고서에 표시됩니다. 이 프로파일링 방법은 계산이 많은 애플리케이션에서 대부분의 CPU 작업이 수행되는 위치를 나타냅니다.  이 정보를 통해 애플리케이션이 대부분의 시간을 보내는 "실행 부하 과다 경로"에 집중할 수 있습니다.
 
-## <a name="1-configure-visual-studio-for-profiling"></a>1: 프로파일링을 위해 Visual Studio 구성
-먼저 프로파일링 시 유용할 수 있는 몇 가지 Visual Studio 구성 옵션이 있습니다. 프로파일링 보고서를 이해하려면 애플리케이션용 기호(.pdb 파일) 및 시스템 라이브러리용 기호가 필요합니다. 사용 가능한 기호 서버를 참조하는 것이 좋습니다. Visual Studio의 **도구** 메뉴에서 **옵션**, **디버깅**, **기호**를 차례로 선택하면 됩니다. Microsoft 기호 서버가 **기호 파일(.pdb) 위치**아래에 표시되는지 확인합니다.  추가 기호 파일을 포함할 수 있는 http://referencesource.microsoft.com/symbols도 참조할 수 있습니다.
+## <a name="1-configure-visual-studio-for-profiling"></a>1: Visual Studio 프로 파일링 구성
+먼저 프로파일링 시 유용할 수 있는 몇 가지 Visual Studio 구성 옵션이 있습니다. 프로파일링 보고서를 이해하려면 애플리케이션용 기호(.pdb 파일) 및 시스템 라이브러리용 기호가 필요합니다. 사용 가능한 기호 서버를 참조하는 것이 좋습니다. Visual Studio의 **도구** 메뉴에서 **옵션**, **디버깅**, **기호**를 차례로 선택하면 됩니다. Microsoft 기호 서버가 **기호 파일(.pdb) 위치**아래에 표시되는지 확인합니다.  추가 기호 파일을 포함할 수 있는 https://referencesource.microsoft.com/symbols도 참조할 수 있습니다.
 
 ![기호 옵션][4]
 
@@ -162,14 +162,14 @@ public static string Concatenate(int number)
 * Compute 에뮬레이터 UI를 사용하여 애플리케이션의 상태를 확인합니다. 
 * 에뮬레이터에서 애플리케이션을 시작하거나 프로파일러에 연결하는 데 문제가 있는 경우 계산 시뮬레이터를 종료했다가 다시 시작합니다. 그래도 문제가 해결되지 않으면 다시 부팅해 보세요. 이 문제는 Compute 에뮬레이터를 사용하여 실행 중인 배포를 일시 중단하고 제거하는 경우에 발생할 수 있습니다.
 * 명령줄에서 프로파일링 명령, 특히 전역 설정을 사용한 경우 VSPerfClrEnv /globaloff가 호출되고 VsPerfMon.exe가 종료되었는지 확인합니다.
-* 샘플링 시 "PRF0025: 수집한 데이터가 없습니다." 메시지가 표시되는 경우 연결한 프로세스에 CPU 작업이 있는지 확인합니다. 계산 작업을 수행하지 않는 애플리케이션은 샘플링 데이터를 생성하지 않을 수 있습니다.  샘플링이 수행되기 전에 프로세스가 종료되었을 수도 있습니다. 프로파일링 중인 역할에 대한 Run 메서드가 종료되지 않았는지 확인합니다.
+* 메시지를 샘플링 하는 경우 표시 되 면 "PRF0025: 데이터가 수집 되지 않았습니다,"에 연결 된 프로세스에 CPU 작업이 있는지 확인 합니다. 계산 작업을 수행하지 않는 애플리케이션은 샘플링 데이터를 생성하지 않을 수 있습니다.  샘플링이 수행되기 전에 프로세스가 종료되었을 수도 있습니다. 프로파일링 중인 역할에 대한 Run 메서드가 종료되지 않았는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-에뮬레이터를 통한 Azure 이진 계측은 Visual Studio 프로파일러에서 지원되지 않지만 메모리 할당을 테스트하려는 경우 프로파일링 시 해당 옵션을 선택할 수 있습니다. 스레드가 잠금 경쟁에 시간을 낭비하는지 확인하는 데 유용한 동시성 프로파일링이나 애플리케이션 계층 간, 특히 데이터 계층과 작업자 역할 간 상호 작용 시의 성능 문제를 추적하는 데 유용한 계층 상호 작용 프로파일링을 선택할 수도 있습니다.  앱에서 생성하는 데이터베이스 쿼리를 보고 프로파일링 데이터를 사용하여 데이터베이스 사용을 개선할 수 있습니다. 계층 상호 작용 프로파일링에 대한 자세한 내용은 블로그 게시물 [Visual Studio Team System 2010에서 계층 상호 작용 프로파일러 사용][3](영문)을 참조하세요.
+에뮬레이터를 통한 Azure 이진 계측은 Visual Studio 프로파일러에서 지원되지 않지만 메모리 할당을 테스트하려는 경우 프로파일링 시 해당 옵션을 선택할 수 있습니다. 스레드가 잠금 경쟁에 시간을 낭비하는지 확인하는 데 유용한 동시성 프로파일링이나 애플리케이션 계층 간, 특히 데이터 계층과 작업자 역할 간 상호 작용 시의 성능 문제를 추적하는 데 유용한 계층 상호 작용 프로파일링을 선택할 수도 있습니다.  앱에서 생성하는 데이터베이스 쿼리를 보고 프로파일링 데이터를 사용하여 데이터베이스 사용을 개선할 수 있습니다. 계층 상호 작용 프로 파일링에 대 한 자세한 내용은 블로그 게시물을 참조 하세요. [연습: 계층 상호 작용 Profiler를 사용 하 여 Visual studio에서 Team System 2010][3]합니다.
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
-[2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
-[3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
+[2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
+[3]: https://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
 [6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

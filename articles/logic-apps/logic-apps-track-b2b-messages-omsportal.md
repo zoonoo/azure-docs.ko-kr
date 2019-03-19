@@ -1,5 +1,5 @@
 ---
-title: Log Analytics를 사용하여 B2B 메시지 추적 - Azure Logic Apps | Microsoft Docs
+title: Azure Monitor 로그-Azure Logic Apps를 사용 하 여 B2B 메시지 추적 | Microsoft Docs
 description: Azure Log Analytics를 사용하여 통합 계정 및 Azure Logic Apps에 대한 B2B 통신 추적
 services: logic-apps
 ms.service: logic-apps
@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: ad58257313c60b4757c83793886ce32a2997332b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996509"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193214"
 ---
-# <a name="track-b2b-messages-with-azure-log-analytics"></a>Azure Log Analytics를 사용하여 B2B 메시지 추적
+# <a name="track-b2b-messages-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 B2B 메시지 추적
 
-통합 계정에서 거래 업체 간에 B2B 통신을 설정한 후 해당 업체는 AS2, X12 및 EDIFACT와 같은 프로토콜과 메시지를 교환할 수 있습니다. 이러한 메시지가 올바르게 처리되는지 여부를 확인하기 위해 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 이러한 메시지를 추적할 수 있습니다. 예를 들어 메시지 추적에 대해 이러한 웹 기반 추적 기능을 사용할 수 있습니다.
+통합 계정에서 거래 업체 간에 B2B 통신을 설정한 후 해당 업체는 AS2, X12 및 EDIFACT와 같은 프로토콜과 메시지를 교환할 수 있습니다. 이러한 메시지가 올바르게 처리 되는지 확인을 사용 하 여 이러한 메시지를 추적할 수 있습니다 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md)합니다. 예를 들어 메시지 추적에 대해 이러한 웹 기반 추적 기능을 사용할 수 있습니다.
 
 * 메시지 수 및 상태
 * 승인 상태
@@ -29,19 +29,21 @@ ms.locfileid: "52996509"
 > [!NOTE]
 > 이 페이지에서는 [2019년 1월에 사용 중지](../azure-monitor/platform/oms-portal-transition.md)되고 대신 Azure Log Analytics로 해당 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 사용하여 이러한 작업을 수행하는 방법에 대한 단계를 설명했습니다. 
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
 * 진단 로깅과 함께 설정된 논리 앱. [논리 앱을 만드는 방법](quickstart-create-first-logic-app-workflow.md) 및 [해당 논리 앱에 대한 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)을 알아봅니다.
 
 * 모니터링 및 로깅을 사용하여 설정된 통합 계정. [통합 계정을 만드는 방법](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 및 [해당 계정에 대한 모니터링 및 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-b2b-message.md)을 알아봅니다.
 
-* 아직 없는 경우 [Log Analytics에 진단 데이터를 게시](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
+* 이미 않았다면 [Azure Monitor 로그에 진단 데이터를 게시](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
 
 * 이전 요구 사항이 충족되면 Log Analytics를 통해 B2B 통신을 추적하는 데 사용할 수 있는 Log Analytics 작업 영역도 필요합니다. Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다.
 
 ## <a name="install-logic-apps-b2b-solution"></a>Logic Apps B2B 솔루션 설치
 
-Log Analytics가 논리 앱에 대한 B2B 메시지를 추적하도록 하려면 먼저 Log Analytics에 **Logic Apps B2B** 솔루션을 추가해야 합니다. [Log Analytics에 솔루션 추가](../azure-monitor/learn/quick-create-workspace.md)에 대해 자세히 알아봅니다.
+논리 앱에 대 한 B2B 메시지 추적 로그를 Azure 모니터링 할 수 있습니다, 전에 추가 합니다 **Logic Apps B2B** Azure Monitor 로그에는 솔루션입니다. 에 대해 자세히 알아보세요 [Azure Monitor 로그에 솔루션 추가](../azure-monitor/learn/quick-create-workspace.md)합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. 검색 상자에서 "로그 분석"을 찾고 **Log Analytics**를 선택합니다.
 
@@ -128,7 +130,7 @@ B2B 메시지가 처리된 후 **Logic Apps B2B** 타일에서 해당 메시지�
    * 미리 작성된 쿼리를 사용하여 결과를 검색하려면 **즐겨찾기**를 선택합니다.
 
    * [필터를 추가하여 쿼리를 작성하는 방법](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)에 대해 알아봅니다. 
-   또는 [Log Analytics에서 로그 검색을 사용하여 데이터를 찾는 방법](../log-analytics/log-analytics-log-searches.md)에 대해 자세히 알아봅니다.
+   나에 대해 자세히 알아보세요 [Azure Monitor 로그에서 로그 검색을 사용 하 여 데이터를 찾는 방법](../log-analytics/log-analytics-log-searches.md)합니다.
 
    * 검색 상자에서 쿼리를 변경하려면 필터로 사용하려는 열 및 값으로 쿼리를 업데이트합니다.
 
@@ -237,7 +239,7 @@ B2B 메시지가 처리된 후 **Logic Apps B2B** 타일에서 해당 메시지�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Log Analytics에서 B2B 메시지 쿼리](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Azure Monitor 로그에서 B2B 메시지 쿼리](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [AS2 추적 스키마](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 추적 스키마](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

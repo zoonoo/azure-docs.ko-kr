@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699145"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443473"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure 보안 및 준수 청사진 - UK OFFICIAL에 대한 3계층 IaaS 웹 애플리케이션
 
@@ -25,7 +25,7 @@ ms.locfileid: "55699145"
 
  NCSC에서는 고객이 서비스의 보안 속성을 평가하고 고객과 공급 업체 간에 책임 분배에 대한 이해를 돕기 위해 해당 클라우드 보안 원칙을 사용하도록 권장합니다. 책임 분배를 쉽게 이해할 수 있도록 이러한 원칙 각각에 대한 정보를 제공했습니다.
 
- 이 아키텍처와 해당 Azure Resource Manager 템플릿은 Microsoft 백서 [Microsoft Azure를 사용하여 영국 클라우드용 14개의 클라우드 보안 컨트롤](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1)에서 지원됩니다. 이 문서에서는 영국 NCSC 14개의 클라우드 보안 원칙과 Azure 서비스를 맞추는 방법을 목록으로 만들었습니다. 따라서 조직은 전세계 및 영국에서 Microsoft Azure 클라우드의 클라우드 기반 서비스를 사용하여 해당 준수 의무를 빠르게 충족할 수 있습니다.
+ 이 아키텍처와 해당 Azure Resource Manager 템플릿은 Microsoft 백서 [Microsoft Azure를 사용하여 영국 클라우드용 14개의 클라우드 보안 컨트롤](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1)에서 지원됩니다. 이 문서는 Azure 서비스를 용도로 영국 NCSC 14 클라우드 보안 원칙을 조직을 신속히 이행할 전세계 및 영국 Microsoft Azure에서 클라우드 기반 서비스를 사용 하는 규정 준수 의무를 충족 하는 기능을 사용할 수 있게를 사용 하 여 정렬 클라우드입니다.
 
  이 템플릿은 워크로드에 대한 인프라를 배포합니다. 애플리케이션 코드 및 지원되는 비즈니스 계층과 데이터 계층 소프트웨어를 설치하고 구성해야 합니다. 자세한 배포 지침은 [여기](https://aka.ms/ukwebappblueprintrepo)에 있습니다.
 
@@ -176,7 +176,7 @@ Storage
 
 **방화벽 로그.**: Application Gateway는 전체 진단 및 액세스 로그를 제공합니다. 방화벽 로그는 WAF를 사용할 수 있는 Application Gateway 리소스에 사용할 수 있습니다.
 
-**로그 보관**: 보관 및 정의된 보존 기간 동안 중앙 집중화된 Azure Storage 계정에 쓰도록 로그 데이터 스토리지를 구성할 수 있습니다. Azure Log Analytics 또는 타사 SIEM 시스템을 사용하여 로그를 처리할 수 있습니다.
+**로그 보관**: 보관 및 정의 된 보존 기간에 대 한 중앙 집중화 된 Azure 저장소 계정에 쓸 로그 데이터 저장소를 구성할 수 있습니다. Azure Monitor 로그를 사용 하 여 로그를 처리할 수 있습니다 또는 타사 SIEM 시스템으로 합니다.
 
 ### <a name="identity"></a>ID
 
@@ -208,7 +208,7 @@ Storage
 
 **액세스 제어 제한**: RBAC([역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal))를 사용하여 [사용자 정의 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)을 사용하는 애플리케이션의 리소스를 관리합니다. RBAC를 사용하여 DevOps가 각 계층에서 수행할 수 있는 작업을 제한할 수 있습니다. 사용 권한을 부여할 때 [최소 권한의 원칙](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1)을 사용합니다. 모든 관리 작업을 기록하고 정기 감사를 수행하여 구성 변경을 계획했는지 확인합니다.
 
-**인터넷 액세스**: 이 참조 아키텍처는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 인터넷 연결 게이트웨이 및 부하 분산 장치로 활용합니다. 또한 일부 고객은 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) 대신 네트워킹 보안의 추가 계층에 타사 네트워크 가상 어플라이언스를 사용할 수 있습니다.
+**인터넷 액세스**: 이 참조 아키텍처는 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) 를 인터넷 게이트웨이 및 부하 분산 장치를 연결 합니다. 또한 일부 고객은 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) 대신 네트워킹 보안의 추가 계층에 타사 네트워크 가상 어플라이언스를 사용할 수 있습니다.
 
 **Azure Security Center**: [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 통해 구독에서 리소스 보안 상태를 중앙에서 볼 수 있으며 리소스 손상을 방지하기 위한 권장 사항을 확인할 수 있습니다. 또한 더 세분화된 정책을 활성화하는 데 사용할 수 있습니다. 예를 들어 정책은 특정 리소스 그룹에 적용될 수 있습니다. 그러면 기업이 해당 상태를 위험에 맞게 조정할 수 있습니다. 고객은 Azure 구독에서 Azure Security Center를 사용하는 것이 좋습니다.
 
@@ -226,7 +226,7 @@ Crown Commercial Service(정부에 의한 상업 및 조달 활동을 개선하�
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
-이 Blueprint 자동화를 배포하기 위해 배포 사용자가 사용할 수 있는 방법은 두 가지입니다. 첫 번째 방법은 PowerShell 스크립트를 사용하는 반면 두 번째 방법은 Azure Portal을 활용하여 참조 아키텍처를 배포합니다. 자세한 배포 지침은 [여기](https://aka.ms/ukofficial-iaaswa-repo)에 있습니다.
+이 Blueprint 자동화를 배포하기 위해 배포 사용자가 사용할 수 있는 방법은 두 가지입니다. 첫 번째 메서드는 두 번째 방법은 참조 아키텍처를 배포 하려면 Azure portal을 사용 하는 반면 PowerShell 스크립트를 사용 합니다. 자세한 배포 지침은 [여기](https://aka.ms/ukofficial-iaaswa-repo)에 있습니다.
 
 ## <a name="disclaimer"></a>고지 사항
 

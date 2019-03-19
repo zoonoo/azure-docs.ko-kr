@@ -3,17 +3,16 @@ title: AKS(Azure Kubernetes Service)의 할당량 및 지역 가용성
 description: AKS(Azure Kubernetes Service)의 기본 할당량 및 지역 가용성을 다룹니다.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: overview
-ms.date: 08/01/2018
+ms.topic: conceptual
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9fbc769ef428c41f0e133ec1e139ba9900025dc4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: c8a2c0cac963fcc0622cff547e85593a13aa076a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879359"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243842"
 ---
 # <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 할당량 및 지역 가용성
 
@@ -32,12 +31,14 @@ ms.locfileid: "56879359"
 AKS(Azure Kubernetes Service)는 다음 지역에서 제공됩니다.
 
 - 오스트레일리아 동부
+- 오스트레일리아 남동부
 - 캐나다 중부
 - 캐나다 동부
 - 미국 중부
 - 동아시아
 - 미국 동부
 - 미국 동부2
+- 프랑스 중부
 - 일본 동부
 - 북유럽
 - 동남아시아

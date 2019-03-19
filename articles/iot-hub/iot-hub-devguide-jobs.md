@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub 작업 이해 | Microsoft 문서
 description: 개발자 가이드 - IoT 허브에 연결된 여러 디바이스에서 실행할 작업 예약 작업은 tags와 desired 속성을 업데이트하고 여러 디바이스에서 직접 메서드를 호출할 수 있습니다.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: dobett
-ms.openlocfilehash: b9ad7a0e1947c9ca95b343a443688e976c306f95
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884227"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011367"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 디바이스에서 작업 예약
 
@@ -119,22 +119,22 @@ User-Agent: <sdk-name>/<sdk-version>
 | **startTime** |작업에 대해 애플리케이션에서 제공한 시작 시간(ISO-8601)입니다. |
 | **endTime** |작업이 완료될 때 IoT Hub에서 제공한 날짜(ISO-8601)입니다. 작업이 '완료됨' 상태에 도달한 후에만 유효합니다. |
 | **type** |작업 형식: |
-| | **scheduledUpdateTwin**: desired 속성 또는 태그 집합을 업데이트하는 데 사용되는 작업입니다. |
-| | **scheduledDeviceMethod**: 장치 쌍 집합에서 장치 메서드를 호출하는 데 사용되는 작업입니다. |
-| **상태** |작업의 현재 상태입니다. 가능한 상태 값: |
-| | **보류 중** : 예약되어 작업 서비스에서 선택되기를 기다립니다. |
-| | **예약됨** : 이후 시간에 예약됩니다. |
-| | **실행 중** : 현재 활성 상태의 작업입니다. |
-| | **취소**: 작업이 취소되었습니다. |
-| | **실패함** : 작업이 실패했습니다. |
-| | **완료됨** : 작업이 완료되었습니다. |
+| | **scheduledUpdateTwin**: Desired 속성 또는 태그 집합을 업데이트 하는 데 작업. |
+| | **scheduledDeviceMethod**: 장치 쌍의 집합에서 장치 메서드를 호출 하는 데 작업. |
+| **status** |작업의 현재 상태입니다. 가능한 상태 값: |
+| | **pending**: 예약 되어 작업 서비스에서 선택 되기를 기다립니다. |
+| | **scheduled**: 나중에 시간에 예약 합니다. |
+| | **실행**: 현재 활성 상태의 작업입니다. |
+| | **취소**: 작업이 취소 되었습니다. |
+| | **failed**: 작업이 실패 했습니다. |
+| | **완료**: 작업이 완료 되었습니다. |
 | **deviceJobStatistics** |작업 실행에 대한 통계입니다. |
 | | **deviceJobStatistics** 속성: |
-| | **deviceJobStatistics.deviceCount**: 작업의 장치 수입니다. |
-| | **deviceJobStatistics.failedCount**: 작업이 실패한 장치 수입니다. |
-| | **deviceJobStatistics.succeededCount**: 작업이 성공한 장치 수입니다. |
-| | **deviceJobStatistics.runningCount**: 현재 작업을 실행 중인 장치 수입니다. |
-| | **deviceJobStatistics.pendingCount**: 작업 실행이 보류 중인 장치 수입니다. |
+| | **deviceJobStatistics.deviceCount**: 작업에서 디바이스 수입니다. |
+| | **deviceJobStatistics.failedCount**: 작업이 실패한 디바이스 수입니다. |
+| | **deviceJobStatistics.succeededCount**: 작업이 성공한 디바이스 수입니다. |
+| | **deviceJobStatistics.runningCount**: 현재 작업을 실행 중인 디바이스 수입니다. |
+| | **deviceJobStatistics.pendingCount**: 작업 실행이 보류 중인 디바이스 수입니다. |
 
 ### <a name="additional-reference-material"></a>추가 참조 자료
 
@@ -144,7 +144,7 @@ User-Agent: <sdk-name>/<sdk-version>
 
 * [제한 및 할당량](iot-hub-devguide-quotas-throttling.md) - IoT Hub 서비스에 적용되는 할당량과 서비스를 사용할 때 예상되는 제한 동작에 대해 설명합니다.
 
-* [Azure IoT 장치 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
+* [Azure IoT 디바이스 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 디바이스 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
 * [장치 쌍, 작업 및 메시지 라우팅용 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에서는 IoT Hub 쿼리 언어를 설명합니다. 이 쿼리 언어를 사용하여 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색합니다.
 

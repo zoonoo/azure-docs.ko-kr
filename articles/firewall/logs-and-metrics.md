@@ -7,26 +7,26 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0698f1dbc491781089ef94eec32f2a427fd3cca4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422391"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957694"
 ---
 # <a name="azure-firewall-logs"></a>Azure Firewall 로그
 
 방화벽 로그를 사용하여 Azure Firewall을 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다.
 
-이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. 로그를 [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), 저장소 및 Event Hubs로 보내 Log Analytics 또는 Excel 및 Power BI 같은 다른 도구에서 분석합니다.
+이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. 로그를 [Azure Monitor 로그](../azure-monitor/insights/azure-networking-analytics.md), 스토리지 및 Event Hubs로 보내고 Azure Monitor 로그 또는 Excel 및 Power BI와 같은 다른 도구에서 분석합니다.
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
  다음 진단 로그는 Azure Firewall에 사용할 수 있습니다.
 
-* **응용 프로그램 규칙 로그**
+* **애플리케이션 규칙 로그**
 
-   각 Azure Firewall에 대해 사용하도록 설정하는 경우에만 애플리케이션 규칙 로그를 저장소 계정에 저장하고 Event 허브로 스트리밍하고/또는 Log Analytics로 보냅니다. 허용/거부된 연결에 대한 로그에서 구성된 애플리케이션 규칙 결과 중 하나와 일치하는 각 새 연결입니다. 데이터는 각각 다음 예제와 같이 JSON 형식으로 로깅됩니다.
+   응용 프로그램 규칙 로그를 Event hubs로 스트리밍 및/또는 각 Azure 방화벽을 사용 하는 경우에 Azure Monitor 로그로 전송 저장소 계정에 저장 됩니다. 허용/거부된 연결에 대한 로그에서 구성된 애플리케이션 규칙 결과 중 하나와 일치하는 각 새 연결입니다. 데이터는 각각 다음 예제와 같이 JSON 형식으로 로깅됩니다.
 
    ```
    Category: application rule logs.
@@ -49,7 +49,7 @@ ms.locfileid: "52422391"
 
 * **네트워크 규칙 로그**
 
-   각 Azure Firewall에 대해 사용하도록 설정하는 경우에만 네트워크 규칙 로그를 저장소 계정에 저장하고 Event 허브로 스트리밍하고/또는 Log Analytics로 보냅니다. 허용/거부된 연결에 대한 로그에서 구성된 네트워크 규칙 결과 중 하나와 일치하는 각 새 연결입니다. 데이터는 각각 다음 예제와 같이 JSON 형식으로 로깅됩니다.
+   네트워크 규칙 로그를 Event hubs로 스트리밍 및/또는 각 Azure 방화벽을 사용 하는 경우에 Azure Monitor 로그로 전송 저장소 계정에 저장 됩니다. 허용/거부된 연결에 대한 로그에서 구성된 네트워크 규칙 결과 중 하나와 일치하는 각 새 연결입니다. 데이터는 각각 다음 예제와 같이 JSON 형식으로 로깅됩니다.
 
    ```
    Category: network rule logs.
@@ -73,9 +73,9 @@ ms.locfileid: "52422391"
 
 로그 저장에는 세 가지 옵션이 있습니다.
 
-* **Storage 계정** - 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
-* **이벤트 허브** - 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
-* **Log Analytics** - 일반적으로 응용 프로그램을 실시간 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
+* **스토리지 계정**: 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
+* **Event Hubs**: 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
+* **Azure Monitor 로그**: Azure Monitor 로그는 일반적으로 애플리케이션을 실시간으로 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
 
 ## <a name="activity-logs"></a>활동 로그
 
@@ -86,4 +86,4 @@ ms.locfileid: "52422391"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Firewall 로그 및 메트릭을 모니터링하는 방법은 [자습서: Azure Firewall 로그 모니터링](tutorial-diagnostics.md)을 참조하세요.
+Azure 방화벽 로그 및 메트릭을 모니터링 하는 방법에 알아보려면 참조 [자습서: Azure Firewall 로그 모니터링](tutorial-diagnostics.md)을 참조하세요.

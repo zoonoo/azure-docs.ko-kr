@@ -1,7 +1,7 @@
 ---
 title: 배포 문제 해결 가이드
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스를 사용하여 AKS 및 ACI에서 일반적인 Docker 배포 오류를 해결하는 방법을 알아봅니다.
+description: 해결, 해결 및 Azure Machine Learning 서비스를 사용 하 여 ACI 및 AKS를 사용 하 여 일반적인 Docker 배포 오류 해결 방법에 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 112fff011ebfedc1abf6981661da5fd4d97fc3d0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 815be7400e0a0560ace7e07b317aeb25c2feacd5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267149"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450977"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Azure Machine Learning AKS 및 ACI 서비스 배포 문제 해결
 
@@ -43,7 +43,7 @@ Azure Machine Learning 서비스에서 모델을 배포할 때 시스템에서 �
 
 문제가 발생할 경우 가장 먼저 할 일은 배포 작업을 개별 단계로 분리하여(이전 설명 참조) 문제를 격리하는 것입니다. 
 
-이 방법은 `Webservice.deploy` API 또는 `Webservice.deploy_from_model` API를 사용 중인 경우에 특히 유용합니다. 왜냐하면 이러한 함수는 앞에서 언급한 단계를 단일 작업으로 그룹화하기 때문입니다. 일반적으로 이러한 API는 상당히 편리하지만, 문제를 해결할 때 아래의 API 호출로 대체하여 단계를 분리하는 데 도움이 됩니다.
+사용 하는 경우에 유용 합니다 `Webservice.deploy` API 또는 `Webservice.deploy_from_model` API, 이러한 함수는 단일 작업에 앞서 언급 한 단계를 그룹화 하므로 합니다. 일반적으로 이러한 Api는 편리 하지만 단계를 사용 하 여 대체 하 여 문제를 해결할 때 중단 하는 것은 API 호출 아래.
 
 1. 모델을 등록합니다. 다음은 샘플 코드입니다.
 
@@ -101,9 +101,54 @@ for name, img in ws.images.items():
 ```
 이미지 로그 uri는 Azure Blob Storage에 저장된 로그 파일을 가리키는 SAS URL입니다. 간단하게 uri를 복사하여 브라우저 창에 붙여넣는 방법으로 로그 파일을 다운로드하여 볼 수 있습니다.
 
+### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault 액세스 정책 및 Azure Resource Manager 템플릿
+
+이미지 빌드도 Azure Key vault 액세스 정책 관련 문제로 인해 실패할 수 있습니다. Azure Resource Manager 템플릿을 사용 하 여 연결 된 리소스 (Azure Key Vault를 포함)을 여러 번 확인 하 고 작업 영역을 만들 때 발생할 수 있습니다. 예를 들어, 템플릿을 사용 하 여를 여러 번 연속 통합 및 배포 파이프라인의 일부로 동일한 매개 변수를 사용 하 여 합니다.
+
+템플릿을 통해 대부분의 리소스 생성 작업은 idempotent 상태, 되지만 키 자격 증명 모음 액세스 정책 템플릿이 사용 될 때마다를 지웁니다. 액세스를 중단이 Key Vault를 사용 하는 모든 기존 작업 영역에 있습니다. 이 위치 새 이미지를 만들려고 할 때 오류가 발생 합니다. 다음은 받을 수 있는 오류의 예입니다.
+
+__포털__:
+```text
+Create image "myimage": An internal server error occurred. Please try again. If the problem persists, contact support.
+```
+
+__SDK__:
+```python
+image = ContainerImage.create(name = "myimage", models = [model], image_config = image_config, workspace = ws)
+Creating image
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\azureml\core\image\image.py", line 341, in create
+    resp.raise_for_status()
+  File "C:\Python37\lib\site-packages\requests\models.py", line 940, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: https://eastus.modelmanagement.azureml.net/api/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/images?api-version=2018-11-19
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Python37\lib\site-packages\azureml\core\image\image.py", line 346, in create
+    'Content: {}'.format(resp.status_code, resp.headers, resp.content))
+azureml.exceptions._azureml_exception.WebserviceException: Received bad response from Model Management Service:
+Response Code: 500
+Headers: {'Date': 'Tue, 26 Feb 2019 17:47:53 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'api-supported-versions': '2018-03-01-preview, 2018-11-19', 'x-ms-client-request-id': '3cdcf791f1214b9cbac93076ebfb5167', 'x-ms-client-session-id': '', 'Strict-Transport-Security': 'max-age=15724800; includeSubDomains; preload'}
+Content: b'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}'
+```
+
+__CLI__:
+```text
+ERROR: {'Azure-cli-ml Version': None, 'Error': WebserviceException('Received bad response from Model Management Service:\nResponse Code: 500\nHeaders: {\'Date\': \'Tue, 26 Feb 2019 17:34:05
+GMT\', \'Content-Type\': \'application/json\', \'Transfer-Encoding\': \'chunked\', \'Connection\': \'keep-alive\', \'api-supported-versions\': \'2018-03-01-preview, 2018-11-19\', \'x-ms-client-request-id\':
+\'bc89430916164412abe3d82acb1d1109\', \'x-ms-client-session-id\': \'\', \'Strict-Transport-Security\': \'max-age=15724800; includeSubDomains; preload\'}\nContent:
+b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}\'',)}
+```
+
+이 문제를 방지 하려면 좋습니다 다음 방법 중 하나:
+
+* 동일한 매개 변수에 대 한 템플릿을 두 번 이상는 배포 하지 않습니다. 또는 기존 리소스를 다시 만드는 데 템플릿을 사용 하기 전에 삭제 합니다.
+* 키 자격 증명 모음 액세스 정책을 검토 하 고 설정 하는 데 사용 된 `accessPolicies` 템플릿의 속성입니다.
+* Key Vault 리소스 이미 있는지 확인 합니다. 이 템플릿을 통해 다시 만들지 않습니다. 예를 들어, 이미 있는 경우 키 자격 증명 모음 리소스의 생성을 사용 하지 않도록 할 수 있도록 매개 변수를 추가 합니다.
 
 ## <a name="service-launch-fails"></a>서비스 시작 실패
-이미지가 성공적으로 빌드되면 시스템이 배포 구성에 따라 ACI 또는 AKS에서 컨테이너를 시작하려고 시도합니다. 일반적으로 좀 더 단순한 형태의 단일 컨테이너 배포인 ACI 배포를 먼저 시도하는 것이 좋습니다. 이 방법으로 모든 AKS 관련 문제를 제외할 수 있습니다.
+이미지가 성공적으로 빌드되면 시스템이 배포 구성에 따라 ACI 또는 AKS에서 컨테이너를 시작하려고 시도합니다. 단순한 형태의 단일 컨테이너 배포 이므로 ACI 배포를 먼저 시도 하는 것이 좋습니다. 이 방법으로 모든 AKS 관련 문제를 제외할 수 있습니다.
 
 컨테이너 시작 프로세스의 일부로, 시스템에서 채점 스크립트의 `init()` 함수를 호출합니다. `init()` 함수에 catch되지 않은 예외가 있는 경우 오류 메시지에 **CrashLoopBackOff** 오류가 표시될 수 있습니다. 아래는 문제를 해결하는 팁입니다.
 
@@ -222,6 +267,47 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 **참고**: `run(input_data)` 호출에서 오류 메시지를 반환하는 방법은 디버깅 용도로만 사용해야 합니다. 프로덕션 환경에서 이 방법을 사용하는 것은 보안에 좋지 않습니다.
+
+## <a name="http-status-code-503"></a>HTTP 상태 코드 503
+
+Azure Kubernetes Service 배포에 복제본 추가 부하를 지원 하기 위해 추가할 수 있는 자동 크기 조정을 지원 합니다. 그러나 autoscaler 처리 하도록 설계 되었습니다 **점진적** 부하 변경을 합니다. 초당 요청에서 큰 스파이크를 수신 하는 경우 클라이언트의 HTTP 상태 코드 503 나타날 수 있습니다.
+
+503 상태 코드를 방지 하는 데 도움이 되는 두 가지 있습니다.
+
+* 변경의 사용률 수준은 자동 크기 조정은 새 복제본을 만듭니다.
+    
+    기본적으로 자동 크기 조정 목표 사용률 설정 70%, 즉, 서비스 요청 RPS (초당) 최대 30%의 급증을 처리할 수 있도록 합니다. 설정 하 여 사용률 목표를 조정할 수 있습니다는 `autoscale_target_utilization` 더 낮은 값입니다.
+
+    > [!IMPORTANT]
+    > 이 변경에 만들려는 복제본 이어지지 *빠르게*합니다. 대신, 낮은 사용률 임계값 생성 됩니다. 서비스를 활용 하는 70%가 될 때까지 대기 하는 대신 값을 30%로 변경 하면 30% 사용률 발생할 때 만들어지는 복제본입니다.
+    
+    웹 서비스에서 이미 현재 최대 복제본을 사용 하 고 상태 코드 503 계속 표시 되는 경우 향상 된 `autoscale_max_replicas` 복제본의 최대 수를 늘리려면 값입니다.
+
+* 복제본의 최소 수를 변경 합니다. 최소 복제본 증가 들어오는 급증을 처리 하려면 더 큰 풀을 제공 합니다.
+
+    복제본의 최소 수를 늘리려면 설정 `autoscale_min_replicas` 을 더 높은 값입니다. 다음 코드를 사용 하 여 프로젝트에 특정 값을 사용 하 여 값을 바꿀 필요한 복제본 계산할 수 있습니다.
+
+    ```python
+    from math import ceil
+    # target requests per second
+    targetRps = 20
+    # time to process the request (in seconds)
+    reqTime = 10
+    # Maximum requests per container
+    maxReqPerContainer = 1
+    # target_utilization. 70% in this example
+    targetUtilization = .7
+
+    concurrentRequests = targetRps * reqTime / targetUtilization
+
+    # Number of container replicas
+    replicas = ceil(concurrentRequests / maxReqPerContainer)
+    ```
+
+    > [!NOTE]
+    > 요청 급증을 처리할 수 있는 새 최소 복제본 보다 더 큰 경우에 따라 503s 다시 나타날 수 있습니다. 예를 들어,에 서비스 증가 트래픽으로 최소 복제본을 높이기 위해 해야 할 수 있습니다.
+
+설정에 대 한 자세한 내용은 `autoscale_target_utilization`, `autoscale_max_replicas`, 및 `autoscale_min_replicas` 를 참조 합니다 [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 모듈 참조.
 
 
 ## <a name="next-steps"></a>다음 단계

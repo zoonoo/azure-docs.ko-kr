@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1609d413604e172b9c718bd11768c495dfa8afe8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191428"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867102"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 
@@ -83,7 +83,7 @@ Azure AD Domain Services에서는 Azure AD에서 사용할 수 있는 모든 사
 
 3. **개요** 탭은 관리되는 도메인이 현재 프로비전되고 있음을 보여 줍니다. 완전히 프로비전될 때까지 관리되는 도메인을 구성할 수 없습니다. 관리되는 도메인이 완전히 프로비전되려면 최대 한 시간 정도 걸릴 수 있습니다.
 
-    ![Domain Services - 프로비전 상태 중 개요 탭 ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Domain Services - 프로비전 상태 중 개요 탭](./media/getting-started/domain-services-provisioning-state-details.png)
 
 4. 관리되는 도메인이 완전히 프로비전되면 **개요** 탭에 도메인 상태가 **실행 중**으로 표시됩니다.
 

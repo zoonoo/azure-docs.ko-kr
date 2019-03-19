@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/19/18
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cff8b8af4ca40d428edf7c6e35976bcb154a28f1
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328693"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867743"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 Azure Storage GPv2 계정을 사용하면 *$web*이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 서비스할 수 있습니다. Azure Storage에 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS 서비스를 포함한 서버리스 아키텍처를 사용할 수 있습니다.
@@ -51,6 +51,7 @@ https://contoso.z4.web.core.windows.net/image.png
 
 HTTPS를 통해 정적 웹 사이트 파일을 제공하려면 [Azure CDN을 사용하여 HTTPS를 통해 사용자 지정 도메인으로 Blob에 액세스](storage-https-custom-domain-cdn.md)를 참조하세요. 이 프로세스의 일부로, Blob 엔드포인트와는 반대로 *CDN이 웹 엔드포인트를 가리키도록 지정*해야 합니다. CDN 구성이 즉시 실행되지 않으므로 콘텐츠가 표시될 때까지 잠시 기다려야 합니다.
 
+정적 웹 사이트를 업데이트 하는 경우에 CDN 끝점을 제거 하 여 CDN에 지 서버에 캐시 된 콘텐츠를 선택 취소 해야 합니다. 자세한 내용은 [Azure CDN 엔드포인트 제거](../../cdn/cdn-purge-endpoint.md)를 참조하세요.
 
 ## <a name="custom-domain-names"></a>사용자 지정 도메인 이름
 

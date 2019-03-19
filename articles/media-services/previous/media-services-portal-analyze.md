@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 02b972c0591bb05f72887e3e1c3d057d373ff48c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fa48713034de5660218d2d568be6673a7d39a7e3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004879"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245304"
 ---
-# <a name="analyze-your-media-using-the-azure-portal-legacy"></a>Azure Portal을 사용하여 미디어 분석(레거시)
+# <a name="analyze-your-media-using-the-azure-portal"></a>Azure Portal을 사용하여 미디어 분석 
 > [!NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
 > 

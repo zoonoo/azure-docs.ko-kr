@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 01688c120a8302da4903302ab8bcd2d1fa4ab351
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3fb6e42e55119684ace8547a55297d38dbb9a26e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113416"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57402379"
 ---
 # <a name="azure-security-white-papers"></a>Azure 보안 백서
 | | |
@@ -42,4 +42,4 @@ ms.locfileid: "56113416"
 |[Azure 준수 개요](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|이 문서는 다운로드할 수 있으며 공식 인증, 증명, 유효성 검사, 권한 부여 및 독립적인 타사 감사 회사에서 생성한 평가, 계약 수정, 자체 평가, Microsoft에서 생성한 고객 지침 문서를 포함하여 Azure 준수 제공에 대해 설명합니다. <br/> 각 제공 설명에서는 평가 범위에 속하는 Azure 고객용 서비스를 규정하고 고객의 준수 의무를 지원하는 다운로드 가능한 리소스에 대한 링크를 제공합니다.|
 |[Azure의 보안 관리](azure-security-management.md)|Azure 리소스의 원격 액세스 문제에 대해 설명합니다. 클라우드의 특성상 원격 액세스 관리가 필요하므로 보안이 중요합니다. 일반적인 보안 지침, 클라이언트 구성, 모범 사례, 운영 원칙 및 절차를 다룹니다. |
 |[Azure AD 데이터 및 보안](https://aka.ms/aaddatawhitepaper) | 다운로드 가능한 문서에서 다양한 Azure Active Directory 구성 요소와 서로 간의 상호 작용을 설명합니다. 다양한 구성 요소가 전송 중(예: 인터넷을 통해)인 데이터를 보호, 보안 설정, 암호화 또는 해시하는 방법과 사용되지 않을 때 보호하는 방법을 간단하게 설명합니다. 이 문서에서는 다양한 Azure AD 데이터 센터 위치 및 온-프레미스 디렉터리와의 상호 작용과 함께 Azure AD 간 흐름을 설명합니다. 마지막으로 Azure AD 엔지니어링 팀이 서비스를 관리하고 보호하는 데 사용하는 운영 절차를 설명합니다.|
-
+|[암호 없는 인증 개요](https://aka.ms/pwdless-whitepaper)|이 문서는 주요 이점은 암호 없는 인증을 사용 하 여 Windows Hello 비즈니스, FIDO2 보안 키 및 Microsoft Authenticator 앱에 대 한 개요입니다. 보안 전문가 및 Ciso 암호 뿐만 아니라 다음 세대에 대 한 인증 자격 증명 배포를 Microsoft 어떻게 도움이 되는지 이해 하려는 것이 좋습니다.|

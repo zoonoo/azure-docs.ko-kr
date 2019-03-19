@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e6148a35540b08916a4f0468af39e0f088453286
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 3889aa1e8b19e203a3f6354c2d26fb82afe2b922
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958869"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214285"
 ---
 # <a name="create-a-new-device-template-version"></a>새 디바이스 템플릿 버전 만들기
 
@@ -56,7 +56,7 @@ Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발�
 
 여러 버전의 디바이스 템플릿을 만들 수 있습니다. 시간이 지나면 이러한 디바이스 템플릿을 사용하는 연결된 디바이스가 여러 개 생깁니다. 한 버전의 디바이스 템플릿에서 다른 버전으로 디바이스를 마이그레이션할 수 있습니다. 다음 단계는 디바이스를 마이그레이션하는 방법을 설명합니다.
 
-1. **Explorer** 페이지로 이동합니다.
+1. 로 이동 합니다 **Device Explorer** 페이지입니다.
 1. 다른 버전으로 마이그레이션할 디바이스를 선택합니다.
 1. **디바이스 마이그레이션**을 선택합니다.
 1. 디바이스를 마이그레이션할 버전 번호를 선택하고 **마이그레이션**을 선택합니다.
@@ -65,7 +65,7 @@ Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 응용 프로그램에서 디바이스 템플릿 버전을 사용하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+Azure IoT Central 애플리케이션에서 장치 템플릿 버전을 사용하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
 > [원격 분석 규칙을 만드는 방법](howto-create-telemetry-rules.md)

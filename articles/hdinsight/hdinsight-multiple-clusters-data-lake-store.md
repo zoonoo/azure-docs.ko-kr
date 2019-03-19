@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0760d850bdc6dab84722f00f1061d53f9b95cfcf
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 0d57c65c93ffcd6c4c5249a1e5effeb457ed1736
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912421"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440899"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Azure Data Lake Storage 계정으로 여러 HDInsight 클러스터 사용
 
@@ -30,7 +30,7 @@ Data Lake Storage는 많은 양의 데이터 호스팅뿐만 아니라 단일 Da
 이 문서의 나머지 부분에서는 [Azure Data Lake Storage의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)에 자세히 설명되어 있는 Azure Data Lake Storage의 파일 및 폴더 수준 ACL에 대해 잘 알고 있다고 가정합니다.
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>여러 HDInsight 클러스터에 대한 Data Lake Storage 설정
-Data Lake Storage 계정으로 여러 HDInsight 클러스터 사용에 대한 권장 사항을 설명하는 두 수준의 폴더 계층 구조를 살펴보겠습니다. **/클러스터/재무** 폴더 구조의 Data Lake Storage 계정이 있는 것이 좋습니다. 이 구조로 재무 부서에 필요한 모든 클러스터는 저장소 위치로 /클러스터/재무를 사용할 수 있습니다. 향후 다른 조직에서(예: 마케팅) 동일한 Data Lake Storage 계정을 사용하여 HDInsight 클러스터를 만들려는 경우 /클러스터/마케팅을 만들 수 있습니다. 이제 **/클러스터/재무**를 사용해보겠습니다.
+Data Lake Storage 계정을 사용 하 여 여러 HDInsight 클러스터를 사용 하는 것에 대 한 권장 사항을 설명 하는 두 수준의 폴더 계층 구조를 살펴보겠습니다. **/클러스터/재무** 폴더 구조의 Data Lake Storage 계정이 있는 것이 좋습니다. 이 구조로 재무 부서에 필요한 모든 클러스터는 저장소 위치로 /클러스터/재무를 사용할 수 있습니다. 향후 다른 조직에서(예: 마케팅) 동일한 Data Lake Storage 계정을 사용하여 HDInsight 클러스터를 만들려는 경우 /클러스터/마케팅을 만들 수 있습니다. 이제 **/클러스터/재무**를 사용해보겠습니다.
 
 HDInsight 클러스터에서 이 폴더 구조를 효과적으로 사용하려면 Data Lake Storage 관리자는 테이블에 설명된 대로 적절한 권한을 할당해야 합니다. 테이블에 표시된 사용 권한은 액세스-ACL에 해당하며 기본 ACL에 해당하지 않습니다. 
 
@@ -54,7 +54,7 @@ AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체�
 - 두 수준 폴더 구조(**/클러스터/재무/**)는 클러스터의 스토리지 계정을 사용하기 **전에** Data Lake Storage 관리자에 의해 적절한 권한으로 생성 및 프로비전되어야 합니다. 이 구조는 클러스터를 만드는 동안 자동으로 생성되지 않습니다.
 - 위의 예제에서는 **FINGRP**로 **/클러스터/재무**의 소유 그룹 설정 및 루트에서 시작하는 전체 폴더 계층에 대한 FINGRP에 **r-x** 액세스 허용을 권장합니다. 이렇게 하면 FINGRP의 멤버는 루트에서 시작하는 폴더 구조를 탐색할 수 있습니다.
 - 다른 AAD 서비스 주체에서 **/클러스터/재무**에 클러스터를 만들 수 있는 경우, 고정 비트(**재무** 폴더에서 설정된 경우)를 통해 하나의 서비스 주체에서 만든 폴더는 다른 서비스 주체에서 삭제할 수 없습니다.
-- 폴더 구조 및 사용 권한이 준비되면 HDInsight 클러스터 생성 프로세스는 **/클러스터/재무/** 아래에 클러스터 특정 저장소 위치를 만듭니다. 예를 들어 fincluster01이라는 이름의 클러스터에 대한 저장소는 **/클러스터/재무/fincluster01**이 될 수 있습니다. HDInsight 클러스터에 의해 생성된 폴더에 대한 소유권 및 권한은 테이블에 표시됩니다.
+- HDInsight 클러스터 만들기 프로세스에서 클러스터 특정 저장소 위치를 만듭니다는 폴더 구조 및 사용 권한을 적용 되 면 **/클러스터/재무/** 합니다. 예를 들어 fincluster01이라는 이름의 클러스터에 대한 저장소는 **/클러스터/재무/fincluster01**이 될 수 있습니다. HDInsight 클러스터에 의해 생성된 폴더에 대한 소유권 및 권한은 테이블에 표시됩니다.
 
     |폴더  |권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
     |---------|---------|---------|---------|---------|---------|---------|---------|

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbfade56ff12aa719927d496606a6ce4b4fe5a38
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 07e98d5a93b8576c06e9be8274a974b1b574da4b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167153"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217748"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>클라우드 기반 Azure Multi-Factor Authentication 배포
 
@@ -42,6 +42,9 @@ Azure MFA(Azure Multi-Factor Authentication)를 시작하는 프로세스는 간
 ## <a name="choose-authentication-methods"></a>인증 방법 선택
 
 조직의 요구 사항에 따라 사용자에게 하나 이상의 인증 방법을 사용하도록 설정합니다. 사용자에게 인증 방법을 사용하도록 설정하면 Microsoft Authenticator 앱이 최상의 사용자 환경을 제공합니다. 사용할 수 있는 방법 및 설정 방법에 대해 알아보려면 [인증 방법이란?](concept-authentication-methods.md) 문서를 참조하세요.
+
+> [!IMPORTANT]
+> 전화 통화 옵션의 2019 년 3 월부터 Azure AD 체험/평가판 테 넌 트에서 MFA 및 SSPR 사용자에 게 제공 되지 않습니다. SMS 메시지는이 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자에 게 사용 가능 하도록 계속 됩니다. 이 변경은 Azure AD 체험/평가판 테 넌 트에만 영향을 줍니다.
 
 ## <a name="get-users-to-enroll"></a>등록할 사용자 가져오기
 

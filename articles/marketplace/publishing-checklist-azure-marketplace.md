@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5e40ccc5a11df00b63c99fb606e17fa17e23a2a0
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: 26041bbf392f9b2afaaf5af38f758deb7708b651
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826080"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728049"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Azure Marketplace에 대한 게시 검사 목록    
 게시 프로세스를 시작하기 전에 필수 구성 요소를 검토합니다.  
@@ -38,10 +38,10 @@ Cloud 파트너 포털에서 제품 게시 만들기 워크플로를 완료하�
 | 거래 | Virtual Machine | <table> <tr><th>상점</th></tr> <tr><td>제목(50자)</td></tr> <tr><td>요약(200자)</td></tr> <tr><td>긴 요약(256자)</td></tr> <tr><td>HTML 기반 설명(3,000자)</td></tr> <tr><td>회사 로고(40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>운영 체제 세부 정보</td></tr> <tr><td>사용 중인 포트</td></tr> <tr><td>사용 중인 프로토콜</td></tr> <tr><td>사용 중인 각 VHD에 대한 디스크 버전</td></tr> <tr><td>사용 중인 각 VHD에 대한 SAS URL</td></tr> </table> |  
 | 거래 | Azure 앱: 솔루션 템플릿 | <table> <tr><th>상점</th></tr> <tr><td>제목(50자)</td></tr> <tr><td>요약(200자)</td></tr> <tr><td>긴 요약(256자)</td></tr> <tr><td>HTML 기반 설명(3,000자)</td></tr> <tr><td>회사 로고(40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>버전 번호</td></tr> <tr><td>포함하는 패키지 파일<ul> <li>모든 템플릿 파일</li> <li>createUIDefinition 파일</li> </ul> </td></tr> </table> |  
 | 거래 | Azure 앱: 관리되는 앱 | <table> <tr><th>상점</th></tr> <tr><td>제목(50자)</td></tr> <tr><td>요약(200자)</td></tr> <tr><td>긴 요약(256자)</td></tr> <tr><td>HTML 기반 설명(3,000자)</td></tr> <tr><td>회사 로고(40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>버전 번호</td></tr> <tr><td>포함하는 패키지 파일<ul> <li>모든 템플릿 파일</li> <li>createUIDefinition 파일</li> </ul> </td></tr> </table> |  
-| 거래 | 컨테이너 | <table> <tr><th>상점</th></tr> <tr><td>제목(50자)</td></tr> <tr><td>요약(200자)</td></tr> <tr><td>긴 요약(256자)</td></tr> <tr><td>HTML 기반 설명(3,000자)</td></tr> <tr><td>회사 로고(40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>ACR(Azure Container Registry) 이미지 리포지토리 세부 정보: 구독 ID</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 리소스 그룹 이름</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 레지스트리 이름</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 리포지토리 이름</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 사용자 이름</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 암호</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 이미지 태그(선택 사항)</td></tr> </table> |  
+| 거래 | 컨테이너 | <table> <tr><th>상점</th></tr> <tr><td>제목(50자)</td></tr> <tr><td>요약(200자)</td></tr> <tr><td>긴 요약(256자)</td></tr> <tr><td>HTML 기반 설명(3,000자)</td></tr> <tr><td>회사 로고(40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Azure 컨테이너 레지스트리 (ACR) 이미지 리포지토리 세부 정보: 구독 ID</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 리소스 그룹 이름</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 레지스트리 이름</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 리포지토리 이름</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 사용자 이름</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 암호</td></tr> <tr><td>ACR 이미지 리포지토리 세부 정보: 이미지 태그 (선택 사항)</td></tr> </table> |  
 | 거래 | SaaS 앱 | <table> <tr><th>상점</th></tr> <tr><td>제목(50자)</td></tr> <tr><td>요약(200자)</td></tr> <tr><td>긴 요약(256자)</td></tr> <tr><td>HTML 기반 설명(3,000자)</td></tr> <tr><td>회사 로고(40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> |  
 
 ## <a name="next-steps"></a>다음 단계
 *   [Azure Marketplace 및 AppSource 게시자 가이드](./marketplace-publishers-guide.md) 페이지를 방문합니다.  
  
----  
+---

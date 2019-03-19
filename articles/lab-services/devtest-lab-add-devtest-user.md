@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834131"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727964"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs에 소유자 및 사용자 추가
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -40,20 +40,20 @@ Azure DevTest Labs의 액세스는 [Azure 역할 기반 Access Control(RBAC)](..
 | **이 역할의 사용자가 수행할 수 있는 작업** | **DevTest Lab 사용자** | **소유자** | **참여자** |
 | --- | --- | --- | --- |
 | **랩 작업** | | | |
-| 랩에 사용자 추가 |아니요 |yes |아니요 |
-| 비용 설정 업데이트 |아니요 |예 |yes |
+| 랩에 사용자 추가 |아닙니다. |사용자 계정 컨트롤 |아닙니다. |
+| 비용 설정 업데이트 |아닙니다. |예 |예 |
 | **VM 기본 작업** | | | |
-| 사용자 지정 이미지 추가 및 제거 |아니요 |예 |yes |
-| 수식 추가, 업데이트 및 삭제 |yes |예 |yes |
-| Azure Marketplace 이미지를 허용 목록에 추가 |아니요 |예 |yes |
+| 사용자 지정 이미지 추가 및 제거 |아닙니다. |예 |예 |
+| 수식 추가, 업데이트 및 삭제 |예 |예 |예 |
+| Azure Marketplace 이미지를 허용 목록에 추가 |아닙니다. |예 |예 |
 | **VM 작업** | | | |
-| VM 만들기 |yes |예 |yes |
-| VM 시작, 중지 및 삭제 |사용자가 만든 VM만 |yes |yes |
-| VM 정책 업데이트 |아니요 |예 |yes |
-| VM에 데이터 디스크 추가/VM에서 데이터 디스크 제거 |사용자가 만든 VM만 |yes |yes |
+| VM 만들기 |예 |예 |예 |
+| VM 시작, 중지 및 삭제 |사용자가 만든 VM만 |예 |예 |
+| VM 정책 업데이트 |아닙니다. |예 |예 |
+| VM에 데이터 디스크 추가/VM에서 데이터 디스크 제거 |사용자가 만든 VM만 |예 |예 |
 | **아티팩트 작업** | | | |
-| 아티팩트 리포지토리 추가 및 제거 |아니요 |예 |yes |
-| 아티팩트 적용 |yes |예 |yes |
+| 아티팩트 리포지토리 추가 및 제거 |아닙니다. |예 |예 |
+| 아티팩트 적용 |예 |예 |예 |
 
 > [!NOTE]
 > 사용자가 VM을 만들면 해당 사용자는 만든 VM의 **소유자** 역할에 자동으로 할당됩니다.
@@ -77,6 +77,9 @@ Azure Portal을 통해 랩 수준에서 소유자 및 사용자를 추가할 수
 11. **사용자** 블레이드로 돌아가면 사용자가 추가되어 있습니다.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>PowerShell을 사용하여 랩에 외부 사용자 추가
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure Portal에 사용자를 추가하는 것 외에도 PowerShell 스크립트를 사용하여 랩에 외부 사용자를 추가할 수 있습니다. 다음 예제에서 **변경할 값** 설명 아래 매개 변수 값을 수정하세요.
 Azure Portal의 랩 블레이드에서 `subscriptionId`, `labResourceGroup` 및 `labName` 값을 검색할 수 있습니다.
 
@@ -96,18 +99,18 @@ Azure Portal의 랩 블레이드에서 `subscriptionId`, `labResourceGroup` 및 
     $userDisplayName = "<Enter user's display name here>"
 
     # Log into your Azure account
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
     # Select the Azure subscription that contains the lab. 
     # This step is optional if you have only one subscription.
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+    Select-AzSubscription -SubscriptionId $subscriptionId
 
     # Retrieve the user object
-    $adObject = Get-AzureRmADUser -SearchString $userDisplayName
+    $adObject = Get-AzADUser -SearchString $userDisplayName
 
     # Create the role assignment. 
     $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-    New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+    New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>구독 수준에서 소유자 또는 사용자 추가
 Azure 권한은 Azure의 부모 범위에서 자식 범위로 전파됩니다. 따라서 랩을 포함하는 Azure 구독 소유자는 자동으로 해당 랩의 소유자입니다. 랩의 사용자가 만든 다른 리소스와 VM 및 Azure DevTest Labs 서비스의 소유자이기도 합니다. 

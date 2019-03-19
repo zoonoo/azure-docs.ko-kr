@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895859"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308859"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -84,7 +84,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-토큰은 수신자가 동일한 매개 변수를 사용하여 해시를 다시 계산할 수 있도록 발급자가 유효한 서명 키를 소유하는지 확인하여 해시되지 않은 값을 포함합니다. 
+토큰은 수신자가 동일한 매개 변수를 사용하여 해시를 다시 계산할 수 있도록 발급자가 유효한 서명 키를 소유하는지 확인하여 해시되지 않은 값을 포함합니다.
 
 리소스 URI은 액세스를 하려는 Service Bus 리소스의 전체 URI입니다. 예를 들면 `http://<namespace>.servicebus.windows.net/<entityPath>` 또는 `sb://<namespace>.servicebus.windows.net/<entityPath>`입니다. 즉, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`과 같습니다. URI는 [%로 인코딩](https://msdn.microsoft.com/library/4fkewx0t.aspx)되어야 합니다.
 
@@ -156,7 +156,7 @@ helloMessage.MessageId = "SAS-Sample-Message";
 sendClient.Send(helloMessage);
 ```
 
-다른 클라이언트에 전달할 토큰을 발급하는 데 토큰 공급자를 직접 사용할 수도 있습니다. 
+다른 클라이언트에 전달할 토큰을 발급하는 데 토큰 공급자를 직접 사용할 수도 있습니다.
 
 연결 문자열은 규칙 이름(*SharedAccessKeyName*) 및 규칙 키(*SharedAccessKey*) 또는 이전에 발급된 토큰(*SharedAccessSignature*)을 포함할 수 있습니다. 해당 항목이 생성자 또는 연결 문자열을 수락하는 팩터리 메서드에 전달된 연결 문자열에 있는 경우 SAS 토큰 공급자가 자동으로 만들어지고 채워집니다.
 
@@ -171,7 +171,7 @@ POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
 Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
-``` 
+```
 
 이 방식은 모든 항목에 대해 작동한다는 것을 기억하세요. 큐, 토픽, 구독에 대해 SAS를 만들 수 있습니다.
 
@@ -183,7 +183,7 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 Service Bus에 데이터의 전송을 시작하기 전에 게시자는 AMQP 메시지 안에 있는 SAS 토큰을 **$cbs**(모든 SAS 토큰을 얻고 유효성을 검사하기 위해 서비스에서 사용하는 "특별" 큐)라는 이름의 정의된 AMQP 노드에 전송해야 합니다. 게시자는 AMQP 메시지 내부에 있는 **ReplyTo** 필드를 지정해야 합니다. 이는 서비스가 토큰 유효성 검사 결과와 함께 게시자에게 응답하는 노드입니다(게시자와 서비스 간의 간단한 요청/응답 패턴). 이 회신 노드는 "즉시" 생성되며 AMQP 1.0 사양에 설명된 것처럼 “원격 노드 동적 생성”에 대해 얘기합니다. SAS 토큰이 유효한지 확인한 후 게시자는 이제 데이터를 서비스에 보내기 시작할 수 있습니다.
 
-다음 단계에서는 [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) 라이브러리를 사용하여 AMQP 프로토콜을 통해 SAS 토큰을 보내는 방법을 보여 줍니다. 이 방법은 C\#으로 개발하는 공식적인 Service Bus SDK를 사용할 수 없는 경우(예를 들어 WinRT, .Net Compact Framework, .Net Micro Framework 및 Mono)에 유용합니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다("권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). AMQP에 대한 깊은 지식이 없어도 .Net Framework 애플리케이션과 함께 공식 Service Bus SDK를 사용할 수 있습니다(위 참조).
+다음 단계를 사용 하 여 AMQP 프로토콜을 통해 SAS 토큰을 전송 하는 방법을 표시 합니다 [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) 라이브러리입니다. 이 C에서 공식 Service Bus에 대 한 SDK (예를 들어 WinRT,.NET Compact Framework,.NET Micro Framework 및 Mono) 개발을 사용할 수 없는 경우에 유용\#합니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다("권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). AMQP에 대 한 깊은 지식이 필요 하지 않으면, 수 없어도.NET Framework 응용 프로그램과 함께 공식 Service Bus SDK를 사용할 수 있습니다.
 
 ### <a name="c35"></a>C&#35;
 
@@ -236,12 +236,12 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-위의 `PutCbsToken()` 메서드는 서비스에 대한 TCP 연결 및 전송할 SAS 토큰인 *sasToken* 매개 변수를 나타내는 *연결*([AMQP .NET Lite 라이브러리](https://github.com/Azure/amqpnetlite)에서 제공하는 대로 AMQP 연결 클래스 인스턴스)을 수신합니다. 
+위의 `PutCbsToken()` 메서드는 서비스에 대한 TCP 연결 및 전송할 SAS 토큰인 *sasToken* 매개 변수를 나타내는 *연결*([AMQP .NET Lite 라이브러리](https://github.com/Azure/amqpnetlite)에서 제공하는 대로 AMQP 연결 클래스 인스턴스)을 수신합니다.
 
 > [!NOTE]
 > 연결이 **ANONYMOUS로 설정된 SASL 인증 메커니즘**(SAS 토큰을 보낼 필요가 없을 때 사용하는 사용자 이름 및 암호를 가진 기본 PLAIN이 아님)으로 생성된다는 사실이 중요합니다.
-> 
-> 
+>
+>
 
 그런 다음 게시자는 SAS 토큰을 보내고 서비스로부터 회신(토큰 유효성 검사 결과)을 받기 위한 2개의 AMQP 링크를 만듭니다.
 
@@ -295,7 +295,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 | **규칙** | | |
 | 규칙 만들기 |관리 |../myTopic/Subscriptions/mySubscription |
 | 규칙 삭제 |관리 |../myTopic/Subscriptions/mySubscription |
-| 규칙 열거 |관리 또는 수신 |../myTopic/Subscriptions/mySubscription/Rules 
+| 규칙 열거 |관리 또는 수신 |../myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>다음 단계
 

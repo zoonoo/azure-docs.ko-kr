@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: f94189e8f39771e0c3d7856ccbb8a23ba81d94aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085836"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447277"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Azure에서 OpenShift 배포 문제 해결
 
 OpenShift 클러스터가 성공적으로 배포되지 않으면 Azure Portal에서 오류가 출력됩니다. 출력이 읽기 어려워 문제를 파악하기가 어려울 수도 있습니다. 이 출력에서 종료 코드 3, 4 또는 5를 빠르게 검사합니다. 다음은 이러한 세 개의 종료 코드에 대한 정보를 제공합니다.
 
-- 종료 코드 3: Red Hat 등록 사용자 이름 / 암호 또는 조직 ID / 활성화 키가 잘못되었습니다.
-- 종료 코드 4: Red Hat 풀 ID가 잘못되었거나 사용 가능한 자격이 없습니다.
-- 종료 코드 5: Docker 씬 풀 볼륨을 프로비전할 수 없습니다.
+- 종료 코드 3: Red Hat 구독 사용자 이름 / 암호 또는 조직 ID / 활성화 키가 올바르지 않습니다
+- 종료 코드 4: Red Hat 풀 ID에 잘못 되었거나 사용 가능한 자격이
+- 종료 코드 5: Docker 씬 풀 볼륨을 프로 비전 할 수 없습니다.
 
 다른 모든 종료 코드의 경우, ssh를 통해 호스트에 연결하여 로그 파일을 봅니다.
 

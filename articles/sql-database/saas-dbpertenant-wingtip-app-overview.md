@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: bbebfca1684cad600d7ef0cc1a4cff2201fdc07e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 1c16ea44418d99ee1f80a7d0ef7a3e5b3f118f46
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566156"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432342"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 소개
 
@@ -46,10 +46,10 @@ Wingtip SaaS 앱은 테넌트별 데이터베이스 모델을 사용합니다. S
 |[Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)|  Azure 구독으로 Wingtip SaaS 애플리케이션을 배포하고 탐색합니다. |
 |[프로비전 및 카탈로그 테넌트](saas-dbpertenant-provision-and-catalog.md)| 카탈로그 데이터베이스를 사용하여 애플리케이션을 테넌트에 연결하는 방법 및 카탈로그가 테넌트를 해당 데이터에 매핑하는 방법을 알아봅니다. |
 |[성능 모니터링 및 관리](saas-dbpertenant-performance-monitoring.md)| SQL Database의 모니터링 기능을 사용하고 성능 임계값이 초과된 경우 경고를 설정하는 방법을 알아봅니다. |
-|[Azure Log Analytics를 사용하여 모니터링](saas-dbpertenant-log-analytics.md) | [Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 여러 풀에 걸쳐 있는 많은 양의 리소스를 모니터링하는 방법을 알아봅니다. |
+|[Azure Monitor 로그를 사용 하 여 모니터링](saas-dbpertenant-log-analytics.md) | 사용 방법 알아보기 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 여러 풀에 걸쳐 있는 많은 양의 리소스를 모니터링 합니다. |
 |[단일 테넌트 복원](saas-dbpertenant-restore-single-tenant.md)| 테넌트 데이터베이스를 이전 시점으로 복원하는 방법을 알아봅니다. 또한 기존 테넌트 데이터베이스를 온라인 상태로 유지하여 병렬 데이터베이스로 복원하는 방법도 알아봅니다. |
 |[테넌트 데이터베이스 스키마 관리](saas-tenancy-schema-management.md)| 모든 테넌트 데이터베이스를 대상으로 스키마와 참조 데이터를 업데이트하는 방법을 알아봅니다. |
-|[교차 테넌트 분산 쿼리 실행](saas-tenancy-cross-tenant-reporting.md) | 임시 분석 데이터베이스를 만들고 모든 테넌트에서 실시간 분산 쿼리를 실행합니다.  |
+|[교차 테넌트 분산 쿼리 실행](saas-tenancy-cross-tenant-reporting.md) | 임시 분석 데이터베이스를 만들고 모든 테 넌 트에서 실시간 분산된 쿼리를 실행 합니다.  |
 |[추출된 테넌트 데이터를 이용하여 분석 실행](saas-tenancy-tenant-analytics.md) | 오프라인 분석 쿼리를 실행하기 위해 테넌트 데이터를 분석 데이터베이스 또는 데이터 웨어하우스로 추출합니다. |
 
 

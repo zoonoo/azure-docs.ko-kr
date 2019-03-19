@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 85a326c97ecf8476bdd802a718e082d0e5c7a89c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467363"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454105"
 ---
 # <a name="best-practices-for-autoscale"></a>자동 크기 조정에 대한 모범 사례
 Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)에만 적용됩니다.
@@ -38,7 +38,7 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
 인스턴스 수를 최댓값 위 또는 아래 값으로 수동으로 업데이트하면 자동 크기 조정 엔진이 최솟값(아래인 경우) 또는 최댓값(위인 경우)으로 다시 자동으로 크기를 조정합니다. 예를 들어 3 및 6 사이의 범위를 설정할 수 있습니다. 실행 중인 인스턴스가 하나 있는 경우 자동 크기 조정 엔진은 다음 실행 시 3개 인스턴스로 확장합니다. 마찬가지로, 크기 조정 인스턴스를 8개로 수동 설정하면 다음에 실행되는 자동 크기 조정에서는 그 다음 실행 시 6개 인스턴스로 다시 돌아갑니다.  수동 크기 조정은 자동 크기 조정 규칙을 재설정하지 않은 경우 임시적입니다.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>항상 증가 및 감소를 수행하는 규모 확장 및 감축 규칙 조합 사용
-조합의 한 부분만 사용하는 경우 자동 크기 조정이 이 프로필에 정의된 최대 또는 최소 인스턴스 수에 도달할 때까지 한 방향(규모 확장 또는 축소)으로만 작업을 수행합니다. 이는 최적의 방법이 아니며 가용성을 보장하기 위해 사용률이 높은 시간에 이상적으로 리소스 규모를 확장할 수 있습니다. 마찬가지로 사용률이 낮은 시간에 리소스 규모를 축소하여 비용 절감을 실현할 수 있습니다.
+조합의 한 부분만 사용 하는 경우 자동 크기 조정 됩니다만 작업을 수행할 단일 방향 (out 또는 크기 조정)의 최대값에 도달 하거나 최소 인스턴스 수가 프로필에 정의 될 때까지. 이는 최적의 방법이 아니며 가용성을 보장하기 위해 사용률이 높은 시간에 이상적으로 리소스 규모를 확장할 수 있습니다. 마찬가지로 사용률이 낮은 시간에 리소스 규모를 축소하여 비용 절감을 실현할 수 있습니다.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>진단 메트릭에 적절한 통계 선택
 진단 메트릭의 경우 크기를 조정할 메트릭으로 *평균*, *최소*, *최대* 및 *합계* 중에서 선택할 수 있습니다. 가장 일반적인 통계는 *평균*입니다.

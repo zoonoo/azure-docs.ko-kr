@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: terrylan
-ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117802"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404810"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -85,7 +85,7 @@ PaaS 배포와 기존 온-프레미스 배포 간의 또 다른 중요한 차이
 ID 경계 관리를 위한 모범 사례는 다음과 같습니다.
 
 **모범 사례**: 키와 자격 증명을 안전하게 보관하여 PaaS 배포를 보호합니다.   
-**세부 정보**: 키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. 이러한 문제를 방지하기 위해 하드웨어 보안 모듈에 키와 비밀을 저장할 수 있는 중앙 집중식 솔루션을 사용할 수 있습니다. Azure에서는 [Azure Key Vault](../key-vault/key-vault-whatis.md)를 사용하여 HSM을 클라우드에 제공하고 있습니다.
+**세부 정보**: 키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. 키 및 비밀을 Hsm (하드웨어 보안 모듈)에 저장할 수 있습니다는 중앙 집중식된 솔루션을 사용할 수 있습니다. [Azure Key Vault](../key-vault/key-vault-whatis.md) 인증 키, 저장소 계정 키, 데이터 암호화 키, pfx 파일 및 Hsm으로 보호 되는 키를 사용 하 여 암호를 암호화 하 여 키와 비밀을 보호 합니다.
 
 **모범 사례**: 소스 코드 또는 GitHub에 자격 증명 및 기타 비밀을 포함하지 않습니다.   
 **세부 정보**: 키 및 자격 증명을 분실하는 것보다 더 위험한 상황은 권한이 없는 사람이 해당 정보에 액세스하는 것뿐입니다. 공격자는 봇 기술을 이용하여 GitHub와 같은 코드 리포지토리에 저장된 키와 비밀을 찾을 수 있습니다. 따라서 공용 코드 리포지토리에 키와 비밀 정보를 보관해서는 안 됩니다.
@@ -153,7 +153,7 @@ App Service 사용 시의 모범 사례는 다음과 같습니다.
 
 [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights)를 사용하여 클라우드 또는 온-프레미스에서 호스트되는 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다. Application Insights를 사용하면 사용자가 보고할 때까지 기다리지 않고 애플리케이션의 오류를 빠르게 식별하고 진단할 수 있습니다. 수집한 정보를 사용하여, 애플리케이션의 유지 관리 및 개선에 대해 현명한 결정을 내릴 수 있습니다.
 
-Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 광범위한 도구가 있습니다. Application Insights는 공용 저장소에 데이터를 저장합니다. Log Analytics 쿼리 언어를 사용하여 경고, 대시보드 및 심층 분석과 같은 공유된 기능을 활용할 수 있습니다.
+Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 광범위한 도구가 있습니다. Application Insights는 공용 저장소에 데이터를 저장합니다. 경고, 대시보드 및 Kusto 쿼리 언어를 사용 하 여 심층 분석과 같은 공유 기능을 활용을 걸릴 수 있습니다.
 
 
 

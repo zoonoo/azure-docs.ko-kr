@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 19e340609e80998037938bdad59e9e6e74894bad
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 00a6e518dd6ffa8ea5a38e8433da02e0b88fce20
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098309"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010721"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>연결된 팩터리 솔루션 가속기 연습
 
@@ -229,7 +229,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 
 다음 문서를 참조하여 IoT 솔루션 가속기 시작 작업을 계속할 수 있습니다.
 
-* [azureiotsuite.com 사이트에 대한 사용 권한][lnk-permissions]
+* [Azureiotsolutions.com 사이트에 대 한 권한][lnk-permissions]
 * [연결된 팩터리 솔루션 가속기를 위해 Windows 또는 Linux에 게이트웨이 배포](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC 게시자 참조 구현](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 

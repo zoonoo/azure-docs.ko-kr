@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: snehaa
-ms.openlocfilehash: c0fc4fa0bdd58b8ecdf4f26051d60324118c4b21
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 74dabc49dd3d0e38f43dc758204c35ea1c0efd99
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896587"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438485"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 VM 마이그레이션의 크기 조정
 
@@ -30,8 +30,8 @@ ms.locfileid: "55896587"
 - Site Recovery 자격 증명 모음이 Azure 구독에 생성되었는지 확인
 - 구성 서버 및 프로세스 서버가 원본 환경에 설치되었으며 자격 증명 모음이 환경을 검색할 수 있는지 확인
 - 복제 정책이 생성되어 구성 서버와 연결되었는지 확인
-- VM 관리자 계정을 구성 서버에 추가했는지 확인(이 계정은 온-프레미스 VM을 복제하는 데 사용됨)
-- Azure의 대상 아티팩트가 생성되었는지 확인
+- 구성 서버 (온-프레미스 Vm을 복제 하는 데 사용할)에 VM의 관리자 계정 추가 확인
+- Azure의 대상 아티팩트 만들어졌는지 확인
     - 대상 리소스 그룹
     - 대상 스토리지 계정(및 해당 리소스 그룹)
     - 장애 조치(failover)를 위한 대상 가상 네트워크(및 해당 리소스 그룹)
@@ -59,7 +59,7 @@ CSV가 준비되면 다음 단계를 실행하여 온-프레미스 VM을 마이�
 4 | asr_propertiescheck.ps1 | 속성이 제대로 업데이트되었는지 확인합니다.
 5 | asr_testmigration.ps1 |  csv에 나열된 VM의 테스트 장애 조치(failover)를 시작합니다. 이 스크립트는 각 VM에 대한 작업 정보가 포함된 CSV 출력을 만듭니다.
 6 | asr_cleanuptestmigration.ps1 | 테스트 장애 조치(failover)된 VM의 유효성을 수동으로 검사한 후 이 스크립트를 사용하여 테스트 장애 조치(failover) VM을 정리할 수 있습니다.
-7 | asr_migration.ps1 | csv에 나열된 VM에 대해 계획되지 않은 장애 조치(failover)를 수행합니다. 이 스크립트는 각 VM에 대한 작업 정보가 포함된 CSV 출력을 만듭니다. 스크립트는 장애 조치(failover)를 트리거하기 전에 온-프레미스 VM을 종료하지 않습니다. 애플리케이션 일관성을 위해 스크립트를 실행하기 전에 VM을 수동으로 종료하는 것이 좋습니다.
+7 | asr_migration.ps1 | csv에 나열된 VM에 대해 계획되지 않은 장애 조치(failover)를 수행합니다. 이 스크립트는 각 VM에 대한 작업 정보가 포함된 CSV 출력을 만듭니다. 스크립트 종료 되지 않으면 온-프레미스 Vm 응용 프로그램 일관성을 위해 장애 조치를 트리거하기 전에 것 수동으로 종료 하는 Vm이 스크립트를 실행 하기 전에 합니다.
 8 | asr_completemigration.ps1 | VM에 대한 커밋 작업을 수행하고 ASR 엔터티를 삭제합니다.
 9 | asr_postmigration.ps1 | 장애 조치(failover) 후 NIC에 네트워크 보안 그룹을 할당하려는 경우 이 스크립트를 사용하면 됩니다. 대상 VM의 NIC 중 하나에 NSG를 할당합니다.
 

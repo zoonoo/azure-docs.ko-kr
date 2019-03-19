@@ -5,24 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352141"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217294"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 저장소 계정으로 업그레이드
 
 범용 v2 스토리지 계정은 최신 Azure Storage 기능을 지원하고 모든 범용 v1의 기능 및 Blob Storage 계정을 통합합니다. 범용 v2 계정은 대부분의 저장소 시나리오에 권장됩니다. 범용 v2 계정은 업계 경쟁력 있는 트랜잭션 가격 뿐만 아니라 Azure Storage에 대해서도 가장 낮은 기가바이트당 용량 가격을 제공합니다.
 
-범용 v1 또는 Blob Storage 계정에서 범용 v2 스토리지 계정으로 간단히 업그레이드할 수 있습니다. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 업그레이드할 수 있습니다. 
+범용 v1 또는 Blob Storage 계정에서 범용 v2 스토리지 계정으로 간단히 업그레이드할 수 있습니다. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 업그레이드할 수 있습니다.
 
-> [!NOTE]
-> 스토리지 계정은 범용 v2 계정으로 무료 업그레이드할 수 있습니다.
-> 스토리지 액세스 계층을 변경하면 청구되는 대금이 변경될 수 있습니다. 자세한 내용은 [가격 책정 및 대금 청구](#pricing-and-billing)를 참조하세요.
+> [!IMPORTANT]
+> V1 저장소 계정을 범용 v2로 업그레이드는 영구적 이며 취소할 수 없습니다.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Azure Portal을 사용하여 업그레이드
 
@@ -68,9 +67,11 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 두 경우에 첫 번째 우선 순위는 범용 v2 저장소 계정에 저장된 데이터를 저장, 액세스 및 운영하는 비용을 산정하고 현재 비용과 비교하는 것입니다.
 
-
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
-모든 저장소 계정에서는 각 Blob의 계층에 따라 Blob Storage에 가격 책정 모델을 사용합니다. 저장소 계정을 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
+
+V1 저장소 계정을 범용 v2 계정으로 업그레이드 하는 것은 무료입니다. 그러나 저장소 액세스 계층을 변경 변경 될 수 있습니다 청구서에 있습니다. 
+
+모든 스토리지 계정에서는 각 Blob의 계층에 따라 Blob Storage에 가격 책정 모델을 사용합니다. 저장소 계정을 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
 
 * **스토리지 비용**: 데이터 저장 비용은 저장되는 데이터의 양과 스토리지 액세스 계층에 따라 달라집니다. 계층이 차가워질수록 기가바이트당 비용이 감소합니다.
 

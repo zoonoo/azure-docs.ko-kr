@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 095aff293b23f4589dce9f71890b5e9bfd8636d4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4091b20e97ca76629260a7420beecb77412b0d39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201859"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>자습서: Shmoop For Schools와 Azure Active Directory 통합
 
@@ -47,7 +47,7 @@ Shmoop For Schools와 Azure AD 통합을 구성하려면 다음 항목이 필요
 
 이 자습서의 단계를 테스트하려면 다음을 수행하는 것이 좋습니다.
 
-- 필요한 경우에만 프로덕션 환경을 사용합니다.
+- 필요한 경우에 프로덕션 환경을 사용 합니다.
 - Azure AD 평가판 환경이 없는 경우 [1개월 평가판](https://azure.microsoft.com/pricing/free-trial/)을 확보합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -131,7 +131,7 @@ Shmoop For Schools에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
     a. **특성 추가** 대화 상자를 열려면 **특성 추가**를 선택합니다.
     
-    ![Single Sign-On 구성 ](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
+    ![Single Sign-On 구성](./media/shmoopforschools-tutorial/tutorial_attribute_04.png)
     
     ![Single Sign-On 구성](./media/shmoopforschools-tutorial/tutorial_attribute_05.png)
     

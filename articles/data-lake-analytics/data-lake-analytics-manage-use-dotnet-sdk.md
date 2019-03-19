@@ -1,6 +1,6 @@
 ---
 title: Azure .NET SDK를 사용하여 Azure Data Lake Analytics 관리
-description: 이 문서에서는 Azure .Net SDK를 사용하여 Data Lake Analytics 작업, 데이터 원본 및 사용자를 관리하는 앱을 작성하는 방법을 설명합니다.
+description: 이 문서에서는 Azure.NET SDK를 사용 하 여 Data Lake Analytics 작업, 데이터 원본 및 사용자를 관리 하는 앱을 작성 하는 방법을 설명 합니다.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,12 +9,12 @@ ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: e1e4628a1c777ecc54fdf9a26b334a10b7ab8cb3
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 3827c9e0b3e51a7a179a7db7fac0152d799a63f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835818"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Azure Data Lake Analytics .NET 앱 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -56,7 +56,7 @@ string rg == "<value>"; // Resource  group name
 string clientid = "1950a258-227b-4e31-a9cf-717495945fc2"; // Sample client ID (this will work, but you should pick your own)
 ```
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 Azure Data Lake Analytics에 로그온하는 옵션은 여러 가지가 있습니다. 다음 코드 조각은 팝업을 사용한 대화형 사용자 인증의 인증 예를 보여 줍니다.
 

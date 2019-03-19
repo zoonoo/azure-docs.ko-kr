@@ -1,6 +1,6 @@
 ---
 title: Event Hubs로 Azure 모니터링 데이터 스트리밍
-description: 모든 Azure 모니터링 데이터를 이벤트 허브에 스트리밍하여 파트너 SIEM 또는 분석 도구로 데이터를 가져오는 방법을 알아봅니다.
+description: 데이터를 파트너 SIEM 또는 분석 도구로 가져올 이벤트 허브로 Azure 모니터링 데이터를 스트림 하는 방법에 알아봅니다.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468236"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870689"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
-Azure Monitor는 Azure 환경의 모든 모니터링 데이터에 액세스할 수 있는 단일 파이프라인을 제공하므로 파트너 SIEM 및 모니터링 도구를 쉽게 설정하여 해당 데이터를 사용할 수 있습니다. 이 문서에서는 외부 도구에서 수집할 수 있는 단일 Event Hubs 네임스페이스 또는 이벤트 허브로 보내기 위해 Azure 환경에서 여러 계층의 데이터를 설정하는 과정을 안내합니다.
+이 문서에서는 외부 도구에서 수집할 수 있는 단일 Event Hubs 네임스페이스 또는 이벤트 허브로 보내기 위해 Azure 환경에서 여러 계층의 데이터를 설정하는 과정을 안내합니다.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -33,7 +33,7 @@ Azure 환경에서 모니터링 데이터에는 여러 '계층'이 있으며, �
 - **Azure 구독 모니터링 데이터:** Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. [활동 로그](./../../azure-monitor/platform/activity-logs-overview.md)에는 서비스 상태 문제 및 Azure Resource Manager 감사 등, 대부분의 구독 모니터링 데이터를 포함합니다. 로그 프로필을 사용하여 이 데이터를 수집할 수 있습니다.
 - **Azure 테넌트 모니터링 데이터:** Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다. Azure Active Directory 감사 및 로그인은 테넌트 모니터링 데이터의 예입니다. 이 데이터는 테넌트 진단 설정을 사용하여 수집할 수 있습니다.
 
-모든 계층의 데이터는 이벤트 허브로 보낼 수 있으며, 그런 다음 이 이벤트 허브에서 파트너 도구로 끌어올 수 있습니다. 다음 섹션에서는 각 계층의 데이터를 이벤트 허브로 스트리밍하도록 구성하는 방법에 대해 설명합니다. 이러한 단계에서는 모니터링할 자산이 해당 계층에 이미 있다고 가정합니다.
+모든 계층의 데이터는 이벤트 허브로 보낼 수 있으며, 그런 다음 이 이벤트 허브에서 파트너 도구로 끌어올 수 있습니다. 일부 소스는 논리 앱을 필수 데이터를 검색 하는 데 필요한 수와 같은 다른 처리 하는 동안 데이터를 이벤트 허브로 직접 보내도록 구성할 수 있습니다. 다음 섹션에서는 각 계층의 데이터를 이벤트 허브로 스트리밍하도록 구성하는 방법에 대해 설명합니다. 이러한 단계에서는 모니터링할 자산이 해당 계층에 이미 있다고 가정합니다.
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 설정
 

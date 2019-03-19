@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 801f6dddfb3aaea850d76c80d43de93181c3d41c
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913481"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532332"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
@@ -94,14 +94,14 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 서버를 지역 복원하려면 Azure CLI 명령 프롬프트에서 다음 명령을 입력합니다.
 
 ```azurecli-interactive
-az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-이 명령은 *myresourcegroup*에 속하는 미국 동부에 *mydemoserver-georestored*라는 새 서버를 만듭니다. 이 서버는 vCore가 8개인 범용 4세대 서버입니다. 서버가 *mydemoserver*의 지역 중복 백업에서 생성되며 이는 리소스 그룹 *myresourcegroup*에도 있습니다.
+이 명령은 *myresourcegroup*에 속하는 미국 동부에 *mydemoserver-georestored*라는 새 서버를 만듭니다. 이 서버는 vCore가 8개인 범용 5세대 서버입니다. 서버가 *mydemoserver*의 지역 중복 백업에서 생성되며 이는 리소스 그룹 *myresourcegroup*에도 있습니다.
 
 기존 서버에서 다른 리소스 그룹에 새 서버를 만들려는 경우 `--source-server` 매개 변수에서 다음 예제에서와 같이 서버 이름을 한정합니다.
 
 ```azurecli-interactive
-az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
 
 ```
 
@@ -113,7 +113,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 |이름 | mydemoserver-georestored | 새 서버의 이름입니다. |
 |source-server | mydemoserver | 해당 지역 중복 백업이 사용되는 기존 서버의 이름입니다. |
 |location | eastus | 새 서버의 위치입니다. |
-|sku-name| GP_Gen4_8 | 이 매개 변수는 가격 책정 계층, 계산 생성 및 새 서버의 vCore 수를 설정합니다. GP_Gen4_8은 vCore가 8개인 범용 4세대 서버로 매핑합니다.|
+|sku-name| GP_Gen5_8 | 이 매개 변수는 가격 책정 계층, 계산 생성 및 새 서버의 vCore 수를 설정합니다. GP_Gen5_8은 vCore가 8개인 범용 5세대 서버로 매핑합니다.|
 
 
 >[!Important]

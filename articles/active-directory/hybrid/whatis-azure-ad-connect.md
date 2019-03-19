@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d364421794452f8ccf95a60ec86a161934c87528
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a29a00c34d4c60e6ba2b4fd6b0b413873301af5c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167986"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888375"
 ---
 # <a name="what-is-azure-ad-connect"></a>Azure AD Connect란?
 
@@ -57,7 +57,7 @@ AD FS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012,
 
 |주요 이점|모범 사례|
 |-----|-----|
-|향상된 보안|[엑스트라넷 잠금 추세](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[실패한 로그인 보고서](how-to-connect-health-adfs.md#risky-ip-report-public-preview)</br>[개인 정보 보호 준수](reference-connect-health-user-privacy.md)|
+|향상된 보안|[엑스트라넷 잠금 추세](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[실패한 로그인 보고서](how-to-connect-health-adfs-risky-ip.md)</br>[개인 정보 보호 준수](reference-connect-health-user-privacy.md)|
 |[모든 심각한 ADFS 시스템 문제](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)에 대한 알림 받기|서버 구성 및 가용성</br>[성능 및 연결](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>정기적인 유지 관리|
 |쉬운 배포 및 관리|[빠른 에이전트 설치](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>최신 에이전트 자동 업그레이드</br>몇 분 안에 포털에서 사용 가능한 데이터|
 다양한 [사용량 메트릭](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|상위 애플리케이션 사용량</br>네트워크 위치 및 TCP 연결</br>서버당 토큰 요청|
