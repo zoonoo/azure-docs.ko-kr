@@ -2,16 +2,17 @@
 title: 렌더링 애플리케이션 사용 - Azure Batch
 description: Azure Batch를 렌더링 애플리케이션에 사용하는 방법
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4c7fdbfcc34cdb6e10177d50bea707f1fa5f223e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534771"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789593"
 ---
 # <a name="rendering-applications"></a>렌더링 애플리케이션
 
@@ -58,7 +59,7 @@ Maya에 내장된 렌더러 외에도 렌더링 VM 이미지에 다음 렌더러
 
 ### <a name="task-command-line"></a>Task 명령줄
 
-`renderer.exe` 명령줄 렌더러는 task 명령줄에서 사용됩니다. 명령줄 렌더러는 [Maya 도움말](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4)에서 설명합니다.
+`renderer.exe` 명령줄 렌더러는 task 명령줄에서 사용됩니다. 명령줄 렌더러는 [Maya 도움말](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4)에서 설명합니다.
 
 다음 예제에서는 작업 준비 태스크를 사용하여 장면 파일과 자산을 작업 준비 작업 디렉터리에 복사하고, 출력 폴더를 사용하여 렌더링 이미지를 저장하며, 프레임 10을 렌더링합니다.
 

@@ -4,16 +4,16 @@ description: macOS를 사용하여 SMB를 통해 Azure 파일 공유를 탑재�
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 86224b90f7a93eae41c127d4ba87f685f895e15a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 198e9102561af9ebec7a337a7b5e01f59453c8be
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820405"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760736"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>macOS에서 SMB를 통해 Azure 파일 공유 탑재
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 macOS El Capitan 10.11+의 산업 표준 SMB 3 프로토콜을 사용하여 탑재할 수 있습니다. 이 문서에서는 두 가지 방법, 즉 찾기(Finder) UI 및 터미널을 사용하여 macOS에 Azure 파일 공유를 탑재합니다.

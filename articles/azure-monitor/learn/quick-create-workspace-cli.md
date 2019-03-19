@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 18cb4aae9470766b75c3c6519473660ac24ad4f0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4be33b809ee2e620a565c9907a5b77833a279567
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848816"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Azure CLI 2.0으로 Log Analytics 작업 영역 만들기
 
@@ -43,6 +43,8 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)를 사용하여 작업 영역을 만듭니다. 다음 예제에서는 로컬 머신의 Resource Manager 템플릿을 사용하여 *eastus* 위치의 리소스 그룹 *Lab*에 *TestWorkspace*라는 작업 영역을 생성합니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 또는 조직에서 공유 액세스에 대한 Azure 저장소 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿과 Azure CLI를 사용하여 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md)를 참조하세요.
+
+지원 되는 지역에 대 한 정보를 참조 하세요 [Log Analytics에서 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/) 및 Azure Monitor에서 검색 합니다 **제품에 대 한 검색** 필드. 
 
 다음 매개 변수는 기본값을 설정합니다.
 
@@ -96,7 +98,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -111,12 +113,12 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
     }
     ```
 
-2. 요구 사항을 충족하도록 템플릿을 편집합니다.  지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) 참조를 검토하세요. 
+2. 요구 사항을 충족하도록 템플릿을 편집합니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) 참조를 검토하세요. 
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json**으로 저장합니다.   
 4. 이제 이 템플릿을 배포할 수 있습니다. 템플릿이 포함된 폴더에서 다음 명령을 사용합니다.
 
     ```azurecli
-    azure group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
+    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사하게 결과가 포함된 메시지가 표시됩니다.

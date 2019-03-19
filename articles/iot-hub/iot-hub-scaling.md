@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 30b83613637d97bfe265c4f5a9c911d14da50c4f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 0d40bfa3a4215b671fcd01402a2cbceaea0cd75d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810910"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536286"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 
@@ -33,7 +33,7 @@ IoT Hub의 표준 계층은 모든 기능을 활성화하고 양방향 통신 �
 
 계층 내에서 한 가지 형식의 [버전](https://azure.microsoft.com/pricing/details/iot-hub/)만 IoT Hub에 선택할 수 있습니다. 예를 들어 S1 및 B3 또는 S1 및 S2와 같은 서로 다른 버전의 단위 혼합이 아닌 여러 단위의 S1을 사용하여 IoT Hub를 만들 수 있습니다.
 
-| 기능 | 기본 계층 | 표준 계층 |
+| 기능 | 기본 계층 | 사용 가능한 표준 계층 |
 | ---------- | ---------- | ------------- |
 | [디바이스-클라우드 원격 분석](iot-hub-devguide-messaging.md) | 예 | 예 |
 | [장치당 ID](iot-hub-devguide-identity-registry.md) | 예 | 예 |
@@ -53,7 +53,7 @@ IoT Hub는 또한 테스트와 평가를 위한 무료 계층을 제공합니다
 
 Azure IoT Hub에는 [파티션](../event-hubs/event-hubs-features.md#partitions)을 비롯한 [Azure Event Hubs](../event-hubs/event-hubs-features.md)의 많은 핵심 구성 요소가 포함됩니다. IoT Hub의 이벤트 스트림은 일반적으로 다양한 IoT 디바이스에서 보고되는 들어오는 원격 분석 데이터로 채워집니다. 이벤트 스트림의 분할을 통해 동시에 이벤트 스트림을 읽고 작성할 때 발생하는 경합을 줄일 수 없습니다. 
 
-IoT Hub를 만들 때 파티션 제한을 선택하고 변경할 수 없습니다. 기본 계층 IoT Hub의 경우 최대 파티션 제한은 8개이고 표준 계층의 경우 최대 32개입니다. 대부분의 IoT Hub는 4개의 파티션만 필요합니다. 파티션을 결정하는 방법에 대한 자세한 내용은 Event Hubs FAQ. [얼마나 많은 파티션이 필요한가요?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)를 참조하세요.
+IoT Hub를 만들 때 파티션 제한을 선택하고 변경할 수 없습니다. 기본 계층 IoT Hub 및 IoT Hub 표준 계층에 대 한 최대 파티션 제한은 32입니다. 대부분의 IoT Hub는 4개의 파티션만 필요합니다. 파티션을 결정하는 방법에 대한 자세한 내용은 Event Hubs FAQ. [얼마나 많은 파티션이 필요한가요?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)를 참조하세요.
 
 
 ## <a name="tier-upgrade"></a>계층 업그레이드
@@ -67,7 +67,7 @@ IoT 허브를 만들면 기존 작업을 중단하지 않고 기본 계층에서
 
 IoT Hub의 기본 및 표준 계층 간의 지원되는 기능 차이는 일부 API 호출이 기본 계층 허브와 작동하지 않는 것을 의미합니다. 다음 표는 사용 가능한 API를 보여줍니다. 
 
-| API | 기본 계층 | 표준 계층 |
+| API | 기본 계층 | 사용 가능한 표준 계층 |
 | --- | ---------- | ------------- |
 | [디바이스 삭제](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | 예 | 예 |
 | [디바이스 가져오기](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | 예 | 예 |

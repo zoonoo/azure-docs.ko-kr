@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 69dc9c974c259f51ac0c6c9d64bfcda7ee65e181
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: a839a4cad824a74bde388317cf3aaddf9c5bd47f
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844588"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588757"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Service Bus 트랜잭션 처리의 개요
 
-이 문서에서는 Microsoft Azure Service Bus의 트랜잭션 기능을 설명합니다. 논의의 대부분은 [Service Bus와의 원자적 트랜잭선 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)에서 다루고 있습니다. 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
+이 문서에서는 Microsoft Azure Service Bus의 트랜잭션 기능을 설명합니다. 대부분의 토론에 나온은 [Service Bus 샘플을 사용 하 여 AMQP 트랜잭션을](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)합니다. 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
 
 ## <a name="transactions-in-service-bus"></a>Service Bus의 트랜잭션
 
-[*트랜잭션*](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions#what-are-transactions)은 두 개 이상의 작업을 *실행 범위*로 그룹화합니다. 기본적으로 이러한 트랜잭션은 지정된 작업 그룹에 속한 모든 작업이 성공 또는 실패해야 합니다. 이러한 점에서 트랜잭션은 하나의 단위(또는 *원자성*이라고 함)로 작용합니다. 
+*트랜잭션*은 두 개 이상의 작업을 *실행 범위*로 그룹화합니다. 기본적으로 이러한 트랜잭션은 지정된 작업 그룹에 속한 모든 작업이 성공 또는 실패해야 합니다. 이러한 점에서 트랜잭션은 하나의 단위(또는 *원자성*이라고 함)로 작용합니다.
 
 Service Bus는 트랜잭션 메시지 broker이며 메시지 저장소에 대한 모든 내부 작업의 트랜잭션 무결성을 보장합니다. 엔터티 간 메시지의 [원자성 전달](service-bus-auto-forwarding.md) 또는 [배달 못한 편지 큐](service-bus-dead-letter-queues.md)로 메시지 이동과 같이 Service Bus 내 메시지의 모든 전송은 트랜잭션입니다. 따라서 Service Bus에서 메시지를 수락할 경우 이미 저장되어 시퀀스 번호가 레이블로 지정되었습니다. 이후로 Service Bus 내 메시지 전송은 엔터티 전반에서 조정된 작업으로 손실(원본 성공 및 대상 실패) 또는 메시지의 중복(원본 실패 및 대상 성공)이 발생하지 않습니다.
 
@@ -55,26 +55,47 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 예: 
 
 ```csharp
-var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
-var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
+var connection = new ServiceBusConnection(connectionString);
+
+var sender = new MessageSender(connection, QueueName);
+var receiver = new MessageReceiver(connection, QueueName);
 ```
 
-다음 예와 같이 간단한 트랜잭션이 이러한 요소를 사용합니다.
+간단한 트랜잭션이 이러한 요소를 다음 예제와 같이 사용합니다. 전체 예제를 참조 하려면 참조는 [GitHub에서 코드를 소스](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia):
 
 ```csharp
-var msg = receiver.Receive();
+var receivedMessage = await receiver.ReceiveAsync();
 
-using (scope = new TransactionScope())
+using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 {
-    // Do whatever work is required 
+    try
+    {
+        // do some processing
+        if (receivedMessage != null)
+            await receiver.CompleteAsync(receivedMessage.SystemProperties.LockToken);
 
-    var newmsg = ... // package the result 
+        var myMsgBody = new MyMessage
+        {
+            Name = "Some name",
+            Address = "Some street address",
+            ZipCode = "Some zip code"
+        };
 
-    msg.Complete(); // mark the message as done
-    sender.Send(newmsg); // forward the result
+        // send message
+        var message = myMsgBody.AsMessage();
+        await sender.SendAsync(message).ConfigureAwait(false);
+        Console.WriteLine("Message has been sent");
 
-    scope.Complete(); // declare the transaction done
-} 
+        // complete the transaction
+        ts.Complete();
+    }
+    catch (Exception ex)
+    {
+        // This rolls back send and complete in case an exception happens
+        ts.Dispose();
+        Console.WriteLine(ex.ToString());
+    }
+}
 ```
 
 ## <a name="next-steps"></a>다음 단계
