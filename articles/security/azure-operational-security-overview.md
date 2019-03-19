@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: da58737314012255f26d344f279d855244f0c1ba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116476"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241088"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -29,13 +29,13 @@ ms.locfileid: "56116476"
 
 IT 운영 팀은 이러한 시스템의 안정성과 보안을 포함하여 데이터 센터 인프라, 애플리케이션 및 데이터를 관리하는 역할을 담당합니다. 그러나 점점 더 복잡해지는 IT 환경에서 보안 정보를 얻으려면 조직에서 여러 보안 및 관리 시스템의 데이터를 급하게 맞추어야 합니다.
 
-[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 클라우드 기반 IT 관리 솔루션입니다. 핵심 기능은 Azure에서 실행되는 다음 서비스를 통해 제공됩니다. Azure는 온-프레미스 및 클라우드 인프라를 관리하고 보호하는 여러 서비스를 제공합니다. 각 서비스는 특정 관리 기능을 제공합니다. 이러한 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다. 
+[Microsoft Azure Monitor 로그](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 는 보호할 온-프레미스 및 클라우드 인프라 및 관리 하도록 도와주는 클라우드 기반 IT 관리 솔루션입니다. 핵심 기능은 Azure에서 실행되는 다음 서비스를 통해 제공됩니다. Azure는 온-프레미스 및 클라우드 인프라를 관리하고 보호하는 여러 서비스를 제공합니다. 각 서비스는 특정 관리 기능을 제공합니다. 이러한 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)는 관리되는 원본에서 중앙 데이터 저장소로 데이터를 수집합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 데이터를 수집한 후에는 경고, 분석 및 내보내기에 사용할 수 있습니다. 
 
-다양한 원본의 데이터를 통합하고 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 Log Analytics는 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.
+다양한 원본의 데이터를 통합하고 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. Azure Monitor 로그도 명확 하 게 구분 데이터의 컬렉션 해당 데이터에 대해 수행 하는 작업에서 모든 작업은 모든 종류의 데이터를 사용할 수 있도록 합니다.
 
 ### <a name="automation"></a>Automation
 
@@ -93,7 +93,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 >[!Note]
 >Security Center의 역할 및 허용된 작업에 대해 알아보려면 [Azure Security Center의 권한](https://docs.microsoft.com/azure/security-center/security-center-permissions)을 참조하세요.
 
-Security Center에서는 Microsoft Monitoring Agent를 사용하며, Log Analytics 서비스에서 사용하는 것과 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) 중 하나에 저장됩니다.
+Security Center에서는 Microsoft Monitoring Agent를 사용하며, 이 Azure Monitor 서비스를 사용 하는 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) 중 하나에 저장됩니다.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 

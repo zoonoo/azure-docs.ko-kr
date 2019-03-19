@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25711bd09adf17fa82f9177f4badad723e590b12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6c8cd7a2cfc96af791e4b07ae4c6d35b645acba0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>자습서: iQualify LMS와 Azure Active Directory 통합
 
@@ -112,12 +112,14 @@ iQualify LMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     ![iQualify LMS 도메인 및 URL Single Sign-On 정보](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다. 
+
     | |
     |--|--|
     | 프로덕션 환경: `https://<yourorg>.iqualify.com/`|
     | 테스트 환경: `https://<yourorg>.iqualify.io`|
     
     b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다. 
+
     | |
     |--|--|
     | 프로덕션 환경: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
@@ -128,6 +130,7 @@ iQualify LMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     ![iQualify LMS 도메인 및 URL Single Sign-On 정보](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
 
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다.
+    
     | |
     |--|--|
     | 프로덕션 환경: `https://<yourorg>.iqualify.com/login` |

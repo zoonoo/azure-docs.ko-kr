@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cb0822380fd375c111f8acb8b28132727a7c048
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8ee74c5caed04d2626fea27d3419d0b0d685d675
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188310"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840344"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>자습서: Insignia SAML SSO와 Azure Active Directory 통합
 
@@ -112,6 +112,7 @@ Insignia SAML SSO에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     ![Insignia SAML SSO 도메인 및 URL Single Sign-On 정보](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_url.png)
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다.
+    
     | |
     |--|
     | `https://<customername>.insigniails.com/ils` |

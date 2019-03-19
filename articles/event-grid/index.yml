@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5134722ab2467d7bb63d76bd83c263457ec8284a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 53f9fbdf06958189a40f78b1b8d68b8fb02b7133
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948122"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176755"
 documentType: LandingData
 title: Azure Event Grid 설명서
 metadata:
@@ -84,8 +84,8 @@ sections:
     className: cardsD
     items:
     - title: 명령줄
-      html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
+      html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/az.eventgrid">PowerShell</a></p>
     - title: REST API
-      html: <p><a href="/rest/api/eventgrid">REST</a></p>
+      html: <p><a href="/rest/api/eventgrid">REST (영문)</a></p>
     - title: 스키마
       html: <p><a href="/azure/event-grid/subscription-creation-schema ">구독 스키마</a></p><p><a href="/azure/event-grid/event-schema">이벤트 스키마</a></p>

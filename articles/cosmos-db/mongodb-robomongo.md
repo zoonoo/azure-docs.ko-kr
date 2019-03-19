@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5696c376ad64df01d7f9d43ff59c87402c334c52
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: ab066fef4bffe35408fdc5f3ad6d66796b4d0818
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034814"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443973"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB용 API에서 Robo 3T 사용
 
@@ -33,7 +33,7 @@ Cosmos 계정을 Robo 3T 연결 관리자에 추가하려면 다음 단계를 �
 
 4. **연결 설정** 창에서 이름을 선택합니다. 그런 다음 1단계의 연결 정보에서 **호스트** 및 **포트**를 찾아 **주소** 및 **포트**에 각각 입력합니다.
 
-    ![Robomongo 연결 관리의 스크린샷](./media/mongodb-robomongo/manageconnections.png)
+    ![스크린샷은 Robomongo 연결 관리](./media/mongodb-robomongo/manageconnections.png)
 5. **인증** 탭에서 **인증 수행**을 클릭합니다. 그런 다음 데이터베이스(기본값은 *관리자*), **사용자 이름** 및 **암호**를 입력합니다.
 **사용자 이름** 및 **암호**는 모두 1단계의 연결 정보에서 찾을 수 있습니다.
 

@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817753"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551979"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP + Swagger 커넥터를 사용하여 REST 엔드포인트 호출
 
@@ -60,7 +60,7 @@ Azure Storage에서 Swagger를 생성, 구성 및 저장하는 단계는 다음�
 
 3. Blob에 Swagger 파일을 업로드합니다. 
 
-   [Azure Portal](https://portal.azure.com) 또는 [Azure Storage 탐색기](http://storageexplorer.com/)와 같은 도구에서 이 단계를 수행할 수 있습니다.
+   [Azure Portal](https://portal.azure.com) 또는 [Azure Storage 탐색기](https://storageexplorer.com/)와 같은 도구에서 이 단계를 수행할 수 있습니다.
 
 4. Azure Blob Storage의 문서에 대한 HTTPS 링크를 참조합니다. 
 
@@ -98,7 +98,7 @@ Swagger 메타데이터를 지원하는 HTTP 아웃바운드 요청을 만듭니
 | URI* |uri |HTTP 요청에 대한 URI |
 | 헤더 |headers |포함할 HTTP 헤더의 JSON 개체 |
 | 본문 |본문 |HTTP 요청 본문 |
-| 인증 |인증 |요청에 사용할 인증 자세한 내용은 [HTTP 커넥터](connectors-native-http.md#authentication)를 참조하세요. |
+| Authentication |인증 |요청에 사용할 인증 자세한 내용은 [HTTP 커넥터](connectors-native-http.md#authentication)를 참조하세요. |
 
 **출력 세부 정보**
 
@@ -113,7 +113,7 @@ HTTP 응답
 ### <a name="http-responses"></a>HTTP 응답
 다양한 작업을 호출할 때 특정 응답이 발생할 수 있습니다. 다음 표에서는 해당 응답 및 설명을 대략적으로 요약해서 보여 줍니다.
 
-| Name | 설명 |
+| 이름 | 설명 |
 | --- | --- |
 | 200 |확인 |
 | 202 |수락됨 |

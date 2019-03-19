@@ -65,4 +65,4 @@
 ## [SQL Server 도구](https://docs.microsoft.com/sql/tools/overview-sql-tools)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
-## [스택 오버플로](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [스택 오버플로](https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)

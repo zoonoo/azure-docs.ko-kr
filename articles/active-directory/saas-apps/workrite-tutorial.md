@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d3b3702ca2daad002bde1b4e64bf9d43a03028d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb64debca10cf7be6e2e328a1f401f125b67d940
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180439"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447169"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>자습서: Workrite와 Azure Active Directory 통합
 
@@ -184,7 +184,7 @@ Workrite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 1. **사용자 만들기** 대화 상자에서 다음 단계를 수행합니다.
    
-    ![사용자 만들기 대화 상자][402]
+    ![사용자 대화 상자 만들기][402]
     
     a. **전자 메일** 텍스트 상자에서 Brittasimon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
 

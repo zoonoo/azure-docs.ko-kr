@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: c9f0707f6d24ba899c89bf19066994ae860a69d5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2aa32d75edbacdfff6428a6526d9898cb6732d6b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620990"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534738"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>일반적인 클라우드 서비스 시작 작업
 이 문서에서는 클라우드 서비스에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다. 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다. 
@@ -58,7 +58,7 @@ ms.locfileid: "39620990"
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>Appcmd.exe를 사용하여 IIS 시작을 구성합니다.
-[AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) 명령줄 도구는 Azure에서 시작 시 IIS 설정을 관리하는데 사용할 수 있습니다. *AppCmd.exe* 는 Azure에서 시작 작업에 사용하기 위한 구성 설정에 대한 편리한 명령줄 액세스를 제공합니다. *AppCmd.exe*를 사용하면 응용 프로그램 및 사이트에 대해 웹사이트 설정을 추가, 수정하거나 제거할 수 있습니다.
+[AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) 명령줄 도구는 Azure에서 시작 시 IIS 설정을 관리하는데 사용할 수 있습니다. *AppCmd.exe* 는 Azure에서 시작 작업에 사용하기 위한 구성 설정에 대한 편리한 명령줄 액세스를 제공합니다. *AppCmd.exe*를 사용하면 애플리케이션 및 사이트에 대해 웹사이트 설정을 추가, 수정하거나 제거할 수 있습니다.
 
 그러나 시작 작업으로 *AppCmd.exe* 사용에 대해 주의해야 할 사항이 몇 가지 있습니다.
 
@@ -125,7 +125,7 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>방화벽 규칙 추가
-Azure에는 사실상 두 개의 방화벽이 있습니다. 첫 번째 방화벽은 가상 컴퓨터와 외부 세계 간의 연결을 제어합니다. 이 방화벽은 [ServiceDefinition.csdef] 파일의 [끝점] 요소에 의해 제어됩니다.
+Azure에는 사실상 두 개의 방화벽이 있습니다. 첫 번째 방화벽은 가상 컴퓨터와 외부 세계 간의 연결을 제어합니다. 이 방화벽은 [ServiceDefinition.csdef] 파일의 [엔드포인트] 요소에 의해 제어됩니다.
 
 두 번째 방화벽은 가상 머신과 해당 가상 머신 내의 프로세스 간의 연결을 제어합니다. 이 방화벽은 `netsh advfirewall firewall` 명령줄 도구를 통해 제어할 수 있습니다.
 
@@ -186,7 +186,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 이 태스크를 통해 **startup.cmd** 배치 파일이 웹 역할이 초기화될 때마다 실행되어 필요한 **ipSecurity** 섹션이 잠금 해제되도록 합니다.
 
-마지막으로 웹 역할의 [web.config](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) 파일의 **system.webServer 섹션** 을 수정하여 다음 예와 같이 액세스 권한이 부여된 IP 주소의 목록을 추가합니다.
+마지막으로 웹 역할의 [web.config](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) 파일의 **system.webServer 섹션** 을 수정하여 다음 예와 같이 액세스 권한이 부여된 IP 주소의 목록을 추가합니다.
 
 이 샘플 구성은 모든 IP가 두 정의를 제외하고 서버에 액세스하도록 **허용** 합니다.
 
@@ -514,7 +514,7 @@ EXIT %ERRORLEVEL%
 [변수]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[끝점]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[엔드포인트]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

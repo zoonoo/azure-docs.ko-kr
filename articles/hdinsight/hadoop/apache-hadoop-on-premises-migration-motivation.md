@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 73a2f0754cafaa5da09ebd437ecd62813296ffd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000444"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890082"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
 
@@ -52,9 +52,9 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 
 - **생산성** - 원하는 개발 환경에서 다양한 Hadoop 및 Spark용 도구를 사용할 수 있습니다.
 
-- **사용자 지정 도구 또는 타사 응용 프로그램을 통해 확장성 제공** - HDInsight 클러스터는 설치된 구성 요소를 통해 확장 가능하며 Azure 마켓플레이스에서 [원클릭](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 배포를 사용하여 다른 빅 데이터 솔루션과 통합할 수도 있습니다.
+- **사용자 지정 도구 또는 타사 애플리케이션을 통해 확장성 제공** - HDInsight 클러스터는 설치된 구성 요소를 통해 확장 가능하며 Azure 마켓플레이스에서 [원클릭](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 배포를 사용하여 다른 빅 데이터 솔루션과 통합할 수도 있습니다.
 
-- **쉬운 관리 및 모니터링** - Azure HDInsight는  [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 와 통합하여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공합니다.
+- **간편한 관리, 관리 및 모니터링** -Azure HDInsight 통합 [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공 합니다.
 
 - **다른 Azure 서비스와 통합** - HDInsight는 다음과 같은 인기 Azure 서비스와 쉽게 통합할 수 있습니다.
 
@@ -103,7 +103,7 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 |마스터 노드 구성|m/y, cpu, 디스크 등|
 |데이터 노드 구성|m/y, cpu, 디스크 등|
 |에지 노드 구성|m/y, cpu, 디스크 등|
-|HDFS 암호화를 사용합니까?|yes|
+|HDFS 암호화를 사용합니까?|예|
 |고가용성|HDFS HA, Metastore HA|
 |재해 복구/백업|백업 클러스터 지원 여부|  
 |클러스터에 종속된 시스템|SQL Server, Teradata, Power BI, MongoDB|
@@ -169,8 +169,8 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 |---|---|---|
 |**질문**|**예제**|**대답**|
 | 기본 지역|미국 동부||
-|VNet이 기본 설정입니까?|yes||
-|HA/DR이 필요합니까?|yes||
+|VNet이 기본 설정입니까?|예||
+|HA/DR이 필요합니까?|예||
 |다른 클라우드 서비스와의 통합 여부|ADF, CosmosDB||
 |**항목**:   **데이터 이동**  |||
 |초기 로드 기본 설정|DistCp, Data box, ADF, WANDisco||
@@ -179,27 +179,27 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 |**항목**:   **모니터링 및 경고** |||
 |Azure와 타사의 모니터링 및 경고 사용 비교|Azure 모니터링 및 경고 사용||
 |**항목**:   **보안 기본 설정** |||
-|보호되는 비공개 데이터 파이프라인입니까?|yes||
-|도메인 가입 클러스터(ESP)입니까?|     yes||
-|온-프레미스 AD가 클라우드와 동기화됩니까?|     yes||
+|보호되는 비공개 데이터 파이프라인입니까?|예||
+|도메인 가입 클러스터(ESP)입니까?|     예||
+|온-프레미스 AD가 클라우드와 동기화됩니까?|     예||
 | 아니요. 동기화할 AD 사용자 수가 얼마입니까?|          100||
-|암호를 클라우드와 동기화해도 괜찮습니까?|    yes||
-|클라우드 전용 사용자입니까?|                 yes||
-|MFA가 필요합니까?|                       아니요|| 
-|데이터 권한 부여 요구 사항이 있습니까?|  yes||
-|역할 기반 액세스 제어를 사용합니까?|        yes||
-|감사가 필요합니까?|                  yes||
-|저장 데이터 암호화를 사용합니까?|          yes||
-|전송 중 데이터 암호화를 사용합니까?|       yes||
+|암호를 클라우드와 동기화해도 괜찮습니까?|    예||
+|클라우드 전용 사용자입니까?|                 예||
+|MFA가 필요합니까?|                       아닙니다.|| 
+|데이터 권한 부여 요구 사항이 있습니까?|  예||
+|역할 기반 액세스 제어를 사용합니까?|        예||
+|감사가 필요합니까?|                  예||
+|저장 데이터 암호화를 사용합니까?|          예||
+|전송 중 데이터 암호화를 사용합니까?|       예||
 |**항목**:   **재설계 기본 설정** |||
 |단일 클러스터 vs 특정 클러스터 형식|특정 클러스터 형식||
 |공동 배치된 저장소 Vs 원격 저장소|원격 저장소||
 |데이터로 더 작은 클러스터 크기는 원격으로 저장되나요?|더 작은 클러스터 크기||
 |하나의 큰 클러스터 대신 작은 클러스터 여러 개를 사용합니까?|작은 클러스터 여러 개 사용||
-|원격 metastore를 사용합니까?|yes||
-|서로 다른 클러스터 간에 metastore를 공유합니까?|yes||
+|원격 metastore를 사용합니까?|예||
+|서로 다른 클러스터 간에 metastore를 공유합니까?|예||
 |워크로드를 분해합니까?|Hive 작업을 Spark 작업으로 대체||
-|데이터 오케스트레이션에 ADF를 사용합니까?|아니요||
+|데이터 오케스트레이션에 ADF를 사용합니까?|아닙니다.||
 |IaaS에서 HDInsight 또는 Hortonworks 데이터 플랫폼을 사용합니까?|HDInsight||
 
 ## <a name="next-steps"></a>다음 단계

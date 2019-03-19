@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d1c48c10d2c58e5cb2ffd7df296390bfaf765bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b791a2c42bad636a779ead75e73b978fbc4b7bf9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206398"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>자습서: OfficeSpace Software와 Azure Active Directory 통합
 
@@ -133,7 +133,7 @@ OfficeSpace Software에서 Azure AD Single Sign-on을 구성하고 테스트하�
 
     a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
 
-    ![추가 구성 ](./media/officespace-tutorial/tutorial_attribute_04.png)
+    ![추가 구성](./media/officespace-tutorial/tutorial_attribute_04.png)
 
     ![특성 구성](./media/officespace-tutorial/tutorial_attribute_05.png)
     

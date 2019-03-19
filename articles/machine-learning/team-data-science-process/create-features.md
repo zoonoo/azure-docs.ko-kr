@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b7c10884682b6537bbfcbb1b1f8b89b38751d05b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 8b0973007a78b492cff1c5ffc2ce1e43116a0847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478052"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835087"
 ---
 # <a name="feature-engineering-in-data-science"></a>데이터 과학의 기능 엔지니어링
 이 문서에서는 기능 엔지니어링의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이 프로세스를 설명하는 데 사용된 예제는 Azure Machine Learning Studio에서 가져온 것입니다. 
@@ -46,7 +46,7 @@ ms.locfileid: "55478052"
 
 Azure Machine Learning을 시작할 때 스튜디오에 제공된 샘플을 사용하면 이 프로세스를 구체적으로 파악하기가 쉽습니다. 다음은 제공되는 두 가지 예입니다.
 
-* 대상 값이 알려진 감독된 실험에서의 회귀 예제 [자전거 대여 수 예측](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4)
+* 대상 값이 알려진 감독된 실험에서의 회귀 예제 [자전거 대여 수 예측](https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4)
 *  [기능 해싱](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ## <a name="example-1-add-temporal-features-for-a-regression-model"></a>예제 1: 회귀 모델을 위해 temporal 기능 추가

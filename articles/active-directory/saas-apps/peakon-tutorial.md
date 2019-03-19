@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e32f0ac6fcc6839bad973c3d014436d08ae43896
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b841cbe838156cd00876a9a13c7a9cbe1790ea80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>자습서: Peakon과 Azure Active Directory 통합
 
@@ -190,7 +190,7 @@ Peakon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. 에 **사용자 이름** 필드에 입력 **brittasimon\@yourcompanydomain.extension**  
     예를 들어 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
@@ -220,7 +220,7 @@ Peakon의 경우 프로비전은 수동 작업입니다.
 
     a. **이름** 텍스트 상자에 **Britta**로 이름 및 **simon**으로 성을 입력합니다.
 
-    b. **이메일** 텍스트 상자에 **Brittasimon@contoso.com**과 같은 이메일 주소를 입력합니다.
+    b. 에 **전자 메일** 전자 메일 주소와 같은 텍스트 상자 **Brittasimon\@contoso.com**합니다.
 
     다. **직원 만들기**를 클릭합니다.
 

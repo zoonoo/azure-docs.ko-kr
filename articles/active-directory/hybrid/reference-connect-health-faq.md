@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b653ee16864f5076cdad9d1dbc33e63b175ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167607"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852978"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -67,10 +67,10 @@ ms.locfileid: "56167607"
 
 | 역할 | 기능 | 독일 클라우드에서 지원됨 |
 | ------ | --------------- | --- |
-| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
+| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 아닙니다. |
 |  | 동기화 오류 보고서 | 예 |
-| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
-| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
+| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 아닙니다. |
+| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 아닙니다. |
 
 동기화용 Connect Health의 에이전트 연결을 보장하려면 그에 따라 [설치 요구 사항](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)을 구성하세요.
 
@@ -155,7 +155,7 @@ AD FS용 Azure AD Connect Health는 AD FS 서버에 설치된 상태 에이전�
 
 종종 이 테스트는 상태 에이전트가 AD FS 팜 이름을 확인할 수 없기 때문에 실패합니다. 이는 AD FS 서버가 네트워크 부하 분산 장치 뒤에 있고 요청이 부하 분산 장치 뒤에 있는 노드에서 시작하는 경우 발생할 수 있습니다(부하 분산 장치 앞에 있는 일반 클라이언트와는 대조적으로). 이는 AD FS 팜 이름(예: sts.contoso.com)에 대해 AD FS 서버의 IP 주소 또는 루프백 IP 주소(127.0.0.1)를 포함하도록 "C:\Windows\System32\drivers\etc" 아래에 있는 "hosts" 파일을 업데이트하여 해결할 수 있습니다. 호스트 파일을 추가하면 네트워크 호출을 단락(short-circuit)하므로 상태 에이전트에서 토큰을 가져올 수 있도록 합니다.
 
-**Q: 내 머신이 최근의 랜섬웨어 공격에 대해 패치되지 않았음을 나타내는 이메일을 받았습니다. 이 전자 메일을 받은 이유는 무엇인가요?**
+**Q: 내 컴퓨터가 최근 랜 섬 웨어 공격에 대 한 패치가 적용 되지 않은 되었음을 나타내는 전자 메일이 받았습니다. 이 전자 메일을 받은 이유는 무엇인가요?**
 
 Azure AD Connect Health 서비스는 필요한 패치가 설치되었는지 확인하기 위해 모니터링하는 모든 컴퓨터를 검색했습니다. 하나 이상의 컴퓨터에 중요한 패치가 없는 경우 테넌트 관리자에게 전자 메일이 전송되었습니다. 이를 결정하기 위해 다음 논리가 사용되었습니다.
 1. 컴퓨터에 설치된 모든 핫픽스를 찾습니다.
@@ -192,6 +192,9 @@ CheckForMS17-010
 **Q: 내 ADFS 감사가 생성되지 않는 이유는 무엇인가요?**
 
 PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 로그가 사용하지 않음 상태가 되도록 합니다. [ADFS 감사 로그](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)에 대해 자세히 알아보세요. ADFS 서버에 푸시된 고급 감사 설정이 있을 경우 auditpol.exe 관련 변경 내용이 덮어써진다는 점을 참고하세요(애플리케이션 생성됨이 구성되지 않은 경우의 이벤트). 이 경우 애플리케이션 생성됨 실패 및 성공을 기록하도록 로컬 보안 정책을 설정하세요.
+
+**Q: 에이전트 인증서 자동 갱신된 전에 만료를 언제 게 되나요?**
+에이전트 인증 수 자동 갱신 **6 개월** 만료 날짜 전에 합니다. 갱신 하지 않으면 에이전트의 네트워크 연결이 안정적이 지 확인 하세요. 에이전트 서비스를 다시 시작 하거나 최신 버전으로 업데이트는 문제를 해결할 수도 수 있습니다.
 
 
 ## <a name="related-links"></a>관련 링크

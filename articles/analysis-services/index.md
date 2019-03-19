@@ -1,5 +1,5 @@
 ---
-title: Azure Analysis Services 설명서 - 자습서, API 참조
+title: 'Azure Analysis Services 설명서 - 자습서, API 참조'
 description: 클라우드에서 Analysis Services를 사용하여 데이터 모델링을 설정하는 방법에 대해 알아봅니다. 설명서에서는 표 형식 데이터를 사용하여 엔터프라이즈 BI 솔루션을 만드는 방법을 보여 줍니다.
 services: analysis-services
 author: minewiskan
@@ -8,12 +8,6 @@ layout: LandingPage
 ms.service: azure-analysis-services
 ms.topic: landing-page
 ms.date: 02/14/2018
-ms.openlocfilehash: 8e99f0d61b826c79e1458750ae42cc18742ec42a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839613"
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services 설명서
 
@@ -82,40 +76,40 @@ Analysis Services를 사용하여 데이터 모델링을 설정하고 관리하�
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>명령줄</h3>
-                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>명령줄</h3>
+                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (영문)</h3>
-                        <p><a href="/rest/api/analysisservices/">REST API 참조</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (영문)</h3>
+                        <p><a href="/rest/api/analysisservices/">REST API 참조</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>기타</h3>
-                        <p><a href="https://msdn.microsoft.com/library/gg413422.aspx">DAX</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt211003.aspx">파워 쿼리 M</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>기타</h3>
+                        <p><a href="https://msdn.microsoft.com/library/gg413422.aspx">DAX</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt211003.aspx">파워 쿼리 M</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 

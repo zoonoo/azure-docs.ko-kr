@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955170"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456349"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure 리소스 그룹 배포 프로젝트를 사용하여 Azure DevOps Services에서 연속 통합
-Azure 템플릿을 배포하려면 빌드, 테스트, Azure에 복사("준비"라고도 함), 템플릿 배포 등 다양한 단계에서 태스크를 수행합니다. Azure DevOps Services에 템플릿을 배포하는 두 가지 방법이 있습니다. 두 방법 모두 결과는 같으므로 사용자의 워크플로에 가장 적합한 방법을 선택하면 됩니다.
+Azure 템플릿을 배포 하려면 다양 한 단계에서 작업을 수행 합니다. Azure에 빌드, 테스트, 복사 ("스테이징" 라고도 함) 및 템플릿을 배포 합니다. Azure DevOps Services에 템플릿을 배포하는 두 가지 방법이 있습니다. 두 방법 모두 결과는 같으므로 사용자의 워크플로에 가장 적합한 방법을 선택하면 됩니다.
 
 1. Azure 리소스 그룹 배포 프로젝트(Deploy-AzureResourceGroup.ps1)에 포함된 PowerShell 스크립트를 실행하는 한 단계를 빌드 파이프라인에 추가합니다. 이 스크립트는 아티팩트를 복사한 뒤 템플릿을 배포합니다.
 2. 각각 단계 작업을 수행하는 여러 Azure DevOps Services 빌드 단계를 추가합니다.

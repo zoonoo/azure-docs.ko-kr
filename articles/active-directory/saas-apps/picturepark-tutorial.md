@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e56dc54c2c296ee17b04070ac8ee68d2180b7046
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7b458632ddb6e23ab1ddf642752aa0cbfc11f1ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183448"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839071"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>자습서: Picturepark와 Azure Active Directory 통합
 
@@ -224,7 +224,7 @@ Azure AD 사용자가 Picturepark에 로그인할 수 있도록 하려면 Pictur
    
     ![사용자 만들기](./media/picturepark-tutorial/ic795069.png "사용자 만들기")
    
-    a. **전자 메일 주소** 텍스트 상자에 사용자의 **메일 주소**를 **BrittaSimon@contoso.com**으로 입력합니다.  
+    a. 에 **전자 메일 주소** 텍스트 상자에 입력 합니다 **전자 메일 주소** 사용자의 **BrittaSimon\@contoso.com**합니다.  
    
     b. **암호**와 **Confirm 암호 확인** 텍스트 상자에 BrittaSimon의 **암호** 를 입력합니다. 
    

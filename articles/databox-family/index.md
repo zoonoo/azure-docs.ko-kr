@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box 설명서
-description: Azure Data Box 제품군은 테라바이트 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure로 보내는 데 도움이 되는 다양한 저장 용량의 제품을 제공합니다. Microsoft는 오프라인 데이터 전송 또는 네트워크를 통한 데이터 전송을 지원하는 전용 저장 디바이스를 제공하여 보안 데이터 전송을 가속화합니다.
+description: 'Azure Data Box 제품군은 테라바이트 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure로 보내는 데 도움이 되는 다양한 저장 용량의 제품을 제공합니다. Microsoft는 오프라인 데이터 전송 또는 네트워크를 통한 데이터 전송을 지원하는 전용 저장 디바이스를 제공하여 보안 데이터 전송을 가속화합니다.'
 services: databox
 author: alkohli
 manager: twooley
@@ -11,16 +11,10 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157108"
 ---
+<div id="main" class="v2">
 <h1>Azure Data Box</h1>
 <p>Azure Data Box 제품군은 TB(테라바이트) 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure로 보내는 데 도움이 되는 다양한 저장 용량의 제품을 제공합니다. Microsoft는 오프라인 데이터 전송 또는 네트워크를 통한 데이터 전송을 지원하는 전용 저장 디바이스를 제공하여 보안 데이터 전송을 가속화합니다.</p>
-
 <h2>오프라인 데이터 전송</h2>
 <p>네트워크 대역폭 제한 없음</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -79,7 +73,6 @@ ms.locfileid: "54157108"
         </a>
     </li>
 </ul>
-
 <h2>온라인 데이터 전송</h2>
 <p>네트워크를 통한 전송</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -120,3 +113,4 @@ ms.locfileid: "54157108"
         </a>
     </li>
 </ul>
+</div>

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814285"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870629"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>클라우드 솔루션 공급 기업 프로그램용 StorSimple: 질문과 대답
 
@@ -63,7 +63,7 @@ CSP용 StorSimple 가상 배열은 현재 StorSimple을 사용할 수 있는 모
 - 관리되는 서비스를 제공하여 새로운 비즈니스 모델을 검색할 수도 있습니다.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>StorSimple CSP 파트너에 사용할 수 있는 인센티브는 무엇입니까? 모든 CSP 프로그램 인센티브에 대한 자격이 있습니까?
-인센티브에 대한 자세한 내용은 [CSP 프로그램 인센티브](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details)로 이동합니다.
+인센티브에 대 한 내용은로 이동 [CSP 프로그램 인센티브](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details)합니다.
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>파트너로 StorSimple 배포 및 관리

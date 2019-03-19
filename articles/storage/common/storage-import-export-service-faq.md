@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e52d5f3b30490227541e99e067c096a7df6dd911
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566193"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867578"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export 서비스: 질문과 대답 
 Azure Import/Export 서비스를 사용하여 Azure Storage에 데이터를 전송할 때 발생할 수 있는 질문 및 답변은 다음과 같습니다. 질문과 대답은 다음과 같은 범주로 정렬됩니다.
@@ -87,8 +87,18 @@ FedEx, DHL, UPS 또는 US 우편 서비스와 같이 알려진 모든 운송업�
 - 미국 및 유럽의 FedEx 계정 번호 또는
 - 아시아 및 오스트레일리아 지역의 DHL 계정 번호
 
+> [!NOTE]
+> 인도 데이터 센터에 드라이브를 반환 하 여 편지지 (배달 challan)의 선언 문자를 필요 합니다. 필요한 항목 패스를 정렬 하려면 선택한 통신사 된 선택을 예약 하 고 데이터 센터를 사용 하 여 세부 정보를 공유도 해야 합니다.
+
 ### <a name="are-there-any-restrictions-with-shipping-my-drive-internationally"></a>국제적으로 드라이브를 운송하는 데 제한 사항이 있나요?
 배송하는 실제 미디어는 국경을 지나야 할 수 있습니다. 실제 미디어와 데이터를 관련 법률에 따라 가져오거나 내보내도록 해야 합니다. 실제 미디어를 배송하기 전에 관리자에게 미디어 및 데이터를 확인된 데이터 센터에 합법적으로 배송할 수 있는지 확인하세요. 이렇게 하면 해당 품목이 시기 적절하게 Microsoft에 도착될 수 있습니다.
+
+### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>데이터 센터 내 디스크를 제공 하기 위한 특별 한 요구 사항이 있습니까?
+
+요구 사항을 Azure 데이터 센터를 특정 제한에 따라 달라 집니다.
+- Microsoft 데이터 센터 보안상의 이유로 소포에 쓸 인바운드 ID 번호를 필요로 하는 몇 가지 사이트가 있습니다. 드라이브 또는 디스크를 데이터 센터에 발송 하기 전에 Azure DataBox Operations에 게 문의 (adbops@microsoft.com)를 가져올 수 있습니다. 이 수 없이 패키지는 거부 됩니다.
+- 인도 데이터 센터 필요 예: 정부 ID 카드 또는 증명 아니요. 드라이버의 개인 정보 (예를 들어 팬, AADHAR DL), 이름, 연락처 및 자동차는 게이트 항목 패스를 구할 수를 판을 합니다. 배달 지연 되지 않도록, 통신사 이러한 요구 사항을 알려 줍니다.
+
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>작업을 만들 때 배송지 주소가 저장소 계정 위치와는 다른 위치입니다. 어떻게 해야 하나요?
 
@@ -128,7 +138,7 @@ Azure Portal 또는 [스토리지 탐색기](https://docs.microsoft.com/azure/vs
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure Import/Export에서 지원하는 최대 블록 Blob 및 페이지 Blob 크기는 무엇인가요?
 
 최대 블록 Blob 크기는 약 4.768TB 또는 5,000,000MB입니다.
-최대 페이지 Blob 크기는 1TB입니다.
+최대 페이지 Blob 크기는 8TB입니다.
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Azure Import/Export는 AES-256 암호화를 지원하나요?

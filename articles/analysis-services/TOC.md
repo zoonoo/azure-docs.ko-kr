@@ -43,8 +43,6 @@
 ### [서버 관리자 역할에 서비스 주체 추가](analysis-services-addservprinc-admins.md)
 
 ## 모델
-### [Power BI Desktop 파일 가져오기](analysis-services-import-pbix.md)
-### [Azure Portal에서 모델 만들기(미리 보기)](analysis-services-create-model-portal.md)
 ### [Visual Studio에서 배포(SSDT)](analysis-services-deploy.md)
 ### [REST API 사용하여 새로 고침](analysis-services-async-refresh.md)
 ### [Visual Studio에서 데이터 모델링 - Adventure Works(1400) 자습서](tutorials/aas-adventure-works-tutorial.md)
@@ -97,13 +95,3 @@
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [비디오](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
-
-
-
-
-
-
-
-
-
-

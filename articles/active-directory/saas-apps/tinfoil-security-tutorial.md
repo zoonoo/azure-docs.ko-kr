@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed0912e8d4705b6cbefa9eb8f7a712a37d8b0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8d2001e221ef9c02ee2ab80b647a9bafe6490432
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183182"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882147"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>자습서: TINFOIL SECURITY와 Azure Active Directory 통합
 
@@ -186,7 +186,7 @@ TINFOIL SECURITY에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
-    ![사용자 및 그룹 -> 모든 사용자 ](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
+    ![사용자 및 그룹 -> 모든 사용자](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
 
 1. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
  

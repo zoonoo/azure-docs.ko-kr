@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a850b42f23a94366ec73949556b4af9a90f5015e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4ebedddf5e62e41bd0ef2d4c426df448a81a1e2d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>자습서: Azure Active Directory와 Rollbar 통합
 
@@ -218,7 +218,7 @@ Azure AD 사용자가 Rollbar에 로그인할 수 있도록 하려면 Rollbar로
 
     ![피플 초대](./media/rollbar-tutorial/user2.png)
 
-1. 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자 이름을 입력하고 **추가/초대**를 클릭합니다.
+1. 텍스트 상자에 같은 사용자의 이름을 입력 **brittasimon\@contoso.com** 누릅니다 **추가/초대**합니다.
 
     ![피플 초대](./media/rollbar-tutorial/user3.png)
 

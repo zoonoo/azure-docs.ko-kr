@@ -1,6 +1,6 @@
 # 개요
 ## [Windows SQL Server VM](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+## [가격](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 ## [FAQ](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # 시작
@@ -31,9 +31,9 @@
 ### [Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용](virtual-machines-windows-classic-sql-server-reportviewer.md)
 ### [Azure PowerShell을 사용하여 보고서 서버로 Azure VM 만들기](virtual-machines-windows-classic-ps-sql-report.md)
 ## [성능 모범 사례](../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
-## [응용 프로그램 패턴](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
+## [애플리케이션 패턴](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
-# 참조
+# 참고 자료
 ## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
@@ -46,5 +46,5 @@
 ## [SSDT(SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [SQL Server 도구](https://docs.microsoft.com/sql/tools/overview-sql-tools)
-## [스택 오버플로](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [스택 오버플로](https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
 
