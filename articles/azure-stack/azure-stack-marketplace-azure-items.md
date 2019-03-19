@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 9055ce4031639750fd059ad6a161d12102bff947
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: ca9f25700622a8d8435a1b05bfc46d210038aeaa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895841"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -37,7 +37,8 @@ ms.locfileid: "57409497"
 |![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [사용자 지정 스크립트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Windows 사용자 지정 스크립트 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft |  Windows |
 |![Powershell DSC 확장](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **PowerShell DSC 확장의 기본 버전으로이 업데이트를 다운로드 합니다. TLS v1.2를 지원 하도록 업데이트 합니다.** | Microsoft |  Windows |
 | ![Microsoft 맬웨어 방지 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 맬웨어 방지 확장](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Azure를 위한 Microsoft 맬웨어 방지는 애플리케이션 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. **맬웨어 방지 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft |  Windows |
-| ![Microsoft Azure 진단 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 진단 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure 진단은 배포 된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. **Windows에 대 한 진단 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft |  Windows || ![Microsoft Monitoring 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Monitoring Agent 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Microsoft Monitoring Agent 확장 기능을 모니터링 하는 가상 컴퓨터 수 있도록 OMS와 함께 사용 됩니다. **이 업데이트는 모니터링 에이전트 확장에 대 한 Windows의 기본 버전을 다운로드 합니다.** | Microsoft |  Windows |
+| ![Microsoft Azure 진단 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 진단 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure 진단은 배포 된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. **Windows에 대 한 진단 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft |  Windows |
+| ![Microsoft Monitoring 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Monitoring Agent 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Microsoft Monitoring Agent 확장 기능을 모니터링 하는 가상 컴퓨터 수 있도록 OMS와 함께 사용 됩니다. **이 업데이트는 모니터링 에이전트 확장에 대 한 Windows의 기본 버전을 다운로드 합니다.** | Microsoft |  Windows |
 |![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [사용자 지정 스크립트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)|**Linux 용 사용자 지정 스크립트 확장의 기본 버전으로이 업데이트를 다운로드 합니다. 이 확장의 버전이 여러 개 및 1.5.2.1와 2.0.x 다운로드 해야 합니다.** | Microsoft | Linux |
 | ![Linux 용 VM 액세스](media/azure-stack-marketplace-azure-items/cse.png) | [Linux 용 VM 액세스](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **Linux 확장에 대 한 기본 버전을 VMAccess의이 업데이트를 다운로드 합니다. 이 업데이트는 Debian Linux Vm을 사용 하려는 경우 중요 합니다.** | Microsoft | Linux |
 | ![Linux 용 Acronis 백업 확장](media/azure-stack-marketplace-azure-items/acronis.png) | [Linux 용 Acronis 백업 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure 용 Acronis 백업 확장에는 Acronis 백업 제품군에 데이터 보호의 일부입니다. | Acronis International GmbH. | Linux |
@@ -56,16 +57,17 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | 엔터프라이즈 수준의 솔루션은 간단 하 게 배포할 비용 효율적인, 응용 프로그램 및 사용자 중심입니다. 이러한 이미지는 최신 패치를 사용 하 여 정기적으로 업데이트 됩니다. **중요 정보: 2018 년 1 월 18 일을 삭제 하 고 최신 버전으로 대체 해야 하기 전에 다운로드 하는 이미지입니다.** | Microsoft |
 | ![SharePoint Server 2013 평가판](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 평가판](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 평가판 Windows Server 2012 Datacenter 및 Visual Studio 2017 community edition에 있습니다. | Microsoft |
 | ![SharePoint Server 2016 평가판](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 평가판](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 평가판 Windows Server 2016 Datacenter의 합니다. | Microsoft |
-| ![Windows Server 2012 R2의 SQL Server 2014 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2의 SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2-BYOL) | SQL Server 2014 Service Pack 2. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
+| ![Windows Server 2012 R2의 SQL Server 2014 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2의 SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
+) | SQL Server 2014 Service Pack 2. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![Windows Server 2016의 SQL Server 2016 SP2 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2016 SP2 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2016SP2StandardWindowsServer2016) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![무료 라이선스: Windows Server 2016의 SQL Server 2016 SP2 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: Windows Server 2016의 SQL Server 2016 SP2 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | 무료 개발자 버전의 SQL Server 2016 SP2 트랜잭션, 데이터 웨어하우징, 비즈니스 인텔리전스 및 분석 워크 로드. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![무료 라이선스: Windows Server 2016의 SQL Server 2016 SP2 Express](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: Windows Server 2016의 SQL Server 2016 SP2 Express](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | 무료 버전의 SQL Server 2016 SP2 express입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![Windows Server 2016의 SQL Server 2016 SP2 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![Windows Server 2016의 SQL Server 2016 SP2 Web](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2016 SP2 Web](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
-| ![Windows Server 2016의 SQL Server 2017 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2017 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
+| ![Windows Server 2016의 SQL Server 2017 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2017 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![무료 라이선스: Windows Server 2016의 SQL Server 2017 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: Windows Server 2016의 SQL Server 2017 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | 트랜잭션 데이터에 대 한 무료 개발자 버전의 SQL Server 2017 웨어하우징, 비즈니스 인텔리전스 및 분석 워크 로드. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![무료 라이선스: Windows Server 2016의 SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: Windows Server 2016의 SQL Server 2017 Express](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | SQL Server 2017의 무료 express 버전입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
-| ![SQL Server 2017 Enterprise on Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
+| ![SQL Server 2017 Enterprise on Windows Server 2016](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![Windows Server 2016의 SQL Server 2017 웹](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016의 SQL Server 2017 웹](https://azuremarketplace.microsoft.com/marketplace/apps/cognosys.sql-server-2007-web-win2016-debug-utilities) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |
 | ![Ubuntu Server 16.04 LTS의 SQL Server 2017 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS의 SQL Server 2017 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS) | 지능형 중요 업무용 응용 프로그램에 대 한 데이터베이스 플랫폼입니다. | Microsoft + Canonical |
 | ![무료 라이선스: Ubuntu Server 16.04 LTS의 SQL Server 2017 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [무료 라이선스: Ubuntu Server 16.04 LTS의 SQL Server 2017 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) | 트랜잭션 데이터에 대 한 무료 개발자 버전의 SQL Server 2017 웨어하우징, 비즈니스 인텔리전스 및 분석 워크 로드. | Microsoft + Canonical |

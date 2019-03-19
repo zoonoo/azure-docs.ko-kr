@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fee91b857d9fd127839baaf7a70199c25cfab33
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e28a0e9b69a79311836afbd0ba29d0ca4428ad98
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191642"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57975460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>자습서: SumoLogic과 Azure Active Directory 통합
 
@@ -116,6 +116,7 @@ SumoLogic에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<tenantname>.SumoLogic.com`
 
     b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    
     | |
     |--|
     | `https://<tenantname>.us2.sumologic.com` |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e334795a63ff298ff8f0695340f35fdff1ad03e0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d42c86ec262cd9d3d3db3035d252429e44c1208f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>자습서: Adaptive Insights와 Azure Active Directory 통합
 
@@ -191,8 +191,8 @@ Adaptive Insights에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. 에 **사용자 이름** 필드 형식 **brittasimon\@yourcompanydomain.extension**  
+    예를 들어 IPv4 주소를 사용하는 경우 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
 

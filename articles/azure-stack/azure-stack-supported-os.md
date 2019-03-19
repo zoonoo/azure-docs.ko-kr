@@ -16,23 +16,23 @@ ms.date: 2/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 171beb432a2c49f1896dc13208a3df1b922828c0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1ab59dfc42213fc5c5ce22841e572e2724e239aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245695"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119006"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack에서 지 원하는 게스트 운영 체제
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 Azure Stack은 다음 표에 나열 된 Windows 게스트 운영 체제를 지원 합니다.
 
 | 운영 체제 | 설명 | Marketplace에서 사용할 수 있습니다. |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Windows Server 버전 1709 | 64비트 | 컨테이너를 사용 하 여 코어 |
 | Windows Server 2016 | 64비트 |  데이터 센터, 데이터 센터 Core 컨테이너를 사용 하 여 데이터 센터 |
 | Windows Server 2012 R2 | 64비트 |  데이터 센터 |
@@ -58,7 +58,7 @@ Marketplace에서 사용할 수 있는 것으로 나열 하는 Linux 배포는 �
 > [에서 cloud-init](https://cloud-init.io/) 이 이번에 Azure Stack에서 지원 되지 않습니다.
 
 | 배포 | 설명 | 게시자 | Marketplace |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Centos 6.9 | 64비트 | Rogue Wave | 예 |
 | CentOS 기반 7.4 | 64비트 | Rogue Wave | 예 |
 | ClearLinux | 64비트 | ClearLinux.org | 예 |

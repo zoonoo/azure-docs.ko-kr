@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446667"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993406"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
@@ -93,7 +93,7 @@ VMware/Hyper-V 보호를 위해 별도 라이선스는 필요 없습니다.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>어떤 운영 체제에서 백업이 지원되나요?
 Azure Backup은 Azure Backup Server 및 DPM으로 보호되는 파일, 폴더 및 앱을 백업하기 위해 다음과 같은 운영 체제를 지원합니다.
 
-**OS**| **SKU** |**세부 정보**
+**OS** | **SKU** | **세부 정보**
 --- | --- | ---
 워크스테이션 | |
 Windows 10 64비트 | Enterprise, Pro, Home | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
@@ -101,6 +101,7 @@ Windows 8.1 64비트 | Enterprise, Pro | 컴퓨터에서 최신 서비스 팩과
 Windows 8 64비트 | Enterprise, Pro | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 Windows 7 64비트 | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 서버 | |
+Windows Server 2019 64 bit | Standard, Datacenter, Essentials | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2016 64비트 | Standard, Datacenter, Essentials | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2012 R2 64비트 | Standard, Datacenter, Foundation | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2012 64비트 | Datacenter, Foundation, Standard | 최신 서비스 팩/업데이트를 포함합니다.
@@ -117,7 +118,7 @@ Azure VM Linux 백업의 경우 Azure Backup은 Core OS Linux 및 32비트 운�
 크기 제한은 다음과 같습니다.
 
 OS/컴퓨터 | 데이터 원본의 크기 제한
---- | --- | ---
+--- | --- 
 Windows 8 이상 | 54,400GB
 Windows 7 |1700GB
 Windows Server 2012 이상 | 54,400GB

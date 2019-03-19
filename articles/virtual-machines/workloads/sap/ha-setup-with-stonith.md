@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6d4ec767b4c566e6a390f37b97266916819a40c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 66973ce78004d0f29d08264869f166202aaaf109
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011860"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
 이 문서는 STONITH 디바이스를 사용하여 SUSE 운영 체제에서 고가용성을 설정하는 자세한 단계별 지침을 제공합니다.
@@ -155,7 +155,7 @@ halk2 패키지가 이미 설치되었으므로 **취소**를 클릭합니다.
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-**확인**
+ **확인**을 클릭합니다.
 
 IP 주소 및 Csync2의 미리 공유한 키를 사용하여 인증을 수행합니다. csync2 -k /etc/csync2/key_hagroup을 사용하여 키 파일을 생성합니다. key_hagroup 파일을 생성한 후 클러스터의 모든 멤버에 수동으로 복사해야 합니다. **반드시 노드 1에서 노드 2로 파일을 복사해야 합니다**.
 
@@ -480,7 +480,7 @@ Sep 28 21:48:27 sapprdhdb95 corosync[68812]: [MAIN  ] Corosync Cluster Engine ex
 Sep 28 21:48:27 sapprdhdb95 systemd[1]: Dependency failed for Pacemaker High Availability Cluster Manager
 -- Subject: Unit pacemaker.service has failed
 -- Defined-By: systemd
--- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel
+-- Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
 --
 -- Unit pacemaker.service has failed.
 --

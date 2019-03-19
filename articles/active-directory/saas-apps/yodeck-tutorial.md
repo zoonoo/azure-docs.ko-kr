@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 071054e2ec5fead3ce6181925b3c5f4e99a26736
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7564710b282c7e2ac586980896a28c00bcb2fe80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872605"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>자습서: Azure Active Directory와 Yodeck 통합
 
@@ -200,7 +200,7 @@ Yodeck의 경우, 수동으로 프로비전합니다.
 
     b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
-    다. **이메일** 텍스트 상자에서 **brittasimon@contoso.com**과 같은 사용자의 이메일 주소를 입력합니다.
+    다. 에 **전자 메일** 텍스트 상자에 사용자의 전자 메일 주소 형식 예: **brittasimon\@contoso.com**합니다.
 
     d. 조직 요구 사항에 따라 적절한 **계정 권한** 옵션을 선택합니다.
     

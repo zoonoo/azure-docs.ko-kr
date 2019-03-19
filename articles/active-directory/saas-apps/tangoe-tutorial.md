@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986afa1239ad0efd9ccb936252ead37c8379b447
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8c9f410fa890df7aac3c3bf4d89468b92e69ba38
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192900"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883235"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>자습서: Tangoe Command Premium Mobile과 Azure Active Directory 통합
 
@@ -75,7 +75,7 @@ Tangoe Command Premium Mobile과 Azure AD 통합을 구성하려면 갤러리의
 
 1. 검색 상자에 **Tangoe Command Premium Mobile**을 입력하고, 결과 패널에서 **Tangoe Command Premium Mobile**을 선택한 다음 **추가** 단추를 눌러 애플리케이션을 추가합니다.
 
-    ![갤러리에서 Tangoe Command Premium Mobile 추가 ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
+    ![갤러리에서 Tangoe Command Premium Mobile 추가](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Tangoe Command Premium Mobile에서 Azure AD Single Sign-On을 구성하고 테스트합니다.

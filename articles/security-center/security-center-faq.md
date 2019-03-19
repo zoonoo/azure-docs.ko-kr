@@ -3,7 +3,7 @@ title: Azure Security Center FAQ(질문과 대답) | Microsoft Docs
 description: 이 FAQ는 Azure Security Center에 대한 질문에 답변합니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2018
-ms.author: rkarlin
-ms.openlocfilehash: 61dac6bea6878630c05339778c717f7818c1c662
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 02/25/2019
+ms.author: monhaber
+ms.openlocfilehash: ad676070bb684e459c0dae648443318199f77b6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106650"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091531"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -42,7 +42,7 @@ Security Center는 두 계층으로 제공됩니다.
 
 **무료 계층**은 Azure 리소스, 기본 보안 정책, 보안 권장 사항, 그리고 파트너의 보안 제품 및 서비스와의 통합 등의 보안 상태를 볼 수 있게 해줍니다.
 
-**표준 계층**은 인텔리전스, 동작 분석, 변칙 검색, 보안 사고 위협 및 위협 특성 보고서 등 고급 위협 감지 기능을 추가합니다. 표준 계층 평가판을 시작할 수 있습니다. 업그레이드하려면 보안 정책에서 [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing)을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+**표준 계층**은 인텔리전스, 동작 분석, 변칙 검색, 보안 사고 위협 및 위협 특성 보고서 등 고급 위협 감지 기능을 추가합니다. 표준 계층 무료 평가판을 시작할 수 있습니다. 업그레이드하려면 보안 정책에서 [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing)을 선택합니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 ## <a name="permissions"></a>권한
 Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
@@ -54,8 +54,8 @@ Security Center의 역할 및 허용된 작업에 대한 자세한 내용은 [Az
 ## <a name="data-collection-agents-and-workspaces"></a>데이터 수집, 에이전트 및 작업 영역
 Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데이터를 수집하여 보안 취약성과 위협을 모니터링합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다.
 
-### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Security Center에서 만든 작업 영역에서 Log Analytics에 대한 요금을 청구하나요?
- 아니요. Security Center에서 만든 작업 영역은 노드 요금 청구당 Log Analytics에 구성된 동안 Log Analytics 요금이 청구되지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
+### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Security Center에서 만든 작업 영역에서 Azure Monitor 로그에 대 한 요금은 청구 되나요?
+ 아니요. Security Center에서 만든 작업 영역은 노드 요금 청구 당 Azure Monitor 로그에 대 한 구성 하는 동안 Azure Monitor 로그 요금이 발생 하지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
 
 - **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 사용하도록 설정합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
 - **표준 계층** – Security Center는 기본 작업 영역에서 'Security' 솔루션을 사용하도록 설정합니다.
@@ -63,9 +63,11 @@ Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데�
 자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요. 가격 책정 페이지 주소는 2017년 6월부터 보안 데이터 저장소 및 비례 배분 청구로 변경됩니다.
 
 > [!NOTE]
-> Security Center에서 만든 작업 영역의 Log Analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다.
+> Log analytics 가격 책정 계층은 Security Center에서 만든 작업 영역에는 Security Center 청구 영향을 주지 않습니다.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>Microsoft Monitoring Agent 설치의 자동 프로비전을 위한 VM의 요건은 무엇입니까?
 다음과 같은 경우 Windows 또는 Linux IaaS VM이 요건 충족됩니다.
@@ -182,18 +184,18 @@ Microsoft Monitoring Agent를 수동으로 제거할 수 있습니다. Security 
 
 수동으로 에이전트를 제거하려면:
 
-1.  포털에서 **Log Analytics**을 엽니다.
-2.  Log Analytics 블레이드에서 작업 영역을 선택합니다.
-3.  모니터링하지 않을 각 VM을 선택하고 **연결 끊기**를 선택합니다.
+1. 포털에서 **Log Analytics**을 엽니다.
+2. Log Analytics 블레이드에서 작업 영역을 선택합니다.
+3. 모니터링하지 않을 각 VM을 선택하고 **연결 끊기**를 선택합니다.
 
    ![에이전트 제거][3]
 
 > [!NOTE]
 > Linux VM에 이미 비확장 OMS 에이전트가 설치된 경우 확장명을 제거하면 에이전트도 제거되고 고객이 다시 설치해야 합니다.
->
->
-### <a name="how-do-i-disable-data-collection"></a>데이터 컬렉션을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
-자동 프로비전은 기본적으로 해제되어 있습니다. 보안 정책에서 자동 프로비저닝 설정을 해제하여 언제든지 리소스에서 자동 프로비저닝을 사용하지 않도록 설정할 수 있습니다. 시스템 업데이트, OS 취약성 및 엔드포인트 보호에 대한 보안 경고와 권장 사항을 받으려면 자동 프로비저닝을 사용하는 것이 좋습니다.
+> 
+> 
+> ### <a name="how-do-i-disable-data-collection"></a>데이터 컬렉션을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
+> 자동 프로비전은 기본적으로 해제되어 있습니다. 보안 정책에서 자동 프로비저닝 설정을 해제하여 언제든지 리소스에서 자동 프로비저닝을 사용하지 않도록 설정할 수 있습니다. 시스템 업데이트, OS 취약성 및 엔드포인트 보호에 대한 보안 경고와 권장 사항을 받으려면 자동 프로비저닝을 사용하는 것이 좋습니다.
 
 데이터 수집을 해제하려면 [Azure Portal에 로그인](https://portal.azure.com)하여 **찾아보기**, **Security Center**, **정책 선택**을 차례로 선택합니다. 자동 프로비저닝을 사용하지 않도록 설정할 구독을 선택합니다. 구독을 선택하면 **보안 정책 - 데이터 수집**이 열립니다. **자동 프로비전**에서 **끔**을 선택합니다.
 
@@ -217,7 +219,7 @@ Security Center가 VM에서 의심스러운 작업을 감지하면 고객은 경
 ### <a name="where-is-my-data-stored"></a>내 데이터는 어디에 저장되나요?
 이 에이전트에서 수집된 데이터는 구독 또는 새 작업 영역에 연결된 기존 Log Analytics 작업 영역 중 하나에 저장됩니다. 자세한 내용은 [데이터 보안](security-center-data-security.md)을 참조하세요.
 
-## 기존 Log Analytics 고객<a name="existingloganalyticscust"></a>
+## 기존 Azure Monitor 로그 고객<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Security Center에서 VM과 작업 영역 간의 모든 기존 연결을 재정의하나요?
 VM에 Azure 확장으로 Microsoft Monitoring Agent가 이미 설치되어 있으면 Security Center에서 기존 작업 영역 연결을 재정의하지 않습니다. 대신 Security Center에서 기존 작업 영역을 사용합니다.
@@ -274,6 +276,9 @@ Azure Security Center는 리소스, 네트워크 및 맬웨어 방지 프로그�
 * Windows 오류 보고를 사용 하여 감지된 고급 맬웨어
 * 가상 머신에 대한 무작위 공격
 * 맬웨어 방지 프로그램 또는 웹 애플리케이션 방화벽 등과 같은 통합된 파트너 보안 솔루션에서의 보안 경고
+
+### 왜 점수 값 변경 보안 않았습니다? <a name="secure-score-faq"></a>
+2019 년 2 월을 기준으로 Security Center의 심각도 따라 하기 위해 몇 가지 권장 사항, 점수를 조정 합니다. 이러한 조정의 결과로 있을 점수 값을 보호 하는 전체에서 변경 합니다.  보안 점수에 대 한 자세한 내용은 참조 하세요. [점수를 계산할 보안](security-center-secure-score.md)합니다.
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Microsoft 보안 응답 센터와 Azure Security Center에서 감지 및 경고된 위협 간의 차이점은 무엇입니까?
 Microsoft 보안 대응 센터(MSRC)는 Azure 네트워크 및 인프라의 선택 보안 모니터링을 수행하고 타사에서 위협 인텔리전스 및 남용 불만 사항을 받습니다. MSRC는 불법적인 또는 권한 없는 당사자가 고객 데이터에 액세스했거나 고객의 Azure 사용이 사용 제한에 대한 조건을 준수하지 않는 것을 인식하면 보안 사고 관리자는 고객에게 알립니다. 보안 연락처를 지정하지 않은 경우 대개 Azure Security Center에 지정된 보안 연락처 또는 Azure 구독 소유자에게 메일을 전송하는 방식으로 알림이 수행됩니다.

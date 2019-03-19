@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e947b71fe6bb9e6bd884b8b2dd0397a63bea2a95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8b5ec711f0e43d9d29d962d43ed8b1d86338db87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203644"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881217"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>자습서: xMatters OnDemand와 Azure Active Directory 통합
 
@@ -114,6 +114,7 @@ xMatters OnDemand에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     ![Configure Single Sign-On](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
     a. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -123,6 +124,7 @@ xMatters OnDemand에서 Azure AD Single Sign-On을 구성하고 테스트하려�
     | `https://<companyname>.xmatters.com.au/`|
 
     b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+    
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au`|
@@ -209,9 +211,9 @@ xMatters OnDemand에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
 1. **XMatters OnDemand** 테넌트에 로그인합니다.
 
-1.  **사용자** 탭을 클릭한 후 **사용자 추가**를 클릭합니다.
+1. **사용자** 탭을 클릭한 후 **사용자 추가**를 클릭합니다.
 
-    ![사용자](./media/xmatters-ondemand-tutorial/IC781048.png "사용자")
+   ![사용자](./media/xmatters-ondemand-tutorial/IC781048.png "사용자")
 
 1. **사용자 추가** 섹션에서 다음 단계를 수행합니다.
 

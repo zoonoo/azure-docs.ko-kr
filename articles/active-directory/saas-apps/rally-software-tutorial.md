@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba4f1d41497af8f57a343eacc92c5da7d2488d07
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e7264792a123a8f8ce6c4a08a6c502de578d374c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163702"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>자습서: Rally Software와 Azure Active Directory 통합
 
@@ -206,7 +206,7 @@ Azure AD 사용자가 로그인할 수 있도록 Azure Active Directory 사용�
 
     a. **사용자 이름** 텍스트 상자에 사용자 이름(예: **Brittsimon**)을 입력합니다.
    
-    b. **전자 메일 주소** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 메일 주소를 입력합니다.
+    b. **전자 메일 주소** 텍스트 상자와 같은 사용자의 전자 메일을 입력 **brittasimon\@contoso.com**합니다.
 
     다. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 

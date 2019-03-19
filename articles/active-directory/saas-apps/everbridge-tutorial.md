@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95465fdc17131c996fa242d028addbab4191628c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d1bb62c9a11971f72a6c96c4652b136c19812cb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191115"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839324"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>자습서: Everbridge와 Azure Active Directory 통합
 
@@ -127,22 +127,22 @@ EverBridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 5. **EverBridge** 애플리케이션을 **EverBridge 멤버 포털**로 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    * **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
+   * **IDP** 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
-        ![EverBridge 도메인 및 URL Single Sign-On 정보](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+       ![EverBridge 도메인 및 URL Single Sign-On 정보](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
 
-        * **식별자** 텍스트 상자에서 `https://sso.everbridge.net/<API_Name>/<Organization_ID>` 패턴을 사용하여 URL을 입력합니다.
+       * **식별자** 텍스트 상자에서 `https://sso.everbridge.net/<API_Name>/<Organization_ID>` 패턴을 사용하여 URL을 입력합니다.
 
-        * **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+       * **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-    * **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+   * **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
-        ![EverBridge 도메인 및 URL Single Sign-On 정보](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+       ![EverBridge 도메인 및 URL Single Sign-On 정보](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
 
-        * **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+       * **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
-    > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [EverBridge 지원 팀](mailto:support@everbridge.com)에 문의합니다.
+     > [!NOTE]
+     > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [EverBridge 지원 팀](mailto:support@everbridge.com)에 문의합니다.
 
 6. **SAML 서명 인증서** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하고 **페더레이션 메타데이터 XML**을 다운로드한 다음, 컴퓨터에 인증서 파일을 저장합니다.
 
@@ -164,21 +164,21 @@ EverBridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 9. 위쪽 메뉴에서 **설정** 탭을 클릭하고 **보안**에서 **Single Sign-On**을 선택합니다.
    
-    ![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-    a. **이름** 텍스트 상자에 식별자 공급자의 이름(예: 회사 이름)을 입력합니다.
+     a. **이름** 텍스트 상자에 식별자 공급자의 이름(예: 회사 이름)을 입력합니다.
    
-    b. **API 이름** 텍스트 상자에 API의 이름을 입력합니다.
+     b. **API 이름** 텍스트 상자에 API의 이름을 입력합니다.
    
-    다. **파일 선택** 단추를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
+     다. **파일 선택** 단추를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
    
-    d. SAML ID 위치에서 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
+     d. SAML ID 위치에서 **Subject 문의 NameIdentifier 요소에 ID 포함**을 선택합니다.
    
-    e. Azure Portal에서 복사한 **로그인 URL** 값을 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
+     e. Azure Portal에서 복사한 **로그인 URL** 값을 **ID 공급자 로그인 URL** 텍스트 상자에 붙여넣습니다.
    
-    f. 서비스 공급자가 시작한 요청 바인딩에서 **HTTP 리디렉션**을 선택합니다.
+     f. 서비스 공급자가 시작한 요청 바인딩에서 **HTTP 리디렉션**을 선택합니다.
 
-    g. 페이지 맨 아래에 있는 **저장**
+     g. 페이지 맨 아래에 있는 **저장**
 
 10. **EverBridge** 애플리케이션에서 **EverBridge 멤버 포털**로 Single Sign-On을 구성하려면 다운로드한 **페더레이션 메타데이터 XML**을 [Everbridge 지원 팀](mailto:support@everbridge.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
@@ -200,8 +200,8 @@ EverBridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. 에 **사용자 이름** 필드에 입력 **brittasimon\@yourcompanydomain.extension**  
+    예를 들어 IPv4 주소를 사용하는 경우 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
 

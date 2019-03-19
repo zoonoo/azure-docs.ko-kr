@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5d097afa3af111a7de8341b90d8c6c05ac0347
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6a37a811c7944334571b4043d8ba937ffadc1e71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205752"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>자습서: Work.com과 Azure Active Directory 통합
 
@@ -262,9 +262,9 @@ Azure Active Directory 사용자가 로그인하려면, Work.com에 프로비전
     
     다. **별칭** 텍스트 상자에 사용자의 **이름**을 **BrittaS**로 입력합니다.
     
-    d. **전자 메일** 텍스트 상자에 사용자의 **이메일 주소** **Brittasimon@contoso.com**을 입력합니다.
+    d. 에 **전자 메일** 텍스트 상자에 입력 합니다 **전자 메일 주소** 사용자의 **Brittasimon\@contoso.com**합니다.
     
-    e. **사용자 이름** 텍스트 상자에 사용자의 사용자 이름(예: **Brittasimon@contoso.com**)을 입력합니다.
+    e. 에 **사용자 이름** 텍스트 상자에 사용자의 사용자 이름 등 **Brittasimon\@contoso.com**합니다.
     
     f. **Nick Name**(애칭) 텍스트 상자에 사용자의 **애칭** **Simon**을 입력합니다.
     

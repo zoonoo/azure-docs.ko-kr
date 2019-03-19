@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb752a6b598c9fe7f146cd6ce96182405fc0dc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 86148d428bc526e071f095233b0692a6f3775a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167680"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>자습서: Jitbit Helpdesk와 Azure Active Directory 통합
 
@@ -114,6 +114,7 @@ Jitbit Helpdesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면
     ![Configure Single Sign-On](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. 
+    
     | |     
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -224,7 +225,7 @@ Azure AD 사용자가 Jitbit Helpdesk에 로그인할 수 있도록 하려면 Ji
    
    a. **사용자 이름** 텍스트 상자에 Azure Portal 사용자 이름으로 **Britta Simon**을 입력합니다.
 
-   b. **메일** 텍스트 상자에 사용자의 메일 주소(예: **BrittaSimon@contoso.com**)를 입력합니다.
+   b. 에 **전자 메일** 텍스트 상자에 사용자의 전자 메일 형식 예: **BrittaSimon\@contoso.com**합니다.
 
    다. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 

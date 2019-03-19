@@ -5,17 +5,17 @@ description: 학습 실험을 예측 실험으로 변환하고 배포할 준비�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5990f47a7cc1517349d85654bf5f02f6240e9baa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895737"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Azure Machine Learning Studio 웹 서비스 배포
 
@@ -93,23 +93,23 @@ RRS 테스트 페이지에서는 실험에 대해 정의된 입력, 출력 및 �
 
 RRS를 테스트하려면 목록 보기 모드에서 입력에 적절한 값을 입력하고 **요청-응답 테스트**를 클릭합니다. 예측 결과는 왼쪽의 출력 열에 표시됩니다.
 
-![웹 서비스 배포](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![웹 서비스를 테스트 하려면 적절 한 값 입력](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 BES를 테스트하려면 **Batch**를 클릭합니다. Batch 테스트 페이지의 입력에서 찾아보기를 클릭하고 적절한 샘플 값이 포함된 CSV 파일을 선택합니다. CSV 파일이 없고 Machine Learning Studio를 사용하여 예측 실험을 만든 경우 예측 실험에 대한 데이터 집합을 다운로드하여 사용할 수 있습니다.
 
 데이터 집합을 다운로드하려면 Machine Learning Studio를 엽니다. 예측 실험을 열고 실험에 대한 입력을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **데이터 세트**를 선택한 다음, **다운로드**를 선택합니다.
 
-![웹 서비스 배포](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Studio 캔버스에서 데이터 집합 다운로드](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 **테스트**를 클릭합니다. Batch 실행 작업의 상태는 **Batch 작업 테스트**의 오른쪽에 표시됩니다.
 
-![웹 서비스 배포](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![웹 서비스 포털을 사용 하 여 일괄 처리 실행 작업 테스트](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
 **구성** 페이지에서 설명, 제목을 변경하고 저장소 계정 키를 업데이트하며 웹 서비스에 대한 샘플 데이터를 사용하도록 설정할 수 있습니다.
 
-![웹 서비스 구성](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
+![웹 서비스를 구성 합니다.](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
 ### <a name="access-your-new-web-service"></a>새 웹 서비스 액세스
 
@@ -161,7 +161,7 @@ Machine Learning Studio 웹 서비스 액세스에 대한 자세한 내용은 [A
 
 예측 실험을 배포하려면 실험 캔버스의 맨 아래에서 **실행**을 클릭한 다음 **웹 서비스 배포**를 클릭합니다. 웹 서비스가 설정되고 웹 서비스 대시보드에 배치됩니다.
 
-![웹 서비스 배포](./media/publish-a-machine-learning-web-service/figure-2.png)
+![Studio에서 웹 서비스 배포](./media/publish-a-machine-learning-web-service/figure-2.png)
 
 ### <a name="test-your-classic-web-service"></a>기존 웹 서비스 테스트
 
@@ -181,7 +181,7 @@ Batch 실행 서비스를 테스트하려면 **테스트** 미리 링크를 클�
 
 로깅을 사용하도록 설정하면 웹 서비스에 액세스할 때 나타나는 실패를 진단할 수 있습니다. 자세한 내용은 [Machine Learning Studio 웹 서비스에 대해 로깅 사용](web-services-logging.md)을 참조하세요.
 
-![웹 서비스 구성](./media/publish-a-machine-learning-web-service/figure-4.png)
+![웹 서비스 포털에서 로깅을 사용 하도록 설정](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 또한 앞서 새 웹 서비스 섹션에 나온 절차와 유사하게 Azure Machine Learning 웹 서비스 포털에서 웹 서비스에 대한 엔드포인트를 구성할 수 있습니다. 옵션은 여러 가지가 있습니다. 서비스 설명을 추가하거나 변경하고, 로깅을 사용하도록 설정하고, 테스트에 사용할 샘플 데이터를 사용하도록 설정할 수 있습니다.
 
@@ -209,7 +209,7 @@ Machine Learning Studio 웹 서비스 액세스에 대한 자세한 내용은 [A
 > [!NOTE]
 > 예를 들어, 새 표시 이름 또는 설명을 입력하여 원래 웹 서비스의 구성을 변경한 경우 해당 값을 다시 입력해야 합니다.
 
-웹 서비스를 업데이트하기 위한 한 가지 옵션은 프로그래밍 방식으로 모델을 다시 학습하는 것입니다. 자세한 내용은 [프로그래밍 방식으로 Machine Learning Studio 모델 다시 학습](retrain-models-programmatically.md)을 참조하세요.
+웹 서비스를 업데이트하기 위한 한 가지 옵션은 프로그래밍 방식으로 모델을 다시 학습하는 것입니다. 자세한 내용은 [프로그래밍 방식으로 Machine Learning Studio 모델 다시 학습](/azure/machine-learning/studio/retrain-machine-learning-model)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -219,13 +219,12 @@ Machine Learning Studio 웹 서비스 액세스에 대한 자세한 내용은 [A
 
 * REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법이 있습니다. [Azure Machine Learning Studio 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
 
-
 <!-- internal links -->
 [학습 실험 만들기]: #create-a-training-experiment
 [예측 실험으로 변환]: #convert-the-training-experiment-to-a-predictive-experiment
 [새 웹 서비스]: #deploy-it-as-a-new-web-service
 [클래식 웹 서비스]: #deploy-it-as-a-classic-web-service
-[신규]: #deploy-the-predictive-experiment-as-a-new-web-service
+[신규]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal

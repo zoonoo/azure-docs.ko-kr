@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26fd70b80dd512b530d367d57cd9fc04ec28f27b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8bbb307654d4aaf753a4a3284875dee4f5707f2a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211702"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901735"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>자습서: HubSpot과 Azure Active Directory 통합
 
@@ -187,8 +187,8 @@ HubSpot에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
-    예를 들어 BrittaSimon@contoso.com
+    b. 에 **사용자 이름** 필드 형식 **brittasimon\@yourcompanydomain.extension**  
+    예를 들어 IPv4 주소를 사용하는 경우 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
 
@@ -215,7 +215,7 @@ HubSpot의 경우 프로비전은 수동 작업입니다.
 
     ![Configure Single Sign-On](./media/hubspot-tutorial/user2.png)
 
-5. **이메일 주소 추가** 텍스트 상자에 **brittasimon@contoso.com**과 같이 사용자의 이메일 주소를 입력하고 **다음**을 클릭합니다.
+5. 과 같은 사용자의 전자 메일 주소를 입력 **brittasimon\@contoso.com** 에 **추가 전자 메일 addess(es)** 텍스트 상자 클릭 **다음**합니다.
 
     ![Configure Single Sign-On](./media/hubspot-tutorial/user3.png)
 

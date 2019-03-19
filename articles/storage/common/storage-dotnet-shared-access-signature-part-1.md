@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7b5f4db51fca97f79f2b43bfcd5ce8dead3ba50b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470351"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001590"
 ---
 # <a name="using-shared-access-signatures-sas"></a>SAS(공유 액세스 서명) 사용
 
@@ -40,11 +40,11 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 
 1. 클라이언트는 인증을 수행하는 프런트 엔드 프록시 서비스를 통해 데이터를 업로드하고 다운로드합니다. 프런트 엔드 프록시 서비스는 비즈니스 규칙의 유효성을 검사할 수 있다는 장점이 있지만, 데이터의 양이 많거나 트랜잭션 볼륨이 높은 경우 수요에 맞게 확장 가능한 서비스를 구축하려면 많은 비용이 필요하거나 어려움이 따를 수 있습니다.
 
-  ![시나리오 다이어그램: 프런트 엔드 프록시 서비스](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![시나리오 다이어그램: 프런트 엔드 프록시 서비스](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. 간단한 서비스에서 필요에 따라 클라이언트를 인증한 다음 SAS를 생성합니다. 클라이언트는 SAS를 수신한 후 SAS에 정의된 권한을 사용하여 SAS에 허용된 간격으로 저장소 계정 리소스에 직접 액세스할 수 있습니다. SAS를 사용하면 프런트 엔드 프록시 서비스를 통해 모든 데이터를 라우팅할 필요성이 감소됩니다.
 
-  ![시나리오 다이어그램: SAS 공급자 서비스](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![시나리오 다이어그램: SAS 공급자 서비스](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 대부분의 실제 서비스에서는 이러한 두 가지 방법을 혼합하여 사용할 수 있습니다. 예를 들어 일부 데이터는 프런트 엔드 프록시를 통해 처리 및 확인하고 일부 데이터는 SAS를 사용하여 직접 저장하거나 읽습니다.
 
@@ -108,14 +108,14 @@ SAS 토큰은 *클라이언트* 쪽에서 생성된 문자열입니다. 코드 �
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Name | SAS 부분 | 설명 |
+| 이름 | SAS 부분 | 설명 |
 | --- | --- | --- |
 | Blob URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Blob의 주소입니다. HTTPS를 사용하는 것이 좋습니다. |
 | Storage 서비스 버전 |`sv=2015-04-05` |2012-02-12 이후의 저장소 서비스 버전의 경우 이 매개 변수는 사용할 버전을 나타냅니다. |
 | 시작 시간 |`st=2015-04-29T22%3A18%3A26Z` |UTC 시간으로 지정됩니다. SAS를 즉시 유효화하려면 시작 시간을 생략하십시오. |
 | 만료 시간 |`se=2015-04-30T02%3A23%3A26Z` |UTC 시간으로 지정됩니다. |
 | 리소스 |`sr=b` |Blob의 리소스입니다. |
-| 권한 |`sp=rw` |SAS에서 부여하는 권한에는 읽기 및 쓰기가 포함됩니다. |
+| 사용 권한 |`sp=rw` |SAS에서 부여하는 권한에는 읽기 및 쓰기가 포함됩니다. |
 | IP 범위 |`sip=168.1.5.60-168.1.5.70` |요청을 수락할 IP 주소 범위입니다. |
 | 프로토콜 |`spr=https` |HTTPS를 사용하는 요청만 허용됩니다. |
 | 서명 |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Blob에 대한 액세스 권한을 부여하는 데 사용합니다. 이 서명은 SHA256 알고리즘을 사용하여 서명할 문자열과 키를 통해 계산되고 Base64 인코딩을 사용하여 인코드되는 HMAC입니다. |
@@ -128,12 +128,12 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Name | SAS 부분 | 설명 |
+| 이름 | SAS 부분 | 설명 |
 | --- | --- | --- |
 | 리소스 URI |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |서비스 속성을 가져오거나(GET으로 호출할 경우) 서비스 속성을 설정하기 위한(SET으로 호출하는 경우) 매개 변수를 사용하는 Blob service 엔드포인트입니다. |
 | Services |`ss=bf` |SAS는 Blob 및 파일 서비스에 적용됩니다. |
 | 리소스 유형 |`srt=s` |SAS는 서비스 수준 작업에 적용됩니다. |
-| 권한 |`sp=rw` |사용 권한으로 읽기 및 쓰기 작업에 대한 액세스 권한을 부여합니다. |
+| 사용 권한 |`sp=rw` |사용 권한으로 읽기 및 쓰기 작업에 대한 액세스 권한을 부여합니다. |
 
 사용 권한이 서비스 수준으로 제한된 경우 이 SAS로 액세스 가능한 작업은 **Blob service 속성 가져오기**(읽기) 및 **Blob service 속성 설정**(쓰기)입니다. 하지만 다른 리소스 URI를 사용하면 동일한 SAS 토큰을 사용하여 **Blob 서비스 통계 가져오기** (읽기)에 대한 액세스 권한을 위임할 수도 있습니다.
 
@@ -230,12 +230,12 @@ catch (StorageException e)
 
 이러한 C# 예제를 실행하려면 프로젝트에서 다음 NuGet 패키지를 참조해야 합니다.
 
-* [Azure Storage Client Library for .NET](http://www.nuget.org/packages/WindowsAzure.Storage), 버전 6.x 이상(계정 SAS 사용을 위해).
-* [Azure 구성 관리자](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage), 버전 6.x 이상(계정 SAS 사용을 위해).
+* [Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 SAS를 만들고 테스트하는 방법을 보여 주는 추가 예제는 [저장소에 대한 Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?service=storage)을 참조하세요.
 
-### <a name="example-create-and-use-an-account-sas"></a>예제: SAS 계정 만들기 및 사용
+### <a name="example-create-and-use-an-account-sas"></a>예: SAS 계정 만들기 및 사용
 다음 코드 예제는 Blob 및 파일 공유에 유효한 계정 SAS를 만들며 클라이언트가 읽기, 쓰기, 목록 권한을 사용하여 서비스 수준 API에 액세스할 수 있는 권한을 부여합니다. 계정 SAS는 프로토콜을 HTTPS로 제한하므로 반드시 HTTPS로 요청해야 합니다.
 
 ```csharp
@@ -302,7 +302,7 @@ static void UseAccountSAS(string sasToken)
 }
 ```
 
-### <a name="example-create-a-stored-access-policy"></a>예제: 저장된 액세스 정책 만들기
+### <a name="example-create-a-stored-access-policy"></a>예: 저장된 액세스 정책 만들기
 다음 코드는 컨테이너에 저장된 액세스 정책을 만듭니다. 액세스 정책을 사용하여 컨테이너나 해당 Blob에 서비스 SAS에 대한 제약 조건을 지정할 수 있습니다.
 
 ```csharp
@@ -328,8 +328,8 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 }
 ```
 
-### <a name="example-create-a-service-sas-on-a-container"></a>예제: 컨테이너에 서비스 SAS 만들기
-다음 코드는 컨테이너에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장된 액세스 정책이 제공되지 않는 경우 코드는 컨테이너에서 임시 SAS을 만듭니다.
+### <a name="example-create-a-service-sas-on-a-container"></a>예: 컨테이너에 서비스 SAS 만들기
+다음 코드는 컨테이너에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장 된 액세스 정책 없음 제공 코드 컨테이너에서 임시 SAS을 만듭니다.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -339,7 +339,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
@@ -359,7 +359,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     {
         // Generate the shared access signature on the container. In this case, all of the constraints for the
         // shared access signature are specified on the stored access policy, which is provided by name.
-        // It is also possible to specify some constraints on an ad-hoc SAS and others on the stored access policy.
+        // It is also possible to specify some constraints on an ad hoc SAS and others on the stored access policy.
         sasContainerToken = container.GetSharedAccessSignature(null, storedPolicyName);
 
         Console.WriteLine("SAS for blob container (stored access policy): {0}", sasContainerToken);
@@ -371,8 +371,8 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 }
 ```
 
-### <a name="example-create-a-service-sas-on-a-blob"></a>예제: Blob에 서비스 SAS 만들기
-다음 코드는 Blob에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장된 액세스 정책이 제공되지 않는 경우 코드는 Blob에서 임시 SAS을 만듭니다.
+### <a name="example-create-a-service-sas-on-a-blob"></a>예: Blob에 서비스 SAS 만들기
+다음 코드는 Blob에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장 된 액세스 정책이 제공 코드 blob에서 임시 SAS을 만듭니다.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -386,7 +386,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {

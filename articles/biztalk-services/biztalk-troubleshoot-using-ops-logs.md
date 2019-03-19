@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: f69035202a3358af38ebaf8e94abdd3b030e633f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256071"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108259"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: 작업 로그를 사용한 문제 해결
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="what-are-the-operation-logs"></a>작업 로그의 정의
@@ -32,14 +32,14 @@ ms.locfileid: "51256071"
 
 > [!NOTE]
 > 이 기능은 서비스가 시작되었을 경우, 백업되었을 경우 등과 같은 BizTalk Services의 관리 작업에 대한 로그만 캡처합니다. [BizTalk Service REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)를 사용하여 이러한 작업을 추적합니다. 관리 서비스를 사용하여 추적된 작업의 전체 목록을 보려면 [Azure 관리 서비스를 사용하여 추적된 작업](#bizops)를 사용하여 수행되었는지 여부에 관계없이 추적됩니다.<br/><br/>
-> BizTalk 서비스 런타임과 관련된 작업(예: 브리지에서 처리하는 메시지 등)에 대한 로그는 캡처하지 않습니다. 이러한 로그를 보려면 BizTalk Services 포털에서 추적 뷰를 사용합니다. 자세한 내용은 [메시지 추적](https://msdn.microsoft.com/library/azure/hh949805.aspx)을 참조하세요.
+>  BizTalk 서비스 런타임과 관련된 작업(예: 브리지에서 처리하는 메시지 등)에 대한 로그는 캡처하지 않습니다. 이러한 로그를 보려면 BizTalk Services 포털에서 추적 뷰를 사용합니다. 자세한 내용은 [메시지 추적](https://msdn.microsoft.com/library/azure/hh949805.aspx)을 참조하세요.
 > 
 > 
 
 ## <a name="view-biztalk-services-operation-logs"></a>BizTalk Services 작업 로그 보기
 1. 포털에서 **관리 서비스**를 선택한 다음 **작업 로그** 탭을 선택합니다.
 2. 구독, 날짜 범위, 서비스 종류(예: BizTalk Services), 서비스 이름 또는 상태(작업 상태, 예: 성공, 실패)와 같은 다양한 매개 변수를 기준으로 로그를 필터링할 수 있습니다.
-3. 확인 표시를 선택하여 필터링된 목록을 봅니다. 다음 그림은 testbiztalkservice와 관련된 작업을 보여 줍니다. ![작업 로그 보기][ViewLogs] 
+3. 확인 표시를 선택하여 필터링된 목록을 봅니다. 다음 그림은 testbiztalkservice와 관련 된 활동을 보여 줍니다. ![작업 로그 보기][ViewLogs] 
 4. 특정 작업에 대한 자세한 내용을 보려면 아래쪽의 작업 표시줄에서 **세부 정보** 를 클릭합니다.
 
 ## <a name="bizops"></a>Azure 관리 서비스를 사용하여 추적된 작업
@@ -63,11 +63,11 @@ ms.locfileid: "51256071"
 | ServiceUpdateBizTalkService |BizTalk 서비스를 다른 버전으로 업그레이드하거나 다운그레이드하는 작업 |
 | PurgeBackupBizTalkService |보존 기간이 지난 BizTalk 서비스의 백업을 삭제하는 작업 |
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 * [BizTalk 서비스 Backup](https://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [Backup에서 BizTalk 서비스 복원](https://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](https://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Developer, Basic, Standard 및 Premium Edition 차트](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: 프로 비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk Services: 프로비저닝 상태 차트](https://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](https://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: 제한](https://go.microsoft.com/fwlink/p/?LinkID=302282)

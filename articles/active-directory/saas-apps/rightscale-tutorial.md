@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 301199667d2307bc81da7ef42f3e4f7daa750ee2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0c99bc4ef23ee2d8f4478bbaab591e7b36c7ea75
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199701"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>자습서: Rightscale과 Azure Active Directory 통합
 
@@ -132,7 +132,7 @@ Rightscale에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 1. **Rightscale 구성** 섹션에서 **Rightscale 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조** 섹션에서 **SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Single Sign-On 구성](./media/rightscale-tutorial/tutorial_rightscale_configure.png) 
-<CS>
+   <CS>
 1. 애플리케이션에 대해 구성된 SSO를 가져오려면 관리자 권한으로 RightScale 테넌트에 로그온해야 합니다.
 
     a. 위쪽 메뉴에서 **설정** 탭을 클릭하고 **Single Sign-On**을 선택합니다.
@@ -164,10 +164,10 @@ Rightscale에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
     h. **저장**을 클릭합니다.
-<CE>
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
+   <CE>
+   > [!TIP]
+   > 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory &gt; 엔터프라이즈 애플리케이션** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+   > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.

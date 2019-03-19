@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52d3e058c7e604a31493bf3b1972b39c9922fd90
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e5ce628716e9e8d0094f678c3d67dcfad9e24ada
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163518"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860536"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>자습서: Proxyclick과 Azure Active Directory 통합
 
@@ -160,7 +160,7 @@ Proxyclick에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     f. Azure Portal에서 다운로드한 인증서파일을 메모장에서 열고 복사하여 **인증서** 텍스트 상자에 붙여넣습니다.
 
-    g. **변경 내용 저장**을 클릭합니다.
+    g. 클릭 **변경 내용을 저장**합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -214,7 +214,7 @@ Azure AD 사용자가 Proxyclick에 로그인할 수 있도록 하려면 이 사
 
     ![직원 추가](./media/proxyclick-tutorial/user3.png)
 
-    a. **이메일** 텍스트 상자에서 **brittasimon@contoso.com**과 같은 사용자의 이메일 주소를 입력합니다.
+    a. 에 **전자 메일** 텍스트 상자에 사용자의 전자 메일 주소 형식 예: **brittasimon\@contoso.com**합니다.
 
     b. **이름** 텍스트 상자에서 사용자의 이름(예: Britta)을 입력합니다.
 

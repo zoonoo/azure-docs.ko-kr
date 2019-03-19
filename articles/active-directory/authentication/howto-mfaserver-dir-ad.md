@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9910155b439b5ee6d0e5abd96d750943605098a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 88839598b3ae11f0041b3451ba5481547c019c9d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211600"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449617"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
 
@@ -61,7 +61,7 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 * **사용자 필터** - 디렉터리 검색을 수행할 때 사용자 레코드를 한정하는 데 사용할 필터 조건을 지정합니다.  Active Directory 및 ADAM의 경우 (& (objectClass=user)(objectCategory=person))이 일반적으로 사용됩니다.  다른 LDAP 디렉터리의 경우 디렉터리 스키마에 따라 (objectClass=inetOrgPerson) 또는 이와 유사한 유형을 사용합니다. <br>참고:  비워 둔 경우 (&(objectCategory=person)(objectClass=user))가 기본적으로 사용됩니다.
 
 ## <a name="attributes"></a>특성
-필요에 따라 특성을 특정 디렉터리에 사용자 지정할 수 있습니다.  이를 통해 사용자 지정 특성을 추가하고 필요한 특성에 대한 동기화만 미세 조정할 수 있습니다. 각 특성 필드의 값에 대해 디렉터리 스키마에서 정의된 특성의 이름을 사용합니다. 다음 표는 각 기능에 대한 추가 정보를 제공합니다.
+필요에 따라 특성을 특정 디렉터리에 사용자 지정할 수 있습니다.  이를 통해 사용자 지정 특성을 추가하고 필요한 특성에 대한 동기화만 미세 조정할 수 있습니다. 각 특성 필드의 값에 대 한 디렉터리 스키마에 정의 된 특성의 이름을 사용 합니다. 다음 표는 각 기능에 대한 추가 정보를 제공합니다.
 
 특성은 수동으로 입력할 수 있으며 특성 목록의 특성과 일치할 필요는 없습니다.
 
@@ -71,7 +71,7 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 | --- | --- |
 | 고유 식별자 |컨테이너, 보안 그룹 및 사용자 레코드의 고유 식별자 역할을 하는 특성의 이름을 입력합니다.  Active Directory에서는 일반적으로 objectGUID입니다. 다른 LDAP 구현은 entryUUID 또는 이와 유사한 이름을 사용할 수 있습니다.  기본값은 objectGUID입니다. |
 | 고유 식별자 형식 |고유 식별자 특성의 형식을 선택합니다.  Active Directory에서 objectGUID 특성은 GUID 형식입니다. 다른 LDAP 구현은 ASCII 바이트 배열 또는 문자열 형식을 사용할 수 있습니다.  기본값은 GUID입니다. <br><br>동기화 항목은 해당 고유 식별자에서 참조되므로 이 형식을 올바르게 설정하는 것이 중요합니다. 고유 식별자 형식은 디렉터리에서 개체를 직접 찾는 데 사용됩니다.  디렉터리에서 ASCII 문자의 바이트 배열로 값을 실제로 저장할 때 이 형식을 문자열로 설정하게 되면 동기화가 제대로 기능하지 않게 됩니다. |
-| 고유 이름 |각 레코드에 고유 이름을 포함하는 특성의 이름을 입력합니다.  Active Directory에서는 일반적으로 distinguishedName입니다. 다른 LDAP 구현은 entryDN 또는 이와 유사한 이름을 사용할 수 있습니다.  기본값은 distinguishedName입니다. <br><br>고유 이름만 포함하는 특성이 없는 경우 adspath 특성을 사용할 수 있습니다.  경로에서 "LDAP://\<서버\>/" 부분은 자동으로 제거되어 개체의 고유 이름만 남게 됩니다. |
+| 고유 이름 |각 레코드에 고유 이름을 포함하는 특성의 이름을 입력합니다.  Active Directory에서는 일반적으로 distinguishedName입니다. 다른 LDAP 구현은 entryDN 또는 이와 유사한 이름을 사용할 수 있습니다.  기본값은 distinguishedName입니다. <br><br>고유 이름만 포함 하는 특성이 없는 경우에 광고 경로 특성을 사용할 수 있습니다.  경로에서 "LDAP://\<서버\>/" 부분은 자동으로 제거되어 개체의 고유 이름만 남게 됩니다. |
 | 컨테이너 이름 |컨테이너 레코드에 이름을 포함하는 특성의 이름을 입력합니다.  Active Directory에서 가져오거나 동기화 항목을 추가할 때 이 특성의 값이 컨테이너 계층 구조에 표시됩니다.  기본값은 name입니다. <br><br>다른 컨테이너가 해당 이름의 다른 특성을 사용하는 경우 세미콜론을 사용하여 여러 컨테이너 이름 특성을 구분할 수 있습니다.  컨테이너 개체에 있는 첫 번째 컨테이너 이름 특성이 이름을 표시할 때 사용됩니다. |
 | 보안 그룹 이름 |보안 그룹 레코드에 이름을 포함하는 특성의 이름을 입력합니다.  Active Directory에서 가져오거나 동기화 항목을 추가할 때 이 특성의 값이 보안 그룹 목록에 표시됩니다.  기본값은 name입니다. |
 | 사용자 이름 |사용자 레코드에 사용자 이름을 포함하는 특성의 이름을 입력합니다.  이 특성의 값은 Multi-Factor Auth 서버의 사용자 이름으로 사용됩니다.  두 번째 특성은 첫 번째 특성에 대한 백업으로 지정할 수 있습니다.  두 번째 특성은 첫 번째 특성에 사용자에 대한 값이 없는 경우에만 사용됩니다.  기본값은 userPrincipalName 및 sAMAccountName입니다. |

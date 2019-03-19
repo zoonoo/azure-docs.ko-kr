@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba2bde039cec65a1afe33efac58752d26f22c2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9cdb842c4cebe48f2f6534417a7fe6aa4686d1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171896"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>자습서: Azure Active Directory와 Zscaler Private Access Administrator 통합
 
@@ -217,7 +217,7 @@ Azure AD 사용자가 Zscaler Private Access Administrator에 로그인할 수 �
 
     ![Zscaler Private Access Administrator 사용자 관리](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. **사용자 이름** 텍스트 상자에 사용자의 메일(예: **BrittaSimon@contoso.com**)을 입력합니다.
+    a. 에 **사용자 이름** 텍스트 상자과 같은 사용자의 전자 메일을 입력 **BrittaSimon\@contoso.com**합니다.
 
     b. **암호** 텍스트 상자에서 암호를 입력합니다.
 
@@ -225,7 +225,7 @@ Azure AD 사용자가 Zscaler Private Access Administrator에 로그인할 수 �
 
     d. **Role**(역할)을 **Zscaler Private Access Administrator**로 선택합니다.
 
-    e. **메일** 텍스트 상자에 **BrittaSimon@contoso.com**과 같은 사용자의 메일 주소를 입력합니다.
+    e. 에 **전자 메일** 텍스트 상자과 같은 사용자의 전자 메일 입력 **BrittaSimon\@contoso.com**합니다.
 
     f. **Phone**(전화) 텍스트 상자에 전화 번호를 입력합니다.
 

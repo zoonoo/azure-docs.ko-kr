@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a00c9cb0ce1bd8a6f36070e81df1185ef23a307
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 450fcbcdfab8e90728fbbbd0068123768f3cef4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201774"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>자습서: Sugar CRM과 Azure Active Directory 통합
 
@@ -114,6 +114,7 @@ Sugar CRM에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     ![Configure Single Sign-On](./media/sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다.
+    
     | |
     |--|
     | `https://<companyname>.sugarondemand.com` |
