@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub 가격 책정 이해 | Microsoft Docs
 description: 개발자 가이드 - 작동 예제를 비롯하여 IoT Hub에서 측정 및 가격 책정이 진행되는 방식에 대한 정보를 제공합니다.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.date: 03/11/2019
+ms.openlocfilehash: 23b53e852672c129ff148b0b493a44172f9baf9a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141512"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769747"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub 가격 책정 정보
 
@@ -28,8 +28,8 @@ ms.locfileid: "53141512"
 | ID 레지스트리 작업 <br/> (만들기, 검색, 목록, 업데이트, 삭제) | 요금이 부과되지 않습니다. |
 | 디바이스-클라우드 메시지 | IoT Hub에 수신 시, 성공적으로 전송된 메시지는 4KB 청크 단위로 요금이 청구됩니다.  예를 들어 6KB 메시지에는 2개 메시지로 요금이 청구됩니다. |
 | 클라우드-장치 메시지 | 성공적으로 전송된 메시지는 4KB 청크 단위로 요금이 청구됩니다. 예를 들어 6KB 메시지에는 2개 메시지로 요금이 청구됩니다. |
-| 파일 업로드 | Azure Storage에 대한 파일 전송은 IoT Hub에서 측정되지 됩니다. 파일 전송 시작 및 완료 메시지는 4KB 증분으로 측정되어 요금이 청구됩니다. 예를 들어 10MB 파일을 전송하는 경우 Azure Storage 비용 외에 2개의 메시지로 요금이 청구됩니다. |
-| 직접 메서드 | 성공적인 메서드 요청은 4KB 청크 단위로 요금이 청구됩니다. 본문이 비어 있지 않은 응답은 추가 메시지로서 4KB 단위로 요금이 청구됩니다. 연결이 끊긴 디바이스에 대한 요청은 4KB 청크 단위 메시지로 요금이 청구됩니다. 예를 들어 디바이스에서 본문이 없는 응답을 초래하는 6KB 본문 메서드에는 두 메시지 요금이 청구됩니다. 디바이스에서 1KB 응답을 초래하는 6KB 본문 메서드에는 요청에 대한 두 메시지와, 응답에 대한 다른 메시지 요금이 청구됩니다. |
+| 파일 업로드 | Azure Storage에 대한 파일 전송은 IoT Hub에서 측정되지 됩니다. 파일 전송 시작 및 완료 메시지는 4KB 증분으로 측정되어 요금이 청구됩니다. 예를 들어 10MB 파일을 전송 Azure Storage 비용 외에 2 개 메시지로 청구 됩니다. |
+| 직접 메서드 | 성공적인 메서드 요청은 4KB 청크 단위로 요금이 청구 됩니다 및 응답은 추가 메시지로 서 4KB 청크 단위로 요금이 청구 됩니다. 연결이 끊긴 디바이스에 대한 요청은 4KB 청크 단위 메시지로 요금이 청구됩니다. 예를 들어 본문이 없는 장치에서 응답을 초래 하는 4KB 본문의 메서드 2 개 메시지로 요금이 청구 됩니다. 디바이스에서 1KB 응답을 초래하는 6KB 본문 메서드에는 요청에 대한 두 메시지와, 응답에 대한 다른 메시지 요금이 청구됩니다. |
 | 디바이스 및 모듈 쌍 읽기 | 디바이스 또는 모듈과 솔루션 백 엔드에서의 쌍 읽기는 512바이트 청크 메시지로 요금이 청구됩니다. 예를 들어 6KB 쌍 읽기는 12개 메시지로 요금이 청구됩니다. |
 | 디바이스 및 모듈 쌍 업데이트(태그 및 속성) | 디바이스 또는 모듈과 솔루션 백 엔드에서의 쌍 업그레이드는 512바이트 청크 메시지로 요금이 청구됩니다. 예를 들어 6KB 쌍 읽기는 12개 메시지로 요금이 청구됩니다. |
 | 디바이스 및 모듈 쌍 쿼리 | 쿼리는 결과 크기에 따라 512바이트 청크 단위 메시지로 요금이 청구됩니다. |
@@ -42,7 +42,7 @@ ms.locfileid: "53141512"
 
 ## <a name="example-1"></a>예제 1
 
-디바이스가 분당 1개의 1KB 디바이스-클라우드 메시지를 IoT Hub로 전송하면 Azure Stream Analytics에서 읽습니다. 솔루션 백 엔드는 10분 간격으로 디바이스에서 메서드(512바이트 페이로드)를 호출하여 특정 작업을 트리거합니다. 디바이스는 200바이트의 결과로 메서드에 응답합니다.
+디바이스가 분당 1개의 1KB 디바이스-클라우드 메시지를 IoT Hub로 전송하면 Azure Stream Analytics에서 읽습니다. 솔루션 백 엔드는 메서드를 호출 (512 바이트 페이로드) 장치에서 10 분 마다 특정 작업을 트리거합니다. 디바이스는 200바이트의 결과로 메서드에 응답합니다.
 
 디바이스는 다음을 사용합니다.
 

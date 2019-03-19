@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: genli
-ms.openlocfilehash: 816ad6c0079e9272286cdc072ff71bf15313eb8e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069102"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541573"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 문제 해결 가이드
 
@@ -69,11 +69,11 @@ DNS 이름 확인은 여러 가지 이유로 실패할 수 있는 다단계 프�
 
 1.  Azure DNS에서 DNS 레코드가 올바르게 구성되어 있는지 확인합니다. Azure Portal에서 DNS 레코드를 검토하여 영역 이름, 레코드 이름 및 레코드 유형이 올바른지 확인합니다.
 2.  Azure DNS 이름 서버에서 DNS 레코드가 올바르게 확인되는지 확인합니다.
-    - 로컬 PC에서 DNS 쿼리를 작성할 수 있다면 이름 서버의 현재 상태를 반영하지 않는 캐시된 결과가 표시될 수 있습니다.  또한 회사 네트워크는 종종 DNS 프록시 서버를 사용하는데, 이 서버는 DNS 쿼리를 특정 이름 서버로 보내지 못하게 합니다.  이러한 문제를 방지하려면 [digwebinterface](http://digwebinterface.com) 같은 웹 기반 이름 확인 서비스를 사용하세요.
+    - 로컬 PC에서 DNS 쿼리를 작성할 수 있다면 이름 서버의 현재 상태를 반영하지 않는 캐시된 결과가 표시될 수 있습니다.  또한 회사 네트워크는 종종 DNS 프록시 서버를 사용하는데, 이 서버는 DNS 쿼리를 특정 이름 서버로 보내지 못하게 합니다.  이러한 문제를 방지하려면 [digwebinterface](https://digwebinterface.com) 같은 웹 기반 이름 확인 서비스를 사용하세요.
     - Azure Portal에 표시된 대로 DNS 영역의 올바른 이름 서버를 지정하세요.
     - DNS 이름이 올바른지(영역 이름을 포함하여 정규화된 이름을 지정해야 함), 또 레코드 유형이 올바른지 확인합니다.
 3.  DNS 도메인 이름이 [Azure DNS 이름 서버에 올바르게 위임되었는지](dns-domain-delegation.md) 확인합니다. [DNS 위임 유효성 검사를 제공하는 여러 타사 웹 사이트](https://www.bing.com/search?q=dns+check+tool)가 있습니다. 이 테스트는 *영역* 위임 테스트이므로 정규화된 레코드 이름이 아닌 DNS 영역 이름만 입력해야 합니다.
-4.  위의 단계를 완료하면 DNS 레코드가 올바르게 확인될 것입니다. [digwebinterface](http://digwebinterface.com)를 사용하여 문제가 해결되었는지 확인할 수 있습니다. 이번에는 기본 이름 서버 설정을 사용하면 됩니다.
+4.  위의 단계를 완료하면 DNS 레코드가 올바르게 확인될 것입니다. [digwebinterface](https://digwebinterface.com)를 사용하여 문제가 해결되었는지 확인할 수 있습니다. 이번에는 기본 이름 서버 설정을 사용하면 됩니다.
 
 
 ### <a name="recommended-documents"></a>**권장되는 문서**

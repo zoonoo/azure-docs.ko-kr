@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27960564"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552183"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>요청 및 응답 구성 요소 시작
 논리 앱의 요청 및 응답 구성 요소를 사용하여 이벤트에 실시간으로 응답할 수 있습니다.
@@ -38,7 +38,7 @@ ms.locfileid: "27960564"
 
 논리 앱 디자이너에서 HTTP 요청을 설정하는 방법의 예제 시퀀스는 다음과 같습니다.
 
-1. 논리 앱에서 **요청 - HTTP 요청을 받은 경우** 트리거를 추가합니다. 요청 본문에 대해 JSON 스키마를 선택적으로 제공할 수 있습니다( [JSONSchema.net](http://jsonschema.net)과 같은 도구 사용). 이렇게 하면 디자이너가 HTTP 요청에서 속성에 대한 토큰을 생성할 수 있습니다.
+1. 논리 앱에서 **요청 - HTTP 요청을 받은 경우** 트리거를 추가합니다. 요청 본문에 대해 JSON 스키마를 선택적으로 제공할 수 있습니다( [JSONSchema.net](https://jsonschema.net)과 같은 도구 사용). 이렇게 하면 디자이너가 HTTP 요청에서 속성에 대한 토큰을 생성할 수 있습니다.
 2. 논리 앱을 저장할 수 있도록 다른 작업을 추가합니다.
 3. 논리 앱을 저장한 후 요청 카드에서 HTTP 요청 URL을 가져올 수 있습니다.
 4. URL에 대한 HTTP POST( [Postman](https://www.getpostman.com/)과 같은 도구 사용)는 논리 앱을 트리거합니다.

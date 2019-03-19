@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999371"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776651"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure에서 관리 솔루션 파일 만들기(Preview)
 > [!NOTE]
@@ -83,14 +83,14 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 >
 >
 
-| 매개 변수 | Type | 설명 |
+| 매개 변수 | 형식 | 설명 |
 |:--- |:--- |:--- |
-| accountName |string |Azure Automation 계정 이름입니다. |
-| pricingTier |string |Log Analytics 작업 영역 및 Azure Automation 계정의 가격 책정 계층입니다. |
-| regionId |string |Azure Automation 계정의 지역입니다. |
-| solutionName |string |솔루션의 이름입니다.  빠른 시작 템플릿을 통해 솔루션을 배포하는 경우 사용자에게 지정하도록 요구하는 대신 문자열을 정의할 수 있도록 solutionName을 매개 변수로 정의해야 합니다. |
-| workspaceName |string |Log Analytics 작업 영역 이름입니다. |
-| workspaceRegionId |string |Log Analytics 작업 영역의 지역입니다. |
+| accountName |문자열 |Azure Automation 계정 이름입니다. |
+| pricingTier |문자열 |Log Analytics 작업 영역 및 Azure Automation 계정의 가격 책정 계층입니다. |
+| regionId |문자열 |Azure Automation 계정의 지역입니다. |
+| solutionName |문자열 |솔루션의 이름입니다.  빠른 시작 템플릿을 통해 솔루션을 배포하는 경우 사용자에게 지정하도록 요구하는 대신 문자열을 정의할 수 있도록 solutionName을 매개 변수로 정의해야 합니다. |
+| workspaceName |문자열 |Log Analytics 작업 영역 이름입니다. |
+| workspaceRegionId |문자열 |Log Analytics 작업 영역의 지역입니다. |
 
 
 다음은 솔루션 파일에 복사하여 붙여넣을 수 있는 표준 매개 변수 구조입니다.  
@@ -229,13 +229,6 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 | product |솔루션을 식별하는 고유 문자열입니다. |
 | publisher |솔루션의 게시자입니다. |
 
-
-
-## <a name="sample"></a>샘플
-다음 위치에서 솔루션 리소스를 사용하는 솔루션 파일의 샘플을 볼 수 있습니다.
-
-- [Automation 리소스](solutions-resources-automation.md#sample)
-- [검색 및 경고 리소스](solutions-resources-searches-alerts.md#sample)
 
 
 ## <a name="next-steps"></a>다음 단계

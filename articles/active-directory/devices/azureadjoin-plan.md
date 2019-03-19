@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a299c5cf59a3c5b7a994303c9d85783ecfbb424
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7b681915eb3ad9960f335d46508b857fa6ec2e20
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201893"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551775"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -40,7 +40,7 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
 
 ## <a name="plan-your-implementation"></a>구현 계획
 
-하이브리드 Azure AD 구현을 계획하려면 다음 사항을 숙지해야 합니다.
+Azure AD 조인 구현 하려는 있습니다 잘 이해 해야 합니다.
 
 |   |   |
 |---|---|
@@ -237,11 +237,11 @@ Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 �
  
 ||셀프 서비스 설정|Windows Autopilot|대량 등록|
 |---|---|---|---|
-|설정에서 사용자 상호 작용이 필요|예|예|아니요|
-|IT 활동이 필요|아니요|예|예|
+|설정에서 사용자 상호 작용이 필요|예|예|아닙니다.|
+|IT 활동이 필요|아닙니다.|예|예|
 |적용 흐름|OOBE 및 설정|OOBE만|OOBE만|
-|기본 사용자에 대한 로컬 관리자 권한|기본적으로 예|구성 가능 여부|아니요|
-|디바이스 OEM 지원 필요|아니요|예|아니요|
+|기본 사용자에 대한 로컬 관리자 권한|기본적으로 예|구성 가능 여부|아닙니다.|
+|디바이스 OEM 지원 필요|아닙니다.|사용자 계정 컨트롤|아닙니다.|
 |지원되는 버전|1511+|1709+|1703+|
  
 위의 표를 검토하고 방법 채택에 대한 다음 고려 사항을 검토하여 배포 접근 방식을 선택합니다.  

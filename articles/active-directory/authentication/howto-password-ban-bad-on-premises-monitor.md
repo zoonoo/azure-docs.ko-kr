@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a3127cde66ce7de9a3920d238193a3a3b2225be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195790"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451489"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>미리 보기: Azure AD 암호 보호 모니터링 및 로깅
 
@@ -317,7 +317,7 @@ HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters
 
 상태를 변경하는 PowerShell cmdlet(예: Register-AzureADPasswordProtectionProxy)은 일반적으로 작업 로그에 결과 이벤트를 기록합니다.
 
-또한 대부분의 Azure AD 암호 보호 PowerShell cmdlet은 그 아래에 있는 텍스트 로그에 씁니다.
+또한 대부분의 Azure AD 암호 보호 PowerShell cmdlet 아래에 있는 텍스트 로그에 작성 합니다.
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 

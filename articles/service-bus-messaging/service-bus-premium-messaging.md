@@ -11,15 +11,15 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.topic: conceptual
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ae35f73e601cfa83fc960c5331f9956863677941
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9e9c8918556b7ff003bcfed062ea1e15233b2845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855298"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761959"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
@@ -34,7 +34,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 애플리케�
 | 높은 처리량 |가변 처리량 |
 | 예측 가능한 성능 |가변 대기 시간 |
 | 고정된 가격 책정 |종량제 가변 가격 |
-| 작업을 확장 및 축소하는 기능 |해당 없음 |
+| 작업을 확장 및 축소하는 기능 |N/A |
 | 최대 1MB의 메시지 크기 |최대 256KB의 메시지 크기 |
 
 **Service Bus 프리미엄 메시지**는 각 고객의 워크로드가 따로 실행되도록 CPU 및 메모리 수준에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위*라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 각 Service Bus 프리미엄 네임스페이스에 대해 1, 2 또는 4 메시징 단위를 구입할 수 있습니다. 요금은 24시간 단위 또는 일별 요금으로 부과되더라도 단일 워크로드 또는 엔터티가 여러 메시징 단위에 걸쳐 있을 수 있고 메시징 단위 수를 변경할 수도 있습니다. 그 결과, Service Bus 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다.
@@ -54,6 +54,21 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 애플리케�
 프리미엄 메시지가 완전히 격리된 런타임 환경에서 실행되므로 프리미엄 메시지는 Express 엔터티가 지원되지 않습니다. Express 기능에 대한 자세한 내용은 [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 속성을 참조하세요.
 
 표준 메시지에서 실행되는 코드가 있고 프리미엄 계층으로 이식하려는 경우 [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) 속성이 **false**(기본값)로 설정되어 있는지 확인합니다.
+
+## <a name="premium-messaging-resource-usage"></a>프리미엄 메시징 리소스 사용량
+일반적으로 엔터티의 모든 작업에는 CPU 및 메모리 사용량을 발생할 수 있습니다. 다음은 이러한 작업의 일부입니다. 
+
+- CRUD 등의 관리 작업 (만들기, 검색, 업데이트 및 삭제) 작업 큐, 토픽 및 구독에 있습니다.
+- 런타임 작업 (메시지 보내기 및 받기)
+- 작업 및 경고 모니터링
+
+하지만 추가 CPU 및 메모리 사용량 또한 가격이 하지는. 프리미엄 메시징 계층에 대 한 메시지 단위에 대 한 단일 가격을 있습니다.
+
+CPU 및 메모리 사용량 추적 되며 다음과 같은 이유로 있습니다에 게 표시 됩니다. 
+
+- 시스템 내부에 대 한 투명성을 제공 합니다.
+- 구매 하는 리소스의 용량을 이해 합니다.
+- 용량 계획 하는 확장/축소를 결정 하도록 도와줍니다.
 
 ## <a name="get-started-with-premium-messaging"></a>프리미엄 메시징 시작
 

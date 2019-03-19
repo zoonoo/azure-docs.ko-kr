@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f68c3797d5425c496e38c1000cc39e3868d41739
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: f3b9ef9d840630269c4c5621a4dab3c732bacdbf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727040"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551656"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
@@ -166,7 +166,7 @@ Azure Functions 포털의 함수 로그를 검토하여 오케스트레이션의
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-오케스트레이션은 시간 제한에 도달하거나 맑은 하늘이 감지되면 [종료](durable-functions-instance-management.md#terminating-instances)됩니다. 또 다른 함수 내의 `TerminateAsync`(.NET) 또는 `terminate`(JavaScript)를 사용하거나 위의 202 응답에서 참조된 **terminatePostUri** HTTP POST 웹후크를 호출하여 `{text}`를 종료 이유로 대체할 수도 있습니다.
+오케스트레이션은 시간 제한에 도달하거나 맑은 하늘이 감지되면 [종료](durable-functions-instance-management.md)됩니다. 또 다른 함수 내의 `TerminateAsync`(.NET) 또는 `terminate`(JavaScript)를 사용하거나 위의 202 응답에서 참조된 **terminatePostUri** HTTP POST 웹후크를 호출하여 `{text}`를 종료 이유로 대체할 수도 있습니다.
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

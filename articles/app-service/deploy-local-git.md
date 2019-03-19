@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2c547eba931e23b6ffc7cae176e19959d43bcf5e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602497"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405031"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대한 로컬 Git 배포
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-from-local-git-with-kudu-builds"></a>Kudu 빌드로 로컬 Git에서 배포
+## <a name="deploy-with-kudu-builds"></a>Kudu 빌드를 사용 하 여 배포
 
 Kudu 빌드 서버로 앱에 대한 로컬 Git 배포를 사용하도록 설정하는 가장 쉬운 방법은 Cloud Shell을 사용하는 것입니다.
 
@@ -102,7 +102,7 @@ git push azure master
 
 앱으로 이동하여 콘텐츠가 배포되었는지 확인합니다.
 
-## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Azure DevOps Services 빌드를 사용하여 로컬 Git에서 배포
+## <a name="deploy-with-azure-devops-builds"></a>Azure DevOps 빌드를 사용 하 여 배포
 
 > [!NOTE]
 > App Service가 Azure DevOps Services 조직에서 필요한 Azure Pipelines를 만들려면 사용자의 Azure 계정에 Azure 구독의 **소유자**의 역할이 있어야 합니다.
@@ -110,20 +110,18 @@ git push azure master
 
 Kudu 빌드 서버로 앱에 대한 로컬 Git 배포를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 앱으로 이동합니다.
 
-앱 페이지의 왼쪽 탐색 영역에서 **배포 센터** > **로컬 Git** > **계속**을 클릭합니다. 
+앱 페이지의 왼쪽 탐색 영역에서 **배포 센터** > **로컬 Git** > **계속**을 클릭합니다.
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-**Azure DevOps Services 지속적인 업데이트** > **계속**을 클릭합니다.
+클릭 **Azure 파이프라인 (미리 보기)** > **계속**합니다.
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-**구성** 페이지에서 새 Azure DevOps Services 조직을 구성하거나 기존 조직을 지정합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
+에 **구성** 페이지에서 새 Azure DevOps 조직에서 구성 하거나 기존 조 직을 지정 합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
 
 > [!NOTE]
-> 나열되지 않은 기존 Azure DevOps Services 조직을 사용하려면 [Azure DevOps Services 조직을 Azure 구독에 연결](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)해야 합니다.
-
-**테스트** 페이지에서 부하 테스트를 사용하도록 설정한 다음, **계속**을 클릭합니다.
+> 나열 되지 않은 기존 Azure DevOps 조 직을 사용 하려는 경우 해야 [Azure 구독에 Azure DevOps 서비스 조직 연결할](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)합니다.
 
 App Service 계획의 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. 배포 슬롯을 활성화할지 여부를 선택한 다음, **계속**을 클릭합니다.
 

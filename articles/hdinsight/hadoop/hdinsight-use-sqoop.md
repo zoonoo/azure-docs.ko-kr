@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 0a03bfe61da6a1de073401fca9c61f3212b9d0bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652493"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440100"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Apache Sqoop 사용
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -41,14 +41,14 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
   
   | 필드 | 데이터 형식 |
   | --- | --- |
-  | clientid |string |
-  | querytime |string |
-  | market |string |
-  | deviceplatform |string |
-  | devicemake |string |
-  | devicemodel |string |
-  | state |string |
-  | country |string |
+  | clientid |문자열 |
+  | querytime |문자열 |
+  | market |문자열 |
+  | deviceplatform |문자열 |
+  | devicemake |문자열 |
+  | devicemodel |문자열 |
+  | state |문자열 |
+  | country |문자열 |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -82,9 +82,9 @@ Azure PowerShell을 사용하여 클러스터 및 SQL Database를 만들려면 [
     - **클러스터 로그인 이름 및 암호**: 기본 로그인 이름은 admin입니다.
     - **SSH 사용자 이름 및 암호**.
     - **SQL 데이터베이스 서버 로그인 이름 및 암호**.
-    - **_artifacts Location**: 다른 위치에 자체 backpac 파일을 사용하려는 경우가 아니면 기본값을 사용합니다.
+    - **_artifacts Location**: 다른 위치에 bacpac 파일을 직접 사용 하려는 경우가 아니면 기본값을 사용 합니다.
     - **_artifacts 위치 Sas 토큰**: 비워 둠
-    - **Bacpac 파일 이름**: 자체 backpac 파일을 사용하려는 경우가 아니면 기본값을 사용합니다.
+    - **Bacpac 파일 이름**: Bacpac 파일을 직접 사용 하려는 경우가 아니면 기본값을 사용 합니다.
      
         다음 값은 변수 섹션에서 하드 코드합니다.
         
@@ -146,7 +146,7 @@ HDInsight는 다양한 메서드를 사용하여 Sqoop 작업을 실행할 수 �
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux |Linux, Unix, Mac OS X, 또는 Windows |
 | [Hadoop용 .NET SDK](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |? |Linux 또는or Windows |Windows(당분간) |
-| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Linux 또는or Windows | Windows |
+| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Linux 또는or Windows |Windows |
 
 ## <a name="limitations"></a>제한 사항
 * 대량 내보내기 - Linux 기반 HDInsight와 함께 Microsoft SQL Server 또는 Azure SQL Database에 데이터를 내보내는 데 사용된 Sqoop 커넥터도 현재 대량 삽입을 지원하지 않습니다.
@@ -163,7 +163,7 @@ HDInsight는 다양한 메서드를 사용하여 Sqoop 작업을 실행할 수 �
 PowerShell 샘플은 다음 단계를 수행합니다.
 
 1. Azure에 연결
-2. Azure 리소스 그룹 만들기 자세한 내용은 [Azure 리소스 관리자로 Azure PowerShell 사용](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Azure 리소스 그룹 만들기 자세한 내용은 [Azure 리소스 관리자로 Azure PowerShell 사용](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. Azure SQL Database 서버, Azure SQL Database 및 두 개의 테이블을 만듭니다. 
    
     SQL Server를 대신 사용하는 경우에는 다음 문을 사용하여 테이블을 만듭니다.

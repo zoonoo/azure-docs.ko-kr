@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8cc7d7d93f483289ab7faa3f5a7193fc218b57bc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695030"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532051"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -43,35 +43,38 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 
 > [!IMPORTANT]
 > 2018년 12월 12일부터, 신규 고객은 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아, 미국 동부 2, 인도 중부, 인도 서부, 일본 서부, 미국 중북부, 미국 서부에서 컴퓨팅 4세대 서버를 프로비전할 수 없습니다. 이전에 만들어진 컴퓨팅 4세대 서버는 이러한 지역에서 2019년 2월 1일부터 컴퓨팅 5세대로 마이그레이션됩니다.
+>
+> [!IMPORTANT]
+> 2019 년 2 월 19 일 시작 신규 고객에 게 되지 미국 중부, 미국 동부, 일본 동부, 북유럽, 미국 중남부, 동남 아시아, 유럽 서 부에 계산 4 세대 서버를 프로 비전 할 수 있습니다. 이전에 만든 4 대의 서버로 마이그레이션되고 이러한 지역의 2019 년 4 월 1 일을 시작 하는 5 세대 계산 세대 계산 합니다.
 
 | **Azure 지역** | **4세대** | **5세대** |
 |:---|:----------:|:--------------------:|
 | 미국 중부 |  | X |
 | 미국 동부 |  | X |
-| 미국 동부 2 | X | X |
-| 미국 중북부 | X | X |
+| 미국 동부 2 |  | X |
+| 미국 중북부 |  | X |
 | 미국 중남부 | X | X |
-| 미국 서부 | X | X |
+| 미국 서부 |  | X |
 | 미국 서부 2 |  | X |
-| 브라질 남부 | X | X |
-| 캐나다 중부 | X | X |
-| 캐나다 동부 | X | X |
+| 브라질 남부 |  | X |
+| 캐나다 중부 |  | X |
+| 캐나다 동부 |  | X |
 | 북유럽 | X | X |
 | 서유럽 |  | X |
 | 프랑스 중부 |  | X |
 | 영국 남부 |  | X |
 | 영국 서부 |  | X |
-| 동아시아 | X | X |
+| 동아시아 |  | X |
 | 동남아시아 | X | X |
 | 오스트레일리아 동부 |  | X |
 | 오스트레일리아 중부 |  | X |
 | 오스트레일리아 중부 2 |  | X |
 | 오스트레일리아 남동부 |  | X |
-| 인도 중부 | X | X |
+| 인도 중부 |  | X |
 | 인도 남부 |  | X |
-| 인도 서부 | X | X |
+| 인도 서부 |  | X |
 | 일본 동부 | X | X |
-| 일본 서부 | X | X |
+| 일본 서부 |  | X |
 | 한국 중부 |  | X |
 | 한국 남부 |  | X |
 | 중국 동부 1 | X |  |
@@ -93,7 +96,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 |:---|:----------|:--------------------|:---------------------|
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | 저장소 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
-| 저장소 증분 크기 | 1 GB | 1 GB | 1 GB |
+| 저장소 증분 크기 | 1 GB | 1GB | 1 GB |
 | IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS |
 
 추가 저장소 용량은 서버를 만드는 동안 및 그 후에 추가할 수 있습니다. 기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 저장소 크기와 3:1 비율로 조정됩니다.

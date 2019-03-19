@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743666"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576721"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성
 
@@ -111,7 +111,50 @@ Ambari 페이지로 이동하면 설치된 서비스가 페이지 왼쪽에 나�
 
 ![설치된 서비스](./media/hdinsight-high-availability-linux/services.png)
 
-서비스 옆에 상태를 나타내는 여러 아이콘이 표시될 수 있습니다. 서비스와 관련된 모든 경고는 페이지 위쪽의 **Alert(경고)** 링크를 사용하여 볼 수 있습니다. 각 서비스를 선택하여 해당 서비스에 대한 자세한 내용을 볼 수 있습니다.
+서비스 옆에 상태를 나타내는 여러 아이콘이 표시될 수 있습니다. 서비스와 관련된 모든 경고는 페이지 위쪽의 **Alert(경고)** 링크를 사용하여 볼 수 있습니다.  Ambari는 몇 가지 미리 정의 된 경고를 제공합니다.
+
+다음 경고를 클러스터의 가용성을 모니터링 하는 데 도움이 되:
+
+| 경고 이름                               | 설명                                                                                                                                                                                  |
+|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 상태 메트릭 모니터링                    | 이 경고는 모니터 상태 스크립트에 따른 메트릭을 모니터링 프로세스의 상태를 나타냅니다.                                                                                   |
+| Ambari 에이전트 하트 비트                   | 서버 연결이 끊어졌음을 에이전트를 사용 하는 경우이 경고가 트리거됩니다.                                                                                                                        |
+| ZooKeeper Server 프로세스                 | 네트워크에서 수신 하 고 작동 결정 ZooKeeper 서버 프로세스 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                               |
+| IOCache Metadata Server Status           | 이 호스트 수준 경고가 표시 될 IOCache 메타 데이터 서버 등록 것으로 확인 하 고 클라이언트 요청에 응답 수 없는 경우                                                            |
+| JournalNode 웹 UI                       | JournalNode 웹 UI를 연결할 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                                                                 |
+| Spark2 Thrift 서버                     | 이 호스트 수준 경고가 작동 Spark2 Thrift 서버를 확인할 수 없는 경우 트리거됩니다.                                                                                                |
+| 기록 서버 프로세스                   | 네트워크에서 수신 하 고 등록 되도록 설정 된 기록 서버 프로세스 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                |
+| 기록 서버 웹 UI                    | 기록 서버 웹 UI를 연결할 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                                                              |
+| ResourceManager 웹 UI                   | ResourceManager 웹 UI를 연결할 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                                                             |
+| NodeManager 상태 요약               | 이 서비스 수준 경고가 표시 될 경우 비정상 NodeManagers                                                                                                                    |
+| 응용 프로그램 타임 라인 웹 UI                      | 응용 프로그램 타임 라인 서버 웹 UI를 연결할 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                                                         |
+| DataNode 상태 요약                  | 이 서비스 수준 경고가 표시 될 경우 비정상 DataNodes                                                                                                                       |
+| NameNode 웹 UI                          | NameNode 웹 UI를 연결할 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                                                                    |
+| ZooKeeper 컨트롤러 장애 조치 프로세스    | 네트워크에서 수신 하 고 등록 되도록 확인 ZooKeeper 장애 조치 컨트롤러 프로세스 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                   |
+| Oozie 서버 웹 UI                      | Oozie 서버 웹 UI를 연결할 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                                                                |
+| Oozie 서버 상태                      | Oozie 서버 등록 것으로 확인 하 고 클라이언트 요청에 응답 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                      |
+| Hive Metastore 프로세스                   | 네트워크에서 수신 하 고 작동 결정 하는 Hive Metastore 프로세스 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                 |
+| HiveServer2 프로세스                      | 등록 것으로 확인 하 고 클라이언트 요청에 응답 합니다 HiveServer 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                        |
+| WebHCat Server Status                    | Templeton 서버 상태를 정상 상태가 아니면이 호스트 수준 경고가 트리거됩니다.                                                                                                            |
+| 사용 가능한 백분율 ZooKeeper 서버      | 클러스터의 ZooKeeper 서버 다운 수가 구성 된 위험 임계값 보다 큰 경우이 경고가 트리거됩니다. ZooKeeper 프로세스 검사 결과를 집계 합니다.     |
+| Spark2 Livy 서버                       | 이 호스트 수준 경고가 작동 Livy2 서버를 확인할 수 없는 경우 트리거됩니다.                                                                                                        |
+| Spark2 기록 서버                    | 이 호스트 수준 경고가 작동 Spark2 기록 서버를 확인할 수 없는 경우 트리거됩니다.                                                                                               |
+| 메트릭 수집기 프로세스                | 메트릭 수집기 수 없는 경우 수신 등록 되도록 확인 하 고 구성된 된 포트의 시간 (초) 임계값 같음에 대 한이 경고가 트리거됩니다.                                 |
+| 메트릭 수집기-HBase Master 프로세스 | 메트릭 수집기의 HBase master 프로세스는 초 단위로 제공 하는 구성 된 중요 한 임계값을 네트워크에서 수신 하 고 등록 되도록 확인 수 없는 경우이 경고가 트리거됩니다. |
+| 사용 가능한 백분율 메트릭 모니터링       | 백분율 메트릭 모니터링 프로세스는 설치 및 구성 된 경고 임계값과 위험 임계값에 대 한 네트워크에서 수신 대기 하는 경우이 경고가 트리거됩니다.                             |
+| 사용 가능한 백분율 NodeManagers           | 이 경고 수가 NodeManagers 아래로 클러스터에 구성 된 위험 임계값 보다 큰 경우 트리거됩니다. NodeManager 프로세스 검사 결과를 집계 합니다.        |
+| NodeManager Health                       | 이 호스트 수준 경고 NodeManager 구성 요소에서 사용 가능한 노드 상태 속성을 확인합니다.                                                                                              |
+| NodeManager 웹 UI                       | NodeManager 웹 UI를 연결할 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                                                                 |
+| NameNode 높은 가용성 상태        | NameNode 활성 또는 대기 NameNode 실행 하지 않는 경우이 서비스 수준 경고가 트리거됩니다.                                                                                     |
+| DataNode 프로세스                         | 네트워크에서 수신 하 고 등록 되도록 설정 된 개별 DataNode 프로세스 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                         |
+| DataNode 웹 UI                          | DataNode 웹 UI를 연결할 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                                                                    |
+| 사용 가능한 백분율 JournalNodes           | 이 경고 수가 JournalNodes 아래로 클러스터에 구성 된 위험 임계값 보다 큰 경우 트리거됩니다. JournalNode 프로세스 검사 결과를 집계 합니다.        |
+| 사용 가능한 백분율 DataNodes              | 이 경고 수가 DataNodes 아래로 클러스터에 구성 된 위험 임계값 보다 큰 경우 트리거됩니다. DataNode 프로세스 검사 결과를 집계 합니다.              |
+| Zeppelin 서버 상태                   | Zeppelin 서버 등록 것으로 확인 하 고 클라이언트 요청에 응답 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                                   |
+| HiveServer2 대화형 프로세스          | 등록 것으로 확인 하 고 클라이언트 요청에 응답 합니다 HiveServerInteractive 수 없는 경우이 호스트 수준 경고가 트리거됩니다.                                                             |
+| LLAP 응용 프로그램                         | LLAP 응용 프로그램 작동 확인 하 고 요청에 응답 수 없는 경우이 경고가 트리거됩니다.                                                                                    |
+
+각 서비스를 선택하여 해당 서비스에 대한 자세한 내용을 볼 수 있습니다.
 
 서비스 페이지에서는 각 서비스의 상태 및 구성에 대한 정보를 제공하지만 서비스가 실행되고 있는 헤드 노드에 대한 정보는 제공하지 않습니다. 이 정보를 보려면 페이지 위쪽의 **Hosts(호스트)** 링크를 사용하세요. 이 페이지에는 헤드 노드를 포함하여 클러스터 내의 호스트가 표시됩니다.
 

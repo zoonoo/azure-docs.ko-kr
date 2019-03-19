@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/25/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 664a2c6bfc4a73b7d792b71c4b81df54b05fcd74
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 373312b4c7f05fe41c9ca8165b8ff6f1b0e56f1b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54082276"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454972"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Dynamics 365 for Customer Engagement 애플리케이션 시험 사용 탭
 
-**시험 사용** 탭을 사용하여 고객을 위한 체험 환경을 만듭니다.  실제 구현 시나리오에서 입증된 제안의 주요 기능 및 이점에 대한 실습 중심의 셀프 가이드 평가판을 고객에게 제공합니다.  사용 가능한 평가판 옵션 중에서 시험 사용은 우수한 잠재 고객 생성 및 이러한 잠재 고객의 전환율을 높이는 데 가장 효과적입니다.  자세한 내용은 [시험 사용이란?](../../cloud-partner-portal-orig/what-is-test-drive.md)을 참조하세요.
+**시험 사용** 탭을 사용하여 고객을 위한 체험 환경을 만듭니다.  실제 구현 시나리오에서 입증된 제안의 주요 기능 및 이점에 대한 실습 중심의 셀프 가이드 평가판을 고객에게 제공합니다.  사용 가능한 평가판 옵션 중에서 시험 사용은 우수한 잠재 고객 생성 및 이러한 잠재 고객의 전환율을 높이는 데 가장 효과적입니다.  자세한 내용은 [시험 사용이란?](../test-drive/what-is-test-drive.md)을 참조하세요.
 
-Dynamic 365 애플리케이션에 대한 시험 사용 환경은 자동으로 Microsoft 호스팅 솔루션으로 실행됩니다.  자세한 내용은 [호스팅 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive)을 참조하세요.
+Dynamic 365 애플리케이션에 대한 시험 사용 환경은 자동으로 Microsoft 호스팅 솔루션으로 실행됩니다.  자세한 내용은 [호스팅 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)을 참조하세요.
 
 시험 사용 탭에는 **시험 사용**, **세부 정보** 및 **기술 구성**의 세 가지 잠재적인 섹션이 있습니다.  마지막 두 섹션은 시험 사용 기능을 사용하도록 설정한 후에만 표시됩니다.  필드 이름에 추가된 별표(*)는 필수를 나타냅니다. 
 

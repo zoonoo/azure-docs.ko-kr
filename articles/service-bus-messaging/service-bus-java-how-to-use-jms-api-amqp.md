@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 23a0c731eea22a772d7423bc3047af1183d55b7f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 2cba3744180a257638aca202d44fa433a5e1a2bc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312892"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453408"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Service Bus 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
 AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 애플리케이션을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다.
@@ -341,6 +341,16 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
+## <a name="jms-topics-vs-service-bus-topics"></a>JMS 항목 vs입니다. Service Bus 토픽
+Azure Service Bus 토픽 및 구독을 통해 메시지 서비스 JMS (Java) API 사용 하 여 기능을 수신 및 기본 송신을 제공 합니다. Service Bus 토픽 JMS 항목 다르며 몇 조정이 필요한 경우에 Api 준수 하는 JMS 사용 하 여 다른 메시지 broker에서 응용 프로그램을 이식 하는 경우 편리 하 게 선택 하는 것입니다. 
+
+Azure Service Bus 토픽 인터페이스를 통해 Azure 리소스 관리, Azure 명령줄 도구 또는 Azure portal을 통해 관리 되는 구독을 명명 된, 공유, 지 속성으로 메시지를 라우팅합니다. 각 구독에 필터 조건을 포함할 수는 각각 최대 2000 개의 선택 규칙 및 SQL 필터, 메타 데이터 변환 작업을 수도 있습니다. 각 필터 조건 일치 tehj 구독을 복사할 수는 입력된 메시지를 선택 합니다.  
+
+구독에서 메시지를 수신 하는 것은 동일한 큐에서 메시지를 수신 합니다. 각 구독에 자동으로 다른 큐 또는 토픽에 메시지를 전달 하는 기능 뿐만 아니라 연결 된 배달 못 한 편지 큐를 있습니다. 
+
+항목에서는 JMS 클라이언트에서 동적으로 필요에 따라 메시지 선택기를 사용 하 여 필터링 되는 메시지를 허용 하는 영구 및 비영구 구독자를 만들 수를 허용 합니다. Service Bus에서 공유 되지 않는 이러한 엔터티를 사용 하는 것이 없습니다. 그러나 Service Bus에 대 한 SQL 필터 규칙 구문을 JMS에서 지 원하는 메시지 선택기 구문은 매우 비슷합니다. 
+
+이 샘플에 표시 된 대로 JMS 항목 게시자 쪽은 Service Bus와 호환 되지만 동적 구독자 없습니다. Service Bus를 사용 하 여 다음과 같은 토폴로지 관련 JMS Api는 사용 하는 것이 없습니다. 
 
 ## <a name="unsupported-features-and-restrictions"></a>지원되지 않는 기능 및 제한
 Service Bus와 함께 JMS over AMQP 1.0을 사용하는 경우 다음과 같은 제한 사항이 있습니다.

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 31959cc1bef6b6434f6d3f586052a845837aa438
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442594"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454510"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API Management 인스턴스의 용량
 
@@ -78,7 +78,7 @@ ms.locfileid: "52442594"
 4. 녹색 섹션에서 메트릭을 차원으로 분할할 **위치**를 선택합니다.
 5. 섹션 위쪽의 막대에서 원하는 시간 범위를 선택합니다.
 
-    예상치 못한 상황이 발생할 때 알려주도록 메트릭 경고를 설정할 수 있습니다. 예를 들어 APIM 인스턴스가 최대 예상 용량을 20분 넘게 초과하는 경우 알림을 받습니다.
+    예상치 못한 상황이 발생할 때 알려주도록 메트릭 경고를 설정할 수 있습니다. 예를 들어 APIM 인스턴스에서 20 분이 넘게에 대 한 예상된 최대 용량을 초과 되었습니다에 하는 경우 알림을 가져옵니다.
 
     >[!TIP]
     > 서비스 용량이 부족한 경우 알리도록 알림을 구성하거나 Azure Monitor 자동 크기 조정 기능을 사용하여 Azure API Management 단위를 자동으로 추가할 수 있습니다. 크기 조정 작업에는 30분 정도가 소요될 수 있으니 여기에 맞게 규칙을 계획해야 합니다.  

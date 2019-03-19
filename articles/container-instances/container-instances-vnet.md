@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313486"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550773"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -40,19 +40,13 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-이 기능은 미리 보기 상태이므로 가상 네트워크에 컨테이너 인스턴스를 배포할 때는 다음 제한 사항이 적용됩니다. 
+이 기능은 미리 보기 상태인 동안 가상 네트워크에 컨테이너 그룹을 배포 하는 경우 다음과 같은 제한 사항이 적용 됩니다. 
 
-**지원되는 지역 및 리소스 제한**
-
-| 위치 | OS | CPU | 메모리(GB) |
-| -------- | :---: | :---: | :-----------: |
-| 서유럽 | Linux | 4 | 14 |
-| 미국 동부, 미국 서부 | Linux | 2 | 3.5 |
-| 오스트레일리아 동부, 북유럽 | Linux | 1 | 1.5 |
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 컨테이너 리소스 제한은 이러한 지역의 비네트워크 컨테이너 인스턴스에 대한 제한과 다를 수 있습니다. 현재 Linux 컨테이너만 이 기능이 지원됩니다. Windows 지원이 예정되어 있습니다.
 
-**지원되지 않는 네트워크 리소스 및 기능**
+### <a name="unsupported-network-resources-and-features"></a>지원 되지 않는 네트워크 리소스 및 기능
 
 * Azure Load Balancer
 * 가상 네트워크 피어링

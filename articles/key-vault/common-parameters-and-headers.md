@@ -3,7 +3,7 @@ title: 공통 매개 변수 및 헤더
 description: 매개 변수 및 헤더는 Key Vault 리소스와 관련하여 사용자가 수행할 수 있는 모든 작업에 공통적입니다.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed9400fb15b
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 1ac0f54aa4dfdc9db4724629c4dbfe7a4982838f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: cc6c937e37ebb7919ca271e765ad6460c104e43b
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301233"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405048"
 ---
 # <a name="common-parameters-and-headers"></a>공통 매개 변수 및 헤더
 
@@ -45,10 +45,10 @@ ms.locfileid: "56301233"
 
 |요소 이름 | Type | 설명 |
 |---|---|---|
-| 코드 | string | 발생한 오류의 형식입니다.|
-| Message | string | 오류 원인에 대한 설명입니다. |
+| 코드 | 문자열 | 발생한 오류의 형식입니다.|
+| Message | 문자열 | 오류 원인에 대한 설명입니다. |
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
  [Azure Key Vault REST API 참조](/rest/api/keyvault/)

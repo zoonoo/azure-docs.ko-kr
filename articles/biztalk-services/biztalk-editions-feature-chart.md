@@ -1,6 +1,6 @@
 ---
 title: BizTalk Services 버전의 기능 알아보기 | Microsoft 문서
-description: BizTalk Services 버전(Developer, Basic, Standard 및 Premium)의 기능을 비교합니다. MABS, WABS
+description: BizTalk Services 버전의 기능을 비교 합니다. 무료로 사용할 수 있는 개발자, Basic, Standard 및 Premium입니다. MABS, WABS
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d16bf73c1d9871e4de8940e4ab9bbd7ed0f39384
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240514"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765631"
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk Services: 버전 차트
 
@@ -34,7 +34,7 @@ Azure BizTalk Services는 여러 버전을 제공합니다. 이 문서를 사용
 
 **Developer**
 
-하이브리드 연결, 사용하기 쉬운 거래 업체 관리 포털을 통한 EAI 및 EDI 메시지 처리, X12와 AS2를 통한 다양한 EDI 처리 및 공통 EDI 스키마 지원 등의 기능이 포함되어 있습니다. 메시지를 읽고 쓰기 위해 HTTP/S, REST, FTP, WCF 및 SFTP 프로토콜로 클라우드에서 서비스를 연결하는 일반 EAI 시나리오를 만들 수 있습니다.  미리 만들어진 SAP, Oracle eBusiness, Oracle DB, Siebel 및 SQL Server 어댑터로 온-프레미스 LOB 시스템에 연결할 수 있습니다. Visual Studio 도구가 포함된 개발자 중심 환경을 사용하여 손쉽게 개발하고 배포할 수 있습니다. SLA(서비스 수준 계약)가 없는 개발 및 테스트 용도로만 제한됩니다.
+하이브리드 연결, 사용하기 쉬운 거래 업체 관리 포털을 통한 EAI 및 EDI 메시지 처리, X12와 AS2를 통한 다양한 EDI 처리 및 공통 EDI 스키마 지원 등의 기능이 포함되어 있습니다. 메시지를 읽고 쓰기 위해 HTTP/S, REST, FTP, WCF 및 SFTP 프로토콜로 클라우드에서 서비스를 연결하는 일반 EAI 시나리오를 만들 수 있습니다.  미리 만들어진 SAP, Oracle eBusiness, Oracle DB, Siebel 및 SQL Server 어댑터로 온-프레미스 LOB 시스템에 연결할 수 있습니다. Visual Studio 도구를 사용 하 여 쉽게 개발 및 배포에 대 한 개발자 중심 환경을 사용 합니다. SLA(서비스 수준 계약)가 없는 개발 및 테스트 용도로만 제한됩니다.
 
 **Basic**
 
@@ -57,7 +57,7 @@ Azure BizTalk Services는 여러 버전을 제공합니다. 이 문서를 사용
         <th>Free(Preview)</th>
         <th>Developer</th>
         <th>Basic</th>
-        <th>Standard</th>
+        <th>표준</th>
         <th>Premium</th>
 </tr>
 
@@ -162,7 +162,7 @@ Service Level Agreement(서비스 수준 약정)는 <a HREF="https://go.microsof
 <td>포함</td>
 </tr>
 <tr>
-<td><strong>Backup 및 복원</strong></td>
+<td><strong>백업 및 복원</strong></td>
 <td>포함되지 않음</td>
 <td>포함</td>
 <td>포함</td>
@@ -239,19 +239,19 @@ BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. Bi
 #### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>BizTalk Services의 한 단계에서 어떻게 다른 단계로 마이그레이션합니까?
 무료 버전은 마이그레이션하거나 다른 계층으로 '확장'할 수 없고 백업 및 다른 계층으로 복원할 수 없습니다. 다른 계층이 필요한 경우 새 계층을 사용하여 새 BizTalk 서비스를 만듭니다. 하이브리드 연결을 비롯한 무료 버전을 사용하여 만든 아티팩트는 새 BizTalk 서비스에서 다시 만들어야 합니다. 
 
-나머지 버전의 경우 백업을 사용하고 아티팩트를 마이그레이션하기 위해 한 계층에서 다른 계층으로 복원합니다. 예를 들어 표준 계층에서 아티팩트를 백업한 다음 프리미엄 계층으로 복원합니다. [BizTalk Services: Backup 및 복원](biztalk-backup-restore.md) 은 지원되는 마이그레이션 경로를 설명하고 백업된 아티팩트를 나열합니다. 하이브리드 연결이 백업되지 않는다는 점에 유의합니다. 백업 및 새 계층으로 복원한 후에 하이브리드 연결을 다시 만듭니다.  
+나머지 버전의 경우 백업을 사용하고 아티팩트를 마이그레이션하기 위해 한 계층에서 다른 계층으로 복원합니다. 예를 들어 표준 계층에서 아티팩트를 백업한 다음 프리미엄 계층으로 복원합니다. [BizTalk Services: 백업 및 복원](biztalk-backup-restore.md) 지원 되는 마이그레이션 경로 설명 하 고 백업 된 어떤 아티팩트를 나열 합니다. 하이브리드 연결이 백업되지 않는다는 점에 유의합니다. 백업 및 새 계층으로 복원한 후에 하이브리드 연결을 다시 만듭니다.  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>이 서비스에 BizTalk 어댑터 서비스도 포함되어 있습니까? 소프트웨어를 어떻게 받습니까?
 네. BizTalk 어댑터 서비스는 BizTalk Adapter Pack과 함께 Azure BizTalk Services SDK [다운로드](https://www.microsoft.com/download/details.aspx?id=39087)에 포함되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Portal에서 Azure BizTalk Services를 만들려면 [BizTalk Services: Azure Portal을 사용하여 프로비전](biztalk-provision-services.md)으로 이동하세요. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동합니다.
+Azure portal에서 Azure BizTalk Services를 만들려면 [BizTalk Services: Azure portal을 사용 하 여 프로 비전](biztalk-provision-services.md)합니다. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [BizTalk Services: Azure Portal을 사용하여 프로비전](biztalk-provision-services.md)<br/>
-* [BizTalk Services: 프로비전 상태 차트](biztalk-service-state-chart.md)<br/>
+* [BizTalk Services: Azure portal을 사용 하 여 프로 비전](biztalk-provision-services.md)<br/>
+* [BizTalk Services: 프로비저닝 상태 차트](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)<br/>
-* [BizTalk Services: Backup and restore](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: 백업 및 복원](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: 제한](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)<br/>
 * [Azure BizTalk Services SDK로 시작하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>

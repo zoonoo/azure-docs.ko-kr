@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: ad164e150b22af7d5a0c91fa0a8a80156952cfd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099329"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431118"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
 
@@ -28,7 +28,7 @@ ms.locfileid: "56099329"
 > [!NOTE]
 > Azure SQL Database의 용어집은 [SQL Database 용어집](sql-database-glossary-terms.md)을 참조하세요.
 
-## <a name="dynamic-scalabilty"></a>동적 확장성
+## <a name="dynamic-scalability"></a>동적 확장성
 
 가격/성능이 낮은 서비스 계층에서 저렴한 월간 비용으로 소규모 단일 데이터베이스에 첫 번째 앱을 빌드한 다음, 솔루션의 요구 사항에 맞게 언제든지 수동 또는 프로그래밍 방식으로 이 [서비스 계층을 가격/성능이 높은 서비스 계층으로 변경](sql-database-single-database-scale.md)할 수 있습니다. 앱이나 고객에게 가동 중지 시간 없이 성능을 조정할 수 있습니다. 동적 확장성을 통해 데이터베이스는 급변하는 리소스 요구 사항에 투명하게 대응할 수 있으며, 필요할 때 필요한 리소스에 대해서만 비용을 지불할 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "56099329"
 
 ## <a name="availability-capabilities"></a>가용성 기능
 
-단일 데이터베이스, 탄력적 풀 및 관리되는 인스턴스는 다양한 가용성 특성을 갖고 있습니다. 자세한 내용은 [가용성 특성](sql-database-technical-overview.md#availability-capabilities)을 참조하세요.
+단일 데이터베이스, 탄력적 풀 및 관리 되는 인스턴스 모든 다양 한 가용성 특성을 제공합니다. 자세한 내용은 [가용성 특성](sql-database-technical-overview.md#availability-capabilities)을 참조하세요.
 
 ## <a name="transact-sql-differences"></a>Transact-SQL 차이점
 

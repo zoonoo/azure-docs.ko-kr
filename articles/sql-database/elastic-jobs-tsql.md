@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 057f5fcf9f050bdce9efb301db43b909893ade60
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458094"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769169"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
 
@@ -284,7 +284,7 @@ select * from jobs.jobsteps
 ```
 
 
-## <a name="begin-ad-hoc-execution-of-a-job"></a>작업 임시 실행 시작
+## <a name="begin-ad-hoc-execution-of-a-job"></a>임시 작업 실행 시작
 
 다음 예제에서는 작업을 즉시 시작하는 방법을 보여 줍니다.  
 [*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
@@ -409,7 +409,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 |저장 프로시저  |설명  |
 |---------|---------|
 |[sp_add_job](#spaddjob)     |     새 작업을 추가합니다.    |
-|[sp_update_job ](#spupdatejob)    |      기존 작업을 업데이트합니다.   |
+|[sp_update_job](#spupdatejob)    |      기존 작업을 업데이트합니다.   |
 |[sp_delete_job](#spdeletejob)     |      기존 작업을 삭제합니다.   |
 |[sp_add_jobstep](#spaddjobstep)    |    작업에 단계를 추가합니다.     |
 |[sp_update_jobstep](#spupdatejobstep)     |     작업 단계를 업데이트합니다.    |
@@ -420,7 +420,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 |[sp_delete_target_group](#spdeletetargetgroup)     |    대상 그룹을 삭제합니다.     |
 |[sp_add_target_group_member](#spaddtargetgroupmember)     |    대상 그룹에 데이터베이스 또는 데이터베이스 그룹을 추가합니다.     |
 |[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     대상 그룹에서 대상 그룹 멤버를 제거합니다.    |
-|[sp_purge_jobhistory ](#sppurgejobhistory)    |    작업에 대한 기록 레코드를 제거합니다.     |
+|[sp_purge_jobhistory](#sppurgejobhistory)    |    작업에 대한 기록 레코드를 제거합니다.     |
 
 
 
@@ -447,16 +447,16 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
   
 #### <a name="arguments"></a>인수  
 
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 작업의 이름입니다. 이름은 고유해야 하며, 퍼센트(%) 문자는 포함할 수 없습니다. job_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@description =** ] 'description'  
+[ **\@description =** ] 'description'  
 작업에 대한 설명입니다. description은 nvarchar(512) 형식이며, 기본값은 NULL입니다. description이 생략되면 빈 문자열이 사용됩니다.
 
-[ **@enabled =** ] enabled  
+[ **\@enabled =** ] enabled  
 작업 일정이 사용되는지 여부입니다. enabled는 bit 형식이며, 기본값은 0(사용 안 함)입니다. 0인 경우 작업이 사용되지 않으며 일정에 따라 실행되지 않습니다. 그러나 수동으로는 실행할 수 있습니다. 1인 경우 작업이 일정에 따라 실행되며, 수동으로 실행할 수도 있습니다.
 
-[ **@schedule_interval_type =**] schedule_interval_type  
+[ **\@schedule_interval_type =**] schedule_interval_type  
 값은 작업을 실행할 시기를 나타냅니다. schedule_interval_type은 nvarchar(50) 형식이며, 기본값은 Once이고, 다음 값 중 하나일 수 있습니다.
 - 'Once',
 - 'Minutes',
@@ -465,16 +465,16 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 - 'Weeks',
 - 'Months'
 
-[ **@schedule_interval_count =** ] schedule_interval_count  
+[ **\@schedule_interval_count =** ] schedule_interval_count  
 각 작업 실행 간에 발생할 schedule_interval_count 기간의 수입니다. schedule_interval_count는 int 형식이며, 기본값은 1입니다. 값은 1보다 크거나 같아야 합니다.
 
-[ **@schedule_start_time =** ] schedule_start_time  
+[ **\@schedule_start_time =** ] schedule_start_time  
 작업 실행을 시작할 수 있는 날짜입니다. schedule_start_time은 DATETIME2 형식이며, 기본값은 0001-01-01 00:00:00.0000000입니다.
 
-[ **@schedule_end_time =** ] schedule_end_time  
+[ **\@schedule_end_time =** ] schedule_end_time  
 작업 실행을 중지할 수 있는 날짜입니다. schedule_end_time은 DATETIME2 형식이며, 기본값은 9999-12-31 11:59:59.0000000입니다. 
 
-[ **@job_id =** ] job_id OUTPUT  
+[ **\@job_id =** ] job_id OUTPUT  
 성공적으로 만들어지면 작업에 할당되는 작업 ID 번호입니다. job_id는 uniqueidentifier 형식의 출력 변수입니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
@@ -510,19 +510,19 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 업데이트할 작업의 이름입니다. job_name은 nvarchar(128) 형식입니다.
 
-[ **@new_name =** ] 'new_name'  
+[ **\@new_name =** ] 'new_name'  
 작업의 새 이름입니다. new_name은 nvarchar(128) 형식입니다.
 
-[ **@description =** ] 'description'  
+[ **\@description =** ] 'description'  
 작업에 대한 설명입니다. description은 nvarchar(512) 형식입니다.
 
-[ **@enabled =** ] enabled  
+[ **\@enabled =** ] enabled  
 작업 일정이 사용되는지(1), 아니면 사용되지 않는지(0) 여부를 지정합니다. enabled는 bit 형식입니다.
 
-[ **@schedule_interval_type=** ] schedule_interval_type  
+[ **\@schedule_interval_type=** ] schedule_interval_type  
 값은 작업을 실행할 시기를 나타냅니다. schedule_interval_type은 nvarchar(50) 형식이며, 다음 값 중 하나일 수 있습니다.
 
 - 'Once',
@@ -532,13 +532,13 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 - 'Weeks',
 - 'Months'
 
-[ **@schedule_interval_count=** ] schedule_interval_count  
+[ **\@schedule_interval_count=** ] schedule_interval_count  
 각 작업 실행 간에 발생할 schedule_interval_count 기간의 수입니다. schedule_interval_count는 int 형식이며, 기본값은 1입니다. 값은 1보다 크거나 같아야 합니다.
 
-[ **@schedule_start_time=** ] schedule_start_time  
+[ **\@schedule_start_time=** ] schedule_start_time  
 작업 실행을 시작할 수 있는 날짜입니다. schedule_start_time은 DATETIME2 형식이며, 기본값은 0001-01-01 00:00:00.0000000입니다.
 
-[ **@schedule_end_time=** ] schedule_end_time  
+[ **\@schedule_end_time=** ] schedule_end_time  
 작업 실행을 중지할 수 있는 날짜입니다. schedule_end_time은 DATETIME2 형식이며, 기본값은 9999-12-31 11:59:59.0000000입니다. 
 
 #### <a name="return-code-values"></a>반환 코드 값
@@ -567,10 +567,10 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 삭제할 작업의 이름입니다. job_name은 nvarchar(128) 형식입니다.
 
-[ **@force =** ] force  
+[ **\@force =** ] force  
 작업 실행이 진행 중인 경우 해당 작업을 삭제할지 여부를 지정하고, 진행 중인 모든 실행을 취소할지(1), 아니면 작업 실행이 진행 중인 경우 실패할지(0) 여부를 지정합니다. force는 bit 형식입니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
@@ -622,79 +622,79 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 #### <a name="arguments"></a>인수
 
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 단계를 추가할 작업의 이름입니다. job_name은 nvarchar(128) 형식입니다.
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 작업 단계에 대한 시퀀스 ID 번호입니다. 단계 ID 번호는 1에서 시작하여 간격 없이 증가합니다. 이 ID가 이미 기존 단계에 있으면 해당 단계와 모든 다음 단계의 ID가 증가하여 이 새 단계가 시퀀스에 삽입될 수 있습니다. 지정되지 않으면 step_id가 자동으로 단계 시퀀스의 마지막에 할당됩니다. step_id는 int 형식입니다.
 
-[ **@step_name =** ] step_name  
+[ **\@step_name =** ] step_name  
 단계의 이름입니다. 편의상 기본 이름이 'JobStep'인 작업의 첫 번째 단계를 제외하고는 반드시 지정해야 합니다. step_name은 nvarchar(128) 형식입니다.
 
-[ **@command_type =** ] 'command_type'  
+[ **\@command_type =** ] 'command_type'  
 이 jobstep에서 실행되는 명령의 유형입니다. command_type은 nvarchar(50) 형식이며, 기본값은 TSql(@command_type 매개 변수의 값이 T-SQL 스크립트임을 의미함)입니다.
 
 지정되는 경우 이 값은 TSql이어야 합니다.
 
-[ **@command_source =** ] 'command_source'  
+[ **\@command_source =** ] 'command_source'  
 명령이 저장된 위치의 유형입니다. command_source는 nvarchar(50) 형식이며, 기본값은 Inline(@command_source 매개 변수의 값이 명령의 리터럴 텍스트임을 의미함)입니다.
 
 지정되는 경우 이 값은 Inline이어야 합니다.
 
-[ **@command =** ] 'command'  
+[ **\@command =** ] 'command'  
 명령은 유효한 T-SQL 스크립트여야 하며, 이 작업 단계에서 실행됩니다. 명령은 nvarchar(max) 형식이며, 기본값은 NULL입니다.
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **\@credential_name =** ] 'credential_name'  
 이 단계를 실행할 때 대상 그룹 내의 각 대상 데이터베이스에 연결하는 데 사용되는 이 작업 제어 데이터베이스에 저장된 데이터베이스 범위 자격 증명의 이름입니다. credential_name은 nvarchar(128) 형식입니다.
 
-[ **@target_group_name =** ] ‘target-group_name’  
+[ **\@target_group_name =** ] 'target-group_name'  
 작업 단계를 실행할 대상 데이터베이스가 포함된 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식입니다.
 
-[ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 초기 실행 시도에서 작업 단계가 실패하는 경우 첫 번째 재시도가 시작될 때까지의 지연 시간입니다. initial_retry_interval_seconds는 int 형식이며, 기본값은 1입니다.
 
-[ **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 재시도 간의 최대 지연 시간입니다. 재시도 간의 지연 시간이 이 값보다 커지면 대신 이 값으로 제한됩니다. maximum_retry_interval_seconds는 int 형식이며, 기본값은 120입니다.
 
-[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 여러 작업 단계 실행 시도가 실패하는 경우 재시도 지연 시간에 적용할 승수입니다. 예를 들어 첫 번째 재시도의 지연 시간이 5초이고 백오프 승수가 2.0인 경우 두 번째 재시도의 지연 시간은 10초, 세 번째 재시도의 지연 시간은 20초가 됩니다. retry_interval_backoff_multiplier는 real 형식이며, 기본값은 2.0입니다.
 
-[ **@retry_attempts =** ] retry_attempts  
+[ **\@retry_attempts =** ] retry_attempts  
 초기 시도가 실패하는 경우 실행을 다시 시도하는 횟수입니다. 예를 들어 retry_attempts 값이 10이면 초기 시도 횟수는 1회이고, 재시도 횟수는 10회이며, 총 시도 횟수는 11회입니다. 마지막 재시도 시도가 실패하면 lifecycle이 Failed(실패)인 채로 작업 실행이 종료됩니다. retry_attempts는 int 형식이며, 기본값은 10입니다.
 
-[ **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@step_timeout_seconds =** ] step_timeout_seconds  
 단계를 실행하는 데 허용되는 최대 시간입니다. 이 시간을 초과하면 lifecycle이 TimedOut(시간이 초과됨)인 채로 작업 실행이 종료됩니다. step_timeout_seconds는 int 형식이며, 기본값은 43,200초(12시간)입니다.
 
-[ **@output_type =** ] 'output_type'  
+[ **\@output_type =** ] 'output_type'  
 null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 대상의 유형입니다. output_type은 nvarchar(50) 형식이며, 기본값은 NULL입니다.
 
 지정되는 경우 값은 SqlDatabase여야 합니다.
 
-[ **@output_credential_name =** ] 'output_credential_name'  
+[ **\@output_credential_name =** ] 'output_credential_name'  
 null이 아닌 경우 출력 대상 데이터베이스에 연결하는 데 사용되는 데이터베이스 범위 자격 증명의 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_credential_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
-[ **@output_subscription_id =** ] 'output_subscription_id'  
+[ **\@output_subscription_id =** ] 'output_subscription_id'  
 설명이 필요합니다.
 
-[ **@output_resource_group_name =** ] 'output_resource_group_name'  
+[ **\@output_resource_group_name =** ] 'output_resource_group_name'  
 설명이 필요합니다.
 
-[ **@output_server_name =** ] 'output_server_name'  
+[ **\@output_server_name =** ] 'output_server_name'  
 null이 아닌 경우 출력 대상 데이터베이스가 포함된 서버의 정규화된 DNS 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_server_name은 nvarchar(256) 형식이며, 기본값은 NULL입니다.
 
-[ **@output_database_name =** ] 'output_database_name'  
+[ **\@output_database_name =** ] 'output_database_name'  
 null이 아닌 경우 출력 대상 테이블이 포함된 데이터베이스의 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_database_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
-[ **@output_schema_name =** ] 'output_schema_name'  
+[ **\@output_schema_name =** ] 'output_schema_name'  
 null이 아닌 경우 출력 대상 테이블이 포함된 SQL 스키마의 이름입니다. output_type이 SqlDatabase와 같으면 기본값은 dbo입니다. output_schema_name은 nvarchar(128) 형식입니다.
 
-[ **@output_table_name =** ] 'output_table_name'  
+[ **\@output_table_name =** ] 'output_table_name'  
 null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이블의 이름입니다. 테이블이 아직 없으면 반환되는 결과 집합의 스키마를 기반으로 하여 만들어집니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_table_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
-[ **@job_version =** ] job_version OUTPUT  
+[ **\@job_version =** ] job_version OUTPUT  
 새 작업 버전 번호가 할당될 출력 매개 변수입니다. job_version은 int 형식입니다.
 
-[ **@max_parallelism =** ] max_parallelism OUTPUT  
+[  **\@max_parallelism =** ] max_parallelism 출력  
 탄력적 풀당 최대 병렬 처리 수준입니다. 설정되는 경우 작업 단계가 탄력적 풀당 최댓값 이하의 여러 데이터베이스에서만 실행되도록 제한됩니다. 이는 대상 그룹에 직접 포함되어 있거나 대상 그룹에 포함된 서버 내에 있는 각 탄력적 풀에 적용됩니다. max_parallelism은 int 형식입니다.
 
 
@@ -746,79 +746,79 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 단계가 속한 작업의 이름입니다. job_name은 nvarchar(128) 형식입니다.
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 수정할 작업 단계에 대한 ID 번호입니다. step_id 또는 step_name을 지정해야 합니다. step_id는 int 형식입니다.
 
-[ **@step_name =** ] 'step_name'  
+[ **\@step_name =** ] 'step_name'  
 수정할 단계의 이름입니다. step_id 또는 step_name을 지정해야 합니다. step_name은 nvarchar(128) 형식입니다.
 
-[ **@new_id =** ] new_id  
+[ **\@new_id =** ] new_id  
 작업 단계에 대한 새 시퀀스 ID 번호입니다. 단계 ID 번호는 1에서 시작하여 간격 없이 증가합니다. 단계의 번호가 변경되면 다른 단계의 번호가 자동으로 다시 매겨집니다.
 
-[ **@new_name =** ] 'new_name'  
+[ **\@new_name =** ] 'new_name'  
 단계의 새 이름입니다. new_name은 nvarchar(128) 형식입니다.
 
-[ **@command_type =** ] 'command_type'  
+[ **\@command_type =** ] 'command_type'  
 이 jobstep에서 실행되는 명령의 유형입니다. command_type은 nvarchar(50) 형식이며, 기본값은 TSql(@command_type 매개 변수의 값이 T-SQL 스크립트임을 의미함)입니다.
 
 지정되는 경우 이 값은 TSql이어야 합니다.
 
-[ **@command_source =** ] 'command_source'  
+[ **\@command_source =** ] 'command_source'  
 명령이 저장된 위치의 유형입니다. command_source는 nvarchar(50) 형식이며, 기본값은 Inline(@command_source 매개 변수의 값이 명령의 리터럴 텍스트임을 의미함)입니다.
 
 지정되는 경우 이 값은 Inline이어야 합니다.
 
-[ **@command =** ] 'command'  
+[ **\@command =** ] 'command'  
 명령은 유효한 T-SQL 스크립트여야 하며, 이 작업 단계에서 실행됩니다. 명령은 nvarchar(max) 형식이며, 기본값은 NULL입니다.
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **\@credential_name =** ] 'credential_name'  
 이 단계를 실행할 때 대상 그룹 내의 각 대상 데이터베이스에 연결하는 데 사용되는 이 작업 제어 데이터베이스에 저장된 데이터베이스 범위 자격 증명의 이름입니다. credential_name은 nvarchar(128) 형식입니다.
 
-[ **@target_group_name =** ] ‘target-group_name’  
+[ **\@target_group_name =** ] 'target-group_name'  
 작업 단계를 실행할 대상 데이터베이스가 포함된 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식입니다.
 
-[ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 초기 실행 시도에서 작업 단계가 실패하는 경우 첫 번째 재시도가 시작될 때까지의 지연 시간입니다. initial_retry_interval_seconds는 int 형식이며, 기본값은 1입니다.
 
-[ **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 재시도 간의 최대 지연 시간입니다. 재시도 간의 지연 시간이 이 값보다 커지면 대신 이 값으로 제한됩니다. maximum_retry_interval_seconds는 int 형식이며, 기본값은 120입니다.
 
-[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 여러 작업 단계 실행 시도가 실패하는 경우 재시도 지연 시간에 적용할 승수입니다. 예를 들어 첫 번째 재시도의 지연 시간이 5초이고 백오프 승수가 2.0인 경우 두 번째 재시도의 지연 시간은 10초, 세 번째 재시도의 지연 시간은 20초가 됩니다. retry_interval_backoff_multiplier는 real 형식이며, 기본값은 2.0입니다.
 
-[ **@retry_attempts =** ] retry_attempts  
+[ **\@retry_attempts =** ] retry_attempts  
 초기 시도가 실패하는 경우 실행을 다시 시도하는 횟수입니다. 예를 들어 retry_attempts 값이 10이면 초기 시도 횟수는 1회이고, 재시도 횟수는 10회이며, 총 시도 횟수는 11회입니다. 마지막 재시도 시도가 실패하면 lifecycle이 Failed(실패)인 채로 작업 실행이 종료됩니다. retry_attempts는 int 형식이며, 기본값은 10입니다.
 
-[ **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@step_timeout_seconds =** ] step_timeout_seconds  
 단계를 실행하는 데 허용되는 최대 시간입니다. 이 시간을 초과하면 lifecycle이 TimedOut(시간이 초과됨)인 채로 작업 실행이 종료됩니다. step_timeout_seconds는 int 형식이며, 기본값은 43,200초(12시간)입니다.
 
-[ **@output_type =** ] 'output_type'  
+[ **\@output_type =** ] 'output_type'  
 null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 대상의 유형입니다. output_type의 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_type은 nvarchar(50) 형식이며, 기본값은 NULL입니다.
 
 지정되는 경우 값은 SqlDatabase여야 합니다.
 
-[ **@output_credential_name =** ] 'output_credential_name'  
+[ **\@output_credential_name =** ] 'output_credential_name'  
 null이 아닌 경우 출력 대상 데이터베이스에 연결하는 데 사용되는 데이터베이스 범위 자격 증명의 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_credential_name 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_credential_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
-[ **@output_server_name =** ] 'output_server_name'  
+[ **\@output_server_name =** ] 'output_server_name'  
 null이 아닌 경우 출력 대상 데이터베이스가 포함된 서버의 정규화된 DNS 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_server_name 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_server_name은 nvarchar(256) 형식이며, 기본값은 NULL입니다.
 
-[ **@output_database_name =** ] 'output_database_name'  
+[ **\@output_database_name =** ] 'output_database_name'  
 null이 아닌 경우 출력 대상 테이블이 포함된 데이터베이스의 이름입니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_database_name의 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_database_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
-[ **@output_schema_name =** ] 'output_schema_name'  
+[ **\@output_schema_name =** ] 'output_schema_name'  
 null이 아닌 경우 출력 대상 테이블이 포함된 SQL 스키마의 이름입니다. output_type이 SqlDatabase와 같으면 기본값은 dbo입니다. output_schema_name의 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_schema_name은 nvarchar(128) 형식입니다.
 
-[ **@output_table_name =** ] 'output_table_name'  
+[ **\@output_table_name =** ] 'output_table_name'  
 null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이블의 이름입니다. 테이블이 아직 없으면 반환되는 결과 집합의 스키마를 기반으로 하여 만들어집니다. output_type이 SqlDatabase와 같으면 반드시 지정해야 합니다. output_server_name 값을 NULL로 다시 설정하려면 이 매개 변수의 값을 ''(빈 문자열)로 설정합니다. output_table_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다.
 
-[ **@job_version =** ] job_version OUTPUT  
+[ **\@job_version =** ] job_version OUTPUT  
 새 작업 버전 번호가 할당될 출력 매개 변수입니다. job_version은 int 형식입니다.
 
-[ **@max_parallelism =** ] max_parallelism OUTPUT  
+[  **\@max_parallelism =** ] max_parallelism 출력  
 탄력적 풀당 최대 병렬 처리 수준입니다. 설정되는 경우 작업 단계가 탄력적 풀당 최댓값 이하의 여러 데이터베이스에서만 실행되도록 제한됩니다. 이는 대상 그룹에 직접 포함되어 있거나 대상 그룹에 포함된 서버 내에 있는 각 탄력적 풀에 적용됩니다. max_parallelism의 값을 null로 다시 설정하려면 이 매개 변수 값을 -1로 설정합니다. max_parallelism은 int 형식입니다.
 
 
@@ -853,16 +853,16 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 단계를 제거할 작업의 이름입니다. job_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@step_id =** ] step_id  
+[ **\@step_id =** ] step_id  
 삭제할 작업 단계에 대한 ID 번호입니다. step_id 또는 step_name을 지정해야 합니다. step_id는 int 형식입니다.
 
-[ **@step_name =** ] 'step_name'  
+[ **\@step_name =** ] 'step_name'  
 삭제할 단계의 이름입니다. step_id 또는 step_name을 지정해야 합니다. step_name은 nvarchar(128) 형식입니다.
 
-[ **@job_version =** ] job_version OUTPUT  
+[ **\@job_version =** ] job_version OUTPUT  
 새 작업 버전 번호가 할당될 출력 매개 변수입니다. job_version은 int 형식입니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
@@ -897,10 +897,10 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 단계를 제거할 작업의 이름입니다. job_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@job_execution_id =** ] job_execution_id OUTPUT  
+[ **\@job_execution_id =** ] job_execution_id OUTPUT  
 작업 실행의 ID가 할당될 출력 매개 변수입니다. job_version은 uniqueidentifier입니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
@@ -928,7 +928,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 
 #### <a name="arguments"></a>인수
-[ **@job_execution_id =** ] job_execution_id  
+[ **\@job_execution_id =** ] job_execution_id  
 중지할 작업 실행의 ID 번호입니다. job_execution_id는 uniqueidentifier이며, 기본값은 NULL입니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
@@ -958,10 +958,10 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 
 #### <a name="arguments"></a>인수
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 만들 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@target_group_id =** ] target_group_id OUTPUT이 성공적으로 만들어지면 작업에 할당되는 대상 그룹 ID 번호입니다. target_group_id는 uniqueidentifier 형식의 출력 변수이며, 기본값은 NULL입니다.
+[  **\@target_group_id =** ] target_group_id 출력 대상 그룹 id 번호를 성공적으로 생성 된 작업에 할당 합니다. target_group_id는 uniqueidentifier 형식의 출력 변수이며, 기본값은 NULL입니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
 0(성공) 또는 1(실패)
@@ -988,7 +988,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 
 #### <a name="arguments"></a>인수
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 삭제할 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
@@ -1022,31 +1022,31 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 ```
 
 #### <a name="arguments"></a>인수
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 멤버를 추가할 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@membership_type =** ] 'membership_type'  
+[ **\@membership_type =** ] 'membership_type'  
 대상 그룹 멤버가 포함되거나 제외되는지 여부를 지정합니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 'Include'입니다. target_group_name에 대해 유효한 값은 'Include' 또는 'Exclude'입니다.
 
-[ **@target_type =** ] 'target_type'  
+[ **\@target_type =** ] 'target_type'  
 서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스, 분할된 맵의 모든 데이터베이스 또는 개별 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. target_type은 nvarchar(128) 형식이며, 기본값은 없습니다. target_type에 대해 유효한 값은 'SqlServer', 'SqlElasticPool', 'SqlDatabase' 또는 'SqlShardMap'입니다. 
 
-[ **@refresh_credential_name =** ] 'refresh_credential_name'  
+[ **\@refresh_credential_name =** ] 'refresh_credential_name'  
 SQL Database 서버의 이름입니다. refresh_credential_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@server_name =** ] 'server_name'  
+[ **\@server_name =** ] 'server_name'  
 지정된 대상 그룹에 추가해야 하는 SQL Database 서버의 이름입니다. target_type이 'SqlServer'이면 server_name을 지정해야 합니다. server_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@database_name =** ] 'database_name'  
+[ **\@database_name =** ] 'database_name'  
 지정된 대상 그룹에 추가해야 하는 데이터베이스의 이름입니다. target_type이 'SqlDatabase'이면 database_name을 지정해야 합니다. database_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@elastic_pool_name =** ] ‘elastic_pool_name’  
+[ **\@elastic_pool_name =** ] 'elastic_pool_name'  
 지정된 대상 그룹에 추가해야 하는 탄력적 풀의 이름입니다. target_type이 'SqlElasticPool'이면 elastic_pool_name을 지정해야 합니다. elastic_pool_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@shard_map_name =** ] ‘shard_map_name’  
+[ **\@shard_map_name =** ] 'shard_map_name'  
 지정된 대상 그룹에 추가해야 하는 분할된 맵 풀의 이름입니다. target_type이 'SqlSqlShardMap'이면 elastic_pool_name을 지정해야 합니다. shard_map_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-[ **@target_id =** ] target_group_id OUTPUT  
+[ **\@target_id =** ] target_group_id OUTPUT  
 만들어지면 대상 그룹에 추가되는 대상 그룹 멤버에 할당된 대상 ID 번호입니다. target_id는 uniqueidentifier 형식의 출력 변수이며, 기본값은 NULL입니다.
 반환 코드 값 0(성공) 또는 1(실패)
 
@@ -1157,13 +1157,13 @@ GO
 ```
 
 #### <a name="arguments"></a>인수
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 기록 레코드를 삭제할 작업의 이름입니다. job_name은 nvarchar(128) 형식이며, 기본값은 NULL입니다. job_id 또는 job_name을 지정해야 하지만, 둘 다는 지정할 수 없습니다.
 
-[ **@job_id =** ] job_id  
+[ **\@job_id =** ] job_id  
  삭제할 레코드에 대한 작업 ID 번호입니다. job_id는 uniqueidentifier이며, 기본값은 NULL입니다. job_id 또는 job_name을 지정해야 하지만, 둘 다는 지정할 수 없습니다.
 
-[ **@oldest_date =** ] oldest_date  
+[ **\@oldest_date =** ] oldest_date  
  기록에서 유지할 가장 오래된 레코드입니다. oldest_date는 DATETIME2 형식이며, 기본값은 NULL입니다. oldest_date가 지정되면 sp_purge_jobhistory는 지정한 값보다 오래된 레코드만 제거합니다.
 
 #### <a name="return-code-values"></a>반환 코드 값

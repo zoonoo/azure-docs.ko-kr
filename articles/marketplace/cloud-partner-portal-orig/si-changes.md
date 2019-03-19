@@ -12,24 +12,36 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 3/3/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ec3784a91f8aeb7f0fedd13c9ab86a844832a578
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 7df96d53b02e80283f263901dc7e26ed4edb947d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807180"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342380"
 ---
-<a name="seller-insights-release-notes"></a>Seller Insights 릴리스 정보 
-===============================
-(릴리스 날짜: 2018년 7월 28일)
+# <a name="seller-insights-release-notes"></a>Seller Insights 릴리스 정보 
+
+(릴리스 날짜: 2019 년 3 월 1 일)
 
 이 문서에서는 [클라우드 파트너 포털](https://cloudpartner.azure.com/#insights)의 Seller Insights 기능 변경 내용에 대한 정보를 제공합니다.
 
+## <a name="release-highlights-for-march-1-2019"></a>2019 년 3 월 1 일에 대 한 릴리스 주요 내용
 
-<a name="release-highlights"></a>릴리스 관련 주요 사항
-------------------
+* *고객 추세* 요약에 추가
+* *상위 5 대 고객* 요약에서 고객에 게 모든 Azure 구독을 반영
+* *사용량 추세 및 활성 주문 추세 정규화* 아래로 이동 하는 요약에서 *한눈에 월별 주문을*
+* *지급 조정 보고서* 업데이트
+* *상위 5 대 고객* 지급에서 고객에 게 모든 Azure 구독을 반영
+* *사용 현황 보고서* 고객 ID를 사용 하 여 업데이트
+* *고객 재직* 주문 및 사용 현황의 고객에 게 모든 Azure 구독을 반영
+
+
+(릴리스 날짜: 2018 년 7 월 28 일)
+
+## <a name="release-highlights-for-july-28-2018"></a>2018 년 7 월 28 일에 대 한 릴리스 주요 내용
+
 
 -   *예상 가격*에서 환율이 적용된 고객 요금을 확인할 수 있습니다.
 -   *예상 지급액*에서는 지급 가능액을 미리 확인할 수 있습니다.
@@ -37,8 +49,7 @@ ms.locfileid: "48807180"
 -   *일 단위 사용량*에서는 고객 사용량을 더 세분화하여 자세히 확인할 수 있습니다.
 
 
-<a name="changes-to-data-structure-and-taxonomy"></a>데이터 구조 및 분류 변경 내용
---------------------------------------
+### <a name="changes-to-data-structure-and-taxonomy"></a>데이터 구조 및 분류 변경 내용
 
 아래 표에는 이번 릴리스에서 추가되거나 크게 변경된 메트릭이 나와 있습니다. 
 

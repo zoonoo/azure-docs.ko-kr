@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a61e78ff54cdc2a3db6c166686c2c51a19856a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252314"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456213"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 페이지 Blob의 개요
 
@@ -29,7 +29,7 @@ Azure IaaS 디스크로 시작하는 페이지 Blob에 대한 몇 가지 사용 
 
 Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 아니라 많은 타사 개발자는 페이지 Blob의 REST 인터페이스를 사용하여 업계를 주도하는 혁신을 구현했습니다. 다음은 Azure에서 구현되는 몇 가지 고유한 시나리오입니다. 
 * 애플리케이션 지향 증분 스냅숏 관리: 애플리케이션은 페이지 Blob 스냅숏 및 REST API를 활용하여 데이터의 비용이 중복되지 않게 애플리케이션 검사점을 저장할 수 있습니다. Azure Storage는 전체 Blob을 복사할 필요가 없는 페이지 Blob에 대한 로컬 스냅숏을 지원합니다. 또한 이러한 공용 스냅숏 API를 사용하면 스냅숏 간 델타 액세스 및 복사가 가능합니다.
-* 온-프레미스에서 클라우드로 애플리케이션 및 데이터의 실시간 마이그레이션: 온-프레미스 VM이 계속 실행되는 동안 온-프레미스 데이터를 복사하고 REST API를 사용하여 Azure 페이지 Blob에 직접 쓸 수 있습니다. 대상을 따라잡으면 해당 데이터를 사용하여 신속하게 Azure VM에 장애 조치(failover)할 수 있습니다. 이렇게 하면 VM을 계속 사용하면서 데이터 마이그레이션이 백그라운드에서 수행되고 장애 조치에 필요한 가동 중지 시간(분)이 짧아지므로, VM 및 가상 디스크를 최소한의 가동 중지 시간으로 온-프레미스에서 클라우드로 마이그레이션할 수 있습니다.
+* 응용 프로그램에서 온-프레미스에서 클라우드 및 데이터의 실시간 마이그레이션: 온-프레미스 데이터를 복사 하 고 REST Api를 사용 하 여 온-프레미스 VM을 계속 실행 하는 동안 Azure 페이지 blob에 직접 쓸입니다. 대상을 따라잡으면 해당 데이터를 사용하여 신속하게 Azure VM에 장애 조치(failover)할 수 있습니다. 이러한 방식으로 Vm을 마이그레이션할 수 있습니다 하 고 가상 디스크를 온-프레미스 VM 및 장애 조치에 필요한 가동 중지 시간을 사용 하 여 계속 하는 동안 백그라운드에서 발생 되는 데이터 마이그레이션이 클라우드로 최소 가동 중지 시간 (분)에 짧은 됩니다.
 * [SAS 기반](../common/storage-dotnet-shared-access-signature-part-1.md) 공유 액세스: 동시성 제어를 지원하는 다중 판독기 및 단일 작성기와 같은 시나리오를 사용할 수 있습니다.
 
 ## <a name="page-blob-features"></a>페이지 Blob 기능
