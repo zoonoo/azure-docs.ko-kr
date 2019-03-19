@@ -10,16 +10,16 @@ ms.reviewer: klam, estfan, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 068e5399073959d2c5aa6c4bbeb0d7bccf7d05e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: 9cd1946d8fa670764bcc95b82298d07cc70417bd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393782"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191326"
 ---
-# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>개요: Azure Logic Apps 및 Azure Functions를 사용하는 Azure Serverless
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>개요: Azure Logic Apps 및 Azure Functions를 사용 하 여 서버 리스 azure
 
-[서버리스](https://azure.microsoft.com/solutions/serverless/) 응용 프로그램은 개발 속도 향상, 필요한 코드 감소 및 규모 간소화의 이점을 제공합니다.  이 문서는 서버를 사용하지 않는 솔루션과 Azure 서버를 사용하지 않는 제품의 다른 특성을 살펴봅니다.
+[서버리스](https://azure.microsoft.com/solutions/serverless/) 애플리케이션은 개발 속도 향상, 필요한 코드 감소 및 규모 간소화의 이점을 제공합니다.  이 문서는 서버를 사용하지 않는 솔루션과 Azure 서버를 사용하지 않는 제품의 다른 특성을 살펴봅니다.
 
 ## <a name="what-is-serverless"></a>서버를 사용하지 않음은 무엇입니까?
 
@@ -41,7 +41,7 @@ Logic Apps를 시작하려면 [첫 번째 논리 앱 만들기](quickstart-creat
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Azure에서 서버를 사용하지 않는 애플리케이션을 빌드 및 배포하려면 어떻게 해야 합니까?
 
-Azure는 서버를 사용하지 않는 앱의 개발, 배포 및 관리에 대한 풍부한 도구 집합을 제공합니다.  앱은 Azure Portal에서 직접 빌드하거나 [Visual Studio의 도구](logic-apps-serverless-get-started-vs.md)를 사용하여 빌드할 수 있습니다.  애플리케이션이 개발되면 [즉시 배포](logic-apps-create-deploy-template.md)될 수 있습니다.  Azure는 또한 서버를 사용하지 않는 앱에 대한 모니터링을 제공합니다.  이 모니터링은 API 또는 SDK를 통해 Azure Portal에서 액세스하거나 Log Analytics 및 Application Insights에 대해 통합된 도구를 사용하여 액세스할 수 있습니다.
+Azure는 서버를 사용하지 않는 앱의 개발, 배포 및 관리에 대한 풍부한 도구 집합을 제공합니다.  앱은 Azure Portal에서 직접 빌드하거나 [Visual Studio의 도구](logic-apps-serverless-get-started-vs.md)를 사용하여 빌드할 수 있습니다.  애플리케이션이 개발되면 [즉시 배포](logic-apps-create-deploy-template.md)될 수 있습니다.  Azure는 또한 서버를 사용하지 않는 앱에 대한 모니터링을 제공합니다.  이 모니터링에서 액세스할 수 있습니다 Azure portal, API 또는 Sdk를 통해 또는 통합 된 도구를 사용 하 여 Azure Monitor 로그를 Application Insights.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: c4be56b3ee32a5177c66353ba45c6b3647c732f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894065"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240085"
 ---
 # <a name="live-events-and-live-outputs"></a>라이브 이벤트 및 라이브 출력
 
@@ -42,7 +42,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 
 ### <a name="pass-through"></a>통과
 
-![통과](./media/live-streaming/pass-through.png)
+![통과](./media/live-streaming/pass-through.svg)
 
 통과 **라이브 이벤트**를 사용하는 경우 온-프레미스 라이브 인코더에 의존하여 다중 비트 전송률이 있는 비디오 스트림을 생성하고 이 스트림을 기여 피드로 하여 LiveEvent에 전송(RTMP 또는 조각난 MP4 프로토콜 사용)할 수 있습니다. 그러면 라이브 이벤트는 들어오는 비디오 스트림을 추가 처리 없이 제공합니다. 이러한 통과 LiveEvent는 장기 실행 라이브 이벤트 또는 연중무휴 선형 라이브 스트리밍에 최적화되어 있습니다. 이 형식의 라이브 이벤트를 만들 경우 None(LiveEventEncodingType.None)을 지정합니다.
 
@@ -56,11 +56,16 @@ H.264/AVC 또는 H.265/HEVC 비디오 코덱 및 AAC(AAC-LC, HE-AACv1 또는 HE-
 
 ### <a name="live-encoding"></a>라이브 인코딩  
 
-![라이브 인코딩](./media/live-streaming/live-encoding.png)
+![라이브 인코딩](./media/live-streaming/live-encoding.svg)
 
 Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 전송률 비디오를 기여 피드로 하여 라이브 이벤트에 전송(RTMP 또는 조각난 Mp4 프로토콜 사용)하도록 온-프레미스 라이브 인코더를 구성합니다. 라이브 이벤트는 들어오는 단일 비트 전송률 스트림을 [다중 비트 전송률이 있는 비디오 스트림](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)으로 인코딩하고 MPEG-DASH, HLS, 부드러운 스트리밍 등과 같은 프로토콜을 통해 디바이스를 재생하도록 이 스트림을 전달 가능하게 만듭니다. 이 형식의 라이브 이벤트를 만들 경우 인코딩 형식을 **표준**(LiveEventEncodingType.Standard)으로 지정합니다.
 
 H.264/AVC 비디오 코덱과 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 코덱을 사용하여 최대 1080p의 해상도 및 초당 30프레임의 프레임 속도로 기여 피드를 전송할 수 있습니다. 자세한 내용은 [라이브 이벤트 유형 비교](live-event-types-comparison.md) 문서를 참조하세요.
+
+라이브 인코딩을 사용 하는 경우 (라이브 이벤트로 **표준**), 들어오는 스트림을 다중 비트 전송률 또는 계층에 어떻게 인코딩됩니다 인코딩 사전 설정을 정의 합니다. 정보를 참조 하세요 [시스템 미리 설정을](live-event-types-comparison.md#system-presets)합니다.
+
+> [!NOTE]
+> 현재 값만 허용 미리 설정 된 라이브 이벤트의 표준 형식에 대 한 *Default720p*합니다. 사용자 지정 라이브 인코딩 사전 설정을 사용 하는 경우 문의 amshelp@microsoft.com합니다. 해상도 및 비트 전송률의 원하는 테이블을 지정 해야 합니다. 수행할 720p로 하나의 계층 및 계층에 최대 6 인지 확인 합니다.
 
 ## <a name="live-event-creation-options"></a>라이브 이벤트 만들기 옵션
 

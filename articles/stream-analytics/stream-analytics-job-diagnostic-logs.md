@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818934"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247157"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>진단 로그를 사용하여 Azure Stream Analytics 문제 해결
 
@@ -29,7 +29,9 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 * [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)(구성 가능) - 작업과 관련하여 발생하는 모든 항목에 대해 더 다양한 인사이트를 제공합니다. 진단 로그는 작업이 생성될 때 시작되고 작업이 삭제될 때 종료됩니다. 작업이 업데이트되고 실행되는 동안 이벤트를 처리합니다.
 
 > [!NOTE]
-> Azure Storage, Azure Event Hubs 및 Azure Log Analytics와 같은 서비스를 사용하여 맞지 않는 데이터를 분석할 수 있습니다. 그러한 서비스에 대한 가격 책정 모델에 따라 요금이 청구됩니다.
+> Azure Storage, Azure Event Hubs와 같은 서비스를 사용할 수 있습니다 및 맞지 않는 데이터를 분석 하려면 Azure Monitor를 기록 합니다. 그러한 서비스에 대한 가격 책정 모델에 따라 요금이 청구됩니다.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="debugging-using-activity-logs"></a>활동 로그를 사용하여 디버그
 
@@ -51,11 +53,11 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
 5. JSON의 오류 메시지에 따라 정정 작업을 수행할 수 있습니다. 이 예제에서는 쿼리에 추가해야 하는 위도 값이 -90도-90도 사이인지 확인합니다.
 
-6. 활동 로그의 오류 메시지가 근본 원인을 식별하는 데 도움이 되지 않으면 진단 로그를 사용하도록 설정하고 Log Analytics를 사용합니다.
+6. 활동 로그에서 오류 메시지를 근본 원인을 식별 하는 데 도움이 없으면 진단 로그를 사용 하도록 설정 하 고 Azure Monitor 로그를 사용 합니다.
 
-## <a name="send-diagnostics-to-log-analytics"></a>Log Analytics에 진단 보내기
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>Azure Monitor 로그에 진단 데이터 보내기
 
-진단 로그를 켜고 Log Analytics에 보내는 것이 좋습니다. 진단 로그는 기본적으로 **해제**되어 있습니다. 진단 로그를 켜려면 다음과 같은 단계를 완료합니다.
+진단 로그 켜기 및 Azure Monitor 로그로 보내는 것이 좋습니다. 진단 로그는 기본적으로 **해제**되어 있습니다. 진단 로그를 켜려면 다음과 같은 단계를 완료합니다.
 
 1.  Azure Portal에 로그인하고 Stream Analytics 작업으로 이동합니다. **모니터링** 아래에서 **진단 로그**를 선택합니다. 다음으로, **진단 켜기**를 선택합니다.
 
@@ -67,7 +69,7 @@ Stream Analytics에서는 다음과 같은 두 가지 형식의 로그를 제공
 
 3. Stream Analytics 작업이 시작되면 진단 로그가 Log Analytics 작업 영역으로 라우팅됩니다. Log Analytics 작업 영역으로 이동하고 **일반** 섹션에서 **로그**를 선택합니다.
 
-   ![일반 섹션 아래 Log Analytics 로그](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![일반 섹션에서 azure Monitor 로그](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. [고유한 쿼리를 작성](../azure-monitor/log-query/get-started-portal.md)하여 용어를 검색하고, 추세를 파악하고, 패턴을 분석하고, 데이터를 기반으로 인사이트를 제공할 수 있습니다. 예를 들어 “스트리밍 작업 실패”라는 메시지가 있는 진단 로그만 필터링하는 쿼리를 작성할 수 있습니다. Azure Stream Analytics의 진단 로그는 **AzureDiagnostics** 테이블에 저장됩니다.
 
@@ -118,7 +120,7 @@ properties | 로그 항목별 세부 정보로, JSON 문자열로 직렬화됩�
 ------- | -------
 원본 | 오류가 발생한 작업 입력 또는 출력의 이름입니다.
 Message | 오류와 연결된 메시지
-type | 오류의 형식입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
+Type | 오류의 형식입니다. 예: **DataConversionError**, **CsvParserError** 또는 **ServiceBusPropertyColumnMissingError**.
 Data | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포함합니다. 크기에 따라 잘릴 수 있습니다.
 
 **operationName** 값에 따라 데이터 오류의 스키마는 다음과 같습니다.
@@ -135,7 +137,7 @@ Data | 오류 출처를 정확히 찾는 데 도움이 되는 데이터를 포�
 -------- | --------
 오류 | (선택 사항) 오류 정보입니다. 일반적으로 예외 정보입니다(사용 가능한 경우).
 Message| 로그 메시지
-type | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
+Type | 메시지 형식입니다. 내부 오류 분류에 매핑합니다. 예: **JobValidationError** 또는 **BlobOutputAdapterInitializationFailure**.
 상관관계 ID | 작업 실행을 고유하게 식별하는 [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). 작업 시작 시간부터 작업이 중지될 때까지 모든 실행 로그 항목에는 동일한 **상관 관계 ID** 값이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

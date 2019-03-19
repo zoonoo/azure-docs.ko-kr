@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 41eed6bc878bff4c9d847f9a449ca693274bf234
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564445"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195509"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -75,12 +75,11 @@ ms.locfileid: "55564445"
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
     Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-  
     
 연결되면 다음 출력이 표시됩니다.
     
   
-    ComputerName     : <storage-account-host-name>
+    ComputerName     : <your-storage-account-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
@@ -93,7 +92,19 @@ ms.locfileid: "55564445"
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
-IT 부서와 협력하여 [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 포트 445 아웃바운드를 엽니다.
+#### <a name="solution-1---use-azure-file-sync"></a>해결 방법 1-사용 하 여 Azure 파일 동기화
+Azure File Sync는 온-프레미스 Windows Server Azure 파일 공유의 빠른 캐시로 변환 수 있습니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. Azure File Sync 포트 443 통해 작동 하며 따라서 데 사용할 수 있습니다 문제를 해결 하려면 포트 445를 차단 하는 클라이언트에서 Azure Files에 액세스할. [Azure File Sync를 설치 하는 방법을 알아봅니다](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers)합니다.
+
+#### <a name="solution-2---use-vpn"></a>해결 방법 2-VPN 사용
+특정 저장소 계정에 VPN을 설정 하 여 트래픽을 인터넷을 통해 달리 보안 터널을 통해 이동 됩니다. 에 따라 합니다 [VPN을 설정 하는 지침은](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) Windows에서 Azure 파일에 액세스할 수 있습니다.
+
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>해결 방법 3-ISP의 도움말을 사용 하 여 포트 445의 차단을 해제 / IT 관리자
+IT 부서 또는 포트 445 아웃 바운드를 열려는 ISP와 작동 [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)합니다.
+
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>해결 방법 4-REST API를 사용 하 여 Storage 탐색기/Powershell 같은 도구 기반
+Azure Files는 SMB 외에도 REST도 지원 합니다. REST 액세스 포트 443 (표준 tcp)을 통해 작동합니다. 풍부한 UI 경험을 사용 하도록 설정 하는 REST API를 사용 하 여 작성 된 다양 한 도구가 있습니다. [Storage 탐색기](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) 그 중 하나입니다. [다운로드 및 설치 하는 Storage 탐색기](https://azure.microsoft.com/en-us/features/storage-explorer/) Azure Files에서 지원 하 여 파일 공유에 연결 합니다. 사용할 수도 있습니다 [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) 는 REST API를 사용자도 합니다.
+
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>원인 2: NTLMv1이 사용하도록 설정됨
 

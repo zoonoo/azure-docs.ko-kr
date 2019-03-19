@@ -5,20 +5,20 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/24/2018
+ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6af1c5347a522f7e42feecb6722dfbb64439d086
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7c8e2297426b098fa6e86a5cda81afc2d71b08f4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341014"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214642"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>로그 경고의 API 기본 설정 전환
 
 > [!NOTE]
-> Azure GovCloud 사용자가 **아닌** Azure 공용 클라우드 사용자에게만 적용되는 내용입니다.  
+> 콘텐츠를 사용자에 게 적용 명시 된 Azure 공용 클라우드만 하 고 **되지** Azure Government 또는 Azure 중국 클라우드에 대 한 합니다.  
 
 최근까지 Microsoft Operations Management Suite 포털에서 경고 규칙을 관리했습니다. 새 경고 환경이 Log Analytics를 포함한 Microsoft Azure의 다양한 서비스와 통합되었으며 Microsoft에서는 [OMS 포털에서 Azure로 경고 규칙을 확장](alerts-extend.md)하라고 요청했습니다. 하지만, 고객 서비스 중단을 최소화하기 위해 사용할 프로그래밍 인터페이스인 SavedSearch 기반의 [Log Analytics 경고 API](api-alerts.md)를 변경하지 않았습니다.
 
@@ -43,6 +43,7 @@ scheduledQueryRules API로 기본 설정을 전환할 경우 미치는 영향은
 
 - 프로그래밍 인터페이스를 통해 로그 경고를 관리하기 위해 수행된 모든 조작은 이제 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)를 사용하여 수행해야 합니다. 자세한 내용은 [Azure 리소스 템플릿을 통한 샘플 사용](alerts-log.md#managing-log-alerts-using-azure-resource-template) 및 [Azure CLI 및 PowerShell을 통한 샘플 사용](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)을 참조하세요.
 - Azure Portal에서 만든 모든 새 로그 경고 규칙은 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)만 사용하여 만들어지고, 이를 통해 사용자는 Azure Portal을 통해 [새 API의 추가 기능](#Benefits-of-switching-to-new-Azure-API)을 사용할 수 있습니다.
+- 로그 경고 규칙에 대 한 심각도에서 이동 합니다. *위험, 경고 및 알림*를 *심각도 값 0, 1 및 2*합니다. 만들거나 업데이트 하는 옵션과 함께 심각도 4 인 규칙을도 경고 합니다.
 
 자발적으로 새 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)로 전환하고 [레거시 Log Analytics 경고 API](api-alerts.md)의 사용을 차단하려는 고객은 아래 API에서 PUT 호출을 수행하여 특정 Log Analytics 작업 영역과 연결된 모든 경고 규칙을 전환하면 됩니다.
 

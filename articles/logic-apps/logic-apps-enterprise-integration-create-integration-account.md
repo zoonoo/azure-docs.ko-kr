@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 2a1fe501386884e02657d4b6cbef58ffc533fa33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 43ecdafac4f0a5cdc9e619537cdbe2a42ff7fe1b
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297991"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191921"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>논리 앱을 사용하여 B2B 솔루션에 대한 통합 계정 만들기 및 관리
 
@@ -32,7 +32,7 @@ ms.locfileid: "35297991"
 * 통합 계정을 다른 Azure 리소스 그룹 또는 구독으로 이동합니다.
 * 통합 계정을 삭제합니다.
 
-Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">무료 Azure 계정에 등록</a>합니다.
+Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -59,7 +59,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | 리소스 그룹 | 예 | test-integration-account-rg | 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름입니다. 여기서는 지정된 이름으로 새 리소스 그룹을 만듭니다. | 
    | 가격 책정 계층 | 예 | 무료 | 사용하려는 가격 책정 계층입니다. 여기서는 **체험**을 선택하지만, 자세한 내용은 [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md) 및 [Logic Apps 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요. | 
    | 위치 | 예 | 미국 서부 | 통합 계정 정보를 저장할 지역입니다. 논리 앱과 동일한 위치를 선택하거나 통합 계정과 동일한 위치에 논리 앱을 만듭니다. | 
-   | Log Analytics | 아니오 | 꺼짐 | 진단 로깅에 대한 설정을 **끄기**로 유지합니다. | 
+   | Log Analytics 작업 영역 | 아닙니다. | 꺼짐 | 진단 로깅에 대한 설정을 **끄기**로 유지합니다. | 
    ||||| 
 
 4. 준비가 되면 **대시보드에 고정**을 선택하고 **만들기**를 선택합니다.

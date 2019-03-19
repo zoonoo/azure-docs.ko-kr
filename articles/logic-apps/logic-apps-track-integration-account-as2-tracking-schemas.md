@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
-ms.openlocfilehash: 6c4144d26042729684e507b1afaa5e3006d8a34e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 180d90450497b38f107f3601944385a003f50282
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125933"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193520"
 ---
 # <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Azure Logic Apps 통합 계정에서 AS2 메시지 및 MDN을 추적하는 스키마 만들기
 
@@ -56,7 +56,7 @@ ms.locfileid: "43125933"
 }
 ```
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | --- | --- | --- |
 | senderPartnerName | 문자열 | AS2 메시지 보낸 사람의 파트너 이름입니다. (선택 사항) |
 | receiverPartnerName | 문자열 | AS2 메시지 받는 사람의 파트너 이름입니다. (선택 사항) |
@@ -109,7 +109,7 @@ ms.locfileid: "43125933"
 }
 ```
 
-| 자산 | type | 설명 |
+| 자산 | Type | 설명 |
 | --- | --- | --- |
 | senderPartnerName | 문자열 | AS2 메시지 보낸 사람의 파트너 이름입니다. (선택 사항) |
 | receiverPartnerName | 문자열 | AS2 메시지 받는 사람의 파트너 이름입니다. (선택 사항) |
@@ -140,4 +140,4 @@ ms.locfileid: "43125933"
 ## <a name="next-steps"></a>다음 단계
 
 * [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md)에 대해 알아봅니다.
-* [Log Analytics에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)에 대해 알아봅니다.
+* 에 대 한 자세한 [Azure Monitor 로그에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
