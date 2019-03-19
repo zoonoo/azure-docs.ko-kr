@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 7c12b34f6d735579326d4ccdd95e7831fbb777d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9530d35bbaf608ae25e2a753685ee90e9e13501
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181425"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823300"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -42,7 +42,7 @@ ms.locfileid: "56181425"
 ## <a name="add-slot"></a>슬롯 추가
 여러 배포 슬롯을 사용하려면 앱이 **표준**, **프리미엄** 또는 **격리** 계층에서 실행 중이어야 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 앱의 [리소스 페이지](../azure-resource-manager/resource-group-portal.md#manage-resources)를 엽니다.
+1. [Azure Portal](https://portal.azure.com/)에서 앱의 [리소스 페이지](../azure-resource-manager/manage-resources-portal.md#manage-resources)를 엽니다.
 
 2. 왼쪽 탐색 영역에서 **배포 슬롯(미리 보기)** 옵션을 선택한 다음, **슬롯 추가**를 클릭합니다.
    
@@ -205,7 +205,9 @@ ms.locfileid: "56181425"
         </applicationInitialization>
     </system.webServer>
 
-또한 다음 [앱 설정](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md) 중 하나 이상을 사용하여 준비 동작을 사용자 지정할 수 있습니다.
+사용자 지정 하는 방법은 합니다 `applicationInitialization` 요소를 참조 하세요 [가장 일반적인 배포 슬롯 교환 오류 및 해결 방법](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/)합니다.
+
+또한 다음 [앱 설정](web-sites-configure.md) 중 하나 이상을 사용하여 준비 동작을 사용자 지정할 수 있습니다.
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: 사이트 준비를 ping할 경로입니다. 슬래시로 시작하는 사용자 지정 경로를 값으로 지정하여 이 앱 설정을 추가합니다. 예: `/statuscheck` 기본값은 `/`입니다. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: 준비 작업에 대한 유효한 HTTP 응답 코드입니다. HTTP 코드의 쉼표로 구분된 목록을 사용하여 이 앱 설정을 추가합니다. `200,202`를 예로 들 수 있습니다. 반환된 상태 코드가 목록에 없는 경우 준비 및 교환 작업이 중지됩니다. 기본적으로 모든 응답 코드는 유효합니다.

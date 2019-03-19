@@ -14,19 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 621dc22ead8fbb6882c692851d39b658da043c55
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 6ddd246057b178119d520bee3bbe58117fbae610
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894686"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820980"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Azure에서 클러스터의 구성 업그레이드 
 
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정을 사용자 지정하는 방법을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다.
 
-> [!NOTE]
-> 포털에서 모든 설정을 사용할 수 있는 것은 아니며 [Azure Resource Manager 템플릿을 사용하여 사용자 지정하는 것이 가장 좋은 방법](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)입니다. 포털은 Service Fabric Dev\Test 시나리오 전용입니다.> 
+> [!NOTE]
+> 일부 설정은 포털에서 사용할 수 있습니다 및 것을 [모범 사례는 Azure Resource Manager 템플릿을 사용 하 여 사용자 지정 하려면](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); 포털은 Service Fabric Dev\Test 시나리오만입니다.
+> 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 클러스터 설정 사용자 지정
 JSON Resource Manager 템플릿을 통해 Azure 클러스터를 구성할 수 있습니다. 다른 설정에 대해 자세히 알아보려면 [클러스터에 대한 구성 설정](service-fabric-cluster-fabric-settings.md)을 참조하세요. 예제로 아래 단계에서는 Azure Resource Explorer를 사용하여 새로운 *MaxDiskQuotaInMB* 설정을 *Diagnostics* 섹션에 추가하는 방법을 보여줍니다.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747529"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887253"
 ---
 # <a name="your-marketplace-benefits"></a>마켓플레이스 혜택
 
@@ -63,9 +63,9 @@ GTM 지원에는 비즈니스 홍보를 위한 템플릿, 웹 콘텐츠, 교육 
 1. Azure Marketplace 또는 AppSource에 제품을 게시합니다.
 2. 제품의 **연락처 정보** 부분에 마케팅 담당자를 입력했는지 확인합니다. 범용 별칭이 아닌 전용 마케팅 리소스여야 합니다. 즉, “support\@”, “info\@”, “marketing\@” 등을 사용하지 마세요.
 
-솔루션 상태에 따라 자가 진단 리소스가 포함된 메일이나 전용 Engagement Manager와의 상담 통화 초대를 받게 됩니다. 통화를 시작하기 위해 특별한 작업을 수행할 필요는 없습니다. Marketplace 온보딩 팀이 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 제공한 정보에 따라 연락을 드립니다.
+상태 기반으로 솔루션, 목록, 평가판 또는 Transact, 제품 받게 자가 진단 리소스를 사용 하 여 전자 메일 또는 컨설팅 호출 된 전용된 Engagement 관리자 초대 합니다. 통화를 시작하기 위해 특별한 작업을 수행할 필요는 없습니다. Marketplace 온보딩 팀이 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에서 제공한 정보에 따라 연락을 드립니다.
 
-마켓플레이스에서 제품을 확장함에 따라 사용 가능한 활동 범위도 확장됩니다. 모든 목록 추가 시 기본 수준의 최적화 권장 사항 및 프로모션을 받게 됩니다.  이러한 목록 추가 시 솔루션 상태, 선택한 마켓플레이스 및 Microsoft 파트너 역량 업적에 따라 추가적인 마케팅 혜택도 받을 수 있습니다. 
+마켓플레이스에서 제품을 확장함에 따라 사용 가능한 활동 범위도 확장됩니다. 모든 목록 추가 시 기본 수준의 최적화 권장 사항 및 프로모션을 받게 됩니다.  이러한 목록 marketplace 및 Microsoft 파트너 역량 도전 과제를 선택 합니다. 솔루션 상태 (목록, 평가판 또는 Transact)에 따라 추가 마케팅 혜택의 자격이 이기도 합니다.
 
 아래 표에는 자격 요건이 요약되어 있습니다.
 

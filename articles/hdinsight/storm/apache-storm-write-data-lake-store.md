@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 301de81fc9b8bdb8b295700de33065d988379334
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 34056b3a562d3110569e05c5c50ae4d9dae2375a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428797"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868139"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
 
@@ -146,7 +146,7 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
 
 ## <a name="build-and-package-the-topology"></a>토폴로지 빌드 및 패키지
 
-1. [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store)에서 예제 프로젝트를 개발 환경에 다운로드합니다.
+1. 예제 프로젝트를 다운로드 [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) 개발 환경입니다.
 
 2. 명령 프롬프트, 터미널 또는 셸 세션에서 다운로드한 디렉터리를 변경합니다. 토폴로지를 빌드하고 패키지하려면 다음 명령을 사용합니다.
    

@@ -1,21 +1,21 @@
 ---
 title: ExpressRoute Direct 정보 - Azure | Microsoft Docs
-description: 이 페이지는 ExpressRoute Direct의 개요를 제공합니다(미리 보기).
+description: 이 페이지 ExpressRoute 직접의 개요를 제공합니다.
 services: expressroute
-author: mialdrid
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100740"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881603"
 ---
-# <a name="about-expressroute-direct-preview"></a>ExpressRoute Direct 정보(미리 보기)
+# <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
 
 ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. ExpressRoute Direct는 대규모로 활성/활성 연결을 지원하는 이중 100Gbps 연결을 제공합니다.
 
@@ -25,14 +25,9 @@ ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 �
 * 은행, 정부 및 소매업체와 같이 규제가 적용되며 전용 격리 연결을 사용해야 하는 업계의 물리적 격리입니다.
 * 비즈니스 단위에 따라 세부적으로 회로 배포 제어
 
-> [!IMPORTANT]
-> ExpressRoute Direct는 현재 미리 보기로 제공되고 있습니다.
->
-> 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+## <a name="onboard-to-expressroute-direct"></a>ExpressRoute 직접 등록
 
-## <a name="enroll-in-the-preview"></a>미리 보기에 등록
-
-ExpressRoute Direct를 사용하려면 먼저 미리 보기에서 구독을 등록해야 합니다. 등록하려면 다음 세부 사항을 포함하여 구독 ID로 <ExpressRouteDirect@microsoft.com>에 이메일을 전송합니다.
+ExpressRoute Direct를 사용 하기 전에 먼저 구독을 등록 해야 합니다. 등록하려면 다음 세부 사항을 포함하여 구독 ID로 <ExpressRouteDirect@microsoft.com>에 이메일을 전송합니다.
 
 * **ExpressRoute Direct**를 사용하여 수행하려는 시나리오
 * 위치 기본 설정 - 모든 위치의 전체 목록은 [파트너 및 피어링 위치](expressroute-locations-providers.md) 참조
@@ -70,11 +65,11 @@ ExpressRoute Direct는 QinQ 및 Dot1Q VLAN 태그 지정을 지원합니다.
 
 ## <a name="workflow"></a>워크플로
 
-[ ![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>SLA
 
-ExpressRoute Direct는 Microsoft 글로벌 네트워크에 대한 활성/활성 중복 연결과 동일한 엔터프라이즈급 SLA를 제공합니다. ExpressRoute 인프라는 중복되며, Microsoft 글로벌 네트워크로 연결은 중복되고 다양하며 고객 요구 사항에 적절하게 크기를 조정합니다. 미리 보기 중 SLA는 없으며 비-프로덕션 워크로드만 고려해야 합니다.
+ExpressRoute Direct는 Microsoft 글로벌 네트워크에 대한 활성/활성 중복 연결과 동일한 엔터프라이즈급 SLA를 제공합니다. ExpressRoute 인프라는 중복되며, Microsoft 글로벌 네트워크로 연결은 중복되고 다양하며 고객 요구 사항에 적절하게 크기를 조정합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

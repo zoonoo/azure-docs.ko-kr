@@ -10,22 +10,24 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 10/26/2018
+ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: a91778f1646807a092a3c8cda66bd3bd104ff8b5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 04653dcdf0fb64e8b935cda18c01198ec91c548d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301886"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807476"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
 이 가이드에는 JavaScript로 Azure Functions를 작성하는 복잡성에 대한 정보가 포함되어 있습니다.
 
-JavaScript 함수는 트리거될 때 실행되는 내보낸 `function`입니다([트리거는 function.json에서 구성됨](functions-triggers-bindings.md)). 각 함수가 전달된 첫 번째 인수는 바인딩 데이터 수신 및 송신, 로깅 및 런타임과 통신에 사용되는 `context` 개체입니다.
+JavaScript 함수는 트리거될 때 실행되는 내보낸 `function`입니다([트리거는 function.json에서 구성됨](functions-triggers-bindings.md)). 모든 함수에 전달 된 첫 번째 인수는 `context` 수신 및 송신 데이터 바인딩, 로깅 및 런타임과 통신에 사용 되는 개체입니다.
 
-이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 [Visual Studio Code](functions-create-first-function-vs-code.md)를 사용하거나 [포털에서](functions-create-first-azure-function.md) 첫 번째 함수를 만드는 Functions 빠른 시작을 완료해야 합니다.
+이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 첫 번째를 만드는 함수 빠른 시작을 완료 함수를 사용 하 여 [Visual Studio Code](functions-create-first-function-vs-code.md) 하거나 [포털에서](functions-create-first-azure-function.md)합니다.
+
+이 문서에서는 [TypeScript 앱 개발](#typescript)합니다.
 
 ## <a name="folder-structure"></a>폴더 구조
 
@@ -51,7 +53,7 @@ FunctionsProject
 
 프로젝트 루트에는 함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.js)과 바인딩 구성 파일(function.json)이 있는 폴더가 있습니다. `function.json`의 부모 디렉터리 이름은 항상 함수의 이름입니다.
 
-Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](functions-triggers-bindings.md#local-development-azure-functions-core-tools)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
+Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#local-development-azure-functions-core-tools)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 ## <a name="exporting-a-function"></a>함수 내보내기
 
@@ -109,7 +111,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
 
 ### <a name="inputs"></a>입력
 입력은 Azure Functions에서 두 가지 범주로 나뉩니다. 즉 하나는 트리거 입력이고, 다른 하나는 추가 입력입니다. 트리거 및 기타 입력 바인딩(`direction === "in"`의 바인딩)은 다음과 같은 세 가지 방법으로 함수에서 읽을 수 있습니다.
- - **_[권장]_  함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. *function.json*에 정의된 `name` 속성은 필요하지만 매개 변수의 이름과 일치하지 않아도 됩니다.
+ - **_[권장]_  함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. 합니다 `name` 에 정의 된 속성 *function.json* 해야 하지만, 매개 변수의 이름과 일치 하도록 필요 하지 않습니다.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -138,7 +140,8 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
 ### <a name="outputs"></a>outputs
 출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json*에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
 
-다음 방법 중 하나로 데이터를 출력 바인딩에 할당할 수 있습니다. 이러한 메서드를 결합할 수 없습니다.
+(이러한 메서드를 결합 하지 마세요) 다음 방법 중 하나로 출력 바인딩에 데이터를 할당할 수 있습니다.
+
 - **_[여러 출력에 대한 권장]_ 개체를 반환합니다.** 함수를 반환하는 비동기/Promise를 사용하는 경우 할당된 출력 데이터를 사용하여 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json*에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
 
   ```javascript
@@ -152,7 +155,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
       };
   };
   ```
-  
+
   동기 함수를 사용하는 경우 [`context.done`](#contextdone-method)을 사용하여 이 개체를 반환할 수 있습니다(예제 참조).
 - **_[단일 출력에 대한 권장]_ 직접 값을 반환하고 $return 바인딩 이름을 사용합니다.** 함수를 반환하는 비동기/Promise에서 작동합니다. [비동기 함수 내보내기](#exporting-an-async-function)에서 예제를 참조하세요. 
 - **`context.bindings`에 대한 값을 할당합니다.** context.bindings에 직접 값을 할당할 수 있습니다.
@@ -167,7 +170,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
       return;
   };
   ```
- 
+
 ### <a name="bindings-data-type"></a>바인딩 데이터 형식
 
 입력 바인딩에 대한 데이터 형식을 정의하려면 바인딩 정의에서 `dataType` 속성을 사용합니다. 예를 들어 이진 형식의 HTTP 요청 내용을 읽으려면 `binary` 형식을 사용합니다.
@@ -550,7 +553,47 @@ const myObj = new MyObj();
 module.exports = myObj;
 ```
 
-이 예제에서는, 개제가 내보내지고 있지만, 실행 사이에 상태를 유지하는 것과 관련된 보장은 없다는 점에 유의해야 합니다.
+이 예제에서는 해당 것에 유의 해야 개체를 내보낸 있지만 실행 간에 상태를 유지 하는 것에 대 한 보장 되지 않습니다.
+
+## <a name="typescript"></a>TypeScript
+
+버전 대상 지정의 Functions 런타임 2.x 둘 다 [Visual Studio Code에 대 한 Azure Functions](functions-create-first-function-vs-code.md) 하며 [Azure Functions 핵심 도구](functions-run-local.md) 지원 템플릿을 사용 하 여 함수 앱을 만들 수 있습니다 TypeScript 함수 앱 프로젝트입니다. 서식 파일 생성 `package.json` 고 `tsconfig.json` 트랜스 파일을 쉽게 하는 프로젝트 파일을 실행 하 고 이러한 도구를 사용 하 여 TypeScript 코드에서 JavaScript 함수를 게시 합니다.
+
+생성 된 `.funcignore` 파일 프로젝트를 Azure에 게시 되 면 파일 제외 됩니다 나타내는 데 사용 됩니다.  
+
+TypeScript 파일 (.ts)은 트랜스 파일 된 JavaScript (.js) 파일에는 `dist` 출력 디렉터리입니다. TypeScript 템플릿을 사용 합니다 [ `scriptFile` 매개 변수](#using-scriptfile) 에서 `function.json` 해당.js 파일의 위치를 나타내는 `dist` 폴더. 출력 위치를 사용 하 여 템플릿에 의해 설정 됩니다 `outDir` 의 매개 변수는 `tsconfig.json` 파일입니다. 이 설정을 사용 하거나 폴더의 이름을 변경 하면 런타임이 실행 하는 코드를 찾을 수 없는 경우.
+
+> [!NOTE]
+> TypeScript에 대 한 실험적 지원 있는 버전의 Functions 런타임 1.x 합니다. 실험 버전 transpiles 함수를 호출 하는 경우 JavaScript 파일로 TypeScript 파일입니다. 버전에서 2.x의 경우이 실험적 지원을 호스트 초기화 되기 전에 소스 간 컴파일을 수행 하는 도구 기반 메서드 및 배포 프로세스 중 대체 되었습니다.
+
+로컬로 개발 하 고 TypeScript 프로젝트에서 배포 하는 방식을 개발 도구에 따라 달라 집니다.
+
+### <a name="visual-studio-code"></a>Visual Studio Code
+
+합니다 [Visual Studio Code에 대 한 Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) 확장을 사용 하면 TypeScript를 사용 하 여 함수를 개발할 수 있습니다. 핵심 도구는 Azure Functions 확장의 요구 사항입니다.
+
+Visual Studio Code에는 TypeScript 함수 앱을 만들려면 선택 하기만 하면 `TypeScript` 을 함수 앱을 만들고 언어를 선택 하 라는 메시지가 표시 됩니다.
+
+누르면 **F5** 앱을 실행 하려면 로컬에서 소스 간 컴파일을 수행 됩니다 (func.exe) 호스트 초기화 되기 전에 합니다. 
+
+사용 하 여 Azure 함수 앱을 배포할 때의 **함수 앱에 배포 하는 중...**  단추, Azure Functions 확장 TypeScript 소스 파일에서 먼저 JavaScript 파일의 프로덕션 준비 빌드를 생성 합니다.
+
+### <a name="azure-functions-core-tools"></a>Azure Functions 핵심 도구
+
+핵심 도구를 사용 하는 TypeScript 함수 앱 프로젝트를 만들려면 함수 앱을 만들 때 typescript 언어 옵션을 지정 해야 합니다. 다음 방법 중 하나에서이 수행할 수 있습니다.
+
+- 실행 합니다 `func init` 명령을 선택 `node` 언어 스택 및 선택 `typescript`합니다.
+
+- `func init --worker-runtime typescript` 명령을 실행합니다.
+
+핵심 도구를 사용 하 여 로컬로 함수 앱 코드를 실행 하려면 사용 합니다 `npm start` 대신 명령을 `func host start`합니다. `npm start` 명령은 다음 명령과 같습니다.
+
+- `npm run build`
+- `func extensions install`
+- `tsc`
+- `func start`
+
+사용 하기 전에 합니다 [ `func azure functionapp publish` ] Azure에 배포 하는 명령, 먼저 실행 해야 합니다는 `npm run build:production` 명령입니다. 이 명령을 사용 하 여 배포할 수 있는 TypeScript 소스 파일에서 JavaScript 파일의 프로덕션 준비 빌드를 만듭니다 [ `func azure functionapp publish` ]합니다.
 
 ## <a name="considerations-for-javascript-functions"></a>JavaScript 함수에 대한 고려 사항
 
@@ -558,11 +601,7 @@ JavaScript 함수로 작업하는 경우 다음 섹션의 고려 사항에 유�
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>단일 vCPU App Service 계획 선택
 
-App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있는 계획보다는 단일 vCPU 계획을 선택하는 것이 좋습니다. 현재 Functions는 단일 vCPU VM에서 JavaScript 함수를 더 효율적으로 실행합니다. 더 큰 VM을 사용해도 예상된 성능 향상을 보여 주지 않습니다. 필요한 경우 더 많은 단일 vCPU VM 인스턴스를 추가하여 수동으로 확장하거나 자동 크기 조정을 사용하도록 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json)을 참조하세요.    
-
-### <a name="typescript-and-coffeescript-support"></a>TypeScript 및 CoffeeScript 지원
-
-아직 런타임을 통해 TypeScript 또는 CoffeeScript 자동 컴파일에 대한 직접 지원이 없으므로 배포 시 런타임 외부에서 이러한 지원이 처리되어야 합니다. 
+App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있는 계획보다는 단일 vCPU 계획을 선택하는 것이 좋습니다. 현재 Functions는 단일 vCPU VM에서 JavaScript 함수를 더 효율적으로 실행합니다. 더 큰 VM을 사용해도 예상된 성능 향상을 보여 주지 않습니다. 필요한 경우 더 많은 단일 vCPU VM 인스턴스를 추가 하 여 수동으로 확장 수 또는 자동 크기 조정을 설정할 수 있습니다. 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json)을 참조하세요.
 
 ### <a name="cold-start"></a>콜드 부팅
 
@@ -575,3 +614,5 @@ App Service 계획을 사용하는 함수 앱을 만들 때 여러 vCPU가 있�
 + [Azure Functions에 대한 모범 사례](functions-best-practices.md)
 + [Azure Functions 개발자 참조](functions-reference.md)
 + [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
+
+[`func azure functionapp publish`]: functions-run-local.md#project-file-deployment
