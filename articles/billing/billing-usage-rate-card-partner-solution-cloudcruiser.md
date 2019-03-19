@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: bae35f9e153227ddcca6e0d20ce862317b968eb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275958"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536014"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>클라우드 크루저 및 Microsoft Azure 청구 API 통합
 이 문서는 새로운 Microsoft Azure 청구 API로부터 수집한 정보를 Cloud Cruiser에서 워크플로 비용 시뮬레이션 및 분석에 사용할 수 있는 방법을 설명합니다.
@@ -137,7 +137,7 @@ Azure 사용량 API를 통해 제공되는 데이터는 소비량 정보뿐만 �
 과금 측면에서 Cloud Cruiser는 쇼백/차지백 프로세스를 자동화하고, 태그 정보를 사용하여 사용량을 올바른 소비자(부서, 분과, 프로젝트 등)에 연결할 수 있습니다. 이 자동화를 통해 효율을 대폭 향상할 수 있을 뿐 아니라 일관적이고 감사 가능한 과금 프로세스를 보장할 수 있습니다.
 
 ### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Microsoft Azure에서 태그를 사용하여 리소스 그룹 만들기
-이 자습서의 첫 번째 단계는 Azure Portal에서 리소스 그룹을 만든 후 새 태그를 만들어서 리소스에 연결하는 것입니다. 이 예에서 우리가 만들 태그는 부서, 환경, 소유자, 프로젝트입니다.
+이 자습서의 첫 번째 단계는 Azure Portal에서 리소스 그룹을 만든 후 새 태그를 만들어서 리소스에 연결하는 것입니다. 예를 들어 우리가 만들 태그: 부서, 환경, 소유자, 프로젝트입니다.
 
 다음은 태그가 연결된 샘플 리소스 그룹을 보여주는 스크린샷입니다.
 
@@ -200,7 +200,7 @@ Azure 사용량 API를 통해 제공되는 데이터는 소비량 정보뿐만 �
 무엇보다도 이 프로세스를 한 번만 진행하면 된다는 점이 가장 큰 장점입니다. 워크북이 완성되면 스케줄러에 워크북을 추가하기만 하면 예약된 일정에 따라 매시간 또는 매일 실행됩니다. 이제 데이터를 분석하여 클라우드 사용량에 대한 의미 있는 정보를 얻고 싶다면 새 보고서를 만들거나 기존 보고서를 사용자 지정하면 됩니다.
 
 ### <a name="next-steps"></a>다음 단계
-* Cloud Cruiser 워크북 및 보고서를 만드는 방법에 대한 자세한 지침은 Cloud Cruiser 온라인 [설명서](http://docs.cloudcruiser.com/)(유효한 로그인 필요)를 참조하세요.  Cloud Cruiser에 대한 자세한 내용은 [info@cloudcruiser.com](mailto:info@cloudcruiser.com)으로 문의하세요.
+* Cloud Cruiser 워크북 및 보고서를 만드는 방법에 대한 자세한 지침은 Cloud Cruiser 온라인 [설명서](https://docs.cloudcruiser.com/)(유효한 로그인 필요)를 참조하세요.  Cloud Cruiser에 대한 자세한 내용은 [info@cloudcruiser.com](mailto:info@cloudcruiser.com)으로 문의하세요.
 * Azure 리소스 사용 및 RateCard API에 대한 개요는 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기](billing-usage-rate-card-overview.md)를 참조하십시오.
 * 두 API에 대한 정보는 [Azure 청구 REST API 참조](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)를 확인하십시오. 이는 Azure Resource Manager에서 제공하는 API 집합의 일부입니다.
 * 샘플 코드를 곧바로 시작하려면 [Azure 코드 샘플](https://azure.microsoft.com/documentation/samples/?term=billing)의 Microsoft Azure 청구 API 코드 샘플을 확인하세요.

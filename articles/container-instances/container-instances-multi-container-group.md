@@ -1,6 +1,6 @@
 ---
 title: Azure Container Instances에 다중 컨테이너 그룹 배포
-description: Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포하는 방법을 알아봅니다.
+description: Azure Resource Manager 템플릿을 사용 하는 Azure Container Instances에서 여러 컨테이너를 사용 하 여 컨테이너 그룹을 배포 하는 방법을 알아봅니다.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adb284772291dc901dd5302124982948c1f37eea
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 2dfe1bbf01b7e1fae8c07602ac4faa40ae74ecc9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856482"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729503"
 ---
-# <a name="deploy-a-container-group"></a>컨테이너 그룹 배포
+# <a name="deploy-a-multi-container-group-with-a-resource-manager-template"></a>Resource Manager 템플릿 사용 하 여 다중 컨테이너 그룹 배포
 
 Azure Container Instances에서는 [컨테이너 그룹](container-instances-container-groups.md)을 사용하여 여러 컨테이너를 단일 호스트에 배포하도록 지원합니다. 로깅, 모니터링 또는 서비스에 두 번째 연결된 프로세스가 필요한 기타 구성용으로 애플리케이션 사이드카를 빌드할 때 이러한 기능을 사용하면 유용합니다.
 
@@ -28,6 +28,8 @@ Azure CLI를 사용하여 다중 컨테이너 그룹을 배포하는 두 가지 
 
 > [!NOTE]
 > 현재 다중 컨테이너 그룹은 Linux 컨테이너에 제한됩니다. 모든 기능을 Windows 컨테이너에서 제공하려고 합니다. 그 동안 [Azure Container Instances에 대한 할당량 및 지역 가용성](container-instances-quotas.md)에서 현재 플랫폼의 차이점을 찾을 수 있습니다.
+
+추가 템플릿 샘플을 보려면 [Azure Container Instances에 대 한 Azure Resource Manager 템플릿](container-instances-samples-rm.md)합니다. 
 
 ## <a name="configure-the-template"></a>템플릿 구성
 
