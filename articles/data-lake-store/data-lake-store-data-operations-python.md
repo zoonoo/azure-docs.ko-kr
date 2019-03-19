@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 33abaf7488579a501dc7e2d0b63645726b86c28b
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: ed28c502bb407c65b388704c177fca13cecc38d6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390725"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548629"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Python을 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -39,11 +39,11 @@ ms.locfileid: "44390725"
 
 ## <a name="install-the-modules"></a>모듈 설치
 
-Python으로 Data Lake Storage Gen1을 사용하려면 세 가지 모듈을 설치해야 합니다.
+Python을 통해 Data Lake Storage Gen1을 사용하려면 세 가지 모듈을 설치해야 합니다.
 
 * Active Directory 등 Azure 모듈을 포함하는 `azure-mgmt-resource` 모듈.
 * Azure Data Lake Storage Gen1 계정 관리 작업을 포함하는 `azure-mgmt-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [azure-mgmt-datalake-store 모듈 참조](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)를 참조하세요.
-* Azure Data Lake Storage Gen1 파일 시스템 작업을 포함하는 `azure-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [azure-datalake-store file-system 모듈 참조](http://azure-datalake-store.readthedocs.io/en/latest/)를 참조하세요.
+* Azure Data Lake Storage Gen1 파일 시스템 작업을 포함하는 `azure-datalake-store` 모듈. 이 모듈에 대한 자세한 내용은 [azure-datalake-store file-system 모듈 참조](https://azure-datalake-store.readthedocs.io/en/latest/)를 참조하세요.
 
 다음 명령을 사용하여 모듈을 설치합니다.
 
@@ -86,12 +86,12 @@ pip install azure-datalake-store
 
 3. mysample.py의 변경 내용을 저장합니다.
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 이 섹션에서는 Azure AD로 인증하는 다양한 방법에 대해 설명합니다. 제공되는 옵션은 다음과 같습니다.
 
-* 애플리케이션에 대한 최종 사용자 인증의 경우 [Python을 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-python.md)을 참조하세요.
-* 애플리케이션에 대한 서비스 간 인증의 경우 [Python을 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-python.md)을 참조하세요.
+* 응용 프로그램에 대한 최종 사용자 인증의 경우 [Python을 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-python.md)을 참조하세요.
+* 응용 프로그램에 대한 서비스 간 인증의 경우 [Python을 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-python.md)을 참조하세요.
 
 ## <a name="create-filesystem-client"></a>파일 시스템 클라이언트 만들기
 
@@ -131,5 +131,5 @@ pip install azure-datalake-store
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Data Lake Storage Gen1 Python(파일 시스템) 참조](http://azure-datalake-store.readthedocs.io/en/latest)
-* [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake Storage Gen1 Python(파일 시스템) 참조](https://azure-datalake-store.readthedocs.io/en/latest)
+* [Azure Data Lake Storage Gen1과 호환되는 오픈 소스 빅 데이터 애플리케이션](data-lake-store-compatible-oss-other-applications.md)
