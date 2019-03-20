@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: d3c9c8eab0ce13aee5dbe7bdb732d45555e547fb
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 31e759baa4f5e7b220eabf2bb9ffcc5cc011a354
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200466"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -128,7 +128,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
             }
         }
     ```
-4. **F5** 키를 눌러 응용 프로그램을 실행합니다.
+4. **F5** 키를 눌러 애플리케이션을 실행합니다.
 
 애플리케이션의 출력은 다음과 유사합니다.
 
@@ -139,11 +139,10 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 * [Azure HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight에 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](../hdinsight-administer-use-management-portal.md)
 * [HDInsight .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [HDInsight에서 Apache Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 Apache Sqoop 사용](apache-hadoop-use-sqoop-mac-linux.md)
-* [비대화형 인증 .NET HDInsight 응용 프로그램 만들기](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+* [비대화형 인증 .NET HDInsight 애플리케이션 만들기](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
  
 
 

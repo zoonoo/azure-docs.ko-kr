@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e433eded9ffccde0eccb3b807c8eb8e3219771f5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162105"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111109"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
 
@@ -68,7 +68,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    - 내부 URL: `https://\<rdhost\>.com/`, 여기서 `\<rdhost\>`는 RD 웹과 RD 게이트웨이에서 공유하는 공통 루트입니다.
    - 외부 URL: 이 필드는 애플리케이션 이름에 따라 자동으로 채워지지만 수정할 수 있습니다. 사용자는 RDS에 액세스하면 이 URL로 이동합니다.
    - 사전 인증 방법: Azure Active Directory
-   - URL 헤더 변환: 아니요
+   - URL 헤더 변환: 아닙니다.
 2. 게시된 RD 애플리케이션에 사용자를 할당합니다. 모든 사용자가 RDS에도 액세스할 수 있는지 확인합니다.
 3. 애플리케이션에 대한 Single Sign-On 방법을 **Azure AD Single Sign-On 사용 안 함**으로 유지합니다. 사용자에게는 Azure AD 및 RD 웹에 대해 한 번씩 인증하도록 요청되지만 RD 게이트웨이에 대한 Single Sign-On이 제공됩니다.
 4. **Azure Active Directory** > **앱 등록** > *애플리케이션* > **설정**으로 이동합니다.
@@ -86,7 +86,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 6. [RD 게이트웨이] 탭에서 **서버 이름** 필드를 애플리케이션 프록시에서 RD 호스트 엔드포인트에 대해 설정한 외부 URL로 변경합니다.
 7. **로그온 방법** 필드를 **암호 인증**으로 변경합니다.
 
-  ![RDS의 배포 속성 화면](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
+   ![RDS의 배포 속성 화면](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. 각 컬렉션에 대해 이 명령을 실행합니다. *\<yourcollectionname\>* 및 *\<proxyfrontendurl\>* 을 사용자 고유의 정보로 바꿉니다. 이 명령은 RD 웹과 RD 게이트웨이 간에 Single Sign-On을 사용하도록 설정하고 성능을 최적화합니다.
 
@@ -98,8 +98,8 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
->[!NOTE]
->위의 명령은 “`nrequire”에서 억음 악센트 기호를 사용합니다.
+   >[!NOTE]
+   >위의 명령은 “`nrequire”에서 억음 악센트 기호를 사용합니다.
 
 9. 이 컬렉션의 RDWeb에서 다운로드할 RDP 파일 콘텐츠를 보고 사용자 지정 RDP 속성의 수정 내용을 확인하려면 다음 명령을 실행합니다.
     ```

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: d13e0ea365b25bc17ff2d23dfaf86bc057774744
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415496"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996311"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>S2S VPN 연결에 대한 VPN 디바이스 구성 스크립트 다운로드
 
@@ -53,7 +53,7 @@ Azure VPN Gateway, 로컬 네트워크 게이트웨이 및 이 둘을 연결하�
 
 연결 리소스를 만든 후 아래의 지시에 따라 VPN 디바이스 구성 스크립트를 다운로드합니다.
 
-1. 브라우저에서 [Azure Portal](http://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
 2. 만든 연결 리소스로 이동합니다. "모든 서비스"를 클릭한 다음 "네트워킹" 및 "연결"을 클릭하여 모든 연결 리소스의 목록을 찾을 수 있습니다.
 
     ![connection-list](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: d6897e35aa60be11cf556335d211c5ea616295b6
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 31909d007727ca5b440343e3c5a035984399b77a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652698"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201741"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hive를 사용하여 JSON 문서 처리 및 분석
 
@@ -57,9 +57,9 @@ Azure HDInsight에서 Apache Hive를 사용하여 JSON(JavaScript Object Notatio
 }
 ```
 
-이 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/** 에 있습니다. HDInsight에서 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop을 사용하여 HDFS 호환 Azure Blob Storage 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
+파일을 찾을 수 있습니다 **wasb://processjson\@hditutorialdata.blob.core.windows.net/** 합니다. HDInsight에서 Azure Blob Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop을 사용하여 HDFS 호환 Azure Blob Storage 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요. 클러스터의 기본 컨테이너에 파일을 복사할 수 있습니다.
 
-이 자습서에서는 Apache Hive 콘솔을 사용합니다. Hive 콘솔을 여는 방법에 대한 지침은 [원격 데스크톱을 사용하여 HDInsight에서 Apache Hadoop과 Apache Hive 사용](apache-hadoop-use-hive-remote-desktop.md)을 참조하세요.
+이 자습서에서는 Apache Hive 콘솔을 사용합니다. Hive 콘솔을 여는 방법에 지침은 [HDInsight에서 Apache Hadoop과 함께 사용 하 여 Apache Ambari Hive 보기](apache-hadoop-use-hive-ambari-view.md)합니다.
 
 ## <a name="flatten-json-documents"></a>JSON 문서 평면화
 다음 섹션에 나열된 메서드에서는 JSON 문서가 단일 행으로 구성되어야 합니다. 따라서 JSON 문서를 문자열로 평면화해야 합니다. JSON 문서가 이미 평면화되어 있으면 이 단계를 건너뛰고 다음 섹션인 JSON 데이터 분석으로 바로 이동할 수 있습니다. JSON 문서를 평면화하려면 다음 스크립트를 실행합니다.
@@ -83,7 +83,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-원시 JSON 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/** 에 있습니다. **StudentsRaw** Hive 테이블은 평면화되지 않은 원시 JSON 문서를 가리킵니다.
+원시 JSON 파일에 위치한 **wasb://processjson\@hditutorialdata.blob.core.windows.net/** 합니다. **StudentsRaw** Hive 테이블은 평면화되지 않은 원시 JSON 문서를 가리킵니다.
 
 **StudentsOneLine** Hive 테이블은 HDInsight 기본 파일 시스템에서 데이터를 **/json/students/** 경로에 저장합니다.
 
@@ -153,8 +153,8 @@ SerDe는 중첩된 JSON 문서를 구문 분석하기 위한 최상의 선택입
 관련 문서는 다음을 참조하세요.
 
 * [샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Apache Hadoop과 함께 Apache Hive 및 HiveQL 사용](../hdinsight-use-hive.md)
-* [HDInsight의 Apache Hive를 사용하여 비행 지연 데이터 분석](../hdinsight-analyze-flight-delay-data.md)
-* [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석](../hdinsight-analyze-twitter-data.md)
+* [HDInsight의 Apache Hive를 사용하여 비행 지연 데이터 분석](../hdinsight-analyze-flight-delay-data-linux.md)
+* [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석](../hdinsight-analyze-twitter-data-linux.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

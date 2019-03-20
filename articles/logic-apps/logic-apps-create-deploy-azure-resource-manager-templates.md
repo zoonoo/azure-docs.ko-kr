@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 3abe7bae5506b721d4baf1e18da390b3e67977d8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242941"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894583"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 논리 앱 만들기 및 배포
 
@@ -82,7 +82,7 @@ Azure Logic Apps는 사용할 수 있는 Azure Resource Manager 템플릿을 제
 | 매개 변수 | 설명 | JSON 정의 예제 | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | 템플릿에서 만든 논리 앱의 이름을 정의합니다. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | 테스트를 위해 ping할 위치를 정의합니다. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `testUri` | 테스트를 위해 ping할 위치를 정의합니다. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
 ||||
 
 [Logic Apps 워크플로 정의 및 속성에 대한 REST API](https://docs.microsoft.com/rest/api/logic/workflows) 및 [JSON으로 논리 앱 정의에 대한 빌드](logic-apps-author-definitions.md)에 대해 자세히 알아봅니다.

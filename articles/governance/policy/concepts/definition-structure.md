@@ -4,17 +4,17 @@ description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447789"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894430"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -80,7 +80,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 대부분 **mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 수동으로 지정할 수 있습니다. 정책 정의에 **mode** 값이 포함되지 않으면 기본적으로 Azure PowerShell에서는 `all`로 설정되고 Azure CLI에서는 `null`로 설정됩니다. `null` 모드는 이전 버전과의 호환성을 지원하기 위해 `indexed`를 사용하는 것과 같습니다.
 
-`indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroups` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요.
+`indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroups` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요. 태그를 지 원하는 리소스의 목록을 참조 하세요 [지원 Azure 리소스에 대 한 태그](../../../azure-resource-manager/tag-support.md)합니다.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -101,7 +101,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
   - `displayName`: 매개 변수에 대해 포털에 표시되는 이름입니다.
   - `strongType`: (선택 사항) 포털을 통해 정책 정의를 할당할 때 사용됩니다. 컨텍스트 인식 목록을 제공합니다. 자세한 내용은 [strongType](#strongtype)을 참조하세요.
 - `defaultValue`: (선택 사항) 값이 지정되지 않은 경우 할당에서 매개 변수의 값을 설정합니다. 할당된 기존 정책 정의를 업데이트할 때 필요합니다.
-- `allowedValues`: (선택 사항) 할당 중에 매개 변수가 허용하는 값 목록을 제공합니다.
+- `allowedValues`: (선택 사항) 매개 변수에 할당 하는 동안 허용 하는 값의 배열을 제공 합니다.
 
 예를 들어 리소스를 배포할 수 있는 위치를 제한하는 정책 정의를 정의할 수 있습니다. 해당 정책 정의의 매개 변수는 **allowedLocations**일 수 있습니다. 이 매개 변수는 정책 정의의 각 할당에서 허용되는 값을 제한하는 데 사용됩니다. **strongType**을 사용하면 포털을 통해 할당을 완료할 때 경험이 개선됩니다.
 
@@ -289,6 +289,9 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 **value**를 사용하여 조건을 구성할 수도 있습니다. **value**는 [매개 변수](#parameters), [지원되는 템플릿 함수](#policy-functions) 또는 리터럴에 대해 조건을 확인합니다.
 **value**는 지원되는 모든 [조건](#conditions)과 쌍을 이룹니다.
 
+> [!WARNING]
+> 하는 경우의 결과 _템플릿 함수_ 정책에서 평가 오류가 발생 하면 오류가 발생 합니다. 실패 한 평가 암시적 **거부**합니다. 자세한 내용은 [템플릿 오류를 방지](#avoiding-template-failures)합니다.
+
 #### <a name="value-examples"></a>값 예제
 
 이 정책 규칙 예제는 **value**를 사용하여 `resourceGroup()` 함수의 결과와 반환된 **name** 속성을 `*netrg`의 **like** 조건과 비교합니다. 규칙은 이름이 `*netrg`로 끝나는 리소스 그룹에서 `Microsoft.Network/*` **type**이 아닌 리소스를 모두 거부합니다.
@@ -328,6 +331,44 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
     }
 }
 ```
+
+#### <a name="avoiding-template-failures"></a>템플릿 오류를 방지합니다.
+
+사용 _템플릿 함수_ 에 **값** 많은 복잡 한 중첩 된 함수에 대 한 허용 합니다. 하는 경우의 결과 _템플릿 함수_ 정책에서 평가 오류가 발생 하면 오류가 발생 합니다. 실패 한 평가 암시적 **거부**합니다. 예는 **값** 특정 시나리오에서 실패 합니다.
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[substring(field('name'), 0, 3)]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+사용 하 여 위의 예에서는 정책 규칙 [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) 의 처음 세 문자를 비교할 **이름** 하 **abc**합니다. 하는 경우 **이름을** 3 자 보다 짧은 `substring()` 함수 오류가 발생 합니다. 이 오류로 인해 되도록 정책을 **거부** 적용 합니다.
+
+대신 합니다 [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) 함수를 확인의 처음 세 문자 **이름** 같으면 **abc** 허용 하지 않고를 **이름** 보다 짧은 오류가 발생 하는 세 문자:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[if(greaterOrEquals(length(field('name')), 3), substring(field('name'), 0, 3), 'not starting with abc')]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+수정 된 정책 규칙을 사용 하 여 `if()` 길이 확인 **이름** 가져오려고 시도 하기 전에 `substring()` 세 대 보다 적은 문자가 포함 된 값입니다. 하는 경우 **이름을** 너무 짧습니다., "abc로 시작 되지 않음" 값이 대신 반환 하 고 비교할 **abc**합니다. 시작 되지 않도록 하는 짧은 이름 사용 하 여 리소스 **abc** 정책 규칙을 여전히 실패 하지만 더 이상 평가 하는 동안 오류가 발생 합니다.
 
 ### <a name="effect"></a>결과
 
@@ -443,70 +484,60 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-첫 번째 예는 전체 배열을 평가하는 데 사용되며, **[\*]** 별칭은 배열의 각 요소를 평가합니다.
-
-정책 규칙을 예제로 살펴보겠습니다. 이 정책은 ipRules가 구성되고 ipRules에 “127.0.0.1” 값이 **없는** 스토리지 계정을 **거부**합니다.
+'Normal' 별칭은 단일 값으로 필드를 나타냅니다. 이 필드는 더 이상 및 더 작은 값의 전체 집합 정의 된 대로 정확 하 게 해야 하는 경우 정확 하 게 일치 비교 시나리오에 대 한 합니다. 사용 하 여 **ipRules**, 예로 유효성을 검사 규칙의 수 및 각 규칙의 구성을 비롯 한 정확한 규칙 집합을 있는지 합니다. 이 샘플 규칙 검사 정확 하 게 둘 다 **192.168.1.1** 및 **10.0.4.1** 사용 하 여 _동작_ 의 **허용** 에서 **ipRules** 적용할 합니다 **effectType**:
 
 ```json
 "policyRule": {
     "if": {
-        "allOf": [{
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "Equals": [
+                    {
+                        "action": "Allow",
+                        "value": "192.168.1.1"
+                    },
+                    {
+                        "action": "Allow",
+                        "value": "10.0.4.1"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+합니다 **[\*]** 별칭을 사용 하면 배열에 있는 각 요소의 값 및 각 요소의 특정 속성에 대해 비교할 수 있습니다. 이 이렇게 하면 요소 속성을 비교 하 여 '없으면', '있는 경우 의' 또는 ' 모든 경우의 ' 시나리오입니다. 사용 하 여 **ipRules [\*]**, 예로 유효성을 검사 하는 모든 _동작_ 됩니다 _거부_, 얼마나 많은 규칙이 나 IP 걱정하지않지만_값_ 됩니다. 이 샘플 규칙의 일치 항목을 검사 **ipRules [\*].value** 에 **10.0.4.1** 적용 합니다 **effectType** 적어도 하나의 일치 항목을 찾지 못하면 해당 하는 경우에:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
                 "exists": "true"
             },
             {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "127.0.0.1"
+                "notEquals": "10.0.4.1"
             }
         ]
     },
     "then": {
-        "effect": "deny",
+        "effect": "[parameters('effectType')]"
     }
 }
 ```
 
-**ipRules** 배열은 예제의 경우 다음과 같습니다.
-
-```json
-"ipRules": [{
-        "value": "127.0.0.1",
-        "action": "Allow"
-    },
-    {
-        "value": "192.168.1.1",
-        "action": "Allow"
-    }
-]
-```
-
-이 예제가 처리되는 방법은 다음과 같습니다.
-
-- `networkAcls.ipRules` - 배열이 null이 아닌지 확인하세요. True인 경우 평가가 계속됩니다.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-    "exists": "true"
-  }
-  ```
-
-- `networkAcls.ipRules[*].value` - **ipRules** 배열의 각 ‘값’ 속성을 검사합니다.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-    "notEquals": "127.0.0.1"
-  }
-  ```
-
-  - 배열로 각 요소가 처리됩니다.
-
-    - “127.0.0.1” != “127.0.0.1”은 false로 평가됩니다.
-    - “127.0.0.1” != “192.168.1.1”은 true로 평가됩니다.
-    - **ipRules** 배열의 ‘값’ 속성이 하나 이상 false로 평가되므로 평가가 중지됩니다.
-
-조건이 false로 평가되었으므로 **거부** 영향이 트리거되지 않습니다.
+자세한 내용은 [평가 [\*] 별칭](../how-to/author-policies-for-arrays.md#evaluating-the--alias)합니다.
 
 ## <a name="initiatives"></a>이니셔티브
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4a6ed900753747c1d5bf394aced54da11177320f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694502"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118394"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso 마이그레이션: Azure VM에 온-프레미스 앱 다시 호스트
 
@@ -168,10 +168,10 @@ Contoso 관리자가 마이그레이션을 실행하는 방법은 다음과 같�
     - 앱 데이터베이스 VM(SQLVM)은 프로덕션 네트워크의 데이터베이스 서브넷(PROD-DB-EUS2)으로 마이그레이션됩니다.
 
 2. 스토리지 계정 설정 - Contoso는 주 지역에 Azure Storage 계정(contosovmsacc20180528)을 만듭니다.
-    - 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
-    - 범용 계정과 표준 저장소 및 LRS 복제를 사용합니다.
+   - 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 영역에 있어야 합니다.
+   - 범용 계정과 표준 저장소 및 LRS 복제를 사용합니다.
 
-    ![Site Recovery 저장소](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Site Recovery 저장소](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. 자격 증명 모음 만들기 - 네트워크 및 저장소 계정이 준비되면 Contoso는 이제 Recovery Services 자격 증명 모음(ContosoMigrationVault)을 만들어 주 지역인 미국 동부 2의 ContosoFailoverRG 리소스 그룹에 배치합니다.
 
@@ -221,15 +221,15 @@ Contoso 관리자는 다음과 같이 계정을 설정합니다.
 
 1. 인터넷을 통해 액세스하려면 다음을 수행합니다.
 
- - 장애 조치(failover) 전 온-프레미스 VM에서 RDP를 사용하도록 설정합니다.
- - **공개** 프로필에 대해 TCP 및 UDP 규칙이 추가되었는지 확인합니다.
- - **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.
+   - 장애 조치(failover) 전 온-프레미스 VM에서 RDP를 사용하도록 설정합니다.
+   - **공개** 프로필에 대해 TCP 및 UDP 규칙이 추가되었는지 확인합니다.
+   - **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 RDP가 허용되는지 확인합니다.
 
 2. 사이트 간 VPN을 통해 액세스하려면 다음을 수행합니다.
 
- - 온-프레미스 머신에서 RDP를 사용하도록 설정합니다.
- - **Windows 방화벽** -> **허용되는 앱 및 기능**에서 **도메인 및 개인** 네트워크에 대해 RDP를 허용합니다.
- - 온-프레미스 VM의 운영 체제 SAN 정책을 **OnlineAll**로 설정합니다.
+   - 온-프레미스 머신에서 RDP를 사용하도록 설정합니다.
+   - **Windows 방화벽** -> **허용되는 앱 및 기능**에서 **도메인 및 개인** 네트워크에 대해 RDP를 허용합니다.
+   - 온-프레미스 VM의 운영 체제 SAN 정책을 **OnlineAll**로 설정합니다.
 
 또한 장애 조치(failover)를 실행하는 경우, 다음을 확인해야 합니다.
 
@@ -341,10 +341,10 @@ Contoso 관리자는 다음 단계를 수행합니다.
 
 4. Contoso는 복제할 **WebVM**을 선택하고, 복제 정책을 확인하고, 복제를 사용하도록 설정합니다.
 
-    - 이 단계에서는 VNet 및 서브넷을 선택해야 하고 앱 VM이 다른 서브넷에 배치되므로 Contoso는 WEBVM만 선택합니다.
-    - 복제를 사용할 경우 Site Recovery에서 자동으로 VM에 모바일 서비스를 설치합니다.
+   - 이 단계에서는 VNet 및 서브넷을 선택해야 하고 앱 VM이 다른 서브넷에 배치되므로 Contoso는 WEBVM만 선택합니다.
+   - 복제를 사용할 경우 Site Recovery에서 자동으로 VM에 모바일 서비스를 설치합니다.
 
-    ![복제 사용](./media/contoso-migration-rehost-vm/enable-replication3.png)
+     ![복제 사용](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. **작업**에서 복제 진행 상황을 추적합니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 6. Contoso는 Azure Portal의 **기본 정보**에서 Azure로 복제되는 VM의 구조를 확인할 수 있습니다.

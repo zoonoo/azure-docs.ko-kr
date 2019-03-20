@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 5f8f282db9468d84c3a1fa16c5cd481f2dd0970e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415921"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199633"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
 
@@ -37,8 +37,8 @@ ms.locfileid: "56415921"
 1. 두 가상 네트워크는 Resource Manager 배포 모델을 사용합니다.
 2. 스포크 가상 네트워크는 클래식이며, 게이트웨이를 사용하는 허브 가상 네트워크는 Resource Manager에 있습니다.
 
-> [!IMPORTANT]
-> 게이트웨이 전송은 현재 글로벌 가상 네트워크 피어링으로 지원되지 않습니다.
+> [!IMPORTANT]  
+> 게이트웨이 전송은 현재 미리 보기에서 전역 가상 네트워크 피어 링으로 지원 됩니다. 미리 보기를 사용할 수 있는 모든 Azure 지역, 중국 클라우드 지역 및 Government 클라우드 지역에 있지만 클라우드에서 없습니다. 허용 목록에 없는 추가 필요 합니다. CLI, PowerShell, 템플릿 또는 API를 통해 미리 보기에서 테스트할 수 있습니다. 포털 미리 보기에서 지원 되지 않습니다. 
 
 ## <a name="requirements"></a>요구 사항
 
@@ -64,7 +64,7 @@ ms.locfileid: "56415921"
 |가상 네트워크|배포 모델|역할|권한|
 |---|---|---|---|
 |허브-RM|리소스 관리자|[네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |클래식|[클래식 네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|해당 없음|
+| |클래식|[클래식 네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
 |스포크-클래식|리소스 관리자|[네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||클래식|[클래식 네트워크 참여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
@@ -129,13 +129,13 @@ Add-AzVirtualNetworkPeering `
 작업이 허브-RM 가상 네트워크에만 적용되는 점 외에는 Resource Manager 예제와 단계가 비슷합니다.
 
 1. Azure Portal에서 허브-RM에서 스포크-RM으로 가상 네트워크 피어링을 만들고 업데이트합니다. 허브-RM 가상 네트워크 리소스로 이동하고 “피어링”을 클릭한 다음, “추가”를 클릭합니다.
-    - 가상 네트워크 배포 모델에 대한 “클래식” 옵션을 설정합니다.
-    - 해당하는 구독에서 “스포크-클래식” 가상 네트워크를 선택합니다.
-    - “가상 네트워크 액세스 허용”이 “사용”으로 설정되어 있는지 확인합니다.
-    - “**게이트웨이 전송 허용**” 옵션을 설정합니다.
-    - “확인”을 클릭합니다.
+   - 가상 네트워크 배포 모델에 대한 “클래식” 옵션을 설정합니다.
+   - 해당하는 구독에서 “스포크-클래식” 가상 네트워크를 선택합니다.
+   - “가상 네트워크 액세스 허용”이 “사용”으로 설정되어 있는지 확인합니다.
+   - “**게이트웨이 전송 허용**” 옵션을 설정합니다.
+   - “확인”을 클릭합니다.
 
-    ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
 2. 피어링을 이미 만든 경우 피어링 리소스로 이동한 다음, 단계 (1)에 표시된 스크린샷과 유사하게 “**게이트웨이 전송 허용**” 옵션을 사용하도록 설정합니다.
 

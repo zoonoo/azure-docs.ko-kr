@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7f0af2c64d04d83cc3eb4043007979c17c75e051
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105168"
 ---
 > [!NOTE]
 > 각 App Service Environment에는 App Service Environment에 연결하는 데 사용할 수 있는 VIP(가상 IP)가 있습니다.
->
-# <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기 #
+> 
+> # <a name="create-an-external-app-service-environment"></a>외부 App Service Environment 만들기 #
 
 Azure App Service Environment는 Azure App Service를 Azure VNet(Virtual Network)의 서브넷에 배포한 것입니다. ASE(App Service Environment)에는 두 가지 배포 방법이 있습니다.
 

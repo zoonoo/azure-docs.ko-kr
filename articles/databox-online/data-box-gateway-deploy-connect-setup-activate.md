@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 26b560434e6305689781b8c39c7cf814af9bf8aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450407"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112299"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway(미리 보기)에 연결하고, 설정하고, 활성화 
 
@@ -43,7 +43,6 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
 * [Hyper-V에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-hyperv.md) 또는 [VMware에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-vmware.md)에서 설명한 대로 가상 디바이스를 프로비전하고 가상 디바이스에 연결된 URL을 가져왔습니다.
 * Data Box Gateway 디바이스를 관리하기 위해 만든 Data Box Gateway 서비스의 활성화 키를 갖고 있습니다. 자세한 내용은 [Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md)를 참조하세요.
 
-<!--* If this is the second or subsequent virtual device that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your Data Box Gateway.-->
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>로컬 웹 UI 설정에 연결 
 
@@ -53,15 +52,15 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
    
    이전 자습서에서 언급한 연결 URL을 사용합니다. 웹 사이트의 보안 인증서에 문제가 있음을 나타내는 오류가 표시됩니다. **이 웹 페이지에서 계속 진행**을 클릭합니다. (이러한 단계는 사용하는 브라우저에 따라 다를 수 있습니다.)
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
+    ![연결 중 오류 발생](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
 
 2. 가상 디바이스의 웹 UI에 로그인합니다. 기본 암호는 *Password1*입니다. 
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
+    ![로컬 웹 UI에 로그인](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
 3. 디바이스 관리자 암호를 변경하라는 메시지가 표시됩니다. 8~16자 길이의 새 암호를 입력합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
+    ![장치 관리자 암호 변경](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
 이제 디바이스의 **대시보드**에 있습니다.
 
@@ -69,28 +68,28 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
  
 1. 대시보드에서, 가상 디바이스를 구성하고 Data Box Gateway 서비스에 등록하는 데 필요한 다양한 설정으로 이동할 수 있습니다. **네트워크 설정**, **웹 프록시 설정**, **시간 설정**은 선택 사항입니다. 유일한 필수 설정은 **디바이스 이름** 및 **클라우드 설정**입니다.
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
+    ![로컬 웹 UI "대시보드" 페이지](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
 2. **디바이스 이름** 페이지에서 디바이스 이름을 구성합니다. 이름의 길이는 1~15 사이여야 하고 문자, 숫자 및 하이픈을 포함할 수 있습니다.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
+    ![로컬 웹 UI "장치 이름" 페이지](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
 3. (선택 사항) **네트워크 설정**을 구성합니다. 기본 가상 머신에서 구성한 수에 따라 1개 이상의 네트워크 인터페이스가 표시됩니다. 아래와 같이 네트워크 인터페이스 하나가 설정된 가상 디바이스의 **네트워크 설정** 페이지가 표시됩니다.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
+    ![로컬 웹 UI "네트워크 설정" 페이지](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
    
     네트워크 설정을 구성할 때 다음 사항을 염두에 두어야 합니다.
 
-    - 환경에서 DHCP를 사용하도록 설정하면 네트워크 인터페이스가 자동으로 구성됩니다. 따라서 IP 주소, 서브넷, 게이트웨이 및 DNS가 자동으로 할당됩니다.
-    - DHCP를 사용하지 않는 경우 필요에 따라 고정 IP를 할당할 수 있습니다.
-    - 네트워크 인터페이스를 IPv4로 구성할 수 있습니다.
+   - 환경에서 DHCP를 사용하도록 설정하면 네트워크 인터페이스가 자동으로 구성됩니다. 따라서 IP 주소, 서브넷, 게이트웨이 및 DNS가 자동으로 할당됩니다.
+   - DHCP를 사용하지 않는 경우 필요에 따라 고정 IP를 할당할 수 있습니다.
+   - 네트워크 인터페이스를 IPv4로 구성할 수 있습니다.
 
-    >[!NOTE] 
-    > 디바이스에 연결할 다른 IP 주소가 없다면 네트워크 인터페이스의 로컬 IP 주소를 정적에서 DCHP로 전환하지 않는 것이 좋습니다. 하나의 네트워크 인터페이스를 사용하며 DHCP로 전환하는 경우 DHCP 주소를 확인할 방법이 없습니다. DHCP 주소로 변경하려는 경우 디바이스가 서비스에 등록될 때까지 기다렸다가 변경합니다. 그러면 서비스에 대한 Azure Portal의 **디바이스 속성**에서 모든 어댑터의 IP를 볼 수 있습니다.
+     >[!NOTE] 
+     > 디바이스에 연결할 다른 IP 주소가 없다면 네트워크 인터페이스의 로컬 IP 주소를 정적에서 DCHP로 전환하지 않는 것이 좋습니다. 하나의 네트워크 인터페이스를 사용하며 DHCP로 전환하는 경우 DHCP 주소를 확인할 방법이 없습니다. DHCP 주소로 변경하려는 경우 디바이스가 서비스에 등록될 때까지 기다렸다가 변경합니다. 그러면 서비스에 대한 Azure Portal의 **디바이스 속성**에서 모든 어댑터의 IP를 볼 수 있습니다.
 
 4. 선택적으로 웹 프록시 서버를 구성합니다. 웹 프록시 구성은 선택 사항이지만 웹 프록시를 사용하면 여기서만 구성할 수 있습니다.
    
-   ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
+   ![로컬 웹 UI "웹 프록시 설정" 페이지](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
    
    **웹 프록시** 페이지에서:
    
@@ -101,7 +100,7 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
 
 5. (선택 사항) 디바이스에 대한 시간 설정(예: 표준 시간대 및 기본 및 보조 NTP 서버)을 구성합니다. 클라우드 서비스 공급자와 인증할 수 있도록 디바이스 시간을 동기화해야 하기 때문에 NTP 서버가 필요합니다.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
+    ![로컬 웹 UI "시간 설정" 페이지](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
     
     **시간 설정** 페이지에서:
     
@@ -116,10 +115,17 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
 
     2. **활성화**를 클릭합니다. 
        
-         ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
+         ![로컬 웹 UI "클라우드 설정" 페이지](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. 디바이스가 활성화될 때까지 1분 정도 기다려야 할 수 있습니다. 활성화가 완료되면 페이지가 업데이트되어 디바이스가 성공적으로 활성화된 것으로 나타납니다.
+    3. 먼저 장치 활성화 됩니다. 장치는 모든 중요 업데이트를 검색 한 다음 및 사용 가능한 경우 업데이트를 자동으로 적용 됩니다. 그 결과 알림이 표시 됩니다. 
 
+        대화 상자에는 역시 복구 키를 복사 하 고 안전한 위치에 저장 해야 합니다. 이 키는 장치가 부팅 될 수 없습니다. 이벤트 데이터를 복구 하려면 사용 됩니다.
+
+        ![로컬 웹 UI "클라우드 설정" 페이지](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)    
+
+    4. 업데이트가 성공적으로 완료 된 후 몇 분을 대기 해야 합니다. 장치가 성공적으로 활성화 되어 있는지를 나타내는 페이지를 업데이트 합니다.
+
+        ![로컬 웹 UI "클라우드 설정" 페이지 업데이트](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 68ae01b814de08098c0ba6b5713f420cfebc3d97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302472"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001266"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure의 Cloud Foundry
 
@@ -29,7 +29,7 @@ Cloud Foundry는 다양한 언어 및 프레임워크로 개발되는 12개 요�
 
 ## <a name="cloud-foundry-offerings"></a>Cloud Foundry 제품
 
-Azure에서 실행할 수 있는 Cloud Foundry에는 오픈 소스 Cloud Foundry(OSS CF) 및 Pivotal Cloud Foundry(PCF)라는 두 가지 형식이 있습니다. OSS CF는 Cloud Foundry Foundation에서 관리하는 Cloud Foundry의 완전한 [오픈-소스](https://github.com/cloudfoundry) 버전입니다. Pivotal Cloud Foundry는 Pivotal Software Inc.의 Cloud Foundry 엔터프라이즈 배포판입니다. 이 두 가지 제품의 차이점을 살펴보겠습니다.
+Azure에서 실행할 수 있는 Cloud Foundry에는 오픈 소스 Cloud Foundry(OSS CF) 및 Pivotal Cloud Foundry(PCF)라는 두 가지 형식이 있습니다. OSS CF는 Cloud Foundry Foundation에서 관리하는 Cloud Foundry의 완전한 [오픈-소스](https://github.com/cloudfoundry) 버전입니다. Pivotal Cloud Foundry는 Pivotal Software i n c.에서 Cloud foundry 엔터프라이즈 배포판 두 제품 간의 차이점 중 일부에 대해 살펴봅니다.
 
 ### <a name="open-source-cloud-foundry"></a>오픈 소스 Cloud Foundry
 
@@ -48,13 +48,13 @@ Microsoft는 다음과 같은 커뮤니티 채널을 통해 OSS CF에 대한 최
 
 Pivotal Cloud Foundry는 독점적인 관리 도구 및 엔터프라이즈 지원과 더불어 OSS 배포판과 동일한 핵심 플랫폼을 포함합니다. PCF를 Azure에서 실행하려면 Pivotal로부터 라이선스를 취득해야 합니다. Azure Marketplace의 PCF 제품에는 90일 평가판 라이선스가 포함됩니다.
 
-이 도구는 Cloud Foundry Foundation의 배포 및 관리를 간소화하는 웹 애플리케이션인 [Pivotal Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/)와 사용자 및 애플리케이션 관리를 위한 웹 애플리케이션인 [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/)를 포함합니다.
+이 도구는 Cloud Foundry Foundation의 배포 및 관리를 간소화하는 웹 애플리케이션인 [Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/)와 사용자 및 애플리케이션 관리를 위한 웹 애플리케이션인 [Pivotal Apps Manager](https://docs.pivotal.io/pivotalcf/console/)를 포함합니다.
 
 위에 나열된 OSS CF에 대한 지원 채널 외에도 PCF 라이선스를 취득하면 Pivotal에 지원을 요청할 수 있습니다. Microsoft와 Pivotal에는 두 회사 중 어느 곳에라도 지원을 요청하면 문제의 소재에 따라 적절하게 질의가 전달될 수 있는 지원 워크플로가 설정되어 있습니다.
 
 ## <a name="azure-service-broker"></a>Service Broker
 
-Cloud Foundry는 상태 비저장 애플리케이션 프로세스와 상태 저장 백업 서비스의 완전한 분리를 조장하는 ["twelve-factor app"](https://12factor.net/) 방법론을 장려합니다. [Service brokers](https://docs.cloudfoundry.org/services/api.html)는 응용 프로그램에 대한 백업 서비스를 바인딩하고 프로비전하는 일관적인 방법을 제공합니다. [Azure Service Broker](https://github.com/Azure/meta-azure-service-broker)는 이러한 채널을 통해 Azure Storage 및 Azure SQL을 비롯한 주요한 Azure 서비스를 제공합니다.
+Cloud Foundry는 상태 비저장 애플리케이션 프로세스와 상태 저장 백업 서비스의 완전한 분리를 조장하는 ["twelve-factor app"](https://12factor.net/) 방법론을 장려합니다. [Service brokers](https://docs.cloudfoundry.org/services/api.html)는 애플리케이션에 대한 백업 서비스를 바인딩하고 프로비전하는 일관적인 방법을 제공합니다. [Azure Service Broker](https://github.com/Azure/meta-azure-service-broker)는 이러한 채널을 통해 Azure Storage 및 Azure SQL을 비롯한 주요한 Azure 서비스를 제공합니다.
 
 Pivotal Cloud Foundry를 사용하는 경우 Service Broker는 Pivotal Network의 [타일로도 제공](https://docs.pivotal.io/azure-sb/installing.html)됩니다.
 

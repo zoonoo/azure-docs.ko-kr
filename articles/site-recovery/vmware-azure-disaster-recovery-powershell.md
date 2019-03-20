@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 1b97ff461dc3a4f7dcba0a3dbfad71a25cb3f1e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840208"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226338"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
 
@@ -26,7 +26,7 @@ ms.locfileid: "52840208"
 > - 복제 정책을 포함하여 복제를 설정합니다. vCenter 서버를 추가하고 VM을 검색합니다. 
 > - vCenter 서버 추가 및 검색 
 > - 복제 데이터를 저장할 저장소 계정을 만들고 VM을 복제합니다.
-> - 장애 조치(failover)를 수행합니다. 장애 조치(failover) 설정을 구성하고, 가상 머신 복제를 위한 설정을 수행합니다.
+> - 장애 조치(failover)를 수행합니다. 장애 조치 설정을 구성 하 고 가상 머신을 복제 하는 것에 대 한 설정을 수행 하십시오.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -61,7 +61,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ProvisioningState : Succeeded
    Tags              :
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
-```
+   ```
    
 2. Recovery Services 자격 증명 모음을 만듭니다. 아래 예에서 Recovery Services 자격 증명 모음의 이름은 VMwareDRToAzurePs로 지정되고 동아시아 지역 및 이전 단계에서 만든 리소스 그룹에 생성되었습니다.
 
@@ -316,7 +316,7 @@ Errors           : {}
 이 단계에서는 복제에 사용할 저장소 계정이 만들어집니다. 이 저장소 계정은 나중에 가상 머신을 복제하는 데 사용됩니다. 저장소 계정을 자격 증명 모음과 동일한 Azure 지역에 만들어야 합니다. 복제에 기존 저장소 계정을 사용하려는 경우 이 단계를 건너뛸 수 있습니다.
 
 > [!NOTE]
-> 온-프레미스 가상 머신을 프리미엄 저장소 계정에 복제하는 동안 표준 저장소 계정을 추가로 지정해야 합니다(로그 저장소 계정). 로그 저장소 계정에는 프리미엄 저장소 대상에 로그가 적용될 때까지 복제 로그가 중간 저장소로 보관됩니다.
+> 온-프레미스 가상 머신을 Premium Storage 계정에 복제하는 동안 표준 스토리지 계정을 추가로 지정해야 합니다(로그 스토리지 계정). 로그 스토리지 계정에는 Premium Storage 대상에 로그가 적용될 때까지 복제 로그가 중간 스토리지로 보관됩니다.
 >
 
 ```azurepowershell
@@ -335,7 +335,7 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 검색된 가상 머신을 보호하려면 다음 세부 정보가 필요합니다.
 
 * 복제할 보호 가능한 항목.
-* 가상 머신을 복제할 대상 저장소 계정. 또한 가상 머신을 프리미엄 저장소 계정으로 보호하기 위해 로그 저장소가 필요합니다.
+* 가상 머신을 복제할 대상 저장소 계정. 또한 가상 머신을 Premium Storage 계정으로 보호하기 위해 로그 스토리지가 필요합니다.
 * 복제에 사용할 프로세스 서버. 사용 가능한 프로세스 서버 목록이 검색되어 ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* 및 ***$ProcessServers[1]*** *(ConfigurationServer)* 변수에 저장됩니다.
 * 모바일 서비스 소프트웨어를 컴퓨터에 강제 설치하는 데 사용할 계정. 사용 가능한 계정 목록은 검색되어 ***$AccountHandles*** 변수에 저장됩니다.
 * 복제에 사용되는 복제 정책에 대한 보호 컨테이너 매핑.
@@ -348,8 +348,8 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 |가상 머신  |프로세스 서버        |Storage 계정              |로그 저장소 계정  |정책           |모바일 서비스 설치를 위한 계정|대상 리소스 그룹  | 대상 가상 네트워크  |대상 서브넷  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
-|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| 해당 없음                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| 해당 없음                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
  
 ```azurepowershell
@@ -487,4 +487,4 @@ Errors           : {}
 2. 장애 조치(failover)가 완료되면 장애 조치(failover) 작업을 커밋하고 Azure에서 온-프레미스 VMware 사이트로 역방향 복제를 설정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)를 사용하여 더 많은 작업을 자동화하는 방법을 알아봅니다.
+사용 하 여 더 많은 작업을 자동화 하는 방법을 알아봅니다 합니다 [Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)합니다.

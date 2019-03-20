@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 40b26429cf4e7f218c2b5a276ae936f60bd6abe4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d7dc690f719dd9265317b2bba3b87521e9a00d6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106579"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Azure Active Directory에서 새 Azure Stack 테넌트 계정 추가
 
@@ -41,11 +41,11 @@ Azure 포털을 사용하려면 Azure 구독이 있어야 합니다.
 
     ![새 사용자 추가, 사용자 정보가 있는 사용자 페이지](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-    - **이름(필수).** 새 사용자의 이름 및 성입니다. 예를 들어, Mary Parker입니다.
-    - **사용자 이름(필수).** 새 사용자의 사용자 이름입니다. 예: mary@contoso.com
-        사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 <_yourdomainname_>.onmicrosoft.com이거나 contoso.com과 같은 사용자 지정 도메인 이름을 사용해야 합니다. 사용자 지정 도메인 이름 작성 방법에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름을 추가하는 방법](../active-directory/fundamentals/add-custom-domain.md)을 참조하세요.
-    - **프로필.** 원할 경우 사용자에 대한 자세한 정보를 추가할 수 있습니다. 사용자 정보를 나중에 추가할 수도 있습니다. 사용자 정보 추가에 대한 자세한 내용은 [사용자 프로필 정보를 추가하거나 변경하는 방법](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)을 참조하세요.
-    - **디렉터리 역할.**  선택할 **사용자**합니다.
+   - **이름(필수).** 새 사용자의 이름 및 성입니다. 예를 들어, Mary Parker입니다.
+   - **사용자 이름(필수).** 새 사용자의 사용자 이름입니다. 예: mary@contoso.com
+       사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 <_yourdomainname_>.onmicrosoft.com이거나 contoso.com과 같은 사용자 지정 도메인 이름을 사용해야 합니다. 사용자 지정 도메인 이름 작성 방법에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름을 추가하는 방법](../active-directory/fundamentals/add-custom-domain.md)을 참조하세요.
+   - **프로필.** 원할 경우 사용자에 대한 자세한 정보를 추가할 수 있습니다. 사용자 정보를 나중에 추가할 수도 있습니다. 사용자 정보 추가에 대한 자세한 내용은 [사용자 프로필 정보를 추가하거나 변경하는 방법](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)을 참조하세요.
+   - **디렉터리 역할.**  선택할 **사용자**합니다.
 
 5. 확인 **암호 표시** 에 제공 된 자동 생성 된 암호를 복사 합니다 **암호** 상자입니다. 초기 로그인 프로세스에 대 한이 암호가 필요 합니다.
 

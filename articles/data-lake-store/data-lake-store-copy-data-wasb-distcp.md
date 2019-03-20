@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9740de34fe7cf7d06af1803cc6d77d7e89bbb73f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: 5c3f393278d3d51dd3a53cd19335cd242c15c6d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391524"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168710"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Distcp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen1 간에 데이터 복사
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "44391524"
 >
 >
 
-Azure Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터가 있는 경우 Distcp와 같은 Hadoop 에코시스템 도구를 사용하여 HDInsight 클러스터 스토리지(WASB)에서 **보내고 받는** 데이터를 Data Lake Storage Gen1 계정에 복사할 수 있습니다. 이 문서에서는 Distcp 도구 사용 방법에 대한 지침을 제공합니다.
+Azure Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터가 있는 경우 Distcp와 같은 Hadoop 에코시스템 도구를 사용하여 HDInsight 클러스터 저장소(WASB)에서 **보내고 받는** 데이터를 Data Lake Storage Gen1 계정에 복사할 수 있습니다. 이 문서에서는 Distcp 도구 사용 방법에 대한 지침을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -34,12 +34,9 @@ Azure Data Lake Storage Gen1에 액세스할 수 있는 HDInsight 클러스터�
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 * Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 
-## <a name="do-you-learn-fast-with-videos"></a>비디오로 빠르게 배우시겠습니까?
-Distcp를 사용하여 Azure Storage Blob과 Data Lake Storage Gen1 간에 데이터를 복사하는 방법에 대한 [이 비디오를 보세요](https://mix.office.com/watch/1liuojvdx6sie).
-
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>HDInsight Linux 클러스터에서 Distcp 사용
 
-HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 데이터를 복사하는 데 사용할 수 있는 Distcp 유틸리티와 함께 제공됩니다. Data Lake Storage Gen1을 추가 스토리지로 사용하도록 HDInsight 클러스터를 구성한 경우 기본적으로 Distcp 유틸리티를 사용하여 Data Lake Storage Gen1 계정으로/에서 데이터를 복사할 수 있습니다. 이 섹션에서는 Distcp 유틸리티를 사용하는 방법에 대해 살펴봅니다.
+HDInsight 클러스터는 서로 다른 원본에서 HDInsight 클러스터로 데이터를 복사하는 데 사용할 수 있는 Distcp 유틸리티와 함께 제공됩니다. Data Lake Storage Gen1을 추가 저장소로 사용하도록 HDInsight 클러스터를 구성한 경우 기본적으로 Distcp 유틸리티를 사용하여 Data Lake Storage Gen1 계정으로/에서 데이터를 복사할 수 있습니다. 이 섹션에서는 Distcp 유틸리티를 사용하는 방법에 대해 살펴봅니다.
 
 1. 데스크탑에서 SSH를 사용하여 클러스터에 연결합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. SSH 프롬프트에서 명령을 실행합니다.
 
@@ -79,9 +76,9 @@ Distcp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
 다음은 사용할 수 있는 몇 가지 지침입니다.
 
-* **1단계: 전체 YARN 메모리 확인** - 첫 번째 단계는 DistCp 작업을 실행하는 클러스터에서 사용할 수 있는 YARN 메모리를 확인하는 것입니다. 이 정보는 클러스터와 연결된 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동한 후 Configs 탭에서 YARN 메모리를 확인합니다. 전체 YARN 메모리를 알려면 노드당 YARN 메모리와 클러스터에 있는 노드 수를 곱합니다.
+* **1단계: 총 YARN 메모리 결정** -DistCp 작업을 실행 하는 클러스터에 사용 가능한 YARN 메모리 결정 하는 첫 번째 단계입니다. 이 정보는 클러스터와 연결된 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동한 후 Configs 탭에서 YARN 메모리를 확인합니다. 전체 YARN 메모리를 알려면 노드당 YARN 메모리와 클러스터에 있는 노드 수를 곱합니다.
 
-* **2단계: 매퍼 수 계산** - **m** 값은 전체 YARN 메모리를 YARN 컨테이너 크기로 나눈 몫과 같습니다. YARN 컨테이너 크기 정보도 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동한 후 Configs 탭을 확인합니다. 이 창에 YARN 컨테이너 크기가 표시됩니다. 매퍼 수(**m**)를 구하는 수식은 다음과 같습니다.
+* **2단계: 매퍼 수 계산** - **m** 값은 총 YARN 메모리 양을 YARN 컨테이너 크기로 나눈 몫과 같습니다. YARN 컨테이너 크기 정보도 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동한 후 Configs 탭을 확인합니다. 이 창에 YARN 컨테이너 크기가 표시됩니다. 매퍼 수(**m**)를 구하는 수식은 다음과 같습니다.
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
@@ -101,7 +98,7 @@ Distcp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
 ### <a name="copying-large-datasets"></a>큰 데이터 세트 복사
 
-이동할 데이터 집합의 크기가 매우 크거나(예: 1TB 초과) 다른 폴더가 많이 있는 경우 여러 DistCp 작업을 사용하는 것을 고려해야 합니다. 성능이 좋아지지는 않을 수 있지만 작업이 분산되므로 한 작업이 실패해도 전체 작업이 아닌 해당 작업만 다시 시작하면 됩니다.
+이동할 데이터 세트의 크기가 매우 크거나(예: 1TB 초과) 다른 폴더가 많이 있는 경우 여러 DistCp 작업을 사용하는 것을 고려해야 합니다. 성능이 좋아지지는 않을 수 있지만 작업이 분산되므로 한 작업이 실패해도 전체 작업이 아닌 해당 작업만 다시 시작하면 됩니다.
 
 ### <a name="limitations"></a>제한 사항
 

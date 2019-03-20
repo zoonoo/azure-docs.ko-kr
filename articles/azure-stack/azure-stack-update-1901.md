@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/20/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0bbf76e16334ae4847ec6f7fbf3aa88fb508e84d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731134"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226864"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 업데이트
 
@@ -58,12 +58,12 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 
 - **1809**: [4481548 – Azure Stack 1.1809.12.114 핫픽스 (kb)](https://support.microsoft.com/help/4481548/)
 - **1811**: 현재 핫픽스 사용 가능 합니다.
-- **1901**: 현재 핫픽스 사용 가능 합니다.
+- **1901**: [4481548 – Azure Stack 1.1901.2.103 핫픽스 (kb)](https://support.microsoft.com/help/4494720)
 
 ## <a name="prerequisites"></a>필수 조건
 
 > [!IMPORTANT]
-- 설치 합니다 [최신 Azure Stack 핫픽스](#azure-stack-hotfixes) 1901를 업데이트 하기 전에 1811 (있는 경우)에 대 한 합니다.
+> - 설치 합니다 [최신 Azure Stack 핫픽스](#azure-stack-hotfixes) 1901를 업데이트 하기 전에 1811 (있는 경우)에 대 한 합니다.
 
 - 이 업데이트의 설치를 시작 하기 전에 실행할 [테스트 AzureStack](azure-stack-diagnostic-test.md) 에 Azure Stack의 상태를 확인 하 고 발견 된 작동 문제를 해결 하려면 다음 매개 변수를 사용 하 여 모든 경고 및 오류를 포함 합니다. 또한 활성 경고를 검토 하 고 작업을 필요로 하는 해결:
 
@@ -89,7 +89,7 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
    * **AzureRm.Storage**  
          AzureRm의 롤업 모듈 이제 지원 5.0.4 이미 게시 된 버전을 포함 합니다 **api 버전 2017-10-01**합니다.  
    * **AzureRm.Compute**  
-         추가 간단한 매개 변수 집합에 `New-AzureRMVM` 하 고 `NewAzureRMVMSS`, `-ImageName` 매개 변수 지정 사용자 이미지를 지원 합니다.  
+         추가 간단한 매개 변수 집합에 `New-AzureRmVM` 하 고 `New-AzureRmVmss`, `-Image` 매개 변수 지정 사용자 이미지를 지원 합니다.  
    * **AzureRm.Insights**  
          AzureRm의 롤업 모듈 이제 이미 게시 된 버전이 5.1.5 지원 합니다 **api-version 2018-01-01** 메트릭을 메트릭 정의 리소스 종류에 대 한 합니다.
 
@@ -115,7 +115,8 @@ Azure Stack 핫픽스 Azure Stack 통합 시스템에 적용할 수만 있습니
 <!-- 16523695 – IS, ASDK -->
 - 가상 네트워크에 대 한 DNS 설정을 업데이트 한 후에 문제를 해결 했습니다 **사용 하 여 Azure Stack DNS** 하 **사용자 지정 DNS**, 새 설정을 사용 하 여 인스턴스를 업데이트 하지 못했습니다.
 
-- <!-- 3235634 – IS, ASDK --> 포함 된 크기를 사용 하 여 Vm이 배포의 문제를 해결를 **v2** 접미사; 예를 들어 **Standard_A2_v2**접미사를 지정 하는 필수 **Standard_A2_v2** ( 소문자 v)입니다. 전역 Azure를 사용 하면 이제 사용할 수 있습니다 **Standard_A2_V2** (V 대문자).
+- <!-- 3235634 – IS, ASDK -->
+  포함 된 크기를 사용 하 여 Vm이 배포의 문제를 해결를 **v2** 접미사; 예를 들어 **Standard_A2_v2**접미사를 지정 하는 필수 **Standard_A2_v2** ( 소문자 v)입니다. 전역 Azure를 사용 하면 이제 사용할 수 있습니다 **Standard_A2_V2** (V 대문자).
 
 <!-- 2869209 – IS, ASDK --> 
 - 사용 하 여 문제를 해결 합니다 [추가 AzsPlatformImage cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage), 했던 사용를 **-OsUri** storage 계정과 디스크 업로드 되는 URI 매개 변수입니다. 이제 로컬 경로를 디스크도 사용할 수 있습니다.
@@ -291,9 +292,9 @@ VM 규모 한도 도달 하는 경우에 다음 오류 코드 결과적으로 �
 <!-- 3632798 - IS, ASDK -->
 - 인바운드 보안 규칙을 추가 하 고 선택 하는 경우 포털에서 **서비스 태그** 원본으로 여러 옵션에 표시 되는 **소스 태그가** Azure Stack에 대해 사용할 수 없는 목록입니다. Azure Stack에서 사용할 수 있는 유일한 옵션 아래와 같습니다.
 
-    - **인터넷**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **인터넷**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     다른 옵션으로 Azure Stack에서 소스 태그는 지원 되지 않습니다. 마찬가지로, 아웃 바운드 보안 규칙을 추가 하 고 선택 하는 경우 **서비스 태그** 옵션에 대 한 동일한 목록 대상으로 **소스 태그가** 표시 됩니다. 유효한 옵션은 동일 **소스 태그가**이전 목록에 설명 된 대로 합니다.
 

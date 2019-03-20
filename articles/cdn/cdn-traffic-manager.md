@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2018
-ms.author: kumud
+ms.date: 03/18/2019
+ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167068"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 여러 Azure CDN 엔드포인트 간 장애 조치(failover) 설정
 
@@ -77,7 +77,7 @@ CDN 및 Traffic Manager 프로필을 설정한 후 이러한 단계를 수행하
     >
 
 
-2.  Azure CDN 프로필에서 첫 번째 CDN 엔드포인트(Akamai에)를 선택합니다. **사용자 지정 도메인 추가**를 선택하고 *cdndemo101akamai.azureedge.net*를 입력합니다. 사용자 지정 도메인의 유효성을 검사하는 확인 표시가 녹색인지 확인합니다. 
+2.  Azure CDN 프로필에서 첫 번째 CDN 엔드포인트(Akamai에)를 선택합니다. 선택 **사용자 지정 도메인 추가** 입력 하 고 *cdndemo101.dustydogpetcare.online*합니다. 사용자 지정 도메인의 유효성을 검사하는 확인 표시가 녹색인지 확인합니다. 
 
     이 등록 프로세스를 완료하려면 Azure CDN은 *cdnverify* 하위 도메인을 사용하여 DNS 매핑의 유효성을 검사합니다. 자세한 내용은 [CNAME DNS 레코드 만들기](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record)를 참조하세요. 이 단계에서는 해당 요청에 응답할 수 있도록 Azure CDN이 사용자 지정 도메인을 인식할 수 있게 설정합니다.
 
@@ -87,7 +87,7 @@ CDN 및 Traffic Manager 프로필을 설정한 후 이러한 단계를 수행하
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Azure CDN 프로필에서 두 번째 CDN 엔드포인트(Verizon)를 선택하고 2단계를 반복합니다. **사용자 지정 도메인 추가**를 선택하고 *cdndemo101akamai.azureedge.net*를 입력합니다.
+4. Azure CDN 프로필에서 두 번째 CDN 엔드포인트(Verizon)를 선택하고 2단계를 반복합니다. 선택 **사용자 지정 도메인 추가**를 입력 하 고 *cdndemo101.dustydogpetcare.online*합니다.
  
 이러한 단계를 완료한 후 장애 조치(failover) 기능이 포함된 다중 CDN 서비스는 Azure Traffic Manager를 사용하여 설정됩니다. 사용자 지정 도메인에서 테스트 URL에 액세스할 수 있습니다. 기능을 테스트하려면 기본 CDN 엔드포인트를 사용하지 않도록 설정하고 요청이 두 번째 CDN 엔드포인트에 올바르게 이동되는지 확인합니다. 
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168246"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894090"
 ---
 <a name="create-a-microsoft-developer-account"></a>Microsoft 개발자 계정 만들기
 ====================================
@@ -90,7 +90,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
 
 1. 새 Chrome Incognito 또는 Internet Explorer InPrivate 브라우징 세션을 열어 개인 계정에 로그인되지 않았는지 확인합니다.
 
-2. [Windows 개발자 센터](http://dev.windows.com/registration?accountprogram=azure)로 이동하여 판매자로 등록합니다. 계속 진행하기 전에 다음 중요 정보를 읽어 보세요.
+2. [Windows 개발자 센터](https://dev.windows.com/registration?accountprogram=azure)로 이동하여 판매자로 등록합니다. 계속 진행하기 전에 다음 중요 정보를 읽어 보세요.
 
    ![Microsoft 계정 확인](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
 
@@ -157,7 +157,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
 
 **은행 정보를 제공하려면**
 
-1.  Microsoft 계정을 사용하여 [Microsoft 개발자 센터](http://dev.windows.com/registration?accountprogram=azure) 에 로그인합니다.
+1.  Microsoft 계정을 사용하여 [Microsoft 개발자 센터](https://dev.windows.com/registration?accountprogram=azure) 에 로그인합니다.
 2.  왼쪽 메뉴에서 **지급 계좌**를 선택하고 **결제 방법 선택** 아래에서 **은행 계좌** 또는 **PayPal**을 선택합니다.
 
     >[!NOTE]
@@ -173,7 +173,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
 
 **세금 정보를 제공하려면**
 
-1.  Microsoft 계정을 사용하여(필요한 경우) [Microsoft 개발자 센터](http://dev.windows.com/registration?accountprogram=azure) 에 로그인합니다.
+1.  Microsoft 계정을 사용하여(필요한 경우) [Microsoft 개발자 센터](https://dev.windows.com/registration?accountprogram=azure) 에 로그인합니다.
 2.  왼쪽 메뉴에서 **세금 프로필**을 선택합니다.
 3.  **세금 양식 설정** 페이지에서 다음을 수행합니다.
     - 영주권이 있는 국가 또는 지역을 선택합니다.

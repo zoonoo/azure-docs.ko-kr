@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226801"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58115196"
 ---
 ## <a name="multi-and-single-instance-vms"></a>다중 및 단일 인스턴스 VM
 Azure에서 실행하는 많은 고객에게는 VM이 작동 중단 시간(약 15분)으로 인해 유지 관리하는 동안 발생하는 계획된 유지 관리를 수행하는 경우 예약할 수 있는지가 중요합니다. 가용성 집합을 사용하여 프로비전된 VM이 계획된 유지 관리를 받는 시기를 제어할 수 있습니다.

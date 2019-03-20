@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 22a522fcde2b79d89e6084cdcfcbf64e4e5bd5ce
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 77b575de3a84d582c11fb31952120e1079e23ffb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977969"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091106"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 Virtual Machines에 대한 WinRM 액세스 설정
 
@@ -84,8 +84,6 @@ Microsoft.Compute 리소스 공급자는 VM을 프로비전하는 동안 주요 
 
 > [!NOTE]
 > 암호의 URL에는 버전도 포함되어야 합니다. 예를 들어 URL은 다음 https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve과 같습니다.
-> 
-> 
 
 #### <a name="templates"></a>템플릿
 아래 코드를 사용하여 템플릿의 URL에 대한 링크를 가져올 수 있습니다.

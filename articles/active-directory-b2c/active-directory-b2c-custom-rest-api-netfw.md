@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: bc2e41fd5da4737ea1efe329b70964535daff54a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157944"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105967"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합
 
@@ -249,10 +249,10 @@ Web API에서 _컨트롤러_는 HTTP 요청을 처리하는 개체입니다. 컨
 다음 XML 코드 조각에는 두 가지 기술 프로필을 포함하는 클레임 공급자 노드가 포함됩니다.
 
 * **TechnicalProfile Id="REST-API-SignUp"**: RESTful 서비스를 정의합니다.
-   * `Proprietary`은 RESTful 기반 공급자의 프로토콜로 설명되어 있습니다.
-   * `InputClaims`는 Azure AD B2C에서 REST 서비스로 전송할 클레임을 정의합니다.
+  * `Proprietary`은 RESTful 기반 공급자의 프로토콜로 설명되어 있습니다.
+  * `InputClaims`는 Azure AD B2C에서 REST 서비스로 전송할 클레임을 정의합니다.
 
-   이 예제에서 `givenName` 클레임의 콘텐츠는 `firstName`으로 REST 서비스에 보내고, `surname` 클레임의 콘텐츠 `lastName`으로 REST 서비스에 보내고, `email`은 그대로 보냅니다. `OutputClaims` 요소는 RESTful 서비스에서 Azure AD B2C로 다시 검색하는 클레임을 정의합니다.
+    이 예제에서 `givenName` 클레임의 콘텐츠는 `firstName`으로 REST 서비스에 보내고, `surname` 클레임의 콘텐츠 `lastName`으로 REST 서비스에 보내고, `email`은 그대로 보냅니다. `OutputClaims` 요소는 RESTful 서비스에서 Azure AD B2C로 다시 검색하는 클레임을 정의합니다.
 
 * **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: 기존 기술 프로필에 유효성 검사 기술 프로필을 추가합니다(기본 정책에 정의됨). 경험을 등록하는 동안 유효성 검사 기술 프로필은 이전 기술 프로필을 호출합니다. RESTful 서비스가 HTTP 오류 409(충돌 오류)를 반환하는 경우 사용자에게 오류 메시지가 표시됩니다.
 

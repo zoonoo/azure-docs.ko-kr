@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: dcee7df0b5da53bd7014a26f1f09695fe874833d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 8fa873ca1ab20fbd8b3ca4ff57507adf34529246
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849663"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903660"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
 
@@ -49,7 +49,7 @@ ms.locfileid: "54849663"
 
 ## <a name="create-the-data-file"></a>데이터 파일 만들기
 
-Notebook에 만드는 선형 회귀 모델은 *cricket_chirps.csv*라는 프로젝트의 파일에서 데이터를 가져옵니다. 이 파일은 [GitHub - Azure Notebooks 샘플]에서 복사하여(https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), 또는 데이터를 직접 입력하여 만들 수 있습니다. 다음 섹션에서는 두 방법을 설명합니다.
+Notebook에 만드는 선형 회귀 모델은 *cricket_chirps.csv*라는 프로젝트의 파일에서 데이터를 가져옵니다. 이 파일에서 복사 하 여 만들 수 있습니다 [GitHub-Azure Notebooks 샘플](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), 또는 데이터를 직접 입력 하 여 합니다. 다음 섹션에서는 두 방법을 설명합니다.
 
 ### <a name="upload-the-data-file"></a>데이터 파일 업로드
 
@@ -181,7 +181,7 @@ Jupyter는 주 UI 요소를 둘러보는 기능을 기본적으로 제공합니�
     ```markdown
     # Example Linear Regression
 
-    This notebook contains a walkthrough of a simple linear regression. The data, obtained from [college.cengage.com](http://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html), relates the rate of cricket chirps to temperature from *The Song of Insects*, by Dr. G. W. Pierce, Harvard College Press.
+    This notebook contains a walkthrough of a simple linear regression. The data, obtained from [college.cengage.com](https://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/slr/frames/frame.html), relates the rate of cricket chirps to temperature from *The Song of Insects*, by Dr. G. W. Pierce, Harvard College Press.
 
     In this example we're using the count of chirps per minute as the independent varible to then predict the dependent variable, temperature. In short, we're using a little data science to make ourselves a cricket thermometer. (You could also reverse the data and use temperature to predict the number of chirps, but it's more fun to use crickets as the thermometer itself!)
 

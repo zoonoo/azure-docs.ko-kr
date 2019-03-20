@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3064b3eb5f29e2b2d1ff8516dce97bbb3fb8062
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 09ff573683ef681a053f2bcd37325d48b3823371
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166269"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100822"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>AD FS 2.0과 작동하도록 Azure Multi-Factor Authentication 서버 구성
 
@@ -32,7 +32,9 @@ ms.locfileid: "56166269"
 2. **양식 기반** 탭을 클릭합니다.
 3. **추가**를 클릭합니다.
 
-   <center>![설정](./media/howto-mfaserver-adfs-2/setup1.png)</center>
+   <center>
+   
+   ![설정](./media/howto-mfaserver-adfs-2/setup1.png)</center>
 
 4. 사용자 이름, 암호 및 도메인 변수를 자동으로 검색하려면 양식 기반 웹 사이트 자동 구성 대화 상자 내에서 로그인 URL(예: https://sso.contoso.com/adfs/ls)을 입력하고 **확인**을 클릭합니다.
 5. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
@@ -41,7 +43,9 @@ ms.locfileid: "56166269"
 8. 요청 형식을 **POST 또는 GET**으로 설정합니다.
 9. Username 변수(ctl00$ContentPlaceHolder1$UsernameTextBox) 및 Password 변수(ctl00$ContentPlaceHolder1$PasswordTextBox)를 입력합니다. 양식 기반 로그인 페이지에 도메인 텍스트 상자가 표시되면 Domain 변수도 입력합니다. 로그인 페이지에서 입력 상자의 이름을 찾으려면 웹 브라우저에서 로그인 페이지로 이동하고 해당 페이지를 마우스 오른쪽 단추로 클릭하여 **소스 보기**를 선택합니다.
 10. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
-    <center>![설정](./media/howto-mfaserver-adfs-2/manual.png)</center>
+    <center>
+    
+    ![설정](./media/howto-mfaserver-adfs-2/manual.png)</center>
 11. **고급...** 을 클릭하여 고급 설정을 확인합니다. 구성할 수 있는 설정은 다음과 같습니다.
 
     - 사용자 지정 거부 페이지 파일 선택
@@ -63,13 +67,17 @@ IIS 인증을 활성화했지만 LDAP를 통해 AD(Active Directory)에 대한 �
 1. **디렉터리 통합** 아이콘을 클릭합니다.
 2. 설정 탭에서 **특정 LDAP 구성 사용** 라디오 단추를 선택합니다.
 
-   <center>![설정](./media/howto-mfaserver-adfs-2/ldap1.png)</center>
+   <center>
+    
+   ![설정](./media/howto-mfaserver-adfs-2/ldap1.png)</center>
 
 3. **편집**을 클릭합니다.
 4. LDAP 구성 편집 대화 상자에서 AD 도메인 컨트롤러에 연결하는 데 필요한 정보를 필드에 입력합니다. 필드의 설명은 Azure Multi-Factor Authentication 서버 도움말 파일에도 포함되어 있습니다.
 5. **테스트** 단추를 클릭하여 LDAP 연결을 테스트합니다.
 
-   <center>![설정](./media/howto-mfaserver-adfs-2/ldap2.png)</center>
+   <center>
+    
+   ![설정](./media/howto-mfaserver-adfs-2/ldap2.png)</center>
 
 6. LDAP 연결 테스트가 성공한 경우 **확인**을 클릭합니다.
 
@@ -81,7 +89,9 @@ IIS 인증을 활성화했지만 LDAP를 통해 AD(Active Directory)에 대한 �
 
 Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인할 때 2단계 확인이 필요하지 않도록 내부 IP 주소를 허용 목록에 추가하려면 [신뢰할 수 있는 IP 섹션](#trusted-ips)을 참조하세요.
 
-<center>![설정](./media/howto-mfaserver-adfs-2/reg.png)</center>
+<center>
+
+![설정](./media/howto-mfaserver-adfs-2/reg.png)</center>
 
 ## <a name="ad-fs-20-direct-without-a-proxy"></a>프록시 없이 AD FS 2.0 직접
 AD FS 프록시를 사용하지 않는 경우 AD FS의 보안을 유지할 수 있습니다. AD FS 서버에 Azure Multi-Factor Authentication 서버를 설치하고 다음 단계에 따라 서버를 구성합니다.
@@ -94,7 +104,9 @@ AD FS 프록시를 사용하지 않는 경우 AD FS의 보안을 유지할 수 �
 6. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 7. 원하는 경우 쿠키 캐시 상자를 선택합니다.
 
-   <center>![설정](./media/howto-mfaserver-adfs-2/noproxy.png)</center>
+   <center>
+   
+   ![설정](./media/howto-mfaserver-adfs-2/noproxy.png)</center>
 
 8. **확인**을 클릭합니다.
 9. **네이티브 모듈** 탭을 클릭하고 서버, 웹 사이트(예: "기본 웹 사이트") 또는 AD FS 애플리케이션(예: "adfs"의 "ls")을 선택하여 원하는 수준에서 IIS 플러그 인을 사용하도록 설정합니다.
@@ -113,4 +125,6 @@ Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. �
 3. 신뢰할 수 있는 IP 추가 대화 상자가 나타나면 **단일 IP**, **IP 범위** 또는 **서브넷** 라디오 단추를 선택합니다.
 4. IP 주소, IP 주소 범위 또는 허용 목록에 추가할 서브넷을 입력합니다. 서브넷을 입력하는 경우 해당 네트워크 마스크를 선택하고 **확인** 단추를 클릭합니다. 이제 신뢰할 수 있는 IP가 추가되었습니다.
 
-<center>![설정](./media/howto-mfaserver-adfs-2/trusted.png)</center>
+<center>
+
+![설정](./media/howto-mfaserver-adfs-2/trusted.png)</center>

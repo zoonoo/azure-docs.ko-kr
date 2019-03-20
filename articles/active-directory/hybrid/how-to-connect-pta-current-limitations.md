@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de42312c580b6bd5b4a5148fd877d55aa00e8804
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204596"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011980"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
 
@@ -34,7 +34,7 @@ ms.locfileid: "56204596"
 
 - 사용자가 웹 브라우저 기반 애플리케이션에 로그인합니다.
 - 사용자가 로그인 Exchange ActiveSync, EAS, SMTP, POP 및 IMAP 등의 레거시 프로토콜을 사용하여 Outlook 클라이언트에 로그인합니다.
-- 사용자가 [최신 인증](https://aka.ms/modernauthga): Office 2010, 2013 및 2016 버전을 지원하는 레거시 Office 클라이언트 애플리케이션 및 Office 애플리케이션에 로그인합니다.
+- 사용자가 [최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): Office 2013 및 2016 버전입니다.
 - 사용자가 PowerShell 버전 1.0 등과 같은 레거시 프로토콜 애플리케이션에 로그인합니다.
 - Azure AD가 Windows 10 디바이스에 조인합니다.
 - Multi-Factor Authentication에 사용할 앱 암호.
@@ -47,11 +47,11 @@ ms.locfileid: "56204596"
 - Azure AD Domain Services를 사용하려면 테넌트에서 암호 해시 동기화를 사용하도록 설정해야 합니다. 따라서 통과 인증_만_ 사용하는 테넌트는 Azure AD Domain Services가 필요한 시나리오에서 사용할 수 없습니다.
 - 통과 인증은 [Azure AD Connect Health](whatis-hybrid-identity-health.md)와 통합되지 않습니다.
 
->[!IMPORTANT]
->(Azure AD Connect Health 통합을 제외한) 지원되지 않는 시나리오에_만_ 해당하는 해결 방법으로, Azure AD Connect 마법사의 [선택적 기능](how-to-connect-install-custom.md#optional-features) 페이지에서 암호 해시 동기화를 사용하도록 설정합니다.
-
->[!NOTE]
-암호 해시 동기화를 사용하면 온-프레미스 인프라가 손상된 경우 인증을 장애 조치(Failover)할 수 있는 옵션이 제공됩니다. 통과 인증에서 암호 해시 동기화로 장애 조치(failover)는 자동으로 수행되지 않습니다. Azure AD Connect를 사용하여 수동으로 로그인 방법을 전환해야 합니다. Azure AD Connect를 실행하는 서버가 다운되면 Microsoft 지원 서비스의 도움을 받아 통과 인증을 해제해야 합니다.
+> [!IMPORTANT]
+> (Azure AD Connect Health 통합을 제외한) 지원되지 않는 시나리오에_만_ 해당하는 해결 방법으로, Azure AD Connect 마법사의 [선택적 기능](how-to-connect-install-custom.md#optional-features) 페이지에서 암호 해시 동기화를 사용하도록 설정합니다.
+> 
+> [!NOTE]
+> 암호 해시 동기화를 사용하면 온-프레미스 인프라가 손상된 경우 인증을 장애 조치(Failover)할 수 있는 옵션이 제공됩니다. 통과 인증에서 암호 해시 동기화로 장애 조치(failover)는 자동으로 수행되지 않습니다. Azure AD Connect를 사용하여 수동으로 로그인 방법을 전환해야 합니다. Azure AD Connect를 실행하는 서버가 다운되면 Microsoft 지원 서비스의 도움을 받아 통과 인증을 해제해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [빠른 시작](how-to-connect-pta-quick-start.md): Azure AD 통과 인증을 준비하고 실행합니다.

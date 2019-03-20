@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
-ms.openlocfilehash: 1494ccea1580d7415c6c86f14682ca59ad7124d5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459903"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120366"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>가져오기/내보내기 작업에 대한 지원 티켓 열기
 
@@ -57,14 +57,14 @@ ms.locfileid: "55459903"
 
 4. **새 지원 요청**에서 **3단계 연락처 정보**를 클릭합니다. **연락처 정보**에서 다음 단계를 수행합니다.
 
-    1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
-    2. 연락처 정보에 이름, 전자 메일, 선택적 연락처, 국가를 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
-    3. **만들기**를 클릭합니다.
+   1. **연락처 옵션**에서 기본 연락 방법(전화 또는 전자 메일) 및 언어를 지정합니다. 응답 시간은 구독 계획에 따라 자동으로 선택됩니다.
+   2. 연락처 정보에 이름, 전자 메일, 선택적 연락처, 국가를 지정합니다. **향후 지원 요청에 대한 연락처 변경 내용 저장** 확인란을 선택합니다.
+   3. **만들기**를 클릭합니다.
    
-        ![연락처 정보](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+       ![연락처 정보](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
-    Microsoft 기술 지원 서비스는 이 정보를 사용하여 사용자에게 추가 정보, 진단 및 솔루션을 알립니다.
-요청을 제출한 후에 지원 엔지니어가 요청을 계속 진행하기 위해 가능한 한 빨리 연락할 것입니다.
+      Microsoft 기술 지원 서비스는 이 정보를 사용하여 사용자에게 추가 정보, 진단 및 솔루션을 알립니다.
+      요청을 제출한 후에 지원 엔지니어가 요청을 계속 진행하기 위해 가능한 한 빨리 연락할 것입니다.
 
 ## <a name="manage-a-support-request"></a>지원 요청 관리
 

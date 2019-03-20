@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 053d400a9986d0997344b2be09140d8afb0e1faf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975664"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996374"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보
 
@@ -29,7 +29,7 @@ ms.locfileid: "53975664"
 
 * 해당 종속성 주변의 앱을 모델링합니다.
 * RTO를 줄이기 위해 복구 작업을 자동화합니다.
-- 앱이 복구 계획의 일부인지 확인하여 마이그레이션 또는 재해 복구를 위해 준비되었는지 확인합니다.
+* 앱이 복구 계획의 일부인지 확인하여 마이그레이션 또는 재해 복구를 위해 준비되었는지 확인합니다.
 * 복구 계획에서 테스트 장애 조치(failover)를 실행하여 재해 복구 또는 마이그레이션이 예상대로 작동하는지 확인합니다.
 
 
@@ -42,10 +42,10 @@ ms.locfileid: "53975664"
     - 이 순서를 사용하면 미들웨어가 시작되고 SQL Server 계층에 연결하려고 시도할 때, SQL Server 계층이 이미 실행 중입니다. 
     - 이 순서는 또한 모든 구성 요소가 시작되어 실행되고 앱이 요청을 수락할 준비가 되기 전에 최종 사용자가 앱 URL에 연결되지 않도록 프런트 엔드 서버가 마지막에 시작되도록 할 수도 있습니다.
 
-이 순서를 만들려면 복구 그룹에 그룹을 추가하고, 그룹에 컴퓨터를 추가합니다. 
-    - 순서가 지정되면 시퀀싱이 사용됩니다. 작업은 애플리케이션 복구 RTO를 향상시키도록 적절한 곳에서 병렬로 실행됩니다.
-    - 단일 그룹의 컴퓨터는 병렬로 장애 조치(failover)됩니다.
-    - 서로 다른 그룹의 컴퓨터는 그룹 1의 모든 컴퓨터가 장애 조치(failover)되고 시작된 후에만 그룹 2 컴퓨터가 해당 장애 조치(failover)를 시작하도록 그룹 순서로 장애 조치(failover)됩니다.
+이 순서를 만들려면 복구 그룹에 그룹을 추가하고, 그룹에 컴퓨터를 추가합니다.
+- 순서가 지정되면 시퀀싱이 사용됩니다. 작업은 애플리케이션 복구 RTO를 향상시키도록 적절한 곳에서 병렬로 실행됩니다.
+- 단일 그룹의 컴퓨터는 병렬로 장애 조치(failover)됩니다.
+- 서로 다른 그룹의 컴퓨터는 그룹 1의 모든 컴퓨터가 장애 조치(failover)되고 시작된 후에만 그룹 2 컴퓨터가 해당 장애 조치(failover)를 시작하도록 그룹 순서로 장애 조치(failover)됩니다.
 
     ![예제 복구 계획](./media/recovery-plan-overview/rp.png)
 
@@ -93,4 +93,4 @@ ms.locfileid: "53975664"
 ## <a name="next-steps"></a>다음 단계
 
 - 복구 계획을 [만듭니다](site-recovery-create-recovery-plans.md).
-* [장애 조치(failover) 실행](site-recovery-failover.md)에 대해 알아봅니다.  
+- [장애 조치(failover) 실행](site-recovery-failover.md)에 대해 알아봅니다.  

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bcb538cf2e546e4913ccb223e143c2343e114de7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247428"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896197"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>자습서: Azure를 사용 하 여 클라우드 간 크기 조정 솔루션 만들기
 
@@ -128,7 +128,7 @@ Azure Repos
 
 1. 빌드 정의 만들 수 있는 기능을 확인 하려면 Azure 파이프라인에 로그인 합니다.
 
-2. 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하는 데 필요한입니다.
+2. 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하는 데 필요한 경우
 
     ![대체 텍스트](media/azure-stack-solution-cloud-burst/image4.png)
 
@@ -266,7 +266,7 @@ Azure 파이프라인 및 Azure DevOps 서버 제공 항상 구성 및 관리 �
 
 사용 하 여 [웹과 같은 Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/) 두 클라우드 모두에 배포 하려면 Azure 저장소에서 앱 코드입니다.
 
-### <a name="add-code-to-a-azure-repos-project"></a>Azure 리포지토리 프로젝트에 코드 추가
+### <a name="add-code-to-an-azure-repos-project"></a>Azure 리포지토리 프로젝트에 코드 추가
 
 1.  Azure 저장소에 Azure Stack에 대 한 프로젝트 만들기 권한이 있는 계정으로 로그인 합니다. 다음 화면 캡처 HybridCICD 프로젝트에 연결 하는 방법을 보여 줍니다.
 
@@ -286,7 +286,7 @@ Azure 파이프라인 및 Azure DevOps 서버 제공 항상 구성 및 관리 �
 
 2.  로 이동 합니다 **웹 응용 프로그램 빌드** 프로젝트에 대 한 페이지입니다.
 
-3.  **인수**에 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하려면 반드시 확인 해야 합니다.
+3.  **인수**에 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하려면이 필요 합니다.
 
 4.  빌드를 실행 합니다. 합니다 [자체 포함된 배포 빌드](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 프로세스는 Azure 및 Azure Stack에서 실행 될 수 있는 아티팩트를 게시 합니다.
 

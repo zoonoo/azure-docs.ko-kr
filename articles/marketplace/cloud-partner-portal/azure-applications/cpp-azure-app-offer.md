@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 82d072cc6f86ae758bd0fdd4d02b68b1ac1de53a
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 9faa38a23b2039902366e5b885ab73c68a2a3d80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076023"
 ---
 # <a name="azure-application-offer"></a>Azure 애플리케이션 제품
 
@@ -44,6 +44,9 @@ Azure 애플리케이션에는 관리형 애플리케이션과 솔루션 템플�
 
 Azure Marketplace 외에, 서비스 카탈로그에 관리형 애플리케이션을 제공할 수 있습니다. 서비스 카탈로그는 조직 내 사용자에 대해 승인된 솔루션의 내부 카탈로그입니다. 조직에 그룹을 위한 솔루션을 제공하면서, 카탈로그를 사용하여 조직의 표준을 준수합니다. 직원은 카탈로그를 사용하여 IT 부서에서 권장하고 승인한 애플리케이션을 손쉽게 찾습니다.
 
+>[!Note]
+>클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인를 출시 되었습니다.  참조 하세요 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다.
+
 관리되는 애플리케이션의 장점 및 유형에 대한 자세한 내용은 [Azure Managed Applications 개요](https://docs.microsoft.com/azure/managed-applications/overview)를 참조하세요.
 
 
@@ -55,16 +58,15 @@ Azure Marketplace 외에, 서비스 카탈로그에 관리형 애플리케이션
 
 Azure 애플리케이션 제품을 게시하기 위한 대략적인 단계는 다음과 같습니다.
 
-0. [필수 구성 요소](./cpp-prerequisites.md) 충족 - (표시되지 않음) Azure 앱을 Azure Marketplace에 게시하기 위한 비즈니스 및 기술 요구 사항이 충족되었는지 확인합니다. 
+1. [필수 구성 요소](./cpp-prerequisites.md) 충족 - (표시되지 않음) Azure 앱을 Azure Marketplace에 게시하기 위한 비즈니스 및 기술 요구 사항이 충족되었는지 확인합니다. 
 
 1. [제안 만들기](./cpp-create-offer.md) - 제안에 대한 자세한 정보를 제공합니다. 이 정보는 제안 설명, 마케팅 자료, 지원 정보 및 자산 사양을 포함합니다.
 
-2. [기존 비즈니스 및 기술 자산 만들기 또는 수집](./cpp-create-technical-assets.md) - 관련 솔루션에 대한 비즈니스 자산(법률 문서 및 마케팅 자료) 및 기술 자산을 만듭니다.
+1. [기존 비즈니스 및 기술 자산 만들기 또는 수집](./cpp-create-technical-assets.md) - 관련 솔루션에 대한 비즈니스 자산(법률 문서 및 마케팅 자료) 및 기술 자산을 만듭니다.
 
-3. [SKU 만들기](./cpp-skus-tab.md) - 제안과 관련된 SKU를 만듭니다. 게시하려는 각 이미지마다 고유한 SKU가 필요합니다.
+1. [SKU 만들기](./cpp-skus-tab.md) - 제안과 관련된 SKU를 만듭니다. 게시하려는 각 이미지마다 고유한 SKU가 필요합니다.
 
-4. [제안 인증 및 게시](./cpp-publish-offer.md) - 제안 및 기술 자산이 완성되면 해당 제안을 제출할 수 있습니다. 이 제출은 게시 프로세스를 시작합니다. 이 프로세스 중 솔루션을 테스트하고, 유효성을 검사한 다음, Azure Marketplace에서 "라이브 상태가 됩니다".
-
+1. [제안 인증 및 게시](./cpp-publish-offer.md) - 제안 및 기술 자산이 완성되면 해당 제안을 제출할 수 있습니다. 이 제출은 게시 프로세스를 시작합니다. 이 프로세스 중 솔루션을 테스트하고, 유효성을 검사한 다음, Azure Marketplace에서 "라이브 상태가 됩니다".
 
 ## <a name="next-steps"></a>다음 단계
 

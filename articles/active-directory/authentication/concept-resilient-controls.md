@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: b006a4fbb8d1059f5096f5c1585853953b69042f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339552"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082146"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -94,18 +94,18 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 중단 동안의 노출을 이해하는 것은 위험을 줄이는 데 도움이 되며 계획 프로세스에서 중요한 부분입니다. 대응 계획을 만들기 위해 먼저 결정해야 하는 조직의 다음 비즈니스 요구 사항은 다음과 같습니다.
 
 1. 중요 업무용 애플리케이션을 미리 파악합니다. 즉, 낮은 위험/보안 상태에서도 액세스 권한을 부여해야 하는 애플리케이션을 파악합니다. 이러한 애플리케이션의 목록을 작성하고, 액세스 제어가 모두 사라지더라도 이러한 애플리케이션이 계속 실행되어야 한다는 것에 대해 다른 모든 이해 관계자(비즈니스, 보안, 법률, 리더십)가 동의해야 합니다. 결과적으로 다음과 같은 범주로 분류될 수 있습니다.
-  * **범주 1 중요 업무용 애플리케이션** - 몇 분 이상 사용할 수 없습니다(예: 조직의 매출에 직접 영향을 미치는 앱).
-  * **범주 2 중요한 애플리케이션** - 몇 시간 내에 비즈니스에 액세스할 수 있어야 합니다.
-  * **범주 3 우선 순위가 낮은 애플리케이션** - 며칠간의 중단에 견딜 수 있습니다.
+   * **범주 1 중요 업무용 애플리케이션** - 몇 분 이상 사용할 수 없습니다(예: 조직의 매출에 직접 영향을 미치는 앱).
+   * **범주 2 중요한 애플리케이션** - 몇 시간 내에 비즈니스에 액세스할 수 있어야 합니다.
+   * **범주 3 우선 순위가 낮은 애플리케이션** - 며칠간의 중단에 견딜 수 있습니다.
 2. 범주 1과 2의 애플리케이션에 대해 다음과 같이 허용하려는 액세스 수준 유형을 미리 계획하는 것이 좋습니다.
-  * 다운로드 제한과 같이 전체 액세스 또는 제한된 세션을 허용하겠습니까?
-  * 전체 애플리케이션이 아닌 일부 애플리케이션에만 액세스를 허용하겠습니까?
-  * 정보 근로자 액세스를 허용하고 액세스 제어가 복원될 때까지 관리자 액세스를 차단하겠습니까?
+   * 다운로드 제한과 같이 전체 액세스 또는 제한된 세션을 허용하겠습니까?
+   * 전체 애플리케이션이 아닌 일부 애플리케이션에만 액세스를 허용하겠습니까?
+   * 정보 근로자 액세스를 허용하고 액세스 제어가 복원될 때까지 관리자 액세스를 차단하겠습니까?
 3. 이러한 애플리케이션의 경우 다음과 같이 사용자가 의도적으로 열거나 닫을 수 있는 액세스 방법을 계획하는 것이 좋습니다.
-  * 브라우저 전용 액세스를 허용하고 오프라인 데이터를 저장할 수 있는 리치 클라이언트를 차단하겠습니까?
-  * 회사 네트워크 내의 사용자에게만 액세스를 허용하고 외부 사용자는 차단하겠습니까?
-  * 중단 동안에만 특정 국가 또는 지역의 액세스를 허용하겠습니까?
-  * 대체 액세스 제어를 사용할 수 없는 경우 대응 정책, 특히 중요 업무용 애플리케이션에 대한 대응 정책이 실패하거나 성공하도록 하겠습니까?
+   * 브라우저 전용 액세스를 허용하고 오프라인 데이터를 저장할 수 있는 리치 클라이언트를 차단하겠습니까?
+   * 회사 네트워크 내의 사용자에게만 액세스를 허용하고 외부 사용자는 차단하겠습니까?
+   * 중단 동안에만 특정 국가 또는 지역의 액세스를 허용하겠습니까?
+   * 대체 액세스 제어를 사용할 수 없는 경우 대응 정책, 특히 중요 업무용 애플리케이션에 대한 대응 정책이 실패하거나 성공하도록 하겠습니까?
 
 #### <a name="microsoft-recommendations"></a>Microsoft 추천 사항
 
@@ -251,7 +251,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 조직에서 사용자별 MFA 레거시 정책을 사용하는 경우 고려할 수 있는 대안은 다음과 같습니다.
 
 1. 회사 네트워크 아웃바운드 IP 주소가 있으면 회사 네트워크에만 인증할 수 있도록 이를 신뢰할 수 있는 IP로 추가합니다.
- 2. 아웃바운드 IP 주소의 인벤토리가 없거나 회사 네트워크 내부 및 외부에서 액세스할 수 있어야 하는 경우 0.0.0.0/1 및 128.0.0.0/1을 지정하여 전체 IPv4 주소 공간을 신뢰할 수 있는 IP로 추가할 수 있습니다.
+   1. 아웃바운드 IP 주소의 인벤토리가 없거나 회사 네트워크 내부 및 외부에서 액세스할 수 있어야 하는 경우 0.0.0.0/1 및 128.0.0.0/1을 지정하여 전체 IPv4 주소 공간을 신뢰할 수 있는 IP로 추가할 수 있습니다.
 
 >[!IMPORTANT]
  > 신뢰할 수 있는 IP 주소를 확장하여 액세스 차단을 해제하면 IP 주소와 관련된 위험 이벤트(예: 불가능한 이동 또는 알 수 없는 위치)가 생성되지 않습니다.
@@ -264,9 +264,9 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 * [Azure AD 인증 설명서](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Azure AD에서 응급 액세스 관리 계정 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Azure Active Directory의 명명된 위치 구성](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
- * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [하이브리드 Azure Active Directory 조인 디바이스를 구성하는 방법](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [비즈니스용 Windows Hello 배포 가이드](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
- * [암호 지침 - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+  * [암호 지침 - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Azure Active Directory 조건부 액세스의 조건이란?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Azure Active Directory 조건부 액세스의 액세스 제어란?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

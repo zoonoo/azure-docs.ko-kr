@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 099c7a456e67eae981b2e68e73e2bed7557c7372
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 3c6b5094613ee482b0fd3f63e3d9d69dfe4d40f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632402"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094857"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Azure Time Series 미리 보기 프로비전 및 관리
 
@@ -67,7 +67,7 @@ Azure Time Series Insights 미리 보기 환경을 프로비전할 때는 두 �
      > [!TIP]
      > 메시지를 큐에 넣은 시간은 일괄 처리 이벤트 또는 기록 데이터 업로드 시나리오에서 사용하기에 가장 적합한 구성 설정이 아닐 수 있습니다. 이러한 경우 타임스탬프 속성을 사용하거나 사용하지 않는 결정을 확인합니다.
 
-    ![이벤트 원본 탭][2]
+     ![이벤트 원본 탭][2]
 
 1. 사용자 환경이 원하는 설정으로 프로비전되었는지 확인합니다.
 

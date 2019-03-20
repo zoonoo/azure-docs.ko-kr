@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: c936d7946398183f0b0aac025503bb172bc147af
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098494"
 ---
 # <a name="monitor-and-tune"></a>모니터링 및 튜닝
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for PostgreSQL은 서버 동작에 대한 인사이트를 제공하기 위해 다양한 모니터링 옵션을 제공합니다.
@@ -23,7 +23,7 @@ Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 
 Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습니다.
 
 |메트릭|메트릭 표시 이름|단위|설명|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU 백분율|백분율|사용 중인 CPU의 비율|
 |memory_percent|메모리 백분율|백분율|사용 중인 메모리의 비율|
 |io_consumption_percent|IO 백분율|백분율|사용 중인 IO의 비율|
@@ -33,14 +33,14 @@ Azure Database for PostgreSQL에서는 다음 메트릭을 사용할 수 있습�
 |serverlog_storage_percent|서버 로그 저장소 비율|백분율|서버의 최대 서버 로그 저장소에서 사용된 서버 로그 저장소의 백분율입니다.|
 |serverlog_storage_percent|사용된 서버 로그 저장소|바이트|서버 로그 저장소에서 사용된 크기입니다.|
 |serverlog_storage_limit|서버 로그 저장소 제한|바이트|이 서버에 대한 서버 로그 저장소의 최대 크기입니다.|
-|active_connections|활성 연결 수|개수|서버에 대한 활성 연결 수|
-|connections_failed|실패한 연결|개수|서버에 대해 실패한 연결 수|
+|active_connections|활성 연결 수|카운트|서버에 대한 활성 연결 수|
+|connections_failed|실패한 연결|카운트|서버에 대해 실패한 연결 수|
 |network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|
 |network_bytes_ingress|네트워크 인|바이트|활성 연결을 통한 네트워크 입력의 크기입니다.|
 |backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양.|
 
 ## <a name="server-logs"></a>서버 로그
-서버에서 로그를 사용하도록 설정할 수 있습니다. 또한 이러한 로그는 [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Event Hubs 및 저장소 계정에서 Azure 진단 로그를 통해 사용할 수 있습니다. 로깅에 대한 자세한 내용은 [서버 로그](concepts-server-logs.md) 페이지를 참조하세요.
+서버에서 로그를 사용하도록 설정할 수 있습니다. 이러한 로그를 Azure에서 진단 로그를 통해 사용할 수도 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md), Event Hubs 및 저장소 계정입니다. 로깅에 대한 자세한 내용은 [서버 로그](concepts-server-logs.md) 페이지를 참조하세요.
 
 ## <a name="query-store"></a>쿼리 저장소
 [쿼리 저장소](concepts-query-store.md)는 쿼리 런타임 통계 및 대기 이벤트를 포함하여 시간 경과에 따라 쿼리 성능을 추적하는 공개 미리 보기 기능입니다. 이 기능은 query_store 스키마 아래의 **azure_sys**라는 시스템 데이터베이스에서 쿼리 런타임 성능 정보를 유지합니다. 데이터 수집 및 저장은 다양한 구성 노브를 통해 제어할 수 있습니다.

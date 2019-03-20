@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091767"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108800"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -43,18 +43,18 @@ ms.locfileid: "53091767"
 
 1. 경고를 구성하려면 **Azure Monitor**로 이동하여 **경고**를 클릭합니다.
 
-  ![경고](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![경고](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. **+대상 선택**을 클릭하고 ExpressRoute 게이트웨이 연결 리소스를 선택합니다.
 
-  ![대상]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![대상]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. 경고 세부 정보를 정의합니다.
 
-  ![작업 그룹](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
+   ![작업 그룹](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
 4. 작업 그룹을 정의하고 추가합니다.
 
-  ![작업 그룹 추가](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![작업 그룹 추가](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## <a name="alerts-based-on-each-peering"></a>각 피어링을 기반으로 한 경고
 

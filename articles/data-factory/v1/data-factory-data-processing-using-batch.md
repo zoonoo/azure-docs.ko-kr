@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124153"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -26,9 +26,12 @@ ms.locfileid: "55822751"
 
 이 문서에서는 예약된 자동 방식으로 대규모 데이터 세트를 이동 및 처리하는 샘플 솔루션의 아키텍처에 대해 설명합니다. 또한 Data Factory 및 Azure Batch를 사용하여 솔루션을 구현하는 종합적인 연습 과정을 제공합니다.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 이 문서는 전체 샘플 솔루션의 연습을 포함하기 때문에 일반적인 문서보다 깁니다. Batch 및 Data Factory를 처음 사용하는 경우 이러한 서비스 및 작동 방식에 대해 알아볼 수 있습니다. 서비스에 대해 알고 있고 솔루션을 디자인/구성하는 경우 문서의 아키텍처 섹션에 집중하면 됩니다. 프로토타입 또는 솔루션을 개발하는 경우 연습에서 단계별 지침을 사용해 보는 것이 좋습니다. 이 콘텐츠 및 사용 방법에 대한 사용자의 의견을 환영합니다.
 
 첫째, Data Factory 및 Batch 서비스가 클라우드에서 대용량 데이터 세트를 처리할 수 있는 방법을 살펴보겠습니다.     
+
 
 ## <a name="why-azure-batch"></a>Azure Batch를 사용해야 하는 이유
  클라우드에서 Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 애플리케이션을 효율적으로 실행할 수 있습니다. Batch는 계산 집약적 작업이 관리되는 VM(가상 머신) 컬렉션에서 실행되도록 예약하는 플랫폼 서비스입니다. 작업의 요구 사항을 충족하기 위해 계산 리소스의 크기를 조정할 수 있습니다.
@@ -40,7 +43,7 @@ Batch 서비스를 통해 애플리케이션을 병렬로 규모에 따라 실�
 * [Batch의 기본 사항](../../batch/batch-technical-overview.md)
 * [Batch 기능 개요](../../batch/batch-api-basics.md)
 
-필요에 따라 Batch에 대해 자세히 알아보려면 [Batch 설명서](https://docs.microsoft.com/azure/batch/)를 참조하세요.
+필요에 따라 일괄 처리에 대 한 자세한 내용은를 참조 하세요 [Batch 설명서](https://docs.microsoft.com/azure/batch/)합니다.
 
 ## <a name="why-azure-data-factory"></a>Azure Data Factory를 사용해야 하는 이유
 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. Data Factory를 사용하여 온-프레미스 및 클라우드 데이터 저장소에서 중앙 집중식 데이터 저장소로 데이터를 이동하는 관리되는 데이터 파이프라인을 만들 수 있습니다. 예제는 Azure Blob Storage입니다. Azure HDInsight 및 Azure Machine Learning과 같은 서비스를 사용하여 데이터를 처리/변환하는 데 Data Factory를 사용할 수 있습니다. 데이터 파이프라인을 예약된 방식(예: 매시간, 매일 및 매주)으로 실행되도록 예약할 수도 있습니다. 한 번에 파이프라인을 모니터링하고 관리하여 문제를 식별하고 조치를 취할 수 있습니다.
@@ -93,7 +96,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 저장소 계정을 사용하여 이 자습서에 있는 데이터를 저장합니다. 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 샘플 솔루션은 Blob Storage를 사용합니다.
 
 #### <a name="azure-batch-account"></a>Azure Batch 계정
-[Azure Portal](http://portal.azure.com/)을 사용하여 Batch 계정을 만듭니다. 자세한 내용은 [Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)를 참조하세요. Batch 계정 이름 및 계정 키를 적어둡니다. [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet을 사용하여 Batch 계정을 만들 수도 있습니다. 이 cmdlet 사용 방법에 대한 자세한 지침은 [Batch PowerShell cmdlet 시작](../../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
+[Azure Portal](https://portal.azure.com/)을 사용하여 Batch 계정을 만듭니다. 자세한 내용은 [Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)를 참조하세요. Batch 계정 이름 및 계정 키를 적어둡니다. 사용할 수도 있습니다는 [새로 만들기-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) Batch 계정을 만들려면 cmdlet. 이 cmdlet 사용 방법에 대한 자세한 지침은 [Batch PowerShell cmdlet 시작](../../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
 
 샘플 솔루션은 Batch를 사용하여(간접적으로 Data Factory 파이프라인을 통해) VM의 관리되는 컬렉션인 계산 노드의 풀에서 병렬 방식으로 데이터를 처리합니다.
 
@@ -201,7 +204,7 @@ public IDictionary<string, string> Execute(
 1. **Azure Storage** NuGet 패키지를 프로젝트로 가져옵니다. 이 샘플에서 Blob Storage API를 사용하므로 이 패키지가 필요합니다.
 
     ```powershell
-    Install-Package Azure.Storage
+    Install-Package Az.Storage
     ```
 1. 다음 using 지시문을 프로젝트의 원본 파일에 추가합니다.
 
@@ -799,8 +802,8 @@ test custom activity Microsoft test custom activity Microsoft
    * 사용자 지정 작업의 **linkedServiceName** 속성은 **AzureBatchLinkedService**를 가리키며 Data Factory에 사용자 지정 작업을 Batch에서 실행해야 함을 알려줍니다.
    * **동시성** 설정은 중요합니다. Batch 풀에 2개 이상의 계산 노드가 있더라도 기본값(1)을 사용하는 경우 조각은 차례로 처리됩니다. 따라서 Batch의 병렬 처리 기능을 활용하지 못합니다. **동시성**을 더 높은 값, 예를 들어 2로 설정한 경우 2조각(Batch에서 2개의 작업에 해당)은 동시에 처리될 수 있습니다. 이 경우에 Batch 풀의 두 VM이 모두 활용됩니다. 동시성 속성을 적절하게 설정합니다.
    * 기본적으로 VM에서 언제든지 하나의 작업(조각)이 실행됩니다. 기본적으로 **VM 당 최대 작업**은 Batch 풀에 대해 1로 설정됩니다. 필수 구성 요소의 일부로 이 속성이 2로 설정된 풀을 만들었습니다. 따라서 두 개의 Data factory 조각이 VM에서 동시에 실행될 수 있습니다.
-    - **isPaused** 속성은 기본적으로 false로 설정됩니다. 이 예제에서는 조각이 이전에 시작되므로 파이프라인이 즉시 실행됩니다. 파이프라인을 일시 중지하려면 이 속성을 **true**로 설정하고 다시 시작하려면 **false**로 다시 설정할 수 있습니다.
-    -   **시작** 및 **끝** 시간은 5시간 간격입니다. 5개의 조각이 파이프라인에 의해 생성되도록 조각은 매시간 생성됩니다.
+     - **isPaused** 속성은 기본적으로 false로 설정됩니다. 이 예제에서는 조각이 이전에 시작되므로 파이프라인이 즉시 실행됩니다. 파이프라인을 일시 중지하려면 이 속성을 **true**로 설정하고 다시 시작하려면 **false**로 다시 설정할 수 있습니다.
+     -   **시작** 및 **끝** 시간은 5시간 간격입니다. 5개의 조각이 파이프라인에 의해 생성되도록 조각은 매시간 생성됩니다.
 
 1. 명령 모음에서 **배포**를 선택하여 파이프라인을 배포합니다.
 
@@ -977,4 +980,4 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
   * [.NET용 Batch 클라이언트 라이브러리 시작](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

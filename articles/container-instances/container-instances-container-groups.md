@@ -1,20 +1,20 @@
 ---
 title: Azure Container Instances 컨테이너 그룹
-description: 컨테이너 그룹이 Azure Container Instances에서 작동하는 방법 이해
+description: 어떻게 다중 컨테이너 그룹 이해 Azure Container Instances에서 작동
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/20/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cb3d8c27a82c7dfc5fd71c1c7d589e81890e5cfb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 8724bd7e13b0d8607ad5a6814b27c8c06681f331
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202013"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
 
@@ -22,7 +22,7 @@ Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니�
 
 ## <a name="how-a-container-group-works"></a>컨테이너 그룹 작동 방식
 
-컨테이너 그룹은 같은 호스트 컴퓨터에서 예약되어 있는 컨테이너 컬렉션입니다. 컨테이너 그룹의 컨테이너는 수명 주기, 로컬 네트워크 및 저장소 볼륨을 공유합니다. [Kubernetes][kubernetes-pod] 및 [DC/OS][dcos-pod]의 *Pod* 개념과 유사합니다.
+컨테이너 그룹은 같은 호스트 컴퓨터에서 예약되어 있는 컨테이너 컬렉션입니다. 컨테이너 그룹의 컨테이너 수명 주기, 리소스, 로컬 네트워크 및 저장소 볼륨을 공유합니다. 개념상에서 비슷하지만 *pod* 에 [Kubernetes][kubernetes-pod]합니다.
 
 다음 다이어그램은 여러 컨테이너가 포함된 컨테이너 그룹의 예를 보여줍니다.
 
@@ -37,15 +37,39 @@ Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니�
 * 볼륨 탑재로 2개의 Azure 파일 공유가 포함되어 있으며, 각 컨테이너는 공유 중 하나를 로컬에서 탑재합니다.
 
 > [!NOTE]
-> 현재 다중 컨테이너 그룹은 Linux 컨테이너에 제한됩니다. 모든 기능을 Windows 컨테이너에서 제공하려고 합니다. 그 동안 [Azure Container Instances에 대한 할당량 및 지역 가용성](container-instances-quotas.md)에서 현재 플랫폼의 차이점을 찾을 수 있습니다.
+> 다중 컨테이너 그룹에는 현재 Linux 컨테이너로 지원합니다. Windows 컨테이너에 대 한 Azure Container Instances는 단일 인스턴스를 배포만 지원합니다. Windows 컨테이너에 모든 기능을 제공 하는 중, 하는 동안 서비스에서 현재 플랫폼의 차이점을 찾을 수 있습니다 [개요](container-instances-overview.md#linux-and-windows-containers)합니다.
 
 ## <a name="deployment"></a>배포
 
-컨테이너 *그룹*에는 최소 1개의 vCPU 및 1GB의 메모리 할당 리소스가 있습니다. 컨테이너 그룹 내의 개별 *컨테이너*에 vCPU 1개 및 메모리 1GB 미만을 프로비전할 수 있습니다. 컨테이너 그룹 내에서 리소스 배포는 컨테이너 그룹 수준에서 설정된 한도 내에서 여러 컨테이너로 사용자 지정할 수 있습니다. 예를 들어 1개의 vCPU가 할당된 컨테이너 그룹 내에 각각 0.5개의 vCPU가 있는 두 컨테이너가 있을 수 있습니다.
+다중 컨테이너 그룹을 배포 하는 두 가지 일반적인 방법은 다음과 같습니다: 사용 된 [Resource Manager 템플릿을] [ resource-manager template] 또는 [YAML 파일][yaml-file]합니다. 추가 Azure 서비스 리소스를 배포 해야 하는 경우 Resource Manager 템플릿을 사용 하 여 (예를 들어를 [Azure 파일 공유][azure-files]) 시 container instances를 배포 합니다. YAML 형식의 더 간결한 특성상 YAML 파일을이 배포에만 컨테이너 인스턴스를 포함 하는 경우 좋습니다.
+
+## <a name="resource-allocation"></a>리소스 할당
+
+Azure Container Instances는 Cpu, 메모리 같은 리소스를 할당 하 고 선택적으로 [Gpu] [ gpus] (미리 보기) 컨테이너 그룹에 추가 하 여 합니다 [리소스 요청] [ resource-requests] 그룹의 인스턴스. 각 요청 1 두 인스턴스를 사용 하 여 컨테이너 그룹을 만든 경우 예를 들어 CPU 리소스를 차지 CPU, 다음 컨테이너 그룹 2 개 Cpu를 할당 됩니다.
+
+컨테이너 그룹에 대 한 사용 가능한 최대 리소스에 종속 된 [Azure 지역] [ region-availability] 배포에 사용 합니다.
+
+### <a name="container-resource-requests-and-limits"></a>컨테이너 리소스 요청 및 제한
+
+* 기본적으로 그룹의 container instances를 그룹의 요청 된 리소스를 공유 합니다. 두 개의 그룹에 각 요청 1 인스턴스 CPU, 전체적으로 그룹에 2 개 Cpu에 대 한 액세스. 각 인스턴스 2 개 Cpu를 사용할 수 있습니다 하 고 실행 되는 동안 CPU 리소스에 대 한 인스턴스 경쟁할 수 있습니다.
+
+* 그룹의 인스턴스에 의해 리소스 사용량을 최소화 하려면 필요에 따라 설정 된 [리소스 제한] [ resource-limits] 인스턴스에 대 한 합니다. 두 인스턴스를 사용 하 여 그룹의 1 요청 CPU, 컨테이너 중 하나에 다른 실행 하려면 더 많은 Cpu를 필요할 수 있습니다.
+
+  이 시나리오에서는 0.5 리소스 한도 설정할 수 있습니다 하나 인스턴스 및 두 번째 2 개 Cpu 제한에 대 한 CPU입니다. 이 구성은 0.5로 첫 번째 컨테이너의 리소스 사용량을 제한 CPU, 두 번째 컨테이너를 사용할 수 있는 경우 전체 2 Cpu를 사용할 수 있습니다.
+
+자세한 내용은 참조는 [ResourceRequirements] [ resource-requirements] REST API를 그룹화 하는 컨테이너의 속성입니다.
+
+### <a name="minimum-and-maximum-allocation"></a>최소 및 최대 할당
+
+* 할당을 **최소** 1의 CPU 및 1GB의 메모리로 컨테이너 그룹에 있습니다. 1 보다 작은 그룹 내의 개별 컨테이너 인스턴스를 프로 비전 할 수 CPU 및 메모리 1gb로 줄어듭니다. 
+
+* 에 대 한 합니다 **최대** 컨테이너 그룹에 리소스 참조 [리소스 가용성] [aci-지역-가용성] 배포 지역에 Azure Container Instances에 대 한 합니다.
 
 ## <a name="networking"></a>네트워킹
 
-컨테이너 그룹은 IP 주소와 해당 IP 주소에서 포트 네임스페이스를 공유합니다. 외부 클라이언트가 그룹 내 컨테이너에 도달하게 지원하려면 IP 주소와 컨테이너에서 해당 포트를 공개해야 합니다. 그룹 내의 컨테이너가 포트 네임스페이스를 공유하고 있으므로 포트 매핑이 지원되지 않습니다. 그룹 내 컨테이너는 해당 포트가 그룹의 IP 주소에 외부적으로 노출되어 있지 않은 경우에도 이들이 노출한 포트의 localhost를 통해 서로 도달할 수 있습니다.
+컨테이너 그룹은 IP 주소와 해당 IP 주소에서 포트 네임스페이스를 공유합니다. 외부 클라이언트가 그룹 내 컨테이너에 도달하게 지원하려면 IP 주소와 컨테이너에서 해당 포트를 공개해야 합니다. 그룹 내의 컨테이너가 포트 네임 스페이스를 공유 하므로 포트 매핑은 지원 되지 않습니다. 컨테이너 그룹 내에서 해당 포트 그룹의 IP 주소에 외부적으로 노출 되지 않습니다 하는 경우에 이들이 노출 하는 포트의 localhost를 통해 서로 연결할 수 있습니다.
+
+선택적으로 컨테이너 그룹 배포를 [Azure 가상 네트워크] [ virtual-network] (미리 보기) 컨테이너를 가상 네트워크의 다른 리소스와 안전 하 게 통신할 수 있도록 합니다.
 
 ## <a name="storage"></a>Storage
 
@@ -57,16 +81,17 @@ Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니�
 
 사용 예는 다음과 같습니다.
 
+* 웹 애플리케이션을 처리하는 컨테이너와 원본 제어에서 최신 콘텐츠를 풀링하는 컨테이너
 * 애플리케이션 컨테이너 및 로깅 컨테이너. 로깅 컨테이너는 주 애플리케이션에서 출력한 로그 및 메트릭을 수집하여 장기 저장소로 기록합니다.
 * 애플리케이션 컨테이너 및 모니터링 컨테이너. 모니터링 컨테이너는 애플리케이션이 올바르게 실행 중이고 응답하고 있는지 확인하기 위해 애플리케이션에 정기적으로 요청을 보내고, 그렇지 않은 경우 경고를 올립니다.
-* 웹 애플리케이션을 처리하는 컨테이너와 원본 제어에서 최신 콘텐츠를 풀링하는 컨테이너
+* 프런트 엔드 컨테이너 및 백 엔드 컨테이너. 프런트 엔드 데이터를 검색할 서비스를 실행 하는 백 엔드를 사용 하 여 웹 응용 프로그램을 제공할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Resource Manager 템플릿을 통해 다중 컨테이너 그룹 배포 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [컨테이너 그룹 배포](container-instances-multi-container-group.md)
+> [컨테이너 그룹 배포][resource-manager template]
 
 <!-- IMAGES -->
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png
@@ -74,3 +99,14 @@ Azure Resource Manager 템플릿을 통해 다중 컨테이너 그룹 배포 방
 <!-- LINKS - External -->
 [dcos-pod]: https://dcos.io/docs/1.10/deploying-services/pods/
 [kubernetes-pod]: https://kubernetes.io/docs/concepts/workloads/pods/pod/
+
+<!-- LINKS - Internal -->
+[resource-manager template]: container-instances-multi-container-group.md
+[yaml-file]: container-instances-multi-container-yaml.md
+[region-availability]: container-instances-region-availability.md
+[resource-requests]: /rest/api/container-instances/containergroups/createorupdate#resourcerequests
+[resource-limits]: /rest/api/container-instances/containergroups/createorupdate#resourcelimits
+[resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
+[azure-files]: container-instances-volume-azure-files.md
+[virtual-network]: container-instances-vnet.md
+[gpus]: container-instances-gpu.md

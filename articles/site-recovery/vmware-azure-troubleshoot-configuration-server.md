@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245731"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107596"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>구성 서버 문제 해결
 
@@ -25,9 +25,9 @@ ms.locfileid: "56245731"
 1. C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log 파일을 엽니다. (ProgramData 폴더는 숨겨진 폴더일 수 있습니다. ProgramData 폴더가 보이지 않으면 파일 탐색기의 **보기** 탭에 있는 **표시/숨기기** 섹션에서 **숨긴 항목** 확인란을 선택하십시오.) 오류는 여러 가지 문제로 인해 발생할 수 있습니다.
 
 2. **No Valid IP Address found** 문자열을 검색합니다. 문자열이 검색되면:
-    1. 요청한 호스트 ID가 원본 머신의 호스트 ID와 같은지 확인합니다.
-    2. 실제 NIC에 할당된 IP 주소가 원본 머신에 하나 이상 있는지 확인합니다. 에이전트가 구성 서버에 성공적으로 등록되려면, 실제 NIC에 할당된 유효한 IPv4 주소가 원본 머신에 하나 이상 있어야 합니다.
-    3. 원본 머신에서 다음 명령 중 하나를 실행하여 원본 머신의 모든 IP 주소를 가져옵니다.
+   1. 요청한 호스트 ID가 원본 머신의 호스트 ID와 같은지 확인합니다.
+   2. 실제 NIC에 할당된 IP 주소가 원본 머신에 하나 이상 있는지 확인합니다. 에이전트가 구성 서버에 성공적으로 등록되려면, 실제 NIC에 할당된 유효한 IPv4 주소가 원본 머신에 하나 이상 있어야 합니다.
+   3. 원본 머신에서 다음 명령 중 하나를 실행하여 원본 머신의 모든 IP 주소를 가져옵니다.
       - Windows의 경우: `> ipconfig /all`
       - Linux의 경우: `# ifconfig -a`
 
@@ -82,7 +82,7 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
 
 ## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Windows 라이선스를 Server Standard EVALUATION에서 Server Standard로 활성화하지 못함
 
-1. OVF를 통한 구성 서버 배포의 일환으로, 180일 동안 유효한 평가판 라이선스가 사용됩니다. 만료되기 전에 이 라이선스를 활성화해야 합니다. 그렇지 않은 경우 구성 서버가 자주 종료되어 복제 작업이 원활히 진행되지 못합니다.
+1. OVF 통해 구성 서버 배포의 일환으로,은 180 일 동안 유효 하는 평가판 라이선스가 사용 됩니다. 만료되기 전에 이 라이선스를 활성화해야 합니다. 그렇지 않은 경우 구성 서버가 자주 종료되어 복제 작업이 원활히 진행되지 못합니다.
 2. Windows 라이선스를 활성화할 수 없는 경우 [Windows 지원 팀](https://aka.ms/Windows_Support)에 문의하여 문제를 해결하세요.
 
 ## <a name="register-source-machine-with-configuration-server"></a>구성 서버에 원본 머신 등록

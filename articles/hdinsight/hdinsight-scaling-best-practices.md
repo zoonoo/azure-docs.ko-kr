@@ -7,40 +7,40 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/02/2018
+ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: e8a85401c0c7282d64ebcbe2f9180f25f36f7289
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742884"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108157"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight 클러스터 크기 조정
 
 HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 유연성을 보장합니다. 따라서 몇 시간 후에 또는 주말에 클러스터를 축소했다가, 비즈니스 요구가 최대 수준일 때 확장할 수 있습니다.
 
-예를 들어, 하루에 1번 또는 한 달에 1번 수행되는 일부 일괄 처리가 있을 때, 적절한 메모리 및 CPU 계산 능력을 확보하기 위해 예약된 이벤트보다 몇 분 전에 HDInsight 클러스터를 확장할 수 있습니다. PowerShell cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters)를 사용하여 크기 조정을 자동화할 수 있습니다.  나중에, 처리가 완료된 후 사용량이 다시 줄어들면, HDInsight 클러스터를 더 적은 수의 작업자 노드로 축소할 수 있습니다.
+예를 들어, 하루에 1번 또는 한 달에 1번 수행되는 일부 일괄 처리가 있을 때, 적절한 메모리 및 CPU 계산 능력을 확보하기 위해 예약된 이벤트보다 몇 분 전에 HDInsight 클러스터를 확장할 수 있습니다.  나중에, 처리가 완료된 후 사용량이 다시 줄어들면, HDInsight 클러스터를 더 적은 수의 작업자 노드로 축소할 수 있습니다.
 
-* [PowerShell](hdinsight-administer-use-powershell.md)을 통해 클러스터 크기를 조정하려면
+## <a name="utilities-to-scale-clusters"></a>클러스터 크기를 조정 하는 유틸리티
 
-    ```powershell
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-    ```
-    
-* [Azure 클래식 CLI](hdinsight-administer-use-command-line.md)를 통해 클러스터 크기를 조정하려면:
+Microsoft는 클러스터 크기를 조정 하는 다음 유틸리티를 제공 합니다.
 
-    ```
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-    ```
+|유틸리티 | 설명|
+|---|---|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<Resource group> --name \<Cluster Name> --target-instance-count \<NewSize>|
+|[Azure 클래식 CLI](hdinsight-administer-use-command-line.md)|azure hdinsight 클러스터 크기 조정 \<clusterName > \<대상 인스턴스의 수가 >|
+|[Azure Portal](https://portal.azure.com)|HDInsight 클러스터 창의 열을 선택 합니다 **클러스터 크기** 왼쪽 메뉴에서 클러스터 크기 창에서 작업자 노드 수를 입력 하 고 저장을 선택 합니다.|  
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-    
-* [Azure Portal](https://portal.azure.com)을 통해 클러스터 크기를 조정하려면 HDInsight 클러스터 창을 열고, 왼쪽 메뉴에서 **클러스터 크기 조정**을 선택한 다음, 클러스터 크기 조정 창에서 작업자 노드 수를 입력한 후 저장을 선택합니다.
-
-    ![클러스터 크기 조정](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![클러스터 크기 조정](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 이러한 방법 중 하나를 사용하여 몇 분 만에 HDInsight 클러스터를 확장 또는 축소할 수 있습니다.
+
+> [!IMPORTANT]  
+> * Aure 클래식 CLI가 사용 되지 않으며 클래식 배포 모델로 사용 해야 합니다. 다른 모든 배포에 사용 된 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)합니다.  
+> * PowerShell AzureRM 모듈을 사용 하는 사용 되지 않습니다.  사용 하십시오 합니다 [Az 모듈](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 가능 합니다.
 
 ## <a name="scaling-impacts-on-running-jobs"></a>크기 조정이 실행 중인 작업에 미치는 영향
 
@@ -53,9 +53,10 @@ HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵
 보류 중이거나 실행 중인 작업 목록을 보려면 YARN ResourceManager UI를 사용하여 다음 단계를 수행할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **찾아보기**를 선택하고 **HDInsight 클러스터**를 선택한 다음, 클러스터를 선택 합니다.
-3. HDInsight 클러스터 창의 위쪽 메뉴에서 **대시보드**를 선택하여 Ambari UI를 엽니다. 클러스터 로그인 자격 증명을 입력합니다.
-4. 왼쪽 메뉴의 서비스 목록에서 **YARN**을 클릭합니다. YARN 페이지에서 **빠른 링크**를 선택하고 활성 헤드 노드 위로 마우스로 가져간 후 **ResourceManager UI**를 클릭합니다.
+2. 왼쪽에서 이동 **모든 서비스** > **Analytics** > **HDInsight 클러스터**, 한 다음 클러스터를 선택 합니다.
+3. 기본 보기에서로 이동 **클러스터 대시보드** > **Ambari 홈**합니다. 클러스터 로그인 자격 증명을 입력합니다.
+4. Ambari UI에서 선택 **YARN** 왼쪽 메뉴의 서비스 목록에 있습니다.  
+5. YARN 페이지에서 선택 **빠른 링크** 하 고 활성 헤드 노드를 마우스로 클릭 **ResourceManager UI**합니다.
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -97,13 +98,11 @@ yarn application -kill "application_1499348398273_0003"
 
 ## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>HDInsight 이름 노드가 축소 후에 안전 모드를 유지함
 
-![클러스터 크기 조정](./media/hdinsight-scaling-best-practices/scale-cluster.png)
-
-이전 이미지에 나와 있는 것처럼, 클러스터를 최소 1개의 작업자 노드로 축소하는 경우 작업자 노드가 패치로 인해 다시 부팅될 때 또는 크기 조정 작업 직후에 Apache HDFS가 안전 모드에서 고정될 수 있습니다.
+최소 1 명의 작업자 노드로 클러스터를 축소 하는 경우 작업자 노드가 패치로 인해 또는 크기 조정 작업 후 즉시 다시 부팅 하는 경우 Apache HDFS 안전 모드에서 고정 될 수 있습니다.
 
 이 오류의 주요 원인은 Hive가 소수의 `scratchdir` 파일을 사용하고, 기본적으로 각 블록의 복제본이 3개 있다고 예상하지만, 최소 1개의 작업자 노드로 축소하는 경우 복제본이 1개로만 유지된다는 것입니다. 따라서 `scratchdir`의 파일은 *덜 복제*됩니다. 이로 인해 HDFS는 크기 조정 작업 후에 서비스가 다시 시작될 때 안전 모드를 유지할 수 있습니다.
 
-축소 시도가 수행될 때, HDInsight는 Apache Ambari 관리 인터페이스를 사용하여 먼저 원치 않는 불필요한 작업자 노드의 서비스를 해제하여 HDFS 블록을 다른 온라인 작업자 노드로 복제한 후 클러스터를 안전하게 축소합니다. HDFS는 유지 관리 기간 동안 안전 모드가 되며, 크기 조정이 완료되면 안전 모드에서 해제됩니다. 이때 HDFS는 안전 모드에서 고정될 수 있습니다.
+축소 시도가 발생할 때 HDInsight는 Apache Ambari 관리 인터페이스를 먼저 다른 온라인 작업자 노드로 하 여 HDFS 블록 복제는 불필요 한 작업자 노드 서비스 해제 하 고 안전 하 게 축소할 클러스터에 의존 합니다. HDFS는 유지 관리 기간 동안 안전 모드가 되며, 크기 조정이 완료되면 안전 모드에서 해제됩니다. 이때 HDFS는 안전 모드에서 고정될 수 있습니다.
 
 HDFS는 `dfs.replication` 값 3으로 구성됩니다. 따라서 사용 가능한 각 블록의 예상되는 복사본이 3개가 아니므로, 사용 가능한 각 블록의 스크래치 파일의 블록은 3개 미만의 작업자 노드가 온라인 상태가 될 때마다 덜 복제됩니다.
 
@@ -245,7 +244,7 @@ The filesystem under path '/tmp/hive/hive' is CORRUPT
 
 ![NameNode 블록 상태](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
-스크래치 파일을 정리하여 블록 복제 오류를 제거하려면 각 헤드 노드에 대해 SSH를 수행하고 다음 명령을 실행합니다.
+블록 복제 오류를 제거 하는 스크래치 파일을 정리 하려면 SSH를 각 헤드 노드 및 다음 명령을 실행:
 
 ```
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/

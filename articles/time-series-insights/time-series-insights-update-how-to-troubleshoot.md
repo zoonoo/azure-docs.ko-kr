@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e44a02e2126e7b25f69999de34fe5cf42499a90c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: eb1c302bf1954492ba2a7a78d16fc697fdf4b687
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556835"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080440"
 ---
 # <a name="diagnose-and-troubleshoot"></a>진단 및 문제 해결
 
@@ -43,16 +43,16 @@ ms.locfileid: "53556835"
 
 - 이벤트 원본 키에 필요한 사용 권한이 없습니다.
 
-    * IoT Hub의 경우 **서비스 연결** 사용 권한이 있는 키를 제공해야 합니다.
+  * IoT Hub의 경우 **서비스 연결** 사용 권한이 있는 키를 제공해야 합니다.
 
     ![구성][3]
 
-    * 위의 이미지에 표시된 것처럼 **iothubowner** 및 **서비스** 정책에는 **서비스 연결** 권한이 있으므로 둘 다 작동합니다.
-    * 이벤트 허브의 경우 **수신** 사용 권한이 있는 키를 제공해야 합니다.
+  * 위의 이미지에 표시된 것처럼 **iothubowner** 및 **서비스** 정책에는 **서비스 연결** 권한이 있으므로 둘 다 작동합니다.
+  * 이벤트 허브의 경우 **수신** 사용 권한이 있는 키를 제공해야 합니다.
   
     ![권한][4]
 
-    * 위의 이미지에 표시된 것처럼 **읽기** 및 **관리** 정책에는 **수신 대기** 권한이 있으므로 둘 다 작동합니다.
+  * 위의 이미지에 표시된 것처럼 **읽기** 및 **관리** 정책에는 **수신 대기** 권한이 있으므로 둘 다 작동합니다.
 
 - 제공된 소비자 그룹이 Time Series Insights에 배타적으로 적용되지 않습니다.
 

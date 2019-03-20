@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 510a243b9133fe0ef0fe33b4dccce97f9d65e301
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453259"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074967"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Azure Portal을 사용하여 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이를 만듭니다.
 
@@ -31,6 +31,8 @@ Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-
 
 ![웹 애플리케이션 방화벽 예제](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인
@@ -43,21 +45,21 @@ Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-
 2. **네트워킹**을 선택한 다음, 추천 목록에서 **Application Gateway**를 선택합니다.
 3. 애플리케이션 게이트웨이에 대해 다음 값을 입력합니다.
 
-    - *myAppGateway* - 애플리케이션 게이트웨이의 이름
-    - *myResourceGroupAG* - 새 리소스 그룹
-    - 애플리케이션 게이트웨이의 계층에 *WAF*를 선택합니다.
+   - *myAppGateway* - 애플리케이션 게이트웨이의 이름
+   - *myResourceGroupAG* - 새 리소스 그룹
+   - 애플리케이션 게이트웨이의 계층에 *WAF*를 선택합니다.
 
-    ![새 애플리케이션 게이트웨이 만들기](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+     ![새 애플리케이션 게이트웨이 만들기](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
 4. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 5. **가상 네트워크 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
 
-    - *myVNet* - 가상 네트워크 이름
-    - *10.0.0.0/16* - 가상 네트워크 주소 공간
-    - *myAGSubnet* - 서브넷 이름
-    - *10.0.0.0/24* - 서브넷 주소 공간
+   - *myVNet* - 가상 네트워크 이름
+   - *10.0.0.0/16* - 가상 네트워크 주소 공간
+   - *myAGSubnet* - 서브넷 이름
+   - *10.0.0.0/24* - 서브넷 주소 공간
 
-    ![가상 네트워크 만들기](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+     ![가상 네트워크 만들기](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
 6. **확인**을 클릭하여 가상 네트워크 및 서브넷을 만듭니다.
 7. **공용 IP 주소 선택**을 클릭하고 **새로 만들기**를 클릭한 다음, 공용 IP 주소의 이름을 입력합니다. 이 예제에서 공용 IP 주소의 이름은 *myAGPublicIPAddress*입니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
@@ -103,7 +105,7 @@ Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-
 2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다. 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -114,7 +116,7 @@ Azure Portal을 사용하여 WAF([웹 애플리케이션 방화벽](application-
       -Location EastUS
     ```
 
-3. 두 번째 가상 머신을 만들고, 방금 완료한 단계를 사용하여 IIS를 설치합니다. Set-AzureRmVMExtension의 이름 및 VMName에 대해 *myVM2*를 입력합니다.
+3. 두 번째 가상 머신을 만들고, 방금 완료한 단계를 사용하여 IIS를 설치합니다. 입력 *myVM2* 의 이름 및 VMName AzVMExtension 집합에에서 대해 합니다.
 
 ### <a name="add-backend-servers"></a>백 엔드 서버 추가
 

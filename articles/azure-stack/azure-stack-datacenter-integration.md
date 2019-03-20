@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/14/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c21cc778ed398c28077ef1a20ebbb7b295c2baa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207537"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012390"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 통합 시스템의 데이터 센터 통합 고려 사항
 Azure Stack 통합 시스템에 관심이 배포 및 시스템 데이터 센터에 적용 하는 방법에 대 주요 계획 고려 사항을 알아야 합니다. 이 문서에서는 Azure Stack 다중 노드 시스템에 대 한 중요 한 인프라 결정을 내릴 수 있도록 이러한 고려 사항은의 대략적인 개요를 제공 합니다. 이러한 고려 사항을 이해에는 데이터 센터에 Azure Stack을 배포할 때 OEM 하드웨어 공급 업체를 작업할 때 도움이 됩니다.  
@@ -162,7 +162,7 @@ Azure Stack 솔루션에 포함 된 하드웨어 수명 주기 호스트는 하�
 | 영역 | 외부 모니터링 솔루션 |
 | -- | -- |
 | Azure Stack 소프트웨어 | [Operations Manager에 대 한 azure Stack 관리 팩](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios 플러그 인](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST 기반 API 호출 | 
-| 물리적 서버 (IPMI 통해 Bmc) | OEM 하드웨어-Operations Manager 공급 업체 관리 팩<br>OEM 하드웨어 공급 업체에서 제공한 솔루션<br>하드웨어 공급 업체 Nagios 플러그 인 | OEM 파트너 지원 솔루션 (포함)를 모니터링 합니다. | 
+| 물리적 서버 (IPMI 통해 Bmc) | OEM 하드웨어-Operations Manager 공급 업체 관리 팩<br>OEM 하드웨어 공급 업체에서 제공한 솔루션<br>하드웨어 공급 업체 Nagios 플러그 인입니다.<br>OEM 파트너 지원 솔루션 (포함)를 모니터링 합니다. | 
 | 네트워크 장치에서는 SNMP) | Operations Manager 네트워크 장치 검색<br>OEM 하드웨어 공급 업체에서 제공한 솔루션<br>Nagios는 플러그 인 전환 |
 | 테 넌 트 구독 상태 모니터링 | [Windows Azure 용 system Center 관리 팩](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 

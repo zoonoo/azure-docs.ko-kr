@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101654"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842512"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
-Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파악할 수 있습니다. [가격 계산기](https://azure.microsoft.com/pricing/calculator/)는 Azure 리소스를 만들기 전에 예상 비용을 제공할 수 있습니다. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)은 사용자 구독에 대한 현재 비용 분석 및 예측을 제공합니다. 여러 다른 프로젝트 또는 팀의 비용을 그룹화하고 파악하려는 경우 [리소스 태그](../azure-resource-manager/resource-group-using-tags.md)를 살펴봅니다. 선호하는 보고 시스템이 조직에 있는 경우 [청구 API](billing-usage-rate-card-overview.md)를 확인하세요.
+Azure에 등록 하는 경우 몇 가지 방법으로의 지출을 보다 명확히 파악할를 수행할 수 있습니다. [가격 계산기](https://azure.microsoft.com/pricing/calculator/)는 Azure 리소스를 만들기 전에 예상 비용을 제공할 수 있습니다. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)은 사용자 구독에 대한 현재 비용 분석 및 예측을 제공합니다. 여러 다른 프로젝트 또는 팀의 비용을 그룹화하고 파악하려는 경우 [리소스 태그](../azure-resource-manager/resource-group-using-tags.md)를 살펴봅니다. 선호하는 보고 시스템이 조직에 있는 경우 [청구 API](billing-usage-rate-card-overview.md)를 확인하세요.
 
 - 구독이 EA(기업 계약)인 경우 Azure Portal에서 비용을 확인하기 위한 공개 미리 보기를 사용할 수 있습니다. CSP(클라우드 솔루션 공급자) 또는 Azure 스폰서쉽을 통한 구독인 경우 다음 기능 중 일부는 적용되지 않습니다. 자세한 내용은 [EA, CSP 및 스폰서쉽에 대한 추가 리소스](#other-offers)를 참조하세요.
 
@@ -80,7 +80,7 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 
     ![지출 임계값에 따라 빨간색 및 노란색 경고를 보여주는 예제](./media/billing-getting-started/schedule-alert01.png)
 
-또한 **비용 백분율 대 예산** 임계값 메트릭을 선택하여 경고를 만들 수도 있습니다. 이렇게 하면 통화 값 대신 예산 백분율로 임계값을 지정할 수 있습니다.
+또한 **비용 백분율 대 예산 임계값 메트릭을 선택하여 경고를 만들 수도 있습니다. 이렇게 하면 통화 값 대신 예산 백분율로 임계값을 지정할 수 있습니다.
 
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Azure 서비스를 사용할 때 비용을 모니터링하는 방법
 
@@ -183,8 +183,28 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 계정 관리자가 아니면 누군가가 [Azure Active Directory RBAC](../role-based-access-control/role-assignments-portal.md)(역할 기반 액세스 제어)를 사용하여 부분적인 액세스 권한을 부여한 것입니다. 구독을 관리하고 청구 정보를 변경하려면 [계정 관리자를 찾습니다](billing-subscription-transfer.md#whoisaa). 계정 관리자에게 작업을 수행하거나 [구독을 전송](billing-subscription-transfer.md)하도록 요청합니다.
 
-계정 관리자가 더 이상 조직에 있지 않은 상태에서 청구를 관리해야 하는 경우에는 [문의하세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+계정 관리자가 더 이상 조직에 있지 않은 상태에서 청구를 관리해야 하는 경우에는 [문의하세요](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
+### <a name="how-to-request-a-service-level-agreement-credit-for-a-service-incident"></a>서비스 인시던트에 대 한 서비스 수준 계약 크레딧을 요청 하는 방법
+
+SLA(서비스 수준 계약)에서는 작동 시간 및 연결에 대한 Microsoft의 정책을 설명합니다. Azure 서비스는 해당 영향을 미치는 가동 시간 또는 연결을 "중단"입니다.이 라 불리는 문제가 발생 하는 경우 서비스 인시던트를 보고 됩니다. 경우 달성 하지 않으며 SLA에 설명 된 대로 각 서비스에 대 한 서비스 수준을 유지 관리에서는 다음 수 있습니다에 월간 서비스 비용의 일부 크레딧을 받을 수 있습니다.
+
+크레딧을 요청:
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 계정이 여러 개인 경우 Azure 가동 중지 시간에 영향을 받은 하나를 사용 해야 합니다. 이렇게 하면 자동으로 필요한 배경 정보를 수집 하 고 대/소문자를 더 빠르게 해결 지원 합니다.
+2. 새 지원 요청을 만듭니다.
+3. 아래 **문제 유형**를 선택 **청구**합니다.
+4. 아래 **문제 유형**를 선택 **환불 요청**합니다.
+5. 추가 세부 정보는 SLA 크레딧 요청을 지정 하려면 영향을 받는 서비스 (Vm, 웹 사이트 등) 뿐만 아니라는 날짜/시간/표준 시간대를 언급 합니다.
+6. 연락처 세부 정보를 확인 하 고 선택 합니다 **만들기** 단추 요청을 제출 합니다.
+
+SLA 임계값 서비스에 따라 다릅니다. 예를 들어 SQL 웹 계층은 99.9%의 SLA, 99.95%의 SLA가 있는 Vm 및 SQL 표준 계층에는 SLA가 99.99%입니다.
+
+일부 서비스는 SLA 적용 하기 위한 필수 구성 요소는 있습니다. 예를 들어, 가상 컴퓨터에 동일한 가용성 집합에 배포 된 인스턴스가 두 개 이상 있어야 합니다.
+
+자세한 내용은 참조는 [서비스 수준 계약](https://azure.microsoft.com/en-us/support/legal/sla/) 설명서와 [Azure 서비스에 대 한 SLA 요약](https://azure.microsoft.com/en-us/support/legal/sla/summary/) 설명서.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.

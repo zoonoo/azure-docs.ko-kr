@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 942b1423583f663f22ced6ea8399409778b2f6de
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455130"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903133"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -26,6 +26,7 @@ Managed Instance 배포 옵션은 온-프레미스 SQL Server 데이터베이스
 ![마이그레이션](./media/sql-database-managed-instance/migration.png)
 
 구문과 동작에는 여전히 몇 가지 차이점이 있으므로 이 문서에서는 이러한 차이점을 요약하고 설명합니다. <a name="Differences"></a>
+
 - [Always-On](#always-on-availability) 및 [백업](#backup)의 차이점을 비롯한 [가용성](#availability),
 - [감사](#auditing), [인증서](#certificates), [자격 증명](#credential), [암호화 공급자](#cryptographic-providers), [로그인 / 사용자](#logins--users), [서비스 키 및 서비스 마스터 키](#service-key-and-service-master-key)의 차이점을 비롯한 [보안](#security),
 - [버퍼 풀 확장](#buffer-pool-extension), [데이터 정렬](#collation), [호환성 수준](#compatibility-levels),[데이터베이스 미러링](#database-mirroring), [데이터베이스 옵션](#database-options), [SQL Server 에이전트](#sql-server-agent), [테이블 옵션](#tables)의 차이점을 비롯한 [구성](#configuration),
@@ -61,10 +62,16 @@ Managed Instance 배포 옵션은 온-프레미스 SQL Server 데이터베이스
  제한 사항:  
 
 - Managed Instance를 사용하는 경우 최대 32개의 스트라이프가 있는 백업에 인스턴스 데이터베이스를 백업할 수 있습니다. 이 개수는 백업 압축을 사용할 경우 최대 4TB의 데이터베이스에 충분합니다.
-- 최대 백업 스트라이프 크기는 195GB(최대 Blob 크기)입니다. 백업 명령에서 스트라이프 수를 늘려 개별 스트라이프 크기를 줄이고 이 제한 내에서 유지합니다.
+- 사용 하 여 최대 백업 스트라이프 크기는 `BACKUP` 관리 되는 인스턴스에서 명령에는 195GB (최대 blob 크기)입니다. 백업 명령에서 스트라이프 수를 늘려 개별 스트라이프 크기를 줄이고 이 제한 내에서 유지합니다.
 
-> [!TIP]
-> 온-프레미스에서 이 제한 사항을 해결하려면 `URL`에 백업하는 대신 `DISK`에 백업하고, Blob에 백업 파일을 업로드한 다음, 해당 파일을 복원합니다. 다른 Blob 유형이 사용되기 때문에 복원은 더 큰 파일을 지원합니다.  
+    > [!TIP]
+    > 가상 머신 또는 온-프레미스 환경에서 SQL Server에서 데이터베이스를 백업 하는 경우이 제한을 해결 하려면 다음을 수행할 수 있습니다.
+    >
+    > - 에 대 한 백업 `DISK` 백업 하는 대신 `URL`
+    > - Blob 저장소에 백업 파일 업로드
+    > - 관리 되는 인스턴스로 복원 합니다.
+    >
+    > `Restore` 명령에는 관리 되는 인스턴스 저장소 업로드 된 백업 파일에 대 한 다른 blob 유형이 사용 되기 때문에 백업 파일에서 더 큰 blob 크기를 지원 합니다.
 
 T-SQL을 사용하는 백업에 대한 자세한 내용은 [BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql)을 참조하세요.
 
@@ -125,44 +132,51 @@ Managed Instance는 파일에 액세스할 수 없으므로 암호화 공급자�
 
 - `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` 및 `FROM SID`에서 만든 SQL 로그인이 지원됩니다. [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql)을 참조하세요.
 - [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) 구문 또는 [CREATE USER FROM LOGIN [Azure AD Login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) 구문을 사용하여 만든 Azure AD(Azure Active Directory) 서버 보안 주체(로그인)가 지원됩니다(**공개 미리 보기**). 이 보안 주체는 서버 수준에서 만든 로그인입니다.
-    - Managed Instance는 `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` 구문을 사용하여 Azure AD 데이터베이스 보안 주체를 지원합니다. 이 보안 주체를 Azure AD 포함된 데이터베이스 사용자라고도 합니다.
+
+    Managed Instance는 `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` 구문을 사용하여 Azure AD 데이터베이스 보안 주체를 지원합니다. 이 보안 주체를 Azure AD 포함된 데이터베이스 사용자라고도 합니다.
+
 - `CREATE LOGIN ... FROM WINDOWS` 구문으로 만든 Windows 로그인은 지원되지 않습니다. Azure Active Directory 로그인 및 사용자를 사용합니다.
 - 인스턴스를 만든 Azure AD 사용자에게는 [무제한 관리자 권한](sql-database-manage-logins.md#unrestricted-administrative-accounts)이 있습니다.
 - 관리자가 아닌 Azure AD(Azure Active Directory) 데이터베이스 수준 사용자는 `CREATE USER ... FROM EXTERNAL PROVIDER` 구문을 사용하여 만들 수 있습니다. [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)를 참조하세요.
 - Azure AD 서버 보안 주체(로그인)는 단일 MI 인스턴스 내에서만 SQL 기능을 지원합니다. 동일한 Azure AD 테넌트든, 다른 테넌트든 관계없이 인스턴스 간 상호 작용이 필요한 기능은 Azure AD 사용자에 대해 지원되지 않습니다. 이러한 기능의 예는 다음과 같습니다.
-    - SQL 트랜잭션 복제 및
-    - 링크 서버
+
+  - SQL 트랜잭션 복제 및
+  - 링크 서버
+
 - Azure AD 그룹에 매핑된 Azure AD 로그인을 데이터베이스 소유자로 설정할 수 없습니다.
 - [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) 절과 같이, 다른 Azure AD 보안 주체를 사용하여 Azure AD 서버 수준 보안 주체를 가장할 수 있습니다. EXECUTE AS 제한 사항:
-    - 이름이 로그인 이름과 다른 경우 EXECUTE AS USER는 Azure AD 사용자에 대해 지원되지 않습니다. 예를 들어 CREATE USER [myAadUser] FROM LOGIN [john@contoso.com]을 통해 사용자를 만들고 EXEC AS USER = _myAadUser_를 통해 가장을 시도하는 경우입니다. Azure AD 서버 보안 주체(로그인)에서 **USER**를 만들 때 **LOGIN**에서 user_name을 동일한 login_name으로 지정합니다.
-    - `sysadmin` 역할에 포함된 SQL 서버 수준 보안 주체(로그인)만이 Azure AD 보안 주체를 대상으로 하는 다음 작업을 실행할 수 있습니다. 
-        - EXECUTE AS USER
-        - EXECUTE AS LOGIN
+
+  - 이름이 로그인 이름과 다른 경우 EXECUTE AS USER는 Azure AD 사용자에 대해 지원되지 않습니다. 예를 들어 CREATE USER [myAadUser] FROM LOGIN [john@contoso.com]을 통해 사용자를 만들고 EXEC AS USER = _myAadUser_를 통해 가장을 시도하는 경우입니다. Azure AD 서버 보안 주체(로그인)에서 **USER**를 만들 때 **LOGIN**에서 user_name을 동일한 login_name으로 지정합니다.
+  - `sysadmin` 역할에 포함된 SQL 서버 수준 보안 주체(로그인)만이 Azure AD 보안 주체를 대상으로 하는 다음 작업을 실행할 수 있습니다.
+
+    - EXECUTE AS USER
+    - EXECUTE AS LOGIN
+
 - Azure AD 서버 보안 주체(로그인)에 대한 **공개 미리 보기** 제한 사항:
-    - Managed Instance에 대한 Active Directory 관리자 제한 사항:
-        - Managed Instance를 설정하는 데 사용된 Azure AD 관리자는 Managed Instance 내에 Azure AD 서버 보안 주체(로그인)를 만드는 데 사용할 수 없습니다. `sysadmin` SQL Server 계정을 사용하여 첫 번째 Azure AD 서버 보안 주체(로그인)를 만들어야 합니다. 이는 Azure AD 서버 보안 주체(로그인)가 GA(일반 공급)되면 제거될 일시적인 제한입니다. Azure AD 관리자 계정을 사용하여 로그인을 만들려고 시도하면 `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.` 오류가 표시됩니다.
-        - 현재 master DB에 생성되는 첫 번째 Azure AD 로그인은 `sysadmin`인 표준 SQL Server 계정(Azure AD 아님)이 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER를 사용해서 만들어야 합니다. GA 후에는 이 제한 사항이 제거되며, Managed Instance에 대한 Active Directory 관리자가 초기 Azure AD 로그인을 만들 수 있습니다.
+
+  - Managed Instance에 대한 Active Directory 관리자 제한 사항:
+
+    - Managed Instance를 설정하는 데 사용된 Azure AD 관리자는 Managed Instance 내에 Azure AD 서버 보안 주체(로그인)를 만드는 데 사용할 수 없습니다. `sysadmin` SQL Server 계정을 사용하여 첫 번째 Azure AD 서버 보안 주체(로그인)를 만들어야 합니다. 이는 Azure AD 서버 보안 주체(로그인)가 GA(일반 공급)되면 제거될 일시적인 제한입니다. Azure AD 관리자 계정을 사용하여 로그인을 만들려고 시도하면 `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.` 오류가 표시됩니다.
+      - 현재 master DB에 생성되는 첫 번째 Azure AD 로그인은 `sysadmin`인 표준 SQL Server 계정(Azure AD 아님)이 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER를 사용해서 만들어야 합니다. GA 후에는 이 제한 사항이 제거되며, Managed Instance에 대한 Active Directory 관리자가 초기 Azure AD 로그인을 만들 수 있습니다.
     - SSMS(SQL Server Management Studio) 또는 SqlPackage에서 사용되는 DacFx(내보내기/가져오기)는 Azure AD 로그인에 대해 지원되지 않습니다. 이 제한 사항은 Azure AD 서버 보안 주체(로그인)가 GA되면 제거됩니다.
     - SSMS에서 Azure AD 서버 보안 주체(로그인) 사용
-        - Azure AD 로그인(인증된 로그인 사용)을 스크립팅할 수 없습니다.
-        - IntelliSense에서 **CREATE LOGIN FROM EXTERNAL PROVIDER** 문을 인식할 수 없어 빨간색 밑줄을 표시합니다.
+
+      - Azure AD 로그인(인증된 로그인 사용)을 스크립팅할 수 없습니다.
+      - IntelliSense에서 **CREATE LOGIN FROM EXTERNAL PROVIDER** 문을 인식할 수 없어 빨간색 밑줄을 표시합니다.
+
 - 서버 수준 보안 주체 로그인(Managed Instance 프로비저닝 프로세스를 통해 생성됨), 서버 역할의 멤버(`securityadmin` 또는 `sysadmin`) 또는 서버 수준에서 ALTER ANY LOGIN 권한이 있는 기타 로그인만 Managed Instance에 대한 Azure AD 서버 보안 주체(로그인)를 master 데이터베이스에 만들 수 있습니다.
 - 로그인이 SQL 보안 주체인 경우 `sysadmin` 역할에 포함된 로그인만 create 명령을 사용하여 Azure AD 계정에 대한 로그인을 만들 수 있습니다.
 - Azure AD 로그인은 Azure SQL Managed Instance에 사용되는 것과 동일한 디렉터리 내의 Azure AD 멤버여야 합니다.
 - Azure AD 서버 보안 주체(로그인)는 SSMS 18.0 미리 보기 5부터 개체 탐색기에 표시됩니다.
 - Azure AD 서버 보안 주체(로그인)를 Azure AD 관리자 계정과 겹칠 수 있습니다. 보안 주체를 확인하고 Managed Instance에 대한 사용 권한을 적용할 때 Azure AD 서버 보안 주체(로그인)가 Azure AD 관리자보다 우선합니다.
 - 인증 중에 인증 보안 주체를 확인하기 위해 적용되는 시퀀스는 다음과 같습니다.
+
     1. Azure AD 계정이 Azure AD 서버 보안 주체(로그인)에 직접 매핑된 경우(sys.server_principals에서 ‘E’ 형식으로), 액세스 권한을 부여하고 Azure AD 서버 보안 주체(로그인)의 사용 권한을 적용합니다.
     2. Azure AD 계정이 Azure AD 서버 보안 주체(로그인)에 직접 매핑된 Azure AD 그룹의 멤버인 경우(sys.server_principals에서 ‘X’ 형식으로), 액세스 권한을 부여하고 Azure AD 그룹 로그인의 사용 권한을 적용합니다.
     3. Azure AD 계정이 포털에서 구성된 Managed Instance에 대한 특수 Azure AD 관리자인 경우(Managed Instance 시스템 뷰에 없음), Managed Instance(레거시 모드)에 대해 Azure AD 관리자의 수정된 특수 사용 권한을 적용합니다.
     4. Azure AD 계정이 데이터베이스의 Azure AD 사용자에 직접 매핑된 경우(sys.database_principals에서 ‘E’ 형식으로), 액세스 권한을 부여하고 Azure AD 데이터베이스 사용자의 사용 권한을 적용합니다.
     5. Azure AD 계정이 데이터베이스의 Azure AD 사용자에 매핑된 Azure AD 그룹의 멤버인 경우(sys.database_principals에서 ‘X’ 형식으로), 액세스 권한을 부여하고 Azure AD 그룹 로그인의 사용 권한을 적용합니다.
     6. Azure AD 사용자 계정 또는 Azure AD 그룹 계정에 매핑되어 사용자 인증으로 확인되는 Azure AD 로그인이 있는 경우, 이 Azure AD 로그인의 모든 사용 권한이 적용됩니다.
-
-
-
-
-
 
 ### <a name="service-key-and-service-master-key"></a>서비스 키 및 서비스 마스터 키
 
@@ -257,8 +271,6 @@ Managed Instance는 파일에 액세스할 수 없으므로 암호화 공급자�
 - `SINGLE_USER`
 - `WITNESS`
 
-이름을 수정할 수 없습니다.
-
 자세한 내용은 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options)를 참조하세요.
 
 ### <a name="sql-server-agent"></a>SQL Server 에이전트
@@ -322,7 +334,6 @@ Managed Instance에서 파일 공유 및 Windows 폴더에 액세스할 수 없�
 - `CREATE ASSEMBLY FROM BINARY`만 지원됩니다. [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)를 참조하세요.  
 - `CREATE ASSEMBLY FROM FILE`은 지원되지 않습니다. [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)을 참조하세요.
 - `ALTER ASSEMBLY`는 파일을 참조할 수 없습니다. [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql)를 참조하세요.
-
 
 ### <a name="dbcc"></a>DBCC
 
@@ -437,7 +448,7 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 
 ### <a name="stored-procedures-functions-triggers"></a>저장 프로시저, 함수, 트리거
 
-- `NATIVE_COMPILATION`은 현재 지원되지 않습니다.
+- `NATIVE_COMPILATION` 일반적인 용도 계층에서 지원 되지 않습니다.
 - 지원되지 않는 [sp_configure](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) 옵션은 다음과 같습니다.
   - `allow polybase export`
   - `allow updates`
@@ -448,7 +459,6 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 - `xp_cmdshell`은 지원되지 않습니다. [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)을 참조하세요.
 - `sp_addextendedproc` 및 `sp_dropextendedproc`를 포함하여 `Extended stored procedures`는 지원되지 않습니다. [확장 저장 프로시저](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)를 참조하세요.
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
-- `sp_renamedb`는 지원되지 않습니다. [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql)를 참조하세요.
 
 ## <a name="Changes"></a> 동작 변경
 
@@ -467,7 +477,11 @@ HDFS 또는 Azure Blob Storage의 파일을 참조하는 외부 테이블은 지
 
 ### <a name="tempdb-size"></a>TEMPDB 크기
 
-`tempdb`는 파일당 최대 크기가 14GB인 12개의 파일로 분할됩니다. 이 파일당 최대 크기는 변경할 수 없으며, 새 파일을 `tempdb`에 추가할 수 있습니다. 이 제한은 곧 제거될 예정입니다. `tempdb`에 필요한 크기가 168GB를 초과하는 경우 일부 쿼리에서 오류를 반환할 수 있습니다.
+최대 파일 크기인 `tempdb` 24GB/core 범용 계층에서 보다 큼이 하 여야 합니다. 최대 `tempdb` 중요 비즈니스 계층의 크기는 인스턴스 저장소 크기를 제한 합니다. `tempdb` 항상 12 데이터 파일로 분할 됩니다. 이 파일당 최대 크기는 변경할 수 없으며, 새 파일을 `tempdb`에 추가할 수 있습니다. 24GB 이상 필요한 경우 일부 쿼리는 오류를 반환할 수 있습니다에 핵심 / `tempdb`합니다.
+
+### <a name="cannot-restore-contained-database"></a>포함 된 데이터베이스를 복원할 수 없습니다.
+
+관리 되는 인스턴스를 복원할 수 없습니다 [포함 된 데이터베이스](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)합니다. 관리 되는 인스턴스에서 기존 포함 된 데이터베이스의 지정 시간 복원이 작동 하지 않습니다. 이 문제는 곧 제거 될 예정 및 그동안 containment 옵션 관리 되는 인스턴스에서 배치 되 고 프로덕션 데이터베이스에 대 한 포함 옵션을 사용 하지 않으면 데이터베이스에서 제거할 것이 좋습니다.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>작은 데이터베이스 파일이 포함된 저장소 공간 초과
 
@@ -500,7 +514,7 @@ Managed Instance에 액세스하는 동안 SSMS(SQL Server Management Studio) �
 
 ### <a name="database-mail-profile"></a>데이터베이스 메일 프로필
 
-데이터베이스 메일 프로필은 하나만 있을 수 있으며, `AzureManagedInstance_dbmail_profile`이라고 해야 합니다.
+SQL 에이전트에서 사용 하는 데이터베이스 메일 프로필을 호출 해야 `AzureManagedInstance_dbmail_profile`합니다.
 
 ### <a name="error-logs-are-not-persisted"></a>오류 로그가 유지되지 않음
 
@@ -514,7 +528,7 @@ Managed Instance는 자세한 정보를 오류 로그에 배치하지만 대부�
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>동일한 인스턴스 내의 두 데이터베이스에 대한 트랜잭션 범위가 지원되지 않음
 
-동일한 트랜잭션 범위에서 동일한 인스턴스 내의 두 데이터베이스에 두 개의 쿼리를 보내는 경우 .NET의 `TransactionScope` 클래스가 작동하지 않습니다.
+`TransactionScope` .net에서 클래스는 동일한 트랜잭션 범위에서 같은 인스턴스 내에서 두 데이터베이스에 두 개의 쿼리를 보내는 경우 작동 하지 않습니다.
 
 ```C#
 using (var scope = new TransactionScope())

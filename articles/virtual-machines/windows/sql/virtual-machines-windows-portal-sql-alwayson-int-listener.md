@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248312"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107885"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 부하 분산 장치 구성
 이 문서에서는 Azure Resource Manager로 실행 중인 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치를 만드는 방법을 설명합니다. SQL Server 인스턴스가 Azure 가상 머신에 있는 경우 가용성 그룹을 사용하려면 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 저장합니다. 가용성 그룹이 여러 지역에 분산된 경우 각 지역에 부하 분산 장치가 있어야 합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "51248312"
    | 설정 | 값 |
    | --- | --- |
    | **Name** |부하 분산 장치를 나타내는 텍스트 이름입니다. 예를 들어 **sqlLB**입니다. |
-   | **형식** |**내부**: 대부분의 구현에서는 내부 부하 분산 장치를 사용하며, 동일한 가상 네트워크 내에 있는 응용 프로그램은 가용성 그룹에 연결할 수 있습니다.  </br> **외부**: 응용 프로그램이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있습니다. |
+   | **형식** |**내부**: 대부분의 구현에서는 동일한 가상 네트워크 내에 있는 애플리케이션이 가용성 그룹에 연결할 수 있도록 하는 내부 부하 분산 장치를 사용합니다.  </br> **외부**: 애플리케이션이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있도록 합니다. |
    | **가상 네트워크** |SQL Server 인스턴스가 있는 가상 네트워크를 선택합니다. |
    | **서브넷** |SQL Server 인스턴스가 있는 서브넷을 선택합니다. |
    | **IP 주소 할당** |**정적** |
@@ -235,18 +235,18 @@ Azure Portal을 사용하여 부하 분산 장치에 IP 주소를 추가하려�
 
 10. 다음 설정을 사용하여 새 부하 분산 규칙을 구성합니다.
 
-   |설정 |값
-   |:-----|:----
-   |**Name** |부하 분산 규칙을 식별하는 이름입니다. 
-   |**프런트 엔드 IP 주소** |만든 IP 주소를 선택합니다. 
-   |**프로토콜** |TCP
-   |**포트** |SQL Server 인스턴스에서 사용하는 포트를 사용합니다. 변경하지 않을 경우 기본 인스턴스는 포트 1433을 사용합니다. 
-   |**백 엔드 포트** |**포트**와 동일한 값을 사용합니다.
-   |**백 엔드 풀** |SQL Server 인스턴스가 포함된 가상 머신을 포함하는 풀입니다. 
-   |**상태 프로브** |만든 프로브를 선택합니다.
-   |**세션 지속성** |없음
-   |**유휴 제한 시간(분)** |기본값(4)
-   |**부동 IP(Direct Server Return)** | 사용
+    |설정 |값
+    |:-----|:----
+    |**Name** |부하 분산 규칙을 식별하는 이름입니다. 
+    |**프런트 엔드 IP 주소** |만든 IP 주소를 선택합니다. 
+    |**프로토콜** |TCP
+    |**포트** |SQL Server 인스턴스에서 사용하는 포트를 사용합니다. 변경하지 않을 경우 기본 인스턴스는 포트 1433을 사용합니다. 
+    |**백 엔드 포트** |**포트**와 동일한 값을 사용합니다.
+    |**백 엔드 풀** |SQL Server 인스턴스가 포함된 가상 머신을 포함하는 풀입니다. 
+    |**상태 프로브** |만든 프로브를 선택합니다.
+    |**세션 지속성** |없음
+    |**유휴 제한 시간(분)** |기본값(4)
+    |**부동 IP(Direct Server Return)** | 사용
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>새 IP 주소를 사용하도록 가용성 그룹 구성
 

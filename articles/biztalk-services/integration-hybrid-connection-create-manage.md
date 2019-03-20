@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 584b9d67808e75222d832f045e5d3f93fbb326ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232983"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105093"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>하이브리드 연결 만들기 및 관리
 
 > [!IMPORTANT]
 > BizTalk 하이브리드 연결은 사용 중지되고 App Service 하이브리드 연결로 대체됩니다. 기존 BizTalk 하이브리드 연결 관리 방법을 비롯한 자세한 내용은 [Azure App Service 하이브리드 연결](../app-service/app-service-hybrid-connections.md)을 참조하세요.
-
->[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+> 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="overview-of-the-steps"></a>단계의 개요
 1. 개인 네트워크에 있는 온-프레미스 리소스의 **host name** 또는 **FQDN** of the on-premises resource in your private netw또는k.
@@ -37,12 +37,12 @@ ms.locfileid: "51232983"
 이 항목에서는 이러한 단계를 나열합니다. 
 
 > [!IMPORTANT]
-> 하이브리드 연결 엔드포인트를 IP 주소로 설정할 수 있습니다. IP 주소를 사용하는 경우 클라이언트에 따라 온-프레미스 리소스에 도달하지 못할 수 있습니다. 하이브리드 연결은 DNS 조회를 수행하는 클라이언트에 따라 달라집니다. 대부분의 경우에는 **클라이언트** 는 애플리케이션 코드입니다. 클라이언트가 DNS 조회를 수행하지 않는 경우(도메인 이름(x.x.x.x)인 것처럼 보이면 IP 주소를 확인하지 않음), 하이브리드 연결을 통해 트래픽을 보내지 않습니다.
+> 하이브리드 연결 엔드포인트를 IP 주소로 설정할 수 있습니다. IP 주소를 사용하는 경우 클라이언트에 따라 온-프레미스 리소스에 도달하지 못할 수 있습니다. 하이브리드 연결은 DNS 조회를 수행하는 클라이언트에 따라 달라집니다. 대부분의 경우에는 **클라이언트**는 애플리케이션 코드입니다. 클라이언트가 DNS 조회를 수행하지 않는 경우(도메인 이름(x.x.x.x)인 것처럼 보이면 IP 주소를 확인하지 않음), 하이브리드 연결을 통해 트래픽을 보내지 않습니다.
 > 
 > 예를 들어, **10.4.5.6** (의사 코드)을 온-프레미스 호스트로 정의합니다.
 > 
 > **다음 시나리오는 다음과 같은 경우 적용됩니다**.  
-> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
 > **다음 시나리오는 다음과 같은 경우 적용되지 않습니다**.  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
@@ -55,8 +55,8 @@ ms.locfileid: "51232983"
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 #### <a name="additional"></a>추가 항목
-* 하이브리드 연결을 여러 개 만들 수 있습니다. 허용되는 연결 수는 [BizTalk Services: Editions 차트](biztalk-editions-feature-chart.md) 를 참조하세요. 
-* 각 하이브리드 연결은 송신하는 애플리케이션 키와 수신하는 온-프레미스 키, 연결 문자열 쌍으로 생성됩니다. 각 쌍에는 기본 및 보조 키가 있습니다. 
+* 하이브리드 연결을 여러 개 만들 수 있습니다. 참조 된 [BizTalk Services: 버전 차트](biztalk-editions-feature-chart.md) 허용 연결 수에 대 한 합니다. 
+* 각 하이브리드 연결은 연결 문자열의 쌍으로 만들어집니다. 전송 하는 온-프레미스 키 수신 대기 하는 응용 프로그램 키입니다. 각 쌍에는 기본 및 보조 키가 있습니다. 
 
 ## <a name="LinkWebSite"></a>Azure App Service Web App 또는 Mobile App 연결
 Azure App Service에서 Web App 또는 Mobile App을 기존 하이브리드 연결에 연결하려면 하이브리드 연결 블레이드에서 **기존 하이브리드 연결 사용**을 선택합니다. 
@@ -117,9 +117,9 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 ## <a name="next"></a>다음
 [하이브리드 연결 개요](integration-hybrid-connection-overview.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [Microsoft Azure의 BizTalk Services를 관리하기 위한 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[BizTalk Services: Editions 차트](biztalk-editions-feature-chart.md)  
+[BizTalk Services: 버전 차트](biztalk-editions-feature-chart.md)  
 [BizTalk Service 만들기](biztalk-provision-services.md)  
 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)
 

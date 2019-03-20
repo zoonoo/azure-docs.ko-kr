@@ -8,20 +8,20 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: ab307548853a545c4aa8ee5a573ca5b1ca67c91d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 031b3096d919eb3faadf907f0d30e15d8d8fb5e5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310260"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122963"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
 이 문서에서는 Azure Recovery Services 자격 증명 모음에서 Windows Server 시스템 상태 백업을 복원하는 방법에 대해 설명합니다. 시스템 상태를 복원하려면 시스템 상태 백업([시스템 상태 백업](backup-azure-system-state.md#back-up-windows-server-system-state) 지침에 따라 만듦)이 있어야 하고 [최신 버전의 MARS(Microsoft Azure Recovery Services) 에이전트](https://aka.ms/azurebackup_agent)가 설치되어 있는지 확인합니다. Azure Recovery Services 자격 증명 모음에서 Windows Server 시스템 상태 데이터를 복구하는 작업은 두 단계로 이루어집니다.
 
 1. Azure Backup에서 파일로 시스템 상태 복원 Azure Backup에서 파일로 시스템 상태를 복원할 경우 다음을 수행할 수 있습니다.
-  * 백업이 수행된 동일한 서버에 시스템 상태 복원 또는
-  * 대체 서버에 시스템 상태 파일 복원
+   * 백업이 수행된 동일한 서버에 시스템 상태 복원 또는
+   * 대체 서버에 시스템 상태 파일 복원
 
 2. Windows Server에 복원된 시스템 상태 파일 적용
 

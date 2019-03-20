@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124986"
 ---
 #### <a name="to-create-a-volume"></a>볼륨을 만들려면
 1. **디바이스** 블레이드의 테이블 형식 디바이스 목록에서 디바이스를 선택합니다. **+ 볼륨 추가**를 클릭합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "55888882"
 
    2. 드롭다운 목록에서 볼륨을 추가해야 하는 볼륨 컨테이너를 선택합니다. 
 
-   3.  볼륨의 **이름** 을 입력합니다. 볼륨을 만든 후에는 이름을 바꿀 수 없습니다.
+   3. 볼륨의 **이름** 을 입력합니다. 볼륨을 만든 후에는 이름을 바꿀 수 없습니다.
 
    4. 드롭다운 목록에서 볼륨의 **유형**을 선택합니다. 로컬 보증, 낮은 대기 시간 및 높은 성능이 필요한 워크로드의 경우 **로컬로 고정** 볼륨을 선택합니다. 다른 모든 데이터에 대해서는 **계층화됨** 볼륨을 선택합니다. 아카이브 데이터에 이 볼륨을 사용하려면 **자주 액세스하지 않는 아카이브 데이터에 대해 이 볼륨 사용**을 선택합니다.
       
@@ -36,19 +36,19 @@ ms.locfileid: "55888882"
       
        8100 디바이스에 8.5TB(최대 허용 크기)의 로컬 고정 볼륨을 프로비전하면 해당 디바이스에서 사용 가능한 로컬 공간이 모두 소진됩니다. 따라서 계층화된 볼륨의 작업 집합을 호스트할 로컬 공간이 디바이스에 없기 때문에 더 이상 계층화된 볼륨을 만들 수 없습니다. 기존 계층화된 볼륨도 사용 가능한 공간에 영향을 줍니다. 예를 들어 대략 106TB의 계층화된 볼륨이 있는 8100 디바이스에서는 로컬 고정 볼륨에 대해 4TB의 공간만 사용할 수 있습니다.
 
-    6. **연결된 호스트** 필드에서 화살표를 클릭합니다. 
+      1. **연결된 호스트** 필드에서 화살표를 클릭합니다. 
 
-        ![연결된 호스트](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![연결된 호스트](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
 
-    7. **연결된 호스트** 블레이드에서 다음 단계를 수행하여 기존 ACR을 선택하거나 새 ACR을 추가합니다.
+      1. **연결된 호스트** 블레이드에서 다음 단계를 수행하여 기존 ACR을 선택하거나 새 ACR을 추가합니다.
 
-       1. ACR의 **이름** 을 지정합니다.
-       2. **iSCSI 초기자 이름**에서 Windows 호스트의 IQN(정규화된 iSCSI 이름)을 제공합니다. IQN이 없는 경우 [Windows Server 호스트의 IQN 가져오기](#get-the-iqn-of-a-windows-server-host)로 이동합니다.
+         1. ACR의 **이름** 을 지정합니다.
+         2. **iSCSI 초기자 이름**에서 Windows 호스트의 IQN(정규화된 iSCSI 이름)을 제공합니다. IQN이 없는 경우 [Windows Server 호스트의 IQN 가져오기](#get-the-iqn-of-a-windows-server-host)로 이동합니다.
 
-    9. **만들기**를 클릭합니다. 지정한 설정으로 볼륨이 만들어집니다.
+      1. **만들기**를 클릭합니다. 지정한 설정으로 볼륨이 만들어집니다.
 
-        ![만들기 클릭 ](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![만들기 클릭 ](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
-        > [!NOTE]
-        > 여기서 만든 볼륨은 보호되지 않습니다. 예약된 백업을 수행하려면 이 볼륨에 백업 정책을 만들어 연결해야 합니다. 
+         > [!NOTE]
+         > 여기서 만든 볼륨은 보호되지 않습니다. 예약된 백업을 수행하려면 이 볼륨에 백업 정책을 만들어 연결해야 합니다. 
 

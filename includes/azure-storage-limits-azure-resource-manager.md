@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a76e91eee14c8c1feca8178fec461cf71989d8a3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: 092b5696b97b73344a01af8103b24a01010f7a55
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46299124"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554173"
 ---
-다음과 같은 제한은 Azure Storage와 Azure Resource Manager를 사용하여 관리 작업을 수행하는 경우에만 적용됩니다.
+다음과 같은 제한에는 Azure Storage를 사용 하 여 Azure Resource Manager를 사용 하 여 관리 작업을 수행 하는 경우에 적용 됩니다.
 
 | 리소스 | 기본 제한 |
 | --- | --- |

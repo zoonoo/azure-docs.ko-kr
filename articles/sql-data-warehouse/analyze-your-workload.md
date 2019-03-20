@@ -2,111 +2,31 @@
 title: 워크로드 분석 - Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Data Warehouse의 워크로드에 대한 쿼리 우선 순위 지정 분석 기술.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
-ms.date: 04/17/2018
-ms.author: kevin
-ms.reviewer: igorstan
-ms.openlocfilehash: 9025eccabcbf7052131fee741a1e1f6a2139366b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.subservice: workload management
+ms.date: 03/13/2019
+ms.author: rortloff
+ms.reviewer: jrasnick
+ms.openlocfilehash: 7b5ca738ef71e25dfe5e71a1983d701bb8868fe5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896809"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 워크로드 분석
-Azure SQL Data Warehouse의 워크로드에 대한 쿼리 우선 순위 지정 분석 기술.
 
-## <a name="workload-groups"></a>워크로드 그룹 
-SQL Data Warehouse는 워크로드 그룹을 사용하여 리소스 클래스를 구현합니다. 다양한 DWU 크기의 리소스 클래스 동작을 제어하는 총 8개의 워크로드 그룹이 있습니다. DWU의 경우 SQL Data Warehouse는 8개의 워크로드 그룹 중 4개만 사용합니다. 이 접근 방법은 각 워크로드 그룹은 4가지 리소스 클래스 smallrc, mediumrc, largerc 또는 xlargerc 중 하나에 할당되기 때문에 타당합니다. 이들 워크로드 그룹의 일부가 더 높은 *중요도*로 설정된다는 점 때문에 워크로드 그룹을 이해하는 것이 중요합니다. 중요도가 CPU 예약에 사용됩니다. 높은 중요도의 쿼리 실행은 중간 중요도의 쿼리 실행보다 3배 더 많은 CPU 사이클이 할당됩니다. 따라서 동시성 슬롯 매핑은 또한 CPU 우선 순위를 결정합니다. 쿼리가 16개 이상의 슬롯을 사용할 경우 중요도 높음으로 실행됩니다.
+Azure SQL Data Warehouse에서 워크 로드를 분석 하기 위한 기술입니다.
 
-다음 테이블에서는 각 워크로드 그룹에 대한 중요도 매핑을 보여 줍니다.
+## <a name="resource-classes"></a>리소스 클래스
 
-### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>동시성 슬롯 및 중요도에 대한 워크로드 그룹 매핑
-
-| 워크로드 그룹 | 동시성 슬롯 매핑 | MB/배포(탄력성) | MB/배포(계산) | 중요도 매핑 |
-|:---------------:|:------------------------:|:------------------------------:|:---------------------------:|:------------------:|
-| SloDWGroupC00   | 1                        |    100                         | 250                         | 중간             |
-| SloDWGroupC01   | 2                        |    200                         | 500                         | 중간             |
-| SloDWGroupC02   | 4                        |    400                         | 1000                        | 중간             |
-| SloDWGroupC03   | 8                        |    800                         | 2000                        | 중간             |
-| SloDWGroupC04   | 16                       |  1,600                         | 4000                        | 높음               |
-| SloDWGroupC05   | 32                       |  3,200                         | 8000                        | 높음               |
-| SloDWGroupC06   | 64                       |  6,400                         | 16,000                      | 높음               |
-| SloDWGroupC07   | 128                      | 12,800                         | 32,000                      | 높음               |
-| SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | 높음               |
-
-<!-- where are the allocation and consumption of concurrency slots charts? --> **동시성 슬롯의 할당 및 사용량** 차트는 DW500에서 smallrc, mediumrc, largerc 및 xlargerc 각각에 대해 1, 4, 8 또는 16개의 동시성 슬롯을 사용한다는 것을 보여 줍니다. 각 리소스 클래스에 대한 중요도를 확인하기 위해 위 차트에서 해당 값을 확인할 수 있습니다.
-
-### <a name="dw500-mapping-of-resource-classes-to-importance"></a>DW500의 리소스 클래스와 중요도 관계
-| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | MB/배포 | 중요도 |
-|:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
-| smallrc        | SloDWGroupC00  | 1                      | 100               | 중간     |
-| mediumrc       | SloDWGroupC02  | 4                      | 400               | 중간     |
-| largerc        | SloDWGroupC03  | 8                      | 800               | 중간     |
-| xlargerc       | SloDWGroupC04  | 16                     | 1,600             | 높음       |
-| staticrc10     | SloDWGroupC00  | 1                      | 100               | 중간     |
-| staticrc20     | SloDWGroupC01  | 2                      | 200               | 중간     |
-| staticrc30     | SloDWGroupC02  | 4                      | 400               | 중간     |
-| staticrc40     | SloDWGroupC03  | 8                      | 800               | 중간     |
-| staticrc50     | SloDWGroupC03  | 16                     | 1,600             | 높음       |
-| staticrc60     | SloDWGroupC03  | 16                     | 1,600             | 높음       |
-| staticrc70     | SloDWGroupC03  | 16                     | 1,600             | 높음       |
-| staticrc80     | SloDWGroupC03  | 16                     | 1,600             | 높음       |
-
-## <a name="view-workload-groups"></a>워크로드 그룹 보기
-다음 쿼리는 리소스 관리자의 관점에서 메모리 리소스 할당의 세부 정보를 보여 줍니다. 따라서 문제 해결 시 작업 그룹의 현재 및 이전 사용을 분석하는 데 도움이 됩니다.
-
-```sql
-WITH rg
-AS
-(   SELECT  
-     pn.name                                AS node_name
-    ,pn.[type]                              AS node_type
-    ,pn.pdw_node_id                         AS node_id
-    ,rp.name                                AS pool_name
-    ,rp.max_memory_kb*1.0/1024              AS pool_max_mem_MB
-    ,wg.name                                AS group_name
-    ,wg.importance                          AS group_importance
-    ,wg.request_max_memory_grant_percent    AS group_request_max_memory_grant_pcnt
-    ,wg.max_dop                             AS group_max_dop
-    ,wg.effective_max_dop                   AS group_effective_max_dop
-    ,wg.total_request_count                 AS group_total_request_count
-    ,wg.total_queued_request_count          AS group_total_queued_request_count
-    ,wg.active_request_count                AS group_active_request_count
-    ,wg.queued_request_count                AS group_queued_request_count
-    FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
-    JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    
-            ON  wg.pdw_node_id  = rp.pdw_node_id
-            AND wg.pool_id      = rp.pool_id
-    JOIN    sys.dm_pdw_nodes pn
-            ON    wg.pdw_node_id    = pn.pdw_node_id
-    WHERE   wg.name like 'SloDWGroup%'
-    AND     rp.name    = 'SloDWPool'
-)
-SELECT  pool_name
-,       pool_max_mem_MB
-,       group_name
-,       group_importance
-,       (pool_max_mem_MB/100)*group_request_max_memory_grant_pcnt AS max_memory_grant_MB
-,       node_name
-,       node_type
-,       group_total_request_count
-,       group_total_queued_request_count
-,       group_active_request_count
-,       group_queued_request_count
-FROM    rg
-ORDER BY
-        node_name
-,       group_request_max_memory_grant_pcnt
-,       group_importance
-;
-```
+SQL Data Warehouse는 쿼리를 시스템 리소스를 할당 하려면 리소스 클래스를 제공 합니다.  리소스 클래스에 대 한 자세한 내용은 참조 하세요. [리소스 클래스 및 워크 로드 관리](resource-classes-for-workload-management.md)합니다.  쿼리는 쿼리에 할당 된 리소스 클래스를 현재 사용할 수 있는 보다 더 많은 리소스가 필요한 경우 대기 합니다.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>큐에 대기 중인 쿼리 검색 및 다른 DMV
+
 `sys.dm_pdw_exec_requests` DMV는 동시성 큐에 대기 중인 쿼리를 식별하는 데 사용할 수 있습니다. 동시성 슬롯을 대기하는 쿼리는 **일시 중단**상태가 됩니다.
 
 ```sql
@@ -186,7 +106,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-`sys.dm_pdw_resource_waits` DMV는 지정된 쿼리에 사용되는 리소스 대기만 표시합니다. 리소스 대기 시간은 기본 SQL Server가 CPU에 대해 쿼리를 예약하는 데 소요되는 대기 시간을 나타내는 것과 달리 리소스가 제공될 때까지 대기하는 시간만 측정합니다.
+`sys.dm_pdw_resource_waits` DMV에 지정 된 쿼리에 대 한 대기 정보를 보여 줍니다. 리소스를 대기 시간 측정 리소스가 제공 될 때까지 기다리는 시간입니다. 신호 대기 시간은 기본 SQL server에서 CPU로 쿼리를 예약 하는 데 걸리는 시간입니다.
 
 ```sql
 SELECT  [session_id]
@@ -204,12 +124,13 @@ FROM    sys.dm_pdw_resource_waits
 WHERE    [session_id] <> SESSION_ID()
 ;
 ```
+
 또한 `sys.dm_pdw_resource_waits` DMV를 사용하여 얼마나 많은 동시성 슬롯이 부여되었는지 계산할 수 있습니다.
 
 ```sql
-SELECT  SUM([concurrency_slots_used]) as total_granted_slots 
-FROM    sys.[dm_pdw_resource_waits] 
-WHERE   [state]           = 'Granted' 
+SELECT  SUM([concurrency_slots_used]) as total_granted_slots
+FROM    sys.[dm_pdw_resource_waits]
+WHERE   [state]           = 'Granted'
 AND     [resource_class] is not null
 AND     [session_id]     <> session_id()
 ;
@@ -230,6 +151,5 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 데이터베이스 사용자 및 보안을 관리하는 방법에 대한 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호](sql-data-warehouse-overview-manage-security.md)를 참조하세요. 더 큰 리소스 클래스가 클러스터된 columnstore 인덱스 품질을 향상할 방법에 대한 자세한 내용은 [인덱스를 다시 빌드하여 세그먼트 품질 개선](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)을 참조하세요.
-
-

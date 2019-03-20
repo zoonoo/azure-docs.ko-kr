@@ -2,25 +2,18 @@
 title: 'Azure 가상 네트워크에 온-프레미스 네트워크 연결: 사이트 간 VPN(클래식): 포털 | Microsoft Docs'
 description: 공용 인터넷을 통해 온-프레미스 네트워크에서 클래식 Azure 가상 네트워크에 IPsec을 만듭니다.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: b0fa60d709c2fa6c286e44797d53e8a4a8d47d00
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a2d714cae187e4ebcf2eefd37c61484dc48495e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695607"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002830"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
 
@@ -46,7 +39,7 @@ ms.locfileid: "55695607"
 
 * 클래식 배포 모델에서 작업할 것인지 확인합니다. 리소스 관리자 배포 모델에서 작업하려면 [사이트 간 연결 만들기(리소스 관리자)](vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 참조하세요. 가능한 경우 리소스 관리자 배포 모델을 사용하는 것이 좋습니다.
 * 호환되는 VPN 디바이스 및 이 디바이스를 구성할 수 있는 사람이 있는지 확인합니다. 호환되는 VPN 디바이스 및 디바이스 구성에 대한 자세한 내용은 [VPN 디바이스 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
-* VPN 디바이스에 대한 외부 연결 공용 IPv4 주소가 있는지 확인합니다. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
+* VPN 디바이스에 대한 외부 연결 공용 IPv4 주소가 있는지 확인합니다.
 * 온-프레미스 네트워크에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다. 이 구성을 만들 때 Azure가 온-프레미스 위치에 라우팅할 IP 주소 범위 접두사를 지정해야 합니다. 온-프레미스 네트워크의 어떤 서브넷도 사용자가 연결하려는 가상 네트워크 서브넷과 중첩될 수 없습니다.
 * 현재 공유 키를 지정하고 VPN Gateway 연결을 만드는 데 PowerShell이 필요합니다. 최신 버전의 Azure SM(서비스 관리) PowerShell cmdlet을 설치합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 이 구성에 PowerShell을 사용할 때 관리자 권한으로 실행되고 있는지 확인합니다. 
 
@@ -78,25 +71,25 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
 
 ### <a name="to-create-a-virtual-network"></a>가상 네트워크를 만들려면
 
-1. 브라우저에서 [Azure Portal](http://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
 2. 페이지 맨 아래에 있는 **+** 를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다. **마켓플레이스 검색** 필드에 ‘Virtual Network’를 입력합니다. 반환된 목록에서 **Virtual Network**를 찾아서 클릭하여 **Virtual Network** 페이지를 엽니다.
 
-  ![가상 네트워크 검색 페이지](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
+   ![가상 네트워크 검색 페이지](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
 3. Virtual Network 페이지의 아래쪽 근처에 있는 **배포 모델 선택** 드롭다운 목록에서 **클래식**을 선택한 다음 **만들기**를 클릭합니다.
 
-  ![배포 모델 선택](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
+   ![배포 모델 선택](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
 4. **가상 네트워크(클래식) 만들기** 페이지에서 VNet 설정을 구성합니다. 이 페이지에서 첫 번째 주소 공간과 단일 서브넷 주소 범위를 추가합니다. VNet 만들기를 완료한 후에 다시 돌아와서 추가 서브넷 및 주소 공간을 추가합니다.
 
-  ![가상 네트워크 만들기 페이지](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "가상 네트워크 만들기 페이지")
+   ![가상 네트워크 만들기 페이지](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "가상 네트워크 만들기 페이지")
 5. **구독**이 올바른지 확인합니다. 드롭다운을 사용하여 구독을 변경할 수 있습니다.
 6. **리소스 그룹**을 클릭하고 기존 리소스 그룹을 선택하거나 이름을 입력하여 새로 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md#resource-groups)를 참조하세요.
 7. 다음으로 VNet에 대한 **위치** 설정을 선택합니다. 이 위치는 VNet에 배포하는 리소스가 상주할 곳을 결정합니다.
 8. 대시보드에서 VNet을 쉽게 찾을 수 있으려면 **대시보드에 고정**을 선택합니다. **만들기**를 클릭하여 VNet을 만듭니다.
 
-  ![대시보드에 고정](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Pin to dashboard")
+   ![대시보드에 고정](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Pin to dashboard")
 9. [만들기]를 클릭하면 VNet의 진행 상황을 반영하는 타일이 대시보드에 표시됩니다. 타일은 VNet이 생성되면서 변경됩니다.
 
-  ![가상 네트워크 타일 만들기](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "가상 네트워크 만들기")
+   ![가상 네트워크 타일 만들기](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "가상 네트워크 만들기")
 
 ## <a name="additionaladdress"></a>2. 다른 주소 공간 추가
 
@@ -124,14 +117,14 @@ DNS 설정이 S2S 구성의 일부가 아니지만 이름을 확인하려는 경
 1. 포털에서 게이트웨이를 만들려는 가상 네트워크로 이동합니다.
 2. 가상 네트워크에 대한 페이지에 대해, **개요** 페이지의 VPN 연결 섹션에서 **게이트웨이**를 클릭하여 **새 VPN 연결** 페이지를 엽니다.
 
-  ![클릭하여 게이트웨이 설정 구성](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "클릭하여 게이트웨이 설정 구성")
+   ![클릭하여 게이트웨이 설정 구성](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "클릭하여 게이트웨이 설정 구성")
 3. **새 VPN 연결** 페이지에서 **사이트 간**을 선택합니다.
 4. **로컬 사이트 - 필수 설정 구성**을 클릭하여 **로컬 사이트** 페이지를 엽니다. 설정을 구성한 다음 **확인**을 클릭하여 설정을 저장합니다.
-  - **이름:** 쉽게 식별할 수 있도록 로컬 사이트의 이름을 만듭니다.
-  - **VPN 게이트웨이 IP 주소:** 온-프레미스 네트워크에 대한 VPN 디바이스의 공용 IP 주소입니다. VPN 디바이스에는 IPv4 공용 IP 주소가 필요합니다. 연결하려는 VPN 디바이스에 유효한 공용 IP 주소를 지정합니다. NAT 뒤에 있을 수 없고 Azure에서 도달할 수 있어야 합니다. VPN 디바이스의 IP 주소를 모르는 경우 항상 자리 표시자 값을 넣고(반드시 유효한 공용 IP 주소 형식으로) 나중에 변경할 수 있습니다.
-  - **클라이언트 주소 공간:** 이 게이트웨이를 통해 로컬 온-프레미스 네트워크에 라우팅할 IP 주소 범위를 나열합니다. 주소 공간 범위를 여러 개 추가할 수 있습니다. 여기에서 지정한 범위가 자체 가상 네트워크가 연결된 다른 네트워크의 범위 또는 가상 네트워크 자체의 주소 범위와 겹치지 않도록 합니다.
+   - **이름:** 쉽게 식별할 수 있도록 로컬 사이트의 이름을 만듭니다.
+   - **VPN 게이트웨이 IP 주소:** 온-프레미스 네트워크에 대한 VPN 디바이스의 공용 IP 주소입니다. VPN 디바이스에는 IPv4 공용 IP 주소가 필요합니다. 연결하려는 VPN 디바이스에 유효한 공용 IP 주소를 지정합니다. Azure에 연결할 수 있어야 합니다. VPN 디바이스의 IP 주소를 모르는 경우 항상 자리 표시자 값을 넣고(반드시 유효한 공용 IP 주소 형식으로) 나중에 변경할 수 있습니다.
+   - **클라이언트 주소 공간:** 이 게이트웨이를 통해 로컬 온-프레미스 네트워크에 라우팅할 IP 주소 범위를 나열합니다. 주소 공간 범위를 여러 개 추가할 수 있습니다. 여기에서 지정한 범위가 자체 가상 네트워크가 연결된 다른 네트워크의 범위 또는 가상 네트워크 자체의 주소 범위와 겹치지 않도록 합니다.
 
-  ![로컬 사이트](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "로컬 사이트 구성")
+   ![로컬 사이트](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "로컬 사이트 구성")
 
 ## <a name="gatewaysubnet"></a>5. 게이트웨이 서브넷 구성
 
@@ -139,20 +132,20 @@ VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨
 
 1. **새 VPN 연결** 페이지에서 **게이트웨이 즉시 만들기** 확인란을 선택합니다. [선택적 게이트웨이 구성] 페이지가 표시됩니다. 확인란을 선택하지 않은 경우 게이트웨이 서브넷을 구성하기 위한 페이지를 볼 수 없습니다.
 
-  ![게이트웨이 구성 - 서브넷, 크기, 라우팅 유형](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "게이트웨이 구성 - 서브넷, 크기, 라우팅 유형")
+   ![게이트웨이 구성 - 서브넷, 크기, 라우팅 유형](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "게이트웨이 구성 - 서브넷, 크기, 라우팅 유형")
 2. **게이트웨이 구성** 페이지를 열려면 **선택적 게이트웨이 구성 - 서브넷, 크기 및 라우팅 유형**을 클릭합니다.
 3. **게이트웨이 구성** 페이지에서 **서브넷 - 필수 설정 구성**을 클릭하여 **서브넷 추가** 페이지를 엽니다.
 
-  ![게이트웨이 구성 - 게이트웨이 서브넷](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "게이트웨이 구성 - 게이트웨이 서브넷")
+   ![게이트웨이 구성 - 게이트웨이 서브넷](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "게이트웨이 구성 - 게이트웨이 서브넷")
 4. **서브넷 추가** 페이지에서 게이트웨이 서브넷을 추가합니다. 지정하는 게이트웨이 서브넷의 크기는 만들려는 VPN Gateway 구성에 따라 달라집니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 /27 또는 /28을 사용하는 것이 좋습니다. 이렇게 하면 더 많은 주소를 포함하는 큰 서브넷이 만들어집니다. 더 큰 게이트웨이 서브넷을 사용하면 향후 구성을 수용할 수 있을 만큼 충분한 IP 주소를 확보할 수 있습니다.
 
-  ![게이트웨이 서브넷 추가](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "게이트웨이 서브넷 추가")
+   ![게이트웨이 서브넷 추가](./media/vpn-gateway-howto-site-to-site-classic-portal/addgwsubnet.png "게이트웨이 서브넷 추가")
 
 ## <a name="sku"></a>6. SKU와 VPN 유형 지정
 
 1. 게이트웨이 **크기**를 선택합니다. 이 크기는 가상 네트워크 게이트웨이를 만드는 데 사용하는 게이트웨이 SKU입니다. 포털에서 'SKU 기본값'은 **기본**입니다. 클래식 VPN 게이트웨이는 이전(레거시) 게이트웨이 SKU를 사용합니다. 레거시 게이트웨이 SKU에 대한 자세한 내용은 [가상 네트워크 게이트웨이 SKU(이전 SKU) 작업](vpn-gateway-about-skus-legacy.md)을 참조하세요.
 
-  ![SKUL 및 VPN 유형 선택](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "SKU 및 VPN 유형 선택")
+   ![SKUL 및 VPN 유형 선택](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "SKU 및 VPN 유형 선택")
 2. 게이트웨이에 대한 **라우팅 유형**을 선택합니다. VPN 유형이라고도 합니다. 게이트웨이를 한 가지 유형에서 다른 유형으로 변환할 수 없기 때문에 올바른 게이트웨이 유형을 선택해야 합니다. VPN 디바이스는 선택한 라우팅 유형과 호환되어야 합니다. VPN 유형에 대한 자세한 내용은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#vpntype)를 참조하세요. '경로 기반' 및 '정책 기반' VPN 유형을 참조하는 문서를 볼 수 있습니다. '동적'은 '경로 기반'에 해당하고 '고정'은 '정책 기반'에 해당합니다.
 3. **확인**을 클릭하여 설정을 저장합니다.
 4. **새 VPN 연결** 페이지 하단에 **확인**을 클릭하여 가상 네트워크 게이트웨이 만들기를 시작합니다. 선택한 SKU에 따라 가상 네트워크 게이트웨이를 만드는 데 최대 45분까지 걸릴 수 있습니다.
@@ -177,19 +170,19 @@ VPN Gateway의 게이트웨이 서브넷을 만들어야 합니다. 게이트웨
 
 1. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 2. 계정에 대한 구독을 확인합니다.
 
-  ```powershell
-  Get-AzureSubscription
-  ```
+   ```powershell
+   Get-AzureSubscription
+   ```
 3. 둘 이상의 구독이 있는 경우 사용할 구독을 선택합니다.
 
-  ```powershell
-  Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
-  ```
+   ```powershell
+   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
+   ```
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>2단계. 공유 키 설정 및 연결 만들기
 
@@ -197,18 +190,18 @@ PowerShell 및 클래식 배포 모델을 사용하는 경우 포털에 있는 �
 
 1. 컴퓨터에 디렉터리를 만들고 디렉터리에 네트워크 구성 파일을 내보냅니다. 이 예제에서는 네트워크 구성 파일을 C:\AzureNet으로 내보냅니다.
 
-  ```powershell
-  Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-  ```
+   ```powershell
+   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
+   ```
 2. xml 편집기에서 네트워크 구성 파일을 열고 'LocalNetworkSite 이름' 및 'VirtualNetworkSite 이름'의 값을 확인합니다. 필요한 값을 반영하도록 예제를 수정합니다. 공백이 포함된 이름을 지정할 때는 값을 작은따옴표로 묶습니다.
 
 3. 공유 키를 설정하고 연결을 만듭니다. '-SharedKey'는 사용자가 생성하고 지정하는 값입니다. 이 예제에서는 'abc123'을 사용했지만 좀 더 복잡한 항목을 생성하여 사용할 수 있습니다. 중요한 점은 여기에서 지정한 값이 VPN 디바이스를 구성하는 경우 지정한 것과 동일한 값이어야 한다는 것입니다.
 
-  ```powershell
-  Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
-  -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
-  ```
-연결이 생성된 경우 **상태: 성공**이 표시됩니다.
+   ```powershell
+   Set-AzureVNetGatewayKey -VNetName 'Group TestRG1 TestVNet1' `
+   -LocalNetworkSiteName 'D1BFC9CB_Site2' -SharedKey abc123
+   ```
+   연결이 생성된 경우 **상태: 성공**이 표시됩니다.
 
 ## <a name="verify"></a>9. 연결 확인
 

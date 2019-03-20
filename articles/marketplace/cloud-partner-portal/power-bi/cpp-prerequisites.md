@@ -1,6 +1,6 @@
 ---
-title: Power BI 애플리케이션 필수 구성 요소 - Azure Marketplace | Microsoft Docs
-description: Power BI 앱을 AppSource에 게시하기 위한 필수 구성 요소를 나열합니다.
+title: Power BI 앱 제공 필수 구성 요소-Azure Marketplace | Microsoft Docs
+description: Power BI 앱을 AppSource에 게시 하기 위한 필수 구성 요소를 제공 합니다.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter: ''
 author: v-miclar
@@ -12,39 +12,40 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 414acab1259a14240f9f65aa4c12261f78473665
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 5014a9cdf9a8811aa6081476f9ec6c41be0ff906
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55665724"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012932"
 ---
-# <a name="power-bi-apps-prerequisites"></a>Power BI 앱 필수 구성 요소
+# <a name="power-bi-app-offer-prerequisites"></a>필수 구성 요소를 제공 하는 power BI 앱
 
-이 문서에는 Power BI 앱 제안을 Microsoft AppSource Marketplace에 게시하기 전에 충족해야 하는 기술 및 비즈니스 요구 사항이 나와 있습니다.
+이 문서에서는 기술 및 Power BI 앱을 게시 하기 전에 충족 해야 하는 비즈니스 요구 사항 AppSource marketplace에 제공 합니다.  아직 수행 하는 경우 검토 합니다 [Office 365, Dynamics 365, PowerApps 및 Power BI 제품 게시 가이드](../../appsource-offer-publishing-guide.md)합니다.
+
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항
 
-이 제안 유형에 필요한 기본 기술 자산은 [Power BI 애플리케이션](https://go.microsoft.com/fwlink/?linkid=2028636)입니다. 자세한 내용은 [Power BI 기술 자산 만들기](./cpp-create-technical-assets.md)를 참조하세요.
+이러한 제품 유형은 해야 기본 기술 자산을 [Power BI 앱](https://go.microsoft.com/fwlink/?linkid=2028636)합니다. 자세한 내용은 [Power BI 기술 자산 만들기](./cpp-create-technical-assets.md)를 참조하세요.
 
-Power BI에서 서비스 애플리케이션이 만들어지고 테스트되면 Power BI에서 생성하는 애플리케이션 설치 URL을 저장해야 합니다. 이 URL은 [새 Power BI 앱 제안](./cpp-create-offer.md)을 만드는 데 필요합니다.
+서비스 응용 프로그램을 만들고 Power BI에서 테스트를 거친 후 Power BI를 생성 하는 응용 프로그램 설치 URL을 저장 해야 합니다. 되도록 해야 [Power BI 앱 제품을 만드는](./cpp-create-offer.md)합니다.
 
 ## <a name="business-requirements"></a>비즈니스 요구 사항
 
-비즈니스 요구 사항에는 절차, 계약 및 법적 의무가 포함됩니다.
+비즈니스 요구 사항을 절차, 계약 및 법적 의무를 포함 합니다.  다음이 필요합니다.
 
--   등록된 Cloud Marketplace 게시자여야 합니다. 아직 등록되지 않은 경우 [Cloud Marketplace 게시자 되기](../../become-publisher.md) 문서의 단계를 수행합니다.
+- 등록된 한 클라우드가 marketplace 게시자 여야 합니다. 단계를 수행 하는 등록 되지 않은 경우 [클라우드 마켓플레이스 게시자가 되려면](../../become-publisher.md)합니다.
 
     > [!NOTE] 
-    > 동일한 Microsoft 개발자 센터 등록 계정을 사용하여 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그온해야 합니다. AppSource 제안에는 하나의 Microsoft 계정만 있어야 합니다. 개별 서비스 또는 제안에만 한정될 필요가 없습니다.
+    > 동일한 Microsoft 개발자 센터 등록 계정에 로그인 하는 데는 [클라우드 파트너 포털](https://cloudpartner.azure.com)합니다. AppSource 제안에는 하나의 Microsoft 계정만 있어야 합니다. 계정 개별 서비스 또는 제품에 특정 되지 않습니다.
  
--   상업적이고 합리적인 방식으로 고객이 이용할 수 있는 기술 지원을 담당합니다.
--   AppSource에 나열되는 제안에 대한 조건을 충족하는 콘텐츠를 제공해야 합니다. 자세한 내용은 [AppSource에 나열할 앱이 있나요? 방법은 다음과 같습니다.](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how)를 참조하세요.
--   [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement)을 준수해야 합니다.
+- 상업적이고 합리적인 방식으로 고객이 이용할 수 있는 기술 지원을 구축합니다.
+- AppSource에 나열할 수 귀하의 제품에 대 한 기준을 충족 하는 콘텐츠를 제공 합니다. 자세한 내용은 [AppSource에 나열할 앱이 있나요? 방법은 다음과 같습니다.](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how)를 참조하세요.
+- 따라야 합니다 [Microsoft 개인정보취급방침](https://privacy.microsoft.com/privacystatement)합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-모든 요구 사항이 충족되면 Cloud 파트너 포털에서 [Power BI 제안을 만들](./cpp-create-offer.md) 준비가 되었습니다.
+모든 요구 사항을 충족 한 후 준비가 [Power BI 앱 제품을 만드는](./cpp-create-offer.md) Cloud 파트너 포털에서입니다.

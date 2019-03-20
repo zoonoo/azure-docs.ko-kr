@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3f42ccb50496ed53ea9a68b60301f9feccccb16
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 833c2e460ae306a7673e580aaa304be93c3cd044
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199735"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Azure Active Directory 테넌트 삭제
 
@@ -36,50 +36,53 @@ Azure AD의 테넌트는 여러 가지 검사를 통과한 다음에야 삭제�
 
 ## <a name="delete-an-azure-ad-tenant"></a>Azure AD 테넌트 삭제
 
-1. 테넌트에 대한 전역 관리자인 계정으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
+1. 에 로그인 합니다 [Azure AD 관리 센터](https://aad.portal.azure.com) 테 넌 트에 대 한 전역 관리자 인 계정입니다.
 
 2. **Azure Active Directory**를 선택합니다.
 
-3. 삭제할 테넌트로 전환합니다.
+3. 삭제 하려는 조직에 전환 합니다.
   
-  ![디렉터리 삭제 단추](./media/directory-delete-howto/delete-directory-command.png)
+   ![조직 삭제 하기 전에 확인](./media/directory-delete-howto/delete-directory-command.png)
 
 4. **디렉터리 삭제**를 선택합니다.
   
-  ![디렉터리 삭제 단추](./media/directory-delete-howto/delete-directory-list.png)
+   ![조직 삭제 명령을 선택 합니다.](./media/directory-delete-howto/delete-directory-list.png)
 
 5. 테넌트가 하나 이상의 검사를 통과하지 못하는 경우, 통과 방법에 대한 자세한 정보를 제공하는 링크가 제공됩니다. 모든 검사를 통과한 후 **삭제**를 선택하여 프로세스를 완료합니다.
 
 ## <a name="i-have-an-expired-subscription-but-i-cant-delete-the-tenant"></a>만료된 구독이 있지만 테넌트를 삭제할 수 없는 경우
 
-Azure Active Directory 테넌트를 구성한 경우, 조직에 대해 Azure Active Directory Premium P2, Office 365 Business Premium 또는 Enterprise Mobility + Security E5와 같은 라이선스 기반 구독을 활성화했을 수도 있습니다. 이러한 구독은 실수로 인한 데이터 손실을 방지하기 위해 완전히 삭제될 때까지 디렉터리 삭제를 차단합니다. 테넌트 삭제를 허용하려면 구독이 **프로비전 해제됨** 상태여야 합니다. **만료됨** 또는 **취소됨** 상태의 구독은 **사용 안 함** 상태로 이동되며, 최종 단계는 **프로비전 해제됨** 상태입니다. 
+Azure AD 테 넌 트를 구성할 때 수 또한 활성화 한 라이선스 기반 구독 Azure AD Premium P2, Office 365 Business Premium 또는 Enterprise Mobility + Security E5와 같은 조직에 대 한 합니다. 이러한 구독은 실수로 인한 데이터 손실을 방지하기 위해 완전히 삭제될 때까지 디렉터리 삭제를 차단합니다. 테넌트 삭제를 허용하려면 구독이 **프로비전 해제됨** 상태여야 합니다. **만료됨** 또는 **취소됨** 상태의 구독은 **사용 안 함** 상태로 이동되며, 최종 단계는 **프로비전 해제됨** 상태입니다. 
 
 평가판 Office 365 구독(유료 파트너/CSP, 기업계약 또는 볼륨 라이선스를 포함하지 않음)이 만료될 경우 예상되는 결과는 다음 표를 참조하세요. Office 365 데이터 보존 및 구독 수명 주기에 대한 자세한 내용은 [비즈니스용 Office 365 구독이 종료되면 내 데이터와 액세스 권한에 어떤 변화가 있나요?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3)를 참조하세요. 
 
 구독 상태 | Data | 데이터 액세스
 ----- | ----- | -----
-활성(평가판의 경우 30일)  | 모두 데이터에 액세스할 수 있음    | <li>사용자는 Office 365 파일 또는 앱에 대한 일반 액세스 권한이 있음<li>관리자는 Office 365 관리 센터 및 리소스에 대한 일반 액세스 권한이 있음 
-만료됨(30일)   | 모두 데이터에 액세스할 수 있음    | <li>사용자는 Office 365 파일 또는 앱에 대한 일반 액세스 권한이 있음<li>관리자는 Office 365 관리 센터 및 리소스에 대한 일반 액세스 권한이 있음
-사용 안 함(30일) | 관리자만 데이터에 액세스할 수 있음  | <li>사용자가 Office 365 파일 또는 앱에 액세스할 수 없음<li>관리자는 Office 365 관리 센터에 액세스할 수 있지만 라이선스를 할당하거나 사용자를 업데이트할 수 없음
-프로비전 해제됨(사용 안 함으로 설정된 후 30일) | 데이터가 삭제됨(사용 중인 다른 서비스가 없는 경우 자동으로 삭제됨) | <li>사용자가 Office 365 파일 또는 앱에 액세스할 수 없음<li>관리자는 Office 365 관리 센터에 액세스하여 다른 구독을 구매하고 관리할 수 있음
+활성(평가판의 경우 30일)  | 모두 데이터에 액세스할 수 있음    | <li>사용자는 Office 365 파일 또는 앱에 대한 일반 액세스 권한이 있음<li>관리자가 Microsoft 365 관리 센터 및 리소스에 대 한 일반적인 액세스 
+만료됨(30일)   | 모두 데이터에 액세스할 수 있음    | <li>사용자는 Office 365 파일 또는 앱에 대한 일반 액세스 권한이 있음<li>관리자가 Microsoft 365 관리 센터 및 리소스에 대 한 일반적인 액세스
+사용 안 함(30일) | 관리자만 데이터에 액세스할 수 있음  | <li>사용자가 Office 365 파일 또는 앱에 액세스할 수 없음<li>관리자 수 Microsoft 365 관리 센터에 액세스 하지만 라이선스를 할당 하거나 업데이트할 수 없습니다 사용자
+프로비전 해제됨(사용 안 함으로 설정된 후 30일) | 데이터가 삭제됨(사용 중인 다른 서비스가 없는 경우 자동으로 삭제됨) | <li>사용자가 Office 365 파일 또는 앱에 액세스할 수 없음<li>관리자는 다른 구독을 구입 및 관리 Microsoft 365 관리 센터를 액세스할 수 있습니다. 
 
-구독을 **프로비전 해제됨** 상태로 전환하면 비즈니스용 Microsoft Store 관리 센터를 사용하여 3일 내에 삭제할 수 있습니다. 이 기능은 Office 365 관리 센터에 곧 제공될 예정입니다.
+## <a name="delete-a-subscription-in-the-microsoft-365-admin-center"></a>Microsoft 365 관리 센터에서 구독 삭제
 
-1. 테넌트의 전역 관리자 계정을 사용하여 [비즈니스용 Microsoft Store 관리 센터](https://businessstore.microsoft.com/manage/)에 로그인합니다. 초기 기본 도메인인 contoso.onmicrosoft.com이 있는 “Contoso” 테넌트를 삭제하려는 경우 admin@contoso.onmicrosoft.com과 같은 UPN으로 로그인합니다.
+구독이 넣을 수 있습니다는 **Deprovisoned** 상태 Microsoft 365 관리 센터를 사용 하 여 3 일 이내에 삭제 됩니다.
 
-2. **관리** 탭으로 이동하여 **제품 및 서비스**를 선택한 다음, 취소할 구독을 선택하고 **삭제**를 선택합니다.
+1. 에 로그인 합니다 [Microsoft 365 관리 센터](https://admin.microsoft.com) 테 넌 트의 전역 관리자 인 계정을 사용 하 여 합니다. 초기 기본 도메인인 contoso.onmicrosoft.com이 있는 “Contoso” 테넌트를 삭제하려는 경우 admin@contoso.onmicrosoft.com과 같은 UPN으로 로그인합니다.
+
+2. 로 이동 합니다 **청구** 탭을 선택한 **제품 및 서비스**을 취소 하려는 구독을 선택 합니다. **취소**를 클릭한 후 페이지를 새로 고칩니다.
   
-  ![구독 삭제를 위한 삭제 링크](./media/directory-delete-howto/delete-command.png)
+   ![구독 삭제를 위한 삭제 링크](./media/directory-delete-howto/delete-command.png)
   
-3. **구독 삭제**를 선택하여 약관에 동의한 다음 구독을 삭제합니다. 모든 데이터는 3일 이내에 영구적으로 삭제됩니다. 구독 삭제를 취소하려는 경우 3일 내에 구독을 다시 활성화할 수 있습니다.
+3. **삭제**를 선택하여 구독을 삭제하고 사용 약관에 동의합니다. 모든 데이터는 3일 이내에 영구적으로 삭제됩니다. 생각이 바뀌는 경우 이 3일 동안 구독을 다시 활성화할 수 있습니다.
   
-  ![사용 약관](./media/directory-delete-howto/delete-terms.png)
+   ![신중 하 게 사용 약관 읽기](./media/directory-delete-howto/delete-terms.png)
 
 4. 이제 구독 상태가 변경되었으므로 구독이 삭제되도록 표시됩니다. 구독은 72시간 후에 **프로비전 해제됨** 상태가 됩니다.
 
 5. 테넌트에서 구독을 삭제한 후 72시간이 경과하면 Azure AD 관리 센터에 다시 로그인할 수 있으며 테넌트 삭제를 차단하는 구독과 필요한 작업이 없어야 합니다. Azure AD 테넌트를 성공적으로 삭제할 수 있어야 합니다.
   
-  ![삭제 시 구독 검사 통과 화면](./media/directory-delete-howto/delete-checks-passed.png)
+   ![삭제 시 구독 검사 통과 화면](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="next-steps"></a>다음 단계
+
 [Azure Active Directory 설명서](https://docs.microsoft.com/azure/active-directory/)

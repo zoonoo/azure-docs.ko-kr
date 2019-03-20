@@ -1,6 +1,6 @@
 ---
 title: Apache Kafka 지원 이벤트 허브 만들기 - Azure Event Hubs | Microsoft Docs
-description: 이 문서에서는 Azure Portal을 사용하여 Apache Kafka가 지원되는 Azure Event Hubs 네임스페이스를 만드는 과정을 안내합니다.
+description: 이 문서에서는 Apache Kafka를 만드는 연습은 Azure portal을 사용 하 여 Azure Event Hubs 네임 스페이스를 사용 합니다.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: bf78ac6bce23b739ed661929f6fe90eddc9b4d94
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 125da95349fce0e75b44b5619baba28d34a74be1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090781"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000497"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Apache Kafka 지원 이벤트 허브 만들기
 
@@ -24,7 +24,7 @@ Azure Event Hubs는 초당 수백만 건의 이벤트를 수집하고 실시간 
 
 Azure Event Hubs는 Kafka 엔드포인트를 제공합니다. 이 엔드포인트를 통해 Event Hubs 네임스페이스가 [Apache Kafka](https://kafka.apache.org/intro) 메시지 프로토콜 및 API를 고유하게 해석할 수 있습니다. 이 기능을 사용하면 프로토콜 클라이언트를 변경하거나 자체 클러스터를 실행하지 않고도 Kafka 항목과 마찬가지로 이벤트 허브와 통신할 수 있습니다. Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html) 이상을 지원합니다.
 
-이 문서에서는 Event Hubs 네임스페이스를 만들고 Kafka 지원 이벤트 허브에 Kafka 응용 프로그램을 연결하는 데 필요한 연결 문자열을 확보하는 방법을 설명합니다.
+이 문서에서는 Event Hubs 네임스페이스를 만들고 Kafka 지원 이벤트 허브에 Kafka 애플리케이션을 연결하는 데 필요한 연결 문자열을 확보하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,15 +50,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     
     ![정책 선택](./media/event-hubs-create/create-event-hub8.png)
  
-6. 이 연결 문자열을 Kafka 응용 프로그램 구성에 추가합니다.
+6. 이 연결 문자열을 Kafka 애플리케이션 구성에 추가합니다.
 
-이제 Kafka 프로토콜을 사용하는 응용 프로그램에서 Event Hubs로 이벤트를 스트리밍할 수 있습니다.
+이제 Kafka 프로토콜을 사용하는 애플리케이션에서 Event Hubs로 이벤트를 스트리밍할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
 
-* [Kafka 응용 프로그램에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+* [Kafka 애플리케이션에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 * [Kafka용 Event Hubs에 대해 알아보기](event-hubs-for-kafka-ecosystem-overview.md)
 * [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
 

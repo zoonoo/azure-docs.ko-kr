@@ -3,23 +3,21 @@ title: Azure Traffic Manager 작동 방식 | Microsoft Docs
 description: 이 문서는 Traffic Manager가 웹 애플리케이션의 고성능 및 고가용성을 위해 트래픽을 라우팅하는 방식을 이해하는 데 도움이 됩니다.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: KumudD
 manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2018
+ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 26d61c1b263a8fa7ff4f0ff5b2888f1d900e772e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 52469cb2735b2270815191ec0815daee350882a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567845"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108868"
 ---
 # <a name="how-traffic-manager-works"></a>Traffic Manager 작동 방식
 
@@ -41,8 +39,8 @@ Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL
 이 구성을 만들기 위해 다음 단계를 완료합니다.
 
 1. 3개의 서비스 인스턴스를 배포합니다. 이러한 배포의 DNS 이름은 'contoso us.cloudapp.net', 'contoso eu.cloudapp.net' 및 'contoso asia.cloudapp.net'입니다.
-2. 'contoso.trafficmanager.net'이라는 Traffic Manager 프로필을 만들고 3개의 엔드포인트에서 '성능' 트래픽 라우팅 방법을 사용하도록 구성합니다.
-* DNS CNAME 레코드를 사용하여 베니티 도메인 이름 'partners.contoso.com'이 'contoso.trafficmanager.net'을 가리키도록 구성합니다.
+1. 'contoso.trafficmanager.net'이라는 Traffic Manager 프로필을 만들고 3개의 엔드포인트에서 '성능' 트래픽 라우팅 방법을 사용하도록 구성합니다.
+1. DNS CNAME 레코드를 사용하여 베니티 도메인 이름 'partners.contoso.com'이 'contoso.trafficmanager.net'을 가리키도록 구성합니다.
 
 ![Traffic Manager DNS 구성][1]
 

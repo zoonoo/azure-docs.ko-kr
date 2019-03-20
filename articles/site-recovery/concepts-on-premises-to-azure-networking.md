@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 334537e77d5f291dc38e008af7fed9a4ea973265
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108851"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>장애 조치(failover) 후 연결할 IP 주소 설정
 
@@ -49,8 +49,8 @@ Site Recovery는 Azure에 장애 조치할 경우 서브넷 장애 조치를 사
 - Woodgrove Bank는 온-프레미스 사이트에서 해당 비즈니스 앱을 호스트합니다. Azure에서 Mobile Apps를 호스트합니다.
 - 온-프레미스 가장자리 네트워크와 Azure 가상 네트워크 사이에는 VPN 사이트 간 연결이 있습니다. VPN 연결로 인해 Azure의 가상 네트워크가 온-프레미스 네트워크의 확장으로 나타납니다.
 - Woodgrove는 Site Recovery를 사용하여 온-프레미스 워크로드를 Azure로 복제하려고 합니다.
- - Woodgrove는 하드 코드된 IP 주소에 종속된 앱이 있으므로 Azure로 장애 조치한 이후 해당 앱의 IP 주소를 유지해야 합니다.
- - Azure에서 실행되는 리소느는 172.16.1.0/24, 172.16.2.0/24 범위의 IP 주소를 사용합니다.
+  - Woodgrove는 하드 코드된 IP 주소에 종속된 앱이 있으므로 Azure로 장애 조치한 이후 해당 앱의 IP 주소를 유지해야 합니다.
+  - Azure에서 실행되는 리소느는 172.16.1.0/24, 172.16.2.0/24 범위의 IP 주소를 사용합니다.
 
 ![서브넷 장애 조치(failover) 전](./media/site-recovery-network-design/network-design7.png)
 

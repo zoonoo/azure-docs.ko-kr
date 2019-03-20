@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d829ad9b85b6e7944f6dd534ea7fbb3f92a0d2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: dd753ca4994975302a0bc6fede61964f80196d7c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57887920"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199604"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Azure Active Directory에서 정적 그룹 멤버 자격을 동적으로 변경
 
@@ -47,14 +47,13 @@ ms.locfileid: "57887920"
   
 2. **동적 쿼리 추가**를 선택하고 규칙을 입력합니다.
   
-   ![규칙 입력](./media/groups-change-type/enter-rule.png)
+   ![동적 그룹에 대 한 규칙을 입력 합니다.](./media/groups-change-type/enter-rule.png)
   
 3. 규칙을 만든 후 페이지 맨 아래에서 **쿼리 추가**를 선택합니다.
 4. 해당 그룹의 **속성** 페이지에서 **저장**을 선택하여 변경 내용을 저장합니다. 그룹 목록에서 해당 그룹의 **멤버 자격 유형**이 즉시 업데이트됩니다.
 
 > [!TIP]
 > 입력한 멤버 자격 규칙이 올바르지 않으면 그룹 변환이 실패할 수 있습니다. 포털의 오른쪽 상단 구석에 알림이 표시됩니다. 알림에는 시스템에서 규칙을 수락할 수 없는 이유에 대한 설명이 포함되어 있습니다. 이 알림을 신중하게 읽고 규칙을 올바르게 수정하는 방법을 이해하세요. 규칙 구문의 예제와 멤버 자격 규칙에 지원되는 속성, 연산자 및 값의 전체 목록은 [Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙](groups-dynamic-membership.md)을 참조하세요.
-
 
 ## <a name="change-membership-type-for-a-group-powershell"></a>그룹에 대한 멤버 자격 유형 변경(PowerShell)
 
@@ -63,7 +62,7 @@ ms.locfileid: "57887920"
 
 기존 그룹에서 멤버 자격 관리를 전환하는 기능의 예는 다음과 같습니다. 이 예제에서는 GroupTypes 속성을 정확하게 조작하고 동적 멤버 자격과 무관한 다른 기존 값을 그대로 유지하기 위해 주의가 필요합니다.
 
-```
+```powershell
 #The moniker for dynamic groups as used in the GroupTypes property of a group object
 $dynamicGroupTypeString = "DynamicMembership"
 
@@ -107,13 +106,13 @@ function ConvertStaticGroupToDynamic
 ```
 그룹을 고정으로 지정하려면:
 
-```
+```powershell
 ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
 ```
 
 그룹을 동적으로 지정하려면:
 
-```
+```powershell
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
 

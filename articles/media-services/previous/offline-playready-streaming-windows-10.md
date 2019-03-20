@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 9f5ccccaffbd11b482ed04875563fc33fb054d03
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 7d907e3d06e8c2817b1fc4a30a7f808d06b022ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995156"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884713"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Windows 10에서 PlayReady 오프라인 스트리밍  
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [버전 3](../latest/offline-plaready-streaming-for-windows-10.md)
+> * [버전 2](offline-playready-streaming-windows-10.md)
 
 Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로드/재생을 지원합니다. 이 문서에서는 Windows 10/PlayReady 클라이언트에 대한 Azure Media Services의 오프라인 지원을 설명합니다. 다음 문서에서는 iOS/FairPlay 및 Android/Widevine 디바이스에 대한 오프라인 모드 지원에 대해 알아볼 수 있습니다.
 
@@ -41,7 +45,7 @@ Azure Media Services는 DRM 보호 기능을 사용하여 오프라인 다운로
 * MP4는 다양한 플레이어와 인코더 도구를 지원하지만 MP4 컨테이너와 DRM 사이에 바인딩이 되어 있지 않습니다.
 * 장기적으로는, CENC 지원 CFF가 바람직합니다. 하지만 현재 에코시스템을 지원하는 도구/플레이어가 아직 없습니다. 솔루션이 필요합니다.
  
-H264/AAC를 사용하는 부드러운 스트리밍([PIFF](http://go.microsoft.com/?linkid=9682897)) 파일 형식은 PlayReady(AES-128 CTR)와 바인딩되어 있습니다. 개별 부드러운 스트리밍 .ismv 파일(비디오에 오디오를 담은)은 그 자체가 fMP4이며 재생에 사용할 수 있습니다. 부드러운 스트리밍 콘텐츠가 PlayReady 암호화를 거칠 경우 각 .ismv 파일은 PlayReady 보호 조각난 MP4가 됩니다. 기본 비트 전송률을 사용하는 .ismv 파일을 선택하여 .mp4로 이름을 바꾸어 다운로드할 수 있습니다.
+H264/AAC를 사용하는 부드러운 스트리밍([PIFF](https://go.microsoft.com/?linkid=9682897)) 파일 형식은 PlayReady(AES-128 CTR)와 바인딩되어 있습니다. 개별 부드러운 스트리밍 .ismv 파일(비디오에 오디오를 담은)은 그 자체가 fMP4이며 재생에 사용할 수 있습니다. 부드러운 스트리밍 콘텐츠가 PlayReady 암호화를 거칠 경우 각 .ismv 파일은 PlayReady 보호 조각난 MP4가 됩니다. 기본 비트 전송률을 사용하는 .ismv 파일을 선택하여 .mp4로 이름을 바꾸어 다운로드할 수 있습니다.
 
 점진적 다운로드 시 PlayReady 보호 MP4를 호스트하는 데 두 가지 옵션이 있습니다.
 
@@ -57,12 +61,12 @@ H264/AAC를 사용하는 부드러운 스트리밍([PIFF](http://go.microsoft.co
 
 자산 #1:
 
-* 점진적 다운로드 URL: [http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* 점진적 다운로드 URL: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL(AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 자산 #2:
 
-* 점진적 다운로드 URL: [http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* 점진적 다운로드 URL: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL(온-프레미스): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 재생 테스트 시 Windows 10에서 Universal Windows Application을 사용했습니다. [Windows 10 유니버설 샘플](https://github.com/Microsoft/Windows-universal-samples)에는 [적응 스트리밍 샘플](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming)을 호출하는 기본 플레이어 샘플이 있습니다. 우리가 해야 할 일은 코드를 추가하여 다운로드한 비디오를 선택하여 적응 스트리밍 원본 대신에 해당 비디오를 원본으로 사용하는 것입니다. 변경 사항은 단추 클릭 이벤트 처리기에 있습니다.

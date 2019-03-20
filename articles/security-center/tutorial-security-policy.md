@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/4/2019
-ms.author: rkarlin
-ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.date: 3/14/2019
+ms.author: monhaber
+ms.openlocfilehash: d99ef6026f3605f4081393811d840ba3fe2892ba
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343513"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226116"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -36,7 +36,7 @@ PowerShell을 사용하여 정책을 설정하는 방법에 대한 지침은 [�
 
 보안 정책에 따라 Azure Security Center에서 얻는 보안 권장 사항이 결정됩니다. 잠재적인 취약성을 식별하고 위협을 완화하는 데 도움이 되려면 보안 권장 사항 규정 준수를 모니터링할 수 있습니다. 적절한 옵션을 결정하는 방법에 대한 자세한 내용은 [기본 제공 보안 정책](security-center-policy-definitions.md) 목록을 참조하세요.
 
-Security Center를 사용하도록 설정하면 Security Center의 기본 제공 보안 정책이 Security Center 범주의 기본 제공 이니셔티브로 Azure Policy에 반영됩니다. 기본 제공 이니셔티브는 Security Center에 등록된 모든 구독(무료 또는 표준 계층)에 자동으로 할당됩니다. 기본 제공 이니셔티브에는 감사 정책만 포함되어 있습니다. 
+Security Center를 사용하도록 설정하면 Security Center의 기본 제공 보안 정책이 Security Center 범주의 기본 제공 이니셔티브로 Azure Policy에 반영됩니다. 기본 제공 이니셔티브는 Security Center에 등록된 모든 구독(무료 또는 표준 계층)에 자동으로 할당됩니다. 기본 제공 이니셔티브에는 감사 정책만 포함되어 있습니다.
 
 
 ### <a name="management-groups"></a>관리 그룹
@@ -68,25 +68,25 @@ Security Center에서 보안 정책을 보려면
 
     ![정책 관리 창](./media/security-center-policies/security-center-policy-mgt.png)
 
-  **정책 관리** 화면에서 관리 그룹 구조뿐만 아니라 관리 그룹, 구독 및 작업 영역 수를 확인할 수 있습니다.
+   **정책 관리** 화면에서 관리 그룹 구조뿐만 아니라 관리 그룹, 구독 및 작업 영역 수를 확인할 수 있습니다.
 
-  > [!NOTE]
-  > - Security Center 대시보드는 **정책 관리** 아래에 표시된 구독 수보다 **구독 적용 범위** 아래에 더 많은 구독 수를 표시할 수 있습니다. 구독 적용 범위는 표준, 무료 및 "포함 안 된" 구독 수를 표시합니다. "포함 안 된" 구독은 Security Center를 사용하도록 설정하지 않고 **정책 관리** 아래에 표시되지도 않습니다.
-  >
+   > [!NOTE]
+   > - Security Center 대시보드는 **정책 관리** 아래에 표시된 구독 수보다 **구독 적용 범위** 아래에 더 많은 구독 수를 표시할 수 있습니다. 구독 적용 범위는 표준, 무료 및 "포함 안 된" 구독 수를 표시합니다. "포함 안 된" 구독은 Security Center를 사용하도록 설정하지 않고 **정책 관리** 아래에 표시되지도 않습니다.
+   >
 
-  테이블의 열은 다음과 같이 표시됩니다.
+   테이블의 열은 다음과 같이 표시됩니다.
 
- - **정책 이니셔티브 할당** – 구독 또는 관리 그룹에 할당되는 Security Center [기본 제공 정책](security-center-policy-definitions.md) 및 이니셔티브입니다.
- - **적용 범위** – 관리 그룹, 구독 또는 작업 영역이 실행되고 있는 무료 또는 평균의 가격 책정 계층을 식별합니다.  Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
- - **설정** - 구독에는 **설정 편집** 링크가 있습니다. **설정 편집**을 선택하면 각 구독 또는 관리 그룹에 대한 [Security Center 설정](security-center-policies-overview.md)을 업데이트할 수 있습니다.
- - **보안 점수** - 워크로드 보안 태세의 안정성 척도를 제공하는 [보안 점수](security-center-secure-score.md)를 활용하면 보안 개선을 위한 권장 사항의 우선 순위를 지정할 수 있습니다.
+   - **정책 이니셔티브 할당** – 구독 또는 관리 그룹에 할당되는 Security Center [기본 제공 정책](security-center-policy-definitions.md) 및 이니셔티브입니다.
+   - **적용 범위** – 관리 그룹, 구독 또는 작업 영역이 실행되고 있는 무료 또는 평균의 가격 책정 계층을 식별합니다.  Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
+   - **설정** - 구독에는 **설정 편집** 링크가 있습니다. **설정 편집**을 선택하면 각 구독 또는 관리 그룹에 대한 [Security Center 설정](security-center-policies-overview.md)을 업데이트할 수 있습니다.
+   - **보안 점수** - 워크로드 보안 태세의 안정성 척도를 제공하는 [보안 점수](security-center-secure-score.md)를 활용하면 보안 개선을 위한 권장 사항의 우선 순위를 지정할 수 있습니다.
 
 2. 확인하려는 구독 또는 관리 그룹의 정책을 선택합니다.
 
-  - **보안 정책** 화면에는 선택한 구독 또는 관리 그룹에 할당된 정책에서 수행된 동작이 표시됩니다.
-  - 맨 위에서 구독 또는 관리 그룹에 적용된 각 정책 **할당**을 열기 위해 제공된 링크를 사용합니다. 해당 링크를 사용하여 할당에 액세스하고 정책을 편집하거나 사용하지 않도록 설정할 수 있습니다. 예를 들어 특정 정책 할당이 엔드포인트 보호를 효과적으로 거부하는지 확인하는 경우 해당 링크를 사용하여 정책에 액세스하여 편집하거나 사용하지 않도록 설정할 수 있습니다.
-  - 정책 목록에서 구독 또는 관리 그룹에 정책을 효과적으로 적용하는 것을 확인할 수 있습니다. 즉, 범위에 적용되는 각 정책의 설정이 고려되고 정책에서 수행되는 작업의 누적 결과가 제공됩니다. 예를 들어 하나의 할당에서 정책이 사용하지 않도록 설정되지만 다른 할당에서 정책이 AuditIfNotExist로 설정되는 경우 누적 효과는 AuditIfNotExist로 적용됩니다. 더 활성화된 효과가 항상 우선합니다.
-  - 정책의 효과는 Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled일 수 있습니다. 효과를 적용하는 방법에 대한 자세한 내용은 [Policy 효과 이해](../governance/policy/concepts/effects.md)를 참조하세요.
+   - **보안 정책** 화면에는 선택한 구독 또는 관리 그룹에 할당된 정책에서 수행된 동작이 표시됩니다.
+   - 맨 위에서 구독 또는 관리 그룹에 적용된 각 정책 **할당**을 열기 위해 제공된 링크를 사용합니다. 해당 링크를 사용하여 할당에 액세스하고 정책을 편집하거나 사용하지 않도록 설정할 수 있습니다. 예를 들어 특정 정책 할당이 엔드포인트 보호를 효과적으로 거부하는지 확인하는 경우 해당 링크를 사용하여 정책에 액세스하여 편집하거나 사용하지 않도록 설정할 수 있습니다.
+   - 정책 목록에서 구독 또는 관리 그룹에 정책을 효과적으로 적용하는 것을 확인할 수 있습니다. 즉, 범위에 적용되는 각 정책의 설정이 고려되고 정책에서 수행되는 작업의 누적 결과가 제공됩니다. 예를 들어 하나의 할당에서 정책이 사용하지 않도록 설정되지만 다른 할당에서 정책이 AuditIfNotExist로 설정되는 경우 누적 효과는 AuditIfNotExist로 적용됩니다. 더 활성화된 효과가 항상 우선합니다.
+   - 정책의 효과는 Append, Audit, AuditIfNotExists, Deny, DeployIfNotExists, Disabled일 수 있습니다. 효과를 적용하는 방법에 대한 자세한 내용은 [Policy 효과 이해](../governance/policy/concepts/effects.md)를 참조하세요.
 
    ![정책 화면](./media/security-center-policies/policy-screen.png)
 
@@ -99,6 +99,29 @@ Security Center에서 보안 정책을 보려면
 Azure Policy에서 보안 정책을 편집하는 방법에 대한 지침은 [규정 준수를 적용하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)를 참조하세요.
 
 REST API를 통해 또는 Windows PowerShell을 사용하여 Azure Policy 포털을 통해 보안 정책을 편집할 수 있습니다. 다음 예제는 REST API를 사용하여 편집하는 지침을 제공합니다.
+
+
+## <a name="disable-security-policies"></a>보안 정책을 사용 하지 않도록 설정
+기본 보안 정책 환경에 관련 되지 않은 권장을 생성 하는 경우에 권장을 전송 하는 정책 정의 사용 하지 않도록 설정 하 여 중지할 수 있습니다.
+권장 사항에 대 한 자세한 내용은 참조 [보안 권장 사항 관리](security-center-recommendations.md)합니다.
+
+1. Security Center에서에서 합니다 **정책 및 규정 준수** 섹션에서 클릭 **보안 정책**합니다.
+
+   ![정책 관리](./media/tutorial-security-policy/policy-management.png)
+
+2. 권장 사항을 사용 하지 않도록 설정 하려는 구독을 클릭 합니다.
+
+1. 할당된 정책을 클릭 합니다.
+
+   ![정책 사용 안 함](./media/tutorial-security-policy/security-policy.png)
+
+1. 에 **매개 변수** 섹션에서 검색을 사용 하지 않으려면 원하는 것이 좋습니다를 호출 하는 정책에 대 한 드롭다운 목록에서 선택 **사용 안 함**
+
+   ![정책 사용 안 함](./media/tutorial-security-policy/disable-policy.png)
+1. **저장**을 클릭합니다.
+   > [!Note]
+   > 사용 안 함 정책 변경이 적용 되려면 최대 12 시간이 걸릴 수 있습니다.
+
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>REST API를 사용하여 보안 정책 구성
 
@@ -159,38 +182,38 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 
 - 엔드포인트 보호("endpointProtectionMonitoringEffect") 
 
- 
-      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-      Request Body (JSON) 
-
-      { 
-
-        "properties":{ 
-
-      "displayName":"Enable Monitoring in Azure Security Center", 
-
-      "metadata":{ 
-
-      "assignedBy":"{Name}" 
-
-      }, 
-
-      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
-
-      "parameters":{ 
-
-      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
-
-      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
-
-      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
-
-      }, 
-
-       } 
-
-      } 
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    요청 본문 (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName": "Azure Security Center에서 모니터링 사용", 
+    
+    "metadata":{ 
+    
+    "assignedBy":"{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters":{ 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
 
 이 예제는 할당을 제거하는 방법을 보여줍니다.
 

@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0df959439eae703d18d8777e8d433e1ee176556c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076465"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 통과 인증으로 마이그레이션
 
@@ -128,9 +128,9 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 |-|-|
 | AD FS를 Azure AD 및 Office 365 이외의 다른 애플리케이션에서 계속 사용하려고 합니다. | 도메인이 변환되면 AD FS와 Azure AD를 모두 사용할 수 있습니다. 사용자 환경을 고려합니다. 일부 시나리오에서는 사용자가 두 번 인증해야 할 수도 있습니다. 즉 한번은 Azure AD(사용자가 Office 365와 같은 다른 애플리케이션에 SSO 액세스 권한을 얻은 경우), 또 한번은 아직도 AD FS에 바인딩된 애플리케이션에 대해 인증해야 합니다. |
 | AD FS 인스턴스는 상당히 많이 사용자 지정되고 onload.js 파일의 특정 사용자 지정 설정에 종속됩니다(예: 사용자가 UPN(사용자 계정 이름) 대신 **SamAccountName** 형식만 사용자 이름에 사용하도록 로그인 환경을 변경한 경우 또는 조직에서 로그인 환경의 브랜드를 많이 지정한 경우). onload.js 파일은 Azure AD에서 중복될 수 없습니다. | 계속하기 전에 Azure AD에서 현재 사용자 지정 요구 사항을 충족할 수 있는지 확인해야 합니다. 자세한 내용과 지침은 AD FS 브랜딩 및 AD FS 사용자 지정 섹션을 참조하세요.|
-| AD FS를 사용하여 이전 버전의 인증 클라이언트를 차단합니다.| [조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)와 [Exchange Online 클라이언트 액세스 규칙](http://aka.ms/EXOCAR)을 조합하여 이전 버전의 인증 클라이언트를 차단하는 AD FS 컨트롤을 대체하는 것이 좋습니다. |
+| AD FS를 사용하여 이전 버전의 인증 클라이언트를 차단합니다.| [조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)와 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)을 조합하여 이전 버전의 인증 클라이언트를 차단하는 AD FS 컨트롤을 대체하는 것이 좋습니다. |
 | 사용자가 AD FS에 대해 인증할 때 온-프레미스 다단계 인증 서버 솔루션에 대해 다단계 인증을 수행해야 합니다.| 관리 ID 도메인에서는 온-프레미스 다단계 인증 솔루션을 통해 인증 흐름에 다단계 인증 챌린지를 삽입할 수 없습니다. 그러나 도메인이 변환되면 다단계 인증에 Azure Multi-Factor Authentication 서비스를 사용할 수 있습니다.<br /><br /> 사용자가 현재 Azure Multi-Factor Authentication을 사용하지 않는 경우 일회성 사용자 등록 단계를 수행해야 합니다. 계획된 등록을 준비하고 사용자에게 전달해야 합니다. |
-| 현재 AD FS에서 액세스 제어 정책(AuthZ 규칙)을 사용하여 Office 365에 대한 액세스를 제어합니다.| 이러한 정책을 동등한 Azure AD [조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 및 [Exchange Online 클라이언트 액세스 규칙](http://aka.ms/EXOCAR)으로 바꾸는 것이 좋습니다.|
+| 현재 AD FS에서 액세스 제어 정책(AuthZ 규칙)을 사용하여 Office 365에 대한 액세스를 제어합니다.| 이러한 정책을 동등한 Azure AD [조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 및 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)으로 바꾸는 것이 좋습니다.|
 
 ### <a name="common-ad-fs-customizations"></a>일반적인 AD FS 사용자 지정
 
@@ -260,11 +260,11 @@ Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호�
    ![구성 준비 완료 페이지의 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
 7. Azure AD 포털에서 **Azure Active Directory**를 선택한 다음, **Azure AD Connect**를 선택합니다.
 8. 다음 설정을 확인합니다.
-  * **페더레이션**이 **사용 안 함**으로 설정되어 있습니다.
-  * **Seamless Single Sign-On**이 **사용**으로 설정되어 있습니다.
-  * **통과 인증**이**사용**으로 설정되어 있습니다.<br />
+   * **페더레이션**이 **사용 안 함**으로 설정되어 있습니다.
+   * **Seamless Single Sign-On**이 **사용**으로 설정되어 있습니다.
+   * **통과 인증**이**사용**으로 설정되어 있습니다.<br />
 
-  ![사용자 로그인 섹션의 설정을 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
+   ![사용자 로그인 섹션의 설정을 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
 
 다음으로, 추가 인증 메서드를 배포합니다.
 
@@ -272,16 +272,16 @@ Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호�
 2. **통과 인증** 페이지에서 **다운로드** 단추를 선택합니다.
 3. **에이전트 다운로드** 페이지에서 **약관 동의 및 다운로드**를 선택합니다.
 
-  추가 인증 에이전트가 다운로드되기 시작합니다. 도메인에 조인된 서버에 보조 인증 에이전트를 설치합니다. 
+   추가 인증 에이전트가 다운로드되기 시작합니다. 도메인에 조인된 서버에 보조 인증 에이전트를 설치합니다. 
 
-  > [!NOTE]
-  > 첫 번째 에이전트는 항상 Azure AD Connect 도구의 **사용자 로그인** 섹션에서 수행된 구성 변경의 일부로 Azure AD Connect 서버 자체에 설치됩니다. 추가 인증 에이전트는 모두 별도의 서버에 설치합니다. 추가로 2~3 개의 인증 에이전트를 사용하는 것이 좋습니다. 
+   > [!NOTE]
+   > 첫 번째 에이전트는 항상 Azure AD Connect 도구의 **사용자 로그인** 섹션에서 수행된 구성 변경의 일부로 Azure AD Connect 서버 자체에 설치됩니다. 추가 인증 에이전트는 모두 별도의 서버에 설치합니다. 추가로 2~3 개의 인증 에이전트를 사용하는 것이 좋습니다. 
 
 4. 인증 에이전트 설치를 실행합니다. 설치 중에 글로벌 관리자 계정의 자격 증명을 입력해야 합니다.
 
-  ![Microsoft Azure AD Connect 인증 에이전트 패키지 페이지의 설치 단추를 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Microsoft Azure AD Connect 인증 에이전트 패키지 페이지의 설치 단추를 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-  ![로그인 페이지를 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![로그인 페이지를 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. 인증 에이전트가 설치되면 통과 인증 에이전트 상태 페이지로 돌아가서 추가 에이전트의 상태를 확인할 수 있습니다.
 
@@ -377,7 +377,7 @@ Azure AD PowerShell 모듈을 사용하여 변환을 수행합니다.
 통과 인증을 테스트하려면,
 
 1. Seamless SSO가 자동으로 로그인하지 않도록 InPrivate 모드에서 Internet Explorer를 엽니다.
-2. Office 365 로그인 페이지([http://portal.office.com](http://portal.office.com/))로 이동합니다.
+2. Office 365 로그인 페이지([https://portal.office.com](https://portal.office.com/))로 이동합니다.
 3. 사용자 UPN을 입력하고, **다음**을 선택합니다. 온-프레미스 Active Directory 인스턴스에서 동기화되고 이전에 페더레이션 인증을 사용한 하이브리드 사용자의 UPN을 입력해야 합니다. 사용자 이름과 암호를 입력하는 페이지가 표시됩니다.
 
    ![사용자 이름을 입력하는 로그인 페이지를 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)

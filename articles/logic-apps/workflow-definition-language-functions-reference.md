@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 71d97481b4d3bff1ef93839f57939875ac9268ff
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e58d534811fc6d6ed2bb24486c149f217a7a28a3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450065"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189906"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 함수 참조
 
@@ -2938,7 +2938,7 @@ range(<startIndex>, <count>)
 
 | 매개 변수 | 필수 | 형식 | 설명 |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | 예 | 정수  | 배열을 첫 번째 항목으로 시작하는 정수 값 |
+| <*startIndex*> | 예 | 정수  | 배열의 첫 번째 항목으로 시작 하는 정수 값 |
 | <*count*> | 예 | 정수  | 배열에 있는 정수의 숫자 |
 |||||
 
@@ -3333,7 +3333,7 @@ substring('<text>', <startIndex>, <length>)
 | 매개 변수 | 필수 | 형식 | 설명 |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | 예 | 문자열 | 해당 문자를 원하는 문자열 |
-| <*startIndex*> | 예 | 정수  | 시작 위치 또는 인덱스 값에 대한 양수 |
+| <*startIndex*> | 예 | 정수  | 시작 위치 또는 인덱스 값으로 사용 하려는 0 보다 크거나 같은 양의 정수 |
 | <*length*> | 예 | 정수  | 하위 문자열에 원하는 문자의 양수 |
 |||||
 

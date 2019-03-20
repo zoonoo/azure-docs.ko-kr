@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d325cfd679c2a8b878ae9a7b483431aba32b2a5a
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ccb408a427680cffc339797bd3421ed9f53af640
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200687"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
 
@@ -152,12 +152,11 @@ HDInsight를 구성하는 동안 스크립트가 실행됩니다. 스크립트�
 
 HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 스크립트를 제공합니다.
 
-| Name | 스크립트 |
+| 이름 | 스크립트 |
 | --- | --- |
 | Azure Storage 계정 추가 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. [HDInsight에 추가 스토리지 계정 추가](hdinsight-hadoop-add-storage.md) 참조 |
 | Hue 설치 |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. [HDInsight Hadoop 클러스터에 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md) 참조 |
 | Presto 설치 |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. [Hadoop 기반 HDInsight 클러스터에 Presto 설치 및 사용](hdinsight-hadoop-install-presto.md) 참조 |
-| Solr 설치 |`https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh`. [HDInsight Hadoop 클러스터에 Apache Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md) 참조 |
 | Giraph 설치 |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. [HDInsight Hadoop 클러스터에 Apache Giraph 설치](hdinsight-hadoop-giraph-install-linux.md) 참조 |
 | Hive 라이브러리 미리 로드 |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. [HDInsight 클러스터를 만들 때 사용자 지정 Apache Hive 라이브러리 추가](hdinsight-hadoop-add-hive-libraries.md) 참조 |
 | Mono 설치 또는 업데이트 | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. [HDInsight에서 Mono 설치 또는 업데이트](hdinsight-hadoop-install-mono.md)를 참조하세요. |
@@ -185,7 +184,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
     | 자산 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그렇지 않은 경우 제공된 스크립트 중 하나를 선택합니다. |
-    | Name |스크립트 작업의 이름을 지정합니다. |
+    | 이름 |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
     | Head/Worker/Zookeeper |스크립트가 실행되는 노드, 즉 **헤드**, **작업자** 또는 **ZooKeeper**를 지정합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
@@ -265,7 +264,7 @@ HDInsight .NET SDK는 .NET 애플리케이션에서 HDInsight를 더 쉽게 사�
     | 자산 | 값 |
     | --- | --- |
     | 스크립트 선택 | 사용자 소유 스크립트를 사용하려면 __사용자 지정__을 선택합니다. 그렇지 않은 경우 제공된 스크립트를 선택합니다. |
-    | Name |스크립트 작업의 이름을 지정합니다. |
+    | 이름 |스크립트 작업의 이름을 지정합니다. |
     | Bash 스크립트 URI |스크립트의 URI를 지정합니다. |
     | Head/Worker/Zookeeper |스크립트가 실행되는 노드, 즉 **헤드**, **작업자** 또는 **ZooKeeper**를 지정합니다. |
     | 매개 변수 |스크립트에 필요한 경우 매개 변수를 지정합니다. |
@@ -410,9 +409,9 @@ HDInsight 서비스에서는 두 가지 유형의 오픈 소스 구성 요소를
 
 * **기본 제공 구성 요소**. 이러한 구성 요소는 HDInsight 클러스터에 미리 설치되어 있으며 클러스터의 핵심 기능을 제공합니다. 이 범주에 속하는 구성 요소는 다음과 같습니다.
 
-    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager
-    * [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) Hive 쿼리 언어
-    * [Apache Mahout](https://mahout.apache.org/) 
+  * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager
+  * [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) Hive 쿼리 언어
+  * [Apache Mahout](https://mahout.apache.org/) 
     
     클러스터 구성 요소의 전체 목록은 [HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?](hdinsight-component-versioning.md)에서 사용할 수 있습니다.
 
@@ -524,7 +523,6 @@ SSH를 사용하여 클러스터에 연결하는 방법에 대한 자세한 내�
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight용 스크립트 동작 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)
-* [HDInsight 클러스터에 Apache Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)
 * [HDInsight 클러스터에 Apache Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)
 * [HDInsight 클러스터에 추가 저장소 추가](hdinsight-hadoop-add-storage.md)
 

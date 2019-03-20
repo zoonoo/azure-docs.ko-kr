@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: c6bba6a428e5ff339b1d269965fa1948bddc696e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4edaf782b193e99dfe4002eedb6f3a046fb7dcd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764439"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081460"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Azure Stack에서 virtual machine 디스크 저장소 만들기
 
@@ -68,56 +68,56 @@ VM을 만든 후 포털을 사용할 수 있습니다.
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>포털을 사용 하 여 만들고 새 데이터 디스크를 연결 하려면
 
-1.  포털에서 선택 **모든 서비스** > **가상 머신**합니다.    
-    ![예제: VM 대시보드](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. 포털에서 선택 **모든 서비스** > **가상 머신**합니다.    
+   ![예제: VM 대시보드](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-2.  이전에 만든 가상 컴퓨터를 선택 합니다.   
-    ![예제: 대시보드에서 VM을 선택 합니다.](media/azure-stack-manage-vm-disks/select-a-vm.png)
+2. 이전에 만든 가상 컴퓨터를 선택 합니다.   
+   ![예제: 대시보드에서 VM을 선택 합니다.](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  가상 컴퓨터를 선택 **Disks** > **데이터 디스크 추가**합니다.       
-    ![예제: Vm에 새 디스크 연결](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+3. 가상 컴퓨터를 선택 **Disks** > **데이터 디스크 추가**합니다.       
+   ![예제: Vm에 새 디스크 연결](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  데이터 디스크:
-    -  입력 된 **LUN**합니다. LUN에는 유효한 숫자 여야 합니다.
-    -  선택 **디스크 만들기**합니다.
-    ![예제: Vm에 새 디스크 연결](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+4. 데이터 디스크:
+   -  입력 된 **LUN**합니다. LUN에는 유효한 숫자 여야 합니다.
+   -  선택 **디스크 만들기**합니다.
+   ![예제: Vm에 새 디스크 연결](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
-5.  만들기에서 블레이드에서 디스크 관리.
-    -  입력 된 **이름을** 디스크의 합니다.
-    -  기존 선택 하거나 새로 만듭니다 **리소스 그룹**합니다.
-    -  선택 된 **위치**합니다. 기본적으로 위치는 OS 디스크를 보유 하는 동일한 컨테이너에 설정 됩니다.
-    -  선택 된 **계정 유형**합니다. 
-        ![예제: Vm에 새 디스크 연결](media/azure-stack-manage-vm-disks/create-manage-disk.png)
+5. 만들기에서 블레이드에서 디스크 관리.
+   - 입력 된 **이름을** 디스크의 합니다.
+   - 기존 선택 하거나 새로 만듭니다 **리소스 그룹**합니다.
+   - 선택 된 **위치**합니다. 기본적으로 위치는 OS 디스크를 보유 하는 동일한 컨테이너에 설정 됩니다.
+   - 선택 된 **계정 유형**합니다. 
+      ![예제: Vm에 새 디스크 연결](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-        **Premium SSD**  
-        프리미엄 디스크 (SSD)는 반도체 드라이브에 의해 지원 되며 일관 되 고 대기 시간이 짧은 성능을 제공 합니다. 가격 및 성능 간에 최상의 균형을 제공 하며 O 집약적인 응용 프로그램과 프로덕션 워크 로드에 적합 합니다.
+      **Premium SSD**  
+      프리미엄 디스크 (SSD)는 반도체 드라이브에 의해 지원 되며 일관 되 고 대기 시간이 짧은 성능을 제공 합니다. 가격 및 성능 간에 최상의 균형을 제공 하며 O 집약적인 응용 프로그램과 프로덕션 워크 로드에 적합 합니다.
        
-        **Standard HDD**  
-        표준 디스크 (HDD)는 자기 드라이브에 의해 지원 되며는 데이터가 자주 액세스 되지 응용 프로그램에 대 한 것이 좋습니다. 영역 중복 디스크는 여러 영역에서 데이터를 복제 하는 영역 중복 저장소 (ZRS) 의해 지원 되며 단일 영역 다운 된 경우에 사용할 수 있습니다. 
+      **Standard HDD**  
+      표준 디스크 (HDD)는 자기 드라이브에 의해 지원 되며는 데이터가 자주 액세스 되지 응용 프로그램에 대 한 것이 좋습니다. 영역 중복 디스크는 여러 영역에서 데이터를 복제 하는 영역 중복 저장소 (ZRS) 의해 지원 되며 단일 영역 다운 된 경우에 사용할 수 있습니다. 
 
-    -  선택 된 **원본 유형**합니다.
+   - 선택 된 **원본 유형**합니다.
 
-       다른 디스크의 스냅숏에서 디스크를 만들거나 스토리지 계정의 Blob을 만들거나 빈 디스크를 만듭니다.
+     다른 디스크의 스냅숏에서 디스크를 만들거나 스토리지 계정의 Blob을 만들거나 빈 디스크를 만듭니다.
 
-        **스냅숏**  
-        사용 가능한 경우 스냅숏을 선택 합니다. 스냅숏을에 있어야 합니다. VM의 구독 및 위치에서 사용할 수 있습니다.
+      **스냅숏**  
+      사용 가능한 경우 스냅숏을 선택 합니다. 스냅숏을에 있어야 합니다. VM의 구독 및 위치에서 사용할 수 있습니다.
 
-        **저장소 blob**  
-        - 디스크 이미지를 포함 하는 저장소 blob의 URI를 추가 합니다.  
-        - 선택 **찾아보기** 저장소 계정 블레이드를 엽니다. 자세한 내용은 [저장소 계정에서 데이터 디스크 추가](#add-a-data-disk-from-a-storage-account)합니다.
-        - 이미지의 OS 종류를 선택할 **Windows**를 **Linux**, 또는 **없음 (데이터 디스크)** 합니다.
+      **저장소 blob**  
+     - 디스크 이미지를 포함 하는 저장소 blob의 URI를 추가 합니다.  
+     - 선택 **찾아보기** 저장소 계정 블레이드를 엽니다. 자세한 내용은 [저장소 계정에서 데이터 디스크 추가](#add-a-data-disk-from-a-storage-account)합니다.
+     - 이미지의 OS 종류를 선택할 **Windows**를 **Linux**, 또는 **없음 (데이터 디스크)** 합니다.
 
-        **없음 (빈 디스크)**
+       **없음 (빈 디스크)**
 
-    -  선택 된 **크기 (GiB)** 합니다.
+   - 선택 된 **크기 (GiB)** 합니다.
 
-       표준 디스크 비용은 디스크 크기에 따라 증가 합니다. 프리미엄 디스크 비용 및 성능 증가 디스크의 크기를 기준으로 합니다. 자세한 내용은 [Managed Disks 가격 책정](https://go.microsoft.com/fwlink/?linkid=843142)합니다.
+     표준 디스크 비용은 디스크 크기에 따라 증가 합니다. 프리미엄 디스크 비용 및 성능 증가 디스크의 크기를 기준으로 합니다. 자세한 내용은 [Managed Disks 가격 책정](https://go.microsoft.com/fwlink/?linkid=843142)합니다.
 
-    -  **만들기**를 선택합니다. Azure Stack를 만들고 관리 디스크의 유효성을 검사 합니다.
+   - **만들기**를 선택합니다. Azure Stack를 만들고 관리 디스크의 유효성을 검사 합니다.
 
-5.  Azure Stack 디스크를 만들고이 가상 컴퓨터에 연결을 새 디스크에서 가상 머신의 디스크 설정에 나열 됩니다 **데이터 디스크**합니다.   
+5. Azure Stack 디스크를 만들고이 가상 컴퓨터에 연결을 새 디스크에서 가상 머신의 디스크 설정에 나열 됩니다 **데이터 디스크**합니다.   
 
-    ![예제: 디스크 보기](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   ![예제: 디스크 보기](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>저장소 계정에서 데이터 디스크를 추가 합니다.
 

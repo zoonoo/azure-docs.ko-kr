@@ -1,18 +1,19 @@
 ---
 title: Azure IoT Hub 디바이스 쌍 이해 | Microsoft Docs
 description: 개발자 가이드 - 디바이스 쌍을 사용하여 IoT Hub와 디바이스 간의 상태 및 구성 데이터 동기화
-author: fsautomata
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: elioda
-ms.openlocfilehash: 606a7c64cc60fa81a71bf40a8087875e08e7c984
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 4ad75a7ba4e2f6060824f3cf1c87a42f8fa32843
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113149"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 디바이스 쌍 이해 및 사용
 
@@ -179,44 +180,44 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지를 사용�
 
 * **쌍 알림을 받습니다**. 이 작업을 통해 쌍이 수정될 때 솔루션 백 엔드는 알림을 받습니다. 이를 수행하려면 IoT 솔루션은 경로를 만들고 데이터 원본을 *twinChangeEvents*와 동일하게 설정해야 합니다. 기본적으로 이러한 경로가 미리 존재하지 않습니다. 따라서 쌍 알림이 전송되지 않습니다. 변경 속도가 너무 높은 경우 또는 내부 오류와 같은 다른 이유로 IoT Hub는 모든 변경 내용을 포함하는 하나의 알림만을 보낼 수 있습니다. 따라서 애플리케이션에 신뢰할 수 있는 감사 및 모든 중간 상태의 로깅이 필요한 경우 장치-클라우드 메시지를 사용하는 것이 좋습니다. 쌍 알림 메시지는 속성 및 본문을 포함합니다.
 
-   - properties
+  - properties
 
-   | 이름 | 값 |
-   | --- | --- |
-   $content-type | application/json |
-   $iothub-enqueuedtime |  알림이 전송된 시간 |
-   $iothub-message-source | twinChangeEvents |
-   $content-encoding | utf-8 |
-   deviceId | 디바이스의 ID |
-   hubName | IoT Hub의 이름 |
-   operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 작업의 타임스탬프 |
-   iothub-message-schema | deviceLifecycleNotification |
-   opType | "replaceTwin" 또는 "updateTwin" |
+    | 이름 | 값 |
+    | --- | --- |
+    $content-type | application/json |
+    $iothub-enqueuedtime |  알림이 전송된 시간 |
+    $iothub-message-source | twinChangeEvents |
+    $content-encoding | utf-8 |
+    deviceId | 디바이스의 ID |
+    hubName | IoT Hub의 이름 |
+    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 작업의 타임스탬프 |
+    iothub-message-schema | deviceLifecycleNotification |
+    opType | "replaceTwin" 또는 "updateTwin" |
 
-   메시지 시스템 속성 앞에 `$` 기호를 붙입니다.
+    메시지 시스템 속성 앞에 `$` 기호를 붙입니다.
 
-   - 본문
+  - 본문
         
-   이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 모든 쌍 섹션: 태그, properties.reported, properties.desired를 포함할 수 있으며 "$metadata" 요소를 포함한다는 차이점으로 패치와 동일한 형식을 사용합니다. 예를 들면 다음과 같습니다.
+    이 섹션은 JSON 형식으로 모든 쌍 변경 내용을 포함합니다. 모든 쌍 섹션: 태그, properties.reported, properties.desired를 포함할 수 있으며 "$metadata" 요소를 포함한다는 차이점으로 패치와 동일한 형식을 사용합니다. 예를 들면 다음과 같습니다.
 
-   ```json
-   {
-       "properties": {
-           "desired": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           },
-           "reported": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           }
-       }
-   }
-   ```
+    ```json
+    {
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
+    }
+    ```
 
 이전의 모든 작업은 [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)에서 정의된 대로 [낙관적 동시성](iot-hub-devguide-device-twins.md#optimistic-concurrency)을 지원하며 **ServiceConnect** 사용 권한이 필요합니다.
 

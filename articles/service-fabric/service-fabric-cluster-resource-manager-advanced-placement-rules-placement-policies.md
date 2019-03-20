@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 66c51b08884c9d7a4d522c94f7b81774ec7a8bda
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 985d41d3a00974e25c9abc4709c5bf5e662f7a50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086040"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>서비스 패브릭 서비스에 대한 배치 정책
 배치 정책은 보다 덜 일반적인 일부 구체적인 시나리오에서 서비스 배치를 제어하는 데 사용할 수 있는 추가적인 규칙입니다. 이러한 시나리오의 몇 가지 예는 다음과 같습니다.
@@ -44,7 +44,8 @@ ms.locfileid: "34642005"
 **InvalidDomain** 배치 정책을 사용하여 특정 장애 도메인이 특정 서비스에 유효하지 않다고 지정할 수 있습니다. 이 정책을 사용하면 예를 들어 지정학적 또는 회사 정책상의 이유로 특정 영역에서 특정 서비스가 실행되지 않도록 할 수 있습니다. 별도 정책을 통해 잘못된 여러 도메인을 지정할 수 있습니다.
 
 <center>
-![잘못된 도메인 예제][Image1]
+
+![잘못 된 도메인 예제][Image1]
 </center>
 
 코드:
@@ -64,6 +65,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 필수 도메인 배치 정책 서비스에서는 해당 서비스가 지정된 도메인에만 있어야 합니다. 별도 정책을 통해 여러 필수 도메인을 지정할 수 있습니다.
 
 <center>
+
 ![필수 도메인 예제][Image2]
 </center>
 
@@ -85,7 +87,8 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 기본 설정 주 도메인은 주 복제본이 될 장애 도메인을 지정합니다. 정상 상태인 경우 주 복제본은 이 도메인에 위치하게 됩니다. 도메인 또는 주 복제본에 오류가 발생하거나 종료되면 주 복제본은 일부 다른 위치(이상적으로는 동일한 도메인)로 이동됩니다. 새 위치가 기본 설정 도메인이 아닌 경우 Cluster Resource Manager는 새 위치를 가능한 한 빨리 기본 도메인으로 이동시킵니다. 이 정책은 Azure 지역 또는 여러 데이터 센터 간에 걸쳐 있는 클러스터에서 가장 유용합니다. 이 정책은 Azure 지역 또는 여러 데이터 센터에 걸쳐 있으나 특정 위치에 배치되는 것을 선호하는 서비스를 포함하는 클러스터에서 가장 유용합니다. 주 복제본을 해당 사용자 또는 기타 서비스에 가깝게 배치하면 기본적으로 주 복제본이 처리하는 읽기 작업에서 특히 대기 시간을 낮추는 데 도움이 됩니다.
 
 <center>
-![기본 설정 주 도메인 및 장애 조치(Failover)][Image3]
+
+![기본 설정된 주 도메인 및 장애 조치][Image3]
 </center>
 
 ```csharp

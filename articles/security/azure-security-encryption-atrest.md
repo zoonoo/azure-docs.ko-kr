@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: c9e3a98b1073a2b198a341f31a320bba670b0596
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4ced712b1b2716d85f0366ea892460053db598b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117904"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076907"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 
@@ -258,7 +258,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 |                                  |                    | **암호화 모델 및 키 관리** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **서비스 관리 키를 사용하는 서버 쪽**     | **Key Vault에 고객 관리를 사용하는 서버 쪽**             | **클라이언트 관리를 사용하는 클라이언트 쪽**      |
-| **저장소 및 데이터베이스**        |                    |                    |                    |                    |
+| **저장소 및 데이터베이스**        |                    |                    |                    |
 | 디스크(IaaS)                      | -                  | 예, RSA 2048비트  | -                  |
 | SQL Server(IaaS)                | 예                | 예, RSA 2048비트  | 예                |
 | Azure SQL(Database/Data Warehouse) | 예                | 예, RSA 2048비트  | 예                |
@@ -268,7 +268,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 | Azure Storage(테이블, 큐)   | 예                | -                  | 예                |
 | Cosmos DB(Document DB)          | 예                | -                  | -                  |
 | StorSimple                       | 예                | -                  | 예                |
-| Backup                           | -                  | -                  | 예                |
+| Backup                           | 예                | -                  | 예                |
 | **인텔리전스 및 분석**   |                    |                    |                    |
 | Azure 데이터 팩터리               | 예                | -                  | -                  |
 | Azure Machine Learning           | -                  | 미리 보기, RSA 2048비트 | -                  |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ea80824588980fdd6c580b6d77c2a5566159547
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b78cb45d83cd9bc9bc973ec7a09cb75a8b111744
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211090"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224151"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -53,7 +53,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 > [!IMPORTANT]
 > 프로비전 구성을 테스트하기 위해 단일 Azure AD 사용자를 G Suite에 할당하는 것이 좋습니다. 추가 사용자 및 그룹을 나중에 할당할 수 있습니다.
-
+> 
 > 사용자를 G Suite에 할당할 때 할당 대화 상자에서 **사용자** 또는 **그룹** 역할을 선택합니다. **기본 액세스** 역할은 프로비전에 작동하지 않습니다.
 
 ## <a name="enable-automated-user-provisioning"></a>자동 사용자 프로비전 사용
@@ -80,8 +80,8 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     ![[API 참조]를 선택합니다.][16]
 
-    > [!IMPORTANT]
-    > G Suite로 프로비전하려는 모든 사용자에 대해 Azure Active Directory에서 해당 사용자 이름을 사용자 지정 도메인에 연결 *해야* 합니다. 예를 들면 bob@contoso.onmicrosoft.com과 같은 사용자 이름은 G Suite에서 허용되지 않습니다. 반면에 bob@contoso.com은 허용됩니다. Azure AD에서 해당 속성을 편집하여 기존 사용자의 도메인을 변경할 수 있습니다. Azure Active Directory 및 G Suite 모두에 대한 사용자 지정 도메인을 설정하는 방법에 대한 지침이 다음 단계에 포함되어 있습니다.
+   > [!IMPORTANT]
+   > G Suite로 프로비전하려는 모든 사용자에 대해 Azure Active Directory에서 해당 사용자 이름을 사용자 지정 도메인에 연결 *해야* 합니다. 예를 들면 bob@contoso.onmicrosoft.com과 같은 사용자 이름은 G Suite에서 허용되지 않습니다. 반면에 bob@contoso.com은 허용됩니다. Azure AD에서 해당 속성을 편집하여 기존 사용자의 도메인을 변경할 수 있습니다. Azure Active Directory 및 G Suite 모두에 대한 사용자 지정 도메인을 설정하는 방법에 대한 지침이 다음 단계에 포함되어 있습니다.
       
 1. Azure Active Directory에 사용자 지정 도메인 이름을 아직 추가하지 않은 경우에는 다음 단계를 수행합니다.
   
@@ -105,8 +105,8 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     e. 디렉터리에 추가하려는 모든 도메인에 대해 앞의 단계를 반복합니다.
 
-    > [!NOTE]
-    사용자 프로비저닝을 위해서는 사용자 지정 도메인이 원본 Azure AD의 도메인 이름과 일치해야 합니다. 일치하지 않으면 특성 매핑 사용자 지정을 구현하여 이 문제를 해결할 수 있습니다.
+   > [!NOTE]
+   >  사용자 프로비저닝을 위해서는 사용자 지정 도메인이 원본 Azure AD의 도메인 이름과 일치해야 합니다. 일치하지 않으면 특성 매핑 사용자 지정을 구현하여 이 문제를 해결할 수 있습니다.
 
 
 1. Azure AD에서 모든 도메인을 확인했으므로 Google Apps에서 다시 확인해야 합니다. Google에 아직 등록되지 않은 각 도메인에 대해 다음 단계를 수행합니다.
@@ -149,13 +149,13 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. **프로비전 모드**를 **자동**으로 설정합니다. 
 
-     ![프로비전](./media/google-apps-provisioning-tutorial/provisioning.png)
+       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. **관리자 자격 증명** 섹션에서 **권한 부여**를 선택합니다. 그러면 새 브라우저 창에서 Google 권한 부여 대화 상자가 열립니다.
 
 1. Azure Active Directory에 G Suite 테넌트를 변경할 권한을 제공할 것인지 확인합니다. **수락**을 선택합니다.
     
-     ![사용 권한을 확인합니다.][28]
+       ![Confirm permissions.][28]
 
 1. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 G Suite 계정에 팀 관리자 권한이 있는지 확인합니다. 그런 다음 **권한 부여** 단계를 다시 시도합니다.
 

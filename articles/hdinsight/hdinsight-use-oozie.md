@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: ece621b18c15061ccb559baf9583677dcc848ca4
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984259"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201758"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Apache Hadoop과 함께 Apache Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -126,7 +126,7 @@ RunHiveScript에는 몇 개의 변수가 있습니다. Azure PowerShell을 사�
 |워크플로 변수|설명|
 |---|---|
 |${jobTracker}|Hadoop 작업 추적기의 URL을 지정합니다. HDInsight 버전 2.1 및 3.0에서 **jobtrackerhost:9010**를 사용하세요.|
-|${nameNode}|Hadoop 이름 노드의 URL을 지정합니다. *wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net*과 같은 기본 파일 시스템 주소를 사용합니다.|
+|${nameNode}|Hadoop 이름 노드의 URL을 지정합니다. *wasb://&lt;containerName&gt;\@&lt;storageAccountName&gt;.blob.core.windows.net*과 같은 기본 파일 시스템 주소를 사용합니다.|
 |${queueName}|작업을 제출할 큐 이름을 지정합니다. **기본**을 사용하세요.|
 
 |Hive 작업 변수|설명|
@@ -631,7 +631,6 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md

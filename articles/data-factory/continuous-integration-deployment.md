@@ -3,26 +3,28 @@ title: Azure Data Factory의 지속적인 통합 및 지속적인 업데이트 |
 description: 지속적인 통합 및 지속적인 업데이트를 사용하여 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
+author: gauravmalhot
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.author: douglasl
-ms.openlocfilehash: 0d7c8640cb2a3f6d4d1a32a555c03dc2eca48b9a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 5f5a9ef689fefd5683f7b6f1ebc9b2193ce020e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995780"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory의 CI/CD(지속적인 통합 및 지속적인 업데이트)
 
 지속적인 통합은 코드 베이스에 자동으로 이루어진 변경 내용을 각각 가능한 빨리 테스트하는 방법입니다. 지속적인 업데이트는 지속적인 통합 중에 발생하는 테스트를 수행하고, 변경 내용을 준비 또는 프로덕션 시스템에 푸시합니다.
 
 Azure Data Factory의 경우 지속적인 통합 및 지속적인 업데이트는 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 것입니다. 지속적인 통합 및 지속적인 업데이트를 수행하기 위해 Azure Resource Manager 템플릿과 Data Factory UI의 통합을 사용할 수 있습니다. **ARM 템플릿** 옵션을 선택하는 경우 Data Factory UI가 Resource Manager 템플릿을 생성할 수 있습니다. **ARM 템플릿 내보내기**를 선택하는 경우 포털에서는 Data Factory의 Resource Manager 템플릿과 모든 연결 문자열 및 기타 매개 변수를 포함하는 구성 파일을 생성합니다. 그런 다음, 각 환경(개발, 테스트, 프로덕션)에 하나의 구성 파일을 만들어야 합니다. 주 Resource Manager 템플릿 파일은 모든 환경에서 동일하게 유지됩니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 9분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
 
@@ -161,7 +163,7 @@ Azure Resource Manager 템플릿에 전달할 비밀이 있는 경우 Azure Pipe
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Azure Pipelines 에이전트에 권한 부여
-Azure Key Vault 작업에서 액세스 거부 오류가 표시되며 통합 런타임이 실패할 수 있습니다. 릴리스에 대한 로그를 다운로드하고, Azure Pipelines 에이전트에 권한을 부여하는 명령을 사용하여 `.ps1` 파일을 찾습니다. 직접 명령을 실행할 수 있습니다. 또는 파일에서 보안 주체 ID를 복사하고 Azure Portal에 액세스 정책을 수동으로 추가할 수 있습니다. (*가져오기* 및 *나열*은 필요한 최소 권한입니다.)
+Azure Key Vault 작업에 대 한 액세스 거부 오류가 발생 하 여 fIntegration 런타임 시간을 실패할 수 있습니다. 릴리스에 대한 로그를 다운로드하고, Azure Pipelines 에이전트에 권한을 부여하는 명령을 사용하여 `.ps1` 파일을 찾습니다. 직접 명령을 실행할 수 있습니다. 또는 파일에서 보안 주체 ID를 복사하고 Azure Portal에 액세스 정책을 수동으로 추가할 수 있습니다. (*가져오기* 및 *나열*은 필요한 최소 권한입니다.)
 
 ### <a name="update-active-triggers"></a>활성 트리거 업데이트
 활성 트리거를 업데이트하려고 하면 배포에 실패할 수 있습니다. 활성 트리거를 업데이트하려면 수동으로 중단하고 배포 후에 시작해야 합니다. 다음 예제와 같이 이를 위해 Azure PowerShell 작업을 추가할 수 있습니다.
@@ -173,14 +175,14 @@ Azure Key Vault 작업에서 액세스 거부 오류가 표시되며 통합 런�
 1.  **인라인 스크립트**를 스크립트 형식으로 선택한 다음, 코드를 제공합니다. 다음 예제에서는 트리거를 중지합니다.
 
     ```powershell
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-비슷한 단계를 수행하고 유사한 코드(`Start-AzureRmDataFactoryV2Trigger` 함수 포함)를 사용하여 배포 후에 트리거를 다시 시작할 수 있습니다.
+비슷한 단계를 수행하고 유사한 코드(`Start-AzDataFactoryV2Trigger` 함수 포함)를 사용하여 배포 후에 트리거를 다시 시작할 수 있습니다.
 
 > [!IMPORTANT]
 > 지속적인 통합 및 지속적인 배포 시나리오에서는 서로 다른 환경 간의 Integration Runtime 유형이 동일해야 합니다. 예를 들어 개발 환경에 *자체 호스팅* IR(Integration Runtime)이 있는 경우 테스트 및 프로덕션과 같은 다른 환경에서도 동일한 IR이 *자체 호스팅* 유형이어야 합니다. 마찬가지로 여러 단계에서 통합 런타임을 공유하는 경우 개발, 테스트 및 프로덕션과 같은 모든 환경에서 통합 런타임을 *연결된 자체 호스팅*으로 구성해야 합니다.
@@ -727,7 +729,7 @@ Azure Pipelines에서 가져올 수 있는 샘플 배포 템플릿은 다음과 
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>트리거를 중지 및 다시 시작하고 정리하는 샘플 스크립트
 
-배포하기 전에 트리거를 중지하고 나중에 트리거를 다시 시작하는 샘플 스크립트는 다음과 같습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다. 최신 버전의 Azure PowerShell을 설치하려면 [PowerShellGet으로 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.9.0)를 참조하세요.
+배포하기 전에 트리거를 중지하고 나중에 트리거를 다시 시작하는 샘플 스크립트는 다음과 같습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다. 최신 버전의 Azure PowerShell을 설치하려면 [PowerShellGet으로 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요.
 
 ```powershell
 param
@@ -745,7 +747,7 @@ $resources = $templateJson.resources
 
 #Triggers 
 Write-Host "Getting triggers"
-$triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+$triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 $triggersTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/triggers" }
 $triggerNames = $triggersTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
 $activeTriggerNames = $triggersTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and ($_.properties.pipelines.Count -gt 0 -or $_.properties.pipeline.pipelineReference -ne $null)} | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
@@ -757,32 +759,32 @@ if ($predeployment -eq $true) {
     Write-Host "Stopping deployed triggers"
     $triggerstostop | ForEach-Object { 
         Write-host "Disabling trigger " $_
-        Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 else {
     #Deleted resources
     #pipelines
     Write-Host "Getting pipelines"
-    $pipelinesADF = Get-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $pipelinesADF = Get-AzDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $pipelinesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/pipelines" }
     $pipelinesNames = $pipelinesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedpipelines = $pipelinesADF | Where-Object { $pipelinesNames -notcontains $_.Name }
     #datasets
     Write-Host "Getting datasets"
-    $datasetsADF = Get-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $datasetsADF = Get-AzDataFactoryV2Dataset -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $datasetsTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/datasets" }
     $datasetsNames = $datasetsTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40) }
     $deleteddataset = $datasetsADF | Where-Object { $datasetsNames -notcontains $_.Name }
     #linkedservices
     Write-Host "Getting linked services"
-    $linkedservicesADF = Get-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $linkedservicesADF = Get-AzDataFactoryV2LinkedService -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $linkedservicesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/linkedservices" }
     $linkedservicesNames = $linkedservicesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedlinkedservices = $linkedservicesADF | Where-Object { $linkedservicesNames -notcontains $_.Name }
     #Integrationruntimes
     Write-Host "Getting integration runtimes"
-    $integrationruntimesADF = Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $integrationruntimesADF = Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $integrationruntimesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/integrationruntimes" }
     $integrationruntimesNames = $integrationruntimesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedintegrationruntimes = $integrationruntimesADF | Where-Object { $integrationruntimesNames -notcontains $_.Name }
@@ -791,112 +793,182 @@ else {
     Write-Host "Deleting triggers"
     $deletedtriggers | ForEach-Object { 
         Write-Host "Deleting trigger "  $_.Name
-        $trig = Get-AzureRmDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
+        $trig = Get-AzDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
         if ($trig.RuntimeState -eq "Started") {
-            Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
+            Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
         }
-        Remove-AzureRmDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting pipelines"
     $deletedpipelines | ForEach-Object { 
         Write-Host "Deleting pipeline " $_.Name
-        Remove-AzureRmDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting datasets"
     $deleteddataset | ForEach-Object { 
         Write-Host "Deleting dataset " $_.Name
-        Remove-AzureRmDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting linked services"
     $deletedlinkedservices | ForEach-Object { 
         Write-Host "Deleting Linked Service " $_.Name
-        Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting integration runtimes"
     $deletedintegrationruntimes | ForEach-Object { 
         Write-Host "Deleting integration runtime " $_.Name
-        Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
 
     if ($deleteDeployment -eq $true) {
         Write-Host "Deleting ARM deployment ... under resource group: " $ResourceGroupName
-        $deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName
+        $deployments = Get-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName
         $deploymentsToConsider = $deployments | Where { $_.DeploymentName -like "ArmTemplate_master*" -or $_.DeploymentName -like "ArmTemplateForFactory*" } | Sort-Object -Property Timestamp -Descending
         $deploymentName = $deploymentsToConsider[0].DeploymentName
 
        Write-Host "Deployment to be deleted: " $deploymentName
-        $deploymentOperations = Get-AzureRmResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
+        $deploymentOperations = Get-AzResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
         $deploymentsToDelete = $deploymentOperations | Where { $_.properties.targetResource.id -like "*Microsoft.Resources/deployments*" }
 
         $deploymentsToDelete | ForEach-Object { 
             Write-host "Deleting inner deployment: " $_.properties.targetResource.id
-            Remove-AzureRmResourceGroupDeployment -Id $_.properties.targetResource.id
+            Remove-AzResourceGroupDeployment -Id $_.properties.targetResource.id
         }
         Write-Host "Deleting deployment: " $deploymentName
-        Remove-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
+        Remove-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
     }
 
     #Start Active triggers - After cleanup efforts
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
-        Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 ```
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Resource Manager 템플릿에서 사용자 지정 매개 변수 사용
 
-Resource Manager 템플릿에 대한 사용자 지정 매개 변수를 정의할 수 있습니다. 리포지토리의 루트 폴더에 `arm-template-parameters-definition.json`이라는 파일이 있으면 됩니다. 파일 이름은 여기에 표시된 이름과 정확히 일치해야 합니다. Data Factory는 공동 작업 분기만이 아니라 현재 작업 중인 모든 분기에서 파일을 읽으려고 합니다. 파일이 없는 경우 Data Factory에서 기본 매개 변수와 값을 사용합니다.
+GIT 모드에 있는 경우에 하드 코드 된 속성에 템플릿 매개 변수화 된 속성을 설정 하 여 Resource Manager 템플릿에서 기본 속성을 재정의할 수 있습니다. 이러한 시나리오에서는 기본 매개 변수화 서식 파일을 재정의 하려는 경우:
+
+* 자동화 된 CI/CD를 사용 하며 Resource Manager 배포 하는 동안 일부 속성을 변경 하려면 속성은 기본적으로 매개 변수화 되지 않습니다.
+* 팩터리의 기본 Resource Manager 템플릿을 유효 하지 않음을 최대 허용 길이 매개 변수 (256) 보다 더 있기 때문에 너무 큰 경우
+
+이러한 조건일 경우 기본 매개 변수화 서식 파일을 재정의 하려면 라는 파일을 만듭니다 *arm 템플릿-매개 변수 definition.json* 리포지토리의 루트 폴더에 있습니다. 파일 이름은 정확히 일치 해야 합니다. Data Factory는 공동 작업 분기 뿐 아니라 현재 진행 중인 Azure 데이터 팩터리 포털에서 어떤 분기에서이 파일을 읽으려고 합니다. 만들거나 개인 분기를 사용 하 여 변경 내용을 테스트할 수 있는 파일을 편집할 수 있습니다 합니다 **내보내기 ARM 템플릿** UI에 있습니다. 그런 다음 파일을 공동 작업 분기에 병합할 수 있습니다. 파일이 없는 경우에 기본 템플릿이 사용 됩니다.
+
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>사용자 지정 매개 변수 파일의 구문
 
-사용자 지정 매개 변수 파일을 작성할 때 사용할 몇 가지 지침은 다음과 같습니다. 이 구문의 예제를 보려면 다음 섹션, [샘플 사용자 지정 매개 변수 파일](#sample)을 참조하세요.
+사용자 지정 매개 변수 파일을 작성할 때 사용할 몇 가지 지침은 다음과 같습니다. 각 엔터티 형식에 대 한 섹션의 구성 파일: 트리거, 파이프라인, linkedservice, dataset, integrationruntime, 및 등입니다.
+* 관련 있는 엔터티 형식에서 속성 경로 입력 합니다.
+* 속성 이름 설정 하면 '\*'을 (만 첫 번째 수준 반복적으로)까지 그 아래 모든 속성을 매개 변수화 할 것임을 나타냅니다. 이 예외를 제공할 수도 있습니다.
+* 문자열로 속성의 값을 설정할 때 속성을 매개 변수화하려는 것을 나타냅니다. 형식을 사용 하 여 `<action>:<name>:<stype>`입니다.
+   *  `<action>` 다음 문자 중 하나일 수 있습니다.
+      * `=` 매개 변수에 대해 기본값으로 현재 값을 유지 하는 것을 의미 합니다.
+      * `-` 의미 매개 변수의 기본값을 유지 하지 않습니다.
+      * `|` 연결 문자열 또는 키에 대 한 Azure Key Vault에서 비밀에 대 한 특수 사례가입니다.
+   * `<name>` 매개 변수의 이름이입니다. 비어 있는 경우 속성의 이름을 걸립니다. 값을 사용 하 여 시작 하는 경우는 `-` 문자 이름을 단축 됩니다. 예를 들어 `AzureStorage1_properties_typeProperties_connectionString` 로 줄일 수는 `AzureStorage1_connectionString`합니다.
+   * `<stype>` 매개 변수의 형식이입니다. 하는 경우 `<stype>` 는 빈 기본 형식은 `string`합니다. 지원 되는 값: `string`, `bool`를 `number`합니다 `object`, 및 `securestring`합니다.
+* 배열 정의 파일을 지정 하면 템플릿에 일치 하는 속성 배열 임을 지정할 수 있습니다. Data Factory Integration Runtime 개체 배열에 지정 된 정의 사용 하 여 배열에 있는 모든 개체를 반복 합니다. 두 번째 개체, 문자열은 각 반복에 대한 매개 변수의 이름으로 사용되는 속성의 이름이 됩니다.
+* 리소스 인스턴스에 대 한 관련 된 정의 하는 것이 불가능 합니다. 모든 정의 해당 형식의 모든 리소스에 적용 됩니다.
+* 기본적으로 Key Vault의 비밀 토큰을 연결 문자열, 키 등의 보안 문자열 등의 모든 보안 문자열을 매개 변수화 됩니다.
+ 
+## <a name="sample-parameterization-template"></a>샘플 매개 변수화 템플릿
 
-1. 정의 파일에서 배열을 지정할 때 템플릿의 일치하는 속성이 배열임을 나타냅니다. Data Factory는 배열의 Integration Runtime 개체에 지정된 정의를 사용하여 배열에 있는 모든 개체를 반복합니다. 두 번째 개체, 문자열은 각 반복에 대한 매개 변수의 이름으로 사용되는 속성의 이름이 됩니다.
-
-    ```json
-    ...
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+        "properties": {
+            "activities": [{
+                "typeProperties": {
+                    "waitTimeInSeconds": "-::number",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
     "Microsoft.DataFactory/factories/triggers": {
         "properties": {
-            "pipelines": [{
-                    "parameters": {
-                        "*": "="
-                    }
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:number",
+                    "frequency": "=:-freq"
                 },
-                "pipelineReference.referenceName"
-            ],
-            "pipeline": {
-                "parameters": {
-                    "*": "="
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "secretAccessKey": "|"
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
                 }
             }
         }
     },
-    ...
-    ```
+    "Microsoft.DataFactory/factories/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
 
-2. 속성 이름을 `*`로 설정하면 템플릿에서 명시적으로 정의된 속성을 제외하고 해당 수준의 모든 속성을 사용하도록 하려는 것을 나타냅니다.
+### <a name="explanation"></a>설명:
 
-3. 문자열로 속성의 값을 설정할 때 속성을 매개 변수화하려는 것을 나타냅니다. `<action>:<name>:<stype>` 양식을 사용합니다.
-    1.  `<action>`은 다음 문자 중 하나일 수 있습니다. 
-        1.  `=`는 매개 변수에 대한 기본값으로 현재 값을 유지하는 것을 의미합니다.
-        2.  `-`는 매개 변수에 대한 기본값을 유지하지 않는 것을 의미합니다.
-        3.  `|`는 연결 문자열에 대한 Azure Key Vault에서 비밀에 대한 특수 사례입니다.
-    2.  `<name>`은 매개 변수의 이름입니다. `<name`>이 비어 있는 경우 매개 변수의 이름을 사용합니다. 
-    3.  `<stype>`은 매개 변수의 형식입니다. `<stype>`이 비어 있는 경우 기본 형식은 문자열입니다.
-4.  매개 변수 이름의 시작 부분에 `-` 문자를 입력하는 경우 전체 Resource Manager 매개 변수 이름은 `<objectName>_<propertyName>`으로 단축됩니다.
-예를 들어 `AzureStorage1_properties_typeProperties_connectionString`은 `AzureStorage1_connectionString`으로 단축됩니다.
+#### <a name="pipelines"></a>파이프라인
+    
+* 속성에는 경로 활동/typeProperties/waitTimeInSeconds 매개 변수화 됩니다. 즉, 명명 된 코드-수준 속성이 포함 된 파이프라인의 모든 작업 `waitTimeInSeconds` (예를 들어를 `Wait` 활동) 기본 이름으로 숫자로 매개 변수화 됩니다. 하지만 Resource Manager 템플릿에서 기본값을 갖지 않습니다. Resource Manager 배포 하는 동안 필수 입력 됩니다.
+* 마찬가지로 이라는 속성을 `headers` (예는 `Web` 활동) 형식을 사용 하 여 매개 변수가 `object` (JObject). 기본값은 원본 팩터리와 같이 동일한 값에
 
+#### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-### <a name="sample"></a> 샘플 사용자 지정 매개 변수 파일
+* 경로 아래에 있는 모든 속성과 속성만 `typeProperties` 매개 변수화 되는 각 기본 값을 사용 하 여 합니다. 예를 들어, 오늘날의 스키마를 기준으로 두 가지 속성 아래에서 **IntegrationRuntimes** 속성을 입력: `computeProperties` 고 `ssisProperties`합니다. 두 속성 형식은 형식 (개체)와 해당 기본값을 사용 하 여 만들어집니다.
 
-다음 예제에서는 샘플 매개 변수 파일을 보여 줍니다. 이 샘플을 참조로 사용하여 사용자 지정 매개 변수 파일을 만듭니다. 제공한 파일의 JSON 형식이 올바르지 않으면 Data Factory에서 브라우저 콘솔에 오류 메시지를 출력하고, Data Factory UI에 표시된 기본 매개 변수와 값으로 돌아갑니다.
+#### <a name="triggers"></a>트리거
+
+* 아래 `typeProperties`, 두 속성을 매개 변수화 됩니다. 첫 번째 `maxConcurrency`기본값을 갖도록 지정 되 고 유형은 `string`합니다. 기본 매개 변수 이름을 갖는 `<entityName>_properties_typeProperties_maxConcurrency`합니다.
+* `recurrence` 속성 또한 매개 변수화 됩니다. 문자열로, 매개 변수 이름과 기본값을 사용 하 여 매개 변수화 할 수 있는 해당 수준의 모든 속성 지정 됩니다. 예외가 합니다 `interval` 숫자 형식으로 매개 변수화 되 고 매개 변수 이름의 접미사로 붙은 속성 `<entityName>_properties_typeProperties_recurrence_triggerSuffix`합니다. 마찬가지로,는 `freq` 속성은 문자열 및 문자열로 매개 변수화 됩니다. 그러나는 `freq` 속성은 기본값이 없는 매개 변수화 됩니다. 이름이 단축 되 고 그 뒤에 있습니다. 예: `<entityName>_freq`
+
+#### <a name="linkedservices"></a>LinkedServices
+
+* 연결 된 서비스는 고유 합니다. 연결 된 서비스 및 데이터 집합 잠재적으로 여러 유형의 수, 있으므로 형식별 사용자 지정을 제공할 수 있습니다. 예를 들어 말할 수도 있습니다는 모든 연결 된 서비스 유형의 `AzureDataLakeStore`, 특정 템플릿을 적용 하 고 다른 모든 됩니다 (통해 \*) 다른 템플릿을 적용 됩니다.
+* 앞의 예제에는 `connectionString` 로 매개 변수화 된 속성은를 `securestring` 값을 기본값을 갖지 않습니다 및 붙습니다 축약된 매개 변수 이름을 더 `connectionString`.
+* 그러나 속성 `secretAccessKey`, 이런 경우에 `AzureKeyVaultSecret` (예를 들어는 `AmazonS3` 연결 된 서비스). 따라서 Azure Key Vault 비밀로 자동으로 매개 변수화 된 하 고 원본 팩터리에서 사용 하 여 구성 된 key vault에서 인출 되. 또한 매개 변수화 하는 key vault 자체입니다.
+
+#### <a name="datasets"></a>데이터 세트
+
+* 형식별 사용자 지정을 데이터 집합에 대해 사용할 수 있는 경우에 구성 하지 않고도 명시적으로 제공 될 수 있습니다는 \*-수준 구성 합니다. 위의 예제에서는 모든 데이터 집합 속성 `typeProperties` 매개 변수화 됩니다.
+
+기본 매개 변수화 템플릿을 변경할 수 있지만 현재 템플릿입니다. 이 추가 속성을 매개 변수로 뿐 아니라 기존 매개 변수화 손실 되 고 다시 만들 필요 하지 않을 경우 해야 하는 경우에 유용 합니다.
+
 
 ```json
 {
-    "Microsoft.DataFactory/factories/pipelines": {},
-    "Microsoft.DataFactory/factories/integrationRuntimes": {
+    "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes":{
         "properties": {
             "typeProperties": {
                 "ssisProperties": {
@@ -916,7 +988,8 @@ Resource Manager 템플릿에 대한 사용자 지정 매개 변수를 정의할
                 "linkedInfo": {
                     "key": {
                         "value": "-::secureString"
-                    }
+                    },
+                    "resourceId": "="
                 }
             }
         }
@@ -927,14 +1000,18 @@ Resource Manager 템플릿에 대한 사용자 지정 매개 변수를 정의할
                     "parameters": {
                         "*": "="
                     }
-                },
+                },  
                 "pipelineReference.referenceName"
             ],
             "pipeline": {
                 "parameters": {
                     "*": "="
                 }
+            },
+            "typeProperties": {
+                "scope": "="
             }
+
         }
     },
     "Microsoft.DataFactory/factories/linkedServices": {
@@ -957,7 +1034,25 @@ Resource Manager 템플릿에 대한 사용자 지정 매개 변수를 정의할
                     "tenant": "=",
                     "dataLakeStoreUri": "=",
                     "baseUrl": "=",
+                    "database": "=",
+                    "serviceEndpoint": "=",
+                    "batchUri": "=",
+                    "databaseName": "=",
+                    "systemNumber": "=",
+                    "server": "=",
+                    "url":"=",
+                    "aadResourceId": "=",
                     "connectionString": "|:-connectionString:secureString"
+                }
+            }
+        },
+        "Odbc": {
+            "properties": {
+                "typeProperties": {
+                    "userName": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
                 }
             }
         }
@@ -970,10 +1065,118 @@ Resource Manager 템플릿에 대한 사용자 지정 매개 변수를 정의할
                     "fileName": "="
                 }
             }
-        }
-    }
+        }}
 }
 ```
+
+**예제**: 매개 변수 파일 (Databricks 연결 된 서비스)에서 Databricks 대화형 클러스터 ID를 추가 합니다.
+
+```
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes":{
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    },
+                    "resourceId": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },  
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            },
+            "typeProperties": {
+                "scope": "="
+            }
+ 
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "database": "=",
+                    "serviceEndpoint": "=",
+                    "batchUri": "=",
+                    "databaseName": "=",
+                    "systemNumber": "=",
+                    "server": "=",
+                    "url":"=",
+                    "aadResourceId": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "existingClusterId": "-"
+                }
+            }
+        },
+        "Odbc": {
+            "properties": {
+                "typeProperties": {
+                    "userName": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }}
+}
+```
+
 
 ## <a name="linked-resource-manager-templates"></a>연결된 Resource Manager 템플릿
 

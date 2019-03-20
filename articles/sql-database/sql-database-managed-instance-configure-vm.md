@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 9e1001816e9a4cf62d2e6c84c72aae84428148d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408802"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997908"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성
 
@@ -70,7 +70,7 @@ SQL Managed Instance가 개인 Virtual Network에 배치되므로 SQL Server Man
 
 1. 다른 브라우저 탭에서 Azure Portal에 로그인되었는지 확인하세요. 그러고 나서 다음 단추를 선택하여 클라이언트 가상 머신을 만들고 SQL Server Management Studio를 설치합니다.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 2. 다음 표의 정보를 사용하여 양식을 작성합니다.
 
@@ -84,7 +84,7 @@ SQL Managed Instance가 개인 Virtual Network에 배치되므로 SQL Server Man
    |**암호**|유효한 암호|암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.<br>이 암호는 [VM에 연결](#connect-to-virtual-machine)할 때마다 사용됩니다.|
    | **가상 머신 크기** | 모든 유효한 크기 | 이 빠른 시작에서는 이 템플릿의 기본값인 **Standard_B2s**로 충분합니다. |
    | **위치**:|[resourceGroup().location].| 이 값은 변경하지 마세요. |
-   | **가상 네트워크 이름**|Managed Instance를 만든 가상 네트워크입니다.|
+   | **가상 네트워크 이름**|관리 되는 인스턴스에서 만든 가상 네트워크.|
    | **서브넷 이름**|이전 절차에서 만든 서브넷의 이름| Managed Instance를 만든 서브넷을 선택하지 마세요.|
    | **아티팩트 위치** | [deployment().properties.templateLink.uri] | 이 값은 변경하지 마세요. |
    | **아티팩트 위치 Sas 토큰** | 비워 둡니다. | 이 값은 변경하지 마세요. |

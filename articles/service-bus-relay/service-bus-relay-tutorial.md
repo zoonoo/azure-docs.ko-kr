@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: db73363a05734db5d7e3375a5755a807eb7ce2a5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615479"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890970"
 ---
 # <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Azure WCF Relay를 사용하여 외부 클라이언트에 온-프레미스 WCF REST 서비스 노출
 
@@ -48,7 +48,7 @@ ms.locfileid: "51615479"
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 - Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
-- [Visual Studio 2015 이상](http://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
+- [Visual Studio 2015 이상](https://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
 - Azure SDK for .NET. [SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 설치합니다.
 
 ## <a name="create-a-relay-namespace"></a>Relay 네임스페이스 만들기
@@ -68,7 +68,7 @@ ms.locfileid: "51615479"
 
 3. Service Bus NuGet 패키지를 설치합니다. 이 패키지는 WCF **System.ServiceModel** 뿐만 아니라 Service Bus 라이브러리에 대한 참조를 자동으로 추가합니다. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx)은 WCF의 기본 기능에 프로그래밍 방식으로 액세스할 수 있도록 하는 네임스페이스입니다. Service Bus는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다.
 
-    솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. 프로젝트 이름이 **버전** 상자에서 선택되어 있는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
+    솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다. 찾아보기 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. 프로젝트 이름이 **버전** 상자에서 선택되어 있는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
 
     ![Service Bus 패키지][3]
 4. 아직 열리지 않은 경우 솔루션 탐색기에서 Program.cs 파일을 두 번 클릭하여 편집기에서 엽니다.
@@ -84,10 +84,10 @@ ms.locfileid: "51615479"
    > 이 자습서에서는 [WCF 클라이언트 구성](#configure-the-wcf-client) 단계에서 구성 파일에 사용되는 계약 기반 관리 유형의 네임스페이스인 C# 네임스페이스 **Microsoft.ServiceBus.Samples**를 사용합니다. 이 샘플을 빌드할 때 아무 네임스페이스나 지정할 수 있지만, 애플리케이션 구성 파일에서 계약과 서비스의 네임스페이스를 그에 맞게 수정하지 않으면 자습서가 작동하지 않습니다. App.config 파일에서 지정한 네임스페이스는 C# 파일에서 지정한 네임스페이스와 동일합니다.
    >
    >
-7. `Microsoft.ServiceBus.Samples` 네임스페이스 선언 직후 네임스페이스 안에서 이름이 `IEchoContract`인 새 인터페이스를 정의하고 네임스페이스 값이 `http://samples.microsoft.com/ServiceModel/Relay/`인 `ServiceContractAttribute` 특성을 해당 인터페이스에 적용합니다. 네임스페이스 값은 코드 전반에 사용하는 네임스페이스에 따라 다릅니다. 대신 네임스페이스 값은 이 계약에 대한 고유 식별자로 사용됩니다. 네임스페이스를 명시적으로 지정하면 기본 네임스페이스 값이 계약 이름에 추가되는 경우를 방지합니다. 네임스페이스 선언 후 다음 코드를 붙여넣습니다.
+7. `Microsoft.ServiceBus.Samples` 네임스페이스 선언 직후 네임스페이스 안에서 이름이 `IEchoContract`인 새 인터페이스를 정의하고 네임스페이스 값이 `https://samples.microsoft.com/ServiceModel/Relay/`인 `ServiceContractAttribute` 특성을 해당 인터페이스에 적용합니다. 네임스페이스 값은 코드 전반에 사용하는 네임스페이스에 따라 다릅니다. 대신 네임스페이스 값은 이 계약에 대한 고유 식별자로 사용됩니다. 네임스페이스를 명시적으로 지정하면 기본 네임스페이스 값이 계약 이름에 추가되는 경우를 방지합니다. 네임스페이스 선언 후 다음 코드를 붙여넣습니다.
 
     ```csharp
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
     }
@@ -122,7 +122,7 @@ using System.ServiceModel;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -158,7 +158,7 @@ Azure 릴레이를 만들려면 첫째로 계약을 만들어야 하는데, 계�
 2. [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) 특성을 `IEchoContract` 인터페이스에 적용합니다. 특성은 서비스 이름 및 네임스페이스를 지정합니다. 그러면 `EchoService` 클래스는 다음과 같이 표시됩니다.
 
     ```csharp
-    [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class EchoService : IEchoContract
     {
     }
@@ -211,7 +211,7 @@ Azure 릴레이를 만들려면 첫째로 계약을 만들어야 하는데, 계�
 다음 코드에서는 서비스 계약의 구현을 보여줍니다.
 
 ```csharp
-[ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+[ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
 
     class EchoService : IEchoContract
     {
@@ -354,7 +354,7 @@ using Microsoft.ServiceBus.Description;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -363,7 +363,7 @@ namespace Microsoft.ServiceBus.Samples
 
     public interface IEchoChannel : IEchoContract, IClientChannel { };
 
-    [ServiceBehavior(Name = "EchoService", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     class EchoService : IEchoContract
     {
         public string Echo(string text)
@@ -442,7 +442,7 @@ namespace Microsoft.ServiceBus.Samples
 6. 다음 예제와 같이 서비스 계약 정의를 네임스페이스에 추가합니다. 이 정의는 **Service** 프로젝트에 사용되는 정의와 동일합니다. 이 코드는 `Microsoft.ServiceBus.Samples` 네임스페이스 위쪽에 추가해야 합니다.
 
     ```csharp
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -465,7 +465,7 @@ using System.ServiceModel;
 namespace Microsoft.ServiceBus.Samples
 {
 
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -551,7 +551,7 @@ namespace Microsoft.ServiceBus.Samples
 그러나 주요 차이 중 하나는 클라이언트 애플리케이션이 채널을 사용하여 릴레이 서비스에 연결하는 것과 달리 서비스는 **ServiceHost**에 대한 호출을 사용한다는 점입니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
 
 ### <a name="implement-a-client-application"></a>클라이언트 애플리케이션 구현
-1. 연결 모드를 **AutoDetect**로 설정합니다. **EchoClient** 응용 프로그램의 `Main()` 메서드 내에 다음 코드를 추가합니다.
+1. 연결 모드를 **AutoDetect**로 설정합니다. **EchoClient** 애플리케이션의 `Main()` 메서드 내에 다음 코드를 추가합니다.
 
     ```csharp
     ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
@@ -631,7 +631,7 @@ using System.ServiceModel;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    [ServiceContract(Name = "IEchoContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
+    [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IEchoContract
     {
         [OperationContract]
@@ -712,7 +712,7 @@ namespace Microsoft.ServiceBus.Samples
     서비스 애플리케이션은 다음 예제에서처럼 콘솔 창에 수신 중인 주소를 출력합니다.
 
     `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
-10. **EchoClient** 콘솔 창에서 이전에 서비스 응용 프로그램에 입력한 동일한 정보를 입력합니다. 이전 단계에 따라 클라이언트 애플리케이션에 동일한 서비스 네임스페이스 및 SAS 키 값을 입력합니다.
+10. **EchoClient** 콘솔 창에서 이전에 서비스 애플리케이션에 입력한 동일한 정보를 입력합니다. 이전 단계에 따라 클라이언트 애플리케이션에 동일한 서비스 네임스페이스 및 SAS 키 값을 입력합니다.
 11. 이 값을 입력한 후 클라이언트가 서비스에 대한 채널을 열고 다음 콘솔 출력 예제에서 보이는 것처럼 여러 텍스트를 입력하라는 메시지가 표시됩니다. 
 
     `Enter text to echo (or [Enter] to exit):`

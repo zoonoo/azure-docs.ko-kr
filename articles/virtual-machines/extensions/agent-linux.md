@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011603"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
 
@@ -73,7 +73,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
 다음 시스템은 테스트를 거쳐 Azure Linux 에이전트와 동작하는 것으로 알려져 있습니다.
 
 > [!NOTE]
-> [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)에서 설명한 대로 Microsoft Azure 플랫폼에서 지원되는 시스템의 공식 목록에서 이 목록은 달라질 수 있습니다.
+> [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)에서 설명한 대로 Microsoft Azure 플랫폼에서 지원되는 시스템의 공식 목록에서 이 목록은 달라질 수 있습니다.
 > 
 > 
 
@@ -108,12 +108,12 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 
 ## <a name="command-line-options"></a>명령줄 옵션
 ### <a name="flags"></a>플래그
-* verbose: 지정한 명령의 세부 정보 표시를 늘립니다.
-* force: 일부 명령의 대화형 확인을 건너뜁니다.
+* 자세한 정보: 지정 된 명령의 자세한 정도 증가
+* 강제 합니다. 일부 명령에 대 한 대화형 확인 건너뛰기
 
 ### <a name="commands"></a>명령
-* help: 지원되는 명령 및 플래그를 나열합니다.
-* deprovision: 시스템을 정리하고 다시 프로비전하는 데 적합하도록 만듭니다. 삭제되는 작업은 다음과 같습니다.
+* 도움말: 지원 되는 명령 및 플래그를 나열합니다.
+* 프로 비전을 해제 합니다. 시스템을 정리 하 고 다시 프로 비전에 대 한 적절 한 확인 하려고 시도 합니다. 삭제되는 작업은 다음과 같습니다.
   
   * 모든 SSH 호스트 키(구성 파일에서 Provisioning.RegenerateSshHostKeyPair가 'y'인 경우)
   * /etc/resolv.conf의 Nameserver 구성
@@ -126,11 +126,11 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 > 
 > 
 
-* deprovision+user: -deprovision(위)의 모든 작업을 수행하고, 마지막으로 프로비전한 사용자 계정(/var/lib/waagent에서 가져옴) 및 연결된 데이터도 삭제합니다. Azure에서 이전에 프로비전한 이미지의 프로비전을 해제하여 이미지를 캡처하고 다시 사용할 수 있도록 하는 경우에 이 매개 변수를 사용합니다.
-* version: waagent의 버전을 표시합니다.
-* serialconsole: ttyS0(첫 번째 직렬 포트)을 부팅 콘솔로 표시하도록 GRUB를 구성합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고 디버깅에 사용할 수 있도록 설정합니다.
-* daemon: waagent를 디먼으로 실행하여 플랫폼 조작을 관리합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
-* start: waagent를 백그라운드 프로세스로 실행
+* deprovision + user: -Deprovision (위)에서 모든 작업을 수행 합니다. 마지막 프로 비전 된 사용자 계정 (/var/lib/waagent에서 얻은)를 삭제 및 데이터를 연결 합니다. Azure에서 이전에 프로비전한 이미지의 프로비전을 해제하여 이미지를 캡처하고 다시 사용할 수 있도록 하는 경우에 이 매개 변수를 사용합니다.
+* 버전: Waagent의 버전을 표시
+* serialconsole: TtyS0을 표시 하려면 GRUB 구성 (첫 번째 직렬 포트)을 부팅 콘솔로 합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고 디버깅에 사용할 수 있도록 설정합니다.
+* daemon: 플랫폼 상호 작용을 관리 하는 디먼으로 waagent를 실행 합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
+* 시작: Waagent를 백그라운드 프로세스로 실행
 
 ## <a name="configuration"></a>구성
 구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 다음은 구성 파일 샘플을 보여 줍니다.

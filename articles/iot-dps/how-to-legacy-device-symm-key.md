@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341238"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074899"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>대칭 키를 사용하여 레거시 디바이스를 프로비전하는 방법
 
@@ -114,23 +114,23 @@ SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있�
 
 ## <a name="create-a-symmetric-key-enrollment-group"></a>대칭 키 등록 그룹 만들기
 
-1. [Azure Portal](http://portal.azure.com)에 로그인하고 Device Provisioning Service 인스턴스를 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 Device Provisioning Service 인스턴스를 엽니다.
 
 2. **등록 관리** 탭을 선택한 다음, 페이지 위쪽에 있는 **등록 그룹 추가** 단추를 클릭합니다. 
 
 3. **등록 그룹 추가**에서 다음 정보를 입력하고 **저장** 단추를 클릭합니다.
 
-    - **그룹 이름**: **mylegacydevices**를 입력합니다.
+   - **그룹 이름**: **mylegacydevices**를 입력합니다.
 
-    - **증명 유형**: **대칭 키**를 선택합니다.
+   - **증명 유형**: **대칭 키**를 선택합니다.
 
-    - **키 자동 생성**: 이 확인란을 선택합니다.
+   - **키 자동 생성**: 이 확인란을 선택합니다.
 
-    - **허브에 디바이스를 할당할 방법 선택**: 특정 허브에 할당할 수 있도록 **정적 구성**을 선택합니다.
+   - **허브에 디바이스를 할당할 방법 선택**: 특정 허브에 할당할 수 있도록 **정적 구성**을 선택합니다.
 
-    - **이 그룹을 할당할 수 있는 IoT 허브 선택**: 허브 중 하나를 선택합니다.
+   - **이 그룹을 할당할 수 있는 IoT 허브 선택**: 허브 중 하나를 선택합니다.
 
-    ![대칭 키 증명에 대한 등록 그룹 추가](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![대칭 키 증명에 대한 등록 그룹 추가](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. 등록을 저장하면 **기본 키** 및 **보조 키**가 생성되고 등록 항목에 추가됩니다. 대칭 키 등록 그룹이 *등록 그룹* 탭의 *그룹 이름* 열 아래에 **mylegacydevices**로 표시됩니다. 
 
@@ -294,7 +294,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 * 다시 프로비전에 대한 자세한 내용은 [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요. 
 * [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
-* 프로비전 해제에 대한 자세한 내용은 [이전에 자동 프로비전된 디바이스를 프로비전 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요. 
+* 자세한 프로 비전 해제에 알아보려면 [이전에 자동으로 프로 비전 된 장치를 프로 비전 해제 하는 방법](how-to-unprovision-devices.md) 
 
 
 

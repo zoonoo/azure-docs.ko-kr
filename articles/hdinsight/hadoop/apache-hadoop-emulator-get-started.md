@@ -1,5 +1,5 @@
 ---
-title: Apache Hadoop 샌드박스 사용에 대해 알아보기 - 에뮬레이터 - Azure HDInsight
+title: -에뮬레이터-Azure HDInsight는 Apache Hadoop 샌드박스를 사용 하 여에 대해 알아봅니다.
 description: 'Apache Hadoop 에코 시스템을 사용하는 방법에 대해 알아보려면 Azure 가상 머신에서 Hortonworks의 Hadoop 샌드박스를 설정할 수 있습니다. '
 keywords: Hadoop 에뮬레이터, Hadoop 샌드박스
 ms.reviewer: jasonh
@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016779"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005765"
 ---
-# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>가상 머신의 에뮬레이터인 Apache Hadoop 샌드박스 시작
+# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Apache Hadoop 샌드박스를 가상 컴퓨터에서 에뮬레이터를 사용 하 여 시작
 
 Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Hortonworks의 Apache Hadoop 샌드박스를 설치하는 방법을 알아봅니다. 이 샌드박스는 Hadoop, HDFS(Hadoop Distributed File System) 및 작업 제출에 대해 알아보는 로컬 개발 환경을 제공합니다. Hadoop에 익숙해졌으면 HDInsight 클러스터를 만들어 Azure에서 Hadoop 사용을 시작할 수 있습니다. 시작 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -30,7 +30,7 @@ Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Horton
 1. [Hortonworks 다운로드](https://hortonworks.com/downloads/#sandbox)로 이동합니다.
 
 2. **VIRTUALBOX용 다운로드**를 클릭하여 VM 기반 최신 Hortonworks 샌드박스를 다운로드합니다. 다운로드가 시작되기 전에 Hortonworks에 등록하라는 메시지가 표시됩니다. 네트워크 속도에 따라 다운로드하는 데 1 ~ 2 시간이 걸립니다.
-   
+
     ![VirtualBox에 대한 Hortonworks Sandbox를 다운로드용 링크 이미지](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
 3. 동일한 웹 페이지에서 **Virtual Box에서 가져오기** 링크를 클릭하여 가상 머신에 대한 설치 지침이 포함된 PDF를 다운로드합니다.
 
@@ -44,36 +44,35 @@ Hadoop 에코 시스템에 대해 알아보기 위해 가상 머신에서 Horton
 1. Open Oracle VM VirtualBox를 엽니다.
 2. **파일** 메뉴에서 **Import Appliance(어플라이언스 가져오기)** 를 클릭한 다음 Hortonworks Sandbox 이미지를 지정합니다.
 1. Hortonworks Sandbox를 선택한 다음 **시작**, **일반 시작**을 차례로 선택합니다. 가상 머신이 부팅 프로세스를 완료하면 로그인 지침이 표시됩니다.
-   
+
     ![일반 시작](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. 웹 브라우저를 열고 표시된 URL로 이동합니다(일반적으로 http://127.0.0.1:8888)).
+2. 웹 브라우저를 열고 표시 되는 URL로 이동 (일반적으로 `http://127.0.0.1:8888`).
 
 ## <a name="set-sandbox-passwords"></a>샌드박스 암호 설정
 
 1. Hortonworks Sandbox 페이지의 **시작** 단계에서 **고급 옵션 보기**를 선택합니다. 이 페이지의 정보를 사용하여 SSH를 통해 샌드박스에 로그인합니다. 제공된 이름 및 암호를 사용합니다.
-   
+
    > [!NOTE]
    > SSH 클라이언트를 설치하지 않은 경우 **http://localhost:4200/** 의 가상 머신에 제공된 웹 기반 SSH를 사용할 수 있습니다.
-   > 
-   
+
     SSH를 통해 처음 연결하는 경우 루트 계정의 암호를 변경하라는 메시지가 표시됩니다. 새 암호를 입력합니다. 이 암호는 SSH를 사용하여 로그인할 때 사용됩니다.
 
 2. 일단 로그인하면 다음 명령을 입력합니다.
-   
+
         ambari-admin-password-reset
-   
+
     대화 상자가 나타나면 Ambari 관리자 계정에 대한 암호를 입력합니다. Ambari 웹 UI에 액세스할 때 사용됩니다.
 
 ## <a name="use-hive-commands"></a>Hive 명령 사용
 
 1. 샌드박스에 대한 SSH 연결에서 다음 명령을 사용하여 Hive 셸을 시작합니다.
-   
+
         hive
 2. 셸이 시작되면 다음을 사용하여 샌드박스와 함께 제공되는 테이블을 봅니다.
-   
+
         show tables;
 3. 다음을 사용하여 `sample_07` 테이블에서 10개의 행을 검색합니다
-   
+
         select * from sample_07 limit 10;
 
 ## <a name="next-steps"></a>다음 단계

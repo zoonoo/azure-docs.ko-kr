@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 2b661968fd64f4d2a61bc59f9b99b1eea6b01f86
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997280"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004978"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>PowerShell을 사용하여 Azure Application Gateway(클래식)에 대한 사용자 지정 프로브 만들기
 
@@ -36,13 +36,13 @@ ms.locfileid: "52997280"
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-an-application-gateway"></a>응용 프로그램 게이트웨이 만들기
+## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
 애플리케이션 게이트웨이를 만들려면:
 
-1. 응용 프로그램 게이트웨이 리소스를 만듭니다.
+1. 애플리케이션 게이트웨이 리소스를 만듭니다.
 2. 구성 XML 파일 또는 구성 개체를 만듭니다.
-3. 구성을 새로 만든 응용 프로그램 게이트웨이 리소스에 커밋합니다.
+3. 구성을 새로 만든 애플리케이션 게이트웨이 리소스에 커밋합니다.
 
 ### <a name="create-an-application-gateway-resource-with-a-custom-probe"></a>사용자 지정 프로브를 사용하여 애플리케이션 게이트웨이 리소스 만들기
 
@@ -151,7 +151,7 @@ Get-AzureApplicationGateway AppGwTest
 |매개 변수|설명|
 |---|---|
 |**Name** |사용자 지정 프로브에 대한 참조 이름입니다. |
-* **Protocol** | 사용되는 프로토콜입니다(가능한 값: HTTP 또는 HTTPS).|
+| **프로토콜** | 사용되는 프로토콜입니다(가능한 값: HTTP 또는 HTTPS).|
 | **Host** 및 **Path** | 애플리케이션 게이트웨이에서 인스턴스 상태를 확인하기 위해 호출하는 완전한 URL 경로입니다. 예: 웹 사이트가 http://contoso.com/인 경우 프로브를 확인하여 성공적으로 HTTP에 응답하도록 "http://contoso.com/path/custompath.htm"에 대해 사용자 지정 프로브를 구성할 수 있습니다.|
 | **간격** | 프로브 간격 확인을 구성합니다(단위: 초).|
 | **시간 제한** | HTTP 응답 확인에 대한 프로브 시간 제한을 정의합니다.|
@@ -165,14 +165,14 @@ Get-AzureApplicationGateway AppGwTest
 
 1. `Get-AzureApplicationGatewayConfig`을 사용하여 XML 파일을 가져옵니다. 이 cmdlet은 프로브 설정을 추가하기 위해 수정할 XML 구성을 내보냅니다.
 
-  ```powershell
-  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-  ```
+   ```powershell
+   Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+   ```
 
 1. 텍스트 편집기에서 XML 파일을 엽니다. `<frontendport>` 뒤에 `<probe>` 섹션을 추가합니다.
 
-  ```xml
-<Probes>
+   ```xml
+   <Probes>
     <Probe>
         <Name>Probe01</Name>
         <Protocol>Http</Protocol>
@@ -182,12 +182,12 @@ Get-AzureApplicationGateway AppGwTest
         <Timeout>15</Timeout>
         <UnhealthyThreshold>5</UnhealthyThreshold>
     </Probe>
-</Probes>
-  ```
+   </Probes>
+   ```
 
-  XML의 backendHttpSettings 섹션에서 다음 예제에 표시된 대로 프로브 이름을 추가합니다.
+   XML의 backendHttpSettings 섹션에서 다음 예제에 표시된 대로 프로브 이름을 추가합니다.
 
-  ```xml
+   ```xml
     <BackendHttpSettings>
         <Name>setting1</Name>
         <Port>80</Port>
@@ -196,11 +196,11 @@ Get-AzureApplicationGateway AppGwTest
         <RequestTimeout>120</RequestTimeout>
         <Probe>Probe01</Probe>
     </BackendHttpSettings>
-  ```
+   ```
 
-  XML 파일을 저장합니다.
+   XML 파일을 저장합니다.
 
-1. `Set-AzureApplicationGatewayConfig`을 사용하여 새 XML 파일로 Application Gateway 구성을 업데이트합니다. 이 cmdlet은 애플리케이션 게이트웨이를 새 구성으로 업데이트합니다.
+1. `Set-AzureApplicationGatewayConfig`을 사용하여 새 XML 파일로 애플리케이션 게이트웨이 구성을 업데이트합니다. 이 cmdlet은 애플리케이션 게이트웨이를 새 구성으로 업데이트합니다.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"

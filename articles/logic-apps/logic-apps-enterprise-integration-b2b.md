@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: ad7a29f4a554d599b17576921542b1ac6e403911
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127767"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074726"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 B2B 데이터 수신
 
@@ -47,11 +47,13 @@ AS2 및 X12 작업을 사용하려면 엔터프라이즈 통합 계정이 있어
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
 
-6. 입력으로 사용할 **본문**을 추가합니다. 이 예제에서는 논리 앱을 트리거하는 HTTP 요청의 본문을 선택합니다. 또는 **헤더** 필드에서 헤더를 입력하는 식을 입력합니다.
+6. 입력으로 사용할 **본문**을 추가합니다. 
+   이 예제에서는 논리 앱을 트리거하는 HTTP 요청의 본문을 선택합니다. 또는 **헤더** 필드에서 헤더를 입력하는 식을 입력합니다.
 
     @triggerOutputs()['헤더']
 
-7. HTTP 요청 헤더에서 찾을 수 있는 AS2에 필요한 **헤더**를 추가합니다. 이 예제에서는 논리 앱을 트리거하는 HTTP 요청의 헤더를 선택합니다.
+7. HTTP 요청 헤더에서 찾을 수 있는 AS2에 필요한 **헤더**를 추가합니다. 
+   이 예제에서는 논리 앱을 트리거하는 HTTP 요청의 헤더를 선택합니다.
 
 8. 이제 X12 메시지 디코딩 작업을 추가합니다. **작업 추가**를 선택합니다.
 
@@ -65,7 +67,8 @@ AS2 및 X12 작업을 사용하려면 엔터프라이즈 통합 계정이 있어
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)
 
-11. 이제 이 작업의 입력을 지정해야 합니다. 이 입력은 이전 AS2 작업의 출력입니다.
+11. 이제 이 작업의 입력을 지정해야 합니다. 
+    이 입력은 이전 AS2 작업의 출력입니다.
 
     실제 메시지 내용은 JSON 개체에 있고 base64로 인코딩되어 있으므로 식을 입력으로 지정해야 합니다. 
     **디코딩할 X12 플랫 파일 메시지** 입력 필드에서 다음 식을 입력합니다.

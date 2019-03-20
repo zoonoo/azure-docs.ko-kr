@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec119c9e11b21828b1b056fb97598ca7434cfc68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9f987c6803f6ca538f4ae7470caaff597c9596c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197712"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900746"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>자습서: IMPAC Risk Manager와 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ IMPAC Risk Manager와 Azure AD 통합을 구성하려면 다음 항목이 필요
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 IMPAC Risk Manager 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -114,6 +114,7 @@ IMPAC Risk Manager에서 Azure AD Single Sign-On을 구성하고 테스트하려
     a. **식별자** 텍스트 상자에 IMPAC에서 제공한 값 입력
 
     b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.
+
     | Environment | URL 패턴 |
     | ---------------|--------------- |    
     | 프로덕션 |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -127,6 +128,7 @@ IMPAC Risk Manager에서 Azure AD Single Sign-On을 구성하고 테스트하려
     ![IMPAC Risk Manager 도메인 및 URL Single Sign-On 정보](./media/impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다.
+    
     | Environment | URL 패턴 |
     | ---------------|--------------- |    
     | 프로덕션 |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|

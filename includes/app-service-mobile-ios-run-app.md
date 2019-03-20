@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 8146489a913ce863cee7534331231a248a3ea7ac
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: f4ba467b6d80c9ccafba0a91c1f04152b92cf869
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890989"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115610"
 ---
 1. Mac에서 [Azure Portal]을 방문합니다. **모든 서비스** > **App Services** > 방금 만든 백 엔드를 클릭합니다. 모바일 앱 설정에서 기본 언어를 선택합니다.
 
-    - Objective-C &ndash; **빠른 시작** > **iOS(Objective-C)**
-    - Swift &ndash; **빠른 시작** > **iOS(Swift)**
+   - Objective-C &ndash; **빠른 시작** > **iOS(Objective-C)**
+   - Swift &ndash; **빠른 시작** > **iOS(Swift)**
 
-    **3. 클라이언트 애플리케이션 구성** 아래에서 **다운로드**를 클릭합니다. 그러면 백 엔드에 연결하도록 사전 구성된 완전한 Xcode 프로젝트가 다운로드됩니다. Xcode를 사용하여 프로젝트를 엽니다.
+     **3. 클라이언트 애플리케이션 구성** 아래에서 **다운로드**를 클릭합니다. 그러면 백 엔드에 연결하도록 사전 구성된 완전한 Xcode 프로젝트가 다운로드됩니다. Xcode를 사용하여 프로젝트를 엽니다.
 
 1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 시뮬레이터에서 앱을 시작합니다.
 

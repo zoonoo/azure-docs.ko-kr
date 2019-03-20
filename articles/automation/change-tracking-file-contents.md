@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074746"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>변경 내용 추적으로 추적 중인 파일의 콘텐츠 보기
 
@@ -62,11 +62,11 @@ ms.locfileid: "54438004"
 
 1. **변경 세부 정보** 페이지에서는 파일 정보 앞뒤에 표준이 표시되며, 왼쪽 위에서 **파일 콘텐츠 변경 내용 보기**를 클릭하여 파일의 콘텐츠를 확인합니다.
 
-  ![변경 세부 정보](./media/change-tracking-file-contents/change-details.png)
+   ![변경 세부 정보](./media/change-tracking-file-contents/change-details.png)
 
 1. 새 페이지에는 파일 콘텐츠가 나란히 보기로 표시됩니다. **인라인**을 선택하여 변경 내용의 인라인 보기를 표시할 수도 있습니다.
 
-  ![파일 변경 내용 보기](./media/change-tracking-file-contents/view-file-changes.png)
+   ![파일 변경 내용 보기](./media/change-tracking-file-contents/view-file-changes.png)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -75,5 +75,5 @@ ms.locfileid: "54438004"
 > [!div class="nextstepaction"]
 > [환경 변경 문제 해결](automation-tutorial-troubleshoot-changes.md)
 
-* [Log Analytics에서 로그 검색](../log-analytics/log-analytics-log-searches.md) 을 사용하여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
+* 사용 하 여 [Azure Monitor 로그의 로그 검색](../log-analytics/log-analytics-log-searches.md) 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d3b0f7cdacfb781ba7925be8146c10919c5269b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 91ab8e8757c4a5313fde5f4d883e45648c9143b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455537"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901358"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>미리 보기: Azure AD 암호 보호 온-프레미스 - 질문과 대답
 
@@ -26,10 +26,6 @@ ms.locfileid: "56455537"
 |     |
 
 ## <a name="general-questions"></a>일반적인 질문
-
-**Q: Azure AD 암호 보호는 언제 GA(일반 공급)되나요?**
-
-GA는 2019년 1분기(2019년 3월 말 이전)로 예정되어 있습니다. 지금까지 이 기능에 대한 피드백을 제공해 주신 모든 분들께 감사드립니다. 감사합니다!
 
 **Q: 사용자에게 보안 암호 선택 방법에 대해 어떤 지침을 제공해야 하나요?**
 
@@ -44,6 +40,14 @@ GA는 2019년 1분기(2019년 3월 말 이전)로 예정되어 있습니다. 지
 **Q: Azure AD 암호 보호 혜택을 내 온-프레미스 사용자의 하위 집합에 적용하려면 어떻게 해야 할까요?**
 
 지원되지 않습니다. Azure AD 암호 보호가 배포되고 사용하도록 설정되면 모든 사용자가 차별 없이 동등한 보안 혜택을 받습니다.
+
+**Q: 암호 변경을 암호 설정 (또는 다시 설정) 간의 차이 무엇입니까?**
+
+암호 변경을 때 사용자가 이전 암호를 알고 증명 한 후 새 암호를 선택 합니다. 예를 들어,이 사용자가 Windows에 로그인 하 고 새 암호를 선택 하 라는 메시지가 표시 됩니다.
+
+관리자가 대체는 계정의 암호를 새 암호를 사용 하 여 예를 들어 Active Directory 사용자 및 컴퓨터 관리 도구를 사용 하 여 때 (암호 재설정을 라고도 함) 암호 집합을 표시 합니다. 이 작업을 수행 하려면 높은 수준의 권한 (일반적으로 도메인 관리자), 했으며 일반적으로 작업을 수행 하는 사람에 이전 암호를 알고 있어야 합니다. 지원 센터 시나리오 종종 그렇게 예를 들어 경우 암호를 잊어버린 경우에 사용자를 지원 합니다. 암호는 새로운 사용자 계정 암호를 사용 하 여 처음으로 만들어질 때 이벤트를 설정도 표시 됩니다.
+
+암호 유효성 검사 정책을 암호 변경 또는 집합 수행 되는 여부에 관계 없이 동일 하 게 동작 합니다. 암호 변경 여부를 사용자에 게 알리는 다른 이벤트를 기록 하는 Azure AD 암호 보호 DC 에이전트 서비스를 않습니다 또는 설정 작업이 완료 되었습니다.  참조 [Azure AD 암호 보호 모니터링 및 로깅](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)합니다.
 
 **Q: Azure AD 암호 보호는 다른 암호 필터 기반 제품과 함께 설치할 수 있나요?**
 
@@ -82,6 +86,10 @@ FRS(DFSR에 대한 선행 기술)는 대부분의 알려진 문제를 포함하�
 **Q: Azure AD 암호 보호 프록시 서비스를 Azure AD Connect 등의 다른 서비스와 함께 배포해도 되나요?**
 
 예. Azure AD 암호 보호 프록시 서비스와 Azure AD Connect는 서로 직접적으로 충돌하지 않습니다.
+
+**Q: 어떤 순서로 DC 에이전트 및 프록시를 설치 하 고 해야 등록?**
+
+프록시 에이전트를 설치, DC 에이전트 설치, 포리스트 등록 및 프록시 등록의 순서는 지원 됩니다.
 
 **Q: 이 기능을 배포할 때 도메인 컨트롤러의 성능 저하가 우려될 수 있나요?**
 

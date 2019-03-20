@@ -1,21 +1,20 @@
 ---
-title: Azure Cloud Shell을 사용하여 Azure Dev Spaces에 사용할 수 있는 Kubernetes 클러스터를 만드는 방법 | Microsoft Docs
+title: Azure Cloud Shell을 사용 하 여 Azure 개발 공백을 사용 하도록 설정 하는 Kubernetes 클러스터를 만드는 방법
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 10/04/2018
-ms.topic: article
+ms.topic: conceptual
 description: 아무것도 설치하지 않고 브라우저에서 바로, Azure Dev Spaces에 사용할 수 있는 Kubernetes 클러스터를 빠르게 만드는 방법을 알아보세요.
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: d806607eb3e46d0bd04deb18756021adec59601d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시는, 서비스 메시 라우팅, kubectl, k8s
+ms.openlocfilehash: bfde055c99a1109a8f71c838b44ed1742e3f06aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466577"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895569"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Azure Cloud Shell을 사용하여 Kubernetes 클러스터 만들기
 
@@ -23,7 +22,7 @@ ms.locfileid: "55466577"
 
 ## <a name="create-the-cluster"></a>클러스터 만들기
 
-먼저 리소스 그룹을 만듭니다. 현재 지원되는 지역(미국 동부, 미국 동부 2, 미국 중부, 미국 서부 2, 서유럽, 동남 아시아, 캐나다 중부 또는 캐나다 동부) 중 하나를 사용합니다.
+먼저 리소스 그룹을 만듭니다는 [Azure 개발 공간을 지 원하는 지역을](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)합니다.
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -32,7 +31,7 @@ az group create --name MyResourceGroup --location <region>
 다음 명령을 사용하여 Kubernetes 클러스터를 만듭니다.
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing
+az aks create -g MyResourceGroup -n MyAKS --location <region>
 ```
 
 클러스터를 만드는 데 몇 분이 걸립니다.  완료되면 출력이 JSON 형식으로 표시됩니다. `provisioningState`를 찾아 `Succeeded`인지 확인합니다.

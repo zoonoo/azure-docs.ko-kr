@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Machines에 모니터링 및 진단 추가 | Microsoft Docs
-description: Azure Resource Manager 템플릿을 사용하여 새로운 Windows 가상 머신과 Azure 진단 확장을 만드는 방법을 설명합니다.
+description: Azure Resource Manager 템플릿을 사용 하 여 Azure 진단 확장을 사용 하 여 새 Windows 가상 머신을 만듭니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: sbtron
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 85e9b49cb8be1a3f53ca0f3b4816e6165b68bde0
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 00b4a145da9104cab410c5a07f6d7ec5ded5c45d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993113"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893546"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용
 Azure Diagnostics Extension은 Windows 기반 Azure 가상 머신에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure Resource Manager 템플릿에 속하도록 포함시켜서 가상 머신에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 머신 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](../windows/template-description.md#extensions) 을 참조하세요. 이 문서는 Azure 진단 확장을 Windows 가상 머신 템플릿에 추가하는 방법을 설명합니다.  
@@ -80,12 +80,12 @@ Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile*의 *extensio
 
 *typeHandlerVersion* 은 사용할 확장의 버전을 지정합니다. *autoUpgradeMinorVersion* 부 버전을 **true** 로 설정하면 사용 가능한 최신 부 버전 확장이 제공됩니다. 새로운 기능과 버그 수정을 모두 포함하는 최신의 진단 확장을 사용하려면 항상 *autoUpgradeMinorVersion* 을 **true** 로 설정하는 것이 좋습니다. 
 
-*settings* 요소는 설정하고 확장에서 다시 읽어올 수 있는(공용 구성으로 참조되기도 하는) 확장에 대한 구성 속성을 포함합니다. *xmlcfg* 속성은 진단 에이전트에 의해 수집되는 진단 로그, 성능 카운터 등에 대한 XML 기반 구성을 포함합니다. XML 스키마 자체에 대한 자세한 내용은 [진단 구성 스키마](https://msdn.microsoft.com/library/azure/dn782207.aspx) 를 참조하세요. 실제 XML 구성은 Azure 리소스 관리자 템플릿에 변수로 저장한 후 연결하여 base64로 인코딩하여 *xmlcfg*에 대한 값을 설정하는 것이 일반적인 방식입니다. 변수에 xml을 저장하는 방법에 대한 자세한 내용은 [진단 구성 변수](#diagnostics-configuration-variables) 섹션을 참조하세요. *storageAccount* 속성은 진단 데이터가 전송되는 저장소 계정의 이름을 지정합니다. 
+*settings* 요소는 설정하고 확장에서 다시 읽어올 수 있는(공용 구성으로 참조되기도 하는) 확장에 대한 구성 속성을 포함합니다. *xmlcfg* 속성은 진단 에이전트에 의해 수집되는 진단 로그, 성능 카운터 등에 대한 XML 기반 구성을 포함합니다. XML 스키마 자체에 대한 자세한 내용은 [진단 구성 스키마](https://msdn.microsoft.com/library/azure/dn782207.aspx) 를 참조하세요. 실제 XML 구성은 Azure 리소스 관리자 템플릿에 변수로 저장한 후 연결하여 base64로 인코딩하여 *xmlcfg*에 대한 값을 설정하는 것이 일반적인 방식입니다. 변수에 xml을 저장하는 방법에 대한 자세한 내용은 [진단 구성 변수](#diagnostics-configuration-variables) 섹션을 참조하세요. *storageAccount* 속성은 진단 데이터가 전송되는 스토리지 계정의 이름을 지정합니다. 
 
 *protectedSettings* 의 속성은(개인 구성으로 참조되기도 하는) 설정할 수 있지만 설정된 후에는 다시 읽어올 수 없습니다. *protectedSettings*는 쓰기 전용이므로 진단 데이터를 기록하는 저장소 계정 키와 같은 중요한 비밀을 저장하는 데 유용합니다.    
 
 ## <a name="specifying-diagnostics-storage-account-as-parameters"></a>진단 저장소 계정을 매개 변수로 지정
-위의 진단 저장소 JSON 코드 조각은 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageResourceGroup*이라는 두 가지 매개 변수를 사용하여 진단 데이터가 저장되는 진단 저장소 계정을 지정합니다. 진단 저장소 계정을 매개 변수로 지정하면 다양한 환경에서 진단 저장소 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 저장소 계정을 사용할 수 있습니다.  
+위의 진단 스토리지 JSON 코드 조각은 *existingdiagnosticsStorageAccountName* 및 *existingdiagnosticsStorageResourceGroup*이라는 두 가지 매개 변수를 사용하여 진단 데이터가 저장되는 진단 스토리지 계정을 지정합니다. 진단 저장소 계정을 매개 변수로 지정하면 다양한 환경에서 진단 저장소 계정을 간편하게 변경할 수 있습니다. 예를 들어, 테스트와 프로덕션 배포에 서로 다른 진단 저장소 계정을 사용할 수 있습니다.  
 
 ```json
 "existingdiagnosticsStorageAccountName": {

@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994939"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics에서 실시간 Twitter 감정 분석
 
@@ -58,7 +58,7 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 
 5. 새 네임스페이스를 클릭하고 네임스페이스 블레이드에서 **+&nbsp;이벤트 허브**를 클릭합니다. 
 
-    ![새 이벤트 허브를 만들기 위한 이벤트 허브 추가 단추 ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![새 이벤트 허브를 만들기 위한 이벤트 허브 추가 단추](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. 새 이벤트 허브 이름을 `socialtwitter-eh`로 지정합니다. 다른 이름을 사용할 수 있습니다. 이 경우 나중에 이름이 필요하기 때문에 메모해 둡니다. 이벤트 허브에 다른 옵션을 설정하지 않아도 됩니다.
 
@@ -119,10 +119,10 @@ Twitter에서 실시간으로 추세를 분석할 토픽을 식별하기 위해 
 
 2. 새 애플리케이션을 만듭니다. 
 
-    * 웹 사이트 URL에 대한 유효한 URL을 지정합니다. 라이브 사이트일 필요는 없습니다. (`localhost`만 지정할 수는 없음)
-    * 콜백 필드는 비워 둡니다. 이 자습서에 사용할 클라이언트 애플리케이션에는 콜백이 필요하지 않습니다.
+   * 웹 사이트 URL에 대한 유효한 URL을 지정합니다. 라이브 사이트일 필요는 없습니다. (`localhost`만 지정할 수는 없음)
+   * 콜백 필드는 비워 둡니다. 이 자습서에 사용할 클라이언트 애플리케이션에는 콜백이 필요하지 않습니다.
 
-    ![Twitter에서 애플리케이션 만들기](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+     ![Twitter에서 애플리케이션 만들기](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
 3. 필요에 따라 애플리케이션 권한을 읽기 전용으로 변경합니다.
 
@@ -167,19 +167,19 @@ Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하�
 
 3. 값을 영구적으로 설정하려면 텍스트 편집기를 사용하여 TwitterWpfClient.exe.config 파일을 엽니다. 그런 다음 `<appSettings>` 요소에서 다음을 수행합니다.
 
-    * `oauth_consumer_key`를 Twitter 사용자 키(API 키)로 설정합니다. 
-    * `oauth_consumer_secret`을 Twitter 사용자 암호(API 암호)로 설정합니다.
-    * `oauth_token`을 Twitter 액세스 토큰으로 설정합니다.
-    * `oauth_token_secret`을 Twitter 액세스 토큰 암호로 설정합니다.
+   * `oauth_consumer_key`를 Twitter 사용자 키(API 키)로 설정합니다. 
+   * `oauth_consumer_secret`을 Twitter 사용자 암호(API 암호)로 설정합니다.
+   * `oauth_token`을 Twitter 액세스 토큰으로 설정합니다.
+   * `oauth_token_secret`을 Twitter 액세스 토큰 암호로 설정합니다.
 
-    뒷부분의 `<appSettings>` 요소에서 다음과 같이 변경합니다.
+     뒷부분의 `<appSettings>` 요소에서 다음과 같이 변경합니다.
 
-    * `EventHubName`을 이벤트 허브 이름으로 설정합니다(즉, 엔터티 경로 값).
-    * `EventHubNameConnectionString`을 연결 문자열로 설정합니다. `EntityPath` 키-값 쌍을 제거한 연결 문자열을 사용해야 합니다.
+   * `EventHubName`을 이벤트 허브 이름으로 설정합니다(즉, 엔터티 경로 값).
+   * `EventHubNameConnectionString`을 연결 문자열로 설정합니다. `EntityPath` 키-값 쌍을 제거한 연결 문자열을 사용해야 합니다.
 
-    `<appSettings>` 섹션은 다음 예제와 유사합니다. (이해를 돕고 보안을 위해 일부 줄을 래핑하고 일부 문자는 제거했습니다.)
+     `<appSettings>` 섹션은 다음 예제와 유사합니다. (이해를 돕고 보안을 위해 일부 줄을 래핑하고 일부 문자는 제거했습니다.)
 
-    ![텍스트 편집기에서 TwitterWpfClient 애플리케이션 구성 파일, Twitter 키 및 비밀, 이벤트 허브 연결 문자열 정보 표시](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+     ![텍스트 편집기에서 TwitterWpfClient 애플리케이션 구성 파일, Twitter 키 및 비밀, 이벤트 허브 연결 문자열 정보 표시](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
 4. 애플리케이션을 아직 시작하지 않은 경우 지금 TwitterWpfClient.exe를 실행합니다. 
 
@@ -214,15 +214,15 @@ Microsoft에서는 특정 항목 집합에 대한 트윗 이벤트를 수집하�
 
 2. **입력** 블레이드에서 **+&nbsp;추가**를 클릭한 후 블레이드를 다음 값으로 채웁니다.
 
-    * **입력 별칭**: 이름 `TwitterStream`을 사용합니다. 다른 이름을 사용하는 경우 나중에 필요하므로 기록해 둡니다.
-    * **원본 유형**: **데이터 스트림**을 선택합니다.
-    * **원본**: **이벤트 허브**를 선택합니다.
-    * **가져오기 옵션**: **현재 구독에서 이벤트 허브 사용**을 선택합니다. 
-    * **Service Bus 네임스페이스**: 이전에 만든 이벤트 허브 네임스페이스(`<yourname>-socialtwitter-eh-ns`)를 선택합니다.
-    * **이벤트 허브**: 이전에 만든 이벤트 허브를 선택합니다(`socialtwitter-eh`).
-    * **이벤트 허브 정책 이름**: 이전에 만든 액세스 정책을 선택합니다(`socialtwitter-access`).
+   * **입력 별칭**: 이름 `TwitterStream`을 사용합니다. 다른 이름을 사용하는 경우 나중에 필요하므로 기록해 둡니다.
+   * **원본 유형**: **데이터 스트림**을 선택합니다.
+   * **원본**: **이벤트 허브**를 선택합니다.
+   * **가져오기 옵션**: **현재 구독에서 이벤트 허브 사용**을 선택합니다. 
+   * **Service Bus 네임스페이스**: 이전에 만든 이벤트 허브 네임스페이스(`<yourname>-socialtwitter-eh-ns`)를 선택합니다.
+   * **이벤트 허브**: 이전에 만든 이벤트 허브를 선택합니다(`socialtwitter-eh`).
+   * **이벤트 허브 정책 이름**: 이전에 만든 액세스 정책을 선택합니다(`socialtwitter-access`).
 
-    ![Streaming Analytics 작업에 대한 새 입력 만들기](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
+     ![Streaming Analytics 작업에 대한 새 입력 만들기](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 3. **만들기**를 클릭합니다.
 
@@ -297,17 +297,17 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 2. **출력** 블레이드에서 **+&nbsp;추가**를 클릭한 후 블레이드를 다음 값으로 채웁니다.
 
-    * **출력 별칭**: 이름 `TwitterStream-Output`을 사용합니다. 
-    * **싱크**: **Blob Storage**를 선택합니다.
-    * **가져오기 옵션**: **현재 구독의 Blob Storage 사용**을 선택합니다.
-    * **Storage 계정**. **새 저장소 계정 만들기**를 선택합니다.
-    * **Storage 계정**(두 번째 상자). `YOURNAMEsa`를 입력합니다. 여기서 `YOURNAME`은 사용자 이름 또는 다른 고유 문자열입니다. 이름으로 소문자 및 숫자만 사용할 수 있으며 Azure 전체에서 고유해야 합니다. 
-    * **컨테이너**. `socialtwitter` 을 입력합니다.
-    스토리지 계정 이름 및 컨테이너 이름을 다음과 같이 함께 사용하여 Blob Storage에 대한 URI를 제공해야 합니다. 
+   * **출력 별칭**: 이름 `TwitterStream-Output`을 사용합니다. 
+   * **싱크**: **Blob Storage**를 선택합니다.
+   * **가져오기 옵션**: **현재 구독의 Blob Storage 사용**을 선택합니다.
+   * **Storage 계정**. **새 저장소 계정 만들기**를 선택합니다.
+   * **Storage 계정**(두 번째 상자). `YOURNAMEsa`를 입력합니다. 여기서 `YOURNAME`은 사용자 이름 또는 다른 고유 문자열입니다. 이름으로 소문자 및 숫자만 사용할 수 있으며 Azure 전체에서 고유해야 합니다. 
+   * **컨테이너**. [https://slack.botframework.com](`socialtwitter`) 을 입력합니다.
+     스토리지 계정 이름 및 컨테이너 이름을 다음과 같이 함께 사용하여 Blob Storage에 대한 URI를 제공해야 합니다. 
 
-    `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
+     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
-    ![Stream Analytics 작업에 대한 “새 출력” 블레이드](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
+     ![Stream Analytics 작업에 대한 “새 출력” 블레이드](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
 4. **만들기**를 클릭합니다. 
 
@@ -338,7 +338,7 @@ Stream Analytics는 변환을 설명하는 간단하고 선언적인 쿼리 모�
 
 작업이 실시간 Twitter 스트림을 실행 및 처리하면 감정 분석에 대한 출력을 볼 수 있습니다.
 
-[Azure Storage 탐색기](https://storageexplorer.com/) 또는 [Azure 탐색기](http://www.cerebrata.com/products/azure-explorer/introduction)와 같은 도구를 사용하여 작업 출력을 실시간으로 볼 수 있습니다. 여기에서 [Power BI](https://powerbi.com/)를 사용하여 다음 스크린샷과 같은 사용자 지정된 대시보드를 포함하도록 애플리케이션을 확장할 수 있습니다.
+[Azure Storage 탐색기](https://storageexplorer.com/) 또는 [Azure 탐색기](https://www.cerebrata.com/products/azure-explorer/introduction)와 같은 도구를 사용하여 작업 출력을 실시간으로 볼 수 있습니다. 여기에서 [Power BI](https://powerbi.com/)를 사용하여 다음 스크린샷과 같은 사용자 지정된 대시보드를 포함하도록 애플리케이션을 확장할 수 있습니다.
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

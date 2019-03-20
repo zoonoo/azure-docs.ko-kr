@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9697b88e23fea0cb06ab0c4a6197b5255e7076bf
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316270"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136481"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Azure Search에서 퀴리를 만들기 위한 단순 구문 예제
 
@@ -93,21 +93,21 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=id&$select=id&search=*
- ```
+```
 
 다음 예제는 이전 응답에서서 맨 처음에 나오는 `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5"를 기준으로 특정 문서를 반환하는 조회 쿼리입니다. 다음 쿼리는 선택한 필드만이 아닌 전체 문서를 반환합니다. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
- ```
+```
 
 ## <a name="example-3-filter-queries"></a>예 3: 쿼리 필터링
 
 [구문 필터링](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)은 **검색** 또는 자체로 사용할 수 있는 OData 식입니다. 검색 매개 변수가 없는 독립 실행형 필터는 필터 식이 관심 있는 문서를 정규화할 수 있을 때 유용합니다. 쿼리 문자열이 없으면 어휘 또는 언어 분석, 점수 매기기(모든 점수는 1) 및 순위 지정 등이 없습니다. 검색 문자열은 비어 있습니다.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
       "select": "select=job_id, business_title, agency, salary_range_from",
@@ -123,13 +123,13 @@ GET을 사용하여 Postman에서 이 필터링을 시도하려는 경우 이 �
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
- ```
+```
 
 필터 및 검색을 결합하는 강력한 다른 방법은 필터 내에서 검색 쿼리를 사용할 수 있는 필터 식의 **`search.ismatch*()`** 을 통하는 것입니다. 이 필터 식은 plan, planner, planning 등의 용어가 포함된 business_title을 선택하려면 *plan*에 대한 와일드 카드를 사용합니다.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
- ```
+```
 
 함수에 대한 자세한 내용은 ["필터 예제"의 search.ismatch](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)를 참조하세요.
 
@@ -142,8 +142,8 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 다음 예제는 가독성(숫자 범위, 다음으로 텍스트 범위)에 대한 POST 형식으로 돼 있습니다.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "num_of_positions ge 5 and num_of_positions lt 10",
       "select": "job_id, business_title, num_of_positions, agency",
@@ -155,8 +155,8 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "business_title ge 'A*' and business_title lt 'C*'",
       "select": "job_id, business_title, agency",
@@ -175,7 +175,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
- ```
+```
 
 > [!NOTE]
 > 값 범위에 대한 패싯은 일반적인 검색 애플리케이션 요구 사항입니다. 패싯 탐색 구조용 필터 빌딩에 대한 예제 및 자세한 내용은 [*패싯 탐색 구현 방법*의 "범위 기준 필터"](search-faceted-navigation.md#filter-based-on-a-range)를 참조하세요.
@@ -187,15 +187,15 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 다음 예제는 가독성을 위해 POST 형식으로 돼 있습니다.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
       "select": "job_id, business_title, work_location",
       "count": "true"
     }
 ```
-가독성이 향상된 결과의 경우 작업 ID, 직위 및 작업 위치를 포함하도록 검색 결과를 잘라냅니다. 인덱스(Staten 섬에 작업 위치가 있는 경우)의 임의 문서에서 시작 좌표를 가져왔습니다.
+좀 더 읽기 쉬운 결과 대 한 작업 ID, 직책 및 작업 위치를 포함 하도록 검색 결과 잘립니다. 인덱스(Staten 섬에 작업 위치가 있는 경우)의 임의 문서에서 시작 좌표를 가져왔습니다.
 
 GET을 사용하여 Postman에서 이를 시도해 볼 수 있습니다.
 
@@ -273,7 +273,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 코드에서 쿼리를 지정합니다. 다음 링크에서는 기본 단순 구문을 사용하여 .NET와 REST API 모두에 대한 검색 쿼리를 설정하는 방법에 대해 설명합니다.
 
 * [.NET SDK를 사용하여 Azure Search 인덱스 쿼리](search-query-dotnet.md)
-* [REST API를 사용하여 Azure Search 인덱스 쿼리](search-query-rest-api.md)
+* [REST API를 사용하여 Azure Search 인덱스 쿼리](search-create-index-rest-api.md)
 
 추가 구문 참조, 쿼리 아키텍처 및 예제는 다음 링크에서 찾을 수 있습니다.
 

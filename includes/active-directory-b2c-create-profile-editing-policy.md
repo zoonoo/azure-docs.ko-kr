@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 0d9f0a24d84bd18bdf1fac84c744cc34a7d89ab3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742343"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "58115303"
 ---
 애플리케이션에서 프로필 편집을 사용하도록 설정하려면 **프로필 편집** 사용자 흐름을 사용합니다. 이 사용자 흐름은 프로필을 편집하는 동안 고객이 경험하게 될 환경 및 성공적으로 완료 시 애플리케이션이 수신하게 될 토큰의 콘텐츠에 대해 설명합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "52742343"
 
 | 설정      | 값  |
 | ------------ | ------ |
-| **응용 프로그램** | Contoso B2C 앱 |
+| **애플리케이션** | Contoso B2C 앱 |
 | **회신 URL** | `https://localhost:44316/` |
 
 새 브라우저 탭이 열리고 구성된 프로필 편집 소비자 환경을 확인할 수 있습니다.

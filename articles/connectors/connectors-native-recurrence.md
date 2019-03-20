@@ -11,12 +11,12 @@ ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
-ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083957"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 되풀이 작업 및 워크플로를 만들고 실행
 
@@ -95,15 +95,15 @@ ms.locfileid: "54107840"
 
 되풀이 트리거에 대한 이러한 속성을 구성할 수 있습니다.
 
-| 이름 | 필수 | 속성 이름 | type | 설명 | 
+| 이름 | 필수 | 속성 이름 | 형식 | 설명 | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Frequency(빈도)** | 예 | frequency | 문자열 | 되풀이에 대한 시간 단위: **초**, **분**, **시간**, **일**, **주** 또는 **월** | 
 | **간격** | 예 | interval | 정수  | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. <p>기본 간격은 1입니다. 다음은 최소 및 최대 간격입니다. <p>- 월: 1-16개월 </br>- 일: 1-500일 </br>- 시간: 1-12,000시간 </br>- 분: 1-72,000분 </br>- 초: 1-9,999,999초<p>예를 들어 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. | 
-| **표준 시간대** | 아니요 | timeZone | 문자열 | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. | 
-| **시작 시간** | 아니요 | startTime | 문자열 | 시작 시간을 다음 형식으로 입력합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>또는 <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 2017년 9월 18일, 2:00 PM을 원할 경우 “2017-09-18T14:00:00”을 지정하고 태평양 표준시와 같은 표준 시간대를 선택합니다. 또는 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset) 없이 [UTC 날짜 시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)의 [ISO 8601 날짜 시간 사양](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?*](#start-time) | 
-| **요일 선택** | 아니요 | weekDays | 문자열 또는 문자열 배열 | "주"를 선택하는 경우 워크플로 실행하려고 할 때 하나 이상의 요일을 선택할 수 있습니다. **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday** 및 **Sunday** | 
-| **시간 선택** | 아니요 | hours | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 하루 시간으로 0~23 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 “10”, “12” 및 “14”를 지정하면 10 AM, 12 PM 및 2 PM이 시간 표시로 제공됩니다. | 
-| **분 선택** | 아니요 | minutes | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 시간의 분으로 0~59 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. | 
+| **표준 시간대** | 아닙니다. | timeZone | 문자열 | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. | 
+| **시작 시간** | 아닙니다. | startTime | 문자열 | 시작 시간을 다음 형식으로 입력합니다. <p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>또는 <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 2017년 9월 18일, 2:00 PM을 원할 경우 “2017-09-18T14:00:00”을 지정하고 태평양 표준시와 같은 표준 시간대를 선택합니다. 또는 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset) 없이 [UTC 날짜 시간 형식](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)의 [ISO 8601 날짜 시간 사양](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?*](#start-time) | 
+| **요일 선택** | 아닙니다. | weekDays | 문자열 또는 문자열 배열 | "주"를 선택하는 경우 워크플로 실행하려고 할 때 하나 이상의 요일을 선택할 수 있습니다. **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday** 및 **Sunday** | 
+| **시간 선택** | 아닙니다. | hours | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 하루 시간으로 0~23 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 “10”, “12” 및 “14”를 지정하면 10 AM, 12 PM 및 2 PM이 시간 표시로 제공됩니다. | 
+| **분 선택** | 아닙니다. | minutes | 정수 또는 정수 배열 | “일” 또는 “주”를 선택하는 경우 워크플로를 실행하려는 시간의 분으로 0~59 사이의 정수를 하나 이상 선택할 수 있습니다. <p>예를 들어 분 표시로 “30”을 지정하고, 앞에 나온 하루 시간 예제를 사용하면 10:30 AM, 12:30 PM 및 2:30 PM이 표시됩니다. | 
 ||||| 
 
 ## <a name="json-example"></a>JSON 예제
@@ -202,7 +202,7 @@ ms.locfileid: "54107840"
 | 시작 시간 | 첫 번째 실행 시간 | 이후 실행 시간 | 
 | ---------- | ------------ | ---------- | 
 | 2017-09-**07** 2:00 PM | 2017-09-**09** 2:00 PM | 2017-09-**11** 2:00 PM </br>2017-09-**13** 2:00 PM </br>2017-09-**15** 2:00 PM </br>이후 계속됨...
-||||| 
+||||
 
 따라서 이 시나리오에서는 지정한 시작 시간이 아무리 먼 과거였어도 예를 들어 2017-09-**05** 2:00 PM이든 2017-09-**01** 2:00 PM이든, 첫 번째 실행 시간은 동일합니다.
 

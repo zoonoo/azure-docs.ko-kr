@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 26144b7eb53f5c0d4ebecbc9e6eece741f466719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819453"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997799"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
 
 애플리케이션 게이트웨이를 사용할 때 받은 502 잘못된 게이트웨이 오류 문제를 해결하는 방법을 알아봅니다.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>개요
 
@@ -50,21 +52,21 @@ NSG, UDR 또는 사용자 지정 DNS가 있어 백 엔드에 대한 액세스가
 * Application Gateway 서브넷과 연결된 UDR을 확인합니다. UDR이 백 엔드 서브넷에서 트래픽을 보내지 않는지 확인합니다. 예를 들어, ExpressRoute/VPN을 통해 Application Gateway 서브넷에 보급되는 네트워크 가상 어플라이언스 또는 기본 경로에 대한 라우팅을 확인합니다.
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
-Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
 * 백 엔드 VM과의 유효한 NSG 및 경로를 확인합니다.
 
 ```powershell
-Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
 
 * VNet에 사용자 지정 DNS의 존재 여부를 확인합니다. 출력에서 VNet 속성의 세부 정보를 확인하여 DNS를 확인할 수 있습니다.
 
 ```json
-Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
 DhcpOptions            : {
                            "DnsServers": [
                              "x.x.x.x"
@@ -81,7 +83,7 @@ DhcpOptions            : {
 
 | 프로브 속성 | 값 | 설명 |
 | --- | --- | --- |
-| 프로브 URL |http://127.0.0.1/ |URL 경로 |
+| 프로브 URL |`http://127.0.0.1/` |URL 경로 |
 | 간격 |30 |프로브 간격(초) |
 | 시간 제한 |30 |프로브 시간 제한(초) |
 | 비정상 임계값 |3 |프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |
@@ -90,7 +92,7 @@ DhcpOptions            : {
 
 * 기본 사이트를 구성하고 127.0.0.1에서 수신 대기 중인지를 확인합니다.
 * BackendHttpSetting이 포트 80이 아닌 다른 포트를 지정하는 경우 기본 사이트는 해당 포트에서 수신하도록 구성되어야 합니다.
-* http://127.0.0.1:port 호출은 HTTP 결과 코드 200을 반환해야 합니다. 30초 제한 시간 내에 반환되어야 합니다.
+* `http://127.0.0.1:port` 호출은 HTTP 결과 코드 200을 반환해야 합니다. 30초 제한 시간 내에 반환되어야 합니다.
 * 구성된 포트가 열려 있고 방화벽 규칙 또는 Azure 네트워크 보안 그룹이 없는지를 확인합니다. 여기서 구성된 포트에서 들어오거나 나가는 트래픽을 차단합니다.
 * Azure 클래식 VM 또는 클라우드 서비스를 FQDN 또는 공용 IP와 사용하는 경우 해당 [엔드포인트](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) 가 열려 있는지 확인합니다.
 * VM이 Azure Resource Manager를 통해 구성되고 Application Gateway가 배포된 VNet의 외부에 있는 경우 [네트워크 보안 그룹](../virtual-network/security-overview.md) 을 원하는 포트에 대한 액세스를 허용하도록 구성해야 합니다.
@@ -103,7 +105,7 @@ DhcpOptions            : {
 
 | 프로브 속성 | 설명 |
 | --- | --- |
-| Name |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
+| 이름 |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
 | 프로토콜 |프로브를 보내는 데 사용하는 프로토콜입니다. 프로브는 백 엔드 HTTP 설정에 정의된 프로토콜을 사용합니다. |
 | 호스트 |프로브에 보낼 호스트 이름입니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. VM 호스트 이름과 다릅니다. |
 | path |프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. 프로브는 \<protocol\>://\<host\>:\<port\>\<path\>로 전송됩니다. |
@@ -116,7 +118,7 @@ DhcpOptions            : {
 앞의 테이블처럼 사용자 지정 상태 프로브를 올바르게 구성했는지 유효성을 검사합니다. 앞의 문제 해결 단계 외에도 다음 사항을 확인합니다.
 
 * 프로브가 [가이드](application-gateway-create-probe-ps.md)를 기준으로 올바르게 지정되어 있는지 확인합니다.
-* Application Gateway가 단일 사이트에 대해 구성된 경우 기본적으로 호스트 이름은 '127.0.0.1'로 지정해야 합니다. 그렇지 않으면 사용자 지정 프로브에서 구성되어야 합니다.
+* Application Gateway를 단일 사이트에 대해 구성 된 경우 기본적으로 호스트 이름으로 지정 해야 `127.0.0.1`사용자 지정 프로브에서 구성 되지 않은 경우.
 * http://\<host\>:\<port\>\<path\>에 대한 호출은 HTTP 결과 코드 200을 반환해야 합니다.
 * 간격, 제한 시간 및 UnhealtyThreshold이 허용 가능한 범위 내에 있는지 확인합니다.
 * HTTPS 프로브를 사용하는 경우 백 엔드 서버 자체에서 대체(fallback) 인증서를 구성하여 백 엔드 서버에 SNI가 필요하지 않도록 합니다.
@@ -132,7 +134,7 @@ DhcpOptions            : {
 Application Gateway를 사용하면 사용자가 다른 풀에 적용할 수 있는 BackendHttpSetting을 통해 이 설정을 구성할 수 있습니다. 다른 백 엔드 풀에서는 다른 BackendHttpSetting 및 다른 요청 시간 초과를 구성할 수 있습니다.
 
 ```powershell
-    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## <a name="empty-backendaddresspool"></a>비어 있는 BackendAddressPool
@@ -146,7 +148,7 @@ Application Gateway에 백 엔드 주소 풀에 구성된 VM 또는 가상 머�
 백 엔드 주소 풀이 비어 있지 않은지 확인합니다. PowerShell, CLI 또는 포털을 통해 수행할 수 있습니다.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
 앞의 cmdlet에서 출력은 비어 있지 않은 백 엔드 주소 풀을 포함해야 합니다. 다음은 백 엔드 VM에 대한 FQDN 또는 IP 주소로 구성된 두 개의 풀을 반환하는 예제입니다. BackendAddressPool의 상태를 프로비전하는 작업은 '성공'해야 합니다.

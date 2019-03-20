@@ -1,63 +1,94 @@
 ---
-title: REST API를 사용하여 코드에서 인덱스 만들기 - Azure Search
+title: PowerShell 및 REST API-Azure Search를 사용 하 여 코드에 인덱스 만들기
 description: HTTP 요청 및 Azure Search REST API를 사용하여 코드에서 전체 텍스트 검색 가능 인덱스를 만드는 방법을 설명합니다.
-ms.date: 10/17/2018
-author: mgottein
+ms.date: 03/15/2019
+author: heidisteen
 manager: cgronlun
-ms.author: magottei
+ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: b4d85d3b8ee7e6a872fdd6bf07917770c4d2ee9e
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265263"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223413"
 ---
-# <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API를 사용하여 Azure Search 인덱스 만들기
+# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>빠른 시작: PowerShell 및 REST API를 사용 하 여 Azure Search 인덱스 만들기
 > [!div class="op_single_selector"]
->
-> * [개요](search-what-is-an-index.md)
+> * [PowerShell (REST)](search-create-index-rest-api.md)
+> * [C#](search-create-index-dotnet.md)
+> * [Postman (REST)](search-fiddler.md)
 > * [포털](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST (영문)](search-create-index-rest-api.md)
->
->
+> 
 
-이 문서는 Azure Search REST API를 사용하여 Azure Search [인덱스](https://docs.microsoft.com/rest/api/searchservice/Create-Index) 를 만드는 프로세스를 안내합니다.
+이 문서 만들기, 로드 하 고 Azure Search를 쿼리 하는 과정 안내 [인덱스](search-what-is-an-index.md) PowerShell을 사용 하 고 [Azure Search 서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/)합니다. 인덱스 정 및 검색 가능한 콘텐츠는 올바른 형식의 JSON 콘텐츠로 요청 본문에 제공 됩니다.
 
-이 가이드를 수행하고 인덱스를 만들기 전에 이미 [Azure Search 서비스를 만들어야](search-create-service-portal.md)합니다.
+## <a name="prerequisites"></a>필수 조건
 
-REST API를 사용하여 Azure Search 인덱스를 만들려면 Azure Search 서비스의 URL 엔드포인트에 단일 HTTP 게시 요청을 발행합니다. 인덱스 정의는 올바른 형식의 JSON 콘텐츠로 요청 본문에 포함됩니다.
+[Azure Search 서비스 만들기](search-create-service-portal.md) 나 [기존 서비스를 찾을](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 현재 구독에서. 이 빠른 시작을 위한 무료 서비스를 사용할 수 있습니다. 기타 필수 구성 요소에 다음 항목을 포함 합니다.
 
-## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search 서비스의 관리 API 키 식별
-Azure Search 서비스를 프로비전했다면 REST API를 사용하여 서비스의 URL 엔드포인트에 대한 HTTP 요청을 실행할 수 있습니다. *모든* API 요청은 프로비전된 Search 서비스에 대해 생성된 API 키를 포함해야 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
+[PowerShell 5.1 이상](https://github.com/PowerShell/PowerShell)를 사용 하 여 [Invoke-restmethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) 순차적이 고 대화형 단계에 대 한 합니다.
 
-1. 서비스의 API 키를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인해야 합니다.
-2. Azure Search 서비스의 블레이드로 이동합니다.
-3. "키" 아이콘을 클릭합니다.
+URL 끝점 및 관리자 검색 서비스의 api 키입니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
 
-서비스에는 *관리 키* 및 *쿼리 키*가 있습니다.
+1. Search 서비스에서 Azure portal의 **개요** 페이지에서 URL을 가져옵니다. Https 끝점의 예는 비슷합니다:\//my-service-name.search.windows.net 합니다.
 
-* 기본 및 보조 *관리 키* 는 서비스를 관리하며 인덱스, 인덱서 및 데이터 원본을 만들고 삭제하는 기능을 비롯한 모든 작업에 전체 권한을 부여합니다. 두 개의 키가 있으므로 기본 키를 다시 생성하려는 경우 보조 키를 사용하여 계속할 수 있고 반대도 가능합니다.
-* *쿼리 키*는 인덱스 및 문서에 대한 읽기 전용 액세스를 부여하며 일반적으로 검색 요청을 실행하는 클라이언트 애플리케이션에 배포됩니다.
+2. **설정을** > **키**, 서비스에 대 한 모든 권한 관리자 키를 가져옵니다. 두 개의 서로 바꿔 사용할 수 관리자 키를 하나를 롤오버 해야 할 경우 비즈니스 연속성을 제공 합니다. 요청에 추가, 수정 및 삭제 하는 개체에 대 한 기본 또는 보조 키를 사용할 수 있습니다.
 
-인덱스를 만들기 위해 기본 또는 보조 관리 키를 사용할 수 있습니다.
+   ![HTTP 끝점 및 액세스 키 가져오기](media/search-fiddler/get-url-key.png "HTTP 끝점 및 액세스 키 가져오기")
 
-## <a name="define-your-azure-search-index-using-well-formed-json"></a>올바른 형식의 JSON 형식을 사용하여 Azure Search 인덱스 정의
-서비스에 대한 단일 HTTP 게시 요청은 인덱스를 만듭니다. HTTP 게시 요청의 본문은 Azure Search 인덱스를 정의하는 단일 JSON 개체를 포함합니다.
+   모든 요청에는 서비스에 보내는 모든 요청에 api 키 필요 합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-1. 이 JSON 개체의 첫 번째 속성은 인덱스의 이름입니다.
-2. 이 JSON 개체의 두 번째 속성은 인덱스의 각 필드에 대한 별도 JSON 개체를 포함하는 `fields` 라는 JSON 배열입니다. 이러한 JSON 개체 각각은 "이름", "형식" 등을 비롯한 각 필드 특성에 여러 이름/값 쌍을 포함합니다.
+## <a name="connect-to-azure-search"></a>Azure Search에 연결
 
-인덱스를 각 필드로 디자인하는 경우 검색 사용자 환경 및 비즈니스 요구를 [적절한 특성](https://docs.microsoft.com/rest/api/searchservice/Create-Index)으로 할당해야 한다는 점을 염두에 두는 것이 중요합니다. 이러한 특성은 어떤 검색 기능(전체 텍스트 검색의 필터링, 패싯, 정렬 등)이 어떤 필드에 적용될지를 제어합니다. 지정하지 않은 특성의 경우 구체적으로 비활성화하지 않는 한 기본값은 해당 검색 기능을 사용합니다.
+PowerShell에서 만들기를 **$headers** 콘텐츠 형식 및 API 키를 저장할 개체입니다. 세션의 기간에 대 한이 헤더를 한 번 설정 해야 하지만 모든 요청에 추가 합니다. 
 
-예를 들어 인덱스 "호텔"의 이름을 지정하고 필드를 다음과 같이 정의했습니다.
+```powershell
+$headers = @{
+   'api-key' = '<your-admin-api-key>'
+   'Content-Type' = 'application/json' 
+   'Accept' = 'application/json' }
+```
 
-```JSON
+만들기는 **$url** 서비스를 지정 하는 개체 컬렉션을 인덱싱합니다. `mydemo` 서비스 이름 자리 표시자로 제공 됩니다. 이 예제 전체에서 현재 구독에서 올바른 검색 서비스를 사용 하 여이 대체 합니다.
+
+```powershell
+$url = "https://mydemo.search.windows.net/indexes?api-version=2017-11-11"
+```
+
+실행할 **Invoke-restmethod** GET 요청을 서비스에 보내고 연결을 확인 합니다. 추가 **Convertto-json** 서비스에서 다시 보낸 응답을 볼 수 있도록 합니다.
+
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
+```
+
+서비스 비어에 인덱스가 없는 경우 결과 다음 예제와 비슷합니다. 그렇지 않은 경우 인덱스 정의의 JSON 표현을 표시 됩니다.
+
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes",
+    "value":  [
+
+              ]
+}
+```
+
+## <a name="1---create-an-index"></a>1-인덱스 만들기
+
+포털을 사용 하지 않는 데이터를 로드 하려면 먼저 인덱스 서비스에 있어야 합니다. 이 단계는 인덱스를 정의 하 고 서비스에 푸시합니다. 합니다 [인덱스 만들기 (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) 이 단계에 사용 됩니다.
+
+인덱스의 필수 요소에는 이름과 필드 컬렉션이 포함 됩니다. 구조를 정의 하는 필드 컬렉션을 *문서*합니다. 각 필드에는 이름, 형식 및 사용 하는 방식을 결정 하는 특성 (예를 들어 인지 전체 텍스트 검색 가능, 필터링 가능, 검색 결과에서 검색 가능). 형식의 필드를 인덱스 `Edm.String` 로 지정 해야 합니다 *키* 문서 id에 대 한 합니다.
+
+이 인덱스 "호텔" 이라는 있고 아래 표시 된 필드 정의 합니다. 지정 된 인덱스 정의 [언어 분석기](index-add-language-analyzers.md) 에 대 한는 `description_fr` 뒷부분의 예제에 추가 하는 프랑스어 텍스트를 저장 하기 위한 것 이므로 필드.
+
+이 예제를 만들려면 PowerShell 붙여를 **$body** 인덱스 스키마를 포함 하는 개체입니다.
+
+```powershell
+$body = @"
 {
     "name": "hotels",  
     "fields": [
@@ -75,32 +106,275 @@ Azure Search 서비스를 프로비전했다면 REST API를 사용하여 서비�
         {"name": "location", "type": "Edm.GeographyPoint"}
     ]
 }
+"@
 ```
 
-애플리케이션에서 사용되는 방법에 따라 각 필드에 대한 인덱스 특성을 신중하게 선택했습니다. 예를 들어 `hotelId`는 호텔을 검색하는 사람들이 알 수 없는 고유한 키이므로 `searchable`을 `false`로 설정하여 해당 필드에 대한 전체 텍스트 검색 비활성화하여 인덱스의 공간을 절약합니다.
+서비스에서 인덱스 컬렉션에 URI를 설정 하며 *호텔* 인덱스입니다.
 
-형식 `Edm.String`의 인덱스에 정확히 하나의 필드가 '키' 필드로 지정되어야 합니다.
+```powershell
+$url = "https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11"
+```
 
-위의 인덱스 정의는 프랑스어 텍스트를 저장하기 위해서 `description_fr` 필드에 언어 분석기를 사용합니다. 언어 분석기에 대한 자세한 내용은 [언어 지원 항목](https://docs.microsoft.com/rest/api/searchservice/Language-support)뿐만 아니라 해당하는 [블로그 게시물](https://azure.microsoft.com/blog/language-support-in-azure-search/)을 참조하세요.
+사용 하 여 명령을 실행 **$url**를 **$headers**, 및 **$body** 서비스에서 인덱스를 만들려고 합니다. 
 
-## <a name="issue-the-http-request"></a>HTTP 요청 발급
-1. 인덱스 정의를 요청 본문으로 사용하여 Azure Search 서비스 엔드포인트 URL에 HTTP 게시 요청을 발급합니다. URL에 서비스 이름을 호스트 이름으로 사용하고 적절한 `api-version`을 쿼리 문자열 매개 변수로 배치합니다(현재 API 버전은 이 문서를 게시할 때 `2017-11-11`임).
-2. 요청 헤더에서 `Content-Type`을 `application/json`으로 지정합니다. `api-key` 헤더의 I 단계에서 식별하는 서비스의 관리 키를 제공해야 합니다.
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
+```
+결과 (간단히 하기 위해 처음 두 필드에 잘림) 다음과 유사 하 게 같아야 합니다.
 
-아래와 같이 요청을 실행할 고유한 서비스 이름 및 api 키를 제공해야 합니다.
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes/$entity",
+    "@odata.etag":  "\"0x8D6A99E2DED96B0\"",
+    "name":  "hotels",
+    "defaultScoringProfile":  null,
+    "fields":  [
+                   {
+                       "name":  "hotelId",
+                       "type":  "Edm.String",
+                       "searchable":  false,
+                       "filterable":  true,
+                       "retrievable":  true,
+                       "sortable":  false,
+                       "facetable":  false,
+                       "key":  true,
+                       "indexAnalyzer":  null,
+                       "searchAnalyzer":  null,
+                       "analyzer":  null,
+                       "synonymMaps":  ""
+                   },
+                   {
+                       "name":  "baseRate",
+                       "type":  "Edm.Double",
+                       "searchable":  false,
+                       "filterable":  true,
+                       "retrievable":  true,
+                       "sortable":  true,
+                       "facetable":  true,
+                       "key":  false,
+                       "indexAnalyzer":  null,
+                       "searchAnalyzer":  null,
+                       "analyzer":  null,
+                       "synonymMaps":  ""
+                   },
+. . .
+```
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
-    Content-Type: application/json
-    api-key: [api-key]
+> [!Tip]
+> 확인을 위해 수도 포털에서 인덱스 목록을 확인 하거나 보려면 서비스 연결을 확인 하는 데 사용 하 여 명령을 다시 실행 합니다 *호텔* 인덱스 컬렉션에서 인덱스를 나열 합니다.
 
+## <a name="2---load-documents"></a>2-문서를 로드 합니다.
 
-성공적인 요청의 경우 상태 코드 201(생성됨)이 표시되어야 합니다. REST API를 통해 인덱스를 만드는 방법에 대한 자세한 내용은 [여기서 API 참조](https://docs.microsoft.com/rest/api/searchservice/Create-Index)를 방문합니다. 오류가 발생한 경우 반환될 수 있는 기타 HTTP 상태 코드에 대한 자세한 내용은 [HTTP 상태 코드(Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)를 참조하세요.
+문서를 푸시 하려면 인덱스의 URL 끝점에 HTTP POST 요청을 사용 합니다. 이 작업에 대 한 REST api [추가, 업데이트 또는 삭제 문서](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)합니다.
 
-인덱스 관련 작업을 완료하고 삭제하려는 경우 HTTP 삭제 요청을 발급합니다. 예를 들어 "호텔" 인덱스를 삭제하는 방법입니다.
+이 예제를 만들려면 PowerShell 붙여를 **$body** 업로드 하려는 문서를 포함 하는 개체입니다. 
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11
-    api-key: [api-key]
+이 요청에는 두 개의 전체와 부분 레코드를 포함합니다. 일부 레코드는 불완전 한 문서를 업로드할 수 있습니다 하는 방법을 보여 줍니다. `@search.action` 매개 변수는 인덱싱을 수행 하는 방법을 지정 합니다. 유효한 값에는 업로드, merge, mergeOrUpload 및 삭제 포함 됩니다. MergeOrUpload 동작 하거나 hotelId에 대 한 새 문서를 만들고 = 3, 또는 이미 있는 경우 콘텐츠를 업데이트 합니다.
 
+```powershell
+$body = @"
+{
+    "value": [
+        {
+            "@search.action": "upload",
+            "hotelId": "1",
+            "baseRate": 199.0,
+            "description": "Best hotel in town",
+            "hotelName": "Fancy Stay",
+            "category": "Luxury",
+            "tags": ["pool", "view", "wifi", "concierge"],
+            "parkingIncluded": false,
+            "smokingAllowed": false,
+            "lastRenovationDate": "2010-06-27T00:00:00Z",
+            "rating": 5,
+            "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+        },
+        {
+            "@search.action": "upload",
+            "hotelId": "2",
+            "baseRate": 79.99,
+            "description": "Cheapest hotel in town",
+            "hotelName": "Roach Motel",
+            "category": "Budget",
+            "tags": ["motel", "budget"],
+            "parkingIncluded": true,
+            "smokingAllowed": true,
+            "lastRenovationDate": "1982-04-28T00:00:00Z",
+            "rating": 1,
+            "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+        },
+        {
+            "@search.action": "mergeOrUpload",
+            "hotelId": "3",
+            "baseRate": 129.99,
+            "description": "Close to town hall and the river"
+        }
+    ]
+}
+"@
+```
+
+로 끝점을 설정 합니다 *호텔* 문서 컬렉션 인덱스 작업 (인덱스/호텔/docs/index)를 포함 합니다.
+
+```powershell
+$url = "https://mydemo.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11"
+```
+
+사용 하 여 명령을 실행 **$url**를 **$headers**, 및 **$body** 호텔 인덱스에 문서를 로드 합니다.
+
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
+```
+결과 다음 예와 유사 합니다. 상태 코드 201이 표시 됩니다. 모든 상태 코드 설명을 참조 하세요 [HTTP 상태 코드 (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)합니다.
+
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels\u0027)/$metadata#Collection(Microsoft.Azure.Search.V2017_11_11.IndexResult)",
+    "value":  [
+                  {
+                      "key":  "1",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  201
+                  },
+                  {
+                      "key":  "2",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  201
+                  },
+                  {
+                      "key":  "3",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  201
+                  }
+              ]
+}
+```
+
+## <a name="3---search-an-index"></a>3-인덱스를 검색 합니다.
+
+이 단계를 사용 하 여 인덱스를 쿼리 하는 방법을 보여 줍니다.는 [검색 문서 API](https://docs.microsoft.com/rest/api/searchservice/search-documents)합니다.
+
+로 끝점을 설정 합니다 *호텔* 문서 컬렉션 추가 **검색** 매개 변수를 쿼리 문자열을 포함 합니다. 이 문자열은 빈 검색 하 고 모든 문서는 unranked 목록을 반환 합니다.
+
+```powershell
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*'
+```
+
+보낼 명령을 실행 합니다 **$url** 서비스입니다.
+
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
+```
+
+결과 다음 출력과 유사 합니다.
+
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels\u0027)/$metadata#docs(*)",
+    "value":  [
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "1",
+                      "baseRate":  199.0,
+                      "description":  "Best hotel in town",
+                      "description_fr":  null,
+                      "hotelName":  "Fancy Stay",
+                      "category":  "Luxury",
+                      "tags":  "pool view wifi concierge",
+                      "parkingIncluded":  false,
+                      "smokingAllowed":  false,
+                      "lastRenovationDate":  "2010-06-27T00:00:00Z",
+                      "rating":  5,
+                      "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
+                  },
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "2",
+                      "baseRate":  79.99,
+                      "description":  "Cheapest hotel in town",
+                      "description_fr":  null,
+                      "hotelName":  "Roach Motel",
+                      "category":  "Budget",
+                      "tags":  "motel budget",
+                      "parkingIncluded":  true,
+                      "smokingAllowed":  true,
+                      "lastRenovationDate":  "1982-04-28T00:00:00Z",
+                      "rating":  1,
+                      "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
+                  },
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "3",
+                      "baseRate":  129.99,
+                      "description":  "Close to town hall and the river",
+                      "description_fr":  null,
+                      "hotelName":  null,
+                      "category":  null,
+                      "tags":  "",
+                      "parkingIncluded":  null,
+                      "smokingAllowed":  null,
+                      "lastRenovationDate":  null,
+                      "rating":  null,
+                      "location":  null
+                  }
+              ]
+}
+```
+
+구문을 이해할 수 있도록 다른 몇 가지 쿼리 예를 봅니다. 축 자 $filter 쿼리 문자열 검색을 수행, 범위, 특정 필드에 검색 결과 집합을 제한할 수 있습니다.
+
+```powershell
+# Query example 1
+# Search the entire index for the term 'budget'
+# Return only the `hotelName` field, "Roach hotel"
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=budget&$select=hotelName'
+
+# Query example 2 
+# Apply a filter to the index to find hotels cheaper than $150 per night
+# Returns the `hotelId` and `description`. Two documents match.
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$filter=baseRate lt 150&$select=hotelId,description'
+
+# Query example 3
+# Search the entire index, order by a specific field (`lastRenovationDate`) in descending order
+# Take the top two results, and show only `hotelName` and `lastRenovationDate`
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
+```
+## <a name="clean-up"></a>정리 
+
+더 이상 필요한 경우 인덱스를 삭제 해야 합니다. 무료 서비스는 세 가지 인덱스 제한 됩니다. 사용 하지 않는 적극적으로 다른 자습서를 단계별로 실행할 수 있도록 모든 인덱스를 삭제 하려고 할 수 있습니다.
+
+```powershell
+# Set the URI to the hotel index
+$url = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
+
+# Delete the index
+Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
+```
 
 ## <a name="next-steps"></a>다음 단계
-Azure Search 인덱스를 만든 후에 데이터를 검색하기 시작할 수 있도록 [콘텐츠를 인덱스에 업로드](search-what-is-data-import.md) 할 준비가 되었습니다.
+
+인덱스에 프랑스어 설명이 추가 해 보세요. 다음 예에서는 프랑스어 문자열을 포함 하 고 추가 검색 작업을 보여 줍니다. MergeOrUpload를 사용 하 여 만들거나 기존 필드를 추가 합니다. 다음 문자열을 u t F-8로 인코딩된 해야 합니다.
+
+```json
+{
+    "value": [
+        {
+            "@search.action": "mergeOrUpload",
+            "hotelId": "1",
+            "description_fr": "Meilleur hôtel en ville"
+        },
+        {
+            "@search.action": "merge",
+            "hotelId": "2",
+            "description_fr": "Hôtel le moins cher en ville",
+        },
+        {
+            "@search.action": "delete",
+            "hotelId": "6"
+        }
+    ]
+}
+```

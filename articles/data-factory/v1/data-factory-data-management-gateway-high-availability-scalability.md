@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016770"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092194"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
 > [!NOTE]
@@ -29,8 +29,8 @@ ms.locfileid: "54016770"
 
 > [!NOTE]
 > 이 문서에서는 사용자가 이미 Integration Runtime(이전의 데이터 관리 게이트웨이)에 대한 기본 사항을 잘 알고 있다고 가정합니다. 그렇지 않은 경우 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 참조하세요.
-
->**이 미리 보기 기능은 데이터 관리 게이트웨이 버전 2.12.xxxx.x 이상에서 공식적으로 지원됩니다**. 버전 2.12.xxxx.x 이상을 사용하고 있는지 확인하세요. [여기서](https://www.microsoft.com/download/details.aspx?id=39717) 데이터 관리 게이트웨이 최신 버전을 다운로드합니다.
+> 
+> **이 미리 보기 기능은 데이터 관리 게이트웨이 버전 2.12.xxxx.x 이상에서 공식적으로 지원됩니다**. 버전 2.12.xxxx.x 이상을 사용하고 있는지 확인하세요. [여기서](https://www.microsoft.com/download/details.aspx?id=39717) 데이터 관리 게이트웨이 최신 버전을 다운로드합니다.
 
 ## <a name="overview"></a>개요
 여러 온-프레미스 컴퓨터에 설치된 데이터 관리 게이트웨이를 포털의 단일 논리 게이트웨이와 연결할 수 있습니다. 이러한 컴퓨터를 **노드**라고 합니다. 논리 게이트웨이와 연결되는 **노드는 4개까지** 갖출 수 있습니다. 논리 게이트웨이에 여러 다중 노드(게이트웨이가 설치된 온-프레미스 컴퓨터)를 사용하는 이점은 다음과 같습니다.  
@@ -163,8 +163,8 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 
 - 인증서는 공개적으로 신뢰할 수 있는 X509 v3 인증서여야 합니다. 공용(타사) CA(인증 기관)에서 발급한 인증서를 사용하는 것이 좋습니다.
 - 각 Integration Runtime 노드는 자격 증명 관리자 애플리케이션을 실행하는 클라이언트 컴퓨터 뿐만 아니라 이 인증서를 신뢰해야 합니다. 
-> [!NOTE]
-> 자격 증명 관리자 애플리케이션은 복사 마법사/Azure Portal에서 자격 증명을 안전하게 설정하는 데 사용됩니다. 또한 이 프로그램은 온-프레미스/개인 데이터 저장소와 동일한 네트워크 내의 어떤 머신에서도 실행할 수 있습니다.
+  > [!NOTE]
+  > 자격 증명 관리자 애플리케이션은 복사 마법사/Azure Portal에서 자격 증명을 안전하게 설정하는 데 사용됩니다. 또한 이 프로그램은 온-프레미스/개인 데이터 저장소와 동일한 네트워크 내의 어떤 머신에서도 실행할 수 있습니다.
 - 와일드 카드 인증서가 지원됩니다. FQDN 이름이 **node1.domain.contoso.com**인 경우 ***. domain.contoso.com**을 인증서의 주체 이름으로 사용할 수 있습니다.
 - SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예: 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com**인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com**인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
 - Windows Server 2012 R2에서 지원하는 SSL 인증서의 키 크기는 모두 지원됩니다.

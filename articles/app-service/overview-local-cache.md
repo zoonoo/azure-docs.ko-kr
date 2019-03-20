@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea17db9af92887ff775e580224b66fed22c65d41
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990777"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
 
@@ -35,7 +35,7 @@ Azure App Service의 콘텐츠는 Azure Storage에 저장되며 영구적 방식
 * 콘텐츠는 앱의 여러 VM(가상 머신) 인스턴스 간에 공유됩니다.
 * 콘텐츠는 영구적이며 앱을 실행하여 수정할 수 있습니다.
 * 동일한 공유 콘텐츠 폴더 아래에서 로그 파일 및 진단 데이터 파일을 사용할 수 있습니다.
-* 새 콘텐츠를 직접 게시하면 콘텐츠 폴더가 업데이트됩니다. SCM 웹 사이트 및 실행 중인 앱을 통해 동일한 콘텐츠를 즉시 볼 수 있습니다. 일반적으로 ASP.NET과 같은 일부 기술은 몇 가지 파일 변경 내용에 대해 앱을 다시 시작하여 최신 콘텐츠를 가져옵니다.
+* 새 콘텐츠를 직접 게시하면 콘텐츠 폴더가 업데이트됩니다. SCM 웹 사이트와 실행을 통해 동일한 콘텐츠를 즉시 볼 수 있습니다 (일반적으로 ASP.NET과 같은 일부 기술은 시작 하는 최신 콘텐츠를 가져오는 몇 가지 파일 변경 시 앱을 다시 시작) 하는 앱입니다.
 
 많은 앱에서 이러한 기능 중 하나 또는 모두를 사용하지만 일부 앱에서는 고가용성으로 실행할 수 있는 읽기 전용 콘텐츠 저장소 성능만 뛰어나면 됩니다. 이러한 앱은 특정 로컬 캐시의 VM 인스턴스 이점을 활용할 수 있습니다.
 

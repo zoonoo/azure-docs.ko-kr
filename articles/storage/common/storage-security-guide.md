@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454490"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013081"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -111,7 +111,7 @@ RBAC를 사용하여 Azure Storage 계정 관리 작업에 액세스하는 작�
 ### <a name="managing-your-storage-account-keys"></a>Storage 계정 키 관리
 Storage 계정 키는 Azure에서 생성되는 512비트 문자열로, Storage 계정에 저장된 데이터 개체(예: Blob, 테이블 내 엔터티, 큐 메시지, Azure 파일 공유의 파일)에 액세스하기 위해 Storage 계정 이름과 함께 사용될 수 있습니다. 저장소 계정 키에 대한 액세스를 제어하면 해당 저장소 계정의 데이터 평면에 대한 액세스도 제어됩니다.
 
-각 저장소 계정에는 [Azure Portal](http://portal.azure.com/) 및 PowerShell cmdlet에서 "키 1"과 "키 2"로 지칭되는 두 개의 키가 있습니다. 이러한 키는 [Azure 포털](https://portal.azure.com/), PowerShell, Azure CLI를 사용하거나 .NET Storage Client Library 또는 Azure Storage Services REST API를 사용하여 프로그래밍 방식으로 다시 생성할 수도 있습니다.
+각 저장소 계정에는 [Azure Portal](https://portal.azure.com/) 및 PowerShell cmdlet에서 "키 1"과 "키 2"로 지칭되는 두 개의 키가 있습니다. 이러한 키는 [Azure 포털](https://portal.azure.com/), PowerShell, Azure CLI를 사용하거나 .NET Storage Client Library 또는 Azure Storage Services REST API를 사용하여 프로그래밍 방식으로 다시 생성할 수도 있습니다.
 
 저장소 계정 키를 다시 생성하는 이유는 많습니다.
 
@@ -244,7 +244,7 @@ SAS가 손상되었거나, 회사 보안 또는 규정 준수 요구 때문에 �
 
     이 문서에서는 SAS 모델에 대한 설명, 공유 액세스 서명의 예, SAS에 대한 권장 모범 사용 사례를 제공합니다. 부여된 사용 권한을 해지하는 방법도 설명합니다.
 
-* 인증
+* Authentication
 
   * [Azure Storage 서비스에 대한 인증](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * 공유 액세스 서명 시작 자습서

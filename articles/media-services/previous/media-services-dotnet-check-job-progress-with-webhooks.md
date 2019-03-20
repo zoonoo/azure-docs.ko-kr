@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 386662a4e98b881228a82de3777632ed002bb5b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: d1ecac243ee4cfd3385d0fc69c9ce7c9e2afd95c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989160"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898842"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Azure Webhooks를 사용하여 .NET으로 Media Services 작업 알림 모니터링 
 
@@ -49,7 +49,7 @@ ms.locfileid: "55989160"
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
-1. [Azure Portal](http://portal.azure.com) 로 이동하여 Azure 계정으로 로그인합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동하여 Azure 계정으로 로그인합니다.
 2. [여기](../../azure-functions/functions-create-function-app-portal.md)에 설명한 대로 함수 앱을 만듭니다.
 
 ## <a name="configure-function-app-settings"></a>함수 앱 구성 설정
@@ -58,7 +58,7 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
 [애플리케이션 설정](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) 섹션은 이 문서에 정의된 웹후크에서 사용되는 매개 변수를 정의합니다. 또한 다음 매개 변수를 앱 설정에 추가합니다. 
 
-|Name|정의|예| 
+|이름|정의|예| 
 |---|---|---|
 |SigningKey |서명 키입니다.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | 웹후크 엔드포인트 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
@@ -379,22 +379,22 @@ internal sealed class NotificationMessage
 2. [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices)을 사용하여 Azure Media Services를 설치합니다.
 3. App.config 파일을 적절한 값으로 업데이트합니다. 
     
-    * Azure Media Services 연결 정보 
-    * 알림을 가져오려는 Webhook URL 
-    * Webhook이 필요로 하는 키와 일치하는 서명 키 서명 키는 Azure Media Services에서 웹후크 콜백을 보호하고 보안하는 데 사용되는 64바이트 Base64 인코딩 값입니다. 
+   * Azure Media Services 연결 정보 
+   * 알림을 가져오려는 Webhook URL 
+   * Webhook이 필요로 하는 키와 일치하는 서명 키 서명 키는 Azure Media Services에서 웹후크 콜백을 보호하고 보안하는 데 사용되는 64바이트 Base64 인코딩 값입니다. 
 
-    ```xml
-            <appSettings>
-                <add key="AMSAADTenantDomain" value="domain" />
-                <add key="AMSRESTAPIEndpoint" value="endpoint" />
+     ```xml
+           <appSettings>
+               <add key="AMSAADTenantDomain" value="domain" />
+               <add key="AMSRESTAPIEndpoint" value="endpoint" />
 
-                <add key="AMSClientId" value="clinet id" />
-                <add key="AMSClientSecret" value="client secret" />
+               <add key="AMSClientId" value="clinet id" />
+               <add key="AMSClientSecret" value="client secret" />
 
-                <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
-                <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
-            </appSettings>
-    ```
+               <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
+               <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
+           </appSettings>
+     ```
 
 4. Program.cs 파일을 다음 코드로 업데이트합니다.
 
