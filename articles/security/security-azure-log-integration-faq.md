@@ -4,7 +4,7 @@ description: 이 문서는 Azure 로그 통합에 대한 질문에 답변합니�
 services: security
 documentationcenter: na
 author: TomShinder
-manager: barbkess
+manager: MBaldwin
 editor: TerryLanfear
 ms.assetid: d06d1ac5-5c3b-49de-800e-4d54b3064c64
 ms.service: security
@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: f1b809e52cc532d13be85776f73aba4465fa2140
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114929"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005845"
 ---
 # <a name="azure-log-integration-faq"></a>Azure 로그 통합 FAQ
 
@@ -33,9 +33,11 @@ Azure 로그 통합은 Azure 리소스의 원시 로그를 온-프레미스 SIEM
 
 Azure 로그를 통합하는 가장 좋은 방법은 SIEM 공급업체의 Azure Monitor 커넥터를 사용하고 다음 [지침](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)을 따르는 것입니다. 하지만, SIEM 공급업체에서 Azure Monitor에 대한 커넥터를 제공하지 않는 경우에는 해당 커넥터를 사용할 수 있을 때까지 임시 해결책으로 Azure Log Integration을 사용할 수 있습니다(Azure Log Integration에서 해당 SIEM이 지원되는 경우).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="is-the-azure-log-integration-software-free"></a>Azure 로그 통합 소프트웨어는 무료입니까?
 
-예. Azure 로그 통합 소프트웨어는 무료입니다.
+예 Azure 로그 통합 소프트웨어는 무료입니다.
 
 ## <a name="where-is-azure-log-integration-available"></a>Azure 로그 통합은 어디에서 사용할 수 있나요?
 
@@ -97,13 +99,13 @@ Azure Active Directory 감사 로그에는 테넌트 ID가 이름의 일부로 �
 
 오류:
 
-  ‘역할 할당 만들기 경고 - AuthorizationFailed: 개체 ID가 ‘fe9e03e4-4dad-4328-910f-fd24a9660bd2’인 janedo@microsoft.com 클라이언트에는 ‘/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000’ 범위에 대해 ‘Microsoft.Authorization/roleAssignments/write’ 작업을 수행할 권한이 없습니다.’*
+  ‘역할 할당 만들기 경고 - AuthorizationFailed: 클라이언트 janedo\@microsoft.com' 개체를 사용 하 여 id ' fe9e03e4-4dad-4328-910f-fd24a9660bd2' 없는 범위 'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 ' /subscriptions/ 70 d 95299-d689-4c 97 b971 0d8ff0000000'.*
 
 **azlog authorize** 명령을 사용하면 제공되는 구독에 **azlog createazureid** 명령으로 만들어진 Azure AD 서비스 주체의 읽기 권한자 역할을 할당합니다. Azure 로그인이 구독의 공동 관리자 또는 소유자가 아닌 경우 “권한 부여 실패” 오류 메시지와 오류가 발생합니다. 이 작업을 완료하려면 공동 관리자 또는 소유자의 Azure RBAC(역할 기반 Access Control)가 필요합니다.
 
 ## <a name="where-can-i-find-the-definition-of-the-properties-in-the-audit-log"></a>감사 로그의 속성 정의는 어디서 찾을 수 있나요?
 
-다음을 참조하세요.
+참조:
 
 * [Azure 리소스 관리자로 작업 감사](../azure-resource-manager/resource-group-audit.md)
 * [Azure Monitor REST API에서 구독의 관리 이벤트 나열](https://msdn.microsoft.com/library/azure/dn931934.aspx)
@@ -118,8 +120,8 @@ Azure 진단 구성을 가져오고, 수정하고, 설정하는 방법에 대한
 
 다음 예제에서는 Azure 진단 구성을 가져옵니다.
 
-    -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
-    $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
+    Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
+    $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
@@ -136,7 +138,7 @@ Azure 진단 구성을 가져오고, 수정하고, 설정하는 방법에 대한
 다음 예제에서는 Azure 진단 구성을 설정합니다.
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
+    Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
 변경한 후에는 저장소 계정을 검사하여 올바른 이벤트가 수집되는지 확인합니다.
 

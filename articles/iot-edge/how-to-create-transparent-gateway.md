@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096710"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -45,7 +45,10 @@ Azure IoT Edge 디바이스를 게이트웨이로 구성합니다. 다음 운영
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
-머신을 사용하여 인증서를 생성한 다음, IoT Edge 디바이스로 복사할 수 있습니다. 
+머신을 사용하여 인증서를 생성한 다음, IoT Edge 디바이스로 복사할 수 있습니다.
+
+>[!NOTE]
+>이 명령에서 인증서를 만드는 데 "게이트웨이 이름이" GatewayHostName 다운스트림 장치 연결 문자열에 IoT Edge config.yaml 파일에는 호스트와 동일한 이름으로 사용 해야 합니다. "게이트웨이 이름이" DNS 또는 호스트 파일 항목을 사용 하거나 IP 주소를 확인할 수 있어야 합니다. 통신 프로토콜을 기반으로 사용 되는 (MQTTS:8883 / AMQPS:5671 / HTTPS:433) 다운스트림 장치에서 IoT Edge 투명 사이의 수 여야 합니다. 방화벽 사이 인 경우 해당 포트를 열어야 해야 합니다.
 
 ## <a name="generate-certificates-with-windows"></a>Windows를 사용하여 인증서 생성
 
@@ -60,7 +63,7 @@ Windows 디바이스에서 테스트 인증서를 생성하려면 이 섹션의 
    >[!NOTE]
    >Windows 디바이스에 이미 OpenSSL을 설치한 경우 이 단계를 건너뛰어도 되지만 PATH 환경 변수에서 openssl.exe를 사용할 수 있는지 확인하세요.
 
-* **간편:** 타사 OpenSSL 이진 파일을 다운로드하여 설치합니다(예: [SourceForge의 이 프로젝트](https://sourceforge.net/projects/openssl/)). PATH 환경 변수에 openssl.exe에 대한 전체 경로를 추가합니다. 
+* **간편:** [타사 OpenSSL 이진 파일](https://wiki.openssl.org/index.php/Binaries)을 다운로드하여 설치합니다(예: [SourceForge의 이 프로젝트](https://sourceforge.net/projects/openssl/)). PATH 환경 변수에 openssl.exe에 대한 전체 경로를 추가합니다. 
    
 * **권장:** 직접 또는 [vcpkg](https://github.com/Microsoft/vcpkg)를 통해 OpenSSL 소스 코드를 다운로드하고 머신에서 이진 파일을 빌드합니다. 아래에 나열된 지침은 vcpkg를 사용하여 간단한 단계를 통해 소스 코드를 다운로드하고, 컴파일하고, Windows 머신에 OpenSSL을 설치합니다.
 
@@ -178,7 +181,7 @@ Linux 디바이스에서 테스트 인증서를 생성하려면 이 섹션의 �
 
 이 섹션에서는 세 가지 인증서를 만든 다음, 체인에서 연결합니다. 체인 파일에 인증서를 배치하면 IoT Edge 게이트웨이 디바이스 및 모든 다운스트림 디바이스에서 손쉽게 설치할 수 있습니다.  
 
-1.  소유자 CA 인증서 및 중간 인증서를 만듭니다. 이러한 인증서는 *\<WRKDIR>* 에 배치됩니다.
+1. 소유자 CA 인증서 및 중간 인증서를 만듭니다. 이러한 인증서는 *\<WRKDIR>* 에 배치됩니다.
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -190,7 +193,7 @@ Linux 디바이스에서 테스트 인증서를 생성하려면 이 섹션의 �
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2.  다음 명령을 사용하여 Edge 디바이스 CA 인증서 및 개인 키를 만듭니다. 인증서를 생성하는 동안 및 파일 이름을 지정하는 데 사용할 게이트웨이 디바이스에 대한 이름을 입력합니다. 
+2. 다음 명령을 사용하여 Edge 디바이스 CA 인증서 및 개인 키를 만듭니다. 인증서를 생성하는 동안 및 파일 이름을 지정하는 데 사용할 게이트웨이 디바이스에 대한 이름을 입력합니다. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"

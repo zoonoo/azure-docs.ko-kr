@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997537"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK를 사용하는 방법
 
@@ -135,7 +135,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 애플리케이션 개발하도록 �
 
     파일을 저장합니다.
 
-1. 애플리케이션을 로컬로 실행하거나(API가 http://localhost:3000) 에서 제공됨) Azure에 게시합니다.
+1. 응용 프로그램을 로컬로 실행 하거나 (API에서 제공 됩니다 `http://localhost:3000`) 또는 Azure에 게시 합니다.
 
 ### <a name="create-node-backend-portal"></a>Azure Portal을 사용하여 Node.js 백 엔드 만들기
 
@@ -176,7 +176,7 @@ Microsoft Azure는 Mobile Apps Node.js 백 엔드를 Azure 서비스에 게시�
 Azure App Service에는 백 엔드를 게시하기 전에 검토해야 하는 Node.js 애플리케이션에 대한 구체적인 조언이 있습니다.
 
 * [노드 버전을 지정]하는 방법
-*  [노드 모듈 사용]
+* [노드 모듈 사용]
 
 ### <a name="howto-enable-homepage"></a>애플리케이션에 대한 홈페이지 사용
 
@@ -372,7 +372,7 @@ azureMobile.js 파일에서 대부분의 설정은 [Azure Portal]에서 동일�
 
 | 앱 설정 | azureMobile.js 설정 | 설명 | 유효한 값 |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |이름 |앱의 이름 |string |
+| **MS_MobileAppName** |이름 |앱의 이름 |문자열 |
 | **MS_MobileLoggingLevel** |logging.level |로깅할 메시지의 최소 로그 수준 |error, warning, info, verbose, debug, silly |
 | **MS_DebugMode** |debug |디버그 모드의 사용 여부 설정 |true, false |
 | **MS_TableSchema** |data.schema |SQL 테이블에 대한 기본 스키마 이름 |string(기본값: dbo) |
@@ -681,7 +681,7 @@ var mobile = azureMobileApps({ swagger: true });
 var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
 ```
 
-`swagger` 엔드포인트는 http://*yoursite*.azurewebsites.net/swagger에 위치합니다. ph x="1" /&gt; 엔드포인트를 통해 Swagger UI에 액세스할 수 있습니다. 전체 애플리케이션에서 인증을 요구하도록 선택하면 Swagger가 오류를 생성합니다. 최상의 결과를 위해 `table.access` 속성을 사용하여 Azure App Service 인증/권한 부여 설정 및 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
+`swagger` 엔드포인트는 http://*yoursite*.azurewebsites.net/swagger에 위치합니다. 엔드포인트를 통해 `/swagger/ui`에 액세스할 수 있습니다. 전체 애플리케이션에서 인증을 요구하도록 선택하면 Swagger가 오류를 생성합니다. 최상의 결과를 위해 `table.access` 속성을 사용하여 Azure App Service 인증/권한 부여 설정 및 제어 인증에서 인증되지 않은 요청을 허용하도록 선택합니다.
 
 또한 로컬로 개발을 위해 Swagger 지원을 원하는 경우 azureMobile.js 파일에 Swagger 옵션을 추가할 수도 있습니다.
 

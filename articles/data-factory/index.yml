@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2179b212dbbc7891b003664f4bea3d47cbb3a34e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: f03ece417ef5db891efe32a662a092ebf6072b33
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575395"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848164"
 documentType: LandingData
 title: Azure Data Factory 설명서
 metadata:
@@ -80,6 +80,7 @@ sections:
     - html: 가상 네트워크의 데이터 변환 - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
     - html: 분기 및 연결 추가 - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
     - html: Azure에서 SSIS 패키지 실행 - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
+    - html: Azure Data Factory의 CI/CD(지속적인 통합 및 지속적인 업데이트) - <a href="/azure/data-factory/continuous-integration-deployment">Data Factory UI</a>
 - title: 샘플
   items:
   - type: paragraph

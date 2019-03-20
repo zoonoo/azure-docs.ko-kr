@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9a99e7133b24d37af5ce36c717d03bb0fdae7da5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c68bf4cf8bcc50069f3741ac0f1746363c1f82ac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733574"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861811"
 documentType: LandingData
 title: Speech Services 설명서
 metadata:
@@ -24,7 +24,7 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: Speech Services 및 Speech SDK를 사용하여 앱에 음성 지원 기능을 추가하는 방법을 알아봅니다. Speech SDK를 사용하여 <i>음성 텍스트 변환</i>(음성 인식/SR), <i>의도</i>, <i>번역</i> 및 <i>텍스트 음성 변환</i>(TTS) 기능을 앱에 추가할 수 있습니다. 또한 Speech Service에는 HTTP 요청을 수행할 수 있는 모든 프로그래밍 언어를 사용하여 작동되는 REST API도 있습니다.
+  description: Speech Services 및 Speech SDK를 사용하여 앱에 음성 지원 기능을 추가하는 방법을 알아봅니다. Speech SDK를 사용하여 <i>음성 텍스트 변환</i>(음성 인식/SR), <i>의도</i>, <i>번역</i> 및 <i>텍스트 음성 변환</i>(TTS) 기능을 앱에 추가할 수 있습니다. 또한 Speech Service에는 HTTP 요청을 수행할 수 있는 프로그래밍 언어에서 작동하는 REST API도 있습니다.
 sections:
 - items:
   - type: list

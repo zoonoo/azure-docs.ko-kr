@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 20a4e24800b2fa05990d294cb374841c50c4f79b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 89cc8c4bffe910de0861d7f44925a10df3811fdb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097477"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -49,7 +49,7 @@ ms.locfileid: "48807390"
 
 예를 들어 다음과 같은 주소를 사용할 수 있습니다. <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-2. (고급): URL에 지원되는 일반 캠페인 ID 중 하나를 사용합니다. 사용해야 하는 추가 ref 태그를 포함할 수 있도록 다음의 추가 태그를 자동으로 인식하는 규칙이 지원됩니다.
+1. (고급): URL에는 지원 되는 제네릭 캠페인 Id 중 하나를 사용 합니다. 사용해야 하는 추가 ref 태그를 포함할 수 있도록 다음의 추가 태그를 자동으로 인식하는 규칙이 지원됩니다.
     
     1. **utm\_campaign**
     2. **utm\_source**

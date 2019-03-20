@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 60f02f0ae92f471718c0c35f8ac833b9ca6c1da4
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355405"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863936"
 ---
 # <a name="offer-listing-best-practices"></a>목록에 제품 추가 모범 사례
 
@@ -28,7 +28,7 @@ ms.locfileid: "54355405"
 ## <a name="storefront-offer-details"></a>상점 제품 세부 정보
 | 상점 설정 | 모범 사례 |
 |:--- |:--- |  
-| 제품 이름 | 강력한 제목을 입력합니다.<br> <ul> <li> 앱 이름은 고객을 위한 핵심 가치를 전달해야 합니다. </li> <li> 검색 엔진 결과에서 더 높은 순위를 받으려면 앱 제목에 검색 키워드를 포함합니다. </li> </ul> 다음과 같이 컨설팅 서비스 목록에 대한 일단의 제목 형식을 따릅니다.<br>[제품 이름] : [기간] [제품 유형](예: Contoso: 2주 구현) <br><br> 브랜드 지침을 준수합니다.<br>Microsoft 상표와 Microsoft, 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 [Microsoft 상표 및 브랜드 지침](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) 및 기타 관련 제품별 지침을 따릅니다. |
+| 제품 이름 | 강력한 제목을 입력합니다.<br> <ul> <li> 앱 이름은 고객을 위한 핵심 가치를 전달해야 합니다. </li> <li> 검색 엔진 결과에서 더 높은 순위를 받으려면 앱 제목에 검색 키워드를 포함합니다. </li> </ul> 다음과 같이 컨설팅 서비스 목록에 대한 일단의 제목 형식을 따릅니다.<br>[제품 이름] : [기간] [제품 유형](예: *Contoso: 2주 구현*) <br><br> 브랜드 지침을 준수합니다.<br>Microsoft 상표와 Microsoft, 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 [Microsoft 상표 및 브랜드 지침](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) 및 기타 관련 제품별 지침을 따릅니다. |
 | 제품 설명 | 다음과 같이 명확한 제품 설명을 제공합니다.<br> <ul> <li> 설명의 처음 몇 문장에서 제품의 가치 제안을 명확하게 설명합니다. </li> <li> 처음 몇 문장은 검색 엔진 결과에 표시될 수 있다는 점에 유의하세요. </li> <li> 제품을 판매하는 특징과 기능에 의존하지 않습니다. 대신, 전달하는 가치에 중점을 둡니다. </li> <li> 산업별 어휘 또는 혜택 기반 단어를 최대한 많이 사용합니다.</li> <li> 또한 컨설팅 서비스 목록에서 제공되는 전문 서비스를 명확하게 설명해야 합니다. </li></ul> 가치 제안의 핵심 구성 요소에 포함되어야 하는 정보는 다음과 같습니다.<ul><li>제품에 대한 설명입니다.</li><li>제품의 혜택을 받는 사용자 유형</li><li>제품에서 처리하는 고객의 요구 사항 또는 불만 사항</li></ul> |
 
 ## <a name="storefront-listing-details"></a>상점 목록 세부 정보
@@ -56,7 +56,7 @@ ms.locfileid: "54355405"
 
 다음 예제 URL에는 앞의 두 쿼리 매개 변수가 모두 포함되어 있습니다. `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-이러한 매개 변수를 AppSource URL에 추가하면 [Cloud 파트너 포털](http://cloudpartner.azure.com/#insights)의 분석 대시보드에서 캠페인 효과를 검토할 수 있습니다.
+이러한 매개 변수를 AppSource URL에 추가하면 [Cloud 파트너 포털](https://cloudpartner.azure.com/#insights)의 분석 대시보드에서 캠페인 효과를 검토할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

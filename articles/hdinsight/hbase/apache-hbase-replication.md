@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112537"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
@@ -136,7 +136,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
     sudo apt-get install bind9 -y
     ```
 
-3. 온-프레미스 DNS 서버로 이름 확인 요청을 전달하는 바인딩을 구성합니다. 이를 수행하려면 다음 텍스트를 `/etc/bind/named.conf.options` 파일의 콘텐츠로 사용합니다.
+3. 온-프레미스 DNS 서버로 이름 확인 요청을 전달 하도록 바인딩을 구성 합니다. 이를 수행하려면 다음 텍스트를 `/etc/bind/named.conf.options` 파일의 콘텐츠로 사용합니다.
 
     ```
     acl goodclients {
@@ -288,15 +288,15 @@ sudo service bind9 status
 4. 페이지의 위쪽에서 **새로운 항목 제출**을 선택합니다.
 5. 다음 정보를 선택하거나 입력합니다.
 
-  1. **이름**: **복제 사용**을 입력합니다.
-  2. **Bash 스크립트 URL**: https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**을 입력합니다.
-  3.  **헤드**: 선택되어 있는지 확인합니다. 다른 노드 형식은 선택 취소합니다.
-  4. **매개 변수**: 다음 샘플 매개 변수를 사용하면 기존의 모든 테이블을 복제하도록 설정한 다음, 모든 데이터를 원본 클러스터에서 대상 클러스터로 복사합니다.
+   1. **이름**: **복제 사용**을 입력합니다.
+   2. **Bash 스크립트 URL**: **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**을 입력합니다.
+   3. **헤드**: 선택되어 있는지 확인합니다. 다른 노드 형식은 선택 취소합니다.
+   4. **매개 변수**: 다음 샘플 매개 변수를 사용하면 기존의 모든 테이블을 복제하도록 설정한 다음, 모든 데이터를 원본 클러스터에서 대상 클러스터로 복사합니다.
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    > [!NOTE]
-    > 원본 및 대상 클러스터 DNS 이름에 대한 FQDN 대신 호스트 이름을 사용합니다.
+      > [!NOTE]
+      > 원본 및 대상 클러스터 DNS 이름에 대한 FQDN 대신 호스트 이름을 사용합니다.
 
 6. **만들기**를 선택합니다. 특히 **-copydata** 인수를 사용하는 경우 스크립트를 실행하는 데 약간의 시간이 걸릴 수 있습니다.
 

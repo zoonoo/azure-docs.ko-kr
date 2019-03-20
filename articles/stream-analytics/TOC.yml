@@ -32,15 +32,17 @@ items:
 - name: 개념
   items:
   - name: 작업에 대한 입력 형식
-    href: stream-analytics-add-inputs.md
     items:
+    - name: 입력 개요
+      href: stream-analytics-add-inputs.md
     - name: 스트리밍 데이터 입력
       href: stream-analytics-define-inputs.md
     - name: 참조 데이터 입력
       href: stream-analytics-use-reference-data.md
   - name: 작업에 대한 출력 형식
-    href: stream-analytics-define-outputs.md
     items:
+    - name: 출력 개요
+      href: stream-analytics-define-outputs.md
     - name: Cosmos DB 출력
       href: stream-analytics-documentdb-output.md
     - name: Azure SQL DB 출력
@@ -114,7 +116,7 @@ items:
       href: stream-analytics-monitoring.md
     - name: 작업 모니터링 - PowerShell
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-    - name: 작업 모니터링 - Azure .Net SDK
+    - name: 작업 모니터링 - Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
     - name: 작업 모니터링 - Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
@@ -122,9 +124,10 @@ items:
     items:
     - name: 스트리밍 단위로 크기 조정
       href: stream-analytics-streaming-unit-consumption.md
-    - name: 쿼리 병렬화로 크기 조정
-      href: stream-analytics-parallelization.md
+    - name: 병렬화로 크기 조정
       items:
+      - name: 쿼리 병렬 처리
+        href: stream-analytics-parallelization.md
       - name: 처리량 증가
         href: stream-analytics-scale-jobs.md
     - name: ML 함수로 크기 조정
@@ -428,16 +431,16 @@ items:
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=stream-analytics
   - name: 스택 오버플로
-    href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
+    href: https://stackoverflow.com/questions/tagged/azure-stream-analytics
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: 고객 사례 연구
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: 백서 - 실시간 이벤트 처리
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 24c475fcbe1bda825693ee04f9381922c46633ad
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 127d7aa2588a47084dd43eb7f22adf9f73f90dce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853015"

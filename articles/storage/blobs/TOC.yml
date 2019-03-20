@@ -15,6 +15,7 @@ items:
   - name: 빠른 시작
     items:
     - name: 저장소 계정 만들기
+      displayName: resource manager, resource manager template, template, ARM
       href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 코드 없이 Blob 관리
       items:
@@ -274,8 +275,10 @@ items:
           href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 저장소 분석
           href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 메트릭 사용 및 보기(클래식)
-          href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 스토리지 분석 메트릭(클래식)
+          href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 스토리지 분석 로그
+          href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 이벤트 처리
       href: storage-blob-event-overview.md
     - name: 페이지 Blob 기능
@@ -405,17 +408,17 @@ items:
     - name: Node.js
       href: https://docs.microsoft.com/javascript/api/overview/azure/storage
     - name: Ruby
-      href: http://azure.github.io/azure-storage-ruby
+      href: https://azure.github.io/azure-storage-ruby
     - name: PHP
-      href: http://azure.github.io/azure-storage-php/
+      href: https://azure.github.io/azure-storage-php/
     - name: Python
       href: https://docs.microsoft.com/python/api/overview/azure/storage
     - name: C++
-      href: http://azure.github.io/azure-storage-cpp
+      href: https://azure.github.io/azure-storage-cpp
     - name: iOS
-      href: http://azure.github.io/azure-storage-ios/
+      href: https://azure.github.io/azure-storage-ios/
     - name: Android
-      href: http://azure.github.io/azure-storage-android
+      href: https://azure.github.io/azure-storage-android
     - name: REST (영문)
       items:
       - name: Blob, 큐, 테이블 및 파일
@@ -425,6 +428,7 @@ items:
       - name: Import/Export
         href: /rest/api/storageimportexport
     - name: Resource Manager 템플릿
+      displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
   - name: 리소스
     items:
@@ -439,7 +443,7 @@ items:
     - name: 요금 계산기
       href: https://azure.microsoft.com/pricing/calculator/
     - name: 스택 오버플로
-      href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+      href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: 동영상
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
     - name: Azure Storage 탐색기
@@ -479,17 +483,17 @@ items:
       - name: Node.js
         href: https://docs.microsoft.com/javascript/api/overview/azure/storage
       - name: Ruby
-        href: http://azure.github.io/azure-storage-ruby
+        href: https://azure.github.io/azure-storage-ruby
       - name: PHP
-        href: http://azure.github.io/azure-storage-php/
+        href: https://azure.github.io/azure-storage-php/
       - name: Python
         href: https://docs.microsoft.com/python/api/overview/azure/storage
       - name: C++
-        href: http://azure.github.io/azure-storage-cpp
+        href: https://azure.github.io/azure-storage-cpp
       - name: iOS
-        href: http://azure.github.io/azure-storage-ios/
+        href: https://azure.github.io/azure-storage-ios/
       - name: Android
-        href: http://azure.github.io/azure-storage-android
+        href: https://azure.github.io/azure-storage-android
       - name: REST (영문)
         items:
         - name: Blob, 큐, 테이블 및 파일
@@ -611,12 +615,12 @@ items:
     - name: 서비스 업데이트
       href: https://azure.microsoft.com/updates/?product=storage
     - name: 스택 오버플로
-      href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+      href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: 동영상
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: b871bb21667cac76779f32188858b2f2261686c4
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 919121b1efdb8b1d2d93d3af03dac2927e4208e5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875145"

@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 237294c1bc603402c349f7a56f20c34ed8d210fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141180"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999751"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Queue Storage 및 Visual Studio 연결 서비스 시작(ASP.NET Core)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-이 문서에서는 Visual Studio **연결된 서비스** 기능을 사용하여 ASP.NET Core 프로젝트에서 Azure Storage 계정을 만들거나 참조한 후 Visual Studio에서 Azure Queue Storage 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스** 작업은 프로젝트의 Azure Storage에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다. (Azure Storage에 대한 일반적인 내용은 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.)
+이 문서에서는 Visual Studio **연결된 서비스** 기능을 사용하여 ASP.NET Core 프로젝트에서 Azure Storage 계정을 만들거나 참조한 후 Visual Studio에서 Azure Queue Storage 사용을 시작하는 방법에 대해 설명합니다. **연결된 서비스** 작업은 프로젝트의 Azure Storage에 액세스하는 데 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 스토리지 계정에 대한 연결 문자열을 추가합니다. (Azure Storage에 대한 일반적인 내용은 [스토리지 설명서](https://azure.microsoft.com/documentation/services/storage/)를 참조하세요.)
 
-Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 또한 큐를 프로그래밍 방식으로 조작하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](../storage/queues/storage-dotnet-how-to-use-queues.md)을 참조하세요.
+Azure Queue Storage는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 또한 큐를 프로그래밍 방식으로 조작하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](../storage/queues/storage-dotnet-how-to-use-queues.md)을 참조하세요.
 
-시작하려면 먼저 저장소 계정에서 Azure Queue를 만듭니다. 이 문서에서는 C#에서 큐를 만드는 방법과 함께 큐 메시지 추가, 수정, 읽기 및 제거와 같은 기본 큐 작업을 수행하는 방법도 알려드립니다.  코드는 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](http://www.asp.net)을 참조하세요.
+시작하려면 먼저 저장소 계정에서 Azure Queue를 만듭니다. 이 문서에서는 C#에서 큐를 만드는 방법과 함께 큐 메시지 추가, 수정, 읽기 및 제거와 같은 기본 큐 작업을 수행하는 방법도 알려드립니다.  코드는 .NET용 Azure Storage 클라이언트 라이브러리를 사용합니다. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](https://www.asp.net)을 참조하세요.
 
 Azure Storage API 중 일부는 비동기적이며 이 문서의 코드는 비동기 메서드를 사용하는 것으로 가정합니다. 자세한 내용은 [비동기 프로그래밍](https://docs.microsoft.com/dotnet/csharp/async)을 참조하세요.
 
@@ -66,7 +66,7 @@ ASP.NET Core 프로젝트의 큐에 액세스하려면 Azure Queue Storage에 �
 
 ### <a name="create-a-queue-in-code"></a>코드에서 큐 만들기
 
-코드에서 Azure 큐를 만들려면 ``CreateIfNotExistsAsync`를 호출합니다.
+호출 코드에서 Azure 큐를 만들려면 `CreateIfNotExistsAsync`:
 
 ```cs
 // Create the CloudQueue if it does not exist.

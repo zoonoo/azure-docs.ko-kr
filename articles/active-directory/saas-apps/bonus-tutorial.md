@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62927e78b8f1a771de74c0f9215a7bd946a46672
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d6c82d6a8cf2281ebd77c9880903f8f20505f52c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>자습서: Bonusly와 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ Bonusly와 Azure AD의 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Bonusly 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -219,7 +219,7 @@ Azure AD 사용자가 Bonusly에 로그인할 수 있도록 하려면 Bonusly로
 
     b. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
  
-    다. **메일** 텍스트 상자에 **brittasimon@contoso.com**과 같은 사용자의 메일 주소를 입력합니다.
+    다. 에 **전자 메일** 텍스트 상자과 같은 사용자의 전자 메일 입력 **brittasimon\@contoso.com**합니다.
 
     d. **저장**을 클릭합니다.
    

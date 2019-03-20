@@ -433,6 +433,8 @@ items:
     items:
     - name: 집계
       href: data-flow-aggregate.md
+    - name: 행 변경
+      href: data-flow-alter-row.md
     - name: 조건부 분할
       href: data-flow-conditional-split.md
     - name: 파생 열
@@ -549,6 +551,8 @@ items:
       href: solution-templates-introduction.md
     - name: 여러 컨테이너의 파일 복사
       href: solution-template-copy-files-multiple-containers.md
+    - name: LastModifiedDate로 새 파일 복사
+      href: solution-template-copy-new-files-lastmodifieddate.md
     - name: 컨트롤 테이블을 사용하여 대량 복사
       href: solution-template-bulk-copy-with-control-table.md
     - name: 컨트롤 테이블을 사용하여 델타 복사
@@ -585,9 +589,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: 지원 옵션
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 8c724971db16381bb327cca6a30c5b8d63cac2bc
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 32411c9ec042a8504ef08ece1359ea9e5ee7ebda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858897"
