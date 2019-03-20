@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011787"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core용 Application Insights
 
@@ -88,15 +88,15 @@ Application Insights는 오버헤드가 낮습니다. Application Insights 원�
 
 - 다음과 같은 1개의 새 파일이 만들어집니다.
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
@@ -180,6 +180,10 @@ Application Insights는 오버헤드가 낮습니다. Application Insights 원�
           }
       }
       ```
+
+## <a name="send-ilogger-logs-to-application-insights"></a>Application Insights ILogger 로그 보내기
+
+Application Insights ILogger를 통해 전송 된 캡처 로그를 지원 합니다. 로깅 체크 아웃 코드 샘플을 설치 하려면 [여기](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)합니다.
 
 ## <a name="synthetic-transactions-with-powershell"></a>PowerShell 사용한 가상 트랜잭션
 
@@ -338,7 +342,7 @@ Application Insights 원격 분석의 각 인스턴스에서 _구성되지 않�
 
 ![Microsoft.AspNETCore.all에 대한 NuGet 종속성 그래프의 스크린샷](./media/asp-net-core/013-dependency.png)
 
-Visual Studio 외부의 VSCode 또는 다른 편집기에서 ASP.NET Core 프로젝트를 편집하는 경우 프로젝트에 Application Insights를 명시적으로 추가하지 않으면 이러한 어셈블리는 디버그 동안 자동으로 로드되지 않습니다.
+Visual Studio 외부에서 VSCode 또는 다른 편집기에서 ASP.NET Core 프로젝트를 편집 하는 경우 이러한 어셈블리 하지 않습니다. 자동으로 로드 디버그 하는 동안 프로젝트에 Application Insights를 명시적으로 추가 하지 않은 경우.
 
 그러나 Visual Studio의 외부 어셈블리에서 로컬 Application Insights 기능의 점등은 [IHostingStartup 인터페이스](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1)를 사용하여 수행됩니다. 이 인터페이스는 디버그 동안 Application Insights를 동적으로 추가합니다.
 

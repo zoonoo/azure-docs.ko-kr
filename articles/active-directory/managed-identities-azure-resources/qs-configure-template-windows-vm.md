@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1abdfc377c40e37f01fbbbbd695e949671d40a51
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1c93716d5c8d0c9a74e2cb14a35637faa029c156
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820130"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226184"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>템플릿을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -39,7 +39,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 템플릿에서도 Azure 리소스 그룹으로 정의된 새 리소스 또는 수정된 리소스를 배포하는 기능을 제공합니다. 다음을 비롯한 로컬 및 포털 기반 템플릿 편집 및 배포에 여러 가지 옵션이 제공됩니다.
 
-   - [Azure Marketplace의 사용자 지정 템플릿](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)을 사용하여 템플릿을 처음부터 만들거나 기존의 공통 템플릿 또는 [빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 기반으로 템플릿을 만듭니다.
+   - 사용 하는 [Azure Marketplace에서 사용자 지정 템플릿을](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), 템플릿을 처음부터 만들거나 기존의 공통 기반으로 할 수 있는 또는 [빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)합니다.
    - [원본 배포](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) 또는 [배포의 현재 상태](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)에서 템플릿을 내보내 기존 리소스 그룹에서 템플릿을 파생합니다.
    - 로컬 [JSON 편집기(예: VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)를 사용하는 경우 PowerShell 또는 CLI를 사용하여 템플릿을 업로드하고 배포합니다.
    - Visual Studio [Azure 리소스 그룹 프로젝트](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 사용하여 템플릿을 만들고 배포합니다.  
@@ -64,35 +64,10 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정하려면 계정에
    },
    ```
 
-3. (선택 사항) Azure 리소스 확장에 대한 VM 관리 ID를 `resources` 요소로 추가합니다. 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다.  다음 구문을 사용합니다.
+> [!NOTE]
+> 필요에 따라 Azure 리소스 VM 확장에 대 한 관리 되는 id를 프로 비전 할로 지정 하 여 수를 `resources` 템플릿에서 요소입니다. 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다.  자세한 내용은 [VM 확장에서 인증에 대 한 Azure IMDS로 마이그레이션](howto-migrate-vm-extension.md)합니다.
 
-   >[!NOTE] 
-   > 다음 예제에서는 Windows VM 확장(`ManagedIdentityExtensionForWindows`)을 배포한다고 가정합니다. 또한 `"name"` 및 `"type"` 요소에 `ManagedIdentityExtensionForLinux`를 대신 사용하여 Linux에 대해 구성할 수도 있습니다. VM 확장은 2019년 1월에 사용 중단될 예정입니다.
-   >
-
-   ```JSON
-   { 
-       "type": "Microsoft.Compute/virtualMachines/extensions",
-       "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-       "apiVersion": "2018-06-01",
-       "location": "[resourceGroup().location]",
-       "dependsOn": [
-           "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-       ],
-       "properties": {
-           "publisher": "Microsoft.ManagedIdentity",
-           "type": "ManagedIdentityExtensionForWindows",
-           "typeHandlerVersion": "1.0",
-           "autoUpgradeMinorVersion": true,
-           "settings": {
-               "port": 50342
-           },
-           "protectedSettings": {}
-       }
-   }
-   ```
-
-4. 완료되면 다음과 같은 모양으로 템플릿의 `resource` 섹션에 다음 섹션을 추가해야 합니다.
+3. 완료되면 다음과 같은 모양으로 템플릿의 `resource` 섹션에 다음 섹션을 추가해야 합니다.
 
    ```JSON
    "resources": [
@@ -106,6 +81,8 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정하려면 계정에
                 "type": "SystemAssigned",
                 },
             },
+        
+            //The following appears only if you provisioned the optional VM extension (to be deprecated)
             {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
@@ -253,29 +230,6 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    }
    ```
        
-
-2. (선택 사항) 다음으로 `resources` 요소 아래에 다음 항목을 추가하여 관리 ID 확장을 VM에 할당합니다(2019년 1월에 사용 중단 예정). 이 단계는 Azure IMDS(Instance Metadata Service) ID 엔드포인트를 사용하여 토큰을 검색할 수도 있으므로 선택 사항입니다. 다음 구문을 사용합니다.
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-        "apiVersion": "2018-06-01",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForWindows",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
-        }
-    }
-    ```
-    
 3. 완료되면 다음과 같은 모양으로 템플릿의 `resource` 섹션에 다음 섹션을 추가해야 합니다.
    
    **Microsoft.Compute/virtualMachines API 버전 2018-06-01**    
@@ -295,6 +249,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
                 }
             }
         },
+        //The following appears only if you provisioned the optional VM extension (to be deprecated)                  
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
@@ -332,6 +287,8 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
                 ]
             }
         },
+                 
+        //The following appears only if you provisioned the optional VM extension (to be deprecated)                   
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",

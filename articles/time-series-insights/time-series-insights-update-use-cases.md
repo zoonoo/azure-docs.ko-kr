@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7625eb383beef2e86cc8a977362db09329a6ea1b
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: f4e14435c2ccab98619bec57fef0e121e2df4403
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556716"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431617"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights 미리 보기 사용 사례
 
@@ -32,7 +32,7 @@ ms.locfileid: "53556716"
 
 ## <a name="introduction"></a>소개
 
-Time Series Insights는 엔드투엔드 PaaS(Platform as a Service) 제품입니다. 고도로 컨텍스트화되고 시계열에 최적화된 IoT 규모 데이터를 수집, 처리, 저장 및 쿼리하는 데 사용됩니다. Time Series Insights는 임시 데이터 탐색 및 운영 분석에 적합합니다. Time Series Insights는 산업 IoT 배포의 광범위한 요구를 충족하는 고유하게 확장 가능하고 사용자 지정된 서비스 제품입니다.
+Time Series Insights는 엔드투엔드 PaaS(Platform as a Service) 제품입니다. 고도로 컨텍스트화되고 시계열에 최적화된 IoT 규모 데이터를 수집, 처리, 저장 및 쿼리하는 데 사용됩니다. Time Series Insights 임시 데이터 탐색 및 운영 분석에 적합합니다. Time Series Insights는 산업 IoT 배포의 광범위한 요구를 충족하는 고유하게 확장 가능하고 사용자 지정된 서비스 제품입니다.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>데이터 탐색 및 시각적 변칙 검색
 

@@ -4,8 +4,8 @@ description: Linux의 Azure App Service에서 SSH 사용에 대해 자세히 알
 keywords: azure app service, 웹앱, linux, oss
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: wesmc
+ms.date: 02/25/2019
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 9a05769b4cfd4bcaca0df9e1af1816d99f78bc62
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a56c4b0bac61bd2039138ffed554130c6e520821
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984476"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167136"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
@@ -67,7 +67,7 @@ https://<app_name>.scm.azurewebsites.net/webssh/host
         && echo "root:Docker!" | chpasswd
     ```
 
-2. [`COPY` 명령](https://docs.docker.com/engine/reference/builder/#copy)을 Dockerfile에 추가하여 [sshd_config](https://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사합니다. 구성 파일은 Azure-App-Service GitHub 리포지토리([여기](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config) 참조)의 sshd_config 파일을 기준으로 해야 합니다.
+2. [`COPY` 명령](https://docs.docker.com/engine/reference/builder/#copy)을 Dockerfile에 추가하여 [sshd_config](https://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사합니다. 구성 파일은 Azure-App-Service GitHub 리포지토리([여기](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) 참조)의 sshd_config 파일을 기준으로 해야 합니다.
 
     > [!NOTE]
     > *sshd_config* 파일에 다음이 포함되어야 하며 이러한 항목이 없으면 연결이 실패합니다. 
@@ -110,18 +110,6 @@ Dockerfile은 [`ENTRYPOINT` 명령](https://docs.docker.com/engine/reference/bui
 TCP 터널링을 사용하여 인증된 WebSocket 연결을 통해 개발 컴퓨터와 Web App for Containers 간의 네트워크 연결을 만들 수 있습니다. 선택한 클라이언트의 App Service에서 실행 중인 컨테이너를 사용하여 SSH 세션을 열 수 있습니다.
 
 시작하려면 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치해야 합니다. Azure CLI를 설치하지 않고 작동 방식을 확인하려면 [Azure Cloud Shell](../../cloud-shell/overview.md)을 엽니다. 
-
-[az 확장 추가](/cli/azure/extension?view=azure-cli-latest#az-extension-add)를 실행하여 최신 App Service 확장을 추가합니다.
-
-```azurecli-interactive
-az extension add --name webapp
-```
-
-이미 `az extension add`을 실행한 경우 대신 [az 확장 업데이트](/cli/azure/extension?view=azure-cli-latest#az-extension-update)을 실행합니다.
-
-```azurecli-interactive
-az extension update --name webapp
-```
 
 [az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. _\<구독\_ID>_, _\<그룹\_이름>_ 및 앱에 대한_\_<앱\_이름>을 지정합니다.
 
@@ -167,7 +155,7 @@ A P P   S E R V I C E   O N   L I N U X
 0e690efa93e2:~#
 ```
 
-이제 커넥터에 연결되어 있습니다. 
+이제 커넥터에 연결되어 있습니다.  
 
 [top](https://ss64.com/bash/top.html) 명령을 다시 실행합니다. 프로세스 목록에서 앱의 프로세스를 확인할 수 있어야 합니다. 아래 예제 출력에서는 `PID 263`이 있는 출력입니다.
 

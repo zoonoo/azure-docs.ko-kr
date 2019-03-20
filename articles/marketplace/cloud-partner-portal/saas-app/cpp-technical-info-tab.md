@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0f6bbf5f235d6ae3e86114e583d55c502296470
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120757"
 ---
 # <a name="saas-application-technical-info-tab"></a>SaaS 애플리케이션 기술 정보 탭
 
@@ -44,7 +44,7 @@ ms.locfileid: "55895400"
 - SaaS 서비스 웹 사이트를 Microsoft SaaS API에 연결합니다. [Azure를 통해 SaaS 판매 - API](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) 문서에서 이 연결을 만드는 방법을 설명합니다.
 - Cloud 파트너 포털의 기술 구성 양식에서 Azure를 통해 판매를 사용하도록 설정하고 필요한 정보를 제공합니다. 이 청구 모델 및 구현 방식에 대한 자세한 내용은 [SaaS - Azure를 통해 판매](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions)를 참조하세요.
 
- ![Microsoft를 통해 판매 양식](./media/saas-techinfo-sellthrough-ms.png)
+  ![Microsoft를 통해 판매 양식](./media/saas-techinfo-sellthrough-ms.png)
 
 다음 표에서는 Microsoft를 통해 판매의 필수 필드에 대해 설명합니다.
 
@@ -73,6 +73,9 @@ ms.locfileid: "55895400"
 - 연락처
 
 활용 방안 옵션에 대한 자세한 내용은 게시 옵션 선택을 참조하세요.
+
+>[!Note]
+>클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인 이제 사용할 수 있습니다.  참조 하세요 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

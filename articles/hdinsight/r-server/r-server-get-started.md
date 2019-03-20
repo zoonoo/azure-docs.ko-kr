@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 46791468e094ffb17a6dc9993b2cf8623a72b9b3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 474048bc9f31e4630110ea099f3e0b375ad74e51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53968811"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087587"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 시작
 
@@ -79,16 +79,16 @@ HDInsight 클러스터의 일부로 R Studio Server Community Edition을 설치�
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 * **옵션 2** - Azure Portal을 사용합니다.
-포털에서 다음을 수행합니다.
+  포털에서 다음을 수행합니다.
   1. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
   2. **ANALYTICS** 아래에서 **HDInsight 클러스터**를 선택합니다.
   3. **HDInsight 클러스터** 페이지에서 클러스터 이름을 선택합니다.
   4. **ML Services 대시보드**에서 **R Studio 서버**를 선택합니다. 
 
-    ![HDInsight에 대한 저장소 계정 설정 지정](./media/r-server-get-started/r-studio-server-dashboard.png)
+     ![HDInsight에 대한 저장소 계정 설정 지정](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]  
-   > 사용한 방법과 관계 없이 처음 로그인할 때는 두 번 인증해야 합니다.  첫 번째 인증 메시지의 경우 *클러스터 관리자 사용자 ID*와 *암호*를 입력합니다. 두 번째 인증 메시지의 경우 *SSH 사용자 ID*와 *암호*를 입력합니다. 후속 로그인에서는 SSH 자격 증명만 필요합니다.
+     > [!IMPORTANT]  
+     > 사용한 방법과 관계 없이 처음 로그인할 때는 두 번 인증해야 합니다.  첫 번째 인증 메시지의 경우 *클러스터 관리자 사용자 ID*와 *암호*를 입력합니다. 두 번째 인증 메시지의 경우 *SSH 사용자 ID*와 *암호*를 입력합니다. 후속 로그인 SSH 자격 증명이 필요합니다.
 
 연결되면 다음 스크린샷과 유사한 화면이 표시됩니다.
 

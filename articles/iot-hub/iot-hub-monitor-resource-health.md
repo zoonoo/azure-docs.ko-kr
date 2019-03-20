@@ -2,39 +2,39 @@
 title: Azure IoT Hub의 상태 모니터링 | Microsoft Docs
 description: Azure Monitor 및 Azure Resource Health를 사용하여 IoT Hub를 모니터링하고 신속하게 문제 진단
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/27/2019
 ms.author: kgremban
-ms.openlocfilehash: 86e690e5ff437d924b9c548c2d75afb1866b14aa
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 0a230ff1c4d5c6bb36003f07cc1c411f7e2c3629
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446786"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241003"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
 
-Azure IoT Hub를 구현하는 기업은 리소스에서 안정적인 성능을 기대합니다. 고객이 계속해서 작업을 면밀하게 검토할 수 있도록 IoT Hub는 [Azure Monitor][lnk-AM] 및 [Azure Resource Health][lnk-ARH]와 완벽하게 통합되어 있습니다. 이러한 두 서비스는 동시에 작동하여 IoT 솔루션을 정상 상태로 유지하는 데 필요한 데이터를 제공합니다. 
+Azure IoT Hub를 구현하는 기업은 리소스에서 안정적인 성능을 기대합니다. 작업을 자세히 검토를 유지 관리할 수 있도록, 하려면 IoT Hub와 완전히 통합 됩니다 [Azure Monitor](../azure-monitor/index.yml) 하 고 [Azure Resource Health](../service-health/resource-health-overview.md)합니다. 이러한 두 서비스 작동 하 여 IoT 솔루션 및 정상 상태에서 실행 되도록 해야 할 데이터를 제공 합니다. 
 
-Azure Monitor는 모든 Azure 서비스를 모니터링하고 로깅하는 단일 원본입니다. Azure Monitor가 생성하는 진단 로그를 고객이 처리하도록 Log Analytics, Event Hubs 또는 Azure Storage로 보낼 수 있습니다. Azure Monitor의 메트릭 및 진단 설정은 리소스 성능에 대한 가시성을 제공합니다. 이 문서를 계속 읽고 IoT Hub에 [Azure Monitor를 사용](#use-azure-monitor)하는 방법에 대해 알아보세요. 
+Azure Monitor는 모든 Azure 서비스를 모니터링하고 로깅하는 단일 원본입니다. 사용자 지정 처리를 위해 Azure Monitor 로그, Event Hubs 또는 Azure Storage에 Azure Monitor가 생성 하는 진단 로그를 보낼 수 있습니다. Azure Monitor의 메트릭 및 진단 설정은 리소스 성능에 대한 가시성을 제공합니다. 이 문서를 계속 읽고 IoT Hub에 [Azure Monitor를 사용](#use-azure-monitor)하는 방법에 대해 알아보세요. 
 
 > [!IMPORTANT]
 > Azure Monitor 진단 로그를 사용하여 IoT Hub 서비스에서 내보내는 이벤트는 안정적이거나 정렬되도록 보장되지 않습니다. 일부 이벤트는 손실되거나 순서 없이 제공될 수 있습니다. 또한 진단 로그는 실시간으로 제공되지 않으며, 사용자가 선택한 대상에 이벤트를 기록하기까지 몇 분 정도 걸릴 수 있습니다.
 
-Azure Resource Health는 Azure 문제가 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다. 개인 설정된 대시보드는 IoT Hub의 현재 및 과거 성능 상태를 제공합니다. 이 문서를 계속 읽고 IoT Hub에 [Azure Resource Health를 사용](#use-azure-resource-health)하는 방법에 대해 알아보세요. 
+Azure Resource Health는 Azure 문제가 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다. 대시보드는 각 IoT hub에 대 한 현재 및 과거 상태를 제공합니다. 에 대해 알아보려면이 문서의 맨 아래에 있는 섹션을 진행 하는 방법 [사용 하 여 Azure Resource Health](#use-azure-resource-health) IoT hub를 사용 하 여 합니다. 
 
-IoT Hub는 IoT 리소스의 상태를 이해하는 데 사용할 수 있는 자체적인 메트릭을 제공합니다. 자세한 내용은 [IoT Hub 메트릭 이해][lnk-metrics]를 참조하세요.
+IoT Hub는 IoT 리소스의 상태를 이해하는 데 사용할 수 있는 자체적인 메트릭을 제공합니다. 자세한 내용은 참조 하세요 [IoT Hub 메트릭 이해](iot-hub-metrics.md)합니다.
 
 ## <a name="use-azure-monitor"></a>Azure Monitor 사용
 
 Azure Monitor는 Azure 리소스에 대한 진단 정보를 제공합니다. 즉, IoT 허브 내에서 발생하는 작업을 모니터링할 수 있습니다. 
 
-Azure Monitor의 진단 설정은 IoT Hub 작업 모니터를 대체합니다. 현재 작업 모니터링을 사용하는 경우 워크플로를 마이그레이션해야 합니다. 자세한 내용은 [작업 모니터링에서 진단 설정으로 마이그레이션][lnk-migrate]을 참조하세요.
+Azure Monitor의 진단 설정은 IoT Hub 작업 모니터를 대체합니다. 현재 작업 모니터링을 사용하는 경우 워크플로를 마이그레이션해야 합니다. 자세한 내용은 [마이그레이션 작업 모니터링 진단 설정에서에서](iot-hub-migrate-to-diagnostics-settings.md)합니다.
 
-Azure Monitor에서 감시하는 특정 메트릭 및 이벤트에 대해 자세히 알아보려면 [Azure Monitor에서 지원되는 메트릭][lnk-AM-metrics] 및 [Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주][lnk-AM-schemas]를 참조하세요.
+특정 메트릭 및 Azure Monitor에서 감시 하는 이벤트에 대 한 자세한 내용은 참조 하세요 [지원 되는 Azure Monitor 메트릭](../azure-monitor/platform/metrics-supported.md) 하 고 [Azure 진단 로그에 대 한 서비스, 스키마 및 범주를 지원](../azure-monitor/platform/diagnostic-logs-schema.md)합니다.
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -47,7 +47,7 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
 연결 범주는 오류뿐 아니라 IoT Hub에서의 디바이스 연결 및 이벤트 분리를 추적합니다. 이 범주는 디바이스에 대한 연결을 분실한 경우 무단 연결 시도를 식별하고 경고하는 데 유용합니다.
 
 > [!NOTE]
-> 디바이스의 신뢰할 수 있는 연결 상태에 대해서는 [디바이스 하트비트][lnk-devguide-heartbeat]를 확인합니다.
+> 장치의 신뢰할 수 있는 연결 상태 확인 [장치 하트 비트](iot-hub-devguide-identity-registry.md#device-heartbeat)합니다.
 
 
 ```json
@@ -311,9 +311,9 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
 
 #### <a name="distributed-tracing-preview"></a>분산 추적(미리 보기)
 
-분산 추적 범주는 추적 컨텍스트 헤더를 전달하는 메시지의 상관 관계 ID를 추적합니다. 이러한 로그를 완전히 사용하려면 [IoT Hub 분산 추적(미리 보기)을 사용하여 IoT 애플리케이션 엔드투엔드 분석 및 진단](iot-hub-distributed-tracing.md)에 따라 클라이언트 쪽 코드를 업데이트해야 합니다.
+분산 추적 범주는 추적 컨텍스트 헤더를 전달하는 메시지의 상관 관계 ID를 추적합니다. 이러한 로그를 완전히 활성화 하려면 클라이언트 쪽 코드에 따라 업데이트 해야 합니다 [분석 및 IoT 응용 프로그램에 종단 간 IoT Hub 분산된 추적 (미리 보기)를 사용 하 여 진단](iot-hub-distributed-tracing.md)합니다.
 
-`correlationId`를 확인하고, `trace-id` 및 `span-id`를 포함하는 [W3C 추적 컨텍스트](https://github.com/w3c/trace-context) 제안을 준수합니다. 
+유의 `correlationId` 준수 하는 [W3C 추적 컨텍스트](https://github.com/w3c/trace-context) 제안에 포함 되어 있는 `trace-id` 뿐만 `span-id`합니다. 
 
 ##### <a name="iot-hub-d2c-device-to-cloud-logs"></a>IoT Hub D2C(디바이스-클라우드) 로그
 
@@ -446,7 +446,7 @@ class Program 
     { 
         Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
         eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
-        var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds; 
+        var d2cPartitions = eventHubClient.GetRuntimeInformationAsync().PartitionIds; 
         CancellationTokenSource cts = new CancellationTokenSource(); 
         var tasks = new List<Task>(); 
         foreach (string partition in d2cPartitions) 
@@ -487,28 +487,18 @@ class Program 
 
 Azure Resource Health를 사용하여 IoT Hub가 실행 중인지 모니터링할 수 있습니다. 지역 가동 중단이 IoT Hub의 상태에 영향을 주는지도 알아볼 수 있습니다. Azure IoT Hub의 상태에 대해 구체적으로 이해하려면 [Azure Monitor 사용](#use-azure-monitor)을 읽어 보시기 바랍니다. 
 
-Azure IoT Hub는 지역 수준에서 상태를 표시합니다. IoT 허브에 영향을 주는 지역 가동 중단이 발생하면 상태가 **알 수 없음**으로 표시됩니다. 자세히 알아보려면 [Azure 리소스 상태에서 리소스 종류 및 상태 검사][lnk-ARH-checks]를 참조하세요.
+Azure IoT Hub는 지역 수준에서 상태를 표시합니다. IoT 허브에 영향을 주는 지역 가동 중단이 발생하면 상태가 **알 수 없음**으로 표시됩니다. 자세한 내용은 참조 하세요 [Azure resource health에서 리소스 유형 및 상태 검사](../service-health/resource-health-checks-resource-types.md)합니다.
 
 IoT Hub의 상태를 확인하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **서비스 상태** > **리소스 상태**로 이동합니다.
-1. 드롭다운 상자에서 해당 구독과 **IoT Hub**를 선택합니다.
+1. 드롭다운 목록 상자에서 구독을 선택한 다음 선택 **IoT Hub** 리소스 유형으로 합니다.
 
-상태 데이터를 해석하는 방법에 대한 자세한 내용은 [Azure 리소스 상태 개요][lnk-ARH]를 참조하세요.
+상태 데이터를 해석 하는 방법에 대 한 자세한 내용은 참조 하세요 [Azure resource health 개요](../service-health/resource-health-overview.md)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [IoT Hub 메트릭 이해][lnk-metrics]
-- [Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림][lnk-monitoring-notifications]
+- [IoT Hub 메트릭 이해](iot-hub-metrics.md)
+- [IoT 원격 모니터링 및에 IoT hub와 사서함을 연결 하는 Azure Logic Apps를 사용 하 여 알림](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
-
-[lnk-AM]: ../azure-monitor/index.yml
-[lnk-ARH]: ../service-health/resource-health-overview.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-migrate]: iot-hub-migrate-to-diagnostics-settings.md
-[lnk-AM-metrics]: ../azure-monitor/platform/metrics-supported.md
-[lnk-AM-schemas]: ../azure-monitor/platform/diagnostic-logs-schema.md
-[lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
-[lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

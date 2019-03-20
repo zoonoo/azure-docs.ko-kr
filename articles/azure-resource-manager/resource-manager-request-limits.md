@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493567"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550646"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
@@ -28,14 +28,14 @@ ms.locfileid: "55493567"
 
 이러한 한도는 각 Azure Resource Manager 인스턴스에 적용됩니다. 모든 Azure 지역에 여러 인스턴스가 있으며 Azure Resource Manager가 모든 Azure 지역에 배포됩니다.  따라서 사용자 요청이 일반적으로 다수의 많은 인스턴스에서 서비스되기 때문에 실제 한도는 이러한 한도보다 훨씬 더 높습니다.
 
-애플리케이션 또는 스크립트가 이러한 한도에 도달하면 요청을 제한해야 합니다. 이 문서에서는 한도에 도달하기 전에 남은 요청을 확인하는 방법과 한도에 도달했을 때 응답하는 방법을 보여줍니다.
+애플리케이션 또는 스크립트가 이러한 한도에 도달하면 요청을 제한해야 합니다. 이 문서에서는 한도 도달 하기 전에 남은 요청을 확인 하는 방법 및 제한에 도달 하면 응답 하는 방법을 보여 줍니다.
 
 한도에 도달하면 HTTP 상태 코드 **429 너무 많은 요청**이 표시됩니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>나머지 요청
-응답 헤더를 검사하여 나머지 요청 수를 확인할 수 있습니다. 각 요청은 나머지 읽기 및 쓰기 요청 수에 대한 값을 포함합니다. 다음 표에서는 해당 값을 검사할 수 있는 응답 헤더를 설명합니다.
+응답 헤더를 검사하여 나머지 요청 수를 확인할 수 있습니다. 읽기 요청 나머지 읽기 요청 수에 대 한 헤더에서 값을 반환합니다. 나머지 쓰기 요청 수에 대 한 값을 포함 하는 요청을 작성 합니다. 다음 표에서는 해당 값을 검사할 수 있는 응답 헤더를 설명합니다.
 
 | 응답 헤더 | 설명 |
 | --- | --- |
@@ -82,7 +82,7 @@ OK
 
 Headers:
 Pragma                        : no-cache
-x-ms-ratelimit-remaining-subscription-reads: 14999
+x-ms-ratelimit-remaining-subscription-reads: 11999
 ```
 
 쓰기 제한을 가져오려면 쓰기 작업을 사용합니다. 
@@ -121,7 +121,7 @@ msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
 msrest.http_logger :     'Content-Encoding': 'gzip'
 msrest.http_logger :     'Expires': '-1'
 msrest.http_logger :     'Vary': 'Accept-Encoding'
-msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '14998'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 ```
 
 쓰기 제한을 가져오려면 쓰기 작업을 사용합니다. 

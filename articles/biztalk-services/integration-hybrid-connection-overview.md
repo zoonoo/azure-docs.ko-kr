@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: fa38d0ef3d00bf5fdb886703cd882ec5ba552b95
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 18e65fc51f99aa19162daa3f6e5b9b7012214f64
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234037"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765546"
 ---
 # <a name="hybrid-connections-overview"></a>하이브리드 연결 개요
 
@@ -77,7 +77,7 @@ ms.locfileid: "51234037"
 
 [하이브리드 연결 만들기 및 관리](integration-hybrid-connection-create-manage.md)(영문)를 참조하세요.
 
-*응용 프로그램 권한 부여가 하이브리드 연결과는 별개임*. 적절한 어떤 권한 부여 방법도 사용될 수 있습니다. 권한 부여 방법은 Azure 클라우드와 온-프레미스 구성 요소에서 지원되는 종단 간 권한 부여 방법에 따라 좌우됩니다. 예를 들어 Azure 애플리케이션은 온-프레미스 SQL Server에 액세스합니다. 이 시나리오에서 SQL 권한 부여는 종단 간에 지원되는 권한 부여 방법일 수 있습니다.
+*애플리케이션 권한 부여가 하이브리드 연결과는 별개임*. 적절한 어떤 권한 부여 방법도 사용될 수 있습니다. 권한 부여 방법은 Azure 클라우드와 온-프레미스 구성 요소에서 지원되는 종단 간 권한 부여 방법에 따라 좌우됩니다. 예를 들어 Azure 애플리케이션은 온-프레미스 SQL Server에 액세스합니다. 이 시나리오에서 SQL 권한 부여는 종단 간에 지원되는 권한 부여 방법일 수 있습니다.
 
 #### <a name="tcp-ports"></a>TCP 포트
 하이브리드 연결에는 개인 네트워크의 아웃바운드 TCP 또는 HTTP 연결만 필요합니다. 방화벽 포트를 열거나 네트워크에 대한 모든 인바운드 연결을 허용하도록 네트워크 경계 구성을 변경할 필요가 없습니다.
@@ -93,9 +93,9 @@ ms.locfileid: "51234037"
 ## <a name="next-steps"></a>다음 단계
 [Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [Microsoft Azure의 BizTalk Services를 관리하기 위한 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[BizTalk Services: Editions 차트](biztalk-editions-feature-chart.md)  
+[BizTalk Services: 버전 차트](biztalk-editions-feature-chart.md)  
 [BizTalk Service 만들기](biztalk-provision-services.md)  
 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)  
 

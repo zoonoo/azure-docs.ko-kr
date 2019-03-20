@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 18fceca51ed67f5beca344160a73ae3f3d1a4b62
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491657"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008386"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 구성 수정
 
@@ -71,7 +71,7 @@ StorSimple 디바이스 관리자 서비스에 연결된 StorSimple 디바이스
 
 NTP 서버 구성 시 네트워크에서 NTP 트래픽이 데이터 센터에서 인터넷으로 전달되도록 허용하는지 확인합니다. 공용 NTP 서버를 지정하는 경우, NTP 트래픽이 외부 네트워크 간에 여행할 수 있도록 네트워크 방화벽 및 기타 보안 디바이스를 구성해야 합니다. 양방향 NTP 트래픽이 허용되지 않는 경우 내부 NTP 서버(Windows 도메인 컨트롤러가 이 기능을 제공)를 사용해야 합니다. 디바이스가 시간을 동기화할 수 없는 경우 클라우드 저장소 공급자와 통신하지 못할 수 있습니다.
 
-공용 NTP 서버의 목록을 보려면 [NTP 서버 웹](http://support.ntp.org/bin/view/Servers/WebHome)으로 이동하세요.
+공용 NTP 서버의 목록을 보려면 [NTP 서버 웹](https://support.ntp.org/bin/view/Servers/WebHome)으로 이동하세요.
 
 ### <a name="what-happens-if-the-device-is-deployed-in-a-different-time-zone"></a>디바이스를 다른 표준 시간대에 배포하는 경우 어떻게 되나요?
 

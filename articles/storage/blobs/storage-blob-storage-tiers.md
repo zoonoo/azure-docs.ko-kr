@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/06/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 3e89f5de247cf18abdb710577ce55c6e2cb5765e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: ec024f8f1cd411455a6cbb2a0b12e7b4751af5fe
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251897"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405337"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob 스토리지: 프리미엄(미리 보기), 핫, 쿨 및 보관 스토리지 계층
 
@@ -57,15 +57,7 @@ Blob Storage 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성�
 
 이 계층은 빠르고 일관된 응답 시간이 필요한 워크로드에 적합합니다. 대화형 비디오 편집, 정적 웹 콘텐츠, 온라인 거래 등 최종 사용자가 작업을 수행해야 하는 데이터의 경우 프리미엄 액세스 계층에 저장하면 효율적입니다. 이 계층은 원격 분석 데이터 캡처, 메시징 및 데이터 변환 등 소규모의 트랜잭션을 많이 수행하는 워크로드에 맞게 조정됩니다.
 
-이 계층을 사용하려면 새 블록 Blob 스토리지 계정을 프로비전하고, [Blob 서비스 REST API](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy) 또는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 컨테이너 및 Blob을 만들기 시작합니다.
-
-미리 보기 동안 프리미엄 액세스 계층은 다음과 같습니다.
-
-- LRS(로컬 중복 저장소)로 사용 가능
-- 다음 지역에서만 제공됩니다. 미국 동부 2, 미국 중부 및 미국 서부
-- 데이터 수명 주기 관리를 사용한 개체 수준 계층화 또는 자동화된 계층화를 지원하지 않습니다.
-
-프리미엄 액세스 계층 미리 보기에 등록하는 방법을 알아보려면 [Azure Premium Blob Storage 소개](https://aka.ms/premiumblob)를 참조하세요.
+미리 보기에 대 한 자세한 내용은 참조 하세요. [공개 미리 보기 Azure Premium Blob Storage](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/)합니다.
 
 ## <a name="hot-access-tier"></a>핫 액세스 계층
 
@@ -139,11 +131,11 @@ GB당 요금 및 월정액 이외에도 쿨 계층으로 이동된 모든 Blob(G
 
 | | **핫 저장소 계층** | **쿨 저장소 계층** | **보관 저장소 계층**
 | ---- | ----- | ----- | ----- |
-| **가용성** | 99.9% | 99% | 해당 없음 |
-| **가용성** <br> **(RA-GRS 읽기)**| 99.99% | 99.9% | 해당 없음 |
+| **가용성** | 99.9% | 99% | N/A |
+| **가용성** <br> **(RA-GRS 읽기)**| 99.99% | 99.9% | N/A |
 | **사용 요금** | 스토리지 비용 더 높음, 액세스 및 트랜잭션 비용 더 낮음 | 스토리지 비용 더 낮음, 액세스 및 트랜잭션 비용 더 높음 | 스토리지 비용 가장 낮음, 액세스 및 트랜잭션 비용 가장 높음 |
-| **최소 개체 크기** | 해당 없음 | 해당 없음 | 해당 없음 |
-| **최소 저장 기간** | 해당 없음 | 30일(GPv2에만 해당) | 180일
+| **최소 개체 크기** | N/A | 해당 사항 없음 | N/A |
+| **최소 저장 기간** | N/A | 30일(GPv2에만 해당) | 180일
 | **대기 시간** <br> **(첫 번째 바이트까지의 시간)** | 밀리초 | 밀리초 | < 15시간
 | **확장성 및 성능 대상** | 범용 저장소 계정과 동일 | 범용 저장소 계정과 동일 | 범용 저장소 계정과 동일 |
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 6470e2e48854d091c219fb4ec3224e87b1567dd7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300220"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436505"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -23,7 +23,7 @@ ms.locfileid: "55300220"
 
 ## <a name="top-level-diagnostic-logs-schema"></a>최상위 수준 진단 로그 스키마
 
-| Name | 필수/선택 | 설명 |
+| 이름 | 필수/선택 | 설명 |
 |---|---|---|
 | 실시간 | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
 | ResourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
@@ -47,7 +47,7 @@ ms.locfileid: "55300220"
 
 | 서비스 | 스키마 및 문서 |
 | --- | --- |
-| Azure Active Directory | [개요](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [감사 로그 스키마](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) 및 [로그인 스키마](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [개요](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)하십시오 [감사 로그 스키마](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) 고 [로그인 스키마](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API 관리 진단 로그](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateway |[Application Gateway에 대한 진단 로깅](../../application-gateway/application-gateway-diagnostics.md) |

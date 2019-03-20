@@ -3,23 +3,23 @@ title: 신뢰할 수 있는 컬렉션 작업 | Microsoft Docs
 description: 신뢰할 수 있는 컬렉션으로 작업하는 모범 사례를 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
-manager: jeanpaul.connock
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/12/2019
-ms.author: twhitney
-ms.openlocfilehash: e7f0219919fe0569633cc85b89a1a91b1704b269
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 02/22/2019
+ms.author: aljo
+ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114827"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872690"
 ---
 # <a name="working-with-reliable-collections"></a>신뢰할 수 있는 컬렉션 작업
 Service Fabric은 신뢰할 수 있는 컬렉션을 통해 .NET 개발자에게 사용할 수 있는 상태 저장 프로그래밍 모델을 제공합니다. 즉, 서비스 패브릭은 신뢰할 수 있는 사전 및 신뢰할 수 있는 큐 클래스를 제공합니다. 이러한 클래스를 사용하는 경우 상태가 분할되고(확장성의 경우) 복제되며(가용성의 경우) 파티션 내에서 트랜잭션 처리됩니다(ACID 의미 체계의 경우). 신뢰할 수 있는 사전 개체의 일반적인 사용을 살펴보고 실제로 어떤 역할을 하는지 살펴보겠습니다.
@@ -143,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>변경할 수 없는 데이터 형식을 정의하여 프로그래머 오류 방지
-이상적으로는 변경할 수 없다고 간주되는 개체의 상태를 변경하는 코드를 실수로 생성한 경우 컴파일러가 오류를 보고할 수 있어야 합니다. 하지만 C# 컴파일러에는 이 작업을 수행하는 기능이 없습니다. 따라서 잠재적인 프로그래머 버그를 방지하려면 신뢰할 수 있는 컬렉션을 사용하여 사용할 형식을 변경할 수 없는 형식으로 정의하는 것이 좋습니다. 즉, 핵심 값 형식(예: 숫자[Int32, UInt64 등], DateTime, Guid, TimeSpan 등)을 사용해야 합니다. 문자열을 사용할 수도 있습니다. 직렬화 및 역직렬화하면 성능이 떨어질 수 있기 때문에 컬렉션 속성을 피하는 것이 가장 좋습니다. 그러나 컬렉션 속성을 사용하려는 경우 .NET의 변경 불가능 컬렉션 라이브러리([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/))를 사용하는 것이 좋습니다. 이 라이브러리는 http://nuget.org에서 다운로드할 수 있습니다. 또한 클래스를 봉인하고 가능한 경우 읽기 전용 필드를 만드는 것이 좋습니다.
+이상적으로는 변경할 수 없다고 간주되는 개체의 상태를 변경하는 코드를 실수로 생성한 경우 컴파일러가 오류를 보고할 수 있어야 합니다. 하지만 C# 컴파일러에는 이 작업을 수행하는 기능이 없습니다. 따라서 잠재적인 프로그래머 버그를 방지하려면 신뢰할 수 있는 컬렉션을 사용하여 사용할 형식을 변경할 수 없는 형식으로 정의하는 것이 좋습니다. 즉, 핵심 값 형식(예: 숫자[Int32, UInt64 등], DateTime, Guid, TimeSpan 등)을 사용해야 합니다. 문자열을 사용할 수도 있습니다. 직렬화 및 역직렬화하면 성능이 떨어질 수 있기 때문에 컬렉션 속성을 피하는 것이 가장 좋습니다. 그러나 컬렉션 속성을 사용하려는 경우 .NET의 변경 불가능 컬렉션 라이브러리([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/))를 사용하는 것이 좋습니다. 이 라이브러리는 https://nuget.org에서 다운로드할 수 있습니다. 또한 클래스를 봉인하고 가능한 경우 읽기 전용 필드를 만드는 것이 좋습니다.
 
 아래의 UserInfo 형식은 앞에서 설명한 권장 사항을 활용하는 변경할 수 없는 형식을 정의하는 방법을 보여줍니다.
 
@@ -207,8 +207,7 @@ public struct ItemId
 
 > [!WARNING]
 > 키의 스키마를 수정할 수 있는 반면 키의 해시 코드 및 같음 알고리즘이 안정적인지 확인해야 합니다. 이러한 알고리즘 중 하나의 작동 방법을 변경하면 신뢰할 수 있는 사전 내에서 키를 다시 검색할 수 없습니다.
->
->
+> .NET 문자열 키만-키로 문자열 자체를 사용 하 여 사용 하지 마십시오 String.GetHashCode의 결과 키로 사용할 수 있습니다.
 
 또는 일반적으로 참조되는 요소를 2단계 업그레이드로 수행할 수 있습니다. 2단계 업그레이드로 V1에서 V2로 서비스를 업그레이드합니다. V2는 새 스키마 변경을 처리하는 방법을 알지만 이 코드가 실행하지 않는 코드를 포함합니다. V2 코드가 V1 데이터를 읽는 경우 해당 위치에서 작동하고 V1 데이터를 작성합니다. 그런 다음 모든 업그레이드 도메인에서 업그레이드가 완료되면 어떤 이유로든 실행 중인 V2 인스턴스에 업그레이드가 완료되었음을 알릴 수 있습니다. (이를 신호하는 한 가지 방법은 구성 업그레이드를 롤아웃하는 것이며 이는 2단계 업그레이드를 사용합니다.) 이제 V2 인스턴스는 V1 데이터를 읽고 V2 데이터에 변환하며 해당 위치에서 작업하고 V2 데이터로 작성할 수 있습니다. 다른 인스턴스가 V2 데이터를 읽을 경우 변환할 필요가 없이 해당 위치에서 작동하고 V2 데이터를 작성합니다.
 

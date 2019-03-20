@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: 7504d23cbaf8a497e6ea86b5a383413474c0d034
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cd486fa504ac819684d8c547e7a0f740b3eed4e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329970"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109630"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner 보고서 분석
 
@@ -41,6 +41,9 @@ ms.locfileid: "56329970"
 **하루에 관찰된 일반적인 데이터 변동(GB)**: 모든 프로파일링 기간(일) 동안 관찰된 평균 데이터 변동입니다. 이 숫자는 배포에서 사용되는 구성 서버 및 추가 프로세스 서버의 수를 결정하기 위한 입력 중 하나로 사용됩니다.
 
 ## <a name="recommendations"></a>권장 사항
+
+>[!Note]
+>디스크 관리에 직접 복제 하는 경우 저장소 계정의 수에 대 한 권장 사항을 무시 합니다.
 
 VMware에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하는 RPO에 따라 다음과 같은 세부 정보가 포함됩니다.
 
@@ -155,6 +158,9 @@ Site Recovery 복제를 위해 x Mbps 이상의 대역폭을 설정할 수 없�
 ![500 Mbps 대역폭에 사용 가능한 RPO](media/site-recovery-vmware-deployment-planner-analyze-report/achievable-rpo-v2a.png)
 
 ## <a name="vm-storage-placement"></a>VM-저장소 배치
+
+>[!Note]
+>디스크 관리에 직접 복제 하는 경우 저장소 계정의 수에 걱정할 필요가 없습니다. 저장소에 대 한 권장 구성만 storage (Standard 또는 Premium)의 형식에 사용 합니다. 형식이 같은 관리 디스크에 적용 됩니다.
 
 ![VM-저장소 배치](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 

@@ -10,18 +10,18 @@ ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: e95b20a12fafa9d1dbcbd641ce1c9f2674314489
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606438"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880067"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로에서 사용자 지정 API 배포 및 호출
 
 논리 앱 워크플로에서 사용할 [사용자 지정 API를 만든](./logic-apps-create-api-app.md) 후에 API를 먼저 배포해야 호출할 수 있습니다. API를 [웹앱](../app-service/overview.md)으로 배포할 수 있지만 [API 앱](../app-service/app-service-web-tutorial-rest-api.md)으로 배포하는 것이 좋습니다. 이렇게 하면 클라우드에서 API를 빌드, 호스팅 및 사용할 때 작업을 더 쉽게 수행할 수 있습니다. API에서 코드를 변경할 필요가 없이 API 앱에 코드를 배포하기만 하면 됩니다. 확장성이 뛰어나고 쉬운 API 호스팅을 제공하는 PaaS(Platform-as-a-Service) 제품인 [Azure App Service](../app-service/overview.md)에서 API를 호스트할 수 있습니다.
 
-논리 앱에서 원하는 API를 호출할 수 있지만 최상의 환경을 위해 API 작업 및 매개 변수를 설명하는 [OpenAPI(이전 Swagger) 메타데이터](http://swagger.io/specification/)를 추가합니다. OpenAPI 파일을 사용하면 API를 논리 앱과 보다 쉽게 통합하고 효과적으로 사용할 수 있습니다.
+논리 앱에서 원하는 API를 호출할 수 있지만 최상의 환경을 위해 API 작업 및 매개 변수를 설명하는 [OpenAPI(이전 Swagger) 메타데이터](https://swagger.io/specification/)를 추가합니다. OpenAPI 파일을 사용하면 API를 논리 앱과 보다 쉽게 통합하고 효과적으로 사용할 수 있습니다.
 
 ## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>API를 웹앱 또는 API 앱으로 배포
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: bf9e83a1dfed0aac7f48cd47dc12bf56c7cb1b64
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 47d2e051cf3eeebbfaea95cfc16f5077559e6847
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481705"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807136"
 ---
 # <a name="about-azure-devtest-labs"></a>Azure DevTest Labs 정보
 ## <a name="overview"></a>개요
@@ -44,6 +44,7 @@ DevTest Lab을 사용하면 팀에서 애플리케이션 개발 및 테스트를
 
 ## <a name="integrates-with-your-existing-toolchain"></a>기존 도구 체인과 통합
 미리 만들어져 있는 플러그 인 또는 Microsoft의 API를 활용하여 원하는 CI(지속적인 통합) 도구, IDE(통합 개발 환경) 또는 자동화된 릴리스 파이프라인에서 직접 개발/테스트 환경을 프로비전합니다. Microsoft의 포괄적인 명령줄 도구를 사용할 수도 있습니다.
+
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

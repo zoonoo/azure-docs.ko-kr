@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: d16d13d1f57c1ef189db3db781705cd70cd71e8d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 84ab433f5de8a62f33aca01e60bc2dbd1d8e68f8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586191"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761432"
 ---
 # <a name="introduction-to-azure-netapp-files"></a>Azure NetApp Files 소개
 Azure NetApp Files 서비스는 엔터프라이즈급, 고성능, 데이터 통신 연결 파일 저장소 서비스입니다. Azure NetApp Files는 모든 워크로드 유형을 지원하며 기본적으로 고가용성입니다. 보장된 서비스 및 성능 수준을 선택하고 서비스를 통해 스냅숏을 설정할 수 있습니다. 

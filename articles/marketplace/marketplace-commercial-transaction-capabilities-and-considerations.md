@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075637"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731092"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace 상용 트랜잭션 기능 및 고려 사항
 
@@ -186,9 +186,9 @@ Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과
 |청구 날짜 | 2018년 10월 15일 |
 |에스크로 기간(신용 카드만 해당, 30일) | 해당 없음 |
 |수금 기간 시작일 | 2018년 10월 15일 |
-|수금 기간 종료일(최대 90일) | 2018년 1월 15일 |
+|수금 기간 종료일(최대 90일) | 2019년 1월 15일 |
 |고객 지불 날짜 | 2018년 12월 30일 |
-|지불 계산 날짜(매월 15일) | 2018년 1월 15일 |
+|지불 계산 날짜(매월 15일) | 2019년 1월 15일 |
 |지급 날짜 | 2019년 2월 15일 |
 
 **무료 크레딧과 현금 약정 금액** 
@@ -226,7 +226,7 @@ Marketplace를 통해 처리되는 주문은 고객의 Azure 인프라 비용과
 
 * 제품의 가격 책정 모델과 관계 없이 개발자 센터 및 Microsoft 계정은 모두 거래 게시 옵션에 필요합니다.
 * 개발자 센터 계정에는 Microsoft가 게시자를 대신하여 고객으로부터 요금을 수금하고 게시자에게 지불하는 데 필요한 모든 관련 재정 정보가 들어 있습니다.
-* 두 계정에서 동일한 조직 또는 Microsoft 로그인 세부 정보를 사용할 수 있지만 개발자 센터는 Cloud 게시자 포털 계정과는 별개의 계정입니다. 거래 게시 옵션을 사용하려면 게시자는 Cloud 파트너 포털에 액세스하기 위해 가입하는 것 외에 개발자 센터 계정 등록 프로세스도 완료해야 합니다.
+* 두 계정 모두에서 동일한 조직 또는 Microsoft 로그인 세부 정보를 사용할 수 있습니다, 있지만 개발자 센터에 클라우드 파트너 포털 계정에서 별도 계정입니다. 거래 게시 옵션을 사용하려면 게시자는 Cloud 파트너 포털에 액세스하기 위해 가입하는 것 외에 개발자 센터 계정 등록 프로세스도 완료해야 합니다.
 
 *이러한 계정 설정에 대한 자세한 내용은 [Cloud Marketplace 게시자 되기](https://docs.microsoft.com/azure/marketplace/become-publisher)를 참조하세요.*
 

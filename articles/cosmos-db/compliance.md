@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f1be314db7bfc4cbdfcc809eb3b1d985583739a4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c8a74df19c012613807d39fb3ee529173e82d5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470147"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093265"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB의 규정 준수 
 
@@ -35,7 +35,7 @@ Azure Cosmos DB는 모든 새 Azure 하위 지역에 제공됩니다. Azure Cosm
 Azure Cosmos DB는 해당 인증 검사를 지속적으로 확장하고 있습니다. 현재 Azure Cosmos DB는 다음 인증서를 사용하여 인증됩니다.
 
 | **전역적으로 적용** | **미국 정부** | **산업별** | **지역 또는 국가별** |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | CSA STAR 인증<br/><br/>CSA STAR 증명<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG Level 2<br/><br/>FedRAMP Moderate<br/><br/>GxP(FDA 21 CFR Part 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germany C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spain ENS High|
 
 각 이러한 규정 준수 제안과 그 혜택에 대해 자세히 알아보려면 [Microsoft Azure 규정 준수 개요](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 페이지를 참조하세요.

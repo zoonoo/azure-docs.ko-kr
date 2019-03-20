@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2018
+ms.date: 03/19/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 11b29a1639be5bf6a7820b872cbc2ce78f002b4f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 3d4b0b143b41daca376aecc64cf734fadcc94faa
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565191"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226575"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure에서 가용성 영역이란?
 가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 기능입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다. 영역 중복 서비스는 단일 지점 오류에서 보호하기 위해 가용성 영역에서 애플리케이션 및 데이터를 복제합니다. Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
@@ -40,6 +40,7 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 ## <a name="regions-that-support-availability-zones"></a>가용성 영역을 지원하는 지역
 
 - 미국 중부
+- 미국 동부
 - 미국 동부 2
 - 프랑스 중부
 - 북유럽
@@ -66,6 +67,8 @@ Azure에서 포괄적인 비즈니스 연속성을 구현하려면 Azure 지역 
 - ExpressRoute
 - Application Gateway(미리 보기)
 
+## <a name="services-resiliency"></a>서비스 복원 력
+모든 Azure 관리 서비스는 지역 수준 오류 로부터 복원 되도록 설계 됩니다. 다양 한 오류는 지역 내에서 하나 이상의 가용성 영역 오류는 전체 지역 장애에 비해 실패 반지름이 보다 작은 경우 Azure는 다른 Azure 지역 또는 지역 내에서 관리 서비스의 영역 수준 오류 로부터 복구할 수 있습니다. Azure 지역 내에서 가용성 영역에 걸쳐 배포 하는 고객 리소스에 영향을 주는 모든 오류를 방지 하기 위해 지역 내에서 한 번에 하나의 영역이 중요 한 유지 관리를 수행 합니다.
 
 ## <a name="pricing"></a>가격
 가용성 영역에 배포된 가상 머신에 대한 추가 비용은 없습니다. Azure 지역 내에서 두 개 이상의 가용성 영역에 두 개 이상의 VM을 배포하면 VM 작동 시간 SLA 99.99%가 제공됩니다. 내부 가용성 영역 VM 대 VM 데이터 전송 요금이 추가됩니다. 자세한 내용은 [대역폭 가격 책정](https://azure.microsoft.com/pricing/details/bandwidth/) 페이지를 검토하세요.

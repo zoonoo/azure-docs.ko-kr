@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: ae29451e3f7ec263f296e69656a5c66045334687
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227241"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58114243"
 ---
 1. [Azure 클래식 CLI에서 Azure에 연결](/cli/azure/authenticate-azure-cli)에 나열된 단계를 사용하여 Azure 구독에 로그인합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "50227241"
    
     Windows 명령 프롬프트 창에서 grep 대신 **find** 를 사용합니다.
    
-4. `azure vm create`을 사용하여 이전 목록의 Linux 이미지로 새 VM을 만듭니다. 이 단계에서는 클라우드 서비스 및 저장소 계정을 만듭니다. 이 VM을 `-c` 옵션을 사용한 기존 클라우드 서비스에서도 연결할 수 있습니다. ph x="1" /&gt; 옵션을 사용한 Linux 가상 머신에 로그인할 수 있는 SSH 엔드포인트를 만듭니다. 다음 예제에서는 `Ubuntu-14_04_4-LTS` 이미지를 사용하여 `West US` 위치에 `myVM`이라는 VM을 만들고 사용자 이름 `ops`를 추가합니다.
+4. `azure vm create`을 사용하여 이전 목록의 Linux 이미지로 새 VM을 만듭니다. 이 단계에서는 클라우드 서비스 및 저장소 계정을 만듭니다. 이 VM을 `-c` 옵션을 사용한 기존 클라우드 서비스에서도 연결할 수 있습니다. `-e` 옵션을 사용한 Linux 가상 머신에 로그인할 수 있는 SSH 엔드포인트를 만듭니다. 다음 예제에서는 `Ubuntu-14_04_4-LTS` 이미지를 사용하여 `West US` 위치에 `myVM`이라는 VM을 만들고 사용자 이름 `ops`를 추가합니다.
    
     ```azurecli
     azure vm create myVM \

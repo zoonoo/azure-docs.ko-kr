@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb00ef0f76b71d0a4748a319c9f2a5d64dffa251
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233313"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861590"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Logic Apps에서 사용자 지정 코드 조각을 추가 및 실행
 
@@ -44,7 +44,7 @@ ms.locfileid: "50233313"
     HTTP 트리거 템플릿은 논리 앱의 `application/json` 형식을 갖는 콘텐츠를 수락할 수 있습니다. 
     논리 앱에 Azure 함수를 추가하면 Logic Apps 디자이너에는 Azure 구독 내에서 이 템플릿을 통해 만든 사용자 지정 함수가 표시됩니다. 
 
-  * 이전에는 [Swagger 파일](http://swagger.io/)로 알려진 [OpenAPI 정의](../azure-functions/functions-openapi-definition.md)를 정의하지 않는 한, 함수에 사용자 지정 경로가 사용되지 않습니다. 
+  * 이전에는 [Swagger 파일](https://swagger.io/)로 알려진 [OpenAPI 정의](../azure-functions/functions-openapi-definition.md)를 정의하지 않는 한, 함수에 사용자 지정 경로가 사용되지 않습니다. 
   
   * 함수에 대해 OpenAPI 정의를 정의한 경우 Logic Apps 디자이너는 함수 매개 변수를 사용하기 위한 보다 풍부한 환경을 제공합니다. 논리 앱이 OpenAPI 정의가 포함된 함수를 찾아 액세스할 수 있도록 [먼저 다음 단계를 수행하여 함수 앱을 설정](#function-swagger)합니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "50233313"
 
   함수를 실행할 수 있는 작업을 추가하려면 먼저 논리 앱이 트리거로 시작되어야 합니다.
 
-  논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
+  논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
 
 <a name="create-function-external"></a>
 
@@ -67,13 +67,13 @@ Azure Functions를 처음 만드는 경우 논리 앱에서 호출할 수 있는
 
 <a name="function-swagger"></a>
 
-* 필요에 따라, 이전에 [Swagger 파일](http://swagger.io/)로 알려져 있던 [API 정의를 생성](../azure-functions/functions-openapi-definition.md)하는 경우 Logic Apps 디자이너에서 함수 매개 변수를 사용하기 위한 보다 풍부한 환경을 누릴 수 있습니다. 논리 앱이 Swagger 설명이 포함된 함수를 찾아 사용할 수 있도록 함수 앱을 설정하려면 다음 단계를 수행합니다.
+* 필요에 따라, 이전에 [Swagger 파일](https://swagger.io/)로 알려져 있던 [API 정의를 생성](../azure-functions/functions-openapi-definition.md)하는 경우 Logic Apps 디자이너에서 함수 매개 변수를 사용하기 위한 보다 풍부한 환경을 누릴 수 있습니다. 논리 앱이 Swagger 설명이 포함된 함수를 찾아 사용할 수 있도록 함수 앱을 설정하려면 다음 단계를 수행합니다.
 
   1. 함수 앱이 현재 실행되고 있는지 확인합니다.
 
   2. 다음 단계에 따라 함수 앱에서 모든 원본이 허용되도록 [CCORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)를 설정합니다.
 
-     1. **함수 앱** 목록에서 함수 앱 > **플랫폼 기능** > **CORS**를 차례로 선택합니다.
+     1. **Function App** 목록에서 함수 앱 &gt; **플랫폼 기능**>**CORS**를 차례로 선택합니다.
 
         ![함수 앱 > "플랫폼 기능" > "CORS" 선택](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
@@ -125,11 +125,11 @@ Logic Apps 디자이너의 논리 앱 내에서 시작하는 Azure 함수를 만
    * 논리 앱 워크플로의 기존 단계 사이에서 화살표 위로 마우스를 이동한 후 더하기(+) 기호를 선택하고 **작업 추가**를 선택합니다.
 
 3. 검색 상자에서 "azure functions"를 필터로 입력합니다.
-작업 목록에서 **Azure 함수 선택 - Azure Functions** 작업을 선택합니다. 
+작업 목록에서 다음 작업을 선택합니다. **Azure 함수 선택 - Azure Functions** 작업을 선택합니다. 
 
    !["Azure 함수" 찾기](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-4. 함수 앱 목록에서 함수 앱을 선택합니다. 작업 목록이 열리면 **Azure Functions - 새 함수 만들기** 작업을 선택합니다.
+4. 함수 앱 목록에서 함수 앱을 선택합니다. 작업 목록을 연 후이 작업을 선택 합니다. **Azure Functions-새 함수 만들기**
 
    ![함수 앱 선택](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 
@@ -181,7 +181,7 @@ Logic Apps 디자이너의 논리 앱 내에서 시작하는 Azure 함수를 만
 2. 함수를 추가하려는 단계에서 **새 단계** > **작업 추가**를 선택합니다. 
 
 3. 검색 상자에서 "azure functions"를 필터로 입력합니다.
-작업 목록에서 **Azure 함수 선택 - Azure Functions** 작업을 선택합니다. 
+작업 목록에서 다음 작업을 선택합니다. **Azure 함수 선택 - Azure Functions** 작업을 선택합니다. 
 
    !["Azure 함수" 찾기](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 

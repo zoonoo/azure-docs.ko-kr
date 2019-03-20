@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: 870ceaf1ded3dd8eb08128514dcc7020fe74e7ae
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: f907ebcfc1efc2e6eb9b458f83ab11d868871946
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858340"
 ---
 # <a name="create-an-additional-subscription-in-the-azure-portal"></a>Azure Portal에서 추가 구독 만들기
 
@@ -50,4 +50,4 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.

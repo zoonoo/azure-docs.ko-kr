@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2019
 ms.author: banders
-ms.openlocfilehash: a93bfd8f71c515bdd5112170f27336a0df62c6e5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a4ad3574849d3c80f671abc93e463b06454289e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818858"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904170"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -88,7 +88,7 @@ Windows 가상 머신 및 SQL Database의 경우 [Azure 하이브리드 혜택](
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

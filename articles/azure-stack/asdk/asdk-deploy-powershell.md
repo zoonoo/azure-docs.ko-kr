@@ -17,12 +17,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0fb3e9cd193e570a965d6bbd3e16c86dc39de350
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e8d3653049b0160fac155ebc49329c17cb27224f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984276"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014378"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>명령줄에서 ASDK 배포
 ASDK는를 평가 하 여 Azure Stack 기능 및 서비스를 보여 줍니다. 배포할 수 있는 테스트 및 개발 환경. 하 고 실행 해야 환경의 하드웨어를 준비 하 고 (몇 시간 정도 걸릴 됩니다) 일부 스크립트를 실행 합니다. 그 후 서명할 수 있습니다 관리자 및 사용자 포털에 Azure Stack을 사용 하려면.
@@ -138,6 +138,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 ```
 
 ### <a name="asdk-installazurestackpocps1-optional-parameters"></a>ASDK InstallAzureStackPOC.ps1 선택적 매개 변수
+
 |매개 변수|필수/선택|설명|
 |-----|-----|-----|
 |AdminPassword|필수|개발 키트 배포의 일환으로 만든 모든 가상 컴퓨터에서 로컬 관리자 계정 및 다른 모든 사용자 계정을 설정 합니다. 이 암호에는 호스트에서 현재 로컬 관리자 암호와 일치 해야 합니다.|

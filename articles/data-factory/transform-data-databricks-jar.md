@@ -3,21 +3,21 @@ title: Databricks Jar를 사용하여 데이터 변환 - Azure | Microsoft Docs
 description: Databricks Jar를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
-ms.openlocfilehash: 8a271359f09ca63e1a0c3a143994739ee7db8aab
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: d299a785d50657ef40c0c49cb2dce33b8939fd02
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014185"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575871"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Azure Databricks에서 Jar 활동을 실행하여 데이터 변환
 
@@ -59,11 +59,11 @@ Databricks Jar 활동에 대한 샘플 JSON 정의는 다음과 같습니다.
 |자산|설명|필수|
 |:--|---|:-:|
 |이름|파이프라인의 작업 이름입니다.|예|
-|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니요|
+|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아닙니다.|
 |형식|Databricks Jar 활동의 경우 활동 유형은 DatabricksSparkJar입니다.|예|
 |linkedServiceName|Jar 활동이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|예|
 |mainClassName|실행될 main 메서드가 포함된 클래스의 전체 이름입니다. 이 클래스는 라이브러리로 제공된 JAR에 포함되어야 합니다.|예|
-|매개 변수|main 메서드에 전달할 매개 변수이며,  문자열의 배열입니다.|아니요|
+|매개 변수|main 메서드에 전달할 매개 변수이며,  문자열의 배열입니다.|아닙니다.|
 |라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|예(mainClassName 메서드가 하나 이상 포함되는 경우)|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 활동에 지원되는 라이브러리
@@ -94,7 +94,7 @@ Databricks Jar 활동에 대한 샘플 JSON 정의는 다음과 같습니다.
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

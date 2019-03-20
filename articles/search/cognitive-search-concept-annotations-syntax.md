@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315832"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749616"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>인식 검색 기술 집합의 주석 참조하는 방법
 
@@ -36,7 +36,7 @@ ms.locfileid: "53315832"
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>예제 1: 단순 주석 참조
 
-Azure Blob 저장소에는 명명된 엔터티 인식을 사용하여 추출하려는 사용자 이름에 대한 참조를 포함하는 다양한 파일을 보유한다고 가정합니다. 아래의 기술 정의에서 `"/document/content"`은 전체 문서의 텍스트 표현이며 "사람"은 사용자로 식별되는 엔터티에 대한 전체 이름의 추출입니다.
+Azure Blob Storage에는 명명된 엔터티 인식을 사용하여 추출하려는 사용자 이름에 대한 참조를 포함하는 다양한 파일을 보유한다고 가정합니다. 아래의 기술 정의에서 `"/document/content"`은 전체 문서의 텍스트 표현이며 "사람"은 사용자로 식별되는 엔터티에 대한 전체 이름의 추출입니다.
 
 기본 컨텍스트가 `"/document"`이므로 사람의 목록은 이제 `"/document/people"`로서 참조될 수 있습니다. 특정한 경우에 `"/document/people"`은 인덱스의 필드에 매핑되거나 동일 기술 집합의 다른 기술에 사용될 수 있는 주석입니다.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 6a6f8b47044d36d767721e2d3503d11518dbf5a6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: aed32db257ddbc8cb5b8f4af5f27024c23583798
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036123"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892407"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Azure Cosmos DB의 스토리지 비용 최적화
 
@@ -39,7 +39,7 @@ Azure Cosmos DB에서 최적 성능과 비용 혜택을 얻으려면 항목 크�
 
 ## <a name="check-storage-consumed"></a>사용한 스토리지 확인
 
-Azure Cosmos 컨테이너의 스토리지 사용을 확인하려면 컨테이너에서 HEAD 또는 GET 요청을 실행하고 `x-ms-request-quota` 및 `x-ms-request-usage` 헤더를 검사할 수 있습니다. 또는 .Net SDK를 사용하는 경우 [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)) 및 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 속성을 통해 사용한 스토리지를 확인할 수 있습니다.
+Azure Cosmos 컨테이너의 스토리지 사용을 확인하려면 컨테이너에서 HEAD 또는 GET 요청을 실행하고 `x-ms-request-quota` 및 `x-ms-request-usage` 헤더를 검사할 수 있습니다. 또는.NET SDK를 사용할 때 사용할 수는 [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), 및 [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) 소비 되는 저장소를 가져올 속성입니다.
 
 ## <a name="using-sdk"></a>SDK 사용
 

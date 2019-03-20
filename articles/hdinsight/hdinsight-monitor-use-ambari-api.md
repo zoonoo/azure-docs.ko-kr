@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7967459e1318e85e1e179e21bc803bf00ee329cd
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: ff6601042c82cef2b0101833117f17aca8b463dc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743796"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223260"
 ---
 # <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Apache Ambari API를 사용하여 HDInsight에서 Apache Hadoop 클러스터 모니터링
 Apache Ambari API를 사용하여 HDInsight 클러스터를 모니터링하는 방법을 알아봅니다.
@@ -137,7 +137,7 @@ Ambari 엔드포인트 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/cl
 ## <a name="next-steps"></a>다음 단계
 Apache Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
-* [Azure Portal을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-portal]
+* [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)
 * [Azure PowerShell을 사용하여 HDInsight 클러스터 관리][hdinsight-admin-powershell]
 * [명령줄 인터페이스를 사용하여 HDInsight 클러스터 관리][hdinsight-admin-cli]
 * [HDInsight 설명서][hdinsight-documentation]
@@ -155,7 +155,6 @@ Apache Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습�
 [powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
 [hdinsight-documentation]: https://docs.microsoft.com/azure/hdinsight/
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md

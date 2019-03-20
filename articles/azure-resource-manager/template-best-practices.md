@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490383"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440475"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 템플릿 모범 사례
 
@@ -26,10 +26,28 @@ Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프�
 
 모든 Azure 클라우드 환경에서 작동하는 템플릿을 빌드하는 방법에 대한 권장 사항은 [클라우드 일관성에 대한 Azure Resource Manager 템플릿 개발](templates-cloud-consistency.md)을 참조하세요.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="template-limits"></a>템플릿 제한
+
+템플릿의 크기는 1MB로, 각 매개 변수 파일의 크기는 64KB로 제한됩니다. 1MB의 제한은 반복적인 리소스 정의로 확장된 후 템플릿의 마지막 상태와 변수 및 매개변수 값에 적용됩니다. 
+
+또한 다음으로 제한됩니다.
+
+* 매개 변수 256개
+* 변수 256개
+* 리소스 800개(인쇄 매수 포함)
+* 출력 값 64개
+* 템플릿 식의 문자 24,576자
+
+중첩된 템플릿을 사용하여 일부 템플릿 제한을 초과할 수 있습니다. 자세한 내용은 [Azure 리소스를 배포할 때 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요. 매개 변수, 변수 또는 출력의 수를 줄이려면 개체에 여러 값을 결합할 수 있습니다. 자세한 내용은 [매개 변수로 개체 사용](resource-manager-objects-as-parameters.md)을 참조하세요.
+
+## <a name="resource-group"></a>리소스 그룹
+
+리소스 그룹에 리소스를 배포할 때 리소스 그룹 리소스에 대 한 메타 데이터를 저장 합니다. 메타 데이터는 리소스 그룹의 위치에 저장 됩니다.
+
+리소스 그룹의 지역에 일시적으로 사용할 수 없는 경우 메타 데이터를 사용할 수 없기 때문에 리소스 그룹에 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상 대로 작동 하지만 업데이트는 불가능 합니다. 위험을 최소화 하려면 동일한 지역에 리소스 그룹 및 리소스를 찾습니다.
 
 ## <a name="parameters"></a>매개 변수
-이 섹션의 정보는 [매개 변수](resource-manager-templates-parameters.md)로 작업하는 경우 도움이 될 수 있습니다.
+이 섹션의 정보는 [매개 변수](resource-group-authoring-templates.md#parameters)로 작업하는 경우 도움이 될 수 있습니다.
 
 ### <a name="general-recommendations-for-parameters"></a>매개 변수에 대한 일반 권장 사항
 
@@ -131,7 +149,7 @@ Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프�
 
 ## <a name="variables"></a>variables
 
-다음 정보는 [변수](resource-manager-templates-variables.md)로 작업하는 경우 도움이 될 수 있습니다.
+다음 정보는 [변수](resource-group-authoring-templates.md#variables)로 작업하는 경우 도움이 될 수 있습니다.
 
 * 두 번 이상 사용해야 하는 값의 경우 템플릿에서 변수를 사용합니다. 값을 한 번만 사용할 경우에는 하드 코드된 값을 사용해야 템플릿을 더 쉽게 읽을 수 있습니다.
 
@@ -155,7 +173,7 @@ Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프�
 
 * 자식 리소스가 부모 리소스에 종속되도록 설정합니다.
 
-* false로 설정된 [condition 요소](resource-manager-templates-resources.md#condition)가 있는 리소스는 종속성 순서에서 자동으로 제거됩니다. 리소스를 항상 배포하는 경우에 따라 종속성을 설정합니다.
+* false로 설정된 [condition 요소](resource-group-authoring-templates.md#condition)가 있는 리소스는 종속성 순서에서 자동으로 제거됩니다. 리소스를 항상 배포하는 경우에 따라 종속성을 설정합니다.
 
 * 종속성을 명시적으로 설정하지 않고 계단식으로 배열되도록 합니다. 예를 들어 가상 머신은 가상 네트워크 인터페이스에 종속되고 가상 네트워크 인터페이스는 가상 네트워크 및 공용 IP 주소에 종속됩니다. 따라서 가상 머신은 세 가지 모든 리소스보다 나중에 배포되지만 가상 머신이 세 가지 모든 리소스에 종속된다고 명시적으로 설정하지 않습니다. 이러한 방법은 종속성 순서를 명확히 하고 나중에 템플릿을 쉽게 변경할 수 있도록 합니다.
 
@@ -163,7 +181,7 @@ Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프�
 
 ## <a name="resources"></a>리소스
 
-다음 정보는 [리소스](resource-manager-templates-resources.md)로 작업하는 경우 도움이 될 수 있습니다.
+다음 정보는 [리소스](resource-group-authoring-templates.md#resources)로 작업하는 경우 도움이 될 수 있습니다.
 
 * 다른 참가자들이 리소스의 용도를 이해하도록 하려면 템플릿에 각 리소스에 대한 **설명**을 지정합니다.
    
@@ -277,7 +295,7 @@ Azure 구독을 관리하는 방법에 대한 권장 사항은 [Azure 엔터프�
 
 ## <a name="outputs"></a>outputs
 
-템플릿을 사용하여 공용 IP 주소를 만드는 경우 IP 주소 및 FQDN(정규화된 도메인 이름)의 세부 정보를 반환하는 [출력 섹션](resource-manager-templates-outputs.md)을 포함합니다. 출력 값을 사용하여 배포 후 공용 IP 주소 및 FQDN에 대한 세부 정보를 쉽게 검색할 수 있습니다.
+템플릿을 사용하여 공용 IP 주소를 만드는 경우 IP 주소 및 FQDN(정규화된 도메인 이름)의 세부 정보를 반환하는 [출력 섹션](resource-group-authoring-templates.md#outputs)을 포함합니다. 출력 값을 사용하여 배포 후 공용 IP 주소 및 FQDN에 대한 세부 정보를 쉽게 검색할 수 있습니다.
 
 ```json
 "outputs": {

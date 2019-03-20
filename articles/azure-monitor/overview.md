@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270371"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874905"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -40,7 +40,7 @@ Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [�
 
 ![메트릭](media/overview/metrics.png)
 
-Azure Monitor로 수집한 로그 데이터는 수집된 데이터를 신속하게 검색, 통합 및 분석하는 [쿼리](log-query/log-query-overview.md)로 분석할 수 있습니다.  Azure Portal에서 [Log Analytics](log-query/portals.md)를 사용하여 쿼리를 만들고 테스트한 다음, 이러한 도구를 사용하여 데이터를 직접 분석하거나 [시각화](visualizations.md) 또는 [경고 규칙](platform/alerts-overview.md)에 사용하기 위해 쿼리를 저장할 수 있습니다.
+Azure Monitor로 수집한 로그 데이터는 수집된 데이터를 신속하게 검색, 통합 및 분석하는 [쿼리](log-query/log-query-overview.md)로 분석할 수 있습니다.  만들고 사용 하 여 쿼리를 테스트할 수 있습니다 [Log Analytics](log-query/portals.md) Azure portal 및 다음에서 직접 이러한 도구를 사용 하 여 데이터를 분석 또는 사용에 대 한 쿼리를 저장할 [시각화](visualizations.md) 또는 [경고 규칙](platform/alerts-overview.md)합니다.
 
 Azure Monitor는 Azure Data Explorer에서 사용되는 [Kusto 쿼리 언어](/azure/kusto/query/)의 한 버전을 사용합니다. Kusto 쿼리 언어는 단순 로그 쿼리에 적합하지만 집계, 조인, 스마트 분석 등의 고급 기능도 포함합니다. [여러 강좌](log-query/get-started-queries.md)를 통해 쿼리 언어를 빠르게 배울 수 있습니다.  [SQL](log-query/sql-cheatsheet.md) 및 [Splunk](log-query/splunk-cheatsheet.md)에 이미 익숙한 사용자에게는 특정 지침이 제공됩니다.
 
@@ -130,14 +130,12 @@ Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 �
 Azure Monitor를 다른 시스템과 통합하여 모니터링 데이터를 사용하는 사용자 지정 솔루션을 빌드해야 하는 요구 사항이 자주 있습니다. 다른 Azure 서비스는 Azure Monitor와 함께 작동하여 이러한 통합을 제공합니다.
 
 ### <a name="event-hub"></a>이벤트 허브
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs)는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 데이터를 변환하고 저장할 수 있는 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs를 사용하여 [Azure Monitor의 로그 데이터를 스트리밍](platform/stream-monitoring-data-event-hubs.md)하여 SIEM 및 모니터링 도구와 통합하세요.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs)는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 데이터를 변환하고 저장할 수 있는 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs를 사용 하 여 [Azure Monitor 데이터 스트림](platform/stream-monitoring-data-event-hubs.md) 파트너 SIEM 및 모니터링 도구입니다.
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ### <a name="logic-apps"></a>Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps)는 다른 시스템 및 서비스와 통합되는 워크플로를 사용하여 작업 및 비즈니스 프로세스를 자동화할 수 있는 서비스입니다. Azure Monitor에서 메트릭 및 로그를 읽고 쓰는 작업을 사용할 수 있으며, 이를 통해 다양한 시스템과 통합되는 워크플로를 빌드할 수 있습니다.
 
-![논리 앱](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 생성된 경고에 액세스할 수 있을 뿐 아니라 Azure Monitor의 메트릭을 읽고 쓸 수 있는 여러 API가 제공됩니다. 또한 경고를 구성하고 검색할 수 있습니다. 이렇게 하면 근본적으로 Azure Monitor와 통합되는 사용자 지정 솔루션을 빌드할 수 있는 무한한 가능성이 열립니다.

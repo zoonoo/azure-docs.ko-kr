@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: banders
-ms.openlocfilehash: ee8ccef1635fdc542759818a0d2a5264bbf71012
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: a8db4675e01cfb1e48c034eb39b183d72d083508
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837204"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Azure 무료 계정에 포함된 서비스 만들기
 
@@ -36,4 +36,4 @@ Azure 무료 계정에는 12개월 동안 사용할 수 있는 제한 수량의 
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+문의 사항이 있거나 도움이 필요한 경우 [지원 요청을 만드는](https://go.microsoft.com/fwlink/?linkid=2083458)합니다.

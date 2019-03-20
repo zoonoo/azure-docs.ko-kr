@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: bbfa5ce0e277df3648e98be29fe91a44b15a52b7
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: fcea5e4e6bb108f1a8d8036e51a5dae8a9e6431b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262288"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839749"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure VM 게스트 OS 방화벽이 잘못 구성됨
 
@@ -98,7 +98,7 @@ ms.locfileid: "54262288"
 
 ### <a name="offline-mitigations"></a>오프라인 해결 방법
 
-1.  방화벽 규칙을 사용하거나 사용하지 않도록 설정하려면 [Azure VM 게스트 OS에서 방화벽 규칙을 사용하거나 사용하지 않도록 설정](enable-disable-firewall-rule-guest-os.md)을 참조하세요.
+1.  참조를 사용 하도록 설정 하거나 방화벽 규칙을 사용 하지 않도록 설정 하려면 [Azure VM 게스트 OS에 대 한 방화벽 규칙을 사용할지](enable-disable-firewall-rule-guest-os.md)합니다.
 
 2.  [인바운드 트래픽을 차단하는 게스트 OS 방화벽 시나리오](guest-os-firewall-blocking-inbound-traffic.md)에 있는지 여부를 확인합니다.
 

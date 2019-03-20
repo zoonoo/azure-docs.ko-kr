@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: haining
-author: hning86
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1b2934ceb402dab5e9cf98e7e0a53b1b438c66a8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111852"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080325"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스 작동 방법: 아키텍처 및 개념
 
@@ -118,7 +117,7 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 | 로컬 컴퓨터 | ✓ | &nbsp; |
 | Azure Machine Learning 컴퓨팅 | ✓ | &nbsp; |
 | Azure의 Linux VM</br>(예: Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; |
 | Azure 데이터 레이크 분석 | ✓ | &nbsp; |
 | HDInsight용 Apache Spark | ✓ | &nbsp; |
 | Azure Container Instances | &nbsp; | ✓ |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 8cf977f9c5bbf10c6a4d862a29fda98d3ce71844
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755699"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998954"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 컴퓨터에 Oracle ASM 설정  
 
@@ -90,7 +90,7 @@ ssh <publicIpAddress>
 
 Oracle ASM을 설치하려면 다음 단계를 완료합니다. 
 
-Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle ASMLib 다운로드](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html)를 참조하세요.  
+Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle ASMLib 다운로드](https://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html)를 참조하세요.  
 
 1. ASM 설치를 계속하기 위해 루트로 로그인해야 합니다.
 
@@ -104,7 +104,7 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
     yum list | grep oracleasm 
     yum -y install kmod-oracleasm.x86_64 
     yum -y install oracleasm-support.x86_64 
-    wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    wget https://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
    ```
@@ -336,24 +336,24 @@ Oracle ASM 설치에 대한 자세한 내용은 [Oracle Linux 6에 대한 Oracle
 
 10. 폴더 사용 권한을 변경합니다.
 
-   ```bash
-   chmod -R 775 /opt 
-   chown grid:oinstall /opt 
-   chown oracle:oinstall /dev/sdc1 
-   chown oracle:oinstall /dev/sdd1 
-   chown oracle:oinstall /dev/sde1 
-   chown oracle:oinstall /dev/sdf1 
-   chmod 600 /dev/sdc1 
-   chmod 600 /dev/sdd1 
-   chmod 600 /dev/sde1 
-   chmod 600 /dev/sdf1
-   ```
+    ```bash
+    chmod -R 775 /opt 
+    chown grid:oinstall /opt 
+    chown oracle:oinstall /dev/sdc1 
+    chown oracle:oinstall /dev/sdd1 
+    chown oracle:oinstall /dev/sde1 
+    chown oracle:oinstall /dev/sdf1 
+    chmod 600 /dev/sdc1 
+    chmod 600 /dev/sdd1 
+    chmod 600 /dev/sde1 
+    chmod 600 /dev/sdf1
+    ```
 
 ## <a name="download-and-prepare-oracle-grid-infrastructure"></a>Oracle Grid Infrastructure 다운로드 및 준비
 
 Oracle Grid Infrastructure 소프트웨어를 다운로드 및 준비하려면 다음 단계를 완료합니다.
 
-1. [Oracle ASM 다운로드 페이지](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html)에서 Oracle Grid Infrastructure를 다운로드합니다. 
+1. [Oracle ASM 다운로드 페이지](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html)에서 Oracle Grid Infrastructure를 다운로드합니다. 
 
    다운로드 제목 **Linux x86-64용 Oracle Database 12c 릴리스 1 Grid Infrastructure(12.1.0.2.0)** 에서 두 개의 .zip 파일을 다운로드합니다.
 
@@ -402,7 +402,7 @@ Oracle Grid Infrastructure 소프트웨어를 다운로드 및 준비하려면 �
 ## <a name="prepare-your-local-client-and-vm-to-run-x11"></a>로컬 클라이언트와 VM에서 X11 실행 준비
 Oracle ASM를 구성하려면 설치 및 구성을 완료할 그래픽 인터페이스가 필요합니다. X11 프로토콜을 사용하여 이 설치를 용이하게 합니다. X11 기능을 사용하도록 설정하고 구성한 클라이언트 시스템(Mac 또는 Linux)을 사용하는 경우 Windows 컴퓨터에만 독점적인 이 구성 및 설정을 건너뛰어도 됩니다. 
 
-1. Windows 컴퓨터에 [PuTTY를 다운로드](http://www.putty.org/)하고 [Xming](https://xming.en.softonic.com/)을 다운로드합니다. 계속하기 전에 기본 값으로 이러한 애플리케이션의 설치를 완료해야 합니다.
+1. Windows 컴퓨터에 [PuTTY를 다운로드](https://www.putty.org/)하고 [Xming](https://xming.en.softonic.com/)을 다운로드합니다. 계속하기 전에 기본 값으로 이러한 애플리케이션의 설치를 완료해야 합니다.
 
 2. PuTTY를 설치한 후에 명령 프롬프트를 열고, PuTTY 폴더(예: C:\Program Files\PuTTY)로 변경하고 키를 생성하기 위해 `puttygen.exe`를 실행합니다.
 

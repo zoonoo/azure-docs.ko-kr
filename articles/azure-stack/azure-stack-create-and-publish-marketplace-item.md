@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: ac4366a2e90ea239c650e611b7c4e8dddf5d5106
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 81f06e0f5d5201b902504d8275f356f9a1731065
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649665"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098902"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Marketplace 항목 만들기 및 게시
 
@@ -69,19 +69,19 @@ ms.locfileid: "56649665"
 
 10. 바꿉니다 **My Marketplace Items** 마켓플레이스 항목이 표시 됩니다는 범주의 목록을 사용 하 여:
 
-   ```json
-   "categories":[
-   "My Marketplace Items"
-   ],
-   ```
+    ```json
+    "categories":[
+    "My Marketplace Items"
+    ],
+    ```
 
 11. Manifest.json에 추가 사항을 편집한 참조 [참조: Marketplace 항목은 manifest.json](#reference-marketplace-item-manifestjson)합니다.
 
 12. .Azpkg 파일로 폴더를 패키지, 명령 프롬프트를 열고 하 고 다음 명령을 실행:
 
-   ```shell
-   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
-   ```
+    ```shell
+    AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+    ```
 
     > [!NOTE]
     > 전체 경로를 출력 패키지가 있어야 합니다. 예를 들어, 출력 경로가 C:\MarketPlaceItem\yourpackage.azpkg C:\MarketPlaceItem 폴더 존재 해야 합니다.

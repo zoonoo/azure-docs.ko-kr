@@ -6,17 +6,17 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.openlocfilehash: 4accff7410d17e76a000b7cef957b75c65a16960
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/05/2018
+ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007671"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543290"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Azure Stream Analytics의 시간 처리 이해
 
-이 문서에서는 Azure Stream Analytics 서비스에서 실제 시간 처리 문제를 해결하기 위해 디자인을 선택하는 방법에 대해 설명합니다. 시간 처리 설계 결정은 이벤트 순서 지정 요인과 밀접하게 관련되어 있습니다. 자세한 내용은 [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md) 관련 문서를 참조하세요.
+이 문서에서는 Azure Stream Analytics 서비스에서 실제 시간 처리 문제를 해결하기 위해 디자인을 선택하는 방법에 대해 설명합니다. 시간 처리 설계 결정은 이벤트 순서 지정 요인과 밀접하게 관련되어 있습니다.
 
 ## <a name="background-time-concepts"></a>시간에 대한 배경 개념
 
@@ -163,7 +163,7 @@ Azure Stream Analytics는 워터마크 진행률을 출력 이벤트가 생성�
 
 [기간 이동 집계](stream-analytics-window-functions.md)를 사용하는 경우 서비스는 시간의 끝에서 출력만 생성합니다. 경우에 따라 사용자는 시간 범위에서 생성된 부분 집계를 보려고 할 수 있습니다. 부분 집계는 현재 Azure Stream Analytics에서 지원되지 않습니다.
 
-다른 스트리밍 솔루션에서는 외부 상황에 따라 다양한 트리거 지점에서 출력 이벤트를 구체화할 수 있습니다. 일부 솔루션에서는 지정된 시간 범위 쌍에 대한 출력 이벤트가 여러 번 생성될 수 있습니다. 입력 값이 구체화됨에 따라 집계 결과는 더욱 정확하게 됩니다. 이벤트는 처음에는 추측되고 시간이 지남에 따라 수정될 수 있습니다. 예를 들어 특정 디바이스가 네트워크에서 오프라인 상태인 경우 시스템에서 예상 값을 사용할 수 있습니다. 나중에 동일한 디바이스가 네트워크에서 온라인 상태가 됩니다. 그러면 실제 이벤트 데이터가 입력 스트림에 포함될 수 있습니다. 출력에서는 해당 시간 범위를 처리하여 더 정확한 출력을 생성합니다.
+다른 스트리밍 솔루션에서는 외부 상황에 따라 다양한 트리거 지점에서 출력 이벤트를 구체화할 수 있습니다. 지정된 된 기간에 대 한 출력 이벤트 수 여러 번 생성 될 몇 가지 솔루션이 가능 합니다. 입력 값이 구체화됨에 따라 집계 결과는 더욱 정확하게 됩니다. 이벤트는 처음에는 추측되고 시간이 지남에 따라 수정될 수 있습니다. 예를 들어 특정 디바이스가 네트워크에서 오프라인 상태인 경우 시스템에서 예상 값을 사용할 수 있습니다. 나중에 동일한 디바이스가 네트워크에서 온라인 상태가 됩니다. 그러면 실제 이벤트 데이터가 입력 스트림에 포함될 수 있습니다. 출력에서는 해당 시간 범위를 처리하여 더 정확한 출력을 생성합니다.
 
 ## <a name="illustrated-example-of-watermarks"></a>워터마크의 예
 

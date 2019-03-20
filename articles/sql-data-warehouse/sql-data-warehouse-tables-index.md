@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: fe19510d9b4c6311923b4b2ea15f133249e6cbd5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244695"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190042"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 인덱싱
 Azure SQL Data Warehouse의 테이블 인덱싱을 사용하기 위한 권장 사항 및 예제입니다.
@@ -45,12 +45,12 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 - Columnstore 테이블이 varchar(max), nvarchar(max) 및 varbinary(max)를 지원하지 않습니다. 대신 힙 또는 클러스터형 인덱스를 고려합니다.
 - Columnstore 테이블이 임시 데이터에 대해 덜 효율적일 수 있습니다. 힙 및 임시 테이블을 고려합니다.
-- 1억개 미만의 행이 있는 작은 테이블. 힙 테이블을 고려합니다.
+- 보다 작거나 60 백만 행이 있는 작은 테이블. 힙 테이블을 고려합니다.
 
 ## <a name="heap-tables"></a>힙 테이블
-SQL Data Warehouse에 일시적으로 데이터를 가져올 때 힙 테이블을 사용하면 전체 프로세스가 더 빨라지는 것을 알 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 준비만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 저장소에 로드하는 것보다 빠릅니다.  
+SQL Data Warehouse에서 데이터를 일시적으로 방문 됩니다을 하는 경우는 힙 테이블을 사용 하 여 사용 하면 전체 프로세스가 더 빨라지는 것을 알 수 있습니다. 즉, 힙에 로드하는 것이 인덱스 테이블에 로드하는 것보다 더 빠르며 경우에 따라 캐시에서 후속 읽기가 수행될 수도 있습니다.  더 많은 변환을 실행하기 전에 준비만을 위해 데이터를 로드하는 경우 테이블을 힙 테이블에 로드하면 데이터를 클러스터형 columnstore 테이블에 로드할 때보다 훨씬 빠릅니다. 또한 데이터를 [임시 테이블](sql-data-warehouse-tables-temporary.md)에 로드하면 테이블을 영구 저장소에 로드하는 것보다 빠릅니다.  
 
-1억개 행 미만을 포함하는 작은 조회 테이블의 경우 힙 테이블을 사용하는 것이 더 나은 경우도 많습니다.  클러스터 columnstore 테이블은 행이 1억개가 넘을 경우 최적의 압축을 얻기 시작합니다.
+작은 조회 테이블, 보다 작거나 60 백만 행 힙 테이블 종종 적합합니다.  클러스터 columnstore 테이블 60 백만 개 이상의 행이 있으면 최적의 압축을 달성 하기 시작 합니다.
 
 힙 테이블을 만들려면 WITH 절에서 HEAP을 지정하면 됩니다.
 
@@ -79,7 +79,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-테이블에 비클러스터형 인덱스를 추가하려면 다음 구문을 사용하면 됩니다.
+테이블에 비클러스터형 인덱스를 추가 하려면 다음 구문을 사용 합니다.
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -182,7 +182,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 다음 요소로 인해 columnstore 인덱스가 행 그룹당 1백만 개보다 훨씬 적은 행을 가질 수 있으며 행이 압축된 행 그룹 대신 델타 행 그룹으로 이동할 수도 있습니다. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>인덱스를 작성했을 때 메모리 부족
-압축된 행 그룹당 행 수는 행의 너비와 행 그룹을 처리하는 데 사용할 수 있는 메모리 양에 직접적으로 관련되어 있습니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  따라서 columnstore 인덱스가 테이블에 쓰는 세션에 가능한 한 많은 메모리에 대한 액세스 권한을 부여하는 것이 가장 좋습니다.  메모리 및 동시성은 서로 상쇄되므로 적합한 메모리 할당 지침은 테이블의 각 행에 포함된 데이터, 시스템에 할당한 데이터 웨어하우스 단위 및 테이블에 데이터를 쓰는 세션에 제공할 수 있는 동시 슬롯 수에 따라 좌우됩니다.  DW300 이하를 사용하는 경우는 xlargerc, DW400 ~ DW600을 사용하는 경우는 largerc, DW1000 이상을 사용하는 경우는 mediumrc부터 시작하는 것이 좋습니다.
+압축된 행 그룹당 행 수는 행의 너비와 행 그룹을 처리하는 데 사용할 수 있는 메모리 양에 직접적으로 관련되어 있습니다.  메모리 부족 상황에서 행이 columnstore 테이블에 기록되는 경우 columnstore 세그먼트 품질이 저하될 수 있습니다.  따라서 columnstore 인덱스가 테이블에 쓰는 세션에 가능한 한 많은 메모리에 대한 액세스 권한을 부여하는 것이 가장 좋습니다.  메모리 및 동시성은 서로 상쇄되므로 적합한 메모리 할당 지침은 테이블의 각 행에 포함된 데이터, 시스템에 할당한 데이터 웨어하우스 단위 및 테이블에 데이터를 쓰는 세션에 제공할 수 있는 동시 슬롯 수에 따라 좌우됩니다.
 
 ### <a name="high-volume-of-dml-operations"></a>많은 양의 DML 작업
 행을 업데이트 또는 삭제하는 많은 고용량 DML 작업은 columnstore에 비효율적일 수 있습니다. 특히 행 그룹 내 대부분의 행이 수정될 때 더욱 그렇습니다.
@@ -205,7 +205,7 @@ SQL Data Warehouse로 유입되는 작은 부하는 지속적인 부하라고도
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>인덱스를 다시 작성하여 세그먼트 품질 개선
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>1단계: 적합한 리소스 클래스를 사용하는 사용자 식별 또는 만들기
-세그먼트 품질을 즉시 개선하는 한 가지 빠른 방법은 인덱스를 다시 작성하는 것입니다.  위의 보기에서 반환된 SQL은 인덱스를 다시 작성하는 데 사용할 수 있는 ALTER INDEX REBUILD 문을 반환합니다. 인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다.  이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 리소스 클래스를 권장되는 최소 수로 늘립니다. 데이터베이스 소유자의 리소스 클래스를 변경할 수 없으므로, 시스템에서 사용자를 만들지 않은 경우 먼저 이 작업을 수행해야 합니다. 권장되는 최소 리소스 클래스는 DW300 이하를 사용하는 경우는 xlargerc, DW400 ~ DW600을 사용하는 경우는 largerc, DW1000 이상을 사용하는 경우는 mediumrc입니다.
+세그먼트 품질을 즉시 개선하는 한 가지 빠른 방법은 인덱스를 다시 작성하는 것입니다.  위의 보기에서 반환된 SQL은 인덱스를 다시 작성하는 데 사용할 수 있는 ALTER INDEX REBUILD 문을 반환합니다. 인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다.  이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 리소스 클래스를 권장되는 최소 수로 늘립니다. 
 
 다음은 사용자의 리소스 클래스를 늘려 사용자에게 더 많은 메모리를 할당하는 방법의 예입니다. 리소스 클래스를 사용하려면 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요.
 
@@ -216,7 +216,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2단계: 상위 리소스 클래스 사용자를 사용하여 클러스터형 columnstore 인덱스 다시 작성
 이제 더 높은 리소스 클래스를 사용 중인 1단계의 사용자(예: LoadUser)로 로그인하고 ALTER INDEX 문을 실행합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
 
-또는 인덱스를 다시 빌드하는 대신 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다. CTAS로 인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 아래의 **CTAS 및 파티션 전환을 사용하여 인덱스 다시 빌드** 을 참조하세요.
+또는 인덱스를 다시 빌드하는 대신 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다. 
 
 ```sql
 -- Rebuild the entire clustered index
@@ -263,25 +263,8 @@ WHERE   [OrderDateKey] >= 20000101
 AND     [OrderDateKey] <  20010101
 ;
 
--- Step 2: Create a SWITCH out table
-CREATE TABLE dbo.FactInternetSales_20000101
-    WITH    (   DISTRIBUTION = HASH(ProductKey)
-            ,   CLUSTERED COLUMNSTORE INDEX
-            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20000101
-                                )
-                            )
-            )
-AS
-SELECT *
-FROM    [dbo].[FactInternetSales]
-WHERE   1=2 -- Note this table will be empty
-
--- Step 3: Switch OUT the data 
-ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales_20000101] PARTITION 2;
-
--- Step 4: Switch IN the rebuilt data
-ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
+-- Step 2: Switch IN the rebuilt data with TRUNCATE_TARGET option
+ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
 CTAS를 사용하여 파티션을 다시 만드는 방법에 대한 자세한 내용은 [SQL Data Warehouse에서 파티션 사용](sql-data-warehouse-tables-partition.md)을 참조하세요.

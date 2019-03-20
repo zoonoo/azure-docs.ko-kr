@@ -5,17 +5,17 @@ description: 기계 학습 기본 사항의 이해하기 쉬운 개요에는 알
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodc18
-ms.date: 12/18/2017
-ms.openlocfilehash: 78daf4534334d56c962d97e7a9aac8a7910db34c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/04/2019
+ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453599"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455193"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 기계 학습 기본 사항
 
@@ -23,7 +23,7 @@ ms.locfileid: "56453599"
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Machine Learning Studio에서 널리 사용되는 알고리즘
 
-[Azure Machine Learning Studio](https://studio.azureml.net/)는 예측 분석을 위한 대규모 알고리즘 라이브러리와 함께 제공됩니다. 인포그래픽은 회귀, 이상 탐지, 클러스터링 및 분류의 널리 사용되는 네 가지 알고리즘 제품군을 식별하고 [Azure AI 갤러리](https://gallery.azure.ai/)에 있는 작업 예제에 대한 링크를 제공합니다. 갤러리는 이러한 알고리즘을 여러 실제 솔루션에 적용하는 방법을 보여주는 예제 실험 및 자습서를 포함하고 있습니다.
+[Azure Machine Learning Studio](https://studio.azureml.net/)는 예측 분석을 위한 대규모 알고리즘 라이브러리와 함께 제공됩니다. 이 인포 그래픽-회귀, 이상 탐지, 클러스터링 및 분류-알고리즘의 네 가지 인기 있는 제품군을 식별 하 고 있는 작업 예제에 대 한 링크를 제공 합니다 [Azure AI 갤러리](https://gallery.azure.ai/)합니다. 갤러리는 이러한 알고리즘을 여러 실제 솔루션에 적용하는 방법을 보여주는 예제 실험 및 자습서를 포함하고 있습니다.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>알고리즘 예제와 함께 인포그래픽을 다운로드합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "56453599"
 
 
 <!-- Module References -->
-[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
-[initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
-[k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
-[one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

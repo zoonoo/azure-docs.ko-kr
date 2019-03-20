@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell 스크립트 : Azure DevTest Labs의 랩에 사용자 지정 역할 만들기 | Microsoft Docs'
+title: 'PowerShell 스크립트: Azure DevTest Labs의 랩에서 사용자 지정 역할 만들기 | Microsoft Docs'
 description: 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 외부 사용자를 추가합니다.
 services: lab-services
 author: spelluru
@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 295f742342fba7d77b556724c8005f3ac4816482
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4d0c795dffb40ab7efec9005660439f9baef9f3f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636718"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732435"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>PowerShell을 사용하여 Azure DevTest Labs의 랩에 사용자 지정 역할 만들기
 
 이 샘플 PowerShell 스크립트는 Azure DevTest Labs의 랩에서 사용할 사용자 지정 역할을 만듭니다. 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 * **랩**. 스크립트를 사용하려면 기존 랩이 있어야 합니다. 
@@ -38,9 +40,9 @@ ms.locfileid: "34636718"
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) | Azure RBAC를 사용하여 보안을 설정할 수 있는 Azure 리소스 공급자에 대한 작업을 가져옵니다. |
-| [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) | 할당에 사용할 수 있는 Azure RBAC 역할을 모두 나열합니다. |
-| [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) | 사용자 지정 역할을 만듭니다. |
+| [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Azure RBAC를 사용하여 보안을 설정할 수 있는 Azure 리소스 공급자에 대한 작업을 가져옵니다. |
+| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | 할당에 사용할 수 있는 Azure RBAC 역할을 모두 나열합니다. |
+| [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | 사용자 지정 역할을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

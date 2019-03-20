@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 14d763126cccadf8042da79b20d15e5c93a8ce62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094180"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -28,9 +28,9 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 3. Hyper-V 호스트에서 Hyper-V Virtual Machine Management 서비스가 실행되고 있는지 확인합니다.
 4. VM의 Hyper-V-VMMS\Admin 로그인에 표시되는 문제를 확인합니다. 이 로그는 **Applications and Services Logs** > **Microsoft** > **Windows**에 있습니다.
 5. 게스트 VM에서 WMI가 사용되도록 설정되어 있고 액세스 가능한지 확인합니다.
-  - 기본 WMI 테스트에 대해 [자세히 알아봅니다](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/).
-  - WMI [문제를 해결합니다](https://aka.ms/WMiTshooting).
-  - WMI 스크립트 및 서비스 관련 [문제를 해결합니다](https://technet.microsoft.com/library/ff406382.aspx#H22).
+   - 기본 WMI 테스트에 대해 [자세히 알아봅니다](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/).
+   - WMI [문제를 해결합니다](https://aka.ms/WMiTshooting).
+   - [문제 해결](https://technet.microsoft.com/library/ff406382.aspx#H22) WMI 스크립트 및 서비스에 문제가 있습니다.
 6. 게스트 VM에 최신 버전의 Integration Services가 실행되고 있는지 확인합니다.
     - 최신 버전이 있는지 [확인합니다](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Integration Services를 최신 상태로 [유지합니다](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date).
@@ -41,9 +41,9 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 1. [최신 버전](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)의 Site Recovery 서비스를 실행하고 있는지 확인합니다.
 2. 복제가 일시 중지되었는지 여부를 확인합니다.
-  - Hyper-V 관리자 콘솔에서 VM 상태를 확인합니다.
-  - 상태가 심각한 경우 마우스 오른쪽 단추로 VM > **복제** > **복제 상태 보기**를 클릭합니다.
-  - 복제가 일시 중지되면 **복제 다시 시작**을 클릭합니다.
+   - Hyper-V 관리자 콘솔에서 VM 상태를 확인합니다.
+   - 상태가 심각한 경우 마우스 오른쪽 단추로 VM > **복제** > **복제 상태 보기**를 클릭합니다.
+   - 복제가 일시 중지되면 **복제 다시 시작**을 클릭합니다.
 3. 필요한 서비스가 실행되고 있는지 확인합니다. 그렇지 않은 경우 다시 시작합니다.
     - VMM을 사용하지 않고 Hyper-V를 복제하는 경우 다음 서비스가 Hyper-V 호스트에서 실행되고 있는지 확인합니다.
         - Virtual Machine Management 서비스
@@ -65,10 +65,10 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 2. [Deployment Planner 프로파일러](hyper-v-deployment-planner-run.md)를 실행합니다.
 3. 프로파일러를 실행한 후 [대역폭](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [저장소](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) 권장 사항을 따릅니다.
 4. [데이터 변동 제한 사항](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)을 확인합니다. VM에서 높은 데이터 변동이 확인되면 다음을 수행합니다.
-  - VM이 재동기화용으로 표시되어 있는지 여부를 확인합니다.
-  - [이 단계](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/)에 따라 변동의 원본을 조사합니다.
-  - HRL 로그 파일이 사용 가능한 디스크 공간의 50%를 초과하면 변동이 발생할 수 있습니다. 이것이 문제인 경우 문제가 발생하는 모든 VM에 대해 더 많은 저장소 공간을 프로비전합니다.
-  - 복제가 일시 중지되지 않았는지 확인합니다. 일시 중지된 경우 HRL 파일에 변경 내용이 계속 써지므로 파일 크기가 커질 수 있습니다.
+   - VM이 재동기화용으로 표시되어 있는지 여부를 확인합니다.
+   - [이 단계](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/)에 따라 변동의 원본을 조사합니다.
+   - HRL 로그 파일이 사용 가능한 디스크 공간의 50%를 초과하면 변동이 발생할 수 있습니다. 이것이 문제인 경우 문제가 발생하는 모든 VM에 대해 더 많은 저장소 공간을 프로비전합니다.
+   - 복제가 일시 중지되지 않았는지 확인합니다. 일시 중지된 경우 HRL 파일에 변경 내용이 계속 써지므로 파일 크기가 커질 수 있습니다.
  
 
 ## <a name="critical-replication-state-issues"></a>심각한 복제 상태 문제
@@ -91,17 +91,17 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 1. 최신 버전의 Integration Services가 설치되고 실행 중인지 확인합니다.  Hyper-V 호스트의 관리자 권한 PowerShell 프롬프트에서 **get-vm  | select Name, State, IntegrationServicesState** 명령을 실행하여 업데이트를 사용할 수 있는지 확인합니다.
 2. VSS 서비스가 실행되고 있으며 정상 상태인지 확인합니다.
-    - 서비스를 확인하려면 게스트 VM에 로그인합니다. 그런 다음, 관리자 명령 프롬프트를 열고 다음 명령을 실행하여 모든 VSS 기록기가 정상 상태인지 확인합니다.
-        - **Vssadmin list writers**
-        - **Vssadmin list shadows**
-        - **Vssadmin list providers**
-    - 출력을 확인합니다. 기록기가 실패 상태인 경우 다음을 수행합니다.
-        - VM의 애플리케이션 이벤트 로그에서 VSS 작업 오류를 확인합니다.
-    - 실패한 기록기와 관련된 다음 서비스를 다시 시작합니다.
-        - 볼륨 섀도 복사본
-         - Azure Site Recovery VSS 공급자
-    - 이렇게 한 후에 몇 시간 정도 기다렸다가 앱 일치 스냅숏이 제대로 생성되는지 확인합니다.
-    - 최후의 수단으로 VM을 다시 부팅합니다. 이렇게 하면 응답하지 않는 상태의 서비스가 해결될 수 있습니다.
+   - 서비스를 확인하려면 게스트 VM에 로그인합니다. 그런 다음, 관리자 명령 프롬프트를 열고 다음 명령을 실행하여 모든 VSS 기록기가 정상 상태인지 확인합니다.
+       - **Vssadmin list writers**
+       - **Vssadmin list shadows**
+       - **Vssadmin list providers**
+   - 출력을 확인합니다. 기록기가 실패 상태인 경우 다음을 수행합니다.
+       - VM의 애플리케이션 이벤트 로그에서 VSS 작업 오류를 확인합니다.
+   - 실패한 기록기와 관련된 다음 서비스를 다시 시작합니다.
+     - 볼륨 섀도 복사본
+       - Azure Site Recovery VSS 공급자
+   - 이렇게 한 후에 몇 시간 정도 기다렸다가 앱 일치 스냅숏이 제대로 생성되는지 확인합니다.
+   - 최후의 수단으로 VM을 다시 부팅합니다. 이렇게 하면 응답하지 않는 상태의 서비스가 해결될 수 있습니다.
 3. VM에 동적 디스크가 없는지 확인합니다. 이러한 디스크는 앱 일치 스냅숏에 지원되지 않습니다. 디스크 관리(diskmgmt.msc)에서 확인할 수 있습니다.
 
     ![동적 디스크](media/hyper-v-azure-troubleshoot/dynamic-disk.png)

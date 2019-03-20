@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: aeea0a0b00ceaa936352d549a86040c2cc460167
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f044aa006727fafb52c2c5e6c015c3e4cc70edf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153865"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57882016"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>첫 번째 Azure Service Fabric 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -44,19 +44,19 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 Ser
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
    nvm install node 
    ```
-2. NPM의 컴퓨터에 [Yeoman](http://yeoman.io/) 템플릿 생성기 설치
+2. NPM의 컴퓨터에 [Yeoman](https://yeoman.io/) 템플릿 생성기 설치
 
-  ```bash
-  npm install -g yo
-  ```
+   ```bash
+   npm install -g yo
+   ```
 3. NPM에서 Service Fabric Yeoman C# 애플리케이션 생성기 설치
 
-  ```bash
-  npm install -g generator-azuresfcsharp
-  ```
+   ```bash
+   npm install -g generator-azuresfcsharp
+   ```
 
 ## <a name="create-the-application"></a>애플리케이션 만들기
-Service Fabric 애플리케이션은 애플리케이션의 기능을 제공하는 특정 역할이 있는 하나 이상의 서비스를 포함할 수 있습니다. 마지막 단계에서 설치한 C#용 Service Fabric [Yeoman](http://yeoman.io/) 생성기를 통해 쉽게 첫 번째 서비스를 만들고 나중에 더 추가할 수 있습니다. 단일 서비스를 사용하여 애플리케이션을 만들기 위해 Yeoman을 사용해 보겠습니다.
+Service Fabric 애플리케이션은 애플리케이션의 기능을 제공하는 특정 역할이 있는 하나 이상의 서비스를 포함할 수 있습니다. 마지막 단계에서 설치한 C#용 Service Fabric [Yeoman](https://yeoman.io/) 생성기를 통해 쉽게 첫 번째 서비스를 만들고 나중에 더 추가할 수 있습니다. 단일 서비스를 사용하여 애플리케이션을 만들기 위해 Yeoman을 사용해 보겠습니다.
 
 1. 터미널에서 다음 명령을 입력하여 스캐폴딩 구축을 시작합니다. `yo azuresfcsharp`
 2. 애플리케이션의 이름을 지정합니다.

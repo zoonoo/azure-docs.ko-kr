@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: cb763327eb292feb9d58fb21b1ca808a3f2909aa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: e4a86585fbf1e00512e9e8e111a9a259663f8a26
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145228"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536781"
 ---
 # <a name="tpm-attestation"></a>TPM 증명
 
 IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터치 디바이스 프로비저닝을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. 디바이스 프로비저닝 서비스를 사용하여 안전한 방식으로 수백만 개의 디바이스를 프로비전할 수 있습니다.
 
-이 문서에서는 [TPM](./concepts-device.md)을 사용하는 경우 ID 증명 프로세스를 설명합니다. TPM은 신뢰할 수 있는 플랫폼 모듈을 의미하고 HSM(하드웨어 보안 모듈)의 형식입니다. 이 문서에서는 불연속, 펌웨어 또는 통합 TPM을 사용한다고 가정합니다. 소프트웨어 에뮬레이트된 TPM은 프로토타이핑 또는 테스트에 적합하지만 불연속, 펌웨어 또는 통합 TPM이 제공하는 것과 동일한 수준의 보안을 제공하지 않습니다. 프로덕션 환경에서 TPM 소프트웨어를 사용하는 것은 좋지 않습니다. TPM 유형에 대한 자세한 내용은 [TPM에 대한 간략한 소개](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf)를 참조하세요.
+이 문서에서는 [TPM](./concepts-device.md)을 사용하는 경우 ID 증명 프로세스를 설명합니다. TPM은 신뢰할 수 있는 플랫폼 모듈을 의미하고 HSM(하드웨어 보안 모듈)의 형식입니다. 이 문서에서는 불연속, 펌웨어 또는 통합 TPM을 사용한다고 가정합니다. 소프트웨어 에뮬레이트된 TPM은 프로토타이핑 또는 테스트에 적합하지만 불연속, 펌웨어 또는 통합 TPM이 제공하는 것과 동일한 수준의 보안을 제공하지 않습니다. 프로덕션 환경에서 TPM 소프트웨어를 사용하는 것은 좋지 않습니다. TPM 유형에 대한 자세한 내용은 [TPM에 대한 간략한 소개](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf)를 참조하세요.
 
 이 문서는 HMAC 키 지원 및 해당 인증 키가 있는 TPM 2.0을 사용하는 디바이스에 해당합니다. 인증을 위해 X.509 인증서를 사용하는 디바이스에 대한 것이 아닙니다. TPM은 신뢰할 수 있는 컴퓨팅 그룹에서 업계 차원의 ISO 표준이며, [TPM 2.0 사양 완료](https://trustedcomputinggroup.org/tpm-library-specification/) 또는 [ISO/IEC 11889 사양](https://www.iso.org/standard/66510.html)에서 TPM에 대해 자세히 알아볼 수 있습니다. 이 문서에서는 공개 및 개인 키 쌍과 암호화에 사용되는 방법을 잘 알고 있다고 가정합니다.
 
@@ -35,7 +35,7 @@ TPM에는 SRK(저장소 루트 키)라고 하는 다른 유형의 키가 있습�
 
 ![TPM의 소유권 가져오기](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-TPM의 소유권 가져오기에 대한 참고 사항: TPM의 소유권 가져오기는 TPM 제조업체, 사용 중인 TPM 도구 집합 및 디바이스 OS를 포함한 여러 가지 요인에 따라 달라집니다. 시스템과 관련된 지침을 따라 소유권을 가져옵니다.
+Tpm 소유권에 대 한 한 가지 주의할 점은 TPM의 소유권, TPM 제조업체, 사용 중인 TPM 도구 집합 및 장치 OS 포함 하 여 여러 가지 요인에 따라 달라 집니다. 시스템과 관련된 지침을 따라 소유권을 가져옵니다.
 
 디바이스 프로비저닝 서비스는 EK(EK_pub)의 공용 부분을 사용하여 디바이스를 식별하고 등록합니다. 디바이스 공급 업체는 제조 또는 최종 테스트하는 동안 EK_pub를 읽을 수 있으며 프로비전에 연결할 때 디바이스를 인식할 수 있도록 EK_pub를 프로비저닝 서비스에 업로드할 수 있습니다. 디바이스 프로비저닝 서비스는 SRK 또는 소유자를 확인하지 않으므로 TPM을 "지우는 것"은 고객 데이터를 지우지만 EK(및 다른 공급 업체 데이터)는 유지되고 디바이스는 프로비전에 연결할 때 디바이스 프로비저닝 서비스에서 여전히 인식됩니다.
 

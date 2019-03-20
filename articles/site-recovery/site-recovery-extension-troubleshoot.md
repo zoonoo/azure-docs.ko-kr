@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 7a4ff22bbb4c7c13d8c2feae3638ce8e33a8f7ad
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845827"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103539"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Azure Site Recovery 에이전트를 사용하여 문제 해결
 
@@ -77,15 +77,15 @@ Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이�
 
 1. [Linux VM 에이전트 업데이트](../virtual-machines/linux/update-agent.md)의 지침을 따르세요.
 
- > [!NOTE]
- > 배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 *강력히 권장*합니다. GitHub에서 에이전트 코드를 직접 다운로드한 후 업데이트하는 것은 바람직하지 않습니다. 최신 에이전트를 배포할 수 없는 경우 배포 지원에 문의하여 설치 방법에 대한 지침을 얻으세요. 최신 에이전트를 확인하려면 GitHub 리포지토리의 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 페이지로 이동하세요.
+   > [!NOTE]
+   > 배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 *강력히 권장*합니다. GitHub에서 에이전트 코드를 직접 다운로드한 후 업데이트하는 것은 바람직하지 않습니다. 최신 에이전트를 배포할 수 없는 경우 배포 지원에 문의하여 설치 방법에 대한 지침을 얻으세요. 최신 에이전트를 확인하려면 GitHub 리포지토리의 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 페이지로 이동하세요.
 
 2. `ps -e` 명령을 실행하여 VM에 Azure 에이전트가 실행 중인지 확인합니다.
 
- 이 프로세스가 실행되고 있지 않으면 다음 명령을 사용하여 다시 시작합니다.
+   이 프로세스가 실행되고 있지 않으면 다음 명령을 사용하여 다시 시작합니다.
 
- * Ubuntu의 경우: `service walinuxagent start`
- * 기타 배포의 경우: `service waagent start`
+   * Ubuntu의 경우: `service walinuxagent start`
+   * 기타 배포의 경우: `service waagent start`
 
 3. [에이전트 자동 다시 시작을 구성합니다](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. 가상 머신의 보호를 사용하도록 설정합니다.

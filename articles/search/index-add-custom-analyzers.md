@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 957c8033efc386d8e8cb13cbed921c597af4f11b
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 8eb762e8a18ea5de25413681894f692628493a2f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302083"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842858"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Azure Search 인덱스에 사용자 지정 분석기 추가
 
@@ -42,17 +42,17 @@ ms.locfileid: "56302083"
 
  사용자 지정 분석기에서 사용된 인기 있는 시나리오는 다음과 같습니다.  
 
--   음성 검색. 음성 필터를 추가하여 단어의 철자가 아닌 소리를 기반으로 검색을 사용합니다.  
+- 음성 검색. 음성 필터를 추가하여 단어의 철자가 아닌 소리를 기반으로 검색을 사용합니다.  
 
--   어휘 분석 사용 안 함. 키워드 분석기를 사용하여 분석되지 않은 검색 가능한 필드를 만듭니다  
+- 어휘 분석 사용 안 함. 키워드 분석기를 사용하여 분석되지 않은 검색 가능한 필드를 만듭니다  
 
--   빠른 접두사/접미사 검색. 단어의 인덱스 접두사에 N-gram 토큰 필터를 추가하여 빠른 접두사 일치를 사용합니다. 역방향 토큰 필터와 결합하여 접미사 일치를 수행합니다.  
+- 빠른 접두사/접미사 검색. 단어의 인덱스 접두사에 N-gram 토큰 필터를 추가하여 빠른 접두사 일치를 사용합니다. 역방향 토큰 필터와 결합하여 접미사 일치를 수행합니다.  
 
--   사용자 지정 토큰화. 예를 들어 공백을 구분 기호로 사용하여 토큰에 문장을 분리하도록 공백 토크나이저를 사용합니다.  
+- 사용자 지정 토큰화. 예를 들어 공백을 구분 기호로 사용하여 토큰에 문장을 분리하도록 공백 토크나이저를 사용합니다.  
 
--   ASCII 접기. 표준 ASCII 접기 필터를 추가하여 검색 용어에서 ö 또는 ê와 같은 분음 부호를 정규화합니다.  
+- ASCII 접기. 표준 ASCII 접기 필터를 추가하여 검색 용어에서 ö 또는 ê와 같은 분음 부호를 정규화합니다.  
 
- 이 페이지는 지원되는 분석기, 토크나이저, 토큰 필터 및 문자 필터의 목록을 제공합니다. 사용 예제에서 인덱스 정의에 대한 변경 설명을 확인할 수도 있습니다. Azure Search 구현에 활용되는 기본 기술에 대한 자세한 배경 정보는 [분석 패키지 요약(Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html)을 참조하세요. 분석기 구성의 예제는 [Azure Search의 분석기 추가](search-analyzers.md#examples)를 참조하세요.
+  이 페이지는 지원되는 분석기, 토크나이저, 토큰 필터 및 문자 필터의 목록을 제공합니다. 사용 예제에서 인덱스 정의에 대한 변경 설명을 확인할 수도 있습니다. Azure Search 구현에 활용되는 기본 기술에 대한 자세한 배경 정보는 [분석 패키지 요약(Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html)을 참조하세요. 분석기 구성의 예제는 [Azure Search의 분석기 추가](search-analyzers.md#examples)를 참조하세요.
 
 ## <a name="validation-rules"></a>유효성 검사 규칙  
  분석기, 토크나이저, 토큰 필터 및 문자 필터의 이름은 고유해야 하며 미리 정의된 분석기, 토크나이저, 토큰 필터 또는 문자 필터와 같을 수 없습니다. 이미 사용 중인 이름에 대해서는 [속성 참조](#PropertyReference)를 참조하세요.
@@ -62,81 +62,81 @@ ms.locfileid: "56302083"
 
  분석기 정의에는 토큰화 후 처리를 위한 이름, 형식, 하나 이상의 문자 필터, 최대 하나의 토크나이저가 포함됩니다. 문자 필터는 토큰화 전에 적용됩니다. 토큰 필터 및 문자 필터는 왼쪽에서 오른쪽으로 적용됩니다.
 
- `tokenizer_name`은 토크나이저의 이름이고, `token_filter_name_1` 및 `token_filter_name_2`는 토큰 필터의 이름이고, `char_filter_name_1` 및 `char_filter_name_2`는 문자 필터의 이름입니다(유효한 값에 대해서는 [토크나이저](#Tokenizers), [토큰 필터](#TokenFilters) 및 [문자 필터](#CharFilters) 테이블 참조).
+ `tokenizer_name` 토크 나이저를의 이름인 `token_filter_name_1` 및 `token_filter_name_2` 토큰 필터의 이름 및 `char_filter_name_1` 및 `char_filter_name_2` char 이름을 필터가 (참조를 [토크 나이저](#Tokenizers), [ 토큰 필터](#TokenFilters) Char 유효한 값에 대 한 테이블을 필터링).
 
 분석기 정의는 더 큰 인덱스의 일부입니다. 나머지 인덱스에 대한 내용은 [인덱스 만들기 API](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
 
-```  
-"analyzers":(optional)[  
-   {  
-      "name":"name of analyzer",  
-      "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",  
-      "charFilters":[  
-         "char_filter_name_1",  
-         "char_filter_name_2"  
-      ],  
-      "tokenizer":"tokenizer_name",  
-      "tokenFilters":[  
-         "token_filter_name_1",  
-         "token_filter_name_2"  
-      ]  
-   },  
-   {  
-      "name":"name of analyzer",  
-      "@odata.type":"#analyzer_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"charFilters":(optional)[  
-   {  
-      "name":"char_filter_name",  
-      "@odata.type":"#char_filter_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"tokenizers":(optional)[  
-   {  
-      "name":"tokenizer_name",  
-      "@odata.type":"#tokenizer_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-],  
-"tokenFilters":(optional)[  
-   {  
-      "name":"token_filter_name",  
-      "@odata.type":"#token_filter_type",  
-      "option1":value1,  
-      "option2":value2,  
-      ...  
-   }  
-]  
-```  
+```
+"analyzers":(optional)[
+   {
+      "name":"name of analyzer",
+      "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
+      "charFilters":[
+         "char_filter_name_1",
+         "char_filter_name_2"
+      ],
+      "tokenizer":"tokenizer_name",
+      "tokenFilters":[
+         "token_filter_name_1",
+         "token_filter_name_2"
+      ]
+   },
+   {
+      "name":"name of analyzer",
+      "@odata.type":"#analyzer_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"charFilters":(optional)[
+   {
+      "name":"char_filter_name",
+      "@odata.type":"#char_filter_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"tokenizers":(optional)[
+   {
+      "name":"tokenizer_name",
+      "@odata.type":"#tokenizer_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+],
+"tokenFilters":(optional)[
+   {
+      "name":"token_filter_name",
+      "@odata.type":"#token_filter_type",
+      "option1":value1,
+      "option2":value2,
+      ...
+   }
+]
+```
 
 > [!NOTE]  
 >  만든 사용자 지정 분석기는 Azure 포털에서 노출되지 않습니다. 사용자 지정 분석기를 추가하는 유일한 방법은 인덱스를 정의할 때 API를 호출하는 코드를 통해서입니다.  
 
  인덱스 정의 내에서 인덱스 만들기 요청 본문의 아무 위치에나 이 섹션을 배치할 수 있지만 일반적으로는 맨 끝에 배치합니다.  
 
-```  
-{  
-  "name": "name_of_index",  
-  "fields": [ ],  
-  "suggesters": [ ],  
-  "scoringProfiles": [ ],  
-  "defaultScoringProfile": (optional) "...",  
-  "corsOptions": (optional) { },  
-  "analyzers":(optional)[ ],  
-  "charFilters":(optional)[ ],  
-  "tokenizers":(optional)[ ],  
-  "tokenFilters":(optional)[ ]  
-}  
-```  
+```
+{
+  "name": "name_of_index",
+  "fields": [ ],
+  "suggesters": [ ],
+  "scoringProfiles": [ ],
+  "defaultScoringProfile": (optional) "...",
+  "corsOptions": (optional) { },
+  "analyzers":(optional)[ ],
+  "charFilters":(optional)[ ],
+  "tokenizers":(optional)[ ],
+  "tokenFilters":(optional)[ ]
+}
+```
 
 문자 필터, 토크나이저 및 토큰 필터의 정의는 사용자 지정 옵션을 설정하는 경우에만 인덱스에 추가됩니다. 기존 필터 또는 토크나이저를 있는 그대로 사용하려면 분석기 정의에서 이름으로 지정합니다.
 
@@ -189,7 +189,7 @@ ms.locfileid: "56302083"
   }
 ```
 
- ## <a name="update-custom-analyzers"></a>사용자 지정 분석기 업데이트
+## <a name="update-custom-analyzers"></a>사용자 지정 분석기 업데이트
 
 분석기, 토크나이저, 토큰 필터 또는 문자 필터는 일단 정의한 후에는 수정할 수 없습니다. 인덱스 업데이트 요청에서 `allowIndexDowntime` 플래그가 true로 설정된 경우에만 이러한 새 항목을 기존 인덱스에 추가할 수 있습니다.
 
@@ -205,7 +205,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 아래 표에는 인덱스 정의의 분석기, 토크나이저, 토큰 필터 및 문자 필터 섹션에 대한 구성 속성이 나와 있습니다. 인덱스의 분석기, 토크나이저 또는 필터의 구조는 이러한 특성으로 구성됩니다. 값 할당 정보에 대해서는 [속성 참조](#PropertyReference)를 참조하세요.
 
- ### <a name="analyzers"></a>분석기
+### <a name="analyzers"></a>분석기
 
 분석기의 경우, 인덱스 특성은 미리 정의된 분석기를 사용하는지 또는 사용자 지정 분석기를 사용하는지에 따라 다릅니다.
 
@@ -213,7 +213,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 |||  
 |-|-|  
-|Name|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
+|이름|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
 |Type|지원되는 분석기 목록에 포함된 분석기 형식입니다. 아래의 [분석기](#AnalyzerTable) 표에서 **analyzer_type** 열을 참조하세요.|  
 |옵션|아래의 [분석기](#AnalyzerTable) 표에 나열된 미리 정의된 분석기의 유효한 옵션이어야 합니다.|  
 
@@ -221,7 +221,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 |||  
 |-|-|  
-|Name|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
+|이름|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
 |Type|"#Microsoft.Azure.Search.CustomAnalyzer"여야 합니다.|  
 |CharFilters|[문자 필터](#CharFilter) 표에 나열된 미리 정의된 문자 필터 중 하나 또는 인덱스 정의에 지정된 사용자 지정 문자 필터로 설정합니다.|  
 |토크나이저|필수 사항입니다. 아래의 [토크나이저](#Tokenizers) 표에 나열된 미리 정의된 토크나이저 중 하나 또는 인덱스 정의에 지정된 사용자 지정 토크나이저로 설정합니다.|  
@@ -229,17 +229,17 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 <a name="CharFilter"></a>
 
- ### <a name="char-filters"></a>문자 필터
+### <a name="char-filters"></a>문자 필터
 
  문자 필터는 토크나이저에서 처리되기 전의 입력 텍스트를 준비하는 데 사용됩니다. 예를 들어, 특정 문자 또는 기호를 대신할 수 있습니다. 하나의 사용자 지정 분석기에서 여러 토큰 필터를 사용할 수 있습니다. 토큰 필터는 나열된 순서로 실행됩니다.  
 
 |||  
 |-|-|  
-|Name|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
+|이름|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
 |Type|지원되는 문자 필터 목록의 문자 필터 형식입니다. [문자 필터](#CharFilter) 표의 **char_filter_type** 열을 참조하세요.|  
 |옵션|지정된 [문자 필터](#CharFilter) 형식의 유효한 옵션이어야 합니다.|  
 
- ### <a name="tokenizers"></a>토크나이저
+### <a name="tokenizers"></a>토크나이저
 
  문장을 단어로 분리하는 것처럼 토크나이저는 연속된 텍스트를 토큰의 시퀀스로 분리합니다.  
 
@@ -248,18 +248,18 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 |||  
 |-|-|  
-|Name|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
+|이름|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
 |Type|지원되는 토크나이저 목록의 토크나이저 이름입니다. [토크나이저](#Tokenizers) 표의 **tokenizer_type** 열을 참조하세요.|  
 |옵션|아래의 [토크나이저](#Tokenizers) 표에 나열된 지정된 토크나이저 형식의 유효한 옵션이어야 합니다.|  
 
- ### <a name="token-filters"></a>토큰 필터
+### <a name="token-filters"></a>토큰 필터
 
  토큰 필터는 토크나이저에서 생성된 토큰을 필터링하거나 수정하는 데 사용됩니다. 예를 들어, 모든 문자를 소문자로 변환하는 소문자 필터를 지정할 수 있습니다.   
 사용자 지정 분석기에서 여러 토큰 필터를 사용할 수 있습니다. 토큰 필터는 나열된 순서로 실행합니다.  
 
 |||  
 |-|-|  
-|Name|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
+|이름|문자, 숫자, 공백, 대시 또는 밑줄만 사용해야 하며 영숫자 문자로만 시작하고 끝낼 수 있습니다. 길이는 128자로 제한됩니다.|  
 |Type|지원되는 토큰 필터 목록의 토큰 필터 이름입니다. [토큰 필터](#TokenFilters) 표의 **token_filter_type** 열을 참조하세요.|  
 |옵션|지정된 토큰 필터 형식의 [토큰 필터](#TokenFilters)여야 합니다.|  
 
@@ -344,7 +344,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |[dictionary_decompounder](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/compound/DictionaryCompoundWordTokenFilter.html)|DictionaryDecompounderTokenFilter|많은 게르만어파에 있는 복합 단어를 분해합니다.<br /><br /> **옵션**<br /><br /> wordList (type: string array) - 일치하는지 검색할 단어의 목록입니다. 기본값은 빈 목록입니다. 필수 사항입니다.<br /><br /> minWordSize (type: int) - 이보다 긴 단어만 처리합니다. 기본값은 5입니다.<br /><br /> minSubwordSize (type: int) - 이보다 긴 부분 단어만 출력합니다. 기본값은 2입니다.<br /><br /> maxSubwordSize (type: int) - 이보다 짧은 부분 단어만 출력합니다. 기본값은 15입니다.<br /><br /> onlyLongestMatch (type: bool) - 가장 긴 일치 부분 단어만 출력에 추가합니다. 기본값은 false입니다.|  
 |[edgeNGram_v2](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenFilter.html)|EdgeNGramTokenFilterV2|입력 토큰의 맨 앞 또는 맨 뒤에서 시작해서 지정된 크기의 n-gram을 생성합니다.<br /><br /> **옵션**<br /><br /> minGram (type: int) - 기본값: 1, 최대: 300.<br /><br /> maxGram(type: int) - 기본값: 2, 최대는 300입니다. minGram보다 커야 합니다.<br /><br /> side (type: string) - n-gram 생성을 시작할 입력의 부분을 지정합니다. 사용할 수 있는 값은 "front", "back"입니다. |  
 |[elision](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/util/ElisionFilter.html)|ElisionTokenFilter|생략 발음을 제거합니다. 예를 들어, "l'avion"(그 비행기)은 "avion"(비행기)으로 변환됩니다.<br /><br /> **옵션**<br /><br /> articles (type: string array) - 제거할 문서 세트입니다. 기본값은 빈 목록입니다. 문서 세트 목록이 없으면 기본적으로 모든 프랑스어 문서가 제거됩니다.|  
-|[german_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/de/GermanNormalizationFilter.html)|(형식은 옵션이 사용 가능할 때만 적용됨)  |[German2 스노우볼 알고리즘](https://snowball.tartarus.org/algorithms/german2/stemmer.html)의 추론에 따라 독일어 문자를 정규화합니다.|  
+|[german_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/de/GermanNormalizationFilter.html)|(형식은 옵션이 사용 가능할 때만 적용됨)  |[German2 스노우볼 알고리즘](https://snowballstem.org/algorithms/german2/stemmer.html)의 추론에 따라 독일어 문자를 정규화합니다.|  
 |[hindi_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/hi/HindiNormalizationFilter.html)|(형식은 옵션이 사용 가능할 때만 적용됨)  |힌디어의 텍스트를 정규화하여 철자 변형의 차이를 제거합니다. |  
 |[indic_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/in/IndicNormalizationFilter.html)|IndicNormalizationTokenFilter|인도어 텍스트의 유니코드 표현을 정규화합니다.
 |[keep](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/KeepWordFilter.html)|KeepTokenFilter|지정된 단어 목록에 포함된 텍스트가 있는 토큰만 유지하는 토큰 필터입니다.<br /><br /> **옵션**<br /><br /> keepWords (type: string array) - 유지할 단어 목록입니다. 기본값은 빈 목록입니다. 필수 사항입니다.<br /><br /> keepWordsCase (type: bool) - true이면 먼저 모든 단어를 소문자로 지정합니다. 기본값은 false입니다.|  
@@ -366,7 +366,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 |[shingle](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/shingle/ShingleFilter.html)|ShingleTokenFilter|토큰의 조합을 단일 토큰으로 만듭니다.<br /><br /> **옵션**<br /><br /> maxShingleSize (type: int) - 기본값은 2입니다.<br /><br /> minShingleSize (type: int) - 기본값은 2입니다.<br /><br /> outputUnigrams (type: bool) - true인 경우 출력 스트림은 shingle 뿐만 아니라 입력 토큰(유니그램)을 포함합니다. 기본값은 true입니다.<br /><br /> outputUnigramsIfNoShingles (type: bool) - true이면 사용할 수 있는 shingle이 없는 경우 outputUnigrams==false의 동작을 재정의합니다. 기본값은 false입니다.<br /><br /> tokenSeparator (type: string) - 인접한 토큰을 조인하여 shingle을 만들 때 사용할 문자열입니다. 기본값은 " "입니다.<br /><br /> filterToken (type: string) - 토큰이 없는 각 위치에 삽입할 문자열입니다. 기본값은 "_"입니다.|  
 |[snowball](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/snowball/SnowballFilter.html)|SnowballTokenFilter|스노우볼 토큰 필터입니다.<br /><br /> **옵션**<br /><br /> language (type: string) - 사용할 수 있는 값은 "armenian", "basque", "catalan", "danish", "dutch", "english", "finnish", "french", "german", "german2", "hungarian", "italian", "kp", "lovins", "norwegian", "porter", "portuguese", "romanian", "russian", "spanish", "swedish", "turkish"입니다.|  
 |[sorani_normalization](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/ckb/SoraniNormalizationFilter.html)|SoraniNormalizationTokenFilter|소라니어 텍스트의 유니코드 표현을 정규화합니다.<br /><br /> **옵션**<br /><br /> 없음.|  
-|stemmer|StemmerTokenFilter|언어별 형태소 분석 필터입니다.<br /><br /> **옵션**<br /><br /> language (type: string) - 다음 값을 사용할 수 있습니다. <br /> -   ["arabic"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ar/ArabicStemmer.html)<br />-   ["armenian"](https://snowball.tartarus.org/algorithms/armenian/stemmer.html)<br />-   ["basque"](https://snowball.tartarus.org/algorithms/basque/stemmer.html)<br />-   ["brazilian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/br/BrazilianStemmer.html)<br />-   ["bulgarian"](https://members.unine.ch/jacques.savoy/Papers/BUIR.pdf)<br />-   ["catalan"](https://snowball.tartarus.org/algorithms/catalan/stemmer.html)<br />-   ["czech"](https://portal.acm.org/citation.cfm?id=1598600)<br />-   ["danish"](https://snowball.tartarus.org/algorithms/danish/stemmer.html)<br />-   ["dutch"](https://snowball.tartarus.org/algorithms/dutch/stemmer.html)<br />-   ["dutchKp"](https://snowball.tartarus.org/algorithms/kraaij_pohlmann/stemmer.html)<br />-   ["english"](https://snowball.tartarus.org/algorithms/porter/stemmer.html)<br />-   ["lightEnglish"](https://ciir.cs.umass.edu/pubfiles/ir-35.pdf)<br />-   ["minimalEnglish"](https://www.researchgate.net/publication/220433848_How_effective_is_suffixing)<br />-   ["possessiveEnglish"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/en/EnglishPossessiveFilter.html)<br />-   ["porter2"](https://snowball.tartarus.org/algorithms/english/stemmer.html)<br />-   ["lovins"](https://snowball.tartarus.org/algorithms/lovins/stemmer.html)<br />-   ["finnish"](https://snowball.tartarus.org/algorithms/finnish/stemmer.htm)<br />-   ["lightFinnish"](https://clef.isti.cnr.it/2003/WN_web/22.pdf)<br />-   ["french"](https://snowball.tartarus.org/algorithms/french/stemmer.html)<br />-   ["lightFrench"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalFrench"](https://dl.acm.org/citation.cfm?id=318984)<br />-   ["galician"](https://bvg.udc.es/recursos_lingua/stemming.jsp)<br />-   ["minimalGalician"](https://bvg.udc.es/recursos_lingua/stemming.jsp)<br />-   ["german"](https://snowball.tartarus.org/algorithms/german/stemmer.html)<br />-   ["german2"](https://snowball.tartarus.org/algorithms/german2/stemmer.html)<br />-   ["lightGerman"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalGerman"](https://members.unine.ch/jacques.savoy/clef/morpho.pdf)<br />-   ["greek"](https://sais.se/mthprize/2007/ntais2007.pdf)<br />-   ["hindi"](https://computing.open.ac.uk/Sites/EACLSouthAsia/Papers/p6-Ramanathan.pdf)<br />-   ["hungarian"](https://snowball.tartarus.org/algorithms/hungarian/stemmer.html)<br />-   ["lightHungarian"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["indonesian"](https://www.illc.uva.nl/Publications/ResearchReports/MoL-2003-02.text.pdf)<br />-   ["irish"](https://snowball.tartarus.org/otherapps/oregan/intro.html)<br />-   ["italian"](https://snowball.tartarus.org/algorithms/italian/stemmer.html)<br />-   ["lightItalian"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["sorani"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ckb/SoraniStemmer.html)<br />-   ["latvian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/lv/LatvianStemmer.html)<br />-   ["norwegian"](https://snowball.tartarus.org/algorithms/norwegian/stemmer.html)<br />-   ["lightNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["lightNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["portuguese"](https://snowball.tartarus.org/algorithms/portuguese/stemmer.html)<br />-   ["lightPortuguese"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["minimalPortuguese"](https://www.inf.ufrgs.br/~buriol/papers/Orengo_CLEF07.pdf)<br />-   ["portugueseRslp"](https://www.inf.ufrgs.br//~viviane/rslp/index.htm)<br />-   ["romanian"](https://snowball.tartarus.org/algorithms/romanian/stemmer.html)<br />-   ["russian"](https://snowball.tartarus.org/algorithms/russian/stemmer.html)<br />-   ["lightRussian"](https://doc.rero.ch/lm.php?url=1000%2C43%2C4%2C20091209094227-CA%2FDolamic_Ljiljana_-_Indexing_and_Searching_Strategies_for_the_Russian_20091209.pdf)<br />-   ["spanish"](https://snowball.tartarus.org/algorithms/spanish/stemmer.html)<br />-   ["lightSpanish"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["swedish"](https://snowball.tartarus.org/algorithms/swedish/stemmer.html)<br />-   ["lightSwedish"](https://clef.isti.cnr.it/2003/WN_web/22.pdf)<br />-   ["turkish"](https://snowball.tartarus.org/algorithms/turkish/stemmer.html)|  
+|stemmer|StemmerTokenFilter|언어별 형태소 분석 필터입니다.<br /><br /> **옵션**<br /><br /> language (type: string) - 다음 값을 사용할 수 있습니다. <br /> -   ["arabic"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ar/ArabicStemmer.html)<br />-   ["armenian"](https://snowballstem.org/algorithms/armenian/stemmer.html)<br />-   ["basque"](https://snowballstem.org/algorithms/basque/stemmer.html)<br />-   ["brazilian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/br/BrazilianStemmer.html)<br />-   "bulgarian"<br />-   ["catalan"](https://snowballstem.org/algorithms/catalan/stemmer.html)<br />-   ["czech"](https://portal.acm.org/citation.cfm?id=1598600)<br />-   ["danish"](https://snowballstem.org/algorithms/danish/stemmer.html)<br />-   ["dutch"](https://snowballstem.org/algorithms/dutch/stemmer.html)<br />-   ["dutchKp"](https://snowballstem.org/algorithms/kraaij_pohlmann/stemmer.html)<br />-   ["english"](https://snowballstem.org/algorithms/porter/stemmer.html)<br />-   ["lightEnglish"](https://ciir.cs.umass.edu/pubfiles/ir-35.pdf)<br />-   ["minimalEnglish"](https://www.researchgate.net/publication/220433848_How_effective_is_suffixing)<br />-   ["possessiveEnglish"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/en/EnglishPossessiveFilter.html)<br />-   ["porter2"](https://snowballstem.org/algorithms/english/stemmer.html)<br />-   ["lovins"](https://snowballstem.org/algorithms/lovins/stemmer.html)<br />-   ["finnish"](https://snowballstem.org/algorithms/finnish/stemmer.html)<br />-   "lightFinnish"<br />-   ["french"](https://snowballstem.org/algorithms/french/stemmer.html)<br />-   ["lightFrench"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalFrench"](https://dl.acm.org/citation.cfm?id=318984)<br />-   "galician"<br />-   "minimalGalician"<br />-   ["german"](https://snowballstem.org/algorithms/german/stemmer.html)<br />-   ["german2"](https://snowballstem.org/algorithms/german2/stemmer.html)<br />-   ["lightGerman"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   "minimalGerman"<br />-   ["greek"](https://sais.se/mthprize/2007/ntais2007.pdf)<br />-   "hindi"<br />-   ["hungarian"](https://snowballstem.org/algorithms/hungarian/stemmer.html)<br />-   ["lightHungarian"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["indonesian"](https://www.illc.uva.nl/Publications/ResearchReports/MoL-2003-02.text.pdf)<br />-   ["irish"](https://snowballstem.org/otherapps/oregan/)<br />-   ["italian"](https://snowballstem.org/algorithms/italian/stemmer.html)<br />-   ["lightItalian"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["sorani"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/ckb/SoraniStemmer.html)<br />-   ["latvian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/lv/LatvianStemmer.html)<br />-   ["norwegian"](https://snowballstem.org/algorithms/norwegian/stemmer.html)<br />-   ["lightNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNorwegian"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["lightNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNynorsk"](https://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["portuguese"](https://snowballstem.org/algorithms/portuguese/stemmer.html)<br />-   ["lightPortuguese"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["minimalPortuguese"](https://www.inf.ufrgs.br/~buriol/papers/Orengo_CLEF07.pdf)<br />-   ["portugueseRslp"](https://www.inf.ufrgs.br//~viviane/rslp/index.htm)<br />-   ["romanian"](https://snowballstem.org/otherapps/romanian/)<br />-   ["russian"](https://snowballstem.org/algorithms/russian/stemmer.html)<br />-   ["lightRussian"](https://doc.rero.ch/lm.php?url=1000%2C43%2C4%2C20091209094227-CA%2FDolamic_Ljiljana_-_Indexing_and_Searching_Strategies_for_the_Russian_20091209.pdf)<br />-   ["spanish"](https://snowballstem.org/algorithms/spanish/stemmer.html)<br />-   ["lightSpanish"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["swedish"](https://snowballstem.org/algorithms/swedish/stemmer.html)<br />-   "lightSwedish"<br />-   ["turkish"](https://snowballstem.org/algorithms/turkish/stemmer.html)|  
 |[stemmer_override](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/miscellaneous/StemmerOverrideFilter.html)|StemmerOverrideTokenFilter|모든 사전 형태소 용어를 키워드로 표시하여 체인이 형태소로 분석되지 않도록 합니다. 형태소 분석 필터 전에 배치해야 합니다.<br /><br /> **옵션**<br /><br /> rules (type: string array) - "word => stem" 형식의 형태소 분석 규칙입니다(예: "ran => run"). 기본값은 빈 목록입니다.  필수 사항입니다.|  
 |[stopwords](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopFilter.html)|StopwordsTokenFilter|토큰 스트림에서 중지 단어를 제거합니다. 기본적으로 필터는 영어의 경우 미리 정의된 중지 단어 목록을 사용합니다.<br /><br /> **옵션**<br /><br /> stopwords (type: string array) - 중지 단어 목록입니다. stopwordsList를 지정한 경우에는 지정할 수 없습니다.<br /><br /> stopwordsList (type: string) - 미리 정의한 중지 단어 목록입니다. stopwords를 지정한 경우에는 지정할 수 없습니다. 사용할 수 있는 값은 "arabic", "armenian", "basque", "brazilian", "bulgarian", "catalan", "czech", "danish", "dutch", "english", "finnish", "french", "galician", "german", "greek", "hindi", "hungarian", "indonesian", "irish", "italian", "latvian", "norwegian", "persian", "portuguese", "romanian", "russian", "sorani", "spanish", "swedish", "thai", "turkish", default: "english"입니다. stopwords를 지정한 경우에는 지정할 수 없습니다. <br /><br /> ignoreCase (type: bool) - true이면 모든 단어를 먼저 소문자로 나타냅니다. 기본값은 false입니다.<br /><br /> removeTrailing (type: bool) - true이면 마지막 검색 단어가 중지 단어인 경우 무시합니다. 기본값은 true입니다.
 |[synonym](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/synonym/SynonymFilter.html)|SynonymTokenFilter|토큰 스트림에서 일치하는 단일 또는 다중 단어 동의어를 검색합니다.<br /><br /> **옵션**<br /><br /> synonyms (type: string array) - 필수 항목입니다. 다음 두 가지 형식 중 하나를 갖는 동의어 목록입니다.<br /><br /> -incredible, unbelievable, fabulous => amazing - => 기호 왼쪽의 모든 용어는 오른쪽의 모든 용어로 바뀝니다.<br /><br /> -incredible, unbelievable, fabulous, amazing - 쉼표로 구분한 동일 단어 목록입니다. 이 목록을 해석하는 방식을 변경하려면 확장 옵션을 설정합니다.<br /><br /> ignoreCase (type: bool) - 일치하는 경우 입력의 대/소문자를 접습니다. 기본값은 false입니다.<br /><br /> expand (type: bool) - true이면 동의어 목록의 모든 단어(=> 표기법을 사용하지 않을 경우)가 서로 매핑합니다. <br />incredible, unbelievable, fabulous, amazing 목록은 incredible, unbelievable, fabulous, amazing => incredible, unbelievable, fabulous, amazing과 같습니다.<br /><br />- false이면 incredible, unbelievable, fabulous, amazing 목록은 incredible, unbelievable, fabulous, amazing => incredible과 같습니다.|  

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327564"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432637"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -63,10 +63,30 @@ Pod 문제를 해결하는 방법에 대한 자세한 내용은 [애플리케이
 
 Kubernetes 대시보드가 표시되지 않으면 `kube-proxy` pod가 `kube-system` 네임스페이스에서 실행되고 있는지를 확인합니다. 실행 중 상태가 아니면 pod를 삭제합니다. 그러면 다시 시작됩니다.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>kubectl logs를 사용하여 로그를 가져올 수 없고 API 서버에 연결할 수 없습니다. "서버 오류: error dialing backend: dial tcp…" 오류가 발생합니다. 어떻게 해야 하나요?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>kubectl logs를 사용하여 로그를 가져올 수 없고 API 서버에 연결할 수 없습니다. 발생 했습니다. "서버 오류: 오류 전화 걸기 백 엔드: tcp... 전화 접속"입니다. 어떻게 해야 하나요?
 
-기본 NSG(네트워크 보안 그룹)가 수정되지 않았는지와 API 서버 연결을 위해 포트 22가 열려 있는지 확인합니다. `tunnelfront` pod가 `kube-system` 네임스페이스에서 실행되는지 여부를 확인합니다. 실행되지 않으면 pod를 강제로 삭제합니다. 그러면 다시 시작됩니다.
+기본 네트워크 보안 그룹을 수정 되지 않습니다 및 포트 22 API 서버에 연결에 대해 열려 있는지 확인 합니다. 확인 여부를 `tunnelfront` pod에서 실행 되는 *kube 시스템* 네임 스페이스를 사용 하 여는 `kubectl get pods --namespace kube-system` 명령입니다. 실행되지 않으면 pod를 강제로 삭제합니다. 그러면 다시 시작됩니다.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>업그레이드하거나 크기를 조정하려고 하는데 "메시지": "'imageReference' 속성을 변경할 수 없습니다." 오류가 표시됩니다.  이 문제를 어떻게 해결하나요?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>업그레이드하거나 크기를 조정하려고 하는데 "메시지": "'imageReference' 속성을 변경할 수 없습니다." 오류가 표시됩니다. 이 문제를 어떻게 해결하나요?
 
 AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문에 이 오류가 발생하는 것일 수 있습니다. MC_* 리소스 그룹에서 태그 및 리소스의 기타 속성을 수정 및 삭제하면 예기치 않은 결과가 발생할 수 있습니다. AKS 클러스터의 MC_* 그룹 아래에서 리소스를 수정하면 SLO(서비스 수준 목표)가 중단됩니다.
+
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>클러스터가 실패 상태 이므로 업그레이드 또는 크기 조정 문제가 수정 될 때까지 작동 하지 것입니다는 오류가 발생 했습니다.
+
+*이 문제 해결 지원은에서 전달 됩니다. https://aka.ms/aks-cluster-failed*
+
+클러스터는 여러 가지 이유로 실패 한 상태로 전환 하는 경우이 오류가 발생 합니다. 이전에 실패 한 작업을 다시 시도 하기 전에 실패 하는 클러스터 상태를 해결 하려면 다음 단계를 수행 합니다.
+
+1. 클러스터의 초과 될 때까지 `failed` 상태 `upgrade` 고 `scale` 작업이 성공 하지 않습니다. 일반적인 루트 문제 및 해결 방법은 다음과 같습니다.
+    * 크기 조정 **부족 하 여 계산 (CRP) 할당량**합니다. 를 해결 하려면 먼저 할당량 내에서 안정적인 목표 상태로 클러스터를 확장 합니다. 다음 따르세요 [증가 한 계산 할당량을 요청 하려면 단계](../azure-supportability/resource-manager-core-quotas-request.md) 이상 초기 할당량 제한을 다시 확장 하 려 하기 전에 합니다.
+    * 고급 네트워킹이 사용 하 여 클러스터 크기를 조정 하 고 **부족 하 여 서브넷 (네트워킹) 리소스**합니다. 를 해결 하려면 먼저 할당량 내에서 안정적인 목표 상태로 클러스터를 확장 합니다. 다음 따릅니다 [증가 리소스 할당량을 요청 하려면 다음이 단계](../azure-resource-manager/resource-manager-quota-errors.md#solution) 이상 초기 할당량 제한을 다시 확장 하 려 하기 전에 합니다.
+2. 업그레이드 실패에 대 한 근본 원인을 해결 되 면 클러스터는 성공된 상태에 있어야 합니다. 성공된 상태를 확인 한 후에 원래 작업을 다시 시도 하세요.
+
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>업그레이드 하는 동안 또는 클러스터 상태는 확장 될 때 현재 되 고 오류가 발생 했습니다. 업그레이드 하거나 업그레이드 하지 못했습니다
+
+*이 문제 해결 지원은에서 전달 됩니다. https://aka.ms/aks-pending-upgrade*
+
+진행 중인 활성 업그레이드 작업 또는 업그레이드를 시도 했지만 이후에 실패 한 경우 클러스터 작업이 제한 됩니다. 실행 하 여 문제를 진단 `az aks show -g myResourceGroup -n myAKSCluster -o table` 클러스터의 자세한 상태를 검색 합니다. 결과 기반으로 합니다.
+
+* 클러스터 업그레이드 중 이므로 적극적으로 작업을 종료 될 때까지 기다립니다. 성공한 경우에 이전에 실패 한 작업을 다시 시도 합니다.
+* 클러스터 업그레이드에 실패 하는 경우 위에 설명 된 단계를 수행

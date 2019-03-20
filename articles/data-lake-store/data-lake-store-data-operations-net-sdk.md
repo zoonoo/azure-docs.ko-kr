@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 929ce0d984e53586c46f15f21b9e5c90c6a34771
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119499"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK를 사용한 Azure Data Lake Storage Gen1에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ ms.locfileid: "54402305"
       * `Microsoft.Azure.DataLake.Store` - 이 자습서는 v1.0.0을 사용합니다.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 이 자습서는 v2.3.1을 사용합니다.
     
-    **NuGet 패키지 관리자**를 닫습니다.
+      **NuGet 패키지 관리자**를 닫습니다.
 
 6. **Program.cs**를 열고 기존 코드를 삭제한 후 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
 
@@ -90,7 +90,7 @@ ms.locfileid: "54402305"
 
 문서의 나머지 섹션에서는 제공되는 .NET 메서드를 사용하여 인증, 파일 업로드 등의 작업을 수행하는 방법을 볼 수 있습니다.
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
 * 응용 프로그램에 대한 최종 사용자 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 최종 사용자 인증](data-lake-store-end-user-authenticate-net-sdk.md)을 참조하세요.
 * 응용 프로그램에 대한 서비스 간 인증의 경우 [.NET SDK를 사용한 Data Lake Storage Gen1의 서비스 간 인증](data-lake-store-service-to-service-authenticate-net-sdk.md)을 참조하세요.

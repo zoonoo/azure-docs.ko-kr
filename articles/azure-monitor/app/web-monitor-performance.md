@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8f5a0a22ecea0b5df0f4108984b2a65d4add2bf8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301777"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901171"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
 
@@ -112,7 +112,7 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 * 요청 수를 다른 메트릭과 비교하여 오류 또는 느린 응답이 부하와 관련되어 있는지 확인합니다.
 * 코드에서 [검사 추적 문을 삽입 및 검색][diagnostic]하여 문제를 파악합니다.
 * [라이브 메트릭 스트림][livestream]을 사용하여 작업에서 웹앱을 모니터링합니다.
-* [스냅숏 디버거][snapshot]를 사용하여 .Net 애플리케이션의 상태를 캡처합니다.
+* 사용 하 여.NET 응용 프로그램의 상태를 캡처하도록 [스냅숏 디버거][snapshot]합니다.
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>성능 조사 환경을 사용하여 성능 병목 현상 찾기 및 수정
 

@@ -9,14 +9,14 @@ ms.reviewer: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 63ce3587a2c48e7e03503e50a548ed372f511e37
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9458903378576a50db9be92b9377987829e1ba41
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082061"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200160"
 ---
 # <a name="load-data-from-sap-business-warehouse-bw-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP Business Warehouse (BW)에서 데이터 로드
 
@@ -40,7 +40,7 @@ ms.locfileid: "58082061"
 
   1. 설치 하 고 버전을 사용 하 여 자체 호스팅 IR을 등록 > = 3.13 (다음 연습에서 설명 됨). 
 
-  2. 다운로드 합니다 [64 비트 SAP.NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html) SAP의 웹 사이트에서 자체 호스팅 IR 컴퓨터에 설치 합니다.  경우 "선택적인 설정 단계" 창에서 설치 하세요.를 선택 해야 합니다 "**GAC에 어셈블리 설치**" 다음 그림과에서 같이 옵션입니다.
+  2. 다운로드 합니다 [64 비트 SAP.NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html) SAP의 웹 사이트에서 자체 호스팅 IR 컴퓨터에 설치 합니다.  경우 "선택적인 설정 단계" 창에서 설치를 선택 해야 합니다 "**GAC에 어셈블리 설치**" 다음 그림과에서 같이 옵션입니다.
 
      ![SAP.NET 커넥터 설정](media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
@@ -84,7 +84,7 @@ Go를 데이터 팩터리에 Azure portal에서 선택-> **작성 및 모니터�
 
    ![ADLS Gen2 연결 된 서비스 만들기](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
-   1. "스토리지 계정 이름" 드롭다운 목록에서 Data Lake Storage Gen2 계정을 선택합니다.
+   1. "저장소 계정 이름" 드롭 다운 목록에서 Data Lake 저장소 Gen2 지원 계정을 선택 합니다.
    2. **마침**을 선택하여 연결을 만듭니다. 그런 후 **다음**을 선택합니다.
 
 9. 에 **출력 파일 또는 폴더 선택** 페이지에서 출력 폴더 이름으로 "copyfromopenhub"를 입력 하 고 선택 **다음**합니다.
@@ -126,59 +126,67 @@ Go를 데이터 팩터리에 Azure portal에서 선택-> **작성 및 모니터�
 ## <a name="incremental-copy-from-sap-bw-open-hub"></a>SAP BW 오픈 허브에서 증분 복사
 
 > [!TIP]
-> 
-> 가리킵니다 [SAP BW 오픈 허브 커넥터 델타 추출 흐름](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) SAP BW에서 증분 데이터를 복사할 ADF 복사 작업 작동 하는 방법에 대해 자세히 알아보려면 합니다.
+>
+> 가리킵니다 [SAP BW 오픈 허브 커넥터 델타 추출 흐름](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) ADF SAP BW 오픈 허브 커넥터와 관련 된 커넥터의 기본 사항을 이해 하기 위해 처음부터이 문서를 읽고 SAP BW에서 데이터 증분 복사를 작동 하는 방식에 대해 자세히 알아보려면 구성입니다.
 
 이제 SAP BW 오픈 허브에서 증분 복사를 구성 하려면 계속 해 보겠습니다. 
 
-증분 복사본은 DTP 하 여 SAP BW Open Hub Destination에 자동으로 생성 된 ID는 요청에 따라 상위 워터 마크 메커니즘을 사용 합니다. 이 방식에 대한 워크플로는 다음 다이어그램과 같습니다.
+증분 복사본을 기반으로 하는 상위 워터 마크 메커니즘을 사용 하는 **요청 ID** DTP에서 SAP BW Open Hub Destination에 자동으로 생성 합니다. 이 방식에 대한 워크플로는 다음 다이어그램과 같습니다.
 
 ![증분 복사 워크플로](media/load-sap-bw-data/incremental-copy-workflow.png)
 
-ADF u **시작 해 보겠습니다** 페이지에서 **파이프라인 만들기**합니다. 
+ADF u **시작 해 보겠습니다** 페이지에서 **템플릿에서 파이프라인 만들기** 기본 제공 템플릿을 활용 하 여 합니다. 
 
-1. -세 가지 활동을 끌어서 놓아 **조회, 데이터 복사 및 웹** -캔버스 및 성공 시 연결을 확인 합니다. 이 연습에서는 사용 하 여 Azure Blob 저장 상위 워터 마크-최대 복사 요청 id입니다. 또한 SQL 데이터베이스를 사용 하 여 저장 하 고 웹 작업 대신 저장 프로시저 작업을 사용 하 여 업데이트할 수 있습니다.
+1. "SAP BW" 템플릿을 선택 하려면 검색 **SAP BW에서 Azure Data Lake 저장소 Gen2 증분 복사**합니다. 이 템플릿은 데이터를 ADLS Gen2를 복사, 나중에 다른 싱크 형식으로 복사 하는 비슷한 흐름을 따를 수 있습니다.
 
-   ![증분 복사 파이프라인](media/load-sap-bw-data/incremental-copy-pipeline.png)
+2. 템플릿 기본 페이지에서 선택 하거나 만든 다음 세 가지 연결 후 선택 **이 템플릿을 사용 하 여** 오른쪽 맨 아래에 있습니다.
 
-2. 조회 작업을 구성 합니다.
+   - **Azure Blob**:이 연습에서는를 사용 하 여 Azure Blob는 최대 복사 요청 ID입니다. 상위 워터 마크를 저장 합니다.
+   - **SAP BW Open Hub**: 원본에서 데이터를 복사 합니다. 이전 전체 복사본 연습 자세한 구성 정보 내용은을 참조 하십시오.
+   - **ADLS Gen2**: 싱크에 데이터를 복사 합니다. 이전 전체 복사본 연습 자세한 구성 정보 내용은을 참조 하십시오.
 
-   1. 조회 작업에서 **설정을** 탭 **만 첫 번째 행** 옵션입니다.
+   ![SAP BW 템플릿에서 증분 복사](media/load-sap-bw-data/incremental-copy-from-sap-bw-template.png)
 
-      ![조회 설정](media/load-sap-bw-data/lookup-settings.png)
+3. 이 템플릿은 세 개의 활동이-를 사용 하 여 파이프라인을 생성 **조회, 데이터 복사 및 웹** -하며, 해당 연결에 성공 합니다. 파이프라인으로 이동 **매개 변수** 탭 표시를 제공 해야 하는 모든 구성 합니다.
 
-   2. 구성 **원본 데이터 집합** 를 Blob 데이터 집합에 **파일 경로**를 상위 워터 마크와 최대 복사 요청 ID를 저장 하려는 blob를 가리키도록 형식 텍스트 형식으로 유지 합니다.
+   ![SAP BW 구성에서 증분 복사](media/load-sap-bw-data/incremental-copy-from-sap-bw-pipeline-config.png)
 
-      ![Blob 데이터 집합 설정](media/load-sap-bw-data/blob-dataset.png)
+   - **SAPOpenHubDestinationName**: 데이터를 복사해 올 오픈 허브 테이블 이름을 지정 합니다.
 
-   3. 해당 blob 경로에 콘텐츠 0 사용 하 여 blob을 만듭니다.
+   - **ADLSGen2SinkPath**: 데이터를 복사할 대상 ADLS Gen2 경로 지정 합니다. 경로가 없는 경우 ADF 복사 작업 실행 중 만들어집니다.
+
+   - **HighWatermarkBlobPath**: 예: 상위 워터 마크 값을 저장할 경로를 지정 `container/path`합니다. 
+
+   - **HighWatermarkBlobName**: 예: 상위 워터 마크 값을 저장할 blob 이름을 지정 `requestIdCache.txt`합니다. HighWatermarkBlobPath + HighWatermarkBlobName의 해당 경로에서 blob 저장소, 예: "*container/path/requestIdCache.txt*", 0 콘텐츠를 사용 하 여 blob을 만듭니다. 
 
       ![BLOB 콘텐츠](media/load-sap-bw-data/blob.png)
 
-3. 복사 작업을 구성 합니다. 
+   - **LogicAppURL**:이 서식 파일을 사용 하 여 웹 작업 Blob 저장소의 상위 워터 마크 값을 설정 하려면 논리 앱을 호출 합니다. 또는를 저장 한 값을 업데이트 하려면 저장 프로시저 작업을 사용 하 여 SQL database도 사용할 수 있습니다. 
 
-   1. **소스** 탭에서 구성할 **원본 데이터 집합** SAP BW Open Hub 데이터 집합으로 합니다. 
-
-   2. 편집 된 **SAP BW Open Hub 데이터 집합**:
-
-      1. **매개 변수** 탭에서 "요청 Id" 라는 매개 변수를 설정 합니다.
-      2. **연결** 탭을 열고 허브 테이블 이름을 지정 "제외 마지막 요청 ID"를 선택 하 고 식을 사용 하는 기본 요청 ID를 설정 유지 (동적 콘텐츠 추가) `@dataset().requestId`합니다.
-
-   3. 복사 작업으로 돌아가 **소스** 탭에서 식을 사용 하 여 "요청 Id" 값 구성 (동적 콘텐츠 추가) `@{activity('<look up activity name>').output.firstRow.Prop_0}`합니다. "조회를 활동 이름"을이 식에 적절 하 게 변경 합니다.
-
-      ![원본 복사 설정](media/load-sap-bw-data/copy-source.png)
-
-4. 웹 작업을 구성 합니다:이 웹 작업을 blob에 최대 복사 요청 ID를 저장 하도록 논리 앱을 호출 합니다.
-
-   1. Azure portal로 이동-> 새로 **논리 앱** 하나인 **HTTP 요청** 하나의 **blob 만들기** 다음과 같습니다. 위의 조회 작업 원본에서 구성 된 동일한 blob 파일을 사용 합니다. 복사 합니다 **HTTP POST URL** 는 웹 작업에서 사용 됩니다.
+      먼저, 다음과 같이 논리 앱을 생성 해야 하는 여기에 복사 합니다 **HTTP POST URL** 이 필드에 합니다. 
 
       ![논리 앱 구성](media/load-sap-bw-data/logic-app-config.png)
 
-   2. ADF 편집으로 돌아가기 **웹 작업** 아래와 같이 설정 합니다. 본문을 식으로 구성 (동적 콘텐츠 추가) `{"sapOpenHubMaxRequestId":"@{activity('CopyFromSap').output.sapOpenHubMaxRequestId}"}`합니다.
+      1. Azure portal로 이동-> 새로 **Logic Apps** 서비스-> **+ 빈 Logic App** 이동할 **Logic Apps 디자이너**합니다.
 
-      ![웹 작업 설정](media/load-sap-bw-data/web-activity-settings.png)
+      2. 트리거를 만듭니다 **경우는 HTTP 요청을 받은**합니다. HTTP 요청 본문을 다음과 같이 지정 합니다.
 
-5. 클릭 수 **디버그** 구성의 유효성을 검사 하거나 선택할 **모두 게시** 모든 변경 내용을 게시 클릭 **트리거** 실행을 합니다.
+         ```json
+         {
+            "properties": {
+               "sapOpenHubMaxRequestId": {
+                  "type": "string"
+               },
+               "type": "object"
+            }
+         }
+         ```
+
+      3. 작업을 추가 **blob 만들기**합니다. "Blob 이름"와 "폴더 경로"에 대 한 위의 HighWatermarkBlobPath 및 HighWatermarkBlobName 구성 된 동일한 값을 사용 합니다.
+
+      4. 클릭 **저장할**, 다음 값을 복사 **HTTP POST URL** ADF 파이프라인에서 사용 하 합니다.
+
+4. ADF 파이프라인 매개 변수에 대 한 모든 값을 제공한 후 클릭 **디버그** -> **마침** 구성 유효성 검사 실행을 호출 합니다. 또는 선택할 수 있습니다 **모두 게시** 모든 변경 내용을 게시할 클릭 **트리거** 실행을 합니다.
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>SAP BW Open Hub Destination 구성
 
@@ -190,7 +198,7 @@ ADF u **시작 해 보겠습니다** 페이지에서 **파이프라인 만들기
 
 1. 오픈 허브 대상을 (OHD) 만들기
 
-   OHD SAP 트랜잭션 RSA1에서 만들 수 있습니다. 이 문제는 자동으로 필요한 변환 및 데이터 전송 프로세스 (DTP)를 만듭니다. 다음 설정을 사용합니다.
+   자동으로 필요한 변환 및 데이터 전송 프로세스 (DTP)을 만드는 SAP 트랜잭션 RSA1는 OHD를 만들 수 있습니다. 다음 설정을 사용합니다.
 
    - 모든 개체 형식으로 사용할 수 있습니다. 여기 InfoCube를 예로 사용합니다.
    - **대상 유형:** *데이터베이스 테이블*
@@ -213,9 +221,9 @@ ADF u **시작 해 보겠습니다** 페이지에서 **파이프라인 만들기
 
 ### <a name="configure-full-extraction-in-sap-bw"></a>SAP BW에서 전체 추출 구성
 
-델타 추출 하는 것 외에도 동일한 InfoProvider의 전체 추출을 하는 것이 좋습니다. 하려는 또는 전체 증분 필요 없이 복사를 수행 하려는 경우 일반적으로 적용이 [델타 추출을 다시 동기화](#re-sync-delta-extraction)합니다.
+델타 추출 하는 것 외에도 동일한 InfoProvider의 전체 추출을 하는 것이 좋습니다. 하려는 또는 전체 증분 필요 없이 복사를 수행 하려는 경우 일반적으로 적용 [델타 추출을 다시 동기화](#re-sync-delta-extraction)합니다.
 
-동일한 OHD에 대 한 둘 이상의 DTP 아니어야 합니다. 따라서 델타 추출 보다는 추가 OHD를 만들 필요가 있습니다.
+동일한 OHD에 대 한 둘 이상의 DTP 아니어야 합니다. 따라서 추가 OHD 다음 델타 추출을 만들 필요가 있습니다.
 
 ![create-sap-bw-ohd-full](media/load-sap-bw-data/create-sap-bw-ohd-full.png)
 
@@ -229,11 +237,11 @@ ADF u **시작 해 보겠습니다** 페이지에서 **파이프라인 만들기
 
 - ADF SAP BW 오픈 허브 커넥터의: 옵션을 해제 "*제외 마지막 요청*"입니다. 그렇지 않으면 아무 것도 압축을 풉니다. 
 
-일반적으로 전체 DTP를 수동으로 실행할 수 있습니다. 또는 전체 DTP에 대 한 프로세스 체인을 만들 수도 있습니다-이 일반적으로 기존 프로세스 체인에서 독립적인 별도 프로세스 체인을 합니다. 해야 하 든에서 **DTP를 ADF 복사본을 사용 하 여 추출 시작 하기 전에 완료 해야**, 불완전 한 데이터가 복사 됩니다 그렇지 않으면.
+일반적으로 전체 DTP를 수동으로 실행할 수 있습니다. 또는 전체 DTP에 대 한 프로세스 체인을 만들 수도 있습니다-기존 프로세스 체인에서 독립적인 별도 프로세스 체인을 일반적으로 것입니다. 해야 하 든에서 **DTP를 ADF 복사본을 사용 하 여 추출 시작 하기 전에 완료 해야**, 불완전 한 데이터가 복사 됩니다 그렇지 않으면.
 
 ### <a name="run-delta-extraction-the-first-time"></a>델타 추출 처음으로 실행
 
-첫 번째 델타 추출은 기술적으로 **전체 추출**합니다. 데이터를 복사할 때 기본 ADF SAP BW 오픈 허브 커넥터에서 참고 마지막 요청을 제외 합니다. ADF 복사본 activtiy에 처음에 대 한 델타 추출의 경우 데이터가 추출 됩니다 있을 때까지 후속 DTP 별도 요청 id입니다. 포함 된 테이블에서 델타 데이터를 생성 합니다. 이 시나리오를 방지 하려면 두 가지 방법이 가지는 동안
+첫 번째 델타 추출은 기술적으로 **전체 추출**합니다. 데이터를 복사할 때 기본 ADF SAP BW 오픈 허브 커넥터에서 참고 마지막 요청을 제외 합니다. ADF 복사 작업에는 처음에 대 한 델타 추출의 경우 데이터가 없는 추출할 때까지 후속 DTP 별도 요청 id입니다. 포함 된 테이블에서 델타 데이터를 생성 합니다. 이 시나리오를 방지 하려면 두 가지 방법이 있기는 합니다.
 
 1. "제외" 라는 마지막 요청에 대 한 첫 번째 델타 추출 델타 추출 처음으로 시작 하기 전에 첫 번째 델타 DTP 되었음을 확인 해야 하는이 경우 옵션을 해제
 2. 아래 설명 된 대로 델타 추출 다시 동기화에 대 한 절차를 따르십시오.

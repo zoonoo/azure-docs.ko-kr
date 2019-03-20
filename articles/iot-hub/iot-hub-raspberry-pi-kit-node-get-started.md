@@ -10,18 +10,18 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a4e64259b941a4f2c2727afc8730c6cb0102a061
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: ebdc90dc35f891ea1811ce81c5bdc1b937c58a5c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054882"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529253"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-이 자습서에서는 Raspbian을 실행하는 Raspberry Pi 작업의 기초부터 학습합니다. 그런 다음 [Azure IoT Hub](about-iot-hub.md)를 사용하여 디바이스를 클라우드에 원활하게 연결하는 방법을 알아봅니다. Windows 10 IoT Core 샘플이 필요하면 [Windows 개발자 센터](http://www.windowsondevices.com/)로 이동하세요.
+이 자습서에서는 Raspbian을 실행하는 Raspberry Pi 작업의 기초부터 학습합니다. 그런 다음 [Azure IoT Hub](about-iot-hub.md)를 사용하여 디바이스를 클라우드에 원활하게 연결하는 방법을 알아봅니다. Windows 10 IoT Core 샘플이 필요하면 [Windows 개발자 센터](https://www.windowsondevices.com/)로 이동하세요.
 
 아직 키트가 없으세요? [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md)를 사용해 보세요. 또는 새 키트를 [여기](https://azure.microsoft.com/develop/iot/starter-kits)에서 구입합니다.
 
@@ -83,7 +83,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Raspbian을 다운로드합니다.
 
-   a. [Raspbian Stretch를 다운로드합니다](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)(.zip 파일).
+   a. [Raspbian Stretch를 다운로드합니다](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)(.zip 파일).
 
    > [!WARNING]
    > 위의 링크를 사용하여 `raspbian-2017-07-5` zip 이미지를 다운로드하십시오. 최신 버전의 Raspbian 이미지에는 Wiring-Pi Node와 관련된 몇 가지 알려진 문제점이 있으며 이로 인해 다음 단계에서 오류가 발생할 수 있습니다.
@@ -163,7 +163,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    
    **Windows 사용자**
   
-   a. Windows용 [PuTTY](http://www.putty.org/)를 다운로드 및 설치합니다. 
+   a. Windows용 [PuTTY](https://www.putty.org/)를 다운로드 및 설치합니다. 
 
    b. 호스트 이름(또는 IP 주소) 섹션에 Pi의 IP 주소를 복사하고 연결 형식으로 SSH를 선택합니다.
    
@@ -187,7 +187,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    버전이 4.x보다 낮거나 Pi에 Node.js가없는 경우 최신 버전을 설치합니다.
 
    ```bash
-   curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 

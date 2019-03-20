@@ -1,21 +1,21 @@
 ---
-title: Azure Machine Learning Studio 웹 서비스 포털 사용
+title: 웹 서비스 관리
 titleSuffix: Azure Machine Learning Studio
-description: Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
+description: Microsoft Azure Machine Learning 웹 서비스 포털을 사용 하 여 Machine Learning 새 및 기존 웹 서비스를 관리 합니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453871"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838377"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Azure Machine Learning Studio 웹 서비스 포털을 사용하여 웹 서비스 관리
 Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
@@ -29,7 +29,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * 엔드포인트를 추가하거나 삭제 합니다(기존 서비스에만 해당).
 
 >[!NOTE]
->**웹 서비스** 탭의 [Machine Learning Studio](http://studio.azureml.net)에서 기존 웹 서비스를 관리할 수도 있습니다.
+>**웹 서비스** 탭의 [Machine Learning Studio](https://studio.azureml.net)에서 기존 웹 서비스를 관리할 수도 있습니다.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>새 Resources Manager 기반 웹 서비스를 관리하기 위한 권한
 

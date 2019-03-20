@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 72489ea48aef9317d97e4d6f19b465db6a9a039d
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: d3d4bbb0b9007ef61c96f980b9f3c3ee19dd11b5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245670"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539125"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -91,10 +91,10 @@ IP 주소 및 AS 번호가 다음 레지스트리 중 하나에 등록되었는�
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
 * [AFRINIC](https://www.afrinic.net/)
-* [LACNIC](http://www.lacnic.net/)
+* [LACNIC](https://www.lacnic.net/)
 * [RIPENCC](https://www.ripe.net/)
-* [RADB](http://www.radb.net/)
-* [ALTDB](http://altdb.net/)
+* [RADB](https://www.radb.net/)
+* [ALTDB](https://altdb.net/)
 
 접두사 및 AS 번호가 위 레지스트리에서 사용자에게 할당되지 않은 경우 사용자의 접두사 및 ASN의 수동 유효성 검사에 관한 지원 사례를 살펴봐야 합니다. 지원을 이용하려면 리소스를 사용할 수 있음을 증명하는 승인 문서와 같은 문서가 필요합니다.
 

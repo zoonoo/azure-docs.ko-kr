@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: a9a38d30ec2a8e9139470531960d47fef1025269
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: a14912c48f27c4f4d0e54239f8e0523ffa62324f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328625"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888505"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 서비스 계층, Azure 하이브리드 혜택 및 마이그레이션
 
@@ -50,7 +50,7 @@ vCore 모델은 범용, 하이퍼스케일 및 중요 비즈니스용이라는 �
 |||
 
 > [!NOTE]
-> Azure를 탐구하기 위해 Azure 체험 계정과 연결된 기본 서비스 계층에서 무료 Azure SQL 데이터베이스를 얻을 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
+> Azure를 살펴보기 위한 Azure 체험 계정와 함께에서 기본 서비스 계층에서 무료 Azure SQL 데이터베이스를 가져올 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
 
 - 자세한 내용은 [단일 데이터베이스의 vCore 리소스 제한](sql-database-vcore-resource-limits-single-databases.md) 및 [Managed Instance의 vCore 리소스 제한](sql-database-managed-instance.md#vcore-based-purchasing-model)을 참조하세요.
 - 범용 및 중요 비즈니스용 서비스 계층에 대한 자세한 내용은 [범용 및 중요 비즈니스용 서비스 계층](sql-database-service-tiers-general-purpose-business-critical.md)을 참조하세요.

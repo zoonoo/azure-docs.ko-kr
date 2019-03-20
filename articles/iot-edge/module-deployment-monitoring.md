@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100109"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107817"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>단일 디바이스 또는 대규모 IoT Edge 자동 배포 이해
 
@@ -31,8 +31,8 @@ Azure IoT Edge는 IoT Edge 디바이스에서 실행되도록 모듈을 구성�
 1. 운영자가 대상 디바이스뿐만 아니라 일단의 모듈을 설명하는 배포를 정의합니다. 각 배포에는 이 정보를 반영하는 배포 매니페스트가 있습니다. 
 2. IoT Hub 서비스는 모든 대상 디바이스와 통신하여 원하는 모듈로 구성합니다. 
 3. IoT Hub 서비스는 IoT Edge 디바이스에서 상태를 검색하여 운영자에게 제공합니다.  예를 들어 운영자는 Edge 디바이스가 성공적으로 구성되지 않았거나 런타임 중에 모듈이 실패한 경우를 확인할 수 있습니다. 
-4. 언제든지 대상 조건에 맞는 새 IoT Edge 디바이스가 배포되도록 구성됩니다. 예를 들어 새 IoT Edge 디바이스가 프로비전되고 워싱턴 주 디바이스 그룹에 추가되면, 워싱턴 주에 있는 모든 IoT Edge 디바이스를 대상으로 하는 배포가 자동으로 구성됩니다. 
- 
+4. 언제든지 대상 조건에 맞는 새 IoT Edge 디바이스가 배포되도록 구성됩니다. 예를 들어 새 IoT Edge 디바이스가 프로비전되고 워싱턴주 디바이스 그룹에 추가되면, 워싱턴주에 있는 모든 IoT Edge 디바이스를 대상으로 하는 배포가 자동으로 구성됩니다. 
+ 
 이 문서에서는 배포 구성 및 모니터링과 관련된 각 구성 요소를 설명합니다. 배포 만들기 및 업데이트에 대한 연습은 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
 
 ## <a name="deployment"></a>배포
@@ -52,7 +52,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 각 모듈의 구성 메타데이터에는 다음 항목이 포함됩니다. 
 
 * 버전 
-* type 
+* Type 
 * 상태(예: 실행 중 또는 중지됨) 
 * 다시 시작 정책 
 * 이미지 및 컨테이너 레지스트리
@@ -62,7 +62,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 
 ### <a name="target-condition"></a>대상 조건
 
-대상 조건은 배포의 수명 동안 지속적으로 평가됩니다. 요구 사항을 충족하는 새 디바이스가 모두 포함되고, 더 이상 요구 사항을 충족하지 않는 기존 디바이스는 제거됩니다. 서비스에서 대상 조건 변경을 탐지하면 배포가 다시 활성화됩니다. 
+대상 조건은 배포의 수명 내내 지속적으로 평가 됩니다. 요구 사항을 충족하는 새 디바이스가 모두 포함되고, 더 이상 요구 사항을 충족하지 않는 기존 디바이스는 제거됩니다. 서비스에서 대상 조건 변경을 탐지하면 배포가 다시 활성화됩니다. 
 
 예를 들어 배포 A의 대상 조건이 tags.environment = 'prod'인 경우 다시 활성화됩니다. 배포를 시작할 때는 10개의 프로덕션 디바이스가 있습니다. 이 10개 디바이스에 모듈이 성공적으로 설치됩니다. IoT Edge 에이전트 상태는 총 10개 디바이스, 성공한 응답 10개, 실패한 응답 0개, 보류 중인 응답 0개로 표시됩니다. 이제 tags.environment = 'prod'인 디바이스 5개를 추가합니다. 새 디바이스 5개에 배포하려고 시도하면 서비스에서 변경을 감지하고 IoT Edge 에이전트 상태는 총 15개 디바이스, 성공한 응답 10개, 실패한 응답 0개. 보류 중인 응답 5개가 됩니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5f6a0ce0c9d863b5ab4922e7228a873ed5398600
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: af72eb0214f46c1e001f9e93934d38cb934503e4
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033284"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592488"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>템플릿을 사용하여 공용 부하 분산 장치 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "54033284"
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
-
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -43,10 +43,10 @@ ms.locfileid: "54033284"
 PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 단계를 수행합니다.
 
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
-2. **New-AzureRmResourceGroupDeployment** cmdlet을 실행하고 템플릿을 사용하여 리소스 그룹을 만듭니다.
+2. 실행 합니다 **새로 만들기-AzResourceGroupDeployment** 템플릿을 사용 하 여 리소스 그룹을 만드는 cmdlet입니다.
 
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
+    New-AzResourceGroupDeployment -Name TestRG -Location uswest `
         -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
         -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'
     ```

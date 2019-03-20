@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 7dfc4329b338a65169c81521360264753bafa9d6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239919"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892900"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
 
@@ -50,7 +50,7 @@ Azure를 통해 Microsoft, Symantec, Trend Micro, McAfee, Kaspersky 등 주요 �
 
 Azure Cloud Services 및 Virtual Machines용 Microsoft 맬웨어 방지는 PaaS 역할 및 가상 머신 모두에 대한 맬웨어 방지 에이전트를 설치할 수 있는 기능을 제공합니다. System Center Endpoint Protection에 기반한 이 기능은 클라우드에 입증된 온-프레미스 보안 기술을 구현합니다.
 
-또한, Azure 플랫폼에서 Trend의 [Deep Security](http://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) 및 [SecureCloud](http://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) 제품에 대한 심층적인 통합도 제공합니다. DeepSecurity는 바이러스 백신 솔루션이며 SecureCloud는 암호화 솔루션입니다. DeepSecurity는 확장 모델을 통해 VM 내부에 배포됩니다. Azure Portal UI 및 PowerShell을 사용하면 복제하려는 새 VM 내부의 DeepSecurity를 사용하거나 이미 배포된 기존 VM을 사용할지 선택할 수 있습니다.
+또한, Azure 플랫폼에서 Trend의 [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) 및 [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) 제품에 대한 심층적인 통합도 제공합니다. DeepSecurity는 바이러스 백신 솔루션이며 SecureCloud는 암호화 솔루션입니다. DeepSecurity는 확장 모델을 통해 VM 내부에 배포됩니다. Azure Portal UI 및 PowerShell을 사용하면 복제하려는 새 VM 내부의 DeepSecurity를 사용하거나 이미 배포된 기존 VM을 사용할지 선택할 수 있습니다.
 
 SEP(Symantec Endpoint Protection)도 Azure에서 지원됩니다. 포털 통합을 통해 VM에서 SEP를 사용할지 지정할 수 있습니다. SEP는 Azure Portal을 통해 새로운 VM에 설치하거나 PowerShell을 통해 기존 VM에 설치할 수 있습니다.
 
@@ -123,7 +123,7 @@ Azure AD Identity Protection은 의심스러운 로그인 활동 및 잠재적 �
 자세한 정보:
 
 * [Azure Active Directory ID 보호](../active-directory/active-directory-identityprotection.md)
-* [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Channel 9: Azure AD 및 ID 쇼: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Security Center
 

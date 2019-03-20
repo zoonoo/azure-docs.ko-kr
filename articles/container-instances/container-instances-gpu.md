@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: f35b2cd8d360bd46913eaa34b91e1fd19bc1ba9b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755022"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533598"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
@@ -28,15 +28,7 @@ Azure Container Instances에서 컴퓨팅 작업이 많은 특정한 워크로�
 
 미리 보기에서는 컨테이너 그룹에 GPU 리소스를 사용할 때 다음과 같은 제한 사항이 적용됩니다. 
 
-**지원되는 Azure 지역**:
-
-* 미국 동부(eastus)
-* 미국 서부 2(westus2)
-* 미국 중남부(southcentralus)
-* 유럽 서부(westeurope)
-* 북유럽(northeurope)
-* 동아시아(eastasia)
-* 인도 중부(centralindia)
+[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
 앞으로 더 많은 Azure 지역에 대한 지원이 추가될 것입니다.
 
@@ -59,21 +51,9 @@ Azure Container Instances에서 컴퓨팅 작업이 많은 특정한 워크로�
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### <a name="cpu-and-memory"></a>CPU 및 메모리
+[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-GPU 리소스를 배포할 때 다음 표에 표시된 최댓값 이내에서 워크로드에 적절한 CPU 및 메모리 리소스를 설정해야 합니다. 이러한 값은 현재 GPU 리소스가 없는 컨테이너 인스턴스의 CPU 및 메모리 제한보다 큽니다.  
-
-| GPU SKU | GPU 수 | CPU |  메모리(GB) |
-| --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 |
-| K80 | 2 | 12 | 112 |
-| K80 | 4 | 24 | 224 |
-| P100 | 1 | 6 | 112 |
-| P100 | 2 | 12 | 224 |
-| P100 | 4 | 24 | 448 |
-| V100 | 1 | 6 | 112 |
-| V100 | 2 | 12 | 224 |
-| V100 | 4 | 24 | 448 |
+GPU 리소스를 배포 하는 경우에 CPU 및 메모리 리소스를 앞의 표에 표시 된 최대 값 최대 워크 로드에 대 한 적절 한 설정 합니다. 이러한 값은 현재 GPU 리소스 없이도 컨테이너 그룹에서 사용할 수 있는 CPU 및 메모리 리소스를 초과 합니다.  
 
 ### <a name="things-to-know"></a>알아야 할 사항
 
@@ -85,6 +65,10 @@ GPU 리소스를 배포할 때 다음 표에 표시된 최댓값 이내에서 �
 
 * **CUDA 드라이버** - GPU 리소스가 있는 컨테이너 인스턴스는 NVIDIA CUDA 드라이버 및 컨테이너 런타임이 미리 프로비전되므로, CUDA 워크로드용으로 개발된 컨테이너 이미지를 사용할 수 있습니다.
 
+  이 단계에서 CUDA 9.0 지원합니다. 예를 들어, 다음 Docker 파일에 대 한 기본 이미지를 사용할 수 있습니다.
+  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+    
 ## <a name="yaml-example"></a>YAML 예제
 
 GPU 리소스를 추가하는 한 가지 방법은 [YAML 파일](container-instances-multi-container-yaml.md)을 사용하여 컨테이너 그룹을 배포하는 것입니다. 다음 YAML을 *gpu-deploy-aci.yaml*이라는 새 파일에 복사하고 파일을 저장합니다. 이 YAML은 K80 GPU가 있는 컨테이너 인스턴스를 지정하는 *gpucontainergroup*이라는 컨테이너 그룹을 만듭니다. 이 인스턴스는 샘플 CUDA 벡터 추가 애플리케이션을 실행합니다. 리소스 요청은 워크로드를 실행하기에 충분합니다.

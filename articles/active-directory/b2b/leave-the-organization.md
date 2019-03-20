@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 03/13/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d8183f7fa55a410b44d33295ad24f0f07adb145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0f75f91c037a2f05c999d388ce7bb16ad2d0c9cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185930"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005658"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>게스트 사용자로써 조직 나가기
 
@@ -24,13 +24,17 @@ Azure AD(Azure Active Directory) B2B 게스트 사용자가 더 이상 해당 �
 
 ## <a name="leave-an-organization"></a>조직 나가기
 
-[액세스 패널](https://myapps.microsoft.com)에 로그인한 사용자로써 조직을 나가려면 다음을 수행합니다.
+조직 나가기를 하려면 다음이 단계를 수행 합니다.
 
-1. 나가려는 조직에 로그인되어 있지 않은 경우 오른쪽 위 모서리에서 이름을 선택하고 나가려는 조직을 클릭합니다.
-2. 오른쪽 위 모서리에서 이름을 선택합니다.
-3. **조직** 옆에 있는 설정 아이콘(톱니 모양)을 선택합니다.
+1. 다음 중 하나를 수행 하 여 액세스 패널 프로필 페이지로 이동 합니다.
+   
+   - 에 [Azure portal](https://portal.azure.com)오른쪽 상단에서 이름을 클릭 하 고 선택 **계정 보기**합니다.
+   - 오픈 프로그램 [액세스 패널](https://myapps.microsoft.com), 위에 오른쪽 옆에 있는 이름을 클릭 **조직**, 설정 (기어) 아이콘을 선택 합니다.
  
    ![액세스 패널에서 사용자 설정을 보여주는 스크린샷](media/leave-the-organization/UserSettings.png) 
+
+   > [!NOTE]
+   > 아래에서 유지 하려는 조직에 아직 로그인 경우 **조직**를 클릭 합니다 **조직을 떠나 려 면 로그인** 조직의 이름 옆에 있는 링크입니다. 로그인을 한 후 오른쪽 위에 있는 다시 이동 하 고 옆에 이름을 클릭 **조직**, 설정 (기어) 아이콘을 선택 합니다.
 
 3. **조직**에서 나가려는 조직을 찾아 **조직 나가기**를 선택합니다.
 

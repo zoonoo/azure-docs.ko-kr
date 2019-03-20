@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077558"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842459"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>클라우드 Marketplace 게시자 되기
 
@@ -45,23 +45,23 @@ Microsoft의 클라우드 마켓플레이스에 참여하려면 MPN(Microsoft �
 *   [Microsoft 파트너 네트워크](https://partner.microsoft.com/commercial)의 이점에 대해 알아봅니다.
 *   조직에 기존 멤버 자격이 있는 경우 등록 중에 조직에 가입됩니다. [파트너 센터](https://partnercenter.microsoft.com/partner/home)를 사용하는 경우 파트너 센터 계정에서 ID를 확인할 수 있습니다. [PMC(파트너 멤버 자격 센터)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx)를 사용하는 경우 파트너 멤버 자격 센터 계정에서 ID를 확인할 수 있습니다. 
 
----  
+---
 
 ## <a name="2-create-a-microsoft-account"></a>2. Microsoft 계정 만들기  
 | 15분 |  
-Microsoft 계정(예: *@outlook.com 또는 @live.com*)은 많은 Microsoft 디바이스 및 서비스에 액세스하는 데 사용됩니다. Azure Marketplace 거래 제품에 필요하며, 모든 클라우드 게시자에 사용하도록 권장합니다. Microsoft 계정의 이점 및 사용에 대한 자세한 내용은 [이 페이지를 방문](https://account.microsoft.com/account/)합니다. 개인 Microsoft 계정을 사용하여 마켓플레이스 제품을 만들고 관리하는 데 사용할 Cloud 파트너 포털, 게시 플랫폼에 액세스합니다. 
+예를 들어 Microsoft 계정  *\@outlook.com 또는 \@live.com*, 많은 Microsoft 장치 및 서비스에 액세스 하는 데 사용 됩니다. Azure Marketplace 거래 제품에 필요하며, 모든 클라우드 게시자에 사용하도록 권장합니다. Microsoft 계정의 이점 및 사용에 대한 자세한 내용은 [이 페이지를 방문](https://account.microsoft.com/account/)합니다. 개인 Microsoft 계정을 사용하여 마켓플레이스 제품을 만들고 관리하는 데 사용할 Cloud 파트너 포털, 게시 플랫폼에 액세스합니다. 
 
 [! 중요] 업무용 이메일과 연결된 Microsoft 계정은 포털에 대한 액세스를 허용하지 않습니다.
 
->[!Note]
->Microsoft 계정이 이미 있는 경우 [마켓플레이스 계정을 관리하는 Microsoft ID를 만들기 위한 지침](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)을 검토하여 마켓플레이스 게시에 사용할 수 있는지 확인합니다. 
-
->Azure Active Directory 페더레이션된 회사 계정이 있는 사용자는 기존 Microsoft 계정을 만들거나 사용하도록 시도하기 전에 [이 문서](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain)를 참조해야 합니다.
+> [!Note]
+> Microsoft 계정이 이미 있는 경우 [마켓플레이스 계정을 관리하는 Microsoft ID를 만들기 위한 지침](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account)을 검토하여 마켓플레이스 게시에 사용할 수 있는지 확인합니다. 
+> 
+> Azure Active Directory 페더레이션된 회사 계정이 있는 사용자는 기존 Microsoft 계정을 만들거나 사용하도록 시도하기 전에 [이 문서](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain)를 참조해야 합니다.
 
 *   Microsoft 계정 만들기 또는 관리에 대한 도움말은 [Microsoft 계정 도움말 지원 페이지](https://support.microsoft.com/products/microsoft-account?category=manage-account)를 방문하세요.
 
 
----  
+---
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. 마켓플레이스 등록 양식 제출  
 | 15분 |  
@@ -72,7 +72,7 @@ Microsoft 계정(예: *@outlook.com 또는 @live.com*)은 많은 Microsoft 디�
 *   제품과 가장 긴밀하게 연계된 Microsoft 제품 또는 서비스를 포함하여 게시하려는 초기 앱 또는 컨설팅 서비스 제품의 간략한 설명
 *   앱 또는 서비스에 대한 대상 사용자 
 
----  
+---
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Cloud 파트너 포털에 로그인
 | 1-3일 | <br>
 Marketplace 온보딩 팀은 3단계에서 제공된 Marketplace 등록 세부 정보가 유효한지 검사합니다. 승인되면 계정 자격 증명 및 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인에 대한 지침이 포함된 환영 이메일을 받습니다.
@@ -108,4 +108,4 @@ Marketplace 온보딩 팀은 3단계에서 제공된 Marketplace 등록 세부 �
 *   [솔루션에 대한 열거 유형 결정](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  
----  
+---

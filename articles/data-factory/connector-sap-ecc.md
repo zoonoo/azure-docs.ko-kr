@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: d6a6d9b352db61d98e85c840a3ebc5cb6a832a3f
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121964"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP ECC에서 데이터 복사
 
@@ -55,9 +55,9 @@ SAP ECC 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 |:--- |:--- |:--- |
 | 형식 | type 속성을 다음으로 설정해야 합니다. **SapEcc** | 예 |
 | URL | SAP ECC OData 서비스의 URL입니다. | 예 |
-| 사용자 이름 | SAP ECC에 연결하는 데 사용되는 사용자 이름입니다. | 아니요 |
-| 암호 | SAP ECC에 연결하는 데 사용되는 일반 텍스트 암호입니다. | 아니요 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| 사용자 이름 | SAP ECC에 연결하는 데 사용되는 사용자 이름입니다. | 아닙니다. |
+| 암호 | SAP ECC에 연결하는 데 사용되는 일반 텍스트 암호입니다. | 아닙니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아닙니다. |
 
 **예제:**
 
@@ -121,7 +121,7 @@ SAP ECC에서 데이터를 복사하려면 복사 활동의 원본 형식을 **S
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SapEccSource** | 예 |
-| 쿼리 | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예제: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 커넥터는 결합된 URL(연결된 서비스에 지정된 URL)/(데이터 세트에 지정된 경로)?(복사 활동 원본에 지정된 쿼리)의 데이터를 복사합니다. [OData URL 구성 요소](http://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니요 |
+| 쿼리 | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예제: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 커넥터는 결합된 URL(연결된 서비스에 지정된 URL)/(데이터 세트에 지정된 경로)?(복사 활동 원본에 지정된 쿼리)의 데이터를 복사합니다. [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아닙니다. |
 
 **예제:**
 
@@ -160,21 +160,21 @@ SAP ECC에서 데이터를 복사하려면 복사 활동의 원본 형식을 **S
 SAP ECC에서 데이터를 복사하는 경우 SAP ECC 데이터에 대한 OData 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로의 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
 | OData 데이터 형식 | Data Factory 중간 데이터 형식 |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Edm.Binary | 문자열 |
 | Edm.Boolean | Bool |
 | Edm.Byte | 문자열 |
-| Edm.DateTime | Datetime |
-| Edm.Decimal | 10진수 |
+| Edm.DateTime | DateTime |
+| Edm.Decimal | Decimal |
 | Edm.Double | Double |
-| Edm.Single | 단일 |
+| Edm.Single | Single |
 | Edm.Guid | 문자열 |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | 문자열 |
-| Edm.Time | timespan |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]

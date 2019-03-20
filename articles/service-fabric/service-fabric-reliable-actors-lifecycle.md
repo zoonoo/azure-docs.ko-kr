@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: dbd9551027744d443613e32e0a082c10d4f357d5
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 10f78b3b78e90fbb4f1d50cf581bfbce263f44aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872724"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>행위자 수명 주기, 자동 가비지 수집 및 수동 삭제
 행위자는 해당 메서드 중 하나가 처음 호출되면 활성화됩니다. 구성 가능한 기간 동안 사용되지 않으면 비활성화됩니다(행위자 런타임에 의한 가비지 수집). 행위자와 그 상태를 언제든지 수동으로 삭제할 수도 있습니다.
@@ -123,7 +123,7 @@ public class Program
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [C# 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java 샘플 코드](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java 샘플 코드](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633864"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537247"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
@@ -55,14 +55,14 @@ ms.locfileid: "53633864"
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2017-11-11 
-{  
-    "search": "Spacious, air-condition* +\"Ocean view\"",  
-    "searchFields": "description, title",  
+{
+    "search": "Spacious, air-condition* +\"Ocean view\"",
+    "searchFields": "description, title",
     "searchMode": "any",
-    "filter": "price ge 60 and price lt 300",  
+    "filter": "price ge 60 and price lt 300",
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
- } 
+}
 ~~~~
 
 이 요청의 경우 검색 엔진이 다음 작업을 수행합니다.
@@ -117,7 +117,7 @@ Spacious,||air-condition*+"Ocean view"
 만약 `searchMode=all`로 설정한다면 어떨까요? 이 경우 공간이 "and" 연산으로 해석됩니다. 나머지 두 용어가 모두 문서에 있어야만 일치 항목으로 인정됩니다. 결과 샘플 쿼리는 다음과 같이 해석됩니다. 
 
 ~~~~
-+Spacious,+air-condition*+"Ocean view"  
++Spacious,+air-condition*+"Ocean view"
 ~~~~
 
 이 쿼리의 수정된 쿼리 트리는 다음과 같으며, 세 하위 쿼리가 교차하는 부분이 바로 일치하는 문서입니다. 
@@ -155,7 +155,7 @@ Spacious,||air-condition*+"Ocean view"
 [분석 API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)를 사용하여 분석기의 동작을 테스트할 수 있습니다. 분석할 텍스트를 입력하여 주어진 분석기가 어떤 용어를 생성하는지 살펴봅니다. 예를 들어 표준 분석기가 "air-condition"이라는 텍스트를 어떻게 처리하는지 살펴보려면 다음 요청을 실행하면 됩니다.
 
 ~~~~
-{ 
+{
     "text": "air-condition",
     "analyzer": "standard"
 }
@@ -164,7 +164,7 @@ Spacious,||air-condition*+"Ocean view"
 표준 분석기는 입력 텍스트를 다음과 같은 두 토큰으로 분류하고, 위치(구 일치에 사용)뿐 아니라 시작 및 종료 오프셋(적중 항목 강조 표시에 사용) 같은 특성을 사용하여 주석을 답니다.
 
 ~~~~
-{  
+{
   "tokens": [
     {
       "token": "air",
@@ -195,11 +195,11 @@ Spacious,||air-condition*+"Ocean view"
 문서 검색이란 인덱스에서 일치하는 용어가 포함된 문서를 찾는 것을 말합니다. 이 단계는 예를 통해 설명하는 것이 가장 빠릅니다. 다음과 같은 간단한 스키마를 가진 호텔 인덱스로 시작해 보겠습니다. 
 
 ~~~~
-{   
-    "name": "hotels",     
-    "fields": [     
-        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },     
-        { "name": "title", "type": "Edm.String", "searchable": true },     
+{
+    "name": "hotels",
+    "fields": [
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "title", "type": "Edm.String", "searchable": true },
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
@@ -208,28 +208,28 @@ Spacious,||air-condition*+"Ocean view"
 또한 이 인덱스에 다음과 같은 네 개 문서가 포함되어 있다고 가정하겠습니다. 
 
 ~~~~
-{ 
+{
     "value": [
-        {         
-            "id": "1",         
-            "title": "Hotel Atman",         
-            "description": "Spacious rooms, ocean view, walking distance to the beach."   
-        },       
-        {         
-            "id": "2",         
-            "title": "Beach Resort",        
-            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
-        },       
-        {         
-            "id": "3",         
-            "title": "Playa Hotel",         
+        {
+            "id": "1",
+            "title": "Hotel Atman",
+            "description": "Spacious rooms, ocean view, walking distance to the beach."
+        },
+        {
+            "id": "2",
+            "title": "Beach Resort",
+            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."
+        },
+        {
+            "id": "3",
+            "title": "Playa Hotel",
             "description": "Comfortable, air-conditioned rooms with ocean view."
-        },       
-        {         
-            "id": "4",         
-            "title": "Ocean Retreat",         
+        },
+        {
+            "id": "4",
+            "title": "Ocean Retreat",
             "description": "Quiet and secluded"
-        }    
+        }
     ]
 }
 ~~~~
@@ -327,7 +327,7 @@ Spacious,||air-condition*+"Ocean view"
 search=Spacious, air-condition* +"Ocean view"  
 ~~~~
 ~~~~
-{  
+{
   "value": [
     {
       "@search.score": 0.25610128,

@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 01c4bcfcea038f3e69620cdce78719c8c5128faf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: efb6d932e616ada6b8dfff637af469c16fc2f293
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964800"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761824"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 애플리케이션 개발 개요
 
@@ -58,7 +58,7 @@ Azure SQL Database에서 계획된 유지 관리 이벤트를 준비하는 방�
 - 클라이언트 프로그램을 호스팅하는 컴퓨터에서 방화벽이 포트 1433에서 발신 TCP 통신을 허용하는지 확인합니다.  추가 정보: [Azure SQL Database 방화벽 구성](sql-database-configure-firewall-settings.md).
 - Azure VM(가상 머신)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL Database에 연결하는 경우에는, VM의 특정 포트 범위를 열어야 합니다. 추가 정보: [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)
 - Azure SQL Database에 대한 클라이언트 연결이 프록시를 바이패스하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. 자세한 내용은 [Azure SQL Database 연결 아키텍처](sql-database-connectivity-architecture.md) 및 [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
-- 관리되는 인스턴스의 네트워킹 구성은 [관리되는 인스턴스의 네트워크 구성](sql-database-howto-managed-instance.md#network-configuration)을 참조하세요.
+- 관리 되는 인스턴스에 대 한 네트워킹 구성에 대 한 참조 [관리 되는 인스턴스에 대 한 네트워크 구성을](sql-database-howto-managed-instance.md#network-configuration)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

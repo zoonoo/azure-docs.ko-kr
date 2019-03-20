@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 52bfc73ad586bb3852e30a850d4ba50a113183d3
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 66c5bd9390d6fe0f26af66e18aed22c07a7da3e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140420"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003114"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Traffic Manager에서 우선 순위 트래픽 라우팅 방법 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "50140420"
 
 ## <a name="to-configure-the-priority-traffic-routing-method"></a>우선 순위 트래픽 라우팅 방법을 구성하려면 다음을 수행합니다.
 
-1. 브라우저에서 [Azure Portal](http://portal.azure.com)에 로그인합니다. 아직 계정이 없는 경우 [1개월 무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다. 
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다. 아직 계정이 없는 경우 [1개월 무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다. 
 2. 포털의 검색 창에서 **Traffic Manager 프로필**을 검색한 다음, 라우팅 방법을 구성하려는 프로필 이름을 클릭합니다.
 3. **Traffic Manager 프로필** 블레이드에서 사용자 구성에 포함할 클라우드 서비스 및 웹 사이트가 모두 있는지 확인합니다.
 4. **설정** 섹션에서 **구성**을 클릭하고 **구성** 블레이드에서 다음과 같이 완료합니다.

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: adsolank;juliako;
-ms.openlocfilehash: dd09e8949c2d71e550d02cd79611a7424d8113fc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 12d188b39375bce88d3adc244d217854c75f436d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000918"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861294"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure Media Indexer 2 미리 보기를 사용하여 미디어 파일 인덱싱
 ## <a name="overview"></a>개요
@@ -301,5 +301,5 @@ namespace IndexContent
 ## <a name="related-links"></a>관련 링크
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
-[Azure 미디어 분석 데모](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 미디어 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

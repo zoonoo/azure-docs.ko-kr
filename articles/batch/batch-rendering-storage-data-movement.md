@@ -2,16 +2,17 @@
 title: 렌더링을 위한 스토리지 및 데이터 이동 - Azure Batch
 description: 워크로드를 렌더링하기 위한 저장소 및 데이터 이동 옵션
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546099"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790249"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>자산 및 출력 파일을 렌더링하기 위한 저장소 및 데이터 이동 옵션
 
@@ -25,13 +26,13 @@ ms.locfileid: "53546099"
   * 이 옵션은 아주 비용 효과적인 장점이 있습니다. 파일 시스템에 대한 VM이 필요하지 않고, VM의 blobfuse 캐싱을 통해 여러 작업 및 태스크에 대해 동일한 파일을 반복적으로 다운로드하지 않도록 방지합니다.  파일이 Blob이면 데이터 이동도 간단하며 표준 API 및 도구(예: azcopy)를 사용하여 온-프레미스 파일 시스템과 Azure Storage 간에 파일을 복사할 수 있습니다.
 * 파일 시스템 또는 파일 공유:
   * VM 운영 체제 및 성능/크기 조정 요구 사항에 따라 옵션에는 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)가 포함되어 NFS에서 연결된 디스크와 VM을 사용하거나, GlusterFS와 같은 분산 파일 시스템에서 여러 VM을 사용하거나, 타사 제품을 사용합니다.
-  * [Avere 시스템](http://www.averesystems.com/)은 이제 Microsoft의 일부이며, 가까운 장래에 대규모의 고성능 렌더링에 적합한 솔루션을 포함합니다.  Avere 솔루션을 사용하면 Azure 기반 NFS 또는 SMB 캐시를 Blob Storage 또는 온-프레미스 NAS 디바이스와 함께 작동하도록 만들 수 있습니다.
+  * [Avere 시스템](https://www.averesystems.com/)은 이제 Microsoft의 일부이며, 가까운 장래에 대규모의 고성능 렌더링에 적합한 솔루션을 포함합니다.  Avere 솔루션을 사용하면 Azure 기반 NFS 또는 SMB 캐시를 Blob Storage 또는 온-프레미스 NAS 디바이스와 함께 작동하도록 만들 수 있습니다.
   * 파일 시스템에서 파일을 읽고 파일 시스템에 직접 복사하거나, 파일 시스템과 풀 VM 간에 복사할 수 있습니다.
   * 공유 파일 시스템을 사용하면 필수 항목에 액세스하는 렌더링 작업에서 함께 프로젝트와 작업 간에 공유된 다수의 자산을 활용할 수 있습니다.
 
 ## <a name="using-azure-blob-storage"></a>Azure Blob Storage 사용
 
-Blob Storage 계정 또는 범용 v2 저장소 계정을 사용해야 합니다.  이러한 두 저장소 계정 형식은 [이 블로그 게시물](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)에 설명된 대로 범용 v1 저장소 계정에 비해 훨씬 높은 한도로 구성할 수 있습니다.  항목이 구성되면 특히 다수의 풀 VM이 저장소 계정에 액세스하는 경우 높은 제한을 통해 훨씬 더 나은 성능 및 확장성을 활용할 수 있습니다.
+Blob Storage 계정 또는 범용 v2 스토리지 계정을 사용해야 합니다.  이러한 두 저장소 계정 형식은 [이 블로그 게시물](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)에 설명된 대로 범용 v1 저장소 계정에 비해 훨씬 높은 한도로 구성할 수 있습니다.  항목이 구성되면 특히 다수의 풀 VM이 저장소 계정에 액세스하는 경우 높은 제한을 통해 훨씬 더 나은 성능 및 확장성을 활용할 수 있습니다.
 
 ### <a name="copying-files-between-client-and-blob-storage"></a>클라이언트와 Blob Storage 간에 파일 복사
 

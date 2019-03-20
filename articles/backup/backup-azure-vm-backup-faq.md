@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310277"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961536"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>질문과 대답-Azure Backup
 
@@ -21,10 +21,8 @@ ms.locfileid: "56310277"
 
 ## <a name="general-questions"></a>일반적인 질문
 
-
 ### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Azure Backup을 사용하여 어떤 Azure VM을 백업할 수 있나요?
 지원되는 운영 체제 및 제한을 [검토](backup-azure-arm-vms-prepare.md#before-you-start)하세요.
-
 
 
 ## <a name="backup"></a>Backup
@@ -41,17 +39,16 @@ Azure Backup에 Key Vault 액세스 권한을 부여해야 합니다. [Azure Bac
 ### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>백업 구성 마법사에서 내 VM을 볼 수 없는 이유는 무엇인가요?
 이 마법사는 자격 증명 모음과 동일한 지역에 있고 아직 백업되지 않은 VM만 나열합니다.
 
-
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>내 VM이 종료되었습니다. 요청 시 또는 예약된 백업 작업도 종료되나요?
 예. 머신이 종료되면 백업이 실행됩니다. 복구 지점은 충돌 일치로 표시됩니다.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>진행 중인 백업 작업을 취소할 수 있나요?
 예. **스냅숏 만들기** 단계에 있는 백업 작업을 취소할 수 있습니다. 스냅숏에서 데이터 전송이 진행 중인 경우 작업을 취소할 수 없습니다.
 
-### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>백업한 관리 디스크 VM에서 리소스 그룹 잠금을 사용하도록 설정했습니다. 내 백업이 계속 작동하나요?
-리소스 그룹을 잠그면 Azure Backup 서비스가 이전 복원 지점을 삭제할 수 없습니다.
-- 복원 지점 수는 18개로 제한되므로 새 백업을 시작할 수 없습니다.
-- 잠금을 사용한 후 내부 오류와 함께 백업이 실패하면 [다음 단계에 따라](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) 복원 지점 컬렉션을 제거합니다.
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>(즉, Azure Backup 서비스에서 만든 리소스 그룹에 대 한 잠금을 사용 하도록 ` AzureBackupRG_<geo>_<number>`), 내 백업이 계속 작동 하려면?
+Azure Backup 서비스에서 만든 리소스 그룹을 잠그는 경우 백업을 최대 18 개의 복원 지점 제한 없기 때문에 실패 하기 시작 합니다.
+
+사용자가 잠금을 제거 하 고 이후 백업이 성공 하려면 해당 리소스 그룹에서 복원 지점 컬렉션의 선택을 취소 해야 [이 단계를 따라](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) 복원 지점 컬렉션을 제거 합니다.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>백업 정책에서 DST(일광 절약 시간)를 고려하나요?
 아니요. 로컬 컴퓨터의 시간과 날짜는 현재 적용되는 일광 절약 시간에 로컬입니다. DST 때문에 예약된 백업에 설정이 현지 시간과 다를 수 있습니다.

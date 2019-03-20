@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 0ac62a99f5735647f67917d441645e30444b3818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298656"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005684"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -37,9 +37,9 @@ Windows 컴퓨터는 항상 비교 가능한 SSH 명령을 설치하지는 않�
 
 로컬로 설치할 수 있는 다른 공용 Windows SSH 클라이언트는 다음과 같은 패키지에 포함되어 있습니다.
 
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Windows 용 Git](https://git-for-windows.github.io/)
-* [MobaXterm](http://mobaxterm.mobatek.net/)
+* [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
 [Azure Cloud Shell](../../cloud-shell/overview.md)의 Bash에서 사용할 수 있는 SSH 유틸리티를 사용할 수도 있습니다. 
@@ -62,7 +62,7 @@ ssh-keygen -t rsa -b 2048
 
 ### <a name="create-ssh-keys-with-puttygen"></a>PuTTYgen을 사용하여 SSH 키 만들기
 
-SSH 키를 만드는 GUI 기반 도구 사용을 선호하는 경우 [PuTTY 다운로드 패키지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에 포함된 PuTTYgen 키 생성기를 사용할 수 있습니다. 
+SSH 키를 만드는 GUI 기반 도구 사용을 선호하는 경우 [PuTTY 다운로드 패키지](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에 포함된 PuTTYgen 키 생성기를 사용할 수 있습니다. 
 
 PuTTYgen을 사용하여 SSH RSA 키 쌍을 만들려면:
 
@@ -110,7 +110,7 @@ VM이 Just-In-Time 액세스 정책을 사용하는 경우에는 액세스 권�
 
 ### <a name="connect-with-putty"></a>PuTTY로 연결
 
-[PuTTY 다운로드 패키지](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)를 설치하고 이전에 PuTTY 개인 키(.ppk 파일)를 생성한 경우 PuTTY로 Linux VM에 연결할 수 있습니다.
+[PuTTY 다운로드 패키지](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)를 설치하고 이전에 PuTTY 개인 키(.ppk 파일)를 생성한 경우 PuTTY로 Linux VM에 연결할 수 있습니다.
 
 1. PuTTY를 시작합니다.
 

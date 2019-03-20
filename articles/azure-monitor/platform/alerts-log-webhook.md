@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 0765e5978f62a60b7a9b405c04c2471508947c60
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 908422927feabd156c5dcdc7a04d44ff8fc42094
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433172"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442888"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 로그 경고를 생성](alerts-log.md)할 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
@@ -54,7 +54,7 @@ ms.locfileid: "54433172"
 | 구독 ID |#subscriptionid |Application Insights에서 사용되는 Azure 구독의 ID입니다. 
 
 > [!NOTE]
-> LinkToSearchResults는 분석 섹션에서 보기 위해 URL의 SearchQuery, 검색 간격 시작 시간 및 검색 간격 종료 시간 같은 매개 변수를 Azure Portal에 전달합니다. Azure Portal에는 약 2,000자라는 URI 크기 제한이 있으며 매개 변수 값이 해당 제한을 초과하는 경우 경고에 제공된 링크를 열지 *않습니다*. 사용자는 세부 정보를 수동으로 입력하여 Analytics 포털에서 결과를 보거나, [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 또는 [Log Analytics REST API](https://dev.loganalytics.io/reference)를 사용하여 결과를 프로그래밍 방식으로 검색할 수 있습니다. 
+> LinkToSearchResults는 분석 섹션에서 보기 위해 URL의 SearchQuery, 검색 간격 시작 시간 및 검색 간격 종료 시간 같은 매개 변수를 Azure Portal에 전달합니다. Azure 포털에 크기 약 2,000 자입니다. 제한 하 고 URI *되지* 매개 변수 값에 언급된 한도 초과 하는 경우의 경고에서 제공 하는 링크 열기. 사용자는 세부 정보를 수동으로 입력하여 Analytics 포털에서 결과를 보거나, [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 또는 [Log Analytics REST API](https://dev.loganalytics.io/reference)를 사용하여 결과를 프로그래밍 방식으로 검색할 수 있습니다. 
 
 예를 들어 *text*라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다.  이 웹후크가 호출하는 서비스는 이 매개 변수를 예상합니다.
 
@@ -77,9 +77,6 @@ ms.locfileid: "54433172"
 
 ## <a name="sample-payloads"></a>샘플 페이로드
 이 섹션에서는 페이로드가 표준인 경우와 사용자 지정인 경우를 포함하여 로그 경고에 대한 웹후크의 샘플 페이로드를 보여 줍니다.
-
-> [!NOTE]
-> 이전 버전과의 호환성을 보장하기 위해 Azure Log Analytics를 사용하는 경고에 대한 표준 웹후크 페이로드는 [Log Analytics 경고 관리](alerts-metric.md)와 같습니다. 그러나 [Application Insights](../../azure-monitor/app/analytics.md)를 사용하는 로그 경고에 대한 표준 웹후크 페이로드는 작업 그룹 스키마를 기반으로 합니다.
 
 ### <a name="standard-webhook-for-log-alerts"></a>로그 경고에 대한 표준 웹후크 
 이 두 가지 예제에서 모두, 열과 행이 각각 두 개만 포함된 더미 페이로드를 언급했습니다.
@@ -118,7 +115,11 @@ ms.locfileid: "54433172"
     "Description": null,
     "Severity": "Warning"
  }
- ```   
+ ```
+
+> [!NOTE]
+> 있는 경우 심각도 필드 값이 변경 될 수 있습니다 [API 기본 설정 전환](alerts-log-api-switch.md) Log Analytics에서 로그 경고에 대 한 합니다.
+
 
 #### <a name="log-alert-for-azure-application-insights"></a>Azure Application Insights에 대한 로그 경고
 다음은 Application Insights 기반 로그 경고에 사용할 경우 *사용자 지정 JSON 옵션이 없는* 표준 웹후크의 샘플 페이로드입니다.
@@ -154,7 +155,7 @@ ms.locfileid: "54433172"
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error",
+    "Severity": "3",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
 }
@@ -197,7 +198,7 @@ ms.locfileid: "54433172"
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Alerts의 로그 경고](alerts-unified-log.md)에 대해 알아봅니다.
+- [Azure Alerts의 로그 경고](alerts-unified-log.md)에 대해 알아보기
 - [Azure에서 로그 경고 관리](alerts-log.md)를 파악합니다.
 - [Azure에서 작업 그룹](action-groups.md) 만들기 및 관리
 - [Application Insights](../../azure-monitor/app/analytics.md)에 대해 자세히 알아보기

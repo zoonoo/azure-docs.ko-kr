@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c38b28a247feb94efd5f4b73e690d30aac9ed73a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 4857b1771ae66cbee25765bb5173a638cbcd223e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900241"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008596"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -138,3 +138,25 @@ C:\ az managementpartner delete --partner-id 12345
 **다른 파트너 또는 고객이 파트너 ID에 대한 연결을 편집하거나 제거할 수 있나요?**
 
 링크는 사용자 계정 수준에서 연결됩니다. 사용자만이 파트너 ID에 대한 연결을 편집하고 제거할 수 있습니다. 고객 및 다른 파트너는 파트너 ID에 대한 연결을 변경할 수 없습니다. 
+
+
+**MPN ID는 경우 사용 해야 우리 회사의 여러?**
+
+MPN id입니다. 가상 orgnization(v-org) 제외 하 고 모든 유효한 MPN ID를 사용할 수 있습니다. 대부분의 파트너 MPN ID를 사용 하 여 geography 고객 기반 하거나 서비스를 제공 하는 위치를 선택 합니다.
+
+**영향을 받는 수익 연결 된 파트너 ID에 대 한 보고는 어디서 찾을 수 있습니까?**
+
+영향을 받는 수익 보고에서 찾을 수 있습니다 [내 Insights 대시보드](https://partner.microsoft.com/membership/reports/myinsights)합니다. 파트너 연결 형식으로 파트너 관리자 링크를 선택 해야 합니다.
+
+**보고서에 고객을 볼 수 없습니다는 이유**
+
+다음과 같은 이유로 인해 보고서에 있는 고객을 볼 수 없습니다.
+
+1. 연결 된 사용자 계정이 없는 [역할 기반 액세스 ](https://docs.microsoft.com/azure/role-based-access-control/overview) 고객 Azure 구독 또는 리소스에서.
+
+2. 사용자가 있는 Azure 구독 [역할 기반 액세스 ](https://docs.microsoft.com/azure/role-based-access-control/overview) 액세스는 사용량에 없습니다.
+
+**ID는 Azure Stack과 함께 작동 하는 파트너 링크가?**
+
+예, Azure Stack에 대 한 파트너 ID를 연결할 수 있습니다.
+

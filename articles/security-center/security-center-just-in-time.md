@@ -3,7 +3,7 @@ title: Azure Security Center에서 Just-In-Time 가상 머신 액세스 | Micros
 description: 이 문서에서는 Azure Security Center에서 Just-In-Time VM 액세스가 Azure 가상 머신에 대한 액세스를 제어하는 데 어떻게 도움이 되는지 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
-ms.author: rkarlin
-ms.openlocfilehash: 94364a54a5a0994cc3de3a2fe014b556d438b2c2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 3/18/2019
+ms.author: monhaber
+ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114912"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199837"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time을 사용하여 가상 머신 액세스 관리
 
@@ -29,6 +29,8 @@ JIT(Just-In-Time) VM(가상 머신) 액세스를 사용하면 Azure VM으로의 
 > Just-In-Time 기능은 Security Center의 표준 계층에서 사용할 수 있습니다.  Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="attack-scenario"></a>공격 시나리오
 
@@ -80,26 +82,26 @@ Just-In-Time을 사용하도록 설정하면 Security Center는 NSG 규칙을 �
 
 1. **Just-In-Time VM 액세스**에서 **권장** 탭을 선택합니다.
 
-  ![Just-In-Time VM 액세스 사용](./media/security-center-just-in-time/enable-just-in-time-access.png)
+   ![Just-In-Time VM 액세스 사용](./media/security-center-just-in-time/enable-just-in-time-access.png)
 
 2. **가상 머신**에서 사용하도록 설정할 VM을 선택합니다. 그러면 VM 옆에 있는 확인 표시가 선택됩니다.
 3. **VM에서 JIT 사용**을 선택합니다.
-  1. 이 블레이드는 Azure Security Center에서 권장하는 기본 포트를 표시합니다.
-     - 22 - SSH
-     - 3389 - RDP
-     - 5985 - WinRM 
-     - 5986 - WinRM
-  2. 또한 사용자 지정 포트를 구성할 수도 있습니다. 이를 수행하려면 **추가**를 선택합니다. 
-  3. **포트 구성 추가**에서 구성하려는 각 포트(기본 및 사용자 지정)에 대해 다음 설정을 사용자 지정할 수 있습니다.
-    - **프로토콜 유형** - 요청이 승인될 때 이 포트에서 허용되는 프로토콜입니다.
-    - **허용된 원본 IP 주소** - 요청이 승인될 때 이 포트에서 허용되는 IP 범위입니다.
-    - **최대 요청 시간** - 특정 포트를 열 수 있는 최대 기간입니다.
+   1. 이 블레이드는 Azure Security Center에서 권장하는 기본 포트를 표시합니다.
+      - 22 - SSH
+      - 3389 - RDP
+      - 5985 - WinRM 
+      - 5986 - WinRM
+   2. 또한 사용자 지정 포트를 구성할 수도 있습니다. 이를 수행하려면 **추가**를 선택합니다. 
+   3. **포트 구성 추가**에서 구성하려는 각 포트(기본 및 사용자 지정)에 대해 다음 설정을 사용자 지정할 수 있습니다.
+      - **프로토콜 유형** - 요청이 승인될 때 이 포트에서 허용되는 프로토콜입니다.
+      - **허용된 원본 IP 주소** - 요청이 승인될 때 이 포트에서 허용되는 IP 범위입니다.
+      - **최대 요청 시간** - 특정 포트를 열 수 있는 최대 기간입니다.
 
 4. **저장**을 선택합니다.
 
 
 > [!NOTE]
->[JIT VM 액세스]가 VM에 대해 사용하도록 설정된 경우 Azure Security Center에서는 이와 연관된 네트워크 보안 그룹에서 선택된 포트에 대해 모든 인바운드 트래픽 거부 규칙을 생성합니다. 이 규칙은 네트워크 보안 그룹의 최고 우선 순위이거나 이미 존재하는 기존 규칙보다 우선 순위가 낮습니다. 규칙이 안전한지 여부를 판별하는 Azure Security Center에서 수행하는 분석에 따라 결정됩니다.
+>VM에 대 한 JIT VM 액세스를 사용 하는 경우 Azure Security Center는 연관 된 네트워크 보안 그룹의 선택된 된 포트에 대 한 "모든 인바운드 트래픽을 거부" 규칙을 만듭니다. 선택된 된 포트에 대 한 다른 규칙 작성 된 경우 다음 기존 규칙 보다 우선적으로 적용 새 "모든 인바운드 트래픽을 거부" 규칙입니다. 선택된 된 포트에서 기존 규칙이 없습니다, 새 "모든 인바운드 트래픽을 거부" 규칙을 네트워크 보안 그룹의 최우선을 수행 합니다.
 >
 
 ### <a name="request-jit-access-to-a-vm"></a>VM에 대한 JIT 액세스 요청
@@ -142,11 +144,11 @@ VM에서 Just-In-Time 액세스를 쉽게 롤아웃할 수 있도록 하려면 V
 - Windows 서버:
     - RDP 포트 3389
     - 허용되는 최대 액세스: 3시간
-    - 허용된 원본 IP 주소는 요청당 설정됨
+    - 허용 되는 원본 IP 주소에 설정 됩니다.
 - Linux 서버:
     - SSH 포트 22
     - 허용되는 최대 액세스: 3시간
-    - 허용된 원본 IP 주소는 요청당 설정됨
+    - 허용 되는 원본 IP 주소에 설정 됩니다.
      
 VM에 이미 Just-In-Time이 사용 설정된 경우 구성 페이지로 이동하면 Just-In-Time이 사용하도록 설정되었으며 링크를 사용해 Azure Security Center에서 정책을 열어 설정을 보고 변경할 수 있음을 확인할 수 있습니다.
 
@@ -172,9 +174,9 @@ Azure Portal에서 VM에 연결하려고 할 때 Azure는 해당 VM에 구성된
 2. **VM** 아래에서 해당 VM에 대한 행 안의 3개 점을 클릭하여 정보를 확인합니다. 그러면 메뉴가 열립니다.
 3. 메뉴에서 **활동 로그**를 선택합니다. 이렇게 하면 **활동 로그**가 열립니다.
 
-  ![활동 로그 선택](./media/security-center-just-in-time/select-activity-log.png)
+   ![활동 로그 선택](./media/security-center-just-in-time/select-activity-log.png)
 
-  **활동 로그**는 시간, 날짜 및 구독과 함께 해당 VM에 대한 이전 작업의 필터링된 보기를 제공합니다.
+   **활동 로그**는 시간, 날짜 및 구독과 함께 해당 VM에 대한 이전 작업의 필터링된 보기를 제공합니다.
 
 **여기를 클릭하여 모든 항목을 CSV로 다운로드하세요.** 를 선택하여 로그 정보를 다운로드할 수 있습니다.
 
@@ -186,16 +188,16 @@ Azure Portal에서 VM에 연결하려고 할 때 Azure는 해당 VM에 구성된
 이러한 필수 권한을 설정하여 사용자가 VM에 대한 JIT 정책을 구성하거나 편집할 수 있도록 합니다.
 
 역할에 다음 *작업*을 할당합니다. 
--   VM에 연결된 구독 또는 리소스 그룹의 범위에서
-   - Microsoft.Security/locations/jitNetworkAccessPolicies/write
--    구독, 리소스 그룹 또는 VM의 범위에서
-   - Microsoft.Compute/virtualMachines/write 
+- VM에 연결된 구독 또는 리소스 그룹의 범위에서
+  - Microsoft.Security/locations/jitNetworkAccessPolicies/write
+- 구독, 리소스 그룹 또는 VM의 범위에서
+  - Microsoft.Compute/virtualMachines/write 
 
 이러한 권한을 설정하여 사용자가 VM에 대한 JIT 액세스를 성공적으로 요청할 수 있도록 합니다. 사용자에게 다음 *작업*을 할당합니다.
--   VM에 연결된 구독 또는 리소스 그룹의 범위에서
-   - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
--    구독, 리소스 그룹 또는 VM의 범위에서
-   - Microsoft.Compute/virtualMachines/read
+- VM에 연결된 구독 또는 리소스 그룹의 범위에서
+  - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
+- 구독, 리소스 그룹 또는 VM의 범위에서
+  - Microsoft.Compute/virtualMachines/read
 
 
 
@@ -208,7 +210,7 @@ Just-In-Time VM 액세스 기능은 Azure Security Center API를 통해 사용�
 
 ### <a name="using-jit-vm-access-via-powershell"></a>PowerShell을 통해 JIT VM 액세스 사용 
 
-PowerShell을 통해 Just-In-Time VM 액세스 솔루션을 사용하려면 공식 Azure Security Center PowerShell cmdlet, 특히 `Set-AzureRmJitNetworkAccessPolicy`를 사용하세요.
+PowerShell을 통해 Just-In-Time VM 액세스 솔루션을 사용하려면 공식 Azure Security Center PowerShell cmdlet, 특히 `Set-AzJitNetworkAccessPolicy`를 사용하세요.
 
 다음 예제에서는 특정 VM의 Just-In-Time VM 액세스 정책을 설정하고 다음 내용을 설정합니다.
 1.  포트 22 및 3389를 닫습니다.
@@ -238,7 +240,7 @@ PowerShell을 통해 Just-In-Time VM 액세스 솔루션을 사용하려면 공�
 
 3.  선택한 VM에서 Just-In-Time VM 액세스 정책을 구성합니다.
     
-        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 #### <a name="requesting-access-to-a-vm"></a>VM에 대한 액세스 요청
 
@@ -258,7 +260,7 @@ PowerShell에서 다음 내용을 실행하세요.
         $JitPolicyArr=@($JitPolicyVm1)
 3.  액세스 요청을 보냅니다(1단계에서 얻은 리소스 ID 사용).
 
-        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+        Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
 자세한 내용은 PowerShell cmdlet 설명서를 참조하세요.
 

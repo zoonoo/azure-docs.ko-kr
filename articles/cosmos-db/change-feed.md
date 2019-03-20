@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2224c798d0854aab2d3ec7fc2c03b51de58dbfc0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244439"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886726"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 변경 피드 - 개요
 
@@ -35,10 +35,10 @@ Azure Cosmos DB의 변경 피드를 사용하면 다음 그림과 같이 이러�
 
 | **클라이언트 드라이버** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB의 MongoDB API** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | 해당 없음 | 예 | 아니요 | 아니요 | 예 | 아니요 |
-|자바|해당 없음|예|아니요|아니요|예|아니요|
-|Python|해당 없음|예|아니요|아니요|예|아니요|
-|Node/JS|해당 없음|예|아니요|아니요|예|아니요|
+| .NET | 해당 없음 | 예 | 아니오 | 아니요 | 사용자 계정 컨트롤 | 아닙니다. |
+|자바|해당 없음|예|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
+|Python|해당 없음|예|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
+|Node/JS|해당 없음|예|아니오|아니요|사용자 계정 컨트롤|아닙니다.|
 
 ## <a name="change-feed-and-different-operations"></a>변경 피드 및 다양한 작업
 
@@ -118,7 +118,7 @@ _etag 형식은 내부적이며 언제든지 변경될 수 있으므로 의존�
 
 * Azure Cosmos 컨테이너의 모든 논리 파티션 키에 대해 변경 내용을 동시에 사용할 수 있습니다. 이 기능을 사용하면 대규모 컨테이너의 변경 내용을 여러 소비자에 의해 병렬로 처리할 수 있습니다.
 
-* 애플리케이션은 동일한 컨테이너에서 동시에 여러 변경 피드를 요청할 수 있습니다. 초기 시작점을 제공하기 위해 ChangeFeedOptions.StartTime을 사용할 수 있습니다. 예를 들어 지정된 클록 시간에 해당하는 연속 토큰을 찾을 수 있습니다. ContinuationToken을 지정할 경우 이것이 StartTime 및 StartFromBeginning 값보다 우선합니다. ChangeFeedOptions.StartTime의 정확도는 5초입니다. 
+* 응용 프로그램에서 동일한 컨테이너에 여러 변경 피드를 동시에 요청할 수 있습니다. 초기 시작점을 제공하기 위해 ChangeFeedOptions.StartTime을 사용할 수 있습니다. 예를 들어 지정된 클록 시간에 해당하는 연속 토큰을 찾을 수 있습니다. ContinuationToken을 지정할 경우 이것이 StartTime 및 StartFromBeginning 값보다 우선합니다. ChangeFeedOptions.StartTime의 정확도는 5초입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 1daae81f0f642275e1ded20eb29f1e3145463db8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 55aed5d1133756789c3ed8979f0a9599f465e5d9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990175"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315098"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
@@ -32,9 +32,9 @@ ms.locfileid: "55990175"
 ![대시보드](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>장점
-- Azure에 긴밀하게 통합됩니다. 시각화는 메트릭 탐색기, Log Analytics, Application Insights 등 여러 Azure 페이지의 대시보드에 고정될 수 있습니다.
+- Azure에 긴밀하게 통합됩니다. 메트릭 탐색기, Log Analytics 및 Application Insights를 포함 하 여 여러 Azure 페이지에서 시각화를 대시보드에 고정할 수 있습니다.
 - 메트릭 및 로그를 둘 다 지원합니다.
-- [메트릭 탐색기](platform/metrics-charts.md), [로그 쿼리](log-query/log-query-overview.md), Application Insights의 [맵](app/app-map.md)과 [가용성]() 출력을 비롯한 여러 출처의 데이터를 결합할 수 있습니다.
+- 출력을 포함 하 여 여러 원본의 데이터를에서 결합할 [메트릭 탐색기](platform/metrics-charts.md), [쿼리를 기록](log-query/log-query-overview.md), 및 [매핑합니다](app/app-map.md) 및 Application Insights에서 가용성입니다.
 - 개인 또는 공유 대시보드 옵션을 제공합니다. Azure [역할 기반 인증(RBAC)](../role-based-access-control/overview.md)과 통합됩니다.
 - 자동으로 새로 고침됩니다. 메트릭 새로 고침은 시간 범위에 따라 달라지며, 시간 범위는 최소 5분입니다. 로그는 1분마다 새로 고침됩니다.
 - 타임스탬프 및 사용자 지정 매개 변수로 메트릭 대시보드가 매개 변수화됩니다.
@@ -71,9 +71,8 @@ ms.locfileid: "55990175"
 - 쿼리 응답 크기는 8MB, 쿼리 실행 시간은 110초로 제한됩니다.
 
 
-
-## <a name="application-insights-workbooks"></a>Application Insights 통합 문서
-[통합 문서](../application-insights/app-insights-usage-workbooks.md)는 팀 내 데이터, 조사, 공동 작업에 대한 깊이 있는 인사이트를 제공하는 대화형 문서입니다. 통합 문서가 효율적으로 활용되는 구체적인 예는 문제 해결 가이드 및 인시던트 사후 검토에 나와 있습니다.
+## <a name="workbooks"></a>통합 문서
+[통합 문서](../azure-monitor/app/usage-workbooks.md)는 팀 내 데이터, 조사, 공동 작업에 대한 깊이 있는 인사이트를 제공하는 대화형 문서입니다. 통합 문서가 효율적으로 활용되는 구체적인 예는 문제 해결 가이드 및 인시던트 사후 검토에 나와 있습니다.
 
 ![통합 문서](media/visualizations/workbook.png)
 
@@ -122,7 +121,6 @@ ms.locfileid: "55990175"
 - 매개 변수를 지원합니다.
 
 ### <a name="limitations"></a>제한 사항
-- 메트릭은 지원되지만 로그는 지원되지 않습니다.
 - Azure에 통합되지 않습니다. Azure Resource Manager를 통해 대시보드 및 모델을 관리할 수 없습니다.
 - 추가 Grafana 인프라를 지원하는 데 비용이 들거나 Grafana Cloud에 대한 추가 비용이 필요합니다.
 
@@ -142,6 +140,7 @@ ms.locfileid: "55990175"
 - [Azure Monitor에서 수집하는 데이터](platform/data-collection.md)에 대해 알아봅니다.
 - [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 대해 알아봅니다.
 - [Azure Monitor의 뷰](platform/view-designer.md)에 대해 알아봅니다.
-- [Application Insights의 통합 문서](app/usage-workbooks.md)에 대해 알아봅니다.
-- [Power BI로 로그 데이터 가져오기](platform/powerbi.md)에 대해 알아봅니다.
-- [Grafana Azure Monitor 데이터 원본 플러그 인](platform/grafana-plugin.md)에 대해 알아봅니다.
+- 에 대 한 자세한 [통합 문서](../azure-monitor/app/usage-workbooks.md)합니다.
+- [Power BI로 로그 데이터 가져오기](../azure-monitor/platform/powerbi.md)에 대해 알아봅니다.
+- [Grafana Azure Monitor 데이터 원본 플러그 인](../azure-monitor/platform/grafana-plugin.md)에 대해 알아봅니다.
+

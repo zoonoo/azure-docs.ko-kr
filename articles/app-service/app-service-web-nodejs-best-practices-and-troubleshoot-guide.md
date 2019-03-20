@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051855"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898859"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
@@ -90,7 +90,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-변경 내용을 감시하는 세미콜론으로 구분된 파일 목록입니다. 파일에 대한 변경 내용으로 인해 애플리케이션 재활용이 발생합니다. 각 항목은 주 애플리케이션 진입점이 있는 디렉터리를 기준으로 선택적 디렉터리 이름 및 필수 파일 이름으로 구성됩니다. 파일 이름 부분에만 와일드 카드가 허용됩니다. 기본값은 `*.js;web.config`입니다.
+변경 내용을 감시하는 세미콜론으로 구분된 파일 목록입니다. 파일에 대한 변경 내용으로 인해 애플리케이션 재활용이 발생합니다. 각 항목은 주 애플리케이션 진입점이 있는 디렉터리를 기준으로 선택적 디렉터리 이름 및 필수 파일 이름으로 구성됩니다. 파일 이름 부분에만 와일드 카드가 허용됩니다. 기본값은 `*.js;iisnode.yml`입니다.
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
@@ -118,7 +118,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled(라이브 프로덕션 사이트에서 사용 안 함)
 
-이 설정은 디버깅 기능을 제어합니다. Iisnode는 node-inspector에 통합됩니다. 이 설정을 사용하여 노드 애플리케이션의 디버깅을 사용하도록 설정합니다. 이 설정을 사용하도록 설정하면 iisnode가 필요한 ‘debuggerVirtualDir’ 디렉터리의 node-inspector 파일을 노드 애플리케이션에 대한 첫 번째 디버그 요청에 만듭니다. 요청을 http://yoursite/server.js/debug에 전송하여 node-inspector를 로드할 수 있습니다. ‘debuggerPathSegment’ 설정으로 디버그 URL 세그먼트를 제어할 수 있습니다. 기본적으로 debuggerPathSegment='debug'입니다. 예를 들어 `debuggerPathSegment`를 GUID로 설정할 수 있으므로 다른 사람이 검색하기 더 어렵습니다.
+이 설정은 디버깅 기능을 제어합니다. Iisnode는 node-inspector에 통합됩니다. 이 설정을 사용하여 노드 애플리케이션의 디버깅을 사용하도록 설정합니다. 이 설정을 사용하도록 설정하면 iisnode가 필요한 ‘debuggerVirtualDir’ 디렉터리의 node-inspector 파일을 노드 애플리케이션에 대한 첫 번째 디버그 요청에 만듭니다. 요청을 `http://yoursite/server.js/debug`에 전송하여 node-inspector를 로드할 수 있습니다. ‘debuggerPathSegment’ 설정으로 디버그 URL 세그먼트를 제어할 수 있습니다. 기본적으로 debuggerPathSegment='debug'입니다. 예를 들어 `debuggerPathSegment`를 GUID로 설정할 수 있으므로 다른 사람이 검색하기 더 어렵습니다.
 
 디버깅에 대한 자세한 내용은 [Windows에서 node.js 애플리케이션 디버그](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html)를 읽어 보세요.
 
@@ -133,7 +133,7 @@ agentkeepalive 모듈은 소켓이 Azure 웹앱 VM에서 다시 사용되도록 
 [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) 구성 예제:
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -155,9 +155,9 @@ var keepaliveAgent = new Agent({
 예를 들어 아래와 같이 프로파일링할 hello world 앱이 있다고 가정해 보겠습니다.
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-디버그 콘솔 사이트 https://yoursite.scm.azurewebsites.net/DebugConsole로 이동합니다.
+디버그 콘솔 사이트 `https://yoursite.scm.azurewebsites.net/DebugConsole`로 이동합니다.
 
 site/wwwroot 디렉터리로 이동합니다. 다음 예제와 같이 명령 프롬프트가 표시됩니다.
 
@@ -185,12 +185,12 @@ site/wwwroot 디렉터리로 이동합니다. 다음 예제와 같이 명령 프
 이제 server.js를 편집하여 애플리케이션을 프로파일링합니다.
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }

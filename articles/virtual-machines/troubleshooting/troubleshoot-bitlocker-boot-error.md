@@ -3,7 +3,7 @@ title: Azure VM에서 BitLocker 부팅 오류 해결 | Microsoft Docs
 description: Azure VM에서 BitLocker 부팅 오류를 해결하는 방법을 알아봅니다
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a7bd812d3aadfd3c358c8d0aeccf0e92ed474a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984769"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993200"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
@@ -26,13 +26,13 @@ ms.locfileid: "55984769"
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
- ## <a name="symptom"></a>증상
+## <a name="symptom"></a>증상
 
  Windows VM이 시작되지 않습니다. [부트 진단](../windows/boot-diagnostics.md) 창의 스크린샷을 확인하면 다음 오류 메시지 중 하나가 표시됩니다.
 
 - BitLocker 키가 있는 USB 드라이버 꽂기
 
-- 잠겼습니다. 다시 시작하려면 복구 키를 입력하세요(자판 배열: 미국). 잘못된 로그인 정보를 너무 많이 입력했으므로 개인 정보 보호를 위해 PC가 잠겼습니다. 복구 키를 검색하려면 다른 PC 또는 모바일 디바이스에서 http://windows.microsoft.com/recoverykeyfaq로 이동합니다. 이 키가 필요한 경우 키 ID는 XXXXXXX입니다. 또는 PC를 초기화할 수 있습니다.
+- 잠겼습니다. 다시 시작하려면 복구 키를 입력하세요(자판 배열: 미국). 잘못된 로그인 정보를 너무 많이 입력했으므로 개인 정보 보호를 위해 PC가 잠겼습니다. 복구 키를 검색하려면 다른 PC 또는 모바일 디바이스에서 https://windows.microsoft.com/recoverykeyfaq로 이동합니다. 이 키가 필요한 경우 키 ID는 XXXXXXX입니다. 또는 PC를 초기화할 수 있습니다.
 
 - 이 드라이브의 잠금을 해제하려면 암호를 입력하세요. [ ] 입력하는 암호를 표시하려면 Insert 키를 누르세요.
 - USB 디바이스에서 복구 키를 로드하려면 복구 키를 입력하세요.

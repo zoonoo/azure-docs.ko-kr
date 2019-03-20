@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: bc7a183220219b14cb793f8115284d38d544b0e0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 883e1c11e3485c0bf3441a67a3a191563ea3aed4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453181"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990794"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
@@ -222,7 +222,7 @@ Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. �
 터미널을 열고 `julia`를 실행하기만 하면 됩니다. 
 * IDE에서 사용
 
-DSVM에 설치되고 애플리케이션 메뉴 바로 가기로 사용할 수 있는 Julia IDE `Juno`를 사용합니다.
+사용 하 여 `Juno` DSVM에 설치 되 고는 응용 프로그램 메뉴 바로 가기로 사용할 수 있는 Julia IDE.
 
 * Jupyter에서 사용
 

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 48ccbedd6e3a7da0ec487f27709a47f9364f7da3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 3d95a9ea555cceda82530eb5c487eeb993c1a678
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188563"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 TAP 작업
 
@@ -28,7 +28,7 @@ Azure Virtual Network TAP(터미널 액세스 지점)를 사용하면 네트워�
 
 ## <a name="create-a-virtual-network-tap-resource"></a>가상 네트워크 TAP 리소스 만들기
 
-가상 네트워크 TAP 리소스를 만들기 전에 [필수 구성 요소](virtual-network-tap-overview.md#prerequisites)를 확인하세요. 아래에 설명되어 있는 명령은 [Azure Cloud Shell](https://shell.azure.com/bash)에서 실행할 수도 있고, 컴퓨터에서 Azure CLI(명령줄 인터페이스)를 실행하여 실행할 수도 있습니다. Azure Cloud Shell은 컴퓨터에 Azure CLI를 설치하지 않아도 사용할 수 있는 무료 대화형 셸입니다. 적절한 [권한](virtual-network-tap-overview.md#permissions)이 있는 계정으로 Azure에 로그인해야 합니다. 이 문서에서 설명하는 단계를 수행하려면 Azure CLI 버전 2.0.46 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
+가상 네트워크 TAP 리소스를 만들기 전에 [필수 구성 요소](virtual-network-tap-overview.md#prerequisites)를 확인하세요. 아래에 설명되어 있는 명령은 [Azure Cloud Shell](https://shell.azure.com/bash)에서 실행할 수도 있고, 컴퓨터에서 Azure CLI(명령줄 인터페이스)를 실행하여 실행할 수도 있습니다. Azure Cloud Shell은 컴퓨터에 Azure CLI를 설치하지 않아도 사용할 수 있는 무료 대화형 셸입니다. 적절한 [권한](virtual-network-tap-overview.md#permissions)이 있는 계정으로 Azure에 로그인해야 합니다. 이 문서에서 설명하는 단계를 수행하려면 Azure CLI 버전 2.0.46 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. Virtual network 탭은 현재 확장으로 사용할 수 있습니다. 실행 해야 하는 확장을 설치 하려면 `az extension add -n virtual-network-tap`합니다. 또한 Azure CLI를 로컬로 실행하는 경우 `az login`를 실행하여 Azure와 연결해야 합니다.
 
 1. 구독 ID를 이후 단계에서 사용되는 변수로 가져옵니다.
 

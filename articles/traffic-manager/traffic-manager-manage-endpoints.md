@@ -6,17 +6,17 @@ documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 28ea626adf87ad9f115b5acc5452dfc91ad833c5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245010"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009292"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>엔드포인트 추가, 사용 안 함, 사용 또는 삭제
 
@@ -29,7 +29,7 @@ Traffic Manager 프로필의 일부인 개별 엔드포인트를 사용하지 �
 
 ## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Traffic Manager 프로필에 클라우드 서비스 또는 App Service 엔드포인트를 추가하려면
 
-1. 브라우저에서 [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 검색 창에서 수정하려는 **Traffic Manager 프로필** 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
 3. **Traffic Manager 프로필** 블레이드에서 **설정** 섹션의 **엔드포인트**를 클릭합니다.
 4. 표시되는 **엔드포인트** 블레이드에서 **추가**를 클릭합니다.
@@ -49,7 +49,7 @@ Traffic Manager 프로필의 일부인 개별 엔드포인트를 사용하지 �
 
 ## <a name="to-disable-an-endpoint"></a>엔드포인트를 사용하지 않도록 설정하려면
 
-1. 브라우저에서 [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 검색 창에서 수정하려는 **Traffic Manager 프로필** 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
 3. **Traffic Manager 프로필** 블레이드에서 **설정** 섹션의 **엔드포인트**를 클릭합니다. 
 4. 사용하지 않으려는 엔드포인트를 클릭한 다음 표시되는 **엔드포인트** 블레이드에서 **편집**을 클릭합니다.
@@ -58,7 +58,7 @@ Traffic Manager 프로필의 일부인 개별 엔드포인트를 사용하지 �
 
 ## <a name="to-enable-an-endpoint"></a>엔드포인트를 사용하도록 설정하려면
 
-1. 브라우저에서 [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 검색 창에서 수정하려는 **Traffic Manager 프로필** 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
 3. **Traffic Manager 프로필** 블레이드에서 **설정** 섹션의 **엔드포인트**를 클릭합니다. 
 4. 사용하지 않으려는 엔드포인트를 클릭한 다음 표시되는 **엔드포인트** 블레이드에서 **편집**을 클릭합니다.
@@ -67,7 +67,7 @@ Traffic Manager 프로필의 일부인 개별 엔드포인트를 사용하지 �
 
 ## <a name="to-delete-an-endpoint"></a>엔드포인트를 삭제하려면
 
-1. 브라우저에서 [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 검색 창에서 수정하려는 **Traffic Manager 프로필** 이름을 검색한 다음 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
 3. **Traffic Manager 프로필** 블레이드에서 **설정** 섹션의 **엔드포인트**를 클릭합니다. 
 4. 사용하지 않으려는 엔드포인트를 클릭한 다음 표시되는 **엔드포인트** 블레이드에서 **편집**을 클릭합니다.

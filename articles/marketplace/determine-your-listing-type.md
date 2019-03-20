@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4abed1718d77c93e864fe5bb1d39aba5e5272f10
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 2755232ea81f1551477431f4eb1f0aeab8b8bfe8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074473"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734043"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 제안에 대해 선택한 게시 옵션은 적격성 요구 사항 및 마켓플레이스 GTM 혜택 모두와 직접 관련이 있습니다. 무엇보다도 Cloud 파트너 포털에서 게시 옵션 및 제품 유형의 선택은 사용자가 귀하의 마켓플레이스 제안과 상호 작용하는 방법을 정의합니다.

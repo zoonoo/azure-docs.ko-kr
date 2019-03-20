@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: b05a8bfd46800c5b0b0126adcf2acb4852bb6683
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339759"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240170"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Azure IoT Hub의 연결 끊김 문제 감지지 및 해결
 
-IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에 문제 해결이 어려울 수 있습니다. 디바이스 쪽 응용 프로그램 로직, 물리적 네트워크, 프로토콜, 하드웨어 및 Azure IoT Hub 모두 문제를 일으킬 수 있습니다. 이 문서에서는 클라우드 쪽(디바이스 쪽에 대한 반대 개념)에서 디바이스 연결 문제를 감지 및 해결하는 방법에 대한 권장 사항을 제공합니다.
+IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에 문제 해결이 어려울 수 있습니다. 장치 쪽 애플리케이션 로직, 물리적 네트워크, 프로토콜, 하드웨어 및 Azure IoT Hub 모두 문제를 일으킬 수 있습니다. 이 문서에서는 클라우드 쪽(디바이스 쪽에 대한 반대 개념)에서 디바이스 연결 문제를 감지 및 해결하는 방법에 대한 권장 사항을 제공합니다.
 
 ## <a name="get-alerts-and-error-logs"></a>경고 및 오류 로그 얻기
 
@@ -54,7 +54,7 @@ IoT 디바이스의 연결 문제는 가능한 실패 지점이 많기 때문에
 
 ## <a name="resolve-connectivity-errors"></a>연결 오류 해결
 
-연결된 디바이스에 대한 진단 로그 및 경고가 켜져 있는 경우 오류가 발생하면 경고가 표시됩니다. 이 섹션에서는 경고를 받게 되면 일반적인 문제를 해결하는 방법을 설명합니다. 아래 단계에서는 진단 로그에 대해 Azure Log Analytics를 설정했다고 가정합니다.
+연결된 디바이스에 대한 진단 로그 및 경고가 켜져 있는 경우 오류가 발생하면 경고가 표시됩니다. 이 섹션에서는 경고를 받게 되면 일반적인 문제를 해결하는 방법을 설명합니다. 아래 단계에 진단 로그에 대 한 Azure Monitor 로그를 설정한 것을 가정 합니다.
 
 1. Azure Portal에서 **Log Analytics**의 작업 영역으로 이동합니다.
 1. **로그 검색**을 선택합니다.
