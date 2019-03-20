@@ -5,26 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 31ca6deef6d81ca7beb08f6df1a15d52ef381a46
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 9f2eae4160dbef164ec70e8fa4d7b3a83706ae96
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190394"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880129"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 테이블 형식 모델에 대한 호환성 수준
 
-*호환성 수준*은 Analysis Services 엔진의 릴리스 관련 동작을 가리킵니다. 호환성 수준에 대한 변경은 일반적으로 주요 버전의 SQL Server와 일치합니다. 이러한 변경은 두 플랫폼 간의 패리티를 유지하기 위해 Azure Analysis Services에도 구현됩니다. 호환성 수준 변경은 테이블 형식 모델에서 사용할 수 있는 기능에도 영향을 줍니다. 예를 들어 DirectQuery 및 테이블 형식 개체 메타데이터는 호환성 수준에 따라 서로 다른 구현을 갖습니다. 호환성 수준은 Visual Studio(SSDT)에서 테이블 형식 모델 프로젝트로 지정됩니다. Power BI Desktop에서 만들어 가져온 테이블 형식 모델은 1400 호환성 수준만 적용됩니다.
+*호환성 수준*은 Analysis Services 엔진의 릴리스 관련 동작을 가리킵니다. 호환성 수준에 대한 변경은 일반적으로 주요 버전의 SQL Server와 일치합니다. 이러한 변경은 두 플랫폼 간의 패리티를 유지하기 위해 Azure Analysis Services에도 구현됩니다. 호환성 수준 변경은 테이블 형식 모델에서 사용할 수 있는 기능에도 영향을 줍니다. 예를 들어 DirectQuery 및 테이블 형식 개체 메타데이터는 호환성 수준에 따라 서로 다른 구현을 갖습니다. 호환성 수준은 Visual Studio(SSDT)에서 테이블 형식 모델 프로젝트로 지정됩니다.
 
-Azure Analysis Services는 1200 및 1400 호환성 수준의 테이블 형식 모델을 지원합니다. 
-
-> [!NOTE]
-> Power BI Desktop 2018년 9월 이상 릴리스의 .pbix 호환성 수준은 1465입니다. 이 호환성 수준은 Azure Analysis Services에서 지원됩니다. 그러나 프로덕션 환경에서는 Power BI Desktop 파일을 가져오는 것이 권장되지 않습니다. 자세한 내용은 [Power BI Desktop 파일 가져오기](analysis-services-import-pbix.md)를 참조하세요.
-
-최신 호환성 수준은 1400입니다. 이 수준은 SQL Server 2017 Analysis Services와 일치합니다. 1400 호환성 수준에서 주요 기능은 다음과 같습니다.
+Azure Analysis Services는 1200 및 1400 호환성 수준의 테이블 형식 모델을 지원합니다. 최신 호환성 수준은 1400입니다. 이 수준은 SQL Server 2017 Analysis Services와 일치합니다. 1400 호환성 수준에서 주요 기능은 다음과 같습니다.
 
 *  TOM API 및 TMSL 스크립트에 대한 지원을 통해 데이터 연결 및 가져오기를 위한 새로운 기능. 
 *  데이터 가져오기 및 M 식을 사용하여 데이터 변환 및 데이터 매시업 기능.
@@ -55,5 +50,4 @@ Azure Analysis Services는 1200 및 1400 호환성 수준의 테이블 형식 �
 
 ## <a name="next-steps"></a>다음 단계
 
-  [Azure Portal에서 모델 만들기](analysis-services-create-model-portal.md)   
   [Analysis Services 관리](analysis-services-manage.md)  

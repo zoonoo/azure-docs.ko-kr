@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8ef70088d904720a81ac558206a3140d7bbecd6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 1894fc1823772c27f37829b9b27ec515dcb841b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270000"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861063"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>작업 시간 외 VM 시작/중지 문제 해결
 
@@ -141,7 +141,7 @@ VM 시작/중지 솔루션을 구성했지만 구성된 일부 VM이 시작 또�
 
 * VM을 시작 및 중지하려면 Automation 계정의 실행 계정에 VM에 대한 적절한 사용 권한이 있어야 합니다. 리소스에 대한 권한을 확인하는 방법을 알아보려면 [빠른 시작: Azure Portal을 사용하여 사용자에게 할당된 역할 보기](../../role-based-access-control/check-access.md)를 참조하세요. 실행 계정에서 사용하는 서비스 주체의 애플리케이션 ID를 제공해야 합니다. Azure Portal에서 Automation 계정으로 이동하고, **계정 실행** 아래에서 **실행 계정**을 선택한 후 적절한 실행 계정을 클릭하여 이 값을 검색할 수 있습니다.
 
-* VM을 시작 또는 할당 취소하는 데 문제가 발생하는 경우 VM 자체의 문제로 인해 이 동작이 발생할 수 있습니다. 일부 예제 또는 잠재적 문제는 시스템 종료를 시도하거나 서비스 중단이 발생할 때 업데이트가 적용되는 경우입니다. VM 리소스로 이동한 후 **활동 로그**를 확인하여 로그에 오류가 있는지 검토합니다. 이벤트 로그에 오류가 있는지 확인하기 위해 VM에 로그인을 시도할 수도 있습니다.
+* VM을 시작 또는 할당 취소하는 데 문제가 발생하는 경우 VM 자체의 문제로 인해 이 동작이 발생할 수 있습니다. 일부 예제 또는 잠재적 문제는 시스템 종료를 시도하거나 서비스 중단이 발생할 때 업데이트가 적용되는 경우입니다. VM 리소스로 이동한 후 **활동 로그**를 확인하여 로그에 오류가 있는지 검토합니다. 이벤트 로그에 오류가 있는지 확인하기 위해 VM에 로그인을 시도할 수도 있습니다. VM 문제를 해결 하는 방법에 대 한 자세한 내용은를 참조 하세요. [문제 해결 Azure virtual machines](../../virtual-machines/troubleshooting/index.md)
 
 ## <a name="custom-runbook"></a>시나리오: 내 사용자 지정 Runbook이 VM을 시작 또는 중지하지 못함
 

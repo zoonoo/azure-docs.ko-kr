@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 8ceae771f1a66f6d999dd0dc2b1f298d4aae8f86
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 845544a2062b43f0d9f883ddecbc2589b3357221
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017296"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997927"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,12 +94,12 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 }
 ```
 
-태그 | 설명 | type | 필수
+태그 | 설명 | Type | 필수
 --- | ----------- | ---- | --------
 이름 | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | 문자열 | 예
-description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | 문자열 | 아니요
+description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | 문자열 | 아닙니다.
 작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | 배열 | 예
-매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 나열 | 아니요
+매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 나열 | 아닙니다.
 
 ## <a name="activity-json"></a>활동 JSON
 **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. 작업에는 두 가지 주요 유형이 있습니다. 그것은 바로 실행 및 제어 작업입니다.
@@ -133,9 +133,9 @@ description | 파이프라인의 용도를 설명하는 텍스트를 지정합�
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
 형식 | 활동의 형식입니다. 작업의 여러 가지 유형에 대해서는 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities) 및 [제어 작업](#control-activities) 섹션을 참조하세요. | 예
 linkedServiceName | 작업에서 사용하는 연결된 서비스의 이름입니다.<br/><br/>작업은 필요한 계산 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. | HDInsight 작업, Azure Machine Learning 일괄 처리 점수 매기기 작업, 저장 프로시저 작업의 경우 예입니다. <br/><br/>다른 모든 사용자의 경우 아니요
-typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 아니요
-policy | 작업의 런타임 동작에 영향을 주는 정책입니다. 이 속성은 시간 제한 및 다시 시도 동작을 포함합니다. 지정하지 않으면 기본값을 사용합니다. 자세한 내용은 [작업 정책](#activity-policy)을 참조하세요. | 아니요
-dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [작업 종속성](#activity-dependency) 참조 | 아니요
+typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 아닙니다.
+policy | 작업의 런타임 동작에 영향을 주는 정책입니다. 이 속성은 시간 제한 및 다시 시도 동작을 포함합니다. 지정하지 않으면 기본값을 사용합니다. 자세한 내용은 [작업 정책](#activity-policy)을 참조하세요. | 아닙니다.
+dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [작업 종속성](#activity-dependency) 참조 | 아닙니다.
 
 ### <a name="activity-policy"></a>작업 정책
 정책은 작업의 런타임 동작에 영향을 미치며 구성 기능 옵션을 제공합니다. 작업 정책은 실행 작업에 대해서만 사용할 수 있습니다.
@@ -167,12 +167,13 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
     }
 }
 ```
+
 JSON 이름 | 설명 | 허용되는 값 | 필수
 --------- | ----------- | -------------- | --------
-시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan |  아니요. 기본 시간 제한은 7일입니다.
-retry | 최대 다시 시도 횟수 | 정수  |  아니요. 기본값은 0입니다.
-retryIntervalInSeconds | 다시 시도 사이의 지연(초) | 정수  |  아니요. 기본값은 20초
-secureOutput | true로 설정된 경우 작업의 출력은 안전하다고 여기고 모니터링에 기록되지 않습니다. | BOOLEAN |  아니요. 기본값은 false입니다.
+시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 아니요. 기본 시간 제한은 7일입니다.
+retry | 최대 다시 시도 횟수 | 정수  | 아니요. 기본값은 0입니다.
+retryIntervalInSeconds | 다시 시도 사이의 지연(초) | 정수  | 아니요. 기본값은 20초
+secureOutput | true로 설정된 경우 작업의 출력은 안전하다고 여기고 모니터링에 기록되지 않습니다. | BOOLEAN | 아니요. 기본값은 false입니다.
 
 ### <a name="control-activity"></a>제어 작업
 제어 작업에는 다음과 같은 최상위 수준 구조가 있습니다.
@@ -196,8 +197,8 @@ secureOutput | true로 설정된 경우 작업의 출력은 안전하다고 여�
 이름 | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 55</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | 예</li><ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
 형식 | 활동의 형식입니다. 작업의 여러 가지 유형에 대해서는 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities) 및 [제어 작업](#control-activities) 섹션을 참조하세요. | 예
-typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 아니요
-dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [작업 종속성](#activity-dependency)을 참조하세요. | 아니요
+typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 아닙니다.
+dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이전 작업에 따라 달라지는 방법을 정의합니다. 자세한 내용은 [작업 종속성](#activity-dependency)을 참조하세요. | 아닙니다.
 
 ### <a name="activity-dependency"></a>작업 종속성
 작업 종속성은 이후 작업이 이전 작업에 따라 달라지는 방법을 정의하여 다음 작업의 실행을 계속할지 여부에 대한 조건을 결정합니다. 작업은 서로 다른 종속성 조건을 포함하는 한 개 또는 여러 이전 작업에 따라 달라질 수 있습니다.
@@ -302,7 +303,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 이 파이프라인 만드는 전체 연습은 [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
 ## <a name="sample-transformation-pipeline"></a>샘플 변환 파이프라인
-다음 샘플 파이프라인에는 **HDInsightHive** in the **활동** 유형의 하나의 활동이 있습니다. 이 샘플에서 [HDInsight Hive 활동](transform-data-using-hadoop-hive.md) 은 Azure HDInsight Hadoop 클러스터에서 Hive 스크립트 파일을 실행하여 Azure Blob 저장소에서 데이터를 변환합니다.
+다음 샘플 파이프라인에는 **HDInsightHive** in the **활동** 유형의 하나의 활동이 있습니다. 이 샘플에서 [HDInsight Hive 활동](transform-data-using-hadoop-hive.md) 은 Azure HDInsight Hadoop 클러스터에서 Hive 스크립트 파일을 실행하여 Azure Blob Storage에서 데이터를 변환합니다.
 
 ```json
 {

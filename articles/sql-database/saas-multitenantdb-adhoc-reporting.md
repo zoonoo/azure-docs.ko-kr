@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/30/2018
-ms.openlocfilehash: 2780215e409886be82ac70642dabe05c9257945e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568450"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076363"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>여러 Azure SQL Database에 대해 임시 분석 쿼리 실행
 
@@ -27,7 +27,7 @@ ms.locfileid: "55568450"
 이 자습서에서는 다음에 대해 알아봅니다.
 
 > [!div class="checklist"]
-
+> 
 > * 임시 보고 데이터베이스를 배포하는 방법
 > * 모든 테넌트 데이터베이스 간에 분산 쿼리를 실행하는 방법
 
@@ -147,7 +147,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션에�
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-
+> 
 > * 모든 테넌트 데이터베이스에서 분산 쿼리 실행
 > * 임시 보고 데이터베이스를 배포하고 스키마를 추가하여 배포된 쿼리를 실행합니다.
 

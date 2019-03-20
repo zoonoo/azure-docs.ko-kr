@@ -1,19 +1,18 @@
 ---
 title: 개요 - IaaS VM용 Azure Disk Encryption | Microsoft Docs
 description: 이 문서에서는 IaaS VM용 Microsoft Azure Disk Encryption에 대해 간략히 설명합니다.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 12/07/2018
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1674a54ea78e7fea2cc39cb26fefc52b8764bc4c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200856"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862015"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>IaaS VM용 Azure Disk Encryption
 
@@ -72,7 +71,7 @@ Azure Security Center를 사용하는 경우 암호화되지 않은 VM이 있는
    > [!NOTE]
    > 일부 Linux 배포에 대해서는 OS 드라이브 암호화가 지원되지 않습니다. 자세한 내용은 [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) 문서를 참조하세요.
    
-* Windows 스토리지 공간을 사용하여 구성된 Windows VM에서 암호화 사용
+* Windows Server 2016에서 Windows 저장소 공간 시작 부분으로 구성 된 Vm에서 암호화를 사용 합니다.
 * 기존의 암호화된 Premium Storage VM 및 비 Premium Storage VM의 암호화 설정 업데이트
 * KEK(키 암호화 키)를 사용하는 시나리오와 사용하지 않는 시나리오 모두에서 암호화된 VM의 백업 및 복원
 * 모든 Azure 공용 지역 및 Azure Government 지역 지원됨

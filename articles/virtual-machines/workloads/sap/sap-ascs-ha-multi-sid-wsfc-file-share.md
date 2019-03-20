@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: eac9f80e4b57c725de3bc05f55e09d49fb8e2ee5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004613"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -48,7 +48,7 @@ ms.locfileid: "55745021"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -196,7 +196,7 @@ ms.locfileid: "55745021"
 
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 
 [Azure 내부 부하 분산 장치][load-balancer-multivip-overview]를 사용하여 여러 가상 IP 주소를 관리할 수 있습니다. 
@@ -347,7 +347,7 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![그림 5: 다중 SID SOFS가 SAP 글로벌 호스트 이름 2와 같음][sap-ha-guide-figure-8016]
+![그림 5: 장애 조치 클러스터 관리자에서 두 번째 Volume2][sap-ha-guide-figure-8016]
 
 _**그림 5:** 장애 조치(Failover) 클러스터 관리자의 두 번째 Volume2_
 
@@ -403,26 +403,31 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 _**그림 6:** "파일 공유 추가" 마법사 시작_
 
 <br>
-![그림 7: "SMB 공유 – 빠르게" 선택][sap-ha-guide-figure-8018]
+
+![그림 7: "SMB 공유 – 빠른 선택"][sap-ha-guide-figure-8018]
 
 _**그림 7:** "SMB 공유 – 빠르게" 선택_
 
 <br>
-![그림 8: "sapglobalhost2"를 선택하고 Volume2에 경로 지정][sap-ha-guide-figure-8019]
+
+![그림 8: "Sapglobalhost2"를 선택 하 고 Volume2에 경로 지정][sap-ha-guide-figure-8019]
 
 _**그림 8:** "sapglobalhost2"를 선택하고 Volume2에 경로 지정_
 
 <br>
+
 ![그림 9: 파일 공유 이름을 "sapmnt"로 설정][sap-ha-guide-figure-8020]
 
 _**그림 9:** 파일 공유 이름을 "sapmnt"로 설정_
 
 <br>
+
 ![그림 10: 모든 설정 사용 안 함][sap-ha-guide-figure-8021]
 
 _**그림 10:** 모든 설정 사용 안 함_
 
 <br>
+
 다음에 대해 *모든 권한*을 파일 및 sapmnt 공유에 할당합니다.
 * **SAP_\<SID>_GlobalAdmin** 도메인 사용자 그룹
 * ASCS/SCS 클러스터 노드 **ascs-1$** 및 **ascs-2$** 의 컴퓨터 개체
@@ -432,16 +437,19 @@ _**그림 10:** 모든 설정 사용 안 함_
 _**그림 11:** 사용자 그룹 및 컴퓨터 계정에 "모든 권한" 할당_
 
 <br>
-![그림 12: "만들기" 선택][sap-ha-guide-figure-8023]
+
+![그림 12: “만들기” 선택][sap-ha-guide-figure-8023]
 
 _**그림 12:** "만들기" 선택_
 
 <br>
-![그림 13: 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Volume2 생성][sap-ha-guide-figure-8024]
+
+![그림 13: 두 번째 sapmnt가 sapglobal2 호스트에 연결 하 고 Volume2 생성][sap-ha-guide-figure-8024]
 
 _**그림 13:** 두 번째 sapmnt가 sapglobal2 호스트에 바인딩되고 Volume2 생성_
 
 <br>
+
 ## <a name="install-sap-netweaver-multi-sid"></a>SAP NetWeaver 다중 SID 설치
 
 ### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>SAP \<SID2> ASCS/SCS 및 ERS 인스턴스 설치

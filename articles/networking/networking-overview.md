@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: f21d92dabfcfbe51cf8135388a1ab489c20593a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880928"
 ---
 # <a name="azure-networking"></a>Azure 네트워킹
 
@@ -136,7 +136,7 @@ Azure는 VNet의 모든 서브넷에 연결된 리소스가 서로 통신할 수
 
 Azure에서는 다음과 같은 도구를 제공하여 네트워킹을 모니터링하고 관리합니다.
 - **활동 로그:**. 모든 Azure 리소스에는 수행되는 작업, 작업의 상태 및 작업을 시작한 사용자에 대한 정보를 제공하는 활동 로그가 있습니다. 활동 로그에 대한 자세한 내용을 알아보려면 [활동 로그 개요](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
-- **진단 로그:** 정기적이고 자동적인 이벤트가 네트워크 리소스에서 만들어지고 Azure Storage 계정에 기록되어 Azure Event Hub 또는 Azure Log Analytics로 전송됩니다. 진단 로그는 리소스 상태에 대한 정보를 제공하며, Load Balancer(인터넷 연결), 네트워크 보안 그룹, 경로 및 Application Gateway에서 사용할 수 있습니다. 진단 로그에 대한 자세한 내용은 [진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
+- **진단 로그:** 정기적이 고 자동적인 이벤트가 네트워크 리소스에서 생성 되 고 Azure 이벤트 허브로 전송 하거나 Azure Monitor 로그로 전송 된 Azure storage 계정에 기록 됩니다. 진단 로그는 리소스 상태에 대한 정보를 제공하며, Load Balancer(인터넷 연결), 네트워크 보안 그룹, 경로 및 Application Gateway에서 사용할 수 있습니다. 진단 로그에 대한 자세한 내용은 [진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 - **메트릭:** 메트릭은 리소스에 대해 일정 기간 동안 수집된 성능 측정 및 카운터입니다. 메트릭을 사용하여 임계값에 기반한 경고를 트리거할 수 있습니다. 현재 메트릭은 Application Gateway에서 사용할 수 있습니다. 메트릭에 대해 자세히 알아보려면 [메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 읽어보세요.
 - **문제 해결:** Azure Portal에서 문제 해결 정보에 직접 액세스할 수 있습니다. 정보를 통해 ExpressRoute, VPN Gateway, Application Gateway, 네트워크 보안 로그, 경로, DNS, Load Balancer 및 Traffic Manager에서 발생하는 일반적인 문제를 진단할 수 있습니다.
 - **RBAC(역할 기반 액세스 제어):** RBAC(역할 기반 액세스 제어)를 사용하여 네트워킹 리소스를 만들고 관리할 수 있는 사용자를 제어합니다. [RBAC 시작](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하여 RBAC에 대해 자세히 알아봅니다. 
@@ -149,7 +149,7 @@ Azure에서는 다음과 같은 도구를 제공하여 네트워킹을 모니터
 
 다음과 같은 도구를 사용하여 Azure 네트워킹 리소스를 배포하고 구성할 수 있습니다.
 
-- **Azure Portal:** 브라우저에서 실행되는 그래픽 사용자 인터페이스입니다. [Azure Portal](http://portal.azure.com)을 엽니다.
+- **Azure Portal:** 브라우저에서 실행되는 그래픽 사용자 인터페이스입니다. [Azure Portal](https://portal.azure.com)을 엽니다.
 - **Azure PowerShell:** Windows 컴퓨터에서 Azure를 관리하기 위한 명령줄 도구입니다. [Azure PowerShell 개요](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하여 Azure PowerShell에 대해 자세히 알아봅니다.
 - **Azure CLI(명령줄 인터페이스):** Linux, macOS 또는 Windows 컴퓨터에서 Azure를 관리하기 위한 명령줄 도구입니다. [Azure CLI 개요](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하여 Azure CLI에 대해 자세히 알아봅니다.
 - **Azure Resource Manager 템플릿:** Azure 솔루션의 인프라 및 구성을 정의하는 JSON 형식의 파일입니다. 템플릿을 사용하여 수명 주기 내내 솔루션을 반복적으로 배포하고 안심하고 일관된 상태로 리소스를 배포할 수 있습니다. 템플릿을 작성하는 방법에 대한 자세한 내용은 [템플릿 만들기 위한 모범 사례](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요. Azure Portal, CLI 또는 PowerShell에서 템플릿을 배포할 수 있습니다. 템플릿을 즉시 사용하기 시작하려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=network) 라이브러리에서 미리 구성된 여러 템플릿 중 하나를 배포합니다. 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2019
+ms.date: 3/12/2019
 ms.author: raiye
-ms.openlocfilehash: 76009115f855a840c81e79d0c864187c8410aa23
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: c5fdee4e5b1b9d2a283ef55ce99dffab0cb25873
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751517"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840850"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
 Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][Azure Guest OS Update Settings]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
@@ -43,6 +43,9 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 ## <a name="news-updates"></a>새 업데이트
 
+###### <a name="march-12-2019"></a>**2019 년 3 월 12 일**
+2월 게스트 OS가 릴리스되었습니다.
+
 ###### <a name="february-5-2019"></a>**2019년 2월 5일**
 1월 게스트 OS가 릴리스되었습니다.
 
@@ -64,9 +67,6 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ###### <a name="september-12-2018"></a>**2018년 9월 12일**
 8월 게스트 OS가 릴리스되었습니다.
 
-###### <a name="august-3-2018"></a>**2018년 8월 3일**
-7월 게스트 OS가 릴리스되었습니다.
-
 ## <a name="releases"></a>릴리스
 
 ## <a name="family-6-releases"></a>제품군 6 릴리스
@@ -77,11 +77,21 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 > [!NOTE]
 > .NET용 Microsoft Azure SDK - 3.0은 [여기][Windows Azure SDK]서 다운로드할 수 있습니다.
 >
+>설치 단계:
+>1. MicrosoftAzureAuthoringTools*.msi의 이전 버전을 제거 하세요.
+>2. 설치는 [Azure SDK for.NET-3.0][Windows Azure SDK]
+>3. 컴퓨터를 다시 시작
+>4. 새 클라우드 서비스 프로젝트를 만들고 단일 작업자 역할 추가
+>5. OS 제품군을 6으로 변경 하 고 패키지 빌드
+>6. Azure portal 또는 Visual Studio를 사용 하 여 Azure에 패키지 배포
+>
+
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
+| WA-GUEST-OS-6.4_201902-01 |2019 년 3 월 12 일 |Post 6.6 |
 | WA-GUEST-OS-6.3_201901-01 |2019년 2월 5일 |게시물 6.5 |
-| WA-GUEST-OS-6.2_201812-01 |2019년 1월 24일 |6.4 게시 이후 |
+|~~WA-GUEST-OS-6.2_201812-01~~|2019년 1월 24일 |2019 년 3 월 12 일 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |2019년 1월 24일 |2019년 2월 5일 |
 
 ## <a name="family-5-releases"></a>제품군 5 릴리스
@@ -93,15 +103,16 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 > OS 제품군 5의 RDP 암호는 10자 이상이어야 합니다.
 >
 
+
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
+| WA-GUEST-OS-5.28_201902-01 |2019 년 3 월 12 일 |Post 5.30 |
 | WA-GUEST-OS-5.27_201901-01 |2019년 2월 5일 |게시물 5.29 |
-| WA-GUEST-OS-5.26_201812-01 |2019년 1월 7일 |Post 5.28 |
+|~~WA-GUEST-OS-5.26_201812-01~~|2019년 1월 7일 |2019 년 3 월 12 일 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |2018년 12월 14일 |2019년 2월 5일 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |2018년 11월 8일 |2019년 1월 7일 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |2018년 10월 12일 |2018년 12월 14일 |
 |~~WA-GUEST-OS-5.22_201808-01~~ |2018년 9월 12일 |2018년 11월 8일 |
-|~~WA-GUEST-OS-5.21_201807-02~~ |2018년 8월 3일 |2018년 10월 12일 |
 
 ## <a name="family-4-releases"></a>제품군 4 릴리스
 **Windows Server 2012 R2**
@@ -110,13 +121,13 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
+| WA-GUEST-OS-4.63_201902-01 |2019 년 3 월 12 일 |Post 4.65 |
 | WA-GUEST-OS-4.62_201901-01 |2019년 2월 5일 |게시물 4.64 |
-| WA-GUEST-OS-4.61_201812-01 |2019년 1월 7일 |Post 4.63 |
+|~~WA-GUEST-OS-4.61_201812-01~~|2019년 1월 7일 |2019 년 3 월 12 일 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |2018년 12월 14일 |2019년 2월 5일 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |2018년 11월 8일 |2019년 1월 7일 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |2018년 10월 12일 |2018년 12월 14일 |
 |~~WA-GUEST-OS-4.57_201808-01~~ |2018년 9월 12일 |2018년 11월 8일 |
-|~~WA-GUEST-OS-4.56_201807-02~~ |2018년 8월 3일 |2018년 10월 12일 |
 
 ## <a name="family-3-releases"></a>제품군 3 릴리스
 **Windows Server 2012**
@@ -125,13 +136,13 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
+| WA-GUEST-OS-3.70_201902-01 |2019 년 3 월 12 일 |Post 3.72 |
 | WA-GUEST-OS-3.69_201901-01 |2019년 2월 5일 |게시물 3.71 |
-| WA-GUEST-OS-3.68_201812-01 |2019년 1월 7일 |Post 3.70 |
+|~~WA-GUEST-OS-3.68_201812-01~~|2019년 1월 7일 |2019 년 3 월 12 일 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |2018년 12월 14일 |2019년 2월 5일 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |2018년 11월 8일 |2019년 1월 7일 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |2018년 10월 12일 |2018년 12월 14일 |
 |~~WA-GUEST-OS-3.64_201808-01~~ |2018년 9월 12일 |2018년 11월 8일 |
-|~~WA-GUEST-OS-3.63_201807-02~~ |2018년 8월 3일 |2018년 10월 12일 |
 
 ## <a name="family-2-releases"></a>제품군 2 릴리스
 **Windows Server 2008 R2 SP1**
@@ -140,14 +151,13 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
+| WA-GUEST-OS-2.83_201902-01 |2019 년 3 월 12 일 |Post 2.85 |
 | WA-GUEST-OS-2.82_201901-01 |2019년 2월 5일 |게시물 2.84 |
-| WA-GUEST-OS-2.81_201812-01 |2019년 1월 7일 |Post 2.83 |
+|~~WA-GUEST-OS-2.81_201812-01~~ |2019년 1월 7일 |2019 년 3 월 12 일 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |2018년 12월 14일 |2019년 2월 5일 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |2018년 11월 8일 |2019년 1월 7일 |
 |~~WA-GUEST-OS-2.78_201809-01~~ |2018년 10월 12일 |2018년 12월 14일 |
 |~~WA-GUEST-OS-2.77_201808-01~~ |2018년 9월 12일 |2018년 11월 8일 |
-|~~WA-GUEST-OS-2.76_201807-02~~ |2018년 8월 3일 |2018년 10월 12일 |
-|~~WA-GUEST-OS-2.75_201806-01~~ |2018년 7월 3일 |2018년 9월 12일 |
 
 ## <a name="msrc-patch-updates"></a>MSRC 패치 업데이트
 매달 각 게스트 OS 릴리스에 포함된 패치 목록은 [여기][patches]에서 사용 가능합니다.
@@ -209,19 +219,19 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [게스트 OS 업데이트 RSS 피드]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
-[ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
+[ssl3 announcement]: https://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
-[ssl3-fixit]: http://go.microsoft.com/?linkid=9863266
+[ssl3-fixit]: https://go.microsoft.com/?linkid=9863266
 [MS14-066]: https://technet.microsoft.com/library/security/ms14-066.aspx
 [MS14-046]: https://technet.microsoft.com/library/security/ms14-046.aspx
 [retire policy sdk]: https://msdn.microsoft.com/library/dn479282.aspx
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
-[azuresupport]: http://azure.microsoft.com/support/options/
-[net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
+[azuresupport]: https://azure.microsoft.com/support/options/
+[net install pkg]: https://www.microsoft.com/download/details.aspx?id=42643
 [msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
-[restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
+[restarts]: https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4e5c64dc43be10eead1da35ec2337aa1f83f2f91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b6c61b4116983f36cef0632f7bbec4d36d203d0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472129"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842982"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -49,6 +49,7 @@ Azure Automation의 Runbook은 Azure의 샌드박스 또는 [Hybrid Runbook Work
 |특정 요구 사항이 있는 모듈 사용| Hybrid Runbook Worker|일부 사례:</br> **WinSCP** - winscp.exe에 대한 종속성 </br> **IISAdministration** - IIS를 사용하도록 설정해야 함|
 |설치 관리자가 필요한 모듈 설치|Hybrid Runbook Worker|샌드박스용 모듈은 xcopyable이어야 합니다.|
 |4.7.2와 다른 .NET 프레임워크가 필요한 Runbook 또는 모듈 사용|Hybrid Runbook Worker|Automation 샌드박스에는 NET Framework 4.7.2가 있으며, 업그레이드할 수 있는 방법이 없습니다.|
+|권한 상승 해야 하는 스크립트|Hybrid Runbook Worker|샌드박스 권한 상승을 허용 하지 않습니다. Hybrid Runbook Worker를 해제할 수 UAC를 사용 하 여이 사용이를 해결 하기 위해 `Invoke-Command` 경우 권한 상승이 필요한 있는 명령을 실행|
 
 ## <a name="runbook-behavior"></a>Runbook 동작
 
@@ -113,6 +114,33 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 }
 ```
 
+### <a name="working-with-multiple-subscriptions"></a>여러 구독 작업
+
+Runbook을 여러 구독을 처리 하는 runbook 제작 사용을 필요로 하는 경우는 [Disable-azurermcontextautosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) 실행 될 수 있는 다른 runbook에서 인증 컨텍스트 검색 되지 않으면 되도록 cmdlet 동일한 샌드박스에서 합니다. 다음 사용 해야 합니다 `-AzureRmContext` 매개 변수를 프로그램 `AzureRM` cmdlet 적절 한 컨텍스트를 전달 합니다.
+
+```powershell
+# Ensures you do not inherit an AzureRMContext in your runbook
+Disable-AzureRmContextAutosave –Scope Process
+
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal `
+-Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID `
+-CertificateThumbprint $Conn.CertificateThumbprint
+
+$context = Get-AzureRmContext
+
+$ChildRunbookName = 'ChildRunbookDemo'
+$AutomationAccountName = 'myAutomationAccount'
+$ResourceGroupName = 'myResourceGroup'
+
+Start-AzureRmAutomationRunbook `
+    -ResourceGroupName $ResourceGroupName `
+    -AutomationAccountName $AutomationAccountName `
+    -Name $ChildRunbookName `
+    -DefaultProfile $context
+```
+
 ### <a name="using-executables-or-calling-processes"></a>실행 파일 또는 호출 프로세스 사용
 
 Azure 샌드박스에서 실행되는 Runbook은 호출 프로세스(예: .exe 또는 subprocess.call)를 지원하지 않습니다. 이는 Azure 샌드박스가 모든 기본 API에 액세스할 수 없는 컨테이너에서 실행되는 공유 프로세스이기 때문입니다. 타사 소프트웨어 또는 하위 프로세스의 호출이 필요한 시나리오의 경우 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 Runbook을 실행하는 것이 좋습니다.
@@ -138,7 +166,7 @@ Azure 샌드박스에서 실행되는 Runbook은 호출 프로세스(예: .exe �
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Azure Portal에서 작업 상태 보기
 
-모든 Runbook 작업의 요약 상태를 보거나 Azure Portal에서 특정 Runbook 작업의 세부 정보로 드릴할 수 있습니다. 또한 Runbook의 작업 상태와 작업 스트림을 전달하기 위해 Log Analytics 작업 영역과 통합하도록 구성할 수도 있습니다. Log Analytics와의 통합에 대한 자세한 내용은 [Automation에서 Log Analytics로 작업 상태 및 작업 스트림 전달](automation-manage-send-joblogs-log-analytics.md)을 참조하세요.
+모든 Runbook 작업의 요약 상태를 보거나 Azure Portal에서 특정 Runbook 작업의 세부 정보로 드릴할 수 있습니다. 또한 Runbook의 작업 상태와 작업 스트림을 전달하기 위해 Log Analytics 작업 영역과 통합하도록 구성할 수도 있습니다. Azure Monitor 로그를 통합 하는 방법에 대 한 자세한 내용은 참조 하세요. [Automation에서 Azure Monitor 로그로 작업 상태 및 작업 스트림 전달](automation-manage-send-joblogs-log-analytics.md)합니다.
 
 ### <a name="automation-runbook-jobs-summary"></a>Automation runbook 작업 요약
 
@@ -224,7 +252,7 @@ Azure Automation은 클라우드의 모든 Runbook 간에 리소스를 공유하
 
 장기 실행 작업의 경우 [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior)를 사용하는 것이 좋습니다. Hybrid Runbook Worker는 공평 분배로 제한되지 않으며, Runbook을 실행할 수 있는 기간에 대한 제한이 없습니다. 다른 작업 [제한](../azure-subscription-service-limits.md#automation-limits)은 Azure 샌드박스 및 Hybrid Runbook Worker에 모두 적용됩니다. Hybrid Runbook Worker는 3시간의 공평 분배 제한으로 제한되지 않지만, 실행된 Runbook에서 예기치 않은 로컬 인프라 문제가 발생하는 경우 다시 시작 동작을 지원하도록 계속 개발해야 합니다.
 
-또 다른 옵션은 자식 Runbook을 사용하여 Runbook을 최적화하는 것입니다. Runbook이 여러 데이터베이스의 데이터베이스 작업과 같이 여러 리소스에서 동일한 함수를 반복하는 경우, 해당 함수를 [자식 Runbook](automation-child-runbooks.md)으로 이동하고 [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet을 사용하여 이를 호출할 수 있습니다. 이러한 자식 Runbook은 각각 별도 프로세스에서 병렬로 실행되어 부모 Runbook을 완료하는 데 걸리는 전체 시간을 줄입니다. Runbook에서 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet을 사용하여 각 자식의 작업 상태를 통해 자식 Runbook이 완료된 후에 수행해야 하는 작업이 있는지 확인할 수 있습니다.
+또 다른 옵션은 자식 Runbook을 사용하여 Runbook을 최적화하는 것입니다. Runbook이 여러 데이터베이스의 데이터베이스 작업과 같이 여러 리소스에서 동일한 함수를 반복하는 경우, 해당 함수를 [자식 Runbook](automation-child-runbooks.md)으로 이동하고 [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet을 사용하여 이를 호출할 수 있습니다. 이러한 자식 Runbook은 각각 별도 프로세스에서 병렬로 실행되어 부모 Runbook을 완료하는 데 걸리는 전체 시간을 줄입니다. 사용할 수는 [Get-azurermautomationjob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) 작업이 자식 runbook이 완료 된 후 수행 하는 경우 각 자식에 대 한 작업 상태를 확인 하도록 runbook의 cmdlet.
 
 ## <a name="next-steps"></a>다음 단계
 
