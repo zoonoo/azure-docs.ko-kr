@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49a311b74fbc48f414f530e962af39d17a346353
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 59e60f4b89bb1d579c9a3e11ddb65b33af81b0e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848850"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>자습서: Phraseanet과 Azure Active Directory 통합
 
@@ -141,7 +141,7 @@ Phraseanet에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     a. **이름** 필드에 **BrittaSimon**을 입력합니다.
   
-    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    b. 에 **사용자 이름** 필드 형식 **brittasimon\@yourcompanydomain.extension**  
     예를 들어 BrittaSimon@contoso.com
 
     다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.

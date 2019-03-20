@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 85480a098dc5ef70938a5ec4cd7a31105496df6f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 225c86ee1a7f764f60b2da0b8e3be02aa5dd22e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461403"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123303"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>작업 그룹에서 SMS 경고 동작
 ## <a name="overview"></a>개요 ##
@@ -28,7 +28,7 @@ ms.locfileid: "54461403"
 ## <a name="receiving-an-sms-alert"></a>SMS 경고 받기
 작업 그룹의 일부로 구성된 SMS 수신자는 경고가 발생할 때 SMS를 수신합니다. SMS에는 다음 정보가 포함됩니다.
 * 이 경고가 전달된 작업 그룹의 짧은 이름
-- 경고 제목
+* 경고 제목
 
 | 회신 | 설명 |
 | ----- | ----------- |

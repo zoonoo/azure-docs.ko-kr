@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 02/13/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 83c9a0baa4d853c8afcb5afe1c4e5cc4ed1e0073
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 24682156cf0c50ccf69c39f83f59e9b867bbcf0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901851"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -33,16 +33,13 @@ ms.locfileid: "56235227"
 
 ## <a name="azure"></a>Azure
 ### <a name="what-do-i-need-in-azure"></a>Azure에는 무엇이 필요한가요?
-Azure 구독, Recovery Services 저장소, 저장소 계정 및 가상 네트워크가 필요합니다. 자격 증명 모음, 저장소 계정 및 네트워크는 동일한 지역에 있어야 합니다.
-
-### <a name="what-azure-storage-account-do-i-need"></a>필요한 Azure 저장소 계정은 무엇인가요?
-LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. Premium Storage가 지원됩니다.
+Azure 구독, Recovery Services 자격 증명 모음, 캐시 저장소 계정, 관리 되는 디스크 및 가상 네트워크를 해야합니다. 캐시 저장소 계정 자격 증명 모음 관리 되는 디스크 및 네트워크는 동일한 지역에 있어야 합니다.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>내 Azure 계정에 VM을 만들 수 있는 권한이 필요한가요?
-구독 관리자인 경우 필요한 복제 권한을 갖고 있습니다. 구독 관리자가 아닌 경우 Site Recovery를 구성할 때 지정한 리소스 그룹 및 가상 네트워크에 Azure VM을 만들 수 있는 권한과 선택한 저장소 계정에 쓸 수 있는 권한이 필요합니다. [자세히 알아보기](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+구독 관리자인 경우 필요한 복제 권한을 갖고 있습니다. 아닌 경우 리소스 그룹 및 가상 네트워크를 지정할 때 Site Recovery 및 선택한 저장소 계정에 쓸 수 있는 권한이 구성 또는 관리 되는 디스크 구성에 따라 Azure VM을 만들 수 있는 권한이 필요 합니다. [자세히 알아보기](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Azure에서 게스트 OS 서버 라이선스를 사용할 수 있나요?
-예, Microsoft Software Assurance 고객은 [Azure 하이브리드 혜택](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/)을 활용해서 Azure로 마이그레이션되는 **Windows Server 머신**에 대한 라이선스 비용을 절감하거나 재해 복구에 Azure를 사용할 수 있습니다.
+예, Microsoft Software Assurance 고객은 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 활용해서 Azure로 마이그레이션되는 **Windows Server 머신**에 대한 라이선스 비용을 절감하거나 재해 복구에 Azure를 사용할 수 있습니다.
 
 ## <a name="pricing"></a>가격
 
@@ -52,7 +49,28 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 
 ### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Site Recovery 사용 중 대략적인 요금을 계산하려면 어떻게 하나요?
 
-Azure Site Recovery를 사용하는 동안 [가격 계산기](https://aka.ms/asr_pricing_calculator)를 사용하여 비용을 예측할 수 있습니다. 자세한 예상 비용을 보려면 배포 플래너 도구(https://aka.ms/siterecovery_deployment_planner)를 실행하고 [비용 예상 보고서](https://aka.ms/asr_DP_costreport)를 분석합니다.
+Azure Site Recovery를 사용하는 동안 [가격 계산기](https://aka.ms/asr_pricing_calculator)를 사용하여 비용을 예측할 수 있습니다. Deployment planner 도구 실행 비용 예측 세부 (https://aka.ms/siterecovery_deployment_planner) 하 고 분석 합니다 [비용 예측 보고서](https://aka.ms/asr_DP_costreport).
+
+### <a name="is-there-any-difference-in-cost-when-i-replicate-directly-to-managed-disk"></a>비용 간 차이를 직접 관리 되는 디스크를 복제할 때 있나요?
+
+관리 디스크는 저장소 계정 보다 약간 다른 요금이 청구 됩니다. 아래 예제에서는 원본 디스크의 100gib 크기를 참조 하세요. 이 예제에서는 저장소 비용이 차등와 관련이 있습니다. 이 비용은 스냅숏, 캐시 저장소 및 트랜잭션에 대해 비용을 포함 하지 않습니다.
+
+* 표준 저장소 계정 및입니다. HDD 표준 관리 디스크
+
+    - **ASR에서 프로 비전 된 저장소 디스크**: S10
+    - **표준 저장소 계정에 대 한 청구 사용 볼륨**: 매월 5 달러
+    - **표준 관리 디스크 프로 비전 된 볼륨에 대 한 요금 청구**: 월 $5.89
+
+* Premium storage 계정 Vs입니다. Premium SSD에 대 한 관리 디스크 
+    - **ASR에서 프로 비전 된 저장소 디스크**: P10
+    - **프리미엄 저장소 계정 프로 비전 된 볼륨에 청구**: 월 $17.92
+    - **프리미엄 관리 디스크를 프로 비전 된 볼륨에 대 한 요금 청구**: 월 $17.92
+
+에 대해 자세히 알아보세요 [managed disks의 가격 책정 세부](https://azure.microsoft.com/pricing/details/managed-disks/)합니다.
+
+### <a name="do-i-incur-additional-charges-for-cache-storage-account-with-managed-disks"></a>요금이 발생 하나요 추가 캐시 저장소 계정에 대 한 관리 디스크를 사용 하 여?
+
+아니요, 캐시에 대 한 추가 요금이 발생 하지 않습니다. 캐시는 항상 VMware에서 Azure로 아키텍처 부분입니다. Standard storage 계정에 복제 하는 경우이 캐시 저장소는 일부 동일한 대상 저장소 계정입니다.
 
 ### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>한 달 이상 Azure Site Recovery를 사용해 왔습니다. 그런데도 모든 보호된 인스턴스를 처음 31일 동안 무료로 사용할 수 있나요?
 
@@ -107,7 +125,7 @@ VMware에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](
 
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>온-프레미스 VM은 어디에 복제되는가요?
-데이터는 Azure 저장소에 복제됩니다. 장애 조치를 실행하면 Site Recovery에서 저장소 계정으로부터 Azure VM을 자동으로 만듭니다.
+데이터는 Azure 저장소에 복제됩니다. 장애 조치를 실행 하면 Site Recovery가 자동으로 저장소 계정에서 Azure Vm을 만듭니다 또는 구성에 따라 디스크를 관리 합니다.
 
 ## <a name="replication"></a>복제
 
@@ -122,15 +140,31 @@ VMware에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](
 Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피어링을 사용하여 온-프레미스에서 Azure 저장소로 데이터를 복제합니다. 사이트 간 VPN 네트워크를 통한 복제는 지원되지 않습니다.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>ExpressRoute를 사용하여 Azure에 복제할 수 있나요?
-예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery는 공용 엔드포인트를 통해 Azure Storage 계정에 데이터를 복제합니다. Site Recovery 복제에 ExpressRoute를 사용하려면 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering) 또는 [Microsoft 피어링](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)을 설정해야 합니다. Microsoft 피어링은 복제에 권장되는 라우팅 도메인입니다. 복제를 위해 [네트워킹 요구 사항](vmware-azure-configuration-server-requirements.md#network-requirements)이 충족되는지도 확인합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
+예, ExpressRoute를 사용하여 VM을 Azure로 복제할 수 있습니다. Site Recovery는 공용 끝점을 통해 Azure Storage에 데이터를 복제 합니다. Site Recovery 복제에 ExpressRoute를 사용하려면 [공용 피어링](../expressroute/expressroute-circuit-peerings.md#publicpeering) 또는 [Microsoft 피어링](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)을 설정해야 합니다. Microsoft 피어링은 복제에 권장되는 라우팅 도메인입니다. 복제를 위해 [네트워킹 요구 사항](vmware-azure-configuration-server-requirements.md#network-requirements)이 충족되는지도 확인합니다. VM에서 Azure 가상 네트워크로 장애 조치한 후에는 [개인 피어링](../expressroute/expressroute-circuit-peerings.md#privatepeering)을 사용하여 해당 VM에 액세스할 수 있습니다.
 
 ### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>머신이 보호된 후 스토리지 계정을 변경하려면 어떻게 하나요?
 
-스토리지 계정은 프리미엄으로만 업그레이드할 수 있습니다. 다른 스토리지 계정을 사용하려면 원본 머신의 복제를 사용하지 않도록 설정하고 새 스토리지 계정으로 보호를 다시 사용해야 합니다. 이외에는 보호를 사용하도록 설정한 후 스토리지 계정을 변경할 수 없습니다.
+사용 하지 않도록 설정 하 고 업그레이드 하거나 저장소 계정 유형으로 다운 그레이드는 복제를 사용 하도록 설정 해야 합니다.
+
+### <a name="can-i-replicate-to-storage-accounts-for-new-machine"></a>새 컴퓨터에 대 한 저장소 계정에 복제할 수 있나요?
+
+아니요, Mar' 19부터 복제할 수 있습니다 관리 되는 디스크에 Azure 포털에서. 새 컴퓨터에 대 한 저장소 계정에 대 한 복제만 REST API 및 Powershell을 통해 제공 됩니다. 저장소 계정에 복제 하기 위한 API 버전 2016-08-10 또는 2018-01-10을 사용 합니다.
+
+### <a name="what-are-the-benefits-in-replicating-to-managed-disks"></a>Managed disks로 복제 하는 데 이점은 무엇 인가요?
+
+하는 방법에 대 한 문서를 읽을 [managed disks가 있는 재해 복구를 간소화 하는 Azure Site Recovery](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/)합니다.
+
+### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>컴퓨터를 보호 하는 관리 되는 디스크 종류를 변경할 수는 어떻게
+
+예, 관리 되는 디스크의 유형을 쉽게 변경할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). 그러나 관리 되는 디스크 종류를 변경 하면이 작업을 게시 하는 장애 조치 또는 테스트 장애 조치를 수행 해야 하는 경우 생성 될 새 복구 지점에 대 한 대기 함을 확인 합니다.
+
+### <a name="can-i-switch-the-replication-from-managed-disks-to-unmanaged-disks"></a>복제 관리 디스크에서 관리 되지 않는 디스크를 전환할 수 있나요?
+
+아니요,에서 전환에 관리 되지 않는 관리는 지원 되지 않습니다.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN을 통해 복제할 수 없는 이유는 무엇인가요?
 
-Azure에 복제하는 경우 복제 트래픽이 Azure Storage 계정의 공용 엔드포인트에 도달하므로, ExpressRoute(공용 피어링)를 사용하여 공용 인터넷을 통해서만 복제할 수 있으며 VPN은 작동하지 않습니다.
+Azure에 복제 하는 경우 복제 트래픽이 Azure Storage의 공용 엔드포인트에 도달 하므로 복제할 수 있습니다만 ExpressRoute (공용 피어 링)를 사용 하 여 공용 인터넷을 통해 및 VPN 작동 하지 않습니다.
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>복제된 VM에 대한 요구 사항은 무엇인가요?
 
@@ -143,13 +177,16 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 예, 장애 조치(failover) 시 IP 주소를 유지할 수 있습니다. 장애 조치(failover) 전에 ‘컴퓨팅 및 네트워크’ 블레이드에서 대상 IP 주소를 언급해야 합니다. 또한 장애 복구(failback) 시 IP 충돌을 방지하기 위해 장애 조치(failover) 시 머신을 종료해야 합니다.
 
 ### <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
-확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.
+확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
-지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
+지원되지 않습니다. [사용자 의견 포럼](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-exclude-disks"></a>디스크를 제외할 수 있나요?
 예, 디스크는 복제에서 제외할 수 있습니다.
+
+### <a name="can-i-change-the-target-vm-size-or-vm-type-before-failover"></a>대상 VM 크기 또는 장애 조치 하기 전에 VM 유형을 변경할 수 있나요?
+예, 변경할 수 있습니다 형식 또는 VM의 크기를 장애 조치 전에 언제 든 지 계산 및 네트워크 포털에서 복제 항목의 설정으로 이동 하 여.
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>동적 디스크를 사용하여 VM을 복제할 수 있나요?
 예, 동적 디스크는 복제할 수 있습니다. 운영 체제 디스크는 기본 디스크여야 합니다.
@@ -161,7 +198,7 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 
 Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다. 새 디스크를 추가하려는 경우 디스크를 추가하고 VM에 대한 보호를 다시 활성화해야 합니다.
 
-### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>진행 중인 복제에 영향을 주지 않고 온-프레미스 머신을 새 Vcenter에 마이그레이션할 수 있나요?
+### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>진행 중인 복제에 영향을 주지 않고 새 Vcenter 프레미스 컴퓨터에 마이그레이션할 수 있습니까?
 아니요, Vcenter를 변경하거나 마이그레이션하면 진행 중인 복제에 영향을 줍니다. 새 Vcenter로 ASR를 설정하고 해당 머신에 대해 복제를 사용하도록 설정해야 합니다.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Vnet(Azure Storage 방화벽 포함)이 구성되어 있는 캐시/대상 스토리지 계정에 복제할 수 있나요?
@@ -200,9 +237,11 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 구성 서버의 예약된 정기 백업을 수행하는 것이 좋습니다. 성공적인 장애 복구(Failover)를 위해서는 장애 복구(Failover)하려는 가상 머신이 구성 서버 데이터베이스에 있어야 하고 구성 서버가 실행 중이고 연결된 상태여야 합니다. [여기](vmware-azure-manage-configuration-server.md)에서 일반 구성 서버 관리 작업에 대해 자세히 알아볼 수 있습니다.
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>구성 서버를 설정할 때 MySQL을 수동으로 다운로드하여 설치할 수 있나요?
+
 예. MySQL을 다운로드하여 **C:\Temp\ASRSetup** 폴더에 넣습니다. 그런 다음, 수동으로 설치합니다. 구성 서버 VM을 설정하고 조건에 동의하면 MySQL이 **다운로드 및 설치**에 **이미 설치됨**으로 표시됩니다.
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>MySQL을 다운로드하지 않고 Site Recovery에서 설치할 수 있나요?
+
 예. MySQL 설치 관리자를 다운로드하여 **C:\Temp\ASRSetup** 폴더에 넣습니다.  구성 서버 VM을 설정하고, 조건에 동의하고, **다운로드 및 설치**를 클릭하면 포털에서 추가한 설치 관리자를 사용하여 MySQL을 설치합니다.
  
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>다른 용도로 구성 서버 VM을 사용할 수 있나요?
@@ -267,6 +306,9 @@ Site Recovery는 ISO 27001:2013, 27018, HIPAA, DPA 인증을 받았으며, SOC2 
 
 
 ## <a name="failover-and-failback"></a>장애 조치 및 장애 복구
+### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>사용할 수 있습니까 프로세스 서버가 온-프레미스에 장애 복구에 대 한?
+데이터 전송 대기 시간을 방지 하려면 장애 복구 목적을 위해 Azure에서 프로세스 서버를 만드는 것이 좋습니다. 또한 Azure에서 공용 네트워크에 구성 서버를 사용 하 여 원본 Vm 네트워크를 구분 하는 경우 다음 반드시 장애 복구를 위해 Azure에서 만든 프로세스 서버를 사용 합니다.
+
 ### <a name="how-far-back-can-i-recover"></a>복구할 수 있는 가장 오랜 복구 지점은 어떻게 되나요?
 VMware에서 Azure로 복구하는 경우 사용할 수 있는 가장 오래된 복구 지점은 72시간입니다.
 
@@ -277,7 +319,7 @@ VMware에서 Azure로 복구하는 경우 사용할 수 있는 가장 오래된 
 Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA에 따라 보조 Azure 데이터 센터에 장애 조치하도록 설계되었습니다. 장애 조치가 발생하면 메타데이터와 자격 증명 모음이 자격 증명 모음에 대해 선택한 지리적 지역과 동일한 지역에 유지되고 있는지 확인합니다.
 
 ### <a name="is-failover-automatic"></a>장애 조치(failover)는 자동입니까?
-[장애 조치](site-recovery-failover.md)는 자동이 아닙니다. 포털에서 클릭 한 번으로 장애 조치를 시작하거나 [PowerShell](/powershell/module/azurerm.siterecovery)을 사용하여 장애 조치를 트리거할 수 있습니다.
+[장애 조치](site-recovery-failover.md)는 자동이 아닙니다. 포털에서 번의 클릭으로 장애 조치를 시작 하거나 사용할 수 있습니다 [PowerShell](/powershell/module/azurerm.siterecovery) 장애 조치를 트리거할 수 있습니다.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>다른 위치로 장애 조치할 수 있나요?
 예, Azure에 장애 조치한 경우 원본을 사용할 수 없을 때 다른 위치로 장애 복구할 수 있습니다. [자세히 알아보기](concepts-types-of-failback.md#alternate-location-recovery-alr).

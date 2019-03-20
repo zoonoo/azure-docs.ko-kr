@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff88f25d4bf7fea09ea07673326e068840243b98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 75d0e962169529ab8d17aeeeed8aab26e7b7e994
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176580"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880877"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>자습서: Wdesk와 Azure Active Directory 통합
 
@@ -219,7 +219,7 @@ Azure AD 사용자가 Wdesk에 로그인할 수 있도록 하려면 Wdesk로 프
    
     ![Azure AD 테스트 사용자 만들기](./media/wdesk-tutorial/createuser1.png)  
 
-1. **사용자** 텍스트 상자에 **brittasimon@contoso.com** 과 같은 사용자의 사용자 이름을 입력하고 **계속** 단추를 클릭합니다.
+1. **사용자** 텍스트 상자에 같은 사용자의 사용자 이름을 입력 합니다 **brittasimon\@contoso.com** 클릭 **계속** 단추입니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/wdesk-tutorial/createuser3.png)
 
@@ -227,7 +227,7 @@ Azure AD 사용자가 Wdesk에 로그인할 수 있도록 하려면 Wdesk로 프
   
     ![Azure AD 테스트 사용자 만들기](./media/wdesk-tutorial/createuser4.png)
  
-    a. **전자 메일** 텍스트 상자에 **brittasimon@contoso.com** 와 같은 사용자의 전자 메일 주소를 입력합니다.
+    a. **전자 메일** 텍스트 상자에 같은 사용자의 전자 메일을 입력 합니다 **brittasimon\@contoso.com**합니다.
 
     b. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.
 

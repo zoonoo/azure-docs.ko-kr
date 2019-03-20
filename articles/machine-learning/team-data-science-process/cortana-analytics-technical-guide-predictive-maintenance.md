@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: dad97fab8c4c8fe997ee9b8d9ac8c7dc6c0d1e48
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454473"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885439"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>항공 우주에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
 
->[!Important]
-이 문서는 더 이상 사용되지 않습니다. 항공 우주 분야에서의 예측 유지 관리와 관련된 논의가 여전히 있지만, 최신 정보는 [비즈니스 담당자를 위한 솔루션 개요](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace)를 참조하세요.
+> [!Important]
+> 이 문서는 더 이상 사용되지 않습니다. 항공 우주 분야에서의 예측 유지 관리와 관련된 논의가 여전히 있지만, 최신 정보는 [비즈니스 담당자를 위한 솔루션 개요](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace)를 참조하세요.
 
 
 솔루션 템플릿은 Cortana Intelligence Suite를 기반으로 E2E 데모 빌드 프로세스를 가속화하도록 디자인되었습니다. 배포된 템플릿은 필요한 Cortana Intelligence 구성 요소로 구독을 프로비전한 다음 이들 간의 관계를 빌드합니다. 또한 솔루션 템플릿을 배포한 후 다운로드하여 로컬 컴퓨터에 설치하는 데이터 생성기 애플리케이션의 샘플 데이터로 데이터 파이프라인을 시드합니다. 생성기의 데이터는 데이터 파이프라인을 하이드레이션하며 나중에 Power BI 대시보드에서 시각화할 수 있는 기계 학습 예측을 생성하기 시작합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "55454473"
 ### <a name="synthetic-data-source"></a>가상 데이터 원본
 이 템플릿의 경우 사용되는 데이터 원본은 성공적인 배포 후 로컬로 다운로드하여 실행하는 데스크톱 애플리케이션에서 생성됩니다.
 
-이 애플리케이션 다운로드 및 설치에 대한 지침을 찾으려면 솔루션 템플릿 다이어그램에서 첫 번째 노드인 예측 유지 관리 데이터 생성기를 선택합니다. 지시 사항은 속성 표시줄에 있습니다. 이 애플리케이션은 솔루션 흐름의 나머지 부분에서 사용되는 데이터 요소 또는 이벤트로 [Azure Event Hub](#azure-event-hub) 서비스를 피드합니다. 이 데이터 원본은 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan)을 사용한 [NASA 데이터 저장소](https://c3.nasa.gov/dashlink/resources/139/)의 공개적으로 사용할 수 있는 데이터에서 파생되었습니다.
+이 애플리케이션 다운로드 및 설치에 대한 지침을 찾으려면 솔루션 템플릿 다이어그램에서 첫 번째 노드인 예측 유지 관리 데이터 생성기를 선택합니다. 지시 사항은 속성 표시줄에 있습니다. 이 애플리케이션은 솔루션 흐름의 나머지 부분에서 사용되는 데이터 요소 또는 이벤트로 [Azure Event Hub](#azure-event-hub) 서비스를 피드합니다. 이 데이터 원본은 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan)을 사용한 [NASA 데이터 저장소](https://c3.nasa.gov/dashlink/resources/139/)의 공개적으로 사용할 수 있는 데이터에서 파생되었습니다.
 
 이벤트 생성 애플리케이션은 컴퓨터에서 실행되는 동안 Azure Event Hub를 채웁니다.  
 
@@ -79,7 +79,7 @@ Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 �
 ## <a name="how-to-bring-in-your-own-data"></a>사용자 고유 데이터를 가져오는 방법
 이 섹션은 Azure에 사용자 고유 데이터를 가져오는 방법 및 이 아키텍처에 가져오는 데이터에 대한 변경 내용이 필요한 영역을 설명합니다.
 
-데이터 세트는 이 솔루션 템플릿에 사용되는 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 세트](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan)에서 사용하는 데이터 세트와 일치하지 않을 수 있습니다. 사용자 고유 데이터로 작업하기 위해 이 템플릿을 수정하는 과정에서는 데이터 및 요구 사항을 이해하는 것이 중요합니다. 
+데이터 세트는 이 솔루션 템플릿에 사용되는 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 세트](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan)에서 사용하는 데이터 세트와 일치하지 않을 수 있습니다. 사용자 고유 데이터로 작업하기 위해 이 템플릿을 수정하는 과정에서는 데이터 및 요구 사항을 이해하는 것이 중요합니다. 
 
 다음 섹션에서는 새 데이터 세트를 도입할 때 수정해야 하는 템플릿의 일부분을 설명합니다.
 
@@ -143,7 +143,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 이 솔루션 템플릿에 사용된 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험은 항공기 엔진의 잔여 수명(RUL)을 제공합니다. 실험은 사용된 데이터 집합에 특정되며 가져온 데이터에 특정된 수정 또는 대체가 필요합니다.
 
-Azure Machine Learning 실험 생성 방법에 대한 정보는 [예측 유지 관리: 1/3단계, 데이터 준비 및 기능 엔지니어링](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)을 참조하세요.
+Azure Machine Learning 실험 생성 방법에 대한 정보는 [예측 유지 관리: 1/3단계, 데이터 준비 및 기능 엔지니어링](https://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)을 참조하세요.
 
 ## <a name="monitor-progress"></a>진행률 모니터링
 데이터 생성기가 시작되면 파이프라인이 하이드레이션하기 시작하고 솔루션의 다양한 구성 요소가 데이터 팩터리에서 발급한 명령을 실행하는 작업을 시작합니다. 두 가지 방법으로 파이프라인을 모니터링할 수 있습니다.
@@ -186,7 +186,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
    * 다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다(**Windows** 및 **데이터베이스**). **‘데이터베이스’** 를 클릭하고 **‘사용자 이름’** 및 **암호’** 를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL 데이터베이스를 만들 때 입력한 사용자 이름 및 암호). ***이러한 설정을 적용할 수준 선택***에서 데이터베이스 수준 옵션을 선택합니다. 그런 다음 **'연결'** 을 클릭합니다.
    * 두 번째 테이블 **PMResult**를 클릭하고 오른쪽 **'쿼리 설정'** 패널의 **'적용된 단계'** 아래 **'원본'** 옆에 있는 ![탐색 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png)을 클릭한 다음 위 단계와 마찬가지로 서버 및 데이터베이스 이름을 업데이트하고 확인을 클릭합니다.
    * 이전 페이지로 안내된 후 창을 닫습니다. 메시지가 표시되면 **적용**을 클릭합니다. 마지막으로 **저장** 단추를 클릭하여 변경 내용을 저장합니다. Power BI 파일은 이제 서버에 대한 연결을 설정합니다. 시각화가 비어 있는 경우 범례의 오른쪽 위 모퉁이의 지우개 아이콘을 클릭하여 모든 데이터를 시각화하도록 시각화의 선택 항목을 해제해야 합니다. 새로 고침 단추를 사용하여 시각화에 새 데이터를 반영합니다. 처음에 데이터 팩터리는 3시간마다 새로 고치도록 예약되어 있으므로 시각화에는 시드 데이터만 나타납니다. 3시간 후 데이터를 새로 고치면 시각화에 적용된 새 예측이 표시됩니다.
-3. (선택 사항) 콜드 경로 대시보드를 [Power BI 온라인](http://www.powerbi.com/)에 게시합니다. 이 단계는 Power BI 계정(또는 Office 365 계정)이 필요합니다.
+3. (선택 사항) 콜드 경로 대시보드를 [Power BI 온라인](https://www.powerbi.com/)에 게시합니다. 이 단계는 Power BI 계정(또는 Office 365 계정)이 필요합니다.
    
    * **‘게시’** 를 클릭하고 몇 초 후 녹색 확인 표시로 "Power BI에 게시 성공!"을 표시하는 창이 나타납니다. 아래 링크 "Power BI에서 PredictiveMaintenanceAerospace.pbix 열기"를 클릭합니다. 자세한 지침을 찾으려면 [Power BI 데스크톱에서 게시](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop)를 참조하세요.
    * 새 대시보드를 만들려면 왼쪽 창의 **대시보드** 섹션 옆의 **+** 기호를 클릭합니다. 이 새 대시보드에 대해 이름 "예측 유지 관리 데모"를 입력합니다.
@@ -195,7 +195,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
      <br/>
      ![최종 보기](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
-   * 데이터 새로 고침을 예약하려면 **PredictiveMaintenanceAerospace** 데이터 세트 위에 마우스를 놓고 ![줄임표 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png)을 클릭한 다음, **새로 고침 예약**을 선택합니다.
+   * 데이터 새로 고침 일정을 위로 마우스를 가져가서 합니다 **PredictiveMaintenanceAerospace** 데이터 집합을 클릭 ![줄임표 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) 선택한 후 **새로 고침 예약**합니다.
      <br/>
      **참고:** 경고 메시지가 표시되는 경우 **자격 증명 편집**을 클릭하고 데이터베이스 자격 증명이 1단계에서 설명된 것과 동일한지 확인합니다.
      <br/>
@@ -206,13 +206,13 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
    * 필요에 따라 새로 고침을 예약합니다. 자세한 정보를 찾으려면 [Power BI에서 데이터 새로 고침](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi)을 참조하세요.
 
 ### <a name="setup-hot-path-dashboard"></a>실행 부하 과다 경로 대시보드 설정
-다음 단계에서는 솔루션 배포 시 생성된 Stream Analytics 작업에서 데이터 출력을 시각화하는 방법을 안내합니다. 다음 단계를 수행하려면 [Power BI 온라인](http://www.powerbi.com/) 계정이 필요합니다. 계정이 없는 경우 [새로 만들](https://powerbi.microsoft.com/pricing)수 있습니다.
+다음 단계에서는 솔루션 배포 시 생성된 Stream Analytics 작업에서 데이터 출력을 시각화하는 방법을 안내합니다. 다음 단계를 수행하려면 [Power BI 온라인](https://www.powerbi.com/) 계정이 필요합니다. 계정이 없는 경우 [새로 만들](https://powerbi.microsoft.com/pricing)수 있습니다.
 
 1. Azure Stream Analytics(ASA)에 Power BI 출력을 추가합니다.
    
    * [Azure Stream Analytics 및 Power BI: 스트리밍 데이터의 실시간 가시성에 대한 분석 대시보드](../../stream-analytics/stream-analytics-power-bi-dashboard.md)의 지침에 따라 Power BI 대시보드로 Azure Stream Analytics 작업의 출력을 설정해야 합니다.
    * ASA 쿼리에는 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**의 세 가지 출력이 있습니다. 쿼리 탭을 클릭하여 쿼리를 볼 수 있습니다. 이 테이블 각각에 해당하는 출력을 ASA에 추가해야 합니다. 첫 번째 출력(**aircraftmonitor**)을 추가하는 경우 **출력 별칭**, **데이터 세트 이름** 및 **테이블 이름**이 동일(**aircraftmonitor**)한지 확인합니다. 단계를 반복하여 **aircraftalert** 및 **flightsbyhour**에 대한 출력을 추가합니다. 세 개의 모든 출력 테이블을 추가하고 ASA 작업을 시작한 후 확인 메시지를 받아야 합니다("Stream Analytics 작업 maintenancesa02asapbi 시작 성공").
-2.  [Power BI 온라인](http://www.powerbi.com)
+2.  [Power BI 온라인](https://www.powerbi.com)
    
    * 내 작업 영역의 왼쪽 패널에 있는 데이터 세트 섹션에는 ***데이터 세트*** 이름이 **aircraftmonitor**, **aircraftalert** 및 **flightsbyhour**로 표시되어야 합니다. 이전 단계에서 Azure Stream Analytics에서 푸시한 스트리밍 데이터입니다. 데이터 세트 **flightsbyhour**는 SQL 쿼리의 특성상 다른 두 데이터 세트로 동시에 표시되지 않을 수 있습니다. 그러나 한 시간 후에 표시됩니다.
    * ***처리*** 창이 열려 있고 화면 오른쪽에 표시되는지 확인합니다.

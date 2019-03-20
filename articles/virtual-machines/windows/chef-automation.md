@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 5378151d01418a81977f2fc2f562a6540bbb665d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: a973d8dbab18e9ea66afb5ffff83f47c3ad98f93
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012335"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef를 사용하여 Azure 가상 머신 배포 자동화
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -32,7 +32,7 @@ Chef는 자동화 및 필요한 상태 구성을 제공하는 유용한 도구�
 이 문서에서는 Chef 환경을 설정하여 Azure Virtual Machine을 프로비전하고, 정책 또는 “Cookbook”을 만든 다음, 이 Cookbook을 Azure Virtual Machine에 배포하는 과정을 안내합니다.
 
 ## <a name="chef-basics"></a>Chef 기본 사항
-시작하기 전에 [Chef의 기본 개념을 검토](http://www.chef.io/chef)하세요.
+시작하기 전에 [Chef의 기본 개념을 검토](https://www.chef.io/chef)하세요.
 
 다음 다이어그램에 대략적인 Chef 아키텍처가 나와 있습니다.
 
@@ -175,7 +175,7 @@ knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 다음으로, Chef Workstation을 [다운로드 및 설치](https://downloads.chef.io/chef-workstation/)합니다.
 Chef Workstation을 기본 위치에 설치합니다. 설치하는 데 몇 분 정도 걸릴 수 있습니다.
 
-바탕 화면에 "CW PowerShell"이 표시됩니다. 이것은 Chef 제품과 상호 작용하는 데 필요한 도구와 함께 로드되는 환경입니다. CW PowerShell은 새 임시 명령(예: `chef-run`)과 기존 Chef CLI 명령(예: `chef`)을 사용 가능하게 합니다. `chef -v`를 사용하여 설치된 Chef Workstation 및 Chef 도구 버전을 확인합니다. Chef Workstation 앱에서 "Chef Workstation 정보"를 선택하여 Workstation 버전을 확인할 수도 있습니다.
+바탕 화면에 "CW PowerShell"이 표시됩니다. 이것은 Chef 제품과 상호 작용하는 데 필요한 도구와 함께 로드되는 환경입니다. CW PowerShell 새 임시 명령의 같은 사용할 수 있게 `chef-run` 등도 기존의 Chef CLI 명령은 `chef`합니다. `chef -v`를 사용하여 설치된 Chef Workstation 및 Chef 도구 버전을 확인합니다. Chef Workstation 앱에서 "Chef Workstation 정보"를 선택하여 Workstation 버전을 확인할 수도 있습니다.
 
 `chef --version`은 다음과 같은 결과를 반환합니다.
 
