@@ -74,7 +74,8 @@ items:
         href: filters-concept.md
     - name: 콘텐츠 보호
       items:
-      - name: 개요
+      - name: 스트리밍 프로토콜 및 암호화 유형
+        displayName: Dynamic encryption
         href: content-protection-overview.md
       - name: 액세스 제어를 포함한 다중 DRM 시스템
         href: design-multi-drm-system-with-access-control.md
@@ -105,6 +106,7 @@ items:
     - name: 권장되는 라이브 인코더
       href: recommended-on-premises-live-encoders.md
     - name: 클라우드 DVR 사용
+      displayName: archive
       href: live-event-cloud-dvr.md
     - name: 기능 비교
       href: live-event-types-comparison.md
@@ -255,9 +257,9 @@ items:
     href: frequently-asked-questions.md
   - name: Azure 클라우드 및 지역
     href: azure-clouds-regions.md
-ms.openlocfilehash: d0c44938110ebb6f823ee61fc8969638fa31b648
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f67429869b07eba8deafec29189b6784a0eae9db
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57893121"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187713"

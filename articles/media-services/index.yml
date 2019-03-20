@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0f249cfc604a31a29f6b2e3c0380e6591ec8b4e6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 3b778caed10981923d424745d820bfe10c1ce553
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378835"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903609"
 documentType: LandingData
 title: Azure Media Services 설명서
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09-24-2018
+  ms.date: 03/11/2019
   ms.author: juliako
 abstract:
   description: AMS(Azure Media Services)는 클라우드 기반 플랫폼입니다. 이를 사용하면 대부분의 인기 있는 디바이스에서 대상 그룹에 도달하는 고화질 비디오 인코딩 및 브로드캐스트 품질 비디오 스트리밍을 수행하는 솔루션을 구축할 수 있습니다. 또한 AMS v3을 사용하면 Video Indexer에서 AMS v3 분석기 미리 설정을 통해 비디오 및 오디오 파일의 인사이트를 추출할 수 있습니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요.<br/> Video Indexer 및 Media Services 분석기 미리 설정을 사용하려는 경우를 이해하려면 <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">비교 문서</a>를 확인하세요.
@@ -27,23 +27,28 @@ sections:
   - type: list
     style: cards
     className: cardsM
-    columns: 3
+    columns: 2
     items:
     - href: /azure/media-services/latest/
       html: <p>Media Services v3을 사용하여 인코딩, 주문형 스트리밍, 라이브 브로드캐스팅 및 비디오 분석을 수행하는 방법을 알아봅니다.</p>
       image:
         src: media/index/AMSIcons-media_servicesV3.svg
       title: Azure Media Services v3
-    - href: /azure/media-services/previous/
-      html: <p>Media Services v2를 사용하여 인코딩, 주문형 스트리밍 및 라이브 비디오 브로드캐스팅을 수행하는 방법을 알아봅니다.</p>
-      image:
-        src: media/index/AMSIcons-media_servicesV2.svg
-      title: Azure Media Services v2(레거시)
     - href: /azure/media-services/video-indexer/
       html: <p>Video Indexer를 사용하여 비디오 및 오디오 파일에서 인사이트를 추출하는 방법을 알아봅니다.</p>
       image:
         src: media/index/AMSIcons-media_analytics.svg
       title: 비디오 인덱서
+    - href: /azure/media-services/previous/
+      html: <p>Media Services v2를 사용하여 인코딩, 주문형 스트리밍 및 라이브 비디오 브로드캐스팅을 수행하는 방법을 알아봅니다.</p>
+      image:
+        src: media/index/AMSIcons-media_servicesV2.svg
+      title: Azure Media Services v2(레거시)
+    - href: /azure/cdn/
+      html: <p>CDN을 사용하여 정적 개체를 캐시하고 캐시할 수 없는 동적 콘텐츠를 가속화하는 방법을 알아봅니다.</p>
+      image:
+        src: /azure/cdn/media/index/cdn.svg
+      title: CDN
 - title: 5분 빠른 시작
   items:
   - type: paragraph

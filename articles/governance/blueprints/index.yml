@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7d0947450352907eb90af748e8ced4a8bea67471
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c4aeb25530739931a18f010a579bd8354d6fdc5a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337888"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223294"
 documentType: LandingData
 title: Azure Blueprints 설명서
 metadata:
@@ -15,10 +15,10 @@ metadata:
   manager: carmonm
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 10/30/2018
+  ms.date: 03/18/2019
   ms.author: dacoulte
 abstract:
-  description: Azure Blueprints를 통해 정책, 역할 기반 액세스 제어, Azure Resource Manager 템플릿과 같은 구성 가능한 아티팩트를 사용하여 반복 가능한 방식으로 클라우드 환경을 배포하고 업데이트할 수 있습니다.
+  description: Azure Blueprint를 사용하면 리소스, 역할 기반 액세스 제어 및 정책을 프로비저닝하는 Azure Resource Manager 템플릿과 같은 구성 가능한 아티팩트를 사용하여 반복 가능한 방식으로 클라우드 환경을 배포하고 업데이트할 수 있습니다.
 sections:
 - title: 5분 빠른 시작
   items:
@@ -33,9 +33,9 @@ sections:
       text: Azure Portal
       href: create-blueprint-portal.md
     - image:
-        alt: REST API
+        alt: REST (영문)
         src: ./media/rest.svg
-      text: REST API
+      text: REST (영문)
       href: create-blueprint-rest-api.md
 - title: 참고 자료
   items:
@@ -43,5 +43,7 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: REST API
-      html: <p><a href="/rest/api/blueprints/">Blueprints</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a></p>
+    - title: REST (영문)
+      html: <p><a href="/rest/api/blueprints/">API 참조</a></p>

@@ -50,7 +50,7 @@ items:
     items:
     - name: SSL 정책 개요
       href: application-gateway-ssl-policy-overview.md
-    - name: 종단 간 SSL
+    - name: SSL 종료 및 엔드투엔드 SSL
       href: ssl-overview.md
   - name: WAF
     items:
@@ -68,7 +68,7 @@ items:
     href: redirect-overview.md
   - name: HTTP 헤더 다시 쓰기
     href: rewrite-http-headers.md
-  - name: 다중 테넌트 지원
+  - name: App Service 웹앱 및 다중 테넌트 지원
     href: application-gateway-web-app-overview.md
   - name: 상태 모니터링
     href: application-gateway-probe-overview.md
@@ -156,9 +156,11 @@ items:
     items:
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
-  - name: 다중 테넌트 지원
+  - name: App Service 웹앱 및 다중 테넌트 서비스 구성
     items:
-    - name: 다중 테넌트 지원 구성
+    - name: 포털
+      href: configure-web-app-portal.md
+    - name: Azure PowerShell
       href: create-web-app.md
   - name: 사용자 지정 프로브
     items:
@@ -216,9 +218,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 스택 오버플로
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 57ae904b8bc65ef9b249b055d8f1abb3b25c4752
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: bd544dc507be3caade81ee45c3a5d704392c5694
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729975"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170329"

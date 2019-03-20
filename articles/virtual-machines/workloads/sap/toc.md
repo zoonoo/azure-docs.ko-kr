@@ -78,6 +78,7 @@
 #### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows의 HA](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [(A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows의 HA](sap-high-availability-guide-wsfc-file-share.md)
 #### [(A)SCS 인스턴스의 SUSE Linux에 대한 HA](high-availability-guide-suse.md)
+#### [Azure NetApp Files를 사용하는 (A)SCS 인스턴스의 SUSE Linux에 대한 HA](high-availability-guide-suse-netapp-files.md)
 #### [(A)SCS 인스턴스용 Red Hat Enterprise Linux의 HA](high-availability-guide-rhel.md)
 ### Azure 인프라 준비
 #### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows](sap-high-availability-infrastructure-wsfc-shared-disk.md)
@@ -90,6 +91,7 @@
 #### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [(A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows](sap-high-availability-installation-wsfc-file-share.md)
 #### [(A)SCS 인스턴스에 NFS를 사용하는 SUSE Linux](high-availability-guide-suse.md)
+#### [Azure NetApp Files를 사용하는 (A)SCS 인스턴스에 NFS를 사용하는 SUSE Linux](high-availability-guide-suse-netapp-files.md)
 #### [Red Hat Enterprise Linux에서 SAP NetWeaver에 대한 고가용성](high-availability-guide-rhel.md)
 ### SAP 다중 SID
 #### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
